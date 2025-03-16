@@ -1,13 +1,12 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Parsing;
 using GqlPlus.Result;
-using GqlPlus.Token;
 
 namespace GqlPlus;
 
 public class SchemaDataBase(
-    Parser<IGqlpSchema>.D parser
-) : SampleSchemaChecks(parser)
+    Parser<IGqlpSchema>.D schemaParser
+) : SampleSchemaChecks(schemaParser)
 {
   protected static bool IsObjectInput(string input)
     => input is not null && input.Contains("object ", StringComparison.Ordinal);
@@ -21,7 +20,7 @@ public class SchemaDataBase(
       .ThrowIfNull()
       .Keys
       .SelectMany(k => IsObjectInput(inputs[k])
-        ? Replacements.Select(r => r.Item1 + "-" + k)
+        ? Replacements.Select(r => k + "+" + r.Item1)
         : [k])
       .Order();
 
@@ -29,11 +28,11 @@ public class SchemaDataBase(
   {
     IEnumerable<Task<(string input, string file)>> tasks = SchemaValidData
       .Files[group]
-      .Select(async file => (input: await ReadSchema(file, "Valid" + group), file));
+      .Select(async file => (input: await ReadSchema(file, group), file));
 
     return (await Task.WhenAll(tasks))
         .SelectMany(p => IsObjectInput(p.input)
-          ? Replacements.Select(r => r.Item1 + "-" + p.file)
+          ? Replacements.Select(r => p.file + "+" + r.Item1)
           : [p.file])
         .Order();
   }
@@ -56,7 +55,7 @@ public class SchemaDataBase(
 
     if (IsObjectInput(input)) {
       foreach ((string label, string abbr) in Replacements) {
-        action(ReplaceInput(input, abbr, label, abbr), label + "-" + testName);
+        action(ReplaceInput(input, abbr, label, abbr), testName + "+" + label);
       }
     } else {
       action(input, testName);
@@ -68,9 +67,7 @@ public class SchemaDataBase(
     ArgumentNullException.ThrowIfNull(action);
 
     if (IsObjectInput(input)) {
-      await WhenAll(Replacements
-        .Select(r => action(ReplaceInput(input, testName, r.Item1, r.Item2), r.Item1 + "-" + testName))
-        .ToArray());
+      await WhenAll([.. Replacements.Select(r => action(ReplaceInput(input, testName, r.Item1, r.Item2), testName + "+" + r.Item1))]);
     } else {
       await action(input, testName);
     }
@@ -84,7 +81,7 @@ public class SchemaDataBase(
     if (IsObjectInput(input)) {
       // using AssertionScope scope = new();
       foreach ((string label, string abbr) in Replacements) {
-        action(ReplaceInput(input, abbr, label, abbr), testDirectory, label + "-" + testName);
+        action(ReplaceInput(input, abbr, label, abbr), testDirectory, testName + "+" + label);
       }
     } else {
       action(input, testDirectory, testName);
@@ -97,9 +94,8 @@ public class SchemaDataBase(
     string input = await ReadSchema(testName, testDirectory);
 
     if (IsObjectInput(input)) {
-      await WhenAll(Replacements
-        .Select(r => action(ReplaceInput(input, testName, r.Item1, r.Item2), testDirectory, r.Item1 + "-" + testName))
-        .ToArray());
+      await WhenAll([.. Replacements
+        .Select(r => action(ReplaceInput(input, testName, r.Item1, r.Item2), testDirectory, testName + "+" + r.Item1))]);
     } else {
       await action(input, testDirectory, testName);
     }
@@ -141,7 +137,7 @@ public class SchemaDataBase(
   {
     IEnumerable<Task<IEnumerable<string>>> tasks = SchemaValidData
       .Files
-      .SelectMany(kv => kv.Value.Select(file => (file, dir: "Valid" + kv.Key)))
+      .SelectMany(kv => kv.Value.Select(file => (file, dir: kv.Key)))
       .Select(async p => ReplaceValue(await ReadSchema(p.file, p.dir), p.file));
 
     return (await Task.WhenAll(tasks))
@@ -152,7 +148,7 @@ public class SchemaDataBase(
   {
     IEnumerable<Task<IEnumerable<string>>> tasks = SchemaValidData
       .Files[group]
-      .Select(async file => ReplaceValue(await ReadSchema(file, "Valid" + group), file));
+      .Select(async file => ReplaceValue(await ReadSchema(file, group), file));
 
     return (await Task.WhenAll(tasks))
       .SelectMany(i => i);

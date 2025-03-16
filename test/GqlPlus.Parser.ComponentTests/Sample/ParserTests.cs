@@ -7,17 +7,17 @@ using GqlPlus.Result;
 namespace GqlPlus.Sample;
 
 public class ParserTests(
-    Parser<IGqlpOperation>.D operation,
+    Parser<IGqlpOperation>.D operationParser,
     Parser<IGqlpSchema>.D schemaParser
 ) : SampleSchemaChecks(schemaParser)
 {
-  private readonly Parser<IGqlpOperation>.L _operation = operation;
+  private readonly Parser<IGqlpOperation>.L _operation = operationParser;
 
   [Theory]
-  [ClassData(typeof(SampleSchemaData))]
+  [ClassData(typeof(SamplesSchemaData))]
   public async Task ParseSchema(string sample)
   {
-    IGqlpSchema ast = await ParseSampleSchema(sample);
+    IGqlpSchema ast = await ParseSample("Schema", sample);
 
     await CheckErrors("Schema", "", sample, ast.Errors);
 
@@ -25,7 +25,18 @@ public class ParserTests(
   }
 
   [Theory]
-  [ClassData(typeof(SampleOperationData))]
+  [ClassData(typeof(SamplesSchemaSpecificationData))]
+  public async Task ParseSpec(string sample)
+  {
+    IGqlpSchema ast = await ParseSample("Schema", sample, "Specification");
+
+    await CheckErrors("Schema", "Specification", sample, ast.Errors);
+
+    await Verify(ast.Show(), CustomSettings("Sample", "Specification", sample));
+  }
+
+  [Theory]
+  [ClassData(typeof(SamplesOperationData))]
   public async Task ParseOperation(string sample)
   {
     IGqlpOperation? ast = await ParseSampleOperation("Operation", sample, "gql+");
@@ -36,7 +47,7 @@ public class ParserTests(
   }
 
   [Theory]
-  [ClassData(typeof(SampleGraphQlData))]
+  [ClassData(typeof(SamplesGraphQlData))]
   public async Task ParseGraphQl(string example)
   {
     IGqlpOperation? ast = await ParseSampleOperation("GraphQl", example, "gql");

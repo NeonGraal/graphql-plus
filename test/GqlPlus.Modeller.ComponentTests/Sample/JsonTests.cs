@@ -7,10 +7,10 @@ using GqlPlus.Result;
 namespace GqlPlus.Sample;
 
 public class JsonTests(
-    Parser<IGqlpSchema>.D parser,
-    IMerge<IGqlpSchema> merger,
-    IModelAndRender renderer
-) : SchemaDataBase(parser)
+    Parser<IGqlpSchema>.D schemaParser,
+    IMerge<IGqlpSchema> schemaMerger,
+    IModelAndRender schemaRenderer
+) : SchemaDataBase(schemaParser)
 {
   [Fact]
   public async Task Json_All()
@@ -22,24 +22,24 @@ public class JsonTests(
     => await Verify_Model(await SchemaValidGroup(group), "!" + group);
 
   [Theory]
-  [ClassData(typeof(SchemaValidMergesData))]
+  [ClassData(typeof(SamplesSchemaMergesData))]
   public async Task Json_Merges(string model)
-    => await ReplaceFileAsync("ValidMerges", model, Verify_Model);
+    => await ReplaceFileAsync("Merges", model, Verify_Model);
 
   [Theory]
-  [ClassData(typeof(SchemaValidObjectsData))]
+  [ClassData(typeof(SamplesSchemaObjectsData))]
   public async Task Json_Objects(string model)
-    => await ReplaceFileAsync("ValidObjects", model, Verify_Model);
+    => await ReplaceFileAsync("Objects", model, Verify_Model);
 
   [Theory]
-  [ClassData(typeof(SchemaValidGlobalsData))]
+  [ClassData(typeof(SamplesSchemaGlobalsData))]
   public async Task Json_Globals(string global)
-    => await ReplaceFileAsync("ValidGlobals", global, Verify_Model);
+    => await ReplaceFileAsync("Globals", global, Verify_Model);
 
   [Theory]
-  [ClassData(typeof(SchemaValidSimpleData))]
+  [ClassData(typeof(SamplesSchemaSimpleData))]
   public async Task Json_Simple(string simple)
-    => await ReplaceFileAsync("ValidSimple", simple, Verify_Model);
+    => await ReplaceFileAsync("Simple", simple, Verify_Model);
 
   private async Task Verify_Model(string input, string testDirectory, string test)
     => await Verify_Model([input], test);
@@ -55,9 +55,9 @@ public class JsonTests(
 
   private Structured ModelAsts(IEnumerable<IGqlpSchema> asts)
   {
-    IGqlpSchema schema = merger.Merge(asts).First();
+    IGqlpSchema schema = schemaMerger.Merge(asts).First();
 
-    Structured result = renderer.RenderAst(schema, renderer.WithBuiltIns());
+    Structured result = schemaRenderer.RenderAst(schema, schemaRenderer.WithBuiltIns());
 
     return result;
   }

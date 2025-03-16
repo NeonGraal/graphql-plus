@@ -8,10 +8,10 @@ using GqlPlus.Result;
 namespace GqlPlus.Sample;
 
 public class YamlTests(
-    Parser<IGqlpSchema>.D parser,
-    IMerge<IGqlpSchema> merger,
-    IModelAndRender renderer
-) : SchemaDataBase(parser)
+    Parser<IGqlpSchema>.D schemaParser,
+    IMerge<IGqlpSchema> schemaMerger,
+    IModelAndRender schemaRenderer
+) : SchemaDataBase(schemaParser)
 {
   [Fact]
   public async Task Yaml_All()
@@ -23,24 +23,24 @@ public class YamlTests(
     => await Verify_Model(await SchemaValidGroup(group), "!" + group);
 
   [Theory]
-  [ClassData(typeof(SchemaValidMergesData))]
+  [ClassData(typeof(SamplesSchemaMergesData))]
   public async Task Yaml_Merges(string model)
-    => await ReplaceFileAsync("ValidMerges", model, Verify_Model);
+    => await ReplaceFileAsync("Merges", model, Verify_Model);
 
   [Theory]
-  [ClassData(typeof(SchemaValidObjectsData))]
+  [ClassData(typeof(SamplesSchemaObjectsData))]
   public async Task Yaml_Objects(string model)
-    => await ReplaceFileAsync("ValidObjects", model, Verify_Model);
+    => await ReplaceFileAsync("Objects", model, Verify_Model);
 
   [Theory]
-  [ClassData(typeof(SchemaValidGlobalsData))]
+  [ClassData(typeof(SamplesSchemaGlobalsData))]
   public async Task Yaml_Globals(string global)
-    => await ReplaceFileAsync("ValidGlobals", global, Verify_Model);
+    => await ReplaceFileAsync("Globals", global, Verify_Model);
 
   [Theory]
-  [ClassData(typeof(SchemaValidSimpleData))]
+  [ClassData(typeof(SamplesSchemaSimpleData))]
   public async Task Yaml_Simple(string simple)
-    => await ReplaceFileAsync("ValidSimple", simple, Verify_Model);
+    => await ReplaceFileAsync("Simple", simple, Verify_Model);
 
   private async Task Verify_Model(string input, string testDirectory, string test)
     => await Verify_Model([input], test);
@@ -50,7 +50,7 @@ public class YamlTests(
     IEnumerable<IGqlpSchema> asts = inputs
     .Select(input => Parse(input).Required());
 
-    ITypesContext context = renderer.WithBuiltIns();
+    ITypesContext context = schemaRenderer.WithBuiltIns();
     Structured result = ModelAsts(asts, context);
 
     // using AssertionScope scope = new();
@@ -60,9 +60,9 @@ public class YamlTests(
 
   private Structured ModelAsts(IEnumerable<IGqlpSchema> asts, ITypesContext context)
   {
-    IGqlpSchema schema = merger.Merge(asts).First();
+    IGqlpSchema schema = schemaMerger.Merge(asts).First();
 
-    Structured result = renderer.RenderAst(schema, context);
+    Structured result = schemaRenderer.RenderAst(schema, context);
 
     return result;
   }

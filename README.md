@@ -6,14 +6,16 @@ Defining a successor to GraphQL <img src="images/GraphQL_Logo.svg" width="50" al
 
 ### Dotnet Packages
 
+- [AutoFixture](https://github.com/AutoFixture/AutoFixture?tab=readme-ov-file#readme) [nuget](https://www.nuget.org/packages/AutoFixture.Xunit3)
+- [Fluid](https://github.com/sebastienros/fluid?tab=readme-ov-file#readme) [nuget](https://www.nuget.org/packages/Fluid.Core)
+- [PolySharp]() [nuget](https://www.nuget.org/packages/PolySharp)
+- [Shouldly](https://docs.shouldly.org/) [nuget](https://www.nuget.org/packages/Shouldly)
+- [Verify](https://github.com/VerifyTests/Verify) [nuget](https://www.nuget.org/packages/Verify.XunitV3)
+  - [Verify.SourceGenerators](https://github.com/VerifyTests/Verify.SourceGenerators) [nuget](https://www.nuget.org/packages/Verify.SourceGenerators)
+- [XUnit v3](https://xunit.net/) [nuget](https://www.nuget.org/packages/xunit.v3)
+  - [XUnit SkippableFact](https://github.com/AArnott/Xunit.SkippableFact?tab=readme-ov-file#readme) [nuget](https://www.nuget.org/packages/Xunit.SkippableFact)
+  - [XUnit DependencyInjection](https://github.com/pengweiqhca/Xunit.DependencyInjection?tab=readme-ov-file#readme) [nuget](https://www.nuget.org/packages/Xunit.DependencyInjection)
 - [YamlDotNet](https://github.com/aaubry/YamlDotNet/wiki) [nuget](https://www.nuget.org/packages/YamlDotNet)
-- [XUnit](https://xunit.net/) [nuget](https://www.nuget.org/packages/xunit/2.8.0)
-  - [XUnit SkippableFact](https://github.com/AArnott/Xunit.SkippableFact?tab=readme-ov-file#readme) [nuget](https://www.nuget.org/packages/Xunit.SkippableFact/1.4.13)
-  - [XUnit DependencyInjection](https://github.com/pengweiqhca/Xunit.DependencyInjection?tab=readme-ov-file#readme) [nuget](https://www.nuget.org/packages/Xunit.DependencyInjection/9.2.1)
-- [AutoFixture](https://github.com/AutoFixture/AutoFixture?tab=readme-ov-file#readme) [nuget](https://www.nuget.org/packages/AutoFixture.Xunit2/4.18.1)
-- [Shouldly](https://docs.shouldly.org/) [nuget](https://www.nuget.org/packages/Shouldly/4.3.0)
-- [Verify](https://github.com/VerifyTests/Verify) [nuget](https://www.nuget.org/packages/Verify.Xunit/24.2.0)
-- [Fluid](https://github.com/sebastienros/fluid?tab=readme-ov-file#readme) [nuget](https://www.nuget.org/packages/Fluid.Core/2.9.0)
 
 ## Dotnet local tools
 

@@ -52,7 +52,7 @@ public class ResultOkArrayTests : BaseResultTests
     IResultArray<object> result = _okArray.AsResultArray<object>();
 
     result.ShouldBeOfType<ResultArrayOk<object>>()
-      .Required().ShouldBe(new object[] { "Ok" });
+      .Required().ShouldBe(["Ok"]);
   }
 
   [Fact]

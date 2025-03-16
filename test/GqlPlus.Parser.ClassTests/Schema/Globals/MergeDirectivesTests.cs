@@ -4,7 +4,6 @@ using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Merging;
 using GqlPlus.Merging.Globals;
 
-
 namespace GqlPlus.Schema.Globals;
 
 public class MergeDirectivesTests

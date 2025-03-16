@@ -12,13 +12,15 @@ public sealed class ValueListParser<T>(
   public IResultArray<T> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    ArgumentNullException.ThrowIfNull(tokens);
+    tokens.ThrowIfNull();
 
     List<T> list = [];
 
+#pragma warning disable CA1062 // Validate arguments of public methods
     if (!tokens.Take('[')) {
       return list.EmptyArray();
     }
+#pragma warning restore CA1062 // Validate arguments of public methods
 
     while (!tokens.Take(']')) {
       if (!_value.Parse(tokens, label).Required(list.Add)) {

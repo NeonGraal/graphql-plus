@@ -10,7 +10,7 @@ public readonly struct ResultPartial<TValue>
 
   public ResultPartial(TValue result, TokenMessage message)
   {
-    ArgumentNullException.ThrowIfNull(result);
+    result.ThrowIfNull();
 
     (Result, Message) = (result, message);
   }
@@ -29,7 +29,9 @@ public readonly struct ResultPartial<TValue>
 
   public IResult<TResult> Map<TResult>(SelectResult<TValue, TResult> onValue, OnResult<TResult>? otherwise = null)
   {
-    ArgumentNullException.ThrowIfNull(onValue);
+    onValue.ThrowIfNull();
+#pragma warning disable CA1062 // Validate arguments of public methods
     return onValue(Result);
+#pragma warning restore CA1062 // Validate arguments of public methods
   }
 }

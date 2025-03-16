@@ -1,3 +1,0 @@
-﻿<#@ template debug="false" hostspecific="true" language="C#" #>
-<#@ include file="BuildData.t4"#>
-<#  BuildData("", "Sample"); #>

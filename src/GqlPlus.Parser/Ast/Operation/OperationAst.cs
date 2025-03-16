@@ -53,13 +53,13 @@ internal sealed record class OperationAst(
       }
 
       if (begins.Contains(field)) {
-        Write(field);
+        Write(field!);
         indent++;
       } else if (ends.Contains(field)) {
         indent--;
-        Write(field);
+        Write(field!);
       } else {
-        Write(field);
+        Write(field!);
       }
     }
 

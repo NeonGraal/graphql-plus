@@ -16,13 +16,15 @@ public static class MergeExtensions
       [CallerArgumentExpression(nameof(field))] string? fieldExpr = null)
     where TItem : IGqlpError
   {
-    ArgumentNullException.ThrowIfNull(items);
-    ArgumentNullException.ThrowIfNull(field);
+    items.ThrowIfNull();
+    field.ThrowIfNull();
 
     string? result = default;
 
+#pragma warning disable CA1062 // Validate arguments of public methods
     foreach (TItem item in items) {
       string? value = field(item);
+#pragma warning restore CA1062 // Validate arguments of public methods
       if (string.IsNullOrEmpty(value)) {
         continue;
       }
@@ -32,7 +34,7 @@ public static class MergeExtensions
         continue;
       }
 
-      if (!result.Equals(value, StringComparison.Ordinal)) {
+      if (!result!.Equals(value, StringComparison.Ordinal)) {
         return item.MakeError($"Different values merging {fieldExpr}: {result} != {value}");
       }
     }
@@ -47,13 +49,15 @@ public static class MergeExtensions
     where TItem : IGqlpError
     where TObjField : struct
   {
-    ArgumentNullException.ThrowIfNull(items);
-    ArgumentNullException.ThrowIfNull(field);
+    items.ThrowIfNull();
+    field.ThrowIfNull();
 
     TObjField? result = default;
 
+#pragma warning disable CA1062 // Validate arguments of public methods
     foreach (TItem item in items) {
       TObjField? value = field(item);
+#pragma warning restore CA1062 // Validate arguments of public methods
       if (value is null || value.Equals(default)) {
         continue;
       }
@@ -77,11 +81,13 @@ public static class MergeExtensions
       IMerge<TObjField> merger)
     where TObjField : IGqlpError
   {
-    ArgumentNullException.ThrowIfNull(merger);
+    merger.ThrowIfNull();
 
-    TObjField[] fields = items.Select(field).Where(f => f is not null).Cast<TObjField>().ToArray();
+    TObjField[] fields = [.. items.Select(field).Where(f => f is not null).Cast<TObjField>()];
 
+#pragma warning disable CA1062 // Validate arguments of public methods
     return fields.Length > 0 ? merger.CanMerge(fields) : TokenMessages.New;
+#pragma warning restore CA1062 // Validate arguments of public methods
   }
 
   public static ITokenMessages CanMerge<TItem>(
@@ -90,19 +96,21 @@ public static class MergeExtensions
       [CallerArgumentExpression(nameof(field))] string? fieldExpr = null)
     where TItem : IGqlpError
   {
-    ArgumentNullException.ThrowIfNull(items);
-    ArgumentNullException.ThrowIfNull(field);
+    items.ThrowIfNull();
+    field.ThrowIfNull();
 
     string result = "";
 
+#pragma warning disable CA1062 // Validate arguments of public methods
     foreach (TItem item in items) {
       string? value = field(item);
+#pragma warning restore CA1062 // Validate arguments of public methods
       if (string.IsNullOrEmpty(value)) {
         continue;
       }
 
       if (string.IsNullOrEmpty(result)) {
-        result = value;
+        result = value!;
         continue;
       }
 
@@ -120,11 +128,13 @@ public static class MergeExtensions
       IMerge<TGroup> merger)
     where TGroup : IGqlpError
   {
-    ArgumentNullException.ThrowIfNull(merger);
+    merger.ThrowIfNull();
 
     TGroup[] groups = [.. items.SelectMany(many)];
+#pragma warning disable CA1062 // Validate arguments of public methods
     return groups.Length < 2 ? new TokenMessages()
       : merger.CanMerge(groups);
+#pragma warning restore CA1062 // Validate arguments of public methods
   }
 
   public static IEnumerable<TObjField> Merge<TItem, TObjField>(
@@ -133,11 +143,13 @@ public static class MergeExtensions
       IMerge<TObjField> merger)
     where TObjField : IGqlpError
   {
-    ArgumentNullException.ThrowIfNull(merger);
+    merger.ThrowIfNull();
 
-    TObjField[] fields = items.Select(field).Where(f => f is not null).Cast<TObjField>().ToArray();
+    TObjField[] fields = [.. items.Select(field).Where(f => f is not null).Cast<TObjField>()];
 
+#pragma warning disable CA1062 // Validate arguments of public methods
     return merger.Merge(fields);
+#pragma warning restore CA1062 // Validate arguments of public methods
   }
 
   public static IEnumerable<TGroup> ManyMerge<TItem, TGroup>(
@@ -146,9 +158,11 @@ public static class MergeExtensions
       IMerge<TGroup> merger)
     where TGroup : IGqlpError
   {
-    ArgumentNullException.ThrowIfNull(merger);
+    merger.ThrowIfNull();
 
+#pragma warning disable CA1062 // Validate arguments of public methods
     return merger.Merge(items.SelectMany(many));
+#pragma warning restore CA1062 // Validate arguments of public methods
   }
 
   public static ITokenMessages ManyGroupCanMerge<TItem, TGroup>(
@@ -182,13 +196,15 @@ public static class MergeExtensions
 
   public static IEnumerable<TItem> GroupMerger<TItem>(this IEnumerable<TItem> items, Func<TItem, string> key, Func<TItem[], TItem> merger)
   {
-    ArgumentNullException.ThrowIfNull(merger);
+    merger.ThrowIfNull();
 
     List<Indexed<TItem>> result = [];
     IEnumerable<IGrouping<string, Indexed<TItem>>> groups = items.Select(Indexed<TItem>.To).GroupBy(i => key(i.Item));
 
     foreach (IGrouping<string, Indexed<TItem>> group in groups) {
+#pragma warning disable CA1062 // Validate arguments of public methods
       TItem? item = merger([.. group.Select(i => i.Item)]);
+#pragma warning restore CA1062 // Validate arguments of public methods
       result.Add(new(item, group.Min(i => i.Index)));
     }
 
@@ -212,9 +228,11 @@ public static class MergeExtensions
   public static TObjField Combine<TItem, TObjField>(this IEnumerable<TItem> items, Func<TItem, TObjField> field, IMerge<TObjField> merger)
     where TObjField : IGqlpError
   {
-    ArgumentNullException.ThrowIfNull(merger);
+    merger.ThrowIfNull();
 
+#pragma warning disable CA1062 // Validate arguments of public methods
     return merger.Merge(items.Select(field)).First();
+#pragma warning restore CA1062 // Validate arguments of public methods
   }
 
   private record struct Indexed<TItem>(TItem Item, int Index)

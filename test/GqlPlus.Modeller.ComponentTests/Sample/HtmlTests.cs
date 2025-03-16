@@ -8,10 +8,10 @@ using GqlPlus.Result;
 namespace GqlPlus.Sample;
 
 public class HtmlTests(
-    Parser<IGqlpSchema>.D parser,
-    IMerge<IGqlpSchema> merger,
-    IModelAndRender renderer
-) : SchemaDataBase(parser)
+    Parser<IGqlpSchema>.D schemaParser,
+    IMerge<IGqlpSchema> schemaMerger,
+    IModelAndRender schemaRenderer
+) : SchemaDataBase(schemaParser)
 {
   [Fact]
   public async Task Html_Index()
@@ -23,10 +23,10 @@ public class HtmlTests(
     Structured result = new Map<Structured>() {
       ["groups"] = new Map<Structured>() {
         ["All"] = all.Render(),
-        ["Globals"] = ((IEnumerable<string>)SchemaValidData.Globals).Render(),
+        ["Globals"] = SamplesSchemaGlobalsData.Strings.Render(),
         ["Merges"] = merges.Render(),
         ["Objects"] = objects.Render(),
-        ["Simple"] = ((IEnumerable<string>)SchemaValidData.Simple).Render(),
+        ["Simple"] = SamplesSchemaSimpleData.Strings.Render(),
       }.Render()
     }.Render();
 
@@ -43,24 +43,24 @@ public class HtmlTests(
     => Verify_Model(await SchemaValidGroup(group), "!" + group);
 
   [Theory]
-  [ClassData(typeof(SchemaValidMergesData))]
+  [ClassData(typeof(SamplesSchemaMergesData))]
   public async Task Html_Merges(string model)
-    => await ReplaceFile("ValidMerges", model, Verify_Model);
+    => await ReplaceFile("Merges", model, Verify_Model);
 
   [Theory]
-  [ClassData(typeof(SchemaValidObjectsData))]
+  [ClassData(typeof(SamplesSchemaObjectsData))]
   public async Task Html_Objects(string model)
-    => await ReplaceFile("ValidObjects", model, Verify_Model);
+    => await ReplaceFile("Objects", model, Verify_Model);
 
   [Theory]
-  [ClassData(typeof(SchemaValidGlobalsData))]
+  [ClassData(typeof(SamplesSchemaGlobalsData))]
   public async Task Html_Globals(string global)
-    => await ReplaceFile("ValidGlobals", global, Verify_Model);
+    => await ReplaceFile("Globals", global, Verify_Model);
 
   [Theory]
-  [ClassData(typeof(SchemaValidSimpleData))]
+  [ClassData(typeof(SamplesSchemaSimpleData))]
   public async Task Html_Simple(string simple)
-    => await ReplaceFile("ValidSimple", simple, Verify_Model);
+    => await ReplaceFile("Simple", simple, Verify_Model);
 
   private void Verify_Model(string input, string testDirectory, string test)
     => Verify_Model([input], test);
@@ -76,9 +76,9 @@ public class HtmlTests(
 
   private Structured ModelAsts(IEnumerable<IGqlpSchema> asts)
   {
-    IGqlpSchema schema = merger.Merge(asts).First();
+    IGqlpSchema schema = schemaMerger.Merge(asts).First();
 
-    Structured result = renderer.RenderAst(schema, renderer.WithBuiltIns());
+    Structured result = schemaRenderer.RenderAst(schema, schemaRenderer.WithBuiltIns());
 
     return result;
   }

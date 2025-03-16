@@ -6,9 +6,9 @@ using GqlPlus.Result;
 namespace GqlPlus.Sample;
 
 public class MergeTests(
-    Parser<IGqlpSchema>.D parser,
-    IMerge<IGqlpSchema> merger
-) : SchemaDataBase(parser)
+    Parser<IGqlpSchema>.D schemaParser,
+    IMerge<IGqlpSchema> schemaMerger
+) : SchemaDataBase(schemaParser)
 {
   [Fact]
   public async Task CanMerge_All()
@@ -20,18 +20,18 @@ public class MergeTests(
     => Check_CanMerge(await SchemaValidGroup(group), "!" + group);
 
   [Theory]
-  [ClassData(typeof(SchemaValidMergesData))]
+  [ClassData(typeof(SamplesSchemaMergesData))]
   public async Task CanMerge_Valid(string merge)
   {
-    string input = await ReadSchema(merge, "ValidMerges");
+    string input = await ReadSchema(merge, "Merges");
 
     Check_CanMerge(ReplaceValue(input, merge), merge);
   }
 
   [Theory]
-  [ClassData(typeof(SchemaValidMergesData))]
+  [ClassData(typeof(SamplesSchemaMergesData))]
   public async Task CanMerge_ValidEach(string merge)
-    => await ReplaceFile("ValidMerges", merge, (input, _, test) => Check_CanMerge([input], test));
+    => await ReplaceFile("Merges", merge, (input, _, test) => Check_CanMerge([input], test));
 
   [Fact]
   public async Task Merge_All()
@@ -43,19 +43,19 @@ public class MergeTests(
     => await Verify_Merge(await SchemaValidGroup(group), "!" + group);
 
   [Theory]
-  [ClassData(typeof(SchemaValidMergesData))]
+  [ClassData(typeof(SamplesSchemaMergesData))]
   public async Task Merge_Valid(string merge)
   {
-    string input = await ReadSchema(merge, "ValidMerges");
+    string input = await ReadSchema(merge, "Merges");
 
     await Verify_Merge(ReplaceValue(input, merge), "_" + merge);
   }
 
   [Theory]
-  [ClassData(typeof(SchemaValidMergesData))]
+  [ClassData(typeof(SamplesSchemaMergesData))]
   public async Task Merge_ValidEach(string merge)
   {
-    string input = await ReadSchema(merge, "ValidMerges");
+    string input = await ReadSchema(merge, "Merges");
     await ReplaceActionAsync(input, merge, (input, test) => Verify_Merge([input], test));
   }
 
@@ -63,7 +63,7 @@ public class MergeTests(
   {
     IGqlpSchema[] schemas = [.. inputs.Select(input => Parse(input).Required())];
 
-    ITokenMessages result = merger.CanMerge(schemas);
+    ITokenMessages result = schemaMerger.CanMerge(schemas);
 
     result.ShouldBeEmpty(testName);
   }
@@ -72,7 +72,7 @@ public class MergeTests(
   {
     IGqlpSchema[] schemas = [.. inputs.Select(input => Parse(input).Required())];
 
-    IEnumerable<IGqlpSchema> result = merger.Merge(schemas);
+    IEnumerable<IGqlpSchema> result = schemaMerger.Merge(schemas);
 
     await Verify(result.Select(s => s.Show()), CustomSettings("Schema", "Merge", test));
   }

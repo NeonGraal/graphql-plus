@@ -3,7 +3,6 @@ using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Merging.Objects;
 
-
 namespace GqlPlus.Schema.Objects;
 
 public class MergeDualObjectsTests

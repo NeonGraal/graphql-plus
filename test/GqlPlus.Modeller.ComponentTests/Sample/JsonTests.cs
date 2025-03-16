@@ -22,24 +22,24 @@ public class JsonTests(
     => await Verify_Model(await SchemaValidGroup(group), "!" + group);
 
   [Theory]
-  [ClassData(typeof(SamplesSchemaValidMergesData))]
+  [ClassData(typeof(SamplesSchemaMergesData))]
   public async Task Json_Merges(string model)
-    => await ReplaceFileAsync("ValidMerges", model, Verify_Model);
+    => await ReplaceFileAsync("Merges", model, Verify_Model);
 
   [Theory]
-  [ClassData(typeof(SamplesSchemaValidObjectsData))]
+  [ClassData(typeof(SamplesSchemaObjectsData))]
   public async Task Json_Objects(string model)
-    => await ReplaceFileAsync("ValidObjects", model, Verify_Model);
+    => await ReplaceFileAsync("Objects", model, Verify_Model);
 
   [Theory]
-  [ClassData(typeof(SamplesSchemaValidGlobalsData))]
+  [ClassData(typeof(SamplesSchemaGlobalsData))]
   public async Task Json_Globals(string global)
-    => await ReplaceFileAsync("ValidGlobals", global, Verify_Model);
+    => await ReplaceFileAsync("Globals", global, Verify_Model);
 
   [Theory]
-  [ClassData(typeof(SamplesSchemaValidSimpleData))]
+  [ClassData(typeof(SamplesSchemaSimpleData))]
   public async Task Json_Simple(string simple)
-    => await ReplaceFileAsync("ValidSimple", simple, Verify_Model);
+    => await ReplaceFileAsync("Simple", simple, Verify_Model);
 
   private async Task Verify_Model(string input, string testDirectory, string test)
     => await Verify_Model([input], test);

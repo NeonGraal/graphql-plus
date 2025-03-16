@@ -15,10 +15,10 @@ public class OperationVerifierTests(
   private readonly Parser<IGqlpOperation>.L _parser = operationParser;
 
   [Theory]
-  [ClassData(typeof(SamplesOperationValidData))]
+  [ClassData(typeof(SamplesOperationData))]
   public async Task Verify_ValidOperations_ReturnsValid(string operation)
   {
-    IResult<IGqlpOperation> parse = await Parse("Valid", operation);
+    IResult<IGqlpOperation> parse = await Parse("", operation);
     if (parse is IResultError<IGqlpOperation> error) {
       error.Message.ShouldBeNull();
     }

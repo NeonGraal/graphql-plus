@@ -28,7 +28,7 @@ public class SchemaDataBase(
   {
     IEnumerable<Task<(string input, string file)>> tasks = SchemaValidData
       .Files[group]
-      .Select(async file => (input: await ReadSchema(file, "Valid" + group), file));
+      .Select(async file => (input: await ReadSchema(file, group), file));
 
     return (await Task.WhenAll(tasks))
         .SelectMany(p => IsObjectInput(p.input)
@@ -137,7 +137,7 @@ public class SchemaDataBase(
   {
     IEnumerable<Task<IEnumerable<string>>> tasks = SchemaValidData
       .Files
-      .SelectMany(kv => kv.Value.Select(file => (file, dir: "Valid" + kv.Key)))
+      .SelectMany(kv => kv.Value.Select(file => (file, dir: kv.Key)))
       .Select(async p => ReplaceValue(await ReadSchema(p.file, p.dir), p.file));
 
     return (await Task.WhenAll(tasks))
@@ -148,7 +148,7 @@ public class SchemaDataBase(
   {
     IEnumerable<Task<IEnumerable<string>>> tasks = SchemaValidData
       .Files[group]
-      .Select(async file => ReplaceValue(await ReadSchema(file, "Valid" + group), file));
+      .Select(async file => ReplaceValue(await ReadSchema(file, group), file));
 
     return (await Task.WhenAll(tasks))
       .SelectMany(i => i);

@@ -1,1 +1,1 @@
-ae4a455  (HEAD -> refactor-samples, origin/refactor-samples) 2025-03-16 Correct setting names in samples
+986c645  (HEAD -> operation-samples) 2025-03-16 Update .Net Implementation article

@@ -7,7 +7,7 @@ using GqlPlus.Verifying;
 
 namespace GqlPlus.Sample;
 
-public class VerifierTests(
+public class SchemaVerifierTests(
     Parser<IGqlpSchema>.D schemaParser,
     IVerify<IGqlpSchema> schemaVerifier
 ) : SchemaDataBase(schemaParser)

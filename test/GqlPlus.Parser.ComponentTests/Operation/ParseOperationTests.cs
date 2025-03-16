@@ -6,7 +6,9 @@ using GqlPlus.Result;
 
 namespace GqlPlus.Operation;
 
-public class ParseOperationTests(Parser<IGqlpOperation>.D parser)
+public class ParseOperationTests(
+  Parser<IGqlpOperation>.D operationParser
+)
 {
   [Theory]
   [InlineData(":Boolean")]
@@ -77,5 +79,5 @@ public class ParseOperationTests(Parser<IGqlpOperation>.D parser)
     ast.ThrowIfNull().Errors.ShouldNotBeEmpty();
   }
 
-  private readonly Parser<IGqlpOperation>.L _parser = parser;
+  private readonly Parser<IGqlpOperation>.L _parser = operationParser;
 }

@@ -5,8 +5,8 @@ using GqlPlus.Result;
 namespace GqlPlus;
 
 public class SchemaDataBase(
-    Parser<IGqlpSchema>.D parser
-) : SampleSchemaChecks(parser)
+    Parser<IGqlpSchema>.D schemaParser
+) : SampleSchemaChecks(schemaParser)
 {
   protected static bool IsObjectInput(string input)
     => input is not null && input.Contains("object ", StringComparison.Ordinal);

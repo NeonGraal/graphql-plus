@@ -6,9 +6,9 @@ using GqlPlus.Result;
 namespace GqlPlus.Sample;
 
 public class MergeTests(
-    Parser<IGqlpSchema>.D parser,
-    IMerge<IGqlpSchema> merger
-) : SchemaDataBase(parser)
+    Parser<IGqlpSchema>.D schemaParser,
+    IMerge<IGqlpSchema> schemaMerger
+) : SchemaDataBase(schemaParser)
 {
   [Fact]
   public async Task CanMerge_All()
@@ -63,7 +63,7 @@ public class MergeTests(
   {
     IGqlpSchema[] schemas = [.. inputs.Select(input => Parse(input).Required())];
 
-    ITokenMessages result = merger.CanMerge(schemas);
+    ITokenMessages result = schemaMerger.CanMerge(schemas);
 
     result.ShouldBeEmpty(testName);
   }
@@ -72,7 +72,7 @@ public class MergeTests(
   {
     IGqlpSchema[] schemas = [.. inputs.Select(input => Parse(input).Required())];
 
-    IEnumerable<IGqlpSchema> result = merger.Merge(schemas);
+    IEnumerable<IGqlpSchema> result = schemaMerger.Merge(schemas);
 
     await Verify(result.Select(s => s.Show()), CustomSettings("Schema", "Merge", test));
   }

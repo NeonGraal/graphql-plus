@@ -7,10 +7,10 @@ using GqlPlus.Result;
 namespace GqlPlus.Sample;
 
 public class JsonTests(
-    Parser<IGqlpSchema>.D parser,
-    IMerge<IGqlpSchema> merger,
-    IModelAndRender renderer
-) : SchemaDataBase(parser)
+    Parser<IGqlpSchema>.D schemaParser,
+    IMerge<IGqlpSchema> schemaMerger,
+    IModelAndRender schemaRenderer
+) : SchemaDataBase(schemaParser)
 {
   [Fact]
   public async Task Json_All()
@@ -55,9 +55,9 @@ public class JsonTests(
 
   private Structured ModelAsts(IEnumerable<IGqlpSchema> asts)
   {
-    IGqlpSchema schema = merger.Merge(asts).First();
+    IGqlpSchema schema = schemaMerger.Merge(asts).First();
 
-    Structured result = renderer.RenderAst(schema, renderer.WithBuiltIns());
+    Structured result = schemaRenderer.RenderAst(schema, schemaRenderer.WithBuiltIns());
 
     return result;
   }

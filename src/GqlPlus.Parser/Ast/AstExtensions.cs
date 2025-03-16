@@ -60,9 +60,6 @@ public static class AstExtensions
   public static string Debug(this IEnumerable<string?>? items)
     => string.Join(", ", items?.OrderBy(t => t, StringComparer.Ordinal).Select(i => $"'{i}'") ?? []);
 
-  public static string Debug<T>(this IEnumerable<T?>? items, Func<T?, string> mapping)
-    => (items?.Select(mapping)).Debug();
-
   internal static IEnumerable<string?> Bracket(this IGqlpAbbreviated? item, string before, string after)
     => item?.GetFields().Prepend(before).Append(after) ?? [];
 
@@ -96,16 +93,6 @@ public static class AstExtensions
         .Replace(quote, "\\" + quote),
       quote)
     : "";
-
-  public static void AddError<TAst>(this ITokenMessages errors, TAst item, string message)
-    where TAst : IGqlpAbbreviated
-  {
-    if (errors is null || item is null) {
-      return;
-    }
-
-    errors.Add(item.MakeError(message));
-  }
 
   public static IGqlpFields<TValue> ToObject<TItem, TValue>(this IEnumerable<TItem> items, Func<TItem, IGqlpFieldKey> key, Func<TItem, TValue> value)
     where TValue : IGqlpValue<TValue>

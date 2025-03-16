@@ -1,17 +1,37 @@
 ﻿//HintName: FilesData.gen.cs
-// Generated from Sample/Files
-// Collected from Sample/git-details.txt
+// Generated from Samples/Files
+// Collected from SubDirectoryAdditionalFiles
 
 namespace GqlPlusTests;
 
-public class FilesDeeperData
+public class SamplesFilesData
   : TheoryData<string>
 {
-  public FilesDeeperData()
+  public static readonly string[] Strings = [
+    "File3",
+  ];
+
+  public SamplesFilesData()
   {
-    Add("file1");
+    foreach (string s in Strings) Add(s);
   }
 
-  public const string From = "Sample/Files/Deeper";
-  public const string Collected = "Sample/git-details.txt";
+  public const string From = "Samples/Files/";
+  public const string Collected = "SubDirectoryAdditionalFiles";
+}
+
+public class SamplesFilesDeeperData
+  : TheoryData<string>
+{
+  public static readonly string[] Strings = [
+    "file1",
+  ];
+
+  public SamplesFilesDeeperData()
+  {
+    foreach (string s in Strings) Add(s);
+  }
+
+  public const string From = "Samples/Files/Deeper";
+  public const string Collected = "SubDirectoryAdditionalFiles";
 }

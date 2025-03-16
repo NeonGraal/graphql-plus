@@ -21,7 +21,7 @@ public abstract class AstBaseTests<TInput>
   public void Equality(TInput input)
     => BaseChecks.Equality_WithInput(input);
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality(TInput input1, TInput input2)
     => BaseChecks
       .SkipIf(SameInput(input1, input2))

@@ -16,7 +16,7 @@ public sealed class ParseEnumTests(
         Members = members.EnumMembers(),
       });
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [Theory, RepeatData(Repeats)]
   public void WithEnumMembersBad_ReturnsFalse(string name, string[] members)
     => checks
     .SkipNull(members)

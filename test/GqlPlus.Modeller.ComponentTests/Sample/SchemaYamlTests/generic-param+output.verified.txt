@@ -1,0 +1,58 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutpGenParam: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutpGenParam
+      type: !_OutputBase
+        output: OutpGenParamRef
+        typeArgs:
+        - !_OutputArg
+          output: OutpGenParamAlt
+    fields:
+    - !_OutputField
+      name: field
+      type: !_OutputBase
+        output: OutpGenParamRef
+        typeArgs:
+        - !_OutputArg
+          output: OutpGenParamAlt
+    name: OutpGenParam
+    typeKind: !_TypeKind Output
+  !_Identifier OutpGenParamAlt: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: OutpGenParamAlt
+      type: !_OutputBase
+        output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: alt
+      object: OutpGenParamAlt
+      type: !_OutputBase
+        output: Number
+    alternates:
+    - !_OutputAlternate
+      type: !_OutputBase
+        output: String
+    fields:
+    - !_OutputField
+      name: alt
+      type: !_OutputBase
+        output: Number
+    name: OutpGenParamAlt
+    typeKind: !_TypeKind Output
+  !_Identifier OutpGenParamRef: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: OutpGenParamRef
+      type: !_TypeParam ref
+    alternates:
+    - !_OutputAlternate
+      type: !_TypeParam ref
+    name: OutpGenParamRef
+    typeKind: !_TypeKind Output
+    typeParams:
+    - !_Described
+      name: ref

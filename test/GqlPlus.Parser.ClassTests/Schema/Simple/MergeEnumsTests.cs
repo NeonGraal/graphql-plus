@@ -3,14 +3,13 @@ using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Merging;
 using GqlPlus.Merging.Simple;
-using Xunit.Abstractions;
 
 namespace GqlPlus.Schema.Simple;
 
 public class MergeEnumsTests
   : TestTyped<IGqlpType, IGqlpEnum, string, IGqlpEnumItem>
 {
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsValuesCantMerge_ReturnsErrors(string name, string[] values)
     => this
       .SkipUnless(values)

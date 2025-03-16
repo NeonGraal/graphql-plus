@@ -16,7 +16,7 @@ public class VerifierTests(
   [ClassData(typeof(SamplesSchemaData))]
   public async Task VerifySampleSchema(string sample)
   {
-    IGqlpSchema ast = await ParseSampleSchema(sample);
+    IGqlpSchema ast = await ParseSample("Schema", sample);
     TokenMessages errors = [];
 
     verifier.Verify(ast, errors);
@@ -25,38 +25,59 @@ public class VerifierTests(
   }
 
   [Theory]
-  [ClassData(typeof(SchemaValidGlobalsData))]
-  public async Task Verify_ValidGlobals(string global)
+  [ClassData(typeof(SamplesSchemaSpecificationData))]
+  public async Task VerifySampleSpec(string sample)
+  {
+    IGqlpSchema ast = await ParseSample("Spec", sample, "Specification");
+    TokenMessages errors = [];
+
+    verifier.Verify(ast, errors);
+
+    await CheckErrors("Schema", "Specification", sample, errors, true);
+  }
+
+  [Fact]
+  public async Task Verify_All()
+    => VerifyInputs_Valid(await SchemaValidAll(), "!ALL");
+
+  [Theory]
+  [ClassData(typeof(SchemaValidData))]
+  public async Task Verify_Groups(string group)
+    => VerifyInputs_Valid(await SchemaValidGroup(group), "!" + group);
+
+  [Theory]
+  [ClassData(typeof(SamplesSchemaValidGlobalsData))]
+  public async Task Verify_Globals(string global)
     => await VerifyFile_Valid("ValidGlobals", global);
 
   [Theory]
-  [ClassData(typeof(SchemaInvalidGlobalsData))]
-  public async Task Verify_InvalidGlobals(string global)
+  [ClassData(typeof(SamplesSchemaInvalidGlobalsData))]
+  public async Task Verify_GlobalsInvalid(string global)
     => await VerifyFile_Invalid("InvalidGlobals", global);
 
   [Theory]
-  [ClassData(typeof(SchemaValidMergesData))]
-  public async Task Verify_ValidMerges(string merge)
+  [ClassData(typeof(SamplesSchemaValidMergesData))]
+  public async Task Verify_Merges(string merge)
     => await ReplaceFile("ValidMerges", merge, VerifyInput_Valid);
 
   [Theory]
-  [ClassData(typeof(SchemaValidSimpleData))]
-  public async Task Verify_ValidSimple(string simple)
+  [ClassData(typeof(SamplesSchemaValidSimpleData))]
+  public async Task Verify_Simple(string simple)
     => await VerifyFile_Valid("ValidSimple", simple);
 
   [Theory]
-  [ClassData(typeof(SchemaInvalidSimpleData))]
-  public async Task Verify_InvalidSimple(string simple)
+  [ClassData(typeof(SamplesSchemaInvalidSimpleData))]
+  public async Task Verify_SimpleInvalid(string simple)
     => await VerifyFile_Invalid("InvalidSimple", simple);
 
   [Theory]
-  [ClassData(typeof(SchemaValidObjectsData))]
-  public async Task Verify_ValidObjects(string obj)
+  [ClassData(typeof(SamplesSchemaValidObjectsData))]
+  public async Task Verify_Objects(string obj)
     => await ReplaceFile("ValidObjects", obj, VerifyInput_Valid);
 
   [Theory]
-  [ClassData(typeof(SchemaInvalidObjectsData))]
-  public async Task Verify_InvalidObjects(string obj)
+  [ClassData(typeof(SamplesSchemaInvalidObjectsData))]
+  public async Task Verify_ObjectsInvalid(string obj)
     => await ReplaceFileAsync("InvalidObjects", obj, VerifyInput_Invalid);
 
   private async Task VerifyFile_Valid(string testDirectory, string testName)
@@ -71,6 +92,13 @@ public class VerifierTests(
     string schema = await ReadSchema(testName, testDirectory);
 
     await VerifyInput_Invalid(schema, testDirectory, testName);
+  }
+
+  private void VerifyInputs_Valid(IEnumerable<string> inputs, string testName)
+  {
+    string schema = inputs.Joined(Environment.NewLine);
+
+    VerifyInput_Valid(schema, "", testName);
   }
 
   private void VerifyInput_Valid(string input, string testDirectory, string testName)

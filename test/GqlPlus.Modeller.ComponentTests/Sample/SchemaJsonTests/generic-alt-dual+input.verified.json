@@ -1,0 +1,111 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "InpGenAltDual": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "InpGenAltDual",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "InpGenAltDualRef",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "value": "InpGenAltDualAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "InpGenAltDualRef",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "value": "InpGenAltDualAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "InpGenAltDual",
+      "typeKind": "Input"
+    },
+    "InpGenAltDualAlt": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "InpGenAltDualAlt",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "alt",
+          "object": "InpGenAltDualAlt",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "alt",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "InpGenAltDualAlt",
+      "typeKind": "Dual"
+    },
+    "InpGenAltDualRef": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "InpGenAltDualRef",
+          "type": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": "ref"
+        }
+      ],
+      "name": "InpGenAltDualRef",
+      "typeKind": "Input",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "ref"
+        }
+      ]
+    }
+  }
+}

@@ -219,9 +219,9 @@
   "name": "Schema",
   "settings": {
     "$tag": "_Map_Setting",
-    "setting": {
+    "global": {
       "$tag": "_Setting",
-      "name": "setting",
+      "name": "global",
       "value": true
     }
   },

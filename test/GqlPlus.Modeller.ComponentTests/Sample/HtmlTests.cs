@@ -23,10 +23,10 @@ public class HtmlTests(
     Structured result = new Map<Structured>() {
       ["groups"] = new Map<Structured>() {
         ["All"] = all.Render(),
-        ["Globals"] = SchemaValidData.Globals.Render(),
+        ["Globals"] = SamplesSchemaValidGlobalsData.Strings.Render(),
         ["Merges"] = merges.Render(),
         ["Objects"] = objects.Render(),
-        ["Simple"] = SchemaValidData.Simple.Render(),
+        ["Simple"] = SamplesSchemaValidSimpleData.Strings.Render(),
       }.Render()
     }.Render();
 
@@ -43,22 +43,22 @@ public class HtmlTests(
     => Verify_Model(await SchemaValidGroup(group), "!" + group);
 
   [Theory]
-  [ClassData(typeof(SchemaValidMergesData))]
+  [ClassData(typeof(SamplesSchemaValidMergesData))]
   public async Task Html_Merges(string model)
     => await ReplaceFile("ValidMerges", model, Verify_Model);
 
   [Theory]
-  [ClassData(typeof(SchemaValidObjectsData))]
+  [ClassData(typeof(SamplesSchemaValidObjectsData))]
   public async Task Html_Objects(string model)
     => await ReplaceFile("ValidObjects", model, Verify_Model);
 
   [Theory]
-  [ClassData(typeof(SchemaValidGlobalsData))]
+  [ClassData(typeof(SamplesSchemaValidGlobalsData))]
   public async Task Html_Globals(string global)
     => await ReplaceFile("ValidGlobals", global, Verify_Model);
 
   [Theory]
-  [ClassData(typeof(SchemaValidSimpleData))]
+  [ClassData(typeof(SamplesSchemaValidSimpleData))]
   public async Task Html_Simple(string simple)
     => await ReplaceFile("ValidSimple", simple, Verify_Model);
 

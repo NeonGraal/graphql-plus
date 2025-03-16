@@ -1,0 +1,58 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier InpGenParam: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: InpGenParam
+      type: !_InputBase
+        input: InpGenParamRef
+        typeArgs:
+        - !_InputArg
+          input: InpGenParamAlt
+    fields:
+    - !_InputField
+      name: field
+      type: !_InputBase
+        input: InpGenParamRef
+        typeArgs:
+        - !_InputArg
+          input: InpGenParamAlt
+    name: InpGenParam
+    typeKind: !_TypeKind Input
+  !_Identifier InpGenParamAlt: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: InpGenParamAlt
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: alt
+      object: InpGenParamAlt
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_InputAlternate
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: alt
+      type: !_InputBase
+        input: Number
+    name: InpGenParamAlt
+    typeKind: !_TypeKind Input
+  !_Identifier InpGenParamRef: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: InpGenParamRef
+      type: !_TypeParam ref
+    alternates:
+    - !_InputAlternate
+      type: !_TypeParam ref
+    name: InpGenParamRef
+    typeKind: !_TypeKind Input
+    typeParams:
+    - !_Described
+      name: ref

@@ -20,7 +20,7 @@ public abstract class AstObjectArgTests<TObjArg>
   public void Equality_WithIsTypeParam(string input)
     => ObjArgChecks.Equality_WithIsTypeParam(input);
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality_BetweenIsTypeParams(string input, bool isTypeParam1)
     => ObjArgChecks.Inequality_BetweenIsTypeParams(input, isTypeParam1);
 

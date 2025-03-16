@@ -45,9 +45,10 @@ internal class BaseAstChecks<TAst>
   }
 
   public void Inequality(AstCreator factory1, AstCreator factory2, bool skipIf,
-    [CallerArgumentExpression(nameof(factory1))] string factoryExpression = "")
+    [CallerArgumentExpression(nameof(factory1))] string factoryExpression = "",
+    [CallerArgumentExpression(nameof(skipIf))] string skipIfExpression = "")
   {
-    Skip.If(skipIf);
+    Assert.SkipWhen(skipIf, skipIfExpression);
 
     Inequality(factory1, factory2, factoryExpression);
   }
@@ -69,9 +70,10 @@ internal class BaseAstChecks<TAst>
   }
 
   public void Text(AstCreator factory, string expected, bool skipIf,
-    [CallerArgumentExpression(nameof(factory))] string factoryExpression = "")
+    [CallerArgumentExpression(nameof(factory))] string factoryExpression = "",
+    [CallerArgumentExpression(nameof(skipIf))] string skipIfExpression = "")
   {
-    Skip.If(skipIf);
+    Assert.SkipWhen(skipIf, skipIfExpression);
 
     Text(factory, expected, factoryExpression);
   }

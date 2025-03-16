@@ -1,0 +1,23 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  DualObjectFieldAlias
+  {
+    !DF I@029/0001
+    field
+    [
+      field1
+      field2
+    ]
+    :
+    I@045/0001
+    DualObjectFieldAliasFld
+  }
+}
+{
+  !Du I@006/0003
+  DualObjectFieldAliasFld
+}
+]

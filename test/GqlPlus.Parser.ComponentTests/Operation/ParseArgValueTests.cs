@@ -47,7 +47,7 @@ public class ParseArgValueTests(
       '[' + enumValue + ",," + enumValue + ']',
       CheckNull);
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [Theory, RepeatData(Repeats)]
   public void WithObject_ReturnsCorrectAst(string key, string enumValue)
     => checks
       .SkipIf(key == enumValue)
@@ -55,7 +55,7 @@ public class ParseArgValueTests(
         '{' + key + ":$" + enumValue + ' ' + enumValue + ':' + key + '}',
         new ArgAst(AstNulls.At, enumValue.ArgObject(key)));
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [Theory, RepeatData(Repeats)]
   public void WithObjectSemi_ReturnsCorrectAst(string key, string enumValue)
     => checks
       .SkipIf(key == enumValue)
@@ -63,7 +63,7 @@ public class ParseArgValueTests(
         '{' + key + ":$" + enumValue + ',' + enumValue + ':' + key + '}',
         new ArgAst(AstNulls.At, enumValue.ArgObject(key)));
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [Theory, RepeatData(Repeats)]
   public void WithObjectInvalid_ReturnsFalse(string key, string enumValue)
     => checks
       .SkipIf(key == enumValue)

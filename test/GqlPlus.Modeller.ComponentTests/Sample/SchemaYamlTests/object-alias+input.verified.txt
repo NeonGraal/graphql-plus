@@ -1,0 +1,6 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier InpObjectAlias: !_TypeInput
+    aliases: [Inp1, Inp2]
+    name: InpObjectAlias
+    typeKind: !_TypeKind Input

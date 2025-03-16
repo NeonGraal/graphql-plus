@@ -1,0 +1,17 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier InpGenField: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: InpGenField
+      type: !_TypeParam type
+    fields:
+    - !_InputField
+      name: field
+      type: !_TypeParam type
+    name: InpGenField
+    typeKind: !_TypeKind Input
+    typeParams:
+    - !_Described
+      name: type

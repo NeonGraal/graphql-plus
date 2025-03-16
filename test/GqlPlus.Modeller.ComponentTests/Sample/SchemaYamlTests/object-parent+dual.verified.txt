@@ -1,0 +1,10 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DualObjectParent: !_TypeDual
+    name: DualObjectParent
+    parent: !_DualBase
+      dual: DualObjectParentRef
+    typeKind: !_TypeKind Dual
+  !_Identifier DualObjectParentRef: !_TypeDual
+    name: DualObjectParentRef
+    typeKind: !_TypeKind Dual

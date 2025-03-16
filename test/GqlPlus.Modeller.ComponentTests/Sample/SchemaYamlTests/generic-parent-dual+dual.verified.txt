@@ -1,0 +1,51 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DualGenParentDual: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: DualGenParentDualRef
+      type: !_DualBase
+        dual: DualGenParentDualAlt
+    name: DualGenParentDual
+    parent: !_DualBase
+      dual: DualGenParentDualRef
+      typeArgs:
+      - !_DualArg
+        dual: DualGenParentDualAlt
+    typeKind: !_TypeKind Dual
+  !_Identifier DualGenParentDualAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: DualGenParentDualAlt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: DualGenParentDualAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_DualAlternate
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: alt
+      type: !_DualBase
+        dual: Number
+    name: DualGenParentDualAlt
+    typeKind: !_TypeKind Dual
+  !_Identifier DualGenParentDualRef: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: DualGenParentDualRef
+      type: !_TypeParam ref
+    alternates:
+    - !_DualAlternate
+      type: !_TypeParam ref
+    name: DualGenParentDualRef
+    typeKind: !_TypeKind Dual
+    typeParams:
+    - !_Described
+      name: ref

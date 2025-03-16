@@ -1,1 +1,1 @@
-33add1c  (HEAD -> main, origin/main, origin/HEAD) 2025-03-07 Merge pull request #12 from graphql-plus/correct-coverage
+ae4a455  (HEAD -> refactor-samples, origin/refactor-samples) 2025-03-16 Correct setting names in samples

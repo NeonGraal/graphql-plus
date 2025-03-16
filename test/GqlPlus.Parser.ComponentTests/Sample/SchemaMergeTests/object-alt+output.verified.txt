@@ -1,0 +1,16 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  OutpObjectAlt
+  |
+  !OA I@026/0001
+  I@026/0001
+  OutpObjectAltType
+}
+{
+  !Ou I@008/0003
+  OutpObjectAltType
+}
+]

@@ -3,7 +3,6 @@ using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Merging;
 using GqlPlus.Merging.Globals;
-using Xunit.Abstractions;
 
 namespace GqlPlus.Schema.Globals;
 
@@ -22,7 +21,7 @@ public class MergeDirectivesTests
       new DirectiveDeclAst(AstNulls.At, name) { Option = DirectiveOption.Repeatable },
       new DirectiveDeclAst(AstNulls.At, name)]);
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsParamsCantMerge_ReturnsErrors(string name, string[] parameters)
     => this
       .SkipUnless(parameters)

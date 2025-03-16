@@ -1,0 +1,100 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DualGenParentParam": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "DualGenParentParamRef",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "DualGenParentParamAlt"
+          }
+        }
+      ],
+      "name": "DualGenParentParam",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "DualGenParentParamRef",
+        "typeArgs": [
+          {
+            "$tag": "_DualArg",
+            "value": "DualGenParentParamAlt"
+          }
+        ]
+      },
+      "typeKind": "Dual"
+    },
+    "DualGenParentParamAlt": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "DualGenParentParamAlt",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "alt",
+          "object": "DualGenParentParamAlt",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "alt",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "DualGenParentParamAlt",
+      "typeKind": "Dual"
+    },
+    "DualGenParentParamRef": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "DualGenParentParamRef",
+          "type": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": "ref"
+        }
+      ],
+      "name": "DualGenParentParamRef",
+      "typeKind": "Dual",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "ref"
+        }
+      ]
+    }
+  }
+}

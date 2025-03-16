@@ -1,1 +1,1 @@
-option Schema { setting = true }
+option Schema { global=true }

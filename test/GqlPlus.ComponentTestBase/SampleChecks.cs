@@ -58,11 +58,7 @@ public class SampleChecks
       settings.ScrubEmptyLines();
     }
 
-    if (!string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("GQLPLUS_AUTOVERIFY"))) {
-      settings.AutoVerify();
-    }
-
-    return settings;
+    return settings.CheckAutoVerify();
   }
 
   protected static async Task<string> ReadFile(string file, string extn, params string[] dirs)

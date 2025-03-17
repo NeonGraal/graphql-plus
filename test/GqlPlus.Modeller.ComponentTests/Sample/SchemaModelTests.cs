@@ -6,7 +6,7 @@ using GqlPlus.Resolving;
 
 namespace GqlPlus.Sample;
 
-public class ModelTests(
+public class SchemaModelTests(
     Parser<IGqlpSchema>.D schemaParser,
     IModelAndRender renderer
 ) : SampleSchemaChecks(schemaParser)

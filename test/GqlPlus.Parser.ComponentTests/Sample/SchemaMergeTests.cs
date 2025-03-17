@@ -5,19 +5,19 @@ using GqlPlus.Result;
 
 namespace GqlPlus.Sample;
 
-public class MergeTests(
+public class SchemaMergeTests(
     Parser<IGqlpSchema>.D schemaParser,
     IMerge<IGqlpSchema> schemaMerger
 ) : SchemaDataBase(schemaParser)
 {
   [Fact]
   public async Task CanMerge_All()
-    => Check_CanMerge(await SchemaValidAll(), "!ALL");
+    => Check_CanMerge(await SchemaValidDataAll(), "!ALL");
 
   [Theory]
   [ClassData(typeof(SchemaValidData))]
   public async Task CanMerge_Groups(string group)
-    => Check_CanMerge(await SchemaValidGroup(group), "!" + group);
+    => Check_CanMerge(await SchemaValidDataGroup(group), "!" + group);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaMergesData))]
@@ -35,12 +35,12 @@ public class MergeTests(
 
   [Fact]
   public async Task Merge_All()
-    => await Verify_Merge(await SchemaValidAll(), "!ALL");
+    => await Verify_Merge(await SchemaValidDataAll(), "!ALL");
 
   [Theory]
   [ClassData(typeof(SchemaValidData))]
   public async Task Merge_Groups(string group)
-    => await Verify_Merge(await SchemaValidGroup(group), "!" + group);
+    => await Verify_Merge(await SchemaValidDataGroup(group), "!" + group);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaMergesData))]

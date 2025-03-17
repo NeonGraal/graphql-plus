@@ -10,7 +10,7 @@ public class TokenizerTests
   {
     Tokenizer tokens = new(input + " ");
 
-    tokens.Read().Should().BeTrue();
+    tokens.Read().ShouldBeTrue();
 
     return tokens;
   }
@@ -20,7 +20,7 @@ public class TokenizerTests
   {
     Tokenizer tokens = new("");
 
-    tokens.AtStart.Should().BeTrue();
+    tokens.AtStart.ShouldBeTrue();
   }
 
   [Fact]
@@ -30,11 +30,11 @@ public class TokenizerTests
 
     bool result = tokens.Read();
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    result.Should().BeFalse();
+    result.ShouldBeFalse();
 
-    tokens.AtEnd.Should().BeTrue();
+    tokens.AtEnd.ShouldBeTrue();
   }
 
   [Theory]
@@ -53,11 +53,11 @@ public class TokenizerTests
 
     bool result = tokens.Read();
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    result.Should().BeFalse();
+    result.ShouldBeFalse();
 
-    tokens.AtEnd.Should().BeTrue();
+    tokens.AtEnd.ShouldBeTrue();
   }
 
   [Theory, RepeatData]
@@ -203,7 +203,7 @@ public class TokenizerTests
     Tokenizer tokens = PrepareTokens(one);
     char expected = one.First();
 
-    tokens.Take(expected).Should().BeTrue();
+    tokens.Take(expected).ShouldBeTrue();
   }
 
   [Theory, RepeatData]
@@ -212,7 +212,7 @@ public class TokenizerTests
   {
     Tokenizer tokens = PrepareTokens(many);
 
-    tokens.Take(many).Should().BeTrue();
+    tokens.Take(many).ShouldBeTrue();
   }
 
   [Theory, RepeatData]
@@ -221,7 +221,7 @@ public class TokenizerTests
   {
     Tokenizer tokens = PrepareTokens(many[..4]);
 
-    tokens.Take(many).Should().BeFalse();
+    tokens.Take(many).ShouldBeFalse();
   }
 
   [Theory, RepeatData]
@@ -243,11 +243,11 @@ public class TokenizerTests
     Tokenizer tokens = PrepareTokens(prefix + "?");
     char expected = prefix.First();
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    tokens.Prefix(expected, out _, out _).Should().BeFalse();
-    tokens.Take(expected).Should().BeTrue();
-    tokens.Take('?').Should().BeTrue();
+    tokens.Prefix(expected, out _, out _).ShouldBeFalse();
+    tokens.Take(expected).ShouldBeTrue();
+    tokens.Take('?').ShouldBeTrue();
   }
 
   [Theory, RepeatData]
@@ -368,13 +368,13 @@ public class TokenizerTests
 
   private static void CheckParseError(TokenMessage result, TokenKind kind, string expected, string message, int line = 1, int col = 1)
   {
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    result.Kind.Should().Be(kind);
-    result.Line.Should().Be(line);
-    result.Column.Should().Be(col);
-    result.After.Should().Be(expected);
-    result.Message.Should().Be(message);
+    result.Kind.ShouldBe(kind);
+    result.Line.ShouldBe(line);
+    result.Column.ShouldBe(col);
+    result.After.ShouldBe(expected);
+    result.Message.ShouldBe(message);
   }
 
   private delegate bool Call<T>(out T result);
@@ -383,30 +383,30 @@ public class TokenizerTests
   {
     bool success = call(out T? result);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    success.Should().BeTrue();
-    result.Should().Be(expected);
+    success.ShouldBeTrue();
+    result.ShouldBe(expected);
   }
 
   private static void FalseAndExpected<T>(Call<T> call, T expected)
   {
     bool success = call(out T? result);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    success.Should().BeFalse();
-    result.Should().Be(expected);
+    success.ShouldBeFalse();
+    result.ShouldBe(expected);
   }
 
   private static void FalseAndExpected<T>(Call<T> call, T expected, Tokenizer tokens)
   {
     bool success = call(out T? result);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    success.Should().BeFalse();
-    result.Should().Be(expected);
-    tokens.AtEnd.Should().BeTrue();
+    success.ShouldBeFalse();
+    result.ShouldBe(expected);
+    tokens.AtEnd.ShouldBeTrue();
   }
 }

@@ -16,12 +16,12 @@ public class ResultPartialTests : BaseResultTests
 
     IResult<string> result = _partial.AsPartial(Sample, v => withValue = true, () => action = true);
 
-    result.Should().BeOfType<ResultPartial<string>>()
-      .Subject.Message.Message.Should().Contain(Partial);
-    using AssertionScope scope = new();
-    result.Optional().Should().Be(Sample);
-    withValue.Should().BeTrue();
-    action.Should().BeTrue();
+    result.ShouldBeOfType<ResultPartial<string>>()
+      .Message.Message.ShouldContain(Partial);
+    // using AssertionScope scope = new();
+    result.Optional().ShouldBe(Sample);
+    withValue.ShouldBeTrue();
+    action.ShouldBeTrue();
   }
 
   [Fact]
@@ -29,8 +29,8 @@ public class ResultPartialTests : BaseResultTests
   {
     IResultArray<string> result = _partial.AsResultArray(SampleArray);
 
-    result.Should().BeOfType<ResultArrayError<string>>()
-      .Subject.Message.Message.Should().Be(Partial);
+    result.ShouldBeOfType<ResultArrayError<string>>()
+      .Message.Message.ShouldBe(Partial);
   }
 
   [Fact]
@@ -40,11 +40,11 @@ public class ResultPartialTests : BaseResultTests
 
     IResultArray<string> result = _partial.AsPartialArray(SampleArray, v => withValue = true);
 
-    result.Should().BeOfType<ResultArrayPartial<string>>()
-      .Subject.Message.Message.Should().Contain(Partial);
-    using AssertionScope scope = new();
-    result.Optional().Should().BeEquivalentTo(SampleArray);
-    withValue.Should().BeTrue();
+    result.ShouldBeOfType<ResultArrayPartial<string>>()
+      .Message.Message.ShouldContain(Partial);
+    // using AssertionScope scope = new();
+    result.Optional().ShouldBe(SampleArray);
+    withValue.ShouldBeTrue();
   }
 
   [Fact]
@@ -52,9 +52,9 @@ public class ResultPartialTests : BaseResultTests
   {
     IResultArray<string> result = _partialArray.AsResultArray(SampleArray);
 
-    result.Should().BeOfType<ResultArrayPartial<string>>()
-      .Subject.Message.Message.Should().Be(Partial);
-    result.Optional().Should().Equal(Partial);
+    result.ShouldBeOfType<ResultArrayPartial<string>>()
+      .Message.Message.ShouldBe(Partial);
+    result.Optional().ShouldBe([Partial]);
   }
 
   [Fact]
@@ -62,8 +62,8 @@ public class ResultPartialTests : BaseResultTests
   {
     IResult<string> result = _partial.Map(a => Partial.Ok(), () => Sample.Ok());
 
-    result.Should().BeOfType<ResultOk<string>>()
-      .Subject.Required().Should().Be(Partial);
+    result.ShouldBeOfType<ResultOk<string>>()
+      .Required().ShouldBe(Partial);
   }
 
   [Fact]
@@ -71,8 +71,8 @@ public class ResultPartialTests : BaseResultTests
   {
     Action action = () => _partial.Required();
 
-    action.Should().Throw<InvalidOperationException>()
-      .Which.Message.Should().Contain(Partial);
+    action.ShouldThrow<InvalidOperationException>()
+      .Message.ShouldContain(Partial);
   }
 
   [Fact]
@@ -80,9 +80,9 @@ public class ResultPartialTests : BaseResultTests
   {
     IResult<int> result = _partial.Select(s => s.Length);
 
-    result.Should().BeOfType<ResultPartial<int>>()
-      .Subject.Message.Message.Should().Contain(Partial);
-    result.Optional().Should().Be(7);
+    result.ShouldBeOfType<ResultPartial<int>>()
+      .Message.Message.ShouldContain(Partial);
+    result.Optional().ShouldBe(7);
   }
 
   [Fact]
@@ -90,8 +90,8 @@ public class ResultPartialTests : BaseResultTests
   {
     IResult<Tokenizer> result = _partial.Select(s => (Tokenizer?)null);
 
-    result.Should().BeOfType<ResultError<Tokenizer>>()
-      .Subject.Message.Message.Should().Be(Partial);
+    result.ShouldBeOfType<ResultError<Tokenizer>>()
+      .Message.Message.ShouldBe(Partial);
   }
 
   [Fact]
@@ -99,8 +99,8 @@ public class ResultPartialTests : BaseResultTests
   {
     IResult<int> result = _partial.SelectOk(s => s.Length);
 
-    result.Should().BeOfType<ResultError<int>>()
-      .Subject.Message.Message.Should().Be(Partial);
+    result.ShouldBeOfType<ResultError<int>>()
+      .Message.Message.ShouldBe(Partial);
   }
 
   [Fact]
@@ -108,7 +108,7 @@ public class ResultPartialTests : BaseResultTests
   {
     IResult<Tokenizer> result = _partial.SelectOk(s => (Tokenizer?)null);
 
-    result.Should().BeOfType<ResultError<Tokenizer>>()
-      .Subject.Message.Message.Should().Be(Partial);
+    result.ShouldBeOfType<ResultError<Tokenizer>>()
+      .Message.Message.ShouldBe(Partial);
   }
 }

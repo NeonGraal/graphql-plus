@@ -26,6 +26,6 @@ internal class ParseDualField(
   protected override IResultArray<IGqlpInputParam> FieldParam<TContext>(TContext tokens)
     => 0.EmptyArray<IGqlpInputParam>();
 
-  protected override DualBaseAst ObjBase(TokenAt at, string param, string description)
-    => new(at, param, description);
+  protected override IGqlpDualBase ObjBase(TokenAt at, string param, string description)
+    => new DualBaseAst(at, param, description);
 }

@@ -15,7 +15,7 @@ internal abstract class AstParentItemVerifier<TAst, TParent, TContext, TItem>(
 {
   protected override void CheckMergeParent(ParentUsage<TAst> input, TContext context)
   {
-    TItem[] items = GetParentItems(input, input.Usage, context, GetItems).ToArray();
+    TItem[] items = [.. GetParentItems(input, input.Usage, context, GetItems)];
 
     if (items.Length > 0) {
       ITokenMessages failures = mergeItems.CanMerge(items);

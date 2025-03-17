@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Reflection;
 using System.Text;
 
@@ -117,7 +118,7 @@ public class DependencyInjectionChecks(
 
     HashSet<string> hashset = [.. _diServices.Keys];
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
     foreach (DiService di in services) {
       sb.Clear();
@@ -125,11 +126,11 @@ public class DependencyInjectionChecks(
       sb.Append(di.Service.Id);
       sb.Append(", ");
 
-      List<string> missing = di.Requires
+      List<string> missing = [.. di.Requires
         .Where(p => p.Key != InstanceRequirement && !MatchType(hashset, p.Value))
-        .Select(p => $"{di.Service.Name} {p.Key} : " + p.Value.Name).ToList();
+        .Select(p => $"{di.Service.Name} {p.Key} : " + p.Value.Name)];
 
-      missing.Should().BeEmpty();
+      missing.ShouldBeEmpty();
       output.Output?.WriteLine(sb.ToString());
     }
   }
@@ -140,11 +141,11 @@ public class DependencyInjectionChecks(
 
     IDirectoryContents contents = files.GetDirectoryContents("");
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    contents.Exists.Should().BeTrue();
-    contents.Should().NotBeEmpty();
-    contents.Should().Contain(fi => fi.Name == "pico.liquid");
+    contents.Exists.ShouldBeTrue();
+    contents.ShouldNotBeEmpty();
+    contents.ShouldContain(fi => fi.Name == "pico.liquid");
   }
 
   public async Task HtmlDependencyInjection(string file)
@@ -256,7 +257,7 @@ public class DependencyInjectionChecks(
 
 public sealed record TypeIdName
 {
-  public TypeIdName(Type type)
+  public TypeIdName([NotNull] Type type)
   {
     Id = type.ThrowIfNull().FullTypeName();
     NameSpace = type.Namespace ?? "";

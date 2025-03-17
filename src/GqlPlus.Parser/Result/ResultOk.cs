@@ -7,7 +7,7 @@ public readonly struct ResultOk<TValue>
 
   public ResultOk(TValue result)
   {
-    ArgumentNullException.ThrowIfNull(result);
+    result.ThrowIfNull();
     Result = result;
   }
 
@@ -25,8 +25,10 @@ public readonly struct ResultOk<TValue>
 
   public IResult<TResult> Map<TResult>(SelectResult<TValue, TResult> onValue, OnResult<TResult>? otherwise = null)
   {
-    ArgumentNullException.ThrowIfNull(onValue);
+    onValue.ThrowIfNull();
 
+#pragma warning disable CA1062 // Validate arguments of public methods
     return onValue(Result);
+#pragma warning restore CA1062 // Validate arguments of public methods
   }
 }

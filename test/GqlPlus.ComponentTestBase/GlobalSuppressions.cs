@@ -6,6 +6,7 @@
 using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("Globalization", "CA1308:Normalize strings to uppercase")]
+[assembly: SuppressMessage("Maintainability", "CA1515: Consider making public types internal")]
 [assembly: SuppressMessage("Naming", "CA1707:Identifiers should not contain underscores")]
 [assembly: SuppressMessage("Performance", "CA1822:Mark members as static")]
 [assembly: SuppressMessage("Reliability", "CA2007:Consider calling ConfigureAwait on the awaited task")]

@@ -83,7 +83,7 @@ public static class TestHelpers
 
   public static TCheck SkipIf<TCheck>(this TCheck check, bool skipIf, [CallerArgumentExpression(nameof(skipIf))] string? skipExpression = null)
   {
-    Skip.If(skipIf, skipExpression);
+    Assert.SkipWhen(skipIf, skipExpression ?? "");
 
     return check;
   }
@@ -95,7 +95,7 @@ public static class TestHelpers
     [CallerArgumentExpression(nameof(input1))] string? input1Expression = null,
     [CallerArgumentExpression(nameof(input2))] string? input2Expression = null)
   {
-    Skip.If(string.Equals(input1, input2, StringComparison.Ordinal), input1Expression + " != " + input2Expression);
+    Assert.SkipWhen(string.Equals(input1, input2, StringComparison.Ordinal), input1Expression + " != " + input2Expression);
 
     return check;
   }
@@ -107,22 +107,22 @@ public static class TestHelpers
     [CallerArgumentExpression(nameof(input1))] string? input1Expression = null,
     [CallerArgumentExpression(nameof(input2))] string? input2Expression = null)
   {
-    Skip.If(input1 is null ? input2 is null : input1.Equals(input2), input1Expression + " != " + input2Expression);
+    Assert.SkipWhen(input1 is null ? input2 is null : input1.Equals(input2), input1Expression + " != " + input2Expression);
 
     return check;
   }
 
   public static TCheck SkipNull<TCheck>(this TCheck check, [NotNull] object? obj, [CallerArgumentExpression(nameof(obj))] string? objExpression = null)
   {
-    Skip.If(obj is null, objExpression + " is null");
+    Assert.SkipWhen(obj is null, objExpression + " is null");
 
     return check;
   }
 
   public static TCheck SkipUnless<TCheck>(this TCheck check, [NotNull] string[]? array, [CallerArgumentExpression(nameof(array))] string? arrayExpression = null)
   {
-    Skip.If(array is null, arrayExpression + " is null");
-    Skip.If(array.Length < 2, arrayExpression + ".Length < 2");
+    Assert.SkipWhen(array is null, arrayExpression + " is null");
+    Assert.SkipWhen(array.Length < 2, arrayExpression + ".Length < 2");
 
     return check;
   }

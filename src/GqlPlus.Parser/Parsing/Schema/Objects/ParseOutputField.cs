@@ -52,6 +52,6 @@ internal class ParseOutputField(
   protected override IResultArray<IGqlpInputParam> FieldParam<TContext>(TContext tokens)
     => _parameter.Parse(tokens, "Output");
 
-  protected override OutputBaseAst ObjBase(TokenAt at, string param, string description)
-    => new(at, param, description);
+  protected override IGqlpOutputBase ObjBase(TokenAt at, string param, string description)
+    => new OutputBaseAst(at, param, description);
 }

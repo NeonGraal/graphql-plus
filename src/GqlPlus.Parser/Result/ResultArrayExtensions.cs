@@ -17,10 +17,12 @@ public static class ResultArrayExtensions
 
   public static bool Optional<T>(this IResultArray<T> result, [NotNullWhen(true)] Action<IEnumerable<T>> action)
   {
-    ArgumentNullException.ThrowIfNull(action);
+    action.ThrowIfNull();
 
     if (result is ResultArrayOk<T> ok) {
+#pragma warning disable CA1062 // Validate arguments of public methods
       action(ok.Result);
+#pragma warning restore CA1062 // Validate arguments of public methods
       return true;
     }
 
@@ -45,10 +47,12 @@ public static class ResultArrayExtensions
 
   public static bool Required<T>(this IResultArray<T> result, Action<IEnumerable<T>> action)
   {
-    ArgumentNullException.ThrowIfNull(action);
+    action.ThrowIfNull();
 
     if (result is ResultArrayOk<T> ok) {
+#pragma warning disable CA1062 // Validate arguments of public methods
       action(ok.Result!);
+#pragma warning restore CA1062 // Validate arguments of public methods
       return true;
     }
 
@@ -57,10 +61,12 @@ public static class ResultArrayExtensions
 
   public static void WithResult<T>(this IResultArray<T> result, Action<IEnumerable<T>> action)
   {
-    ArgumentNullException.ThrowIfNull(action);
+    action.ThrowIfNull();
 
     if (result is IResultValue<IEnumerable<T>> ok) {
+#pragma warning disable CA1062 // Validate arguments of public methods
       action.Invoke(ok.Result);
+#pragma warning restore CA1062 // Validate arguments of public methods
     }
   }
 

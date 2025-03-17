@@ -23,7 +23,7 @@ public class OutputFieldAstTests
     => _checks.Equality(
       () => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type)) { Params = parameters.Params() });
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality_BetweenParams(FieldInput input, string[] parameters1, string[] parameters2)
     => _checks.InequalityBetween(parameters1, parameters2,
       parameters => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type)) { Params = parameters.Params() },
@@ -45,7 +45,7 @@ public class OutputFieldAstTests
     => _checks.Equality(
       () => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type) { EnumMember = enumMember }));
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality_BetweenEnumValues(FieldInput input, string enumValue1, string enumValue2)
     => _checks.InequalityBetween(enumValue1, enumValue2,
       enumMember => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type) { EnumMember = enumMember }),

@@ -3,21 +3,20 @@
 public class SchemaValidData
   : TheoryData<string>
 {
-  public static readonly SampleSchemaData Sample = [];
-
-  public static readonly SchemaValidGlobalsData Globals = [];
-  public static readonly SchemaValidSimpleData Simple = [];
-  public static readonly SchemaValidObjectsData Objects = [];
-  public static readonly SchemaValidMergesData Merges = [];
-
-  public static readonly string[] All = [.. Merges, .. Objects, .. Globals, .. Simple];
+  public static readonly string[] All = [
+    .. SamplesSchemaGlobalsData.Strings,
+    .. SamplesSchemaMergesData.Strings,
+    .. SamplesSchemaObjectsData.Strings,
+    .. SamplesSchemaSimpleData.Strings,
+  ];
 
   public static readonly Dictionary<string, IEnumerable<string>> Files = new() {
-    ["Objects"] = Objects,
-    ["Merges"] = Merges,
-    ["Globals"] = Globals,
-    ["Simple"] = Simple,
+    ["Globals"] = SamplesSchemaGlobalsData.Strings,
+    ["Objects"] = SamplesSchemaObjectsData.Strings,
+    ["Merges"] = SamplesSchemaMergesData.Strings,
+    ["Simple"] = SamplesSchemaSimpleData.Strings,
   };
+
   public SchemaValidData()
   {
     foreach (string item in Files.Keys) {

@@ -12,7 +12,7 @@ internal abstract class AllMerger<TItem>(
   {
     ITokenMessages result = base.CanMergeGroup(group);
     if (!result.Any()) {
-      List<(IMergeAll<TItem> domain, ITokenMessages)> each = all.Select(domain => (domain, domain.CanMerge(group))).ToList();
+      List<(IMergeAll<TItem> domain, ITokenMessages)> each = [.. all.Select(domain => (domain, domain.CanMerge(group)))];
       result.Add(each.SelectMany(item => item.Item2));
     }
 

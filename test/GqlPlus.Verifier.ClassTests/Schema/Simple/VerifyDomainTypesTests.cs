@@ -15,9 +15,9 @@ public class VerifyDomainTypesTests
 
     verifier.Verify(UsageAliased, Errors);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
     Aliased.Called();
-    Errors.Should().BeNullOrEmpty();
+    Errors.ShouldBeEmpty();
   }
 }

@@ -8,6 +8,8 @@ public class CollectionModelTests(
 {
   protected override bool SkipIf(ModifierInput name)
     => name.Kind == ModifierKind.Optional;
+
+  protected override string SkipReason => "modifier is Optional";
 }
 
 internal sealed class CollectionModelChecks(

@@ -6,7 +6,9 @@ using GqlPlus.Result;
 
 namespace GqlPlus.Operation;
 
-public class ParseOperationTests(Parser<IGqlpOperation>.D parser)
+public class ParseOperationTests(
+  Parser<IGqlpOperation>.D operationParser
+)
 {
   [Theory]
   [InlineData(":Boolean")]
@@ -24,11 +26,11 @@ public class ParseOperationTests(Parser<IGqlpOperation>.D parser)
 
     IGqlpOperation result = _parser.Parse(context, "Operation").Required();
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    result.Should().BeOfType<OperationAst>();
-    result.Result.Should().Be(ParseResultKind.Success);
-    result.Errors.Should().BeEmpty();
+    result.ShouldBeOfType<OperationAst>();
+    result.Result.ShouldBe(ParseResultKind.Success);
+    result.Errors.ShouldBeEmpty();
   }
 
   [Theory]
@@ -39,10 +41,10 @@ public class ParseOperationTests(Parser<IGqlpOperation>.D parser)
 
     IResult<IGqlpOperation> result = _parser.Parse(context, "Operation");
     result.Optional(ast => {
-      using AssertionScope scope = new();
+      // using AssertionScope scope = new();
 
-      ast.Should().BeNull();
-      result.IsError(err => err.Message.Should().NotBeNullOrWhiteSpace());
+      ast.ShouldBeNull();
+      result.IsError(err => err.Message.ShouldNotBeNullOrWhiteSpace());
     });
   }
 
@@ -70,12 +72,12 @@ public class ParseOperationTests(Parser<IGqlpOperation>.D parser)
 
     IGqlpOperation? ast = _parser.Parse(context, "Operation").Optional();
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    ast.Should().BeOfType<OperationAst>()
-      .Subject.Result.Should().Be(ParseResultKind.Failure);
-    ast.ThrowIfNull().Errors.Should().NotBeEmpty();
+    ast.ShouldBeOfType<OperationAst>()
+      .Result.ShouldBe(ParseResultKind.Failure);
+    ast.ThrowIfNull().Errors.ShouldNotBeEmpty();
   }
 
-  private readonly Parser<IGqlpOperation>.L _parser = parser;
+  private readonly Parser<IGqlpOperation>.L _parser = operationParser;
 }

@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Reflection;
-using Xunit.Sdk;
+using Xunit.v3;
 
 namespace GqlPlus;
 
@@ -9,7 +9,7 @@ public sealed class TracePerTestAttribute
 {
   private Activity? _activity;
 
-  public override void Before(MethodInfo methodUnderTest)
+  public override void Before(MethodInfo methodUnderTest, IXunitTest test)
   {
     ArgumentNullException.ThrowIfNull(methodUnderTest);
 
@@ -40,13 +40,13 @@ public sealed class TracePerTestAttribute
       tags: tags,
       parentContext: new ActivityContext());
 
-    base.Before(methodUnderTest);
+    base.Before(methodUnderTest, test);
   }
 
-  public override void After(MethodInfo methodUnderTest)
+  public override void After(MethodInfo methodUnderTest, IXunitTest test)
   {
     _activity?.Stop();
 
-    base.After(methodUnderTest);
+    base.After(methodUnderTest, test);
   }
 }

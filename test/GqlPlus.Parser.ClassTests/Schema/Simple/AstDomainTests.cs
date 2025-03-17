@@ -20,7 +20,7 @@ public abstract class AstDomainTests<TInput>
   public void Equality_WithMembers(string name, TInput input)
     => Checks.Equality_WithMembers(name, input);
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality_BetweenMembers(string name, TInput input1, TInput input2)
     => Checks.Inequality_BetweenMembers(name, input1, input2);
 

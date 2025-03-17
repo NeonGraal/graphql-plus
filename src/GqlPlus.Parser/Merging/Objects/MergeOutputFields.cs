@@ -12,7 +12,7 @@ internal class MergeOutputFields(
     => base.CanMergeGroup(group)
       .Add(group.ManyCanMerge(item => item.Params, parameters));
 
-  protected override OutputFieldAst MergeGroup(IEnumerable<IGqlpOutputField> group)
+  protected override IGqlpOutputField MergeGroup(IEnumerable<IGqlpOutputField> group)
     => (OutputFieldAst)base.MergeGroup(group) with {
       Params = group.ManyMerge(item => item.Params, parameters).ArrayOf<InputParamAst>(),
     };

@@ -13,7 +13,7 @@ public class ResultOkTests : BaseResultTests
   {
     IResultArray<string> result = _ok.AsResultArray(SampleArray);
 
-    result.Should().BeOfType<ResultArrayEmpty<string>>();
+    result.ShouldBeOfType<ResultArrayEmpty<string>>();
   }
 
   [Fact]
@@ -21,8 +21,8 @@ public class ResultOkTests : BaseResultTests
   {
     IResultArray<string> result = _okArray.AsResultArray(SampleArray);
 
-    result.Should().BeOfType<ResultArrayOk<string>>();
-    result.Optional().Should().Equal(Ok);
+    result.ShouldBeOfType<ResultArrayOk<string>>();
+    result.Optional().ShouldBe([Ok]);
   }
 
   [Fact]
@@ -30,8 +30,8 @@ public class ResultOkTests : BaseResultTests
   {
     IResult<int> result = _ok.Select(s => s.Length);
 
-    result.Should().BeOfType<ResultOk<int>>()
-      .Subject.Optional().Should().Be(2);
+    result.ShouldBeOfType<ResultOk<int>>()
+      .Optional().ShouldBe(2);
   }
 
   [Fact]
@@ -39,7 +39,7 @@ public class ResultOkTests : BaseResultTests
   {
     IResult<Tokenizer> result = _ok.Select(s => (Tokenizer?)null);
 
-    result.Should().BeOfType<ResultEmpty<Tokenizer>>();
+    result.ShouldBeOfType<ResultEmpty<Tokenizer>>();
   }
 
   [Fact]
@@ -47,8 +47,8 @@ public class ResultOkTests : BaseResultTests
   {
     IResult<int> result = _ok.SelectOk(s => s.Length);
 
-    result.Should().BeOfType<ResultOk<int>>()
-      .Subject.Optional().Should().Be(2);
+    result.ShouldBeOfType<ResultOk<int>>()
+      .Optional().ShouldBe(2);
   }
 
   [Fact]
@@ -56,6 +56,6 @@ public class ResultOkTests : BaseResultTests
   {
     IResult<Tokenizer> result = _ok.SelectOk(s => (Tokenizer?)null);
 
-    result.Should().BeOfType<ResultEmpty<Tokenizer>>();
+    result.ShouldBeOfType<ResultEmpty<Tokenizer>>();
   }
 }

@@ -43,9 +43,9 @@ public class SampleChecks
           => error.Message.Contains(e, StringComparison.InvariantCulture))
       ).Select(error => error.Message)];
 
-    using AssertionScope scope = new();
-    missing.Should().BeNullOrEmpty("Missing errors");
-    extra.Should().BeNullOrEmpty("Extra errors");
+    // using AssertionScope scope = new();
+    missing.ShouldBeEmpty("Missing errors");
+    extra.ShouldBeEmpty("Extra errors");
   }
 
   protected VerifySettings CustomSettings(string category, string group, string file)
@@ -55,11 +55,7 @@ public class SampleChecks
     settings.UseDirectory($"{category}{group}Tests");
     settings.UseFileName(file);
 
-    if (!string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("GQLPLUS_AUTOVERIFY"))) {
-      settings.AutoVerify();
-    }
-
-    return settings;
+    return settings.CheckAutoVerify();
   }
 
   protected static async Task<string> ReadFile(string file, string extn, params string[] dirs)

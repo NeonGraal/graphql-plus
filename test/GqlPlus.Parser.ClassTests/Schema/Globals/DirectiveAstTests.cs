@@ -22,7 +22,7 @@ public class DirectiveAstTests : AstAliasedTests
     => _checks.Equality(
       () => new DirectiveDeclAst(AstNulls.At, name) { Option = option });
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality_BetweenOptions(string name, DirectiveOption option1, DirectiveOption option2)
     => _checks.InequalityBetween(option1, option2,
       option => new DirectiveDeclAst(AstNulls.At, name) { Option = option },
@@ -44,7 +44,7 @@ public class DirectiveAstTests : AstAliasedTests
     => _checks.Equality(
       () => new DirectiveDeclAst(AstNulls.At, name) { Params = parameters.Params() });
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality_BetweenParams(string name, string[] parameters1, string[] parameters2)
     => _checks.InequalityBetween(parameters1, parameters2,
       parameters => new DirectiveDeclAst(AstNulls.At, name) { Params = parameters.Params() },
@@ -66,7 +66,7 @@ public class DirectiveAstTests : AstAliasedTests
     => _checks.Equality(
       () => new DirectiveDeclAst(AstNulls.At, name) { Locations = location });
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality_BetweenLocations(string name, DirectiveLocation location1, DirectiveLocation location2)
     => _checks.InequalityBetween(location1, location2,
       location => new DirectiveDeclAst(AstNulls.At, name) { Locations = location },

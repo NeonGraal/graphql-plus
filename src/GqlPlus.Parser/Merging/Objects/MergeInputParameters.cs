@@ -22,7 +22,7 @@ internal class MergeInputParams(
       .Add(group.CanMergeString(item => item.Type.Description))
       .Add(group.CanMerge(item => item.DefaultValue, constant));
 
-  protected override InputParamAst MergeGroup(IEnumerable<IGqlpInputParam> group)
+  protected override IGqlpInputParam MergeGroup(IEnumerable<IGqlpInputParam> group)
   {
     InputParamAst first = (InputParamAst)group.First();
     if (first.Type is IAstSetDescription descrType) {

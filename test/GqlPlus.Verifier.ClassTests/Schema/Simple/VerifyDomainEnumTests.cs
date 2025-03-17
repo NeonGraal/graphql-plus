@@ -38,10 +38,10 @@ public class VerifyDomainEnumTests
 
     verifier.Verify(domain, context);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
     Members.NotCalled();
-    Errors.Should().BeNullOrEmpty();
+    Errors.ShouldBeEmpty();
   }
 
   internal override AstDomainVerifier<IGqlpDomainMember> NewDomainVerifier()

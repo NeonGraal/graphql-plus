@@ -36,7 +36,7 @@ public sealed class ParseDomainNumberTests(
       name + $"{{number <{max}}}",
       NewDomain(name, [NewRange(null, max)]));
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [Theory, RepeatData(Repeats)]
   public void WithRangeBounds_ReturnsCorrectAst(string name, decimal min, decimal max)
     => checks
       .SkipIf(max <= min)
@@ -44,7 +44,7 @@ public sealed class ParseDomainNumberTests(
         name + $"{{number {min}~{max}}}",
         NewDomain(name, [NewRange(min, max)]));
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [Theory, RepeatData(Repeats)]
   public void WithRangeBoundsBad_ReturnsCorrectAst(string name, decimal min, decimal max)
     => checks
       .SkipIf(max > min)

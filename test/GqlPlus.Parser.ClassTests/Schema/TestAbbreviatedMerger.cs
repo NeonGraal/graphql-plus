@@ -29,7 +29,7 @@ public abstract class TestAbbreviatedMerger<TAst, TInput>
   {
     IEnumerable<TAst> result = MergerBase.Merge(null!);
 
-    result.Should().BeEmpty();
+    result.ShouldBeEmpty();
   }
 
   [Fact]
@@ -37,7 +37,7 @@ public abstract class TestAbbreviatedMerger<TAst, TInput>
   {
     IEnumerable<TAst> result = MergerBase.Merge([]);
 
-    result.Should().BeEmpty();
+    result.ShouldBeEmpty();
   }
 
   [Theory, RepeatData]
@@ -56,24 +56,24 @@ public abstract class TestAbbreviatedMerger<TAst, TInput>
   {
     ITokenMessages result = MergerBase.CanMerge(asts);
 
-    result.Should().NotBeEmpty();
+    result.ShouldNotBeEmpty();
   }
 
   protected void CanMerge_Good(params TAst[] asts)
   {
     ITokenMessages result = MergerBase.CanMerge(asts);
 
-    result.Should().BeEmpty();
+    result.ShouldBeEmpty();
   }
 
   protected object Merge_Expected(TAst[] asts, params TAst[] expected)
   {
     IEnumerable<TAst> result = MergerBase.Merge(asts);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    result.Should().BeAssignableTo<IEnumerable<TAst>>();
-    result.Should().BeEquivalentTo(expected, o => o.AllowingInfiniteRecursion());
+    result.ShouldBeAssignableTo<IEnumerable<TAst>>();
+    result.ShouldBe(expected, ignoreOrder: true);
 
     return this;
   }

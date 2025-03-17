@@ -37,9 +37,9 @@ public sealed class OpenTelemetryFixture : IDisposable, IAsyncLifetime
     GC.SuppressFinalize(this);
   }
 
-  public Task InitializeAsync() => Task.CompletedTask;
+  public ValueTask InitializeAsync() => ValueTask.CompletedTask;
 
-  public Task DisposeAsync()
+  public ValueTask DisposeAsync()
   {
     string dir = Environment.CurrentDirectory;
     string? outDir = dir;
@@ -61,6 +61,6 @@ public sealed class OpenTelemetryFixture : IDisposable, IAsyncLifetime
     using StreamWriter writer = File.CreateText(outDir + "/activities.yml");
     serializer.Serialize(writer, _activities);
 
-    return Task.CompletedTask;
+    return ValueTask.CompletedTask;
   }
 }

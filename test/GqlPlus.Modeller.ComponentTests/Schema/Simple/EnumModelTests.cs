@@ -23,7 +23,7 @@ public class EnumModelTests(
       new EnumDeclAst(AstNulls.At, name, []) { Parent = parent, },
       new(name, parent, allMembers: checks.ExpectedAllMembers("allItems:", parentMembers, parent)));
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [Theory, RepeatData(Repeats)]
   public void Model_MembersGrandParent(string name, string parent, string[] parentMembers, string grandParent, string[] grandParentMembers)
     => checks
     .SkipEqual(parent, grandParent)

@@ -24,11 +24,11 @@ public class ParseSchemaTests(
 
     IGqlpSchema result = _parser.Parse(tokens, "Schema").Required();
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    result.Should().BeOfType<SchemaAst>();
-    result.ThrowIfNull().Result.Should().Be(ParseResultKind.Success);
-    result.Errors.Should().BeEmpty();
+    result.ShouldBeOfType<SchemaAst>();
+    result.ThrowIfNull().Result.ShouldBe(ParseResultKind.Success);
+    result.Errors.ShouldBeEmpty();
   }
 
   [Theory]
@@ -39,10 +39,10 @@ public class ParseSchemaTests(
 
     IResult<IGqlpSchema> result = _parser.Parse(tokens, "Schema");
     result.Optional(ast => {
-      using AssertionScope scope = new();
+      // using AssertionScope scope = new();
 
-      ast.Should().BeNull();
-      result.IsError(err => err.Message.Should().NotBeNullOrWhiteSpace());
+      ast.ShouldBeNull();
+      result.IsError(err => err.Message.ShouldNotBeNullOrWhiteSpace());
     });
   }
 
@@ -55,10 +55,10 @@ public class ParseSchemaTests(
 
     IGqlpSchema? ast = _parser.Parse(tokens, "Schema").Optional();
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    ast.Should().BeOfType<SchemaAst>()
-      .Subject.Result.Should().Be(ParseResultKind.Failure);
-    ast.ThrowIfNull().Errors.Should().NotBeEmpty();
+    ast.ShouldBeOfType<SchemaAst>()
+      .Result.ShouldBe(ParseResultKind.Failure);
+    ast.ThrowIfNull().Errors.ShouldNotBeEmpty();
   }
 }

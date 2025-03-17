@@ -14,9 +14,9 @@ public class VerifyDirectiveInputTests
 
     verifier.Verify(UsageAliased, Errors);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
     Aliased.Called();
-    Errors.Should().BeNullOrEmpty();
+    Errors.ShouldBeEmpty();
   }
 }

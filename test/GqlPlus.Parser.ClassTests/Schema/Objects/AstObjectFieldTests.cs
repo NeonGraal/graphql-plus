@@ -79,7 +79,7 @@ internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst, TOb
     TObjField field = _createField(input, _createBase(input) with { BaseArgs = _createArgs(arguments) });
     string expected = $"{input.Type} < {arguments.Joined()} >";
 
-    field.ModifiedType.Should().Be(expected);
+    field.ModifiedType.ShouldBe(expected);
   }
 
   public void ModifiedType_WithModifiers(FieldInput input)
@@ -87,7 +87,7 @@ internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst, TOb
     TObjField field = CreateModifiers(input);
     string expected = $"{input.Type} [] ?";
 
-    field.ModifiedType.Should().Be(expected);
+    field.ModifiedType.ShouldBe(expected);
   }
 
   public void ModifiedType_WithModifiersAndArgs(FieldInput input, string[] arguments)
@@ -98,7 +98,7 @@ internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst, TOb
       ) with { Modifiers = TestMods() };
     string expected = $"{input.Type} < {arguments.Joined()} > [] ?";
 
-    field.ModifiedType.Should().Be(expected);
+    field.ModifiedType.ShouldBe(expected);
   }
 
   private TObjField CreateModifiers(FieldInput input)

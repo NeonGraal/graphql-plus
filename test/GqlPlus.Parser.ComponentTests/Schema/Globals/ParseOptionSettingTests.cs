@@ -26,7 +26,7 @@ public class ParseOptionSettingTests(
     => checks.FalseExpected(name + '=', CheckNull);
 
   private void CheckNull(IGqlpSchemaSetting? ast)
-    => ast.Should().BeNull();
+    => ast.ShouldBeNull();
 
   private static OptionSettingAst Setting(string name, string value)
     => new(AstNulls.At, name, new(new FieldKeyAst(AstNulls.At, value)));

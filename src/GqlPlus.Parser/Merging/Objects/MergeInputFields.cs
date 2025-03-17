@@ -13,7 +13,7 @@ internal class MergeInputFields(
     => base.CanMergeGroup(group)
       .Add(group.CanMerge(item => item.DefaultValue, constant));
 
-  protected override InputFieldAst MergeGroup(IEnumerable<IGqlpInputField> group)
+  protected override IGqlpInputField MergeGroup(IEnumerable<IGqlpInputField> group)
     => (InputFieldAst)base.MergeGroup(group) with {
       DefaultValue = (ConstantAst?)group.Merge(item => item.DefaultValue, constant).FirstOrDefault()
     };

@@ -22,10 +22,10 @@ public class VerifyOperationTests
 
     verifier.Verify(item, Errors);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
     usages.ReceivedWithAnyArgs().Verify(Arg.Any<UsageNamed<IGqlpArg, IGqlpVariable>>(), Errors);
     spreads.ReceivedWithAnyArgs().Verify(Arg.Any<UsageNamed<IGqlpSpread, IGqlpFragment>>(), Errors);
-    Errors.Select(e => e.Message).Should().BeEquivalentTo(["error", "item"]);
+    Errors.Select(e => e.Message).ShouldBe(["error", "item"]);
   }
 }

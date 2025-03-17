@@ -3,7 +3,6 @@ using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Merging;
 using GqlPlus.Merging.Objects;
-using Xunit.Abstractions;
 
 namespace GqlPlus.Schema.Objects;
 
@@ -57,8 +56,8 @@ public class MergeInputFieldsTests
     => new InputFieldAst(AstNulls.At, name, new InputBaseAst(AstNulls.At, name)) {
       Modifiers = TestMods()
     };
-  protected override IGqlpInputField MakeAliased(string input, string[] aliases, string description = "")
-    => new InputFieldAst(AstNulls.At, input, description, new InputBaseAst(AstNulls.At, input, description)) {
+  protected override IGqlpInputField MakeAliased(string name, string[] aliases, string description = "")
+    => new InputFieldAst(AstNulls.At, name, description, new InputBaseAst(AstNulls.At, name, description)) {
       Aliases = aliases
     };
 }

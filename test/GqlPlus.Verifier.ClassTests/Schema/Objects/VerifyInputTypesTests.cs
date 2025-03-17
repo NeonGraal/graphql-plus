@@ -16,11 +16,11 @@ public class VerifyInputTypesTests
 
     verifier.Verify(UsageAliased, Errors);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
     Aliased.Called();
     fields.NotCalled();
     mergeAlternates.NotCalled();
-    Errors.Should().BeNullOrEmpty();
+    Errors.ShouldBeEmpty();
   }
 }

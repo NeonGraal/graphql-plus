@@ -3,14 +3,13 @@ using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Merging;
 using GqlPlus.Merging.Objects;
-using Xunit.Abstractions;
 
 namespace GqlPlus.Schema.Objects;
 
 public class MergeOutputFieldsTests
   : TestObjectFields<IGqlpOutputField, IGqlpOutputBase>
 {
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsParamsCantMerge_ReturnsErrors(string name, string type, string[] parameters)
     => this
       .SkipUnless(parameters)
@@ -37,7 +36,7 @@ public class MergeOutputFieldsTests
       MakeFieldEnum(name, type, value, description),
       MakeFieldEnum(name, type, value, description));
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsEnumDiffDescription_ReturnsErrors(string name, string type, string description1, string description2, string value)
     => this
       .SkipEqual(description1, description2)
@@ -45,7 +44,7 @@ public class MergeOutputFieldsTests
         MakeFieldEnum(name, type, value, description1),
         MakeFieldEnum(name, type, value, description2));
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentEnums_ReturnsErrors(string name, string type, string value1, string value2)
     => this
       .SkipEqual(value1, value2)
@@ -95,7 +94,7 @@ public class MergeOutputFieldsTests
       MakeFieldEnum(name, type, value) with { Aliases = [alias] }],
       MakeFieldEnum(name, type, value) with { Aliases = [alias] });
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Merge_TwoAstsEnumTwoAlias_ReturnsExpected(string name, string type, string alias1, string alias2, string value)
     => this
       .SkipEqual(alias1, alias2)
@@ -127,8 +126,8 @@ public class MergeOutputFieldsTests
     => new OutputFieldAst(AstNulls.At, name, new OutputBaseAst(AstNulls.At, name)) {
       Modifiers = TestMods()
     };
-  protected override IGqlpOutputField MakeAliased(string input, string[] aliases, string description = "")
-    => new OutputFieldAst(AstNulls.At, input, description, new OutputBaseAst(AstNulls.At, input, description)) {
+  protected override IGqlpOutputField MakeAliased(string name, string[] aliases, string description = "")
+    => new OutputFieldAst(AstNulls.At, name, description, new OutputBaseAst(AstNulls.At, name, description)) {
       Aliases = aliases
     };
 }

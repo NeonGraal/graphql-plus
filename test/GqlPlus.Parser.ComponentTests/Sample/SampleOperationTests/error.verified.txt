@@ -1,7 +1,0 @@
-﻿!g P@001/0001
-query
-Failure
-<
-  !!! END : Invalid Operation. Expected at least one field or selection. - '<END>' !!!
-  !!! END : Invalid Operation. Expected Object or Type. - '<END>' !!!
->

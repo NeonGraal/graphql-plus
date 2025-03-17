@@ -2,7 +2,6 @@
 using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Merging.Objects;
-using Xunit.Abstractions;
 
 namespace GqlPlus.Schema.Objects;
 

@@ -152,7 +152,8 @@ internal abstract class CheckObjectModel<TObject, TObjectAst, TObjField, TObjFie
 
   private ToExpected<TInput> ExpectedObject<TInput>(string name, ToExpected<TInput> expectedField)
     => f => {
-      string[] field = expectedField(f).ToArray();
+      string[] value = [.. expectedField(f)];
+      string[] field = value;
 
       string first = "- !_ObjectFor(" + field[0][3..] + ")";
       int typeAt = field.Length - Array.FindIndex(field, f => f.StartsWith("  type:", StringComparison.InvariantCulture));

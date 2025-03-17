@@ -1,0 +1,15 @@
+﻿!g P@001/0001
+query
+Success
+[
+  !v I@003/0001
+  var
+  :Id
+  ?
+  =( !k I@011/0001 Null.null )
+]
+Boolean
+(
+  !a I@026/0001
+  $var
+)

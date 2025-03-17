@@ -15,10 +15,10 @@ public class VerifyUnionTypesTests
 
     verifier.Verify(UsageAliased, Errors);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
     Aliased.Called();
     mergeMembers.NotCalled();
-    Errors.Should().BeNullOrEmpty();
+    Errors.ShouldBeEmpty();
   }
 }

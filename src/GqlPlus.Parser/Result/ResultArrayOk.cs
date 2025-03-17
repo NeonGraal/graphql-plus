@@ -31,8 +31,10 @@ public readonly struct ResultArrayOk<TValue>(
 
   public IResult<TResult> Map<TResult>(SelectResult<IEnumerable<TValue>, TResult> onValue, OnResult<TResult>? otherwise = null)
   {
-    ArgumentNullException.ThrowIfNull(onValue);
+    onValue.ThrowIfNull();
 
+#pragma warning disable CA1062 // Validate arguments of public methods
     return onValue(Result);
+#pragma warning restore CA1062 // Validate arguments of public methods
   }
 }

@@ -4,7 +4,6 @@ using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Merging;
 using GqlPlus.Merging.Simple;
-using Xunit.Abstractions;
 
 namespace GqlPlus.Schema.Simple;
 
@@ -15,7 +14,7 @@ public class MergeUnionsTests(
   [Theory, RepeatData]
   public void Merge_TwoAstsValues_ReturnsExpected(string name, string[] members1, string[] members2)
   {
-    string[] combined = members1.Concat(members2).Distinct().ToArray();
+    string[] combined = [.. members1.Concat(members2).Distinct()];
 
     Merge_Expected([
       new UnionDeclAst(AstNulls.At, name, members1.UnionMembers()),

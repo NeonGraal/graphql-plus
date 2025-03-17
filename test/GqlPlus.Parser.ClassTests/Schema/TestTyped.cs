@@ -16,7 +16,7 @@ public abstract class TestTyped<TBase, TType, TParent, TItem>
       MakeTyped(name, parent: MakeParent(type)),
       MakeTyped(name, parent: MakeParent(type)));
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentParents_ReturnsErrors(string name, string type1, string type2)
     => this
       .SkipEqual(type1, type2)
@@ -29,6 +29,6 @@ public abstract class TestTyped<TBase, TType, TParent, TItem>
 
   protected abstract TType MakeTyped(string name, string[]? aliases = null, string description = "", TParent? parent = default);
   protected abstract TParent MakeParent(string parent);
-  protected override TType MakeAliased(string input, string[]? aliases = null, string description = "")
-    => MakeTyped(input, aliases, description);
+  protected override TType MakeAliased(string name, string[]? aliases = null, string description = "")
+    => MakeTyped(name, aliases, description);
 }

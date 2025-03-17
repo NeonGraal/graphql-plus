@@ -12,7 +12,7 @@ public abstract class TestAliasedModel<TInput, TRender>(
   [Theory, RepeatData(Repeats)]
   public void Model_Aliases(TInput input, string[] aliases)
   {
-    Skip.If(SkipIf(input));
+    Assert.SkipWhen(SkipIf(input), SkipReason);
 
     aliasedChecks.Model_Expected(
         aliasedChecks.ToModel(aliasedChecks.AliasedAst(input, aliases)),

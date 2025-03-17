@@ -7,7 +7,7 @@ public class StructureValueTests
   {
     StructureValue value = new(identifier);
 
-    value.IsEmpty.Should().BeFalse();
+    value.IsEmpty.ShouldBeFalse();
   }
 
   [Theory, RepeatData]
@@ -15,7 +15,7 @@ public class StructureValueTests
   {
     StructureValue value = StructureValue.Str(text);
 
-    value.IsEmpty.Should().BeFalse();
+    value.IsEmpty.ShouldBeFalse();
   }
 
   [Theory, RepeatData]
@@ -23,7 +23,7 @@ public class StructureValueTests
   {
     StructureValue value = new(check);
 
-    value.IsEmpty.Should().BeFalse();
+    value.IsEmpty.ShouldBeFalse();
   }
 
   [Theory, RepeatData]
@@ -31,7 +31,7 @@ public class StructureValueTests
   {
     StructureValue value = new(number);
 
-    value.IsEmpty.Should().BeFalse();
+    value.IsEmpty.ShouldBeFalse();
   }
 
   [Fact]
@@ -41,7 +41,7 @@ public class StructureValueTests
 
     StructureValue value = new(identifier);
 
-    value.IsEmpty.Should().BeTrue();
+    value.IsEmpty.ShouldBeTrue();
   }
 
   [Fact]
@@ -51,7 +51,7 @@ public class StructureValueTests
 
     StructureValue value = StructureValue.Str(text);
 
-    value.IsEmpty.Should().BeTrue();
+    value.IsEmpty.ShouldBeTrue();
   }
 
   [Fact]
@@ -61,7 +61,7 @@ public class StructureValueTests
 
     StructureValue value = new(check);
 
-    value.IsEmpty.Should().BeTrue();
+    value.IsEmpty.ShouldBeTrue();
   }
 
   [Fact]
@@ -71,7 +71,7 @@ public class StructureValueTests
 
     StructureValue value = new(number);
 
-    value.IsEmpty.Should().BeTrue();
+    value.IsEmpty.ShouldBeTrue();
   }
 
   [Fact]
@@ -82,7 +82,7 @@ public class StructureValueTests
 
     int result = value1.CompareTo(value2);
 
-    result.Should().Be(-1);
+    result.ShouldBe(-1);
   }
 
   [Fact]
@@ -92,7 +92,7 @@ public class StructureValueTests
 
     int result = value.CompareTo(null);
 
-    result.Should().Be(-1);
+    result.ShouldBe(-1);
   }
 
   [Theory, RepeatData]
@@ -103,7 +103,7 @@ public class StructureValueTests
 
     int result = value1.CompareTo(value2);
 
-    result.Should().Be(string.Compare(identifier1, identifier2, StringComparison.Ordinal));
+    result.ShouldBe(string.Compare(identifier1, identifier2, StringComparison.Ordinal));
   }
 
   [Theory, RepeatData]
@@ -114,7 +114,7 @@ public class StructureValueTests
 
     int result = value1.CompareTo(value2);
 
-    result.Should().Be(string.Compare(text1, text2, StringComparison.Ordinal));
+    result.ShouldBe(string.Compare(text1, text2, StringComparison.Ordinal));
   }
 
   [Theory, RepeatData]
@@ -125,7 +125,7 @@ public class StructureValueTests
 
     int result = value1.CompareTo(value2);
 
-    result.Should().Be(tag1 == tag2 ? 0 : -1);
+    result.ShouldBe(tag1 == tag2 ? 0 : -1);
   }
 
   [Theory, RepeatData]
@@ -136,7 +136,7 @@ public class StructureValueTests
 
     int result = value1.CompareTo(value2);
 
-    result.Should().Be(check1 ? check2 ? 0 : 1 : check2 ? -1 : 0);
+    result.ShouldBe(check1 ? check2 ? 0 : 1 : check2 ? -1 : 0);
   }
 
   [Theory, RepeatData]
@@ -147,7 +147,7 @@ public class StructureValueTests
 
     int result = value1.CompareTo(value2);
 
-    result.Should().Be(decimal.Compare(number1, number2));
+    result.ShouldBe(decimal.Compare(number1, number2));
   }
 
   [Fact]
@@ -155,7 +155,7 @@ public class StructureValueTests
   {
     StructureValue value = new((string?)null);
 
-    value.AsString.Should().Be("");
+    value.AsString.ShouldBe("");
   }
 
   [Theory, RepeatData]
@@ -163,7 +163,7 @@ public class StructureValueTests
   {
     StructureValue value = new(identifier);
 
-    value.AsString.Should().Be(identifier);
+    value.AsString.ShouldBe(identifier);
   }
 
   [Theory, RepeatData]
@@ -171,7 +171,7 @@ public class StructureValueTests
   {
     StructureValue value = StructureValue.Str(text);
 
-    value.AsString.Should().Be(text);
+    value.AsString.ShouldBe(text);
   }
 
   [Theory, RepeatData]
@@ -179,7 +179,7 @@ public class StructureValueTests
   {
     StructureValue value = new(check);
 
-    value.AsString.Should().Be(check.TrueFalse());
+    value.AsString.ShouldBe(check.TrueFalse());
   }
 
   [Theory, RepeatData]
@@ -187,6 +187,6 @@ public class StructureValueTests
   {
     StructureValue value = new(number);
 
-    value.AsString.Should().Be($"{number}");
+    value.AsString.ShouldBe($"{number}");
   }
 }

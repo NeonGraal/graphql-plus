@@ -20,7 +20,7 @@ internal abstract class ObjectAlternatesParser<TObjAlt, TObjAltAst, TObjBase>(
   public IResultArray<TObjAlt> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    ArgumentNullException.ThrowIfNull(tokens);
+    tokens.ThrowIfNull();
 
     List<TObjAlt> result = [];
     while (tokens.Take('|')) {

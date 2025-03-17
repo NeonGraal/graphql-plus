@@ -19,7 +19,7 @@ public abstract class TestDomainAsts<TItem, TItemInput>
 
     ITokenMessages result = Merger.CanMerge(items);
 
-    result.Should().BeEmpty();
+    result.ShouldBeEmpty();
   }
 
   [Theory, RepeatData]
@@ -32,7 +32,7 @@ public abstract class TestDomainAsts<TItem, TItemInput>
 
     ITokenMessages result = Merger.CanMerge(items);
 
-    result.Should().NotBeEmpty();
+    result.ShouldNotBeEmpty();
   }
 
   [Theory, RepeatData]
@@ -46,7 +46,7 @@ public abstract class TestDomainAsts<TItem, TItemInput>
 
     ITokenMessages result = Merger.CanMerge(items);
 
-    result.Should().NotBeEmpty();
+    result.ShouldNotBeEmpty();
   }
 
   internal readonly IMerge<TItem> MergeItems;

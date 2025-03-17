@@ -39,7 +39,7 @@ public class VariableAstTests : AstDirectivesTests
   public void Equality_WithType(string name, string varType)
     => _checks.Equality(() => new VariableAst(AstNulls.At, name) { Type = varType });
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality_BetweenType(string name, string varType1, string varType2)
     => _checks.InequalityBetween(varType1, varType2,
       varType => new VariableAst(AstNulls.At, name) { Type = varType },
@@ -62,7 +62,7 @@ public class VariableAstTests : AstDirectivesTests
   public void Equality_WithDefault(string name, string value)
     => _checks.Equality(() => new VariableAst(AstNulls.At, name) { DefaultValue = new(new FieldKeyAst(AstNulls.At, value)) });
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Inequality_BetweenDefault(string name, string value1, string value2)
     => _checks.InequalityBetween(value1, value2,
       value => new VariableAst(AstNulls.At, name) { DefaultValue = new(new FieldKeyAst(AstNulls.At, value)) },

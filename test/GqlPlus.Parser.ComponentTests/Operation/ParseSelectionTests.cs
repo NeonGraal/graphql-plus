@@ -38,7 +38,7 @@ public class ParseSelectionTests(
         Directives = directives.Directives(),
       });
 
-  [SkippableTheory, RepeatInlineData(Repeats, "..."), RepeatInlineData(Repeats, "|")]
+  [Theory, RepeatInlineData(Repeats, "..."), RepeatInlineData(Repeats, "|")]
   public void WithSpread_ReturnsCorrectAst(string prefix, string fragment)
     => checks
       .SkipNull(fragment)
@@ -47,7 +47,7 @@ public class ParseSelectionTests(
         prefix + fragment,
         new SpreadAst(AstNulls.At, fragment));
 
-  [SkippableTheory, RepeatData(Repeats)]
+  [Theory, RepeatData(Repeats)]
   public void WithSpreadDirective_ReturnsCorrectAst(string fragment, string[] directives)
     => checks
       .SkipNull(fragment)
@@ -65,5 +65,5 @@ public class ParseSelectionTests(
     => checks.FalseExpected("|:?", CheckNull);
 
   private void CheckNull(IGqlpSelection? result)
-    => result.Should().BeNull();
+    => result.ShouldBeNull();
 }

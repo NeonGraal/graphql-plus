@@ -61,7 +61,7 @@ internal class OutputFieldModeller(
         Params = parameter.ToModels(field.Params, typeKinds),
       }
       : new(field.Name, null) { // or should it be `type`
-        Enum = new(field.Name, field.BaseType.TypeName, field.BaseType.EnumMember)
+        Enum = new(field.Name, field.BaseType.TypeName, field.BaseType.EnumMember!)
       };
 }
 

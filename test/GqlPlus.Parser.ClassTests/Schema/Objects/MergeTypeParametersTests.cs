@@ -12,19 +12,19 @@ public class MergeTypeParamsTests
   [Theory, RepeatData]
   public void Merge_ManyItems_ReturnsItem(string name)
   {
-    IGqlpTypeParam[] items = Enumerable.Range(1, 5).Select(i => MakeAst(name)).ToArray();
+    IGqlpTypeParam[] items = [.. Enumerable.Range(1, 5).Select(i => MakeAst(name))];
 
     IEnumerable<IGqlpTypeParam> result = MergerGroups.Merge(items);
 
-    using AssertionScope scope = new();
+    // using AssertionScope scope = new();
 
-    result.Should().BeAssignableTo<IEnumerable<IGqlpTypeParam>>();
+    result.ShouldBeAssignableTo<IEnumerable<IGqlpTypeParam>>();
   }
 
   private readonly MergeTypeParams _merger = new();
 
   internal override GroupsMerger<IGqlpTypeParam> MergerGroups => _merger;
 
-  protected override IGqlpTypeParam MakeDescribed(string input, string description = "")
-    => new TypeParamAst(AstNulls.At, input, description);
+  protected override IGqlpTypeParam MakeDescribed(string name, string description = "")
+    => new TypeParamAst(AstNulls.At, name, description);
 }

@@ -12,8 +12,8 @@ internal class MergeEnums(
   protected override string ItemMatchKey(IGqlpEnum item)
     => item.Parent ?? "";
 
-  internal override IEnumerable<EnumMemberAst> GetItems(IGqlpEnum type)
-    => type.Items.ArrayOf<EnumMemberAst>();
+  internal override IEnumerable<IGqlpEnumItem> GetItems(IGqlpEnum type)
+    => type.Items.ArrayOf<IGqlpEnumItem>();
 
   internal override IGqlpEnum SetItems(IGqlpEnum input, IEnumerable<IGqlpEnumItem> items)
   {

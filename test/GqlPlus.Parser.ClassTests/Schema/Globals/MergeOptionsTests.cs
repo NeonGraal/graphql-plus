@@ -4,14 +4,13 @@ using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Merging;
 using GqlPlus.Merging.Globals;
-using Xunit.Abstractions;
 
 namespace GqlPlus.Schema.Globals;
 
 public class MergeOptionsTests
   : TestAliased<IGqlpSchemaOption>
 {
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void CanMerge_TwoAstsSettingsCantMerge_ReturnsErrors(string name, string[] settings)
     => this
       .SkipUnless(settings)
@@ -20,7 +19,7 @@ public class MergeOptionsTests
         new OptionDeclAst(AstNulls.At, name) with { Settings = settings.OptionSettings() },
         new OptionDeclAst(AstNulls.At, name));
 
-  [SkippableTheory, RepeatData]
+  [Theory, RepeatData]
   public void Merge_TwoAstsWithSettings_CallsSettingsMerge(string name, string[] settings1, string[] settings2)
     => this
     .SkipNull(settings1)
@@ -45,6 +44,6 @@ public class MergeOptionsTests
 
   internal override GroupsMerger<IGqlpSchemaOption> MergerGroups => _merger;
 
-  protected override IGqlpSchemaOption MakeAliased(string input, string[]? aliases = null, string description = "")
-    => new OptionDeclAst(AstNulls.At, input, description) { Aliases = aliases ?? [] };
+  protected override IGqlpSchemaOption MakeAliased(string name, string[]? aliases = null, string description = "")
+    => new OptionDeclAst(AstNulls.At, name, description) { Aliases = aliases ?? [] };
 }

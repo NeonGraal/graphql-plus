@@ -7,7 +7,7 @@ using GqlPlus.Result;
 
 namespace GqlPlus.Sample;
 
-public class HtmlTests(
+public class SchemaHtmlTests(
     Parser<IGqlpSchema>.D schemaParser,
     IMerge<IGqlpSchema> schemaMerger,
     IModelAndRender schemaRenderer
@@ -35,12 +35,12 @@ public class HtmlTests(
 
   [Fact]
   public async Task Html_All()
-    => Verify_Model(await SchemaValidAll(), "!ALL");
+    => Verify_Model(await SchemaValidDataAll(), "!ALL");
 
   [Theory]
   [ClassData(typeof(SchemaValidData))]
   public async Task Html_Groups(string group)
-    => Verify_Model(await SchemaValidGroup(group), "!" + group);
+    => Verify_Model(await SchemaValidDataGroup(group), "!" + group);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaMergesData))]

@@ -1,39 +1,15 @@
 ﻿using GqlPlus.Abstractions.Operation;
-using GqlPlus.Abstractions.Schema;
 using GqlPlus.Parsing;
 using GqlPlus.Parsing.Operation;
 using GqlPlus.Result;
 
 namespace GqlPlus.Sample;
 
-public class ParserTests(
-    Parser<IGqlpOperation>.D operationParser,
-    Parser<IGqlpSchema>.D schemaParser
-) : SampleSchemaChecks(schemaParser)
+public class OperationParserTests(
+    Parser<IGqlpOperation>.D operationParser
+) : SampleChecks
 {
   private readonly Parser<IGqlpOperation>.L _operation = operationParser;
-
-  [Theory]
-  [ClassData(typeof(SamplesSchemaData))]
-  public async Task ParseSchema(string sample)
-  {
-    IGqlpSchema ast = await ParseSample("Schema", sample);
-
-    await CheckErrors("Schema", "", sample, ast.Errors);
-
-    await Verify(ast.Show(), CustomSettings("Sample", "Schema", sample));
-  }
-
-  [Theory]
-  [ClassData(typeof(SamplesSchemaSpecificationData))]
-  public async Task ParseSpec(string sample)
-  {
-    IGqlpSchema ast = await ParseSample("Schema", sample, "Specification");
-
-    await CheckErrors("Schema", "Specification", sample, ast.Errors);
-
-    await Verify(ast.Show(), CustomSettings("Sample", "Specification", sample));
-  }
 
   [Theory]
   [ClassData(typeof(SamplesOperationData))]

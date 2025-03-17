@@ -2,43 +2,44 @@
 using GqlPlus.Convert;
 using GqlPlus.Merging;
 using GqlPlus.Parsing;
+using GqlPlus.Resolving;
 using GqlPlus.Result;
 
 namespace GqlPlus.Sample;
 
-public class JsonTests(
+public class SchemaYamlTests(
     Parser<IGqlpSchema>.D schemaParser,
     IMerge<IGqlpSchema> schemaMerger,
     IModelAndRender schemaRenderer
 ) : SchemaDataBase(schemaParser)
 {
   [Fact]
-  public async Task Json_All()
-    => await Verify_Model(await SchemaValidAll(), "!ALL");
+  public async Task Yaml_All()
+    => await Verify_Model(await SchemaValidDataAll(), "!ALL");
 
   [Theory]
   [ClassData(typeof(SchemaValidData))]
-  public async Task Json_Groups(string group)
-    => await Verify_Model(await SchemaValidGroup(group), "!" + group);
+  public async Task Yaml_Groups(string group)
+    => await Verify_Model(await SchemaValidDataGroup(group), "!" + group);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaMergesData))]
-  public async Task Json_Merges(string model)
+  public async Task Yaml_Merges(string model)
     => await ReplaceFileAsync("Merges", model, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaObjectsData))]
-  public async Task Json_Objects(string model)
+  public async Task Yaml_Objects(string model)
     => await ReplaceFileAsync("Objects", model, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaGlobalsData))]
-  public async Task Json_Globals(string global)
+  public async Task Yaml_Globals(string global)
     => await ReplaceFileAsync("Globals", global, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaSimpleData))]
-  public async Task Json_Simple(string simple)
+  public async Task Yaml_Simple(string simple)
     => await ReplaceFileAsync("Simple", simple, Verify_Model);
 
   private async Task Verify_Model(string input, string testDirectory, string test)
@@ -46,18 +47,22 @@ public class JsonTests(
 
   private async Task Verify_Model(IEnumerable<string> inputs, string test)
   {
-    IEnumerable<IGqlpSchema> asts = inputs.Select(input => Parse(input).Required());
+    IEnumerable<IGqlpSchema> asts = inputs
+    .Select(input => Parse(input).Required());
 
-    Structured result = ModelAsts(asts);
+    ITypesContext context = schemaRenderer.WithBuiltIns();
+    Structured result = ModelAsts(asts, context);
 
-    await Verify(result.ToJson(), "json", CustomSettings("Schema", "Json", test));
+    // using AssertionScope scope = new();
+    context.Errors.ShouldBeEmpty(test);
+    await Verify(result.ToYaml(true), CustomSettings("Schema", "Yaml", test));
   }
 
-  private Structured ModelAsts(IEnumerable<IGqlpSchema> asts)
+  private Structured ModelAsts(IEnumerable<IGqlpSchema> asts, ITypesContext context)
   {
     IGqlpSchema schema = schemaMerger.Merge(asts).First();
 
-    Structured result = schemaRenderer.RenderAst(schema, schemaRenderer.WithBuiltIns());
+    Structured result = schemaRenderer.RenderAst(schema, context);
 
     return result;
   }

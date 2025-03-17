@@ -26,8 +26,8 @@ public class SampleChecks
     }
 
     if (expected.Count == 0) {
-      if (includeVerify && errors?.Count > 0 && AttributeReader.TryGetProjectDirectory(out string? project)) {
-        await File.WriteAllLinesAsync($"{project}/{path}/{file}.verify+errors", errors.Select(e => e.Message).Distinct());
+      if (includeVerify) {
+        OrderedEmpty(errors.Select(e => e.Message), $"'{path}{file}.verify-errors' should contain");
       }
 
       return;
@@ -43,9 +43,15 @@ public class SampleChecks
           => error.Message.Contains(e, StringComparison.InvariantCulture))
       ).Select(error => error.Message)];
 
-    // using AssertionScope scope = new();
-    missing.ShouldBeEmpty("Missing errors");
-    extra.ShouldBeEmpty("Extra errors");
+    errors.ShouldSatisfyAllConditions(
+      () => OrderedEmpty(extra, $"Extra errors in '{path}{file}.verify-errors'"),
+      () => OrderedEmpty(missing, $"Missing errors in '{path}{file}.verify-errors'"));
+
+    static void OrderedEmpty(IEnumerable<string> messages, string message)
+    {
+      string empty = string.Join(Environment.NewLine, messages.Distinct().Order());
+      empty.ShouldBeEmpty(message);
+    }
   }
 
   protected VerifySettings CustomSettings(string category, string group, string file)

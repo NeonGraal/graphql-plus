@@ -10,8 +10,6 @@ public class SchemaAbstractionTests
   {
     IEnumerable<IGrouping<string, TestAliased>> groups = aliased.AliasedGroup();
 
-    // using AssertionScope scope = new();
-
     groups.Select(g => g.Key).ShouldBe(NamesAndAliases(aliased), ignoreOrder: true);
   }
 
@@ -19,8 +17,6 @@ public class SchemaAbstractionTests
   public void AliasedMap_CorrectlyMapped(TestAliased[] aliased)
   {
     IMap<IEnumerable<TestAliased>> map = aliased.AliasedMap(a => a);
-
-    // using AssertionScope scope = new();
 
     map.Keys.ShouldBe(NamesAndAliases(aliased), ignoreOrder: true);
   }

@@ -124,10 +124,9 @@ public class StructuredTests
 
   private static void CheckMap(Structured result, string key, Structured value)
   {
-    // using AssertionScope scope = new();
-
-    result.Map.Keys.ShouldBe([new StructureValue(key)]);
-    result.Map.Values.ShouldBe([value]);
+    result.Map.ShouldSatisfyAllConditions(
+      () => result.Map.Keys.ShouldBe([new StructureValue(key)]),
+      () => result.Map.Values.ShouldBe([value]));
   }
 
   [Theory, RepeatData]
@@ -137,11 +136,10 @@ public class StructuredTests
 
     value.AddBool(key, check);
 
-    // using AssertionScope scope = new();
-
     if (check) {
-      value.Map.Keys.ShouldBe([new StructureValue(key)]);
-      value.Map.Values.ShouldBe([new(check)]);
+      value.Map.ShouldSatisfyAllConditions(
+        () => value.Map.Keys.ShouldBe([new StructureValue(key)]),
+        () => value.Map.Values.ShouldBe([new(check)]));
     } else {
       value.IsEmpty.ShouldBeTrue();
     }
@@ -167,11 +165,13 @@ public class StructuredTests
     // using AssertionScope scope = new();
 
     if (check) {
-      result.Map.Keys.ShouldBe([new StructureValue(key)]);
-      result.Map.Values.ShouldBe([new(value)]);
+      result.Map.ShouldSatisfyAllConditions(
+        () => result.Map.Keys.ShouldBe([new StructureValue(key)]),
+        () => result.Map.Values.ShouldBe([new(value)]));
     } else {
-      result.Map.Keys.ShouldBe([new StructureValue(value)]);
-      result.Map.Values.ShouldBe([new(key)]);
+      result.Map.ShouldSatisfyAllConditions(
+        () => result.Map.Keys.ShouldBe([new StructureValue(value)]),
+        () => result.Map.Values.ShouldBe([new(key)]));
     }
   }
 

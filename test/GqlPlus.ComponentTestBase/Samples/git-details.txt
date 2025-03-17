@@ -1,1 +1,1 @@
-8ff0414  (HEAD -> operation, origin/operation) 2025-03-07 Fixup expected verify errors
+526d887  (HEAD -> operation) 2025-03-18 Correct Operation verify errors

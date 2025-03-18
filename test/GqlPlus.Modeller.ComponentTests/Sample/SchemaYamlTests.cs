@@ -53,7 +53,6 @@ public class SchemaYamlTests(
     ITypesContext context = schemaRenderer.WithBuiltIns();
     Structured result = ModelAsts(asts, context);
 
-    // using AssertionScope scope = new();
     context.Errors.ShouldBeEmpty(test);
     await Verify(result.ToYaml(true), CustomSettings("Schema", "Yaml", test));
   }

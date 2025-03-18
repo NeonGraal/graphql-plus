@@ -125,8 +125,8 @@ public class StructuredTests
   private static void CheckMap(Structured result, string key, Structured value)
   {
     result.Map.ShouldSatisfyAllConditions(
-      () => result.Map.Keys.ShouldBe([new StructureValue(key)]),
-      () => result.Map.Values.ShouldBe([value]));
+      m => m.Keys.ShouldBe([new StructureValue(key)]),
+      m => m.Values.ShouldBe([value]));
   }
 
   [Theory, RepeatData]
@@ -138,8 +138,8 @@ public class StructuredTests
 
     if (check) {
       value.Map.ShouldSatisfyAllConditions(
-        () => value.Map.Keys.ShouldBe([new StructureValue(key)]),
-        () => value.Map.Values.ShouldBe([new(check)]));
+        m => m.Keys.ShouldBe([new StructureValue(key)]),
+        m => m.Values.ShouldBe([new(check)]));
     } else {
       value.IsEmpty.ShouldBeTrue();
     }
@@ -162,16 +162,14 @@ public class StructuredTests
 
     result.AddIf(check, r => r.Add(key, value), r => r.Add(value, key));
 
-    // using AssertionScope scope = new();
-
     if (check) {
       result.Map.ShouldSatisfyAllConditions(
-        () => result.Map.Keys.ShouldBe([new StructureValue(key)]),
-        () => result.Map.Values.ShouldBe([new(value)]));
+        m => m.Keys.ShouldBe([new StructureValue(key)]),
+        m => m.Values.ShouldBe([new(value)]));
     } else {
       result.Map.ShouldSatisfyAllConditions(
-        () => result.Map.Keys.ShouldBe([new StructureValue(value)]),
-        () => result.Map.Values.ShouldBe([new(key)]));
+        m => m.Keys.ShouldBe([new StructureValue(value)]),
+        m => m.Values.ShouldBe([new(key)]));
     }
   }
 
@@ -182,13 +180,12 @@ public class StructuredTests
 
     result.AddIf(check, onFalse: r => r.Add(value, key));
 
-    // using AssertionScope scope = new();
-
     if (check) {
       result.Map.ShouldBeEmpty();
     } else {
-      result.Map.Keys.ShouldBe([new StructureValue(value)]);
-      result.Map.Values.ShouldBe([new(key)]);
+      result.Map.ShouldSatisfyAllConditions(
+        m => m.Keys.ShouldBe([new StructureValue(value)]),
+        m => m.Values.ShouldBe([new(key)]));
     }
   }
 
@@ -199,11 +196,10 @@ public class StructuredTests
 
     result.AddIf(check, r => r.Add(key, value));
 
-    // using AssertionScope scope = new();
-
     if (check) {
-      result.Map.Keys.ShouldBe([new StructureValue(key)]);
-      result.Map.Values.ShouldBe([new(value)]);
+      result.Map.ShouldSatisfyAllConditions(
+        m => m.Keys.ShouldBe([new StructureValue(key)]),
+        m => m.Values.ShouldBe([new(value)]));
     } else {
       result.Map.ShouldBeEmpty();
     }

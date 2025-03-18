@@ -21,8 +21,7 @@ public abstract class GroupedVerifierBase<TAliased>
 
     verifier.Verify([item1, item2], Errors);
 
-    // using AssertionScope scope = new();
-    CheckSimpleVerify();
+    verifier.ShouldSatisfyAllConditions(CheckSimpleVerify);
   }
 
   protected virtual void CheckSimpleVerify()

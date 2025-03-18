@@ -24,15 +24,13 @@ public class VerifyAllTypesTests
 
     verifier.Verify([item1, item2], Errors);
 
-    // using AssertionScope scope = new();
-
-    dualAllTypes.Called();
-    enumAllTypes.Called();
-    inputAllTypes.Called();
-    outputAllTypes.Called();
-    domainAllTypes.Called();
-    unionAllTypes.Called();
-
-    Errors.ShouldBeEmpty();
+    verifier.ShouldSatisfyAllConditions(
+      dualAllTypes.Called,
+      enumAllTypes.Called,
+      inputAllTypes.Called,
+      outputAllTypes.Called,
+      domainAllTypes.Called,
+      unionAllTypes.Called,
+      () => Errors.ShouldBeEmpty());
   }
 }

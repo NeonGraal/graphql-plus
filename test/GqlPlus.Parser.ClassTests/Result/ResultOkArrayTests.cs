@@ -13,11 +13,11 @@ public class ResultOkArrayTests : BaseResultTests
 
     IResult<string> result = _okArray.AsPartial(Sample, v => withValue = true, () => action = true);
 
-    result.ShouldBeOfType<ResultOk<string>>();
-    // using AssertionScope scope = new();
-    result.Optional().ShouldBe(Sample);
-    withValue.ShouldBeTrue();
-    action.ShouldBeTrue();
+    result.ShouldSatisfyAllConditions(
+      () => result.ShouldBeOfType<ResultOk<string>>()
+        .Optional().ShouldBe(Sample),
+      () => withValue.ShouldBeTrue(),
+      () => action.ShouldBeTrue());
   }
 
   [Fact]

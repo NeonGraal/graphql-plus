@@ -119,10 +119,9 @@ public static class RenderFluid
 
     IDirectoryContents contents = files.GetDirectoryContents("");
 
-    // using AssertionScope scope = new();
-
-    contents.Exists.ShouldBeTrue();
-    contents.ShouldNotBeEmpty();
-    contents.ShouldContain(fi => fi.Name == "pico.liquid");
+    contents.ShouldSatisfyAllConditions(
+      c => c.Exists.ShouldBeTrue(),
+      c => c.ShouldNotBeEmpty(),
+      c => c.ShouldContain(fi => fi.Name == "pico.liquid"));
   }
 }

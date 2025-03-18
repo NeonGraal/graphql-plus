@@ -33,8 +33,6 @@ public class VerifyVariableTests
 
     _verifier.Verify(_item, Errors);
 
-    // using AssertionScope scope = new();
-
     Errors.ShouldBeEmpty();
   }
 
@@ -42,8 +40,6 @@ public class VerifyVariableTests
   public void Verify_JustDefault()
   {
     _verifier.Verify(_item, Errors);
-
-    // using AssertionScope scope = new();
 
     Errors.ShouldBeEmpty();
   }
@@ -54,8 +50,6 @@ public class VerifyVariableTests
     _defValue.Value.Returns(_keyField);
 
     _verifier.Verify(_item, Errors);
-
-    // using AssertionScope scope = new();
 
     Errors.Count.ShouldBe(1);
   }
@@ -69,8 +63,6 @@ public class VerifyVariableTests
 
     _verifier.Verify(_item, Errors);
 
-    // using AssertionScope scope = new();
-
     Errors.ShouldBeEmpty();
   }
 
@@ -82,8 +74,6 @@ public class VerifyVariableTests
     AddModifier(ModifierKind.List);
 
     _verifier.Verify(_item, Errors);
-
-    // using AssertionScope scope = new();
 
     Errors.ShouldBeEmpty();
   }
@@ -99,8 +89,6 @@ public class VerifyVariableTests
 
     _verifier.Verify(_item, Errors);
 
-    // using AssertionScope scope = new();
-
     Errors.Count.ShouldBe(1);
   }
 
@@ -112,8 +100,6 @@ public class VerifyVariableTests
     AddModifier(ModifierKind.Dict);
 
     _verifier.Verify(_item, Errors);
-
-    // using AssertionScope scope = new();
 
     Errors.ShouldBeEmpty();
   }
@@ -127,8 +113,6 @@ public class VerifyVariableTests
 
     _verifier.Verify(_item, Errors);
 
-    // using AssertionScope scope = new();
-
     Errors.Count.ShouldBe(1);
   }
 
@@ -141,8 +125,6 @@ public class VerifyVariableTests
     AddModifier(ModifierKind.Opt);
 
     _verifier.Verify(_item, Errors);
-
-    // using AssertionScope scope = new();
 
     Errors.ShouldBeEmpty();
   }
@@ -159,8 +141,6 @@ public class VerifyVariableTests
 
     _verifier.Verify(_item, Errors);
 
-    // using AssertionScope scope = new();
-
     Errors.Count.ShouldBe(1);
   }
 
@@ -174,8 +154,6 @@ public class VerifyVariableTests
 
     _verifier.Verify(_item, Errors);
 
-    // using AssertionScope scope = new();
-
     Errors.ShouldBeEmpty();
   }
 
@@ -188,8 +166,6 @@ public class VerifyVariableTests
     AddModifier(ModifierKind.Opt);
 
     _verifier.Verify(_item, Errors);
-
-    // using AssertionScope scope = new();
 
     Errors.Count.ShouldBe(1);
   }

@@ -23,10 +23,9 @@ public abstract class AstDomainVerifierBase<TMember>
 
     verifier.Verify(domain, context);
 
-    // using AssertionScope scope = new();
-
-    Members.NotCalled();
-    Errors.ShouldBeEmpty();
+    verifier.ShouldSatisfyAllConditions(
+      Members.NotCalled,
+      () => Errors.ShouldBeEmpty());
   }
 
   internal virtual AstDomainVerifier<TMember> NewDomainVerifier()

@@ -15,26 +15,23 @@ internal class OneChecksParser<TResult>(
     Token.Tokenizer tokens = Tokens(input);
     IResult<TResult> result = _parser.Parse(tokens, "Test");
 
-    // using AssertionScope scope = new();
-    // scope.FormattingOptions.MaxDepth = 10;
-    result.IsOk().ShouldBeTrue(_type + " -> " + input);
-    // scope.FormattingOptions.MaxDepth = 10;
-    tokens.Errors.ShouldBeEmpty();
-    result.Required().ShouldBe(expected);
+    result.ShouldSatisfyAllConditions(_type + " -> " + input,
+      r => r.IsOk().ShouldBeTrue(),
+      _ => tokens.Errors.ShouldBeEmpty(),
+      r => r.Required().ShouldBe(expected));
   }
 
   public void FalseExpected(string input, Action<TResult?>? check = null)
   {
     IResult<TResult> result = _parser.Parse(Tokens(input), "Test");
 
-    // using AssertionScope scope = new();
-    // scope.FormattingOptions.MaxDepth = 10;
     if (result.IsEmpty()) {
       return;
     }
 
-    result.IsError(message => message.Message.Contains("Expected", StringComparison.InvariantCulture)).ShouldBeTrue(_type + " -> " + input);
-    result.Optional(result => check?.Invoke(result));
+    result.ShouldSatisfyAllConditions(_type + " -> " + input,
+      r => r.IsError(message => message.Message.Contains("Expected", StringComparison.InvariantCulture)).ShouldBeTrue(),
+      r => r.Optional(result => check?.Invoke(result)));
   }
 
   public void OkResult(string input, TResult expected)
@@ -42,11 +39,10 @@ internal class OneChecksParser<TResult>(
     Token.Tokenizer tokens = Tokens(input);
     IResult<TResult> result = _parser.Parse(tokens, "Test");
 
-    // using AssertionScope scope = new();
-    // scope.FormattingOptions.MaxDepth = 10;
-    result.IsOk().ShouldBeTrue(_type + " -> " + input);
-    tokens.Errors.ShouldBeEmpty();
-    result.Required().ShouldBe(expected);
+    result.ShouldSatisfyAllConditions(_type + " -> " + input,
+      r => r.IsOk().ShouldBeTrue(),
+      _ => tokens.Errors.ShouldBeEmpty(),
+      r => r.Required().ShouldBe(expected));
   }
 
   public void EmptyResult(string input)
@@ -54,18 +50,15 @@ internal class OneChecksParser<TResult>(
     Token.Tokenizer tokens = Tokens(input);
     IResult<TResult> result = _parser.Parse(tokens, "Test");
 
-    // using AssertionScope scope = new();
-    // scope.FormattingOptions.MaxDepth = 10;
-    result.IsEmpty().ShouldBeTrue(_type + " -> " + input);
-    tokens.Errors.ShouldBeEmpty();
+    result.ShouldSatisfyAllConditions(_type + " -> " + input,
+      r => r.IsEmpty().ShouldBeTrue(),
+      _ => tokens.Errors.ShouldBeEmpty());
   }
 
   public void ErrorResult(string input, string errorMessage)
   {
     IResult<TResult> result = _parser.Parse(Tokens(input), "Test");
 
-    // using AssertionScope scope = new();
-    // scope.FormattingOptions.MaxDepth = 10;
     result.IsError(message => message.Message.Contains(errorMessage, StringComparison.InvariantCulture)).ShouldBeTrue(_type + " -> " + input);
   }
 }
@@ -83,22 +76,19 @@ internal sealed class OneChecksParser<TInterface, TResult>(
     Token.Tokenizer tokens = Tokens(input);
     IResult<TResult> result = _parser.I.Parse(tokens, "Test");
 
-    // using AssertionScope scope = new();
-    // scope.FormattingOptions.MaxDepth = 10;
-    result.IsOk().ShouldBeTrue(_type + " -> " + input);
-    // scope.FormattingOptions.MaxDepth = 10;
-    tokens.Errors.ShouldBeEmpty();
-    result.Required().ShouldBe(expected);
+    result.ShouldSatisfyAllConditions(_type + " -> " + input,
+      r => r.IsOk().ShouldBeTrue(),
+      _ => tokens.Errors.ShouldBeEmpty(),
+      r => r.Required().ShouldBe(expected));
   }
 
   public void FalseExpected(string input, Action<TResult?>? check = null)
   {
     IResult<TResult> result = _parser.I.Parse(Tokens(input), "Test");
 
-    // using AssertionScope scope = new();
-    // scope.FormattingOptions.MaxDepth = 10;
-    result.IsError(message => message.Message.Contains("Expected", StringComparison.InvariantCulture)).ShouldBeTrue(_type + " -> " + input);
-    result.Optional(result => check?.Invoke(result));
+    result.ShouldSatisfyAllConditions(_type + " -> " + input,
+      r => r.IsError(message => message.Message.Contains("Expected", StringComparison.InvariantCulture)).ShouldBeTrue(),
+      r => r.Optional(result => check?.Invoke(result)));
   }
 
   public void EmptyResult(string input)
@@ -106,10 +96,9 @@ internal sealed class OneChecksParser<TInterface, TResult>(
     Token.Tokenizer tokens = Tokens(input);
     IResult<TResult> result = _parser.I.Parse(tokens, "Test");
 
-    // using AssertionScope scope = new();
-    // scope.FormattingOptions.MaxDepth = 10;
-    result.IsEmpty().ShouldBeTrue(_type + " -> " + input);
-    tokens.Errors.ShouldBeEmpty();
+    result.ShouldSatisfyAllConditions(_type + " -> " + input,
+      r => r.IsEmpty().ShouldBeTrue(),
+      _ => tokens.Errors.ShouldBeEmpty());
   }
 }
 

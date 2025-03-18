@@ -59,10 +59,12 @@ public class SampleSchemaChecks(
     string input = await ReadSchema(testName, testDirectory);
 
     if (IsObjectInput(input)) {
-      // using AssertionScope scope = new();
-      foreach ((string label, string abbr) in Replacements) {
-        action(ReplaceInput(input, abbr, label, abbr), testDirectory, testName + "+" + label);
-      }
+      action.ShouldSatisfyAllConditions(
+        () => {
+          foreach ((string label, string abbr) in Replacements) {
+            action(ReplaceInput(input, abbr, label, abbr), testDirectory, testName + "+" + label);
+          }
+        });
     } else {
       action(input, testDirectory, testName);
     }
@@ -104,8 +106,6 @@ public class SampleSchemaChecks(
 
   protected static async Task WhenAll(params Task[] tasks)
   {
-    // using AssertionScope scope = new();
-
     Task all = Task.WhenAll(tasks);
 
     try {

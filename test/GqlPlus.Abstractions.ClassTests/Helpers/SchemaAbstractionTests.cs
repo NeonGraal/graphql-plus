@@ -10,7 +10,8 @@ public class SchemaAbstractionTests
   {
     IEnumerable<IGrouping<string, TestAliased>> groups = aliased.AliasedGroup();
 
-    groups.Select(g => g.Key).ShouldBe(NamesAndAliases(aliased), ignoreOrder: true);
+    groups.ShouldSatisfyAllConditions(
+      a => a.Select(g => g.Key).ShouldBe(NamesAndAliases(aliased), ignoreOrder: true));
   }
 
   [Theory, RepeatData]
@@ -18,7 +19,8 @@ public class SchemaAbstractionTests
   {
     IMap<IEnumerable<TestAliased>> map = aliased.AliasedMap(a => a);
 
-    map.Keys.ShouldBe(NamesAndAliases(aliased), ignoreOrder: true);
+    map.ShouldSatisfyAllConditions(
+      m => m.Keys.ShouldBe(NamesAndAliases(aliased), ignoreOrder: true));
   }
 
   private static IEnumerable<string> NamesAndAliases(TestAliased[] aliased)

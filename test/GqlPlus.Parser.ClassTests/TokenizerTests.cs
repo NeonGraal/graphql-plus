@@ -30,11 +30,9 @@ public class TokenizerTests
 
     bool result = tokens.Read();
 
-    // using AssertionScope scope = new();
-
-    result.ShouldBeFalse();
-
-    tokens.AtEnd.ShouldBeTrue();
+    result.ShouldSatisfyAllConditions(
+      () => result.ShouldBeFalse(),
+      () => tokens.AtEnd.ShouldBeTrue());
   }
 
   [Theory]
@@ -53,11 +51,9 @@ public class TokenizerTests
 
     bool result = tokens.Read();
 
-    // using AssertionScope scope = new();
-
-    result.ShouldBeFalse();
-
-    tokens.AtEnd.ShouldBeTrue();
+    result.ShouldSatisfyAllConditions(
+      () => result.ShouldBeFalse(),
+      () => tokens.AtEnd.ShouldBeTrue());
   }
 
   [Theory, RepeatData]
@@ -243,11 +239,10 @@ public class TokenizerTests
     Tokenizer tokens = PrepareTokens(prefix + "?");
     char expected = prefix.First();
 
-    // using AssertionScope scope = new();
-
-    tokens.Prefix(expected, out _, out _).ShouldBeFalse();
-    tokens.Take(expected).ShouldBeTrue();
-    tokens.Take('?').ShouldBeTrue();
+    tokens.ShouldSatisfyAllConditions(
+      t => t.Prefix(expected, out _, out _).ShouldBeFalse(),
+      t => t.Take(expected).ShouldBeTrue(),
+      t => t.Take('?').ShouldBeTrue());
   }
 
   [Theory, RepeatData]
@@ -368,13 +363,12 @@ public class TokenizerTests
 
   private static void CheckParseError(TokenMessage result, TokenKind kind, string expected, string message, int line = 1, int col = 1)
   {
-    // using AssertionScope scope = new();
-
-    result.Kind.ShouldBe(kind);
-    result.Line.ShouldBe(line);
-    result.Column.ShouldBe(col);
-    result.After.ShouldBe(expected);
-    result.Message.ShouldBe(message);
+    result.ShouldSatisfyAllConditions(
+      r => r.Kind.ShouldBe(kind),
+      r => r.Line.ShouldBe(line),
+      r => r.Column.ShouldBe(col),
+      r => r.After.ShouldBe(expected),
+      r => r.Message.ShouldBe(message));
   }
 
   private delegate bool Call<T>(out T result);
@@ -383,30 +377,27 @@ public class TokenizerTests
   {
     bool success = call(out T? result);
 
-    // using AssertionScope scope = new();
-
-    success.ShouldBeTrue();
-    result.ShouldBe(expected);
+    success.ShouldSatisfyAllConditions(
+      () => success.ShouldBeTrue(),
+      () => result.ShouldBe(expected));
   }
 
   private static void FalseAndExpected<T>(Call<T> call, T expected)
   {
     bool success = call(out T? result);
 
-    // using AssertionScope scope = new();
-
-    success.ShouldBeFalse();
-    result.ShouldBe(expected);
+    success.ShouldSatisfyAllConditions(
+      () => success.ShouldBeFalse(),
+      () => result.ShouldBe(expected));
   }
 
   private static void FalseAndExpected<T>(Call<T> call, T expected, Tokenizer tokens)
   {
     bool success = call(out T? result);
 
-    // using AssertionScope scope = new();
-
-    success.ShouldBeFalse();
-    result.ShouldBe(expected);
-    tokens.AtEnd.ShouldBeTrue();
+    success.ShouldSatisfyAllConditions(
+      () => success.ShouldBeFalse(),
+      () => result.ShouldBe(expected),
+      () => tokens.AtEnd.ShouldBeTrue());
   }
 }

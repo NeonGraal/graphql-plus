@@ -2,6 +2,7 @@
 using GqlPlus.Models;
 using NSubstitute;
 using NSubstitute.ReceivedExtensions;
+using Shouldly;
 
 namespace GqlPlus.Modelling;
 
@@ -22,10 +23,9 @@ public class TypesModellerTests
 
     BaseTypeModel result = sut.ToModel<BaseTypeModel>(ast, typeKinds);
 
-    // using AssertionScope scope = new();
-
-    modeller.ReceivedWithAnyArgs(1).ForType(ast);
-    modeller.ReceivedWithAnyArgs(1).ToTypeModel(ast, typeKinds);
+    modeller.ShouldSatisfyAllConditions(
+      m => m.ReceivedWithAnyArgs(1).ForType(ast),
+      m => m.ReceivedWithAnyArgs(1).ToTypeModel(ast, typeKinds));
   }
 }
 

@@ -7,10 +7,9 @@ public class MapTests
   {
     Map<string> map = values.ToMap(static k => k);
 
-    // using AssertionScope scope = new();
-
-    map.Keys.ShouldBe(values);
-    map.Values.ShouldBe(values);
+    map.ShouldSatisfyAllConditions(
+      m => m.Keys.ShouldBe(values),
+      m => m.Values.ShouldBe(values));
   }
 
   [Theory, RepeatData]
@@ -19,10 +18,9 @@ public class MapTests
     IGrouping<string, StringInt>[] groups = [.. values.GroupBy(v => v.Name)];
     Map<int[]> map = groups.ToMap(static k => k.Key, static v => v.Select(a => a.Age).ToArray());
 
-    // using AssertionScope scope = new();
-
-    map.Keys.ShouldBe(groups.Select(static k => k.Key));
-    map.Values.ShouldBe(groups.Select(static v => v.Select(a => a.Age).ToArray()));
+    map.ShouldSatisfyAllConditions(
+      m => m.Keys.ShouldBe(groups.Select(static k => k.Key)),
+      m => m.Values.ShouldBe(groups.Select(static v => v.Select(a => a.Age).ToArray())));
   }
 }
 

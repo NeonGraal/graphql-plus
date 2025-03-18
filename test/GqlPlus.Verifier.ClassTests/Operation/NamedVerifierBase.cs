@@ -5,6 +5,7 @@
 
 using GqlPlus.Verifying;
 using GqlPlus.Verifying.Operation;
+using Shouldly;
 
 namespace GqlPlus.Operation;
 
@@ -28,11 +29,10 @@ public abstract class NamedVerifierBase<TUsage, TNamed>
 
     verifier.Verify(item, Errors);
 
-    // using AssertionScope scope = new();
-
-    _usage.NotCalled();
-    _definition.NotCalled();
-    Errors.ShouldBeEmpty();
+    verifier.ShouldSatisfyAllConditions(
+      _usage.NotCalled,
+      _definition.NotCalled,
+      () => Errors.ShouldBeEmpty());
   }
 
   [Fact]
@@ -44,11 +44,10 @@ public abstract class NamedVerifierBase<TUsage, TNamed>
 
     verifier.Verify(item, Errors);
 
-    // using AssertionScope scope = new();
-
-    _usage.NotCalled();
-    _definition.Called();
-    Errors.Count.ShouldBe(1);
+    verifier.ShouldSatisfyAllConditions(
+      _usage.NotCalled,
+      _definition.Called,
+      () => Errors.Count.ShouldBe(1));
   }
 
   [Fact]
@@ -60,11 +59,10 @@ public abstract class NamedVerifierBase<TUsage, TNamed>
 
     verifier.Verify(item, Errors);
 
-    // using AssertionScope scope = new();
-
-    _usage.Called();
-    _definition.NotCalled();
-    Errors.Count.ShouldBe(1);
+    verifier.ShouldSatisfyAllConditions(
+      _usage.Called,
+      _definition.NotCalled,
+      () => Errors.Count.ShouldBe(1));
   }
 
   [Fact]
@@ -76,11 +74,10 @@ public abstract class NamedVerifierBase<TUsage, TNamed>
 
     verifier.Verify(item, Errors);
 
-    // using AssertionScope scope = new();
-
-    _usage.Called();
-    _definition.Called();
-    Errors.Count.ShouldBe(2);
+    verifier.ShouldSatisfyAllConditions(
+      _usage.Called,
+      _definition.Called,
+      () => Errors.Count.ShouldBe(2));
   }
 
   [Fact]
@@ -92,11 +89,10 @@ public abstract class NamedVerifierBase<TUsage, TNamed>
 
     verifier.Verify(item, Errors);
 
-    // using AssertionScope scope = new();
-
-    _usage.Called();
-    _definition.Called();
-    Errors.ShouldBeEmpty();
+    verifier.ShouldSatisfyAllConditions(
+      _usage.Called,
+      _definition.Called,
+      () => Errors.ShouldBeEmpty());
   }
 
   internal abstract NamedVerifier<TUsage, TNamed> NewVerifier();

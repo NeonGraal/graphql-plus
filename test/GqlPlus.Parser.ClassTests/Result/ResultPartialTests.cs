@@ -16,12 +16,12 @@ public class ResultPartialTests : BaseResultTests
 
     IResult<string> result = _partial.AsPartial(Sample, v => withValue = true, () => action = true);
 
-    result.ShouldBeOfType<ResultPartial<string>>()
-      .Message.Message.ShouldContain(Partial);
-    // using AssertionScope scope = new();
-    result.Optional().ShouldBe(Sample);
-    withValue.ShouldBeTrue();
-    action.ShouldBeTrue();
+    result.ShouldSatisfyAllConditions(
+      () => result.ShouldBeOfType<ResultPartial<string>>()
+        .Message.Message.ShouldContain(Partial),
+      () => result.Optional().ShouldBe(Sample),
+      () => withValue.ShouldBeTrue(),
+      () => action.ShouldBeTrue());
   }
 
   [Fact]
@@ -40,11 +40,11 @@ public class ResultPartialTests : BaseResultTests
 
     IResultArray<string> result = _partial.AsPartialArray(SampleArray, v => withValue = true);
 
-    result.ShouldBeOfType<ResultArrayPartial<string>>()
-      .Message.Message.ShouldContain(Partial);
-    // using AssertionScope scope = new();
-    result.Optional().ShouldBe(SampleArray);
-    withValue.ShouldBeTrue();
+    result.ShouldSatisfyAllConditions(
+      () => result.ShouldBeOfType<ResultArrayPartial<string>>()
+      .Message.Message.ShouldContain(Partial),
+      () => result.Optional().ShouldBe(SampleArray),
+      () => withValue.ShouldBeTrue());
   }
 
   [Fact]

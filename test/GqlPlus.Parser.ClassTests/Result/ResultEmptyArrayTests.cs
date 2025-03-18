@@ -13,11 +13,11 @@ public class ResultEmptyArrayTests : BaseResultTests
 
     IResult<string> result = _emptyArray.AsPartial(Sample, v => withValue = true, () => action = true);
 
-    result.ShouldBeOfType<ResultOk<string>>();
-    // using AssertionScope scope = new();
-    result.Optional().ShouldBe(Sample);
-    withValue.ShouldBeFalse();
-    action.ShouldBeTrue();
+    result.ShouldSatisfyAllConditions(
+      () => result.ShouldBeOfType<ResultOk<string>>()
+        .Optional().ShouldBe(Sample),
+      () => withValue.ShouldBeFalse(),
+      () => action.ShouldBeTrue());
   }
 
   [Fact]
@@ -27,10 +27,10 @@ public class ResultEmptyArrayTests : BaseResultTests
 
     IResultArray<string> result = _emptyArray.AsPartialArray(SampleArray, v => withValue = true);
 
-    result.ShouldBeOfType<ResultArrayOk<string>>();
-    // using AssertionScope scope = new();
-    result.Optional().ShouldBe([Sample]);
-    withValue.ShouldBeFalse();
+    result.ShouldSatisfyAllConditions(
+      () => result.ShouldBeOfType<ResultArrayOk<string>>()
+        .Optional().ShouldBe([Sample]),
+      () => withValue.ShouldBeFalse());
   }
 
   [Fact]

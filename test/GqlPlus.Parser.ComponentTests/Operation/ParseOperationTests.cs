@@ -26,11 +26,10 @@ public class ParseOperationTests(
 
     IGqlpOperation result = _parser.Parse(context, "Operation").Required();
 
-    // using AssertionScope scope = new();
-
-    result.ShouldBeOfType<OperationAst>();
-    result.Result.ShouldBe(ParseResultKind.Success);
-    result.Errors.ShouldBeEmpty();
+    result.ShouldSatisfyAllConditions(
+      r => r.ShouldBeOfType<OperationAst>(),
+      r => r.Result.ShouldBe(ParseResultKind.Success),
+      r => r.Errors.ShouldBeEmpty());
   }
 
   [Theory]
@@ -40,12 +39,10 @@ public class ParseOperationTests(
     OperationContext context = new(input);
 
     IResult<IGqlpOperation> result = _parser.Parse(context, "Operation");
-    result.Optional(ast => {
-      // using AssertionScope scope = new();
-
-      ast.ShouldBeNull();
-      result.IsError(err => err.Message.ShouldNotBeNullOrWhiteSpace());
-    });
+    result.Optional(ast =>
+      result.ShouldSatisfyAllConditions(
+        () => ast.ShouldBeNull(),
+        () => result.IsError(err => err.Message.ShouldNotBeNullOrWhiteSpace())));
   }
 
   [Theory]
@@ -72,11 +69,10 @@ public class ParseOperationTests(
 
     IGqlpOperation? ast = _parser.Parse(context, "Operation").Optional();
 
-    // using AssertionScope scope = new();
-
-    ast.ShouldBeOfType<OperationAst>()
-      .Result.ShouldBe(ParseResultKind.Failure);
-    ast.ThrowIfNull().Errors.ShouldNotBeEmpty();
+    ast.ShouldSatisfyAllConditions(
+      a => a.ShouldBeOfType<OperationAst>()
+        .Result.ShouldBe(ParseResultKind.Failure),
+      a => a.ThrowIfNull().Errors.ShouldNotBeEmpty());
   }
 
   private readonly Parser<IGqlpOperation>.L _parser = operationParser;

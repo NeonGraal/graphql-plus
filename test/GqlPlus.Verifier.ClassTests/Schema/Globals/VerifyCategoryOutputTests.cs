@@ -14,9 +14,8 @@ public class VerifyCategoryOutputTests
 
     verifier.Verify(UsageAliased, Errors);
 
-    // using AssertionScope scope = new();
-
-    Aliased.Called();
-    Errors.ShouldBeEmpty();
+    verifier.ShouldSatisfyAllConditions(
+      Aliased.Called,
+      () => Errors.ShouldBeEmpty());
   }
 }

@@ -8,8 +8,9 @@ types: !_Map_Type
       type: !_DualBase
         dual: _Identifier
     - !_ObjectFor(_DualField)
-      name: description
-      object: _Described
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _Documented
       type: !_DualBase
         dual: String
     - !_ObjectFor(_DualField)
@@ -26,7 +27,7 @@ types: !_Map_Type
         dual: _Identifier
     name: _Aliased
     parent: !_DualBase
-      dual: _Described
+      dual: _Documented
     typeKind: !_TypeKind Dual
   !_Identifier _Alternate: !_TypeOutput
     allFields:
@@ -34,7 +35,7 @@ types: !_Map_Type
       name: type
       object: _Alternate
       type: !_DualBase
-        dual: _ObjDescribed
+        dual: _ObjDocumented
         typeArgs:
         - !_TypeParam base
     - !_ObjectFor(_OutputField)
@@ -47,7 +48,7 @@ types: !_Map_Type
     - !_OutputField
       name: type
       type: !_DualBase
-        dual: _ObjDescribed
+        dual: _ObjDocumented
         typeArgs:
         - !_TypeParam base
     - !_OutputField
@@ -68,8 +69,9 @@ types: !_Map_Type
       type: !_DualBase
         dual: _Identifier
     - !_ObjectFor(_DualField)
-      name: description
-      object: _Described
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _Documented
       type: !_DualBase
         dual: String
     - !_ObjectFor(_DualField)
@@ -99,12 +101,12 @@ types: !_Map_Type
       object: _ParentType
       type: !_TypeParam allItem
     - !_ObjectFor(_OutputField)
-      name: domain
+      name: domainKind
       object: _BaseDomain
       type: !_TypeParam domain
     fields:
     - !_OutputField
-      name: domain
+      name: domainKind
       type: !_TypeParam domain
     name: _BaseDomain
     parent: !_OutputBase
@@ -127,11 +129,22 @@ types: !_Map_Type
   !_Identifier _BaseDomainItem: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _BaseDomainItem
+      type: !_DualBase
+        dual: String
+    - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
       type: !_DualBase
         dual: Boolean
     fields:
+    - !_DualField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      type: !_DualBase
+        dual: String
     - !_DualField
       name: exclude
       type: !_DualBase
@@ -146,8 +159,9 @@ types: !_Map_Type
       type: !_DualBase
         dual: _Identifier
     - !_ObjectFor(_DualField)
-      name: description
-      object: _Described
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _Documented
       type: !_DualBase
         dual: String
     - !_ObjectFor(_DualField)
@@ -218,8 +232,9 @@ types: !_Map_Type
       type: !_DualBase
         dual: _Identifier
     - !_ObjectFor(_DualField)
-      name: description
-      object: _Described
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _Documented
       type: !_DualBase
         dual: String
     - !_ObjectFor(_DualField)
@@ -339,8 +354,9 @@ types: !_Map_Type
       type: !_DualBase
         dual: _Identifier
     - !_ObjectFor(_DualField)
-      name: description
-      object: _Described
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _Documented
       type: !_DualBase
         dual: String
     - !_ObjectFor(_DualField)
@@ -494,27 +510,6 @@ types: !_Map_Type
         output: _Constant
     name: _ConstantMap
     typeKind: !_TypeKind Output
-  !_Identifier _Described: !_TypeDual
-    allFields:
-    - !_ObjectFor(_DualField)
-      name: name
-      object: _Named
-      type: !_DualBase
-        dual: _Identifier
-    - !_ObjectFor(_DualField)
-      name: description
-      object: _Described
-      type: !_DualBase
-        dual: String
-    fields:
-    - !_DualField
-      name: description
-      type: !_DualBase
-        dual: String
-    name: _Described
-    parent: !_DualBase
-      dual: _Named
-    typeKind: !_TypeKind Dual
   !_Identifier _Directive: !_TypeOutput
     allFields:
     - !_ObjectFor(_DualField)
@@ -523,8 +518,9 @@ types: !_Map_Type
       type: !_DualBase
         dual: _Identifier
     - !_ObjectFor(_DualField)
-      name: description
-      object: _Described
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _Documented
       type: !_DualBase
         dual: String
     - !_ObjectFor(_DualField)
@@ -538,7 +534,7 @@ types: !_Map_Type
       name: parameters
       object: _Directive
       type: !_OutputBase
-        output: _InputParam
+        output: _FieldParam
     - !_ObjectFor(_OutputField)
       name: repeatable
       object: _Directive
@@ -556,7 +552,7 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: parameters
       type: !_OutputBase
-        output: _InputParam
+        output: _FieldParam
     - !_OutputField
       name: repeatable
       type: !_OutputBase
@@ -610,6 +606,29 @@ types: !_Map_Type
         output: _Type
     name: _Directives
     typeKind: !_TypeKind Output
+  !_Identifier _Documented: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase
+        dual: _Identifier
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _Documented
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      type: !_DualBase
+        dual: String
+    name: _Documented
+    parent: !_DualBase
+      dual: _Named
+    typeKind: !_TypeKind Dual
   !_Identifier _DomainItem: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -628,16 +647,22 @@ types: !_Map_Type
     typeParams:
     - !_Described
       name: item
-  !_Identifier _DomainItemMember: !_TypeOutput
+  !_Identifier _DomainItemLabel: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _BaseDomainItem
+      type: !_DualBase
+        dual: String
     - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
       type: !_DualBase
         dual: Boolean
     - !_ObjectFor(_OutputField)
-      name: value
-      object: _DomainMember
+      name: label
+      object: _DomainLabel
       type: !_OutputBase
         output: _EnumValue
     - !_ObjectFor(_OutputField)
@@ -645,15 +670,21 @@ types: !_Map_Type
       object: _DomainItem
       type: !_OutputBase
         output: _Identifier
-    name: _DomainItemMember
+    name: _DomainItemLabel
     parent: !_OutputBase
       output: _DomainItem
       typeArgs:
       - !_OutputArg
-        output: _DomainMember
+        output: _DomainLabel
     typeKind: !_TypeKind Output
   !_Identifier _DomainItemRange: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _BaseDomainItem
+      type: !_DualBase
+        dual: String
     - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
@@ -686,6 +717,12 @@ types: !_Map_Type
   !_Identifier _DomainItemRegex: !_TypeOutput
     allFields:
     - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _BaseDomainItem
+      type: !_DualBase
+        dual: String
+    - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
       type: !_DualBase
@@ -709,6 +746,12 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _DomainItemTrueFalse: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _BaseDomainItem
+      type: !_DualBase
+        dual: String
     - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
@@ -756,29 +799,41 @@ types: !_Map_Type
       name: String
     name: _DomainKind
     typeKind: !_TypeKind Enum
-  !_Identifier _DomainMember: !_TypeOutput
+  !_Identifier _DomainLabel: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _BaseDomainItem
+      type: !_DualBase
+        dual: String
     - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
       type: !_DualBase
         dual: Boolean
     - !_ObjectFor(_OutputField)
-      name: value
-      object: _DomainMember
+      name: label
+      object: _DomainLabel
       type: !_OutputBase
         output: _EnumValue
     fields:
     - !_OutputField
-      name: value
+      name: label
       type: !_OutputBase
         output: _EnumValue
-    name: _DomainMember
+    name: _DomainLabel
     parent: !_DualBase
       dual: _BaseDomainItem
     typeKind: !_TypeKind Output
   !_Identifier _DomainRange: !_TypeDual
     allFields:
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _BaseDomainItem
+      type: !_DualBase
+        dual: String
     - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
@@ -846,6 +901,12 @@ types: !_Map_Type
   !_Identifier _DomainRegex: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _BaseDomainItem
+      type: !_DualBase
+        dual: String
+    - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
       type: !_DualBase
@@ -866,6 +927,12 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier _DomainTrueFalse: !_TypeDual
     allFields:
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _BaseDomainItem
+      type: !_DualBase
+        dual: String
     - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
@@ -926,7 +993,7 @@ types: !_Map_Type
       name: type
       object: _Alternate
       type: !_DualBase
-        dual: _ObjDescribed
+        dual: _ObjDocumented
         typeArgs:
         - !_TypeParam base
     - !_ObjectFor(_OutputField)
@@ -954,7 +1021,7 @@ types: !_Map_Type
       name: typeArgs
       object: _ObjBase
       type: !_DualBase
-        dual: _ObjDescribed
+        dual: _ObjDocumented
         typeArgs:
         - !_DualArg
           dual: _ObjArg
@@ -980,8 +1047,9 @@ types: !_Map_Type
       type: !_DualBase
         dual: _Identifier
     - !_ObjectFor(_DualField)
-      name: description
-      object: _Described
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _Documented
       type: !_DualBase
         dual: String
     - !_ObjectFor(_DualField)
@@ -994,7 +1062,7 @@ types: !_Map_Type
       name: type
       object: _Field
       type: !_DualBase
-        dual: _ObjDescribed
+        dual: _ObjDocumented
         typeArgs:
         - !_TypeParam base
     - !_ObjectFor(_OutputField)
@@ -1010,31 +1078,59 @@ types: !_Map_Type
       - !_OutputArg
         output: _DualBase
     typeKind: !_TypeKind Output
+  !_Identifier _DualParam: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: typeParam
+      object: _ObjParam
+      type: !_OutputBase
+        output: _TypeParam
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _ObjParam
+      type: !_OutputBase
+        output: String
+    - !_ObjectFor(_OutputField)
+      name: constraint
+      object: _ObjParam
+      type: !_OutputBase
+        output: _ObjConstraint
+        typeArgs:
+        - !_TypeParam base
+    name: _DualParam
+    parent: !_OutputBase
+      output: _ObjParam
+      typeArgs:
+      - !_OutputArg
+        output: _DualBase
+    typeKind: !_TypeKind Output
   !_Identifier _DualParent: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: _ObjDescribed
+      object: _ObjDocumented
       type: !_DualBase
         dual: _DualBase
     allFields:
     - !_ObjectFor(_DualField)
       name: base
-      object: _ObjDescribed
+      object: _ObjDocumented
       type: !_DualBase
         dual: _DualBase
     - !_ObjectFor(_DualField)
-      name: description
-      object: _ObjDescribed
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _ObjDocumented
       type: !_DualBase
         dual: String
     name: _DualParent
     parent: !_DualBase
-      dual: _ObjDescribed
+      dual: _ObjDocumented
       typeArgs:
       - !_DualArg
         dual: _DualBase
     typeKind: !_TypeKind Output
-  !_Identifier _EnumMember: !_TypeDual
+  !_Identifier _EnumLabel: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: name
@@ -1042,8 +1138,9 @@ types: !_Map_Type
       type: !_DualBase
         dual: _Identifier
     - !_ObjectFor(_DualField)
-      name: description
-      object: _Described
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _Documented
       type: !_DualBase
         dual: String
     - !_ObjectFor(_DualField)
@@ -1054,7 +1151,7 @@ types: !_Map_Type
         dual: _Identifier
     - !_ObjectFor(_DualField)
       name: enum
-      object: _EnumMember
+      object: _EnumLabel
       type: !_DualBase
         dual: _Identifier
     fields:
@@ -1062,7 +1159,7 @@ types: !_Map_Type
       name: enum
       type: !_DualBase
         dual: _Identifier
-    name: _EnumMember
+    name: _EnumLabel
     parent: !_DualBase
       dual: _Aliased
     typeKind: !_TypeKind Dual
@@ -1105,8 +1202,9 @@ types: !_Map_Type
       type: !_DualBase
         dual: _Identifier
     - !_ObjectFor(_DualField)
-      name: description
-      object: _Described
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _Documented
       type: !_DualBase
         dual: String
     - !_ObjectFor(_DualField)
@@ -1119,7 +1217,7 @@ types: !_Map_Type
       name: type
       object: _Field
       type: !_DualBase
-        dual: _ObjDescribed
+        dual: _ObjDocumented
         typeArgs:
         - !_TypeParam base
     - !_ObjectFor(_OutputField)
@@ -1132,7 +1230,7 @@ types: !_Map_Type
     - !_OutputField
       name: type
       type: !_DualBase
-        dual: _ObjDescribed
+        dual: _ObjDocumented
         typeArgs:
         - !_TypeParam base
     - !_OutputField
@@ -1147,6 +1245,54 @@ types: !_Map_Type
     typeParams:
     - !_Described
       name: base
+  !_Identifier _FieldParam: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: _ObjDocumented
+      type: !_DualBase
+        dual: _InputBase
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: base
+      object: _ObjDocumented
+      type: !_DualBase
+        dual: _InputBase
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _ObjDocumented
+      type: !_DualBase
+        dual: String
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: modifiers
+      object: _FieldParam
+      type: !_OutputBase
+        output: _Modifiers
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: default
+      object: _FieldParam
+      type: !_OutputBase
+        output: _Constant
+    fields:
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: modifiers
+      type: !_OutputBase
+        output: _Modifiers
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: default
+      type: !_OutputBase
+        output: _Constant
+    name: _FieldParam
+    parent: !_DualBase
+      dual: _ObjDocumented
+      typeArgs:
+      - !_DualArg
+        dual: _InputBase
+    typeKind: !_TypeKind Output
   !_Identifier _Filter: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
@@ -1247,7 +1393,7 @@ types: !_Map_Type
       name: type
       object: _Alternate
       type: !_DualBase
-        dual: _ObjDescribed
+        dual: _ObjDocumented
         typeArgs:
         - !_TypeParam base
     - !_ObjectFor(_OutputField)
@@ -1279,7 +1425,7 @@ types: !_Map_Type
       name: typeArgs
       object: _ObjBase
       type: !_DualBase
-        dual: _ObjDescribed
+        dual: _ObjDocumented
         typeArgs:
         - !_DualArg
           dual: _ObjArg
@@ -1309,8 +1455,9 @@ types: !_Map_Type
       type: !_DualBase
         dual: _Identifier
     - !_ObjectFor(_DualField)
-      name: description
-      object: _Described
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _Documented
       type: !_DualBase
         dual: String
     - !_ObjectFor(_DualField)
@@ -1323,7 +1470,7 @@ types: !_Map_Type
       name: type
       object: _Field
       type: !_DualBase
-        dual: _ObjDescribed
+        dual: _ObjDocumented
         typeArgs:
         - !_TypeParam base
     - !_ObjectFor(_OutputField)
@@ -1352,72 +1499,53 @@ types: !_Map_Type
         output: _InputBase
     typeKind: !_TypeKind Output
   !_Identifier _InputParam: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_DualAlternate)
-      object: _ObjDescribed
-      type: !_DualBase
-        dual: _InputBase
     allFields:
-    - !_ObjectFor(_DualField)
-      name: base
-      object: _ObjDescribed
-      type: !_DualBase
-        dual: _InputBase
-    - !_ObjectFor(_DualField)
-      name: description
-      object: _ObjDescribed
-      type: !_DualBase
-        dual: String
+    - !_ObjectFor(_OutputField)
+      name: typeParam
+      object: _ObjParam
+      type: !_OutputBase
+        output: _TypeParam
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: modifiers
-      object: _InputParam
+      name: documentation
+      object: _ObjParam
       type: !_OutputBase
-        output: _Modifiers
+        output: String
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: default
-      object: _InputParam
+      name: constraint
+      object: _ObjParam
       type: !_OutputBase
-        output: _Constant
-    fields:
-    - !_OutputField
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: modifiers
-      type: !_OutputBase
-        output: _Modifiers
-    - !_OutputField
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: default
-      type: !_OutputBase
-        output: _Constant
+        output: _ObjConstraint
+        typeArgs:
+        - !_TypeParam base
     name: _InputParam
-    parent: !_DualBase
-      dual: _ObjDescribed
+    parent: !_OutputBase
+      output: _ObjParam
       typeArgs:
-      - !_DualArg
-        dual: _InputBase
+      - !_OutputArg
+        output: _InputBase
     typeKind: !_TypeKind Output
   !_Identifier _InputParent: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: _ObjDescribed
+      object: _ObjDocumented
       type: !_DualBase
         dual: _InputBase
     allFields:
     - !_ObjectFor(_DualField)
       name: base
-      object: _ObjDescribed
+      object: _ObjDocumented
       type: !_DualBase
         dual: _InputBase
     - !_ObjectFor(_DualField)
-      name: description
-      object: _ObjDescribed
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _ObjDocumented
       type: !_DualBase
         dual: String
     name: _InputParent
     parent: !_DualBase
-      dual: _ObjDescribed
+      dual: _ObjDocumented
       typeArgs:
       - !_DualArg
         dual: _InputBase
@@ -1573,7 +1701,7 @@ types: !_Map_Type
       exclude: false
       pattern: '[A-Za-z_.*]+'
     description: >-
-      _NameFilter is a simple match expression against _Identifier 
+      _NameFilter is a simple match expression against _Identifier
       where '.' matches any single character and '*' matches zero
       or more of any character.
     domainKind: !_DomainKind String
@@ -1637,7 +1765,7 @@ types: !_Map_Type
       name: typeArgs
       object: _ObjBase
       type: !_DualBase
-        dual: _ObjDescribed
+        dual: _ObjDocumented
         typeArgs:
         - !_DualArg
           dual: _ObjArg
@@ -1650,25 +1778,46 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: typeArgs
       type: !_DualBase
-        dual: _ObjDescribed
+        dual: _ObjDocumented
         typeArgs:
         - !_DualArg
           dual: _ObjArg
     name: _ObjBase
     typeKind: !_TypeKind Output
-  !_Identifier _ObjDescribed: !_TypeDual
+  !_Identifier _ObjConstraint: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: _ObjConstraint
+      type: !_OutputBase
+        output: _TypeSimple
+    - !_ObjectFor(_OutputAlternate)
+      object: _ObjConstraint
+      type: !_TypeParam base
+    alternates:
+    - !_OutputAlternate
+      type: !_OutputBase
+        output: _TypeSimple
+    - !_OutputAlternate
+      type: !_TypeParam base
+    name: _ObjConstraint
+    typeKind: !_TypeKind Output
+    typeParams:
+    - !_Described
+      name: base
+  !_Identifier _ObjDocumented: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: _ObjDescribed
+      object: _ObjDocumented
       type: !_TypeParam base
     allFields:
     - !_ObjectFor(_DualField)
       name: base
-      object: _ObjDescribed
+      object: _ObjDocumented
       type: !_TypeParam base
     - !_ObjectFor(_DualField)
-      name: description
-      object: _ObjDescribed
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _ObjDocumented
       type: !_DualBase
         dual: String
     alternates:
@@ -1679,11 +1828,53 @@ types: !_Map_Type
       name: base
       type: !_TypeParam base
     - !_DualField
-      name: description
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
       type: !_DualBase
         dual: String
-    name: _ObjDescribed
+    name: _ObjDocumented
     typeKind: !_TypeKind Dual
+    typeParams:
+    - !_Described
+      name: base
+  !_Identifier _ObjParam: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: typeParam
+      object: _ObjParam
+      type: !_OutputBase
+        output: _TypeParam
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _ObjParam
+      type: !_OutputBase
+        output: String
+    - !_ObjectFor(_OutputField)
+      name: constraint
+      object: _ObjParam
+      type: !_OutputBase
+        output: _ObjConstraint
+        typeArgs:
+        - !_TypeParam base
+    fields:
+    - !_OutputField
+      name: typeParam
+      type: !_OutputBase
+        output: _TypeParam
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      type: !_OutputBase
+        output: String
+    - !_OutputField
+      name: constraint
+      type: !_OutputBase
+        output: _ObjConstraint
+        typeArgs:
+        - !_TypeParam base
+    name: _ObjParam
+    typeKind: !_TypeKind Output
     typeParams:
     - !_Described
       name: base
@@ -1701,10 +1892,9 @@ types: !_Map_Type
     - !_ObjectFor(_OutputAlternate)
       object: _ObjType
       type: !_OutputBase
-        output: _TypeSimple
-    - !_ObjectFor(_OutputAlternate)
-      object: _ObjType
-      type: !_TypeParam base
+        output: _ObjConstraint
+        typeArgs:
+        - !_TypeParam base
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
@@ -1716,9 +1906,9 @@ types: !_Map_Type
           typeKind: !_SimpleKind Enum
     - !_OutputAlternate
       type: !_OutputBase
-        output: _TypeSimple
-    - !_OutputAlternate
-      type: !_TypeParam base
+        output: _ObjConstraint
+        typeArgs:
+        - !_TypeParam base
     name: _ObjType
     typeKind: !_TypeKind Output
     typeParams:
@@ -1748,7 +1938,7 @@ types: !_Map_Type
       name: type
       object: _Alternate
       type: !_DualBase
-        dual: _ObjDescribed
+        dual: _ObjDocumented
         typeArgs:
         - !_TypeParam base
     - !_ObjectFor(_OutputField)
@@ -1820,7 +2010,7 @@ types: !_Map_Type
       name: typeArgs
       object: _ObjBase
       type: !_DualBase
-        dual: _ObjDescribed
+        dual: _ObjDocumented
         typeArgs:
         - !_DualArg
           dual: _ObjArg
@@ -1895,8 +2085,9 @@ types: !_Map_Type
       type: !_DualBase
         dual: _Identifier
     - !_ObjectFor(_DualField)
-      name: description
-      object: _Described
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _Documented
       type: !_DualBase
         dual: String
     - !_ObjectFor(_DualField)
@@ -1909,7 +2100,7 @@ types: !_Map_Type
       name: type
       object: _Field
       type: !_DualBase
-        dual: _ObjDescribed
+        dual: _ObjDocumented
         typeArgs:
         - !_TypeParam base
     - !_ObjectFor(_OutputField)
@@ -1923,7 +2114,7 @@ types: !_Map_Type
       name: parameter
       object: _OutputField
       type: !_OutputBase
-        output: _InputParam
+        output: _FieldParam
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
@@ -1933,7 +2124,7 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: parameter
       type: !_OutputBase
-        output: _InputParam
+        output: _FieldParam
     name: _OutputField
     parent: !_OutputBase
       output: _Field
@@ -1941,26 +2132,54 @@ types: !_Map_Type
       - !_OutputArg
         output: _OutputBase
     typeKind: !_TypeKind Output
+  !_Identifier _OutputParam: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: typeParam
+      object: _ObjParam
+      type: !_OutputBase
+        output: _TypeParam
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _ObjParam
+      type: !_OutputBase
+        output: String
+    - !_ObjectFor(_OutputField)
+      name: constraint
+      object: _ObjParam
+      type: !_OutputBase
+        output: _ObjConstraint
+        typeArgs:
+        - !_TypeParam base
+    name: _OutputParam
+    parent: !_OutputBase
+      output: _ObjParam
+      typeArgs:
+      - !_OutputArg
+        output: _OutputBase
+    typeKind: !_TypeKind Output
   !_Identifier _OutputParent: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: _ObjDescribed
+      object: _ObjDocumented
       type: !_DualBase
         dual: _OutputBase
     allFields:
     - !_ObjectFor(_DualField)
       name: base
-      object: _ObjDescribed
+      object: _ObjDocumented
       type: !_DualBase
         dual: _OutputBase
     - !_ObjectFor(_DualField)
-      name: description
-      object: _ObjDescribed
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _ObjDocumented
       type: !_DualBase
         dual: String
     name: _OutputParent
     parent: !_DualBase
-      dual: _ObjDescribed
+      dual: _ObjDocumented
       typeArgs:
       - !_DualArg
         dual: _OutputBase
@@ -1973,8 +2192,9 @@ types: !_Map_Type
       type: !_DualBase
         dual: _Identifier
     - !_ObjectFor(_DualField)
-      name: description
-      object: _Described
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _Documented
       type: !_DualBase
         dual: String
     - !_ObjectFor(_DualField)
@@ -2150,8 +2370,9 @@ types: !_Map_Type
       type: !_DualBase
         dual: _Identifier
     - !_ObjectFor(_DualField)
-      name: description
-      object: _Described
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _Documented
       type: !_DualBase
         dual: String
     - !_ObjectFor(_OutputField)
@@ -2166,7 +2387,7 @@ types: !_Map_Type
         output: _Constant
     name: _Setting
     parent: !_DualBase
-      dual: _Described
+      dual: _Documented
     typeKind: !_TypeKind Output
   !_Identifier _Simple: !_TypeOutput
     allAlternates:
@@ -2365,9 +2586,9 @@ types: !_Map_Type
           name: _DomainKind
           typeKind: !_SimpleKind Enum
         - !_OutputArg
-          output: _DomainMember
+          output: _DomainLabel
         - !_OutputArg
-          output: _DomainItemMember
+          output: _DomainItemLabel
     - !_ObjectFor(_OutputAlternate)
       object: _TypeDomain
       type: !_OutputBase
@@ -2416,9 +2637,9 @@ types: !_Map_Type
           name: _DomainKind
           typeKind: !_SimpleKind Enum
         - !_OutputArg
-          output: _DomainMember
+          output: _DomainLabel
         - !_OutputArg
-          output: _DomainItemMember
+          output: _DomainItemLabel
     - !_OutputAlternate
       type: !_OutputBase
         output: _BaseDomain
@@ -2453,8 +2674,9 @@ types: !_Map_Type
       type: !_DualBase
         dual: _Identifier
     - !_ObjectFor(_DualField)
-      name: description
-      object: _Described
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _Documented
       type: !_DualBase
         dual: String
     - !_ObjectFor(_DualField)
@@ -2477,8 +2699,8 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: typeParams
       object: _TypeObject
-      type: !_DualBase
-        dual: _Described
+      type: !_OutputBase
+        output: _DualParam
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: fields
@@ -2518,6 +2740,8 @@ types: !_Map_Type
       - !_OutputArg
         output: _DualParent
       - !_OutputArg
+        output: _DualParam
+      - !_OutputArg
         output: _DualField
       - !_OutputArg
         output: _DualAlternate
@@ -2530,8 +2754,9 @@ types: !_Map_Type
       type: !_DualBase
         dual: _Identifier
     - !_ObjectFor(_DualField)
-      name: description
-      object: _Described
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _Documented
       type: !_DualBase
         dual: String
     - !_ObjectFor(_DualField)
@@ -2561,7 +2786,7 @@ types: !_Map_Type
       name: allItems
       object: _ParentType
       type: !_DualBase
-        dual: _EnumMember
+        dual: _EnumLabel
     name: _TypeEnum
     parent: !_OutputBase
       output: _ParentType
@@ -2573,7 +2798,7 @@ types: !_Map_Type
       - !_DualArg
         dual: _Aliased
       - !_DualArg
-        dual: _EnumMember
+        dual: _EnumLabel
     typeKind: !_TypeKind Output
   !_Identifier _TypeFilter: !_TypeInput
     allAlternates:
@@ -2642,8 +2867,9 @@ types: !_Map_Type
       type: !_DualBase
         dual: _Identifier
     - !_ObjectFor(_DualField)
-      name: description
-      object: _Described
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _Documented
       type: !_DualBase
         dual: String
     - !_ObjectFor(_DualField)
@@ -2666,8 +2892,8 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: typeParams
       object: _TypeObject
-      type: !_DualBase
-        dual: _Described
+      type: !_OutputBase
+        output: _InputParam
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: fields
@@ -2706,6 +2932,8 @@ types: !_Map_Type
         typeKind: !_SimpleKind Enum
       - !_OutputArg
         output: _InputParent
+      - !_OutputArg
+        output: _InputParam
       - !_OutputArg
         output: _InputField
       - !_OutputArg
@@ -2757,8 +2985,9 @@ types: !_Map_Type
       type: !_DualBase
         dual: _Identifier
     - !_ObjectFor(_DualField)
-      name: description
-      object: _Described
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _Documented
       type: !_DualBase
         dual: String
     - !_ObjectFor(_DualField)
@@ -2779,8 +3008,7 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: typeParams
       object: _TypeObject
-      type: !_DualBase
-        dual: _Described
+      type: !_TypeParam typeParam
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: fields
@@ -2811,8 +3039,7 @@ types: !_Map_Type
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: typeParams
-      type: !_DualBase
-        dual: _Described
+      type: !_TypeParam typeParam
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: fields
@@ -2848,6 +3075,8 @@ types: !_Map_Type
     - !_Described
       name: parent
     - !_Described
+      name: typeParam
+    - !_Described
       name: field
     - !_Described
       name: alternate
@@ -2859,8 +3088,9 @@ types: !_Map_Type
       type: !_DualBase
         dual: _Identifier
     - !_ObjectFor(_DualField)
-      name: description
-      object: _Described
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _Documented
       type: !_DualBase
         dual: String
     - !_ObjectFor(_DualField)
@@ -2883,8 +3113,8 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: typeParams
       object: _TypeObject
-      type: !_DualBase
-        dual: _Described
+      type: !_OutputBase
+        output: _OutputParam
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: fields
@@ -2923,6 +3153,8 @@ types: !_Map_Type
         typeKind: !_SimpleKind Enum
       - !_OutputArg
         output: _OutputParent
+      - !_OutputArg
+        output: _OutputParam
       - !_OutputArg
         output: _OutputField
       - !_OutputArg
@@ -3045,8 +3277,9 @@ types: !_Map_Type
       type: !_DualBase
         dual: _Identifier
     - !_ObjectFor(_DualField)
-      name: description
-      object: _Described
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _Documented
       type: !_DualBase
         dual: String
     - !_ObjectFor(_DualField)
@@ -3070,7 +3303,7 @@ types: !_Map_Type
       name: items
       object: _ParentType
       type: !_DualBase
-        dual: _Named
+        dual: _Documented
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: allItems
@@ -3086,7 +3319,7 @@ types: !_Map_Type
         name: _TypeKind
         typeKind: !_SimpleKind Enum
       - !_DualArg
-        dual: _Named
+        dual: _Documented
       - !_DualArg
         dual: _UnionMember
     typeKind: !_TypeKind Output
@@ -3097,6 +3330,12 @@ types: !_Map_Type
       object: _Named
       type: !_DualBase
         dual: _Identifier
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _Documented
+      type: !_DualBase
+        dual: String
     - !_ObjectFor(_DualField)
       name: union
       object: _UnionMember
@@ -3109,5 +3348,5 @@ types: !_Map_Type
         dual: _Identifier
     name: _UnionMember
     parent: !_DualBase
-      dual: _Named
+      dual: _Documented
     typeKind: !_TypeKind Dual

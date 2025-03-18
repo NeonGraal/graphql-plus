@@ -4,7 +4,7 @@
     {
       "$tag": "_Error",
       "_kind": "End",
-      "_message": "In _Setting can\u0027t get model for type \u0027_Described\u0027"
+      "_message": "In _Setting can\u0027t get model for type \u0027_Documented\u0027"
     }
   ],
   "types": {
@@ -35,7 +35,7 @@
       "name": "_Setting",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "_Described"
+        "value": "_Documented"
       },
       "typeKind": "Output"
     }

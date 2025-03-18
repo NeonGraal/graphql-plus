@@ -1,0 +1,19 @@
+﻿!_Schema
+_errors:
+- !_Error
+  _at: !_At {_col: 25, _line: 1}
+  _kind: !_TokenKind String
+  _message: Invalid Union Member. Expected member.
+- !_Error
+  _at: !_At {_col: 39, _line: 1}
+  _kind: !_TokenKind Punctuation
+  _message: Invalid Schema. Expected declaration selector. 'Number'
+    unknown.
+- !_Error
+  _at: !_At {_col: 39, _line: 1}
+  _kind: !_TokenKind Punctuation
+  _message: Invalid Schema. Expected no more text.
+types: !_Map_Type
+  !_Identifier UnionDoc: !_TypeUnion
+    name: UnionDoc
+    typeKind: !_TypeKind Union

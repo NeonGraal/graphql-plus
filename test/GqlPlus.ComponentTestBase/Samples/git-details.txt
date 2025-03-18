@@ -1,1 +1,1 @@
-2edd61b  (HEAD -> improve-sample) 2025-03-18 Tweak samples Operation.md
+d5e6410  (HEAD -> label-docs) 2025-03-19 Add documentation samples

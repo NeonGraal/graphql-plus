@@ -14,7 +14,12 @@
     {
       "$tag": "_Error",
       "_kind": "End",
-      "_message": "In _InputParent can\u0027t get model for type \u0027_ObjDescribed\u0027"
+      "_message": "In _InputParent can\u0027t get model for type \u0027_ObjDocumented\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": "End",
+      "_message": "In _InputParam can\u0027t get model for type \u0027_ObjParam\u0027"
     },
     {
       "$tag": "_Error",
@@ -29,11 +34,88 @@
     {
       "$tag": "_Error",
       "_kind": "End",
-      "_message": "In _InputParam can\u0027t get model for type \u0027_ObjDescribed\u0027"
+      "_message": "In _FieldParam can\u0027t get model for type \u0027_ObjDocumented\u0027"
     }
   ],
   "types": {
     "$tag": "_Map_Type",
+    "_FieldParam": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "modifiers",
+          "object": "_FieldParam",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Modifiers"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
+          "name": "default",
+          "object": "_FieldParam",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Constant"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "modifiers",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Modifiers"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
+          "name": "default",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Constant"
+          }
+        }
+      ],
+      "name": "_FieldParam",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_ObjDocumented",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "value": "_InputBase"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
     "_InputAlternate": {
       "$tag": "_TypeOutput",
       "name": "_InputAlternate",
@@ -148,72 +230,10 @@
     },
     "_InputParam": {
       "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": "List"
-            }
-          ],
-          "name": "modifiers",
-          "object": "_InputParam",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_Modifiers"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": "Opt"
-            }
-          ],
-          "name": "default",
-          "object": "_InputParam",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_Constant"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": "List"
-            }
-          ],
-          "name": "modifiers",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_Modifiers"
-          }
-        },
-        {
-          "$tag": "_OutputField",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": "Opt"
-            }
-          ],
-          "name": "default",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_Constant"
-          }
-        }
-      ],
       "name": "_InputParam",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_ObjDescribed",
+        "output": "_ObjParam",
         "typeArgs": [
           {
             "$tag": "_OutputArg",
@@ -228,7 +248,7 @@
       "name": "_InputParent",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_ObjDescribed",
+        "output": "_ObjDocumented",
         "typeArgs": [
           {
             "$tag": "_OutputArg",
@@ -254,6 +274,10 @@
           {
             "$tag": "_OutputArg",
             "value": "_InputParent"
+          },
+          {
+            "$tag": "_OutputArg",
+            "value": "_InputParam"
           },
           {
             "$tag": "_OutputArg",

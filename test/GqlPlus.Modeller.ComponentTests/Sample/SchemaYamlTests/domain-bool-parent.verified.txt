@@ -1,0 +1,35 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DomBoolPrntTest: !_DomainBoolean
+    allItems:
+    - !_DomainItem(_DomainTrueFalse)
+      domain: DomBoolTestPrnt
+      exclude: false
+      value: true
+    - !_DomainItem(_DomainTrueFalse)
+      domain: DomBoolPrntTest
+      exclude: false
+      value: false
+    domainKind: !_DomainKind Boolean
+    items:
+    - !_DomainTrueFalse
+      exclude: false
+      value: false
+    name: DomBoolPrntTest
+    parent: !_TypeRef(_SimpleKind)
+      name: DomBoolTestPrnt
+      typeKind: !_SimpleKind Domain
+    typeKind: !_TypeKind Domain
+  !_Identifier DomBoolTestPrnt: !_DomainBoolean
+    allItems:
+    - !_DomainItem(_DomainTrueFalse)
+      domain: DomBoolTestPrnt
+      exclude: false
+      value: true
+    domainKind: !_DomainKind Boolean
+    items:
+    - !_DomainTrueFalse
+      exclude: false
+      value: true
+    name: DomBoolTestPrnt
+    typeKind: !_TypeKind Domain

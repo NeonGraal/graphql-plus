@@ -1,13 +1,9 @@
 ﻿[  
 !Sc S@001/0001
-Success
-{
-  "A Category described"
-  !Ca P@010/0002
-  catDescr
-  (Parallel)
-  CatDescr
-}
+Failure
+<
+  !!! S@001/0002 : Invalid Schema. Expected no more text. - '"described' !!!
+>
 {
   !Ca P@010/0001
   cat
@@ -111,10 +107,6 @@ Success
   }
 }
 {
-  !Ou I@008/0003
-  CatDescr
-}
-{
   !Ou I@008/0002
   Cat
 }
@@ -131,37 +123,37 @@ Success
   CatOpt
 }
 {
-  "A simple description"
+  !In I@007/0002
+  DirParamIn
+}
+{
+  "A simple doc"
   !Ou I@008/0002
   Descr
 }
 {
-  "A backslash (\"\\\") description"
+  "A backslash (\"\\\") doc"
   !Ou I@008/0002
   DescrBackslash
 }
 {
-  "A description between"
+  "A doc between"
   !Ou I@008/0003
   DescrBetween
 }
 {
-  "A \"more\" 'Complicated' \\ description"
+  "A \"more\" 'Complicated' \\ doc"
   !Ou I@008/0002
   DescrComplex
 }
 {
-  "A 'double-quoted' description"
+  "A 'double-quoted' doc"
   !Ou I@008/0002
   DescrDouble
 }
 {
-  "A \"single-quoted\" description"
+  "A \"single-quoted\" doc"
   !Ou I@008/0002
   DescrSingle
-}
-{
-  !In I@007/0002
-  DirParamIn
 }
 ]

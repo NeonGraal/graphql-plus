@@ -8,8 +8,9 @@ types: !_Map_Type
       type: !_DualBase
         dual: _Identifier
     - !_ObjectFor(_DualField)
-      name: description
-      object: _Described
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _Documented
       type: !_DualBase
         dual: String
     - !_ObjectFor(_DualField)
@@ -26,9 +27,9 @@ types: !_Map_Type
         dual: _Identifier
     name: _Aliased
     parent: !_DualBase
-      dual: _Described
+      dual: _Documented
     typeKind: !_TypeKind Dual
-  !_Identifier _Described: !_TypeDual
+  !_Identifier _Documented: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: name
@@ -36,16 +37,18 @@ types: !_Map_Type
       type: !_DualBase
         dual: _Identifier
     - !_ObjectFor(_DualField)
-      name: description
-      object: _Described
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
+      object: _Documented
       type: !_DualBase
         dual: String
     fields:
     - !_DualField
-      name: description
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: documentation
       type: !_DualBase
         dual: String
-    name: _Described
+    name: _Documented
     parent: !_DualBase
       dual: _Named
     typeKind: !_TypeKind Dual

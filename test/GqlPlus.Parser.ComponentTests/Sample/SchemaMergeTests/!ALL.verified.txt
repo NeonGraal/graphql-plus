@@ -1,13 +1,9 @@
 ﻿[  
 !Sc S@001/0001
-Success
-{
-  "A Category described"
-  !Ca P@010/0002
-  catDescr
-  (Parallel)
-  CatDescr
-}
+Failure
+<
+  !!! S@001/0002 : Invalid Schema. Expected no more text. - '"described' !!!
+>
 {
   !Ca P@010/0001
   cat
@@ -56,6 +52,13 @@ Success
   ]
   (Parallel)
   CatAlias
+}
+{
+  "First category"
+  !Ca P@010/0002
+  test
+  (Parallel)
+  Test
 }
 {
   !Ca P@010/0001
@@ -161,10 +164,6 @@ Success
   }
 }
 {
-  !Ou I@008/0003
-  CatDescr
-}
-{
   !Ou I@008/0002
   Cat
 }
@@ -181,38 +180,38 @@ Success
   CatOpt
 }
 {
-  "A simple description"
+  !In I@007/0002
+  DirParamIn
+}
+{
+  "A simple doc"
   !Ou I@008/0002
   Descr
 }
 {
-  "A backslash (\"\\\") description"
+  "A backslash (\"\\\") doc"
   !Ou I@008/0002
   DescrBackslash
 }
 {
-  "A description between"
+  "A doc between"
   !Ou I@008/0003
   DescrBetween
 }
 {
-  "A \"more\" 'Complicated' \\ description"
+  "A \"more\" 'Complicated' \\ doc"
   !Ou I@008/0002
   DescrComplex
 }
 {
-  "A 'double-quoted' description"
+  "A 'double-quoted' doc"
   !Ou I@008/0002
   DescrDouble
 }
 {
-  "A \"single-quoted\" description"
+  "A \"single-quoted\" doc"
   !Ou I@008/0002
   DescrSingle
-}
-{
-  !In I@007/0002
-  DirParamIn
 }
 {
   !Du I@006/0001
@@ -3446,6 +3445,10 @@ Success
   CatAlias
 }
 {
+  !Ou I@008/0005
+  Test
+}
+{
   !Ou I@008/0003
   CatMods
 }
@@ -3954,6 +3957,26 @@ Success
 }
 {
   !Do I@008/0001
+  DomBoolDoc
+  Boolean
+}
+{
+  !Do I@008/0001
+  DomBoolPrntTest
+  Boolean
+  :DomBoolTestPrnt
+  !DT I@051/0001
+  False
+}
+{
+  !Do I@008/0002
+  DomBoolTestPrnt
+  Boolean
+  !DT I@034/0002
+  True
+}
+{
+  !Do I@008/0001
   DomEnumAll
   Enum
   !DE I@026/0001
@@ -3991,17 +4014,22 @@ Success
 }
 {
   !Do I@008/0001
-  DomMember
+  DomEnumDoc
+  Boolean
+}
+{
+  !Do I@008/0001
+  DomLabel
   Enum
-  !DE I@025/0001
-  MemberDom
-  dom_member
+  !DE I@024/0001
+  LabelDom
+  dom_label
 }
 {
   !En I@006/0002
-  MemberDom
-  !EM I@018/0002
-  dom_member
+  LabelDom
+  !EM I@017/0002
+  dom_label
 }
 {
   !Do I@008/0001
@@ -4098,6 +4126,11 @@ Success
 }
 {
   !Do I@008/0001
+  DomNumDoc
+  Boolean
+}
+{
+  !Do I@008/0001
   DomNumPrnt
   Number
   :DomPrntNum
@@ -4115,18 +4148,8 @@ Number
 }
 {
   !Do I@008/0001
-  DomPrntTest
+  DomStrDoc
   Boolean
-  :DomTestPrnt
-  !DT I@043/0001
-  False
-}
-{
-  !Do I@008/0002
-  DomTestPrnt
-  Boolean
-  !DT I@030/0002
-  True
 }
 {
   !Do I@008/0001
@@ -4142,6 +4165,10 @@ Number
   String
   !DX R@028/0002
   /b+/
+}
+{
+  !En I@006/0001
+  EnDoc
 }
 {
   !En I@006/0001
@@ -4189,6 +4216,10 @@ Number
   [
     val_prnt_dup
   ]
+}
+{
+  !Un I@007/0001
+  UnionDoc
 }
 {
   !Un I@007/0001

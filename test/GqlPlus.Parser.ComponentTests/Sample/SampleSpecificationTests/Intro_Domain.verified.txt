@@ -34,9 +34,9 @@ Success
     I@019/0005
     _DomainKind.Enum
     I@036/0005
-    _DomainMember
-    I@050/0005
-    _DomainItemMember
+    _DomainLabel
+    I@049/0005
+    _DomainItemLabel
   >
   !OA I@007/0006
   I@007/0006
@@ -102,14 +102,14 @@ Success
     _TypeKind.Domain
     I@037/0016
     $item
-    I@044/0016
+    I@043/0016
     $domainItem
   >
   {
     !OF I@009/0017
-    domain
+    domainKind
     :
-    I@018/0017
+    I@022/0017
     $domain
   }
 }
@@ -118,158 +118,164 @@ Success
   _BaseDomainItem
   {
     !DF I@009/0021
+    documentation
+    :
+    I@024/0021
+    String
+    []
+    !DF I@009/0022
     exclude
     :
-    I@018/0021
+    I@018/0022
     Boolean
   }
 }
 {
-  !Ou I@008/0024
+  !Ou I@008/0025
   _DomainItem
   <
-    I@021/0024
+    I@021/0025
     $item
   >
   :
-  I@008/0025
+  I@008/0026
   $item
   {
-    !OF I@009/0026
+    !OF I@009/0027
     domain
     :
-    I@017/0026
+    I@017/0027
     _Identifier
   }
 }
 {
-  !Ou I@008/0029
+  !Ou I@008/0030
   _DomainValue
   <
-    I@022/0029
+    I@022/0030
     $kind
-    I@028/0029
+    I@028/0030
     $value
   >
   :
-  I@007/0030
+  I@007/0031
   _DomainRef
   <
-    I@019/0030
+    I@019/0031
     $kind
   >
   {
-    !OF I@009/0031
+    !OF I@009/0032
     value
     :
-    I@017/0031
+    I@017/0032
     $value
   }
 }
 {
-  !Du I@006/0033
+  !Du I@006/0034
   _DomainTrueFalse
   :
-  I@007/0034
+  I@007/0035
   _BaseDomainItem
   {
-    !DF I@009/0035
+    !DF I@009/0036
     value
     :
-    I@016/0035
+    I@016/0036
     Boolean
   }
 }
 {
-  !Ou I@008/0038
+  !Ou I@008/0039
   _DomainItemTrueFalse
   :
-  I@007/0039
+  I@007/0040
   _DomainItem
   <
-    I@019/0039
+    I@019/0040
     _DomainTrueFalse
   >
 }
 {
-  !Ou I@008/0041
-  _DomainMember
+  !Ou I@008/0042
+  _DomainLabel
   :
-  I@007/0042
+  I@007/0043
   _BaseDomainItem
   {
-    !OF I@009/0043
-    value
+    !OF I@009/0044
+    label
     :
-    I@016/0043
+    I@016/0044
     _EnumValue
   }
 }
 {
-  !Ou I@008/0046
-  _DomainItemMember
+  !Ou I@008/0047
+  _DomainItemLabel
   :
-  I@007/0047
+  I@007/0048
   _DomainItem
   <
-    I@019/0047
-    _DomainMember
+    I@019/0048
+    _DomainLabel
   >
 }
 {
-  !Du I@006/0049
+  !Du I@006/0050
   _DomainRange
   :
-  I@007/0050
+  I@007/0051
   _BaseDomainItem
   {
-    !DF I@009/0051
-    lower
-    :
-    I@016/0051
-    Number
-    ?
     !DF I@009/0052
-    upper
+    lower
     :
     I@016/0052
     Number
     ?
+    !DF I@009/0053
+    upper
+    :
+    I@016/0053
+    Number
+    ?
   }
 }
 {
-  !Ou I@008/0055
+  !Ou I@008/0056
   _DomainItemRange
   :
-  I@007/0056
+  I@007/0057
   _DomainItem
   <
-    I@019/0056
+    I@019/0057
     _DomainRange
   >
 }
 {
-  !Du I@006/0058
+  !Du I@006/0059
   _DomainRegex
   :
-  I@007/0059
+  I@007/0060
   _BaseDomainItem
   {
-    !DF I@009/0060
+    !DF I@009/0061
     pattern
     :
-    I@018/0060
+    I@018/0061
     String
   }
 }
 {
-  !Ou I@008/0063
+  !Ou I@008/0064
   _DomainItemRegex
   :
-  I@007/0064
+  I@007/0065
   _DomainItem
   <
-    I@019/0064
+    I@019/0065
     _DomainRegex
   >
 }

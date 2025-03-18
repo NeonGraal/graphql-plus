@@ -1,0 +1,43 @@
+﻿{
+  "$tag": "_Schema",
+  "_errors": [
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 25,
+        "_line": 1
+      },
+      "_kind": "String",
+      "_message": "Invalid Union Member. Expected member."
+    },
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 39,
+        "_line": 1
+      },
+      "_kind": "Punctuation",
+      "_message": "Invalid Schema. Expected declaration selector. \u0027Number\u0027 unknown."
+    },
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 39,
+        "_line": 1
+      },
+      "_kind": "Punctuation",
+      "_message": "Invalid Schema. Expected no more text."
+    }
+  ],
+  "types": {
+    "$tag": "_Map_Type",
+    "UnionDoc": {
+      "$tag": "_TypeUnion",
+      "name": "UnionDoc",
+      "typeKind": "Union"
+    }
+  }
+}

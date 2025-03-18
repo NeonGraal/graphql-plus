@@ -16,8 +16,14 @@
         },
         {
           "$tag": "_ObjectFor(_DualField)",
-          "name": "description",
-          "object": "_Described",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "documentation",
+          "object": "_Documented",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -58,11 +64,11 @@
       "name": "_Aliased",
       "parent": {
         "$tag": "_DualBase",
-        "value": "_Described"
+        "value": "_Documented"
       },
       "typeKind": "Dual"
     },
-    "_Described": {
+    "_Documented": {
       "$tag": "_TypeDual",
       "allFields": [
         {
@@ -76,8 +82,14 @@
         },
         {
           "$tag": "_ObjectFor(_DualField)",
-          "name": "description",
-          "object": "_Described",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "documentation",
+          "object": "_Documented",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -87,14 +99,20 @@
       "fields": [
         {
           "$tag": "_DualField",
-          "name": "description",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "documentation",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
           }
         }
       ],
-      "name": "_Described",
+      "name": "_Documented",
       "parent": {
         "$tag": "_DualBase",
         "value": "_Named"

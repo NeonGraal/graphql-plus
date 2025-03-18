@@ -15,10 +15,9 @@ public class VerifyEnumTypesTests
 
     verifier.Verify(UsageAliased, Errors);
 
-    // using AssertionScope scope = new();
-
-    Aliased.Called();
-    mergeMembers.NotCalled();
-    Errors.ShouldBeEmpty();
+    verifier.ShouldSatisfyAllConditions(
+      Aliased.Called,
+      mergeMembers.NotCalled,
+      () => Errors.ShouldBeEmpty());
   }
 }

@@ -13,12 +13,12 @@ public class ResultErrorArrayTests : BaseResultTests
 
     IResult<string> result = _errorArray.AsPartial(Sample, v => withValue = true, () => action = true);
 
-    result.ShouldBeOfType<ResultPartial<string>>()
-      .Message.Message.ShouldContain(Error);
-    // using AssertionScope scope = new();
-    result.Optional().ShouldBe(Sample);
-    withValue.ShouldBeFalse();
-    action.ShouldBeTrue();
+    result.ShouldSatisfyAllConditions(
+      () => result.ShouldBeOfType<ResultPartial<string>>()
+        .Message.Message.ShouldContain(Error),
+      () => result.Optional().ShouldBe(Sample),
+      () => withValue.ShouldBeFalse(),
+      () => action.ShouldBeTrue());
   }
 
   [Fact]
@@ -28,11 +28,11 @@ public class ResultErrorArrayTests : BaseResultTests
 
     IResultArray<string> result = _errorArray.AsPartialArray(SampleArray, v => withValue = true);
 
-    result.ShouldBeOfType<ResultArrayPartial<string>>()
-      .Message.Message.ShouldContain(Error);
-    // using AssertionScope scope = new();
-    result.Optional().ShouldBe([Sample]);
-    withValue.ShouldBeFalse();
+    result.ShouldSatisfyAllConditions(
+      () => result.ShouldBeOfType<ResultArrayPartial<string>>()
+        .Message.Message.ShouldContain(Error),
+      () => result.Optional().ShouldBe([Sample]),
+      () => withValue.ShouldBeFalse());
   }
 
   [Fact]

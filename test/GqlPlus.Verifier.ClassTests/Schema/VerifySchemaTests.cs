@@ -26,13 +26,12 @@ public class VerifySchemaTests
 
     verifier.Verify(item, Errors);
 
-    // using AssertionScope scope = new();
-
-    categoryOutputs.Called();
-    directiveInputs.Called();
-    optionsAliased.Called();
-    typesAliased.Called();
-    types.Called();
-    Errors.Select(e => e.Message).ShouldBe(["error", "item"]);
+    verifier.ShouldSatisfyAllConditions(
+      categoryOutputs.Called,
+      directiveInputs.Called,
+      optionsAliased.Called,
+      typesAliased.Called,
+      types.Called,
+      () => Errors.Select(e => e.Message).ShouldBe(["error", "item"]));
   }
 }

@@ -9,7 +9,7 @@
     {
       "$tag": "_Error",
       "_kind": "End",
-      "_message": "In _UnionMember can\u0027t get model for type \u0027_Documented\u0027"
+      "_message": "In _UnionMember can\u0027t get model for type \u0027_Described\u0027"
     }
   ],
   "types": {
@@ -29,7 +29,7 @@
           },
           {
             "$tag": "_OutputArg",
-            "value": "_Documented"
+            "value": "_Described"
           },
           {
             "$tag": "_DualArg",
@@ -65,7 +65,7 @@
       "name": "_UnionMember",
       "parent": {
         "$tag": "_DualBase",
-        "value": "_Documented"
+        "value": "_Described"
       },
       "typeKind": "Dual"
     }

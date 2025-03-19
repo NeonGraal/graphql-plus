@@ -1,2 +1,0 @@
-domain DomEnumDoc { enum "Test" "Docs" dom_label }
-enum EnumDomDoc { dom_label }

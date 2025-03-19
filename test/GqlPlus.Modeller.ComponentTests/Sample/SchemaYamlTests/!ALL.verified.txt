@@ -1,5 +1,5 @@
 ﻿!_Schema
-aliases: [Opt1, Opt2]
+aliases: [Alias, Opt1, Opt2]
 categories: !_Map_Categories
   !_Identifier cat: !_Category
     name: cat
@@ -12,13 +12,6 @@ categories: !_Map_Categories
     name: catAlias
     output: !_TypeRef(_TypeKind)
       name: CatAlias
-      typeKind: !_TypeKind Output
-    resolution: !_Resolution Parallel
-  !_Identifier catDescr: !_Category
-    description: 'A Category described'
-    name: catDescr
-    output: !_TypeRef(_TypeKind)
-      name: CatDescr
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
   !_Identifier catDict: !_Category
@@ -72,12 +65,6 @@ directives: !_Map_Directives
     aliases: [DirA1, DirA2]
     locations: !_Set(_Location) {Field: _, Variable: _}
     name: DirAlias
-    repeatable: false
-  !_Identifier DirDescr: !_Directive
-    description: 'A directive described'
-    locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
-      Operation: _, Spread: _, Variable: _}
-    name: DirDescr
     repeatable: false
   !_Identifier DirNoParam: !_Directive
     locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
@@ -190,9 +177,6 @@ types: !_Map_Type
   !_Identifier CatAlias: !_TypeOutput
     name: CatAlias
     typeKind: !_TypeKind Output
-  !_Identifier CatDescr: !_TypeOutput
-    name: CatDescr
-    typeKind: !_TypeKind Output
   !_Identifier CatDict: !_TypeOutput
     name: CatDict
     typeKind: !_TypeKind Output
@@ -207,31 +191,6 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier Category: !_TypeOutput
     name: Category
-    typeKind: !_TypeKind Output
-  !_Identifier Descr: !_TypeOutput
-    description: 'A simple description'
-    name: Descr
-    typeKind: !_TypeKind Output
-  !_Identifier DescrBackslash: !_TypeOutput
-    description: 'A backslash ("\") description'
-    name: DescrBackslash
-    typeKind: !_TypeKind Output
-  !_Identifier DescrBetween: !_TypeOutput
-    description: 'A description between'
-    name: DescrBetween
-    typeKind: !_TypeKind Output
-  !_Identifier DescrComplex: !_TypeOutput
-    description: >-
-      A "more" 'Complicated' \ description
-    name: DescrComplex
-    typeKind: !_TypeKind Output
-  !_Identifier DescrDouble: !_TypeOutput
-    description: "A 'double-quoted' description"
-    name: DescrDouble
-    typeKind: !_TypeKind Output
-  !_Identifier DescrSingle: !_TypeOutput
-    description: 'A "single-quoted" description'
-    name: DescrSingle
     typeKind: !_TypeKind Output
   !_Identifier DirParamIn: !_TypeInput
     name: DirParamIn
@@ -529,6 +488,9 @@ types: !_Map_Type
         dual: Number
     name: DualAltAlt
     typeKind: !_TypeKind Dual
+  !_Identifier DualAltDescr: !_TypeDual
+    name: DualAltDescr
+    typeKind: !_TypeKind Dual
   !_Identifier DualAltDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
@@ -691,6 +653,9 @@ types: !_Map_Type
         dual: '*'
     name: DualField
     typeKind: !_TypeKind Dual
+  !_Identifier DualFieldDescr: !_TypeDual
+    name: DualFieldDescr
+    typeKind: !_TypeKind Dual
   !_Identifier DualFieldDual: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
@@ -839,6 +804,9 @@ types: !_Map_Type
         dual: Number
     name: DualFieldSimple
     typeKind: !_TypeKind Dual
+  !_Identifier DualFieldTypeDescr: !_TypeDual
+    name: DualFieldTypeDescr
+    typeKind: !_TypeKind Dual
   !_Identifier DualGenAlt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
@@ -867,6 +835,12 @@ types: !_Map_Type
         typeArgs:
         - !_TypeParam type
     name: DualGenAltArg
+    typeKind: !_TypeKind Dual
+    typeParams:
+    - !_Described
+      name: type
+  !_Identifier DualGenAltArgDescr: !_TypeDual
+    name: DualGenAltArgDescr
     typeKind: !_TypeKind Dual
     typeParams:
     - !_Described
@@ -1023,6 +997,9 @@ types: !_Map_Type
     typeParams:
     - !_Described
       name: ref
+  !_Identifier DualGenDescr: !_TypeDual
+    name: DualGenDescr
+    typeKind: !_TypeKind Dual
   !_Identifier DualGenDual: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
@@ -1678,6 +1655,9 @@ types: !_Map_Type
       type: !_DualBase
         dual: Number
     name: DualParentAltRef
+    typeKind: !_TypeKind Dual
+  !_Identifier DualParentDescr: !_TypeDual
+    name: DualParentDescr
     typeKind: !_TypeKind Dual
   !_Identifier DualParentDual: !_TypeDual
     allAlternates:
@@ -2405,6 +2385,9 @@ types: !_Map_Type
         input: Number
     name: InpAltAlt
     typeKind: !_TypeKind Input
+  !_Identifier InpAltDescr: !_TypeInput
+    name: InpAltDescr
+    typeKind: !_TypeKind Input
   !_Identifier InpAltDual: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
@@ -2567,6 +2550,9 @@ types: !_Map_Type
         input: '*'
     name: InpField
     typeKind: !_TypeKind Input
+  !_Identifier InpFieldDescr: !_TypeInput
+    name: InpFieldDescr
+    typeKind: !_TypeKind Input
   !_Identifier InpFieldDual: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
@@ -2715,6 +2701,9 @@ types: !_Map_Type
         input: Number
     name: InpFieldSimple
     typeKind: !_TypeKind Input
+  !_Identifier InpFieldTypeDescr: !_TypeInput
+    name: InpFieldTypeDescr
+    typeKind: !_TypeKind Input
   !_Identifier InpGenAlt: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
@@ -2743,6 +2732,12 @@ types: !_Map_Type
         typeArgs:
         - !_TypeParam type
     name: InpGenAltArg
+    typeKind: !_TypeKind Input
+    typeParams:
+    - !_Described
+      name: type
+  !_Identifier InpGenAltArgDescr: !_TypeInput
+    name: InpGenAltArgDescr
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described
@@ -2899,6 +2894,9 @@ types: !_Map_Type
     typeParams:
     - !_Described
       name: ref
+  !_Identifier InpGenDescr: !_TypeInput
+    name: InpGenDescr
+    typeKind: !_TypeKind Input
   !_Identifier InpGenDual: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
@@ -3554,6 +3552,9 @@ types: !_Map_Type
       type: !_InputBase
         input: Number
     name: InpParentAltRef
+    typeKind: !_TypeKind Input
+  !_Identifier InpParentDescr: !_TypeInput
+    name: InpParentDescr
     typeKind: !_TypeKind Input
   !_Identifier InpParentDual: !_TypeInput
     allAlternates:
@@ -4338,6 +4339,9 @@ types: !_Map_Type
         output: Number
     name: OutpAltAlt
     typeKind: !_TypeKind Output
+  !_Identifier OutpAltDescr: !_TypeOutput
+    name: OutpAltDescr
+    typeKind: !_TypeKind Output
   !_Identifier OutpAltDual: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
@@ -4500,6 +4504,9 @@ types: !_Map_Type
         output: '*'
     name: OutpField
     typeKind: !_TypeKind Output
+  !_Identifier OutpFieldDescr: !_TypeOutput
+    name: OutpFieldDescr
+    typeKind: !_TypeKind Output
   !_Identifier OutpFieldDual: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -4648,6 +4655,9 @@ types: !_Map_Type
         output: Number
     name: OutpFieldSimple
     typeKind: !_TypeKind Output
+  !_Identifier OutpFieldTypeDescr: !_TypeOutput
+    name: OutpFieldTypeDescr
+    typeKind: !_TypeKind Output
   !_Identifier OutpGenAlt: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
@@ -4676,6 +4686,12 @@ types: !_Map_Type
         typeArgs:
         - !_TypeParam type
     name: OutpGenAltArg
+    typeKind: !_TypeKind Output
+    typeParams:
+    - !_Described
+      name: type
+  !_Identifier OutpGenAltArgDescr: !_TypeOutput
+    name: OutpGenAltArgDescr
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described
@@ -4832,6 +4848,9 @@ types: !_Map_Type
     typeParams:
     - !_Described
       name: ref
+  !_Identifier OutpGenDescr: !_TypeOutput
+    name: OutpGenDescr
+    typeKind: !_TypeKind Output
   !_Identifier OutpGenDual: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -5487,6 +5506,9 @@ types: !_Map_Type
       type: !_OutputBase
         output: Number
     name: OutpParentAltRef
+    typeKind: !_TypeKind Output
+  !_Identifier OutpParentDescr: !_TypeOutput
+    name: OutpParentDescr
     typeKind: !_TypeKind Output
   !_Identifier OutpParentDual: !_TypeOutput
     allAlternates:

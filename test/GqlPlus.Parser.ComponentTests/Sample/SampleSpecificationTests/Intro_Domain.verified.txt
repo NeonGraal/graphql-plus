@@ -118,9 +118,9 @@ Success
   _BaseDomainItem
   {
     !DF I@009/0021
-    documentation
+    description
     :
-    I@024/0021
+    I@022/0021
     String
     []
     !DF I@009/0022

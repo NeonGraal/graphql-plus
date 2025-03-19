@@ -5,7 +5,7 @@ Success
   _Setting
   :
   I@007/0002
-  _Documented
+  _Described
   {
     !OF I@009/0003
     value

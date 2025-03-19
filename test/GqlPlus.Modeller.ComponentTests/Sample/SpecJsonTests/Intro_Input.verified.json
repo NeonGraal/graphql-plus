@@ -14,7 +14,7 @@
     {
       "$tag": "_Error",
       "_kind": "End",
-      "_message": "In _InputParent can\u0027t get model for type \u0027_ObjDocumented\u0027"
+      "_message": "In _InputParent can\u0027t get model for type \u0027_ObjDescribed\u0027"
     },
     {
       "$tag": "_Error",
@@ -34,7 +34,7 @@
     {
       "$tag": "_Error",
       "_kind": "End",
-      "_message": "In _FieldParam can\u0027t get model for type \u0027_ObjDocumented\u0027"
+      "_message": "In _FieldParam can\u0027t get model for type \u0027_ObjDescribed\u0027"
     }
   ],
   "types": {
@@ -106,7 +106,7 @@
       "name": "_FieldParam",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_ObjDocumented",
+        "output": "_ObjDescribed",
         "typeArgs": [
           {
             "$tag": "_OutputArg",
@@ -248,7 +248,7 @@
       "name": "_InputParent",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_ObjDocumented",
+        "output": "_ObjDescribed",
         "typeArgs": [
           {
             "$tag": "_OutputArg",

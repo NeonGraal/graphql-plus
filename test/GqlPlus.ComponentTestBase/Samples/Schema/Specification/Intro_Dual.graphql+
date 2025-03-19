@@ -8,7 +8,7 @@ output _DualBase {
     }
 
 output _DualParent {
-    : _ObjDocumented<_DualBase>
+    : _ObjDescribed<_DualBase>
     }
 
 output _DualParam {

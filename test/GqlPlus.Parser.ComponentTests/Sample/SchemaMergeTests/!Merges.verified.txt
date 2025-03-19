@@ -18,13 +18,6 @@ Success
   CatAlias
 }
 {
-  "First category"
-  !Ca P@010/0002
-  test
-  (Parallel)
-  Test
-}
-{
   !Ca P@010/0001
   catMods
   [
@@ -82,10 +75,6 @@ Success
 {
   !Ou I@008/0003
   CatAlias
-}
-{
-  !Ou I@008/0005
-  Test
 }
 {
   !Ou I@008/0003

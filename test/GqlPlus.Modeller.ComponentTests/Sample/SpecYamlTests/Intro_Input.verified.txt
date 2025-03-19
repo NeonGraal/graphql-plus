@@ -8,7 +8,7 @@ _errors:
   _message: In _InputBase can't get model for type '_ObjBase'
 - !_Error
   _kind: !_TokenKind End
-  _message: In _InputParent can't get model for type '_ObjDocumented'
+  _message: In _InputParent can't get model for type '_ObjDescribed'
 - !_Error
   _kind: !_TokenKind End
   _message: In _InputParam can't get model for type '_ObjParam'
@@ -20,7 +20,7 @@ _errors:
   _message: In _InputAlternate can't get model for type '_Alternate'
 - !_Error
   _kind: !_TokenKind End
-  _message: In _FieldParam can't get model for type '_ObjDocumented'
+  _message: In _FieldParam can't get model for type '_ObjDescribed'
 types: !_Map_Type
   !_Identifier _FieldParam: !_TypeOutput
     allFields:
@@ -49,7 +49,7 @@ types: !_Map_Type
         output: _Constant
     name: _FieldParam
     parent: !_OutputBase
-      output: _ObjDocumented
+      output: _ObjDescribed
       typeArgs:
       - !_OutputArg
         output: _InputBase
@@ -119,7 +119,7 @@ types: !_Map_Type
   !_Identifier _InputParent: !_TypeOutput
     name: _InputParent
     parent: !_OutputBase
-      output: _ObjDocumented
+      output: _ObjDescribed
       typeArgs:
       - !_OutputArg
         output: _InputBase

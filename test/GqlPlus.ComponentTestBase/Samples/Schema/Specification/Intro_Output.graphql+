@@ -9,7 +9,7 @@ output _OutputBase {
     }
 
 output _OutputParent {
-    : _ObjDocumented<_OutputBase>
+    : _ObjDescribed<_OutputBase>
     }
 
 output _OutputParam {

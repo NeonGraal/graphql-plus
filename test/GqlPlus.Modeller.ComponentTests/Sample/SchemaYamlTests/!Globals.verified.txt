@@ -1,16 +1,10 @@
 ﻿!_Schema
+aliases: [Alias]
 categories: !_Map_Categories
   !_Identifier cat: !_Category
     name: cat
     output: !_TypeRef(_TypeKind)
       name: Cat
-      typeKind: !_TypeKind Output
-    resolution: !_Resolution Parallel
-  !_Identifier catDescr: !_Category
-    description: 'A Category described'
-    name: catDescr
-    output: !_TypeRef(_TypeKind)
-      name: CatDescr
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
   !_Identifier catDict: !_Category
@@ -42,12 +36,6 @@ categories: !_Map_Categories
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
 directives: !_Map_Directives
-  !_Identifier DirDescr: !_Directive
-    description: 'A directive described'
-    locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
-      Operation: _, Spread: _, Variable: _}
-    name: DirDescr
-    repeatable: false
   !_Identifier DirNoParam: !_Directive
     locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
       Operation: _, Spread: _, Variable: _}
@@ -98,9 +86,6 @@ types: !_Map_Type
   !_Identifier Cat: !_TypeOutput
     name: Cat
     typeKind: !_TypeKind Output
-  !_Identifier CatDescr: !_TypeOutput
-    name: CatDescr
-    typeKind: !_TypeKind Output
   !_Identifier CatDict: !_TypeOutput
     name: CatDict
     typeKind: !_TypeKind Output
@@ -109,31 +94,6 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier CatOpt: !_TypeOutput
     name: CatOpt
-    typeKind: !_TypeKind Output
-  !_Identifier Descr: !_TypeOutput
-    description: 'A simple description'
-    name: Descr
-    typeKind: !_TypeKind Output
-  !_Identifier DescrBackslash: !_TypeOutput
-    description: 'A backslash ("\") description'
-    name: DescrBackslash
-    typeKind: !_TypeKind Output
-  !_Identifier DescrBetween: !_TypeOutput
-    description: 'A description between'
-    name: DescrBetween
-    typeKind: !_TypeKind Output
-  !_Identifier DescrComplex: !_TypeOutput
-    description: >-
-      A "more" 'Complicated' \ description
-    name: DescrComplex
-    typeKind: !_TypeKind Output
-  !_Identifier DescrDouble: !_TypeOutput
-    description: "A 'double-quoted' description"
-    name: DescrDouble
-    typeKind: !_TypeKind Output
-  !_Identifier DescrSingle: !_TypeOutput
-    description: 'A "single-quoted" description'
-    name: DescrSingle
     typeKind: !_TypeKind Output
   !_Identifier DirParamIn: !_TypeInput
     name: DirParamIn

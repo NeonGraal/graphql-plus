@@ -67,9 +67,9 @@ Success
 }
 {
   !Du I@006/0010
-  _ObjDocumented
+  _ObjDescribed
   <
-    I@022/0010
+    I@021/0010
     $base
   >
   {
@@ -79,9 +79,9 @@ Success
     I@016/0011
     $base
     !DF I@009/0012
-    documentation
+    description
     :
-    I@024/0012
+    I@022/0012
     String
     []
   }
@@ -136,9 +136,9 @@ Success
     typeArgs
     :
     I@019/0026
-    _ObjDocumented
+    _ObjDescribed
     <
-      I@034/0026
+      I@033/0026
       _ObjArg
     >
     []
@@ -183,9 +183,9 @@ Success
     I@016/0038
     _TypeParam
     !OF I@005/0039
-    documentation
+    description
     :
-    I@020/0039
+    I@018/0039
     String
     []
     !OF I@005/0040
@@ -211,9 +211,9 @@ Success
     type
     :
     I@013/0044
-    _ObjDocumented
+    _ObjDescribed
     <
-      I@029/0044
+      I@028/0044
       $base
     >
     !OF I@007/0045
@@ -257,9 +257,9 @@ Success
     type
     :
     I@013/0055
-    _ObjDocumented
+    _ObjDescribed
     <
-      I@029/0055
+      I@028/0055
       $base
     >
     !OF I@007/0056

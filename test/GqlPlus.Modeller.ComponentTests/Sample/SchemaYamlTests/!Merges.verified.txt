@@ -22,13 +22,6 @@ categories: !_Map_Categories
       name: Category
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
-  !_Identifier test: !_Category
-    description: 'First category'
-    name: test
-    output: !_TypeRef(_TypeKind)
-      name: Test
-      typeKind: !_TypeKind Output
-    resolution: !_Resolution Parallel
 directives: !_Map_Directives
   !_Identifier Dir: !_Directive
     locations: !_Set(_Location) {Inline: _, Spread: _}
@@ -648,9 +641,6 @@ types: !_Map_Type
       pattern: a+
     name: StrSame
     typeKind: !_TypeKind Domain
-  !_Identifier Test: !_TypeOutput
-    name: Test
-    typeKind: !_TypeKind Output
   !_Identifier UnDiff: !_TypeUnion
     aliases: [UnA1, UnA2]
     allItems:

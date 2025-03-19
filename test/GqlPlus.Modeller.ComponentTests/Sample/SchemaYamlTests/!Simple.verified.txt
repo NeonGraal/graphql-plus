@@ -4,10 +4,6 @@ _errors:
   _at: !_At {_col: 29, _line: 1}
   _kind: !_TokenKind String
   _message: Invalid Domain. Expected '}' at end of definition.
-- !_Error
-  _at: !_At {_col: 36, _line: 1}
-  _kind: !_TokenKind String
-  _message: Invalid Schema. Expected no more text.
 types: !_Map_Type
   !_Identifier DomBoolDoc: !_DomainBoolean
     domainKind: !_DomainKind Boolean

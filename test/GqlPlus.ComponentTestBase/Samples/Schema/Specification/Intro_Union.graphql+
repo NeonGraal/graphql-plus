@@ -1,8 +1,8 @@
 output _TypeUnion {
-    : _ParentType<_TypeKind.Union _Documented _UnionMember>
+    : _ParentType<_TypeKind.Union _Described _UnionMember>
     }
 
 dual _UnionMember {
-    : _Documented
+    : _Described
         union: _Identifier
     }

@@ -1,11 +1,11 @@
 dual _Aliased {
-    : _Documented
+    : _Described
         aliases: _Identifier[]
     }
 
-dual _Documented {
+dual _Described {
     : _Named
-        documentation: String[]
+        description: String[]
     }
 
 dual _Named {

@@ -1,5 +1,5 @@
 ﻿{
   "$tag": "_Schema",
-  "aliases": ["Opt1", "Opt2"],
+  "aliases": ["Alias"],
   "name": "Schema"
 }

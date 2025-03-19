@@ -38,9 +38,9 @@ Success
   _DualParent
   :
   I@007/0011
-  _ObjDocumented
+  _ObjDescribed
   <
-    I@022/0011
+    I@021/0011
     _DualBase
   >
 }

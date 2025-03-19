@@ -1,0 +1,2 @@
+output OutFieldValue { field = "Test" "Descr" outEnumValue }
+enum OutEnumValue { outEnumValue }

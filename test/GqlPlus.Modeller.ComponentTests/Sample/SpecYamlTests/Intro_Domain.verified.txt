@@ -39,7 +39,7 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: documentation
+      name: description
       object: _BaseDomainItem
       type: !_DualBase
         dual: String
@@ -51,7 +51,7 @@ types: !_Map_Type
     fields:
     - !_DualField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: documentation
+      name: description
       type: !_DualBase
         dual: String
     - !_DualField
@@ -82,7 +82,7 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: documentation
+      name: description
       object: _BaseDomainItem
       type: !_DualBase
         dual: String
@@ -112,7 +112,7 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: documentation
+      name: description
       object: _BaseDomainItem
       type: !_DualBase
         dual: String
@@ -149,7 +149,7 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: documentation
+      name: description
       object: _BaseDomainItem
       type: !_DualBase
         dual: String
@@ -179,7 +179,7 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: documentation
+      name: description
       object: _BaseDomainItem
       type: !_DualBase
         dual: String
@@ -234,7 +234,7 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: documentation
+      name: description
       object: _BaseDomainItem
       type: !_DualBase
         dual: String
@@ -261,7 +261,7 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: documentation
+      name: description
       object: _BaseDomainItem
       type: !_DualBase
         dual: String
@@ -323,7 +323,7 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: documentation
+      name: description
       object: _BaseDomainItem
       type: !_DualBase
         dual: String
@@ -350,7 +350,7 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: documentation
+      name: description
       object: _BaseDomainItem
       type: !_DualBase
         dual: String

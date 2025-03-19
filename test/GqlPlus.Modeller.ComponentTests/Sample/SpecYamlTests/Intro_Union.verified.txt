@@ -5,7 +5,7 @@ _errors:
   _message: In _TypeUnion can't get model for type '_ParentType'
 - !_Error
   _kind: !_TokenKind End
-  _message: In _UnionMember can't get model for type '_Documented'
+  _message: In _UnionMember can't get model for type '_Described'
 types: !_Map_Type
   !_Identifier _TypeUnion: !_TypeOutput
     name: _TypeUnion
@@ -17,7 +17,7 @@ types: !_Map_Type
         name: _TypeKind
         typeKind: !_SimpleKind Enum
       - !_OutputArg
-        output: _Documented
+        output: _Described
       - !_DualArg
         dual: _UnionMember
     typeKind: !_TypeKind Output
@@ -35,5 +35,5 @@ types: !_Map_Type
         dual: _Identifier
     name: _UnionMember
     parent: !_DualBase
-      dual: _Documented
+      dual: _Described
     typeKind: !_TypeKind Dual

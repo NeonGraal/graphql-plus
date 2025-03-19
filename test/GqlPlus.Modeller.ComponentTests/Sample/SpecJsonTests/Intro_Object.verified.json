@@ -33,7 +33,7 @@
           "object": "_Alternate",
           "type": {
             "$tag": "_DualBase",
-            "dual": "_ObjDocumented",
+            "dual": "_ObjDescribed",
             "typeArgs": ["base"]
           }
         },
@@ -59,7 +59,7 @@
           "name": "type",
           "type": {
             "$tag": "_DualBase",
-            "dual": "_ObjDocumented",
+            "dual": "_ObjDescribed",
             "typeArgs": ["base"]
           }
         },
@@ -96,7 +96,7 @@
           "object": "_Field",
           "type": {
             "$tag": "_DualBase",
-            "dual": "_ObjDocumented",
+            "dual": "_ObjDescribed",
             "typeArgs": ["base"]
           }
         },
@@ -122,7 +122,7 @@
           "name": "type",
           "type": {
             "$tag": "_DualBase",
-            "dual": "_ObjDocumented",
+            "dual": "_ObjDescribed",
             "typeArgs": ["base"]
           }
         },
@@ -213,7 +213,7 @@
           "object": "_ObjBase",
           "type": {
             "$tag": "_DualBase",
-            "dual": "_ObjDocumented",
+            "dual": "_ObjDescribed",
             "typeArgs": [
               {
                 "$tag": "_DualArg",
@@ -244,7 +244,7 @@
           "name": "typeArgs",
           "type": {
             "$tag": "_DualBase",
-            "dual": "_ObjDocumented",
+            "dual": "_ObjDescribed",
             "typeArgs": [
               {
                 "$tag": "_DualArg",
@@ -296,12 +296,12 @@
         }
       ]
     },
-    "_ObjDocumented": {
+    "_ObjDescribed": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "_ObjDocumented",
+          "object": "_ObjDescribed",
           "type": "base"
         }
       ],
@@ -309,7 +309,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "base",
-          "object": "_ObjDocumented",
+          "object": "_ObjDescribed",
           "type": "base"
         },
         {
@@ -320,8 +320,8 @@
               "modifierKind": "List"
             }
           ],
-          "name": "documentation",
-          "object": "_ObjDocumented",
+          "name": "description",
+          "object": "_ObjDescribed",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -348,14 +348,14 @@
               "modifierKind": "List"
             }
           ],
-          "name": "documentation",
+          "name": "description",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
           }
         }
       ],
-      "name": "_ObjDocumented",
+      "name": "_ObjDescribed",
       "typeKind": "Dual",
       "typeParams": [
         {
@@ -417,7 +417,7 @@
               "modifierKind": "List"
             }
           ],
-          "name": "documentation",
+          "name": "description",
           "object": "_ObjParam",
           "type": {
             "$tag": "_OutputBase",
@@ -452,7 +452,7 @@
               "modifierKind": "List"
             }
           ],
-          "name": "documentation",
+          "name": "description",
           "type": {
             "$tag": "_OutputBase",
             "value": "String"

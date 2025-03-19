@@ -72,6 +72,18 @@ Success
 }
 {
   !Du I@006/0001
+  DualAltDescr
+}
+{
+  !In I@007/0001
+  InpAltDescr
+}
+{
+  !Ou I@008/0001
+  OutpAltDescr
+}
+{
+  !Du I@006/0001
   DualAltDual
   |
   !DA I@022/0001
@@ -351,6 +363,18 @@ Success
     P@027/0001
     *
   }
+}
+{
+  !Du I@006/0001
+  DualFieldDescr
+}
+{
+  !In I@007/0001
+  InpFieldDescr
+}
+{
+  !Ou I@008/0001
+  OutpFieldDescr
 }
 {
   !Du I@006/0001
@@ -690,6 +714,18 @@ Success
 }
 {
   !Du I@006/0001
+  DualFieldTypeDescr
+}
+{
+  !In I@007/0001
+  InpFieldTypeDescr
+}
+{
+  !Ou I@008/0001
+  OutpFieldTypeDescr
+}
+{
+  !Du I@006/0001
   DualGenAlt
   <
     I@018/0001
@@ -807,6 +843,30 @@ Success
   !OA P@035/0002
   I@036/0002
   $ref
+}
+{
+  !Du I@006/0001
+  DualGenAltArgDescr
+  <
+    I@026/0001
+    $type
+  >
+}
+{
+  !In I@007/0001
+  InpGenAltArgDescr
+  <
+    I@026/0001
+    $type
+  >
+}
+{
+  !Ou I@008/0001
+  OutpGenAltArgDescr
+  <
+    I@028/0001
+    $type
+  >
 }
 {
   !Du I@006/0001
@@ -1113,6 +1173,18 @@ Success
   !OA P@038/0002
   I@039/0002
   $ref
+}
+{
+  !Du I@006/0001
+  DualGenDescr
+}
+{
+  !In I@007/0001
+  InpGenDescr
+}
+{
+  !Ou I@008/0001
+  OutpGenDescr
 }
 {
   !Du I@006/0001
@@ -2322,6 +2394,18 @@ Success
 }
 {
   !In I@007/0001
+  InFieldNum
+  {
+    !IF I@020/0001
+    field
+    :
+    I@027/0001
+    Number
+    =( !k N@036/0001 0 )
+  }
+}
+{
+  !In I@007/0001
   InFieldEnum
   {
     !IF I@021/0001
@@ -2353,18 +2437,6 @@ Success
 }
 {
   !In I@007/0001
-  InFieldNum
-  {
-    !IF I@020/0001
-    field
-    :
-    I@027/0001
-    Number
-    =( !k N@036/0001 0 )
-  }
-}
-{
-  !In I@007/0001
   InFieldStr
   {
     !IF I@020/0001
@@ -2373,6 +2445,22 @@ Success
     I@027/0001
     String
     =( !k S@036/0001 '' )
+  }
+}
+{
+  !Ou I@008/0001
+  OutParam
+  {
+    !OF I@019/0001
+    field
+    (
+      !Pa
+      I@025/0001
+      OutParamIn
+    )
+    :
+    I@038/0001
+    OutParam
   }
 }
 {
@@ -2500,22 +2588,6 @@ Success
   OutValueGen
   !EM I@020/0003
   outValueGen
-}
-{
-  !Ou I@008/0001
-  OutParam
-  {
-    !OF I@019/0001
-    field
-    (
-      !Pa
-      I@025/0001
-      OutParamIn
-    )
-    :
-    I@038/0001
-    OutParam
-  }
 }
 {
   !In I@007/0002
@@ -2866,6 +2938,18 @@ Success
   !OA I@045/0002
   I@045/0002
   String
+}
+{
+  !Du I@006/0001
+  DualParentDescr
+}
+{
+  !In I@007/0001
+  InpParentDescr
+}
+{
+  !Ou I@008/0001
+  OutpParentDescr
 }
 {
   !Du I@006/0001

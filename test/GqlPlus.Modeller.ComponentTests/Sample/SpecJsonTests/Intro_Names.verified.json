@@ -22,8 +22,8 @@
               "modifierKind": "List"
             }
           ],
-          "name": "documentation",
-          "object": "_Documented",
+          "name": "description",
+          "object": "_Described",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -64,11 +64,11 @@
       "name": "_Aliased",
       "parent": {
         "$tag": "_DualBase",
-        "value": "_Documented"
+        "value": "_Described"
       },
       "typeKind": "Dual"
     },
-    "_Documented": {
+    "_Described": {
       "$tag": "_TypeDual",
       "allFields": [
         {
@@ -88,8 +88,8 @@
               "modifierKind": "List"
             }
           ],
-          "name": "documentation",
-          "object": "_Documented",
+          "name": "description",
+          "object": "_Described",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -105,14 +105,14 @@
               "modifierKind": "List"
             }
           ],
-          "name": "documentation",
+          "name": "description",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
           }
         }
       ],
-      "name": "_Documented",
+      "name": "_Described",
       "parent": {
         "$tag": "_DualBase",
         "value": "_Named"

@@ -1,0 +1,1 @@
+domain DomStrDoc { String "Test" "Descr" /a+/ }

@@ -18,7 +18,7 @@ output _BaseDomain<$domain $item $domainItem> {
     }
 
 dual _BaseDomainItem {
-        documentation: String[]
+        description: String[]
         exclude: Boolean
     }
 

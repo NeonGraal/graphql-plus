@@ -9,7 +9,7 @@ output _InputBase {
     }
 
 output _InputParent {
-    : _ObjDocumented<_InputBase>
+    : _ObjDescribed<_InputBase>
     }
 
 output _InputParam {
@@ -26,7 +26,7 @@ output _InputAlternate {
     }
 
 output _FieldParam {
-    : _ObjDocumented<_InputBase>
+    : _ObjDescribed<_InputBase>
         modifiers: _Modifiers[]
         default: _Constant?
     }

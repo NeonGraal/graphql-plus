@@ -1,6 +1,6 @@
 ﻿{
   "$tag": "_Schema",
-  "aliases": ["Opt1", "Opt2"],
+  "aliases": ["Alias", "Opt1", "Opt2"],
   "categories": {
     "$tag": "_Map_Categories",
     "cat": {
@@ -20,17 +20,6 @@
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
         "name": "CatAlias",
-        "typeKind": "Output"
-      },
-      "resolution": "Parallel"
-    },
-    "catDescr": {
-      "$tag": "_Category",
-      "description": "A Category described",
-      "name": "catDescr",
-      "output": {
-        "$tag": "_TypeRef(_TypeKind)",
-        "name": "CatDescr",
         "typeKind": "Output"
       },
       "resolution": "Parallel"
@@ -144,21 +133,6 @@
         "Variable": "_"
       },
       "name": "DirAlias",
-      "repeatable": false
-    },
-    "DirDescr": {
-      "$tag": "_Directive",
-      "description": "A directive described",
-      "locations": {
-        "$tag": "_Set(_Location)",
-        "Field": "_",
-        "Fragment": "_",
-        "Inline": "_",
-        "Operation": "_",
-        "Spread": "_",
-        "Variable": "_"
-      },
-      "name": "DirDescr",
       "repeatable": false
     },
     "DirNoParam": {
@@ -387,11 +361,6 @@
       "name": "CatAlias",
       "typeKind": "Output"
     },
-    "CatDescr": {
-      "$tag": "_TypeOutput",
-      "name": "CatDescr",
-      "typeKind": "Output"
-    },
     "CatDict": {
       "$tag": "_TypeOutput",
       "name": "CatDict",
@@ -415,42 +384,6 @@
     "CatOpt": {
       "$tag": "_TypeOutput",
       "name": "CatOpt",
-      "typeKind": "Output"
-    },
-    "Descr": {
-      "$tag": "_TypeOutput",
-      "description": "A simple description",
-      "name": "Descr",
-      "typeKind": "Output"
-    },
-    "DescrBackslash": {
-      "$tag": "_TypeOutput",
-      "description": "A backslash (\u0022\\\u0022) description",
-      "name": "DescrBackslash",
-      "typeKind": "Output"
-    },
-    "DescrBetween": {
-      "$tag": "_TypeOutput",
-      "description": "A description between",
-      "name": "DescrBetween",
-      "typeKind": "Output"
-    },
-    "DescrComplex": {
-      "$tag": "_TypeOutput",
-      "description": "A \u0022more\u0022 \u0027Complicated\u0027 \\ description",
-      "name": "DescrComplex",
-      "typeKind": "Output"
-    },
-    "DescrDouble": {
-      "$tag": "_TypeOutput",
-      "description": "A \u0027double-quoted\u0027 description",
-      "name": "DescrDouble",
-      "typeKind": "Output"
-    },
-    "DescrSingle": {
-      "$tag": "_TypeOutput",
-      "description": "A \u0022single-quoted\u0022 description",
-      "name": "DescrSingle",
       "typeKind": "Output"
     },
     "DirParamIn": {
@@ -943,6 +876,11 @@
       "name": "DualAltAlt",
       "typeKind": "Dual"
     },
+    "DualAltDescr": {
+      "$tag": "_TypeDual",
+      "name": "DualAltDescr",
+      "typeKind": "Dual"
+    },
     "DualAltDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
@@ -1254,6 +1192,11 @@
       "name": "DualField",
       "typeKind": "Dual"
     },
+    "DualFieldDescr": {
+      "$tag": "_TypeDual",
+      "name": "DualFieldDescr",
+      "typeKind": "Dual"
+    },
     "DualFieldDual": {
       "$tag": "_TypeDual",
       "allFields": [
@@ -1555,6 +1498,11 @@
       "name": "DualFieldSimple",
       "typeKind": "Dual"
     },
+    "DualFieldTypeDescr": {
+      "$tag": "_TypeDual",
+      "name": "DualFieldTypeDescr",
+      "typeKind": "Dual"
+    },
     "DualGenAlt": {
       "$tag": "_TypeDual",
       "allAlternates": [
@@ -1603,6 +1551,17 @@
         }
       ],
       "name": "DualGenAltArg",
+      "typeKind": "Dual",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "type"
+        }
+      ]
+    },
+    "DualGenAltArgDescr": {
+      "$tag": "_TypeDual",
+      "name": "DualGenAltArgDescr",
       "typeKind": "Dual",
       "typeParams": [
         {
@@ -1904,6 +1863,11 @@
           "value": "ref"
         }
       ]
+    },
+    "DualGenDescr": {
+      "$tag": "_TypeDual",
+      "name": "DualGenDescr",
+      "typeKind": "Dual"
     },
     "DualGenDual": {
       "$tag": "_TypeDual",
@@ -3129,6 +3093,11 @@
         }
       ],
       "name": "DualParentAltRef",
+      "typeKind": "Dual"
+    },
+    "DualParentDescr": {
+      "$tag": "_TypeDual",
+      "name": "DualParentDescr",
       "typeKind": "Dual"
     },
     "DualParentDual": {
@@ -4430,6 +4399,11 @@
       "name": "InpAltAlt",
       "typeKind": "Input"
     },
+    "InpAltDescr": {
+      "$tag": "_TypeInput",
+      "name": "InpAltDescr",
+      "typeKind": "Input"
+    },
     "InpAltDual": {
       "$tag": "_TypeInput",
       "allAlternates": [
@@ -4741,6 +4715,11 @@
       "name": "InpField",
       "typeKind": "Input"
     },
+    "InpFieldDescr": {
+      "$tag": "_TypeInput",
+      "name": "InpFieldDescr",
+      "typeKind": "Input"
+    },
     "InpFieldDual": {
       "$tag": "_TypeInput",
       "allFields": [
@@ -5042,6 +5021,11 @@
       "name": "InpFieldSimple",
       "typeKind": "Input"
     },
+    "InpFieldTypeDescr": {
+      "$tag": "_TypeInput",
+      "name": "InpFieldTypeDescr",
+      "typeKind": "Input"
+    },
     "InpGenAlt": {
       "$tag": "_TypeInput",
       "allAlternates": [
@@ -5090,6 +5074,17 @@
         }
       ],
       "name": "InpGenAltArg",
+      "typeKind": "Input",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "type"
+        }
+      ]
+    },
+    "InpGenAltArgDescr": {
+      "$tag": "_TypeInput",
+      "name": "InpGenAltArgDescr",
       "typeKind": "Input",
       "typeParams": [
         {
@@ -5391,6 +5386,11 @@
           "value": "ref"
         }
       ]
+    },
+    "InpGenDescr": {
+      "$tag": "_TypeInput",
+      "name": "InpGenDescr",
+      "typeKind": "Input"
     },
     "InpGenDual": {
       "$tag": "_TypeInput",
@@ -6618,6 +6618,11 @@
       "name": "InpParentAltRef",
       "typeKind": "Input"
     },
+    "InpParentDescr": {
+      "$tag": "_TypeInput",
+      "name": "InpParentDescr",
+      "typeKind": "Input"
+    },
     "InpParentDual": {
       "$tag": "_TypeInput",
       "allAlternates": [
@@ -7523,6 +7528,11 @@
       "name": "OutpAltAlt",
       "typeKind": "Output"
     },
+    "OutpAltDescr": {
+      "$tag": "_TypeOutput",
+      "name": "OutpAltDescr",
+      "typeKind": "Output"
+    },
     "OutpAltDual": {
       "$tag": "_TypeOutput",
       "allAlternates": [
@@ -8230,6 +8240,11 @@
       "name": "OutpField",
       "typeKind": "Output"
     },
+    "OutpFieldDescr": {
+      "$tag": "_TypeOutput",
+      "name": "OutpFieldDescr",
+      "typeKind": "Output"
+    },
     "OutpFieldDual": {
       "$tag": "_TypeOutput",
       "allFields": [
@@ -8531,6 +8546,11 @@
       "name": "OutpFieldSimple",
       "typeKind": "Output"
     },
+    "OutpFieldTypeDescr": {
+      "$tag": "_TypeOutput",
+      "name": "OutpFieldTypeDescr",
+      "typeKind": "Output"
+    },
     "OutpGenAlt": {
       "$tag": "_TypeOutput",
       "allAlternates": [
@@ -8579,6 +8599,17 @@
         }
       ],
       "name": "OutpGenAltArg",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "type"
+        }
+      ]
+    },
+    "OutpGenAltArgDescr": {
+      "$tag": "_TypeOutput",
+      "name": "OutpGenAltArgDescr",
       "typeKind": "Output",
       "typeParams": [
         {
@@ -8880,6 +8911,11 @@
           "value": "ref"
         }
       ]
+    },
+    "OutpGenDescr": {
+      "$tag": "_TypeOutput",
+      "name": "OutpGenDescr",
+      "typeKind": "Output"
     },
     "OutpGenDual": {
       "$tag": "_TypeOutput",
@@ -10105,6 +10141,11 @@
         }
       ],
       "name": "OutpParentAltRef",
+      "typeKind": "Output"
+    },
+    "OutpParentDescr": {
+      "$tag": "_TypeOutput",
+      "name": "OutpParentDescr",
       "typeKind": "Output"
     },
     "OutpParentDual": {

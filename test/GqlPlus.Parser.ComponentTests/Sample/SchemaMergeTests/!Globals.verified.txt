@@ -38,13 +38,6 @@ Failure
   DescrBetween
 }
 {
-  "A directive described"
-  !Di I@012/0002
-  DirDescr
-  (Unique)
-  All
-}
-{
   !Di I@012/0001
   DirNoParam
   (Unique)
@@ -100,6 +93,9 @@ Failure
 {
   !Op I@008/0001
   Schema
+  [
+    Alias
+  ]
   {
     !OS I@017/0001
     global
@@ -125,35 +121,5 @@ Failure
 {
   !In I@007/0002
   DirParamIn
-}
-{
-  "A simple doc"
-  !Ou I@008/0002
-  Descr
-}
-{
-  "A backslash (\"\\\") doc"
-  !Ou I@008/0002
-  DescrBackslash
-}
-{
-  "A doc between"
-  !Ou I@008/0003
-  DescrBetween
-}
-{
-  "A \"more\" 'Complicated' \\ doc"
-  !Ou I@008/0002
-  DescrComplex
-}
-{
-  "A 'double-quoted' doc"
-  !Ou I@008/0002
-  DescrDouble
-}
-{
-  "A \"single-quoted\" doc"
-  !Ou I@008/0002
-  DescrSingle
 }
 ]

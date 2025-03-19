@@ -4,65 +4,6 @@ _errors:
   _kind: !_TokenKind End
   _message: In _Schema can't get model for type '_Named'
 types: !_Map_Type
-  !_Identifier _CategoryFilter: !_TypeInput
-    allAlternates:
-    - !_ObjectFor(_InputAlternate)
-      collections:
-      - !_Modifier
-        modifierKind: !_ModifierKind List
-      object: _Filter
-      type: !_InputBase
-        input: _NameFilter
-    allFields:
-    - !_ObjectFor(_InputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: names
-      object: _Filter
-      type: !_InputBase
-        input: _NameFilter
-    - !_ObjectFor(_InputField)
-      default: true
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: matchAliases
-      object: _Filter
-      type: !_InputBase
-        input: Boolean
-    - !_ObjectFor(_InputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: aliases
-      object: _Filter
-      type: !_InputBase
-        input: _NameFilter
-    - !_ObjectFor(_InputField)
-      default: false
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: returnByAlias
-      object: _Filter
-      type: !_InputBase
-        input: Boolean
-    - !_ObjectFor(_InputField)
-      default: false
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: returnReferencedTypes
-      object: _Filter
-      type: !_InputBase
-        input: Boolean
-    - !_ObjectFor(_InputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: resolutions
-      object: _CategoryFilter
-      type: !_InputBase
-        input: _Resolution
-    fields:
-    - !_InputField
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: resolutions
-      type: !_InputBase
-        input: _Resolution
-    name: _CategoryFilter
-    parent: !_InputBase
-      input: _Filter
-    typeKind: !_TypeKind Input
   !_Identifier _Filter: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
@@ -157,23 +98,6 @@ types: !_Map_Type
       pattern: '[A-Za-z_]+'
     name: _Identifier
     typeKind: !_TypeKind Domain
-  !_Identifier _NameFilter: !_DomainString
-    allItems:
-    - !_DomainItem(_DomainRegex)
-      domain: _NameFilter
-      exclude: false
-      pattern: '[A-Za-z_.*]+'
-    description: >-
-      _NameFilter is a simple match expression against _Identifier
-      where '.' matches any single character and '*' matches zero
-      or more of any character.
-    domainKind: !_DomainKind String
-    items:
-    - !_DomainRegex
-      exclude: false
-      pattern: '[A-Za-z_.*]+'
-    name: _NameFilter
-    typeKind: !_TypeKind Domain
   !_Identifier _Schema: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -265,62 +189,3 @@ types: !_Map_Type
     parent: !_OutputBase
       output: _Named
     typeKind: !_TypeKind Output
-  !_Identifier _TypeFilter: !_TypeInput
-    allAlternates:
-    - !_ObjectFor(_InputAlternate)
-      collections:
-      - !_Modifier
-        modifierKind: !_ModifierKind List
-      object: _Filter
-      type: !_InputBase
-        input: _NameFilter
-    allFields:
-    - !_ObjectFor(_InputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: names
-      object: _Filter
-      type: !_InputBase
-        input: _NameFilter
-    - !_ObjectFor(_InputField)
-      default: true
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: matchAliases
-      object: _Filter
-      type: !_InputBase
-        input: Boolean
-    - !_ObjectFor(_InputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: aliases
-      object: _Filter
-      type: !_InputBase
-        input: _NameFilter
-    - !_ObjectFor(_InputField)
-      default: false
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: returnByAlias
-      object: _Filter
-      type: !_InputBase
-        input: Boolean
-    - !_ObjectFor(_InputField)
-      default: false
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: returnReferencedTypes
-      object: _Filter
-      type: !_InputBase
-        input: Boolean
-    - !_ObjectFor(_InputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: kinds
-      object: _TypeFilter
-      type: !_InputBase
-        input: _TypeKind
-    fields:
-    - !_InputField
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: kinds
-      type: !_InputBase
-        input: _TypeKind
-    name: _TypeFilter
-    parent: !_InputBase
-      input: _Filter
-    typeKind: !_TypeKind Input

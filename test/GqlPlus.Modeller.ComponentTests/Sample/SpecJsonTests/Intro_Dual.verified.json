@@ -14,7 +14,7 @@
     {
       "$tag": "_Error",
       "_kind": "End",
-      "_message": "In _DualParent can\u0027t get model for type \u0027_ObjDocumented\u0027"
+      "_message": "In _DualParent can\u0027t get model for type \u0027_ObjDescribed\u0027"
     },
     {
       "$tag": "_Error",
@@ -114,7 +114,7 @@
       "name": "_DualParent",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_ObjDocumented",
+        "output": "_ObjDescribed",
         "typeArgs": [
           {
             "$tag": "_OutputArg",

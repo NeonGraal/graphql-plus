@@ -19,7 +19,7 @@ public abstract class TestTyped<TBase, TType, TParent, TItem>
   [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentParents_ReturnsErrors(string name, string type1, string type2)
     => this
-      .SkipIf(type1 == type2)
+      .SkipEqual(type1, type2)
       .CanMerge_Errors(
         MakeTyped(name, parent: MakeParent(type1)),
         MakeTyped(name, parent: MakeParent(type2)));

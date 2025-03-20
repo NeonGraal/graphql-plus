@@ -13,12 +13,12 @@ public class DependencyInjectionTests(
     => CheckDependencyInjection();
 
   [Fact]
-  public void HtmlVerifierDI()
-    => HtmlDependencyInjection("Verifier");
+  public async Task HtmlVerifierDI()
+    => await HtmlDependencyInjection("Verifier");
 
   [Fact]
-  public void DiagramVerifierDI()
-    => DiagramDependencyInjection("Verifier");
+  public async Task DiagramVerifierDI()
+    => await DiagramDependencyInjection("Verifier");
 
   [Fact]
   public void FluidVerifierFiles()

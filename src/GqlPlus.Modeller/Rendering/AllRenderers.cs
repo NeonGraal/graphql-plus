@@ -21,6 +21,9 @@ public static class AllRenderers
       .AddRenderer<DirectivesModel, DirectivesRenderer>()
       .AddRenderer<DirectiveModel, DirectiveRenderer>()
       .AddSingleton<AndBaseTypeRenderers<DirectiveModel>>()
+      .AddRenderer<OperationsModel, OperationsRenderer>()
+      .AddRenderer<OperationModel, OperationRenderer>()
+      .AddSingleton<AndBaseTypeRenderers<OperationModel>>()
       .AddRenderer<SettingModel, SettingRenderer>()
       // Types
       .AddRenderer<BaseTypeModel, AllTypesRenderer>()

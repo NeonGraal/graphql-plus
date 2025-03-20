@@ -28,6 +28,9 @@ public class OptionSettingAstTests
 
   private static OptionSettingAst Setting(string name, string value)
     => new(AstNulls.At, name, new(new FieldKeyAst(AstNulls.At, value)));
+
+  protected override string GetName(SettingInput input)
+    => input.Name;
 }
 
 public record struct SettingInput(string Name, string Value);

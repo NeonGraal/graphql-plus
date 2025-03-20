@@ -26,7 +26,7 @@ public class EnumModelTests(
   [Theory, RepeatData(Repeats)]
   public void Model_MembersGrandParent(string name, string parent, string[] parentMembers, string grandParent, string[] grandParentMembers)
     => checks
-    .SkipIf(string.Equals(parent, grandParent, StringComparison.Ordinal))
+    .SkipEqual(parent, grandParent)
     .AddParent(checks.NewParent(parent, parentMembers, grandParent))
     .AddParent(checks.NewParent(grandParent, grandParentMembers))
     .EnumExpected(

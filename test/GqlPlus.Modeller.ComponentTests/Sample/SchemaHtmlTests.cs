@@ -35,43 +35,43 @@ public class SchemaHtmlTests(
 
   [Fact]
   public async Task Html_All()
-    => Verify_Model(await SchemaValidDataAll(), "!ALL");
+    => await Verify_Model(await SchemaValidDataAll(), "!ALL");
 
   [Theory]
   [ClassData(typeof(SchemaValidData))]
   public async Task Html_Groups(string group)
-    => Verify_Model(await SchemaValidDataGroup(group), "!" + group);
+    => await Verify_Model(await SchemaValidDataGroup(group), "!" + group);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaMergesData))]
   public async Task Html_Merges(string model)
-    => await ReplaceFile("Merges", model, Verify_Model);
+    => await ReplaceFileAsync("Merges", model, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaObjectsData))]
   public async Task Html_Objects(string model)
-    => await ReplaceFile("Objects", model, Verify_Model);
+    => await ReplaceFileAsync("Objects", model, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaGlobalsData))]
   public async Task Html_Globals(string global)
-    => await ReplaceFile("Globals", global, Verify_Model);
+    => await ReplaceFileAsync("Globals", global, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaSimpleData))]
   public async Task Html_Simple(string simple)
-    => await ReplaceFile("Simple", simple, Verify_Model);
+    => await ReplaceFileAsync("Simple", simple, Verify_Model);
 
-  private void Verify_Model(string input, string testDirectory, string test)
-    => Verify_Model([input], test);
+  private async Task Verify_Model(string input, string _, string test)
+    => await Verify_Model([input], test);
 
-  private void Verify_Model(IEnumerable<string> inputs, string test)
+  private async Task Verify_Model(IEnumerable<string> inputs, string test)
   {
     IEnumerable<IGqlpSchema> asts = inputs.Select(input => Parse(input).Required());
 
     Structured result = ModelAsts(asts);
 
-    result.WriteHtmlFile("Schema", test);
+    await result.WriteHtmlFile("Schema", test);
   }
 
   private Structured ModelAsts(IEnumerable<IGqlpSchema> asts)

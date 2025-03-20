@@ -86,7 +86,7 @@ public class SchemaModelTests(
   }
 
   [Fact]
-  public void Sample_Index()
+  public async Task Sample_Index()
   {
     Structured result = new Map<Structured>() {
       ["groups"] = new Map<Structured>() {
@@ -94,11 +94,11 @@ public class SchemaModelTests(
       }.Render(),
     }.Render("");
 
-    result.WriteHtmlFile("Sample", "index", "index");
+    await result.WriteHtmlFile("Sample", "index", "index");
   }
 
   [Fact]
-  public void Spec_Index()
+  public async Task Spec_Index()
   {
     Structured result = new Map<Structured>() {
       ["groups"] = new Map<Structured>() {
@@ -106,6 +106,6 @@ public class SchemaModelTests(
       }.Render(),
     }.Render("");
 
-    result.WriteHtmlFile("Spec", "index", "index");
+    await result.WriteHtmlFile("Spec", "index", "index");
   }
 }

@@ -37,10 +37,10 @@ public class MergeOutputFieldsTests
       MakeFieldEnum(name, type, value, description));
 
   [Theory, RepeatData]
-  public void CanMerge_TwoAstsEnumDiffDescription_ReturnsErrors(string name, string type, string description1, string description2, string value)
+  public void CanMerge_TwoAstsEnumDiffDescription_ReturnsGood(string name, string type, string description1, string description2, string value)
     => this
       .SkipIf(description1 == description2)
-      .CanMerge_Errors(
+      .CanMerge_Good(
         MakeFieldEnum(name, type, value, description1),
         MakeFieldEnum(name, type, value, description2));
 
@@ -85,7 +85,7 @@ public class MergeOutputFieldsTests
     => Merge_Expected([
       MakeFieldEnum(name, type, value, description),
       MakeFieldEnum(name, type, value, description)],
-      MakeFieldEnum(name, type, value, description));
+      MakeFieldEnum(name, type, value, description + " " + description));
 
   [Theory, RepeatData]
   public void Merge_TwoAstsEnumOneAlias_ReturnsExpected(string name, string type, string alias, string value)

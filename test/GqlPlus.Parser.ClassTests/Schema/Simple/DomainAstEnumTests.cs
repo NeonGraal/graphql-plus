@@ -20,7 +20,7 @@ internal sealed class DomainAstEnumChecks()
  : AstDomainChecks<DomainMemberInput, DomainMemberAst, IGqlpDomainMember>(DomainKind.Enum)
 {
   protected override DomainMemberAst[] DomainMembers(DomainMemberInput input)
-    => [new(AstNulls.At, false, input.EnumMember)];
+    => [new(AstNulls.At, "", false, input.EnumMember)];
 
   protected override string MembersString(string name, DomainMemberInput input)
     => $"( !Do {name} Enum !DE {input.EnumMember} )";

@@ -70,15 +70,13 @@ public abstract class TestAbbreviatedMerger<TAst, TInput>
   {
     IEnumerable<TAst> result = MergerBase.Merge(asts);
 
-    // using AssertionScope scope = new();
-
-    result.ShouldBeAssignableTo<IEnumerable<TAst>>();
-    result.ShouldBe(expected, ignoreOrder: true);
+    result.ShouldBeAssignableTo<IEnumerable<TAst>>()
+      .ShouldBe(expected, ignoreOrder: true);
 
     return this;
   }
 
-  protected static ITokenMessages EmptyMessages => new TokenMessages();
+  protected static ITokenMessages EmptyMessages => TokenMessages.New;
 
   protected IMerge<TResult> Merger<TResult>()
     where TResult : IGqlpError

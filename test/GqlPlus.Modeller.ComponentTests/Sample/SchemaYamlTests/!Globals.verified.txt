@@ -1,4 +1,5 @@
 ﻿!_Schema
+aliases: [Alias]
 categories: !_Map_Categories
   !_Identifier cat: !_Category
     name: cat
@@ -91,6 +92,10 @@ directives: !_Map_Directives
     repeatable: false
 name: Schema
 settings: !_Map_Setting
+  !_Identifier descr: !_Setting
+    description: 'Option Descr'
+    name: descr
+    value: true
   !_Identifier global: !_Setting
     name: global
     value: true
@@ -111,28 +116,28 @@ types: !_Map_Type
     name: CatOpt
     typeKind: !_TypeKind Output
   !_Identifier Descr: !_TypeOutput
-    description: 'A simple description'
+    description: >-
+      A simple doc A simple doc With extra
     name: Descr
     typeKind: !_TypeKind Output
   !_Identifier DescrBackslash: !_TypeOutput
-    description: 'A backslash ("\") description'
+    description: 'A backslash ("\") doc'
     name: DescrBackslash
     typeKind: !_TypeKind Output
   !_Identifier DescrBetween: !_TypeOutput
-    description: 'A description between'
+    description: 'A doc between'
     name: DescrBetween
     typeKind: !_TypeKind Output
   !_Identifier DescrComplex: !_TypeOutput
-    description: >-
-      A "more" 'Complicated' \ description
+    description: "A \"more\" 'Complicated' \\ doc"
     name: DescrComplex
     typeKind: !_TypeKind Output
   !_Identifier DescrDouble: !_TypeOutput
-    description: "A 'double-quoted' description"
+    description: "A 'double-quoted' doc"
     name: DescrDouble
     typeKind: !_TypeKind Output
   !_Identifier DescrSingle: !_TypeOutput
-    description: 'A "single-quoted" description'
+    description: 'A "single-quoted" doc'
     name: DescrSingle
     typeKind: !_TypeKind Output
   !_Identifier DirParamIn: !_TypeInput

@@ -4,17 +4,17 @@ public class SchemaValidData
   : TheoryData<string>
 {
   public static readonly string[] All = [
-    .. SamplesSchemaValidGlobalsData.Strings,
-    .. SamplesSchemaValidMergesData.Strings,
-    .. SamplesSchemaValidObjectsData.Strings,
-    .. SamplesSchemaValidSimpleData.Strings,
+    .. SamplesSchemaGlobalsData.Strings,
+    .. SamplesSchemaMergesData.Strings,
+    .. SamplesSchemaObjectsData.Strings,
+    .. SamplesSchemaSimpleData.Strings,
   ];
 
   public static readonly Dictionary<string, IEnumerable<string>> Files = new() {
-    ["Globals"] = SamplesSchemaValidGlobalsData.Strings,
-    ["Objects"] = SamplesSchemaValidObjectsData.Strings,
-    ["Merges"] = SamplesSchemaValidMergesData.Strings,
-    ["Simple"] = SamplesSchemaValidSimpleData.Strings,
+    ["Globals"] = SamplesSchemaGlobalsData.Strings,
+    ["Objects"] = SamplesSchemaObjectsData.Strings,
+    ["Merges"] = SamplesSchemaMergesData.Strings,
+    ["Simple"] = SamplesSchemaSimpleData.Strings,
   };
 
   public SchemaValidData()

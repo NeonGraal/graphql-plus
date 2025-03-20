@@ -1,0 +1,34 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier InpGenAltArgDescr: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: InpGenAltArgDescr
+      type: !_InputBase
+        input: InpGenAltArgDescrRef
+        typeArgs:
+        - !_TypeParam type
+    alternates:
+    - !_InputAlternate
+      type: !_InputBase
+        input: InpGenAltArgDescrRef
+        typeArgs:
+        - !_TypeParam type
+    name: InpGenAltArgDescr
+    typeKind: !_TypeKind Input
+    typeParams:
+    - !_Described
+      name: type
+  !_Identifier InpGenAltArgDescrRef: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: InpGenAltArgDescrRef
+      type: !_TypeParam ref
+    alternates:
+    - !_InputAlternate
+      type: !_TypeParam ref
+    name: InpGenAltArgDescrRef
+    typeKind: !_TypeKind Input
+    typeParams:
+    - !_Described
+      name: ref

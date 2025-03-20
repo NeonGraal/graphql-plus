@@ -160,13 +160,29 @@ public class Tokenizer
       throw new InvalidOperationException("Unused description");
     }
 
-    String(out _description);
+    string sep = "";
+    while (String(out string? descr)) {
+      _description += sep + descr;
+      sep = " ";
+    }
   }
 
   internal string GetDescription()
   {
     string description = _description;
     _description = "";
+    return description;
+  }
+
+  internal string Description()
+  {
+    string description = "";
+    string sep = "";
+    while (String(out string? descr)) {
+      description += sep + descr;
+      sep = " ";
+    }
+
     return description;
   }
 

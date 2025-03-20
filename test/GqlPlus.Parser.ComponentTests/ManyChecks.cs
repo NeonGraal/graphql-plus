@@ -14,16 +14,15 @@ internal class ManyChecksParser<TResult>(
   {
     IResultArray<TResult> result = _parser.Parse(Tokens(input), _type);
 
-    result.IsOk().ShouldBeTrue(_type);
-    // using AssertionScope scope = new();
-    result.Required().ShouldBe(expected);
+    result.ShouldSatisfyAllConditions(_type,
+      r => r.IsOk().ShouldBeTrue(),
+      r => r.Required().ShouldBe(expected));
   }
 
   public void FalseExpected(string input)
   {
     IResultArray<TResult> result = _parser.Parse(Tokens(input), _type);
 
-    // using AssertionScope scope = new();
     result.IsError(message => message.Message.Contains("Expected", StringComparison.InvariantCulture)).ShouldBeTrue(_type);
   }
 
@@ -31,9 +30,9 @@ internal class ManyChecksParser<TResult>(
   {
     IResultArray<TResult> result = _parser.Parse(Tokens(input), _type);
 
-    result.IsOk().ShouldBeTrue(_type);
-    // using AssertionScope scope = new();
-    result.Required().Count().ShouldBe(count);
+    result.ShouldSatisfyAllConditions(_type,
+      r => r.IsOk().ShouldBeTrue(),
+      r => r.Required().Count().ShouldBe(count));
   }
 }
 
@@ -49,16 +48,15 @@ internal sealed class ManyChecksParser<TInterface, TResult>(
   {
     IResultArray<TResult> result = _parser.I.Parse(Tokens(input), _type);
 
-    result.IsOk().ShouldBeTrue(_type);
-    // using AssertionScope scope = new();
-    result.Required().ShouldBe(expected);
+    result.ShouldSatisfyAllConditions(_type,
+      r => r.IsOk().ShouldBeTrue(),
+      r => r.Required().ShouldBe(expected));
   }
 
   public void FalseExpected(string input)
   {
     IResultArray<TResult> result = _parser.I.Parse(Tokens(input), _type);
 
-    // using AssertionScope scope = new();
     result.IsError(message => message.Message.Contains("Expected", StringComparison.InvariantCulture)).ShouldBeTrue(_type);
   }
 
@@ -66,9 +64,9 @@ internal sealed class ManyChecksParser<TInterface, TResult>(
   {
     IResultArray<TResult> result = _parser.I.Parse(Tokens(input), _type);
 
-    result.IsOk().ShouldBeTrue(_type);
-    // using AssertionScope scope = new();
-    result.Required().Count().ShouldBe(count);
+    result.ShouldSatisfyAllConditions(_type,
+      r => r.IsOk().ShouldBeTrue(),
+      r => r.Required().Count().ShouldBe(count));
   }
 }
 

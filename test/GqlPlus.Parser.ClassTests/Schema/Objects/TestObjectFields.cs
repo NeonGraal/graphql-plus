@@ -52,10 +52,10 @@ public abstract class TestObjectFields<TObjField, TObjBase>
       MakeField(name, type, typeDescription: description));
 
   [Theory, RepeatData]
-  public void CanMerge_TwoAstsDifferentTypeDescriptions_ReturnsErrors(string name, string type, string description1, string description2)
+  public void CanMerge_TwoAstsDifferentTypeDescriptions_ReturnsGood(string name, string type, string description1, string description2)
   => this
       .SkipIf(description1 == description2)
-      .CanMerge_Errors(
+      .CanMerge_Good(
         MakeField(name, type, typeDescription: description1),
         MakeField(name, type, typeDescription: description2));
 
@@ -69,7 +69,7 @@ public abstract class TestObjectFields<TObjField, TObjBase>
   public void Merge_TwoAstsSameTypeDescription_ReturnsExpected(string name, string type, string description)
     => Merge_Expected(
       [MakeField(name, type, typeDescription: description), MakeField(name, type, typeDescription: description)],
-      MakeField(name, type, typeDescription: description));
+      MakeField(name, type, typeDescription: description + " " + description));
 
   internal abstract AstObjectFieldsMerger<TObjField> MergerField { get; }
   internal override GroupsMerger<TObjField> MergerGroups => MergerField;

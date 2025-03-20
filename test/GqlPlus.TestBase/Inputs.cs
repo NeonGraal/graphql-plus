@@ -34,7 +34,7 @@ public record struct DomainRangeInput(decimal? Min, decimal? Max)
   }
 
   internal DomainRangeAst[] DomainRange()
-    => [new(AstNulls.At, false, Lower, Upper)];
+    => [new(AstNulls.At, "", false, Lower, Upper)];
 }
 
 public record struct AlternateInput(string Type)

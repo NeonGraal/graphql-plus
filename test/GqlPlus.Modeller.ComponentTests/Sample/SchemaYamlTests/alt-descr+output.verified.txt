@@ -1,0 +1,18 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutpAltDescr: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: OutpAltDescr
+      type: !_ObjDescribed(_OutputBase)
+        base: !_OutputBase
+          output: String
+        description: 'Test Descr'
+    alternates:
+    - !_OutputAlternate
+      type: !_ObjDescribed(_OutputBase)
+        base: !_OutputBase
+          output: String
+        description: 'Test Descr'
+    name: OutpAltDescr
+    typeKind: !_TypeKind Output

@@ -10,6 +10,7 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 
 using Xunit.DependencyInjection;
+using Xunit.Internal;
 
 namespace GqlPlus;
 
@@ -118,21 +119,21 @@ public class DependencyInjectionChecks(
 
     HashSet<string> hashset = [.. _diServices.Keys];
 
-    // using AssertionScope scope = new();
+    services.ShouldSatisfyAllConditions(
+      s =>
+        s.ForEach(di => {
+          sb.Clear();
 
-    foreach (DiService di in services) {
-      sb.Clear();
+          sb.Append(di.Service.Id);
+          sb.Append(", ");
 
-      sb.Append(di.Service.Id);
-      sb.Append(", ");
+          List<string> missing = [.. di.Requires
+            .Where(p => p.Key != InstanceRequirement && !MatchType(hashset, p.Value))
+            .Select(p => $"{di.Service.Name} {p.Key} : " + p.Value.Name)];
 
-      List<string> missing = [.. di.Requires
-        .Where(p => p.Key != InstanceRequirement && !MatchType(hashset, p.Value))
-        .Select(p => $"{di.Service.Name} {p.Key} : " + p.Value.Name)];
-
-      missing.ShouldBeEmpty();
-      output.Output?.WriteLine(sb.ToString());
-    }
+          missing.ShouldBeEmpty();
+          output.Output?.WriteLine(sb.ToString());
+        }));
   }
 
   public void CheckFluidFiles()
@@ -141,11 +142,10 @@ public class DependencyInjectionChecks(
 
     IDirectoryContents contents = files.GetDirectoryContents("");
 
-    // using AssertionScope scope = new();
-
-    contents.Exists.ShouldBeTrue();
-    contents.ShouldNotBeEmpty();
-    contents.ShouldContain(fi => fi.Name == "pico.liquid");
+    contents.ShouldSatisfyAllConditions(
+      c => c.Exists.ShouldBeTrue(),
+      c => c.ShouldNotBeEmpty(),
+      c => c.ShouldContain(fi => fi.Name == "pico.liquid"));
   }
 
   public void HtmlDependencyInjection(string file)

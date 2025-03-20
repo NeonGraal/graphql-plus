@@ -16,11 +16,10 @@ public class VerifyOutputTypesTests
 
     verifier.Verify(UsageAliased, Errors);
 
-    // using AssertionScope scope = new();
-
-    Aliased.Called();
-    fields.NotCalled();
-    mergeAlternates.NotCalled();
-    Errors.ShouldBeEmpty();
+    verifier.ShouldSatisfyAllConditions(
+      Aliased.Called,
+      fields.NotCalled,
+      mergeAlternates.NotCalled,
+      () => Errors.ShouldBeEmpty());
   }
 }

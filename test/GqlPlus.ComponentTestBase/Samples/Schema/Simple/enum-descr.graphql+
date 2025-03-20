@@ -1,1 +1,1 @@
-enum EnDoc { "Test" "Descr" val_test }
+enum EnDescr { "Enum" "Descr" val_test }

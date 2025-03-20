@@ -34,7 +34,7 @@ output _ObjArg {
 
 domain _TypeParam { :_Identifier String }
 
-output _ObjParam<$base> {
+output _ObjTypeParam<$base> {
     typeParam: _TypeParam
     description: String[]
     constraint: _ObjConstraint<$base>

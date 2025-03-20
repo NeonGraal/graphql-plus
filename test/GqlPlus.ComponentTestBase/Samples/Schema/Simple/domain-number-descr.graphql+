@@ -1,1 +1,1 @@
-domain DomNumDoc { Number "Test" "Descr" <2 }
+domain DomNumDescr { Number "DomNumber" "Descr" <2 }

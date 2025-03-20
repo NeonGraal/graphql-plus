@@ -1,23 +1,26 @@
 ﻿{
   "$tag": "_Schema",
-  "_errors": [
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 29,
-        "_line": 1
-      },
-      "_kind": "String",
-      "_message": "Invalid Domain. Expected \u0027}\u0027 at end of definition."
-    }
-  ],
   "types": {
     "$tag": "_Map_Type",
-    "DomBoolDoc": {
+    "DomBoolDescr": {
       "$tag": "_DomainBoolean",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "domain": "DomBoolDescr",
+          "exclude": false,
+          "value": true
+        }
+      ],
       "domainKind": "Boolean",
-      "name": "DomBoolDoc",
+      "items": [
+        {
+          "$tag": "_DomainTrueFalse",
+          "exclude": false,
+          "value": true
+        }
+      ],
+      "name": "DomBoolDescr",
       "typeKind": "Domain"
     },
     "DomBoolPrntTest": {
@@ -166,10 +169,35 @@
       "name": "DomEnumAllParent",
       "typeKind": "Domain"
     },
-    "DomEnumDoc": {
-      "$tag": "_DomainBoolean",
-      "domainKind": "Boolean",
-      "name": "DomEnumDoc",
+    "DomEnumDescr": {
+      "$tag": "_DomainEnum",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainMember)",
+          "domain": "DomEnumDescr",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "dom_label_desc",
+            "name": "EnumDomDescr",
+            "typeKind": "Enum"
+          }
+        }
+      ],
+      "domainKind": "Enum",
+      "items": [
+        {
+          "$tag": "_DomainMember",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "dom_label_desc",
+            "name": "EnumDomDescr",
+            "typeKind": "Enum"
+          }
+        }
+      ],
+      "name": "DomEnumDescr",
       "typeKind": "Domain"
     },
     "DomEnumParent": {
@@ -281,10 +309,25 @@
       "name": "DomLabel",
       "typeKind": "Domain"
     },
-    "DomNumDoc": {
-      "$tag": "_DomainBoolean",
-      "domainKind": "Boolean",
-      "name": "DomNumDoc",
+    "DomNumDescr": {
+      "$tag": "_DomainNumber",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRange)",
+          "domain": "DomNumDescr",
+          "exclude": false,
+          "to": 2
+        }
+      ],
+      "domainKind": "Number",
+      "items": [
+        {
+          "$tag": "_DomainRange",
+          "exclude": false,
+          "to": 2
+        }
+      ],
+      "name": "DomNumDescr",
       "typeKind": "Domain"
     },
     "DomNumPrnt": {
@@ -392,10 +435,25 @@
       "name": "DomPrntStr",
       "typeKind": "Domain"
     },
-    "DomStrDoc": {
-      "$tag": "_DomainBoolean",
-      "domainKind": "Boolean",
-      "name": "DomStrDoc",
+    "DomStrDescr": {
+      "$tag": "_DomainString",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRegex)",
+          "domain": "DomStrDescr",
+          "exclude": false,
+          "pattern": "a\u002B"
+        }
+      ],
+      "domainKind": "String",
+      "items": [
+        {
+          "$tag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "a\u002B"
+        }
+      ],
+      "name": "DomStrDescr",
       "typeKind": "Domain"
     },
     "DomStrPrnt": {
@@ -448,9 +506,23 @@
       "name": "EnAliasPrnt",
       "typeKind": "Enum"
     },
-    "EnDoc": {
+    "EnDescr": {
       "$tag": "_TypeEnum",
-      "name": "EnDoc",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnDescr",
+          "name": "val_test"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "description": "Enum Descr",
+          "name": "val_test"
+        }
+      ],
+      "name": "EnDescr",
       "typeKind": "Enum"
     },
     "EnDupPrnt": {
@@ -687,6 +759,24 @@
       "name": "EnumDomBoth",
       "typeKind": "Enum"
     },
+    "EnumDomDescr": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnumDomDescr",
+          "name": "dom_label_desc"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "dom_label_desc"
+        }
+      ],
+      "name": "EnumDomDescr",
+      "typeKind": "Enum"
+    },
     "EnumDomDup": {
       "$tag": "_TypeEnum",
       "allItems": [
@@ -896,9 +986,22 @@
       "name": "PrntUnion",
       "typeKind": "Union"
     },
-    "UnionDoc": {
+    "UnionDescr": {
       "$tag": "_TypeUnion",
-      "name": "UnionDoc",
+      "allItems": [
+        {
+          "$tag": "_UnionMember",
+          "name": "Number",
+          "union": "UnionDescr"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "Number"
+        }
+      ],
+      "name": "UnionDescr",
       "typeKind": "Union"
     },
     "UnionPrnt": {

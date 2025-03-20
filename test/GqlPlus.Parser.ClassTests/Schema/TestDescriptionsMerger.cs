@@ -15,10 +15,10 @@ public abstract class TestDescriptionsMerger<TAst>
     => CanMerge_Good(MakeDescribed(name, description), MakeDescribed(name, description));
 
   [Theory, RepeatData]
-  public void CanMerge_TwoAstsDifferentDescription_ReturnsErrors(string name, string description1, string description2)
+  public void CanMerge_TwoAstsDifferentDescription_ReturnsGood(string name, string description1, string description2)
     => this
       .SkipIf(description1 == description2)
-      .CanMerge_Errors(MakeDescribed(name, description1), MakeDescribed(name, description2));
+      .CanMerge_Good(MakeDescribed(name, description1), MakeDescribed(name, description2));
 
   [Theory, RepeatData]
   public void Merge_TwoAstsOneDescription_ReturnsExpected(string name, string description)
@@ -30,7 +30,7 @@ public abstract class TestDescriptionsMerger<TAst>
   public void Merge_TwoAstsSameDescription_ReturnsExpected(string name, string description)
     => Merge_Expected(
       [MakeDescribed(name, description), MakeDescribed(name, description)],
-      MakeDescribed(name, description));
+      MakeDescribed(name, description + " " + description));
 
   protected abstract TAst MakeDescribed(string name, string description = "");
   protected override TAst MakeAst(string input)

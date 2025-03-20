@@ -1,13 +1,17 @@
 ﻿!_Schema
-_errors:
-- !_Error
-  _at: !_At {_col: 29, _line: 1}
-  _kind: !_TokenKind String
-  _message: Invalid Domain. Expected '}' at end of definition.
 types: !_Map_Type
-  !_Identifier DomBoolDoc: !_DomainBoolean
+  !_Identifier DomBoolDescr: !_DomainBoolean
+    allItems:
+    - !_DomainItem(_DomainTrueFalse)
+      domain: DomBoolDescr
+      exclude: false
+      value: true
     domainKind: !_DomainKind Boolean
-    name: DomBoolDoc
+    items:
+    - !_DomainTrueFalse
+      exclude: false
+      value: true
+    name: DomBoolDescr
     typeKind: !_TypeKind Domain
   !_Identifier DomBoolPrntTest: !_DomainBoolean
     allItems:
@@ -99,9 +103,24 @@ types: !_Map_Type
         typeKind: !_SimpleKind Enum
     name: DomEnumAllParent
     typeKind: !_TypeKind Domain
-  !_Identifier DomEnumDoc: !_DomainBoolean
-    domainKind: !_DomainKind Boolean
-    name: DomEnumDoc
+  !_Identifier DomEnumDescr: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainMember)
+      domain: DomEnumDescr
+      exclude: false
+      value: !_EnumValue
+        member: dom_label_desc
+        name: EnumDomDescr
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+    - !_DomainMember
+      exclude: false
+      value: !_EnumValue
+        member: dom_label_desc
+        name: EnumDomDescr
+        typeKind: !_SimpleKind Enum
+    name: DomEnumDescr
     typeKind: !_TypeKind Domain
   !_Identifier DomEnumParent: !_DomainEnum
     allItems:
@@ -170,9 +189,18 @@ types: !_Map_Type
         typeKind: !_SimpleKind Enum
     name: DomLabel
     typeKind: !_TypeKind Domain
-  !_Identifier DomNumDoc: !_DomainBoolean
-    domainKind: !_DomainKind Boolean
-    name: DomNumDoc
+  !_Identifier DomNumDescr: !_DomainNumber
+    allItems:
+    - !_DomainItem(_DomainRange)
+      domain: DomNumDescr
+      exclude: false
+      to: 2
+    domainKind: !_DomainKind Number
+    items:
+    - !_DomainRange
+      exclude: false
+      to: 2
+    name: DomNumDescr
     typeKind: !_TypeKind Domain
   !_Identifier DomNumPrnt: !_DomainNumber
     allItems:
@@ -239,9 +267,18 @@ types: !_Map_Type
       pattern: b+
     name: DomPrntStr
     typeKind: !_TypeKind Domain
-  !_Identifier DomStrDoc: !_DomainBoolean
-    domainKind: !_DomainKind Boolean
-    name: DomStrDoc
+  !_Identifier DomStrDescr: !_DomainString
+    allItems:
+    - !_DomainItem(_DomainRegex)
+      domain: DomStrDescr
+      exclude: false
+      pattern: a+
+    domainKind: !_DomainKind String
+    items:
+    - !_DomainRegex
+      exclude: false
+      pattern: a+
+    name: DomStrDescr
     typeKind: !_TypeKind Domain
   !_Identifier DomStrPrnt: !_DomainString
     allItems:
@@ -273,8 +310,16 @@ types: !_Map_Type
       name: val_alias
     name: EnAliasPrnt
     typeKind: !_TypeKind Enum
-  !_Identifier EnDoc: !_TypeEnum
-    name: EnDoc
+  !_Identifier EnDescr: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: EnDescr
+      name: val_test
+    items:
+    - !_Aliased
+      description: 'Enum Descr'
+      name: val_test
+    name: EnDescr
     typeKind: !_TypeKind Enum
   !_Identifier EnDupPrnt: !_TypeEnum
     allItems:
@@ -410,6 +455,16 @@ types: !_Map_Type
       name: both_parent
     name: EnumDomBoth
     typeKind: !_TypeKind Enum
+  !_Identifier EnumDomDescr: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: EnumDomDescr
+      name: dom_label_desc
+    items:
+    - !_Aliased
+      name: dom_label_desc
+    name: EnumDomDescr
+    typeKind: !_TypeKind Enum
   !_Identifier EnumDomDup: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -527,8 +582,15 @@ types: !_Map_Type
       name: Number
     name: PrntUnion
     typeKind: !_TypeKind Union
-  !_Identifier UnionDoc: !_TypeUnion
-    name: UnionDoc
+  !_Identifier UnionDescr: !_TypeUnion
+    allItems:
+    - !_UnionMember
+      name: Number
+      union: UnionDescr
+    items:
+    - !_Aliased
+      name: Number
+    name: UnionDescr
     typeKind: !_TypeKind Union
   !_Identifier UnionPrnt: !_TypeUnion
     allItems:

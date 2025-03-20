@@ -13,6 +13,17 @@
       },
       "resolution": "Parallel"
     },
+    "catDescr": {
+      "$tag": "_Category",
+      "description": "A Category described",
+      "name": "catDescr",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "CatDescr",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
+    },
     "catDict": {
       "$tag": "_Category",
       "modifiers": [
@@ -76,6 +87,21 @@
   },
   "directives": {
     "$tag": "_Map_Directives",
+    "DirDescr": {
+      "$tag": "_Directive",
+      "description": "A directive described",
+      "locations": {
+        "$tag": "_Set(_Location)",
+        "Field": "_",
+        "Fragment": "_",
+        "Inline": "_",
+        "Operation": "_",
+        "Spread": "_",
+        "Variable": "_"
+      },
+      "name": "DirDescr",
+      "repeatable": false
+    },
     "DirNoParam": {
       "$tag": "_Directive",
       "locations": {
@@ -194,6 +220,12 @@
   "name": "Schema",
   "settings": {
     "$tag": "_Map_Setting",
+    "descr": {
+      "$tag": "_Setting",
+      "description": "Option Descr",
+      "name": "descr",
+      "value": true
+    },
     "global": {
       "$tag": "_Setting",
       "name": "global",
@@ -205,6 +237,11 @@
     "Cat": {
       "$tag": "_TypeOutput",
       "name": "Cat",
+      "typeKind": "Output"
+    },
+    "CatDescr": {
+      "$tag": "_TypeOutput",
+      "name": "CatDescr",
       "typeKind": "Output"
     },
     "CatDict": {
@@ -220,6 +257,42 @@
     "CatOpt": {
       "$tag": "_TypeOutput",
       "name": "CatOpt",
+      "typeKind": "Output"
+    },
+    "Descr": {
+      "$tag": "_TypeOutput",
+      "description": "A simple doc A simple doc With extra",
+      "name": "Descr",
+      "typeKind": "Output"
+    },
+    "DescrBackslash": {
+      "$tag": "_TypeOutput",
+      "description": "A backslash (\u0022\\\u0022) doc",
+      "name": "DescrBackslash",
+      "typeKind": "Output"
+    },
+    "DescrBetween": {
+      "$tag": "_TypeOutput",
+      "description": "A doc between",
+      "name": "DescrBetween",
+      "typeKind": "Output"
+    },
+    "DescrComplex": {
+      "$tag": "_TypeOutput",
+      "description": "A \u0022more\u0022 \u0027Complicated\u0027 \\ doc",
+      "name": "DescrComplex",
+      "typeKind": "Output"
+    },
+    "DescrDouble": {
+      "$tag": "_TypeOutput",
+      "description": "A \u0027double-quoted\u0027 doc",
+      "name": "DescrDouble",
+      "typeKind": "Output"
+    },
+    "DescrSingle": {
+      "$tag": "_TypeOutput",
+      "description": "A \u0022single-quoted\u0022 doc",
+      "name": "DescrSingle",
       "typeKind": "Output"
     },
     "DirParamIn": {

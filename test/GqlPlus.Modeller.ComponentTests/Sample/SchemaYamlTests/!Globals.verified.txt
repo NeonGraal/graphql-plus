@@ -7,6 +7,13 @@ categories: !_Map_Categories
       name: Cat
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
+  !_Identifier catDescr: !_Category
+    description: 'A Category described'
+    name: catDescr
+    output: !_TypeRef(_TypeKind)
+      name: CatDescr
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
   !_Identifier catDict: !_Category
     modifiers: [!_ModifierDictionary {by: '*', modifierKind: !_ModifierKind Dict,
         typeKind: !_SimpleKind Basic}]
@@ -36,6 +43,12 @@ categories: !_Map_Categories
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
 directives: !_Map_Directives
+  !_Identifier DirDescr: !_Directive
+    description: 'A directive described'
+    locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
+      Operation: _, Spread: _, Variable: _}
+    name: DirDescr
+    repeatable: false
   !_Identifier DirNoParam: !_Directive
     locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
       Operation: _, Spread: _, Variable: _}
@@ -79,12 +92,19 @@ directives: !_Map_Directives
     repeatable: false
 name: Schema
 settings: !_Map_Setting
+  !_Identifier descr: !_Setting
+    description: 'Option Descr'
+    name: descr
+    value: true
   !_Identifier global: !_Setting
     name: global
     value: true
 types: !_Map_Type
   !_Identifier Cat: !_TypeOutput
     name: Cat
+    typeKind: !_TypeKind Output
+  !_Identifier CatDescr: !_TypeOutput
+    name: CatDescr
     typeKind: !_TypeKind Output
   !_Identifier CatDict: !_TypeOutput
     name: CatDict
@@ -94,6 +114,31 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier CatOpt: !_TypeOutput
     name: CatOpt
+    typeKind: !_TypeKind Output
+  !_Identifier Descr: !_TypeOutput
+    description: >-
+      A simple doc A simple doc With extra
+    name: Descr
+    typeKind: !_TypeKind Output
+  !_Identifier DescrBackslash: !_TypeOutput
+    description: 'A backslash ("\") doc'
+    name: DescrBackslash
+    typeKind: !_TypeKind Output
+  !_Identifier DescrBetween: !_TypeOutput
+    description: 'A doc between'
+    name: DescrBetween
+    typeKind: !_TypeKind Output
+  !_Identifier DescrComplex: !_TypeOutput
+    description: "A \"more\" 'Complicated' \\ doc"
+    name: DescrComplex
+    typeKind: !_TypeKind Output
+  !_Identifier DescrDouble: !_TypeOutput
+    description: "A 'double-quoted' doc"
+    name: DescrDouble
+    typeKind: !_TypeKind Output
+  !_Identifier DescrSingle: !_TypeOutput
+    description: 'A "single-quoted" doc'
+    name: DescrSingle
     typeKind: !_TypeKind Output
   !_Identifier DirParamIn: !_TypeInput
     name: DirParamIn

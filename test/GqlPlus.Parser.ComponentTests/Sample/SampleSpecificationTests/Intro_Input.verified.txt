@@ -12,10 +12,10 @@ Success
     I@035/0002
     _InputParent
     I@048/0002
-    _InputParam
-    I@060/0002
+    _InputTypeParam
+    I@064/0002
     _InputField
-    I@072/0002
+    I@076/0002
     _InputAlternate
   >
 }
@@ -50,12 +50,12 @@ Success
 }
 {
   !Ou I@008/0015
-  _InputParam
+  _InputTypeParam
   :
   I@007/0016
-  _ObjParam
+  _ObjTypeParam
   <
-    I@017/0016
+    I@021/0016
     _InputBase
   >
 }
@@ -91,7 +91,7 @@ Success
 }
 {
   !Ou I@008/0028
-  _FieldParam
+  _InputParam
   :
   I@007/0029
   _ObjDescribed

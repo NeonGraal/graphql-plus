@@ -11,7 +11,7 @@ _errors:
   _message: In _OutputParent can't get model for type '_ObjDescribed'
 - !_Error
   _kind: !_TokenKind End
-  _message: In _OutputParam can't get model for type '_ObjParam'
+  _message: In _OutputTypeParam can't get model for type '_ObjTypeParam'
 - !_Error
   _kind: !_TokenKind End
   _message: In _OutputField can't get model for type '_Field'
@@ -130,7 +130,7 @@ types: !_Map_Type
       name: parameter
       object: _OutputField
       type: !_OutputBase
-        output: _FieldParam
+        output: _InputParam
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
@@ -140,18 +140,10 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: parameter
       type: !_OutputBase
-        output: _FieldParam
+        output: _InputParam
     name: _OutputField
     parent: !_OutputBase
       output: _Field
-      typeArgs:
-      - !_OutputArg
-        output: _OutputBase
-    typeKind: !_TypeKind Output
-  !_Identifier _OutputParam: !_TypeOutput
-    name: _OutputParam
-    parent: !_OutputBase
-      output: _ObjParam
       typeArgs:
       - !_OutputArg
         output: _OutputBase
@@ -160,6 +152,14 @@ types: !_Map_Type
     name: _OutputParent
     parent: !_OutputBase
       output: _ObjDescribed
+      typeArgs:
+      - !_OutputArg
+        output: _OutputBase
+    typeKind: !_TypeKind Output
+  !_Identifier _OutputTypeParam: !_TypeOutput
+    name: _OutputTypeParam
+    parent: !_OutputBase
+      output: _ObjTypeParam
       typeArgs:
       - !_OutputArg
         output: _OutputBase
@@ -176,7 +176,7 @@ types: !_Map_Type
       - !_OutputArg
         output: _OutputParent
       - !_OutputArg
-        output: _OutputParam
+        output: _OutputTypeParam
       - !_OutputArg
         output: _OutputField
       - !_OutputArg

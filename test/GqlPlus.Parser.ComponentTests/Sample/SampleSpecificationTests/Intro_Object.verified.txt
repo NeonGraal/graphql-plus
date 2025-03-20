@@ -171,9 +171,9 @@ Success
 }
 {
   !Ou I@008/0037
-  _ObjParam
+  _ObjTypeParam
   <
-    I@019/0037
+    I@023/0037
     $base
   >
   {

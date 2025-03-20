@@ -19,7 +19,7 @@
     {
       "$tag": "_Error",
       "_kind": "End",
-      "_message": "In _DualParam can\u0027t get model for type \u0027_ObjParam\u0027"
+      "_message": "In _DualTypeParam can\u0027t get model for type \u0027_ObjTypeParam\u0027"
     },
     {
       "$tag": "_Error",
@@ -94,12 +94,12 @@
       },
       "typeKind": "Output"
     },
-    "_DualParam": {
+    "_DualParent": {
       "$tag": "_TypeOutput",
-      "name": "_DualParam",
+      "name": "_DualParent",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_ObjParam",
+        "output": "_ObjDescribed",
         "typeArgs": [
           {
             "$tag": "_OutputArg",
@@ -109,12 +109,12 @@
       },
       "typeKind": "Output"
     },
-    "_DualParent": {
+    "_DualTypeParam": {
       "$tag": "_TypeOutput",
-      "name": "_DualParent",
+      "name": "_DualTypeParam",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_ObjDescribed",
+        "output": "_ObjTypeParam",
         "typeArgs": [
           {
             "$tag": "_OutputArg",
@@ -143,7 +143,7 @@
           },
           {
             "$tag": "_OutputArg",
-            "value": "_DualParam"
+            "value": "_DualTypeParam"
           },
           {
             "$tag": "_OutputArg",

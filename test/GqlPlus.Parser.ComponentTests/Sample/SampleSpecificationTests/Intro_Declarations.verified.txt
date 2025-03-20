@@ -108,3 +108,41 @@ Success
   _NameFilter
   []
 }
+{
+  "_NameFilter is a simple match expression against _Identifier where '.' matches any single character and '*' matches zero or more of any character."
+  !Do I@008/0021
+  _NameFilter
+  String
+  !DX R@029/0021
+  /[A-Za-z_.*]+/
+}
+{
+  !In I@007/0023
+  _CategoryFilter
+  :
+  I@007/0024
+  _Filter
+  {
+    !IF I@009/0025
+    resolutions
+    :
+    I@022/0025
+    _Resolution
+    []
+  }
+}
+{
+  !In I@007/0028
+  _TypeFilter
+  :
+  I@007/0029
+  _Filter
+  {
+    !IF I@009/0030
+    kinds
+    :
+    I@016/0030
+    _TypeKind
+    []
+  }
+}

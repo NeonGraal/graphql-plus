@@ -12,10 +12,10 @@ Success
     I@036/0002
     _OutputParent
     I@050/0002
-    _OutputParam
-    I@063/0002
+    _OutputTypeParam
+    I@067/0002
     _OutputField
-    I@076/0002
+    I@080/0002
     _OutputAlternate
   >
 }
@@ -50,12 +50,12 @@ Success
 }
 {
   !Ou I@008/0015
-  _OutputParam
+  _OutputTypeParam
   :
   I@007/0016
-  _ObjParam
+  _ObjTypeParam
   <
-    I@017/0016
+    I@021/0016
     _OutputBase
   >
 }
@@ -74,7 +74,7 @@ Success
     parameter
     :
     I@020/0021
-    _FieldParam
+    _InputParam
     []
   }
   |

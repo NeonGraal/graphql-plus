@@ -7,7 +7,7 @@ output _Directives {
 
 output _Directive {
     : _Aliased
-        parameters: _FieldParam[]
+        parameters: _InputParam[]
         repeatable: Boolean
         locations: _[_Location]
     }

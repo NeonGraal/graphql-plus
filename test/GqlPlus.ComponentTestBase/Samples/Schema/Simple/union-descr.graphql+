@@ -1,1 +1,1 @@
-union UnionDoc { "Test" "Descr" Number }
+union UnionDescr { "Union" "Descr" Number }

@@ -10,7 +10,7 @@ internal class TypesContext(
   , ITypesContext
 {
   internal IMap<IModelBase> Types { get; } = new Map<IModelBase>();
-  public ITokenMessages Errors { get; } = new TokenMessages();
+  public ITokenMessages Errors { get; } = TokenMessages.New;
   IMap<TypeKindModel> ITypesContext.TypeKinds => this;
 
   internal static TypesContext WithBuiltins(ITypesModeller types)

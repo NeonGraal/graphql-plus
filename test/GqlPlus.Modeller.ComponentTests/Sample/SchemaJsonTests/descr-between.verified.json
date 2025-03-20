@@ -12,5 +12,14 @@
       },
       "resolution": "Parallel"
     }
+  },
+  "types": {
+    "$tag": "_Map_Type",
+    "DescrBetween": {
+      "$tag": "_TypeOutput",
+      "description": "A doc between",
+      "name": "DescrBetween",
+      "typeKind": "Output"
+    }
   }
 }

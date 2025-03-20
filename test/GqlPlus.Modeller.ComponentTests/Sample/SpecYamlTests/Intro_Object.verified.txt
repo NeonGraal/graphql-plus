@@ -180,47 +180,6 @@ types: !_Map_Type
     typeParams:
     - !_Described
       name: base
-  !_Identifier _ObjParam: !_TypeOutput
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: typeParam
-      object: _ObjParam
-      type: !_OutputBase
-        output: _TypeParam
-    - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: description
-      object: _ObjParam
-      type: !_OutputBase
-        output: String
-    - !_ObjectFor(_OutputField)
-      name: constraint
-      object: _ObjParam
-      type: !_OutputBase
-        output: _ObjConstraint
-        typeArgs:
-        - !_TypeParam base
-    fields:
-    - !_OutputField
-      name: typeParam
-      type: !_OutputBase
-        output: _TypeParam
-    - !_OutputField
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: description
-      type: !_OutputBase
-        output: String
-    - !_OutputField
-      name: constraint
-      type: !_OutputBase
-        output: _ObjConstraint
-        typeArgs:
-        - !_TypeParam base
-    name: _ObjParam
-    typeKind: !_TypeKind Output
-    typeParams:
-    - !_Described
-      name: base
   !_Identifier _ObjType: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
@@ -253,6 +212,47 @@ types: !_Map_Type
         typeArgs:
         - !_TypeParam base
     name: _ObjType
+    typeKind: !_TypeKind Output
+    typeParams:
+    - !_Described
+      name: base
+  !_Identifier _ObjTypeParam: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: typeParam
+      object: _ObjTypeParam
+      type: !_OutputBase
+        output: _TypeParam
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: description
+      object: _ObjTypeParam
+      type: !_OutputBase
+        output: String
+    - !_ObjectFor(_OutputField)
+      name: constraint
+      object: _ObjTypeParam
+      type: !_OutputBase
+        output: _ObjConstraint
+        typeArgs:
+        - !_TypeParam base
+    fields:
+    - !_OutputField
+      name: typeParam
+      type: !_OutputBase
+        output: _TypeParam
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: description
+      type: !_OutputBase
+        output: String
+    - !_OutputField
+      name: constraint
+      type: !_OutputBase
+        output: _ObjConstraint
+        typeArgs:
+        - !_TypeParam base
+    name: _ObjTypeParam
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described

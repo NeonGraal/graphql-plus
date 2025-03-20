@@ -14,6 +14,13 @@ categories: !_Map_Categories
       name: CatAlias
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
+  !_Identifier catDescr: !_Category
+    description: 'A Category described'
+    name: catDescr
+    output: !_TypeRef(_TypeKind)
+      name: CatDescr
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
   !_Identifier catDict: !_Category
     modifiers: [!_ModifierDictionary {by: '*', modifierKind: !_ModifierKind Dict,
         typeKind: !_SimpleKind Basic}]
@@ -56,6 +63,13 @@ categories: !_Map_Categories
       name: DescrBetween
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
+  !_Identifier test: !_Category
+    description: 'First category Second category'
+    name: test
+    output: !_TypeRef(_TypeKind)
+      name: Test
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
 directives: !_Map_Directives
   !_Identifier Dir: !_Directive
     locations: !_Set(_Location) {Inline: _, Spread: _}
@@ -65,6 +79,12 @@ directives: !_Map_Directives
     aliases: [DirA1, DirA2]
     locations: !_Set(_Location) {Field: _, Variable: _}
     name: DirAlias
+    repeatable: false
+  !_Identifier DirDescr: !_Directive
+    description: 'A directive described'
+    locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
+      Operation: _, Spread: _, Variable: _}
+    name: DirDescr
     repeatable: false
   !_Identifier DirNoParam: !_Directive
     locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
@@ -109,6 +129,10 @@ directives: !_Map_Directives
     repeatable: false
 name: Schema
 settings: !_Map_Setting
+  !_Identifier descr: !_Setting
+    description: 'Option Descr'
+    name: descr
+    value: true
   !_Identifier global: !_Setting
     name: global
     value: true
@@ -177,6 +201,9 @@ types: !_Map_Type
   !_Identifier CatAlias: !_TypeOutput
     name: CatAlias
     typeKind: !_TypeKind Output
+  !_Identifier CatDescr: !_TypeOutput
+    name: CatDescr
+    typeKind: !_TypeKind Output
   !_Identifier CatDict: !_TypeOutput
     name: CatDict
     typeKind: !_TypeKind Output
@@ -192,12 +219,46 @@ types: !_Map_Type
   !_Identifier Category: !_TypeOutput
     name: Category
     typeKind: !_TypeKind Output
+  !_Identifier Descr: !_TypeOutput
+    description: >-
+      A simple doc A simple doc With extra
+    name: Descr
+    typeKind: !_TypeKind Output
+  !_Identifier DescrBackslash: !_TypeOutput
+    description: 'A backslash ("\") doc'
+    name: DescrBackslash
+    typeKind: !_TypeKind Output
+  !_Identifier DescrBetween: !_TypeOutput
+    description: 'A doc between'
+    name: DescrBetween
+    typeKind: !_TypeKind Output
+  !_Identifier DescrComplex: !_TypeOutput
+    description: "A \"more\" 'Complicated' \\ doc"
+    name: DescrComplex
+    typeKind: !_TypeKind Output
+  !_Identifier DescrDouble: !_TypeOutput
+    description: "A 'double-quoted' doc"
+    name: DescrDouble
+    typeKind: !_TypeKind Output
+  !_Identifier DescrSingle: !_TypeOutput
+    description: 'A "single-quoted" doc'
+    name: DescrSingle
+    typeKind: !_TypeKind Output
   !_Identifier DirParamIn: !_TypeInput
     name: DirParamIn
     typeKind: !_TypeKind Input
-  !_Identifier DomBoolDoc: !_DomainBoolean
+  !_Identifier DomBoolDescr: !_DomainBoolean
+    allItems:
+    - !_DomainItem(_DomainTrueFalse)
+      domain: DomBoolDescr
+      exclude: false
+      value: true
     domainKind: !_DomainKind Boolean
-    name: DomBoolDoc
+    items:
+    - !_DomainTrueFalse
+      exclude: false
+      value: true
+    name: DomBoolDescr
     typeKind: !_TypeKind Domain
   !_Identifier DomBoolPrntTest: !_DomainBoolean
     allItems:
@@ -289,9 +350,24 @@ types: !_Map_Type
         typeKind: !_SimpleKind Enum
     name: DomEnumAllParent
     typeKind: !_TypeKind Domain
-  !_Identifier DomEnumDoc: !_DomainBoolean
-    domainKind: !_DomainKind Boolean
-    name: DomEnumDoc
+  !_Identifier DomEnumDescr: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainMember)
+      domain: DomEnumDescr
+      exclude: false
+      value: !_EnumValue
+        member: dom_label_desc
+        name: EnumDomDescr
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+    - !_DomainMember
+      exclude: false
+      value: !_EnumValue
+        member: dom_label_desc
+        name: EnumDomDescr
+        typeKind: !_SimpleKind Enum
+    name: DomEnumDescr
     typeKind: !_TypeKind Domain
   !_Identifier DomEnumParent: !_DomainEnum
     allItems:
@@ -360,9 +436,18 @@ types: !_Map_Type
         typeKind: !_SimpleKind Enum
     name: DomLabel
     typeKind: !_TypeKind Domain
-  !_Identifier DomNumDoc: !_DomainBoolean
-    domainKind: !_DomainKind Boolean
-    name: DomNumDoc
+  !_Identifier DomNumDescr: !_DomainNumber
+    allItems:
+    - !_DomainItem(_DomainRange)
+      domain: DomNumDescr
+      exclude: false
+      to: 2
+    domainKind: !_DomainKind Number
+    items:
+    - !_DomainRange
+      exclude: false
+      to: 2
+    name: DomNumDescr
     typeKind: !_TypeKind Domain
   !_Identifier DomNumPrnt: !_DomainNumber
     allItems:
@@ -429,9 +514,18 @@ types: !_Map_Type
       pattern: b+
     name: DomPrntStr
     typeKind: !_TypeKind Domain
-  !_Identifier DomStrDoc: !_DomainBoolean
-    domainKind: !_DomainKind Boolean
-    name: DomStrDoc
+  !_Identifier DomStrDescr: !_DomainString
+    allItems:
+    - !_DomainItem(_DomainRegex)
+      domain: DomStrDescr
+      exclude: false
+      pattern: a+
+    domainKind: !_DomainKind String
+    items:
+    - !_DomainRegex
+      exclude: false
+      pattern: a+
+    name: DomStrDescr
     typeKind: !_TypeKind Domain
   !_Identifier DomStrPrnt: !_DomainString
     allItems:
@@ -489,6 +583,19 @@ types: !_Map_Type
     name: DualAltAlt
     typeKind: !_TypeKind Dual
   !_Identifier DualAltDescr: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: DualAltDescr
+      type: !_ObjDescribed(_DualBase)
+        base: !_DualBase
+          dual: String
+        description: 'Test Descr'
+    alternates:
+    - !_DualAlternate
+      type: !_ObjDescribed(_DualBase)
+        base: !_DualBase
+          dual: String
+        description: 'Test Descr'
     name: DualAltDescr
     typeKind: !_TypeKind Dual
   !_Identifier DualAltDual: !_TypeDual
@@ -654,6 +761,17 @@ types: !_Map_Type
     name: DualField
     typeKind: !_TypeKind Dual
   !_Identifier DualFieldDescr: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: DualFieldDescr
+      type: !_DualBase
+        dual: '*'
+    fields:
+    - !_DualField
+      name: field
+      type: !_DualBase
+        dual: '*'
     name: DualFieldDescr
     typeKind: !_TypeKind Dual
   !_Identifier DualFieldDual: !_TypeDual
@@ -805,6 +923,21 @@ types: !_Map_Type
     name: DualFieldSimple
     typeKind: !_TypeKind Dual
   !_Identifier DualFieldTypeDescr: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: DualFieldTypeDescr
+      type: !_ObjDescribed(_DualBase)
+        base: !_DualBase
+          dual: Number
+        description: 'Test Descr'
+    fields:
+    - !_DualField
+      name: field
+      type: !_ObjDescribed(_DualBase)
+        base: !_DualBase
+          dual: Number
+        description: 'Test Descr'
     name: DualFieldTypeDescr
     typeKind: !_TypeKind Dual
   !_Identifier DualGenAlt: !_TypeDual
@@ -840,11 +973,37 @@ types: !_Map_Type
     - !_Described
       name: type
   !_Identifier DualGenAltArgDescr: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: DualGenAltArgDescr
+      type: !_DualBase
+        dual: DualGenAltArgDescrRef
+        typeArgs:
+        - !_TypeParam type
+    alternates:
+    - !_DualAlternate
+      type: !_DualBase
+        dual: DualGenAltArgDescrRef
+        typeArgs:
+        - !_TypeParam type
     name: DualGenAltArgDescr
     typeKind: !_TypeKind Dual
     typeParams:
     - !_Described
       name: type
+  !_Identifier DualGenAltArgDescrRef: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: DualGenAltArgDescrRef
+      type: !_TypeParam ref
+    alternates:
+    - !_DualAlternate
+      type: !_TypeParam ref
+    name: DualGenAltArgDescrRef
+    typeKind: !_TypeKind Dual
+    typeParams:
+    - !_Described
+      name: ref
   !_Identifier DualGenAltArgRef: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
@@ -998,8 +1157,21 @@ types: !_Map_Type
     - !_Described
       name: ref
   !_Identifier DualGenDescr: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: DualGenDescr
+      type: !_TypeParam type
+    fields:
+    - !_DualField
+      name: field
+      type: !_TypeParam type
     name: DualGenDescr
     typeKind: !_TypeKind Dual
+    typeParams:
+    - !_Described
+      description: 'Test Descr'
+      name: type
   !_Identifier DualGenDual: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
@@ -1657,7 +1829,45 @@ types: !_Map_Type
     name: DualParentAltRef
     typeKind: !_TypeKind Dual
   !_Identifier DualParentDescr: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: DualParentDescrRef
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: parent
+      object: DualParentDescrRef
+      type: !_DualBase
+        dual: Number
     name: DualParentDescr
+    parent: !_ObjDescribed(_DualBase)
+      base: !_DualBase
+        dual: DualParentDescrRef
+      description: 'Test Descr'
+    typeKind: !_TypeKind Dual
+  !_Identifier DualParentDescrRef: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: DualParentDescrRef
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: parent
+      object: DualParentDescrRef
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_DualAlternate
+      type: !_DualBase
+        dual: String
+    fields:
+    - !_DualField
+      name: parent
+      type: !_DualBase
+        dual: Number
+    name: DualParentDescrRef
     typeKind: !_TypeKind Dual
   !_Identifier DualParentDual: !_TypeDual
     allAlternates:
@@ -1863,6 +2073,17 @@ types: !_Map_Type
       name: val_alias
     name: EnAliasPrnt
     typeKind: !_TypeKind Enum
+  !_Identifier EnDescr: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: EnDescr
+      name: val_test
+    items:
+    - !_Aliased
+      description: 'Enum Descr'
+      name: val_test
+    name: EnDescr
+    typeKind: !_TypeKind Enum
   !_Identifier EnDiff: !_TypeEnum
     allItems:
     - !_EnumMember
@@ -1877,9 +2098,6 @@ types: !_Map_Type
     - !_Aliased
       name: two
     name: EnDiff
-    typeKind: !_TypeKind Enum
-  !_Identifier EnDoc: !_TypeEnum
-    name: EnDoc
     typeKind: !_TypeKind Enum
   !_Identifier EnDupPrnt: !_TypeEnum
     allItems:
@@ -2094,6 +2312,16 @@ types: !_Map_Type
     - !_Aliased
       name: both_parent
     name: EnumDomBoth
+    typeKind: !_TypeKind Enum
+  !_Identifier EnumDomDescr: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: EnumDomDescr
+      name: dom_label_desc
+    items:
+    - !_Aliased
+      name: dom_label_desc
+    name: EnumDomDescr
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomDup: !_TypeEnum
     allItems:
@@ -2326,14 +2554,18 @@ types: !_Map_Type
       default: 0
       name: field
       object: InFieldNum
-      type: !_InputBase
-        input: Number
+      type: !_ObjDescribed(_InputBase)
+        base: !_InputBase
+          input: Number
+        description: 'Test Descr'
     fields:
     - !_InputField
       default: 0
       name: field
-      type: !_InputBase
-        input: Number
+      type: !_ObjDescribed(_InputBase)
+        base: !_InputBase
+          input: Number
+        description: 'Test Descr'
     name: InFieldNum
     typeKind: !_TypeKind Input
   !_Identifier InFieldStr: !_TypeInput
@@ -2386,6 +2618,19 @@ types: !_Map_Type
     name: InpAltAlt
     typeKind: !_TypeKind Input
   !_Identifier InpAltDescr: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: InpAltDescr
+      type: !_ObjDescribed(_InputBase)
+        base: !_InputBase
+          input: String
+        description: 'Test Descr'
+    alternates:
+    - !_InputAlternate
+      type: !_ObjDescribed(_InputBase)
+        base: !_InputBase
+          input: String
+        description: 'Test Descr'
     name: InpAltDescr
     typeKind: !_TypeKind Input
   !_Identifier InpAltDual: !_TypeInput
@@ -2551,6 +2796,17 @@ types: !_Map_Type
     name: InpField
     typeKind: !_TypeKind Input
   !_Identifier InpFieldDescr: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: InpFieldDescr
+      type: !_InputBase
+        input: '*'
+    fields:
+    - !_InputField
+      name: field
+      type: !_InputBase
+        input: '*'
     name: InpFieldDescr
     typeKind: !_TypeKind Input
   !_Identifier InpFieldDual: !_TypeInput
@@ -2702,6 +2958,21 @@ types: !_Map_Type
     name: InpFieldSimple
     typeKind: !_TypeKind Input
   !_Identifier InpFieldTypeDescr: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: InpFieldTypeDescr
+      type: !_ObjDescribed(_InputBase)
+        base: !_InputBase
+          input: Number
+        description: 'Test Descr'
+    fields:
+    - !_InputField
+      name: field
+      type: !_ObjDescribed(_InputBase)
+        base: !_InputBase
+          input: Number
+        description: 'Test Descr'
     name: InpFieldTypeDescr
     typeKind: !_TypeKind Input
   !_Identifier InpGenAlt: !_TypeInput
@@ -2737,11 +3008,37 @@ types: !_Map_Type
     - !_Described
       name: type
   !_Identifier InpGenAltArgDescr: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: InpGenAltArgDescr
+      type: !_InputBase
+        input: InpGenAltArgDescrRef
+        typeArgs:
+        - !_TypeParam type
+    alternates:
+    - !_InputAlternate
+      type: !_InputBase
+        input: InpGenAltArgDescrRef
+        typeArgs:
+        - !_TypeParam type
     name: InpGenAltArgDescr
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described
       name: type
+  !_Identifier InpGenAltArgDescrRef: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: InpGenAltArgDescrRef
+      type: !_TypeParam ref
+    alternates:
+    - !_InputAlternate
+      type: !_TypeParam ref
+    name: InpGenAltArgDescrRef
+    typeKind: !_TypeKind Input
+    typeParams:
+    - !_Described
+      name: ref
   !_Identifier InpGenAltArgRef: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
@@ -2895,8 +3192,21 @@ types: !_Map_Type
     - !_Described
       name: ref
   !_Identifier InpGenDescr: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: InpGenDescr
+      type: !_TypeParam type
+    fields:
+    - !_InputField
+      name: field
+      type: !_TypeParam type
     name: InpGenDescr
     typeKind: !_TypeKind Input
+    typeParams:
+    - !_Described
+      description: 'Test Descr'
+      name: type
   !_Identifier InpGenDual: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
@@ -3554,7 +3864,45 @@ types: !_Map_Type
     name: InpParentAltRef
     typeKind: !_TypeKind Input
   !_Identifier InpParentDescr: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: InpParentDescrRef
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: parent
+      object: InpParentDescrRef
+      type: !_InputBase
+        input: Number
     name: InpParentDescr
+    parent: !_ObjDescribed(_InputBase)
+      base: !_InputBase
+        input: InpParentDescrRef
+      description: 'Test Descr'
+    typeKind: !_TypeKind Input
+  !_Identifier InpParentDescrRef: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: InpParentDescrRef
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: parent
+      object: InpParentDescrRef
+      type: !_InputBase
+        input: Number
+    alternates:
+    - !_InputAlternate
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      name: parent
+      type: !_InputBase
+        input: Number
+    name: InpParentDescrRef
     typeKind: !_TypeKind Input
   !_Identifier InpParentDual: !_TypeInput
     allAlternates:
@@ -3879,6 +4227,16 @@ types: !_Map_Type
       name: outEnumValue
     name: OutEnumValue
     typeKind: !_TypeKind Enum
+  !_Identifier OutEnumValueDescr: !_TypeEnum
+    allItems:
+    - !_EnumMember
+      enum: OutEnumValueDescr
+      name: outEnumValueDescr
+    items:
+    - !_Aliased
+      name: outEnumValueDescr
+    name: OutEnumValueDescr
+    typeKind: !_TypeKind Enum
   !_Identifier OutFieldEnum: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -3926,6 +4284,22 @@ types: !_Map_Type
       name: OutEnumValue
       typeKind: !_SimpleKind Enum
     name: OutFieldValue
+    typeKind: !_TypeKind Output
+  !_Identifier OutFieldValueDescr: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      field: field
+      member: outEnumValueDescr
+      name: OutEnumValueDescr
+      object: OutFieldValueDescr
+      typeKind: !_SimpleKind Enum
+    fields:
+    - !_OutputEnum
+      field: field
+      member: outEnumValueDescr
+      name: OutEnumValueDescr
+      typeKind: !_SimpleKind Enum
+    name: OutFieldValueDescr
     typeKind: !_TypeKind Output
   !_Identifier OutGenEnum: !_TypeOutput
     allAlternates:
@@ -4041,17 +4415,25 @@ types: !_Map_Type
       object: OutParam
       parameters:
       - !_InputParam
-        input: OutParamIn
-      type: !_OutputBase
-        output: OutParam
+        base: !_InputBase
+          input: OutParamIn
+        description: 'Test Descr'
+      type: !_ObjDescribed(_OutputBase)
+        base: !_OutputBase
+          output: OutParam
+        description: 'Test Descr'
     fields:
     - !_OutputField
       name: field
       parameters:
       - !_InputParam
-        input: OutParamIn
-      type: !_OutputBase
-        output: OutParam
+        base: !_InputBase
+          input: OutParamIn
+        description: 'Test Descr'
+      type: !_ObjDescribed(_OutputBase)
+        base: !_OutputBase
+          output: OutParam
+        description: 'Test Descr'
     name: OutParam
     typeKind: !_TypeKind Output
   !_Identifier OutParamDomain: !_TypeOutput
@@ -4340,6 +4722,19 @@ types: !_Map_Type
     name: OutpAltAlt
     typeKind: !_TypeKind Output
   !_Identifier OutpAltDescr: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: OutpAltDescr
+      type: !_ObjDescribed(_OutputBase)
+        base: !_OutputBase
+          output: String
+        description: 'Test Descr'
+    alternates:
+    - !_OutputAlternate
+      type: !_ObjDescribed(_OutputBase)
+        base: !_OutputBase
+          output: String
+        description: 'Test Descr'
     name: OutpAltDescr
     typeKind: !_TypeKind Output
   !_Identifier OutpAltDual: !_TypeOutput
@@ -4505,6 +4900,17 @@ types: !_Map_Type
     name: OutpField
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldDescr: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutpFieldDescr
+      type: !_OutputBase
+        output: '*'
+    fields:
+    - !_OutputField
+      name: field
+      type: !_OutputBase
+        output: '*'
     name: OutpFieldDescr
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldDual: !_TypeOutput
@@ -4656,6 +5062,21 @@ types: !_Map_Type
     name: OutpFieldSimple
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldTypeDescr: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutpFieldTypeDescr
+      type: !_ObjDescribed(_OutputBase)
+        base: !_OutputBase
+          output: Number
+        description: 'Test Descr'
+    fields:
+    - !_OutputField
+      name: field
+      type: !_ObjDescribed(_OutputBase)
+        base: !_OutputBase
+          output: Number
+        description: 'Test Descr'
     name: OutpFieldTypeDescr
     typeKind: !_TypeKind Output
   !_Identifier OutpGenAlt: !_TypeOutput
@@ -4691,11 +5112,37 @@ types: !_Map_Type
     - !_Described
       name: type
   !_Identifier OutpGenAltArgDescr: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: OutpGenAltArgDescr
+      type: !_OutputBase
+        output: OutpGenAltArgDescrRef
+        typeArgs:
+        - !_TypeParam type
+    alternates:
+    - !_OutputAlternate
+      type: !_OutputBase
+        output: OutpGenAltArgDescrRef
+        typeArgs:
+        - !_TypeParam type
     name: OutpGenAltArgDescr
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described
       name: type
+  !_Identifier OutpGenAltArgDescrRef: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: OutpGenAltArgDescrRef
+      type: !_TypeParam ref
+    alternates:
+    - !_OutputAlternate
+      type: !_TypeParam ref
+    name: OutpGenAltArgDescrRef
+    typeKind: !_TypeKind Output
+    typeParams:
+    - !_Described
+      name: ref
   !_Identifier OutpGenAltArgRef: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
@@ -4849,8 +5296,21 @@ types: !_Map_Type
     - !_Described
       name: ref
   !_Identifier OutpGenDescr: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutpGenDescr
+      type: !_TypeParam type
+    fields:
+    - !_OutputField
+      name: field
+      type: !_TypeParam type
     name: OutpGenDescr
     typeKind: !_TypeKind Output
+    typeParams:
+    - !_Described
+      description: 'Test Descr'
+      name: type
   !_Identifier OutpGenDual: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -5508,7 +5968,45 @@ types: !_Map_Type
     name: OutpParentAltRef
     typeKind: !_TypeKind Output
   !_Identifier OutpParentDescr: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: OutpParentDescrRef
+      type: !_OutputBase
+        output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: parent
+      object: OutpParentDescrRef
+      type: !_OutputBase
+        output: Number
     name: OutpParentDescr
+    parent: !_ObjDescribed(_OutputBase)
+      base: !_OutputBase
+        output: OutpParentDescrRef
+      description: 'Test Descr'
+    typeKind: !_TypeKind Output
+  !_Identifier OutpParentDescrRef: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: OutpParentDescrRef
+      type: !_OutputBase
+        output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: parent
+      object: OutpParentDescrRef
+      type: !_OutputBase
+        output: Number
+    alternates:
+    - !_OutputAlternate
+      type: !_OutputBase
+        output: String
+    fields:
+    - !_OutputField
+      name: parent
+      type: !_OutputBase
+        output: Number
+    name: OutpParentDescrRef
     typeKind: !_TypeKind Output
   !_Identifier OutpParentDual: !_TypeOutput
     allAlternates:
@@ -5733,6 +6231,9 @@ types: !_Map_Type
       pattern: a+
     name: StrSame
     typeKind: !_TypeKind Domain
+  !_Identifier Test: !_TypeOutput
+    name: Test
+    typeKind: !_TypeKind Output
   !_Identifier UnDiff: !_TypeUnion
     aliases: [UnA1, UnA2]
     allItems:
@@ -5785,8 +6286,15 @@ types: !_Map_Type
       name: UnParent
       typeKind: !_SimpleKind Union
     typeKind: !_TypeKind Union
-  !_Identifier UnionDoc: !_TypeUnion
-    name: UnionDoc
+  !_Identifier UnionDescr: !_TypeUnion
+    allItems:
+    - !_UnionMember
+      name: Number
+      union: UnionDescr
+    items:
+    - !_Aliased
+      name: Number
+    name: UnionDescr
     typeKind: !_TypeKind Union
   !_Identifier UnionPrnt: !_TypeUnion
     allItems:

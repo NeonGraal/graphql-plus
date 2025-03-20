@@ -73,14 +73,26 @@ Success
 {
   !Du I@006/0001
   DualAltDescr
+  |
+  !DA S@023/0001
+  I@038/0001
+  String
 }
 {
   !In I@007/0001
   InpAltDescr
+  |
+  !IA S@023/0001
+  I@038/0001
+  String
 }
 {
   !Ou I@008/0001
   OutpAltDescr
+  |
+  !OA S@025/0001
+  I@040/0001
+  String
 }
 {
   !Du I@006/0001
@@ -367,14 +379,38 @@ Success
 {
   !Du I@006/0001
   DualFieldDescr
+  {
+    "Test Descr"
+    !DF I@038/0001
+    field
+    :
+    P@045/0001
+    *
+  }
 }
 {
   !In I@007/0001
   InpFieldDescr
+  {
+    "Test Descr"
+    !IF I@038/0001
+    field
+    :
+    P@045/0001
+    *
+  }
 }
 {
   !Ou I@008/0001
   OutpFieldDescr
+  {
+    "Test Descr"
+    !OF I@040/0001
+    field
+    :
+    P@047/0001
+    *
+  }
 }
 {
   !Du I@006/0001
@@ -715,14 +751,35 @@ Success
 {
   !Du I@006/0001
   DualFieldTypeDescr
+  {
+    !DF I@027/0001
+    field
+    :
+    I@049/0001
+    Number
+  }
 }
 {
   !In I@007/0001
   InpFieldTypeDescr
+  {
+    !IF I@027/0001
+    field
+    :
+    I@049/0001
+    Number
+  }
 }
 {
   !Ou I@008/0001
   OutpFieldTypeDescr
+  {
+    !OF I@029/0001
+    field
+    :
+    I@051/0001
+    Number
+  }
 }
 {
   !Du I@006/0001
@@ -851,6 +908,26 @@ Success
     I@026/0001
     $type
   >
+  |
+  !DA I@036/0001
+  I@036/0001
+  DualGenAltArgDescrRef
+  <
+    I@073/0001
+    $type
+  >
+}
+{
+  !Du I@006/0002
+  DualGenAltArgDescrRef
+  <
+    I@029/0002
+    $ref
+  >
+  |
+  !DA P@038/0002
+  I@039/0002
+  $ref
 }
 {
   !In I@007/0001
@@ -859,6 +936,26 @@ Success
     I@026/0001
     $type
   >
+  |
+  !IA I@036/0001
+  I@036/0001
+  InpGenAltArgDescrRef
+  <
+    I@072/0001
+    $type
+  >
+}
+{
+  !In I@007/0002
+  InpGenAltArgDescrRef
+  <
+    I@029/0002
+    $ref
+  >
+  |
+  !IA P@038/0002
+  I@039/0002
+  $ref
 }
 {
   !Ou I@008/0001
@@ -867,6 +964,26 @@ Success
     I@028/0001
     $type
   >
+  |
+  !OA I@038/0001
+  I@038/0001
+  OutpGenAltArgDescrRef
+  <
+    I@075/0001
+    $type
+  >
+}
+{
+  !Ou I@008/0002
+  OutpGenAltArgDescrRef
+  <
+    I@031/0002
+    $ref
+  >
+  |
+  !OA P@040/0002
+  I@041/0002
+  $ref
 }
 {
   !Du I@006/0001
@@ -1177,14 +1294,50 @@ Success
 {
   !Du I@006/0001
   DualGenDescr
+  <
+    I@035/0001
+    "Test Descr"
+    $type
+  >
+  {
+    !DF I@043/0001
+    field
+    :
+    I@051/0001
+    $type
+  }
 }
 {
   !In I@007/0001
   InpGenDescr
+  <
+    I@035/0001
+    "Test Descr"
+    $type
+  >
+  {
+    !IF I@043/0001
+    field
+    :
+    I@051/0001
+    $type
+  }
 }
 {
   !Ou I@008/0001
   OutpGenDescr
+  <
+    I@037/0001
+    "Test Descr"
+    $type
+  >
+  {
+    !OF I@045/0001
+    field
+    :
+    I@053/0001
+    $type
+  }
 }
 {
   !Du I@006/0001
@@ -2396,12 +2549,13 @@ Success
   !In I@007/0001
   InFieldNum
   {
-    !IF I@020/0001
+    "Test Descr"
+    !IF I@035/0001
     field
     :
-    I@027/0001
+    I@042/0001
     Number
-    =( !k N@036/0001 0 )
+    =( !k N@051/0001 0 )
   }
 }
 {
@@ -2451,17 +2605,33 @@ Success
   !Ou I@008/0001
   OutParam
   {
-    !OF I@019/0001
+    "Test Descr"
+    !OF I@034/0001
     field
     (
       !Pa
-      I@025/0001
+      I@040/0001
       OutParamIn
     )
     :
-    I@038/0001
+    I@053/0001
     OutParam
   }
+}
+{
+  !In I@007/0002
+  OutParamIn
+  {
+    !IF I@020/0002
+    param
+    :
+    I@027/0002
+    Number
+  }
+  |
+  !IA I@036/0002
+  I@036/0002
+  String
 }
 {
   !Ou I@008/0001
@@ -2522,6 +2692,23 @@ Success
   OutEnumValue
   !EM I@021/0002
   outEnumValue
+}
+{
+  !Ou I@008/0001
+  OutFieldValueDescr
+  {
+    !OF I@029/0001
+    field
+    =
+    I@052/0001
+    OutEnumValueDescr.outEnumValueDescr
+  }
+}
+{
+  !En I@006/0002
+  OutEnumValueDescr
+  !EM I@026/0002
+  outEnumValueDescr
 }
 {
   !Ou I@008/0001
@@ -2588,21 +2775,6 @@ Success
   OutValueGen
   !EM I@020/0003
   outValueGen
-}
-{
-  !In I@007/0002
-  OutParamIn
-  {
-    !IF I@020/0002
-    param
-    :
-    I@027/0002
-    Number
-  }
-  |
-  !IA I@036/0002
-  I@036/0002
-  String
 }
 {
   !Ou I@008/0001
@@ -2942,14 +3114,68 @@ Success
 {
   !Du I@006/0001
   DualParentDescr
+  :
+  I@041/0001
+  DualParentDescrRef
+}
+{
+  !Du I@006/0002
+  DualParentDescrRef
+  {
+    !DF I@027/0002
+    parent
+    :
+    I@035/0002
+    Number
+  }
+  |
+  !DA I@044/0002
+  I@044/0002
+  String
 }
 {
   !In I@007/0001
   InpParentDescr
+  :
+  I@041/0001
+  InpParentDescrRef
+}
+{
+  !In I@007/0002
+  InpParentDescrRef
+  {
+    !IF I@027/0002
+    parent
+    :
+    I@035/0002
+    Number
+  }
+  |
+  !IA I@044/0002
+  I@044/0002
+  String
 }
 {
   !Ou I@008/0001
   OutpParentDescr
+  :
+  I@043/0001
+  OutpParentDescrRef
+}
+{
+  !Ou I@008/0002
+  OutpParentDescrRef
+  {
+    !OF I@029/0002
+    parent
+    :
+    I@037/0002
+    Number
+  }
+  |
+  !OA I@046/0002
+  I@046/0002
+  String
 }
 {
   !Du I@006/0001

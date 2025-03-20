@@ -1,0 +1,38 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "InpAltDescr": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "InpAltDescr",
+          "type": {
+            "$tag": "_ObjDescribed(_InputBase)",
+            "base": {
+              "$tag": "_InputBase",
+              "value": "String"
+            },
+            "description": "Test Descr"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_ObjDescribed(_InputBase)",
+            "base": {
+              "$tag": "_InputBase",
+              "value": "String"
+            },
+            "description": "Test Descr"
+          }
+        }
+      ],
+      "name": "InpAltDescr",
+      "typeKind": "Input"
+    }
+  }
+}

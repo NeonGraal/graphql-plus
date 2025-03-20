@@ -1,4 +1,5 @@
 ﻿!_Schema
+aliases: [Alias]
 categories: !_Map_Categories
   !_Identifier cat: !_Category
     name: cat
@@ -91,6 +92,10 @@ directives: !_Map_Directives
     repeatable: false
 name: Schema
 settings: !_Map_Setting
+  !_Identifier descr: !_Setting
+    description: 'Option Descr'
+    name: descr
+    value: true
   !_Identifier global: !_Setting
     name: global
     value: true
@@ -111,7 +116,8 @@ types: !_Map_Type
     name: CatOpt
     typeKind: !_TypeKind Output
   !_Identifier Descr: !_TypeOutput
-    description: 'A simple description'
+    description: >-
+      A simple description A simple description With extra
     name: Descr
     typeKind: !_TypeKind Output
   !_Identifier DescrBackslash: !_TypeOutput

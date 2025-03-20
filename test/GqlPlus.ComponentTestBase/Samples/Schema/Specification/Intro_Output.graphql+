@@ -1,5 +1,5 @@
 output _TypeOutput {
-    : _TypeObject<_TypeKind.Output _OutputParent _OutputParam _OutputField _OutputAlternate>
+    : _TypeObject<_TypeKind.Output _OutputParent _OutputTypeParam _OutputField _OutputAlternate>
     }
 
 output _OutputBase {
@@ -14,6 +14,10 @@ output _OutputParent {
 
 output _OutputParam {
     : _ObjParam<_OutputBase>
+    }
+
+output _OutputTypeParam {
+    : _ObjTypeParam<_OutputBase>
     }
 
 output _OutputField {

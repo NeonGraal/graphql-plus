@@ -17,7 +17,7 @@ public record class SchemaModel(
     Directives = directives.ToMap(d => d.Name);
     Types = types.ToMap(t => t.Name);
     Settings = settings.ToMap(s => s.Name);
-    Errors = new TokenMessages();
+    Errors = TokenMessages.New;
     if (errors is not null) {
       Errors.Add(errors);
     }
@@ -27,7 +27,7 @@ public record class SchemaModel(
   internal IMap<DirectiveModel> Directives { get; } = new Map<DirectiveModel>();
   internal IMap<BaseTypeModel> Types { get; init; } = new Map<BaseTypeModel>();
   internal IMap<SettingModel> Settings { get; init; } = new Map<SettingModel>();
-  public ITokenMessages Errors { get; } = new TokenMessages();
+  public ITokenMessages Errors { get; } = TokenMessages.New;
 
 #pragma warning disable IDE0060 // Remove unused parameter
   public IMap<CategoriesModel> GetCategories(CategoryFilterParam? filter)

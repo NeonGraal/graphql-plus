@@ -13,10 +13,11 @@ internal class ParseDomainMember(
 
   public override IResult<IGqlpDomainMember> Parse<TContext>(TContext tokens, string label)
   {
-    Token.TokenAt at = tokens.At;
+    string description = tokens.Description();
+    TokenAt at = tokens.At;
     bool excluded = tokens.Take('!');
     bool hasType = tokens.Identifier(out string? type);
-    IGqlpDomainMember result = new DomainMemberAst(at, excluded, type);
+    IGqlpDomainMember result = new DomainMemberAst(at, description, excluded, type);
     if (!hasType) {
       return excluded
         ? tokens.Partial(label, "identifier after '!'", () => result)
@@ -25,9 +26,9 @@ internal class ParseDomainMember(
 
     if (tokens.Take('.')) {
       if (tokens.Identifier(out string? member)) {
-        result = new DomainMemberAst(at, excluded, member) { EnumType = type };
+        result = new DomainMemberAst(at, description, excluded, member) { EnumType = type };
       } else if (tokens.Take("*")) {
-        result = new DomainMemberAst(at, excluded, "*") { EnumType = type };
+        result = new DomainMemberAst(at, description, excluded, "*") { EnumType = type };
       } else {
         return tokens.Partial(label, "identifier or '*' after '.'", () => result);
       }

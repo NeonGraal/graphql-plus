@@ -1,6 +1,6 @@
 ﻿{
   "$tag": "_Schema",
-  "aliases": ["Opt1", "Opt2"],
+  "aliases": ["Alias", "Opt1", "Opt2"],
   "categories": {
     "$tag": "_Map_Categories",
     "cat": {
@@ -118,6 +118,17 @@
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
         "name": "DescrBetween",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
+    },
+    "test": {
+      "$tag": "_Category",
+      "description": "First category Second category",
+      "name": "test",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "Test",
         "typeKind": "Output"
       },
       "resolution": "Parallel"
@@ -279,6 +290,12 @@
   "name": "Schema",
   "settings": {
     "$tag": "_Map_Setting",
+    "descr": {
+      "$tag": "_Setting",
+      "description": "Option Descr",
+      "name": "descr",
+      "value": true
+    },
     "global": {
       "$tag": "_Setting",
       "name": "global",
@@ -419,7 +436,7 @@
     },
     "Descr": {
       "$tag": "_TypeOutput",
-      "description": "A simple description",
+      "description": "A simple description A simple description With extra",
       "name": "Descr",
       "typeKind": "Output"
     },
@@ -457,6 +474,80 @@
       "$tag": "_TypeInput",
       "name": "DirParamIn",
       "typeKind": "Input"
+    },
+    "DomBoolDescr": {
+      "$tag": "_DomainBoolean",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "domain": "DomBoolDescr",
+          "exclude": false,
+          "value": true
+        }
+      ],
+      "domainKind": "Boolean",
+      "items": [
+        {
+          "$tag": "_DomainTrueFalse",
+          "exclude": false,
+          "value": true
+        }
+      ],
+      "name": "DomBoolDescr",
+      "typeKind": "Domain"
+    },
+    "DomBoolPrntTest": {
+      "$tag": "_DomainBoolean",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "domain": "DomBoolTestPrnt",
+          "exclude": false,
+          "value": true
+        },
+        {
+          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "domain": "DomBoolPrntTest",
+          "exclude": false,
+          "value": false
+        }
+      ],
+      "domainKind": "Boolean",
+      "items": [
+        {
+          "$tag": "_DomainTrueFalse",
+          "exclude": false,
+          "value": false
+        }
+      ],
+      "name": "DomBoolPrntTest",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "DomBoolTestPrnt",
+        "typeKind": "Domain"
+      },
+      "typeKind": "Domain"
+    },
+    "DomBoolTestPrnt": {
+      "$tag": "_DomainBoolean",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "domain": "DomBoolTestPrnt",
+          "exclude": false,
+          "value": true
+        }
+      ],
+      "domainKind": "Boolean",
+      "items": [
+        {
+          "$tag": "_DomainTrueFalse",
+          "exclude": false,
+          "value": true
+        }
+      ],
+      "name": "DomBoolTestPrnt",
+      "typeKind": "Domain"
     },
     "DomEnum": {
       "$tag": "_DomainEnum",
@@ -551,6 +642,37 @@
       "name": "DomEnumAllParent",
       "typeKind": "Domain"
     },
+    "DomEnumDescr": {
+      "$tag": "_DomainEnum",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainMember)",
+          "domain": "DomEnumDescr",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "dom_label_desc",
+            "name": "EnumDomDescr",
+            "typeKind": "Enum"
+          }
+        }
+      ],
+      "domainKind": "Enum",
+      "items": [
+        {
+          "$tag": "_DomainMember",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "dom_label_desc",
+            "name": "EnumDomDescr",
+            "typeKind": "Enum"
+          }
+        }
+      ],
+      "name": "DomEnumDescr",
+      "typeKind": "Domain"
+    },
     "DomEnumParent": {
       "$tag": "_DomainEnum",
       "allItems": [
@@ -629,17 +751,17 @@
       },
       "typeKind": "Domain"
     },
-    "DomMember": {
+    "DomLabel": {
       "$tag": "_DomainEnum",
       "allItems": [
         {
           "$tag": "_DomainItem(_DomainMember)",
-          "domain": "DomMember",
+          "domain": "DomLabel",
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "member": "dom_member",
-            "name": "MemberDom",
+            "member": "dom_label",
+            "name": "LabelDom",
             "typeKind": "Enum"
           }
         }
@@ -651,13 +773,34 @@
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "member": "dom_member",
-            "name": "MemberDom",
+            "member": "dom_label",
+            "name": "LabelDom",
             "typeKind": "Enum"
           }
         }
       ],
-      "name": "DomMember",
+      "name": "DomLabel",
+      "typeKind": "Domain"
+    },
+    "DomNumDescr": {
+      "$tag": "_DomainNumber",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRange)",
+          "domain": "DomNumDescr",
+          "exclude": false,
+          "to": 2
+        }
+      ],
+      "domainKind": "Number",
+      "items": [
+        {
+          "$tag": "_DomainRange",
+          "exclude": false,
+          "to": 2
+        }
+      ],
+      "name": "DomNumDescr",
       "typeKind": "Domain"
     },
     "DomNumPrnt": {
@@ -765,36 +908,25 @@
       "name": "DomPrntStr",
       "typeKind": "Domain"
     },
-    "DomPrntTest": {
-      "$tag": "_DomainBoolean",
+    "DomStrDescr": {
+      "$tag": "_DomainString",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainTrueFalse)",
-          "domain": "DomTestPrnt",
+          "$tag": "_DomainItem(_DomainRegex)",
+          "domain": "DomStrDescr",
           "exclude": false,
-          "value": true
-        },
-        {
-          "$tag": "_DomainItem(_DomainTrueFalse)",
-          "domain": "DomPrntTest",
-          "exclude": false,
-          "value": false
+          "pattern": "a\u002B"
         }
       ],
-      "domainKind": "Boolean",
+      "domainKind": "String",
       "items": [
         {
-          "$tag": "_DomainTrueFalse",
+          "$tag": "_DomainRegex",
           "exclude": false,
-          "value": false
+          "pattern": "a\u002B"
         }
       ],
-      "name": "DomPrntTest",
-      "parent": {
-        "$tag": "_TypeRef(_SimpleKind)",
-        "name": "DomTestPrnt",
-        "typeKind": "Domain"
-      },
+      "name": "DomStrDescr",
       "typeKind": "Domain"
     },
     "DomStrPrnt": {
@@ -827,27 +959,6 @@
         "name": "DomPrntStr",
         "typeKind": "Domain"
       },
-      "typeKind": "Domain"
-    },
-    "DomTestPrnt": {
-      "$tag": "_DomainBoolean",
-      "allItems": [
-        {
-          "$tag": "_DomainItem(_DomainTrueFalse)",
-          "domain": "DomTestPrnt",
-          "exclude": false,
-          "value": true
-        }
-      ],
-      "domainKind": "Boolean",
-      "items": [
-        {
-          "$tag": "_DomainTrueFalse",
-          "exclude": false,
-          "value": true
-        }
-      ],
-      "name": "DomTestPrnt",
       "typeKind": "Domain"
     },
     "DualAlt": {
@@ -917,6 +1028,38 @@
         }
       ],
       "name": "DualAltAlt",
+      "typeKind": "Dual"
+    },
+    "DualAltDescr": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "DualAltDescr",
+          "type": {
+            "$tag": "_ObjDescribed(_DualBase)",
+            "base": {
+              "$tag": "_DualBase",
+              "value": "String"
+            },
+            "description": "Test Descr"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_ObjDescribed(_DualBase)",
+            "base": {
+              "$tag": "_DualBase",
+              "value": "String"
+            },
+            "description": "Test Descr"
+          }
+        }
+      ],
+      "name": "DualAltDescr",
       "typeKind": "Dual"
     },
     "DualAltDual": {
@@ -1141,6 +1284,234 @@
       "name": "DualAltSimple",
       "typeKind": "Dual"
     },
+    "DualConstraintAlt": {
+      "$tag": "_TypeDual",
+      "name": "DualConstraintAlt",
+      "typeKind": "Dual"
+    },
+    "DualConstraintAltDomain": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "DualConstraintAltDomain",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "DualConstraintAltDomainRef",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "value": "DomConstraintAltDomain"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "DualConstraintAltDomainRef",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "value": "DomConstraintAltDomain"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "DualConstraintAltDomain",
+      "typeKind": "Dual"
+    },
+    "DualConstraintAltDomainRef": {
+      "$tag": "_TypeDual",
+      "name": "DualConstraintAltDomainRef",
+      "typeKind": "Dual"
+    },
+    "DualConstraintAltDual": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "DualConstraintAltDual",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "DualConstraintAltDualRef",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "value": "DualConstraintAltDualAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "DualConstraintAltDualRef",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "value": "DualConstraintAltDualAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "DualConstraintAltDual",
+      "typeKind": "Dual"
+    },
+    "DualConstraintAltDualRef": {
+      "$tag": "_TypeDual",
+      "name": "DualConstraintAltDualRef",
+      "typeKind": "Dual"
+    },
+    "DualConstraintAltObj": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "DualConstraintAltObj",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "DualConstraintAltObjRef",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "value": "DualConstraintAltObjAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "DualConstraintAltObjRef",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "value": "DualConstraintAltObjAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "DualConstraintAltObj",
+      "typeKind": "Dual"
+    },
+    "DualConstraintAltObjRef": {
+      "$tag": "_TypeDual",
+      "name": "DualConstraintAltObjRef",
+      "typeKind": "Dual"
+    },
+    "DualConstraintFieldDomain": {
+      "$tag": "_TypeDual",
+      "name": "DualConstraintFieldDomain",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "DualConstraintFieldDomainRef",
+        "typeArgs": [
+          {
+            "$tag": "_DualArg",
+            "value": "DomConstraintFieldDomain"
+          }
+        ]
+      },
+      "typeKind": "Dual"
+    },
+    "DualConstraintFieldDomainRef": {
+      "$tag": "_TypeDual",
+      "name": "DualConstraintFieldDomainRef",
+      "typeKind": "Dual"
+    },
+    "DualConstraintFieldDual": {
+      "$tag": "_TypeDual",
+      "name": "DualConstraintFieldDual",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "DualConstraintFieldDualRef",
+        "typeArgs": [
+          {
+            "$tag": "_DualArg",
+            "value": "DualConstraintFieldDualAlt"
+          }
+        ]
+      },
+      "typeKind": "Dual"
+    },
+    "DualConstraintFieldDualRef": {
+      "$tag": "_TypeDual",
+      "name": "DualConstraintFieldDualRef",
+      "typeKind": "Dual"
+    },
+    "DualConstraintFieldObj": {
+      "$tag": "_TypeDual",
+      "name": "DualConstraintFieldObj",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "DualConstraintFieldObjRef",
+        "typeArgs": [
+          {
+            "$tag": "_DualArg",
+            "value": "DualConstraintFieldObjAlt"
+          }
+        ]
+      },
+      "typeKind": "Dual"
+    },
+    "DualConstraintFieldObjRef": {
+      "$tag": "_TypeDual",
+      "name": "DualConstraintFieldObjRef",
+      "typeKind": "Dual"
+    },
+    "DualConstraintParentDualParent": {
+      "$tag": "_TypeDual",
+      "name": "DualConstraintParentDualParent",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "DualConstraintParentDualParentRef",
+        "typeArgs": [
+          {
+            "$tag": "_DualArg",
+            "value": "DualConstraintParentDualParentAlt"
+          }
+        ]
+      },
+      "typeKind": "Dual"
+    },
+    "DualConstraintParentDualParentRef": {
+      "$tag": "_TypeDual",
+      "name": "DualConstraintParentDualParentRef",
+      "typeKind": "Dual"
+    },
+    "DualConstraintParentObjParent": {
+      "$tag": "_TypeDual",
+      "name": "DualConstraintParentObjParent",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "DualConstraintParentObjParentRef",
+        "typeArgs": [
+          {
+            "$tag": "_DualArg",
+            "value": "DualConstraintParentObjParentAlt"
+          }
+        ]
+      },
+      "typeKind": "Dual"
+    },
+    "DualConstraintParentObjParentRef": {
+      "$tag": "_TypeDual",
+      "name": "DualConstraintParentObjParentRef",
+      "typeKind": "Dual"
+    },
     "DualDualAltDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
@@ -1228,6 +1599,32 @@
         }
       ],
       "name": "DualField",
+      "typeKind": "Dual"
+    },
+    "DualFieldDescr": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "DualFieldDescr",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "*"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "*"
+          }
+        }
+      ],
+      "name": "DualFieldDescr",
       "typeKind": "Dual"
     },
     "DualFieldDual": {
@@ -1531,6 +1928,40 @@
       "name": "DualFieldSimple",
       "typeKind": "Dual"
     },
+    "DualFieldTypeDescr": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "DualFieldTypeDescr",
+          "type": {
+            "$tag": "_ObjDescribed(_DualBase)",
+            "base": {
+              "$tag": "_DualBase",
+              "value": "Number"
+            },
+            "description": "Test Descr"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_ObjDescribed(_DualBase)",
+            "base": {
+              "$tag": "_DualBase",
+              "value": "Number"
+            },
+            "description": "Test Descr"
+          }
+        }
+      ],
+      "name": "DualFieldTypeDescr",
+      "typeKind": "Dual"
+    },
     "DualGenAlt": {
       "$tag": "_TypeDual",
       "allAlternates": [
@@ -1584,6 +2015,62 @@
         {
           "$tag": "_Described",
           "value": "type"
+        }
+      ]
+    },
+    "DualGenAltArgDescr": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "DualGenAltArgDescr",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "DualGenAltArgDescrRef",
+            "typeArgs": ["type"]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "DualGenAltArgDescrRef",
+            "typeArgs": ["type"]
+          }
+        }
+      ],
+      "name": "DualGenAltArgDescr",
+      "typeKind": "Dual",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "type"
+        }
+      ]
+    },
+    "DualGenAltArgDescrRef": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "DualGenAltArgDescrRef",
+          "type": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": "ref"
+        }
+      ],
+      "name": "DualGenAltArgDescrRef",
+      "typeKind": "Dual",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "ref"
         }
       ]
     },
@@ -1881,110 +2368,30 @@
         }
       ]
     },
-    "DualGenDual": {
+    "DualGenDescr": {
       "$tag": "_TypeDual",
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "DualGenDual",
-          "type": {
-            "$tag": "_DualBase",
-            "dual": "DualGenDualRef",
-            "typeArgs": [
-              {
-                "$tag": "_DualArg",
-                "value": "DualGenDualAlt"
-              }
-            ]
-          }
+          "object": "DualGenDescr",
+          "type": "type"
         }
       ],
       "fields": [
         {
           "$tag": "_DualField",
           "name": "field",
-          "type": {
-            "$tag": "_DualBase",
-            "dual": "DualGenDualRef",
-            "typeArgs": [
-              {
-                "$tag": "_DualArg",
-                "value": "DualGenDualAlt"
-              }
-            ]
-          }
+          "type": "type"
         }
       ],
-      "name": "DualGenDual",
-      "typeKind": "Dual"
-    },
-    "DualGenDualAlt": {
-      "$tag": "_TypeDual",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualGenDualAlt",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "alt",
-          "object": "DualGenDualAlt",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_DualField",
-          "name": "alt",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "name": "DualGenDualAlt",
-      "typeKind": "Dual"
-    },
-    "DualGenDualRef": {
-      "$tag": "_TypeDual",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualGenDualRef",
-          "type": "ref"
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_DualAlternate",
-          "type": "ref"
-        }
-      ],
-      "name": "DualGenDualRef",
+      "name": "DualGenDescr",
       "typeKind": "Dual",
       "typeParams": [
         {
           "$tag": "_Described",
-          "value": "ref"
+          "description": "Test Descr",
+          "name": "type"
         }
       ]
     },
@@ -2278,113 +2685,6 @@
         }
       ],
       "name": "DualGenFieldParamRef",
-      "typeKind": "Dual",
-      "typeParams": [
-        {
-          "$tag": "_Described",
-          "value": "ref"
-        }
-      ]
-    },
-    "DualGenParam": {
-      "$tag": "_TypeDual",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "field",
-          "object": "DualGenParam",
-          "type": {
-            "$tag": "_DualBase",
-            "dual": "DualGenParamRef",
-            "typeArgs": [
-              {
-                "$tag": "_DualArg",
-                "value": "DualGenParamAlt"
-              }
-            ]
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_DualField",
-          "name": "field",
-          "type": {
-            "$tag": "_DualBase",
-            "dual": "DualGenParamRef",
-            "typeArgs": [
-              {
-                "$tag": "_DualArg",
-                "value": "DualGenParamAlt"
-              }
-            ]
-          }
-        }
-      ],
-      "name": "DualGenParam",
-      "typeKind": "Dual"
-    },
-    "DualGenParamAlt": {
-      "$tag": "_TypeDual",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualGenParamAlt",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "alt",
-          "object": "DualGenParamAlt",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_DualField",
-          "name": "alt",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "name": "DualGenParamAlt",
-      "typeKind": "Dual"
-    },
-    "DualGenParamRef": {
-      "$tag": "_TypeDual",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualGenParamRef",
-          "type": "ref"
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_DualAlternate",
-          "type": "ref"
-        }
-      ],
-      "name": "DualGenParamRef",
       "typeKind": "Dual",
       "typeParams": [
         {
@@ -3107,6 +3407,85 @@
       "name": "DualParentAltRef",
       "typeKind": "Dual"
     },
+    "DualParentDescr": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "DualParentDescrRef",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "parent",
+          "object": "DualParentDescrRef",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "DualParentDescr",
+      "parent": {
+        "$tag": "_ObjDescribed(_DualBase)",
+        "base": {
+          "$tag": "_DualBase",
+          "value": "DualParentDescrRef"
+        },
+        "description": "Test Descr"
+      },
+      "typeKind": "Dual"
+    },
+    "DualParentDescrRef": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "DualParentDescrRef",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "parent",
+          "object": "DualParentDescrRef",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "parent",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "DualParentDescrRef",
+      "typeKind": "Dual"
+    },
     "DualParentDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
@@ -3480,6 +3859,25 @@
         }
       ],
       "name": "EnAliasPrnt",
+      "typeKind": "Enum"
+    },
+    "EnDescr": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnDescr",
+          "name": "val_test"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "description": "Enum Descr",
+          "name": "val_test"
+        }
+      ],
+      "name": "EnDescr",
       "typeKind": "Enum"
     },
     "EnDiff": {
@@ -3857,6 +4255,24 @@
         }
       ],
       "name": "EnumDomBoth",
+      "typeKind": "Enum"
+    },
+    "EnumDomDescr": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnumDomDescr",
+          "name": "dom_label_desc"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "dom_label_desc"
+        }
+      ],
+      "name": "EnumDomDescr",
       "typeKind": "Enum"
     },
     "EnumDomDup": {
@@ -4287,8 +4703,12 @@
           "name": "field",
           "object": "InFieldNum",
           "type": {
-            "$tag": "_InputBase",
-            "value": "Number"
+            "$tag": "_ObjDescribed(_InputBase)",
+            "base": {
+              "$tag": "_InputBase",
+              "value": "Number"
+            },
+            "description": "Test Descr"
           }
         }
       ],
@@ -4298,8 +4718,12 @@
           "default": 0,
           "name": "field",
           "type": {
-            "$tag": "_InputBase",
-            "value": "Number"
+            "$tag": "_ObjDescribed(_InputBase)",
+            "base": {
+              "$tag": "_InputBase",
+              "value": "Number"
+            },
+            "description": "Test Descr"
           }
         }
       ],
@@ -4399,6 +4823,38 @@
         }
       ],
       "name": "InpAltAlt",
+      "typeKind": "Input"
+    },
+    "InpAltDescr": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "InpAltDescr",
+          "type": {
+            "$tag": "_ObjDescribed(_InputBase)",
+            "base": {
+              "$tag": "_InputBase",
+              "value": "String"
+            },
+            "description": "Test Descr"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_ObjDescribed(_InputBase)",
+            "base": {
+              "$tag": "_InputBase",
+              "value": "String"
+            },
+            "description": "Test Descr"
+          }
+        }
+      ],
+      "name": "InpAltDescr",
       "typeKind": "Input"
     },
     "InpAltDual": {
@@ -4623,6 +5079,234 @@
       "name": "InpAltSimple",
       "typeKind": "Input"
     },
+    "InpConstraintAlt": {
+      "$tag": "_TypeInput",
+      "name": "InpConstraintAlt",
+      "typeKind": "Input"
+    },
+    "InpConstraintAltDomain": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "InpConstraintAltDomain",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "InpConstraintAltDomainRef",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "value": "DomConstraintAltDomain"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "InpConstraintAltDomainRef",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "value": "DomConstraintAltDomain"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "InpConstraintAltDomain",
+      "typeKind": "Input"
+    },
+    "InpConstraintAltDomainRef": {
+      "$tag": "_TypeInput",
+      "name": "InpConstraintAltDomainRef",
+      "typeKind": "Input"
+    },
+    "InpConstraintAltDual": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "InpConstraintAltDual",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "InpConstraintAltDualRef",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "value": "InpConstraintAltDualAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "InpConstraintAltDualRef",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "value": "InpConstraintAltDualAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "InpConstraintAltDual",
+      "typeKind": "Input"
+    },
+    "InpConstraintAltDualRef": {
+      "$tag": "_TypeInput",
+      "name": "InpConstraintAltDualRef",
+      "typeKind": "Input"
+    },
+    "InpConstraintAltObj": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "InpConstraintAltObj",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "InpConstraintAltObjRef",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "value": "InpConstraintAltObjAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "InpConstraintAltObjRef",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "value": "InpConstraintAltObjAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "InpConstraintAltObj",
+      "typeKind": "Input"
+    },
+    "InpConstraintAltObjRef": {
+      "$tag": "_TypeInput",
+      "name": "InpConstraintAltObjRef",
+      "typeKind": "Input"
+    },
+    "InpConstraintFieldDomain": {
+      "$tag": "_TypeInput",
+      "name": "InpConstraintFieldDomain",
+      "parent": {
+        "$tag": "_InputBase",
+        "input": "InpConstraintFieldDomainRef",
+        "typeArgs": [
+          {
+            "$tag": "_InputArg",
+            "value": "DomConstraintFieldDomain"
+          }
+        ]
+      },
+      "typeKind": "Input"
+    },
+    "InpConstraintFieldDomainRef": {
+      "$tag": "_TypeInput",
+      "name": "InpConstraintFieldDomainRef",
+      "typeKind": "Input"
+    },
+    "InpConstraintFieldDual": {
+      "$tag": "_TypeInput",
+      "name": "InpConstraintFieldDual",
+      "parent": {
+        "$tag": "_InputBase",
+        "input": "InpConstraintFieldDualRef",
+        "typeArgs": [
+          {
+            "$tag": "_InputArg",
+            "value": "InpConstraintFieldDualAlt"
+          }
+        ]
+      },
+      "typeKind": "Input"
+    },
+    "InpConstraintFieldDualRef": {
+      "$tag": "_TypeInput",
+      "name": "InpConstraintFieldDualRef",
+      "typeKind": "Input"
+    },
+    "InpConstraintFieldObj": {
+      "$tag": "_TypeInput",
+      "name": "InpConstraintFieldObj",
+      "parent": {
+        "$tag": "_InputBase",
+        "input": "InpConstraintFieldObjRef",
+        "typeArgs": [
+          {
+            "$tag": "_InputArg",
+            "value": "InpConstraintFieldObjAlt"
+          }
+        ]
+      },
+      "typeKind": "Input"
+    },
+    "InpConstraintFieldObjRef": {
+      "$tag": "_TypeInput",
+      "name": "InpConstraintFieldObjRef",
+      "typeKind": "Input"
+    },
+    "InpConstraintParentDualParent": {
+      "$tag": "_TypeInput",
+      "name": "InpConstraintParentDualParent",
+      "parent": {
+        "$tag": "_InputBase",
+        "input": "InpConstraintParentDualParentRef",
+        "typeArgs": [
+          {
+            "$tag": "_InputArg",
+            "value": "InpConstraintParentDualParentAlt"
+          }
+        ]
+      },
+      "typeKind": "Input"
+    },
+    "InpConstraintParentDualParentRef": {
+      "$tag": "_TypeInput",
+      "name": "InpConstraintParentDualParentRef",
+      "typeKind": "Input"
+    },
+    "InpConstraintParentObjParent": {
+      "$tag": "_TypeInput",
+      "name": "InpConstraintParentObjParent",
+      "parent": {
+        "$tag": "_InputBase",
+        "input": "InpConstraintParentObjParentRef",
+        "typeArgs": [
+          {
+            "$tag": "_InputArg",
+            "value": "InpConstraintParentObjParentAlt"
+          }
+        ]
+      },
+      "typeKind": "Input"
+    },
+    "InpConstraintParentObjParentRef": {
+      "$tag": "_TypeInput",
+      "name": "InpConstraintParentObjParentRef",
+      "typeKind": "Input"
+    },
     "InpDualAltDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
@@ -4710,6 +5394,32 @@
         }
       ],
       "name": "InpField",
+      "typeKind": "Input"
+    },
+    "InpFieldDescr": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "InpFieldDescr",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "*"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "*"
+          }
+        }
+      ],
+      "name": "InpFieldDescr",
       "typeKind": "Input"
     },
     "InpFieldDual": {
@@ -5013,6 +5723,40 @@
       "name": "InpFieldSimple",
       "typeKind": "Input"
     },
+    "InpFieldTypeDescr": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "InpFieldTypeDescr",
+          "type": {
+            "$tag": "_ObjDescribed(_InputBase)",
+            "base": {
+              "$tag": "_InputBase",
+              "value": "Number"
+            },
+            "description": "Test Descr"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_ObjDescribed(_InputBase)",
+            "base": {
+              "$tag": "_InputBase",
+              "value": "Number"
+            },
+            "description": "Test Descr"
+          }
+        }
+      ],
+      "name": "InpFieldTypeDescr",
+      "typeKind": "Input"
+    },
     "InpGenAlt": {
       "$tag": "_TypeInput",
       "allAlternates": [
@@ -5066,6 +5810,62 @@
         {
           "$tag": "_Described",
           "value": "type"
+        }
+      ]
+    },
+    "InpGenAltArgDescr": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "InpGenAltArgDescr",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "InpGenAltArgDescrRef",
+            "typeArgs": ["type"]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "InpGenAltArgDescrRef",
+            "typeArgs": ["type"]
+          }
+        }
+      ],
+      "name": "InpGenAltArgDescr",
+      "typeKind": "Input",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "type"
+        }
+      ]
+    },
+    "InpGenAltArgDescrRef": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "InpGenAltArgDescrRef",
+          "type": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": "ref"
+        }
+      ],
+      "name": "InpGenAltArgDescrRef",
+      "typeKind": "Input",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "ref"
         }
       ]
     },
@@ -5363,110 +6163,30 @@
         }
       ]
     },
-    "InpGenDual": {
+    "InpGenDescr": {
       "$tag": "_TypeInput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "InpGenDual",
-          "type": {
-            "$tag": "_InputBase",
-            "input": "InpGenDualRef",
-            "typeArgs": [
-              {
-                "$tag": "_DualArg",
-                "value": "InpGenDualAlt"
-              }
-            ]
-          }
+          "object": "InpGenDescr",
+          "type": "type"
         }
       ],
       "fields": [
         {
           "$tag": "_InputField",
           "name": "field",
-          "type": {
-            "$tag": "_InputBase",
-            "input": "InpGenDualRef",
-            "typeArgs": [
-              {
-                "$tag": "_DualArg",
-                "value": "InpGenDualAlt"
-              }
-            ]
-          }
+          "type": "type"
         }
       ],
-      "name": "InpGenDual",
-      "typeKind": "Input"
-    },
-    "InpGenDualAlt": {
-      "$tag": "_TypeDual",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "InpGenDualAlt",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "alt",
-          "object": "InpGenDualAlt",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_DualField",
-          "name": "alt",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "name": "InpGenDualAlt",
-      "typeKind": "Dual"
-    },
-    "InpGenDualRef": {
-      "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenDualRef",
-          "type": "ref"
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_InputAlternate",
-          "type": "ref"
-        }
-      ],
-      "name": "InpGenDualRef",
+      "name": "InpGenDescr",
       "typeKind": "Input",
       "typeParams": [
         {
           "$tag": "_Described",
-          "value": "ref"
+          "description": "Test Descr",
+          "name": "type"
         }
       ]
     },
@@ -5760,113 +6480,6 @@
         }
       ],
       "name": "InpGenFieldParamRef",
-      "typeKind": "Input",
-      "typeParams": [
-        {
-          "$tag": "_Described",
-          "value": "ref"
-        }
-      ]
-    },
-    "InpGenParam": {
-      "$tag": "_TypeInput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_InputField)",
-          "name": "field",
-          "object": "InpGenParam",
-          "type": {
-            "$tag": "_InputBase",
-            "input": "InpGenParamRef",
-            "typeArgs": [
-              {
-                "$tag": "_InputArg",
-                "value": "InpGenParamAlt"
-              }
-            ]
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_InputField",
-          "name": "field",
-          "type": {
-            "$tag": "_InputBase",
-            "input": "InpGenParamRef",
-            "typeArgs": [
-              {
-                "$tag": "_InputArg",
-                "value": "InpGenParamAlt"
-              }
-            ]
-          }
-        }
-      ],
-      "name": "InpGenParam",
-      "typeKind": "Input"
-    },
-    "InpGenParamAlt": {
-      "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenParamAlt",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_InputField)",
-          "name": "alt",
-          "object": "InpGenParamAlt",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_InputAlternate",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_InputField",
-          "name": "alt",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "name": "InpGenParamAlt",
-      "typeKind": "Input"
-    },
-    "InpGenParamRef": {
-      "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenParamRef",
-          "type": "ref"
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_InputAlternate",
-          "type": "ref"
-        }
-      ],
-      "name": "InpGenParamRef",
       "typeKind": "Input",
       "typeParams": [
         {
@@ -6589,6 +7202,85 @@
       "name": "InpParentAltRef",
       "typeKind": "Input"
     },
+    "InpParentDescr": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "InpParentDescrRef",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "parent",
+          "object": "InpParentDescrRef",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "InpParentDescr",
+      "parent": {
+        "$tag": "_ObjDescribed(_InputBase)",
+        "base": {
+          "$tag": "_InputBase",
+          "value": "InpParentDescrRef"
+        },
+        "description": "Test Descr"
+      },
+      "typeKind": "Input"
+    },
+    "InpParentDescrRef": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "InpParentDescrRef",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "parent",
+          "object": "InpParentDescrRef",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "parent",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "InpParentDescrRef",
+      "typeKind": "Input"
+    },
     "InpParentDual": {
       "$tag": "_TypeInput",
       "allAlternates": [
@@ -6927,22 +7619,22 @@
       "name": "InpParentRef",
       "typeKind": "Input"
     },
-    "MemberDom": {
+    "LabelDom": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumMember",
-          "enum": "MemberDom",
-          "name": "dom_member"
+          "enum": "LabelDom",
+          "name": "dom_label"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dom_member"
+          "value": "dom_label"
         }
       ],
-      "name": "MemberDom",
+      "name": "LabelDom",
       "typeKind": "Enum"
     },
     "Num": {
@@ -7159,6 +7851,24 @@
       "name": "OutEnumValue",
       "typeKind": "Enum"
     },
+    "OutEnumValueDescr": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "enum": "OutEnumValueDescr",
+          "name": "outEnumValueDescr"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "outEnumValueDescr"
+        }
+      ],
+      "name": "OutEnumValueDescr",
+      "typeKind": "Enum"
+    },
     "OutFieldEnum": {
       "$tag": "_TypeOutput",
       "allFields": [
@@ -7231,9 +7941,47 @@
       "name": "OutFieldValue",
       "typeKind": "Output"
     },
+    "OutFieldValueDescr": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "field": "field",
+          "member": "outEnumValueDescr",
+          "name": "OutEnumValueDescr",
+          "object": "OutFieldValueDescr",
+          "typeKind": "Enum"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputEnum",
+          "field": "field",
+          "member": "outEnumValueDescr",
+          "name": "OutEnumValueDescr",
+          "typeKind": "Enum"
+        }
+      ],
+      "name": "OutFieldValueDescr",
+      "typeKind": "Output"
+    },
     "OutGenEnum": {
       "$tag": "_TypeOutput",
       "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutGenEnum",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutGenEnumRef",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "value": "outEnumGen"
+              }
+            ]
+          }
+        },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "OutGenEnum",
@@ -7252,6 +8000,19 @@
         }
       ],
       "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutGenEnumRef",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "value": "outEnumGen"
+              }
+            ]
+          }
+        },
         {
           "$tag": "_OutputAlternate",
           "type": {
@@ -7494,6 +8255,38 @@
       "name": "OutpAltAlt",
       "typeKind": "Output"
     },
+    "OutpAltDescr": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpAltDescr",
+          "type": {
+            "$tag": "_ObjDescribed(_OutputBase)",
+            "base": {
+              "$tag": "_OutputBase",
+              "value": "String"
+            },
+            "description": "Test Descr"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_ObjDescribed(_OutputBase)",
+            "base": {
+              "$tag": "_OutputBase",
+              "value": "String"
+            },
+            "description": "Test Descr"
+          }
+        }
+      ],
+      "name": "OutpAltDescr",
+      "typeKind": "Output"
+    },
     "OutpAltDual": {
       "$tag": "_TypeOutput",
       "allAlternates": [
@@ -7726,12 +8519,20 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "value": "OutParamIn"
+              "base": {
+                "$tag": "_InputBase",
+                "value": "OutParamIn"
+              },
+              "description": "Test Descr"
             }
           ],
           "type": {
-            "$tag": "_OutputBase",
-            "value": "OutParam"
+            "$tag": "_ObjDescribed(_OutputBase)",
+            "base": {
+              "$tag": "_OutputBase",
+              "value": "OutParam"
+            },
+            "description": "Test Descr"
           }
         }
       ],
@@ -7742,12 +8543,20 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "value": "OutParamIn"
+              "base": {
+                "$tag": "_InputBase",
+                "value": "OutParamIn"
+              },
+              "description": "Test Descr"
             }
           ],
           "type": {
-            "$tag": "_OutputBase",
-            "value": "OutParam"
+            "$tag": "_ObjDescribed(_OutputBase)",
+            "base": {
+              "$tag": "_OutputBase",
+              "value": "OutParam"
+            },
+            "description": "Test Descr"
           }
         }
       ],
@@ -8112,6 +8921,234 @@
       },
       "typeKind": "Enum"
     },
+    "OutpConstraintAlt": {
+      "$tag": "_TypeOutput",
+      "name": "OutpConstraintAlt",
+      "typeKind": "Output"
+    },
+    "OutpConstraintAltDomain": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpConstraintAltDomain",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutpConstraintAltDomainRef",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "value": "DomConstraintAltDomain"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutpConstraintAltDomainRef",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "value": "DomConstraintAltDomain"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "OutpConstraintAltDomain",
+      "typeKind": "Output"
+    },
+    "OutpConstraintAltDomainRef": {
+      "$tag": "_TypeOutput",
+      "name": "OutpConstraintAltDomainRef",
+      "typeKind": "Output"
+    },
+    "OutpConstraintAltDual": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpConstraintAltDual",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutpConstraintAltDualRef",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "value": "OutpConstraintAltDualAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutpConstraintAltDualRef",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "value": "OutpConstraintAltDualAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "OutpConstraintAltDual",
+      "typeKind": "Output"
+    },
+    "OutpConstraintAltDualRef": {
+      "$tag": "_TypeOutput",
+      "name": "OutpConstraintAltDualRef",
+      "typeKind": "Output"
+    },
+    "OutpConstraintAltObj": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpConstraintAltObj",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutpConstraintAltObjRef",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "value": "OutpConstraintAltObjAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutpConstraintAltObjRef",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "value": "OutpConstraintAltObjAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "OutpConstraintAltObj",
+      "typeKind": "Output"
+    },
+    "OutpConstraintAltObjRef": {
+      "$tag": "_TypeOutput",
+      "name": "OutpConstraintAltObjRef",
+      "typeKind": "Output"
+    },
+    "OutpConstraintFieldDomain": {
+      "$tag": "_TypeOutput",
+      "name": "OutpConstraintFieldDomain",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "OutpConstraintFieldDomainRef",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "value": "DomConstraintFieldDomain"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "OutpConstraintFieldDomainRef": {
+      "$tag": "_TypeOutput",
+      "name": "OutpConstraintFieldDomainRef",
+      "typeKind": "Output"
+    },
+    "OutpConstraintFieldDual": {
+      "$tag": "_TypeOutput",
+      "name": "OutpConstraintFieldDual",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "OutpConstraintFieldDualRef",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "value": "OutpConstraintFieldDualAlt"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "OutpConstraintFieldDualRef": {
+      "$tag": "_TypeOutput",
+      "name": "OutpConstraintFieldDualRef",
+      "typeKind": "Output"
+    },
+    "OutpConstraintFieldObj": {
+      "$tag": "_TypeOutput",
+      "name": "OutpConstraintFieldObj",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "OutpConstraintFieldObjRef",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "value": "OutpConstraintFieldObjAlt"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "OutpConstraintFieldObjRef": {
+      "$tag": "_TypeOutput",
+      "name": "OutpConstraintFieldObjRef",
+      "typeKind": "Output"
+    },
+    "OutpConstraintParentDualParent": {
+      "$tag": "_TypeOutput",
+      "name": "OutpConstraintParentDualParent",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "OutpConstraintParentDualParentRef",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "value": "OutpConstraintParentDualParentAlt"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "OutpConstraintParentDualParentRef": {
+      "$tag": "_TypeOutput",
+      "name": "OutpConstraintParentDualParentRef",
+      "typeKind": "Output"
+    },
+    "OutpConstraintParentObjParent": {
+      "$tag": "_TypeOutput",
+      "name": "OutpConstraintParentObjParent",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "OutpConstraintParentObjParentRef",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "value": "OutpConstraintParentObjParentAlt"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "OutpConstraintParentObjParentRef": {
+      "$tag": "_TypeOutput",
+      "name": "OutpConstraintParentObjParentRef",
+      "typeKind": "Output"
+    },
     "OutpDualAltDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
@@ -8199,6 +9236,32 @@
         }
       ],
       "name": "OutpField",
+      "typeKind": "Output"
+    },
+    "OutpFieldDescr": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpFieldDescr",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "*"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "*"
+          }
+        }
+      ],
+      "name": "OutpFieldDescr",
       "typeKind": "Output"
     },
     "OutpFieldDual": {
@@ -8502,6 +9565,40 @@
       "name": "OutpFieldSimple",
       "typeKind": "Output"
     },
+    "OutpFieldTypeDescr": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpFieldTypeDescr",
+          "type": {
+            "$tag": "_ObjDescribed(_OutputBase)",
+            "base": {
+              "$tag": "_OutputBase",
+              "value": "Number"
+            },
+            "description": "Test Descr"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_ObjDescribed(_OutputBase)",
+            "base": {
+              "$tag": "_OutputBase",
+              "value": "Number"
+            },
+            "description": "Test Descr"
+          }
+        }
+      ],
+      "name": "OutpFieldTypeDescr",
+      "typeKind": "Output"
+    },
     "OutpGenAlt": {
       "$tag": "_TypeOutput",
       "allAlternates": [
@@ -8555,6 +9652,62 @@
         {
           "$tag": "_Described",
           "value": "type"
+        }
+      ]
+    },
+    "OutpGenAltArgDescr": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpGenAltArgDescr",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutpGenAltArgDescrRef",
+            "typeArgs": ["type"]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutpGenAltArgDescrRef",
+            "typeArgs": ["type"]
+          }
+        }
+      ],
+      "name": "OutpGenAltArgDescr",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "type"
+        }
+      ]
+    },
+    "OutpGenAltArgDescrRef": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpGenAltArgDescrRef",
+          "type": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": "ref"
+        }
+      ],
+      "name": "OutpGenAltArgDescrRef",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "ref"
         }
       ]
     },
@@ -8852,110 +10005,30 @@
         }
       ]
     },
-    "OutpGenDual": {
+    "OutpGenDescr": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutpGenDual",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "OutpGenDualRef",
-            "typeArgs": [
-              {
-                "$tag": "_DualArg",
-                "value": "OutpGenDualAlt"
-              }
-            ]
-          }
+          "object": "OutpGenDescr",
+          "type": "type"
         }
       ],
       "fields": [
         {
           "$tag": "_OutputField",
           "name": "field",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "OutpGenDualRef",
-            "typeArgs": [
-              {
-                "$tag": "_DualArg",
-                "value": "OutpGenDualAlt"
-              }
-            ]
-          }
+          "type": "type"
         }
       ],
-      "name": "OutpGenDual",
-      "typeKind": "Output"
-    },
-    "OutpGenDualAlt": {
-      "$tag": "_TypeDual",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "OutpGenDualAlt",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "alt",
-          "object": "OutpGenDualAlt",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_DualField",
-          "name": "alt",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "name": "OutpGenDualAlt",
-      "typeKind": "Dual"
-    },
-    "OutpGenDualRef": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGenDualRef",
-          "type": "ref"
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "type": "ref"
-        }
-      ],
-      "name": "OutpGenDualRef",
+      "name": "OutpGenDescr",
       "typeKind": "Output",
       "typeParams": [
         {
           "$tag": "_Described",
-          "value": "ref"
+          "description": "Test Descr",
+          "name": "type"
         }
       ]
     },
@@ -9249,113 +10322,6 @@
         }
       ],
       "name": "OutpGenFieldParamRef",
-      "typeKind": "Output",
-      "typeParams": [
-        {
-          "$tag": "_Described",
-          "value": "ref"
-        }
-      ]
-    },
-    "OutpGenParam": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "field",
-          "object": "OutpGenParam",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "OutpGenParamRef",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "value": "OutpGenParamAlt"
-              }
-            ]
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "field",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "OutpGenParamRef",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "value": "OutpGenParamAlt"
-              }
-            ]
-          }
-        }
-      ],
-      "name": "OutpGenParam",
-      "typeKind": "Output"
-    },
-    "OutpGenParamAlt": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGenParamAlt",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "alt",
-          "object": "OutpGenParamAlt",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "alt",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "name": "OutpGenParamAlt",
-      "typeKind": "Output"
-    },
-    "OutpGenParamRef": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGenParamRef",
-          "type": "ref"
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "type": "ref"
-        }
-      ],
-      "name": "OutpGenParamRef",
       "typeKind": "Output",
       "typeParams": [
         {
@@ -10078,6 +11044,85 @@
       "name": "OutpParentAltRef",
       "typeKind": "Output"
     },
+    "OutpParentDescr": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpParentDescrRef",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "parent",
+          "object": "OutpParentDescrRef",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "OutpParentDescr",
+      "parent": {
+        "$tag": "_ObjDescribed(_OutputBase)",
+        "base": {
+          "$tag": "_OutputBase",
+          "value": "OutpParentDescrRef"
+        },
+        "description": "Test Descr"
+      },
+      "typeKind": "Output"
+    },
+    "OutpParentDescrRef": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpParentDescrRef",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "parent",
+          "object": "OutpParentDescrRef",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "parent",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "OutpParentDescrRef",
+      "typeKind": "Output"
+    },
     "OutpParentDual": {
       "$tag": "_TypeOutput",
       "allAlternates": [
@@ -10620,6 +11665,11 @@
       "name": "StrSame",
       "typeKind": "Domain"
     },
+    "Test": {
+      "$tag": "_TypeOutput",
+      "name": "Test",
+      "typeKind": "Output"
+    },
     "UnDiff": {
       "$tag": "_TypeUnion",
       "aliases": ["UnA1", "UnA2"],
@@ -10646,6 +11696,24 @@
         }
       ],
       "name": "UnDiff",
+      "typeKind": "Union"
+    },
+    "UnionDescr": {
+      "$tag": "_TypeUnion",
+      "allItems": [
+        {
+          "$tag": "_UnionMember",
+          "name": "Number",
+          "union": "UnionDescr"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "Number"
+        }
+      ],
+      "name": "UnionDescr",
       "typeKind": "Union"
     },
     "UnionPrnt": {

@@ -1,0 +1,4 @@
+object ObjName { :ObjNameRef<ObjNameAlt> }
+object ObjNameRef<$ref:ObjNameParent> { field: $ref }
+dual ObjNameParent { | String }
+object ObjNameAlt { :ObjNameParent alt: Number }

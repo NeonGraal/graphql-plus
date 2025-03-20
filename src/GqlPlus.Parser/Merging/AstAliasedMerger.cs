@@ -2,6 +2,7 @@
 using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Result;
+using GqlPlus.Token;
 
 namespace GqlPlus.Merging;
 
@@ -27,7 +28,7 @@ internal abstract class AstAliasedMerger<TItem>(
       .Select(pair => ItemGroupKey(pair.item))
       .Distinct();
     if (distinct.Count() == 1) {
-      return Messages();
+      return TokenMessages.New;
     }
 
     string typeName = typeof(TItem).TidyTypeName();
@@ -37,10 +38,6 @@ internal abstract class AstAliasedMerger<TItem>(
     return group.Last().item
         .MakeError($"Aliases of {typeName} for '{group.Key}' is not singular {ItemMatchName}[{values}]");
   }
-
-  protected override ITokenMessages CanMergeGroup(IGrouping<string, TItem> group)
-    => base.CanMergeGroup(group)
-      .Add(group.CanMergeString(item => item.Description));
 
   protected override TItem MergeGroup(IEnumerable<TItem> group)
   {

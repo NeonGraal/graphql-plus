@@ -12,10 +12,10 @@ Success
     I@034/0002
     _DualParent
     I@046/0002
-    _DualParam
-    I@057/0002
+    _DualTypeParam
+    I@061/0002
     _DualField
-    I@068/0002
+    I@072/0002
     _DualAlternate
   >
 }
@@ -57,23 +57,34 @@ Success
 }
 {
   !Ou I@008/0018
-  _DualField
+  _DualTypeParam
   :
   I@007/0019
-  _Field
+  _ObjTypeParam
   <
-    I@014/0019
+    I@021/0019
     _DualBase
   >
 }
 {
   !Ou I@008/0022
-  _DualAlternate
+  _DualField
   :
   I@007/0023
+  _Field
+  <
+    I@014/0023
+    _DualBase
+  >
+}
+{
+  !Ou I@008/0026
+  _DualAlternate
+  :
+  I@007/0027
   _Alternate
   <
-    I@018/0023
+    I@018/0027
     _DualBase
   >
 }

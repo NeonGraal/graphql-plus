@@ -13,10 +13,11 @@ internal class ParseDomainRange(
 
   public override IResult<IGqlpDomainRange> Parse<TContext>(TContext tokens, string label)
   {
-    Token.TokenAt at = tokens.At;
+    string description = tokens.Description();
+    TokenAt at = tokens.At;
     bool excludes = tokens.Take('!');
 
-    DomainRangeAst value = new(at, excludes);
+    DomainRangeAst value = new(at, description, excludes);
     IGqlpDomainRange range = value;
     bool isUpper = tokens.Take('<');
     bool hasLower = tokens.Number(out decimal min);

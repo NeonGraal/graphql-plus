@@ -1,8 +1,8 @@
 output _TypeEnum {
-    : _ParentType<_TypeKind.Enum _Aliased _EnumMember>
+    : _ParentType<_TypeKind.Enum _Aliased _EnumLabel>
     }
 
-dual _EnumMember {
+dual _EnumLabel {
     : _Aliased
         enum: _Identifier
     }

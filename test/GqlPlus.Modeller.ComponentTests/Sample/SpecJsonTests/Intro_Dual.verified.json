@@ -24,6 +24,11 @@
     {
       "$tag": "_Error",
       "_kind": "End",
+      "_message": "In _DualTypeParam can\u0027t get model for type \u0027_ObjTypeParam\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": "End",
       "_message": "In _DualField can\u0027t get model for type \u0027_Field\u0027"
     },
     {
@@ -124,6 +129,21 @@
       },
       "typeKind": "Output"
     },
+    "_DualTypeParam": {
+      "$tag": "_TypeOutput",
+      "name": "_DualTypeParam",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_ObjTypeParam",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "value": "_DualBase"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
     "_TypeDual": {
       "$tag": "_TypeOutput",
       "name": "_TypeDual",
@@ -143,7 +163,7 @@
           },
           {
             "$tag": "_OutputArg",
-            "value": "_DualParam"
+            "value": "_DualTypeParam"
           },
           {
             "$tag": "_OutputArg",

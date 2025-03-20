@@ -9,17 +9,17 @@ output _Type {
     | _TypeUnion
     }
 
-output _BaseType<$kind> {
+output _BaseType<$kind:_TypeKind> {
     : _Aliased
         typeKind: $kind
     }
 
-output _ChildType<$kind $parent> {
+output _ChildType<$kind:_TypeKind $parent> {
     : _BaseType<$kind>
         parent: $parent
     }
 
-output _ParentType<$kind $item $allItem> {
+output _ParentType<$kind:_TypeKind $item $allItem> {
     : _ChildType<$kind _Identifier>
         items: $item[]
         allItems: $allItem[]
@@ -29,7 +29,7 @@ enum _SimpleKind { Basic Enum Internal Domain Union }
 
 enum _TypeKind { :_SimpleKind Dual Input Output }
 
-output _TypeRef<$kind> {
+output _TypeRef<$kind:_TypeKind> {
         typeKind: $kind
         name: _Identifier
 }

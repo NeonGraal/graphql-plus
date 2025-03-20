@@ -25,7 +25,7 @@ output _Collections {
     | _ModifierKeyed<_ModifierKind.TypeParam>
     }
 
-output _ModifierKeyed<$kind> {
+output _ModifierKeyed<$kind:_ModifierKind> {
     : _Modifier<$kind>
         by: _TypeSimple
         optional: Boolean
@@ -38,6 +38,6 @@ output _Modifiers {
 
 enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
 
-output _Modifier<$kind> {
+output _Modifier<$kind:_ModifierKind> {
         modifierKind: $kind
     }

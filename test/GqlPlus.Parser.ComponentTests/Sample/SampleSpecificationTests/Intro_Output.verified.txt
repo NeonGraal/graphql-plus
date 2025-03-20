@@ -12,10 +12,10 @@ Success
     I@036/0002
     _OutputParent
     I@050/0002
-    _OutputParam
-    I@063/0002
+    _OutputTypeParam
+    I@067/0002
     _OutputField
-    I@076/0002
+    I@080/0002
     _OutputAlternate
   >
 }
@@ -61,81 +61,92 @@ Success
 }
 {
   !Ou I@008/0019
-  _OutputField
+  _OutputTypeParam
   :
   I@007/0020
+  _ObjTypeParam
+  <
+    I@021/0020
+    _OutputBase
+  >
+}
+{
+  !Ou I@008/0023
+  _OutputField
+  :
+  I@007/0024
   _Field
   <
-    I@014/0020
+    I@014/0024
     _OutputBase
   >
   {
-    !OF I@009/0021
+    !OF I@009/0025
     parameter
     :
-    I@020/0021
+    I@020/0025
     _FieldParam
     []
   }
   |
-  !OA I@007/0022
-  I@007/0022
+  !OA I@007/0026
+  I@007/0026
   _OutputEnum
 }
 {
-  !Ou I@008/0025
+  !Ou I@008/0029
   _OutputAlternate
   :
-  I@007/0026
+  I@007/0030
   _Alternate
   <
-    I@018/0026
+    I@018/0030
     _OutputBase
   >
 }
 {
-  !Ou I@008/0029
+  !Ou I@008/0033
   _OutputArg
   :
-  I@007/0030
+  I@007/0034
   _TypeRef
   <
-    I@016/0030
+    I@016/0034
     _TypeKind
   >
   {
-    !OF I@009/0031
+    !OF I@009/0035
     member
     :
-    I@017/0031
+    I@017/0035
     _Identifier
     ?
   }
   |
-  !OA I@007/0032
-  I@007/0032
+  !OA I@007/0036
+  I@007/0036
   _TypeParam
 }
 {
-  !Ou I@008/0035
+  !Ou I@008/0039
   _OutputEnum
   :
-  I@007/0036
+  I@007/0040
   _TypeRef
   <
-    I@016/0036
+    I@016/0040
     _TypeKind.Enum
   >
   {
-    !OF I@009/0037
+    !OF I@009/0041
     field
     :
-    I@016/0037
+    I@016/0041
     _Identifier
-    !OF I@009/0038
+    !OF I@009/0042
     member
     :
-    I@017/0038
+    I@017/0042
     _Identifier
   }
 }

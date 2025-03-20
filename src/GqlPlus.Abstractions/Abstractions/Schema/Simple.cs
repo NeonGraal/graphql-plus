@@ -26,7 +26,7 @@ public interface IGqlpDomain<TItem>
 { }
 
 public interface IGqlpDomainItem
-  : IGqlpError
+  : IGqlpError, IGqlpDescribed
 {
   bool Excludes { get; }
 }

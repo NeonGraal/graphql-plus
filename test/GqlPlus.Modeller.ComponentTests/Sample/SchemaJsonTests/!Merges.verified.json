@@ -40,6 +40,17 @@
         "typeKind": "Output"
       },
       "resolution": "Parallel"
+    },
+    "test": {
+      "$tag": "_Category",
+      "description": "First category Second category",
+      "name": "test",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "Test",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
     }
   },
   "directives": {
@@ -1103,6 +1114,11 @@
       ],
       "name": "StrSame",
       "typeKind": "Domain"
+    },
+    "Test": {
+      "$tag": "_TypeOutput",
+      "name": "Test",
+      "typeKind": "Output"
     },
     "UnDiff": {
       "$tag": "_TypeUnion",

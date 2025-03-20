@@ -1,0 +1,16 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DualFieldDescr: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: DualFieldDescr
+      type: !_DualBase
+        dual: '*'
+    fields:
+    - !_DualField
+      name: field
+      type: !_DualBase
+        dual: '*'
+    name: DualFieldDescr
+    typeKind: !_TypeKind Dual

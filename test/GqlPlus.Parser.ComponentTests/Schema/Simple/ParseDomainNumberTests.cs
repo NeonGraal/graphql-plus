@@ -28,7 +28,7 @@ public sealed class ParseDomainNumberTests(
   public void WithRangeExcludes_ReturnsCorrectAst(string name, decimal min)
     => checks.TrueExpected(
       name + $"{{number !{min}}}",
-      NewDomain(name, [new(AstNulls.At, true, min, min)]));
+      NewDomain(name, [new(AstNulls.At, "", true, min, min)]));
 
   [Theory, RepeatData(Repeats)]
   public void WithRangeUpperBound_ReturnsCorrectAst(string name, decimal max)
@@ -55,7 +55,7 @@ public sealed class ParseDomainNumberTests(
     => new(AstNulls.At, name, DomainKind.Number, members);
 
   private static DomainRangeAst NewRange(decimal? min, decimal? max)
-    => new(AstNulls.At, false, min, max);
+    => new(AstNulls.At, "", false, min, max);
 }
 
 internal sealed class ParseDomainNumberChecks(

@@ -58,10 +58,10 @@ internal sealed class ParseDomainEnumChecks(
 public record struct DomainEnumInput(string Name, string Member)
 {
   internal readonly DomainMemberAst[] DomainMember(string enumType)
-      => [new(AstNulls.At, true, Member) { EnumType = enumType }];
+      => [new(AstNulls.At, "", true, Member) { EnumType = enumType }];
   internal readonly DomainMemberAst[] DomainAllMembers()
-      => [new(AstNulls.At, false, "*") { EnumType = Member }];
+      => [new(AstNulls.At, "", false, "*") { EnumType = Member }];
 
   internal readonly DomainMemberAst[] DomainMembers(params string[] members)
-      => [.. members.Select(r => new DomainMemberAst(AstNulls.At, false, r)).Prepend(new(AstNulls.At, true, Member))];
+      => [.. members.Select(r => new DomainMemberAst(AstNulls.At, "", false, r)).Prepend(new(AstNulls.At, "", true, Member))];
 }

@@ -39,7 +39,7 @@ public static class MergeExtensions
       }
     }
 
-    return new TokenMessages();
+    return TokenMessages.New;
   }
 
   public static ITokenMessages CanMergeStruct<TItem, TObjField>(
@@ -72,7 +72,7 @@ public static class MergeExtensions
       }
     }
 
-    return new TokenMessages();
+    return TokenMessages.New;
   }
 
   public static ITokenMessages CanMerge<TItem, TObjField>(
@@ -119,7 +119,7 @@ public static class MergeExtensions
       }
     }
 
-    return new TokenMessages();
+    return TokenMessages.New;
   }
 
   public static ITokenMessages ManyCanMerge<TItem, TGroup>(
@@ -132,7 +132,7 @@ public static class MergeExtensions
 
     TGroup[] groups = [.. items.SelectMany(many)];
 #pragma warning disable CA1062 // Validate arguments of public methods
-    return groups.Length < 2 ? new TokenMessages()
+    return groups.Length < 2 ? TokenMessages.New
       : merger.CanMerge(groups);
 #pragma warning restore CA1062 // Validate arguments of public methods
   }
@@ -215,9 +215,7 @@ public static class MergeExtensions
     where TDescr : IAstSetDescription
     where TItem : IGqlpDescribed
   {
-    string? description = items
-      .Select(item => item.Description)
-      .FirstOrDefault(descr => !string.IsNullOrWhiteSpace(descr));
+    string description = items.Select(item => item.Description).Joined(" ");
     if (!string.IsNullOrWhiteSpace(description)) {
       descr.SetDescription(description);
     }

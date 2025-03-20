@@ -23,5 +23,5 @@ public class MergeDomainTrueFalsesTests(
   internal override GroupsMerger<IGqlpDomainTrueFalse> MergerGroups => _merger;
 
   protected override IGqlpDomainTrueFalse MakeItem(bool input, bool excludes)
-    => new DomainTrueFalseAst(AstNulls.At, excludes, input);
+    => new DomainTrueFalseAst(AstNulls.At, "", excludes, input);
 }

@@ -26,9 +26,8 @@ internal class ParseOutputField(
   protected override IResult<IGqlpOutputField> FieldEnumValue<TContext>(TContext tokens, OutputFieldAst field)
   {
     if (tokens.Take('=')) {
-      tokens.String(out string? description);
+      string description = tokens.Description();
       TokenAt at = tokens.At;
-
       if (!tokens.Identifier(out string? enumType)) {
         return tokens.Error<IGqlpOutputField>("Output", "enum value after '='", field);
       }

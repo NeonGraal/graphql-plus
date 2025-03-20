@@ -1,0 +1,3 @@
+category { DescrBetween }
+"A doc between"
+output DescrBetween { }

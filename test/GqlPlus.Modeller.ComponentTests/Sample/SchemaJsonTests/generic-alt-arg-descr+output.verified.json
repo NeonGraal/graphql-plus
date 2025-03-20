@@ -1,0 +1,62 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutpGenAltArgDescr": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpGenAltArgDescr",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutpGenAltArgDescrRef",
+            "typeArgs": ["type"]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutpGenAltArgDescrRef",
+            "typeArgs": ["type"]
+          }
+        }
+      ],
+      "name": "OutpGenAltArgDescr",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "type"
+        }
+      ]
+    },
+    "OutpGenAltArgDescrRef": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpGenAltArgDescrRef",
+          "type": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": "ref"
+        }
+      ],
+      "name": "OutpGenAltArgDescrRef",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "ref"
+        }
+      ]
+    }
+  }
+}

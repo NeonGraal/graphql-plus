@@ -5,9 +5,10 @@ namespace GqlPlus.Ast.Schema.Simple;
 
 internal sealed record class DomainMemberAst(
   TokenAt At,
+  string Description,
   bool Excludes,
   string Member
-) : AstDomainItem(At, Excludes)
+) : AstDomainItem(At, Description, Excludes)
   , IEquatable<DomainMemberAst>
   , IGqlpDomainMember
 {

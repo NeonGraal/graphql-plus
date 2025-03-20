@@ -3,6 +3,28 @@
 Success
 {
   !Do I@008/0001
+  DomBoolDescr
+  Boolean
+  !DT I@049/0001
+  True
+}
+{
+  !Do I@008/0001
+  DomBoolPrntTest
+  Boolean
+  :DomBoolTestPrnt
+  !DT I@051/0001
+  False
+}
+{
+  !Do I@008/0002
+  DomBoolTestPrnt
+  Boolean
+  !DT I@034/0002
+  True
+}
+{
+  !Do I@008/0001
   DomEnumAll
   Enum
   !DE I@026/0001
@@ -40,17 +62,31 @@ Success
 }
 {
   !Do I@008/0001
-  DomMember
+  DomEnumDescr
   Enum
-  !DE I@025/0001
-  MemberDom
-  dom_member
+  !DE I@046/0001
+  EnumDomDescr
+  dom_label_desc
 }
 {
   !En I@006/0002
-  MemberDom
-  !EM I@018/0002
-  dom_member
+  EnumDomDescr
+  !EM I@021/0002
+  dom_label_desc
+}
+{
+  !Do I@008/0001
+  DomLabel
+  Enum
+  !DE I@024/0001
+  LabelDom
+  dom_label
+}
+{
+  !En I@006/0002
+  LabelDom
+  !EM I@017/0002
+  dom_label
 }
 {
   !Do I@008/0001
@@ -147,111 +183,125 @@ Success
 }
 {
   !Do I@008/0001
-  DomNumPrnt
+  DomNumDescr
   Number
-  :DomPrntNum
-  !DN N@040/0001
-  2
->
-}
-{
-!Do I@008/0002
-DomPrntNum
-Number
-!DN P@028/0002
-<
-  2
-}
-{
-  !Do I@008/0001
-  DomPrntTest
-  Boolean
-  :DomTestPrnt
-  !DT I@043/0001
-  False
+  !DN P@049/0001
+  <
+    2
+  }
+  {
+    !Do I@008/0001
+    DomNumPrnt
+    Number
+    :DomPrntNum
+    !DN N@040/0001
+    2
+  >
 }
 {
   !Do I@008/0002
-  DomTestPrnt
-  Boolean
-  !DT I@030/0002
-  True
-}
-{
-  !Do I@008/0001
-  DomStrPrnt
-  String
-  :DomPrntStr
-  !DX R@040/0001
-  /a+/
-}
-{
-  !Do I@008/0002
-  DomPrntStr
-  String
-  !DX R@028/0002
-  /b+/
-}
-{
-  !En I@006/0001
-  EnTestPrnt
-  :EnPrntTest
-  !EM I@031/0001
-  val_prnt
-}
-{
-  !En I@006/0002
-  EnPrntTest
-  !EM I@019/0002
-  val_test
-}
-{
-  !En I@006/0001
-  EnPrntAlias
-  :EnAliasPrnt
-  !EM I@033/0001
-  val_prnt_alias
-  !EM I@048/0001
-  val_alias
-  [
-    alias_val
-  ]
-}
-{
-  !En I@006/0002
-  EnAliasPrnt
-  !EM I@020/0002
-  val_alias
-}
-{
-  !En I@006/0001
-  EnPrntDup
-  :EnDupPrnt
-  !EM I@029/0001
-  val_prnt_dup
-}
-{
-  !En I@006/0002
-  EnDupPrnt
-  !EM I@018/0002
-  val_dup
-  [
+  DomPrntNum
+  Number
+  !DN P@028/0002
+  <
+    2
+  }
+  {
+    !Do I@008/0001
+    DomStrDescr
+    String
+    !DX R@049/0001
+    /a+/
+  }
+  {
+    !Do I@008/0001
+    DomStrPrnt
+    String
+    :DomPrntStr
+    !DX R@040/0001
+    /a+/
+  }
+  {
+    !Do I@008/0002
+    DomPrntStr
+    String
+    !DX R@028/0002
+    /b+/
+  }
+  {
+    !En I@006/0001
+    EnDescr
+    "Enum Descr"
+    !EM I@031/0001
+    val_test
+  }
+  {
+    !En I@006/0001
+    EnTestPrnt
+    :EnPrntTest
+    !EM I@031/0001
+    val_prnt
+  }
+  {
+    !En I@006/0002
+    EnPrntTest
+    !EM I@019/0002
+    val_test
+  }
+  {
+    !En I@006/0001
+    EnPrntAlias
+    :EnAliasPrnt
+    !EM I@033/0001
+    val_prnt_alias
+    !EM I@048/0001
+    val_alias
+    [
+      alias_val
+    ]
+  }
+  {
+    !En I@006/0002
+    EnAliasPrnt
+    !EM I@020/0002
+    val_alias
+  }
+  {
+    !En I@006/0001
+    EnPrntDup
+    :EnDupPrnt
+    !EM I@029/0001
     val_prnt_dup
-  ]
-}
-{
-  !Un I@007/0001
-  UnionPrnt
-  :PrntUnion
-  !UM I@030/0001
-  String
-  !UM I@030/0001
-  Number
-}
-{
-  !Un I@007/0002
-  PrntUnion
-  !UM I@019/0002
-  Number
-}
+  }
+  {
+    !En I@006/0002
+    EnDupPrnt
+    !EM I@018/0002
+    val_dup
+    [
+      val_prnt_dup
+    ]
+  }
+  {
+    !Un I@007/0001
+    UnionDescr
+    "Union Descr"
+    !UM I@036/0001
+    Number
+  }
+  {
+    !Un I@007/0001
+    UnionPrnt
+    :PrntUnion
+    !UM I@030/0001
+    String
+    !UM I@030/0001
+    Number
+  }
+  {
+    !Un I@007/0002
+    PrntUnion
+    !UM I@019/0002
+    Number
+  }
 ]

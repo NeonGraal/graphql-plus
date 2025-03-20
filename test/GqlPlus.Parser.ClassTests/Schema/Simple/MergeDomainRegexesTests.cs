@@ -19,5 +19,5 @@ public class MergeDomainRegexesTests(
   internal override GroupsMerger<IGqlpDomainRegex> MergerGroups => _merger;
 
   protected override IGqlpDomainRegex MakeItem(string input, bool excludes)
-    => new DomainRegexAst(AstNulls.At, excludes, input);
+    => new DomainRegexAst(AstNulls.At, "", excludes, input);
 }

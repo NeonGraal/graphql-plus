@@ -2,6 +2,80 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
+    "DomBoolDescr": {
+      "$tag": "_DomainBoolean",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "domain": "DomBoolDescr",
+          "exclude": false,
+          "value": true
+        }
+      ],
+      "domainKind": "Boolean",
+      "items": [
+        {
+          "$tag": "_DomainTrueFalse",
+          "exclude": false,
+          "value": true
+        }
+      ],
+      "name": "DomBoolDescr",
+      "typeKind": "Domain"
+    },
+    "DomBoolPrntTest": {
+      "$tag": "_DomainBoolean",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "domain": "DomBoolTestPrnt",
+          "exclude": false,
+          "value": true
+        },
+        {
+          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "domain": "DomBoolPrntTest",
+          "exclude": false,
+          "value": false
+        }
+      ],
+      "domainKind": "Boolean",
+      "items": [
+        {
+          "$tag": "_DomainTrueFalse",
+          "exclude": false,
+          "value": false
+        }
+      ],
+      "name": "DomBoolPrntTest",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "DomBoolTestPrnt",
+        "typeKind": "Domain"
+      },
+      "typeKind": "Domain"
+    },
+    "DomBoolTestPrnt": {
+      "$tag": "_DomainBoolean",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "domain": "DomBoolTestPrnt",
+          "exclude": false,
+          "value": true
+        }
+      ],
+      "domainKind": "Boolean",
+      "items": [
+        {
+          "$tag": "_DomainTrueFalse",
+          "exclude": false,
+          "value": true
+        }
+      ],
+      "name": "DomBoolTestPrnt",
+      "typeKind": "Domain"
+    },
     "DomEnum": {
       "$tag": "_DomainEnum",
       "allItems": [
@@ -95,6 +169,37 @@
       "name": "DomEnumAllParent",
       "typeKind": "Domain"
     },
+    "DomEnumDescr": {
+      "$tag": "_DomainEnum",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainMember)",
+          "domain": "DomEnumDescr",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "dom_label_desc",
+            "name": "EnumDomDescr",
+            "typeKind": "Enum"
+          }
+        }
+      ],
+      "domainKind": "Enum",
+      "items": [
+        {
+          "$tag": "_DomainMember",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "member": "dom_label_desc",
+            "name": "EnumDomDescr",
+            "typeKind": "Enum"
+          }
+        }
+      ],
+      "name": "DomEnumDescr",
+      "typeKind": "Domain"
+    },
     "DomEnumParent": {
       "$tag": "_DomainEnum",
       "allItems": [
@@ -173,17 +278,17 @@
       },
       "typeKind": "Domain"
     },
-    "DomMember": {
+    "DomLabel": {
       "$tag": "_DomainEnum",
       "allItems": [
         {
           "$tag": "_DomainItem(_DomainMember)",
-          "domain": "DomMember",
+          "domain": "DomLabel",
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "member": "dom_member",
-            "name": "MemberDom",
+            "member": "dom_label",
+            "name": "LabelDom",
             "typeKind": "Enum"
           }
         }
@@ -195,13 +300,34 @@
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "member": "dom_member",
-            "name": "MemberDom",
+            "member": "dom_label",
+            "name": "LabelDom",
             "typeKind": "Enum"
           }
         }
       ],
-      "name": "DomMember",
+      "name": "DomLabel",
+      "typeKind": "Domain"
+    },
+    "DomNumDescr": {
+      "$tag": "_DomainNumber",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRange)",
+          "domain": "DomNumDescr",
+          "exclude": false,
+          "to": 2
+        }
+      ],
+      "domainKind": "Number",
+      "items": [
+        {
+          "$tag": "_DomainRange",
+          "exclude": false,
+          "to": 2
+        }
+      ],
+      "name": "DomNumDescr",
       "typeKind": "Domain"
     },
     "DomNumPrnt": {
@@ -309,36 +435,25 @@
       "name": "DomPrntStr",
       "typeKind": "Domain"
     },
-    "DomPrntTest": {
-      "$tag": "_DomainBoolean",
+    "DomStrDescr": {
+      "$tag": "_DomainString",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainTrueFalse)",
-          "domain": "DomTestPrnt",
+          "$tag": "_DomainItem(_DomainRegex)",
+          "domain": "DomStrDescr",
           "exclude": false,
-          "value": true
-        },
-        {
-          "$tag": "_DomainItem(_DomainTrueFalse)",
-          "domain": "DomPrntTest",
-          "exclude": false,
-          "value": false
+          "pattern": "a\u002B"
         }
       ],
-      "domainKind": "Boolean",
+      "domainKind": "String",
       "items": [
         {
-          "$tag": "_DomainTrueFalse",
+          "$tag": "_DomainRegex",
           "exclude": false,
-          "value": false
+          "pattern": "a\u002B"
         }
       ],
-      "name": "DomPrntTest",
-      "parent": {
-        "$tag": "_TypeRef(_SimpleKind)",
-        "name": "DomTestPrnt",
-        "typeKind": "Domain"
-      },
+      "name": "DomStrDescr",
       "typeKind": "Domain"
     },
     "DomStrPrnt": {
@@ -373,27 +488,6 @@
       },
       "typeKind": "Domain"
     },
-    "DomTestPrnt": {
-      "$tag": "_DomainBoolean",
-      "allItems": [
-        {
-          "$tag": "_DomainItem(_DomainTrueFalse)",
-          "domain": "DomTestPrnt",
-          "exclude": false,
-          "value": true
-        }
-      ],
-      "domainKind": "Boolean",
-      "items": [
-        {
-          "$tag": "_DomainTrueFalse",
-          "exclude": false,
-          "value": true
-        }
-      ],
-      "name": "DomTestPrnt",
-      "typeKind": "Domain"
-    },
     "EnAliasPrnt": {
       "$tag": "_TypeEnum",
       "allItems": [
@@ -410,6 +504,25 @@
         }
       ],
       "name": "EnAliasPrnt",
+      "typeKind": "Enum"
+    },
+    "EnDescr": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnDescr",
+          "name": "val_test"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "description": "Enum Descr",
+          "name": "val_test"
+        }
+      ],
+      "name": "EnDescr",
       "typeKind": "Enum"
     },
     "EnDupPrnt": {
@@ -646,6 +759,24 @@
       "name": "EnumDomBoth",
       "typeKind": "Enum"
     },
+    "EnumDomDescr": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumMember",
+          "enum": "EnumDomDescr",
+          "name": "dom_label_desc"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "dom_label_desc"
+        }
+      ],
+      "name": "EnumDomDescr",
+      "typeKind": "Enum"
+    },
     "EnumDomDup": {
       "$tag": "_TypeEnum",
       "allItems": [
@@ -819,22 +950,22 @@
       "name": "EnumParentDom",
       "typeKind": "Enum"
     },
-    "MemberDom": {
+    "LabelDom": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumMember",
-          "enum": "MemberDom",
-          "name": "dom_member"
+          "enum": "LabelDom",
+          "name": "dom_label"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dom_member"
+          "value": "dom_label"
         }
       ],
-      "name": "MemberDom",
+      "name": "LabelDom",
       "typeKind": "Enum"
     },
     "PrntUnion": {
@@ -853,6 +984,24 @@
         }
       ],
       "name": "PrntUnion",
+      "typeKind": "Union"
+    },
+    "UnionDescr": {
+      "$tag": "_TypeUnion",
+      "allItems": [
+        {
+          "$tag": "_UnionMember",
+          "name": "Number",
+          "union": "UnionDescr"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "Number"
+        }
+      ],
+      "name": "UnionDescr",
       "typeKind": "Union"
     },
     "UnionPrnt": {

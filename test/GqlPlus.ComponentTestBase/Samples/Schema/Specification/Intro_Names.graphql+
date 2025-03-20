@@ -5,7 +5,7 @@ dual _Aliased {
 
 dual _Described {
     : _Named
-        description: String
+        description: String[]
     }
 
 dual _Named {

@@ -19,6 +19,11 @@
     {
       "$tag": "_Error",
       "_kind": "End",
+      "_message": "In _InputTypeParam can\u0027t get model for type \u0027_ObjTypeParam\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": "End",
       "_message": "In _InputField can\u0027t get model for type \u0027_Field\u0027"
     },
     {
@@ -238,6 +243,21 @@
       },
       "typeKind": "Output"
     },
+    "_InputTypeParam": {
+      "$tag": "_TypeOutput",
+      "name": "_InputTypeParam",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_ObjTypeParam",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "value": "_InputBase"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
     "_TypeInput": {
       "$tag": "_TypeOutput",
       "name": "_TypeInput",
@@ -254,6 +274,10 @@
           {
             "$tag": "_OutputArg",
             "value": "_InputParent"
+          },
+          {
+            "$tag": "_OutputArg",
+            "value": "_InputTypeParam"
           },
           {
             "$tag": "_OutputArg",

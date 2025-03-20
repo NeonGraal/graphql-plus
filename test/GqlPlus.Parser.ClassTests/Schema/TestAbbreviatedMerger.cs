@@ -76,7 +76,7 @@ public abstract class TestAbbreviatedMerger<TAst, TInput>
     return this;
   }
 
-  protected static ITokenMessages EmptyMessages => new TokenMessages();
+  protected static ITokenMessages EmptyMessages => TokenMessages.New;
 
   protected IMerge<TResult> Merger<TResult>()
     where TResult : IGqlpError

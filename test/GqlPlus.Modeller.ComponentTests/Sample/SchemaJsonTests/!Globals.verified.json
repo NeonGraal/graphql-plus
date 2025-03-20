@@ -1,5 +1,6 @@
 ﻿{
   "$tag": "_Schema",
+  "aliases": ["Alias"],
   "categories": {
     "$tag": "_Map_Categories",
     "cat": {
@@ -219,6 +220,12 @@
   "name": "Schema",
   "settings": {
     "$tag": "_Map_Setting",
+    "descr": {
+      "$tag": "_Setting",
+      "description": "Option Descr",
+      "name": "descr",
+      "value": true
+    },
     "global": {
       "$tag": "_Setting",
       "name": "global",
@@ -254,37 +261,37 @@
     },
     "Descr": {
       "$tag": "_TypeOutput",
-      "description": "A simple description",
+      "description": "A simple doc A simple doc With extra",
       "name": "Descr",
       "typeKind": "Output"
     },
     "DescrBackslash": {
       "$tag": "_TypeOutput",
-      "description": "A backslash (\u0022\\\u0022) description",
+      "description": "A backslash (\u0022\\\u0022) doc",
       "name": "DescrBackslash",
       "typeKind": "Output"
     },
     "DescrBetween": {
       "$tag": "_TypeOutput",
-      "description": "A description between",
+      "description": "A doc between",
       "name": "DescrBetween",
       "typeKind": "Output"
     },
     "DescrComplex": {
       "$tag": "_TypeOutput",
-      "description": "A \u0022more\u0022 \u0027Complicated\u0027 \\ description",
+      "description": "A \u0022more\u0022 \u0027Complicated\u0027 \\ doc",
       "name": "DescrComplex",
       "typeKind": "Output"
     },
     "DescrDouble": {
       "$tag": "_TypeOutput",
-      "description": "A \u0027double-quoted\u0027 description",
+      "description": "A \u0027double-quoted\u0027 doc",
       "name": "DescrDouble",
       "typeKind": "Output"
     },
     "DescrSingle": {
       "$tag": "_TypeOutput",
-      "description": "A \u0022single-quoted\u0022 description",
+      "description": "A \u0022single-quoted\u0022 doc",
       "name": "DescrSingle",
       "typeKind": "Output"
     },

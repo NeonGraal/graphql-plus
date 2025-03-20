@@ -9,7 +9,7 @@
     {
       "$tag": "_Error",
       "_kind": "End",
-      "_message": "In _EnumMember can\u0027t get model for type \u0027_Aliased\u0027"
+      "_message": "In _EnumLabel can\u0027t get model for type \u0027_Aliased\u0027"
     },
     {
       "$tag": "_Error",
@@ -19,13 +19,13 @@
   ],
   "types": {
     "$tag": "_Map_Type",
-    "_EnumMember": {
+    "_EnumLabel": {
       "$tag": "_TypeDual",
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "enum",
-          "object": "_EnumMember",
+          "object": "_EnumLabel",
           "type": {
             "$tag": "_DualBase",
             "value": "_Identifier"
@@ -42,7 +42,7 @@
           }
         }
       ],
-      "name": "_EnumMember",
+      "name": "_EnumLabel",
       "parent": {
         "$tag": "_DualBase",
         "value": "_Aliased"
@@ -106,7 +106,7 @@
           },
           {
             "$tag": "_DualArg",
-            "value": "_EnumMember"
+            "value": "_EnumLabel"
           }
         ]
       },

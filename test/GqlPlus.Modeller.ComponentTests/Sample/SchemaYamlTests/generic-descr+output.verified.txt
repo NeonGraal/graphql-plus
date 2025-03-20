@@ -1,0 +1,18 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutpGenDescr: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutpGenDescr
+      type: !_TypeParam type
+    fields:
+    - !_OutputField
+      name: field
+      type: !_TypeParam type
+    name: OutpGenDescr
+    typeKind: !_TypeKind Output
+    typeParams:
+    - !_Described
+      description: 'Test Descr'
+      name: type

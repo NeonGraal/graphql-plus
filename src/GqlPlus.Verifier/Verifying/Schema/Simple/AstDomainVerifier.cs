@@ -14,7 +14,7 @@ internal class AstDomainVerifier<TMember>(
     return usage is not IGqlpDomain<TMember> domain
       || !context.GetType(domain.Parent, out IGqlpDescribed? type)
       || type is not IGqlpDomain<TMember> domainParent
-      ? new TokenMessages()
+      ? TokenMessages.New
       : CanMergeDomain(domain, domainParent, context);
   }
 

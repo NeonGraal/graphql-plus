@@ -1,0 +1,13 @@
+﻿!_Schema
+categories: !_Map_Categories
+  !_Identifier descrBetween: !_Category
+    name: descrBetween
+    output: !_TypeRef(_TypeKind)
+      name: DescrBetween
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+types: !_Map_Type
+  !_Identifier DescrBetween: !_TypeOutput
+    description: 'A doc between'
+    name: DescrBetween
+    typeKind: !_TypeKind Output

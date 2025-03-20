@@ -1,0 +1,38 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutpAltDescr": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpAltDescr",
+          "type": {
+            "$tag": "_ObjDescribed(_OutputBase)",
+            "base": {
+              "$tag": "_OutputBase",
+              "value": "String"
+            },
+            "description": "Test Descr"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_ObjDescribed(_OutputBase)",
+            "base": {
+              "$tag": "_OutputBase",
+              "value": "String"
+            },
+            "description": "Test Descr"
+          }
+        }
+      ],
+      "name": "OutpAltDescr",
+      "typeKind": "Output"
+    }
+  }
+}

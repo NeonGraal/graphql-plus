@@ -16,6 +16,12 @@
         },
         {
           "$tag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "description",
           "object": "_Described",
           "type": {
@@ -76,6 +82,12 @@
         },
         {
           "$tag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "description",
           "object": "_Described",
           "type": {
@@ -87,6 +99,12 @@
       "fields": [
         {
           "$tag": "_DualField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
           "name": "description",
           "type": {
             "$tag": "_DualBase",

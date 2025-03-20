@@ -1,0 +1,2 @@
+object ObjName<$type> { | ObjNameRef<"Test" "Descr"$type> }
+object ObjNameRef<$ref> { | $ref }

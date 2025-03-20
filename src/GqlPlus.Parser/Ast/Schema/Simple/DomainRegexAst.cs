@@ -5,9 +5,10 @@ namespace GqlPlus.Ast.Schema.Simple;
 
 internal sealed record class DomainRegexAst(
   TokenAt At,
+  string Description,
   bool Excludes,
   string Pattern
-) : AstDomainItem(At, Excludes)
+) : AstDomainItem(At, Description, Excludes)
   , IEquatable<DomainRegexAst>
   , IGqlpDomainRegex
 {

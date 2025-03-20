@@ -1,0 +1,38 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DualAltDescr": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "DualAltDescr",
+          "type": {
+            "$tag": "_ObjDescribed(_DualBase)",
+            "base": {
+              "$tag": "_DualBase",
+              "value": "String"
+            },
+            "description": "Test Descr"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_ObjDescribed(_DualBase)",
+            "base": {
+              "$tag": "_DualBase",
+              "value": "String"
+            },
+            "description": "Test Descr"
+          }
+        }
+      ],
+      "name": "DualAltDescr",
+      "typeKind": "Dual"
+    }
+  }
+}

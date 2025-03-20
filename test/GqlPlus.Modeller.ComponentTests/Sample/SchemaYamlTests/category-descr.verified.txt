@@ -1,0 +1,13 @@
+﻿!_Schema
+categories: !_Map_Categories
+  !_Identifier test: !_Category
+    description: 'First category Second category'
+    name: test
+    output: !_TypeRef(_TypeKind)
+      name: Test
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+types: !_Map_Type
+  !_Identifier Test: !_TypeOutput
+    name: Test
+    typeKind: !_TypeKind Output

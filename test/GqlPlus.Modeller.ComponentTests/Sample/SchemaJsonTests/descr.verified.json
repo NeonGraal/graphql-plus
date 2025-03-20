@@ -1,0 +1,12 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "Descr": {
+      "$tag": "_TypeOutput",
+      "description": "A simple doc",
+      "name": "Descr",
+      "typeKind": "Output"
+    }
+  }
+}

@@ -1,0 +1,2 @@
+domain DomEnumDescr { enum "DomEnum" "Descr" dom_label_desc }
+enum EnumDomDescr { dom_label_desc }

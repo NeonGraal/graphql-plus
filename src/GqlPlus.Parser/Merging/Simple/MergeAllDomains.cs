@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Token;
 
 namespace GqlPlus.Merging.Simple;
 
@@ -15,7 +16,7 @@ internal class MergeAllDomains(
   {
     IEnumerable<IGqlpDomain> domains = items.OfType<IGqlpDomain>();
 
-    return domains.Any() ? CanMerge(domains) : Messages();
+    return domains.Any() ? CanMerge(domains) : TokenMessages.New;
   }
 
   IEnumerable<IGqlpType> IMerge<IGqlpType>.Merge(IEnumerable<IGqlpType> items)

@@ -1,0 +1,1 @@
+input InFieldNum { "Test" "Descr" field: Number = 0 }

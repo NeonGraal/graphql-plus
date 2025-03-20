@@ -23,5 +23,5 @@ public class MergeDomainRangesTests(
   internal override GroupsMerger<IGqlpDomainRange> MergerGroups => _merger;
 
   protected override IGqlpDomainRange MakeItem(DomainRangeInput input, bool excludes)
-    => new DomainRangeAst(AstNulls.At, excludes, input.Lower, input.Upper);
+    => new DomainRangeAst(AstNulls.At, "", excludes, input.Lower, input.Upper);
 }

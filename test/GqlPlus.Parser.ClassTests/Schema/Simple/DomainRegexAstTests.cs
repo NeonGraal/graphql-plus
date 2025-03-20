@@ -11,7 +11,7 @@ public class DomainRegexAstTests
     => $"( !DX /{input}/ )";
 
   private readonly AstAbbreviatedChecks<IGqlpDomainRegex> _checks
-    = new(regex => new DomainRegexAst(AstNulls.At, false, regex));
+    = new(regex => new DomainRegexAst(AstNulls.At, "", false, regex));
 
   internal override IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;
 }

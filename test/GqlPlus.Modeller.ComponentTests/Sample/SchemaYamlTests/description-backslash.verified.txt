@@ -1,6 +1,0 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier DescrBackslash: !_TypeOutput
-    description: 'A backslash ("\") description'
-    name: DescrBackslash
-    typeKind: !_TypeKind Output

@@ -1,0 +1,18 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier InpGenDescr: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: InpGenDescr
+      type: !_TypeParam type
+    fields:
+    - !_InputField
+      name: field
+      type: !_TypeParam type
+    name: InpGenDescr
+    typeKind: !_TypeKind Input
+    typeParams:
+    - !_Described
+      description: 'Test Descr'
+      name: type

@@ -5,8 +5,11 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Simple;
 
-internal sealed record class DomainRangeAst(TokenAt At, bool Excludes)
-  : AstDomainItem(At, Excludes)
+internal sealed record class DomainRangeAst(
+  TokenAt At,
+  string Description,
+  bool Excludes
+) : AstDomainItem(At, Description, Excludes)
   , IEquatable<DomainRangeAst>
   , IGqlpDomainRange
 {
@@ -15,8 +18,8 @@ internal sealed record class DomainRangeAst(TokenAt At, bool Excludes)
 
   internal override string Abbr => "DN";
 
-  public DomainRangeAst(TokenAt at, bool excludes, decimal? lower, decimal? upper)
-    : this(at, excludes)
+  public DomainRangeAst(TokenAt at, string description, bool excludes, decimal? lower, decimal? upper)
+    : this(at, description, excludes)
     => (Lower, Upper) = (lower, upper);
 
   public bool Equals(DomainRangeAst? other)

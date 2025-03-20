@@ -14,7 +14,7 @@ internal sealed class ParseDomainBooleanChecks(
 ) : BaseDomainChecks<string, AstDomain<DomainTrueFalseAst, IGqlpDomainTrueFalse>, IGqlpDomain<IGqlpDomainTrueFalse>>(parser, DomainKind.Boolean)
 {
   protected internal override AstDomain<DomainTrueFalseAst, IGqlpDomainTrueFalse> NamedFactory(string input)
-    => new(AstNulls.At, input, DomainKind.Boolean, [new(AstNulls.At, false, false), new(AstNulls.At, false, true)]);
+    => new(AstNulls.At, input, DomainKind.Boolean, [new(AstNulls.At, "", false, false), new(AstNulls.At, "", false, true)]);
 
   protected internal override string AliasesString(string input, string aliases)
     => input + aliases + "{boolean}";

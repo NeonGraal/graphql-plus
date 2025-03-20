@@ -1,0 +1,24 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "UnionDescr": {
+      "$tag": "_TypeUnion",
+      "allItems": [
+        {
+          "$tag": "_UnionMember",
+          "name": "Number",
+          "union": "UnionDescr"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "Number"
+        }
+      ],
+      "name": "UnionDescr",
+      "typeKind": "Union"
+    }
+  }
+}

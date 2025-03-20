@@ -8,7 +8,7 @@ internal class BaseMerger<TItem>
   where TItem : IGqlpError
 {
   public virtual ITokenMessages CanMerge(IEnumerable<TItem> items)
-    => items.Any() ? Messages() : Messages(
+    => items.Any() ? TokenMessages.New : Messages(
       new TokenMessage(AstNulls.At, $"No items to merge for {GetType().ExpandTypeName()}")
       );
 

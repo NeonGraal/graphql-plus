@@ -1,0 +1,12 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier UnionDescr: !_TypeUnion
+    allItems:
+    - !_UnionMember
+      name: Number
+      union: UnionDescr
+    items:
+    - !_Aliased
+      name: Number
+    name: UnionDescr
+    typeKind: !_TypeKind Union

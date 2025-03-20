@@ -19,5 +19,5 @@ public class MergeDomainMembersTests(
   internal override GroupsMerger<IGqlpDomainMember> MergerGroups => _merger;
 
   protected override IGqlpDomainMember MakeItem(string input, bool excludes)
-    => new DomainMemberAst(AstNulls.At, excludes, input);
+    => new DomainMemberAst(AstNulls.At, "", excludes, input);
 }

@@ -164,7 +164,7 @@ types: !_Map_Type
       exclude: false
       pattern: '[A-Za-z_.*]+'
     description: >-
-      _NameFilter is a simple match expression against _Identifier 
+      _NameFilter is a simple match expression against _Identifier
       where '.' matches any single character and '*' matches zero
       or more of any character.
     domainKind: !_DomainKind String

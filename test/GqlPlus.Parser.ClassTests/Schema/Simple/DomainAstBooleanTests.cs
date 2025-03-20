@@ -16,7 +16,7 @@ internal sealed class DomainAstBooleanChecks()
  : AstDomainChecks<bool, DomainTrueFalseAst, IGqlpDomainTrueFalse>(DomainKind.Boolean)
 {
   protected override DomainTrueFalseAst[] DomainMembers(bool input)
-    => [new(AstNulls.At, false, input)];
+    => [new(AstNulls.At, "", false, input)];
 
   protected override string MembersString(string name, bool input)
     => $"( !Do {name} Boolean !DT {input} )";

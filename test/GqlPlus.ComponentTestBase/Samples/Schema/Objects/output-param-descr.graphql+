@@ -1,0 +1,2 @@
+output OutParam { field("Test" "Descr" OutParamIn): OutParam }
+input OutParamIn { param: Number | String }

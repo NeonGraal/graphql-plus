@@ -12,10 +12,6 @@ internal class AstObjectFieldsMerger<TObjField>(
   protected override string ItemMatchKey(TObjField item)
     => item.ModifiedType;
 
-  protected override ITokenMessages CanMergeGroup(IGrouping<string, TObjField> group)
-    => base.CanMergeGroup(group)
-      .Add(group.CanMerge(item => item.Type.Description));
-
   protected override TObjField MergeGroup(IEnumerable<TObjField> group)
   {
     TObjField result = base.MergeGroup(group);

@@ -1,0 +1,2 @@
+domain DomBoolPrntTest { :DomBoolTestPrnt Boolean false }
+domain DomBoolTestPrnt { Boolean true }

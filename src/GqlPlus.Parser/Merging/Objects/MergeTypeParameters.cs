@@ -1,15 +1,15 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Objects;
+using GqlPlus.Token;
 
 namespace GqlPlus.Merging.Objects;
 
 internal class MergeTypeParams
   : GroupsMerger<IGqlpTypeParam>
 {
-  protected override string ItemGroupKey(IGqlpTypeParam item) => item.Name;
-
   protected override ITokenMessages CanMergeGroup(IGrouping<string, IGqlpTypeParam> group)
-    => group.CanMergeString(item => item.Description);
+    => TokenMessages.New;
+  protected override string ItemGroupKey(IGqlpTypeParam item) => item.Name;
 
   protected override IGqlpTypeParam MergeGroup(IEnumerable<IGqlpTypeParam> group)
   {

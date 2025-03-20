@@ -1,5 +1,5 @@
 output _TypeInput {
-    : _TypeObject<_TypeKind.Input _InputParent _InputField _InputAlternate>
+    : _TypeObject<_TypeKind.Input _InputParent _InputTypeParam _InputField _InputAlternate>
     }
 
 output _InputBase {
@@ -10,6 +10,10 @@ output _InputBase {
 
 output _InputParent {
     : _ObjDescribed<_InputBase>
+    }
+
+output _InputTypeParam {
+    : _ObjTypeParam<_InputBase>
     }
 
 output _InputField {

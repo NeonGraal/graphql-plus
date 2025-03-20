@@ -1,0 +1,42 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "InFieldNum": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "default": 0,
+          "name": "field",
+          "object": "InFieldNum",
+          "type": {
+            "$tag": "_ObjDescribed(_InputBase)",
+            "base": {
+              "$tag": "_InputBase",
+              "value": "Number"
+            },
+            "description": "Test Descr"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "default": 0,
+          "name": "field",
+          "type": {
+            "$tag": "_ObjDescribed(_InputBase)",
+            "base": {
+              "$tag": "_InputBase",
+              "value": "Number"
+            },
+            "description": "Test Descr"
+          }
+        }
+      ],
+      "name": "InFieldNum",
+      "typeKind": "Input"
+    }
+  }
+}

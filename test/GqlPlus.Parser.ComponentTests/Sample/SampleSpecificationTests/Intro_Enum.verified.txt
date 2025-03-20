@@ -12,12 +12,12 @@ Success
     I@034/0002
     _Aliased
     I@043/0002
-    _EnumMember
+    _EnumLabel
   >
 }
 {
   !Du I@006/0005
-  _EnumMember
+  _EnumLabel
   :
   I@007/0006
   _Aliased

@@ -10,12 +10,12 @@ types: !_Map_Type
   !_Identifier _BaseDomain: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      name: domain
+      name: domainKind
       object: _BaseDomain
       type: !_TypeParam domain
     fields:
     - !_OutputField
-      name: domain
+      name: domainKind
       type: !_TypeParam domain
     name: _BaseDomain
     parent: !_OutputBase
@@ -38,11 +38,22 @@ types: !_Map_Type
   !_Identifier _BaseDomainItem: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: description
+      object: _BaseDomainItem
+      type: !_DualBase
+        dual: String
+    - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
       type: !_DualBase
         dual: Boolean
     fields:
+    - !_DualField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: description
+      type: !_DualBase
+        dual: String
     - !_DualField
       name: exclude
       type: !_DualBase
@@ -67,16 +78,22 @@ types: !_Map_Type
     typeParams:
     - !_Described
       name: item
-  !_Identifier _DomainItemMember: !_TypeOutput
+  !_Identifier _DomainItemLabel: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: description
+      object: _BaseDomainItem
+      type: !_DualBase
+        dual: String
     - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
       type: !_DualBase
         dual: Boolean
     - !_ObjectFor(_OutputField)
-      name: value
-      object: _DomainMember
+      name: label
+      object: _DomainLabel
       type: !_OutputBase
         output: _EnumValue
     - !_ObjectFor(_OutputField)
@@ -84,15 +101,21 @@ types: !_Map_Type
       object: _DomainItem
       type: !_OutputBase
         output: _Identifier
-    name: _DomainItemMember
+    name: _DomainItemLabel
     parent: !_OutputBase
       output: _DomainItem
       typeArgs:
       - !_OutputArg
-        output: _DomainMember
+        output: _DomainLabel
     typeKind: !_TypeKind Output
   !_Identifier _DomainItemRange: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: description
+      object: _BaseDomainItem
+      type: !_DualBase
+        dual: String
     - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
@@ -125,6 +148,12 @@ types: !_Map_Type
   !_Identifier _DomainItemRegex: !_TypeOutput
     allFields:
     - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: description
+      object: _BaseDomainItem
+      type: !_DualBase
+        dual: String
+    - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
       type: !_DualBase
@@ -148,6 +177,12 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _DomainItemTrueFalse: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: description
+      object: _BaseDomainItem
+      type: !_DualBase
+        dual: String
     - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
@@ -195,29 +230,41 @@ types: !_Map_Type
       name: String
     name: _DomainKind
     typeKind: !_TypeKind Enum
-  !_Identifier _DomainMember: !_TypeOutput
+  !_Identifier _DomainLabel: !_TypeOutput
     allFields:
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: description
+      object: _BaseDomainItem
+      type: !_DualBase
+        dual: String
     - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
       type: !_DualBase
         dual: Boolean
     - !_ObjectFor(_OutputField)
-      name: value
-      object: _DomainMember
+      name: label
+      object: _DomainLabel
       type: !_OutputBase
         output: _EnumValue
     fields:
     - !_OutputField
-      name: value
+      name: label
       type: !_OutputBase
         output: _EnumValue
-    name: _DomainMember
+    name: _DomainLabel
     parent: !_DualBase
       dual: _BaseDomainItem
     typeKind: !_TypeKind Output
   !_Identifier _DomainRange: !_TypeDual
     allFields:
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: description
+      object: _BaseDomainItem
+      type: !_DualBase
+        dual: String
     - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
@@ -275,6 +322,12 @@ types: !_Map_Type
   !_Identifier _DomainRegex: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: description
+      object: _BaseDomainItem
+      type: !_DualBase
+        dual: String
+    - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
       type: !_DualBase
@@ -295,6 +348,12 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier _DomainTrueFalse: !_TypeDual
     allFields:
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: description
+      object: _BaseDomainItem
+      type: !_DualBase
+        dual: String
     - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
@@ -364,9 +423,9 @@ types: !_Map_Type
           name: _DomainKind
           typeKind: !_SimpleKind Enum
         - !_OutputArg
-          output: _DomainMember
+          output: _DomainLabel
         - !_OutputArg
-          output: _DomainItemMember
+          output: _DomainItemLabel
     - !_ObjectFor(_OutputAlternate)
       object: _TypeDomain
       type: !_OutputBase
@@ -415,9 +474,9 @@ types: !_Map_Type
           name: _DomainKind
           typeKind: !_SimpleKind Enum
         - !_OutputArg
-          output: _DomainMember
+          output: _DomainLabel
         - !_OutputArg
-          output: _DomainItemMember
+          output: _DomainItemLabel
     - !_OutputAlternate
       type: !_OutputBase
         output: _BaseDomain

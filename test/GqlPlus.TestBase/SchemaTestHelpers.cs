@@ -67,16 +67,16 @@ internal static class SchemaTestHelpers
   }
 
   public static DomainTrueFalseAst[] DomainTrueFalses(this bool[] members)
-    => [.. members.WithExcludes(r => new DomainTrueFalseAst(AstNulls.At, false, r))];
+    => [.. members.WithExcludes(r => new DomainTrueFalseAst(AstNulls.At, "", false, r))];
 
   public static DomainMemberAst[] DomainMembers(this string[] members)
-    => [.. members.WithExcludes(r => new DomainMemberAst(AstNulls.At, false, r))];
+    => [.. members.WithExcludes(r => new DomainMemberAst(AstNulls.At, "", false, r))];
 
   public static DomainRangeAst[] DomainRanges(this DomainRangeInput[] ranges)
-    => [.. ranges.WithExcludes(r => new DomainRangeAst(AstNulls.At, false, r.Lower, r.Upper))];
+    => [.. ranges.WithExcludes(r => new DomainRangeAst(AstNulls.At, "", false, r.Lower, r.Upper))];
 
   public static DomainRegexAst[] DomainRegexes(this string[] regexes)
-    => [.. regexes.WithExcludes(r => new DomainRegexAst(AstNulls.At, false, r))];
+    => [.. regexes.WithExcludes(r => new DomainRegexAst(AstNulls.At, "", false, r))];
 
   public static TypeParamAst[] TypeParams(this string[] parameters)
     => [.. parameters.Select(parameter => new TypeParamAst(AstNulls.At, parameter))];

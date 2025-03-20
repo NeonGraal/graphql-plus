@@ -19,7 +19,6 @@ internal class MergeInputParams(
 
   protected override ITokenMessages CanMergeGroup(IGrouping<string, IGqlpInputParam> group)
     => base.CanMergeGroup(group)
-      .Add(group.CanMergeString(item => item.Type.Description))
       .Add(group.CanMerge(item => item.DefaultValue, constant));
 
   protected override IGqlpInputParam MergeGroup(IEnumerable<IGqlpInputParam> group)

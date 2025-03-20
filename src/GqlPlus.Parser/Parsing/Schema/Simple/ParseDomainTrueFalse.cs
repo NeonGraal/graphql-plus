@@ -13,10 +13,11 @@ internal class ParseDomainTrueFalse(
 
   public override IResult<IGqlpDomainTrueFalse> Parse<TContext>(TContext tokens, string label)
   {
-    Token.TokenAt at = tokens.At;
+    string description = tokens.Description();
+    TokenAt at = tokens.At;
     bool excluded = tokens.Take('!');
     bool hasType = tokens.Identifier(out string? type);
-    IGqlpDomainTrueFalse result = new DomainTrueFalseAst(at, excluded, type.Equals("true", StringComparison.Ordinal));
+    IGqlpDomainTrueFalse result = new DomainTrueFalseAst(at, description, excluded, type.Equals("true", StringComparison.Ordinal));
 
     return hasType && (result.IsTrue || type.Equals("false", StringComparison.Ordinal))
       ? result.Ok()
@@ -32,5 +33,5 @@ internal class ParseDomainTrueFalse(
     : [DefaultTrueFalse(tokens, false), DefaultTrueFalse(tokens, true)];
 
   private static DomainTrueFalseAst DefaultTrueFalse(Tokenizer tokens, bool value)
-    => new(tokens.At, false, value);
+    => new(tokens.At, "", false, value);
 }

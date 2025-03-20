@@ -22,7 +22,7 @@ internal abstract class ObjectBaseParser<TObjBase, TObjBaseAst, TObjArg, TObjArg
   private IResult<TObjBaseAst> ParseObjectBase<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    tokens.String(out string? description);
+    string description = tokens.Description();
     if (!tokens.Prefix('$', out string? param, out TokenAt? at)) {
       return tokens.Error<TObjBaseAst>(label, "identifier after '$'");
     }

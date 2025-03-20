@@ -1,2 +1,0 @@
-domain DomPrntTest { :DomTestPrnt Boolean false }
-domain DomTestPrnt { Boolean true }

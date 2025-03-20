@@ -1,0 +1,6 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DescrSingle: !_TypeOutput
+    description: 'A "single-quoted" doc'
+    name: DescrSingle
+    typeKind: !_TypeKind Output

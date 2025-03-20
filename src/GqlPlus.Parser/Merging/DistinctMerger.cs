@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Ast;
+using GqlPlus.Token;
 
 namespace GqlPlus.Merging;
 
@@ -13,7 +14,7 @@ internal abstract class DistinctMerger<TItem>(
   {
     IEnumerable<string> distinct = group.Select(ItemMatchKey).Distinct();
     if (distinct.Count() == 1) {
-      return Messages();
+      return TokenMessages.New;
     }
 
     string typeName = typeof(TItem).TidyTypeName();

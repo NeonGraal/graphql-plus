@@ -1,0 +1,2 @@
+domain DomLabel { enum dom_label }
+enum LabelDom { dom_label }

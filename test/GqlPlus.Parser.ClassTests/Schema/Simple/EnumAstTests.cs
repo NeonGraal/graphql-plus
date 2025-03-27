@@ -7,26 +7,26 @@ public class EnumAstTests
   : AstTypeTests
 {
   [Theory, RepeatData]
-  public void HashCode_WithMembers(string name, string[] enumMembers)
+  public void HashCode_WithMembers(string name, string[] enumLabels)
       => _checks.HashCode(
-        () => new EnumDeclAst(AstNulls.At, name, enumMembers.EnumMembers()));
+        () => new EnumDeclAst(AstNulls.At, name, enumLabels.EnumLabels()));
 
   [Theory, RepeatData]
-  public void String_WithMembers(string name, string[] enumMembers)
+  public void String_WithMembers(string name, string[] enumLabels)
     => _checks.Text(
-      () => new EnumDeclAst(AstNulls.At, name, enumMembers.EnumMembers()),
-      $"( !En {name} {enumMembers.Joined(s => "!EM " + s)} )");
+      () => new EnumDeclAst(AstNulls.At, name, enumLabels.EnumLabels()),
+      $"( !En {name} {enumLabels.Joined(s => "!EL " + s)} )");
 
   [Theory, RepeatData]
-  public void Equality_WithMembers(string name, string[] enumMembers)
+  public void Equality_WithMembers(string name, string[] enumLabels)
     => _checks.Equality(
-      () => new EnumDeclAst(AstNulls.At, name, enumMembers.EnumMembers()));
+      () => new EnumDeclAst(AstNulls.At, name, enumLabels.EnumLabels()));
 
   [Theory, RepeatData]
-  public void Inequality_BetweenEnumMembers(string name, string[] enumMembers1, string[] enumMembers2)
-    => _checks.InequalityBetween(enumMembers1, enumMembers2,
-      enumMember => new EnumDeclAst(AstNulls.At, name, enumMember.EnumMembers()),
-      enumMembers1.SequenceEqual(enumMembers2));
+  public void Inequality_BetweenEnumLabels(string name, string[] enumLabels1, string[] enumLabels2)
+    => _checks.InequalityBetween(enumLabels1, enumLabels2,
+      enumLabel => new EnumDeclAst(AstNulls.At, name, enumLabel.EnumLabels()),
+      enumLabels1.SequenceEqual(enumLabels2));
 
   private readonly AstTypeChecks<EnumDeclAst> _checks
     = new(name => new EnumDeclAst(AstNulls.At, name, []));

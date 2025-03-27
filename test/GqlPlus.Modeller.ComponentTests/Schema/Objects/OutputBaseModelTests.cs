@@ -9,10 +9,10 @@ public class OutputBaseModelTests(
 ) : TestObjBaseModel<IGqlpOutputBase, IGqlpOutputArg, OutputBaseModel>(checks)
 {
   [Theory, RepeatData(Repeats)]
-  public void Model_EnumArgs(string name, string[] arguments, string enumMember)
+  public void Model_EnumArgs(string name, string[] arguments, string enumLabel)
     => checks.ObjBase_Expected(
-      checks.ObjBaseAst(name, false, [.. arguments.Select(a => checks.EnumObjArg(a, enumMember))]),
-      checks.ExpectedObjBase(name, false, checks.ExpectedEnumArgs(arguments, enumMember))
+      checks.ObjBaseAst(name, false, [.. arguments.Select(a => checks.EnumObjArg(a, enumLabel))]),
+      checks.ExpectedObjBase(name, false, checks.ExpectedEnumArgs(arguments, enumLabel))
       );
 }
 
@@ -22,9 +22,9 @@ internal sealed class OutputBaseModelChecks(
 ) : CheckObjBaseModel<IGqlpOutputBase, IGqlpOutputArg, OutputBaseAst, OutputArgAst, OutputBaseModel>(modeller, rendering, TypeKindModel.Output)
   , IOutputBaseModelChecks
 {
-  public string[] ExpectedEnumArgs(string[] arguments, string enumMember)
+  public string[] ExpectedEnumArgs(string[] arguments, string enumLabel)
     => [.. ItemsExpected("typeArgs:", arguments,
-      a => ["- !_OutputArg", "  member: " + enumMember, "  name: " + a, "  typeKind: !_SimpleKind Enum"])];
+      a => ["- !_OutputArg", "  label: " + enumLabel, "  name: " + a, "  typeKind: !_SimpleKind Enum"])];
 
   protected override OutputBaseAst NewObjBaseAst(string input, bool isTypeParam, IGqlpOutputArg[] args)
     => new(AstNulls.At, input) {
@@ -32,8 +32,8 @@ internal sealed class OutputBaseModelChecks(
       BaseArgs = args,
     };
 
-  public IGqlpOutputArg EnumObjArg(string input, string enumMember)
-    => NewObjArgAst(input, false) with { EnumMember = enumMember };
+  public IGqlpOutputArg EnumObjArg(string input, string enumLabel)
+    => NewObjArgAst(input, false) with { EnumLabel = enumLabel };
 
   protected override OutputArgAst NewObjArgAst(string input, bool isTypeParam)
     => new(AstNulls.At, input) {
@@ -44,6 +44,6 @@ internal sealed class OutputBaseModelChecks(
 public interface IOutputBaseModelChecks
   : ICheckObjBaseModel<IGqlpOutputBase, IGqlpOutputArg, OutputBaseModel>
 {
-  string[] ExpectedEnumArgs(string[] arguments, string enumMember);
-  IGqlpOutputArg EnumObjArg(string input, string enumMember);
+  string[] ExpectedEnumArgs(string[] arguments, string enumLabel);
+  IGqlpOutputArg EnumObjArg(string input, string enumLabel);
 }

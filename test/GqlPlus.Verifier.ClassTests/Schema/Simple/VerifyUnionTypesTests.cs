@@ -10,7 +10,7 @@ public class VerifyUnionTypesTests
   [Fact]
   public void Verify_CallsVerifierWithoutErrors()
   {
-    ForM<IGqlpUnionItem> mergeMembers = new();
+    ForM<IGqlpUnionMember> mergeMembers = new();
     VerifyUnionTypes verifier = new(Aliased.Intf, mergeMembers.Intf);
 
     verifier.Verify(UsageAliased, Errors);

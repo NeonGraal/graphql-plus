@@ -35,7 +35,7 @@ public record class DirectiveModel(
   string Name
 ) : AliasedModel(Name)
 {
-  public InputParamModel[] Params { get; set; } = [];
+  public InputParamModel[] Parameters { get; set; } = [];
   public bool Repeatable { get; set; }
   public DirectiveLocation Locations { get; set; } = DirectiveLocation.None;
 }

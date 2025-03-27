@@ -4,16 +4,16 @@ using GqlPlus.Parsing;
 
 namespace GqlPlus.Schema.Simple;
 
-public sealed class ParseEnumMemberTests(
-  IBaseAliasedChecks<string, IGqlpEnumItem> checks
-) : BaseAliasedTests<string, IGqlpEnumItem>(checks)
+public sealed class ParseEnumLabelTests(
+  IBaseAliasedChecks<string, IGqlpEnumLabel> checks
+) : BaseAliasedTests<string, IGqlpEnumLabel>(checks)
 { }
 
-internal sealed class ParseEnumMemberChecks(
-  Parser<IGqlpEnumItem>.D parser
-) : BaseAliasedChecks<string, EnumMemberAst, IGqlpEnumItem>(parser)
+internal sealed class ParseEnumLabelChecks(
+  Parser<IGqlpEnumLabel>.D parser
+) : BaseAliasedChecks<string, EnumLabelAst, IGqlpEnumLabel>(parser)
 {
-  protected internal override EnumMemberAst NamedFactory(string input)
+  protected internal override EnumLabelAst NamedFactory(string input)
     => new(AstNulls.At, input);
   protected internal override string AliasesString(string input, string aliases)
     => input + aliases;

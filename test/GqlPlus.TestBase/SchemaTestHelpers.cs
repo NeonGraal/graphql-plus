@@ -5,8 +5,8 @@ namespace GqlPlus;
 
 internal static class SchemaTestHelpers
 {
-  public static EnumMemberAst[] EnumMembers(this IEnumerable<string> enumMembers)
-    => [.. enumMembers.Select(l => new EnumMemberAst(AstNulls.At, l))];
+  public static EnumLabelAst[] EnumLabels(this IEnumerable<string> enumLabels)
+    => [.. enumLabels.Select(l => new EnumLabelAst(AstNulls.At, l))];
 
   public static DualFieldAst[] DualFields(this IEnumerable<FieldInput> fields)
     => [.. fields.Select(f => new DualFieldAst(AstNulls.At, f.Name, DualBase(f.Type, f.TypeParam)))];
@@ -69,8 +69,8 @@ internal static class SchemaTestHelpers
   public static DomainTrueFalseAst[] DomainTrueFalses(this bool[] members)
     => [.. members.WithExcludes(r => new DomainTrueFalseAst(AstNulls.At, "", false, r))];
 
-  public static DomainMemberAst[] DomainMembers(this string[] members)
-    => [.. members.WithExcludes(r => new DomainMemberAst(AstNulls.At, "", false, r))];
+  public static DomainLabelAst[] DomainLabels(this string[] members)
+    => [.. members.WithExcludes(r => new DomainLabelAst(AstNulls.At, "", false, r))];
 
   public static DomainRangeAst[] DomainRanges(this DomainRangeInput[] ranges)
     => [.. ranges.WithExcludes(r => new DomainRangeAst(AstNulls.At, "", false, r.Lower, r.Upper))];

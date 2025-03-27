@@ -9,10 +9,10 @@ public class OutputFieldModelTests(
 ) : TestObjectFieldModel<IGqlpOutputField, IGqlpOutputBase, OutputFieldModel>(checks)
 {
   [Theory, RepeatData(Repeats)]
-  public void Model_EnumValue(FieldInput input, string enumMember)
+  public void Model_EnumValue(FieldInput input, string enumLabel)
     => checks.Field_Expected(
-      new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type) { EnumMember = enumMember }),
-      checks.ExpectedEnum(input, enumMember)
+      new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type) { EnumLabel = enumLabel }),
+      checks.ExpectedEnum(input, enumLabel)
       );
 
   [Theory, RepeatData(Repeats)]
@@ -44,13 +44,13 @@ internal sealed class OutputFieldModelChecks(
         parameters,
         p => ["- !_InputParam", "  input: " + p])];
 
-  public string[] ExpectedEnum(FieldInput input, string enumMember)
-    => [$"!_OutputEnum", "field: " + input.Name, "member: " + enumMember, "name: " + input.Type, $"typeKind: !_SimpleKind Enum"];
+  public string[] ExpectedEnum(FieldInput input, string enumLabel)
+    => [$"!_OutputEnum", "field: " + input.Name, "label: " + enumLabel, "name: " + input.Type, $"typeKind: !_SimpleKind Enum"];
 }
 
 public interface IOutputFieldModelChecks
   : ICheckObjectFieldModel<IGqlpOutputField, OutputFieldModel>
 {
   string[] ExpectedParams(string[] parameters);
-  string[] ExpectedEnum(FieldInput input, string enumMember);
+  string[] ExpectedEnum(FieldInput input, string enumLabel);
 }

@@ -15,7 +15,7 @@ public class DomainAstStringTests
 internal sealed class DomainAstStringChecks()
  : AstDomainChecks<string, DomainRegexAst, IGqlpDomainRegex>(DomainKind.String)
 {
-  protected override DomainRegexAst[] DomainMembers(string input)
+  protected override DomainRegexAst[] DomainLabels(string input)
     => [new(AstNulls.At, "", false, input)];
 
   protected override string MembersString(string name, string input)

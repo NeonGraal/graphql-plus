@@ -30,25 +30,25 @@ public class OutputFieldAstTests
       parameters1.SequenceEqual(parameters2));
 
   [Theory, RepeatData]
-  public void HashCode_WithEnumValue(FieldInput input, string enumMember)
+  public void HashCode_WithEnumValue(FieldInput input, string enumLabel)
       => _checks.HashCode(
-        () => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type) { EnumMember = enumMember }));
+        () => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type) { EnumLabel = enumLabel }));
 
   [Theory, RepeatData]
-  public void String_WithEnumValue(FieldInput input, string enumMember)
+  public void String_WithEnumValue(FieldInput input, string enumLabel)
     => _checks.Text(
-      () => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type) { EnumMember = enumMember }),
-      $"( !OF {input.Name} = {input.Type}.{enumMember} )");
+      () => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type) { EnumLabel = enumLabel }),
+      $"( !OF {input.Name} = {input.Type}.{enumLabel} )");
 
   [Theory, RepeatData]
-  public void Equality_WithEnumValue(FieldInput input, string enumMember)
+  public void Equality_WithEnumValue(FieldInput input, string enumLabel)
     => _checks.Equality(
-      () => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type) { EnumMember = enumMember }));
+      () => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type) { EnumLabel = enumLabel }));
 
   [Theory, RepeatData]
   public void Inequality_BetweenEnumValues(FieldInput input, string enumValue1, string enumValue2)
     => _checks.InequalityBetween(enumValue1, enumValue2,
-      enumMember => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type) { EnumMember = enumMember }),
+      enumLabel => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type) { EnumLabel = enumLabel }),
       enumValue1 == enumValue2);
 
   protected override string AliasesString(FieldInput input, string aliases)

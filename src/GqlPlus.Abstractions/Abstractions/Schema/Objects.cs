@@ -148,7 +148,7 @@ public interface IGqlpOutputEnum
   : IGqlpError
 {
   string EnumType { get; }
-  string? EnumMember { get; }
+  string? EnumLabel { get; }
 
   void SetEnumType(string enumType);
 }

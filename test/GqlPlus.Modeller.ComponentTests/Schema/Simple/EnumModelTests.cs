@@ -10,7 +10,7 @@ public class EnumModelTests(
   [Theory, RepeatData(Repeats)]
   public void Model_Members(string name, string[] members)
     => checks.EnumExpected(
-      new EnumDeclAst(AstNulls.At, name, members.EnumMembers()),
+      new EnumDeclAst(AstNulls.At, name, members.EnumLabels()),
       new(name,
         members: checks.ExpectedMembers("items:", members),
         allMembers: checks.ExpectedAllMembers("allItems:", members, name)));
@@ -46,7 +46,7 @@ public class EnumModelTests(
   ) => checks
     .AddParent(checks.NewParent(parent, parentMembers))
     .EnumExpected(
-      new EnumDeclAst(AstNulls.At, name, members.EnumMembers()) {
+      new EnumDeclAst(AstNulls.At, name, members.EnumLabels()) {
         Aliases = aliases,
         Description = contents,
         Parent = parent,
@@ -65,7 +65,7 @@ internal sealed class EnumModelChecks(
     => AstExpected(ast, ExpectedEnum(input));
 
   protected override ToExpected<string> ExpectedAllMember(string type)
-    => member => ["- !_EnumMember", "  enum: " + type, "  name: " + member];
+    => member => ["- !_EnumLabel", "  enum: " + type, "  name: " + member];
 
   protected override string[] ExpectedParent(string? parent)
     => parent.TypeRefFor(TypeKind);

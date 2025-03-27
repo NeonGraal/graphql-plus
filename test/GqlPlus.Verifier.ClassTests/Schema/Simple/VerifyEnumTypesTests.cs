@@ -10,7 +10,7 @@ public class VerifyEnumTypesTests
   [Fact]
   public void Verify_CallsVerifierWithoutErrors()
   {
-    ForM<IGqlpEnumItem> mergeMembers = new();
+    ForM<IGqlpEnumLabel> mergeMembers = new();
     VerifyEnumTypes verifier = new(Aliased.Intf, mergeMembers.Intf);
 
     verifier.Verify(UsageAliased, Errors);

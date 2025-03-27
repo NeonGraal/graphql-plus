@@ -5,19 +5,19 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 
-internal class ParseDomainMember(
-  Parser<IGqlpDomainMember>.DA items
-) : ParseDomainItem<IGqlpDomainMember>(items)
+internal class ParseDomainLabel(
+  Parser<IGqlpDomainLabel>.DA items
+) : ParseDomainItem<IGqlpDomainLabel>(items)
 {
   public override DomainKind Kind => DomainKind.Enum;
 
-  public override IResult<IGqlpDomainMember> Parse<TContext>(TContext tokens, string label)
+  public override IResult<IGqlpDomainLabel> Parse<TContext>(TContext tokens, string label)
   {
     string description = tokens.Description();
     TokenAt at = tokens.At;
     bool excluded = tokens.Take('!');
-    bool hasType = tokens.Identifier(out string? type);
-    IGqlpDomainMember result = new DomainMemberAst(at, description, excluded, type);
+    bool hasType = tokens.Identifier(out string? enumType);
+    IGqlpDomainLabel result = new DomainLabelAst(at, description, excluded, enumType);
     if (!hasType) {
       return excluded
         ? tokens.Partial(label, "identifier after '!'", () => result)
@@ -25,10 +25,10 @@ internal class ParseDomainMember(
     }
 
     if (tokens.Take('.')) {
-      if (tokens.Identifier(out string? member)) {
-        result = new DomainMemberAst(at, description, excluded, member) { EnumType = type };
+      if (tokens.Identifier(out string? enumItem)) {
+        result = new DomainLabelAst(at, description, excluded, enumItem) { EnumType = enumType };
       } else if (tokens.Take("*")) {
-        result = new DomainMemberAst(at, description, excluded, "*") { EnumType = type };
+        result = new DomainLabelAst(at, description, excluded, "*") { EnumType = enumType };
       } else {
         return tokens.Partial(label, "identifier or '*' after '.'", () => result);
       }
@@ -37,12 +37,12 @@ internal class ParseDomainMember(
     return result.Ok();
   }
 
-  protected override void ApplyItems(Tokenizer tokens, string label, DomainDefinition result, IGqlpDomainMember[] items)
+  protected override void ApplyItems(Tokenizer tokens, string label, DomainDefinition result, IGqlpDomainLabel[] items)
   {
     if (items.Length == 0) {
-      tokens.Error(label, "enum Members");
+      tokens.Error(label, "enum Labels");
     }
 
-    result.Members = items.ArrayOf<DomainMemberAst>();
+    result.Labels = items.ArrayOf<DomainLabelAst>();
   }
 }

@@ -6,14 +6,14 @@ using GqlPlus.Merging.Simple;
 
 namespace GqlPlus.Schema.Simple;
 
-public class MergeEnumMembersTests(
+public class MergeEnumLabelsTests(
   ITestOutputHelper outputHelper
-) : TestAliased<IGqlpEnumItem>
+) : TestAliased<IGqlpEnumLabel>
 {
-  private readonly MergeEnumMembers _merger = new(outputHelper.ToLoggerFactory());
+  private readonly MergeEnumLabels _merger = new(outputHelper.ToLoggerFactory());
 
-  internal override GroupsMerger<IGqlpEnumItem> MergerGroups => _merger;
+  internal override GroupsMerger<IGqlpEnumLabel> MergerGroups => _merger;
 
-  protected override IGqlpEnumItem MakeAliased(string name, string[]? aliases = null, string description = "")
-    => new EnumMemberAst(AstNulls.At, name, description) { Aliases = aliases ?? [] };
+  protected override IGqlpEnumLabel MakeAliased(string name, string[]? aliases = null, string description = "")
+    => new EnumLabelAst(AstNulls.At, name, description) { Aliases = aliases ?? [] };
 }

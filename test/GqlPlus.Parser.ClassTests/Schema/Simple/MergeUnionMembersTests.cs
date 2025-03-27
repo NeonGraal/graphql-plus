@@ -7,12 +7,12 @@ using GqlPlus.Merging.Simple;
 namespace GqlPlus.Schema.Simple;
 
 public class MergeUnionMembersTests
-  : TestGroupsMerger<IGqlpUnionItem, string>
+  : TestGroupsMerger<IGqlpUnionMember, string>
 {
   private readonly MergeUnionMembers _merger = new();
 
-  internal override GroupsMerger<IGqlpUnionItem> MergerGroups => _merger;
+  internal override GroupsMerger<IGqlpUnionMember> MergerGroups => _merger;
 
-  protected override IGqlpUnionItem MakeAst(string input)
+  protected override IGqlpUnionMember MakeAst(string input)
     => new UnionMemberAst(AstNulls.At, input, "");
 }

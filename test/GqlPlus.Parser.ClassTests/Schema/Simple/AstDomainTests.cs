@@ -47,26 +47,26 @@ internal abstract class AstDomainChecks<TInput, TMember, TItem>(
   public DomainKind Kind { get; } = kind;
 
   public void Equality_WithMembers(string name, TInput input)
-    => Equality(() => NewDomain(name, DomainMembers(input)));
+    => Equality(() => NewDomain(name, DomainLabels(input)));
 
   public void HashCode_WithMembers(string name, TInput input)
-    => HashCode(() => NewDomain(name, DomainMembers(input)));
+    => HashCode(() => NewDomain(name, DomainLabels(input)));
 
   public void Inequality_BetweenMembers(string name, TInput input1, TInput input2)
     => InequalityBetween(input1, input2,
-      input => NewDomain(name, DomainMembers(input)),
+      input => NewDomain(name, DomainLabels(input)),
       SkipEquals(input1, input2));
 
   public void String_WithMembers(string name, TInput input)
     => Text(
-      () => NewDomain(name, DomainMembers(input)),
+      () => NewDomain(name, DomainLabels(input)),
       MembersString(name, input));
 
   protected virtual bool SkipEquals(TInput input1, TInput input2)
     => input1.NullEqual(input2);
 
   protected abstract string MembersString(string name, TInput input);
-  protected abstract TMember[] DomainMembers(TInput input);
+  protected abstract TMember[] DomainLabels(TInput input);
   protected abstract AstDomain<TMember, TItem> NewDomain(string name, TMember[] list);
 }
 

@@ -15,6 +15,6 @@ internal class UnionModeller
       Items = [.. ast.Items.Select(ToMember)],
     };
 
-  internal static AliasedModel ToMember(IGqlpUnionItem ast)
+  internal static AliasedModel ToMember(IGqlpUnionMember ast)
     => new(ast.Name);
 }

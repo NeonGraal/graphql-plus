@@ -13,15 +13,15 @@ internal sealed record class OutputBaseAst(
   public OutputBaseAst(TokenAt at, string name)
     : this(at, name, "") { }
 
-  public string? EnumMember { get; set; }
+  public string? EnumLabel { get; set; }
 
   internal override string Abbr => "OR";
   public override string Label => "Output";
 
   internal override IEnumerable<string?> GetFields()
-    => string.IsNullOrWhiteSpace(EnumMember)
+    => string.IsNullOrWhiteSpace(EnumLabel)
     ? base.GetFields()
-    : [At.ToString(), $"{Name}.{EnumMember}"];
+    : [At.ToString(), $"{Name}.{EnumLabel}"];
 
   public DualBaseAst ToDual()
     => new(At, Name, Description) {
@@ -36,7 +36,7 @@ internal sealed record class OutputBaseAst(
   string IGqlpOutputEnum.EnumType => TypeName;
   void IGqlpOutputEnum.SetEnumType(string enumType)
   {
-    EnumMember ??= Name;
+    EnumLabel ??= Name;
     Name = enumType;
   }
 }

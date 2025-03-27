@@ -5,13 +5,13 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 
-internal class ParseEnumMember(
+internal class ParseEnumLabel(
   Parser<string>.DA aliases
-) : Parser<IGqlpEnumItem>.I
+) : Parser<IGqlpEnumLabel>.I
 {
   private readonly Parser<string>.LA _aliases = aliases;
 
-  public IResult<IGqlpEnumItem> Parse<TContext>(TContext tokens, string label)
+  public IResult<IGqlpEnumLabel> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
     tokens.TakeDescription();
@@ -19,14 +19,14 @@ internal class ParseEnumMember(
 
     string description = tokens.GetDescription();
     if (!tokens.Identifier(out string? value)) {
-      return tokens.Error<IGqlpEnumItem>(label, "member");
+      return tokens.Error<IGqlpEnumLabel>(label, "label");
     }
 
-    IResultArray<string> enumAliases = _aliases.Parse(tokens, "Enum Member");
-    EnumMemberAst enumMember = enumAliases.IsOk()
-      ? new EnumMemberAst(at, value, description) { Aliases = [.. enumAliases.Required()] }
-      : new EnumMemberAst(at, value, description);
+    IResultArray<string> enumAliases = _aliases.Parse(tokens, "Enum Label");
+    EnumLabelAst enumLabel = enumAliases.IsOk()
+      ? new EnumLabelAst(at, value, description) { Aliases = [.. enumAliases.Required()] }
+      : new EnumLabelAst(at, value, description);
 
-    return enumAliases.AsPartial<IGqlpEnumItem>(enumMember);
+    return enumAliases.AsPartial<IGqlpEnumLabel>(enumLabel);
   }
 }

@@ -3,16 +3,16 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Simple;
 
-internal sealed record class EnumMemberAst(
+internal sealed record class EnumLabelAst(
   TokenAt At,
   string Name,
   string Description
 ) : AstAliased(At, Name, Description)
-  , IEquatable<EnumMemberAst>
-  , IGqlpEnumItem
+  , IEquatable<EnumLabelAst>
+  , IGqlpEnumLabel
 {
-  public EnumMemberAst(TokenAt at, string name)
+  public EnumLabelAst(TokenAt at, string name)
     : this(at, name, "") { }
 
-  internal override string Abbr => "EM";
+  internal override string Abbr => "EL";
 }

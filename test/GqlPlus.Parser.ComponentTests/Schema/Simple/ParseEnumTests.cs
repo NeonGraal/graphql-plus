@@ -9,29 +9,29 @@ public sealed class ParseEnumTests(
 ) : BaseSimpleTests<EnumInput, IGqlpEnum>(checks)
 {
   [Theory, RepeatData(Repeats)]
-  public void WithEnumMembers_ReturnsCorrectAst(string name, string[] members)
+  public void WithEnumLabels_ReturnsCorrectAst(string name, string[] members)
     => checks.TrueExpected(
       name + members.Bracket("{", "}").Joined(),
       new EnumDeclAst(AstNulls.At, name, []) {
-        Members = members.EnumMembers(),
+        Items = members.EnumLabels(),
       });
 
   [Theory, RepeatData(Repeats)]
-  public void WithEnumMembersBad_ReturnsFalse(string name, string[] members)
+  public void WithEnumLabelsBad_ReturnsFalse(string name, string[] members)
     => checks
     .SkipNull(members)
     .SkipIf(members.Length < 2)
     .FalseExpected(name + "{" + string.Join("|", members) + "}");
 
   [Theory, RepeatData(Repeats)]
-  public void WithEnumMembersNone_ReturnsFalse(string name)
+  public void WithEnumLabelsNone_ReturnsFalse(string name)
     => checks.FalseExpected(name + "{}");
 
   [Theory, RepeatData(Repeats)]
   public void WithAll_ReturnsCorrectAst(string name, string parent, string[] members)
     => checks.TrueExpected(
       name + members.Prepend(parent.Prefixed(":")).Bracket("{", "}").Joined(),
-      new EnumDeclAst(AstNulls.At, name, members.EnumMembers()) { Parent = parent });
+      new EnumDeclAst(AstNulls.At, name, members.EnumLabels()) { Parent = parent });
 }
 
 internal sealed class ParseEnumChecks(
@@ -39,7 +39,7 @@ internal sealed class ParseEnumChecks(
 ) : BaseSimpleChecks<EnumInput, EnumDeclAst, IGqlpEnum>(parser)
 {
   protected internal override EnumDeclAst NamedFactory(EnumInput input)
-    => new(AstNulls.At, input.Type, new[] { input.Member }.EnumMembers());
+    => new(AstNulls.At, input.Type, new[] { input.Member }.EnumLabels());
 
   protected override string ParentString(EnumInput input, string aliases, string? parent)
     => input.Type + aliases + "{" +

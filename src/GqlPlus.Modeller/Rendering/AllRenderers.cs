@@ -29,13 +29,13 @@ public static class AllRenderers
       .AddTypeRenderer<SpecialTypeModel, SpecialTypeRenderer>()
       // Simple
       // Domain
-      .AddDomainRenderer<DomainMemberModel, DomainMemberRenderer>()
+      .AddDomainRenderer<DomainLabelModel, DomainLabelRenderer>()
       .AddDomainRenderer<DomainRangeModel, DomainRangeRenderer>()
       .AddDomainRenderer<DomainRegexModel, DomainRegexRenderer>()
       .AddDomainRenderer<DomainTrueFalseModel, DomainTrueFalseRenderer>()
       // Enum
       .AddTypeRenderer<TypeEnumModel, TypeEnumRenderer>()
-      .AddItemRenderer<EnumMemberModel, EnumMemberRenderer>()
+      .AddItemRenderer<EnumLabelModel, EnumLabelRenderer>()
       .AddRenderer<EnumValueModel, EnumValueRenderer>()
       // Union
       .AddTypeRenderer<TypeUnionModel, TypeUnionRenderer>()

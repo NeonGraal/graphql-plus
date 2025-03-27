@@ -22,12 +22,12 @@ output _ObjType<$base> {
     | _ObjConstraint<$base>
     }
 
-output _ObjBase {
-        typeArgs: _ObjDescribed<_ObjArg>[]
+output _ObjBase<$arg> {
+        typeArgs: _ObjDescribed<$arg>[]
     | _TypeParam
     }
 
-output _ObjArg {
+output _ObjTypeArg {
     : _TypeRef<_TypeKind>
     | _TypeParam
 }

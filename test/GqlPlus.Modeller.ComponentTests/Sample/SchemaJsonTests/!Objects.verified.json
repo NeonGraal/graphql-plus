@@ -374,7 +374,7 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "DualEnumFieldModEnum",
           "name": "value"
         }
@@ -2696,7 +2696,7 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "InEnumField",
           "name": "value"
         }
@@ -3212,7 +3212,7 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "InpEnumFieldModEnum",
           "name": "value"
         }
@@ -5580,7 +5580,7 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "OutEnumField",
           "name": "outEnumField"
         }
@@ -5598,7 +5598,7 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "OutEnumGen",
           "name": "outEnumGen"
         }
@@ -5616,7 +5616,7 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "OutEnumParent",
           "name": "outEnumParent"
         }
@@ -5634,17 +5634,17 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "OutEnumParent",
           "name": "outEnumParent"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "OutEnumParented",
           "name": "outParent"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "OutEnumParented",
           "name": "ed"
         }
@@ -5671,7 +5671,7 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "OutEnumValue",
           "name": "outEnumValue"
         }
@@ -5689,7 +5689,7 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "OutEnumValueDescr",
           "name": "outEnumValueDescr"
         }
@@ -5709,7 +5709,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "field": "field",
-          "member": "outEnumField",
+          "label": "outEnumField",
           "name": "OutEnumField",
           "object": "OutFieldEnum",
           "typeKind": "Enum"
@@ -5719,7 +5719,7 @@
         {
           "$tag": "_OutputEnum",
           "field": "field",
-          "member": "outEnumField",
+          "label": "outEnumField",
           "name": "OutEnumField",
           "typeKind": "Enum"
         }
@@ -5733,7 +5733,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "field": "field",
-          "member": "outEnumParent",
+          "label": "outEnumParent",
           "name": "OutEnumParented",
           "object": "OutFieldParent",
           "typeKind": "Enum"
@@ -5743,7 +5743,7 @@
         {
           "$tag": "_OutputEnum",
           "field": "field",
-          "member": "outEnumParent",
+          "label": "outEnumParent",
           "name": "OutEnumParented",
           "typeKind": "Enum"
         }
@@ -5757,7 +5757,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "field": "field",
-          "member": "outEnumValue",
+          "label": "outEnumValue",
           "name": "OutEnumValue",
           "object": "OutFieldValue",
           "typeKind": "Enum"
@@ -5767,7 +5767,7 @@
         {
           "$tag": "_OutputEnum",
           "field": "field",
-          "member": "outEnumValue",
+          "label": "outEnumValue",
           "name": "OutEnumValue",
           "typeKind": "Enum"
         }
@@ -5781,7 +5781,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "field": "field",
-          "member": "outEnumValueDescr",
+          "label": "outEnumValueDescr",
           "name": "OutEnumValueDescr",
           "object": "OutFieldValueDescr",
           "typeKind": "Enum"
@@ -5791,7 +5791,7 @@
         {
           "$tag": "_OutputEnum",
           "field": "field",
-          "member": "outEnumValueDescr",
+          "label": "outEnumValueDescr",
           "name": "OutEnumValueDescr",
           "typeKind": "Enum"
         }
@@ -5811,7 +5811,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "outEnumGen",
+                "label": "outEnumGen",
                 "name": "OutEnumGen",
                 "typeKind": "Enum"
               }
@@ -5828,7 +5828,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "outEnumGen",
+                "label": "outEnumGen",
                 "name": "OutEnumGen",
                 "typeKind": "Enum"
               }
@@ -5877,7 +5877,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "outGenParent",
+                "label": "outGenParent",
                 "name": "OutParentGen",
                 "typeKind": "Enum"
               }
@@ -5894,7 +5894,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "outGenParent",
+                "label": "outGenParent",
                 "name": "OutParentGen",
                 "typeKind": "Enum"
               }
@@ -6704,12 +6704,12 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "OutPrntendedGen",
           "name": "outGenParent"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "OutParentGen",
           "name": "outGenPrntended"
         }
@@ -6777,7 +6777,7 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "OutpEnumFieldModEnum",
           "name": "value"
         }
@@ -9099,7 +9099,7 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "OutPrntendedGen",
           "name": "outGenParent"
         }
@@ -9219,7 +9219,7 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "OutValueGen",
           "name": "outValueGen"
         }

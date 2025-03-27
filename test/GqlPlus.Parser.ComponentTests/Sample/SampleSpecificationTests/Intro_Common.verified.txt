@@ -97,7 +97,7 @@ Success
     I@019/0023
     $kind
     I@024/0023
-    _Identifier
+    _Described
   >
   {
     !OF I@009/0024
@@ -117,26 +117,26 @@ Success
 {
   !En I@006/0028
   _SimpleKind
-  !EM I@020/0028
+  !EL I@020/0028
   Basic
-  !EM I@026/0028
+  !EL I@026/0028
   Enum
-  !EM I@031/0028
+  !EL I@031/0028
   Internal
-  !EM I@040/0028
+  !EL I@040/0028
   Domain
-  !EM I@047/0028
+  !EL I@047/0028
   Union
 }
 {
   !En I@006/0030
   _TypeKind
   :_SimpleKind
-  !EM I@031/0030
+  !EL I@031/0030
   Dual
-  !EM I@036/0030
+  !EL I@036/0030
   Input
-  !EM I@042/0030
+  !EL I@042/0030
   Output
 }
 {

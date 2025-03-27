@@ -2,19 +2,19 @@
 types: !_Map_Type
   !_Identifier EnumSame: !_DomainEnum
     allItems:
-    - !_DomainItem(_DomainMember)
+    - !_DomainItem(_DomainLabel)
       domain: EnumSame
       exclude: false
       value: !_EnumValue
-        member: true
+        label: true
         name: Boolean
         typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
-    - !_DomainMember
+    - !_DomainLabel
       exclude: false
       value: !_EnumValue
-        member: true
+        label: true
         name: Boolean
         typeKind: !_SimpleKind Enum
     name: EnumSame

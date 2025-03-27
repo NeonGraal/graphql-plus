@@ -138,12 +138,12 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "One",
           "name": "Two"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "One",
           "name": "Three"
         }

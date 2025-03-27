@@ -182,32 +182,32 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_Location",
           "name": "Operation"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_Location",
           "name": "Variable"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_Location",
           "name": "Field"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_Location",
           "name": "Inline"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_Location",
           "name": "Spread"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_Location",
           "name": "Fragment"
         }

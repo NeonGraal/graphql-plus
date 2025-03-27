@@ -4,9 +4,9 @@ Success
 {
   !En I@006/0001
   EnDiff
-  !EM I@015/0001
+  !EL I@015/0001
   one
-  !EM I@015/0002
+  !EL I@015/0002
   two
 }
 ]

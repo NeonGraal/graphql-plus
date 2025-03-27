@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier OutEnumValueDescr: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: OutEnumValueDescr
       name: outEnumValueDescr
     items:
@@ -14,14 +14,14 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
-      member: outEnumValueDescr
+      label: outEnumValueDescr
       name: OutEnumValueDescr
       object: OutFieldValueDescr
       typeKind: !_SimpleKind Enum
     fields:
     - !_OutputEnum
       field: field
-      member: outEnumValueDescr
+      label: outEnumValueDescr
       name: OutEnumValueDescr
       typeKind: !_SimpleKind Enum
     name: OutFieldValueDescr

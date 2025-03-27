@@ -5,7 +5,7 @@ _errors:
   _message: In _TypeObject can't get model for type '_ChildType'
 - !_Error
   _kind: !_TokenKind End
-  _message: In _ObjArg can't get model for type '_TypeRef'
+  _message: In _ObjTypeArg can't get model for type '_TypeRef'
 - !_Error
   _kind: !_TokenKind End
   _message: In _TypeParam can't get model for type '_Identifier'
@@ -79,23 +79,6 @@ types: !_Map_Type
     typeParams:
     - !_Described
       name: base
-  !_Identifier _ObjArg: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: _ObjArg
-      type: !_OutputBase
-        output: _TypeParam
-    alternates:
-    - !_OutputAlternate
-      type: !_OutputBase
-        output: _TypeParam
-    name: _ObjArg
-    parent: !_OutputBase
-      output: _TypeRef
-      typeArgs:
-      - !_OutputArg
-        output: _TypeKind
-    typeKind: !_TypeKind Output
   !_Identifier _ObjBase: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
@@ -110,8 +93,7 @@ types: !_Map_Type
       type: !_DualBase
         dual: _ObjDescribed
         typeArgs:
-        - !_DualArg
-          dual: _ObjArg
+        - !_TypeParam arg
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
@@ -123,10 +105,12 @@ types: !_Map_Type
       type: !_DualBase
         dual: _ObjDescribed
         typeArgs:
-        - !_DualArg
-          dual: _ObjArg
+        - !_TypeParam arg
     name: _ObjBase
     typeKind: !_TypeKind Output
+    typeParams:
+    - !_Described
+      name: arg
   !_Identifier _ObjConstraint: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
@@ -188,7 +172,7 @@ types: !_Map_Type
         output: _BaseType
         typeArgs:
         - !_OutputArg
-          member: Internal
+          label: Internal
           name: _TypeKind
           typeKind: !_SimpleKind Enum
     - !_ObjectFor(_OutputAlternate)
@@ -203,7 +187,7 @@ types: !_Map_Type
         output: _BaseType
         typeArgs:
         - !_OutputArg
-          member: Internal
+          label: Internal
           name: _TypeKind
           typeKind: !_SimpleKind Enum
     - !_OutputAlternate
@@ -216,6 +200,23 @@ types: !_Map_Type
     typeParams:
     - !_Described
       name: base
+  !_Identifier _ObjTypeArg: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: _ObjTypeArg
+      type: !_OutputBase
+        output: _TypeParam
+    alternates:
+    - !_OutputAlternate
+      type: !_OutputBase
+        output: _TypeParam
+    name: _ObjTypeArg
+    parent: !_OutputBase
+      output: _TypeRef
+      typeArgs:
+      - !_OutputArg
+        output: _TypeKind
+    typeKind: !_TypeKind Output
   !_Identifier _ObjTypeParam: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)

@@ -242,11 +242,11 @@ Success
 {
   !En I@006/0059
   _Resolution
-  !EM I@020/0059
+  !EL I@020/0059
   Parallel
-  !EM I@029/0059
+  !EL I@029/0059
   Sequential
-  !EM I@040/0059
+  !EL I@040/0059
   Single
 }
 {
@@ -301,17 +301,17 @@ Success
 {
   !En I@006/0074
   _Location
-  !EM I@018/0074
+  !EL I@018/0074
   Operation
-  !EM I@028/0074
+  !EL I@028/0074
   Variable
-  !EM I@037/0074
+  !EL I@037/0074
   Field
-  !EM I@043/0074
+  !EL I@043/0074
   Inline
-  !EM I@050/0074
+  !EL I@050/0074
   Spread
-  !EM I@057/0074
+  !EL I@057/0074
   Fragment
 }
 {
@@ -425,7 +425,7 @@ Success
     I@019/0102
     $kind
     I@024/0102
-    _Identifier
+    _Described
   >
   {
     !OF I@009/0103
@@ -445,26 +445,26 @@ Success
 {
   !En I@006/0107
   _SimpleKind
-  !EM I@020/0107
+  !EL I@020/0107
   Basic
-  !EM I@026/0107
+  !EL I@026/0107
   Enum
-  !EM I@031/0107
+  !EL I@031/0107
   Internal
-  !EM I@040/0107
+  !EL I@040/0107
   Domain
-  !EM I@047/0107
+  !EL I@047/0107
   Union
 }
 {
   !En I@006/0109
   _TypeKind
   :_SimpleKind
-  !EM I@031/0109
+  !EL I@031/0109
   Dual
-  !EM I@036/0109
+  !EL I@036/0109
   Input
-  !EM I@042/0109
+  !EL I@042/0109
   Output
 }
 {
@@ -652,19 +652,19 @@ Success
 {
   !En I@006/0160
   _ModifierKind
-  !EM I@022/0160
+  !EL I@022/0160
   Opt
   [
     Optional
   ]
-  !EM I@036/0160
+  !EL I@036/0160
   List
-  !EM I@041/0160
+  !EL I@041/0160
   Dict
   [
     Dictionary
   ]
-  !EM I@058/0160
+  !EL I@058/0160
   Param
   [
     TypeParam
@@ -688,13 +688,13 @@ Success
 {
   !En I@006/0165
   _DomainKind
-  !EM I@020/0165
+  !EL I@020/0165
   Boolean
-  !EM I@028/0165
+  !EL I@028/0165
   Enum
-  !EM I@033/0165
+  !EL I@033/0165
   Number
-  !EM I@040/0165
+  !EL I@040/0165
   String
 }
 {
@@ -1005,9 +1005,9 @@ Success
   >
   {
     !OF I@009/0242
-    member
+    label
     :
-    I@017/0242
+    I@016/0242
     _Identifier
   }
 }
@@ -1171,6 +1171,10 @@ Success
 {
   !Ou I@008/0276
   _ObjBase
+  <
+    I@018/0276
+    $arg
+  >
   {
     !OF I@009/0277
     typeArgs
@@ -1178,8 +1182,8 @@ Success
     I@019/0277
     _ObjDescribed
     <
-      I@033/0277
-      _ObjArg
+      I@034/0277
+      $arg
     >
     []
   }
@@ -1190,7 +1194,7 @@ Success
 }
 {
   !Ou I@008/0281
-  _ObjArg
+  _ObjTypeArg
   :
   I@007/0282
   _TypeRef
@@ -1335,6 +1339,10 @@ Success
   :
   I@007/0314
   _ObjBase
+  <
+    I@016/0314
+    _ObjTypeArg
+  >
   {
     !OF I@009/0315
     dual
@@ -1412,6 +1420,10 @@ Success
   :
   I@007/0338
   _ObjBase
+  <
+    I@016/0338
+    _ObjTypeArg
+  >
   {
     !OF I@009/0339
     input
@@ -1526,6 +1538,10 @@ Success
   :
   I@007/0370
   _ObjBase
+  <
+    I@016/0370
+    _OutputTypeArg
+  >
   {
     !OF I@009/0371
     output
@@ -1596,47 +1612,39 @@ Success
 }
 {
   !Ou I@008/0393
-  _OutputArg
+  _OutputTypeArg
   :
   I@007/0394
-  _TypeRef
-  <
-    I@016/0394
-    _TypeKind
-  >
+  _ObjTypeArg
   {
     !OF I@009/0395
-    member
+    label
     :
-    I@017/0395
+    I@016/0395
     _Identifier
     ?
   }
-  |
-  !OA I@007/0396
-  I@007/0396
-  _TypeParam
 }
 {
-  !Ou I@008/0399
+  !Ou I@008/0398
   _OutputEnum
   :
-  I@007/0400
+  I@007/0399
   _TypeRef
   <
-    I@016/0400
+    I@016/0399
     _TypeKind.Enum
   >
   {
-    !OF I@009/0401
+    !OF I@009/0400
     field
     :
-    I@016/0401
+    I@016/0400
     _Identifier
-    !OF I@009/0402
-    member
+    !OF I@009/0401
+    label
     :
-    I@017/0402
+    I@016/0401
     _Identifier
   }
 }

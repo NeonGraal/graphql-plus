@@ -6,7 +6,7 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "OutEnumValue",
           "name": "outEnumValue"
         }
@@ -26,7 +26,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "field": "field",
-          "member": "outEnumValue",
+          "label": "outEnumValue",
           "name": "OutEnumValue",
           "object": "OutFieldValue",
           "typeKind": "Enum"
@@ -36,7 +36,7 @@
         {
           "$tag": "_OutputEnum",
           "field": "field",
-          "member": "outEnumValue",
+          "label": "outEnumValue",
           "name": "OutEnumValue",
           "typeKind": "Enum"
         }

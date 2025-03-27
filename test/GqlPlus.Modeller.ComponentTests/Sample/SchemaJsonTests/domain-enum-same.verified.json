@@ -6,12 +6,12 @@
       "$tag": "_DomainEnum",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainMember)",
+          "$tag": "_DomainItem(_DomainLabel)",
           "domain": "EnumSame",
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "member": "true",
+            "label": "true",
             "name": "Boolean",
             "typeKind": "Enum"
           }
@@ -20,11 +20,11 @@
       "domainKind": "Enum",
       "items": [
         {
-          "$tag": "_DomainMember",
+          "$tag": "_DomainLabel",
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "member": "true",
+            "label": "true",
             "name": "Boolean",
             "typeKind": "Enum"
           }

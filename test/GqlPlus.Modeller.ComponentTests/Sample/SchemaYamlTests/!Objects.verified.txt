@@ -191,7 +191,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier DualEnumFieldModEnum: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: DualEnumFieldModEnum
       name: value
     items:
@@ -1417,7 +1417,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier InEnumField: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: InEnumField
       name: value
     items:
@@ -1684,7 +1684,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier InpEnumFieldModEnum: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: InpEnumFieldModEnum
       name: value
     items:
@@ -2940,7 +2940,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Domain
   !_Identifier OutEnumField: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: OutEnumField
       name: outEnumField
     items:
@@ -2950,7 +2950,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier OutEnumGen: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: OutEnumGen
       name: outEnumGen
     items:
@@ -2960,7 +2960,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier OutEnumParent: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: OutEnumParent
       name: outEnumParent
     items:
@@ -2970,13 +2970,13 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier OutEnumParented: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: OutEnumParent
       name: outEnumParent
-    - !_EnumMember
+    - !_EnumLabel
       enum: OutEnumParented
       name: outParent
-    - !_EnumMember
+    - !_EnumLabel
       enum: OutEnumParented
       name: ed
     items:
@@ -2991,7 +2991,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier OutEnumValue: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: OutEnumValue
       name: outEnumValue
     items:
@@ -3001,7 +3001,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier OutEnumValueDescr: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: OutEnumValueDescr
       name: outEnumValueDescr
     items:
@@ -3013,14 +3013,14 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
-      member: outEnumField
+      label: outEnumField
       name: OutEnumField
       object: OutFieldEnum
       typeKind: !_SimpleKind Enum
     fields:
     - !_OutputEnum
       field: field
-      member: outEnumField
+      label: outEnumField
       name: OutEnumField
       typeKind: !_SimpleKind Enum
     name: OutFieldEnum
@@ -3029,14 +3029,14 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
-      member: outEnumParent
+      label: outEnumParent
       name: OutEnumParented
       object: OutFieldParent
       typeKind: !_SimpleKind Enum
     fields:
     - !_OutputEnum
       field: field
-      member: outEnumParent
+      label: outEnumParent
       name: OutEnumParented
       typeKind: !_SimpleKind Enum
     name: OutFieldParent
@@ -3045,14 +3045,14 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
-      member: outEnumValue
+      label: outEnumValue
       name: OutEnumValue
       object: OutFieldValue
       typeKind: !_SimpleKind Enum
     fields:
     - !_OutputEnum
       field: field
-      member: outEnumValue
+      label: outEnumValue
       name: OutEnumValue
       typeKind: !_SimpleKind Enum
     name: OutFieldValue
@@ -3061,14 +3061,14 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
-      member: outEnumValueDescr
+      label: outEnumValueDescr
       name: OutEnumValueDescr
       object: OutFieldValueDescr
       typeKind: !_SimpleKind Enum
     fields:
     - !_OutputEnum
       field: field
-      member: outEnumValueDescr
+      label: outEnumValueDescr
       name: OutEnumValueDescr
       typeKind: !_SimpleKind Enum
     name: OutFieldValueDescr
@@ -3081,7 +3081,7 @@ types: !_Map_Type
         output: OutGenEnumRef
         typeArgs:
         - !_OutputArg
-          member: outEnumGen
+          label: outEnumGen
           name: OutEnumGen
           typeKind: !_SimpleKind Enum
     alternates:
@@ -3090,7 +3090,7 @@ types: !_Map_Type
         output: OutGenEnumRef
         typeArgs:
         - !_OutputArg
-          member: outEnumGen
+          label: outEnumGen
           name: OutEnumGen
           typeKind: !_SimpleKind Enum
     name: OutGenEnum
@@ -3118,7 +3118,7 @@ types: !_Map_Type
         output: OutGenParentRef
         typeArgs:
         - !_OutputArg
-          member: outGenParent
+          label: outGenParent
           name: OutParentGen
           typeKind: !_SimpleKind Enum
     alternates:
@@ -3127,7 +3127,7 @@ types: !_Map_Type
         output: OutGenParentRef
         typeArgs:
         - !_OutputArg
-          member: outGenParent
+          label: outGenParent
           name: OutParentGen
           typeKind: !_SimpleKind Enum
     name: OutGenParent
@@ -3371,10 +3371,10 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier OutParentGen: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: OutPrntendedGen
       name: outGenParent
-    - !_EnumMember
+    - !_EnumLabel
       enum: OutParentGen
       name: outGenPrntended
     items:
@@ -3440,7 +3440,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
   !_Identifier OutPrntendedGen: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: OutPrntendedGen
       name: outGenParent
     items:
@@ -3450,7 +3450,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier OutValueGen: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: OutValueGen
       name: outValueGen
     items:
@@ -3649,7 +3649,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier OutpEnumFieldModEnum: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: OutpEnumFieldModEnum
       name: value
     items:

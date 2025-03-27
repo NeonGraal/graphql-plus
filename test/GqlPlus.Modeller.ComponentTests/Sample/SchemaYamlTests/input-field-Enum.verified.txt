@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier InEnumField: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: InEnumField
       name: value
     items:

@@ -20,7 +20,7 @@ output _ChildType<$kind $parent> {
     }
 
 output _ParentType<$kind $item $allItem> {
-    : _ChildType<$kind _Identifier>
+    : _ChildType<$kind _Described>
         items: $item[]
         allItems: $allItem[]
     }

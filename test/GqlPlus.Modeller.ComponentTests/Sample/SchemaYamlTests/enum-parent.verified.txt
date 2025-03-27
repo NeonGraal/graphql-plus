@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier EnPrntTest: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnPrntTest
       name: val_test
     items:
@@ -12,10 +12,10 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnTestPrnt: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnPrntTest
       name: val_test
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnTestPrnt
       name: val_prnt
     items:

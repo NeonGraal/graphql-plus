@@ -3,33 +3,31 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Simple;
 
-internal sealed record class DomainMemberAst(
+internal sealed record class DomainLabelAst(
   TokenAt At,
   string Description,
   bool Excludes,
-  string Member
+  string EnumItem
 ) : AstDomainItem(At, Description, Excludes)
-  , IEquatable<DomainMemberAst>
-  , IGqlpDomainMember
+  , IEquatable<DomainLabelAst>
+  , IGqlpDomainLabel
 {
   public string EnumType { get; set; } = "";
 
   internal override string Abbr => "DE";
 
-  string IGqlpDomainMember.EnumItem => Member;
-
-  public bool Equals(DomainMemberAst? other)
+  public bool Equals(DomainLabelAst? other)
     => base.Equals(other)
-      && Member.NullEqual(other.Member)
+      && EnumItem.NullEqual(other.EnumItem)
       && EnumType.NullEqual(other.EnumType);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Member, EnumType);
+    => HashCode.Combine(base.GetHashCode(), EnumItem, EnumType);
   internal override IEnumerable<string?> GetFields()
   => base.GetFields()
       .Append(Excludes ? "!" : "")
       .Append(EnumType)
-      .Append(Member);
+      .Append(EnumItem);
 
-  void IGqlpDomainMember.SetEnumType(string enumType)
+  void IGqlpDomainLabel.SetEnumType(string enumType)
     => EnumType ??= enumType;
 }

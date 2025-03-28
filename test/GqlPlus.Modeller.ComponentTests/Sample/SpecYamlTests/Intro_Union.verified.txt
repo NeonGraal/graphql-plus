@@ -13,7 +13,7 @@ types: !_Map_Type
       output: _ParentType
       typeArgs:
       - !_OutputArg
-        member: Union
+        label: Union
         name: _TypeKind
         typeKind: !_SimpleKind Enum
       - !_OutputArg

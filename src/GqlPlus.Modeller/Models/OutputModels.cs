@@ -13,7 +13,7 @@ public record class OutputArgModel(
   public bool IsTypeParam { get; set; }
   internal DualArgModel? Dual { get; init; }
 
-  internal string? EnumMember { get; set; }
+  internal string? EnumLabel { get; set; }
 }
 
 public record class OutputBaseModel(
@@ -40,6 +40,6 @@ public record class OutputAlternateModel(
 public record class OutputEnumModel(
   string Field,
   string Type,
-  string EnumMember
+  string EnumLabel
 ) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Enum, Type)
 { }

@@ -8,10 +8,10 @@ namespace GqlPlus.Verifying.Schema.Simple;
 
 internal class VerifyUnionTypes(
   IVerifyAliased<IGqlpUnion> aliased,
-  IMerge<IGqlpUnionItem> mergeMembers
-) : AstParentItemVerifier<IGqlpUnion, string, UsageContext, IGqlpUnionItem>(aliased, mergeMembers)
+  IMerge<IGqlpUnionMember> mergeMembers
+) : AstParentItemVerifier<IGqlpUnion, string, UsageContext, IGqlpUnionMember>(aliased, mergeMembers)
 {
-  protected override IEnumerable<IGqlpUnionItem> GetItems(IGqlpUnion usage)
+  protected override IEnumerable<IGqlpUnionMember> GetItems(IGqlpUnion usage)
     => usage.Items;
 
   protected override string GetParent(IGqlpType<string> usage)
@@ -24,7 +24,7 @@ internal class VerifyUnionTypes(
   {
     base.UsageValue(usage, context);
 
-    foreach (IGqlpUnionItem member in usage.Items) {
+    foreach (IGqlpUnionMember member in usage.Items) {
       context.AddError(usage, "Union", $"'{member.Name}' not defined", CheckMember(usage.Name, member, context, CheckTypeLabel));
     }
 
@@ -40,7 +40,7 @@ internal class VerifyUnionTypes(
         type is not IGqlpSimple and not IGqlpTypeSpecial);
   }
 
-  private static bool CheckMember(string name, IGqlpUnionItem member, UsageContext context, Action<string, IGqlpType>? checkType = null)
+  private static bool CheckMember(string name, IGqlpUnionMember member, UsageContext context, Action<string, IGqlpType>? checkType = null)
   {
     if (member.Name == name) {
       context.AddError(member, "Union Member", $"'{name}' cannot refer to " + (checkType is null ? "self, even recursively" : "self"));
@@ -60,7 +60,7 @@ internal class VerifyUnionTypes(
 
   private static void CheckSelfMember(string name, IGqlpUnion usage, UsageContext context)
   {
-    foreach (IGqlpUnionItem member in usage.Items) {
+    foreach (IGqlpUnionMember member in usage.Items) {
       CheckMember(name, member, context);
     }
 

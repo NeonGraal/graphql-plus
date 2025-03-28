@@ -6,7 +6,7 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "EnumDomDupParent",
           "name": "enum_dom_parent_dup"
         }
@@ -24,7 +24,7 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "EnumDomParentUnique",
           "name": "enum_dom_parent_dup"
         }
@@ -42,12 +42,12 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "EnumDomParentUnique",
           "name": "enum_dom_parent_dup"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "EnumDomUniqueParent",
           "name": "value"
         }

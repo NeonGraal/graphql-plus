@@ -170,10 +170,10 @@ internal abstract class CheckObjectModel<TObject, TObjectAst, TObjField, TObjFie
   TObject ICheckObjectModel<TObject, TObjBase, TObjField, TObjAlt, TModel>.ObjectAst(ExpectedObjectInput input)
     => NewObjectAst(input);
 
-  BaseTypeModel IParentModel<FieldInput>.NewParent(string name, FieldInput[] members, string? parent)
-    => NewParentModel(name, parent, members, []);
-  BaseTypeModel IParentModel<AlternateInput>.NewParent(string name, AlternateInput[] members, string? parent)
-    => NewParentModel(name, parent, [], members);
+  BaseTypeModel IParentModel<FieldInput>.NewParent(string name, FieldInput[] items, string? parent)
+    => NewParentModel(name, parent, items, []);
+  BaseTypeModel IParentModel<AlternateInput>.NewParent(string name, AlternateInput[] items, string? parent)
+    => NewParentModel(name, parent, [], items);
 
   private BaseTypeModel NewParentModel(string name, string? parent, FieldInput[] fields, AlternateInput[] alternates)
     => _modeller.ToModel<TModel>(NewObjectAst(new(name, parent, fields: fields, alternates: alternates)), TypeKinds);

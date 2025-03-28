@@ -12,40 +12,40 @@ public abstract class TestDomainModel<TValue, TItem, TItemModel>(
   where TItemModel : BaseDomainItemModel
 {
   [Theory, RepeatData(Repeats)]
-  public void Model_Members(string name, TValue[] members)
+  public void Model_Labels(string name, TValue[] labels)
     => domainChecks
-    .AddTypeKinds(TypeKindModel.Basic, members)
+    .AddTypeKinds(TypeKindModel.Basic, labels)
     .DomainExpected(
-      domainChecks.DomainAst(name, null, [], null, members),
-      domainChecks.ExpectedDomain(new(name, items: members)));
+      domainChecks.DomainAst(name, null, [], null, labels),
+      domainChecks.ExpectedDomain(new(name, items: labels)));
   [Theory, RepeatData(Repeats)]
-  public void Model_MembersParent(string name, string parent, TValue[] parentMembers)
+  public void Model_LabelsParent(string name, string parent, TValue[] parentLabels)
     => domainChecks
     .SkipIf(string.Equals(name, parent, StringComparison.Ordinal))
-    .AddTypeKinds(TypeKindModel.Basic, parentMembers)
-    .AddParent(domainChecks.NewParent(parent, parentMembers))
+    .AddTypeKinds(TypeKindModel.Basic, parentLabels)
+    .AddParent(domainChecks.NewParent(parent, parentLabels))
     .DomainExpected(
       domainChecks.DomainAst(name, null, [], parent, []),
-      domainChecks.ExpectedDomain(new(name, parent, otherItems: parentMembers.ParentItems(parent))));
+      domainChecks.ExpectedDomain(new(name, parent, otherItems: parentLabels.ParentItems(parent))));
 
   [Theory, RepeatData(Repeats)]
-  public void Model_MembersGrandParent(string name, string parent, string grandParent, TValue[] grandParentMembers)
+  public void Model_LabelsGrandParent(string name, string parent, string grandParent, TValue[] grandParentLabels)
     => domainChecks
     .SkipIf(string.Equals(parent, grandParent, StringComparison.Ordinal))
-    .AddTypeKinds(TypeKindModel.Basic, grandParentMembers)
+    .AddTypeKinds(TypeKindModel.Basic, grandParentLabels)
     .AddParent(domainChecks.NewParent(parent, [], grandParent))
-    .AddParent(domainChecks.NewParent(grandParent, grandParentMembers))
+    .AddParent(domainChecks.NewParent(grandParent, grandParentLabels))
     .DomainExpected(
       domainChecks.DomainAst(name, null, [], parent, []),
-      domainChecks.ExpectedDomain(new(name, parent, otherItems: grandParentMembers.ParentItems(grandParent))));
+      domainChecks.ExpectedDomain(new(name, parent, otherItems: grandParentLabels.ParentItems(grandParent))));
 
   [Theory, RepeatData(Repeats)]
-  public void Model_All(string name, string contents, string[] aliases, string parent, TValue[] members)
+  public void Model_All(string name, string contents, string[] aliases, string parent, TValue[] labels)
     => domainChecks
-    .AddTypeKinds(TypeKindModel.Basic, members)
+    .AddTypeKinds(TypeKindModel.Basic, labels)
     .DomainExpected(
-      domainChecks.DomainAst(name, contents, aliases, parent, members),
-      domainChecks.ExpectedDomain(new(name, parent, members, aliases: aliases, description: contents)));
+      domainChecks.DomainAst(name, contents, aliases, parent, labels),
+      domainChecks.ExpectedDomain(new(name, parent, labels, aliases: aliases, description: contents)));
 }
 
 internal abstract class CheckDomainModel<TValue, TAstItem, TItem, TItemModel>(
@@ -76,8 +76,8 @@ internal abstract class CheckDomainModel<TValue, TAstItem, TItem, TItemModel>(
   void ICheckDomainModel<TValue, TItem, TItemModel>.DomainExpected(IGqlpDomain<TItem> domain, string[] expected)
     => AstExpected(domain, expected);
 
-  BaseTypeModel IParentModel<TValue>.NewParent(string name, TValue[] members, string? parent)
-    => _modeller.ToModel(NewDomainAst(name, null, [], null, members) with { Parent = parent }, TypeKinds);
+  BaseTypeModel IParentModel<TValue>.NewParent(string name, TValue[] items, string? parent)
+    => _modeller.ToModel(NewDomainAst(name, null, [], null, items) with { Parent = parent }, TypeKinds);
 
   protected IEnumerable<string> Items(TValue[]? inputs)
     => Items("items:", inputs, ExpectedItem());

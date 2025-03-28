@@ -6,7 +6,7 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "aliases": ["val1", "val2"],
           "enum": "EnValAlias",
           "name": "value"

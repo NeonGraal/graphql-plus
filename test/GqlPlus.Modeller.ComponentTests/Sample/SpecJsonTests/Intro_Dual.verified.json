@@ -75,7 +75,13 @@
       "name": "_DualBase",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "_ObjBase"
+        "output": "_ObjBase",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "value": "_ObjTypeArg"
+          }
+        ]
       },
       "typeKind": "Output"
     },
@@ -133,7 +139,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "member": "Dual",
+            "label": "Dual",
             "name": "_TypeKind",
             "typeKind": "Enum"
           },

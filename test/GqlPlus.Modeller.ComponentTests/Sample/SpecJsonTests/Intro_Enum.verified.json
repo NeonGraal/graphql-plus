@@ -54,7 +54,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "member",
+          "name": "label",
           "object": "_EnumValue",
           "type": {
             "$tag": "_OutputBase",
@@ -65,7 +65,7 @@
       "fields": [
         {
           "$tag": "_OutputField",
-          "name": "member",
+          "name": "label",
           "type": {
             "$tag": "_OutputBase",
             "value": "_Identifier"
@@ -79,7 +79,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "member": "Enum",
+            "label": "Enum",
             "name": "_TypeKind",
             "typeKind": "Enum"
           }
@@ -96,7 +96,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "member": "Enum",
+            "label": "Enum",
             "name": "_TypeKind",
             "typeKind": "Enum"
           },

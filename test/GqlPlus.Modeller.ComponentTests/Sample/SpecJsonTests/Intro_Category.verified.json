@@ -108,7 +108,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "Output",
+                "label": "Output",
                 "name": "_TypeKind",
                 "typeKind": "Enum"
               }
@@ -149,7 +149,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "Output",
+                "label": "Output",
                 "name": "_TypeKind",
                 "typeKind": "Enum"
               }
@@ -182,17 +182,17 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_Resolution",
           "name": "Parallel"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_Resolution",
           "name": "Sequential"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_Resolution",
           "name": "Single"
         }

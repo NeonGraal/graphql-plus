@@ -8,25 +8,25 @@ public class OutputBaseAstTests
   : AstObjectBaseTests<IGqlpOutputBase>
 {
   [Theory, RepeatData]
-  public void HashCode_WithEnumValue(string name, string enumMember)
+  public void HashCode_WithEnumValue(string name, string enumLabel)
       => _checks.HashCode(
-        () => new OutputBaseAst(AstNulls.At, name) { EnumMember = enumMember });
+        () => new OutputBaseAst(AstNulls.At, name) { EnumLabel = enumLabel });
 
   [Theory, RepeatData]
-  public void String_WithEnumValue(string name, string enumMember)
+  public void String_WithEnumValue(string name, string enumLabel)
     => _checks.Text(
-      () => new OutputBaseAst(AstNulls.At, name) { EnumMember = enumMember },
-      $"( {name}.{enumMember} )");
+      () => new OutputBaseAst(AstNulls.At, name) { EnumLabel = enumLabel },
+      $"( {name}.{enumLabel} )");
 
   [Theory, RepeatData]
-  public void Equality_WithEnumValue(string name, string enumMember)
+  public void Equality_WithEnumValue(string name, string enumLabel)
     => _checks.Equality(
-      () => new OutputBaseAst(AstNulls.At, name) { EnumMember = enumMember });
+      () => new OutputBaseAst(AstNulls.At, name) { EnumLabel = enumLabel });
 
   [Theory, RepeatData]
   public void Inequality_BetweenEnumValues(string name, string enumValue1, string enumValue2)
     => _checks.InequalityBetween(enumValue1, enumValue2,
-      enumMember => new OutputBaseAst(AstNulls.At, name) { EnumMember = enumMember },
+      enumLabel => new OutputBaseAst(AstNulls.At, name) { EnumLabel = enumLabel },
       enumValue1 == enumValue2);
 
   protected override string AbbreviatedString(string input)

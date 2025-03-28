@@ -15,10 +15,10 @@ public class DomainAstBooleanTests
 internal sealed class DomainAstBooleanChecks()
  : AstDomainChecks<bool, DomainTrueFalseAst, IGqlpDomainTrueFalse>(DomainKind.Boolean)
 {
-  protected override DomainTrueFalseAst[] DomainMembers(bool input)
+  protected override DomainTrueFalseAst[] DomainItems(bool input)
     => [new(AstNulls.At, "", false, input)];
 
-  protected override string MembersString(string name, bool input)
+  protected override string ItemsString(string name, bool input)
     => $"( !Do {name} Boolean !DT {input} )";
 
   protected override AstDomain<DomainTrueFalseAst, IGqlpDomainTrueFalse> NewDomain(string name, DomainTrueFalseAst[] list)

@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier OutEnumGen: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: OutEnumGen
       name: outEnumGen
     items:
@@ -18,7 +18,7 @@ types: !_Map_Type
         output: OutGenEnumRef
         typeArgs:
         - !_OutputArg
-          member: outEnumGen
+          label: outEnumGen
           name: OutEnumGen
           typeKind: !_SimpleKind Enum
     alternates:
@@ -27,7 +27,7 @@ types: !_Map_Type
         output: OutGenEnumRef
         typeArgs:
         - !_OutputArg
-          member: outEnumGen
+          label: outEnumGen
           name: OutEnumGen
           typeKind: !_SimpleKind Enum
     name: OutGenEnum

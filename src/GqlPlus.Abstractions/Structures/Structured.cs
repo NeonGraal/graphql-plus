@@ -143,7 +143,6 @@ public class Structured<TValue, TObject>
   public IList<TObject> List { get; } = [];
   public IDict Map { get; } = new Dict();
 
-  public Structured() { }
   public Structured(TValue value)
     => Value = value;
   public Structured(IEnumerable<TObject> values)

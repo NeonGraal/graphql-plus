@@ -10,24 +10,24 @@ internal abstract record class AstSimple(
 ) : AstType<string>(At, Name, Description)
 { }
 
-internal abstract record class AstSimple<TMember>(
+internal abstract record class AstSimple<TItemAst>(
   TokenAt At,
   string Name,
   string Description,
-  TMember[] Members
+  TItemAst[] Items
 ) : AstSimple(At, Name, Description)
-  , IGqlpSimple<TMember>
-  where TMember : IGqlpNamed
+  , IGqlpSimple<TItemAst>
+  where TItemAst : IGqlpNamed
 {
-  public IEnumerable<TMember> Items => Members;
+  IEnumerable<TItemAst> IGqlpSimple<TItemAst>.Items => Items;
 
-  public virtual bool Equals(AstSimple<TMember>? other)
+  public virtual bool Equals(AstSimple<TItemAst>? other)
     => base.Equals(other)
-      && Members.SequenceEqual(other.Members);
+      && Items.SequenceEqual(other.Items);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Members.Length);
+    => HashCode.Combine(base.GetHashCode(), Items.Length);
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
       .Append(Parent.Prefixed(":"))
-      .Concat(Members.Bracket());
+      .Concat(Items.Bracket());
 }

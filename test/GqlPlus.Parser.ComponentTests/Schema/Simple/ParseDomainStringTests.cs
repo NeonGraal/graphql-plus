@@ -22,8 +22,8 @@ public sealed class ParseDomainStringTests(
   public void WithRegexesSecondBad_ReturnsFalse(DomainStringInput input, string regex)
     => checks.FalseExpected(input.Name + "{string/" + input.Regex + "/!/" + regex + "}");
 
-  private static AstDomain<DomainRegexAst, IGqlpDomainRegex> NewDomain(string name, DomainRegexAst[] members)
-    => new(AstNulls.At, name, DomainKind.String, members);
+  private static AstDomain<DomainRegexAst, IGqlpDomainRegex> NewDomain(string name, DomainRegexAst[] regexes)
+    => new(AstNulls.At, name, DomainKind.String, regexes);
 }
 
 internal sealed class ParseDomainStringChecks(

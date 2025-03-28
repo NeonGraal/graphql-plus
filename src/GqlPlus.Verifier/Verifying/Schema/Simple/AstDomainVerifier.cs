@@ -4,32 +4,32 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Verifying.Schema.Simple;
 
-internal class AstDomainVerifier<TMember>(
-  IMerge<TMember> members
+internal class AstDomainVerifier<TItem>(
+  IMerge<TItem> items
 ) : IVerifyDomain
-  where TMember : IGqlpDomainItem
+  where TItem : IGqlpDomainItem
 {
   public ITokenMessages CanMergeItems(IGqlpDomain usage, EnumContext context)
   {
-    return usage is not IGqlpDomain<TMember> domain
+    return usage is not IGqlpDomain<TItem> domain
       || !context.GetType(domain.Parent, out IGqlpDescribed? type)
-      || type is not IGqlpDomain<TMember> domainParent
+      || type is not IGqlpDomain<TItem> domainParent
       ? TokenMessages.New
       : CanMergeDomain(domain, domainParent, context);
   }
 
   public void Verify(IGqlpDomain usage, EnumContext context)
   {
-    if (usage is IGqlpDomain<TMember> domain) {
+    if (usage is IGqlpDomain<TItem> domain) {
       VerifyDomain(domain, context);
     }
   }
 
-  protected virtual void VerifyDomain(IGqlpDomain<TMember> domain, EnumContext context)
+  protected virtual void VerifyDomain(IGqlpDomain<TItem> domain, EnumContext context)
   { }
 
-  protected virtual ITokenMessages CanMergeDomain(IGqlpDomain<TMember> domain, IGqlpDomain<TMember> domainParent, EnumContext context)
-    => members.CanMerge(domainParent.Items.Concat(domain.Items));
+  protected virtual ITokenMessages CanMergeDomain(IGqlpDomain<TItem> domain, IGqlpDomain<TItem> domainParent, EnumContext context)
+    => items.CanMerge(domainParent.Items.Concat(domain.Items));
 }
 
 public interface IVerifyDomain

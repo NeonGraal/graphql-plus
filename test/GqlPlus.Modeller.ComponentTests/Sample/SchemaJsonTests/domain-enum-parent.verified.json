@@ -6,23 +6,23 @@
       "$tag": "_DomainEnum",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainMember)",
+          "$tag": "_DomainItem(_DomainLabel)",
           "domain": "DomPrntEnum",
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "member": "both_parent",
+            "label": "both_parent",
             "name": "EnumDomBoth",
             "typeKind": "Enum"
           }
         },
         {
-          "$tag": "_DomainItem(_DomainMember)",
+          "$tag": "_DomainItem(_DomainLabel)",
           "domain": "DomEnumPrnt",
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "member": "both_enum",
+            "label": "both_enum",
             "name": "EnumDomBoth",
             "typeKind": "Enum"
           }
@@ -31,11 +31,11 @@
       "domainKind": "Enum",
       "items": [
         {
-          "$tag": "_DomainMember",
+          "$tag": "_DomainLabel",
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "member": "both_enum",
+            "label": "both_enum",
             "name": "EnumDomBoth",
             "typeKind": "Enum"
           }
@@ -53,12 +53,12 @@
       "$tag": "_DomainEnum",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainMember)",
+          "$tag": "_DomainItem(_DomainLabel)",
           "domain": "DomPrntEnum",
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "member": "both_parent",
+            "label": "both_parent",
             "name": "EnumDomBoth",
             "typeKind": "Enum"
           }
@@ -67,11 +67,11 @@
       "domainKind": "Enum",
       "items": [
         {
-          "$tag": "_DomainMember",
+          "$tag": "_DomainLabel",
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "member": "both_parent",
+            "label": "both_parent",
             "name": "EnumDomBoth",
             "typeKind": "Enum"
           }
@@ -84,12 +84,12 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "EnumDomBoth",
           "name": "both_enum"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "EnumDomBoth",
           "name": "both_parent"
         }

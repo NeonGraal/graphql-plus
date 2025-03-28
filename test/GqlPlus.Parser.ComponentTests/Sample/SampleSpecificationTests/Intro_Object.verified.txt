@@ -131,6 +131,10 @@ Success
 {
   !Ou I@008/0025
   _ObjBase
+  <
+    I@018/0025
+    $arg
+  >
   {
     !OF I@009/0026
     typeArgs
@@ -138,8 +142,8 @@ Success
     I@019/0026
     _ObjDescribed
     <
-      I@033/0026
-      _ObjArg
+      I@034/0026
+      $arg
     >
     []
   }
@@ -150,7 +154,7 @@ Success
 }
 {
   !Ou I@008/0030
-  _ObjArg
+  _ObjTypeArg
   :
   I@007/0031
   _TypeRef

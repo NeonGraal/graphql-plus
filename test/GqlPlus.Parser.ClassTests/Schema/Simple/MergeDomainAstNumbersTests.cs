@@ -23,7 +23,7 @@ public class MergeDomainAstNumbersTests
     => new AstDomain<DomainRangeAst, IGqlpDomainRange>(AstNulls.At, name, description, kind ?? DomainKind.Boolean) {
       Aliases = aliases ?? [],
       Parent = parent,
-      Members = items?.ArrayOf<DomainRangeAst>() ?? [],
+      Items = items?.ArrayOf<DomainRangeAst>() ?? [],
     };
 
   protected override IGqlpDomainRange[] MakeItems(DomainRangeInput input)

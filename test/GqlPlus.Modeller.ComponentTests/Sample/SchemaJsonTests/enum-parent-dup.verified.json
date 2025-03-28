@@ -6,7 +6,7 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "aliases": ["val_prnt_dup"],
           "enum": "EnDupPrnt",
           "name": "val_dup"
@@ -26,13 +26,13 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "aliases": ["val_prnt_dup"],
           "enum": "EnDupPrnt",
           "name": "val_dup"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "EnPrntDup",
           "name": "val_prnt_dup"
         }

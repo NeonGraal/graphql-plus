@@ -6,12 +6,12 @@
       "$tag": "_DomainEnum",
       "allItems": [
         {
-          "$tag": "_DomainItem(_DomainMember)",
+          "$tag": "_DomainItem(_DomainLabel)",
           "domain": "DomEnumDescr",
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "member": "dom_label_desc",
+            "label": "dom_label_desc",
             "name": "EnumDomDescr",
             "typeKind": "Enum"
           }
@@ -20,11 +20,11 @@
       "domainKind": "Enum",
       "items": [
         {
-          "$tag": "_DomainMember",
+          "$tag": "_DomainLabel",
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "member": "dom_label_desc",
+            "label": "dom_label_desc",
             "name": "EnumDomDescr",
             "typeKind": "Enum"
           }
@@ -37,7 +37,7 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "EnumDomDescr",
           "name": "dom_label_desc"
         }

@@ -9,7 +9,7 @@
     {
       "$tag": "_Error",
       "_kind": "End",
-      "_message": "In _ObjArg can\u0027t get model for type \u0027_TypeRef\u0027"
+      "_message": "In _ObjTypeArg can\u0027t get model for type \u0027_TypeRef\u0027"
     },
     {
       "$tag": "_Error",
@@ -154,40 +154,6 @@
         }
       ]
     },
-    "_ObjArg": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_ObjArg",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_TypeParam"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_TypeParam"
-          }
-        }
-      ],
-      "name": "_ObjArg",
-      "parent": {
-        "$tag": "_OutputBase",
-        "output": "_TypeRef",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "value": "_TypeKind"
-          }
-        ]
-      },
-      "typeKind": "Output"
-    },
     "_ObjBase": {
       "$tag": "_TypeOutput",
       "allAlternates": [
@@ -214,12 +180,7 @@
           "type": {
             "$tag": "_DualBase",
             "dual": "_ObjDescribed",
-            "typeArgs": [
-              {
-                "$tag": "_DualArg",
-                "value": "_ObjArg"
-              }
-            ]
+            "typeArgs": ["arg"]
           }
         }
       ],
@@ -245,17 +206,18 @@
           "type": {
             "$tag": "_DualBase",
             "dual": "_ObjDescribed",
-            "typeArgs": [
-              {
-                "$tag": "_DualArg",
-                "value": "_ObjArg"
-              }
-            ]
+            "typeArgs": ["arg"]
           }
         }
       ],
       "name": "_ObjBase",
-      "typeKind": "Output"
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "arg"
+        }
+      ]
     },
     "_ObjConstraint": {
       "$tag": "_TypeOutput",
@@ -409,7 +371,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "Internal",
+                "label": "Internal",
                 "name": "_TypeKind",
                 "typeKind": "Enum"
               }
@@ -435,7 +397,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "Internal",
+                "label": "Internal",
                 "name": "_TypeKind",
                 "typeKind": "Enum"
               }
@@ -459,6 +421,40 @@
           "value": "base"
         }
       ]
+    },
+    "_ObjTypeArg": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "_ObjTypeArg",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_TypeParam"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_TypeParam"
+          }
+        }
+      ],
+      "name": "_ObjTypeArg",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_TypeRef",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "value": "_TypeKind"
+          }
+        ]
+      },
+      "typeKind": "Output"
     },
     "_ObjTypeParam": {
       "$tag": "_TypeOutput",

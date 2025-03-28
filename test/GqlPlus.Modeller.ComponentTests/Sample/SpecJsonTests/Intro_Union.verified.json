@@ -23,7 +23,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "member": "Union",
+            "label": "Union",
             "name": "_TypeKind",
             "typeKind": "Enum"
           },

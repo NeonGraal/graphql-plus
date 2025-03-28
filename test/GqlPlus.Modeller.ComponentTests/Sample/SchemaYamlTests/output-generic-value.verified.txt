@@ -35,7 +35,7 @@ types: !_Map_Type
       name: type
   !_Identifier OutValueGen: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: OutValueGen
       name: outValueGen
     items:

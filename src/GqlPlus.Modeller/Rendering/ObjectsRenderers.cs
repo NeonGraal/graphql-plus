@@ -232,14 +232,14 @@ internal class OutputArgRenderer(
 ) : TypeRefRenderer<OutputArgModel, SimpleKindModel>
 {
   internal override Structured Render(OutputArgModel model)
-    => string.IsNullOrWhiteSpace(model.ThrowIfNull().EnumMember)
+    => string.IsNullOrWhiteSpace(model.ThrowIfNull().EnumLabel)
     ? model.Dual is null
       ? model.IsTypeParam
         ? new(model.Output, "_TypeParam")
         : new Map<Structured>() { ["output"] = model.Output! }.Render(model.Tag)
       : dual.Render(model.Dual)
     : base.Render(model)
-      .Add("member", model.EnumMember!);
+      .Add("label", model.EnumLabel!);
 }
 
 internal class OutputBaseRenderer(
@@ -262,7 +262,7 @@ internal class OutputEnumRenderer
   internal override Structured Render(OutputEnumModel model)
     => base.Render(model)
       .Add("field", model.Field)
-      .Add("member", model.EnumMember);
+      .Add("label", model.EnumLabel);
 }
 
 internal class OutputFieldRenderer(

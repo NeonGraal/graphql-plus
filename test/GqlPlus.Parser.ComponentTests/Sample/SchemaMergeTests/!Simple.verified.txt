@@ -34,9 +34,9 @@ Success
 {
   !En I@006/0002
   EnumDomAll
-  !EM I@019/0002
+  !EL I@019/0002
   dom_all
-  !EM I@027/0002
+  !EL I@027/0002
   dom_enum_all
 }
 {
@@ -51,13 +51,13 @@ Success
   !En I@006/0002
   EnumDomAllParent
   :EnumDomParentAll
-  !EM I@043/0002
+  !EL I@043/0002
   dom_all_parent
 }
 {
   !En I@006/0003
   EnumDomParentAll
-  !EM I@025/0003
+  !EL I@025/0003
   dom_enum_all_parent
 }
 {
@@ -71,7 +71,7 @@ Success
 {
   !En I@006/0002
   EnumDomDescr
-  !EM I@021/0002
+  !EL I@021/0002
   dom_label_desc
 }
 {
@@ -85,7 +85,7 @@ Success
 {
   !En I@006/0002
   LabelDom
-  !EM I@017/0002
+  !EL I@017/0002
   dom_label
 }
 {
@@ -108,42 +108,42 @@ Success
 {
   !En I@006/0003
   EnumDomBoth
-  !EM I@020/0003
+  !EL I@020/0003
   both_enum
-  !EM I@030/0003
+  !EL I@030/0003
   both_parent
 }
 {
   !En I@006/0001
   EnumDomUnique
-  !EM I@022/0001
+  !EL I@022/0001
   eum_dom_value
-  !EM I@036/0001
+  !EL I@036/0001
   eum_dom_dup
 }
 {
   !En I@006/0002
   EnumDomDup
-  !EM I@019/0002
+  !EL I@019/0002
   eum_dom_dup
 }
 {
   !En I@006/0001
   EnumDomUniqueParent
   :EnumDomParentUnique
-  !EM I@049/0001
+  !EL I@049/0001
   value
 }
 {
   !En I@006/0002
   EnumDomParentUnique
-  !EM I@028/0002
+  !EL I@028/0002
   enum_dom_parent_dup
 }
 {
   !En I@006/0003
   EnumDomDupParent
-  !EM I@025/0003
+  !EL I@025/0003
   enum_dom_parent_dup
 }
 {
@@ -157,7 +157,7 @@ Success
 {
   !En I@006/0002
   EnumDom
-  !EM I@016/0002
+  !EL I@016/0002
   dom_enum
 }
 {
@@ -172,13 +172,13 @@ Success
   !En I@006/0002
   EnumDomParent
   :EnumParentDom
-  !EM I@037/0002
+  !EL I@037/0002
   dom_parent_enum
 }
 {
   !En I@006/0003
   EnumParentDom
-  !EM I@022/0003
+  !EL I@022/0003
   dom_enum_parent
 }
 {
@@ -232,29 +232,29 @@ Success
     !En I@006/0001
     EnDescr
     "Enum Descr"
-    !EM I@031/0001
+    !EL I@031/0001
     val_test
   }
   {
     !En I@006/0001
     EnTestPrnt
     :EnPrntTest
-    !EM I@031/0001
+    !EL I@031/0001
     val_prnt
   }
   {
     !En I@006/0002
     EnPrntTest
-    !EM I@019/0002
+    !EL I@019/0002
     val_test
   }
   {
     !En I@006/0001
     EnPrntAlias
     :EnAliasPrnt
-    !EM I@033/0001
+    !EL I@033/0001
     val_prnt_alias
-    !EM I@048/0001
+    !EL I@048/0001
     val_alias
     [
       alias_val
@@ -263,20 +263,20 @@ Success
   {
     !En I@006/0002
     EnAliasPrnt
-    !EM I@020/0002
+    !EL I@020/0002
     val_alias
   }
   {
     !En I@006/0001
     EnPrntDup
     :EnDupPrnt
-    !EM I@029/0001
+    !EL I@029/0001
     val_prnt_dup
   }
   {
     !En I@006/0002
     EnDupPrnt
-    !EM I@018/0002
+    !EL I@018/0002
     val_dup
     [
       val_prnt_dup

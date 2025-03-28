@@ -6,7 +6,7 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "OutEnumGen",
           "name": "outEnumGen"
         }
@@ -32,7 +32,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "outEnumGen",
+                "label": "outEnumGen",
                 "name": "OutEnumGen",
                 "typeKind": "Enum"
               }
@@ -49,7 +49,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "outEnumGen",
+                "label": "outEnumGen",
                 "name": "OutEnumGen",
                 "typeKind": "Enum"
               }

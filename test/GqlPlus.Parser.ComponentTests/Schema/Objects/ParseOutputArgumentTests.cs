@@ -13,8 +13,8 @@ public class ParseOutputArgTests(
   public void WithArgEnumValues_ReturnsCorrectAst(string enumType, string[] enumValues)
     => checks.TrueExpected(
       "<" + enumValues.Joined(s => enumType + "." + s) + ">",
-      [.. enumValues.Select(enumMember
-        => new OutputArgAst(AstNulls.At, enumType) { EnumMember = enumMember })]);
+      [.. enumValues.Select(enumLabel
+        => new OutputArgAst(AstNulls.At, enumType) { EnumLabel = enumLabel })]);
 
   [Theory, RepeatData(Repeats)]
   public void WithArgEnumValueBad_ReturnsFalse(string enumType)

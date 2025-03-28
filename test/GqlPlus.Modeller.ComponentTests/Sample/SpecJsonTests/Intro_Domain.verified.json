@@ -38,7 +38,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "member": "Domain",
+            "label": "Domain",
             "name": "_TypeKind",
             "typeKind": "Enum"
           },
@@ -411,22 +411,22 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_DomainKind",
           "name": "Boolean"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_DomainKind",
           "name": "Enum"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_DomainKind",
           "name": "Number"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_DomainKind",
           "name": "String"
         }
@@ -625,7 +625,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "member": "Domain",
+            "label": "Domain",
             "name": "_TypeKind",
             "typeKind": "Enum"
           }
@@ -800,7 +800,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "Boolean",
+                "label": "Boolean",
                 "name": "_DomainKind",
                 "typeKind": "Enum"
               },
@@ -824,7 +824,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "Enum",
+                "label": "Enum",
                 "name": "_DomainKind",
                 "typeKind": "Enum"
               },
@@ -848,7 +848,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "Number",
+                "label": "Number",
                 "name": "_DomainKind",
                 "typeKind": "Enum"
               },
@@ -872,7 +872,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "String",
+                "label": "String",
                 "name": "_DomainKind",
                 "typeKind": "Enum"
               },
@@ -897,7 +897,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "Boolean",
+                "label": "Boolean",
                 "name": "_DomainKind",
                 "typeKind": "Enum"
               },
@@ -920,7 +920,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "Enum",
+                "label": "Enum",
                 "name": "_DomainKind",
                 "typeKind": "Enum"
               },
@@ -943,7 +943,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "Number",
+                "label": "Number",
                 "name": "_DomainKind",
                 "typeKind": "Enum"
               },
@@ -966,7 +966,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "String",
+                "label": "String",
                 "name": "_DomainKind",
                 "typeKind": "Enum"
               },

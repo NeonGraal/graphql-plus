@@ -28,7 +28,7 @@ public interface IGqlpFieldKey
 {
   decimal? Number { get; }
   string? Text { get; }
-  string? EnumMember { get; }
+  string? EnumLabel { get; }
   string? EnumType { get; }
   string? EnumValue { get; }
 }

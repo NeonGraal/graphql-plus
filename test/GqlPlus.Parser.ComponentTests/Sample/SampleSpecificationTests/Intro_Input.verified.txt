@@ -25,6 +25,10 @@ Success
   :
   I@007/0006
   _ObjBase
+  <
+    I@016/0006
+    _ObjTypeArg
+  >
   {
     !OF I@009/0007
     input

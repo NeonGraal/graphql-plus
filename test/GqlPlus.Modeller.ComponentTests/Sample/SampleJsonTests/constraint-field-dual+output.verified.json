@@ -1,0 +1,48 @@
+﻿{
+  "$tag": "_Schema",
+  "_errors": [
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 39,
+        "_line": 2
+      },
+      "_kind": "Punctuation",
+      "_message": "Invalid Output. Expected type parameter."
+    },
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 39,
+        "_line": 2
+      },
+      "_kind": "Punctuation",
+      "_message": "Invalid Sample. Expected no more text."
+    }
+  ],
+  "types": {
+    "$tag": "_Map_Type",
+    "OutpConstraintFieldDual": {
+      "$tag": "_TypeOutput",
+      "name": "OutpConstraintFieldDual",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "OutpConstraintFieldDualRef",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "value": "OutpConstraintFieldDualAlt"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "OutpConstraintFieldDualRef": {
+      "$tag": "_TypeOutput",
+      "name": "OutpConstraintFieldDualRef",
+      "typeKind": "Output"
+    }
+  }
+}

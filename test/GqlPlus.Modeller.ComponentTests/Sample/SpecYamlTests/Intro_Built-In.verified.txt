@@ -17,7 +17,7 @@ types: !_Map_Type
         output: _Modifier
         typeArgs:
         - !_OutputArg
-          member: List
+          label: List
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
     - !_ObjectFor(_OutputAlternate)
@@ -26,7 +26,7 @@ types: !_Map_Type
         output: _ModifierKeyed
         typeArgs:
         - !_OutputArg
-          member: Dictionary
+          label: Dictionary
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
     - !_ObjectFor(_OutputAlternate)
@@ -35,7 +35,7 @@ types: !_Map_Type
         output: _ModifierKeyed
         typeArgs:
         - !_OutputArg
-          member: TypeParam
+          label: TypeParam
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
     alternates:
@@ -44,7 +44,7 @@ types: !_Map_Type
         output: _Modifier
         typeArgs:
         - !_OutputArg
-          member: List
+          label: List
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
     - !_OutputAlternate
@@ -52,7 +52,7 @@ types: !_Map_Type
         output: _ModifierKeyed
         typeArgs:
         - !_OutputArg
-          member: Dictionary
+          label: Dictionary
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
     - !_OutputAlternate
@@ -60,7 +60,7 @@ types: !_Map_Type
         output: _ModifierKeyed
         typeArgs:
         - !_OutputArg
-          member: TypeParam
+          label: TypeParam
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
     name: _Collections
@@ -146,7 +146,7 @@ types: !_Map_Type
         output: _DomainValue
         typeArgs:
         - !_OutputArg
-          member: Number
+          label: Number
           name: _DomainKind
           typeKind: !_SimpleKind Enum
         - !_OutputArg
@@ -157,7 +157,7 @@ types: !_Map_Type
         output: _DomainValue
         typeArgs:
         - !_OutputArg
-          member: String
+          label: String
           name: _DomainKind
           typeKind: !_SimpleKind Enum
         - !_OutputArg
@@ -175,7 +175,7 @@ types: !_Map_Type
         output: _DomainValue
         typeArgs:
         - !_OutputArg
-          member: Number
+          label: Number
           name: _DomainKind
           typeKind: !_SimpleKind Enum
         - !_OutputArg
@@ -185,7 +185,7 @@ types: !_Map_Type
         output: _DomainValue
         typeArgs:
         - !_OutputArg
-          member: String
+          label: String
           name: _DomainKind
           typeKind: !_SimpleKind Enum
         - !_OutputArg

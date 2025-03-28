@@ -155,7 +155,7 @@ Failure
   _Aliased
   :
   I@007/0033
-  _Described
+  _Named
   {
     !DF I@009/0034
     aliases
@@ -167,28 +167,28 @@ Failure
 }
 {
   !Du I@006/0037
-  _Described
+  _Named
   :
   I@007/0038
-  _Named
+  _Described
   {
     !DF I@009/0039
-    description
+    name
     :
-    I@022/0039
-    String
-    []
+    I@015/0039
+    _Identifier
   }
 }
 {
   !Du I@006/0042
-  _Named
+  _Described
   {
     !DF I@009/0043
-    name
+    description
     :
-    I@015/0043
-    _Identifier
+    I@022/0043
+    String
+    []
   }
 }
 {
@@ -246,11 +246,11 @@ Failure
 {
   !En I@006/0059
   _Resolution
-  !EM I@020/0059
+  !EL I@020/0059
   Parallel
-  !EM I@029/0059
+  !EL I@029/0059
   Sequential
-  !EM I@040/0059
+  !EL I@040/0059
   Single
 }
 {
@@ -305,17 +305,17 @@ Failure
 {
   !En I@006/0074
   _Location
-  !EM I@018/0074
+  !EL I@018/0074
   Operation
-  !EM I@028/0074
+  !EL I@028/0074
   Variable
-  !EM I@037/0074
+  !EL I@037/0074
   Field
-  !EM I@043/0074
+  !EL I@043/0074
   Inline
-  !EM I@050/0074
+  !EL I@050/0074
   Spread
-  !EM I@057/0074
+  !EL I@057/0074
   Fragment
 }
 {
@@ -323,7 +323,7 @@ Failure
   _Setting
   :
   I@007/0077
-  _Described
+  _Named
   {
     !OF I@009/0078
     value

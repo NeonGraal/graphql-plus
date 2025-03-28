@@ -45,7 +45,7 @@ public interface IGqlpDomainTrueFalse
   bool IsTrue { get; }
 }
 
-public interface IGqlpDomainMember
+public interface IGqlpDomainLabel
   : IGqlpDomainItem
 {
   string EnumType { get; }
@@ -68,17 +68,17 @@ public interface IGqlpDomainRegex
 }
 
 public interface IGqlpEnum
-  : IGqlpValued<IGqlpEnumItem>
+  : IGqlpValued<IGqlpEnumLabel>
 { }
 
-public interface IGqlpEnumItem
+public interface IGqlpEnumLabel
   : IGqlpAliased
 { }
 
 public interface IGqlpUnion
-  : IGqlpValued<IGqlpUnionItem>
+  : IGqlpValued<IGqlpUnionMember>
 { }
 
-public interface IGqlpUnionItem
+public interface IGqlpUnionMember
   : IGqlpNamed, IGqlpDescribed
 { }

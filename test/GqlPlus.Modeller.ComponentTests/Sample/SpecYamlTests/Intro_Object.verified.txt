@@ -1,0 +1,14 @@
+﻿!_Schema
+_errors:
+- !_Error
+  _at: !_At {_col: 25, _line: 1}
+  _kind: !_TokenKind Punctuation
+  _message: Invalid Output. Expected type parameter.
+- !_Error
+  _at: !_At {_col: 25, _line: 1}
+  _kind: !_TokenKind Punctuation
+  _message: Invalid Spec. Expected no more text.
+types: !_Map_Type
+  !_Identifier _TypeObject: !_TypeOutput
+    name: _TypeObject
+    typeKind: !_TypeKind Output

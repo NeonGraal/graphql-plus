@@ -103,7 +103,7 @@ public interface ICheckTypeModel<TTypeKind, TRender>
 
 public interface IParentModel<TItem>
 {
-  BaseTypeModel NewParent(string name, TItem[] members, string? parent = null);
+  BaseTypeModel NewParent(string name, TItem[] items, string? parent = null);
 }
 
 public class ExpectedTypeInput<TParent>(

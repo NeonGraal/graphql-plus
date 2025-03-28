@@ -12,13 +12,13 @@ output _DomainRef<$kind:_DomainKind> {
         domainKind: $kind
     }
 
-output _BaseDomain<$domain $item $domainItem> {
+output _BaseDomain<$domain:_DomainKind $item:_BaseDomainItem $domainItem:_DomainItem> {
     : _ParentType<_TypeKind.Domain $item $domainItem>
         domainKind: $domain
     }
 
 dual _BaseDomainItem {
-        description: String[]
+    : _Described
         exclude: Boolean
     }
 
@@ -27,7 +27,7 @@ output _DomainItem<$item:_BaseDomainItem> {
         domain: _Identifier
     }
 
-output _DomainValue<$kind $value> {
+output _DomainValue<$kind:_DomainKind $value> {
     : _DomainRef<$kind>
         value: $value
     }

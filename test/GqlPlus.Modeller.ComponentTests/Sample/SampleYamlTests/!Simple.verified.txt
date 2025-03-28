@@ -1,0 +1,615 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DomBoolDescr: !_DomainBoolean
+    allItems:
+    - !_DomainItem(_DomainTrueFalse)
+      domain: DomBoolDescr
+      exclude: false
+      value: true
+    domainKind: !_DomainKind Boolean
+    items:
+    - !_DomainTrueFalse
+      exclude: false
+      value: true
+    name: DomBoolDescr
+    typeKind: !_TypeKind Domain
+  !_Identifier DomBoolPrntTest: !_DomainBoolean
+    allItems:
+    - !_DomainItem(_DomainTrueFalse)
+      domain: DomBoolTestPrnt
+      exclude: false
+      value: true
+    - !_DomainItem(_DomainTrueFalse)
+      domain: DomBoolPrntTest
+      exclude: false
+      value: false
+    domainKind: !_DomainKind Boolean
+    items:
+    - !_DomainTrueFalse
+      exclude: false
+      value: false
+    name: DomBoolPrntTest
+    parent: !_TypeRef(_SimpleKind)
+      name: DomBoolTestPrnt
+      typeKind: !_SimpleKind Domain
+    typeKind: !_TypeKind Domain
+  !_Identifier DomBoolTestPrnt: !_DomainBoolean
+    allItems:
+    - !_DomainItem(_DomainTrueFalse)
+      domain: DomBoolTestPrnt
+      exclude: false
+      value: true
+    domainKind: !_DomainKind Boolean
+    items:
+    - !_DomainTrueFalse
+      exclude: false
+      value: true
+    name: DomBoolTestPrnt
+    typeKind: !_TypeKind Domain
+  !_Identifier DomEnum: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainLabel)
+      domain: DomEnum
+      exclude: false
+      value: !_EnumValue
+        label: dom_enum
+        name: EnumDom
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+    - !_DomainLabel
+      exclude: false
+      value: !_EnumValue
+        label: dom_enum
+        name: EnumDom
+        typeKind: !_SimpleKind Enum
+    name: DomEnum
+    typeKind: !_TypeKind Domain
+  !_Identifier DomEnumAll: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainLabel)
+      domain: DomEnumAll
+      exclude: false
+      value: !_EnumValue
+        label: '*'
+        name: EnumDomAll
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+    - !_DomainLabel
+      exclude: false
+      value: !_EnumValue
+        label: '*'
+        name: EnumDomAll
+        typeKind: !_SimpleKind Enum
+    name: DomEnumAll
+    typeKind: !_TypeKind Domain
+  !_Identifier DomEnumAllParent: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainLabel)
+      domain: DomEnumAllParent
+      exclude: false
+      value: !_EnumValue
+        label: '*'
+        name: EnumDomAllParent
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+    - !_DomainLabel
+      exclude: false
+      value: !_EnumValue
+        label: '*'
+        name: EnumDomAllParent
+        typeKind: !_SimpleKind Enum
+    name: DomEnumAllParent
+    typeKind: !_TypeKind Domain
+  !_Identifier DomEnumDescr: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainLabel)
+      domain: DomEnumDescr
+      exclude: false
+      value: !_EnumValue
+        label: dom_label_desc
+        name: EnumDomDescr
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+    - !_DomainLabel
+      exclude: false
+      value: !_EnumValue
+        label: dom_label_desc
+        name: EnumDomDescr
+        typeKind: !_SimpleKind Enum
+    name: DomEnumDescr
+    typeKind: !_TypeKind Domain
+  !_Identifier DomEnumParent: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainLabel)
+      domain: DomEnumParent
+      exclude: false
+      value: !_EnumValue
+        label: dom_enum_parent
+        name: EnumDomParent
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+    - !_DomainLabel
+      exclude: false
+      value: !_EnumValue
+        label: dom_enum_parent
+        name: EnumDomParent
+        typeKind: !_SimpleKind Enum
+    name: DomEnumParent
+    typeKind: !_TypeKind Domain
+  !_Identifier DomEnumPrnt: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainLabel)
+      domain: DomPrntEnum
+      exclude: false
+      value: !_EnumValue
+        label: both_parent
+        name: EnumDomBoth
+        typeKind: !_SimpleKind Enum
+    - !_DomainItem(_DomainLabel)
+      domain: DomEnumPrnt
+      exclude: false
+      value: !_EnumValue
+        label: both_enum
+        name: EnumDomBoth
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+    - !_DomainLabel
+      exclude: false
+      value: !_EnumValue
+        label: both_enum
+        name: EnumDomBoth
+        typeKind: !_SimpleKind Enum
+    name: DomEnumPrnt
+    parent: !_TypeRef(_SimpleKind)
+      name: DomPrntEnum
+      typeKind: !_SimpleKind Domain
+    typeKind: !_TypeKind Domain
+  !_Identifier DomLabel: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainLabel)
+      domain: DomLabel
+      exclude: false
+      value: !_EnumValue
+        label: dom_label
+        name: LabelDom
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+    - !_DomainLabel
+      exclude: false
+      value: !_EnumValue
+        label: dom_label
+        name: LabelDom
+        typeKind: !_SimpleKind Enum
+    name: DomLabel
+    typeKind: !_TypeKind Domain
+  !_Identifier DomNumDescr: !_DomainNumber
+    allItems:
+    - !_DomainItem(_DomainRange)
+      domain: DomNumDescr
+      exclude: false
+      to: 2
+    domainKind: !_DomainKind Number
+    items:
+    - !_DomainRange
+      exclude: false
+      to: 2
+    name: DomNumDescr
+    typeKind: !_TypeKind Domain
+  !_Identifier DomNumPrnt: !_DomainNumber
+    allItems:
+    - !_DomainItem(_DomainRange)
+      domain: DomPrntNum
+      exclude: false
+      to: 2
+    - !_DomainItem(_DomainRange)
+      domain: DomNumPrnt
+      exclude: false
+      from: 2
+    domainKind: !_DomainKind Number
+    items:
+    - !_DomainRange
+      exclude: false
+      from: 2
+    name: DomNumPrnt
+    parent: !_TypeRef(_SimpleKind)
+      name: DomPrntNum
+      typeKind: !_SimpleKind Domain
+    typeKind: !_TypeKind Domain
+  !_Identifier DomPrntEnum: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainLabel)
+      domain: DomPrntEnum
+      exclude: false
+      value: !_EnumValue
+        label: both_parent
+        name: EnumDomBoth
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+    - !_DomainLabel
+      exclude: false
+      value: !_EnumValue
+        label: both_parent
+        name: EnumDomBoth
+        typeKind: !_SimpleKind Enum
+    name: DomPrntEnum
+    typeKind: !_TypeKind Domain
+  !_Identifier DomPrntNum: !_DomainNumber
+    allItems:
+    - !_DomainItem(_DomainRange)
+      domain: DomPrntNum
+      exclude: false
+      to: 2
+    domainKind: !_DomainKind Number
+    items:
+    - !_DomainRange
+      exclude: false
+      to: 2
+    name: DomPrntNum
+    typeKind: !_TypeKind Domain
+  !_Identifier DomPrntStr: !_DomainString
+    allItems:
+    - !_DomainItem(_DomainRegex)
+      domain: DomPrntStr
+      exclude: false
+      pattern: b+
+    domainKind: !_DomainKind String
+    items:
+    - !_DomainRegex
+      exclude: false
+      pattern: b+
+    name: DomPrntStr
+    typeKind: !_TypeKind Domain
+  !_Identifier DomStrDescr: !_DomainString
+    allItems:
+    - !_DomainItem(_DomainRegex)
+      domain: DomStrDescr
+      exclude: false
+      pattern: a+
+    domainKind: !_DomainKind String
+    items:
+    - !_DomainRegex
+      exclude: false
+      pattern: a+
+    name: DomStrDescr
+    typeKind: !_TypeKind Domain
+  !_Identifier DomStrPrnt: !_DomainString
+    allItems:
+    - !_DomainItem(_DomainRegex)
+      domain: DomPrntStr
+      exclude: false
+      pattern: b+
+    - !_DomainItem(_DomainRegex)
+      domain: DomStrPrnt
+      exclude: false
+      pattern: a+
+    domainKind: !_DomainKind String
+    items:
+    - !_DomainRegex
+      exclude: false
+      pattern: a+
+    name: DomStrPrnt
+    parent: !_TypeRef(_SimpleKind)
+      name: DomPrntStr
+      typeKind: !_SimpleKind Domain
+    typeKind: !_TypeKind Domain
+  !_Identifier EnAliasPrnt: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnAliasPrnt
+      name: val_alias
+    items:
+    - !_Aliased
+      name: val_alias
+    name: EnAliasPrnt
+    typeKind: !_TypeKind Enum
+  !_Identifier EnDescr: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnDescr
+      name: val_test
+    items:
+    - !_Aliased
+      description: 'Enum Descr'
+      name: val_test
+    name: EnDescr
+    typeKind: !_TypeKind Enum
+  !_Identifier EnDupPrnt: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      aliases: [val_prnt_dup]
+      enum: EnDupPrnt
+      name: val_dup
+    items:
+    - !_Aliased
+      aliases: [val_prnt_dup]
+      name: val_dup
+    name: EnDupPrnt
+    typeKind: !_TypeKind Enum
+  !_Identifier EnPrntAlias: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnAliasPrnt
+      name: val_alias
+    - !_EnumLabel
+      enum: EnPrntAlias
+      name: val_prnt_alias
+    - !_EnumLabel
+      aliases: [alias_val]
+      enum: EnPrntAlias
+      name: val_alias
+    items:
+    - !_Aliased
+      name: val_prnt_alias
+    - !_Aliased
+      aliases: [alias_val]
+      name: val_alias
+    name: EnPrntAlias
+    parent: !_TypeRef(_SimpleKind)
+      name: EnAliasPrnt
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
+  !_Identifier EnPrntDup: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      aliases: [val_prnt_dup]
+      enum: EnDupPrnt
+      name: val_dup
+    - !_EnumLabel
+      enum: EnPrntDup
+      name: val_prnt_dup
+    items:
+    - !_Aliased
+      name: val_prnt_dup
+    name: EnPrntDup
+    parent: !_TypeRef(_SimpleKind)
+      name: EnDupPrnt
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
+  !_Identifier EnPrntTest: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnPrntTest
+      name: val_test
+    items:
+    - !_Aliased
+      name: val_test
+    name: EnPrntTest
+    typeKind: !_TypeKind Enum
+  !_Identifier EnTestPrnt: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnPrntTest
+      name: val_test
+    - !_EnumLabel
+      enum: EnTestPrnt
+      name: val_prnt
+    items:
+    - !_Aliased
+      name: val_prnt
+    name: EnTestPrnt
+    parent: !_TypeRef(_SimpleKind)
+      name: EnPrntTest
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
+  !_Identifier EnumDom: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnumDom
+      name: dom_enum
+    items:
+    - !_Aliased
+      name: dom_enum
+    name: EnumDom
+    typeKind: !_TypeKind Enum
+  !_Identifier EnumDomAll: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnumDomAll
+      name: dom_all
+    - !_EnumLabel
+      enum: EnumDomAll
+      name: dom_enum_all
+    items:
+    - !_Aliased
+      name: dom_all
+    - !_Aliased
+      name: dom_enum_all
+    name: EnumDomAll
+    typeKind: !_TypeKind Enum
+  !_Identifier EnumDomAllParent: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnumDomParentAll
+      name: dom_enum_all_parent
+    - !_EnumLabel
+      enum: EnumDomAllParent
+      name: dom_all_parent
+    items:
+    - !_Aliased
+      name: dom_all_parent
+    name: EnumDomAllParent
+    parent: !_TypeRef(_SimpleKind)
+      name: EnumDomParentAll
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
+  !_Identifier EnumDomBoth: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnumDomBoth
+      name: both_enum
+    - !_EnumLabel
+      enum: EnumDomBoth
+      name: both_parent
+    items:
+    - !_Aliased
+      name: both_enum
+    - !_Aliased
+      name: both_parent
+    name: EnumDomBoth
+    typeKind: !_TypeKind Enum
+  !_Identifier EnumDomDescr: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnumDomDescr
+      name: dom_label_desc
+    items:
+    - !_Aliased
+      name: dom_label_desc
+    name: EnumDomDescr
+    typeKind: !_TypeKind Enum
+  !_Identifier EnumDomDup: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnumDomDup
+      name: eum_dom_dup
+    items:
+    - !_Aliased
+      name: eum_dom_dup
+    name: EnumDomDup
+    typeKind: !_TypeKind Enum
+  !_Identifier EnumDomDupParent: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnumDomDupParent
+      name: enum_dom_parent_dup
+    items:
+    - !_Aliased
+      name: enum_dom_parent_dup
+    name: EnumDomDupParent
+    typeKind: !_TypeKind Enum
+  !_Identifier EnumDomParent: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnumParentDom
+      name: dom_enum_parent
+    - !_EnumLabel
+      enum: EnumDomParent
+      name: dom_parent_enum
+    items:
+    - !_Aliased
+      name: dom_parent_enum
+    name: EnumDomParent
+    parent: !_TypeRef(_SimpleKind)
+      name: EnumParentDom
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
+  !_Identifier EnumDomParentAll: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnumDomParentAll
+      name: dom_enum_all_parent
+    items:
+    - !_Aliased
+      name: dom_enum_all_parent
+    name: EnumDomParentAll
+    typeKind: !_TypeKind Enum
+  !_Identifier EnumDomParentUnique: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnumDomParentUnique
+      name: enum_dom_parent_dup
+    items:
+    - !_Aliased
+      name: enum_dom_parent_dup
+    name: EnumDomParentUnique
+    typeKind: !_TypeKind Enum
+  !_Identifier EnumDomUnique: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnumDomUnique
+      name: eum_dom_value
+    - !_EnumLabel
+      enum: EnumDomUnique
+      name: eum_dom_dup
+    items:
+    - !_Aliased
+      name: eum_dom_value
+    - !_Aliased
+      name: eum_dom_dup
+    name: EnumDomUnique
+    typeKind: !_TypeKind Enum
+  !_Identifier EnumDomUniqueParent: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnumDomParentUnique
+      name: enum_dom_parent_dup
+    - !_EnumLabel
+      enum: EnumDomUniqueParent
+      name: value
+    items:
+    - !_Aliased
+      name: value
+    name: EnumDomUniqueParent
+    parent: !_TypeRef(_SimpleKind)
+      name: EnumDomParentUnique
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
+  !_Identifier EnumParentDom: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnumParentDom
+      name: dom_enum_parent
+    items:
+    - !_Aliased
+      name: dom_enum_parent
+    name: EnumParentDom
+    typeKind: !_TypeKind Enum
+  !_Identifier LabelDom: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: LabelDom
+      name: dom_label
+    items:
+    - !_Aliased
+      name: dom_label
+    name: LabelDom
+    typeKind: !_TypeKind Enum
+  !_Identifier PrntUnion: !_TypeUnion
+    allItems:
+    - !_UnionMember
+      name: Number
+      union: PrntUnion
+    items:
+    - !_Aliased
+      name: Number
+    name: PrntUnion
+    typeKind: !_TypeKind Union
+  !_Identifier UnionDescr: !_TypeUnion
+    allItems:
+    - !_UnionMember
+      name: Number
+      union: UnionDescr
+    items:
+    - !_Aliased
+      name: Number
+    name: UnionDescr
+    typeKind: !_TypeKind Union
+  !_Identifier UnionPrnt: !_TypeUnion
+    allItems:
+    - !_UnionMember
+      name: Number
+      union: PrntUnion
+    - !_UnionMember
+      name: String
+      union: UnionPrnt
+    - !_UnionMember
+      name: Number
+      union: UnionPrnt
+    items:
+    - !_Aliased
+      name: String
+    - !_Aliased
+      name: Number
+    name: UnionPrnt
+    parent: !_TypeRef(_SimpleKind)
+      name: PrntUnion
+      typeKind: !_SimpleKind Union
+    typeKind: !_TypeKind Union

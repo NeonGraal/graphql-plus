@@ -4,79 +4,79 @@ using GqlPlus.Merging;
 namespace GqlPlus.Verifying.Schema.Simple;
 
 internal class VerifyDomainEnum(
-  IMerge<IGqlpDomainMember> members
-) : AstDomainVerifier<IGqlpDomainMember>(members)
+  IMerge<IGqlpDomainLabel> items
+) : AstDomainVerifier<IGqlpDomainLabel>(items)
 {
-  protected override void VerifyDomain(IGqlpDomain<IGqlpDomainMember> domain, EnumContext context)
+  protected override void VerifyDomain(IGqlpDomain<IGqlpDomainLabel> domain, EnumContext context)
   {
-    EnumMembers members = new();
+    EnumLabels labels = new();
 
-    foreach (IGqlpDomainMember member in domain.Items) {
-      if (string.IsNullOrWhiteSpace(member.EnumType)) {
-        if (context.GetEnumValue(member.EnumItem, out string? enumType)) {
-          member.SetEnumType(enumType);
-          if (context.GetEnumType(member.EnumType, out IGqlpEnum? theType)) {
-            members.Add(member.Excludes, theType, member.EnumItem);
+    foreach (IGqlpDomainLabel label in domain.Items) {
+      if (string.IsNullOrWhiteSpace(label.EnumType)) {
+        if (context.GetEnumValue(label.EnumItem, out string? enumType)) {
+          label.SetEnumType(enumType);
+          if (context.GetEnumType(label.EnumType, out IGqlpEnum? theType)) {
+            labels.Add(label.Excludes, theType, label.EnumItem);
           }
         } else {
-          context.AddError(member, "Domain Enum Member", $"Enum Value '{member.EnumItem}' not defined");
+          context.AddError(label, "Domain Enum Item", $"Enum Value '{label.EnumItem}' not defined");
         }
-      } else if (context.GetEnumType(member.EnumType, out IGqlpEnum? theType)) {
-        if (member.EnumItem == "*") {
-          AddAllMembers(members, context, member.Excludes, theType);
-        } else if (context.GetEnumValueType(theType, member.EnumItem, out IGqlpEnum? memberType)) {
-          members.Add(member.Excludes, memberType, member.EnumItem);
+      } else if (context.GetEnumType(label.EnumType, out IGqlpEnum? theType)) {
+        if (label.EnumItem == "*") {
+          AddAllLabels(labels, context, label.Excludes, theType);
+        } else if (context.GetEnumValueType(theType, label.EnumItem, out IGqlpEnum? enumType)) {
+          labels.Add(label.Excludes, enumType, label.EnumItem);
         } else {
-          context.AddError(member, "Domain Enum Value", $"'{member.EnumItem}' not a Value of '{member.EnumType}'");
+          context.AddError(label, "Domain Enum Value", $"'{label.EnumItem}' not a Value of '{label.EnumType}'");
         }
       } else {
-        context.AddError(member, "Domain Enum", $"'{member.EnumType}' not an Enum type");
+        context.AddError(label, "Domain Enum", $"'{label.EnumType}' not an Enum type");
       }
     }
 
-    foreach (EnumMember[] duplicate in members.DuplicateMembers()) {
-      string member = duplicate[0].Member;
+    foreach (EnumLabel[] duplicate in labels.DuplicateLabels()) {
+      string label = duplicate[0].Label;
       string enums = duplicate.Select(x => x.Enum.Name).Joined();
-      context.AddError(domain, "Domain Enum", $"'{member}' duplicated from these Enums: {enums}");
+      context.AddError(domain, "Domain Enum", $"'{label}' duplicated from these Enums: {enums}");
     }
   }
 
-  private static void AddAllMembers(EnumMembers members, EnumContext context, bool excludes, IGqlpEnum enumType)
+  private static void AddAllLabels(EnumLabels labels, EnumContext context, bool excludes, IGqlpEnum enumType)
   {
-    foreach (IGqlpEnumItem enumMember in enumType.Items) {
-      members.Add(excludes, enumType, enumMember.Name);
+    foreach (IGqlpEnumLabel enumLabel in enumType.Items) {
+      labels.Add(excludes, enumType, enumLabel.Name);
     }
 
     if (context.GetEnumType(enumType.Parent, out IGqlpEnum? parentType)) {
-      AddAllMembers(members, context, excludes, parentType);
+      AddAllLabels(labels, context, excludes, parentType);
     }
   }
 }
 
-internal record struct EnumMember(IGqlpEnum Enum, string Member);
+internal record struct EnumLabel(IGqlpEnum Enum, string Label);
 
-internal class EnumMembers
+internal class EnumLabels
 {
-  private readonly List<EnumMember> _includes = [];
-  private readonly List<EnumMember> _excludes = [];
+  private readonly List<EnumLabel> _includes = [];
+  private readonly List<EnumLabel> _excludes = [];
 
-  internal void Add(bool excluded, IGqlpEnum theEnum, string theMember)
+  internal void Add(bool excluded, IGqlpEnum theEnum, string theLabel)
   {
-    IGqlpEnumItem enumMember = theEnum.Items.First(m => m.Name == theMember || m.Aliases.Contains(theMember));
+    IGqlpEnumLabel enumLabel = theEnum.Items.First(m => m.Name == theLabel || m.Aliases.Contains(theLabel));
     if (excluded) {
-      _excludes.Add(new(theEnum, enumMember.Name));
+      _excludes.Add(new(theEnum, enumLabel.Name));
     } else {
-      _includes.Add(new(theEnum, enumMember.Name));
+      _includes.Add(new(theEnum, enumLabel.Name));
     }
   }
 
-  internal EnumMember[][] DuplicateMembers()
+  internal EnumLabel[][] DuplicateLabels()
   {
-    IEnumerable<IGrouping<string, EnumMember>> allMembers = _includes
+    IEnumerable<IGrouping<string, EnumLabel>> allLabels = _includes
       .Except(_excludes)
-      .GroupBy(m => m.Member);
+      .GroupBy(m => m.Label);
 
-    return [.. allMembers
+    return [.. allLabels
       .Where(g => g.Count() != 1)
       .Select(g => g.ToArray())];
   }

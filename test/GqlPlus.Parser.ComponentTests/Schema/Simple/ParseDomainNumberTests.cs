@@ -51,8 +51,8 @@ public sealed class ParseDomainNumberTests(
       .FalseExpected(
         name + $"{{number ~{max} {min}!}}");
 
-  private static AstDomain<DomainRangeAst, IGqlpDomainRange> NewDomain(string name, DomainRangeAst[] members)
-    => new(AstNulls.At, name, DomainKind.Number, members);
+  private static AstDomain<DomainRangeAst, IGqlpDomainRange> NewDomain(string name, DomainRangeAst[] ranges)
+    => new(AstNulls.At, name, DomainKind.Number, ranges);
 
   private static DomainRangeAst NewRange(decimal? min, decimal? max)
     => new(AstNulls.At, "", false, min, max);

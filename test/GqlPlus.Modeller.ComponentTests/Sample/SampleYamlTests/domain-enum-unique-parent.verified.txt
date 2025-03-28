@@ -1,0 +1,38 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier EnumDomDupParent: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnumDomDupParent
+      name: enum_dom_parent_dup
+    items:
+    - !_Aliased
+      name: enum_dom_parent_dup
+    name: EnumDomDupParent
+    typeKind: !_TypeKind Enum
+  !_Identifier EnumDomParentUnique: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnumDomParentUnique
+      name: enum_dom_parent_dup
+    items:
+    - !_Aliased
+      name: enum_dom_parent_dup
+    name: EnumDomParentUnique
+    typeKind: !_TypeKind Enum
+  !_Identifier EnumDomUniqueParent: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnumDomParentUnique
+      name: enum_dom_parent_dup
+    - !_EnumLabel
+      enum: EnumDomUniqueParent
+      name: value
+    items:
+    - !_Aliased
+      name: value
+    name: EnumDomUniqueParent
+    parent: !_TypeRef(_SimpleKind)
+      name: EnumDomParentUnique
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum

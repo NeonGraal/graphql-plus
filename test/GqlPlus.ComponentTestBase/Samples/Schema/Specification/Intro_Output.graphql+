@@ -3,7 +3,7 @@ output _TypeOutput {
     }
 
 output _OutputBase {
-    : _ObjBase
+    : _ObjBase<_OutputTypeArg>
         output: _Identifier
     | _DualBase
     }
@@ -30,14 +30,13 @@ output _OutputAlternate {
     : _Alternate<_OutputBase>
     }
 
-output _OutputArg {
-    : _TypeRef<_TypeKind>
-        member: _Identifier?
-    | _TypeParam
+output _OutputTypeArg {
+    : _ObjTypeArg
+        label: _Identifier?
     }
 
 output _OutputEnum {
     : _TypeRef<_TypeKind.Enum>
         field: _Identifier
-        member: _Identifier
+        label: _Identifier
     }

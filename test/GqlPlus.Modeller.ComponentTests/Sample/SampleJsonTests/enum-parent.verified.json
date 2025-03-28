@@ -1,0 +1,52 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnPrntTest": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnPrntTest",
+          "name": "val_test"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "val_test"
+        }
+      ],
+      "name": "EnPrntTest",
+      "typeKind": "Enum"
+    },
+    "EnTestPrnt": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnPrntTest",
+          "name": "val_test"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnTestPrnt",
+          "name": "val_prnt"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "val_prnt"
+        }
+      ],
+      "name": "EnTestPrnt",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "EnPrntTest",
+        "typeKind": "Enum"
+      },
+      "typeKind": "Enum"
+    }
+  }
+}

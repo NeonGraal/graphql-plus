@@ -14,13 +14,13 @@ output _BaseType<$kind:_TypeKind> {
         typeKind: $kind
     }
 
-output _ChildType<$kind:_TypeKind $parent> {
+output _ChildType<$kind:_TypeKind $parent:_Described> {
     : _BaseType<$kind>
         parent: $parent
     }
 
-output _ParentType<$kind:_TypeKind $item $allItem> {
-    : _ChildType<$kind _Identifier>
+output _ParentType<$kind:_TypeKind $item:_Described $allItem:_Described> {
+    : _ChildType<$kind _Named>
         items: $item[]
         allItems: $allItem[]
     }

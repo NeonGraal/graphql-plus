@@ -11,27 +11,27 @@ internal abstract class CheckParentModel<TAst, TTypeKind, TModel, TItem>(
   where TAst : IGqlpType<string>
   where TModel : IModelBase
 {
-  BaseTypeModel IParentModel<TItem>.NewParent(string name, TItem[] members, string? parent)
-    => NewParent(name, members, parent);
+  BaseTypeModel IParentModel<TItem>.NewParent(string name, TItem[] items, string? parent)
+    => NewParent(name, items, parent);
 
-  public IEnumerable<string> ExpectedMembers(string field, string[] members)
-    => ItemsExpected(field, members, ExpectedMember);
+  public IEnumerable<string> ExpectedItems(string field, string[] items)
+    => ItemsExpected(field, items, ExpectedItem);
 
-  private IEnumerable<string> ExpectedMember(string member)
-        => ["- !_Aliased", "  name: " + member];
+  private IEnumerable<string> ExpectedItem(string item)
+        => ["- !_Aliased", "  name: " + item];
 
-  public IEnumerable<string> ExpectedAllMembers(string field, string[] members, string type)
-    => ItemsExpected(field, members, ExpectedAllMember(type));
+  public IEnumerable<string> ExpectedAllItems(string field, string[] items, string type)
+    => ItemsExpected(field, items, ExpectedAllItem(type));
 
-  internal abstract BaseTypeModel NewParent(string name, TItem[] members, string? parent = null);
+  internal abstract BaseTypeModel NewParent(string name, TItem[] items, string? parent = null);
 
-  protected abstract ToExpected<string> ExpectedAllMember(string type);
+  protected abstract ToExpected<string> ExpectedAllItem(string type);
 }
 
 public interface ICheckParentModel<TTypeKind, TRender>
   : ICheckTypeModel<TTypeKind, TRender>
   where TRender : IModelBase
 {
-  IEnumerable<string> ExpectedMembers(string field, string[] members);
-  IEnumerable<string> ExpectedAllMembers(string field, string[] members, string type);
+  IEnumerable<string> ExpectedItems(string field, string[] items);
+  IEnumerable<string> ExpectedAllItems(string field, string[] items, string type);
 }

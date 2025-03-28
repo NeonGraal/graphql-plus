@@ -42,6 +42,7 @@ public class BuiltInTests(IModelAndRender renderer)
   public void Html_Index()
   {
     Structured result = new Map<Structured>() {
+      ["title"] = "BuiltIn",
       ["groups"] = new Map<Structured>() {
         ["Basic"] = BuiltIn.Basic.Select(t => t.Name).Render(),
         ["Internal"] = BuiltIn.Internal.Select(t => t.Name).Render(),

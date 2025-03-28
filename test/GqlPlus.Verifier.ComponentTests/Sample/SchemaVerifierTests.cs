@@ -103,7 +103,7 @@ public class SchemaVerifierTests(
 
   private void VerifyInput_Valid(string input, string testDirectory, string testName)
   {
-    IResult<IGqlpSchema> parse = Parse(input);
+    IResult<IGqlpSchema> parse = Parse(input, "Schema");
 
     if (parse is IResultError<SchemaAst> error) {
       error.Message.ShouldBeNull(testName);
@@ -118,7 +118,7 @@ public class SchemaVerifierTests(
 
   private async Task VerifyInput_Invalid(string input, string testDirectory, string test)
   {
-    IResult<IGqlpSchema> parse = Parse(input);
+    IResult<IGqlpSchema> parse = Parse(input, "Schema");
 
     TokenMessages result = [];
     if (parse.IsOk()) {

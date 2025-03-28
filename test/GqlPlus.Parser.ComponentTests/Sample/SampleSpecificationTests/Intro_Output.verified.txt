@@ -25,6 +25,10 @@ Success
   :
   I@007/0006
   _ObjBase
+  <
+    I@016/0006
+    _OutputTypeArg
+  >
   {
     !OF I@009/0007
     output
@@ -106,47 +110,39 @@ Success
 }
 {
   !Ou I@008/0033
-  _OutputArg
+  _OutputTypeArg
   :
   I@007/0034
-  _TypeRef
-  <
-    I@016/0034
-    _TypeKind
-  >
+  _ObjTypeArg
   {
     !OF I@009/0035
-    member
+    label
     :
-    I@017/0035
+    I@016/0035
     _Identifier
     ?
   }
-  |
-  !OA I@007/0036
-  I@007/0036
-  _TypeParam
 }
 {
-  !Ou I@008/0039
+  !Ou I@008/0038
   _OutputEnum
   :
-  I@007/0040
+  I@007/0039
   _TypeRef
   <
-    I@016/0040
+    I@016/0039
     _TypeKind.Enum
   >
   {
-    !OF I@009/0041
+    !OF I@009/0040
     field
     :
-    I@016/0041
+    I@016/0040
     _Identifier
-    !OF I@009/0042
-    member
+    !OF I@009/0041
+    label
     :
-    I@017/0042
+    I@016/0041
     _Identifier
   }
 }

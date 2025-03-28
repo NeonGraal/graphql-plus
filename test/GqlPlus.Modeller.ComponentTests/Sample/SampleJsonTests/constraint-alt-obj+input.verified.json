@@ -1,0 +1,69 @@
+﻿{
+  "$tag": "_Schema",
+  "_errors": [
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 34,
+        "_line": 2
+      },
+      "_kind": "Punctuation",
+      "_message": "Invalid Input. Expected type parameter."
+    },
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 34,
+        "_line": 2
+      },
+      "_kind": "Punctuation",
+      "_message": "Invalid Sample. Expected no more text."
+    }
+  ],
+  "types": {
+    "$tag": "_Map_Type",
+    "InpConstraintAltObj": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "InpConstraintAltObj",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "InpConstraintAltObjRef",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "value": "InpConstraintAltObjAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "InpConstraintAltObjRef",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "value": "InpConstraintAltObjAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "InpConstraintAltObj",
+      "typeKind": "Input"
+    },
+    "InpConstraintAltObjRef": {
+      "$tag": "_TypeInput",
+      "name": "InpConstraintAltObjRef",
+      "typeKind": "Input"
+    }
+  }
+}

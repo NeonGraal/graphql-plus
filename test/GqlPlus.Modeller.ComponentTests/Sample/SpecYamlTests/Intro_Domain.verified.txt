@@ -11,16 +11,16 @@ _errors:
 types: !_Map_Type
   !_Identifier _DomainKind: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: _DomainKind
       name: Boolean
-    - !_EnumMember
+    - !_EnumLabel
       enum: _DomainKind
       name: Enum
-    - !_EnumMember
+    - !_EnumLabel
       enum: _DomainKind
       name: Number
-    - !_EnumMember
+    - !_EnumLabel
       enum: _DomainKind
       name: String
     items:
@@ -45,7 +45,7 @@ types: !_Map_Type
         output: _BaseDomain
         typeArgs:
         - !_OutputArg
-          member: Boolean
+          label: Boolean
           name: _DomainKind
           typeKind: !_SimpleKind Enum
         - !_OutputArg
@@ -58,7 +58,7 @@ types: !_Map_Type
         output: _BaseDomain
         typeArgs:
         - !_OutputArg
-          member: Enum
+          label: Enum
           name: _DomainKind
           typeKind: !_SimpleKind Enum
         - !_OutputArg
@@ -71,7 +71,7 @@ types: !_Map_Type
         output: _BaseDomain
         typeArgs:
         - !_OutputArg
-          member: Number
+          label: Number
           name: _DomainKind
           typeKind: !_SimpleKind Enum
         - !_OutputArg
@@ -84,7 +84,7 @@ types: !_Map_Type
         output: _BaseDomain
         typeArgs:
         - !_OutputArg
-          member: String
+          label: String
           name: _DomainKind
           typeKind: !_SimpleKind Enum
         - !_OutputArg
@@ -97,7 +97,7 @@ types: !_Map_Type
         output: _BaseDomain
         typeArgs:
         - !_OutputArg
-          member: Boolean
+          label: Boolean
           name: _DomainKind
           typeKind: !_SimpleKind Enum
         - !_OutputArg
@@ -109,7 +109,7 @@ types: !_Map_Type
         output: _BaseDomain
         typeArgs:
         - !_OutputArg
-          member: Enum
+          label: Enum
           name: _DomainKind
           typeKind: !_SimpleKind Enum
         - !_OutputArg
@@ -121,7 +121,7 @@ types: !_Map_Type
         output: _BaseDomain
         typeArgs:
         - !_OutputArg
-          member: Number
+          label: Number
           name: _DomainKind
           typeKind: !_SimpleKind Enum
         - !_OutputArg
@@ -133,7 +133,7 @@ types: !_Map_Type
         output: _BaseDomain
         typeArgs:
         - !_OutputArg
-          member: String
+          label: String
           name: _DomainKind
           typeKind: !_SimpleKind Enum
         - !_OutputArg

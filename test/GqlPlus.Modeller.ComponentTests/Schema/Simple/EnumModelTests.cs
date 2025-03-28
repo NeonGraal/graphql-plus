@@ -8,32 +8,32 @@ public class EnumModelTests(
 ) : TestTypeModel<SimpleKindModel, TypeEnumModel>(checks)
 {
   [Theory, RepeatData(Repeats)]
-  public void Model_Members(string name, string[] members)
+  public void Model_Labels(string name, string[] labels)
     => checks.EnumExpected(
-      new EnumDeclAst(AstNulls.At, name, members.EnumMembers()),
+      new EnumDeclAst(AstNulls.At, name, labels.EnumLabels()),
       new(name,
-        members: checks.ExpectedMembers("items:", members),
-        allMembers: checks.ExpectedAllMembers("allItems:", members, name)));
+        labels: checks.ExpectedItems("items:", labels),
+        allLabels: checks.ExpectedAllItems("allItems:", labels, name)));
 
   [Theory, RepeatData(Repeats)]
-  public void Model_MembersParent(string name, string parent, string[] parentMembers)
+  public void Model_LabelsParent(string name, string parent, string[] parentLabels)
     => checks
-    .AddParent(checks.NewParent(parent, parentMembers))
+    .AddParent(checks.NewParent(parent, parentLabels))
     .EnumExpected(
       new EnumDeclAst(AstNulls.At, name, []) { Parent = parent, },
-      new(name, parent, allMembers: checks.ExpectedAllMembers("allItems:", parentMembers, parent)));
+      new(name, parent, allLabels: checks.ExpectedAllItems("allItems:", parentLabels, parent)));
 
   [Theory, RepeatData(Repeats)]
-  public void Model_MembersGrandParent(string name, string parent, string[] parentMembers, string grandParent, string[] grandParentMembers)
+  public void Model_LabelsGrandParent(string name, string parent, string[] parentLabels, string grandParent, string[] grandParentLabels)
     => checks
     .SkipIf(string.Equals(parent, grandParent, StringComparison.Ordinal))
-    .AddParent(checks.NewParent(parent, parentMembers, grandParent))
-    .AddParent(checks.NewParent(grandParent, grandParentMembers))
+    .AddParent(checks.NewParent(parent, parentLabels, grandParent))
+    .AddParent(checks.NewParent(grandParent, grandParentLabels))
     .EnumExpected(
       new EnumDeclAst(AstNulls.At, name, []) { Parent = parent, },
-      new(name, parent, allMembers: checks
-        .ExpectedAllMembers("allItems:", grandParentMembers, grandParent)
-        .Concat(checks.ExpectedAllMembers("", parentMembers, parent))));
+      new(name, parent, allLabels: checks
+        .ExpectedAllItems("allItems:", grandParentLabels, grandParent)
+        .Concat(checks.ExpectedAllItems("", parentLabels, parent))));
 
   [Theory, RepeatData(Repeats)]
   public void Model_All(
@@ -41,19 +41,19 @@ public class EnumModelTests(
     string contents,
     string[] aliases,
     string parent,
-    string[] members,
-    string[] parentMembers
+    string[] labels,
+    string[] parentLabels
   ) => checks
-    .AddParent(checks.NewParent(parent, parentMembers))
+    .AddParent(checks.NewParent(parent, parentLabels))
     .EnumExpected(
-      new EnumDeclAst(AstNulls.At, name, members.EnumMembers()) {
+      new EnumDeclAst(AstNulls.At, name, labels.EnumLabels()) {
         Aliases = aliases,
         Description = contents,
         Parent = parent,
       },
-      new(name, parent, aliases, contents, checks.ExpectedMembers("items:", members),
-        checks.ExpectedAllMembers("allItems:", parentMembers, parent)
-        .Concat(checks.ExpectedAllMembers("", members, name))));
+      new(name, parent, aliases, contents, checks.ExpectedItems("items:", labels),
+        checks.ExpectedAllItems("allItems:", parentLabels, parent)
+        .Concat(checks.ExpectedAllItems("", labels, name))));
 }
 
 internal sealed class EnumModelChecks(
@@ -64,8 +64,8 @@ internal sealed class EnumModelChecks(
   public void EnumExpected(IGqlpEnum ast, ExpectedEnumInput input)
     => AstExpected(ast, ExpectedEnum(input));
 
-  protected override ToExpected<string> ExpectedAllMember(string type)
-    => member => ["- !_EnumMember", "  enum: " + type, "  name: " + member];
+  protected override ToExpected<string> ExpectedAllItem(string type)
+    => label => ["- !_EnumLabel", "  enum: " + type, "  name: " + label];
 
   protected override string[] ExpectedParent(string? parent)
     => parent.TypeRefFor(TypeKind);
@@ -76,9 +76,9 @@ internal sealed class EnumModelChecks(
   private string[] ExpectedEnum(ExpectedEnumInput input)
     => ["!_TypeEnum",
       .. input.ExpectedAliases,
-      .. input.AllItems,
+      .. input.AllLabels,
       .. input.ExpectedDescription,
-      .. input.Items,
+      .. input.Labels,
       "name: " + input.Name,
       .. input.Parent.TypeRefFor(SimpleKindModel.Enum),
       "typeKind: !_TypeKind Enum"];
@@ -86,10 +86,10 @@ internal sealed class EnumModelChecks(
   protected override EnumDeclAst NewDescribedAst(string input, string description)
     => new(AstNulls.At, input, description, []);
 
-  internal override TypeEnumModel NewParent(string name, string[] members, string? parent = null)
+  internal override TypeEnumModel NewParent(string name, string[] labels, string? parent = null)
     => new(name) {
       Parent = parent?.TypeRef(SimpleKindModel.Enum),
-      Items = [.. members.Select(m => new AliasedModel(m))]
+      Items = [.. labels.Select(m => new AliasedModel(m))]
     };
 
   internal override EnumDeclAst NewTypeAst(string name, string? parent, string? description, string[]? aliases)
@@ -111,13 +111,13 @@ public sealed class ExpectedEnumInput(
   string? parent = null,
   IEnumerable<string>? aliases = null,
   string? description = null,
-  IEnumerable<string>? members = null,
-  IEnumerable<string>? allMembers = null
+  IEnumerable<string>? labels = null,
+  IEnumerable<string>? allLabels = null
 ) : ExpectedTypeInput<string>(name, parent, aliases, description)
 {
 #pragma warning disable CA1819 // Properties should not return arrays
-  public string[] Items { get; } = [.. members ?? []];
-  public string[] AllItems { get; } = [.. allMembers ?? []];
+  public string[] Labels { get; } = [.. labels ?? []];
+  public string[] AllLabels { get; } = [.. allLabels ?? []];
 #pragma warning restore CA1819 // Properties should not return arrays
 
   internal ExpectedEnumInput(ExpectedTypeInput<string> input)

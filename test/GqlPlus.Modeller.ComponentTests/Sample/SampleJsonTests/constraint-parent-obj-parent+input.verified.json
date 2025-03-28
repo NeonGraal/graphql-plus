@@ -1,0 +1,48 @@
+﻿{
+  "$tag": "_Schema",
+  "_errors": [
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 43,
+        "_line": 2
+      },
+      "_kind": "Punctuation",
+      "_message": "Invalid Input. Expected type parameter."
+    },
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 43,
+        "_line": 2
+      },
+      "_kind": "Punctuation",
+      "_message": "Invalid Sample. Expected no more text."
+    }
+  ],
+  "types": {
+    "$tag": "_Map_Type",
+    "InpConstraintParentObjParent": {
+      "$tag": "_TypeInput",
+      "name": "InpConstraintParentObjParent",
+      "parent": {
+        "$tag": "_InputBase",
+        "input": "InpConstraintParentObjParentRef",
+        "typeArgs": [
+          {
+            "$tag": "_InputArg",
+            "value": "InpConstraintParentObjParentAlt"
+          }
+        ]
+      },
+      "typeKind": "Input"
+    },
+    "InpConstraintParentObjParentRef": {
+      "$tag": "_TypeInput",
+      "name": "InpConstraintParentObjParentRef",
+      "typeKind": "Input"
+    }
+  }
+}

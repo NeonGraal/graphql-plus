@@ -1,0 +1,110 @@
+﻿!_Schema
+categories: !_Map_Categories
+  !_Identifier all: !_Category
+    name: all
+    output: !_TypeRef(_TypeKind)
+      name: All
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+directives: !_Map_Directives
+  !_Identifier all: !_Directive
+    locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
+      Operation: _, Spread: _, Variable: _}
+    name: all
+    repeatable: false
+types: !_Map_Type
+  !_Identifier All: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: All
+      type: !_OutputBase
+        output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: items
+      object: All
+      parameters:
+      - !_InputParam
+        input: Param
+        modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      type: !_OutputBase
+        output: String
+    alternates:
+    - !_OutputAlternate
+      type: !_OutputBase
+        output: String
+    fields:
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: items
+      parameters:
+      - !_InputParam
+        input: Param
+        modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      type: !_OutputBase
+        output: String
+    name: All
+    typeKind: !_TypeKind Output
+  !_Identifier Guid: !_DomainString
+    allItems:
+    - !_DomainItem(_DomainRegex)
+      domain: Guid
+      exclude: false
+      pattern: '[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}'
+    domainKind: !_DomainKind String
+    items:
+    - !_DomainRegex
+      exclude: false
+      pattern: '[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}'
+    name: Guid
+    typeKind: !_TypeKind Domain
+  !_Identifier One: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: One
+      name: Two
+    - !_EnumLabel
+      enum: One
+      name: Three
+    items:
+    - !_Aliased
+      name: Two
+    - !_Aliased
+      name: Three
+    name: One
+    typeKind: !_TypeKind Enum
+  !_Identifier Param: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: Param
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: afterId
+      object: Param
+      type: !_InputBase
+        input: Guid
+    - !_ObjectFor(_InputField)
+      name: beforeId
+      object: Param
+      type: !_InputBase
+        input: Guid
+    alternates:
+    - !_InputAlternate
+      type: !_InputBase
+        input: String
+    fields:
+    - !_InputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: afterId
+      type: !_InputBase
+        input: Guid
+    - !_InputField
+      name: beforeId
+      type: !_InputBase
+        input: Guid
+    name: Param
+    typeKind: !_TypeKind Input

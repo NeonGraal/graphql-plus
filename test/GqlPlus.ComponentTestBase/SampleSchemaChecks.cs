@@ -11,19 +11,18 @@ public class SampleSchemaChecks(
 {
   private readonly Parser<IGqlpSchema>.L _schemaParser = schemaParser;
 
-  protected IResult<IGqlpSchema> Parse(string schema)
+  protected IResult<IGqlpSchema> Parse(string schema, string label)
   {
     Tokenizer tokens = new(schema);
-    return _schemaParser.Parse(tokens, "Schema");
+    return _schemaParser.Parse(tokens, label);
   }
 
   protected async Task<IGqlpSchema> ParseSample(string label, string sample, params string[] dirs)
   {
     string schema = await ReadSchema(sample, dirs);
-    Tokenizer tokens = new(schema);
-
-    return _schemaParser.Parse(tokens, label).Required();
+    return Parse(schema, label).Required();
   }
+
   protected static bool IsObjectInput(string input)
     => input is not null && input.Contains("object ", StringComparison.Ordinal);
 

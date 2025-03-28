@@ -20,7 +20,7 @@ types: !_Map_Type
         output: _BaseType
         typeArgs:
         - !_OutputArg
-          member: Basic
+          label: Basic
           name: _TypeKind
           typeKind: !_SimpleKind Enum
     - !_ObjectFor(_OutputAlternate)
@@ -29,7 +29,7 @@ types: !_Map_Type
         output: _BaseType
         typeArgs:
         - !_OutputArg
-          member: Internal
+          label: Internal
           name: _TypeKind
           typeKind: !_SimpleKind Enum
     - !_ObjectFor(_OutputAlternate)
@@ -62,7 +62,7 @@ types: !_Map_Type
         output: _BaseType
         typeArgs:
         - !_OutputArg
-          member: Basic
+          label: Basic
           name: _TypeKind
           typeKind: !_SimpleKind Enum
     - !_OutputAlternate
@@ -70,7 +70,7 @@ types: !_Map_Type
         output: _BaseType
         typeArgs:
         - !_OutputArg
-          member: Internal
+          label: Internal
           name: _TypeKind
           typeKind: !_SimpleKind Enum
     - !_OutputAlternate

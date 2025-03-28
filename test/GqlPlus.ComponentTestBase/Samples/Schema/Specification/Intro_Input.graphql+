@@ -3,7 +3,7 @@ output _TypeInput {
     }
 
 output _InputBase {
-    : _ObjBase
+    : _ObjBase<_ObjTypeArg>
         input: _Identifier
     | _DualBase
     }

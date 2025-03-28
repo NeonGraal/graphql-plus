@@ -261,7 +261,8 @@ public sealed record TypeIdName
       .Replace('+', '_')
       .Replace('.', '_')
       .Replace(',', '_')
-      .Replace("::", "_", StringComparison.Ordinal);
+      .Replace("::", "_", StringComparison.Ordinal)
+      .Replace("[]", "_Array_", StringComparison.Ordinal);
 
     Safe = Name
       .Replace('<', '(')

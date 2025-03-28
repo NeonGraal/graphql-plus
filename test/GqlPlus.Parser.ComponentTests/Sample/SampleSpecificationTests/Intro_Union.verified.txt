@@ -10,8 +10,8 @@ Success
     I@019/0002
     _TypeKind.Union
     I@035/0002
-    _Described
-    I@046/0002
+    _Named
+    I@042/0002
     _UnionMember
   >
 }
@@ -20,7 +20,7 @@ Success
   _UnionMember
   :
   I@007/0006
-  _Described
+  _Named
   {
     !DF I@009/0007
     union

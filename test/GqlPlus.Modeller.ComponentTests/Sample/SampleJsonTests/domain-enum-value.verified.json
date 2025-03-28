@@ -1,0 +1,55 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DomEnum": {
+      "$tag": "_DomainEnum",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainLabel)",
+          "domain": "DomEnum",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "dom_enum",
+            "name": "EnumDom",
+            "typeKind": "Enum"
+          }
+        }
+      ],
+      "domainKind": "Enum",
+      "items": [
+        {
+          "$tag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "dom_enum",
+            "name": "EnumDom",
+            "typeKind": "Enum"
+          }
+        }
+      ],
+      "name": "DomEnum",
+      "typeKind": "Domain"
+    },
+    "EnumDom": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumDom",
+          "name": "dom_enum"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "dom_enum"
+        }
+      ],
+      "name": "EnumDom",
+      "typeKind": "Enum"
+    }
+  }
+}

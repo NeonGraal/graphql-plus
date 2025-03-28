@@ -1,0 +1,18 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier FieldEnums: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      field: field
+      label: true
+      name: Boolean
+      object: FieldEnums
+      typeKind: !_SimpleKind Enum
+    fields:
+    - !_OutputEnum
+      field: field
+      label: true
+      name: Boolean
+      typeKind: !_SimpleKind Enum
+    name: FieldEnums
+    typeKind: !_TypeKind Output

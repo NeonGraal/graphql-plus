@@ -1,0 +1,48 @@
+﻿{
+  "$tag": "_Schema",
+  "_errors": [
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 43,
+        "_line": 2
+      },
+      "_kind": "Punctuation",
+      "_message": "Invalid Dual. Expected type parameter."
+    },
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 43,
+        "_line": 2
+      },
+      "_kind": "Punctuation",
+      "_message": "Invalid Sample. Expected no more text."
+    }
+  ],
+  "types": {
+    "$tag": "_Map_Type",
+    "DualConstraintParentObjParent": {
+      "$tag": "_TypeDual",
+      "name": "DualConstraintParentObjParent",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "DualConstraintParentObjParentRef",
+        "typeArgs": [
+          {
+            "$tag": "_DualArg",
+            "value": "DualConstraintParentObjParentAlt"
+          }
+        ]
+      },
+      "typeKind": "Dual"
+    },
+    "DualConstraintParentObjParentRef": {
+      "$tag": "_TypeDual",
+      "name": "DualConstraintParentObjParentRef",
+      "typeKind": "Dual"
+    }
+  }
+}

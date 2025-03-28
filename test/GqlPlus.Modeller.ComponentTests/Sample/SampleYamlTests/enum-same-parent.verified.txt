@@ -1,0 +1,28 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier EnParent: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnParent
+      name: parent
+    items:
+    - !_Aliased
+      name: parent
+    name: EnParent
+    typeKind: !_TypeKind Enum
+  !_Identifier EnSameParent: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnParent
+      name: parent
+    - !_EnumLabel
+      enum: EnSameParent
+      name: sameP
+    items:
+    - !_Aliased
+      name: sameP
+    name: EnSameParent
+    parent: !_TypeRef(_SimpleKind)
+      name: EnParent
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum

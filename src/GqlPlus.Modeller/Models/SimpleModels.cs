@@ -22,13 +22,13 @@ public record class BaseDomainItemModel(
 ) : ModelBase
 { }
 
-public record class DomainMemberModel(
+public record class DomainLabelModel(
   EnumValueModel EnumValue,
   bool Exclude
 ) : BaseDomainItemModel(Exclude)
 {
-  public DomainMemberModel(string name, string member, bool exclude)
-    : this(new(name, member), exclude)
+  public DomainLabelModel(string name, string label, bool exclude)
+    : this(new(name, label), exclude)
   { }
 }
 
@@ -60,10 +60,10 @@ public record class DomainItemModel<TItem>(
 
 public record class TypeEnumModel(
   string Name
-) : ParentTypeModel<AliasedModel, EnumMemberModel>(TypeKindModel.Enum, Name)
+) : ParentTypeModel<AliasedModel, EnumLabelModel>(TypeKindModel.Enum, Name)
 { }
 
-public record class EnumMemberModel(
+public record class EnumLabelModel(
   string Name,
   string OfEnum
 ) : AliasedModel(Name)
@@ -71,7 +71,7 @@ public record class EnumMemberModel(
 
 public record class EnumValueModel(
   string Name,
-  string Member
+  string Label
 ) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Enum, Name)
 { }
 

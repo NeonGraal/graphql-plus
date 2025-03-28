@@ -14,7 +14,7 @@ public class ParseOutputBaseTests(
     => checks.TrueExpected(
       name + "<" + enumValues.Joined(s => enumType + "." + s) + ">",
       new OutputBaseAst(AstNulls.At, name) with {
-        BaseArgs = [.. enumValues.Select(enumMember => new OutputArgAst(AstNulls.At, enumType) with { EnumMember = enumMember })]
+        BaseArgs = [.. enumValues.Select(enumLabel => new OutputArgAst(AstNulls.At, enumType) with { EnumLabel = enumLabel })]
       });
 
   [Theory, RepeatData(Repeats)]

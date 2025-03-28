@@ -1,0 +1,33 @@
+﻿{
+  "$tag": "_Schema",
+  "_errors": [
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 25,
+        "_line": 1
+      },
+      "_kind": "Punctuation",
+      "_message": "Invalid Output. Expected type parameter."
+    },
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 25,
+        "_line": 1
+      },
+      "_kind": "Punctuation",
+      "_message": "Invalid Spec. Expected no more text."
+    }
+  ],
+  "types": {
+    "$tag": "_Map_Type",
+    "_TypeObject": {
+      "$tag": "_TypeOutput",
+      "name": "_TypeObject",
+      "typeKind": "Output"
+    }
+  }
+}

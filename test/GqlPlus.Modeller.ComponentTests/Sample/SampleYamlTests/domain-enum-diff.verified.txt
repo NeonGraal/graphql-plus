@@ -1,0 +1,34 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier EnumDiff: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainLabel)
+      domain: EnumDiff
+      exclude: false
+      value: !_EnumValue
+        label: true
+        name: Boolean
+        typeKind: !_SimpleKind Enum
+    - !_DomainItem(_DomainLabel)
+      domain: EnumDiff
+      exclude: false
+      value: !_EnumValue
+        label: false
+        name: Boolean
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+    - !_DomainLabel
+      exclude: false
+      value: !_EnumValue
+        label: true
+        name: Boolean
+        typeKind: !_SimpleKind Enum
+    - !_DomainLabel
+      exclude: false
+      value: !_EnumValue
+        label: false
+        name: Boolean
+        typeKind: !_SimpleKind Enum
+    name: EnumDiff
+    typeKind: !_TypeKind Domain

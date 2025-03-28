@@ -1,0 +1,69 @@
+﻿{
+  "$tag": "_Schema",
+  "_errors": [
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 37,
+        "_line": 2
+      },
+      "_kind": "Punctuation",
+      "_message": "Invalid Dual. Expected type parameter."
+    },
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 37,
+        "_line": 2
+      },
+      "_kind": "Punctuation",
+      "_message": "Invalid Sample. Expected no more text."
+    }
+  ],
+  "types": {
+    "$tag": "_Map_Type",
+    "DualConstraintAltDomain": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "DualConstraintAltDomain",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "DualConstraintAltDomainRef",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "value": "DomConstraintAltDomain"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "DualConstraintAltDomainRef",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "value": "DomConstraintAltDomain"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "DualConstraintAltDomain",
+      "typeKind": "Dual"
+    },
+    "DualConstraintAltDomainRef": {
+      "$tag": "_TypeDual",
+      "name": "DualConstraintAltDomainRef",
+      "typeKind": "Dual"
+    }
+  }
+}

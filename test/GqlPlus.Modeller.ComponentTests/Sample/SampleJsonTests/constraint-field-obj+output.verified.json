@@ -1,0 +1,48 @@
+﻿{
+  "$tag": "_Schema",
+  "_errors": [
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 38,
+        "_line": 2
+      },
+      "_kind": "Punctuation",
+      "_message": "Invalid Output. Expected type parameter."
+    },
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 38,
+        "_line": 2
+      },
+      "_kind": "Punctuation",
+      "_message": "Invalid Sample. Expected no more text."
+    }
+  ],
+  "types": {
+    "$tag": "_Map_Type",
+    "OutpConstraintFieldObj": {
+      "$tag": "_TypeOutput",
+      "name": "OutpConstraintFieldObj",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "OutpConstraintFieldObjRef",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "value": "OutpConstraintFieldObjAlt"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "OutpConstraintFieldObjRef": {
+      "$tag": "_TypeOutput",
+      "name": "OutpConstraintFieldObjRef",
+      "typeKind": "Output"
+    }
+  }
+}

@@ -36,7 +36,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "List",
+                "label": "List",
                 "name": "_ModifierKind",
                 "typeKind": "Enum"
               }
@@ -52,7 +52,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "Dictionary",
+                "label": "Dictionary",
                 "name": "_ModifierKind",
                 "typeKind": "Enum"
               }
@@ -68,7 +68,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "TypeParam",
+                "label": "TypeParam",
                 "name": "_ModifierKind",
                 "typeKind": "Enum"
               }
@@ -85,7 +85,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "List",
+                "label": "List",
                 "name": "_ModifierKind",
                 "typeKind": "Enum"
               }
@@ -100,7 +100,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "Dictionary",
+                "label": "Dictionary",
                 "name": "_ModifierKind",
                 "typeKind": "Enum"
               }
@@ -115,7 +115,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "TypeParam",
+                "label": "TypeParam",
                 "name": "_ModifierKind",
                 "typeKind": "Enum"
               }
@@ -281,7 +281,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "Number",
+                "label": "Number",
                 "name": "_DomainKind",
                 "typeKind": "Enum"
               },
@@ -301,7 +301,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "String",
+                "label": "String",
                 "name": "_DomainKind",
                 "typeKind": "Enum"
               },
@@ -337,7 +337,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "Number",
+                "label": "Number",
                 "name": "_DomainKind",
                 "typeKind": "Enum"
               },
@@ -356,7 +356,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "String",
+                "label": "String",
                 "name": "_DomainKind",
                 "typeKind": "Enum"
               },

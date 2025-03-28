@@ -29,15 +29,6 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -49,6 +40,15 @@
           "type": {
             "$tag": "_DualBase",
             "value": "String"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "_Identifier"
           }
         },
         {
@@ -86,7 +86,7 @@
       "name": "_Aliased",
       "parent": {
         "$tag": "_DualBase",
-        "value": "_Described"
+        "value": "_Named"
       },
       "typeKind": "Dual"
     },
@@ -177,15 +177,6 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -197,6 +188,15 @@
           "type": {
             "$tag": "_DualBase",
             "value": "String"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "_Identifier"
           }
         },
         {
@@ -233,7 +233,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "Output",
+                "label": "Output",
                 "name": "_TypeKind",
                 "typeKind": "Enum"
               }
@@ -274,7 +274,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "Output",
+                "label": "Output",
                 "name": "_TypeKind",
                 "typeKind": "Enum"
               }
@@ -444,15 +444,6 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -484,24 +475,11 @@
         }
       ],
       "name": "_Described",
-      "parent": {
-        "$tag": "_DualBase",
-        "value": "_Named"
-      },
       "typeKind": "Dual"
     },
     "_Directive": {
       "$tag": "_TypeOutput",
       "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "_Identifier"
-          }
-        },
         {
           "$tag": "_ObjectFor(_DualField)",
           "modifiers": [
@@ -515,6 +493,15 @@
           "type": {
             "$tag": "_DualBase",
             "value": "String"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "_Identifier"
           }
         },
         {
@@ -914,32 +901,32 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_Location",
           "name": "Operation"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_Location",
           "name": "Variable"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_Location",
           "name": "Field"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_Location",
           "name": "Inline"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_Location",
           "name": "Spread"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_Location",
           "name": "Fragment"
         }
@@ -978,6 +965,21 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
           "name": "name",
           "object": "_Named",
           "type": {
@@ -997,6 +999,10 @@
         }
       ],
       "name": "_Named",
+      "parent": {
+        "$tag": "_DualBase",
+        "value": "_Described"
+      },
       "typeKind": "Dual"
     },
     "_NameFilter": {
@@ -1025,17 +1031,17 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_Resolution",
           "name": "Parallel"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_Resolution",
           "name": "Sequential"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_Resolution",
           "name": "Single"
         }
@@ -1060,6 +1066,21 @@
     "_Schema": {
       "$tag": "_TypeOutput",
       "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        },
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "name",
@@ -1312,15 +1333,6 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -1332,6 +1344,15 @@
           "type": {
             "$tag": "_DualBase",
             "value": "String"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "_Identifier"
           }
         },
         {
@@ -1357,7 +1378,7 @@
       "name": "_Setting",
       "parent": {
         "$tag": "_DualBase",
-        "value": "_Described"
+        "value": "_Named"
       },
       "typeKind": "Output"
     },
@@ -1373,7 +1394,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "Basic",
+                "label": "Basic",
                 "name": "_TypeKind",
                 "typeKind": "Enum"
               }
@@ -1389,7 +1410,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "Internal",
+                "label": "Internal",
                 "name": "_TypeKind",
                 "typeKind": "Enum"
               }
@@ -1454,7 +1475,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "Basic",
+                "label": "Basic",
                 "name": "_TypeKind",
                 "typeKind": "Enum"
               }
@@ -1469,7 +1490,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "Internal",
+                "label": "Internal",
                 "name": "_TypeKind",
                 "typeKind": "Enum"
               }

@@ -1,75 +1,10 @@
 ﻿!Sc I@001/0001
 Failure
 <
-  !!! P@025/0010 : Invalid Dual. Expected type parameter. - ':_ObjBase>' !!!
-  !!! P@025/0010 : Invalid Schema. Expected no more text. - ':_ObjBase>' !!!
+  !!! P@025/0001 : Invalid Output. Expected type parameter. - ':_ObjectKi' !!!
+  !!! P@025/0001 : Invalid Schema. Expected no more text. - ':_ObjectKi' !!!
 >
 {
   !Ou I@008/0001
   _TypeObject
-  <
-    I@021/0001
-    $kind
-    I@027/0001
-    $parent
-    I@035/0001
-    $typeParam
-    I@046/0001
-    $field
-    I@053/0001
-    $alternate
-  >
-  :
-  I@007/0002
-  _ChildType
-  <
-    I@019/0002
-    $kind
-    I@025/0002
-    $parent
-  >
-  {
-    !OF I@009/0003
-    typeParams
-    :
-    I@022/0003
-    $typeParam
-    []
-    !OF I@009/0004
-    fields
-    :
-    I@018/0004
-    $field
-    []
-    !OF I@009/0005
-    alternates
-    :
-    I@022/0005
-    $alternate
-    []
-    !OF I@009/0006
-    allFields
-    :
-    I@020/0006
-    _ObjectFor
-    <
-      I@032/0006
-      $field
-    >
-    []
-    !OF I@009/0007
-    allAlternates
-    :
-    I@024/0007
-    _ObjectFor
-    <
-      I@036/0007
-      $alternate
-    >
-    []
-  }
-}
-{
-  !Du I@006/0010
-  _ObjDescribed
 }

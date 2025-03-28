@@ -11,7 +11,7 @@ internal sealed class EnumGenerator
 
     ParentItems(ast.Parent, context);
 
-    foreach (IGqlpEnumItem item in ast.Items) {
+    foreach (IGqlpEnumLabel item in ast.Items) {
       context.AppendLine("  " + item.Name + ",");
       foreach (string alias in item.Aliases) {
         context.AppendLine("  " + alias + " = " + item.Name + ",");
@@ -29,7 +29,7 @@ internal sealed class EnumGenerator
     }
 
     ParentItems(ast.Parent, context);
-    foreach (IGqlpEnumItem item in ast.Items) {
+    foreach (IGqlpEnumLabel item in ast.Items) {
       string suffix = " = " + parent + "." + item.Name + ",";
       context.AppendLine("  " + item.Name + suffix);
       foreach (string alias in item.Aliases) {

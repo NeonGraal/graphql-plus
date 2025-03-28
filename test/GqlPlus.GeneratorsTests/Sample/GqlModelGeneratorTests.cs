@@ -17,7 +17,7 @@ public class GqlModelGeneratorTests : SampleChecks
 
   [Theory]
   [ClassData(typeof(SamplesSchemaData))]
-  public async Task GenerateSchema(string sample)
+  public async Task Generate_Schema(string sample)
   {
     string schema = await ReadSchema(sample);
 
@@ -27,5 +27,19 @@ public class GqlModelGeneratorTests : SampleChecks
       .Generate((sample + ".graphql+").AdditionalString(schema), options);
 
     await Verify(driver, CustomSettings("Schema", "Model", sample, false));
+  }
+
+  [Theory]
+  [ClassData(typeof(SamplesSchemaSpecificationData))]
+  public async Task Generate_Spec(string sample)
+  {
+    string schema = await ReadSchema(sample, "Specification");
+
+    GqlModelConfigOptionsProvider options = new();
+
+    GeneratorDriver driver = new GqlModelGenerator()
+      .Generate((sample + ".graphql+").AdditionalString(schema), options);
+
+    await Verify(driver, CustomSettings("Spec", "Model", sample, false));
   }
 }

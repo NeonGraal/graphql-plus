@@ -4,6 +4,7 @@ using GqlPlus.Merging;
 using GqlPlus.Parsing;
 using GqlPlus.Resolving;
 using GqlPlus.Result;
+using Microsoft.AspNetCore.Components.RenderTree;
 
 namespace GqlPlus.Sample;
 
@@ -42,19 +43,47 @@ public class SchemaYamlTests(
   public async Task Yaml_Simple(string simple)
     => await ReplaceFileAsync("Simple", simple, Verify_Model);
 
+  [Theory]
+  [ClassData(typeof(SamplesSchemaData))]
+  public async Task Yaml_Schema(string sample)
+  {
+    IGqlpSchema ast = await ParseSample("Schema", sample);
+    ITypesContext context = schemaRenderer.WithBuiltIns();
+
+    Structured result = ModelAsts([ast], context);
+
+    await CheckErrors("Schema", "", sample, context.Errors);
+
+    await Verify(result.ToYaml(true), CustomSettings("Schema", "Yaml", sample));
+  }
+
+  [Theory]
+  [ClassData(typeof(SamplesSchemaSpecificationData))]
+  public async Task Yaml_Spec(string sample)
+  {
+    IGqlpSchema ast = await ParseSample("Spec", sample, "Specification");
+    ITypesContext context = schemaRenderer.WithBuiltIns();
+
+    Structured result = ModelAsts([ast], context);
+
+    await CheckErrors("Schema", "Specification", sample, context.Errors);
+
+    await Verify(result.ToYaml(true), CustomSettings("Spec", "Yaml", sample));
+  }
+
   private async Task Verify_Model(string input, string testDirectory, string test)
     => await Verify_Model([input], test);
 
   private async Task Verify_Model(IEnumerable<string> inputs, string test)
   {
     IEnumerable<IGqlpSchema> asts = inputs
-    .Select(input => Parse(input).Required());
+      .Select(input => Parse(input, "Schema").Required());
 
     ITypesContext context = schemaRenderer.WithBuiltIns();
     Structured result = ModelAsts(asts, context);
 
     context.Errors.ShouldBeEmpty(test);
-    await Verify(result.ToYaml(true), CustomSettings("Schema", "Yaml", test));
+    await Verify(result.ToYaml(true), CustomSettings("Sample", "Yaml", test));
   }
 
   private Structured ModelAsts(IEnumerable<IGqlpSchema> asts, ITypesContext context)
@@ -62,6 +91,7 @@ public class SchemaYamlTests(
     IGqlpSchema schema = schemaMerger.Merge(asts).First();
 
     Structured result = schemaRenderer.RenderAst(schema, context);
+    context.Errors.Add(asts.SelectMany(a => a.Errors));
 
     return result;
   }

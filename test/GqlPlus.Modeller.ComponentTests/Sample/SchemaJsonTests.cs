@@ -3,6 +3,8 @@ using GqlPlus.Convert;
 using GqlPlus.Merging;
 using GqlPlus.Parsing;
 using GqlPlus.Result;
+using GqlPlus.Structures;
+using Microsoft.AspNetCore.Components.RenderTree;
 
 namespace GqlPlus.Sample;
 
@@ -41,16 +43,38 @@ public class SchemaJsonTests(
   public async Task Json_Simple(string simple)
     => await ReplaceFileAsync("Simple", simple, Verify_Model);
 
+  [Theory]
+  [ClassData(typeof(SamplesSchemaData))]
+  public async Task JsonSchema(string sample)
+  {
+    IGqlpSchema ast = await ParseSample("Schema", sample);
+
+    Structured result = ModelAsts([ast]);
+
+    await Verify(result.ToJson(), "json", CustomSettings("Schema", "Json", sample));
+  }
+
+  [Theory]
+  [ClassData(typeof(SamplesSchemaSpecificationData))]
+  public async Task Json_Spec(string sample)
+  {
+    IGqlpSchema ast = await ParseSample("Spec", sample, "Specification");
+
+    Structured result = ModelAsts([ast]);
+
+    await Verify(result.ToJson(), "json", CustomSettings("Spec", "Json", sample));
+  }
+
   private async Task Verify_Model(string input, string testDirectory, string test)
     => await Verify_Model([input], test);
 
   private async Task Verify_Model(IEnumerable<string> inputs, string test)
   {
-    IEnumerable<IGqlpSchema> asts = inputs.Select(input => Parse(input).Required());
+    IEnumerable<IGqlpSchema> asts = inputs.Select(input => Parse(input, "Sample").Required());
 
     Structured result = ModelAsts(asts);
 
-    await Verify(result.ToJson(), "json", CustomSettings("Schema", "Json", test));
+    await Verify(result.ToJson(), "json", CustomSettings("Sample", "Json", test));
   }
 
   private Structured ModelAsts(IEnumerable<IGqlpSchema> asts)

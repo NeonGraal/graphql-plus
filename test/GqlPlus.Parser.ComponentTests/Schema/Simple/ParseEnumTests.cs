@@ -9,29 +9,29 @@ public sealed class ParseEnumTests(
 ) : BaseSimpleTests<EnumInput, IGqlpEnum>(checks)
 {
   [Theory, RepeatData(Repeats)]
-  public void WithEnumLabels_ReturnsCorrectAst(string name, string[] members)
+  public void WithEnumLabels_ReturnsCorrectAst(string name, string[] labels)
     => checks.TrueExpected(
-      name + members.Bracket("{", "}").Joined(),
+      name + labels.Bracket("{", "}").Joined(),
       new EnumDeclAst(AstNulls.At, name, []) {
-        Items = members.EnumLabels(),
+        Items = labels.EnumLabels(),
       });
 
   [Theory, RepeatData(Repeats)]
-  public void WithEnumLabelsBad_ReturnsFalse(string name, string[] members)
+  public void WithEnumLabelsBad_ReturnsFalse(string name, string[] labels)
     => checks
-    .SkipNull(members)
-    .SkipIf(members.Length < 2)
-    .FalseExpected(name + "{" + string.Join("|", members) + "}");
+    .SkipNull(labels)
+    .SkipIf(labels.Length < 2)
+    .FalseExpected(name + "{" + string.Join("|", labels) + "}");
 
   [Theory, RepeatData(Repeats)]
   public void WithEnumLabelsNone_ReturnsFalse(string name)
     => checks.FalseExpected(name + "{}");
 
   [Theory, RepeatData(Repeats)]
-  public void WithAll_ReturnsCorrectAst(string name, string parent, string[] members)
+  public void WithAll_ReturnsCorrectAst(string name, string parent, string[] labels)
     => checks.TrueExpected(
-      name + members.Prepend(parent.Prefixed(":")).Bracket("{", "}").Joined(),
-      new EnumDeclAst(AstNulls.At, name, members.EnumLabels()) { Parent = parent });
+      name + labels.Prepend(parent.Prefixed(":")).Bracket("{", "}").Joined(),
+      new EnumDeclAst(AstNulls.At, name, labels.EnumLabels()) { Parent = parent });
 }
 
 internal sealed class ParseEnumChecks(
@@ -39,12 +39,12 @@ internal sealed class ParseEnumChecks(
 ) : BaseSimpleChecks<EnumInput, EnumDeclAst, IGqlpEnum>(parser)
 {
   protected internal override EnumDeclAst NamedFactory(EnumInput input)
-    => new(AstNulls.At, input.Type, new[] { input.Member }.EnumLabels());
+    => new(AstNulls.At, input.Type, new[] { input.Label }.EnumLabels());
 
   protected override string ParentString(EnumInput input, string aliases, string? parent)
     => input.Type + aliases + "{" +
     (string.IsNullOrWhiteSpace(parent) ? "" : $":{parent} ") +
-    input.Member + "}";
+    input.Label + "}";
 }
 
-public record struct EnumInput(string Type, string Member);
+public record struct EnumInput(string Type, string Label);

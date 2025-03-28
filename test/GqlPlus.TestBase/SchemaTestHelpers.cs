@@ -66,11 +66,11 @@ internal static class SchemaTestHelpers
     return [.. inputs.Select(i => mapping(i) with { Excludes = exclude = !exclude })];
   }
 
-  public static DomainTrueFalseAst[] DomainTrueFalses(this bool[] members)
-    => [.. members.WithExcludes(r => new DomainTrueFalseAst(AstNulls.At, "", false, r))];
+  public static DomainTrueFalseAst[] DomainTrueFalses(this bool[] bools)
+    => [.. bools.WithExcludes(r => new DomainTrueFalseAst(AstNulls.At, "", false, r))];
 
-  public static DomainLabelAst[] DomainLabels(this string[] members)
-    => [.. members.WithExcludes(r => new DomainLabelAst(AstNulls.At, "", false, r))];
+  public static DomainLabelAst[] DomainLabels(this string[] labels)
+    => [.. labels.WithExcludes(r => new DomainLabelAst(AstNulls.At, "", false, r))];
 
   public static DomainRangeAst[] DomainRanges(this DomainRangeInput[] ranges)
     => [.. ranges.WithExcludes(r => new DomainRangeAst(AstNulls.At, "", false, r.Lower, r.Upper))];

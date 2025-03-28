@@ -7,7 +7,7 @@ public class DomainLabelAstTests
   : AstAbbreviatedTests
 {
   private readonly AstAbbreviatedChecks<DomainLabelAst> _checks
-    = new(member => new DomainLabelAst(AstNulls.At, "", false, member));
+    = new(label => new DomainLabelAst(AstNulls.At, "", false, label));
 
   internal override IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;
 }

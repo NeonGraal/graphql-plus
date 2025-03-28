@@ -8,8 +8,8 @@ public class DomainAstEnumTests
   : AstDomainTests<DomainLabelInput>
 {
   [Theory, RepeatData]
-  public void Inequality_BetweenSpecifcMembers(string name, string type1, string type2, string member)
-    => Checks.Inequality_BetweenMembers(name, new(type1, member), new(type2, member));
+  public void Inequality_BetweenSpecifcItems(string name, string type1, string type2, string label)
+    => Checks.Inequality_BetweenItems(name, new(type1, label), new(type2, label));
 
   internal override IAstDomainChecks<DomainLabelInput> Checks => _checks;
 
@@ -19,10 +19,10 @@ public class DomainAstEnumTests
 internal sealed class DomainAstEnumChecks()
  : AstDomainChecks<DomainLabelInput, DomainLabelAst, IGqlpDomainLabel>(DomainKind.Enum)
 {
-  protected override DomainLabelAst[] DomainLabels(DomainLabelInput input)
+  protected override DomainLabelAst[] DomainItems(DomainLabelInput input)
     => [new(AstNulls.At, "", false, input.EnumLabel)];
 
-  protected override string MembersString(string name, DomainLabelInput input)
+  protected override string ItemsString(string name, DomainLabelInput input)
     => $"( !Do {name} Enum !DE {input.EnumLabel} )";
 
   protected override AstDomain<DomainLabelAst, IGqlpDomainLabel> NewDomain(string name, DomainLabelAst[] list)

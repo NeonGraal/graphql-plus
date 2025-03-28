@@ -9,20 +9,20 @@ public abstract class AstDomainTests<TInput>
   where TInput : IEquatable<TInput>
 {
   [Theory, RepeatData]
-  public void HashCode_WithMembers(string name, TInput input)
-      => Checks.HashCode_WithMembers(name, input);
+  public void HashCode_WithItems(string name, TInput input)
+      => Checks.HashCode_WithItems(name, input);
 
   [Theory, RepeatData]
-  public void String_WithMembers(string name, TInput input)
-    => Checks.String_WithMembers(name, input);
+  public void String_WithItems(string name, TInput input)
+    => Checks.String_WithItems(name, input);
 
   [Theory, RepeatData]
-  public void Equality_WithMembers(string name, TInput input)
-    => Checks.Equality_WithMembers(name, input);
+  public void Equality_WithItems(string name, TInput input)
+    => Checks.Equality_WithItems(name, input);
 
   [Theory, RepeatData]
-  public void Inequality_BetweenMembers(string name, TInput input1, TInput input2)
-    => Checks.Inequality_BetweenMembers(name, input1, input2);
+  public void Inequality_BetweenItems(string name, TInput input1, TInput input2)
+    => Checks.Inequality_BetweenItems(name, input1, input2);
 
   protected override string AliasesString(string input, string aliases)
     => $"( !Do {input}{aliases} {Checks.Kind} )";
@@ -35,39 +35,39 @@ public abstract class AstDomainTests<TInput>
     => $"( !{AliasedChecks.Abbr} {name} {Checks.Kind} :{parent} )";
 }
 
-internal abstract class AstDomainChecks<TInput, TMember, TItem>(
+internal abstract class AstDomainChecks<TInput, TItemAst, TItem>(
   DomainKind kind
-) : AstTypeChecks<AstDomain<TMember, TItem>>(
-    input => new AstDomain<TMember, TItem>(AstNulls.At, input, kind, [])
+) : AstTypeChecks<AstDomain<TItemAst, TItem>>(
+    input => new AstDomain<TItemAst, TItem>(AstNulls.At, input, kind, [])
   ), IAstDomainChecks<TInput>
   where TInput : IEquatable<TInput>
-  where TMember : AstAbbreviated, TItem
+  where TItemAst : AstAbbreviated, TItem
   where TItem : IGqlpDomainItem
 {
   public DomainKind Kind { get; } = kind;
 
-  public void Equality_WithMembers(string name, TInput input)
-    => Equality(() => NewDomain(name, DomainLabels(input)));
+  public void Equality_WithItems(string name, TInput input)
+    => Equality(() => NewDomain(name, DomainItems(input)));
 
-  public void HashCode_WithMembers(string name, TInput input)
-    => HashCode(() => NewDomain(name, DomainLabels(input)));
+  public void HashCode_WithItems(string name, TInput input)
+    => HashCode(() => NewDomain(name, DomainItems(input)));
 
-  public void Inequality_BetweenMembers(string name, TInput input1, TInput input2)
+  public void Inequality_BetweenItems(string name, TInput input1, TInput input2)
     => InequalityBetween(input1, input2,
-      input => NewDomain(name, DomainLabels(input)),
+      input => NewDomain(name, DomainItems(input)),
       SkipEquals(input1, input2));
 
-  public void String_WithMembers(string name, TInput input)
+  public void String_WithItems(string name, TInput input)
     => Text(
-      () => NewDomain(name, DomainLabels(input)),
-      MembersString(name, input));
+      () => NewDomain(name, DomainItems(input)),
+      ItemsString(name, input));
 
   protected virtual bool SkipEquals(TInput input1, TInput input2)
     => input1.NullEqual(input2);
 
-  protected abstract string MembersString(string name, TInput input);
-  protected abstract TMember[] DomainLabels(TInput input);
-  protected abstract AstDomain<TMember, TItem> NewDomain(string name, TMember[] list);
+  protected abstract string ItemsString(string name, TInput input);
+  protected abstract TItemAst[] DomainItems(TInput input);
+  protected abstract AstDomain<TItemAst, TItem> NewDomain(string name, TItemAst[] list);
 }
 
 internal interface IAstDomainChecks<TInput>
@@ -76,8 +76,8 @@ internal interface IAstDomainChecks<TInput>
 {
   DomainKind Kind { get; }
 
-  void HashCode_WithMembers(string name, TInput input);
-  void String_WithMembers(string name, TInput input);
-  void Equality_WithMembers(string name, TInput input);
-  void Inequality_BetweenMembers(string name, TInput input1, TInput input2);
+  void HashCode_WithItems(string name, TInput input);
+  void String_WithItems(string name, TInput input);
+  void Equality_WithItems(string name, TInput input);
+  void Inequality_BetweenItems(string name, TInput input1, TInput input2);
 }

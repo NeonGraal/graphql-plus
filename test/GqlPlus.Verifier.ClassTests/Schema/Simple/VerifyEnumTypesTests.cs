@@ -10,14 +10,14 @@ public class VerifyEnumTypesTests
   [Fact]
   public void Verify_CallsVerifierWithoutErrors()
   {
-    ForM<IGqlpEnumLabel> mergeMembers = new();
-    VerifyEnumTypes verifier = new(Aliased.Intf, mergeMembers.Intf);
+    ForM<IGqlpEnumLabel> mergeLabels = new();
+    VerifyEnumTypes verifier = new(Aliased.Intf, mergeLabels.Intf);
 
     verifier.Verify(UsageAliased, Errors);
 
     verifier.ShouldSatisfyAllConditions(
       Aliased.Called,
-      mergeMembers.NotCalled,
+      mergeLabels.NotCalled,
       () => Errors.ShouldBeEmpty());
   }
 }

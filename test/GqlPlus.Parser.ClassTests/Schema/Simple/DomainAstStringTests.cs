@@ -15,10 +15,10 @@ public class DomainAstStringTests
 internal sealed class DomainAstStringChecks()
  : AstDomainChecks<string, DomainRegexAst, IGqlpDomainRegex>(DomainKind.String)
 {
-  protected override DomainRegexAst[] DomainLabels(string input)
+  protected override DomainRegexAst[] DomainItems(string input)
     => [new(AstNulls.At, "", false, input)];
 
-  protected override string MembersString(string name, string input)
+  protected override string ItemsString(string name, string input)
     => $"( !Do {name} String !DX /{input}/ )";
 
   protected override AstDomain<DomainRegexAst, IGqlpDomainRegex> NewDomain(string name, DomainRegexAst[] list)

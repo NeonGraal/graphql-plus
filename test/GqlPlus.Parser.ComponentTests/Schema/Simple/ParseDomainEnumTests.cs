@@ -11,35 +11,35 @@ public sealed class ParseDomainEnumTests(
   [Theory, RepeatData(Repeats)]
   public void WithEnumType_ReturnsCorrectAst(DomainEnumInput input, string enumType)
     => checks.TrueExpected(
-      input.Name + "{enum!" + enumType + "." + input.Member + "}",
+      input.Name + "{enum!" + enumType + "." + input.Label + "}",
       NewDomain(input, input.DomainLabel(enumType)));
 
   [Theory, RepeatData(Repeats)]
-  public void WithEnumAllMembers_ReturnsCorrectAst(DomainEnumInput input)
+  public void WithEnumAllLabels_ReturnsCorrectAst(DomainEnumInput input)
     => checks.TrueExpected(
-      input.Name + "{enum " + input.Member + ".* }",
-      NewDomain(input, input.DomainAllMembers()));
+      input.Name + "{enum " + input.Label + ".* }",
+      NewDomain(input, input.DomainAllLabels()));
 
   [Theory, RepeatData(Repeats)]
-  public void WithMembers_ReturnsCorrectAst(DomainEnumInput input, string member)
+  public void WithLabels_ReturnsCorrectAst(DomainEnumInput input, string label)
     => checks.TrueExpected(
-      input.Name + "{enum!" + input.Member + " " + member + "}",
-      NewDomain(input, input.DomainLabels(member)));
+      input.Name + "{enum!" + input.Label + " " + label + "}",
+      NewDomain(input, input.DomainLabels(label)));
 
   [Theory, RepeatData(Repeats)]
-  public void WithMembersExcludeBad_ReturnsFalse(string name)
+  public void WithLabelsExcludeBad_ReturnsFalse(string name)
     => checks.FalseExpected(name + "{enum !}");
 
   [Theory, RepeatData(Repeats)]
-  public void WithMembersFirstBad_ReturnsFalse(DomainEnumInput input)
-    => checks.FalseExpected(input.Name + "{enum " + input.Member + ".}");
+  public void WithLabelsFirstBad_ReturnsFalse(DomainEnumInput input)
+    => checks.FalseExpected(input.Name + "{enum " + input.Label + ".}");
 
   [Theory, RepeatData(Repeats)]
-  public void WithMembersSecondBad_ReturnsFalse(DomainEnumInput input, string member)
-    => checks.FalseExpected(input.Name + "{enum " + input.Member + "!" + member + ".}");
+  public void WithLabelsSecondBad_ReturnsFalse(DomainEnumInput input, string label)
+    => checks.FalseExpected(input.Name + "{enum " + input.Label + "!" + label + ".}");
 
-  private static AstDomain<DomainLabelAst, IGqlpDomainLabel> NewDomain(DomainEnumInput input, DomainLabelAst[] members)
-    => new(AstNulls.At, input.Name, DomainKind.Enum, members);
+  private static AstDomain<DomainLabelAst, IGqlpDomainLabel> NewDomain(DomainEnumInput input, DomainLabelAst[] labels)
+    => new(AstNulls.At, input.Name, DomainKind.Enum, labels);
 }
 
 internal sealed class ParseDomainEnumChecks(
@@ -50,18 +50,18 @@ internal sealed class ParseDomainEnumChecks(
     => new(AstNulls.At, input.Name, DomainKind.Enum, input.DomainLabels());
 
   protected internal override string AliasesString(DomainEnumInput input, string aliases)
-    => input.Name + aliases + "{enum !" + input.Member + "}";
+    => input.Name + aliases + "{enum !" + input.Label + "}";
   protected internal override string KindString(DomainEnumInput input, string kind, string parent)
-    => input.Name + "{" + parent + kind + "!" + input.Member + "}";
+    => input.Name + "{" + parent + kind + "!" + input.Label + "}";
 }
 
-public record struct DomainEnumInput(string Name, string Member)
+public record struct DomainEnumInput(string Name, string Label)
 {
   internal readonly DomainLabelAst[] DomainLabel(string enumType)
-      => [new(AstNulls.At, "", true, Member) { EnumType = enumType }];
-  internal readonly DomainLabelAst[] DomainAllMembers()
-      => [new(AstNulls.At, "", false, "*") { EnumType = Member }];
+      => [new(AstNulls.At, "", true, Label) { EnumType = enumType }];
+  internal readonly DomainLabelAst[] DomainAllLabels()
+      => [new(AstNulls.At, "", false, "*") { EnumType = Label }];
 
-  internal readonly DomainLabelAst[] DomainLabels(params string[] members)
-      => [.. members.Select(r => new DomainLabelAst(AstNulls.At, "", false, r)).Prepend(new(AstNulls.At, "", true, Member))];
+  internal readonly DomainLabelAst[] DomainLabels(params string[] labels)
+      => [.. labels.Select(r => new DomainLabelAst(AstNulls.At, "", false, r)).Prepend(new(AstNulls.At, "", true, Label))];
 }

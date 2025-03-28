@@ -4,11 +4,6 @@ using GqlPlus.Parsing;
 
 namespace GqlPlus.Schema.Simple;
 
-public sealed class ParseEnumLabelTests(
-  IBaseAliasedChecks<string, IGqlpEnumLabel> checks
-) : BaseAliasedTests<string, IGqlpEnumLabel>(checks)
-{ }
-
 internal sealed class ParseEnumLabelChecks(
   Parser<IGqlpEnumLabel>.D parser
 ) : BaseAliasedChecks<string, EnumLabelAst, IGqlpEnumLabel>(parser)

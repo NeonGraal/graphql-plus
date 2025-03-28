@@ -2,10 +2,10 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpObjectAlias": {
+    "OutpObjAlias": {
       "$tag": "_TypeOutput",
       "aliases": ["Outp1", "Outp2"],
-      "name": "OutpObjectAlias",
+      "name": "OutpObjAlias",
       "typeKind": "Output"
     }
   }

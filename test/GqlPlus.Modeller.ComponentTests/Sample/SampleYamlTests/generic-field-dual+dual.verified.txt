@@ -1,35 +1,35 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualGenFieldDual: !_TypeDual
+  !_Identifier DualGnrcFieldDual: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: field
-      object: DualGenFieldDual
+      object: DualGnrcFieldDual
       type: !_DualBase
-        dual: DualGenFieldDualRef
+        dual: DualGnrcFieldDualRef
         typeArgs:
         - !_DualArg
-          dual: DualGenFieldDualAlt
+          dual: DualGnrcFieldDualAlt
     fields:
     - !_DualField
       name: field
       type: !_DualBase
-        dual: DualGenFieldDualRef
+        dual: DualGnrcFieldDualRef
         typeArgs:
         - !_DualArg
-          dual: DualGenFieldDualAlt
-    name: DualGenFieldDual
+          dual: DualGnrcFieldDualAlt
+    name: DualGnrcFieldDual
     typeKind: !_TypeKind Dual
-  !_Identifier DualGenFieldDualAlt: !_TypeDual
+  !_Identifier DualGnrcFieldDualAlt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualGenFieldDualAlt
+      object: DualGnrcFieldDualAlt
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: DualGenFieldDualAlt
+      object: DualGnrcFieldDualAlt
       type: !_DualBase
         dual: Number
     alternates:
@@ -41,17 +41,17 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: DualGenFieldDualAlt
+    name: DualGnrcFieldDualAlt
     typeKind: !_TypeKind Dual
-  !_Identifier DualGenFieldDualRef: !_TypeDual
+  !_Identifier DualGnrcFieldDualRef: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualGenFieldDualRef
+      object: DualGnrcFieldDualRef
       type: !_TypeParam ref
     alternates:
     - !_DualAlternate
       type: !_TypeParam ref
-    name: DualGenFieldDualRef
+    name: DualGnrcFieldDualRef
     typeKind: !_TypeKind Dual
     typeParams:
     - !_Described

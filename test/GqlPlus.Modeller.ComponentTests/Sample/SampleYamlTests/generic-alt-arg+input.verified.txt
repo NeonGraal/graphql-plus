@@ -1,33 +1,33 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpGenAltArg: !_TypeInput
+  !_Identifier InpGnrcAltArg: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpGenAltArg
+      object: InpGnrcAltArg
       type: !_InputBase
-        input: InpGenAltArgRef
+        input: InpGnrcAltArgRef
         typeArgs:
         - !_TypeParam type
     alternates:
     - !_InputAlternate
       type: !_InputBase
-        input: InpGenAltArgRef
+        input: InpGnrcAltArgRef
         typeArgs:
         - !_TypeParam type
-    name: InpGenAltArg
+    name: InpGnrcAltArg
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described
       name: type
-  !_Identifier InpGenAltArgRef: !_TypeInput
+  !_Identifier InpGnrcAltArgRef: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpGenAltArgRef
+      object: InpGnrcAltArgRef
       type: !_TypeParam ref
     alternates:
     - !_InputAlternate
       type: !_TypeParam ref
-    name: InpGenAltArgRef
+    name: InpGnrcAltArgRef
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described

@@ -1,35 +1,35 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpGenFieldArg: !_TypeInput
+  !_Identifier InpGnrcFieldArg: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: field
-      object: InpGenFieldArg
+      object: InpGnrcFieldArg
       type: !_InputBase
-        input: InpGenFieldArgRef
+        input: InpGnrcFieldArgRef
         typeArgs:
         - !_TypeParam type
     fields:
     - !_InputField
       name: field
       type: !_InputBase
-        input: InpGenFieldArgRef
+        input: InpGnrcFieldArgRef
         typeArgs:
         - !_TypeParam type
-    name: InpGenFieldArg
+    name: InpGnrcFieldArg
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described
       name: type
-  !_Identifier InpGenFieldArgRef: !_TypeInput
+  !_Identifier InpGnrcFieldArgRef: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpGenFieldArgRef
+      object: InpGnrcFieldArgRef
       type: !_TypeParam ref
     alternates:
     - !_InputAlternate
       type: !_TypeParam ref
-    name: InpGenFieldArgRef
+    name: InpGnrcFieldArgRef
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described

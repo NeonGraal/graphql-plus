@@ -1,48 +1,79 @@
 ﻿{
   "$tag": "_Schema",
-  "_errors": [
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 39,
-        "_line": 2
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Dual. Expected type parameter."
-    },
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 39,
-        "_line": 2
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Sample. Expected no more text."
-    }
-  ],
   "types": {
     "$tag": "_Map_Type",
-    "DualConstraintFieldDomain": {
+    "DomCnstFieldDmn": {
+      "$tag": "_DomainString",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRegex)",
+          "domain": "DomCnstFieldDmn",
+          "exclude": false,
+          "pattern": "\\w\u002B"
+        }
+      ],
+      "domainKind": "String",
+      "items": [
+        {
+          "$tag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "\\w\u002B"
+        }
+      ],
+      "name": "DomCnstFieldDmn",
+      "typeKind": "Domain"
+    },
+    "DualCnstFieldDmn": {
       "$tag": "_TypeDual",
-      "name": "DualConstraintFieldDomain",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "DualCnstFieldDmnRef",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "DomCnstFieldDmn"
+          }
+        }
+      ],
+      "name": "DualCnstFieldDmn",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "DualConstraintFieldDomainRef",
+        "dual": "DualCnstFieldDmnRef",
         "typeArgs": [
           {
             "$tag": "_DualArg",
-            "value": "DomConstraintFieldDomain"
+            "value": "DomCnstFieldDmn"
           }
         ]
       },
       "typeKind": "Dual"
     },
-    "DualConstraintFieldDomainRef": {
+    "DualCnstFieldDmnRef": {
       "$tag": "_TypeDual",
-      "name": "DualConstraintFieldDomainRef",
-      "typeKind": "Dual"
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "DualCnstFieldDmnRef",
+          "type": "ref"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": "ref"
+        }
+      ],
+      "name": "DualCnstFieldDmnRef",
+      "typeKind": "Dual",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "ref"
+        }
+      ]
     }
   }
 }

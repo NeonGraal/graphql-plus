@@ -1,0 +1,15 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DualCnstAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: DualCnstAlt
+      type: !_TypeParam type
+    alternates:
+    - !_DualAlternate
+      type: !_TypeParam type
+    name: DualCnstAlt
+    typeKind: !_TypeKind Dual
+    typeParams:
+    - !_Described
+      name: type

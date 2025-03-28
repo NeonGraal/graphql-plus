@@ -2,37 +2,37 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualGenParentDual": {
+    "DualGnrcPrntDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualGenParentDualRef",
+          "object": "DualGnrcPrntDualRef",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualGenParentDualAlt"
+            "value": "DualGnrcPrntDualAlt"
           }
         }
       ],
-      "name": "DualGenParentDual",
+      "name": "DualGnrcPrntDual",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "DualGenParentDualRef",
+        "dual": "DualGnrcPrntDualRef",
         "typeArgs": [
           {
             "$tag": "_DualArg",
-            "value": "DualGenParentDualAlt"
+            "value": "DualGnrcPrntDualAlt"
           }
         ]
       },
       "typeKind": "Dual"
     },
-    "DualGenParentDualAlt": {
+    "DualGnrcPrntDualAlt": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualGenParentDualAlt",
+          "object": "DualGnrcPrntDualAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -43,7 +43,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "DualGenParentDualAlt",
+          "object": "DualGnrcPrntDualAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -69,15 +69,15 @@
           }
         }
       ],
-      "name": "DualGenParentDualAlt",
+      "name": "DualGnrcPrntDualAlt",
       "typeKind": "Dual"
     },
-    "DualGenParentDualRef": {
+    "DualGnrcPrntDualRef": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualGenParentDualRef",
+          "object": "DualGnrcPrntDualRef",
           "type": "ref"
         }
       ],
@@ -87,7 +87,7 @@
           "type": "ref"
         }
       ],
-      "name": "DualGenParentDualRef",
+      "name": "DualGnrcPrntDualRef",
       "typeKind": "Dual",
       "typeParams": [
         {

@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpGenParentDualParent": {
+    "InpGnrcPrntDualPrnt": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "InpGenParentDualParentAlt",
+          "object": "InpGnrcPrntDualPrntAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -18,32 +18,32 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "InpGenParentDualParentAlt",
+          "object": "InpGnrcPrntDualPrntAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
           }
         }
       ],
-      "name": "InpGenParentDualParent",
+      "name": "InpGnrcPrntDualPrnt",
       "parent": {
         "$tag": "_InputBase",
-        "input": "InpGenParentDualParentRef",
+        "input": "InpGnrcPrntDualPrntRef",
         "typeArgs": [
           {
             "$tag": "_DualArg",
-            "value": "InpGenParentDualParentAlt"
+            "value": "InpGnrcPrntDualPrntAlt"
           }
         ]
       },
       "typeKind": "Input"
     },
-    "InpGenParentDualParentAlt": {
+    "InpGnrcPrntDualPrntAlt": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "InpGenParentDualParentAlt",
+          "object": "InpGnrcPrntDualPrntAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -54,7 +54,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "InpGenParentDualParentAlt",
+          "object": "InpGnrcPrntDualPrntAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -80,12 +80,12 @@
           }
         }
       ],
-      "name": "InpGenParentDualParentAlt",
+      "name": "InpGnrcPrntDualPrntAlt",
       "typeKind": "Dual"
     },
-    "InpGenParentDualParentRef": {
+    "InpGnrcPrntDualPrntRef": {
       "$tag": "_TypeInput",
-      "name": "InpGenParentDualParentRef",
+      "name": "InpGnrcPrntDualPrntRef",
       "parent": "ref",
       "typeKind": "Input",
       "typeParams": [

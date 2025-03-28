@@ -3,59 +3,59 @@
 Success
 {
   !Du I@006/0001
-  DualObjectFieldAlias
+  DualObjFieldAlias
   {
-    !DF I@029/0001
+    !DF I@026/0001
     field
     [
       field1
       field2
     ]
     :
-    I@045/0001
-    DualObjectFieldAliasFld
+    I@042/0001
+    DualObjFieldAliasFld
   }
 }
 {
   !Du I@006/0003
-  DualObjectFieldAliasFld
+  DualObjFieldAliasFld
 }
 {
   !In I@007/0001
-  InpObjectFieldAlias
+  InpObjFieldAlias
   {
-    !IF I@029/0001
+    !IF I@026/0001
     field
     [
       field1
       field2
     ]
     :
-    I@045/0001
-    InpObjectFieldAliasFld
+    I@042/0001
+    InpObjFieldAliasFld
   }
 }
 {
   !In I@007/0003
-  InpObjectFieldAliasFld
+  InpObjFieldAliasFld
 }
 {
   !Ou I@008/0001
-  OutpObjectFieldAlias
+  OutpObjFieldAlias
   {
-    !OF I@031/0001
+    !OF I@028/0001
     field
     [
       field1
       field2
     ]
     :
-    I@047/0001
-    OutpObjectFieldAliasFld
+    I@044/0001
+    OutpObjFieldAliasFld
   }
 }
 {
   !Ou I@008/0003
-  OutpObjectFieldAliasFld
+  OutpObjFieldAliasFld
 }
 ]

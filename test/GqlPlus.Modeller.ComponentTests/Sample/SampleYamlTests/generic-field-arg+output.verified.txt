@@ -1,35 +1,35 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpGenFieldArg: !_TypeOutput
+  !_Identifier OutpGnrcFieldArg: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
-      object: OutpGenFieldArg
+      object: OutpGnrcFieldArg
       type: !_OutputBase
-        output: OutpGenFieldArgRef
+        output: OutpGnrcFieldArgRef
         typeArgs:
         - !_TypeParam type
     fields:
     - !_OutputField
       name: field
       type: !_OutputBase
-        output: OutpGenFieldArgRef
+        output: OutpGnrcFieldArgRef
         typeArgs:
         - !_TypeParam type
-    name: OutpGenFieldArg
+    name: OutpGnrcFieldArg
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described
       name: type
-  !_Identifier OutpGenFieldArgRef: !_TypeOutput
+  !_Identifier OutpGnrcFieldArgRef: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpGenFieldArgRef
+      object: OutpGnrcFieldArgRef
       type: !_TypeParam ref
     alternates:
     - !_OutputAlternate
       type: !_TypeParam ref
-    name: OutpGenFieldArgRef
+    name: OutpGnrcFieldArgRef
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described

@@ -3,21 +3,21 @@
 Success
 {
   !Ou I@008/0001
-  OutpObjectFieldAlias
+  OutpObjFieldAlias
   {
-    !OF I@031/0001
+    !OF I@028/0001
     field
     [
       field1
       field2
     ]
     :
-    I@047/0001
-    OutpObjectFieldAliasFld
+    I@044/0001
+    OutpObjFieldAliasFld
   }
 }
 {
   !Ou I@008/0003
-  OutpObjectFieldAliasFld
+  OutpObjFieldAliasFld
 }
 ]

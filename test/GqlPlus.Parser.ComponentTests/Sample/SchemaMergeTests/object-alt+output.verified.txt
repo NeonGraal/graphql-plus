@@ -3,14 +3,14 @@
 Success
 {
   !Ou I@008/0001
-  OutpObjectAlt
+  OutpObjAlt
   |
-  !OA I@026/0001
-  I@026/0001
-  OutpObjectAltType
+  !OA I@023/0001
+  I@023/0001
+  OutpObjAltType
 }
 {
   !Ou I@008/0003
-  OutpObjectAltType
+  OutpObjAltType
 }
 ]

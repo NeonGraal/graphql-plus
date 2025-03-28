@@ -1,33 +1,30 @@
 ﻿{
   "$tag": "_Schema",
-  "_errors": [
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 31,
-        "_line": 1
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Output. Expected type parameter."
-    },
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 31,
-        "_line": 1
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Sample. Expected no more text."
-    }
-  ],
   "types": {
     "$tag": "_Map_Type",
-    "OutpConstraintAlt": {
+    "OutpCnstAlt": {
       "$tag": "_TypeOutput",
-      "name": "OutpConstraintAlt",
-      "typeKind": "Output"
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpCnstAlt",
+          "type": "type"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": "type"
+        }
+      ],
+      "name": "OutpCnstAlt",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "type"
+        }
+      ]
     }
   }
 }

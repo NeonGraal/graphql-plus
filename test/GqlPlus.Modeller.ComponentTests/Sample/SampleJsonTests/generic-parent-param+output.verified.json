@@ -2,37 +2,37 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpGenParentParam": {
+    "OutpGnrcPrntParam": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGenParentParamRef",
+          "object": "OutpGnrcPrntParamRef",
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpGenParentParamAlt"
+            "value": "OutpGnrcPrntParamAlt"
           }
         }
       ],
-      "name": "OutpGenParentParam",
+      "name": "OutpGnrcPrntParam",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "OutpGenParentParamRef",
+        "output": "OutpGnrcPrntParamRef",
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "OutpGenParentParamAlt"
+            "value": "OutpGnrcPrntParamAlt"
           }
         ]
       },
       "typeKind": "Output"
     },
-    "OutpGenParentParamAlt": {
+    "OutpGnrcPrntParamAlt": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGenParentParamAlt",
+          "object": "OutpGnrcPrntParamAlt",
           "type": {
             "$tag": "_OutputBase",
             "value": "String"
@@ -43,7 +43,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "alt",
-          "object": "OutpGenParentParamAlt",
+          "object": "OutpGnrcPrntParamAlt",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -69,15 +69,15 @@
           }
         }
       ],
-      "name": "OutpGenParentParamAlt",
+      "name": "OutpGnrcPrntParamAlt",
       "typeKind": "Output"
     },
-    "OutpGenParentParamRef": {
+    "OutpGnrcPrntParamRef": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGenParentParamRef",
+          "object": "OutpGnrcPrntParamRef",
           "type": "ref"
         }
       ],
@@ -87,7 +87,7 @@
           "type": "ref"
         }
       ],
-      "name": "OutpGenParentParamRef",
+      "name": "OutpGnrcPrntParamRef",
       "typeKind": "Output",
       "typeParams": [
         {

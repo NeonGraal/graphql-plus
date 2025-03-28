@@ -2,13 +2,13 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpGenDescr": {
+    "OutpGnrcDescr": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutpGenDescr",
+          "object": "OutpGnrcDescr",
           "type": "type"
         }
       ],
@@ -19,7 +19,7 @@
           "type": "type"
         }
       ],
-      "name": "OutpGenDescr",
+      "name": "OutpGnrcDescr",
       "typeKind": "Output",
       "typeParams": [
         {

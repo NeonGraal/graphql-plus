@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualParentDual": {
+    "DualPrntDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualParentDualRef",
+          "object": "DualPrntDualRef",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -18,26 +18,26 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "parent",
-          "object": "DualParentDualRef",
+          "object": "DualPrntDualRef",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
           }
         }
       ],
-      "name": "DualParentDual",
+      "name": "DualPrntDual",
       "parent": {
         "$tag": "_DualBase",
-        "value": "DualParentDualRef"
+        "value": "DualPrntDualRef"
       },
       "typeKind": "Dual"
     },
-    "DualParentDualRef": {
+    "DualPrntDualRef": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualParentDualRef",
+          "object": "DualPrntDualRef",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -48,7 +48,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "parent",
-          "object": "DualParentDualRef",
+          "object": "DualPrntDualRef",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -74,7 +74,7 @@
           }
         }
       ],
-      "name": "DualParentDualRef",
+      "name": "DualPrntDualRef",
       "typeKind": "Dual"
     }
   }

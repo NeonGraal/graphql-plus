@@ -50,45 +50,34 @@ Success
 }
 {
   !Ou I@008/0014
-  _DualParam
+  _DualTypeParam
   :
   I@007/0015
-  _ObjParam
+  _ObjTypeParam
   <
-    I@017/0015
+    I@021/0015
     _DualBase
   >
 }
 {
   !Ou I@008/0018
-  _DualTypeParam
+  _DualField
   :
   I@007/0019
-  _ObjTypeParam
+  _Field
   <
-    I@021/0019
+    I@014/0019
     _DualBase
   >
 }
 {
   !Ou I@008/0022
-  _DualField
-  :
-  I@007/0023
-  _Field
-  <
-    I@014/0023
-    _DualBase
-  >
-}
-{
-  !Ou I@008/0026
   _DualAlternate
   :
-  I@007/0027
+  I@007/0023
   _Alternate
   <
-    I@018/0027
+    I@018/0023
     _DualBase
   >
 }

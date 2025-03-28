@@ -1,9 +1,44 @@
-﻿using GqlPlus.Abstractions;
+﻿using System.Globalization;
+using GqlPlus.Abstractions;
 
 namespace GqlPlus;
 
 public class SampleChecks
 {
+  protected static readonly Map<string> Abbreviations = new() {
+    ["Backslash"] = "Bcks",
+    ["Between"] = "Btwn",
+    ["Boolean"] = "Bool",
+    ["Category"] = "Ctgr",
+    ["Complex"] = "Cmpl",
+    ["Constraint"] = "Cnst",
+    ["Descrs"] = "Dscrs",
+    ["Directive"] = "Drct",
+    ["Domain"] = "Dmn",
+    ["Double"] = "Dbl",
+    ["Generic"] = "Gnrc",
+    ["Input"] = "Inp",
+    ["Number"] = "Nmbr",
+    ["Object"] = "Obj",
+    ["Option"] = "Optn",
+    ["Optional"] = "Optl",
+    ["Output"] = "Outp",
+    ["Parent"] = "Prnt",
+    ["Schema"] = "Schm",
+    ["Setting"] = "Stng",
+    ["Simple"] = "Smpl",
+    ["Single"] = "Sngl",
+    ["String"] = "Str",
+    ["Unique"] = "Unq",
+    ["Unused"] = "Unsd",
+  };
+
+  private static readonly TextInfo s_textInfo = CultureInfo.InvariantCulture.TextInfo;
+
+  protected static string[] TitleWords(string? input)
+    => input is null ? []
+    : [.. s_textInfo.ToTitleCase(input).Split('-')];
+
   protected async Task CheckErrors(string category, string directory, string file, ITokenMessages errors, bool includeVerify = false)
   {
     List<string> suffixes = ["", "parse-"];
@@ -35,13 +70,14 @@ public class SampleChecks
 
     string[] missing = [.. expected.Where(e
         => !errors.Any(error
-          => error.Message.Contains(e, StringComparison.InvariantCulture))
-      )];
+          => error.Message.Contains(e, StringComparison.InvariantCulture)))
+      .Distinct()];
 
     string[] extra = [.. errors.Where(error
         => !expected.Any(e
-          => error.Message.Contains(e, StringComparison.InvariantCulture))
-      ).Select(error => error.Message)];
+          => error.Message.Contains(e, StringComparison.InvariantCulture)))
+      .Select(error => error.Message)
+      .Distinct()];
 
     errors.ShouldSatisfyAllConditions(
       () => missing.ShouldBeEmpty("Missing errors"),

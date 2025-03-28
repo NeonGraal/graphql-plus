@@ -1,14 +1,14 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpObjectParam: !_TypeInput
+  !_Identifier InpObjParam: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: test
-      object: InpObjectParam
+      object: InpObjParam
       type: !_TypeParam test
     - !_ObjectFor(_InputField)
       name: type
-      object: InpObjectParam
+      object: InpObjParam
       type: !_TypeParam type
     fields:
     - !_InputField
@@ -17,7 +17,7 @@ types: !_Map_Type
     - !_InputField
       name: type
       type: !_TypeParam type
-    name: InpObjectParam
+    name: InpObjParam
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described

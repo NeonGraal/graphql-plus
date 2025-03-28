@@ -1,0 +1,61 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutpCnstPrntObjPrnt: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: OutpCnstPrntObjPrntParent
+      type: !_OutputBase
+        output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: alt
+      object: OutpCnstPrntObjPrntAlt
+      type: !_OutputBase
+        output: Number
+    name: OutpCnstPrntObjPrnt
+    parent: !_OutputBase
+      output: OutpCnstPrntObjPrntRef
+      typeArgs:
+      - !_OutputArg
+        output: OutpCnstPrntObjPrntAlt
+    typeKind: !_TypeKind Output
+  !_Identifier OutpCnstPrntObjPrntAlt: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: OutpCnstPrntObjPrntParent
+      type: !_OutputBase
+        output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: alt
+      object: OutpCnstPrntObjPrntAlt
+      type: !_OutputBase
+        output: Number
+    fields:
+    - !_OutputField
+      name: alt
+      type: !_OutputBase
+        output: Number
+    name: OutpCnstPrntObjPrntAlt
+    parent: !_OutputBase
+      output: OutpCnstPrntObjPrntParent
+    typeKind: !_TypeKind Output
+  !_Identifier OutpCnstPrntObjPrntParent: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: OutpCnstPrntObjPrntParent
+      type: !_OutputBase
+        output: String
+    alternates:
+    - !_OutputAlternate
+      type: !_OutputBase
+        output: String
+    name: OutpCnstPrntObjPrntParent
+    typeKind: !_TypeKind Output
+  !_Identifier OutpCnstPrntObjPrntRef: !_TypeOutput
+    name: OutpCnstPrntObjPrntRef
+    parent: !_TypeParam ref
+    typeKind: !_TypeKind Output
+    typeParams:
+    - !_Described
+      name: ref

@@ -2,17 +2,17 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualObjectFieldAlias": {
+    "DualObjFieldAlias": {
       "$tag": "_TypeDual",
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "aliases": ["field1", "field2"],
           "name": "field",
-          "object": "DualObjectFieldAlias",
+          "object": "DualObjFieldAlias",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualObjectFieldAliasFld"
+            "value": "DualObjFieldAliasFld"
           }
         }
       ],
@@ -23,16 +23,16 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualObjectFieldAliasFld"
+            "value": "DualObjFieldAliasFld"
           }
         }
       ],
-      "name": "DualObjectFieldAlias",
+      "name": "DualObjFieldAlias",
       "typeKind": "Dual"
     },
-    "DualObjectFieldAliasFld": {
+    "DualObjFieldAliasFld": {
       "$tag": "_TypeDual",
-      "name": "DualObjectFieldAliasFld",
+      "name": "DualObjFieldAliasFld",
       "typeKind": "Dual"
     }
   }

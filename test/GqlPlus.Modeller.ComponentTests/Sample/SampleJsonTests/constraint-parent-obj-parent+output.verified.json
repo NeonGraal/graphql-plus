@@ -1,48 +1,118 @@
 ﻿{
   "$tag": "_Schema",
-  "_errors": [
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 45,
-        "_line": 2
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Output. Expected type parameter."
-    },
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 45,
-        "_line": 2
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Sample. Expected no more text."
-    }
-  ],
   "types": {
     "$tag": "_Map_Type",
-    "OutpConstraintParentObjParent": {
+    "OutpCnstPrntObjPrnt": {
       "$tag": "_TypeOutput",
-      "name": "OutpConstraintParentObjParent",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpCnstPrntObjPrntParent",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "alt",
+          "object": "OutpCnstPrntObjPrntAlt",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "OutpCnstPrntObjPrnt",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "OutpConstraintParentObjParentRef",
+        "output": "OutpCnstPrntObjPrntRef",
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "OutpConstraintParentObjParentAlt"
+            "value": "OutpCnstPrntObjPrntAlt"
           }
         ]
       },
       "typeKind": "Output"
     },
-    "OutpConstraintParentObjParentRef": {
+    "OutpCnstPrntObjPrntAlt": {
       "$tag": "_TypeOutput",
-      "name": "OutpConstraintParentObjParentRef",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpCnstPrntObjPrntParent",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "alt",
+          "object": "OutpCnstPrntObjPrntAlt",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "alt",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "OutpCnstPrntObjPrntAlt",
+      "parent": {
+        "$tag": "_OutputBase",
+        "value": "OutpCnstPrntObjPrntParent"
+      },
       "typeKind": "Output"
+    },
+    "OutpCnstPrntObjPrntParent": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpCnstPrntObjPrntParent",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "name": "OutpCnstPrntObjPrntParent",
+      "typeKind": "Output"
+    },
+    "OutpCnstPrntObjPrntRef": {
+      "$tag": "_TypeOutput",
+      "name": "OutpCnstPrntObjPrntRef",
+      "parent": "ref",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "ref"
+        }
+      ]
     }
   }
 }

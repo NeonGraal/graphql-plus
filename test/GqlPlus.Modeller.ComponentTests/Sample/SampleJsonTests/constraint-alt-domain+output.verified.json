@@ -1,42 +1,41 @@
 ﻿{
   "$tag": "_Schema",
-  "_errors": [
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 39,
-        "_line": 2
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Output. Expected type parameter."
-    },
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 39,
-        "_line": 2
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Sample. Expected no more text."
-    }
-  ],
   "types": {
     "$tag": "_Map_Type",
-    "OutpConstraintAltDomain": {
+    "DomCnstAltDmn": {
+      "$tag": "_DomainString",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRegex)",
+          "domain": "DomCnstAltDmn",
+          "exclude": false,
+          "pattern": "\\w\u002B"
+        }
+      ],
+      "domainKind": "String",
+      "items": [
+        {
+          "$tag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "\\w\u002B"
+        }
+      ],
+      "name": "DomCnstAltDmn",
+      "typeKind": "Domain"
+    },
+    "OutpCnstAltDmn": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpConstraintAltDomain",
+          "object": "OutpCnstAltDmn",
           "type": {
             "$tag": "_OutputBase",
-            "output": "OutpConstraintAltDomainRef",
+            "output": "OutpCnstAltDmnRef",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "value": "DomConstraintAltDomain"
+                "value": "DomCnstAltDmn"
               }
             ]
           }
@@ -47,23 +46,42 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "OutpConstraintAltDomainRef",
+            "output": "OutpCnstAltDmnRef",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "value": "DomConstraintAltDomain"
+                "value": "DomCnstAltDmn"
               }
             ]
           }
         }
       ],
-      "name": "OutpConstraintAltDomain",
+      "name": "OutpCnstAltDmn",
       "typeKind": "Output"
     },
-    "OutpConstraintAltDomainRef": {
+    "OutpCnstAltDmnRef": {
       "$tag": "_TypeOutput",
-      "name": "OutpConstraintAltDomainRef",
-      "typeKind": "Output"
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpCnstAltDmnRef",
+          "type": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": "ref"
+        }
+      ],
+      "name": "OutpCnstAltDmnRef",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "ref"
+        }
+      ]
     }
   }
 }

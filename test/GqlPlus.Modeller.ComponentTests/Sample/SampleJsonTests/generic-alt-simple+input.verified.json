@@ -2,15 +2,15 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpGenAltSimple": {
+    "InpGnrcAltSmpl": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenAltSimple",
+          "object": "InpGnrcAltSmpl",
           "type": {
             "$tag": "_InputBase",
-            "input": "InpGenAltSimpleRef",
+            "input": "InpGnrcAltSmplRef",
             "typeArgs": [
               {
                 "$tag": "_InputArg",
@@ -25,7 +25,7 @@
           "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
-            "input": "InpGenAltSimpleRef",
+            "input": "InpGnrcAltSmplRef",
             "typeArgs": [
               {
                 "$tag": "_InputArg",
@@ -35,15 +35,15 @@
           }
         }
       ],
-      "name": "InpGenAltSimple",
+      "name": "InpGnrcAltSmpl",
       "typeKind": "Input"
     },
-    "InpGenAltSimpleRef": {
+    "InpGnrcAltSmplRef": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenAltSimpleRef",
+          "object": "InpGnrcAltSmplRef",
           "type": "ref"
         }
       ],
@@ -53,7 +53,7 @@
           "type": "ref"
         }
       ],
-      "name": "InpGenAltSimpleRef",
+      "name": "InpGnrcAltSmplRef",
       "typeKind": "Input",
       "typeParams": [
         {

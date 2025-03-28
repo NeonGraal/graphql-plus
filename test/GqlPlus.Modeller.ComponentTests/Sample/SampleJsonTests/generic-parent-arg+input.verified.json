@@ -2,19 +2,19 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpGenParentArg": {
+    "InpGnrcPrntArg": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenParentArgRef",
+          "object": "InpGnrcPrntArgRef",
           "type": "ref"
         }
       ],
-      "name": "InpGenParentArg",
+      "name": "InpGnrcPrntArg",
       "parent": {
         "$tag": "_InputBase",
-        "input": "InpGenParentArgRef",
+        "input": "InpGnrcPrntArgRef",
         "typeArgs": ["type"]
       },
       "typeKind": "Input",
@@ -25,12 +25,12 @@
         }
       ]
     },
-    "InpGenParentArgRef": {
+    "InpGnrcPrntArgRef": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenParentArgRef",
+          "object": "InpGnrcPrntArgRef",
           "type": "ref"
         }
       ],
@@ -40,7 +40,7 @@
           "type": "ref"
         }
       ],
-      "name": "InpGenParentArgRef",
+      "name": "InpGnrcPrntArgRef",
       "typeKind": "Input",
       "typeParams": [
         {

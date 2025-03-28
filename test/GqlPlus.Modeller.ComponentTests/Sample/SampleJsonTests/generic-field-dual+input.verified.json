@@ -2,20 +2,20 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpGenFieldDual": {
+    "InpGnrcFieldDual": {
       "$tag": "_TypeInput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "InpGenFieldDual",
+          "object": "InpGnrcFieldDual",
           "type": {
             "$tag": "_InputBase",
-            "input": "InpGenFieldDualRef",
+            "input": "InpGnrcFieldDualRef",
             "typeArgs": [
               {
                 "$tag": "_DualArg",
-                "value": "InpGenFieldDualAlt"
+                "value": "InpGnrcFieldDualAlt"
               }
             ]
           }
@@ -27,25 +27,25 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "input": "InpGenFieldDualRef",
+            "input": "InpGnrcFieldDualRef",
             "typeArgs": [
               {
                 "$tag": "_DualArg",
-                "value": "InpGenFieldDualAlt"
+                "value": "InpGnrcFieldDualAlt"
               }
             ]
           }
         }
       ],
-      "name": "InpGenFieldDual",
+      "name": "InpGnrcFieldDual",
       "typeKind": "Input"
     },
-    "InpGenFieldDualAlt": {
+    "InpGnrcFieldDualAlt": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "InpGenFieldDualAlt",
+          "object": "InpGnrcFieldDualAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -56,7 +56,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "InpGenFieldDualAlt",
+          "object": "InpGnrcFieldDualAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -82,15 +82,15 @@
           }
         }
       ],
-      "name": "InpGenFieldDualAlt",
+      "name": "InpGnrcFieldDualAlt",
       "typeKind": "Dual"
     },
-    "InpGenFieldDualRef": {
+    "InpGnrcFieldDualRef": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenFieldDualRef",
+          "object": "InpGnrcFieldDualRef",
           "type": "ref"
         }
       ],
@@ -100,7 +100,7 @@
           "type": "ref"
         }
       ],
-      "name": "InpGenFieldDualRef",
+      "name": "InpGnrcFieldDualRef",
       "typeKind": "Input",
       "typeParams": [
         {

@@ -1,35 +1,35 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpGenFieldParam: !_TypeInput
+  !_Identifier InpGnrcFieldParam: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: field
-      object: InpGenFieldParam
+      object: InpGnrcFieldParam
       type: !_InputBase
-        input: InpGenFieldParamRef
+        input: InpGnrcFieldParamRef
         typeArgs:
         - !_InputArg
-          input: InpGenFieldParamAlt
+          input: InpGnrcFieldParamAlt
     fields:
     - !_InputField
       name: field
       type: !_InputBase
-        input: InpGenFieldParamRef
+        input: InpGnrcFieldParamRef
         typeArgs:
         - !_InputArg
-          input: InpGenFieldParamAlt
-    name: InpGenFieldParam
+          input: InpGnrcFieldParamAlt
+    name: InpGnrcFieldParam
     typeKind: !_TypeKind Input
-  !_Identifier InpGenFieldParamAlt: !_TypeInput
+  !_Identifier InpGnrcFieldParamAlt: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpGenFieldParamAlt
+      object: InpGnrcFieldParamAlt
       type: !_InputBase
         input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
-      object: InpGenFieldParamAlt
+      object: InpGnrcFieldParamAlt
       type: !_InputBase
         input: Number
     alternates:
@@ -41,17 +41,17 @@ types: !_Map_Type
       name: alt
       type: !_InputBase
         input: Number
-    name: InpGenFieldParamAlt
+    name: InpGnrcFieldParamAlt
     typeKind: !_TypeKind Input
-  !_Identifier InpGenFieldParamRef: !_TypeInput
+  !_Identifier InpGnrcFieldParamRef: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpGenFieldParamRef
+      object: InpGnrcFieldParamRef
       type: !_TypeParam ref
     alternates:
     - !_InputAlternate
       type: !_TypeParam ref
-    name: InpGenFieldParamRef
+    name: InpGnrcFieldParamRef
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described

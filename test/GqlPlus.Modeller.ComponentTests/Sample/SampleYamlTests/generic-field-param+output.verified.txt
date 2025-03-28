@@ -1,35 +1,35 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpGenFieldParam: !_TypeOutput
+  !_Identifier OutpGnrcFieldParam: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
-      object: OutpGenFieldParam
+      object: OutpGnrcFieldParam
       type: !_OutputBase
-        output: OutpGenFieldParamRef
+        output: OutpGnrcFieldParamRef
         typeArgs:
         - !_OutputArg
-          output: OutpGenFieldParamAlt
+          output: OutpGnrcFieldParamAlt
     fields:
     - !_OutputField
       name: field
       type: !_OutputBase
-        output: OutpGenFieldParamRef
+        output: OutpGnrcFieldParamRef
         typeArgs:
         - !_OutputArg
-          output: OutpGenFieldParamAlt
-    name: OutpGenFieldParam
+          output: OutpGnrcFieldParamAlt
+    name: OutpGnrcFieldParam
     typeKind: !_TypeKind Output
-  !_Identifier OutpGenFieldParamAlt: !_TypeOutput
+  !_Identifier OutpGnrcFieldParamAlt: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpGenFieldParamAlt
+      object: OutpGnrcFieldParamAlt
       type: !_OutputBase
         output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
-      object: OutpGenFieldParamAlt
+      object: OutpGnrcFieldParamAlt
       type: !_OutputBase
         output: Number
     alternates:
@@ -41,17 +41,17 @@ types: !_Map_Type
       name: alt
       type: !_OutputBase
         output: Number
-    name: OutpGenFieldParamAlt
+    name: OutpGnrcFieldParamAlt
     typeKind: !_TypeKind Output
-  !_Identifier OutpGenFieldParamRef: !_TypeOutput
+  !_Identifier OutpGnrcFieldParamRef: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpGenFieldParamRef
+      object: OutpGnrcFieldParamRef
       type: !_TypeParam ref
     alternates:
     - !_OutputAlternate
       type: !_TypeParam ref
-    name: OutpGenFieldParamRef
+    name: OutpGnrcFieldParamRef
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described

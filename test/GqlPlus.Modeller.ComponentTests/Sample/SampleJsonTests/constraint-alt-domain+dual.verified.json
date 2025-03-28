@@ -1,42 +1,41 @@
 ﻿{
   "$tag": "_Schema",
-  "_errors": [
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 37,
-        "_line": 2
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Dual. Expected type parameter."
-    },
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 37,
-        "_line": 2
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Sample. Expected no more text."
-    }
-  ],
   "types": {
     "$tag": "_Map_Type",
-    "DualConstraintAltDomain": {
+    "DomCnstAltDmn": {
+      "$tag": "_DomainString",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRegex)",
+          "domain": "DomCnstAltDmn",
+          "exclude": false,
+          "pattern": "\\w\u002B"
+        }
+      ],
+      "domainKind": "String",
+      "items": [
+        {
+          "$tag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "\\w\u002B"
+        }
+      ],
+      "name": "DomCnstAltDmn",
+      "typeKind": "Domain"
+    },
+    "DualCnstAltDmn": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualConstraintAltDomain",
+          "object": "DualCnstAltDmn",
           "type": {
             "$tag": "_DualBase",
-            "dual": "DualConstraintAltDomainRef",
+            "dual": "DualCnstAltDmnRef",
             "typeArgs": [
               {
                 "$tag": "_DualArg",
-                "value": "DomConstraintAltDomain"
+                "value": "DomCnstAltDmn"
               }
             ]
           }
@@ -47,23 +46,42 @@
           "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
-            "dual": "DualConstraintAltDomainRef",
+            "dual": "DualCnstAltDmnRef",
             "typeArgs": [
               {
                 "$tag": "_DualArg",
-                "value": "DomConstraintAltDomain"
+                "value": "DomCnstAltDmn"
               }
             ]
           }
         }
       ],
-      "name": "DualConstraintAltDomain",
+      "name": "DualCnstAltDmn",
       "typeKind": "Dual"
     },
-    "DualConstraintAltDomainRef": {
+    "DualCnstAltDmnRef": {
       "$tag": "_TypeDual",
-      "name": "DualConstraintAltDomainRef",
-      "typeKind": "Dual"
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "DualCnstAltDmnRef",
+          "type": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": "ref"
+        }
+      ],
+      "name": "DualCnstAltDmnRef",
+      "typeKind": "Dual",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "ref"
+        }
+      ]
     }
   }
 }

@@ -1,48 +1,122 @@
 ﻿{
   "$tag": "_Schema",
-  "_errors": [
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 39,
-        "_line": 2
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Output. Expected type parameter."
-    },
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 39,
-        "_line": 2
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Sample. Expected no more text."
-    }
-  ],
   "types": {
     "$tag": "_Map_Type",
-    "OutpConstraintFieldDual": {
+    "OutpCnstFieldDual": {
       "$tag": "_TypeOutput",
-      "name": "OutpConstraintFieldDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpCnstFieldDualRef",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutpCnstFieldDualAlt"
+          }
+        }
+      ],
+      "name": "OutpCnstFieldDual",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "OutpConstraintFieldDualRef",
+        "output": "OutpCnstFieldDualRef",
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "OutpConstraintFieldDualAlt"
+            "value": "OutpCnstFieldDualAlt"
           }
         ]
       },
       "typeKind": "Output"
     },
-    "OutpConstraintFieldDualRef": {
+    "OutpCnstFieldDualAlt": {
       "$tag": "_TypeOutput",
-      "name": "OutpConstraintFieldDualRef",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "OutpCnstFieldDualParent",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "alt",
+          "object": "OutpCnstFieldDualAlt",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "alt",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "OutpCnstFieldDualAlt",
+      "parent": {
+        "$tag": "_DualBase",
+        "value": "OutpCnstFieldDualParent"
+      },
       "typeKind": "Output"
+    },
+    "OutpCnstFieldDualParent": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "OutpCnstFieldDualParent",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "name": "OutpCnstFieldDualParent",
+      "typeKind": "Dual"
+    },
+    "OutpCnstFieldDualRef": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpCnstFieldDualRef",
+          "type": "ref"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": "ref"
+        }
+      ],
+      "name": "OutpCnstFieldDualRef",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "ref"
+        }
+      ]
     }
   }
 }

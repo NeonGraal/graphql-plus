@@ -1,29 +1,29 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpFieldObject: !_TypeOutput
+  !_Identifier OutpFieldObj: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
-      object: OutpFieldObject
+      object: OutpFieldObj
       type: !_OutputBase
-        output: OutpFieldObjectFld
+        output: OutpFieldObjFld
     fields:
     - !_OutputField
       name: field
       type: !_OutputBase
-        output: OutpFieldObjectFld
-    name: OutpFieldObject
+        output: OutpFieldObjFld
+    name: OutpFieldObj
     typeKind: !_TypeKind Output
-  !_Identifier OutpFieldObjectFld: !_TypeOutput
+  !_Identifier OutpFieldObjFld: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpFieldObjectFld
+      object: OutpFieldObjFld
       type: !_OutputBase
         output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
-      object: OutpFieldObjectFld
+      object: OutpFieldObjFld
       type: !_OutputBase
         output: Number
     alternates:
@@ -35,5 +35,5 @@ types: !_Map_Type
       name: field
       type: !_OutputBase
         output: Number
-    name: OutpFieldObjectFld
+    name: OutpFieldObjFld
     typeKind: !_TypeKind Output

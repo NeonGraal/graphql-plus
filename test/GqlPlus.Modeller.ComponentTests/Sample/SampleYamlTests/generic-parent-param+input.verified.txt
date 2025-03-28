@@ -1,28 +1,28 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpGenParentParam: !_TypeInput
+  !_Identifier InpGnrcPrntParam: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpGenParentParamRef
+      object: InpGnrcPrntParamRef
       type: !_InputBase
-        input: InpGenParentParamAlt
-    name: InpGenParentParam
+        input: InpGnrcPrntParamAlt
+    name: InpGnrcPrntParam
     parent: !_InputBase
-      input: InpGenParentParamRef
+      input: InpGnrcPrntParamRef
       typeArgs:
       - !_InputArg
-        input: InpGenParentParamAlt
+        input: InpGnrcPrntParamAlt
     typeKind: !_TypeKind Input
-  !_Identifier InpGenParentParamAlt: !_TypeInput
+  !_Identifier InpGnrcPrntParamAlt: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpGenParentParamAlt
+      object: InpGnrcPrntParamAlt
       type: !_InputBase
         input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
-      object: InpGenParentParamAlt
+      object: InpGnrcPrntParamAlt
       type: !_InputBase
         input: Number
     alternates:
@@ -34,17 +34,17 @@ types: !_Map_Type
       name: alt
       type: !_InputBase
         input: Number
-    name: InpGenParentParamAlt
+    name: InpGnrcPrntParamAlt
     typeKind: !_TypeKind Input
-  !_Identifier InpGenParentParamRef: !_TypeInput
+  !_Identifier InpGnrcPrntParamRef: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpGenParentParamRef
+      object: InpGnrcPrntParamRef
       type: !_TypeParam ref
     alternates:
     - !_InputAlternate
       type: !_TypeParam ref
-    name: InpGenParentParamRef
+    name: InpGnrcPrntParamRef
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described

@@ -1,6 +1,6 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpAltModBoolean: !_TypeOutput
+  !_Identifier OutpAltModBool: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       collections:
@@ -8,9 +8,9 @@ types: !_Map_Type
         by: ^
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Basic
-      object: OutpAltModBoolean
+      object: OutpAltModBool
       type: !_OutputBase
-        output: OutpAltModBooleanAlt
+        output: OutpAltModBoolAlt
     alternates:
     - !_OutputAlternate
       collections:
@@ -19,19 +19,19 @@ types: !_Map_Type
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Basic
       type: !_OutputBase
-        output: OutpAltModBooleanAlt
-    name: OutpAltModBoolean
+        output: OutpAltModBoolAlt
+    name: OutpAltModBool
     typeKind: !_TypeKind Output
-  !_Identifier OutpAltModBooleanAlt: !_TypeOutput
+  !_Identifier OutpAltModBoolAlt: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpAltModBooleanAlt
+      object: OutpAltModBoolAlt
       type: !_OutputBase
         output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
-      object: OutpAltModBooleanAlt
+      object: OutpAltModBoolAlt
       type: !_OutputBase
         output: Number
     alternates:
@@ -43,5 +43,5 @@ types: !_Map_Type
       name: alt
       type: !_OutputBase
         output: Number
-    name: OutpAltModBooleanAlt
+    name: OutpAltModBoolAlt
     typeKind: !_TypeKind Output

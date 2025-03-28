@@ -1,48 +1,79 @@
 ﻿{
   "$tag": "_Schema",
-  "_errors": [
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 39,
-        "_line": 2
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Input. Expected type parameter."
-    },
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 39,
-        "_line": 2
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Sample. Expected no more text."
-    }
-  ],
   "types": {
     "$tag": "_Map_Type",
-    "InpConstraintFieldDomain": {
+    "DomCnstFieldDmn": {
+      "$tag": "_DomainString",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRegex)",
+          "domain": "DomCnstFieldDmn",
+          "exclude": false,
+          "pattern": "\\w\u002B"
+        }
+      ],
+      "domainKind": "String",
+      "items": [
+        {
+          "$tag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "\\w\u002B"
+        }
+      ],
+      "name": "DomCnstFieldDmn",
+      "typeKind": "Domain"
+    },
+    "InpCnstFieldDmn": {
       "$tag": "_TypeInput",
-      "name": "InpConstraintFieldDomain",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "InpCnstFieldDmnRef",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "DomCnstFieldDmn"
+          }
+        }
+      ],
+      "name": "InpCnstFieldDmn",
       "parent": {
         "$tag": "_InputBase",
-        "input": "InpConstraintFieldDomainRef",
+        "input": "InpCnstFieldDmnRef",
         "typeArgs": [
           {
             "$tag": "_InputArg",
-            "value": "DomConstraintFieldDomain"
+            "value": "DomCnstFieldDmn"
           }
         ]
       },
       "typeKind": "Input"
     },
-    "InpConstraintFieldDomainRef": {
+    "InpCnstFieldDmnRef": {
       "$tag": "_TypeInput",
-      "name": "InpConstraintFieldDomainRef",
-      "typeKind": "Input"
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "InpCnstFieldDmnRef",
+          "type": "ref"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": "ref"
+        }
+      ],
+      "name": "InpCnstFieldDmnRef",
+      "typeKind": "Input",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "ref"
+        }
+      ]
     }
   }
 }

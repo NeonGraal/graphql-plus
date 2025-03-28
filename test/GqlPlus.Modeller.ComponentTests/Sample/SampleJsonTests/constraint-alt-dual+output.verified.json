@@ -1,42 +1,20 @@
 ﻿{
   "$tag": "_Schema",
-  "_errors": [
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 37,
-        "_line": 2
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Output. Expected type parameter."
-    },
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 37,
-        "_line": 2
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Sample. Expected no more text."
-    }
-  ],
   "types": {
     "$tag": "_Map_Type",
-    "OutpConstraintAltDual": {
+    "OutpCnstAltDual": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpConstraintAltDual",
+          "object": "OutpCnstAltDual",
           "type": {
             "$tag": "_OutputBase",
-            "output": "OutpConstraintAltDualRef",
+            "output": "OutpCnstAltDualRef",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "value": "OutpConstraintAltDualAlt"
+                "value": "OutpCnstAltDualAlt"
               }
             ]
           }
@@ -47,23 +25,106 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "OutpConstraintAltDualRef",
+            "output": "OutpCnstAltDualRef",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "value": "OutpConstraintAltDualAlt"
+                "value": "OutpCnstAltDualAlt"
               }
             ]
           }
         }
       ],
-      "name": "OutpConstraintAltDual",
+      "name": "OutpCnstAltDual",
       "typeKind": "Output"
     },
-    "OutpConstraintAltDualRef": {
+    "OutpCnstAltDualAlt": {
       "$tag": "_TypeOutput",
-      "name": "OutpConstraintAltDualRef",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "OutpCnstAltDualParent",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "alt",
+          "object": "OutpCnstAltDualAlt",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "alt",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "OutpCnstAltDualAlt",
+      "parent": {
+        "$tag": "_DualBase",
+        "value": "OutpCnstAltDualParent"
+      },
       "typeKind": "Output"
+    },
+    "OutpCnstAltDualParent": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "OutpCnstAltDualParent",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "name": "OutpCnstAltDualParent",
+      "typeKind": "Dual"
+    },
+    "OutpCnstAltDualRef": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpCnstAltDualRef",
+          "type": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": "ref"
+        }
+      ],
+      "name": "OutpCnstAltDualRef",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "ref"
+        }
+      ]
     }
   }
 }

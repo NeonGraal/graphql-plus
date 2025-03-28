@@ -3,35 +3,35 @@
 Success
 {
   !Du I@006/0001
-  DualObjectParent
+  DualObjPrnt
   :
-  I@026/0001
-  DualObjectParentRef
+  I@021/0001
+  DualObjPrntRef
 }
 {
   !Du I@006/0003
-  DualObjectParentRef
+  DualObjPrntRef
 }
 {
   !In I@007/0001
-  InpObjectParent
+  InpObjPrnt
   :
-  I@026/0001
-  InpObjectParentRef
+  I@021/0001
+  InpObjPrntRef
 }
 {
   !In I@007/0003
-  InpObjectParentRef
+  InpObjPrntRef
 }
 {
   !Ou I@008/0001
-  OutpObjectParent
+  OutpObjPrnt
   :
-  I@028/0001
-  OutpObjectParentRef
+  I@023/0001
+  OutpObjPrntRef
 }
 {
   !Ou I@008/0003
-  OutpObjectParentRef
+  OutpObjPrntRef
 }
 ]

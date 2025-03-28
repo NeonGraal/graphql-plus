@@ -11,10 +11,6 @@ output _DualParent {
     : _ObjDescribed<_DualBase>
     }
 
-output _DualParam {
-    : _ObjParam<_DualBase>
-    }
-
 output _DualTypeParam {
     : _ObjTypeParam<_DualBase>
     }

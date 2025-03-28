@@ -2,19 +2,19 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpGenAltParam": {
+    "InpGnrcAltParam": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenAltParam",
+          "object": "InpGnrcAltParam",
           "type": {
             "$tag": "_InputBase",
-            "input": "InpGenAltParamRef",
+            "input": "InpGnrcAltParamRef",
             "typeArgs": [
               {
                 "$tag": "_InputArg",
-                "value": "InpGenAltParamAlt"
+                "value": "InpGnrcAltParamAlt"
               }
             ]
           }
@@ -25,25 +25,25 @@
           "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
-            "input": "InpGenAltParamRef",
+            "input": "InpGnrcAltParamRef",
             "typeArgs": [
               {
                 "$tag": "_InputArg",
-                "value": "InpGenAltParamAlt"
+                "value": "InpGnrcAltParamAlt"
               }
             ]
           }
         }
       ],
-      "name": "InpGenAltParam",
+      "name": "InpGnrcAltParam",
       "typeKind": "Input"
     },
-    "InpGenAltParamAlt": {
+    "InpGnrcAltParamAlt": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenAltParamAlt",
+          "object": "InpGnrcAltParamAlt",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -54,7 +54,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "alt",
-          "object": "InpGenAltParamAlt",
+          "object": "InpGnrcAltParamAlt",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -80,15 +80,15 @@
           }
         }
       ],
-      "name": "InpGenAltParamAlt",
+      "name": "InpGnrcAltParamAlt",
       "typeKind": "Input"
     },
-    "InpGenAltParamRef": {
+    "InpGnrcAltParamRef": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenAltParamRef",
+          "object": "InpGnrcAltParamRef",
           "type": "ref"
         }
       ],
@@ -98,7 +98,7 @@
           "type": "ref"
         }
       ],
-      "name": "InpGenAltParamRef",
+      "name": "InpGnrcAltParamRef",
       "typeKind": "Input",
       "typeParams": [
         {

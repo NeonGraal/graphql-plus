@@ -1,33 +1,33 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpGenAltParam: !_TypeOutput
+  !_Identifier OutpGnrcAltParam: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpGenAltParam
+      object: OutpGnrcAltParam
       type: !_OutputBase
-        output: OutpGenAltParamRef
+        output: OutpGnrcAltParamRef
         typeArgs:
         - !_OutputArg
-          output: OutpGenAltParamAlt
+          output: OutpGnrcAltParamAlt
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
-        output: OutpGenAltParamRef
+        output: OutpGnrcAltParamRef
         typeArgs:
         - !_OutputArg
-          output: OutpGenAltParamAlt
-    name: OutpGenAltParam
+          output: OutpGnrcAltParamAlt
+    name: OutpGnrcAltParam
     typeKind: !_TypeKind Output
-  !_Identifier OutpGenAltParamAlt: !_TypeOutput
+  !_Identifier OutpGnrcAltParamAlt: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpGenAltParamAlt
+      object: OutpGnrcAltParamAlt
       type: !_OutputBase
         output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
-      object: OutpGenAltParamAlt
+      object: OutpGnrcAltParamAlt
       type: !_OutputBase
         output: Number
     alternates:
@@ -39,17 +39,17 @@ types: !_Map_Type
       name: alt
       type: !_OutputBase
         output: Number
-    name: OutpGenAltParamAlt
+    name: OutpGnrcAltParamAlt
     typeKind: !_TypeKind Output
-  !_Identifier OutpGenAltParamRef: !_TypeOutput
+  !_Identifier OutpGnrcAltParamRef: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpGenAltParamRef
+      object: OutpGnrcAltParamRef
       type: !_TypeParam ref
     alternates:
     - !_OutputAlternate
       type: !_TypeParam ref
-    name: OutpGenAltParamRef
+    name: OutpGnrcAltParamRef
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described

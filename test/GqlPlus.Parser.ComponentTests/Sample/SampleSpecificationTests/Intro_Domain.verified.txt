@@ -1,9 +1,5 @@
 ﻿!Sc I@001/0001
-Failure
-<
-  !!! P@024/0010 : Invalid Output. Expected type parameter. - ':_DomainKi' !!!
-  !!! P@024/0010 : Invalid Schema. Expected no more text. - ':_DomainKi' !!!
->
+Success
 {
   !En I@006/0001
   _DomainKind
@@ -68,4 +64,221 @@ Failure
 {
   !Ou I@008/0010
   _DomainRef
+  <
+    I@020/0010
+    $kind
+    :_DomainKind
+  >
+  :
+  I@007/0011
+  _TypeRef
+  <
+    I@016/0011
+    _TypeKind.Domain
+  >
+  {
+    !OF I@009/0012
+    domainKind
+    :
+    I@022/0012
+    $kind
+  }
+}
+{
+  !Ou I@008/0015
+  _BaseDomain
+  <
+    I@021/0015
+    $domain
+    :_DomainKind
+    I@041/0015
+    $item
+    :_BaseDomainItem
+    I@063/0015
+    $domainItem
+    :_DomainItem
+  >
+  :
+  I@007/0016
+  _ParentType
+  <
+    I@019/0016
+    _TypeKind.Domain
+    I@037/0016
+    $item
+    I@043/0016
+    $domainItem
+  >
+  {
+    !OF I@009/0017
+    domainKind
+    :
+    I@022/0017
+    $domain
+  }
+}
+{
+  !Du I@006/0020
+  _BaseDomainItem
+  :
+  I@007/0021
+  _Described
+  {
+    !DF I@009/0022
+    exclude
+    :
+    I@018/0022
+    Boolean
+  }
+}
+{
+  !Ou I@008/0025
+  _DomainItem
+  <
+    I@021/0025
+    $item
+    :_BaseDomainItem
+  >
+  :
+  I@008/0026
+  $item
+  {
+    !OF I@009/0027
+    domain
+    :
+    I@017/0027
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0030
+  _DomainValue
+  <
+    I@022/0030
+    $kind
+    :_DomainKind
+    I@040/0030
+    $value
+  >
+  :
+  I@007/0031
+  _DomainRef
+  <
+    I@019/0031
+    $kind
+  >
+  {
+    !OF I@009/0032
+    value
+    :
+    I@017/0032
+    $value
+  }
+}
+{
+  !Du I@006/0034
+  _DomainTrueFalse
+  :
+  I@007/0035
+  _BaseDomainItem
+  {
+    !DF I@009/0036
+    value
+    :
+    I@016/0036
+    Boolean
+  }
+}
+{
+  !Ou I@008/0039
+  _DomainItemTrueFalse
+  :
+  I@007/0040
+  _DomainItem
+  <
+    I@019/0040
+    _DomainTrueFalse
+  >
+}
+{
+  !Ou I@008/0042
+  _DomainLabel
+  :
+  I@007/0043
+  _BaseDomainItem
+  {
+    !OF I@009/0044
+    label
+    :
+    I@016/0044
+    _EnumValue
+  }
+}
+{
+  !Ou I@008/0047
+  _DomainItemLabel
+  :
+  I@007/0048
+  _DomainItem
+  <
+    I@019/0048
+    _DomainLabel
+  >
+}
+{
+  !Du I@006/0050
+  _DomainRange
+  :
+  I@007/0051
+  _BaseDomainItem
+  {
+    !DF I@009/0052
+    lower
+    :
+    I@016/0052
+    Number
+    ?
+    !DF I@009/0053
+    upper
+    :
+    I@016/0053
+    Number
+    ?
+  }
+}
+{
+  !Ou I@008/0056
+  _DomainItemRange
+  :
+  I@007/0057
+  _DomainItem
+  <
+    I@019/0057
+    _DomainRange
+  >
+}
+{
+  !Du I@006/0059
+  _DomainRegex
+  :
+  I@007/0060
+  _BaseDomainItem
+  {
+    !DF I@009/0061
+    pattern
+    :
+    I@018/0061
+    String
+  }
+}
+{
+  !Ou I@008/0064
+  _DomainItemRegex
+  :
+  I@007/0065
+  _DomainItem
+  <
+    I@019/0065
+    _DomainRegex
+  >
 }

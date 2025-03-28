@@ -1,48 +1,79 @@
 ﻿{
   "$tag": "_Schema",
-  "_errors": [
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 41,
-        "_line": 2
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Output. Expected type parameter."
-    },
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 41,
-        "_line": 2
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Sample. Expected no more text."
-    }
-  ],
   "types": {
     "$tag": "_Map_Type",
-    "OutpConstraintFieldDomain": {
+    "DomCnstFieldDmn": {
+      "$tag": "_DomainString",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRegex)",
+          "domain": "DomCnstFieldDmn",
+          "exclude": false,
+          "pattern": "\\w\u002B"
+        }
+      ],
+      "domainKind": "String",
+      "items": [
+        {
+          "$tag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "\\w\u002B"
+        }
+      ],
+      "name": "DomCnstFieldDmn",
+      "typeKind": "Domain"
+    },
+    "OutpCnstFieldDmn": {
       "$tag": "_TypeOutput",
-      "name": "OutpConstraintFieldDomain",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpCnstFieldDmnRef",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "DomCnstFieldDmn"
+          }
+        }
+      ],
+      "name": "OutpCnstFieldDmn",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "OutpConstraintFieldDomainRef",
+        "output": "OutpCnstFieldDmnRef",
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "DomConstraintFieldDomain"
+            "value": "DomCnstFieldDmn"
           }
         ]
       },
       "typeKind": "Output"
     },
-    "OutpConstraintFieldDomainRef": {
+    "OutpCnstFieldDmnRef": {
       "$tag": "_TypeOutput",
-      "name": "OutpConstraintFieldDomainRef",
-      "typeKind": "Output"
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpCnstFieldDmnRef",
+          "type": "ref"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": "ref"
+        }
+      ],
+      "name": "OutpCnstFieldDmnRef",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "ref"
+        }
+      ]
     }
   }
 }

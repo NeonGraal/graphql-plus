@@ -1,0 +1,44 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DomCnstFieldDmn: !_DomainString
+    allItems:
+    - !_DomainItem(_DomainRegex)
+      domain: DomCnstFieldDmn
+      exclude: false
+      pattern: \w+
+    domainKind: !_DomainKind String
+    items:
+    - !_DomainRegex
+      exclude: false
+      pattern: \w+
+    name: DomCnstFieldDmn
+    typeKind: !_TypeKind Domain
+  !_Identifier DualCnstFieldDmn: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: DualCnstFieldDmnRef
+      type: !_DualBase
+        dual: DomCnstFieldDmn
+    name: DualCnstFieldDmn
+    parent: !_DualBase
+      dual: DualCnstFieldDmnRef
+      typeArgs:
+      - !_DualArg
+        dual: DomCnstFieldDmn
+    typeKind: !_TypeKind Dual
+  !_Identifier DualCnstFieldDmnRef: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: DualCnstFieldDmnRef
+      type: !_TypeParam ref
+    fields:
+    - !_DualField
+      name: field
+      type: !_TypeParam ref
+    name: DualCnstFieldDmnRef
+    typeKind: !_TypeKind Dual
+    typeParams:
+    - !_Described
+      name: ref

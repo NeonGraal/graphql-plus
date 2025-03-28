@@ -1,35 +1,35 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpGenFieldDual: !_TypeInput
+  !_Identifier InpGnrcFieldDual: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: field
-      object: InpGenFieldDual
+      object: InpGnrcFieldDual
       type: !_InputBase
-        input: InpGenFieldDualRef
+        input: InpGnrcFieldDualRef
         typeArgs:
         - !_DualArg
-          dual: InpGenFieldDualAlt
+          dual: InpGnrcFieldDualAlt
     fields:
     - !_InputField
       name: field
       type: !_InputBase
-        input: InpGenFieldDualRef
+        input: InpGnrcFieldDualRef
         typeArgs:
         - !_DualArg
-          dual: InpGenFieldDualAlt
-    name: InpGenFieldDual
+          dual: InpGnrcFieldDualAlt
+    name: InpGnrcFieldDual
     typeKind: !_TypeKind Input
-  !_Identifier InpGenFieldDualAlt: !_TypeDual
+  !_Identifier InpGnrcFieldDualAlt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: InpGenFieldDualAlt
+      object: InpGnrcFieldDualAlt
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: InpGenFieldDualAlt
+      object: InpGnrcFieldDualAlt
       type: !_DualBase
         dual: Number
     alternates:
@@ -41,17 +41,17 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: InpGenFieldDualAlt
+    name: InpGnrcFieldDualAlt
     typeKind: !_TypeKind Dual
-  !_Identifier InpGenFieldDualRef: !_TypeInput
+  !_Identifier InpGnrcFieldDualRef: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpGenFieldDualRef
+      object: InpGnrcFieldDualRef
       type: !_TypeParam ref
     alternates:
     - !_InputAlternate
       type: !_TypeParam ref
-    name: InpGenFieldDualRef
+    name: InpGnrcFieldDualRef
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described

@@ -1,48 +1,122 @@
 ﻿{
   "$tag": "_Schema",
-  "_errors": [
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 38,
-        "_line": 2
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Output. Expected type parameter."
-    },
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 38,
-        "_line": 2
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Sample. Expected no more text."
-    }
-  ],
   "types": {
     "$tag": "_Map_Type",
-    "OutpConstraintFieldObj": {
+    "OutpCnstFieldObj": {
       "$tag": "_TypeOutput",
-      "name": "OutpConstraintFieldObj",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpCnstFieldObjRef",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "OutpCnstFieldObjAlt"
+          }
+        }
+      ],
+      "name": "OutpCnstFieldObj",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "OutpConstraintFieldObjRef",
+        "output": "OutpCnstFieldObjRef",
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "OutpConstraintFieldObjAlt"
+            "value": "OutpCnstFieldObjAlt"
           }
         ]
       },
       "typeKind": "Output"
     },
-    "OutpConstraintFieldObjRef": {
+    "OutpCnstFieldObjAlt": {
       "$tag": "_TypeOutput",
-      "name": "OutpConstraintFieldObjRef",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpCnstFieldObjParent",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "alt",
+          "object": "OutpCnstFieldObjAlt",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "alt",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "OutpCnstFieldObjAlt",
+      "parent": {
+        "$tag": "_OutputBase",
+        "value": "OutpCnstFieldObjParent"
+      },
       "typeKind": "Output"
+    },
+    "OutpCnstFieldObjParent": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpCnstFieldObjParent",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "name": "OutpCnstFieldObjParent",
+      "typeKind": "Output"
+    },
+    "OutpCnstFieldObjRef": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpCnstFieldObjRef",
+          "type": "ref"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": "ref"
+        }
+      ],
+      "name": "OutpCnstFieldObjRef",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "ref"
+        }
+      ]
     }
   }
 }

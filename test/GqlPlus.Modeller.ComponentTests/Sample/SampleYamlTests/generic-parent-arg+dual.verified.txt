@@ -1,28 +1,28 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualGenParentArg: !_TypeDual
+  !_Identifier DualGnrcPrntArg: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualGenParentArgRef
+      object: DualGnrcPrntArgRef
       type: !_TypeParam ref
-    name: DualGenParentArg
+    name: DualGnrcPrntArg
     parent: !_DualBase
-      dual: DualGenParentArgRef
+      dual: DualGnrcPrntArgRef
       typeArgs:
       - !_TypeParam type
     typeKind: !_TypeKind Dual
     typeParams:
     - !_Described
       name: type
-  !_Identifier DualGenParentArgRef: !_TypeDual
+  !_Identifier DualGnrcPrntArgRef: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualGenParentArgRef
+      object: DualGnrcPrntArgRef
       type: !_TypeParam ref
     alternates:
     - !_DualAlternate
       type: !_TypeParam ref
-    name: DualGenParentArgRef
+    name: DualGnrcPrntArgRef
     typeKind: !_TypeKind Dual
     typeParams:
     - !_Described

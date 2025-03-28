@@ -2,13 +2,13 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpGenDescr": {
+    "InpGnrcDescr": {
       "$tag": "_TypeInput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "InpGenDescr",
+          "object": "InpGnrcDescr",
           "type": "type"
         }
       ],
@@ -19,7 +19,7 @@
           "type": "type"
         }
       ],
-      "name": "InpGenDescr",
+      "name": "InpGnrcDescr",
       "typeKind": "Input",
       "typeParams": [
         {

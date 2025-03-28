@@ -2,16 +2,16 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpFieldObject": {
+    "OutpFieldObj": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutpFieldObject",
+          "object": "OutpFieldObj",
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpFieldObjectFld"
+            "value": "OutpFieldObjFld"
           }
         }
       ],
@@ -21,19 +21,19 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpFieldObjectFld"
+            "value": "OutpFieldObjFld"
           }
         }
       ],
-      "name": "OutpFieldObject",
+      "name": "OutpFieldObj",
       "typeKind": "Output"
     },
-    "OutpFieldObjectFld": {
+    "OutpFieldObjFld": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpFieldObjectFld",
+          "object": "OutpFieldObjFld",
           "type": {
             "$tag": "_OutputBase",
             "value": "String"
@@ -44,7 +44,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutpFieldObjectFld",
+          "object": "OutpFieldObjFld",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -70,7 +70,7 @@
           }
         }
       ],
-      "name": "OutpFieldObjectFld",
+      "name": "OutpFieldObjFld",
       "typeKind": "Output"
     }
   }

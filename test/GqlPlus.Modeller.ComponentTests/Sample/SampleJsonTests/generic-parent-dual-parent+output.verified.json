@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpGenParentDualParent": {
+    "OutpGnrcPrntDualPrnt": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "OutpGenParentDualParentAlt",
+          "object": "OutpGnrcPrntDualPrntAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -18,32 +18,32 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "OutpGenParentDualParentAlt",
+          "object": "OutpGnrcPrntDualPrntAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
           }
         }
       ],
-      "name": "OutpGenParentDualParent",
+      "name": "OutpGnrcPrntDualPrnt",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "OutpGenParentDualParentRef",
+        "output": "OutpGnrcPrntDualPrntRef",
         "typeArgs": [
           {
             "$tag": "_DualArg",
-            "value": "OutpGenParentDualParentAlt"
+            "value": "OutpGnrcPrntDualPrntAlt"
           }
         ]
       },
       "typeKind": "Output"
     },
-    "OutpGenParentDualParentAlt": {
+    "OutpGnrcPrntDualPrntAlt": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "OutpGenParentDualParentAlt",
+          "object": "OutpGnrcPrntDualPrntAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -54,7 +54,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "OutpGenParentDualParentAlt",
+          "object": "OutpGnrcPrntDualPrntAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -80,12 +80,12 @@
           }
         }
       ],
-      "name": "OutpGenParentDualParentAlt",
+      "name": "OutpGnrcPrntDualPrntAlt",
       "typeKind": "Dual"
     },
-    "OutpGenParentDualParentRef": {
+    "OutpGnrcPrntDualPrntRef": {
       "$tag": "_TypeOutput",
-      "name": "OutpGenParentDualParentRef",
+      "name": "OutpGnrcPrntDualPrntRef",
       "parent": "ref",
       "typeKind": "Output",
       "typeParams": [

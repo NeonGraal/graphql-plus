@@ -1,6 +1,6 @@
-﻿Invalid Dual Parent. '_Described' not defined
+﻿Invalid Dual Parent. '_Named' not defined
 Invalid Output Parent. '_ParentType' not defined
 Invalid Dual Field. '_Identifier' not defined
 Invalid Output Arg Enum. '_TypeKind' is not an Enum type
 Invalid Output Parent. '_TypeKind' not defined
-Invalid Output Parent. '_Described' not defined
+Invalid Output Parent. '_Named' not defined

@@ -2,37 +2,37 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpGenParentParam": {
+    "InpGnrcPrntParam": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenParentParamRef",
+          "object": "InpGnrcPrntParamRef",
           "type": {
             "$tag": "_InputBase",
-            "value": "InpGenParentParamAlt"
+            "value": "InpGnrcPrntParamAlt"
           }
         }
       ],
-      "name": "InpGenParentParam",
+      "name": "InpGnrcPrntParam",
       "parent": {
         "$tag": "_InputBase",
-        "input": "InpGenParentParamRef",
+        "input": "InpGnrcPrntParamRef",
         "typeArgs": [
           {
             "$tag": "_InputArg",
-            "value": "InpGenParentParamAlt"
+            "value": "InpGnrcPrntParamAlt"
           }
         ]
       },
       "typeKind": "Input"
     },
-    "InpGenParentParamAlt": {
+    "InpGnrcPrntParamAlt": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenParentParamAlt",
+          "object": "InpGnrcPrntParamAlt",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -43,7 +43,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "alt",
-          "object": "InpGenParentParamAlt",
+          "object": "InpGnrcPrntParamAlt",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -69,15 +69,15 @@
           }
         }
       ],
-      "name": "InpGenParentParamAlt",
+      "name": "InpGnrcPrntParamAlt",
       "typeKind": "Input"
     },
-    "InpGenParentParamRef": {
+    "InpGnrcPrntParamRef": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenParentParamRef",
+          "object": "InpGnrcPrntParamRef",
           "type": "ref"
         }
       ],
@@ -87,7 +87,7 @@
           "type": "ref"
         }
       ],
-      "name": "InpGenParentParamRef",
+      "name": "InpGnrcPrntParamRef",
       "typeKind": "Input",
       "typeParams": [
         {

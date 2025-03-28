@@ -26,15 +26,13 @@ public class SampleSchemaChecks(
   protected static bool IsObjectInput(string input)
     => input is not null && input.Contains("object ", StringComparison.Ordinal);
 
-  public static readonly Map<string> Abbreviations = new() { ["Generic"] = "Gen" };
+  private static string PascalCase(string? input)
+    => string.Concat(TitleWords(input).Select(s => Abbreviations.TryGetValue(s, out string? abbr) ? abbr : s));
 
-  private static string PascalCase(string input)
-    => input is null ? ""
-    : string.Concat(input
-      .Split('-')
-      .Select(s => s.ToUpperInvariant()[0] + s[1..])
+  private static string CamelCase(string? input)
+    => string.Concat(TitleWords(input)
       .Select(s => Abbreviations.TryGetValue(s, out string? abbr) ? abbr : s)
-      );
+      .Select((s, i) => i > 0 ? s : s.ToLowerInvariant()));
 
   public static readonly (string, string)[] Replacements = [("dual", "Dual"), ("input", "Inp"), ("output", "Outp")];
 
@@ -43,6 +41,7 @@ public class SampleSchemaChecks(
     : input
       .Replace("object", objectReplace, StringComparison.InvariantCulture)
       .Replace("Obj", objReplace, StringComparison.InvariantCulture)
+      .Replace("name", CamelCase(testName), StringComparison.InvariantCulture)
       .Replace("Name", PascalCase(testName), StringComparison.InvariantCulture);
 
   protected static IEnumerable<string> ReplaceValue(string input, string testName)

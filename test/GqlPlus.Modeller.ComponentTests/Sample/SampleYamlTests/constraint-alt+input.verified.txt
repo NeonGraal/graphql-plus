@@ -1,0 +1,15 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier InpCnstAlt: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: InpCnstAlt
+      type: !_TypeParam type
+    alternates:
+    - !_InputAlternate
+      type: !_TypeParam type
+    name: InpCnstAlt
+    typeKind: !_TypeKind Input
+    typeParams:
+    - !_Described
+      name: type

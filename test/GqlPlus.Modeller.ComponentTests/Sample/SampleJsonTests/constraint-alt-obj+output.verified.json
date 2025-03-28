@@ -1,42 +1,20 @@
 ﻿{
   "$tag": "_Schema",
-  "_errors": [
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 36,
-        "_line": 2
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Output. Expected type parameter."
-    },
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 36,
-        "_line": 2
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Sample. Expected no more text."
-    }
-  ],
   "types": {
     "$tag": "_Map_Type",
-    "OutpConstraintAltObj": {
+    "OutpCnstAltObj": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpConstraintAltObj",
+          "object": "OutpCnstAltObj",
           "type": {
             "$tag": "_OutputBase",
-            "output": "OutpConstraintAltObjRef",
+            "output": "OutpCnstAltObjRef",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "value": "OutpConstraintAltObjAlt"
+                "value": "OutpCnstAltObjAlt"
               }
             ]
           }
@@ -47,23 +25,106 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "OutpConstraintAltObjRef",
+            "output": "OutpCnstAltObjRef",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "value": "OutpConstraintAltObjAlt"
+                "value": "OutpCnstAltObjAlt"
               }
             ]
           }
         }
       ],
-      "name": "OutpConstraintAltObj",
+      "name": "OutpCnstAltObj",
       "typeKind": "Output"
     },
-    "OutpConstraintAltObjRef": {
+    "OutpCnstAltObjAlt": {
       "$tag": "_TypeOutput",
-      "name": "OutpConstraintAltObjRef",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpCnstAltObjParent",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "alt",
+          "object": "OutpCnstAltObjAlt",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "alt",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "OutpCnstAltObjAlt",
+      "parent": {
+        "$tag": "_OutputBase",
+        "value": "OutpCnstAltObjParent"
+      },
       "typeKind": "Output"
+    },
+    "OutpCnstAltObjParent": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpCnstAltObjParent",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "name": "OutpCnstAltObjParent",
+      "typeKind": "Output"
+    },
+    "OutpCnstAltObjRef": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpCnstAltObjRef",
+          "type": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": "ref"
+        }
+      ],
+      "name": "OutpCnstAltObjRef",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "ref"
+        }
+      ]
     }
   }
 }

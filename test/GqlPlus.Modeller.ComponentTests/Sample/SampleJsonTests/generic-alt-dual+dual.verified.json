@@ -2,19 +2,19 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualGenAltDual": {
+    "DualGnrcAltDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualGenAltDual",
+          "object": "DualGnrcAltDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "DualGenAltDualRef",
+            "dual": "DualGnrcAltDualRef",
             "typeArgs": [
               {
                 "$tag": "_DualArg",
-                "value": "DualGenAltDualAlt"
+                "value": "DualGnrcAltDualAlt"
               }
             ]
           }
@@ -25,25 +25,25 @@
           "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
-            "dual": "DualGenAltDualRef",
+            "dual": "DualGnrcAltDualRef",
             "typeArgs": [
               {
                 "$tag": "_DualArg",
-                "value": "DualGenAltDualAlt"
+                "value": "DualGnrcAltDualAlt"
               }
             ]
           }
         }
       ],
-      "name": "DualGenAltDual",
+      "name": "DualGnrcAltDual",
       "typeKind": "Dual"
     },
-    "DualGenAltDualAlt": {
+    "DualGnrcAltDualAlt": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualGenAltDualAlt",
+          "object": "DualGnrcAltDualAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -54,7 +54,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "DualGenAltDualAlt",
+          "object": "DualGnrcAltDualAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -80,15 +80,15 @@
           }
         }
       ],
-      "name": "DualGenAltDualAlt",
+      "name": "DualGnrcAltDualAlt",
       "typeKind": "Dual"
     },
-    "DualGenAltDualRef": {
+    "DualGnrcAltDualRef": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualGenAltDualRef",
+          "object": "DualGnrcAltDualRef",
           "type": "ref"
         }
       ],
@@ -98,7 +98,7 @@
           "type": "ref"
         }
       ],
-      "name": "DualGenAltDualRef",
+      "name": "DualGnrcAltDualRef",
       "typeKind": "Dual",
       "typeParams": [
         {

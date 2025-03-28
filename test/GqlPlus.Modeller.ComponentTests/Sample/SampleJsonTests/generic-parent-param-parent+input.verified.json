@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpGenParentParamParent": {
+    "InpGnrcPrntParamPrnt": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenParentParamParentAlt",
+          "object": "InpGnrcPrntParamPrntAlt",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -18,32 +18,32 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "alt",
-          "object": "InpGenParentParamParentAlt",
+          "object": "InpGnrcPrntParamPrntAlt",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
           }
         }
       ],
-      "name": "InpGenParentParamParent",
+      "name": "InpGnrcPrntParamPrnt",
       "parent": {
         "$tag": "_InputBase",
-        "input": "InpGenParentParamParentRef",
+        "input": "InpGnrcPrntParamPrntRef",
         "typeArgs": [
           {
             "$tag": "_InputArg",
-            "value": "InpGenParentParamParentAlt"
+            "value": "InpGnrcPrntParamPrntAlt"
           }
         ]
       },
       "typeKind": "Input"
     },
-    "InpGenParentParamParentAlt": {
+    "InpGnrcPrntParamPrntAlt": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenParentParamParentAlt",
+          "object": "InpGnrcPrntParamPrntAlt",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -54,7 +54,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "alt",
-          "object": "InpGenParentParamParentAlt",
+          "object": "InpGnrcPrntParamPrntAlt",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -80,12 +80,12 @@
           }
         }
       ],
-      "name": "InpGenParentParamParentAlt",
+      "name": "InpGnrcPrntParamPrntAlt",
       "typeKind": "Input"
     },
-    "InpGenParentParamParentRef": {
+    "InpGnrcPrntParamPrntRef": {
       "$tag": "_TypeInput",
-      "name": "InpGenParentParamParentRef",
+      "name": "InpGnrcPrntParamPrntRef",
       "parent": "ref",
       "typeKind": "Input",
       "typeParams": [

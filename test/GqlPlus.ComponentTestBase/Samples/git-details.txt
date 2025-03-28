@@ -1,1 +1,1 @@
-6fe64bd  (HEAD -> type-constraints) 2025-03-29 Add Constraints to all Introspection parameters
+9118934  (HEAD -> type-constraints) 2025-03-29 Restore inadvertant changes

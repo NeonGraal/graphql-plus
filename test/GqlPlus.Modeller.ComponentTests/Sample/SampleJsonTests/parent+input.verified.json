@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpParent": {
+    "InpPrnt": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpParentRef",
+          "object": "InpPrntRef",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -18,26 +18,26 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "parent",
-          "object": "InpParentRef",
+          "object": "InpPrntRef",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
           }
         }
       ],
-      "name": "InpParent",
+      "name": "InpPrnt",
       "parent": {
         "$tag": "_InputBase",
-        "value": "InpParentRef"
+        "value": "InpPrntRef"
       },
       "typeKind": "Input"
     },
-    "InpParentRef": {
+    "InpPrntRef": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpParentRef",
+          "object": "InpPrntRef",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -48,7 +48,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "parent",
-          "object": "InpParentRef",
+          "object": "InpPrntRef",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -74,7 +74,7 @@
           }
         }
       ],
-      "name": "InpParentRef",
+      "name": "InpPrntRef",
       "typeKind": "Input"
     }
   }

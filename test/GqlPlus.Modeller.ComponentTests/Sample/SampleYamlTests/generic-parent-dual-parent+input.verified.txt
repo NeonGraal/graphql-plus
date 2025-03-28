@@ -1,34 +1,34 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpGenParentDualParent: !_TypeInput
+  !_Identifier InpGnrcPrntDualPrnt: !_TypeInput
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: InpGenParentDualParentAlt
+      object: InpGnrcPrntDualPrntAlt
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: InpGenParentDualParentAlt
+      object: InpGnrcPrntDualPrntAlt
       type: !_DualBase
         dual: Number
-    name: InpGenParentDualParent
+    name: InpGnrcPrntDualPrnt
     parent: !_InputBase
-      input: InpGenParentDualParentRef
+      input: InpGnrcPrntDualPrntRef
       typeArgs:
       - !_DualArg
-        dual: InpGenParentDualParentAlt
+        dual: InpGnrcPrntDualPrntAlt
     typeKind: !_TypeKind Input
-  !_Identifier InpGenParentDualParentAlt: !_TypeDual
+  !_Identifier InpGnrcPrntDualPrntAlt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: InpGenParentDualParentAlt
+      object: InpGnrcPrntDualPrntAlt
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: InpGenParentDualParentAlt
+      object: InpGnrcPrntDualPrntAlt
       type: !_DualBase
         dual: Number
     alternates:
@@ -40,10 +40,10 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: InpGenParentDualParentAlt
+    name: InpGnrcPrntDualPrntAlt
     typeKind: !_TypeKind Dual
-  !_Identifier InpGenParentDualParentRef: !_TypeInput
-    name: InpGenParentDualParentRef
+  !_Identifier InpGnrcPrntDualPrntRef: !_TypeInput
+    name: InpGnrcPrntDualPrntRef
     parent: !_TypeParam ref
     typeKind: !_TypeKind Input
     typeParams:

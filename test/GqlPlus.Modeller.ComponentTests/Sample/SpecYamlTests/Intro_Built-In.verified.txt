@@ -1,13 +1,4 @@
 ﻿!_Schema
-_errors:
-- !_Error
-  _at: !_At {_col: 28, _line: 28}
-  _kind: !_TokenKind Punctuation
-  _message: Invalid Output. Expected type parameter.
-- !_Error
-  _at: !_At {_col: 28, _line: 28}
-  _kind: !_TokenKind Punctuation
-  _message: Invalid Spec. Expected no more text.
 types: !_Map_Type
   !_Identifier _Collections: !_TypeOutput
     allAlternates:
@@ -131,8 +122,114 @@ types: !_Map_Type
         output: _Constant
     name: _ConstantMap
     typeKind: !_TypeKind Output
+  !_Identifier _Modifier: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: modifierKind
+      object: _Modifier
+      type: !_TypeParam kind
+    fields:
+    - !_OutputField
+      name: modifierKind
+      type: !_TypeParam kind
+    name: _Modifier
+    typeKind: !_TypeKind Output
+    typeParams:
+    - !_Described
+      name: kind
   !_Identifier _ModifierKeyed: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: modifierKind
+      object: _Modifier
+      type: !_TypeParam kind
+    - !_ObjectFor(_OutputField)
+      name: by
+      object: _ModifierKeyed
+      type: !_OutputBase
+        output: _TypeSimple
+    - !_ObjectFor(_OutputField)
+      name: optional
+      object: _ModifierKeyed
+      type: !_OutputBase
+        output: Boolean
+    fields:
+    - !_OutputField
+      name: by
+      type: !_OutputBase
+        output: _TypeSimple
+    - !_OutputField
+      name: optional
+      type: !_OutputBase
+        output: Boolean
     name: _ModifierKeyed
+    parent: !_OutputBase
+      output: _Modifier
+      typeArgs:
+      - !_TypeParam kind
+    typeKind: !_TypeKind Output
+    typeParams:
+    - !_Described
+      name: kind
+  !_Identifier _ModifierKind: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      aliases: [Optional]
+      enum: _ModifierKind
+      name: Opt
+    - !_EnumLabel
+      enum: _ModifierKind
+      name: List
+    - !_EnumLabel
+      aliases: [Dictionary]
+      enum: _ModifierKind
+      name: Dict
+    - !_EnumLabel
+      aliases: [TypeParam]
+      enum: _ModifierKind
+      name: Param
+    items:
+    - !_Aliased
+      aliases: [Optional]
+      name: Opt
+    - !_Aliased
+      name: List
+    - !_Aliased
+      aliases: [Dictionary]
+      name: Dict
+    - !_Aliased
+      aliases: [TypeParam]
+      name: Param
+    name: _ModifierKind
+    typeKind: !_TypeKind Enum
+  !_Identifier _Modifiers: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: _Modifiers
+      type: !_OutputBase
+        output: _Modifier
+        typeArgs:
+        - !_OutputArg
+          label: Optional
+          name: _ModifierKind
+          typeKind: !_SimpleKind Enum
+    - !_ObjectFor(_OutputAlternate)
+      object: _Modifiers
+      type: !_OutputBase
+        output: _Collections
+    alternates:
+    - !_OutputAlternate
+      type: !_OutputBase
+        output: _Modifier
+        typeArgs:
+        - !_OutputArg
+          label: Optional
+          name: _ModifierKind
+          typeKind: !_SimpleKind Enum
+    - !_OutputAlternate
+      type: !_OutputBase
+        output: _Collections
+    name: _Modifiers
     typeKind: !_TypeKind Output
   !_Identifier _Simple: !_TypeOutput
     allAlternates:

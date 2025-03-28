@@ -6,7 +6,8 @@ namespace GqlPlus.Ast.Schema.Objects;
 internal sealed record class TypeParamAst(
   TokenAt At,
   string Name,
-  string Description
+  string Description,
+  string? Constraint = null
 ) : AstDescribed(At, Name, Description)
   , IGqlpTypeParam
 {
@@ -16,5 +17,5 @@ internal sealed record class TypeParamAst(
     : this(at, name, "") { }
 
   internal override IEnumerable<string?> GetFields()
-    => [At.ToString(), Description.Quoted("\""), Name.Prefixed("$")];
+    => [At.ToString(), Description.Quoted("\""), Name.Prefixed("$"), Constraint.Prefixed(":")];
 }

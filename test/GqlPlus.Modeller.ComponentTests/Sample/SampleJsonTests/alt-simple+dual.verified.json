@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualAltSimple": {
+    "DualAltSmpl": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualAltSimple",
+          "object": "DualAltSmpl",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -23,7 +23,7 @@
           }
         }
       ],
-      "name": "DualAltSimple",
+      "name": "DualAltSmpl",
       "typeKind": "Dual"
     }
   }

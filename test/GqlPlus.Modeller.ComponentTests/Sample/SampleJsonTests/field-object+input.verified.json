@@ -2,16 +2,16 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpFieldObject": {
+    "InpFieldObj": {
       "$tag": "_TypeInput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "InpFieldObject",
+          "object": "InpFieldObj",
           "type": {
             "$tag": "_InputBase",
-            "value": "InpFieldObjectFld"
+            "value": "InpFieldObjFld"
           }
         }
       ],
@@ -21,19 +21,19 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "value": "InpFieldObjectFld"
+            "value": "InpFieldObjFld"
           }
         }
       ],
-      "name": "InpFieldObject",
+      "name": "InpFieldObj",
       "typeKind": "Input"
     },
-    "InpFieldObjectFld": {
+    "InpFieldObjFld": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpFieldObjectFld",
+          "object": "InpFieldObjFld",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -44,7 +44,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "InpFieldObjectFld",
+          "object": "InpFieldObjFld",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -70,7 +70,7 @@
           }
         }
       ],
-      "name": "InpFieldObjectFld",
+      "name": "InpFieldObjFld",
       "typeKind": "Input"
     }
   }

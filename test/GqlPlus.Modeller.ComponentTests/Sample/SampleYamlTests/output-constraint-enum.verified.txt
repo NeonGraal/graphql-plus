@@ -1,0 +1,45 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier Name: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: Name
+      type: !_OutputBase
+        output: NameRef
+        typeArgs:
+        - !_OutputArg
+          output: name
+    alternates:
+    - !_OutputAlternate
+      type: !_OutputBase
+        output: NameRef
+        typeArgs:
+        - !_OutputArg
+          output: name
+    name: Name
+    typeKind: !_TypeKind Output
+  !_Identifier NameEnum: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: NameEnum
+      name: name
+    items:
+    - !_Aliased
+      name: name
+    name: NameEnum
+    typeKind: !_TypeKind Enum
+  !_Identifier NameRef: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: NameRef
+      type: !_TypeParam type
+    fields:
+    - !_OutputField
+      name: field
+      type: !_TypeParam type
+    name: NameRef
+    typeKind: !_TypeKind Output
+    typeParams:
+    - !_Described
+      name: type

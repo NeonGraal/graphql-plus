@@ -1,10 +1,10 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpObjectParent: !_TypeOutput
-    name: OutpObjectParent
+  !_Identifier OutpObjPrnt: !_TypeOutput
+    name: OutpObjPrnt
     parent: !_OutputBase
-      output: OutpObjectParentRef
+      output: OutpObjPrntRef
     typeKind: !_TypeKind Output
-  !_Identifier OutpObjectParentRef: !_TypeOutput
-    name: OutpObjectParentRef
+  !_Identifier OutpObjPrntRef: !_TypeOutput
+    name: OutpObjPrntRef
     typeKind: !_TypeKind Output

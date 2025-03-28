@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpGenAlt": {
+    "InpGnrcAlt": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenAlt",
+          "object": "InpGnrcAlt",
           "type": "type"
         }
       ],
@@ -17,7 +17,7 @@
           "type": "type"
         }
       ],
-      "name": "InpGenAlt",
+      "name": "InpGnrcAlt",
       "typeKind": "Input",
       "typeParams": [
         {

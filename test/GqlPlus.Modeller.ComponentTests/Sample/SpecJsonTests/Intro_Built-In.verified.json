@@ -1,27 +1,5 @@
 ﻿{
   "$tag": "_Schema",
-  "_errors": [
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 28,
-        "_line": 28
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Output. Expected type parameter."
-    },
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 28,
-        "_line": 28
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Spec. Expected no more text."
-    }
-  ],
   "types": {
     "$tag": "_Map_Type",
     "_Collections": {
@@ -256,9 +234,196 @@
       "name": "_ConstantMap",
       "typeKind": "Output"
     },
+    "_Modifier": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "modifierKind",
+          "object": "_Modifier",
+          "type": "kind"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "modifierKind",
+          "type": "kind"
+        }
+      ],
+      "name": "_Modifier",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "kind"
+        }
+      ]
+    },
     "_ModifierKeyed": {
       "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "modifierKind",
+          "object": "_Modifier",
+          "type": "kind"
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "by",
+          "object": "_ModifierKeyed",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_TypeSimple"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "optional",
+          "object": "_ModifierKeyed",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Boolean"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "by",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_TypeSimple"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "name": "optional",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Boolean"
+          }
+        }
+      ],
       "name": "_ModifierKeyed",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_Modifier",
+        "typeArgs": ["kind"]
+      },
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "kind"
+        }
+      ]
+    },
+    "_ModifierKind": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "aliases": ["Optional"],
+          "enum": "_ModifierKind",
+          "name": "Opt"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "_ModifierKind",
+          "name": "List"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "aliases": ["Dictionary"],
+          "enum": "_ModifierKind",
+          "name": "Dict"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "aliases": ["TypeParam"],
+          "enum": "_ModifierKind",
+          "name": "Param"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "aliases": ["Optional"],
+          "name": "Opt"
+        },
+        {
+          "$tag": "_Aliased",
+          "value": "List"
+        },
+        {
+          "$tag": "_Aliased",
+          "aliases": ["Dictionary"],
+          "name": "Dict"
+        },
+        {
+          "$tag": "_Aliased",
+          "aliases": ["TypeParam"],
+          "name": "Param"
+        }
+      ],
+      "name": "_ModifierKind",
+      "typeKind": "Enum"
+    },
+    "_Modifiers": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "_Modifiers",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Modifier",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "label": "Optional",
+                "name": "_ModifierKind",
+                "typeKind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "_Modifiers",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Collections"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Modifier",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "label": "Optional",
+                "name": "_ModifierKind",
+                "typeKind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Collections"
+          }
+        }
+      ],
+      "name": "_Modifiers",
       "typeKind": "Output"
     },
     "_Simple": {

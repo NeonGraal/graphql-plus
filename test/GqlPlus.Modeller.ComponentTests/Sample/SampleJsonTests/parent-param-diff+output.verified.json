@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpParentParamDiff": {
+    "OutpPrntParamDiff": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpParentParamDiffRef",
+          "object": "OutpPrntParamDiffRef",
           "type": "b"
         }
       ],
@@ -15,7 +15,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutpParentParamDiff",
+          "object": "OutpPrntParamDiff",
           "type": "a"
         }
       ],
@@ -26,10 +26,10 @@
           "type": "a"
         }
       ],
-      "name": "OutpParentParamDiff",
+      "name": "OutpPrntParamDiff",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "OutpParentParamDiffRef",
+        "output": "OutpPrntParamDiffRef",
         "typeArgs": ["a"]
       },
       "typeKind": "Output",
@@ -40,12 +40,12 @@
         }
       ]
     },
-    "OutpParentParamDiffRef": {
+    "OutpPrntParamDiffRef": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpParentParamDiffRef",
+          "object": "OutpPrntParamDiffRef",
           "type": "b"
         }
       ],
@@ -55,7 +55,7 @@
           "type": "b"
         }
       ],
-      "name": "OutpParentParamDiffRef",
+      "name": "OutpPrntParamDiffRef",
       "typeKind": "Output",
       "typeParams": [
         {

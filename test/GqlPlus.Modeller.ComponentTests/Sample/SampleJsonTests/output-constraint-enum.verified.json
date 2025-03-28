@@ -1,42 +1,20 @@
 ﻿{
   "$tag": "_Schema",
-  "_errors": [
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 27,
-        "_line": 2
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Output. Expected type parameter."
-    },
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 27,
-        "_line": 2
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Sample. Expected no more text."
-    }
-  ],
   "types": {
     "$tag": "_Map_Type",
-    "OutGenEnum": {
+    "Name": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutGenEnum",
+          "object": "Name",
           "type": {
             "$tag": "_OutputBase",
-            "output": "OutGenEnumRef",
+            "output": "NameRef",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "value": "outEnumGen"
+                "value": "name"
               }
             ]
           }
@@ -47,23 +25,62 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "OutGenEnumRef",
+            "output": "NameRef",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "value": "outEnumGen"
+                "value": "name"
               }
             ]
           }
         }
       ],
-      "name": "OutGenEnum",
+      "name": "Name",
       "typeKind": "Output"
     },
-    "OutGenEnumRef": {
+    "NameEnum": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "NameEnum",
+          "name": "name"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "name"
+        }
+      ],
+      "name": "NameEnum",
+      "typeKind": "Enum"
+    },
+    "NameRef": {
       "$tag": "_TypeOutput",
-      "name": "OutGenEnumRef",
-      "typeKind": "Output"
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "NameRef",
+          "type": "type"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": "type"
+        }
+      ],
+      "name": "NameRef",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "type"
+        }
+      ]
     }
   }
 }

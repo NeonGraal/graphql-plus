@@ -2,20 +2,20 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpGenFieldParam": {
+    "InpGnrcFieldParam": {
       "$tag": "_TypeInput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "InpGenFieldParam",
+          "object": "InpGnrcFieldParam",
           "type": {
             "$tag": "_InputBase",
-            "input": "InpGenFieldParamRef",
+            "input": "InpGnrcFieldParamRef",
             "typeArgs": [
               {
                 "$tag": "_InputArg",
-                "value": "InpGenFieldParamAlt"
+                "value": "InpGnrcFieldParamAlt"
               }
             ]
           }
@@ -27,25 +27,25 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "input": "InpGenFieldParamRef",
+            "input": "InpGnrcFieldParamRef",
             "typeArgs": [
               {
                 "$tag": "_InputArg",
-                "value": "InpGenFieldParamAlt"
+                "value": "InpGnrcFieldParamAlt"
               }
             ]
           }
         }
       ],
-      "name": "InpGenFieldParam",
+      "name": "InpGnrcFieldParam",
       "typeKind": "Input"
     },
-    "InpGenFieldParamAlt": {
+    "InpGnrcFieldParamAlt": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenFieldParamAlt",
+          "object": "InpGnrcFieldParamAlt",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -56,7 +56,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "alt",
-          "object": "InpGenFieldParamAlt",
+          "object": "InpGnrcFieldParamAlt",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -82,15 +82,15 @@
           }
         }
       ],
-      "name": "InpGenFieldParamAlt",
+      "name": "InpGnrcFieldParamAlt",
       "typeKind": "Input"
     },
-    "InpGenFieldParamRef": {
+    "InpGnrcFieldParamRef": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenFieldParamRef",
+          "object": "InpGnrcFieldParamRef",
           "type": "ref"
         }
       ],
@@ -100,7 +100,7 @@
           "type": "ref"
         }
       ],
-      "name": "InpGenFieldParamRef",
+      "name": "InpGnrcFieldParamRef",
       "typeKind": "Input",
       "typeParams": [
         {

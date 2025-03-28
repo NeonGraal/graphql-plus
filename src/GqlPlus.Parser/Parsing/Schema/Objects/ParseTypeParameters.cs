@@ -20,7 +20,17 @@ internal class ParseTypeParams
     while (!tokens.Take('>')) {
       string description = tokens.Description();
       if (tokens.Prefix('$', out string? name, out TokenAt? at) && name is not null) {
-        list.Add(new TypeParamAst(at, name, description));
+        TypeParamAst result = new(at, name, description);
+
+        if (tokens.Take(':')) {
+          if (tokens.Identifier(out string? constraint)) {
+            result = result with { Constraint = constraint };
+          } else {
+            return tokens.ErrorArray(label, "constraint after ':'", list);
+          }
+        }
+
+        list.Add(result);
       } else {
         return tokens.PartialArray(label, "type parameter", () => list);
       }

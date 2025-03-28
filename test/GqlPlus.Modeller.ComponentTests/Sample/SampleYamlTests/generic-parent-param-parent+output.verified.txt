@@ -1,34 +1,34 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpGenParentParamParent: !_TypeOutput
+  !_Identifier OutpGnrcPrntParamPrnt: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpGenParentParamParentAlt
+      object: OutpGnrcPrntParamPrntAlt
       type: !_OutputBase
         output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
-      object: OutpGenParentParamParentAlt
+      object: OutpGnrcPrntParamPrntAlt
       type: !_OutputBase
         output: Number
-    name: OutpGenParentParamParent
+    name: OutpGnrcPrntParamPrnt
     parent: !_OutputBase
-      output: OutpGenParentParamParentRef
+      output: OutpGnrcPrntParamPrntRef
       typeArgs:
       - !_OutputArg
-        output: OutpGenParentParamParentAlt
+        output: OutpGnrcPrntParamPrntAlt
     typeKind: !_TypeKind Output
-  !_Identifier OutpGenParentParamParentAlt: !_TypeOutput
+  !_Identifier OutpGnrcPrntParamPrntAlt: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpGenParentParamParentAlt
+      object: OutpGnrcPrntParamPrntAlt
       type: !_OutputBase
         output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
-      object: OutpGenParentParamParentAlt
+      object: OutpGnrcPrntParamPrntAlt
       type: !_OutputBase
         output: Number
     alternates:
@@ -40,10 +40,10 @@ types: !_Map_Type
       name: alt
       type: !_OutputBase
         output: Number
-    name: OutpGenParentParamParentAlt
+    name: OutpGnrcPrntParamPrntAlt
     typeKind: !_TypeKind Output
-  !_Identifier OutpGenParentParamParentRef: !_TypeOutput
-    name: OutpGenParentParamParentRef
+  !_Identifier OutpGnrcPrntParamPrntRef: !_TypeOutput
+    name: OutpGnrcPrntParamPrntRef
     parent: !_TypeParam ref
     typeKind: !_TypeKind Output
     typeParams:

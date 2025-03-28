@@ -1,14 +1,14 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualAltSimple: !_TypeDual
+  !_Identifier DualAltSmpl: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualAltSimple
+      object: DualAltSmpl
       type: !_DualBase
         dual: String
     alternates:
     - !_DualAlternate
       type: !_DualBase
         dual: String
-    name: DualAltSimple
+    name: DualAltSmpl
     typeKind: !_TypeKind Dual

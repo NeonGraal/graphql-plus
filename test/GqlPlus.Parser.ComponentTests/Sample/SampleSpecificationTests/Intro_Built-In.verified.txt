@@ -1,9 +1,5 @@
 ﻿!Sc I@001/0001
-Failure
-<
-  !!! P@028/0028 : Invalid Output. Expected type parameter. - ':_Modifier' !!!
-  !!! P@028/0028 : Invalid Schema. Expected no more text. - ':_Modifier' !!!
->
+Success
 {
   !Ou I@008/0001
   _Constant
@@ -94,4 +90,80 @@ Failure
 {
   !Ou I@008/0028
   _ModifierKeyed
+  <
+    I@024/0028
+    $kind
+    :_ModifierKind
+  >
+  :
+  I@007/0029
+  _Modifier
+  <
+    I@018/0029
+    $kind
+  >
+  {
+    !OF I@009/0030
+    by
+    :
+    I@013/0030
+    _TypeSimple
+    !OF I@009/0031
+    optional
+    :
+    I@019/0031
+    Boolean
+  }
+}
+{
+  !Ou I@008/0034
+  _Modifiers
+  |
+  !OA I@007/0035
+  I@007/0035
+  _Modifier
+  <
+    I@017/0035
+    _ModifierKind.Optional
+  >
+  !OA I@007/0036
+  I@007/0036
+  _Collections
+}
+{
+  !En I@006/0039
+  _ModifierKind
+  !EL I@022/0039
+  Opt
+  [
+    Optional
+  ]
+  !EL I@036/0039
+  List
+  !EL I@041/0039
+  Dict
+  [
+    Dictionary
+  ]
+  !EL I@058/0039
+  Param
+  [
+    TypeParam
+  ]
+}
+{
+  !Ou I@008/0041
+  _Modifier
+  <
+    I@019/0041
+    $kind
+    :_ModifierKind
+  >
+  {
+    !OF I@009/0042
+    modifierKind
+    :
+    I@024/0042
+    $kind
+  }
 }

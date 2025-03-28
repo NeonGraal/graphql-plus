@@ -1,48 +1,118 @@
 ﻿{
   "$tag": "_Schema",
-  "_errors": [
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 43,
-        "_line": 2
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Input. Expected type parameter."
-    },
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 43,
-        "_line": 2
-      },
-      "_kind": "Punctuation",
-      "_message": "Invalid Sample. Expected no more text."
-    }
-  ],
   "types": {
     "$tag": "_Map_Type",
-    "InpConstraintParentObjParent": {
+    "InpCnstPrntObjPrnt": {
       "$tag": "_TypeInput",
-      "name": "InpConstraintParentObjParent",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "InpCnstPrntObjPrntParent",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "alt",
+          "object": "InpCnstPrntObjPrntAlt",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "InpCnstPrntObjPrnt",
       "parent": {
         "$tag": "_InputBase",
-        "input": "InpConstraintParentObjParentRef",
+        "input": "InpCnstPrntObjPrntRef",
         "typeArgs": [
           {
             "$tag": "_InputArg",
-            "value": "InpConstraintParentObjParentAlt"
+            "value": "InpCnstPrntObjPrntAlt"
           }
         ]
       },
       "typeKind": "Input"
     },
-    "InpConstraintParentObjParentRef": {
+    "InpCnstPrntObjPrntAlt": {
       "$tag": "_TypeInput",
-      "name": "InpConstraintParentObjParentRef",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "InpCnstPrntObjPrntParent",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "alt",
+          "object": "InpCnstPrntObjPrntAlt",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "alt",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "InpCnstPrntObjPrntAlt",
+      "parent": {
+        "$tag": "_InputBase",
+        "value": "InpCnstPrntObjPrntParent"
+      },
       "typeKind": "Input"
+    },
+    "InpCnstPrntObjPrntParent": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "InpCnstPrntObjPrntParent",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "name": "InpCnstPrntObjPrntParent",
+      "typeKind": "Input"
+    },
+    "InpCnstPrntObjPrntRef": {
+      "$tag": "_TypeInput",
+      "name": "InpCnstPrntObjPrntRef",
+      "parent": "ref",
+      "typeKind": "Input",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "ref"
+        }
+      ]
     }
   }
 }

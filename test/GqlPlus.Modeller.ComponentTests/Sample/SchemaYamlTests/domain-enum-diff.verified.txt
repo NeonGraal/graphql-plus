@@ -2,32 +2,32 @@
 types: !_Map_Type
   !_Identifier EnumDiff: !_DomainEnum
     allItems:
-    - !_DomainItem(_DomainMember)
+    - !_DomainItem(_DomainLabel)
       domain: EnumDiff
       exclude: false
       value: !_EnumValue
-        member: true
+        label: true
         name: Boolean
         typeKind: !_SimpleKind Enum
-    - !_DomainItem(_DomainMember)
+    - !_DomainItem(_DomainLabel)
       domain: EnumDiff
       exclude: false
       value: !_EnumValue
-        member: false
+        label: false
         name: Boolean
         typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
-    - !_DomainMember
+    - !_DomainLabel
       exclude: false
       value: !_EnumValue
-        member: true
+        label: true
         name: Boolean
         typeKind: !_SimpleKind Enum
-    - !_DomainMember
+    - !_DomainLabel
       exclude: false
       value: !_EnumValue
-        member: false
+        label: false
         name: Boolean
         typeKind: !_SimpleKind Enum
     name: EnumDiff

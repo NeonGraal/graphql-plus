@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier EnParent: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnParent
       name: parent
     items:
@@ -12,10 +12,10 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnSameParent: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnParent
       name: parent
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnSameParent
       name: sameP
     items:

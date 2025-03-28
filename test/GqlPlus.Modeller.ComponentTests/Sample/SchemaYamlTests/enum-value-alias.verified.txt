@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier EnValAlias: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       aliases: [val1, val2]
       enum: EnValAlias
       name: value

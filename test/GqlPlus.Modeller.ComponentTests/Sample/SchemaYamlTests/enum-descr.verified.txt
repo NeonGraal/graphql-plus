@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier EnDescr: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnDescr
       name: val_test
     items:

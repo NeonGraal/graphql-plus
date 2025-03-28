@@ -6,7 +6,7 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "OutEnumParent",
           "name": "outEnumParent"
         }
@@ -24,17 +24,17 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "OutEnumParent",
           "name": "outEnumParent"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "OutEnumParented",
           "name": "outParent"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "OutEnumParented",
           "name": "ed"
         }
@@ -63,7 +63,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "field": "field",
-          "member": "outEnumParent",
+          "label": "outEnumParent",
           "name": "OutEnumParented",
           "object": "OutFieldParent",
           "typeKind": "Enum"
@@ -73,7 +73,7 @@
         {
           "$tag": "_OutputEnum",
           "field": "field",
-          "member": "outEnumParent",
+          "label": "outEnumParent",
           "name": "OutEnumParented",
           "typeKind": "Enum"
         }

@@ -10,7 +10,7 @@ internal class DirectiveModeller(
       Description = ast.Description,
       Repeatable = ast.DirectiveOption == DirectiveOption.Repeatable,
       Locations = ast.Locations,
-      Params = parameter.ToModels(ast.Params, typeKinds),
+      Parameters = parameter.ToModels(ast.Params, typeKinds),
     };
 
   internal static DirectiveLocation Combine(DirectiveLocation[] values)

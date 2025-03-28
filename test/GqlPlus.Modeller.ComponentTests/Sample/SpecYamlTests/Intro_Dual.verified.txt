@@ -42,6 +42,9 @@ types: !_Map_Type
     name: _DualBase
     parent: !_OutputBase
       output: _ObjBase
+      typeArgs:
+      - !_OutputArg
+        output: _ObjTypeArg
     typeKind: !_TypeKind Output
   !_Identifier _DualField: !_TypeOutput
     name: _DualField
@@ -73,7 +76,7 @@ types: !_Map_Type
       output: _TypeObject
       typeArgs:
       - !_OutputArg
-        member: Dual
+        label: Dual
         name: _TypeKind
         typeKind: !_SimpleKind Enum
       - !_OutputArg

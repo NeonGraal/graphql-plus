@@ -17,13 +17,13 @@ public static class Startup
       .AddTransient<IBaseAliasedChecks<string, IGqlpSchemaOption>, ParseOptionChecks>()
 
       .AddTransient<IBaseDomainChecks<string, IGqlpDomain<IGqlpDomainTrueFalse>>, ParseDomainBooleanChecks>()
-      .AddTransient<IBaseDomainChecks<DomainEnumInput, IGqlpDomain<IGqlpDomainMember>>, ParseDomainEnumChecks>()
+      .AddTransient<IBaseDomainChecks<DomainEnumInput, IGqlpDomain<IGqlpDomainLabel>>, ParseDomainEnumChecks>()
       .AddTransient<IBaseDomainChecks<string, IGqlpDomain<IGqlpDomainRange>>, ParseDomainNumberChecks>()
       .AddTransient<IBaseDomainChecks<DomainStringInput, IGqlpDomain<IGqlpDomainRegex>>, ParseDomainStringChecks>()
 
-      .AddTransient<IBaseAliasedChecks<string, IGqlpEnumItem>, ParseEnumMemberChecks>()
+      .AddTransient<IBaseAliasedChecks<string, IGqlpEnumLabel>, ParseEnumLabelChecks>()
       .AddTransient<IBaseSimpleChecks<EnumInput, IGqlpEnum>, ParseEnumChecks>()
-      .AddTransient<IBaseNamedChecks<string, IGqlpUnionItem>, ParseUnionMemberChecks>()
+      .AddTransient<IBaseNamedChecks<string, IGqlpUnionMember>, ParseUnionMemberChecks>()
       .AddTransient<IBaseSimpleChecks<UnionInput, IGqlpUnion>, ParseUnionChecks>()
 
       .AddTransient<ICheckObjectArg<IGqlpDualArg>, ParseDualArgChecks>()

@@ -85,22 +85,22 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _Location: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: _Location
       name: Operation
-    - !_EnumMember
+    - !_EnumLabel
       enum: _Location
       name: Variable
-    - !_EnumMember
+    - !_EnumLabel
       enum: _Location
       name: Field
-    - !_EnumMember
+    - !_EnumLabel
       enum: _Location
       name: Inline
-    - !_EnumMember
+    - !_EnumLabel
       enum: _Location
       name: Spread
-    - !_EnumMember
+    - !_EnumLabel
       enum: _Location
       name: Fragment
     items:

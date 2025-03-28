@@ -14,7 +14,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "outGenParent",
+                "label": "outGenParent",
                 "name": "OutParentGen",
                 "typeKind": "Enum"
               }
@@ -31,7 +31,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "outGenParent",
+                "label": "outGenParent",
                 "name": "OutParentGen",
                 "typeKind": "Enum"
               }
@@ -72,12 +72,12 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "OutPrntendedGen",
           "name": "outGenParent"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "OutParentGen",
           "name": "outGenPrntended"
         }
@@ -100,7 +100,7 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "OutPrntendedGen",
           "name": "outGenParent"
         }

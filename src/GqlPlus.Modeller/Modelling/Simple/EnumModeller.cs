@@ -12,10 +12,10 @@ internal class EnumModeller
       Aliases = [.. ast.Aliases],
       Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Enum),
-      Items = [.. ast.Items.Select(ToMember)],
+      Items = [.. ast.Items.Select(ToLabel)],
     };
 
-  internal static AliasedModel ToMember(IGqlpEnumItem ast)
+  internal static AliasedModel ToLabel(IGqlpEnumLabel ast)
     => new(ast.Name) {
       Aliases = [.. ast.Aliases],
       Description = ast.Description,

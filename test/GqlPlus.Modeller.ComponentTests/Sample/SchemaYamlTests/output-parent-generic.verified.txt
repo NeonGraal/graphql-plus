@@ -8,7 +8,7 @@ types: !_Map_Type
         output: OutGenParentRef
         typeArgs:
         - !_OutputArg
-          member: outGenParent
+          label: outGenParent
           name: OutParentGen
           typeKind: !_SimpleKind Enum
     alternates:
@@ -17,7 +17,7 @@ types: !_Map_Type
         output: OutGenParentRef
         typeArgs:
         - !_OutputArg
-          member: outGenParent
+          label: outGenParent
           name: OutParentGen
           typeKind: !_SimpleKind Enum
     name: OutGenParent
@@ -39,10 +39,10 @@ types: !_Map_Type
       name: type
   !_Identifier OutParentGen: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: OutPrntendedGen
       name: outGenParent
-    - !_EnumMember
+    - !_EnumLabel
       enum: OutParentGen
       name: outGenPrntended
     items:
@@ -55,7 +55,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier OutPrntendedGen: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: OutPrntendedGen
       name: outGenParent
     items:

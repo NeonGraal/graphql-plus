@@ -20,7 +20,7 @@ _errors:
   _message: In _OutputAlternate can't get model for type '_Alternate'
 - !_Error
   _kind: !_TokenKind End
-  _message: In _OutputArg can't get model for type '_TypeRef'
+  _message: In _OutputTypeArg can't get model for type '_ObjTypeArg'
 - !_Error
   _kind: !_TokenKind End
   _message: In _OutputEnum can't get model for type '_TypeRef'
@@ -32,36 +32,6 @@ types: !_Map_Type
       typeArgs:
       - !_OutputArg
         output: _OutputBase
-    typeKind: !_TypeKind Output
-  !_Identifier _OutputArg: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: _OutputArg
-      type: !_OutputBase
-        output: _TypeParam
-    allFields:
-    - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: member
-      object: _OutputArg
-      type: !_OutputBase
-        output: _Identifier
-    alternates:
-    - !_OutputAlternate
-      type: !_OutputBase
-        output: _TypeParam
-    fields:
-    - !_OutputField
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: member
-      type: !_OutputBase
-        output: _Identifier
-    name: _OutputArg
-    parent: !_OutputBase
-      output: _TypeRef
-      typeArgs:
-      - !_OutputArg
-        output: _TypeKind
     typeKind: !_TypeKind Output
   !_Identifier _OutputBase: !_TypeOutput
     allAlternates:
@@ -87,6 +57,9 @@ types: !_Map_Type
     name: _OutputBase
     parent: !_OutputBase
       output: _ObjBase
+      typeArgs:
+      - !_OutputArg
+        output: _OutputTypeArg
     typeKind: !_TypeKind Output
   !_Identifier _OutputEnum: !_TypeOutput
     allFields:
@@ -96,7 +69,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Identifier
     - !_ObjectFor(_OutputField)
-      name: member
+      name: label
       object: _OutputEnum
       type: !_OutputBase
         output: _Identifier
@@ -106,7 +79,7 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Identifier
     - !_OutputField
-      name: member
+      name: label
       type: !_OutputBase
         output: _Identifier
     name: _OutputEnum
@@ -114,7 +87,7 @@ types: !_Map_Type
       output: _TypeRef
       typeArgs:
       - !_OutputArg
-        member: Enum
+        label: Enum
         name: _TypeKind
         typeKind: !_SimpleKind Enum
     typeKind: !_TypeKind Output
@@ -156,6 +129,24 @@ types: !_Map_Type
       - !_OutputArg
         output: _OutputBase
     typeKind: !_TypeKind Output
+  !_Identifier _OutputTypeArg: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: label
+      object: _OutputTypeArg
+      type: !_OutputBase
+        output: _Identifier
+    fields:
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: label
+      type: !_OutputBase
+        output: _Identifier
+    name: _OutputTypeArg
+    parent: !_OutputBase
+      output: _ObjTypeArg
+    typeKind: !_TypeKind Output
   !_Identifier _OutputTypeParam: !_TypeOutput
     name: _OutputTypeParam
     parent: !_OutputBase
@@ -170,7 +161,7 @@ types: !_Map_Type
       output: _TypeObject
       typeArgs:
       - !_OutputArg
-        member: Output
+        label: Output
         name: _TypeKind
         typeKind: !_SimpleKind Enum
       - !_OutputArg

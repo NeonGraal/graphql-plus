@@ -3,11 +3,11 @@ using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Schema.Simple;
 
-public class EnumMemberAstTests
+public class EnumLabelAstTests
   : AstAliasedTests
 {
-  private readonly AstAliasedChecks<EnumMemberAst> _checks
-    = new(name => new EnumMemberAst(AstNulls.At, name));
+  private readonly AstAliasedChecks<EnumLabelAst> _checks
+    = new(name => new EnumLabelAst(AstNulls.At, name));
 
   internal override IAstAliasedChecks<string> AliasedChecks => _checks;
 

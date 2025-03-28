@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier EnAliasPrnt: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnAliasPrnt
       name: val_alias
     items:
@@ -12,13 +12,13 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnPrntAlias: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnAliasPrnt
       name: val_alias
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnPrntAlias
       name: val_prnt_alias
-    - !_EnumMember
+    - !_EnumLabel
       aliases: [alias_val]
       enum: EnPrntAlias
       name: val_alias

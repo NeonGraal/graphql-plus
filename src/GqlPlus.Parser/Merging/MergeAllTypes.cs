@@ -50,10 +50,10 @@ internal class MergeAllTypes(
       }
     }
 
-    foreach (AstDomain<DomainMemberAst, IGqlpDomainMember> domain in types.OfType<AstDomain<DomainMemberAst, IGqlpDomainMember>>()) {
-      foreach (DomainMemberAst item in domain.Members) {
+    foreach (AstDomain<DomainLabelAst, IGqlpDomainLabel> domain in types.OfType<AstDomain<DomainLabelAst, IGqlpDomainLabel>>()) {
+      foreach (DomainLabelAst item in domain.Items) {
         if (string.IsNullOrEmpty(item.EnumType)
-          && enumValues.TryGetValue(item.Member ?? "", out string? enumType)) {
+          && enumValues.TryGetValue(item.EnumItem ?? "", out string? enumType)) {
           item.EnumType = enumType;
         }
       }
@@ -61,7 +61,7 @@ internal class MergeAllTypes(
   }
 
   private static Map<string> GetEnumValues(IEnumerable<EnumDeclAst> enums)
-    => enums.SelectMany(e => e.Members.Select(v => (Value: v.Name, Type: e.Name)))
+    => enums.SelectMany(e => e.Items.Select(v => (Value: v.Name, Type: e.Name)))
       .ToLookup(p => p.Value, p => p.Type)
       .Where(g => g.Count() == 1)
       .ToMap(e => e.Key, e => e.First());
@@ -71,7 +71,7 @@ internal class MergeAllTypes(
   {
     if (type is TEnum named) {
       if (string.IsNullOrWhiteSpace(named.Name)
-        && enumValues.TryGetValue(type.EnumMember ?? "", out string? enumType)) {
+        && enumValues.TryGetValue(type.EnumLabel ?? "", out string? enumType)) {
         named.Name = enumType;
       }
     }

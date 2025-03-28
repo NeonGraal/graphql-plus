@@ -3,13 +3,13 @@ Success
 {
   !En I@006/0001
   _DomainKind
-  !EM I@020/0001
+  !EL I@020/0001
   Boolean
-  !EM I@028/0001
+  !EL I@028/0001
   Enum
-  !EM I@033/0001
+  !EL I@033/0001
   Number
-  !EM I@040/0001
+  !EL I@040/0001
   String
 }
 {

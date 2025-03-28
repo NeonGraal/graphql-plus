@@ -13,8 +13,8 @@ public class UnionModelTests(
     => checks.UnionExpected(
       new UnionDeclAst(AstNulls.At, name, members.UnionMembers()),
       new(name,
-        members: checks.ExpectedMembers("items:", members),
-        allMembers: checks.ExpectedAllMembers("allItems:", members, name)));
+        members: checks.ExpectedItems("items:", members),
+        allMembers: checks.ExpectedAllItems("allItems:", members, name)));
 
   [Theory, RepeatData(Repeats)]
   public void Model_MembersParent(string name, string parent, string[] parentMembers)
@@ -22,7 +22,7 @@ public class UnionModelTests(
     .AddParent(checks.NewParent(parent, parentMembers))
     .UnionExpected(
       new UnionDeclAst(AstNulls.At, name, []) { Parent = parent, },
-      new(name, parent, allMembers: checks.ExpectedAllMembers("allItems:", parentMembers, parent)));
+      new(name, parent, allMembers: checks.ExpectedAllItems("allItems:", parentMembers, parent)));
 
   [Theory, RepeatData(Repeats)]
   public void Model_MembersGrandParent(string name, string parent, string[] parentMembers, string grandParent, string[] grandParentMembers)
@@ -33,8 +33,8 @@ public class UnionModelTests(
     .UnionExpected(
       new UnionDeclAst(AstNulls.At, name, []) { Parent = parent, },
       new(name, parent, allMembers: checks
-        .ExpectedAllMembers("allItems:", grandParentMembers, grandParent)
-        .Concat(checks.ExpectedAllMembers("", parentMembers, parent))));
+        .ExpectedAllItems("allItems:", grandParentMembers, grandParent)
+        .Concat(checks.ExpectedAllItems("", parentMembers, parent))));
 
   [Theory, RepeatData(Repeats)]
   public void Model_All(
@@ -52,9 +52,9 @@ public class UnionModelTests(
         Description = contents,
         Parent = parent,
       },
-      new(name, parent, aliases, contents, checks.ExpectedMembers("items:", members),
-        checks.ExpectedAllMembers("allItems:", parentMembers, parent)
-        .Concat(checks.ExpectedAllMembers("", members, name))));
+      new(name, parent, aliases, contents, checks.ExpectedItems("items:", members),
+        checks.ExpectedAllItems("allItems:", parentMembers, parent)
+        .Concat(checks.ExpectedAllItems("", members, name))));
 }
 
 internal sealed class UnionModelChecks(
@@ -65,7 +65,7 @@ internal sealed class UnionModelChecks(
   public void UnionExpected(IGqlpUnion ast, ExpectedUnionInput input)
   => AstExpected(ast, ExpectedUnion(input));
 
-  protected override ToExpected<string> ExpectedAllMember(string type)
+  protected override ToExpected<string> ExpectedAllItem(string type)
     => member => ["- !_UnionMember", "  name: " + member, "  union: " + type];
 
   protected override string[] ExpectedParent(string? parent)

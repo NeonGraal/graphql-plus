@@ -212,7 +212,7 @@ types: !_Map_Type
   !_Identifier EnAlias: !_TypeEnum
     aliases: [En1, En2]
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnAlias
       name: alias
     items:
@@ -222,22 +222,17 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnDiff: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnDiff
       name: one
-    - !_EnumMember
-      enum: EnDiff
-      name: two
     items:
     - !_Aliased
       name: one
-    - !_Aliased
-      name: two
     name: EnDiff
     typeKind: !_TypeKind Enum
   !_Identifier EnParent: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnParent
       name: parent
     items:
@@ -247,7 +242,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnSame: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnSame
       name: same
     items:
@@ -257,10 +252,10 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnSameParent: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnParent
       name: parent
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnSameParent
       name: sameP
     items:
@@ -273,7 +268,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnValAlias: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       aliases: [val1, val2]
       enum: EnValAlias
       name: value
@@ -285,51 +280,51 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnumDiff: !_DomainEnum
     allItems:
-    - !_DomainItem(_DomainMember)
+    - !_DomainItem(_DomainLabel)
       domain: EnumDiff
       exclude: false
       value: !_EnumValue
-        member: true
+        label: true
         name: Boolean
         typeKind: !_SimpleKind Enum
-    - !_DomainItem(_DomainMember)
+    - !_DomainItem(_DomainLabel)
       domain: EnumDiff
       exclude: false
       value: !_EnumValue
-        member: false
+        label: false
         name: Boolean
         typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
-    - !_DomainMember
+    - !_DomainLabel
       exclude: false
       value: !_EnumValue
-        member: true
+        label: true
         name: Boolean
         typeKind: !_SimpleKind Enum
-    - !_DomainMember
+    - !_DomainLabel
       exclude: false
       value: !_EnumValue
-        member: false
+        label: false
         name: Boolean
         typeKind: !_SimpleKind Enum
     name: EnumDiff
     typeKind: !_TypeKind Domain
   !_Identifier EnumSame: !_DomainEnum
     allItems:
-    - !_DomainItem(_DomainMember)
+    - !_DomainItem(_DomainLabel)
       domain: EnumSame
       exclude: false
       value: !_EnumValue
-        member: true
+        label: true
         name: Boolean
         typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
-    - !_DomainMember
+    - !_DomainLabel
       exclude: false
       value: !_EnumValue
-        member: true
+        label: true
         name: Boolean
         typeKind: !_SimpleKind Enum
     name: EnumSame
@@ -338,14 +333,14 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
-      member: true
+      label: true
       name: Boolean
       object: FieldEnumAlias
       typeKind: !_SimpleKind Enum
     fields:
     - !_OutputEnum
       field: field
-      member: true
+      label: true
       name: Boolean
       typeKind: !_SimpleKind Enum
     name: FieldEnumAlias
@@ -354,14 +349,14 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
-      member: true
+      label: true
       name: Boolean
       object: FieldEnums
       typeKind: !_SimpleKind Enum
     fields:
     - !_OutputEnum
       field: field
-      member: true
+      label: true
       name: Boolean
       typeKind: !_SimpleKind Enum
     name: FieldEnums

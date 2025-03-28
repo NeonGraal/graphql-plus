@@ -12,7 +12,7 @@ public static class BuiltIn
     new EnumDeclAst(AstNulls.At, "Boolean", [new(AstNulls.At, "false"), new(AstNulls.At, "true")]) { Aliases = ["^"] },
     new EnumDeclAst(AstNulls.At, "Unit", [new(AstNulls.At, "_")]) { Aliases = ["_"] },
 
-    new AstDomain<DomainMemberAst, IGqlpDomainMember>(AstNulls.At, "Enum", DomainKind.Enum, []),
+    new AstDomain<DomainLabelAst, IGqlpDomainLabel>(AstNulls.At, "Enum", DomainKind.Enum, []),
     new AstDomain<DomainRangeAst, IGqlpDomainRange>(AstNulls.At, "Number", DomainKind.Number, []) { Aliases = ["0"] },
     new AstDomain<DomainRegexAst, IGqlpDomainRegex>(AstNulls.At, "String", DomainKind.String, []) { Aliases = ["*"] },
   ];

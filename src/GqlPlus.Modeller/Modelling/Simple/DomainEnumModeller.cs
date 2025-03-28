@@ -1,9 +1,9 @@
 ﻿namespace GqlPlus.Modelling.Simple;
 
 internal class DomainEnumModeller
-  : ModellerDomain<IGqlpDomainMember, DomainMemberModel>
+  : ModellerDomain<IGqlpDomainLabel, DomainLabelModel>
 {
-  protected override BaseDomainModel<DomainMemberModel> ToModel(IGqlpDomain<IGqlpDomainMember> ast, IMap<TypeKindModel> typeKinds)
+  protected override BaseDomainModel<DomainLabelModel> ToModel(IGqlpDomain<IGqlpDomainLabel> ast, IMap<TypeKindModel> typeKinds)
     => new(DomainKindModel.Enum, ast.Name) {
       Aliases = [.. ast.Aliases],
       Description = ast.Description,
@@ -11,6 +11,6 @@ internal class DomainEnumModeller
       Items = ToItems(ast, typeKinds),
     };
 
-  protected override DomainMemberModel ToItem(IGqlpDomainMember ast, IMap<TypeKindModel> typeKinds)
+  protected override DomainLabelModel ToItem(IGqlpDomainLabel ast, IMap<TypeKindModel> typeKinds)
     => new(ast.EnumType ?? "", ast.EnumItem, ast.Excludes);
 }

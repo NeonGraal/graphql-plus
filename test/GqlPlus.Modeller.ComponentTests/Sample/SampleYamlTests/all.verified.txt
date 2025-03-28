@@ -61,10 +61,10 @@ types: !_Map_Type
     typeKind: !_TypeKind Domain
   !_Identifier One: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: One
       name: Two
-    - !_EnumMember
+    - !_EnumLabel
       enum: One
       name: Three
     items:

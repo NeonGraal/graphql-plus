@@ -3,11 +3,11 @@ using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Schema.Simple;
 
-public class DomainMemberAstTests
+public class DomainLabelAstTests
   : AstAbbreviatedTests
 {
-  private readonly AstAbbreviatedChecks<DomainMemberAst> _checks
-    = new(member => new DomainMemberAst(AstNulls.At, "", false, member));
+  private readonly AstAbbreviatedChecks<DomainLabelAst> _checks
+    = new(label => new DomainLabelAst(AstNulls.At, "", false, label));
 
   internal override IAstAbbreviatedChecks<string> AbbreviatedChecks => _checks;
 }

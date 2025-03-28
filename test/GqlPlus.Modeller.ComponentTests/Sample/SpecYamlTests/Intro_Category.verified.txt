@@ -57,7 +57,7 @@ types: !_Map_Type
         output: _TypeRef
         typeArgs:
         - !_OutputArg
-          member: Output
+          label: Output
           name: _TypeKind
           typeKind: !_SimpleKind Enum
     - !_ObjectFor(_OutputField)
@@ -77,7 +77,7 @@ types: !_Map_Type
         output: _TypeRef
         typeArgs:
         - !_OutputArg
-          member: Output
+          label: Output
           name: _TypeKind
           typeKind: !_SimpleKind Enum
     - !_OutputField
@@ -91,13 +91,13 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _Resolution: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: _Resolution
       name: Parallel
-    - !_EnumMember
+    - !_EnumLabel
       enum: _Resolution
       name: Sequential
-    - !_EnumMember
+    - !_EnumLabel
       enum: _Resolution
       name: Single
     items:

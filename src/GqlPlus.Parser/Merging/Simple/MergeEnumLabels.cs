@@ -2,11 +2,11 @@
 
 namespace GqlPlus.Merging.Simple;
 
-internal class MergeEnumMembers(
+internal class MergeEnumLabels(
   ILoggerFactory logger
-) : AstAliasedMerger<IGqlpEnumItem>(logger)
+) : AstAliasedMerger<IGqlpEnumLabel>(logger)
 {
   protected override string ItemMatchName => "Name";
-  protected override string ItemMatchKey(IGqlpEnumItem item)
+  protected override string ItemMatchKey(IGqlpEnumLabel item)
     => item.Name;
 }

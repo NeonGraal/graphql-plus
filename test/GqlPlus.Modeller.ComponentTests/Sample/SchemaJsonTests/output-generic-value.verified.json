@@ -68,7 +68,7 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "OutValueGen",
           "name": "outValueGen"
         }

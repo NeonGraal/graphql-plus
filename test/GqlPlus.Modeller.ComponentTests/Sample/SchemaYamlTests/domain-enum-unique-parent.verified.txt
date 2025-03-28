@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier EnumDomDupParent: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnumDomDupParent
       name: enum_dom_parent_dup
     items:
@@ -12,7 +12,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomParentUnique: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnumDomParentUnique
       name: enum_dom_parent_dup
     items:
@@ -22,10 +22,10 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomUniqueParent: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnumDomParentUnique
       name: enum_dom_parent_dup
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnumDomUniqueParent
       name: value
     items:

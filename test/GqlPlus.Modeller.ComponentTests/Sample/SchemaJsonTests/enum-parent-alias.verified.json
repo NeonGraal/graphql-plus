@@ -6,7 +6,7 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "EnAliasPrnt",
           "name": "val_alias"
         }
@@ -24,17 +24,17 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "EnAliasPrnt",
           "name": "val_alias"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "EnPrntAlias",
           "name": "val_prnt_alias"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "aliases": ["alias_val"],
           "enum": "EnPrntAlias",
           "name": "val_alias"

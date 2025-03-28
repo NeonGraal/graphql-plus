@@ -4,14 +4,14 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
-      member: true
+      label: true
       name: Boolean
       object: FieldEnumAlias
       typeKind: !_SimpleKind Enum
     fields:
     - !_OutputEnum
       field: field
-      member: true
+      label: true
       name: Boolean
       typeKind: !_SimpleKind Enum
     name: FieldEnumAlias

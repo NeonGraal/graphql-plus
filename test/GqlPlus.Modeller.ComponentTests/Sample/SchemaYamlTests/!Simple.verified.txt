@@ -48,121 +48,121 @@ types: !_Map_Type
     typeKind: !_TypeKind Domain
   !_Identifier DomEnum: !_DomainEnum
     allItems:
-    - !_DomainItem(_DomainMember)
+    - !_DomainItem(_DomainLabel)
       domain: DomEnum
       exclude: false
       value: !_EnumValue
-        member: dom_enum
+        label: dom_enum
         name: EnumDom
         typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
-    - !_DomainMember
+    - !_DomainLabel
       exclude: false
       value: !_EnumValue
-        member: dom_enum
+        label: dom_enum
         name: EnumDom
         typeKind: !_SimpleKind Enum
     name: DomEnum
     typeKind: !_TypeKind Domain
   !_Identifier DomEnumAll: !_DomainEnum
     allItems:
-    - !_DomainItem(_DomainMember)
+    - !_DomainItem(_DomainLabel)
       domain: DomEnumAll
       exclude: false
       value: !_EnumValue
-        member: '*'
+        label: '*'
         name: EnumDomAll
         typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
-    - !_DomainMember
+    - !_DomainLabel
       exclude: false
       value: !_EnumValue
-        member: '*'
+        label: '*'
         name: EnumDomAll
         typeKind: !_SimpleKind Enum
     name: DomEnumAll
     typeKind: !_TypeKind Domain
   !_Identifier DomEnumAllParent: !_DomainEnum
     allItems:
-    - !_DomainItem(_DomainMember)
+    - !_DomainItem(_DomainLabel)
       domain: DomEnumAllParent
       exclude: false
       value: !_EnumValue
-        member: '*'
+        label: '*'
         name: EnumDomAllParent
         typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
-    - !_DomainMember
+    - !_DomainLabel
       exclude: false
       value: !_EnumValue
-        member: '*'
+        label: '*'
         name: EnumDomAllParent
         typeKind: !_SimpleKind Enum
     name: DomEnumAllParent
     typeKind: !_TypeKind Domain
   !_Identifier DomEnumDescr: !_DomainEnum
     allItems:
-    - !_DomainItem(_DomainMember)
+    - !_DomainItem(_DomainLabel)
       domain: DomEnumDescr
       exclude: false
       value: !_EnumValue
-        member: dom_label_desc
+        label: dom_label_desc
         name: EnumDomDescr
         typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
-    - !_DomainMember
+    - !_DomainLabel
       exclude: false
       value: !_EnumValue
-        member: dom_label_desc
+        label: dom_label_desc
         name: EnumDomDescr
         typeKind: !_SimpleKind Enum
     name: DomEnumDescr
     typeKind: !_TypeKind Domain
   !_Identifier DomEnumParent: !_DomainEnum
     allItems:
-    - !_DomainItem(_DomainMember)
+    - !_DomainItem(_DomainLabel)
       domain: DomEnumParent
       exclude: false
       value: !_EnumValue
-        member: dom_enum_parent
+        label: dom_enum_parent
         name: EnumDomParent
         typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
-    - !_DomainMember
+    - !_DomainLabel
       exclude: false
       value: !_EnumValue
-        member: dom_enum_parent
+        label: dom_enum_parent
         name: EnumDomParent
         typeKind: !_SimpleKind Enum
     name: DomEnumParent
     typeKind: !_TypeKind Domain
   !_Identifier DomEnumPrnt: !_DomainEnum
     allItems:
-    - !_DomainItem(_DomainMember)
+    - !_DomainItem(_DomainLabel)
       domain: DomPrntEnum
       exclude: false
       value: !_EnumValue
-        member: both_parent
+        label: both_parent
         name: EnumDomBoth
         typeKind: !_SimpleKind Enum
-    - !_DomainItem(_DomainMember)
+    - !_DomainItem(_DomainLabel)
       domain: DomEnumPrnt
       exclude: false
       value: !_EnumValue
-        member: both_enum
+        label: both_enum
         name: EnumDomBoth
         typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
-    - !_DomainMember
+    - !_DomainLabel
       exclude: false
       value: !_EnumValue
-        member: both_enum
+        label: both_enum
         name: EnumDomBoth
         typeKind: !_SimpleKind Enum
     name: DomEnumPrnt
@@ -172,19 +172,19 @@ types: !_Map_Type
     typeKind: !_TypeKind Domain
   !_Identifier DomLabel: !_DomainEnum
     allItems:
-    - !_DomainItem(_DomainMember)
+    - !_DomainItem(_DomainLabel)
       domain: DomLabel
       exclude: false
       value: !_EnumValue
-        member: dom_label
+        label: dom_label
         name: LabelDom
         typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
-    - !_DomainMember
+    - !_DomainLabel
       exclude: false
       value: !_EnumValue
-        member: dom_label
+        label: dom_label
         name: LabelDom
         typeKind: !_SimpleKind Enum
     name: DomLabel
@@ -224,19 +224,19 @@ types: !_Map_Type
     typeKind: !_TypeKind Domain
   !_Identifier DomPrntEnum: !_DomainEnum
     allItems:
-    - !_DomainItem(_DomainMember)
+    - !_DomainItem(_DomainLabel)
       domain: DomPrntEnum
       exclude: false
       value: !_EnumValue
-        member: both_parent
+        label: both_parent
         name: EnumDomBoth
         typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
-    - !_DomainMember
+    - !_DomainLabel
       exclude: false
       value: !_EnumValue
-        member: both_parent
+        label: both_parent
         name: EnumDomBoth
         typeKind: !_SimpleKind Enum
     name: DomPrntEnum
@@ -302,7 +302,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Domain
   !_Identifier EnAliasPrnt: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnAliasPrnt
       name: val_alias
     items:
@@ -312,7 +312,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnDescr: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnDescr
       name: val_test
     items:
@@ -323,7 +323,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnDupPrnt: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       aliases: [val_prnt_dup]
       enum: EnDupPrnt
       name: val_dup
@@ -335,13 +335,13 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnPrntAlias: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnAliasPrnt
       name: val_alias
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnPrntAlias
       name: val_prnt_alias
-    - !_EnumMember
+    - !_EnumLabel
       aliases: [alias_val]
       enum: EnPrntAlias
       name: val_alias
@@ -358,11 +358,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnPrntDup: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       aliases: [val_prnt_dup]
       enum: EnDupPrnt
       name: val_dup
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnPrntDup
       name: val_prnt_dup
     items:
@@ -375,7 +375,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnPrntTest: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnPrntTest
       name: val_test
     items:
@@ -385,10 +385,10 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnTestPrnt: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnPrntTest
       name: val_test
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnTestPrnt
       name: val_prnt
     items:
@@ -401,7 +401,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnumDom: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnumDom
       name: dom_enum
     items:
@@ -411,10 +411,10 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomAll: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnumDomAll
       name: dom_all
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnumDomAll
       name: dom_enum_all
     items:
@@ -426,10 +426,10 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomAllParent: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnumDomParentAll
       name: dom_enum_all_parent
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnumDomAllParent
       name: dom_all_parent
     items:
@@ -442,10 +442,10 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomBoth: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnumDomBoth
       name: both_enum
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnumDomBoth
       name: both_parent
     items:
@@ -457,7 +457,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomDescr: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnumDomDescr
       name: dom_label_desc
     items:
@@ -467,7 +467,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomDup: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnumDomDup
       name: eum_dom_dup
     items:
@@ -477,7 +477,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomDupParent: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnumDomDupParent
       name: enum_dom_parent_dup
     items:
@@ -487,10 +487,10 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomParent: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnumParentDom
       name: dom_enum_parent
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnumDomParent
       name: dom_parent_enum
     items:
@@ -503,7 +503,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomParentAll: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnumDomParentAll
       name: dom_enum_all_parent
     items:
@@ -513,7 +513,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomParentUnique: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnumDomParentUnique
       name: enum_dom_parent_dup
     items:
@@ -523,10 +523,10 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomUnique: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnumDomUnique
       name: eum_dom_value
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnumDomUnique
       name: eum_dom_dup
     items:
@@ -538,10 +538,10 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomUniqueParent: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnumDomParentUnique
       name: enum_dom_parent_dup
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnumDomUniqueParent
       name: value
     items:
@@ -554,7 +554,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnumParentDom: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnumParentDom
       name: dom_enum_parent
     items:
@@ -564,7 +564,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier LabelDom: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: LabelDom
       name: dom_label
     items:

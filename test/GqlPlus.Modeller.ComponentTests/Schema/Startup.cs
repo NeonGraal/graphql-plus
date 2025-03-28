@@ -41,7 +41,7 @@ public static class Startup
       .AddTransient<IDomainBooleanModelChecks, DomainBooleanModelChecks>()
       .AddDomainTypeInputs<IGqlpDomainTrueFalse, DomainTrueFalseModel>()
       .AddTransient<IDomainEnumModelChecks, DomainEnumModelChecks>()
-      .AddDomainTypeInputs<IGqlpDomainMember, DomainMemberModel>()
+      .AddDomainTypeInputs<IGqlpDomainLabel, DomainLabelModel>()
       .AddTransient<IDomainNumberModelChecks, DomainNumberModelChecks>()
       .AddDomainTypeInputs<IGqlpDomainRange, DomainRangeModel>()
       .AddTransient<IDomainStringModelChecks, DomainStringModelChecks>()

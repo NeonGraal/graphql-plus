@@ -22,7 +22,7 @@ internal class OutputArgModeller(
 ) : ModellerObjArg<IGqlpOutputArg, OutputArgModel>
 {
   protected override OutputArgModel ToModel(IGqlpOutputArg ast, IMap<TypeKindModel> typeKinds)
-      => string.IsNullOrWhiteSpace(ast.EnumMember)
+      => string.IsNullOrWhiteSpace(ast.EnumLabel)
       ? typeKinds.TryGetValue(ast.Output, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
         ? new("") {
           Dual = dual.ToModel(ast.ToDual, typeKinds)
@@ -30,7 +30,7 @@ internal class OutputArgModeller(
         : new(ast.Output) {
           IsTypeParam = ast.IsTypeParam,
         }
-      : new(ast.Output) { EnumMember = ast.EnumMember };
+      : new(ast.Output) { EnumLabel = ast.EnumLabel };
 }
 
 internal class OutputBaseModeller(
@@ -56,12 +56,12 @@ internal class OutputFieldModeller(
 ) : ModellerObjField<IGqlpOutputBase, IGqlpOutputField, OutputBaseModel, OutputFieldModel>(modifier, refBase)
 {
   protected override OutputFieldModel FieldModel(IGqlpOutputField field, OutputBaseModel type, IMap<TypeKindModel> typeKinds)
-    => string.IsNullOrWhiteSpace(field.BaseType.EnumMember)
+    => string.IsNullOrWhiteSpace(field.BaseType.EnumLabel)
       ? new(field.Name, new(type, field.Type.Description)) {
         Params = parameter.ToModels(field.Params, typeKinds),
       }
       : new(field.Name, null) { // or should it be `type`
-        Enum = new(field.Name, field.BaseType.TypeName, field.BaseType.EnumMember!)
+        Enum = new(field.Name, field.BaseType.TypeName, field.BaseType.EnumLabel!)
       };
 }
 

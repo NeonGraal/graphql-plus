@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier EnDupPrnt: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       aliases: [val_prnt_dup]
       enum: EnDupPrnt
       name: val_dup
@@ -14,11 +14,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier EnPrntDup: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       aliases: [val_prnt_dup]
       enum: EnDupPrnt
       name: val_dup
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnPrntDup
       name: val_prnt_dup
     items:

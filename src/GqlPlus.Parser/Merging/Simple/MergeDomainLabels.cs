@@ -2,14 +2,14 @@
 
 namespace GqlPlus.Merging.Simple;
 
-internal class MergeDomainMembers(
+internal class MergeDomainLabels(
   ILoggerFactory logger
-) : AstDomainItemMerger<IGqlpDomainMember>(logger)
+) : AstDomainItemMerger<IGqlpDomainLabel>(logger)
 {
-  protected override string ItemGroupKey(IGqlpDomainMember item)
+  protected override string ItemGroupKey(IGqlpDomainLabel item)
     => item.EnumItem;
 
   protected override string ItemMatchName => "Excludes~EnumType";
-  protected override string ItemMatchKey(IGqlpDomainMember item)
+  protected override string ItemMatchKey(IGqlpDomainLabel item)
     => $"{item.Excludes}~{item.EnumType}";
 }

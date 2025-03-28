@@ -2,26 +2,26 @@
 types: !_Map_Type
   !_Identifier DomEnumDescr: !_DomainEnum
     allItems:
-    - !_DomainItem(_DomainMember)
+    - !_DomainItem(_DomainLabel)
       domain: DomEnumDescr
       exclude: false
       value: !_EnumValue
-        member: dom_label_desc
+        label: dom_label_desc
         name: EnumDomDescr
         typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
-    - !_DomainMember
+    - !_DomainLabel
       exclude: false
       value: !_EnumValue
-        member: dom_label_desc
+        label: dom_label_desc
         name: EnumDomDescr
         typeKind: !_SimpleKind Enum
     name: DomEnumDescr
     typeKind: !_TypeKind Domain
   !_Identifier EnumDomDescr: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: EnumDomDescr
       name: dom_label_desc
     items:

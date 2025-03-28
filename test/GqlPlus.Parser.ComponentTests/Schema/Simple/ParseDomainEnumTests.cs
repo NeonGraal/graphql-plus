@@ -5,63 +5,63 @@ using GqlPlus.Parsing;
 namespace GqlPlus.Schema.Simple;
 
 public sealed class ParseDomainEnumTests(
-  IBaseDomainChecks<DomainEnumInput, IGqlpDomain<IGqlpDomainMember>> checks
-) : BaseDomainTests<DomainEnumInput, IGqlpDomain<IGqlpDomainMember>>(checks)
+  IBaseDomainChecks<DomainEnumInput, IGqlpDomain<IGqlpDomainLabel>> checks
+) : BaseDomainTests<DomainEnumInput, IGqlpDomain<IGqlpDomainLabel>>(checks)
 {
   [Theory, RepeatData(Repeats)]
   public void WithEnumType_ReturnsCorrectAst(DomainEnumInput input, string enumType)
     => checks.TrueExpected(
-      input.Name + "{enum!" + enumType + "." + input.Member + "}",
-      NewDomain(input, input.DomainMember(enumType)));
+      input.Name + "{enum!" + enumType + "." + input.Label + "}",
+      NewDomain(input, input.DomainLabel(enumType)));
 
   [Theory, RepeatData(Repeats)]
-  public void WithEnumAllMembers_ReturnsCorrectAst(DomainEnumInput input)
+  public void WithEnumAllLabels_ReturnsCorrectAst(DomainEnumInput input)
     => checks.TrueExpected(
-      input.Name + "{enum " + input.Member + ".* }",
-      NewDomain(input, input.DomainAllMembers()));
+      input.Name + "{enum " + input.Label + ".* }",
+      NewDomain(input, input.DomainAllLabels()));
 
   [Theory, RepeatData(Repeats)]
-  public void WithMembers_ReturnsCorrectAst(DomainEnumInput input, string member)
+  public void WithLabels_ReturnsCorrectAst(DomainEnumInput input, string label)
     => checks.TrueExpected(
-      input.Name + "{enum!" + input.Member + " " + member + "}",
-      NewDomain(input, input.DomainMembers(member)));
+      input.Name + "{enum!" + input.Label + " " + label + "}",
+      NewDomain(input, input.DomainLabels(label)));
 
   [Theory, RepeatData(Repeats)]
-  public void WithMembersExcludeBad_ReturnsFalse(string name)
+  public void WithLabelsExcludeBad_ReturnsFalse(string name)
     => checks.FalseExpected(name + "{enum !}");
 
   [Theory, RepeatData(Repeats)]
-  public void WithMembersFirstBad_ReturnsFalse(DomainEnumInput input)
-    => checks.FalseExpected(input.Name + "{enum " + input.Member + ".}");
+  public void WithLabelsFirstBad_ReturnsFalse(DomainEnumInput input)
+    => checks.FalseExpected(input.Name + "{enum " + input.Label + ".}");
 
   [Theory, RepeatData(Repeats)]
-  public void WithMembersSecondBad_ReturnsFalse(DomainEnumInput input, string member)
-    => checks.FalseExpected(input.Name + "{enum " + input.Member + "!" + member + ".}");
+  public void WithLabelsSecondBad_ReturnsFalse(DomainEnumInput input, string label)
+    => checks.FalseExpected(input.Name + "{enum " + input.Label + "!" + label + ".}");
 
-  private static AstDomain<DomainMemberAst, IGqlpDomainMember> NewDomain(DomainEnumInput input, DomainMemberAst[] members)
-    => new(AstNulls.At, input.Name, DomainKind.Enum, members);
+  private static AstDomain<DomainLabelAst, IGqlpDomainLabel> NewDomain(DomainEnumInput input, DomainLabelAst[] labels)
+    => new(AstNulls.At, input.Name, DomainKind.Enum, labels);
 }
 
 internal sealed class ParseDomainEnumChecks(
   Parser<IGqlpDomain>.D parser
-) : BaseDomainChecks<DomainEnumInput, AstDomain<DomainMemberAst, IGqlpDomainMember>, IGqlpDomain<IGqlpDomainMember>>(parser, DomainKind.Enum)
+) : BaseDomainChecks<DomainEnumInput, AstDomain<DomainLabelAst, IGqlpDomainLabel>, IGqlpDomain<IGqlpDomainLabel>>(parser, DomainKind.Enum)
 {
-  protected internal override AstDomain<DomainMemberAst, IGqlpDomainMember> NamedFactory(DomainEnumInput input)
-    => new(AstNulls.At, input.Name, DomainKind.Enum, input.DomainMembers());
+  protected internal override AstDomain<DomainLabelAst, IGqlpDomainLabel> NamedFactory(DomainEnumInput input)
+    => new(AstNulls.At, input.Name, DomainKind.Enum, input.DomainLabels());
 
   protected internal override string AliasesString(DomainEnumInput input, string aliases)
-    => input.Name + aliases + "{enum !" + input.Member + "}";
+    => input.Name + aliases + "{enum !" + input.Label + "}";
   protected internal override string KindString(DomainEnumInput input, string kind, string parent)
-    => input.Name + "{" + parent + kind + "!" + input.Member + "}";
+    => input.Name + "{" + parent + kind + "!" + input.Label + "}";
 }
 
-public record struct DomainEnumInput(string Name, string Member)
+public record struct DomainEnumInput(string Name, string Label)
 {
-  internal readonly DomainMemberAst[] DomainMember(string enumType)
-      => [new(AstNulls.At, "", true, Member) { EnumType = enumType }];
-  internal readonly DomainMemberAst[] DomainAllMembers()
-      => [new(AstNulls.At, "", false, "*") { EnumType = Member }];
+  internal readonly DomainLabelAst[] DomainLabel(string enumType)
+      => [new(AstNulls.At, "", true, Label) { EnumType = enumType }];
+  internal readonly DomainLabelAst[] DomainAllLabels()
+      => [new(AstNulls.At, "", false, "*") { EnumType = Label }];
 
-  internal readonly DomainMemberAst[] DomainMembers(params string[] members)
-      => [.. members.Select(r => new DomainMemberAst(AstNulls.At, "", false, r)).Prepend(new(AstNulls.At, "", true, Member))];
+  internal readonly DomainLabelAst[] DomainLabels(params string[] labels)
+      => [.. labels.Select(r => new DomainLabelAst(AstNulls.At, "", false, r)).Prepend(new(AstNulls.At, "", true, Label))];
 }

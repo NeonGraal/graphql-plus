@@ -5,7 +5,6 @@
 
 using GqlPlus.Verifying;
 using GqlPlus.Verifying.Operation;
-using Shouldly;
 
 namespace GqlPlus.Operation;
 

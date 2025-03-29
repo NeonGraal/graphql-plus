@@ -6,11 +6,11 @@ public abstract class BaseNamedTests<TInput, TParsed>(
   IBaseNamedChecks<TInput, TParsed> nameChecks
 ) where TParsed : IGqlpNamed
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithMinimum_ReturnsCorrectAst(TInput input)
     => nameChecks.WithMinimum(input);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithNameBad_ReturnsFalse(decimal id)
     => nameChecks.WithNameBad(id);
 }

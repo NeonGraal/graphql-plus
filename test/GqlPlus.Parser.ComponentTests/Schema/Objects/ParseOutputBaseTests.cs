@@ -9,7 +9,7 @@ public class ParseOutputBaseTests(
   ICheckObjectBase<IGqlpOutputBase> checks
 ) : TestObjectBase<IGqlpOutputBase>(checks)
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithArgEnumValues_ReturnsCorrectAst(string name, string enumType, string[] enumValues)
     => checks.TrueExpected(
       name + "<" + enumValues.Joined(s => enumType + "." + s) + ">",
@@ -17,7 +17,7 @@ public class ParseOutputBaseTests(
         BaseArgs = [.. enumValues.Select(enumLabel => new OutputArgAst(AstNulls.At, enumType) with { EnumLabel = enumLabel })]
       });
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithArgEnumValueBad_ReturnsFalse(string name, string enumType)
     => checks.FalseExpected(name + "<" + enumType + ".>");
 }

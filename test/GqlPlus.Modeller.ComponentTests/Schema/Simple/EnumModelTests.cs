@@ -7,7 +7,7 @@ public class EnumModelTests(
   IEnumModelChecks checks
 ) : TestTypeModel<SimpleKindModel, TypeEnumModel>(checks)
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Labels(string name, string[] labels)
     => checks.EnumExpected(
       new EnumDeclAst(AstNulls.At, name, labels.EnumLabels()),
@@ -15,7 +15,7 @@ public class EnumModelTests(
         labels: checks.ExpectedItems("items:", labels),
         allLabels: checks.ExpectedAllItems("allItems:", labels, name)));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_LabelsParent(string name, string parent, string[] parentLabels)
     => checks
     .AddParent(checks.NewParent(parent, parentLabels))
@@ -23,7 +23,7 @@ public class EnumModelTests(
       new EnumDeclAst(AstNulls.At, name, []) { Parent = parent, },
       new(name, parent, allLabels: checks.ExpectedAllItems("allItems:", parentLabels, parent)));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_LabelsGrandParent(string name, string parent, string[] parentLabels, string grandParent, string[] grandParentLabels)
     => checks
     .SkipIf(string.Equals(parent, grandParent, StringComparison.Ordinal))
@@ -35,7 +35,7 @@ public class EnumModelTests(
         .ExpectedAllItems("allItems:", grandParentLabels, grandParent)
         .Concat(checks.ExpectedAllItems("", parentLabels, parent))));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_All(
     string name,
     string contents,

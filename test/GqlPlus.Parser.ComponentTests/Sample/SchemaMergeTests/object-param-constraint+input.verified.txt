@@ -1,0 +1,25 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !In I@007/0001
+  InpObjParamCnst
+  <
+    I@024/0001
+    $test
+    :*
+  >
+  {
+    !IF I@034/0001
+    test
+    :
+    I@041/0001
+    $test
+    !IF I@034/0002
+    type
+    :
+    I@041/0002
+    $test
+  }
+}
+]

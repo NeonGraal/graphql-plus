@@ -479,6 +479,129 @@ Success
 }
 {
   !Du I@006/0001
+  DualObjParamCnst
+  <
+    I@024/0001
+    $test
+    :*
+  >
+  {
+    !DF I@034/0001
+    test
+    :
+    I@041/0001
+    $test
+    !DF I@034/0002
+    type
+    :
+    I@041/0002
+    $test
+  }
+}
+{
+  !In I@007/0001
+  InpObjParamCnst
+  <
+    I@024/0001
+    $test
+    :*
+  >
+  {
+    !IF I@034/0001
+    test
+    :
+    I@041/0001
+    $test
+    !IF I@034/0002
+    type
+    :
+    I@041/0002
+    $test
+  }
+}
+{
+  !Ou I@008/0001
+  OutpObjParamCnst
+  <
+    I@026/0001
+    $test
+    :*
+  >
+  {
+    !OF I@036/0001
+    test
+    :
+    I@043/0001
+    $test
+    !OF I@036/0002
+    type
+    :
+    I@043/0002
+    $test
+  }
+}
+{
+  !Du I@006/0001
+  DualObjParamDup
+  <
+    I@023/0001
+    $test
+  >
+  {
+    !DF I@031/0001
+    test
+    :
+    I@038/0001
+    $test
+    !DF I@031/0002
+    type
+    :
+    I@038/0002
+    $test
+  }
+}
+{
+  !In I@007/0001
+  InpObjParamDup
+  <
+    I@023/0001
+    $test
+  >
+  {
+    !IF I@031/0001
+    test
+    :
+    I@038/0001
+    $test
+    !IF I@031/0002
+    type
+    :
+    I@038/0002
+    $test
+  }
+}
+{
+  !Ou I@008/0001
+  OutpObjParamDup
+  <
+    I@025/0001
+    $test
+  >
+  {
+    !OF I@033/0001
+    test
+    :
+    I@040/0001
+    $test
+    !OF I@033/0002
+    type
+    :
+    I@040/0002
+    $test
+  }
+}
+{
+  !Du I@006/0001
   DualObjPrnt
   :
   I@021/0001

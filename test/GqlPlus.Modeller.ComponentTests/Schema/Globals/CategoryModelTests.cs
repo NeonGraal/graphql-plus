@@ -8,25 +8,25 @@ public class CategoryModelTests(
   ICategoryModelChecks checks
 ) : TestAliasedModel<string, CategoryModel>(checks)
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Name(string output, string name)
     => checks.CategoryExpected(
       new CategoryDeclAst(AstNulls.At, name, output),
       new(output, name));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Resolution(string output, CategoryOption option)
     => checks.CategoryExpected(
       new CategoryDeclAst(AstNulls.At, output) { Option = option },
       new(output) { Option = option });
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Modifiers(string output)
     => checks.CategoryExpected(
       new CategoryDeclAst(AstNulls.At, output) { Modifiers = TestMods() },
       new(output) { Modifiers = true });
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_All(
     string output,
     string name,

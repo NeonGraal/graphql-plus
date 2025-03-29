@@ -95,6 +95,13 @@ public static class TestHelpers
     return check;
   }
 
+  public static TCheck SkipWhitespace<TCheck>(this TCheck check, [NotNull] string? str, [CallerArgumentExpression(nameof(str))] string? objExpression = null)
+  {
+    Assert.SkipWhen(string.IsNullOrWhiteSpace(str), objExpression + " is null, empty or only whitespace");
+
+    return check;
+  }
+
   public static TCheck SkipUnless<TCheck>(this TCheck check, [NotNull] string[]? array, [CallerArgumentExpression(nameof(array))] string? arrayExpression = null)
   {
     Assert.SkipWhen(array is null, arrayExpression + " is null");

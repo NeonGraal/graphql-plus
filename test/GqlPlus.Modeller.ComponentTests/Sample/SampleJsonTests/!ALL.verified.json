@@ -4821,6 +4821,80 @@
         }
       ]
     },
+    "DualObjParamCnst": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "test",
+          "object": "DualObjParamCnst",
+          "type": "test"
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "type",
+          "object": "DualObjParamCnst",
+          "type": "test"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "test",
+          "type": "test"
+        },
+        {
+          "$tag": "_DualField",
+          "name": "type",
+          "type": "test"
+        }
+      ],
+      "name": "DualObjParamCnst",
+      "typeKind": "Dual",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "test"
+        }
+      ]
+    },
+    "DualObjParamDup": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "test",
+          "object": "DualObjParamDup",
+          "type": "test"
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "type",
+          "object": "DualObjParamDup",
+          "type": "test"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "test",
+          "type": "test"
+        },
+        {
+          "$tag": "_DualField",
+          "name": "type",
+          "type": "test"
+        }
+      ],
+      "name": "DualObjParamDup",
+      "typeKind": "Dual",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "test"
+        }
+      ]
+    },
     "DualObjPrnt": {
       "$tag": "_TypeDual",
       "name": "DualObjPrnt",
@@ -8269,6 +8343,80 @@
         }
       ]
     },
+    "InpObjParamCnst": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "test",
+          "object": "InpObjParamCnst",
+          "type": "test"
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "type",
+          "object": "InpObjParamCnst",
+          "type": "test"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "test",
+          "type": "test"
+        },
+        {
+          "$tag": "_InputField",
+          "name": "type",
+          "type": "test"
+        }
+      ],
+      "name": "InpObjParamCnst",
+      "typeKind": "Input",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "test"
+        }
+      ]
+    },
+    "InpObjParamDup": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "test",
+          "object": "InpObjParamDup",
+          "type": "test"
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "type",
+          "object": "InpObjParamDup",
+          "type": "test"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "test",
+          "type": "test"
+        },
+        {
+          "$tag": "_InputField",
+          "name": "type",
+          "type": "test"
+        }
+      ],
+      "name": "InpObjParamDup",
+      "typeKind": "Input",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "test"
+        }
+      ]
+    },
     "InpObjPrnt": {
       "$tag": "_TypeInput",
       "name": "InpObjPrnt",
@@ -10309,6 +10457,80 @@
         {
           "$tag": "_Described",
           "value": "type"
+        }
+      ]
+    },
+    "OutpObjParamCnst": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "test",
+          "object": "OutpObjParamCnst",
+          "type": "test"
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "type",
+          "object": "OutpObjParamCnst",
+          "type": "test"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "test",
+          "type": "test"
+        },
+        {
+          "$tag": "_OutputField",
+          "name": "type",
+          "type": "test"
+        }
+      ],
+      "name": "OutpObjParamCnst",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "test"
+        }
+      ]
+    },
+    "OutpObjParamDup": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "test",
+          "object": "OutpObjParamDup",
+          "type": "test"
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "type",
+          "object": "OutpObjParamDup",
+          "type": "test"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "test",
+          "type": "test"
+        },
+        {
+          "$tag": "_OutputField",
+          "name": "type",
+          "type": "test"
+        }
+      ],
+      "name": "OutpObjParamDup",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "test"
         }
       ]
     },

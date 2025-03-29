@@ -8,17 +8,17 @@ public sealed class ParseDomainStringTests(
   IBaseDomainChecks<DomainStringInput, IGqlpDomain<IGqlpDomainRegex>> checks
 ) : BaseDomainTests<DomainStringInput, IGqlpDomain<IGqlpDomainRegex>>(checks)
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithRegexes_ReturnsCorrectAst(DomainStringInput input, string regex)
     => checks.TrueExpected(
       input.Name + "{string/" + input.Regex + "/!/" + regex + "/}",
       NewDomain(input.Name, new[] { input.Regex, regex }.DomainRegexes()));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithRegexesFirstBad_ReturnsFalse(string name)
     => checks.FalseExpected(name + "{string/}");
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithRegexesSecondBad_ReturnsFalse(DomainStringInput input, string regex)
     => checks.FalseExpected(input.Name + "{string/" + input.Regex + "/!/" + regex + "}");
 

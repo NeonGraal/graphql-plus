@@ -1,1 +1,1 @@
-5c12ceb  (HEAD -> type-constraints) 2025-03-29 Use Name in most sample .graphql+
+5cc2bff  (HEAD -> type-constraints) 2025-03-29 Add Constraint merging with samples

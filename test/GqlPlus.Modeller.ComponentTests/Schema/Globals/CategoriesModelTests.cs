@@ -9,7 +9,7 @@ public class CategoriesModelTests(
   ICategoriesModelChecks checks
 ) : TestModelBase<string, CategoriesModel>(checks)
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Type(string output)
     => checks
     .Model_Expected(
@@ -18,7 +18,7 @@ public class CategoriesModelTests(
         "name: " + output,
         "typeKind: !_TypeKind Output"]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Both(
     string output,
     string name

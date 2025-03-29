@@ -12,13 +12,13 @@ public abstract class TestObjectModel<TObject, TObjBase, TObjField, TObjAlt, TMo
   where TObjBase : IGqlpObjBase
   where TModel : IModelBase
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_ParentDual(string name, string parent)
     => objectChecks
       .AddTypeKinds(TypeKindModel.Dual, parent)
       .ObjectExpected(new(name, parent), objectChecks.DualParent);
 
-  //[Theory, RepeatData(Repeats)]
+  //[Theory, RepeatData]
   //public void Model_ParentTypeParam(string name, string parent)
   //  => ObjectChecks
   //    .AddTypeKinds(TypeKindModel.Dual, parent)
@@ -28,43 +28,43 @@ public abstract class TestObjectModel<TObject, TObjBase, TObjField, TObjAlt, TMo
   //      },
   //      new(name, parent), ObjectChecks.TypeParamParent);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Alternate(string name, AlternateInput alternate)
     => objectChecks.ObjectExpected(new(name, alternates: [alternate]));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_AlternateParent(string name, string parent, AlternateInput alternate)
     => objectChecks
       .AddParent(objectChecks.NewParent(parent, [alternate]))
       .ParentExpected(new(name, parent, alternates: [alternate]));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_AlternateTypeParam(string name, AlternateInput alternate)
     => objectChecks.ObjectExpected(new(name, alternates: [alternate.MakeTypeParam()]));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Alternates(string name, AlternateInput[] alternates)
     => objectChecks.ObjectExpected(new(name, alternates: alternates));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Field(string name, FieldInput field)
     => objectChecks.ObjectExpected(new(name, fields: [field]));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_FieldParent(string name, string parent, FieldInput field)
     => objectChecks
       .AddParent(objectChecks.NewParent(parent, [field]))
       .ParentExpected(new(name, parent, fields: [field]));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_FieldTypeParam(string name, FieldInput field)
     => objectChecks.ObjectExpected(new(name, fields: [field.MakeTypeParam()]));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Fields(string name, FieldInput[] fields)
     => objectChecks.ObjectExpected(new(name, fields: fields));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_FieldsDual(string name, FieldInput[] fields)
     => objectChecks
       .AddTypeKinds(fields.Select(f => f.Type), TypeKindModel.Dual)
@@ -72,17 +72,17 @@ public abstract class TestObjectModel<TObject, TObjBase, TObjField, TObjAlt, TMo
         new(name, fields: fields),
         field: objectChecks.DualField);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_TypeParam(string name, string typeParam)
     => objectChecks
       .ObjectExpected(new(name, typeParams: [typeParam]));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_TypeParams(string name, string[] typeParams)
     => objectChecks
       .ObjectExpected(new(name, typeParams: typeParams));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_All(string name, string contents, string parent, string[] aliases, FieldInput[] fields, AlternateInput[] alternates, string[] typeParams)
     => objectChecks.ObjectExpected(new(name, parent, typeParams, fields, alternates, aliases, contents));
 }

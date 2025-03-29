@@ -11,14 +11,14 @@ public abstract class TestDomainModel<TValue, TItem, TItemModel>(
   where TItem : IGqlpDomainItem
   where TItemModel : BaseDomainItemModel
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Labels(string name, TValue[] labels)
     => domainChecks
     .AddTypeKinds(TypeKindModel.Basic, labels)
     .DomainExpected(
       domainChecks.DomainAst(name, null, [], null, labels),
       domainChecks.ExpectedDomain(new(name, items: labels)));
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_LabelsParent(string name, string parent, TValue[] parentLabels)
     => domainChecks
     .SkipIf(string.Equals(name, parent, StringComparison.Ordinal))
@@ -28,7 +28,7 @@ public abstract class TestDomainModel<TValue, TItem, TItemModel>(
       domainChecks.DomainAst(name, null, [], parent, []),
       domainChecks.ExpectedDomain(new(name, parent, otherItems: parentLabels.ParentItems(parent))));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_LabelsGrandParent(string name, string parent, string grandParent, TValue[] grandParentLabels)
     => domainChecks
     .SkipIf(string.Equals(parent, grandParent, StringComparison.Ordinal))
@@ -39,7 +39,7 @@ public abstract class TestDomainModel<TValue, TItem, TItemModel>(
       domainChecks.DomainAst(name, null, [], parent, []),
       domainChecks.ExpectedDomain(new(name, parent, otherItems: grandParentLabels.ParentItems(grandParent))));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_All(string name, string contents, string[] aliases, string parent, TValue[] labels)
     => domainChecks
     .AddTypeKinds(TypeKindModel.Basic, labels)

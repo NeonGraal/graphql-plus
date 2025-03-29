@@ -1,0 +1,2 @@
+object ObjName<$test> { test: $test }
+object ObjName<$test> { type: $test }

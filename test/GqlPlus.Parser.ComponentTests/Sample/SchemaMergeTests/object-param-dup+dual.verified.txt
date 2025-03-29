@@ -1,0 +1,24 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  DualObjParamDup
+  <
+    I@023/0001
+    $test
+  >
+  {
+    !DF I@031/0001
+    test
+    :
+    I@038/0001
+    $test
+    !DF I@031/0002
+    type
+    :
+    I@038/0002
+    $test
+  }
+}
+]

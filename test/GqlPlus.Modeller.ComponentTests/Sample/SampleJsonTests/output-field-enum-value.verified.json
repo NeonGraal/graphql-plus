@@ -2,7 +2,7 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "FieldEnums": {
+    "OutpFieldEnumValue": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
@@ -10,7 +10,7 @@
           "field": "field",
           "label": "true",
           "name": "Boolean",
-          "object": "FieldEnums",
+          "object": "OutpFieldEnumValue",
           "typeKind": "Enum"
         }
       ],
@@ -23,7 +23,7 @@
           "typeKind": "Enum"
         }
       ],
-      "name": "FieldEnums",
+      "name": "OutpFieldEnumValue",
       "typeKind": "Output"
     }
   }

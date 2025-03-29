@@ -2,19 +2,37 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutGenValue": {
+    "EnumOutpGnrcValue": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumOutpGnrcValue",
+          "name": "outpGnrcValue"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "outpGnrcValue"
+        }
+      ],
+      "name": "EnumOutpGnrcValue",
+      "typeKind": "Enum"
+    },
+    "OutpGnrcValue": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutGenValue",
+          "object": "OutpGnrcValue",
           "type": {
             "$tag": "_OutputBase",
-            "output": "OutGenValueRef",
+            "output": "RefOutpGnrcValue",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "value": "outValueGen"
+                "value": "outpGnrcValue"
               }
             ]
           }
@@ -25,26 +43,26 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "OutGenValueRef",
+            "output": "RefOutpGnrcValue",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "value": "outValueGen"
+                "value": "outpGnrcValue"
               }
             ]
           }
         }
       ],
-      "name": "OutGenValue",
+      "name": "OutpGnrcValue",
       "typeKind": "Output"
     },
-    "OutGenValueRef": {
+    "RefOutpGnrcValue": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutGenValueRef",
+          "object": "RefOutpGnrcValue",
           "type": "type"
         }
       ],
@@ -55,7 +73,7 @@
           "type": "type"
         }
       ],
-      "name": "OutGenValueRef",
+      "name": "RefOutpGnrcValue",
       "typeKind": "Output",
       "typeParams": [
         {
@@ -63,24 +81,6 @@
           "value": "type"
         }
       ]
-    },
-    "OutValueGen": {
-      "$tag": "_TypeEnum",
-      "allItems": [
-        {
-          "$tag": "_EnumLabel",
-          "enum": "OutValueGen",
-          "name": "outValueGen"
-        }
-      ],
-      "items": [
-        {
-          "$tag": "_Aliased",
-          "value": "outValueGen"
-        }
-      ],
-      "name": "OutValueGen",
-      "typeKind": "Enum"
     }
   }
 }

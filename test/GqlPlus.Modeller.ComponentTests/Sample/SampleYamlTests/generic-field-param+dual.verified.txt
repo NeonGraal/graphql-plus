@@ -1,35 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualGenFieldParam: !_TypeDual
-    allFields:
-    - !_ObjectFor(_DualField)
-      name: field
-      object: DualGenFieldParam
-      type: !_DualBase
-        dual: DualGenFieldParamRef
-        typeArgs:
-        - !_DualArg
-          dual: DualGenFieldParamAlt
-    fields:
-    - !_DualField
-      name: field
-      type: !_DualBase
-        dual: DualGenFieldParamRef
-        typeArgs:
-        - !_DualArg
-          dual: DualGenFieldParamAlt
-    name: DualGenFieldParam
-    typeKind: !_TypeKind Dual
-  !_Identifier DualGenFieldParamAlt: !_TypeDual
+  !_Identifier AltDualGnrcFieldParam: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualGenFieldParamAlt
+      object: AltDualGnrcFieldParam
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: DualGenFieldParamAlt
+      object: AltDualGnrcFieldParam
       type: !_DualBase
         dual: Number
     alternates:
@@ -41,17 +21,37 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: DualGenFieldParamAlt
+    name: AltDualGnrcFieldParam
     typeKind: !_TypeKind Dual
-  !_Identifier DualGenFieldParamRef: !_TypeDual
+  !_Identifier DualGnrcFieldParam: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: DualGnrcFieldParam
+      type: !_DualBase
+        dual: RefDualGnrcFieldParam
+        typeArgs:
+        - !_DualArg
+          dual: AltDualGnrcFieldParam
+    fields:
+    - !_DualField
+      name: field
+      type: !_DualBase
+        dual: RefDualGnrcFieldParam
+        typeArgs:
+        - !_DualArg
+          dual: AltDualGnrcFieldParam
+    name: DualGnrcFieldParam
+    typeKind: !_TypeKind Dual
+  !_Identifier RefDualGnrcFieldParam: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualGenFieldParamRef
+      object: RefDualGnrcFieldParam
       type: !_TypeParam ref
     alternates:
     - !_DualAlternate
       type: !_TypeParam ref
-    name: DualGenFieldParamRef
+    name: RefDualGnrcFieldParam
     typeKind: !_TypeKind Dual
     typeParams:
     - !_Described

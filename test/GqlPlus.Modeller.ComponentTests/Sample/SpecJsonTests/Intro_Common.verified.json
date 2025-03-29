@@ -5,6 +5,11 @@
       "$tag": "_Error",
       "_kind": "End",
       "_message": "In _BaseType can\u0027t get model for type \u0027_Aliased\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": "End",
+      "_message": "In _TypeRef can\u0027t get model for type \u0027_Described\u0027"
     }
   ],
   "types": {
@@ -95,7 +100,7 @@
           "object": "_ChildType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Described"
+            "value": "_Named"
           }
         },
         {
@@ -155,7 +160,7 @@
           "kind",
           {
             "$tag": "_OutputArg",
-            "value": "_Described"
+            "value": "_Named"
           }
         ]
       },
@@ -491,6 +496,10 @@
         }
       ],
       "name": "_TypeRef",
+      "parent": {
+        "$tag": "_OutputBase",
+        "value": "_Described"
+      },
       "typeKind": "Output",
       "typeParams": [
         {

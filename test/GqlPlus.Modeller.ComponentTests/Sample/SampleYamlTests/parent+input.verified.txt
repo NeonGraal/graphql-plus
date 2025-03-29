@@ -1,31 +1,31 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpParent: !_TypeInput
+  !_Identifier InpPrnt: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpParentRef
+      object: RefInpPrnt
       type: !_InputBase
         input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: parent
-      object: InpParentRef
+      object: RefInpPrnt
       type: !_InputBase
         input: Number
-    name: InpParent
+    name: InpPrnt
     parent: !_InputBase
-      input: InpParentRef
+      input: RefInpPrnt
     typeKind: !_TypeKind Input
-  !_Identifier InpParentRef: !_TypeInput
+  !_Identifier RefInpPrnt: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpParentRef
+      object: RefInpPrnt
       type: !_InputBase
         input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: parent
-      object: InpParentRef
+      object: RefInpPrnt
       type: !_InputBase
         input: Number
     alternates:
@@ -37,5 +37,5 @@ types: !_Map_Type
       name: parent
       type: !_InputBase
         input: Number
-    name: InpParentRef
+    name: RefInpPrnt
     typeKind: !_TypeKind Input

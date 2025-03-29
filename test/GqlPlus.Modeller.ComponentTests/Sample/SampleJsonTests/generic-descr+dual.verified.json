@@ -2,13 +2,13 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualGenDescr": {
+    "DualGnrcDescr": {
       "$tag": "_TypeDual",
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "DualGenDescr",
+          "object": "DualGnrcDescr",
           "type": "type"
         }
       ],
@@ -19,7 +19,7 @@
           "type": "type"
         }
       ],
-      "name": "DualGenDescr",
+      "name": "DualGnrcDescr",
       "typeKind": "Dual",
       "typeParams": [
         {

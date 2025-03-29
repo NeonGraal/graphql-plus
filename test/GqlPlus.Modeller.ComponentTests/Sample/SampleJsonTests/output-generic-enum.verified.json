@@ -2,38 +2,38 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutEnumGen": {
+    "EnumOutpGnrcEnum": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "enum": "OutEnumGen",
-          "name": "outEnumGen"
+          "enum": "EnumOutpGnrcEnum",
+          "name": "outpGnrcEnum"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "outEnumGen"
+          "value": "outpGnrcEnum"
         }
       ],
-      "name": "OutEnumGen",
+      "name": "EnumOutpGnrcEnum",
       "typeKind": "Enum"
     },
-    "OutGenEnum": {
+    "OutpGnrcEnum": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutGenEnum",
+          "object": "OutpGnrcEnum",
           "type": {
             "$tag": "_OutputBase",
-            "output": "OutGenEnumRef",
+            "output": "RefOutpGnrcEnum",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "label": "outEnumGen",
-                "name": "OutEnumGen",
+                "label": "outpGnrcEnum",
+                "name": "EnumOutpGnrcEnum",
                 "typeKind": "Enum"
               }
             ]
@@ -45,28 +45,28 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "OutGenEnumRef",
+            "output": "RefOutpGnrcEnum",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "label": "outEnumGen",
-                "name": "OutEnumGen",
+                "label": "outpGnrcEnum",
+                "name": "EnumOutpGnrcEnum",
                 "typeKind": "Enum"
               }
             ]
           }
         }
       ],
-      "name": "OutGenEnum",
+      "name": "OutpGnrcEnum",
       "typeKind": "Output"
     },
-    "OutGenEnumRef": {
+    "RefOutpGnrcEnum": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutGenEnumRef",
+          "object": "RefOutpGnrcEnum",
           "type": "type"
         }
       ],
@@ -77,7 +77,7 @@
           "type": "type"
         }
       ],
-      "name": "OutGenEnumRef",
+      "name": "RefOutpGnrcEnum",
       "typeKind": "Output",
       "typeParams": [
         {

@@ -2,16 +2,16 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpGenFieldArg": {
+    "InpGnrcFieldArg": {
       "$tag": "_TypeInput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "InpGenFieldArg",
+          "object": "InpGnrcFieldArg",
           "type": {
             "$tag": "_InputBase",
-            "input": "InpGenFieldArgRef",
+            "input": "RefInpGnrcFieldArg",
             "typeArgs": ["type"]
           }
         }
@@ -22,12 +22,12 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "input": "InpGenFieldArgRef",
+            "input": "RefInpGnrcFieldArg",
             "typeArgs": ["type"]
           }
         }
       ],
-      "name": "InpGenFieldArg",
+      "name": "InpGnrcFieldArg",
       "typeKind": "Input",
       "typeParams": [
         {
@@ -36,12 +36,12 @@
         }
       ]
     },
-    "InpGenFieldArgRef": {
+    "RefInpGnrcFieldArg": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenFieldArgRef",
+          "object": "RefInpGnrcFieldArg",
           "type": "ref"
         }
       ],
@@ -51,7 +51,7 @@
           "type": "ref"
         }
       ],
-      "name": "InpGenFieldArgRef",
+      "name": "RefInpGnrcFieldArg",
       "typeKind": "Input",
       "typeParams": [
         {

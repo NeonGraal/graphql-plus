@@ -1,33 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpGenAltParam: !_TypeOutput
+  !_Identifier AltOutpGnrcAltParam: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpGenAltParam
-      type: !_OutputBase
-        output: OutpGenAltParamRef
-        typeArgs:
-        - !_OutputArg
-          output: OutpGenAltParamAlt
-    alternates:
-    - !_OutputAlternate
-      type: !_OutputBase
-        output: OutpGenAltParamRef
-        typeArgs:
-        - !_OutputArg
-          output: OutpGenAltParamAlt
-    name: OutpGenAltParam
-    typeKind: !_TypeKind Output
-  !_Identifier OutpGenAltParamAlt: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: OutpGenAltParamAlt
+      object: AltOutpGnrcAltParam
       type: !_OutputBase
         output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
-      object: OutpGenAltParamAlt
+      object: AltOutpGnrcAltParam
       type: !_OutputBase
         output: Number
     alternates:
@@ -39,17 +21,35 @@ types: !_Map_Type
       name: alt
       type: !_OutputBase
         output: Number
-    name: OutpGenAltParamAlt
+    name: AltOutpGnrcAltParam
     typeKind: !_TypeKind Output
-  !_Identifier OutpGenAltParamRef: !_TypeOutput
+  !_Identifier OutpGnrcAltParam: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpGenAltParamRef
+      object: OutpGnrcAltParam
+      type: !_OutputBase
+        output: RefOutpGnrcAltParam
+        typeArgs:
+        - !_OutputArg
+          output: AltOutpGnrcAltParam
+    alternates:
+    - !_OutputAlternate
+      type: !_OutputBase
+        output: RefOutpGnrcAltParam
+        typeArgs:
+        - !_OutputArg
+          output: AltOutpGnrcAltParam
+    name: OutpGnrcAltParam
+    typeKind: !_TypeKind Output
+  !_Identifier RefOutpGnrcAltParam: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: RefOutpGnrcAltParam
       type: !_TypeParam ref
     alternates:
     - !_OutputAlternate
       type: !_TypeParam ref
-    name: OutpGenAltParamRef
+    name: RefOutpGnrcAltParam
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described

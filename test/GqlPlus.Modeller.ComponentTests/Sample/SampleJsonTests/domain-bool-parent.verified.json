@@ -2,18 +2,18 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DomBoolPrntTest": {
+    "DmnBoolPrnt": {
       "$tag": "_DomainBoolean",
       "allItems": [
         {
           "$tag": "_DomainItem(_DomainTrueFalse)",
-          "domain": "DomBoolTestPrnt",
+          "domain": "PrntDmnBoolPrnt",
           "exclude": false,
           "value": true
         },
         {
           "$tag": "_DomainItem(_DomainTrueFalse)",
-          "domain": "DomBoolPrntTest",
+          "domain": "DmnBoolPrnt",
           "exclude": false,
           "value": false
         }
@@ -26,20 +26,20 @@
           "value": false
         }
       ],
-      "name": "DomBoolPrntTest",
+      "name": "DmnBoolPrnt",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
-        "name": "DomBoolTestPrnt",
+        "name": "PrntDmnBoolPrnt",
         "typeKind": "Domain"
       },
       "typeKind": "Domain"
     },
-    "DomBoolTestPrnt": {
+    "PrntDmnBoolPrnt": {
       "$tag": "_DomainBoolean",
       "allItems": [
         {
           "$tag": "_DomainItem(_DomainTrueFalse)",
-          "domain": "DomBoolTestPrnt",
+          "domain": "PrntDmnBoolPrnt",
           "exclude": false,
           "value": true
         }
@@ -52,7 +52,7 @@
           "value": true
         }
       ],
-      "name": "DomBoolTestPrnt",
+      "name": "PrntDmnBoolPrnt",
       "typeKind": "Domain"
     }
   }

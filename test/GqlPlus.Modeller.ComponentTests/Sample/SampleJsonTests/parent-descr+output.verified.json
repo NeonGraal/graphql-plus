@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpParentDescr": {
+    "OutpPrntDescr": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpParentDescrRef",
+          "object": "RefOutpPrntDescr",
           "type": {
             "$tag": "_OutputBase",
             "value": "String"
@@ -18,30 +18,30 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "parent",
-          "object": "OutpParentDescrRef",
+          "object": "RefOutpPrntDescr",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
           }
         }
       ],
-      "name": "OutpParentDescr",
+      "name": "OutpPrntDescr",
       "parent": {
         "$tag": "_ObjDescribed(_OutputBase)",
         "base": {
           "$tag": "_OutputBase",
-          "value": "OutpParentDescrRef"
+          "value": "RefOutpPrntDescr"
         },
         "description": "Test Descr"
       },
       "typeKind": "Output"
     },
-    "OutpParentDescrRef": {
+    "RefOutpPrntDescr": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpParentDescrRef",
+          "object": "RefOutpPrntDescr",
           "type": {
             "$tag": "_OutputBase",
             "value": "String"
@@ -52,7 +52,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "parent",
-          "object": "OutpParentDescrRef",
+          "object": "RefOutpPrntDescr",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -78,7 +78,7 @@
           }
         }
       ],
-      "name": "OutpParentDescrRef",
+      "name": "RefOutpPrntDescr",
       "typeKind": "Output"
     }
   }

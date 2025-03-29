@@ -1,2 +1,2 @@
-'A "single-quoted" doc'
-output DescrSingle { }
+'A "single-quoted" description'
+output Name { }

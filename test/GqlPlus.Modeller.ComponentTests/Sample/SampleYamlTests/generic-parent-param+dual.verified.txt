@@ -1,28 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualGenParentParam: !_TypeDual
+  !_Identifier AltDualGnrcPrntParam: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualGenParentParamRef
-      type: !_DualBase
-        dual: DualGenParentParamAlt
-    name: DualGenParentParam
-    parent: !_DualBase
-      dual: DualGenParentParamRef
-      typeArgs:
-      - !_DualArg
-        dual: DualGenParentParamAlt
-    typeKind: !_TypeKind Dual
-  !_Identifier DualGenParentParamAlt: !_TypeDual
-    allAlternates:
-    - !_ObjectFor(_DualAlternate)
-      object: DualGenParentParamAlt
+      object: AltDualGnrcPrntParam
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: DualGenParentParamAlt
+      object: AltDualGnrcPrntParam
       type: !_DualBase
         dual: Number
     alternates:
@@ -34,17 +21,30 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: DualGenParentParamAlt
+    name: AltDualGnrcPrntParam
     typeKind: !_TypeKind Dual
-  !_Identifier DualGenParentParamRef: !_TypeDual
+  !_Identifier DualGnrcPrntParam: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualGenParentParamRef
+      object: RefDualGnrcPrntParam
+      type: !_DualBase
+        dual: AltDualGnrcPrntParam
+    name: DualGnrcPrntParam
+    parent: !_DualBase
+      dual: RefDualGnrcPrntParam
+      typeArgs:
+      - !_DualArg
+        dual: AltDualGnrcPrntParam
+    typeKind: !_TypeKind Dual
+  !_Identifier RefDualGnrcPrntParam: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: RefDualGnrcPrntParam
       type: !_TypeParam ref
     alternates:
     - !_DualAlternate
       type: !_TypeParam ref
-    name: DualGenParentParamRef
+    name: RefDualGnrcPrntParam
     typeKind: !_TypeKind Dual
     typeParams:
     - !_Described

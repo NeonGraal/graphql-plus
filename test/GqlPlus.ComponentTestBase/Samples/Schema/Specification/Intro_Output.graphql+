@@ -1,5 +1,5 @@
 output _TypeOutput {
-    : _TypeObject<_TypeKind.Output _OutputParent _OutputTypeParam _OutputField _OutputAlternate>
+    : _TypeObject<_TypeKind.Output _OutputBase _OutputField _OutputAlternate>
     }
 
 output _OutputBase {
@@ -8,17 +8,9 @@ output _OutputBase {
     | _DualBase
     }
 
-output _OutputParent {
-    : _ObjDescribed<_OutputBase>
-    }
-
-output _OutputTypeParam {
-    : _ObjTypeParam<_OutputBase>
-    }
-
 output _OutputField {
     : _Field<_OutputBase>
-        parameter: _InputParam[]
+        parameters: _InputParam[]
     | _OutputEnum
     }
 

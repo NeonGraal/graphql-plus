@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "StrSame": {
+    "DmnStrSame": {
       "$tag": "_DomainString",
       "allItems": [
         {
           "$tag": "_DomainItem(_DomainRegex)",
-          "domain": "StrSame",
+          "domain": "DmnStrSame",
           "exclude": false,
           "pattern": "a\u002B"
         }
@@ -20,7 +20,7 @@
           "pattern": "a\u002B"
         }
       ],
-      "name": "StrSame",
+      "name": "DmnStrSame",
       "typeKind": "Domain"
     }
   }

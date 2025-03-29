@@ -8,19 +8,10 @@ _errors:
   _message: In _InputBase can't get model for type '_ObjBase'
 - !_Error
   _kind: !_TokenKind End
-  _message: In _InputParent can't get model for type '_ObjDescribed'
-- !_Error
-  _kind: !_TokenKind End
-  _message: In _InputTypeParam can't get model for type '_ObjTypeParam'
-- !_Error
-  _kind: !_TokenKind End
   _message: In _InputField can't get model for type '_Field'
 - !_Error
   _kind: !_TokenKind End
   _message: In _InputAlternate can't get model for type '_Alternate'
-- !_Error
-  _kind: !_TokenKind End
-  _message: In _InputParam can't get model for type '_ObjDescribed'
 types: !_Map_Type
   !_Identifier _InputAlternate: !_TypeOutput
     name: _InputAlternate
@@ -80,7 +71,17 @@ types: !_Map_Type
         output: _InputBase
     typeKind: !_TypeKind Output
   !_Identifier _InputParam: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: _InputBase
+      type: !_OutputBase
+        output: _DualBase
     allFields:
+    - !_ObjectFor(_OutputField)
+      name: input
+      object: _InputBase
+      type: !_OutputBase
+        output: _Identifier
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
@@ -106,26 +107,7 @@ types: !_Map_Type
         output: _Constant
     name: _InputParam
     parent: !_OutputBase
-      output: _ObjDescribed
-      typeArgs:
-      - !_OutputArg
-        output: _InputBase
-    typeKind: !_TypeKind Output
-  !_Identifier _InputParent: !_TypeOutput
-    name: _InputParent
-    parent: !_OutputBase
-      output: _ObjDescribed
-      typeArgs:
-      - !_OutputArg
-        output: _InputBase
-    typeKind: !_TypeKind Output
-  !_Identifier _InputTypeParam: !_TypeOutput
-    name: _InputTypeParam
-    parent: !_OutputBase
-      output: _ObjTypeParam
-      typeArgs:
-      - !_OutputArg
-        output: _InputBase
+      output: _InputBase
     typeKind: !_TypeKind Output
   !_Identifier _TypeInput: !_TypeOutput
     name: _TypeInput
@@ -137,9 +119,7 @@ types: !_Map_Type
         name: _TypeKind
         typeKind: !_SimpleKind Enum
       - !_OutputArg
-        output: _InputParent
-      - !_OutputArg
-        output: _InputTypeParam
+        output: _InputBase
       - !_OutputArg
         output: _InputField
       - !_OutputArg

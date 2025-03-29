@@ -2,48 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpGenAltParam": {
+    "AltOutpGnrcAltParam": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGenAltParam",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "OutpGenAltParamRef",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "value": "OutpGenAltParamAlt"
-              }
-            ]
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "OutpGenAltParamRef",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "value": "OutpGenAltParamAlt"
-              }
-            ]
-          }
-        }
-      ],
-      "name": "OutpGenAltParam",
-      "typeKind": "Output"
-    },
-    "OutpGenAltParamAlt": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGenAltParamAlt",
+          "object": "AltOutpGnrcAltParam",
           "type": {
             "$tag": "_OutputBase",
             "value": "String"
@@ -54,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "alt",
-          "object": "OutpGenAltParamAlt",
+          "object": "AltOutpGnrcAltParam",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -80,15 +44,51 @@
           }
         }
       ],
-      "name": "OutpGenAltParamAlt",
+      "name": "AltOutpGnrcAltParam",
       "typeKind": "Output"
     },
-    "OutpGenAltParamRef": {
+    "OutpGnrcAltParam": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGenAltParamRef",
+          "object": "OutpGnrcAltParam",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "RefOutpGnrcAltParam",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "value": "AltOutpGnrcAltParam"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "RefOutpGnrcAltParam",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "value": "AltOutpGnrcAltParam"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "OutpGnrcAltParam",
+      "typeKind": "Output"
+    },
+    "RefOutpGnrcAltParam": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "RefOutpGnrcAltParam",
           "type": "ref"
         }
       ],
@@ -98,7 +98,7 @@
           "type": "ref"
         }
       ],
-      "name": "OutpGenAltParamRef",
+      "name": "RefOutpGnrcAltParam",
       "typeKind": "Output",
       "typeParams": [
         {

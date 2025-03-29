@@ -2,50 +2,50 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "EnParent": {
+    "EnumSamePrnt": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "enum": "EnParent",
-          "name": "parent"
-        }
-      ],
-      "items": [
-        {
-          "$tag": "_Aliased",
-          "value": "parent"
-        }
-      ],
-      "name": "EnParent",
-      "typeKind": "Enum"
-    },
-    "EnSameParent": {
-      "$tag": "_TypeEnum",
-      "allItems": [
-        {
-          "$tag": "_EnumLabel",
-          "enum": "EnParent",
-          "name": "parent"
+          "enum": "PrntEnumSamePrnt",
+          "name": "prnt_enumSamePrnt"
         },
         {
           "$tag": "_EnumLabel",
-          "enum": "EnSameParent",
-          "name": "sameP"
+          "enum": "EnumSamePrnt",
+          "name": "enumSamePrnt"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "sameP"
+          "value": "enumSamePrnt"
         }
       ],
-      "name": "EnSameParent",
+      "name": "EnumSamePrnt",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
-        "name": "EnParent",
+        "name": "PrntEnumSamePrnt",
         "typeKind": "Enum"
       },
+      "typeKind": "Enum"
+    },
+    "PrntEnumSamePrnt": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "PrntEnumSamePrnt",
+          "name": "prnt_enumSamePrnt"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "prnt_enumSamePrnt"
+        }
+      ],
+      "name": "PrntEnumSamePrnt",
       "typeKind": "Enum"
     }
   }

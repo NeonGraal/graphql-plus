@@ -3,21 +3,21 @@
 Success
 {
   !In I@007/0001
-  InpObjectFieldAlias
+  InpObjFieldAlias
   {
-    !IF I@029/0001
+    !IF I@026/0001
     field
     [
       field1
       field2
     ]
     :
-    I@045/0001
-    InpObjectFieldAliasFld
+    I@042/0001
+    FldInpObjFieldAlias
   }
 }
 {
   !In I@007/0003
-  InpObjectFieldAliasFld
+  FldInpObjFieldAlias
 }
 ]

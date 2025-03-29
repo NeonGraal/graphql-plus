@@ -4,12 +4,12 @@ Success
 {
   "First category Second category"
   !Ca P@010/0002
-  test
+  ctgrDescr
   (Parallel)
-  Test
+  CtgrDescr
 }
 {
   !Ou I@008/0005
-  Test
+  CtgrDescr
 }
 ]

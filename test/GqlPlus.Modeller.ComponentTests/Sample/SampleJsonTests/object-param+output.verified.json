@@ -2,19 +2,19 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpObjectParam": {
+    "OutpObjParam": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "test",
-          "object": "OutpObjectParam",
+          "object": "OutpObjParam",
           "type": "test"
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "type",
-          "object": "OutpObjectParam",
+          "object": "OutpObjParam",
           "type": "type"
         }
       ],
@@ -30,7 +30,7 @@
           "type": "type"
         }
       ],
-      "name": "OutpObjectParam",
+      "name": "OutpObjParam",
       "typeKind": "Output",
       "typeParams": [
         {

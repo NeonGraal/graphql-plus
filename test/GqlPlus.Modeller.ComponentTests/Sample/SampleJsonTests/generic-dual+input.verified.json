@@ -2,20 +2,20 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpGenDual": {
+    "InpGnrcDual": {
       "$tag": "_TypeInput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "InpGenDual",
+          "object": "InpGnrcDual",
           "type": {
             "$tag": "_InputBase",
-            "input": "InpGenDualRef",
+            "input": "InpGnrcDualRef",
             "typeArgs": [
               {
                 "$tag": "_DualArg",
-                "value": "InpGenDualAlt"
+                "value": "InpGnrcDualAlt"
               }
             ]
           }
@@ -27,25 +27,25 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "input": "InpGenDualRef",
+            "input": "InpGnrcDualRef",
             "typeArgs": [
               {
                 "$tag": "_DualArg",
-                "value": "InpGenDualAlt"
+                "value": "InpGnrcDualAlt"
               }
             ]
           }
         }
       ],
-      "name": "InpGenDual",
+      "name": "InpGnrcDual",
       "typeKind": "Input"
     },
-    "InpGenDualAlt": {
+    "InpGnrcDualAlt": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "InpGenDualAlt",
+          "object": "InpGnrcDualAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -56,7 +56,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "InpGenDualAlt",
+          "object": "InpGnrcDualAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -82,15 +82,15 @@
           }
         }
       ],
-      "name": "InpGenDualAlt",
+      "name": "InpGnrcDualAlt",
       "typeKind": "Dual"
     },
-    "InpGenDualRef": {
+    "InpGnrcDualRef": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenDualRef",
+          "object": "InpGnrcDualRef",
           "type": "ref"
         }
       ],
@@ -100,7 +100,7 @@
           "type": "ref"
         }
       ],
-      "name": "InpGenDualRef",
+      "name": "InpGnrcDualRef",
       "typeKind": "Input",
       "typeParams": [
         {

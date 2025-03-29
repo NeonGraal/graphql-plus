@@ -1,37 +1,37 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpParentParamDiff: !_TypeOutput
+  !_Identifier OutpPrntParamDiff: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpParentParamDiffRef
+      object: RefOutpPrntParamDiff
       type: !_TypeParam b
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
-      object: OutpParentParamDiff
+      object: OutpPrntParamDiff
       type: !_TypeParam a
     fields:
     - !_OutputField
       name: field
       type: !_TypeParam a
-    name: OutpParentParamDiff
+    name: OutpPrntParamDiff
     parent: !_OutputBase
-      output: OutpParentParamDiffRef
+      output: RefOutpPrntParamDiff
       typeArgs:
       - !_TypeParam a
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described
       name: a
-  !_Identifier OutpParentParamDiffRef: !_TypeOutput
+  !_Identifier RefOutpPrntParamDiff: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpParentParamDiffRef
+      object: RefOutpPrntParamDiff
       type: !_TypeParam b
     alternates:
     - !_OutputAlternate
       type: !_TypeParam b
-    name: OutpParentParamDiffRef
+    name: RefOutpPrntParamDiff
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described

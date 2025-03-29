@@ -2,50 +2,50 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InEnumField": {
+    "EnumInpFieldEnum": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "enum": "InEnumField",
-          "name": "value"
+          "enum": "EnumInpFieldEnum",
+          "name": "inpFieldEnum"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "value"
+          "value": "inpFieldEnum"
         }
       ],
-      "name": "InEnumField",
+      "name": "EnumInpFieldEnum",
       "typeKind": "Enum"
     },
-    "InFieldEnum": {
+    "InpFieldEnum": {
       "$tag": "_TypeInput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
-          "default": "value",
+          "default": "inpFieldEnum",
           "name": "field",
-          "object": "InFieldEnum",
+          "object": "InpFieldEnum",
           "type": {
             "$tag": "_InputBase",
-            "value": "InEnumField"
+            "value": "EnumInpFieldEnum"
           }
         }
       ],
       "fields": [
         {
           "$tag": "_InputField",
-          "default": "value",
+          "default": "inpFieldEnum",
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "value": "InEnumField"
+            "value": "EnumInpFieldEnum"
           }
         }
       ],
-      "name": "InFieldEnum",
+      "name": "InpFieldEnum",
       "typeKind": "Input"
     }
   }

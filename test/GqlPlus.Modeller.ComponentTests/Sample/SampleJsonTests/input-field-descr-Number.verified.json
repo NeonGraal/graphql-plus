@@ -2,14 +2,14 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InFieldNum": {
+    "InpFieldDescrNmbr": {
       "$tag": "_TypeInput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "default": 0,
           "name": "field",
-          "object": "InFieldNum",
+          "object": "InpFieldDescrNmbr",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -27,7 +27,7 @@
           }
         }
       ],
-      "name": "InFieldNum",
+      "name": "InpFieldDescrNmbr",
       "typeKind": "Input"
     }
   }

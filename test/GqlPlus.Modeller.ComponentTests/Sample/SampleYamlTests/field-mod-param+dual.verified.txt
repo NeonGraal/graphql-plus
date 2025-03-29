@@ -7,28 +7,28 @@ types: !_Map_Type
       name: field
       object: DualFieldModParam
       type: !_DualBase
-        dual: DualFieldModParamFld
+        dual: FldDualFieldModParam
     fields:
     - !_DualField
       modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
       name: field
       type: !_DualBase
-        dual: DualFieldModParamFld
+        dual: FldDualFieldModParam
     name: DualFieldModParam
     typeKind: !_TypeKind Dual
     typeParams:
     - !_Described
       name: mod
-  !_Identifier DualFieldModParamFld: !_TypeDual
+  !_Identifier FldDualFieldModParam: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualFieldModParamFld
+      object: FldDualFieldModParam
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: field
-      object: DualFieldModParamFld
+      object: FldDualFieldModParam
       type: !_DualBase
         dual: Number
     alternates:
@@ -40,5 +40,5 @@ types: !_Map_Type
       name: field
       type: !_DualBase
         dual: Number
-    name: DualFieldModParamFld
+    name: FldDualFieldModParam
     typeKind: !_TypeKind Dual

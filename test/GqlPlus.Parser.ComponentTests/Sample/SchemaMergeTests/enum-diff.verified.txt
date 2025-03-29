@@ -3,10 +3,10 @@
 Success
 {
   !En I@006/0001
-  EnDiff
-  !EL I@015/0001
+  EnumDiff
+  !EL I@017/0001
   one
-  !EL I@015/0002
+  !EL I@017/0002
   two
 }
 ]

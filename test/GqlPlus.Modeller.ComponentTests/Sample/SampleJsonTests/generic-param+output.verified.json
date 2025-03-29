@@ -2,20 +2,20 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpGenParam": {
+    "OutpGnrcParam": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutpGenParam",
+          "object": "OutpGnrcParam",
           "type": {
             "$tag": "_OutputBase",
-            "output": "OutpGenParamRef",
+            "output": "OutpGnrcParamRef",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "value": "OutpGenParamAlt"
+                "value": "OutpGnrcParamAlt"
               }
             ]
           }
@@ -27,25 +27,25 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "output": "OutpGenParamRef",
+            "output": "OutpGnrcParamRef",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "value": "OutpGenParamAlt"
+                "value": "OutpGnrcParamAlt"
               }
             ]
           }
         }
       ],
-      "name": "OutpGenParam",
+      "name": "OutpGnrcParam",
       "typeKind": "Output"
     },
-    "OutpGenParamAlt": {
+    "OutpGnrcParamAlt": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGenParamAlt",
+          "object": "OutpGnrcParamAlt",
           "type": {
             "$tag": "_OutputBase",
             "value": "String"
@@ -56,7 +56,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "alt",
-          "object": "OutpGenParamAlt",
+          "object": "OutpGnrcParamAlt",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -82,15 +82,15 @@
           }
         }
       ],
-      "name": "OutpGenParamAlt",
+      "name": "OutpGnrcParamAlt",
       "typeKind": "Output"
     },
-    "OutpGenParamRef": {
+    "OutpGnrcParamRef": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGenParamRef",
+          "object": "OutpGnrcParamRef",
           "type": "ref"
         }
       ],
@@ -100,7 +100,7 @@
           "type": "ref"
         }
       ],
-      "name": "OutpGenParamRef",
+      "name": "OutpGnrcParamRef",
       "typeKind": "Output",
       "typeParams": [
         {

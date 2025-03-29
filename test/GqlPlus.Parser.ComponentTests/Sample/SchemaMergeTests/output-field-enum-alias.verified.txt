@@ -3,16 +3,16 @@
 Success
 {
   !Ou I@008/0001
-  FieldEnumAlias
+  OutpFieldEnumAlias
   {
-    !OF I@025/0001
+    !OF I@029/0001
     field
     [
       field1
       field2
     ]
     =
-    I@042/0001
+    I@046/0001
     Boolean.true
   }
 }

@@ -2,58 +2,17 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutParam": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "field",
-          "object": "OutParam",
-          "parameters": [
-            {
-              "$tag": "_InputParam",
-              "value": "OutParamIn"
-            }
-          ],
-          "type": {
-            "$tag": "_ObjDescribed(_OutputBase)",
-            "base": {
-              "$tag": "_OutputBase",
-              "value": "OutParam"
-            },
-            "description": "Test Descr"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "field",
-          "parameters": [
-            {
-              "$tag": "_InputParam",
-              "value": "OutParamIn"
-            }
-          ],
-          "type": {
-            "$tag": "_ObjDescribed(_OutputBase)",
-            "base": {
-              "$tag": "_OutputBase",
-              "value": "OutParam"
-            },
-            "description": "Test Descr"
-          }
-        }
-      ],
-      "name": "OutParam",
-      "typeKind": "Output"
+    "FldOutpParamTypeDescr": {
+      "$tag": "_TypeDual",
+      "name": "FldOutpParamTypeDescr",
+      "typeKind": "Dual"
     },
-    "OutParamIn": {
+    "InOutpParamTypeDescr": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "OutParamIn",
+          "object": "InOutpParamTypeDescr",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -64,7 +23,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "param",
-          "object": "OutParamIn",
+          "object": "InOutpParamTypeDescr",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -90,8 +49,54 @@
           }
         }
       ],
-      "name": "OutParamIn",
+      "name": "InOutpParamTypeDescr",
       "typeKind": "Input"
+    },
+    "OutpParamTypeDescr": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpParamTypeDescr",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "InOutpParamTypeDescr"
+            }
+          ],
+          "type": {
+            "$tag": "_ObjDescribed(_OutputBase)",
+            "base": {
+              "$tag": "_DualBase",
+              "value": "FldOutpParamTypeDescr"
+            },
+            "description": "Test Descr"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "InOutpParamTypeDescr"
+            }
+          ],
+          "type": {
+            "$tag": "_ObjDescribed(_OutputBase)",
+            "base": {
+              "$tag": "_DualBase",
+              "value": "FldOutpParamTypeDescr"
+            },
+            "description": "Test Descr"
+          }
+        }
+      ],
+      "name": "OutpParamTypeDescr",
+      "typeKind": "Output"
     }
   }
 }

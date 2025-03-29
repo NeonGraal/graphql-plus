@@ -1,34 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualGenParentDualParent: !_TypeDual
+  !_Identifier AltDualGnrcPrntDualPrnt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualGenParentDualParentAlt
+      object: AltDualGnrcPrntDualPrnt
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: DualGenParentDualParentAlt
-      type: !_DualBase
-        dual: Number
-    name: DualGenParentDualParent
-    parent: !_DualBase
-      dual: DualGenParentDualParentRef
-      typeArgs:
-      - !_DualArg
-        dual: DualGenParentDualParentAlt
-    typeKind: !_TypeKind Dual
-  !_Identifier DualGenParentDualParentAlt: !_TypeDual
-    allAlternates:
-    - !_ObjectFor(_DualAlternate)
-      object: DualGenParentDualParentAlt
-      type: !_DualBase
-        dual: String
-    allFields:
-    - !_ObjectFor(_DualField)
-      name: alt
-      object: DualGenParentDualParentAlt
+      object: AltDualGnrcPrntDualPrnt
       type: !_DualBase
         dual: Number
     alternates:
@@ -40,10 +21,29 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: DualGenParentDualParentAlt
+    name: AltDualGnrcPrntDualPrnt
     typeKind: !_TypeKind Dual
-  !_Identifier DualGenParentDualParentRef: !_TypeDual
-    name: DualGenParentDualParentRef
+  !_Identifier DualGnrcPrntDualPrnt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: AltDualGnrcPrntDualPrnt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: AltDualGnrcPrntDualPrnt
+      type: !_DualBase
+        dual: Number
+    name: DualGnrcPrntDualPrnt
+    parent: !_DualBase
+      dual: RefDualGnrcPrntDualPrnt
+      typeArgs:
+      - !_DualArg
+        dual: AltDualGnrcPrntDualPrnt
+    typeKind: !_TypeKind Dual
+  !_Identifier RefDualGnrcPrntDualPrnt: !_TypeDual
+    name: RefDualGnrcPrntDualPrnt
     parent: !_TypeParam ref
     typeKind: !_TypeKind Dual
     typeParams:

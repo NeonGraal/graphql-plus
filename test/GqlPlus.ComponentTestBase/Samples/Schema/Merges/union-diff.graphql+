@@ -1,2 +1,2 @@
-union UnDiff { Boolean }
-union UnDiff { Number }
+union Name { Boolean }
+union Name { Number }

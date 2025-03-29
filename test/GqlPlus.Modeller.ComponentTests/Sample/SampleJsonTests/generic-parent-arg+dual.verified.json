@@ -2,19 +2,19 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualGenParentArg": {
+    "DualGnrcPrntArg": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualGenParentArgRef",
+          "object": "RefDualGnrcPrntArg",
           "type": "ref"
         }
       ],
-      "name": "DualGenParentArg",
+      "name": "DualGnrcPrntArg",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "DualGenParentArgRef",
+        "dual": "RefDualGnrcPrntArg",
         "typeArgs": ["type"]
       },
       "typeKind": "Dual",
@@ -25,12 +25,12 @@
         }
       ]
     },
-    "DualGenParentArgRef": {
+    "RefDualGnrcPrntArg": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualGenParentArgRef",
+          "object": "RefDualGnrcPrntArg",
           "type": "ref"
         }
       ],
@@ -40,7 +40,7 @@
           "type": "ref"
         }
       ],
-      "name": "DualGenParentArgRef",
+      "name": "RefDualGnrcPrntArg",
       "typeKind": "Dual",
       "typeParams": [
         {

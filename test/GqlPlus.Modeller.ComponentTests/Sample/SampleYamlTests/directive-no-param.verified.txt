@@ -1,7 +1,7 @@
 ﻿!_Schema
 directives: !_Map_Directives
-  !_Identifier DirNoParam: !_Directive
+  !_Identifier DrctNoParam: !_Directive
     locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
       Operation: _, Spread: _, Variable: _}
-    name: DirNoParam
+    name: DrctNoParam
     repeatable: false

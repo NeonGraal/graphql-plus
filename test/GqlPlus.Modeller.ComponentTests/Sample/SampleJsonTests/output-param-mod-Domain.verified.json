@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutDomainParam": {
+    "DomOutpParamModDmn": {
       "$tag": "_DomainNumber",
       "allItems": [
         {
           "$tag": "_DomainItem(_DomainRange)",
-          "domain": "OutDomainParam",
+          "domain": "DomOutpParamModDmn",
           "exclude": false,
           "from": 1,
           "to": 10
@@ -22,69 +22,15 @@
           "to": 10
         }
       ],
-      "name": "OutDomainParam",
+      "name": "DomOutpParamModDmn",
       "typeKind": "Domain"
     },
-    "OutParamDomain": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "field",
-          "object": "OutParamDomain",
-          "parameters": [
-            {
-              "$tag": "_InputParam",
-              "input": "OutParamDomainIn",
-              "modifiers": [
-                {
-                  "$tag": "_ModifierDictionary",
-                  "by": "OutDomainParam",
-                  "modifierKind": "Dict",
-                  "typeKind": "Domain"
-                }
-              ]
-            }
-          ],
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutDomainParam"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "field",
-          "parameters": [
-            {
-              "$tag": "_InputParam",
-              "input": "OutParamDomainIn",
-              "modifiers": [
-                {
-                  "$tag": "_ModifierDictionary",
-                  "by": "OutDomainParam",
-                  "modifierKind": "Dict",
-                  "typeKind": "Domain"
-                }
-              ]
-            }
-          ],
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutDomainParam"
-          }
-        }
-      ],
-      "name": "OutParamDomain",
-      "typeKind": "Output"
-    },
-    "OutParamDomainIn": {
+    "InOutpParamModDmn": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "OutParamDomainIn",
+          "object": "InOutpParamModDmn",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -95,7 +41,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "param",
-          "object": "OutParamDomainIn",
+          "object": "InOutpParamModDmn",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -121,8 +67,62 @@
           }
         }
       ],
-      "name": "OutParamDomainIn",
+      "name": "InOutpParamModDmn",
       "typeKind": "Input"
+    },
+    "OutpParamModDmn": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpParamModDmn",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "input": "InOutpParamModDmn",
+              "modifiers": [
+                {
+                  "$tag": "_ModifierDictionary",
+                  "by": "DomOutpParamModDmn",
+                  "modifierKind": "Dict",
+                  "typeKind": "Domain"
+                }
+              ]
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "DomOutpParamModDmn"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "input": "InOutpParamModDmn",
+              "modifiers": [
+                {
+                  "$tag": "_ModifierDictionary",
+                  "by": "DomOutpParamModDmn",
+                  "modifierKind": "Dict",
+                  "typeKind": "Domain"
+                }
+              ]
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "DomOutpParamModDmn"
+          }
+        }
+      ],
+      "name": "OutpParamModDmn",
+      "typeKind": "Output"
     }
   }
 }

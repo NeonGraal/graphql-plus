@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpParentParamSame": {
+    "OutpPrntParamSame": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpParentParamSameRef",
+          "object": "RefOutpPrntParamSame",
           "type": "a"
         }
       ],
@@ -15,7 +15,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutpParentParamSame",
+          "object": "OutpPrntParamSame",
           "type": "a"
         }
       ],
@@ -26,10 +26,10 @@
           "type": "a"
         }
       ],
-      "name": "OutpParentParamSame",
+      "name": "OutpPrntParamSame",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "OutpParentParamSameRef",
+        "output": "RefOutpPrntParamSame",
         "typeArgs": ["a"]
       },
       "typeKind": "Output",
@@ -40,12 +40,12 @@
         }
       ]
     },
-    "OutpParentParamSameRef": {
+    "RefOutpPrntParamSame": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpParentParamSameRef",
+          "object": "RefOutpPrntParamSame",
           "type": "a"
         }
       ],
@@ -55,7 +55,7 @@
           "type": "a"
         }
       ],
-      "name": "OutpParentParamSameRef",
+      "name": "RefOutpPrntParamSame",
       "typeKind": "Output",
       "typeParams": [
         {

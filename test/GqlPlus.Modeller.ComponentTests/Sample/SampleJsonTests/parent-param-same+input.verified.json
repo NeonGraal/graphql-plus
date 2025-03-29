@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpParentParamSame": {
+    "InpPrntParamSame": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpParentParamSameRef",
+          "object": "RefInpPrntParamSame",
           "type": "a"
         }
       ],
@@ -15,7 +15,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "InpParentParamSame",
+          "object": "InpPrntParamSame",
           "type": "a"
         }
       ],
@@ -26,10 +26,10 @@
           "type": "a"
         }
       ],
-      "name": "InpParentParamSame",
+      "name": "InpPrntParamSame",
       "parent": {
         "$tag": "_InputBase",
-        "input": "InpParentParamSameRef",
+        "input": "RefInpPrntParamSame",
         "typeArgs": ["a"]
       },
       "typeKind": "Input",
@@ -40,12 +40,12 @@
         }
       ]
     },
-    "InpParentParamSameRef": {
+    "RefInpPrntParamSame": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpParentParamSameRef",
+          "object": "RefInpPrntParamSame",
           "type": "a"
         }
       ],
@@ -55,7 +55,7 @@
           "type": "a"
         }
       ],
-      "name": "InpParentParamSameRef",
+      "name": "RefInpPrntParamSame",
       "typeKind": "Input",
       "typeParams": [
         {

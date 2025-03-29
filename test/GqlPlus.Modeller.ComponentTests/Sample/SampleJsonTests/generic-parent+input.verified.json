@@ -2,9 +2,9 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpGenParent": {
+    "InpGnrcPrnt": {
       "$tag": "_TypeInput",
-      "name": "InpGenParent",
+      "name": "InpGnrcPrnt",
       "parent": "type",
       "typeKind": "Input",
       "typeParams": [

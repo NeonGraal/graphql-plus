@@ -1,39 +1,18 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutParam: !_TypeOutput
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: field
-      object: OutParam
-      parameters:
-      - !_InputParam
-        input: OutParamIn
-      type: !_ObjDescribed(_OutputBase)
-        base: !_OutputBase
-          output: OutParam
-        description: 'Test Descr'
-    fields:
-    - !_OutputField
-      name: field
-      parameters:
-      - !_InputParam
-        input: OutParamIn
-      type: !_ObjDescribed(_OutputBase)
-        base: !_OutputBase
-          output: OutParam
-        description: 'Test Descr'
-    name: OutParam
-    typeKind: !_TypeKind Output
-  !_Identifier OutParamIn: !_TypeInput
+  !_Identifier FldOutpParamTypeDescr: !_TypeDual
+    name: FldOutpParamTypeDescr
+    typeKind: !_TypeKind Dual
+  !_Identifier InOutpParamTypeDescr: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: OutParamIn
+      object: InOutpParamTypeDescr
       type: !_InputBase
         input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: param
-      object: OutParamIn
+      object: InOutpParamTypeDescr
       type: !_InputBase
         input: Number
     alternates:
@@ -45,5 +24,29 @@ types: !_Map_Type
       name: param
       type: !_InputBase
         input: Number
-    name: OutParamIn
+    name: InOutpParamTypeDescr
     typeKind: !_TypeKind Input
+  !_Identifier OutpParamTypeDescr: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutpParamTypeDescr
+      parameters:
+      - !_InputParam
+        input: InOutpParamTypeDescr
+      type: !_ObjDescribed(_OutputBase)
+        base: !_DualBase
+          dual: FldOutpParamTypeDescr
+        description: 'Test Descr'
+    fields:
+    - !_OutputField
+      name: field
+      parameters:
+      - !_InputParam
+        input: InOutpParamTypeDescr
+      type: !_ObjDescribed(_OutputBase)
+        base: !_DualBase
+          dual: FldOutpParamTypeDescr
+        description: 'Test Descr'
+    name: OutpParamTypeDescr
+    typeKind: !_TypeKind Output

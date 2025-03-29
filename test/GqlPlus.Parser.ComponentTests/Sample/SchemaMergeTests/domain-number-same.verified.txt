@@ -3,9 +3,9 @@
 Success
 {
   !Do I@008/0001
-  NumSame
+  DmnNmbrSame
   Number
-  !DN N@025/0001
+  !DN N@029/0001
   1
   ~
   9

@@ -2,48 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualGenAltParam": {
+    "AltDualGnrcAltParam": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualGenAltParam",
-          "type": {
-            "$tag": "_DualBase",
-            "dual": "DualGenAltParamRef",
-            "typeArgs": [
-              {
-                "$tag": "_DualArg",
-                "value": "DualGenAltParamAlt"
-              }
-            ]
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "dual": "DualGenAltParamRef",
-            "typeArgs": [
-              {
-                "$tag": "_DualArg",
-                "value": "DualGenAltParamAlt"
-              }
-            ]
-          }
-        }
-      ],
-      "name": "DualGenAltParam",
-      "typeKind": "Dual"
-    },
-    "DualGenAltParamAlt": {
-      "$tag": "_TypeDual",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualGenAltParamAlt",
+          "object": "AltDualGnrcAltParam",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -54,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "DualGenAltParamAlt",
+          "object": "AltDualGnrcAltParam",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -80,15 +44,51 @@
           }
         }
       ],
-      "name": "DualGenAltParamAlt",
+      "name": "AltDualGnrcAltParam",
       "typeKind": "Dual"
     },
-    "DualGenAltParamRef": {
+    "DualGnrcAltParam": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualGenAltParamRef",
+          "object": "DualGnrcAltParam",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "RefDualGnrcAltParam",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "value": "AltDualGnrcAltParam"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "RefDualGnrcAltParam",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "value": "AltDualGnrcAltParam"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "DualGnrcAltParam",
+      "typeKind": "Dual"
+    },
+    "RefDualGnrcAltParam": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "RefDualGnrcAltParam",
           "type": "ref"
         }
       ],
@@ -98,7 +98,7 @@
           "type": "ref"
         }
       ],
-      "name": "DualGenAltParamRef",
+      "name": "RefDualGnrcAltParam",
       "typeKind": "Dual",
       "typeParams": [
         {

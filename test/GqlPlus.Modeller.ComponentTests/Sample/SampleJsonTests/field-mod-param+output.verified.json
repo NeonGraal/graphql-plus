@@ -2,58 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpFieldModParam": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_ModifierTypeParam",
-              "by": "mod",
-              "modifierKind": "Param"
-            }
-          ],
-          "name": "field",
-          "object": "OutpFieldModParam",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutpFieldModParamFld"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "modifiers": [
-            {
-              "$tag": "_ModifierTypeParam",
-              "by": "mod",
-              "modifierKind": "Param"
-            }
-          ],
-          "name": "field",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutpFieldModParamFld"
-          }
-        }
-      ],
-      "name": "OutpFieldModParam",
-      "typeKind": "Output",
-      "typeParams": [
-        {
-          "$tag": "_Described",
-          "value": "mod"
-        }
-      ]
-    },
-    "OutpFieldModParamFld": {
+    "FldOutpFieldModParam": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpFieldModParamFld",
+          "object": "FldOutpFieldModParam",
           "type": {
             "$tag": "_OutputBase",
             "value": "String"
@@ -64,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutpFieldModParamFld",
+          "object": "FldOutpFieldModParam",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -90,8 +44,54 @@
           }
         }
       ],
-      "name": "OutpFieldModParamFld",
+      "name": "FldOutpFieldModParam",
       "typeKind": "Output"
+    },
+    "OutpFieldModParam": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_ModifierTypeParam",
+              "by": "mod",
+              "modifierKind": "Param"
+            }
+          ],
+          "name": "field",
+          "object": "OutpFieldModParam",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "FldOutpFieldModParam"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_ModifierTypeParam",
+              "by": "mod",
+              "modifierKind": "Param"
+            }
+          ],
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "FldOutpFieldModParam"
+          }
+        }
+      ],
+      "name": "OutpFieldModParam",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "mod"
+        }
+      ]
     }
   }
 }

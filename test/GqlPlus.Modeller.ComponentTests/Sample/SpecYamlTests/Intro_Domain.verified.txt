@@ -6,6 +6,9 @@ _errors:
 - !_Error
   _kind: !_TokenKind End
   _message: In _BaseDomain can't get model for type '_ParentType'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _BaseDomainItem can't get model for type '_Described'
 types: !_Map_Type
   !_Identifier _BaseDomain: !_TypeOutput
     allFields:
@@ -38,27 +41,18 @@ types: !_Map_Type
   !_Identifier _BaseDomainItem: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: description
-      object: _BaseDomainItem
-      type: !_DualBase
-        dual: String
-    - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
       type: !_DualBase
         dual: Boolean
     fields:
     - !_DualField
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: description
-      type: !_DualBase
-        dual: String
-    - !_DualField
       name: exclude
       type: !_DualBase
         dual: Boolean
     name: _BaseDomainItem
+    parent: !_DualBase
+      dual: _Described
     typeKind: !_TypeKind Dual
   !_Identifier _DomainItem: !_TypeOutput
     allFields:
@@ -80,12 +74,6 @@ types: !_Map_Type
       name: item
   !_Identifier _DomainItemLabel: !_TypeOutput
     allFields:
-    - !_ObjectFor(_DualField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: description
-      object: _BaseDomainItem
-      type: !_DualBase
-        dual: String
     - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
@@ -110,12 +98,6 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _DomainItemRange: !_TypeOutput
     allFields:
-    - !_ObjectFor(_DualField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: description
-      object: _BaseDomainItem
-      type: !_DualBase
-        dual: String
     - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
@@ -148,12 +130,6 @@ types: !_Map_Type
   !_Identifier _DomainItemRegex: !_TypeOutput
     allFields:
     - !_ObjectFor(_DualField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: description
-      object: _BaseDomainItem
-      type: !_DualBase
-        dual: String
-    - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
       type: !_DualBase
@@ -177,12 +153,6 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _DomainItemTrueFalse: !_TypeOutput
     allFields:
-    - !_ObjectFor(_DualField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: description
-      object: _BaseDomainItem
-      type: !_DualBase
-        dual: String
     - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
@@ -233,12 +203,6 @@ types: !_Map_Type
   !_Identifier _DomainLabel: !_TypeOutput
     allFields:
     - !_ObjectFor(_DualField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: description
-      object: _BaseDomainItem
-      type: !_DualBase
-        dual: String
-    - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
       type: !_DualBase
@@ -259,12 +223,6 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _DomainRange: !_TypeDual
     allFields:
-    - !_ObjectFor(_DualField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: description
-      object: _BaseDomainItem
-      type: !_DualBase
-        dual: String
     - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
@@ -322,12 +280,6 @@ types: !_Map_Type
   !_Identifier _DomainRegex: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: description
-      object: _BaseDomainItem
-      type: !_DualBase
-        dual: String
-    - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem
       type: !_DualBase
@@ -348,12 +300,6 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier _DomainTrueFalse: !_TypeDual
     allFields:
-    - !_ObjectFor(_DualField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: description
-      object: _BaseDomainItem
-      type: !_DualBase
-        dual: String
     - !_ObjectFor(_DualField)
       name: exclude
       object: _BaseDomainItem

@@ -3,6 +3,9 @@ _errors:
 - !_Error
   _kind: !_TokenKind End
   _message: In _BaseType can't get model for type '_Aliased'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _TypeRef can't get model for type '_Described'
 types: !_Map_Type
   !_Identifier _BaseType: !_TypeOutput
     allFields:
@@ -56,7 +59,7 @@ types: !_Map_Type
       name: parent
       object: _ChildType
       type: !_OutputBase
-        output: _Described
+        output: _Named
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: items
@@ -82,7 +85,7 @@ types: !_Map_Type
       typeArgs:
       - !_TypeParam kind
       - !_OutputArg
-        output: _Described
+        output: _Named
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described
@@ -260,6 +263,8 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Identifier
     name: _TypeRef
+    parent: !_OutputBase
+      output: _Described
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described

@@ -1,1 +1,1 @@
-e1a0727  (HEAD -> enum-label, origin/enum-label) 2025-03-28 Correct Enum label introspection, Parent descriptions and Type Arguments
+1202cb8  (HEAD -> name-samples) 2025-03-30 Use Name in most sample .graphql+

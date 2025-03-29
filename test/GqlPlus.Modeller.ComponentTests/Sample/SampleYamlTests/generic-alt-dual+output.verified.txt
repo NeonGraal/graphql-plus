@@ -1,33 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpGenAltDual: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: OutpGenAltDual
-      type: !_OutputBase
-        output: OutpGenAltDualRef
-        typeArgs:
-        - !_DualArg
-          dual: OutpGenAltDualAlt
-    alternates:
-    - !_OutputAlternate
-      type: !_OutputBase
-        output: OutpGenAltDualRef
-        typeArgs:
-        - !_DualArg
-          dual: OutpGenAltDualAlt
-    name: OutpGenAltDual
-    typeKind: !_TypeKind Output
-  !_Identifier OutpGenAltDualAlt: !_TypeDual
+  !_Identifier AltOutpGnrcAltDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: OutpGenAltDualAlt
+      object: AltOutpGnrcAltDual
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: OutpGenAltDualAlt
+      object: AltOutpGnrcAltDual
       type: !_DualBase
         dual: Number
     alternates:
@@ -39,17 +21,35 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: OutpGenAltDualAlt
+    name: AltOutpGnrcAltDual
     typeKind: !_TypeKind Dual
-  !_Identifier OutpGenAltDualRef: !_TypeOutput
+  !_Identifier OutpGnrcAltDual: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpGenAltDualRef
+      object: OutpGnrcAltDual
+      type: !_OutputBase
+        output: RefOutpGnrcAltDual
+        typeArgs:
+        - !_DualArg
+          dual: AltOutpGnrcAltDual
+    alternates:
+    - !_OutputAlternate
+      type: !_OutputBase
+        output: RefOutpGnrcAltDual
+        typeArgs:
+        - !_DualArg
+          dual: AltOutpGnrcAltDual
+    name: OutpGnrcAltDual
+    typeKind: !_TypeKind Output
+  !_Identifier RefOutpGnrcAltDual: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: RefOutpGnrcAltDual
       type: !_TypeParam ref
     alternates:
     - !_OutputAlternate
       type: !_TypeParam ref
-    name: OutpGenAltDualRef
+    name: RefOutpGnrcAltDual
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described

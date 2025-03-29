@@ -2,50 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpGenFieldParam": {
-      "$tag": "_TypeInput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_InputField)",
-          "name": "field",
-          "object": "InpGenFieldParam",
-          "type": {
-            "$tag": "_InputBase",
-            "input": "InpGenFieldParamRef",
-            "typeArgs": [
-              {
-                "$tag": "_InputArg",
-                "value": "InpGenFieldParamAlt"
-              }
-            ]
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_InputField",
-          "name": "field",
-          "type": {
-            "$tag": "_InputBase",
-            "input": "InpGenFieldParamRef",
-            "typeArgs": [
-              {
-                "$tag": "_InputArg",
-                "value": "InpGenFieldParamAlt"
-              }
-            ]
-          }
-        }
-      ],
-      "name": "InpGenFieldParam",
-      "typeKind": "Input"
-    },
-    "InpGenFieldParamAlt": {
+    "AltInpGnrcFieldParam": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenFieldParamAlt",
+          "object": "AltInpGnrcFieldParam",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -56,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "alt",
-          "object": "InpGenFieldParamAlt",
+          "object": "AltInpGnrcFieldParam",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -82,15 +44,53 @@
           }
         }
       ],
-      "name": "InpGenFieldParamAlt",
+      "name": "AltInpGnrcFieldParam",
       "typeKind": "Input"
     },
-    "InpGenFieldParamRef": {
+    "InpGnrcFieldParam": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "InpGnrcFieldParam",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "RefInpGnrcFieldParam",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "value": "AltInpGnrcFieldParam"
+              }
+            ]
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "RefInpGnrcFieldParam",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "value": "AltInpGnrcFieldParam"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "InpGnrcFieldParam",
+      "typeKind": "Input"
+    },
+    "RefInpGnrcFieldParam": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenFieldParamRef",
+          "object": "RefInpGnrcFieldParam",
           "type": "ref"
         }
       ],
@@ -100,7 +100,7 @@
           "type": "ref"
         }
       ],
-      "name": "InpGenFieldParamRef",
+      "name": "RefInpGnrcFieldParam",
       "typeKind": "Input",
       "typeParams": [
         {

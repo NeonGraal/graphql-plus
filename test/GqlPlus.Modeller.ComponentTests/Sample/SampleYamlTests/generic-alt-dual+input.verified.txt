@@ -1,33 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpGenAltDual: !_TypeInput
-    allAlternates:
-    - !_ObjectFor(_InputAlternate)
-      object: InpGenAltDual
-      type: !_InputBase
-        input: InpGenAltDualRef
-        typeArgs:
-        - !_DualArg
-          dual: InpGenAltDualAlt
-    alternates:
-    - !_InputAlternate
-      type: !_InputBase
-        input: InpGenAltDualRef
-        typeArgs:
-        - !_DualArg
-          dual: InpGenAltDualAlt
-    name: InpGenAltDual
-    typeKind: !_TypeKind Input
-  !_Identifier InpGenAltDualAlt: !_TypeDual
+  !_Identifier AltInpGnrcAltDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: InpGenAltDualAlt
+      object: AltInpGnrcAltDual
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: InpGenAltDualAlt
+      object: AltInpGnrcAltDual
       type: !_DualBase
         dual: Number
     alternates:
@@ -39,17 +21,35 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: InpGenAltDualAlt
+    name: AltInpGnrcAltDual
     typeKind: !_TypeKind Dual
-  !_Identifier InpGenAltDualRef: !_TypeInput
+  !_Identifier InpGnrcAltDual: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpGenAltDualRef
+      object: InpGnrcAltDual
+      type: !_InputBase
+        input: RefInpGnrcAltDual
+        typeArgs:
+        - !_DualArg
+          dual: AltInpGnrcAltDual
+    alternates:
+    - !_InputAlternate
+      type: !_InputBase
+        input: RefInpGnrcAltDual
+        typeArgs:
+        - !_DualArg
+          dual: AltInpGnrcAltDual
+    name: InpGnrcAltDual
+    typeKind: !_TypeKind Input
+  !_Identifier RefInpGnrcAltDual: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: RefInpGnrcAltDual
       type: !_TypeParam ref
     alternates:
     - !_InputAlternate
       type: !_TypeParam ref
-    name: InpGenAltDualRef
+    name: RefInpGnrcAltDual
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described

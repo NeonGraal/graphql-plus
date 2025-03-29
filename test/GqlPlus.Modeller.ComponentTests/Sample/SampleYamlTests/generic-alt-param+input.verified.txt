@@ -1,33 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpGenAltParam: !_TypeInput
+  !_Identifier AltInpGnrcAltParam: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpGenAltParam
-      type: !_InputBase
-        input: InpGenAltParamRef
-        typeArgs:
-        - !_InputArg
-          input: InpGenAltParamAlt
-    alternates:
-    - !_InputAlternate
-      type: !_InputBase
-        input: InpGenAltParamRef
-        typeArgs:
-        - !_InputArg
-          input: InpGenAltParamAlt
-    name: InpGenAltParam
-    typeKind: !_TypeKind Input
-  !_Identifier InpGenAltParamAlt: !_TypeInput
-    allAlternates:
-    - !_ObjectFor(_InputAlternate)
-      object: InpGenAltParamAlt
+      object: AltInpGnrcAltParam
       type: !_InputBase
         input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
-      object: InpGenAltParamAlt
+      object: AltInpGnrcAltParam
       type: !_InputBase
         input: Number
     alternates:
@@ -39,17 +21,35 @@ types: !_Map_Type
       name: alt
       type: !_InputBase
         input: Number
-    name: InpGenAltParamAlt
+    name: AltInpGnrcAltParam
     typeKind: !_TypeKind Input
-  !_Identifier InpGenAltParamRef: !_TypeInput
+  !_Identifier InpGnrcAltParam: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpGenAltParamRef
+      object: InpGnrcAltParam
+      type: !_InputBase
+        input: RefInpGnrcAltParam
+        typeArgs:
+        - !_InputArg
+          input: AltInpGnrcAltParam
+    alternates:
+    - !_InputAlternate
+      type: !_InputBase
+        input: RefInpGnrcAltParam
+        typeArgs:
+        - !_InputArg
+          input: AltInpGnrcAltParam
+    name: InpGnrcAltParam
+    typeKind: !_TypeKind Input
+  !_Identifier RefInpGnrcAltParam: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: RefInpGnrcAltParam
       type: !_TypeParam ref
     alternates:
     - !_InputAlternate
       type: !_TypeParam ref
-    name: InpGenAltParamRef
+    name: RefInpGnrcAltParam
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described

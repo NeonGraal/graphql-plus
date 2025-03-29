@@ -1,2 +1,2 @@
-domain DomEnumAll { enum EnumDomAll.* }
-enum EnumDomAll { dom_all dom_enum_all }
+domain Name { enum EnumName.* }
+enum EnumName { name enum_name }

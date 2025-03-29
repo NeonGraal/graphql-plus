@@ -3,12 +3,12 @@
 Success
 {
   !Ca P@010/0001
-  category
+  ctgr
   (Parallel)
-  Category
+  Ctgr
 }
 {
   !Ou I@008/0003
-  Category
+  Ctgr
 }
 ]

@@ -7,15 +7,6 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -27,6 +18,15 @@
           "type": {
             "$tag": "_DualBase",
             "value": "String"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "_Identifier"
           }
         },
         {
@@ -64,22 +64,13 @@
       "name": "_Aliased",
       "parent": {
         "$tag": "_DualBase",
-        "value": "_Described"
+        "value": "_Named"
       },
       "typeKind": "Dual"
     },
     "_Described": {
       "$tag": "_TypeDual",
       "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "_Identifier"
-          }
-        },
         {
           "$tag": "_ObjectFor(_DualField)",
           "modifiers": [
@@ -113,15 +104,26 @@
         }
       ],
       "name": "_Described",
-      "parent": {
-        "$tag": "_DualBase",
-        "value": "_Named"
-      },
       "typeKind": "Dual"
     },
     "_Named": {
       "$tag": "_TypeDual",
       "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        },
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "name",
@@ -143,6 +145,10 @@
         }
       ],
       "name": "_Named",
+      "parent": {
+        "$tag": "_DualBase",
+        "value": "_Described"
+      },
       "typeKind": "Dual"
     }
   }

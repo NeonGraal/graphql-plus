@@ -116,13 +116,10 @@ Success
 {
   !Du I@006/0020
   _BaseDomainItem
+  :
+  I@007/0021
+  _Described
   {
-    !DF I@009/0021
-    description
-    :
-    I@022/0021
-    String
-    []
     !DF I@009/0022
     exclude
     :

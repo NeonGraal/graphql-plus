@@ -1,13 +1,13 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier EnDescr: !_TypeEnum
+  !_Identifier EnumDescr: !_TypeEnum
     allItems:
     - !_EnumLabel
-      enum: EnDescr
-      name: val_test
+      enum: EnumDescr
+      name: enumDescr
     items:
     - !_Aliased
       description: 'Enum Descr'
-      name: val_test
-    name: EnDescr
+      name: enumDescr
+    name: EnumDescr
     typeKind: !_TypeKind Enum

@@ -1,32 +1,32 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpGenAltSimple: !_TypeOutput
+  !_Identifier OutpGnrcAltSmpl: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpGenAltSimple
+      object: OutpGnrcAltSmpl
       type: !_OutputBase
-        output: OutpGenAltSimpleRef
+        output: RefOutpGnrcAltSmpl
         typeArgs:
         - !_OutputArg
           output: String
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
-        output: OutpGenAltSimpleRef
+        output: RefOutpGnrcAltSmpl
         typeArgs:
         - !_OutputArg
           output: String
-    name: OutpGenAltSimple
+    name: OutpGnrcAltSmpl
     typeKind: !_TypeKind Output
-  !_Identifier OutpGenAltSimpleRef: !_TypeOutput
+  !_Identifier RefOutpGnrcAltSmpl: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpGenAltSimpleRef
+      object: RefOutpGnrcAltSmpl
       type: !_TypeParam ref
     alternates:
     - !_OutputAlternate
       type: !_TypeParam ref
-    name: OutpGenAltSimpleRef
+    name: RefOutpGnrcAltSmpl
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described

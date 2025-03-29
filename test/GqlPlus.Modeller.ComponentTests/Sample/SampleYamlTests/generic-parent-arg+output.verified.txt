@@ -1,28 +1,28 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpGenParentArg: !_TypeOutput
+  !_Identifier OutpGnrcPrntArg: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpGenParentArgRef
+      object: RefOutpGnrcPrntArg
       type: !_TypeParam ref
-    name: OutpGenParentArg
+    name: OutpGnrcPrntArg
     parent: !_OutputBase
-      output: OutpGenParentArgRef
+      output: RefOutpGnrcPrntArg
       typeArgs:
       - !_TypeParam type
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described
       name: type
-  !_Identifier OutpGenParentArgRef: !_TypeOutput
+  !_Identifier RefOutpGnrcPrntArg: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpGenParentArgRef
+      object: RefOutpGnrcPrntArg
       type: !_TypeParam ref
     alternates:
     - !_OutputAlternate
       type: !_TypeParam ref
-    name: OutpGenParentArgRef
+    name: RefOutpGnrcPrntArg
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described

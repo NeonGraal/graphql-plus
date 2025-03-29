@@ -1,16 +1,16 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier EnumDiff: !_DomainEnum
+  !_Identifier DmnEnumDiff: !_DomainEnum
     allItems:
     - !_DomainItem(_DomainLabel)
-      domain: EnumDiff
+      domain: DmnEnumDiff
       exclude: false
       value: !_EnumValue
         label: true
         name: Boolean
         typeKind: !_SimpleKind Enum
     - !_DomainItem(_DomainLabel)
-      domain: EnumDiff
+      domain: DmnEnumDiff
       exclude: false
       value: !_EnumValue
         label: false
@@ -30,5 +30,5 @@ types: !_Map_Type
         label: false
         name: Boolean
         typeKind: !_SimpleKind Enum
-    name: EnumDiff
+    name: DmnEnumDiff
     typeKind: !_TypeKind Domain

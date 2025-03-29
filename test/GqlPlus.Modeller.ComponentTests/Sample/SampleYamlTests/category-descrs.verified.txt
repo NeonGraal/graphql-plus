@@ -1,13 +1,13 @@
 ﻿!_Schema
 categories: !_Map_Categories
-  !_Identifier catDescr: !_Category
+  !_Identifier ctgrDscrs: !_Category
     description: 'A Category described'
-    name: catDescr
+    name: ctgrDscrs
     output: !_TypeRef(_TypeKind)
-      name: CatDescr
+      name: CtgrDscrs
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
 types: !_Map_Type
-  !_Identifier CatDescr: !_TypeOutput
-    name: CatDescr
+  !_Identifier CtgrDscrs: !_TypeOutput
+    name: CtgrDscrs
     typeKind: !_TypeKind Output

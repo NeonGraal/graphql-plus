@@ -1,9 +1,9 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutDomainsParam: !_DomainNumber
+  !_Identifier DomOutpParamModParam: !_DomainNumber
     allItems:
     - !_DomainItem(_DomainRange)
-      domain: OutDomainsParam
+      domain: DomOutpParamModParam
       exclude: false
       from: 1
       to: 10
@@ -13,43 +13,18 @@ types: !_Map_Type
       exclude: false
       from: 1
       to: 10
-    name: OutDomainsParam
+    name: DomOutpParamModParam
     typeKind: !_TypeKind Domain
-  !_Identifier OutParamDomainParam: !_TypeOutput
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: field
-      object: OutParamDomainParam
-      parameters:
-      - !_InputParam
-        input: OutParamDomainParamIn
-        modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
-      type: !_OutputBase
-        output: OutDomainsParam
-    fields:
-    - !_OutputField
-      name: field
-      parameters:
-      - !_InputParam
-        input: OutParamDomainParamIn
-        modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
-      type: !_OutputBase
-        output: OutDomainsParam
-    name: OutParamDomainParam
-    typeKind: !_TypeKind Output
-    typeParams:
-    - !_Described
-      name: mod
-  !_Identifier OutParamDomainParamIn: !_TypeInput
+  !_Identifier InOutpParamModParam: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: OutParamDomainParamIn
+      object: InOutpParamModParam
       type: !_InputBase
         input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: param
-      object: OutParamDomainParamIn
+      object: InOutpParamModParam
       type: !_InputBase
         input: Number
     alternates:
@@ -61,5 +36,30 @@ types: !_Map_Type
       name: param
       type: !_InputBase
         input: Number
-    name: OutParamDomainParamIn
+    name: InOutpParamModParam
     typeKind: !_TypeKind Input
+  !_Identifier OutpParamModParam: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutpParamModParam
+      parameters:
+      - !_InputParam
+        input: InOutpParamModParam
+        modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
+      type: !_OutputBase
+        output: DomOutpParamModParam
+    fields:
+    - !_OutputField
+      name: field
+      parameters:
+      - !_InputParam
+        input: InOutpParamModParam
+        modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
+      type: !_OutputBase
+        output: DomOutpParamModParam
+    name: OutpParamModParam
+    typeKind: !_TypeKind Output
+    typeParams:
+    - !_Described
+      name: mod

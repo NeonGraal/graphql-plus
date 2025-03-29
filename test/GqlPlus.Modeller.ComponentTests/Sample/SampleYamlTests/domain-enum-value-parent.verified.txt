@@ -1,47 +1,47 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DomEnumParent: !_DomainEnum
+  !_Identifier DmnEnumValuePrnt: !_DomainEnum
     allItems:
     - !_DomainItem(_DomainLabel)
-      domain: DomEnumParent
+      domain: DmnEnumValuePrnt
       exclude: false
       value: !_EnumValue
-        label: dom_enum_parent
-        name: EnumDomParent
+        label: prnt_dmnEnumValuePrnt
+        name: EnumDmnEnumValuePrnt
         typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
     - !_DomainLabel
       exclude: false
       value: !_EnumValue
-        label: dom_enum_parent
-        name: EnumDomParent
+        label: prnt_dmnEnumValuePrnt
+        name: EnumDmnEnumValuePrnt
         typeKind: !_SimpleKind Enum
-    name: DomEnumParent
+    name: DmnEnumValuePrnt
     typeKind: !_TypeKind Domain
-  !_Identifier EnumDomParent: !_TypeEnum
+  !_Identifier EnumDmnEnumValuePrnt: !_TypeEnum
     allItems:
     - !_EnumLabel
-      enum: EnumParentDom
-      name: dom_enum_parent
+      enum: PrntDmnEnumValuePrnt
+      name: prnt_dmnEnumValuePrnt
     - !_EnumLabel
-      enum: EnumDomParent
-      name: dom_parent_enum
+      enum: EnumDmnEnumValuePrnt
+      name: dmnEnumValuePrnt
     items:
     - !_Aliased
-      name: dom_parent_enum
-    name: EnumDomParent
+      name: dmnEnumValuePrnt
+    name: EnumDmnEnumValuePrnt
     parent: !_TypeRef(_SimpleKind)
-      name: EnumParentDom
+      name: PrntDmnEnumValuePrnt
       typeKind: !_SimpleKind Enum
     typeKind: !_TypeKind Enum
-  !_Identifier EnumParentDom: !_TypeEnum
+  !_Identifier PrntDmnEnumValuePrnt: !_TypeEnum
     allItems:
     - !_EnumLabel
-      enum: EnumParentDom
-      name: dom_enum_parent
+      enum: PrntDmnEnumValuePrnt
+      name: prnt_dmnEnumValuePrnt
     items:
     - !_Aliased
-      name: dom_enum_parent
-    name: EnumParentDom
+      name: prnt_dmnEnumValuePrnt
+    name: PrntDmnEnumValuePrnt
     typeKind: !_TypeKind Enum

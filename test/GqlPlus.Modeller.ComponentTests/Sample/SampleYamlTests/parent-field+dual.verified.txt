@@ -1,20 +1,20 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualParentField: !_TypeDual
+  !_Identifier DualPrntField: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualParentFieldRef
+      object: RefDualPrntField
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: parent
-      object: DualParentFieldRef
+      object: RefDualPrntField
       type: !_DualBase
         dual: Number
     - !_ObjectFor(_DualField)
       name: field
-      object: DualParentField
+      object: DualPrntField
       type: !_DualBase
         dual: Number
     fields:
@@ -22,20 +22,20 @@ types: !_Map_Type
       name: field
       type: !_DualBase
         dual: Number
-    name: DualParentField
+    name: DualPrntField
     parent: !_DualBase
-      dual: DualParentFieldRef
+      dual: RefDualPrntField
     typeKind: !_TypeKind Dual
-  !_Identifier DualParentFieldRef: !_TypeDual
+  !_Identifier RefDualPrntField: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualParentFieldRef
+      object: RefDualPrntField
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: parent
-      object: DualParentFieldRef
+      object: RefDualPrntField
       type: !_DualBase
         dual: Number
     alternates:
@@ -47,5 +47,5 @@ types: !_Map_Type
       name: parent
       type: !_DualBase
         dual: Number
-    name: DualParentFieldRef
+    name: RefDualPrntField
     typeKind: !_TypeKind Dual

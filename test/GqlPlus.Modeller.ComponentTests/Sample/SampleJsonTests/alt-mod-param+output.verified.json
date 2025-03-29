@@ -2,56 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpAltModParam": {
+    "AltOutpAltModParam": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "collections": [
-            {
-              "$tag": "_ModifierTypeParam",
-              "by": "mod",
-              "modifierKind": "Param"
-            }
-          ],
-          "object": "OutpAltModParam",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutpAltModParamAlt"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "collections": [
-            {
-              "$tag": "_ModifierTypeParam",
-              "by": "mod",
-              "modifierKind": "Param"
-            }
-          ],
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutpAltModParamAlt"
-          }
-        }
-      ],
-      "name": "OutpAltModParam",
-      "typeKind": "Output",
-      "typeParams": [
-        {
-          "$tag": "_Described",
-          "value": "mod"
-        }
-      ]
-    },
-    "OutpAltModParamAlt": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpAltModParamAlt",
+          "object": "AltOutpAltModParam",
           "type": {
             "$tag": "_OutputBase",
             "value": "String"
@@ -62,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "alt",
-          "object": "OutpAltModParamAlt",
+          "object": "AltOutpAltModParam",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -88,8 +44,52 @@
           }
         }
       ],
-      "name": "OutpAltModParamAlt",
+      "name": "AltOutpAltModParam",
       "typeKind": "Output"
+    },
+    "OutpAltModParam": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "collections": [
+            {
+              "$tag": "_ModifierTypeParam",
+              "by": "mod",
+              "modifierKind": "Param"
+            }
+          ],
+          "object": "OutpAltModParam",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "AltOutpAltModParam"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "collections": [
+            {
+              "$tag": "_ModifierTypeParam",
+              "by": "mod",
+              "modifierKind": "Param"
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "AltOutpAltModParam"
+          }
+        }
+      ],
+      "name": "OutpAltModParam",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "mod"
+        }
+      ]
     }
   }
 }

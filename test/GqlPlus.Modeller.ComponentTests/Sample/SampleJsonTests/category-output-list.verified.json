@@ -2,7 +2,7 @@
   "$tag": "_Schema",
   "categories": {
     "$tag": "_Map_Categories",
-    "catList": {
+    "ctgrOutpList": {
       "$tag": "_Category",
       "modifiers": [
         {
@@ -10,10 +10,10 @@
           "modifierKind": "List"
         }
       ],
-      "name": "catList",
+      "name": "ctgrOutpList",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
-        "name": "CatList",
+        "name": "CtgrOutpList",
         "typeKind": "Output"
       },
       "resolution": "Parallel"
@@ -21,9 +21,9 @@
   },
   "types": {
     "$tag": "_Map_Type",
-    "CatList": {
+    "CtgrOutpList": {
       "$tag": "_TypeOutput",
-      "name": "CatList",
+      "name": "CtgrOutpList",
       "typeKind": "Output"
     }
   }

@@ -10,25 +10,25 @@ public class DirectiveModelTests(
   IDirectiveModelChecks checks
 ) : TestAliasedModel<string, DirectiveModel>(checks)
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Repeatable(string name, DirectiveOption option)
     => checks.DirectiveExpected(
       new DirectiveDeclAst(AstNulls.At, name) { Option = option },
       new(name, option: option));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Params(string name, string[] parameters)
     => checks.DirectiveExpected(
       new DirectiveDeclAst(AstNulls.At, name) { Params = parameters.Params() },
       new(name, parameters: checks.ExpectedParams(parameters)));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Locations(string name, DirectiveLocation[] locations)
     => checks.DirectiveExpected(
       new DirectiveDeclAst(AstNulls.At, name) { Locations = DirectiveModeller.Combine(locations) },
       new(name, locations: ExpectedLocations(locations)));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_All(
     string name,
     string contents,

@@ -9,11 +9,11 @@ public abstract class TestObjectBase<TObjBase>(
   ICheckObjectBase<TObjBase> objectBaseChecks
 ) where TObjBase : IGqlpObjBase
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithMinimum_ReturnsCorrectAst(string name)
   => objectBaseChecks.WithMinimum(name);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithTypeParam_ReturnsCorrectAst(string name)
   => objectBaseChecks.WithTypeParam(name);
 
@@ -31,15 +31,15 @@ public abstract class TestObjectBase<TObjBase>(
   public void WithSimpleArgs_ReturnsCorrectAst(string argument, string name)
   => objectBaseChecks.WithTypeArgs(name, [argument]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithTypeArgs_ReturnsCorrectAst(string name, string[] objBases)
   => objectBaseChecks.WithTypeArgs(name, objBases);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithTypeArgsBad_ReturnsCorrectAst(string name, string[] objBases)
   => objectBaseChecks.WithTypeArgsBad(name, objBases);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithTypeArgsNone_ReturnsFalse(string name)
   => objectBaseChecks.WithTypeArgsNone(name);
 }

@@ -8,7 +8,7 @@ public class OutputBaseModelTests(
   IOutputBaseModelChecks checks
 ) : TestObjBaseModel<IGqlpOutputBase, IGqlpOutputArg, OutputBaseModel>(checks)
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_EnumArgs(string name, string[] arguments, string enumLabel)
     => checks.ObjBase_Expected(
       checks.ObjBaseAst(name, false, [.. arguments.Select(a => checks.EnumObjArg(a, enumLabel))]),

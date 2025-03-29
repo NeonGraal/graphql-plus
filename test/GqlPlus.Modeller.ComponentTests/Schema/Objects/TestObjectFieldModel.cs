@@ -12,14 +12,14 @@ public abstract class TestObjectFieldModel<TObjField, TObjBase, TModel>(
   where TObjBase : IGqlpObjBase
   where TModel : IObjFieldModel
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Modifiers(FieldInput input)
     => fieldChecks.Field_Expected(
         fieldChecks.FieldAst(input, [], true),
         fieldChecks.ExpectedField(input, ["modifiers: [!_Modifier {modifierKind: !_ModifierKind List}, !_Modifier {modifierKind: !_ModifierKind Opt}]"], [])
       );
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_DualTyped(FieldInput input)
     => fieldChecks
       .AddTypeKinds(TypeKindModel.Dual, input.Type)
@@ -28,7 +28,7 @@ public abstract class TestObjectFieldModel<TObjField, TObjBase, TModel>(
         fieldChecks.ExpectedDual(input)
       );
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Aliases(FieldInput input, string[] aliases)
     => fieldChecks.Field_Expected(
         fieldChecks.FieldAst(input, aliases, false),

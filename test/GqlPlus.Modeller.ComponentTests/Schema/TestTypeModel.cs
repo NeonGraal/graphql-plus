@@ -9,7 +9,7 @@ public abstract class TestTypeModel<TAstParent, TParent, TTypeKind, TRender>(
 ) : TestAliasedModel<string, TRender>(typeChecks)
   where TRender : IModelBase
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Parent(string name, TParent parent)
     => typeChecks.TypeExpected(
       typeChecks.TypeAst(name, parent),

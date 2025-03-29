@@ -8,7 +8,7 @@ public abstract class TestDescribedModel<TName, TRender>(
 ) : TestModelBase<TName, TRender>(describedChecks)
   where TRender : IModelBase
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Description(TName name, string contents)
   {
     Assert.SkipWhen(SkipIf(name), SkipReason);

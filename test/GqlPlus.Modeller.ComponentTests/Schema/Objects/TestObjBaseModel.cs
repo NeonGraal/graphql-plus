@@ -11,14 +11,14 @@ public abstract class TestObjBaseModel<TObjBase, TObjArg, TModel>(
   where TObjArg : IGqlpObjArg
   where TModel : IModelBase
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Args(string name, string[] arguments)
     => objBaseChecks.ObjBase_Expected(
       objBaseChecks.ObjBaseAst(name, false, [.. arguments.Select(a => objBaseChecks.ObjArgAst(a, false))]),
       objBaseChecks.ExpectedObjBase(name, false, objBaseChecks.ExpectedArgs(arguments))
       );
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Dual(string name)
     => objBaseChecks
       .AddTypeKinds(TypeKindModel.Dual, name)
@@ -27,7 +27,7 @@ public abstract class TestObjBaseModel<TObjBase, TObjArg, TModel>(
       objBaseChecks.ExpectedDual(name)
       );
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_TypeParam(string name)
     => objBaseChecks.ObjBase_Expected(
       objBaseChecks.ObjBaseAst(name, true, []),

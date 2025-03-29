@@ -6,14 +6,14 @@ public class ConstantModelTests(
   IConstantModelChecks checks
 ) : TestModelBase<string, ConstantModel>(checks)
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_List(string value)
     => checks
     .ConstantExpected(
       new ConstantAst(AstNulls.At, value.ConstantList()),
       ["- " + value, "- " + value]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Object(string key, string value)
   {
     string[] expected = ["!_ConstantMap", key + ": " + value, value + ": " + key];

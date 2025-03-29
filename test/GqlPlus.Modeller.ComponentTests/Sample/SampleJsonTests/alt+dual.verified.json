@@ -2,36 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualAlt": {
+    "AltDualAlt": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualAlt",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "DualAltAlt"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "DualAltAlt"
-          }
-        }
-      ],
-      "name": "DualAlt",
-      "typeKind": "Dual"
-    },
-    "DualAltAlt": {
-      "$tag": "_TypeDual",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualAltAlt",
+          "object": "AltDualAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -42,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "DualAltAlt",
+          "object": "AltDualAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -68,7 +44,31 @@
           }
         }
       ],
-      "name": "DualAltAlt",
+      "name": "AltDualAlt",
+      "typeKind": "Dual"
+    },
+    "DualAlt": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "DualAlt",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "AltDualAlt"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "AltDualAlt"
+          }
+        }
+      ],
+      "name": "DualAlt",
       "typeKind": "Dual"
     }
   }

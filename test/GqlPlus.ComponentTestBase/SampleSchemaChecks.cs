@@ -36,7 +36,13 @@ public class SampleSchemaChecks(
 
   public static readonly (string, string)[] Replacements = [("dual", "Dual"), ("input", "Inp"), ("output", "Outp")];
 
-  protected static string ReplaceInput(string input, string testName, string objectReplace, string objReplace)
+  protected static string ReplaceName(string? input, string testName)
+    => input is null ? ""
+    : input
+      .Replace("name", CamelCase(testName), StringComparison.InvariantCulture)
+      .Replace("Name", PascalCase(testName), StringComparison.InvariantCulture);
+
+  protected static string ReplaceObject(string? input, string testName, string objectReplace, string objReplace)
     => input is null ? ""
     : input
       .Replace("object", objectReplace, StringComparison.InvariantCulture)
@@ -48,8 +54,8 @@ public class SampleSchemaChecks(
     => input
       .ThrowIfNull()
       .Contains("object ", StringComparison.Ordinal)
-        ? Replacements.Select(r => ReplaceInput(input, testName, r.Item1, r.Item2))
-        : [input];
+        ? Replacements.Select(r => ReplaceObject(input, testName, r.Item1, r.Item2))
+        : [ReplaceName(input, testName)];
 
   protected static async Task ReplaceFile(string testDirectory, string testName, Action<string, string, string> action)
   {
@@ -60,11 +66,11 @@ public class SampleSchemaChecks(
       action.ShouldSatisfyAllConditions(
         () => {
           foreach ((string label, string abbr) in Replacements) {
-            action(ReplaceInput(input, abbr, label, abbr), testDirectory, testName + "+" + label);
+            action(ReplaceObject(input, abbr, label, abbr), testDirectory, testName + "+" + label);
           }
         });
     } else {
-      action(input, testDirectory, testName);
+      action(ReplaceName(input, testName), testDirectory, testName);
     }
   }
 
@@ -75,9 +81,9 @@ public class SampleSchemaChecks(
 
     if (IsObjectInput(input)) {
       await WhenAll([.. Replacements
-        .Select(r => action(ReplaceInput(input, testName, r.Item1, r.Item2), testDirectory, testName + "+" + r.Item1))]);
+        .Select(r => action(ReplaceObject(input, testName, r.Item1, r.Item2), testDirectory, testName + "+" + r.Item1))]);
     } else {
-      await action(input, testDirectory, testName);
+      await action(ReplaceName(input, testName), testDirectory, testName);
     }
   }
 

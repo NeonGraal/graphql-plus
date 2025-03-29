@@ -5,13 +5,13 @@ types: !_Map_Type
     - !_ObjectFor(_InputAlternate)
       object: InpGnrcAltArgDescr
       type: !_InputBase
-        input: InpGnrcAltArgDescrRef
+        input: RefInpGnrcAltArgDescr
         typeArgs:
         - !_TypeParam type
     alternates:
     - !_InputAlternate
       type: !_InputBase
-        input: InpGnrcAltArgDescrRef
+        input: RefInpGnrcAltArgDescr
         typeArgs:
         - !_TypeParam type
     name: InpGnrcAltArgDescr
@@ -19,15 +19,15 @@ types: !_Map_Type
     typeParams:
     - !_Described
       name: type
-  !_Identifier InpGnrcAltArgDescrRef: !_TypeInput
+  !_Identifier RefInpGnrcAltArgDescr: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpGnrcAltArgDescrRef
+      object: RefInpGnrcAltArgDescr
       type: !_TypeParam ref
     alternates:
     - !_InputAlternate
       type: !_TypeParam ref
-    name: InpGnrcAltArgDescrRef
+    name: RefInpGnrcAltArgDescr
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described

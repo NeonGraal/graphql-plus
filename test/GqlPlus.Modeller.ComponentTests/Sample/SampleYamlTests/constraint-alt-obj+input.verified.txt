@@ -1,33 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpCnstAltObj: !_TypeInput
+  !_Identifier AltInpCnstAltObj: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpCnstAltObj
-      type: !_InputBase
-        input: InpCnstAltObjRef
-        typeArgs:
-        - !_InputArg
-          input: InpCnstAltObjAlt
-    alternates:
-    - !_InputAlternate
-      type: !_InputBase
-        input: InpCnstAltObjRef
-        typeArgs:
-        - !_InputArg
-          input: InpCnstAltObjAlt
-    name: InpCnstAltObj
-    typeKind: !_TypeKind Input
-  !_Identifier InpCnstAltObjAlt: !_TypeInput
-    allAlternates:
-    - !_ObjectFor(_InputAlternate)
-      object: InpCnstAltObjParent
+      object: PrntInpCnstAltObj
       type: !_InputBase
         input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
-      object: InpCnstAltObjAlt
+      object: AltInpCnstAltObj
       type: !_InputBase
         input: Number
     fields:
@@ -35,31 +17,49 @@ types: !_Map_Type
       name: alt
       type: !_InputBase
         input: Number
-    name: InpCnstAltObjAlt
+    name: AltInpCnstAltObj
     parent: !_InputBase
-      input: InpCnstAltObjParent
+      input: PrntInpCnstAltObj
     typeKind: !_TypeKind Input
-  !_Identifier InpCnstAltObjParent: !_TypeInput
+  !_Identifier InpCnstAltObj: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpCnstAltObjParent
+      object: InpCnstAltObj
+      type: !_InputBase
+        input: RefInpCnstAltObj
+        typeArgs:
+        - !_InputArg
+          input: AltInpCnstAltObj
+    alternates:
+    - !_InputAlternate
+      type: !_InputBase
+        input: RefInpCnstAltObj
+        typeArgs:
+        - !_InputArg
+          input: AltInpCnstAltObj
+    name: InpCnstAltObj
+    typeKind: !_TypeKind Input
+  !_Identifier PrntInpCnstAltObj: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: PrntInpCnstAltObj
       type: !_InputBase
         input: String
     alternates:
     - !_InputAlternate
       type: !_InputBase
         input: String
-    name: InpCnstAltObjParent
+    name: PrntInpCnstAltObj
     typeKind: !_TypeKind Input
-  !_Identifier InpCnstAltObjRef: !_TypeInput
+  !_Identifier RefInpCnstAltObj: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpCnstAltObjRef
+      object: RefInpCnstAltObj
       type: !_TypeParam ref
     alternates:
     - !_InputAlternate
       type: !_TypeParam ref
-    name: InpCnstAltObjRef
+    name: RefInpCnstAltObj
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described

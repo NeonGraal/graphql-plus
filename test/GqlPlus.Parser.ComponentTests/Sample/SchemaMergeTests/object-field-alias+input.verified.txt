@@ -13,11 +13,11 @@ Success
     ]
     :
     I@042/0001
-    InpObjFieldAliasFld
+    FldInpObjFieldAlias
   }
 }
 {
   !In I@007/0003
-  InpObjFieldAliasFld
+  FldInpObjFieldAlias
 }
 ]

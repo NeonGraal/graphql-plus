@@ -3,283 +3,305 @@
 Success
 {
   !Do I@008/0001
-  DomBoolDescr
+  DmnBoolDescr
   Boolean
   !DT I@049/0001
   True
 }
 {
   !Do I@008/0001
-  DomBoolPrntTest
+  DmnBoolPrnt
   Boolean
-  :DomBoolTestPrnt
-  !DT I@051/0001
+  :PrntDmnBoolPrnt
+  !DT I@047/0001
   False
 }
 {
   !Do I@008/0002
-  DomBoolTestPrnt
+  PrntDmnBoolPrnt
   Boolean
   !DT I@034/0002
   True
 }
 {
   !Do I@008/0001
-  DomEnumAll
+  DmnEnumAll
   Enum
   !DE I@026/0001
-  EnumDomAll
+  EnumDmnEnumAll
   *
 }
 {
   !En I@006/0002
-  EnumDomAll
-  !EL I@019/0002
-  dom_all
-  !EL I@027/0002
-  dom_enum_all
+  EnumDmnEnumAll
+  !EL I@023/0002
+  dmnEnumAll
+  !EL I@034/0002
+  enum_dmnEnumAll
 }
 {
   !Do I@008/0001
-  DomEnumAllParent
+  DmnEnumAllDescr
   Enum
-  !DE I@032/0001
-  EnumDomAllParent
+  !DE I@048/0001
+  EnumDmnEnumAllDescr
   *
 }
 {
   !En I@006/0002
-  EnumDomAllParent
-  :EnumDomParentAll
-  !EL I@043/0002
-  dom_all_parent
+  EnumDmnEnumAllDescr
+  !EL I@028/0002
+  dmnEnumAllDescr
+  !EL I@044/0002
+  enum_dmnEnumAllDescr
+}
+{
+  !Do I@008/0001
+  DmnEnumAllPrnt
+  Enum
+  !DE I@030/0001
+  EnumDmnEnumAllPrnt
+  *
+}
+{
+  !En I@006/0002
+  EnumDmnEnumAllPrnt
+  :PrntDmnEnumAllPrnt
+  !EL I@047/0002
+  dmnEnumAllPrnt
 }
 {
   !En I@006/0003
-  EnumDomParentAll
-  !EL I@025/0003
-  dom_enum_all_parent
+  PrntDmnEnumAllPrnt
+  !EL I@027/0003
+  prnt_dmnEnumAllPrnt
 }
 {
   !Do I@008/0001
-  DomEnumDescr
+  DmnEnumDescr
   Enum
   !DE I@046/0001
-  EnumDomDescr
-  dom_label_desc
+  EnumDmnEnumDescr
+  dmnEnumDescr
 }
 {
   !En I@006/0002
-  EnumDomDescr
-  !EL I@021/0002
-  dom_label_desc
+  EnumDmnEnumDescr
+  !EL I@025/0002
+  dmnEnumDescr
 }
 {
   !Do I@008/0001
-  DomLabel
+  DmnEnumLabel
   Enum
-  !DE I@024/0001
-  LabelDom
-  dom_label
+  !DE I@028/0001
+  EnumDmnEnumLabel
+  dmnEnumLabel
 }
 {
   !En I@006/0002
-  LabelDom
-  !EL I@017/0002
-  dom_label
+  EnumDmnEnumLabel
+  !EL I@025/0002
+  dmnEnumLabel
 }
 {
   !Do I@008/0001
-  DomEnumPrnt
+  DmnEnumPrnt
   Enum
-  :DomPrntEnum
-  !DE I@040/0001
-  EnumDomBoth
-  both_enum
+  :PrntDmnEnumPrnt
+  !DE I@044/0001
+  EnumDmnEnumPrnt
+  enum_dmnEnumPrnt
 }
 {
   !Do I@008/0002
-  DomPrntEnum
+  PrntDmnEnumPrnt
   Enum
-  !DE I@027/0002
-  EnumDomBoth
-  both_parent
+  !DE I@031/0002
+  EnumDmnEnumPrnt
+  prnt_dmnEnumPrnt
 }
 {
   !En I@006/0003
-  EnumDomBoth
-  !EL I@020/0003
-  both_enum
-  !EL I@030/0003
-  both_parent
-}
-{
-  !En I@006/0001
-  EnumDomUnique
-  !EL I@022/0001
-  eum_dom_value
-  !EL I@036/0001
-  eum_dom_dup
+  EnumDmnEnumPrnt
+  !EL I@024/0003
+  enum_dmnEnumPrnt
+  !EL I@041/0003
+  prnt_dmnEnumPrnt
 }
 {
   !En I@006/0002
+  EnumDmnEnumUnq
+  !EL I@023/0002
+  enum_dmnEnumUnq
+  !EL I@039/0002
+  dmnEnumUnq
+}
+{
+  !En I@006/0003
   EnumDomDup
-  !EL I@019/0002
-  eum_dom_dup
-}
-{
-  !En I@006/0001
-  EnumDomUniqueParent
-  :EnumDomParentUnique
-  !EL I@049/0001
-  value
+  !EL I@019/0003
+  dmnEnumUnq
+  !EL I@030/0003
+  dup_dmnEnumUnq
 }
 {
   !En I@006/0002
-  EnumDomParentUnique
-  !EL I@028/0002
-  enum_dom_parent_dup
+  EnumDmnEnumUnqPrnt
+  :PrntDmnEnumUnqPrnt
+  !EL I@047/0002
+  enum_dmnEnumUnqPrnt
 }
 {
   !En I@006/0003
-  EnumDomDupParent
-  !EL I@025/0003
-  enum_dom_parent_dup
+  PrntDmnEnumUnqPrnt
+  !EL I@027/0003
+  dmnEnumUnqPrnt
+  !EL I@042/0003
+  prnt_dmnEnumUnqPrnt
+}
+{
+  !En I@006/0004
+  DupDmnEnumUnqPrnt
+  !EL I@026/0004
+  dmnEnumUnqPrnt
+  !EL I@041/0004
+  dup_dmnEnumUnqPrnt
 }
 {
   !Do I@008/0001
-  DomEnum
+  DmnEnumValue
   Enum
-  !DE I@023/0001
-  EnumDom
-  dom_enum
+  !DE I@028/0001
+  EnumDmnEnumValue
+  dmnEnumValue
 }
 {
   !En I@006/0002
-  EnumDom
-  !EL I@016/0002
-  dom_enum
+  EnumDmnEnumValue
+  !EL I@025/0002
+  dmnEnumValue
 }
 {
   !Do I@008/0001
-  DomEnumParent
+  DmnEnumValuePrnt
   Enum
-  !DE I@029/0001
-  EnumDomParent
-  dom_enum_parent
+  !DE I@032/0001
+  EnumDmnEnumValuePrnt
+  prnt_dmnEnumValuePrnt
 }
 {
   !En I@006/0002
-  EnumDomParent
-  :EnumParentDom
-  !EL I@037/0002
-  dom_parent_enum
+  EnumDmnEnumValuePrnt
+  :PrntDmnEnumValuePrnt
+  !EL I@051/0002
+  dmnEnumValuePrnt
 }
 {
   !En I@006/0003
-  EnumParentDom
-  !EL I@022/0003
-  dom_enum_parent
+  PrntDmnEnumValuePrnt
+  !EL I@029/0003
+  prnt_dmnEnumValuePrnt
 }
 {
   !Do I@008/0001
-  DomNumDescr
+  DmnNmbrDescr
   Number
-  !DN P@049/0001
+  !DN P@050/0001
   <
     2
   }
   {
     !Do I@008/0001
-    DomNumPrnt
+    DmnNmbrPrnt
     Number
-    :DomPrntNum
-    !DN N@040/0001
+    :PrntDmnNmbrPrnt
+    !DN N@046/0001
     2
   >
 }
 {
   !Do I@008/0002
-  DomPrntNum
+  PrntDmnNmbrPrnt
   Number
-  !DN P@028/0002
+  !DN P@033/0002
   <
     2
   }
   {
     !Do I@008/0001
-    DomStrDescr
+    DmnStrDescr
     String
     !DX R@049/0001
     /a+/
   }
   {
     !Do I@008/0001
-    DomStrPrnt
+    DmnStrPrnt
     String
-    :DomPrntStr
-    !DX R@040/0001
+    :PrntDmnStrPrnt
+    !DX R@044/0001
     /a+/
   }
   {
     !Do I@008/0002
-    DomPrntStr
+    PrntDmnStrPrnt
     String
-    !DX R@028/0002
+    !DX R@032/0002
     /b+/
   }
   {
     !En I@006/0001
-    EnDescr
+    EnumDescr
     "Enum Descr"
-    !EL I@031/0001
-    val_test
+    !EL I@033/0001
+    enumDescr
   }
   {
     !En I@006/0001
-    EnTestPrnt
-    :EnPrntTest
+    EnumPrnt
+    :PrntEnumPrnt
     !EL I@031/0001
-    val_prnt
+    enumPrnt
   }
   {
     !En I@006/0002
-    EnPrntTest
-    !EL I@019/0002
-    val_test
+    PrntEnumPrnt
+    !EL I@021/0002
+    prnt_enumPrnt
   }
   {
     !En I@006/0001
-    EnPrntAlias
-    :EnAliasPrnt
-    !EL I@033/0001
-    val_prnt_alias
-    !EL I@048/0001
-    val_alias
+    EnumPrntAlias
+    :PrntEnumPrntAlias
+    !EL I@041/0001
+    val_enumPrntAlias
+    !EL I@059/0001
+    prnt_enumPrntAlias
     [
-      alias_val
+      enumPrntAlias
     ]
   }
   {
     !En I@006/0002
-    EnAliasPrnt
-    !EL I@020/0002
-    val_alias
+    PrntEnumPrntAlias
+    !EL I@026/0002
+    prnt_enumPrntAlias
   }
   {
     !En I@006/0001
-    EnPrntDup
-    :EnDupPrnt
-    !EL I@029/0001
-    val_prnt_dup
+    EnumPrntDup
+    :PrntEnumPrntDup
+    !EL I@037/0001
+    enumPrntDup
   }
   {
     !En I@006/0002
-    EnDupPrnt
-    !EL I@018/0002
-    val_dup
+    PrntEnumPrntDup
+    !EL I@024/0002
+    prnt_enumPrntDup
     [
-      val_prnt_dup
+      enumPrntDup
     ]
   }
   {
@@ -292,16 +314,27 @@ Success
   {
     !Un I@007/0001
     UnionPrnt
-    :PrntUnion
-    !UM I@030/0001
+    :PrntUnionPrnt
+    !UM I@034/0001
     String
-    !UM I@030/0001
+  }
+  {
+    !Un I@007/0002
+    PrntUnionPrnt
+    !UM I@023/0002
+    Number
+  }
+  {
+    !Un I@007/0001
+    UnionPrntDup
+    :PrntUnionPrntDup
+    !UM I@040/0001
     Number
   }
   {
     !Un I@007/0002
-    PrntUnion
-    !UM I@019/0002
+    PrntUnionPrntDup
+    !UM I@026/0002
     Number
   }
 ]

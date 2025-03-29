@@ -31,7 +31,7 @@
           "object": "DualCnstAltDmn",
           "type": {
             "$tag": "_DualBase",
-            "dual": "DualCnstAltDmnRef",
+            "dual": "RefDualCnstAltDmn",
             "typeArgs": [
               {
                 "$tag": "_DualArg",
@@ -46,7 +46,7 @@
           "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
-            "dual": "DualCnstAltDmnRef",
+            "dual": "RefDualCnstAltDmn",
             "typeArgs": [
               {
                 "$tag": "_DualArg",
@@ -59,12 +59,12 @@
       "name": "DualCnstAltDmn",
       "typeKind": "Dual"
     },
-    "DualCnstAltDmnRef": {
+    "RefDualCnstAltDmn": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualCnstAltDmnRef",
+          "object": "RefDualCnstAltDmn",
           "type": "ref"
         }
       ],
@@ -74,7 +74,7 @@
           "type": "ref"
         }
       ],
-      "name": "DualCnstAltDmnRef",
+      "name": "RefDualCnstAltDmn",
       "typeKind": "Dual",
       "typeParams": [
         {

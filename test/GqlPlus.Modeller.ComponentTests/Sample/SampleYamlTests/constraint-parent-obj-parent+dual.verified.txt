@@ -1,34 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualCnstPrntObjPrnt: !_TypeDual
+  !_Identifier AltDualCnstPrntObjPrnt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualCnstPrntObjPrntParent
+      object: PrntDualCnstPrntObjPrnt
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: DualCnstPrntObjPrntAlt
-      type: !_DualBase
-        dual: Number
-    name: DualCnstPrntObjPrnt
-    parent: !_DualBase
-      dual: DualCnstPrntObjPrntRef
-      typeArgs:
-      - !_DualArg
-        dual: DualCnstPrntObjPrntAlt
-    typeKind: !_TypeKind Dual
-  !_Identifier DualCnstPrntObjPrntAlt: !_TypeDual
-    allAlternates:
-    - !_ObjectFor(_DualAlternate)
-      object: DualCnstPrntObjPrntParent
-      type: !_DualBase
-        dual: String
-    allFields:
-    - !_ObjectFor(_DualField)
-      name: alt
-      object: DualCnstPrntObjPrntAlt
+      object: AltDualCnstPrntObjPrnt
       type: !_DualBase
         dual: Number
     fields:
@@ -36,24 +17,43 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: DualCnstPrntObjPrntAlt
+    name: AltDualCnstPrntObjPrnt
     parent: !_DualBase
-      dual: DualCnstPrntObjPrntParent
+      dual: PrntDualCnstPrntObjPrnt
     typeKind: !_TypeKind Dual
-  !_Identifier DualCnstPrntObjPrntParent: !_TypeDual
+  !_Identifier DualCnstPrntObjPrnt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualCnstPrntObjPrntParent
+      object: PrntDualCnstPrntObjPrnt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: AltDualCnstPrntObjPrnt
+      type: !_DualBase
+        dual: Number
+    name: DualCnstPrntObjPrnt
+    parent: !_DualBase
+      dual: RefDualCnstPrntObjPrnt
+      typeArgs:
+      - !_DualArg
+        dual: AltDualCnstPrntObjPrnt
+    typeKind: !_TypeKind Dual
+  !_Identifier PrntDualCnstPrntObjPrnt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: PrntDualCnstPrntObjPrnt
       type: !_DualBase
         dual: String
     alternates:
     - !_DualAlternate
       type: !_DualBase
         dual: String
-    name: DualCnstPrntObjPrntParent
+    name: PrntDualCnstPrntObjPrnt
     typeKind: !_TypeKind Dual
-  !_Identifier DualCnstPrntObjPrntRef: !_TypeDual
-    name: DualCnstPrntObjPrntRef
+  !_Identifier RefDualCnstPrntObjPrnt: !_TypeDual
+    name: RefDualCnstPrntObjPrnt
     parent: !_TypeParam ref
     typeKind: !_TypeKind Dual
     typeParams:

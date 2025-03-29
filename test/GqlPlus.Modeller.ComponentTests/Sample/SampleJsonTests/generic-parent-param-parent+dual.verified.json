@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualGnrcPrntParamPrnt": {
+    "AltDualGnrcPrntParamPrnt": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualGnrcPrntParamPrntAlt",
+          "object": "AltDualGnrcPrntParamPrnt",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -18,43 +18,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "DualGnrcPrntParamPrntAlt",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "name": "DualGnrcPrntParamPrnt",
-      "parent": {
-        "$tag": "_DualBase",
-        "dual": "DualGnrcPrntParamPrntRef",
-        "typeArgs": [
-          {
-            "$tag": "_DualArg",
-            "value": "DualGnrcPrntParamPrntAlt"
-          }
-        ]
-      },
-      "typeKind": "Dual"
-    },
-    "DualGnrcPrntParamPrntAlt": {
-      "$tag": "_TypeDual",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualGnrcPrntParamPrntAlt",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "alt",
-          "object": "DualGnrcPrntParamPrntAlt",
+          "object": "AltDualGnrcPrntParamPrnt",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -80,12 +44,48 @@
           }
         }
       ],
-      "name": "DualGnrcPrntParamPrntAlt",
+      "name": "AltDualGnrcPrntParamPrnt",
       "typeKind": "Dual"
     },
-    "DualGnrcPrntParamPrntRef": {
+    "DualGnrcPrntParamPrnt": {
       "$tag": "_TypeDual",
-      "name": "DualGnrcPrntParamPrntRef",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "AltDualGnrcPrntParamPrnt",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "alt",
+          "object": "AltDualGnrcPrntParamPrnt",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "DualGnrcPrntParamPrnt",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "RefDualGnrcPrntParamPrnt",
+        "typeArgs": [
+          {
+            "$tag": "_DualArg",
+            "value": "AltDualGnrcPrntParamPrnt"
+          }
+        ]
+      },
+      "typeKind": "Dual"
+    },
+    "RefDualGnrcPrntParamPrnt": {
+      "$tag": "_TypeDual",
+      "name": "RefDualGnrcPrntParamPrnt",
       "parent": "ref",
       "typeKind": "Dual",
       "typeParams": [

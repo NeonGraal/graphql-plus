@@ -11,7 +11,7 @@
           "object": "DualObjField",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualObjFieldFld"
+            "value": "FldDualObjField"
           }
         }
       ],
@@ -21,16 +21,16 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualObjFieldFld"
+            "value": "FldDualObjField"
           }
         }
       ],
       "name": "DualObjField",
       "typeKind": "Dual"
     },
-    "DualObjFieldFld": {
+    "FldDualObjField": {
       "$tag": "_TypeDual",
-      "name": "DualObjFieldFld",
+      "name": "FldDualObjField",
       "typeKind": "Dual"
     }
   }

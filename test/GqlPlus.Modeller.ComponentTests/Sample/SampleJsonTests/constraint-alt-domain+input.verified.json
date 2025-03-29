@@ -31,7 +31,7 @@
           "object": "InpCnstAltDmn",
           "type": {
             "$tag": "_InputBase",
-            "input": "InpCnstAltDmnRef",
+            "input": "RefInpCnstAltDmn",
             "typeArgs": [
               {
                 "$tag": "_InputArg",
@@ -46,7 +46,7 @@
           "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
-            "input": "InpCnstAltDmnRef",
+            "input": "RefInpCnstAltDmn",
             "typeArgs": [
               {
                 "$tag": "_InputArg",
@@ -59,12 +59,12 @@
       "name": "InpCnstAltDmn",
       "typeKind": "Input"
     },
-    "InpCnstAltDmnRef": {
+    "RefInpCnstAltDmn": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpCnstAltDmnRef",
+          "object": "RefInpCnstAltDmn",
           "type": "ref"
         }
       ],
@@ -74,7 +74,7 @@
           "type": "ref"
         }
       ],
-      "name": "InpCnstAltDmnRef",
+      "name": "RefInpCnstAltDmn",
       "typeKind": "Input",
       "typeParams": [
         {

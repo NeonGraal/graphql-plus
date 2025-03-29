@@ -2,10 +2,10 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DescrDouble": {
+    "DescrDbl": {
       "$tag": "_TypeOutput",
       "description": "A \u0027double-quoted\u0027 description",
-      "name": "DescrDouble",
+      "name": "DescrDbl",
       "typeKind": "Output"
     }
   }

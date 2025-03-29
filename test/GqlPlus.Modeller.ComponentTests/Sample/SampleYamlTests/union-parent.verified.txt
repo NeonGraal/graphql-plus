@@ -1,20 +1,20 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier PrntUnion: !_TypeUnion
+  !_Identifier PrntUnionPrnt: !_TypeUnion
     allItems:
     - !_UnionMember
       name: Number
-      union: PrntUnion
+      union: PrntUnionPrnt
     items:
     - !_Aliased
       name: Number
-    name: PrntUnion
+    name: PrntUnionPrnt
     typeKind: !_TypeKind Union
   !_Identifier UnionPrnt: !_TypeUnion
     allItems:
     - !_UnionMember
       name: Number
-      union: PrntUnion
+      union: PrntUnionPrnt
     - !_UnionMember
       name: String
       union: UnionPrnt
@@ -23,6 +23,6 @@ types: !_Map_Type
       name: String
     name: UnionPrnt
     parent: !_TypeRef(_SimpleKind)
-      name: PrntUnion
+      name: PrntUnionPrnt
       typeKind: !_SimpleKind Union
     typeKind: !_TypeKind Union

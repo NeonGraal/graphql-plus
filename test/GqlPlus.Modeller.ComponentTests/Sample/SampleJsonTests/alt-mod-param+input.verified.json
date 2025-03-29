@@ -2,56 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpAltModParam": {
+    "AltInpAltModParam": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "collections": [
-            {
-              "$tag": "_ModifierTypeParam",
-              "by": "mod",
-              "modifierKind": "Param"
-            }
-          ],
-          "object": "InpAltModParam",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "InpAltModParamAlt"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_InputAlternate",
-          "collections": [
-            {
-              "$tag": "_ModifierTypeParam",
-              "by": "mod",
-              "modifierKind": "Param"
-            }
-          ],
-          "type": {
-            "$tag": "_InputBase",
-            "value": "InpAltModParamAlt"
-          }
-        }
-      ],
-      "name": "InpAltModParam",
-      "typeKind": "Input",
-      "typeParams": [
-        {
-          "$tag": "_Described",
-          "value": "mod"
-        }
-      ]
-    },
-    "InpAltModParamAlt": {
-      "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpAltModParamAlt",
+          "object": "AltInpAltModParam",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -62,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "alt",
-          "object": "InpAltModParamAlt",
+          "object": "AltInpAltModParam",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -88,8 +44,52 @@
           }
         }
       ],
-      "name": "InpAltModParamAlt",
+      "name": "AltInpAltModParam",
       "typeKind": "Input"
+    },
+    "InpAltModParam": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "collections": [
+            {
+              "$tag": "_ModifierTypeParam",
+              "by": "mod",
+              "modifierKind": "Param"
+            }
+          ],
+          "object": "InpAltModParam",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "AltInpAltModParam"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "collections": [
+            {
+              "$tag": "_ModifierTypeParam",
+              "by": "mod",
+              "modifierKind": "Param"
+            }
+          ],
+          "type": {
+            "$tag": "_InputBase",
+            "value": "AltInpAltModParam"
+          }
+        }
+      ],
+      "name": "InpAltModParam",
+      "typeKind": "Input",
+      "typeParams": [
+        {
+          "$tag": "_Described",
+          "value": "mod"
+        }
+      ]
     }
   }
 }

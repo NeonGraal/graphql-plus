@@ -2,17 +2,17 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DomEnumParent": {
+    "DmnEnumValuePrnt": {
       "$tag": "_DomainEnum",
       "allItems": [
         {
           "$tag": "_DomainItem(_DomainLabel)",
-          "domain": "DomEnumParent",
+          "domain": "DmnEnumValuePrnt",
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "label": "dom_enum_parent",
-            "name": "EnumDomParent",
+            "label": "prnt_dmnEnumValuePrnt",
+            "name": "EnumDmnEnumValuePrnt",
             "typeKind": "Enum"
           }
         }
@@ -24,59 +24,59 @@
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "label": "dom_enum_parent",
-            "name": "EnumDomParent",
+            "label": "prnt_dmnEnumValuePrnt",
+            "name": "EnumDmnEnumValuePrnt",
             "typeKind": "Enum"
           }
         }
       ],
-      "name": "DomEnumParent",
+      "name": "DmnEnumValuePrnt",
       "typeKind": "Domain"
     },
-    "EnumDomParent": {
+    "EnumDmnEnumValuePrnt": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "enum": "EnumParentDom",
-          "name": "dom_enum_parent"
+          "enum": "PrntDmnEnumValuePrnt",
+          "name": "prnt_dmnEnumValuePrnt"
         },
         {
           "$tag": "_EnumLabel",
-          "enum": "EnumDomParent",
-          "name": "dom_parent_enum"
+          "enum": "EnumDmnEnumValuePrnt",
+          "name": "dmnEnumValuePrnt"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dom_parent_enum"
+          "value": "dmnEnumValuePrnt"
         }
       ],
-      "name": "EnumDomParent",
+      "name": "EnumDmnEnumValuePrnt",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
-        "name": "EnumParentDom",
+        "name": "PrntDmnEnumValuePrnt",
         "typeKind": "Enum"
       },
       "typeKind": "Enum"
     },
-    "EnumParentDom": {
+    "PrntDmnEnumValuePrnt": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "enum": "EnumParentDom",
-          "name": "dom_enum_parent"
+          "enum": "PrntDmnEnumValuePrnt",
+          "name": "prnt_dmnEnumValuePrnt"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dom_enum_parent"
+          "value": "prnt_dmnEnumValuePrnt"
         }
       ],
-      "name": "EnumParentDom",
+      "name": "PrntDmnEnumValuePrnt",
       "typeKind": "Enum"
     }
   }

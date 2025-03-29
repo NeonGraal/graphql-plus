@@ -3,47 +3,47 @@
 Success
 {
   !Ca P@010/0001
-  category
+  ctgr
   (Parallel)
-  Category
+  Ctgr
 }
 {
   !Ca P@010/0001
-  catAlias
+  ctgrAlias
   [
     CatA1
     CatA2
   ]
   (Parallel)
-  CatAlias
+  CtgrAlias
 }
 {
   "First category Second category"
   !Ca P@010/0002
-  test
+  ctgrDescr
   (Parallel)
-  Test
+  CtgrDescr
 }
 {
   !Ca P@010/0001
-  catMods
+  ctgrMod
   [
     CatM1
     CatM2
   ]
   (Parallel)
-  CatMods
+  CtgrMod
   ?
 }
 {
   !Di I@012/0001
-  Dir
+  Drct
   (Unique)
   Inline, Spread
 }
 {
   !Di I@012/0001
-  DirAlias
+  DrctAlias
   [
     DirA1
     DirA2
@@ -53,11 +53,11 @@ Success
 }
 {
   !Di I@012/0001
-  DirParam
+  DrctParam
   (
     !Pa
-    I@021/0001
-    DirParamIn
+    I@022/0001
+    InDrctParam
   )
   (Unique)
   Operation, Fragment
@@ -77,27 +77,27 @@ Success
 }
 {
   !Ou I@008/0003
-  Category
+  Ctgr
 }
 {
   !Ou I@008/0003
-  CatAlias
+  CtgrAlias
 }
 {
   !Ou I@008/0005
-  Test
+  CtgrDescr
 }
 {
   !Ou I@008/0003
-  CatMods
+  CtgrMod
 }
 {
   !In I@007/0003
-  DirParamIn
+  InDrctParam
 }
 {
   !Do I@008/0001
-  NumAlias
+  DmnAlias
   [
     Num1
     Num2
@@ -106,132 +106,132 @@ Success
 }
 {
   !Do I@008/0001
-  Bool
+  DmnBool
   Boolean
-  !DT P@023/0001
+  !DT P@026/0001
   False
-  !DT P@023/0001
+  !DT P@026/0001
   True
 }
 {
   !Do I@008/0001
-  BoolDiff
+  DmnBoolDiff
   Boolean
-  !DT I@027/0001
+  !DT I@030/0001
   True
-  !DT I@027/0002
+  !DT I@030/0002
   False
 }
 {
   !Do I@008/0001
-  BoolSame
+  DmnBoolSame
   Boolean
-  !DT I@027/0001
+  !DT I@030/0001
   True
 }
 {
   !Do I@008/0001
-  EnumDiff
+  DmnEnumDiff
   Enum
-  !DE I@024/0001
+  !DE I@027/0001
   Boolean
   true
-  !DE I@024/0002
+  !DE I@027/0002
   Boolean
   false
 }
 {
   !Do I@008/0001
-  EnumSame
+  DmnEnumSame
   Enum
-  !DE I@024/0001
+  !DE I@027/0001
   Boolean
   true
 }
 {
   !Do I@008/0001
-  Num
+  DmnNmbr
   Number
 }
 {
   !Do I@008/0001
-  NumDiff
+  DmnNmbrDiff
   Number
-  !DN N@025/0001
+  !DN N@029/0001
   1
   ~
   9
 }
 {
   !Do I@008/0001
-  NumSame
+  DmnNmbrSame
   Number
-  !DN N@025/0001
+  !DN N@029/0001
   1
   ~
   9
 }
 {
   !Do I@008/0001
-  Str
+  DmnStr
   String
 }
 {
   !Do I@008/0001
-  StrDiff
+  DmnStrDiff
   String
-  !DX R@025/0001
+  !DX R@028/0001
   /a+/
 }
 {
   !Do I@008/0001
-  StrSame
+  DmnStrSame
   String
-  !DX R@025/0001
+  !DX R@028/0001
   /a+/
 }
 {
   !En I@006/0001
-  EnAlias
+  EnumAlias
   [
     En1
     En2
   ]
-  !EL I@022/0001
-  alias
+  !EL I@024/0001
+  enumAlias
 }
 {
   !En I@006/0001
-  EnDiff
-  !EL I@015/0001
+  EnumDiff
+  !EL I@017/0001
   one
-  !EL I@015/0002
+  !EL I@017/0002
   two
 }
 {
   !En I@006/0001
-  EnSame
-  !EL I@015/0001
-  same
+  EnumSame
+  !EL I@017/0001
+  enumSame
 }
 {
   !En I@006/0001
-  EnSameParent
-  :EnParent
-  !EL I@031/0001
-  sameP
+  EnumSamePrnt
+  :PrntEnumSamePrnt
+  !EL I@039/0001
+  enumSamePrnt
 }
 {
   !En I@006/0003
-  EnParent
-  !EL I@017/0003
-  parent
+  PrntEnumSamePrnt
+  !EL I@025/0003
+  prnt_enumSamePrnt
 }
 {
   !En I@006/0001
-  EnValAlias
-  !EL I@019/0001
-  value
+  EnumValueAlias
+  !EL I@023/0001
+  enumValueAlias
   [
     val1
     val2
@@ -317,12 +317,12 @@ Success
     field
     :
     I@028/0001
-    DualObjFieldFld
+    FldDualObjField
   }
 }
 {
   !Du I@006/0003
-  DualObjFieldFld
+  FldDualObjField
 }
 {
   !In I@007/0001
@@ -332,12 +332,12 @@ Success
     field
     :
     I@028/0001
-    InpObjFieldFld
+    FldInpObjField
   }
 }
 {
   !In I@007/0003
-  InpObjFieldFld
+  FldInpObjField
 }
 {
   !Ou I@008/0001
@@ -347,12 +347,12 @@ Success
     field
     :
     I@030/0001
-    OutpObjFieldFld
+    FldOutpObjField
   }
 }
 {
   !Ou I@008/0003
-  OutpObjFieldFld
+  FldOutpObjField
 }
 {
   !Du I@006/0001
@@ -366,12 +366,12 @@ Success
     ]
     :
     I@042/0001
-    DualObjFieldAliasFld
+    FldDualObjFieldAlias
   }
 }
 {
   !Du I@006/0003
-  DualObjFieldAliasFld
+  FldDualObjFieldAlias
 }
 {
   !In I@007/0001
@@ -385,12 +385,12 @@ Success
     ]
     :
     I@042/0001
-    InpObjFieldAliasFld
+    FldInpObjFieldAlias
   }
 }
 {
   !In I@007/0003
-  InpObjFieldAliasFld
+  FldInpObjFieldAlias
 }
 {
   !Ou I@008/0001
@@ -404,12 +404,12 @@ Success
     ]
     :
     I@044/0001
-    OutpObjFieldAliasFld
+    FldOutpObjFieldAlias
   }
 }
 {
   !Ou I@008/0003
-  OutpObjFieldAliasFld
+  FldOutpObjFieldAlias
 }
 {
   !Du I@006/0001
@@ -482,120 +482,128 @@ Success
   DualObjPrnt
   :
   I@021/0001
-  DualObjPrntRef
+  RefDualObjPrnt
 }
 {
   !Du I@006/0003
-  DualObjPrntRef
+  RefDualObjPrnt
 }
 {
   !In I@007/0001
   InpObjPrnt
   :
   I@021/0001
-  InpObjPrntRef
+  RefInpObjPrnt
 }
 {
   !In I@007/0003
-  InpObjPrntRef
+  RefInpObjPrnt
 }
 {
   !Ou I@008/0001
   OutpObjPrnt
   :
   I@023/0001
-  OutpObjPrntRef
+  RefOutpObjPrnt
 }
 {
   !Ou I@008/0003
-  OutpObjPrntRef
+  RefOutpObjPrnt
 }
 {
   !Ou I@008/0001
-  FieldEnumAlias
+  OutpFieldEnumAlias
   {
-    !OF I@025/0001
+    !OF I@029/0001
     field
     [
       field1
       field2
     ]
     =
-    I@042/0001
+    I@046/0001
     Boolean.true
   }
 }
 {
   !Ou I@008/0001
-  FieldEnums
+  OutpFieldEnumValue
   {
-    !OF I@021/0001
+    !OF I@029/0001
     field
     =
-    I@029/0001
+    I@037/0001
     Boolean.true
   }
 }
 {
   !Ou I@008/0001
-  FieldParam
+  OutpFieldParam
   {
-    !OF I@021/0001
+    !OF I@025/0001
     field
     (
       !Pa
-      I@027/0001
-      FieldParam1
+      I@031/0001
+      OutpFieldParam1
       !Pa
-      I@027/0002
-      FieldParam2
+      I@031/0002
+      OutpFieldParam2
     )
     :
-    I@041/0001
-    FieldParamFld
+    I@049/0001
+    FldOutpFieldParam
   }
 }
 {
   !In I@007/0003
-  FieldParam1
+  OutpFieldParam1
 }
 {
   !In I@007/0004
-  FieldParam2
+  OutpFieldParam2
 }
 {
-  !Ou I@008/0005
-  FieldParamFld
+  !Du I@006/0005
+  FldOutpFieldParam
 }
 {
   !Un I@007/0001
-  UnDiff
+  UnionAlias
   [
     UnA1
     UnA2
   ]
-  !UM I@023/0001
+  !UM I@027/0001
   Boolean
-  !UM I@023/0002
+  !UM I@027/0002
   Number
 }
 {
   !Un I@007/0001
-  UnSame
-  !UM I@016/0001
+  UnionDiff
+  !UM I@019/0001
+  Boolean
+  !UM I@019/0002
+  Number
+}
+{
+  !Un I@007/0001
+  UnionSame
+  !UM I@019/0001
   Boolean
 }
 {
   !Un I@007/0001
-  UnSameParent
-  :UnParent
-  !UM I@032/0001
+  UnionSamePrnt
+  :PrntUnionSamePrnt
+  !UM I@042/0001
   Boolean
 }
 {
   !Un I@007/0003
-  UnParent
-  !UM I@018/0003
+  PrntUnionSamePrnt
+  !UM I@027/0003
   String
 }
 ]

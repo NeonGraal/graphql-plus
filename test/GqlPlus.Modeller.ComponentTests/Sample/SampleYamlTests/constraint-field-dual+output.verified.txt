@@ -1,29 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpCnstFieldDual: !_TypeOutput
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: field
-      object: OutpCnstFieldDualRef
-      type: !_OutputBase
-        output: OutpCnstFieldDualAlt
-    name: OutpCnstFieldDual
-    parent: !_OutputBase
-      output: OutpCnstFieldDualRef
-      typeArgs:
-      - !_OutputArg
-        output: OutpCnstFieldDualAlt
-    typeKind: !_TypeKind Output
-  !_Identifier OutpCnstFieldDualAlt: !_TypeOutput
+  !_Identifier AltOutpCnstFieldDual: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: OutpCnstFieldDualParent
+      object: PrntOutpCnstFieldDual
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
-      object: OutpCnstFieldDualAlt
+      object: AltOutpCnstFieldDual
       type: !_OutputBase
         output: Number
     fields:
@@ -31,33 +17,47 @@ types: !_Map_Type
       name: alt
       type: !_OutputBase
         output: Number
-    name: OutpCnstFieldDualAlt
+    name: AltOutpCnstFieldDual
     parent: !_DualBase
-      dual: OutpCnstFieldDualParent
+      dual: PrntOutpCnstFieldDual
     typeKind: !_TypeKind Output
-  !_Identifier OutpCnstFieldDualParent: !_TypeDual
+  !_Identifier OutpCnstFieldDual: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: RefOutpCnstFieldDual
+      type: !_OutputBase
+        output: AltOutpCnstFieldDual
+    name: OutpCnstFieldDual
+    parent: !_OutputBase
+      output: RefOutpCnstFieldDual
+      typeArgs:
+      - !_OutputArg
+        output: AltOutpCnstFieldDual
+    typeKind: !_TypeKind Output
+  !_Identifier PrntOutpCnstFieldDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: OutpCnstFieldDualParent
+      object: PrntOutpCnstFieldDual
       type: !_DualBase
         dual: String
     alternates:
     - !_DualAlternate
       type: !_DualBase
         dual: String
-    name: OutpCnstFieldDualParent
+    name: PrntOutpCnstFieldDual
     typeKind: !_TypeKind Dual
-  !_Identifier OutpCnstFieldDualRef: !_TypeOutput
+  !_Identifier RefOutpCnstFieldDual: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
-      object: OutpCnstFieldDualRef
+      object: RefOutpCnstFieldDual
       type: !_TypeParam ref
     fields:
     - !_OutputField
       name: field
       type: !_TypeParam ref
-    name: OutpCnstFieldDualRef
+    name: RefOutpCnstFieldDual
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described

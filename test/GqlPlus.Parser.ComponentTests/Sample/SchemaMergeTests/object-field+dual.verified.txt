@@ -9,11 +9,11 @@ Success
     field
     :
     I@028/0001
-    DualObjFieldFld
+    FldDualObjField
   }
 }
 {
   !Du I@006/0003
-  DualObjFieldFld
+  FldDualObjField
 }
 ]

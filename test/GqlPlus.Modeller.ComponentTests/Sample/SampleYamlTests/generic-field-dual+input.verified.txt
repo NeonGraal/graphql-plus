@@ -1,35 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpGnrcFieldDual: !_TypeInput
-    allFields:
-    - !_ObjectFor(_InputField)
-      name: field
-      object: InpGnrcFieldDual
-      type: !_InputBase
-        input: InpGnrcFieldDualRef
-        typeArgs:
-        - !_DualArg
-          dual: InpGnrcFieldDualAlt
-    fields:
-    - !_InputField
-      name: field
-      type: !_InputBase
-        input: InpGnrcFieldDualRef
-        typeArgs:
-        - !_DualArg
-          dual: InpGnrcFieldDualAlt
-    name: InpGnrcFieldDual
-    typeKind: !_TypeKind Input
-  !_Identifier InpGnrcFieldDualAlt: !_TypeDual
+  !_Identifier AltInpGnrcFieldDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: InpGnrcFieldDualAlt
+      object: AltInpGnrcFieldDual
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: InpGnrcFieldDualAlt
+      object: AltInpGnrcFieldDual
       type: !_DualBase
         dual: Number
     alternates:
@@ -41,17 +21,37 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: InpGnrcFieldDualAlt
+    name: AltInpGnrcFieldDual
     typeKind: !_TypeKind Dual
-  !_Identifier InpGnrcFieldDualRef: !_TypeInput
+  !_Identifier InpGnrcFieldDual: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: InpGnrcFieldDual
+      type: !_InputBase
+        input: RefInpGnrcFieldDual
+        typeArgs:
+        - !_DualArg
+          dual: AltInpGnrcFieldDual
+    fields:
+    - !_InputField
+      name: field
+      type: !_InputBase
+        input: RefInpGnrcFieldDual
+        typeArgs:
+        - !_DualArg
+          dual: AltInpGnrcFieldDual
+    name: InpGnrcFieldDual
+    typeKind: !_TypeKind Input
+  !_Identifier RefInpGnrcFieldDual: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpGnrcFieldDualRef
+      object: RefInpGnrcFieldDual
       type: !_TypeParam ref
     alternates:
     - !_InputAlternate
       type: !_TypeParam ref
-    name: InpGnrcFieldDualRef
+    name: RefInpGnrcFieldDual
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described

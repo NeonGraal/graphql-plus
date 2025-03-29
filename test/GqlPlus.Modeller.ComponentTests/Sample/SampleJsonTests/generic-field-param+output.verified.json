@@ -2,6 +2,51 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
+    "AltOutpGnrcFieldParam": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "AltOutpGnrcFieldParam",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "alt",
+          "object": "AltOutpGnrcFieldParam",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "alt",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "AltOutpGnrcFieldParam",
+      "typeKind": "Output"
+    },
     "OutpGnrcFieldParam": {
       "$tag": "_TypeOutput",
       "allFields": [
@@ -11,11 +56,11 @@
           "object": "OutpGnrcFieldParam",
           "type": {
             "$tag": "_OutputBase",
-            "output": "OutpGnrcFieldParamRef",
+            "output": "RefOutpGnrcFieldParam",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "value": "OutpGnrcFieldParamAlt"
+                "value": "AltOutpGnrcFieldParam"
               }
             ]
           }
@@ -27,11 +72,11 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "output": "OutpGnrcFieldParamRef",
+            "output": "RefOutpGnrcFieldParam",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "value": "OutpGnrcFieldParamAlt"
+                "value": "AltOutpGnrcFieldParam"
               }
             ]
           }
@@ -40,57 +85,12 @@
       "name": "OutpGnrcFieldParam",
       "typeKind": "Output"
     },
-    "OutpGnrcFieldParamAlt": {
+    "RefOutpGnrcFieldParam": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGnrcFieldParamAlt",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "alt",
-          "object": "OutpGnrcFieldParamAlt",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "alt",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "name": "OutpGnrcFieldParamAlt",
-      "typeKind": "Output"
-    },
-    "OutpGnrcFieldParamRef": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGnrcFieldParamRef",
+          "object": "RefOutpGnrcFieldParam",
           "type": "ref"
         }
       ],
@@ -100,7 +100,7 @@
           "type": "ref"
         }
       ],
-      "name": "OutpGnrcFieldParamRef",
+      "name": "RefOutpGnrcFieldParam",
       "typeKind": "Output",
       "typeParams": [
         {

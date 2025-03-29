@@ -7,15 +7,15 @@ types: !_Map_Type
       name: field
       object: DualObjFieldAlias
       type: !_DualBase
-        dual: DualObjFieldAliasFld
+        dual: FldDualObjFieldAlias
     fields:
     - !_DualField
       aliases: [field1, field2]
       name: field
       type: !_DualBase
-        dual: DualObjFieldAliasFld
+        dual: FldDualObjFieldAlias
     name: DualObjFieldAlias
     typeKind: !_TypeKind Dual
-  !_Identifier DualObjFieldAliasFld: !_TypeDual
-    name: DualObjFieldAliasFld
+  !_Identifier FldDualObjFieldAlias: !_TypeDual
+    name: FldDualObjFieldAlias
     typeKind: !_TypeKind Dual

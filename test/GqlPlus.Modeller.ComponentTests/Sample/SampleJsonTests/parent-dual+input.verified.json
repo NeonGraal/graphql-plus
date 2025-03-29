@@ -7,7 +7,7 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "InpPrntDualRef",
+          "object": "RefInpPrntDual",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -18,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "parent",
-          "object": "InpPrntDualRef",
+          "object": "RefInpPrntDual",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -28,16 +28,16 @@
       "name": "InpPrntDual",
       "parent": {
         "$tag": "_DualBase",
-        "value": "InpPrntDualRef"
+        "value": "RefInpPrntDual"
       },
       "typeKind": "Input"
     },
-    "InpPrntDualRef": {
+    "RefInpPrntDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "InpPrntDualRef",
+          "object": "RefInpPrntDual",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -48,7 +48,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "parent",
-          "object": "InpPrntDualRef",
+          "object": "RefInpPrntDual",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -74,7 +74,7 @@
           }
         }
       ],
-      "name": "InpPrntDualRef",
+      "name": "RefInpPrntDual",
       "typeKind": "Dual"
     }
   }

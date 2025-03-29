@@ -1,29 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpCnstFieldObj: !_TypeInput
-    allFields:
-    - !_ObjectFor(_InputField)
-      name: field
-      object: InpCnstFieldObjRef
-      type: !_InputBase
-        input: InpCnstFieldObjAlt
-    name: InpCnstFieldObj
-    parent: !_InputBase
-      input: InpCnstFieldObjRef
-      typeArgs:
-      - !_InputArg
-        input: InpCnstFieldObjAlt
-    typeKind: !_TypeKind Input
-  !_Identifier InpCnstFieldObjAlt: !_TypeInput
+  !_Identifier AltInpCnstFieldObj: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpCnstFieldObjParent
+      object: PrntInpCnstFieldObj
       type: !_InputBase
         input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
-      object: InpCnstFieldObjAlt
+      object: AltInpCnstFieldObj
       type: !_InputBase
         input: Number
     fields:
@@ -31,33 +17,47 @@ types: !_Map_Type
       name: alt
       type: !_InputBase
         input: Number
-    name: InpCnstFieldObjAlt
+    name: AltInpCnstFieldObj
     parent: !_InputBase
-      input: InpCnstFieldObjParent
+      input: PrntInpCnstFieldObj
     typeKind: !_TypeKind Input
-  !_Identifier InpCnstFieldObjParent: !_TypeInput
+  !_Identifier InpCnstFieldObj: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: RefInpCnstFieldObj
+      type: !_InputBase
+        input: AltInpCnstFieldObj
+    name: InpCnstFieldObj
+    parent: !_InputBase
+      input: RefInpCnstFieldObj
+      typeArgs:
+      - !_InputArg
+        input: AltInpCnstFieldObj
+    typeKind: !_TypeKind Input
+  !_Identifier PrntInpCnstFieldObj: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpCnstFieldObjParent
+      object: PrntInpCnstFieldObj
       type: !_InputBase
         input: String
     alternates:
     - !_InputAlternate
       type: !_InputBase
         input: String
-    name: InpCnstFieldObjParent
+    name: PrntInpCnstFieldObj
     typeKind: !_TypeKind Input
-  !_Identifier InpCnstFieldObjRef: !_TypeInput
+  !_Identifier RefInpCnstFieldObj: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: field
-      object: InpCnstFieldObjRef
+      object: RefInpCnstFieldObj
       type: !_TypeParam ref
     fields:
     - !_InputField
       name: field
       type: !_TypeParam ref
-    name: InpCnstFieldObjRef
+    name: RefInpCnstFieldObj
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described

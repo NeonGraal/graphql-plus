@@ -2,13 +2,13 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "PrntUnion": {
+    "PrntUnionPrnt": {
       "$tag": "_TypeUnion",
       "allItems": [
         {
           "$tag": "_UnionMember",
           "name": "Number",
-          "union": "PrntUnion"
+          "union": "PrntUnionPrnt"
         }
       ],
       "items": [
@@ -17,7 +17,7 @@
           "value": "Number"
         }
       ],
-      "name": "PrntUnion",
+      "name": "PrntUnionPrnt",
       "typeKind": "Union"
     },
     "UnionPrnt": {
@@ -26,7 +26,7 @@
         {
           "$tag": "_UnionMember",
           "name": "Number",
-          "union": "PrntUnion"
+          "union": "PrntUnionPrnt"
         },
         {
           "$tag": "_UnionMember",
@@ -43,7 +43,7 @@
       "name": "UnionPrnt",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
-        "name": "PrntUnion",
+        "name": "PrntUnionPrnt",
         "typeKind": "Union"
       },
       "typeKind": "Union"

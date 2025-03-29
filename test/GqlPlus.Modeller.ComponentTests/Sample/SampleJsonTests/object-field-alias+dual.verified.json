@@ -12,7 +12,7 @@
           "object": "DualObjFieldAlias",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualObjFieldAliasFld"
+            "value": "FldDualObjFieldAlias"
           }
         }
       ],
@@ -23,16 +23,16 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualObjFieldAliasFld"
+            "value": "FldDualObjFieldAlias"
           }
         }
       ],
       "name": "DualObjFieldAlias",
       "typeKind": "Dual"
     },
-    "DualObjFieldAliasFld": {
+    "FldDualObjFieldAlias": {
       "$tag": "_TypeDual",
-      "name": "DualObjFieldAliasFld",
+      "name": "FldDualObjFieldAlias",
       "typeKind": "Dual"
     }
   }

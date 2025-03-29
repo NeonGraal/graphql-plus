@@ -2,6 +2,11 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
+    "FldInpObjField": {
+      "$tag": "_TypeInput",
+      "name": "FldInpObjField",
+      "typeKind": "Input"
+    },
     "InpObjField": {
       "$tag": "_TypeInput",
       "allFields": [
@@ -11,7 +16,7 @@
           "object": "InpObjField",
           "type": {
             "$tag": "_InputBase",
-            "value": "InpObjFieldFld"
+            "value": "FldInpObjField"
           }
         }
       ],
@@ -21,16 +26,11 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "value": "InpObjFieldFld"
+            "value": "FldInpObjField"
           }
         }
       ],
       "name": "InpObjField",
-      "typeKind": "Input"
-    },
-    "InpObjFieldFld": {
-      "$tag": "_TypeInput",
-      "name": "InpObjFieldFld",
       "typeKind": "Input"
     }
   }

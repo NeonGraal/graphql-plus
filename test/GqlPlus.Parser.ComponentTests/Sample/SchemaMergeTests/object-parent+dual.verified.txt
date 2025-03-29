@@ -6,10 +6,10 @@ Success
   DualObjPrnt
   :
   I@021/0001
-  DualObjPrntRef
+  RefDualObjPrnt
 }
 {
   !Du I@006/0003
-  DualObjPrntRef
+  RefDualObjPrnt
 }
 ]

@@ -1,35 +1,35 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier EnAliasPrnt: !_TypeEnum
+  !_Identifier EnumPrntAlias: !_TypeEnum
     allItems:
     - !_EnumLabel
-      enum: EnAliasPrnt
-      name: val_alias
+      enum: PrntEnumPrntAlias
+      name: prnt_enumPrntAlias
+    - !_EnumLabel
+      enum: EnumPrntAlias
+      name: val_enumPrntAlias
+    - !_EnumLabel
+      aliases: [enumPrntAlias]
+      enum: EnumPrntAlias
+      name: prnt_enumPrntAlias
     items:
     - !_Aliased
-      name: val_alias
-    name: EnAliasPrnt
-    typeKind: !_TypeKind Enum
-  !_Identifier EnPrntAlias: !_TypeEnum
-    allItems:
-    - !_EnumLabel
-      enum: EnAliasPrnt
-      name: val_alias
-    - !_EnumLabel
-      enum: EnPrntAlias
-      name: val_prnt_alias
-    - !_EnumLabel
-      aliases: [alias_val]
-      enum: EnPrntAlias
-      name: val_alias
-    items:
+      name: val_enumPrntAlias
     - !_Aliased
-      name: val_prnt_alias
-    - !_Aliased
-      aliases: [alias_val]
-      name: val_alias
-    name: EnPrntAlias
+      aliases: [enumPrntAlias]
+      name: prnt_enumPrntAlias
+    name: EnumPrntAlias
     parent: !_TypeRef(_SimpleKind)
-      name: EnAliasPrnt
+      name: PrntEnumPrntAlias
       typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
+  !_Identifier PrntEnumPrntAlias: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: PrntEnumPrntAlias
+      name: prnt_enumPrntAlias
+    items:
+    - !_Aliased
+      name: prnt_enumPrntAlias
+    name: PrntEnumPrntAlias
     typeKind: !_TypeKind Enum

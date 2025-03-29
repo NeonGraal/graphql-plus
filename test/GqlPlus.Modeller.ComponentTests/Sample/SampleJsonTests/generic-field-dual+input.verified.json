@@ -2,50 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpGnrcFieldDual": {
-      "$tag": "_TypeInput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_InputField)",
-          "name": "field",
-          "object": "InpGnrcFieldDual",
-          "type": {
-            "$tag": "_InputBase",
-            "input": "InpGnrcFieldDualRef",
-            "typeArgs": [
-              {
-                "$tag": "_DualArg",
-                "value": "InpGnrcFieldDualAlt"
-              }
-            ]
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_InputField",
-          "name": "field",
-          "type": {
-            "$tag": "_InputBase",
-            "input": "InpGnrcFieldDualRef",
-            "typeArgs": [
-              {
-                "$tag": "_DualArg",
-                "value": "InpGnrcFieldDualAlt"
-              }
-            ]
-          }
-        }
-      ],
-      "name": "InpGnrcFieldDual",
-      "typeKind": "Input"
-    },
-    "InpGnrcFieldDualAlt": {
+    "AltInpGnrcFieldDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "InpGnrcFieldDualAlt",
+          "object": "AltInpGnrcFieldDual",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -56,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "InpGnrcFieldDualAlt",
+          "object": "AltInpGnrcFieldDual",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -82,15 +44,53 @@
           }
         }
       ],
-      "name": "InpGnrcFieldDualAlt",
+      "name": "AltInpGnrcFieldDual",
       "typeKind": "Dual"
     },
-    "InpGnrcFieldDualRef": {
+    "InpGnrcFieldDual": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "InpGnrcFieldDual",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "RefInpGnrcFieldDual",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "value": "AltInpGnrcFieldDual"
+              }
+            ]
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "RefInpGnrcFieldDual",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "value": "AltInpGnrcFieldDual"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "InpGnrcFieldDual",
+      "typeKind": "Input"
+    },
+    "RefInpGnrcFieldDual": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGnrcFieldDualRef",
+          "object": "RefInpGnrcFieldDual",
           "type": "ref"
         }
       ],
@@ -100,7 +100,7 @@
           "type": "ref"
         }
       ],
-      "name": "InpGnrcFieldDualRef",
+      "name": "RefInpGnrcFieldDual",
       "typeKind": "Input",
       "typeParams": [
         {

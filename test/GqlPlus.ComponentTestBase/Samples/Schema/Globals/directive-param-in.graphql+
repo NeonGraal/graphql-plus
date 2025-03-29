@@ -1,2 +1,2 @@
-directive @DirParam(DirParamIn) { all }
-input DirParamIn { }
+directive @Name(InName) { all }
+input InName { }

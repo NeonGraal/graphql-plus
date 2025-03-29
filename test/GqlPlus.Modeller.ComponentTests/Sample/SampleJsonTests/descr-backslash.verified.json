@@ -2,10 +2,10 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DescrBackslash": {
+    "DescrBcks": {
       "$tag": "_TypeOutput",
       "description": "A backslash (\u0022\\\u0022) description",
-      "name": "DescrBackslash",
+      "name": "DescrBcks",
       "typeKind": "Output"
     }
   }

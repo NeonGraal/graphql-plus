@@ -1,34 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpCnstPrntObjPrnt: !_TypeOutput
+  !_Identifier AltOutpCnstPrntObjPrnt: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpCnstPrntObjPrntParent
+      object: PrntOutpCnstPrntObjPrnt
       type: !_OutputBase
         output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
-      object: OutpCnstPrntObjPrntAlt
-      type: !_OutputBase
-        output: Number
-    name: OutpCnstPrntObjPrnt
-    parent: !_OutputBase
-      output: OutpCnstPrntObjPrntRef
-      typeArgs:
-      - !_OutputArg
-        output: OutpCnstPrntObjPrntAlt
-    typeKind: !_TypeKind Output
-  !_Identifier OutpCnstPrntObjPrntAlt: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: OutpCnstPrntObjPrntParent
-      type: !_OutputBase
-        output: String
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: alt
-      object: OutpCnstPrntObjPrntAlt
+      object: AltOutpCnstPrntObjPrnt
       type: !_OutputBase
         output: Number
     fields:
@@ -36,24 +17,43 @@ types: !_Map_Type
       name: alt
       type: !_OutputBase
         output: Number
-    name: OutpCnstPrntObjPrntAlt
+    name: AltOutpCnstPrntObjPrnt
     parent: !_OutputBase
-      output: OutpCnstPrntObjPrntParent
+      output: PrntOutpCnstPrntObjPrnt
     typeKind: !_TypeKind Output
-  !_Identifier OutpCnstPrntObjPrntParent: !_TypeOutput
+  !_Identifier OutpCnstPrntObjPrnt: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpCnstPrntObjPrntParent
+      object: PrntOutpCnstPrntObjPrnt
+      type: !_OutputBase
+        output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: alt
+      object: AltOutpCnstPrntObjPrnt
+      type: !_OutputBase
+        output: Number
+    name: OutpCnstPrntObjPrnt
+    parent: !_OutputBase
+      output: RefOutpCnstPrntObjPrnt
+      typeArgs:
+      - !_OutputArg
+        output: AltOutpCnstPrntObjPrnt
+    typeKind: !_TypeKind Output
+  !_Identifier PrntOutpCnstPrntObjPrnt: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: PrntOutpCnstPrntObjPrnt
       type: !_OutputBase
         output: String
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
         output: String
-    name: OutpCnstPrntObjPrntParent
+    name: PrntOutpCnstPrntObjPrnt
     typeKind: !_TypeKind Output
-  !_Identifier OutpCnstPrntObjPrntRef: !_TypeOutput
-    name: OutpCnstPrntObjPrntRef
+  !_Identifier RefOutpCnstPrntObjPrnt: !_TypeOutput
+    name: RefOutpCnstPrntObjPrnt
     parent: !_TypeParam ref
     typeKind: !_TypeKind Output
     typeParams:

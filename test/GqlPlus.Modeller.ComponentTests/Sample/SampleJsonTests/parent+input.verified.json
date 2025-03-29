@@ -7,7 +7,7 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpPrntRef",
+          "object": "RefInpPrnt",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -18,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "parent",
-          "object": "InpPrntRef",
+          "object": "RefInpPrnt",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -28,16 +28,16 @@
       "name": "InpPrnt",
       "parent": {
         "$tag": "_InputBase",
-        "value": "InpPrntRef"
+        "value": "RefInpPrnt"
       },
       "typeKind": "Input"
     },
-    "InpPrntRef": {
+    "RefInpPrnt": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpPrntRef",
+          "object": "RefInpPrnt",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -48,7 +48,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "parent",
-          "object": "InpPrntRef",
+          "object": "RefInpPrnt",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -74,7 +74,7 @@
           }
         }
       ],
-      "name": "InpPrntRef",
+      "name": "RefInpPrnt",
       "typeKind": "Input"
     }
   }

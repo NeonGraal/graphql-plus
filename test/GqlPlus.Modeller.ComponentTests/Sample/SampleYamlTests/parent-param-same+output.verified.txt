@@ -3,7 +3,7 @@ types: !_Map_Type
   !_Identifier OutpPrntParamSame: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpPrntParamSameRef
+      object: RefOutpPrntParamSame
       type: !_TypeParam a
     allFields:
     - !_ObjectFor(_OutputField)
@@ -16,22 +16,22 @@ types: !_Map_Type
       type: !_TypeParam a
     name: OutpPrntParamSame
     parent: !_OutputBase
-      output: OutpPrntParamSameRef
+      output: RefOutpPrntParamSame
       typeArgs:
       - !_TypeParam a
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described
       name: a
-  !_Identifier OutpPrntParamSameRef: !_TypeOutput
+  !_Identifier RefOutpPrntParamSame: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpPrntParamSameRef
+      object: RefOutpPrntParamSame
       type: !_TypeParam a
     alternates:
     - !_OutputAlternate
       type: !_TypeParam a
-    name: OutpPrntParamSameRef
+    name: RefOutpPrntParamSame
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described

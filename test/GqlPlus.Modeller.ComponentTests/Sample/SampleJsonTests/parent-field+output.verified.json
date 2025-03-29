@@ -7,7 +7,7 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpPrntFieldRef",
+          "object": "RefOutpPrntField",
           "type": {
             "$tag": "_OutputBase",
             "value": "String"
@@ -18,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "parent",
-          "object": "OutpPrntFieldRef",
+          "object": "RefOutpPrntField",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -47,16 +47,16 @@
       "name": "OutpPrntField",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "OutpPrntFieldRef"
+        "value": "RefOutpPrntField"
       },
       "typeKind": "Output"
     },
-    "OutpPrntFieldRef": {
+    "RefOutpPrntField": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpPrntFieldRef",
+          "object": "RefOutpPrntField",
           "type": {
             "$tag": "_OutputBase",
             "value": "String"
@@ -67,7 +67,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "parent",
-          "object": "OutpPrntFieldRef",
+          "object": "RefOutpPrntField",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -93,7 +93,7 @@
           }
         }
       ],
-      "name": "OutpPrntFieldRef",
+      "name": "RefOutpPrntField",
       "typeKind": "Output"
     }
   }

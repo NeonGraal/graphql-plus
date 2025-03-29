@@ -1,34 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpGnrcPrntParamPrnt: !_TypeInput
+  !_Identifier AltInpGnrcPrntParamPrnt: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpGnrcPrntParamPrntAlt
+      object: AltInpGnrcPrntParamPrnt
       type: !_InputBase
         input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
-      object: InpGnrcPrntParamPrntAlt
-      type: !_InputBase
-        input: Number
-    name: InpGnrcPrntParamPrnt
-    parent: !_InputBase
-      input: InpGnrcPrntParamPrntRef
-      typeArgs:
-      - !_InputArg
-        input: InpGnrcPrntParamPrntAlt
-    typeKind: !_TypeKind Input
-  !_Identifier InpGnrcPrntParamPrntAlt: !_TypeInput
-    allAlternates:
-    - !_ObjectFor(_InputAlternate)
-      object: InpGnrcPrntParamPrntAlt
-      type: !_InputBase
-        input: String
-    allFields:
-    - !_ObjectFor(_InputField)
-      name: alt
-      object: InpGnrcPrntParamPrntAlt
+      object: AltInpGnrcPrntParamPrnt
       type: !_InputBase
         input: Number
     alternates:
@@ -40,10 +21,29 @@ types: !_Map_Type
       name: alt
       type: !_InputBase
         input: Number
-    name: InpGnrcPrntParamPrntAlt
+    name: AltInpGnrcPrntParamPrnt
     typeKind: !_TypeKind Input
-  !_Identifier InpGnrcPrntParamPrntRef: !_TypeInput
-    name: InpGnrcPrntParamPrntRef
+  !_Identifier InpGnrcPrntParamPrnt: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: AltInpGnrcPrntParamPrnt
+      type: !_InputBase
+        input: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: alt
+      object: AltInpGnrcPrntParamPrnt
+      type: !_InputBase
+        input: Number
+    name: InpGnrcPrntParamPrnt
+    parent: !_InputBase
+      input: RefInpGnrcPrntParamPrnt
+      typeArgs:
+      - !_InputArg
+        input: AltInpGnrcPrntParamPrnt
+    typeKind: !_TypeKind Input
+  !_Identifier RefInpGnrcPrntParamPrnt: !_TypeInput
+    name: RefInpGnrcPrntParamPrnt
     parent: !_TypeParam ref
     typeKind: !_TypeKind Input
     typeParams:

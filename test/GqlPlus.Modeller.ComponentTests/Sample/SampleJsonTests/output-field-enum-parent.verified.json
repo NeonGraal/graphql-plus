@@ -2,70 +2,43 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutEnumParent": {
+    "EnumOutpFieldEnumPrnt": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "enum": "OutEnumParent",
-          "name": "outEnumParent"
+          "enum": "PrntOutpFieldEnumPrnt",
+          "name": "prnt_outpFieldEnumPrnt"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumOutpFieldEnumPrnt",
+          "name": "outpFieldEnumPrnt"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "outEnumParent"
+          "value": "outpFieldEnumPrnt"
         }
       ],
-      "name": "OutEnumParent",
-      "typeKind": "Enum"
-    },
-    "OutEnumParented": {
-      "$tag": "_TypeEnum",
-      "allItems": [
-        {
-          "$tag": "_EnumLabel",
-          "enum": "OutEnumParent",
-          "name": "outEnumParent"
-        },
-        {
-          "$tag": "_EnumLabel",
-          "enum": "OutEnumParented",
-          "name": "outParent"
-        },
-        {
-          "$tag": "_EnumLabel",
-          "enum": "OutEnumParented",
-          "name": "ed"
-        }
-      ],
-      "items": [
-        {
-          "$tag": "_Aliased",
-          "value": "outParent"
-        },
-        {
-          "$tag": "_Aliased",
-          "value": "ed"
-        }
-      ],
-      "name": "OutEnumParented",
+      "name": "EnumOutpFieldEnumPrnt",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
-        "name": "OutEnumParent",
+        "name": "PrntOutpFieldEnumPrnt",
         "typeKind": "Enum"
       },
       "typeKind": "Enum"
     },
-    "OutFieldParent": {
+    "OutpFieldEnumPrnt": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "field": "field",
-          "label": "outEnumParent",
-          "name": "OutEnumParented",
-          "object": "OutFieldParent",
+          "label": "prnt_outpFieldEnumPrnt",
+          "name": "EnumOutpFieldEnumPrnt",
+          "object": "OutpFieldEnumPrnt",
           "typeKind": "Enum"
         }
       ],
@@ -73,13 +46,31 @@
         {
           "$tag": "_OutputEnum",
           "field": "field",
-          "label": "outEnumParent",
-          "name": "OutEnumParented",
+          "label": "prnt_outpFieldEnumPrnt",
+          "name": "EnumOutpFieldEnumPrnt",
           "typeKind": "Enum"
         }
       ],
-      "name": "OutFieldParent",
+      "name": "OutpFieldEnumPrnt",
       "typeKind": "Output"
+    },
+    "PrntOutpFieldEnumPrnt": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "PrntOutpFieldEnumPrnt",
+          "name": "prnt_outpFieldEnumPrnt"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "prnt_outpFieldEnumPrnt"
+        }
+      ],
+      "name": "PrntOutpFieldEnumPrnt",
+      "typeKind": "Enum"
     }
   }
 }

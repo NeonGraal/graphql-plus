@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpGnrcPrntParamPrnt": {
+    "AltOutpGnrcPrntParamPrnt": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGnrcPrntParamPrntAlt",
+          "object": "AltOutpGnrcPrntParamPrnt",
           "type": {
             "$tag": "_OutputBase",
             "value": "String"
@@ -18,43 +18,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "alt",
-          "object": "OutpGnrcPrntParamPrntAlt",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "name": "OutpGnrcPrntParamPrnt",
-      "parent": {
-        "$tag": "_OutputBase",
-        "output": "OutpGnrcPrntParamPrntRef",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "value": "OutpGnrcPrntParamPrntAlt"
-          }
-        ]
-      },
-      "typeKind": "Output"
-    },
-    "OutpGnrcPrntParamPrntAlt": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGnrcPrntParamPrntAlt",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "alt",
-          "object": "OutpGnrcPrntParamPrntAlt",
+          "object": "AltOutpGnrcPrntParamPrnt",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -80,12 +44,48 @@
           }
         }
       ],
-      "name": "OutpGnrcPrntParamPrntAlt",
+      "name": "AltOutpGnrcPrntParamPrnt",
       "typeKind": "Output"
     },
-    "OutpGnrcPrntParamPrntRef": {
+    "OutpGnrcPrntParamPrnt": {
       "$tag": "_TypeOutput",
-      "name": "OutpGnrcPrntParamPrntRef",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "AltOutpGnrcPrntParamPrnt",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "alt",
+          "object": "AltOutpGnrcPrntParamPrnt",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "OutpGnrcPrntParamPrnt",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "RefOutpGnrcPrntParamPrnt",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "value": "AltOutpGnrcPrntParamPrnt"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "RefOutpGnrcPrntParamPrnt": {
+      "$tag": "_TypeOutput",
+      "name": "RefOutpGnrcPrntParamPrnt",
       "parent": "ref",
       "typeKind": "Output",
       "typeParams": [

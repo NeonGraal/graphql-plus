@@ -1,7 +1,7 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DescrComplex: !_TypeOutput
+  !_Identifier DescrCmpl: !_TypeOutput
     description: >-
       A "more" 'Complicated' \ description
-    name: DescrComplex
+    name: DescrCmpl
     typeKind: !_TypeKind Output

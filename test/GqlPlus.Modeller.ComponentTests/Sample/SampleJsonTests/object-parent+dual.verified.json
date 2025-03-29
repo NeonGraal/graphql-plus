@@ -7,13 +7,13 @@
       "name": "DualObjPrnt",
       "parent": {
         "$tag": "_DualBase",
-        "value": "DualObjPrntRef"
+        "value": "RefDualObjPrnt"
       },
       "typeKind": "Dual"
     },
-    "DualObjPrntRef": {
+    "RefDualObjPrnt": {
       "$tag": "_TypeDual",
-      "name": "DualObjPrntRef",
+      "name": "RefDualObjPrnt",
       "typeKind": "Dual"
     }
   }

@@ -2,33 +2,33 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutEnumValueDescr": {
+    "EnumOutpFieldValueDescr": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "enum": "OutEnumValueDescr",
-          "name": "outEnumValueDescr"
+          "enum": "EnumOutpFieldValueDescr",
+          "name": "outpFieldValueDescr"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "outEnumValueDescr"
+          "value": "outpFieldValueDescr"
         }
       ],
-      "name": "OutEnumValueDescr",
+      "name": "EnumOutpFieldValueDescr",
       "typeKind": "Enum"
     },
-    "OutFieldValueDescr": {
+    "OutpFieldValueDescr": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "field": "field",
-          "label": "outEnumValueDescr",
-          "name": "OutEnumValueDescr",
-          "object": "OutFieldValueDescr",
+          "label": "outpFieldValueDescr",
+          "name": "EnumOutpFieldValueDescr",
+          "object": "OutpFieldValueDescr",
           "typeKind": "Enum"
         }
       ],
@@ -36,12 +36,12 @@
         {
           "$tag": "_OutputEnum",
           "field": "field",
-          "label": "outEnumValueDescr",
-          "name": "OutEnumValueDescr",
+          "label": "outpFieldValueDescr",
+          "name": "EnumOutpFieldValueDescr",
           "typeKind": "Enum"
         }
       ],
-      "name": "OutFieldValueDescr",
+      "name": "OutpFieldValueDescr",
       "typeKind": "Output"
     }
   }

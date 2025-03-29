@@ -1,13 +1,13 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DomNumPrnt: !_DomainNumber
+  !_Identifier DmnNmbrPrnt: !_DomainNumber
     allItems:
     - !_DomainItem(_DomainRange)
-      domain: DomPrntNum
+      domain: PrntDmnNmbrPrnt
       exclude: false
       to: 2
     - !_DomainItem(_DomainRange)
-      domain: DomNumPrnt
+      domain: DmnNmbrPrnt
       exclude: false
       from: 2
     domainKind: !_DomainKind Number
@@ -15,15 +15,15 @@ types: !_Map_Type
     - !_DomainRange
       exclude: false
       from: 2
-    name: DomNumPrnt
+    name: DmnNmbrPrnt
     parent: !_TypeRef(_SimpleKind)
-      name: DomPrntNum
+      name: PrntDmnNmbrPrnt
       typeKind: !_SimpleKind Domain
     typeKind: !_TypeKind Domain
-  !_Identifier DomPrntNum: !_DomainNumber
+  !_Identifier PrntDmnNmbrPrnt: !_DomainNumber
     allItems:
     - !_DomainItem(_DomainRange)
-      domain: DomPrntNum
+      domain: PrntDmnNmbrPrnt
       exclude: false
       to: 2
     domainKind: !_DomainKind Number
@@ -31,5 +31,5 @@ types: !_Map_Type
     - !_DomainRange
       exclude: false
       to: 2
-    name: DomPrntNum
+    name: PrntDmnNmbrPrnt
     typeKind: !_TypeKind Domain

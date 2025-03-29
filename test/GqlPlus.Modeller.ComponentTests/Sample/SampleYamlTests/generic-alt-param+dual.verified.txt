@@ -1,33 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualGnrcAltParam: !_TypeDual
+  !_Identifier AltDualGnrcAltParam: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualGnrcAltParam
-      type: !_DualBase
-        dual: DualGnrcAltParamRef
-        typeArgs:
-        - !_DualArg
-          dual: DualGnrcAltParamAlt
-    alternates:
-    - !_DualAlternate
-      type: !_DualBase
-        dual: DualGnrcAltParamRef
-        typeArgs:
-        - !_DualArg
-          dual: DualGnrcAltParamAlt
-    name: DualGnrcAltParam
-    typeKind: !_TypeKind Dual
-  !_Identifier DualGnrcAltParamAlt: !_TypeDual
-    allAlternates:
-    - !_ObjectFor(_DualAlternate)
-      object: DualGnrcAltParamAlt
+      object: AltDualGnrcAltParam
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: DualGnrcAltParamAlt
+      object: AltDualGnrcAltParam
       type: !_DualBase
         dual: Number
     alternates:
@@ -39,17 +21,35 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: DualGnrcAltParamAlt
+    name: AltDualGnrcAltParam
     typeKind: !_TypeKind Dual
-  !_Identifier DualGnrcAltParamRef: !_TypeDual
+  !_Identifier DualGnrcAltParam: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualGnrcAltParamRef
+      object: DualGnrcAltParam
+      type: !_DualBase
+        dual: RefDualGnrcAltParam
+        typeArgs:
+        - !_DualArg
+          dual: AltDualGnrcAltParam
+    alternates:
+    - !_DualAlternate
+      type: !_DualBase
+        dual: RefDualGnrcAltParam
+        typeArgs:
+        - !_DualArg
+          dual: AltDualGnrcAltParam
+    name: DualGnrcAltParam
+    typeKind: !_TypeKind Dual
+  !_Identifier RefDualGnrcAltParam: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: RefDualGnrcAltParam
       type: !_TypeParam ref
     alternates:
     - !_DualAlternate
       type: !_TypeParam ref
-    name: DualGnrcAltParamRef
+    name: RefDualGnrcAltParam
     typeKind: !_TypeKind Dual
     typeParams:
     - !_Described

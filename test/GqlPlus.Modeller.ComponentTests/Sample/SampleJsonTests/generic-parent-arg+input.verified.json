@@ -7,14 +7,14 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGnrcPrntArgRef",
+          "object": "RefInpGnrcPrntArg",
           "type": "ref"
         }
       ],
       "name": "InpGnrcPrntArg",
       "parent": {
         "$tag": "_InputBase",
-        "input": "InpGnrcPrntArgRef",
+        "input": "RefInpGnrcPrntArg",
         "typeArgs": ["type"]
       },
       "typeKind": "Input",
@@ -25,12 +25,12 @@
         }
       ]
     },
-    "InpGnrcPrntArgRef": {
+    "RefInpGnrcPrntArg": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGnrcPrntArgRef",
+          "object": "RefInpGnrcPrntArg",
           "type": "ref"
         }
       ],
@@ -40,7 +40,7 @@
           "type": "ref"
         }
       ],
-      "name": "InpGnrcPrntArgRef",
+      "name": "RefInpGnrcPrntArg",
       "typeKind": "Input",
       "typeParams": [
         {

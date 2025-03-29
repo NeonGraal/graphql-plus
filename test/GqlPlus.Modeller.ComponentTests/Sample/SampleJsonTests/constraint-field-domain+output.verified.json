@@ -29,7 +29,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutpCnstFieldDmnRef",
+          "object": "RefOutpCnstFieldDmn",
           "type": {
             "$tag": "_OutputBase",
             "value": "DomCnstFieldDmn"
@@ -39,7 +39,7 @@
       "name": "OutpCnstFieldDmn",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "OutpCnstFieldDmnRef",
+        "output": "RefOutpCnstFieldDmn",
         "typeArgs": [
           {
             "$tag": "_OutputArg",
@@ -49,13 +49,13 @@
       },
       "typeKind": "Output"
     },
-    "OutpCnstFieldDmnRef": {
+    "RefOutpCnstFieldDmn": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutpCnstFieldDmnRef",
+          "object": "RefOutpCnstFieldDmn",
           "type": "ref"
         }
       ],
@@ -66,7 +66,7 @@
           "type": "ref"
         }
       ],
-      "name": "OutpCnstFieldDmnRef",
+      "name": "RefOutpCnstFieldDmn",
       "typeKind": "Output",
       "typeParams": [
         {

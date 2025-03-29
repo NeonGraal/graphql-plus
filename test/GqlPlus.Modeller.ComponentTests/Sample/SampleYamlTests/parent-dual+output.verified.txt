@@ -3,29 +3,29 @@ types: !_Map_Type
   !_Identifier OutpPrntDual: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: OutpPrntDualRef
+      object: RefOutpPrntDual
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: parent
-      object: OutpPrntDualRef
+      object: RefOutpPrntDual
       type: !_DualBase
         dual: Number
     name: OutpPrntDual
     parent: !_DualBase
-      dual: OutpPrntDualRef
+      dual: RefOutpPrntDual
     typeKind: !_TypeKind Output
-  !_Identifier OutpPrntDualRef: !_TypeDual
+  !_Identifier RefOutpPrntDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: OutpPrntDualRef
+      object: RefOutpPrntDual
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: parent
-      object: OutpPrntDualRef
+      object: RefOutpPrntDual
       type: !_DualBase
         dual: Number
     alternates:
@@ -37,5 +37,5 @@ types: !_Map_Type
       name: parent
       type: !_DualBase
         dual: Number
-    name: OutpPrntDualRef
+    name: RefOutpPrntDual
     typeKind: !_TypeKind Dual

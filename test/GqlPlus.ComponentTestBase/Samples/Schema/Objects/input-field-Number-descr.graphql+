@@ -1,1 +1,1 @@
-input InFieldNum { field: "Test" "Descr" Number = 0 }
+input Name { field: "Test" "Descr" Number = 0 }

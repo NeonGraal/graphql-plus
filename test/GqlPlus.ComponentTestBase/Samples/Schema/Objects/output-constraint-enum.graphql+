@@ -1,3 +1,3 @@
-output Name { | NameRef<name> }
-output NameRef<$type:NameEnum> { field: $type }
-enum NameEnum { name }
+output Name { | RefName<name> }
+output RefName<$type:EnumName> { field: $type }
+enum EnumName { name }

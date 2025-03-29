@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "categories": {
     "$tag": "_Map_Categories",
-    "descrBetween": {
+    "descrBtwn": {
       "$tag": "_Category",
-      "name": "descrBetween",
+      "name": "descrBtwn",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
-        "name": "DescrBetween",
+        "name": "DescrBtwn",
         "typeKind": "Output"
       },
       "resolution": "Parallel"
@@ -15,10 +15,10 @@
   },
   "types": {
     "$tag": "_Map_Type",
-    "DescrBetween": {
+    "DescrBtwn": {
       "$tag": "_TypeOutput",
       "description": "A description between",
-      "name": "DescrBetween",
+      "name": "DescrBtwn",
       "typeKind": "Output"
     }
   }

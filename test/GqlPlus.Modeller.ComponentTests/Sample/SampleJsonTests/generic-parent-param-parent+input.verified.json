@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpGnrcPrntParamPrnt": {
+    "AltInpGnrcPrntParamPrnt": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGnrcPrntParamPrntAlt",
+          "object": "AltInpGnrcPrntParamPrnt",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -18,43 +18,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "alt",
-          "object": "InpGnrcPrntParamPrntAlt",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "name": "InpGnrcPrntParamPrnt",
-      "parent": {
-        "$tag": "_InputBase",
-        "input": "InpGnrcPrntParamPrntRef",
-        "typeArgs": [
-          {
-            "$tag": "_InputArg",
-            "value": "InpGnrcPrntParamPrntAlt"
-          }
-        ]
-      },
-      "typeKind": "Input"
-    },
-    "InpGnrcPrntParamPrntAlt": {
-      "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGnrcPrntParamPrntAlt",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_InputField)",
-          "name": "alt",
-          "object": "InpGnrcPrntParamPrntAlt",
+          "object": "AltInpGnrcPrntParamPrnt",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -80,12 +44,48 @@
           }
         }
       ],
-      "name": "InpGnrcPrntParamPrntAlt",
+      "name": "AltInpGnrcPrntParamPrnt",
       "typeKind": "Input"
     },
-    "InpGnrcPrntParamPrntRef": {
+    "InpGnrcPrntParamPrnt": {
       "$tag": "_TypeInput",
-      "name": "InpGnrcPrntParamPrntRef",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "AltInpGnrcPrntParamPrnt",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "alt",
+          "object": "AltInpGnrcPrntParamPrnt",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "InpGnrcPrntParamPrnt",
+      "parent": {
+        "$tag": "_InputBase",
+        "input": "RefInpGnrcPrntParamPrnt",
+        "typeArgs": [
+          {
+            "$tag": "_InputArg",
+            "value": "AltInpGnrcPrntParamPrnt"
+          }
+        ]
+      },
+      "typeKind": "Input"
+    },
+    "RefInpGnrcPrntParamPrnt": {
+      "$tag": "_TypeInput",
+      "name": "RefInpGnrcPrntParamPrnt",
       "parent": "ref",
       "typeKind": "Input",
       "typeParams": [

@@ -2,7 +2,7 @@
   "$tag": "_Schema",
   "directives": {
     "$tag": "_Map_Directives",
-    "DirAlias": {
+    "DrctAlias": {
       "$tag": "_Directive",
       "aliases": ["DirA1", "DirA2"],
       "locations": {
@@ -10,7 +10,7 @@
         "Field": "_",
         "Variable": "_"
       },
-      "name": "DirAlias",
+      "name": "DrctAlias",
       "repeatable": false
     }
   }

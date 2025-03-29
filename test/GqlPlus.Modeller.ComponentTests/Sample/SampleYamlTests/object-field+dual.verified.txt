@@ -6,14 +6,14 @@ types: !_Map_Type
       name: field
       object: DualObjField
       type: !_DualBase
-        dual: DualObjFieldFld
+        dual: FldDualObjField
     fields:
     - !_DualField
       name: field
       type: !_DualBase
-        dual: DualObjFieldFld
+        dual: FldDualObjField
     name: DualObjField
     typeKind: !_TypeKind Dual
-  !_Identifier DualObjFieldFld: !_TypeDual
-    name: DualObjFieldFld
+  !_Identifier FldDualObjField: !_TypeDual
+    name: FldDualObjField
     typeKind: !_TypeKind Dual

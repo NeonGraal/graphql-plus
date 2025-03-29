@@ -3,16 +3,16 @@
 Success
 {
   !Ca P@010/0001
-  catAlias
+  ctgrAlias
   [
     CatA1
     CatA2
   ]
   (Parallel)
-  CatAlias
+  CtgrAlias
 }
 {
   !Ou I@008/0003
-  CatAlias
+  CtgrAlias
 }
 ]

@@ -7,7 +7,7 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpPrntParamSameRef",
+          "object": "RefOutpPrntParamSame",
           "type": "a"
         }
       ],
@@ -29,7 +29,7 @@
       "name": "OutpPrntParamSame",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "OutpPrntParamSameRef",
+        "output": "RefOutpPrntParamSame",
         "typeArgs": ["a"]
       },
       "typeKind": "Output",
@@ -40,12 +40,12 @@
         }
       ]
     },
-    "OutpPrntParamSameRef": {
+    "RefOutpPrntParamSame": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpPrntParamSameRef",
+          "object": "RefOutpPrntParamSame",
           "type": "a"
         }
       ],
@@ -55,7 +55,7 @@
           "type": "a"
         }
       ],
-      "name": "OutpPrntParamSameRef",
+      "name": "RefOutpPrntParamSame",
       "typeKind": "Output",
       "typeParams": [
         {

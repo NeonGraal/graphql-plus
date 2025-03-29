@@ -9,11 +9,11 @@ Success
     field
     :
     I@028/0001
-    InpObjFieldFld
+    FldInpObjField
   }
 }
 {
   !In I@007/0003
-  InpObjFieldFld
+  FldInpObjField
 }
 ]

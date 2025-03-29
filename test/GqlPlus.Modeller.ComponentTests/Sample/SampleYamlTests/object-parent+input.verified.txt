@@ -3,8 +3,8 @@ types: !_Map_Type
   !_Identifier InpObjPrnt: !_TypeInput
     name: InpObjPrnt
     parent: !_InputBase
-      input: InpObjPrntRef
+      input: RefInpObjPrnt
     typeKind: !_TypeKind Input
-  !_Identifier InpObjPrntRef: !_TypeInput
-    name: InpObjPrntRef
+  !_Identifier RefInpObjPrnt: !_TypeInput
+    name: RefInpObjPrnt
     typeKind: !_TypeKind Input

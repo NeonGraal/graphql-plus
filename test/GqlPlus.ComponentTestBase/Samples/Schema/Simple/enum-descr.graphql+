@@ -1,1 +1,1 @@
-enum EnDescr { "Enum" "Descr" val_test }
+enum Name { "Enum" "Descr" name }

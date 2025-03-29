@@ -7,13 +7,13 @@
       "name": "InpObjPrnt",
       "parent": {
         "$tag": "_InputBase",
-        "value": "InpObjPrntRef"
+        "value": "RefInpObjPrnt"
       },
       "typeKind": "Input"
     },
-    "InpObjPrntRef": {
+    "RefInpObjPrnt": {
       "$tag": "_TypeInput",
-      "name": "InpObjPrntRef",
+      "name": "RefInpObjPrnt",
       "typeKind": "Input"
     }
   }

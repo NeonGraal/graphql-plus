@@ -3,9 +3,9 @@
 Success
 {
   !En I@006/0001
-  EnValAlias
-  !EL I@019/0001
-  value
+  EnumValueAlias
+  !EL I@023/0001
+  enumValueAlias
   [
     val1
     val2

@@ -7,7 +7,7 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualPrntParamDiffRef",
+          "object": "RefDualPrntParamDiff",
           "type": "b"
         }
       ],
@@ -29,7 +29,7 @@
       "name": "DualPrntParamDiff",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "DualPrntParamDiffRef",
+        "dual": "RefDualPrntParamDiff",
         "typeArgs": ["a"]
       },
       "typeKind": "Dual",
@@ -40,12 +40,12 @@
         }
       ]
     },
-    "DualPrntParamDiffRef": {
+    "RefDualPrntParamDiff": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualPrntParamDiffRef",
+          "object": "RefDualPrntParamDiff",
           "type": "b"
         }
       ],
@@ -55,7 +55,7 @@
           "type": "b"
         }
       ],
-      "name": "DualPrntParamDiffRef",
+      "name": "RefDualPrntParamDiff",
       "typeKind": "Dual",
       "typeParams": [
         {

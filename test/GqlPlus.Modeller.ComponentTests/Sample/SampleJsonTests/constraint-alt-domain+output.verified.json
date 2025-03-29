@@ -31,7 +31,7 @@
           "object": "OutpCnstAltDmn",
           "type": {
             "$tag": "_OutputBase",
-            "output": "OutpCnstAltDmnRef",
+            "output": "RefOutpCnstAltDmn",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
@@ -46,7 +46,7 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "OutpCnstAltDmnRef",
+            "output": "RefOutpCnstAltDmn",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
@@ -59,12 +59,12 @@
       "name": "OutpCnstAltDmn",
       "typeKind": "Output"
     },
-    "OutpCnstAltDmnRef": {
+    "RefOutpCnstAltDmn": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpCnstAltDmnRef",
+          "object": "RefOutpCnstAltDmn",
           "type": "ref"
         }
       ],
@@ -74,7 +74,7 @@
           "type": "ref"
         }
       ],
-      "name": "OutpCnstAltDmnRef",
+      "name": "RefOutpCnstAltDmn",
       "typeKind": "Output",
       "typeParams": [
         {

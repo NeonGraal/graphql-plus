@@ -2,49 +2,58 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
+    "EnumDmnEnumUnq": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumDmnEnumUnq",
+          "name": "enum_dmnEnumUnq"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumDmnEnumUnq",
+          "name": "dmnEnumUnq"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "enum_dmnEnumUnq"
+        },
+        {
+          "$tag": "_Aliased",
+          "value": "dmnEnumUnq"
+        }
+      ],
+      "name": "EnumDmnEnumUnq",
+      "typeKind": "Enum"
+    },
     "EnumDomDup": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
           "enum": "EnumDomDup",
-          "name": "eum_dom_dup"
+          "name": "dmnEnumUnq"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumDomDup",
+          "name": "dup_dmnEnumUnq"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "eum_dom_dup"
+          "value": "dmnEnumUnq"
+        },
+        {
+          "$tag": "_Aliased",
+          "value": "dup_dmnEnumUnq"
         }
       ],
       "name": "EnumDomDup",
-      "typeKind": "Enum"
-    },
-    "EnumDomUnique": {
-      "$tag": "_TypeEnum",
-      "allItems": [
-        {
-          "$tag": "_EnumLabel",
-          "enum": "EnumDomUnique",
-          "name": "eum_dom_value"
-        },
-        {
-          "$tag": "_EnumLabel",
-          "enum": "EnumDomUnique",
-          "name": "eum_dom_dup"
-        }
-      ],
-      "items": [
-        {
-          "$tag": "_Aliased",
-          "value": "eum_dom_value"
-        },
-        {
-          "$tag": "_Aliased",
-          "value": "eum_dom_dup"
-        }
-      ],
-      "name": "EnumDomUnique",
       "typeKind": "Enum"
     }
   }

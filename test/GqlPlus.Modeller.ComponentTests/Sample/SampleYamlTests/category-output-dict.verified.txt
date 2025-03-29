@@ -1,14 +1,14 @@
 ﻿!_Schema
 categories: !_Map_Categories
-  !_Identifier catDict: !_Category
+  !_Identifier ctgrOutpDict: !_Category
     modifiers: [!_ModifierDictionary {by: '*', modifierKind: !_ModifierKind Dict,
         typeKind: !_SimpleKind Basic}]
-    name: catDict
+    name: ctgrOutpDict
     output: !_TypeRef(_TypeKind)
-      name: CatDict
+      name: CtgrOutpDict
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
 types: !_Map_Type
-  !_Identifier CatDict: !_TypeOutput
-    name: CatDict
+  !_Identifier CtgrOutpDict: !_TypeOutput
+    name: CtgrOutpDict
     typeKind: !_TypeKind Output

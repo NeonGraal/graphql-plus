@@ -3,8 +3,8 @@
 Success
 {
   !Un I@007/0001
-  UnSame
-  !UM I@016/0001
+  UnionSame
+  !UM I@019/0001
   Boolean
 }
 ]

@@ -1,33 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpGnrcAltDual: !_TypeInput
-    allAlternates:
-    - !_ObjectFor(_InputAlternate)
-      object: InpGnrcAltDual
-      type: !_InputBase
-        input: InpGnrcAltDualRef
-        typeArgs:
-        - !_DualArg
-          dual: InpGnrcAltDualAlt
-    alternates:
-    - !_InputAlternate
-      type: !_InputBase
-        input: InpGnrcAltDualRef
-        typeArgs:
-        - !_DualArg
-          dual: InpGnrcAltDualAlt
-    name: InpGnrcAltDual
-    typeKind: !_TypeKind Input
-  !_Identifier InpGnrcAltDualAlt: !_TypeDual
+  !_Identifier AltInpGnrcAltDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: InpGnrcAltDualAlt
+      object: AltInpGnrcAltDual
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: InpGnrcAltDualAlt
+      object: AltInpGnrcAltDual
       type: !_DualBase
         dual: Number
     alternates:
@@ -39,17 +21,35 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: InpGnrcAltDualAlt
+    name: AltInpGnrcAltDual
     typeKind: !_TypeKind Dual
-  !_Identifier InpGnrcAltDualRef: !_TypeInput
+  !_Identifier InpGnrcAltDual: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpGnrcAltDualRef
+      object: InpGnrcAltDual
+      type: !_InputBase
+        input: RefInpGnrcAltDual
+        typeArgs:
+        - !_DualArg
+          dual: AltInpGnrcAltDual
+    alternates:
+    - !_InputAlternate
+      type: !_InputBase
+        input: RefInpGnrcAltDual
+        typeArgs:
+        - !_DualArg
+          dual: AltInpGnrcAltDual
+    name: InpGnrcAltDual
+    typeKind: !_TypeKind Input
+  !_Identifier RefInpGnrcAltDual: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: RefInpGnrcAltDual
       type: !_TypeParam ref
     alternates:
     - !_InputAlternate
       type: !_TypeParam ref
-    name: InpGnrcAltDualRef
+    name: RefInpGnrcAltDual
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described

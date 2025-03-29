@@ -1,29 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpCnstFieldObj: !_TypeOutput
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: field
-      object: OutpCnstFieldObjRef
-      type: !_OutputBase
-        output: OutpCnstFieldObjAlt
-    name: OutpCnstFieldObj
-    parent: !_OutputBase
-      output: OutpCnstFieldObjRef
-      typeArgs:
-      - !_OutputArg
-        output: OutpCnstFieldObjAlt
-    typeKind: !_TypeKind Output
-  !_Identifier OutpCnstFieldObjAlt: !_TypeOutput
+  !_Identifier AltOutpCnstFieldObj: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpCnstFieldObjParent
+      object: PrntOutpCnstFieldObj
       type: !_OutputBase
         output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
-      object: OutpCnstFieldObjAlt
+      object: AltOutpCnstFieldObj
       type: !_OutputBase
         output: Number
     fields:
@@ -31,33 +17,47 @@ types: !_Map_Type
       name: alt
       type: !_OutputBase
         output: Number
-    name: OutpCnstFieldObjAlt
+    name: AltOutpCnstFieldObj
     parent: !_OutputBase
-      output: OutpCnstFieldObjParent
+      output: PrntOutpCnstFieldObj
     typeKind: !_TypeKind Output
-  !_Identifier OutpCnstFieldObjParent: !_TypeOutput
+  !_Identifier OutpCnstFieldObj: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: RefOutpCnstFieldObj
+      type: !_OutputBase
+        output: AltOutpCnstFieldObj
+    name: OutpCnstFieldObj
+    parent: !_OutputBase
+      output: RefOutpCnstFieldObj
+      typeArgs:
+      - !_OutputArg
+        output: AltOutpCnstFieldObj
+    typeKind: !_TypeKind Output
+  !_Identifier PrntOutpCnstFieldObj: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpCnstFieldObjParent
+      object: PrntOutpCnstFieldObj
       type: !_OutputBase
         output: String
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
         output: String
-    name: OutpCnstFieldObjParent
+    name: PrntOutpCnstFieldObj
     typeKind: !_TypeKind Output
-  !_Identifier OutpCnstFieldObjRef: !_TypeOutput
+  !_Identifier RefOutpCnstFieldObj: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
-      object: OutpCnstFieldObjRef
+      object: RefOutpCnstFieldObj
       type: !_TypeParam ref
     fields:
     - !_OutputField
       name: field
       type: !_TypeParam ref
-    name: OutpCnstFieldObjRef
+    name: RefOutpCnstFieldObj
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described

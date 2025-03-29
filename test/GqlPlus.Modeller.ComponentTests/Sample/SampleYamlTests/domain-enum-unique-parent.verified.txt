@@ -1,38 +1,51 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier EnumDomDupParent: !_TypeEnum
+  !_Identifier DupDmnEnumUnqPrnt: !_TypeEnum
     allItems:
     - !_EnumLabel
-      enum: EnumDomDupParent
-      name: enum_dom_parent_dup
+      enum: DupDmnEnumUnqPrnt
+      name: dmnEnumUnqPrnt
+    - !_EnumLabel
+      enum: DupDmnEnumUnqPrnt
+      name: dup_dmnEnumUnqPrnt
     items:
     - !_Aliased
-      name: enum_dom_parent_dup
-    name: EnumDomDupParent
+      name: dmnEnumUnqPrnt
+    - !_Aliased
+      name: dup_dmnEnumUnqPrnt
+    name: DupDmnEnumUnqPrnt
     typeKind: !_TypeKind Enum
-  !_Identifier EnumDomParentUnique: !_TypeEnum
+  !_Identifier EnumDmnEnumUnqPrnt: !_TypeEnum
     allItems:
     - !_EnumLabel
-      enum: EnumDomParentUnique
-      name: enum_dom_parent_dup
+      enum: PrntDmnEnumUnqPrnt
+      name: dmnEnumUnqPrnt
+    - !_EnumLabel
+      enum: PrntDmnEnumUnqPrnt
+      name: prnt_dmnEnumUnqPrnt
+    - !_EnumLabel
+      enum: EnumDmnEnumUnqPrnt
+      name: enum_dmnEnumUnqPrnt
     items:
     - !_Aliased
-      name: enum_dom_parent_dup
-    name: EnumDomParentUnique
-    typeKind: !_TypeKind Enum
-  !_Identifier EnumDomUniqueParent: !_TypeEnum
-    allItems:
-    - !_EnumLabel
-      enum: EnumDomParentUnique
-      name: enum_dom_parent_dup
-    - !_EnumLabel
-      enum: EnumDomUniqueParent
-      name: value
-    items:
-    - !_Aliased
-      name: value
-    name: EnumDomUniqueParent
+      name: enum_dmnEnumUnqPrnt
+    name: EnumDmnEnumUnqPrnt
     parent: !_TypeRef(_SimpleKind)
-      name: EnumDomParentUnique
+      name: PrntDmnEnumUnqPrnt
       typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
+  !_Identifier PrntDmnEnumUnqPrnt: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: PrntDmnEnumUnqPrnt
+      name: dmnEnumUnqPrnt
+    - !_EnumLabel
+      enum: PrntDmnEnumUnqPrnt
+      name: prnt_dmnEnumUnqPrnt
+    items:
+    - !_Aliased
+      name: dmnEnumUnqPrnt
+    - !_Aliased
+      name: prnt_dmnEnumUnqPrnt
+    name: PrntDmnEnumUnqPrnt
     typeKind: !_TypeKind Enum

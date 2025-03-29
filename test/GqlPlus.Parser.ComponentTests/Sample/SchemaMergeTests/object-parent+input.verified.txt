@@ -6,10 +6,10 @@ Success
   InpObjPrnt
   :
   I@021/0001
-  InpObjPrntRef
+  RefInpObjPrnt
 }
 {
   !In I@007/0003
-  InpObjPrntRef
+  RefInpObjPrnt
 }
 ]

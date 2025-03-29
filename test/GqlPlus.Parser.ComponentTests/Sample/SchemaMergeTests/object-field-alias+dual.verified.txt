@@ -13,11 +13,11 @@ Success
     ]
     :
     I@042/0001
-    DualObjFieldAliasFld
+    FldDualObjFieldAlias
   }
 }
 {
   !Du I@006/0003
-  DualObjFieldAliasFld
+  FldDualObjFieldAlias
 }
 ]

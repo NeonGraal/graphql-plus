@@ -1,2 +1,2 @@
-union UnionPrnt { :PrntUnion String }
-union PrntUnion { Number }
+union Name { :PrntName String }
+union PrntName { Number }

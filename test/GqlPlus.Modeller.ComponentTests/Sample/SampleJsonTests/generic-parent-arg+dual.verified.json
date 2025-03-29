@@ -7,14 +7,14 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualGnrcPrntArgRef",
+          "object": "RefDualGnrcPrntArg",
           "type": "ref"
         }
       ],
       "name": "DualGnrcPrntArg",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "DualGnrcPrntArgRef",
+        "dual": "RefDualGnrcPrntArg",
         "typeArgs": ["type"]
       },
       "typeKind": "Dual",
@@ -25,12 +25,12 @@
         }
       ]
     },
-    "DualGnrcPrntArgRef": {
+    "RefDualGnrcPrntArg": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualGnrcPrntArgRef",
+          "object": "RefDualGnrcPrntArg",
           "type": "ref"
         }
       ],
@@ -40,7 +40,7 @@
           "type": "ref"
         }
       ],
-      "name": "DualGnrcPrntArgRef",
+      "name": "RefDualGnrcPrntArg",
       "typeKind": "Dual",
       "typeParams": [
         {

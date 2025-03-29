@@ -2,36 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpAlt": {
+    "AltOutpAlt": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpAlt",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutpAltAlt"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutpAltAlt"
-          }
-        }
-      ],
-      "name": "OutpAlt",
-      "typeKind": "Output"
-    },
-    "OutpAltAlt": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpAltAlt",
+          "object": "AltOutpAlt",
           "type": {
             "$tag": "_OutputBase",
             "value": "String"
@@ -42,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "alt",
-          "object": "OutpAltAlt",
+          "object": "AltOutpAlt",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -68,7 +44,31 @@
           }
         }
       ],
-      "name": "OutpAltAlt",
+      "name": "AltOutpAlt",
+      "typeKind": "Output"
+    },
+    "OutpAlt": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpAlt",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "AltOutpAlt"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "AltOutpAlt"
+          }
+        }
+      ],
+      "name": "OutpAlt",
       "typeKind": "Output"
     }
   }

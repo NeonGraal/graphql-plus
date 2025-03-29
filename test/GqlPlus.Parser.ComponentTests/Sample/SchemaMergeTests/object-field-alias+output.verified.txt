@@ -13,11 +13,11 @@ Success
     ]
     :
     I@044/0001
-    OutpObjFieldAliasFld
+    FldOutpObjFieldAlias
   }
 }
 {
   !Ou I@008/0003
-  OutpObjFieldAliasFld
+  FldOutpObjFieldAlias
 }
 ]

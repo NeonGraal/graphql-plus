@@ -1,13 +1,13 @@
 ﻿!_Schema
 categories: !_Map_Categories
-  !_Identifier descrBetween: !_Category
-    name: descrBetween
+  !_Identifier descrBtwn: !_Category
+    name: descrBtwn
     output: !_TypeRef(_TypeKind)
-      name: DescrBetween
+      name: DescrBtwn
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
 types: !_Map_Type
-  !_Identifier DescrBetween: !_TypeOutput
+  !_Identifier DescrBtwn: !_TypeOutput
     description: 'A description between'
-    name: DescrBetween
+    name: DescrBtwn
     typeKind: !_TypeKind Output

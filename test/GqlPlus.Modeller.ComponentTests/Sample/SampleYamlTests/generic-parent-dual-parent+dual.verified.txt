@@ -1,34 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualGnrcPrntDualPrnt: !_TypeDual
+  !_Identifier AltDualGnrcPrntDualPrnt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualGnrcPrntDualPrntAlt
+      object: AltDualGnrcPrntDualPrnt
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: DualGnrcPrntDualPrntAlt
-      type: !_DualBase
-        dual: Number
-    name: DualGnrcPrntDualPrnt
-    parent: !_DualBase
-      dual: DualGnrcPrntDualPrntRef
-      typeArgs:
-      - !_DualArg
-        dual: DualGnrcPrntDualPrntAlt
-    typeKind: !_TypeKind Dual
-  !_Identifier DualGnrcPrntDualPrntAlt: !_TypeDual
-    allAlternates:
-    - !_ObjectFor(_DualAlternate)
-      object: DualGnrcPrntDualPrntAlt
-      type: !_DualBase
-        dual: String
-    allFields:
-    - !_ObjectFor(_DualField)
-      name: alt
-      object: DualGnrcPrntDualPrntAlt
+      object: AltDualGnrcPrntDualPrnt
       type: !_DualBase
         dual: Number
     alternates:
@@ -40,10 +21,29 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: DualGnrcPrntDualPrntAlt
+    name: AltDualGnrcPrntDualPrnt
     typeKind: !_TypeKind Dual
-  !_Identifier DualGnrcPrntDualPrntRef: !_TypeDual
-    name: DualGnrcPrntDualPrntRef
+  !_Identifier DualGnrcPrntDualPrnt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: AltDualGnrcPrntDualPrnt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: AltDualGnrcPrntDualPrnt
+      type: !_DualBase
+        dual: Number
+    name: DualGnrcPrntDualPrnt
+    parent: !_DualBase
+      dual: RefDualGnrcPrntDualPrnt
+      typeArgs:
+      - !_DualArg
+        dual: AltDualGnrcPrntDualPrnt
+    typeKind: !_TypeKind Dual
+  !_Identifier RefDualGnrcPrntDualPrnt: !_TypeDual
+    name: RefDualGnrcPrntDualPrnt
     parent: !_TypeParam ref
     typeKind: !_TypeKind Dual
     typeParams:

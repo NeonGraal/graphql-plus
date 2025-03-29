@@ -2,50 +2,17 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutParamParent": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "field",
-          "object": "OutParamParent",
-          "parameters": [
-            {
-              "$tag": "_InputParam",
-              "value": "OutParamParentIn"
-            }
-          ],
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutPrntParam"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "field",
-          "parameters": [
-            {
-              "$tag": "_InputParam",
-              "value": "OutParamParentIn"
-            }
-          ],
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutPrntParam"
-          }
-        }
-      ],
-      "name": "OutParamParent",
-      "typeKind": "Output"
+    "FldOutpPrntParam": {
+      "$tag": "_TypeDual",
+      "name": "FldOutpPrntParam",
+      "typeKind": "Dual"
     },
-    "OutParamParentIn": {
+    "InOutpPrntParam": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "OutParamParentIn",
+          "object": "InOutpPrntParam",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -55,8 +22,8 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
-          "name": "parent",
-          "object": "OutParamParentIn",
+          "name": "param",
+          "object": "InOutpPrntParam",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -75,47 +42,47 @@
       "fields": [
         {
           "$tag": "_InputField",
-          "name": "parent",
+          "name": "param",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
           }
         }
       ],
-      "name": "OutParamParentIn",
+      "name": "InOutpPrntParam",
       "typeKind": "Input"
     },
-    "OutPrntParam": {
+    "OutpPrntParam": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutParamParent",
+          "object": "PrntOutpPrntParam",
           "parameters": [
             {
               "$tag": "_InputParam",
-              "value": "OutParamParentIn"
+              "value": "PrntOutpPrntParamIn"
             }
           ],
           "type": {
-            "$tag": "_OutputBase",
-            "value": "OutPrntParam"
+            "$tag": "_DualBase",
+            "value": "FldOutpPrntParam"
           }
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutPrntParam",
+          "object": "OutpPrntParam",
           "parameters": [
             {
               "$tag": "_InputParam",
-              "value": "OutPrntParamIn"
+              "value": "InOutpPrntParam"
             }
           ],
           "type": {
-            "$tag": "_OutputBase",
-            "value": "OutPrntParam"
+            "$tag": "_DualBase",
+            "value": "FldOutpPrntParam"
           }
         }
       ],
@@ -126,28 +93,66 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "value": "OutPrntParamIn"
+              "value": "InOutpPrntParam"
             }
           ],
           "type": {
-            "$tag": "_OutputBase",
-            "value": "OutPrntParam"
+            "$tag": "_DualBase",
+            "value": "FldOutpPrntParam"
           }
         }
       ],
-      "name": "OutPrntParam",
+      "name": "OutpPrntParam",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "OutParamParent"
+        "value": "PrntOutpPrntParam"
       },
       "typeKind": "Output"
     },
-    "OutPrntParamIn": {
+    "PrntOutpPrntParam": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "PrntOutpPrntParam",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "PrntOutpPrntParamIn"
+            }
+          ],
+          "type": {
+            "$tag": "_DualBase",
+            "value": "FldOutpPrntParam"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "PrntOutpPrntParamIn"
+            }
+          ],
+          "type": {
+            "$tag": "_DualBase",
+            "value": "FldOutpPrntParam"
+          }
+        }
+      ],
+      "name": "PrntOutpPrntParam",
+      "typeKind": "Output"
+    },
+    "PrntOutpPrntParamIn": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "OutPrntParamIn",
+          "object": "PrntOutpPrntParamIn",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -157,8 +162,8 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
-          "name": "param",
-          "object": "OutPrntParamIn",
+          "name": "parent",
+          "object": "PrntOutpPrntParamIn",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -177,14 +182,14 @@
       "fields": [
         {
           "$tag": "_InputField",
-          "name": "param",
+          "name": "parent",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
           }
         }
       ],
-      "name": "OutPrntParamIn",
+      "name": "PrntOutpPrntParamIn",
       "typeKind": "Input"
     }
   }

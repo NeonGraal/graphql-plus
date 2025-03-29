@@ -2,13 +2,13 @@
   "$tag": "_Schema",
   "categories": {
     "$tag": "_Map_Categories",
-    "catDescr": {
+    "ctgrDscrs": {
       "$tag": "_Category",
       "description": "A Category described",
-      "name": "catDescr",
+      "name": "ctgrDscrs",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
-        "name": "CatDescr",
+        "name": "CtgrDscrs",
         "typeKind": "Output"
       },
       "resolution": "Parallel"
@@ -16,9 +16,9 @@
   },
   "types": {
     "$tag": "_Map_Type",
-    "CatDescr": {
+    "CtgrDscrs": {
       "$tag": "_TypeOutput",
-      "name": "CatDescr",
+      "name": "CtgrDscrs",
       "typeKind": "Output"
     }
   }

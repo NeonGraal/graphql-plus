@@ -10,7 +10,7 @@
           "object": "InpGnrcAltArgDescr",
           "type": {
             "$tag": "_InputBase",
-            "input": "InpGnrcAltArgDescrRef",
+            "input": "RefInpGnrcAltArgDescr",
             "typeArgs": ["type"]
           }
         }
@@ -20,7 +20,7 @@
           "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
-            "input": "InpGnrcAltArgDescrRef",
+            "input": "RefInpGnrcAltArgDescr",
             "typeArgs": ["type"]
           }
         }
@@ -34,12 +34,12 @@
         }
       ]
     },
-    "InpGnrcAltArgDescrRef": {
+    "RefInpGnrcAltArgDescr": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGnrcAltArgDescrRef",
+          "object": "RefInpGnrcAltArgDescr",
           "type": "ref"
         }
       ],
@@ -49,7 +49,7 @@
           "type": "ref"
         }
       ],
-      "name": "InpGnrcAltArgDescrRef",
+      "name": "RefInpGnrcAltArgDescr",
       "typeKind": "Input",
       "typeParams": [
         {

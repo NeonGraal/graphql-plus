@@ -1,1 +1,1 @@
-9118934  (HEAD -> type-constraints) 2025-03-29 Restore inadvertant changes
+5c12ceb  (HEAD -> type-constraints) 2025-03-29 Use Name in most sample .graphql+

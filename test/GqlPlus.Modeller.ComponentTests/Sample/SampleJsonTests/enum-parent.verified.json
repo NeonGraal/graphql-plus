@@ -2,50 +2,50 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "EnPrntTest": {
+    "EnumPrnt": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "enum": "EnPrntTest",
-          "name": "val_test"
-        }
-      ],
-      "items": [
-        {
-          "$tag": "_Aliased",
-          "value": "val_test"
-        }
-      ],
-      "name": "EnPrntTest",
-      "typeKind": "Enum"
-    },
-    "EnTestPrnt": {
-      "$tag": "_TypeEnum",
-      "allItems": [
-        {
-          "$tag": "_EnumLabel",
-          "enum": "EnPrntTest",
-          "name": "val_test"
+          "enum": "PrntEnumPrnt",
+          "name": "prnt_enumPrnt"
         },
         {
           "$tag": "_EnumLabel",
-          "enum": "EnTestPrnt",
-          "name": "val_prnt"
+          "enum": "EnumPrnt",
+          "name": "enumPrnt"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "val_prnt"
+          "value": "enumPrnt"
         }
       ],
-      "name": "EnTestPrnt",
+      "name": "EnumPrnt",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
-        "name": "EnPrntTest",
+        "name": "PrntEnumPrnt",
         "typeKind": "Enum"
       },
+      "typeKind": "Enum"
+    },
+    "PrntEnumPrnt": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "PrntEnumPrnt",
+          "name": "prnt_enumPrnt"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "prnt_enumPrnt"
+        }
+      ],
+      "name": "PrntEnumPrnt",
       "typeKind": "Enum"
     }
   }

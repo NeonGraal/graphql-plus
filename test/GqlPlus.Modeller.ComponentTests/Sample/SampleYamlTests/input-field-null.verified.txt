@@ -1,20 +1,23 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InFieldNull: !_TypeInput
+  !_Identifier FldInpFieldNull: !_TypeDual
+    name: FldInpFieldNull
+    typeKind: !_TypeKind Dual
+  !_Identifier InpFieldNull: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       default: !Null null
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: field
-      object: InFieldNull
-      type: !_InputBase
-        input: InFieldNull
+      object: InpFieldNull
+      type: !_DualBase
+        dual: FldInpFieldNull
     fields:
     - !_InputField
       default: !Null null
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: field
-      type: !_InputBase
-        input: InFieldNull
-    name: InFieldNull
+      type: !_DualBase
+        dual: FldInpFieldNull
+    name: InpFieldNull
     typeKind: !_TypeKind Input

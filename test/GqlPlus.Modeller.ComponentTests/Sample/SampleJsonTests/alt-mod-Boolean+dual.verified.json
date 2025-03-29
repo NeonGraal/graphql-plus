@@ -2,52 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualAltModBool": {
+    "AltDualAltModBool": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "collections": [
-            {
-              "$tag": "_ModifierDictionary",
-              "by": "^",
-              "modifierKind": "Dict",
-              "typeKind": "Basic"
-            }
-          ],
-          "object": "DualAltModBool",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "DualAltModBoolAlt"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_DualAlternate",
-          "collections": [
-            {
-              "$tag": "_ModifierDictionary",
-              "by": "^",
-              "modifierKind": "Dict",
-              "typeKind": "Basic"
-            }
-          ],
-          "type": {
-            "$tag": "_DualBase",
-            "value": "DualAltModBoolAlt"
-          }
-        }
-      ],
-      "name": "DualAltModBool",
-      "typeKind": "Dual"
-    },
-    "DualAltModBoolAlt": {
-      "$tag": "_TypeDual",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualAltModBoolAlt",
+          "object": "AltDualAltModBool",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -58,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "DualAltModBoolAlt",
+          "object": "AltDualAltModBool",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -84,7 +44,47 @@
           }
         }
       ],
-      "name": "DualAltModBoolAlt",
+      "name": "AltDualAltModBool",
+      "typeKind": "Dual"
+    },
+    "DualAltModBool": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "collections": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "^",
+              "modifierKind": "Dict",
+              "typeKind": "Basic"
+            }
+          ],
+          "object": "DualAltModBool",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "AltDualAltModBool"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "collections": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "^",
+              "modifierKind": "Dict",
+              "typeKind": "Basic"
+            }
+          ],
+          "type": {
+            "$tag": "_DualBase",
+            "value": "AltDualAltModBool"
+          }
+        }
+      ],
+      "name": "DualAltModBool",
       "typeKind": "Dual"
     }
   }

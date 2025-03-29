@@ -17,27 +17,27 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_InputField)
       name: field
-      object: InpCnstFieldDmnRef
+      object: RefInpCnstFieldDmn
       type: !_InputBase
         input: DomCnstFieldDmn
     name: InpCnstFieldDmn
     parent: !_InputBase
-      input: InpCnstFieldDmnRef
+      input: RefInpCnstFieldDmn
       typeArgs:
       - !_InputArg
         input: DomCnstFieldDmn
     typeKind: !_TypeKind Input
-  !_Identifier InpCnstFieldDmnRef: !_TypeInput
+  !_Identifier RefInpCnstFieldDmn: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: field
-      object: InpCnstFieldDmnRef
+      object: RefInpCnstFieldDmn
       type: !_TypeParam ref
     fields:
     - !_InputField
       name: field
       type: !_TypeParam ref
-    name: InpCnstFieldDmnRef
+    name: RefInpCnstFieldDmn
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described

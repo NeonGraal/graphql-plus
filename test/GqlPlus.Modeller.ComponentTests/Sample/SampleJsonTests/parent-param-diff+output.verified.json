@@ -7,7 +7,7 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpPrntParamDiffRef",
+          "object": "RefOutpPrntParamDiff",
           "type": "b"
         }
       ],
@@ -29,7 +29,7 @@
       "name": "OutpPrntParamDiff",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "OutpPrntParamDiffRef",
+        "output": "RefOutpPrntParamDiff",
         "typeArgs": ["a"]
       },
       "typeKind": "Output",
@@ -40,12 +40,12 @@
         }
       ]
     },
-    "OutpPrntParamDiffRef": {
+    "RefOutpPrntParamDiff": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpPrntParamDiffRef",
+          "object": "RefOutpPrntParamDiff",
           "type": "b"
         }
       ],
@@ -55,7 +55,7 @@
           "type": "b"
         }
       ],
-      "name": "OutpPrntParamDiffRef",
+      "name": "RefOutpPrntParamDiff",
       "typeKind": "Output",
       "typeParams": [
         {

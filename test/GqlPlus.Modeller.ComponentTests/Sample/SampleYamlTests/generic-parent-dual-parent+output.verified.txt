@@ -1,34 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpGnrcPrntDualPrnt: !_TypeOutput
+  !_Identifier AltOutpGnrcPrntDualPrnt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: OutpGnrcPrntDualPrntAlt
+      object: AltOutpGnrcPrntDualPrnt
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: OutpGnrcPrntDualPrntAlt
-      type: !_DualBase
-        dual: Number
-    name: OutpGnrcPrntDualPrnt
-    parent: !_OutputBase
-      output: OutpGnrcPrntDualPrntRef
-      typeArgs:
-      - !_DualArg
-        dual: OutpGnrcPrntDualPrntAlt
-    typeKind: !_TypeKind Output
-  !_Identifier OutpGnrcPrntDualPrntAlt: !_TypeDual
-    allAlternates:
-    - !_ObjectFor(_DualAlternate)
-      object: OutpGnrcPrntDualPrntAlt
-      type: !_DualBase
-        dual: String
-    allFields:
-    - !_ObjectFor(_DualField)
-      name: alt
-      object: OutpGnrcPrntDualPrntAlt
+      object: AltOutpGnrcPrntDualPrnt
       type: !_DualBase
         dual: Number
     alternates:
@@ -40,10 +21,29 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: OutpGnrcPrntDualPrntAlt
+    name: AltOutpGnrcPrntDualPrnt
     typeKind: !_TypeKind Dual
-  !_Identifier OutpGnrcPrntDualPrntRef: !_TypeOutput
-    name: OutpGnrcPrntDualPrntRef
+  !_Identifier OutpGnrcPrntDualPrnt: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: AltOutpGnrcPrntDualPrnt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: AltOutpGnrcPrntDualPrnt
+      type: !_DualBase
+        dual: Number
+    name: OutpGnrcPrntDualPrnt
+    parent: !_OutputBase
+      output: RefOutpGnrcPrntDualPrnt
+      typeArgs:
+      - !_DualArg
+        dual: AltOutpGnrcPrntDualPrnt
+    typeKind: !_TypeKind Output
+  !_Identifier RefOutpGnrcPrntDualPrnt: !_TypeOutput
+    name: RefOutpGnrcPrntDualPrnt
     parent: !_TypeParam ref
     typeKind: !_TypeKind Output
     typeParams:

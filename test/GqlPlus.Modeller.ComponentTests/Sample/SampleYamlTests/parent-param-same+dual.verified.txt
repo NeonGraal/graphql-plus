@@ -3,7 +3,7 @@ types: !_Map_Type
   !_Identifier DualPrntParamSame: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualPrntParamSameRef
+      object: RefDualPrntParamSame
       type: !_TypeParam a
     allFields:
     - !_ObjectFor(_DualField)
@@ -16,22 +16,22 @@ types: !_Map_Type
       type: !_TypeParam a
     name: DualPrntParamSame
     parent: !_DualBase
-      dual: DualPrntParamSameRef
+      dual: RefDualPrntParamSame
       typeArgs:
       - !_TypeParam a
     typeKind: !_TypeKind Dual
     typeParams:
     - !_Described
       name: a
-  !_Identifier DualPrntParamSameRef: !_TypeDual
+  !_Identifier RefDualPrntParamSame: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualPrntParamSameRef
+      object: RefDualPrntParamSame
       type: !_TypeParam a
     alternates:
     - !_DualAlternate
       type: !_TypeParam a
-    name: DualPrntParamSameRef
+    name: RefDualPrntParamSame
     typeKind: !_TypeKind Dual
     typeParams:
     - !_Described

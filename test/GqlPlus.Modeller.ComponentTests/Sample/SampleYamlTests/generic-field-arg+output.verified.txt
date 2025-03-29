@@ -6,14 +6,14 @@ types: !_Map_Type
       name: field
       object: OutpGnrcFieldArg
       type: !_OutputBase
-        output: OutpGnrcFieldArgRef
+        output: RefOutpGnrcFieldArg
         typeArgs:
         - !_TypeParam type
     fields:
     - !_OutputField
       name: field
       type: !_OutputBase
-        output: OutpGnrcFieldArgRef
+        output: RefOutpGnrcFieldArg
         typeArgs:
         - !_TypeParam type
     name: OutpGnrcFieldArg
@@ -21,15 +21,15 @@ types: !_Map_Type
     typeParams:
     - !_Described
       name: type
-  !_Identifier OutpGnrcFieldArgRef: !_TypeOutput
+  !_Identifier RefOutpGnrcFieldArg: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpGnrcFieldArgRef
+      object: RefOutpGnrcFieldArg
       type: !_TypeParam ref
     alternates:
     - !_OutputAlternate
       type: !_TypeParam ref
-    name: OutpGnrcFieldArgRef
+    name: RefOutpGnrcFieldArg
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described

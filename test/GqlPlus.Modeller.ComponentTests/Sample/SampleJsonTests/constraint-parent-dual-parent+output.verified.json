@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpCnstPrntDualPrnt": {
+    "AltOutpCnstPrntDualPrnt": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "OutpCnstPrntDualPrntParent",
+          "object": "PrntOutpCnstPrntDualPrnt",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -18,43 +18,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "alt",
-          "object": "OutpCnstPrntDualPrntAlt",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "name": "OutpCnstPrntDualPrnt",
-      "parent": {
-        "$tag": "_OutputBase",
-        "output": "OutpCnstPrntDualPrntRef",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "value": "OutpCnstPrntDualPrntAlt"
-          }
-        ]
-      },
-      "typeKind": "Output"
-    },
-    "OutpCnstPrntDualPrntAlt": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "OutpCnstPrntDualPrntParent",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "alt",
-          "object": "OutpCnstPrntDualPrntAlt",
+          "object": "AltOutpCnstPrntDualPrnt",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -71,19 +35,55 @@
           }
         }
       ],
-      "name": "OutpCnstPrntDualPrntAlt",
+      "name": "AltOutpCnstPrntDualPrnt",
       "parent": {
         "$tag": "_DualBase",
-        "value": "OutpCnstPrntDualPrntParent"
+        "value": "PrntOutpCnstPrntDualPrnt"
       },
       "typeKind": "Output"
     },
-    "OutpCnstPrntDualPrntParent": {
+    "OutpCnstPrntDualPrnt": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "PrntOutpCnstPrntDualPrnt",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "alt",
+          "object": "AltOutpCnstPrntDualPrnt",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "OutpCnstPrntDualPrnt",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "RefOutpCnstPrntDualPrnt",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "value": "AltOutpCnstPrntDualPrnt"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "PrntOutpCnstPrntDualPrnt": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "OutpCnstPrntDualPrntParent",
+          "object": "PrntOutpCnstPrntDualPrnt",
           "type": {
             "$tag": "_DualBase",
             "value": "String"
@@ -99,12 +99,12 @@
           }
         }
       ],
-      "name": "OutpCnstPrntDualPrntParent",
+      "name": "PrntOutpCnstPrntDualPrnt",
       "typeKind": "Dual"
     },
-    "OutpCnstPrntDualPrntRef": {
+    "RefOutpCnstPrntDualPrnt": {
       "$tag": "_TypeOutput",
-      "name": "OutpCnstPrntDualPrntRef",
+      "name": "RefOutpCnstPrntDualPrnt",
       "parent": "ref",
       "typeKind": "Output",
       "typeParams": [

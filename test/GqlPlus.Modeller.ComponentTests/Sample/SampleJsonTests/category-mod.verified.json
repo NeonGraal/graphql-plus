@@ -2,7 +2,7 @@
   "$tag": "_Schema",
   "categories": {
     "$tag": "_Map_Categories",
-    "catMods": {
+    "ctgrMod": {
       "$tag": "_Category",
       "aliases": ["CatM1", "CatM2"],
       "modifiers": [
@@ -11,10 +11,10 @@
           "modifierKind": "Opt"
         }
       ],
-      "name": "catMods",
+      "name": "ctgrMod",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
-        "name": "CatMods",
+        "name": "CtgrMod",
         "typeKind": "Output"
       },
       "resolution": "Parallel"
@@ -22,9 +22,9 @@
   },
   "types": {
     "$tag": "_Map_Type",
-    "CatMods": {
+    "CtgrMod": {
       "$tag": "_TypeOutput",
-      "name": "CatMods",
+      "name": "CtgrMod",
       "typeKind": "Output"
     }
   }

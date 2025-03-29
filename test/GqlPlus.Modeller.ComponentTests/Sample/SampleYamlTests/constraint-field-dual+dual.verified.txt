@@ -1,29 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualCnstFieldDual: !_TypeDual
-    allFields:
-    - !_ObjectFor(_DualField)
-      name: field
-      object: DualCnstFieldDualRef
-      type: !_DualBase
-        dual: DualCnstFieldDualAlt
-    name: DualCnstFieldDual
-    parent: !_DualBase
-      dual: DualCnstFieldDualRef
-      typeArgs:
-      - !_DualArg
-        dual: DualCnstFieldDualAlt
-    typeKind: !_TypeKind Dual
-  !_Identifier DualCnstFieldDualAlt: !_TypeDual
+  !_Identifier AltDualCnstFieldDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualCnstFieldDualParent
+      object: PrntDualCnstFieldDual
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: DualCnstFieldDualAlt
+      object: AltDualCnstFieldDual
       type: !_DualBase
         dual: Number
     fields:
@@ -31,33 +17,47 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: DualCnstFieldDualAlt
+    name: AltDualCnstFieldDual
     parent: !_DualBase
-      dual: DualCnstFieldDualParent
+      dual: PrntDualCnstFieldDual
     typeKind: !_TypeKind Dual
-  !_Identifier DualCnstFieldDualParent: !_TypeDual
+  !_Identifier DualCnstFieldDual: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: RefDualCnstFieldDual
+      type: !_DualBase
+        dual: AltDualCnstFieldDual
+    name: DualCnstFieldDual
+    parent: !_DualBase
+      dual: RefDualCnstFieldDual
+      typeArgs:
+      - !_DualArg
+        dual: AltDualCnstFieldDual
+    typeKind: !_TypeKind Dual
+  !_Identifier PrntDualCnstFieldDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualCnstFieldDualParent
+      object: PrntDualCnstFieldDual
       type: !_DualBase
         dual: String
     alternates:
     - !_DualAlternate
       type: !_DualBase
         dual: String
-    name: DualCnstFieldDualParent
+    name: PrntDualCnstFieldDual
     typeKind: !_TypeKind Dual
-  !_Identifier DualCnstFieldDualRef: !_TypeDual
+  !_Identifier RefDualCnstFieldDual: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: field
-      object: DualCnstFieldDualRef
+      object: RefDualCnstFieldDual
       type: !_TypeParam ref
     fields:
     - !_DualField
       name: field
       type: !_TypeParam ref
-    name: DualCnstFieldDualRef
+    name: RefDualCnstFieldDual
     typeKind: !_TypeKind Dual
     typeParams:
     - !_Described

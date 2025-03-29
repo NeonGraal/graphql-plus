@@ -3,31 +3,31 @@ types: !_Map_Type
   !_Identifier InpPrntDescr: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpPrntDescrRef
+      object: RefInpPrntDescr
       type: !_InputBase
         input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: parent
-      object: InpPrntDescrRef
+      object: RefInpPrntDescr
       type: !_InputBase
         input: Number
     name: InpPrntDescr
     parent: !_ObjDescribed(_InputBase)
       base: !_InputBase
-        input: InpPrntDescrRef
+        input: RefInpPrntDescr
       description: 'Test Descr'
     typeKind: !_TypeKind Input
-  !_Identifier InpPrntDescrRef: !_TypeInput
+  !_Identifier RefInpPrntDescr: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpPrntDescrRef
+      object: RefInpPrntDescr
       type: !_InputBase
         input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: parent
-      object: InpPrntDescrRef
+      object: RefInpPrntDescr
       type: !_InputBase
         input: Number
     alternates:
@@ -39,5 +39,5 @@ types: !_Map_Type
       name: parent
       type: !_InputBase
         input: Number
-    name: InpPrntDescrRef
+    name: RefInpPrntDescr
     typeKind: !_TypeKind Input

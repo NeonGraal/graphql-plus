@@ -1,35 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpGnrcFieldDual: !_TypeOutput
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: field
-      object: OutpGnrcFieldDual
-      type: !_OutputBase
-        output: OutpGnrcFieldDualRef
-        typeArgs:
-        - !_DualArg
-          dual: OutpGnrcFieldDualAlt
-    fields:
-    - !_OutputField
-      name: field
-      type: !_OutputBase
-        output: OutpGnrcFieldDualRef
-        typeArgs:
-        - !_DualArg
-          dual: OutpGnrcFieldDualAlt
-    name: OutpGnrcFieldDual
-    typeKind: !_TypeKind Output
-  !_Identifier OutpGnrcFieldDualAlt: !_TypeDual
+  !_Identifier AltOutpGnrcFieldDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: OutpGnrcFieldDualAlt
+      object: AltOutpGnrcFieldDual
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: OutpGnrcFieldDualAlt
+      object: AltOutpGnrcFieldDual
       type: !_DualBase
         dual: Number
     alternates:
@@ -41,17 +21,37 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: OutpGnrcFieldDualAlt
+    name: AltOutpGnrcFieldDual
     typeKind: !_TypeKind Dual
-  !_Identifier OutpGnrcFieldDualRef: !_TypeOutput
+  !_Identifier OutpGnrcFieldDual: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutpGnrcFieldDual
+      type: !_OutputBase
+        output: RefOutpGnrcFieldDual
+        typeArgs:
+        - !_DualArg
+          dual: AltOutpGnrcFieldDual
+    fields:
+    - !_OutputField
+      name: field
+      type: !_OutputBase
+        output: RefOutpGnrcFieldDual
+        typeArgs:
+        - !_DualArg
+          dual: AltOutpGnrcFieldDual
+    name: OutpGnrcFieldDual
+    typeKind: !_TypeKind Output
+  !_Identifier RefOutpGnrcFieldDual: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpGnrcFieldDualRef
+      object: RefOutpGnrcFieldDual
       type: !_TypeParam ref
     alternates:
     - !_OutputAlternate
       type: !_TypeParam ref
-    name: OutpGnrcFieldDualRef
+    name: RefOutpGnrcFieldDual
     typeKind: !_TypeKind Output
     typeParams:
     - !_Described

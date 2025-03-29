@@ -2,38 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpCnstFieldObj": {
-      "$tag": "_TypeInput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_InputField)",
-          "name": "field",
-          "object": "InpCnstFieldObjRef",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "InpCnstFieldObjAlt"
-          }
-        }
-      ],
-      "name": "InpCnstFieldObj",
-      "parent": {
-        "$tag": "_InputBase",
-        "input": "InpCnstFieldObjRef",
-        "typeArgs": [
-          {
-            "$tag": "_InputArg",
-            "value": "InpCnstFieldObjAlt"
-          }
-        ]
-      },
-      "typeKind": "Input"
-    },
-    "InpCnstFieldObjAlt": {
+    "AltInpCnstFieldObj": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpCnstFieldObjParent",
+          "object": "PrntInpCnstFieldObj",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -44,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "alt",
-          "object": "InpCnstFieldObjAlt",
+          "object": "AltInpCnstFieldObj",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -61,19 +35,45 @@
           }
         }
       ],
-      "name": "InpCnstFieldObjAlt",
+      "name": "AltInpCnstFieldObj",
       "parent": {
         "$tag": "_InputBase",
-        "value": "InpCnstFieldObjParent"
+        "value": "PrntInpCnstFieldObj"
       },
       "typeKind": "Input"
     },
-    "InpCnstFieldObjParent": {
+    "InpCnstFieldObj": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "RefInpCnstFieldObj",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "AltInpCnstFieldObj"
+          }
+        }
+      ],
+      "name": "InpCnstFieldObj",
+      "parent": {
+        "$tag": "_InputBase",
+        "input": "RefInpCnstFieldObj",
+        "typeArgs": [
+          {
+            "$tag": "_InputArg",
+            "value": "AltInpCnstFieldObj"
+          }
+        ]
+      },
+      "typeKind": "Input"
+    },
+    "PrntInpCnstFieldObj": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpCnstFieldObjParent",
+          "object": "PrntInpCnstFieldObj",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -89,16 +89,16 @@
           }
         }
       ],
-      "name": "InpCnstFieldObjParent",
+      "name": "PrntInpCnstFieldObj",
       "typeKind": "Input"
     },
-    "InpCnstFieldObjRef": {
+    "RefInpCnstFieldObj": {
       "$tag": "_TypeInput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "InpCnstFieldObjRef",
+          "object": "RefInpCnstFieldObj",
           "type": "ref"
         }
       ],
@@ -109,7 +109,7 @@
           "type": "ref"
         }
       ],
-      "name": "InpCnstFieldObjRef",
+      "name": "RefInpCnstFieldObj",
       "typeKind": "Input",
       "typeParams": [
         {

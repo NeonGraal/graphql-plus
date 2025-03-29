@@ -1,2 +1,2 @@
-enum EnPrntAlias { :EnAliasPrnt val_prnt_alias val_alias[alias_val] }
-enum EnAliasPrnt { val_alias }
+enum Name { :PrntName val_name prnt_name[name] }
+enum PrntName { prnt_name }

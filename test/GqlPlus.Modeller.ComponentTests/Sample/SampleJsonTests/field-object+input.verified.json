@@ -2,38 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpFieldObj": {
-      "$tag": "_TypeInput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_InputField)",
-          "name": "field",
-          "object": "InpFieldObj",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "InpFieldObjFld"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_InputField",
-          "name": "field",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "InpFieldObjFld"
-          }
-        }
-      ],
-      "name": "InpFieldObj",
-      "typeKind": "Input"
-    },
-    "InpFieldObjFld": {
+    "FldInpFieldObj": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpFieldObjFld",
+          "object": "FldInpFieldObj",
           "type": {
             "$tag": "_InputBase",
             "value": "String"
@@ -44,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "InpFieldObjFld",
+          "object": "FldInpFieldObj",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -70,7 +44,33 @@
           }
         }
       ],
-      "name": "InpFieldObjFld",
+      "name": "FldInpFieldObj",
+      "typeKind": "Input"
+    },
+    "InpFieldObj": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "InpFieldObj",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "FldInpFieldObj"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "FldInpFieldObj"
+          }
+        }
+      ],
+      "name": "InpFieldObj",
       "typeKind": "Input"
     }
   }

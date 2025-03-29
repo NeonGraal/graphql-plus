@@ -1,34 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpGnrcPrntDualPrnt: !_TypeInput
+  !_Identifier AltInpGnrcPrntDualPrnt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: InpGnrcPrntDualPrntAlt
+      object: AltInpGnrcPrntDualPrnt
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: InpGnrcPrntDualPrntAlt
-      type: !_DualBase
-        dual: Number
-    name: InpGnrcPrntDualPrnt
-    parent: !_InputBase
-      input: InpGnrcPrntDualPrntRef
-      typeArgs:
-      - !_DualArg
-        dual: InpGnrcPrntDualPrntAlt
-    typeKind: !_TypeKind Input
-  !_Identifier InpGnrcPrntDualPrntAlt: !_TypeDual
-    allAlternates:
-    - !_ObjectFor(_DualAlternate)
-      object: InpGnrcPrntDualPrntAlt
-      type: !_DualBase
-        dual: String
-    allFields:
-    - !_ObjectFor(_DualField)
-      name: alt
-      object: InpGnrcPrntDualPrntAlt
+      object: AltInpGnrcPrntDualPrnt
       type: !_DualBase
         dual: Number
     alternates:
@@ -40,10 +21,29 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: InpGnrcPrntDualPrntAlt
+    name: AltInpGnrcPrntDualPrnt
     typeKind: !_TypeKind Dual
-  !_Identifier InpGnrcPrntDualPrntRef: !_TypeInput
-    name: InpGnrcPrntDualPrntRef
+  !_Identifier InpGnrcPrntDualPrnt: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: AltInpGnrcPrntDualPrnt
+      type: !_DualBase
+        dual: String
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: alt
+      object: AltInpGnrcPrntDualPrnt
+      type: !_DualBase
+        dual: Number
+    name: InpGnrcPrntDualPrnt
+    parent: !_InputBase
+      input: RefInpGnrcPrntDualPrnt
+      typeArgs:
+      - !_DualArg
+        dual: AltInpGnrcPrntDualPrnt
+    typeKind: !_TypeKind Input
+  !_Identifier RefInpGnrcPrntDualPrnt: !_TypeInput
+    name: RefInpGnrcPrntDualPrnt
     parent: !_TypeParam ref
     typeKind: !_TypeKind Input
     typeParams:

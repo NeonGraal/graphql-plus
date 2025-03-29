@@ -7,7 +7,7 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualPrntParamSameRef",
+          "object": "RefDualPrntParamSame",
           "type": "a"
         }
       ],
@@ -29,7 +29,7 @@
       "name": "DualPrntParamSame",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "DualPrntParamSameRef",
+        "dual": "RefDualPrntParamSame",
         "typeArgs": ["a"]
       },
       "typeKind": "Dual",
@@ -40,12 +40,12 @@
         }
       ]
     },
-    "DualPrntParamSameRef": {
+    "RefDualPrntParamSame": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualPrntParamSameRef",
+          "object": "RefDualPrntParamSame",
           "type": "a"
         }
       ],
@@ -55,7 +55,7 @@
           "type": "a"
         }
       ],
-      "name": "DualPrntParamSameRef",
+      "name": "RefDualPrntParamSame",
       "typeKind": "Dual",
       "typeParams": [
         {

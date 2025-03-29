@@ -1,29 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpCnstFieldDual: !_TypeInput
-    allFields:
-    - !_ObjectFor(_InputField)
-      name: field
-      object: InpCnstFieldDualRef
-      type: !_InputBase
-        input: InpCnstFieldDualAlt
-    name: InpCnstFieldDual
-    parent: !_InputBase
-      input: InpCnstFieldDualRef
-      typeArgs:
-      - !_InputArg
-        input: InpCnstFieldDualAlt
-    typeKind: !_TypeKind Input
-  !_Identifier InpCnstFieldDualAlt: !_TypeInput
+  !_Identifier AltInpCnstFieldDual: !_TypeInput
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: InpCnstFieldDualParent
+      object: PrntInpCnstFieldDual
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
-      object: InpCnstFieldDualAlt
+      object: AltInpCnstFieldDual
       type: !_InputBase
         input: Number
     fields:
@@ -31,33 +17,47 @@ types: !_Map_Type
       name: alt
       type: !_InputBase
         input: Number
-    name: InpCnstFieldDualAlt
+    name: AltInpCnstFieldDual
     parent: !_DualBase
-      dual: InpCnstFieldDualParent
+      dual: PrntInpCnstFieldDual
     typeKind: !_TypeKind Input
-  !_Identifier InpCnstFieldDualParent: !_TypeDual
+  !_Identifier InpCnstFieldDual: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: RefInpCnstFieldDual
+      type: !_InputBase
+        input: AltInpCnstFieldDual
+    name: InpCnstFieldDual
+    parent: !_InputBase
+      input: RefInpCnstFieldDual
+      typeArgs:
+      - !_InputArg
+        input: AltInpCnstFieldDual
+    typeKind: !_TypeKind Input
+  !_Identifier PrntInpCnstFieldDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: InpCnstFieldDualParent
+      object: PrntInpCnstFieldDual
       type: !_DualBase
         dual: String
     alternates:
     - !_DualAlternate
       type: !_DualBase
         dual: String
-    name: InpCnstFieldDualParent
+    name: PrntInpCnstFieldDual
     typeKind: !_TypeKind Dual
-  !_Identifier InpCnstFieldDualRef: !_TypeInput
+  !_Identifier RefInpCnstFieldDual: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: field
-      object: InpCnstFieldDualRef
+      object: RefInpCnstFieldDual
       type: !_TypeParam ref
     fields:
     - !_InputField
       name: field
       type: !_TypeParam ref
-    name: InpCnstFieldDualRef
+    name: RefInpCnstFieldDual
     typeKind: !_TypeKind Input
     typeParams:
     - !_Described

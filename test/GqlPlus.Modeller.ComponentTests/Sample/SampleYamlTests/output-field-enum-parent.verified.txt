@@ -1,49 +1,44 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutEnumParent: !_TypeEnum
+  !_Identifier EnumOutpFieldEnumPrnt: !_TypeEnum
     allItems:
     - !_EnumLabel
-      enum: OutEnumParent
-      name: outEnumParent
+      enum: PrntOutpFieldEnumPrnt
+      name: prnt_outpFieldEnumPrnt
+    - !_EnumLabel
+      enum: EnumOutpFieldEnumPrnt
+      name: outpFieldEnumPrnt
     items:
     - !_Aliased
-      name: outEnumParent
-    name: OutEnumParent
-    typeKind: !_TypeKind Enum
-  !_Identifier OutEnumParented: !_TypeEnum
-    allItems:
-    - !_EnumLabel
-      enum: OutEnumParent
-      name: outEnumParent
-    - !_EnumLabel
-      enum: OutEnumParented
-      name: outParent
-    - !_EnumLabel
-      enum: OutEnumParented
-      name: ed
-    items:
-    - !_Aliased
-      name: outParent
-    - !_Aliased
-      name: ed
-    name: OutEnumParented
+      name: outpFieldEnumPrnt
+    name: EnumOutpFieldEnumPrnt
     parent: !_TypeRef(_SimpleKind)
-      name: OutEnumParent
+      name: PrntOutpFieldEnumPrnt
       typeKind: !_SimpleKind Enum
     typeKind: !_TypeKind Enum
-  !_Identifier OutFieldParent: !_TypeOutput
+  !_Identifier OutpFieldEnumPrnt: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
-      label: outEnumParent
-      name: OutEnumParented
-      object: OutFieldParent
+      label: prnt_outpFieldEnumPrnt
+      name: EnumOutpFieldEnumPrnt
+      object: OutpFieldEnumPrnt
       typeKind: !_SimpleKind Enum
     fields:
     - !_OutputEnum
       field: field
-      label: outEnumParent
-      name: OutEnumParented
+      label: prnt_outpFieldEnumPrnt
+      name: EnumOutpFieldEnumPrnt
       typeKind: !_SimpleKind Enum
-    name: OutFieldParent
+    name: OutpFieldEnumPrnt
     typeKind: !_TypeKind Output
+  !_Identifier PrntOutpFieldEnumPrnt: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: PrntOutpFieldEnumPrnt
+      name: prnt_outpFieldEnumPrnt
+    items:
+    - !_Aliased
+      name: prnt_outpFieldEnumPrnt
+    name: PrntOutpFieldEnumPrnt
+    typeKind: !_TypeKind Enum

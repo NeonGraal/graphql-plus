@@ -11,7 +11,7 @@
           "object": "InpGnrcFieldArg",
           "type": {
             "$tag": "_InputBase",
-            "input": "InpGnrcFieldArgRef",
+            "input": "RefInpGnrcFieldArg",
             "typeArgs": ["type"]
           }
         }
@@ -22,7 +22,7 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "input": "InpGnrcFieldArgRef",
+            "input": "RefInpGnrcFieldArg",
             "typeArgs": ["type"]
           }
         }
@@ -36,12 +36,12 @@
         }
       ]
     },
-    "InpGnrcFieldArgRef": {
+    "RefInpGnrcFieldArg": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGnrcFieldArgRef",
+          "object": "RefInpGnrcFieldArg",
           "type": "ref"
         }
       ],
@@ -51,7 +51,7 @@
           "type": "ref"
         }
       ],
-      "name": "InpGnrcFieldArgRef",
+      "name": "RefInpGnrcFieldArg",
       "typeKind": "Input",
       "typeParams": [
         {

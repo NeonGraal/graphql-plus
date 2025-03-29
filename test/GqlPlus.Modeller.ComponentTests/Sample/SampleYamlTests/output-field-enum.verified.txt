@@ -1,28 +1,28 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutEnumField: !_TypeEnum
+  !_Identifier EnumOutpFieldEnum: !_TypeEnum
     allItems:
     - !_EnumLabel
-      enum: OutEnumField
-      name: outEnumField
+      enum: EnumOutpFieldEnum
+      name: outpFieldEnum
     items:
     - !_Aliased
-      name: outEnumField
-    name: OutEnumField
+      name: outpFieldEnum
+    name: EnumOutpFieldEnum
     typeKind: !_TypeKind Enum
-  !_Identifier OutFieldEnum: !_TypeOutput
+  !_Identifier OutpFieldEnum: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
-      label: outEnumField
-      name: OutEnumField
-      object: OutFieldEnum
+      label: outpFieldEnum
+      name: EnumOutpFieldEnum
+      object: OutpFieldEnum
       typeKind: !_SimpleKind Enum
     fields:
     - !_OutputEnum
       field: field
-      label: outEnumField
-      name: OutEnumField
+      label: outpFieldEnum
+      name: EnumOutpFieldEnum
       typeKind: !_SimpleKind Enum
-    name: OutFieldEnum
+    name: OutpFieldEnum
     typeKind: !_TypeKind Output

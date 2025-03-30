@@ -5,7 +5,7 @@ public interface IGqlpSelection
 { }
 
 public interface IGqlpField
-  : IGqlpNamed, IGqlpSelection, IGqlpModifiers
+  : IGqlpIdentified, IGqlpSelection, IGqlpModifiers
 {
   string? FieldAlias { get; }
   IGqlpArg? Arg { get; }
@@ -20,7 +20,7 @@ public interface IGqlpInline
 }
 
 public interface IGqlpSpread
-  : IGqlpNamed, IGqlpSelection
+  : IGqlpIdentified, IGqlpSelection
 { }
 
 public interface IGqlpArg

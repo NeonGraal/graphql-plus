@@ -1,6 +1,7 @@
 ﻿!_Schema
 categories: !_Map_Categories
   !_Identifier all: !_Category
+    description: 'A Category'
     name: all
     output: !_TypeRef(_TypeKind)
       name: All
@@ -8,50 +9,82 @@ categories: !_Map_Categories
     resolution: !_Resolution Parallel
 directives: !_Map_Directives
   !_Identifier all: !_Directive
+    description: 'A Directive'
     locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
       Operation: _, Spread: _, Variable: _}
     name: all
     repeatable: false
+name: Schema
+settings: !_Map_Setting
+  !_Identifier all: !_Setting
+    description: 'Schema Setting'
+    name: all
+    value: 'test'
 types: !_Map_Type
   !_Identifier All: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: All
-      type: !_OutputBase
-        output: String
+      type: !_ObjDescribed(_OutputBase)
+        base: !_OutputBase
+          output: String
+        description: 'Alternates'
     allFields:
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: items
       object: All
       parameters:
       - !_InputParam
         input: Param
         modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      type: !_OutputBase
-        output: String
+      type: !_DualBase
+        dual: Field
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: String
+      type: !_ObjDescribed(_OutputBase)
+        base: !_OutputBase
+          output: String
+        description: 'Alternates'
+    description: 'An Output'
     fields:
     - !_OutputField
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: items
       parameters:
       - !_InputParam
         input: Param
         modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      type: !_OutputBase
-        output: String
+      type: !_DualBase
+        dual: Field
     name: All
     typeKind: !_TypeKind Output
+  !_Identifier Field: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: strings
+      object: Field
+      type: !_ObjDescribed(_DualBase)
+        base: !_DualBase
+          dual: String
+        description: 'Strings array'
+    description: 'A Dual'
+    fields:
+    - !_DualField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: strings
+      type: !_ObjDescribed(_DualBase)
+        base: !_DualBase
+          dual: String
+        description: 'Strings array'
+    name: Field
+    typeKind: !_TypeKind Dual
   !_Identifier Guid: !_DomainString
     allItems:
     - !_DomainItem(_DomainRegex)
       domain: Guid
       exclude: false
       pattern: '[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}'
+    description: 'A Domain'
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
@@ -59,6 +92,22 @@ types: !_Map_Type
       pattern: '[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}'
     name: Guid
     typeKind: !_TypeKind Domain
+  !_Identifier Many: !_TypeUnion
+    allItems:
+    - !_UnionMember
+      name: Guid
+      union: Many
+    - !_UnionMember
+      name: Number
+      union: Many
+    description: 'A Union'
+    items:
+    - !_Aliased
+      name: Guid
+    - !_Aliased
+      name: Number
+    name: Many
+    typeKind: !_TypeKind Union
   !_Identifier One: !_TypeEnum
     allItems:
     - !_EnumLabel
@@ -67,10 +116,13 @@ types: !_Map_Type
     - !_EnumLabel
       enum: One
       name: Three
+    description: 'An Enum'
     items:
     - !_Aliased
+      description: 'Label 2'
       name: Two
     - !_Aliased
+      description: 'Label 3'
       name: Three
     name: One
     typeKind: !_TypeKind Enum
@@ -78,33 +130,46 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_InputAlternate)
       object: Param
-      type: !_InputBase
-        input: String
+      type: !_ObjDescribed(_InputBase)
+        base: !_InputBase
+          input: String
+        description: 'Alternate parameter'
     allFields:
     - !_ObjectFor(_InputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: afterId
       object: Param
-      type: !_InputBase
-        input: Guid
+      type: !_ObjDescribed(_InputBase)
+        base: !_InputBase
+          input: Many
+        description: 'Guid or Int'
     - !_ObjectFor(_InputField)
       name: beforeId
       object: Param
-      type: !_InputBase
-        input: Guid
+      type: !_ObjDescribed(_InputBase)
+        base: !_InputBase
+          input: Many
+        description: 'Guid or Int'
     alternates:
     - !_InputAlternate
-      type: !_InputBase
-        input: String
+      type: !_ObjDescribed(_InputBase)
+        base: !_InputBase
+          input: String
+        description: 'Alternate parameter'
+    description: 'An Input'
     fields:
     - !_InputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: afterId
-      type: !_InputBase
-        input: Guid
+      type: !_ObjDescribed(_InputBase)
+        base: !_InputBase
+          input: Many
+        description: 'Guid or Int'
     - !_InputField
       name: beforeId
-      type: !_InputBase
-        input: Guid
+      type: !_ObjDescribed(_InputBase)
+        base: !_InputBase
+          input: Many
+        description: 'Guid or Int'
     name: Param
     typeKind: !_TypeKind Input

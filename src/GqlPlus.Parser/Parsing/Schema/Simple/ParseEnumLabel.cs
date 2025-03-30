@@ -14,10 +14,8 @@ internal class ParseEnumLabel(
   public IResult<IGqlpEnumLabel> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    tokens.TakeDescription();
+    string description = tokens.Description();
     TokenAt at = tokens.At;
-
-    string description = tokens.GetDescription();
     if (!tokens.Identifier(out string? value)) {
       return tokens.Error<IGqlpEnumLabel>(label, "label");
     }

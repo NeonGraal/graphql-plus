@@ -19,6 +19,8 @@ internal sealed record class CategoryDeclAst(
 
   public string Output { get; set; } = Output;
 
+  public string OutputDescription { get; set; } = "";
+
   public CategoryOption Option { get; set; } = CategoryOption.Parallel;
 
   CategoryOption IGqlpSchemaCategory.CategoryOption => Option;
@@ -33,14 +35,16 @@ internal sealed record class CategoryDeclAst(
   public bool Equals(CategoryDeclAst? other)
     => base.Equals(other)
     && Option == other.Option
+    && OutputDescription.Equals(other.OutputDescription, StringComparison.Ordinal)
     && Output == other.Output
     && Modifiers.SequenceEqual(other.Modifiers);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Option, Modifiers.Length);
+    => HashCode.Combine(base.GetHashCode(), Option, OutputDescription, Output, Modifiers.Length);
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
       .Append($"({Option})")
+      .Append(OutputDescription.Quoted("\""))
       .Append(Output)
       .Concat(Modifiers.AsString());
 }

@@ -31,6 +31,12 @@ public sealed class ParseCategoryTests(
       new CategoryDeclAst(AstNulls.At, name, output));
 
   [Theory, RepeatData]
+  public void WithOutputDescription_ReturnsCorrectAst(string output, string description)
+    => checks.OkResult(
+    "{'" + description + "'" + output + "}",
+      new CategoryDeclAst(AstNulls.At, output) { OutputDescription = description });
+
+  [Theory, RepeatData]
   public void WithModifers_ReturnsCorrectAst(string output)
     => checks.OkResult(
     "{" + output + "[]?}",

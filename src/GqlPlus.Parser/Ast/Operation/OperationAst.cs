@@ -5,8 +5,8 @@ namespace GqlPlus.Ast.Operation;
 
 internal sealed record class OperationAst(
   TokenAt At,
-  string Name
-) : AstDirectives(At, Name)
+  string Identifier
+) : AstDirectives(At, Identifier)
   , IEquatable<OperationAst>
   , IGqlpOperation
 {
@@ -83,7 +83,7 @@ internal sealed record class OperationAst(
 
   internal override IEnumerable<string?> GetFields()
     => // base.GetFields()
-      new[] { AbbrAt, Category, Name, $"{Result}" }
+      new[] { AbbrAt, Category, Identifier, $"{Result}" }
       .Concat(Errors.Bracket("<", ">", true))
       .Concat(Variables.Bracket("[", "]"))
       .Concat(Directives.AsString())

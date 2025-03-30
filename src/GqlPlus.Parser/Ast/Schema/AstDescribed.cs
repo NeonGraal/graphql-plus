@@ -5,9 +5,8 @@ namespace GqlPlus.Ast.Schema;
 
 internal abstract record class AstDescribed(
   TokenAt At,
-  string Name,
   string Description
-) : AstNamed(At, Name)
+) : AstAbbreviated(At)
   , IEquatable<AstDescribed>
   , IGqlpDescribed
   , IAstSetDescription

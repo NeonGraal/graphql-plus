@@ -7,7 +7,7 @@ internal abstract record class AstObjType(
   TokenAt At,
   string Name,
   string Description
-) : AstDescribed(At, Name, Description)
+) : AstNamed(At, Name, Description)
   , IEquatable<AstObjType>
   , IGqlpObjType
 {

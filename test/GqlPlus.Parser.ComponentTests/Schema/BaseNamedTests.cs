@@ -1,4 +1,6 @@
-﻿using GqlPlus.Parsing;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema;
+using GqlPlus.Parsing;
 
 namespace GqlPlus.Schema;
 
@@ -29,10 +31,10 @@ internal abstract class BaseNamedChecks<TInput, TNamed, TParsed>(
   where TParsed : IGqlpNamed
 {
   public void WithMinimum(TInput input)
-  => TrueExpected(NameString(input), NamedFactory(input));
+    => TrueExpected(NameString(input), NamedFactory(input));
 
   public void WithNameBad(decimal id)
-  => FalseExpected($"{id}{{}}");
+    => FalseExpected($"{id}{{}}");
 
   protected internal abstract string NameString(TInput input);
   protected internal abstract TNamed NamedFactory(TInput input);

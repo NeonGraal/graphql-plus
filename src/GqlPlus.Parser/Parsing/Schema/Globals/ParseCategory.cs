@@ -22,6 +22,7 @@ internal class ParseCategory(
     return new CategoryDeclAst(partial.At, name, partial.Description, value.Output) {
       Aliases = partial.Aliases,
       Option = partial.Option ?? CategoryOption.Parallel,
+      OutputDescription = value.OutputDescription,
       Modifiers = value.Modifiers,
     };
   }
@@ -35,6 +36,7 @@ internal class ParseCategory(
 
 internal record CategoryOutput(string Output)
 {
+  public string OutputDescription { get; set; } = "";
   public ModifierAst[] Modifiers { get; set; } = [];
 }
 
@@ -60,11 +62,12 @@ internal class ParseCategoryDefinition(
   public IResult<CategoryOutput> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
+    string description = tokens.Description();
     if (!tokens.Identifier(out string? output)) {
       return tokens.Error<CategoryOutput>(label, "output type");
     }
 
-    CategoryOutput result = new(output);
+    CategoryOutput result = new(output) { OutputDescription = description };
     IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, "Param");
     if (modifiers.IsError()) {
       return modifiers.AsResult(result);

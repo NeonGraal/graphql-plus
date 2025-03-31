@@ -11,5 +11,5 @@ types: !_Map_Type
     name: DualGnrcAlt
     typeKind: !_TypeKind Dual
     typeParams:
-    - !_Described
+    - !_Named
       name: type

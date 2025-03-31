@@ -13,5 +13,5 @@ types: !_Map_Type
     name: DualGnrcField
     typeKind: !_TypeKind Dual
     typeParams:
-    - !_Described
+    - !_Named
       name: type

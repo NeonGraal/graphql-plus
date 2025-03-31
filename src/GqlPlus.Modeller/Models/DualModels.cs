@@ -1,8 +1,9 @@
 ﻿namespace GqlPlus.Models;
 
 public record class TypeDualModel(
-  string Name
-) : TypeObjectModel<DualBaseModel, DualFieldModel, DualAlternateModel>(TypeKindModel.Dual, Name)
+  string Name,
+  string Description
+) : TypeObjectModel<DualBaseModel, DualFieldModel, DualAlternateModel>(TypeKindModel.Dual, Name, Description)
 { }
 
 public record class DualArgModel(
@@ -17,8 +18,9 @@ public record class DualBaseModel(
 
 public record class DualFieldModel(
   string Name,
-  ObjDescribedModel<DualBaseModel>? Type
-) : ObjFieldModel<DualBaseModel>(Name, Type)
+  ObjDescribedModel<DualBaseModel>? Type,
+  string Description
+) : ObjFieldModel<DualBaseModel>(Name, Type, Description)
 { }
 
 public record class DualAlternateModel(

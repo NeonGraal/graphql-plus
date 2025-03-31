@@ -29,6 +29,7 @@ types: !_Map_Type
   !_Identifier OutpDescrParam: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
+      description: 'Test Descr'
       name: field
       object: OutpDescrParam
       parameters:
@@ -38,6 +39,7 @@ types: !_Map_Type
         dual: FldOutpDescrParam
     fields:
     - !_OutputField
+      description: 'Test Descr'
       name: field
       parameters:
       - !_InputParam

@@ -20,7 +20,7 @@ types: !_Map_Type
     name: OutpObjParam
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: test
-    - !_Described
+    - !_Named
       name: type

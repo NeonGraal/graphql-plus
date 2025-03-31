@@ -54,5 +54,5 @@ types: !_Map_Type
     name: InpGnrcParamRef
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

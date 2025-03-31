@@ -68,7 +68,7 @@ internal record class TypeObjectRenderers<TBase, TField, TAlt>(
   IRenderer<TAlt> Alternate,
   IRenderer<ObjectForModel<TAlt>> ObjAlternate,
   IRenderer<ObjectForModel<DualAlternateModel>> DualAlternate,
-  IRenderer<DescribedModel> TypeParam
+  IRenderer<NamedModel> TypeParam
 )
   where TBase : IObjBaseModel
   where TField : IObjFieldModel

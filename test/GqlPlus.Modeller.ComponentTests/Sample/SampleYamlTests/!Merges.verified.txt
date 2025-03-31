@@ -311,9 +311,9 @@ types: !_Map_Type
     name: DualObjParam
     typeKind: !_TypeKind Dual
     typeParams:
-    - !_Described
+    - !_Named
       name: test
-    - !_Described
+    - !_Named
       name: type
   !_Identifier DualObjPrnt: !_TypeDual
     name: DualObjPrnt
@@ -475,9 +475,9 @@ types: !_Map_Type
     name: InpObjParam
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Described
+    - !_Named
       name: test
-    - !_Described
+    - !_Named
       name: type
   !_Identifier InpObjPrnt: !_TypeInput
     name: InpObjPrnt
@@ -618,9 +618,9 @@ types: !_Map_Type
     name: OutpObjParam
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: test
-    - !_Described
+    - !_Named
       name: type
   !_Identifier OutpObjPrnt: !_TypeOutput
     name: OutpObjPrnt

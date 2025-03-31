@@ -115,7 +115,7 @@ internal abstract class CheckObjectModel<TObject, TObjectAst, TObjField, TObjFie
         : [$"- !_{TypeKind}Alternate", "  collections:", "  - !_Modifier", "    modifierKind: !_ModifierKind List", $"  type: !_{TypeKind}Base", $"    {TypeKindLower}: {alternate.Type}"];
 
   internal IEnumerable<string> ExpectedTypeParam(string typeParam)
-    => ["- !_Described", "  name: " + typeParam];
+    => ["- !_Named", "  name: " + typeParam];
 
   protected override string[] ExpectedParent(string? parent)
     => parent is null ? []

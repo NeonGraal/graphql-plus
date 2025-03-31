@@ -53,7 +53,7 @@ internal sealed class DirectivesModelChecks(
   public DirectivesModel ToModel(IGqlpSchemaDirective? ast, string input)
     => new() {
       And = _modeller.TryModel((DirectiveDeclAst?)ast, TypeKinds),
-      Type = new TypeInputModel(input),
+      Type = new TypeInputModel(input, ""),
     };
 }
 

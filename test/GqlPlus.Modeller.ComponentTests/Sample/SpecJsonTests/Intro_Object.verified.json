@@ -84,7 +84,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "base"
         }
       ]
@@ -143,7 +143,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "base"
         }
       ]
@@ -204,7 +204,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "arg"
         }
       ]
@@ -243,7 +243,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "base"
         }
       ]
@@ -276,7 +276,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "for"
         }
       ]
@@ -339,7 +339,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "base"
         }
       ]
@@ -560,19 +560,19 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "kind"
         },
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "parent"
         },
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "field"
         },
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "alternate"
         }
       ]

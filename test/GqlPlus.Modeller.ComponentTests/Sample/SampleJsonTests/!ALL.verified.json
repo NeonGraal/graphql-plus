@@ -2800,7 +2800,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "mod"
         }
       ]
@@ -2905,6 +2905,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
+          "description": "Test Descr",
           "name": "field",
           "object": "DualFieldDescr",
           "type": {
@@ -2916,6 +2917,7 @@
       "fields": [
         {
           "$tag": "_DualField",
+          "description": "Test Descr",
           "name": "field",
           "type": {
             "$tag": "_DualBase",
@@ -3035,7 +3037,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "mod"
         }
       ]
@@ -3145,7 +3147,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -3177,7 +3179,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -3209,7 +3211,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -3343,7 +3345,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "description": "Test Descr",
           "name": "type"
         }
@@ -3451,7 +3453,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -3477,7 +3479,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -3511,7 +3513,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -3694,7 +3696,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -3706,7 +3708,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -3729,7 +3731,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -3982,11 +3984,11 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "test"
         },
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -4223,7 +4225,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "a"
         }
       ]
@@ -4261,7 +4263,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "a"
         }
       ]
@@ -4317,6 +4319,7 @@
       "allItems": [
         {
           "$tag": "_EnumLabel",
+          "description": "Enum Descr",
           "enum": "EnumDescr",
           "name": "enumDescr"
         }
@@ -5976,7 +5979,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "mod"
         }
       ]
@@ -6081,6 +6084,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
+          "description": "Test Descr",
           "name": "field",
           "object": "InpFieldDescr",
           "type": {
@@ -6092,6 +6096,7 @@
       "fields": [
         {
           "$tag": "_InputField",
+          "description": "Test Descr",
           "name": "field",
           "type": {
             "$tag": "_InputBase",
@@ -6108,6 +6113,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "default": 0,
+          "description": "Test Descr",
           "name": "field",
           "object": "InpFieldDescrNmbr",
           "type": {
@@ -6120,6 +6126,7 @@
         {
           "$tag": "_InputField",
           "default": 0,
+          "description": "Test Descr",
           "name": "field",
           "type": {
             "$tag": "_InputBase",
@@ -6267,7 +6274,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "mod"
         }
       ]
@@ -6507,7 +6514,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -6539,7 +6546,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -6571,7 +6578,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -6705,7 +6712,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "description": "Test Descr",
           "name": "type"
         }
@@ -6813,7 +6820,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -6839,7 +6846,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -6873,7 +6880,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -7056,7 +7063,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -7068,7 +7075,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -7091,7 +7098,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -7344,11 +7351,11 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "test"
         },
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -7585,7 +7592,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "a"
         }
       ]
@@ -7623,7 +7630,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "a"
         }
       ]
@@ -7787,7 +7794,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "mod"
         }
       ]
@@ -7821,6 +7828,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
+          "description": "Test Descr",
           "name": "field",
           "object": "OutpDescrParam",
           "parameters": [
@@ -7838,6 +7846,7 @@
       "fields": [
         {
           "$tag": "_OutputField",
+          "description": "Test Descr",
           "name": "field",
           "parameters": [
             {
@@ -7930,6 +7939,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
+          "description": "Test Descr",
           "name": "field",
           "object": "OutpFieldDescr",
           "type": {
@@ -7941,6 +7951,7 @@
       "fields": [
         {
           "$tag": "_OutputField",
+          "description": "Test Descr",
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
@@ -8156,7 +8167,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "mod"
         }
       ]
@@ -8332,6 +8343,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
+          "description": "Test Descr",
           "field": "field",
           "label": "outpFieldValueDescr",
           "name": "EnumOutpFieldValueDescr",
@@ -8342,6 +8354,7 @@
       "fields": [
         {
           "$tag": "_OutputEnum",
+          "description": "Test Descr",
           "field": "field",
           "label": "outpFieldValueDescr",
           "name": "EnumOutpFieldValueDescr",
@@ -8370,7 +8383,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -8402,7 +8415,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -8434,7 +8447,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -8568,7 +8581,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "description": "Test Descr",
           "name": "type"
         }
@@ -8676,7 +8689,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -8742,7 +8755,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -8776,7 +8789,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -8959,7 +8972,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -8971,7 +8984,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -8994,7 +9007,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -9283,11 +9296,11 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "test"
         },
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -9492,7 +9505,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "mod"
         }
       ]
@@ -9863,7 +9876,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "a"
         }
       ]
@@ -9901,7 +9914,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "a"
         }
       ]
@@ -10329,7 +10342,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -10353,7 +10366,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -10377,7 +10390,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -10401,7 +10414,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -10425,7 +10438,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -10449,7 +10462,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -10473,7 +10486,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -10497,7 +10510,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -10521,7 +10534,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -10545,7 +10558,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -10557,7 +10570,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -10581,7 +10594,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -10593,7 +10606,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -10847,7 +10860,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "b"
         }
       ]
@@ -10871,7 +10884,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "a"
         }
       ]
@@ -10895,7 +10908,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -10919,7 +10932,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -10943,7 +10956,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -10967,7 +10980,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -10991,7 +11004,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -11015,7 +11028,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -11039,7 +11052,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -11063,7 +11076,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -11087,7 +11100,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -11111,7 +11124,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -11123,7 +11136,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -11147,7 +11160,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -11159,7 +11172,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -11413,7 +11426,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "b"
         }
       ]
@@ -11437,7 +11450,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "a"
         }
       ]
@@ -11461,7 +11474,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -11485,7 +11498,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -11509,7 +11522,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -11533,7 +11546,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -11557,7 +11570,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -11583,7 +11596,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -11607,7 +11620,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -11631,7 +11644,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -11655,7 +11668,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -11679,7 +11692,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -11703,7 +11716,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -11715,7 +11728,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -11739,7 +11752,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -11751,7 +11764,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]
@@ -11777,7 +11790,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -12033,7 +12046,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -12057,7 +12070,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "b"
         }
       ]
@@ -12081,7 +12094,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "a"
         }
       ]
@@ -12119,6 +12132,7 @@
       "allItems": [
         {
           "$tag": "_UnionMember",
+          "description": "Union Descr",
           "name": "Number",
           "union": "UnionDescr"
         }
@@ -12126,7 +12140,8 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "Number"
+          "description": "Union Descr",
+          "name": "Number"
         }
       ],
       "name": "UnionDescr",

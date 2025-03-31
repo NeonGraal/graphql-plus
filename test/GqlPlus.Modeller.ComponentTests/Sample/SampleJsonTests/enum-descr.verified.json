@@ -7,6 +7,7 @@
       "allItems": [
         {
           "$tag": "_EnumLabel",
+          "description": "Enum Descr",
           "enum": "EnumDescr",
           "name": "enumDescr"
         }

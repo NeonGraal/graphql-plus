@@ -17,7 +17,7 @@ types: !_Map_Type
     name: DualGnrcAltArgDescr
     typeKind: !_TypeKind Dual
     typeParams:
-    - !_Described
+    - !_Named
       name: type
   !_Identifier RefDualGnrcAltArgDescr: !_TypeDual
     allAlternates:
@@ -30,5 +30,5 @@ types: !_Map_Type
     name: RefDualGnrcAltArgDescr
     typeKind: !_TypeKind Dual
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

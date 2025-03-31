@@ -51,8 +51,8 @@ public class OutputFieldAstTests
       enumLabel => new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type) { EnumLabel = enumLabel }),
       enumValue1 == enumValue2);
 
-  protected override string AliasesString(FieldInput input, string aliases)
-    => $"( !OF {input.Name}{aliases} : {input.Type} )";
+  protected override string AliasesString(FieldInput input, string description, string aliases)
+    => $"( {DescriptionNameString(input, description)}{aliases} : {input.Type} )";
 
   private readonly AstObjectFieldChecks<OutputFieldAst, IGqlpOutputBase, OutputBaseAst, IGqlpOutputArg, OutputArgAst> _checks = new(
           (input, objBase) => new(AstNulls.At, input.Name, objBase),

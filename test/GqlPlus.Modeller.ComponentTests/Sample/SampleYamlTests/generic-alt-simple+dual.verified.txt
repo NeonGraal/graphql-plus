@@ -29,5 +29,5 @@ types: !_Map_Type
     name: RefDualGnrcAltSmpl
     typeKind: !_TypeKind Dual
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

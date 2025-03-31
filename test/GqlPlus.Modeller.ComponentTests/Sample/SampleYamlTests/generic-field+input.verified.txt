@@ -13,5 +13,5 @@ types: !_Map_Type
     name: InpGnrcField
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Described
+    - !_Named
       name: type

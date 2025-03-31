@@ -47,5 +47,5 @@ types: !_Map_Type
     name: RefOutpGnrcPrntParam
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

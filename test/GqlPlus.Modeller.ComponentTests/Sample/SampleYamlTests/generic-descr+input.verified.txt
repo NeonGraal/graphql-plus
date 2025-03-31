@@ -13,6 +13,6 @@ types: !_Map_Type
     name: InpGnrcDescr
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Described
+    - !_Named
       description: 'Test Descr'
       name: type

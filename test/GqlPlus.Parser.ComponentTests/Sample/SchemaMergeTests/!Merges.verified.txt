@@ -5,6 +5,7 @@ Success
   !Ca P@010/0001
   ctgr
   (Parallel)
+  !Tr I@012/0001
   Ctgr
 }
 {
@@ -15,13 +16,15 @@ Success
     CatA2
   ]
   (Parallel)
+  !Tr I@020/0001
   CtgrAlias
 }
 {
-  "First category Second category"
+  'First category Second category'
   !Ca P@010/0002
   ctgrDescr
   (Parallel)
+  !Tr I@012/0002
   CtgrDescr
 }
 {
@@ -32,6 +35,7 @@ Success
     CatM2
   ]
   (Parallel)
+  !Tr I@020/0001
   CtgrMod
   ?
 }

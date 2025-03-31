@@ -25,6 +25,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
+          "description": "Test Descr",
           "field": "field",
           "label": "outpFieldValueDescr",
           "name": "EnumOutpFieldValueDescr",
@@ -35,6 +36,7 @@
       "fields": [
         {
           "$tag": "_OutputEnum",
+          "description": "Test Descr",
           "field": "field",
           "label": "outpFieldValueDescr",
           "name": "EnumOutpFieldValueDescr",

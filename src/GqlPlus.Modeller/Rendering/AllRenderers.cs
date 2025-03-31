@@ -9,6 +9,7 @@ public static class AllRenderers
       // Common
       .AddRenderer<AliasedModel, AliasedRenderer<AliasedModel>>()
       .AddRenderer<DescribedModel, DescribedRenderer<DescribedModel>>()
+      .AddRenderer<NamedModel, NamedRenderer<NamedModel>>()
       .AddRenderer<ConstantModel, ConstantRenderer>()
       .AddRenderer<SimpleModel, SimpleRenderer>()
       .AddRenderer<CollectionModel, CollectionRenderer>()

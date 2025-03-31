@@ -2,22 +2,25 @@
 !Sc S@001/0001
 Success
 {
-  "A Category described"
+  'A Category described'
   !Ca P@010/0003
   ctgrDscrs
   (Parallel)
+  !Tr I@012/0003
   CtgrDscrs
 }
 {
   !Ca P@010/0001
   ctgrOutp
   (Parallel)
+  !Tr I@012/0001
   CtgrOutp
 }
 {
   !Ca P@010/0001
   ctgrOutpDict
   (Parallel)
+  !Tr I@012/0001
   CtgrOutpDict
   [*]
 }
@@ -25,6 +28,7 @@ Success
   !Ca P@010/0001
   ctgrOutpList
   (Parallel)
+  !Tr I@012/0001
   CtgrOutpList
   []
 }
@@ -32,6 +36,7 @@ Success
   !Ca P@010/0001
   ctgrOutpOptl
   (Parallel)
+  !Tr I@012/0001
   CtgrOutpOptl
   ?
 }
@@ -39,12 +44,14 @@ Success
   !Ca P@010/0001
   descrBtwn
   (Parallel)
+  !Tr I@012/0001
   DescrBtwn
 }
 {
   !Ca P@010/0001
   ctgr
   (Parallel)
+  !Tr I@012/0001
   Ctgr
 }
 {
@@ -55,13 +62,15 @@ Success
     CatA2
   ]
   (Parallel)
+  !Tr I@020/0001
   CtgrAlias
 }
 {
-  "First category Second category"
+  'First category Second category'
   !Ca P@010/0002
   ctgrDescr
   (Parallel)
+  !Tr I@012/0002
   CtgrDescr
 }
 {
@@ -72,11 +81,12 @@ Success
     CatM2
   ]
   (Parallel)
+  !Tr I@020/0001
   CtgrMod
   ?
 }
 {
-  "A directive described"
+  'A directive described'
   !Di I@012/0002
   DrctDescr
   (Unique)
@@ -174,7 +184,7 @@ Success
     !OS I@017/0001
     global
     =( !k I@024/0001 Boolean.true )
-    "Option Descr"
+    'Option Descr'
     !OS S@017/0001
     descr
     =( !k I@040/0001 Boolean.true )
@@ -204,37 +214,37 @@ Success
   CtgrOutpOptl
 }
 {
-  "A simple description"
+  'A simple description'
   !Ou I@008/0002
   Descr
 }
 {
-  "A backslash (\"\\\") description"
+  'A backslash ("\\") description'
   !Ou I@008/0002
   DescrBcks
 }
 {
-  "A description between"
+  'A description between'
   !Ou I@008/0003
   DescrBtwn
 }
 {
-  "A \"more\" 'Complicated' \\ description"
+  'A "more" \'Complicated\' \\ description'
   !Ou I@008/0002
   DescrCmpl
 }
 {
-  "A 'double-quoted' description"
+  'A \'double-quoted\' description'
   !Ou I@008/0002
   DescrDbl
 }
 {
-  "A \"single-quoted\" description"
+  'A "single-quoted" description'
   !Ou I@008/0002
   DescrSngl
 }
 {
-  "A simple doc With extra"
+  'A simple doc With extra'
   !Ou I@008/0003
   Dscrs
 }
@@ -633,7 +643,7 @@ Success
   !Du I@006/0001
   DualFieldDescr
   {
-    "Test Descr"
+    'Test Descr'
     !DF I@038/0001
     field
     :
@@ -645,7 +655,7 @@ Success
   !In I@007/0001
   InpFieldDescr
   {
-    "Test Descr"
+    'Test Descr'
     !IF I@038/0001
     field
     :
@@ -657,7 +667,7 @@ Success
   !Ou I@008/0001
   OutpFieldDescr
   {
-    "Test Descr"
+    'Test Descr'
     !OF I@040/0001
     field
     :
@@ -2802,7 +2812,7 @@ Success
   !In I@007/0001
   InpFieldDescrNmbr
   {
-    "Test Descr"
+    'Test Descr'
     !IF I@042/0001
     field
     :
@@ -2886,7 +2896,7 @@ Success
   !Ou I@008/0001
   OutpDescrParam
   {
-    "Test Descr"
+    'Test Descr'
     !OF I@040/0001
     field
     (
@@ -4709,7 +4719,7 @@ Success
   {
     !En I@006/0001
     EnumDescr
-    "Enum Descr"
+    'Enum Descr'
     !EL I@033/0001
     enumDescr
   }
@@ -4763,7 +4773,7 @@ Success
   {
     !Un I@007/0001
     UnionDescr
-    "Union Descr"
+    'Union Descr'
     !UM I@036/0001
     Number
   }

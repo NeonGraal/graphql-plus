@@ -7,9 +7,8 @@ internal class InputModeller(
 ) : ModellerObject<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate, TypeInputModel, InputBaseModel, InputFieldModel, InputAlternateModel>(TypeKindModel.Input, alternate, objField, objBase)
 {
   protected override TypeInputModel ToModel(IGqlpInputObject ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name) {
+    => new(ast.Name, ast.Description) {
       Aliases = [.. ast.Aliases],
-      Description = ast.Description,
       Parent = ParentModel(ast.ObjParent, typeKinds),
       TypeParams = TypeParamsModels(ast.TypeParams),
       Fields = FieldsModels(ast.ObjFields, typeKinds),
@@ -54,7 +53,7 @@ internal class InputFieldModeller(
 ) : ModellerObjField<IGqlpInputBase, IGqlpInputField, InputBaseModel, InputFieldModel>(modifier, refBase)
 {
   protected override InputFieldModel FieldModel(IGqlpInputField ast, InputBaseModel type, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name, new(type, ast.Type.Description)) {
+    => new(ast.Name, new(type, ast.Type.Description), ast.Description) {
       Default = constant.TryModel(ast.DefaultValue, typeKinds),
     };
 }

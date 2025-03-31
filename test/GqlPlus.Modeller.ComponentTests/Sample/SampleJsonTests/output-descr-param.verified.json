@@ -57,6 +57,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
+          "description": "Test Descr",
           "name": "field",
           "object": "OutpDescrParam",
           "parameters": [
@@ -74,6 +75,7 @@
       "fields": [
         {
           "$tag": "_OutputField",
+          "description": "Test Descr",
           "name": "field",
           "parameters": [
             {

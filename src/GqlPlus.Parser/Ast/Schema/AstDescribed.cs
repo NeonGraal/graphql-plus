@@ -21,7 +21,7 @@ internal abstract record class AstDescribed(
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
-      .Prepend(Description.Quoted("\""));
+      .Prepend(string.IsNullOrWhiteSpace(Description) ? null : Description.Quoted("'"));
   void IAstSetDescription.SetDescription(string description)
     => Description = description;
 }

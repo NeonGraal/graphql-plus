@@ -54,5 +54,5 @@ types: !_Map_Type
     name: OutpGnrcDualRef
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

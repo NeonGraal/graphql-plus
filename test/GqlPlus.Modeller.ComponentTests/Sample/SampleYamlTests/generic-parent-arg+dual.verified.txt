@@ -12,7 +12,7 @@ types: !_Map_Type
       - !_TypeParam type
     typeKind: !_TypeKind Dual
     typeParams:
-    - !_Described
+    - !_Named
       name: type
   !_Identifier RefDualGnrcPrntArg: !_TypeDual
     allAlternates:
@@ -25,5 +25,5 @@ types: !_Map_Type
     name: RefDualGnrcPrntArg
     typeKind: !_TypeKind Dual
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

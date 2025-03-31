@@ -44,5 +44,5 @@ types: !_Map_Type
     name: OutpAltModParam
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: mod

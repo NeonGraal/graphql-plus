@@ -7,9 +7,8 @@ internal class OutputModeller(
 ) : ModellerObject<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate, TypeOutputModel, OutputBaseModel, OutputFieldModel, OutputAlternateModel>(TypeKindModel.Output, alternate, objField, objBase)
 {
   protected override TypeOutputModel ToModel(IGqlpOutputObject ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name) {
+    => new(ast.Name, ast.Description) {
       Aliases = [.. ast.Aliases],
-      Description = ast.Description,
       Parent = ParentModel(ast.ObjParent, typeKinds),
       TypeParams = TypeParamsModels(ast.TypeParams),
       Fields = FieldsModels(ast.ObjFields, typeKinds),
@@ -24,13 +23,13 @@ internal class OutputArgModeller(
   protected override OutputArgModel ToModel(IGqlpOutputArg ast, IMap<TypeKindModel> typeKinds)
       => string.IsNullOrWhiteSpace(ast.EnumLabel)
       ? typeKinds.TryGetValue(ast.Output, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
-        ? new("") {
+        ? new("", "") {
           Dual = dual.ToModel(ast.ToDual, typeKinds)
         }
-        : new(ast.Output) {
+        : new(ast.Output, ast.Description) {
           IsTypeParam = ast.IsTypeParam,
         }
-      : new(ast.Output) { EnumLabel = ast.EnumLabel };
+      : new(ast.Output, ast.Description) { EnumLabel = ast.EnumLabel };
 }
 
 internal class OutputBaseModeller(
@@ -57,11 +56,11 @@ internal class OutputFieldModeller(
 {
   protected override OutputFieldModel FieldModel(IGqlpOutputField field, OutputBaseModel type, IMap<TypeKindModel> typeKinds)
     => string.IsNullOrWhiteSpace(field.BaseType.EnumLabel)
-      ? new(field.Name, new(type, field.Type.Description)) {
+      ? new(field.Name, new(type, field.Type.Description), field.Description) {
         Params = parameter.ToModels(field.Params, typeKinds),
       }
-      : new(field.Name, null) { // or should it be `type`
-        Enum = new(field.Name, field.BaseType.TypeName, field.BaseType.EnumLabel!)
+      : new(field.Name, null, field.Description) { // or should it be `type`
+        Enum = new(field.Name, field.BaseType.TypeName, field.BaseType.EnumLabel!, field.BaseType.Description)
       };
 }
 

@@ -1,1 +1,1 @@
-c904329  (HEAD -> name-samples) 2025-03-30 Tidy Schema definition and extend all and errors samples.
+c5aefdd  (HEAD -> name-samples) 2025-03-30 Tidy Schema definition and extend all and errors samples.

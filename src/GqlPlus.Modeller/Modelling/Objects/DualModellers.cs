@@ -7,9 +7,8 @@ internal class DualModeller(
 ) : ModellerObject<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate, TypeDualModel, DualBaseModel, DualFieldModel, DualAlternateModel>(TypeKindModel.Dual, objAlt, objField, objBase)
 {
   protected override TypeDualModel ToModel(IGqlpDualObject ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name) {
+    => new(ast.Name, ast.Description) {
       Aliases = [.. ast.Aliases],
-      Description = ast.Description,
       Parent = ParentModel(ast.ObjParent, typeKinds),
       TypeParams = TypeParamsModels(ast.TypeParams),
       Fields = FieldsModels(ast.ObjFields, typeKinds),
@@ -43,7 +42,7 @@ internal class DualFieldModeller(
 ) : ModellerObjField<IGqlpDualBase, IGqlpDualField, DualBaseModel, DualFieldModel>(modifier, objBase)
 {
   protected override DualFieldModel FieldModel(IGqlpDualField ast, DualBaseModel type, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name, new(type, ast.Type.Description));
+    => new(ast.Name, new(type, ast.Type.Description), ast.Description);
 }
 
 internal class DualAlternateModeller(

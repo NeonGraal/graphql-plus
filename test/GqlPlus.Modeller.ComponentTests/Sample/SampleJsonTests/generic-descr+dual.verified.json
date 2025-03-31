@@ -23,7 +23,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "description": "Test Descr",
           "name": "type"
         }

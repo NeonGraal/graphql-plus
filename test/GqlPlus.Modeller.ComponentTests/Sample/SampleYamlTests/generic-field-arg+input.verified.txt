@@ -19,7 +19,7 @@ types: !_Map_Type
     name: InpGnrcFieldArg
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Described
+    - !_Named
       name: type
   !_Identifier RefInpGnrcFieldArg: !_TypeInput
     allAlternates:
@@ -32,5 +32,5 @@ types: !_Map_Type
     name: RefInpGnrcFieldArg
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

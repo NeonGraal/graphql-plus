@@ -61,5 +61,5 @@ types: !_Map_Type
     name: OutpParamModParam
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: mod

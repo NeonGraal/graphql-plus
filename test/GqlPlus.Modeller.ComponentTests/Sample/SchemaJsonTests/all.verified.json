@@ -8,6 +8,7 @@
       "name": "all",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
+        "description": "Category Result",
         "name": "All",
         "typeKind": "Output"
       },
@@ -63,6 +64,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
+          "description": "Some items",
           "name": "items",
           "object": "All",
           "parameters": [
@@ -100,6 +102,7 @@
       "fields": [
         {
           "$tag": "_OutputField",
+          "description": "Some items",
           "name": "items",
           "parameters": [
             {
@@ -127,6 +130,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
+          "description": "Some strings",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -149,6 +153,7 @@
       "fields": [
         {
           "$tag": "_DualField",
+          "description": "Some strings",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -196,11 +201,13 @@
       "allItems": [
         {
           "$tag": "_UnionMember",
+          "description": "Guid Id",
           "name": "Guid",
           "union": "Many"
         },
         {
           "$tag": "_UnionMember",
+          "description": "Numeric Id",
           "name": "Number",
           "union": "Many"
         }
@@ -209,11 +216,13 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "Guid"
+          "description": "Guid Id",
+          "name": "Guid"
         },
         {
           "$tag": "_Aliased",
-          "value": "Number"
+          "description": "Numeric Id",
+          "name": "Number"
         }
       ],
       "name": "Many",
@@ -224,11 +233,13 @@
       "allItems": [
         {
           "$tag": "_EnumLabel",
+          "description": "Label 2",
           "enum": "One",
           "name": "Two"
         },
         {
           "$tag": "_EnumLabel",
+          "description": "Label 3",
           "enum": "One",
           "name": "Three"
         }
@@ -268,6 +279,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
+          "description": "First Id",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -287,6 +299,7 @@
         },
         {
           "$tag": "_ObjectFor(_InputField)",
+          "description": "Last Id",
           "name": "beforeId",
           "object": "Param",
           "type": {
@@ -316,6 +329,7 @@
       "fields": [
         {
           "$tag": "_InputField",
+          "description": "First Id",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -334,6 +348,7 @@
         },
         {
           "$tag": "_InputField",
+          "description": "Last Id",
           "name": "beforeId",
           "type": {
             "$tag": "_ObjDescribed(_InputBase)",

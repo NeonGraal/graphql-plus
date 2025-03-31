@@ -30,6 +30,7 @@ public static class SchemaParsers
       .AddParser<IGqlpSchemaSetting, ParseOptionSetting>()
       .AddDeclarationParser<IGqlpSchemaOption, ParseOption>("option")
       // Types
+      .AddParser<IGqlpTypeRef, ParseTypeRef>()
       .AddSingleton<ISimpleName, SimpleName>()
       // Enum
       .AddParser<EnumDefinition, ParseEnumDefinition>()

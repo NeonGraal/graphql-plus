@@ -72,8 +72,8 @@ public class DirectiveAstTests : AstAliasedTests
       location => new DirectiveDeclAst(AstNulls.At, name) { Locations = location },
       location1 == location2);
 
-  protected override string AliasesString(string input, string aliases)
-    => $"( !Di {input}{aliases} (Unique) None )";
+  protected override string AliasesString(string input, string description, string aliases)
+    => $"( {DescriptionNameString(input, description)}{aliases} (Unique) None )";
 
   private readonly AstAliasedChecks<DirectiveDeclAst> _checks
     = new(name => new DirectiveDeclAst(AstNulls.At, name));

@@ -7,9 +7,8 @@ internal class CategoryModeller(
 ) : ModellerBase<IGqlpSchemaCategory, CategoryModel>
 {
   protected override CategoryModel ToModel(IGqlpSchemaCategory ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name, ast.Output.TypeRef(TypeKindModel.Output)) {
+    => new(ast.Name, ast.Output.TypeRef(TypeKindModel.Output), ast.Description) {
       Aliases = [.. ast.Aliases],
-      Description = ast.Description,
       Resolution = ast.CategoryOption,
       Modifiers = modifier.ToModels(ast.Modifiers, typeKinds),
     };

@@ -43,7 +43,7 @@ types: !_Map_Type
     name: _Alternate
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: base
   !_Identifier _Field: !_TypeOutput
     allFields:
@@ -71,7 +71,7 @@ types: !_Map_Type
       output: _Aliased
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: base
   !_Identifier _ObjBase: !_TypeOutput
     allAlternates:
@@ -99,7 +99,7 @@ types: !_Map_Type
       output: _Described
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: arg
   !_Identifier _ObjConstraint: !_TypeOutput
     allAlternates:
@@ -119,7 +119,7 @@ types: !_Map_Type
     name: _ObjConstraint
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: base
   !_Identifier _ObjType: !_TypeOutput
     allAlternates:
@@ -155,7 +155,7 @@ types: !_Map_Type
     name: _ObjType
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: base
   !_Identifier _ObjTypeArg: !_TypeOutput
     allAlternates:
@@ -206,7 +206,7 @@ types: !_Map_Type
     parent: !_TypeParam for
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: for
   !_Identifier _TypeObject: !_TypeOutput
     allFields:
@@ -278,13 +278,13 @@ types: !_Map_Type
       - !_TypeParam parent
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: kind
-    - !_Described
+    - !_Named
       name: parent
-    - !_Described
+    - !_Named
       name: field
-    - !_Described
+    - !_Named
       name: alternate
   !_Identifier _TypeParam: !_DomainString
     domainKind: !_DomainKind String

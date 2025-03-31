@@ -13,6 +13,7 @@ types: !_Map_Type
   !_Identifier OutpFieldValueDescr: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
+      description: 'Test Descr'
       field: field
       label: outpFieldValueDescr
       name: EnumOutpFieldValueDescr
@@ -20,6 +21,7 @@ types: !_Map_Type
       typeKind: !_SimpleKind Enum
     fields:
     - !_OutputEnum
+      description: 'Test Descr'
       field: field
       label: outpFieldValueDescr
       name: EnumOutpFieldValueDescr

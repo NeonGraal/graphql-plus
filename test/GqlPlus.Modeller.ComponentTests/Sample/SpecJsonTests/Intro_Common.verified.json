@@ -39,7 +39,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "kind"
         }
       ]
@@ -76,11 +76,11 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "kind"
         },
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "parent"
         }
       ]
@@ -167,15 +167,15 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "kind"
         },
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "item"
         },
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "allItem"
         }
       ]
@@ -503,7 +503,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "kind"
         }
       ]

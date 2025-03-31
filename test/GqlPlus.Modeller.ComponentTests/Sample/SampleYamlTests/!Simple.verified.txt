@@ -279,6 +279,7 @@ types: !_Map_Type
   !_Identifier EnumDescr: !_TypeEnum
     allItems:
     - !_EnumLabel
+      description: 'Enum Descr'
       enum: EnumDescr
       name: enumDescr
     items:
@@ -647,10 +648,12 @@ types: !_Map_Type
   !_Identifier UnionDescr: !_TypeUnion
     allItems:
     - !_UnionMember
+      description: 'Union Descr'
       name: Number
       union: UnionDescr
     items:
     - !_Aliased
+      description: 'Union Descr'
       name: Number
     name: UnionDescr
     typeKind: !_TypeKind Union

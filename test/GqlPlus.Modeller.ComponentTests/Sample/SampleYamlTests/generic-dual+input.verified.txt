@@ -54,5 +54,5 @@ types: !_Map_Type
     name: InpGnrcDualRef
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

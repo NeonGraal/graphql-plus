@@ -1,8 +1,9 @@
 ﻿namespace GqlPlus.Models;
 
 public record class TypeInputModel(
-  string Name
-) : TypeObjectModel<InputBaseModel, InputFieldModel, InputAlternateModel>(TypeKindModel.Input, Name)
+  string Name,
+  string Description
+) : TypeObjectModel<InputBaseModel, InputFieldModel, InputAlternateModel>(TypeKindModel.Input, Name, Description)
 { }
 
 public record class InputArgModel(
@@ -21,8 +22,9 @@ public record class InputBaseModel(
 
 public record class InputFieldModel(
   string Name,
-  ObjDescribedModel<InputBaseModel>? Type
-) : ObjFieldModel<InputBaseModel>(Name, Type)
+  ObjDescribedModel<InputBaseModel>? Type,
+  string Description
+) : ObjFieldModel<InputBaseModel>(Name, Type, Description)
 {
   internal ConstantModel? Default { get; init; }
 }

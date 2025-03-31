@@ -5,5 +5,5 @@ types: !_Map_Type
     parent: !_TypeParam type
     typeKind: !_TypeKind Dual
     typeParams:
-    - !_Described
+    - !_Named
       name: type

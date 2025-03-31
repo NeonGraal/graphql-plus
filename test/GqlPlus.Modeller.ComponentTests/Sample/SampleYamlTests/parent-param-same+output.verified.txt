@@ -21,7 +21,7 @@ types: !_Map_Type
       - !_TypeParam a
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: a
   !_Identifier RefOutpPrntParamSame: !_TypeOutput
     allAlternates:
@@ -34,5 +34,5 @@ types: !_Map_Type
     name: RefOutpPrntParamSame
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: a

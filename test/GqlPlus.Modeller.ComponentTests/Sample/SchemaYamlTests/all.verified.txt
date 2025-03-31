@@ -4,6 +4,7 @@ categories: !_Map_Categories
     description: 'A Category'
     name: all
     output: !_TypeRef(_TypeKind)
+      description: 'Category Result'
       name: All
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
@@ -31,6 +32,7 @@ types: !_Map_Type
         description: 'Alternates'
     allFields:
     - !_ObjectFor(_OutputField)
+      description: 'Some items'
       name: items
       object: All
       parameters:
@@ -48,6 +50,7 @@ types: !_Map_Type
     description: 'An Output'
     fields:
     - !_OutputField
+      description: 'Some items'
       name: items
       parameters:
       - !_InputParam
@@ -60,6 +63,7 @@ types: !_Map_Type
   !_Identifier Field: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
+      description: 'Some strings'
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: strings
       object: Field
@@ -70,6 +74,7 @@ types: !_Map_Type
     description: 'A Dual'
     fields:
     - !_DualField
+      description: 'Some strings'
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: strings
       type: !_ObjDescribed(_DualBase)
@@ -95,25 +100,31 @@ types: !_Map_Type
   !_Identifier Many: !_TypeUnion
     allItems:
     - !_UnionMember
+      description: 'Guid Id'
       name: Guid
       union: Many
     - !_UnionMember
+      description: 'Numeric Id'
       name: Number
       union: Many
     description: 'A Union'
     items:
     - !_Aliased
+      description: 'Guid Id'
       name: Guid
     - !_Aliased
+      description: 'Numeric Id'
       name: Number
     name: Many
     typeKind: !_TypeKind Union
   !_Identifier One: !_TypeEnum
     allItems:
     - !_EnumLabel
+      description: 'Label 2'
       enum: One
       name: Two
     - !_EnumLabel
+      description: 'Label 3'
       enum: One
       name: Three
     description: 'An Enum'
@@ -136,6 +147,7 @@ types: !_Map_Type
         description: 'Alternate parameter'
     allFields:
     - !_ObjectFor(_InputField)
+      description: 'First Id'
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: afterId
       object: Param
@@ -144,6 +156,7 @@ types: !_Map_Type
           input: Many
         description: 'Guid or Int'
     - !_ObjectFor(_InputField)
+      description: 'Last Id'
       name: beforeId
       object: Param
       type: !_ObjDescribed(_InputBase)
@@ -159,6 +172,7 @@ types: !_Map_Type
     description: 'An Input'
     fields:
     - !_InputField
+      description: 'First Id'
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: afterId
       type: !_ObjDescribed(_InputBase)
@@ -166,6 +180,7 @@ types: !_Map_Type
           input: Many
         description: 'Guid or Int'
     - !_InputField
+      description: 'Last Id'
       name: beforeId
       type: !_ObjDescribed(_InputBase)
         base: !_InputBase

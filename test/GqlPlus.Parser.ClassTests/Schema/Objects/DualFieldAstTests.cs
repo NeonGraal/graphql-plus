@@ -7,8 +7,8 @@ namespace GqlPlus.Schema.Objects;
 public class DualFieldAstTests
   : AstObjectFieldTests<IGqlpDualBase>
 {
-  protected override string AliasesString(FieldInput input, string aliases)
-    => $"( !DF {input.Name}{aliases} : {input.Type} )";
+  protected override string AliasesString(FieldInput input, string description, string aliases)
+    => $"( {DescriptionNameString(input, description)}{aliases} : {input.Type} )";
 
   private readonly AstObjectFieldChecks<DualFieldAst, IGqlpDualBase, DualBaseAst, IGqlpDualArg, DualArgAst> _checks = new(
       (dual, objBase) => new(AstNulls.At, dual.Name, objBase),

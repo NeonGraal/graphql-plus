@@ -24,7 +24,7 @@ public class CategoriesModelTests(
     string name
   ) => checks
     .Model_Expected(
-      checks.ToModel(new CategoryDeclAst(AstNulls.At, name, output), output),
+      checks.ToModel(new CategoryDeclAst(AstNulls.At, name, new(AstNulls.At, output)), output),
       ["!_Categories",
         "category: !_Category",
         "  name: " + name,
@@ -49,7 +49,7 @@ internal sealed class CategoriesModelChecks(
     "resolution: !_Resolution Parallel"];
 
   protected override CategoryDeclAst NewBaseAst(string name)
-    => new(AstNulls.At, name);
+    => new(AstNulls.At, new(AstNulls.At, name));
 
   IModelBase ICheckModelBase.ToModel(IGqlpError ast)
     => new CategoriesModel() { And = _modeller.ToModel((CategoryDeclAst)ast, TypeKinds) };

@@ -1,33 +1,34 @@
 ﻿!Sc S@001/0001
 Success
 {
-  "A Category"
+  'A Category'
   !Ca P@010/0002
   all
   (Parallel)
-  "Category Result"
+  'Category Result'
+  !Tr I@030/0002
   All
 }
 {
-  "A Directive"
+  'A Directive'
   !Di I@012/0004
   all
   (Unique)
   All
 }
 {
-  "An Option"
+  'An Option'
   !Op I@008/0006
   Schema
   {
-    "Schema Setting"
+    'Schema Setting'
     !OS S@017/0006
     all
     =( !k S@038/0006 'test' )
   }
 }
 {
-  "A Domain"
+  'A Domain'
   !Do I@008/0008
   Guid
   String
@@ -35,33 +36,33 @@ Success
   /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/
 }
 {
-  "An Enum"
+  'An Enum'
   !En I@006/0010
   One
-  "Label 2"
+  'Label 2'
   !EL I@022/0010
   Two
-  "Label 3"
+  'Label 3'
   !EL I@036/0010
   Three
 }
 {
-  "A Union"
+  'A Union'
   !Un I@007/0012
   Many
-  "Guid Id"
+  'Guid Id'
   !UM I@024/0012
   Guid
-  "Numeric Id"
+  'Numeric Id'
   !UM I@042/0012
   Number
 }
 {
-  "A Dual"
+  'A Dual'
   !Du I@006/0014
   Field
   {
-    "Some strings"
+    'Some strings'
     !DF I@029/0014
     strings
     :
@@ -71,18 +72,18 @@ Success
   }
 }
 {
-  "An Input"
+  'An Input'
   !In I@007/0016
   Param
   {
-    "First Id"
+    'First Id'
     !IF I@016/0017
     afterId
     :
     I@039/0017
     Many
     ?
-    "Last Id"
+    'Last Id'
     !IF I@015/0018
     beforeId
     :
@@ -95,11 +96,11 @@ Success
   String
 }
 {
-  "An Output"
+  'An Output'
   !Ou I@008/0022
   All
   {
-    "Some items"
+    'Some items'
     !OF I@018/0023
     items
     (

@@ -380,7 +380,7 @@ Success
   !Du I@006/0001
   DualFieldDescr
   {
-    "Test Descr"
+    'Test Descr'
     !DF I@038/0001
     field
     :
@@ -392,7 +392,7 @@ Success
   !In I@007/0001
   InpFieldDescr
   {
-    "Test Descr"
+    'Test Descr'
     !IF I@038/0001
     field
     :
@@ -404,7 +404,7 @@ Success
   !Ou I@008/0001
   OutpFieldDescr
   {
-    "Test Descr"
+    'Test Descr'
     !OF I@040/0001
     field
     :
@@ -2549,7 +2549,7 @@ Success
   !In I@007/0001
   InpFieldDescrNmbr
   {
-    "Test Descr"
+    'Test Descr'
     !IF I@042/0001
     field
     :
@@ -2633,7 +2633,7 @@ Success
   !Ou I@008/0001
   OutpDescrParam
   {
-    "Test Descr"
+    'Test Descr'
     !OF I@040/0001
     field
     (

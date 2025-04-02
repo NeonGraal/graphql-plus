@@ -6,9 +6,8 @@ types: !_Map_Type
   !_Identifier InOutpDescrParam: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
+      input: String
       object: InOutpDescrParam
-      type: !_InputBase
-        input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: param
@@ -17,8 +16,7 @@ types: !_Map_Type
         input: Number
     alternates:
     - !_InputAlternate
-      type: !_InputBase
-        input: String
+      input: String
     fields:
     - !_InputField
       name: param

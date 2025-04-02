@@ -28,7 +28,6 @@
           "description": "Test Descr",
           "field": "field",
           "label": "outpFieldValueDescr",
-          "name": "EnumOutpFieldValueDescr",
           "object": "OutpFieldValueDescr",
           "typeKind": "Enum"
         }
@@ -39,7 +38,6 @@
           "description": "Test Descr",
           "field": "field",
           "label": "outpFieldValueDescr",
-          "name": "EnumOutpFieldValueDescr",
           "typeKind": "Enum"
         }
       ],

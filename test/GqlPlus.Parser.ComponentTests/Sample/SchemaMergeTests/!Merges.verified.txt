@@ -281,7 +281,6 @@ Success
   !Du I@006/0001
   DualObjAlt
   |
-  !DA I@021/0001
   I@021/0001
   DualObjAltType
 }
@@ -293,7 +292,6 @@ Success
   !In I@007/0001
   InpObjAlt
   |
-  !IA I@021/0001
   I@021/0001
   InpObjAltType
 }
@@ -305,7 +303,6 @@ Success
   !Ou I@008/0001
   OutpObjAlt
   |
-  !OA I@023/0001
   I@023/0001
   OutpObjAltType
 }
@@ -526,7 +523,8 @@ Success
     ]
     =
     I@046/0001
-    Boolean.true
+    Boolean
+    .true
   }
 }
 {
@@ -537,7 +535,8 @@ Success
     field
     =
     I@037/0001
-    Boolean.true
+    Boolean
+    .true
   }
 }
 {

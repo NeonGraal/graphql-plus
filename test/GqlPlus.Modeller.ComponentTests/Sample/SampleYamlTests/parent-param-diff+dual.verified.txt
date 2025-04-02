@@ -3,17 +3,19 @@ types: !_Map_Type
   !_Identifier DualPrntParamDiff: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
+      dual: b
       object: RefDualPrntParamDiff
-      type: !_TypeParam b
     allFields:
     - !_ObjectFor(_DualField)
       name: field
       object: DualPrntParamDiff
-      type: !_TypeParam a
+      type: !_DualBase
+        typeParam: a
     fields:
     - !_DualField
       name: field
-      type: !_TypeParam a
+      type: !_DualBase
+        typeParam: a
     name: DualPrntParamDiff
     parent: !_DualBase
       dual: RefDualPrntParamDiff
@@ -26,11 +28,11 @@ types: !_Map_Type
   !_Identifier RefDualPrntParamDiff: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
+      dual: b
       object: RefDualPrntParamDiff
-      type: !_TypeParam b
     alternates:
     - !_DualAlternate
-      type: !_TypeParam b
+      dual: b
     name: RefDualPrntParamDiff
     typeKind: !_TypeKind Dual
     typeParams:

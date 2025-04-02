@@ -50,15 +50,9 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
+          "description": "Alternates",
           "object": "All",
-          "type": {
-            "$tag": "_ObjDescribed(_OutputBase)",
-            "base": {
-              "$tag": "_OutputBase",
-              "value": "String"
-            },
-            "description": "Alternates"
-          }
+          "output": "String"
         }
       ],
       "allFields": [
@@ -88,14 +82,8 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_ObjDescribed(_OutputBase)",
-            "base": {
-              "$tag": "_OutputBase",
-              "value": "String"
-            },
-            "description": "Alternates"
-          }
+          "description": "Alternates",
+          "output": "String"
         }
       ],
       "description": "An Output",
@@ -140,12 +128,9 @@
           "name": "strings",
           "object": "Field",
           "type": {
-            "$tag": "_ObjDescribed(_DualBase)",
-            "base": {
-              "$tag": "_DualBase",
-              "value": "String"
-            },
-            "description": "Strings array"
+            "$tag": "_DualBase",
+            "description": "Strings array",
+            "dual": "String"
           }
         }
       ],
@@ -162,12 +147,9 @@
           ],
           "name": "strings",
           "type": {
-            "$tag": "_ObjDescribed(_DualBase)",
-            "base": {
-              "$tag": "_DualBase",
-              "value": "String"
-            },
-            "description": "Strings array"
+            "$tag": "_DualBase",
+            "description": "Strings array",
+            "dual": "String"
           }
         }
       ],
@@ -265,15 +247,9 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "Param",
-          "type": {
-            "$tag": "_ObjDescribed(_InputBase)",
-            "base": {
-              "$tag": "_InputBase",
-              "value": "String"
-            },
-            "description": "Alternate parameter"
-          }
+          "description": "Alternate parameter",
+          "input": "String",
+          "object": "Param"
         }
       ],
       "allFields": [
@@ -289,12 +265,9 @@
           "name": "afterId",
           "object": "Param",
           "type": {
-            "$tag": "_ObjDescribed(_InputBase)",
-            "base": {
-              "$tag": "_InputBase",
-              "value": "Many"
-            },
-            "description": "Guid or Int"
+            "$tag": "_InputBase",
+            "description": "Guid or Int",
+            "input": "Many"
           }
         },
         {
@@ -303,26 +276,17 @@
           "name": "beforeId",
           "object": "Param",
           "type": {
-            "$tag": "_ObjDescribed(_InputBase)",
-            "base": {
-              "$tag": "_InputBase",
-              "value": "Many"
-            },
-            "description": "Guid or Int"
+            "$tag": "_InputBase",
+            "description": "Guid or Int",
+            "input": "Many"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "type": {
-            "$tag": "_ObjDescribed(_InputBase)",
-            "base": {
-              "$tag": "_InputBase",
-              "value": "String"
-            },
-            "description": "Alternate parameter"
-          }
+          "description": "Alternate parameter",
+          "input": "String"
         }
       ],
       "description": "An Input",
@@ -338,12 +302,9 @@
           ],
           "name": "afterId",
           "type": {
-            "$tag": "_ObjDescribed(_InputBase)",
-            "base": {
-              "$tag": "_InputBase",
-              "value": "Many"
-            },
-            "description": "Guid or Int"
+            "$tag": "_InputBase",
+            "description": "Guid or Int",
+            "input": "Many"
           }
         },
         {
@@ -351,12 +312,9 @@
           "description": "Last Id",
           "name": "beforeId",
           "type": {
-            "$tag": "_ObjDescribed(_InputBase)",
-            "base": {
-              "$tag": "_InputBase",
-              "value": "Many"
-            },
-            "description": "Guid or Int"
+            "$tag": "_InputBase",
+            "description": "Guid or Int",
+            "input": "Many"
           }
         }
       ],

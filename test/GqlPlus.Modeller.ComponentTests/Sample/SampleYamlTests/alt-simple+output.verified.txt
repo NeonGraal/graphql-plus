@@ -4,11 +4,9 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: OutpAltSmpl
-      type: !_OutputBase
-        output: String
+      output: String
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: String
+      output: String
     name: OutpAltSmpl
     typeKind: !_TypeKind Output

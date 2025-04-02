@@ -25,10 +25,10 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: RefOutpGnrcFieldArg
-      type: !_TypeParam ref
+      output: ref
     alternates:
     - !_OutputAlternate
-      type: !_TypeParam ref
+      output: ref
     name: RefOutpGnrcFieldArg
     typeKind: !_TypeKind Output
     typeParams:

@@ -9,14 +9,20 @@
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
           "object": "InpGnrcField",
-          "type": "type"
+          "type": {
+            "$tag": "_InputBase",
+            "value": "type"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_InputField",
           "name": "field",
-          "type": "type"
+          "type": {
+            "$tag": "_InputBase",
+            "value": "type"
+          }
         }
       ],
       "name": "InpGnrcField",

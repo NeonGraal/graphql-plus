@@ -7,8 +7,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "RefDualGnrcPrntArg",
-          "type": "ref"
+          "dual": "ref",
+          "object": "RefDualGnrcPrntArg"
         }
       ],
       "name": "DualGnrcPrntArg",
@@ -30,14 +30,14 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "RefDualGnrcPrntArg",
-          "type": "ref"
+          "dual": "ref",
+          "object": "RefDualGnrcPrntArg"
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": "ref"
+          "value": "ref"
         }
       ],
       "name": "RefDualGnrcPrntArg",

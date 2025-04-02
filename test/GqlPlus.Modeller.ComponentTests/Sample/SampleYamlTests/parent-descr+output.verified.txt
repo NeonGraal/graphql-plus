@@ -4,8 +4,7 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: RefOutpPrntDescr
-      type: !_OutputBase
-        output: String
+      output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: parent
@@ -13,17 +12,15 @@ types: !_Map_Type
       type: !_OutputBase
         output: Number
     name: OutpPrntDescr
-    parent: !_ObjDescribed(_OutputBase)
-      base: !_OutputBase
-        output: RefOutpPrntDescr
+    parent: !_OutputBase
       description: 'Test Descr'
+      output: RefOutpPrntDescr
     typeKind: !_TypeKind Output
   !_Identifier RefOutpPrntDescr: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: RefOutpPrntDescr
-      type: !_OutputBase
-        output: String
+      output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: parent
@@ -32,8 +29,7 @@ types: !_Map_Type
         output: Number
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: String
+      output: String
     fields:
     - !_OutputField
       name: parent

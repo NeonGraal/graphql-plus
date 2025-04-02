@@ -7,23 +7,26 @@ public record class TypeDualModel(
 { }
 
 public record class DualArgModel(
-  string Dual
-) : ObjArgModel
+  string Dual,
+  string Description
+) : ObjArgModel(Description)
 { }
 
 public record class DualBaseModel(
-  string Dual
-) : ObjBaseModel<DualArgModel>
+  string Dual,
+  string Description
+) : ObjBaseModel<DualArgModel>(Description)
 { }
 
 public record class DualFieldModel(
   string Name,
-  ObjDescribedModel<DualBaseModel>? Type,
+  DualBaseModel? Type,
   string Description
 ) : ObjFieldModel<DualBaseModel>(Name, Type, Description)
 { }
 
 public record class DualAlternateModel(
-  ObjDescribedModel<DualBaseModel> Type
-) : ObjAlternateModel<DualBaseModel>(Type)
+  string Dual,
+  string Description
+) : ObjAlternateModel<DualArgModel>(Description)
 { }

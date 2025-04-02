@@ -11,7 +11,7 @@ public class OutputFieldModelTests(
   [Theory, RepeatData]
   public void Model_EnumValue(FieldInput input, string enumLabel)
     => checks.Field_Expected(
-      new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type) { EnumLabel = enumLabel }),
+      new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type)) { EnumLabel = enumLabel },
       checks.ExpectedEnum(input, enumLabel)
       );
 

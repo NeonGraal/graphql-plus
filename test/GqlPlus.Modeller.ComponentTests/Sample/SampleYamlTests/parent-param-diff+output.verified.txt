@@ -4,16 +4,18 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: RefOutpPrntParamDiff
-      type: !_TypeParam b
+      output: b
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
       object: OutpPrntParamDiff
-      type: !_TypeParam a
+      type: !_OutputBase
+        typeParam: a
     fields:
     - !_OutputField
       name: field
-      type: !_TypeParam a
+      type: !_OutputBase
+        typeParam: a
     name: OutpPrntParamDiff
     parent: !_OutputBase
       output: RefOutpPrntParamDiff
@@ -27,10 +29,10 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: RefOutpPrntParamDiff
-      type: !_TypeParam b
+      output: b
     alternates:
     - !_OutputAlternate
-      type: !_TypeParam b
+      output: b
     name: RefOutpPrntParamDiff
     typeKind: !_TypeKind Output
     typeParams:

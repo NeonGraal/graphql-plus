@@ -10,12 +10,9 @@
           "name": "field",
           "object": "DualFieldTypeDescr",
           "type": {
-            "$tag": "_ObjDescribed(_DualBase)",
-            "base": {
-              "$tag": "_DualBase",
-              "value": "Number"
-            },
-            "description": "Test Descr"
+            "$tag": "_DualBase",
+            "description": "Test Descr",
+            "dual": "Number"
           }
         }
       ],
@@ -24,12 +21,9 @@
           "$tag": "_DualField",
           "name": "field",
           "type": {
-            "$tag": "_ObjDescribed(_DualBase)",
-            "base": {
-              "$tag": "_DualBase",
-              "value": "Number"
-            },
-            "description": "Test Descr"
+            "$tag": "_DualBase",
+            "description": "Test Descr",
+            "dual": "Number"
           }
         }
       ],

@@ -8,10 +8,7 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "RefOutpPrnt",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "output": "String"
         }
       ],
       "allFields": [
@@ -38,10 +35,7 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "RefOutpPrnt",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "output": "String"
         }
       ],
       "allFields": [
@@ -58,10 +52,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [

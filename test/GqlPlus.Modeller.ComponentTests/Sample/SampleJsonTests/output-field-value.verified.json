@@ -27,7 +27,6 @@
           "$tag": "_ObjectFor(_OutputField)",
           "field": "field",
           "label": "outpFieldValue",
-          "name": "EnumOutpFieldValue",
           "object": "OutpFieldValue",
           "typeKind": "Enum"
         }
@@ -37,7 +36,6 @@
           "$tag": "_OutputEnum",
           "field": "field",
           "label": "outpFieldValue",
-          "name": "EnumOutpFieldValue",
           "typeKind": "Enum"
         }
       ],

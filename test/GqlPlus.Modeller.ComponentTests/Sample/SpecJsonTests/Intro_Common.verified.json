@@ -21,14 +21,20 @@
           "$tag": "_ObjectFor(_OutputField)",
           "name": "typeKind",
           "object": "_BaseType",
-          "type": "kind"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "kind"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_OutputField",
           "name": "typeKind",
-          "type": "kind"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "kind"
+          }
         }
       ],
       "name": "_BaseType",
@@ -51,20 +57,29 @@
           "$tag": "_ObjectFor(_OutputField)",
           "name": "typeKind",
           "object": "_BaseType",
-          "type": "kind"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "kind"
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "parent",
           "object": "_ChildType",
-          "type": "parent"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "parent"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_OutputField",
           "name": "parent",
-          "type": "parent"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "parent"
+          }
         }
       ],
       "name": "_ChildType",
@@ -92,7 +107,10 @@
           "$tag": "_ObjectFor(_OutputField)",
           "name": "typeKind",
           "object": "_BaseType",
-          "type": "kind"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "kind"
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
@@ -113,7 +131,10 @@
           ],
           "name": "items",
           "object": "_ParentType",
-          "type": "item"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "item"
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
@@ -125,7 +146,10 @@
           ],
           "name": "allItems",
           "object": "_ParentType",
-          "type": "allItem"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "allItem"
+          }
         }
       ],
       "fields": [
@@ -138,7 +162,10 @@
             }
           ],
           "name": "items",
-          "type": "item"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "item"
+          }
         },
         {
           "$tag": "_OutputField",
@@ -149,7 +176,10 @@
             }
           ],
           "name": "allItems",
-          "type": "allItem"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "allItem"
+          }
         }
       ],
       "name": "_ParentType",
@@ -240,156 +270,108 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Type",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_BaseType",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "label": "Basic",
-                "name": "_TypeKind",
-                "typeKind": "Enum"
-              }
-            ]
-          }
+          "output": "_BaseType",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "label": "Basic",
+              "name": "_TypeKind",
+              "typeKind": "Enum"
+            }
+          ]
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Type",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_BaseType",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "label": "Internal",
-                "name": "_TypeKind",
-                "typeKind": "Enum"
-              }
-            ]
-          }
+          "output": "_BaseType",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "label": "Internal",
+              "name": "_TypeKind",
+              "typeKind": "Enum"
+            }
+          ]
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Type",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_TypeDual"
-          }
+          "output": "_TypeDual"
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Type",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_TypeEnum"
-          }
+          "output": "_TypeEnum"
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Type",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_TypeInput"
-          }
+          "output": "_TypeInput"
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Type",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_TypeOutput"
-          }
+          "output": "_TypeOutput"
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Type",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_TypeDomain"
-          }
+          "output": "_TypeDomain"
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Type",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_TypeUnion"
-          }
+          "output": "_TypeUnion"
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_BaseType",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "label": "Basic",
-                "name": "_TypeKind",
-                "typeKind": "Enum"
-              }
-            ]
-          }
+          "output": "_BaseType",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "label": "Basic",
+              "name": "_TypeKind",
+              "typeKind": "Enum"
+            }
+          ]
         },
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_BaseType",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "label": "Internal",
-                "name": "_TypeKind",
-                "typeKind": "Enum"
-              }
-            ]
-          }
+          "output": "_BaseType",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "label": "Internal",
+              "name": "_TypeKind",
+              "typeKind": "Enum"
+            }
+          ]
         },
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_TypeDual"
-          }
+          "value": "_TypeDual"
         },
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_TypeEnum"
-          }
+          "value": "_TypeEnum"
         },
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_TypeInput"
-          }
+          "value": "_TypeInput"
         },
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_TypeOutput"
-          }
+          "value": "_TypeOutput"
         },
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_TypeDomain"
-          }
+          "value": "_TypeDomain"
         },
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_TypeUnion"
-          }
+          "value": "_TypeUnion"
         }
       ],
       "name": "_Type",
@@ -468,7 +450,10 @@
           "$tag": "_ObjectFor(_OutputField)",
           "name": "typeKind",
           "object": "_TypeRef",
-          "type": "kind"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "kind"
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
@@ -484,7 +469,10 @@
         {
           "$tag": "_OutputField",
           "name": "typeKind",
-          "type": "kind"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "kind"
+          }
         },
         {
           "$tag": "_OutputField",
@@ -514,128 +502,104 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_TypeSimple",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_TypeRef",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "label": "Basic",
-                "name": "_TypeKind",
-                "typeKind": "Enum"
-              }
-            ]
-          }
+          "output": "_TypeRef",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "label": "Basic",
+              "name": "_TypeKind",
+              "typeKind": "Enum"
+            }
+          ]
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_TypeSimple",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_TypeRef",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "label": "Enum",
-                "name": "_TypeKind",
-                "typeKind": "Enum"
-              }
-            ]
-          }
+          "output": "_TypeRef",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "label": "Enum",
+              "name": "_TypeKind",
+              "typeKind": "Enum"
+            }
+          ]
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_TypeSimple",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_TypeRef",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "label": "Domain",
-                "name": "_TypeKind",
-                "typeKind": "Enum"
-              }
-            ]
-          }
+          "output": "_TypeRef",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "label": "Domain",
+              "name": "_TypeKind",
+              "typeKind": "Enum"
+            }
+          ]
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_TypeSimple",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_TypeRef",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "label": "Union",
-                "name": "_TypeKind",
-                "typeKind": "Enum"
-              }
-            ]
-          }
+          "output": "_TypeRef",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "label": "Union",
+              "name": "_TypeKind",
+              "typeKind": "Enum"
+            }
+          ]
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_TypeRef",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "label": "Basic",
-                "name": "_TypeKind",
-                "typeKind": "Enum"
-              }
-            ]
-          }
+          "output": "_TypeRef",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "label": "Basic",
+              "name": "_TypeKind",
+              "typeKind": "Enum"
+            }
+          ]
         },
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_TypeRef",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "label": "Enum",
-                "name": "_TypeKind",
-                "typeKind": "Enum"
-              }
-            ]
-          }
+          "output": "_TypeRef",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "label": "Enum",
+              "name": "_TypeKind",
+              "typeKind": "Enum"
+            }
+          ]
         },
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_TypeRef",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "label": "Domain",
-                "name": "_TypeKind",
-                "typeKind": "Enum"
-              }
-            ]
-          }
+          "output": "_TypeRef",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "label": "Domain",
+              "name": "_TypeKind",
+              "typeKind": "Enum"
+            }
+          ]
         },
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_TypeRef",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "label": "Union",
-                "name": "_TypeKind",
-                "typeKind": "Enum"
-              }
-            ]
-          }
+          "output": "_TypeRef",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "label": "Union",
+              "name": "_TypeKind",
+              "typeKind": "Enum"
+            }
+          ]
         }
       ],
       "name": "_TypeSimple",

@@ -7,22 +7,24 @@ public record class TypeInputModel(
 { }
 
 public record class InputArgModel(
-  string Input
-) : ObjArgModel
+  string Input,
+  string Description
+) : ObjArgModel(Description)
 {
   internal DualArgModel? Dual { get; init; }
 }
 
 public record class InputBaseModel(
-  string Input
-) : ObjBaseModel<InputArgModel>
+  string Input,
+  string Description
+) : ObjBaseModel<InputArgModel>(Description)
 {
   internal DualBaseModel? Dual { get; init; }
 }
 
 public record class InputFieldModel(
   string Name,
-  ObjDescribedModel<InputBaseModel>? Type,
+  InputBaseModel? Type,
   string Description
 ) : ObjFieldModel<InputBaseModel>(Name, Type, Description)
 {
@@ -30,13 +32,17 @@ public record class InputFieldModel(
 }
 
 public record class InputAlternateModel(
-  ObjDescribedModel<InputBaseModel> Type
-) : ObjAlternateModel<InputBaseModel>(Type)
-{ }
+  string Input,
+  string Description
+) : ObjAlternateModel<InputArgModel>(Description)
+{
+  internal DualAlternateModel? Dual { get; init; }
+}
 
 public record class InputParamModel(
-  ObjDescribedModel<InputBaseModel> Type
-) : ModelBase
+  string Input,
+  string Description
+) : InputBaseModel(Input, Description)
 {
   internal ModifierModel[] Modifiers { get; set; } = [];
   public ConstantModel? DefaultValue { get; set; }

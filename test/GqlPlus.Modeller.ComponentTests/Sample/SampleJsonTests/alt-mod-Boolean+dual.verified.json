@@ -7,11 +7,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "AltDualAltModBool",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "dual": "String",
+          "object": "AltDualAltModBool"
         }
       ],
       "allFields": [
@@ -28,10 +25,7 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -60,11 +54,8 @@
               "typeKind": "Basic"
             }
           ],
-          "object": "DualAltModBool",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "AltDualAltModBool"
-          }
+          "dual": "AltDualAltModBool",
+          "object": "DualAltModBool"
         }
       ],
       "alternates": [
@@ -78,10 +69,7 @@
               "typeKind": "Basic"
             }
           ],
-          "type": {
-            "$tag": "_DualBase",
-            "value": "AltDualAltModBool"
-          }
+          "dual": "AltDualAltModBool"
         }
       ],
       "name": "DualAltModBool",

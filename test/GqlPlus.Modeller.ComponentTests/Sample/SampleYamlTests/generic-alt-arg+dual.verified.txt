@@ -3,17 +3,15 @@ types: !_Map_Type
   !_Identifier DualGnrcAltArg: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
+      dual: RefDualGnrcAltArg
       object: DualGnrcAltArg
-      type: !_DualBase
-        dual: RefDualGnrcAltArg
-        typeArgs:
-        - !_TypeParam type
+      typeArgs:
+      - !_TypeParam type
     alternates:
     - !_DualAlternate
-      type: !_DualBase
-        dual: RefDualGnrcAltArg
-        typeArgs:
-        - !_TypeParam type
+      dual: RefDualGnrcAltArg
+      typeArgs:
+      - !_TypeParam type
     name: DualGnrcAltArg
     typeKind: !_TypeKind Dual
     typeParams:
@@ -22,11 +20,11 @@ types: !_Map_Type
   !_Identifier RefDualGnrcAltArg: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
+      dual: ref
       object: RefDualGnrcAltArg
-      type: !_TypeParam ref
     alternates:
     - !_DualAlternate
-      type: !_TypeParam ref
+      dual: ref
     name: RefDualGnrcAltArg
     typeKind: !_TypeKind Dual
     typeParams:

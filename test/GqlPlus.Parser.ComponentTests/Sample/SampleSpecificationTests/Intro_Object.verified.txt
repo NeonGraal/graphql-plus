@@ -71,12 +71,10 @@ Success
     $base
   >
   |
-  !OA I@007/0011
   I@007/0011
   _TypeSimple
-  !OA P@007/0012
-  I@008/0012
-  $base
+  P@007/0012
+  base
 }
 {
   !Ou I@008/0014
@@ -86,14 +84,12 @@ Success
     $base
   >
   |
-  !OA I@007/0015
   I@007/0015
   _BaseType
   <
     I@017/0015
     _TypeKind.Internal
   >
-  !OA I@007/0016
   I@007/0016
   _ObjConstraint
   <
@@ -120,7 +116,6 @@ Success
     []
   }
   |
-  !OA I@007/0022
   I@007/0022
   _ObjTypeParam
 }
@@ -135,7 +130,6 @@ Success
     _TypeKind
   >
   |
-  !OA I@007/0027
   I@007/0027
   _ObjTypeParam
 }

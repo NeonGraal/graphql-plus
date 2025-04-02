@@ -7,22 +7,16 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
+          "input": "RefInpGnrcAltArg",
           "object": "InpGnrcAltArg",
-          "type": {
-            "$tag": "_InputBase",
-            "input": "RefInpGnrcAltArg",
-            "typeArgs": ["type"]
-          }
+          "typeArgs": ["type"]
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "type": {
-            "$tag": "_InputBase",
-            "input": "RefInpGnrcAltArg",
-            "typeArgs": ["type"]
-          }
+          "input": "RefInpGnrcAltArg",
+          "typeArgs": ["type"]
         }
       ],
       "name": "InpGnrcAltArg",
@@ -39,14 +33,14 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "RefInpGnrcAltArg",
-          "type": "ref"
+          "input": "ref",
+          "object": "RefInpGnrcAltArg"
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "type": "ref"
+          "value": "ref"
         }
       ],
       "name": "RefInpGnrcAltArg",

@@ -55,10 +55,7 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_OutputBase",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_DualBase"
-          }
+          "output": "_DualBase"
         }
       ],
       "allFields": [
@@ -75,10 +72,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_DualBase"
-          }
+          "value": "_DualBase"
         }
       ],
       "fields": [
@@ -165,10 +159,7 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_OutputField",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_OutputEnum"
-          }
+          "output": "_OutputEnum"
         }
       ],
       "allFields": [
@@ -191,10 +182,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_OutputEnum"
-          }
+          "value": "_OutputEnum"
         }
       ],
       "fields": [

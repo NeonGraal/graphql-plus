@@ -3,9 +3,8 @@ types: !_Map_Type
   !_Identifier AltInpAltModBool: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
+      input: String
       object: AltInpAltModBool
-      type: !_InputBase
-        input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
@@ -14,8 +13,7 @@ types: !_Map_Type
         input: Number
     alternates:
     - !_InputAlternate
-      type: !_InputBase
-        input: String
+      input: String
     fields:
     - !_InputField
       name: alt
@@ -31,9 +29,8 @@ types: !_Map_Type
         by: ^
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Basic
+      input: AltInpAltModBool
       object: InpAltModBool
-      type: !_InputBase
-        input: AltInpAltModBool
     alternates:
     - !_InputAlternate
       collections:
@@ -41,7 +38,6 @@ types: !_Map_Type
         by: ^
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Basic
-      type: !_InputBase
-        input: AltInpAltModBool
+      input: AltInpAltModBool
     name: InpAltModBool
     typeKind: !_TypeKind Input

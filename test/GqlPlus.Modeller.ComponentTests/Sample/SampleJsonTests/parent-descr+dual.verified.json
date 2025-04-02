@@ -7,11 +7,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "RefDualPrntDescr",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "dual": "String",
+          "object": "RefDualPrntDescr"
         }
       ],
       "allFields": [
@@ -27,12 +24,9 @@
       ],
       "name": "DualPrntDescr",
       "parent": {
-        "$tag": "_ObjDescribed(_DualBase)",
-        "base": {
-          "$tag": "_DualBase",
-          "value": "RefDualPrntDescr"
-        },
-        "description": "Test Descr"
+        "$tag": "_DualBase",
+        "description": "Test Descr",
+        "dual": "RefDualPrntDescr"
       },
       "typeKind": "Dual"
     },
@@ -41,11 +35,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "RefDualPrntDescr",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "dual": "String",
+          "object": "RefDualPrntDescr"
         }
       ],
       "allFields": [
@@ -62,10 +53,7 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [

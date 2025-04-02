@@ -8,10 +8,7 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "AltOutpGnrcFieldParam",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "output": "String"
         }
       ],
       "allFields": [
@@ -28,10 +25,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -91,13 +85,13 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "RefOutpGnrcFieldParam",
-          "type": "ref"
+          "output": "ref"
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": "ref"
+          "value": "ref"
         }
       ],
       "name": "RefOutpGnrcFieldParam",

@@ -42,11 +42,11 @@ internal class MergeAllTypes(
 
     foreach (OutputDeclAst output in types.OfType<OutputDeclAst>()) {
       foreach (IGqlpOutputAlternate alternate in output.ObjAlternates) {
-        FixupType(alternate.BaseType, enumValues);
+        // Todo: FixupType(alternate, enumValues);
       }
 
       foreach (IGqlpOutputField field in output.ObjFields) {
-        FixupType(field.BaseType, enumValues);
+        FixupType(field, enumValues);
       }
     }
 
@@ -77,11 +77,11 @@ internal class MergeAllTypes(
     }
   }
 
-  private static void FixupType(IGqlpOutputBase type, Map<string> enumValues)
+  private static void FixupType(IGqlpOutputField field, Map<string> enumValues)
   {
-    FixupType<OutputBaseAst>(type, enumValues);
+    FixupType<OutputFieldAst>(field, enumValues);
 
-    foreach (IGqlpOutputArg argument in type.BaseArgs) {
+    foreach (IGqlpOutputArg argument in field.BaseType.BaseArgs) {
       FixupType<OutputArgAst>(argument, enumValues);
     }
   }

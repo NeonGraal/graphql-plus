@@ -10,12 +10,9 @@
           "name": "field",
           "object": "OutpFieldTypeDescr",
           "type": {
-            "$tag": "_ObjDescribed(_OutputBase)",
-            "base": {
-              "$tag": "_OutputBase",
-              "value": "Number"
-            },
-            "description": "Test Descr"
+            "$tag": "_OutputBase",
+            "description": "Test Descr",
+            "output": "Number"
           }
         }
       ],
@@ -24,12 +21,9 @@
           "$tag": "_OutputField",
           "name": "field",
           "type": {
-            "$tag": "_ObjDescribed(_OutputBase)",
-            "base": {
-              "$tag": "_OutputBase",
-              "value": "Number"
-            },
-            "description": "Test Descr"
+            "$tag": "_OutputBase",
+            "description": "Test Descr",
+            "output": "Number"
           }
         }
       ],

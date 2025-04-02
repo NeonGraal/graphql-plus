@@ -7,20 +7,14 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualObjAlt",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "DualObjAltType"
-          }
+          "dual": "DualObjAltType",
+          "object": "DualObjAlt"
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "DualObjAltType"
-          }
+          "value": "DualObjAltType"
         }
       ],
       "name": "DualObjAlt",

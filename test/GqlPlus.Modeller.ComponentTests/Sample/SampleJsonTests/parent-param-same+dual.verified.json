@@ -7,8 +7,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "RefDualPrntParamSame",
-          "type": "a"
+          "dual": "a",
+          "object": "RefDualPrntParamSame"
         }
       ],
       "allFields": [
@@ -16,14 +16,20 @@
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
           "object": "DualPrntParamSame",
-          "type": "a"
+          "type": {
+            "$tag": "_DualBase",
+            "value": "a"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_DualField",
           "name": "field",
-          "type": "a"
+          "type": {
+            "$tag": "_DualBase",
+            "value": "a"
+          }
         }
       ],
       "name": "DualPrntParamSame",
@@ -45,14 +51,14 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "RefDualPrntParamSame",
-          "type": "a"
+          "dual": "a",
+          "object": "RefDualPrntParamSame"
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": "a"
+          "value": "a"
         }
       ],
       "name": "RefDualPrntParamSame",

@@ -5,11 +5,13 @@ types: !_Map_Type
     - !_ObjectFor(_DualField)
       name: field
       object: DualGnrcDescr
-      type: !_TypeParam type
+      type: !_DualBase
+        typeParam: type
     fields:
     - !_DualField
       name: field
-      type: !_TypeParam type
+      type: !_DualBase
+        typeParam: type
     name: DualGnrcDescr
     typeKind: !_TypeKind Dual
     typeParams:

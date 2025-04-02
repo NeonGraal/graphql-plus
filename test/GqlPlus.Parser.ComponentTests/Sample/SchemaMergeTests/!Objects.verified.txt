@@ -5,7 +5,6 @@ Success
   !Du I@006/0001
   DualAlt
   |
-  !DA I@018/0001
   I@018/0001
   AltDualAlt
 }
@@ -20,7 +19,6 @@ Success
     Number
   }
   |
-  !DA I@033/0002
   I@033/0002
   String
 }
@@ -28,7 +26,6 @@ Success
   !In I@007/0001
   InpAlt
   |
-  !IA I@018/0001
   I@018/0001
   AltInpAlt
 }
@@ -43,7 +40,6 @@ Success
     Number
   }
   |
-  !IA I@033/0002
   I@033/0002
   String
 }
@@ -51,7 +47,6 @@ Success
   !Ou I@008/0001
   OutpAlt
   |
-  !OA I@020/0001
   I@020/0001
   AltOutpAlt
 }
@@ -66,7 +61,6 @@ Success
     Number
   }
   |
-  !OA I@035/0002
   I@035/0002
   String
 }
@@ -74,31 +68,30 @@ Success
   !Du I@006/0001
   DualAltDescr
   |
-  !DA S@023/0001
-  I@038/0001
+  'Test Descr'
+  S@023/0001
   String
 }
 {
   !In I@007/0001
   InpAltDescr
   |
-  !IA S@023/0001
-  I@038/0001
+  'Test Descr'
+  S@023/0001
   String
 }
 {
   !Ou I@008/0001
   OutpAltDescr
   |
-  !OA S@025/0001
-  I@040/0001
+  'Test Descr'
+  S@025/0001
   String
 }
 {
   !Du I@006/0001
   DualAltDual
   |
-  !DA I@022/0001
   I@022/0001
   DualDualAltDual
 }
@@ -113,7 +106,6 @@ Success
     Number
   }
   |
-  !DA I@038/0002
   I@038/0002
   String
 }
@@ -121,7 +113,6 @@ Success
   !In I@007/0001
   InpAltDual
   |
-  !IA I@022/0001
   I@022/0001
   InpDualAltDual
 }
@@ -136,7 +127,6 @@ Success
     Number
   }
   |
-  !DA I@037/0002
   I@037/0002
   String
 }
@@ -144,7 +134,6 @@ Success
   !Ou I@008/0001
   OutpAltDual
   |
-  !OA I@024/0001
   I@024/0001
   OutpDualAltDual
 }
@@ -159,7 +148,6 @@ Success
     Number
   }
   |
-  !DA I@038/0002
   I@038/0002
   String
 }
@@ -167,7 +155,6 @@ Success
   !Du I@006/0001
   DualAltModBool
   |
-  !DA I@025/0001
   I@025/0001
   AltDualAltModBool
   [^]
@@ -183,7 +170,6 @@ Success
     Number
   }
   |
-  !DA I@040/0002
   I@040/0002
   String
 }
@@ -191,7 +177,6 @@ Success
   !In I@007/0001
   InpAltModBool
   |
-  !IA I@025/0001
   I@025/0001
   AltInpAltModBool
   [^]
@@ -207,7 +192,6 @@ Success
     Number
   }
   |
-  !IA I@040/0002
   I@040/0002
   String
 }
@@ -215,7 +199,6 @@ Success
   !Ou I@008/0001
   OutpAltModBool
   |
-  !OA I@027/0001
   I@027/0001
   AltOutpAltModBool
   [^]
@@ -231,7 +214,6 @@ Success
     Number
   }
   |
-  !OA I@042/0002
   I@042/0002
   String
 }
@@ -243,7 +225,6 @@ Success
     $mod
   >
   |
-  !DA I@032/0001
   I@032/0001
   AltDualAltModParam
   [$mod]
@@ -259,7 +240,6 @@ Success
     Number
   }
   |
-  !DA I@041/0002
   I@041/0002
   String
 }
@@ -271,7 +251,6 @@ Success
     $mod
   >
   |
-  !IA I@032/0001
   I@032/0001
   AltInpAltModParam
   [$mod]
@@ -287,7 +266,6 @@ Success
     Number
   }
   |
-  !IA I@041/0002
   I@041/0002
   String
 }
@@ -299,7 +277,6 @@ Success
     $mod
   >
   |
-  !OA I@034/0001
   I@034/0001
   AltOutpAltModParam
   [$mod]
@@ -315,7 +292,6 @@ Success
     Number
   }
   |
-  !OA I@043/0002
   I@043/0002
   String
 }
@@ -323,7 +299,6 @@ Success
   !Du I@006/0001
   DualAltSmpl
   |
-  !DA I@022/0001
   I@022/0001
   String
 }
@@ -331,7 +306,6 @@ Success
   !In I@007/0001
   InpAltSmpl
   |
-  !IA I@022/0001
   I@022/0001
   String
 }
@@ -339,7 +313,6 @@ Success
   !Ou I@008/0001
   OutpAltSmpl
   |
-  !OA I@024/0001
   I@024/0001
   String
 }
@@ -434,7 +407,6 @@ Success
     Number
   }
   |
-  !DA I@041/0002
   I@041/0002
   String
 }
@@ -460,7 +432,6 @@ Success
     Number
   }
   |
-  !DA I@040/0002
   I@040/0002
   String
 }
@@ -486,7 +457,6 @@ Success
     Number
   }
   |
-  !DA I@041/0002
   I@041/0002
   String
 }
@@ -571,7 +541,6 @@ Success
     Number
   }
   |
-  !DA I@045/0002
   I@045/0002
   String
 }
@@ -602,7 +571,6 @@ Success
     Number
   }
   |
-  !IA I@045/0002
   I@045/0002
   String
 }
@@ -633,7 +601,6 @@ Success
     Number
   }
   |
-  !OA I@047/0002
   I@047/0002
   String
 }
@@ -659,7 +626,6 @@ Success
     Number
   }
   |
-  !DA I@040/0002
   I@040/0002
   String
 }
@@ -685,7 +651,6 @@ Success
     Number
   }
   |
-  !IA I@040/0002
   I@040/0002
   String
 }
@@ -711,7 +676,6 @@ Success
     Number
   }
   |
-  !OA I@042/0002
   I@042/0002
   String
 }
@@ -755,6 +719,7 @@ Success
     !DF I@027/0001
     field
     :
+    'Test Descr'
     I@049/0001
     Number
   }
@@ -766,6 +731,7 @@ Success
     !IF I@027/0001
     field
     :
+    'Test Descr'
     I@049/0001
     Number
   }
@@ -777,6 +743,7 @@ Success
     !OF I@029/0001
     field
     :
+    'Test Descr'
     I@051/0001
     Number
   }
@@ -789,9 +756,8 @@ Success
     $type
   >
   |
-  !DA P@029/0001
-  I@030/0001
-  $type
+  P@029/0001
+  type
 }
 {
   !In I@007/0001
@@ -801,9 +767,8 @@ Success
     $type
   >
   |
-  !IA P@029/0001
-  I@030/0001
-  $type
+  P@029/0001
+  type
 }
 {
   !Ou I@008/0001
@@ -813,9 +778,8 @@ Success
     $type
   >
   |
-  !OA P@031/0001
-  I@032/0001
-  $type
+  P@031/0001
+  type
 }
 {
   !Du I@006/0001
@@ -825,7 +789,6 @@ Success
     $type
   >
   |
-  !DA I@032/0001
   I@032/0001
   RefDualGnrcAltArg
   <
@@ -841,9 +804,8 @@ Success
     $ref
   >
   |
-  !DA P@034/0002
-  I@035/0002
-  $ref
+  P@034/0002
+  ref
 }
 {
   !In I@007/0001
@@ -853,7 +815,6 @@ Success
     $type
   >
   |
-  !IA I@032/0001
   I@032/0001
   RefInpGnrcAltArg
   <
@@ -869,9 +830,8 @@ Success
     $ref
   >
   |
-  !IA P@034/0002
-  I@035/0002
-  $ref
+  P@034/0002
+  ref
 }
 {
   !Ou I@008/0001
@@ -881,7 +841,6 @@ Success
     $type
   >
   |
-  !OA I@034/0001
   I@034/0001
   RefOutpGnrcAltArg
   <
@@ -897,9 +856,8 @@ Success
     $ref
   >
   |
-  !OA P@036/0002
-  I@037/0002
-  $ref
+  P@036/0002
+  ref
 }
 {
   !Du I@006/0001
@@ -909,10 +867,10 @@ Success
     $type
   >
   |
-  !DA I@037/0001
   I@037/0001
   RefDualGnrcAltArgDescr
   <
+    'Test Descr'
     I@075/0001
     $type
   >
@@ -925,9 +883,8 @@ Success
     $ref
   >
   |
-  !DA P@039/0002
-  I@040/0002
-  $ref
+  P@039/0002
+  ref
 }
 {
   !In I@007/0001
@@ -937,10 +894,10 @@ Success
     $type
   >
   |
-  !IA I@037/0001
   I@037/0001
   RefInpGnrcAltArgDescr
   <
+    'Test Descr'
     I@074/0001
     $type
   >
@@ -953,9 +910,8 @@ Success
     $ref
   >
   |
-  !IA P@039/0002
-  I@040/0002
-  $ref
+  P@039/0002
+  ref
 }
 {
   !Ou I@008/0001
@@ -965,10 +921,10 @@ Success
     $type
   >
   |
-  !OA I@039/0001
   I@039/0001
   RefOutpGnrcAltArgDescr
   <
+    'Test Descr'
     I@077/0001
     $type
   >
@@ -981,15 +937,13 @@ Success
     $ref
   >
   |
-  !OA P@041/0002
-  I@042/0002
-  $ref
+  P@041/0002
+  ref
 }
 {
   !Du I@006/0001
   DualGnrcAltDual
   |
-  !DA I@026/0001
   I@026/0001
   RefDualGnrcAltDual
   <
@@ -1005,9 +959,8 @@ Success
     $ref
   >
   |
-  !DA P@035/0002
-  I@036/0002
-  $ref
+  P@035/0002
+  ref
 }
 {
   !Du I@006/0003
@@ -1020,7 +973,6 @@ Success
     Number
   }
   |
-  !DA I@041/0003
   I@041/0003
   String
 }
@@ -1028,7 +980,6 @@ Success
   !In I@007/0001
   InpGnrcAltDual
   |
-  !IA I@026/0001
   I@026/0001
   RefInpGnrcAltDual
   <
@@ -1044,9 +995,8 @@ Success
     $ref
   >
   |
-  !IA P@035/0002
-  I@036/0002
-  $ref
+  P@035/0002
+  ref
 }
 {
   !Du I@006/0003
@@ -1059,7 +1009,6 @@ Success
     Number
   }
   |
-  !DA I@040/0003
   I@040/0003
   String
 }
@@ -1067,7 +1016,6 @@ Success
   !Ou I@008/0001
   OutpGnrcAltDual
   |
-  !OA I@028/0001
   I@028/0001
   RefOutpGnrcAltDual
   <
@@ -1083,9 +1031,8 @@ Success
     $ref
   >
   |
-  !OA P@037/0002
-  I@038/0002
-  $ref
+  P@037/0002
+  ref
 }
 {
   !Du I@006/0003
@@ -1098,7 +1045,6 @@ Success
     Number
   }
   |
-  !DA I@041/0003
   I@041/0003
   String
 }
@@ -1106,7 +1052,6 @@ Success
   !Du I@006/0001
   DualGnrcAltParam
   |
-  !DA I@027/0001
   I@027/0001
   RefDualGnrcAltParam
   <
@@ -1122,9 +1067,8 @@ Success
     $ref
   >
   |
-  !DA P@036/0002
-  I@037/0002
-  $ref
+  P@036/0002
+  ref
 }
 {
   !Du I@006/0003
@@ -1137,7 +1081,6 @@ Success
     Number
   }
   |
-  !DA I@042/0003
   I@042/0003
   String
 }
@@ -1145,7 +1088,6 @@ Success
   !In I@007/0001
   InpGnrcAltParam
   |
-  !IA I@027/0001
   I@027/0001
   RefInpGnrcAltParam
   <
@@ -1161,9 +1103,8 @@ Success
     $ref
   >
   |
-  !IA P@036/0002
-  I@037/0002
-  $ref
+  P@036/0002
+  ref
 }
 {
   !In I@007/0003
@@ -1176,7 +1117,6 @@ Success
     Number
   }
   |
-  !IA I@042/0003
   I@042/0003
   String
 }
@@ -1184,7 +1124,6 @@ Success
   !Ou I@008/0001
   OutpGnrcAltParam
   |
-  !OA I@029/0001
   I@029/0001
   RefOutpGnrcAltParam
   <
@@ -1200,9 +1139,8 @@ Success
     $ref
   >
   |
-  !OA P@038/0002
-  I@039/0002
-  $ref
+  P@038/0002
+  ref
 }
 {
   !Ou I@008/0003
@@ -1215,7 +1153,6 @@ Success
     Number
   }
   |
-  !OA I@044/0003
   I@044/0003
   String
 }
@@ -1223,7 +1160,6 @@ Success
   !Du I@006/0001
   DualGnrcAltSmpl
   |
-  !DA I@026/0001
   I@026/0001
   RefDualGnrcAltSmpl
   <
@@ -1239,15 +1175,13 @@ Success
     $ref
   >
   |
-  !DA P@035/0002
-  I@036/0002
-  $ref
+  P@035/0002
+  ref
 }
 {
   !In I@007/0001
   InpGnrcAltSmpl
   |
-  !IA I@026/0001
   I@026/0001
   RefInpGnrcAltSmpl
   <
@@ -1263,15 +1197,13 @@ Success
     $ref
   >
   |
-  !IA P@035/0002
-  I@036/0002
-  $ref
+  P@035/0002
+  ref
 }
 {
   !Ou I@008/0001
   OutpGnrcAltSmpl
   |
-  !OA I@028/0001
   I@028/0001
   RefOutpGnrcAltSmpl
   <
@@ -1287,9 +1219,8 @@ Success
     $ref
   >
   |
-  !OA P@037/0002
-  I@038/0002
-  $ref
+  P@037/0002
+  ref
 }
 {
   !Du I@006/0001
@@ -1362,9 +1293,8 @@ Success
     $ref
   >
   |
-  !DA P@032/0002
-  I@033/0002
-  $ref
+  P@032/0002
+  ref
 }
 {
   !Du I@006/0003
@@ -1377,7 +1307,6 @@ Success
     Number
   }
   |
-  !DA I@038/0003
   I@038/0003
   String
 }
@@ -1404,9 +1333,8 @@ Success
     $ref
   >
   |
-  !IA P@032/0002
-  I@033/0002
-  $ref
+  P@032/0002
+  ref
 }
 {
   !Du I@006/0003
@@ -1419,7 +1347,6 @@ Success
     Number
   }
   |
-  !DA I@037/0003
   I@037/0003
   String
 }
@@ -1446,9 +1373,8 @@ Success
     $ref
   >
   |
-  !OA P@034/0002
-  I@035/0002
-  $ref
+  P@034/0002
+  ref
 }
 {
   !Du I@006/0003
@@ -1461,7 +1387,6 @@ Success
     Number
   }
   |
-  !DA I@038/0003
   I@038/0003
   String
 }
@@ -1537,9 +1462,8 @@ Success
     $ref
   >
   |
-  !DA P@036/0002
-  I@037/0002
-  $ref
+  P@036/0002
+  ref
 }
 {
   !In I@007/0001
@@ -1568,9 +1492,8 @@ Success
     $ref
   >
   |
-  !IA P@036/0002
-  I@037/0002
-  $ref
+  P@036/0002
+  ref
 }
 {
   !Ou I@008/0001
@@ -1599,9 +1522,8 @@ Success
     $ref
   >
   |
-  !OA P@038/0002
-  I@039/0002
-  $ref
+  P@038/0002
+  ref
 }
 {
   !Du I@006/0001
@@ -1626,9 +1548,8 @@ Success
     $ref
   >
   |
-  !DA P@037/0002
-  I@038/0002
-  $ref
+  P@037/0002
+  ref
 }
 {
   !Du I@006/0003
@@ -1641,7 +1562,6 @@ Success
     Number
   }
   |
-  !DA I@043/0003
   I@043/0003
   String
 }
@@ -1668,9 +1588,8 @@ Success
     $ref
   >
   |
-  !IA P@037/0002
-  I@038/0002
-  $ref
+  P@037/0002
+  ref
 }
 {
   !Du I@006/0003
@@ -1683,7 +1602,6 @@ Success
     Number
   }
   |
-  !DA I@042/0003
   I@042/0003
   String
 }
@@ -1710,9 +1628,8 @@ Success
     $ref
   >
   |
-  !OA P@039/0002
-  I@040/0002
-  $ref
+  P@039/0002
+  ref
 }
 {
   !Du I@006/0003
@@ -1725,7 +1642,6 @@ Success
     Number
   }
   |
-  !DA I@043/0003
   I@043/0003
   String
 }
@@ -1752,9 +1668,8 @@ Success
     $ref
   >
   |
-  !DA P@038/0002
-  I@039/0002
-  $ref
+  P@038/0002
+  ref
 }
 {
   !Du I@006/0003
@@ -1767,7 +1682,6 @@ Success
     Number
   }
   |
-  !DA I@044/0003
   I@044/0003
   String
 }
@@ -1794,9 +1708,8 @@ Success
     $ref
   >
   |
-  !IA P@038/0002
-  I@039/0002
-  $ref
+  P@038/0002
+  ref
 }
 {
   !In I@007/0003
@@ -1809,7 +1722,6 @@ Success
     Number
   }
   |
-  !IA I@044/0003
   I@044/0003
   String
 }
@@ -1836,9 +1748,8 @@ Success
     $ref
   >
   |
-  !OA P@040/0002
-  I@041/0002
-  $ref
+  P@040/0002
+  ref
 }
 {
   !Ou I@008/0003
@@ -1851,7 +1762,6 @@ Success
     Number
   }
   |
-  !OA I@046/0003
   I@046/0003
   String
 }
@@ -1878,9 +1788,8 @@ Success
     $ref
   >
   |
-  !DA P@033/0002
-  I@034/0002
-  $ref
+  P@033/0002
+  ref
 }
 {
   !Du I@006/0003
@@ -1893,7 +1802,6 @@ Success
     Number
   }
   |
-  !DA I@039/0003
   I@039/0003
   String
 }
@@ -1920,9 +1828,8 @@ Success
     $ref
   >
   |
-  !IA P@033/0002
-  I@034/0002
-  $ref
+  P@033/0002
+  ref
 }
 {
   !In I@007/0003
@@ -1935,7 +1842,6 @@ Success
     Number
   }
   |
-  !IA I@039/0003
   I@039/0003
   String
 }
@@ -1962,9 +1868,8 @@ Success
     $ref
   >
   |
-  !OA P@035/0002
-  I@036/0002
-  $ref
+  P@035/0002
+  ref
 }
 {
   !Ou I@008/0003
@@ -1977,7 +1882,6 @@ Success
     Number
   }
   |
-  !OA I@041/0003
   I@041/0003
   String
 }
@@ -2037,9 +1941,8 @@ Success
     $ref
   >
   |
-  !DA P@035/0002
-  I@036/0002
-  $ref
+  P@035/0002
+  ref
 }
 {
   !In I@007/0001
@@ -2064,9 +1967,8 @@ Success
     $ref
   >
   |
-  !IA P@035/0002
-  I@036/0002
-  $ref
+  P@035/0002
+  ref
 }
 {
   !Ou I@008/0001
@@ -2091,9 +1993,8 @@ Success
     $ref
   >
   |
-  !OA P@037/0002
-  I@038/0002
-  $ref
+  P@037/0002
+  ref
 }
 {
   !Du I@006/0001
@@ -2114,9 +2015,8 @@ Success
     $ref
   >
   |
-  !DA P@036/0002
-  I@037/0002
-  $ref
+  P@036/0002
+  ref
 }
 {
   !Du I@006/0003
@@ -2129,7 +2029,6 @@ Success
     Number
   }
   |
-  !DA I@042/0003
   I@042/0003
   String
 }
@@ -2152,9 +2051,8 @@ Success
     $ref
   >
   |
-  !IA P@036/0002
-  I@037/0002
-  $ref
+  P@036/0002
+  ref
 }
 {
   !Du I@006/0003
@@ -2167,7 +2065,6 @@ Success
     Number
   }
   |
-  !DA I@041/0003
   I@041/0003
   String
 }
@@ -2190,9 +2087,8 @@ Success
     $ref
   >
   |
-  !OA P@038/0002
-  I@039/0002
-  $ref
+  P@038/0002
+  ref
 }
 {
   !Du I@006/0003
@@ -2205,7 +2101,6 @@ Success
     Number
   }
   |
-  !DA I@042/0003
   I@042/0003
   String
 }
@@ -2242,7 +2137,6 @@ Success
     Number
   }
   |
-  !DA I@046/0003
   I@046/0003
   String
 }
@@ -2279,7 +2173,6 @@ Success
     Number
   }
   |
-  !DA I@045/0003
   I@045/0003
   String
 }
@@ -2316,7 +2209,6 @@ Success
     Number
   }
   |
-  !DA I@046/0003
   I@046/0003
   String
 }
@@ -2339,9 +2231,8 @@ Success
     $ref
   >
   |
-  !DA P@037/0002
-  I@038/0002
-  $ref
+  P@037/0002
+  ref
 }
 {
   !Du I@006/0003
@@ -2354,7 +2245,6 @@ Success
     Number
   }
   |
-  !DA I@043/0003
   I@043/0003
   String
 }
@@ -2377,9 +2267,8 @@ Success
     $ref
   >
   |
-  !IA P@037/0002
-  I@038/0002
-  $ref
+  P@037/0002
+  ref
 }
 {
   !In I@007/0003
@@ -2392,7 +2281,6 @@ Success
     Number
   }
   |
-  !IA I@043/0003
   I@043/0003
   String
 }
@@ -2415,9 +2303,8 @@ Success
     $ref
   >
   |
-  !OA P@039/0002
-  I@040/0002
-  $ref
+  P@039/0002
+  ref
 }
 {
   !Ou I@008/0003
@@ -2430,7 +2317,6 @@ Success
     Number
   }
   |
-  !OA I@045/0003
   I@045/0003
   String
 }
@@ -2467,7 +2353,6 @@ Success
     Number
   }
   |
-  !DA I@047/0003
   I@047/0003
   String
 }
@@ -2504,7 +2389,6 @@ Success
     Number
   }
   |
-  !IA I@047/0003
   I@047/0003
   String
 }
@@ -2541,7 +2425,6 @@ Success
     Number
   }
   |
-  !OA I@049/0003
   I@049/0003
   String
 }
@@ -2612,6 +2495,7 @@ Success
     !IF I@027/0001
     field
     :
+    'Test Descr'
     I@049/0001
     Number
     =( !k N@058/0001 0 )
@@ -2661,7 +2545,6 @@ Success
     Number
   }
   |
-  !IA I@042/0003
   I@042/0003
   String
 }
@@ -2673,7 +2556,8 @@ Success
     field
     =
     I@032/0001
-    EnumOutpFieldEnum.outpFieldEnum
+    EnumOutpFieldEnum
+    .outpFieldEnum
   }
 }
 {
@@ -2690,7 +2574,8 @@ Success
     field
     =
     I@036/0001
-    EnumOutpFieldEnumPrnt.prnt_outpFieldEnumPrnt
+    EnumOutpFieldEnumPrnt
+    .prnt_outpFieldEnumPrnt
   }
 }
 {
@@ -2714,7 +2599,7 @@ Success
     field
     =
     I@033/0001
-    EnumOutpFieldValue.outpFieldValue
+    .outpFieldValue
   }
 }
 {
@@ -2730,8 +2615,9 @@ Success
     !OF I@030/0001
     field
     =
+    'Test Descr'
     I@053/0001
-    EnumOutpFieldValueDescr.outpFieldValueDescr
+    .outpFieldValueDescr
   }
 }
 {
@@ -2744,7 +2630,6 @@ Success
   !Ou I@008/0001
   OutpGnrcEnum
   |
-  !OA I@025/0001
   I@025/0001
   RefOutpGnrcEnum
   <
@@ -2777,7 +2662,6 @@ Success
   !Ou I@008/0001
   OutpGnrcValue
   |
-  !OA I@026/0001
   I@026/0001
   RefOutpGnrcValue
   <
@@ -2837,7 +2721,6 @@ Success
     Number
   }
   |
-  !IA I@037/0003
   I@037/0003
   String
 }
@@ -2849,6 +2732,7 @@ Success
     field
     (
       !Pa
+      'Test Descr'
       I@046/0001
       InOutpParamDescr
     )
@@ -2872,7 +2756,6 @@ Success
     Number
   }
   |
-  !IA I@042/0003
   I@042/0003
   String
 }
@@ -2904,7 +2787,6 @@ Success
     Number
   }
   |
-  !IA I@043/0002
   I@043/0002
   String
 }
@@ -2949,7 +2831,6 @@ Success
     Number
   }
   |
-  !IA I@045/0002
   I@045/0002
   String
 }
@@ -2974,6 +2855,7 @@ Success
       InOutpParamTypeDescr
     )
     :
+    'Test Descr'
     I@073/0001
     FldOutpParamTypeDescr
   }
@@ -2993,7 +2875,6 @@ Success
     Number
   }
   |
-  !IA I@046/0003
   I@046/0003
   String
 }
@@ -3001,7 +2882,6 @@ Success
   !Ou I@008/0001
   OutpPrntGnrc
   |
-  !OA I@025/0001
   I@025/0001
   RefOutpPrntGnrc
   <
@@ -3087,7 +2967,6 @@ Success
     Number
   }
   |
-  !IA I@041/0004
   I@041/0004
   String
 }
@@ -3102,7 +2981,6 @@ Success
     Number
   }
   |
-  !IA I@046/0005
   I@046/0005
   String
 }
@@ -3124,7 +3002,6 @@ Success
     Number
   }
   |
-  !DA I@037/0002
   I@037/0002
   String
 }
@@ -3146,7 +3023,6 @@ Success
     Number
   }
   |
-  !IA I@037/0002
   I@037/0002
   String
 }
@@ -3168,7 +3044,6 @@ Success
     Number
   }
   |
-  !OA I@039/0002
   I@039/0002
   String
 }
@@ -3179,7 +3054,6 @@ Success
   I@021/0001
   RefDualPrntAlt
   |
-  !DA I@038/0001
   I@038/0001
   Number
 }
@@ -3194,7 +3068,6 @@ Success
     Number
   }
   |
-  !DA I@041/0002
   I@041/0002
   String
 }
@@ -3205,7 +3078,6 @@ Success
   I@021/0001
   RefInpPrntAlt
   |
-  !IA I@037/0001
   I@037/0001
   Number
 }
@@ -3220,7 +3092,6 @@ Success
     Number
   }
   |
-  !IA I@041/0002
   I@041/0002
   String
 }
@@ -3231,7 +3102,6 @@ Success
   I@023/0001
   RefOutpPrntAlt
   |
-  !OA I@040/0001
   I@040/0001
   Number
 }
@@ -3246,7 +3116,6 @@ Success
     Number
   }
   |
-  !OA I@043/0002
   I@043/0002
   String
 }
@@ -3254,6 +3123,7 @@ Success
   !Du I@006/0001
   DualPrntDescr
   :
+  'Test Descr'
   I@039/0001
   RefDualPrntDescr
 }
@@ -3268,7 +3138,6 @@ Success
     Number
   }
   |
-  !DA I@042/0002
   I@042/0002
   String
 }
@@ -3276,6 +3145,7 @@ Success
   !In I@007/0001
   InpPrntDescr
   :
+  'Test Descr'
   I@039/0001
   RefInpPrntDescr
 }
@@ -3290,7 +3160,6 @@ Success
     Number
   }
   |
-  !IA I@042/0002
   I@042/0002
   String
 }
@@ -3298,6 +3167,7 @@ Success
   !Ou I@008/0001
   OutpPrntDescr
   :
+  'Test Descr'
   I@041/0001
   RefOutpPrntDescr
 }
@@ -3312,7 +3182,6 @@ Success
     Number
   }
   |
-  !OA I@044/0002
   I@044/0002
   String
 }
@@ -3334,7 +3203,6 @@ Success
     Number
   }
   |
-  !DA I@041/0002
   I@041/0002
   String
 }
@@ -3356,7 +3224,6 @@ Success
     Number
   }
   |
-  !DA I@040/0002
   I@040/0002
   String
 }
@@ -3378,7 +3245,6 @@ Success
     Number
   }
   |
-  !DA I@041/0002
   I@041/0002
   String
 }
@@ -3407,7 +3273,6 @@ Success
     Number
   }
   |
-  !DA I@042/0002
   I@042/0002
   String
 }
@@ -3436,7 +3301,6 @@ Success
     Number
   }
   |
-  !IA I@042/0002
   I@042/0002
   String
 }
@@ -3465,7 +3329,6 @@ Success
     Number
   }
   |
-  !OA I@044/0002
   I@044/0002
   String
 }
@@ -3499,9 +3362,8 @@ Success
     $b
   >
   |
-  !DA P@035/0002
-  I@036/0002
-  $b
+  P@035/0002
+  b
 }
 {
   !In I@007/0001
@@ -3533,9 +3395,8 @@ Success
     $b
   >
   |
-  !IA P@035/0002
-  I@036/0002
-  $b
+  P@035/0002
+  b
 }
 {
   !Ou I@008/0001
@@ -3567,9 +3428,8 @@ Success
     $b
   >
   |
-  !OA P@037/0002
-  I@038/0002
-  $b
+  P@037/0002
+  b
 }
 {
   !Du I@006/0001
@@ -3601,9 +3461,8 @@ Success
     $a
   >
   |
-  !DA P@035/0002
-  I@036/0002
-  $a
+  P@035/0002
+  a
 }
 {
   !In I@007/0001
@@ -3635,9 +3494,8 @@ Success
     $a
   >
   |
-  !IA P@035/0002
-  I@036/0002
-  $a
+  P@035/0002
+  a
 }
 {
   !Ou I@008/0001
@@ -3669,8 +3527,7 @@ Success
     $a
   >
   |
-  !OA P@037/0002
-  I@038/0002
-  $a
+  P@037/0002
+  a
 }
 ]

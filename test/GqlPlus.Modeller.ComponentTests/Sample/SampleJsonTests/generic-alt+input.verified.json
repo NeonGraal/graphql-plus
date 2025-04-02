@@ -7,14 +7,14 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGnrcAlt",
-          "type": "type"
+          "input": "type",
+          "object": "InpGnrcAlt"
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "type": "type"
+          "value": "type"
         }
       ],
       "name": "InpGnrcAlt",

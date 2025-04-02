@@ -19,15 +19,16 @@ public record class OutputArgModel(
 }
 
 public record class OutputBaseModel(
-  string Output
-) : ObjBaseModel<OutputArgModel>
+  string Output,
+  string Description
+) : ObjBaseModel<OutputArgModel>(Description)
 {
   internal DualBaseModel? Dual { get; init; }
 }
 
 public record class OutputFieldModel(
   string Name,
-  ObjDescribedModel<OutputBaseModel>? Type,
+  OutputBaseModel? Type,
   string Description
 ) : ObjFieldModel<OutputBaseModel>(Name, Type, Description)
 {
@@ -36,9 +37,12 @@ public record class OutputFieldModel(
 }
 
 public record class OutputAlternateModel(
-  ObjDescribedModel<OutputBaseModel> Type
-) : ObjAlternateModel<OutputBaseModel>(Type)
-{ }
+  string Output,
+  string Description
+) : ObjAlternateModel<OutputArgModel>(Description)
+{
+  internal DualAlternateModel? Dual { get; init; }
+}
 
 public record class OutputEnumModel(
   string Field,

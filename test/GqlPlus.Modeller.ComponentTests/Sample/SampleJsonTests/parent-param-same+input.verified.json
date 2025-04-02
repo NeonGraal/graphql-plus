@@ -7,8 +7,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "RefInpPrntParamSame",
-          "type": "a"
+          "input": "a",
+          "object": "RefInpPrntParamSame"
         }
       ],
       "allFields": [
@@ -16,14 +16,20 @@
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
           "object": "InpPrntParamSame",
-          "type": "a"
+          "type": {
+            "$tag": "_InputBase",
+            "value": "a"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_InputField",
           "name": "field",
-          "type": "a"
+          "type": {
+            "$tag": "_InputBase",
+            "value": "a"
+          }
         }
       ],
       "name": "InpPrntParamSame",
@@ -45,14 +51,14 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "RefInpPrntParamSame",
-          "type": "a"
+          "input": "a",
+          "object": "RefInpPrntParamSame"
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "type": "a"
+          "value": "a"
         }
       ],
       "name": "RefInpPrntParamSame",

@@ -7,8 +7,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "RefInpGnrcPrntArg",
-          "type": "ref"
+          "input": "ref",
+          "object": "RefInpGnrcPrntArg"
         }
       ],
       "name": "InpGnrcPrntArg",
@@ -30,14 +30,14 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "RefInpGnrcPrntArg",
-          "type": "ref"
+          "input": "ref",
+          "object": "RefInpGnrcPrntArg"
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "type": "ref"
+          "value": "ref"
         }
       ],
       "name": "RefInpGnrcPrntArg",

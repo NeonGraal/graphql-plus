@@ -7,11 +7,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "AltInpGnrcPrntParamPrnt",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
+          "input": "String",
+          "object": "AltInpGnrcPrntParamPrnt"
         }
       ],
       "allFields": [
@@ -28,10 +25,7 @@
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -52,11 +46,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "AltInpGnrcPrntParamPrnt",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
+          "input": "String",
+          "object": "AltInpGnrcPrntParamPrnt"
         }
       ],
       "allFields": [
@@ -86,7 +77,10 @@
     "RefInpGnrcPrntParamPrnt": {
       "$tag": "_TypeInput",
       "name": "RefInpGnrcPrntParamPrnt",
-      "parent": "ref",
+      "parent": {
+        "$tag": "_InputBase",
+        "value": "ref"
+      },
       "typeKind": "Input",
       "typeParams": [
         {

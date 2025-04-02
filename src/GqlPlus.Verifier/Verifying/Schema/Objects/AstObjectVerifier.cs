@@ -12,7 +12,7 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
 ) : AstParentItemVerifier<TObject, IGqlpObjBase, TContext, TObjField>(aliased, mergeFields)
   where TObject : IGqlpObject<TObjBase, TObjField, TObjAlt>
   where TObjField : IGqlpObjField<TObjBase>
-  where TObjAlt : IGqlpObjAlternate<TObjBase>
+  where TObjAlt : IGqlpObjAlternate, IGqlpObjBase<TObjArg>
   where TObjBase : IGqlpObjBase<TObjArg>
   where TObjArg : IGqlpObjArg
 where TContext : UsageContext
@@ -38,7 +38,7 @@ where TContext : UsageContext
     foreach (TObjAlt alternate in usage.ObjAlternates) {
       UsageAlternate(alternate, context);
       if (!alternate.Modifiers.Any()) {
-        CheckAlternate(new([alternate.Type.FullType], usage, "an alternate"), usage.Name, context, true);
+        CheckAlternate(new([alternate.FullType], usage, "an alternate"), usage.Name, context, true);
       }
     }
 
@@ -49,8 +49,8 @@ where TContext : UsageContext
 
   protected virtual void UsageAlternate(TObjAlt alternate, TContext context)
     => context
-      .CheckType(alternate.BaseType, " Alternate")
-      .CheckArgs(alternate.BaseType.BaseArgs, " Alternate")
+      .CheckType(alternate, " Alternate")
+      .CheckArgs(alternate.BaseArgs, " Alternate")
       .CheckModifiers(alternate);
 
   protected virtual void UsageField(TObjField field, TContext context)
@@ -60,7 +60,7 @@ where TContext : UsageContext
       .CheckModifiers(field);
 
   protected override string GetParent(IGqlpType<IGqlpObjBase> usage)
-    => usage.Parent?.TypeName ?? "";
+    => usage.Parent?.Name ?? "";
 
   protected override void CheckParentType(
     ParentUsage<TObject> input,
@@ -70,11 +70,8 @@ where TContext : UsageContext
   {
     if (input.Parent?.StartsWith("$", StringComparison.Ordinal) == true) {
       string parameter = input.Parent[1..];
-      context.AddError(
-        input.Usage,
-        input.UsageLabel + " Parent",
-        $"'{input.Parent}' not defined",
-        top && input.Usage.TypeParams.All(p => p.Name != parameter));
+      bool addError = top && input.Usage.TypeParams.All(p => p.Name != parameter);
+      context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Parent}' not defined", addError);
 
       return;
     }
@@ -99,7 +96,7 @@ where TContext : UsageContext
     input = input with { Label = "an alternate" };
     foreach (TObjAlt alternate in parentType.ObjAlternates) {
       if (!alternate.Modifiers.Any()) {
-        CheckAlternate(input.AddParent(alternate.Type.TypeName), parentType.Name, context, false);
+        CheckAlternate(input.AddParent(alternate.Name), parentType.Name, context, false);
       }
     }
   }
@@ -114,7 +111,7 @@ where TContext : UsageContext
       _logger.CheckingAlternates(input, top, alternateType.Name, current);
       foreach (TObjAlt alternate in alternateType.ObjAlternates) {
         if (!alternate.Modifiers.Any()) {
-          CheckAlternate(input.AddParent(alternate.BaseType.TypeName), alternateType.Name, context, false);
+          CheckAlternate(input.AddParent(alternate.Name), alternateType.Name, context, false);
         }
       }
     }

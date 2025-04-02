@@ -9,14 +9,20 @@
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "OutpGnrcDescr",
-          "type": "type"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "type"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_OutputField",
           "name": "field",
-          "type": "type"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "type"
+          }
         }
       ],
       "name": "OutpGnrcDescr",

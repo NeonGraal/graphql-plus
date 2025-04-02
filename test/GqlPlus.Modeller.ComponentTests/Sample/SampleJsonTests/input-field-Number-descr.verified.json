@@ -11,12 +11,9 @@
           "name": "field",
           "object": "InpFieldNmbrDescr",
           "type": {
-            "$tag": "_ObjDescribed(_InputBase)",
-            "base": {
-              "$tag": "_InputBase",
-              "value": "Number"
-            },
-            "description": "Test Descr"
+            "$tag": "_InputBase",
+            "description": "Test Descr",
+            "input": "Number"
           }
         }
       ],
@@ -26,12 +23,9 @@
           "default": 0,
           "name": "field",
           "type": {
-            "$tag": "_ObjDescribed(_InputBase)",
-            "base": {
-              "$tag": "_InputBase",
-              "value": "Number"
-            },
-            "description": "Test Descr"
+            "$tag": "_InputBase",
+            "description": "Test Descr",
+            "input": "Number"
           }
         }
       ],

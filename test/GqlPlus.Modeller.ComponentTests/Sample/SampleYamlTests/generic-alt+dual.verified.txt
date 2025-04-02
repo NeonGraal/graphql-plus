@@ -3,11 +3,11 @@ types: !_Map_Type
   !_Identifier DualGnrcAlt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
+      dual: type
       object: DualGnrcAlt
-      type: !_TypeParam type
     alternates:
     - !_DualAlternate
-      type: !_TypeParam type
+      dual: type
     name: DualGnrcAlt
     typeKind: !_TypeKind Dual
     typeParams:

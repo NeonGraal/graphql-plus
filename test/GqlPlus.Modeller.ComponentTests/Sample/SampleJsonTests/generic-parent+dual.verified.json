@@ -5,7 +5,10 @@
     "DualGnrcPrnt": {
       "$tag": "_TypeDual",
       "name": "DualGnrcPrnt",
-      "parent": "type",
+      "parent": {
+        "$tag": "_DualBase",
+        "value": "type"
+      },
       "typeKind": "Dual",
       "typeParams": [
         {

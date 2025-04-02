@@ -9,25 +9,37 @@
           "$tag": "_ObjectFor(_OutputField)",
           "name": "test",
           "object": "OutpObjParam",
-          "type": "test"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "test"
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "OutpObjParam",
-          "type": "type"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "type"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_OutputField",
           "name": "test",
-          "type": "test"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "test"
+          }
         },
         {
           "$tag": "_OutputField",
           "name": "type",
-          "type": "type"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "type"
+          }
         }
       ],
       "name": "OutpObjParam",

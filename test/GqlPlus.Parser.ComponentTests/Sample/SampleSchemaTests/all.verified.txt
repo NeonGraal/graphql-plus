@@ -66,6 +66,7 @@ Success
     !DF I@029/0014
     strings
     :
+    'Strings array'
     I@054/0014
     String
     []
@@ -80,6 +81,7 @@ Success
     !IF I@016/0017
     afterId
     :
+    'Guid or Int'
     I@039/0017
     Many
     ?
@@ -87,12 +89,13 @@ Success
     !IF I@015/0018
     beforeId
     :
+    'Guid or Int'
     I@039/0018
     Many
   }
   |
-  !IA S@007/0019
-  I@029/0019
+  'Alternate parameter'
+  S@007/0019
   String
 }
 {
@@ -114,7 +117,7 @@ Success
     Field
   }
   |
-  !OA S@007/0024
-  I@020/0024
+  'Alternates'
+  S@007/0024
   String
 }

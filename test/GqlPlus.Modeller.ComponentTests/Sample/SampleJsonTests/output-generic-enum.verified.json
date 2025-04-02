@@ -26,35 +26,29 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "OutpGnrcEnum",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "RefOutpGnrcEnum",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "label": "outpGnrcEnum",
-                "name": "EnumOutpGnrcEnum",
-                "typeKind": "Enum"
-              }
-            ]
-          }
+          "output": "RefOutpGnrcEnum",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "label": "outpGnrcEnum",
+              "name": "EnumOutpGnrcEnum",
+              "typeKind": "Enum"
+            }
+          ]
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "RefOutpGnrcEnum",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "label": "outpGnrcEnum",
-                "name": "EnumOutpGnrcEnum",
-                "typeKind": "Enum"
-              }
-            ]
-          }
+          "output": "RefOutpGnrcEnum",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "label": "outpGnrcEnum",
+              "name": "EnumOutpGnrcEnum",
+              "typeKind": "Enum"
+            }
+          ]
         }
       ],
       "name": "OutpGnrcEnum",
@@ -67,14 +61,20 @@
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "RefOutpGnrcEnum",
-          "type": "type"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "type"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_OutputField",
           "name": "field",
-          "type": "type"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "type"
+          }
         }
       ],
       "name": "RefOutpGnrcEnum",

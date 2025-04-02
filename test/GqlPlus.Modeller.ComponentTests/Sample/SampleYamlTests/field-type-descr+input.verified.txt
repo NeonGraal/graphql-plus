@@ -5,16 +5,14 @@ types: !_Map_Type
     - !_ObjectFor(_InputField)
       name: field
       object: InpFieldTypeDescr
-      type: !_ObjDescribed(_InputBase)
-        base: !_InputBase
-          input: Number
+      type: !_InputBase
         description: 'Test Descr'
+        input: Number
     fields:
     - !_InputField
       name: field
-      type: !_ObjDescribed(_InputBase)
-        base: !_InputBase
-          input: Number
+      type: !_InputBase
         description: 'Test Descr'
+        input: Number
     name: InpFieldTypeDescr
     typeKind: !_TypeKind Input

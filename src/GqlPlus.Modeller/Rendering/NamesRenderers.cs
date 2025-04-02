@@ -18,19 +18,6 @@ internal class DescribedRenderer<TModel>
       .Add("description", StructureValue.Str(model.Description));
 }
 
-internal class BaseDescribedRenderer<TDescr>(
-  IRenderer<TDescr> described
-) : BaseRenderer<ObjDescribedModel<TDescr>>
-  where TDescr : ModelBase
-{
-  internal override Structured Render(ObjDescribedModel<TDescr> model)
-    => string.IsNullOrEmpty(model.Description)
-      ? described.Render(model.Base)
-      : base.Render(model)
-        .AddRendered("base", model.Base, described)
-        .Add("description", StructureValue.Str(model.Description));
-}
-
 internal class NamedRenderer<TModel>
   : DescribedRenderer<TModel>
   where TModel : INamedModel

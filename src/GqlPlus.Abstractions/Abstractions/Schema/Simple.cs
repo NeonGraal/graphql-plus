@@ -80,5 +80,5 @@ public interface IGqlpUnion
 { }
 
 public interface IGqlpUnionMember
-  : IGqlpNamed, IGqlpDescribed
+  : IGqlpNamed
 { }

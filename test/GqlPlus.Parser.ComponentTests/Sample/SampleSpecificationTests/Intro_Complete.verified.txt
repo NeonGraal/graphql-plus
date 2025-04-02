@@ -103,7 +103,6 @@ Success
     =( !k I@043/0016 Boolean.false )
   }
   |
-  !IA I@007/0017
   I@007/0017
   _NameFilter
   []
@@ -203,10 +202,8 @@ Success
     _Type
   }
   |
-  !OA I@007/0048
   I@007/0048
   _Category
-  !OA I@007/0049
   I@007/0049
   _Type
 }
@@ -265,10 +262,8 @@ Success
     _Type
   }
   |
-  !OA I@007/0063
   I@007/0063
   _Directive
-  !OA I@007/0064
   I@007/0064
   _Type
 }
@@ -332,36 +327,28 @@ Success
   !Ou I@008/0080
   _Type
   |
-  !OA I@007/0081
   I@007/0081
   _BaseType
   <
     I@017/0081
     _TypeKind.Basic
   >
-  !OA I@007/0082
   I@007/0082
   _BaseType
   <
     I@017/0082
     _TypeKind.Internal
   >
-  !OA I@007/0083
   I@007/0083
   _TypeDual
-  !OA I@007/0084
   I@007/0084
   _TypeEnum
-  !OA I@007/0085
   I@007/0085
   _TypeInput
-  !OA I@007/0086
   I@007/0086
   _TypeOutput
-  !OA I@007/0087
   I@007/0087
   _TypeDomain
-  !OA I@007/0088
   I@007/0088
   _TypeUnion
 }
@@ -494,28 +481,24 @@ Success
   !Ou I@008/0117
   _TypeSimple
   |
-  !OA I@007/0118
   I@007/0118
   _TypeRef
   <
     I@016/0118
     _TypeKind.Basic
   >
-  !OA I@007/0119
   I@007/0119
   _TypeRef
   <
     I@016/0119
     _TypeKind.Enum
   >
-  !OA I@007/0120
   I@007/0120
   _TypeRef
   <
     I@016/0120
     _TypeKind.Domain
   >
-  !OA I@007/0121
   I@007/0121
   _TypeRef
   <
@@ -527,13 +510,10 @@ Success
   !Ou I@008/0123
   _Constant
   |
-  !OA I@007/0124
   I@007/0124
   _Simple
-  !OA I@007/0125
   I@007/0125
   _ConstantList
-  !OA I@007/0126
   I@007/0126
   _ConstantMap
 }
@@ -541,10 +521,8 @@ Success
   !Ou I@008/0129
   _Simple
   |
-  !OA I@007/0130
   I@007/0130
   Boolean
-  !OA I@007/0131
   I@007/0131
   _DomainValue
   <
@@ -553,7 +531,6 @@ Success
     I@039/0131
     Number
   >
-  !OA I@007/0132
   I@007/0132
   _DomainValue
   <
@@ -562,7 +539,6 @@ Success
     I@039/0132
     String
   >
-  !OA I@007/0133
   I@007/0133
   _EnumValue
 }
@@ -570,7 +546,6 @@ Success
   !Ou I@008/0136
   _ConstantList
   |
-  !OA I@007/0137
   I@007/0137
   _Constant
   []
@@ -579,7 +554,6 @@ Success
   !Ou I@008/0140
   _ConstantMap
   |
-  !OA I@007/0141
   I@007/0141
   _Constant
   [Simple]
@@ -588,21 +562,18 @@ Success
   !Ou I@008/0144
   _Collections
   |
-  !OA I@007/0145
   I@007/0145
   _Modifier
   <
     I@017/0145
     _ModifierKind.List
   >
-  !OA I@007/0146
   I@007/0146
   _ModifierKeyed
   <
     I@022/0146
     _ModifierKind.Dictionary
   >
-  !OA I@007/0147
   I@007/0147
   _ModifierKeyed
   <
@@ -641,14 +612,12 @@ Success
   !Ou I@008/0156
   _Modifiers
   |
-  !OA I@007/0157
   I@007/0157
   _Modifier
   <
     I@017/0157
     _ModifierKind.Optional
   >
-  !OA I@007/0158
   I@007/0158
   _Collections
 }
@@ -704,7 +673,6 @@ Success
   !Ou I@008/0168
   _TypeDomain
   |
-  !OA I@007/0169
   I@007/0169
   _BaseDomain
   <
@@ -715,7 +683,6 @@ Success
     I@056/0169
     _DomainItemTrueFalse
   >
-  !OA I@007/0170
   I@007/0170
   _BaseDomain
   <
@@ -726,7 +693,6 @@ Success
     I@049/0170
     _DomainItemLabel
   >
-  !OA I@007/0171
   I@007/0171
   _BaseDomain
   <
@@ -737,7 +703,6 @@ Success
     I@051/0171
     _DomainItemRange
   >
-  !OA I@007/0172
   I@007/0172
   _BaseDomain
   <
@@ -1122,12 +1087,10 @@ Success
     $base
   >
   |
-  !OA I@007/0267
   I@007/0267
   _TypeSimple
-  !OA P@007/0268
-  I@008/0268
-  $base
+  P@007/0268
+  base
 }
 {
   !Ou I@008/0270
@@ -1137,14 +1100,12 @@ Success
     $base
   >
   |
-  !OA I@007/0271
   I@007/0271
   _BaseType
   <
     I@017/0271
     _TypeKind.Internal
   >
-  !OA I@007/0272
   I@007/0272
   _ObjConstraint
   <
@@ -1171,7 +1132,6 @@ Success
     []
   }
   |
-  !OA I@007/0278
   I@007/0278
   _ObjTypeParam
 }
@@ -1186,7 +1146,6 @@ Success
     _TypeKind
   >
   |
-  !OA I@007/0283
   I@007/0283
   _ObjTypeParam
 }
@@ -1365,7 +1324,6 @@ Success
     _Identifier
   }
   |
-  !OA I@007/0331
   I@007/0331
   _DualBase
 }
@@ -1455,7 +1413,6 @@ Success
     _Identifier
   }
   |
-  !OA I@007/0355
   I@007/0355
   _DualBase
 }
@@ -1478,7 +1435,6 @@ Success
     []
   }
   |
-  !OA I@007/0361
   I@007/0361
   _OutputEnum
 }

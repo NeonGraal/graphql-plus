@@ -8,21 +8,15 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "OutpGnrcAltArg",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "RefOutpGnrcAltArg",
-            "typeArgs": ["type"]
-          }
+          "output": "RefOutpGnrcAltArg",
+          "typeArgs": ["type"]
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "RefOutpGnrcAltArg",
-            "typeArgs": ["type"]
-          }
+          "output": "RefOutpGnrcAltArg",
+          "typeArgs": ["type"]
         }
       ],
       "name": "OutpGnrcAltArg",
@@ -40,13 +34,13 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "RefOutpGnrcAltArg",
-          "type": "ref"
+          "output": "ref"
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": "ref"
+          "value": "ref"
         }
       ],
       "name": "RefOutpGnrcAltArg",

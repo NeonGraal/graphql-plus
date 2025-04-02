@@ -16,7 +16,6 @@ types: !_Map_Type
       description: 'Test Descr'
       field: field
       label: outpFieldValueDescr
-      name: EnumOutpFieldValueDescr
       object: OutpFieldValueDescr
       typeKind: !_SimpleKind Enum
     fields:
@@ -24,7 +23,6 @@ types: !_Map_Type
       description: 'Test Descr'
       field: field
       label: outpFieldValueDescr
-      name: EnumOutpFieldValueDescr
       typeKind: !_SimpleKind Enum
     name: OutpFieldValueDescr
     typeKind: !_TypeKind Output

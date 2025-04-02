@@ -41,7 +41,10 @@
           "$tag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "_Alternate",
-          "type": "base"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "base"
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
@@ -63,7 +66,10 @@
         {
           "$tag": "_OutputField",
           "name": "type",
-          "type": "base"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "base"
+          }
         },
         {
           "$tag": "_OutputField",
@@ -96,7 +102,10 @@
           "$tag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "_Field",
-          "type": "base"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "base"
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
@@ -118,7 +127,10 @@
         {
           "$tag": "_OutputField",
           "name": "type",
-          "type": "base"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "base"
+          }
         },
         {
           "$tag": "_OutputField",
@@ -154,10 +166,7 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjBase",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_ObjTypeParam"
-          }
+          "output": "_ObjTypeParam"
         }
       ],
       "allFields": [
@@ -171,16 +180,16 @@
           ],
           "name": "typeArgs",
           "object": "_ObjBase",
-          "type": "arg"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "arg"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_ObjTypeParam"
-          }
+          "value": "_ObjTypeParam"
         }
       ],
       "fields": [
@@ -193,7 +202,10 @@
             }
           ],
           "name": "typeArgs",
-          "type": "arg"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "arg"
+          }
         }
       ],
       "name": "_ObjBase",
@@ -215,28 +227,22 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjConstraint",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_TypeSimple"
-          }
+          "output": "_TypeSimple"
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjConstraint",
-          "type": "base"
+          "output": "base"
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_TypeSimple"
-          }
+          "value": "_TypeSimple"
         },
         {
           "$tag": "_OutputAlternate",
-          "type": "base"
+          "value": "base"
         }
       ],
       "name": "_ObjConstraint",
@@ -272,7 +278,10 @@
         }
       ],
       "name": "_ObjectFor",
-      "parent": "for",
+      "parent": {
+        "$tag": "_OutputBase",
+        "value": "for"
+      },
       "typeKind": "Output",
       "typeParams": [
         {
@@ -287,52 +296,40 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjType",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_BaseType",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "label": "Internal",
-                "name": "_TypeKind",
-                "typeKind": "Enum"
-              }
-            ]
-          }
+          "output": "_BaseType",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "label": "Internal",
+              "name": "_TypeKind",
+              "typeKind": "Enum"
+            }
+          ]
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjType",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_ObjConstraint",
-            "typeArgs": ["base"]
-          }
+          "output": "_ObjConstraint",
+          "typeArgs": ["base"]
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_BaseType",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "label": "Internal",
-                "name": "_TypeKind",
-                "typeKind": "Enum"
-              }
-            ]
-          }
+          "output": "_BaseType",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "label": "Internal",
+              "name": "_TypeKind",
+              "typeKind": "Enum"
+            }
+          ]
         },
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_ObjConstraint",
-            "typeArgs": ["base"]
-          }
+          "output": "_ObjConstraint",
+          "typeArgs": ["base"]
         }
       ],
       "name": "_ObjType",
@@ -350,19 +347,13 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjTypeArg",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_ObjTypeParam"
-          }
+          "output": "_ObjTypeParam"
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_ObjTypeParam"
-          }
+          "value": "_ObjTypeParam"
         }
       ],
       "name": "_ObjTypeArg",
@@ -436,7 +427,10 @@
           ],
           "name": "fields",
           "object": "_TypeObject",
-          "type": "field"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "field"
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
@@ -448,7 +442,10 @@
           ],
           "name": "alternates",
           "object": "_TypeObject",
-          "type": "alternate"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "alternate"
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
@@ -507,7 +504,10 @@
             }
           ],
           "name": "fields",
-          "type": "field"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "field"
+          }
         },
         {
           "$tag": "_OutputField",
@@ -518,7 +518,10 @@
             }
           ],
           "name": "alternates",
-          "type": "alternate"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "alternate"
+          }
         },
         {
           "$tag": "_OutputField",

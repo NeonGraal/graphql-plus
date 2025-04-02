@@ -25,11 +25,9 @@ types: !_Map_Type
   !_Identifier All: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
+      description: 'Alternates'
       object: All
-      type: !_ObjDescribed(_OutputBase)
-        base: !_OutputBase
-          output: String
-        description: 'Alternates'
+      output: String
     allFields:
     - !_ObjectFor(_OutputField)
       description: 'Some items'
@@ -43,10 +41,8 @@ types: !_Map_Type
         dual: Field
     alternates:
     - !_OutputAlternate
-      type: !_ObjDescribed(_OutputBase)
-        base: !_OutputBase
-          output: String
-        description: 'Alternates'
+      description: 'Alternates'
+      output: String
     description: 'An Output'
     fields:
     - !_OutputField
@@ -67,20 +63,18 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: strings
       object: Field
-      type: !_ObjDescribed(_DualBase)
-        base: !_DualBase
-          dual: String
+      type: !_DualBase
         description: 'Strings array'
+        dual: String
     description: 'A Dual'
     fields:
     - !_DualField
       description: 'Some strings'
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: strings
-      type: !_ObjDescribed(_DualBase)
-        base: !_DualBase
-          dual: String
+      type: !_DualBase
         description: 'Strings array'
+        dual: String
     name: Field
     typeKind: !_TypeKind Dual
   !_Identifier Guid: !_DomainString
@@ -140,51 +134,43 @@ types: !_Map_Type
   !_Identifier Param: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
+      description: 'Alternate parameter'
+      input: String
       object: Param
-      type: !_ObjDescribed(_InputBase)
-        base: !_InputBase
-          input: String
-        description: 'Alternate parameter'
     allFields:
     - !_ObjectFor(_InputField)
       description: 'First Id'
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: afterId
       object: Param
-      type: !_ObjDescribed(_InputBase)
-        base: !_InputBase
-          input: Many
+      type: !_InputBase
         description: 'Guid or Int'
+        input: Many
     - !_ObjectFor(_InputField)
       description: 'Last Id'
       name: beforeId
       object: Param
-      type: !_ObjDescribed(_InputBase)
-        base: !_InputBase
-          input: Many
+      type: !_InputBase
         description: 'Guid or Int'
+        input: Many
     alternates:
     - !_InputAlternate
-      type: !_ObjDescribed(_InputBase)
-        base: !_InputBase
-          input: String
-        description: 'Alternate parameter'
+      description: 'Alternate parameter'
+      input: String
     description: 'An Input'
     fields:
     - !_InputField
       description: 'First Id'
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: afterId
-      type: !_ObjDescribed(_InputBase)
-        base: !_InputBase
-          input: Many
+      type: !_InputBase
         description: 'Guid or Int'
+        input: Many
     - !_InputField
       description: 'Last Id'
       name: beforeId
-      type: !_ObjDescribed(_InputBase)
-        base: !_InputBase
-          input: Many
+      type: !_InputBase
         description: 'Guid or Int'
+        input: Many
     name: Param
     typeKind: !_TypeKind Input

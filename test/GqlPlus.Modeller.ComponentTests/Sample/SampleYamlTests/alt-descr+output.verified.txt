@@ -3,16 +3,12 @@ types: !_Map_Type
   !_Identifier OutpAltDescr: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
+      description: 'Test Descr'
       object: OutpAltDescr
-      type: !_ObjDescribed(_OutputBase)
-        base: !_OutputBase
-          output: String
-        description: 'Test Descr'
+      output: String
     alternates:
     - !_OutputAlternate
-      type: !_ObjDescribed(_OutputBase)
-        base: !_OutputBase
-          output: String
-        description: 'Test Descr'
+      description: 'Test Descr'
+      output: String
     name: OutpAltDescr
     typeKind: !_TypeKind Output

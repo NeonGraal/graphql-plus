@@ -5,7 +5,6 @@ Success
   !Du I@006/0001
   DualObjAlt
   |
-  !DA I@021/0001
   I@021/0001
   DualObjAltType
 }

@@ -3,17 +3,19 @@ types: !_Map_Type
   !_Identifier InpPrntParamDiff: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
+      input: b
       object: RefInpPrntParamDiff
-      type: !_TypeParam b
     allFields:
     - !_ObjectFor(_InputField)
       name: field
       object: InpPrntParamDiff
-      type: !_TypeParam a
+      type: !_InputBase
+        typeParam: a
     fields:
     - !_InputField
       name: field
-      type: !_TypeParam a
+      type: !_InputBase
+        typeParam: a
     name: InpPrntParamDiff
     parent: !_InputBase
       input: RefInpPrntParamDiff
@@ -26,11 +28,11 @@ types: !_Map_Type
   !_Identifier RefInpPrntParamDiff: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
+      input: b
       object: RefInpPrntParamDiff
-      type: !_TypeParam b
     alternates:
     - !_InputAlternate
-      type: !_TypeParam b
+      input: b
     name: RefInpPrntParamDiff
     typeKind: !_TypeKind Input
     typeParams:

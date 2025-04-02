@@ -7,11 +7,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "AltInpAltModBool",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
+          "input": "String",
+          "object": "AltInpAltModBool"
         }
       ],
       "allFields": [
@@ -28,10 +25,7 @@
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -60,11 +54,8 @@
               "typeKind": "Basic"
             }
           ],
-          "object": "InpAltModBool",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "AltInpAltModBool"
-          }
+          "input": "AltInpAltModBool",
+          "object": "InpAltModBool"
         }
       ],
       "alternates": [
@@ -78,10 +69,7 @@
               "typeKind": "Basic"
             }
           ],
-          "type": {
-            "$tag": "_InputBase",
-            "value": "AltInpAltModBool"
-          }
+          "input": "AltInpAltModBool"
         }
       ],
       "name": "InpAltModBool",

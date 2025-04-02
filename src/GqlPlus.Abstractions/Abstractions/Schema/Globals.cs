@@ -49,7 +49,7 @@ public interface IGqlpSchemaOption
 }
 
 public interface IGqlpSchemaSetting
-  : IGqlpNamed, IGqlpDescribed
+  : IGqlpNamed
 {
   IGqlpConstant Value { get; }
 }

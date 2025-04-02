@@ -8,7 +8,7 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "RefOutpPrntParamSame",
-          "type": "a"
+          "output": "a"
         }
       ],
       "allFields": [
@@ -16,14 +16,20 @@
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "OutpPrntParamSame",
-          "type": "a"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "a"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_OutputField",
           "name": "field",
-          "type": "a"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "a"
+          }
         }
       ],
       "name": "OutpPrntParamSame",
@@ -46,13 +52,13 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "RefOutpPrntParamSame",
-          "type": "a"
+          "output": "a"
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": "a"
+          "value": "a"
         }
       ],
       "name": "RefOutpPrntParamSame",

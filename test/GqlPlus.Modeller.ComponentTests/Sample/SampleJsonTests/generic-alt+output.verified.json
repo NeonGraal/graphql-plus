@@ -8,13 +8,13 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "OutpGnrcAlt",
-          "type": "type"
+          "output": "type"
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": "type"
+          "value": "type"
         }
       ],
       "name": "OutpGnrcAlt",

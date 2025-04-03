@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+
 using Xunit.DependencyInjection;
 
 namespace GqlPlus;
@@ -15,6 +16,10 @@ public class DependencyInjectionTests(
   [Fact]
   public void HtmlVerifierDI()
     => HtmlDependencyInjection("Verifier");
+
+  [Fact]
+  public void Force3DVerifierDI()
+    => Force3dDependencyInjection("Verifier");
 
   [Fact]
   public void DiagramVerifierDI()

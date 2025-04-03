@@ -21,7 +21,8 @@ public class DependencyInjectionChecks(
 {
   private const int MaxGroupSize = 5;
   private const string FunctionRequirement = "=>";
-  private const string InstanceRequirement = "=";
+  private const string InstanceRequirement = "==";
+  private const string ParentRequirement = "->";
 
   private static readonly FluidParser s_parser = new();
   private static readonly Map<IFluidTemplate> s_templates = [];
@@ -31,6 +32,7 @@ public class DependencyInjectionChecks(
   {
     s_options.FileProvider = new EmbeddedFileProvider(Assembly.GetAssembly(typeof(DependencyInjectionChecks))!, "GqlPlus.DI");
     s_options.MemberAccessStrategy.Register<DiService>();
+    s_options.MemberAccessStrategy.Register<DiLink>();
     s_options.MemberAccessStrategy.Register<TypeIdName>();
   }
 
@@ -69,6 +71,16 @@ public class DependencyInjectionChecks(
       }
 
       DiService service = GetOrCreate(sd.ServiceType);
+
+      TypeIdName? baseName = service.Service.BaseName;
+      if (baseName is not null) {
+        if (!diServices.TryGetValue(baseName.Id, out DiService? baseService)) {
+          baseService = service.BaseService;
+          diServices[baseName.Id] = baseService;
+        }
+
+        service.Requires[ParentRequirement] = baseName;
+      }
 
       if (sd.ImplementationType is not null) {
         if (sd.ImplementationType != sd.ServiceType) {
@@ -161,6 +173,25 @@ public class DependencyInjectionChecks(
     template.Render(context).WriteHtmlFile("DI", file + "-table");
   }
 
+  public void Force3dDependencyInjection(string file)
+  {
+    DiLink[] links = _diServices.Values
+      .SelectMany(s => s.Requires
+        .Select(r => new DiLink(s.Service.Safe, r.Value.Safe, r.Key)))
+      .ToArray();
+    string[] nodes = links
+      .SelectMany(l => new string[] { l.From, l.To })
+      .Distinct().ToArray();
+
+    TemplateContext context = new(s_options);
+    context.SetValue("name", file);
+    context.SetValue("nodes", nodes);
+    context.SetValue("links", links);
+
+    IFluidTemplate template = GetTemplate("force3d");
+    template.Render(context).WriteHtmlFile("DI", file + "-force3d");
+  }
+
   private readonly HashSet<string> _ids = [];
   private readonly List<DiService> _group = [];
   private readonly HashSet<string> _groupIds = [];
@@ -250,12 +281,15 @@ public class DependencyInjectionChecks(
 public sealed record TypeIdName
 {
   public TypeIdName([NotNull] Type type)
-  {
-    Id = type.ThrowIfNull().FullTypeName();
-    NameSpace = type.Namespace ?? "";
-    Name = type.ExpandTypeName();
+    : this(type.FullTypeName(), type.ExpandTypeName(), type.Namespace)
+  { }
 
-    Key = Id
+  private TypeIdName(string id, string name, string? nameSpace = null)
+  {
+    Id = id;
+    NameSpace = nameSpace ?? "";
+    Name = name;
+    Key = id
       .Replace('<', '_')
       .Replace('>', '_')
       .Replace('+', '_')
@@ -263,10 +297,14 @@ public sealed record TypeIdName
       .Replace(',', '_')
       .Replace("::", "_", StringComparison.Ordinal)
       .Replace("[]", "_Array_", StringComparison.Ordinal);
-
-    Safe = Name
+    Safe = name
       .Replace('<', '(')
       .Replace('>', ')');
+
+    string[] strings = name.Split('<');
+    if (strings.Length > 1) {
+      BaseName = new(id.Split('<')[0], strings[0], nameSpace);
+    }
   }
 
   public string Id { get; }
@@ -274,6 +312,21 @@ public sealed record TypeIdName
   public string Name { get; }
   public string Key { get; }
   public string Safe { get; }
+  public TypeIdName? BaseName { get; }
+}
+
+public sealed class DiLink
+{
+  public string From { get; }
+  public string To { get; }
+  public string Style { get; }
+
+  public DiLink(string from, string to, string style)
+  {
+    From = from;
+    To = to;
+    Style = style;
+  }
 }
 
 public sealed class DiService
@@ -285,6 +338,8 @@ public sealed class DiService
 
   public DiService(Type service)
     => Service = new(service);
+  private DiService(TypeIdName service)
+    => Service = service;
 
   public DiService(DiService service)
   {
@@ -314,4 +369,7 @@ public sealed class DiService
       }
     }
   }
+
+  public DiService BaseService
+    => new(Service.BaseName!);
 }

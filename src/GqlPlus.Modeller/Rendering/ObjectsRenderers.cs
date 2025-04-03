@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
 using GqlPlus.Resolving;
-using YamlDotNet.Core.Tokens;
 
 namespace GqlPlus.Rendering;
 

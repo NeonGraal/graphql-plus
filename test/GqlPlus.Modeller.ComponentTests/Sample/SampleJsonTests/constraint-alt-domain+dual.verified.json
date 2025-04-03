@@ -28,32 +28,26 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
+          "dual": "RefDualCnstAltDmn",
           "object": "DualCnstAltDmn",
-          "type": {
-            "$tag": "_DualBase",
-            "dual": "RefDualCnstAltDmn",
-            "typeArgs": [
-              {
-                "$tag": "_DualArg",
-                "value": "DomCnstAltDmn"
-              }
-            ]
-          }
+          "typeArgs": [
+            {
+              "$tag": "_DualArg",
+              "value": "DomCnstAltDmn"
+            }
+          ]
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "dual": "RefDualCnstAltDmn",
-            "typeArgs": [
-              {
-                "$tag": "_DualArg",
-                "value": "DomCnstAltDmn"
-              }
-            ]
-          }
+          "dual": "RefDualCnstAltDmn",
+          "typeArgs": [
+            {
+              "$tag": "_DualArg",
+              "value": "DomCnstAltDmn"
+            }
+          ]
         }
       ],
       "name": "DualCnstAltDmn",
@@ -65,20 +59,20 @@
         {
           "$tag": "_ObjectFor(_DualAlternate)",
           "object": "RefDualCnstAltDmn",
-          "type": "ref"
+          "typeParam": "ref"
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": "ref"
+          "value": "ref"
         }
       ],
       "name": "RefDualCnstAltDmn",
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]

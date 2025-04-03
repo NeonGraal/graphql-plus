@@ -143,7 +143,6 @@ Success
   <
     I@018/0032
     $kind
-    :_TypeKind
   >
   :
   I@007/0033

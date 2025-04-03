@@ -2,62 +2,76 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpGnrcParam": {
-      "$tag": "_TypeInput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_InputField)",
-          "name": "field",
-          "object": "InpGnrcParam",
-          "type": {
-            "$tag": "_InputBase",
-            "input": "InpGnrcParamRef",
-            "typeArgs": [
-              {
-                "$tag": "_InputArg",
-                "value": "InpGnrcParamAlt"
-              }
-            ]
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_InputField",
-          "name": "field",
-          "type": {
-            "$tag": "_InputBase",
-            "input": "InpGnrcParamRef",
-            "typeArgs": [
-              {
-                "$tag": "_InputArg",
-                "value": "InpGnrcParamAlt"
-              }
-            ]
-          }
-        }
-      ],
-      "name": "InpGnrcParam",
-      "typeKind": "Input"
-    },
-    "InpGnrcParamAlt": {
+    "AltInpCnstFieldObj": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
           "input": "String",
-          "object": "InpGnrcParamAlt"
+          "object": "PrntInpCnstFieldObj"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "alt",
-          "object": "InpGnrcParamAlt",
+          "object": "AltInpCnstFieldObj",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
           }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "alt",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "AltInpCnstFieldObj",
+      "parent": {
+        "$tag": "_InputBase",
+        "value": "PrntInpCnstFieldObj"
+      },
+      "typeKind": "Input"
+    },
+    "InpCnstFieldObj": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "RefInpCnstFieldObj",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "AltInpCnstFieldObj"
+          }
+        }
+      ],
+      "name": "InpCnstFieldObj",
+      "parent": {
+        "$tag": "_InputBase",
+        "input": "RefInpCnstFieldObj",
+        "typeArgs": [
+          {
+            "$tag": "_InputArg",
+            "value": "AltInpCnstFieldObj"
+          }
+        ]
+      },
+      "typeKind": "Input"
+    },
+    "PrntInpCnstFieldObj": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "input": "String",
+          "object": "PrntInpCnstFieldObj"
         }
       ],
       "alternates": [
@@ -66,35 +80,33 @@
           "value": "String"
         }
       ],
-      "fields": [
+      "name": "PrntInpCnstFieldObj",
+      "typeKind": "Input"
+    },
+    "RefInpCnstFieldObj": {
+      "$tag": "_TypeInput",
+      "allFields": [
         {
-          "$tag": "_InputField",
-          "name": "alt",
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "RefInpCnstFieldObj",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "value": "ref"
           }
         }
       ],
-      "name": "InpGnrcParamAlt",
-      "typeKind": "Input"
-    },
-    "InpGnrcParamRef": {
-      "$tag": "_TypeInput",
-      "allAlternates": [
+      "fields": [
         {
-          "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGnrcParamRef",
-          "typeParam": "ref"
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "ref"
+          }
         }
       ],
-      "alternates": [
-        {
-          "$tag": "_InputAlternate",
-          "value": "ref"
-        }
-      ],
-      "name": "InpGnrcParamRef",
+      "name": "RefInpCnstFieldObj",
       "typeKind": "Input",
       "typeParams": [
         {

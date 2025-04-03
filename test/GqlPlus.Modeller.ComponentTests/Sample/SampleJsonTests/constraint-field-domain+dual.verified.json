@@ -56,21 +56,27 @@
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
           "object": "RefDualCnstFieldDmn",
-          "type": "ref"
+          "type": {
+            "$tag": "_DualBase",
+            "value": "ref"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_DualField",
           "name": "field",
-          "type": "ref"
+          "type": {
+            "$tag": "_DualBase",
+            "value": "ref"
+          }
         }
       ],
       "name": "RefDualCnstFieldDmn",
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]

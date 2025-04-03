@@ -32,13 +32,15 @@ types: !_Map_Type
     - !_ObjectFor(_InputField)
       name: field
       object: RefInpCnstFieldDmn
-      type: !_TypeParam ref
+      type: !_InputBase
+        typeParam: ref
     fields:
     - !_InputField
       name: field
-      type: !_TypeParam ref
+      type: !_InputBase
+        typeParam: ref
     name: RefInpCnstFieldDmn
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

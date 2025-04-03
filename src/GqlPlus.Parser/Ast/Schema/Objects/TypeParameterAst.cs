@@ -8,7 +8,7 @@ internal sealed record class TypeParamAst(
   string Name,
   string Description,
   string? Constraint = null
-) : AstDescribed(At, Name, Description)
+) : AstNamed(At, Name, Description)
   , IGqlpTypeParam
 {
   internal override string Abbr => "TP";

@@ -88,17 +88,17 @@ output _Type {
     | _TypeUnion
     }
 
-output _BaseType<$kind> {
+output _BaseType<$kind:_TypeKind> {
     : _Aliased
         typeKind: $kind
     }
 
-output _ChildType<$kind $parent> {
+output _ChildType<$kind:_TypeKind $parent:_Described> {
     : _BaseType<$kind>
         parent: $parent
     }
 
-output _ParentType<$kind $item $allItem> {
+output _ParentType<$kind:_TypeKind $item:_Described $allItem:_Described> {
     : _ChildType<$kind _Named>
         items: $item[]
         allItems: $allItem[]
@@ -147,7 +147,7 @@ output _Collections {
     | _ModifierKeyed<_ModifierKind.TypeParam>
     }
 
-output _ModifierKeyed<$kind> {
+output _ModifierKeyed<$kind:_ModifierKind> {
     : _Modifier<$kind>
         by: _TypeSimple
         optional: Boolean
@@ -160,7 +160,7 @@ output _Modifiers {
 
 enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
 
-output _Modifier<$kind> {
+output _Modifier<$kind:_ModifierKind> {
         modifierKind: $kind
     }
 enum _DomainKind { Boolean Enum Number String }
@@ -172,12 +172,12 @@ output _TypeDomain {
     | _BaseDomain<_DomainKind.String _DomainRegex _DomainItemRegex>
     }
 
-output _DomainRef<$kind> {
+output _DomainRef<$kind:_DomainKind> {
     : _TypeRef<_TypeKind.Domain>
         domainKind: $kind
     }
 
-output _BaseDomain<$domain $item $domainItem> {
+output _BaseDomain<$domain:_DomainKind $item:_BaseDomainItem $domainItem:_DomainItem> {
     : _ParentType<_TypeKind.Domain $item $domainItem>
         domainKind: $domain
     }
@@ -187,12 +187,12 @@ dual _BaseDomainItem {
         exclude: Boolean
     }
 
-output _DomainItem<$item> {
+output _DomainItem<$item:_BaseDomainItem> {
     : $item
         domain: _Identifier
     }
 
-output _DomainValue<$kind $value> {
+output _DomainValue<$kind:_DomainKind $value> {
     : _DomainRef<$kind>
         value: $value
     }
@@ -254,25 +254,25 @@ output _UnionMember {
     : _UnionRef
         union: _Identifier
     }
-output _TypeObject<$kind $parent $field $alternate> {
+output _TypeObject<$kind:_ObjectKind $parent:_ObjDescribed $typeParam:_ObjTypeParam $field:_Field $alternate:_Alternate> {
     : _ChildType<$kind $parent>
-        typeParams: _ObjTypeParam[]
+        typeParams: typeParam[]
         fields: $field[]
         alternates: $alternate[]
         allFields: _ObjectFor<$field>[]
         allAlternates: _ObjectFor<$alternate>[]
     }
 
-output _ObjConstraint<$base> {
+output _ObjConstraint<$base:_ObjBase> {
     | _TypeSimple
     | $base
 }
-output _ObjType<$base> {
+output _ObjType<$base:_ObjBase> {
     | _BaseType<_TypeKind.Internal>
     | _ObjConstraint<$base>
     }
 
-output _ObjBase<$arg> {
+output _ObjBase<$arg:_ObjTypeArg {
     : _Described
         typeArgs: $arg[]
     | _ObjTypeParam
@@ -290,20 +290,25 @@ output _ObjTypeParam {
         typeParam: _TypeParam
 }
 
-output _Alternate<$arg> {
+output _Alternate<$arg:_ObjTypeArg> {
     : _ObjBase<$arg>
       collections: _Collections[]
     }
 
-output _ObjectFor<$for> {
+output _ObjectFor<$for:_ForParam> {
     : $for
         object: _Identifier
     }
 
-output _Field<$base> {
+output _Field<$base:_ObjBase> {
     : _Aliased
       type: $base
       modifiers: _Modifiers[]
+    }
+
+output _ForParam<$base:_ObjBase> {
+    | _Alternate<$base>
+    | _Field<$base>
     }
 output _TypeDual {
     : _TypeObject<_TypeKind.Dual _DualBase _DualField _DualAlternate>

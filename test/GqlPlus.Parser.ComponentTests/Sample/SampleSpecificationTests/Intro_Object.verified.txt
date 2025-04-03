@@ -1,17 +1,28 @@
 ﻿!Sc I@001/0001
-Success
+Failure
+<
+  !!! P@034/0019 : Invalid Output. Expected type parameter. - '\{\n\ \ \ \ :\ _D' !!!
+  !!! P@034/0019 : Invalid Schema. Expected no more text. - '\{\n\ \ \ \ :\ _D' !!!
+>
 {
   !Ou I@008/0001
   _TypeObject
   <
     I@021/0001
     $kind
-    I@027/0001
+    :_ObjectKind
+    I@039/0001
     $parent
-    I@035/0001
+    :_ObjDescribed
+    I@061/0001
+    $typeParam
+    :_ObjTypeParam
+    I@086/0001
     $field
-    I@042/0001
+    :_Field
+    I@100/0001
     $alternate
+    :_Alternate
   >
   :
   I@007/0002
@@ -27,7 +38,7 @@ Success
     typeParams
     :
     I@021/0003
-    _ObjTypeParam
+    typeParam
     []
     !OF I@009/0004
     fields
@@ -69,6 +80,7 @@ Success
   <
     I@024/0010
     $base
+    :_ObjBase
   >
   |
   I@007/0011
@@ -82,6 +94,7 @@ Success
   <
     I@018/0014
     $base
+    :_ObjBase
   >
   |
   I@007/0015
@@ -100,121 +113,4 @@ Success
 {
   !Ou I@008/0019
   _ObjBase
-  <
-    I@018/0019
-    $arg
-  >
-  :
-  I@007/0020
-  _Described
-  {
-    !OF I@009/0021
-    typeArgs
-    :
-    I@020/0021
-    $arg
-    []
-  }
-  |
-  I@007/0022
-  _ObjTypeParam
-}
-{
-  !Ou I@008/0025
-  _ObjTypeArg
-  :
-  I@007/0026
-  _TypeRef
-  <
-    I@016/0026
-    _TypeKind
-  >
-  |
-  I@007/0027
-  _ObjTypeParam
-}
-{
-  !Do I@008/0030
-  _TypeParam
-  String
-  :_Identifier
-}
-{
-  !Ou I@008/0032
-  _ObjTypeParam
-  :
-  I@007/0033
-  _Described
-  {
-    !OF I@009/0034
-    typeParam
-    :
-    I@020/0034
-    _TypeParam
-  }
-}
-{
-  !Ou I@008/0037
-  _Alternate
-  <
-    I@020/0037
-    $arg
-  >
-  :
-  I@007/0038
-  _ObjBase
-  <
-    I@017/0038
-    $arg
-  >
-  {
-    !OF I@007/0039
-    collections
-    :
-    I@020/0039
-    _Collections
-    []
-  }
-}
-{
-  !Ou I@008/0042
-  _ObjectFor
-  <
-    I@020/0042
-    $for
-  >
-  :
-  I@008/0043
-  $for
-  {
-    !OF I@009/0044
-    object
-    :
-    I@017/0044
-    _Identifier
-  }
-}
-{
-  !Ou I@008/0047
-  _Field
-  <
-    I@016/0047
-    $base
-  >
-  :
-  I@007/0048
-  _Aliased
-  {
-    !OF I@007/0049
-    type
-    :
-    I@014/0049
-    $base
-    !OF I@007/0050
-    modifiers
-    :
-    I@018/0050
-    _Modifiers
-    []
-  }
 }

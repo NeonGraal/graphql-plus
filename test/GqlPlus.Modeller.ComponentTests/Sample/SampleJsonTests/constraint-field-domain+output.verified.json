@@ -56,21 +56,27 @@
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "RefOutpCnstFieldDmn",
-          "type": "ref"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "ref"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_OutputField",
           "name": "field",
-          "type": "ref"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "ref"
+          }
         }
       ],
       "name": "RefOutpCnstFieldDmn",
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]

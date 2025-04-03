@@ -3,9 +3,8 @@ types: !_Map_Type
   !_Identifier AltInpCnstAltDual: !_TypeInput
     allAlternates:
     - !_ObjectFor(_DualAlternate)
+      dual: String
       object: PrntInpCnstAltDual
-      type: !_DualBase
-        dual: String
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
@@ -24,43 +23,39 @@ types: !_Map_Type
   !_Identifier InpCnstAltDual: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
+      input: RefInpCnstAltDual
       object: InpCnstAltDual
-      type: !_InputBase
-        input: RefInpCnstAltDual
-        typeArgs:
-        - !_InputArg
-          input: AltInpCnstAltDual
+      typeArgs:
+      - !_InputArg
+        input: AltInpCnstAltDual
     alternates:
     - !_InputAlternate
-      type: !_InputBase
-        input: RefInpCnstAltDual
-        typeArgs:
-        - !_InputArg
-          input: AltInpCnstAltDual
+      input: RefInpCnstAltDual
+      typeArgs:
+      - !_InputArg
+        input: AltInpCnstAltDual
     name: InpCnstAltDual
     typeKind: !_TypeKind Input
   !_Identifier PrntInpCnstAltDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
+      dual: String
       object: PrntInpCnstAltDual
-      type: !_DualBase
-        dual: String
     alternates:
     - !_DualAlternate
-      type: !_DualBase
-        dual: String
+      dual: String
     name: PrntInpCnstAltDual
     typeKind: !_TypeKind Dual
   !_Identifier RefInpCnstAltDual: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
       object: RefInpCnstAltDual
-      type: !_TypeParam ref
+      typeParam: ref
     alternates:
     - !_InputAlternate
-      type: !_TypeParam ref
+      typeParam: ref
     name: RefInpCnstAltDual
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

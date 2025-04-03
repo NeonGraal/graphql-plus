@@ -17,30 +17,28 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: OutpCnstAltDmn
-      type: !_OutputBase
-        output: RefOutpCnstAltDmn
-        typeArgs:
-        - !_OutputArg
-          output: DomCnstAltDmn
+      output: RefOutpCnstAltDmn
+      typeArgs:
+      - !_OutputArg
+        output: DomCnstAltDmn
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: RefOutpCnstAltDmn
-        typeArgs:
-        - !_OutputArg
-          output: DomCnstAltDmn
+      output: RefOutpCnstAltDmn
+      typeArgs:
+      - !_OutputArg
+        output: DomCnstAltDmn
     name: OutpCnstAltDmn
     typeKind: !_TypeKind Output
   !_Identifier RefOutpCnstAltDmn: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: RefOutpCnstAltDmn
-      type: !_TypeParam ref
+      typeParam: ref
     alternates:
     - !_OutputAlternate
-      type: !_TypeParam ref
+      typeParam: ref
     name: RefOutpCnstAltDmn
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

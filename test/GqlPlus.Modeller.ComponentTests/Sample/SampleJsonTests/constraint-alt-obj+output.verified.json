@@ -8,10 +8,7 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "PrntOutpCnstAltObj",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "output": "String"
         }
       ],
       "allFields": [
@@ -48,31 +45,25 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "OutpCnstAltObj",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "RefOutpCnstAltObj",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "value": "AltOutpCnstAltObj"
-              }
-            ]
-          }
+          "output": "RefOutpCnstAltObj",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "value": "AltOutpCnstAltObj"
+            }
+          ]
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "RefOutpCnstAltObj",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "value": "AltOutpCnstAltObj"
-              }
-            ]
-          }
+          "output": "RefOutpCnstAltObj",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "value": "AltOutpCnstAltObj"
+            }
+          ]
         }
       ],
       "name": "OutpCnstAltObj",
@@ -84,19 +75,13 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "PrntOutpCnstAltObj",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "output": "String"
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "name": "PrntOutpCnstAltObj",
@@ -108,20 +93,20 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "RefOutpCnstAltObj",
-          "type": "ref"
+          "typeParam": "ref"
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": "ref"
+          "value": "ref"
         }
       ],
       "name": "RefOutpCnstAltObj",
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]

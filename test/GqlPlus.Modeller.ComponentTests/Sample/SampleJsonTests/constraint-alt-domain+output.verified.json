@@ -29,31 +29,25 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "OutpCnstAltDmn",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "RefOutpCnstAltDmn",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "value": "DomCnstAltDmn"
-              }
-            ]
-          }
+          "output": "RefOutpCnstAltDmn",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "value": "DomCnstAltDmn"
+            }
+          ]
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "RefOutpCnstAltDmn",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "value": "DomCnstAltDmn"
-              }
-            ]
-          }
+          "output": "RefOutpCnstAltDmn",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "value": "DomCnstAltDmn"
+            }
+          ]
         }
       ],
       "name": "OutpCnstAltDmn",
@@ -65,20 +59,20 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "RefOutpCnstAltDmn",
-          "type": "ref"
+          "typeParam": "ref"
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": "ref"
+          "value": "ref"
         }
       ],
       "name": "RefOutpCnstAltDmn",
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]

@@ -32,13 +32,15 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: field
       object: RefOutpCnstFieldDmn
-      type: !_TypeParam ref
+      type: !_OutputBase
+        typeParam: ref
     fields:
     - !_OutputField
       name: field
-      type: !_TypeParam ref
+      type: !_OutputBase
+        typeParam: ref
     name: RefOutpCnstFieldDmn
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

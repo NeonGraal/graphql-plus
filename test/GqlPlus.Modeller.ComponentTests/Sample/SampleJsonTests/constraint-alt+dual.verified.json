@@ -8,20 +8,20 @@
         {
           "$tag": "_ObjectFor(_DualAlternate)",
           "object": "DualCnstAlt",
-          "type": "type"
+          "typeParam": "type"
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": "type"
+          "value": "type"
         }
       ],
       "name": "DualCnstAlt",
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]

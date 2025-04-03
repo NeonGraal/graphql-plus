@@ -141,7 +141,8 @@ types: !_Map_Type
     name: DescrSngl
     typeKind: !_TypeKind Output
   !_Identifier Dscrs: !_TypeOutput
-    description: 'A simple doc With extra'
+    description: >-
+      A simple description With extra
     name: Dscrs
     typeKind: !_TypeKind Output
   !_Identifier InDrctParamDict: !_TypeInput

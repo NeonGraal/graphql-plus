@@ -4,7 +4,7 @@
     "$tag": "_Map_Type",
     "Dscrs": {
       "$tag": "_TypeOutput",
-      "description": "A simple doc With extra",
+      "description": "A simple description With extra",
       "name": "Dscrs",
       "typeKind": "Output"
     }

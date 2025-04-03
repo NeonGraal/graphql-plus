@@ -56,21 +56,27 @@
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
           "object": "RefInpCnstFieldDmn",
-          "type": "ref"
+          "type": {
+            "$tag": "_InputBase",
+            "value": "ref"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_InputField",
           "name": "field",
-          "type": "ref"
+          "type": {
+            "$tag": "_InputBase",
+            "value": "ref"
+          }
         }
       ],
       "name": "RefInpCnstFieldDmn",
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]

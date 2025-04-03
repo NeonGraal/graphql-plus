@@ -3,9 +3,8 @@ types: !_Map_Type
   !_Identifier AltInpCnstPrntObjPrnt: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
+      input: String
       object: PrntInpCnstPrntObjPrnt
-      type: !_InputBase
-        input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
@@ -24,9 +23,8 @@ types: !_Map_Type
   !_Identifier InpCnstPrntObjPrnt: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
+      input: String
       object: PrntInpCnstPrntObjPrnt
-      type: !_InputBase
-        input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
@@ -43,19 +41,18 @@ types: !_Map_Type
   !_Identifier PrntInpCnstPrntObjPrnt: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
+      input: String
       object: PrntInpCnstPrntObjPrnt
-      type: !_InputBase
-        input: String
     alternates:
     - !_InputAlternate
-      type: !_InputBase
-        input: String
+      input: String
     name: PrntInpCnstPrntObjPrnt
     typeKind: !_TypeKind Input
   !_Identifier RefInpCnstPrntObjPrnt: !_TypeInput
     name: RefInpCnstPrntObjPrnt
-    parent: !_TypeParam ref
+    parent: !_InputBase
+      typeParam: ref
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

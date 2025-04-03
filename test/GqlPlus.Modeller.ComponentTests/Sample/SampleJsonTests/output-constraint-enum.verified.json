@@ -26,31 +26,25 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "OutpCnstEnum",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "RefOutpCnstEnum",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "value": "outpCnstEnum"
-              }
-            ]
-          }
+          "output": "RefOutpCnstEnum",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "value": "outpCnstEnum"
+            }
+          ]
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "RefOutpCnstEnum",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "value": "outpCnstEnum"
-              }
-            ]
-          }
+          "output": "RefOutpCnstEnum",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "value": "outpCnstEnum"
+            }
+          ]
         }
       ],
       "name": "OutpCnstEnum",
@@ -63,21 +57,27 @@
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "RefOutpCnstEnum",
-          "type": "type"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "type"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_OutputField",
           "name": "field",
-          "type": "type"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "type"
+          }
         }
       ],
       "name": "RefOutpCnstEnum",
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]

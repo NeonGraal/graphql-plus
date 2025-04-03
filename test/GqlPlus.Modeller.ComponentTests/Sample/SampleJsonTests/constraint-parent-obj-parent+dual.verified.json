@@ -7,11 +7,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "PrntDualCnstPrntObjPrnt",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "dual": "String",
+          "object": "PrntDualCnstPrntObjPrnt"
         }
       ],
       "allFields": [
@@ -47,11 +44,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "PrntDualCnstPrntObjPrnt",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "dual": "String",
+          "object": "PrntDualCnstPrntObjPrnt"
         }
       ],
       "allFields": [
@@ -83,20 +77,14 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "PrntDualCnstPrntObjPrnt",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "dual": "String",
+          "object": "PrntDualCnstPrntObjPrnt"
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "name": "PrntDualCnstPrntObjPrnt",
@@ -105,11 +93,14 @@
     "RefDualCnstPrntObjPrnt": {
       "$tag": "_TypeDual",
       "name": "RefDualCnstPrntObjPrnt",
-      "parent": "ref",
+      "parent": {
+        "$tag": "_DualBase",
+        "value": "ref"
+      },
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]

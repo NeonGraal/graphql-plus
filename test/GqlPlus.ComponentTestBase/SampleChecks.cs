@@ -30,7 +30,7 @@ public class SampleChecks
     ["Single"] = "Sngl",
     ["String"] = "Str",
     ["Unique"] = "Unq",
-    ["Unused"] = "Unsd",
+    //    ["Unused"] = "Unsd",
   };
 
   private static readonly TextInfo s_textInfo = CultureInfo.InvariantCulture.TextInfo;

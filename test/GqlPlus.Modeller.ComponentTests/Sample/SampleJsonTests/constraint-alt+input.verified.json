@@ -8,20 +8,20 @@
         {
           "$tag": "_ObjectFor(_InputAlternate)",
           "object": "InpCnstAlt",
-          "type": "type"
+          "typeParam": "type"
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "type": "type"
+          "value": "type"
         }
       ],
       "name": "InpCnstAlt",
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]

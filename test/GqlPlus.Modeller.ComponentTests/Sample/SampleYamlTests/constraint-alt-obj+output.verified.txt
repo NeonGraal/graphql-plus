@@ -4,8 +4,7 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: PrntOutpCnstAltObj
-      type: !_OutputBase
-        output: String
+      output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
@@ -25,42 +24,38 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: OutpCnstAltObj
-      type: !_OutputBase
-        output: RefOutpCnstAltObj
-        typeArgs:
-        - !_OutputArg
-          output: AltOutpCnstAltObj
+      output: RefOutpCnstAltObj
+      typeArgs:
+      - !_OutputArg
+        output: AltOutpCnstAltObj
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: RefOutpCnstAltObj
-        typeArgs:
-        - !_OutputArg
-          output: AltOutpCnstAltObj
+      output: RefOutpCnstAltObj
+      typeArgs:
+      - !_OutputArg
+        output: AltOutpCnstAltObj
     name: OutpCnstAltObj
     typeKind: !_TypeKind Output
   !_Identifier PrntOutpCnstAltObj: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: PrntOutpCnstAltObj
-      type: !_OutputBase
-        output: String
+      output: String
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: String
+      output: String
     name: PrntOutpCnstAltObj
     typeKind: !_TypeKind Output
   !_Identifier RefOutpCnstAltObj: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: RefOutpCnstAltObj
-      type: !_TypeParam ref
+      typeParam: ref
     alternates:
     - !_OutputAlternate
-      type: !_TypeParam ref
+      typeParam: ref
     name: RefOutpCnstAltObj
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

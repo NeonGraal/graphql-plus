@@ -5,20 +5,24 @@ types: !_Map_Type
     - !_ObjectFor(_DualField)
       name: test
       object: DualObjParamCnst
-      type: !_TypeParam test
+      type: !_DualBase
+        typeParam: test
     - !_ObjectFor(_DualField)
       name: type
       object: DualObjParamCnst
-      type: !_TypeParam test
+      type: !_DualBase
+        typeParam: test
     fields:
     - !_DualField
       name: test
-      type: !_TypeParam test
+      type: !_DualBase
+        typeParam: test
     - !_DualField
       name: type
-      type: !_TypeParam test
+      type: !_DualBase
+        typeParam: test
     name: DualObjParamCnst
     typeKind: !_TypeKind Dual
     typeParams:
-    - !_Described
+    - !_Named
       name: test

@@ -1,55 +1,62 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpGnrcParam: !_TypeInput
-    allFields:
-    - !_ObjectFor(_InputField)
-      name: field
-      object: InpGnrcParam
-      type: !_InputBase
-        input: InpGnrcParamRef
-        typeArgs:
-        - !_InputArg
-          input: InpGnrcParamAlt
-    fields:
-    - !_InputField
-      name: field
-      type: !_InputBase
-        input: InpGnrcParamRef
-        typeArgs:
-        - !_InputArg
-          input: InpGnrcParamAlt
-    name: InpGnrcParam
-    typeKind: !_TypeKind Input
-  !_Identifier InpGnrcParamAlt: !_TypeInput
+  !_Identifier AltInpCnstFieldObj: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
       input: String
-      object: InpGnrcParamAlt
+      object: PrntInpCnstFieldObj
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
-      object: InpGnrcParamAlt
+      object: AltInpCnstFieldObj
       type: !_InputBase
         input: Number
-    alternates:
-    - !_InputAlternate
-      input: String
     fields:
     - !_InputField
       name: alt
       type: !_InputBase
         input: Number
-    name: InpGnrcParamAlt
+    name: AltInpCnstFieldObj
+    parent: !_InputBase
+      input: PrntInpCnstFieldObj
     typeKind: !_TypeKind Input
-  !_Identifier InpGnrcParamRef: !_TypeInput
+  !_Identifier InpCnstFieldObj: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: RefInpCnstFieldObj
+      type: !_InputBase
+        input: AltInpCnstFieldObj
+    name: InpCnstFieldObj
+    parent: !_InputBase
+      input: RefInpCnstFieldObj
+      typeArgs:
+      - !_InputArg
+        input: AltInpCnstFieldObj
+    typeKind: !_TypeKind Input
+  !_Identifier PrntInpCnstFieldObj: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpGnrcParamRef
-      typeParam: ref
+      input: String
+      object: PrntInpCnstFieldObj
     alternates:
     - !_InputAlternate
-      typeParam: ref
-    name: InpGnrcParamRef
+      input: String
+    name: PrntInpCnstFieldObj
+    typeKind: !_TypeKind Input
+  !_Identifier RefInpCnstFieldObj: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: RefInpCnstFieldObj
+      type: !_InputBase
+        typeParam: ref
+    fields:
+    - !_InputField
+      name: field
+      type: !_InputBase
+        typeParam: ref
+    name: RefInpCnstFieldObj
     typeKind: !_TypeKind Input
     typeParams:
     - !_Named

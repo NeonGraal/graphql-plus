@@ -3,9 +3,8 @@ types: !_Map_Type
   !_Identifier AltOutpCnstFieldDual: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_DualAlternate)
+      dual: String
       object: PrntOutpCnstFieldDual
-      type: !_DualBase
-        dual: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
@@ -38,13 +37,11 @@ types: !_Map_Type
   !_Identifier PrntOutpCnstFieldDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
+      dual: String
       object: PrntOutpCnstFieldDual
-      type: !_DualBase
-        dual: String
     alternates:
     - !_DualAlternate
-      type: !_DualBase
-        dual: String
+      dual: String
     name: PrntOutpCnstFieldDual
     typeKind: !_TypeKind Dual
   !_Identifier RefOutpCnstFieldDual: !_TypeOutput
@@ -52,13 +49,15 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: field
       object: RefOutpCnstFieldDual
-      type: !_TypeParam ref
+      type: !_OutputBase
+        typeParam: ref
     fields:
     - !_OutputField
       name: field
-      type: !_TypeParam ref
+      type: !_OutputBase
+        typeParam: ref
     name: RefOutpCnstFieldDual
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

@@ -15,11 +15,16 @@ internal sealed record class UnionDeclAst(
   internal override string Abbr => "Un";
   public override string Label => "Union";
 
-  IEnumerable<IGqlpUnionItem> IGqlpSimple<IGqlpUnionItem>.Items => Members;
+  IEnumerable<IGqlpUnionMember> IGqlpSimple<IGqlpUnionMember>.Items => Items;
 
   public UnionDeclAst(TokenAt at, string name, UnionMemberAst[] members)
     : this(at, name, "", members) { }
 
   public bool HasValue(string value)
-    => Members.Select(a => a.Name).Contains(value);
+    => Items.Select(a => a.Name).Contains(value);
+
+  public bool Equals(UnionDeclAst? other)
+    => base.Equals(other);
+  public override int GetHashCode()
+    => base.GetHashCode();
 }

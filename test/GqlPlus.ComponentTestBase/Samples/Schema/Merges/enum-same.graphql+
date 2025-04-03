@@ -1,2 +1,2 @@
-enum EnSame { same }
-enum EnSame { same }
+enum Name { name }
+enum Name { name }

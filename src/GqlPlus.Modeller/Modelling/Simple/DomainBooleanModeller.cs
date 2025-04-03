@@ -4,9 +4,8 @@ internal class DomainBooleanModeller
   : ModellerDomain<IGqlpDomainTrueFalse, DomainTrueFalseModel>
 {
   protected override BaseDomainModel<DomainTrueFalseModel> ToModel(IGqlpDomain<IGqlpDomainTrueFalse> ast, IMap<TypeKindModel> typeKinds)
-    => new(DomainKindModel.Boolean, ast.Name) {
+    => new(DomainKindModel.Boolean, ast.Name, ast.Description) {
       Aliases = [.. ast.Aliases],
-      Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Domain),
       Items = ToItems(ast, typeKinds),
     };

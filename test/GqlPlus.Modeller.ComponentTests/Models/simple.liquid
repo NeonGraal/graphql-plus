@@ -3,14 +3,13 @@
   <sub>Parent:</sub> {{ simple.parent.name }} <sup>{{ simple.parent.typeKind }}</sup>
 </p>
 {% endif -%}
-{%- liquid
-case simple.typeKind
-when "Domain"
-render "domain" with simple as domain
-when "Enum"
-render "enum" with simple as enum
-when "Union"
-render "union" with simple as union
-else
-echo "<i>Other Simple type:</i> " | append: simple.typeKind
-endcase %}
+{%- case simple.typeKind %}
+  {%- when "Domain" %}
+    {%- render "domain" with simple as domain %}
+  {%- when "Enum" %}
+    {%- render "enum" with simple as enum %}
+  {%- when "Union" %}
+    {%- render "union" with simple as union %}
+  {%- else %}
+    <i>Other Simple type:</i> " {{ simple.typeKind }}
+{%- endcase %}

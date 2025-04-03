@@ -5,10 +5,10 @@ namespace GqlPlus.Ast.Operation;
 
 internal sealed record class FragmentAst(
   TokenAt At,
-  string Name,
+  string Identifier,
   string OnType,
   params IGqlpSelection[] Selections
-) : AstDirectives(At, Name)
+) : AstDirectives(At, Identifier)
   , IEquatable<FragmentAst>
   , IGqlpFragment
 {

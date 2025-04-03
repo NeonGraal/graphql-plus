@@ -72,7 +72,12 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
 
   protected void CheckParent(ParentUsage<TAst> input, IGqlpType<TParent> child, TContext context, bool top)
   {
-    input = input.AddParent(GetParent(child));
+    string parent = GetParent(child);
+    if (string.IsNullOrWhiteSpace(parent)) {
+      return;
+    }
+
+    input = input.AddParent(parent);
     if (context.DifferentName(input, top ? null : child.Name)) {
       CheckParentType(input, context, top, parentType => {
         CheckParent(input, parentType, context, false);

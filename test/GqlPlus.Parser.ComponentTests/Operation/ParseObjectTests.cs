@@ -7,21 +7,21 @@ public class ParseObjectTests(
   IManyChecksParser<IGqlpSelection> checks
 )
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithJustField_ReturnsCorrectAst(string field)
     => checks.TrueExpected("{" + field + "}",
     new FieldAst(AstNulls.At, field));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithBadField_ReturnsCorrectAst(string field)
     => checks.FalseExpected("{" + field + "{}}");
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithJustInline_ReturnsCorrectAst(string inline)
     => checks.TrueExpected("{|{" + inline + "}}",
       new InlineAst(AstNulls.At, new FieldAst(AstNulls.At, inline)));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithJustSpread_ReturnsCorrectAst(string spread)
     => checks
       .SkipNull(spread)
@@ -30,7 +30,7 @@ public class ParseObjectTests(
         "{|" + spread + "}",
         new SpreadAst(AstNulls.At, spread ?? ""));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithAll_ReturnsCorrectAst(string field, string inline, string spread)
     => checks
       .SkipNull(spread)

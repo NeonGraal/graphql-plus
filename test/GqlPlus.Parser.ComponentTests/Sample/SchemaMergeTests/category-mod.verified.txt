@@ -3,17 +3,18 @@
 Success
 {
   !Ca P@010/0001
-  catMods
+  ctgrMod
   [
     CatM1
     CatM2
   ]
   (Parallel)
-  CatMods
+  !Tr I@020/0001
+  CtgrMod
   ?
 }
 {
   !Ou I@008/0003
-  CatMods
+  CtgrMod
 }
 ]

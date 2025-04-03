@@ -5,12 +5,12 @@ using NSubstitute;
 namespace GqlPlus.Operation;
 
 public class VerifyFragmentUsageTests
-  : NamedVerifierBase<IGqlpSpread, IGqlpFragment>
+  : IdentifiedVerifierBase<IGqlpSpread, IGqlpFragment>
 {
   protected override IEnumerable<IGqlpFragment> OneDefinition(string name)
   {
     IGqlpFragment definition = EFor<IGqlpFragment>();
-    definition.Name.Returns(name);
+    definition.Identifier.Returns(name);
 
     return [definition];
   }
@@ -18,11 +18,11 @@ public class VerifyFragmentUsageTests
   protected override IEnumerable<IGqlpSpread> OneUsage(string key)
   {
     IGqlpSpread usage = EFor<IGqlpSpread>();
-    usage.Name.Returns(key);
+    usage.Identifier.Returns(key);
 
     return [usage];
   }
 
-  internal override NamedVerifier<IGqlpSpread, IGqlpFragment> NewVerifier()
+  internal override IdentifiedVerifier<IGqlpSpread, IGqlpFragment> NewVerifier()
     => new VerifyFragmentUsage(Usage, Definition);
 }

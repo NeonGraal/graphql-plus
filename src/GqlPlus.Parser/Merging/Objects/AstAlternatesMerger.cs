@@ -12,7 +12,7 @@ internal class AstAlternatesMerger<TAlternate>(
   protected override TAlternate MergeGroup(IEnumerable<TAlternate> group)
   {
     TAlternate first = group.First();
-    if (first.Type is IAstSetDescription descrType) {
+    if (first is IAstSetDescription descrType) {
       descrType.MakeDescription(group);
     }
 
@@ -20,7 +20,7 @@ internal class AstAlternatesMerger<TAlternate>(
   }
 
   protected override string ItemGroupKey(TAlternate item)
-    => item.Type.FullType;
+    => item.FullType;
 
   protected override string ItemMatchName => "Modifiers";
   protected override string ItemMatchKey(TAlternate item)

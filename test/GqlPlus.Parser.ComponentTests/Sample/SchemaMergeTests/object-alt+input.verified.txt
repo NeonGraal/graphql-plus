@@ -3,14 +3,13 @@
 Success
 {
   !In I@007/0001
-  InpObjectAlt
+  InpObjAlt
   |
-  !IA I@024/0001
-  I@024/0001
-  InpObjectAltType
+  I@021/0001
+  InpObjAltType
 }
 {
   !In I@007/0003
-  InpObjectAltType
+  InpObjAltType
 }
 ]

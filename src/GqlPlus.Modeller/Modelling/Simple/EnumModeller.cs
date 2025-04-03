@@ -8,16 +8,14 @@ internal class EnumModeller
   { }
 
   protected override TypeEnumModel ToModel(IGqlpEnum ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name) {
+    => new(ast.Name, ast.Description) {
       Aliases = [.. ast.Aliases],
-      Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Enum),
-      Items = [.. ast.Items.Select(ToMember)],
+      Items = [.. ast.Items.Select(ToLabel)],
     };
 
-  internal static AliasedModel ToMember(IGqlpEnumItem ast)
-    => new(ast.Name) {
+  internal static AliasedModel ToLabel(IGqlpEnumLabel ast)
+    => new(ast.Name, ast.Description) {
       Aliases = [.. ast.Aliases],
-      Description = ast.Description,
     };
 }

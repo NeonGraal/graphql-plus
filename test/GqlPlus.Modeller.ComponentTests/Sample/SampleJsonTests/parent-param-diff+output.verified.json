@@ -1,0 +1,74 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutpPrntParamDiff": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "RefOutpPrntParamDiff",
+          "typeParam": "b"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpPrntParamDiff",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "a"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "a"
+          }
+        }
+      ],
+      "name": "OutpPrntParamDiff",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "RefOutpPrntParamDiff",
+        "typeArgs": ["a"]
+      },
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "a"
+        }
+      ]
+    },
+    "RefOutpPrntParamDiff": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "RefOutpPrntParamDiff",
+          "typeParam": "b"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "value": "b"
+        }
+      ],
+      "name": "RefOutpPrntParamDiff",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "b"
+        }
+      ]
+    }
+  }
+}

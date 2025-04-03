@@ -38,7 +38,7 @@ public record struct DomainRangeInput(decimal? Min, decimal? Max)
 }
 
 public record struct AlternateInput(string Type)
-  : IComparable<AlternateInput>
+  : IComparable<AlternateInput>, ITypeParamInput
 {
   public bool TypeParam { get; private init; } = false;
 
@@ -49,8 +49,13 @@ public record struct AlternateInput(string Type)
     => string.CompareOrdinal(Type, other.Type);
 }
 
+internal interface ITypeParamInput
+{
+  bool TypeParam { get; }
+}
+
 public record struct FieldInput(string Name, string Type)
-  : IComparable<FieldInput>
+  : IComparable<FieldInput>, ITypeParamInput
 {
   public bool TypeParam { get; private init; } = false;
 

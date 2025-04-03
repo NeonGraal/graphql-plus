@@ -1,4 +1,4 @@
-enum EnumDomUniqueParent { :EnumDomParentUnique value }
-enum EnumDomParentUnique { enum_dom_parent_dup }
-enum EnumDomDupParent { enum_dom_parent_dup }
-# domain DomEnumUniqueParent { enum EnumDomUniqueParent.* !EnumDomUniqueParent.enum_dom_parent_dup EnumDomDupParent.enum_dom_parent_dup }
+# domain Name { enum EnumName.* !PrntName.name DupName.name }
+enum EnumName { :PrntName enum_name }
+enum PrntName { name prnt_name }
+enum DupName { name dup_name }

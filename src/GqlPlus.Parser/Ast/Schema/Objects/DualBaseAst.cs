@@ -15,6 +15,5 @@ internal sealed record class DualBaseAst(
 
   internal override string Abbr => "DB";
   public override string Label => "Dual";
-
-  string IGqlpDualBase.Dual => Name;
+  public string Dual => Name;
 }

@@ -1,2 +1,2 @@
-domain BoolSame { boolean true }
-domain BoolSame { boolean true }
+domain Name { boolean true }
+domain Name { boolean true }

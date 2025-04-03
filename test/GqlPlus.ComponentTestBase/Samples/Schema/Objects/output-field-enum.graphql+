@@ -1,2 +1,2 @@
-output OutFieldEnum { field = OutEnumField.outEnumField }
-enum OutEnumField { outEnumField }
+output Name { field = EnumName.name }
+enum EnumName { name }

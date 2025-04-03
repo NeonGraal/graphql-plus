@@ -1,4 +1,5 @@
-output OutPrntParam { :OutParamParent field(OutPrntParamIn): OutPrntParam }
-output OutParamParent { field(OutParamParentIn): OutPrntParam }
-input OutPrntParamIn { param: Number | String }
-input OutParamParentIn { parent: Number | String }
+output Name { :PrntName field(InName): FldName }
+output PrntName { field(PrntNameIn): FldName }
+dual FldName { }
+input InName { param: Number | String }
+input PrntNameIn { parent: Number | String }

@@ -33,6 +33,6 @@ internal sealed record TestTypeModel
   : BaseTypeModel
 {
   public TestTypeModel()
-    : base(TypeKindModel.Basic, "Test")
+    : base(TypeKindModel.Basic, "Test", "")
   { }
 }

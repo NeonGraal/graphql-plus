@@ -1,4 +1,4 @@
-output OutGenParent { | OutGenParentRef<OutParentGen.outGenParent> }
-output OutGenParentRef<$type> { field: $type }
-enum OutParentGen { :OutPrntendedGen outGenPrntended }
-enum OutPrntendedGen { outGenParent }
+output Name { | RefName<EnumName.prnt_name> }
+output RefName<$type> { field: $type }
+enum EnumName { :PrntName name }
+enum PrntName { prnt_name }

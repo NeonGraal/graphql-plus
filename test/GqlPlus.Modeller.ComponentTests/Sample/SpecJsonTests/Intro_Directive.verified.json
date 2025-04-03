@@ -107,18 +107,12 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Directives",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_Directive"
-          }
+          "output": "_Directive"
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Directives",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_Type"
-          }
+          "output": "_Type"
         }
       ],
       "allFields": [
@@ -144,17 +138,11 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_Directive"
-          }
+          "value": "_Directive"
         },
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_Type"
-          }
+          "value": "_Type"
         }
       ],
       "fields": [
@@ -182,32 +170,32 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_Location",
           "name": "Operation"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_Location",
           "name": "Variable"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_Location",
           "name": "Field"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_Location",
           "name": "Inline"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_Location",
           "name": "Spread"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_Location",
           "name": "Fragment"
         }

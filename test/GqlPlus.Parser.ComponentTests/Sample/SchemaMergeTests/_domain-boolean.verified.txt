@@ -3,11 +3,11 @@
 Success
 {
   !Do I@008/0001
-  Bool
+  DmnBool
   Boolean
-  !DT P@023/0001
+  !DT P@026/0001
   False
-  !DT P@023/0001
+  !DT P@026/0001
   True
 }
 ]

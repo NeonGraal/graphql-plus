@@ -1,5 +1,5 @@
 "First category"
-category { Test }
+category { Name }
 "Second category"
-category { Test }
-output Test { }
+category { Name }
+output Name { }

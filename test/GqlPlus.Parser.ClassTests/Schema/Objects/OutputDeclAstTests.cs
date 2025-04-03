@@ -20,9 +20,6 @@ internal sealed class OutputDeclAstChecks
       parent => new OutputBaseAst(AstNulls.At, parent))
   { }
 
-  protected override string AlternateString(AlternateInput input)
-    => $"!OA {input.Type} [] ?";
-
   protected override IGqlpOutputAlternate[] CreateAlternates(IEnumerable<AlternateInput> alternates)
     => alternates.OutputAlternates();
   protected override IGqlpOutputField[] CreateFields(IEnumerable<FieldInput> fields)

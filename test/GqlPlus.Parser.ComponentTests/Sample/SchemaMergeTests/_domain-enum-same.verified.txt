@@ -3,9 +3,9 @@
 Success
 {
   !Do I@008/0001
-  EnumSame
+  DmnEnumSame
   Enum
-  !DE I@024/0001
+  !DE I@027/0001
   Boolean
   true
 }

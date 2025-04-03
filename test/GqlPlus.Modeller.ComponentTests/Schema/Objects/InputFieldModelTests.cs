@@ -8,7 +8,7 @@ public class InputFieldModelTests(
   IInputFieldModelChecks checks
 ) : TestObjectFieldModel<IGqlpInputField, IGqlpInputBase, InputFieldModel>(checks)
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_DefaultString(FieldInput input, string contents)
     => checks.Field_Expected(
       new InputFieldAst(AstNulls.At, input.Name, new InputBaseAst(AstNulls.At, input.Type)) with {

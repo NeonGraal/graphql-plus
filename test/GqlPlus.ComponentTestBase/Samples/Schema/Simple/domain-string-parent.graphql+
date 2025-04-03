@@ -1,2 +1,2 @@
-domain DomStrPrnt { :DomPrntStr String /a+/ }
-domain DomPrntStr { String /b+/ }
+domain Name { :PrntName String /a+/ }
+domain PrntName { String /b+/ }

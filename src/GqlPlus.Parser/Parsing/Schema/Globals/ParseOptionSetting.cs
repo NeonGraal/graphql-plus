@@ -14,8 +14,7 @@ internal class ParseOptionSetting(
   IResult<IGqlpSchemaSetting> Parser<IGqlpSchemaSetting>.I.Parse<TContext>(TContext tokens, string label)
   {
     Token.TokenAt at = tokens.At;
-    tokens.TakeDescription();
-    string description = tokens.GetDescription();
+    string description = tokens.Description();
     if (!tokens.Identifier(out string? name)) {
       return 0.Empty<IGqlpSchemaSetting>();
     }

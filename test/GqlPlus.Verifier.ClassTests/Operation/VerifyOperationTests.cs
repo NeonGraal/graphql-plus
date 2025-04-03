@@ -11,8 +11,8 @@ public class VerifyOperationTests
   [Fact]
   public void Verify_CallsVerifiersAndCombinesErrors()
   {
-    IVerifyNamed<IGqlpArg, IGqlpVariable> usages = For<IVerifyNamed<IGqlpArg, IGqlpVariable>>();
-    IVerifyNamed<IGqlpSpread, IGqlpFragment> spreads = For<IVerifyNamed<IGqlpSpread, IGqlpFragment>>();
+    IVerifyIdentified<IGqlpArg, IGqlpVariable> usages = For<IVerifyIdentified<IGqlpArg, IGqlpVariable>>();
+    IVerifyIdentified<IGqlpSpread, IGqlpFragment> spreads = For<IVerifyIdentified<IGqlpSpread, IGqlpFragment>>();
     VerifyOperation verifier = new(usages, spreads);
 
     IGqlpOperation item = For<IGqlpOperation>();
@@ -23,8 +23,8 @@ public class VerifyOperationTests
     verifier.Verify(item, Errors);
 
     verifier.ShouldSatisfyAllConditions(
-      () => usages.ReceivedWithAnyArgs().Verify(Arg.Any<UsageNamed<IGqlpArg, IGqlpVariable>>(), Errors),
-      () => spreads.ReceivedWithAnyArgs().Verify(Arg.Any<UsageNamed<IGqlpSpread, IGqlpFragment>>(), Errors),
+      () => usages.ReceivedWithAnyArgs().Verify(Arg.Any<UsageIdentified<IGqlpArg, IGqlpVariable>>(), Errors),
+      () => spreads.ReceivedWithAnyArgs().Verify(Arg.Any<UsageIdentified<IGqlpSpread, IGqlpFragment>>(), Errors),
       () => Errors.Select(e => e.Message).ShouldBe(["error", "item"]));
   }
 }

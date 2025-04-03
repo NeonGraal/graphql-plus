@@ -4,13 +4,13 @@ using GqlPlus.Token;
 namespace GqlPlus.Merging.Simple;
 
 internal class MergeUnionMembers
-  : GroupsMerger<IGqlpUnionItem>
+  : GroupsMerger<IGqlpUnionMember>
 {
-  protected override ITokenMessages CanMergeGroup(IGrouping<string, IGqlpUnionItem> group)
+  protected override ITokenMessages CanMergeGroup(IGrouping<string, IGqlpUnionMember> group)
     => group.Distinct().Count() == 1 ? TokenMessages.New
     : group.Last().MakeError("Union Members not unique for " + group.Key);
-  protected override string ItemGroupKey(IGqlpUnionItem item)
+  protected override string ItemGroupKey(IGqlpUnionMember item)
     => item.Name;
-  protected override IGqlpUnionItem MergeGroup(IEnumerable<IGqlpUnionItem> group)
+  protected override IGqlpUnionMember MergeGroup(IEnumerable<IGqlpUnionMember> group)
     => group.First();
 }

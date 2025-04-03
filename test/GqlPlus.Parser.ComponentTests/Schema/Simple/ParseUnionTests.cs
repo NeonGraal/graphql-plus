@@ -9,21 +9,21 @@ public sealed class ParseUnionTests(
   IBaseSimpleChecks<UnionInput, IGqlpUnion> checks
 ) : BaseSimpleTests<UnionInput, IGqlpUnion>(checks)
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithUnionMembers_ReturnsCorrectAst(string name, string[] members)
     => checks.TrueExpected(
       name + members.Bracket("{", "}").Joined(),
       new UnionDeclAst(AstNulls.At, name, members.UnionMembers()));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithUnionMembersBad_ReturnsFalse(string name, string[] members)
     => checks.FalseExpected(name + "{" + members.Joined() + "|}");
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithUnionMembersNone_ReturnsFalse(string name)
     => checks.FalseExpected(name + "{}");
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithAll_ReturnsCorrectAst(string name, string parent, string[] members)
     => checks.TrueExpected(
       name + members.Prepend(parent.Prefixed(":")).Bracket("{", "}").Joined(),

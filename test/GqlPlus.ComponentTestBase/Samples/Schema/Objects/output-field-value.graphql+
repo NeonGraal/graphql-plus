@@ -1,2 +1,2 @@
-output OutFieldValue { field = outEnumValue }
-enum OutEnumValue { outEnumValue }
+output Name { field = name }
+enum EnumName { name }

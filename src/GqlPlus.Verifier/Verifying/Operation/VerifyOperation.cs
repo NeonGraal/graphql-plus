@@ -3,8 +3,8 @@
 namespace GqlPlus.Verifying.Operation;
 
 internal class VerifyOperation(
-  IVerifyNamed<IGqlpArg, IGqlpVariable> usages,
-  IVerifyNamed<IGqlpSpread, IGqlpFragment> spreads
+  IVerifyIdentified<IGqlpArg, IGqlpVariable> usages,
+  IVerifyIdentified<IGqlpSpread, IGqlpFragment> spreads
 ) : IVerify<IGqlpOperation>
 {
   public void Verify(IGqlpOperation item, ITokenMessages errors)

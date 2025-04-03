@@ -24,7 +24,7 @@ internal abstract class ChildTypeRenderer<TModel, TParent>(
   IRenderer<TParent> parent
 ) : BaseTypeRenderer<TModel>
   where TModel : ChildTypeModel<TParent>
-  where TParent : ModelBase
+  where TParent : IModelBase
 {
   internal override Structured Render(TModel model)
     => base.Render(model)

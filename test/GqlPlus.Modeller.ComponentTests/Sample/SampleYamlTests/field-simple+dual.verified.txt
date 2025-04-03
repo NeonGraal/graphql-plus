@@ -1,0 +1,16 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DualFieldSmpl: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: DualFieldSmpl
+      type: !_DualBase
+        dual: Number
+    fields:
+    - !_DualField
+      name: field
+      type: !_DualBase
+        dual: Number
+    name: DualFieldSmpl
+    typeKind: !_TypeKind Dual

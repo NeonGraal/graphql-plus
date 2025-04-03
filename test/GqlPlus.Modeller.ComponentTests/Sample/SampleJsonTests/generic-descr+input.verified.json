@@ -1,0 +1,39 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "InpGnrcDescr": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "InpGnrcDescr",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "type"
+          }
+        }
+      ],
+      "name": "InpGnrcDescr",
+      "typeKind": "Input",
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "description": "Test Descr",
+          "name": "type"
+        }
+      ]
+    }
+  }
+}

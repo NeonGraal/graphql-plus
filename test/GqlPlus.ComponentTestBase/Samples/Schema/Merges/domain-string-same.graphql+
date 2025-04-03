@@ -1,2 +1,2 @@
-domain StrSame { string /a+/ }
-domain StrSame { string /a+/ }
+domain Name { string /a+/ }
+domain Name { string /a+/ }

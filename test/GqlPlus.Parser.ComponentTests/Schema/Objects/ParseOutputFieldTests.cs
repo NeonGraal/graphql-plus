@@ -9,7 +9,7 @@ public class ParseOutputFieldTests(
   ICheckObjectField<IGqlpOutputField> checks
 ) : TestObjectField<IGqlpOutputField>(checks)
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithParams_ReturnsCorrectAst(string name, string fieldType, string[] parameters)
     => checks.TrueExpected(
       name + "(" + parameters.Joined() + "):" + fieldType,
@@ -17,11 +17,11 @@ public class ParseOutputFieldTests(
         Params = parameters.Params()
       });
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithParamsBad_ReturnsFalse(string name, string fieldType, string[] parameters)
     => checks.FalseExpected(name + "(" + parameters.Joined() + ":" + fieldType);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithParamsModifiers_ReturnsCorrectAst(string name, string fieldType, string[] parameters)
     => checks.TrueExpected(
       name + "(" + parameters.Joined(p => p + "[]?") + "):" + fieldType,
@@ -29,15 +29,15 @@ public class ParseOutputFieldTests(
         Params = parameters.Params(p => p with { Modifiers = TestMods() })
       });
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithParamModifiersBad_ReturnsFalse(string name, string fieldType, string parameter)
     => checks.FalseExpected(name + "(" + parameter + "[?):" + fieldType);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithParamConstantBad_ReturnsFalse(string name, string fieldType, string parameter)
     => checks.FalseExpected(name + "(" + parameter + "=):" + fieldType);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithParamsDefault_ReturnsCorrectAst(string name, string fieldType, string[] parameters, string content)
     => checks.TrueExpected(
       name + "(" + parameters.Joined(p => p + "='" + content + "'") + "):" + fieldType,
@@ -47,37 +47,37 @@ public class ParseOutputFieldTests(
         })
       });
 
-  [Theory, RepeatData(Repeats)]
-  public void WithFieldEnumValue_ReturnsCorrectAst(string name, string enumMember)
+  [Theory, RepeatData]
+  public void WithFieldEnumValue_ReturnsCorrectAst(string name, string enumLabel)
     => checks.TrueExpected(
-      name + "=" + enumMember,
-        Field(name, FieldBase("") with { EnumMember = enumMember }));
+      name + "=" + enumLabel,
+        Field(name, FieldBase("")) with { EnumLabel = enumLabel });
 
-  [Theory, RepeatData(Repeats)]
-  public void WithFieldEnumAliasValue_ReturnsCorrectAst(string name, string enumMember, string alias)
+  [Theory, RepeatData]
+  public void WithFieldEnumAliasValue_ReturnsCorrectAst(string name, string enumLabel, string alias)
     => checks.TrueExpected(
-      name + "[" + alias + "]=" + enumMember,
-        Field(name, FieldBase("") with { EnumMember = enumMember }) with { Aliases = [alias] });
+      name + "[" + alias + "]=" + enumLabel,
+        Field(name, FieldBase("")) with { Aliases = [alias], EnumLabel = enumLabel });
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithFieldEnumValueBad_ReturnsFalse(string name)
     => checks.FalseExpected(name + "=");
 
-  [Theory, RepeatData(Repeats)]
-  public void WithFieldEnumTypeAndValue_ReturnsCorrectAst(string name, string enumType, string enumMember)
+  [Theory, RepeatData]
+  public void WithFieldEnumTypeAndValue_ReturnsCorrectAst(string name, string enumType, string enumLabel)
     => checks.TrueExpected(
-      name + "=" + enumType + "." + enumMember,
-        Field(name, FieldBase(enumType) with { EnumMember = enumMember }));
+      name + "=" + enumType + "." + enumLabel,
+        Field(name, FieldBase(enumType)) with { EnumLabel = enumLabel });
 
-  [Theory, RepeatData(Repeats)]
-  public void WithFieldEnumAliasTypeAndValue_ReturnsCorrectAst(string name, string enumType, string enumMember, string alias)
+  [Theory, RepeatData]
+  public void WithFieldEnumAliasTypeAndValue_ReturnsCorrectAst(string name, string enumType, string enumLabel, string alias)
     => checks.TrueExpected(
-      name + "[" + alias + "]=" + enumType + "." + enumMember,
-        Field(name, FieldBase(enumType) with { EnumMember = enumMember }) with { Aliases = [alias] });
+      name + "[" + alias + "]=" + enumType + "." + enumLabel,
+        Field(name, FieldBase(enumType)) with { Aliases = [alias], EnumLabel = enumLabel });
 
-  [Theory, RepeatData(Repeats)]
-  public void WithFieldEnumTypeAndValueBad_ReturnsFalse(string name, string enumMember)
-    => checks.FalseExpected(name + "=" + enumMember + ".");
+  [Theory, RepeatData]
+  public void WithFieldEnumTypeAndValueBad_ReturnsFalse(string name, string enumLabel)
+    => checks.FalseExpected(name + "=" + enumLabel + ".");
 
   private static OutputFieldAst Field(string name, OutputBaseAst enumType)
     => new(AstNulls.At, name, enumType);

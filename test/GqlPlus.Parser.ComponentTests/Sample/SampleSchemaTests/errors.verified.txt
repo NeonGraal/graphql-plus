@@ -1,6 +1,7 @@
 ﻿!Sc I@001/0001
 Failure
 <
+  !!! P@017/0001 : Invalid Category Output. Expected type name. - '}\ndirectiv' !!!
   !!! P@017/0001 : Invalid Category. Expected output type. - '}\ndirectiv' !!!
   !!! P@017/0001 : Invalid Schema. Expected no more text. - '}\ndirectiv' !!!
 >
@@ -8,4 +9,6 @@ Failure
   !Ca I@010/0001
   query
   (Parallel)
+  !Tr I@010/0001
+  query
 }

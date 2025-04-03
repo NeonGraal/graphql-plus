@@ -16,8 +16,8 @@ internal sealed class InputFactories
   public InputBaseAst ObjBase(TokenAt at, string name, string description)
     => new(at, name, description);
 
-  public InputAlternateAst ObjAlternate(TokenAt at, IGqlpInputBase typeBase)
-    => new(at, typeBase);
+  public InputAlternateAst ObjAlternate(TokenAt at, string name, string description)
+    => new(at, name, description);
 
   public InputArgAst ObjArg(TokenAt at, string name, string description = "")
     => new(at, name, description);

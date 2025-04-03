@@ -1,0 +1,126 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DomOutpParamModParam": {
+      "$tag": "_DomainNumber",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRange)",
+          "domain": "DomOutpParamModParam",
+          "exclude": false,
+          "from": 1,
+          "to": 10
+        }
+      ],
+      "domainKind": "Number",
+      "items": [
+        {
+          "$tag": "_DomainRange",
+          "exclude": false,
+          "from": 1,
+          "to": 10
+        }
+      ],
+      "name": "DomOutpParamModParam",
+      "typeKind": "Domain"
+    },
+    "InOutpParamModParam": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "input": "String",
+          "object": "InOutpParamModParam"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "param",
+          "object": "InOutpParamModParam",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "value": "String"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "param",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "InOutpParamModParam",
+      "typeKind": "Input"
+    },
+    "OutpParamModParam": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpParamModParam",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "input": "InOutpParamModParam",
+              "modifiers": [
+                {
+                  "$tag": "_ModifierTypeParam",
+                  "by": "mod",
+                  "modifierKind": "Param"
+                }
+              ]
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "DomOutpParamModParam"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "input": "InOutpParamModParam",
+              "modifiers": [
+                {
+                  "$tag": "_ModifierTypeParam",
+                  "by": "mod",
+                  "modifierKind": "Param"
+                }
+              ]
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "DomOutpParamModParam"
+          }
+        }
+      ],
+      "name": "OutpParamModParam",
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "mod"
+        }
+      ]
+    }
+  }
+}

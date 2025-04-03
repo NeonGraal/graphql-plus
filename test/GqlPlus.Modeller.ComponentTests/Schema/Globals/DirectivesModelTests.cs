@@ -8,7 +8,7 @@ public class DirectivesModelTests(
   IDirectivesModelChecks checks
 ) : TestModelBase<string, DirectivesModel>(checks)
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Type(string input)
     => checks
     .Model_Expected(
@@ -17,7 +17,7 @@ public class DirectivesModelTests(
         "name: " + input,
         "typeKind: !_TypeKind Input"]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Both(
     string input,
     string name
@@ -53,7 +53,7 @@ internal sealed class DirectivesModelChecks(
   public DirectivesModel ToModel(IGqlpSchemaDirective? ast, string input)
     => new() {
       And = _modeller.TryModel((DirectiveDeclAst?)ast, TypeKinds),
-      Type = new TypeInputModel(input),
+      Type = new TypeInputModel(input, ""),
     };
 }
 

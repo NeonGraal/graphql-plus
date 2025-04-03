@@ -1,0 +1,21 @@
+﻿!_Schema
+_errors:
+- !_Error
+  _at: !_At {_col: 17, _line: 1}
+  _kind: !_TokenKind Punctuation
+  _message: Invalid Category Output. Expected type name.
+- !_Error
+  _at: !_At {_col: 17, _line: 1}
+  _kind: !_TokenKind Punctuation
+  _message: Invalid Category. Expected output type.
+- !_Error
+  _at: !_At {_col: 17, _line: 1}
+  _kind: !_TokenKind Punctuation
+  _message: Invalid Schema. Expected no more text.
+categories: !_Map_Categories
+  !_Identifier query: !_Category
+    name: query
+    output: !_TypeRef(_TypeKind)
+      name: query
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel

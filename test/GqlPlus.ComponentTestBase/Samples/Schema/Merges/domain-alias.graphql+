@@ -1,2 +1,2 @@
-domain NumAlias [Num1] { number }
-domain NumAlias [Num2] { number }
+domain Name [Num1] { number }
+domain Name [Num2] { number }

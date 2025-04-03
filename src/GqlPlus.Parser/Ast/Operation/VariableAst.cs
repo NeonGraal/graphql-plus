@@ -3,8 +3,10 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Operation;
 
-internal sealed record class VariableAst(TokenAt At, string Name)
-  : AstDirectives(At, Name)
+internal sealed record class VariableAst(
+  TokenAt At,
+  string Identifier
+) : AstDirectives(At, Identifier)
   , IEquatable<VariableAst>
   , IGqlpVariable
 {

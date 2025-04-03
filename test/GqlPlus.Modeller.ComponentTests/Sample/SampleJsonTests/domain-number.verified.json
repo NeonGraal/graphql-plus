@@ -1,0 +1,12 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DmnNmbr": {
+      "$tag": "_DomainNumber",
+      "domainKind": "Number",
+      "name": "DmnNmbr",
+      "typeKind": "Domain"
+    }
+  }
+}

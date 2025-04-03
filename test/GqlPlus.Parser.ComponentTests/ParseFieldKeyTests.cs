@@ -6,7 +6,7 @@ public class ParseFieldKeyTests(
   IOneChecksParser<IGqlpFieldKey> checks
 )
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithNumber_ReturnsCorrectAst(decimal number)
     => checks.TrueExpected(
       number.ToString(CultureInfo.InvariantCulture),
@@ -20,7 +20,7 @@ public class ParseFieldKeyTests(
       contents.Quote(),
       new FieldKeyAst(AstNulls.At, contents));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithString_ReturnsCorrectAst(string contents)
     => checks.TrueExpected(
       contents.Quote(),
@@ -34,13 +34,13 @@ public class ParseFieldKeyTests(
       contents.BlockQuote(),
       new FieldKeyAst(AstNulls.At, contents));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithBlockString_ReturnsCorrectAst(string contents)
     => checks.TrueExpected(
       contents.BlockQuote(),
       new FieldKeyAst(AstNulls.At, contents));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithEnumValue_ReturnsCorrectAst(string enumValue)
     => checks.TrueExpected(
       enumValue,
@@ -56,13 +56,13 @@ public class ParseFieldKeyTests(
       value,
       new FieldKeyAst(AstNulls.At, enumType, enumValue));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithTypeAndValue_ReturnsCorrectAst(string enumType, string enumValue)
     => checks.TrueExpected(
       enumType + "." + enumValue,
       new FieldKeyAst(AstNulls.At, enumType, enumValue));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithTypeAndNoValue_ReturnsFalse(string enumType)
     => checks.FalseExpected(enumType + ".");
 }

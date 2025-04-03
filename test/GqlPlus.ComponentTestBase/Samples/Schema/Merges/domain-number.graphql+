@@ -1,2 +1,2 @@
-domain Num { number }
-domain Num { number }
+domain Name { number }
+domain Name { number }

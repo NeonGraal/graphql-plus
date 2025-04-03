@@ -37,6 +37,8 @@ public abstract class AstObjectFieldTests<TObjBase>
 
   internal sealed override IAstAliasedChecks<FieldInput> AliasedChecks => FieldChecks;
 
+  protected override string InputName(FieldInput input) => input.Name;
+
   internal abstract IAstObjectFieldChecks<TObjBase> FieldChecks { get; }
 }
 

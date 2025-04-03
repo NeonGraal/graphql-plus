@@ -3,39 +3,39 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Simple;
 
-internal record class AstDomain<TMember, TItem>(
+internal record class AstDomain<TItemAst, TItem>(
   TokenAt At,
   string Name,
   string Description,
   DomainKind DomainKind
 ) : AstDomain(At, Name, Description, DomainKind)
-  , IEquatable<AstDomain<TMember, TItem>>
+  , IEquatable<AstDomain<TItemAst, TItem>>
   , IGqlpDomain<TItem>
-  where TMember : AstBase, TItem
+  where TItemAst : AstBase, TItem
   where TItem : IGqlpDomainItem, IGqlpError
 {
-  public TMember[] Members { get; set; } = [];
+  public TItemAst[] Items { get; set; } = [];
 
   internal override string Abbr => "Do";
   public override string Label => "Domain";
 
-  public IEnumerable<TItem> Items => Members;
+  IEnumerable<TItem> IGqlpSimple<TItem>.Items => Items;
 
-  public AstDomain(TokenAt at, string name, DomainKind kind, TMember[] members)
+  public AstDomain(TokenAt at, string name, DomainKind kind, TItemAst[] items)
     : this(at, name, "", kind)
-    => Members = members;
+    => Items = items;
 
-  public virtual bool Equals(AstDomain<TMember, TItem>? other)
+  public virtual bool Equals(AstDomain<TItemAst, TItem>? other)
     => base.Equals(other)
       && DomainKind == other.DomainKind
-      && Members.SequenceEqual(other.Members);
+      && Items.SequenceEqual(other.Items);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), DomainKind, Members.Length);
+    => HashCode.Combine(base.GetHashCode(), DomainKind, Items.Length);
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
       .Append(DomainKind.ToString())
       .Append(Parent.Prefixed(":"))
-      .Concat(Members.Bracket());
+      .Concat(Items.Bracket());
 }
 
 internal abstract record class AstDomain(

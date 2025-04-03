@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using System.Xml.Linq;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
@@ -12,7 +13,7 @@ public static class BuiltIn
     new EnumDeclAst(AstNulls.At, "Boolean", [new(AstNulls.At, "false"), new(AstNulls.At, "true")]) { Aliases = ["^"] },
     new EnumDeclAst(AstNulls.At, "Unit", [new(AstNulls.At, "_")]) { Aliases = ["_"] },
 
-    new AstDomain<DomainMemberAst, IGqlpDomainMember>(AstNulls.At, "Enum", DomainKind.Enum, []),
+    new AstDomain<DomainLabelAst, IGqlpDomainLabel>(AstNulls.At, "Enum", DomainKind.Enum, []),
     new AstDomain<DomainRangeAst, IGqlpDomainRange>(AstNulls.At, "Number", DomainKind.Number, []) { Aliases = ["0"] },
     new AstDomain<DomainRegexAst, IGqlpDomainRegex>(AstNulls.At, "String", DomainKind.String, []) { Aliases = ["*"] },
   ];
@@ -64,10 +65,11 @@ public static class BuiltIn
     => new(AstNulls.At, "_" + label) { TypeParams = typeParams, Parent = parent };
 
   private static DualAlternateAst DualType(string type, params IGqlpDualArg[] args)
-    => new(AstNulls.At, DualRef(type, args));
+    => new DualAlternateAst(AstNulls.At, type, "") with { BaseArgs = args };
 
   private static DualAlternateAst DualAlt(string? key)
-    => new(AstNulls.At, DualRefParam("T")) {
+    => new(AstNulls.At, "T", "") {
+      IsTypeParam = true,
       Modifiers = key switch {
         null => [],
         "" => [ModifierAst.List(AstNulls.At)],
@@ -77,12 +79,14 @@ public static class BuiltIn
     };
 
   private static DualAlternateAst DualAltParam(string param)
-    => new(AstNulls.At, DualRefParam("T")) {
+    => new(AstNulls.At, "T", "") {
+      IsTypeParam = true,
       Modifiers = [ModifierAst.Param(AstNulls.At, param, false)]
     };
 
   private static DualAlternateAst DualMost(string key, bool optional = false)
-    => new(AstNulls.At, DualRef("_Most", DualArgParam("T"))) {
+    => new(AstNulls.At, "_Most", "") {
+      BaseArgs = [DualArgParam("T")],
       Modifiers = key switch {
         "" => [optional ? ModifierAst.Optional(AstNulls.At) : ModifierAst.List(AstNulls.At)],
         _ => [ModifierAst.Dict(AstNulls.At, key, optional)]

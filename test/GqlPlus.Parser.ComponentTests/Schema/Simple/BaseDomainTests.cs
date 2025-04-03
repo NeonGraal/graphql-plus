@@ -9,15 +9,15 @@ public abstract class BaseDomainTests<TInput, TDomain>(
 ) : BaseAliasedTests<TInput, TDomain>(domainChecks)
   where TDomain : IGqlpDomain
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithKindBad_ReturnsFalse(TInput input, string kind)
     => domainChecks.WithKindBad(input, kind);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithParent_ReturnsCorrectAst(TInput input, string parent)
     => domainChecks.WithParent(input, parent);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithParentBad_ReturnsFalse(TInput input)
     => domainChecks.WithParentBad(input);
 }

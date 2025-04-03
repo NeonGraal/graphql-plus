@@ -3,14 +3,14 @@
 Success
 {
   !Du I@006/0001
-  DualObject
+  DualObj
 }
 {
   !In I@007/0001
-  InpObject
+  InpObj
 }
 {
   !Ou I@008/0001
-  OutpObject
+  OutpObj
 }
 ]

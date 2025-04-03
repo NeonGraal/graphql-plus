@@ -1,0 +1,37 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DmnEnumSame": {
+      "$tag": "_DomainEnum",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainLabel)",
+          "domain": "DmnEnumSame",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "true",
+            "name": "Boolean",
+            "typeKind": "Enum"
+          }
+        }
+      ],
+      "domainKind": "Enum",
+      "items": [
+        {
+          "$tag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "true",
+            "name": "Boolean",
+            "typeKind": "Enum"
+          }
+        }
+      ],
+      "name": "DmnEnumSame",
+      "typeKind": "Domain"
+    }
+  }
+}

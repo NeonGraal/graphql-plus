@@ -16,8 +16,8 @@ internal sealed class DualFactories
   public DualBaseAst ObjBase(TokenAt at, string name, string description)
     => new(at, name, description);
 
-  public DualAlternateAst ObjAlternate(TokenAt at, IGqlpDualBase typeBase)
-    => new(at, typeBase);
+  public DualAlternateAst ObjAlternate(TokenAt at, string name, string description)
+    => new(at, name, description);
 
   public DualArgAst ObjArg(TokenAt at, string name, string description = "")
     => new(at, name, description);

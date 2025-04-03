@@ -3,8 +3,10 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Operation;
 
-internal sealed record class DirectiveAst(TokenAt At, string Name)
-  : AstNamed(At, Name)
+internal sealed record class DirectiveAst(
+  TokenAt At,
+  string Identifier
+) : AstIdentified(At, Identifier)
   , IGqlpDirective
 {
   public ArgAst? Arg { get; set; }

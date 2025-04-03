@@ -60,8 +60,8 @@ internal class TypesContext(
   public bool TryGetType<TModel>(string label, string? name, [NotNullWhen(true)] out TModel? model, bool canError = true)
     where TModel : IModelBase
   {
-    if (name is not null) {
-      if (Types.TryGetValue(name, out IModelBase? type) && type is TModel modelType) {
+    if (!string.IsNullOrWhiteSpace(name)) {
+      if (Types.TryGetValue(name!, out IModelBase? type) && type is TModel modelType) {
         model = modelType;
         return true;
       }

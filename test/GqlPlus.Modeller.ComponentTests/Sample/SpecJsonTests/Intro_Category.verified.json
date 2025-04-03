@@ -15,18 +15,12 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Categories",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_Category"
-          }
+          "output": "_Category"
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Categories",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_Type"
-          }
+          "output": "_Type"
         }
       ],
       "allFields": [
@@ -52,17 +46,11 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_Category"
-          }
+          "value": "_Category"
         },
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_Type"
-          }
+          "value": "_Type"
         }
       ],
       "fields": [
@@ -108,7 +96,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "Output",
+                "label": "Output",
                 "name": "_TypeKind",
                 "typeKind": "Enum"
               }
@@ -149,7 +137,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "member": "Output",
+                "label": "Output",
                 "name": "_TypeKind",
                 "typeKind": "Enum"
               }
@@ -182,17 +170,17 @@
       "$tag": "_TypeEnum",
       "allItems": [
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_Resolution",
           "name": "Parallel"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_Resolution",
           "name": "Sequential"
         },
         {
-          "$tag": "_EnumMember",
+          "$tag": "_EnumLabel",
           "enum": "_Resolution",
           "name": "Single"
         }

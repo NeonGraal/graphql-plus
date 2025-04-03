@@ -3,23 +3,23 @@
 Success
 {
   !Ou I@008/0001
-  OutpObjectParam
+  OutpObjParam
   <
-    I@025/0001
+    I@022/0001
     $test
-    I@025/0002
+    I@022/0002
     $type
   >
   {
-    !OF I@033/0001
+    !OF I@030/0001
     test
     :
-    I@040/0001
+    I@037/0001
     $test
-    !OF I@033/0002
+    !OF I@030/0002
     type
     :
-    I@040/0002
+    I@037/0002
     $type
   }
 }

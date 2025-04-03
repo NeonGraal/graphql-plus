@@ -48,12 +48,10 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _Directives
-      type: !_OutputBase
-        output: _Directive
+      output: _Directive
     - !_ObjectFor(_OutputAlternate)
       object: _Directives
-      type: !_OutputBase
-        output: _Type
+      output: _Type
     allFields:
     - !_ObjectFor(_OutputField)
       name: directive
@@ -67,11 +65,9 @@ types: !_Map_Type
         output: _Type
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: _Directive
+      output: _Directive
     - !_OutputAlternate
-      type: !_OutputBase
-        output: _Type
+      output: _Type
     fields:
     - !_OutputField
       name: directive
@@ -85,22 +81,22 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _Location: !_TypeEnum
     allItems:
-    - !_EnumMember
+    - !_EnumLabel
       enum: _Location
       name: Operation
-    - !_EnumMember
+    - !_EnumLabel
       enum: _Location
       name: Variable
-    - !_EnumMember
+    - !_EnumLabel
       enum: _Location
       name: Field
-    - !_EnumMember
+    - !_EnumLabel
       enum: _Location
       name: Inline
-    - !_EnumMember
+    - !_EnumLabel
       enum: _Location
       name: Spread
-    - !_EnumMember
+    - !_EnumLabel
       enum: _Location
       name: Fragment
     items:

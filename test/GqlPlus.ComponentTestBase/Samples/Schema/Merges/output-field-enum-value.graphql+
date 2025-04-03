@@ -1,2 +1,2 @@
-output FieldEnums { field = Boolean.true }
-output FieldEnums { field = true }
+output Name { field = Boolean.true }
+output Name { field = true }

@@ -1,3 +1,3 @@
-directive @DirParam(DirParamIn) { operation }
-directive @DirParam { fragment }
-input DirParamIn { }
+directive @Name(InName) { operation }
+directive @Name { fragment }
+input InName { }

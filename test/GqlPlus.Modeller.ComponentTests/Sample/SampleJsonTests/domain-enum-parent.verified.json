@@ -1,0 +1,111 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DmnEnumPrnt": {
+      "$tag": "_DomainEnum",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainLabel)",
+          "domain": "PrntDmnEnumPrnt",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "prnt_dmnEnumPrnt",
+            "name": "EnumDmnEnumPrnt",
+            "typeKind": "Enum"
+          }
+        },
+        {
+          "$tag": "_DomainItem(_DomainLabel)",
+          "domain": "DmnEnumPrnt",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "enum_dmnEnumPrnt",
+            "name": "EnumDmnEnumPrnt",
+            "typeKind": "Enum"
+          }
+        }
+      ],
+      "domainKind": "Enum",
+      "items": [
+        {
+          "$tag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "enum_dmnEnumPrnt",
+            "name": "EnumDmnEnumPrnt",
+            "typeKind": "Enum"
+          }
+        }
+      ],
+      "name": "DmnEnumPrnt",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "PrntDmnEnumPrnt",
+        "typeKind": "Domain"
+      },
+      "typeKind": "Domain"
+    },
+    "EnumDmnEnumPrnt": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumDmnEnumPrnt",
+          "name": "enum_dmnEnumPrnt"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumDmnEnumPrnt",
+          "name": "prnt_dmnEnumPrnt"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "enum_dmnEnumPrnt"
+        },
+        {
+          "$tag": "_Aliased",
+          "value": "prnt_dmnEnumPrnt"
+        }
+      ],
+      "name": "EnumDmnEnumPrnt",
+      "typeKind": "Enum"
+    },
+    "PrntDmnEnumPrnt": {
+      "$tag": "_DomainEnum",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainLabel)",
+          "domain": "PrntDmnEnumPrnt",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "prnt_dmnEnumPrnt",
+            "name": "EnumDmnEnumPrnt",
+            "typeKind": "Enum"
+          }
+        }
+      ],
+      "domainKind": "Enum",
+      "items": [
+        {
+          "$tag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "prnt_dmnEnumPrnt",
+            "name": "EnumDmnEnumPrnt",
+            "typeKind": "Enum"
+          }
+        }
+      ],
+      "name": "PrntDmnEnumPrnt",
+      "typeKind": "Domain"
+    }
+  }
+}

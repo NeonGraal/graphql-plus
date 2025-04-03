@@ -20,11 +20,9 @@ public interface IGqlpObject<TBase, TField, TAlt>
 }
 
 public interface IGqlpObjType
-  : IGqlpAbbreviated
-  , IGqlpDescribed
+  : IGqlpNamed
 {
   string Label { get; }
-  string TypeName { get; }
   string FullType { get; }
   bool IsTypeParam { get; }
 }
@@ -41,11 +39,11 @@ public interface IGqlpObjBase
   IEnumerable<IGqlpObjArg> Args { get; }
 }
 
-public interface IGqlpObjBase<TBase>
+public interface IGqlpObjBase<TArg>
   : IGqlpObjBase
-  where TBase : IGqlpObjArg
+  where TArg : IGqlpObjArg
 {
-  IEnumerable<TBase> BaseArgs { get; }
+  IEnumerable<TArg> BaseArgs { get; }
 }
 
 public interface IGqlpObjField
@@ -65,45 +63,48 @@ public interface IGqlpObjField<TBase>
 
 public interface IGqlpObjAlternate
   : IGqlpError
-  , IGqlpDescribed
+  , IGqlpObjBase
   , IGqlpModifiers
-{
-  IGqlpObjBase Type { get; }
-}
+{ }
 
-public interface IGqlpObjAlternate<TBase>
+public interface IGqlpObjAlternate<TArg>
   : IGqlpObjAlternate
-  where TBase : IGqlpObjBase
-{
-  TBase BaseType { get; }
-}
+  , IGqlpObjBase<TArg>
+  where TArg : IGqlpObjArg
+{ }
 
 public interface IGqlpTypeParam
-  : IGqlpDescribed, IGqlpNamed
+  : IGqlpNamed
 { }
 
 public interface IGqlpDualObject
   : IGqlpObject<IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>
 { }
 
-public interface IGqlpDualArg
-  : IGqlpObjArg
+public interface IGqlpDualNamed
+  : IGqlpNamed
 {
   string Dual { get; }
 }
 
+public interface IGqlpDualArg
+  : IGqlpObjArg
+  , IGqlpDualNamed
+{ }
+
 public interface IGqlpDualBase
   : IGqlpObjBase<IGqlpDualArg>
-{
-  string Dual { get; }
-}
+  , IGqlpDualNamed
+{ }
 
 public interface IGqlpDualField
   : IGqlpObjField<IGqlpDualBase>
 { }
 
 public interface IGqlpDualAlternate
-  : IGqlpObjAlternate<IGqlpDualBase>
+  : IGqlpObjAlternate
+  , IGqlpObjBase<IGqlpDualArg>
+  , IGqlpDualNamed
 { }
 
 public interface IGqlpToDual<T>
@@ -116,19 +117,23 @@ public interface IGqlpInputObject
   : IGqlpObject<IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate>
 { }
 
-public interface IGqlpInputArg
-  : IGqlpObjArg
-  , IGqlpToDual<IGqlpDualArg>
+public interface IGqlpInputNamed
+  : IGqlpNamed
 {
   string Input { get; }
 }
 
+public interface IGqlpInputArg
+  : IGqlpObjArg
+  , IGqlpInputNamed
+  , IGqlpToDual<IGqlpDualArg>
+{ }
+
 public interface IGqlpInputBase
   : IGqlpObjBase<IGqlpInputArg>
+  , IGqlpInputNamed
   , IGqlpToDual<IGqlpDualBase>
-{
-  string Input { get; }
-}
+{ }
 
 public interface IGqlpInputField
   : IGqlpObjField<IGqlpInputBase>
@@ -137,50 +142,60 @@ public interface IGqlpInputField
 }
 
 public interface IGqlpInputAlternate
-  : IGqlpObjAlternate<IGqlpInputBase>
+  : IGqlpObjAlternate
+  , IGqlpObjBase<IGqlpInputArg>
+  , IGqlpInputNamed
+  , IGqlpToDual<IGqlpDualAlternate>
 { }
 
 public interface IGqlpOutputObject
   : IGqlpObject<IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>
 { }
 
+public interface IGqlpOutputNamed
+  : IGqlpNamed
+{
+  string Output { get; }
+}
+
 public interface IGqlpOutputEnum
   : IGqlpError
 {
-  string EnumType { get; }
-  string? EnumMember { get; }
+  IGqlpObjType EnumType { get; }
+  string? EnumLabel { get; }
 
   void SetEnumType(string enumType);
 }
 
 public interface IGqlpOutputArg
   : IGqlpObjArg
+  , IGqlpOutputNamed
   , IGqlpOutputEnum
   , IGqlpToDual<IGqlpDualArg>
-{
-  string Output { get; }
-}
+{ }
 
 public interface IGqlpOutputBase
   : IGqlpObjBase<IGqlpOutputArg>
-  , IGqlpOutputEnum
+  , IGqlpOutputNamed
   , IGqlpToDual<IGqlpDualBase>
-{
-  string Output { get; }
-}
+{ }
 
 public interface IGqlpOutputField
   : IGqlpObjField<IGqlpOutputBase>
+  , IGqlpOutputEnum
 {
   IEnumerable<IGqlpInputParam> Params { get; }
 }
 
 public interface IGqlpOutputAlternate
-  : IGqlpObjAlternate<IGqlpOutputBase>
+  : IGqlpObjAlternate, IGqlpObjBase<IGqlpOutputArg>
+  , IGqlpOutputNamed
+  , IGqlpToDual<IGqlpDualAlternate>
 { }
 
 public interface IGqlpInputParam
-  : IGqlpError, IGqlpDescribed, IGqlpModifiers
+  : IGqlpDescribed
+  , IGqlpModifiers
 {
   IGqlpInputBase Type { get; }
   IGqlpConstant? DefaultValue { get; }

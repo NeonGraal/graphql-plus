@@ -6,7 +6,7 @@ public interface IGqlpSchemaCategory
   : IGqlpDeclaration, IGqlpModifiers
 {
   CategoryOption CategoryOption { get; }
-  string Output { get; }
+  IGqlpTypeRef Output { get; }
 }
 
 public enum CategoryOption
@@ -63,7 +63,7 @@ public interface IGqlpSchemaOption
 }
 
 public interface IGqlpSchemaSetting
-  : IGqlpNamed, IGqlpDescribed
+  : IGqlpNamed
 {
   IGqlpConstant Value { get; }
 }

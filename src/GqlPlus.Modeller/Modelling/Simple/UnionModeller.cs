@@ -8,13 +8,12 @@ internal class UnionModeller
   { }
 
   protected override TypeUnionModel ToModel(IGqlpUnion ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name) {
+    => new(ast.Name, ast.Description) {
       Aliases = [.. ast.Aliases],
-      Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Union),
       Items = [.. ast.Items.Select(ToMember)],
     };
 
-  internal static AliasedModel ToMember(IGqlpUnionItem ast)
-    => new(ast.Name);
+  internal static AliasedModel ToMember(IGqlpUnionMember ast)
+    => new(ast.Name, ast.Description);
 }

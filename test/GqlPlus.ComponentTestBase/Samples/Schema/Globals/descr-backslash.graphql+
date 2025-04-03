@@ -1,2 +1,2 @@
-'A backslash ("\\") doc'
-output DescrBackslash { }
+'A backslash ("\\") description'
+output Name { }

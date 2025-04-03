@@ -1,1 +1,1 @@
-directive @DirNoParam { all }
+directive @Name { all }

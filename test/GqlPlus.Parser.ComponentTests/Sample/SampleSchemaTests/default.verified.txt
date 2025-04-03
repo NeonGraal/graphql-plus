@@ -4,6 +4,7 @@ Success
   !Ca P@010/0001
   query
   (Parallel)
+  !Tr I@012/0001
   Query
 }
 {
@@ -14,6 +15,7 @@ Success
   !Ca P@010/0004
   mutation
   (Sequential)
+  !Tr I@025/0004
   Mutation
 }
 {
@@ -24,6 +26,7 @@ Success
   !Ca P@010/0007
   subscription
   (Single)
+  !Tr I@021/0007
   Subscription
 }
 {

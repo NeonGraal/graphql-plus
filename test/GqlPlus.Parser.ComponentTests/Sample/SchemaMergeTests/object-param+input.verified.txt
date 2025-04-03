@@ -3,23 +3,23 @@
 Success
 {
   !In I@007/0001
-  InpObjectParam
+  InpObjParam
   <
-    I@023/0001
+    I@020/0001
     $test
-    I@023/0002
+    I@020/0002
     $type
   >
   {
-    !IF I@031/0001
+    !IF I@028/0001
     test
     :
-    I@038/0001
+    I@035/0001
     $test
-    !IF I@031/0002
+    !IF I@028/0002
     type
     :
-    I@038/0002
+    I@035/0002
     $type
   }
 }

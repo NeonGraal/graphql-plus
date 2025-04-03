@@ -13,13 +13,13 @@ public class SchemaModelTests(
   ISchemaModelChecks checks
 ) : TestModelBase<string, SchemaModel>(checks)
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Type(string type)
     => checks.SchemaExpected(
       new SchemaAst(AstNulls.At) { Declarations = [new OutputDeclAst(AstNulls.At, type)] },
       ["!_Schema", .. checks.ExpectedOutputs([type])]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Types(string[] types)
     => checks.SchemaExpected(
       new SchemaAst(AstNulls.At) {
@@ -27,7 +27,7 @@ public class SchemaModelTests(
       },
       ["!_Schema", .. checks.ExpectedOutputs(types)]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Setting(string name, SettingInput setting)
     => checks.SchemaExpected(
       new SchemaAst(AstNulls.At) {
@@ -37,7 +37,7 @@ public class SchemaModelTests(
         "name: " + name,
         .. checks.ExpectedSettings([setting])]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Settings(string name, [NotNull] SettingInput[] settings)
     => checks
       .SkipIf(settings.Select(s => s.Name).Distinct().Count() != settings.Length)
@@ -51,13 +51,13 @@ public class SchemaModelTests(
         "name: " + name,
         .. checks.ExpectedSettings(settings)]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Directive(string directive)
     => checks.SchemaExpected(
       new SchemaAst(AstNulls.At) { Declarations = [new DirectiveDeclAst(AstNulls.At, directive)] },
       ["!_Schema", .. checks.ExpectedDirectives([directive], false)]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Directives(string[] directives)
     => checks.SchemaExpected(
       new SchemaAst(AstNulls.At) {
@@ -66,7 +66,7 @@ public class SchemaModelTests(
       ["!_Schema",
         .. checks.ExpectedDirectives(directives, false)]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_DirectiveAndType(string directive)
     => checks.SchemaExpected(
       new SchemaAst(AstNulls.At) {
@@ -80,7 +80,7 @@ public class SchemaModelTests(
         .. checks.ExpectedOutputs([directive]),
       ]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_DirectivesAndTypes(string[] directives)
     => checks.SchemaExpected(
       new SchemaAst(AstNulls.At) {
@@ -95,26 +95,26 @@ public class SchemaModelTests(
         .. checks.ExpectedOutputs(directives),
       ]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Category(string category)
     => checks.SchemaExpected(
-      new SchemaAst(AstNulls.At) { Declarations = [new CategoryDeclAst(AstNulls.At, category, category)] },
+      new SchemaAst(AstNulls.At) { Declarations = [new CategoryDeclAst(AstNulls.At, category, new(AstNulls.At, category))] },
       ["!_Schema", .. checks.ExpectedCategories([category], false)]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Categories(string[] categories)
     => checks.SchemaExpected(
       new SchemaAst(AstNulls.At) {
-        Declarations = [.. categories.Select(d => new CategoryDeclAst(AstNulls.At, d, d))]
+        Declarations = [.. categories.Select(d => new CategoryDeclAst(AstNulls.At, d, new(AstNulls.At, d)))]
       },
       ["!_Schema", .. checks.ExpectedCategories(categories, false)]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_CategoryAndType(string category)
     => checks.SchemaExpected(
       new SchemaAst(AstNulls.At) {
         Declarations = [
-          new CategoryDeclAst(AstNulls.At, category, category),
+          new CategoryDeclAst(AstNulls.At, category, new(AstNulls.At, category)),
           new OutputDeclAst(AstNulls.At, category),
         ]
       },
@@ -124,12 +124,12 @@ public class SchemaModelTests(
         .. checks.ExpectedOutputs([category]),
       ]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_CategoriesAndTypes(string[] categories)
     => checks.SchemaExpected(
       new SchemaAst(AstNulls.At) {
         Declarations = [
-          .. categories.Select(d => new CategoryDeclAst(AstNulls.At, d, d)),
+          .. categories.Select(d => new CategoryDeclAst(AstNulls.At, d, new(AstNulls.At, d))),
           .. categories.Select(d => new OutputDeclAst(AstNulls.At, d)),
         ]
       },
@@ -139,7 +139,7 @@ public class SchemaModelTests(
         .. checks.ExpectedOutputs(categories),
       ]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Errors(string[] contents)
     => checks.SchemaExpected(
       new SchemaAst(AstNulls.At) {

@@ -1,2 +1,2 @@
-"A 'double-quoted' doc"
-output DescrDouble { }
+"A 'double-quoted' description"
+output Name { }

@@ -1,2 +1,2 @@
-object ObjName<$mod> { | ObjNameAlt[$mod] }
-object ObjNameAlt { alt: Number | String }
+object ObjName<$mod> { | AltObjName[$mod] }
+object AltObjName { alt: Number | String }

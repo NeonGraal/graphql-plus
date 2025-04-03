@@ -1,0 +1,90 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "FldOutpDescrParam": {
+      "$tag": "_TypeDual",
+      "name": "FldOutpDescrParam",
+      "typeKind": "Dual"
+    },
+    "InOutpDescrParam": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "input": "String",
+          "object": "InOutpDescrParam"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "param",
+          "object": "InOutpDescrParam",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "value": "String"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "param",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "InOutpDescrParam",
+      "typeKind": "Input"
+    },
+    "OutpDescrParam": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "description": "Test Descr",
+          "name": "field",
+          "object": "OutpDescrParam",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "InOutpDescrParam"
+            }
+          ],
+          "type": {
+            "$tag": "_DualBase",
+            "value": "FldOutpDescrParam"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "description": "Test Descr",
+          "name": "field",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "InOutpDescrParam"
+            }
+          ],
+          "type": {
+            "$tag": "_DualBase",
+            "value": "FldOutpDescrParam"
+          }
+        }
+      ],
+      "name": "OutpDescrParam",
+      "typeKind": "Output"
+    }
+  }
+}

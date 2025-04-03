@@ -18,8 +18,8 @@ internal class ParseOutputArgs
       }
 
       TokenAt at = tokens.At;
-      if (tokens.Identifier(out string? enumMember)) {
-        argument = argument with { EnumMember = enumMember };
+      if (tokens.Identifier(out string? enumLabel)) {
+        argument = argument with { EnumLabel = enumLabel };
         return argument.Ok<OutputArgAst>();
       }
 

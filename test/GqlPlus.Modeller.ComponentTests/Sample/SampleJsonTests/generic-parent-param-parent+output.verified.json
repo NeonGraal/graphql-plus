@@ -1,0 +1,93 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "AltOutpGnrcPrntParamPrnt": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "AltOutpGnrcPrntParamPrnt",
+          "output": "String"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "alt",
+          "object": "AltOutpGnrcPrntParamPrnt",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "value": "String"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "alt",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "AltOutpGnrcPrntParamPrnt",
+      "typeKind": "Output"
+    },
+    "OutpGnrcPrntParamPrnt": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "AltOutpGnrcPrntParamPrnt",
+          "output": "String"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "alt",
+          "object": "AltOutpGnrcPrntParamPrnt",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "OutpGnrcPrntParamPrnt",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "RefOutpGnrcPrntParamPrnt",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "value": "AltOutpGnrcPrntParamPrnt"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "RefOutpGnrcPrntParamPrnt": {
+      "$tag": "_TypeOutput",
+      "name": "RefOutpGnrcPrntParamPrnt",
+      "parent": {
+        "$tag": "_OutputBase",
+        "value": "ref"
+      },
+      "typeKind": "Output",
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "ref"
+        }
+      ]
+    }
+  }
+}

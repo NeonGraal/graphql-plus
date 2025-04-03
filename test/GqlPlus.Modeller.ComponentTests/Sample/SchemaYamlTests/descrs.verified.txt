@@ -1,6 +1,0 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier Descr: !_TypeOutput
-    description: 'A simple doc With extra'
-    name: Descr
-    typeKind: !_TypeKind Output

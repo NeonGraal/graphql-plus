@@ -1,5 +1,5 @@
-output FieldParam { field(FieldParam1): FieldParamFld }
-output FieldParam { field(FieldParam2): FieldParamFld }
-input FieldParam1 { }
-input FieldParam2 { }
-output FieldParamFld { }
+output Name { field(Name1): FldName }
+output Name { field(Name2): FldName }
+input Name1 { }
+input Name2 { }
+dual FldName { }

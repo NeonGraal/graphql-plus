@@ -1,0 +1,32 @@
+﻿{
+  "$tag": "_Schema",
+  "categories": {
+    "$tag": "_Map_Categories",
+    "ctgrOutpDict": {
+      "$tag": "_Category",
+      "modifiers": [
+        {
+          "$tag": "_ModifierDictionary",
+          "by": "*",
+          "modifierKind": "Dict",
+          "typeKind": "Basic"
+        }
+      ],
+      "name": "ctgrOutpDict",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "CtgrOutpDict",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
+    }
+  },
+  "types": {
+    "$tag": "_Map_Type",
+    "CtgrOutpDict": {
+      "$tag": "_TypeOutput",
+      "name": "CtgrOutpDict",
+      "typeKind": "Output"
+    }
+  }
+}

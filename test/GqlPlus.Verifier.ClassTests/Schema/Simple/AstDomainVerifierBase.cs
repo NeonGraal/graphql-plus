@@ -4,30 +4,30 @@ using GqlPlus.Verifying.Schema.Simple;
 
 namespace GqlPlus.Schema.Simple;
 
-public abstract class AstDomainVerifierBase<TMember>
+public abstract class AstDomainVerifierBase<TItem>
   : VerifierBase
-  where TMember : class, IGqlpDomainItem
+  where TItem : class, IGqlpDomainItem
 {
-  internal ForM<TMember> Members { get; } = new();
+  internal ForM<TItem> Items { get; } = new();
   protected IMap<string> EnumValues { get; } = new Map<string>();
   protected IMap<IGqlpDescribed> Types { get; } = new Map<IGqlpDescribed>();
 
   [Fact]
   public void Verify_WithoutErrors()
   {
-    AstDomainVerifier<TMember> verifier = NewDomainVerifier();
+    AstDomainVerifier<TItem> verifier = NewDomainVerifier();
 
     EnumContext context = new(Types, Errors, EnumValues);
 
-    IGqlpDomain<TMember> domain = EFor<IGqlpDomain<TMember>>();
+    IGqlpDomain<TItem> domain = EFor<IGqlpDomain<TItem>>();
 
     verifier.Verify(domain, context);
 
     verifier.ShouldSatisfyAllConditions(
-      Members.NotCalled,
+      Items.NotCalled,
       () => Errors.ShouldBeEmpty());
   }
 
-  internal virtual AstDomainVerifier<TMember> NewDomainVerifier()
-    => new(Members.Intf);
+  internal virtual AstDomainVerifier<TItem> NewDomainVerifier()
+    => new(Items.Intf);
 }

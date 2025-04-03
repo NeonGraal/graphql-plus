@@ -14,13 +14,14 @@ public class SchemaHtmlTests(
 ) : SchemaDataBase(schemaParser)
 {
   [Fact]
-  public async Task Html_Index()
+  public async Task Index_Samples()
   {
     string[] all = ["!ALL", "!Globals", "!Merges", "!Objects", "!Simple"];
 
     IEnumerable<string> merges = await ReplaceSchemaKeys("Merges");
     IEnumerable<string> objects = await ReplaceSchemaKeys("Objects");
     Structured result = new Map<Structured>() {
+      ["title"] = "Samples",
       ["groups"] = new Map<Structured>() {
         ["All"] = all.Render(),
         ["Globals"] = SamplesSchemaGlobalsData.Strings.Render(),
@@ -30,48 +31,96 @@ public class SchemaHtmlTests(
       }.Render()
     }.Render();
 
-    await result.WriteHtmlFileAsync("Schema", "index", "index");
+    await result.WriteHtmlFileAsync("Samples", "index", "index");
+  }
+
+  [Fact]
+  public void Index_Schema()
+  {
+    Structured result = new Map<Structured>() {
+      ["title"] = "Schema",
+      ["groups"] = new Map<Structured>() {
+        ["Schema"] = SamplesSchemaData.Strings.Render(),
+      }.Render(),
+    }.Render("");
+
+    result.WriteHtmlFile("Schema", "index", "index");
+  }
+
+  [Fact]
+  public void Index_Spec()
+  {
+    Structured result = new Map<Structured>() {
+      ["title"] = "Specification",
+      ["groups"] = new Map<Structured>() {
+        ["Spec"] = SamplesSchemaSpecificationData.Strings.Render(),
+      }.Render(),
+    }.Render("");
+
+    result.WriteHtmlFile("Spec", "index", "index");
   }
 
   [Fact]
   public async Task Html_All()
-    => await Verify_Model(await SchemaValidDataAll(), "!ALL");
+    => Verify_Model(await SchemaValidDataAll(), "!ALL");
 
   [Theory]
   [ClassData(typeof(SchemaValidData))]
   public async Task Html_Groups(string group)
-    => await Verify_Model(await SchemaValidDataGroup(group), "!" + group);
+    => Verify_Model(await SchemaValidDataGroup(group), "!" + group);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaMergesData))]
   public async Task Html_Merges(string model)
-    => await ReplaceFileAsync("Merges", model, Verify_Model);
+    => await ReplaceFile("Merges", model, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaObjectsData))]
   public async Task Html_Objects(string model)
-    => await ReplaceFileAsync("Objects", model, Verify_Model);
+    => await ReplaceFile("Objects", model, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaGlobalsData))]
   public async Task Html_Globals(string global)
-    => await ReplaceFileAsync("Globals", global, Verify_Model);
+    => await ReplaceFile("Globals", global, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaSimpleData))]
   public async Task Html_Simple(string simple)
-    => await ReplaceFileAsync("Simple", simple, Verify_Model);
+    => await ReplaceFile("Simple", simple, Verify_Model);
 
-  private async Task Verify_Model(string input, string _, string test)
-    => await Verify_Model([input], test);
-
-  private async Task Verify_Model(IEnumerable<string> inputs, string test)
+  [Theory]
+  [ClassData(typeof(SamplesSchemaData))]
+  public async Task Html_Schema(string sample)
   {
-    IEnumerable<IGqlpSchema> asts = inputs.Select(input => Parse(input).Required());
+    IGqlpSchema ast = await ParseSample("Schema", sample);
+
+    Structured result = ModelAsts([ast]);
+
+    await result.WriteHtmlFileAsync("Schema", sample);
+  }
+
+  [Theory]
+  [ClassData(typeof(SamplesSchemaSpecificationData))]
+  public async Task Html_Spec(string sample)
+  {
+    IGqlpSchema ast = await ParseSample("Spec", sample, "Specification");
+
+    Structured result = ModelAsts([ast]);
+
+    await result.WriteHtmlFileAsync("Spec", sample);
+  }
+
+  private void Verify_Model(string input, string testDirectory, string test)
+    => Verify_Model([input], test);
+
+  private void Verify_Model(IEnumerable<string> inputs, string test)
+  {
+    IEnumerable<IGqlpSchema> asts = inputs.Select(input => Parse(input, "Sample").Required());
 
     Structured result = ModelAsts(asts);
 
-    await result.WriteHtmlFile("Schema", test);
+    result.WriteHtmlFile("Samples", test);
   }
 
   private Structured ModelAsts(IEnumerable<IGqlpSchema> asts)

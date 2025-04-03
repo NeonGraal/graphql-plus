@@ -1,2 +1,2 @@
-domain DomLabel { enum dom_label }
-enum LabelDom { dom_label }
+domain Name { enum name }
+enum EnumName { name }

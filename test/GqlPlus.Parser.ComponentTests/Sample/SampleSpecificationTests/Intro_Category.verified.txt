@@ -16,10 +16,8 @@ Success
     _Type
   }
   |
-  !OA I@007/0004
   I@007/0004
   _Category
-  !OA I@007/0005
   I@007/0005
   _Type
 }
@@ -55,10 +53,10 @@ Success
 {
   !En I@006/0015
   _Resolution
-  !EM I@020/0015
+  !EL I@020/0015
   Parallel
-  !EM I@029/0015
+  !EL I@029/0015
   Sequential
-  !EM I@040/0015
+  !EL I@040/0015
   Single
 }

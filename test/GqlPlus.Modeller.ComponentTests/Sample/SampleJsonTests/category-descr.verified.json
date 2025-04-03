@@ -1,0 +1,25 @@
+﻿{
+  "$tag": "_Schema",
+  "categories": {
+    "$tag": "_Map_Categories",
+    "ctgrDescr": {
+      "$tag": "_Category",
+      "description": "First category Second category",
+      "name": "ctgrDescr",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "CtgrDescr",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
+    }
+  },
+  "types": {
+    "$tag": "_Map_Type",
+    "CtgrDescr": {
+      "$tag": "_TypeOutput",
+      "name": "CtgrDescr",
+      "typeKind": "Output"
+    }
+  }
+}

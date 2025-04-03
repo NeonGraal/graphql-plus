@@ -33,10 +33,10 @@ internal class UnionDefinition
 }
 
 internal class ParseUnionDefinition(
-  Parser<IGqlpUnionItem>.D unionMember
+  Parser<IGqlpUnionMember>.D unionMember
 ) : Parser<UnionDefinition>.I
 {
-  private readonly Parser<IGqlpUnionItem>.L _unionMember = unionMember;
+  private readonly Parser<IGqlpUnionMember>.L _unionMember = unionMember;
 
   public IResult<UnionDefinition> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
@@ -51,9 +51,9 @@ internal class ParseUnionDefinition(
       }
     }
 
-    List<IGqlpUnionItem> members = [];
+    List<IGqlpUnionMember> members = [];
     while (!tokens.Take("}")) {
-      IResult<IGqlpUnionItem> unionMember = _unionMember.Parse(tokens, "Union Member");
+      IResult<IGqlpUnionMember> unionMember = _unionMember.Parse(tokens, "Union Member");
       if (!unionMember.Required(members.Add)) {
         result.Values = members.ArrayOf<UnionMemberAst>();
         return unionMember.AsResult(result);

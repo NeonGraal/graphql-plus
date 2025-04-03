@@ -6,14 +6,15 @@ namespace GqlPlus.Models;
 
 public abstract record class TypeObjectModel<TObjBase, TObjField, TObjAlt>(
   TypeKindModel Kind,
-  string Name
-) : ChildTypeModel<ObjDescribedModel<TObjBase>>(Kind, Name)
+  string Name,
+  string Description
+) : ChildTypeModel<TObjBase>(Kind, Name, Description)
   , ITypeObjectModel
   where TObjBase : IObjBaseModel
   where TObjField : IObjFieldModel
   where TObjAlt : IObjAlternateModel
 {
-  public DescribedModel[] TypeParams { get; set; } = [];
+  public NamedModel[] TypeParams { get; set; } = [];
   internal TObjField[] Fields { get; set; } = [];
   internal TObjAlt[] Alternates { get; set; } = [];
 
@@ -23,7 +24,7 @@ public abstract record class TypeObjectModel<TObjBase, TObjField, TObjAlt>(
   internal override bool GetParentModel<TResult>(IResolveContext context, [NotNullWhen(true)] out TResult? model)
     where TResult : default
   {
-    if (Parent?.Base.IsTypeParam == false) {
+    if (Parent?.IsTypeParam == false) {
       return base.GetParentModel(context, out model);
     }
 
@@ -34,36 +35,38 @@ public abstract record class TypeObjectModel<TObjBase, TObjField, TObjAlt>(
 
 public interface ITypeObjectModel
 {
-  DescribedModel[] TypeParams { get; }
+  NamedModel[] TypeParams { get; }
   ObjectForModel[] AllFields { get; }
   ObjectForModel[] AllAlternates { get; }
 }
 
-public record class ObjArgModel
-  : ModelBase
+public record class ObjArgModel(
+  string Description
+) : DescribedModel(Description)
   , IObjArgModel
 {
   public bool IsTypeParam { get; set; }
 }
 
 public interface IObjArgModel
-  : IModelBase
+  : IDescribedModel
 {
   bool IsTypeParam { get; }
 }
 
-public record class ObjBaseModel<TArg>
-  : ModelBase
+public record class ObjBaseModel<TObjArg>(
+  string Description
+) : DescribedModel(Description)
   , IObjBaseModel
-  where TArg : IObjArgModel
+  where TObjArg : IObjArgModel
 {
-  internal TArg[] Args { get; set; } = [];
+  internal TObjArg[] Args { get; set; } = [];
   public bool IsTypeParam { get; set; }
   IObjArgModel[] IObjBaseModel.Args => [.. Args.Cast<IObjArgModel>()];
 }
 
 public interface IObjBaseModel
-  : IModelBase
+  : IDescribedModel
 {
   IObjArgModel[] Args { get; }
 
@@ -84,54 +87,35 @@ public record class ObjectForModel<TFor>(
 
 public record class ObjFieldModel<TObjBase>(
   string Name,
-  ObjDescribedModel<TObjBase>? Type
-) : AliasedModel(Name)
+  TObjBase? Type,
+  string Description
+) : AliasedModel(Name, Description)
   , IObjFieldModel
   where TObjBase : IObjBaseModel
 {
-  public ObjDescribedModel<TObjBase>? Type { get; internal set; } = Type;
+  public TObjBase? Type { get; internal set; } = Type;
   public ModifierModel[] Modifiers { get; set; } = [];
-  public ObjDescribedModel<IObjBaseModel>? BaseType
-    => Type?.BaseAs<IObjBaseModel>();
+  public IObjBaseModel? BaseType => Type;
 }
 
 public interface IObjFieldModel
   : IAliasedModel
 {
-  ObjDescribedModel<IObjBaseModel>? BaseType { get; }
+  IObjBaseModel? BaseType { get; }
   ModifierModel[] Modifiers { get; }
 }
 
-public record class ObjAlternateModel<TObjBase>(
-  ObjDescribedModel<TObjBase> Type
-) : ModelBase, IObjAlternateModel
-  where TObjBase : IObjBaseModel
+public record class ObjAlternateModel<TObjArg>(
+  string Description
+) : ObjBaseModel<TObjArg>(Description)
+  , IObjAlternateModel
+  where TObjArg : IObjArgModel
 {
   public CollectionModel[] Collections { get; set; } = [];
-  public ObjDescribedModel<IObjBaseModel>? BaseType
-    => Type?.BaseAs<IObjBaseModel>();
 }
 
 public interface IObjAlternateModel
-  : IModelBase
+  : IObjBaseModel
 {
-  ObjDescribedModel<IObjBaseModel>? BaseType { get; }
   CollectionModel[] Collections { get; }
-}
-
-public record class ObjDescribedModel<TDescribed>(
-  TDescribed Base,
-  string? Description
-) : ModelBase
-  where TDescribed : IModelBase
-{
-  public ObjDescribedModel<TBase>? BaseAs<TBase>()
-    where TBase : IModelBase
-    => Base is TBase newBase
-    ? new(newBase, Description) :
-    null;
-
-  public ObjDescribedModel<TBase> BaseFor<TBase>(Func<TDescribed, TBase> convert)
-    where TBase : IModelBase
-    => new(convert.ThrowIfNull().Invoke(Base), Description);
 }

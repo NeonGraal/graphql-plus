@@ -43,8 +43,8 @@ public static class EnumContextHelper
   {
     IEnumerable<IGrouping<string, string>> enums = aliased
         .OfType<IGqlpEnum>()
-        .SelectMany(e => e.Items.Select(v => (Member: v.Name, Type: e.Name)))
-        .GroupBy(e => e.Member, e => e.Type);
+        .SelectMany(e => e.Items.Select(v => (Label: v.Name, Type: e.Name)))
+        .GroupBy(e => e.Label, e => e.Type);
 
     HashSet<string> enumNames = [.. enums.Select(e => e.Key)];
 
@@ -53,8 +53,8 @@ public static class EnumContextHelper
         .SelectMany(e => e.Items.SelectMany(
           v => v.Aliases
             .Where(a => !enumNames.Contains(a))
-            .Select(a => (Member: a, Type: e.Name))))
-        .GroupBy(e => e.Member, e => e.Type)
+            .Select(a => (Label: a, Type: e.Name))))
+        .GroupBy(e => e.Label, e => e.Type)
         .Concat(enums)
         .Where(g => g.Count() == 1)
         .ToMap(e => e.Key, e => e.First());

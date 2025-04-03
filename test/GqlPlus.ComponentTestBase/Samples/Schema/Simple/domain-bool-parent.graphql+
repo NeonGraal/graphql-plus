@@ -1,2 +1,2 @@
-domain DomBoolPrntTest { :DomBoolTestPrnt Boolean false }
-domain DomBoolTestPrnt { Boolean true }
+domain Name { :PrntName Boolean false }
+domain PrntName { Boolean true }

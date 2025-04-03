@@ -4,12 +4,12 @@ using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Merging.Simple;
 
-internal class MergeDomains<TMember, TItem>(
+internal class MergeDomains<TItemAst, TItem>(
   ILoggerFactory logger,
-  IMerge<TItem> members
-) : AstTypeMerger<IGqlpDomain, IGqlpDomain<TItem>, string, TItem>(logger, members)
+  IMerge<TItem> items
+) : AstTypeMerger<IGqlpDomain, IGqlpDomain<TItem>, string, TItem>(logger, items)
   , IDomainMerger<TItem>
-  where TMember : AstAbbreviated, TItem
+  where TItemAst : AstAbbreviated, TItem
   where TItem : class, IGqlpDomainItem
 {
   protected override string ItemMatchName => "Domain~Parent";
@@ -21,8 +21,8 @@ internal class MergeDomains<TMember, TItem>(
 
   internal override IGqlpDomain<TItem> SetItems(IGqlpDomain<TItem> input, IEnumerable<TItem> items)
   {
-    AstDomain<TMember, TItem> ast = (AstDomain<TMember, TItem>)input;
-    return ast with { Members = items.ArrayOf<TMember>() };
+    AstDomain<TItemAst, TItem> ast = (AstDomain<TItemAst, TItem>)input;
+    return ast with { Items = items.ArrayOf<TItemAst>() };
   }
 }
 

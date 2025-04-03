@@ -23,7 +23,7 @@ public class MergeDomainAstBooleansTests
     => new AstDomain<DomainTrueFalseAst, IGqlpDomainTrueFalse>(AstNulls.At, name, description, kind ?? DomainKind.Boolean) {
       Aliases = aliases ?? [],
       Parent = parent,
-      Members = items?.ArrayOf<DomainTrueFalseAst>() ?? [],
+      Items = items?.ArrayOf<DomainTrueFalseAst>() ?? [],
     };
 
   protected override IGqlpDomainTrueFalse[] MakeItems(bool input)

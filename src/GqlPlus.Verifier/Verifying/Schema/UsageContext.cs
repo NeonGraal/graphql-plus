@@ -12,7 +12,11 @@ public class UsageContext(
   internal void Add(IEnumerable<ITokenMessage> messages)
     => errors.Add(messages);
 
-  internal void AddError<TAst>(TAst item, string label, string message, bool addError = true)
+  internal void AddError<TAst>(TAst item, string label, string message)
+      where TAst : IGqlpError
+    => errors.Add(item.MakeError($"Invalid {label}. {message}."));
+
+  internal void AddError<TAst>(TAst item, string label, FormattableString message, bool addError)
       where TAst : IGqlpError
   {
     if (addError) {
@@ -106,11 +110,16 @@ internal static class UsageHelpers
     where TContext : UsageContext
     where TObjBase : IGqlpObjType
   {
-    if (context.GetType(type.TypeName, out IGqlpDescribed? value)) {
+    if (type is null) {
+      return context;
+    }
+
+    string typeName = (type.IsTypeParam ? "$" : "") + type.Name;
+    if (context.GetType(typeName, out IGqlpDescribed? value)) {
       int numArgs = type is IGqlpObjBase baseType ? baseType.Args.Count() : 0;
       if (value is IGqlpObject definition) {
         if (check && definition.Label != "Dual" && definition.Label != type.Label) {
-          context.AddError(type, type.Label + labelSuffix, $"Type kind mismatch for {type.TypeName}. Found {definition.Label}");
+          context.AddError(type, type.Label + labelSuffix, $"Type kind mismatch for {type.Name}. Found {definition.Label}");
         }
 
         int numParams = definition.TypeParams.Count();
@@ -118,10 +127,10 @@ internal static class UsageHelpers
           context.AddError(type, type.Label + labelSuffix, $"Args mismatch, expected {numParams} given {numArgs}");
         }
       } else if (value is IGqlpSimple simple && numArgs != 0) {
-        context.AddError(type, type.Label + labelSuffix, $"Args invalid on {simple.Name}, given {numArgs}");
+        context.AddError(type, type.Label + labelSuffix, $"Args invalid on {type.Name}, given {numArgs}");
       }
     } else {
-      context.AddError(type, type.Label + labelSuffix, $"'{type.TypeName}' not defined", check);
+      context.AddError(type, type.Label + labelSuffix, $"'{typeName}' not defined", check);
     }
 
     return context;

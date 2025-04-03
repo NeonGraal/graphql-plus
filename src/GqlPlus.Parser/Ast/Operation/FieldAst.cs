@@ -5,8 +5,8 @@ namespace GqlPlus.Ast.Operation;
 
 internal sealed record class FieldAst(
   TokenAt At,
-  string Name
-) : AstDirectives(At, Name)
+  string Identifier
+) : AstDirectives(At, Identifier)
   , IGqlpField
 {
   public string? FieldAlias { get; init; }
@@ -33,7 +33,7 @@ internal sealed record class FieldAst(
 
   internal override IEnumerable<string?> GetFields()
     => //base.GetFields()
-      new[] { AbbrAt, FieldAlias.Suffixed(":"), Name }
+      new[] { AbbrAt, FieldAlias.Suffixed(":"), Identifier }
       .Concat(Arg.Bracket("(", ")"))
       .Append(string.Join("", Modifiers.AsString()))
       .Concat(Directives.AsString())

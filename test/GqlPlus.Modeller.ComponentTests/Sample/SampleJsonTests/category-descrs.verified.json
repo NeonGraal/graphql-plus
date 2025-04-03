@@ -1,0 +1,25 @@
+﻿{
+  "$tag": "_Schema",
+  "categories": {
+    "$tag": "_Map_Categories",
+    "ctgrDscrs": {
+      "$tag": "_Category",
+      "description": "A Category described",
+      "name": "ctgrDscrs",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "CtgrDscrs",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
+    }
+  },
+  "types": {
+    "$tag": "_Map_Type",
+    "CtgrDscrs": {
+      "$tag": "_TypeOutput",
+      "name": "CtgrDscrs",
+      "typeKind": "Output"
+    }
+  }
+}

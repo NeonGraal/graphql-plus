@@ -1,1 +1,2 @@
-input InFieldNull { field: InFieldNull? = null }
+input Name { field: FldName? = null }
+dual FldName { }

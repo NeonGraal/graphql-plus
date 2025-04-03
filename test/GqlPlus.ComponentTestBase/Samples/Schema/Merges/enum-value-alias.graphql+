@@ -1,2 +1,2 @@
-enum EnValAlias { value [val1] }
-enum EnValAlias { value [val2] }
+enum Name { name [val1] }
+enum Name { name [val2] }

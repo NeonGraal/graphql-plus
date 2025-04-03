@@ -1,6 +1,0 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier DescrComplex: !_TypeOutput
-    description: "A \"more\" 'Complicated' \\ doc"
-    name: DescrComplex
-    typeKind: !_TypeKind Output

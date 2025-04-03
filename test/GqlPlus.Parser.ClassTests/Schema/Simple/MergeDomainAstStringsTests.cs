@@ -23,7 +23,7 @@ public class MergeDomainAstStringsTests
     => new AstDomain<DomainRegexAst, IGqlpDomainRegex>(AstNulls.At, name, description, kind ?? DomainKind.String) {
       Aliases = aliases ?? [],
       Parent = parent,
-      Members = items?.ArrayOf<DomainRegexAst>() ?? [],
+      Items = items?.ArrayOf<DomainRegexAst>() ?? [],
     };
 
   protected override IGqlpDomainRegex[] MakeItems(string input)

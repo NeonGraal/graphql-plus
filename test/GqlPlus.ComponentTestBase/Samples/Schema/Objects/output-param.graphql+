@@ -1,2 +1,3 @@
-output OutParam { field(OutParamIn): OutParam }
-input OutParamIn { param: Number | String }
+output Name { field(InName): FldName }
+dual FldName { }
+input InName { param: Number | String }

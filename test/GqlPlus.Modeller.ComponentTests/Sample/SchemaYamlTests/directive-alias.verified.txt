@@ -1,7 +1,0 @@
-﻿!_Schema
-directives: !_Map_Directives
-  !_Identifier DirAlias: !_Directive
-    aliases: [DirA1, DirA2]
-    locations: !_Set(_Location) {Field: _, Variable: _}
-    name: DirAlias
-    repeatable: false

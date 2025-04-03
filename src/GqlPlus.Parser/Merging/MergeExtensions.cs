@@ -10,38 +10,6 @@ namespace GqlPlus.Merging;
 #pragma warning disable CA1508 // Avoid dead conditional code
 public static class MergeExtensions
 {
-  public static ITokenMessages CanMergeString<TItem>(
-      this IEnumerable<TItem> items,
-      Func<TItem, string?> field,
-      [CallerArgumentExpression(nameof(field))] string? fieldExpr = null)
-    where TItem : IGqlpError
-  {
-    items.ThrowIfNull();
-    field.ThrowIfNull();
-
-    string? result = default;
-
-#pragma warning disable CA1062 // Validate arguments of public methods
-    foreach (TItem item in items) {
-      string? value = field(item);
-#pragma warning restore CA1062 // Validate arguments of public methods
-      if (string.IsNullOrEmpty(value)) {
-        continue;
-      }
-
-      if (string.IsNullOrEmpty(result)) {
-        result = value;
-        continue;
-      }
-
-      if (!result!.Equals(value, StringComparison.Ordinal)) {
-        return item.MakeError($"Different values merging {fieldExpr}: {result} != {value}");
-      }
-    }
-
-    return TokenMessages.New;
-  }
-
   public static ITokenMessages CanMergeStruct<TItem, TObjField>(
       this IEnumerable<TItem> items,
       Func<TItem, TObjField> field,
@@ -88,38 +56,6 @@ public static class MergeExtensions
 #pragma warning disable CA1062 // Validate arguments of public methods
     return fields.Length > 0 ? merger.CanMerge(fields) : TokenMessages.New;
 #pragma warning restore CA1062 // Validate arguments of public methods
-  }
-
-  public static ITokenMessages CanMerge<TItem>(
-      this IEnumerable<TItem> items,
-      Func<TItem, string?> field,
-      [CallerArgumentExpression(nameof(field))] string? fieldExpr = null)
-    where TItem : IGqlpError
-  {
-    items.ThrowIfNull();
-    field.ThrowIfNull();
-
-    string result = "";
-
-#pragma warning disable CA1062 // Validate arguments of public methods
-    foreach (TItem item in items) {
-      string? value = field(item);
-#pragma warning restore CA1062 // Validate arguments of public methods
-      if (string.IsNullOrEmpty(value)) {
-        continue;
-      }
-
-      if (string.IsNullOrEmpty(result)) {
-        result = value!;
-        continue;
-      }
-
-      if (result != value) {
-        return item.MakeError($"Different values merging {fieldExpr}: {result} != {value}");
-      }
-    }
-
-    return TokenMessages.New;
   }
 
   public static ITokenMessages ManyCanMerge<TItem, TGroup>(

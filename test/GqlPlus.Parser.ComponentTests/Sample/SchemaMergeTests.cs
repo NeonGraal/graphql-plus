@@ -61,7 +61,7 @@ public class SchemaMergeTests(
 
   private void Check_CanMerge(IEnumerable<string> inputs, string testName)
   {
-    IGqlpSchema[] schemas = [.. inputs.Select(input => Parse(input).Required())];
+    IGqlpSchema[] schemas = [.. inputs.Select(input => Parse(input, "Schema").Required())];
 
     ITokenMessages result = schemaMerger.CanMerge(schemas);
 
@@ -70,7 +70,7 @@ public class SchemaMergeTests(
 
   private async Task Verify_Merge(IEnumerable<string> inputs, string test)
   {
-    IGqlpSchema[] schemas = [.. inputs.Select(input => Parse(input).Required())];
+    IGqlpSchema[] schemas = [.. inputs.Select(input => Parse(input, "Schema").Required())];
 
     IEnumerable<IGqlpSchema> result = schemaMerger.Merge(schemas);
 

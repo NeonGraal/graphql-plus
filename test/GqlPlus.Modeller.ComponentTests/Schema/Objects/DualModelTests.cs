@@ -10,7 +10,7 @@ public class DualModelTests(
 
 internal sealed class DualModelChecks(
   CheckTypeInputs<IGqlpDualObject, TypeDualModel> inputs
-) : CheckObjectModel<IGqlpDualObject, DualDeclAst, IGqlpDualField, DualFieldAst, IGqlpDualAlternate, DualAlternateAst, IGqlpDualBase, TypeDualModel>(inputs, TypeKindModel.Dual)
+) : CheckObjectModel<IGqlpDualObject, DualDeclAst, IGqlpDualField, DualFieldAst, IGqlpDualAlternate, DualAlternateAst, IGqlpDualBase, IGqlpDualArg, TypeDualModel>(inputs, TypeKindModel.Dual)
   , IDualModelChecks
 {
   protected override DualDeclAst NewObjectAst(ExpectedObjectInput input, IGqlpObjBase? parent = null)

@@ -39,13 +39,13 @@ internal class ParseDomain(
       Parent = value.Parent
     };
 
-  private static AstDomain<DomainMemberAst, IGqlpDomainMember> MakeEnum(AstPartial<NullAst, NullOption> partial, DomainDefinition value)
+  private static AstDomain<DomainLabelAst, IGqlpDomainLabel> MakeEnum(AstPartial<NullAst, NullOption> partial, DomainDefinition value)
   {
-    if (value.Members.Length == 0) {
-      partial.Error("Invalid Domain Enum. Expected at least one Member");
+    if (value.Labels.Length == 0) {
+      partial.Error("Invalid Domain Enum. Expected at least one Label");
     }
 
-    return new(partial.At, partial.Name, value.Kind, value.Members) {
+    return new(partial.At, partial.Name, value.Kind, value.Labels) {
       Aliases = partial.Aliases,
       Description = partial.Description,
       Parent = value.Parent
@@ -71,7 +71,7 @@ public class DomainDefinition
   public DomainKind Kind { get; set; } = DomainKind.Number;
   public string? Parent { get; set; }
   internal DomainTrueFalseAst[] Values { get; set; } = [];
-  internal DomainMemberAst[] Members { get; set; } = [];
+  internal DomainLabelAst[] Labels { get; set; } = [];
   internal DomainRangeAst[] Numbers { get; set; } = [];
   internal DomainRegexAst[] Regexes { get; set; } = [];
 }

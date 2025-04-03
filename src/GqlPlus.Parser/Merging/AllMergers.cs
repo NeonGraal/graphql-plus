@@ -26,8 +26,8 @@ public static class AllMergers
       .AddMerge<IGqlpType, MergeAllTypes>()
       // Simple
       .AddMergeAll<IGqlpDomain, IGqlpType, MergeAllDomains>()
-      .AddMerge<IGqlpDomainMember, MergeDomainMembers>()
-      .AddMergeDomain<DomainMemberAst, IGqlpDomainMember>()
+      .AddMerge<IGqlpDomainLabel, MergeDomainLabels>()
+      .AddMergeDomain<DomainLabelAst, IGqlpDomainLabel>()
       .AddMerge<IGqlpDomainRange, MergeDomainRanges>()
       .AddMergeDomain<DomainRangeAst, IGqlpDomainRange>()
       .AddMerge<IGqlpDomainRegex, MergeDomainRegexes>()
@@ -35,9 +35,9 @@ public static class AllMergers
       .AddMerge<IGqlpDomainTrueFalse, MergeDomainTrueFalse>()
       .AddMergeDomain<DomainTrueFalseAst, IGqlpDomainTrueFalse>()
       .AddMergeAll<IGqlpEnum, IGqlpType, MergeEnums>()
-      .AddMerge<IGqlpEnumItem, MergeEnumMembers>()
+      .AddMerge<IGqlpEnumLabel, MergeEnumLabels>()
       .AddMergeAll<IGqlpUnion, IGqlpType, MergeUnions>()
-      .AddMerge<IGqlpUnionItem, MergeUnionMembers>()
+      .AddMerge<IGqlpUnionMember, MergeUnionMembers>()
       // Object types
       .AddMerge<IGqlpTypeParam, MergeTypeParams>()
       .AddMergeAll<IGqlpDualObject, IGqlpType, MergeDualObjects>()
@@ -69,9 +69,9 @@ public static class AllMergers
       .AddProvider<TService, IMerge<TAst>>()
       .AddProvider<TService, IMergeAll<TType>>();
 
-  private static IServiceCollection AddMergeDomain<TMember, TItem>(this IServiceCollection services)
-  where TMember : AstAbbreviated, TItem
+  private static IServiceCollection AddMergeDomain<TItemAst, TItem>(this IServiceCollection services)
+  where TItemAst : AstAbbreviated, TItem
   where TItem : class, IGqlpDomainItem
     => services
-      .AddMergeAll<IGqlpDomain<TItem>, IGqlpDomain, MergeDomains<TMember, TItem>>();
+      .AddMergeAll<IGqlpDomain<TItem>, IGqlpDomain, MergeDomains<TItemAst, TItem>>();
 }

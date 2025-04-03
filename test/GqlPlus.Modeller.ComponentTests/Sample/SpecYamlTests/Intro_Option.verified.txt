@@ -2,7 +2,7 @@
 _errors:
 - !_Error
   _kind: !_TokenKind End
-  _message: In _Setting can't get model for type '_Described'
+  _message: In _Setting can't get model for type '_Named'
 types: !_Map_Type
   !_Identifier _Setting: !_TypeOutput
     allFields:
@@ -18,5 +18,5 @@ types: !_Map_Type
         output: _Constant
     name: _Setting
     parent: !_OutputBase
-      output: _Described
+      output: _Named
     typeKind: !_TypeKind Output

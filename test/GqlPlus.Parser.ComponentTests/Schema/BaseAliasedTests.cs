@@ -9,15 +9,15 @@ public abstract class BaseAliasedTests<TInput, TParsed>(
 ) : BaseNamedTests<TInput, TParsed>(aliasChecks)
   where TParsed : IGqlpAliased
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithAliases_ReturnsCorrectAst(TInput input, string[] aliases)
     => aliasChecks.WithAliases(input, aliases);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithAliasesBad_ReturnsFalse(TInput input, string[] aliases)
     => aliasChecks.WithAliasesBad(input, aliases);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithAliasesNone_ReturnsFalse(TInput input)
     => aliasChecks.WithAliasesNone(input);
 }

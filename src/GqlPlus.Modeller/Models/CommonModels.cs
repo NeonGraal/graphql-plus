@@ -30,7 +30,7 @@ public record class SimpleModel
   internal string EnumValue => $"{TypeRef?.Name}.{Value}";
 
   internal static TypeRefModel<SimpleKindModel>? TypeFor(string? type)
-    => string.IsNullOrWhiteSpace(type) ? null : new(SimpleKindModel.Domain, type!);
+    => string.IsNullOrWhiteSpace(type) ? null : new(SimpleKindModel.Domain, type!, "");
 
   internal static SimpleModel Bool(bool value)
     => new() { Boolean = value };

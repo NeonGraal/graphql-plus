@@ -8,14 +8,16 @@ namespace GqlPlus.Models;
 
 public abstract record class BaseTypeModel(
   TypeKindModel TypeKind,
-  string Name
-) : AliasedModel(Name)
+  string Name,
+  string Description
+) : AliasedModel(Name, Description)
 { }
 
 public abstract record class ChildTypeModel<TParent>(
   TypeKindModel Kind,
-  string Name
-) : BaseTypeModel(Kind, Name)
+  string Name,
+  string Description
+) : BaseTypeModel(Kind, Name, Description)
   , IChildTypeModel
   where TParent : IModelBase
 {
@@ -52,8 +54,9 @@ public interface IChildTypeModel
 
 public record class ParentTypeModel<TItem, TAll>(
   TypeKindModel Kind,
-  string Name
-) : ChildTypeModel<TypeRefModel<SimpleKindModel>>(Kind, Name)
+  string Name,
+  string Description
+) : ChildTypeModel<TypeRefModel<SimpleKindModel>>(Kind, Name, Description)
   where TItem : IModelBase
   where TAll : IModelBase
 {
@@ -79,14 +82,16 @@ public enum TypeKindModel
 
 public record class TypeRefModel<TKind>(
   TKind TypeKind,
-  string Name
-) : NamedModel(Name)
+  string Name,
+  string Description
+) : NamedModel(Name, Description)
   where TKind : struct
 { }
 
 internal record class SpecialTypeModel(
-  string Name
-) : BaseTypeModel(TypeKindModel.Special, Name)
+  string Name,
+  string Description
+) : BaseTypeModel(TypeKindModel.Special, Name, Description)
 { }
 
 internal static class ModelHelper
@@ -94,5 +99,10 @@ internal static class ModelHelper
   [return: NotNullIfNotNull(nameof(input))]
   internal static TypeRefModel<TKind>? TypeRef<TKind>(this string? input, TKind kind)
     where TKind : struct
-    => input is null ? null : new(kind, input);
+    => input is null ? null : new(kind, input, "");
+
+  [return: NotNullIfNotNull(nameof(input))]
+  internal static TypeRefModel<TKind>? TypeRef<TKind>(this IGqlpTypeRef? input, TKind kind)
+    where TKind : struct
+    => input is null ? null : new(kind, input.Name, input.Description);
 }

@@ -1,2 +1,2 @@
-input InFieldEnum { field: InEnumField = value }
-enum InEnumField { value }
+input Name { field: EnumName = name }
+enum EnumName { name }

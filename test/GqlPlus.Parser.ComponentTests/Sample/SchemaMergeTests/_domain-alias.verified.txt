@@ -3,7 +3,7 @@
 Success
 {
   !Do I@008/0001
-  NumAlias
+  DmnAlias
   [
     Num1
     Num2

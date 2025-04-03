@@ -31,5 +31,5 @@ Various scripts presume these dotnet tools are installed globally:
 ### Other references
 
 - [Liquid](https://shopify.github.io/liquid/)
-- [Pico Css](https://picocss.com/)
-- [Mermaid](https://mermaid.js.org/syntax/flowchart.html)
+- [Pico Css](https://picocss.com/) [jsDelivr](https://www.jsdelivr.com/package/npm/@picocss/pico)
+- [Mermaid](https://mermaid.js.org/syntax/flowchart.html) [jsDelivr](https://www.jsdelivr.com/package/npm/mermaid)

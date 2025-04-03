@@ -1,2 +1,2 @@
-domain Str { string }
-domain Str { string }
+domain Name { string }
+domain Name { string }

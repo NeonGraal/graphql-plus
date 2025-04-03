@@ -3,7 +3,7 @@
 Success
 {
   !Du I@006/0001
-  DualObjectAlias
+  DualObjAlias
   [
     Dual1
     Dual2
@@ -11,7 +11,7 @@ Success
 }
 {
   !In I@007/0001
-  InpObjectAlias
+  InpObjAlias
   [
     Inp1
     Inp2
@@ -19,7 +19,7 @@ Success
 }
 {
   !Ou I@008/0001
-  OutpObjectAlias
+  OutpObjAlias
   [
     Outp1
     Outp2

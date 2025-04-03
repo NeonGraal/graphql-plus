@@ -1,4 +1,4 @@
 "A Category"
 "described"
-category { CatDescr }
-output CatDescr { }
+category { Name }
+output Name { }

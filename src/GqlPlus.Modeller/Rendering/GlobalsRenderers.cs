@@ -55,7 +55,7 @@ internal class DirectiveRenderer(
   internal override Structured Render(DirectiveModel model)
     => base.Render(model)
       .AddSet("locations", model.Locations, "_Location")
-      .AddList("parameters", model.Params, parameter)
+      .AddList("parameters", model.Parameters, parameter)
       .Add("repeatable", model.Repeatable);
 }
 
@@ -75,7 +75,7 @@ internal class OperationRenderer
 
 internal class SettingRenderer(
   IRenderer<ConstantModel> constant
-) : DescribedRenderer<SettingModel>
+) : NamedRenderer<SettingModel>
 {
   internal override Structured Render(SettingModel model)
     => base.Render(model)

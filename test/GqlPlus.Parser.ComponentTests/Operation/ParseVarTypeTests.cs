@@ -6,19 +6,19 @@ public class ParseVarTypeTests(
   IOneChecksParser<IParserVarType, string> checks
 )
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithMinimal_ReturnsCorrect(string varType)
     => checks.TrueExpected(varType, varType);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithGraphQlNotNull_ReturnsCorrect(string varType)
     => checks.TrueExpected(varType + "!", varType + "!");
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithGraphQlList_ReturnsCorrect(string varType)
     => checks.TrueExpected($"[{varType}]", "[" + varType + "]");
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithGraphQlComplex_ReturnsCorrect(string varType)
     => checks.TrueExpected($"[[{varType}]!]!", "[[" + varType + "]!]!");
 

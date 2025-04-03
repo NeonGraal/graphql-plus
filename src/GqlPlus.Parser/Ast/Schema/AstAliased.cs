@@ -7,7 +7,7 @@ internal abstract record class AstAliased(
   TokenAt At,
   string Name,
   string Description
-) : AstDescribed(At, Name, Description)
+) : AstNamed(At, Name, Description)
   , IEquatable<AstAliased>
   , IGqlpAliased
   , IAstSetAliases

@@ -3,9 +3,9 @@
 Success
 {
   !Do I@008/0001
-  StrDiff
+  DmnStrDiff
   String
-  !DX R@025/0001
+  !DX R@028/0001
   /a+/
 }
 ]

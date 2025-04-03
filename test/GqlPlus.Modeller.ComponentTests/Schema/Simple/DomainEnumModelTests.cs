@@ -5,28 +5,28 @@ namespace GqlPlus.Schema.Simple;
 
 public class DomainEnumModelTests(
   IDomainEnumModelChecks checks
-) : TestDomainModel<string, IGqlpDomainMember, DomainMemberModel>(checks)
+) : TestDomainModel<string, IGqlpDomainLabel, DomainLabelModel>(checks)
 { }
 
 internal sealed class DomainEnumModelChecks(
-  CheckDomainInputs<IGqlpDomainMember, DomainMemberModel> inputs
-) : CheckDomainModel<string, DomainMemberAst, IGqlpDomainMember, DomainMemberModel>(DomainKind.Enum, inputs)
+  CheckDomainInputs<IGqlpDomainLabel, DomainLabelModel> inputs
+) : CheckDomainModel<string, DomainLabelAst, IGqlpDomainLabel, DomainLabelModel>(DomainKind.Enum, inputs)
   , IDomainEnumModelChecks
 {
   protected override string[] ExpectedItem(string input, string exclude, string[] domain)
     => [
-      "- !_DomainMember",
+      "- !_DomainLabel",
       .. domain,
       exclude,
       "  value: !_EnumValue",
-      "    member: " + input,
+      "    label: " + input,
       "    typeKind: !_SimpleKind Enum"
       ];
 
-  protected override DomainMemberAst[]? DomainItems(string[]? inputs)
-    => inputs?.DomainMembers();
+  protected override DomainLabelAst[]? DomainItems(string[]? inputs)
+    => inputs?.DomainLabels();
 }
 
 public interface IDomainEnumModelChecks
-  : ICheckDomainModel<string, IGqlpDomainMember, DomainMemberModel>
+  : ICheckDomainModel<string, IGqlpDomainLabel, DomainLabelModel>
 { }

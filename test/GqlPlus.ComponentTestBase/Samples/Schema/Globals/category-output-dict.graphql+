@@ -1,2 +1,2 @@
-category { CatDict[*] }
-output CatDict { }
+category { Name[*] }
+output Name { }

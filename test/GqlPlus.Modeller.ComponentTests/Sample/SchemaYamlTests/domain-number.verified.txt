@@ -1,6 +1,0 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier Num: !_DomainNumber
-    domainKind: !_DomainKind Number
-    name: Num
-    typeKind: !_TypeKind Domain

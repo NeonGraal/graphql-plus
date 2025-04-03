@@ -1,2 +1,2 @@
-object ObjName { | ObjNameAlt[^] }
-object ObjNameAlt { alt: Number | String }
+object ObjName { | AltObjName[^] }
+object AltObjName { alt: Number | String }

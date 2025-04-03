@@ -14,16 +14,6 @@
     {
       "$tag": "_Error",
       "_kind": "End",
-      "_message": "In _OutputParent can\u0027t get model for type \u0027_ObjDescribed\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_kind": "End",
-      "_message": "In _OutputTypeParam can\u0027t get model for type \u0027_ObjTypeParam\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_kind": "End",
       "_message": "In _OutputField can\u0027t get model for type \u0027_Field\u0027"
     },
     {
@@ -34,7 +24,7 @@
     {
       "$tag": "_Error",
       "_kind": "End",
-      "_message": "In _OutputArg can\u0027t get model for type \u0027_TypeRef\u0027"
+      "_message": "In _OutputTypeArg can\u0027t get model for type \u0027_ObjTypeArg\u0027"
     },
     {
       "$tag": "_Error",
@@ -46,6 +36,27 @@
     "$tag": "_Map_Type",
     "_OutputAlternate": {
       "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "output",
+          "object": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "output",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
       "name": "_OutputAlternate",
       "parent": {
         "$tag": "_OutputBase",
@@ -53,74 +64,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_OutputBase"
-          }
-        ]
-      },
-      "typeKind": "Output"
-    },
-    "_OutputArg": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_OutputArg",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_TypeParam"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": "Opt"
-            }
-          ],
-          "name": "member",
-          "object": "_OutputArg",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_Identifier"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_TypeParam"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": "Opt"
-            }
-          ],
-          "name": "member",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_Identifier"
-          }
-        }
-      ],
-      "name": "_OutputArg",
-      "parent": {
-        "$tag": "_OutputBase",
-        "output": "_TypeRef",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "value": "_TypeKind"
+            "value": "_OutputTypeArg"
           }
         ]
       },
@@ -132,10 +76,7 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_OutputBase",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_DualBase"
-          }
+          "output": "_DualBase"
         }
       ],
       "allFields": [
@@ -152,10 +93,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_DualBase"
-          }
+          "value": "_DualBase"
         }
       ],
       "fields": [
@@ -171,7 +109,13 @@
       "name": "_OutputBase",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "_ObjBase"
+        "output": "_ObjBase",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "value": "_OutputTypeArg"
+          }
+        ]
       },
       "typeKind": "Output"
     },
@@ -189,7 +133,7 @@
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "member",
+          "name": "label",
           "object": "_OutputEnum",
           "type": {
             "$tag": "_OutputBase",
@@ -208,7 +152,7 @@
         },
         {
           "$tag": "_OutputField",
-          "name": "member",
+          "name": "label",
           "type": {
             "$tag": "_OutputBase",
             "value": "_Identifier"
@@ -222,7 +166,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "member": "Enum",
+            "label": "Enum",
             "name": "_TypeKind",
             "typeKind": "Enum"
           }
@@ -236,10 +180,7 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_OutputField",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_OutputEnum"
-          }
+          "output": "_OutputEnum"
         }
       ],
       "allFields": [
@@ -251,7 +192,7 @@
               "modifierKind": "List"
             }
           ],
-          "name": "parameter",
+          "name": "parameters",
           "object": "_OutputField",
           "type": {
             "$tag": "_OutputBase",
@@ -262,10 +203,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_OutputEnum"
-          }
+          "value": "_OutputEnum"
         }
       ],
       "fields": [
@@ -277,7 +215,7 @@
               "modifierKind": "List"
             }
           ],
-          "name": "parameter",
+          "name": "parameters",
           "type": {
             "$tag": "_OutputBase",
             "value": "_InputParam"
@@ -297,33 +235,62 @@
       },
       "typeKind": "Output"
     },
-    "_OutputParent": {
+    "_OutputTypeArg": {
       "$tag": "_TypeOutput",
-      "name": "_OutputParent",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "output",
+          "object": "_OutputTypeArg",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
+          "name": "label",
+          "object": "_OutputTypeArg",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "output",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "Opt"
+            }
+          ],
+          "name": "label",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "name": "_OutputTypeArg",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_ObjDescribed",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "value": "_OutputBase"
-          }
-        ]
-      },
-      "typeKind": "Output"
-    },
-    "_OutputTypeParam": {
-      "$tag": "_TypeOutput",
-      "name": "_OutputTypeParam",
-      "parent": {
-        "$tag": "_OutputBase",
-        "output": "_ObjTypeParam",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "value": "_OutputBase"
-          }
-        ]
+        "value": "_ObjTypeArg"
       },
       "typeKind": "Output"
     },
@@ -336,17 +303,13 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "member": "Output",
+            "label": "Output",
             "name": "_TypeKind",
             "typeKind": "Enum"
           },
           {
             "$tag": "_OutputArg",
-            "value": "_OutputParent"
-          },
-          {
-            "$tag": "_OutputArg",
-            "value": "_OutputTypeParam"
+            "value": "_OutputBase"
           },
           {
             "$tag": "_OutputArg",

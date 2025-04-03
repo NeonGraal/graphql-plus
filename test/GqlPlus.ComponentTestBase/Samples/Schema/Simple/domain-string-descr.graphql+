@@ -1,1 +1,1 @@
-domain DomStrDescr { String "DomString" "Descr" /a+/ }
+domain Name { String "DomString" "Descr" /a+/ }

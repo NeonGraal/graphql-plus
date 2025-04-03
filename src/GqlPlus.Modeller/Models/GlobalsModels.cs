@@ -15,8 +15,9 @@ public record class CategoriesModel()
 
 public record class CategoryModel(
   string Name,
-  TypeRefModel<TypeKindModel> Output
-) : AliasedModel(Name)
+  TypeRefModel<TypeKindModel> Output,
+  string Description
+) : AliasedModel(Name, Description)
 {
   public CategoryOption Resolution { get; set; } = CategoryOption.Parallel;
   public ModifierModel[] Modifiers { get; set; } = [];
@@ -27,10 +28,11 @@ public record class DirectivesModel()
 { }
 
 public record class DirectiveModel(
-  string Name
-) : AliasedModel(Name)
+  string Name,
+  string Description
+) : AliasedModel(Name, Description)
 {
-  public InputParamModel[] Params { get; set; } = [];
+  public InputParamModel[] Parameters { get; set; } = [];
   public bool Repeatable { get; set; }
   public DirectiveLocation Locations { get; set; } = DirectiveLocation.None;
 }
@@ -48,6 +50,7 @@ public record class OperationModel(
 
 public record class SettingModel(
   string Name,
-  ConstantModel Value
-) : DescribedModel(Name)
+  ConstantModel Value,
+  string Description
+) : NamedModel(Name, Description)
 { }

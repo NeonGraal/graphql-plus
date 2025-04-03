@@ -5,8 +5,8 @@ namespace GqlPlus.Ast.Operation;
 
 internal sealed record class SpreadAst(
   TokenAt At,
-  string Name
-) : AstDirectives(At, Name)
+  string Identifier
+) : AstDirectives(At, Identifier)
   , IEquatable<SpreadAst>
   , IGqlpSpread
 {

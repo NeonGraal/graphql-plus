@@ -8,6 +8,6 @@ public class SpecialTypeAstTests
   internal override IAstAliasedChecks<string> AliasedChecks { get; }
     = new AstAliasedChecks<SpecialTypeAst>(name => new SpecialTypeAst(name));
 
-  protected override string AliasesString(string input, string aliases)
-    => $"( !TZ _{input}{aliases} )";
+  protected override string AliasesString(string input, string description, string aliases)
+    => $"( {DescriptionNameString("_" + input, description)}{aliases} )";
 }

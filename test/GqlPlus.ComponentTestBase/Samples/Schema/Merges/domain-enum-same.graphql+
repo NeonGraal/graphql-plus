@@ -1,2 +1,2 @@
-domain EnumSame { enum true }
-domain EnumSame { enum true }
+domain Name { enum true }
+domain Name { enum true }

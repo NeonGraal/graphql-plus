@@ -1,2 +1,2 @@
-object ObjName<$a> { :ObjNameRef<$a> field: $a }
-object ObjNameRef<$a> { | $a }
+object ObjName<$a> { :RefObjName<$a> field: $a }
+object RefObjName<$a> { | $a }

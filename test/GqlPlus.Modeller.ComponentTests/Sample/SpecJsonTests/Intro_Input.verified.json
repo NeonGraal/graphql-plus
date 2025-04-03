@@ -20,12 +20,38 @@
       "$tag": "_Error",
       "_kind": "End",
       "_message": "In _InputAlternate can\u0027t get model for type \u0027_Alternate\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": "End",
+      "_message": "In _InputTypeArg can\u0027t get model for type \u0027_ObjTypeArg\u0027"
     }
   ],
   "types": {
     "$tag": "_Map_Type",
     "_InputAlternate": {
       "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "input",
+          "object": "_InputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "input",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
       "name": "_InputAlternate",
       "parent": {
         "$tag": "_OutputBase",
@@ -33,7 +59,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_InputBase"
+            "value": "_InputTypeArg"
           }
         ]
       },
@@ -82,7 +108,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_ObjTypeArg"
+            "value": "_InputTypeArg"
           }
         ]
       },
@@ -220,6 +246,36 @@
       "parent": {
         "$tag": "_OutputBase",
         "value": "_InputBase"
+      },
+      "typeKind": "Output"
+    },
+    "_InputTypeArg": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "input",
+          "object": "_InputTypeArg",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "input",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "name": "_InputTypeArg",
+      "parent": {
+        "$tag": "_OutputBase",
+        "value": "_ObjTypeArg"
       },
       "typeKind": "Output"
     },

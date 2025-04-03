@@ -25,7 +25,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "field": "field",
+          "field": "EnumOutpFieldValue",
           "label": "outpFieldValue",
           "object": "OutpFieldValue",
           "typeKind": "Enum"
@@ -34,7 +34,7 @@
       "fields": [
         {
           "$tag": "_OutputEnum",
-          "field": "field",
+          "field": "EnumOutpFieldValue",
           "label": "outpFieldValue",
           "typeKind": "Enum"
         }

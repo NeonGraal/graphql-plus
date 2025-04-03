@@ -20,10 +20,10 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: RefOutpGnrcAltSmpl
-      output: ref
+      typeParam: ref
     alternates:
     - !_OutputAlternate
-      output: ref
+      typeParam: ref
     name: RefOutpGnrcAltSmpl
     typeKind: !_TypeKind Output
     typeParams:

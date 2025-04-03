@@ -43,7 +43,8 @@ where TContext : UsageContext
     }
 
     foreach (IGqlpTypeParam typeParam in usage.TypeParams) {
-      context.AddError(typeParam, usage.Label, $"'${typeParam.Name}' not used", !context.Used.Contains("$" + typeParam.Name));
+      bool paramUsed = context.Used.Contains("$" + typeParam.Name);
+      context.AddError(typeParam, usage.Label, $"'${typeParam.Name}' not used", !paramUsed);
     }
   }
 
@@ -60,7 +61,14 @@ where TContext : UsageContext
       .CheckModifiers(field);
 
   protected override string GetParent(IGqlpType<IGqlpObjBase> usage)
-    => usage.Parent?.Name ?? "";
+  {
+    IGqlpObjBase? parent = usage.Parent;
+    if (parent is null) {
+      return "";
+    }
+
+    return (parent.IsTypeParam ? "$" : "") + parent.Name;
+  }
 
   protected override void CheckParentType(
     ParentUsage<TObject> input,

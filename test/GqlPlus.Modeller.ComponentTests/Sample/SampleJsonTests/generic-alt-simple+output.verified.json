@@ -38,7 +38,7 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "RefOutpGnrcAltSmpl",
-          "output": "ref"
+          "typeParam": "ref"
         }
       ],
       "alternates": [

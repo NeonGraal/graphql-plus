@@ -44,11 +44,11 @@ types: !_Map_Type
   !_Identifier DualGnrcDualRef: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      dual: ref
       object: DualGnrcDualRef
+      typeParam: ref
     alternates:
     - !_DualAlternate
-      dual: ref
+      typeParam: ref
     name: DualGnrcDualRef
     typeKind: !_TypeKind Dual
     typeParams:

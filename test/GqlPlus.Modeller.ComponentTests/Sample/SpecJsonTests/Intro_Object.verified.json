@@ -36,14 +36,27 @@
     "$tag": "_Map_Type",
     "_Alternate": {
       "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "_ObjBase",
+          "output": "_ObjTypeParam"
+        }
+      ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "type",
-          "object": "_Alternate",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "typeArgs",
+          "object": "_ObjBase",
           "type": {
             "$tag": "_OutputBase",
-            "value": "base"
+            "value": "arg"
           }
         },
         {
@@ -65,14 +78,6 @@
       "fields": [
         {
           "$tag": "_OutputField",
-          "name": "type",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "base"
-          }
-        },
-        {
-          "$tag": "_OutputField",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -87,11 +92,16 @@
         }
       ],
       "name": "_Alternate",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_ObjBase",
+        "typeArgs": ["arg"]
+      },
       "typeKind": "Output",
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "base"
+          "value": "arg"
         }
       ]
     },
@@ -232,7 +242,7 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjConstraint",
-          "output": "base"
+          "typeParam": "base"
         }
       ],
       "alternates": [

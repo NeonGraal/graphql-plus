@@ -36,6 +36,27 @@
     "$tag": "_Map_Type",
     "_OutputAlternate": {
       "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "output",
+          "object": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "output",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
       "name": "_OutputAlternate",
       "parent": {
         "$tag": "_OutputBase",
@@ -43,7 +64,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_OutputBase"
+            "value": "_OutputTypeArg"
           }
         ]
       },
@@ -219,6 +240,15 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
+          "name": "output",
+          "object": "_OutputTypeArg",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -234,6 +264,14 @@
         }
       ],
       "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "output",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        },
         {
           "$tag": "_OutputField",
           "modifiers": [

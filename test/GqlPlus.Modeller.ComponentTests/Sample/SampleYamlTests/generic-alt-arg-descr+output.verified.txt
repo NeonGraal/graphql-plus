@@ -21,10 +21,10 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: RefOutpGnrcAltArgDescr
-      output: ref
+      typeParam: ref
     alternates:
     - !_OutputAlternate
-      output: ref
+      typeParam: ref
     name: RefOutpGnrcAltArgDescr
     typeKind: !_TypeKind Output
     typeParams:

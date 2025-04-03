@@ -74,7 +74,7 @@ Success
   I@007/0011
   _TypeSimple
   P@007/0012
-  base
+  $base
 }
 {
   !Ou I@008/0014
@@ -158,14 +158,16 @@ Success
   _Alternate
   <
     I@020/0037
-    $base
+    $arg
+  >
+  :
+  I@007/0038
+  _ObjBase
+  <
+    I@017/0038
+    $arg
   >
   {
-    !OF I@007/0038
-    type
-    :
-    I@014/0038
-    $base
     !OF I@007/0039
     collections
     :

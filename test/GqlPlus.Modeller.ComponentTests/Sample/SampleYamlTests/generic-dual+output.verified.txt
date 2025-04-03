@@ -45,10 +45,10 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: OutpGnrcDualRef
-      output: ref
+      typeParam: ref
     alternates:
     - !_OutputAlternate
-      output: ref
+      typeParam: ref
     name: OutpGnrcDualRef
     typeKind: !_TypeKind Output
     typeParams:

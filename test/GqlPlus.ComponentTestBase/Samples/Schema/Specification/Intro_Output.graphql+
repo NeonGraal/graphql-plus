@@ -15,11 +15,13 @@ output _OutputField {
     }
 
 output _OutputAlternate {
-    : _Alternate<_OutputBase>
+    : _Alternate<_OutputTypeArg>
+        output: _Identifier
     }
 
 output _OutputTypeArg {
     : _ObjTypeArg
+        output: _Identifier
         label: _Identifier?
     }
 

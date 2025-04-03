@@ -44,11 +44,11 @@ types: !_Map_Type
   !_Identifier InpGnrcDualRef: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      input: ref
       object: InpGnrcDualRef
+      typeParam: ref
     alternates:
     - !_InputAlternate
-      input: ref
+      typeParam: ref
     name: InpGnrcDualRef
     typeKind: !_TypeKind Input
     typeParams:

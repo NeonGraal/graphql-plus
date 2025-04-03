@@ -60,7 +60,8 @@ public class SampleChecks
 
     if (expected.Count == 0) {
       if (includeVerify && errors?.Count > 0 && AttributeReader.TryGetProjectDirectory(out string? project)) {
-        await File.WriteAllLinesAsync($"{project}/{path}/{file}.verify+errors", errors.Select(e => e.Message).Distinct());
+        IOrderedEnumerable<string> errorLines = errors.Select(e => e.ToString() ?? "").Distinct().Order();
+        await File.WriteAllLinesAsync($"{project}/{path}/{file}.verify+errors", errorLines);
       }
 
       return;

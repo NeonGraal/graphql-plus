@@ -20,11 +20,11 @@ types: !_Map_Type
   !_Identifier RefInpGnrcAltArg: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      input: ref
       object: RefInpGnrcAltArg
+      typeParam: ref
     alternates:
     - !_InputAlternate
-      input: ref
+      typeParam: ref
     name: RefInpGnrcAltArg
     typeKind: !_TypeKind Input
     typeParams:

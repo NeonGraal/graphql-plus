@@ -12,14 +12,28 @@ _errors:
 - !_Error
   _kind: !_TokenKind End
   _message: In _InputAlternate can't get model for type '_Alternate'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _InputTypeArg can't get model for type '_ObjTypeArg'
 types: !_Map_Type
   !_Identifier _InputAlternate: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: input
+      object: _InputAlternate
+      type: !_OutputBase
+        output: _Identifier
+    fields:
+    - !_OutputField
+      name: input
+      type: !_OutputBase
+        output: _Identifier
     name: _InputAlternate
     parent: !_OutputBase
       output: _Alternate
       typeArgs:
       - !_OutputArg
-        output: _InputBase
+        output: _InputTypeArg
     typeKind: !_TypeKind Output
   !_Identifier _InputBase: !_TypeOutput
     allAlternates:
@@ -45,7 +59,7 @@ types: !_Map_Type
       output: _ObjBase
       typeArgs:
       - !_OutputArg
-        output: _ObjTypeArg
+        output: _InputTypeArg
     typeKind: !_TypeKind Output
   !_Identifier _InputField: !_TypeOutput
     allFields:
@@ -105,6 +119,22 @@ types: !_Map_Type
     name: _InputParam
     parent: !_OutputBase
       output: _InputBase
+    typeKind: !_TypeKind Output
+  !_Identifier _InputTypeArg: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: input
+      object: _InputTypeArg
+      type: !_OutputBase
+        output: _Identifier
+    fields:
+    - !_OutputField
+      name: input
+      type: !_OutputBase
+        output: _Identifier
+    name: _InputTypeArg
+    parent: !_OutputBase
+      output: _ObjTypeArg
     typeKind: !_TypeKind Output
   !_Identifier _TypeInput: !_TypeOutput
     name: _TypeInput

@@ -85,7 +85,7 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "RefOutpGnrcFieldParam",
-          "output": "ref"
+          "typeParam": "ref"
         }
       ],
       "alternates": [

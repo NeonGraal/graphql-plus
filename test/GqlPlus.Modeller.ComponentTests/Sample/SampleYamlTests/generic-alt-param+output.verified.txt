@@ -41,10 +41,10 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: RefOutpGnrcAltParam
-      output: ref
+      typeParam: ref
     alternates:
     - !_OutputAlternate
-      output: ref
+      typeParam: ref
     name: RefOutpGnrcAltParam
     typeKind: !_TypeKind Output
     typeParams:

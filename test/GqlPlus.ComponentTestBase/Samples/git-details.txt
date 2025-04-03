@@ -1,1 +1,1 @@
-c5aefdd  (HEAD -> name-samples) 2025-03-30 Tidy Schema definition and extend all and errors samples.
+e33a5bc  (HEAD -> name-samples) 2025-04-03 Improve Object spec and Introspection

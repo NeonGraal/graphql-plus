@@ -4,7 +4,7 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: RefOutpPrntParamSame
-      output: a
+      typeParam: a
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
@@ -29,10 +29,10 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: RefOutpPrntParamSame
-      output: a
+      typeParam: a
     alternates:
     - !_OutputAlternate
-      output: a
+      typeParam: a
     name: RefOutpPrntParamSame
     typeKind: !_TypeKind Output
     typeParams:

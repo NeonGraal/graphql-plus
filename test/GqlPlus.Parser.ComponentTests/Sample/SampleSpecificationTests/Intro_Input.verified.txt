@@ -25,7 +25,7 @@ Success
   _ObjBase
   <
     I@016/0006
-    _ObjTypeArg
+    _InputTypeArg
   >
   {
     !OF I@009/0007
@@ -65,26 +65,47 @@ Success
   _Alternate
   <
     I@018/0017
-    _InputBase
+    _InputTypeArg
   >
+  {
+    !OF I@009/0018
+    input
+    :
+    I@016/0018
+    _Identifier
+  }
 }
 {
-  !Ou I@008/0020
+  !Ou I@008/0021
+  _InputTypeArg
+  :
+  I@007/0022
+  _ObjTypeArg
+  {
+    !OF I@009/0023
+    input
+    :
+    I@016/0023
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0026
   _InputParam
   :
-  I@007/0021
+  I@007/0027
   _InputBase
   {
-    !OF I@009/0022
+    !OF I@009/0028
     modifiers
     :
-    I@020/0022
+    I@020/0028
     _Modifiers
     []
-    !OF I@009/0023
+    !OF I@009/0029
     default
     :
-    I@018/0023
+    I@018/0029
     _Constant
     ?
   }

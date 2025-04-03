@@ -12,14 +12,28 @@ _errors:
 - !_Error
   _kind: !_TokenKind End
   _message: In _DualAlternate can't get model for type '_Alternate'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _DualTypeArg can't get model for type '_ObjTypeArg'
 types: !_Map_Type
   !_Identifier _DualAlternate: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: dual
+      object: _DualAlternate
+      type: !_OutputBase
+        output: _Identifier
+    fields:
+    - !_OutputField
+      name: dual
+      type: !_OutputBase
+        output: _Identifier
     name: _DualAlternate
     parent: !_OutputBase
       output: _Alternate
       typeArgs:
       - !_OutputArg
-        output: _DualBase
+        output: _DualTypeArg
     typeKind: !_TypeKind Output
   !_Identifier _DualBase: !_TypeOutput
     allFields:
@@ -38,7 +52,7 @@ types: !_Map_Type
       output: _ObjBase
       typeArgs:
       - !_OutputArg
-        output: _ObjTypeArg
+        output: _DualTypeArg
     typeKind: !_TypeKind Output
   !_Identifier _DualField: !_TypeOutput
     name: _DualField
@@ -47,6 +61,22 @@ types: !_Map_Type
       typeArgs:
       - !_OutputArg
         output: _DualBase
+    typeKind: !_TypeKind Output
+  !_Identifier _DualTypeArg: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: dual
+      object: _DualTypeArg
+      type: !_OutputBase
+        output: _Identifier
+    fields:
+    - !_OutputField
+      name: dual
+      type: !_OutputBase
+        output: _Identifier
+    name: _DualTypeArg
+    parent: !_OutputBase
+      output: _ObjTypeArg
     typeKind: !_TypeKind Output
   !_Identifier _TypeDual: !_TypeOutput
     name: _TypeDual

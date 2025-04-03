@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
@@ -8,9 +9,9 @@ internal class MergeOutputFields(
   IMerge<IGqlpInputParam> parameters
 ) : AstObjectFieldsMerger<IGqlpOutputField>(logger)
 {
-  protected override string ItemMatchName => "ModifiedType + EnumLabel";
+  protected override string ItemMatchName => "ModifiedType";
   protected override string ItemMatchKey(IGqlpOutputField item)
-    => item.ModifiedType + "~" + item.EnumLabel;
+    => item.ModifiedType + item.EnumLabel.Prefixed(".");
 
   protected override ITokenMessages CanMergeGroup(IGrouping<string, IGqlpOutputField> group)
     => base.CanMergeGroup(group)

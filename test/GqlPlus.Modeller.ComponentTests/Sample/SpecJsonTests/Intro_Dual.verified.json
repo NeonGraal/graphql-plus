@@ -20,12 +20,38 @@
       "$tag": "_Error",
       "_kind": "End",
       "_message": "In _DualAlternate can\u0027t get model for type \u0027_Alternate\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": "End",
+      "_message": "In _DualTypeArg can\u0027t get model for type \u0027_ObjTypeArg\u0027"
     }
   ],
   "types": {
     "$tag": "_Map_Type",
     "_DualAlternate": {
       "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "dual",
+          "object": "_DualAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "dual",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
       "name": "_DualAlternate",
       "parent": {
         "$tag": "_OutputBase",
@@ -33,7 +59,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_DualBase"
+            "value": "_DualTypeArg"
           }
         ]
       },
@@ -69,7 +95,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_ObjTypeArg"
+            "value": "_DualTypeArg"
           }
         ]
       },
@@ -87,6 +113,36 @@
             "value": "_DualBase"
           }
         ]
+      },
+      "typeKind": "Output"
+    },
+    "_DualTypeArg": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "dual",
+          "object": "_DualTypeArg",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "dual",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "name": "_DualTypeArg",
+      "parent": {
+        "$tag": "_OutputBase",
+        "value": "_ObjTypeArg"
       },
       "typeKind": "Output"
     },

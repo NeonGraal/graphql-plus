@@ -3,8 +3,8 @@ types: !_Map_Type
   !_Identifier InpPrntParamSame: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      input: a
       object: RefInpPrntParamSame
+      typeParam: a
     allFields:
     - !_ObjectFor(_InputField)
       name: field
@@ -28,11 +28,11 @@ types: !_Map_Type
   !_Identifier RefInpPrntParamSame: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      input: a
       object: RefInpPrntParamSame
+      typeParam: a
     alternates:
     - !_InputAlternate
-      input: a
+      typeParam: a
     name: RefInpPrntParamSame
     typeKind: !_TypeKind Input
     typeParams:

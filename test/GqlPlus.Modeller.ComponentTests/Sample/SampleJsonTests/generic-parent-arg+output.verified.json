@@ -8,7 +8,7 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "RefOutpGnrcPrntArg",
-          "output": "ref"
+          "typeParam": "ref"
         }
       ],
       "name": "OutpGnrcPrntArg",
@@ -31,7 +31,7 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "RefOutpGnrcPrntArg",
-          "output": "ref"
+          "typeParam": "ref"
         }
       ],
       "alternates": [

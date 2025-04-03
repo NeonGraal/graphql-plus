@@ -7,8 +7,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "dual": "b",
-          "object": "RefDualPrntParamDiff"
+          "object": "RefDualPrntParamDiff",
+          "typeParam": "b"
         }
       ],
       "allFields": [
@@ -51,8 +51,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "dual": "b",
-          "object": "RefDualPrntParamDiff"
+          "object": "RefDualPrntParamDiff",
+          "typeParam": "b"
         }
       ],
       "alternates": [

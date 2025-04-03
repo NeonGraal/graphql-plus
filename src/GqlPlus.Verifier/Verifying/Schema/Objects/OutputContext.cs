@@ -26,12 +26,13 @@ internal class OutputContext(
 
   internal void CheckEnumValue(string label, IGqlpOutputEnum output)
   {
-    if (GetEnumType(output.EnumType.Name, out IGqlpEnum? theType)) {
+    string enumType = output.EnumType.Name;
+    if (GetEnumType(enumType, out IGqlpEnum? theType)) {
       if (!GetEnumValueType(theType, output.EnumLabel ?? "", out IGqlpEnum? _)) {
-        AddError(output, $"Output {label} Enum Value", $"'{output.EnumLabel}' not a Value of '{output.EnumType}'");
+        AddError(output, $"Output {label} Enum Value", $"'{output.EnumLabel}' not a Value of '{enumType}'");
       }
     } else {
-      AddError(output, $"Output {label} Enum", $"'{output.EnumType}' is not an Enum type");
+      AddError(output, $"Output {label} Enum", $"'{enumType}' is not an Enum type");
     }
   }
 }

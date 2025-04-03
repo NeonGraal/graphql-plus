@@ -33,6 +33,7 @@ internal abstract class ObjectAlternatesParser<TObjAlt, TObjAltAst, TObjBase, TO
 
       TObjBase baseObject = objBase.Required();
       TObjAltAst alternate = ObjAlternate(at, baseObject.Name, baseObject.Description) with {
+        IsTypeParam = baseObject.IsTypeParam,
         BaseArgs = baseObject.Args.ArrayOf<TObjArg>(),
       };
       result.Add(alternate);

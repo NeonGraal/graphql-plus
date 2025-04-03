@@ -496,11 +496,20 @@ types: !_Map_Type
       name: Boolean
       object: OutpFieldEnumAlias
       typeKind: !_SimpleKind Enum
+    - !_ObjectFor(_OutputField)
+      field: Boolean
+      label: true
+      object: OutpFieldEnumAlias
+      typeKind: !_SimpleKind Enum
     fields:
     - !_OutputEnum
       field: field
       label: true
       name: Boolean
+      typeKind: !_SimpleKind Enum
+    - !_OutputEnum
+      field: Boolean
+      label: true
       typeKind: !_SimpleKind Enum
     name: OutpFieldEnumAlias
     typeKind: !_TypeKind Output
@@ -512,11 +521,20 @@ types: !_Map_Type
       name: Boolean
       object: OutpFieldEnumValue
       typeKind: !_SimpleKind Enum
+    - !_ObjectFor(_OutputField)
+      field: Boolean
+      label: true
+      object: OutpFieldEnumValue
+      typeKind: !_SimpleKind Enum
     fields:
     - !_OutputEnum
       field: field
       label: true
       name: Boolean
+      typeKind: !_SimpleKind Enum
+    - !_OutputEnum
+      field: Boolean
+      label: true
       typeKind: !_SimpleKind Enum
     name: OutpFieldEnumValue
     typeKind: !_TypeKind Output

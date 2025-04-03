@@ -24,11 +24,11 @@ types: !_Map_Type
   !_Identifier RefInpGnrcFieldArg: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      input: ref
       object: RefInpGnrcFieldArg
+      typeParam: ref
     alternates:
     - !_InputAlternate
-      input: ref
+      typeParam: ref
     name: RefInpGnrcFieldArg
     typeKind: !_TypeKind Input
     typeParams:

@@ -4,10 +4,10 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: OutpGnrcAlt
-      output: type
+      typeParam: type
     alternates:
     - !_OutputAlternate
-      output: type
+      typeParam: type
     name: OutpGnrcAlt
     typeKind: !_TypeKind Output
     typeParams:

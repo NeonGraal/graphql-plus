@@ -9,9 +9,6 @@ _errors:
 - !_Error
   _kind: !_TokenKind End
   _message: In _BaseDomainItem can't get model for type '_Described'
-- !_Error
-  _kind: !_TokenKind End
-  _message: In _DomainItem can't get model for type ''
 types: !_Map_Type
   !_Identifier _BaseDomain: !_TypeOutput
     allFields:

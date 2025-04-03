@@ -15,11 +15,6 @@
       "$tag": "_Error",
       "_kind": "End",
       "_message": "In _BaseDomainItem can\u0027t get model for type \u0027_Described\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_kind": "End",
-      "_message": "In _DomainItem can\u0027t get model for type \u0027\u0027"
     }
   ],
   "types": {

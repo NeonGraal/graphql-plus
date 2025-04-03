@@ -14,14 +14,14 @@ types: !_Map_Type
     allFields:
     - !_ObjectFor(_OutputField)
       description: 'Test Descr'
-      field: field
+      field: EnumOutpFieldValueDescr
       label: outpFieldValueDescr
       object: OutpFieldValueDescr
       typeKind: !_SimpleKind Enum
     fields:
     - !_OutputEnum
       description: 'Test Descr'
-      field: field
+      field: EnumOutpFieldValueDescr
       label: outpFieldValueDescr
       typeKind: !_SimpleKind Enum
     name: OutpFieldValueDescr

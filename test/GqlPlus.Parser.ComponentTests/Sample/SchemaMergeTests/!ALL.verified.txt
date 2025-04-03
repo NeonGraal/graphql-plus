@@ -1020,7 +1020,7 @@ Success
   >
   |
   P@029/0001
-  type
+  $type
 }
 {
   !In I@007/0001
@@ -1031,7 +1031,7 @@ Success
   >
   |
   P@029/0001
-  type
+  $type
 }
 {
   !Ou I@008/0001
@@ -1042,7 +1042,7 @@ Success
   >
   |
   P@031/0001
-  type
+  $type
 }
 {
   !Du I@006/0001
@@ -1068,7 +1068,7 @@ Success
   >
   |
   P@034/0002
-  ref
+  $ref
 }
 {
   !In I@007/0001
@@ -1094,7 +1094,7 @@ Success
   >
   |
   P@034/0002
-  ref
+  $ref
 }
 {
   !Ou I@008/0001
@@ -1120,7 +1120,7 @@ Success
   >
   |
   P@036/0002
-  ref
+  $ref
 }
 {
   !Du I@006/0001
@@ -1147,7 +1147,7 @@ Success
   >
   |
   P@039/0002
-  ref
+  $ref
 }
 {
   !In I@007/0001
@@ -1174,7 +1174,7 @@ Success
   >
   |
   P@039/0002
-  ref
+  $ref
 }
 {
   !Ou I@008/0001
@@ -1201,7 +1201,7 @@ Success
   >
   |
   P@041/0002
-  ref
+  $ref
 }
 {
   !Du I@006/0001
@@ -1223,7 +1223,7 @@ Success
   >
   |
   P@035/0002
-  ref
+  $ref
 }
 {
   !Du I@006/0003
@@ -1259,7 +1259,7 @@ Success
   >
   |
   P@035/0002
-  ref
+  $ref
 }
 {
   !Du I@006/0003
@@ -1295,7 +1295,7 @@ Success
   >
   |
   P@037/0002
-  ref
+  $ref
 }
 {
   !Du I@006/0003
@@ -1331,7 +1331,7 @@ Success
   >
   |
   P@036/0002
-  ref
+  $ref
 }
 {
   !Du I@006/0003
@@ -1367,7 +1367,7 @@ Success
   >
   |
   P@036/0002
-  ref
+  $ref
 }
 {
   !In I@007/0003
@@ -1403,7 +1403,7 @@ Success
   >
   |
   P@038/0002
-  ref
+  $ref
 }
 {
   !Ou I@008/0003
@@ -1439,7 +1439,7 @@ Success
   >
   |
   P@035/0002
-  ref
+  $ref
 }
 {
   !In I@007/0001
@@ -1461,7 +1461,7 @@ Success
   >
   |
   P@035/0002
-  ref
+  $ref
 }
 {
   !Ou I@008/0001
@@ -1483,7 +1483,7 @@ Success
   >
   |
   P@037/0002
-  ref
+  $ref
 }
 {
   !Du I@006/0001
@@ -1557,7 +1557,7 @@ Success
   >
   |
   P@032/0002
-  ref
+  $ref
 }
 {
   !Du I@006/0003
@@ -1597,7 +1597,7 @@ Success
   >
   |
   P@032/0002
-  ref
+  $ref
 }
 {
   !Du I@006/0003
@@ -1637,7 +1637,7 @@ Success
   >
   |
   P@034/0002
-  ref
+  $ref
 }
 {
   !Du I@006/0003
@@ -1726,7 +1726,7 @@ Success
   >
   |
   P@036/0002
-  ref
+  $ref
 }
 {
   !In I@007/0001
@@ -1756,7 +1756,7 @@ Success
   >
   |
   P@036/0002
-  ref
+  $ref
 }
 {
   !Ou I@008/0001
@@ -1786,7 +1786,7 @@ Success
   >
   |
   P@038/0002
-  ref
+  $ref
 }
 {
   !Du I@006/0001
@@ -1812,7 +1812,7 @@ Success
   >
   |
   P@037/0002
-  ref
+  $ref
 }
 {
   !Du I@006/0003
@@ -1852,7 +1852,7 @@ Success
   >
   |
   P@037/0002
-  ref
+  $ref
 }
 {
   !Du I@006/0003
@@ -1892,7 +1892,7 @@ Success
   >
   |
   P@039/0002
-  ref
+  $ref
 }
 {
   !Du I@006/0003
@@ -1932,7 +1932,7 @@ Success
   >
   |
   P@038/0002
-  ref
+  $ref
 }
 {
   !Du I@006/0003
@@ -1972,7 +1972,7 @@ Success
   >
   |
   P@038/0002
-  ref
+  $ref
 }
 {
   !In I@007/0003
@@ -2012,7 +2012,7 @@ Success
   >
   |
   P@040/0002
-  ref
+  $ref
 }
 {
   !Ou I@008/0003
@@ -2052,7 +2052,7 @@ Success
   >
   |
   P@033/0002
-  ref
+  $ref
 }
 {
   !Du I@006/0003
@@ -2092,7 +2092,7 @@ Success
   >
   |
   P@033/0002
-  ref
+  $ref
 }
 {
   !In I@007/0003
@@ -2132,7 +2132,7 @@ Success
   >
   |
   P@035/0002
-  ref
+  $ref
 }
 {
   !Ou I@008/0003
@@ -2205,7 +2205,7 @@ Success
   >
   |
   P@035/0002
-  ref
+  $ref
 }
 {
   !In I@007/0001
@@ -2231,7 +2231,7 @@ Success
   >
   |
   P@035/0002
-  ref
+  $ref
 }
 {
   !Ou I@008/0001
@@ -2257,7 +2257,7 @@ Success
   >
   |
   P@037/0002
-  ref
+  $ref
 }
 {
   !Du I@006/0001
@@ -2279,7 +2279,7 @@ Success
   >
   |
   P@036/0002
-  ref
+  $ref
 }
 {
   !Du I@006/0003
@@ -2315,7 +2315,7 @@ Success
   >
   |
   P@036/0002
-  ref
+  $ref
 }
 {
   !Du I@006/0003
@@ -2351,7 +2351,7 @@ Success
   >
   |
   P@038/0002
-  ref
+  $ref
 }
 {
   !Du I@006/0003
@@ -2495,7 +2495,7 @@ Success
   >
   |
   P@037/0002
-  ref
+  $ref
 }
 {
   !Du I@006/0003
@@ -2531,7 +2531,7 @@ Success
   >
   |
   P@037/0002
-  ref
+  $ref
 }
 {
   !In I@007/0003
@@ -2567,7 +2567,7 @@ Success
   >
   |
   P@039/0002
-  ref
+  $ref
 }
 {
   !Ou I@008/0003
@@ -2859,7 +2859,7 @@ Success
   OutpFieldValue
   {
     !OF I@025/0001
-    field
+    EnumOutpFieldValue
     =
     I@033/0001
     .outpFieldValue
@@ -2876,7 +2876,7 @@ Success
   OutpFieldValueDescr
   {
     !OF I@030/0001
-    field
+    EnumOutpFieldValueDescr
     =
     'Test Descr'
     I@053/0001
@@ -3626,7 +3626,7 @@ Success
   >
   |
   P@035/0002
-  b
+  $b
 }
 {
   !In I@007/0001
@@ -3659,7 +3659,7 @@ Success
   >
   |
   P@035/0002
-  b
+  $b
 }
 {
   !Ou I@008/0001
@@ -3692,7 +3692,7 @@ Success
   >
   |
   P@037/0002
-  b
+  $b
 }
 {
   !Du I@006/0001
@@ -3725,7 +3725,7 @@ Success
   >
   |
   P@035/0002
-  a
+  $a
 }
 {
   !In I@007/0001
@@ -3758,7 +3758,7 @@ Success
   >
   |
   P@035/0002
-  a
+  $a
 }
 {
   !Ou I@008/0001
@@ -3791,7 +3791,7 @@ Success
   >
   |
   P@037/0002
-  a
+  $a
 }
 {
   !Ou I@008/0003
@@ -4233,11 +4233,18 @@ Success
     field
     [
       field1
-      field2
     ]
     =
     I@046/0001
     Boolean
+    .true
+    !OF I@029/0002
+    Boolean
+    [
+      field2
+    ]
+    =
+    I@046/0002
     .true
   }
 }
@@ -4250,6 +4257,11 @@ Success
     =
     I@037/0001
     Boolean
+    .true
+    !OF I@029/0002
+    Boolean
+    =
+    I@037/0002
     .true
   }
 }

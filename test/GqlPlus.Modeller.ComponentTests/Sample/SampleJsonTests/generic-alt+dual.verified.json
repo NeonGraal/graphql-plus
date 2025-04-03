@@ -7,8 +7,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "dual": "type",
-          "object": "DualGnrcAlt"
+          "object": "DualGnrcAlt",
+          "typeParam": "type"
         }
       ],
       "alternates": [

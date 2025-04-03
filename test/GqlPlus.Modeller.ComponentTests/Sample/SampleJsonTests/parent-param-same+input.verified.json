@@ -7,8 +7,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "input": "a",
-          "object": "RefInpPrntParamSame"
+          "object": "RefInpPrntParamSame",
+          "typeParam": "a"
         }
       ],
       "allFields": [
@@ -51,8 +51,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "input": "a",
-          "object": "RefInpPrntParamSame"
+          "object": "RefInpPrntParamSame",
+          "typeParam": "a"
         }
       ],
       "alternates": [

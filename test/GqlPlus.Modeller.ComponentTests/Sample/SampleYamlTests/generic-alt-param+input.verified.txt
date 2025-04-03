@@ -40,11 +40,11 @@ types: !_Map_Type
   !_Identifier RefInpGnrcAltParam: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      input: ref
       object: RefInpGnrcAltParam
+      typeParam: ref
     alternates:
     - !_InputAlternate
-      input: ref
+      typeParam: ref
     name: RefInpGnrcAltParam
     typeKind: !_TypeKind Input
     typeParams:

@@ -84,8 +84,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "input": "ref",
-          "object": "RefInpGnrcFieldParam"
+          "object": "RefInpGnrcFieldParam",
+          "typeParam": "ref"
         }
       ],
       "alternates": [

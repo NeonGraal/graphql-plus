@@ -25,7 +25,7 @@ Success
   _ObjBase
   <
     I@016/0006
-    _ObjTypeArg
+    _DualTypeArg
   >
   {
     !OF I@009/0007
@@ -54,6 +54,27 @@ Success
   _Alternate
   <
     I@018/0015
-    _DualBase
+    _DualTypeArg
   >
+  {
+    !OF I@009/0016
+    dual
+    :
+    I@015/0016
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0019
+  _DualTypeArg
+  :
+  I@007/0020
+  _ObjTypeArg
+  {
+    !OF I@009/0021
+    dual
+    :
+    I@015/0021
+    _Identifier
+  }
 }

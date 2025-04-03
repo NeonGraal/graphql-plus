@@ -76,8 +76,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "dual": "ref",
-          "object": "RefDualGnrcAltDual"
+          "object": "RefDualGnrcAltDual",
+          "typeParam": "ref"
         }
       ],
       "alternates": [

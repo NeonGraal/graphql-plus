@@ -7,8 +7,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "input": "b",
-          "object": "RefInpPrntParamDiff"
+          "object": "RefInpPrntParamDiff",
+          "typeParam": "b"
         }
       ],
       "allFields": [
@@ -51,8 +51,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "input": "b",
-          "object": "RefInpPrntParamDiff"
+          "object": "RefInpPrntParamDiff",
+          "typeParam": "b"
         }
       ],
       "alternates": [

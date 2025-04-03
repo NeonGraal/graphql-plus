@@ -24,8 +24,8 @@ types: !_Map_Type
   !_Identifier DualGnrcPrntDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      dual: ref
       object: RefDualGnrcPrntDual
+      typeParam: ref
     name: DualGnrcPrntDual
     parent: !_DualBase
       dual: RefDualGnrcPrntDual
@@ -36,11 +36,11 @@ types: !_Map_Type
   !_Identifier RefDualGnrcPrntDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      dual: ref
       object: RefDualGnrcPrntDual
+      typeParam: ref
     alternates:
     - !_DualAlternate
-      dual: ref
+      typeParam: ref
     name: RefDualGnrcPrntDual
     typeKind: !_TypeKind Dual
     typeParams:

@@ -42,7 +42,8 @@ internal class MergeAllTypes(
 
     foreach (OutputDeclAst output in types.OfType<OutputDeclAst>()) {
       foreach (IGqlpOutputAlternate alternate in output.ObjAlternates) {
-        // Todo: FixupType(alternate, enumValues);
+        // No fixup needed?
+        // FixupType(alternate, enumValues);
       }
 
       foreach (IGqlpOutputField field in output.ObjFields) {
@@ -70,7 +71,7 @@ internal class MergeAllTypes(
     where TEnum : AstNamed, IGqlpOutputEnum
   {
     if (type is TEnum named) {
-      if (string.IsNullOrWhiteSpace(named.Name)
+      if (string.IsNullOrWhiteSpace(named.EnumType.Name)
         && enumValues.TryGetValue(type.EnumLabel ?? "", out string? enumType)) {
         named.Name = enumType;
       }

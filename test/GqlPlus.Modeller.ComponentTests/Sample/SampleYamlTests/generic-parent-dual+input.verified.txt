@@ -24,8 +24,8 @@ types: !_Map_Type
   !_Identifier InpGnrcPrntDual: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      input: ref
       object: RefInpGnrcPrntDual
+      typeParam: ref
     name: InpGnrcPrntDual
     parent: !_InputBase
       input: RefInpGnrcPrntDual
@@ -36,11 +36,11 @@ types: !_Map_Type
   !_Identifier RefInpGnrcPrntDual: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      input: ref
       object: RefInpGnrcPrntDual
+      typeParam: ref
     alternates:
     - !_InputAlternate
-      input: ref
+      typeParam: ref
     name: RefInpGnrcPrntDual
     typeKind: !_TypeKind Input
     typeParams:

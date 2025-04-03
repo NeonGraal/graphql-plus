@@ -37,8 +37,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "input": "ref",
-          "object": "RefInpGnrcAltSmpl"
+          "object": "RefInpGnrcAltSmpl",
+          "typeParam": "ref"
         }
       ],
       "alternates": [

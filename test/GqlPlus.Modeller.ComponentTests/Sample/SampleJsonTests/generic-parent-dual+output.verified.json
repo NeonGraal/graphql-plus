@@ -47,7 +47,7 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "RefOutpGnrcPrntDual",
-          "output": "ref"
+          "typeParam": "ref"
         }
       ],
       "name": "OutpGnrcPrntDual",
@@ -69,7 +69,7 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "RefOutpGnrcPrntDual",
-          "output": "ref"
+          "typeParam": "ref"
         }
       ],
       "alternates": [

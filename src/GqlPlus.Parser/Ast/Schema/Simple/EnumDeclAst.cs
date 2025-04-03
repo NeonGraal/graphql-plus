@@ -7,19 +7,23 @@ internal sealed record class EnumDeclAst(
   TokenAt At,
   string Name,
   string Description,
-  EnumMemberAst[] Members
-) : AstSimple<EnumMemberAst>(At, Name, Description, Members)
-  , IEquatable<EnumDeclAst>
+  EnumLabelAst[] Labels
+) : AstSimple<EnumLabelAst>(At, Name, Description, Labels)
   , IGqlpEnum
 {
   internal override string Abbr => "En";
   public override string Label => "Enum";
 
-  IEnumerable<IGqlpEnumItem> IGqlpSimple<IGqlpEnumItem>.Items => Members;
+  IEnumerable<IGqlpEnumLabel> IGqlpSimple<IGqlpEnumLabel>.Items => Labels;
 
-  public EnumDeclAst(TokenAt at, string name, EnumMemberAst[] members)
-    : this(at, name, "", members) { }
+  public EnumDeclAst(TokenAt at, string name, EnumLabelAst[] labels)
+    : this(at, name, "", labels) { }
 
   public bool HasValue(string value)
-    => Members.Any(v => v.Name == value || v.Aliases.Contains(value));
+    => Items.Any(v => v.Name == value || v.Aliases.Contains(value));
+
+  public bool Equals(EnumDeclAst? other)
+    => base.Equals(other);
+  public override int GetHashCode()
+    => base.GetHashCode();
 }

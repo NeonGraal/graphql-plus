@@ -1,0 +1,2 @@
+domain Name { :PrntName String /a+/ }
+domain PrntName { String /b+/ }

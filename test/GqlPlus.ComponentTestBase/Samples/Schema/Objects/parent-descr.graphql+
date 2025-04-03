@@ -1,0 +1,2 @@
+object ObjName { : "Test" "Descr" RefObjName }
+object RefObjName { parent: Number | String }

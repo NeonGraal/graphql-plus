@@ -1,3 +1,0 @@
-output OutFieldParent { field = OutEnumParented.outEnumParent }
-enum OutEnumParented { :OutEnumParent outParent ed }
-enum OutEnumParent { outEnumParent }

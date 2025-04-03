@@ -1,0 +1,3 @@
+domain Name { :PrntName Enum enum_name }
+domain PrntName { Enum prnt_name }
+enum EnumName { enum_name prnt_name }

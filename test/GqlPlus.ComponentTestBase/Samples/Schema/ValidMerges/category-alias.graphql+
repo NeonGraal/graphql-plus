@@ -1,3 +1,0 @@
-category [CatA1] { CatAlias }
-category [CatA2] { CatAlias }
-output CatAlias { }

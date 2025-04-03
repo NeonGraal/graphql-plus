@@ -1,0 +1,25 @@
+﻿{
+  "$tag": "_Schema",
+  "categories": {
+    "$tag": "_Map_Categories",
+    "ctgrAlias": {
+      "$tag": "_Category",
+      "aliases": ["CatA1", "CatA2"],
+      "name": "ctgrAlias",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "CtgrAlias",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
+    }
+  },
+  "types": {
+    "$tag": "_Map_Type",
+    "CtgrAlias": {
+      "$tag": "_TypeOutput",
+      "name": "CtgrAlias",
+      "typeKind": "Output"
+    }
+  }
+}

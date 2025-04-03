@@ -5,12 +5,11 @@ internal class DirectiveModeller(
 ) : ModellerBase<IGqlpSchemaDirective, DirectiveModel>
 {
   protected override DirectiveModel ToModel(IGqlpSchemaDirective ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name) {
+    => new(ast.Name, ast.Description) {
       Aliases = [.. ast.Aliases],
-      Description = ast.Description,
       Repeatable = ast.DirectiveOption == DirectiveOption.Repeatable,
       Locations = ast.Locations,
-      Params = parameter.ToModels(ast.Params, typeKinds),
+      Parameters = parameter.ToModels(ast.Params, typeKinds),
     };
 
   internal static DirectiveLocation Combine(DirectiveLocation[] values)

@@ -1,0 +1,23 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  OutpObjFieldAlias
+  {
+    !OF I@028/0001
+    field
+    [
+      field1
+      field2
+    ]
+    :
+    I@044/0001
+    FldOutpObjFieldAlias
+  }
+}
+{
+  !Ou I@008/0003
+  FldOutpObjFieldAlias
+}
+]

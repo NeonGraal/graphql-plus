@@ -17,3 +17,7 @@ public interface IGqlpType<TParent>
 public interface IGqlpSimple
   : IGqlpType<string>
 { }
+
+public interface IGqlpTypeRef
+  : IGqlpNamed
+{ }

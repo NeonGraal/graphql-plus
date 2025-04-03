@@ -5,19 +5,19 @@ namespace GqlPlus.Merging.Simple;
 
 internal class MergeEnums(
   ILoggerFactory logger,
-  IMerge<IGqlpEnumItem> enumMembers
-) : AstTypeMerger<IGqlpType, IGqlpEnum, string, IGqlpEnumItem>(logger, enumMembers)
+  IMerge<IGqlpEnumLabel> enumLabels
+) : AstTypeMerger<IGqlpType, IGqlpEnum, string, IGqlpEnumLabel>(logger, enumLabels)
 {
   protected override string ItemMatchName => "Parent";
   protected override string ItemMatchKey(IGqlpEnum item)
     => item.Parent ?? "";
 
-  internal override IEnumerable<EnumMemberAst> GetItems(IGqlpEnum type)
-    => type.Items.ArrayOf<EnumMemberAst>();
+  internal override IEnumerable<IGqlpEnumLabel> GetItems(IGqlpEnum type)
+    => type.Items.ArrayOf<IGqlpEnumLabel>();
 
-  internal override IGqlpEnum SetItems(IGqlpEnum input, IEnumerable<IGqlpEnumItem> items)
+  internal override IGqlpEnum SetItems(IGqlpEnum input, IEnumerable<IGqlpEnumLabel> items)
   {
     EnumDeclAst ast = (EnumDeclAst)input;
-    return ast with { Members = items.ArrayOf<EnumMemberAst>() };
+    return ast with { Items = items.ArrayOf<EnumLabelAst>() };
   }
 }

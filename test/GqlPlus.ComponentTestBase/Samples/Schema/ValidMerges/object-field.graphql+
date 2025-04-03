@@ -1,3 +1,0 @@
-object ObjName { field: ObjNameFld }
-object ObjName { field: ObjNameFld }
-object ObjNameFld { }

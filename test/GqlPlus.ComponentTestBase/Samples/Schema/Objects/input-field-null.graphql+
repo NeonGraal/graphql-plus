@@ -1,0 +1,2 @@
+input Name { field: FldName? = null }
+dual FldName { }

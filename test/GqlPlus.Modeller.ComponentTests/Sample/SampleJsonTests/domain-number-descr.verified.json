@@ -1,0 +1,27 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DmnNmbrDescr": {
+      "$tag": "_DomainNumber",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRange)",
+          "domain": "DmnNmbrDescr",
+          "exclude": false,
+          "to": 2
+        }
+      ],
+      "domainKind": "Number",
+      "items": [
+        {
+          "$tag": "_DomainRange",
+          "exclude": false,
+          "to": 2
+        }
+      ],
+      "name": "DmnNmbrDescr",
+      "typeKind": "Domain"
+    }
+  }
+}

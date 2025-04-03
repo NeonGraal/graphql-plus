@@ -1,0 +1,2 @@
+output Name { field = "Test" "Descr" name }
+enum EnumName { name }

@@ -1,2 +1,0 @@
-output OutParam { field(OutParamIn): OutParam }
-input OutParamIn { param: Number | String }

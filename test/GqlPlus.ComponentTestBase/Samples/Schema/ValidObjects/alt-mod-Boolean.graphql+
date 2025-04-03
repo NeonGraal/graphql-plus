@@ -1,2 +1,0 @@
-object ObjName { | ObjNameAlt[^] }
-object ObjNameAlt { alt: Number | String }

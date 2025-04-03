@@ -1,2 +1,0 @@
-object ObjName { field: ObjNameFld }
-dual ObjNameFld { field: Number | String }

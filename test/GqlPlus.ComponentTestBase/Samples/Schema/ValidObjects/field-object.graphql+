@@ -1,2 +1,0 @@
-object ObjName { field: ObjNameFld }
-object ObjNameFld { field: Number | String }

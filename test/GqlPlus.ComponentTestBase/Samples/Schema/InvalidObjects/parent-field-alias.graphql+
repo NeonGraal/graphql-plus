@@ -1,3 +1,0 @@
-object Test { :Parent }
-object Test { field1[alias]: Test }
-object Parent { field2[alias]: Parent }

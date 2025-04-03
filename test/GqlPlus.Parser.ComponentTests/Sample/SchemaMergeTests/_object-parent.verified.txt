@@ -1,0 +1,37 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  DualObjPrnt
+  :
+  I@021/0001
+  RefDualObjPrnt
+}
+{
+  !Du I@006/0003
+  RefDualObjPrnt
+}
+{
+  !In I@007/0001
+  InpObjPrnt
+  :
+  I@021/0001
+  RefInpObjPrnt
+}
+{
+  !In I@007/0003
+  RefInpObjPrnt
+}
+{
+  !Ou I@008/0001
+  OutpObjPrnt
+  :
+  I@023/0001
+  RefOutpObjPrnt
+}
+{
+  !Ou I@008/0003
+  RefOutpObjPrnt
+}
+]

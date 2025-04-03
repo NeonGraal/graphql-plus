@@ -1,2 +1,0 @@
-object ObjName<$type> { field: ObjNameRef<$type> }
-object ObjNameRef<$ref> { | $ref }

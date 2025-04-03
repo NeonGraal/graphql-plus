@@ -1,0 +1,49 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  DualObjField
+  {
+    !DF I@021/0001
+    field
+    :
+    I@028/0001
+    FldDualObjField
+  }
+}
+{
+  !Du I@006/0003
+  FldDualObjField
+}
+{
+  !In I@007/0001
+  InpObjField
+  {
+    !IF I@021/0001
+    field
+    :
+    I@028/0001
+    FldInpObjField
+  }
+}
+{
+  !In I@007/0003
+  FldInpObjField
+}
+{
+  !Ou I@008/0001
+  OutpObjField
+  {
+    !OF I@023/0001
+    field
+    :
+    I@030/0001
+    FldOutpObjField
+  }
+}
+{
+  !Ou I@008/0003
+  FldOutpObjField
+}
+]

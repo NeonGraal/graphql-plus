@@ -15,8 +15,8 @@ internal abstract class ModellerObject<TAst, TObjBaseAst, TObjFieldAst, TObjAltA
   where TObjField : IObjFieldModel
   where TObjAlt : IObjAlternateModel
 {
-  internal ObjDescribedModel<TObjBase>? ParentModel(TObjBaseAst? parent, IMap<TypeKindModel> typeKinds)
-    => parent is null ? null : new(BaseModel(parent, typeKinds), parent.Description);
+  internal TObjBase? ParentModel(TObjBaseAst? parent, IMap<TypeKindModel> typeKinds)
+    => parent is null ? default : BaseModel(parent, typeKinds);
 
   internal TObjAlt[] AlternatesModels(IEnumerable<TObjAltAst> alternates, IMap<TypeKindModel> typeKinds)
     => alternate.ToModels(alternates, typeKinds);
@@ -24,8 +24,8 @@ internal abstract class ModellerObject<TAst, TObjBaseAst, TObjFieldAst, TObjAltA
   internal TObjField[] FieldsModels(IEnumerable<TObjFieldAst> fields, IMap<TypeKindModel> typeKinds)
     => objField.ToModels(fields, typeKinds);
 
-  internal DescribedModel[] TypeParamsModels(IEnumerable<IGqlpTypeParam> typeParams)
-    => [.. typeParams.Select(p => new DescribedModel(p.Name) { Description = p.Description })];
+  internal NamedModel[] TypeParamsModels(IEnumerable<IGqlpTypeParam> typeParams)
+    => [.. typeParams.Select(p => new NamedModel(p.Name, p.Description))];
 
   protected TObjBase BaseModel(TObjBaseAst ast, IMap<TypeKindModel> typeKinds)
     => objBase.ToModel<TObjBase>(ast, typeKinds);

@@ -1,0 +1,112 @@
+﻿!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  _TypeInput
+  :
+  I@007/0002
+  _TypeObject
+  <
+    I@019/0002
+    _TypeKind.Input
+    I@035/0002
+    _InputBase
+    I@046/0002
+    _InputField
+    I@058/0002
+    _InputAlternate
+  >
+}
+{
+  !Ou I@008/0005
+  _InputBase
+  :
+  I@007/0006
+  _ObjBase
+  <
+    I@016/0006
+    _InputTypeArg
+  >
+  {
+    !OF I@009/0007
+    input
+    :
+    I@016/0007
+    _Identifier
+  }
+  |
+  I@007/0008
+  _DualBase
+}
+{
+  !Ou I@008/0011
+  _InputField
+  :
+  I@007/0012
+  _Field
+  <
+    I@014/0012
+    _InputBase
+  >
+  {
+    !OF I@009/0013
+    default
+    :
+    I@018/0013
+    _Constant
+    ?
+  }
+}
+{
+  !Ou I@008/0016
+  _InputAlternate
+  :
+  I@007/0017
+  _Alternate
+  <
+    I@018/0017
+    _InputTypeArg
+  >
+  {
+    !OF I@009/0018
+    input
+    :
+    I@016/0018
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0021
+  _InputTypeArg
+  :
+  I@007/0022
+  _ObjTypeArg
+  {
+    !OF I@009/0023
+    input
+    :
+    I@016/0023
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0026
+  _InputParam
+  :
+  I@007/0027
+  _InputBase
+  {
+    !OF I@009/0028
+    modifiers
+    :
+    I@020/0028
+    _Modifiers
+    []
+    !OF I@009/0029
+    default
+    :
+    I@018/0029
+    _Constant
+    ?
+  }
+}

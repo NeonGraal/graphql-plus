@@ -13,11 +13,11 @@ public class ResultOkArrayTests : BaseResultTests
 
     IResult<string> result = _okArray.AsPartial(Sample, v => withValue = true, () => action = true);
 
-    result.Should().BeOfType<ResultOk<string>>();
-    using AssertionScope scope = new();
-    result.Optional().Should().Be(Sample);
-    withValue.Should().BeTrue();
-    action.Should().BeTrue();
+    result.ShouldSatisfyAllConditions(
+      () => result.ShouldBeOfType<ResultOk<string>>()
+        .Optional().ShouldBe(Sample),
+      () => withValue.ShouldBeTrue(),
+      () => action.ShouldBeTrue());
   }
 
   [Fact]
@@ -25,8 +25,8 @@ public class ResultOkArrayTests : BaseResultTests
   {
     IResultArray<string> result = _okArray.AsPartialArray(SampleArray);
 
-    result.Should().BeOfType<ResultArrayOk<string>>();
-    result.Optional().Should().BeEquivalentTo(SampleArray);
+    result.ShouldBeOfType<ResultArrayOk<string>>();
+    result.Optional().ShouldBe(SampleArray);
   }
 
   [Fact]
@@ -34,8 +34,8 @@ public class ResultOkArrayTests : BaseResultTests
   {
     IResult<object> result = _okArray.AsResult<object>();
 
-    result.Should().BeOfType<ResultOk<object>>()
-      .Subject.Required().Should().BeEquivalentTo(new object[] { "Ok" });
+    result.ShouldBeOfType<ResultOk<object>>()
+      .Required().ShouldBe(new object[] { "Ok" });
   }
 
   [Fact]
@@ -43,7 +43,7 @@ public class ResultOkArrayTests : BaseResultTests
   {
     IResult<string> result = _okArray.AsResult<string>();
 
-    result.Should().BeOfType<ResultEmpty<string>>();
+    result.ShouldBeOfType<ResultEmpty<string>>();
   }
 
   [Fact]
@@ -51,8 +51,8 @@ public class ResultOkArrayTests : BaseResultTests
   {
     IResultArray<object> result = _okArray.AsResultArray<object>();
 
-    result.Should().BeOfType<ResultArrayOk<object>>()
-      .Subject.Required().Should().BeEquivalentTo(new object[] { "Ok" });
+    result.ShouldBeOfType<ResultArrayOk<object>>()
+      .Required().ShouldBe(["Ok"]);
   }
 
   [Fact]
@@ -60,7 +60,7 @@ public class ResultOkArrayTests : BaseResultTests
   {
     IResultArray<int> result = _okArray.AsResultArray<int>();
 
-    result.Should().BeOfType<ResultArrayEmpty<int>>();
+    result.ShouldBeOfType<ResultArrayEmpty<int>>();
   }
 
   [Fact]
@@ -68,8 +68,8 @@ public class ResultOkArrayTests : BaseResultTests
   {
     IResultArray<string> result = _okArray.AsResultArray(SampleArray);
 
-    result.Should().BeOfType<ResultArrayOk<string>>();
-    result.Optional().Should().BeEquivalentTo(new object[] { Ok });
+    result.ShouldBeOfType<ResultArrayOk<string>>();
+    result.Optional().ShouldBe(new object[] { Ok });
   }
 
   [Fact]
@@ -77,7 +77,7 @@ public class ResultOkArrayTests : BaseResultTests
   {
     IResult<string> result = _okArray.Map(a => Ok.Ok(), () => Sample.Ok());
 
-    result.Should().BeOfType<ResultOk<string>>()
-      .Subject.Required().Should().Be(Ok);
+    result.ShouldBeOfType<ResultOk<string>>()
+      .Required().ShouldBe(Ok);
   }
 }

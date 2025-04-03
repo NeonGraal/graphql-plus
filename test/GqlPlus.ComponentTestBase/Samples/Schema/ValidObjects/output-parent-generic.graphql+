@@ -1,4 +1,0 @@
-output OutGenParent { | OutGenParentRef<OutParentGen.outGenParent> }
-output OutGenParentRef<$type> { field: $type }
-enum OutParentGen { :OutPrntendedGen outGenPrntended }
-enum OutPrntendedGen { outGenParent }

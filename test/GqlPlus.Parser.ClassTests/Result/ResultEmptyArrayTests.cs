@@ -13,11 +13,11 @@ public class ResultEmptyArrayTests : BaseResultTests
 
     IResult<string> result = _emptyArray.AsPartial(Sample, v => withValue = true, () => action = true);
 
-    result.Should().BeOfType<ResultOk<string>>();
-    using AssertionScope scope = new();
-    result.Optional().Should().Be(Sample);
-    withValue.Should().BeFalse();
-    action.Should().BeTrue();
+    result.ShouldSatisfyAllConditions(
+      () => result.ShouldBeOfType<ResultOk<string>>()
+        .Optional().ShouldBe(Sample),
+      () => withValue.ShouldBeFalse(),
+      () => action.ShouldBeTrue());
   }
 
   [Fact]
@@ -27,10 +27,10 @@ public class ResultEmptyArrayTests : BaseResultTests
 
     IResultArray<string> result = _emptyArray.AsPartialArray(SampleArray, v => withValue = true);
 
-    result.Should().BeOfType<ResultArrayOk<string>>();
-    using AssertionScope scope = new();
-    result.Optional().Should().Equal(Sample);
-    withValue.Should().BeFalse();
+    result.ShouldSatisfyAllConditions(
+      () => result.ShouldBeOfType<ResultArrayOk<string>>()
+        .Optional().ShouldBe([Sample]),
+      () => withValue.ShouldBeFalse());
   }
 
   [Fact]
@@ -38,7 +38,7 @@ public class ResultEmptyArrayTests : BaseResultTests
   {
     IResultArray<string> result = _emptyArray.AsResultArray(SampleArray);
 
-    result.Should().BeOfType<ResultArrayEmpty<string>>();
+    result.ShouldBeOfType<ResultArrayEmpty<string>>();
   }
 
   [Fact]
@@ -46,7 +46,7 @@ public class ResultEmptyArrayTests : BaseResultTests
   {
     IResultArray<int> result = _emptyArray.AsResultArray<int>();
 
-    result.Should().BeOfType<ResultArrayEmpty<int>>();
+    result.ShouldBeOfType<ResultArrayEmpty<int>>();
   }
 
   [Fact]
@@ -54,7 +54,7 @@ public class ResultEmptyArrayTests : BaseResultTests
   {
     IResult<int> result = _emptyArray.AsResult<int>();
 
-    result.Should().BeOfType<ResultEmpty<int>>();
+    result.ShouldBeOfType<ResultEmpty<int>>();
   }
 
   [Fact]
@@ -62,8 +62,8 @@ public class ResultEmptyArrayTests : BaseResultTests
   {
     IResult<string> result = _emptyArray.Map(a => Empty.Ok(), () => Sample.Ok());
 
-    result.Should().BeOfType<ResultOk<string>>()
-      .Subject.Required().Should().Be(Sample);
+    result.ShouldBeOfType<ResultOk<string>>()
+      .Required().ShouldBe(Sample);
   }
 
   [Fact]
@@ -71,6 +71,6 @@ public class ResultEmptyArrayTests : BaseResultTests
   {
     IEnumerable<string> result = _emptyArray.Optional();
 
-    result.Should().BeEmpty();
+    result.ShouldBeEmpty();
   }
 }

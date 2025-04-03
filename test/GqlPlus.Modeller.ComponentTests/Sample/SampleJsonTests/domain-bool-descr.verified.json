@@ -1,0 +1,27 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DmnBoolDescr": {
+      "$tag": "_DomainBoolean",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "domain": "DmnBoolDescr",
+          "exclude": false,
+          "value": true
+        }
+      ],
+      "domainKind": "Boolean",
+      "items": [
+        {
+          "$tag": "_DomainTrueFalse",
+          "exclude": false,
+          "value": true
+        }
+      ],
+      "name": "DmnBoolDescr",
+      "typeKind": "Domain"
+    }
+  }
+}

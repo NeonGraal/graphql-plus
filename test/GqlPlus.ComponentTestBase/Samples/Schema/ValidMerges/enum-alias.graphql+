@@ -1,2 +1,0 @@
-enum EnAlias [En1] { alias }
-enum EnAlias [En2] { alias }

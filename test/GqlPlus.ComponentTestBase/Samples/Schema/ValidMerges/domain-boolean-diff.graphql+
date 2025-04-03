@@ -1,2 +1,0 @@
-domain BoolDiff { boolean true }
-domain BoolDiff { boolean false }

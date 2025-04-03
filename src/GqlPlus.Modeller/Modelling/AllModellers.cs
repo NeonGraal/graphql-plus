@@ -22,7 +22,7 @@ public static class AllModellers
       .AddTypesModeller()
       .AddTypeModeller<IGqlpTypeSpecial, SpecialTypeModel, SpecialTypeModeller>()
       // Simple
-      .AddDomainModeller<IGqlpDomainMember, DomainMemberModel, DomainEnumModeller>()
+      .AddDomainModeller<IGqlpDomainLabel, DomainLabelModel, DomainEnumModeller>()
       .AddDomainModeller<IGqlpDomainRange, DomainRangeModel, DomainNumberModeller>()
       .AddDomainModeller<IGqlpDomainRegex, DomainRegexModel, DomainStringModeller>()
       .AddDomainModeller<IGqlpDomainTrueFalse, DomainTrueFalseModel, DomainBooleanModeller>()

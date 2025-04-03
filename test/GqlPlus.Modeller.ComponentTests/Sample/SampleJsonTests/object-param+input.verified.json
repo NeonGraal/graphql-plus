@@ -1,0 +1,59 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "InpObjParam": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "test",
+          "object": "InpObjParam",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "test"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "type",
+          "object": "InpObjParam",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "test",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "test"
+          }
+        },
+        {
+          "$tag": "_InputField",
+          "name": "type",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "type"
+          }
+        }
+      ],
+      "name": "InpObjParam",
+      "typeKind": "Input",
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "test"
+        },
+        {
+          "$tag": "_Named",
+          "value": "type"
+        }
+      ]
+    }
+  }
+}

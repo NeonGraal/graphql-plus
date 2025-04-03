@@ -1,0 +1,3 @@
+output Name { field("Test" "Descr" InName): FldName }
+dual FldName { }
+input InName { param: Number | String }

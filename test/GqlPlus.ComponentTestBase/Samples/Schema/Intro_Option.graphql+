@@ -1,4 +1,0 @@
-output _Setting {
-    : _Described
-        value: _Constant
-}

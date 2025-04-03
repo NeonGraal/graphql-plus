@@ -1,9 +1,0 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier OutpGenParent: !_TypeOutput
-    name: OutpGenParent
-    parent: !_TypeParam type
-    typeKind: !_TypeKind Output
-    typeParams:
-    - !_Described
-      name: type

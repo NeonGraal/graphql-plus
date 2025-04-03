@@ -1,0 +1,3 @@
+﻿Invalid Input. 'Test' cannot be a child of itself, even recursively via More
+Invalid Input. 'Recurse' cannot be a child of itself, even recursively via Test
+Invalid Input. 'More' cannot be a child of itself, even recursively via Recurse

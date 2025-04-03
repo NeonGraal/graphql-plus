@@ -6,10 +6,10 @@ namespace GqlPlus.Verifying.Schema.Simple;
 
 internal class VerifyEnumTypes(
   IVerifyAliased<IGqlpEnum> aliased,
-  IMerge<IGqlpEnumItem> mergeMembers
-) : AstParentItemVerifier<IGqlpEnum, string, UsageContext, IGqlpEnumItem>(aliased, mergeMembers)
+  IMerge<IGqlpEnumLabel> mergeLabels
+) : AstParentItemVerifier<IGqlpEnum, string, UsageContext, IGqlpEnumLabel>(aliased, mergeLabels)
 {
-  protected override IEnumerable<IGqlpEnumItem> GetItems(IGqlpEnum usage)
+  protected override IEnumerable<IGqlpEnumLabel> GetItems(IGqlpEnum usage)
     => usage.Items;
 
   protected override string GetParent(IGqlpType<string> usage)

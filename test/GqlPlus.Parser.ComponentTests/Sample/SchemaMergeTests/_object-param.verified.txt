@@ -1,0 +1,70 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  DualObjParam
+  <
+    I@020/0001
+    $test
+    I@020/0002
+    $type
+  >
+  {
+    !DF I@028/0001
+    test
+    :
+    I@035/0001
+    $test
+    !DF I@028/0002
+    type
+    :
+    I@035/0002
+    $type
+  }
+}
+{
+  !In I@007/0001
+  InpObjParam
+  <
+    I@020/0001
+    $test
+    I@020/0002
+    $type
+  >
+  {
+    !IF I@028/0001
+    test
+    :
+    I@035/0001
+    $test
+    !IF I@028/0002
+    type
+    :
+    I@035/0002
+    $type
+  }
+}
+{
+  !Ou I@008/0001
+  OutpObjParam
+  <
+    I@022/0001
+    $test
+    I@022/0002
+    $type
+  >
+  {
+    !OF I@030/0001
+    test
+    :
+    I@037/0001
+    $test
+    !OF I@030/0002
+    type
+    :
+    I@037/0002
+    $type
+  }
+}
+]

@@ -1,0 +1,2 @@
+enum Name { :PrntName name  }
+enum PrntName { prnt_name[name] }

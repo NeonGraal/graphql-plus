@@ -1,0 +1,65 @@
+﻿!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  _Directives
+  {
+    !OF I@009/0002
+    directive
+    :
+    I@020/0002
+    _Directive
+    !OF I@009/0003
+    type
+    :
+    I@015/0003
+    _Type
+  }
+  |
+  I@007/0004
+  _Directive
+  I@007/0005
+  _Type
+}
+{
+  !Ou I@008/0008
+  _Directive
+  :
+  I@007/0009
+  _Aliased
+  {
+    !OF I@009/0010
+    parameters
+    :
+    I@021/0010
+    _FieldParam
+    []
+    !OF I@009/0011
+    repeatable
+    :
+    I@021/0011
+    Boolean
+    !OF I@009/0012
+    locations
+    :
+    I@020/0012
+    _
+    [_Location]
+  }
+}
+{
+  !En I@006/0015
+  _Location
+  !EL I@018/0015
+  Operation
+  !EL I@028/0015
+  Variable
+  !EL I@037/0015
+  Field
+  !EL I@043/0015
+  Inline
+  !EL I@050/0015
+  Spread
+  !EL I@057/0015
+  Fragment
+}

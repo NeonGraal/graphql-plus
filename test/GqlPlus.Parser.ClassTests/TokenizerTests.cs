@@ -10,7 +10,7 @@ public class TokenizerTests
   {
     Tokenizer tokens = new(input + " ");
 
-    tokens.Read().Should().BeTrue();
+    tokens.Read().ShouldBeTrue();
 
     return tokens;
   }
@@ -20,7 +20,7 @@ public class TokenizerTests
   {
     Tokenizer tokens = new("");
 
-    tokens.AtStart.Should().BeTrue();
+    tokens.AtStart.ShouldBeTrue();
   }
 
   [Fact]
@@ -30,11 +30,9 @@ public class TokenizerTests
 
     bool result = tokens.Read();
 
-    using AssertionScope scope = new();
-
-    result.Should().BeFalse();
-
-    tokens.AtEnd.Should().BeTrue();
+    result.ShouldSatisfyAllConditions(
+      () => result.ShouldBeFalse(),
+      () => tokens.AtEnd.ShouldBeTrue());
   }
 
   [Theory]
@@ -53,14 +51,12 @@ public class TokenizerTests
 
     bool result = tokens.Read();
 
-    using AssertionScope scope = new();
-
-    result.Should().BeFalse();
-
-    tokens.AtEnd.Should().BeTrue();
+    result.ShouldSatisfyAllConditions(
+      () => result.ShouldBeFalse(),
+      () => tokens.AtEnd.ShouldBeTrue());
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Identifier_AfterRead_ReturnsIdentifier(string expected)
   {
     Tokenizer tokens = PrepareTokens(expected);
@@ -79,7 +75,7 @@ public class TokenizerTests
     TrueAndExpected(tokens.Identifier, expected);
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Number_AfterReadTrue_IsTrue(decimal expected)
   {
     Tokenizer tokens = PrepareTokens(expected.ToString(CultureInfo.InvariantCulture));
@@ -87,7 +83,7 @@ public class TokenizerTests
     TrueAndExpected(tokens.Number, expected);
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Number_WithDecimal_AfterReadTrue_IsTrue(decimal expected)
   {
     Tokenizer tokens = PrepareTokens(expected.ToString(CultureInfo.InvariantCulture));
@@ -95,7 +91,7 @@ public class TokenizerTests
     TrueAndExpected(tokens.Number, expected);
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Number_WithSeparator_AfterReadTrue_IsTrue(decimal expected)
   {
     string input = string.Join("_",
@@ -108,7 +104,7 @@ public class TokenizerTests
     TrueAndExpected(tokens.Number, expected);
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Number_Identifier_AfterReadTrue_IsFalse(string identifier)
   {
     Tokenizer tokens = PrepareTokens(identifier);
@@ -116,7 +112,7 @@ public class TokenizerTests
     FalseAndExpected<decimal>(tokens.Number, default);
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_Double_AfterReadTrue_IsTrue(string sample)
   {
     Tokenizer tokens = PrepareTokens('"' + sample + '"');
@@ -124,7 +120,7 @@ public class TokenizerTests
     TrueAndExpected(tokens.String, sample);
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_DoubleWithNoEnd_AfterReadTrue_IsFalse(string sample)
   {
     Tokenizer tokens = PrepareTokens('"' + sample);
@@ -132,7 +128,7 @@ public class TokenizerTests
     FalseAndExpected(tokens.String, sample + " ", tokens);
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_DoubleWithSingleEnd_AfterReadTrue_IsFalse(string sample)
   {
     Tokenizer tokens = PrepareTokens('"' + sample + "'");
@@ -140,7 +136,7 @@ public class TokenizerTests
     FalseAndExpected(tokens.String, sample + "' ", tokens);
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_Single_AfterReadTrue_IsTrue(string sample)
   {
     Tokenizer tokens = PrepareTokens($"'{sample}'");
@@ -148,7 +144,7 @@ public class TokenizerTests
     TrueAndExpected(tokens.String, sample);
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_SingleWithNoEnd_AfterReadTrue_IsFalse(string sample)
   {
     Tokenizer tokens = PrepareTokens("'" + sample);
@@ -156,7 +152,7 @@ public class TokenizerTests
     FalseAndExpected(tokens.String, sample + " ", tokens);
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_SingleWithDoubleEnd_AfterReadTrue_IsFalse(string sample)
   {
     Tokenizer tokens = PrepareTokens("'" + sample + '"');
@@ -164,7 +160,7 @@ public class TokenizerTests
     FalseAndExpected(tokens.String, sample + '"' + ' ');
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void String_Identifier_AfterReadTrue_IsFalse(string identifier)
   {
     Tokenizer tokens = PrepareTokens(identifier);
@@ -172,7 +168,7 @@ public class TokenizerTests
     FalseAndExpected(tokens.String, "");
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Regex_AfterReadTrue_IsTrue(string regex)
   {
     Tokenizer tokens = PrepareTokens($"/{regex}/");
@@ -180,7 +176,7 @@ public class TokenizerTests
     TrueAndExpected(tokens.Regex, regex);
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Regex_WithNoEnd_AfterReadTrue_IsFalse(string regex)
   {
     Tokenizer tokens = PrepareTokens('/' + regex);
@@ -188,7 +184,7 @@ public class TokenizerTests
     FalseAndExpected(tokens.Regex, regex + " ", tokens);
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Regex_WithNoStart_AfterReadTrue_IsFalse(string regex)
   {
     Tokenizer tokens = PrepareTokens(regex + '/');
@@ -196,35 +192,35 @@ public class TokenizerTests
     FalseAndExpected(tokens.Regex, "");
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Take_WithSingle_AfterRead_ReturnsTrue(
     [RegularExpression(PunctuationPattern)] string one)
   {
     Tokenizer tokens = PrepareTokens(one);
     char expected = one.First();
 
-    tokens.Take(expected).Should().BeTrue();
+    tokens.Take(expected).ShouldBeTrue();
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Take_WithString_AfterRead_ReturnsString(
     [RegularExpression(PunctuationPattern + "{5}")] string many)
   {
     Tokenizer tokens = PrepareTokens(many);
 
-    tokens.Take(many).Should().BeTrue();
+    tokens.Take(many).ShouldBeTrue();
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Take_WithShort_AfterRead_ReturnsString(
     [RegularExpression(PunctuationPattern + "{5}")] string many)
   {
     Tokenizer tokens = PrepareTokens(many[..4]);
 
-    tokens.Take(many).Should().BeFalse();
+    tokens.Take(many).ShouldBeFalse();
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void TakeAny_WithMany_AfterRead_ReturnsChar(
     [RegularExpression(PunctuationPattern + "{5}")] string many)
   {
@@ -236,21 +232,20 @@ public class TokenizerTests
       expected);
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Prefix_WithoutName_AfterRead_ReturnsNull(
     [RegularExpression(PunctuationPattern)] string prefix)
   {
     Tokenizer tokens = PrepareTokens(prefix + "?");
     char expected = prefix.First();
 
-    using AssertionScope scope = new();
-
-    tokens.Prefix(expected, out _, out _).Should().BeFalse();
-    tokens.Take(expected).Should().BeTrue();
-    tokens.Take('?').Should().BeTrue();
+    tokens.ShouldSatisfyAllConditions(
+      t => t.Prefix(expected, out _, out _).ShouldBeFalse(),
+      t => t.Take(expected).ShouldBeTrue(),
+      t => t.Take('?').ShouldBeTrue());
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Prefix_WithName_AfterRead_ReturnsCharThenName(
     [RegularExpression(PunctuationPattern)] string prefix, string identifier)
   {
@@ -262,7 +257,7 @@ public class TokenizerTests
       identifier);
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Error_AtStart_ReturnsAtStart(string message)
   {
     Tokenizer tokens = new("");
@@ -272,7 +267,7 @@ public class TokenizerTests
     CheckParseError(result, TokenKind.Start, "<END>", message, 0, 0);
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Error_BeforePunctuationAtEnd_ReturnsAtPunctuation(
     [RegularExpression(PunctuationPattern)] string prefix, string message)
   {
@@ -284,7 +279,7 @@ public class TokenizerTests
     CheckParseError(result, TokenKind.Punctuation, expected, message);
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Error_BeforePunctuation_ReturnsAtPunctuation(
     [RegularExpression(PunctuationPattern)] string prefix, string contents, string message)
   {
@@ -296,7 +291,7 @@ public class TokenizerTests
     CheckParseError(result, TokenKind.Punctuation, expected, message);
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Error_BeforeIdentifier_ReturnsAtIdentifier(string value, string message)
   {
     Tokenizer tokens = PrepareTokens(value);
@@ -306,7 +301,7 @@ public class TokenizerTests
     CheckParseError(result, TokenKind.Identifer, value, message);
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Error_BeforeNumber_ReturnsAtNumber(decimal number, string message)
   {
     string expected = number.ToString(CultureInfo.InvariantCulture);
@@ -317,7 +312,7 @@ public class TokenizerTests
     CheckParseError(result, TokenKind.Number, expected, message);
   }
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Error_BeforeString_ReturnsAtString(string contents, string message)
   {
     Tokenizer tokens = PrepareTokens(contents.Quote());
@@ -368,13 +363,12 @@ public class TokenizerTests
 
   private static void CheckParseError(TokenMessage result, TokenKind kind, string expected, string message, int line = 1, int col = 1)
   {
-    using AssertionScope scope = new();
-
-    result.Kind.Should().Be(kind);
-    result.Line.Should().Be(line);
-    result.Column.Should().Be(col);
-    result.After.Should().Be(expected);
-    result.Message.Should().Be(message);
+    result.ShouldSatisfyAllConditions(
+      r => r.Kind.ShouldBe(kind),
+      r => r.Line.ShouldBe(line),
+      r => r.Column.ShouldBe(col),
+      r => r.After.ShouldBe(expected),
+      r => r.Message.ShouldBe(message));
   }
 
   private delegate bool Call<T>(out T result);
@@ -383,30 +377,27 @@ public class TokenizerTests
   {
     bool success = call(out T? result);
 
-    using AssertionScope scope = new();
-
-    success.Should().BeTrue();
-    result.Should().Be(expected);
+    success.ShouldSatisfyAllConditions(
+      () => success.ShouldBeTrue(),
+      () => result.ShouldBe(expected));
   }
 
   private static void FalseAndExpected<T>(Call<T> call, T expected)
   {
     bool success = call(out T? result);
 
-    using AssertionScope scope = new();
-
-    success.Should().BeFalse();
-    result.Should().Be(expected);
+    success.ShouldSatisfyAllConditions(
+      () => success.ShouldBeFalse(),
+      () => result.ShouldBe(expected));
   }
 
   private static void FalseAndExpected<T>(Call<T> call, T expected, Tokenizer tokens)
   {
     bool success = call(out T? result);
 
-    using AssertionScope scope = new();
-
-    success.Should().BeFalse();
-    result.Should().Be(expected);
-    tokens.AtEnd.Should().BeTrue();
+    success.ShouldSatisfyAllConditions(
+      () => success.ShouldBeFalse(),
+      () => result.ShouldBe(expected),
+      () => tokens.AtEnd.ShouldBeTrue());
   }
 }

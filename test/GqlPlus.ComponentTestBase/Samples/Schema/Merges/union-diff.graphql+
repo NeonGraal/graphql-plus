@@ -1,0 +1,2 @@
+union Name { Boolean }
+union Name { Number }

@@ -5,14 +5,14 @@ namespace GqlPlus;
 
 internal static class SchemaTestHelpers
 {
-  public static EnumMemberAst[] EnumMembers(this IEnumerable<string> enumMembers)
-    => [.. enumMembers.Select(l => new EnumMemberAst(AstNulls.At, l))];
+  public static EnumLabelAst[] EnumLabels(this IEnumerable<string> enumLabels)
+    => [.. enumLabels.Select(l => new EnumLabelAst(AstNulls.At, l))];
 
   public static DualFieldAst[] DualFields(this IEnumerable<FieldInput> fields)
     => [.. fields.Select(f => new DualFieldAst(AstNulls.At, f.Name, DualBase(f.Type, f.TypeParam)))];
 
   public static DualAlternateAst[] DualAlternates(this IEnumerable<AlternateInput> alternates)
-    => [.. alternates.Select(a => new DualAlternateAst(AstNulls.At, DualBase(a.Type, a.TypeParam)) { Modifiers = TestMods() })];
+    => [.. alternates.Select(a => new DualAlternateAst(AstNulls.At, a.Type, "") { Modifiers = TestMods(), IsTypeParam = a.TypeParam })];
 
   private static DualBaseAst DualBase(string type, bool isTypeParam)
     => new(AstNulls.At, type) { IsTypeParam = isTypeParam };
@@ -26,7 +26,7 @@ internal static class SchemaTestHelpers
   public static InputFieldAst[] InputFields(this IEnumerable<FieldInput> fields)
     => [.. fields.Select(f => new InputFieldAst(AstNulls.At, f.Name, InputBase(f.Type, f.TypeParam)))];
   public static InputAlternateAst[] InputAlternates(this IEnumerable<AlternateInput> alternates)
-    => [.. alternates.Select(a => new InputAlternateAst(AstNulls.At, InputBase(a.Type, a.TypeParam)) { Modifiers = TestMods() })];
+    => [.. alternates.Select(a => new InputAlternateAst(AstNulls.At, a.Type, "") { Modifiers = TestMods(), IsTypeParam = a.TypeParam })];
 
   private static InputBaseAst InputBase(string type, bool isTypeParam)
     => new(AstNulls.At, type) { IsTypeParam = isTypeParam };
@@ -41,7 +41,7 @@ internal static class SchemaTestHelpers
     => [.. fields.Select(f => new OutputFieldAst(AstNulls.At, f.Name, OutputBase(f.Type, f.TypeParam)))];
 
   public static OutputAlternateAst[] OutputAlternates(this IEnumerable<AlternateInput> alternates)
-    => [.. alternates.Select(a => new OutputAlternateAst(AstNulls.At, OutputBase(a.Type, a.TypeParam)) { Modifiers = TestMods() })];
+    => [.. alternates.Select(a => new OutputAlternateAst(AstNulls.At, a.Type, "") { Modifiers = TestMods(), IsTypeParam = a.TypeParam })];
 
   private static OutputBaseAst OutputBase(string type, bool isTypeParam)
     => new(AstNulls.At, type) { IsTypeParam = isTypeParam };
@@ -66,17 +66,17 @@ internal static class SchemaTestHelpers
     return [.. inputs.Select(i => mapping(i) with { Excludes = exclude = !exclude })];
   }
 
-  public static DomainTrueFalseAst[] DomainTrueFalses(this bool[] members)
-    => [.. members.WithExcludes(r => new DomainTrueFalseAst(AstNulls.At, false, r))];
+  public static DomainTrueFalseAst[] DomainTrueFalses(this bool[] bools)
+    => [.. bools.WithExcludes(r => new DomainTrueFalseAst(AstNulls.At, "", false, r))];
 
-  public static DomainMemberAst[] DomainMembers(this string[] members)
-    => [.. members.WithExcludes(r => new DomainMemberAst(AstNulls.At, false, r))];
+  public static DomainLabelAst[] DomainLabels(this string[] labels)
+    => [.. labels.WithExcludes(r => new DomainLabelAst(AstNulls.At, "", false, r))];
 
   public static DomainRangeAst[] DomainRanges(this DomainRangeInput[] ranges)
-    => [.. ranges.WithExcludes(r => new DomainRangeAst(AstNulls.At, false, r.Lower, r.Upper))];
+    => [.. ranges.WithExcludes(r => new DomainRangeAst(AstNulls.At, "", false, r.Lower, r.Upper))];
 
   public static DomainRegexAst[] DomainRegexes(this string[] regexes)
-    => [.. regexes.WithExcludes(r => new DomainRegexAst(AstNulls.At, false, r))];
+    => [.. regexes.WithExcludes(r => new DomainRegexAst(AstNulls.At, "", false, r))];
 
   public static TypeParamAst[] TypeParams(this string[] parameters)
     => [.. parameters.Select(parameter => new TypeParamAst(AstNulls.At, parameter))];

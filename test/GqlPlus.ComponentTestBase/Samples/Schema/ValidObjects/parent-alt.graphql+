@@ -1,2 +1,0 @@
-object ObjName { :ObjNameRef | Number }
-object ObjNameRef {  parent: Number | String }

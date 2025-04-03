@@ -1,2 +1,0 @@
-domain EnumDiff { enum true }
-domain EnumDiff { enum false }

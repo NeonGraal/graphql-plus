@@ -1,2 +1,0 @@
-domain DomNumPrnt { :DomPrntNum Number 2>}
-domain DomPrntNum { Number <2 }

@@ -1,0 +1,3 @@
+object ObjName { :RefObjName }
+object ObjName { :RefObjName }
+object RefObjName { }

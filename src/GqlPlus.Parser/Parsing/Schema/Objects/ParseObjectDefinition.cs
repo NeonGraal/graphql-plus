@@ -20,8 +20,9 @@ public class ParseObjectDefinition<TObjBase, TObjField, TObjAlt>(
   public IResult<ObjectDefinition<TObjBase, TObjField, TObjAlt>> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    ArgumentNullException.ThrowIfNull(tokens);
+    tokens.ThrowIfNull();
     ObjectDefinition<TObjBase, TObjField, TObjAlt> result = new();
+#pragma warning disable CA1062 // Validate arguments of public methods
     if (tokens.Take(':')) {
       IResult<TObjBase> objBase = _parseBase.Parse(tokens, label);
       if (objBase.IsError()) {
@@ -30,6 +31,7 @@ public class ParseObjectDefinition<TObjBase, TObjField, TObjAlt>(
 
       objBase.WithResult(parent => result.Parent = parent);
     }
+#pragma warning restore CA1062 // Validate arguments of public methods
 
     List<TObjField> fields = [];
     IResult<TObjField> objectField = _parseField.Parse(tokens, label);

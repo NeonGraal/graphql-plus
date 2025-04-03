@@ -3,8 +3,10 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Operation;
 
-internal abstract record class AstDirectives(TokenAt At, string Name)
-  : AstNamed(At, Name)
+internal abstract record class AstDirectives(
+  TokenAt At,
+  string Identifier
+) : AstIdentified(At, Identifier)
   , IEquatable<AstDirectives>
   , IGqlpDirectives
 {

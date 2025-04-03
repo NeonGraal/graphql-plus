@@ -1,2 +1,0 @@
-output FieldEnumAlias { field [field1] = Boolean.true }
-output FieldEnumAlias { field [field2] = true }

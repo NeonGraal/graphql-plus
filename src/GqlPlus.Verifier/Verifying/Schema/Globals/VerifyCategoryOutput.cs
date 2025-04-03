@@ -12,10 +12,10 @@ internal class VerifyCategoryOutput(
 
   protected override void UsageValue(IGqlpSchemaCategory usage, UsageContext context)
   {
-    if (context.GetType(usage.Output, out IGqlpDescribed? type) && type is IGqlpOutputObject output) {
-      context.AddError(usage, "Category Output", $"'{usage.Output}' is a generic Output type", output.TypeParams.Any());
+    if (context.GetType(usage.Output.Name, out IGqlpDescribed? type) && type is IGqlpOutputObject output) {
+      context.AddError(usage, "Category Output", $"'{usage.Output.Name}' is a generic Output type", output.TypeParams.Any());
     } else {
-      context.AddError(usage, "Category Output", $"'{usage.Output}' not defined or not an Output type");
+      context.AddError(usage, "Category Output", $"'{usage.Output.Name}' not defined or not an Output type");
     }
 
     context.CheckModifiers(usage);

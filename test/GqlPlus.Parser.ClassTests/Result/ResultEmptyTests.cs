@@ -10,7 +10,7 @@ public class ResultEmptyTests : BaseResultTests
   {
     string? result = _empty.Optional();
 
-    result.Should().Be(default);
+    result.ShouldBe(default);
   }
 
   [Fact]
@@ -18,8 +18,8 @@ public class ResultEmptyTests : BaseResultTests
   {
     Action action = () => _empty.Required();
 
-    action.Should().Throw<InvalidOperationException>()
-      .Which.Message.Should().Contain("empty");
+    action.ShouldThrow<InvalidOperationException>()
+      .Message.ShouldContain("empty");
   }
 
   [Fact]
@@ -27,8 +27,8 @@ public class ResultEmptyTests : BaseResultTests
   {
     IResult<int> result = _empty.Select(s => s.Length, () => 3.Ok());
 
-    result.Should().BeOfType<ResultOk<int>>()
-      .Subject.Optional().Should().Be(3);
+    result.ShouldBeOfType<ResultOk<int>>()
+      .Optional().ShouldBe(3);
   }
 
   [Fact]
@@ -36,7 +36,7 @@ public class ResultEmptyTests : BaseResultTests
   {
     IResult<int> result = _empty.SelectOk(s => s.Length);
 
-    result.Should().BeOfType<ResultEmpty<int>>();
+    result.ShouldBeOfType<ResultEmpty<int>>();
   }
 
   [Fact]
@@ -44,7 +44,7 @@ public class ResultEmptyTests : BaseResultTests
   {
     IResult<int> result = _empty.SelectOk(s => s.Length, () => 3.Ok());
 
-    result.Should().BeOfType<ResultOk<int>>()
-      .Subject.Optional().Should().Be(3);
+    result.ShouldBeOfType<ResultOk<int>>()
+      .Optional().ShouldBe(3);
   }
 }

@@ -19,12 +19,18 @@ public interface IGqlpDeclaration
 
 public interface IGqlpAliased
   : IGqlpNamed
-  , IGqlpDescribed
 {
   IEnumerable<string> Aliases { get; }
 }
 
 public interface IGqlpDescribed
+  : IGqlpAbbreviated
 {
   string Description { get; }
+}
+
+public interface IGqlpNamed
+  : IGqlpDescribed
+{
+  string Name { get; }
 }

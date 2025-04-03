@@ -1,3 +1,0 @@
-domain DomEnumAllParent { enum EnumDomAllParent.* }
-enum EnumDomAllParent { :EnumDomParentAll dom_all_parent }
-enum EnumDomParentAll { dom_enum_all_parent }

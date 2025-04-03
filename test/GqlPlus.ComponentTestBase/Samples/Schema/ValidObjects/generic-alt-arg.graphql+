@@ -1,2 +1,0 @@
-object ObjName<$type> { | ObjNameRef<$type> }
-object ObjNameRef<$ref> { | $ref }

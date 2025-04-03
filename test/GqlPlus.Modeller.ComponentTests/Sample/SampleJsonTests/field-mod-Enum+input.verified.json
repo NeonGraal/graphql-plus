@@ -1,0 +1,66 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnumInpFieldModEnum": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumInpFieldModEnum",
+          "name": "value"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "value"
+        }
+      ],
+      "name": "EnumInpFieldModEnum",
+      "typeKind": "Enum"
+    },
+    "InpFieldModEnum": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "modifiers": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "EnumInpFieldModEnum",
+              "modifierKind": "Dict",
+              "typeKind": "Enum"
+            }
+          ],
+          "name": "field",
+          "object": "InpFieldModEnum",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "*"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "modifiers": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "EnumInpFieldModEnum",
+              "modifierKind": "Dict",
+              "typeKind": "Enum"
+            }
+          ],
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "*"
+          }
+        }
+      ],
+      "name": "InpFieldModEnum",
+      "typeKind": "Input"
+    }
+  }
+}

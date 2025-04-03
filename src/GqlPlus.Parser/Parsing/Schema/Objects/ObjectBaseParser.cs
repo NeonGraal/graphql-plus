@@ -17,12 +17,12 @@ internal abstract class ObjectBaseParser<TObjBase, TObjBaseAst, TObjArg, TObjArg
 
   public IResult<TObjBase> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
-    => ParseObjectBase(tokens, label, false).AsResult<TObjBase>();
+    => ParseObjectBase(tokens, label).AsResult<TObjBase>();
 
-  private IResult<TObjBaseAst> ParseObjectBase<TContext>(TContext tokens, string label, bool isTypeArg)
+  private IResult<TObjBaseAst> ParseObjectBase<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    tokens.String(out string? description);
+    string description = tokens.Description();
     if (!tokens.Prefix('$', out string? param, out TokenAt? at)) {
       return tokens.Error<TObjBaseAst>(label, "identifier after '$'");
     }
@@ -50,8 +50,6 @@ internal abstract class ObjectBaseParser<TObjBase, TObjBaseAst, TObjArg, TObjArg
       IResultArray<TObjArg> arguments = _parseArgs.Parse(tokens, label);
       if (!arguments.Optional(values => objBase.BaseArgs = [.. values])) {
         return arguments.AsResult(objBase);
-      } else if (isTypeArg) {
-        return TypeEnumValue(tokens, objBase);
       }
 
       return objBase.Ok();
@@ -61,6 +59,4 @@ internal abstract class ObjectBaseParser<TObjBase, TObjBaseAst, TObjArg, TObjArg
   }
 
   protected abstract TObjBaseAst ObjBase(TokenAt at, string type, string description);
-  protected abstract IResult<TObjBaseAst> TypeEnumValue<TContext>(TContext tokens, TObjBaseAst objBase)
-      where TContext : Tokenizer;
 }

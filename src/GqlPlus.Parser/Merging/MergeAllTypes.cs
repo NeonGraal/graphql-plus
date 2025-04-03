@@ -1,5 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Ast.Schema.Simple;
 
@@ -42,18 +42,19 @@ internal class MergeAllTypes(
 
     foreach (OutputDeclAst output in types.OfType<OutputDeclAst>()) {
       foreach (IGqlpOutputAlternate alternate in output.ObjAlternates) {
-        FixupType(alternate.BaseType, enumValues);
+        // No fixup needed?
+        // FixupType(alternate, enumValues);
       }
 
       foreach (IGqlpOutputField field in output.ObjFields) {
-        FixupType(field.BaseType, enumValues);
+        FixupType(field, enumValues);
       }
     }
 
-    foreach (AstDomain<DomainMemberAst, IGqlpDomainMember> domain in types.OfType<AstDomain<DomainMemberAst, IGqlpDomainMember>>()) {
-      foreach (DomainMemberAst item in domain.Members) {
+    foreach (AstDomain<DomainLabelAst, IGqlpDomainLabel> domain in types.OfType<AstDomain<DomainLabelAst, IGqlpDomainLabel>>()) {
+      foreach (DomainLabelAst item in domain.Items) {
         if (string.IsNullOrEmpty(item.EnumType)
-          && enumValues.TryGetValue(item.Member ?? "", out string? enumType)) {
+          && enumValues.TryGetValue(item.EnumItem ?? "", out string? enumType)) {
           item.EnumType = enumType;
         }
       }
@@ -61,7 +62,7 @@ internal class MergeAllTypes(
   }
 
   private static Map<string> GetEnumValues(IEnumerable<EnumDeclAst> enums)
-    => enums.SelectMany(e => e.Members.Select(v => (Value: v.Name, Type: e.Name)))
+    => enums.SelectMany(e => e.Items.Select(v => (Value: v.Name, Type: e.Name)))
       .ToLookup(p => p.Value, p => p.Type)
       .Where(g => g.Count() == 1)
       .ToMap(e => e.Key, e => e.First());
@@ -70,18 +71,18 @@ internal class MergeAllTypes(
     where TEnum : AstNamed, IGqlpOutputEnum
   {
     if (type is TEnum named) {
-      if (string.IsNullOrWhiteSpace(named.Name)
-        && enumValues.TryGetValue(type.EnumMember ?? "", out string? enumType)) {
+      if (string.IsNullOrWhiteSpace(named.EnumType.Name)
+        && enumValues.TryGetValue(type.EnumLabel ?? "", out string? enumType)) {
         named.Name = enumType;
       }
     }
   }
 
-  private static void FixupType(IGqlpOutputBase type, Map<string> enumValues)
+  private static void FixupType(IGqlpOutputField field, Map<string> enumValues)
   {
-    FixupType<OutputBaseAst>(type, enumValues);
+    FixupType<OutputFieldAst>(field, enumValues);
 
-    foreach (IGqlpOutputArg argument in type.BaseArgs) {
+    foreach (IGqlpOutputArg argument in field.BaseType.BaseArgs) {
       FixupType<OutputArgAst>(argument, enumValues);
     }
   }

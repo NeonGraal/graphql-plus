@@ -1,2 +1,0 @@
-union Test { :Parent }
-union Parent { Test }

@@ -7,9 +7,8 @@ internal class OutputModeller(
 ) : ModellerObject<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate, TypeOutputModel, OutputBaseModel, OutputFieldModel, OutputAlternateModel>(TypeKindModel.Output, alternate, objField, objBase)
 {
   protected override TypeOutputModel ToModel(IGqlpOutputObject ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name) {
+    => new(ast.Name, ast.Description) {
       Aliases = [.. ast.Aliases],
-      Description = ast.Description,
       Parent = ParentModel(ast.ObjParent, typeKinds),
       TypeParams = TypeParamsModels(ast.TypeParams),
       Fields = FieldsModels(ast.ObjFields, typeKinds),
@@ -22,15 +21,15 @@ internal class OutputArgModeller(
 ) : ModellerObjArg<IGqlpOutputArg, OutputArgModel>
 {
   protected override OutputArgModel ToModel(IGqlpOutputArg ast, IMap<TypeKindModel> typeKinds)
-      => string.IsNullOrWhiteSpace(ast.EnumMember)
+      => string.IsNullOrWhiteSpace(ast.EnumLabel)
       ? typeKinds.TryGetValue(ast.Output, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
-        ? new("") {
+        ? new("", "") {
           Dual = dual.ToModel(ast.ToDual, typeKinds)
         }
-        : new(ast.Output) {
+        : new(ast.Output, ast.Description) {
           IsTypeParam = ast.IsTypeParam,
         }
-      : new(ast.Output) { EnumMember = ast.EnumMember };
+      : new(ast.Output, ast.Description) { EnumLabel = ast.EnumLabel };
 }
 
 internal class OutputBaseModeller(
@@ -40,10 +39,11 @@ internal class OutputBaseModeller(
 {
   protected override OutputBaseModel ToModel(IGqlpOutputBase ast, IMap<TypeKindModel> typeKinds)
     => typeKinds.TryGetValue(ast.Output, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
-    ? new("") {
+    ? new("", ast.Description) {
+      IsTypeParam = ast.IsTypeParam,
       Dual = dual.ToModel(ast.ToDual, typeKinds)
     }
-    : new(ast.Output) {
+    : new(ast.Output, ast.Description) {
       IsTypeParam = ast.IsTypeParam,
       Args = ModelArgs(ast, typeKinds),
     };
@@ -56,20 +56,26 @@ internal class OutputFieldModeller(
 ) : ModellerObjField<IGqlpOutputBase, IGqlpOutputField, OutputBaseModel, OutputFieldModel>(modifier, refBase)
 {
   protected override OutputFieldModel FieldModel(IGqlpOutputField field, OutputBaseModel type, IMap<TypeKindModel> typeKinds)
-    => string.IsNullOrWhiteSpace(field.BaseType.EnumMember)
-      ? new(field.Name, new(type, field.Type.Description)) {
+    => string.IsNullOrWhiteSpace(field.EnumLabel)
+      ? new(field.Name, type, field.Description) {
         Params = parameter.ToModels(field.Params, typeKinds),
       }
-      : new(field.Name, null) { // or should it be `type`
-        Enum = new(field.Name, field.BaseType.TypeName, field.BaseType.EnumMember)
+      : new(field.Name, type, field.Description) { // or should it be `type`
+        Enum = new(field.Name, type.Output, field.EnumLabel!, type.Description)
       };
 }
 
 internal class OutputAlternateModeller(
-  IModeller<IGqlpOutputBase, OutputBaseModel> objBase,
-  IModeller<IGqlpModifier, CollectionModel> collection
-) : ModellerObjAlternate<IGqlpOutputBase, IGqlpOutputAlternate, OutputBaseModel, OutputAlternateModel>(objBase, collection)
+  IModeller<IGqlpOutputArg, OutputArgModel> objArg,
+  IModeller<IGqlpModifier, CollectionModel> collection,
+  IModeller<IGqlpDualAlternate, DualAlternateModel> dual
+) : ModellerObjAlternate<IGqlpOutputArg, IGqlpOutputAlternate, OutputArgModel, OutputAlternateModel>(objArg, collection)
 {
-  protected override OutputAlternateModel AlternateModel(IGqlpOutputAlternate ast, OutputBaseModel type, IMap<TypeKindModel> typeKinds)
-    => new(new ObjDescribedModel<OutputBaseModel>(type, ast.Type.Description));
+  protected override OutputAlternateModel AlternateModel(IGqlpOutputAlternate ast, IMap<TypeKindModel> typeKinds)
+    => typeKinds.TryGetValue(ast.Name, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
+    ? new("", ast.Description) {
+      IsTypeParam = ast.IsTypeParam,
+      Dual = dual.ToModel(ast.ToDual, typeKinds)
+    }
+    : new(ast.Name, ast.Description);
 }

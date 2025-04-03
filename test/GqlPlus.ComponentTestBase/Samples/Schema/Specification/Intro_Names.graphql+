@@ -1,0 +1,13 @@
+dual _Aliased {
+    : _Named
+        aliases: _Identifier[]
+    }
+
+dual _Named {
+    : _Described
+        name: _Identifier
+    }
+
+dual _Described {
+        description: String[]
+    }

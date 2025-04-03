@@ -1,0 +1,2 @@
+enum Name { one }
+enum Name { two }

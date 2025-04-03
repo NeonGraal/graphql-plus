@@ -12,7 +12,7 @@ internal abstract class ObjectTypeParser<TObjType, TObjTypeAst>
   protected IResult<TObjTypeAst> ParseObjectType<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    tokens.String(out string? description);
+    string description = tokens.Description();
     if (!tokens.Prefix('$', out string? param, out TokenAt? at)) {
       return tokens.Error<TObjTypeAst>(label, "identifier after '$'");
     }

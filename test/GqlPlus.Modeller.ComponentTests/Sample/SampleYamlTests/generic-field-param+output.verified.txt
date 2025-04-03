@@ -1,0 +1,56 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier AltOutpGnrcFieldParam: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: AltOutpGnrcFieldParam
+      output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: alt
+      object: AltOutpGnrcFieldParam
+      type: !_OutputBase
+        output: Number
+    alternates:
+    - !_OutputAlternate
+      output: String
+    fields:
+    - !_OutputField
+      name: alt
+      type: !_OutputBase
+        output: Number
+    name: AltOutpGnrcFieldParam
+    typeKind: !_TypeKind Output
+  !_Identifier OutpGnrcFieldParam: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutpGnrcFieldParam
+      type: !_OutputBase
+        output: RefOutpGnrcFieldParam
+        typeArgs:
+        - !_OutputArg
+          output: AltOutpGnrcFieldParam
+    fields:
+    - !_OutputField
+      name: field
+      type: !_OutputBase
+        output: RefOutpGnrcFieldParam
+        typeArgs:
+        - !_OutputArg
+          output: AltOutpGnrcFieldParam
+    name: OutpGnrcFieldParam
+    typeKind: !_TypeKind Output
+  !_Identifier RefOutpGnrcFieldParam: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: RefOutpGnrcFieldParam
+      typeParam: ref
+    alternates:
+    - !_OutputAlternate
+      typeParam: ref
+    name: RefOutpGnrcFieldParam
+    typeKind: !_TypeKind Output
+    typeParams:
+    - !_Named
+      name: ref

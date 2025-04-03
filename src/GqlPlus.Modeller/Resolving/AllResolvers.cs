@@ -10,7 +10,7 @@ public static class AllResolvers
       .AddResolver<SchemaModel, SchemaResolver>()
       .AddResolver<BaseTypeModel, AllTypesResolver>()
       // Simple
-      .AddDomainResolver<DomainMemberModel>()
+      .AddDomainResolver<DomainLabelModel>()
       .AddDomainResolver<DomainRangeModel>()
       .AddDomainResolver<DomainRegexModel>()
       .AddDomainResolver<DomainTrueFalseModel>()

@@ -1,0 +1,22 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DmnBoolDiff: !_DomainBoolean
+    allItems:
+    - !_DomainItem(_DomainTrueFalse)
+      domain: DmnBoolDiff
+      exclude: false
+      value: true
+    - !_DomainItem(_DomainTrueFalse)
+      domain: DmnBoolDiff
+      exclude: false
+      value: false
+    domainKind: !_DomainKind Boolean
+    items:
+    - !_DomainTrueFalse
+      exclude: false
+      value: true
+    - !_DomainTrueFalse
+      exclude: false
+      value: false
+    name: DmnBoolDiff
+    typeKind: !_TypeKind Domain

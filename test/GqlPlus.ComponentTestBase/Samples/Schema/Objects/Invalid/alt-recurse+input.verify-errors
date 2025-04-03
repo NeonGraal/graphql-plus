@@ -1,0 +1,2 @@
+﻿Invalid Input. 'Test' cannot be an alternate of itself, even recursively via Recurse
+Invalid Input. 'Recurse' cannot be an alternate of itself, even recursively via Test

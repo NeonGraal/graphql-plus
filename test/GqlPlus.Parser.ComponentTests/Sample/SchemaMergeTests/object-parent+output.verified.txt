@@ -1,0 +1,15 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  OutpObjPrnt
+  :
+  I@023/0001
+  RefOutpObjPrnt
+}
+{
+  !Ou I@008/0003
+  RefOutpObjPrnt
+}
+]

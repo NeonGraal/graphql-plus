@@ -1,5 +1,4 @@
-﻿using FluentAssertions.Execution;
-
+﻿
 using Fluid;
 using Fluid.Values;
 
@@ -39,7 +38,7 @@ public static class RenderFluid
       ? new StringValue(tagged.Tag)
       : EmptyValue.Instance;
 
-  internal static void WriteHtmlFile(this RenderStructure model, string dir, string file, string initial = "default")
+  internal static void WriteHtmlFile(this Structured model, string dir, string file, string initial = "default")
   {
     ArgumentNullException.ThrowIfNull(model);
 
@@ -49,7 +48,7 @@ public static class RenderFluid
     template.Render(context).WriteHtmlFile(dir, file);
   }
 
-  internal static async Task WriteHtmlFileAsync(this RenderStructure model, string dir, string file, string initial = "default")
+  internal static async Task WriteHtmlFileAsync(this Structured model, string dir, string file, string initial = "default")
   {
     ArgumentNullException.ThrowIfNull(model);
 
@@ -60,11 +59,11 @@ public static class RenderFluid
   }
 
   private static object RenderConverter(object input)
-    => input is RenderStructure model ? RenderStructureConverter(model)
-      : input is RenderValue value ? RenderValueConverter(value)
+    => input is Structured model ? RenderStructureConverter(model)
+      : input is StructureValue value ? RenderValueConverter(value)
       : input;
 
-  private static FluidValue RenderStructureConverter(RenderStructure model)
+  private static FluidValue RenderStructureConverter(Structured model)
   {
     FluidValue result = NilValue.Empty;
 
@@ -90,7 +89,7 @@ public static class RenderFluid
       : new TaggedValue(model.Tag, result);
   }
 
-  private static FluidValue RenderValueConverter(RenderValue value)
+  private static FluidValue RenderValueConverter(StructureValue value)
   {
     FluidValue result = NilValue.Empty;
 
@@ -120,10 +119,9 @@ public static class RenderFluid
 
     IDirectoryContents contents = files.GetDirectoryContents("");
 
-    using AssertionScope scope = new();
-
-    contents.Exists.Should().BeTrue();
-    contents.Should().NotBeEmpty();
-    contents.Should().Contain(fi => fi.Name == "pico.liquid");
+    contents.ShouldSatisfyAllConditions(
+      c => c.Exists.ShouldBeTrue(),
+      c => c.ShouldNotBeEmpty(),
+      c => c.ShouldContain(fi => fi.Name == "pico.liquid"));
   }
 }

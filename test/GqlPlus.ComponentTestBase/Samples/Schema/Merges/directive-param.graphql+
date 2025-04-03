@@ -1,0 +1,3 @@
+directive @Name(InName) { operation }
+directive @Name { fragment }
+input InName { }

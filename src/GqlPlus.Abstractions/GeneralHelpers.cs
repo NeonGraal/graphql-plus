@@ -19,7 +19,13 @@ public static class GeneralHelpers
   [return: NotNull]
   public static T ThrowIfNull<T>([NotNull] this T? value, [CallerArgumentExpression(nameof(value))] string? expression = default)
   {
-    ArgumentNullException.ThrowIfNull(value, expression);
+    if (value is null) {
+      throw new ArgumentNullException(expression);
+    }
+
     return value;
   }
+
+  public static bool OrderedEqual<T>(this IEnumerable<T> left, IEnumerable<T> right, IComparer<T>? comparer = null)
+    => left.OrderBy(l => l, comparer).SequenceEqual(right.OrderBy(r => r, comparer));
 }

@@ -1,0 +1,5 @@
+output Name { field(Name1): FldName }
+output Name { field(Name2): FldName }
+input Name1 { }
+input Name2 { }
+dual FldName { }

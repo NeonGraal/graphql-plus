@@ -1,0 +1,34 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "UnionAlias": {
+      "$tag": "_TypeUnion",
+      "aliases": ["UnA1", "UnA2"],
+      "allItems": [
+        {
+          "$tag": "_UnionMember",
+          "name": "Boolean",
+          "union": "UnionAlias"
+        },
+        {
+          "$tag": "_UnionMember",
+          "name": "Number",
+          "union": "UnionAlias"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "Boolean"
+        },
+        {
+          "$tag": "_Aliased",
+          "value": "Number"
+        }
+      ],
+      "name": "UnionAlias",
+      "typeKind": "Union"
+    }
+  }
+}

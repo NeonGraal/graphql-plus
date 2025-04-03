@@ -1,2 +1,0 @@
-output OutFieldEnum { field = OutEnumField.outEnumField }
-enum OutEnumField { outEnumField }

@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
+using GqlPlus.Token;
 
 namespace GqlPlus.Merging;
 
@@ -20,10 +21,10 @@ internal class MergeSchemas(
     IGqlpSchemaOption[] options = Just<IGqlpSchemaOption>(group);
     IGqlpType[] astTypes = Just<IGqlpType>(group);
 
-    ITokenMessages categoriesCanMerge = categories.Length > 0 ? categoryMerger.CanMerge(categories) : Messages();
-    ITokenMessages directivesCanMerge = directives.Length > 0 ? directiveMerger.CanMerge(directives) : Messages();
-    ITokenMessages optionsCanMerge = options.Length > 0 ? optionMerger.CanMerge(options) : Messages();
-    ITokenMessages astTypesCanMerge = astTypes.Length > 0 ? astTypeMerger.CanMerge(astTypes) : Messages();
+    ITokenMessages categoriesCanMerge = categories.Length > 0 ? categoryMerger.CanMerge(categories) : TokenMessages.New;
+    ITokenMessages directivesCanMerge = directives.Length > 0 ? directiveMerger.CanMerge(directives) : TokenMessages.New;
+    ITokenMessages optionsCanMerge = options.Length > 0 ? optionMerger.CanMerge(options) : TokenMessages.New;
+    ITokenMessages astTypesCanMerge = astTypes.Length > 0 ? astTypeMerger.CanMerge(astTypes) : TokenMessages.New;
 
     return categoriesCanMerge
       .Add(directivesCanMerge)
@@ -32,7 +33,7 @@ internal class MergeSchemas(
   }
 
   private static TItem[] Just<TItem>(IEnumerable<IGqlpSchema> group)
-    => group.SelectMany(item => item.Declarations.OfType<TItem>()).ToArray();
+    => [.. group.SelectMany(item => item.Declarations.OfType<TItem>())];
 
   protected override IGqlpSchema MergeGroup(IEnumerable<IGqlpSchema> group)
   {

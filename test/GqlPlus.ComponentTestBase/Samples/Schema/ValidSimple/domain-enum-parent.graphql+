@@ -1,3 +1,0 @@
-domain DomEnumPrnt { :DomPrntEnum Enum both_enum }
-domain DomPrntEnum { Enum both_parent }
-enum EnumDomBoth { both_enum both_parent }

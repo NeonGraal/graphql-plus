@@ -55,7 +55,7 @@ internal sealed class OperationsModelChecks(
   public OperationsModel ToModel(IGqlpSchemaOperation? ast, string input)
     => new() {
       And = _modeller.TryModel((OperationDeclAst?)ast, TypeKinds),
-      Type = new TypeInputModel(input),
+      Type = new TypeInputModel(input, ""),
     };
 }
 

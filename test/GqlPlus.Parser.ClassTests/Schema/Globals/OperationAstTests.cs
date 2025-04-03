@@ -6,10 +6,7 @@ namespace GqlPlus.Schema.Globals;
 public class OperationAstTests
   : AstAliasedTests<OperationInput>
 {
-  protected override string AliasesString(OperationInput input, string aliases)
-    => $"( !SO {input.Name}{aliases} {input.Category} )";
-
-  protected override string GetName(OperationInput input)
+  protected override string InputName(OperationInput input)
     => input.Name;
 
   private readonly AstAliasedChecks<OperationInput, OperationDeclAst> _checks
@@ -19,4 +16,7 @@ public class OperationAstTests
 
   protected override Func<OperationInput, OperationInput, bool> SameInput
     => (input1, input2) => input1.Name.Camelize() == input2.Name.Camelize();
+
+  protected override string AliasesString(OperationInput input, string description, string aliases)
+    => $"( {DescriptionNameString(input, description)}{aliases} {input.Category} )";
 }

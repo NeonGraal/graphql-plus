@@ -16,10 +16,8 @@ Success
     _Type
   }
   |
-  !OA I@007/0004
   I@007/0004
   _Operation
-  !OA I@007/0005
   I@007/0005
   _Type
 }
@@ -179,13 +177,10 @@ Success
   !Ou I@008/0043
   _OpObject
   |
-  !OA I@009/0044
   I@009/0044
   _OpField
-  !OA I@009/0045
   I@009/0045
   _OpSpread
-  !OA I@009/0046
   I@009/0046
   _OpInline
 }

@@ -2033,26 +2033,20 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _OpObject
-      type: !_OutputBase
-        output: _OpField
+      output: _OpField
     - !_ObjectFor(_OutputAlternate)
       object: _OpObject
-      type: !_OutputBase
-        output: _OpSpread
+      output: _OpSpread
     - !_ObjectFor(_OutputAlternate)
       object: _OpObject
-      type: !_OutputBase
-        output: _OpInline
+      output: _OpInline
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: _OpField
+      output: _OpField
     - !_OutputAlternate
-      type: !_OutputBase
-        output: _OpSpread
+      output: _OpSpread
     - !_OutputAlternate
-      type: !_OutputBase
-        output: _OpInline
+      output: _OpInline
     name: _OpObject
     typeKind: !_TypeKind Output
   !_Identifier _OpResult: !_TypeOutput
@@ -2189,16 +2183,16 @@ types: !_Map_Type
   !_Identifier _Operation: !_TypeOutput
     allFields:
     - !_ObjectFor(_DualField)
-      name: name
-      object: _Named
-      type: !_DualBase
-        dual: _Identifier
-    - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: description
       object: _Described
       type: !_DualBase
         dual: String
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_DualBase
+        dual: _Identifier
     - !_ObjectFor(_DualField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: aliases
@@ -2265,12 +2259,10 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _Operations
-      type: !_OutputBase
-        output: _Operation
+      output: _Operation
     - !_ObjectFor(_OutputAlternate)
       object: _Operations
-      type: !_OutputBase
-        output: _Type
+      output: _Type
     allFields:
     - !_ObjectFor(_OutputField)
       name: operation
@@ -2284,11 +2276,9 @@ types: !_Map_Type
         output: _Type
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: _Operation
+      output: _Operation
     - !_OutputAlternate
-      type: !_OutputBase
-        output: _Type
+      output: _Type
     fields:
     - !_OutputField
       name: operation

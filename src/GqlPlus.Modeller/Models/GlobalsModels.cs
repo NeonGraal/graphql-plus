@@ -44,8 +44,9 @@ public record class OperationsModel()
 public record class OperationModel(
   string Name,
   string Category,
-  string Operation
-) : AliasedModel(Name)
+  string Operation,
+  string Description
+) : AliasedModel(Name, Description)
 { }
 
 public record class SettingModel(

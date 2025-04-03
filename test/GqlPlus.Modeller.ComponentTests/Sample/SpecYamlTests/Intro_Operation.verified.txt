@@ -189,26 +189,20 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _OpObject
-      type: !_OutputBase
-        output: _OpField
+      output: _OpField
     - !_ObjectFor(_OutputAlternate)
       object: _OpObject
-      type: !_OutputBase
-        output: _OpSpread
+      output: _OpSpread
     - !_ObjectFor(_OutputAlternate)
       object: _OpObject
-      type: !_OutputBase
-        output: _OpInline
+      output: _OpInline
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: _OpField
+      output: _OpField
     - !_OutputAlternate
-      type: !_OutputBase
-        output: _OpSpread
+      output: _OpSpread
     - !_OutputAlternate
-      type: !_OutputBase
-        output: _OpInline
+      output: _OpInline
     name: _OpObject
     typeKind: !_TypeKind Output
   !_Identifier _OpResult: !_TypeOutput
@@ -404,12 +398,10 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _Operations
-      type: !_OutputBase
-        output: _Operation
+      output: _Operation
     - !_ObjectFor(_OutputAlternate)
       object: _Operations
-      type: !_OutputBase
-        output: _Type
+      output: _Type
     allFields:
     - !_ObjectFor(_OutputField)
       name: operation
@@ -423,11 +415,9 @@ types: !_Map_Type
         output: _Type
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: _Operation
+      output: _Operation
     - !_OutputAlternate
-      type: !_OutputBase
-        output: _Type
+      output: _Type
     fields:
     - !_OutputField
       name: operation

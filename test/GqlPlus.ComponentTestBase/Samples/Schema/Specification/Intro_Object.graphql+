@@ -1,6 +1,7 @@
-output _TypeObject<$kind:_ObjectKind $parent:_ObjDescribed $typeParam:_ObjTypeParam $field:_Field $alternate:_Alternate> {
+output _TypeObject<$kind:_ObjectKind $parent:_ObjDescribed
+            $typeParam:_ObjTypeParam $field:_Field $alternate:_Alternate> {
     : _ChildType<$kind $parent>
-        typeParams: typeParam[]
+        typeParams: $typeParam[]
         fields: $field[]
         alternates: $alternate[]
         allFields: _ObjectFor<$field>[]
@@ -10,13 +11,13 @@ output _TypeObject<$kind:_ObjectKind $parent:_ObjDescribed $typeParam:_ObjTypePa
 output _ObjConstraint<$base:_ObjBase> {
     | _TypeSimple
     | $base
-}
+    }
 output _ObjType<$base:_ObjBase> {
     | _BaseType<_TypeKind.Internal>
     | _ObjConstraint<$base>
     }
 
-output _ObjBase<$arg:_ObjTypeArg {
+output _ObjBase<$arg:_ObjTypeArg> {
     : _Described
         typeArgs: $arg[]
     | _ObjTypeParam
@@ -25,14 +26,14 @@ output _ObjBase<$arg:_ObjTypeArg {
 output _ObjTypeArg {
     : _TypeRef<_TypeKind>
     | _ObjTypeParam
-}
+    }
 
 domain _TypeParam { :_Identifier String }
 
 output _ObjTypeParam {
     : _Described
         typeParam: _TypeParam
-}
+    }
 
 output _Alternate<$arg:_ObjTypeArg> {
     : _ObjBase<$arg>

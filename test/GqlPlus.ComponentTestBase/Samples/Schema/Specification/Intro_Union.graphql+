@@ -4,7 +4,7 @@ output _TypeUnion {
 
 output _UnionRef {
     : _TypeRef<_SimpleKind>
-}
+    }
 
 output _UnionMember {
     : _UnionRef

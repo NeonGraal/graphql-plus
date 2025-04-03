@@ -9,7 +9,7 @@ output _Simple {
     | _DomainValue<_DomainKind.Number Number>
     | _DomainValue<_DomainKind.String String>
     | _EnumValue
-}
+    }
 
 output _ConstantList {
     | _Constant[]

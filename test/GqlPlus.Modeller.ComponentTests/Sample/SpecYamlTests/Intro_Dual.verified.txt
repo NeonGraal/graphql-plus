@@ -90,6 +90,8 @@ types: !_Map_Type
       - !_OutputArg
         output: _DualBase
       - !_OutputArg
+        output: _DualTypeArg
+      - !_OutputArg
         output: _DualField
       - !_OutputArg
         output: _DualAlternate

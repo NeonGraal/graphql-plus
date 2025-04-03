@@ -3,7 +3,7 @@ output _Categories {
         type: _Type
     | _Category
     | _Type
-}
+    }
 
 output _Category {
     : _Aliased

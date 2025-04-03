@@ -165,6 +165,10 @@
           },
           {
             "$tag": "_OutputArg",
+            "value": "_DualTypeArg"
+          },
+          {
+            "$tag": "_OutputArg",
             "value": "_DualField"
           },
           {

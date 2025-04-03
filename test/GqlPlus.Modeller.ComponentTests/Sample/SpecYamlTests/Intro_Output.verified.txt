@@ -161,6 +161,8 @@ types: !_Map_Type
       - !_OutputArg
         output: _OutputBase
       - !_OutputArg
+        output: _OutputTypeArg
+      - !_OutputArg
         output: _OutputField
       - !_OutputArg
         output: _OutputAlternate

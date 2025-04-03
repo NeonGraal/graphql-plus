@@ -12,8 +12,10 @@ Success
     I@034/0002
     _DualBase
     I@044/0002
+    _DualTypeArg
+    I@057/0002
     _DualField
-    I@055/0002
+    I@068/0002
     _DualAlternate
   >
 }

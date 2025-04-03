@@ -1,1 +1,1 @@
-e33a5bc  (HEAD -> name-samples) 2025-04-03 Improve Object spec and Introspection
+ca36015  (HEAD -> type-constraints) 2025-04-04 Correct Introspection after merge

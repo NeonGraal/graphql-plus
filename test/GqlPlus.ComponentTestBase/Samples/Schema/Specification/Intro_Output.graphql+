@@ -1,5 +1,5 @@
 output _TypeOutput {
-    : _TypeObject<_TypeKind.Output _OutputBase _OutputField _OutputAlternate>
+    : _TypeObject<_TypeKind.Output _OutputBase _OutputTypeArg _OutputField _OutputAlternate>
     }
 
 output _OutputBase {

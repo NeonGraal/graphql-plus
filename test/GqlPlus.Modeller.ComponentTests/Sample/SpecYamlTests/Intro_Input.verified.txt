@@ -148,6 +148,8 @@ types: !_Map_Type
       - !_OutputArg
         output: _InputBase
       - !_OutputArg
+        output: _InputTypeArg
+      - !_OutputArg
         output: _InputField
       - !_OutputArg
         output: _InputAlternate

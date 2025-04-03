@@ -1,5 +1,5 @@
 output _TypeDual {
-    : _TypeObject<_TypeKind.Dual _DualBase _DualField _DualAlternate>
+    : _TypeObject<_TypeKind.Dual _DualBase _DualTypeArg _DualField _DualAlternate>
     }
 
 output _DualBase {

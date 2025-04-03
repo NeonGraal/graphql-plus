@@ -313,6 +313,10 @@
           },
           {
             "$tag": "_OutputArg",
+            "value": "_OutputTypeArg"
+          },
+          {
+            "$tag": "_OutputArg",
             "value": "_OutputField"
           },
           {

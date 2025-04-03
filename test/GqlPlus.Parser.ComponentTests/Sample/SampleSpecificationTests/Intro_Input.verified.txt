@@ -12,8 +12,10 @@ Success
     I@035/0002
     _InputBase
     I@046/0002
+    _InputTypeArg
+    I@060/0002
     _InputField
-    I@058/0002
+    I@072/0002
     _InputAlternate
   >
 }

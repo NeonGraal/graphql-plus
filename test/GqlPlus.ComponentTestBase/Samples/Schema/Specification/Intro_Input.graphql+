@@ -1,5 +1,5 @@
 output _TypeInput {
-    : _TypeObject<_TypeKind.Input _InputBase _InputField _InputAlternate>
+    : _TypeObject<_TypeKind.Input _InputBase _InputTypeArg _InputField _InputAlternate>
     }
 
 output _InputBase {

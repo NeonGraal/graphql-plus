@@ -12,8 +12,10 @@ Success
     I@036/0002
     _OutputBase
     I@048/0002
+    _OutputTypeArg
+    I@063/0002
     _OutputField
-    I@061/0002
+    I@076/0002
     _OutputAlternate
   >
 }

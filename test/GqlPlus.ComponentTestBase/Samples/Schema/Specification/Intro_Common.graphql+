@@ -33,7 +33,7 @@ output _TypeRef<$kind> {
     : _Described
         typeKind: $kind
         name: _Identifier
-}
+    }
 
 output _TypeSimple {
     | _TypeRef<_TypeKind.Basic>

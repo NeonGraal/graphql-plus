@@ -26,20 +26,21 @@ internal class ParseOutputField(
   protected override IResult<IGqlpOutputField> FieldEnumValue<TContext>(TContext tokens, OutputFieldAst field)
   {
     if (tokens.Take('=')) {
-      tokens.String(out string? description);
+      string description = tokens.Description();
       TokenAt at = tokens.At;
-
       if (!tokens.Identifier(out string? enumType)) {
         return tokens.Error<IGqlpOutputField>("Output", "enum value after '='", field);
       }
 
       if (!tokens.Take('.')) {
-        field.BaseType = new OutputBaseAst(at, "", description) { EnumMember = enumType };
+        field.BaseType = new OutputBaseAst(at, "", description);
+        field.EnumLabel = enumType;
         return field.Ok<IGqlpOutputField>();
       }
 
-      if (tokens.Identifier(out string? enumMember)) {
-        field.BaseType = new OutputBaseAst(at, enumType, description) { EnumMember = enumMember };
+      if (tokens.Identifier(out string? enumLabel)) {
+        field.BaseType = new OutputBaseAst(at, enumType, description);
+        field.EnumLabel = enumLabel;
         return field.Ok<IGqlpOutputField>();
       }
 
@@ -52,6 +53,6 @@ internal class ParseOutputField(
   protected override IResultArray<IGqlpInputParam> FieldParam<TContext>(TContext tokens)
     => _parameter.Parse(tokens, "Output");
 
-  protected override OutputBaseAst ObjBase(TokenAt at, string param, string description)
-    => new(at, param, description);
+  protected override IGqlpOutputBase ObjBase(TokenAt at, string param, string description)
+    => new OutputBaseAst(at, param, description);
 }

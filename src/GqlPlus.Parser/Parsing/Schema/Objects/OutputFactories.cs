@@ -16,8 +16,8 @@ internal class OutputFactories
   public OutputBaseAst ObjBase(TokenAt at, string name, string description)
     => new(at, name, description);
 
-  public OutputAlternateAst ObjAlternate(TokenAt at, IGqlpOutputBase typeBase)
-    => new(at, typeBase);
+  public OutputAlternateAst ObjAlternate(TokenAt at, string name, string description)
+    => new(at, name, description);
 
   public OutputArgAst ObjArg(TokenAt at, string name, string description = "")
     => new(at, name, description);

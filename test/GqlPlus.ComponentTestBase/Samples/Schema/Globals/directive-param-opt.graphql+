@@ -1,0 +1,2 @@
+directive @Name(InName?) { all }
+input InName { }

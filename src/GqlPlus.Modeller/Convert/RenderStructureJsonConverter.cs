@@ -2,12 +2,12 @@
 
 namespace GqlPlus.Convert;
 internal class RenderStructureJsonConverter
-  : RenderJsonConverter<RenderStructure>
+  : RenderJsonConverter<Structured>
 {
   internal static RenderValueJsonConverter ValueConverter { get; } = new();
 
-  public override RenderStructure? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException();
-  public override void Write(Utf8JsonWriter writer, RenderStructure value, JsonSerializerOptions options)
+  public override Structured? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException();
+  public override void Write(Utf8JsonWriter writer, Structured value, JsonSerializerOptions options)
   {
     if (value is null || value.IsEmpty) {
       return;
@@ -19,7 +19,7 @@ internal class RenderStructureJsonConverter
       WriteList(writer, value.List, options);
       return;
     } else if (value.Map.Count > 0) {
-      (RenderValue _, RenderStructure first) = value.Map.First();
+      Structured first = value.Map.First().Value;
       if (value.Map.Count == 1 && !plain && string.IsNullOrWhiteSpace(first.Tag) && first.Value is not null) {
         StartTaggedValue(writer, value.Tag);
         WriteValue(writer, first.Value);
@@ -32,7 +32,7 @@ internal class RenderStructureJsonConverter
     }
   }
 
-  private void WriteMap(Utf8JsonWriter writer, Structured<RenderValue, RenderStructure>.IDict map, string tag, JsonSerializerOptions options)
+  private void WriteMap(Utf8JsonWriter writer, Structured<StructureValue, Structured>.IDict map, string tag, JsonSerializerOptions options)
   {
     writer.WriteStartObject();
 
@@ -40,11 +40,11 @@ internal class RenderStructureJsonConverter
       writer.WriteString("$tag", tag);
     }
 
-    IEnumerable<(string, RenderStructure)> ordered = map
+    IEnumerable<(string, Structured)> ordered = map
       .Select(kv => (key: kv.Key.AsString, kv.Value))
       .OrderBy(kv => kv.key);
 
-    foreach ((string key, RenderStructure value) in ordered) {
+    foreach ((string key, Structured value) in ordered) {
       writer.WritePropertyName(key);
       Write(writer, value, options);
     }
@@ -52,16 +52,16 @@ internal class RenderStructureJsonConverter
     writer.WriteEndObject();
   }
 
-  private void WriteList(Utf8JsonWriter writer, IList<RenderStructure> list, JsonSerializerOptions options)
+  private void WriteList(Utf8JsonWriter writer, IList<Structured> list, JsonSerializerOptions options)
   {
     if (list.All(i => i.Value is not null)) {
       string result = JsonSerializer.Serialize(list, RenderJson.Unindented);
-      writer.WriteRawValue(result.Replace(",", ", ", StringComparison.Ordinal));
+      writer.WriteRawValue(result.Replace(",", ", "));
       return;
     }
 
     writer.WriteStartArray();
-    foreach (RenderStructure item in list) {
+    foreach (Structured item in list) {
       Write(writer, item, options);
     }
 

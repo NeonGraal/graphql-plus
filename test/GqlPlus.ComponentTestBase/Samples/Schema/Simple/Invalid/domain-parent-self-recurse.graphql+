@@ -1,0 +1,3 @@
+domain Test { :Parent Boolean }
+domain Parent { :Recurse Boolean }
+domain Recurse { :Test Boolean }

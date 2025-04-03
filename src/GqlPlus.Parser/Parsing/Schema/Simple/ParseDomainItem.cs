@@ -11,9 +11,9 @@ internal abstract class ParseDomainItem<TItem>(
   private readonly Parser<TItem>.LA _items = items;
 
   public abstract DomainKind Kind { get; }
-  public ParseItems Parser => ParseMembers;
+  public ParseItems Parser => ParseItems;
 
-  protected IResult<DomainDefinition> ParseMembers(Tokenizer tokens, string label, DomainDefinition result)
+  protected IResult<DomainDefinition> ParseItems(Tokenizer tokens, string label, DomainDefinition result)
   {
     IResultArray<TItem> items = _items.Parse(tokens, label);
     return items.Required(values => ApplyItems(tokens, label, result, [.. values]))

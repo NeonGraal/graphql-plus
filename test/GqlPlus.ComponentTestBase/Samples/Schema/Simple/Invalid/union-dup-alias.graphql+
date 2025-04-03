@@ -1,0 +1,2 @@
+union Test [a] { String }
+union Dup [a] { Number }

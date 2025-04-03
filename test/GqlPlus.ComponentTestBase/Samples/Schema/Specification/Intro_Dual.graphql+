@@ -1,0 +1,22 @@
+output _TypeDual {
+    : _TypeObject<_TypeKind.Dual _DualBase _DualField _DualAlternate>
+    }
+
+output _DualBase {
+    : _ObjBase<_DualTypeArg>
+        dual: _Identifier
+    }
+
+output _DualField {
+    : _Field<_DualBase>
+    }
+
+output _DualAlternate {
+    : _Alternate<_DualTypeArg>
+        dual: _Identifier
+    }
+
+output _DualTypeArg {
+    : _ObjTypeArg
+        dual: _Identifier
+    }

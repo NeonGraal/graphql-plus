@@ -1,0 +1,3 @@
+category { Name }
+category name { Name }
+output Name { }

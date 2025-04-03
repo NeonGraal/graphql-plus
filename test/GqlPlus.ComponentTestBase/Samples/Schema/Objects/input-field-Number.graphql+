@@ -1,0 +1,1 @@
+input Name { field: Number = 0 }

@@ -24,10 +24,11 @@ public abstract class ValueParser<TValue>(
 
   public IResult<IGqlpFields<TValue>> ParseFieldValues(Tokenizer tokens, string label, char last, IGqlpFields<TValue> fields)
   {
-    ArgumentNullException.ThrowIfNull(tokens);
+    tokens.ThrowIfNull();
 
     AstFields<TValue> result = new(fields);
 
+#pragma warning disable CA1062 // Validate arguments of public methods
     while (!tokens.Take(last)) {
       IResult<KeyValue<TValue>> field = KeyValueParser.Parse(tokens, label);
       if (!field.Required(value => result.Add((FieldKeyAst)value.Key, value.Value))) {
@@ -36,6 +37,7 @@ public abstract class ValueParser<TValue>(
 
       tokens.Take(',');
     }
+#pragma warning restore CA1062 // Validate arguments of public methods
 
     return result.Ok<IGqlpFields<TValue>>();
   }

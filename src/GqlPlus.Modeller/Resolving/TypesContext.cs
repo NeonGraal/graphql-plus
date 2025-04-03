@@ -10,7 +10,7 @@ internal class TypesContext(
   , ITypesContext
 {
   internal IMap<IModelBase> Types { get; } = new Map<IModelBase>();
-  public ITokenMessages Errors { get; } = new TokenMessages();
+  public ITokenMessages Errors { get; } = TokenMessages.New;
   IMap<TypeKindModel> ITypesContext.TypeKinds => this;
 
   internal static TypesContext WithBuiltins(ITypesModeller types)
@@ -60,8 +60,8 @@ internal class TypesContext(
   public bool TryGetType<TModel>(string label, string? name, [NotNullWhen(true)] out TModel? model, bool canError = true)
     where TModel : IModelBase
   {
-    if (name is not null) {
-      if (Types.TryGetValue(name, out IModelBase? type) && type is TModel modelType) {
+    if (!string.IsNullOrWhiteSpace(name)) {
+      if (Types.TryGetValue(name!, out IModelBase? type) && type is TModel modelType) {
         model = modelType;
         return true;
       }

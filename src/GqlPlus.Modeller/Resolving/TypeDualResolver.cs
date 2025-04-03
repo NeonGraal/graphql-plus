@@ -24,5 +24,5 @@ internal class TypeDualResolver
   protected override IEnumerable<ObjectForModel> ParentFields(IModelBase? parent)
     => parent is TypeDualModel dual ? dual.AllFields : [];
   protected override string? ParentName(TypeDualModel model)
-    => model.Parent?.Base.Dual;
+    => model.Parent?.Dual;
 }

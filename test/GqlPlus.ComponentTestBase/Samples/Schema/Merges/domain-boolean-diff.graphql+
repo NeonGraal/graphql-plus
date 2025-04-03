@@ -1,0 +1,2 @@
+domain Name { boolean true }
+domain Name { boolean false }

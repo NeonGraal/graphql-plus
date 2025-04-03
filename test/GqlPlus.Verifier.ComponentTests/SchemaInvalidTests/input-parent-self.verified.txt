@@ -1,3 +1,0 @@
-﻿[
-  Invalid Input. 'Test' cannot be a child of itself.
-]

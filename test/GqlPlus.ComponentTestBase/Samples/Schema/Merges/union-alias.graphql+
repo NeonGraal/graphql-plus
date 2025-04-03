@@ -1,0 +1,2 @@
+union Name [UnA1] { Boolean }
+union Name [UnA2] { Number }

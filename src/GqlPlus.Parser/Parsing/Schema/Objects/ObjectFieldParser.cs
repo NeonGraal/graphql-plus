@@ -22,9 +22,9 @@ internal abstract class ObjectFieldParser<TObjField, TObjFieldAst, TObjBase>(
   public IResult<TObjField> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    ArgumentNullException.ThrowIfNull(tokens);
+    tokens.ThrowIfNull();
+    string description = tokens.Description();
     TokenAt at = tokens.At;
-    tokens.String(out string? description);
     if (!tokens.Identifier(out string? name)) {
       return 0.Empty<TObjField>();
     }

@@ -1,10 +1,10 @@
 ﻿namespace GqlPlus.Resolving;
 
 internal class TypeEnumResolver
-  : ResolverParentType<TypeEnumModel, AliasedModel, EnumMemberModel>
+  : ResolverParentType<TypeEnumModel, AliasedModel, EnumLabelModel>
 {
-  protected override EnumMemberModel NewItem(TypeEnumModel model, AliasedModel item)
-    => new(item.Name, model.Name) {
+  protected override EnumLabelModel NewItem(TypeEnumModel model, AliasedModel item)
+    => new(item.Name, model.Name, item.Description) {
       Aliases = item.Aliases,
     };
 }

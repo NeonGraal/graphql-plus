@@ -1,11 +1,10 @@
 ﻿namespace GqlPlus.Result;
 
-public readonly struct ResultArrayOk<TValue>
-  : IResultArray<TValue>, IResultOk<IEnumerable<TValue>>
+public readonly struct ResultArrayOk<TValue>(
+  IEnumerable<TValue> result
+) : IResultArray<TValue>, IResultOk<IEnumerable<TValue>>
 {
-  public IEnumerable<TValue> Result { get; }
-
-  public ResultArrayOk(IEnumerable<TValue> result) => Result = result;
+  public IEnumerable<TValue> Result { get; } = result;
 
   public IResult<TResult> AsPartial<TResult>(TResult result, Action<IEnumerable<TValue>>? withValue = null, Action? action = null)
   {
@@ -32,8 +31,10 @@ public readonly struct ResultArrayOk<TValue>
 
   public IResult<TResult> Map<TResult>(SelectResult<IEnumerable<TValue>, TResult> onValue, OnResult<TResult>? otherwise = null)
   {
-    ArgumentNullException.ThrowIfNull(onValue);
+    onValue.ThrowIfNull();
 
+#pragma warning disable CA1062 // Validate arguments of public methods
     return onValue(Result);
+#pragma warning restore CA1062 // Validate arguments of public methods
   }
 }

@@ -5,7 +5,6 @@ using GqlPlus.Parsing.Operation;
 using GqlPlus.Parsing.Schema;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Xunit.DependencyInjection;
 using Xunit.DependencyInjection.Logging;
 
 namespace GqlPlus;
@@ -21,7 +20,7 @@ public static class ComponentTestStartup
         .AddXunitOutput(options => options.TimestampFormat = "HH:mm:ss.fff")
         .AddFilter("NullVerifier", LogLevel.Warning)
       )
-      .AddSkippableFactSupport()
+      //.AddSkippableFactSupport()
       .AddCommonParsers()
       .AddOperationParsers()
       .AddSchemaParsers()
@@ -38,7 +37,12 @@ public static class ComponentTestStartup
     }
 
     string filePath = Path.Join(dirPath, file + ".html");
-    File.WriteAllText(filePath, contents);
+    try {
+      File.WriteAllText(filePath, contents);
+    } catch (IOException) {
+      Thread.Sleep(100);
+      File.WriteAllText(filePath, contents);
+    }
   }
 
   public static async Task WriteHtmlFileAsync(this ValueTask<string> contents, string dir, string file)
@@ -49,6 +53,12 @@ public static class ComponentTestStartup
     }
 
     string filePath = Path.Join(dirPath, file + ".html");
-    await File.WriteAllTextAsync(filePath, await contents);
+
+    try {
+      await File.WriteAllTextAsync(filePath, await contents);
+    } catch (IOException) {
+      await Task.Delay(100);
+      await File.WriteAllTextAsync(filePath, await contents);
+    }
   }
 }

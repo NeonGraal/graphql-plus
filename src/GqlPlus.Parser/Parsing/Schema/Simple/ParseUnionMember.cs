@@ -6,17 +6,15 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Simple;
 
 internal class ParseUnionMember
-  : Parser<IGqlpUnionItem>.I
+  : Parser<IGqlpUnionMember>.I
 {
-  public IResult<IGqlpUnionItem> Parse<TContext>(TContext tokens, string label)
+  public IResult<IGqlpUnionMember> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    tokens.TakeDescription();
+    string description = tokens.Description();
     TokenAt at = tokens.At;
-    string description = tokens.GetDescription();
-
     return tokens.Identifier(out string? value)
-      ? new UnionMemberAst(at, value, description).Ok<IGqlpUnionItem>()
-      : tokens.Error<IGqlpUnionItem>(label, "member");
+      ? new UnionMemberAst(at, value, description).Ok<IGqlpUnionMember>()
+      : tokens.Error<IGqlpUnionMember>(label, "member");
   }
 }

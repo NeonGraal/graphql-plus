@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     {%- render "pico" -%}
-    <title>Documentation Index</title>
+    <title>{{ title }} Index</title>
     <style>
       aside li { padding: 0 ; font-size: 50%; }
       .grid { grid-template-columns: repeat(4, 1fr); }
@@ -16,17 +16,20 @@
           <summary>TOC</summary>
           <ul  class="overflow-auto">
             {%- for group in groups %}
-              <li><a href="#{{ group[0] }}">{{ group[0] }}</a></li>
+            <li>
+              <a href="#{{ group[0] }}">{{ group[0] }}</a>
+            </li>
             {%- endfor -%}
           </ul>
         </details>
       </aside>
       {%- endif -%}
+      <h1>{{ title }} Index</h1>
       {%- for group in groups %}
       <article>
         <header>
-          <h1 id="{{ group[0] }}">{{ group[0] }}</h1>
-        </header>        
+          <h2 id="{{ group[0] }}">{{ group[0] }}</h2>
+        </header>
         <div class="grid">
           {%- for item in group[1] %}
           <div>

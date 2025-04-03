@@ -1,0 +1,19 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !In I@007/0001
+  InpObjField
+  {
+    !IF I@021/0001
+    field
+    :
+    I@028/0001
+    FldInpObjField
+  }
+}
+{
+  !In I@007/0003
+  FldInpObjField
+}
+]

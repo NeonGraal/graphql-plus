@@ -1,3 +1,0 @@
-﻿[
-  Invalid Modifier. 'Test' invalid type.
-]

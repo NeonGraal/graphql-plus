@@ -14,12 +14,12 @@ internal class ParseOutputArgs
   {
     if (tokens.Take('.')) {
       if (argument.IsTypeParam) {
-        tokens.Error("Invalid Output Arg. Enum value not allowed after Type parameter.");
+        return tokens.Error<OutputArgAst>("Output Arg", "Enum value not allowed after Type parameter");
       }
 
       TokenAt at = tokens.At;
-      if (tokens.Identifier(out string? enumMember)) {
-        argument = argument with { EnumMember = enumMember };
+      if (tokens.Identifier(out string? enumLabel)) {
+        argument = argument with { EnumLabel = enumLabel };
         return argument.Ok<OutputArgAst>();
       }
 

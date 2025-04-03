@@ -1,0 +1,39 @@
+﻿!Sc I@001/0001
+Success
+{
+  !Ca P@010/0001
+  query
+  (Parallel)
+  !Tr I@012/0001
+  Query
+}
+{
+  !Ou I@008/0002
+  Query
+}
+{
+  !Ca P@010/0004
+  mutation
+  (Sequential)
+  !Tr I@025/0004
+  Mutation
+}
+{
+  !Ou I@008/0005
+  Mutation
+}
+{
+  !Ca P@010/0007
+  subscription
+  (Single)
+  !Tr I@021/0007
+  Subscription
+}
+{
+  !Ou I@008/0008
+  Subscription
+}
+{
+  !Ou I@008/0010
+  _Schema
+}

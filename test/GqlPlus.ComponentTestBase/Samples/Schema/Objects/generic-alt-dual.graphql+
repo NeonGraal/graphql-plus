@@ -1,0 +1,3 @@
+object ObjName { | RefObjName<AltObjName> }
+object RefObjName<$ref> { | $ref }
+dual AltObjName { alt: Number | String }

@@ -1,0 +1,3533 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  DualAlt
+  |
+  I@018/0001
+  AltDualAlt
+}
+{
+  !Du I@006/0002
+  AltDualAlt
+  {
+    !DF I@019/0002
+    alt
+    :
+    I@024/0002
+    Number
+  }
+  |
+  I@033/0002
+  String
+}
+{
+  !In I@007/0001
+  InpAlt
+  |
+  I@018/0001
+  AltInpAlt
+}
+{
+  !In I@007/0002
+  AltInpAlt
+  {
+    !IF I@019/0002
+    alt
+    :
+    I@024/0002
+    Number
+  }
+  |
+  I@033/0002
+  String
+}
+{
+  !Ou I@008/0001
+  OutpAlt
+  |
+  I@020/0001
+  AltOutpAlt
+}
+{
+  !Ou I@008/0002
+  AltOutpAlt
+  {
+    !OF I@021/0002
+    alt
+    :
+    I@026/0002
+    Number
+  }
+  |
+  I@035/0002
+  String
+}
+{
+  !Du I@006/0001
+  DualAltDescr
+  |
+  'Test Descr'
+  S@023/0001
+  String
+}
+{
+  !In I@007/0001
+  InpAltDescr
+  |
+  'Test Descr'
+  S@023/0001
+  String
+}
+{
+  !Ou I@008/0001
+  OutpAltDescr
+  |
+  'Test Descr'
+  S@025/0001
+  String
+}
+{
+  !Du I@006/0001
+  DualAltDual
+  |
+  I@022/0001
+  DualDualAltDual
+}
+{
+  !Du I@006/0002
+  DualDualAltDual
+  {
+    !DF I@024/0002
+    alt
+    :
+    I@029/0002
+    Number
+  }
+  |
+  I@038/0002
+  String
+}
+{
+  !In I@007/0001
+  InpAltDual
+  |
+  I@022/0001
+  InpDualAltDual
+}
+{
+  !Du I@006/0002
+  InpDualAltDual
+  {
+    !DF I@023/0002
+    alt
+    :
+    I@028/0002
+    Number
+  }
+  |
+  I@037/0002
+  String
+}
+{
+  !Ou I@008/0001
+  OutpAltDual
+  |
+  I@024/0001
+  OutpDualAltDual
+}
+{
+  !Du I@006/0002
+  OutpDualAltDual
+  {
+    !DF I@024/0002
+    alt
+    :
+    I@029/0002
+    Number
+  }
+  |
+  I@038/0002
+  String
+}
+{
+  !Du I@006/0001
+  DualAltModBool
+  |
+  I@025/0001
+  AltDualAltModBool
+  [^]
+}
+{
+  !Du I@006/0002
+  AltDualAltModBool
+  {
+    !DF I@026/0002
+    alt
+    :
+    I@031/0002
+    Number
+  }
+  |
+  I@040/0002
+  String
+}
+{
+  !In I@007/0001
+  InpAltModBool
+  |
+  I@025/0001
+  AltInpAltModBool
+  [^]
+}
+{
+  !In I@007/0002
+  AltInpAltModBool
+  {
+    !IF I@026/0002
+    alt
+    :
+    I@031/0002
+    Number
+  }
+  |
+  I@040/0002
+  String
+}
+{
+  !Ou I@008/0001
+  OutpAltModBool
+  |
+  I@027/0001
+  AltOutpAltModBool
+  [^]
+}
+{
+  !Ou I@008/0002
+  AltOutpAltModBool
+  {
+    !OF I@028/0002
+    alt
+    :
+    I@033/0002
+    Number
+  }
+  |
+  I@042/0002
+  String
+}
+{
+  !Du I@006/0001
+  DualAltModParam
+  <
+    I@023/0001
+    $mod
+  >
+  |
+  I@032/0001
+  AltDualAltModParam
+  [$mod]
+}
+{
+  !Du I@006/0002
+  AltDualAltModParam
+  {
+    !DF I@027/0002
+    alt
+    :
+    I@032/0002
+    Number
+  }
+  |
+  I@041/0002
+  String
+}
+{
+  !In I@007/0001
+  InpAltModParam
+  <
+    I@023/0001
+    $mod
+  >
+  |
+  I@032/0001
+  AltInpAltModParam
+  [$mod]
+}
+{
+  !In I@007/0002
+  AltInpAltModParam
+  {
+    !IF I@027/0002
+    alt
+    :
+    I@032/0002
+    Number
+  }
+  |
+  I@041/0002
+  String
+}
+{
+  !Ou I@008/0001
+  OutpAltModParam
+  <
+    I@025/0001
+    $mod
+  >
+  |
+  I@034/0001
+  AltOutpAltModParam
+  [$mod]
+}
+{
+  !Ou I@008/0002
+  AltOutpAltModParam
+  {
+    !OF I@029/0002
+    alt
+    :
+    I@034/0002
+    Number
+  }
+  |
+  I@043/0002
+  String
+}
+{
+  !Du I@006/0001
+  DualAltSmpl
+  |
+  I@022/0001
+  String
+}
+{
+  !In I@007/0001
+  InpAltSmpl
+  |
+  I@022/0001
+  String
+}
+{
+  !Ou I@008/0001
+  OutpAltSmpl
+  |
+  I@024/0001
+  String
+}
+{
+  !Du I@006/0001
+  DualField
+  {
+    !DF I@018/0001
+    field
+    :
+    P@025/0001
+    *
+  }
+}
+{
+  !In I@007/0001
+  InpField
+  {
+    !IF I@018/0001
+    field
+    :
+    P@025/0001
+    *
+  }
+}
+{
+  !Ou I@008/0001
+  OutpField
+  {
+    !OF I@020/0001
+    field
+    :
+    P@027/0001
+    *
+  }
+}
+{
+  !Du I@006/0001
+  DualFieldDescr
+  {
+    'Test Descr'
+    !DF I@038/0001
+    field
+    :
+    P@045/0001
+    *
+  }
+}
+{
+  !In I@007/0001
+  InpFieldDescr
+  {
+    'Test Descr'
+    !IF I@038/0001
+    field
+    :
+    P@045/0001
+    *
+  }
+}
+{
+  !Ou I@008/0001
+  OutpFieldDescr
+  {
+    'Test Descr'
+    !OF I@040/0001
+    field
+    :
+    P@047/0001
+    *
+  }
+}
+{
+  !Du I@006/0001
+  DualFieldDual
+  {
+    !DF I@022/0001
+    field
+    :
+    I@029/0001
+    FldDualFieldDual
+  }
+}
+{
+  !Du I@006/0002
+  FldDualFieldDual
+  {
+    !DF I@025/0002
+    field
+    :
+    I@032/0002
+    Number
+  }
+  |
+  I@041/0002
+  String
+}
+{
+  !In I@007/0001
+  InpFieldDual
+  {
+    !IF I@022/0001
+    field
+    :
+    I@029/0001
+    FldInpFieldDual
+  }
+}
+{
+  !Du I@006/0002
+  FldInpFieldDual
+  {
+    !DF I@024/0002
+    field
+    :
+    I@031/0002
+    Number
+  }
+  |
+  I@040/0002
+  String
+}
+{
+  !Ou I@008/0001
+  OutpFieldDual
+  {
+    !OF I@024/0001
+    field
+    :
+    I@031/0001
+    FldOutpFieldDual
+  }
+}
+{
+  !Du I@006/0002
+  FldOutpFieldDual
+  {
+    !DF I@025/0002
+    field
+    :
+    I@032/0002
+    Number
+  }
+  |
+  I@041/0002
+  String
+}
+{
+  !Du I@006/0001
+  DualFieldModEnum
+  {
+    !DF I@025/0001
+    field
+    :
+    P@032/0001
+    *
+    [EnumDualFieldModEnum]
+  }
+}
+{
+  !En I@006/0002
+  EnumDualFieldModEnum
+  !EL I@029/0002
+  value
+}
+{
+  !In I@007/0001
+  InpFieldModEnum
+  {
+    !IF I@025/0001
+    field
+    :
+    P@032/0001
+    *
+    [EnumInpFieldModEnum]
+  }
+}
+{
+  !En I@006/0002
+  EnumInpFieldModEnum
+  !EL I@028/0002
+  value
+}
+{
+  !Ou I@008/0001
+  OutpFieldModEnum
+  {
+    !OF I@027/0001
+    field
+    :
+    P@034/0001
+    *
+    [EnumOutpFieldModEnum]
+  }
+}
+{
+  !En I@006/0002
+  EnumOutpFieldModEnum
+  !EL I@029/0002
+  value
+}
+{
+  !Du I@006/0001
+  DualFieldModParam
+  <
+    I@025/0001
+    $mod
+  >
+  {
+    !DF I@032/0001
+    field
+    :
+    I@039/0001
+    FldDualFieldModParam
+    [$mod]
+  }
+}
+{
+  !Du I@006/0002
+  FldDualFieldModParam
+  {
+    !DF I@029/0002
+    field
+    :
+    I@036/0002
+    Number
+  }
+  |
+  I@045/0002
+  String
+}
+{
+  !In I@007/0001
+  InpFieldModParam
+  <
+    I@025/0001
+    $mod
+  >
+  {
+    !IF I@032/0001
+    field
+    :
+    I@039/0001
+    FldInpFieldModParam
+    [$mod]
+  }
+}
+{
+  !In I@007/0002
+  FldInpFieldModParam
+  {
+    !IF I@029/0002
+    field
+    :
+    I@036/0002
+    Number
+  }
+  |
+  I@045/0002
+  String
+}
+{
+  !Ou I@008/0001
+  OutpFieldModParam
+  <
+    I@027/0001
+    $mod
+  >
+  {
+    !OF I@034/0001
+    field
+    :
+    I@041/0001
+    FldOutpFieldModParam
+    [$mod]
+  }
+}
+{
+  !Ou I@008/0002
+  FldOutpFieldModParam
+  {
+    !OF I@031/0002
+    field
+    :
+    I@038/0002
+    Number
+  }
+  |
+  I@047/0002
+  String
+}
+{
+  !Du I@006/0001
+  DualFieldObj
+  {
+    !DF I@021/0001
+    field
+    :
+    I@028/0001
+    FldDualFieldObj
+  }
+}
+{
+  !Du I@006/0002
+  FldDualFieldObj
+  {
+    !DF I@024/0002
+    field
+    :
+    I@031/0002
+    Number
+  }
+  |
+  I@040/0002
+  String
+}
+{
+  !In I@007/0001
+  InpFieldObj
+  {
+    !IF I@021/0001
+    field
+    :
+    I@028/0001
+    FldInpFieldObj
+  }
+}
+{
+  !In I@007/0002
+  FldInpFieldObj
+  {
+    !IF I@024/0002
+    field
+    :
+    I@031/0002
+    Number
+  }
+  |
+  I@040/0002
+  String
+}
+{
+  !Ou I@008/0001
+  OutpFieldObj
+  {
+    !OF I@023/0001
+    field
+    :
+    I@030/0001
+    FldOutpFieldObj
+  }
+}
+{
+  !Ou I@008/0002
+  FldOutpFieldObj
+  {
+    !OF I@026/0002
+    field
+    :
+    I@033/0002
+    Number
+  }
+  |
+  I@042/0002
+  String
+}
+{
+  !Du I@006/0001
+  DualFieldSmpl
+  {
+    !DF I@022/0001
+    field
+    :
+    I@029/0001
+    Number
+  }
+}
+{
+  !In I@007/0001
+  InpFieldSmpl
+  {
+    !IF I@022/0001
+    field
+    :
+    I@029/0001
+    Number
+  }
+}
+{
+  !Ou I@008/0001
+  OutpFieldSmpl
+  {
+    !OF I@024/0001
+    field
+    :
+    I@031/0001
+    Number
+  }
+}
+{
+  !Du I@006/0001
+  DualFieldTypeDescr
+  {
+    !DF I@027/0001
+    field
+    :
+    'Test Descr'
+    I@049/0001
+    Number
+  }
+}
+{
+  !In I@007/0001
+  InpFieldTypeDescr
+  {
+    !IF I@027/0001
+    field
+    :
+    'Test Descr'
+    I@049/0001
+    Number
+  }
+}
+{
+  !Ou I@008/0001
+  OutpFieldTypeDescr
+  {
+    !OF I@029/0001
+    field
+    :
+    'Test Descr'
+    I@051/0001
+    Number
+  }
+}
+{
+  !Du I@006/0001
+  DualGnrcAlt
+  <
+    I@019/0001
+    $type
+  >
+  |
+  P@029/0001
+  $type
+}
+{
+  !In I@007/0001
+  InpGnrcAlt
+  <
+    I@019/0001
+    $type
+  >
+  |
+  P@029/0001
+  $type
+}
+{
+  !Ou I@008/0001
+  OutpGnrcAlt
+  <
+    I@021/0001
+    $type
+  >
+  |
+  P@031/0001
+  $type
+}
+{
+  !Du I@006/0001
+  DualGnrcAltArg
+  <
+    I@022/0001
+    $type
+  >
+  |
+  I@032/0001
+  RefDualGnrcAltArg
+  <
+    I@051/0001
+    $type
+  >
+}
+{
+  !Du I@006/0002
+  RefDualGnrcAltArg
+  <
+    I@025/0002
+    $ref
+  >
+  |
+  P@034/0002
+  $ref
+}
+{
+  !In I@007/0001
+  InpGnrcAltArg
+  <
+    I@022/0001
+    $type
+  >
+  |
+  I@032/0001
+  RefInpGnrcAltArg
+  <
+    I@050/0001
+    $type
+  >
+}
+{
+  !In I@007/0002
+  RefInpGnrcAltArg
+  <
+    I@025/0002
+    $ref
+  >
+  |
+  P@034/0002
+  $ref
+}
+{
+  !Ou I@008/0001
+  OutpGnrcAltArg
+  <
+    I@024/0001
+    $type
+  >
+  |
+  I@034/0001
+  RefOutpGnrcAltArg
+  <
+    I@053/0001
+    $type
+  >
+}
+{
+  !Ou I@008/0002
+  RefOutpGnrcAltArg
+  <
+    I@027/0002
+    $ref
+  >
+  |
+  P@036/0002
+  $ref
+}
+{
+  !Du I@006/0001
+  DualGnrcAltArgDescr
+  <
+    I@027/0001
+    $type
+  >
+  |
+  I@037/0001
+  RefDualGnrcAltArgDescr
+  <
+    'Test Descr'
+    I@075/0001
+    $type
+  >
+}
+{
+  !Du I@006/0002
+  RefDualGnrcAltArgDescr
+  <
+    I@030/0002
+    $ref
+  >
+  |
+  P@039/0002
+  $ref
+}
+{
+  !In I@007/0001
+  InpGnrcAltArgDescr
+  <
+    I@027/0001
+    $type
+  >
+  |
+  I@037/0001
+  RefInpGnrcAltArgDescr
+  <
+    'Test Descr'
+    I@074/0001
+    $type
+  >
+}
+{
+  !In I@007/0002
+  RefInpGnrcAltArgDescr
+  <
+    I@030/0002
+    $ref
+  >
+  |
+  P@039/0002
+  $ref
+}
+{
+  !Ou I@008/0001
+  OutpGnrcAltArgDescr
+  <
+    I@029/0001
+    $type
+  >
+  |
+  I@039/0001
+  RefOutpGnrcAltArgDescr
+  <
+    'Test Descr'
+    I@077/0001
+    $type
+  >
+}
+{
+  !Ou I@008/0002
+  RefOutpGnrcAltArgDescr
+  <
+    I@032/0002
+    $ref
+  >
+  |
+  P@041/0002
+  $ref
+}
+{
+  !Du I@006/0001
+  DualGnrcAltDual
+  |
+  I@026/0001
+  RefDualGnrcAltDual
+  <
+    I@045/0001
+    AltDualGnrcAltDual
+  >
+}
+{
+  !Du I@006/0002
+  RefDualGnrcAltDual
+  <
+    I@026/0002
+    $ref
+  >
+  |
+  P@035/0002
+  $ref
+}
+{
+  !Du I@006/0003
+  AltDualGnrcAltDual
+  {
+    !DF I@027/0003
+    alt
+    :
+    I@032/0003
+    Number
+  }
+  |
+  I@041/0003
+  String
+}
+{
+  !In I@007/0001
+  InpGnrcAltDual
+  |
+  I@026/0001
+  RefInpGnrcAltDual
+  <
+    I@044/0001
+    AltInpGnrcAltDual
+  >
+}
+{
+  !In I@007/0002
+  RefInpGnrcAltDual
+  <
+    I@026/0002
+    $ref
+  >
+  |
+  P@035/0002
+  $ref
+}
+{
+  !Du I@006/0003
+  AltInpGnrcAltDual
+  {
+    !DF I@026/0003
+    alt
+    :
+    I@031/0003
+    Number
+  }
+  |
+  I@040/0003
+  String
+}
+{
+  !Ou I@008/0001
+  OutpGnrcAltDual
+  |
+  I@028/0001
+  RefOutpGnrcAltDual
+  <
+    I@047/0001
+    AltOutpGnrcAltDual
+  >
+}
+{
+  !Ou I@008/0002
+  RefOutpGnrcAltDual
+  <
+    I@028/0002
+    $ref
+  >
+  |
+  P@037/0002
+  $ref
+}
+{
+  !Du I@006/0003
+  AltOutpGnrcAltDual
+  {
+    !DF I@027/0003
+    alt
+    :
+    I@032/0003
+    Number
+  }
+  |
+  I@041/0003
+  String
+}
+{
+  !Du I@006/0001
+  DualGnrcAltParam
+  |
+  I@027/0001
+  RefDualGnrcAltParam
+  <
+    I@047/0001
+    AltDualGnrcAltParam
+  >
+}
+{
+  !Du I@006/0002
+  RefDualGnrcAltParam
+  <
+    I@027/0002
+    $ref
+  >
+  |
+  P@036/0002
+  $ref
+}
+{
+  !Du I@006/0003
+  AltDualGnrcAltParam
+  {
+    !DF I@028/0003
+    alt
+    :
+    I@033/0003
+    Number
+  }
+  |
+  I@042/0003
+  String
+}
+{
+  !In I@007/0001
+  InpGnrcAltParam
+  |
+  I@027/0001
+  RefInpGnrcAltParam
+  <
+    I@046/0001
+    AltInpGnrcAltParam
+  >
+}
+{
+  !In I@007/0002
+  RefInpGnrcAltParam
+  <
+    I@027/0002
+    $ref
+  >
+  |
+  P@036/0002
+  $ref
+}
+{
+  !In I@007/0003
+  AltInpGnrcAltParam
+  {
+    !IF I@028/0003
+    alt
+    :
+    I@033/0003
+    Number
+  }
+  |
+  I@042/0003
+  String
+}
+{
+  !Ou I@008/0001
+  OutpGnrcAltParam
+  |
+  I@029/0001
+  RefOutpGnrcAltParam
+  <
+    I@049/0001
+    AltOutpGnrcAltParam
+  >
+}
+{
+  !Ou I@008/0002
+  RefOutpGnrcAltParam
+  <
+    I@029/0002
+    $ref
+  >
+  |
+  P@038/0002
+  $ref
+}
+{
+  !Ou I@008/0003
+  AltOutpGnrcAltParam
+  {
+    !OF I@030/0003
+    alt
+    :
+    I@035/0003
+    Number
+  }
+  |
+  I@044/0003
+  String
+}
+{
+  !Du I@006/0001
+  DualGnrcAltSmpl
+  |
+  I@026/0001
+  RefDualGnrcAltSmpl
+  <
+    I@045/0001
+    String
+  >
+}
+{
+  !Du I@006/0002
+  RefDualGnrcAltSmpl
+  <
+    I@026/0002
+    $ref
+  >
+  |
+  P@035/0002
+  $ref
+}
+{
+  !In I@007/0001
+  InpGnrcAltSmpl
+  |
+  I@026/0001
+  RefInpGnrcAltSmpl
+  <
+    I@044/0001
+    String
+  >
+}
+{
+  !In I@007/0002
+  RefInpGnrcAltSmpl
+  <
+    I@026/0002
+    $ref
+  >
+  |
+  P@035/0002
+  $ref
+}
+{
+  !Ou I@008/0001
+  OutpGnrcAltSmpl
+  |
+  I@028/0001
+  RefOutpGnrcAltSmpl
+  <
+    I@047/0001
+    String
+  >
+}
+{
+  !Ou I@008/0002
+  RefOutpGnrcAltSmpl
+  <
+    I@028/0002
+    $ref
+  >
+  |
+  P@037/0002
+  $ref
+}
+{
+  !Du I@006/0001
+  DualGnrcDescr
+  <
+    I@036/0001
+    "Test Descr"
+    $type
+  >
+  {
+    !DF I@044/0001
+    field
+    :
+    I@052/0001
+    $type
+  }
+}
+{
+  !In I@007/0001
+  InpGnrcDescr
+  <
+    I@036/0001
+    "Test Descr"
+    $type
+  >
+  {
+    !IF I@044/0001
+    field
+    :
+    I@052/0001
+    $type
+  }
+}
+{
+  !Ou I@008/0001
+  OutpGnrcDescr
+  <
+    I@038/0001
+    "Test Descr"
+    $type
+  >
+  {
+    !OF I@046/0001
+    field
+    :
+    I@054/0001
+    $type
+  }
+}
+{
+  !Du I@006/0001
+  DualGnrcDual
+  {
+    !DF I@021/0001
+    field
+    :
+    I@028/0001
+    DualGnrcDualRef
+    <
+      I@044/0001
+      DualGnrcDualAlt
+    >
+  }
+}
+{
+  !Du I@006/0002
+  DualGnrcDualRef
+  <
+    I@023/0002
+    $ref
+  >
+  |
+  P@032/0002
+  $ref
+}
+{
+  !Du I@006/0003
+  DualGnrcDualAlt
+  {
+    !DF I@024/0003
+    alt
+    :
+    I@029/0003
+    Number
+  }
+  |
+  I@038/0003
+  String
+}
+{
+  !In I@007/0001
+  InpGnrcDual
+  {
+    !IF I@021/0001
+    field
+    :
+    I@028/0001
+    InpGnrcDualRef
+    <
+      I@043/0001
+      InpGnrcDualAlt
+    >
+  }
+}
+{
+  !In I@007/0002
+  InpGnrcDualRef
+  <
+    I@023/0002
+    $ref
+  >
+  |
+  P@032/0002
+  $ref
+}
+{
+  !Du I@006/0003
+  InpGnrcDualAlt
+  {
+    !DF I@023/0003
+    alt
+    :
+    I@028/0003
+    Number
+  }
+  |
+  I@037/0003
+  String
+}
+{
+  !Ou I@008/0001
+  OutpGnrcDual
+  {
+    !OF I@023/0001
+    field
+    :
+    I@030/0001
+    OutpGnrcDualRef
+    <
+      I@046/0001
+      OutpGnrcDualAlt
+    >
+  }
+}
+{
+  !Ou I@008/0002
+  OutpGnrcDualRef
+  <
+    I@025/0002
+    $ref
+  >
+  |
+  P@034/0002
+  $ref
+}
+{
+  !Du I@006/0003
+  OutpGnrcDualAlt
+  {
+    !DF I@024/0003
+    alt
+    :
+    I@029/0003
+    Number
+  }
+  |
+  I@038/0003
+  String
+}
+{
+  !Du I@006/0001
+  DualGnrcField
+  <
+    I@021/0001
+    $type
+  >
+  {
+    !DF I@029/0001
+    field
+    :
+    I@037/0001
+    $type
+  }
+}
+{
+  !In I@007/0001
+  InpGnrcField
+  <
+    I@021/0001
+    $type
+  >
+  {
+    !IF I@029/0001
+    field
+    :
+    I@037/0001
+    $type
+  }
+}
+{
+  !Ou I@008/0001
+  OutpGnrcField
+  <
+    I@023/0001
+    $type
+  >
+  {
+    !OF I@031/0001
+    field
+    :
+    I@039/0001
+    $type
+  }
+}
+{
+  !Du I@006/0001
+  DualGnrcFieldArg
+  <
+    I@024/0001
+    $type
+  >
+  {
+    !DF I@032/0001
+    field
+    :
+    I@039/0001
+    RefDualGnrcFieldArg
+    <
+      I@060/0001
+      $type
+    >
+  }
+}
+{
+  !Du I@006/0002
+  RefDualGnrcFieldArg
+  <
+    I@027/0002
+    $ref
+  >
+  |
+  P@036/0002
+  $ref
+}
+{
+  !In I@007/0001
+  InpGnrcFieldArg
+  <
+    I@024/0001
+    $type
+  >
+  {
+    !IF I@032/0001
+    field
+    :
+    I@039/0001
+    RefInpGnrcFieldArg
+    <
+      I@059/0001
+      $type
+    >
+  }
+}
+{
+  !In I@007/0002
+  RefInpGnrcFieldArg
+  <
+    I@027/0002
+    $ref
+  >
+  |
+  P@036/0002
+  $ref
+}
+{
+  !Ou I@008/0001
+  OutpGnrcFieldArg
+  <
+    I@026/0001
+    $type
+  >
+  {
+    !OF I@034/0001
+    field
+    :
+    I@041/0001
+    RefOutpGnrcFieldArg
+    <
+      I@062/0001
+      $type
+    >
+  }
+}
+{
+  !Ou I@008/0002
+  RefOutpGnrcFieldArg
+  <
+    I@029/0002
+    $ref
+  >
+  |
+  P@038/0002
+  $ref
+}
+{
+  !Du I@006/0001
+  DualGnrcFieldDual
+  {
+    !DF I@026/0001
+    field
+    :
+    I@033/0001
+    RefDualGnrcFieldDual
+    <
+      I@054/0001
+      AltDualGnrcFieldDual
+    >
+  }
+}
+{
+  !Du I@006/0002
+  RefDualGnrcFieldDual
+  <
+    I@028/0002
+    $ref
+  >
+  |
+  P@037/0002
+  $ref
+}
+{
+  !Du I@006/0003
+  AltDualGnrcFieldDual
+  {
+    !DF I@029/0003
+    alt
+    :
+    I@034/0003
+    Number
+  }
+  |
+  I@043/0003
+  String
+}
+{
+  !In I@007/0001
+  InpGnrcFieldDual
+  {
+    !IF I@026/0001
+    field
+    :
+    I@033/0001
+    RefInpGnrcFieldDual
+    <
+      I@053/0001
+      AltInpGnrcFieldDual
+    >
+  }
+}
+{
+  !In I@007/0002
+  RefInpGnrcFieldDual
+  <
+    I@028/0002
+    $ref
+  >
+  |
+  P@037/0002
+  $ref
+}
+{
+  !Du I@006/0003
+  AltInpGnrcFieldDual
+  {
+    !DF I@028/0003
+    alt
+    :
+    I@033/0003
+    Number
+  }
+  |
+  I@042/0003
+  String
+}
+{
+  !Ou I@008/0001
+  OutpGnrcFieldDual
+  {
+    !OF I@028/0001
+    field
+    :
+    I@035/0001
+    RefOutpGnrcFieldDual
+    <
+      I@056/0001
+      AltOutpGnrcFieldDual
+    >
+  }
+}
+{
+  !Ou I@008/0002
+  RefOutpGnrcFieldDual
+  <
+    I@030/0002
+    $ref
+  >
+  |
+  P@039/0002
+  $ref
+}
+{
+  !Du I@006/0003
+  AltOutpGnrcFieldDual
+  {
+    !DF I@029/0003
+    alt
+    :
+    I@034/0003
+    Number
+  }
+  |
+  I@043/0003
+  String
+}
+{
+  !Du I@006/0001
+  DualGnrcFieldParam
+  {
+    !DF I@027/0001
+    field
+    :
+    I@034/0001
+    RefDualGnrcFieldParam
+    <
+      I@056/0001
+      AltDualGnrcFieldParam
+    >
+  }
+}
+{
+  !Du I@006/0002
+  RefDualGnrcFieldParam
+  <
+    I@029/0002
+    $ref
+  >
+  |
+  P@038/0002
+  $ref
+}
+{
+  !Du I@006/0003
+  AltDualGnrcFieldParam
+  {
+    !DF I@030/0003
+    alt
+    :
+    I@035/0003
+    Number
+  }
+  |
+  I@044/0003
+  String
+}
+{
+  !In I@007/0001
+  InpGnrcFieldParam
+  {
+    !IF I@027/0001
+    field
+    :
+    I@034/0001
+    RefInpGnrcFieldParam
+    <
+      I@055/0001
+      AltInpGnrcFieldParam
+    >
+  }
+}
+{
+  !In I@007/0002
+  RefInpGnrcFieldParam
+  <
+    I@029/0002
+    $ref
+  >
+  |
+  P@038/0002
+  $ref
+}
+{
+  !In I@007/0003
+  AltInpGnrcFieldParam
+  {
+    !IF I@030/0003
+    alt
+    :
+    I@035/0003
+    Number
+  }
+  |
+  I@044/0003
+  String
+}
+{
+  !Ou I@008/0001
+  OutpGnrcFieldParam
+  {
+    !OF I@029/0001
+    field
+    :
+    I@036/0001
+    RefOutpGnrcFieldParam
+    <
+      I@058/0001
+      AltOutpGnrcFieldParam
+    >
+  }
+}
+{
+  !Ou I@008/0002
+  RefOutpGnrcFieldParam
+  <
+    I@031/0002
+    $ref
+  >
+  |
+  P@040/0002
+  $ref
+}
+{
+  !Ou I@008/0003
+  AltOutpGnrcFieldParam
+  {
+    !OF I@032/0003
+    alt
+    :
+    I@037/0003
+    Number
+  }
+  |
+  I@046/0003
+  String
+}
+{
+  !Du I@006/0001
+  DualGnrcParam
+  {
+    !DF I@022/0001
+    field
+    :
+    I@029/0001
+    DualGnrcParamRef
+    <
+      I@046/0001
+      DualGnrcParamAlt
+    >
+  }
+}
+{
+  !Du I@006/0002
+  DualGnrcParamRef
+  <
+    I@024/0002
+    $ref
+  >
+  |
+  P@033/0002
+  $ref
+}
+{
+  !Du I@006/0003
+  DualGnrcParamAlt
+  {
+    !DF I@025/0003
+    alt
+    :
+    I@030/0003
+    Number
+  }
+  |
+  I@039/0003
+  String
+}
+{
+  !In I@007/0001
+  InpGnrcParam
+  {
+    !IF I@022/0001
+    field
+    :
+    I@029/0001
+    InpGnrcParamRef
+    <
+      I@045/0001
+      InpGnrcParamAlt
+    >
+  }
+}
+{
+  !In I@007/0002
+  InpGnrcParamRef
+  <
+    I@024/0002
+    $ref
+  >
+  |
+  P@033/0002
+  $ref
+}
+{
+  !In I@007/0003
+  InpGnrcParamAlt
+  {
+    !IF I@025/0003
+    alt
+    :
+    I@030/0003
+    Number
+  }
+  |
+  I@039/0003
+  String
+}
+{
+  !Ou I@008/0001
+  OutpGnrcParam
+  {
+    !OF I@024/0001
+    field
+    :
+    I@031/0001
+    OutpGnrcParamRef
+    <
+      I@048/0001
+      OutpGnrcParamAlt
+    >
+  }
+}
+{
+  !Ou I@008/0002
+  OutpGnrcParamRef
+  <
+    I@026/0002
+    $ref
+  >
+  |
+  P@035/0002
+  $ref
+}
+{
+  !Ou I@008/0003
+  OutpGnrcParamAlt
+  {
+    !OF I@027/0003
+    alt
+    :
+    I@032/0003
+    Number
+  }
+  |
+  I@041/0003
+  String
+}
+{
+  !Du I@006/0001
+  DualGnrcPrnt
+  <
+    I@020/0001
+    $type
+  >
+  :
+  I@030/0001
+  $type
+}
+{
+  !In I@007/0001
+  InpGnrcPrnt
+  <
+    I@020/0001
+    $type
+  >
+  :
+  I@030/0001
+  $type
+}
+{
+  !Ou I@008/0001
+  OutpGnrcPrnt
+  <
+    I@022/0001
+    $type
+  >
+  :
+  I@032/0001
+  $type
+}
+{
+  !Du I@006/0001
+  DualGnrcPrntArg
+  <
+    I@023/0001
+    $type
+  >
+  :
+  I@032/0001
+  RefDualGnrcPrntArg
+  <
+    I@052/0001
+    $type
+  >
+}
+{
+  !Du I@006/0002
+  RefDualGnrcPrntArg
+  <
+    I@026/0002
+    $ref
+  >
+  |
+  P@035/0002
+  $ref
+}
+{
+  !In I@007/0001
+  InpGnrcPrntArg
+  <
+    I@023/0001
+    $type
+  >
+  :
+  I@032/0001
+  RefInpGnrcPrntArg
+  <
+    I@051/0001
+    $type
+  >
+}
+{
+  !In I@007/0002
+  RefInpGnrcPrntArg
+  <
+    I@026/0002
+    $ref
+  >
+  |
+  P@035/0002
+  $ref
+}
+{
+  !Ou I@008/0001
+  OutpGnrcPrntArg
+  <
+    I@025/0001
+    $type
+  >
+  :
+  I@034/0001
+  RefOutpGnrcPrntArg
+  <
+    I@054/0001
+    $type
+  >
+}
+{
+  !Ou I@008/0002
+  RefOutpGnrcPrntArg
+  <
+    I@028/0002
+    $ref
+  >
+  |
+  P@037/0002
+  $ref
+}
+{
+  !Du I@006/0001
+  DualGnrcPrntDual
+  :
+  I@026/0001
+  RefDualGnrcPrntDual
+  <
+    I@046/0001
+    AltDualGnrcPrntDual
+  >
+}
+{
+  !Du I@006/0002
+  RefDualGnrcPrntDual
+  <
+    I@027/0002
+    $ref
+  >
+  |
+  P@036/0002
+  $ref
+}
+{
+  !Du I@006/0003
+  AltDualGnrcPrntDual
+  {
+    !DF I@028/0003
+    alt
+    :
+    I@033/0003
+    Number
+  }
+  |
+  I@042/0003
+  String
+}
+{
+  !In I@007/0001
+  InpGnrcPrntDual
+  :
+  I@026/0001
+  RefInpGnrcPrntDual
+  <
+    I@045/0001
+    AltInpGnrcPrntDual
+  >
+}
+{
+  !In I@007/0002
+  RefInpGnrcPrntDual
+  <
+    I@027/0002
+    $ref
+  >
+  |
+  P@036/0002
+  $ref
+}
+{
+  !Du I@006/0003
+  AltInpGnrcPrntDual
+  {
+    !DF I@027/0003
+    alt
+    :
+    I@032/0003
+    Number
+  }
+  |
+  I@041/0003
+  String
+}
+{
+  !Ou I@008/0001
+  OutpGnrcPrntDual
+  :
+  I@028/0001
+  RefOutpGnrcPrntDual
+  <
+    I@048/0001
+    AltOutpGnrcPrntDual
+  >
+}
+{
+  !Ou I@008/0002
+  RefOutpGnrcPrntDual
+  <
+    I@029/0002
+    $ref
+  >
+  |
+  P@038/0002
+  $ref
+}
+{
+  !Du I@006/0003
+  AltOutpGnrcPrntDual
+  {
+    !DF I@028/0003
+    alt
+    :
+    I@033/0003
+    Number
+  }
+  |
+  I@042/0003
+  String
+}
+{
+  !Du I@006/0001
+  DualGnrcPrntDualPrnt
+  :
+  I@030/0001
+  RefDualGnrcPrntDualPrnt
+  <
+    I@054/0001
+    AltDualGnrcPrntDualPrnt
+  >
+}
+{
+  !Du I@006/0002
+  RefDualGnrcPrntDualPrnt
+  <
+    I@031/0002
+    $ref
+  >
+  :
+  I@040/0002
+  $ref
+}
+{
+  !Du I@006/0003
+  AltDualGnrcPrntDualPrnt
+  {
+    !DF I@032/0003
+    alt
+    :
+    I@037/0003
+    Number
+  }
+  |
+  I@046/0003
+  String
+}
+{
+  !In I@007/0001
+  InpGnrcPrntDualPrnt
+  :
+  I@030/0001
+  RefInpGnrcPrntDualPrnt
+  <
+    I@053/0001
+    AltInpGnrcPrntDualPrnt
+  >
+}
+{
+  !In I@007/0002
+  RefInpGnrcPrntDualPrnt
+  <
+    I@031/0002
+    $ref
+  >
+  :
+  I@040/0002
+  $ref
+}
+{
+  !Du I@006/0003
+  AltInpGnrcPrntDualPrnt
+  {
+    !DF I@031/0003
+    alt
+    :
+    I@036/0003
+    Number
+  }
+  |
+  I@045/0003
+  String
+}
+{
+  !Ou I@008/0001
+  OutpGnrcPrntDualPrnt
+  :
+  I@032/0001
+  RefOutpGnrcPrntDualPrnt
+  <
+    I@056/0001
+    AltOutpGnrcPrntDualPrnt
+  >
+}
+{
+  !Ou I@008/0002
+  RefOutpGnrcPrntDualPrnt
+  <
+    I@033/0002
+    $ref
+  >
+  :
+  I@042/0002
+  $ref
+}
+{
+  !Du I@006/0003
+  AltOutpGnrcPrntDualPrnt
+  {
+    !DF I@032/0003
+    alt
+    :
+    I@037/0003
+    Number
+  }
+  |
+  I@046/0003
+  String
+}
+{
+  !Du I@006/0001
+  DualGnrcPrntParam
+  :
+  I@027/0001
+  RefDualGnrcPrntParam
+  <
+    I@048/0001
+    AltDualGnrcPrntParam
+  >
+}
+{
+  !Du I@006/0002
+  RefDualGnrcPrntParam
+  <
+    I@028/0002
+    $ref
+  >
+  |
+  P@037/0002
+  $ref
+}
+{
+  !Du I@006/0003
+  AltDualGnrcPrntParam
+  {
+    !DF I@029/0003
+    alt
+    :
+    I@034/0003
+    Number
+  }
+  |
+  I@043/0003
+  String
+}
+{
+  !In I@007/0001
+  InpGnrcPrntParam
+  :
+  I@027/0001
+  RefInpGnrcPrntParam
+  <
+    I@047/0001
+    AltInpGnrcPrntParam
+  >
+}
+{
+  !In I@007/0002
+  RefInpGnrcPrntParam
+  <
+    I@028/0002
+    $ref
+  >
+  |
+  P@037/0002
+  $ref
+}
+{
+  !In I@007/0003
+  AltInpGnrcPrntParam
+  {
+    !IF I@029/0003
+    alt
+    :
+    I@034/0003
+    Number
+  }
+  |
+  I@043/0003
+  String
+}
+{
+  !Ou I@008/0001
+  OutpGnrcPrntParam
+  :
+  I@029/0001
+  RefOutpGnrcPrntParam
+  <
+    I@050/0001
+    AltOutpGnrcPrntParam
+  >
+}
+{
+  !Ou I@008/0002
+  RefOutpGnrcPrntParam
+  <
+    I@030/0002
+    $ref
+  >
+  |
+  P@039/0002
+  $ref
+}
+{
+  !Ou I@008/0003
+  AltOutpGnrcPrntParam
+  {
+    !OF I@031/0003
+    alt
+    :
+    I@036/0003
+    Number
+  }
+  |
+  I@045/0003
+  String
+}
+{
+  !Du I@006/0001
+  DualGnrcPrntParamPrnt
+  :
+  I@031/0001
+  RefDualGnrcPrntParamPrnt
+  <
+    I@056/0001
+    AltDualGnrcPrntParamPrnt
+  >
+}
+{
+  !Du I@006/0002
+  RefDualGnrcPrntParamPrnt
+  <
+    I@032/0002
+    $ref
+  >
+  :
+  I@041/0002
+  $ref
+}
+{
+  !Du I@006/0003
+  AltDualGnrcPrntParamPrnt
+  {
+    !DF I@033/0003
+    alt
+    :
+    I@038/0003
+    Number
+  }
+  |
+  I@047/0003
+  String
+}
+{
+  !In I@007/0001
+  InpGnrcPrntParamPrnt
+  :
+  I@031/0001
+  RefInpGnrcPrntParamPrnt
+  <
+    I@055/0001
+    AltInpGnrcPrntParamPrnt
+  >
+}
+{
+  !In I@007/0002
+  RefInpGnrcPrntParamPrnt
+  <
+    I@032/0002
+    $ref
+  >
+  :
+  I@041/0002
+  $ref
+}
+{
+  !In I@007/0003
+  AltInpGnrcPrntParamPrnt
+  {
+    !IF I@033/0003
+    alt
+    :
+    I@038/0003
+    Number
+  }
+  |
+  I@047/0003
+  String
+}
+{
+  !Ou I@008/0001
+  OutpGnrcPrntParamPrnt
+  :
+  I@033/0001
+  RefOutpGnrcPrntParamPrnt
+  <
+    I@058/0001
+    AltOutpGnrcPrntParamPrnt
+  >
+}
+{
+  !Ou I@008/0002
+  RefOutpGnrcPrntParamPrnt
+  <
+    I@034/0002
+    $ref
+  >
+  :
+  I@043/0002
+  $ref
+}
+{
+  !Ou I@008/0003
+  AltOutpGnrcPrntParamPrnt
+  {
+    !OF I@035/0003
+    alt
+    :
+    I@040/0003
+    Number
+  }
+  |
+  I@049/0003
+  String
+}
+{
+  !In I@007/0001
+  InpFieldDescrNmbr
+  {
+    'Test Descr'
+    !IF I@042/0001
+    field
+    :
+    I@049/0001
+    Number
+    =( !k N@058/0001 0 )
+  }
+}
+{
+  !In I@007/0001
+  InpFieldEnum
+  {
+    !IF I@022/0001
+    field
+    :
+    I@029/0001
+    EnumInpFieldEnum
+    =( !k I@048/0001 inpFieldEnum )
+  }
+}
+{
+  !En I@006/0002
+  EnumInpFieldEnum
+  !EL I@025/0002
+  inpFieldEnum
+}
+{
+  !In I@007/0001
+  InpFieldNull
+  {
+    !IF I@022/0001
+    field
+    :
+    I@029/0001
+    FldInpFieldNull
+    ?
+    =( !k I@048/0001 Null.null )
+  }
+}
+{
+  !Du I@006/0002
+  FldInpFieldNull
+}
+{
+  !In I@007/0001
+  InpFieldNmbr
+  {
+    !IF I@022/0001
+    field
+    :
+    I@029/0001
+    Number
+    =( !k N@038/0001 0 )
+  }
+}
+{
+  !In I@007/0001
+  InpFieldNmbrDescr
+  {
+    !IF I@027/0001
+    field
+    :
+    'Test Descr'
+    I@049/0001
+    Number
+    =( !k N@058/0001 0 )
+  }
+}
+{
+  !In I@007/0001
+  InpFieldStr
+  {
+    !IF I@021/0001
+    field
+    :
+    I@028/0001
+    String
+    =( !k S@037/0001 '' )
+  }
+}
+{
+  !Ou I@008/0001
+  OutpDescrParam
+  {
+    'Test Descr'
+    !OF I@040/0001
+    field
+    (
+      !Pa
+      I@046/0001
+      InOutpDescrParam
+    )
+    :
+    I@065/0001
+    FldOutpDescrParam
+  }
+}
+{
+  !Du I@006/0002
+  FldOutpDescrParam
+}
+{
+  !In I@007/0003
+  InOutpDescrParam
+  {
+    !IF I@026/0003
+    param
+    :
+    I@033/0003
+    Number
+  }
+  |
+  I@042/0003
+  String
+}
+{
+  !Ou I@008/0001
+  OutpFieldEnum
+  {
+    !OF I@024/0001
+    field
+    =
+    I@032/0001
+    EnumOutpFieldEnum
+    .outpFieldEnum
+  }
+}
+{
+  !En I@006/0002
+  EnumOutpFieldEnum
+  !EL I@026/0002
+  outpFieldEnum
+}
+{
+  !Ou I@008/0001
+  OutpFieldEnumPrnt
+  {
+    !OF I@028/0001
+    field
+    =
+    I@036/0001
+    EnumOutpFieldEnumPrnt
+    .prnt_outpFieldEnumPrnt
+  }
+}
+{
+  !En I@006/0002
+  EnumOutpFieldEnumPrnt
+  :PrntOutpFieldEnumPrnt
+  !EL I@053/0002
+  outpFieldEnumPrnt
+}
+{
+  !En I@006/0003
+  PrntOutpFieldEnumPrnt
+  !EL I@030/0003
+  prnt_outpFieldEnumPrnt
+}
+{
+  !Ou I@008/0001
+  OutpFieldValue
+  {
+    !OF I@025/0001
+    EnumOutpFieldValue
+    =
+    I@033/0001
+    .outpFieldValue
+  }
+}
+{
+  !En I@006/0002
+  EnumOutpFieldValue
+  !EL I@027/0002
+  outpFieldValue
+}
+{
+  !Ou I@008/0001
+  OutpFieldValueDescr
+  {
+    !OF I@030/0001
+    EnumOutpFieldValueDescr
+    =
+    'Test Descr'
+    I@053/0001
+    .outpFieldValueDescr
+  }
+}
+{
+  !En I@006/0002
+  EnumOutpFieldValueDescr
+  !EL I@032/0002
+  outpFieldValueDescr
+}
+{
+  !Ou I@008/0001
+  OutpGnrcEnum
+  |
+  I@025/0001
+  RefOutpGnrcEnum
+  <
+    I@041/0001
+    EnumOutpGnrcEnum.outpGnrcEnum
+  >
+}
+{
+  !Ou I@008/0002
+  RefOutpGnrcEnum
+  <
+    I@025/0002
+    $type
+  >
+  {
+    !OF I@033/0002
+    field
+    :
+    I@041/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumOutpGnrcEnum
+  !EL I@025/0003
+  outpGnrcEnum
+}
+{
+  !Ou I@008/0001
+  OutpGnrcValue
+  |
+  I@026/0001
+  RefOutpGnrcValue
+  <
+    I@043/0001
+    outpGnrcValue
+  >
+}
+{
+  !Ou I@008/0002
+  RefOutpGnrcValue
+  <
+    I@026/0002
+    $type
+  >
+  {
+    !OF I@034/0002
+    field
+    :
+    I@042/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumOutpGnrcValue
+  !EL I@026/0003
+  outpGnrcValue
+}
+{
+  !Ou I@008/0001
+  OutpParam
+  {
+    !OF I@020/0001
+    field
+    (
+      !Pa
+      I@026/0001
+      InOutpParam
+    )
+    :
+    I@040/0001
+    FldOutpParam
+  }
+}
+{
+  !Du I@006/0002
+  FldOutpParam
+}
+{
+  !In I@007/0003
+  InOutpParam
+  {
+    !IF I@021/0003
+    param
+    :
+    I@028/0003
+    Number
+  }
+  |
+  I@037/0003
+  String
+}
+{
+  !Ou I@008/0001
+  OutpParamDescr
+  {
+    !OF I@025/0001
+    field
+    (
+      !Pa
+      'Test Descr'
+      I@046/0001
+      InOutpParamDescr
+    )
+    :
+    I@065/0001
+    FldOutpParamDescr
+  }
+}
+{
+  !Du I@006/0002
+  FldOutpParamDescr
+}
+{
+  !In I@007/0003
+  InOutpParamDescr
+  {
+    !IF I@026/0003
+    param
+    :
+    I@033/0003
+    Number
+  }
+  |
+  I@042/0003
+  String
+}
+{
+  !Ou I@008/0001
+  OutpParamModDmn
+  {
+    !OF I@026/0001
+    field
+    (
+      !Pa
+      I@032/0001
+      InOutpParamModDmn
+      [DomOutpParamModDmn]
+    )
+    :
+    I@072/0001
+    DomOutpParamModDmn
+  }
+}
+{
+  !In I@007/0002
+  InOutpParamModDmn
+  {
+    !IF I@027/0002
+    param
+    :
+    I@034/0002
+    Number
+  }
+  |
+  I@043/0002
+  String
+}
+{
+  !Do I@008/0003
+  DomOutpParamModDmn
+  Number
+  !DN N@036/0003
+  1
+  ~
+  10
+}
+{
+  !Ou I@008/0001
+  OutpParamModParam
+  <
+    I@027/0001
+    $mod
+  >
+  {
+    !OF I@034/0001
+    field
+    (
+      !Pa
+      I@040/0001
+      InOutpParamModParam
+      [$mod]
+    )
+    :
+    I@068/0001
+    DomOutpParamModParam
+  }
+}
+{
+  !In I@007/0002
+  InOutpParamModParam
+  {
+    !IF I@029/0002
+    param
+    :
+    I@036/0002
+    Number
+  }
+  |
+  I@045/0002
+  String
+}
+{
+  !Do I@008/0003
+  DomOutpParamModParam
+  Number
+  !DN N@038/0003
+  1
+  ~
+  10
+}
+{
+  !Ou I@008/0001
+  OutpParamTypeDescr
+  {
+    !OF I@029/0001
+    field
+    (
+      !Pa
+      I@035/0001
+      InOutpParamTypeDescr
+    )
+    :
+    'Test Descr'
+    I@073/0001
+    FldOutpParamTypeDescr
+  }
+}
+{
+  !Du I@006/0002
+  FldOutpParamTypeDescr
+}
+{
+  !In I@007/0003
+  InOutpParamTypeDescr
+  {
+    !IF I@030/0003
+    param
+    :
+    I@037/0003
+    Number
+  }
+  |
+  I@046/0003
+  String
+}
+{
+  !Ou I@008/0001
+  OutpPrntGnrc
+  |
+  I@025/0001
+  RefOutpPrntGnrc
+  <
+    I@041/0001
+    EnumOutpPrntGnrc.prnt_outpPrntGnrc
+  >
+}
+{
+  !Ou I@008/0002
+  RefOutpPrntGnrc
+  <
+    I@025/0002
+    $type
+  >
+  {
+    !OF I@033/0002
+    field
+    :
+    I@041/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumOutpPrntGnrc
+  :PrntOutpPrntGnrc
+  !EL I@043/0003
+  outpPrntGnrc
+}
+{
+  !En I@006/0004
+  PrntOutpPrntGnrc
+  !EL I@025/0004
+  prnt_outpPrntGnrc
+}
+{
+  !Ou I@008/0001
+  OutpPrntParam
+  :
+  I@025/0001
+  PrntOutpPrntParam
+  {
+    !OF I@043/0001
+    field
+    (
+      !Pa
+      I@049/0001
+      InOutpPrntParam
+    )
+    :
+    I@067/0001
+    FldOutpPrntParam
+  }
+}
+{
+  !Ou I@008/0002
+  PrntOutpPrntParam
+  {
+    !OF I@028/0002
+    field
+    (
+      !Pa
+      I@034/0002
+      PrntOutpPrntParamIn
+    )
+    :
+    I@056/0002
+    FldOutpPrntParam
+  }
+}
+{
+  !Du I@006/0003
+  FldOutpPrntParam
+}
+{
+  !In I@007/0004
+  InOutpPrntParam
+  {
+    !IF I@025/0004
+    param
+    :
+    I@032/0004
+    Number
+  }
+  |
+  I@041/0004
+  String
+}
+{
+  !In I@007/0005
+  PrntOutpPrntParamIn
+  {
+    !IF I@029/0005
+    parent
+    :
+    I@037/0005
+    Number
+  }
+  |
+  I@046/0005
+  String
+}
+{
+  !Du I@006/0001
+  DualPrnt
+  :
+  I@018/0001
+  RefDualPrnt
+}
+{
+  !Du I@006/0002
+  RefDualPrnt
+  {
+    !DF I@020/0002
+    parent
+    :
+    I@028/0002
+    Number
+  }
+  |
+  I@037/0002
+  String
+}
+{
+  !In I@007/0001
+  InpPrnt
+  :
+  I@018/0001
+  RefInpPrnt
+}
+{
+  !In I@007/0002
+  RefInpPrnt
+  {
+    !IF I@020/0002
+    parent
+    :
+    I@028/0002
+    Number
+  }
+  |
+  I@037/0002
+  String
+}
+{
+  !Ou I@008/0001
+  OutpPrnt
+  :
+  I@020/0001
+  RefOutpPrnt
+}
+{
+  !Ou I@008/0002
+  RefOutpPrnt
+  {
+    !OF I@022/0002
+    parent
+    :
+    I@030/0002
+    Number
+  }
+  |
+  I@039/0002
+  String
+}
+{
+  !Du I@006/0001
+  DualPrntAlt
+  :
+  I@021/0001
+  RefDualPrntAlt
+  |
+  I@038/0001
+  Number
+}
+{
+  !Du I@006/0002
+  RefDualPrntAlt
+  {
+    !DF I@024/0002
+    parent
+    :
+    I@032/0002
+    Number
+  }
+  |
+  I@041/0002
+  String
+}
+{
+  !In I@007/0001
+  InpPrntAlt
+  :
+  I@021/0001
+  RefInpPrntAlt
+  |
+  I@037/0001
+  Number
+}
+{
+  !In I@007/0002
+  RefInpPrntAlt
+  {
+    !IF I@024/0002
+    parent
+    :
+    I@032/0002
+    Number
+  }
+  |
+  I@041/0002
+  String
+}
+{
+  !Ou I@008/0001
+  OutpPrntAlt
+  :
+  I@023/0001
+  RefOutpPrntAlt
+  |
+  I@040/0001
+  Number
+}
+{
+  !Ou I@008/0002
+  RefOutpPrntAlt
+  {
+    !OF I@026/0002
+    parent
+    :
+    I@034/0002
+    Number
+  }
+  |
+  I@043/0002
+  String
+}
+{
+  !Du I@006/0001
+  DualPrntDescr
+  :
+  'Test Descr'
+  I@039/0001
+  RefDualPrntDescr
+}
+{
+  !Du I@006/0002
+  RefDualPrntDescr
+  {
+    !DF I@025/0002
+    parent
+    :
+    I@033/0002
+    Number
+  }
+  |
+  I@042/0002
+  String
+}
+{
+  !In I@007/0001
+  InpPrntDescr
+  :
+  'Test Descr'
+  I@039/0001
+  RefInpPrntDescr
+}
+{
+  !In I@007/0002
+  RefInpPrntDescr
+  {
+    !IF I@025/0002
+    parent
+    :
+    I@033/0002
+    Number
+  }
+  |
+  I@042/0002
+  String
+}
+{
+  !Ou I@008/0001
+  OutpPrntDescr
+  :
+  'Test Descr'
+  I@041/0001
+  RefOutpPrntDescr
+}
+{
+  !Ou I@008/0002
+  RefOutpPrntDescr
+  {
+    !OF I@027/0002
+    parent
+    :
+    I@035/0002
+    Number
+  }
+  |
+  I@044/0002
+  String
+}
+{
+  !Du I@006/0001
+  DualPrntDual
+  :
+  I@022/0001
+  RefDualPrntDual
+}
+{
+  !Du I@006/0002
+  RefDualPrntDual
+  {
+    !DF I@024/0002
+    parent
+    :
+    I@032/0002
+    Number
+  }
+  |
+  I@041/0002
+  String
+}
+{
+  !In I@007/0001
+  InpPrntDual
+  :
+  I@022/0001
+  RefInpPrntDual
+}
+{
+  !Du I@006/0002
+  RefInpPrntDual
+  {
+    !DF I@023/0002
+    parent
+    :
+    I@031/0002
+    Number
+  }
+  |
+  I@040/0002
+  String
+}
+{
+  !Ou I@008/0001
+  OutpPrntDual
+  :
+  I@024/0001
+  RefOutpPrntDual
+}
+{
+  !Du I@006/0002
+  RefOutpPrntDual
+  {
+    !DF I@024/0002
+    parent
+    :
+    I@032/0002
+    Number
+  }
+  |
+  I@041/0002
+  String
+}
+{
+  !Du I@006/0001
+  DualPrntField
+  :
+  I@023/0001
+  RefDualPrntField
+  {
+    !DF I@040/0001
+    field
+    :
+    I@047/0001
+    Number
+  }
+}
+{
+  !Du I@006/0002
+  RefDualPrntField
+  {
+    !DF I@025/0002
+    parent
+    :
+    I@033/0002
+    Number
+  }
+  |
+  I@042/0002
+  String
+}
+{
+  !In I@007/0001
+  InpPrntField
+  :
+  I@023/0001
+  RefInpPrntField
+  {
+    !IF I@039/0001
+    field
+    :
+    I@046/0001
+    Number
+  }
+}
+{
+  !In I@007/0002
+  RefInpPrntField
+  {
+    !IF I@025/0002
+    parent
+    :
+    I@033/0002
+    Number
+  }
+  |
+  I@042/0002
+  String
+}
+{
+  !Ou I@008/0001
+  OutpPrntField
+  :
+  I@025/0001
+  RefOutpPrntField
+  {
+    !OF I@042/0001
+    field
+    :
+    I@049/0001
+    Number
+  }
+}
+{
+  !Ou I@008/0002
+  RefOutpPrntField
+  {
+    !OF I@027/0002
+    parent
+    :
+    I@035/0002
+    Number
+  }
+  |
+  I@044/0002
+  String
+}
+{
+  !Du I@006/0001
+  DualPrntParamDiff
+  <
+    I@025/0001
+    $a
+  >
+  :
+  I@031/0001
+  RefDualPrntParamDiff
+  <
+    I@053/0001
+    $a
+  >
+  {
+    !DF I@056/0001
+    field
+    :
+    I@064/0001
+    $a
+  }
+}
+{
+  !Du I@006/0002
+  RefDualPrntParamDiff
+  <
+    I@028/0002
+    $b
+  >
+  |
+  P@035/0002
+  $b
+}
+{
+  !In I@007/0001
+  InpPrntParamDiff
+  <
+    I@025/0001
+    $a
+  >
+  :
+  I@031/0001
+  RefInpPrntParamDiff
+  <
+    I@052/0001
+    $a
+  >
+  {
+    !IF I@055/0001
+    field
+    :
+    I@063/0001
+    $a
+  }
+}
+{
+  !In I@007/0002
+  RefInpPrntParamDiff
+  <
+    I@028/0002
+    $b
+  >
+  |
+  P@035/0002
+  $b
+}
+{
+  !Ou I@008/0001
+  OutpPrntParamDiff
+  <
+    I@027/0001
+    $a
+  >
+  :
+  I@033/0001
+  RefOutpPrntParamDiff
+  <
+    I@055/0001
+    $a
+  >
+  {
+    !OF I@058/0001
+    field
+    :
+    I@066/0001
+    $a
+  }
+}
+{
+  !Ou I@008/0002
+  RefOutpPrntParamDiff
+  <
+    I@030/0002
+    $b
+  >
+  |
+  P@037/0002
+  $b
+}
+{
+  !Du I@006/0001
+  DualPrntParamSame
+  <
+    I@025/0001
+    $a
+  >
+  :
+  I@031/0001
+  RefDualPrntParamSame
+  <
+    I@053/0001
+    $a
+  >
+  {
+    !DF I@056/0001
+    field
+    :
+    I@064/0001
+    $a
+  }
+}
+{
+  !Du I@006/0002
+  RefDualPrntParamSame
+  <
+    I@028/0002
+    $a
+  >
+  |
+  P@035/0002
+  $a
+}
+{
+  !In I@007/0001
+  InpPrntParamSame
+  <
+    I@025/0001
+    $a
+  >
+  :
+  I@031/0001
+  RefInpPrntParamSame
+  <
+    I@052/0001
+    $a
+  >
+  {
+    !IF I@055/0001
+    field
+    :
+    I@063/0001
+    $a
+  }
+}
+{
+  !In I@007/0002
+  RefInpPrntParamSame
+  <
+    I@028/0002
+    $a
+  >
+  |
+  P@035/0002
+  $a
+}
+{
+  !Ou I@008/0001
+  OutpPrntParamSame
+  <
+    I@027/0001
+    $a
+  >
+  :
+  I@033/0001
+  RefOutpPrntParamSame
+  <
+    I@055/0001
+    $a
+  >
+  {
+    !OF I@058/0001
+    field
+    :
+    I@066/0001
+    $a
+  }
+}
+{
+  !Ou I@008/0002
+  RefOutpPrntParamSame
+  <
+    I@030/0002
+    $a
+  >
+  |
+  P@037/0002
+  $a
+}
+]

@@ -1,3 +1,0 @@
-﻿[
-  Invalid Domain Enum Member. Enum Value 'undef' not defined.
-]

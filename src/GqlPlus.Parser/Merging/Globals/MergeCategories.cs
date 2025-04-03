@@ -13,5 +13,5 @@ internal class MergeCategories(
 
   protected override string ItemMatchName => "Output~Modifiers~Option";
   protected override string ItemMatchKey(IGqlpSchemaCategory item)
-    => $"{item.Output}~{item.Modifiers.AsString()}~{item.CategoryOption}";
+    => $"{item.Output.Name}~{item.Modifiers.AsString().Joined(",")}~{item.CategoryOption}";
 }

@@ -30,22 +30,23 @@ public static class SchemaParsers
       .AddParser<IGqlpSchemaSetting, ParseOptionSetting>()
       .AddDeclarationParser<IGqlpSchemaOption, ParseOption>("option")
       // Types
+      .AddParser<IGqlpTypeRef, ParseTypeRef>()
       .AddSingleton<ISimpleName, SimpleName>()
       // Enum
       .AddParser<EnumDefinition, ParseEnumDefinition>()
-      .AddParser<IGqlpEnumItem, ParseEnumMember>()
+      .AddParser<IGqlpEnumLabel, ParseEnumLabel>()
       .AddDeclarationParser<IGqlpEnum, ParseEnum>("enum")
       // Domain
       .AddParser<DomainDefinition, ParseDomainDefinition>()
       .AddEnum<DomainKind>()
       .AddDomainParser<IGqlpDomainTrueFalse, ParseDomainTrueFalse>()
-      .AddDomainParser<IGqlpDomainMember, ParseDomainMember>()
+      .AddDomainParser<IGqlpDomainLabel, ParseDomainLabel>()
       .AddDomainParser<IGqlpDomainRange, ParseDomainRange>()
       .AddDomainParser<IGqlpDomainRegex, ParseDomainRegex>()
       .AddDeclarationParser<IGqlpDomain, ParseDomain>("domain")
       // Union
       .AddParser<UnionDefinition, ParseUnionDefinition>()
-      .AddParser<IGqlpUnionItem, ParseUnionMember>()
+      .AddParser<IGqlpUnionMember, ParseUnionMember>()
       .AddDeclarationParser<IGqlpUnion, ParseUnion>("union")
       // Objects
       .AddParserArray<IGqlpTypeParam, ParseTypeParams>()
@@ -108,7 +109,6 @@ public static class SchemaParsers
 
   private static IServiceCollection AddNullParsers(this IServiceCollection services)
     => services
-      .AddParser<NullAst, ParseNull>()
       .AddParserArray<NullAst, ParseNulls>()
       .AddParser<IOptionParser<NullOption>, NullOption, ParseNullOption>()
       .AddParser<IEnumParser<NullOption>, NullOption, ParseNullOption>();

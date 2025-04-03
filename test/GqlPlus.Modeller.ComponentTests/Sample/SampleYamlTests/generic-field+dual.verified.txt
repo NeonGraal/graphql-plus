@@ -1,0 +1,19 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DualGnrcField: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: DualGnrcField
+      type: !_DualBase
+        typeParam: type
+    fields:
+    - !_DualField
+      name: field
+      type: !_DualBase
+        typeParam: type
+    name: DualGnrcField
+    typeKind: !_TypeKind Dual
+    typeParams:
+    - !_Named
+      name: type

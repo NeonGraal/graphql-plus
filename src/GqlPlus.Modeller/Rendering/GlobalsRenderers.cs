@@ -14,7 +14,7 @@ internal class AndTypeRenderer<TModel, TAnd>(
 {
   private readonly string _field = field;
 
-  internal override RenderStructure Render(TModel model)
+  internal override Structured Render(TModel model)
     => model.Type is null
       ? model.And is null
         ? new("")
@@ -22,8 +22,8 @@ internal class AndTypeRenderer<TModel, TAnd>(
       : model.And is null
         ? and.Type.Render(model.Type)
         : base.Render(model)
-          .Add(_field, model.And, and.And)
-          .Add("type", model.Type, and.Type);
+          .AddRendered(_field, model.And, and.And)
+          .AddRendered("type", model.Type, and.Type);
 }
 
 internal class CategoriesRenderer(
@@ -36,11 +36,11 @@ internal class CategoryRenderer(
   IRenderer<TypeRefModel<TypeKindModel>> output
 ) : AliasedRenderer<CategoryModel>
 {
-  internal override RenderStructure Render(CategoryModel model)
+  internal override Structured Render(CategoryModel model)
     => base.Render(model)
-      .Add("resolution", model.Resolution, "_Resolution")
-      .Add("output", model.Output, output)
-      .Add("modifiers", model.Modifiers, modifiers, flow: true);
+      .AddEnum("resolution", model.Resolution, "_Resolution")
+      .AddRendered("output", model.Output, output)
+      .AddList("modifiers", model.Modifiers, modifiers, flow: true);
 }
 
 internal class DirectivesRenderer(
@@ -52,18 +52,18 @@ internal class DirectiveRenderer(
   IRenderer<InputParamModel> parameter
 ) : AliasedRenderer<DirectiveModel>
 {
-  internal override RenderStructure Render(DirectiveModel model)
+  internal override Structured Render(DirectiveModel model)
     => base.Render(model)
       .AddSet("locations", model.Locations, "_Location")
-      .Add("parameters", model.Params, parameter)
+      .AddList("parameters", model.Parameters, parameter)
       .Add("repeatable", model.Repeatable);
 }
 
 internal class SettingRenderer(
   IRenderer<ConstantModel> constant
-) : DescribedRenderer<SettingModel>
+) : NamedRenderer<SettingModel>
 {
-  internal override RenderStructure Render(SettingModel model)
+  internal override Structured Render(SettingModel model)
     => base.Render(model)
-      .Add("value", model.Value, constant);
+      .AddRendered("value", model.Value, constant);
 }

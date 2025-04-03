@@ -1,0 +1,3 @@
+category [CatA1] { Name }
+category [CatA2] { Name }
+output Name { }

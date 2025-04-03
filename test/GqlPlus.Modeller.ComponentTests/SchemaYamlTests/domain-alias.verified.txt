@@ -1,7 +1,0 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier NumAlias: !_DomainNumber
-    aliases: [Num1, Num2]
-    domainKind: !_DomainKind Number
-    name: NumAlias
-    typeKind: !_TypeKind Domain

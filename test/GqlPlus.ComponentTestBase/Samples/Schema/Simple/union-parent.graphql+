@@ -1,0 +1,2 @@
+union Name { :PrntName String }
+union PrntName { Number }

@@ -16,7 +16,7 @@ internal abstract record class AstObjField<TObjBase>(
   public TObjBase BaseType { get; set; } = BaseType;
   public IGqlpModifier[] Modifiers { get; set; } = [];
 
-  public string ModifiedType => BaseType.GetFields().Skip(1).Concat(Modifiers.AsString()).Joined();
+  public string ModifiedType => BaseType.GetFields().Skip(2).Concat(Modifiers.AsString()).Joined();
 
   IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
   IGqlpObjBase IGqlpObjField.Type => BaseType;

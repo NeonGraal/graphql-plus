@@ -1,0 +1,8 @@
+﻿category query {}
+directive @ {}
+domain Other { Enum }
+enum None [] {}
+union Missing {}
+dual Nothing [] {}
+input Empty {}
+output NoParams<> {}

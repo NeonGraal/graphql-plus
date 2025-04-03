@@ -1,4 +1,14 @@
+$clean = -not (git status -s)
 dotnet outdated .\ -vl minor -u
-dotnet outdated .\
+if ($clean) {
+    git commit -a -m "Update packages to latest patch version"
+    dotnet outdated .\ -vl major -u
+} else {
+    dotnet outdated .\ -vl major
+}
 
-dotnet tools-outdated
+dotnet tool update --all
+
+dotnet list package --deprecated
+dotnet list package --vulnerable --include-transitive
+dotnet outdated .\

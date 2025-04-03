@@ -1,0 +1,3 @@
+output Name { | RefName<name> }
+output RefName<$type> { field: $type }
+enum EnumName { name }

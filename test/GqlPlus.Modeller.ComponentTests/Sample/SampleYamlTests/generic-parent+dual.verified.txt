@@ -1,0 +1,10 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DualGnrcPrnt: !_TypeDual
+    name: DualGnrcPrnt
+    parent: !_DualBase
+      typeParam: type
+    typeKind: !_TypeKind Dual
+    typeParams:
+    - !_Named
+      name: type

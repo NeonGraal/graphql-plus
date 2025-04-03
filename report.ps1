@@ -10,4 +10,4 @@ $report += "riskHotspotsAnalysisThresholds:metricThresholdForCyclomaticComplexit
 
 dotnet tool restore
 dotnet reportgenerator @report
-dotnet livereloadserver coverage --port 5300
+livereloadserver coverage --port 5300

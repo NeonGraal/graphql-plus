@@ -1,0 +1,44 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DualPrntAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      dual: String
+      object: RefDualPrntAlt
+    - !_ObjectFor(_DualAlternate)
+      dual: Number
+      object: DualPrntAlt
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: parent
+      object: RefDualPrntAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_DualAlternate
+      dual: Number
+    name: DualPrntAlt
+    parent: !_DualBase
+      dual: RefDualPrntAlt
+    typeKind: !_TypeKind Dual
+  !_Identifier RefDualPrntAlt: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      dual: String
+      object: RefDualPrntAlt
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: parent
+      object: RefDualPrntAlt
+      type: !_DualBase
+        dual: Number
+    alternates:
+    - !_DualAlternate
+      dual: String
+    fields:
+    - !_DualField
+      name: parent
+      type: !_DualBase
+        dual: Number
+    name: RefDualPrntAlt
+    typeKind: !_TypeKind Dual

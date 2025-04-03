@@ -13,12 +13,12 @@ public class ResultErrorArrayTests : BaseResultTests
 
     IResult<string> result = _errorArray.AsPartial(Sample, v => withValue = true, () => action = true);
 
-    result.Should().BeOfType<ResultPartial<string>>()
-      .Subject.Message.Message.Should().Contain(Error);
-    using AssertionScope scope = new();
-    result.Optional().Should().Be(Sample);
-    withValue.Should().BeFalse();
-    action.Should().BeTrue();
+    result.ShouldSatisfyAllConditions(
+      () => result.ShouldBeOfType<ResultPartial<string>>()
+        .Message.Message.ShouldContain(Error),
+      () => result.Optional().ShouldBe(Sample),
+      () => withValue.ShouldBeFalse(),
+      () => action.ShouldBeTrue());
   }
 
   [Fact]
@@ -28,11 +28,11 @@ public class ResultErrorArrayTests : BaseResultTests
 
     IResultArray<string> result = _errorArray.AsPartialArray(SampleArray, v => withValue = true);
 
-    result.Should().BeOfType<ResultArrayPartial<string>>()
-      .Subject.Message.Message.Should().Contain(Error);
-    using AssertionScope scope = new();
-    result.Optional().Should().Equal(Sample);
-    withValue.Should().BeFalse();
+    result.ShouldSatisfyAllConditions(
+      () => result.ShouldBeOfType<ResultArrayPartial<string>>()
+        .Message.Message.ShouldContain(Error),
+      () => result.Optional().ShouldBe([Sample]),
+      () => withValue.ShouldBeFalse());
   }
 
   [Fact]
@@ -40,8 +40,8 @@ public class ResultErrorArrayTests : BaseResultTests
   {
     IResultArray<string> result = _errorArray.AsResultArray(SampleArray);
 
-    result.Should().BeOfType<ResultArrayError<string>>()
-      .Subject.Message.Message.Should().Be(Error);
+    result.ShouldBeOfType<ResultArrayError<string>>()
+      .Message.Message.ShouldBe(Error);
   }
 
   [Fact]
@@ -49,8 +49,8 @@ public class ResultErrorArrayTests : BaseResultTests
   {
     IResultArray<int> result = _errorArray.AsResultArray<int>();
 
-    result.Should().BeOfType<ResultArrayError<int>>()
-      .Subject.Message.Message.Should().Be("Error");
+    result.ShouldBeOfType<ResultArrayError<int>>()
+      .Message.Message.ShouldBe("Error");
   }
 
   [Fact]
@@ -58,8 +58,8 @@ public class ResultErrorArrayTests : BaseResultTests
   {
     IResult<int> result = _errorArray.AsResult<int>();
 
-    result.Should().BeOfType<ResultError<int>>()
-      .Subject.Message.Message.Should().Be("Error");
+    result.ShouldBeOfType<ResultError<int>>()
+      .Message.Message.ShouldBe("Error");
   }
 
   [Fact]
@@ -67,8 +67,8 @@ public class ResultErrorArrayTests : BaseResultTests
   {
     IResult<IEnumerable<string>> result = _errorArray.Map(a => a.Ok(), () => SampleArray.OkArray());
 
-    result.Should().BeOfType<ResultArrayOk<string>>()
-      .Subject.Required().Should().Equal(SampleArray);
+    result.ShouldBeOfType<ResultArrayOk<string>>()
+      .Required().ShouldBe(SampleArray);
   }
 
   [Fact]
@@ -76,6 +76,6 @@ public class ResultErrorArrayTests : BaseResultTests
   {
     Func<IEnumerable<string>> action = () => _errorArray.Optional();
 
-    action.Should().Throw<InvalidOperationException>().WithMessage("*Error*");
+    action.ShouldThrow<InvalidOperationException>().Message.ShouldContain("Error");
   }
 }

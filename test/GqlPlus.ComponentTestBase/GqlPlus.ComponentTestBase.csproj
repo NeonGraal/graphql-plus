@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <IsTestProject>false</IsTestProject>
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
   </PropertyGroup>
 
   <ItemGroup>
@@ -9,17 +10,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Fluid.Core" Version="2.11.1" />
-    <PackageReference Include="MartinCostello.Logging.XUnit" Version="0.4.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1" />
-    <PackageReference Include="Verify.Xunit" Version="26.2.0" />
-    <PackageReference Include="Xunit.DependencyInjection" Version="9.3.0" />
-    <PackageReference Include="Xunit.DependencyInjection.Logging" Version="9.0.0" />
-    <PackageReference Include="Xunit.DependencyInjection.SkippableFact" Version="9.0.0" />
+    <PackageReference Include="Fluid.Core" Version="2.21.0" />
+    <PackageReference Include="MartinCostello.Logging.XUnit.v3" Version="0.5.1" />
+    <PackageReference Include="Xunit.DependencyInjection" Version="10.3.0" />
+    <PackageReference Include="Xunit.DependencyInjection.Logging" Version="10.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\GqlPlus.TestBase\GqlPlus.TestBase.csproj" />
+    <ProjectReference Include="..\GqlPlus.TestGenerators\GqlPlus.TestGenerators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\GqlPlus.VerifyTestBase\GqlPlus.VerifyTestBase.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,7 +32,7 @@
       <LastGenOutput>%(Filename).gen.cs</LastGenOutput>
       <Generator>TextTemplatingFileGenerator</Generator>
     </None>
-    <None Update="Sample\**" CopyToOutputDirectory="Always" />
+    <AdditionalFiles Include="Samples\**" CopyToOutputDirectory="Always" />
   </ItemGroup>
 
   <ItemGroup>

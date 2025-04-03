@@ -11,18 +11,14 @@ internal class AstFields<TValue>
   public AstFields()
     : base() { }
   public AstFields(IGqlpFields<TValue> dict)
-    : base(dict) { }
+    : base(dict.ToDictionary(k => k.Key, v => v.Value)) { }
   public AstFields(ImmutableDictionary<IGqlpFieldKey, TValue> dict)
     : base(dict) { }
 
   public virtual bool Equals(Dictionary<IGqlpFieldKey, TValue>? other)
     => other is not null
-    && Keys.Order().SequenceEqual(other.Keys.Order())
+    && Keys.OrderedEqual(other.Keys)
     && Keys.All(k => this[k]?.Equals(other[k]) ?? false);
-
-  public AstFields<TResult> Cast<TResult>()
-    where TResult : IGqlpValue<TResult>, TValue
-    => new(this.ToImmutableDictionary(kv => kv.Key, kv => (TResult)kv.Value));
 
   IImmutableDictionary<IGqlpFieldKey, TValue> IImmutableDictionary<IGqlpFieldKey, TValue>.Add(IGqlpFieldKey key, TValue value)
     => throw new NotImplementedException();

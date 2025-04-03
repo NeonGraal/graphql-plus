@@ -1,0 +1,3 @@
+category [CatM1] { Name? }
+category [CatM2] { Name? }
+output Name { }

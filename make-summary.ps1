@@ -1,5 +1,6 @@
 [CmdletBinding()]
 param (
+  [Switch]$NoCoverage = $false,
   [Switch]$ShowGithub = $false
 )
 
@@ -90,6 +91,11 @@ Write-Tests $allTests
 if ($tests.Count -gt 1) {
   $tests | ForEach-Object { Write-Tests $_ "- " }
 }
+
+if ($NoCoverage) {
+  exit 0
+}
+
 Write-Coverage $allCoverage
 if ($coverage.Count -gt 1) {
   $coverage | ForEach-Object { Write-Coverage $_ "- " }

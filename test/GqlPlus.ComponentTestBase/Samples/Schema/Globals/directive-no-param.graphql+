@@ -1,0 +1,1 @@
+directive @Name { all }

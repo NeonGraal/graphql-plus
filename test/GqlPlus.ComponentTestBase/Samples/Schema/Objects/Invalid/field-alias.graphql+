@@ -1,0 +1,2 @@
+object Test { field1 [alias]: Test }
+object Test { field2 [alias]: Test[] }

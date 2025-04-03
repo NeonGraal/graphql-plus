@@ -1,0 +1,28 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier EnumOutpFieldValueDescr: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnumOutpFieldValueDescr
+      name: outpFieldValueDescr
+    items:
+    - !_Aliased
+      name: outpFieldValueDescr
+    name: EnumOutpFieldValueDescr
+    typeKind: !_TypeKind Enum
+  !_Identifier OutpFieldValueDescr: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      description: 'Test Descr'
+      field: EnumOutpFieldValueDescr
+      label: outpFieldValueDescr
+      object: OutpFieldValueDescr
+      typeKind: !_SimpleKind Enum
+    fields:
+    - !_OutputEnum
+      description: 'Test Descr'
+      field: EnumOutpFieldValueDescr
+      label: outpFieldValueDescr
+      typeKind: !_SimpleKind Enum
+    name: OutpFieldValueDescr
+    typeKind: !_TypeKind Output

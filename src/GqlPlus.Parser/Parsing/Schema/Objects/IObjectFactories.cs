@@ -11,7 +11,7 @@ internal interface IObjectFactories<TObject, TObjField, TObjFieldAst, TObjAlt, T
   where TObjField : IGqlpObjField
   where TObjFieldAst : AstObjField<TObjBase>, TObjField
   where TObjAlt : IGqlpObjAlternate
-  where TObjAltAst : AstObjAlternate<TObjBase>, TObjAlt
+  where TObjAltAst : AstObjAlternate<TObjArg>, TObjAlt
   where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjArg>, TObjBase
   where TObjArg : IGqlpObjArg

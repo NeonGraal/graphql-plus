@@ -1,52 +1,52 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
 using GqlPlus.Resolving;
+using YamlDotNet.Core.Tokens;
 
 namespace GqlPlus.Rendering;
 
 internal class ObjectBaseRenderer<TBase, TArg>(
   IRenderer<TArg> objArg
-) : BaseRenderer<TBase>
+) : DescribedRenderer<TBase>
   where TBase : ObjBaseModel<TArg>
   where TArg : IObjArgModel
 {
-  internal override RenderStructure Render(TBase model)
+  internal override Structured Render(TBase model)
     => base.Render(model)
-      .Add("typeArgs", model.Args, objArg);
+      .AddIf(model.IsTypeParam, onFalse: s => s.AddList("typeArgs", model.Args, objArg));
 }
 
 internal record class ModifierBaseRenderers<TBase>(
   IRenderer<ModifierModel> Modifier,
-  IRenderer<ObjDescribedModel<TBase>> ObjBase
+  IRenderer<TBase> ObjBase
 ) where TBase : IObjBaseModel;
 
 internal class ObjectFieldRenderer<TField, TBase>(
   ModifierBaseRenderers<TBase> renderers
 ) : AliasedRenderer<TField>
   where TField : IObjFieldModel
-  where TBase : IObjBaseModel
+  where TBase : class, IObjBaseModel
 {
-  internal override RenderStructure Render(TField model)
+  internal override Structured Render(TField model)
     => base.Render(model)
-      .Add("modifiers", model.Modifiers, renderers.Modifier, flow: true)
-      .Add("type", model.BaseType?.BaseAs<TBase>(), renderers.ObjBase);
+      .AddList("modifiers", model.Modifiers, renderers.Modifier, flow: true)
+      .AddRendered("type", model.BaseType as TBase, renderers.ObjBase);
 }
 
-internal record class CollectionBaseRenderers<TBase>(
-  IRenderer<CollectionModel> Collection,
-  IRenderer<ObjDescribedModel<TBase>> ObjBase
-) where TBase : IObjBaseModel;
+internal record class CollectionBaseRenderers<TObjArg>(
+  IRenderer<TObjArg> ObjArg,
+  IRenderer<CollectionModel> Collection
+) where TObjArg : IObjArgModel;
 
-internal class ObjectAlternateRenderer<TAlt, TBase>(
-  CollectionBaseRenderers<TBase> renderers
-) : BaseRenderer<TAlt>
-  where TAlt : IObjAlternateModel
-  where TBase : IObjBaseModel
+internal class ObjectAlternateRenderer<TAlt, TObjArg>(
+  CollectionBaseRenderers<TObjArg> renderers
+) : ObjectBaseRenderer<TAlt, TObjArg>(renderers.ObjArg)
+  where TAlt : ObjBaseModel<TObjArg>, IObjAlternateModel
+  where TObjArg : IObjArgModel
 {
-  internal override RenderStructure Render(TAlt model)
+  internal override Structured Render(TAlt model)
     => base.Render(model)
-      .Add("type", model.BaseType?.BaseAs<TBase>(), renderers.ObjBase)
-      .Add("collections", model.Collections, renderers.Collection);
+      .AddList("collections", model.Collections, renderers.Collection);
 }
 
 internal class ObjectForRenderer<TFor>(
@@ -54,21 +54,21 @@ internal class ObjectForRenderer<TFor>(
 ) : BaseRenderer<ObjectForModel<TFor>>
   where TFor : IModelBase
 {
-  internal override RenderStructure Render(ObjectForModel<TFor> model)
+  internal override Structured Render(ObjectForModel<TFor> model)
     => base.Render(model)
-      .Add(model.For, renderer)
+      .IncludeRendered(model.For, renderer)
       .Add("object", model.Obj);
 }
 
 internal record class TypeObjectRenderers<TBase, TField, TAlt>(
-  IRenderer<ObjDescribedModel<TBase>> Parent,
+  IRenderer<TBase> Parent,
   IRenderer<TField> Field,
   IRenderer<ObjectForModel<TField>> ObjField,
   IRenderer<ObjectForModel<DualFieldModel>> DualField,
   IRenderer<TAlt> Alternate,
   IRenderer<ObjectForModel<TAlt>> ObjAlternate,
   IRenderer<ObjectForModel<DualAlternateModel>> DualAlternate,
-  IRenderer<DescribedModel> TypeParam
+  IRenderer<NamedModel> TypeParam
 )
   where TBase : IObjBaseModel
   where TField : IObjFieldModel
@@ -76,13 +76,13 @@ internal record class TypeObjectRenderers<TBase, TField, TAlt>(
 
 internal abstract class TypeObjectRenderer<TObject, TBase, TField, TAlt>(
   TypeObjectRenderers<TBase, TField, TAlt> renderers
-) : ChildTypeRenderer<TObject, ObjDescribedModel<TBase>>(renderers.Parent)
+) : ChildTypeRenderer<TObject, TBase>(renderers.Parent)
   where TObject : TypeObjectModel<TBase, TField, TAlt>
   where TBase : IObjBaseModel
   where TField : IObjFieldModel
   where TAlt : IObjAlternateModel
 {
-  internal override RenderStructure Render(TObject model)
+  internal override Structured Render(TObject model)
   {
     List<ModelBase> allAlternates = [];
     List<ModelBase> allFields = [];
@@ -96,7 +96,7 @@ internal abstract class TypeObjectRenderer<TObject, TBase, TField, TAlt>(
     //ForParent<TObject, ITypeObjectModel>(model, context, AddMembers);
     // AddMembers(model);
 
-    RenderStructure ObjRender<TModel, TDual>(ModelBase[] list, IRenderer<ObjectForModel<TModel>> renderer, IRenderer<ObjectForModel<TDual>> dual)
+    Structured ObjRender<TModel, TDual>(ModelBase[] list, IRenderer<ObjectForModel<TModel>> renderer, IRenderer<ObjectForModel<TDual>> dual)
       where TModel : IModelBase
       where TDual : ModelBase
       => new(list.Select(o => o switch {
@@ -107,17 +107,17 @@ internal abstract class TypeObjectRenderer<TObject, TBase, TField, TAlt>(
       }));
 
     return base.Render(model)
-        .Add("typeParams", model.TypeParams, renderers.TypeParam)
-        .Add("fields", model.Fields, renderers.Field)
+        .AddList("typeParams", model.TypeParams, renderers.TypeParam)
+        .AddList("fields", model.Fields, renderers.Field)
         .Add("allFields", ObjRender(model.AllFields, renderers.ObjField, renderers.DualField))
-        .Add("alternates", model.Alternates, renderers.Alternate)
+        .AddList("alternates", model.Alternates, renderers.Alternate)
         .Add("allAlternates", ObjRender(model.AllAlternates, renderers.ObjAlternate, renderers.DualAlternate));
   }
 
   internal override bool GetParentModel<TInput, TResult>(TInput input, IResolveContext context, [NotNullWhen(true)] out TResult? result)
     where TResult : default
   {
-    if (input.Parent?.Base.IsTypeParam == false) {
+    if (input.Parent?.IsTypeParam == false) {
       return base.GetParentModel(input, context, out result);
     }
 
@@ -129,7 +129,7 @@ internal abstract class TypeObjectRenderer<TObject, TBase, TField, TAlt>(
 internal class DualArgRenderer
   : BaseRenderer<DualArgModel>
 {
-  internal override RenderStructure Render(DualArgModel model)
+  internal override Structured Render(DualArgModel model)
     => model.IsTypeParam
     ? new(model.Dual, "_TypeParam")
     : base.Render(model)
@@ -140,11 +140,11 @@ internal class DualBaseRenderer(
   IRenderer<DualArgModel> objArg
 ) : ObjectBaseRenderer<DualBaseModel, DualArgModel>(objArg)
 {
-  internal override RenderStructure Render(DualBaseModel model)
-    => model.IsTypeParam
-    ? new(model.Dual, "_TypeParam")
-    : base.Render(model)
-      .Add("dual", model.Dual);
+  internal override Structured Render(DualBaseModel model)
+    => base.Render(model)
+      .AddIf(model.IsTypeParam,
+        t => t.Add("typeParam", model.Dual),
+        f => f.Add("dual", model.Dual));
 }
 
 internal class DualFieldRenderer(
@@ -153,23 +153,29 @@ internal class DualFieldRenderer(
 { }
 
 internal class DualAlternateRenderer(
-  CollectionBaseRenderers<DualBaseModel> renderers
-) : ObjectAlternateRenderer<DualAlternateModel, DualBaseModel>(renderers)
-{ }
+  CollectionBaseRenderers<DualArgModel> renderers
+) : ObjectAlternateRenderer<DualAlternateModel, DualArgModel>(renderers)
+{
+  internal override Structured Render(DualAlternateModel model)
+    => base.Render(model)
+      .AddIf(model.IsTypeParam,
+        t => t.Add("typeParam", model.Dual),
+        f => f.Add("dual", model.Dual));
+}
 
 internal class TypeDualRenderer(
   TypeObjectRenderers<DualBaseModel, DualFieldModel, DualAlternateModel> renderers
 ) : TypeObjectRenderer<TypeDualModel, DualBaseModel, DualFieldModel, DualAlternateModel>(renderers)
 {
-  protected override string? ParentName(ObjDescribedModel<DualBaseModel>? parent)
-    => parent?.Base.Dual;
+  protected override string? ParentName(DualBaseModel? parent)
+    => parent?.Dual;
 }
 
 internal class InputArgRenderer(
   IRenderer<DualArgModel> dual
 ) : BaseRenderer<InputArgModel>
 {
-  internal override RenderStructure Render(InputArgModel model)
+  internal override Structured Render(InputArgModel model)
     => model.Dual is null
     ? model.IsTypeParam
       ? new(model.Input, "_TypeParam")
@@ -178,69 +184,85 @@ internal class InputArgRenderer(
     : dual.Render(model.Dual);
 }
 
+internal class InputDualRenderer<TObj>(
+  IRenderer<InputArgModel> objArg,
+  IRenderer<DualBaseModel> dual
+) : ObjectBaseRenderer<TObj, InputArgModel>(objArg)
+  where TObj : InputBaseModel
+{
+  internal override Structured Render(TObj model)
+    => model.Dual is null
+      ? base.Render(model)
+        .AddIf(model.IsTypeParam,
+          t => t.Add("typeParam", model.Input),
+          f => f.Add("input", model.Input))
+      : dual.Render(model.Dual);
+}
+
 internal class InputBaseRenderer(
   IRenderer<InputArgModel> objArg,
   IRenderer<DualBaseModel> dual
-) : ObjectBaseRenderer<InputBaseModel, InputArgModel>(objArg)
-{
-  internal override RenderStructure Render(InputBaseModel model)
-    => model.Dual is null
-    ? model.IsTypeParam
-      ? new(model.Input, "_TypeParam")
-      : base.Render(model)
-        .Add("input", model.Input)
-    : dual.Render(model.Dual);
-}
+) : InputDualRenderer<InputBaseModel>(objArg, dual)
+{ }
 
 internal class InputFieldRenderer(
   IRenderer<ConstantModel> constant,
   ModifierBaseRenderers<InputBaseModel> renderers
 ) : ObjectFieldRenderer<InputFieldModel, InputBaseModel>(renderers)
 {
-  internal override RenderStructure Render(InputFieldModel model)
+  internal override Structured Render(InputFieldModel model)
     => base.Render(model)
-      .Add("default", model.Default, constant);
+      .AddRendered("default", model.Default, constant);
 }
 
 internal class InputAlternateRenderer(
-  CollectionBaseRenderers<InputBaseModel> renderers
-) : ObjectAlternateRenderer<InputAlternateModel, InputBaseModel>(renderers)
-{ }
+  CollectionBaseRenderers<InputArgModel> renderers,
+  IRenderer<DualAlternateModel> dual
+) : ObjectAlternateRenderer<InputAlternateModel, InputArgModel>(renderers)
+{
+  internal override Structured Render(InputAlternateModel model)
+    => model.Dual is null
+      ? base.Render(model)
+        .AddIf(model.IsTypeParam,
+          t => t.Add("typeParam", model.Input),
+          f => f.Add("input", model.Input))
+      : dual.Render(model.Dual);
+}
 
 internal class InputParamRenderer(
-  IRenderer<ConstantModel> constant,
-  ModifierBaseRenderers<InputBaseModel> renderers
-) : BaseRenderer<InputParamModel>
+  IRenderer<InputArgModel> objArg,
+  IRenderer<DualBaseModel> dual,
+  IRenderer<ModifierModel> modifier,
+  IRenderer<ConstantModel> constant
+) : InputDualRenderer<InputParamModel>(objArg, dual)
 {
-  internal override RenderStructure Render(InputParamModel model)
+  internal override Structured Render(InputParamModel model)
     => base.Render(model)
-      .Add(model.Type, renderers.ObjBase)
-      .Add("modifiers", model.Modifiers, renderers.Modifier, flow: true)
-      .Add("default", model.DefaultValue, constant);
+      .AddList("modifiers", model.Modifiers, modifier, flow: true)
+      .AddRendered("default", model.DefaultValue, constant);
 }
 
 internal class TypeInputRenderer(
   TypeObjectRenderers<InputBaseModel, InputFieldModel, InputAlternateModel> renderers
 ) : TypeObjectRenderer<TypeInputModel, InputBaseModel, InputFieldModel, InputAlternateModel>(renderers)
 {
-  protected override string? ParentName(ObjDescribedModel<InputBaseModel>? parent)
-    => parent?.Base.Input;
+  protected override string? ParentName(InputBaseModel? parent)
+    => parent?.Input;
 }
 
 internal class OutputArgRenderer(
   IRenderer<DualArgModel> dual
 ) : TypeRefRenderer<OutputArgModel, SimpleKindModel>
 {
-  internal override RenderStructure Render(OutputArgModel model)
-    => string.IsNullOrWhiteSpace(model.ThrowIfNull().EnumMember)
+  internal override Structured Render(OutputArgModel model)
+    => string.IsNullOrWhiteSpace(model.ThrowIfNull().EnumLabel)
     ? model.Dual is null
       ? model.IsTypeParam
         ? new(model.Output, "_TypeParam")
-        : RenderStructure.New(model.Tag)
-          .Add("output", model.Output!)
+        : new Map<Structured>() { ["output"] = model.Output! }.Render(model.Tag)
       : dual.Render(model.Dual)
     : base.Render(model)
-      .Add("member", model.EnumMember!);
+      .Add("label", model.EnumLabel!);
 }
 
 internal class OutputBaseRenderer(
@@ -248,22 +270,22 @@ internal class OutputBaseRenderer(
   IRenderer<DualBaseModel> dual
 ) : ObjectBaseRenderer<OutputBaseModel, OutputArgModel>(objArg)
 {
-  internal override RenderStructure Render(OutputBaseModel model)
+  internal override Structured Render(OutputBaseModel model)
     => model.Dual is null
-    ? model.IsTypeParam
-      ? new(model.Output, "_TypeParam")
-      : base.Render(model)
-        .Add("output", model.Output)
-    : dual.Render(model.Dual);
+      ? base.Render(model)
+        .AddIf(model.IsTypeParam,
+          t => t.Add("typeParam", model.Output),
+          f => f.Add("output", model.Output))
+      : dual.Render(model.Dual);
 }
 
 internal class OutputEnumRenderer
   : TypeRefRenderer<OutputEnumModel, SimpleKindModel>
 {
-  internal override RenderStructure Render(OutputEnumModel model)
+  internal override Structured Render(OutputEnumModel model)
     => base.Render(model)
       .Add("field", model.Field)
-      .Add("member", model.EnumMember);
+      .Add("label", model.EnumLabel);
 }
 
 internal class OutputFieldRenderer(
@@ -272,22 +294,31 @@ internal class OutputFieldRenderer(
   IRenderer<InputParamModel> parameter
 ) : ObjectFieldRenderer<OutputFieldModel, OutputBaseModel>(renderers)
 {
-  internal override RenderStructure Render(OutputFieldModel model)
+  internal override Structured Render(OutputFieldModel model)
     => model.Enum is null
       ? base.Render(model)
-        .Add("parameters", model.Params, parameter)
+        .AddList("parameters", model.Params, parameter)
       : outputEnum.Render(model.Enum);
 }
 
 internal class OutputAlternateRenderer(
-  CollectionBaseRenderers<OutputBaseModel> renderers
-) : ObjectAlternateRenderer<OutputAlternateModel, OutputBaseModel>(renderers)
-{ }
+  CollectionBaseRenderers<OutputArgModel> renderers,
+  IRenderer<DualAlternateModel> dual
+) : ObjectAlternateRenderer<OutputAlternateModel, OutputArgModel>(renderers)
+{
+  internal override Structured Render(OutputAlternateModel model)
+    => model.Dual is null
+      ? base.Render(model)
+        .AddIf(model.IsTypeParam,
+          t => t.Add("typeParam", model.Output),
+          f => f.Add("output", model.Output))
+      : dual.Render(model.Dual);
+}
 
 internal class TypeOutputRenderer(
   TypeObjectRenderers<OutputBaseModel, OutputFieldModel, OutputAlternateModel> renderers
 ) : TypeObjectRenderer<TypeOutputModel, OutputBaseModel, OutputFieldModel, OutputAlternateModel>(renderers)
 {
-  protected override string? ParentName(ObjDescribedModel<OutputBaseModel>? parent)
-    => parent?.Base.Output;
+  protected override string? ParentName(OutputBaseModel? parent)
+    => parent?.Output;
 }

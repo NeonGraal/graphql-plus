@@ -10,17 +10,17 @@ internal sealed record class FieldKeyAst(TokenAt At)
   , IGqlpFieldKey
 {
   public string? Type { get; }
-  public string? Member { get; }
+  public string? Label { get; }
 
   public decimal? Number { get; }
   public string? Text { get; }
   public string? EnumValue
-    => Type.Suffixed(".") + Member;
+    => Type.Suffixed(".") + Label;
 
   internal override string Abbr => "k";
 
   string? IGqlpFieldKey.EnumType => Type;
-  string? IGqlpFieldKey.EnumMember => Member;
+  string? IGqlpFieldKey.EnumLabel => Label;
   bool IEquatable<IGqlpFieldKey>.Equals(IGqlpFieldKey? other)
     => Equals(other as FieldKeyAst);
   int IComparable<IGqlpFieldKey>.CompareTo(IGqlpFieldKey? other)
@@ -32,9 +32,9 @@ internal sealed record class FieldKeyAst(TokenAt At)
   internal FieldKeyAst(TokenAt at, string content)
     : this(at)
     => Text = content;
-  internal FieldKeyAst(TokenAt at, string enumType, string enumMember)
+  internal FieldKeyAst(TokenAt at, string enumType, string enumLabel)
     : this(at)
-    => (Type, Member) = (enumType, enumMember);
+    => (Type, Label) = (enumType, enumLabel);
 
   public int CompareTo(FieldKeyAst? other)
     => Number is not null ? decimal.Compare(Number.Value, other?.Number ?? 0)

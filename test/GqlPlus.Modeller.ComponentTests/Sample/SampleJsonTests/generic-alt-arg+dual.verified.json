@@ -1,0 +1,56 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DualGnrcAltArg": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "dual": "RefDualGnrcAltArg",
+          "object": "DualGnrcAltArg",
+          "typeArgs": ["type"]
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "dual": "RefDualGnrcAltArg",
+          "typeArgs": ["type"]
+        }
+      ],
+      "name": "DualGnrcAltArg",
+      "typeKind": "Dual",
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "type"
+        }
+      ]
+    },
+    "RefDualGnrcAltArg": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "RefDualGnrcAltArg",
+          "typeParam": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "value": "ref"
+        }
+      ],
+      "name": "RefDualGnrcAltArg",
+      "typeKind": "Dual",
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "ref"
+        }
+      ]
+    }
+  }
+}

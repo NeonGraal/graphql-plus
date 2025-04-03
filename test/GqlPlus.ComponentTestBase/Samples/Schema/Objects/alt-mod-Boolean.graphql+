@@ -1,0 +1,2 @@
+object ObjName { | AltObjName[^] }
+object AltObjName { alt: Number | String }

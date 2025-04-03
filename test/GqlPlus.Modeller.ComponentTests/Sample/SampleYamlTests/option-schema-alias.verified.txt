@@ -1,0 +1,3 @@
+﻿!_Schema
+aliases: [Alias]
+name: Schema

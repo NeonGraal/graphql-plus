@@ -1,4 +1,3 @@
-﻿global using FluentAssertions;
-global using FluentAssertions.Execution;
-global using GqlPlus.Ast;
+﻿global using GqlPlus.Ast;
+global using Shouldly;
 global using Xunit;

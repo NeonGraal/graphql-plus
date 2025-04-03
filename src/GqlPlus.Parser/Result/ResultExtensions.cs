@@ -59,19 +59,23 @@ public static class ResultExtensions
 
   public static IResult<TValue> MapEmpty<TValue>(this IResult<TValue> result, OnResult<TValue> onEmpty)
   {
-    ArgumentNullException.ThrowIfNull(onEmpty);
+    onEmpty.ThrowIfNull();
 
+#pragma warning disable CA1062 // Validate arguments of public methods
     return result is IResultEmpty<TValue> ? onEmpty() : result;
+#pragma warning restore CA1062 // Validate arguments of public methods
   }
 
   public static IResult<TResult> MapOk<TValue, TResult>(this IResult<TValue> old, SelectResult<TValue, TResult> onValue, OnResult<TResult> otherwise)
   {
-    ArgumentNullException.ThrowIfNull(onValue);
-    ArgumentNullException.ThrowIfNull(otherwise);
+    onValue.ThrowIfNull();
+    otherwise.ThrowIfNull();
 
+#pragma warning disable CA1062 // Validate arguments of public methods
     return old is IResultOk<TValue> value
         ? onValue(value.Result)
         : otherwise();
+#pragma warning restore CA1062 // Validate arguments of public methods
   }
 
   public static IResult<TValue> Ok<TValue>(this TValue result)
@@ -79,10 +83,12 @@ public static class ResultExtensions
 
   public static bool Optional<TValue>(this IResult<TValue> result, Action<TValue?> action)
   {
-    ArgumentNullException.ThrowIfNull(action);
+    action.ThrowIfNull();
 
     if (result is IResultOk<TValue> ok) {
+#pragma warning disable CA1062 // Validate arguments of public methods
       action(ok.Result);
+#pragma warning restore CA1062 // Validate arguments of public methods
       return true;
     }
 
@@ -110,10 +116,12 @@ public static class ResultExtensions
 
   public static bool Required<TValue>(this IResult<TValue> result, Action<TValue> action)
   {
-    ArgumentNullException.ThrowIfNull(action);
+    action.ThrowIfNull();
 
     if (result is IResultOk<TValue> ok) {
+#pragma warning disable CA1062 // Validate arguments of public methods
       action(ok.Result!);
+#pragma warning restore CA1062 // Validate arguments of public methods
       return true;
     }
 
@@ -131,11 +139,13 @@ public static class ResultExtensions
 
   public static IResult<TResult> Select<TValue, TResult>(this IResult<TValue> old, Func<TValue, TResult?> selector, OnResult<TResult>? onEmpty = null)
   {
-    ArgumentNullException.ThrowIfNull(selector);
+    selector.ThrowIfNull();
 
     TResult? result = default;
     if (old is IResultValue<TValue> value) {
+#pragma warning disable CA1062 // Validate arguments of public methods
       result = selector(value.Result);
+#pragma warning restore CA1062 // Validate arguments of public methods
     }
 
     return old switch {
@@ -151,11 +161,13 @@ public static class ResultExtensions
 
   public static IResult<TResult> SelectOk<TValue, TResult>(this IResult<TValue> old, Func<TValue, TResult?> selector, OnResult<TResult>? onEmpty = null)
   {
-    ArgumentNullException.ThrowIfNull(selector);
+    selector.ThrowIfNull();
 
     TResult? result = default;
     if (old is IResultOk<TValue> value) {
+#pragma warning disable CA1062 // Validate arguments of public methods
       result = selector(value.Result);
+#pragma warning restore CA1062 // Validate arguments of public methods
     }
 
     return old switch {
@@ -169,19 +181,23 @@ public static class ResultExtensions
 
   public static void WithMessage<TValue>(this IResult<TValue> result, Action<TokenMessage> action)
   {
-    ArgumentNullException.ThrowIfNull(action);
+    action.ThrowIfNull();
 
     if (result is IResultMessage<TValue> message) {
+#pragma warning disable CA1062 // Validate arguments of public methods
       action.Invoke(message.Message);
+#pragma warning restore CA1062 // Validate arguments of public methods
     }
   }
 
   public static void WithResult<TValue>(this IResult<TValue> result, Action<TValue> action)
   {
-    ArgumentNullException.ThrowIfNull(action);
+    action.ThrowIfNull();
 
     if (result is IResultValue<TValue> ok) {
+#pragma warning disable CA1062 // Validate arguments of public methods
       action.Invoke(ok.Result);
+#pragma warning restore CA1062 // Validate arguments of public methods
     }
   }
 }

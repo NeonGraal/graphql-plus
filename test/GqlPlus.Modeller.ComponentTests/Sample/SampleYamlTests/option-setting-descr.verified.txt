@@ -1,0 +1,7 @@
+﻿!_Schema
+name: Schema
+settings: !_Map_Setting
+  !_Identifier descr: !_Setting
+    description: 'Option Descr'
+    name: descr
+    value: true

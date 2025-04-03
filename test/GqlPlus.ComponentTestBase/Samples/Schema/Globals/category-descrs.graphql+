@@ -1,0 +1,4 @@
+"A Category"
+"described"
+category { Name }
+output Name { }

@@ -5,7 +5,5 @@ internal class SettingModeller(
 ) : ModellerBase<IGqlpSchemaSetting, SettingModel>
 {
   protected override SettingModel ToModel(IGqlpSchemaSetting ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name, constant.ToModel(ast.Value, typeKinds)) {
-      Description = ast.Description,
-    };
+    => new(ast.Name, constant.ToModel(ast.Value, typeKinds), ast.Description);
 }

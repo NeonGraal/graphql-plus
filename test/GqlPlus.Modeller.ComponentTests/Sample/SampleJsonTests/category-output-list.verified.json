@@ -1,0 +1,30 @@
+﻿{
+  "$tag": "_Schema",
+  "categories": {
+    "$tag": "_Map_Categories",
+    "ctgrOutpList": {
+      "$tag": "_Category",
+      "modifiers": [
+        {
+          "$tag": "_Modifier",
+          "modifierKind": "List"
+        }
+      ],
+      "name": "ctgrOutpList",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "CtgrOutpList",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
+    }
+  },
+  "types": {
+    "$tag": "_Map_Type",
+    "CtgrOutpList": {
+      "$tag": "_TypeOutput",
+      "name": "CtgrOutpList",
+      "typeKind": "Output"
+    }
+  }
+}

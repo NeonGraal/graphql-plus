@@ -1,0 +1,2 @@
+domain Name { enum name }
+enum EnumName { name }

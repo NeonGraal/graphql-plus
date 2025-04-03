@@ -18,7 +18,7 @@ internal class ParseTypeParams
     }
 
     while (!tokens.Take('>')) {
-      tokens.String(out string? description);
+      string description = tokens.Description();
       if (tokens.Prefix('$', out string? name, out TokenAt? at) && name is not null) {
         list.Add(new TypeParamAst(at, name, description));
       } else {

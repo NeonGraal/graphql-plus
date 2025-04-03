@@ -1,0 +1,3 @@
+union Name { :PrntName Boolean }
+union Name { :PrntName Boolean }
+union PrntName { String }

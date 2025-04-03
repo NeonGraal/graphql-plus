@@ -1,3 +1,0 @@
-﻿[
-  Invalid Output Alternate. Type kind mismatch for Bad. Found Input.
-]

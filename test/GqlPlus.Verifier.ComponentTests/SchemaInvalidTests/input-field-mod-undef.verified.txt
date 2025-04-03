@@ -1,3 +1,0 @@
-﻿[
-  Invalid Modifier. 'Random' not defined.
-]

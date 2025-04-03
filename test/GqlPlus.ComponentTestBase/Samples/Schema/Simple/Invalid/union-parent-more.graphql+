@@ -1,0 +1,4 @@
+union Test { :Parent String }
+union Parent { More }
+union More { :Bad String }
+union Bad { Test }

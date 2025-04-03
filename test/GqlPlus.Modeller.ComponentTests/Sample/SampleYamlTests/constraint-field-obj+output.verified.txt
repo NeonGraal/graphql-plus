@@ -1,64 +1,56 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier AltOutpCnstFieldObj: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: PrntOutpCnstFieldObj
-      type: !_OutputBase
-        output: String
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: alt
-      object: AltOutpCnstFieldObj
-      type: !_OutputBase
-        output: Number
-    fields:
-    - !_OutputField
-      name: alt
-      type: !_OutputBase
-        output: Number
-    name: AltOutpCnstFieldObj
-    parent: !_OutputBase
-      output: PrntOutpCnstFieldObj
-    typeKind: !_TypeKind Output
-  !_Identifier OutpCnstFieldObj: !_TypeOutput
+  !_Identifier OutpGnrcParam: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
-      object: RefOutpCnstFieldObj
+      object: OutpGnrcParam
       type: !_OutputBase
-        output: AltOutpCnstFieldObj
-    name: OutpCnstFieldObj
-    parent: !_OutputBase
-      output: RefOutpCnstFieldObj
-      typeArgs:
-      - !_OutputArg
-        output: AltOutpCnstFieldObj
+        output: OutpGnrcParamRef
+        typeArgs:
+        - !_OutputArg
+          output: OutpGnrcParamAlt
+    fields:
+    - !_OutputField
+      name: field
+      type: !_OutputBase
+        output: OutpGnrcParamRef
+        typeArgs:
+        - !_OutputArg
+          output: OutpGnrcParamAlt
+    name: OutpGnrcParam
     typeKind: !_TypeKind Output
-  !_Identifier PrntOutpCnstFieldObj: !_TypeOutput
+  !_Identifier OutpGnrcParamAlt: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: PrntOutpCnstFieldObj
+      object: OutpGnrcParamAlt
+      output: String
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: alt
+      object: OutpGnrcParamAlt
       type: !_OutputBase
-        output: String
+        output: Number
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: String
-    name: PrntOutpCnstFieldObj
-    typeKind: !_TypeKind Output
-  !_Identifier RefOutpCnstFieldObj: !_TypeOutput
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: field
-      object: RefOutpCnstFieldObj
-      type: !_TypeParam ref
+      output: String
     fields:
     - !_OutputField
-      name: field
-      type: !_TypeParam ref
-    name: RefOutpCnstFieldObj
+      name: alt
+      type: !_OutputBase
+        output: Number
+    name: OutpGnrcParamAlt
+    typeKind: !_TypeKind Output
+  !_Identifier OutpGnrcParamRef: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: OutpGnrcParamRef
+      typeParam: ref
+    alternates:
+    - !_OutputAlternate
+      typeParam: ref
+    name: OutpGnrcParamRef
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

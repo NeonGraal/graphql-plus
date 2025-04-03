@@ -4,12 +4,10 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: RefOutpPrntAlt
-      type: !_OutputBase
-        output: String
+      output: String
     - !_ObjectFor(_OutputAlternate)
       object: OutpPrntAlt
-      type: !_OutputBase
-        output: Number
+      output: Number
     allFields:
     - !_ObjectFor(_OutputField)
       name: parent
@@ -18,8 +16,7 @@ types: !_Map_Type
         output: Number
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: Number
+      output: Number
     name: OutpPrntAlt
     parent: !_OutputBase
       output: RefOutpPrntAlt
@@ -28,8 +25,7 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: RefOutpPrntAlt
-      type: !_OutputBase
-        output: String
+      output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: parent
@@ -38,8 +34,7 @@ types: !_Map_Type
         output: Number
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: String
+      output: String
     fields:
     - !_OutputField
       name: parent

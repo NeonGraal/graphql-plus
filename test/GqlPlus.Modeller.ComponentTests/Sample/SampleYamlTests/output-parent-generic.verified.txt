@@ -20,22 +20,20 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: OutpPrntGnrc
-      type: !_OutputBase
-        output: RefOutpPrntGnrc
-        typeArgs:
-        - !_OutputArg
-          label: prnt_outpPrntGnrc
-          name: EnumOutpPrntGnrc
-          typeKind: !_SimpleKind Enum
+      output: RefOutpPrntGnrc
+      typeArgs:
+      - !_OutputArg
+        label: prnt_outpPrntGnrc
+        name: EnumOutpPrntGnrc
+        typeKind: !_SimpleKind Enum
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: RefOutpPrntGnrc
-        typeArgs:
-        - !_OutputArg
-          label: prnt_outpPrntGnrc
-          name: EnumOutpPrntGnrc
-          typeKind: !_SimpleKind Enum
+      output: RefOutpPrntGnrc
+      typeArgs:
+      - !_OutputArg
+        label: prnt_outpPrntGnrc
+        name: EnumOutpPrntGnrc
+        typeKind: !_SimpleKind Enum
     name: OutpPrntGnrc
     typeKind: !_TypeKind Output
   !_Identifier PrntOutpPrntGnrc: !_TypeEnum
@@ -53,13 +51,15 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: field
       object: RefOutpPrntGnrc
-      type: !_TypeParam type
+      type: !_OutputBase
+        typeParam: type
     fields:
     - !_OutputField
       name: field
-      type: !_TypeParam type
+      type: !_OutputBase
+        typeParam: type
     name: RefOutpPrntGnrc
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: type

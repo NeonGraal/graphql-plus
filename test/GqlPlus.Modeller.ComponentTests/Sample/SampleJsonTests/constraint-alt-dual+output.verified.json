@@ -2,126 +2,103 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "AltOutpCnstAltDual": {
+    "OutpGnrcDual": {
       "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "PrntOutpCnstAltDual",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
-        }
-      ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "alt",
-          "object": "AltOutpCnstAltDual",
+          "name": "field",
+          "object": "OutpGnrcDual",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Number"
+            "output": "OutpGnrcDualRef",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "value": "OutpGnrcDualAlt"
+              }
+            ]
           }
         }
       ],
       "fields": [
         {
           "$tag": "_OutputField",
-          "name": "alt",
+          "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "name": "AltOutpCnstAltDual",
-      "parent": {
-        "$tag": "_DualBase",
-        "value": "PrntOutpCnstAltDual"
-      },
-      "typeKind": "Output"
-    },
-    "OutpCnstAltDual": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpCnstAltDual",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "RefOutpCnstAltDual",
+            "output": "OutpGnrcDualRef",
             "typeArgs": [
               {
-                "$tag": "_OutputArg",
-                "value": "AltOutpCnstAltDual"
+                "$tag": "_DualArg",
+                "value": "OutpGnrcDualAlt"
               }
             ]
           }
         }
       ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "RefOutpCnstAltDual",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "value": "AltOutpCnstAltDual"
-              }
-            ]
-          }
-        }
-      ],
-      "name": "OutpCnstAltDual",
+      "name": "OutpGnrcDual",
       "typeKind": "Output"
     },
-    "PrntOutpCnstAltDual": {
+    "OutpGnrcDualAlt": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "PrntOutpCnstAltDual",
+          "dual": "String",
+          "object": "OutpGnrcDualAlt"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "alt",
+          "object": "OutpGnrcDualAlt",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "value": "Number"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
+          "value": "String"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "alt",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "value": "Number"
           }
         }
       ],
-      "name": "PrntOutpCnstAltDual",
+      "name": "OutpGnrcDualAlt",
       "typeKind": "Dual"
     },
-    "RefOutpCnstAltDual": {
+    "OutpGnrcDualRef": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "RefOutpCnstAltDual",
-          "type": "ref"
+          "object": "OutpGnrcDualRef",
+          "typeParam": "ref"
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": "ref"
+          "value": "ref"
         }
       ],
-      "name": "RefOutpCnstAltDual",
+      "name": "OutpGnrcDualRef",
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]

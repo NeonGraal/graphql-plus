@@ -3,31 +3,29 @@ types: !_Map_Type
   !_Identifier InpGnrcAltSmpl: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
+      input: RefInpGnrcAltSmpl
       object: InpGnrcAltSmpl
-      type: !_InputBase
-        input: RefInpGnrcAltSmpl
-        typeArgs:
-        - !_InputArg
-          input: String
+      typeArgs:
+      - !_InputArg
+        input: String
     alternates:
     - !_InputAlternate
-      type: !_InputBase
-        input: RefInpGnrcAltSmpl
-        typeArgs:
-        - !_InputArg
-          input: String
+      input: RefInpGnrcAltSmpl
+      typeArgs:
+      - !_InputArg
+        input: String
     name: InpGnrcAltSmpl
     typeKind: !_TypeKind Input
   !_Identifier RefInpGnrcAltSmpl: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
       object: RefInpGnrcAltSmpl
-      type: !_TypeParam ref
+      typeParam: ref
     alternates:
     - !_InputAlternate
-      type: !_TypeParam ref
+      typeParam: ref
     name: RefInpGnrcAltSmpl
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

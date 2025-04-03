@@ -5,11 +5,14 @@
     "InpGnrcPrnt": {
       "$tag": "_TypeInput",
       "name": "InpGnrcPrnt",
-      "parent": "type",
+      "parent": {
+        "$tag": "_InputBase",
+        "value": "type"
+      },
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]

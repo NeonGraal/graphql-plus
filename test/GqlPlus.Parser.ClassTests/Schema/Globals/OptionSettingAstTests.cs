@@ -18,8 +18,8 @@ public class OptionSettingAstTests
       value => Setting(name, value),
       value1.NullEqual(value2));
 
-  protected override string AliasesString(SettingInput input, string aliases)
-    => $"( !OS {input.Name}{aliases} =( !k '{input.Value}' ) )";
+  protected override string AliasesString(SettingInput input, string description, string aliases)
+    => $"( {DescriptionNameString(input, description)}{aliases} =( !k '{input.Value}' ) )";
 
   private readonly AstAliasedChecks<SettingInput, OptionSettingAst> _checks
     = new(input => Setting(input.Name, input.Value));
@@ -28,6 +28,7 @@ public class OptionSettingAstTests
 
   private static OptionSettingAst Setting(string name, string value)
     => new(AstNulls.At, name, new(new FieldKeyAst(AstNulls.At, value)));
+  protected override string InputName(SettingInput input) => input.Name;
 }
 
 public record struct SettingInput(string Name, string Value);

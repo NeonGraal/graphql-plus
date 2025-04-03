@@ -3,12 +3,10 @@ types: !_Map_Type
   !_Identifier InpAltSmpl: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
+      input: String
       object: InpAltSmpl
-      type: !_InputBase
-        input: String
     alternates:
     - !_InputAlternate
-      type: !_InputBase
-        input: String
+      input: String
     name: InpAltSmpl
     typeKind: !_TypeKind Input

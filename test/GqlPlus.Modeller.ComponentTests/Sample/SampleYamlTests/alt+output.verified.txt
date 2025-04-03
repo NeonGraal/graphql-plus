@@ -4,8 +4,7 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: AltOutpAlt
-      type: !_OutputBase
-        output: String
+      output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
@@ -14,8 +13,7 @@ types: !_Map_Type
         output: Number
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: String
+      output: String
     fields:
     - !_OutputField
       name: alt
@@ -27,11 +25,9 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: OutpAlt
-      type: !_OutputBase
-        output: AltOutpAlt
+      output: AltOutpAlt
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: AltOutpAlt
+      output: AltOutpAlt
     name: OutpAlt
     typeKind: !_TypeKind Output

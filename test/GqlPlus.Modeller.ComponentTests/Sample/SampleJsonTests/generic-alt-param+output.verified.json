@@ -8,10 +8,7 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "AltOutpGnrcAltParam",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "output": "String"
         }
       ],
       "allFields": [
@@ -28,10 +25,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -53,31 +47,25 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "OutpGnrcAltParam",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "RefOutpGnrcAltParam",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "value": "AltOutpGnrcAltParam"
-              }
-            ]
-          }
+          "output": "RefOutpGnrcAltParam",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "value": "AltOutpGnrcAltParam"
+            }
+          ]
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "RefOutpGnrcAltParam",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "value": "AltOutpGnrcAltParam"
-              }
-            ]
-          }
+          "output": "RefOutpGnrcAltParam",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "value": "AltOutpGnrcAltParam"
+            }
+          ]
         }
       ],
       "name": "OutpGnrcAltParam",
@@ -89,20 +77,20 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "RefOutpGnrcAltParam",
-          "type": "ref"
+          "typeParam": "ref"
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": "ref"
+          "value": "ref"
         }
       ],
       "name": "RefOutpGnrcAltParam",
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]

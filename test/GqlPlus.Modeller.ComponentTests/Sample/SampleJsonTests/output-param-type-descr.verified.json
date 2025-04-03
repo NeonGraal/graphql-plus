@@ -12,11 +12,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InOutpParamTypeDescr",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
+          "input": "String",
+          "object": "InOutpParamTypeDescr"
         }
       ],
       "allFields": [
@@ -33,10 +30,7 @@
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -66,12 +60,9 @@
             }
           ],
           "type": {
-            "$tag": "_ObjDescribed(_OutputBase)",
-            "base": {
-              "$tag": "_DualBase",
-              "value": "FldOutpParamTypeDescr"
-            },
-            "description": "Test Descr"
+            "$tag": "_DualBase",
+            "description": "Test Descr",
+            "dual": "FldOutpParamTypeDescr"
           }
         }
       ],
@@ -86,12 +77,9 @@
             }
           ],
           "type": {
-            "$tag": "_ObjDescribed(_OutputBase)",
-            "base": {
-              "$tag": "_DualBase",
-              "value": "FldOutpParamTypeDescr"
-            },
-            "description": "Test Descr"
+            "$tag": "_DualBase",
+            "description": "Test Descr",
+            "dual": "FldOutpParamTypeDescr"
           }
         }
       ],

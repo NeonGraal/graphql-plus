@@ -120,7 +120,7 @@ public class MergeOutputFieldsTests
       Params = parameters.ThrowIfNull().Params()
     };
   private static OutputFieldAst MakeFieldEnum(string name, string type, string enumLabel, string fieldDescription = "", string typeDescription = "")
-    => new(AstNulls.At, name, fieldDescription, new OutputBaseAst(AstNulls.At, type, typeDescription) { EnumLabel = enumLabel });
+    => new(AstNulls.At, name, fieldDescription, new OutputBaseAst(AstNulls.At, type, typeDescription)) { EnumLabel = enumLabel };
   protected override IGqlpOutputField MakeFieldModifiers(string name)
     => new OutputFieldAst(AstNulls.At, name, new OutputBaseAst(AstNulls.At, name)) {
       Modifiers = TestMods()

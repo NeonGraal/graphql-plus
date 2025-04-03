@@ -12,11 +12,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InOutpDescrParam",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
+          "input": "String",
+          "object": "InOutpDescrParam"
         }
       ],
       "allFields": [
@@ -33,10 +30,7 @@
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -57,6 +51,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
+          "description": "Test Descr",
           "name": "field",
           "object": "OutpDescrParam",
           "parameters": [
@@ -74,6 +69,7 @@
       "fields": [
         {
           "$tag": "_OutputField",
+          "description": "Test Descr",
           "name": "field",
           "parameters": [
             {

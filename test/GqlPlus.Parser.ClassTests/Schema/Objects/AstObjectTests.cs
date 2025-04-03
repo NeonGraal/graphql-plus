@@ -108,7 +108,8 @@ AstTypeChecks<TObjectAst, IGqlpObjBase>.ParentCreator createParent,
       typeParams1.SequenceEqual(typeParams2));
 
   protected abstract TObjAlt[] CreateAlternates(IEnumerable<AlternateInput> alternates);
-  protected abstract string AlternateString(AlternateInput input);
+  protected string AlternateString(AlternateInput input)
+    => $"{input.Type} [] ?";
 
   protected abstract TObjField[] CreateFields(IEnumerable<FieldInput> fields);
   protected abstract string FieldString(FieldInput input);

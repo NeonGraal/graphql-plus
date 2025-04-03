@@ -4,12 +4,12 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_InputAlternate)
       object: InpGnrcAlt
-      type: !_TypeParam type
+      typeParam: type
     alternates:
     - !_InputAlternate
-      type: !_TypeParam type
+      typeParam: type
     name: InpGnrcAlt
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Described
+    - !_Named
       name: type

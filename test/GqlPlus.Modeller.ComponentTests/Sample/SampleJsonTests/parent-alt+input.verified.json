@@ -7,19 +7,13 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "RefInpPrntAlt",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
+          "input": "String",
+          "object": "RefInpPrntAlt"
         },
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpPrntAlt",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "Number"
-          }
+          "input": "Number",
+          "object": "InpPrntAlt"
         }
       ],
       "allFields": [
@@ -36,10 +30,7 @@
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "Number"
-          }
+          "value": "Number"
         }
       ],
       "name": "InpPrntAlt",
@@ -54,11 +45,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "RefInpPrntAlt",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
+          "input": "String",
+          "object": "RefInpPrntAlt"
         }
       ],
       "allFields": [
@@ -75,10 +63,7 @@
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [

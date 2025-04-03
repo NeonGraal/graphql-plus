@@ -5,13 +5,15 @@ types: !_Map_Type
     - !_ObjectFor(_InputField)
       name: field
       object: InpGnrcField
-      type: !_TypeParam type
+      type: !_InputBase
+        typeParam: type
     fields:
     - !_InputField
       name: field
-      type: !_TypeParam type
+      type: !_InputBase
+        typeParam: type
     name: InpGnrcField
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Described
+    - !_Named
       name: type

@@ -5,7 +5,7 @@ _errors:
   _message: In _TypeUnion can't get model for type '_ParentType'
 - !_Error
   _kind: !_TokenKind End
-  _message: In _UnionMember can't get model for type '_Named'
+  _message: In _UnionRef can't get model for type '_TypeRef'
 types: !_Map_Type
   !_Identifier _TypeUnion: !_TypeOutput
     name: _TypeUnion
@@ -17,23 +17,31 @@ types: !_Map_Type
         name: _TypeKind
         typeKind: !_SimpleKind Enum
       - !_OutputArg
-        output: _Named
-      - !_DualArg
-        dual: _UnionMember
+        output: _UnionRef
+      - !_OutputArg
+        output: _UnionMember
     typeKind: !_TypeKind Output
-  !_Identifier _UnionMember: !_TypeDual
+  !_Identifier _UnionMember: !_TypeOutput
     allFields:
-    - !_ObjectFor(_DualField)
+    - !_ObjectFor(_OutputField)
       name: union
       object: _UnionMember
-      type: !_DualBase
-        dual: _Identifier
+      type: !_OutputBase
+        output: _Identifier
     fields:
-    - !_DualField
+    - !_OutputField
       name: union
-      type: !_DualBase
-        dual: _Identifier
+      type: !_OutputBase
+        output: _Identifier
     name: _UnionMember
-    parent: !_DualBase
-      dual: _Named
-    typeKind: !_TypeKind Dual
+    parent: !_OutputBase
+      output: _UnionRef
+    typeKind: !_TypeKind Output
+  !_Identifier _UnionRef: !_TypeOutput
+    name: _UnionRef
+    parent: !_OutputBase
+      output: _TypeRef
+      typeArgs:
+      - !_OutputArg
+        output: _SimpleKind
+    typeKind: !_TypeKind Output

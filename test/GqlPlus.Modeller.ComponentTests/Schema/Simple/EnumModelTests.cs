@@ -87,9 +87,9 @@ internal sealed class EnumModelChecks(
     => new(AstNulls.At, input, description, []);
 
   internal override TypeEnumModel NewParent(string name, string[] labels, string? parent = null)
-    => new(name) {
+    => new(name, "") {
       Parent = parent?.TypeRef(SimpleKindModel.Enum),
-      Items = [.. labels.Select(m => new AliasedModel(m))]
+      Items = [.. labels.Select(m => new AliasedModel(m, ""))]
     };
 
   internal override EnumDeclAst NewTypeAst(string name, string? parent, string? description, string[]? aliases)

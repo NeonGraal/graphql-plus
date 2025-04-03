@@ -7,29 +7,23 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
+          "input": "RefInpGnrcAltArgDescr",
           "object": "InpGnrcAltArgDescr",
-          "type": {
-            "$tag": "_InputBase",
-            "input": "RefInpGnrcAltArgDescr",
-            "typeArgs": ["type"]
-          }
+          "typeArgs": ["type"]
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "type": {
-            "$tag": "_InputBase",
-            "input": "RefInpGnrcAltArgDescr",
-            "typeArgs": ["type"]
-          }
+          "input": "RefInpGnrcAltArgDescr",
+          "typeArgs": ["type"]
         }
       ],
       "name": "InpGnrcAltArgDescr",
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
@@ -40,20 +34,20 @@
         {
           "$tag": "_ObjectFor(_InputAlternate)",
           "object": "RefInpGnrcAltArgDescr",
-          "type": "ref"
+          "typeParam": "ref"
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "type": "ref"
+          "value": "ref"
         }
       ],
       "name": "RefInpGnrcAltArgDescr",
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]

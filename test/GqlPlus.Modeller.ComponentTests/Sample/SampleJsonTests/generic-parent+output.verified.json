@@ -5,11 +5,14 @@
     "OutpGnrcPrnt": {
       "$tag": "_TypeOutput",
       "name": "OutpGnrcPrnt",
-      "parent": "type",
+      "parent": {
+        "$tag": "_OutputBase",
+        "value": "type"
+      },
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]

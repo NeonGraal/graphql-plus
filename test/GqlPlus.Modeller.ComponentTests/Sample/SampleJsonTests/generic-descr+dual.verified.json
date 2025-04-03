@@ -9,21 +9,27 @@
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
           "object": "DualGnrcDescr",
-          "type": "type"
+          "type": {
+            "$tag": "_DualBase",
+            "value": "type"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_DualField",
           "name": "field",
-          "type": "type"
+          "type": {
+            "$tag": "_DualBase",
+            "value": "type"
+          }
         }
       ],
       "name": "DualGnrcDescr",
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "description": "Test Descr",
           "name": "type"
         }

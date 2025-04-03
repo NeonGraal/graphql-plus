@@ -6,19 +6,12 @@ Success
   <
     I@021/0001
     $kind
-    :_ObjectKind
-    I@039/0001
+    I@027/0001
     $parent
-    :_ObjDescribed
-    I@061/0001
-    $typeParam
-    :_ObjTypeParam
-    I@086/0001
+    I@035/0001
     $field
-    :_Field
-    I@100/0001
+    I@042/0001
     $alternate
-    :_Alternate
   >
   :
   I@007/0002
@@ -33,8 +26,8 @@ Success
     !OF I@009/0003
     typeParams
     :
-    I@022/0003
-    $typeParam
+    I@021/0003
+    _ObjTypeParam
     []
     !OF I@009/0004
     fields
@@ -71,251 +64,157 @@ Success
   }
 }
 {
-  !Do I@008/0010
-  _ObjectKind
-  Enum
-  !DE I@027/0010
-  _TypeKind
-  Dual
-  !DE I@042/0010
-  _TypeKind
-  Input
-  !DE I@058/0010
-  _TypeKind
-  Output
-}
-{
-  !Du I@006/0012
-  _ObjDescribed
-  <
-    I@021/0012
-    $base
-    :_ObjBase
-  >
-  :
-  I@007/0013
-  _Described
-  {
-    !DF I@009/0014
-    base
-    :
-    I@016/0014
-    $base
-  }
-  |
-  !DA P@007/0015
-  I@008/0015
-  $base
-}
-{
-  !Ou I@008/0018
+  !Ou I@008/0010
   _ObjConstraint
   <
-    I@024/0018
+    I@024/0010
     $base
-    :_ObjBase
   >
   |
-  !OA I@007/0019
-  I@007/0019
+  I@007/0011
   _TypeSimple
-  !OA P@007/0020
-  I@008/0020
+  P@007/0012
   $base
 }
 {
-  !Ou I@008/0022
+  !Ou I@008/0014
   _ObjType
   <
-    I@018/0022
+    I@018/0014
     $base
-    :_ObjBase
   >
   |
-  !OA I@007/0023
-  I@007/0023
+  I@007/0015
   _BaseType
   <
-    I@017/0023
+    I@017/0015
     _TypeKind.Internal
   >
-  !OA I@007/0024
-  I@007/0024
+  I@007/0016
   _ObjConstraint
   <
-    I@023/0024
+    I@023/0016
     $base
   >
 }
 {
-  !Ou I@008/0027
+  !Ou I@008/0019
   _ObjBase
   <
-    I@018/0027
+    I@018/0019
     $arg
-    :_ObjTypeArg
   >
+  :
+  I@007/0020
+  _Described
   {
-    !OF I@009/0028
+    !OF I@009/0021
     typeArgs
     :
-    I@019/0028
-    _ObjDescribed
-    <
-      I@034/0028
-      $arg
-    >
+    I@020/0021
+    $arg
     []
   }
   |
-  !OA I@007/0029
-  I@007/0029
-  _TypeParam
+  I@007/0022
+  _ObjTypeParam
 }
 {
-  !Ou I@008/0032
+  !Ou I@008/0025
   _ObjTypeArg
   :
-  I@007/0033
+  I@007/0026
   _TypeRef
   <
-    I@016/0033
+    I@016/0026
     _TypeKind
   >
   |
-  !OA I@007/0034
-  I@007/0034
-  _TypeParam
+  I@007/0027
+  _ObjTypeParam
 }
 {
-  !Do I@008/0037
+  !Do I@008/0030
   _TypeParam
   String
   :_Identifier
 }
 {
-  !Ou I@008/0039
+  !Ou I@008/0032
   _ObjTypeParam
-  <
-    I@023/0039
-    $base
-    :_ObjBase
-  >
   :
-  I@007/0040
+  I@007/0033
   _Described
   {
-    !OF I@005/0041
+    !OF I@009/0034
     typeParam
     :
-    I@016/0041
+    I@020/0034
     _TypeParam
-    !OF I@005/0042
-    constraint
-    :
-    I@017/0042
-    _ObjConstraint
-    <
-      I@033/0042
-      $base
-    >
   }
 }
 {
-  !Ou I@008/0045
+  !Ou I@008/0037
   _Alternate
   <
-    I@020/0045
-    $base
-    :_ObjBase
+    I@020/0037
+    $arg
+  >
+  :
+  I@007/0038
+  _ObjBase
+  <
+    I@017/0038
+    $arg
   >
   {
-    !OF I@007/0046
-    type
-    :
-    I@013/0046
-    _ObjDescribed
-    <
-      I@028/0046
-      $base
-    >
-    !OF I@007/0047
+    !OF I@007/0039
     collections
     :
-    I@020/0047
+    I@020/0039
     _Collections
     []
   }
 }
 {
-  !Ou I@008/0050
+  !Ou I@008/0042
   _ObjectFor
   <
-    I@020/0050
+    I@020/0042
     $for
-    :_ForParam
   >
   :
-  I@008/0051
+  I@008/0043
   $for
   {
-    !OF I@009/0052
+    !OF I@009/0044
     object
     :
-    I@017/0052
+    I@017/0044
     _Identifier
   }
 }
 {
-  !Ou I@008/0055
+  !Ou I@008/0047
   _Field
   <
-    I@016/0055
+    I@016/0047
     $base
-    :_ObjBase
   >
   :
-  I@007/0056
+  I@007/0048
   _Aliased
   {
-    !OF I@007/0057
+    !OF I@007/0049
     type
     :
-    I@013/0057
-    _ObjDescribed
-    <
-      I@028/0057
-      $base
-    >
-    !OF I@007/0058
+    I@014/0049
+    $base
+    !OF I@007/0050
     modifiers
     :
-    I@018/0058
+    I@018/0050
     _Modifiers
     []
   }
-}
-{
-  !Ou I@008/0061
-  _ForParam
-  <
-    I@019/0061
-    $base
-    :_ObjBase
-  >
-  |
-  !OA I@007/0062
-  I@007/0062
-  _Alternate
-  <
-    I@019/0062
-    $base
-  >
-  !OA I@007/0063
-  I@007/0063
-  _Field
-  <
-    I@015/0063
-    $base
-  >
 }

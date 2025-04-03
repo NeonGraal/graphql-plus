@@ -3,32 +3,30 @@ types: !_Map_Type
   !_Identifier InpGnrcAltArg: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
+      input: RefInpGnrcAltArg
       object: InpGnrcAltArg
-      type: !_InputBase
-        input: RefInpGnrcAltArg
-        typeArgs:
-        - !_TypeParam type
+      typeArgs:
+      - !_TypeParam type
     alternates:
     - !_InputAlternate
-      type: !_InputBase
-        input: RefInpGnrcAltArg
-        typeArgs:
-        - !_TypeParam type
+      input: RefInpGnrcAltArg
+      typeArgs:
+      - !_TypeParam type
     name: InpGnrcAltArg
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Described
+    - !_Named
       name: type
   !_Identifier RefInpGnrcAltArg: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
       object: RefInpGnrcAltArg
-      type: !_TypeParam ref
+      typeParam: ref
     alternates:
     - !_InputAlternate
-      type: !_TypeParam ref
+      typeParam: ref
     name: RefInpGnrcAltArg
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

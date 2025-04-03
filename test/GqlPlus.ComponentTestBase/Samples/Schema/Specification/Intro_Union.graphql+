@@ -1,8 +1,12 @@
 output _TypeUnion {
-    : _ParentType<_TypeKind.Union _Named _UnionMember>
+    : _ParentType<_TypeKind.Union _UnionRef _UnionMember>
     }
 
-dual _UnionMember {
-    : _Named
+output _UnionRef {
+    : _TypeRef<_SimpleKind>
+}
+
+output _UnionMember {
+    : _UnionRef
         union: _Identifier
     }

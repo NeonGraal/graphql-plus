@@ -12,7 +12,7 @@ internal static class SchemaTestHelpers
     => [.. fields.Select(f => new DualFieldAst(AstNulls.At, f.Name, DualBase(f.Type, f.TypeParam)))];
 
   public static DualAlternateAst[] DualAlternates(this IEnumerable<AlternateInput> alternates)
-    => [.. alternates.Select(a => new DualAlternateAst(AstNulls.At, DualBase(a.Type, a.TypeParam)) { Modifiers = TestMods() })];
+    => [.. alternates.Select(a => new DualAlternateAst(AstNulls.At, a.Type, "") { Modifiers = TestMods(), IsTypeParam = a.TypeParam })];
 
   private static DualBaseAst DualBase(string type, bool isTypeParam)
     => new(AstNulls.At, type) { IsTypeParam = isTypeParam };
@@ -26,7 +26,7 @@ internal static class SchemaTestHelpers
   public static InputFieldAst[] InputFields(this IEnumerable<FieldInput> fields)
     => [.. fields.Select(f => new InputFieldAst(AstNulls.At, f.Name, InputBase(f.Type, f.TypeParam)))];
   public static InputAlternateAst[] InputAlternates(this IEnumerable<AlternateInput> alternates)
-    => [.. alternates.Select(a => new InputAlternateAst(AstNulls.At, InputBase(a.Type, a.TypeParam)) { Modifiers = TestMods() })];
+    => [.. alternates.Select(a => new InputAlternateAst(AstNulls.At, a.Type, "") { Modifiers = TestMods(), IsTypeParam = a.TypeParam })];
 
   private static InputBaseAst InputBase(string type, bool isTypeParam)
     => new(AstNulls.At, type) { IsTypeParam = isTypeParam };
@@ -41,7 +41,7 @@ internal static class SchemaTestHelpers
     => [.. fields.Select(f => new OutputFieldAst(AstNulls.At, f.Name, OutputBase(f.Type, f.TypeParam)))];
 
   public static OutputAlternateAst[] OutputAlternates(this IEnumerable<AlternateInput> alternates)
-    => [.. alternates.Select(a => new OutputAlternateAst(AstNulls.At, OutputBase(a.Type, a.TypeParam)) { Modifiers = TestMods() })];
+    => [.. alternates.Select(a => new OutputAlternateAst(AstNulls.At, a.Type, "") { Modifiers = TestMods(), IsTypeParam = a.TypeParam })];
 
   private static OutputBaseAst OutputBase(string type, bool isTypeParam)
     => new(AstNulls.At, type) { IsTypeParam = isTypeParam };

@@ -8,10 +8,7 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "AltOutpAltModBool",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "output": "String"
         }
       ],
       "allFields": [
@@ -28,10 +25,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -61,10 +55,7 @@
             }
           ],
           "object": "OutpAltModBool",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "AltOutpAltModBool"
-          }
+          "output": "AltOutpAltModBool"
         }
       ],
       "alternates": [
@@ -78,10 +69,7 @@
               "typeKind": "Basic"
             }
           ],
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "AltOutpAltModBool"
-          }
+          "output": "AltOutpAltModBool"
         }
       ],
       "name": "OutpAltModBool",

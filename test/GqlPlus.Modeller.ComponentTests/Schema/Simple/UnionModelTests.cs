@@ -88,9 +88,9 @@ internal sealed class UnionModelChecks(
     => new(AstNulls.At, input, description ?? "", []) { Aliases = aliases ?? [] };
 
   internal override TypeUnionModel NewParent(string name, string[] members, string? parent = null)
-    => new(name) {
+    => new(name, "") {
       Parent = parent?.TypeRef(SimpleKindModel.Union),
-      Items = [.. members.Select(m => new AliasedModel(m))]
+      Items = [.. members.Select(m => new AliasedModel(m, ""))]
     };
 
   internal override UnionDeclAst NewTypeAst(string name, string? parent = default, string? description = null, string[]? aliases = null)

@@ -3,13 +3,11 @@ types: !_Map_Type
   !_Identifier InpObjAlt: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
+      input: InpObjAltType
       object: InpObjAlt
-      type: !_InputBase
-        input: InpObjAltType
     alternates:
     - !_InputAlternate
-      type: !_InputBase
-        input: InpObjAltType
+      input: InpObjAltType
     name: InpObjAlt
     typeKind: !_TypeKind Input
   !_Identifier InpObjAltType: !_TypeInput

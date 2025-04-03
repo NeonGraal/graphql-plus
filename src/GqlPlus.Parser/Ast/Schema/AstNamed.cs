@@ -1,11 +1,13 @@
-﻿using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Token;
 
-namespace GqlPlus.Ast;
+namespace GqlPlus.Ast.Schema;
 
 internal abstract record class AstNamed(
   TokenAt At,
-  string Name
-) : AstAbbreviated(At)
+  string Name,
+  string Description
+) : AstDescribed(At, Description)
   , IEquatable<AstNamed>
   , IGqlpNamed
 {

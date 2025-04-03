@@ -2,8 +2,9 @@
 types: !_Map_Type
   !_Identifier InpGnrcPrnt: !_TypeInput
     name: InpGnrcPrnt
-    parent: !_TypeParam type
+    parent: !_InputBase
+      typeParam: type
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Described
+    - !_Named
       name: type

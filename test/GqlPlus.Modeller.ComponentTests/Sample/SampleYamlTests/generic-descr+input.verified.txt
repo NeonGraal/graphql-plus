@@ -5,14 +5,16 @@ types: !_Map_Type
     - !_ObjectFor(_InputField)
       name: field
       object: InpGnrcDescr
-      type: !_TypeParam type
+      type: !_InputBase
+        typeParam: type
     fields:
     - !_InputField
       name: field
-      type: !_TypeParam type
+      type: !_InputBase
+        typeParam: type
     name: InpGnrcDescr
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Described
+    - !_Named
       description: 'Test Descr'
       name: type

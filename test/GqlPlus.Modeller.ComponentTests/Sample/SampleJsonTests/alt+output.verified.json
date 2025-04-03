@@ -8,10 +8,7 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "AltOutpAlt",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "output": "String"
         }
       ],
       "allFields": [
@@ -28,10 +25,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -53,19 +47,13 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "OutpAlt",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "AltOutpAlt"
-          }
+          "output": "AltOutpAlt"
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "AltOutpAlt"
-          }
+          "value": "AltOutpAlt"
         }
       ],
       "name": "OutpAlt",

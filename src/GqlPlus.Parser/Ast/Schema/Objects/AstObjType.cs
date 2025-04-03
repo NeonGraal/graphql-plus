@@ -7,7 +7,7 @@ internal abstract record class AstObjType(
   TokenAt At,
   string Name,
   string Description
-) : AstDescribed(At, Name, Description)
+) : AstNamed(At, Name, Description)
   , IEquatable<AstObjType>
   , IGqlpObjType
 {
@@ -26,5 +26,5 @@ internal abstract record class AstObjType(
   => HashCode.Combine(base.GetHashCode(), IsTypeParam);
 
   internal override IEnumerable<string?> GetFields()
-    => [At.ToString(), TypeName];
+    => [Description.Quoted("'"), At.ToString(), TypeName];
 }

@@ -16,10 +16,10 @@ public class MergeDualAlternatesTests(
 }
 
 internal sealed class MergeDualAlternatesChecks
-  : CheckAlternatesMerger<IGqlpDualAlternate, DualAlternateAst, IGqlpDualBase>
+  : CheckAlternatesMerger<IGqlpDualAlternate, DualAlternateAst, IGqlpDualArg>
 {
   public override IGqlpDualAlternate MakeAlternate(string input, bool withModifiers = false, string description = "")
-    => new DualAlternateAst(AstNulls.At, new DualBaseAst(AstNulls.At, input, description)) {
+    => new DualAlternateAst(AstNulls.At, input, description) {
       Modifiers = withModifiers ? TestMods() : []
     };
 }

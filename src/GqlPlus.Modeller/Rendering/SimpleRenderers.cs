@@ -74,9 +74,8 @@ internal class TypeEnumRenderer(
 {
   protected override Func<AliasedModel, EnumLabelModel> NewItem(string parent)
     => label
-        => new(label.Name, parent) {
+        => new(label.Name, parent, label.Description) {
           Aliases = label.Aliases,
-          Description = label.Description,
         };
 }
 
@@ -102,9 +101,8 @@ internal class TypeUnionRenderer(
 {
   protected override Func<AliasedModel, UnionMemberModel> NewItem(string parent)
     => member
-        => new(member.Name, parent) {
+        => new(member.Name, parent, member.Description) {
           Aliases = member.Aliases,
-          Description = member.Description,
         };
 }
 

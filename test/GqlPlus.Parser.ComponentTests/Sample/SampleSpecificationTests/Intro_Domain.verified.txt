@@ -16,7 +16,6 @@ Success
   !Ou I@008/0003
   _TypeDomain
   |
-  !OA I@007/0004
   I@007/0004
   _BaseDomain
   <
@@ -27,7 +26,6 @@ Success
     I@056/0004
     _DomainItemTrueFalse
   >
-  !OA I@007/0005
   I@007/0005
   _BaseDomain
   <
@@ -38,7 +36,6 @@ Success
     I@049/0005
     _DomainItemLabel
   >
-  !OA I@007/0006
   I@007/0006
   _BaseDomain
   <
@@ -49,7 +46,6 @@ Success
     I@051/0006
     _DomainItemRange
   >
-  !OA I@007/0007
   I@007/0007
   _BaseDomain
   <

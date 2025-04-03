@@ -2,126 +2,103 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "AltInpCnstAltDual": {
+    "InpGnrcDual": {
       "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "PrntInpCnstAltDual",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
-        }
-      ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
-          "name": "alt",
-          "object": "AltInpCnstAltDual",
+          "name": "field",
+          "object": "InpGnrcDual",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "input": "InpGnrcDualRef",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "value": "InpGnrcDualAlt"
+              }
+            ]
           }
         }
       ],
       "fields": [
         {
           "$tag": "_InputField",
-          "name": "alt",
+          "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "name": "AltInpCnstAltDual",
-      "parent": {
-        "$tag": "_DualBase",
-        "value": "PrntInpCnstAltDual"
-      },
-      "typeKind": "Input"
-    },
-    "InpCnstAltDual": {
-      "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpCnstAltDual",
-          "type": {
-            "$tag": "_InputBase",
-            "input": "RefInpCnstAltDual",
+            "input": "InpGnrcDualRef",
             "typeArgs": [
               {
-                "$tag": "_InputArg",
-                "value": "AltInpCnstAltDual"
+                "$tag": "_DualArg",
+                "value": "InpGnrcDualAlt"
               }
             ]
           }
         }
       ],
-      "alternates": [
-        {
-          "$tag": "_InputAlternate",
-          "type": {
-            "$tag": "_InputBase",
-            "input": "RefInpCnstAltDual",
-            "typeArgs": [
-              {
-                "$tag": "_InputArg",
-                "value": "AltInpCnstAltDual"
-              }
-            ]
-          }
-        }
-      ],
-      "name": "InpCnstAltDual",
+      "name": "InpGnrcDual",
       "typeKind": "Input"
     },
-    "PrntInpCnstAltDual": {
+    "InpGnrcDualAlt": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "PrntInpCnstAltDual",
+          "dual": "String",
+          "object": "InpGnrcDualAlt"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "alt",
+          "object": "InpGnrcDualAlt",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "value": "Number"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
+          "value": "String"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "alt",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "value": "Number"
           }
         }
       ],
-      "name": "PrntInpCnstAltDual",
+      "name": "InpGnrcDualAlt",
       "typeKind": "Dual"
     },
-    "RefInpCnstAltDual": {
+    "InpGnrcDualRef": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "RefInpCnstAltDual",
-          "type": "ref"
+          "object": "InpGnrcDualRef",
+          "typeParam": "ref"
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "type": "ref"
+          "value": "ref"
         }
       ],
-      "name": "RefInpCnstAltDual",
+      "name": "InpGnrcDualRef",
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]

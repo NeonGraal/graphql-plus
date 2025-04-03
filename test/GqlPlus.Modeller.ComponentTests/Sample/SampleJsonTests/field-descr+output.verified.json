@@ -7,6 +7,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
+          "description": "Test Descr",
           "name": "field",
           "object": "OutpFieldDescr",
           "type": {
@@ -18,6 +19,7 @@
       "fields": [
         {
           "$tag": "_OutputField",
+          "description": "Test Descr",
           "name": "field",
           "type": {
             "$tag": "_OutputBase",

@@ -8,7 +8,7 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "RefOutpPrntParamSame",
-          "type": "a"
+          "typeParam": "a"
         }
       ],
       "allFields": [
@@ -16,14 +16,20 @@
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "OutpPrntParamSame",
-          "type": "a"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "a"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_OutputField",
           "name": "field",
-          "type": "a"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "a"
+          }
         }
       ],
       "name": "OutpPrntParamSame",
@@ -35,7 +41,7 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "a"
         }
       ]
@@ -46,20 +52,20 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "RefOutpPrntParamSame",
-          "type": "a"
+          "typeParam": "a"
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": "a"
+          "value": "a"
         }
       ],
       "name": "RefOutpPrntParamSame",
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "a"
         }
       ]

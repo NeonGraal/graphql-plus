@@ -34,6 +34,9 @@ internal abstract class CheckTypeModel<TAstParent, TParent, TAst, TTypeKind, TMo
   protected readonly TTypeKind TypeKind = kind;
   protected readonly string TypeKindLower = $"{kind}".ToLowerInvariant();
 
+  protected string TypeParamOrKind(ITypeParamInput input)
+    => input.TypeParam ? "typeParam" : TypeKindLower;
+
   TTypeKind ICheckTypeModel<TAstParent, TParent, TTypeKind, TModel>.TypeKind => TypeKind;
   string ICheckTypeModel<TAstParent, TParent, TTypeKind, TModel>.TypeKindLower => TypeKindLower;
 

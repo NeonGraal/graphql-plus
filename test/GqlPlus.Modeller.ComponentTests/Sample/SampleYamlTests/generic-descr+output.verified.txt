@@ -5,14 +5,16 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: field
       object: OutpGnrcDescr
-      type: !_TypeParam type
+      type: !_OutputBase
+        typeParam: type
     fields:
     - !_OutputField
       name: field
-      type: !_TypeParam type
+      type: !_OutputBase
+        typeParam: type
     name: OutpGnrcDescr
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       description: 'Test Descr'
       name: type

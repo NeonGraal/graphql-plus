@@ -1,1 +1,1 @@
-5cc2bff  (HEAD -> type-constraints) 2025-03-29 Add Constraint merging with samples
+e33a5bc  (HEAD -> name-samples) 2025-04-03 Improve Object spec and Introspection

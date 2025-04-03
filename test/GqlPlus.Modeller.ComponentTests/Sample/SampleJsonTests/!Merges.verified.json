@@ -415,20 +415,14 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualObjAlt",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "DualObjAltType"
-          }
+          "dual": "DualObjAltType",
+          "object": "DualObjAlt"
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "DualObjAltType"
-          }
+          "value": "DualObjAltType"
         }
       ],
       "name": "DualObjAlt",
@@ -500,111 +494,49 @@
           "$tag": "_ObjectFor(_DualField)",
           "name": "test",
           "object": "DualObjParam",
-          "type": "test"
+          "type": {
+            "$tag": "_DualBase",
+            "value": "test"
+          }
         },
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "type",
           "object": "DualObjParam",
-          "type": "type"
+          "type": {
+            "$tag": "_DualBase",
+            "value": "type"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_DualField",
           "name": "test",
-          "type": "test"
+          "type": {
+            "$tag": "_DualBase",
+            "value": "test"
+          }
         },
         {
           "$tag": "_DualField",
           "name": "type",
-          "type": "type"
+          "type": {
+            "$tag": "_DualBase",
+            "value": "type"
+          }
         }
       ],
       "name": "DualObjParam",
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "test"
         },
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
-        }
-      ]
-    },
-    "DualObjParamCnst": {
-      "$tag": "_TypeDual",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "test",
-          "object": "DualObjParamCnst",
-          "type": "test"
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "type",
-          "object": "DualObjParamCnst",
-          "type": "test"
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_DualField",
-          "name": "test",
-          "type": "test"
-        },
-        {
-          "$tag": "_DualField",
-          "name": "type",
-          "type": "test"
-        }
-      ],
-      "name": "DualObjParamCnst",
-      "typeKind": "Dual",
-      "typeParams": [
-        {
-          "$tag": "_Described",
-          "value": "test"
-        }
-      ]
-    },
-    "DualObjParamDup": {
-      "$tag": "_TypeDual",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "test",
-          "object": "DualObjParamDup",
-          "type": "test"
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "type",
-          "object": "DualObjParamDup",
-          "type": "test"
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_DualField",
-          "name": "test",
-          "type": "test"
-        },
-        {
-          "$tag": "_DualField",
-          "name": "type",
-          "type": "test"
-        }
-      ],
-      "name": "DualObjParamDup",
-      "typeKind": "Dual",
-      "typeParams": [
-        {
-          "$tag": "_Described",
-          "value": "test"
         }
       ]
     },
@@ -776,20 +708,14 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpObjAlt",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "InpObjAltType"
-          }
+          "input": "InpObjAltType",
+          "object": "InpObjAlt"
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "InpObjAltType"
-          }
+          "value": "InpObjAltType"
         }
       ],
       "name": "InpObjAlt",
@@ -861,111 +787,49 @@
           "$tag": "_ObjectFor(_InputField)",
           "name": "test",
           "object": "InpObjParam",
-          "type": "test"
+          "type": {
+            "$tag": "_InputBase",
+            "value": "test"
+          }
         },
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "type",
           "object": "InpObjParam",
-          "type": "type"
+          "type": {
+            "$tag": "_InputBase",
+            "value": "type"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_InputField",
           "name": "test",
-          "type": "test"
+          "type": {
+            "$tag": "_InputBase",
+            "value": "test"
+          }
         },
         {
           "$tag": "_InputField",
           "name": "type",
-          "type": "type"
+          "type": {
+            "$tag": "_InputBase",
+            "value": "type"
+          }
         }
       ],
       "name": "InpObjParam",
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "test"
         },
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
-        }
-      ]
-    },
-    "InpObjParamCnst": {
-      "$tag": "_TypeInput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_InputField)",
-          "name": "test",
-          "object": "InpObjParamCnst",
-          "type": "test"
-        },
-        {
-          "$tag": "_ObjectFor(_InputField)",
-          "name": "type",
-          "object": "InpObjParamCnst",
-          "type": "test"
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_InputField",
-          "name": "test",
-          "type": "test"
-        },
-        {
-          "$tag": "_InputField",
-          "name": "type",
-          "type": "test"
-        }
-      ],
-      "name": "InpObjParamCnst",
-      "typeKind": "Input",
-      "typeParams": [
-        {
-          "$tag": "_Described",
-          "value": "test"
-        }
-      ]
-    },
-    "InpObjParamDup": {
-      "$tag": "_TypeInput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_InputField)",
-          "name": "test",
-          "object": "InpObjParamDup",
-          "type": "test"
-        },
-        {
-          "$tag": "_ObjectFor(_InputField)",
-          "name": "type",
-          "object": "InpObjParamDup",
-          "type": "test"
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_InputField",
-          "name": "test",
-          "type": "test"
-        },
-        {
-          "$tag": "_InputField",
-          "name": "type",
-          "type": "test"
-        }
-      ],
-      "name": "InpObjParamDup",
-      "typeKind": "Input",
-      "typeParams": [
-        {
-          "$tag": "_Described",
-          "value": "test"
         }
       ]
     },
@@ -988,6 +852,13 @@
           "name": "Boolean",
           "object": "OutpFieldEnumAlias",
           "typeKind": "Enum"
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "field": "Boolean",
+          "label": "true",
+          "object": "OutpFieldEnumAlias",
+          "typeKind": "Enum"
         }
       ],
       "fields": [
@@ -996,6 +867,12 @@
           "field": "field",
           "label": "true",
           "name": "Boolean",
+          "typeKind": "Enum"
+        },
+        {
+          "$tag": "_OutputEnum",
+          "field": "Boolean",
+          "label": "true",
           "typeKind": "Enum"
         }
       ],
@@ -1012,6 +889,13 @@
           "name": "Boolean",
           "object": "OutpFieldEnumValue",
           "typeKind": "Enum"
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "field": "Boolean",
+          "label": "true",
+          "object": "OutpFieldEnumValue",
+          "typeKind": "Enum"
         }
       ],
       "fields": [
@@ -1020,6 +904,12 @@
           "field": "field",
           "label": "true",
           "name": "Boolean",
+          "typeKind": "Enum"
+        },
+        {
+          "$tag": "_OutputEnum",
+          "field": "Boolean",
+          "label": "true",
           "typeKind": "Enum"
         }
       ],
@@ -1099,19 +989,13 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "OutpObjAlt",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutpObjAltType"
-          }
+          "output": "OutpObjAltType"
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutpObjAltType"
-          }
+          "value": "OutpObjAltType"
         }
       ],
       "name": "OutpObjAlt",
@@ -1183,111 +1067,49 @@
           "$tag": "_ObjectFor(_OutputField)",
           "name": "test",
           "object": "OutpObjParam",
-          "type": "test"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "test"
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "OutpObjParam",
-          "type": "type"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "type"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_OutputField",
           "name": "test",
-          "type": "test"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "test"
+          }
         },
         {
           "$tag": "_OutputField",
           "name": "type",
-          "type": "type"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "type"
+          }
         }
       ],
       "name": "OutpObjParam",
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "test"
         },
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
-        }
-      ]
-    },
-    "OutpObjParamCnst": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "test",
-          "object": "OutpObjParamCnst",
-          "type": "test"
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "type",
-          "object": "OutpObjParamCnst",
-          "type": "test"
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "test",
-          "type": "test"
-        },
-        {
-          "$tag": "_OutputField",
-          "name": "type",
-          "type": "test"
-        }
-      ],
-      "name": "OutpObjParamCnst",
-      "typeKind": "Output",
-      "typeParams": [
-        {
-          "$tag": "_Described",
-          "value": "test"
-        }
-      ]
-    },
-    "OutpObjParamDup": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "test",
-          "object": "OutpObjParamDup",
-          "type": "test"
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "type",
-          "object": "OutpObjParamDup",
-          "type": "test"
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "test",
-          "type": "test"
-        },
-        {
-          "$tag": "_OutputField",
-          "name": "type",
-          "type": "test"
-        }
-      ],
-      "name": "OutpObjParamDup",
-      "typeKind": "Output",
-      "typeParams": [
-        {
-          "$tag": "_Described",
-          "value": "test"
         }
       ]
     },

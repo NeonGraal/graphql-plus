@@ -3,12 +3,14 @@ types: !_Map_Type
   !_Identifier DualFieldDescr: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
+      description: 'Test Descr'
       name: field
       object: DualFieldDescr
       type: !_DualBase
         dual: '*'
     fields:
     - !_DualField
+      description: 'Test Descr'
       name: field
       type: !_DualBase
         dual: '*'

@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using System.ComponentModel;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Parsing;
 using GqlPlus.Parsing.Schema.Objects;
@@ -89,7 +90,7 @@ internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt
   where TObjField : IGqlpObjField
   where TObjFieldAst : AstObjField<TObjBase>, TObjField
   where TObjAlt : IGqlpObjAlternate
-  where TObjAltAst : AstObjAlternate<TObjBase>, TObjAlt
+  where TObjAltAst : AstObjAlternate<TObjArg>, TObjAlt
   where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjArg>, TObjBase
   where TObjArg : IGqlpObjArg
@@ -129,7 +130,7 @@ internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt
     => TrueExpected(
       name + "{" + others.Select(o => $"|'{o.Content}'{o.Alternate}").Joined() + "}",
        Object(name) with {
-         ObjAlternates = [.. others.Select(o => ObjAlternate(ObjBase(o.Alternate, o.Content)))],
+         ObjAlternates = [.. others.Select(o => ObjAlternate(o.Alternate) with { Description = o.Content })],
        });
 
   public void WithAlternateModifiers(string name, string[] others)
@@ -204,10 +205,7 @@ internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt
     => _factories.ObjField(AstNulls.At, field, baseType);
 
   public TObjAltAst ObjAlternate(string baseType)
-    => _factories.ObjAlternate(AstNulls.At, ObjBase(baseType));
-
-  public TObjAlt ObjAlternate(TObjBase baseType)
-    => _factories.ObjAlternate(AstNulls.At, baseType);
+    => _factories.ObjAlternate(AstNulls.At, baseType, "");
 
   public TObjBaseAst ObjBase(string type, string description = "")
     => _factories.ObjBase(AstNulls.At, type, description);

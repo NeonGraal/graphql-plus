@@ -4,7 +4,6 @@ using GqlPlus.Merging;
 using GqlPlus.Parsing;
 using GqlPlus.Resolving;
 using GqlPlus.Result;
-using Microsoft.AspNetCore.Components.RenderTree;
 
 namespace GqlPlus.Sample;
 

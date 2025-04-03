@@ -2,118 +2,103 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "AltOutpCnstFieldObj": {
+    "OutpGnrcParam": {
       "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "PrntOutpCnstFieldObj",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
-        }
-      ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "alt",
-          "object": "AltOutpCnstFieldObj",
+          "name": "field",
+          "object": "OutpGnrcParam",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Number"
+            "output": "OutpGnrcParamRef",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "value": "OutpGnrcParamAlt"
+              }
+            ]
           }
         }
       ],
       "fields": [
         {
           "$tag": "_OutputField",
-          "name": "alt",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "name": "AltOutpCnstFieldObj",
-      "parent": {
-        "$tag": "_OutputBase",
-        "value": "PrntOutpCnstFieldObj"
-      },
-      "typeKind": "Output"
-    },
-    "OutpCnstFieldObj": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "RefOutpCnstFieldObj",
           "type": {
             "$tag": "_OutputBase",
-            "value": "AltOutpCnstFieldObj"
+            "output": "OutpGnrcParamRef",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "value": "OutpGnrcParamAlt"
+              }
+            ]
           }
         }
       ],
-      "name": "OutpCnstFieldObj",
-      "parent": {
-        "$tag": "_OutputBase",
-        "output": "RefOutpCnstFieldObj",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "value": "AltOutpCnstFieldObj"
-          }
-        ]
-      },
+      "name": "OutpGnrcParam",
       "typeKind": "Output"
     },
-    "PrntOutpCnstFieldObj": {
+    "OutpGnrcParamAlt": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "PrntOutpCnstFieldObj",
+          "object": "OutpGnrcParamAlt",
+          "output": "String"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "alt",
+          "object": "OutpGnrcParamAlt",
           "type": {
             "$tag": "_OutputBase",
-            "value": "String"
+            "value": "Number"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
-        }
-      ],
-      "name": "PrntOutpCnstFieldObj",
-      "typeKind": "Output"
-    },
-    "RefOutpCnstFieldObj": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "field",
-          "object": "RefOutpCnstFieldObj",
-          "type": "ref"
+          "value": "String"
         }
       ],
       "fields": [
         {
           "$tag": "_OutputField",
-          "name": "field",
-          "type": "ref"
+          "name": "alt",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
         }
       ],
-      "name": "RefOutpCnstFieldObj",
+      "name": "OutpGnrcParamAlt",
+      "typeKind": "Output"
+    },
+    "OutpGnrcParamRef": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpGnrcParamRef",
+          "typeParam": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "value": "ref"
+        }
+      ],
+      "name": "OutpGnrcParamRef",
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]

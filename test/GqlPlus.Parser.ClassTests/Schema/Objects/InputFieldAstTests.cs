@@ -29,8 +29,8 @@ public class InputFieldAstTests
       def => new InputFieldAst(AstNulls.At, input.Name, new InputBaseAst(AstNulls.At, input.Type)) { DefaultValue = new(new FieldKeyAst(AstNulls.At, def)) },
       def1 == def2);
 
-  protected override string AliasesString(FieldInput input, string aliases)
-    => $"( !IF {input.Name}{aliases} : {input.Type} )";
+  protected override string AliasesString(FieldInput input, string description, string aliases)
+    => $"( {DescriptionNameString(input, description)}{aliases} : {input.Type} )";
 
   private readonly AstObjectFieldChecks<InputFieldAst, IGqlpInputBase, InputBaseAst, IGqlpInputArg, InputArgAst> _checks = new(
       (input, objBase) => new(AstNulls.At, input.Name, objBase),

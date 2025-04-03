@@ -15,11 +15,13 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: domainKind
       object: _BaseDomain
-      type: !_TypeParam domain
+      type: !_OutputBase
+        typeParam: domain
     fields:
     - !_OutputField
       name: domainKind
-      type: !_TypeParam domain
+      type: !_OutputBase
+        typeParam: domain
     name: _BaseDomain
     parent: !_OutputBase
       output: _ParentType
@@ -32,11 +34,11 @@ types: !_Map_Type
       - !_TypeParam domainItem
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: domain
-    - !_Described
+    - !_Named
       name: item
-    - !_Described
+    - !_Named
       name: domainItem
   !_Identifier _BaseDomainItem: !_TypeDual
     allFields:
@@ -67,10 +69,11 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Identifier
     name: _DomainItem
-    parent: !_TypeParam item
+    parent: !_OutputBase
+      typeParam: item
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: item
   !_Identifier _DomainItemLabel: !_TypeOutput
     allFields:
@@ -98,23 +101,6 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _DomainItemRange: !_TypeOutput
     allFields:
-    - !_ObjectFor(_DualField)
-      name: exclude
-      object: _BaseDomainItem
-      type: !_DualBase
-        dual: Boolean
-    - !_ObjectFor(_DualField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: lower
-      object: _DomainRange
-      type: !_DualBase
-        dual: Number
-    - !_ObjectFor(_DualField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: upper
-      object: _DomainRange
-      type: !_DualBase
-        dual: Number
     - !_ObjectFor(_OutputField)
       name: domain
       object: _DomainItem
@@ -129,16 +115,6 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _DomainItemRegex: !_TypeOutput
     allFields:
-    - !_ObjectFor(_DualField)
-      name: exclude
-      object: _BaseDomainItem
-      type: !_DualBase
-        dual: Boolean
-    - !_ObjectFor(_DualField)
-      name: pattern
-      object: _DomainRegex
-      type: !_DualBase
-        dual: String
     - !_ObjectFor(_OutputField)
       name: domain
       object: _DomainItem
@@ -153,16 +129,6 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _DomainItemTrueFalse: !_TypeOutput
     allFields:
-    - !_ObjectFor(_DualField)
-      name: exclude
-      object: _BaseDomainItem
-      type: !_DualBase
-        dual: Boolean
-    - !_ObjectFor(_DualField)
-      name: value
-      object: _DomainTrueFalse
-      type: !_DualBase
-        dual: Boolean
     - !_ObjectFor(_OutputField)
       name: domain
       object: _DomainItem
@@ -260,11 +226,13 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: domainKind
       object: _DomainRef
-      type: !_TypeParam kind
+      type: !_OutputBase
+        typeParam: kind
     fields:
     - !_OutputField
       name: domainKind
-      type: !_TypeParam kind
+      type: !_OutputBase
+        typeParam: kind
     name: _DomainRef
     parent: !_OutputBase
       output: _TypeRef
@@ -275,7 +243,7 @@ types: !_Map_Type
         typeKind: !_SimpleKind Enum
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: kind
   !_Identifier _DomainRegex: !_TypeDual
     allFields:
@@ -324,15 +292,18 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: domainKind
       object: _DomainRef
-      type: !_TypeParam kind
+      type: !_OutputBase
+        typeParam: kind
     - !_ObjectFor(_OutputField)
       name: value
       object: _DomainValue
-      type: !_TypeParam value
+      type: !_OutputBase
+        typeParam: value
     fields:
     - !_OutputField
       name: value
-      type: !_TypeParam value
+      type: !_OutputBase
+        typeParam: value
     name: _DomainValue
     parent: !_OutputBase
       output: _DomainRef
@@ -340,112 +311,104 @@ types: !_Map_Type
       - !_TypeParam kind
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: kind
-    - !_Described
+    - !_Named
       name: value
   !_Identifier _TypeDomain: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _TypeDomain
-      type: !_OutputBase
-        output: _BaseDomain
-        typeArgs:
-        - !_OutputArg
-          label: Boolean
-          name: _DomainKind
-          typeKind: !_SimpleKind Enum
-        - !_DualArg
-          dual: _DomainTrueFalse
-        - !_OutputArg
-          output: _DomainItemTrueFalse
+      output: _BaseDomain
+      typeArgs:
+      - !_OutputArg
+        label: Boolean
+        name: _DomainKind
+        typeKind: !_SimpleKind Enum
+      - !_DualArg
+        dual: _DomainTrueFalse
+      - !_OutputArg
+        output: _DomainItemTrueFalse
     - !_ObjectFor(_OutputAlternate)
       object: _TypeDomain
-      type: !_OutputBase
-        output: _BaseDomain
-        typeArgs:
-        - !_OutputArg
-          label: Enum
-          name: _DomainKind
-          typeKind: !_SimpleKind Enum
-        - !_OutputArg
-          output: _DomainLabel
-        - !_OutputArg
-          output: _DomainItemLabel
+      output: _BaseDomain
+      typeArgs:
+      - !_OutputArg
+        label: Enum
+        name: _DomainKind
+        typeKind: !_SimpleKind Enum
+      - !_OutputArg
+        output: _DomainLabel
+      - !_OutputArg
+        output: _DomainItemLabel
     - !_ObjectFor(_OutputAlternate)
       object: _TypeDomain
-      type: !_OutputBase
-        output: _BaseDomain
-        typeArgs:
-        - !_OutputArg
-          label: Number
-          name: _DomainKind
-          typeKind: !_SimpleKind Enum
-        - !_DualArg
-          dual: _DomainRange
-        - !_OutputArg
-          output: _DomainItemRange
+      output: _BaseDomain
+      typeArgs:
+      - !_OutputArg
+        label: Number
+        name: _DomainKind
+        typeKind: !_SimpleKind Enum
+      - !_DualArg
+        dual: _DomainRange
+      - !_OutputArg
+        output: _DomainItemRange
     - !_ObjectFor(_OutputAlternate)
       object: _TypeDomain
-      type: !_OutputBase
-        output: _BaseDomain
-        typeArgs:
-        - !_OutputArg
-          label: String
-          name: _DomainKind
-          typeKind: !_SimpleKind Enum
-        - !_DualArg
-          dual: _DomainRegex
-        - !_OutputArg
-          output: _DomainItemRegex
+      output: _BaseDomain
+      typeArgs:
+      - !_OutputArg
+        label: String
+        name: _DomainKind
+        typeKind: !_SimpleKind Enum
+      - !_DualArg
+        dual: _DomainRegex
+      - !_OutputArg
+        output: _DomainItemRegex
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: _BaseDomain
-        typeArgs:
-        - !_OutputArg
-          label: Boolean
-          name: _DomainKind
-          typeKind: !_SimpleKind Enum
-        - !_DualArg
-          dual: _DomainTrueFalse
-        - !_OutputArg
-          output: _DomainItemTrueFalse
+      output: _BaseDomain
+      typeArgs:
+      - !_OutputArg
+        label: Boolean
+        name: _DomainKind
+        typeKind: !_SimpleKind Enum
+      - !_DualArg
+        dual: _DomainTrueFalse
+      - !_OutputArg
+        output: _DomainItemTrueFalse
     - !_OutputAlternate
-      type: !_OutputBase
-        output: _BaseDomain
-        typeArgs:
-        - !_OutputArg
-          label: Enum
-          name: _DomainKind
-          typeKind: !_SimpleKind Enum
-        - !_OutputArg
-          output: _DomainLabel
-        - !_OutputArg
-          output: _DomainItemLabel
+      output: _BaseDomain
+      typeArgs:
+      - !_OutputArg
+        label: Enum
+        name: _DomainKind
+        typeKind: !_SimpleKind Enum
+      - !_OutputArg
+        output: _DomainLabel
+      - !_OutputArg
+        output: _DomainItemLabel
     - !_OutputAlternate
-      type: !_OutputBase
-        output: _BaseDomain
-        typeArgs:
-        - !_OutputArg
-          label: Number
-          name: _DomainKind
-          typeKind: !_SimpleKind Enum
-        - !_DualArg
-          dual: _DomainRange
-        - !_OutputArg
-          output: _DomainItemRange
+      output: _BaseDomain
+      typeArgs:
+      - !_OutputArg
+        label: Number
+        name: _DomainKind
+        typeKind: !_SimpleKind Enum
+      - !_DualArg
+        dual: _DomainRange
+      - !_OutputArg
+        output: _DomainItemRange
     - !_OutputAlternate
-      type: !_OutputBase
-        output: _BaseDomain
-        typeArgs:
-        - !_OutputArg
-          label: String
-          name: _DomainKind
-          typeKind: !_SimpleKind Enum
-        - !_DualArg
-          dual: _DomainRegex
-        - !_OutputArg
-          output: _DomainItemRegex
+      output: _BaseDomain
+      typeArgs:
+      - !_OutputArg
+        label: String
+        name: _DomainKind
+        typeKind: !_SimpleKind Enum
+      - !_DualArg
+        dual: _DomainRegex
+      - !_OutputArg
+        output: _DomainItemRegex
     name: _TypeDomain
     typeKind: !_TypeKind Output

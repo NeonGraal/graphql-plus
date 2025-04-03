@@ -36,35 +36,29 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "OutpPrntGnrc",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "RefOutpPrntGnrc",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "label": "prnt_outpPrntGnrc",
-                "name": "EnumOutpPrntGnrc",
-                "typeKind": "Enum"
-              }
-            ]
-          }
+          "output": "RefOutpPrntGnrc",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "label": "prnt_outpPrntGnrc",
+              "name": "EnumOutpPrntGnrc",
+              "typeKind": "Enum"
+            }
+          ]
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "RefOutpPrntGnrc",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "label": "prnt_outpPrntGnrc",
-                "name": "EnumOutpPrntGnrc",
-                "typeKind": "Enum"
-              }
-            ]
-          }
+          "output": "RefOutpPrntGnrc",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "label": "prnt_outpPrntGnrc",
+              "name": "EnumOutpPrntGnrc",
+              "typeKind": "Enum"
+            }
+          ]
         }
       ],
       "name": "OutpPrntGnrc",
@@ -95,21 +89,27 @@
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
           "object": "RefOutpPrntGnrc",
-          "type": "type"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "type"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_OutputField",
           "name": "field",
-          "type": "type"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "type"
+          }
         }
       ],
       "name": "RefOutpPrntGnrc",
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]

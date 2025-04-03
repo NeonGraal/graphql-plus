@@ -1,30 +1,26 @@
-﻿// This file is used by Code Analysis to maintain SuppressMessage
-// attributes that are applied to this project.
-// Project-level suppressions either have no target or are given
-// a specific target and scoped to a namespace, type, member, etc.
-
+﻿using GqlPlus.Abstractions.Operation;
 using GqlPlus.Verifying;
 using GqlPlus.Verifying.Operation;
 
 namespace GqlPlus.Operation;
 
-public abstract class NamedVerifierBase<TUsage, TNamed>
+public abstract class IdentifiedVerifierBase<TUsage, TIdentified>
   : VerifierBase
   where TUsage : class, IGqlpError
-  where TNamed : class, IGqlpNamed
+  where TIdentified : class, IGqlpIdentified
 {
   private readonly ForV<TUsage> _usage = new();
-  private readonly ForV<TNamed> _definition = new();
+  private readonly ForV<TIdentified> _definition = new();
 
   protected IVerify<TUsage> Usage => _usage.Intf;
-  protected IVerify<TNamed> Definition => _definition.Intf;
+  protected IVerify<TIdentified> Definition => _definition.Intf;
 
   [Fact]
   public void Verify_WithNone()
   {
-    NamedVerifier<TUsage, TNamed> verifier = NewVerifier();
+    IdentifiedVerifier<TUsage, TIdentified> verifier = NewVerifier();
 
-    UsageNamed<TUsage, TNamed> item = new([], []);
+    UsageIdentified<TUsage, TIdentified> item = new([], []);
 
     verifier.Verify(item, Errors);
 
@@ -37,9 +33,9 @@ public abstract class NamedVerifierBase<TUsage, TNamed>
   [Fact]
   public void Verify_WithDefinition()
   {
-    NamedVerifier<TUsage, TNamed> verifier = NewVerifier();
+    IdentifiedVerifier<TUsage, TIdentified> verifier = NewVerifier();
 
-    UsageNamed<TUsage, TNamed> item = new([], OneDefinition("defined"));
+    UsageIdentified<TUsage, TIdentified> item = new([], OneDefinition("defined"));
 
     verifier.Verify(item, Errors);
 
@@ -52,9 +48,9 @@ public abstract class NamedVerifierBase<TUsage, TNamed>
   [Fact]
   public void Verify_WithUsage()
   {
-    NamedVerifier<TUsage, TNamed> verifier = NewVerifier();
+    IdentifiedVerifier<TUsage, TIdentified> verifier = NewVerifier();
 
-    UsageNamed<TUsage, TNamed> item = new(OneUsage("usage"), []);
+    UsageIdentified<TUsage, TIdentified> item = new(OneUsage("usage"), []);
 
     verifier.Verify(item, Errors);
 
@@ -67,9 +63,9 @@ public abstract class NamedVerifierBase<TUsage, TNamed>
   [Fact]
   public void Verify_WithDifferent()
   {
-    NamedVerifier<TUsage, TNamed> verifier = NewVerifier();
+    IdentifiedVerifier<TUsage, TIdentified> verifier = NewVerifier();
 
-    UsageNamed<TUsage, TNamed> item = new(OneUsage("usage"), OneDefinition("defined"));
+    UsageIdentified<TUsage, TIdentified> item = new(OneUsage("usage"), OneDefinition("defined"));
 
     verifier.Verify(item, Errors);
 
@@ -82,9 +78,9 @@ public abstract class NamedVerifierBase<TUsage, TNamed>
   [Fact]
   public void Verify_WithMatching()
   {
-    NamedVerifier<TUsage, TNamed> verifier = NewVerifier();
+    IdentifiedVerifier<TUsage, TIdentified> verifier = NewVerifier();
 
-    UsageNamed<TUsage, TNamed> item = new(OneUsage("match"), OneDefinition("match"));
+    UsageIdentified<TUsage, TIdentified> item = new(OneUsage("match"), OneDefinition("match"));
 
     verifier.Verify(item, Errors);
 
@@ -94,7 +90,7 @@ public abstract class NamedVerifierBase<TUsage, TNamed>
       () => Errors.ShouldBeEmpty());
   }
 
-  internal abstract NamedVerifier<TUsage, TNamed> NewVerifier();
-  protected abstract IEnumerable<TNamed> OneDefinition(string name);
+  internal abstract IdentifiedVerifier<TUsage, TIdentified> NewVerifier();
+  protected abstract IEnumerable<TIdentified> OneDefinition(string name);
   protected abstract IEnumerable<TUsage> OneUsage(string key);
 }

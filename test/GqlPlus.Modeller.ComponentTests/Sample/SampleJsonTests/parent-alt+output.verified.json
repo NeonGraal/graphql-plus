@@ -8,18 +8,12 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "RefOutpPrntAlt",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "output": "String"
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "OutpPrntAlt",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "Number"
-          }
+          "output": "Number"
         }
       ],
       "allFields": [
@@ -36,10 +30,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "Number"
-          }
+          "value": "Number"
         }
       ],
       "name": "OutpPrntAlt",
@@ -55,10 +46,7 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "RefOutpPrntAlt",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "output": "String"
         }
       ],
       "allFields": [
@@ -75,10 +63,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [

@@ -17,7 +17,7 @@ internal sealed record class InputArgAst(
   internal override string Abbr => "IR";
   public override string Label => "Input";
 
-  string IGqlpInputArg.Input => Name;
+  string IGqlpInputNamed.Input => Name;
   IGqlpDualArg IGqlpToDual<IGqlpDualArg>.ToDual => ToDual();
 
   public DualArgAst ToDual()

@@ -8,7 +8,7 @@
         {
           "$tag": "_ObjectFor(_InputAlternate)",
           "object": "RefInpPrntParamDiff",
-          "type": "b"
+          "typeParam": "b"
         }
       ],
       "allFields": [
@@ -16,14 +16,20 @@
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
           "object": "InpPrntParamDiff",
-          "type": "a"
+          "type": {
+            "$tag": "_InputBase",
+            "value": "a"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_InputField",
           "name": "field",
-          "type": "a"
+          "type": {
+            "$tag": "_InputBase",
+            "value": "a"
+          }
         }
       ],
       "name": "InpPrntParamDiff",
@@ -35,7 +41,7 @@
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "a"
         }
       ]
@@ -46,20 +52,20 @@
         {
           "$tag": "_ObjectFor(_InputAlternate)",
           "object": "RefInpPrntParamDiff",
-          "type": "b"
+          "typeParam": "b"
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "type": "b"
+          "value": "b"
         }
       ],
       "name": "RefInpPrntParamDiff",
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "b"
         }
       ]

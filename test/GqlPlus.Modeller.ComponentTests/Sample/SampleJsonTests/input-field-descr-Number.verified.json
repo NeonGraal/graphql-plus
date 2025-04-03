@@ -8,6 +8,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "default": 0,
+          "description": "Test Descr",
           "name": "field",
           "object": "InpFieldDescrNmbr",
           "type": {
@@ -20,6 +21,7 @@
         {
           "$tag": "_InputField",
           "default": 0,
+          "description": "Test Descr",
           "name": "field",
           "type": {
             "$tag": "_InputBase",

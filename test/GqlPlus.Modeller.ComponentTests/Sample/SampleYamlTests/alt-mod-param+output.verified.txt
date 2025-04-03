@@ -4,8 +4,7 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: AltOutpAltModParam
-      type: !_OutputBase
-        output: String
+      output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
@@ -14,8 +13,7 @@ types: !_Map_Type
         output: Number
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: String
+      output: String
     fields:
     - !_OutputField
       name: alt
@@ -31,18 +29,16 @@ types: !_Map_Type
         by: mod
         modifierKind: !_ModifierKind Param
       object: OutpAltModParam
-      type: !_OutputBase
-        output: AltOutpAltModParam
+      output: AltOutpAltModParam
     alternates:
     - !_OutputAlternate
       collections:
       - !_ModifierTypeParam
         by: mod
         modifierKind: !_ModifierKind Param
-      type: !_OutputBase
-        output: AltOutpAltModParam
+      output: AltOutpAltModParam
     name: OutpAltModParam
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: mod

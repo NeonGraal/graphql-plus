@@ -5,7 +5,6 @@ Success
   !In I@007/0001
   InpObjAlt
   |
-  !IA I@021/0001
   I@021/0001
   InpObjAltType
 }

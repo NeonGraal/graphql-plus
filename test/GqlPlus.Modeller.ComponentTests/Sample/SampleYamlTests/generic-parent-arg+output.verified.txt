@@ -4,7 +4,7 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: RefOutpGnrcPrntArg
-      type: !_TypeParam ref
+      typeParam: ref
     name: OutpGnrcPrntArg
     parent: !_OutputBase
       output: RefOutpGnrcPrntArg
@@ -12,18 +12,18 @@ types: !_Map_Type
       - !_TypeParam type
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: type
   !_Identifier RefOutpGnrcPrntArg: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: RefOutpGnrcPrntArg
-      type: !_TypeParam ref
+      typeParam: ref
     alternates:
     - !_OutputAlternate
-      type: !_TypeParam ref
+      typeParam: ref
     name: RefOutpGnrcPrntArg
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

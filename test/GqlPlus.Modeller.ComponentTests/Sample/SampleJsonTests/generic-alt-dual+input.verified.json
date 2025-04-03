@@ -7,11 +7,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "AltInpGnrcAltDual",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "dual": "String",
+          "object": "AltInpGnrcAltDual"
         }
       ],
       "allFields": [
@@ -28,10 +25,7 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -52,32 +46,26 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
+          "input": "RefInpGnrcAltDual",
           "object": "InpGnrcAltDual",
-          "type": {
-            "$tag": "_InputBase",
-            "input": "RefInpGnrcAltDual",
-            "typeArgs": [
-              {
-                "$tag": "_DualArg",
-                "value": "AltInpGnrcAltDual"
-              }
-            ]
-          }
+          "typeArgs": [
+            {
+              "$tag": "_DualArg",
+              "value": "AltInpGnrcAltDual"
+            }
+          ]
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "type": {
-            "$tag": "_InputBase",
-            "input": "RefInpGnrcAltDual",
-            "typeArgs": [
-              {
-                "$tag": "_DualArg",
-                "value": "AltInpGnrcAltDual"
-              }
-            ]
-          }
+          "input": "RefInpGnrcAltDual",
+          "typeArgs": [
+            {
+              "$tag": "_DualArg",
+              "value": "AltInpGnrcAltDual"
+            }
+          ]
         }
       ],
       "name": "InpGnrcAltDual",
@@ -89,20 +77,20 @@
         {
           "$tag": "_ObjectFor(_InputAlternate)",
           "object": "RefInpGnrcAltDual",
-          "type": "ref"
+          "typeParam": "ref"
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "type": "ref"
+          "value": "ref"
         }
       ],
       "name": "RefInpGnrcAltDual",
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]

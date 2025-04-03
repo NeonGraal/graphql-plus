@@ -7,11 +7,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "AltDualGnrcAltDual",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "dual": "String",
+          "object": "AltDualGnrcAltDual"
         }
       ],
       "allFields": [
@@ -28,10 +25,7 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -52,32 +46,26 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
+          "dual": "RefDualGnrcAltDual",
           "object": "DualGnrcAltDual",
-          "type": {
-            "$tag": "_DualBase",
-            "dual": "RefDualGnrcAltDual",
-            "typeArgs": [
-              {
-                "$tag": "_DualArg",
-                "value": "AltDualGnrcAltDual"
-              }
-            ]
-          }
+          "typeArgs": [
+            {
+              "$tag": "_DualArg",
+              "value": "AltDualGnrcAltDual"
+            }
+          ]
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "dual": "RefDualGnrcAltDual",
-            "typeArgs": [
-              {
-                "$tag": "_DualArg",
-                "value": "AltDualGnrcAltDual"
-              }
-            ]
-          }
+          "dual": "RefDualGnrcAltDual",
+          "typeArgs": [
+            {
+              "$tag": "_DualArg",
+              "value": "AltDualGnrcAltDual"
+            }
+          ]
         }
       ],
       "name": "DualGnrcAltDual",
@@ -89,20 +77,20 @@
         {
           "$tag": "_ObjectFor(_DualAlternate)",
           "object": "RefDualGnrcAltDual",
-          "type": "ref"
+          "typeParam": "ref"
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": "ref"
+          "value": "ref"
         }
       ],
       "name": "RefDualGnrcAltDual",
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]

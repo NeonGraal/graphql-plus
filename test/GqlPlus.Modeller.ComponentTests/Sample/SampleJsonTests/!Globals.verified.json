@@ -297,7 +297,7 @@
     },
     "Dscrs": {
       "$tag": "_TypeOutput",
-      "description": "A simple description With extra",
+      "description": "A simple doc With extra",
       "name": "Dscrs",
       "typeKind": "Output"
     },

@@ -1,5 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Ast.Schema.Simple;
 
@@ -42,11 +42,12 @@ internal class MergeAllTypes(
 
     foreach (OutputDeclAst output in types.OfType<OutputDeclAst>()) {
       foreach (IGqlpOutputAlternate alternate in output.ObjAlternates) {
-        FixupType(alternate.BaseType, enumValues);
+        // No fixup needed?
+        // FixupType(alternate, enumValues);
       }
 
       foreach (IGqlpOutputField field in output.ObjFields) {
-        FixupType(field.BaseType, enumValues);
+        FixupType(field, enumValues);
       }
     }
 
@@ -70,18 +71,18 @@ internal class MergeAllTypes(
     where TEnum : AstNamed, IGqlpOutputEnum
   {
     if (type is TEnum named) {
-      if (string.IsNullOrWhiteSpace(named.Name)
+      if (string.IsNullOrWhiteSpace(named.EnumType.Name)
         && enumValues.TryGetValue(type.EnumLabel ?? "", out string? enumType)) {
         named.Name = enumType;
       }
     }
   }
 
-  private static void FixupType(IGqlpOutputBase type, Map<string> enumValues)
+  private static void FixupType(IGqlpOutputField field, Map<string> enumValues)
   {
-    FixupType<OutputBaseAst>(type, enumValues);
+    FixupType<OutputFieldAst>(field, enumValues);
 
-    foreach (IGqlpOutputArg argument in type.BaseArgs) {
+    foreach (IGqlpOutputArg argument in field.BaseType.BaseArgs) {
       FixupType<OutputArgAst>(argument, enumValues);
     }
   }

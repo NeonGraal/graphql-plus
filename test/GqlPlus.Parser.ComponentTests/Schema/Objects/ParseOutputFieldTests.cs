@@ -51,13 +51,13 @@ public class ParseOutputFieldTests(
   public void WithFieldEnumValue_ReturnsCorrectAst(string name, string enumLabel)
     => checks.TrueExpected(
       name + "=" + enumLabel,
-        Field(name, FieldBase("") with { EnumLabel = enumLabel }));
+        Field(name, FieldBase("")) with { EnumLabel = enumLabel });
 
   [Theory, RepeatData]
   public void WithFieldEnumAliasValue_ReturnsCorrectAst(string name, string enumLabel, string alias)
     => checks.TrueExpected(
       name + "[" + alias + "]=" + enumLabel,
-        Field(name, FieldBase("") with { EnumLabel = enumLabel }) with { Aliases = [alias] });
+        Field(name, FieldBase("")) with { Aliases = [alias], EnumLabel = enumLabel });
 
   [Theory, RepeatData]
   public void WithFieldEnumValueBad_ReturnsFalse(string name)
@@ -67,13 +67,13 @@ public class ParseOutputFieldTests(
   public void WithFieldEnumTypeAndValue_ReturnsCorrectAst(string name, string enumType, string enumLabel)
     => checks.TrueExpected(
       name + "=" + enumType + "." + enumLabel,
-        Field(name, FieldBase(enumType) with { EnumLabel = enumLabel }));
+        Field(name, FieldBase(enumType)) with { EnumLabel = enumLabel });
 
   [Theory, RepeatData]
   public void WithFieldEnumAliasTypeAndValue_ReturnsCorrectAst(string name, string enumType, string enumLabel, string alias)
     => checks.TrueExpected(
       name + "[" + alias + "]=" + enumType + "." + enumLabel,
-        Field(name, FieldBase(enumType) with { EnumLabel = enumLabel }) with { Aliases = [alias] });
+        Field(name, FieldBase(enumType)) with { Aliases = [alias], EnumLabel = enumLabel });
 
   [Theory, RepeatData]
   public void WithFieldEnumTypeAndValueBad_ReturnsFalse(string name, string enumLabel)

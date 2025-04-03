@@ -56,9 +56,7 @@ internal abstract class CheckObjBaseModel<TObjBase, TObjArg, TObjBaseAst, TObjAr
     => ExpectedObjBase(input, false, []);
 
   protected string[] ExpectedObjBase(string input, bool isTypeParam, string[] args)
-    => isTypeParam
-    ? ["!_TypeParam " + input]
-    : [$"!_{TypeKind}Base", $"{TypeKindLower}: {input}", .. args];
+    => [$"!_{TypeKind}Base", (isTypeParam ? "typeParam" : TypeKindLower) + ": " + input, .. args];
   protected string[] ExpectedDual(string input)
     => ["!_DualBase", "dual: " + input];
 

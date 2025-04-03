@@ -249,13 +249,11 @@ types: !_Map_Type
   !_Identifier DualObjAlt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
+      dual: DualObjAltType
       object: DualObjAlt
-      type: !_DualBase
-        dual: DualObjAltType
     alternates:
     - !_DualAlternate
-      type: !_DualBase
-        dual: DualObjAltType
+      dual: DualObjAltType
     name: DualObjAlt
     typeKind: !_TypeKind Dual
   !_Identifier DualObjAltType: !_TypeDual
@@ -296,69 +294,29 @@ types: !_Map_Type
     - !_ObjectFor(_DualField)
       name: test
       object: DualObjParam
-      type: !_TypeParam test
+      type: !_DualBase
+        typeParam: test
     - !_ObjectFor(_DualField)
       name: type
       object: DualObjParam
-      type: !_TypeParam type
+      type: !_DualBase
+        typeParam: type
     fields:
     - !_DualField
       name: test
-      type: !_TypeParam test
+      type: !_DualBase
+        typeParam: test
     - !_DualField
       name: type
-      type: !_TypeParam type
+      type: !_DualBase
+        typeParam: type
     name: DualObjParam
     typeKind: !_TypeKind Dual
     typeParams:
-    - !_Described
+    - !_Named
       name: test
-    - !_Described
+    - !_Named
       name: type
-  !_Identifier DualObjParamCnst: !_TypeDual
-    allFields:
-    - !_ObjectFor(_DualField)
-      name: test
-      object: DualObjParamCnst
-      type: !_TypeParam test
-    - !_ObjectFor(_DualField)
-      name: type
-      object: DualObjParamCnst
-      type: !_TypeParam test
-    fields:
-    - !_DualField
-      name: test
-      type: !_TypeParam test
-    - !_DualField
-      name: type
-      type: !_TypeParam test
-    name: DualObjParamCnst
-    typeKind: !_TypeKind Dual
-    typeParams:
-    - !_Described
-      name: test
-  !_Identifier DualObjParamDup: !_TypeDual
-    allFields:
-    - !_ObjectFor(_DualField)
-      name: test
-      object: DualObjParamDup
-      type: !_TypeParam test
-    - !_ObjectFor(_DualField)
-      name: type
-      object: DualObjParamDup
-      type: !_TypeParam test
-    fields:
-    - !_DualField
-      name: test
-      type: !_TypeParam test
-    - !_DualField
-      name: type
-      type: !_TypeParam test
-    name: DualObjParamDup
-    typeKind: !_TypeKind Dual
-    typeParams:
-    - !_Described
-      name: test
   !_Identifier DualObjPrnt: !_TypeDual
     name: DualObjPrnt
     parent: !_DualBase
@@ -457,13 +415,11 @@ types: !_Map_Type
   !_Identifier InpObjAlt: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
+      input: InpObjAltType
       object: InpObjAlt
-      type: !_InputBase
-        input: InpObjAltType
     alternates:
     - !_InputAlternate
-      type: !_InputBase
-        input: InpObjAltType
+      input: InpObjAltType
     name: InpObjAlt
     typeKind: !_TypeKind Input
   !_Identifier InpObjAltType: !_TypeInput
@@ -504,69 +460,29 @@ types: !_Map_Type
     - !_ObjectFor(_InputField)
       name: test
       object: InpObjParam
-      type: !_TypeParam test
+      type: !_InputBase
+        typeParam: test
     - !_ObjectFor(_InputField)
       name: type
       object: InpObjParam
-      type: !_TypeParam type
+      type: !_InputBase
+        typeParam: type
     fields:
     - !_InputField
       name: test
-      type: !_TypeParam test
+      type: !_InputBase
+        typeParam: test
     - !_InputField
       name: type
-      type: !_TypeParam type
+      type: !_InputBase
+        typeParam: type
     name: InpObjParam
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Described
+    - !_Named
       name: test
-    - !_Described
+    - !_Named
       name: type
-  !_Identifier InpObjParamCnst: !_TypeInput
-    allFields:
-    - !_ObjectFor(_InputField)
-      name: test
-      object: InpObjParamCnst
-      type: !_TypeParam test
-    - !_ObjectFor(_InputField)
-      name: type
-      object: InpObjParamCnst
-      type: !_TypeParam test
-    fields:
-    - !_InputField
-      name: test
-      type: !_TypeParam test
-    - !_InputField
-      name: type
-      type: !_TypeParam test
-    name: InpObjParamCnst
-    typeKind: !_TypeKind Input
-    typeParams:
-    - !_Described
-      name: test
-  !_Identifier InpObjParamDup: !_TypeInput
-    allFields:
-    - !_ObjectFor(_InputField)
-      name: test
-      object: InpObjParamDup
-      type: !_TypeParam test
-    - !_ObjectFor(_InputField)
-      name: type
-      object: InpObjParamDup
-      type: !_TypeParam test
-    fields:
-    - !_InputField
-      name: test
-      type: !_TypeParam test
-    - !_InputField
-      name: type
-      type: !_TypeParam test
-    name: InpObjParamDup
-    typeKind: !_TypeKind Input
-    typeParams:
-    - !_Described
-      name: test
   !_Identifier InpObjPrnt: !_TypeInput
     name: InpObjPrnt
     parent: !_InputBase
@@ -580,11 +496,20 @@ types: !_Map_Type
       name: Boolean
       object: OutpFieldEnumAlias
       typeKind: !_SimpleKind Enum
+    - !_ObjectFor(_OutputField)
+      field: Boolean
+      label: true
+      object: OutpFieldEnumAlias
+      typeKind: !_SimpleKind Enum
     fields:
     - !_OutputEnum
       field: field
       label: true
       name: Boolean
+      typeKind: !_SimpleKind Enum
+    - !_OutputEnum
+      field: Boolean
+      label: true
       typeKind: !_SimpleKind Enum
     name: OutpFieldEnumAlias
     typeKind: !_TypeKind Output
@@ -596,11 +521,20 @@ types: !_Map_Type
       name: Boolean
       object: OutpFieldEnumValue
       typeKind: !_SimpleKind Enum
+    - !_ObjectFor(_OutputField)
+      field: Boolean
+      label: true
+      object: OutpFieldEnumValue
+      typeKind: !_SimpleKind Enum
     fields:
     - !_OutputEnum
       field: field
       label: true
       name: Boolean
+      typeKind: !_SimpleKind Enum
+    - !_OutputEnum
+      field: Boolean
+      label: true
       typeKind: !_SimpleKind Enum
     name: OutpFieldEnumValue
     typeKind: !_TypeKind Output
@@ -645,12 +579,10 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: OutpObjAlt
-      type: !_OutputBase
-        output: OutpObjAltType
+      output: OutpObjAltType
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: OutpObjAltType
+      output: OutpObjAltType
     name: OutpObjAlt
     typeKind: !_TypeKind Output
   !_Identifier OutpObjAltType: !_TypeOutput
@@ -691,69 +623,29 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: test
       object: OutpObjParam
-      type: !_TypeParam test
+      type: !_OutputBase
+        typeParam: test
     - !_ObjectFor(_OutputField)
       name: type
       object: OutpObjParam
-      type: !_TypeParam type
+      type: !_OutputBase
+        typeParam: type
     fields:
     - !_OutputField
       name: test
-      type: !_TypeParam test
+      type: !_OutputBase
+        typeParam: test
     - !_OutputField
       name: type
-      type: !_TypeParam type
+      type: !_OutputBase
+        typeParam: type
     name: OutpObjParam
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: test
-    - !_Described
+    - !_Named
       name: type
-  !_Identifier OutpObjParamCnst: !_TypeOutput
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: test
-      object: OutpObjParamCnst
-      type: !_TypeParam test
-    - !_ObjectFor(_OutputField)
-      name: type
-      object: OutpObjParamCnst
-      type: !_TypeParam test
-    fields:
-    - !_OutputField
-      name: test
-      type: !_TypeParam test
-    - !_OutputField
-      name: type
-      type: !_TypeParam test
-    name: OutpObjParamCnst
-    typeKind: !_TypeKind Output
-    typeParams:
-    - !_Described
-      name: test
-  !_Identifier OutpObjParamDup: !_TypeOutput
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: test
-      object: OutpObjParamDup
-      type: !_TypeParam test
-    - !_ObjectFor(_OutputField)
-      name: type
-      object: OutpObjParamDup
-      type: !_TypeParam test
-    fields:
-    - !_OutputField
-      name: test
-      type: !_TypeParam test
-    - !_OutputField
-      name: type
-      type: !_TypeParam test
-    name: OutpObjParamDup
-    typeKind: !_TypeKind Output
-    typeParams:
-    - !_Described
-      name: test
   !_Identifier OutpObjPrnt: !_TypeOutput
     name: OutpObjPrnt
     parent: !_OutputBase

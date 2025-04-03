@@ -11,19 +11,19 @@ public class CategoryModelTests(
   [Theory, RepeatData]
   public void Model_Name(string output, string name)
     => checks.CategoryExpected(
-      new CategoryDeclAst(AstNulls.At, name, output),
+      new CategoryDeclAst(AstNulls.At, name, new(AstNulls.At, output)),
       new(output, name));
 
   [Theory, RepeatData]
   public void Model_Resolution(string output, CategoryOption option)
     => checks.CategoryExpected(
-      new CategoryDeclAst(AstNulls.At, output) { Option = option },
+      new CategoryDeclAst(AstNulls.At, new(AstNulls.At, output)) { Option = option },
       new(output) { Option = option });
 
   [Theory, RepeatData]
   public void Model_Modifiers(string output)
     => checks.CategoryExpected(
-      new CategoryDeclAst(AstNulls.At, output) { Modifiers = TestMods() },
+      new CategoryDeclAst(AstNulls.At, new(AstNulls.At, output)) { Modifiers = TestMods() },
       new(output) { Modifiers = true });
 
   [Theory, RepeatData]
@@ -34,7 +34,7 @@ public class CategoryModelTests(
     string[] aliases,
     CategoryOption option
   ) => checks.CategoryExpected(
-      new CategoryDeclAst(AstNulls.At, name, output) {
+      new CategoryDeclAst(AstNulls.At, name, new(AstNulls.At, output)) {
         Aliases = aliases,
         Description = contents,
         Option = option,
@@ -62,7 +62,7 @@ internal sealed class CategoryModelChecks(
       $"resolution: !_Resolution {input.Option}"];
 
   protected override CategoryDeclAst NewAliasedAst(string name, string? description = null, string[]? aliases = null)
-    => new(AstNulls.At, name) {
+    => new(AstNulls.At, new(AstNulls.At, name)) {
       Description = description ?? "",
       Aliases = aliases ?? [],
     };

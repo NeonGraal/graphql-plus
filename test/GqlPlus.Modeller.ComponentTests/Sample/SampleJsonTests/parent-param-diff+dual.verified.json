@@ -8,7 +8,7 @@
         {
           "$tag": "_ObjectFor(_DualAlternate)",
           "object": "RefDualPrntParamDiff",
-          "type": "b"
+          "typeParam": "b"
         }
       ],
       "allFields": [
@@ -16,14 +16,20 @@
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
           "object": "DualPrntParamDiff",
-          "type": "a"
+          "type": {
+            "$tag": "_DualBase",
+            "value": "a"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_DualField",
           "name": "field",
-          "type": "a"
+          "type": {
+            "$tag": "_DualBase",
+            "value": "a"
+          }
         }
       ],
       "name": "DualPrntParamDiff",
@@ -35,7 +41,7 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "a"
         }
       ]
@@ -46,20 +52,20 @@
         {
           "$tag": "_ObjectFor(_DualAlternate)",
           "object": "RefDualPrntParamDiff",
-          "type": "b"
+          "typeParam": "b"
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": "b"
+          "value": "b"
         }
       ],
       "name": "RefDualPrntParamDiff",
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "b"
         }
       ]

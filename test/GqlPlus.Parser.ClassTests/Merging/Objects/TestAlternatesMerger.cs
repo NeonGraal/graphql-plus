@@ -34,11 +34,11 @@ public abstract class TestAlternatesMerger<TObjAlt, TObjBase>
     => CheckAlternates.MakeAlternate(name, false, description);
 }
 
-internal abstract class CheckAlternatesMerger<TObjAlt, TObjAltAst, TObjBase>
+internal abstract class CheckAlternatesMerger<TObjAlt, TObjAltAst, TObjArg>
   : ICheckAlternatesMerger<TObjAlt>
   where TObjAlt : IGqlpObjAlternate
-  where TObjAltAst : AstObjAlternate<TObjBase>, TObjAlt
-  where TObjBase : IGqlpObjBase
+  where TObjAltAst : AstObjAlternate<TObjArg>, TObjAlt
+  where TObjArg : IGqlpObjArg
 {
   public abstract TObjAlt MakeAlternate(string input, bool withModifiers = false, string description = "");
 }

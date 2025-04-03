@@ -35,7 +35,7 @@ public class SchemaHtmlTests(
   }
 
   [Fact]
-  public void Index_Schema()
+  public async Task Index_Schema()
   {
     Structured result = new Map<Structured>() {
       ["title"] = "Schema",
@@ -44,11 +44,11 @@ public class SchemaHtmlTests(
       }.Render(),
     }.Render("");
 
-    result.WriteHtmlFile("Schema", "index", "index");
+    await result.WriteHtmlFile("Schema", "index", "index");
   }
 
   [Fact]
-  public void Index_Spec()
+  public async Task Index_Spec()
   {
     Structured result = new Map<Structured>() {
       ["title"] = "Specification",
@@ -57,37 +57,37 @@ public class SchemaHtmlTests(
       }.Render(),
     }.Render("");
 
-    result.WriteHtmlFile("Spec", "index", "index");
+    await result.WriteHtmlFile("Spec", "index", "index");
   }
 
   [Fact]
   public async Task Html_All()
-    => Verify_Model(await SchemaValidDataAll(), "!ALL");
+    => await Verify_Model(await SchemaValidDataAll(), "!ALL");
 
   [Theory]
   [ClassData(typeof(SchemaValidData))]
   public async Task Html_Groups(string group)
-    => Verify_Model(await SchemaValidDataGroup(group), "!" + group);
+    => await Verify_Model(await SchemaValidDataGroup(group), "!" + group);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaMergesData))]
   public async Task Html_Merges(string model)
-    => await ReplaceFile("Merges", model, Verify_Model);
+    => await ReplaceFileAsync("Merges", model, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaObjectsData))]
   public async Task Html_Objects(string model)
-    => await ReplaceFile("Objects", model, Verify_Model);
+    => await ReplaceFileAsync("Objects", model, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaGlobalsData))]
   public async Task Html_Globals(string global)
-    => await ReplaceFile("Globals", global, Verify_Model);
+    => await ReplaceFileAsync("Globals", global, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaSimpleData))]
   public async Task Html_Simple(string simple)
-    => await ReplaceFile("Simple", simple, Verify_Model);
+    => await ReplaceFileAsync("Simple", simple, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaData))]
@@ -111,16 +111,16 @@ public class SchemaHtmlTests(
     await result.WriteHtmlFileAsync("Spec", sample);
   }
 
-  private void Verify_Model(string input, string testDirectory, string test)
-    => Verify_Model([input], test);
+  private async Task Verify_Model(string input, string testDirectory, string test)
+    => await Verify_Model([input], test);
 
-  private void Verify_Model(IEnumerable<string> inputs, string test)
+  private async Task Verify_Model(IEnumerable<string> inputs, string test)
   {
     IEnumerable<IGqlpSchema> asts = inputs.Select(input => Parse(input, "Sample").Required());
 
     Structured result = ModelAsts(asts);
 
-    result.WriteHtmlFile("Samples", test);
+    await result.WriteHtmlFile("Samples", test);
   }
 
   private Structured ModelAsts(IEnumerable<IGqlpSchema> asts)

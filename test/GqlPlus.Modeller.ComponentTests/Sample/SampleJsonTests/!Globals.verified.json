@@ -3,6 +3,16 @@
   "aliases": ["Alias"],
   "categories": {
     "$tag": "_Map_Categories",
+    "cat": {
+      "$tag": "_Category",
+      "name": "cat",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "Cat",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
+    },
     "ctgrDscrs": {
       "$tag": "_Category",
       "description": "A Category described",
@@ -218,6 +228,15 @@
     }
   },
   "name": "Schema",
+  "operations": {
+    "$tag": "_Map_Operations",
+    "Op": {
+      "$tag": "_Operation",
+      "category": "cat",
+      "name": "Op",
+      "operation": "TBC"
+    }
+  },
   "settings": {
     "$tag": "_Map_Setting",
     "descr": {
@@ -234,6 +253,11 @@
   },
   "types": {
     "$tag": "_Map_Type",
+    "Cat": {
+      "$tag": "_TypeOutput",
+      "name": "Cat",
+      "typeKind": "Output"
+    },
     "CtgrDscrs": {
       "$tag": "_TypeOutput",
       "name": "CtgrDscrs",

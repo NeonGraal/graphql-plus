@@ -441,6 +441,35 @@
               "typeKind": "Domain"
             }
           ],
+          "name": "operations",
+          "object": "_Schema",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "input": "_Filter",
+              "modifiers": [
+                {
+                  "$tag": "_Modifier",
+                  "modifierKind": "Opt"
+                }
+              ]
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Operations"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "_Identifier",
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
+            }
+          ],
           "name": "types",
           "object": "_Schema",
           "parameters": [
@@ -545,6 +574,34 @@
           "type": {
             "$tag": "_OutputBase",
             "value": "_Directives"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "_Identifier",
+              "modifierKind": "Dict",
+              "typeKind": "Domain"
+            }
+          ],
+          "name": "operations",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "input": "_Filter",
+              "modifiers": [
+                {
+                  "$tag": "_Modifier",
+                  "modifierKind": "Opt"
+                }
+              ]
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Operations"
           }
         },
         {

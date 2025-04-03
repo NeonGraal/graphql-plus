@@ -19,7 +19,7 @@ public class MergeSchemasTests
   [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentOptionNames_ReturnsErrors(string option1, string option2)
     => this
-      .SkipIf(option1 == option2)
+      .SkipEqual(option1, option2)
       .CanMergeReturnsError(_options)
       .CanMerge_Errors([
         new SchemaAst(AstNulls.At) with { Declarations = OptionDeclarations(option1) },
@@ -37,6 +37,7 @@ public class MergeSchemasTests
       new SchemaAst(AstNulls.At) with { Declarations = [.. categoryDecls, .. otherDecls] })
     .MergeCalled(_categories)
     .MergeCalled(_directives)
+    .MergeCalled(_operations)
     .MergeCalled(_options)
     .MergeCalled(_astTypes);
   }
@@ -44,6 +45,7 @@ public class MergeSchemasTests
   private readonly MergeSchemas _merger;
   private readonly IMerge<IGqlpSchemaCategory> _categories;
   private readonly IMerge<IGqlpSchemaDirective> _directives;
+  private readonly IMerge<IGqlpSchemaOperation> _operations;
   private readonly IMerge<IGqlpSchemaOption> _options;
   private readonly IMerge<IGqlpType> _astTypes;
 
@@ -51,10 +53,11 @@ public class MergeSchemasTests
   {
     _categories = Merger<IGqlpSchemaCategory>();
     _directives = Merger<IGqlpSchemaDirective>();
+    _operations = Merger<IGqlpSchemaOperation>();
     _options = Merger<IGqlpSchemaOption>();
     _astTypes = Merger<IGqlpType>();
 
-    _merger = new(_categories, _directives, _options, _astTypes);
+    _merger = new(_categories, _directives, _operations, _options, _astTypes);
   }
 
   protected override IMerge<IGqlpSchema> MergerBase => _merger;

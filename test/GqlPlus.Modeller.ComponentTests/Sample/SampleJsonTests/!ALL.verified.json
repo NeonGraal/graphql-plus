@@ -3,6 +3,16 @@
   "aliases": ["Alias", "Opt1", "Opt2"],
   "categories": {
     "$tag": "_Map_Categories",
+    "cat": {
+      "$tag": "_Category",
+      "name": "cat",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "Cat",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
+    },
     "ctgr": {
       "$tag": "_Category",
       "name": "ctgr",
@@ -129,6 +139,16 @@
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
         "name": "DescrBtwn",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
+    },
+    "op": {
+      "$tag": "_Category",
+      "name": "op",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "Op",
         "typeKind": "Output"
       },
       "resolution": "Parallel"
@@ -304,6 +324,30 @@
     }
   },
   "name": "Schema",
+  "operations": {
+    "$tag": "_Map_Operations",
+    "Op": {
+      "$tag": "_Operations",
+      "operation": {
+        "$tag": "_Operation",
+        "category": "cat",
+        "name": "Op",
+        "operation": "TBC"
+      },
+      "type": {
+        "$tag": "_TypeOutput",
+        "name": "Op",
+        "typeKind": "Output"
+      }
+    },
+    "Operation": {
+      "$tag": "_Operation",
+      "aliases": ["Op1", "Op2"],
+      "category": "op",
+      "name": "Operation",
+      "operation": "TBC"
+    }
+  },
   "settings": {
     "$tag": "_Map_Setting",
     "descr": {
@@ -1610,6 +1654,11 @@
         }
       ],
       "name": "AltOutpGnrcPrntParamPrnt",
+      "typeKind": "Output"
+    },
+    "Cat": {
+      "$tag": "_TypeOutput",
+      "name": "Cat",
       "typeKind": "Output"
     },
     "Ctgr": {
@@ -7118,6 +7167,11 @@
           "value": "a"
         }
       ]
+    },
+    "Op": {
+      "$tag": "_TypeOutput",
+      "name": "Op",
+      "typeKind": "Output"
     },
     "OutpAlt": {
       "$tag": "_TypeOutput",

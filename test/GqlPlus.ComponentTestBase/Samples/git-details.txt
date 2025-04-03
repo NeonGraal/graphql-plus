@@ -1,1 +1,1 @@
-e33a5bc  (HEAD -> name-samples) 2025-04-03 Improve Object spec and Introspection
+6060822  (HEAD -> operation) 2025-04-03 Fixup operation after merge

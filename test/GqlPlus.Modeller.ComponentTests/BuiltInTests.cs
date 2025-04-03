@@ -10,36 +10,36 @@ public class BuiltInTests(IModelAndRender renderer)
 {
   [Theory]
   [ClassData(typeof(BuiltInBasicData))]
-  public void HtmlBasicTypes(string type)
-    => RenderTypeHtml(BuiltInData.BasicMap[type], []);
+  public async Task HtmlBasicTypes(string type)
+    => await RenderTypeHtml(BuiltInData.BasicMap[type], []);
 
   [Theory]
   [ClassData(typeof(BuiltInInternalData))]
-  public void HtmlInternalTypes(string type)
-    => RenderTypeHtml(BuiltInData.InternalMap[type], BuiltIn.Internal);
+  public async Task HtmlInternalTypes(string type)
+    => await RenderTypeHtml(BuiltInData.InternalMap[type], BuiltIn.Internal);
 
   [Fact]
-  public void HtmlAllBasicTypes()
+  public async Task HtmlAllBasicTypes()
   {
     SchemaAst schema = new(AstNulls.At) {
       Declarations = BuiltIn.Basic
     };
 
-    RenderSchemaHtml(schema, "!Basic");
+    await RenderSchemaHtml(schema, "!Basic");
   }
 
   [Fact]
-  public void HtmlAllInternalTypes()
+  public async Task HtmlAllInternalTypes()
   {
     SchemaAst schema = new(AstNulls.At) {
       Declarations = BuiltIn.Internal
     };
 
-    RenderSchemaHtml(schema, "!Internal");
+    await RenderSchemaHtml(schema, "!Internal");
   }
 
   [Fact]
-  public void Html_Index()
+  public async Task Html_Index()
   {
     Structured result = new Map<Structured>() {
       ["title"] = "BuiltIn",
@@ -49,7 +49,7 @@ public class BuiltInTests(IModelAndRender renderer)
       }.Render(),
     }.Render("");
 
-    result.WriteHtmlFile("BuiltIn", "index", "index");
+    await result.WriteHtmlFile("BuiltIn", "index", "index");
   }
 
   [Theory]
@@ -110,7 +110,7 @@ public class BuiltInTests(IModelAndRender renderer)
     context.Errors.ShouldBeEmpty(type?.Label);
   }
 
-  private void RenderTypeHtml(IGqlpType type, IGqlpType[] extras)
+  private async Task RenderTypeHtml(IGqlpType type, IGqlpType[] extras)
   {
     Assert.SkipWhen(type is null, "type is null");
 
@@ -122,13 +122,13 @@ public class BuiltInTests(IModelAndRender renderer)
       Declarations = [.. extras.Where(e => e != type)]
     };
 
-    RenderSchemaHtml(schema, type.Name, extrasSchema);
+    await RenderSchemaHtml(schema, type.Name, extrasSchema);
   }
 
-  private void RenderSchemaHtml(SchemaAst schema, string filename, SchemaAst? extras = null)
+  private async Task RenderSchemaHtml(SchemaAst schema, string filename, SchemaAst? extras = null)
   {
     Structured result = renderer.RenderAst(schema, renderer.Context(), extras);
 
-    result.WriteHtmlFile("BuiltIn", filename);
+    await result.WriteHtmlFile("BuiltIn", filename);
   }
 }

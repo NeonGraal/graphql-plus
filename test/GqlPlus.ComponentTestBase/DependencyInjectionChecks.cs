@@ -21,7 +21,8 @@ public class DependencyInjectionChecks(
 {
   private const int MaxGroupSize = 5;
   private const string FunctionRequirement = "=>";
-  private const string InstanceRequirement = "=";
+  private const string InstanceRequirement = "==";
+  private const string ParentRequirement = "->";
 
   private static readonly FluidParser s_parser = new();
   private static readonly Map<IFluidTemplate> s_templates = [];
@@ -70,6 +71,16 @@ public class DependencyInjectionChecks(
       }
 
       DiService service = GetOrCreate(sd.ServiceType);
+
+      TypeIdName? baseName = service.Service.BaseName;
+      if (baseName is not null) {
+        if (!diServices.TryGetValue(baseName.Id, out DiService? baseService)) {
+          baseService = service.BaseService;
+          diServices[baseName.Id] = baseService;
+        }
+
+        service.Requires[ParentRequirement] = baseName;
+      }
 
       if (sd.ImplementationType is not null) {
         if (sd.ImplementationType != sd.ServiceType) {
@@ -270,12 +281,15 @@ public class DependencyInjectionChecks(
 public sealed record TypeIdName
 {
   public TypeIdName([NotNull] Type type)
-  {
-    Id = type.ThrowIfNull().FullTypeName();
-    NameSpace = type.Namespace ?? "";
-    Name = type.ExpandTypeName();
+    : this(type.FullTypeName(), type.ExpandTypeName(), type.Namespace)
+  { }
 
-    Key = Id
+  private TypeIdName(string id, string name, string? nameSpace = null)
+  {
+    Id = id;
+    NameSpace = nameSpace ?? "";
+    Name = name;
+    Key = id
       .Replace('<', '_')
       .Replace('>', '_')
       .Replace('+', '_')
@@ -283,10 +297,14 @@ public sealed record TypeIdName
       .Replace(',', '_')
       .Replace("::", "_", StringComparison.Ordinal)
       .Replace("[]", "_Array_", StringComparison.Ordinal);
-
-    Safe = Name
+    Safe = name
       .Replace('<', '(')
       .Replace('>', ')');
+
+    string[] strings = name.Split('<');
+    if (strings.Length > 1) {
+      BaseName = new(id.Split('<')[0], strings[0], nameSpace);
+    }
   }
 
   public string Id { get; }
@@ -294,6 +312,7 @@ public sealed record TypeIdName
   public string Name { get; }
   public string Key { get; }
   public string Safe { get; }
+  public TypeIdName? BaseName { get; }
 }
 
 public sealed class DiLink
@@ -319,6 +338,8 @@ public sealed class DiService
 
   public DiService(Type service)
     => Service = new(service);
+  private DiService(TypeIdName service)
+    => Service = service;
 
   public DiService(DiService service)
   {
@@ -348,4 +369,7 @@ public sealed class DiService
       }
     }
   }
+
+  public DiService BaseService
+    => new(Service.BaseName!);
 }

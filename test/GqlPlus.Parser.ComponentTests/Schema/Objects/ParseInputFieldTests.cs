@@ -9,7 +9,7 @@ public class ParseInputFieldTests(
   ICheckObjectField<IGqlpInputField> checks
 ) : TestObjectField<IGqlpInputField>(checks)
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithDefault_ReturnsCorrectAst(string name, string fieldType, string content)
     => checks.TrueExpected(
       name + ":" + fieldType + "='" + content + "'",

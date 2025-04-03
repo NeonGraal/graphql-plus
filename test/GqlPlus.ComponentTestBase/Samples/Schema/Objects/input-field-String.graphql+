@@ -1,1 +1,1 @@
-input InFieldStr { field: String = '' }
+input Name { field: String = '' }

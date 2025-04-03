@@ -1,45 +1,45 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutGenValue: !_TypeOutput
+  !_Identifier EnumOutpGnrcValue: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnumOutpGnrcValue
+      name: outpGnrcValue
+    items:
+    - !_Aliased
+      name: outpGnrcValue
+    name: EnumOutpGnrcValue
+    typeKind: !_TypeKind Enum
+  !_Identifier OutpGnrcValue: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutGenValue
-      type: !_OutputBase
-        output: OutGenValueRef
-        typeArgs:
-        - !_OutputArg
-          output: outValueGen
+      object: OutpGnrcValue
+      output: RefOutpGnrcValue
+      typeArgs:
+      - !_OutputArg
+        output: outpGnrcValue
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: OutGenValueRef
-        typeArgs:
-        - !_OutputArg
-          output: outValueGen
-    name: OutGenValue
+      output: RefOutpGnrcValue
+      typeArgs:
+      - !_OutputArg
+        output: outpGnrcValue
+    name: OutpGnrcValue
     typeKind: !_TypeKind Output
-  !_Identifier OutGenValueRef: !_TypeOutput
+  !_Identifier RefOutpGnrcValue: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
-      object: OutGenValueRef
-      type: !_TypeParam type
+      object: RefOutpGnrcValue
+      type: !_OutputBase
+        typeParam: type
     fields:
     - !_OutputField
       name: field
-      type: !_TypeParam type
-    name: OutGenValueRef
+      type: !_OutputBase
+        typeParam: type
+    name: RefOutpGnrcValue
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: type
-  !_Identifier OutValueGen: !_TypeEnum
-    allItems:
-    - !_EnumLabel
-      enum: OutValueGen
-      name: outValueGen
-    items:
-    - !_Aliased
-      name: outValueGen
-    name: OutValueGen
-    typeKind: !_TypeKind Enum

@@ -10,12 +10,10 @@ Success
     I@019/0002
     _TypeKind.Input
     I@035/0002
-    _InputParent
-    I@048/0002
-    _InputTypeParam
-    I@064/0002
+    _InputBase
+    I@046/0002
     _InputField
-    I@076/0002
+    I@058/0002
     _InputAlternate
   >
 }
@@ -27,7 +25,7 @@ Success
   _ObjBase
   <
     I@016/0006
-    _ObjTypeArg
+    _InputTypeArg
   >
   {
     !OF I@009/0007
@@ -37,83 +35,77 @@ Success
     _Identifier
   }
   |
-  !OA I@007/0008
   I@007/0008
   _DualBase
 }
 {
   !Ou I@008/0011
-  _InputParent
-  :
-  I@007/0012
-  _ObjDescribed
-  <
-    I@021/0012
-    _InputBase
-  >
-}
-{
-  !Ou I@008/0015
-  _InputTypeParam
-  :
-  I@007/0016
-  _ObjTypeParam
-  <
-    I@021/0016
-    _InputBase
-  >
-}
-{
-  !Ou I@008/0019
   _InputField
   :
-  I@007/0020
+  I@007/0012
   _Field
   <
-    I@014/0020
+    I@014/0012
     _InputBase
   >
   {
-    !OF I@009/0021
+    !OF I@009/0013
     default
     :
-    I@018/0021
+    I@018/0013
     _Constant
     ?
   }
 }
 {
-  !Ou I@008/0024
+  !Ou I@008/0016
   _InputAlternate
   :
-  I@007/0025
+  I@007/0017
   _Alternate
   <
-    I@018/0025
-    _InputBase
-  >
-}
-{
-  !Ou I@008/0028
-  _InputParam
-  :
-  I@007/0029
-  _ObjDescribed
-  <
-    I@021/0029
-    _InputBase
+    I@018/0017
+    _InputTypeArg
   >
   {
-    !OF I@009/0030
+    !OF I@009/0018
+    input
+    :
+    I@016/0018
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0021
+  _InputTypeArg
+  :
+  I@007/0022
+  _ObjTypeArg
+  {
+    !OF I@009/0023
+    input
+    :
+    I@016/0023
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0026
+  _InputParam
+  :
+  I@007/0027
+  _InputBase
+  {
+    !OF I@009/0028
     modifiers
     :
-    I@020/0030
+    I@020/0028
     _Modifiers
     []
-    !OF I@009/0031
+    !OF I@009/0029
     default
     :
-    I@018/0031
+    I@018/0029
     _Constant
     ?
   }

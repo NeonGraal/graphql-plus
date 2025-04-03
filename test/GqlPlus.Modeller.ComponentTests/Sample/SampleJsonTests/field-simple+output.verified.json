@@ -2,13 +2,13 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpFieldSimple": {
+    "OutpFieldSmpl": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutpFieldSimple",
+          "object": "OutpFieldSmpl",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -25,7 +25,7 @@
           }
         }
       ],
-      "name": "OutpFieldSimple",
+      "name": "OutpFieldSmpl",
       "typeKind": "Output"
     }
   }

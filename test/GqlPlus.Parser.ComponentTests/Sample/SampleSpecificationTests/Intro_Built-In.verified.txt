@@ -4,13 +4,10 @@ Success
   !Ou I@008/0001
   _Constant
   |
-  !OA I@007/0002
   I@007/0002
   _Simple
-  !OA I@007/0003
   I@007/0003
   _ConstantList
-  !OA I@007/0004
   I@007/0004
   _ConstantMap
 }
@@ -18,10 +15,8 @@ Success
   !Ou I@008/0007
   _Simple
   |
-  !OA I@007/0008
   I@007/0008
   Boolean
-  !OA I@007/0009
   I@007/0009
   _DomainValue
   <
@@ -30,7 +25,6 @@ Success
     I@039/0009
     Number
   >
-  !OA I@007/0010
   I@007/0010
   _DomainValue
   <
@@ -39,7 +33,6 @@ Success
     I@039/0010
     String
   >
-  !OA I@007/0011
   I@007/0011
   _EnumValue
 }
@@ -47,7 +40,6 @@ Success
   !Ou I@008/0014
   _ConstantList
   |
-  !OA I@007/0015
   I@007/0015
   _Constant
   []
@@ -56,7 +48,6 @@ Success
   !Ou I@008/0018
   _ConstantMap
   |
-  !OA I@007/0019
   I@007/0019
   _Constant
   [Simple]
@@ -65,21 +56,18 @@ Success
   !Ou I@008/0022
   _Collections
   |
-  !OA I@007/0023
   I@007/0023
   _Modifier
   <
     I@017/0023
     _ModifierKind.List
   >
-  !OA I@007/0024
   I@007/0024
   _ModifierKeyed
   <
     I@022/0024
     _ModifierKind.Dictionary
   >
-  !OA I@007/0025
   I@007/0025
   _ModifierKeyed
   <
@@ -118,14 +106,12 @@ Success
   !Ou I@008/0034
   _Modifiers
   |
-  !OA I@007/0035
   I@007/0035
   _Modifier
   <
     I@017/0035
     _ModifierKind.Optional
   >
-  !OA I@007/0036
   I@007/0036
   _Collections
 }

@@ -2,53 +2,47 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpParentDual": {
+    "OutpPrntDual": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "OutpParentDualRef",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "dual": "String",
+          "object": "RefOutpPrntDual"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "parent",
-          "object": "OutpParentDualRef",
+          "object": "RefOutpPrntDual",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
           }
         }
       ],
-      "name": "OutpParentDual",
+      "name": "OutpPrntDual",
       "parent": {
         "$tag": "_DualBase",
-        "value": "OutpParentDualRef"
+        "value": "RefOutpPrntDual"
       },
       "typeKind": "Output"
     },
-    "OutpParentDualRef": {
+    "RefOutpPrntDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "OutpParentDualRef",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "dual": "String",
+          "object": "RefOutpPrntDual"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "parent",
-          "object": "OutpParentDualRef",
+          "object": "RefOutpPrntDual",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -58,10 +52,7 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -74,7 +65,7 @@
           }
         }
       ],
-      "name": "OutpParentDualRef",
+      "name": "RefOutpPrntDual",
       "typeKind": "Dual"
     }
   }

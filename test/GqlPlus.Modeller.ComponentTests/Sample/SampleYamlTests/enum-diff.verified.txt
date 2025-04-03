@@ -1,12 +1,12 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier EnDiff: !_TypeEnum
+  !_Identifier EnumDiff: !_TypeEnum
     allItems:
     - !_EnumLabel
-      enum: EnDiff
+      enum: EnumDiff
       name: one
     items:
     - !_Aliased
       name: one
-    name: EnDiff
+    name: EnumDiff
     typeKind: !_TypeKind Enum

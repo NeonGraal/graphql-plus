@@ -5,16 +5,14 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: field
       object: OutpFieldTypeDescr
-      type: !_ObjDescribed(_OutputBase)
-        base: !_OutputBase
-          output: Number
+      type: !_OutputBase
         description: 'Test Descr'
+        output: Number
     fields:
     - !_OutputField
       name: field
-      type: !_ObjDescribed(_OutputBase)
-        base: !_OutputBase
-          output: Number
+      type: !_OutputBase
         description: 'Test Descr'
+        output: Number
     name: OutpFieldTypeDescr
     typeKind: !_TypeKind Output

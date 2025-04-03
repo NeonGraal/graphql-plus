@@ -1,49 +1,49 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutEnumGen: !_TypeEnum
+  !_Identifier EnumOutpGnrcEnum: !_TypeEnum
     allItems:
     - !_EnumLabel
-      enum: OutEnumGen
-      name: outEnumGen
+      enum: EnumOutpGnrcEnum
+      name: outpGnrcEnum
     items:
     - !_Aliased
-      name: outEnumGen
-    name: OutEnumGen
+      name: outpGnrcEnum
+    name: EnumOutpGnrcEnum
     typeKind: !_TypeKind Enum
-  !_Identifier OutGenEnum: !_TypeOutput
+  !_Identifier OutpGnrcEnum: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutGenEnum
-      type: !_OutputBase
-        output: OutGenEnumRef
-        typeArgs:
-        - !_OutputArg
-          label: outEnumGen
-          name: OutEnumGen
-          typeKind: !_SimpleKind Enum
+      object: OutpGnrcEnum
+      output: RefOutpGnrcEnum
+      typeArgs:
+      - !_OutputArg
+        label: outpGnrcEnum
+        name: EnumOutpGnrcEnum
+        typeKind: !_SimpleKind Enum
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: OutGenEnumRef
-        typeArgs:
-        - !_OutputArg
-          label: outEnumGen
-          name: OutEnumGen
-          typeKind: !_SimpleKind Enum
-    name: OutGenEnum
+      output: RefOutpGnrcEnum
+      typeArgs:
+      - !_OutputArg
+        label: outpGnrcEnum
+        name: EnumOutpGnrcEnum
+        typeKind: !_SimpleKind Enum
+    name: OutpGnrcEnum
     typeKind: !_TypeKind Output
-  !_Identifier OutGenEnumRef: !_TypeOutput
+  !_Identifier RefOutpGnrcEnum: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
-      object: OutGenEnumRef
-      type: !_TypeParam type
+      object: RefOutpGnrcEnum
+      type: !_OutputBase
+        typeParam: type
     fields:
     - !_OutputField
       name: field
-      type: !_TypeParam type
-    name: OutGenEnumRef
+      type: !_OutputBase
+        typeParam: type
+    name: RefOutpGnrcEnum
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: type

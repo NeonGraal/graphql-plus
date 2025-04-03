@@ -2,22 +2,22 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "EnSame": {
+    "EnumSame": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "enum": "EnSame",
-          "name": "same"
+          "enum": "EnumSame",
+          "name": "enumSame"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "same"
+          "value": "enumSame"
         }
       ],
-      "name": "EnSame",
+      "name": "EnumSame",
       "typeKind": "Enum"
     }
   }

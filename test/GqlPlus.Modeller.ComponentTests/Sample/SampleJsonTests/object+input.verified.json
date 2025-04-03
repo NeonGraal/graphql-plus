@@ -2,9 +2,9 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpObject": {
+    "InpObj": {
       "$tag": "_TypeInput",
-      "name": "InpObject",
+      "name": "InpObj",
       "typeKind": "Input"
     }
   }

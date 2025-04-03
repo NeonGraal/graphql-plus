@@ -11,7 +11,7 @@
           "object": "DualFieldDual",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualFieldDualFld"
+            "value": "FldDualFieldDual"
           }
         }
       ],
@@ -21,30 +21,27 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualFieldDualFld"
+            "value": "FldDualFieldDual"
           }
         }
       ],
       "name": "DualFieldDual",
       "typeKind": "Dual"
     },
-    "DualFieldDualFld": {
+    "FldDualFieldDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualFieldDualFld",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "dual": "String",
+          "object": "FldDualFieldDual"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "DualFieldDualFld",
+          "object": "FldDualFieldDual",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -54,10 +51,7 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -70,7 +64,7 @@
           }
         }
       ],
-      "name": "DualFieldDualFld",
+      "name": "FldDualFieldDual",
       "typeKind": "Dual"
     }
   }

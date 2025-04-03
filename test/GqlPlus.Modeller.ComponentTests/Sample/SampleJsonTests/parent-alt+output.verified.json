@@ -2,31 +2,25 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpParentAlt": {
+    "OutpPrntAlt": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpParentAltRef",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "object": "RefOutpPrntAlt",
+          "output": "String"
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpParentAlt",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "Number"
-          }
+          "object": "OutpPrntAlt",
+          "output": "Number"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "parent",
-          "object": "OutpParentAltRef",
+          "object": "RefOutpPrntAlt",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -36,36 +30,30 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "Number"
-          }
+          "value": "Number"
         }
       ],
-      "name": "OutpParentAlt",
+      "name": "OutpPrntAlt",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "OutpParentAltRef"
+        "value": "RefOutpPrntAlt"
       },
       "typeKind": "Output"
     },
-    "OutpParentAltRef": {
+    "RefOutpPrntAlt": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpParentAltRef",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "object": "RefOutpPrntAlt",
+          "output": "String"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "parent",
-          "object": "OutpParentAltRef",
+          "object": "RefOutpPrntAlt",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -75,10 +63,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -91,7 +76,7 @@
           }
         }
       ],
-      "name": "OutpParentAltRef",
+      "name": "RefOutpPrntAlt",
       "typeKind": "Output"
     }
   }

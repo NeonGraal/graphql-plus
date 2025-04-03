@@ -1,2 +1,2 @@
-enum EnDiff { one }
-enum EnDiff { two }
+enum Name { one }
+enum Name { two }

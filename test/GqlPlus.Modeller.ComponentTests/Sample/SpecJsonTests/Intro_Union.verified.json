@@ -9,7 +9,7 @@
     {
       "$tag": "_Error",
       "_kind": "End",
-      "_message": "In _UnionMember can\u0027t get model for type \u0027_Described\u0027"
+      "_message": "In _UnionRef can\u0027t get model for type \u0027_TypeRef\u0027"
     }
   ],
   "types": {
@@ -29,10 +29,10 @@
           },
           {
             "$tag": "_OutputArg",
-            "value": "_Described"
+            "value": "_UnionRef"
           },
           {
-            "$tag": "_DualArg",
+            "$tag": "_OutputArg",
             "value": "_UnionMember"
           }
         ]
@@ -40,34 +40,49 @@
       "typeKind": "Output"
     },
     "_UnionMember": {
-      "$tag": "_TypeDual",
+      "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$tag": "_ObjectFor(_OutputField)",
           "name": "union",
           "object": "_UnionMember",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_OutputBase",
             "value": "_Identifier"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_DualField",
+          "$tag": "_OutputField",
           "name": "union",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_OutputBase",
             "value": "_Identifier"
           }
         }
       ],
       "name": "_UnionMember",
       "parent": {
-        "$tag": "_DualBase",
-        "value": "_Described"
+        "$tag": "_OutputBase",
+        "value": "_UnionRef"
       },
-      "typeKind": "Dual"
+      "typeKind": "Output"
+    },
+    "_UnionRef": {
+      "$tag": "_TypeOutput",
+      "name": "_UnionRef",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_TypeRef",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "value": "_SimpleKind"
+          }
+        ]
+      },
+      "typeKind": "Output"
     }
   }
 }

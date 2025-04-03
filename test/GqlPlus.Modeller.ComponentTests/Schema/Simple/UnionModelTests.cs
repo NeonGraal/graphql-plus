@@ -8,7 +8,7 @@ public class UnionModelTests(
   IUnionModelChecks checks
 ) : TestTypeModel<SimpleKindModel, TypeUnionModel>(checks)
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Members(string name, string[] members)
     => checks.UnionExpected(
       new UnionDeclAst(AstNulls.At, name, members.UnionMembers()),
@@ -16,7 +16,7 @@ public class UnionModelTests(
         members: checks.ExpectedItems("items:", members),
         allMembers: checks.ExpectedAllItems("allItems:", members, name)));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_MembersParent(string name, string parent, string[] parentMembers)
     => checks
     .AddParent(checks.NewParent(parent, parentMembers))
@@ -24,7 +24,7 @@ public class UnionModelTests(
       new UnionDeclAst(AstNulls.At, name, []) { Parent = parent, },
       new(name, parent, allMembers: checks.ExpectedAllItems("allItems:", parentMembers, parent)));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_MembersGrandParent(string name, string parent, string[] parentMembers, string grandParent, string[] grandParentMembers)
     => checks
     .SkipIf(string.Equals(parent, grandParent, StringComparison.Ordinal))
@@ -36,7 +36,7 @@ public class UnionModelTests(
         .ExpectedAllItems("allItems:", grandParentMembers, grandParent)
         .Concat(checks.ExpectedAllItems("", parentMembers, parent))));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_All(
     string name,
     string contents,
@@ -88,9 +88,9 @@ internal sealed class UnionModelChecks(
     => new(AstNulls.At, input, description ?? "", []) { Aliases = aliases ?? [] };
 
   internal override TypeUnionModel NewParent(string name, string[] members, string? parent = null)
-    => new(name) {
+    => new(name, "") {
       Parent = parent?.TypeRef(SimpleKindModel.Union),
-      Items = [.. members.Select(m => new AliasedModel(m))]
+      Items = [.. members.Select(m => new AliasedModel(m, ""))]
     };
 
   internal override UnionDeclAst NewTypeAst(string name, string? parent = default, string? description = null, string[]? aliases = null)

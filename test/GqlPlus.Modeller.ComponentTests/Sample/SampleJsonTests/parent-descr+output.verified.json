@@ -2,57 +2,48 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpParentDescr": {
+    "OutpPrntDescr": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpParentDescrRef",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "object": "RefOutpPrntDescr",
+          "output": "String"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "parent",
-          "object": "OutpParentDescrRef",
+          "object": "RefOutpPrntDescr",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
           }
         }
       ],
-      "name": "OutpParentDescr",
+      "name": "OutpPrntDescr",
       "parent": {
-        "$tag": "_ObjDescribed(_OutputBase)",
-        "base": {
-          "$tag": "_OutputBase",
-          "value": "OutpParentDescrRef"
-        },
-        "description": "Test Descr"
+        "$tag": "_OutputBase",
+        "description": "Test Descr",
+        "output": "RefOutpPrntDescr"
       },
       "typeKind": "Output"
     },
-    "OutpParentDescrRef": {
+    "RefOutpPrntDescr": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpParentDescrRef",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "object": "RefOutpPrntDescr",
+          "output": "String"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "parent",
-          "object": "OutpParentDescrRef",
+          "object": "RefOutpPrntDescr",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -62,10 +53,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -78,7 +66,7 @@
           }
         }
       ],
-      "name": "OutpParentDescrRef",
+      "name": "RefOutpPrntDescr",
       "typeKind": "Output"
     }
   }

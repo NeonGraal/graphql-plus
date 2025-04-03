@@ -2,65 +2,71 @@
 !Sc S@001/0001
 Success
 {
-  "A Category described"
+  'A Category described'
   !Ca P@010/0003
-  catDescr
+  ctgrDscrs
   (Parallel)
-  CatDescr
+  !Tr I@012/0003
+  CtgrDscrs
 }
 {
   !Ca P@010/0001
-  cat
+  ctgrOutp
   (Parallel)
-  Cat
+  !Tr I@012/0001
+  CtgrOutp
 }
 {
   !Ca P@010/0001
-  catDict
+  ctgrOutpDict
   (Parallel)
-  CatDict
+  !Tr I@012/0001
+  CtgrOutpDict
   [*]
 }
 {
   !Ca P@010/0001
-  catList
+  ctgrOutpList
   (Parallel)
-  CatList
+  !Tr I@012/0001
+  CtgrOutpList
   []
 }
 {
   !Ca P@010/0001
-  catOpt
+  ctgrOutpOptl
   (Parallel)
-  CatOpt
+  !Tr I@012/0001
+  CtgrOutpOptl
   ?
 }
 {
   !Ca P@010/0001
-  descrBetween
+  descrBtwn
   (Parallel)
-  DescrBetween
+  !Tr I@012/0001
+  DescrBtwn
 }
 {
-  "A directive described"
+  'A directive described'
   !Di I@012/0002
-  DirDescr
+  DrctDescr
   (Unique)
   All
 }
 {
   !Di I@012/0001
-  DirNoParam
+  DrctNoParam
   (Unique)
   All
 }
 {
   !Di I@012/0001
-  DirParamDict
+  DrctParamDict
   (
     !Pa
-    I@025/0001
-    DirParamIn
+    I@026/0001
+    InDrctParamDict
     [String]
   )
   (Unique)
@@ -68,22 +74,22 @@ Success
 }
 {
   !Di I@012/0001
-  DirParam
+  DrctParamIn
   (
     !Pa
-    I@021/0001
-    DirParamIn
+    I@024/0001
+    InDrctParamIn
   )
   (Unique)
   All
 }
 {
   !Di I@012/0001
-  DirParamList
+  DrctParamList
   (
     !Pa
-    I@025/0001
-    DirParamIn
+    I@026/0001
+    InDrctParamList
     []
   )
   (Unique)
@@ -91,11 +97,11 @@ Success
 }
 {
   !Di I@012/0001
-  DirParamOpt
+  DrctParamOpt
   (
     !Pa
-    I@024/0001
-    DirParamIn
+    I@025/0001
+    InDrctParamOpt
     ?
   )
   (Unique)
@@ -111,7 +117,7 @@ Success
     !OS I@017/0001
     global
     =( !k I@024/0001 Boolean.true )
-    "Option Descr"
+    'Option Descr'
     !OS S@017/0001
     descr
     =( !k I@040/0001 Boolean.true )
@@ -119,56 +125,73 @@ Success
 }
 {
   !Ou I@008/0004
-  CatDescr
+  CtgrDscrs
 }
 {
   !Ou I@008/0002
-  Cat
+  CtgrOutp
 }
 {
   !Ou I@008/0002
-  CatDict
+  CtgrOutpDict
 }
 {
   !Ou I@008/0002
-  CatList
+  CtgrOutpList
 }
 {
   !Ou I@008/0002
-  CatOpt
+  CtgrOutpOptl
 }
 {
-  "A simple doc A simple doc With extra"
+  'A simple description'
   !Ou I@008/0002
   Descr
 }
 {
-  "A backslash (\"\\\") doc"
+  'A backslash ("\\") description'
   !Ou I@008/0002
-  DescrBackslash
+  DescrBcks
 }
 {
-  "A doc between"
+  'A description between'
   !Ou I@008/0003
-  DescrBetween
+  DescrBtwn
 }
 {
-  "A \"more\" 'Complicated' \\ doc"
+  'A "more" \'Complicated\' \\ description'
   !Ou I@008/0002
-  DescrComplex
+  DescrCmpl
 }
 {
-  "A 'double-quoted' doc"
+  'A \'double-quoted\' description'
   !Ou I@008/0002
-  DescrDouble
+  DescrDbl
 }
 {
-  "A \"single-quoted\" doc"
+  'A "single-quoted" description'
   !Ou I@008/0002
-  DescrSingle
+  DescrSngl
+}
+{
+  'A simple doc With extra'
+  !Ou I@008/0003
+  Dscrs
 }
 {
   !In I@007/0002
-  DirParamIn
+  InDrctParamDict
+}
+{
+  !In I@007/0002
+  InDrctParamIn
+}
+{
+  !In I@007/0002
+  InDrctParamList
+}
+{
+  !In I@007/0002
+  InDrctParamOpt
 }
 ]

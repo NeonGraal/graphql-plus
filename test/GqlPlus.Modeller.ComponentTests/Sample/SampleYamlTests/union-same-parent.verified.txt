@@ -1,28 +1,28 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier UnParent: !_TypeUnion
+  !_Identifier PrntUnionSamePrnt: !_TypeUnion
     allItems:
     - !_UnionMember
       name: String
-      union: UnParent
+      union: PrntUnionSamePrnt
     items:
     - !_Aliased
       name: String
-    name: UnParent
+    name: PrntUnionSamePrnt
     typeKind: !_TypeKind Union
-  !_Identifier UnSameParent: !_TypeUnion
+  !_Identifier UnionSamePrnt: !_TypeUnion
     allItems:
     - !_UnionMember
       name: String
-      union: UnParent
+      union: PrntUnionSamePrnt
     - !_UnionMember
       name: Boolean
-      union: UnSameParent
+      union: UnionSamePrnt
     items:
     - !_Aliased
       name: Boolean
-    name: UnSameParent
+    name: UnionSamePrnt
     parent: !_TypeRef(_SimpleKind)
-      name: UnParent
+      name: PrntUnionSamePrnt
       typeKind: !_SimpleKind Union
     typeKind: !_TypeKind Union

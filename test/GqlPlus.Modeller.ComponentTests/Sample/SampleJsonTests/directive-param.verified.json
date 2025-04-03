@@ -2,18 +2,18 @@
   "$tag": "_Schema",
   "directives": {
     "$tag": "_Map_Directives",
-    "DirParam": {
+    "DrctParam": {
       "$tag": "_Directive",
       "locations": {
         "$tag": "_Set(_Location)",
         "Fragment": "_",
         "Operation": "_"
       },
-      "name": "DirParam",
+      "name": "DrctParam",
       "parameters": [
         {
           "$tag": "_InputParam",
-          "value": "DirParamIn"
+          "value": "InDrctParam"
         }
       ],
       "repeatable": false
@@ -21,9 +21,9 @@
   },
   "types": {
     "$tag": "_Map_Type",
-    "DirParamIn": {
+    "InDrctParam": {
       "$tag": "_TypeInput",
-      "name": "DirParamIn",
+      "name": "InDrctParam",
       "typeKind": "Input"
     }
   }

@@ -9,7 +9,7 @@ public sealed class ParseOptionTests(
   IBaseAliasedChecks<string, IGqlpSchemaOption> checks
 ) : BaseAliasedTests<string, IGqlpSchemaOption>(checks)
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithSettings_ReturnsCorrectAst(string name)
     => checks.TrueExpected(
       name + "{setting='setting'}",
@@ -17,11 +17,11 @@ public sealed class ParseOptionTests(
         Settings = s_settings.OptionSettings(),
       });
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithSettingsBad_ReturnsFalse(string name)
     => checks.FalseExpected(name + "{random}");
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithSettingsNone_ReturnsTrue(string name)
     => checks.TrueExpected(name + "{}", new OptionDeclAst(AstNulls.At, name));
 

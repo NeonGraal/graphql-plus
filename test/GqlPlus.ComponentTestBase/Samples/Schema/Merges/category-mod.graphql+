@@ -1,3 +1,3 @@
-category [CatM1] { CatMods? }
-category [CatM2] { CatMods? }
-output CatMods { }
+category [CatM1] { Name? }
+category [CatM2] { Name? }
+output Name { }

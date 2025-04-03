@@ -5,16 +5,14 @@ types: !_Map_Type
     - !_ObjectFor(_DualField)
       name: field
       object: DualFieldTypeDescr
-      type: !_ObjDescribed(_DualBase)
-        base: !_DualBase
-          dual: Number
+      type: !_DualBase
         description: 'Test Descr'
+        dual: Number
     fields:
     - !_DualField
       name: field
-      type: !_ObjDescribed(_DualBase)
-        base: !_DualBase
-          dual: Number
+      type: !_DualBase
         description: 'Test Descr'
+        dual: Number
     name: DualFieldTypeDescr
     typeKind: !_TypeKind Dual

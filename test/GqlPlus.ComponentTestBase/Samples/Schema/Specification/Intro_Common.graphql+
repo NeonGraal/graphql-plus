@@ -20,7 +20,7 @@ output _ChildType<$kind $parent> {
     }
 
 output _ParentType<$kind $item $allItem> {
-    : _ChildType<$kind _Described>
+    : _ChildType<$kind _Named>
         items: $item[]
         allItems: $allItem[]
     }
@@ -30,6 +30,7 @@ enum _SimpleKind { Basic Enum Internal Domain Union }
 enum _TypeKind { :_SimpleKind Dual Input Output }
 
 output _TypeRef<$kind> {
+    : _Described
         typeKind: $kind
         name: _Identifier
 }

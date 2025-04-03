@@ -2,61 +2,61 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "EnAliasPrnt": {
+    "EnumPrntAlias": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "enum": "EnAliasPrnt",
-          "name": "val_alias"
+          "enum": "PrntEnumPrntAlias",
+          "name": "prnt_enumPrntAlias"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumPrntAlias",
+          "name": "val_enumPrntAlias"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "aliases": ["enumPrntAlias"],
+          "enum": "EnumPrntAlias",
+          "name": "prnt_enumPrntAlias"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "val_alias"
-        }
-      ],
-      "name": "EnAliasPrnt",
-      "typeKind": "Enum"
-    },
-    "EnPrntAlias": {
-      "$tag": "_TypeEnum",
-      "allItems": [
-        {
-          "$tag": "_EnumLabel",
-          "enum": "EnAliasPrnt",
-          "name": "val_alias"
-        },
-        {
-          "$tag": "_EnumLabel",
-          "enum": "EnPrntAlias",
-          "name": "val_prnt_alias"
-        },
-        {
-          "$tag": "_EnumLabel",
-          "aliases": ["alias_val"],
-          "enum": "EnPrntAlias",
-          "name": "val_alias"
-        }
-      ],
-      "items": [
-        {
-          "$tag": "_Aliased",
-          "value": "val_prnt_alias"
+          "value": "val_enumPrntAlias"
         },
         {
           "$tag": "_Aliased",
-          "aliases": ["alias_val"],
-          "name": "val_alias"
+          "aliases": ["enumPrntAlias"],
+          "name": "prnt_enumPrntAlias"
         }
       ],
-      "name": "EnPrntAlias",
+      "name": "EnumPrntAlias",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
-        "name": "EnAliasPrnt",
+        "name": "PrntEnumPrntAlias",
         "typeKind": "Enum"
       },
+      "typeKind": "Enum"
+    },
+    "PrntEnumPrntAlias": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "PrntEnumPrntAlias",
+          "name": "prnt_enumPrntAlias"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "prnt_enumPrntAlias"
+        }
+      ],
+      "name": "PrntEnumPrntAlias",
       "typeKind": "Enum"
     }
   }

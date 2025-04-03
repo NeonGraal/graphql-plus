@@ -4,36 +4,28 @@ Success
   !Ou I@008/0001
   _Type
   |
-  !OA I@007/0002
   I@007/0002
   _BaseType
   <
     I@017/0002
     _TypeKind.Basic
   >
-  !OA I@007/0003
   I@007/0003
   _BaseType
   <
     I@017/0003
     _TypeKind.Internal
   >
-  !OA I@007/0004
   I@007/0004
   _TypeDual
-  !OA I@007/0005
   I@007/0005
   _TypeEnum
-  !OA I@007/0006
   I@007/0006
   _TypeInput
-  !OA I@007/0007
   I@007/0007
   _TypeOutput
-  !OA I@007/0008
   I@007/0008
   _TypeDomain
-  !OA I@007/0009
   I@007/0009
   _TypeUnion
 }
@@ -97,7 +89,7 @@ Success
     I@019/0023
     $kind
     I@024/0023
-    _Described
+    _Named
   >
   {
     !OF I@009/0024
@@ -146,49 +138,48 @@ Success
     I@018/0032
     $kind
   >
+  :
+  I@007/0033
+  _Described
   {
-    !OF I@009/0033
+    !OF I@009/0034
     typeKind
     :
-    I@020/0033
+    I@020/0034
     $kind
-    !OF I@009/0034
+    !OF I@009/0035
     name
     :
-    I@015/0034
+    I@015/0035
     _Identifier
   }
 }
 {
-  !Ou I@008/0037
+  !Ou I@008/0038
   _TypeSimple
   |
-  !OA I@007/0038
-  I@007/0038
-  _TypeRef
-  <
-    I@016/0038
-    _TypeKind.Basic
-  >
-  !OA I@007/0039
   I@007/0039
   _TypeRef
   <
     I@016/0039
-    _TypeKind.Enum
+    _TypeKind.Basic
   >
-  !OA I@007/0040
   I@007/0040
   _TypeRef
   <
     I@016/0040
-    _TypeKind.Domain
+    _TypeKind.Enum
   >
-  !OA I@007/0041
   I@007/0041
   _TypeRef
   <
     I@016/0041
+    _TypeKind.Domain
+  >
+  I@007/0042
+  _TypeRef
+  <
+    I@016/0042
     _TypeKind.Union
   >
 }

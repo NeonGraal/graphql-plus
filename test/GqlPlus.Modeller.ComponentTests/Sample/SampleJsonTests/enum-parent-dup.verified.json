@@ -2,53 +2,53 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "EnDupPrnt": {
+    "EnumPrntDup": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "aliases": ["val_prnt_dup"],
-          "enum": "EnDupPrnt",
-          "name": "val_dup"
-        }
-      ],
-      "items": [
-        {
-          "$tag": "_Aliased",
-          "aliases": ["val_prnt_dup"],
-          "name": "val_dup"
-        }
-      ],
-      "name": "EnDupPrnt",
-      "typeKind": "Enum"
-    },
-    "EnPrntDup": {
-      "$tag": "_TypeEnum",
-      "allItems": [
-        {
-          "$tag": "_EnumLabel",
-          "aliases": ["val_prnt_dup"],
-          "enum": "EnDupPrnt",
-          "name": "val_dup"
+          "aliases": ["enumPrntDup"],
+          "enum": "PrntEnumPrntDup",
+          "name": "prnt_enumPrntDup"
         },
         {
           "$tag": "_EnumLabel",
-          "enum": "EnPrntDup",
-          "name": "val_prnt_dup"
+          "enum": "EnumPrntDup",
+          "name": "enumPrntDup"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "val_prnt_dup"
+          "value": "enumPrntDup"
         }
       ],
-      "name": "EnPrntDup",
+      "name": "EnumPrntDup",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
-        "name": "EnDupPrnt",
+        "name": "PrntEnumPrntDup",
         "typeKind": "Enum"
       },
+      "typeKind": "Enum"
+    },
+    "PrntEnumPrntDup": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "aliases": ["enumPrntDup"],
+          "enum": "PrntEnumPrntDup",
+          "name": "prnt_enumPrntDup"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "aliases": ["enumPrntDup"],
+          "name": "prnt_enumPrntDup"
+        }
+      ],
+      "name": "PrntEnumPrntDup",
       "typeKind": "Enum"
     }
   }

@@ -2,48 +2,20 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpGenParentParam": {
+    "AltInpGnrcPrntParam": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenParentParamRef",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "InpGenParentParamAlt"
-          }
-        }
-      ],
-      "name": "InpGenParentParam",
-      "parent": {
-        "$tag": "_InputBase",
-        "input": "InpGenParentParamRef",
-        "typeArgs": [
-          {
-            "$tag": "_InputArg",
-            "value": "InpGenParentParamAlt"
-          }
-        ]
-      },
-      "typeKind": "Input"
-    },
-    "InpGenParentParamAlt": {
-      "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenParentParamAlt",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
+          "input": "String",
+          "object": "AltInpGnrcPrntParam"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "alt",
-          "object": "InpGenParentParamAlt",
+          "object": "AltInpGnrcPrntParam",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -53,10 +25,7 @@
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -69,29 +38,51 @@
           }
         }
       ],
-      "name": "InpGenParentParamAlt",
+      "name": "AltInpGnrcPrntParam",
       "typeKind": "Input"
     },
-    "InpGenParentParamRef": {
+    "InpGnrcPrntParam": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenParentParamRef",
-          "type": "ref"
+          "object": "RefInpGnrcPrntParam",
+          "typeParam": "ref"
+        }
+      ],
+      "name": "InpGnrcPrntParam",
+      "parent": {
+        "$tag": "_InputBase",
+        "input": "RefInpGnrcPrntParam",
+        "typeArgs": [
+          {
+            "$tag": "_InputArg",
+            "value": "AltInpGnrcPrntParam"
+          }
+        ]
+      },
+      "typeKind": "Input"
+    },
+    "RefInpGnrcPrntParam": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "RefInpGnrcPrntParam",
+          "typeParam": "ref"
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "type": "ref"
+          "value": "ref"
         }
       ],
-      "name": "InpGenParentParamRef",
+      "name": "RefInpGnrcPrntParam",
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]

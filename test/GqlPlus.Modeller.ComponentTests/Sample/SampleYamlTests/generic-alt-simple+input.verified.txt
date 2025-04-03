@@ -1,33 +1,31 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpGenAltSimple: !_TypeInput
+  !_Identifier InpGnrcAltSmpl: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpGenAltSimple
-      type: !_InputBase
-        input: InpGenAltSimpleRef
-        typeArgs:
-        - !_InputArg
-          input: String
+      input: RefInpGnrcAltSmpl
+      object: InpGnrcAltSmpl
+      typeArgs:
+      - !_InputArg
+        input: String
     alternates:
     - !_InputAlternate
-      type: !_InputBase
-        input: InpGenAltSimpleRef
-        typeArgs:
-        - !_InputArg
-          input: String
-    name: InpGenAltSimple
+      input: RefInpGnrcAltSmpl
+      typeArgs:
+      - !_InputArg
+        input: String
+    name: InpGnrcAltSmpl
     typeKind: !_TypeKind Input
-  !_Identifier InpGenAltSimpleRef: !_TypeInput
+  !_Identifier RefInpGnrcAltSmpl: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpGenAltSimpleRef
-      type: !_TypeParam ref
+      object: RefInpGnrcAltSmpl
+      typeParam: ref
     alternates:
     - !_InputAlternate
-      type: !_TypeParam ref
-    name: InpGenAltSimpleRef
+      typeParam: ref
+    name: RefInpGnrcAltSmpl
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

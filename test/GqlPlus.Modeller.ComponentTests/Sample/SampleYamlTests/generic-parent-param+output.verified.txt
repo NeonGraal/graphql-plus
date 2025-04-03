@@ -1,51 +1,48 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpGenParentParam: !_TypeOutput
+  !_Identifier AltOutpGnrcPrntParam: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpGenParentParamRef
-      type: !_OutputBase
-        output: OutpGenParentParamAlt
-    name: OutpGenParentParam
-    parent: !_OutputBase
-      output: OutpGenParentParamRef
-      typeArgs:
-      - !_OutputArg
-        output: OutpGenParentParamAlt
-    typeKind: !_TypeKind Output
-  !_Identifier OutpGenParentParamAlt: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: OutpGenParentParamAlt
-      type: !_OutputBase
-        output: String
+      object: AltOutpGnrcPrntParam
+      output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
-      object: OutpGenParentParamAlt
+      object: AltOutpGnrcPrntParam
       type: !_OutputBase
         output: Number
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: String
+      output: String
     fields:
     - !_OutputField
       name: alt
       type: !_OutputBase
         output: Number
-    name: OutpGenParentParamAlt
+    name: AltOutpGnrcPrntParam
     typeKind: !_TypeKind Output
-  !_Identifier OutpGenParentParamRef: !_TypeOutput
+  !_Identifier OutpGnrcPrntParam: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpGenParentParamRef
-      type: !_TypeParam ref
+      object: RefOutpGnrcPrntParam
+      typeParam: ref
+    name: OutpGnrcPrntParam
+    parent: !_OutputBase
+      output: RefOutpGnrcPrntParam
+      typeArgs:
+      - !_OutputArg
+        output: AltOutpGnrcPrntParam
+    typeKind: !_TypeKind Output
+  !_Identifier RefOutpGnrcPrntParam: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: RefOutpGnrcPrntParam
+      typeParam: ref
     alternates:
     - !_OutputAlternate
-      type: !_TypeParam ref
-    name: OutpGenParentParamRef
+      typeParam: ref
+    name: RefOutpGnrcPrntParam
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

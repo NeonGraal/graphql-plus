@@ -20,8 +20,8 @@ public static class AllVerifiers
       // Operation
       .AddVerify<IGqlpOperation, VerifyOperation>()
       .AddVerify<IGqlpVariable, VerifyVariable>()
-      .AddVerifyUsageNamed<IGqlpArg, IGqlpVariable, VerifyVariableUsage>()
-      .AddVerifyUsageNamed<IGqlpSpread, IGqlpFragment, VerifyFragmentUsage>()
+      .AddVerifyUsageIdentified<IGqlpArg, IGqlpVariable, VerifyVariableUsage>()
+      .AddVerifyUsageIdentified<IGqlpSpread, IGqlpFragment, VerifyFragmentUsage>()
       // Schema
       .AddVerify<IGqlpSchema, VerifySchema>()
       .AddVerifyAliased<IGqlpSchemaCategory, VerifyCategoryAliased>()
@@ -64,14 +64,14 @@ public static class AllVerifiers
     return services;
   }
 
-  private static IServiceCollection AddVerifyUsageNamed<TUsage, TNamed, TService>(this IServiceCollection services)
-    where TService : class, IVerifyNamed<TUsage, TNamed>
+  private static IServiceCollection AddVerifyUsageIdentified<TUsage, TIdentified, TService>(this IServiceCollection services)
+    where TService : class, IVerifyIdentified<TUsage, TIdentified>
     where TUsage : IGqlpError
-    where TNamed : IGqlpNamed
+    where TIdentified : IGqlpIdentified
   => services
-      .AddSingleton<IVerifyNamed<TUsage, TNamed>, TService>()
+      .AddSingleton<IVerifyIdentified<TUsage, TIdentified>, TService>()
       .TryAddVerify<TUsage, NullVerifierError<TUsage>>()
-      .TryAddVerify<TNamed, NullVerifierError<TNamed>>();
+      .TryAddVerify<TIdentified, NullVerifierError<TIdentified>>();
 
   private static IServiceCollection AddVerifyAliased<TAliased, TService>(this IServiceCollection services)
     where TService : class, IVerifyAliased<TAliased>

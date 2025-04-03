@@ -2,67 +2,20 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualAltModParam": {
+    "AltDualAltModParam": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "collections": [
-            {
-              "$tag": "_ModifierTypeParam",
-              "by": "mod",
-              "modifierKind": "Param"
-            }
-          ],
-          "object": "DualAltModParam",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "DualAltModParamAlt"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_DualAlternate",
-          "collections": [
-            {
-              "$tag": "_ModifierTypeParam",
-              "by": "mod",
-              "modifierKind": "Param"
-            }
-          ],
-          "type": {
-            "$tag": "_DualBase",
-            "value": "DualAltModParamAlt"
-          }
-        }
-      ],
-      "name": "DualAltModParam",
-      "typeKind": "Dual",
-      "typeParams": [
-        {
-          "$tag": "_Described",
-          "value": "mod"
-        }
-      ]
-    },
-    "DualAltModParamAlt": {
-      "$tag": "_TypeDual",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualAltModParamAlt",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "dual": "String",
+          "object": "AltDualAltModParam"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "DualAltModParamAlt",
+          "object": "AltDualAltModParam",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -72,10 +25,7 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -88,8 +38,46 @@
           }
         }
       ],
-      "name": "DualAltModParamAlt",
+      "name": "AltDualAltModParam",
       "typeKind": "Dual"
+    },
+    "DualAltModParam": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "collections": [
+            {
+              "$tag": "_ModifierTypeParam",
+              "by": "mod",
+              "modifierKind": "Param"
+            }
+          ],
+          "dual": "AltDualAltModParam",
+          "object": "DualAltModParam"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "collections": [
+            {
+              "$tag": "_ModifierTypeParam",
+              "by": "mod",
+              "modifierKind": "Param"
+            }
+          ],
+          "dual": "AltDualAltModParam"
+        }
+      ],
+      "name": "DualAltModParam",
+      "typeKind": "Dual",
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "mod"
+        }
+      ]
     }
   }
 }

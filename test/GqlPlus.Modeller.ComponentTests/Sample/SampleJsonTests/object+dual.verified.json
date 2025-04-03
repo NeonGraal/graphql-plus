@@ -2,9 +2,9 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualObject": {
+    "DualObj": {
       "$tag": "_TypeDual",
-      "name": "DualObject",
+      "name": "DualObj",
       "typeKind": "Dual"
     }
   }

@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "NumDiff": {
+    "DmnNmbrDiff": {
       "$tag": "_DomainNumber",
       "allItems": [
         {
           "$tag": "_DomainItem(_DomainRange)",
-          "domain": "NumDiff",
+          "domain": "DmnNmbrDiff",
           "exclude": false,
           "from": 1,
           "to": 9
@@ -22,7 +22,7 @@
           "to": 9
         }
       ],
-      "name": "NumDiff",
+      "name": "DmnNmbrDiff",
       "typeKind": "Domain"
     }
   }

@@ -2,20 +2,20 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpGenParam": {
+    "OutpGnrcParam": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutpGenParam",
+          "object": "OutpGnrcParam",
           "type": {
             "$tag": "_OutputBase",
-            "output": "OutpGenParamRef",
+            "output": "OutpGnrcParamRef",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "value": "OutpGenParamAlt"
+                "value": "OutpGnrcParamAlt"
               }
             ]
           }
@@ -27,36 +27,33 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "output": "OutpGenParamRef",
+            "output": "OutpGnrcParamRef",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "value": "OutpGenParamAlt"
+                "value": "OutpGnrcParamAlt"
               }
             ]
           }
         }
       ],
-      "name": "OutpGenParam",
+      "name": "OutpGnrcParam",
       "typeKind": "Output"
     },
-    "OutpGenParamAlt": {
+    "OutpGnrcParamAlt": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGenParamAlt",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "object": "OutpGnrcParamAlt",
+          "output": "String"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "alt",
-          "object": "OutpGenParamAlt",
+          "object": "OutpGnrcParamAlt",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -66,10 +63,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -82,29 +76,29 @@
           }
         }
       ],
-      "name": "OutpGenParamAlt",
+      "name": "OutpGnrcParamAlt",
       "typeKind": "Output"
     },
-    "OutpGenParamRef": {
+    "OutpGnrcParamRef": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGenParamRef",
-          "type": "ref"
+          "object": "OutpGnrcParamRef",
+          "typeParam": "ref"
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": "ref"
+          "value": "ref"
         }
       ],
-      "name": "OutpGenParamRef",
+      "name": "OutpGnrcParamRef",
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]

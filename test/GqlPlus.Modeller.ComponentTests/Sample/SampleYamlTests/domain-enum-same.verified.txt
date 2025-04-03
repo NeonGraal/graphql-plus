@@ -1,9 +1,9 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier EnumSame: !_DomainEnum
+  !_Identifier DmnEnumSame: !_DomainEnum
     allItems:
     - !_DomainItem(_DomainLabel)
-      domain: EnumSame
+      domain: DmnEnumSame
       exclude: false
       value: !_EnumValue
         label: true
@@ -17,5 +17,5 @@ types: !_Map_Type
         label: true
         name: Boolean
         typeKind: !_SimpleKind Enum
-    name: EnumSame
+    name: DmnEnumSame
     typeKind: !_TypeKind Domain

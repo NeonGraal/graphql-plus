@@ -3,15 +3,15 @@
 Success
 {
   !En I@006/0001
-  EnSameParent
-  :EnParent
-  !EL I@031/0001
-  sameP
+  EnumSamePrnt
+  :PrntEnumSamePrnt
+  !EL I@039/0001
+  enumSamePrnt
 }
 {
   !En I@006/0003
-  EnParent
-  !EL I@017/0003
-  parent
+  PrntEnumSamePrnt
+  !EL I@025/0003
+  prnt_enumSamePrnt
 }
 ]

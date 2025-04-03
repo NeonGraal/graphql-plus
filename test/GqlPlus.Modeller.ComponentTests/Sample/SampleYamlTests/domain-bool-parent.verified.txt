@@ -1,13 +1,13 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DomBoolPrntTest: !_DomainBoolean
+  !_Identifier DmnBoolPrnt: !_DomainBoolean
     allItems:
     - !_DomainItem(_DomainTrueFalse)
-      domain: DomBoolTestPrnt
+      domain: PrntDmnBoolPrnt
       exclude: false
       value: true
     - !_DomainItem(_DomainTrueFalse)
-      domain: DomBoolPrntTest
+      domain: DmnBoolPrnt
       exclude: false
       value: false
     domainKind: !_DomainKind Boolean
@@ -15,15 +15,15 @@ types: !_Map_Type
     - !_DomainTrueFalse
       exclude: false
       value: false
-    name: DomBoolPrntTest
+    name: DmnBoolPrnt
     parent: !_TypeRef(_SimpleKind)
-      name: DomBoolTestPrnt
+      name: PrntDmnBoolPrnt
       typeKind: !_SimpleKind Domain
     typeKind: !_TypeKind Domain
-  !_Identifier DomBoolTestPrnt: !_DomainBoolean
+  !_Identifier PrntDmnBoolPrnt: !_DomainBoolean
     allItems:
     - !_DomainItem(_DomainTrueFalse)
-      domain: DomBoolTestPrnt
+      domain: PrntDmnBoolPrnt
       exclude: false
       value: true
     domainKind: !_DomainKind Boolean
@@ -31,5 +31,5 @@ types: !_Map_Type
     - !_DomainTrueFalse
       exclude: false
       value: true
-    name: DomBoolTestPrnt
+    name: PrntDmnBoolPrnt
     typeKind: !_TypeKind Domain

@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "categories": {
     "$tag": "_Map_Categories",
-    "category": {
+    "ctgr": {
       "$tag": "_Category",
-      "name": "category",
+      "name": "ctgr",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
-        "name": "Category",
+        "name": "Ctgr",
         "typeKind": "Output"
       },
       "resolution": "Parallel"
@@ -15,9 +15,9 @@
   },
   "types": {
     "$tag": "_Map_Type",
-    "Category": {
+    "Ctgr": {
       "$tag": "_TypeOutput",
-      "name": "Category",
+      "name": "Ctgr",
       "typeKind": "Output"
     }
   }

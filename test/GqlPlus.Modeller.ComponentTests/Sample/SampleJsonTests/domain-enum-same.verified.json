@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "EnumSame": {
+    "DmnEnumSame": {
       "$tag": "_DomainEnum",
       "allItems": [
         {
           "$tag": "_DomainItem(_DomainLabel)",
-          "domain": "EnumSame",
+          "domain": "DmnEnumSame",
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
@@ -30,7 +30,7 @@
           }
         }
       ],
-      "name": "EnumSame",
+      "name": "DmnEnumSame",
       "typeKind": "Domain"
     }
   }

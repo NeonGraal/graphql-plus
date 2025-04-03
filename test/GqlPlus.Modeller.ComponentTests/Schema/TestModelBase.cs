@@ -69,9 +69,8 @@ internal abstract class CheckModelBase<TName, TSrc, TAst, TModel, TRender>
   {
     Structured render = _rendering.Render((TRender)model);
 
-    string yaml = render.ToYaml(false);
-
-    yaml.ToLines().ShouldBe(expected.Tidy());
+    string[] yaml = render.ToYaml(false).ToLines();
+    yaml.ShouldBe(expected.Tidy());
   }
 
   protected virtual TModel AstToModel(TAst ast)

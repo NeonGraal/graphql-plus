@@ -3,28 +3,28 @@
   "aliases": ["Alias"],
   "categories": {
     "$tag": "_Map_Categories",
-    "cat": {
-      "$tag": "_Category",
-      "name": "cat",
-      "output": {
-        "$tag": "_TypeRef(_TypeKind)",
-        "name": "Cat",
-        "typeKind": "Output"
-      },
-      "resolution": "Parallel"
-    },
-    "catDescr": {
+    "ctgrDscrs": {
       "$tag": "_Category",
       "description": "A Category described",
-      "name": "catDescr",
+      "name": "ctgrDscrs",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
-        "name": "CatDescr",
+        "name": "CtgrDscrs",
         "typeKind": "Output"
       },
       "resolution": "Parallel"
     },
-    "catDict": {
+    "ctgrOutp": {
+      "$tag": "_Category",
+      "name": "ctgrOutp",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "CtgrOutp",
+        "typeKind": "Output"
+      },
+      "resolution": "Parallel"
+    },
+    "ctgrOutpDict": {
       "$tag": "_Category",
       "modifiers": [
         {
@@ -34,15 +34,15 @@
           "typeKind": "Basic"
         }
       ],
-      "name": "catDict",
+      "name": "ctgrOutpDict",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
-        "name": "CatDict",
+        "name": "CtgrOutpDict",
         "typeKind": "Output"
       },
       "resolution": "Parallel"
     },
-    "catList": {
+    "ctgrOutpList": {
       "$tag": "_Category",
       "modifiers": [
         {
@@ -50,15 +50,15 @@
           "modifierKind": "List"
         }
       ],
-      "name": "catList",
+      "name": "ctgrOutpList",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
-        "name": "CatList",
+        "name": "CtgrOutpList",
         "typeKind": "Output"
       },
       "resolution": "Parallel"
     },
-    "catOpt": {
+    "ctgrOutpOptl": {
       "$tag": "_Category",
       "modifiers": [
         {
@@ -66,20 +66,20 @@
           "modifierKind": "Opt"
         }
       ],
-      "name": "catOpt",
+      "name": "ctgrOutpOptl",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
-        "name": "CatOpt",
+        "name": "CtgrOutpOptl",
         "typeKind": "Output"
       },
       "resolution": "Parallel"
     },
-    "descrBetween": {
+    "descrBtwn": {
       "$tag": "_Category",
-      "name": "descrBetween",
+      "name": "descrBtwn",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
-        "name": "DescrBetween",
+        "name": "DescrBtwn",
         "typeKind": "Output"
       },
       "resolution": "Parallel"
@@ -87,7 +87,7 @@
   },
   "directives": {
     "$tag": "_Map_Directives",
-    "DirDescr": {
+    "DrctDescr": {
       "$tag": "_Directive",
       "description": "A directive described",
       "locations": {
@@ -99,10 +99,10 @@
         "Spread": "_",
         "Variable": "_"
       },
-      "name": "DirDescr",
+      "name": "DrctDescr",
       "repeatable": false
     },
-    "DirNoParam": {
+    "DrctNoParam": {
       "$tag": "_Directive",
       "locations": {
         "$tag": "_Set(_Location)",
@@ -113,10 +113,10 @@
         "Spread": "_",
         "Variable": "_"
       },
-      "name": "DirNoParam",
+      "name": "DrctNoParam",
       "repeatable": false
     },
-    "DirParam": {
+    "DrctParamDict": {
       "$tag": "_Directive",
       "locations": {
         "$tag": "_Set(_Location)",
@@ -127,31 +127,11 @@
         "Spread": "_",
         "Variable": "_"
       },
-      "name": "DirParam",
+      "name": "DrctParamDict",
       "parameters": [
         {
           "$tag": "_InputParam",
-          "value": "DirParamIn"
-        }
-      ],
-      "repeatable": false
-    },
-    "DirParamDict": {
-      "$tag": "_Directive",
-      "locations": {
-        "$tag": "_Set(_Location)",
-        "Field": "_",
-        "Fragment": "_",
-        "Inline": "_",
-        "Operation": "_",
-        "Spread": "_",
-        "Variable": "_"
-      },
-      "name": "DirParamDict",
-      "parameters": [
-        {
-          "$tag": "_InputParam",
-          "input": "DirParamIn",
+          "input": "InDrctParamDict",
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
@@ -164,7 +144,7 @@
       ],
       "repeatable": false
     },
-    "DirParamList": {
+    "DrctParamIn": {
       "$tag": "_Directive",
       "locations": {
         "$tag": "_Set(_Location)",
@@ -175,11 +155,31 @@
         "Spread": "_",
         "Variable": "_"
       },
-      "name": "DirParamList",
+      "name": "DrctParamIn",
       "parameters": [
         {
           "$tag": "_InputParam",
-          "input": "DirParamIn",
+          "value": "InDrctParamIn"
+        }
+      ],
+      "repeatable": false
+    },
+    "DrctParamList": {
+      "$tag": "_Directive",
+      "locations": {
+        "$tag": "_Set(_Location)",
+        "Field": "_",
+        "Fragment": "_",
+        "Inline": "_",
+        "Operation": "_",
+        "Spread": "_",
+        "Variable": "_"
+      },
+      "name": "DrctParamList",
+      "parameters": [
+        {
+          "$tag": "_InputParam",
+          "input": "InDrctParamList",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -190,7 +190,7 @@
       ],
       "repeatable": false
     },
-    "DirParamOpt": {
+    "DrctParamOpt": {
       "$tag": "_Directive",
       "locations": {
         "$tag": "_Set(_Location)",
@@ -201,11 +201,11 @@
         "Spread": "_",
         "Variable": "_"
       },
-      "name": "DirParamOpt",
+      "name": "DrctParamOpt",
       "parameters": [
         {
           "$tag": "_InputParam",
-          "input": "DirParamIn",
+          "input": "InDrctParamOpt",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -234,70 +234,91 @@
   },
   "types": {
     "$tag": "_Map_Type",
-    "Cat": {
+    "CtgrDscrs": {
       "$tag": "_TypeOutput",
-      "name": "Cat",
+      "name": "CtgrDscrs",
       "typeKind": "Output"
     },
-    "CatDescr": {
+    "CtgrOutp": {
       "$tag": "_TypeOutput",
-      "name": "CatDescr",
+      "name": "CtgrOutp",
       "typeKind": "Output"
     },
-    "CatDict": {
+    "CtgrOutpDict": {
       "$tag": "_TypeOutput",
-      "name": "CatDict",
+      "name": "CtgrOutpDict",
       "typeKind": "Output"
     },
-    "CatList": {
+    "CtgrOutpList": {
       "$tag": "_TypeOutput",
-      "name": "CatList",
+      "name": "CtgrOutpList",
       "typeKind": "Output"
     },
-    "CatOpt": {
+    "CtgrOutpOptl": {
       "$tag": "_TypeOutput",
-      "name": "CatOpt",
+      "name": "CtgrOutpOptl",
       "typeKind": "Output"
     },
     "Descr": {
       "$tag": "_TypeOutput",
-      "description": "A simple doc A simple doc With extra",
+      "description": "A simple description",
       "name": "Descr",
       "typeKind": "Output"
     },
-    "DescrBackslash": {
+    "DescrBcks": {
       "$tag": "_TypeOutput",
-      "description": "A backslash (\u0022\\\u0022) doc",
-      "name": "DescrBackslash",
+      "description": "A backslash (\u0022\\\u0022) description",
+      "name": "DescrBcks",
       "typeKind": "Output"
     },
-    "DescrBetween": {
+    "DescrBtwn": {
       "$tag": "_TypeOutput",
-      "description": "A doc between",
-      "name": "DescrBetween",
+      "description": "A description between",
+      "name": "DescrBtwn",
       "typeKind": "Output"
     },
-    "DescrComplex": {
+    "DescrCmpl": {
       "$tag": "_TypeOutput",
-      "description": "A \u0022more\u0022 \u0027Complicated\u0027 \\ doc",
-      "name": "DescrComplex",
+      "description": "A \u0022more\u0022 \u0027Complicated\u0027 \\ description",
+      "name": "DescrCmpl",
       "typeKind": "Output"
     },
-    "DescrDouble": {
+    "DescrDbl": {
       "$tag": "_TypeOutput",
-      "description": "A \u0027double-quoted\u0027 doc",
-      "name": "DescrDouble",
+      "description": "A \u0027double-quoted\u0027 description",
+      "name": "DescrDbl",
       "typeKind": "Output"
     },
-    "DescrSingle": {
+    "DescrSngl": {
       "$tag": "_TypeOutput",
-      "description": "A \u0022single-quoted\u0022 doc",
-      "name": "DescrSingle",
+      "description": "A \u0022single-quoted\u0022 description",
+      "name": "DescrSngl",
       "typeKind": "Output"
     },
-    "DirParamIn": {
+    "Dscrs": {
+      "$tag": "_TypeOutput",
+      "description": "A simple doc With extra",
+      "name": "Dscrs",
+      "typeKind": "Output"
+    },
+    "InDrctParamDict": {
       "$tag": "_TypeInput",
-      "name": "DirParamIn",
+      "name": "InDrctParamDict",
+      "typeKind": "Input"
+    },
+    "InDrctParamIn": {
+      "$tag": "_TypeInput",
+      "name": "InDrctParamIn",
+      "typeKind": "Input"
+    },
+    "InDrctParamList": {
+      "$tag": "_TypeInput",
+      "name": "InDrctParamList",
+      "typeKind": "Input"
+    },
+    "InDrctParamOpt": {
+      "$tag": "_TypeInput",
+      "name": "InDrctParamOpt",
       "typeKind": "Input"
     }
   }

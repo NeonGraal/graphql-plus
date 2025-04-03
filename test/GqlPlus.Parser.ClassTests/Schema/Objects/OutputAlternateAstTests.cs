@@ -11,8 +11,7 @@ public class OutputAlternateAstTests
     => $"( !OA {input.Type} )";
 
   private readonly AstObjectAlternateChecks<OutputAlternateAst, IGqlpOutputBase, OutputBaseAst, IGqlpOutputArg, OutputArgAst> _checks
-    = new((dual, objBase) => new(AstNulls.At, objBase),
-      dual => new OutputBaseAst(AstNulls.At, dual.Type),
+    = new(dual => new(AstNulls.At, dual.Type, ""),
       arguments => arguments.OutputArgs());
 
   internal override IAstObjectAlternateChecks<IGqlpOutputBase> AlternateChecks => _checks;

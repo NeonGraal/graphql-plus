@@ -2,49 +2,49 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpGenParentArg": {
+    "OutpGnrcPrntArg": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGenParentArgRef",
-          "type": "ref"
+          "object": "RefOutpGnrcPrntArg",
+          "typeParam": "ref"
         }
       ],
-      "name": "OutpGenParentArg",
+      "name": "OutpGnrcPrntArg",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "OutpGenParentArgRef",
+        "output": "RefOutpGnrcPrntArg",
         "typeArgs": ["type"]
       },
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
     },
-    "OutpGenParentArgRef": {
+    "RefOutpGnrcPrntArg": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGenParentArgRef",
-          "type": "ref"
+          "object": "RefOutpGnrcPrntArg",
+          "typeParam": "ref"
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": "ref"
+          "value": "ref"
         }
       ],
-      "name": "OutpGenParentArgRef",
+      "name": "RefOutpGnrcPrntArg",
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]

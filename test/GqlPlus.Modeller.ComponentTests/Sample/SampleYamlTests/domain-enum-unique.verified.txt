@@ -1,27 +1,32 @@
 ﻿!_Schema
 types: !_Map_Type
+  !_Identifier EnumDmnEnumUnq: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnumDmnEnumUnq
+      name: enum_dmnEnumUnq
+    - !_EnumLabel
+      enum: EnumDmnEnumUnq
+      name: dmnEnumUnq
+    items:
+    - !_Aliased
+      name: enum_dmnEnumUnq
+    - !_Aliased
+      name: dmnEnumUnq
+    name: EnumDmnEnumUnq
+    typeKind: !_TypeKind Enum
   !_Identifier EnumDomDup: !_TypeEnum
     allItems:
     - !_EnumLabel
       enum: EnumDomDup
-      name: eum_dom_dup
+      name: dmnEnumUnq
+    - !_EnumLabel
+      enum: EnumDomDup
+      name: dup_dmnEnumUnq
     items:
     - !_Aliased
-      name: eum_dom_dup
+      name: dmnEnumUnq
+    - !_Aliased
+      name: dup_dmnEnumUnq
     name: EnumDomDup
-    typeKind: !_TypeKind Enum
-  !_Identifier EnumDomUnique: !_TypeEnum
-    allItems:
-    - !_EnumLabel
-      enum: EnumDomUnique
-      name: eum_dom_value
-    - !_EnumLabel
-      enum: EnumDomUnique
-      name: eum_dom_dup
-    items:
-    - !_Aliased
-      name: eum_dom_value
-    - !_Aliased
-      name: eum_dom_dup
-    name: EnumDomUnique
     typeKind: !_TypeKind Enum

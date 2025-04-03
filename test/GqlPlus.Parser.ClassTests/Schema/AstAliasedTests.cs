@@ -6,10 +6,12 @@ namespace GqlPlus.Schema;
 
 public abstract class AstAliasedTests
   : AstAliasedTests<string>
-{ }
+{
+  protected override string InputName(string input) => input;
+}
 
 public abstract class AstAliasedTests<TInput>
-  : AstAbbreviatedTests<TInput>
+  : AstNamedTests<TInput>
 {
   [Theory, RepeatData]
   public void HashCode_WithAlias(TInput input, string aliased)
@@ -21,11 +23,11 @@ public abstract class AstAliasedTests<TInput>
 
   [Theory, RepeatData]
   public void String_WithAlias(TInput input, string aliased)
-    => AliasedChecks.String_WithAliases(input, AliasesString(input, Aliases(aliased)), aliased);
+    => AliasedChecks.String_WithAliases(input, AliasesString(input, "", Aliases(aliased)), aliased);
 
   [Theory, RepeatData]
   public void String_WithAliases(TInput input, string[] aliases)
-    => AliasedChecks.String_WithAliases(input, AliasesString(input, Aliases(aliases)), aliases);
+    => AliasedChecks.String_WithAliases(input, AliasesString(input, "", Aliases(aliases)), aliases);
 
   [Theory, RepeatData]
   public void Equality_WithAlias(TInput input, string aliased)
@@ -50,20 +52,21 @@ public abstract class AstAliasedTests<TInput>
       .Inequality_ByAliases(input, alias1, alias2);
 
   [Theory, RepeatData]
-  public void Inequality_ByInputs(TInput input1, TInput input2, string aliased)
+  public void Inequality_WithAliasByInputs(TInput input1, TInput input2, string aliased)
     => AliasedChecks
       .SkipIf(input1.ThrowIfNull().Equals(input2))
-      .Inequality_ByInputs(input1, input2, aliased);
+      .Inequality_WithAliasByInputs(input1, input2, aliased);
 
-  protected virtual string AliasesString(TInput input, string aliases)
-    => $"( !{AliasedChecks.Abbr} {input}{aliases} )";
+  protected virtual string AliasesString(TInput input, string description, string aliases)
+    => $"( {DescriptionNameString(input, description)}{aliases} )";
 
-  protected override string AbbreviatedString(TInput input) => AliasesString(input, "");
+  protected sealed override string DescriptionString(TInput input, string description)
+    => AliasesString(input, description, "");
 
   private static string Aliases(params string[] aliases)
     => aliases.Bracket(" [", "]").Joined();
 
-  internal sealed override IAstAbbreviatedChecks<TInput> AbbreviatedChecks => AliasedChecks;
+  internal sealed override IAstNamedChecks<TInput> NamedChecks => AliasedChecks;
 
   internal abstract IAstAliasedChecks<TInput> AliasedChecks { get; }
 }
@@ -79,7 +82,7 @@ internal class AstAliasedChecks<TAliased>(
 internal class AstAliasedChecks<TInput, TAliased>(
   BaseAstChecks<TAliased>.CreateBy<TInput> createInput,
   [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
-) : AstAbbreviatedChecks<TInput, TAliased>(createInput, createExpression)
+) : AstNamedChecks<TInput, TAliased>(createInput, createExpression)
   , IAstAliasedChecks<TInput>
   where TAliased : AstAliased
 {
@@ -104,7 +107,7 @@ internal class AstAliasedChecks<TInput, TAliased>(
       aliases => CreateAliases(input, aliases),
       CreateExpression);
 
-  public void Inequality_ByInputs(TInput input1, TInput input2, string aliased)
+  public void Inequality_WithAliasByInputs(TInput input1, TInput input2, string aliased)
     => InequalityBetween(input1, input2,
       input => CreateAliases(input, aliased),
       CreateExpression);
@@ -124,12 +127,12 @@ internal interface IAstAliasedChecks
 { }
 
 internal interface IAstAliasedChecks<TInput>
-  : IAstAbbreviatedChecks<TInput>
+  : IAstNamedChecks<TInput>
 {
   void HashCode_WithAliases(TInput input, params string[] aliases);
   void String_WithAliases(TInput input, string expected, params string[] aliases);
   void Equality_WithAliases(TInput input, params string[] aliases);
   void Inequality_WithAliases(TInput input, params string[] aliases);
-  void Inequality_ByInputs(TInput input1, TInput input2, string alias);
+  void Inequality_WithAliasByInputs(TInput input1, TInput input2, string alias);
   void Inequality_ByAliases(TInput input, string alias1, string alias2);
 }

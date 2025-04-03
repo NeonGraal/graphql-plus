@@ -1,6 +1,6 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier Descr: !_TypeOutput
+  !_Identifier Dscrs: !_TypeOutput
     description: 'A simple doc With extra'
-    name: Descr
+    name: Dscrs
     typeKind: !_TypeKind Output

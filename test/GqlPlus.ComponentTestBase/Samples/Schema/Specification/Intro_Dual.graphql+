@@ -1,18 +1,10 @@
 output _TypeDual {
-    : _TypeObject<_TypeKind.Dual _DualParent _DualTypeParam _DualField _DualAlternate>
+    : _TypeObject<_TypeKind.Dual _DualBase _DualField _DualAlternate>
     }
 
 output _DualBase {
-    : _ObjBase<_ObjTypeArg>
+    : _ObjBase<_DualTypeArg>
         dual: _Identifier
-    }
-
-output _DualParent {
-    : _ObjDescribed<_DualBase>
-    }
-
-output _DualTypeParam {
-    : _ObjTypeParam<_DualBase>
     }
 
 output _DualField {
@@ -20,5 +12,11 @@ output _DualField {
     }
 
 output _DualAlternate {
-    : _Alternate<_DualBase>
+    : _Alternate<_DualTypeArg>
+        dual: _Identifier
+    }
+
+output _DualTypeArg {
+    : _ObjTypeArg
+        dual: _Identifier
     }

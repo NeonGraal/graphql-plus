@@ -1,2 +1,2 @@
 "A directive described"
-directive @DirDescr { all }
+directive @Name { all }

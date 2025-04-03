@@ -1,2 +1,2 @@
-category { Cat }
-output Cat { }
+category { Name }
+output Name { }

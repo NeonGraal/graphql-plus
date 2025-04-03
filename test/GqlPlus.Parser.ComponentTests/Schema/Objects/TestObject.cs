@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using System.ComponentModel;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Parsing;
 using GqlPlus.Parsing.Schema.Objects;
@@ -10,71 +11,71 @@ public abstract class TestObject<TObject>(
 ) : BaseAliasedTests<ObjectInput, TObject>(objectChecks)
 where TObject : IGqlpObject
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithAlternates_ReturnsCorrectAst(string name, string[] others)
     => objectChecks.WithAlternates(name, others);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithAlternateComments_ReturnsCorrectAst(string name, AlternateComment[] others)
     => objectChecks.WithAlternateComments(name, others);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithAlternateModifiers_ReturnsCorrectAst(string name, string[] others)
     => objectChecks.WithAlternateModifiers(name, others);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithAlternateModifiersBad_ReturnsFalse(string name, string[] others)
     => objectChecks.WithAlternateModifiersBad(name, others);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithTypeParams_ReturnsCorrectAst(string name, string other, string[] parameters)
     => objectChecks.WithTypeParams(name, other, parameters);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithTypeParamBad_ReturnsFalse(string name, string other)
     => objectChecks.WithTypeParamBad(name, other);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithTypeParamsBad_ReturnsFalse(string name, string other, string[] parameters)
     => objectChecks.WithTypeParamsBad(name, other, parameters);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithTypeParamsNone_ReturnsFalse(string name, string other)
     => objectChecks.WithTypeParamsNone(name, other);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithFieldBad_ReturnsFalse(string name, FieldInput[] fields, string fieldName)
     => objectChecks.WithFieldBad(name, fields, fieldName);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithFields_ReturnsCorrectAst(string name, FieldInput[] fields)
     => objectChecks.WithFields(name, fields);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithFieldsBad_ReturnsFalse(string name, FieldInput[] fields)
     => objectChecks.WithFieldsBad(name, fields);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithParentField_ReturnsCorrectAst(string name, string parent, string field, string fieldType)
     => objectChecks.WithParentField(name, parent, field, fieldType);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithParentFieldBad_ReturnsFalse(string name, string parent, string field, string fieldType)
     => objectChecks.WithParentFieldBad(name, parent, field, fieldType);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithParentGenericFieldBad_ReturnsFalse(string name, string parent, string subType, string field, string fieldType)
     => objectChecks.WithParentGenericFieldBad(name, parent, subType, field, fieldType);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithFieldsAndAlternates_ReturnsCorrectAst(string name, FieldInput[] fields, string[] others)
     => objectChecks.WithFieldsAndAlternates(name, fields, others);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithFieldsBadAndAlternates_ReturnsFalse(string name, FieldInput[] fields, string[] others)
     => objectChecks.WithFieldsBadAndAlternates(name, fields, others);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithFieldsAndAlternatesBad_ReturnsFalse(string name, FieldInput[] fields, string[] others)
     => objectChecks.WithFieldsAndAlternatesBad(name, fields, others);
 }
@@ -89,7 +90,7 @@ internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt
   where TObjField : IGqlpObjField
   where TObjFieldAst : AstObjField<TObjBase>, TObjField
   where TObjAlt : IGqlpObjAlternate
-  where TObjAltAst : AstObjAlternate<TObjBase>, TObjAlt
+  where TObjAltAst : AstObjAlternate<TObjArg>, TObjAlt
   where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjArg>, TObjBase
   where TObjArg : IGqlpObjArg
@@ -129,7 +130,7 @@ internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt
     => TrueExpected(
       name + "{" + others.Select(o => $"|'{o.Content}'{o.Alternate}").Joined() + "}",
        Object(name) with {
-         ObjAlternates = [.. others.Select(o => ObjAlternate(ObjBase(o.Alternate, o.Content)))],
+         ObjAlternates = [.. others.Select(o => ObjAlternate(o.Alternate) with { Description = o.Content })],
        });
 
   public void WithAlternateModifiers(string name, string[] others)
@@ -204,10 +205,7 @@ internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt
     => _factories.ObjField(AstNulls.At, field, baseType);
 
   public TObjAltAst ObjAlternate(string baseType)
-    => _factories.ObjAlternate(AstNulls.At, ObjBase(baseType));
-
-  public TObjAlt ObjAlternate(TObjBase baseType)
-    => _factories.ObjAlternate(AstNulls.At, baseType);
+    => _factories.ObjAlternate(AstNulls.At, baseType, "");
 
   public TObjBaseAst ObjBase(string type, string description = "")
     => _factories.ObjBase(AstNulls.At, type, description);

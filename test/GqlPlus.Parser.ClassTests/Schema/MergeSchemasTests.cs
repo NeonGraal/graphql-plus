@@ -63,7 +63,7 @@ public class MergeSchemasTests
     => new SchemaAst(AstNulls.At);
 
   private static AstDeclaration[] CategoryDeclarations(string category)
-    => [new CategoryDeclAst(AstNulls.At, category), new OutputDeclAst(AstNulls.At, category)];
+    => [new CategoryDeclAst(AstNulls.At, new(AstNulls.At, category)), new OutputDeclAst(AstNulls.At, category)];
 
   private static AstDeclaration[] OptionDeclarations(string option)
     => [new OptionDeclAst(AstNulls.At, option)];

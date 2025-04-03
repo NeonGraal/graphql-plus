@@ -1,13 +1,13 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier Bool: !_DomainBoolean
+  !_Identifier DmnBool: !_DomainBoolean
     allItems:
     - !_DomainItem(_DomainTrueFalse)
-      domain: Bool
+      domain: DmnBool
       exclude: false
       value: false
     - !_DomainItem(_DomainTrueFalse)
-      domain: Bool
+      domain: DmnBool
       exclude: false
       value: true
     domainKind: !_DomainKind Boolean
@@ -18,5 +18,5 @@ types: !_Map_Type
     - !_DomainTrueFalse
       exclude: false
       value: true
-    name: Bool
+    name: DmnBool
     typeKind: !_TypeKind Domain

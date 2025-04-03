@@ -2,23 +2,20 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualParentField": {
+    "DualPrntField": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualParentFieldRef",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "dual": "String",
+          "object": "RefDualPrntField"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "parent",
-          "object": "DualParentFieldRef",
+          "object": "RefDualPrntField",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -27,7 +24,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "DualParentField",
+          "object": "DualPrntField",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -44,30 +41,27 @@
           }
         }
       ],
-      "name": "DualParentField",
+      "name": "DualPrntField",
       "parent": {
         "$tag": "_DualBase",
-        "value": "DualParentFieldRef"
+        "value": "RefDualPrntField"
       },
       "typeKind": "Dual"
     },
-    "DualParentFieldRef": {
+    "RefDualPrntField": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualParentFieldRef",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "dual": "String",
+          "object": "RefDualPrntField"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "parent",
-          "object": "DualParentFieldRef",
+          "object": "RefDualPrntField",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -77,10 +71,7 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -93,7 +84,7 @@
           }
         }
       ],
-      "name": "DualParentFieldRef",
+      "name": "RefDualPrntField",
       "typeKind": "Dual"
     }
   }

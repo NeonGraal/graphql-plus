@@ -2,47 +2,20 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualAlt": {
+    "AltDualAlt": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualAlt",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "DualAltAlt"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "DualAltAlt"
-          }
-        }
-      ],
-      "name": "DualAlt",
-      "typeKind": "Dual"
-    },
-    "DualAltAlt": {
-      "$tag": "_TypeDual",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualAltAlt",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "dual": "String",
+          "object": "AltDualAlt"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "DualAltAlt",
+          "object": "AltDualAlt",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -52,10 +25,7 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -68,7 +38,25 @@
           }
         }
       ],
-      "name": "DualAltAlt",
+      "name": "AltDualAlt",
+      "typeKind": "Dual"
+    },
+    "DualAlt": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "dual": "AltDualAlt",
+          "object": "DualAlt"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "value": "AltDualAlt"
+        }
+      ],
+      "name": "DualAlt",
       "typeKind": "Dual"
     }
   }

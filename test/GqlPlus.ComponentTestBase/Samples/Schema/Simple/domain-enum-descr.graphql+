@@ -1,2 +1,2 @@
-domain DomEnumDescr { enum "DomEnum" "Descr" dom_label_desc }
-enum EnumDomDescr { dom_label_desc }
+domain Name { enum "DomEnum" "Descr" name }
+enum EnumName { name }

@@ -8,35 +8,35 @@ public sealed class ParseDomainNumberTests(
   IBaseDomainChecks<string, IGqlpDomain<IGqlpDomainRange>> checks
 ) : BaseDomainTests<string, IGqlpDomain<IGqlpDomainRange>>(checks)
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithRangeNoBounds_ReturnsFalse(string name)
     => checks.FalseExpected(name + "{number ~}");
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithRangeLowerBound_ReturnsCorrectAst(string name, decimal min)
     => checks.TrueExpected(
       name + $"{{number {min}>}}",
       NewDomain(name, [NewRange(min, null)]));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithRangeSingle_ReturnsCorrectAst(string name, decimal min)
     => checks.TrueExpected(
       name + $"{{number {min}}}",
       NewDomain(name, [NewRange(min, min)]));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithRangeExcludes_ReturnsCorrectAst(string name, decimal min)
     => checks.TrueExpected(
       name + $"{{number !{min}}}",
       NewDomain(name, [new(AstNulls.At, "", true, min, min)]));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithRangeUpperBound_ReturnsCorrectAst(string name, decimal max)
     => checks.TrueExpected(
       name + $"{{number <{max}}}",
       NewDomain(name, [NewRange(null, max)]));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithRangeBounds_ReturnsCorrectAst(string name, decimal min, decimal max)
     => checks
       .SkipIf(max <= min)
@@ -44,7 +44,7 @@ public sealed class ParseDomainNumberTests(
         name + $"{{number {min}~{max}}}",
         NewDomain(name, [NewRange(min, max)]));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithRangeBoundsBad_ReturnsCorrectAst(string name, decimal min, decimal max)
     => checks
       .SkipIf(max > min)

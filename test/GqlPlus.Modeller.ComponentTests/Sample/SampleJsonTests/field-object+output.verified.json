@@ -2,49 +2,20 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpFieldObject": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "field",
-          "object": "OutpFieldObject",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutpFieldObjectFld"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "field",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutpFieldObjectFld"
-          }
-        }
-      ],
-      "name": "OutpFieldObject",
-      "typeKind": "Output"
-    },
-    "OutpFieldObjectFld": {
+    "FldOutpFieldObj": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpFieldObjectFld",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "object": "FldOutpFieldObj",
+          "output": "String"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutpFieldObjectFld",
+          "object": "FldOutpFieldObj",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -54,10 +25,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -70,7 +38,33 @@
           }
         }
       ],
-      "name": "OutpFieldObjectFld",
+      "name": "FldOutpFieldObj",
+      "typeKind": "Output"
+    },
+    "OutpFieldObj": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpFieldObj",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "FldOutpFieldObj"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "FldOutpFieldObj"
+          }
+        }
+      ],
+      "name": "OutpFieldObj",
       "typeKind": "Output"
     }
   }

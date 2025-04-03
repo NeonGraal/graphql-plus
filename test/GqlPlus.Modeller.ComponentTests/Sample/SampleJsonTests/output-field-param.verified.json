@@ -2,26 +2,31 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "FieldParam": {
+    "FldOutpFieldParam": {
+      "$tag": "_TypeDual",
+      "name": "FldOutpFieldParam",
+      "typeKind": "Dual"
+    },
+    "OutpFieldParam": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "FieldParam",
+          "object": "OutpFieldParam",
           "parameters": [
             {
               "$tag": "_InputParam",
-              "value": "FieldParam1"
+              "value": "OutpFieldParam1"
             },
             {
               "$tag": "_InputParam",
-              "value": "FieldParam2"
+              "value": "OutpFieldParam2"
             }
           ],
           "type": {
-            "$tag": "_OutputBase",
-            "value": "FieldParamFld"
+            "$tag": "_DualBase",
+            "value": "FldOutpFieldParam"
           }
         }
       ],
@@ -32,36 +37,31 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "value": "FieldParam1"
+              "value": "OutpFieldParam1"
             },
             {
               "$tag": "_InputParam",
-              "value": "FieldParam2"
+              "value": "OutpFieldParam2"
             }
           ],
           "type": {
-            "$tag": "_OutputBase",
-            "value": "FieldParamFld"
+            "$tag": "_DualBase",
+            "value": "FldOutpFieldParam"
           }
         }
       ],
-      "name": "FieldParam",
+      "name": "OutpFieldParam",
       "typeKind": "Output"
     },
-    "FieldParam1": {
+    "OutpFieldParam1": {
       "$tag": "_TypeInput",
-      "name": "FieldParam1",
+      "name": "OutpFieldParam1",
       "typeKind": "Input"
     },
-    "FieldParam2": {
+    "OutpFieldParam2": {
       "$tag": "_TypeInput",
-      "name": "FieldParam2",
+      "name": "OutpFieldParam2",
       "typeKind": "Input"
-    },
-    "FieldParamFld": {
-      "$tag": "_TypeOutput",
-      "name": "FieldParamFld",
-      "typeKind": "Output"
     }
   }
 }

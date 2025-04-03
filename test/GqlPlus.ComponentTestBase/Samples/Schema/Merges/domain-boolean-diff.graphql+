@@ -1,2 +1,2 @@
-domain BoolDiff { boolean true }
-domain BoolDiff { boolean false }
+domain Name { boolean true }
+domain Name { boolean false }

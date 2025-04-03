@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DomBoolDescr": {
+    "DmnBoolDescr": {
       "$tag": "_DomainBoolean",
       "allItems": [
         {
           "$tag": "_DomainItem(_DomainTrueFalse)",
-          "domain": "DomBoolDescr",
+          "domain": "DmnBoolDescr",
           "exclude": false,
           "value": true
         }
@@ -20,7 +20,7 @@
           "value": true
         }
       ],
-      "name": "DomBoolDescr",
+      "name": "DmnBoolDescr",
       "typeKind": "Domain"
     }
   }

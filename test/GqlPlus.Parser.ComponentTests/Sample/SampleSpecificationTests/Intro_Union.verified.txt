@@ -10,22 +10,33 @@ Success
     I@019/0002
     _TypeKind.Union
     I@035/0002
-    _Described
-    I@046/0002
+    _UnionRef
+    I@045/0002
     _UnionMember
   >
 }
 {
-  !Du I@006/0005
-  _UnionMember
+  !Ou I@008/0005
+  _UnionRef
   :
   I@007/0006
-  _Described
+  _TypeRef
+  <
+    I@016/0006
+    _SimpleKind
+  >
+}
+{
+  !Ou I@008/0009
+  _UnionMember
+  :
+  I@007/0010
+  _UnionRef
   {
-    !DF I@009/0007
+    !OF I@009/0011
     union
     :
-    I@016/0007
+    I@016/0011
     _Identifier
   }
 }

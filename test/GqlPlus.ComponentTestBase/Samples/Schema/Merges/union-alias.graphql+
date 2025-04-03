@@ -1,2 +1,2 @@
-union UnDiff [UnA1] { Boolean }
-union UnDiff [UnA2] { Number }
+union Name [UnA1] { Boolean }
+union Name [UnA2] { Number }

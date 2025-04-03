@@ -2,14 +2,15 @@
 !Sc S@001/0001
 Success
 {
-  "First category Second category"
+  'First category Second category'
   !Ca P@010/0002
-  test
+  ctgrDescr
   (Parallel)
-  Test
+  !Tr I@012/0002
+  CtgrDescr
 }
 {
   !Ou I@008/0005
-  Test
+  CtgrDescr
 }
 ]

@@ -1,13 +1,13 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DomEnumAll: !_DomainEnum
+  !_Identifier DmnEnumAll: !_DomainEnum
     allItems:
     - !_DomainItem(_DomainLabel)
-      domain: DomEnumAll
+      domain: DmnEnumAll
       exclude: false
       value: !_EnumValue
         label: '*'
-        name: EnumDomAll
+        name: EnumDmnEnumAll
         typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
@@ -15,22 +15,22 @@ types: !_Map_Type
       exclude: false
       value: !_EnumValue
         label: '*'
-        name: EnumDomAll
+        name: EnumDmnEnumAll
         typeKind: !_SimpleKind Enum
-    name: DomEnumAll
+    name: DmnEnumAll
     typeKind: !_TypeKind Domain
-  !_Identifier EnumDomAll: !_TypeEnum
+  !_Identifier EnumDmnEnumAll: !_TypeEnum
     allItems:
     - !_EnumLabel
-      enum: EnumDomAll
-      name: dom_all
+      enum: EnumDmnEnumAll
+      name: dmnEnumAll
     - !_EnumLabel
-      enum: EnumDomAll
-      name: dom_enum_all
+      enum: EnumDmnEnumAll
+      name: enum_dmnEnumAll
     items:
     - !_Aliased
-      name: dom_all
+      name: dmnEnumAll
     - !_Aliased
-      name: dom_enum_all
-    name: EnumDomAll
+      name: enum_dmnEnumAll
+    name: EnumDmnEnumAll
     typeKind: !_TypeKind Enum

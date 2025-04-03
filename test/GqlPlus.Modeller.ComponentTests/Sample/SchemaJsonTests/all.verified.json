@@ -4,9 +4,11 @@
     "$tag": "_Map_Categories",
     "all": {
       "$tag": "_Category",
+      "description": "A Category",
       "name": "all",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
+        "description": "Category Result",
         "name": "All",
         "typeKind": "Output"
       },
@@ -17,6 +19,7 @@
     "$tag": "_Map_Directives",
     "all": {
       "$tag": "_Directive",
+      "description": "A Directive",
       "locations": {
         "$tag": "_Set(_Location)",
         "Field": "_",
@@ -30,6 +33,16 @@
       "repeatable": false
     }
   },
+  "name": "Schema",
+  "settings": {
+    "$tag": "_Map_Setting",
+    "all": {
+      "$tag": "_Setting",
+      "description": "Schema Setting",
+      "name": "all",
+      "value": "test"
+    }
+  },
   "types": {
     "$tag": "_Map_Type",
     "All": {
@@ -37,22 +50,15 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
+          "description": "Alternates",
           "object": "All",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "output": "String"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": "List"
-            }
-          ],
+          "description": "Some items",
           "name": "items",
           "object": "All",
           "parameters": [
@@ -68,29 +74,23 @@
             }
           ],
           "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
+            "$tag": "_DualBase",
+            "value": "Field"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "description": "Alternates",
+          "output": "String"
         }
       ],
+      "description": "An Output",
       "fields": [
         {
           "$tag": "_OutputField",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": "List"
-            }
-          ],
+          "description": "Some items",
           "name": "items",
           "parameters": [
             {
@@ -105,13 +105,56 @@
             }
           ],
           "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
+            "$tag": "_DualBase",
+            "value": "Field"
           }
         }
       ],
       "name": "All",
       "typeKind": "Output"
+    },
+    "Field": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "description": "Some strings",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "strings",
+          "object": "Field",
+          "type": {
+            "$tag": "_DualBase",
+            "description": "Strings array",
+            "dual": "String"
+          }
+        }
+      ],
+      "description": "A Dual",
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "description": "Some strings",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": "List"
+            }
+          ],
+          "name": "strings",
+          "type": {
+            "$tag": "_DualBase",
+            "description": "Strings array",
+            "dual": "String"
+          }
+        }
+      ],
+      "name": "Field",
+      "typeKind": "Dual"
     },
     "Guid": {
       "$tag": "_DomainString",
@@ -123,6 +166,7 @@
           "pattern": "[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}"
         }
       ],
+      "description": "A Domain",
       "domainKind": "String",
       "items": [
         {
@@ -134,28 +178,65 @@
       "name": "Guid",
       "typeKind": "Domain"
     },
+    "Many": {
+      "$tag": "_TypeUnion",
+      "allItems": [
+        {
+          "$tag": "_UnionMember",
+          "description": "Guid Id",
+          "name": "Guid",
+          "union": "Many"
+        },
+        {
+          "$tag": "_UnionMember",
+          "description": "Numeric Id",
+          "name": "Number",
+          "union": "Many"
+        }
+      ],
+      "description": "A Union",
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "description": "Guid Id",
+          "name": "Guid"
+        },
+        {
+          "$tag": "_Aliased",
+          "description": "Numeric Id",
+          "name": "Number"
+        }
+      ],
+      "name": "Many",
+      "typeKind": "Union"
+    },
     "One": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
+          "description": "Label 2",
           "enum": "One",
           "name": "Two"
         },
         {
           "$tag": "_EnumLabel",
+          "description": "Label 3",
           "enum": "One",
           "name": "Three"
         }
       ],
+      "description": "An Enum",
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "Two"
+          "description": "Label 2",
+          "name": "Two"
         },
         {
           "$tag": "_Aliased",
-          "value": "Three"
+          "description": "Label 3",
+          "name": "Three"
         }
       ],
       "name": "One",
@@ -166,16 +247,15 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "Param",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
+          "description": "Alternate parameter",
+          "input": "String",
+          "object": "Param"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
+          "description": "First Id",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -186,31 +266,34 @@
           "object": "Param",
           "type": {
             "$tag": "_InputBase",
-            "value": "Guid"
+            "description": "Guid or Int",
+            "input": "Many"
           }
         },
         {
           "$tag": "_ObjectFor(_InputField)",
+          "description": "Last Id",
           "name": "beforeId",
           "object": "Param",
           "type": {
             "$tag": "_InputBase",
-            "value": "Guid"
+            "description": "Guid or Int",
+            "input": "Many"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
+          "description": "Alternate parameter",
+          "input": "String"
         }
       ],
+      "description": "An Input",
       "fields": [
         {
           "$tag": "_InputField",
+          "description": "First Id",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -220,15 +303,18 @@
           "name": "afterId",
           "type": {
             "$tag": "_InputBase",
-            "value": "Guid"
+            "description": "Guid or Int",
+            "input": "Many"
           }
         },
         {
           "$tag": "_InputField",
+          "description": "Last Id",
           "name": "beforeId",
           "type": {
             "$tag": "_InputBase",
-            "value": "Guid"
+            "description": "Guid or Int",
+            "input": "Many"
           }
         }
       ],

@@ -8,7 +8,7 @@ public sealed class ParseEnumTests(
   IBaseSimpleChecks<EnumInput, IGqlpEnum> checks
 ) : BaseSimpleTests<EnumInput, IGqlpEnum>(checks)
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithEnumLabels_ReturnsCorrectAst(string name, string[] labels)
     => checks.TrueExpected(
       name + labels.Bracket("{", "}").Joined(),
@@ -16,18 +16,18 @@ public sealed class ParseEnumTests(
         Items = labels.EnumLabels(),
       });
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithEnumLabelsBad_ReturnsFalse(string name, string[] labels)
     => checks
     .SkipNull(labels)
     .SkipIf(labels.Length < 2)
     .FalseExpected(name + "{" + string.Join("|", labels) + "}");
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithEnumLabelsNone_ReturnsFalse(string name)
     => checks.FalseExpected(name + "{}");
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithAll_ReturnsCorrectAst(string name, string parent, string[] labels)
     => checks.TrueExpected(
       name + labels.Prepend(parent.Prefixed(":")).Bracket("{", "}").Joined(),

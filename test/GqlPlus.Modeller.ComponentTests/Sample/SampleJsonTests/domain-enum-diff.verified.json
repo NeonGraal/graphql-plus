@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "EnumDiff": {
+    "DmnEnumDiff": {
       "$tag": "_DomainEnum",
       "allItems": [
         {
           "$tag": "_DomainItem(_DomainLabel)",
-          "domain": "EnumDiff",
+          "domain": "DmnEnumDiff",
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
@@ -18,7 +18,7 @@
         },
         {
           "$tag": "_DomainItem(_DomainLabel)",
-          "domain": "EnumDiff",
+          "domain": "DmnEnumDiff",
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
@@ -51,7 +51,7 @@
           }
         }
       ],
-      "name": "EnumDiff",
+      "name": "DmnEnumDiff",
       "typeKind": "Domain"
     }
   }

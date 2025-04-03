@@ -2,64 +2,70 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpParentParamSame": {
+    "OutpPrntParamSame": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpParentParamSameRef",
-          "type": "a"
+          "object": "RefOutpPrntParamSame",
+          "typeParam": "a"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutpParentParamSame",
-          "type": "a"
+          "object": "OutpPrntParamSame",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "a"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_OutputField",
           "name": "field",
-          "type": "a"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "a"
+          }
         }
       ],
-      "name": "OutpParentParamSame",
+      "name": "OutpPrntParamSame",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "OutpParentParamSameRef",
+        "output": "RefOutpPrntParamSame",
         "typeArgs": ["a"]
       },
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "a"
         }
       ]
     },
-    "OutpParentParamSameRef": {
+    "RefOutpPrntParamSame": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpParentParamSameRef",
-          "type": "a"
+          "object": "RefOutpPrntParamSame",
+          "typeParam": "a"
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": "a"
+          "value": "a"
         }
       ],
-      "name": "OutpParentParamSameRef",
+      "name": "RefOutpPrntParamSame",
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "a"
         }
       ]

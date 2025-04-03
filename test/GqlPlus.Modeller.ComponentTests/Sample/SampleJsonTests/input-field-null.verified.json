@@ -2,7 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InFieldNull": {
+    "FldInpFieldNull": {
+      "$tag": "_TypeDual",
+      "name": "FldInpFieldNull",
+      "typeKind": "Dual"
+    },
+    "InpFieldNull": {
       "$tag": "_TypeInput",
       "allFields": [
         {
@@ -15,10 +20,10 @@
             }
           ],
           "name": "field",
-          "object": "InFieldNull",
+          "object": "InpFieldNull",
           "type": {
-            "$tag": "_InputBase",
-            "value": "InFieldNull"
+            "$tag": "_DualBase",
+            "value": "FldInpFieldNull"
           }
         }
       ],
@@ -34,12 +39,12 @@
           ],
           "name": "field",
           "type": {
-            "$tag": "_InputBase",
-            "value": "InFieldNull"
+            "$tag": "_DualBase",
+            "value": "FldInpFieldNull"
           }
         }
       ],
-      "name": "InFieldNull",
+      "name": "InpFieldNull",
       "typeKind": "Input"
     }
   }

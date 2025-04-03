@@ -1,10 +1,10 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpObjectParent: !_TypeInput
-    name: InpObjectParent
+  !_Identifier InpObjPrnt: !_TypeInput
+    name: InpObjPrnt
     parent: !_InputBase
-      input: InpObjectParentRef
+      input: RefInpObjPrnt
     typeKind: !_TypeKind Input
-  !_Identifier InpObjectParentRef: !_TypeInput
-    name: InpObjectParentRef
+  !_Identifier RefInpObjPrnt: !_TypeInput
+    name: RefInpObjPrnt
     typeKind: !_TypeKind Input

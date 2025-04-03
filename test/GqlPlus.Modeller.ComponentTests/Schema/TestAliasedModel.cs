@@ -9,7 +9,7 @@ public abstract class TestAliasedModel<TInput, TRender>(
 ) : TestDescribedModel<TInput, TRender>(aliasedChecks)
   where TRender : IModelBase
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Aliases(TInput input, string[] aliases)
   {
     Assert.SkipWhen(SkipIf(input), SkipReason);

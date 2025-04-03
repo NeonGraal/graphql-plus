@@ -2,13 +2,13 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "UnParent": {
+    "PrntUnionSamePrnt": {
       "$tag": "_TypeUnion",
       "allItems": [
         {
           "$tag": "_UnionMember",
           "name": "String",
-          "union": "UnParent"
+          "union": "PrntUnionSamePrnt"
         }
       ],
       "items": [
@@ -17,21 +17,21 @@
           "value": "String"
         }
       ],
-      "name": "UnParent",
+      "name": "PrntUnionSamePrnt",
       "typeKind": "Union"
     },
-    "UnSameParent": {
+    "UnionSamePrnt": {
       "$tag": "_TypeUnion",
       "allItems": [
         {
           "$tag": "_UnionMember",
           "name": "String",
-          "union": "UnParent"
+          "union": "PrntUnionSamePrnt"
         },
         {
           "$tag": "_UnionMember",
           "name": "Boolean",
-          "union": "UnSameParent"
+          "union": "UnionSamePrnt"
         }
       ],
       "items": [
@@ -40,10 +40,10 @@
           "value": "Boolean"
         }
       ],
-      "name": "UnSameParent",
+      "name": "UnionSamePrnt",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
-        "name": "UnParent",
+        "name": "PrntUnionSamePrnt",
         "typeKind": "Union"
       },
       "typeKind": "Union"

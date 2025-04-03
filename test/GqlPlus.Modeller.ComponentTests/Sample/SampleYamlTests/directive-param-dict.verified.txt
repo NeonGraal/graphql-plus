@@ -1,16 +1,16 @@
 ﻿!_Schema
 directives: !_Map_Directives
-  !_Identifier DirParamDict: !_Directive
+  !_Identifier DrctParamDict: !_Directive
     locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
       Operation: _, Spread: _, Variable: _}
-    name: DirParamDict
+    name: DrctParamDict
     parameters:
     - !_InputParam
-      input: DirParamIn
+      input: InDrctParamDict
       modifiers: [!_ModifierDictionary {by: String, modifierKind: !_ModifierKind Dict,
           typeKind: !_SimpleKind Basic}]
     repeatable: false
 types: !_Map_Type
-  !_Identifier DirParamIn: !_TypeInput
-    name: DirParamIn
+  !_Identifier InDrctParamDict: !_TypeInput
+    name: InDrctParamDict
     typeKind: !_TypeKind Input

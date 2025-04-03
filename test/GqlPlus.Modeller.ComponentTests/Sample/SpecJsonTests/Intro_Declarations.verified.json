@@ -20,11 +20,8 @@
               "modifierKind": "List"
             }
           ],
-          "object": "_Filter",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "_NameFilter"
-          }
+          "input": "_NameFilter",
+          "object": "_Filter"
         }
       ],
       "allFields": [
@@ -156,11 +153,8 @@
               "modifierKind": "List"
             }
           ],
-          "object": "_Filter",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "_NameFilter"
-          }
+          "input": "_NameFilter",
+          "object": "_Filter"
         }
       ],
       "allFields": [
@@ -252,10 +246,7 @@
               "modifierKind": "List"
             }
           ],
-          "type": {
-            "$tag": "_InputBase",
-            "value": "_NameFilter"
-          }
+          "input": "_NameFilter"
         }
       ],
       "fields": [
@@ -631,11 +622,8 @@
               "modifierKind": "List"
             }
           ],
-          "object": "_Filter",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "_NameFilter"
-          }
+          "input": "_NameFilter",
+          "object": "_Filter"
         }
       ],
       "allFields": [

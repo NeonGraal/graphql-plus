@@ -1,72 +1,123 @@
-﻿!Sc I@001/0001
+﻿!Sc S@001/0001
 Success
 {
-  !Ca P@010/0001
+  'A Category'
+  !Ca P@010/0002
   all
   (Parallel)
+  'Category Result'
+  !Tr I@030/0002
   All
 }
 {
-  !Di I@012/0002
+  'A Directive'
+  !Di I@012/0004
   all
   (Unique)
   All
 }
 {
-  !En I@006/0003
+  'An Option'
+  !Op I@008/0006
+  Schema
+  {
+    'Schema Setting'
+    !OS S@017/0006
+    all
+    =( !k S@038/0006 'test' )
+  }
+}
+{
+  'A Domain'
+  !Do I@008/0008
+  Guid
+  String
+  !DX R@035/0008
+  /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/
+}
+{
+  'An Enum'
+  !En I@006/0010
   One
-  !EL I@012/0003
+  'Label 2'
+  !EL I@022/0010
   Two
-  !EL I@016/0003
+  'Label 3'
+  !EL I@036/0010
   Three
 }
 {
-  !In I@007/0004
+  'A Union'
+  !Un I@007/0012
+  Many
+  'Guid Id'
+  !UM I@024/0012
+  Guid
+  'Numeric Id'
+  !UM I@042/0012
+  Number
+}
+{
+  'A Dual'
+  !Du I@006/0014
+  Field
+  {
+    'Some strings'
+    !DF I@029/0014
+    strings
+    :
+    'Strings array'
+    I@054/0014
+    String
+    []
+  }
+}
+{
+  'An Input'
+  !In I@007/0016
   Param
   {
-    !IF I@015/0004
+    'First Id'
+    !IF I@016/0017
     afterId
     :
-    I@024/0004
-    Guid
+    'Guid or Int'
+    I@039/0017
+    Many
     ?
-    !IF I@030/0004
+    'Last Id'
+    !IF I@015/0018
     beforeId
     :
-    I@040/0004
-    Guid
+    'Guid or Int'
+    I@039/0018
+    Many
   }
   |
-  !IA I@047/0004
-  I@047/0004
+  'Alternate parameter'
+  S@007/0019
   String
 }
 {
-  !Ou I@008/0005
+  'An Output'
+  !Ou I@008/0022
   All
   {
-    !OF I@014/0005
+    'Some items'
+    !OF I@018/0023
     items
     (
       !Pa
-      I@020/0005
+      I@024/0023
       Param
       ?
     )
     :
-    I@029/0005
-    String
-    []
+    I@033/0023
+    Field
   }
   |
-  !OA I@040/0005
-  I@040/0005
+  'Alternates'
+  S@007/0024
   String
-}
-{
-  !Do I@008/0006
-  Guid
-  String
-  !DX R@022/0006
-  /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/
 }

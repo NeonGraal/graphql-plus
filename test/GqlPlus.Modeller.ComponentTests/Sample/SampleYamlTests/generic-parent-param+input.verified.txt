@@ -1,51 +1,48 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpGenParentParam: !_TypeInput
+  !_Identifier AltInpGnrcPrntParam: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpGenParentParamRef
-      type: !_InputBase
-        input: InpGenParentParamAlt
-    name: InpGenParentParam
-    parent: !_InputBase
-      input: InpGenParentParamRef
-      typeArgs:
-      - !_InputArg
-        input: InpGenParentParamAlt
-    typeKind: !_TypeKind Input
-  !_Identifier InpGenParentParamAlt: !_TypeInput
-    allAlternates:
-    - !_ObjectFor(_InputAlternate)
-      object: InpGenParentParamAlt
-      type: !_InputBase
-        input: String
+      input: String
+      object: AltInpGnrcPrntParam
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
-      object: InpGenParentParamAlt
+      object: AltInpGnrcPrntParam
       type: !_InputBase
         input: Number
     alternates:
     - !_InputAlternate
-      type: !_InputBase
-        input: String
+      input: String
     fields:
     - !_InputField
       name: alt
       type: !_InputBase
         input: Number
-    name: InpGenParentParamAlt
+    name: AltInpGnrcPrntParam
     typeKind: !_TypeKind Input
-  !_Identifier InpGenParentParamRef: !_TypeInput
+  !_Identifier InpGnrcPrntParam: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpGenParentParamRef
-      type: !_TypeParam ref
+      object: RefInpGnrcPrntParam
+      typeParam: ref
+    name: InpGnrcPrntParam
+    parent: !_InputBase
+      input: RefInpGnrcPrntParam
+      typeArgs:
+      - !_InputArg
+        input: AltInpGnrcPrntParam
+    typeKind: !_TypeKind Input
+  !_Identifier RefInpGnrcPrntParam: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: RefInpGnrcPrntParam
+      typeParam: ref
     alternates:
     - !_InputAlternate
-      type: !_TypeParam ref
-    name: InpGenParentParamRef
+      typeParam: ref
+    name: RefInpGnrcPrntParam
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

@@ -2,16 +2,16 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpGenFieldArg": {
+    "OutpGnrcFieldArg": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutpGenFieldArg",
+          "object": "OutpGnrcFieldArg",
           "type": {
             "$tag": "_OutputBase",
-            "output": "OutpGenFieldArgRef",
+            "output": "RefOutpGnrcFieldArg",
             "typeArgs": ["type"]
           }
         }
@@ -22,40 +22,40 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "output": "OutpGenFieldArgRef",
+            "output": "RefOutpGnrcFieldArg",
             "typeArgs": ["type"]
           }
         }
       ],
-      "name": "OutpGenFieldArg",
+      "name": "OutpGnrcFieldArg",
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
     },
-    "OutpGenFieldArgRef": {
+    "RefOutpGnrcFieldArg": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGenFieldArgRef",
-          "type": "ref"
+          "object": "RefOutpGnrcFieldArg",
+          "typeParam": "ref"
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": "ref"
+          "value": "ref"
         }
       ],
-      "name": "OutpGenFieldArgRef",
+      "name": "RefOutpGnrcFieldArg",
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]

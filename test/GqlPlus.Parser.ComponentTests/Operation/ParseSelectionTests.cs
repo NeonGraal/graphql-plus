@@ -23,13 +23,13 @@ public class ParseSelectionTests(
       inlinePrefix + typePrefix + inlineType + "{" + fields.Joined() + "}",
       new InlineAst(AstNulls.At, fields.Fields()) { OnType = inlineType });
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithInlineDirective_ReturnsCorrectAst(string[] directives, string[] fields)
     => checks.TrueExpected(
       "|" + directives.Joined(s => "@" + s) + "{" + fields.Joined() + "}",
       new InlineAst(AstNulls.At, fields.Fields()) { Directives = directives.Directives() });
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithInlineAll_ReturnsCorrectAst(string inlineType, string[] directives, string[] fields)
     => checks.TrueExpected(
       $"|:" + inlineType + directives.Joined(s => "@" + s) + "{" + fields.Joined() + "}",
@@ -47,7 +47,7 @@ public class ParseSelectionTests(
         prefix + fragment,
         new SpreadAst(AstNulls.At, fragment));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithSpreadDirective_ReturnsCorrectAst(string fragment, string[] directives)
     => checks
       .SkipNull(fragment)

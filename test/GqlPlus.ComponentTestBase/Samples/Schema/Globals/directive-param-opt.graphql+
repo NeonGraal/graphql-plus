@@ -1,2 +1,2 @@
-directive @DirParamOpt(DirParamIn?) { all }
-input DirParamIn { }
+directive @Name(InName?) { all }
+input InName { }

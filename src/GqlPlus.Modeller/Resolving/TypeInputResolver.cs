@@ -14,8 +14,8 @@ internal class TypeInputResolver(
 
     if (result is TypeInputModel input) {
       if (input.Parent is not null
-        && GetInputArgument(input.Name, input.Parent.Base, arguments, out InputBaseModel? parentModel)) {
-        input.Parent = new(parentModel, input.Parent.Description);
+        && GetInputArgument(input.Name, input.Parent, arguments, out InputBaseModel? parentModel)) {
+        input.Parent = new(parentModel.Input, input.Parent.Description);
         input.ParentModel = null;
       }
 
@@ -52,11 +52,11 @@ internal class TypeInputResolver(
     };
 
   protected override string? ParentName(TypeInputModel model)
-    => model.Parent?.Base.Input;
+    => model.Parent?.Input;
 
   protected override void ResolveParent(TypeInputModel model, IResolveContext context)
   {
-    DualBaseModel? parentDual = model.Parent?.Base?.Dual;
+    DualBaseModel? parentDual = model.Parent?.Dual;
     if (parentDual is not null) {
       if (context.TryGetType(model.Name, parentDual.Dual, out TypeDualModel? parentModel)) {
         parentModel = dual.Resolve(parentModel, context);
@@ -75,10 +75,10 @@ internal class TypeInputResolver(
 
   private Func<InputFieldModel, InputFieldModel> ApplyField(string label, ArgumentsContext arguments)
     => field => {
-      ObjDescribedModel<InputBaseModel>? fieldType = field.Type;
+      InputBaseModel? fieldType = field.Type;
       if (fieldType is not null
-        && GetInputArgument(label + " - " + field.Name, fieldType.Base, arguments, out InputBaseModel? argModel)) {
-        field = field with { Type = new(argModel, fieldType.Description) };
+        && GetInputArgument(label + " - " + field.Name, fieldType, arguments, out InputBaseModel? argModel)) {
+        field = field with { Type = argModel with { Description = fieldType.Description } };
       }
 
       ApplyArray(field.Modifiers, ApplyModifier(label, arguments),
@@ -89,11 +89,12 @@ internal class TypeInputResolver(
 
   private Func<InputAlternateModel, InputAlternateModel> ApplyAlternate(string label, ArgumentsContext arguments)
     => alternate => {
-      ObjDescribedModel<InputBaseModel>? alternateType = alternate.Type;
-      if (alternateType is not null
-        && GetInputArgument(label, alternateType.Base, arguments, out InputBaseModel? argModel)) {
-        alternate = alternate with { Type = new(argModel, alternateType.Description) };
-      }
+      // Todo:
+      //InputBaseModel? alternateType = alternate;
+      //if (alternateType is not null
+      //  && GetInputArgument(label, alternateType, arguments, out InputBaseModel? argModel)) {
+      //  alternate = alternate with { Type = new(argModel, alternateType.Description) };
+      //}
 
       ApplyArray(alternate.Collections, ApplyCollection(label, arguments),
         collections => alternate = alternate with { Collections = collections });
@@ -108,12 +109,12 @@ internal class TypeInputResolver(
       if (arguments.TryGetArg(label, inputBase.Input, out InputArgModel? inputArg)) {
         if (inputArg.Dual is not null) {
           if (arguments.TryGetType(label, inputArg.Dual.Dual, out DualBaseModel? dualBase, false)) {
-            outBase = new("") { Dual = dualBase };
+            outBase = new("", "") { Dual = dualBase };
           } else {
-            outBase = new("") { Dual = new(inputArg.Dual.Dual) { IsTypeParam = inputArg.Dual.IsTypeParam } };
+            outBase = new("", "") { Dual = new(inputArg.Dual.Dual, inputArg.Description) { IsTypeParam = inputArg.Dual.IsTypeParam } };
           }
         } else if (!arguments.TryGetType(label, inputArg.Input, out outBase, false)) {
-          outBase = new(inputArg.Input) { IsTypeParam = inputArg.IsTypeParam };
+          outBase = new(inputArg.Input, inputArg.Description) { IsTypeParam = inputArg.IsTypeParam };
         }
 
         return true;

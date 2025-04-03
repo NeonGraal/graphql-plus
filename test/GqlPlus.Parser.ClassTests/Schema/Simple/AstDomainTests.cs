@@ -24,8 +24,8 @@ public abstract class AstDomainTests<TInput>
   public void Inequality_BetweenItems(string name, TInput input1, TInput input2)
     => Checks.Inequality_BetweenItems(name, input1, input2);
 
-  protected override string AliasesString(string input, string aliases)
-    => $"( !Do {input}{aliases} {Checks.Kind} )";
+  protected override string AliasesString(string input, string description, string aliases)
+    => $"( {DescriptionNameString(input, description)}{aliases} {Checks.Kind} )";
 
   internal abstract IAstDomainChecks<TInput> Checks { get; }
 

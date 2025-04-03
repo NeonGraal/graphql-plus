@@ -1,51 +1,39 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpGenParentDualParent: !_TypeInput
+  !_Identifier AltInpGnrcPrntDualPrnt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: InpGenParentDualParentAlt
-      type: !_DualBase
-        dual: String
+      dual: String
+      object: AltInpGnrcPrntDualPrnt
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: InpGenParentDualParentAlt
-      type: !_DualBase
-        dual: Number
-    name: InpGenParentDualParent
-    parent: !_InputBase
-      input: InpGenParentDualParentRef
-      typeArgs:
-      - !_DualArg
-        dual: InpGenParentDualParentAlt
-    typeKind: !_TypeKind Input
-  !_Identifier InpGenParentDualParentAlt: !_TypeDual
-    allAlternates:
-    - !_ObjectFor(_DualAlternate)
-      object: InpGenParentDualParentAlt
-      type: !_DualBase
-        dual: String
-    allFields:
-    - !_ObjectFor(_DualField)
-      name: alt
-      object: InpGenParentDualParentAlt
+      object: AltInpGnrcPrntDualPrnt
       type: !_DualBase
         dual: Number
     alternates:
     - !_DualAlternate
-      type: !_DualBase
-        dual: String
+      dual: String
     fields:
     - !_DualField
       name: alt
       type: !_DualBase
         dual: Number
-    name: InpGenParentDualParentAlt
+    name: AltInpGnrcPrntDualPrnt
     typeKind: !_TypeKind Dual
-  !_Identifier InpGenParentDualParentRef: !_TypeInput
-    name: InpGenParentDualParentRef
-    parent: !_TypeParam ref
+  !_Identifier InpGnrcPrntDualPrnt: !_TypeInput
+    name: InpGnrcPrntDualPrnt
+    parent: !_InputBase
+      input: RefInpGnrcPrntDualPrnt
+      typeArgs:
+      - !_DualArg
+        dual: AltInpGnrcPrntDualPrnt
+    typeKind: !_TypeKind Input
+  !_Identifier RefInpGnrcPrntDualPrnt: !_TypeInput
+    name: RefInpGnrcPrntDualPrnt
+    parent: !_InputBase
+      typeParam: ref
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

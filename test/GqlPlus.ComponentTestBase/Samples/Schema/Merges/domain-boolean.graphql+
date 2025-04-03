@@ -1,2 +1,2 @@
-domain Bool { boolean }
-domain Bool { boolean }
+domain Name { boolean }
+domain Name { boolean }

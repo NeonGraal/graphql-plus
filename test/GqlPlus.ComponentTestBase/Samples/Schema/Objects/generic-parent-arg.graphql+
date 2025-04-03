@@ -1,2 +1,2 @@
-object ObjName<$type> { :ObjNameRef<$type> }
-object ObjNameRef<$ref> { | $ref }
+object ObjName<$type> { :RefObjName<$type> }
+object RefObjName<$ref> { | $ref }

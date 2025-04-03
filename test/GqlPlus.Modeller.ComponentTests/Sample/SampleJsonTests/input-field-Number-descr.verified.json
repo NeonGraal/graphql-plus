@@ -2,21 +2,18 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InFieldNum": {
+    "InpFieldNmbrDescr": {
       "$tag": "_TypeInput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "default": 0,
           "name": "field",
-          "object": "InFieldNum",
+          "object": "InpFieldNmbrDescr",
           "type": {
-            "$tag": "_ObjDescribed(_InputBase)",
-            "base": {
-              "$tag": "_InputBase",
-              "value": "Number"
-            },
-            "description": "Test Descr"
+            "$tag": "_InputBase",
+            "description": "Test Descr",
+            "input": "Number"
           }
         }
       ],
@@ -26,16 +23,13 @@
           "default": 0,
           "name": "field",
           "type": {
-            "$tag": "_ObjDescribed(_InputBase)",
-            "base": {
-              "$tag": "_InputBase",
-              "value": "Number"
-            },
-            "description": "Test Descr"
+            "$tag": "_InputBase",
+            "description": "Test Descr",
+            "input": "Number"
           }
         }
       ],
-      "name": "InFieldNum",
+      "name": "InpFieldNmbrDescr",
       "typeKind": "Input"
     }
   }

@@ -3,8 +3,6 @@ using GqlPlus.Convert;
 using GqlPlus.Merging;
 using GqlPlus.Parsing;
 using GqlPlus.Result;
-using GqlPlus.Structures;
-using Microsoft.AspNetCore.Components.RenderTree;
 
 namespace GqlPlus.Sample;
 

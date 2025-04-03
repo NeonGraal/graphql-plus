@@ -2,7 +2,7 @@
   "$tag": "_Schema",
   "directives": {
     "$tag": "_Map_Directives",
-    "DirDescr": {
+    "DrctDescr": {
       "$tag": "_Directive",
       "description": "A directive described",
       "locations": {
@@ -14,7 +14,7 @@
         "Spread": "_",
         "Variable": "_"
       },
-      "name": "DirDescr",
+      "name": "DrctDescr",
       "repeatable": false
     }
   }

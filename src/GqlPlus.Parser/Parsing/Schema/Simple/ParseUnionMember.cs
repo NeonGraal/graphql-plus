@@ -11,10 +11,8 @@ internal class ParseUnionMember
   public IResult<IGqlpUnionMember> Parse<TContext>(TContext tokens, string label)
     where TContext : Tokenizer
   {
-    tokens.TakeDescription();
+    string description = tokens.Description();
     TokenAt at = tokens.At;
-    string description = tokens.GetDescription();
-
     return tokens.Identifier(out string? value)
       ? new UnionMemberAst(at, value, description).Ok<IGqlpUnionMember>()
       : tokens.Error<IGqlpUnionMember>(label, "member");

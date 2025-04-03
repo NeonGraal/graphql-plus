@@ -9,14 +9,14 @@ public class ParseOutputArgTests(
   ICheckObjectArg<IGqlpOutputArg> checks
 ) : TestObjectArg<IGqlpOutputArg>(checks)
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithArgEnumValues_ReturnsCorrectAst(string enumType, string[] enumValues)
     => checks.TrueExpected(
       "<" + enumValues.Joined(s => enumType + "." + s) + ">",
       [.. enumValues.Select(enumLabel
         => new OutputArgAst(AstNulls.At, enumType) { EnumLabel = enumLabel })]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithArgEnumValueBad_ReturnsFalse(string enumType)
     => checks.FalseExpected("<" + enumType + ".");
 }

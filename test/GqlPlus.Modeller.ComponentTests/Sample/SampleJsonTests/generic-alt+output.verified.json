@@ -2,26 +2,26 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpGenAlt": {
+    "OutpGnrcAlt": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGenAlt",
-          "type": "type"
+          "object": "OutpGnrcAlt",
+          "typeParam": "type"
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": "type"
+          "value": "type"
         }
       ],
-      "name": "OutpGenAlt",
+      "name": "OutpGnrcAlt",
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]

@@ -9,15 +9,15 @@ public abstract class TestObjectArg<TObjArg>(
   ICheckObjectArg<TObjArg> objectArgChecks
 ) where TObjArg : IGqlpObjArg
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithMinimum_ReturnsCorrectAst(string name)
   => objectArgChecks.WithMinimum(name);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithMany_ReturnsCorrectAsts(string[] names)
   => objectArgChecks.WithMany(names);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithTypeParam_ReturnsCorrectAst(string name)
   => objectArgChecks.WithTypeParam(name);
 

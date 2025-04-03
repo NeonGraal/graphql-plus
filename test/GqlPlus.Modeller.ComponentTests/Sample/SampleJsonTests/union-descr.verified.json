@@ -7,6 +7,7 @@
       "allItems": [
         {
           "$tag": "_UnionMember",
+          "description": "Union Descr",
           "name": "Number",
           "union": "UnionDescr"
         }
@@ -14,7 +15,8 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "Number"
+          "description": "Union Descr",
+          "name": "Number"
         }
       ],
       "name": "UnionDescr",

@@ -8,33 +8,33 @@ public sealed class ParseDomainEnumTests(
   IBaseDomainChecks<DomainEnumInput, IGqlpDomain<IGqlpDomainLabel>> checks
 ) : BaseDomainTests<DomainEnumInput, IGqlpDomain<IGqlpDomainLabel>>(checks)
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithEnumType_ReturnsCorrectAst(DomainEnumInput input, string enumType)
     => checks.TrueExpected(
       input.Name + "{enum!" + enumType + "." + input.Label + "}",
       NewDomain(input, input.DomainLabel(enumType)));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithEnumAllLabels_ReturnsCorrectAst(DomainEnumInput input)
     => checks.TrueExpected(
       input.Name + "{enum " + input.Label + ".* }",
       NewDomain(input, input.DomainAllLabels()));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithLabels_ReturnsCorrectAst(DomainEnumInput input, string label)
     => checks.TrueExpected(
       input.Name + "{enum!" + input.Label + " " + label + "}",
       NewDomain(input, input.DomainLabels(label)));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithLabelsExcludeBad_ReturnsFalse(string name)
     => checks.FalseExpected(name + "{enum !}");
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithLabelsFirstBad_ReturnsFalse(DomainEnumInput input)
     => checks.FalseExpected(input.Name + "{enum " + input.Label + ".}");
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithLabelsSecondBad_ReturnsFalse(DomainEnumInput input, string label)
     => checks.FalseExpected(input.Name + "{enum " + input.Label + "!" + label + ".}");
 

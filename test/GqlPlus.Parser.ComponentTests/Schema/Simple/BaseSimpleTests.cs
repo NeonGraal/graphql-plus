@@ -9,11 +9,11 @@ public abstract class BaseSimpleTests<TInput, TSimple>(
 ) : BaseAliasedTests<TInput, TSimple>(simpleChecks)
   where TSimple : IGqlpSimple
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithParent_ReturnsCorrectAst(TInput input, string parent)
     => simpleChecks.WithParent(input, parent);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithParentBad_ReturnsFalse(string name)
     => simpleChecks.FalseExpected(name + "{:}");
 }

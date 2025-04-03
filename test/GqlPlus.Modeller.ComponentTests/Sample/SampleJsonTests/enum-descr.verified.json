@@ -2,23 +2,24 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "EnDescr": {
+    "EnumDescr": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "enum": "EnDescr",
-          "name": "val_test"
+          "description": "Enum Descr",
+          "enum": "EnumDescr",
+          "name": "enumDescr"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
           "description": "Enum Descr",
-          "name": "val_test"
+          "name": "enumDescr"
         }
       ],
-      "name": "EnDescr",
+      "name": "EnumDescr",
       "typeKind": "Enum"
     }
   }

@@ -3,8 +3,8 @@
 Success
 {
   !En I@006/0001
-  EnSame
-  !EL I@015/0001
-  same
+  EnumSame
+  !EL I@017/0001
+  enumSame
 }
 ]

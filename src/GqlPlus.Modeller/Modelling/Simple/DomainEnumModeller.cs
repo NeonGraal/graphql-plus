@@ -4,9 +4,8 @@ internal class DomainEnumModeller
   : ModellerDomain<IGqlpDomainLabel, DomainLabelModel>
 {
   protected override BaseDomainModel<DomainLabelModel> ToModel(IGqlpDomain<IGqlpDomainLabel> ast, IMap<TypeKindModel> typeKinds)
-    => new(DomainKindModel.Enum, ast.Name) {
+    => new(DomainKindModel.Enum, ast.Name, ast.Description) {
       Aliases = [.. ast.Aliases],
-      Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Domain),
       Items = ToItems(ast, typeKinds),
     };

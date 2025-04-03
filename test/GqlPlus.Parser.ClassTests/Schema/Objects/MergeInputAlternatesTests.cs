@@ -17,10 +17,10 @@ public class MergeInputAlternatesTests(
 }
 
 internal sealed class MergeInputAlternatesChecks
-  : CheckAlternatesMerger<IGqlpInputAlternate, InputAlternateAst, IGqlpInputBase>
+  : CheckAlternatesMerger<IGqlpInputAlternate, InputAlternateAst, IGqlpInputArg>
 {
   public override IGqlpInputAlternate MakeAlternate(string input, bool withModifiers = false, string description = "")
-    => new InputAlternateAst(AstNulls.At, new InputBaseAst(AstNulls.At, input, description)) {
+    => new InputAlternateAst(AstNulls.At, input, description) {
       Modifiers = withModifiers ? TestMods() : []
     };
 }

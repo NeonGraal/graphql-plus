@@ -4,9 +4,8 @@ internal class DomainStringModeller
   : ModellerDomain<IGqlpDomainRegex, DomainRegexModel>
 {
   protected override BaseDomainModel<DomainRegexModel> ToModel(IGqlpDomain<IGqlpDomainRegex> ast, IMap<TypeKindModel> typeKinds)
-    => new(DomainKindModel.String, ast.Name) {
+    => new(DomainKindModel.String, ast.Name, ast.Description) {
       Aliases = [.. ast.Aliases],
-      Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Domain),
       Items = ToItems(ast, typeKinds),
     };

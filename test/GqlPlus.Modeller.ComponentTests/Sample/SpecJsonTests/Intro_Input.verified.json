@@ -14,16 +14,6 @@
     {
       "$tag": "_Error",
       "_kind": "End",
-      "_message": "In _InputParent can\u0027t get model for type \u0027_ObjDescribed\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_kind": "End",
-      "_message": "In _InputTypeParam can\u0027t get model for type \u0027_ObjTypeParam\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_kind": "End",
       "_message": "In _InputField can\u0027t get model for type \u0027_Field\u0027"
     },
     {
@@ -34,13 +24,34 @@
     {
       "$tag": "_Error",
       "_kind": "End",
-      "_message": "In _InputParam can\u0027t get model for type \u0027_ObjDescribed\u0027"
+      "_message": "In _InputTypeArg can\u0027t get model for type \u0027_ObjTypeArg\u0027"
     }
   ],
   "types": {
     "$tag": "_Map_Type",
     "_InputAlternate": {
       "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "input",
+          "object": "_InputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "input",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
       "name": "_InputAlternate",
       "parent": {
         "$tag": "_OutputBase",
@@ -48,7 +59,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_InputBase"
+            "value": "_InputTypeArg"
           }
         ]
       },
@@ -60,10 +71,7 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_InputBase",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_DualBase"
-          }
+          "output": "_DualBase"
         }
       ],
       "allFields": [
@@ -80,10 +88,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_DualBase"
-          }
+          "value": "_DualBase"
         }
       ],
       "fields": [
@@ -103,7 +108,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_ObjTypeArg"
+            "value": "_InputTypeArg"
           }
         ]
       },
@@ -159,7 +164,23 @@
     },
     "_InputParam": {
       "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "_InputBase",
+          "output": "_DualBase"
+        }
+      ],
       "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "input",
+          "object": "_InputBase",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        },
         {
           "$tag": "_ObjectFor(_OutputField)",
           "modifiers": [
@@ -224,43 +245,37 @@
       "name": "_InputParam",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_ObjDescribed",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "value": "_InputBase"
-          }
-        ]
+        "value": "_InputBase"
       },
       "typeKind": "Output"
     },
-    "_InputParent": {
+    "_InputTypeArg": {
       "$tag": "_TypeOutput",
-      "name": "_InputParent",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "input",
+          "object": "_InputTypeArg",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "input",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "name": "_InputTypeArg",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_ObjDescribed",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "value": "_InputBase"
-          }
-        ]
-      },
-      "typeKind": "Output"
-    },
-    "_InputTypeParam": {
-      "$tag": "_TypeOutput",
-      "name": "_InputTypeParam",
-      "parent": {
-        "$tag": "_OutputBase",
-        "output": "_ObjTypeParam",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "value": "_InputBase"
-          }
-        ]
+        "value": "_ObjTypeArg"
       },
       "typeKind": "Output"
     },
@@ -279,11 +294,7 @@
           },
           {
             "$tag": "_OutputArg",
-            "value": "_InputParent"
-          },
-          {
-            "$tag": "_OutputArg",
-            "value": "_InputTypeParam"
+            "value": "_InputBase"
           },
           {
             "$tag": "_OutputArg",

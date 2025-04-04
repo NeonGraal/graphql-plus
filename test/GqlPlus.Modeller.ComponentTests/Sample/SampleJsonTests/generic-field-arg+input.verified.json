@@ -2,16 +2,16 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpGenFieldArg": {
+    "InpGnrcFieldArg": {
       "$tag": "_TypeInput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "InpGenFieldArg",
+          "object": "InpGnrcFieldArg",
           "type": {
             "$tag": "_InputBase",
-            "input": "InpGenFieldArgRef",
+            "input": "RefInpGnrcFieldArg",
             "typeArgs": ["type"]
           }
         }
@@ -22,40 +22,40 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "input": "InpGenFieldArgRef",
+            "input": "RefInpGnrcFieldArg",
             "typeArgs": ["type"]
           }
         }
       ],
-      "name": "InpGenFieldArg",
+      "name": "InpGnrcFieldArg",
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
     },
-    "InpGenFieldArgRef": {
+    "RefInpGnrcFieldArg": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGenFieldArgRef",
-          "type": "ref"
+          "object": "RefInpGnrcFieldArg",
+          "typeParam": "ref"
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "type": "ref"
+          "value": "ref"
         }
       ],
-      "name": "InpGenFieldArgRef",
+      "name": "RefInpGnrcFieldArg",
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]

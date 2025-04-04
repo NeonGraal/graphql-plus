@@ -2,64 +2,70 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualParentParamSame": {
+    "DualPrntParamSame": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualParentParamSameRef",
-          "type": "a"
+          "object": "RefDualPrntParamSame",
+          "typeParam": "a"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "DualParentParamSame",
-          "type": "a"
+          "object": "DualPrntParamSame",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "a"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_DualField",
           "name": "field",
-          "type": "a"
+          "type": {
+            "$tag": "_DualBase",
+            "value": "a"
+          }
         }
       ],
-      "name": "DualParentParamSame",
+      "name": "DualPrntParamSame",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "DualParentParamSameRef",
+        "dual": "RefDualPrntParamSame",
         "typeArgs": ["a"]
       },
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "a"
         }
       ]
     },
-    "DualParentParamSameRef": {
+    "RefDualPrntParamSame": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualParentParamSameRef",
-          "type": "a"
+          "object": "RefDualPrntParamSame",
+          "typeParam": "a"
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": "a"
+          "value": "a"
         }
       ],
-      "name": "DualParentParamSameRef",
+      "name": "RefDualPrntParamSame",
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "a"
         }
       ]

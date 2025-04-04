@@ -8,8 +8,6 @@ namespace GqlTest.Model_Intro_Object;
 
 public interface IOutput_TypeObject {}
 
-public interface IDual_ObjDescribed {}
-
 public interface IOutput_ObjConstraint {}
 
 public interface IOutput_ObjType {}

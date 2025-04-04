@@ -2,62 +2,56 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualGenAltSimple": {
+    "DualGnrcAltSmpl": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualGenAltSimple",
-          "type": {
-            "$tag": "_DualBase",
-            "dual": "DualGenAltSimpleRef",
-            "typeArgs": [
-              {
-                "$tag": "_DualArg",
-                "value": "String"
-              }
-            ]
-          }
+          "dual": "RefDualGnrcAltSmpl",
+          "object": "DualGnrcAltSmpl",
+          "typeArgs": [
+            {
+              "$tag": "_DualArg",
+              "value": "String"
+            }
+          ]
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "dual": "DualGenAltSimpleRef",
-            "typeArgs": [
-              {
-                "$tag": "_DualArg",
-                "value": "String"
-              }
-            ]
-          }
+          "dual": "RefDualGnrcAltSmpl",
+          "typeArgs": [
+            {
+              "$tag": "_DualArg",
+              "value": "String"
+            }
+          ]
         }
       ],
-      "name": "DualGenAltSimple",
+      "name": "DualGnrcAltSmpl",
       "typeKind": "Dual"
     },
-    "DualGenAltSimpleRef": {
+    "RefDualGnrcAltSmpl": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualGenAltSimpleRef",
-          "type": "ref"
+          "object": "RefDualGnrcAltSmpl",
+          "typeParam": "ref"
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": "ref"
+          "value": "ref"
         }
       ],
-      "name": "DualGenAltSimpleRef",
+      "name": "RefDualGnrcAltSmpl",
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]

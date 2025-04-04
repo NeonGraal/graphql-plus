@@ -7,28 +7,16 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
+          "description": "Test Descr",
           "object": "OutpAltDescr",
-          "type": {
-            "$tag": "_ObjDescribed(_OutputBase)",
-            "base": {
-              "$tag": "_OutputBase",
-              "value": "String"
-            },
-            "description": "Test Descr"
-          }
+          "output": "String"
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_ObjDescribed(_OutputBase)",
-            "base": {
-              "$tag": "_OutputBase",
-              "value": "String"
-            },
-            "description": "Test Descr"
-          }
+          "description": "Test Descr",
+          "output": "String"
         }
       ],
       "name": "OutpAltDescr",

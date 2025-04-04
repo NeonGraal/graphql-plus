@@ -11,8 +11,7 @@ public class InputAlternateAstTests
     => $"( !IA {input.Type} )";
 
   private readonly AstObjectAlternateChecks<InputAlternateAst, IGqlpInputBase, InputBaseAst, IGqlpInputArg, InputArgAst> _checks
-    = new((dual, objBase) => new(AstNulls.At, objBase),
-      dual => new InputBaseAst(AstNulls.At, dual.Type),
+    = new(dual => new(AstNulls.At, dual.Type, ""),
       arguments => arguments.InputArgs());
 
   internal override IAstObjectAlternateChecks<IGqlpInputBase> AlternateChecks => _checks;

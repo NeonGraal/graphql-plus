@@ -9,28 +9,28 @@ public class ParseFragmentsTests(
   IManyChecksParser<IParserEndFragments, IGqlpFragment> endChecks
 )
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Start_WithMinimum_ReturnsCorrectAst(string fragment, string onType, string[] fields)
     => startChecks.TrueExpected(
       '&' + fragment + ':' + onType + "{" + fields.Joined() + "}",
       new FragmentAst(AstNulls.At, fragment, onType, fields.Fields()));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Start_WithNoName_ReturnsFalse(string onType, string[] fields)
     => startChecks.FalseExpected(
       "&:" + onType + "{" + fields.Joined() + "}");
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Start_WithNoTypePrefix_ReturnsFalse(string fragment, string onType, string[] fields)
     => startChecks.FalseExpected(
       "&" + fragment + onType + "{" + fields.Joined() + "}");
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Start_WithNoType_ReturnsFalse(string fragment, string[] fields)
     => startChecks.FalseExpected(
       "&" + fragment + ":{" + fields.Joined() + "}");
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Start_WithNoFields_ReturnsFalse(string fragment, string onType)
     => startChecks.FalseExpected('&' + fragment + ':' + onType + "{}");
 
@@ -44,13 +44,13 @@ public class ParseFragmentsTests(
       fragmentPrefix + fragment + typePrefix + onType + "{" + fields.Joined() + "}",
       new FragmentAst(AstNulls.At, fragment, onType, fields.Fields()));
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Start_WithDirective_ReturnsCorrectAst(string fragment, string onType, string[] fields, string[] directives)
     => startChecks.TrueExpected(
       "&" + fragment + ":" + onType + directives.Joined(s => "@" + s) + "{" + fields.Joined() + "}",
       new FragmentAst(AstNulls.At, fragment, onType, fields.Fields()) { Directives = directives.Directives() });
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Start_WithDirectiveBad_ReturnsFalse(string fragment, string onType, string[] fields)
     => startChecks.FalseExpected("&" + fragment + ":" + onType + "@{" + fields.Joined() + "}");
 

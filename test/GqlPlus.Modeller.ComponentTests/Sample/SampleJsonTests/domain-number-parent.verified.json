@@ -2,18 +2,18 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DomNumPrnt": {
+    "DmnNmbrPrnt": {
       "$tag": "_DomainNumber",
       "allItems": [
         {
           "$tag": "_DomainItem(_DomainRange)",
-          "domain": "DomPrntNum",
+          "domain": "PrntDmnNmbrPrnt",
           "exclude": false,
           "to": 2
         },
         {
           "$tag": "_DomainItem(_DomainRange)",
-          "domain": "DomNumPrnt",
+          "domain": "DmnNmbrPrnt",
           "exclude": false,
           "from": 2
         }
@@ -26,20 +26,20 @@
           "from": 2
         }
       ],
-      "name": "DomNumPrnt",
+      "name": "DmnNmbrPrnt",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
-        "name": "DomPrntNum",
+        "name": "PrntDmnNmbrPrnt",
         "typeKind": "Domain"
       },
       "typeKind": "Domain"
     },
-    "DomPrntNum": {
+    "PrntDmnNmbrPrnt": {
       "$tag": "_DomainNumber",
       "allItems": [
         {
           "$tag": "_DomainItem(_DomainRange)",
-          "domain": "DomPrntNum",
+          "domain": "PrntDmnNmbrPrnt",
           "exclude": false,
           "to": 2
         }
@@ -52,7 +52,7 @@
           "to": 2
         }
       ],
-      "name": "DomPrntNum",
+      "name": "PrntDmnNmbrPrnt",
       "typeKind": "Domain"
     }
   }

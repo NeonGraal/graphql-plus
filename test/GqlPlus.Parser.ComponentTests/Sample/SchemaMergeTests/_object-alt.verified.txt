@@ -3,38 +3,35 @@
 Success
 {
   !Du I@006/0001
-  DualObjectAlt
+  DualObjAlt
   |
-  !DA I@024/0001
-  I@024/0001
-  DualObjectAltType
+  I@021/0001
+  DualObjAltType
 }
 {
   !Du I@006/0003
-  DualObjectAltType
+  DualObjAltType
 }
 {
   !In I@007/0001
-  InpObjectAlt
+  InpObjAlt
   |
-  !IA I@024/0001
-  I@024/0001
-  InpObjectAltType
+  I@021/0001
+  InpObjAltType
 }
 {
   !In I@007/0003
-  InpObjectAltType
+  InpObjAltType
 }
 {
   !Ou I@008/0001
-  OutpObjectAlt
+  OutpObjAlt
   |
-  !OA I@026/0001
-  I@026/0001
-  OutpObjectAltType
+  I@023/0001
+  OutpObjAltType
 }
 {
   !Ou I@008/0003
-  OutpObjectAltType
+  OutpObjAltType
 }
 ]

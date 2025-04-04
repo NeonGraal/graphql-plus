@@ -8,12 +8,10 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _Categories
-      type: !_OutputBase
-        output: _Category
+      output: _Category
     - !_ObjectFor(_OutputAlternate)
       object: _Categories
-      type: !_OutputBase
-        output: _Type
+      output: _Type
     allFields:
     - !_ObjectFor(_OutputField)
       name: category
@@ -27,11 +25,9 @@ types: !_Map_Type
         output: _Type
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: _Category
+      output: _Category
     - !_OutputAlternate
-      type: !_OutputBase
-        output: _Type
+      output: _Type
     fields:
     - !_OutputField
       name: category

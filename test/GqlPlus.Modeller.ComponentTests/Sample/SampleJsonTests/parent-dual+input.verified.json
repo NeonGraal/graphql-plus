@@ -2,53 +2,47 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpParentDual": {
+    "InpPrntDual": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "InpParentDualRef",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "dual": "String",
+          "object": "RefInpPrntDual"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "parent",
-          "object": "InpParentDualRef",
+          "object": "RefInpPrntDual",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
           }
         }
       ],
-      "name": "InpParentDual",
+      "name": "InpPrntDual",
       "parent": {
         "$tag": "_DualBase",
-        "value": "InpParentDualRef"
+        "value": "RefInpPrntDual"
       },
       "typeKind": "Input"
     },
-    "InpParentDualRef": {
+    "RefInpPrntDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "InpParentDualRef",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "dual": "String",
+          "object": "RefInpPrntDual"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "parent",
-          "object": "InpParentDualRef",
+          "object": "RefInpPrntDual",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -58,10 +52,7 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -74,7 +65,7 @@
           }
         }
       ],
-      "name": "InpParentDualRef",
+      "name": "RefInpPrntDual",
       "typeKind": "Dual"
     }
   }

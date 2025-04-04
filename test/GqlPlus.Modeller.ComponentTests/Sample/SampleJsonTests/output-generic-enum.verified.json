@@ -2,86 +2,86 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutEnumGen": {
+    "EnumOutpGnrcEnum": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "enum": "OutEnumGen",
-          "name": "outEnumGen"
+          "enum": "EnumOutpGnrcEnum",
+          "name": "outpGnrcEnum"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "outEnumGen"
+          "value": "outpGnrcEnum"
         }
       ],
-      "name": "OutEnumGen",
+      "name": "EnumOutpGnrcEnum",
       "typeKind": "Enum"
     },
-    "OutGenEnum": {
+    "OutpGnrcEnum": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutGenEnum",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "OutGenEnumRef",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "label": "outEnumGen",
-                "name": "OutEnumGen",
-                "typeKind": "Enum"
-              }
-            ]
-          }
+          "object": "OutpGnrcEnum",
+          "output": "RefOutpGnrcEnum",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "label": "outpGnrcEnum",
+              "name": "EnumOutpGnrcEnum",
+              "typeKind": "Enum"
+            }
+          ]
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "OutGenEnumRef",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "label": "outEnumGen",
-                "name": "OutEnumGen",
-                "typeKind": "Enum"
-              }
-            ]
-          }
+          "output": "RefOutpGnrcEnum",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "label": "outpGnrcEnum",
+              "name": "EnumOutpGnrcEnum",
+              "typeKind": "Enum"
+            }
+          ]
         }
       ],
-      "name": "OutGenEnum",
+      "name": "OutpGnrcEnum",
       "typeKind": "Output"
     },
-    "OutGenEnumRef": {
+    "RefOutpGnrcEnum": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutGenEnumRef",
-          "type": "type"
+          "object": "RefOutpGnrcEnum",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "type"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_OutputField",
           "name": "field",
-          "type": "type"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "type"
+          }
         }
       ],
-      "name": "OutGenEnumRef",
+      "name": "RefOutpGnrcEnum",
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]

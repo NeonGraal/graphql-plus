@@ -14,8 +14,8 @@ internal class TypeOutputResolver(
 
     if (result is TypeOutputModel output) {
       if (output.Parent is not null
-        && GetOutputArgument(output.Name, output.Parent.Base, arguments, out OutputBaseModel? parentModel)) {
-        output.Parent = new(parentModel, output.Parent.Description);
+        && GetOutputArgument(output.Name, output.Parent, arguments, out OutputBaseModel? parentModel)) {
+        output.Parent = new(parentModel.Output, output.Parent.Description);
         output.ParentModel = null;
       }
 
@@ -52,11 +52,11 @@ internal class TypeOutputResolver(
     };
 
   protected override string? ParentName(TypeOutputModel model)
-    => model.Parent?.Base.Output;
+    => model.Parent?.Output;
 
   protected override void ResolveParent(TypeOutputModel model, IResolveContext context)
   {
-    DualBaseModel? parentDual = model.Parent?.Base?.Dual;
+    DualBaseModel? parentDual = model.Parent?.Dual;
     if (parentDual is not null) {
       if (context.TryGetType(model.Name, parentDual.Dual, out TypeDualModel? parentModel)) {
         parentModel = dual.Resolve(parentModel, context);
@@ -75,10 +75,10 @@ internal class TypeOutputResolver(
 
   private Func<OutputFieldModel, OutputFieldModel> ApplyField(string label, ArgumentsContext arguments)
     => field => {
-      ObjDescribedModel<OutputBaseModel>? fieldType = field.Type;
+      OutputBaseModel? fieldType = field.Type;
       if (fieldType is not null
-        && GetOutputArgument(label + " - " + field.Name, fieldType.Base, arguments, out OutputBaseModel? argModel)) {
-        field = field with { Type = new(argModel, fieldType.Description) };
+        && GetOutputArgument(label + " - " + field.Name, fieldType, arguments, out OutputBaseModel? argModel)) {
+        field = field with { Type = argModel with { Description = fieldType.Description } };
       }
 
       ApplyArray(field.Modifiers, ApplyModifier(label, arguments),
@@ -89,11 +89,12 @@ internal class TypeOutputResolver(
 
   private Func<OutputAlternateModel, OutputAlternateModel> ApplyAlternate(string label, ArgumentsContext arguments)
     => alternate => {
-      ObjDescribedModel<OutputBaseModel>? alternateType = alternate.Type;
-      if (alternateType is not null
-        && GetOutputArgument(label, alternateType.Base, arguments, out OutputBaseModel? argModel)) {
-        alternate = alternate with { Type = new(argModel, alternateType.Description) };
-      }
+      //Todo:
+      //OutputBaseModel? alternateType = alternate.Type;
+      //if (alternateType is not null
+      //  && GetOutputArgument(label, alternate, arguments, out OutputBaseModel? argModel)) {
+      //  alternate = alternate with { Type = new(argModel, alternateType.Description) };
+      //}
 
       ApplyArray(alternate.Collections, ApplyCollection(label, arguments),
         collections => alternate = alternate with { Collections = collections });
@@ -108,12 +109,12 @@ internal class TypeOutputResolver(
       if (arguments.TryGetArg(label, outputBase.Output, out OutputArgModel? outputArg)) {
         if (outputArg.Dual is not null) {
           if (arguments.TryGetType(label, outputArg.Dual.Dual, out DualBaseModel? dualBase, false)) {
-            outBase = new("") { Dual = dualBase };
+            outBase = new("", outputArg.Description) { Dual = dualBase };
           } else {
-            outBase = new("") { Dual = new(outputArg.Dual.Dual) { IsTypeParam = outputArg.Dual.IsTypeParam } };
+            outBase = new("", outputBase.Description) { Dual = new(outputArg.Dual.Dual, outputArg.Description) { IsTypeParam = outputArg.Dual.IsTypeParam } };
           }
         } else if (!arguments.TryGetType(label, outputArg.Output, out outBase, false)) {
-          outBase = new(outputArg.Output!) { IsTypeParam = outputArg.IsTypeParam };
+          outBase = new(outputArg.Output!, outputArg.Description) { IsTypeParam = outputArg.IsTypeParam };
         }
 
         return true;

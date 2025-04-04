@@ -18,7 +18,7 @@
           "object": "DualFieldModParam",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualFieldModParamFld"
+            "value": "FldDualFieldModParam"
           }
         }
       ],
@@ -35,7 +35,7 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "value": "DualFieldModParamFld"
+            "value": "FldDualFieldModParam"
           }
         }
       ],
@@ -43,28 +43,25 @@
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "mod"
         }
       ]
     },
-    "DualFieldModParamFld": {
+    "FldDualFieldModParam": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualFieldModParamFld",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "dual": "String",
+          "object": "FldDualFieldModParam"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "DualFieldModParamFld",
+          "object": "FldDualFieldModParam",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -74,10 +71,7 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -90,7 +84,7 @@
           }
         }
       ],
-      "name": "DualFieldModParamFld",
+      "name": "FldDualFieldModParam",
       "typeKind": "Dual"
     }
   }

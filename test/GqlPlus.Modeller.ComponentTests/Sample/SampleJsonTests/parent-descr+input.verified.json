@@ -2,57 +2,48 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpParentDescr": {
+    "InpPrntDescr": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpParentDescrRef",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
+          "input": "String",
+          "object": "RefInpPrntDescr"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "parent",
-          "object": "InpParentDescrRef",
+          "object": "RefInpPrntDescr",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
           }
         }
       ],
-      "name": "InpParentDescr",
+      "name": "InpPrntDescr",
       "parent": {
-        "$tag": "_ObjDescribed(_InputBase)",
-        "base": {
-          "$tag": "_InputBase",
-          "value": "InpParentDescrRef"
-        },
-        "description": "Test Descr"
+        "$tag": "_InputBase",
+        "description": "Test Descr",
+        "input": "RefInpPrntDescr"
       },
       "typeKind": "Input"
     },
-    "InpParentDescrRef": {
+    "RefInpPrntDescr": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpParentDescrRef",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
+          "input": "String",
+          "object": "RefInpPrntDescr"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "parent",
-          "object": "InpParentDescrRef",
+          "object": "RefInpPrntDescr",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -62,10 +53,7 @@
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -78,7 +66,7 @@
           }
         }
       ],
-      "name": "InpParentDescrRef",
+      "name": "RefInpPrntDescr",
       "typeKind": "Input"
     }
   }

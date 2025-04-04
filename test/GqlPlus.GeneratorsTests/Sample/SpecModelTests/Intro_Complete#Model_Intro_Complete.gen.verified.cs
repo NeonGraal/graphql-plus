@@ -36,9 +36,9 @@ public interface IInput_TypeFilter {}
 
 public interface IDual_Aliased {}
 
-public interface IDual_Described {}
-
 public interface IDual_Named {}
+
+public interface IDual_Described {}
 
 public interface IOutput_Categories {}
 
@@ -165,11 +165,11 @@ public interface IOutput_EnumValue {}
 
 public interface IOutput_TypeUnion {}
 
-public interface IDual_UnionMember {}
+public interface IOutput_UnionRef {}
+
+public interface IOutput_UnionMember {}
 
 public interface IOutput_TypeObject {}
-
-public interface IDual_ObjDescribed {}
 
 public interface IOutput_ObjConstraint {}
 
@@ -202,35 +202,27 @@ public interface IOutput_TypeDual {}
 
 public interface IOutput_DualBase {}
 
-public interface IOutput_DualParent {}
-
-public interface IOutput_DualTypeParam {}
-
 public interface IOutput_DualField {}
 
 public interface IOutput_DualAlternate {}
+
+public interface IOutput_DualTypeArg {}
 
 public interface IOutput_TypeInput {}
 
 public interface IOutput_InputBase {}
 
-public interface IOutput_InputParent {}
-
-public interface IOutput_InputTypeParam {}
-
 public interface IOutput_InputField {}
 
 public interface IOutput_InputAlternate {}
+
+public interface IOutput_InputTypeArg {}
 
 public interface IOutput_InputParam {}
 
 public interface IOutput_TypeOutput {}
 
 public interface IOutput_OutputBase {}
-
-public interface IOutput_OutputParent {}
-
-public interface IOutput_OutputTypeParam {}
 
 public interface IOutput_OutputField {}
 

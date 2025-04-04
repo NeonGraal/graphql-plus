@@ -1,38 +1,40 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpParentParamSame: !_TypeInput
+  !_Identifier InpPrntParamSame: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpParentParamSameRef
-      type: !_TypeParam a
+      object: RefInpPrntParamSame
+      typeParam: a
     allFields:
     - !_ObjectFor(_InputField)
       name: field
-      object: InpParentParamSame
-      type: !_TypeParam a
+      object: InpPrntParamSame
+      type: !_InputBase
+        typeParam: a
     fields:
     - !_InputField
       name: field
-      type: !_TypeParam a
-    name: InpParentParamSame
+      type: !_InputBase
+        typeParam: a
+    name: InpPrntParamSame
     parent: !_InputBase
-      input: InpParentParamSameRef
+      input: RefInpPrntParamSame
       typeArgs:
       - !_TypeParam a
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Described
+    - !_Named
       name: a
-  !_Identifier InpParentParamSameRef: !_TypeInput
+  !_Identifier RefInpPrntParamSame: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpParentParamSameRef
-      type: !_TypeParam a
+      object: RefInpPrntParamSame
+      typeParam: a
     alternates:
     - !_InputAlternate
-      type: !_TypeParam a
-    name: InpParentParamSameRef
+      typeParam: a
+    name: RefInpPrntParamSame
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Described
+    - !_Named
       name: a

@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "EnDiff": {
+    "EnumDiff": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "enum": "EnDiff",
+          "enum": "EnumDiff",
           "name": "one"
         }
       ],
@@ -17,7 +17,7 @@
           "value": "one"
         }
       ],
-      "name": "EnDiff",
+      "name": "EnumDiff",
       "typeKind": "Enum"
     }
   }

@@ -1,33 +1,31 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualGenAltSimple: !_TypeDual
+  !_Identifier DualGnrcAltSmpl: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualGenAltSimple
-      type: !_DualBase
-        dual: DualGenAltSimpleRef
-        typeArgs:
-        - !_DualArg
-          dual: String
+      dual: RefDualGnrcAltSmpl
+      object: DualGnrcAltSmpl
+      typeArgs:
+      - !_DualArg
+        dual: String
     alternates:
     - !_DualAlternate
-      type: !_DualBase
-        dual: DualGenAltSimpleRef
-        typeArgs:
-        - !_DualArg
-          dual: String
-    name: DualGenAltSimple
+      dual: RefDualGnrcAltSmpl
+      typeArgs:
+      - !_DualArg
+        dual: String
+    name: DualGnrcAltSmpl
     typeKind: !_TypeKind Dual
-  !_Identifier DualGenAltSimpleRef: !_TypeDual
+  !_Identifier RefDualGnrcAltSmpl: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualGenAltSimpleRef
-      type: !_TypeParam ref
+      object: RefDualGnrcAltSmpl
+      typeParam: ref
     alternates:
     - !_DualAlternate
-      type: !_TypeParam ref
-    name: DualGenAltSimpleRef
+      typeParam: ref
+    name: RefDualGnrcAltSmpl
     typeKind: !_TypeKind Dual
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

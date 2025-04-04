@@ -2,16 +2,16 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualGenFieldArg": {
+    "DualGnrcFieldArg": {
       "$tag": "_TypeDual",
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "DualGenFieldArg",
+          "object": "DualGnrcFieldArg",
           "type": {
             "$tag": "_DualBase",
-            "dual": "DualGenFieldArgRef",
+            "dual": "RefDualGnrcFieldArg",
             "typeArgs": ["type"]
           }
         }
@@ -22,40 +22,40 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "dual": "DualGenFieldArgRef",
+            "dual": "RefDualGnrcFieldArg",
             "typeArgs": ["type"]
           }
         }
       ],
-      "name": "DualGenFieldArg",
+      "name": "DualGnrcFieldArg",
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
     },
-    "DualGenFieldArgRef": {
+    "RefDualGnrcFieldArg": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualGenFieldArgRef",
-          "type": "ref"
+          "object": "RefDualGnrcFieldArg",
+          "typeParam": "ref"
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": "ref"
+          "value": "ref"
         }
       ],
-      "name": "DualGenFieldArgRef",
+      "name": "RefDualGnrcFieldArg",
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]

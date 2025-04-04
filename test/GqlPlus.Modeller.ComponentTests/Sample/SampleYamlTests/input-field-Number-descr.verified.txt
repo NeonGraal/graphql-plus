@@ -1,22 +1,20 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InFieldNum: !_TypeInput
+  !_Identifier InpFieldNmbrDescr: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       default: 0
       name: field
-      object: InFieldNum
-      type: !_ObjDescribed(_InputBase)
-        base: !_InputBase
-          input: Number
+      object: InpFieldNmbrDescr
+      type: !_InputBase
         description: 'Test Descr'
+        input: Number
     fields:
     - !_InputField
       default: 0
       name: field
-      type: !_ObjDescribed(_InputBase)
-        base: !_InputBase
-          input: Number
+      type: !_InputBase
         description: 'Test Descr'
-    name: InFieldNum
+        input: Number
+    name: InpFieldNmbrDescr
     typeKind: !_TypeKind Input

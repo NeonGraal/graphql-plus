@@ -2,28 +2,34 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpGenField": {
+    "InpGnrcField": {
       "$tag": "_TypeInput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "InpGenField",
-          "type": "type"
+          "object": "InpGnrcField",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "type"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_InputField",
           "name": "field",
-          "type": "type"
+          "type": {
+            "$tag": "_InputBase",
+            "value": "type"
+          }
         }
       ],
-      "name": "InpGenField",
+      "name": "InpGnrcField",
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]

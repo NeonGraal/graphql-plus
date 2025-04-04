@@ -2,6 +2,19 @@
   Diagnostics: [
     {
       Location: errors.graphql+: (1,17)-(1,17),
+      Message: Invalid Category Output. Expected type name.,
+      Severity: Error,
+      Descriptor: {
+        Id: GQLP001,
+        Title: Invalid Category Output. Expected type name.,
+        MessageFormat: Invalid Category Output. Expected type name.,
+        Category: GraphQl+,
+        DefaultSeverity: Error,
+        IsEnabledByDefault: true
+      }
+    },
+    {
+      Location: errors.graphql+: (1,17)-(1,17),
       Message: Invalid Category. Expected output type.,
       Severity: Error,
       Descriptor: {

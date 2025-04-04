@@ -4,9 +4,8 @@ internal class DomainNumberModeller
   : ModellerDomain<IGqlpDomainRange, DomainRangeModel>
 {
   protected override BaseDomainModel<DomainRangeModel> ToModel(IGqlpDomain<IGqlpDomainRange> ast, IMap<TypeKindModel> typeKinds)
-    => new(DomainKindModel.Number, ast.Name) {
+    => new(DomainKindModel.Number, ast.Name, ast.Description) {
       Aliases = [.. ast.Aliases],
-      Description = ast.Description,
       Parent = ast.Parent.TypeRef(SimpleKindModel.Domain),
       Items = ToItems(ast, typeKinds),
     };

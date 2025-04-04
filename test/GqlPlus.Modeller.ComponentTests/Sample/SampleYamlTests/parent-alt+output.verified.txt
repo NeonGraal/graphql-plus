@@ -1,49 +1,44 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpParentAlt: !_TypeOutput
+  !_Identifier OutpPrntAlt: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpParentAltRef
-      type: !_OutputBase
-        output: String
+      object: RefOutpPrntAlt
+      output: String
     - !_ObjectFor(_OutputAlternate)
-      object: OutpParentAlt
-      type: !_OutputBase
-        output: Number
+      object: OutpPrntAlt
+      output: Number
     allFields:
     - !_ObjectFor(_OutputField)
       name: parent
-      object: OutpParentAltRef
+      object: RefOutpPrntAlt
       type: !_OutputBase
         output: Number
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: Number
-    name: OutpParentAlt
+      output: Number
+    name: OutpPrntAlt
     parent: !_OutputBase
-      output: OutpParentAltRef
+      output: RefOutpPrntAlt
     typeKind: !_TypeKind Output
-  !_Identifier OutpParentAltRef: !_TypeOutput
+  !_Identifier RefOutpPrntAlt: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpParentAltRef
-      type: !_OutputBase
-        output: String
+      object: RefOutpPrntAlt
+      output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: parent
-      object: OutpParentAltRef
+      object: RefOutpPrntAlt
       type: !_OutputBase
         output: Number
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: String
+      output: String
     fields:
     - !_OutputField
       name: parent
       type: !_OutputBase
         output: Number
-    name: OutpParentAltRef
+    name: RefOutpPrntAlt
     typeKind: !_TypeKind Output

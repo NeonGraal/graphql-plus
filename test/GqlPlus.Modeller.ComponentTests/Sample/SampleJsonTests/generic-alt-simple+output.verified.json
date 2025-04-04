@@ -2,62 +2,56 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpGenAltSimple": {
+    "OutpGnrcAltSmpl": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGenAltSimple",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "OutpGenAltSimpleRef",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "value": "String"
-              }
-            ]
-          }
+          "object": "OutpGnrcAltSmpl",
+          "output": "RefOutpGnrcAltSmpl",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "value": "String"
+            }
+          ]
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "OutpGenAltSimpleRef",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "value": "String"
-              }
-            ]
-          }
+          "output": "RefOutpGnrcAltSmpl",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "value": "String"
+            }
+          ]
         }
       ],
-      "name": "OutpGenAltSimple",
+      "name": "OutpGnrcAltSmpl",
       "typeKind": "Output"
     },
-    "OutpGenAltSimpleRef": {
+    "RefOutpGnrcAltSmpl": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGenAltSimpleRef",
-          "type": "ref"
+          "object": "RefOutpGnrcAltSmpl",
+          "typeParam": "ref"
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": "ref"
+          "value": "ref"
         }
       ],
-      "name": "OutpGenAltSimpleRef",
+      "name": "RefOutpGnrcAltSmpl",
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]

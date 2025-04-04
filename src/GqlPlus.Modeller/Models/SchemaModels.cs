@@ -1,8 +1,9 @@
 ﻿namespace GqlPlus.Models;
 
 public record class SchemaModel(
-  string Name
-) : AliasedModel(Name)
+  string Name,
+  string Description
+) : AliasedModel(Name, Description)
 {
   public SchemaModel(
     string name,
@@ -11,7 +12,7 @@ public record class SchemaModel(
     IEnumerable<SettingModel> settings,
     IEnumerable<BaseTypeModel> types,
     ITokenMessages errors)
-    : this(name)
+    : this(name, "")
   {
     Categories = categories.ToMap(c => c.Name);
     Directives = directives.ToMap(d => d.Name);
@@ -74,41 +75,41 @@ public record class TypeFilterParam(
 }
 
 public record class AliasedModel(
-  string Name
-) : DescribedModel(Name)
+  string Name,
+  string Description
+) : NamedModel(Name, Description)
   , IAliasedModel
 {
   public string[] Aliases { get; set; } = [];
 }
 
 public interface IAliasedModel
-  : IDescribedModel
+  : INamedModel
 {
   string[] Aliases { get; }
 }
 
 public record class DescribedModel(
-  string Name
-) : NamedModel(Name)
+  string Description
+) : ModelBase
   , IDescribedModel
-{
-  public string? Description { get; set; }
-}
+{ }
 
 public interface IDescribedModel
-  : INamedModel
+  : IModelBase
 {
   string? Description { get; }
 }
 
 public record class NamedModel(
-  string Name
-) : ModelBase
+  string Name,
+  string Description
+) : DescribedModel(Description)
   , INamedModel
 { }
 
 public interface INamedModel
-  : IModelBase
+  : IDescribedModel
 {
   string Name { get; }
 }

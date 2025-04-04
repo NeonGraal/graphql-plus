@@ -2,28 +2,22 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpAltSimple": {
+    "OutpAltSmpl": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpAltSimple",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "object": "OutpAltSmpl",
+          "output": "String"
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
-      "name": "OutpAltSimple",
+      "name": "OutpAltSmpl",
       "typeKind": "Output"
     }
   }

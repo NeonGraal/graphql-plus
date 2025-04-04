@@ -1,26 +1,30 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualObjectParam: !_TypeDual
+  !_Identifier DualObjParam: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: test
-      object: DualObjectParam
-      type: !_TypeParam test
+      object: DualObjParam
+      type: !_DualBase
+        typeParam: test
     - !_ObjectFor(_DualField)
       name: type
-      object: DualObjectParam
-      type: !_TypeParam type
+      object: DualObjParam
+      type: !_DualBase
+        typeParam: type
     fields:
     - !_DualField
       name: test
-      type: !_TypeParam test
+      type: !_DualBase
+        typeParam: test
     - !_DualField
       name: type
-      type: !_TypeParam type
-    name: DualObjectParam
+      type: !_DualBase
+        typeParam: type
+    name: DualObjParam
     typeKind: !_TypeKind Dual
     typeParams:
-    - !_Described
+    - !_Named
       name: test
-    - !_Described
+    - !_Named
       name: type

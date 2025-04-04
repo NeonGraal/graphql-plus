@@ -5,12 +5,12 @@ using NSubstitute;
 namespace GqlPlus.Operation;
 
 public class VerifyVariableUsageTests
-  : NamedVerifierBase<IGqlpArg, IGqlpVariable>
+  : IdentifiedVerifierBase<IGqlpArg, IGqlpVariable>
 {
   protected override IEnumerable<IGqlpVariable> OneDefinition(string name)
   {
     IGqlpVariable definition = EFor<IGqlpVariable>();
-    definition.Name.Returns(name);
+    definition.Identifier.Returns(name);
 
     return [definition];
   }
@@ -23,6 +23,6 @@ public class VerifyVariableUsageTests
     return [usage];
   }
 
-  internal override NamedVerifier<IGqlpArg, IGqlpVariable> NewVerifier()
+  internal override IdentifiedVerifier<IGqlpArg, IGqlpVariable> NewVerifier()
     => new VerifyVariableUsage(Usage, Definition);
 }

@@ -1,2 +1,2 @@
-"A simple doc"
-output Descr { }
+"A simple description"
+output Name { }

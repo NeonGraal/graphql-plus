@@ -3,67 +3,67 @@
 Success
 {
   !Du I@006/0001
-  DualObjectParam
+  DualObjParam
   <
-    I@023/0001
+    I@020/0001
     $test
-    I@023/0002
+    I@020/0002
     $type
   >
   {
-    !DF I@031/0001
+    !DF I@028/0001
     test
     :
-    I@038/0001
+    I@035/0001
     $test
-    !DF I@031/0002
+    !DF I@028/0002
     type
     :
-    I@038/0002
+    I@035/0002
     $type
   }
 }
 {
   !In I@007/0001
-  InpObjectParam
+  InpObjParam
   <
-    I@023/0001
+    I@020/0001
     $test
-    I@023/0002
+    I@020/0002
     $type
   >
   {
-    !IF I@031/0001
+    !IF I@028/0001
     test
     :
-    I@038/0001
+    I@035/0001
     $test
-    !IF I@031/0002
+    !IF I@028/0002
     type
     :
-    I@038/0002
+    I@035/0002
     $type
   }
 }
 {
   !Ou I@008/0001
-  OutpObjectParam
+  OutpObjParam
   <
-    I@025/0001
+    I@022/0001
     $test
-    I@025/0002
+    I@022/0002
     $type
   >
   {
-    !OF I@033/0001
+    !OF I@030/0001
     test
     :
-    I@040/0001
+    I@037/0001
     $test
-    !OF I@033/0002
+    !OF I@030/0002
     type
     :
-    I@040/0002
+    I@037/0002
     $type
   }
 }

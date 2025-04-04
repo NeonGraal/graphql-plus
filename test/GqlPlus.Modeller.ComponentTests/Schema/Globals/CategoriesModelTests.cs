@@ -9,7 +9,7 @@ public class CategoriesModelTests(
   ICategoriesModelChecks checks
 ) : TestModelBase<string, CategoriesModel>(checks)
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Type(string output)
     => checks
     .Model_Expected(
@@ -18,13 +18,13 @@ public class CategoriesModelTests(
         "name: " + output,
         "typeKind: !_TypeKind Output"]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Both(
     string output,
     string name
   ) => checks
     .Model_Expected(
-      checks.ToModel(new CategoryDeclAst(AstNulls.At, name, output), output),
+      checks.ToModel(new CategoryDeclAst(AstNulls.At, name, new(AstNulls.At, output)), output),
       ["!_Categories",
         "category: !_Category",
         "  name: " + name,
@@ -49,7 +49,7 @@ internal sealed class CategoriesModelChecks(
     "resolution: !_Resolution Parallel"];
 
   protected override CategoryDeclAst NewBaseAst(string name)
-    => new(AstNulls.At, name);
+    => new(AstNulls.At, new(AstNulls.At, name));
 
   IModelBase ICheckModelBase.ToModel(IGqlpError ast)
     => new CategoriesModel() { And = _modeller.ToModel((CategoryDeclAst)ast, TypeKinds) };

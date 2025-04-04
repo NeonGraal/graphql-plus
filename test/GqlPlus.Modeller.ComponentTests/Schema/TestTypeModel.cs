@@ -9,7 +9,7 @@ public abstract class TestTypeModel<TAstParent, TParent, TTypeKind, TRender>(
 ) : TestAliasedModel<string, TRender>(typeChecks)
   where TRender : IModelBase
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Parent(string name, TParent parent)
     => typeChecks.TypeExpected(
       typeChecks.TypeAst(name, parent),
@@ -33,6 +33,9 @@ internal abstract class CheckTypeModel<TAstParent, TParent, TAst, TTypeKind, TMo
   private readonly CheckTypeInputs<TAst, TModel> _inputs = inputs;
   protected readonly TTypeKind TypeKind = kind;
   protected readonly string TypeKindLower = $"{kind}".ToLowerInvariant();
+
+  protected string TypeParamOrKind(ITypeParamInput input)
+    => input.TypeParam ? "typeParam" : TypeKindLower;
 
   TTypeKind ICheckTypeModel<TAstParent, TParent, TTypeKind, TModel>.TypeKind => TypeKind;
   string ICheckTypeModel<TAstParent, TParent, TTypeKind, TModel>.TypeKindLower => TypeKindLower;

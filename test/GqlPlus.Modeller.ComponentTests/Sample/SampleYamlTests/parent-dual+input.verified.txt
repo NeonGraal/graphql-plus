@@ -1,41 +1,38 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpParentDual: !_TypeInput
+  !_Identifier InpPrntDual: !_TypeInput
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: InpParentDualRef
-      type: !_DualBase
-        dual: String
+      dual: String
+      object: RefInpPrntDual
     allFields:
     - !_ObjectFor(_DualField)
       name: parent
-      object: InpParentDualRef
+      object: RefInpPrntDual
       type: !_DualBase
         dual: Number
-    name: InpParentDual
+    name: InpPrntDual
     parent: !_DualBase
-      dual: InpParentDualRef
+      dual: RefInpPrntDual
     typeKind: !_TypeKind Input
-  !_Identifier InpParentDualRef: !_TypeDual
+  !_Identifier RefInpPrntDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: InpParentDualRef
-      type: !_DualBase
-        dual: String
+      dual: String
+      object: RefInpPrntDual
     allFields:
     - !_ObjectFor(_DualField)
       name: parent
-      object: InpParentDualRef
+      object: RefInpPrntDual
       type: !_DualBase
         dual: Number
     alternates:
     - !_DualAlternate
-      type: !_DualBase
-        dual: String
+      dual: String
     fields:
     - !_DualField
       name: parent
       type: !_DualBase
         dual: Number
-    name: InpParentDualRef
+    name: RefInpPrntDual
     typeKind: !_TypeKind Dual

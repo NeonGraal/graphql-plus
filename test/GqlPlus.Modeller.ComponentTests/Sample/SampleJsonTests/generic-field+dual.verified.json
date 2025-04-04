@@ -2,28 +2,34 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualGenField": {
+    "DualGnrcField": {
       "$tag": "_TypeDual",
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "DualGenField",
-          "type": "type"
+          "object": "DualGnrcField",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "type"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_DualField",
           "name": "field",
-          "type": "type"
+          "type": {
+            "$tag": "_DualBase",
+            "value": "type"
+          }
         }
       ],
-      "name": "DualGenField",
+      "name": "DualGnrcField",
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]

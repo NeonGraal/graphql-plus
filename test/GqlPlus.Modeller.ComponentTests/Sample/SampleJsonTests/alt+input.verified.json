@@ -2,47 +2,20 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpAlt": {
+    "AltInpAlt": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpAlt",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "InpAltAlt"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_InputAlternate",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "InpAltAlt"
-          }
-        }
-      ],
-      "name": "InpAlt",
-      "typeKind": "Input"
-    },
-    "InpAltAlt": {
-      "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpAltAlt",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
+          "input": "String",
+          "object": "AltInpAlt"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "alt",
-          "object": "InpAltAlt",
+          "object": "AltInpAlt",
           "type": {
             "$tag": "_InputBase",
             "value": "Number"
@@ -52,10 +25,7 @@
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "type": {
-            "$tag": "_InputBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -68,7 +38,25 @@
           }
         }
       ],
-      "name": "InpAltAlt",
+      "name": "AltInpAlt",
+      "typeKind": "Input"
+    },
+    "InpAlt": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "input": "AltInpAlt",
+          "object": "InpAlt"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "value": "AltInpAlt"
+        }
+      ],
+      "name": "InpAlt",
       "typeKind": "Input"
     }
   }

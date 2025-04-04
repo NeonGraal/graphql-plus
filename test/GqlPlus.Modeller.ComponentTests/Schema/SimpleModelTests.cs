@@ -6,11 +6,11 @@ public class SimpleModelTests(
   ISimpleModelChecks checks
 ) : TestModelBase<string, SimpleModel>(checks)
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Boolean(bool value)
     => checks.SimpleExpected(new FieldKeyAst(AstNulls.At, "Boolean", value.TrueFalse()), [value.TrueFalse()]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Enum(string type, string value)
     => checks.SimpleExpected(new FieldKeyAst(AstNulls.At, type, value), ["!" + type + " " + value]);
 
@@ -18,7 +18,7 @@ public class SimpleModelTests(
   public void Model_Nothing()
     => checks.SimpleExpected(new FieldKeyAst(AstNulls.At), ["!Basic null"]);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void Model_Number(decimal number)
     => checks.SimpleExpected(new FieldKeyAst(AstNulls.At, number), [$"{number}"]);
 }

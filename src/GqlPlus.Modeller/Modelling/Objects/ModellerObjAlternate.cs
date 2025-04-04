@@ -1,18 +1,20 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
-internal abstract class ModellerObjAlternate<TObjBaseAst, TObjAltAst, TObjBase, TObjAlt>(
-  IModeller<TObjBaseAst, TObjBase> objBase,
+internal abstract class ModellerObjAlternate<TObjArgAst, TObjAltAst, TObjArg, TObjAlt>(
+  IModeller<TObjArgAst, TObjArg> objArg,
   IModeller<IGqlpModifier, CollectionModel> collection
-) : ModellerBase<TObjAltAst, TObjAlt>
-  where TObjBaseAst : IGqlpObjBase
-  where TObjAltAst : IGqlpObjAlternate<TObjBaseAst>
-  where TObjBase : IObjBaseModel
-  where TObjAlt : ObjAlternateModel<TObjBase>
+) : ModellerObjBase<TObjAltAst, TObjArgAst, TObjAlt, TObjArg>(objArg)
+  where TObjArgAst : IGqlpObjArg
+  where TObjAltAst : IGqlpObjAlternate, IGqlpObjBase<TObjArgAst>
+  where TObjArg : IObjArgModel
+  where TObjAlt : ObjAlternateModel<TObjArg>
 {
   protected override TObjAlt ToModel(TObjAltAst ast, IMap<TypeKindModel> typeKinds)
-    => AlternateModel(ast, objBase.ToModel(ast.BaseType, typeKinds), typeKinds) with {
+    => AlternateModel(ast, typeKinds) with {
+      IsTypeParam = ast.IsTypeParam,
+      Args = ModelArgs(ast, typeKinds),
       Collections = collection.ToModels(ast.Modifiers, typeKinds),
     };
 
-  protected abstract TObjAlt AlternateModel(TObjAltAst ast, TObjBase type, IMap<TypeKindModel> typeKinds);
+  protected abstract TObjAlt AlternateModel(TObjAltAst ast, IMap<TypeKindModel> typeKinds);
 }

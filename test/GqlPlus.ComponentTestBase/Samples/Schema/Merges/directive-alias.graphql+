@@ -1,2 +1,2 @@
-directive @DirAlias [DirA1] { variable }
-directive @DirAlias [DirA2] { field }
+directive @Name [DirA1] { variable }
+directive @Name [DirA2] { field }

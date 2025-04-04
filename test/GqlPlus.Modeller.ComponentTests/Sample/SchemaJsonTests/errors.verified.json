@@ -9,6 +9,16 @@
         "_line": 1
       },
       "_kind": "Punctuation",
+      "_message": "Invalid Category Output. Expected type name."
+    },
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 17,
+        "_line": 1
+      },
+      "_kind": "Punctuation",
       "_message": "Invalid Category. Expected output type."
     },
     {
@@ -29,6 +39,7 @@
       "name": "query",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
+        "name": "query",
         "typeKind": "Output"
       },
       "resolution": "Parallel"

@@ -8,4 +8,6 @@ namespace GqlTest.Model_Intro_Union;
 
 public interface IOutput_TypeUnion {}
 
-public interface IDual_UnionMember {}
+public interface IOutput_UnionRef {}
+
+public interface IOutput_UnionMember {}

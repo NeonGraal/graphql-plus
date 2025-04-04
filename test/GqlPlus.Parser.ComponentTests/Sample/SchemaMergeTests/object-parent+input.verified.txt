@@ -3,13 +3,13 @@
 Success
 {
   !In I@007/0001
-  InpObjectParent
+  InpObjPrnt
   :
-  I@026/0001
-  InpObjectParentRef
+  I@021/0001
+  RefInpObjPrnt
 }
 {
   !In I@007/0003
-  InpObjectParentRef
+  RefInpObjPrnt
 }
 ]

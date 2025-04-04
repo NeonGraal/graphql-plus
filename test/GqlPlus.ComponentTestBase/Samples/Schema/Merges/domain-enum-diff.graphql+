@@ -1,2 +1,2 @@
-domain EnumDiff { enum true }
-domain EnumDiff { enum false }
+domain Name { enum true }
+domain Name { enum false }

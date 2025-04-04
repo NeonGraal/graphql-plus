@@ -3,12 +3,12 @@
 Success
 {
   !Do I@008/0001
-  EnumDiff
+  DmnEnumDiff
   Enum
-  !DE I@024/0001
+  !DE I@027/0001
   Boolean
   true
-  !DE I@024/0002
+  !DE I@027/0002
   Boolean
   false
 }

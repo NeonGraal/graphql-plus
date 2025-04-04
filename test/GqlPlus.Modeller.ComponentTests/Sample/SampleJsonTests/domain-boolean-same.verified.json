@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "BoolSame": {
+    "DmnBoolSame": {
       "$tag": "_DomainBoolean",
       "allItems": [
         {
           "$tag": "_DomainItem(_DomainTrueFalse)",
-          "domain": "BoolSame",
+          "domain": "DmnBoolSame",
           "exclude": false,
           "value": true
         }
@@ -20,7 +20,7 @@
           "value": true
         }
       ],
-      "name": "BoolSame",
+      "name": "DmnBoolSame",
       "typeKind": "Domain"
     }
   }

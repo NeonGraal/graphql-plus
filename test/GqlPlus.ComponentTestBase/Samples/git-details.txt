@@ -1,1 +1,1 @@
-e1a0727  (HEAD -> enum-label, origin/enum-label) 2025-03-28 Correct Enum label introspection, Parent descriptions and Type Arguments
+e33a5bc  (HEAD -> name-samples) 2025-04-03 Improve Object spec and Introspection

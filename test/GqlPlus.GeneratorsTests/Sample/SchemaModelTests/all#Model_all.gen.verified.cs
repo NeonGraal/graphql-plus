@@ -4,18 +4,10 @@
 /*
 Category all
 Directive all
+Option Schema
 */
 
 namespace GqlTest.Model_all;
-
-public enum One {
-  Two,
-  Three,
-}
-
-public interface IInputParam {}
-
-public interface IOutputAll {}
 
 public interface IDomainGuid {
   string Value { get; set; }
@@ -26,3 +18,16 @@ public class DomainGuid
   string _value;
   string Value { get => _value; set => CheckAndSet(value); }
 }
+
+public enum One {
+  Two,
+  Three,
+}
+
+public interface IUnionMany {}
+
+public interface IDualField {}
+
+public interface IInputParam {}
+
+public interface IOutputAll {}

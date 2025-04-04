@@ -10,12 +10,10 @@ public interface IOutput_TypeInput {}
 
 public interface IOutput_InputBase {}
 
-public interface IOutput_InputParent {}
-
-public interface IOutput_InputTypeParam {}
-
 public interface IOutput_InputField {}
 
 public interface IOutput_InputAlternate {}
+
+public interface IOutput_InputTypeArg {}
 
 public interface IOutput_InputParam {}

@@ -8,7 +8,7 @@ public sealed class ParseDirectiveTests(
   IBaseAliasedChecks<string, IGqlpSchemaDirective> checks
 ) : BaseAliasedTests<string, IGqlpSchemaDirective>(checks)
 {
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithRepeatable_ReturnsCorrectAst(string name)
     => checks.TrueExpected(
       "@" + name + "{(repeatable)operation}",
@@ -17,15 +17,15 @@ public sealed class ParseDirectiveTests(
         Locations = DirectiveLocation.Operation,
       });
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithOptionBad_ReturnsFalse(string name)
     => checks.FalseExpected("@" + name + "{(repeatable operation}");
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithOptionNone_ReturnsFalse(string name)
     => checks.FalseExpected("@" + name + "{()operation}");
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithParams_ReturnsCorrectAst(string name, string[] parameters)
     => checks.TrueExpected(
       "@" + name + "(" + parameters.Joined() + "){operation}",
@@ -34,15 +34,15 @@ public sealed class ParseDirectiveTests(
         Locations = DirectiveLocation.Operation,
       });
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithParamBad_ReturnsFalse(string name, string parameter)
     => checks.FalseExpected("@" + name + "(" + parameter + "{operation}");
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithParamNone_ReturnsFalse(string name)
     => checks.FalseExpected("@" + name + "(){operation}");
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithLocations_ReturnsCorrectAst(string name)
     => checks.TrueExpected(
       "@" + name + "{operation Field FRAGMENT}",
@@ -50,11 +50,11 @@ public sealed class ParseDirectiveTests(
         Locations = DirectiveLocation.Operation | DirectiveLocation.Field | DirectiveLocation.Fragment,
       });
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithLocationsBad_ReturnsFalse(string name)
     => checks.FalseExpected("@" + name + "{random}");
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithLocationsNone_ReturnsFalse(string name)
     => checks.FalseExpected("@" + name + "{}");
 }

@@ -15,15 +15,7 @@ internal sealed class InputParamModelChecks(
 ) : CheckDescribedModel<string, IGqlpInputParam, InputParamModel>(modeller, rendering)
 {
   protected override string[] ExpectedDescription(ExpectedDescriptionInput<string> input)
-  {
-    IEnumerable<string> description = input.ExpectedDescription;
-    return description.Any()
-      ? ["!_InputParam",
-        "base: !_InputBase",
-        "  input: " + input.Name,
-        .. description]
-        : ["!_InputParam", "input: " + input.Name];
-  }
+    => ["!_InputParam", .. input.ExpectedDescription, "input: " + input.Name];
 
   protected override InputParamAst NewDescribedAst(string input, string description)
     => new(AstNulls.At, input, description);

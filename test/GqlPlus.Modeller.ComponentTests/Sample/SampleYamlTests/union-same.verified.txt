@@ -1,12 +1,12 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier UnSame: !_TypeUnion
+  !_Identifier UnionSame: !_TypeUnion
     allItems:
     - !_UnionMember
       name: Boolean
-      union: UnSame
+      union: UnionSame
     items:
     - !_Aliased
       name: Boolean
-    name: UnSame
+    name: UnionSame
     typeKind: !_TypeKind Union

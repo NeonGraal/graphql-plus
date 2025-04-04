@@ -1,47 +1,43 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpAltModBoolean: !_TypeOutput
+  !_Identifier AltOutpAltModBool: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      collections:
-      - !_ModifierDictionary
-        by: ^
-        modifierKind: !_ModifierKind Dict
-        typeKind: !_SimpleKind Basic
-      object: OutpAltModBoolean
-      type: !_OutputBase
-        output: OutpAltModBooleanAlt
-    alternates:
-    - !_OutputAlternate
-      collections:
-      - !_ModifierDictionary
-        by: ^
-        modifierKind: !_ModifierKind Dict
-        typeKind: !_SimpleKind Basic
-      type: !_OutputBase
-        output: OutpAltModBooleanAlt
-    name: OutpAltModBoolean
-    typeKind: !_TypeKind Output
-  !_Identifier OutpAltModBooleanAlt: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: OutpAltModBooleanAlt
-      type: !_OutputBase
-        output: String
+      object: AltOutpAltModBool
+      output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
-      object: OutpAltModBooleanAlt
+      object: AltOutpAltModBool
       type: !_OutputBase
         output: Number
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: String
+      output: String
     fields:
     - !_OutputField
       name: alt
       type: !_OutputBase
         output: Number
-    name: OutpAltModBooleanAlt
+    name: AltOutpAltModBool
+    typeKind: !_TypeKind Output
+  !_Identifier OutpAltModBool: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      collections:
+      - !_ModifierDictionary
+        by: ^
+        modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Basic
+      object: OutpAltModBool
+      output: AltOutpAltModBool
+    alternates:
+    - !_OutputAlternate
+      collections:
+      - !_ModifierDictionary
+        by: ^
+        modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Basic
+      output: AltOutpAltModBool
+    name: OutpAltModBool
     typeKind: !_TypeKind Output

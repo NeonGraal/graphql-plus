@@ -30,9 +30,9 @@ internal sealed record class OutputArgAst(
 
   IGqlpDualArg IGqlpToDual<IGqlpDualArg>.ToDual => ToDual();
 
-  string IGqlpOutputArg.Output => Name;
+  string IGqlpOutputNamed.Output => Name;
+  public IGqlpObjType EnumType => this;
 
-  string IGqlpOutputEnum.EnumType => TypeName;
   void IGqlpOutputEnum.SetEnumType(string enumType)
   {
     EnumLabel ??= Name;

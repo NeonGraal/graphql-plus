@@ -61,7 +61,7 @@ internal class DirectiveRenderer(
 
 internal class SettingRenderer(
   IRenderer<ConstantModel> constant
-) : DescribedRenderer<SettingModel>
+) : NamedRenderer<SettingModel>
 {
   internal override Structured Render(SettingModel model)
     => base.Render(model)

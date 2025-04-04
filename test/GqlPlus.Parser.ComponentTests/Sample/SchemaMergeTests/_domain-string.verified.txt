@@ -3,7 +3,7 @@
 Success
 {
   !Do I@008/0001
-  Str
+  DmnStr
   String
 }
 ]

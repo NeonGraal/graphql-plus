@@ -2,58 +2,52 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualGenAltArgDescr": {
+    "DualGnrcAltArgDescr": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualGenAltArgDescr",
-          "type": {
-            "$tag": "_DualBase",
-            "dual": "DualGenAltArgDescrRef",
-            "typeArgs": ["type"]
-          }
+          "dual": "RefDualGnrcAltArgDescr",
+          "object": "DualGnrcAltArgDescr",
+          "typeArgs": ["type"]
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "dual": "DualGenAltArgDescrRef",
-            "typeArgs": ["type"]
-          }
+          "dual": "RefDualGnrcAltArgDescr",
+          "typeArgs": ["type"]
         }
       ],
-      "name": "DualGenAltArgDescr",
+      "name": "DualGnrcAltArgDescr",
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]
     },
-    "DualGenAltArgDescrRef": {
+    "RefDualGnrcAltArgDescr": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualGenAltArgDescrRef",
-          "type": "ref"
+          "object": "RefDualGnrcAltArgDescr",
+          "typeParam": "ref"
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": "ref"
+          "value": "ref"
         }
       ],
-      "name": "DualGenAltArgDescrRef",
+      "name": "RefDualGnrcAltArgDescr",
       "typeKind": "Dual",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]

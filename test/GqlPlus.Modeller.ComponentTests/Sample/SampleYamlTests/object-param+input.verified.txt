@@ -1,26 +1,30 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpObjectParam: !_TypeInput
+  !_Identifier InpObjParam: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: test
-      object: InpObjectParam
-      type: !_TypeParam test
+      object: InpObjParam
+      type: !_InputBase
+        typeParam: test
     - !_ObjectFor(_InputField)
       name: type
-      object: InpObjectParam
-      type: !_TypeParam type
+      object: InpObjParam
+      type: !_InputBase
+        typeParam: type
     fields:
     - !_InputField
       name: test
-      type: !_TypeParam test
+      type: !_InputBase
+        typeParam: test
     - !_InputField
       name: type
-      type: !_TypeParam type
-    name: InpObjectParam
+      type: !_InputBase
+        typeParam: type
+    name: InpObjParam
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Described
+    - !_Named
       name: test
-    - !_Described
+    - !_Named
       name: type

@@ -1,2 +1,2 @@
-union UnSame { Boolean }
-union UnSame { Boolean }
+union Name { Boolean }
+union Name { Boolean }

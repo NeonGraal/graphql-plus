@@ -2,43 +2,55 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpObjectParam": {
+    "InpObjParam": {
       "$tag": "_TypeInput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "test",
-          "object": "InpObjectParam",
-          "type": "test"
+          "object": "InpObjParam",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "test"
+          }
         },
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "type",
-          "object": "InpObjectParam",
-          "type": "type"
+          "object": "InpObjParam",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "type"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_InputField",
           "name": "test",
-          "type": "test"
+          "type": {
+            "$tag": "_InputBase",
+            "value": "test"
+          }
         },
         {
           "$tag": "_InputField",
           "name": "type",
-          "type": "type"
+          "type": {
+            "$tag": "_InputBase",
+            "value": "type"
+          }
         }
       ],
-      "name": "InpObjectParam",
+      "name": "InpObjParam",
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "test"
         },
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]

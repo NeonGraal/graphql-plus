@@ -1,9 +1,9 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DomNumDescr: !_DomainNumber
+  !_Identifier DmnNmbrDescr: !_DomainNumber
     allItems:
     - !_DomainItem(_DomainRange)
-      domain: DomNumDescr
+      domain: DmnNmbrDescr
       exclude: false
       to: 2
     domainKind: !_DomainKind Number
@@ -11,5 +11,5 @@ types: !_Map_Type
     - !_DomainRange
       exclude: false
       to: 2
-    name: DomNumDescr
+    name: DmnNmbrDescr
     typeKind: !_TypeKind Domain

@@ -2,63 +2,20 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpAltModBoolean": {
+    "AltOutpAltModBool": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "collections": [
-            {
-              "$tag": "_ModifierDictionary",
-              "by": "^",
-              "modifierKind": "Dict",
-              "typeKind": "Basic"
-            }
-          ],
-          "object": "OutpAltModBoolean",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutpAltModBooleanAlt"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "collections": [
-            {
-              "$tag": "_ModifierDictionary",
-              "by": "^",
-              "modifierKind": "Dict",
-              "typeKind": "Basic"
-            }
-          ],
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutpAltModBooleanAlt"
-          }
-        }
-      ],
-      "name": "OutpAltModBoolean",
-      "typeKind": "Output"
-    },
-    "OutpAltModBooleanAlt": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpAltModBooleanAlt",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "object": "AltOutpAltModBool",
+          "output": "String"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "alt",
-          "object": "OutpAltModBooleanAlt",
+          "object": "AltOutpAltModBool",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -68,10 +25,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -84,7 +38,41 @@
           }
         }
       ],
-      "name": "OutpAltModBooleanAlt",
+      "name": "AltOutpAltModBool",
+      "typeKind": "Output"
+    },
+    "OutpAltModBool": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "collections": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "^",
+              "modifierKind": "Dict",
+              "typeKind": "Basic"
+            }
+          ],
+          "object": "OutpAltModBool",
+          "output": "AltOutpAltModBool"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "collections": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "^",
+              "modifierKind": "Dict",
+              "typeKind": "Basic"
+            }
+          ],
+          "output": "AltOutpAltModBool"
+        }
+      ],
+      "name": "OutpAltModBool",
       "typeKind": "Output"
     }
   }

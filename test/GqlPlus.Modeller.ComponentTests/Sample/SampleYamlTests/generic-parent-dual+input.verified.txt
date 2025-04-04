@@ -1,51 +1,48 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpGenParentDual: !_TypeInput
-    allAlternates:
-    - !_ObjectFor(_InputAlternate)
-      object: InpGenParentDualRef
-      type: !_DualBase
-        dual: InpGenParentDualAlt
-    name: InpGenParentDual
-    parent: !_InputBase
-      input: InpGenParentDualRef
-      typeArgs:
-      - !_DualArg
-        dual: InpGenParentDualAlt
-    typeKind: !_TypeKind Input
-  !_Identifier InpGenParentDualAlt: !_TypeDual
+  !_Identifier AltInpGnrcPrntDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: InpGenParentDualAlt
-      type: !_DualBase
-        dual: String
+      dual: String
+      object: AltInpGnrcPrntDual
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: InpGenParentDualAlt
+      object: AltInpGnrcPrntDual
       type: !_DualBase
         dual: Number
     alternates:
     - !_DualAlternate
-      type: !_DualBase
-        dual: String
+      dual: String
     fields:
     - !_DualField
       name: alt
       type: !_DualBase
         dual: Number
-    name: InpGenParentDualAlt
+    name: AltInpGnrcPrntDual
     typeKind: !_TypeKind Dual
-  !_Identifier InpGenParentDualRef: !_TypeInput
+  !_Identifier InpGnrcPrntDual: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpGenParentDualRef
-      type: !_TypeParam ref
+      object: RefInpGnrcPrntDual
+      typeParam: ref
+    name: InpGnrcPrntDual
+    parent: !_InputBase
+      input: RefInpGnrcPrntDual
+      typeArgs:
+      - !_DualArg
+        dual: AltInpGnrcPrntDual
+    typeKind: !_TypeKind Input
+  !_Identifier RefInpGnrcPrntDual: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: RefInpGnrcPrntDual
+      typeParam: ref
     alternates:
     - !_InputAlternate
-      type: !_TypeParam ref
-    name: InpGenParentDualRef
+      typeParam: ref
+    name: RefInpGnrcPrntDual
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

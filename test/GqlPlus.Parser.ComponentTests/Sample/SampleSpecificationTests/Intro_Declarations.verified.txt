@@ -103,13 +103,12 @@ Success
     =( !k I@043/0016 Boolean.false )
   }
   |
-  !IA I@007/0017
   I@007/0017
   _NameFilter
   []
 }
 {
-  "_NameFilter is a simple match expression against _Identifier where '.' matches any single character and '*' matches zero or more of any character."
+  '_NameFilter is a simple match expression against _Identifier where \'.\' matches any single character and \'*\' matches zero or more of any character.'
   !Do I@008/0021
   _NameFilter
   String

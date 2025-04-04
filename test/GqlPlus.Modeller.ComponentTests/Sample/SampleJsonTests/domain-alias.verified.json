@@ -2,11 +2,11 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "NumAlias": {
+    "DmnAlias": {
       "$tag": "_DomainNumber",
       "aliases": ["Num1", "Num2"],
       "domainKind": "Number",
-      "name": "NumAlias",
+      "name": "DmnAlias",
       "typeKind": "Domain"
     }
   }

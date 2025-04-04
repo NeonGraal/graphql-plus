@@ -2,33 +2,27 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualObjectAlt": {
+    "DualObjAlt": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualObjectAlt",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "DualObjectAltType"
-          }
+          "dual": "DualObjAltType",
+          "object": "DualObjAlt"
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "DualObjectAltType"
-          }
+          "value": "DualObjAltType"
         }
       ],
-      "name": "DualObjectAlt",
+      "name": "DualObjAlt",
       "typeKind": "Dual"
     },
-    "DualObjectAltType": {
+    "DualObjAltType": {
       "$tag": "_TypeDual",
-      "name": "DualObjectAltType",
+      "name": "DualObjAltType",
       "typeKind": "Dual"
     }
   }

@@ -1,1 +1,1 @@
-domain DomBoolDescr { Boolean "DomBool" "Descr" true }
+domain Name { Boolean "DomBool" "Descr" true }

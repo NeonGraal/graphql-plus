@@ -1,6 +1,6 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DescrBackslash: !_TypeOutput
-    description: 'A backslash ("\") doc'
-    name: DescrBackslash
+  !_Identifier DescrBcks: !_TypeOutput
+    description: 'A backslash ("\") description'
+    name: DescrBcks
     typeKind: !_TypeKind Output

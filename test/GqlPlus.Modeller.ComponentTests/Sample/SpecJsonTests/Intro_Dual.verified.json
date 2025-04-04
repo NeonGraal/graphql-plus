@@ -14,28 +14,44 @@
     {
       "$tag": "_Error",
       "_kind": "End",
-      "_message": "In _DualParent can\u0027t get model for type \u0027_ObjDescribed\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_kind": "End",
-      "_message": "In _DualTypeParam can\u0027t get model for type \u0027_ObjTypeParam\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_kind": "End",
       "_message": "In _DualField can\u0027t get model for type \u0027_Field\u0027"
     },
     {
       "$tag": "_Error",
       "_kind": "End",
       "_message": "In _DualAlternate can\u0027t get model for type \u0027_Alternate\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": "End",
+      "_message": "In _DualTypeArg can\u0027t get model for type \u0027_ObjTypeArg\u0027"
     }
   ],
   "types": {
     "$tag": "_Map_Type",
     "_DualAlternate": {
       "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "dual",
+          "object": "_DualAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "dual",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
       "name": "_DualAlternate",
       "parent": {
         "$tag": "_OutputBase",
@@ -43,7 +59,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_DualBase"
+            "value": "_DualTypeArg"
           }
         ]
       },
@@ -79,7 +95,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_ObjTypeArg"
+            "value": "_DualTypeArg"
           }
         ]
       },
@@ -100,33 +116,33 @@
       },
       "typeKind": "Output"
     },
-    "_DualParent": {
+    "_DualTypeArg": {
       "$tag": "_TypeOutput",
-      "name": "_DualParent",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "dual",
+          "object": "_DualTypeArg",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "dual",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "name": "_DualTypeArg",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_ObjDescribed",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "value": "_DualBase"
-          }
-        ]
-      },
-      "typeKind": "Output"
-    },
-    "_DualTypeParam": {
-      "$tag": "_TypeOutput",
-      "name": "_DualTypeParam",
-      "parent": {
-        "$tag": "_OutputBase",
-        "output": "_ObjTypeParam",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "value": "_DualBase"
-          }
-        ]
+        "value": "_ObjTypeArg"
       },
       "typeKind": "Output"
     },
@@ -145,11 +161,7 @@
           },
           {
             "$tag": "_OutputArg",
-            "value": "_DualParent"
-          },
-          {
-            "$tag": "_OutputArg",
-            "value": "_DualTypeParam"
+            "value": "_DualBase"
           },
           {
             "$tag": "_OutputArg",

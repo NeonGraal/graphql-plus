@@ -2,28 +2,34 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpGenDescr": {
+    "OutpGnrcDescr": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutpGenDescr",
-          "type": "type"
+          "object": "OutpGnrcDescr",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "type"
+          }
         }
       ],
       "fields": [
         {
           "$tag": "_OutputField",
           "name": "field",
-          "type": "type"
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "type"
+          }
         }
       ],
-      "name": "OutpGenDescr",
+      "name": "OutpGnrcDescr",
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "description": "Test Descr",
           "name": "type"
         }

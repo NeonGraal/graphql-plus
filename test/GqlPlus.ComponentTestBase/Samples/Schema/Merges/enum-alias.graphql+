@@ -1,2 +1,2 @@
-enum EnAlias [En1] { alias }
-enum EnAlias [En2] { alias }
+enum Name [En1] { name }
+enum Name [En2] { name }

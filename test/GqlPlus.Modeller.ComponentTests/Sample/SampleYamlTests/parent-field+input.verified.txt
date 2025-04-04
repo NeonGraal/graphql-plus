@@ -1,20 +1,19 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpParentField: !_TypeInput
+  !_Identifier InpPrntField: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpParentFieldRef
-      type: !_InputBase
-        input: String
+      input: String
+      object: RefInpPrntField
     allFields:
     - !_ObjectFor(_InputField)
       name: parent
-      object: InpParentFieldRef
+      object: RefInpPrntField
       type: !_InputBase
         input: Number
     - !_ObjectFor(_InputField)
       name: field
-      object: InpParentField
+      object: InpPrntField
       type: !_InputBase
         input: Number
     fields:
@@ -22,30 +21,28 @@ types: !_Map_Type
       name: field
       type: !_InputBase
         input: Number
-    name: InpParentField
+    name: InpPrntField
     parent: !_InputBase
-      input: InpParentFieldRef
+      input: RefInpPrntField
     typeKind: !_TypeKind Input
-  !_Identifier InpParentFieldRef: !_TypeInput
+  !_Identifier RefInpPrntField: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpParentFieldRef
-      type: !_InputBase
-        input: String
+      input: String
+      object: RefInpPrntField
     allFields:
     - !_ObjectFor(_InputField)
       name: parent
-      object: InpParentFieldRef
+      object: RefInpPrntField
       type: !_InputBase
         input: Number
     alternates:
     - !_InputAlternate
-      type: !_InputBase
-        input: String
+      input: String
     fields:
     - !_InputField
       name: parent
       type: !_InputBase
         input: Number
-    name: InpParentFieldRef
+    name: RefInpPrntField
     typeKind: !_TypeKind Input

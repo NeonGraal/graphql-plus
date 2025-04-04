@@ -1,6 +1,6 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DescrDouble: !_TypeOutput
-    description: "A 'double-quoted' doc"
-    name: DescrDouble
+  !_Identifier DescrDbl: !_TypeOutput
+    description: "A 'double-quoted' description"
+    name: DescrDbl
     typeKind: !_TypeKind Output

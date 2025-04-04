@@ -1,2 +1,2 @@
-"A \"more\" 'Complicated' \\ doc"
-output DescrComplex { }
+"A \"more\" 'Complicated' \\ description"
+output Name { }

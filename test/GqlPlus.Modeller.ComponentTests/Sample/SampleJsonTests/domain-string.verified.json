@@ -2,10 +2,10 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "Str": {
+    "DmnStr": {
       "$tag": "_DomainString",
       "domainKind": "String",
-      "name": "Str",
+      "name": "DmnStr",
       "typeKind": "Domain"
     }
   }

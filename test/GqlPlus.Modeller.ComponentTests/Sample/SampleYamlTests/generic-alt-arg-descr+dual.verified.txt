@@ -1,34 +1,32 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualGenAltArgDescr: !_TypeDual
+  !_Identifier DualGnrcAltArgDescr: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualGenAltArgDescr
-      type: !_DualBase
-        dual: DualGenAltArgDescrRef
-        typeArgs:
-        - !_TypeParam type
+      dual: RefDualGnrcAltArgDescr
+      object: DualGnrcAltArgDescr
+      typeArgs:
+      - !_TypeParam type
     alternates:
     - !_DualAlternate
-      type: !_DualBase
-        dual: DualGenAltArgDescrRef
-        typeArgs:
-        - !_TypeParam type
-    name: DualGenAltArgDescr
+      dual: RefDualGnrcAltArgDescr
+      typeArgs:
+      - !_TypeParam type
+    name: DualGnrcAltArgDescr
     typeKind: !_TypeKind Dual
     typeParams:
-    - !_Described
+    - !_Named
       name: type
-  !_Identifier DualGenAltArgDescrRef: !_TypeDual
+  !_Identifier RefDualGnrcAltArgDescr: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualGenAltArgDescrRef
-      type: !_TypeParam ref
+      object: RefDualGnrcAltArgDescr
+      typeParam: ref
     alternates:
     - !_DualAlternate
-      type: !_TypeParam ref
-    name: DualGenAltArgDescrRef
+      typeParam: ref
+    name: RefDualGnrcAltArgDescr
     typeKind: !_TypeKind Dual
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

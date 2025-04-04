@@ -10,10 +10,6 @@ public interface IOutput_TypeOutput {}
 
 public interface IOutput_OutputBase {}
 
-public interface IOutput_OutputParent {}
-
-public interface IOutput_OutputTypeParam {}
-
 public interface IOutput_OutputField {}
 
 public interface IOutput_OutputAlternate {}

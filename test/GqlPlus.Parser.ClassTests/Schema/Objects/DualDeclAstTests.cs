@@ -20,9 +20,6 @@ internal sealed class DualDeclAstChecks
       parent => new DualBaseAst(AstNulls.At, parent))
   { }
 
-  protected override string AlternateString(AlternateInput input)
-    => $"!DA {input.Type} [] ?";
-
   protected override IGqlpDualAlternate[] CreateAlternates(IEnumerable<AlternateInput> alternates)
     => alternates.DualAlternates();
   protected override IGqlpDualField[] CreateFields(IEnumerable<FieldInput> fields)

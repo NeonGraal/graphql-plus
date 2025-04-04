@@ -2,48 +2,20 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpGenParentParam": {
+    "AltOutpGnrcPrntParam": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGenParentParamRef",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "OutpGenParentParamAlt"
-          }
-        }
-      ],
-      "name": "OutpGenParentParam",
-      "parent": {
-        "$tag": "_OutputBase",
-        "output": "OutpGenParentParamRef",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "value": "OutpGenParentParamAlt"
-          }
-        ]
-      },
-      "typeKind": "Output"
-    },
-    "OutpGenParentParamAlt": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGenParentParamAlt",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "object": "AltOutpGnrcPrntParam",
+          "output": "String"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "alt",
-          "object": "OutpGenParentParamAlt",
+          "object": "AltOutpGnrcPrntParam",
           "type": {
             "$tag": "_OutputBase",
             "value": "Number"
@@ -53,10 +25,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -69,29 +38,51 @@
           }
         }
       ],
-      "name": "OutpGenParentParamAlt",
+      "name": "AltOutpGnrcPrntParam",
       "typeKind": "Output"
     },
-    "OutpGenParentParamRef": {
+    "OutpGnrcPrntParam": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGenParentParamRef",
-          "type": "ref"
+          "object": "RefOutpGnrcPrntParam",
+          "typeParam": "ref"
+        }
+      ],
+      "name": "OutpGnrcPrntParam",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "RefOutpGnrcPrntParam",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "value": "AltOutpGnrcPrntParam"
+          }
+        ]
+      },
+      "typeKind": "Output"
+    },
+    "RefOutpGnrcPrntParam": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "RefOutpGnrcPrntParam",
+          "typeParam": "ref"
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": "ref"
+          "value": "ref"
         }
       ],
-      "name": "OutpGenParentParamRef",
+      "name": "RefOutpGnrcPrntParam",
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "ref"
         }
       ]

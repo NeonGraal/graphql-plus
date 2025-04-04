@@ -1,9 +1,10 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpGenParent: !_TypeInput
-    name: InpGenParent
-    parent: !_TypeParam type
+  !_Identifier InpGnrcPrnt: !_TypeInput
+    name: InpGnrcPrnt
+    parent: !_InputBase
+      typeParam: type
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Described
+    - !_Named
       name: type

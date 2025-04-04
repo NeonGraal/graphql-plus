@@ -8,12 +8,6 @@ _errors:
   _message: In _OutputBase can't get model for type '_ObjBase'
 - !_Error
   _kind: !_TokenKind End
-  _message: In _OutputParent can't get model for type '_ObjDescribed'
-- !_Error
-  _kind: !_TokenKind End
-  _message: In _OutputTypeParam can't get model for type '_ObjTypeParam'
-- !_Error
-  _kind: !_TokenKind End
   _message: In _OutputField can't get model for type '_Field'
 - !_Error
   _kind: !_TokenKind End
@@ -26,19 +20,29 @@ _errors:
   _message: In _OutputEnum can't get model for type '_TypeRef'
 types: !_Map_Type
   !_Identifier _OutputAlternate: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: output
+      object: _OutputAlternate
+      type: !_OutputBase
+        output: _Identifier
+    fields:
+    - !_OutputField
+      name: output
+      type: !_OutputBase
+        output: _Identifier
     name: _OutputAlternate
     parent: !_OutputBase
       output: _Alternate
       typeArgs:
       - !_OutputArg
-        output: _OutputBase
+        output: _OutputTypeArg
     typeKind: !_TypeKind Output
   !_Identifier _OutputBase: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _OutputBase
-      type: !_OutputBase
-        output: _DualBase
+      output: _DualBase
     allFields:
     - !_ObjectFor(_OutputField)
       name: output
@@ -47,8 +51,7 @@ types: !_Map_Type
         output: _Identifier
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: _DualBase
+      output: _DualBase
     fields:
     - !_OutputField
       name: output
@@ -95,23 +98,21 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _OutputField
-      type: !_OutputBase
-        output: _OutputEnum
+      output: _OutputEnum
     allFields:
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: parameter
+      name: parameters
       object: _OutputField
       type: !_OutputBase
         output: _InputParam
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: _OutputEnum
+      output: _OutputEnum
     fields:
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: parameter
+      name: parameters
       type: !_OutputBase
         output: _InputParam
     name: _OutputField
@@ -121,16 +122,13 @@ types: !_Map_Type
       - !_OutputArg
         output: _OutputBase
     typeKind: !_TypeKind Output
-  !_Identifier _OutputParent: !_TypeOutput
-    name: _OutputParent
-    parent: !_OutputBase
-      output: _ObjDescribed
-      typeArgs:
-      - !_OutputArg
-        output: _OutputBase
-    typeKind: !_TypeKind Output
   !_Identifier _OutputTypeArg: !_TypeOutput
     allFields:
+    - !_ObjectFor(_OutputField)
+      name: output
+      object: _OutputTypeArg
+      type: !_OutputBase
+        output: _Identifier
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: label
@@ -139,6 +137,10 @@ types: !_Map_Type
         output: _Identifier
     fields:
     - !_OutputField
+      name: output
+      type: !_OutputBase
+        output: _Identifier
+    - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: label
       type: !_OutputBase
@@ -146,14 +148,6 @@ types: !_Map_Type
     name: _OutputTypeArg
     parent: !_OutputBase
       output: _ObjTypeArg
-    typeKind: !_TypeKind Output
-  !_Identifier _OutputTypeParam: !_TypeOutput
-    name: _OutputTypeParam
-    parent: !_OutputBase
-      output: _ObjTypeParam
-      typeArgs:
-      - !_OutputArg
-        output: _OutputBase
     typeKind: !_TypeKind Output
   !_Identifier _TypeOutput: !_TypeOutput
     name: _TypeOutput
@@ -165,9 +159,7 @@ types: !_Map_Type
         name: _TypeKind
         typeKind: !_SimpleKind Enum
       - !_OutputArg
-        output: _OutputParent
-      - !_OutputArg
-        output: _OutputTypeParam
+        output: _OutputBase
       - !_OutputArg
         output: _OutputField
       - !_OutputArg

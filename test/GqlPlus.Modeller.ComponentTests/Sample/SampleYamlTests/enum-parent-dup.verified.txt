@@ -1,31 +1,31 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier EnDupPrnt: !_TypeEnum
+  !_Identifier EnumPrntDup: !_TypeEnum
     allItems:
     - !_EnumLabel
-      aliases: [val_prnt_dup]
-      enum: EnDupPrnt
-      name: val_dup
+      aliases: [enumPrntDup]
+      enum: PrntEnumPrntDup
+      name: prnt_enumPrntDup
+    - !_EnumLabel
+      enum: EnumPrntDup
+      name: enumPrntDup
     items:
     - !_Aliased
-      aliases: [val_prnt_dup]
-      name: val_dup
-    name: EnDupPrnt
-    typeKind: !_TypeKind Enum
-  !_Identifier EnPrntDup: !_TypeEnum
-    allItems:
-    - !_EnumLabel
-      aliases: [val_prnt_dup]
-      enum: EnDupPrnt
-      name: val_dup
-    - !_EnumLabel
-      enum: EnPrntDup
-      name: val_prnt_dup
-    items:
-    - !_Aliased
-      name: val_prnt_dup
-    name: EnPrntDup
+      name: enumPrntDup
+    name: EnumPrntDup
     parent: !_TypeRef(_SimpleKind)
-      name: EnDupPrnt
+      name: PrntEnumPrntDup
       typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
+  !_Identifier PrntEnumPrntDup: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      aliases: [enumPrntDup]
+      enum: PrntEnumPrntDup
+      name: prnt_enumPrntDup
+    items:
+    - !_Aliased
+      aliases: [enumPrntDup]
+      name: prnt_enumPrntDup
+    name: PrntEnumPrntDup
     typeKind: !_TypeKind Enum

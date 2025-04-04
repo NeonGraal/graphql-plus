@@ -2,14 +2,17 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpGenParent": {
+    "OutpGnrcPrnt": {
       "$tag": "_TypeOutput",
-      "name": "OutpGenParent",
-      "parent": "type",
+      "name": "OutpGnrcPrnt",
+      "parent": {
+        "$tag": "_OutputBase",
+        "value": "type"
+      },
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]

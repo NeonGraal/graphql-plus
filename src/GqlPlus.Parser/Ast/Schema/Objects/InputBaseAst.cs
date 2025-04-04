@@ -17,7 +17,7 @@ internal sealed record class InputBaseAst(
   internal override string Abbr => "IR";
   public override string Label => "Input";
 
-  string IGqlpInputBase.Input => Name;
+  string IGqlpInputNamed.Input => Name;
   IGqlpDualBase IGqlpToDual<IGqlpDualBase>.ToDual => ToDual();
 
   public DualBaseAst ToDual()

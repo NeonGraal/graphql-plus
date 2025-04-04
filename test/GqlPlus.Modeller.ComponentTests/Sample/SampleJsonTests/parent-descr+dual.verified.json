@@ -2,57 +2,48 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualParentDescr": {
+    "DualPrntDescr": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualParentDescrRef",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "dual": "String",
+          "object": "RefDualPrntDescr"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "parent",
-          "object": "DualParentDescrRef",
+          "object": "RefDualPrntDescr",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
           }
         }
       ],
-      "name": "DualParentDescr",
+      "name": "DualPrntDescr",
       "parent": {
-        "$tag": "_ObjDescribed(_DualBase)",
-        "base": {
-          "$tag": "_DualBase",
-          "value": "DualParentDescrRef"
-        },
-        "description": "Test Descr"
+        "$tag": "_DualBase",
+        "description": "Test Descr",
+        "dual": "RefDualPrntDescr"
       },
       "typeKind": "Dual"
     },
-    "DualParentDescrRef": {
+    "RefDualPrntDescr": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualParentDescrRef",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "dual": "String",
+          "object": "RefDualPrntDescr"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "parent",
-          "object": "DualParentDescrRef",
+          "object": "RefDualPrntDescr",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -62,10 +53,7 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -78,7 +66,7 @@
           }
         }
       ],
-      "name": "DualParentDescrRef",
+      "name": "RefDualPrntDescr",
       "typeKind": "Dual"
     }
   }

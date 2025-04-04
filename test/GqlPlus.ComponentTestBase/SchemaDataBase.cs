@@ -42,10 +42,10 @@ public class SchemaDataBase(
 
     if (IsObjectInput(input)) {
       foreach ((string label, string abbr) in Replacements) {
-        action(ReplaceInput(input, abbr, label, abbr), testName + "+" + label);
+        action(ReplaceObject(input, abbr, label, abbr), testName + "+" + label);
       }
     } else {
-      action(input, testName);
+      action(ReplaceName(input, testName), testName);
     }
   }
 
@@ -54,9 +54,9 @@ public class SchemaDataBase(
     ArgumentNullException.ThrowIfNull(action);
 
     if (IsObjectInput(input)) {
-      await WhenAll([.. Replacements.Select(r => action(ReplaceInput(input, testName, r.Item1, r.Item2), testName + "+" + r.Item1))]);
+      await WhenAll([.. Replacements.Select(r => action(ReplaceObject(input, testName, r.Item1, r.Item2), testName + "+" + r.Item1))]);
     } else {
-      await action(input, testName);
+      await action(ReplaceName(input, testName), testName);
     }
   }
 }

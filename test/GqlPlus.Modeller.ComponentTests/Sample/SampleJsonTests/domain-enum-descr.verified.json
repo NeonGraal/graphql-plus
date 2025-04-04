@@ -2,17 +2,17 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DomEnumDescr": {
+    "DmnEnumDescr": {
       "$tag": "_DomainEnum",
       "allItems": [
         {
           "$tag": "_DomainItem(_DomainLabel)",
-          "domain": "DomEnumDescr",
+          "domain": "DmnEnumDescr",
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "label": "dom_label_desc",
-            "name": "EnumDomDescr",
+            "label": "dmnEnumDescr",
+            "name": "EnumDmnEnumDescr",
             "typeKind": "Enum"
           }
         }
@@ -24,31 +24,31 @@
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "label": "dom_label_desc",
-            "name": "EnumDomDescr",
+            "label": "dmnEnumDescr",
+            "name": "EnumDmnEnumDescr",
             "typeKind": "Enum"
           }
         }
       ],
-      "name": "DomEnumDescr",
+      "name": "DmnEnumDescr",
       "typeKind": "Domain"
     },
-    "EnumDomDescr": {
+    "EnumDmnEnumDescr": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "enum": "EnumDomDescr",
-          "name": "dom_label_desc"
+          "enum": "EnumDmnEnumDescr",
+          "name": "dmnEnumDescr"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dom_label_desc"
+          "value": "dmnEnumDescr"
         }
       ],
-      "name": "EnumDomDescr",
+      "name": "EnumDmnEnumDescr",
       "typeKind": "Enum"
     }
   }

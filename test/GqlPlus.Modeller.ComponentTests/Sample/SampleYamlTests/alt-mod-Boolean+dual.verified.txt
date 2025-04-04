@@ -1,47 +1,43 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualAltModBoolean: !_TypeDual
+  !_Identifier AltDualAltModBool: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      collections:
-      - !_ModifierDictionary
-        by: ^
-        modifierKind: !_ModifierKind Dict
-        typeKind: !_SimpleKind Basic
-      object: DualAltModBoolean
-      type: !_DualBase
-        dual: DualAltModBooleanAlt
-    alternates:
-    - !_DualAlternate
-      collections:
-      - !_ModifierDictionary
-        by: ^
-        modifierKind: !_ModifierKind Dict
-        typeKind: !_SimpleKind Basic
-      type: !_DualBase
-        dual: DualAltModBooleanAlt
-    name: DualAltModBoolean
-    typeKind: !_TypeKind Dual
-  !_Identifier DualAltModBooleanAlt: !_TypeDual
-    allAlternates:
-    - !_ObjectFor(_DualAlternate)
-      object: DualAltModBooleanAlt
-      type: !_DualBase
-        dual: String
+      dual: String
+      object: AltDualAltModBool
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: DualAltModBooleanAlt
+      object: AltDualAltModBool
       type: !_DualBase
         dual: Number
     alternates:
     - !_DualAlternate
-      type: !_DualBase
-        dual: String
+      dual: String
     fields:
     - !_DualField
       name: alt
       type: !_DualBase
         dual: Number
-    name: DualAltModBooleanAlt
+    name: AltDualAltModBool
+    typeKind: !_TypeKind Dual
+  !_Identifier DualAltModBool: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      collections:
+      - !_ModifierDictionary
+        by: ^
+        modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Basic
+      dual: AltDualAltModBool
+      object: DualAltModBool
+    alternates:
+    - !_DualAlternate
+      collections:
+      - !_ModifierDictionary
+        by: ^
+        modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Basic
+      dual: AltDualAltModBool
+    name: DualAltModBool
     typeKind: !_TypeKind Dual

@@ -2,14 +2,17 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpGenParent": {
+    "InpGnrcPrnt": {
       "$tag": "_TypeInput",
-      "name": "InpGenParent",
-      "parent": "type",
+      "name": "InpGnrcPrnt",
+      "parent": {
+        "$tag": "_InputBase",
+        "value": "type"
+      },
       "typeKind": "Input",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "type"
         }
       ]

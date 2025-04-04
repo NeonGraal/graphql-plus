@@ -15,12 +15,6 @@ public interface IGqlpAbbreviated
   IEnumerable<string?> GetFields();
 }
 
-public interface IGqlpNamed
-  : IGqlpAbbreviated
-{
-  string Name { get; }
-}
-
 public interface IGqlpFieldKey
   : IGqlpAbbreviated
   , IEquatable<IGqlpFieldKey>

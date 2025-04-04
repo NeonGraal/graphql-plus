@@ -107,18 +107,12 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Directives",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_Directive"
-          }
+          "output": "_Directive"
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Directives",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_Type"
-          }
+          "output": "_Type"
         }
       ],
       "allFields": [
@@ -144,17 +138,11 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_Directive"
-          }
+          "value": "_Directive"
         },
         {
           "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "_Type"
-          }
+          "value": "_Type"
         }
       ],
       "fields": [

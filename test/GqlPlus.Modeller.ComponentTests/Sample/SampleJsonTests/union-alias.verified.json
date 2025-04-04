@@ -2,19 +2,19 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "UnDiff": {
+    "UnionAlias": {
       "$tag": "_TypeUnion",
       "aliases": ["UnA1", "UnA2"],
       "allItems": [
         {
           "$tag": "_UnionMember",
           "name": "Boolean",
-          "union": "UnDiff"
+          "union": "UnionAlias"
         },
         {
           "$tag": "_UnionMember",
           "name": "Number",
-          "union": "UnDiff"
+          "union": "UnionAlias"
         }
       ],
       "items": [
@@ -27,7 +27,7 @@
           "value": "Number"
         }
       ],
-      "name": "UnDiff",
+      "name": "UnionAlias",
       "typeKind": "Union"
     }
   }

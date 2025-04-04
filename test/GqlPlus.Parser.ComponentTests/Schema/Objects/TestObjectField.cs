@@ -20,11 +20,11 @@ public abstract class TestObjectField<TObjField>(
   public void WithSimple_ReturnsCorrectAst(string fieldType, string name)
   => fieldChecks.WithMinimum(name, fieldType);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithModifiers_ReturnsCorrectAst(string name, string fieldType)
   => fieldChecks.WithModifiers(name, fieldType);
 
-  [Theory, RepeatData(Repeats)]
+  [Theory, RepeatData]
   public void WithModifiersBad_ReturnsFalse(string name, string fieldType)
   => fieldChecks.WithModifiersBad(name, fieldType);
 }

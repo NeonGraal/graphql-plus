@@ -2,49 +2,20 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpFieldDual": {
-      "$tag": "_TypeInput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_InputField)",
-          "name": "field",
-          "object": "InpFieldDual",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "InpFieldDualFld"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_InputField",
-          "name": "field",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "InpFieldDualFld"
-          }
-        }
-      ],
-      "name": "InpFieldDual",
-      "typeKind": "Input"
-    },
-    "InpFieldDualFld": {
+    "FldInpFieldDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "InpFieldDualFld",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "dual": "String",
+          "object": "FldInpFieldDual"
         }
       ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "InpFieldDualFld",
+          "object": "FldInpFieldDual",
           "type": {
             "$tag": "_DualBase",
             "value": "Number"
@@ -54,10 +25,7 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "value": "String"
-          }
+          "value": "String"
         }
       ],
       "fields": [
@@ -70,8 +38,34 @@
           }
         }
       ],
-      "name": "InpFieldDualFld",
+      "name": "FldInpFieldDual",
       "typeKind": "Dual"
+    },
+    "InpFieldDual": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "InpFieldDual",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "FldInpFieldDual"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "FldInpFieldDual"
+          }
+        }
+      ],
+      "name": "InpFieldDual",
+      "typeKind": "Input"
     }
   }
 }

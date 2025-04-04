@@ -1,34 +1,32 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpGenAltArgDescr: !_TypeOutput
+  !_Identifier OutpGnrcAltArgDescr: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpGenAltArgDescr
-      type: !_OutputBase
-        output: OutpGenAltArgDescrRef
-        typeArgs:
-        - !_TypeParam type
+      object: OutpGnrcAltArgDescr
+      output: RefOutpGnrcAltArgDescr
+      typeArgs:
+      - !_TypeParam type
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: OutpGenAltArgDescrRef
-        typeArgs:
-        - !_TypeParam type
-    name: OutpGenAltArgDescr
+      output: RefOutpGnrcAltArgDescr
+      typeArgs:
+      - !_TypeParam type
+    name: OutpGnrcAltArgDescr
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: type
-  !_Identifier OutpGenAltArgDescrRef: !_TypeOutput
+  !_Identifier RefOutpGnrcAltArgDescr: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpGenAltArgDescrRef
-      type: !_TypeParam ref
+      object: RefOutpGnrcAltArgDescr
+      typeParam: ref
     alternates:
     - !_OutputAlternate
-      type: !_TypeParam ref
-    name: OutpGenAltArgDescrRef
+      typeParam: ref
+    name: RefOutpGnrcAltArgDescr
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

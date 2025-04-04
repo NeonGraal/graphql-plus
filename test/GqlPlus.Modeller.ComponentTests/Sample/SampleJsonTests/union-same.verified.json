@@ -2,13 +2,13 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "UnSame": {
+    "UnionSame": {
       "$tag": "_TypeUnion",
       "allItems": [
         {
           "$tag": "_UnionMember",
           "name": "Boolean",
-          "union": "UnSame"
+          "union": "UnionSame"
         }
       ],
       "items": [
@@ -17,7 +17,7 @@
           "value": "Boolean"
         }
       ],
-      "name": "UnSame",
+      "name": "UnionSame",
       "typeKind": "Union"
     }
   }

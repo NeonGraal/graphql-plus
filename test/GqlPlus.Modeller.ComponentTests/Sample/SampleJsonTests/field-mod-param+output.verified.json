@@ -2,6 +2,45 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
+    "FldOutpFieldModParam": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "FldOutpFieldModParam",
+          "output": "String"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "FldOutpFieldModParam",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "value": "String"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "FldOutpFieldModParam",
+      "typeKind": "Output"
+    },
     "OutpFieldModParam": {
       "$tag": "_TypeOutput",
       "allFields": [
@@ -18,7 +57,7 @@
           "object": "OutpFieldModParam",
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpFieldModParamFld"
+            "value": "FldOutpFieldModParam"
           }
         }
       ],
@@ -35,7 +74,7 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpFieldModParamFld"
+            "value": "FldOutpFieldModParam"
           }
         }
       ],
@@ -43,55 +82,10 @@
       "typeKind": "Output",
       "typeParams": [
         {
-          "$tag": "_Described",
+          "$tag": "_Named",
           "value": "mod"
         }
       ]
-    },
-    "OutpFieldModParamFld": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpFieldModParamFld",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "field",
-          "object": "OutpFieldModParamFld",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "String"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "field",
-          "type": {
-            "$tag": "_OutputBase",
-            "value": "Number"
-          }
-        }
-      ],
-      "name": "OutpFieldModParamFld",
-      "typeKind": "Output"
     }
   }
 }

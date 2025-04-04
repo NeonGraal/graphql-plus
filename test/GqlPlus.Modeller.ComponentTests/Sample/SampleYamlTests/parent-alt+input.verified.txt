@@ -1,49 +1,44 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpParentAlt: !_TypeInput
+  !_Identifier InpPrntAlt: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpParentAltRef
-      type: !_InputBase
-        input: String
+      input: String
+      object: RefInpPrntAlt
     - !_ObjectFor(_InputAlternate)
-      object: InpParentAlt
-      type: !_InputBase
-        input: Number
+      input: Number
+      object: InpPrntAlt
     allFields:
     - !_ObjectFor(_InputField)
       name: parent
-      object: InpParentAltRef
+      object: RefInpPrntAlt
       type: !_InputBase
         input: Number
     alternates:
     - !_InputAlternate
-      type: !_InputBase
-        input: Number
-    name: InpParentAlt
+      input: Number
+    name: InpPrntAlt
     parent: !_InputBase
-      input: InpParentAltRef
+      input: RefInpPrntAlt
     typeKind: !_TypeKind Input
-  !_Identifier InpParentAltRef: !_TypeInput
+  !_Identifier RefInpPrntAlt: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpParentAltRef
-      type: !_InputBase
-        input: String
+      input: String
+      object: RefInpPrntAlt
     allFields:
     - !_ObjectFor(_InputField)
       name: parent
-      object: InpParentAltRef
+      object: RefInpPrntAlt
       type: !_InputBase
         input: Number
     alternates:
     - !_InputAlternate
-      type: !_InputBase
-        input: String
+      input: String
     fields:
     - !_InputField
       name: parent
       type: !_InputBase
         input: Number
-    name: InpParentAltRef
+    name: RefInpPrntAlt
     typeKind: !_TypeKind Input

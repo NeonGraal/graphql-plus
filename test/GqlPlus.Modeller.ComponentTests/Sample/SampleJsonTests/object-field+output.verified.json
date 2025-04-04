@@ -2,16 +2,21 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpObjectField": {
+    "FldOutpObjField": {
+      "$tag": "_TypeOutput",
+      "name": "FldOutpObjField",
+      "typeKind": "Output"
+    },
+    "OutpObjField": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutpObjectField",
+          "object": "OutpObjField",
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpObjectFieldFld"
+            "value": "FldOutpObjField"
           }
         }
       ],
@@ -21,16 +26,11 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "OutpObjectFieldFld"
+            "value": "FldOutpObjField"
           }
         }
       ],
-      "name": "OutpObjectField",
-      "typeKind": "Output"
-    },
-    "OutpObjectFieldFld": {
-      "$tag": "_TypeOutput",
-      "name": "OutpObjectFieldFld",
+      "name": "OutpObjField",
       "typeKind": "Output"
     }
   }

@@ -2,18 +2,18 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpObjectParent": {
+    "OutpObjPrnt": {
       "$tag": "_TypeOutput",
-      "name": "OutpObjectParent",
+      "name": "OutpObjPrnt",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "OutpObjectParentRef"
+        "value": "RefOutpObjPrnt"
       },
       "typeKind": "Output"
     },
-    "OutpObjectParentRef": {
+    "RefOutpObjPrnt": {
       "$tag": "_TypeOutput",
-      "name": "OutpObjectParentRef",
+      "name": "RefOutpObjPrnt",
       "typeKind": "Output"
     }
   }

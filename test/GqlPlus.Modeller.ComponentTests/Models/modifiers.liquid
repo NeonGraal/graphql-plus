@@ -1,10 +1,14 @@
 ﻿{%- for mod in modifiers -%}
   {%- case mod.modifierKind -%}
-    {%- when "Opt" %} ?
-    {%- when "List" %} []
-    {%- else %} [
-      {%- if mod.modifierKind == "Param" -%} $ {%- endif -%}
-      {{ mod.by }}
-      {%- if mod.optional -%} ? {%- endif -%}]
+    {%- when "Opt" %} <B>?</B>
+    {%- when "List" %} <B>[]</B>
+    {%- else %} <B>[</B>
+      {%- if mod.modifierKind == "Param" -%} 
+      <I>${{ mod.by }}</I>
+      {%- else -%}
+        {{ mod.by }}
+      {%- endif -%}      
+      {%- if mod.optional -%} <B>?</B> {%- endif -%}
+      <B>]</B>
   {%- endcase -%}
 {%- endfor -%}

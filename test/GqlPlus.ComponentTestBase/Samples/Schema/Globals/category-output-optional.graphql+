@@ -1,2 +1,2 @@
-category { CatOpt? }
-output CatOpt { }
+category { Name? }
+output Name { }

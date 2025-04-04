@@ -3,7 +3,7 @@
 Success
 {
   !Du I@006/0001
-  DualObjectAlias
+  DualObjAlias
   [
     Dual1
     Dual2

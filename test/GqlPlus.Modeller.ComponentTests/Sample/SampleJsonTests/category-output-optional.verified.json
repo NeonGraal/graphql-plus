@@ -2,7 +2,7 @@
   "$tag": "_Schema",
   "categories": {
     "$tag": "_Map_Categories",
-    "catOpt": {
+    "ctgrOutpOptl": {
       "$tag": "_Category",
       "modifiers": [
         {
@@ -10,10 +10,10 @@
           "modifierKind": "Opt"
         }
       ],
-      "name": "catOpt",
+      "name": "ctgrOutpOptl",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
-        "name": "CatOpt",
+        "name": "CtgrOutpOptl",
         "typeKind": "Output"
       },
       "resolution": "Parallel"
@@ -21,9 +21,9 @@
   },
   "types": {
     "$tag": "_Map_Type",
-    "CatOpt": {
+    "CtgrOutpOptl": {
       "$tag": "_TypeOutput",
-      "name": "CatOpt",
+      "name": "CtgrOutpOptl",
       "typeKind": "Output"
     }
   }

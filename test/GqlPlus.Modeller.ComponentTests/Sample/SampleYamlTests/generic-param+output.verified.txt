@@ -1,58 +1,56 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpGenParam: !_TypeOutput
+  !_Identifier OutpGnrcParam: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
-      object: OutpGenParam
+      object: OutpGnrcParam
       type: !_OutputBase
-        output: OutpGenParamRef
+        output: OutpGnrcParamRef
         typeArgs:
         - !_OutputArg
-          output: OutpGenParamAlt
+          output: OutpGnrcParamAlt
     fields:
     - !_OutputField
       name: field
       type: !_OutputBase
-        output: OutpGenParamRef
+        output: OutpGnrcParamRef
         typeArgs:
         - !_OutputArg
-          output: OutpGenParamAlt
-    name: OutpGenParam
+          output: OutpGnrcParamAlt
+    name: OutpGnrcParam
     typeKind: !_TypeKind Output
-  !_Identifier OutpGenParamAlt: !_TypeOutput
+  !_Identifier OutpGnrcParamAlt: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpGenParamAlt
-      type: !_OutputBase
-        output: String
+      object: OutpGnrcParamAlt
+      output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
-      object: OutpGenParamAlt
+      object: OutpGnrcParamAlt
       type: !_OutputBase
         output: Number
     alternates:
     - !_OutputAlternate
-      type: !_OutputBase
-        output: String
+      output: String
     fields:
     - !_OutputField
       name: alt
       type: !_OutputBase
         output: Number
-    name: OutpGenParamAlt
+    name: OutpGnrcParamAlt
     typeKind: !_TypeKind Output
-  !_Identifier OutpGenParamRef: !_TypeOutput
+  !_Identifier OutpGnrcParamRef: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpGenParamRef
-      type: !_TypeParam ref
+      object: OutpGnrcParamRef
+      typeParam: ref
     alternates:
     - !_OutputAlternate
-      type: !_TypeParam ref
-    name: OutpGenParamRef
+      typeParam: ref
+    name: OutpGnrcParamRef
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Described
+    - !_Named
       name: ref

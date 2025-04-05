@@ -59,15 +59,17 @@ function Write-Coverage($cover, $prefix = "") {
 
 [PsObject]$allCoverage = @{label = "All"; linesCovered = 0; linesValid = 0 }
 
-$coverage = Get-ChildItem coverage -Filter "Coverage*.xml" | ForEach-Object {
-  [xml]$coverageXml = Get-Content $_.FullName
-  $lines = $coverageXml.coverage
+if (-not $NoCoverage) {
+  $coverage = Get-ChildItem coverage -Filter "Coverage*.xml" | ForEach-Object {
+    [xml]$coverageXml = Get-Content $_.FullName
+    $lines = $coverageXml.coverage
 
-  $allCoverage.linesCovered += $lines."lines-covered"
-  $allCoverage.linesValid += $lines."lines-valid"
+    $allCoverage.linesCovered += $lines."lines-covered"
+    $allCoverage.linesValid += $lines."lines-valid"
 
-  $label = $_.BaseName -replace "Coverage-", "" -replace "-", " "  
-  @{label = $label; linesCovered = [int]$lines."lines-covered"; linesValid = [int]$lines."lines-valid" }
+    $label = $_.BaseName -replace "Coverage-", "" -replace "-", " "  
+    @{label = $label; linesCovered = [int]$lines."lines-covered"; linesValid = [int]$lines."lines-valid" }
+  }
 }
 
 [PsObject]$allTests = @{label = "All Tests"; skipped = 0; passed = 0; failed = 0; error = 0 }

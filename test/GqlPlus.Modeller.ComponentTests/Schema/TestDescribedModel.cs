@@ -63,5 +63,5 @@ public class ExpectedDescriptionInput<TName>(
 #pragma warning disable CA1819 // Properties should not return arrays
   public string[] ExpectedDescription { get; protected set; }
 #pragma warning restore CA1819 // Properties should not return arrays
-    = string.IsNullOrWhiteSpace(description) ? [] : ["description: " + description.YamlQuoted()];
+    = string.IsNullOrWhiteSpace(description) ? [] : ["description: " + description.Quoted("'")];
 }

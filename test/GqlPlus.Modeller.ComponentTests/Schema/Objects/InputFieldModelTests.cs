@@ -14,7 +14,7 @@ public class InputFieldModelTests(
       new InputFieldAst(AstNulls.At, input.Name, new InputBaseAst(AstNulls.At, input.Type)) with {
         DefaultValue = new(new FieldKeyAst(AstNulls.At, contents))
       },
-      checks.ExpectedField(input, ["default: " + contents.YamlQuoted()], [])
+      checks.ExpectedField(input, ["default: " + contents.Quoted("'")], [])
       );
 }
 

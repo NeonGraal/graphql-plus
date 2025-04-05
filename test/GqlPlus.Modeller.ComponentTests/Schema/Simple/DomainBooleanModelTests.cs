@@ -14,7 +14,7 @@ internal sealed class DomainBooleanModelChecks(
   , IDomainBooleanModelChecks
 {
   protected override string[] ExpectedItem(bool input, string exclude, string[] domain)
-    => ["- !_DomainTrueFalse", .. domain, exclude, "  value: " + input.TrueFalse()];
+    => ["  - !_DomainTrueFalse", .. domain, exclude, "    value: " + input.TrueFalse()];
 
   protected override DomainTrueFalseAst[]? DomainItems(bool[]? inputs)
     => inputs?.DomainTrueFalses();

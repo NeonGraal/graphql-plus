@@ -27,7 +27,7 @@ public abstract class RenderLinesValueBase
   public void ToLines_String(string value)
   {
     string expected = Expected_String(value).IsLine();
-    Structured model = new(StructureValue.Str(value));
+    Structured model = new(StructureValue.Str(value, Tag));
 
     string result = model.ToLines(false);
 
@@ -38,7 +38,7 @@ public abstract class RenderLinesValueBase
   public void ToLines_Identifier(string value)
   {
     string expected = Expected_Identifier(value).IsLine();
-    Structured model = new(value);
+    Structured model = new(value, Tag);
 
     string result = model.ToLines(false);
 
@@ -49,7 +49,7 @@ public abstract class RenderLinesValueBase
   public void ToLines_Decimal(decimal value)
   {
     string expected = Expected_Decimal(value).IsLine();
-    Structured model = new(value);
+    Structured model = new(value, Tag);
 
     string result = model.ToLines(false);
 
@@ -60,7 +60,7 @@ public abstract class RenderLinesValueBase
   public void ToLines_Bool(bool value)
   {
     string expected = Expected_Bool(value).IsLine();
-    Structured model = new(value);
+    Structured model = new(value, Tag);
 
     string result = model.ToLines(false);
 

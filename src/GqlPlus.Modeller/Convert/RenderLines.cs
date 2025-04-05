@@ -1,6 +1,5 @@
-﻿using System.CodeDom.Compiler;
-using System.Text;
-using GqlPlus.Ast;
+﻿using System.Text;
+using YamlDotNet.Core.Tokens;
 
 namespace GqlPlus.Convert;
 public static class RenderLines
@@ -20,12 +19,12 @@ public static class RenderLines
   {
     if (item.Flow) {
       if (item.List.Any() && item.List.All(v => v.Value is not null)) {
-        WriteFlowList(sb, item.List, indent);
+        WriteFlowList(sb, item.Tag, item.List, indent);
         return;
       }
 
       if (item.Map.Any() && item.Map.Values.All(v => v.Value is not null)) {
-        WriteFlowMap(sb, item.Map, indent);
+        WriteFlowMap(sb, item.Tag, item.Map, indent);
         return;
       }
     }
@@ -36,20 +35,26 @@ public static class RenderLines
     }
 
     if (item.List.Any()) {
-      WriteList(sb, item.List, indent);
+      WriteList(sb, item.Tag, item.List, indent);
       return;
     }
 
     if (item.Map.Any()) {
-      WriteMap(sb, item.Map, indent);
+      WriteMap(sb, item.Tag, item.Map, indent);
     }
   }
 
-  private static void WriteFlowList(StringBuilder sb, IList<Structured> list, int indent)
+  private static void WriteFlowList(StringBuilder sb, string tag, IList<Structured> list, int indent)
   {
-    string prefix = "[";
-    if (indent > 0) {
-      prefix = " [";
+    string prefix = " [";
+    if (!string.IsNullOrWhiteSpace(tag)) {
+      if (indent > 0) {
+        sb.Append(' ');
+      }
+
+      sb.Append($"!{tag}");
+    } else if (indent < 1) {
+      prefix = "[";
     }
 
     foreach (Structured item in list) {
@@ -61,11 +66,16 @@ public static class RenderLines
     sb.AppendLine(" ]");
   }
 
-  private static void WriteFlowMap(StringBuilder sb, Structured<StructureValue, Structured>.IDict map, int indent)
+  private static void WriteFlowMap(StringBuilder sb, string tag, Structured<StructureValue, Structured>.IDict map, int indent)
   {
-    string prefix = "{";
-    if (indent > 0) {
-      prefix = " {";
+    string prefix = " {";
+    if (!string.IsNullOrWhiteSpace(tag)) {
+      if (indent > 0) {
+        sb.Append(' ');
+      }
+      sb.Append($"!{tag}");
+    } else if (indent < 1) {
+      prefix = "{";
     }
 
     foreach (KeyValuePair<StructureValue, Structured> item in map) {
@@ -78,9 +88,15 @@ public static class RenderLines
     sb.AppendLine(" }");
   }
 
-  private static void WriteList(StringBuilder sb, IList<Structured> list, int indent)
+  private static void WriteList(StringBuilder sb, string tag, IList<Structured> list, int indent)
   {
-    if (indent > 0) {
+    if (!string.IsNullOrWhiteSpace(tag)) {
+      if (indent > 0) {
+        sb.Append(' ');
+      }
+
+      sb.AppendLine($"!{tag}");
+    } else if (indent > 0) {
       sb.AppendLine();
     }
 
@@ -91,10 +107,18 @@ public static class RenderLines
     }
   }
 
-  private static void WriteMap(StringBuilder sb, Structured<StructureValue, Structured>.IDict map, int indent)
+  private static void WriteMap(StringBuilder sb, string tag, Structured<StructureValue, Structured>.IDict map, int indent)
   {
     string prefix = "";
-    if (indent > 0) {
+
+    if (!string.IsNullOrWhiteSpace(tag)) {
+      if (indent > 0) {
+        sb.Append(' ');
+        prefix = new(' ', indent * 2 - 1);
+      }
+
+      sb.AppendLine($"!{tag}");
+    } else if (indent > 0) {
       sb.AppendLine();
       prefix = new(' ', indent * 2 - 1);
     }
@@ -114,6 +138,10 @@ public static class RenderLines
 
     if (indent > 0) {
       sb.Append(' ');
+    }
+
+    if (!string.IsNullOrWhiteSpace(value.Tag)) {
+      sb.Append($"!{value.Tag} ");
     }
 
     if (value.Boolean is not null) {

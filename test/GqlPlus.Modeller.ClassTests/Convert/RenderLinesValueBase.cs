@@ -1,4 +1,5 @@
-﻿using GqlPlus.Structures;
+﻿using System.ComponentModel.DataAnnotations;
+using GqlPlus.Structures;
 using Shouldly;
 
 namespace GqlPlus.Convert;
@@ -9,6 +10,7 @@ public abstract class RenderLinesValueBase
   abstract protected string Expected_Empty();
   protected abstract string Expected_String(string value);
   protected abstract string Expected_Identifier(string value);
+  protected abstract string Expected_Punctuation(string value);
   protected abstract string Expected_Decimal(decimal value);
   protected abstract string Expected_Bool(bool value);
 
@@ -38,6 +40,17 @@ public abstract class RenderLinesValueBase
   public void ToLines_Identifier(string value)
   {
     string expected = Expected_Identifier(value).IsLine();
+    Structured model = new(value, Tag);
+
+    string result = model.ToLines(false);
+
+    result.ShouldBe(expected);
+  }
+
+  [Theory, RepeatData]
+  public void ToLines_Punctuation([RegularExpression(@"[{}[\]&#*?|\-<>=!%@:`,]")] string value)
+  {
+    string expected = Expected_Punctuation(value).IsLine();
     Structured model = new(value, Tag);
 
     string result = model.ToLines(false);

@@ -32,7 +32,7 @@ public abstract class TestObjectFieldModel<TObjField, TObjBase, TModel>(
   public void Model_Aliases(FieldInput input, string[] aliases)
     => fieldChecks.Field_Expected(
         fieldChecks.FieldAst(input, aliases, false),
-        fieldChecks.ExpectedField(input, [aliases.YamlJoin("aliases: [", "]")], [])
+        fieldChecks.ExpectedField(input, [aliases.Surround("aliases: [", "]", ", ")], [])
       );
 }
 

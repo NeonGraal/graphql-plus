@@ -1,5 +1,5 @@
 ﻿using System.Text;
-using YamlDotNet.Core.Tokens;
+using GqlPlus.Ast;
 
 namespace GqlPlus.Convert;
 public static class RenderLines
@@ -59,11 +59,11 @@ public static class RenderLines
 
     foreach (Structured item in list) {
       sb.Append(prefix);
-      WriteValue(sb, item.Value!, "", indent + 1);
+      WriteValue(sb, item.Value!, "", 0);
       prefix = ",";
     }
 
-    sb.AppendLine(" ]");
+    sb.AppendLine("]");
   }
 
   private static void WriteFlowMap(StringBuilder sb, string tag, Structured<StructureValue, Structured>.IDict map, int indent)
@@ -78,14 +78,14 @@ public static class RenderLines
       prefix = "{";
     }
 
-    foreach (KeyValuePair<StructureValue, Structured> item in map) {
+    foreach (KeyValuePair<StructureValue, Structured> item in map.OrderBy(kv => kv.Key.AsString)) {
       sb.Append(prefix);
-      WriteValue(sb, item.Key, ":", indent + 1);
-      WriteValue(sb, item.Value.Value!, "", indent + 1);
+      WriteValue(sb, item.Key, ":", 0);
+      WriteValue(sb, item.Value.Value!, "", 0);
       prefix = ",";
     }
 
-    sb.AppendLine(" }");
+    sb.AppendLine("}");
   }
 
   private static void WriteList(StringBuilder sb, string tag, IList<Structured> list, int indent)
@@ -123,12 +123,14 @@ public static class RenderLines
       prefix = new(' ', indent * 2 - 1);
     }
 
-    foreach (KeyValuePair<StructureValue, Structured> item in map) {
+    foreach (KeyValuePair<StructureValue, Structured> item in map.OrderBy(kv => kv.Key.AsString)) {
       sb.Append(prefix);
       WriteValue(sb, item.Key, ":", indent);
       WriteStructure(sb, item.Value, indent + 1);
     }
   }
+
+  private static char[] s_special = ['{', '}', '[', ']', '&', '*', '#', '?', '|', '-', '<', '>', '=', '!', '%', '@', ':', '`', ','];
 
   private static void WriteValue(StringBuilder sb, StructureValue value, string suffix, int indent)
   {
@@ -149,9 +151,13 @@ public static class RenderLines
     } else if (value.Number is not null) {
       sb.Append($"{value.Number:0.#####}");
     } else if (!string.IsNullOrWhiteSpace(value.Identifier)) {
-      sb.Append(value.Identifier);
+      if (value.Identifier.Intersect(s_special).Any()) {
+        sb.Append(value.Identifier.Quoted("'"));
+      } else {
+        sb.Append(value.Identifier);
+      }
     } else if (!string.IsNullOrEmpty(value.Text)) {
-      sb.Append(value.Text);
+      sb.Append(value.Text.Quoted("'"));
     }
 
     sb.Append(suffix);

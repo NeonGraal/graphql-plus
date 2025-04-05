@@ -7,44 +7,44 @@ using GqlPlus.Result;
 
 namespace GqlPlus.Sample;
 
-public class SchemaYamlTests(
+public class SchemaLinesTests(
     Parser<IGqlpSchema>.D schemaParser,
     IMerge<IGqlpSchema> schemaMerger,
     IModelAndRender schemaRenderer
 ) : SchemaDataBase(schemaParser)
 {
   [Fact]
-  public async Task Yaml_All()
+  public async Task Lines_All()
     => await Verify_Model(await SchemaValidDataAll(), "!ALL");
 
   [Theory]
   [ClassData(typeof(SchemaValidData))]
-  public async Task Yaml_Groups(string group)
+  public async Task Lines_Groups(string group)
     => await Verify_Model(await SchemaValidDataGroup(group), "!" + group);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaMergesData))]
-  public async Task Yaml_Merges(string model)
+  public async Task Lines_Merges(string model)
     => await ReplaceFileAsync("Merges", model, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaObjectsData))]
-  public async Task Yaml_Objects(string model)
+  public async Task Lines_Objects(string model)
     => await ReplaceFileAsync("Objects", model, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaGlobalsData))]
-  public async Task Yaml_Globals(string global)
+  public async Task Lines_Globals(string global)
     => await ReplaceFileAsync("Globals", global, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaSimpleData))]
-  public async Task Yaml_Simple(string simple)
+  public async Task Lines_Simple(string simple)
     => await ReplaceFileAsync("Simple", simple, Verify_Model);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaData))]
-  public async Task Yaml_Schema(string sample)
+  public async Task Lines_Schema(string sample)
   {
     IGqlpSchema ast = await ParseSample("Schema", sample);
     ITypesContext context = schemaRenderer.WithBuiltIns();
@@ -53,12 +53,12 @@ public class SchemaYamlTests(
 
     await CheckErrors("Schema", "", sample, context.Errors);
 
-    await Verify(result.ToYaml(true), CustomSettings("Schema", "Yaml", sample));
+    await Verify(result.ToLines(true), CustomSettings("Schema", "Lines", sample));
   }
 
   [Theory]
   [ClassData(typeof(SamplesSchemaSpecificationData))]
-  public async Task Yaml_Spec(string sample)
+  public async Task Lines_Spec(string sample)
   {
     IGqlpSchema ast = await ParseSample("Spec", sample, "Specification");
     ITypesContext context = schemaRenderer.WithBuiltIns();
@@ -67,7 +67,7 @@ public class SchemaYamlTests(
 
     await CheckErrors("Schema", "Specification", sample, context.Errors);
 
-    await Verify(result.ToYaml(true), CustomSettings("Spec", "Yaml", sample));
+    await Verify(result.ToLines(true), CustomSettings("Spec", "Lines", sample));
   }
 
   private async Task Verify_Model(string input, string testDirectory, string test)
@@ -82,7 +82,7 @@ public class SchemaYamlTests(
     Structured result = ModelAsts(asts, context);
 
     context.Errors.ShouldBeEmpty(test);
-    await Verify(result.ToYaml(true), CustomSettings("Sample", "Yaml", test));
+    await Verify(result.ToLines(true), CustomSettings("Sample", "Lines", test));
   }
 
   private Structured ModelAsts(IEnumerable<IGqlpSchema> asts, ITypesContext context)

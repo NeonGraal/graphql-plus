@@ -30,7 +30,7 @@ public abstract class RenderLinesStructureBase
   [Theory, RepeatData]
   public void ToLines_Map(MapPair<string>[] value)
   {
-    Assert.SkipWhen(value is null || value.Length != value.Select(v => v.Key).Distinct().Count(), "Duplicate Keys in map");
+    Assert.SkipWhen(value is null || MapDups(value), "Duplicate Keys in map");
 
     string expected = Expected_Map(value).IsLine();
     Structured model = AsMap(value, AsValue);
@@ -54,7 +54,7 @@ public abstract class RenderLinesStructureBase
   [Theory, RepeatData]
   public void ToLines_MapOfLists(MapPair<string[]>[] value)
   {
-    Assert.SkipWhen(value is null || value.Length != value.Select(v => v.Key).Distinct().Count(), "Duplicate Keys in map");
+    Assert.SkipWhen(value is null || MapDups(value), "Duplicate Keys in map");
 
     string expected = Expected_MapOfLists(value).IsLine();
     Structured model = AsMap(value, v => AsList(v, AsValue));
@@ -67,7 +67,7 @@ public abstract class RenderLinesStructureBase
   [Theory, RepeatData]
   public void ToLines_ListOfMaps(MapPair<string>[][] value)
   {
-    Assert.SkipWhen(value is null || value.Any(v => v.Length != v.Select(vv => vv.Key).Distinct().Count()), "Duplicate Keys in map");
+    Assert.SkipWhen(value is null || value.Any(v => MapDups(v)), "Duplicate Keys in map");
 
     string expected = Expected_ListOfMaps(value).IsLine();
     Structured model = AsList(value, v => AsMap(v, AsValue));
@@ -80,7 +80,7 @@ public abstract class RenderLinesStructureBase
   [Theory, RepeatData]
   public void ToLines_MapOfMaps(MapPair<MapPair<string>[]>[] value)
   {
-    Assert.SkipWhen(value is null || value.Length != value.Select(v => v.Key).Distinct().Count(), "Duplicate Keys in map");
+    Assert.SkipWhen(value is null || MapDups(value) || value.Any(v => MapDups(v.Value)), "Duplicate Keys in map");
 
     string expected = Expected_MapOfMaps(value).IsLine();
     Structured model = AsMap(value, v => AsMap(v, AsValue));
@@ -98,4 +98,7 @@ public abstract class RenderLinesStructureBase
 
   private Structured AsMap<T>(MapPair<T>[] value, Func<T, Structured> mapper)
     => value.ToMap(k => k.Key, v => mapper(v.Value)).Render(MapTag, Flow);
+
+  static private bool MapDups<T>(MapPair<T>[] value)
+    => value.Length != value.Select(v => v.Key).Distinct().Count();
 }

@@ -2,13 +2,13 @@
 types: !_Map_Type
   !_Identifier EnumDescr: !_TypeEnum
     allItems:
-    - !_EnumLabel
-      description: 'Enum Descr'
-      enum: EnumDescr
-      name: enumDescr
+      - !_EnumLabel
+        description: 'Enum Descr'
+        enum: EnumDescr
+        name: enumDescr
     items:
-    - !_Aliased
-      description: 'Enum Descr'
-      name: enumDescr
+      - !_Aliased
+        description: 'Enum Descr'
+        name: enumDescr
     name: EnumDescr
     typeKind: !_TypeKind Enum

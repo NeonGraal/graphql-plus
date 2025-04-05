@@ -12,7 +12,7 @@ public class RenderLinesStructureTests
   => value.IsList("- ");
 
   protected override string Expected_Map(MapPair<string>[] value)
-    => value.IsMap("", v => " " + v);
+    => value.IsMap("", " ");
 
   protected override string Expected_ListOfLists(string[][] value)
     => value.IsList(v => "-" + Environment.NewLine + v!.IsList("  - "));
@@ -21,8 +21,8 @@ public class RenderLinesStructureTests
     => value.IsMap("", v => Environment.NewLine + v.IsList("  - "));
 
   protected override string Expected_ListOfMaps(MapPair<string>[][] value)
-    => value.IsList(v => "-" + Environment.NewLine + v!.IsMap("  ", vv => " " + vv));
+    => value.IsList(v => "-" + Environment.NewLine + v!.IsMap("  ", " "));
 
   protected override string Expected_MapOfMaps(MapPair<MapPair<string>[]>[] value)
-    => value.IsMap("", v => Environment.NewLine + v.IsMap("  ", vv => " " + vv));
+    => value.IsMap("", v => Environment.NewLine + v.IsMap("  ", " "));
 }

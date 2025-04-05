@@ -5,17 +5,17 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpObjFieldAlias: !_TypeOutput
     allFields:
-    - !_ObjectFor(_OutputField)
-      aliases: [field1, field2]
-      name: field
-      object: OutpObjFieldAlias
-      type: !_OutputBase
-        output: FldOutpObjFieldAlias
+      - !_ObjectFor(_OutputField)
+        aliases: [field1,field2]
+        name: field
+        object: OutpObjFieldAlias
+        type: !_OutputBase
+          output: FldOutpObjFieldAlias
     fields:
-    - !_OutputField
-      aliases: [field1, field2]
-      name: field
-      type: !_OutputBase
-        output: FldOutpObjFieldAlias
+      - !_OutputField
+        aliases: [field1,field2]
+        name: field
+        type: !_OutputBase
+          output: FldOutpObjFieldAlias
     name: OutpObjFieldAlias
     typeKind: !_TypeKind Output

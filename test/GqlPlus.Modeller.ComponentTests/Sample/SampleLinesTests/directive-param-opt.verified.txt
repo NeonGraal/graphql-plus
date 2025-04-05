@@ -1,13 +1,12 @@
 ﻿!_Schema
 directives: !_Map_Directives
   !_Identifier DrctParamOpt: !_Directive
-    locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
-      Operation: _, Spread: _, Variable: _}
+    locations: !_Set(_Location) {Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
     name: DrctParamOpt
     parameters:
-    - !_InputParam
-      input: InDrctParamOpt
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      - !_InputParam
+        input: InDrctParamOpt
+        modifiers: [!_Modifier {modifierKind:!_ModifierKind Opt}]
     repeatable: false
 types: !_Map_Type
   !_Identifier InDrctParamOpt: !_TypeInput

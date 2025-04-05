@@ -15,14 +15,14 @@ public class RenderLinesStructureFlowTests
     => value.FlowMap();
 
   protected override string Expected_ListOfLists(string[][] value)
-    => value.IsList(v => "- " + v!.FlowList());
+    => value.FlowList(v => v!.FlowList());
 
   protected override string Expected_MapOfLists(MapPair<string[]>[] value)
-    => value.IsMap("", v => " " + v.FlowList());
+    => value.FlowMap(v => v.FlowList());
 
   protected override string Expected_ListOfMaps(MapPair<string>[][] value)
-    => value.IsList(v => "- " + v!.FlowMap());
+    => value.FlowList(v => v!.FlowMap());
 
   protected override string Expected_MapOfMaps(MapPair<MapPair<string>[]>[] value)
-    => value.IsMap("", v => " " + v.FlowMap());
+    => value.FlowMap(v => v.FlowMap());
 }

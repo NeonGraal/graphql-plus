@@ -2,55 +2,55 @@
 types: !_Map_Type
   !_Identifier InpGnrcParam: !_TypeInput
     allFields:
-    - !_ObjectFor(_InputField)
-      name: field
-      object: InpGnrcParam
-      type: !_InputBase
-        input: InpGnrcParamRef
-        typeArgs:
-        - !_InputArg
-          input: InpGnrcParamAlt
+      - !_ObjectFor(_InputField)
+        name: field
+        object: InpGnrcParam
+        type: !_InputBase
+          input: InpGnrcParamRef
+          typeArgs:
+            - !_InputArg
+              input: InpGnrcParamAlt
     fields:
-    - !_InputField
-      name: field
-      type: !_InputBase
-        input: InpGnrcParamRef
-        typeArgs:
-        - !_InputArg
-          input: InpGnrcParamAlt
+      - !_InputField
+        name: field
+        type: !_InputBase
+          input: InpGnrcParamRef
+          typeArgs:
+            - !_InputArg
+              input: InpGnrcParamAlt
     name: InpGnrcParam
     typeKind: !_TypeKind Input
   !_Identifier InpGnrcParamAlt: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
-      input: String
-      object: InpGnrcParamAlt
+      - !_ObjectFor(_InputAlternate)
+        input: String
+        object: InpGnrcParamAlt
     allFields:
-    - !_ObjectFor(_InputField)
-      name: alt
-      object: InpGnrcParamAlt
-      type: !_InputBase
-        input: Number
+      - !_ObjectFor(_InputField)
+        name: alt
+        object: InpGnrcParamAlt
+        type: !_InputBase
+          input: Number
     alternates:
-    - !_InputAlternate
-      input: String
+      - !_InputAlternate
+        input: String
     fields:
-    - !_InputField
-      name: alt
-      type: !_InputBase
-        input: Number
+      - !_InputField
+        name: alt
+        type: !_InputBase
+          input: Number
     name: InpGnrcParamAlt
     typeKind: !_TypeKind Input
   !_Identifier InpGnrcParamRef: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
-      object: InpGnrcParamRef
-      typeParam: ref
+      - !_ObjectFor(_InputAlternate)
+        object: InpGnrcParamRef
+        typeParam: ref
     alternates:
-    - !_InputAlternate
-      typeParam: ref
+      - !_InputAlternate
+        typeParam: ref
     name: InpGnrcParamRef
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Named
-      name: ref
+      - !_Named
+        name: ref

@@ -2,15 +2,15 @@
 types: !_Map_Type
   !_Identifier EnumSamePrnt: !_TypeEnum
     allItems:
-    - !_EnumLabel
-      enum: PrntEnumSamePrnt
-      name: prnt_enumSamePrnt
-    - !_EnumLabel
-      enum: EnumSamePrnt
-      name: enumSamePrnt
+      - !_EnumLabel
+        enum: PrntEnumSamePrnt
+        name: prnt_enumSamePrnt
+      - !_EnumLabel
+        enum: EnumSamePrnt
+        name: enumSamePrnt
     items:
-    - !_Aliased
-      name: enumSamePrnt
+      - !_Aliased
+        name: enumSamePrnt
     name: EnumSamePrnt
     parent: !_TypeRef(_SimpleKind)
       name: PrntEnumSamePrnt
@@ -18,11 +18,11 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier PrntEnumSamePrnt: !_TypeEnum
     allItems:
-    - !_EnumLabel
-      enum: PrntEnumSamePrnt
-      name: prnt_enumSamePrnt
+      - !_EnumLabel
+        enum: PrntEnumSamePrnt
+        name: prnt_enumSamePrnt
     items:
-    - !_Aliased
-      name: prnt_enumSamePrnt
+      - !_Aliased
+        name: prnt_enumSamePrnt
     name: PrntEnumSamePrnt
     typeKind: !_TypeKind Enum

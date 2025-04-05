@@ -9,20 +9,20 @@ public class RenderLinesStructureTagTests
   protected override string MapTag => "map";
 
   protected override string Expected_List(string[] value)
-  => "!list".IsLine() + value.IsList("- !value ");
+  => value.IsList("- !value ");
 
   protected override string Expected_Map(MapPair<string>[] value)
-    => "!map".IsLine() + value.IsMap("", v => " !value " + v);
+    => "!map".IsLine() + value.IsMap("", " !value ");
 
   protected override string Expected_ListOfLists(string[][] value)
-    => "!list".IsLine() + value.IsList(v => "- !list".IsLine() + v!.IsList("  - !value "));
+    => value.IsList(v => "-".IsLine() + v!.IsList("  - !value "));
 
   protected override string Expected_MapOfLists(MapPair<string[]>[] value)
-    => "!map".IsLine() + value.IsMap("", v => " !list".IsLine() + v.IsList("  - !value "));
+    => "!map".IsLine() + value.IsMap("", v => "".IsLine() + v.IsList("  - !value "));
 
   protected override string Expected_ListOfMaps(MapPair<string>[][] value)
-    => "!list".IsLine() + value.IsList(v => "- !map".IsLine() + v!.IsMap("  ", vv => " !value " + vv));
+    => value.IsList(v => "- !map".IsLine() + v!.IsMap("  ", " !value "));
 
   protected override string Expected_MapOfMaps(MapPair<MapPair<string>[]>[] value)
-    => "!map".IsLine() + value.IsMap("", v => " !map".IsLine() + v.IsMap("  ", vv => " !value " + vv));
+    => "!map".IsLine() + value.IsMap("", v => " !map".IsLine() + v.IsMap("  ", " !value "));
 }

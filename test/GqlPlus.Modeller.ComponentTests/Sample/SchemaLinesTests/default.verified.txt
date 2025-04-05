@@ -19,6 +19,9 @@ categories: !_Map_Categories
       typeKind: !_TypeKind Output
     resolution: !_Resolution Single
 types: !_Map_Type
+  !_Identifier _Schema: !_TypeOutput
+    name: _Schema
+    typeKind: !_TypeKind Output
   !_Identifier Mutation: !_TypeOutput
     name: Mutation
     typeKind: !_TypeKind Output
@@ -27,7 +30,4 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier Subscription: !_TypeOutput
     name: Subscription
-    typeKind: !_TypeKind Output
-  !_Identifier _Schema: !_TypeOutput
-    name: _Schema
     typeKind: !_TypeKind Output

@@ -2,36 +2,36 @@
 types: !_Map_Type
   !_Identifier FldInpFieldObj: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
-      input: String
-      object: FldInpFieldObj
+      - !_ObjectFor(_InputAlternate)
+        input: String
+        object: FldInpFieldObj
     allFields:
-    - !_ObjectFor(_InputField)
-      name: field
-      object: FldInpFieldObj
-      type: !_InputBase
-        input: Number
+      - !_ObjectFor(_InputField)
+        name: field
+        object: FldInpFieldObj
+        type: !_InputBase
+          input: Number
     alternates:
-    - !_InputAlternate
-      input: String
+      - !_InputAlternate
+        input: String
     fields:
-    - !_InputField
-      name: field
-      type: !_InputBase
-        input: Number
+      - !_InputField
+        name: field
+        type: !_InputBase
+          input: Number
     name: FldInpFieldObj
     typeKind: !_TypeKind Input
   !_Identifier InpFieldObj: !_TypeInput
     allFields:
-    - !_ObjectFor(_InputField)
-      name: field
-      object: InpFieldObj
-      type: !_InputBase
-        input: FldInpFieldObj
+      - !_ObjectFor(_InputField)
+        name: field
+        object: InpFieldObj
+        type: !_InputBase
+          input: FldInpFieldObj
     fields:
-    - !_InputField
-      name: field
-      type: !_InputBase
-        input: FldInpFieldObj
+      - !_InputField
+        name: field
+        type: !_InputBase
+          input: FldInpFieldObj
     name: InpFieldObj
     typeKind: !_TypeKind Input

@@ -2,41 +2,41 @@
 types: !_Map_Type
   !_Identifier FldInpFieldModParam: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
-      input: String
-      object: FldInpFieldModParam
+      - !_ObjectFor(_InputAlternate)
+        input: String
+        object: FldInpFieldModParam
     allFields:
-    - !_ObjectFor(_InputField)
-      name: field
-      object: FldInpFieldModParam
-      type: !_InputBase
-        input: Number
+      - !_ObjectFor(_InputField)
+        name: field
+        object: FldInpFieldModParam
+        type: !_InputBase
+          input: Number
     alternates:
-    - !_InputAlternate
-      input: String
+      - !_InputAlternate
+        input: String
     fields:
-    - !_InputField
-      name: field
-      type: !_InputBase
-        input: Number
+      - !_InputField
+        name: field
+        type: !_InputBase
+          input: Number
     name: FldInpFieldModParam
     typeKind: !_TypeKind Input
   !_Identifier InpFieldModParam: !_TypeInput
     allFields:
-    - !_ObjectFor(_InputField)
-      modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
-      name: field
-      object: InpFieldModParam
-      type: !_InputBase
-        input: FldInpFieldModParam
+      - !_ObjectFor(_InputField)
+        modifiers: [!_ModifierTypeParam {by:mod,modifierKind:!_ModifierKind Param}]
+        name: field
+        object: InpFieldModParam
+        type: !_InputBase
+          input: FldInpFieldModParam
     fields:
-    - !_InputField
-      modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
-      name: field
-      type: !_InputBase
-        input: FldInpFieldModParam
+      - !_InputField
+        modifiers: [!_ModifierTypeParam {by:mod,modifierKind:!_ModifierKind Param}]
+        name: field
+        type: !_InputBase
+          input: FldInpFieldModParam
     name: InpFieldModParam
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Named
-      name: mod
+      - !_Named
+        name: mod

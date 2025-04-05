@@ -2,42 +2,42 @@
 types: !_Map_Type
   !_Identifier AltOutpGnrcPrntParamPrnt: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: AltOutpGnrcPrntParamPrnt
-      output: String
+      - !_ObjectFor(_OutputAlternate)
+        object: AltOutpGnrcPrntParamPrnt
+        output: String
     allFields:
-    - !_ObjectFor(_OutputField)
-      name: alt
-      object: AltOutpGnrcPrntParamPrnt
-      type: !_OutputBase
-        output: Number
+      - !_ObjectFor(_OutputField)
+        name: alt
+        object: AltOutpGnrcPrntParamPrnt
+        type: !_OutputBase
+          output: Number
     alternates:
-    - !_OutputAlternate
-      output: String
+      - !_OutputAlternate
+        output: String
     fields:
-    - !_OutputField
-      name: alt
-      type: !_OutputBase
-        output: Number
+      - !_OutputField
+        name: alt
+        type: !_OutputBase
+          output: Number
     name: AltOutpGnrcPrntParamPrnt
     typeKind: !_TypeKind Output
   !_Identifier OutpGnrcPrntParamPrnt: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: AltOutpGnrcPrntParamPrnt
-      output: String
+      - !_ObjectFor(_OutputAlternate)
+        object: AltOutpGnrcPrntParamPrnt
+        output: String
     allFields:
-    - !_ObjectFor(_OutputField)
-      name: alt
-      object: AltOutpGnrcPrntParamPrnt
-      type: !_OutputBase
-        output: Number
+      - !_ObjectFor(_OutputField)
+        name: alt
+        object: AltOutpGnrcPrntParamPrnt
+        type: !_OutputBase
+          output: Number
     name: OutpGnrcPrntParamPrnt
     parent: !_OutputBase
       output: RefOutpGnrcPrntParamPrnt
       typeArgs:
-      - !_OutputArg
-        output: AltOutpGnrcPrntParamPrnt
+        - !_OutputArg
+          output: AltOutpGnrcPrntParamPrnt
     typeKind: !_TypeKind Output
   !_Identifier RefOutpGnrcPrntParamPrnt: !_TypeOutput
     name: RefOutpGnrcPrntParamPrnt
@@ -45,5 +45,5 @@ types: !_Map_Type
       typeParam: ref
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
-      name: ref
+      - !_Named
+        name: ref

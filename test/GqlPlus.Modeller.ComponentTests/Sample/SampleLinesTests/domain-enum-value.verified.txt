@@ -2,30 +2,30 @@
 types: !_Map_Type
   !_Identifier DmnEnumValue: !_DomainEnum
     allItems:
-    - !_DomainItem(_DomainLabel)
-      domain: DmnEnumValue
-      exclude: false
-      value: !_EnumValue
-        label: dmnEnumValue
-        name: EnumDmnEnumValue
-        typeKind: !_SimpleKind Enum
+      - !_DomainItem(_DomainLabel)
+        domain: DmnEnumValue
+        exclude: false
+        value: !_EnumValue
+          label: dmnEnumValue
+          name: EnumDmnEnumValue
+          typeKind: !_SimpleKind Enum
     domainKind: !_DomainKind Enum
     items:
-    - !_DomainLabel
-      exclude: false
-      value: !_EnumValue
-        label: dmnEnumValue
-        name: EnumDmnEnumValue
-        typeKind: !_SimpleKind Enum
+      - !_DomainLabel
+        exclude: false
+        value: !_EnumValue
+          label: dmnEnumValue
+          name: EnumDmnEnumValue
+          typeKind: !_SimpleKind Enum
     name: DmnEnumValue
     typeKind: !_TypeKind Domain
   !_Identifier EnumDmnEnumValue: !_TypeEnum
     allItems:
-    - !_EnumLabel
-      enum: EnumDmnEnumValue
-      name: dmnEnumValue
+      - !_EnumLabel
+        enum: EnumDmnEnumValue
+        name: dmnEnumValue
     items:
-    - !_Aliased
-      name: dmnEnumValue
+      - !_Aliased
+        name: dmnEnumValue
     name: EnumDmnEnumValue
     typeKind: !_TypeKind Enum

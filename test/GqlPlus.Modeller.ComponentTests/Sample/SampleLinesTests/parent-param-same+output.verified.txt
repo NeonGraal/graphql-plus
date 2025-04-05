@@ -2,39 +2,39 @@
 types: !_Map_Type
   !_Identifier OutpPrntParamSame: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: RefOutpPrntParamSame
-      typeParam: a
+      - !_ObjectFor(_OutputAlternate)
+        object: RefOutpPrntParamSame
+        typeParam: a
     allFields:
-    - !_ObjectFor(_OutputField)
-      name: field
-      object: OutpPrntParamSame
-      type: !_OutputBase
-        typeParam: a
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: OutpPrntParamSame
+        type: !_OutputBase
+          typeParam: a
     fields:
-    - !_OutputField
-      name: field
-      type: !_OutputBase
-        typeParam: a
+      - !_OutputField
+        name: field
+        type: !_OutputBase
+          typeParam: a
     name: OutpPrntParamSame
     parent: !_OutputBase
       output: RefOutpPrntParamSame
       typeArgs:
-      - !_TypeParam a
+        - !_TypeParam a
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
-      name: a
+      - !_Named
+        name: a
   !_Identifier RefOutpPrntParamSame: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: RefOutpPrntParamSame
-      typeParam: a
+      - !_ObjectFor(_OutputAlternate)
+        object: RefOutpPrntParamSame
+        typeParam: a
     alternates:
-    - !_OutputAlternate
-      typeParam: a
+      - !_OutputAlternate
+        typeParam: a
     name: RefOutpPrntParamSame
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
-      name: a
+      - !_Named
+        name: a

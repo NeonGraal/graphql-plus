@@ -2,43 +2,43 @@
 types: !_Map_Type
   !_Identifier AltOutpAltModParam: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: AltOutpAltModParam
-      output: String
+      - !_ObjectFor(_OutputAlternate)
+        object: AltOutpAltModParam
+        output: String
     allFields:
-    - !_ObjectFor(_OutputField)
-      name: alt
-      object: AltOutpAltModParam
-      type: !_OutputBase
-        output: Number
+      - !_ObjectFor(_OutputField)
+        name: alt
+        object: AltOutpAltModParam
+        type: !_OutputBase
+          output: Number
     alternates:
-    - !_OutputAlternate
-      output: String
+      - !_OutputAlternate
+        output: String
     fields:
-    - !_OutputField
-      name: alt
-      type: !_OutputBase
-        output: Number
+      - !_OutputField
+        name: alt
+        type: !_OutputBase
+          output: Number
     name: AltOutpAltModParam
     typeKind: !_TypeKind Output
   !_Identifier OutpAltModParam: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      collections:
-      - !_ModifierTypeParam
-        by: mod
-        modifierKind: !_ModifierKind Param
-      object: OutpAltModParam
-      output: AltOutpAltModParam
+      - !_ObjectFor(_OutputAlternate)
+        collections:
+          - !_ModifierTypeParam
+            by: mod
+            modifierKind: !_ModifierKind Param
+        object: OutpAltModParam
+        output: AltOutpAltModParam
     alternates:
-    - !_OutputAlternate
-      collections:
-      - !_ModifierTypeParam
-        by: mod
-        modifierKind: !_ModifierKind Param
-      output: AltOutpAltModParam
+      - !_OutputAlternate
+        collections:
+          - !_ModifierTypeParam
+            by: mod
+            modifierKind: !_ModifierKind Param
+        output: AltOutpAltModParam
     name: OutpAltModParam
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
-      name: mod
+      - !_Named
+        name: mod

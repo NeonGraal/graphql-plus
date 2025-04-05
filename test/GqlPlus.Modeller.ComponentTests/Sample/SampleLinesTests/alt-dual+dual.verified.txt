@@ -2,32 +2,32 @@
 types: !_Map_Type
   !_Identifier DualAltDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_DualAlternate)
-      dual: DualDualAltDual
-      object: DualAltDual
+      - !_ObjectFor(_DualAlternate)
+        dual: DualDualAltDual
+        object: DualAltDual
     alternates:
-    - !_DualAlternate
-      dual: DualDualAltDual
+      - !_DualAlternate
+        dual: DualDualAltDual
     name: DualAltDual
     typeKind: !_TypeKind Dual
   !_Identifier DualDualAltDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_DualAlternate)
-      dual: String
-      object: DualDualAltDual
+      - !_ObjectFor(_DualAlternate)
+        dual: String
+        object: DualDualAltDual
     allFields:
-    - !_ObjectFor(_DualField)
-      name: alt
-      object: DualDualAltDual
-      type: !_DualBase
-        dual: Number
+      - !_ObjectFor(_DualField)
+        name: alt
+        object: DualDualAltDual
+        type: !_DualBase
+          dual: Number
     alternates:
-    - !_DualAlternate
-      dual: String
+      - !_DualAlternate
+        dual: String
     fields:
-    - !_DualField
-      name: alt
-      type: !_DualBase
-        dual: Number
+      - !_DualField
+        name: alt
+        type: !_DualBase
+          dual: Number
     name: DualDualAltDual
     typeKind: !_TypeKind Dual

@@ -2,47 +2,47 @@
 types: !_Map_Type
   !_Identifier DualPrntField: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_DualAlternate)
-      dual: String
-      object: RefDualPrntField
+      - !_ObjectFor(_DualAlternate)
+        dual: String
+        object: RefDualPrntField
     allFields:
-    - !_ObjectFor(_DualField)
-      name: parent
-      object: RefDualPrntField
-      type: !_DualBase
-        dual: Number
-    - !_ObjectFor(_DualField)
-      name: field
-      object: DualPrntField
-      type: !_DualBase
-        dual: Number
+      - !_ObjectFor(_DualField)
+        name: parent
+        object: RefDualPrntField
+        type: !_DualBase
+          dual: Number
+      - !_ObjectFor(_DualField)
+        name: field
+        object: DualPrntField
+        type: !_DualBase
+          dual: Number
     fields:
-    - !_DualField
-      name: field
-      type: !_DualBase
-        dual: Number
+      - !_DualField
+        name: field
+        type: !_DualBase
+          dual: Number
     name: DualPrntField
     parent: !_DualBase
       dual: RefDualPrntField
     typeKind: !_TypeKind Dual
   !_Identifier RefDualPrntField: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_DualAlternate)
-      dual: String
-      object: RefDualPrntField
+      - !_ObjectFor(_DualAlternate)
+        dual: String
+        object: RefDualPrntField
     allFields:
-    - !_ObjectFor(_DualField)
-      name: parent
-      object: RefDualPrntField
-      type: !_DualBase
-        dual: Number
+      - !_ObjectFor(_DualField)
+        name: parent
+        object: RefDualPrntField
+        type: !_DualBase
+          dual: Number
     alternates:
-    - !_DualAlternate
-      dual: String
+      - !_DualAlternate
+        dual: String
     fields:
-    - !_DualField
-      name: parent
-      type: !_DualBase
-        dual: Number
+      - !_DualField
+        name: parent
+        type: !_DualBase
+          dual: Number
     name: RefDualPrntField
     typeKind: !_TypeKind Dual

@@ -2,17 +2,17 @@
 types: !_Map_Type
   !_Identifier OutpFieldTypeDescr: !_TypeOutput
     allFields:
-    - !_ObjectFor(_OutputField)
-      name: field
-      object: OutpFieldTypeDescr
-      type: !_OutputBase
-        description: 'Test Descr'
-        output: Number
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: OutpFieldTypeDescr
+        type: !_OutputBase
+          description: 'Test Descr'
+          output: Number
     fields:
-    - !_OutputField
-      name: field
-      type: !_OutputBase
-        description: 'Test Descr'
-        output: Number
+      - !_OutputField
+        name: field
+        type: !_OutputBase
+          description: 'Test Descr'
+          output: Number
     name: OutpFieldTypeDescr
     typeKind: !_TypeKind Output

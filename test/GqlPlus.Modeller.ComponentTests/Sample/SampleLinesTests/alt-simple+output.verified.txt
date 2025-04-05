@@ -2,11 +2,11 @@
 types: !_Map_Type
   !_Identifier OutpAltSmpl: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: OutpAltSmpl
-      output: String
+      - !_ObjectFor(_OutputAlternate)
+        object: OutpAltSmpl
+        output: String
     alternates:
-    - !_OutputAlternate
-      output: String
+      - !_OutputAlternate
+        output: String
     name: OutpAltSmpl
     typeKind: !_TypeKind Output

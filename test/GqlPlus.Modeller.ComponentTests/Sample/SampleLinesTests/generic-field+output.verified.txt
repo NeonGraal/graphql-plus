@@ -2,18 +2,18 @@
 types: !_Map_Type
   !_Identifier OutpGnrcField: !_TypeOutput
     allFields:
-    - !_ObjectFor(_OutputField)
-      name: field
-      object: OutpGnrcField
-      type: !_OutputBase
-        typeParam: type
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: OutpGnrcField
+        type: !_OutputBase
+          typeParam: type
     fields:
-    - !_OutputField
-      name: field
-      type: !_OutputBase
-        typeParam: type
+      - !_OutputField
+        name: field
+        type: !_OutputBase
+          typeParam: type
     name: OutpGnrcField
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
-      name: type
+      - !_Named
+        name: type

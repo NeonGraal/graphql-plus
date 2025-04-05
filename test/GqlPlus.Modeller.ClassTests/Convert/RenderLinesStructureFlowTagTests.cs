@@ -9,20 +9,20 @@ public class RenderLinesStructureFlowTagTests
   protected override string MapTag => "map";
 
   protected override string Expected_List(string[] value)
-    => "!list " + value.FlowList("!value ");
+    => value.FlowList("!value ");
 
   protected override string Expected_Map(MapPair<string>[] value)
-    => "!map " + value.FlowMap("!value ");
+    => value.FlowMap("!map", "!value ");
 
   protected override string Expected_ListOfLists(string[][] value)
-    => "!list".IsLine() + value.IsList(v => "- !list " + v!.FlowList("!value "));
+    => value.FlowList(v => v!.FlowList("!value "));
 
   protected override string Expected_MapOfLists(MapPair<string[]>[] value)
-    => "!map".IsLine() + value.IsMap("", v => " !list " + v.FlowList("!value "));
+    => value.FlowMap(v => v.FlowList("!value "), "!map");
 
   protected override string Expected_ListOfMaps(MapPair<string>[][] value)
-    => "!list".IsLine() + value.IsList(v => "- !map " + v!.FlowMap("!value "));
+    => value.FlowList(v => v!.FlowMap("!map", "!value "));
 
   protected override string Expected_MapOfMaps(MapPair<MapPair<string>[]>[] value)
-    => "!map".IsLine() + value.IsMap("", v => " !map " + v.FlowMap("!value "));
+    => value.FlowMap(v => v.FlowMap("!map", "!value "), "!map");
 }

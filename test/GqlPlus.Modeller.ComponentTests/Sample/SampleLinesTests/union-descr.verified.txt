@@ -2,13 +2,13 @@
 types: !_Map_Type
   !_Identifier UnionDescr: !_TypeUnion
     allItems:
-    - !_UnionMember
-      description: 'Union Descr'
-      name: Number
-      union: UnionDescr
+      - !_UnionMember
+        description: 'Union Descr'
+        name: Number
+        union: UnionDescr
     items:
-    - !_Aliased
-      description: 'Union Descr'
-      name: Number
+      - !_Aliased
+        description: 'Union Descr'
+        name: Number
     name: UnionDescr
     typeKind: !_TypeKind Union

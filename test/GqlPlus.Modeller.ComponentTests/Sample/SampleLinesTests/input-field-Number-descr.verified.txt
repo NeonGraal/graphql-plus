@@ -2,19 +2,19 @@
 types: !_Map_Type
   !_Identifier InpFieldNmbrDescr: !_TypeInput
     allFields:
-    - !_ObjectFor(_InputField)
-      default: 0
-      name: field
-      object: InpFieldNmbrDescr
-      type: !_InputBase
-        description: 'Test Descr'
-        input: Number
+      - !_ObjectFor(_InputField)
+        default: 0
+        name: field
+        object: InpFieldNmbrDescr
+        type: !_InputBase
+          description: 'Test Descr'
+          input: Number
     fields:
-    - !_InputField
-      default: 0
-      name: field
-      type: !_InputBase
-        description: 'Test Descr'
-        input: Number
+      - !_InputField
+        default: 0
+        name: field
+        type: !_InputBase
+          description: 'Test Descr'
+          input: Number
     name: InpFieldNmbrDescr
     typeKind: !_TypeKind Input

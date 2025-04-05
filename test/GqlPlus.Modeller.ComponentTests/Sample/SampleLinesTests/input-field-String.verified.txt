@@ -2,15 +2,15 @@
 types: !_Map_Type
   !_Identifier InpFieldStr: !_TypeInput
     allFields:
-    - !_ObjectFor(_InputField)
-      name: field
-      object: InpFieldStr
-      type: !_InputBase
-        input: String
+      - !_ObjectFor(_InputField)
+        name: field
+        object: InpFieldStr
+        type: !_InputBase
+          input: String
     fields:
-    - !_InputField
-      name: field
-      type: !_InputBase
-        input: String
+      - !_InputField
+        name: field
+        type: !_InputBase
+          input: String
     name: InpFieldStr
     typeKind: !_TypeKind Input

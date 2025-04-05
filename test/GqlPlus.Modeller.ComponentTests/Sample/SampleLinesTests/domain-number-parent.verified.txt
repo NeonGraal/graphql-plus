@@ -2,19 +2,19 @@
 types: !_Map_Type
   !_Identifier DmnNmbrPrnt: !_DomainNumber
     allItems:
-    - !_DomainItem(_DomainRange)
-      domain: PrntDmnNmbrPrnt
-      exclude: false
-      to: 2
-    - !_DomainItem(_DomainRange)
-      domain: DmnNmbrPrnt
-      exclude: false
-      from: 2
+      - !_DomainItem(_DomainRange)
+        domain: PrntDmnNmbrPrnt
+        exclude: false
+        to: 2
+      - !_DomainItem(_DomainRange)
+        domain: DmnNmbrPrnt
+        exclude: false
+        from: 2
     domainKind: !_DomainKind Number
     items:
-    - !_DomainRange
-      exclude: false
-      from: 2
+      - !_DomainRange
+        exclude: false
+        from: 2
     name: DmnNmbrPrnt
     parent: !_TypeRef(_SimpleKind)
       name: PrntDmnNmbrPrnt
@@ -22,14 +22,14 @@ types: !_Map_Type
     typeKind: !_TypeKind Domain
   !_Identifier PrntDmnNmbrPrnt: !_DomainNumber
     allItems:
-    - !_DomainItem(_DomainRange)
-      domain: PrntDmnNmbrPrnt
-      exclude: false
-      to: 2
+      - !_DomainItem(_DomainRange)
+        domain: PrntDmnNmbrPrnt
+        exclude: false
+        to: 2
     domainKind: !_DomainKind Number
     items:
-    - !_DomainRange
-      exclude: false
-      to: 2
+      - !_DomainRange
+        exclude: false
+        to: 2
     name: PrntDmnNmbrPrnt
     typeKind: !_TypeKind Domain

@@ -1,8 +1,8 @@
 ﻿!_Schema
 categories: !_Map_Categories
   !_Identifier ctgrMod: !_Category
-    aliases: [CatM1, CatM2]
-    modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+    aliases: [CatM1,CatM2]
+    modifiers: [!_Modifier {modifierKind:!_ModifierKind Opt}]
     name: ctgrMod
     output: !_TypeRef(_TypeKind)
       name: CtgrMod

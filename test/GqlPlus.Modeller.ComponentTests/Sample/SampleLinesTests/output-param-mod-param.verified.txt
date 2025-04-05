@@ -2,62 +2,62 @@
 types: !_Map_Type
   !_Identifier DomOutpParamModParam: !_DomainNumber
     allItems:
-    - !_DomainItem(_DomainRange)
-      domain: DomOutpParamModParam
-      exclude: false
-      from: 1
-      to: 10
+      - !_DomainItem(_DomainRange)
+        domain: DomOutpParamModParam
+        exclude: false
+        from: 1
+        to: 10
     domainKind: !_DomainKind Number
     items:
-    - !_DomainRange
-      exclude: false
-      from: 1
-      to: 10
+      - !_DomainRange
+        exclude: false
+        from: 1
+        to: 10
     name: DomOutpParamModParam
     typeKind: !_TypeKind Domain
   !_Identifier InOutpParamModParam: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
-      input: String
-      object: InOutpParamModParam
+      - !_ObjectFor(_InputAlternate)
+        input: String
+        object: InOutpParamModParam
     allFields:
-    - !_ObjectFor(_InputField)
-      name: param
-      object: InOutpParamModParam
-      type: !_InputBase
-        input: Number
+      - !_ObjectFor(_InputField)
+        name: param
+        object: InOutpParamModParam
+        type: !_InputBase
+          input: Number
     alternates:
-    - !_InputAlternate
-      input: String
+      - !_InputAlternate
+        input: String
     fields:
-    - !_InputField
-      name: param
-      type: !_InputBase
-        input: Number
+      - !_InputField
+        name: param
+        type: !_InputBase
+          input: Number
     name: InOutpParamModParam
     typeKind: !_TypeKind Input
   !_Identifier OutpParamModParam: !_TypeOutput
     allFields:
-    - !_ObjectFor(_OutputField)
-      name: field
-      object: OutpParamModParam
-      parameters:
-      - !_InputParam
-        input: InOutpParamModParam
-        modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
-      type: !_OutputBase
-        output: DomOutpParamModParam
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: OutpParamModParam
+        parameters:
+          - !_InputParam
+            input: InOutpParamModParam
+            modifiers: [!_ModifierTypeParam {by:mod,modifierKind:!_ModifierKind Param}]
+        type: !_OutputBase
+          output: DomOutpParamModParam
     fields:
-    - !_OutputField
-      name: field
-      parameters:
-      - !_InputParam
-        input: InOutpParamModParam
-        modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
-      type: !_OutputBase
-        output: DomOutpParamModParam
+      - !_OutputField
+        name: field
+        parameters:
+          - !_InputParam
+            input: InOutpParamModParam
+            modifiers: [!_ModifierTypeParam {by:mod,modifierKind:!_ModifierKind Param}]
+        type: !_OutputBase
+          output: DomOutpParamModParam
     name: OutpParamModParam
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
-      name: mod
+      - !_Named
+        name: mod

@@ -2,42 +2,42 @@
 types: !_Map_Type
   !_Identifier AltInpGnrcPrntParamPrnt: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
-      input: String
-      object: AltInpGnrcPrntParamPrnt
+      - !_ObjectFor(_InputAlternate)
+        input: String
+        object: AltInpGnrcPrntParamPrnt
     allFields:
-    - !_ObjectFor(_InputField)
-      name: alt
-      object: AltInpGnrcPrntParamPrnt
-      type: !_InputBase
-        input: Number
+      - !_ObjectFor(_InputField)
+        name: alt
+        object: AltInpGnrcPrntParamPrnt
+        type: !_InputBase
+          input: Number
     alternates:
-    - !_InputAlternate
-      input: String
+      - !_InputAlternate
+        input: String
     fields:
-    - !_InputField
-      name: alt
-      type: !_InputBase
-        input: Number
+      - !_InputField
+        name: alt
+        type: !_InputBase
+          input: Number
     name: AltInpGnrcPrntParamPrnt
     typeKind: !_TypeKind Input
   !_Identifier InpGnrcPrntParamPrnt: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
-      input: String
-      object: AltInpGnrcPrntParamPrnt
+      - !_ObjectFor(_InputAlternate)
+        input: String
+        object: AltInpGnrcPrntParamPrnt
     allFields:
-    - !_ObjectFor(_InputField)
-      name: alt
-      object: AltInpGnrcPrntParamPrnt
-      type: !_InputBase
-        input: Number
+      - !_ObjectFor(_InputField)
+        name: alt
+        object: AltInpGnrcPrntParamPrnt
+        type: !_InputBase
+          input: Number
     name: InpGnrcPrntParamPrnt
     parent: !_InputBase
       input: RefInpGnrcPrntParamPrnt
       typeArgs:
-      - !_InputArg
-        input: AltInpGnrcPrntParamPrnt
+        - !_InputArg
+          input: AltInpGnrcPrntParamPrnt
     typeKind: !_TypeKind Input
   !_Identifier RefInpGnrcPrntParamPrnt: !_TypeInput
     name: RefInpGnrcPrntParamPrnt
@@ -45,5 +45,5 @@ types: !_Map_Type
       typeParam: ref
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Named
-      name: ref
+      - !_Named
+        name: ref

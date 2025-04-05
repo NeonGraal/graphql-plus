@@ -2,25 +2,25 @@
 types: !_Map_Type
   !_Identifier PrntUnionPrnt: !_TypeUnion
     allItems:
-    - !_UnionMember
-      name: Number
-      union: PrntUnionPrnt
+      - !_UnionMember
+        name: Number
+        union: PrntUnionPrnt
     items:
-    - !_Aliased
-      name: Number
+      - !_Aliased
+        name: Number
     name: PrntUnionPrnt
     typeKind: !_TypeKind Union
   !_Identifier UnionPrnt: !_TypeUnion
     allItems:
-    - !_UnionMember
-      name: Number
-      union: PrntUnionPrnt
-    - !_UnionMember
-      name: String
-      union: UnionPrnt
+      - !_UnionMember
+        name: Number
+        union: PrntUnionPrnt
+      - !_UnionMember
+        name: String
+        union: UnionPrnt
     items:
-    - !_Aliased
-      name: String
+      - !_Aliased
+        name: String
     name: UnionPrnt
     parent: !_TypeRef(_SimpleKind)
       name: PrntUnionPrnt

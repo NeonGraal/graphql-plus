@@ -5,44 +5,44 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier InOutpParamDescr: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
-      input: String
-      object: InOutpParamDescr
+      - !_ObjectFor(_InputAlternate)
+        input: String
+        object: InOutpParamDescr
     allFields:
-    - !_ObjectFor(_InputField)
-      name: param
-      object: InOutpParamDescr
-      type: !_InputBase
-        input: Number
+      - !_ObjectFor(_InputField)
+        name: param
+        object: InOutpParamDescr
+        type: !_InputBase
+          input: Number
     alternates:
-    - !_InputAlternate
-      input: String
+      - !_InputAlternate
+        input: String
     fields:
-    - !_InputField
-      name: param
-      type: !_InputBase
-        input: Number
+      - !_InputField
+        name: param
+        type: !_InputBase
+          input: Number
     name: InOutpParamDescr
     typeKind: !_TypeKind Input
   !_Identifier OutpParamDescr: !_TypeOutput
     allFields:
-    - !_ObjectFor(_OutputField)
-      name: field
-      object: OutpParamDescr
-      parameters:
-      - !_InputParam
-        description: 'Test Descr'
-        input: InOutpParamDescr
-      type: !_DualBase
-        dual: FldOutpParamDescr
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: OutpParamDescr
+        parameters:
+          - !_InputParam
+            description: 'Test Descr'
+            input: InOutpParamDescr
+        type: !_DualBase
+          dual: FldOutpParamDescr
     fields:
-    - !_OutputField
-      name: field
-      parameters:
-      - !_InputParam
-        description: 'Test Descr'
-        input: InOutpParamDescr
-      type: !_DualBase
-        dual: FldOutpParamDescr
+      - !_OutputField
+        name: field
+        parameters:
+          - !_InputParam
+            description: 'Test Descr'
+            input: InOutpParamDescr
+        type: !_DualBase
+          dual: FldOutpParamDescr
     name: OutpParamDescr
     typeKind: !_TypeKind Output

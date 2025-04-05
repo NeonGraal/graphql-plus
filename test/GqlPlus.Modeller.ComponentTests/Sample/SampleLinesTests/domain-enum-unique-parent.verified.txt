@@ -2,33 +2,33 @@
 types: !_Map_Type
   !_Identifier DupDmnEnumUnqPrnt: !_TypeEnum
     allItems:
-    - !_EnumLabel
-      enum: DupDmnEnumUnqPrnt
-      name: dmnEnumUnqPrnt
-    - !_EnumLabel
-      enum: DupDmnEnumUnqPrnt
-      name: dup_dmnEnumUnqPrnt
+      - !_EnumLabel
+        enum: DupDmnEnumUnqPrnt
+        name: dmnEnumUnqPrnt
+      - !_EnumLabel
+        enum: DupDmnEnumUnqPrnt
+        name: dup_dmnEnumUnqPrnt
     items:
-    - !_Aliased
-      name: dmnEnumUnqPrnt
-    - !_Aliased
-      name: dup_dmnEnumUnqPrnt
+      - !_Aliased
+        name: dmnEnumUnqPrnt
+      - !_Aliased
+        name: dup_dmnEnumUnqPrnt
     name: DupDmnEnumUnqPrnt
     typeKind: !_TypeKind Enum
   !_Identifier EnumDmnEnumUnqPrnt: !_TypeEnum
     allItems:
-    - !_EnumLabel
-      enum: PrntDmnEnumUnqPrnt
-      name: dmnEnumUnqPrnt
-    - !_EnumLabel
-      enum: PrntDmnEnumUnqPrnt
-      name: prnt_dmnEnumUnqPrnt
-    - !_EnumLabel
-      enum: EnumDmnEnumUnqPrnt
-      name: enum_dmnEnumUnqPrnt
+      - !_EnumLabel
+        enum: PrntDmnEnumUnqPrnt
+        name: dmnEnumUnqPrnt
+      - !_EnumLabel
+        enum: PrntDmnEnumUnqPrnt
+        name: prnt_dmnEnumUnqPrnt
+      - !_EnumLabel
+        enum: EnumDmnEnumUnqPrnt
+        name: enum_dmnEnumUnqPrnt
     items:
-    - !_Aliased
-      name: enum_dmnEnumUnqPrnt
+      - !_Aliased
+        name: enum_dmnEnumUnqPrnt
     name: EnumDmnEnumUnqPrnt
     parent: !_TypeRef(_SimpleKind)
       name: PrntDmnEnumUnqPrnt
@@ -36,16 +36,16 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier PrntDmnEnumUnqPrnt: !_TypeEnum
     allItems:
-    - !_EnumLabel
-      enum: PrntDmnEnumUnqPrnt
-      name: dmnEnumUnqPrnt
-    - !_EnumLabel
-      enum: PrntDmnEnumUnqPrnt
-      name: prnt_dmnEnumUnqPrnt
+      - !_EnumLabel
+        enum: PrntDmnEnumUnqPrnt
+        name: dmnEnumUnqPrnt
+      - !_EnumLabel
+        enum: PrntDmnEnumUnqPrnt
+        name: prnt_dmnEnumUnqPrnt
     items:
-    - !_Aliased
-      name: dmnEnumUnqPrnt
-    - !_Aliased
-      name: prnt_dmnEnumUnqPrnt
+      - !_Aliased
+        name: dmnEnumUnqPrnt
+      - !_Aliased
+        name: prnt_dmnEnumUnqPrnt
     name: PrntDmnEnumUnqPrnt
     typeKind: !_TypeKind Enum

@@ -1,21 +1,21 @@
 ﻿!_Schema
 _errors:
-- !_Error
-  _kind: !_TokenKind End
-  _message: In _Setting can't get model for type '_Named'
+  - !_Error
+    _kind: !_TokenKind End
+    _message: In _Setting can't get model for type '_Named'
 types: !_Map_Type
   !_Identifier _Setting: !_TypeOutput
     allFields:
-    - !_ObjectFor(_OutputField)
-      name: value
-      object: _Setting
-      type: !_OutputBase
-        output: _Constant
+      - !_ObjectFor(_OutputField)
+        name: value
+        object: _Setting
+        type: !_OutputBase
+          output: _Constant
     fields:
-    - !_OutputField
-      name: value
-      type: !_OutputBase
-        output: _Constant
+      - !_OutputField
+        name: value
+        type: !_OutputBase
+          output: _Constant
     name: _Setting
     parent: !_OutputBase
       output: _Named

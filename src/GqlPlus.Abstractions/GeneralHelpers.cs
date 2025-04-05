@@ -29,6 +29,12 @@ public static class GeneralHelpers
   public static bool OrderedEqual<T>(this IEnumerable<T> left, IEnumerable<T> right, IComparer<T>? comparer = null)
     => left.OrderBy(l => l, comparer).SequenceEqual(right.OrderBy(r => r, comparer));
 
+  public static string Prefixed(this string? text, string prefix)
+    => text?.Length > 0 ? prefix + text : "";
+
+  public static string Suffixed(this string? text, string suffix)
+    => text?.Length > 0 ? text + suffix : "";
+
   public static string Quoted(this string? text, string quote)
     => text?.Length > 0
     ? string.Concat(

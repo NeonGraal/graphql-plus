@@ -2,19 +2,19 @@
 types: !_Map_Type
   !_Identifier OutpGnrcDescr: !_TypeOutput
     allFields:
-    - !_ObjectFor(_OutputField)
-      name: field
-      object: OutpGnrcDescr
-      type: !_OutputBase
-        typeParam: type
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: OutpGnrcDescr
+        type: !_OutputBase
+          typeParam: type
     fields:
-    - !_OutputField
-      name: field
-      type: !_OutputBase
-        typeParam: type
+      - !_OutputField
+        name: field
+        type: !_OutputBase
+          typeParam: type
     name: OutpGnrcDescr
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
-      description: 'Test Descr'
-      name: type
+      - !_Named
+        description: 'Test Descr'
+        name: type

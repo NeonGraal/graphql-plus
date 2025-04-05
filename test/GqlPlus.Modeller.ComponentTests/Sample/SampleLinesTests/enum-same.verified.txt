@@ -2,11 +2,11 @@
 types: !_Map_Type
   !_Identifier EnumSame: !_TypeEnum
     allItems:
-    - !_EnumLabel
-      enum: EnumSame
-      name: enumSame
+      - !_EnumLabel
+        enum: EnumSame
+        name: enumSame
     items:
-    - !_Aliased
-      name: enumSame
+      - !_Aliased
+        name: enumSame
     name: EnumSame
     typeKind: !_TypeKind Enum

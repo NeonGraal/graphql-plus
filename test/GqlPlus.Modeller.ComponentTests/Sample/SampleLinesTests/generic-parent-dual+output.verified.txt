@@ -2,47 +2,47 @@
 types: !_Map_Type
   !_Identifier AltOutpGnrcPrntDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_DualAlternate)
-      dual: String
-      object: AltOutpGnrcPrntDual
+      - !_ObjectFor(_DualAlternate)
+        dual: String
+        object: AltOutpGnrcPrntDual
     allFields:
-    - !_ObjectFor(_DualField)
-      name: alt
-      object: AltOutpGnrcPrntDual
-      type: !_DualBase
-        dual: Number
+      - !_ObjectFor(_DualField)
+        name: alt
+        object: AltOutpGnrcPrntDual
+        type: !_DualBase
+          dual: Number
     alternates:
-    - !_DualAlternate
-      dual: String
+      - !_DualAlternate
+        dual: String
     fields:
-    - !_DualField
-      name: alt
-      type: !_DualBase
-        dual: Number
+      - !_DualField
+        name: alt
+        type: !_DualBase
+          dual: Number
     name: AltOutpGnrcPrntDual
     typeKind: !_TypeKind Dual
   !_Identifier OutpGnrcPrntDual: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: RefOutpGnrcPrntDual
-      typeParam: ref
+      - !_ObjectFor(_OutputAlternate)
+        object: RefOutpGnrcPrntDual
+        typeParam: ref
     name: OutpGnrcPrntDual
     parent: !_OutputBase
       output: RefOutpGnrcPrntDual
       typeArgs:
-      - !_DualArg
-        dual: AltOutpGnrcPrntDual
+        - !_DualArg
+          dual: AltOutpGnrcPrntDual
     typeKind: !_TypeKind Output
   !_Identifier RefOutpGnrcPrntDual: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: RefOutpGnrcPrntDual
-      typeParam: ref
+      - !_ObjectFor(_OutputAlternate)
+        object: RefOutpGnrcPrntDual
+        typeParam: ref
     alternates:
-    - !_OutputAlternate
-      typeParam: ref
+      - !_OutputAlternate
+        typeParam: ref
     name: RefOutpGnrcPrntDual
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
-      name: ref
+      - !_Named
+        name: ref

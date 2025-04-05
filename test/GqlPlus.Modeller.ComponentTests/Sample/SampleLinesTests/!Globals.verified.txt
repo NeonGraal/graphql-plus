@@ -15,22 +15,21 @@ categories: !_Map_Categories
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
   !_Identifier ctgrOutpDict: !_Category
-    modifiers: [!_ModifierDictionary {by: '*', modifierKind: !_ModifierKind Dict,
-        typeKind: !_SimpleKind Basic}]
+    modifiers: [!_ModifierDictionary {by:'*',modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Basic}]
     name: ctgrOutpDict
     output: !_TypeRef(_TypeKind)
       name: CtgrOutpDict
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
   !_Identifier ctgrOutpList: !_Category
-    modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+    modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
     name: ctgrOutpList
     output: !_TypeRef(_TypeKind)
       name: CtgrOutpList
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
   !_Identifier ctgrOutpOptl: !_Category
-    modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+    modifiers: [!_Modifier {modifierKind:!_ModifierKind Opt}]
     name: ctgrOutpOptl
     output: !_TypeRef(_TypeKind)
       name: CtgrOutpOptl
@@ -45,50 +44,43 @@ categories: !_Map_Categories
 directives: !_Map_Directives
   !_Identifier DrctDescr: !_Directive
     description: 'A directive described'
-    locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
-      Operation: _, Spread: _, Variable: _}
+    locations: !_Set(_Location) {Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
     name: DrctDescr
     repeatable: false
   !_Identifier DrctNoParam: !_Directive
-    locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
-      Operation: _, Spread: _, Variable: _}
+    locations: !_Set(_Location) {Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
     name: DrctNoParam
     repeatable: false
   !_Identifier DrctParamDict: !_Directive
-    locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
-      Operation: _, Spread: _, Variable: _}
+    locations: !_Set(_Location) {Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
     name: DrctParamDict
     parameters:
-    - !_InputParam
-      input: InDrctParamDict
-      modifiers: [!_ModifierDictionary {by: String, modifierKind: !_ModifierKind Dict,
-          typeKind: !_SimpleKind Basic}]
+      - !_InputParam
+        input: InDrctParamDict
+        modifiers: [!_ModifierDictionary {by:String,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Basic}]
     repeatable: false
   !_Identifier DrctParamIn: !_Directive
-    locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
-      Operation: _, Spread: _, Variable: _}
+    locations: !_Set(_Location) {Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
     name: DrctParamIn
     parameters:
-    - !_InputParam
-      input: InDrctParamIn
+      - !_InputParam
+        input: InDrctParamIn
     repeatable: false
   !_Identifier DrctParamList: !_Directive
-    locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
-      Operation: _, Spread: _, Variable: _}
+    locations: !_Set(_Location) {Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
     name: DrctParamList
     parameters:
-    - !_InputParam
-      input: InDrctParamList
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      - !_InputParam
+        input: InDrctParamList
+        modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
     repeatable: false
   !_Identifier DrctParamOpt: !_Directive
-    locations: !_Set(_Location) {Field: _, Fragment: _, Inline: _,
-      Operation: _, Spread: _, Variable: _}
+    locations: !_Set(_Location) {Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
     name: DrctParamOpt
     parameters:
-    - !_InputParam
-      input: InDrctParamOpt
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      - !_InputParam
+        input: InDrctParamOpt
+        modifiers: [!_Modifier {modifierKind:!_ModifierKind Opt}]
     repeatable: false
 name: Schema
 settings: !_Map_Setting
@@ -120,7 +112,7 @@ types: !_Map_Type
     name: Descr
     typeKind: !_TypeKind Output
   !_Identifier DescrBcks: !_TypeOutput
-    description: 'A backslash ("\") description'
+    description: 'A backslash ("\\") description'
     name: DescrBcks
     typeKind: !_TypeKind Output
   !_Identifier DescrBtwn: !_TypeOutput
@@ -128,12 +120,11 @@ types: !_Map_Type
     name: DescrBtwn
     typeKind: !_TypeKind Output
   !_Identifier DescrCmpl: !_TypeOutput
-    description: >-
-      A "more" 'Complicated' \ description
+    description: 'A "more" \'Complicated\' \\ description'
     name: DescrCmpl
     typeKind: !_TypeKind Output
   !_Identifier DescrDbl: !_TypeOutput
-    description: "A 'double-quoted' description"
+    description: 'A \'double-quoted\' description'
     name: DescrDbl
     typeKind: !_TypeKind Output
   !_Identifier DescrSngl: !_TypeOutput

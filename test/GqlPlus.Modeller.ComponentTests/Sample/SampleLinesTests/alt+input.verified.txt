@@ -2,32 +2,32 @@
 types: !_Map_Type
   !_Identifier AltInpAlt: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
-      input: String
-      object: AltInpAlt
+      - !_ObjectFor(_InputAlternate)
+        input: String
+        object: AltInpAlt
     allFields:
-    - !_ObjectFor(_InputField)
-      name: alt
-      object: AltInpAlt
-      type: !_InputBase
-        input: Number
+      - !_ObjectFor(_InputField)
+        name: alt
+        object: AltInpAlt
+        type: !_InputBase
+          input: Number
     alternates:
-    - !_InputAlternate
-      input: String
+      - !_InputAlternate
+        input: String
     fields:
-    - !_InputField
-      name: alt
-      type: !_InputBase
-        input: Number
+      - !_InputField
+        name: alt
+        type: !_InputBase
+          input: Number
     name: AltInpAlt
     typeKind: !_TypeKind Input
   !_Identifier InpAlt: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
-      input: AltInpAlt
-      object: InpAlt
+      - !_ObjectFor(_InputAlternate)
+        input: AltInpAlt
+        object: InpAlt
     alternates:
-    - !_InputAlternate
-      input: AltInpAlt
+      - !_InputAlternate
+        input: AltInpAlt
     name: InpAlt
     typeKind: !_TypeKind Input

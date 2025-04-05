@@ -2,17 +2,17 @@
 types: !_Map_Type
   !_Identifier InpFieldTypeDescr: !_TypeInput
     allFields:
-    - !_ObjectFor(_InputField)
-      name: field
-      object: InpFieldTypeDescr
-      type: !_InputBase
-        description: 'Test Descr'
-        input: Number
+      - !_ObjectFor(_InputField)
+        name: field
+        object: InpFieldTypeDescr
+        type: !_InputBase
+          description: 'Test Descr'
+          input: Number
     fields:
-    - !_InputField
-      name: field
-      type: !_InputBase
-        description: 'Test Descr'
-        input: Number
+      - !_InputField
+        name: field
+        type: !_InputBase
+          description: 'Test Descr'
+          input: Number
     name: InpFieldTypeDescr
     typeKind: !_TypeKind Input

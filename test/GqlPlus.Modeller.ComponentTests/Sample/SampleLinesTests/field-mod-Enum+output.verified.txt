@@ -13,14 +13,14 @@ types: !_Map_Type
   !_Identifier OutpFieldModEnum: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
-        modifiers: [!_ModifierDictionary {by:EnumOutpFieldModEnum,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Enum}]
+        modifiers: [!_ModifierDictionary{by:EnumOutpFieldModEnum,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Enum}]
         name: field
         object: OutpFieldModEnum
         type: !_OutputBase
           output: '*'
     fields:
       - !_OutputField
-        modifiers: [!_ModifierDictionary {by:EnumOutpFieldModEnum,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Enum}]
+        modifiers: [!_ModifierDictionary{by:EnumOutpFieldModEnum,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Enum}]
         name: field
         type: !_OutputBase
           output: '*'

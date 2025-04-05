@@ -2,6 +2,6 @@
 directives: !_Map_Directives
   !_Identifier DrctAlias: !_Directive
     aliases: [DirA1,DirA2]
-    locations: !_Set(_Location) {Field:_,Variable:_}
+    locations: !_Set(_Location){Field:_,Variable:_}
     name: DrctAlias
     repeatable: false

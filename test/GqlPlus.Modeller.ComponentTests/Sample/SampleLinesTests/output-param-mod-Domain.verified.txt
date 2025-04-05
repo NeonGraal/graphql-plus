@@ -44,7 +44,7 @@ types: !_Map_Type
         parameters:
           - !_InputParam
             input: InOutpParamModDmn
-            modifiers: [!_ModifierDictionary {by:DomOutpParamModDmn,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+            modifiers: [!_ModifierDictionary{by:DomOutpParamModDmn,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
         type: !_OutputBase
           output: DomOutpParamModDmn
     fields:
@@ -53,7 +53,7 @@ types: !_Map_Type
         parameters:
           - !_InputParam
             input: InOutpParamModDmn
-            modifiers: [!_ModifierDictionary {by:DomOutpParamModDmn,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+            modifiers: [!_ModifierDictionary{by:DomOutpParamModDmn,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
         type: !_OutputBase
           output: DomOutpParamModDmn
     name: OutpParamModDmn

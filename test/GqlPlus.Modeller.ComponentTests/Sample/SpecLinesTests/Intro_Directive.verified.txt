@@ -7,7 +7,7 @@ types: !_Map_Type
   !_Identifier _Directive: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: parameters
         object: _Directive
         type: !_OutputBase
@@ -18,14 +18,14 @@ types: !_Map_Type
         type: !_OutputBase
           output: Boolean
       - !_ObjectFor(_OutputField)
-        modifiers: [!_ModifierDictionary {by:_Location,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Enum}]
+        modifiers: [!_ModifierDictionary{by:_Location,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Enum}]
         name: locations
         object: _Directive
         type: !_OutputBase
           output: _
     fields:
       - !_OutputField
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: parameters
         type: !_OutputBase
           output: _InputParam
@@ -34,7 +34,7 @@ types: !_Map_Type
         type: !_OutputBase
           output: Boolean
       - !_OutputField
-        modifiers: [!_ModifierDictionary {by:_Location,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Enum}]
+        modifiers: [!_ModifierDictionary{by:_Location,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Enum}]
         name: locations
         type: !_OutputBase
           output: _

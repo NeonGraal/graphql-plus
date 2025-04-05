@@ -30,7 +30,7 @@ categories: !_Map_Categories
     resolution: !_Resolution Parallel
   !_Identifier ctgrMod: !_Category
     aliases: [CatM1,CatM2]
-    modifiers: [!_Modifier {modifierKind:!_ModifierKind Opt}]
+    modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
     name: ctgrMod
     output: !_TypeRef(_TypeKind)
       name: CtgrMod
@@ -43,21 +43,21 @@ categories: !_Map_Categories
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
   !_Identifier ctgrOutpDict: !_Category
-    modifiers: [!_ModifierDictionary {by:'*',modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Basic}]
+    modifiers: [!_ModifierDictionary{by:'*',modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Basic}]
     name: ctgrOutpDict
     output: !_TypeRef(_TypeKind)
       name: CtgrOutpDict
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
   !_Identifier ctgrOutpList: !_Category
-    modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
+    modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
     name: ctgrOutpList
     output: !_TypeRef(_TypeKind)
       name: CtgrOutpList
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
   !_Identifier ctgrOutpOptl: !_Category
-    modifiers: [!_Modifier {modifierKind:!_ModifierKind Opt}]
+    modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
     name: ctgrOutpOptl
     output: !_TypeRef(_TypeKind)
       name: CtgrOutpOptl
@@ -71,60 +71,60 @@ categories: !_Map_Categories
     resolution: !_Resolution Parallel
 directives: !_Map_Directives
   !_Identifier Drct: !_Directive
-    locations: !_Set(_Location) {Inline:_,Spread:_}
+    locations: !_Set(_Location){Inline:_,Spread:_}
     name: Drct
     repeatable: false
   !_Identifier DrctAlias: !_Directive
     aliases: [DirA1,DirA2]
-    locations: !_Set(_Location) {Field:_,Variable:_}
+    locations: !_Set(_Location){Field:_,Variable:_}
     name: DrctAlias
     repeatable: false
   !_Identifier DrctDescr: !_Directive
     description: 'A directive described'
-    locations: !_Set(_Location) {Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
+    locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
     name: DrctDescr
     repeatable: false
   !_Identifier DrctNoParam: !_Directive
-    locations: !_Set(_Location) {Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
+    locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
     name: DrctNoParam
     repeatable: false
   !_Identifier DrctParam: !_Directive
-    locations: !_Set(_Location) {Fragment:_,Operation:_}
+    locations: !_Set(_Location){Fragment:_,Operation:_}
     name: DrctParam
     parameters:
       - !_InputParam
         input: InDrctParam
     repeatable: false
   !_Identifier DrctParamDict: !_Directive
-    locations: !_Set(_Location) {Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
+    locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
     name: DrctParamDict
     parameters:
       - !_InputParam
         input: InDrctParamDict
-        modifiers: [!_ModifierDictionary {by:String,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Basic}]
+        modifiers: [!_ModifierDictionary{by:String,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Basic}]
     repeatable: false
   !_Identifier DrctParamIn: !_Directive
-    locations: !_Set(_Location) {Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
+    locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
     name: DrctParamIn
     parameters:
       - !_InputParam
         input: InDrctParamIn
     repeatable: false
   !_Identifier DrctParamList: !_Directive
-    locations: !_Set(_Location) {Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
+    locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
     name: DrctParamList
     parameters:
       - !_InputParam
         input: InDrctParamList
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
     repeatable: false
   !_Identifier DrctParamOpt: !_Directive
-    locations: !_Set(_Location) {Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
+    locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
     name: DrctParamOpt
     parameters:
       - !_InputParam
         input: InDrctParamOpt
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind Opt}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
     repeatable: false
 name: Schema
 settings: !_Map_Setting
@@ -1504,14 +1504,14 @@ types: !_Map_Type
   !_Identifier DualFieldModEnum: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
-        modifiers: [!_ModifierDictionary {by:EnumDualFieldModEnum,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Enum}]
+        modifiers: [!_ModifierDictionary{by:EnumDualFieldModEnum,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Enum}]
         name: field
         object: DualFieldModEnum
         type: !_DualBase
           dual: '*'
     fields:
       - !_DualField
-        modifiers: [!_ModifierDictionary {by:EnumDualFieldModEnum,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Enum}]
+        modifiers: [!_ModifierDictionary{by:EnumDualFieldModEnum,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Enum}]
         name: field
         type: !_DualBase
           dual: '*'
@@ -1520,14 +1520,14 @@ types: !_Map_Type
   !_Identifier DualFieldModParam: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
-        modifiers: [!_ModifierTypeParam {by:mod,modifierKind:!_ModifierKind Param}]
+        modifiers: [!_ModifierTypeParam{by:mod,modifierKind:!_ModifierKind Param}]
         name: field
         object: DualFieldModParam
         type: !_DualBase
           dual: FldDualFieldModParam
     fields:
       - !_DualField
-        modifiers: [!_ModifierTypeParam {by:mod,modifierKind:!_ModifierKind Param}]
+        modifiers: [!_ModifierTypeParam{by:mod,modifierKind:!_ModifierKind Param}]
         name: field
         type: !_DualBase
           dual: FldDualFieldModParam
@@ -3181,14 +3181,14 @@ types: !_Map_Type
   !_Identifier InpFieldModEnum: !_TypeInput
     allFields:
       - !_ObjectFor(_InputField)
-        modifiers: [!_ModifierDictionary {by:EnumInpFieldModEnum,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Enum}]
+        modifiers: [!_ModifierDictionary{by:EnumInpFieldModEnum,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Enum}]
         name: field
         object: InpFieldModEnum
         type: !_InputBase
           input: '*'
     fields:
       - !_InputField
-        modifiers: [!_ModifierDictionary {by:EnumInpFieldModEnum,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Enum}]
+        modifiers: [!_ModifierDictionary{by:EnumInpFieldModEnum,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Enum}]
         name: field
         type: !_InputBase
           input: '*'
@@ -3197,14 +3197,14 @@ types: !_Map_Type
   !_Identifier InpFieldModParam: !_TypeInput
     allFields:
       - !_ObjectFor(_InputField)
-        modifiers: [!_ModifierTypeParam {by:mod,modifierKind:!_ModifierKind Param}]
+        modifiers: [!_ModifierTypeParam{by:mod,modifierKind:!_ModifierKind Param}]
         name: field
         object: InpFieldModParam
         type: !_InputBase
           input: FldInpFieldModParam
     fields:
       - !_InputField
-        modifiers: [!_ModifierTypeParam {by:mod,modifierKind:!_ModifierKind Param}]
+        modifiers: [!_ModifierTypeParam{by:mod,modifierKind:!_ModifierKind Param}]
         name: field
         type: !_InputBase
           input: FldInpFieldModParam
@@ -3251,7 +3251,7 @@ types: !_Map_Type
     allFields:
       - !_ObjectFor(_InputField)
         default: !Null null
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind Opt}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: field
         object: InpFieldNull
         type: !_DualBase
@@ -3259,7 +3259,7 @@ types: !_Map_Type
     fields:
       - !_InputField
         default: !Null null
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind Opt}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: field
         type: !_DualBase
           dual: FldInpFieldNull
@@ -4174,14 +4174,14 @@ types: !_Map_Type
   !_Identifier OutpFieldModEnum: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
-        modifiers: [!_ModifierDictionary {by:EnumOutpFieldModEnum,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Enum}]
+        modifiers: [!_ModifierDictionary{by:EnumOutpFieldModEnum,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Enum}]
         name: field
         object: OutpFieldModEnum
         type: !_OutputBase
           output: '*'
     fields:
       - !_OutputField
-        modifiers: [!_ModifierDictionary {by:EnumOutpFieldModEnum,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Enum}]
+        modifiers: [!_ModifierDictionary{by:EnumOutpFieldModEnum,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Enum}]
         name: field
         type: !_OutputBase
           output: '*'
@@ -4190,14 +4190,14 @@ types: !_Map_Type
   !_Identifier OutpFieldModParam: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
-        modifiers: [!_ModifierTypeParam {by:mod,modifierKind:!_ModifierKind Param}]
+        modifiers: [!_ModifierTypeParam{by:mod,modifierKind:!_ModifierKind Param}]
         name: field
         object: OutpFieldModParam
         type: !_OutputBase
           output: FldOutpFieldModParam
     fields:
       - !_OutputField
-        modifiers: [!_ModifierTypeParam {by:mod,modifierKind:!_ModifierKind Param}]
+        modifiers: [!_ModifierTypeParam{by:mod,modifierKind:!_ModifierKind Param}]
         name: field
         type: !_OutputBase
           output: FldOutpFieldModParam
@@ -4850,7 +4850,7 @@ types: !_Map_Type
         parameters:
           - !_InputParam
             input: InOutpParamModDmn
-            modifiers: [!_ModifierDictionary {by:DomOutpParamModDmn,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+            modifiers: [!_ModifierDictionary{by:DomOutpParamModDmn,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
         type: !_OutputBase
           output: DomOutpParamModDmn
     fields:
@@ -4859,7 +4859,7 @@ types: !_Map_Type
         parameters:
           - !_InputParam
             input: InOutpParamModDmn
-            modifiers: [!_ModifierDictionary {by:DomOutpParamModDmn,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+            modifiers: [!_ModifierDictionary{by:DomOutpParamModDmn,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
         type: !_OutputBase
           output: DomOutpParamModDmn
     name: OutpParamModDmn
@@ -4872,7 +4872,7 @@ types: !_Map_Type
         parameters:
           - !_InputParam
             input: InOutpParamModParam
-            modifiers: [!_ModifierTypeParam {by:mod,modifierKind:!_ModifierKind Param}]
+            modifiers: [!_ModifierTypeParam{by:mod,modifierKind:!_ModifierKind Param}]
         type: !_OutputBase
           output: DomOutpParamModParam
     fields:
@@ -4881,7 +4881,7 @@ types: !_Map_Type
         parameters:
           - !_InputParam
             input: InOutpParamModParam
-            modifiers: [!_ModifierTypeParam {by:mod,modifierKind:!_ModifierKind Param}]
+            modifiers: [!_ModifierTypeParam{by:mod,modifierKind:!_ModifierKind Param}]
         type: !_OutputBase
           output: DomOutpParamModParam
     name: OutpParamModParam

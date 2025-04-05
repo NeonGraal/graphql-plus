@@ -23,7 +23,7 @@ categories: !_Map_Categories
     resolution: !_Resolution Parallel
   !_Identifier ctgrMod: !_Category
     aliases: [CatM1,CatM2]
-    modifiers: [!_Modifier {modifierKind:!_ModifierKind Opt}]
+    modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
     name: ctgrMod
     output: !_TypeRef(_TypeKind)
       name: CtgrMod
@@ -31,16 +31,16 @@ categories: !_Map_Categories
     resolution: !_Resolution Parallel
 directives: !_Map_Directives
   !_Identifier Drct: !_Directive
-    locations: !_Set(_Location) {Inline:_,Spread:_}
+    locations: !_Set(_Location){Inline:_,Spread:_}
     name: Drct
     repeatable: false
   !_Identifier DrctAlias: !_Directive
     aliases: [DirA1,DirA2]
-    locations: !_Set(_Location) {Field:_,Variable:_}
+    locations: !_Set(_Location){Field:_,Variable:_}
     name: DrctAlias
     repeatable: false
   !_Identifier DrctParam: !_Directive
-    locations: !_Set(_Location) {Fragment:_,Operation:_}
+    locations: !_Set(_Location){Fragment:_,Operation:_}
     name: DrctParam
     parameters:
       - !_InputParam

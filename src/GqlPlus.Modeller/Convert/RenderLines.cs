@@ -98,18 +98,18 @@ public static class RenderLines
 
   private static void WriteFlowMap(StringBuilder flow, string tag, Structured<StructureValue, Structured>.IDict map, int indent)
   {
-    string prefix = " {";
+    string prefix = "{";
     if (!string.IsNullOrWhiteSpace(tag)) {
       if (indent > 0) {
         flow.Append(' ');
       }
 
       flow.Append($"!{tag}");
-    } else if (indent < 1) {
-      prefix = "{";
+    } else if (indent > 0) {
+      prefix = " {";
     }
 
-    foreach (KeyValuePair<StructureValue, Structured> item in map.OrderBy(kv => kv.Key.AsString)) {
+    foreach (KeyValuePair<StructureValue, Structured> item in map.OrderBy(kv => kv.Key.AsString, StringComparer.Ordinal)) {
       flow.Append(prefix);
       WriteValue(flow, item.Key, ":", 0);
       WriteFlowStructure(flow, item.Value, 0);
@@ -135,7 +135,7 @@ public static class RenderLines
       prefix = new(' ', indent * 2 - 1);
     }
 
-    foreach (KeyValuePair<StructureValue, Structured> item in map.OrderBy(kv => kv.Key.AsString)) {
+    foreach (KeyValuePair<StructureValue, Structured> item in map.OrderBy(kv => kv.Key.AsString, StringComparer.Ordinal)) {
       sb.Append(prefix);
       WriteValue(sb, item.Key, ":", indent);
       WriteStructure(sb, item.Value, indent + 1);

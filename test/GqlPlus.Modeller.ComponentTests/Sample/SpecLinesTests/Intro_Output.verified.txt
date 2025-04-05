@@ -101,7 +101,7 @@ types: !_Map_Type
         output: _OutputEnum
     allFields:
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: parameters
         object: _OutputField
         type: !_OutputBase
@@ -111,7 +111,7 @@ types: !_Map_Type
         output: _OutputEnum
     fields:
       - !_OutputField
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: parameters
         type: !_OutputBase
           output: _InputParam
@@ -130,7 +130,7 @@ types: !_Map_Type
         type: !_OutputBase
           output: _Identifier
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind Opt}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: label
         object: _OutputTypeArg
         type: !_OutputBase
@@ -141,7 +141,7 @@ types: !_Map_Type
         type: !_OutputBase
           output: _Identifier
       - !_OutputField
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind Opt}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: label
         type: !_OutputBase
           output: _Identifier

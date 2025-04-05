@@ -30,7 +30,7 @@ internal static class RenderLinesHelpers
 
   internal static string FlowMap<T>(this MapPair<T>[] list, Func<T, string> mapper, string mapPrefix = "", string valuePrefix = "")
     => FlowOr(list,
-      f => mapPrefix.Suffixed(" ") + f.OrderBy(kv => kv.Key).Surround("{", "}", v => v.Key + ":" + mapper(v.Value), ","),
+      f => mapPrefix + f.OrderBy(kv => kv.Key, StringComparer.Ordinal).Surround("{", "}", v => v.Key + ":" + mapper(v.Value), ","),
       i => mapPrefix.IsLine(false) + i.IsMap(valuePrefix, v => " " + mapper(v)));
 
   internal static string IsList(this string[] value, string prefix)
@@ -43,5 +43,5 @@ internal static class RenderLinesHelpers
     => list.IsMap(keyPrefix, v => valuePrefix + v);
 
   internal static string IsMap<T>(this MapPair<T>[] list, string keyPrefix, Func<T, string> mapper)
-    => list.OrderBy(kv => kv.Key).Joined(v => keyPrefix + v.Key + ":" + mapper(v.Value), Environment.NewLine);
+    => list.OrderBy(kv => kv.Key, StringComparer.Ordinal).Joined(v => keyPrefix + v.Key + ":" + mapper(v.Value), Environment.NewLine);
 }

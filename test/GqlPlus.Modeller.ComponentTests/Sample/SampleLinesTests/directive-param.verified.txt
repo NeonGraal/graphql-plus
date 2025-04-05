@@ -1,7 +1,7 @@
 ﻿!_Schema
 directives: !_Map_Directives
   !_Identifier DrctParam: !_Directive
-    locations: !_Set(_Location) {Fragment:_,Operation:_}
+    locations: !_Set(_Location){Fragment:_,Operation:_}
     name: DrctParam
     parameters:
       - !_InputParam

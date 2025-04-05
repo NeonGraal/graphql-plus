@@ -57,7 +57,7 @@ types: !_Map_Type
               name: _TypeKind
               typeKind: !_SimpleKind Enum
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: modifiers
         object: _Category
         type: !_OutputBase
@@ -77,7 +77,7 @@ types: !_Map_Type
               name: _TypeKind
               typeKind: !_SimpleKind Enum
       - !_OutputField
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: modifiers
         type: !_OutputBase
           output: _Modifiers

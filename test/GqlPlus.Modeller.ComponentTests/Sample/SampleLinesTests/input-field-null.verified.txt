@@ -7,7 +7,7 @@ types: !_Map_Type
     allFields:
       - !_ObjectFor(_InputField)
         default: !Null null
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind Opt}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: field
         object: InpFieldNull
         type: !_DualBase
@@ -15,7 +15,7 @@ types: !_Map_Type
     fields:
       - !_InputField
         default: !Null null
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind Opt}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: field
         type: !_DualBase
           dual: FldInpFieldNull

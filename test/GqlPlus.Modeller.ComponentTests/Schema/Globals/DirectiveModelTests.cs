@@ -52,9 +52,9 @@ public class DirectiveModelTests(
     IOrderedEnumerable<string> labels = Enum.GetValues<DirectiveLocation>()
       .Where(v => int.PopCount((int)v) == 1)
       .Where(l => location.HasFlag(l))
-      .Select(l => $"{l}: _").Order();
+      .Select(l => $"{l}:_").Order();
 
-    return [labels.Surround("locations: !_Set(_Location) {", "}", ", ")];
+    return [labels.Surround("locations: !_Set(_Location){", "}", ",")];
   }
 }
 
@@ -83,7 +83,7 @@ internal sealed class DirectiveModelChecks(
     => [.. ItemsExpected(
        "parameters:",
         parameters,
-        p => ["- !_InputParam", "  input: " + p])];
+        p => ["  - !_InputParam", "    input: " + p])];
 
   public void DirectiveExpected(IGqlpSchemaDirective ast, ExpectedDirectiveInput input)
     => AstExpected((DirectiveDeclAst)ast, ExpectedDirective(input));

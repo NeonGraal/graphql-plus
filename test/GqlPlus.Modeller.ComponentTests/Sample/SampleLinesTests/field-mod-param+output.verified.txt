@@ -24,14 +24,14 @@ types: !_Map_Type
   !_Identifier OutpFieldModParam: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
-        modifiers: [!_ModifierTypeParam {by:mod,modifierKind:!_ModifierKind Param}]
+        modifiers: [!_ModifierTypeParam{by:mod,modifierKind:!_ModifierKind Param}]
         name: field
         object: OutpFieldModParam
         type: !_OutputBase
           output: FldOutpFieldModParam
     fields:
       - !_OutputField
-        modifiers: [!_ModifierTypeParam {by:mod,modifierKind:!_ModifierKind Param}]
+        modifiers: [!_ModifierTypeParam{by:mod,modifierKind:!_ModifierKind Param}]
         name: field
         type: !_OutputBase
           output: FldOutpFieldModParam

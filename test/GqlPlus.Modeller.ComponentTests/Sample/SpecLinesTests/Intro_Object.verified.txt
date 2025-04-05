@@ -26,20 +26,20 @@ types: !_Map_Type
         output: _ObjTypeParam
     allFields:
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: typeArgs
         object: _ObjBase
         type: !_OutputBase
           typeParam: arg
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: collections
         object: _Alternate
         type: !_OutputBase
           output: _Collections
     fields:
       - !_OutputField
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: collections
         type: !_OutputBase
           output: _Collections
@@ -60,7 +60,7 @@ types: !_Map_Type
         type: !_OutputBase
           typeParam: base
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: modifiers
         object: _Field
         type: !_OutputBase
@@ -71,7 +71,7 @@ types: !_Map_Type
         type: !_OutputBase
           typeParam: base
       - !_OutputField
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: modifiers
         type: !_OutputBase
           output: _Modifiers
@@ -89,7 +89,7 @@ types: !_Map_Type
         output: _ObjTypeParam
     allFields:
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: typeArgs
         object: _ObjBase
         type: !_OutputBase
@@ -99,7 +99,7 @@ types: !_Map_Type
         output: _ObjTypeParam
     fields:
       - !_OutputField
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: typeArgs
         type: !_OutputBase
           typeParam: arg
@@ -128,25 +128,6 @@ types: !_Map_Type
     typeParams:
       - !_Named
         name: base
-  !_Identifier _ObjectFor: !_TypeOutput
-    allFields:
-      - !_ObjectFor(_OutputField)
-        name: object
-        object: _ObjectFor
-        type: !_OutputBase
-          output: _Identifier
-    fields:
-      - !_OutputField
-        name: object
-        type: !_OutputBase
-          output: _Identifier
-    name: _ObjectFor
-    parent: !_OutputBase
-      typeParam: for
-    typeKind: !_TypeKind Output
-    typeParams:
-      - !_Named
-        name: for
   !_Identifier _ObjType: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
@@ -210,28 +191,47 @@ types: !_Map_Type
     parent: !_OutputBase
       output: _Described
     typeKind: !_TypeKind Output
+  !_Identifier _ObjectFor: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: object
+        object: _ObjectFor
+        type: !_OutputBase
+          output: _Identifier
+    fields:
+      - !_OutputField
+        name: object
+        type: !_OutputBase
+          output: _Identifier
+    name: _ObjectFor
+    parent: !_OutputBase
+      typeParam: for
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_Named
+        name: for
   !_Identifier _TypeObject: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: typeParams
         object: _TypeObject
         type: !_OutputBase
           output: _ObjTypeParam
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: fields
         object: _TypeObject
         type: !_OutputBase
           typeParam: field
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: alternates
         object: _TypeObject
         type: !_OutputBase
           typeParam: alternate
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: allFields
         object: _TypeObject
         type: !_OutputBase
@@ -239,7 +239,7 @@ types: !_Map_Type
           typeArgs:
             - !_TypeParam field
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: allAlternates
         object: _TypeObject
         type: !_OutputBase
@@ -248,29 +248,29 @@ types: !_Map_Type
             - !_TypeParam alternate
     fields:
       - !_OutputField
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: typeParams
         type: !_OutputBase
           output: _ObjTypeParam
       - !_OutputField
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: fields
         type: !_OutputBase
           typeParam: field
       - !_OutputField
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: alternates
         type: !_OutputBase
           typeParam: alternate
       - !_OutputField
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: allFields
         type: !_OutputBase
           output: _ObjectFor
           typeArgs:
             - !_TypeParam field
       - !_OutputField
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: allAlternates
         type: !_OutputBase
           output: _ObjectFor

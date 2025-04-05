@@ -11,7 +11,7 @@ categories: !_Map_Categories
 directives: !_Map_Directives
   !_Identifier all: !_Directive
     description: 'A Directive'
-    locations: !_Set(_Location) {Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
+    locations: !_Set(_Location){Field:_,Fragment:_,Inline:_,Operation:_,Spread:_,Variable:_}
     name: all
     repeatable: false
 name: Schema
@@ -35,7 +35,7 @@ types: !_Map_Type
         parameters:
           - !_InputParam
             input: Param
-            modifiers: [!_Modifier {modifierKind:!_ModifierKind Opt}]
+            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         type: !_DualBase
           dual: Field
     alternates:
@@ -50,7 +50,7 @@ types: !_Map_Type
         parameters:
           - !_InputParam
             input: Param
-            modifiers: [!_Modifier {modifierKind:!_ModifierKind Opt}]
+            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         type: !_DualBase
           dual: Field
     name: All
@@ -59,7 +59,7 @@ types: !_Map_Type
     allFields:
       - !_ObjectFor(_DualField)
         description: 'Some strings'
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: strings
         object: Field
         type: !_DualBase
@@ -69,7 +69,7 @@ types: !_Map_Type
     fields:
       - !_DualField
         description: 'Some strings'
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind List}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: strings
         type: !_DualBase
           description: 'Strings array'
@@ -139,7 +139,7 @@ types: !_Map_Type
     allFields:
       - !_ObjectFor(_InputField)
         description: 'First Id'
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind Opt}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: afterId
         object: Param
         type: !_InputBase
@@ -160,7 +160,7 @@ types: !_Map_Type
     fields:
       - !_InputField
         description: 'First Id'
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind Opt}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: afterId
         type: !_InputBase
           description: 'Guid or Int'

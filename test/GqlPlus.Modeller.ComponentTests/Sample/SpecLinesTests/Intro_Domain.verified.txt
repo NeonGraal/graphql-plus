@@ -195,25 +195,25 @@ types: !_Map_Type
         type: !_DualBase
           dual: Boolean
       - !_ObjectFor(_DualField)
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind Opt}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: lower
         object: _DomainRange
         type: !_DualBase
           dual: Number
       - !_ObjectFor(_DualField)
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind Opt}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: upper
         object: _DomainRange
         type: !_DualBase
           dual: Number
     fields:
       - !_DualField
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind Opt}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: lower
         type: !_DualBase
           dual: Number
       - !_DualField
-        modifiers: [!_Modifier {modifierKind:!_ModifierKind Opt}]
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: upper
         type: !_DualBase
           dual: Number

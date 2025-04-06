@@ -1,6 +1,4 @@
-﻿using System.Text.Json;
-
-namespace GqlPlus.Convert;
+﻿namespace GqlPlus.Convert;
 
 internal class RenderValueJsonConverter
   : RenderJsonConverter<StructureValue>

@@ -5,10 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Models\*.liquid" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\..\src\GqlPlus.Converter.Json\GqlPlus.Converter.Json.csproj" />
     <ProjectReference Include="..\GqlPlus.Modeller.ComponentTestBase\GqlPlus.Modeller.ComponentTestBase.csproj" />
   </ItemGroup>
 

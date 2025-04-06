@@ -2,9 +2,6 @@
 using DiffEngine;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Convert;
-using GqlPlus.Modelling;
-using GqlPlus.Rendering;
-using GqlPlus.Resolving;
 using GqlPlus.Schema.Globals;
 using GqlPlus.Schema.Objects;
 using GqlPlus.Schema.Simple;
@@ -68,12 +65,7 @@ public static class Startup
       .AddTransient<IOutputModelChecks, OutputModelChecks>()
       .AddTypeInputs<IGqlpOutputObject, TypeOutputModel>()
 
-      .AddComponentTest()
-      .AddModellers()
-      .AddResolvers()
-      .AddRenderers()
-      // Test support
-      .AddSingleton<IModelAndRender, ModelAndRender>()
+      .AddModellerComponentTestBase()
     ;
 
   public static IServiceCollection AddTypeInputs<TAst, TModel>(this IServiceCollection services)

@@ -1,0 +1,11 @@
+﻿// Generated from Sample domain-number
+/*
+*/
+namespace GqlPlus.Model_Sample_domain_number;
+public interface IDomainDmnNmbr {
+  decimal Value { get; set; }
+}
+public class DomainDmnNmbr
+  : IDomainDmnNmbr
+{
+}

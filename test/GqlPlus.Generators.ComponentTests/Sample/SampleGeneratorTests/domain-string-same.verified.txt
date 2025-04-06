@@ -1,0 +1,13 @@
+﻿// Generated from Sample domain-string-same
+/*
+*/
+namespace GqlPlus.Model_Sample_domain_string_same;
+public interface IDomainDmnStrSame {
+  string Value { get; set; }
+}
+public class DomainDmnStrSame
+  : IDomainDmnStrSame
+{
+  string _value;
+  string Value { get => _value; set => CheckAndSet(value); }
+}

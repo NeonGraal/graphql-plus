@@ -1,0 +1,7 @@
+﻿// Generated from Sample output-descr-param
+/*
+*/
+namespace GqlPlus.Model_Sample_output_descr_param;
+public interface IOutputOutpDescrParam {}
+public interface IDualFldOutpDescrParam {}
+public interface IInputInOutpDescrParam {}

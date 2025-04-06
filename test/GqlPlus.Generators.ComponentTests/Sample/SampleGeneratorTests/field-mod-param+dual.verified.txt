@@ -1,0 +1,6 @@
+﻿// Generated from Sample field-mod-param+dual
+/*
+*/
+namespace GqlPlus.Model_Sample_field_mod_param_dual;
+public interface IDualDualFieldModParam {}
+public interface IDualFldDualFieldModParam {}

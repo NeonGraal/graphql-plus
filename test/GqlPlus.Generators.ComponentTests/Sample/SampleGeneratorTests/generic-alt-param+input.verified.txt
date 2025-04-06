@@ -1,0 +1,7 @@
+﻿// Generated from Sample generic-alt-param+input
+/*
+*/
+namespace GqlPlus.Model_Sample_generic_alt_param_input;
+public interface IInputInpGnrcAltParam {}
+public interface IInputRefInpGnrcAltParam {}
+public interface IInputAltInpGnrcAltParam {}

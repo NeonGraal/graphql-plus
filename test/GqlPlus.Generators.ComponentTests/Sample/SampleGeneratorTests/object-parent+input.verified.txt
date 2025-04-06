@@ -1,0 +1,6 @@
+﻿// Generated from Sample object-parent+input
+/*
+*/
+namespace GqlPlus.Model_Sample_object_parent_input;
+public interface IInputInpObjPrnt {}
+public interface IInputRefInpObjPrnt {}

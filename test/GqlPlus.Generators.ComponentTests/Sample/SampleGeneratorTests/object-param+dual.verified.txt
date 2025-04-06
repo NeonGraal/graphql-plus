@@ -1,0 +1,5 @@
+﻿// Generated from Sample object-param+dual
+/*
+*/
+namespace GqlPlus.Model_Sample_object_param_dual;
+public interface IDualDualObjParam {}

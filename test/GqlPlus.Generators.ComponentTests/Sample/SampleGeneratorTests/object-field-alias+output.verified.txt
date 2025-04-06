@@ -1,0 +1,6 @@
+﻿// Generated from Sample object-field-alias+output
+/*
+*/
+namespace GqlPlus.Model_Sample_object_field_alias_output;
+public interface IOutputOutpObjFieldAlias {}
+public interface IOutputFldOutpObjFieldAlias {}

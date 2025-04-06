@@ -1,0 +1,11 @@
+﻿// Generated from Sample domain-boolean-diff
+/*
+*/
+namespace GqlPlus.Model_Sample_domain_boolean_diff;
+public interface IDomainDmnBoolDiff {
+  bool Value { get; set; }
+}
+public class DomainDmnBoolDiff
+  : IDomainDmnBoolDiff
+{
+}

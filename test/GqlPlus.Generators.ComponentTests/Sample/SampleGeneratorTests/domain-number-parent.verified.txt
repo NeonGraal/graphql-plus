@@ -1,0 +1,19 @@
+﻿// Generated from Sample domain-number-parent
+/*
+*/
+namespace GqlPlus.Model_Sample_domain_number_parent;
+public interface IDomainDmnNmbrPrnt : IDomainPrntDmnNmbrPrnt {
+  decimal Value { get; set; }
+}
+public class DomainDmnNmbrPrnt
+  : DomainPrntDmnNmbrPrnt
+  , IDomainDmnNmbrPrnt
+{
+}
+public interface IDomainPrntDmnNmbrPrnt {
+  decimal Value { get; set; }
+}
+public class DomainPrntDmnNmbrPrnt
+  : IDomainPrntDmnNmbrPrnt
+{
+}

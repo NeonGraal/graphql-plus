@@ -1,0 +1,8 @@
+﻿// Generated from Sample field-mod-Enum+dual
+/*
+*/
+namespace GqlPlus.Model_Sample_field_mod_Enum_dual;
+public interface IDualDualFieldModEnum {}
+public enum EnumDualFieldModEnum {
+  value,
+}

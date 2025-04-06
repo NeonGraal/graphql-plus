@@ -1,0 +1,7 @@
+﻿// Generated from Sample generic-alt-param+dual
+/*
+*/
+namespace GqlPlus.Model_Sample_generic_alt_param_dual;
+public interface IDualDualGnrcAltParam {}
+public interface IDualRefDualGnrcAltParam {}
+public interface IDualAltDualGnrcAltParam {}

@@ -1,0 +1,5 @@
+﻿// Generated from Sample field-type-descr+input
+/*
+*/
+namespace GqlPlus.Model_Sample_field_type_descr_input;
+public interface IInputInpFieldTypeDescr {}

@@ -1,0 +1,7 @@
+﻿// Generated from Sample generic-field-dual+input
+/*
+*/
+namespace GqlPlus.Model_Sample_generic_field_dual_input;
+public interface IInputInpGnrcFieldDual {}
+public interface IInputRefInpGnrcFieldDual {}
+public interface IDualAltInpGnrcFieldDual {}

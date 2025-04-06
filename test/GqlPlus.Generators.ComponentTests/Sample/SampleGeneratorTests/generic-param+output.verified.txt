@@ -1,0 +1,7 @@
+﻿// Generated from Sample generic-param+output
+/*
+*/
+namespace GqlPlus.Model_Sample_generic_param_output;
+public interface IOutputOutpGnrcParam {}
+public interface IOutputOutpGnrcParamRef {}
+public interface IOutputOutpGnrcParamAlt {}

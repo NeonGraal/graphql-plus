@@ -1,0 +1,5 @@
+﻿// Generated from Sample descrs
+/*
+*/
+namespace GqlPlus.Model_Sample_descrs;
+public interface IOutputDscrs {}

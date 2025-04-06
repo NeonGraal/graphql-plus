@@ -1,0 +1,6 @@
+﻿// Generated from Sample parent+input
+/*
+*/
+namespace GqlPlus.Model_Sample_parent_input;
+public interface IInputInpPrnt {}
+public interface IInputRefInpPrnt {}

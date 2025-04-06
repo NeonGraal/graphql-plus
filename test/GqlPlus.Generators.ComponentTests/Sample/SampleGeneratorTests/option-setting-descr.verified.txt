@@ -1,0 +1,5 @@
+﻿// Generated from Sample option-setting-descr
+/*
+Option Schema
+*/
+namespace GqlPlus.Model_Sample_option_setting_descr;

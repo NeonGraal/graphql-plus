@@ -1,0 +1,7 @@
+﻿// Generated from Sample generic-alt-dual+input
+/*
+*/
+namespace GqlPlus.Model_Sample_generic_alt_dual_input;
+public interface IInputInpGnrcAltDual {}
+public interface IInputRefInpGnrcAltDual {}
+public interface IDualAltInpGnrcAltDual {}

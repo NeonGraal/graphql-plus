@@ -1,0 +1,5 @@
+﻿// Generated from Schema errors
+/*
+Category query
+*/
+namespace GqlPlus.Model_Schema_errors;

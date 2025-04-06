@@ -1,0 +1,5 @@
+﻿// Generated from Sample descr-single
+/*
+*/
+namespace GqlPlus.Model_Sample_descr_single;
+public interface IOutputDescrSngl {}

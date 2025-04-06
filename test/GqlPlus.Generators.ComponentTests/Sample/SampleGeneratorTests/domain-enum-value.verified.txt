@@ -1,0 +1,8 @@
+﻿// Generated from Sample domain-enum-value
+/*
+*/
+namespace GqlPlus.Model_Sample_domain_enum_value;
+public interface IDomainDmnEnumValue {}
+public enum EnumDmnEnumValue {
+  dmnEnumValue,
+}

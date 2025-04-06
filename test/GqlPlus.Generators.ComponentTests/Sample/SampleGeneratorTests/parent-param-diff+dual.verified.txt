@@ -1,0 +1,6 @@
+﻿// Generated from Sample parent-param-diff+dual
+/*
+*/
+namespace GqlPlus.Model_Sample_parent_param_diff_dual;
+public interface IDualDualPrntParamDiff {}
+public interface IDualRefDualPrntParamDiff {}

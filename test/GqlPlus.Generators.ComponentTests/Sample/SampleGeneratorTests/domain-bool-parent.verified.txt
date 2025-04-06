@@ -1,0 +1,19 @@
+﻿// Generated from Sample domain-bool-parent
+/*
+*/
+namespace GqlPlus.Model_Sample_domain_bool_parent;
+public interface IDomainDmnBoolPrnt : IDomainPrntDmnBoolPrnt {
+  bool Value { get; set; }
+}
+public class DomainDmnBoolPrnt
+  : DomainPrntDmnBoolPrnt
+  , IDomainDmnBoolPrnt
+{
+}
+public interface IDomainPrntDmnBoolPrnt {
+  bool Value { get; set; }
+}
+public class DomainPrntDmnBoolPrnt
+  : IDomainPrntDmnBoolPrnt
+{
+}

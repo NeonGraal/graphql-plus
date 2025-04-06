@@ -1,0 +1,6 @@
+﻿// Generated from Sample parent-param-same+input
+/*
+*/
+namespace GqlPlus.Model_Sample_parent_param_same_input;
+public interface IInputInpPrntParamSame {}
+public interface IInputRefInpPrntParamSame {}

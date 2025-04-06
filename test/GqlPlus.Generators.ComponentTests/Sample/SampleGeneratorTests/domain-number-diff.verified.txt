@@ -1,0 +1,11 @@
+﻿// Generated from Sample domain-number-diff
+/*
+*/
+namespace GqlPlus.Model_Sample_domain_number_diff;
+public interface IDomainDmnNmbrDiff {
+  decimal Value { get; set; }
+}
+public class DomainDmnNmbrDiff
+  : IDomainDmnNmbrDiff
+{
+}

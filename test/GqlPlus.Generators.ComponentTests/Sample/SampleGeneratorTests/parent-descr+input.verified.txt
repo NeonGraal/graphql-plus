@@ -1,0 +1,6 @@
+﻿// Generated from Sample parent-descr+input
+/*
+*/
+namespace GqlPlus.Model_Sample_parent_descr_input;
+public interface IInputInpPrntDescr {}
+public interface IInputRefInpPrntDescr {}

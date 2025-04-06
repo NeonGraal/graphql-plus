@@ -1,0 +1,10 @@
+﻿// Generated from Sample domain-enum-parent
+/*
+*/
+namespace GqlPlus.Model_Sample_domain_enum_parent;
+public interface IDomainDmnEnumPrnt : PrntDmnEnumPrnt {}
+public interface IDomainPrntDmnEnumPrnt {}
+public enum EnumDmnEnumPrnt {
+  enum_dmnEnumPrnt,
+  prnt_dmnEnumPrnt,
+}

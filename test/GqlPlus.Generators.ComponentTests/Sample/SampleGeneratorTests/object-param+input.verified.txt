@@ -1,0 +1,5 @@
+﻿// Generated from Sample object-param+input
+/*
+*/
+namespace GqlPlus.Model_Sample_object_param_input;
+public interface IInputInpObjParam {}

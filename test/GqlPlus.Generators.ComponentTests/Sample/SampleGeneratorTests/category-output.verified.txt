@@ -1,0 +1,6 @@
+﻿// Generated from Sample category-output
+/*
+Category ctgrOutp
+*/
+namespace GqlPlus.Model_Sample_category_output;
+public interface IOutputCtgrOutp {}

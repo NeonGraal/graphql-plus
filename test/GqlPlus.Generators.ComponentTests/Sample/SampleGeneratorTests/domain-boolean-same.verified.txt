@@ -1,0 +1,11 @@
+﻿// Generated from Sample domain-boolean-same
+/*
+*/
+namespace GqlPlus.Model_Sample_domain_boolean_same;
+public interface IDomainDmnBoolSame {
+  bool Value { get; set; }
+}
+public class DomainDmnBoolSame
+  : IDomainDmnBoolSame
+{
+}

@@ -1,0 +1,8 @@
+﻿// Generated from Sample output-field-value-descr
+/*
+*/
+namespace GqlPlus.Model_Sample_output_field_value_descr;
+public interface IOutputOutpFieldValueDescr {}
+public enum EnumOutpFieldValueDescr {
+  outpFieldValueDescr,
+}

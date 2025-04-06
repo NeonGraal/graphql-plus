@@ -1,0 +1,5 @@
+﻿// Generated from Sample input-field-Number
+/*
+*/
+namespace GqlPlus.Model_Sample_input_field_Number;
+public interface IInputInpFieldNmbr {}

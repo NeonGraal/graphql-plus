@@ -1,0 +1,5 @@
+﻿// Generated from Spec Intro_Option
+/*
+*/
+namespace GqlPlus.Model_Spec_Intro_Option;
+public interface IOutput_Setting {}

@@ -1,0 +1,5 @@
+﻿// Generated from Sample field+input
+/*
+*/
+namespace GqlPlus.Model_Sample_field_input;
+public interface IInputInpField {}

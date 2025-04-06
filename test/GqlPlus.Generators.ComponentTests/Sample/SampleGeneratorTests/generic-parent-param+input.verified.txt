@@ -1,0 +1,7 @@
+﻿// Generated from Sample generic-parent-param+input
+/*
+*/
+namespace GqlPlus.Model_Sample_generic_parent_param_input;
+public interface IInputInpGnrcPrntParam {}
+public interface IInputRefInpGnrcPrntParam {}
+public interface IInputAltInpGnrcPrntParam {}

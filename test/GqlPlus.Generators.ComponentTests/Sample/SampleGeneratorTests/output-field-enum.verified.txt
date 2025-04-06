@@ -1,0 +1,8 @@
+﻿// Generated from Sample output-field-enum
+/*
+*/
+namespace GqlPlus.Model_Sample_output_field_enum;
+public interface IOutputOutpFieldEnum {}
+public enum EnumOutpFieldEnum {
+  outpFieldEnum,
+}

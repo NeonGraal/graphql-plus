@@ -1,0 +1,6 @@
+﻿// Generated from Sample parent-param-same+output
+/*
+*/
+namespace GqlPlus.Model_Sample_parent_param_same_output;
+public interface IOutputOutpPrntParamSame {}
+public interface IOutputRefOutpPrntParamSame {}

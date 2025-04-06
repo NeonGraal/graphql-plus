@@ -1,0 +1,6 @@
+﻿// Generated from Sample field-mod-param+input
+/*
+*/
+namespace GqlPlus.Model_Sample_field_mod_param_input;
+public interface IInputInpFieldModParam {}
+public interface IInputFldInpFieldModParam {}

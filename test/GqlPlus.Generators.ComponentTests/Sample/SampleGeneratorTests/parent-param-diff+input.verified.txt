@@ -1,0 +1,6 @@
+﻿// Generated from Sample parent-param-diff+input
+/*
+*/
+namespace GqlPlus.Model_Sample_parent_param_diff_input;
+public interface IInputInpPrntParamDiff {}
+public interface IInputRefInpPrntParamDiff {}

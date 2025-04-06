@@ -1,0 +1,6 @@
+﻿// Generated from Sample field-dual+dual
+/*
+*/
+namespace GqlPlus.Model_Sample_field_dual_dual;
+public interface IDualDualFieldDual {}
+public interface IDualFldDualFieldDual {}

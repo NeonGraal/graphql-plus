@@ -1,0 +1,5 @@
+﻿// Generated from Sample directive
+/*
+Directive Drct
+*/
+namespace GqlPlus.Model_Sample_directive;

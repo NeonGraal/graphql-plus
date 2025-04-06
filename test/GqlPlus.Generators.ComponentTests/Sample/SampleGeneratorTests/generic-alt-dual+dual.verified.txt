@@ -1,0 +1,7 @@
+﻿// Generated from Sample generic-alt-dual+dual
+/*
+*/
+namespace GqlPlus.Model_Sample_generic_alt_dual_dual;
+public interface IDualDualGnrcAltDual {}
+public interface IDualRefDualGnrcAltDual {}
+public interface IDualAltDualGnrcAltDual {}

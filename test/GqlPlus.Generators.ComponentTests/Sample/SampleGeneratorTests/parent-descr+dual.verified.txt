@@ -1,0 +1,6 @@
+﻿// Generated from Sample parent-descr+dual
+/*
+*/
+namespace GqlPlus.Model_Sample_parent_descr_dual;
+public interface IDualDualPrntDescr {}
+public interface IDualRefDualPrntDescr {}

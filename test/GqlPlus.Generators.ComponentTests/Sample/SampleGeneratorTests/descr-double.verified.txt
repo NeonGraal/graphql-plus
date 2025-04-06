@@ -1,0 +1,5 @@
+﻿// Generated from Sample descr-double
+/*
+*/
+namespace GqlPlus.Model_Sample_descr_double;
+public interface IOutputDescrDbl {}

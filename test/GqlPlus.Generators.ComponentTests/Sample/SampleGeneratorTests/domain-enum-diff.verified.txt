@@ -1,0 +1,5 @@
+﻿// Generated from Sample domain-enum-diff
+/*
+*/
+namespace GqlPlus.Model_Sample_domain_enum_diff;
+public interface IDomainDmnEnumDiff {}

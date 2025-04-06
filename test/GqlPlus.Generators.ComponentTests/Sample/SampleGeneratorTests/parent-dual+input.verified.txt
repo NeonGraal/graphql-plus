@@ -1,0 +1,6 @@
+﻿// Generated from Sample parent-dual+input
+/*
+*/
+namespace GqlPlus.Model_Sample_parent_dual_input;
+public interface IInputInpPrntDual {}
+public interface IDualRefInpPrntDual {}

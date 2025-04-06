@@ -1,0 +1,24 @@
+﻿// Generated from Sample union-same-parent
+/*
+*/
+namespace GqlPlus.Model_Sample_union_same_parent;
+public class IUnionSamePrnt
+  : IPrntUnionSamePrnt
+{
+  public Boolean AsBoolean { get; }
+}
+public class UnionUnionSamePrnt
+  : UnionPrntUnionSamePrnt
+  , IUnionSamePrnt
+{
+  public Boolean AsBoolean { get; set; }
+}
+public class IPrntUnionSamePrnt
+{
+  public String AsString { get; }
+}
+public class UnionPrntUnionSamePrnt
+  : IPrntUnionSamePrnt
+{
+  public String AsString { get; set; }
+}

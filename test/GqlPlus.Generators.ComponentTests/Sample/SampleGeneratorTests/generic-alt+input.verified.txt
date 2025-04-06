@@ -1,0 +1,5 @@
+﻿// Generated from Sample generic-alt+input
+/*
+*/
+namespace GqlPlus.Model_Sample_generic_alt_input;
+public interface IInputInpGnrcAlt {}

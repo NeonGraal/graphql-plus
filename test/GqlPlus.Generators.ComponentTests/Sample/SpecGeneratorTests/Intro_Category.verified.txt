@@ -1,0 +1,11 @@
+﻿// Generated from Spec Intro_Category
+/*
+*/
+namespace GqlPlus.Model_Spec_Intro_Category;
+public interface IOutput_Categories {}
+public interface IOutput_Category {}
+public enum _Resolution {
+  Parallel,
+  Sequential,
+  Single,
+}

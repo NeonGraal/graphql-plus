@@ -1,0 +1,11 @@
+﻿// Generated from Sample domain-alias
+/*
+*/
+namespace GqlPlus.Model_Sample_domain_alias;
+public interface IDomainDmnAlias {
+  decimal Value { get; set; }
+}
+public class DomainDmnAlias
+  : IDomainDmnAlias
+{
+}

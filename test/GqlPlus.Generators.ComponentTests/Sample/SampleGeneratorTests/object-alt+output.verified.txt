@@ -1,0 +1,6 @@
+﻿// Generated from Sample object-alt+output
+/*
+*/
+namespace GqlPlus.Model_Sample_object_alt_output;
+public interface IOutputOutpObjAlt {}
+public interface IOutputOutpObjAltType {}

@@ -1,0 +1,6 @@
+﻿// Generated from Sample generic-parent-arg+dual
+/*
+*/
+namespace GqlPlus.Model_Sample_generic_parent_arg_dual;
+public interface IDualDualGnrcPrntArg {}
+public interface IDualRefDualGnrcPrntArg {}

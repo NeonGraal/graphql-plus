@@ -1,0 +1,6 @@
+﻿// Generated from Sample alt-mod-Boolean+dual
+/*
+*/
+namespace GqlPlus.Model_Sample_alt_mod_Boolean_dual;
+public interface IDualDualAltModBool {}
+public interface IDualAltDualAltModBool {}

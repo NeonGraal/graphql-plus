@@ -1,0 +1,6 @@
+﻿// Generated from Sample parent-alt+input
+/*
+*/
+namespace GqlPlus.Model_Sample_parent_alt_input;
+public interface IInputInpPrntAlt {}
+public interface IInputRefInpPrntAlt {}

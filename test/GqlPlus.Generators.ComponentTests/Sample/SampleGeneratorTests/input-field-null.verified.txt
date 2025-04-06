@@ -1,0 +1,6 @@
+﻿// Generated from Sample input-field-null
+/*
+*/
+namespace GqlPlus.Model_Sample_input_field_null;
+public interface IInputInpFieldNull {}
+public interface IDualFldInpFieldNull {}

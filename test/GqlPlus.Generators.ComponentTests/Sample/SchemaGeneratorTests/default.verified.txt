@@ -1,0 +1,11 @@
+﻿// Generated from Schema default
+/*
+Category query
+Category mutation
+Category subscription
+*/
+namespace GqlPlus.Model_Schema_default;
+public interface IOutputQuery {}
+public interface IOutputMutation {}
+public interface IOutputSubscription {}
+public interface IOutput_Schema {}

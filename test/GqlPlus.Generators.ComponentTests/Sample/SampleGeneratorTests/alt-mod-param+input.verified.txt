@@ -1,0 +1,6 @@
+﻿// Generated from Sample alt-mod-param+input
+/*
+*/
+namespace GqlPlus.Model_Sample_alt_mod_param_input;
+public interface IInputInpAltModParam {}
+public interface IInputAltInpAltModParam {}

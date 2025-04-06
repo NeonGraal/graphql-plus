@@ -1,0 +1,5 @@
+﻿// Generated from Sample object-alias+dual
+/*
+*/
+namespace GqlPlus.Model_Sample_object_alias_dual;
+public interface IDualDualObjAlias {}

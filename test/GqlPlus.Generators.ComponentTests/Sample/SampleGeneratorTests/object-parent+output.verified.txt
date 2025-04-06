@@ -1,0 +1,6 @@
+﻿// Generated from Sample object-parent+output
+/*
+*/
+namespace GqlPlus.Model_Sample_object_parent_output;
+public interface IOutputOutpObjPrnt {}
+public interface IOutputRefOutpObjPrnt {}

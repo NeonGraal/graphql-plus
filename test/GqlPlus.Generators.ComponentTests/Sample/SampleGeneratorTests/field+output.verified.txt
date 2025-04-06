@@ -1,0 +1,5 @@
+﻿// Generated from Sample field+output
+/*
+*/
+namespace GqlPlus.Model_Sample_field_output;
+public interface IOutputOutpField {}

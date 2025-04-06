@@ -1,0 +1,7 @@
+﻿// Generated from Sample generic-parent-param-parent+output
+/*
+*/
+namespace GqlPlus.Model_Sample_generic_parent_param_parent_output;
+public interface IOutputOutpGnrcPrntParamPrnt {}
+public interface IOutputRefOutpGnrcPrntParamPrnt {}
+public interface IOutputAltOutpGnrcPrntParamPrnt {}

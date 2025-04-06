@@ -1,0 +1,6 @@
+﻿// Generated from Sample directive-param
+/*
+Directive DrctParam
+*/
+namespace GqlPlus.Model_Sample_directive_param;
+public interface IInputInDrctParam {}

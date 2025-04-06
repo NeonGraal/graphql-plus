@@ -1,0 +1,5 @@
+﻿// Generated from Sample generic-descr+input
+/*
+*/
+namespace GqlPlus.Model_Sample_generic_descr_input;
+public interface IInputInpGnrcDescr {}

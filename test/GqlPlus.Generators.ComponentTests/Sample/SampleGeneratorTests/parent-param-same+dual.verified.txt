@@ -1,0 +1,6 @@
+﻿// Generated from Sample parent-param-same+dual
+/*
+*/
+namespace GqlPlus.Model_Sample_parent_param_same_dual;
+public interface IDualDualPrntParamSame {}
+public interface IDualRefDualPrntParamSame {}

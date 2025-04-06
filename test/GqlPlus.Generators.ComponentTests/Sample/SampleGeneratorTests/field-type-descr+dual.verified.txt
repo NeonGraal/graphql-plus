@@ -1,0 +1,5 @@
+﻿// Generated from Sample field-type-descr+dual
+/*
+*/
+namespace GqlPlus.Model_Sample_field_type_descr_dual;
+public interface IDualDualFieldTypeDescr {}

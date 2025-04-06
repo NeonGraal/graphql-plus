@@ -1,0 +1,6 @@
+﻿// Generated from Sample parent-alt+dual
+/*
+*/
+namespace GqlPlus.Model_Sample_parent_alt_dual;
+public interface IDualDualPrntAlt {}
+public interface IDualRefDualPrntAlt {}

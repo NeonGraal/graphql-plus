@@ -1,0 +1,6 @@
+﻿// Generated from Sample generic-alt-simple+output
+/*
+*/
+namespace GqlPlus.Model_Sample_generic_alt_simple_output;
+public interface IOutputOutpGnrcAltSmpl {}
+public interface IOutputRefOutpGnrcAltSmpl {}

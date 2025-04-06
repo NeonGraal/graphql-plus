@@ -1,0 +1,9 @@
+﻿// Generated from Sample output-generic-value
+/*
+*/
+namespace GqlPlus.Model_Sample_output_generic_value;
+public interface IOutputOutpGnrcValue {}
+public interface IOutputRefOutpGnrcValue {}
+public enum EnumOutpGnrcValue {
+  outpGnrcValue,
+}

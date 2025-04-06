@@ -1,0 +1,7 @@
+﻿// Generated from Sample enum-same
+/*
+*/
+namespace GqlPlus.Model_Sample_enum_same;
+public enum EnumSame {
+  enumSame,
+}

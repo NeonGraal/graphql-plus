@@ -1,0 +1,5 @@
+﻿// Generated from Sample generic-parent+input
+/*
+*/
+namespace GqlPlus.Model_Sample_generic_parent_input;
+public interface IInputInpGnrcPrnt {}

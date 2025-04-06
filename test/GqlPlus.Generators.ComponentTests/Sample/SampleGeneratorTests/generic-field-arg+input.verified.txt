@@ -1,0 +1,6 @@
+﻿// Generated from Sample generic-field-arg+input
+/*
+*/
+namespace GqlPlus.Model_Sample_generic_field_arg_input;
+public interface IInputInpGnrcFieldArg {}
+public interface IInputRefInpGnrcFieldArg {}

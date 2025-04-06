@@ -1,0 +1,6 @@
+﻿// Generated from Sample category-mod
+/*
+Category ctgrMod
+*/
+namespace GqlPlus.Model_Sample_category_mod;
+public interface IOutputCtgrMod {}

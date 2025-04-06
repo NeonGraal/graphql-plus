@@ -1,0 +1,6 @@
+﻿// Generated from Sample parent-field+dual
+/*
+*/
+namespace GqlPlus.Model_Sample_parent_field_dual;
+public interface IDualDualPrntField {}
+public interface IDualRefDualPrntField {}

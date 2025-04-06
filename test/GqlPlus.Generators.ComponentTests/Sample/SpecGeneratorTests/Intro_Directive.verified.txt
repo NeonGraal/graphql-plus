@@ -1,0 +1,14 @@
+﻿// Generated from Spec Intro_Directive
+/*
+*/
+namespace GqlPlus.Model_Spec_Intro_Directive;
+public interface IOutput_Directives {}
+public interface IOutput_Directive {}
+public enum _Location {
+  Operation,
+  Variable,
+  Field,
+  Inline,
+  Spread,
+  Fragment,
+}

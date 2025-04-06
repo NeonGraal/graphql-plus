@@ -1,0 +1,11 @@
+﻿// Generated from Sample domain-bool-descr
+/*
+*/
+namespace GqlPlus.Model_Sample_domain_bool_descr;
+public interface IDomainDmnBoolDescr {
+  bool Value { get; set; }
+}
+public class DomainDmnBoolDescr
+  : IDomainDmnBoolDescr
+{
+}

@@ -1,0 +1,8 @@
+﻿// Generated from Sample input-field-Enum
+/*
+*/
+namespace GqlPlus.Model_Sample_input_field_Enum;
+public interface IInputInpFieldEnum {}
+public enum EnumInpFieldEnum {
+  inpFieldEnum,
+}

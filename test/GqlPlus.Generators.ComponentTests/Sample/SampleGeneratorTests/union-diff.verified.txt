@@ -1,0 +1,15 @@
+﻿// Generated from Sample union-diff
+/*
+*/
+namespace GqlPlus.Model_Sample_union_diff;
+public class IUnionDiff
+{
+  public Boolean AsBoolean { get; }
+  public Number AsNumber { get; }
+}
+public class UnionUnionDiff
+  : IUnionDiff
+{
+  public Boolean AsBoolean { get; set; }
+  public Number AsNumber { get; set; }
+}

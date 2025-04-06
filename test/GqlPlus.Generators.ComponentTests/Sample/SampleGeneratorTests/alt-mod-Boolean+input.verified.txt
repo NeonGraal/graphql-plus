@@ -1,0 +1,6 @@
+﻿// Generated from Sample alt-mod-Boolean+input
+/*
+*/
+namespace GqlPlus.Model_Sample_alt_mod_Boolean_input;
+public interface IInputInpAltModBool {}
+public interface IInputAltInpAltModBool {}

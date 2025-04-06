@@ -1,0 +1,7 @@
+﻿// Generated from Sample generic-parent-dual-parent+output
+/*
+*/
+namespace GqlPlus.Model_Sample_generic_parent_dual_parent_output;
+public interface IOutputOutpGnrcPrntDualPrnt {}
+public interface IOutputRefOutpGnrcPrntDualPrnt {}
+public interface IDualAltOutpGnrcPrntDualPrnt {}

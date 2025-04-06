@@ -1,0 +1,6 @@
+﻿// Generated from Sample category-descr
+/*
+Category ctgrDescr
+*/
+namespace GqlPlus.Model_Sample_category_descr;
+public interface IOutputCtgrDescr {}

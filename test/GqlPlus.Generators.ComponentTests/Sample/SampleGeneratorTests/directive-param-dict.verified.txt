@@ -1,0 +1,6 @@
+﻿// Generated from Sample directive-param-dict
+/*
+Directive DrctParamDict
+*/
+namespace GqlPlus.Model_Sample_directive_param_dict;
+public interface IInputInDrctParamDict {}

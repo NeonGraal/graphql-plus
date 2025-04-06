@@ -1,0 +1,7 @@
+﻿// Generated from Sample generic-field-dual+output
+/*
+*/
+namespace GqlPlus.Model_Sample_generic_field_dual_output;
+public interface IOutputOutpGnrcFieldDual {}
+public interface IOutputRefOutpGnrcFieldDual {}
+public interface IDualAltOutpGnrcFieldDual {}

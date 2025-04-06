@@ -1,0 +1,6 @@
+﻿// Generated from Sample generic-alt-arg+output
+/*
+*/
+namespace GqlPlus.Model_Sample_generic_alt_arg_output;
+public interface IOutputOutpGnrcAltArg {}
+public interface IOutputRefOutpGnrcAltArg {}

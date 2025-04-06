@@ -1,0 +1,6 @@
+﻿// Generated from Sample category-alias
+/*
+Category ctgrAlias
+*/
+namespace GqlPlus.Model_Sample_category_alias;
+public interface IOutputCtgrAlias {}

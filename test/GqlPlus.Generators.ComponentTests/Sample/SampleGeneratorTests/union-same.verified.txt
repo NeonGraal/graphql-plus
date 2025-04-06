@@ -1,0 +1,13 @@
+﻿// Generated from Sample union-same
+/*
+*/
+namespace GqlPlus.Model_Sample_union_same;
+public class IUnionSame
+{
+  public Boolean AsBoolean { get; }
+}
+public class UnionUnionSame
+  : IUnionSame
+{
+  public Boolean AsBoolean { get; set; }
+}

@@ -1,0 +1,34 @@
+﻿// Generated from Schema all
+/*
+Category all
+Directive all
+Option Schema
+*/
+namespace GqlPlus.Model_Schema_all;
+public interface IDomainGuid {
+  string Value { get; set; }
+}
+public class DomainGuid
+  : IDomainGuid
+{
+  string _value;
+  string Value { get => _value; set => CheckAndSet(value); }
+}
+public enum One {
+  Two,
+  Three,
+}
+public class IMany
+{
+  public Guid AsGuid { get; }
+  public Number AsNumber { get; }
+}
+public class UnionMany
+  : IMany
+{
+  public Guid AsGuid { get; set; }
+  public Number AsNumber { get; set; }
+}
+public interface IDualField {}
+public interface IInputParam {}
+public interface IOutputAll {}

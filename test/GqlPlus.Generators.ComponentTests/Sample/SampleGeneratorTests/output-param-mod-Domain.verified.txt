@@ -1,0 +1,13 @@
+﻿// Generated from Sample output-param-mod-Domain
+/*
+*/
+namespace GqlPlus.Model_Sample_output_param_mod_Domain;
+public interface IOutputOutpParamModDmn {}
+public interface IInputInOutpParamModDmn {}
+public interface IDomainDomOutpParamModDmn {
+  decimal Value { get; set; }
+}
+public class DomainDomOutpParamModDmn
+  : IDomainDomOutpParamModDmn
+{
+}

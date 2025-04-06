@@ -1,0 +1,80 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DualPrntParamDiff": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "RefDualPrntParamDiff",
+          "typeParam": "b"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "DualPrntParamDiff",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "a"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "a"
+          }
+        }
+      ],
+      "name": "DualPrntParamDiff",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "RefDualPrntParamDiff",
+        "typeArgs": [{"$tag":"_TypeParam", "value":"a"}]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "a"
+        }
+      ]
+    },
+    "RefDualPrntParamDiff": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "RefDualPrntParamDiff",
+          "typeParam": "b"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "value": "b"
+        }
+      ],
+      "name": "RefDualPrntParamDiff",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "b"
+        }
+      ]
+    }
+  }
+}

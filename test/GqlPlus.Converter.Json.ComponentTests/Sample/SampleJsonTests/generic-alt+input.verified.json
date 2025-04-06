@@ -18,7 +18,10 @@
         }
       ],
       "name": "InpGnrcAlt",
-      "typeKind": "Input",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
       "typeParams": [
         {
           "$tag": "_Named",

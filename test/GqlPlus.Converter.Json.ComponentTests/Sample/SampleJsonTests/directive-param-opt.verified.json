@@ -21,7 +21,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "Opt"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
             }
           ]
         }
@@ -34,7 +37,10 @@
     "InDrctParamOpt": {
       "$tag": "_TypeInput",
       "name": "InDrctParamOpt",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     }
   }
 }

@@ -3,27 +3,42 @@
   "_errors": [
     {
       "$tag": "_Error",
-      "_kind": "End",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _TypeDual can\u0027t get model for type \u0027_TypeObject\u0027"
     },
     {
       "$tag": "_Error",
-      "_kind": "End",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _DualBase can\u0027t get model for type \u0027_ObjBase\u0027"
     },
     {
       "$tag": "_Error",
-      "_kind": "End",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _DualField can\u0027t get model for type \u0027_Field\u0027"
     },
     {
       "$tag": "_Error",
-      "_kind": "End",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _DualAlternate can\u0027t get model for type \u0027_Alternate\u0027"
     },
     {
       "$tag": "_Error",
-      "_kind": "End",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _DualTypeArg can\u0027t get model for type \u0027_ObjTypeArg\u0027"
     }
   ],
@@ -63,7 +78,10 @@
           }
         ]
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "_DualBase": {
       "$tag": "_TypeOutput",
@@ -99,7 +117,10 @@
           }
         ]
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "_DualField": {
       "$tag": "_TypeOutput",
@@ -114,7 +135,10 @@
           }
         ]
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "_DualTypeArg": {
       "$tag": "_TypeOutput",
@@ -144,7 +168,10 @@
         "$tag": "_OutputBase",
         "value": "_ObjTypeArg"
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "_TypeDual": {
       "$tag": "_TypeOutput",
@@ -157,7 +184,10 @@
             "$tag": "_OutputArg",
             "label": "Dual",
             "name": "_TypeKind",
-            "typeKind": "Enum"
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
           },
           {
             "$tag": "_OutputArg",
@@ -173,7 +203,10 @@
           }
         ]
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

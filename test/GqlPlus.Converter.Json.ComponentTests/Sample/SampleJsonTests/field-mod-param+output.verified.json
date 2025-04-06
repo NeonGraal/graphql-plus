@@ -39,7 +39,10 @@
         }
       ],
       "name": "FldOutpFieldModParam",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "OutpFieldModParam": {
       "$tag": "_TypeOutput",
@@ -50,7 +53,10 @@
             {
               "$tag": "_ModifierTypeParam",
               "by": "mod",
-              "modifierKind": "Param"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Param"
+              }
             }
           ],
           "name": "field",
@@ -68,7 +74,10 @@
             {
               "$tag": "_ModifierTypeParam",
               "by": "mod",
-              "modifierKind": "Param"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Param"
+              }
             }
           ],
           "name": "field",
@@ -79,7 +88,10 @@
         }
       ],
       "name": "OutpFieldModParam",
-      "typeKind": "Output",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
       "typeParams": [
         {
           "$tag": "_Named",

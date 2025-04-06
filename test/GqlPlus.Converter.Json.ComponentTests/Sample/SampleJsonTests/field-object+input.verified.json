@@ -39,7 +39,10 @@
         }
       ],
       "name": "FldInpFieldObj",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     },
     "InpFieldObj": {
       "$tag": "_TypeInput",
@@ -65,7 +68,10 @@
         }
       ],
       "name": "InpFieldObj",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     }
   }
 }

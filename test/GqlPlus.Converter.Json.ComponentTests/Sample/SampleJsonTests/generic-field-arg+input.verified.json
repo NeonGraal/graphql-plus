@@ -12,7 +12,7 @@
           "type": {
             "$tag": "_InputBase",
             "input": "RefInpGnrcFieldArg",
-            "typeArgs": ["type"]
+            "typeArgs": [{ "$tag": "_TypeParam", "value": "type" }]
           }
         }
       ],
@@ -23,12 +23,15 @@
           "type": {
             "$tag": "_InputBase",
             "input": "RefInpGnrcFieldArg",
-            "typeArgs": ["type"]
+            "typeArgs": [{ "$tag": "_TypeParam", "value": "type" }]
           }
         }
       ],
       "name": "InpGnrcFieldArg",
-      "typeKind": "Input",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
       "typeParams": [
         {
           "$tag": "_Named",
@@ -52,7 +55,10 @@
         }
       ],
       "name": "RefInpGnrcFieldArg",
-      "typeKind": "Input",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
       "typeParams": [
         {
           "$tag": "_Named",

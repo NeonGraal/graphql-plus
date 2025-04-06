@@ -3,7 +3,10 @@
   "_errors": [
     {
       "$tag": "_Error",
-      "_kind": "End",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _Directive can\u0027t get model for type \u0027_Aliased\u0027"
     }
   ],
@@ -17,7 +20,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "List"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
             }
           ],
           "name": "parameters",
@@ -42,8 +48,14 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "_Location",
-              "modifierKind": "Dict",
-              "typeKind": "Enum"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Dict"
+              },
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Enum"
+              }
             }
           ],
           "name": "locations",
@@ -60,7 +72,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "List"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
             }
           ],
           "name": "parameters",
@@ -83,8 +98,14 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "_Location",
-              "modifierKind": "Dict",
-              "typeKind": "Enum"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Dict"
+              },
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Enum"
+              }
             }
           ],
           "name": "locations",
@@ -99,7 +120,10 @@
         "$tag": "_OutputBase",
         "value": "_Aliased"
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "_Directives": {
       "$tag": "_TypeOutput",
@@ -164,7 +188,10 @@
         }
       ],
       "name": "_Directives",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "_Location": {
       "$tag": "_TypeEnum",
@@ -227,7 +254,10 @@
         }
       ],
       "name": "_Location",
-      "typeKind": "Enum"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
     }
   }
 }

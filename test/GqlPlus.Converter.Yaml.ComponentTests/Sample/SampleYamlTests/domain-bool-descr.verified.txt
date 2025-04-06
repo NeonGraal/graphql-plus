@@ -2,14 +2,14 @@
 types: !_Map_Type
   !_Identifier DmnBoolDescr: !_DomainBoolean
     allItems:
-      - !_DomainItem(_DomainTrueFalse)
-        domain: DmnBoolDescr
-        exclude: false
-        value: true
+    - !_DomainItem(_DomainTrueFalse)
+      domain: DmnBoolDescr
+      exclude: false
+      value: true
     domainKind: !_DomainKind Boolean
     items:
-      - !_DomainTrueFalse
-        exclude: false
-        value: true
+    - !_DomainTrueFalse
+      exclude: false
+      value: true
     name: DmnBoolDescr
     typeKind: !_TypeKind Domain

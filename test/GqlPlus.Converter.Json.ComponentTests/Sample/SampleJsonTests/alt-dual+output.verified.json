@@ -18,7 +18,10 @@
         }
       ],
       "name": "OutpAltDual",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "OutpDualAltDual": {
       "$tag": "_TypeDual",
@@ -57,7 +60,10 @@
         }
       ],
       "name": "OutpDualAltDual",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     }
   }
 }

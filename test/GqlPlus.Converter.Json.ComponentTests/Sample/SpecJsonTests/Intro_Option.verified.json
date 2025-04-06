@@ -3,7 +3,10 @@
   "_errors": [
     {
       "$tag": "_Error",
-      "_kind": "End",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _Setting can\u0027t get model for type \u0027_Named\u0027"
     }
   ],
@@ -37,7 +40,10 @@
         "$tag": "_OutputBase",
         "value": "_Named"
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

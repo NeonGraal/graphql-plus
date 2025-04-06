@@ -9,12 +9,18 @@
         "$tag": "_DualBase",
         "value": "RefDualObjPrnt"
       },
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     },
     "RefDualObjPrnt": {
       "$tag": "_TypeDual",
       "name": "RefDualObjPrnt",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     }
   }
 }

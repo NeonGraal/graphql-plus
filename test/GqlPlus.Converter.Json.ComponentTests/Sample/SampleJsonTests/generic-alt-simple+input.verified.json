@@ -30,7 +30,10 @@
         }
       ],
       "name": "InpGnrcAltSmpl",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     },
     "RefInpGnrcAltSmpl": {
       "$tag": "_TypeInput",
@@ -48,7 +51,10 @@
         }
       ],
       "name": "RefInpGnrcAltSmpl",
-      "typeKind": "Input",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
       "typeParams": [
         {
           "$tag": "_Named",

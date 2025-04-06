@@ -3,27 +3,42 @@
   "_errors": [
     {
       "$tag": "_Error",
-      "_kind": "End",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _TypeInput can\u0027t get model for type \u0027_TypeObject\u0027"
     },
     {
       "$tag": "_Error",
-      "_kind": "End",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _InputBase can\u0027t get model for type \u0027_ObjBase\u0027"
     },
     {
       "$tag": "_Error",
-      "_kind": "End",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _InputField can\u0027t get model for type \u0027_Field\u0027"
     },
     {
       "$tag": "_Error",
-      "_kind": "End",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _InputAlternate can\u0027t get model for type \u0027_Alternate\u0027"
     },
     {
       "$tag": "_Error",
-      "_kind": "End",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _InputTypeArg can\u0027t get model for type \u0027_ObjTypeArg\u0027"
     }
   ],
@@ -63,7 +78,10 @@
           }
         ]
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "_InputBase": {
       "$tag": "_TypeOutput",
@@ -112,7 +130,10 @@
           }
         ]
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "_InputField": {
       "$tag": "_TypeOutput",
@@ -122,7 +143,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "Opt"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
             }
           ],
           "name": "default",
@@ -139,7 +163,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "Opt"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
             }
           ],
           "name": "default",
@@ -160,7 +187,10 @@
           }
         ]
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "_InputParam": {
       "$tag": "_TypeOutput",
@@ -186,7 +216,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "List"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
             }
           ],
           "name": "modifiers",
@@ -201,7 +234,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "Opt"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
             }
           ],
           "name": "default",
@@ -218,7 +254,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "List"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
             }
           ],
           "name": "modifiers",
@@ -232,7 +271,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "Opt"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
             }
           ],
           "name": "default",
@@ -247,7 +289,10 @@
         "$tag": "_OutputBase",
         "value": "_InputBase"
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "_InputTypeArg": {
       "$tag": "_TypeOutput",
@@ -277,7 +322,10 @@
         "$tag": "_OutputBase",
         "value": "_ObjTypeArg"
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "_TypeInput": {
       "$tag": "_TypeOutput",
@@ -290,7 +338,10 @@
             "$tag": "_OutputArg",
             "label": "Input",
             "name": "_TypeKind",
-            "typeKind": "Enum"
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
           },
           {
             "$tag": "_OutputArg",
@@ -306,7 +357,10 @@
           }
         ]
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

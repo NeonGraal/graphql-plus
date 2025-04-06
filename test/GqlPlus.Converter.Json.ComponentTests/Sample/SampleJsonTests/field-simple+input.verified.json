@@ -26,7 +26,10 @@
         }
       ],
       "name": "InpFieldSmpl",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     }
   }
 }

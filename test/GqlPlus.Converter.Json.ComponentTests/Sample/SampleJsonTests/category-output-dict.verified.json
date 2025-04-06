@@ -8,17 +8,29 @@
         {
           "$tag": "_ModifierDictionary",
           "by": "*",
-          "modifierKind": "Dict",
-          "typeKind": "Basic"
+          "modifierKind": {
+            "$tag": "_ModifierKind",
+            "value": "Dict"
+          },
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Basic"
+          }
         }
       ],
       "name": "ctgrOutpDict",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
         "name": "CtgrOutpDict",
-        "typeKind": "Output"
+        "typeKind": {
+          "$tag": "_TypeKind",
+          "value": "Output"
+        }
       },
-      "resolution": "Parallel"
+      "resolution": {
+        "$tag": "_Resolution",
+        "value": "Parallel"
+      }
     }
   },
   "types": {
@@ -26,7 +38,10 @@
     "CtgrOutpDict": {
       "$tag": "_TypeOutput",
       "name": "CtgrOutpDict",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

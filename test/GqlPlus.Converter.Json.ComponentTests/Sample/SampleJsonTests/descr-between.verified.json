@@ -8,9 +8,15 @@
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
         "name": "DescrBtwn",
-        "typeKind": "Output"
+        "typeKind": {
+          "$tag": "_TypeKind",
+          "value": "Output"
+        }
       },
-      "resolution": "Parallel"
+      "resolution": {
+        "$tag": "_Resolution",
+        "value": "Parallel"
+      }
     }
   },
   "types": {
@@ -19,7 +25,10 @@
       "$tag": "_TypeOutput",
       "description": "A description between",
       "name": "DescrBtwn",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

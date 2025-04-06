@@ -18,7 +18,10 @@
         }
       ],
       "name": "OutpAltSmpl",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

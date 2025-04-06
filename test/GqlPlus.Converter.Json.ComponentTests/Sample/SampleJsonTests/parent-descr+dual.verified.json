@@ -28,7 +28,10 @@
         "description": "Test Descr",
         "dual": "RefDualPrntDescr"
       },
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     },
     "RefDualPrntDescr": {
       "$tag": "_TypeDual",
@@ -67,7 +70,10 @@
         }
       ],
       "name": "RefDualPrntDescr",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     }
   }
 }

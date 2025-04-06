@@ -2,11 +2,11 @@
 types: !_Map_Type
   !_Identifier UnionSame: !_TypeUnion
     allItems:
-      - !_UnionMember
-        name: Boolean
-        union: UnionSame
+    - !_UnionMember
+      name: Boolean
+      union: UnionSame
     items:
-      - !_Aliased
-        name: Boolean
+    - !_Aliased
+      name: Boolean
     name: UnionSame
     typeKind: !_TypeKind Union

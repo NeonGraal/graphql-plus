@@ -38,7 +38,10 @@
         "$tag": "_DualBase",
         "value": "RefDualPrntAlt"
       },
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     },
     "RefDualPrntAlt": {
       "$tag": "_TypeDual",
@@ -77,7 +80,10 @@
         }
       ],
       "name": "RefDualPrntAlt",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     }
   }
 }

@@ -12,7 +12,7 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "RefOutpGnrcFieldArg",
-            "typeArgs": ["type"]
+            "typeArgs": [{ "$tag": "_TypeParam", "value": "type" }]
           }
         }
       ],
@@ -23,12 +23,15 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "RefOutpGnrcFieldArg",
-            "typeArgs": ["type"]
+            "typeArgs": [{ "$tag": "_TypeParam", "value": "type" }]
           }
         }
       ],
       "name": "OutpGnrcFieldArg",
-      "typeKind": "Output",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
       "typeParams": [
         {
           "$tag": "_Named",
@@ -52,7 +55,10 @@
         }
       ],
       "name": "RefOutpGnrcFieldArg",
-      "typeKind": "Output",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
       "typeParams": [
         {
           "$tag": "_Named",

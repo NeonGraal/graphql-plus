@@ -9,7 +9,10 @@
         "$tag": "_OutputBase",
         "value": "type"
       },
-      "typeKind": "Output",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
       "typeParams": [
         {
           "$tag": "_Named",

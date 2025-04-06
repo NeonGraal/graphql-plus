@@ -6,7 +6,10 @@
       "$tag": "_TypeInput",
       "aliases": ["Inp1", "Inp2"],
       "name": "InpObjAlias",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     }
   }
 }

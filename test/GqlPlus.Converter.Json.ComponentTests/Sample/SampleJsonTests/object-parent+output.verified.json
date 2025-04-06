@@ -9,12 +9,18 @@
         "$tag": "_OutputBase",
         "value": "RefOutpObjPrnt"
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "RefOutpObjPrnt": {
       "$tag": "_TypeOutput",
       "name": "RefOutpObjPrnt",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

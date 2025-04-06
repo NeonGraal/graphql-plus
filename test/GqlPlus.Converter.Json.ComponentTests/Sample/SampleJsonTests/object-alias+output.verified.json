@@ -6,7 +6,10 @@
       "$tag": "_TypeOutput",
       "aliases": ["Outp1", "Outp2"],
       "name": "OutpObjAlias",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

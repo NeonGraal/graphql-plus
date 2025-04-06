@@ -28,12 +28,18 @@
         }
       ],
       "name": "DualObjFieldAlias",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     },
     "FldDualObjFieldAlias": {
       "$tag": "_TypeDual",
       "name": "FldDualObjFieldAlias",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     }
   }
 }

@@ -38,7 +38,10 @@
         }
       ],
       "name": "DualGnrcParam",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     },
     "DualGnrcParamAlt": {
       "$tag": "_TypeDual",
@@ -77,7 +80,10 @@
         }
       ],
       "name": "DualGnrcParamAlt",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     },
     "DualGnrcParamRef": {
       "$tag": "_TypeDual",
@@ -95,7 +101,10 @@
         }
       ],
       "name": "DualGnrcParamRef",
-      "typeKind": "Dual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
       "typeParams": [
         {
           "$tag": "_Named",

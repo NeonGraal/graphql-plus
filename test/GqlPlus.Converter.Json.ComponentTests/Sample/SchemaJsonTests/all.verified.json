@@ -10,9 +10,15 @@
         "$tag": "_TypeRef(_TypeKind)",
         "description": "Category Result",
         "name": "All",
-        "typeKind": "Output"
+        "typeKind": {
+          "$tag": "_TypeKind",
+          "value": "Output"
+        }
       },
-      "resolution": "Parallel"
+      "resolution": {
+        "$tag": "_Resolution",
+        "value": "Parallel"
+      }
     }
   },
   "directives": {
@@ -68,7 +74,10 @@
               "modifiers": [
                 {
                   "$tag": "_Modifier",
-                  "modifierKind": "Opt"
+                  "modifierKind": {
+                    "$tag": "_ModifierKind",
+                    "value": "Opt"
+                  }
                 }
               ]
             }
@@ -99,7 +108,10 @@
               "modifiers": [
                 {
                   "$tag": "_Modifier",
-                  "modifierKind": "Opt"
+                  "modifierKind": {
+                    "$tag": "_ModifierKind",
+                    "value": "Opt"
+                  }
                 }
               ]
             }
@@ -111,7 +123,10 @@
         }
       ],
       "name": "All",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "Field": {
       "$tag": "_TypeDual",
@@ -122,7 +137,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "List"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
             }
           ],
           "name": "strings",
@@ -142,7 +160,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "List"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
             }
           ],
           "name": "strings",
@@ -154,7 +175,10 @@
         }
       ],
       "name": "Field",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     },
     "Guid": {
       "$tag": "_DomainString",
@@ -167,7 +191,10 @@
         }
       ],
       "description": "A Domain",
-      "domainKind": "String",
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "String"
+      },
       "items": [
         {
           "$tag": "_DomainRegex",
@@ -176,7 +203,10 @@
         }
       ],
       "name": "Guid",
-      "typeKind": "Domain"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
     },
     "Many": {
       "$tag": "_TypeUnion",
@@ -208,7 +238,10 @@
         }
       ],
       "name": "Many",
-      "typeKind": "Union"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Union"
+      }
     },
     "One": {
       "$tag": "_TypeEnum",
@@ -240,7 +273,10 @@
         }
       ],
       "name": "One",
-      "typeKind": "Enum"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
     },
     "Param": {
       "$tag": "_TypeInput",
@@ -259,7 +295,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "Opt"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
             }
           ],
           "name": "afterId",
@@ -297,7 +336,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "Opt"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
             }
           ],
           "name": "afterId",
@@ -319,7 +361,10 @@
         }
       ],
       "name": "Param",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     }
   }
 }

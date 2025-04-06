@@ -18,12 +18,18 @@
         }
       ],
       "name": "InpObjAlt",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     },
     "InpObjAltType": {
       "$tag": "_TypeInput",
       "name": "InpObjAltType",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     }
   }
 }

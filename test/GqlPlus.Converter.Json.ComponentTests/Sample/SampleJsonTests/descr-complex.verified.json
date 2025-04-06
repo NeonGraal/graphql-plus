@@ -6,7 +6,10 @@
       "$tag": "_TypeOutput",
       "description": "A \u0022more\u0022 \u0027Complicated\u0027 \\ description",
       "name": "DescrCmpl",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

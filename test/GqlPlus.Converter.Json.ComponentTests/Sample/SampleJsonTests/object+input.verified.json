@@ -5,7 +5,10 @@
     "InpObj": {
       "$tag": "_TypeInput",
       "name": "InpObj",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     }
   }
 }

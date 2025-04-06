@@ -39,7 +39,10 @@
         }
       ],
       "name": "AltDualAltModParam",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     },
     "DualAltModParam": {
       "$tag": "_TypeDual",
@@ -50,7 +53,10 @@
             {
               "$tag": "_ModifierTypeParam",
               "by": "mod",
-              "modifierKind": "Param"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Param"
+              }
             }
           ],
           "dual": "AltDualAltModParam",
@@ -64,14 +70,20 @@
             {
               "$tag": "_ModifierTypeParam",
               "by": "mod",
-              "modifierKind": "Param"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Param"
+              }
             }
           ],
           "dual": "AltDualAltModParam"
         }
       ],
       "name": "DualAltModParam",
-      "typeKind": "Dual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
       "typeParams": [
         {
           "$tag": "_Named",

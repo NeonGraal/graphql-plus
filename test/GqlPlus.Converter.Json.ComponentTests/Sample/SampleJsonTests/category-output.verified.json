@@ -8,9 +8,15 @@
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
         "name": "CtgrOutp",
-        "typeKind": "Output"
+        "typeKind": {
+          "$tag": "_TypeKind",
+          "value": "Output"
+        }
       },
-      "resolution": "Parallel"
+      "resolution": {
+        "$tag": "_Resolution",
+        "value": "Parallel"
+      }
     }
   },
   "types": {
@@ -18,7 +24,10 @@
     "CtgrOutp": {
       "$tag": "_TypeOutput",
       "name": "CtgrOutp",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

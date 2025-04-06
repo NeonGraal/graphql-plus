@@ -26,7 +26,10 @@
         }
       ],
       "name": "DualField",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     }
   }
 }

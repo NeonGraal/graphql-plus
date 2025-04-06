@@ -3,17 +3,26 @@
   "_errors": [
     {
       "$tag": "_Error",
-      "_kind": "End",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _TypeEnum can\u0027t get model for type \u0027_ParentType\u0027"
     },
     {
       "$tag": "_Error",
-      "_kind": "End",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _EnumLabel can\u0027t get model for type \u0027_Aliased\u0027"
     },
     {
       "$tag": "_Error",
-      "_kind": "End",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _EnumValue can\u0027t get model for type \u0027_TypeRef\u0027"
     }
   ],
@@ -47,7 +56,10 @@
         "$tag": "_DualBase",
         "value": "_Aliased"
       },
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     },
     "_EnumValue": {
       "$tag": "_TypeOutput",
@@ -81,11 +93,17 @@
             "$tag": "_OutputArg",
             "label": "Enum",
             "name": "_TypeKind",
-            "typeKind": "Enum"
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
           }
         ]
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "_TypeEnum": {
       "$tag": "_TypeOutput",
@@ -98,7 +116,10 @@
             "$tag": "_OutputArg",
             "label": "Enum",
             "name": "_TypeKind",
-            "typeKind": "Enum"
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
           },
           {
             "$tag": "_OutputArg",
@@ -110,7 +131,10 @@
           }
         ]
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

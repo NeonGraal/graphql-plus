@@ -26,9 +26,15 @@
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
         "name": "PrntOutpFieldEnumPrnt",
-        "typeKind": "Enum"
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Enum"
+        }
       },
-      "typeKind": "Enum"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
     },
     "OutpFieldEnumPrnt": {
       "$tag": "_TypeOutput",
@@ -39,7 +45,10 @@
           "label": "prnt_outpFieldEnumPrnt",
           "name": "EnumOutpFieldEnumPrnt",
           "object": "OutpFieldEnumPrnt",
-          "typeKind": "Enum"
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
+          }
         }
       ],
       "fields": [
@@ -48,11 +57,17 @@
           "field": "field",
           "label": "prnt_outpFieldEnumPrnt",
           "name": "EnumOutpFieldEnumPrnt",
-          "typeKind": "Enum"
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
+          }
         }
       ],
       "name": "OutpFieldEnumPrnt",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "PrntOutpFieldEnumPrnt": {
       "$tag": "_TypeEnum",
@@ -70,7 +85,10 @@
         }
       ],
       "name": "PrntOutpFieldEnumPrnt",
-      "typeKind": "Enum"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
     }
   }
 }

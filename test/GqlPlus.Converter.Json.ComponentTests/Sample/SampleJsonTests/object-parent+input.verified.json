@@ -9,12 +9,18 @@
         "$tag": "_InputBase",
         "value": "RefInpObjPrnt"
       },
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     },
     "RefInpObjPrnt": {
       "$tag": "_TypeInput",
       "name": "RefInpObjPrnt",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     }
   }
 }

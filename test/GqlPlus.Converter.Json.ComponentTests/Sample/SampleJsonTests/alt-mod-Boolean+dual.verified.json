@@ -39,7 +39,10 @@
         }
       ],
       "name": "AltDualAltModBool",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     },
     "DualAltModBool": {
       "$tag": "_TypeDual",
@@ -50,8 +53,14 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "^",
-              "modifierKind": "Dict",
-              "typeKind": "Basic"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Dict"
+              },
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Basic"
+              }
             }
           ],
           "dual": "AltDualAltModBool",
@@ -65,15 +74,24 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "^",
-              "modifierKind": "Dict",
-              "typeKind": "Basic"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Dict"
+              },
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Basic"
+              }
             }
           ],
           "dual": "AltDualAltModBool"
         }
       ],
       "name": "DualAltModBool",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     }
   }
 }

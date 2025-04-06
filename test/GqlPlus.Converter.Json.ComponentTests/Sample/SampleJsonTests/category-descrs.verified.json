@@ -9,9 +9,15 @@
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
         "name": "CtgrDscrs",
-        "typeKind": "Output"
+        "typeKind": {
+          "$tag": "_TypeKind",
+          "value": "Output"
+        }
       },
-      "resolution": "Parallel"
+      "resolution": {
+        "$tag": "_Resolution",
+        "value": "Parallel"
+      }
     }
   },
   "types": {
@@ -19,7 +25,10 @@
     "CtgrDscrs": {
       "$tag": "_TypeOutput",
       "name": "CtgrDscrs",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

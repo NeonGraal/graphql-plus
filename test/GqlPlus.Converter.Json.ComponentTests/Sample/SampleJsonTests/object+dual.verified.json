@@ -5,7 +5,10 @@
     "DualObj": {
       "$tag": "_TypeDual",
       "name": "DualObj",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     }
   }
 }

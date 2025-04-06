@@ -13,7 +13,10 @@
           "to": 10
         }
       ],
-      "domainKind": "Number",
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Number"
+      },
       "items": [
         {
           "$tag": "_DomainRange",
@@ -23,7 +26,10 @@
         }
       ],
       "name": "DomOutpParamModDmn",
-      "typeKind": "Domain"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
     },
     "InOutpParamModDmn": {
       "$tag": "_TypeInput",
@@ -62,7 +68,10 @@
         }
       ],
       "name": "InOutpParamModDmn",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     },
     "OutpParamModDmn": {
       "$tag": "_TypeOutput",
@@ -79,8 +88,14 @@
                 {
                   "$tag": "_ModifierDictionary",
                   "by": "DomOutpParamModDmn",
-                  "modifierKind": "Dict",
-                  "typeKind": "Domain"
+                  "modifierKind": {
+                    "$tag": "_ModifierKind",
+                    "value": "Dict"
+                  },
+                  "typeKind": {
+                    "$tag": "_SimpleKind",
+                    "value": "Domain"
+                  }
                 }
               ]
             }
@@ -103,8 +118,14 @@
                 {
                   "$tag": "_ModifierDictionary",
                   "by": "DomOutpParamModDmn",
-                  "modifierKind": "Dict",
-                  "typeKind": "Domain"
+                  "modifierKind": {
+                    "$tag": "_ModifierKind",
+                    "value": "Dict"
+                  },
+                  "typeKind": {
+                    "$tag": "_SimpleKind",
+                    "value": "Domain"
+                  }
                 }
               ]
             }
@@ -116,7 +137,10 @@
         }
       ],
       "name": "OutpParamModDmn",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

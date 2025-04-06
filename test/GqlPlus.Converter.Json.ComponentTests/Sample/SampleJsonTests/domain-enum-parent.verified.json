@@ -13,7 +13,10 @@
             "$tag": "_EnumValue",
             "label": "prnt_dmnEnumPrnt",
             "name": "EnumDmnEnumPrnt",
-            "typeKind": "Enum"
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
           }
         },
         {
@@ -24,11 +27,17 @@
             "$tag": "_EnumValue",
             "label": "enum_dmnEnumPrnt",
             "name": "EnumDmnEnumPrnt",
-            "typeKind": "Enum"
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
           }
         }
       ],
-      "domainKind": "Enum",
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Enum"
+      },
       "items": [
         {
           "$tag": "_DomainLabel",
@@ -37,7 +46,10 @@
             "$tag": "_EnumValue",
             "label": "enum_dmnEnumPrnt",
             "name": "EnumDmnEnumPrnt",
-            "typeKind": "Enum"
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
           }
         }
       ],
@@ -45,9 +57,15 @@
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
         "name": "PrntDmnEnumPrnt",
-        "typeKind": "Domain"
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Domain"
+        }
       },
-      "typeKind": "Domain"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
     },
     "EnumDmnEnumPrnt": {
       "$tag": "_TypeEnum",
@@ -74,7 +92,10 @@
         }
       ],
       "name": "EnumDmnEnumPrnt",
-      "typeKind": "Enum"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
     },
     "PrntDmnEnumPrnt": {
       "$tag": "_DomainEnum",
@@ -87,11 +108,17 @@
             "$tag": "_EnumValue",
             "label": "prnt_dmnEnumPrnt",
             "name": "EnumDmnEnumPrnt",
-            "typeKind": "Enum"
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
           }
         }
       ],
-      "domainKind": "Enum",
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Enum"
+      },
       "items": [
         {
           "$tag": "_DomainLabel",
@@ -100,12 +127,18 @@
             "$tag": "_EnumValue",
             "label": "prnt_dmnEnumPrnt",
             "name": "EnumDmnEnumPrnt",
-            "typeKind": "Enum"
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
           }
         }
       ],
       "name": "PrntDmnEnumPrnt",
-      "typeKind": "Domain"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
     }
   }
 }

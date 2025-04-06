@@ -18,7 +18,10 @@
         }
       ],
       "name": "InpAltSmpl",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     }
   }
 }

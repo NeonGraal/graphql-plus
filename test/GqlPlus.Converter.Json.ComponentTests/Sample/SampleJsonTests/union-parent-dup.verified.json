@@ -18,7 +18,10 @@
         }
       ],
       "name": "PrntUnionPrntDup",
-      "typeKind": "Union"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Union"
+      }
     },
     "UnionPrntDup": {
       "$tag": "_TypeUnion",
@@ -44,9 +47,15 @@
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
         "name": "PrntUnionPrntDup",
-        "typeKind": "Union"
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Union"
+        }
       },
-      "typeKind": "Union"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Union"
+      }
     }
   }
 }

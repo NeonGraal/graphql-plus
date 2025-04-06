@@ -36,9 +36,12 @@
       "parent": {
         "$tag": "_DualBase",
         "dual": "RefDualPrntParamDiff",
-        "typeArgs": ["a"]
+        "typeArgs": [{ "$tag": "_TypeParam", "value": "a" }]
       },
-      "typeKind": "Dual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
       "typeParams": [
         {
           "$tag": "_Named",
@@ -62,7 +65,10 @@
         }
       ],
       "name": "RefDualPrntParamDiff",
-      "typeKind": "Dual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
       "typeParams": [
         {
           "$tag": "_Named",

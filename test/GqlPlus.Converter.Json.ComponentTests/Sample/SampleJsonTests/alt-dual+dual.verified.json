@@ -18,7 +18,10 @@
         }
       ],
       "name": "DualAltDual",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     },
     "DualDualAltDual": {
       "$tag": "_TypeDual",
@@ -57,7 +60,10 @@
         }
       ],
       "name": "DualDualAltDual",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     }
   }
 }

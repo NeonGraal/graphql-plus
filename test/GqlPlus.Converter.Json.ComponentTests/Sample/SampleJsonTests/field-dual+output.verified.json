@@ -39,7 +39,10 @@
         }
       ],
       "name": "FldOutpFieldDual",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     },
     "OutpFieldDual": {
       "$tag": "_TypeOutput",
@@ -65,7 +68,10 @@
         }
       ],
       "name": "OutpFieldDual",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

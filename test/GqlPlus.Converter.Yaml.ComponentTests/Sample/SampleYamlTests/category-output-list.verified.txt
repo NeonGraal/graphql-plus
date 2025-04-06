@@ -1,7 +1,7 @@
 ﻿!_Schema
 categories: !_Map_Categories
   !_Identifier ctgrOutpList: !_Category
-    modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+    modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
     name: ctgrOutpList
     output: !_TypeRef(_TypeKind)
       name: CtgrOutpList

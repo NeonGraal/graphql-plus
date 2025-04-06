@@ -26,12 +26,18 @@
         }
       ],
       "name": "DualObjField",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     },
     "FldDualObjField": {
       "$tag": "_TypeDual",
       "name": "FldDualObjField",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     }
   }
 }

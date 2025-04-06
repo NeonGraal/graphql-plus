@@ -28,7 +28,10 @@
         "description": "Test Descr",
         "output": "RefOutpPrntDescr"
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "RefOutpPrntDescr": {
       "$tag": "_TypeOutput",
@@ -67,7 +70,10 @@
         }
       ],
       "name": "RefOutpPrntDescr",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

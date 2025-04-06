@@ -46,7 +46,10 @@
         "$tag": "_DualBase",
         "value": "RefDualPrntField"
       },
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     },
     "RefDualPrntField": {
       "$tag": "_TypeDual",
@@ -85,7 +88,10 @@
         }
       ],
       "name": "RefDualPrntField",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     }
   }
 }

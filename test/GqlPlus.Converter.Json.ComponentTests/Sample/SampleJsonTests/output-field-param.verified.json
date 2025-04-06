@@ -5,7 +5,10 @@
     "FldOutpFieldParam": {
       "$tag": "_TypeDual",
       "name": "FldOutpFieldParam",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     },
     "OutpFieldParam": {
       "$tag": "_TypeOutput",
@@ -51,17 +54,26 @@
         }
       ],
       "name": "OutpFieldParam",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "OutpFieldParam1": {
       "$tag": "_TypeInput",
       "name": "OutpFieldParam1",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     },
     "OutpFieldParam2": {
       "$tag": "_TypeInput",
       "name": "OutpFieldParam2",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     }
   }
 }

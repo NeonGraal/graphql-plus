@@ -5,7 +5,10 @@
     "FldOutpObjField": {
       "$tag": "_TypeOutput",
       "name": "FldOutpObjField",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "OutpObjField": {
       "$tag": "_TypeOutput",
@@ -31,7 +34,10 @@
         }
       ],
       "name": "OutpObjField",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

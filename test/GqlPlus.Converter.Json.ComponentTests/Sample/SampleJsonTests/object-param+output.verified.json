@@ -43,7 +43,10 @@
         }
       ],
       "name": "OutpObjParam",
-      "typeKind": "Output",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
       "typeParams": [
         {
           "$tag": "_Named",

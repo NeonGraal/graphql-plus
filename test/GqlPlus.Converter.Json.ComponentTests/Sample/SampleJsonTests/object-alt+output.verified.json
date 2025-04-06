@@ -18,12 +18,18 @@
         }
       ],
       "name": "OutpObjAlt",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "OutpObjAltType": {
       "$tag": "_TypeOutput",
       "name": "OutpObjAltType",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

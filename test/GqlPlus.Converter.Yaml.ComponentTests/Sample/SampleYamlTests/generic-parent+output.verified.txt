@@ -6,5 +6,5 @@ types: !_Map_Type
       typeParam: type
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
-        name: type
+    - !_Named
+      name: type

@@ -18,7 +18,10 @@
           "value": false
         }
       ],
-      "domainKind": "Boolean",
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Boolean"
+      },
       "items": [
         {
           "$tag": "_DomainTrueFalse",
@@ -30,9 +33,15 @@
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
         "name": "PrntDmnBoolPrnt",
-        "typeKind": "Domain"
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Domain"
+        }
       },
-      "typeKind": "Domain"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
     },
     "PrntDmnBoolPrnt": {
       "$tag": "_DomainBoolean",
@@ -44,7 +53,10 @@
           "value": true
         }
       ],
-      "domainKind": "Boolean",
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Boolean"
+      },
       "items": [
         {
           "$tag": "_DomainTrueFalse",
@@ -53,7 +65,10 @@
         }
       ],
       "name": "PrntDmnBoolPrnt",
-      "typeKind": "Domain"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
     }
   }
 }

@@ -39,7 +39,10 @@
         }
       ],
       "name": "AltOutpAltModParam",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "OutpAltModParam": {
       "$tag": "_TypeOutput",
@@ -50,7 +53,10 @@
             {
               "$tag": "_ModifierTypeParam",
               "by": "mod",
-              "modifierKind": "Param"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Param"
+              }
             }
           ],
           "object": "OutpAltModParam",
@@ -64,14 +70,20 @@
             {
               "$tag": "_ModifierTypeParam",
               "by": "mod",
-              "modifierKind": "Param"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Param"
+              }
             }
           ],
           "output": "AltOutpAltModParam"
         }
       ],
       "name": "OutpAltModParam",
-      "typeKind": "Output",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
       "typeParams": [
         {
           "$tag": "_Named",

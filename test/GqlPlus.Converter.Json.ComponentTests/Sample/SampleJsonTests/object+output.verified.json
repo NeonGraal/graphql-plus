@@ -5,7 +5,10 @@
     "OutpObj": {
       "$tag": "_TypeOutput",
       "name": "OutpObj",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

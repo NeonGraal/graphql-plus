@@ -6,7 +6,10 @@
       "$tag": "_TypeDual",
       "aliases": ["Dual1", "Dual2"],
       "name": "DualObjAlias",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     }
   }
 }

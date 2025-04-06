@@ -13,11 +13,17 @@
             "$tag": "_EnumValue",
             "label": "*",
             "name": "EnumDmnEnumAll",
-            "typeKind": "Enum"
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
           }
         }
       ],
-      "domainKind": "Enum",
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Enum"
+      },
       "items": [
         {
           "$tag": "_DomainLabel",
@@ -26,12 +32,18 @@
             "$tag": "_EnumValue",
             "label": "*",
             "name": "EnumDmnEnumAll",
-            "typeKind": "Enum"
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
           }
         }
       ],
       "name": "DmnEnumAll",
-      "typeKind": "Domain"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
     },
     "EnumDmnEnumAll": {
       "$tag": "_TypeEnum",
@@ -58,7 +70,10 @@
         }
       ],
       "name": "EnumDmnEnumAll",
-      "typeKind": "Enum"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
     }
   }
 }

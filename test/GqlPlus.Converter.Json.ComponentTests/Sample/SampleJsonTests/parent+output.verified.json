@@ -27,7 +27,10 @@
         "$tag": "_OutputBase",
         "value": "RefOutpPrnt"
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "RefOutpPrnt": {
       "$tag": "_TypeOutput",
@@ -66,7 +69,10 @@
         }
       ],
       "name": "RefOutpPrnt",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

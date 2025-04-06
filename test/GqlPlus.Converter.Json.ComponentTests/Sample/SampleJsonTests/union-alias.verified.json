@@ -28,7 +28,10 @@
         }
       ],
       "name": "UnionAlias",
-      "typeKind": "Union"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Union"
+      }
     }
   }
 }

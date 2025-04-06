@@ -12,7 +12,10 @@
           "to": 2
         }
       ],
-      "domainKind": "Number",
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Number"
+      },
       "items": [
         {
           "$tag": "_DomainRange",
@@ -21,7 +24,10 @@
         }
       ],
       "name": "DmnNmbrDescr",
-      "typeKind": "Domain"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
     }
   }
 }

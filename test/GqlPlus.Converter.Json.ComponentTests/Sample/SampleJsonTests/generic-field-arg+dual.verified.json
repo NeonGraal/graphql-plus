@@ -12,7 +12,7 @@
           "type": {
             "$tag": "_DualBase",
             "dual": "RefDualGnrcFieldArg",
-            "typeArgs": ["type"]
+            "typeArgs": [{ "$tag": "_TypeParam", "value": "type" }]
           }
         }
       ],
@@ -23,12 +23,15 @@
           "type": {
             "$tag": "_DualBase",
             "dual": "RefDualGnrcFieldArg",
-            "typeArgs": ["type"]
+            "typeArgs": [{ "$tag": "_TypeParam", "value": "type" }]
           }
         }
       ],
       "name": "DualGnrcFieldArg",
-      "typeKind": "Dual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
       "typeParams": [
         {
           "$tag": "_Named",
@@ -52,7 +55,10 @@
         }
       ],
       "name": "RefDualGnrcFieldArg",
-      "typeKind": "Dual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
       "typeParams": [
         {
           "$tag": "_Named",

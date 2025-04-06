@@ -6,7 +6,10 @@
       "$tag": "_TypeOutput",
       "description": "A \u0022single-quoted\u0022 description",
       "name": "DescrSngl",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

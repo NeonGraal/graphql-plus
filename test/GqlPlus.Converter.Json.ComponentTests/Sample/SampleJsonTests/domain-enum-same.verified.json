@@ -13,11 +13,17 @@
             "$tag": "_EnumValue",
             "label": "true",
             "name": "Boolean",
-            "typeKind": "Enum"
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
           }
         }
       ],
-      "domainKind": "Enum",
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Enum"
+      },
       "items": [
         {
           "$tag": "_DomainLabel",
@@ -26,12 +32,18 @@
             "$tag": "_EnumValue",
             "label": "true",
             "name": "Boolean",
-            "typeKind": "Enum"
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
           }
         }
       ],
       "name": "DmnEnumSame",
-      "typeKind": "Domain"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
     }
   }
 }

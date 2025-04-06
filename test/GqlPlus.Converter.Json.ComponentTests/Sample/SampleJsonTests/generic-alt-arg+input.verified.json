@@ -9,18 +9,21 @@
           "$tag": "_ObjectFor(_InputAlternate)",
           "input": "RefInpGnrcAltArg",
           "object": "InpGnrcAltArg",
-          "typeArgs": ["type"]
+          "typeArgs": [{ "$tag": "_TypeParam", "value": "type" }]
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
           "input": "RefInpGnrcAltArg",
-          "typeArgs": ["type"]
+          "typeArgs": [{ "$tag": "_TypeParam", "value": "type" }]
         }
       ],
       "name": "InpGnrcAltArg",
-      "typeKind": "Input",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
       "typeParams": [
         {
           "$tag": "_Named",
@@ -44,7 +47,10 @@
         }
       ],
       "name": "RefInpGnrcAltArg",
-      "typeKind": "Input",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
       "typeParams": [
         {
           "$tag": "_Named",

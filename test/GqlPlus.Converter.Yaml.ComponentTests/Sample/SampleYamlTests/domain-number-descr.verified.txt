@@ -2,14 +2,14 @@
 types: !_Map_Type
   !_Identifier DmnNmbrDescr: !_DomainNumber
     allItems:
-      - !_DomainItem(_DomainRange)
-        domain: DmnNmbrDescr
-        exclude: false
-        to: 2
+    - !_DomainItem(_DomainRange)
+      domain: DmnNmbrDescr
+      exclude: false
+      to: 2
     domainKind: !_DomainKind Number
     items:
-      - !_DomainRange
-        exclude: false
-        to: 2
+    - !_DomainRange
+      exclude: false
+      to: 2
     name: DmnNmbrDescr
     typeKind: !_TypeKind Domain

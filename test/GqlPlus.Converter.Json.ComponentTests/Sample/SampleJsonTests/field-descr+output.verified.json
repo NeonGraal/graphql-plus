@@ -28,7 +28,10 @@
         }
       ],
       "name": "OutpFieldDescr",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

@@ -39,7 +39,10 @@
         }
       ],
       "name": "AltInpGnrcFieldParam",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     },
     "InpGnrcFieldParam": {
       "$tag": "_TypeInput",
@@ -77,7 +80,10 @@
         }
       ],
       "name": "InpGnrcFieldParam",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     },
     "RefInpGnrcFieldParam": {
       "$tag": "_TypeInput",
@@ -95,7 +101,10 @@
         }
       ],
       "name": "RefInpGnrcFieldParam",
-      "typeKind": "Input",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
       "typeParams": [
         {
           "$tag": "_Named",

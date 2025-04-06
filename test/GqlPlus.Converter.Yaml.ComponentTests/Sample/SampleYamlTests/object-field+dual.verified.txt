@@ -2,16 +2,16 @@
 types: !_Map_Type
   !_Identifier DualObjField: !_TypeDual
     allFields:
-      - !_ObjectFor(_DualField)
-        name: field
-        object: DualObjField
-        type: !_DualBase
-          dual: FldDualObjField
+    - !_ObjectFor(_DualField)
+      name: field
+      object: DualObjField
+      type: !_DualBase
+        dual: FldDualObjField
     fields:
-      - !_DualField
-        name: field
-        type: !_DualBase
-          dual: FldDualObjField
+    - !_DualField
+      name: field
+      type: !_DualBase
+        dual: FldDualObjField
     name: DualObjField
     typeKind: !_TypeKind Dual
   !_Identifier FldDualObjField: !_TypeDual

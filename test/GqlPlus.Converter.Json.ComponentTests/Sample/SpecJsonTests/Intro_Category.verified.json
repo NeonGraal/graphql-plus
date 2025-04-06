@@ -3,7 +3,10 @@
   "_errors": [
     {
       "$tag": "_Error",
-      "_kind": "End",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _Category can\u0027t get model for type \u0027_Aliased\u0027"
     }
   ],
@@ -72,7 +75,10 @@
         }
       ],
       "name": "_Categories",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "_Category": {
       "$tag": "_TypeOutput",
@@ -98,7 +104,10 @@
                 "$tag": "_OutputArg",
                 "label": "Output",
                 "name": "_TypeKind",
-                "typeKind": "Enum"
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -108,7 +117,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "List"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
             }
           ],
           "name": "modifiers",
@@ -139,7 +151,10 @@
                 "$tag": "_OutputArg",
                 "label": "Output",
                 "name": "_TypeKind",
-                "typeKind": "Enum"
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -149,7 +164,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "List"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
             }
           ],
           "name": "modifiers",
@@ -164,7 +182,10 @@
         "$tag": "_OutputBase",
         "value": "_Aliased"
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "_Resolution": {
       "$tag": "_TypeEnum",
@@ -200,7 +221,10 @@
         }
       ],
       "name": "_Resolution",
-      "typeKind": "Enum"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
     }
   }
 }

@@ -27,7 +27,10 @@
         }
       ],
       "name": "EnumDmnEnumUnq",
-      "typeKind": "Enum"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
     },
     "EnumDomDup": {
       "$tag": "_TypeEnum",
@@ -54,7 +57,10 @@
         }
       ],
       "name": "EnumDomDup",
-      "typeKind": "Enum"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
     }
   }
 }

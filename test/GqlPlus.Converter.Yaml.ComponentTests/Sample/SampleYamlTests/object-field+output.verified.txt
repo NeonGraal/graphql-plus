@@ -5,15 +5,15 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier OutpObjField: !_TypeOutput
     allFields:
-      - !_ObjectFor(_OutputField)
-        name: field
-        object: OutpObjField
-        type: !_OutputBase
-          output: FldOutpObjField
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: OutpObjField
+      type: !_OutputBase
+        output: FldOutpObjField
     fields:
-      - !_OutputField
-        name: field
-        type: !_OutputBase
-          output: FldOutpObjField
+    - !_OutputField
+      name: field
+      type: !_OutputBase
+        output: FldOutpObjField
     name: OutpObjField
     typeKind: !_TypeKind Output

@@ -18,7 +18,10 @@
         }
       ],
       "name": "EnumOutpFieldModEnum",
-      "typeKind": "Enum"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
     },
     "OutpFieldModEnum": {
       "$tag": "_TypeOutput",
@@ -29,8 +32,14 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "EnumOutpFieldModEnum",
-              "modifierKind": "Dict",
-              "typeKind": "Enum"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Dict"
+              },
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Enum"
+              }
             }
           ],
           "name": "field",
@@ -48,8 +57,14 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "EnumOutpFieldModEnum",
-              "modifierKind": "Dict",
-              "typeKind": "Enum"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Dict"
+              },
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Enum"
+              }
             }
           ],
           "name": "field",
@@ -60,7 +75,10 @@
         }
       ],
       "name": "OutpFieldModEnum",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

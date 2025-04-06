@@ -39,7 +39,10 @@
         }
       ],
       "name": "AltInpGnrcPrntParamPrnt",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     },
     "InpGnrcPrntParamPrnt": {
       "$tag": "_TypeInput",
@@ -72,7 +75,10 @@
           }
         ]
       },
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     },
     "RefInpGnrcPrntParamPrnt": {
       "$tag": "_TypeInput",
@@ -81,7 +87,10 @@
         "$tag": "_InputBase",
         "value": "ref"
       },
-      "typeKind": "Input",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
       "typeParams": [
         {
           "$tag": "_Named",

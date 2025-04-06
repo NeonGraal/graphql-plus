@@ -18,7 +18,10 @@
         }
       ],
       "name": "UnionSame",
-      "typeKind": "Union"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Union"
+      }
     }
   }
 }

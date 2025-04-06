@@ -4,9 +4,15 @@
     "$tag": "_Map_Type",
     "DmnNmbr": {
       "$tag": "_DomainNumber",
-      "domainKind": "Number",
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Number"
+      },
       "name": "DmnNmbr",
-      "typeKind": "Domain"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
     }
   }
 }

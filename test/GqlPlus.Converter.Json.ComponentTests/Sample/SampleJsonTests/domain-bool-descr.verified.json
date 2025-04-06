@@ -12,7 +12,10 @@
           "value": true
         }
       ],
-      "domainKind": "Boolean",
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Boolean"
+      },
       "items": [
         {
           "$tag": "_DomainTrueFalse",
@@ -21,7 +24,10 @@
         }
       ],
       "name": "DmnBoolDescr",
-      "typeKind": "Domain"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
     }
   }
 }

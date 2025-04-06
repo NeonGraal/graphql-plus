@@ -22,8 +22,14 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "String",
-              "modifierKind": "Dict",
-              "typeKind": "Basic"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Dict"
+              },
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Basic"
+              }
             }
           ]
         }
@@ -36,7 +42,10 @@
     "InDrctParamDict": {
       "$tag": "_TypeInput",
       "name": "InDrctParamDict",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     }
   }
 }

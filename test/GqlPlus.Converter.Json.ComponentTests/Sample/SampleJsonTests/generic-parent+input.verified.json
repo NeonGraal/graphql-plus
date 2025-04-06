@@ -9,7 +9,10 @@
         "$tag": "_InputBase",
         "value": "type"
       },
-      "typeKind": "Input",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
       "typeParams": [
         {
           "$tag": "_Named",

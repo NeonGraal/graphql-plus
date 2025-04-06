@@ -18,7 +18,10 @@
         }
       ],
       "name": "InpAltDual",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     },
     "InpDualAltDual": {
       "$tag": "_TypeDual",
@@ -57,7 +60,10 @@
         }
       ],
       "name": "InpDualAltDual",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     }
   }
 }

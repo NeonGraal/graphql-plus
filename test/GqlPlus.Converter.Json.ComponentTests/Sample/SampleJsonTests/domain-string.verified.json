@@ -4,9 +4,15 @@
     "$tag": "_Map_Type",
     "DmnStr": {
       "$tag": "_DomainString",
-      "domainKind": "String",
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "String"
+      },
       "name": "DmnStr",
-      "typeKind": "Domain"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
     }
   }
 }

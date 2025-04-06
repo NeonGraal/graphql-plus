@@ -1,7 +1,7 @@
 ﻿!_Schema
 categories: !_Map_Categories
   !_Identifier ctgrAlias: !_Category
-    aliases: [CatA1,CatA2]
+    aliases: [CatA1, CatA2]
     name: ctgrAlias
     output: !_TypeRef(_TypeKind)
       name: CtgrAlias

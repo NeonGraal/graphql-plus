@@ -39,7 +39,10 @@
         }
       ],
       "name": "AltInpAlt",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     },
     "InpAlt": {
       "$tag": "_TypeInput",
@@ -57,7 +60,10 @@
         }
       ],
       "name": "InpAlt",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     }
   }
 }

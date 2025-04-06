@@ -7,16 +7,25 @@
       "modifiers": [
         {
           "$tag": "_Modifier",
-          "modifierKind": "Opt"
+          "modifierKind": {
+            "$tag": "_ModifierKind",
+            "value": "Opt"
+          }
         }
       ],
       "name": "ctgrOutpOptl",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
         "name": "CtgrOutpOptl",
-        "typeKind": "Output"
+        "typeKind": {
+          "$tag": "_TypeKind",
+          "value": "Output"
+        }
       },
-      "resolution": "Parallel"
+      "resolution": {
+        "$tag": "_Resolution",
+        "value": "Parallel"
+      }
     }
   },
   "types": {
@@ -24,7 +33,10 @@
     "CtgrOutpOptl": {
       "$tag": "_TypeOutput",
       "name": "CtgrOutpOptl",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

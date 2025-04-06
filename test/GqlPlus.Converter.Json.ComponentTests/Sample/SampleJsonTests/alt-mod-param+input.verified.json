@@ -39,7 +39,10 @@
         }
       ],
       "name": "AltInpAltModParam",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     },
     "InpAltModParam": {
       "$tag": "_TypeInput",
@@ -50,7 +53,10 @@
             {
               "$tag": "_ModifierTypeParam",
               "by": "mod",
-              "modifierKind": "Param"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Param"
+              }
             }
           ],
           "input": "AltInpAltModParam",
@@ -64,14 +70,20 @@
             {
               "$tag": "_ModifierTypeParam",
               "by": "mod",
-              "modifierKind": "Param"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Param"
+              }
             }
           ],
           "input": "AltInpAltModParam"
         }
       ],
       "name": "InpAltModParam",
-      "typeKind": "Input",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
       "typeParams": [
         {
           "$tag": "_Named",

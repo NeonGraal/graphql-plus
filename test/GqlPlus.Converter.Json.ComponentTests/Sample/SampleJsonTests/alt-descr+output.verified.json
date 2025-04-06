@@ -20,7 +20,10 @@
         }
       ],
       "name": "OutpAltDescr",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

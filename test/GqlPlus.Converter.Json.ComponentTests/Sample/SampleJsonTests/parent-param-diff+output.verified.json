@@ -36,9 +36,12 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "RefOutpPrntParamDiff",
-        "typeArgs": ["a"]
+        "typeArgs": [{ "$tag": "_TypeParam", "value": "a" }]
       },
-      "typeKind": "Output",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
       "typeParams": [
         {
           "$tag": "_Named",
@@ -62,7 +65,10 @@
         }
       ],
       "name": "RefOutpPrntParamDiff",
-      "typeKind": "Output",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
       "typeParams": [
         {
           "$tag": "_Named",

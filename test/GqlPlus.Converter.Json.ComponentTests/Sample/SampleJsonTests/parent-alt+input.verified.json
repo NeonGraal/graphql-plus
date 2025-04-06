@@ -38,7 +38,10 @@
         "$tag": "_InputBase",
         "value": "RefInpPrntAlt"
       },
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     },
     "RefInpPrntAlt": {
       "$tag": "_TypeInput",
@@ -77,7 +80,10 @@
         }
       ],
       "name": "RefInpPrntAlt",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     }
   }
 }

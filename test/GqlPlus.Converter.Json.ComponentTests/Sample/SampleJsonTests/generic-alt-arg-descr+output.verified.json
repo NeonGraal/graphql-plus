@@ -9,18 +9,21 @@
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "OutpGnrcAltArgDescr",
           "output": "RefOutpGnrcAltArgDescr",
-          "typeArgs": ["type"]
+          "typeArgs": [{ "$tag": "_TypeParam", "value": "type" }]
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
           "output": "RefOutpGnrcAltArgDescr",
-          "typeArgs": ["type"]
+          "typeArgs": [{ "$tag": "_TypeParam", "value": "type" }]
         }
       ],
       "name": "OutpGnrcAltArgDescr",
-      "typeKind": "Output",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
       "typeParams": [
         {
           "$tag": "_Named",
@@ -44,7 +47,10 @@
         }
       ],
       "name": "RefOutpGnrcAltArgDescr",
-      "typeKind": "Output",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
       "typeParams": [
         {
           "$tag": "_Named",

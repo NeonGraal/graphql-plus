@@ -3,12 +3,18 @@
   "_errors": [
     {
       "$tag": "_Error",
-      "_kind": "End",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _TypeUnion can\u0027t get model for type \u0027_ParentType\u0027"
     },
     {
       "$tag": "_Error",
-      "_kind": "End",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _UnionRef can\u0027t get model for type \u0027_TypeRef\u0027"
     }
   ],
@@ -25,7 +31,10 @@
             "$tag": "_OutputArg",
             "label": "Union",
             "name": "_TypeKind",
-            "typeKind": "Enum"
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
           },
           {
             "$tag": "_OutputArg",
@@ -37,7 +46,10 @@
           }
         ]
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "_UnionMember": {
       "$tag": "_TypeOutput",
@@ -67,7 +79,10 @@
         "$tag": "_OutputBase",
         "value": "_UnionRef"
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "_UnionRef": {
       "$tag": "_TypeOutput",
@@ -82,7 +97,10 @@
           }
         ]
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

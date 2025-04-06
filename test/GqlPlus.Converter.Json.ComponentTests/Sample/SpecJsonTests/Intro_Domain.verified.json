@@ -3,17 +3,26 @@
   "_errors": [
     {
       "$tag": "_Error",
-      "_kind": "End",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _DomainRef can\u0027t get model for type \u0027_TypeRef\u0027"
     },
     {
       "$tag": "_Error",
-      "_kind": "End",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _BaseDomain can\u0027t get model for type \u0027_ParentType\u0027"
     },
     {
       "$tag": "_Error",
-      "_kind": "End",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _BaseDomainItem can\u0027t get model for type \u0027_Described\u0027"
     }
   ],
@@ -51,13 +60,25 @@
             "$tag": "_OutputArg",
             "label": "Domain",
             "name": "_TypeKind",
-            "typeKind": "Enum"
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
           },
-          "item",
-          "domainItem"
+          {
+            "$tag": "_TypeParam",
+            "value": "item"
+          },
+          {
+            "$tag": "_TypeParam",
+            "value": "domainItem"
+          }
         ]
       },
-      "typeKind": "Output",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
       "typeParams": [
         {
           "$tag": "_Named",
@@ -101,7 +122,10 @@
         "$tag": "_DualBase",
         "value": "_Described"
       },
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     },
     "_DomainItem": {
       "$tag": "_TypeOutput",
@@ -131,7 +155,10 @@
         "$tag": "_OutputBase",
         "value": "item"
       },
-      "typeKind": "Output",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
       "typeParams": [
         {
           "$tag": "_Named",
@@ -181,7 +208,10 @@
           }
         ]
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "_DomainItemRange": {
       "$tag": "_TypeOutput",
@@ -207,7 +237,10 @@
           }
         ]
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "_DomainItemRegex": {
       "$tag": "_TypeOutput",
@@ -233,7 +266,10 @@
           }
         ]
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "_DomainItemTrueFalse": {
       "$tag": "_TypeOutput",
@@ -259,7 +295,10 @@
           }
         ]
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "_DomainKind": {
       "$tag": "_TypeEnum",
@@ -304,7 +343,10 @@
         }
       ],
       "name": "_DomainKind",
-      "typeKind": "Enum"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
     },
     "_DomainLabel": {
       "$tag": "_TypeOutput",
@@ -343,7 +385,10 @@
         "$tag": "_DualBase",
         "value": "_BaseDomainItem"
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "_DomainRange": {
       "$tag": "_TypeDual",
@@ -362,7 +407,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "Opt"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
             }
           ],
           "name": "lower",
@@ -377,7 +425,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "Opt"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
             }
           ],
           "name": "upper",
@@ -394,7 +445,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "Opt"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
             }
           ],
           "name": "lower",
@@ -408,7 +462,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "Opt"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
             }
           ],
           "name": "upper",
@@ -423,7 +480,10 @@
         "$tag": "_DualBase",
         "value": "_BaseDomainItem"
       },
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     },
     "_DomainRef": {
       "$tag": "_TypeOutput",
@@ -457,11 +517,17 @@
             "$tag": "_OutputArg",
             "label": "Domain",
             "name": "_TypeKind",
-            "typeKind": "Enum"
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
           }
         ]
       },
-      "typeKind": "Output",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
       "typeParams": [
         {
           "$tag": "_Named",
@@ -506,7 +572,10 @@
         "$tag": "_DualBase",
         "value": "_BaseDomainItem"
       },
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     },
     "_DomainTrueFalse": {
       "$tag": "_TypeDual",
@@ -545,7 +614,10 @@
         "$tag": "_DualBase",
         "value": "_BaseDomainItem"
       },
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     },
     "_DomainValue": {
       "$tag": "_TypeOutput",
@@ -583,9 +655,12 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_DomainRef",
-        "typeArgs": ["kind"]
+        "typeArgs": [{ "$tag": "_TypeParam", "value": "kind" }]
       },
-      "typeKind": "Output",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
       "typeParams": [
         {
           "$tag": "_Named",
@@ -609,7 +684,10 @@
               "$tag": "_OutputArg",
               "label": "Boolean",
               "name": "_DomainKind",
-              "typeKind": "Enum"
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Enum"
+              }
             },
             {
               "$tag": "_DualArg",
@@ -630,7 +708,10 @@
               "$tag": "_OutputArg",
               "label": "Enum",
               "name": "_DomainKind",
-              "typeKind": "Enum"
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Enum"
+              }
             },
             {
               "$tag": "_OutputArg",
@@ -651,7 +732,10 @@
               "$tag": "_OutputArg",
               "label": "Number",
               "name": "_DomainKind",
-              "typeKind": "Enum"
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Enum"
+              }
             },
             {
               "$tag": "_DualArg",
@@ -672,7 +756,10 @@
               "$tag": "_OutputArg",
               "label": "String",
               "name": "_DomainKind",
-              "typeKind": "Enum"
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Enum"
+              }
             },
             {
               "$tag": "_DualArg",
@@ -694,7 +781,10 @@
               "$tag": "_OutputArg",
               "label": "Boolean",
               "name": "_DomainKind",
-              "typeKind": "Enum"
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Enum"
+              }
             },
             {
               "$tag": "_DualArg",
@@ -714,7 +804,10 @@
               "$tag": "_OutputArg",
               "label": "Enum",
               "name": "_DomainKind",
-              "typeKind": "Enum"
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Enum"
+              }
             },
             {
               "$tag": "_OutputArg",
@@ -734,7 +827,10 @@
               "$tag": "_OutputArg",
               "label": "Number",
               "name": "_DomainKind",
-              "typeKind": "Enum"
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Enum"
+              }
             },
             {
               "$tag": "_DualArg",
@@ -754,7 +850,10 @@
               "$tag": "_OutputArg",
               "label": "String",
               "name": "_DomainKind",
-              "typeKind": "Enum"
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Enum"
+              }
             },
             {
               "$tag": "_DualArg",
@@ -768,7 +867,10 @@
         }
       ],
       "name": "_TypeDomain",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

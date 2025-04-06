@@ -18,7 +18,10 @@
         }
       ],
       "name": "EnumDiff",
-      "typeKind": "Enum"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
     }
   }
 }

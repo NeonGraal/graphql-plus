@@ -39,7 +39,10 @@
         }
       ],
       "name": "AltInpAltModBool",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     },
     "InpAltModBool": {
       "$tag": "_TypeInput",
@@ -50,8 +53,14 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "^",
-              "modifierKind": "Dict",
-              "typeKind": "Basic"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Dict"
+              },
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Basic"
+              }
             }
           ],
           "input": "AltInpAltModBool",
@@ -65,15 +74,24 @@
             {
               "$tag": "_ModifierDictionary",
               "by": "^",
-              "modifierKind": "Dict",
-              "typeKind": "Basic"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Dict"
+              },
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Basic"
+              }
             }
           ],
           "input": "AltInpAltModBool"
         }
       ],
       "name": "InpAltModBool",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     }
   }
 }

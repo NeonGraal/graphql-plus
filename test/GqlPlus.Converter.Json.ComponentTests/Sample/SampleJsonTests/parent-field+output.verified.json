@@ -46,7 +46,10 @@
         "$tag": "_OutputBase",
         "value": "RefOutpPrntField"
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "RefOutpPrntField": {
       "$tag": "_TypeOutput",
@@ -85,7 +88,10 @@
         }
       ],
       "name": "RefOutpPrntField",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

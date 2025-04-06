@@ -30,7 +30,10 @@
         }
       ],
       "name": "OutpGnrcAltSmpl",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "RefOutpGnrcAltSmpl": {
       "$tag": "_TypeOutput",
@@ -48,7 +51,10 @@
         }
       ],
       "name": "RefOutpGnrcAltSmpl",
-      "typeKind": "Output",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
       "typeParams": [
         {
           "$tag": "_Named",

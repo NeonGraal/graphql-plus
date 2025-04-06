@@ -26,7 +26,10 @@
         }
       ],
       "name": "InpFieldStr",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     }
   }
 }

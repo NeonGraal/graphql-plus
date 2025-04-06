@@ -3,32 +3,50 @@
   "_errors": [
     {
       "$tag": "_Error",
-      "_kind": "End",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _TypeObject can\u0027t get model for type \u0027_ChildType\u0027"
     },
     {
       "$tag": "_Error",
-      "_kind": "End",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _ObjBase can\u0027t get model for type \u0027_Described\u0027"
     },
     {
       "$tag": "_Error",
-      "_kind": "End",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _ObjTypeArg can\u0027t get model for type \u0027_TypeRef\u0027"
     },
     {
       "$tag": "_Error",
-      "_kind": "End",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _TypeParam can\u0027t get model for type \u0027_Identifier\u0027"
     },
     {
       "$tag": "_Error",
-      "_kind": "End",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _ObjTypeParam can\u0027t get model for type \u0027_Described\u0027"
     },
     {
       "$tag": "_Error",
-      "_kind": "End",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _Field can\u0027t get model for type \u0027_Aliased\u0027"
     }
   ],
@@ -49,7 +67,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "List"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
             }
           ],
           "name": "typeArgs",
@@ -64,7 +85,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "List"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
             }
           ],
           "name": "collections",
@@ -81,7 +105,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "List"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
             }
           ],
           "name": "collections",
@@ -95,9 +122,12 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_ObjBase",
-        "typeArgs": ["arg"]
+        "typeArgs": [{ "$tag": "_TypeParam", "value": "arg" }]
       },
-      "typeKind": "Output",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
       "typeParams": [
         {
           "$tag": "_Named",
@@ -122,7 +152,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "List"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
             }
           ],
           "name": "modifiers",
@@ -147,7 +180,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "List"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
             }
           ],
           "name": "modifiers",
@@ -162,7 +198,10 @@
         "$tag": "_OutputBase",
         "value": "_Aliased"
       },
-      "typeKind": "Output",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
       "typeParams": [
         {
           "$tag": "_Named",
@@ -185,7 +224,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "List"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
             }
           ],
           "name": "typeArgs",
@@ -208,7 +250,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "List"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
             }
           ],
           "name": "typeArgs",
@@ -223,7 +268,10 @@
         "$tag": "_OutputBase",
         "value": "_Described"
       },
-      "typeKind": "Output",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
       "typeParams": [
         {
           "$tag": "_Named",
@@ -256,7 +304,10 @@
         }
       ],
       "name": "_ObjConstraint",
-      "typeKind": "Output",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
       "typeParams": [
         {
           "$tag": "_Named",
@@ -292,7 +343,10 @@
         "$tag": "_OutputBase",
         "value": "for"
       },
-      "typeKind": "Output",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
       "typeParams": [
         {
           "$tag": "_Named",
@@ -312,7 +366,10 @@
               "$tag": "_OutputArg",
               "label": "Internal",
               "name": "_TypeKind",
-              "typeKind": "Enum"
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Enum"
+              }
             }
           ]
         },
@@ -320,7 +377,7 @@
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjType",
           "output": "_ObjConstraint",
-          "typeArgs": ["base"]
+          "typeArgs": [{ "$tag": "_TypeParam", "value": "base" }]
         }
       ],
       "alternates": [
@@ -332,18 +389,24 @@
               "$tag": "_OutputArg",
               "label": "Internal",
               "name": "_TypeKind",
-              "typeKind": "Enum"
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Enum"
+              }
             }
           ]
         },
         {
           "$tag": "_OutputAlternate",
           "output": "_ObjConstraint",
-          "typeArgs": ["base"]
+          "typeArgs": [{ "$tag": "_TypeParam", "value": "base" }]
         }
       ],
       "name": "_ObjType",
-      "typeKind": "Output",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
       "typeParams": [
         {
           "$tag": "_Named",
@@ -377,7 +440,10 @@
           }
         ]
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "_ObjTypeParam": {
       "$tag": "_TypeOutput",
@@ -407,7 +473,10 @@
         "$tag": "_OutputBase",
         "value": "_Described"
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "_TypeObject": {
       "$tag": "_TypeOutput",
@@ -417,7 +486,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "List"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
             }
           ],
           "name": "typeParams",
@@ -432,7 +504,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "List"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
             }
           ],
           "name": "fields",
@@ -447,7 +522,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "List"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
             }
           ],
           "name": "alternates",
@@ -462,7 +540,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "List"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
             }
           ],
           "name": "allFields",
@@ -470,7 +551,7 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArgs": ["field"]
+            "typeArgs": [{ "$tag": "_TypeParam", "value": "field" }]
           }
         },
         {
@@ -478,7 +559,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "List"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
             }
           ],
           "name": "allAlternates",
@@ -486,7 +570,7 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArgs": ["alternate"]
+            "typeArgs": [{ "$tag": "_TypeParam", "value": "alternate" }]
           }
         }
       ],
@@ -496,7 +580,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "List"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
             }
           ],
           "name": "typeParams",
@@ -510,7 +597,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "List"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
             }
           ],
           "name": "fields",
@@ -524,7 +614,10 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "List"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
             }
           ],
           "name": "alternates",
@@ -538,14 +631,17 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "List"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
             }
           ],
           "name": "allFields",
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArgs": ["field"]
+            "typeArgs": [{ "$tag": "_TypeParam", "value": "field" }]
           }
         },
         {
@@ -553,14 +649,17 @@
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "List"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
             }
           ],
           "name": "allAlternates",
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArgs": ["alternate"]
+            "typeArgs": [{ "$tag": "_TypeParam", "value": "alternate" }]
           }
         }
       ],
@@ -568,9 +667,15 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_ChildType",
-        "typeArgs": ["kind", "parent"]
+        "typeArgs": [
+          { "$tag": "_TypeParam", "value": "kind" },
+          { "$tag": "_TypeParam", "value": "parent" }
+        ]
       },
-      "typeKind": "Output",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
       "typeParams": [
         {
           "$tag": "_Named",
@@ -592,14 +697,23 @@
     },
     "_TypeParam": {
       "$tag": "_DomainString",
-      "domainKind": "String",
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "String"
+      },
       "name": "_TypeParam",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
         "name": "_Identifier",
-        "typeKind": "Domain"
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Domain"
+        }
       },
-      "typeKind": "Domain"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
     }
   }
 }

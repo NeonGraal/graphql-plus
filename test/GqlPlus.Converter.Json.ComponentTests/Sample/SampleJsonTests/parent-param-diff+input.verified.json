@@ -36,9 +36,12 @@
       "parent": {
         "$tag": "_InputBase",
         "input": "RefInpPrntParamDiff",
-        "typeArgs": ["a"]
+        "typeArgs": [{ "$tag": "_TypeParam", "value": "a" }]
       },
-      "typeKind": "Input",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
       "typeParams": [
         {
           "$tag": "_Named",
@@ -62,7 +65,10 @@
         }
       ],
       "name": "RefInpPrntParamDiff",
-      "typeKind": "Input",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
       "typeParams": [
         {
           "$tag": "_Named",

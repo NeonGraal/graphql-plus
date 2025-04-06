@@ -13,7 +13,10 @@
           "to": 10
         }
       ],
-      "domainKind": "Number",
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Number"
+      },
       "items": [
         {
           "$tag": "_DomainRange",
@@ -23,7 +26,10 @@
         }
       ],
       "name": "DomOutpParamModParam",
-      "typeKind": "Domain"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
     },
     "InOutpParamModParam": {
       "$tag": "_TypeInput",
@@ -62,7 +68,10 @@
         }
       ],
       "name": "InOutpParamModParam",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     },
     "OutpParamModParam": {
       "$tag": "_TypeOutput",
@@ -79,7 +88,10 @@
                 {
                   "$tag": "_ModifierTypeParam",
                   "by": "mod",
-                  "modifierKind": "Param"
+                  "modifierKind": {
+                    "$tag": "_ModifierKind",
+                    "value": "Param"
+                  }
                 }
               ]
             }
@@ -102,7 +114,10 @@
                 {
                   "$tag": "_ModifierTypeParam",
                   "by": "mod",
-                  "modifierKind": "Param"
+                  "modifierKind": {
+                    "$tag": "_ModifierKind",
+                    "value": "Param"
+                  }
                 }
               ]
             }
@@ -114,7 +129,10 @@
         }
       ],
       "name": "OutpParamModParam",
-      "typeKind": "Output",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
       "typeParams": [
         {
           "$tag": "_Named",

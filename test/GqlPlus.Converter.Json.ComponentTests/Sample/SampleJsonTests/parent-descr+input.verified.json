@@ -28,7 +28,10 @@
         "description": "Test Descr",
         "input": "RefInpPrntDescr"
       },
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     },
     "RefInpPrntDescr": {
       "$tag": "_TypeInput",
@@ -67,7 +70,10 @@
         }
       ],
       "name": "RefInpPrntDescr",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     }
   }
 }

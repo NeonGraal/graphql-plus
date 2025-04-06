@@ -8,7 +8,10 @@
         "_col": 17,
         "_line": 1
       },
-      "_kind": "Punctuation",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "Punctuation"
+      },
       "_message": "Invalid Category Output. Expected type name."
     },
     {
@@ -18,7 +21,10 @@
         "_col": 17,
         "_line": 1
       },
-      "_kind": "Punctuation",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "Punctuation"
+      },
       "_message": "Invalid Category. Expected output type."
     },
     {
@@ -28,7 +34,10 @@
         "_col": 17,
         "_line": 1
       },
-      "_kind": "Punctuation",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "Punctuation"
+      },
       "_message": "Invalid Schema. Expected no more text."
     }
   ],
@@ -40,9 +49,15 @@
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
         "name": "query",
-        "typeKind": "Output"
+        "typeKind": {
+          "$tag": "_TypeKind",
+          "value": "Output"
+        }
       },
-      "resolution": "Parallel"
+      "resolution": {
+        "$tag": "_Resolution",
+        "value": "Parallel"
+      }
     }
   }
 }

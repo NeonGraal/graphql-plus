@@ -5,7 +5,10 @@
     "FldOutpPrntParam": {
       "$tag": "_TypeDual",
       "name": "FldOutpPrntParam",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     },
     "InOutpPrntParam": {
       "$tag": "_TypeInput",
@@ -44,7 +47,10 @@
         }
       ],
       "name": "InOutpPrntParam",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     },
     "OutpPrntParam": {
       "$tag": "_TypeOutput",
@@ -101,7 +107,10 @@
         "$tag": "_OutputBase",
         "value": "PrntOutpPrntParam"
       },
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "PrntOutpPrntParam": {
       "$tag": "_TypeOutput",
@@ -139,7 +148,10 @@
         }
       ],
       "name": "PrntOutpPrntParam",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "PrntOutpPrntParamIn": {
       "$tag": "_TypeInput",
@@ -178,7 +190,10 @@
         }
       ],
       "name": "PrntOutpPrntParamIn",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     }
   }
 }

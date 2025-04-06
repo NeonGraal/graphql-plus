@@ -15,9 +15,12 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "RefOutpGnrcPrntArg",
-        "typeArgs": ["type"]
+        "typeArgs": [{ "$tag": "_TypeParam", "value": "type" }]
       },
-      "typeKind": "Output",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
       "typeParams": [
         {
           "$tag": "_Named",
@@ -41,7 +44,10 @@
         }
       ],
       "name": "RefOutpGnrcPrntArg",
-      "typeKind": "Output",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
       "typeParams": [
         {
           "$tag": "_Named",

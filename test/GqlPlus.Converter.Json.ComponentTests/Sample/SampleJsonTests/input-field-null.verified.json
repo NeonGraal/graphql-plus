@@ -5,18 +5,27 @@
     "FldInpFieldNull": {
       "$tag": "_TypeDual",
       "name": "FldInpFieldNull",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     },
     "InpFieldNull": {
       "$tag": "_TypeInput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
-          "default": "null",
+          "default": {
+            "$tag": "Null",
+            "value": "null"
+          },
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "Opt"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
             }
           ],
           "name": "field",
@@ -30,11 +39,17 @@
       "fields": [
         {
           "$tag": "_InputField",
-          "default": "null",
+          "default": {
+            "$tag": "Null",
+            "value": "null"
+          },
           "modifiers": [
             {
               "$tag": "_Modifier",
-              "modifierKind": "Opt"
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
             }
           ],
           "name": "field",
@@ -45,7 +60,10 @@
         }
       ],
       "name": "InpFieldNull",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     }
   }
 }

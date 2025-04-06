@@ -39,7 +39,10 @@
         }
       ],
       "name": "AltOutpAlt",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "OutpAlt": {
       "$tag": "_TypeOutput",
@@ -57,7 +60,10 @@
         }
       ],
       "name": "OutpAlt",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

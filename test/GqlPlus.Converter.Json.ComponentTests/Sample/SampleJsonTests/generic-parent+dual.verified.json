@@ -9,7 +9,10 @@
         "$tag": "_DualBase",
         "value": "type"
       },
-      "typeKind": "Dual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
       "typeParams": [
         {
           "$tag": "_Named",

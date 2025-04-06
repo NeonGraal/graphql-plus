@@ -30,7 +30,10 @@
         }
       ],
       "name": "DualGnrcAltSmpl",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     },
     "RefDualGnrcAltSmpl": {
       "$tag": "_TypeDual",
@@ -48,7 +51,10 @@
         }
       ],
       "name": "RefDualGnrcAltSmpl",
-      "typeKind": "Dual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
       "typeParams": [
         {
           "$tag": "_Named",

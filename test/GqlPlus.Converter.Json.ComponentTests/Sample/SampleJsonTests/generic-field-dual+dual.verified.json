@@ -39,7 +39,10 @@
         }
       ],
       "name": "AltDualGnrcFieldDual",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     },
     "DualGnrcFieldDual": {
       "$tag": "_TypeDual",
@@ -77,7 +80,10 @@
         }
       ],
       "name": "DualGnrcFieldDual",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     },
     "RefDualGnrcFieldDual": {
       "$tag": "_TypeDual",
@@ -95,7 +101,10 @@
         }
       ],
       "name": "RefDualGnrcFieldDual",
-      "typeKind": "Dual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
       "typeParams": [
         {
           "$tag": "_Named",

@@ -39,7 +39,10 @@
         }
       ],
       "name": "AltOutpGnrcAltDual",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     },
     "OutpGnrcAltDual": {
       "$tag": "_TypeOutput",
@@ -69,7 +72,10 @@
         }
       ],
       "name": "OutpGnrcAltDual",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "RefOutpGnrcAltDual": {
       "$tag": "_TypeOutput",
@@ -87,7 +93,10 @@
         }
       ],
       "name": "RefOutpGnrcAltDual",
-      "typeKind": "Output",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
       "typeParams": [
         {
           "$tag": "_Named",

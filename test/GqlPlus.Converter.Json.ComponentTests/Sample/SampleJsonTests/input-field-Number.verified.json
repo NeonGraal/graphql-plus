@@ -28,7 +28,10 @@
         }
       ],
       "name": "InpFieldNmbr",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     }
   }
 }

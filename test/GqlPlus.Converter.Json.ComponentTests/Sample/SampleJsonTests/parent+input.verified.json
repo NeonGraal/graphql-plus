@@ -27,7 +27,10 @@
         "$tag": "_InputBase",
         "value": "RefInpPrnt"
       },
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     },
     "RefInpPrnt": {
       "$tag": "_TypeInput",
@@ -66,7 +69,10 @@
         }
       ],
       "name": "RefInpPrnt",
-      "typeKind": "Input"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
     }
   }
 }

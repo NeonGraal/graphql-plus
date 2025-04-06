@@ -6,7 +6,10 @@
       "$tag": "_TypeOutput",
       "description": "A simple description",
       "name": "Descr",
-      "typeKind": "Output"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     }
   }
 }

@@ -20,7 +20,10 @@
         }
       ],
       "name": "EnumDescr",
-      "typeKind": "Enum"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
     }
   }
 }

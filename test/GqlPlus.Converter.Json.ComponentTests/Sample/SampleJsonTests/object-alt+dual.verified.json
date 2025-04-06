@@ -18,12 +18,18 @@
         }
       ],
       "name": "DualObjAlt",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     },
     "DualObjAltType": {
       "$tag": "_TypeDual",
       "name": "DualObjAltType",
-      "typeKind": "Dual"
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     }
   }
 }

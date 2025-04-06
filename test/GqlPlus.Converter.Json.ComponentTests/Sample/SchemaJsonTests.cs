@@ -46,43 +46,25 @@ public class SchemaJsonTests(
   [Theory]
   [ClassData(typeof(SamplesSchemaData))]
   public async Task JsonSchema(string sample)
-  {
-    IGqlpSchema ast = await ParseSample("Schema", sample);
-
-    Structured result = ModelAsts([ast]);
-
-    await Verify(result.ToJson(), "json", CustomSettings("Schema", "Json", sample));
-  }
+    => await Verify_ModelFor([await ParseSample("Schema", sample)], sample, "Schema");
 
   [Theory]
   [ClassData(typeof(SamplesSchemaSpecificationData))]
   public async Task Json_Spec(string sample)
-  {
-    IGqlpSchema ast = await ParseSample("Spec", sample, "Specification");
-
-    Structured result = ModelAsts([ast]);
-
-    await Verify(result.ToJson(), "json", CustomSettings("Spec", "Json", sample));
-  }
+    => await Verify_ModelFor([await ParseSample("Spec", sample, "Specification")], sample, "Spec");
 
   private async Task Verify_Model(string input, string testDirectory, string test)
     => await Verify_Model([input], test);
 
   private async Task Verify_Model(IEnumerable<string> inputs, string test)
-  {
-    IEnumerable<IGqlpSchema> asts = inputs.Select(input => Parse(input, "Sample").Required());
+    => await Verify_ModelFor(inputs.Select(input => Parse(input, "Sample").Required()), test, "Sample");
 
-    Structured result = ModelAsts(asts);
-
-    await Verify(result.ToJson(), "json", CustomSettings("Sample", "Json", test));
-  }
-
-  private Structured ModelAsts(IEnumerable<IGqlpSchema> asts)
+  private async Task Verify_ModelFor(IEnumerable<IGqlpSchema> asts, string test, string label)
   {
     IGqlpSchema schema = schemaMerger.Merge(asts).First();
 
     Structured result = schemaRenderer.RenderAst(schema, schemaRenderer.WithBuiltIns());
 
-    return result;
+    await Verify(result.ToJson(), "json", CustomSettings(label, "Json", test));
   }
 }

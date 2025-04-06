@@ -19,7 +19,7 @@ internal sealed class SchemaGenerator(
     Typed<IGqlpSchemaOption>(ast).Generate(optionGenerator, context);
 
     context.AppendLine("*/\n");
-    context.AppendLine($"namespace {context.Options.BaseNamespace}.Model_" + context.File + ";");
+    context.AppendLine($"namespace {context.Options.BaseNamespace}.Model_" + context.SafeFile + ";");
 
     foreach (IGqlpType type in types) {
       ITypeGenerator generator = typeGenerators.Where(g => g.ForType(type)).FirstOrDefault() ?? s_default;

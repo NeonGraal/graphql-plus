@@ -4,7 +4,7 @@
 /*
 */
 
-namespace GqlTest.Model_Intro_Built-In;
+namespace GqlTest.Model_Intro_Built_In;
 
 public interface IOutput_Constant {}
 

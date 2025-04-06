@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Text.RegularExpressions;
 
 namespace GqlPlus;
 
@@ -21,6 +22,13 @@ internal sealed class GeneratorContext
 
   public string File { get; }
   public GqlModelOptions Options { get; }
+
+  public string SafeFile => Safe(File);
+
+  private readonly Regex _unsafeRegex = new(@"[^_a-zA-Z0-9]+");
+
+  public string Safe(string unsafeName)
+    => _unsafeRegex.Replace(unsafeName, "_");
 
   public void AppendLine(string text)
     => _builder.AppendLine(text);

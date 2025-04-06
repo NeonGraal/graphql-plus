@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Abstractions;
+using GqlPlus.Generating.Simple;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Generating;
@@ -19,6 +20,7 @@ public static class AllGenerators
       .AddDomainGenerator<EnumDomainGenerator>()
       .AddDomainGenerator<NumberDomainGenerator>()
       .AddDomainGenerator<StringDomainGenerator>()
+      .AddTypeGenerator<UnionGenerator>()
     ;
 
   private static IServiceCollection AddGenerator<TAst, TGenerator>(this IServiceCollection services)

@@ -1,0 +1,31 @@
+﻿//HintName: Model_union-parent-dup.gen.cs
+// Generated from union-parent-dup.graphql+
+
+/*
+*/
+
+namespace GqlTest.Model_union_parent_dup;
+
+public class IUnionPrntDup
+  : IPrntUnionPrntDup
+{
+  public Number AsNumber { get; }
+}
+
+public class UnionUnionPrntDup
+  : UnionPrntUnionPrntDup
+  , IUnionPrntDup
+{
+  public Number AsNumber { get; set; }
+}
+
+public class IPrntUnionPrntDup
+{
+  public Number AsNumber { get; }
+}
+
+public class UnionPrntUnionPrntDup
+  : IPrntUnionPrntDup
+{
+  public Number AsNumber { get; set; }
+}

@@ -24,7 +24,18 @@ public enum One {
   Three,
 }
 
-public interface IUnionMany {}
+public class IMany
+{
+  public Guid AsGuid { get; }
+  public Number AsNumber { get; }
+}
+
+public class UnionMany
+  : IMany
+{
+  public Guid AsGuid { get; set; }
+  public Number AsNumber { get; set; }
+}
 
 public interface IDualField {}
 

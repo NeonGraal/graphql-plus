@@ -1,5 +1,13 @@
-﻿// Generated from Sample descr-backslash
+﻿/* descr-backslash
+'A backslash ("\\") description'
+output DescrBcks { }
+*/
+
+// Generated from Sample descr-backslash
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_descr_backslash;
+
 public interface IOutputDescrBcks {}

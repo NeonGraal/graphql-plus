@@ -1,6 +1,15 @@
-﻿// Generated from Sample parent-param-diff+output
+﻿/* parent-param-diff+output
+output OutpPrntParamDiff<$a> { :RefOutpPrntParamDiff<$a> field: $a }
+output RefOutpPrntParamDiff<$b> { | $b }
+*/
+
+// Generated from Sample parent-param-diff+output
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_parent_param_diff_output;
+
 public interface IOutputOutpPrntParamDiff {}
+
 public interface IOutputRefOutpPrntParamDiff {}

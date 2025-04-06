@@ -1,6 +1,15 @@
-﻿// Generated from Sample parent-alt+output
+﻿/* parent-alt+output
+output OutpPrntAlt { :RefOutpPrntAlt | Number }
+output RefOutpPrntAlt {  parent: Number | String }
+*/
+
+// Generated from Sample parent-alt+output
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_parent_alt_output;
+
 public interface IOutputOutpPrntAlt {}
+
 public interface IOutputRefOutpPrntAlt {}

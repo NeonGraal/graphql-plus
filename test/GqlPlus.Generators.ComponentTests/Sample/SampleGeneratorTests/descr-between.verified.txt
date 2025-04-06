@@ -1,6 +1,15 @@
-﻿// Generated from Sample descr-between
+﻿/* descr-between
+category { DescrBtwn }
+"A description between"
+output DescrBtwn { }
+*/
+
+// Generated from Sample descr-between
+
 /*
 Category descrBtwn
 */
+
 namespace GqlPlus.Model_Sample_descr_between;
+
 public interface IOutputDescrBtwn {}

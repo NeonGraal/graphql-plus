@@ -55,7 +55,7 @@ public class SchemaGeneratorTests(
     => await schemaVerifier.Verify_ModelFor([await schemaVerifier.ParseSample("Spec", sample, "Specification")], sample, "Spec");
 
   private async Task Verify_Model(string input, string testDirectory, string test)
-    => await Verify_Model([input], test);
+    => await schemaVerifier.Verify_ModelFor([schemaVerifier.Parse(input, "Schema").Required()], test, "Sample", input);
 
   private async Task Verify_Model(IEnumerable<string> inputs, string test)
     => await schemaVerifier.Verify_ModelFor(inputs.Select(input => schemaVerifier.Parse(input, "Schema").Required()), test, "Sample");
@@ -68,7 +68,7 @@ internal sealed class SchemaGeneratorVerifier(
 ) : SchemaDataBase(schemaParser)
   , ISchemaGeneratorVerifier
 {
-  public async Task Verify_ModelFor(IEnumerable<IGqlpSchema> asts, string test, string label)
+  public async Task Verify_ModelFor(IEnumerable<IGqlpSchema> asts, string test, string label, string input = "")
   {
     IGqlpSchema schema = schemaMerger.Merge(asts).First();
 
@@ -76,7 +76,12 @@ internal sealed class SchemaGeneratorVerifier(
 
     schemaGenerator.Generate(schema, context);
 
-    await Verify(context.ToString(), CustomSettings(label, "Generator", test));
+    string result = context.ToString();
+    if (!string.IsNullOrWhiteSpace(input)) {
+      result = "/* " + test + "\r\n" + input.TrimEnd() + "\r\n*/\r\n\r\n" + result;
+    }
+
+    await Verify(result.TrimEnd(), CustomSettings(label, "Generator", test, false));
   }
 
   IResult<IGqlpSchema> ISchemaGeneratorVerifier.Parse(string schema, string label)
@@ -90,5 +95,5 @@ public interface ISchemaGeneratorVerifier
 {
   IResult<IGqlpSchema> Parse(string schema, string label);
   Task<IGqlpSchema> ParseSample(string label, string sample, params string[] dirs);
-  Task Verify_ModelFor(IEnumerable<IGqlpSchema> asts, string test, string label);
+  Task Verify_ModelFor(IEnumerable<IGqlpSchema> asts, string test, string label, string input = "");
 }

@@ -1,8 +1,17 @@
-﻿// Generated from Sample domain-enum-all-descr
+﻿/* domain-enum-all-descr
+domain DmnEnumAllDescr { enum "DomAll" "Descr" EnumDmnEnumAllDescr.* }
+enum EnumDmnEnumAllDescr { dmnEnumAllDescr enum_dmnEnumAllDescr }
+*/
+
+// Generated from Sample domain-enum-all-descr
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_domain_enum_all_descr;
+
 public interface IDomainDmnEnumAllDescr {}
+
 public enum EnumDmnEnumAllDescr {
   dmnEnumAllDescr,
   enum_dmnEnumAllDescr,

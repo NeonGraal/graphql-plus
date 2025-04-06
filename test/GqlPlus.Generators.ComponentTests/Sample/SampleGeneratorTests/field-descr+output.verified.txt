@@ -1,5 +1,12 @@
-﻿// Generated from Sample field-descr+output
+﻿/* field-descr+output
+output OutpFieldDescr { "Test" "Descr" field: * }
+*/
+
+// Generated from Sample field-descr+output
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_field_descr_output;
+
 public interface IOutputOutpFieldDescr {}

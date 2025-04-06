@@ -53,7 +53,7 @@ public class SchemaLinesTests(
 
     await CheckErrors("Schema", "", sample, context.Errors);
 
-    await Verify(result.ToLines(true), CustomSettings("Schema", "Lines", sample));
+    await Verify(result.ToLines(true).TrimEnd(), CustomSettings("Schema", "Lines", sample));
   }
 
   [Theory]
@@ -67,7 +67,7 @@ public class SchemaLinesTests(
 
     await CheckErrors("Schema", "Specification", sample, context.Errors);
 
-    await Verify(result.ToLines(true), CustomSettings("Spec", "Lines", sample));
+    await Verify(result.ToLines(true).TrimEnd(), CustomSettings("Spec", "Lines", sample));
   }
 
   private async Task Verify_Model(string input, string testDirectory, string test)
@@ -82,7 +82,7 @@ public class SchemaLinesTests(
     Structured result = ModelAsts(asts, context);
 
     context.Errors.ShouldBeEmpty(test);
-    await Verify(result.ToLines(true), CustomSettings("Sample", "Lines", test));
+    await Verify(result.ToLines(true).TrimEnd(), CustomSettings("Sample", "Lines", test));
   }
 
   private Structured ModelAsts(IEnumerable<IGqlpSchema> asts, ITypesContext context)

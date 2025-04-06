@@ -1,6 +1,16 @@
-﻿// Generated from Sample object-alt+input
+﻿/* object-alt+input
+input InpObjAlt { | InpObjAltType }
+input InpObjAlt { | InpObjAltType }
+input InpObjAltType { }
+*/
+
+// Generated from Sample object-alt+input
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_object_alt_input;
+
 public interface IInputInpObjAlt {}
+
 public interface IInputInpObjAltType {}

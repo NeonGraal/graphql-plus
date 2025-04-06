@@ -1,5 +1,14 @@
-﻿// Generated from Sample descrs
+﻿/* descrs
+"A simple doc"
+"With extra"
+output Dscrs { }
+*/
+
+// Generated from Sample descrs
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_descrs;
+
 public interface IOutputDscrs {}

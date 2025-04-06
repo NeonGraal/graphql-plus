@@ -1,6 +1,15 @@
-﻿// Generated from Sample parent-descr+output
+﻿/* parent-descr+output
+output OutpPrntDescr { : "Test" "Descr" RefOutpPrntDescr }
+output RefOutpPrntDescr { parent: Number | String }
+*/
+
+// Generated from Sample parent-descr+output
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_parent_descr_output;
+
 public interface IOutputOutpPrntDescr {}
+
 public interface IOutputRefOutpPrntDescr {}

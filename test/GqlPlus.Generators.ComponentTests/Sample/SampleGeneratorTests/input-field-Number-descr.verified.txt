@@ -1,5 +1,12 @@
-﻿// Generated from Sample input-field-Number-descr
+﻿/* input-field-Number-descr
+input InpFieldNmbrDescr { field: "Test" "Descr" Number = 0 }
+*/
+
+// Generated from Sample input-field-Number-descr
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_input_field_Number_descr;
+
 public interface IInputInpFieldNmbrDescr {}

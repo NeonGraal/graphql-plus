@@ -1,5 +1,12 @@
-﻿// Generated from Sample generic-field+output
+﻿/* generic-field+output
+output OutpGnrcField<$type> { field: $type }
+*/
+
+// Generated from Sample generic-field+output
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_generic_field_output;
+
 public interface IOutputOutpGnrcField {}

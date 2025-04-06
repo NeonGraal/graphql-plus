@@ -1,7 +1,15 @@
-﻿// Generated from Sample domain-alias
+﻿/* domain-alias
+domain DmnAlias [Num1] { number }
+domain DmnAlias [Num2] { number }
+*/
+
+// Generated from Sample domain-alias
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_domain_alias;
+
 public interface IDomainDmnAlias {
   decimal Value { get; set; }
 }

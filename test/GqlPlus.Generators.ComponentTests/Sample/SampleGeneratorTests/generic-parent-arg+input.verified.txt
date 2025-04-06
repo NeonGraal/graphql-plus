@@ -1,6 +1,15 @@
-﻿// Generated from Sample generic-parent-arg+input
+﻿/* generic-parent-arg+input
+input InpGnrcPrntArg<$type> { :RefInpGnrcPrntArg<$type> }
+input RefInpGnrcPrntArg<$ref> { | $ref }
+*/
+
+// Generated from Sample generic-parent-arg+input
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_generic_parent_arg_input;
+
 public interface IInputInpGnrcPrntArg {}
+
 public interface IInputRefInpGnrcPrntArg {}

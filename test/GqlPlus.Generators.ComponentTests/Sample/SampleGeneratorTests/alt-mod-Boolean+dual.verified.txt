@@ -1,6 +1,15 @@
-﻿// Generated from Sample alt-mod-Boolean+dual
+﻿/* alt-mod-Boolean+dual
+dual DualAltModBool { | AltDualAltModBool[^] }
+dual AltDualAltModBool { alt: Number | String }
+*/
+
+// Generated from Sample alt-mod-Boolean+dual
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_alt_mod_Boolean_dual;
+
 public interface IDualDualAltModBool {}
+
 public interface IDualAltDualAltModBool {}

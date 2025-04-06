@@ -1,7 +1,18 @@
-﻿// Generated from Sample generic-field-dual+dual
+﻿/* generic-field-dual+dual
+dual DualGnrcFieldDual { field: RefDualGnrcFieldDual<AltDualGnrcFieldDual> }
+dual RefDualGnrcFieldDual<$ref> { | $ref }
+dual AltDualGnrcFieldDual { alt: Number | String }
+*/
+
+// Generated from Sample generic-field-dual+dual
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_generic_field_dual_dual;
+
 public interface IDualDualGnrcFieldDual {}
+
 public interface IDualRefDualGnrcFieldDual {}
+
 public interface IDualAltDualGnrcFieldDual {}

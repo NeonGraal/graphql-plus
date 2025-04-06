@@ -63,6 +63,6 @@ public class SchemaJsonTests(
 
     Structured result = schemaRenderer.RenderAst(schema, schemaRenderer.WithBuiltIns());
 
-    await Verify(result.ToJson(), "json", CustomSettings(label, "Json", test));
+    await Verify(result.ToJson().TrimEnd(), "json", CustomSettings(label, "Json", test));
   }
 }

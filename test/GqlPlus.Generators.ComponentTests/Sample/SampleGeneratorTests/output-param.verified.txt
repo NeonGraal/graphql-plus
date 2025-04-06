@@ -1,7 +1,18 @@
-﻿// Generated from Sample output-param
+﻿/* output-param
+output OutpParam { field(InOutpParam): FldOutpParam }
+dual FldOutpParam { }
+input InOutpParam { param: Number | String }
+*/
+
+// Generated from Sample output-param
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_output_param;
+
 public interface IOutputOutpParam {}
+
 public interface IDualFldOutpParam {}
+
 public interface IInputInOutpParam {}

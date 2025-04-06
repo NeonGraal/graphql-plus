@@ -1,7 +1,18 @@
-﻿// Generated from Sample generic-param+input
+﻿/* generic-param+input
+input InpGnrcParam { field: InpGnrcParamRef<InpGnrcParamAlt> }
+input InpGnrcParamRef<$ref> { | $ref }
+input InpGnrcParamAlt { alt: Number | String }
+*/
+
+// Generated from Sample generic-param+input
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_generic_param_input;
+
 public interface IInputInpGnrcParam {}
+
 public interface IInputInpGnrcParamRef {}
+
 public interface IInputInpGnrcParamAlt {}

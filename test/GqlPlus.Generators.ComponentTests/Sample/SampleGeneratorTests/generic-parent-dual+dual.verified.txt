@@ -1,7 +1,18 @@
-﻿// Generated from Sample generic-parent-dual+dual
+﻿/* generic-parent-dual+dual
+dual DualGnrcPrntDual { :RefDualGnrcPrntDual<AltDualGnrcPrntDual> }
+dual RefDualGnrcPrntDual<$ref> { | $ref }
+dual AltDualGnrcPrntDual { alt: Number | String }
+*/
+
+// Generated from Sample generic-parent-dual+dual
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_generic_parent_dual_dual;
+
 public interface IDualDualGnrcPrntDual {}
+
 public interface IDualRefDualGnrcPrntDual {}
+
 public interface IDualAltDualGnrcPrntDual {}

@@ -1,7 +1,18 @@
-﻿// Generated from Sample generic-param+dual
+﻿/* generic-param+dual
+dual DualGnrcParam { field: DualGnrcParamRef<DualGnrcParamAlt> }
+dual DualGnrcParamRef<$ref> { | $ref }
+dual DualGnrcParamAlt { alt: Number | String }
+*/
+
+// Generated from Sample generic-param+dual
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_generic_param_dual;
+
 public interface IDualDualGnrcParam {}
+
 public interface IDualDualGnrcParamRef {}
+
 public interface IDualDualGnrcParamAlt {}

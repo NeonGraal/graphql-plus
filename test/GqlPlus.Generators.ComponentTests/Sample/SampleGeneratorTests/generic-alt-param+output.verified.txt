@@ -1,7 +1,18 @@
-﻿// Generated from Sample generic-alt-param+output
+﻿/* generic-alt-param+output
+output OutpGnrcAltParam { | RefOutpGnrcAltParam<AltOutpGnrcAltParam> }
+output RefOutpGnrcAltParam<$ref> { | $ref }
+output AltOutpGnrcAltParam { alt: Number | String }
+*/
+
+// Generated from Sample generic-alt-param+output
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_generic_alt_param_output;
+
 public interface IOutputOutpGnrcAltParam {}
+
 public interface IOutputRefOutpGnrcAltParam {}
+
 public interface IOutputAltOutpGnrcAltParam {}

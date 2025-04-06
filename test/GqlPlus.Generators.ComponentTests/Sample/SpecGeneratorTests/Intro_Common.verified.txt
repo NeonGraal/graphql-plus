@@ -1,11 +1,18 @@
 ﻿// Generated from Spec Intro_Common
+
 /*
 */
+
 namespace GqlPlus.Model_Spec_Intro_Common;
+
 public interface IOutput_Type {}
+
 public interface IOutput_BaseType {}
+
 public interface IOutput_ChildType {}
+
 public interface IOutput_ParentType {}
+
 public enum _SimpleKind {
   Basic,
   Enum,
@@ -13,6 +20,7 @@ public enum _SimpleKind {
   Domain,
   Union,
 }
+
 public enum _TypeKind {
   Basic = _SimpleKind.Basic,
   Enum = _SimpleKind.Enum,
@@ -23,5 +31,7 @@ public enum _TypeKind {
   Input,
   Output,
 }
+
 public interface IOutput_TypeRef {}
+
 public interface IOutput_TypeSimple {}

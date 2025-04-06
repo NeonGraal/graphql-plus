@@ -19,7 +19,7 @@ public class OperationParserTests(
 
     await CheckErrors("Operation", "", sample, ast!.Errors);
 
-    await Verify(ast?.Show(), CustomSettings("Sample", "Operation", sample));
+    await Verify(ast?.Show().TrimEnd(), CustomSettings("Sample", "Operation", sample));
   }
 
   [Theory]
@@ -28,7 +28,7 @@ public class OperationParserTests(
   {
     IGqlpOperation? ast = await ParseSampleOperation("GraphQl", example, "gql");
 
-    await Verify(ast?.Show(), CustomSettings("Sample", "GraphQl", example));
+    await Verify(ast?.Show().TrimEnd(), CustomSettings("Sample", "GraphQl", example));
   }
 
   private async Task<IGqlpOperation?> ParseSampleOperation(string dir, string sample, string extn)

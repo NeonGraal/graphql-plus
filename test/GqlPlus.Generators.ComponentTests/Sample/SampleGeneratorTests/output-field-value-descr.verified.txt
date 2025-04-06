@@ -1,8 +1,17 @@
-﻿// Generated from Sample output-field-value-descr
+﻿/* output-field-value-descr
+output OutpFieldValueDescr { field = "Test" "Descr" outpFieldValueDescr }
+enum EnumOutpFieldValueDescr { outpFieldValueDescr }
+*/
+
+// Generated from Sample output-field-value-descr
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_output_field_value_descr;
+
 public interface IOutputOutpFieldValueDescr {}
+
 public enum EnumOutpFieldValueDescr {
   outpFieldValueDescr,
 }

@@ -1,6 +1,15 @@
-﻿// Generated from Sample parent-field+dual
+﻿/* parent-field+dual
+dual DualPrntField { :RefDualPrntField field: Number }
+dual RefDualPrntField { parent: Number | String }
+*/
+
+// Generated from Sample parent-field+dual
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_parent_field_dual;
+
 public interface IDualDualPrntField {}
+
 public interface IDualRefDualPrntField {}

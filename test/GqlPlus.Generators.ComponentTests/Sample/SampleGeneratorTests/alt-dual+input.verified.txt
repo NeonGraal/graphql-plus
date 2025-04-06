@@ -1,6 +1,15 @@
-﻿// Generated from Sample alt-dual+input
+﻿/* alt-dual+input
+input InpAltDual { | InpDualAltDual }
+dual InpDualAltDual { alt: Number | String }
+*/
+
+// Generated from Sample alt-dual+input
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_alt_dual_input;
+
 public interface IInputInpAltDual {}
+
 public interface IDualInpDualAltDual {}

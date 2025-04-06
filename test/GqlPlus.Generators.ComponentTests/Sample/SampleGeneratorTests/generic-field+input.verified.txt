@@ -1,5 +1,12 @@
-﻿// Generated from Sample generic-field+input
+﻿/* generic-field+input
+input InpGnrcField<$type> { field: $type }
+*/
+
+// Generated from Sample generic-field+input
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_generic_field_input;
+
 public interface IInputInpGnrcField {}

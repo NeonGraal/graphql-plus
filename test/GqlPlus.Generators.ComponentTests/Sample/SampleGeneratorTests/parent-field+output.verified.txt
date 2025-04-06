@@ -1,6 +1,15 @@
-﻿// Generated from Sample parent-field+output
+﻿/* parent-field+output
+output OutpPrntField { :RefOutpPrntField field: Number }
+output RefOutpPrntField { parent: Number | String }
+*/
+
+// Generated from Sample parent-field+output
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_parent_field_output;
+
 public interface IOutputOutpPrntField {}
+
 public interface IOutputRefOutpPrntField {}

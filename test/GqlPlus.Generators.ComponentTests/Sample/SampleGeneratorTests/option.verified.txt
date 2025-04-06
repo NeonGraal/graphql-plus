@@ -1,5 +1,12 @@
-﻿// Generated from Sample option
+﻿/* option
+option Schema { }
+option Schema { }
+*/
+
+// Generated from Sample option
+
 /*
 Option Schema
 */
+
 namespace GqlPlus.Model_Sample_option;

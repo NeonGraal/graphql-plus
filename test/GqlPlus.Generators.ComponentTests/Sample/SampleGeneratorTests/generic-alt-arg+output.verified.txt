@@ -1,6 +1,15 @@
-﻿// Generated from Sample generic-alt-arg+output
+﻿/* generic-alt-arg+output
+output OutpGnrcAltArg<$type> { | RefOutpGnrcAltArg<$type> }
+output RefOutpGnrcAltArg<$ref> { | $ref }
+*/
+
+// Generated from Sample generic-alt-arg+output
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_generic_alt_arg_output;
+
 public interface IOutputOutpGnrcAltArg {}
+
 public interface IOutputRefOutpGnrcAltArg {}

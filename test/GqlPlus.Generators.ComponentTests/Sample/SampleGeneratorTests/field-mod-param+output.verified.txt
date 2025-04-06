@@ -1,6 +1,15 @@
-﻿// Generated from Sample field-mod-param+output
+﻿/* field-mod-param+output
+output OutpFieldModParam<$mod> { field: FldOutpFieldModParam[$mod] }
+output FldOutpFieldModParam { field: Number | String }
+*/
+
+// Generated from Sample field-mod-param+output
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_field_mod_param_output;
+
 public interface IOutputOutpFieldModParam {}
+
 public interface IOutputFldOutpFieldModParam {}

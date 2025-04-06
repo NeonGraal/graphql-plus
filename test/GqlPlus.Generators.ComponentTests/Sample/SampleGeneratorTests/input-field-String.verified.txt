@@ -1,5 +1,12 @@
-﻿// Generated from Sample input-field-String
+﻿/* input-field-String
+input InpFieldStr { field: String = '' }
+*/
+
+// Generated from Sample input-field-String
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_input_field_String;
+
 public interface IInputInpFieldStr {}

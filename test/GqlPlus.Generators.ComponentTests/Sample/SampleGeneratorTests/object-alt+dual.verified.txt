@@ -1,6 +1,16 @@
-﻿// Generated from Sample object-alt+dual
+﻿/* object-alt+dual
+dual DualObjAlt { | DualObjAltType }
+dual DualObjAlt { | DualObjAltType }
+dual DualObjAltType { }
+*/
+
+// Generated from Sample object-alt+dual
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_object_alt_dual;
+
 public interface IDualDualObjAlt {}
+
 public interface IDualDualObjAltType {}

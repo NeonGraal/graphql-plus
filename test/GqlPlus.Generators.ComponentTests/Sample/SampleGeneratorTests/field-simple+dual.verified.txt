@@ -1,5 +1,12 @@
-﻿// Generated from Sample field-simple+dual
+﻿/* field-simple+dual
+dual DualFieldSmpl { field: Number }
+*/
+
+// Generated from Sample field-simple+dual
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_field_simple_dual;
+
 public interface IDualDualFieldSmpl {}

@@ -1,12 +1,23 @@
-﻿// Generated from Sample output-field-enum-parent
+﻿/* output-field-enum-parent
+output OutpFieldEnumPrnt { field = EnumOutpFieldEnumPrnt.prnt_outpFieldEnumPrnt }
+enum EnumOutpFieldEnumPrnt { :PrntOutpFieldEnumPrnt outpFieldEnumPrnt }
+enum PrntOutpFieldEnumPrnt { prnt_outpFieldEnumPrnt }
+*/
+
+// Generated from Sample output-field-enum-parent
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_output_field_enum_parent;
+
 public interface IOutputOutpFieldEnumPrnt {}
+
 public enum EnumOutpFieldEnumPrnt {
   prnt_outpFieldEnumPrnt = PrntOutpFieldEnumPrnt.prnt_outpFieldEnumPrnt,
   outpFieldEnumPrnt,
 }
+
 public enum PrntOutpFieldEnumPrnt {
   prnt_outpFieldEnumPrnt,
 }

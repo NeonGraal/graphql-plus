@@ -18,7 +18,7 @@ public class SchemaParserTests(
 
     await CheckErrors("Schema", "", sample, ast.Errors);
 
-    await Verify(ast.Show(), CustomSettings("Sample", "Schema", sample));
+    await Verify(ast.Show().TrimEnd(), CustomSettings("Sample", "Schema", sample));
   }
 
   [Theory]
@@ -29,7 +29,7 @@ public class SchemaParserTests(
 
     await CheckErrors("Schema", "Specification", sample, ast.Errors);
 
-    await Verify(ast.Show(), CustomSettings("Sample", "Specification", sample));
+    await Verify(ast.Show().TrimEnd(), CustomSettings("Sample", "Specification", sample));
   }
 
   [Fact]

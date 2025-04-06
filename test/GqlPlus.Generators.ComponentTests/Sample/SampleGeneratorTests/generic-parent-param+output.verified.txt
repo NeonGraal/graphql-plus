@@ -1,7 +1,18 @@
-﻿// Generated from Sample generic-parent-param+output
+﻿/* generic-parent-param+output
+output OutpGnrcPrntParam { :RefOutpGnrcPrntParam<AltOutpGnrcPrntParam> }
+output RefOutpGnrcPrntParam<$ref> { | $ref }
+output AltOutpGnrcPrntParam { alt: Number | String }
+*/
+
+// Generated from Sample generic-parent-param+output
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_generic_parent_param_output;
+
 public interface IOutputOutpGnrcPrntParam {}
+
 public interface IOutputRefOutpGnrcPrntParam {}
+
 public interface IOutputAltOutpGnrcPrntParam {}

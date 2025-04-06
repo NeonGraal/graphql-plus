@@ -1,6 +1,15 @@
-﻿// Generated from Sample category
+﻿/* category
+category { Ctgr }
+category ctgr { Ctgr }
+output Ctgr { }
+*/
+
+// Generated from Sample category
+
 /*
 Category ctgr
 */
+
 namespace GqlPlus.Model_Sample_category;
+
 public interface IOutputCtgr {}

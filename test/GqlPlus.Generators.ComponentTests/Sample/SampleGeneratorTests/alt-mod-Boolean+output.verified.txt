@@ -1,6 +1,15 @@
-﻿// Generated from Sample alt-mod-Boolean+output
+﻿/* alt-mod-Boolean+output
+output OutpAltModBool { | AltOutpAltModBool[^] }
+output AltOutpAltModBool { alt: Number | String }
+*/
+
+// Generated from Sample alt-mod-Boolean+output
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_alt_mod_Boolean_output;
+
 public interface IOutputOutpAltModBool {}
+
 public interface IOutputAltOutpAltModBool {}

@@ -1,8 +1,17 @@
-﻿// Generated from Sample domain-enum-label
+﻿/* domain-enum-label
+domain DmnEnumLabel { enum dmnEnumLabel }
+enum EnumDmnEnumLabel { dmnEnumLabel }
+*/
+
+// Generated from Sample domain-enum-label
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_domain_enum_label;
+
 public interface IDomainDmnEnumLabel {}
+
 public enum EnumDmnEnumLabel {
   dmnEnumLabel,
 }

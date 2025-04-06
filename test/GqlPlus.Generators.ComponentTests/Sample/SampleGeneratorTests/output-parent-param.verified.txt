@@ -1,9 +1,24 @@
-﻿// Generated from Sample output-parent-param
+﻿/* output-parent-param
+output OutpPrntParam { :PrntOutpPrntParam field(InOutpPrntParam): FldOutpPrntParam }
+output PrntOutpPrntParam { field(PrntOutpPrntParamIn): FldOutpPrntParam }
+dual FldOutpPrntParam { }
+input InOutpPrntParam { param: Number | String }
+input PrntOutpPrntParamIn { parent: Number | String }
+*/
+
+// Generated from Sample output-parent-param
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_output_parent_param;
+
 public interface IOutputOutpPrntParam {}
+
 public interface IOutputPrntOutpPrntParam {}
+
 public interface IDualFldOutpPrntParam {}
+
 public interface IInputInOutpPrntParam {}
+
 public interface IInputPrntOutpPrntParamIn {}

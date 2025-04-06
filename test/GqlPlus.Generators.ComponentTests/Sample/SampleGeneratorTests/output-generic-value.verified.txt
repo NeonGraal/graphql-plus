@@ -1,9 +1,20 @@
-﻿// Generated from Sample output-generic-value
+﻿/* output-generic-value
+output OutpGnrcValue { | RefOutpGnrcValue<outpGnrcValue> }
+output RefOutpGnrcValue<$type> { field: $type }
+enum EnumOutpGnrcValue { outpGnrcValue }
+*/
+
+// Generated from Sample output-generic-value
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_output_generic_value;
+
 public interface IOutputOutpGnrcValue {}
+
 public interface IOutputRefOutpGnrcValue {}
+
 public enum EnumOutpGnrcValue {
   outpGnrcValue,
 }

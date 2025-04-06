@@ -1,7 +1,18 @@
-﻿// Generated from Sample output-param-type-descr
+﻿/* output-param-type-descr
+output OutpParamTypeDescr { field(InOutpParamTypeDescr): "Test" "Descr" FldOutpParamTypeDescr }
+dual FldOutpParamTypeDescr { }
+input InOutpParamTypeDescr { param: Number | String }
+*/
+
+// Generated from Sample output-param-type-descr
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_output_param_type_descr;
+
 public interface IOutputOutpParamTypeDescr {}
+
 public interface IDualFldOutpParamTypeDescr {}
+
 public interface IInputInOutpParamTypeDescr {}

@@ -1,8 +1,17 @@
-﻿// Generated from Sample domain-enum-all
+﻿/* domain-enum-all
+domain DmnEnumAll { enum EnumDmnEnumAll.* }
+enum EnumDmnEnumAll { dmnEnumAll enum_dmnEnumAll }
+*/
+
+// Generated from Sample domain-enum-all
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_domain_enum_all;
+
 public interface IDomainDmnEnumAll {}
+
 public enum EnumDmnEnumAll {
   dmnEnumAll,
   enum_dmnEnumAll,

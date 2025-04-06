@@ -1,12 +1,23 @@
-﻿// Generated from Sample domain-enum-value-parent
+﻿/* domain-enum-value-parent
+domain DmnEnumValuePrnt { Enum EnumDmnEnumValuePrnt.prnt_dmnEnumValuePrnt }
+enum EnumDmnEnumValuePrnt { :PrntDmnEnumValuePrnt dmnEnumValuePrnt } 
+enum PrntDmnEnumValuePrnt { prnt_dmnEnumValuePrnt }
+*/
+
+// Generated from Sample domain-enum-value-parent
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_domain_enum_value_parent;
+
 public interface IDomainDmnEnumValuePrnt {}
+
 public enum EnumDmnEnumValuePrnt {
   prnt_dmnEnumValuePrnt = PrntDmnEnumValuePrnt.prnt_dmnEnumValuePrnt,
   dmnEnumValuePrnt,
 }
+
 public enum PrntDmnEnumValuePrnt {
   prnt_dmnEnumValuePrnt,
 }

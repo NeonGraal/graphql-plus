@@ -1,5 +1,13 @@
-﻿// Generated from Sample descr-single
+﻿/* descr-single
+'A "single-quoted" description'
+output DescrSngl { }
+*/
+
+// Generated from Sample descr-single
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_descr_single;
+
 public interface IOutputDescrSngl {}

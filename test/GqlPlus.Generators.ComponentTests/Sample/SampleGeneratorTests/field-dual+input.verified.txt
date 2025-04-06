@@ -1,6 +1,15 @@
-﻿// Generated from Sample field-dual+input
+﻿/* field-dual+input
+input InpFieldDual { field: FldInpFieldDual }
+dual FldInpFieldDual { field: Number | String }
+*/
+
+// Generated from Sample field-dual+input
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_field_dual_input;
+
 public interface IInputInpFieldDual {}
+
 public interface IDualFldInpFieldDual {}

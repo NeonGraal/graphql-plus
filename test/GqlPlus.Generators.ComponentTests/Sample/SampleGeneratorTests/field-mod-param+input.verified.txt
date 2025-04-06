@@ -1,6 +1,15 @@
-﻿// Generated from Sample field-mod-param+input
+﻿/* field-mod-param+input
+input InpFieldModParam<$mod> { field: FldInpFieldModParam[$mod] }
+input FldInpFieldModParam { field: Number | String }
+*/
+
+// Generated from Sample field-mod-param+input
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_field_mod_param_input;
+
 public interface IInputInpFieldModParam {}
+
 public interface IInputFldInpFieldModParam {}

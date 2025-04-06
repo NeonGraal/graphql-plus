@@ -1,7 +1,18 @@
-﻿// Generated from Sample generic-dual+input
+﻿/* generic-dual+input
+input InpGnrcDual { field: InpGnrcDualRef<InpGnrcDualAlt> }
+input InpGnrcDualRef<$ref> { | $ref }
+dual InpGnrcDualAlt { alt: Number | String }
+*/
+
+// Generated from Sample generic-dual+input
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_generic_dual_input;
+
 public interface IInputInpGnrcDual {}
+
 public interface IInputInpGnrcDualRef {}
+
 public interface IDualInpGnrcDualAlt {}

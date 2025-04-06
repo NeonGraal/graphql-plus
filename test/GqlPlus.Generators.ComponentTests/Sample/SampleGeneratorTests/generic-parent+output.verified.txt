@@ -1,5 +1,12 @@
-﻿// Generated from Sample generic-parent+output
+﻿/* generic-parent+output
+output OutpGnrcPrnt<$type> { :$type }
+*/
+
+// Generated from Sample generic-parent+output
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_generic_parent_output;
+
 public interface IOutputOutpGnrcPrnt {}

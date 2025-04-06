@@ -1,6 +1,15 @@
-﻿// Generated from Sample generic-alt-simple+input
+﻿/* generic-alt-simple+input
+input InpGnrcAltSmpl { | RefInpGnrcAltSmpl<String> }
+input RefInpGnrcAltSmpl<$ref> { | $ref }
+*/
+
+// Generated from Sample generic-alt-simple+input
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_generic_alt_simple_input;
+
 public interface IInputInpGnrcAltSmpl {}
+
 public interface IInputRefInpGnrcAltSmpl {}

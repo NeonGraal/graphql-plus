@@ -1,6 +1,14 @@
-﻿// Generated from Sample category-output-list
+﻿/* category-output-list
+category { CtgrOutpList[] }
+output CtgrOutpList { }
+*/
+
+// Generated from Sample category-output-list
+
 /*
 Category ctgrOutpList
 */
+
 namespace GqlPlus.Model_Sample_category_output_list;
+
 public interface IOutputCtgrOutpList {}

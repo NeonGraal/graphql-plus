@@ -1,7 +1,15 @@
-﻿// Generated from Sample enum-diff
+﻿/* enum-diff
+enum EnumDiff { one }
+enum EnumDiff { two }
+*/
+
+// Generated from Sample enum-diff
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_enum_diff;
+
 public enum EnumDiff {
   one,
 }

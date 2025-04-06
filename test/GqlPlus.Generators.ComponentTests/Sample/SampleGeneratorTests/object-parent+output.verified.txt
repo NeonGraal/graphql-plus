@@ -1,6 +1,16 @@
-﻿// Generated from Sample object-parent+output
+﻿/* object-parent+output
+output OutpObjPrnt { :RefOutpObjPrnt }
+output OutpObjPrnt { :RefOutpObjPrnt }
+output RefOutpObjPrnt { }
+*/
+
+// Generated from Sample object-parent+output
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_object_parent_output;
+
 public interface IOutputOutpObjPrnt {}
+
 public interface IOutputRefOutpObjPrnt {}

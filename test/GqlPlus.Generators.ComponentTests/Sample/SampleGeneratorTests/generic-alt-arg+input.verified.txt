@@ -1,6 +1,15 @@
-﻿// Generated from Sample generic-alt-arg+input
+﻿/* generic-alt-arg+input
+input InpGnrcAltArg<$type> { | RefInpGnrcAltArg<$type> }
+input RefInpGnrcAltArg<$ref> { | $ref }
+*/
+
+// Generated from Sample generic-alt-arg+input
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_generic_alt_arg_input;
+
 public interface IInputInpGnrcAltArg {}
+
 public interface IInputRefInpGnrcAltArg {}

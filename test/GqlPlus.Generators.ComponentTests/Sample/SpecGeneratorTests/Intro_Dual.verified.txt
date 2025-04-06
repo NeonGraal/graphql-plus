@@ -1,9 +1,16 @@
 ﻿// Generated from Spec Intro_Dual
+
 /*
 */
+
 namespace GqlPlus.Model_Spec_Intro_Dual;
+
 public interface IOutput_TypeDual {}
+
 public interface IOutput_DualBase {}
+
 public interface IOutput_DualField {}
+
 public interface IOutput_DualAlternate {}
+
 public interface IOutput_DualTypeArg {}

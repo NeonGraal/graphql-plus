@@ -1,6 +1,16 @@
-﻿// Generated from Sample category-descrs
+﻿/* category-descrs
+"A Category"
+"described"
+category { CtgrDscrs }
+output CtgrDscrs { }
+*/
+
+// Generated from Sample category-descrs
+
 /*
 Category ctgrDscrs
 */
+
 namespace GqlPlus.Model_Sample_category_descrs;
+
 public interface IOutputCtgrDscrs {}

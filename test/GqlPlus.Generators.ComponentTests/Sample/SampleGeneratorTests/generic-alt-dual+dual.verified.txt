@@ -1,7 +1,18 @@
-﻿// Generated from Sample generic-alt-dual+dual
+﻿/* generic-alt-dual+dual
+dual DualGnrcAltDual { | RefDualGnrcAltDual<AltDualGnrcAltDual> }
+dual RefDualGnrcAltDual<$ref> { | $ref }
+dual AltDualGnrcAltDual { alt: Number | String }
+*/
+
+// Generated from Sample generic-alt-dual+dual
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_generic_alt_dual_dual;
+
 public interface IDualDualGnrcAltDual {}
+
 public interface IDualRefDualGnrcAltDual {}
+
 public interface IDualAltDualGnrcAltDual {}

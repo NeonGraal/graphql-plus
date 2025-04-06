@@ -1,7 +1,15 @@
-﻿// Generated from Sample domain-string-parent
+﻿/* domain-string-parent
+domain DmnStrPrnt { :PrntDmnStrPrnt String /a+/ }
+domain PrntDmnStrPrnt { String /b+/ }
+*/
+
+// Generated from Sample domain-string-parent
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_domain_string_parent;
+
 public interface IDomainDmnStrPrnt : IDomainPrntDmnStrPrnt {
   string Value { get; set; }
 }
@@ -12,6 +20,7 @@ public class DomainDmnStrPrnt
   string _value;
   string Value { get => _value; set => CheckAndSet(value); }
 }
+
 public interface IDomainPrntDmnStrPrnt {
   string Value { get; set; }
 }

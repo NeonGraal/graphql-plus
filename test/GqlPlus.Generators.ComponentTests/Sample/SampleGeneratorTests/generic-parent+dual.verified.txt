@@ -1,5 +1,12 @@
-﻿// Generated from Sample generic-parent+dual
+﻿/* generic-parent+dual
+dual DualGnrcPrnt<$type> { :$type }
+*/
+
+// Generated from Sample generic-parent+dual
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_generic_parent_dual;
+
 public interface IDualDualGnrcPrnt {}

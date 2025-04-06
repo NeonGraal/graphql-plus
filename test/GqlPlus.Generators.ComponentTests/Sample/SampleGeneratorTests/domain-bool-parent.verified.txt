@@ -1,7 +1,15 @@
-﻿// Generated from Sample domain-bool-parent
+﻿/* domain-bool-parent
+domain DmnBoolPrnt { :PrntDmnBoolPrnt Boolean false }
+domain PrntDmnBoolPrnt { Boolean true }
+*/
+
+// Generated from Sample domain-bool-parent
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_domain_bool_parent;
+
 public interface IDomainDmnBoolPrnt : IDomainPrntDmnBoolPrnt {
   bool Value { get; set; }
 }
@@ -10,6 +18,7 @@ public class DomainDmnBoolPrnt
   , IDomainDmnBoolPrnt
 {
 }
+
 public interface IDomainPrntDmnBoolPrnt {
   bool Value { get; set; }
 }

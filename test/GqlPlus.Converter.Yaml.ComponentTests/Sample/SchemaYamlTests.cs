@@ -65,6 +65,6 @@ public class SchemaYamlTests(
     ITypesContext context = schemaRenderer.WithBuiltIns();
     Structured result = schemaRenderer.RenderAst(schema, context);
 
-    await Verify(result.ToYaml(true), CustomSettings(label, "Yaml", test));
+    await Verify(result.ToYaml(true).TrimEnd(), CustomSettings(label, "Yaml", test));
   }
 }

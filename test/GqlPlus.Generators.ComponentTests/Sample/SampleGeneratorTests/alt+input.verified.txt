@@ -1,6 +1,15 @@
-﻿// Generated from Sample alt+input
+﻿/* alt+input
+input InpAlt { | AltInpAlt }
+input AltInpAlt { alt: Number | String }
+*/
+
+// Generated from Sample alt+input
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_alt_input;
+
 public interface IInputInpAlt {}
+
 public interface IInputAltInpAlt {}

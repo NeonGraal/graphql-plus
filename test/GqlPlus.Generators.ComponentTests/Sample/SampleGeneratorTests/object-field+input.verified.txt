@@ -1,6 +1,16 @@
-﻿// Generated from Sample object-field+input
+﻿/* object-field+input
+input InpObjField { field: FldInpObjField }
+input InpObjField { field: FldInpObjField }
+input FldInpObjField { }
+*/
+
+// Generated from Sample object-field+input
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_object_field_input;
+
 public interface IInputInpObjField {}
+
 public interface IInputFldInpObjField {}

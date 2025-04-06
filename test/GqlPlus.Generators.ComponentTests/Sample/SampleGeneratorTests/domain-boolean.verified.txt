@@ -1,7 +1,15 @@
-﻿// Generated from Sample domain-boolean
+﻿/* domain-boolean
+domain DmnBool { boolean }
+domain DmnBool { boolean }
+*/
+
+// Generated from Sample domain-boolean
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_domain_boolean;
+
 public interface IDomainDmnBool {
   bool Value { get; set; }
 }

@@ -1,9 +1,20 @@
-﻿// Generated from Sample output-param-mod-Domain
+﻿/* output-param-mod-Domain
+output OutpParamModDmn { field(InOutpParamModDmn[DomOutpParamModDmn]): DomOutpParamModDmn }
+input InOutpParamModDmn { param: Number | String }
+domain DomOutpParamModDmn { number 1 ~ 10 }
+*/
+
+// Generated from Sample output-param-mod-Domain
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_output_param_mod_Domain;
+
 public interface IOutputOutpParamModDmn {}
+
 public interface IInputInOutpParamModDmn {}
+
 public interface IDomainDomOutpParamModDmn {
   decimal Value { get; set; }
 }

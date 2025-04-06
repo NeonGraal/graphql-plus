@@ -1,5 +1,13 @@
-﻿// Generated from Sample object-alias+output
+﻿/* object-alias+output
+output OutpObjAlias [Outp1] { }
+output OutpObjAlias [Outp2] { }
+*/
+
+// Generated from Sample object-alias+output
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_object_alias_output;
+
 public interface IOutputOutpObjAlias {}

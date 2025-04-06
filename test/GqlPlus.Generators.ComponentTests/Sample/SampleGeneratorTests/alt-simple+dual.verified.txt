@@ -1,5 +1,12 @@
-﻿// Generated from Sample alt-simple+dual
+﻿/* alt-simple+dual
+dual DualAltSmpl { | String }
+*/
+
+// Generated from Sample alt-simple+dual
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_alt_simple_dual;
+
 public interface IDualDualAltSmpl {}

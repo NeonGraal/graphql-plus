@@ -1,6 +1,15 @@
-﻿// Generated from Sample input-field-null
+﻿/* input-field-null
+input InpFieldNull { field: FldInpFieldNull? = null }
+dual FldInpFieldNull { }
+*/
+
+// Generated from Sample input-field-null
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_input_field_null;
+
 public interface IInputInpFieldNull {}
+
 public interface IDualFldInpFieldNull {}

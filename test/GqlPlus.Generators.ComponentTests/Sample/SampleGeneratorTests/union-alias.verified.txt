@@ -1,12 +1,21 @@
-﻿// Generated from Sample union-alias
+﻿/* union-alias
+union UnionAlias [UnA1] { Boolean }
+union UnionAlias [UnA2] { Number }
+*/
+
+// Generated from Sample union-alias
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_union_alias;
+
 public class IUnionAlias
 {
   public Boolean AsBoolean { get; }
   public Number AsNumber { get; }
 }
+
 public class UnionUnionAlias
   : IUnionAlias
 {

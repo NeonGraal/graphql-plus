@@ -1,5 +1,12 @@
-﻿// Generated from Sample alt-simple+input
+﻿/* alt-simple+input
+input InpAltSmpl { | String }
+*/
+
+// Generated from Sample alt-simple+input
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_alt_simple_input;
+
 public interface IInputInpAltSmpl {}

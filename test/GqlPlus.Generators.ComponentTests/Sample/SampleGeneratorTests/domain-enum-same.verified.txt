@@ -1,5 +1,13 @@
-﻿// Generated from Sample domain-enum-same
+﻿/* domain-enum-same
+domain DmnEnumSame { enum true }
+domain DmnEnumSame { enum true }
+*/
+
+// Generated from Sample domain-enum-same
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_domain_enum_same;
+
 public interface IDomainDmnEnumSame {}

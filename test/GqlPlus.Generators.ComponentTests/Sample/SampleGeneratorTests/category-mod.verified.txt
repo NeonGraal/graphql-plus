@@ -1,6 +1,15 @@
-﻿// Generated from Sample category-mod
+﻿/* category-mod
+category [CatM1] { CtgrMod? }
+category [CatM2] { CtgrMod? }
+output CtgrMod { }
+*/
+
+// Generated from Sample category-mod
+
 /*
 Category ctgrMod
 */
+
 namespace GqlPlus.Model_Sample_category_mod;
+
 public interface IOutputCtgrMod {}

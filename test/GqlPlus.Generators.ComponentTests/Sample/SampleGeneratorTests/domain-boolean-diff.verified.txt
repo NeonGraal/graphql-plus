@@ -1,7 +1,15 @@
-﻿// Generated from Sample domain-boolean-diff
+﻿/* domain-boolean-diff
+domain DmnBoolDiff { boolean true }
+domain DmnBoolDiff { boolean false }
+*/
+
+// Generated from Sample domain-boolean-diff
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_domain_boolean_diff;
+
 public interface IDomainDmnBoolDiff {
   bool Value { get; set; }
 }

@@ -1,5 +1,11 @@
-﻿// Generated from Sample option-schema-alias
+﻿/* option-schema-alias
+option Schema [Alias] { }
+*/
+
+// Generated from Sample option-schema-alias
+
 /*
 Option Schema
 */
+
 namespace GqlPlus.Model_Sample_option_schema_alias;

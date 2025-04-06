@@ -1,5 +1,12 @@
-﻿// Generated from Sample generic-descr+input
+﻿/* generic-descr+input
+input InpGnrcDescr<"Test" "Descr" $type> { field: $type }
+*/
+
+// Generated from Sample generic-descr+input
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_generic_descr_input;
+
 public interface IInputInpGnrcDescr {}

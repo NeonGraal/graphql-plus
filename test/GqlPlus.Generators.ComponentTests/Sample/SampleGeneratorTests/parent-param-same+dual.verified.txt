@@ -1,6 +1,15 @@
-﻿// Generated from Sample parent-param-same+dual
+﻿/* parent-param-same+dual
+dual DualPrntParamSame<$a> { :RefDualPrntParamSame<$a> field: $a }
+dual RefDualPrntParamSame<$a> { | $a }
+*/
+
+// Generated from Sample parent-param-same+dual
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_parent_param_same_dual;
+
 public interface IDualDualPrntParamSame {}
+
 public interface IDualRefDualPrntParamSame {}

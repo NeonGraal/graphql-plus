@@ -1,6 +1,15 @@
-﻿// Generated from Sample parent-param-diff+input
+﻿/* parent-param-diff+input
+input InpPrntParamDiff<$a> { :RefInpPrntParamDiff<$a> field: $a }
+input RefInpPrntParamDiff<$b> { | $b }
+*/
+
+// Generated from Sample parent-param-diff+input
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_parent_param_diff_input;
+
 public interface IInputInpPrntParamDiff {}
+
 public interface IInputRefInpPrntParamDiff {}

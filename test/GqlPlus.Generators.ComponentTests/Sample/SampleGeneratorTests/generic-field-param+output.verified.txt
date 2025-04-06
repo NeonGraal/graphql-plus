@@ -1,7 +1,18 @@
-﻿// Generated from Sample generic-field-param+output
+﻿/* generic-field-param+output
+output OutpGnrcFieldParam { field: RefOutpGnrcFieldParam<AltOutpGnrcFieldParam> }
+output RefOutpGnrcFieldParam<$ref> { | $ref }
+output AltOutpGnrcFieldParam { alt: Number | String }
+*/
+
+// Generated from Sample generic-field-param+output
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_generic_field_param_output;
+
 public interface IOutputOutpGnrcFieldParam {}
+
 public interface IOutputRefOutpGnrcFieldParam {}
+
 public interface IOutputAltOutpGnrcFieldParam {}

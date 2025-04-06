@@ -1,6 +1,14 @@
-﻿// Generated from Sample category-output-dict
+﻿/* category-output-dict
+category { CtgrOutpDict[*] }
+output CtgrOutpDict { }
+*/
+
+// Generated from Sample category-output-dict
+
 /*
 Category ctgrOutpDict
 */
+
 namespace GqlPlus.Model_Sample_category_output_dict;
+
 public interface IOutputCtgrOutpDict {}

@@ -1,5 +1,13 @@
-﻿// Generated from Sample object-param+input
+﻿/* object-param+input
+input InpObjParam<$test> { test: $test }
+input InpObjParam<$type> { type: $type }
+*/
+
+// Generated from Sample object-param+input
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_object_param_input;
+
 public interface IInputInpObjParam {}

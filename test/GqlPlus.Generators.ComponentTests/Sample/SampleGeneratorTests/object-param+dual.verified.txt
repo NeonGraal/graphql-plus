@@ -1,5 +1,13 @@
-﻿// Generated from Sample object-param+dual
+﻿/* object-param+dual
+dual DualObjParam<$test> { test: $test }
+dual DualObjParam<$type> { type: $type }
+*/
+
+// Generated from Sample object-param+dual
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_object_param_dual;
+
 public interface IDualDualObjParam {}

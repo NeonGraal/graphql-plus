@@ -1,6 +1,14 @@
-﻿// Generated from Sample directive-param-list
+﻿/* directive-param-list
+directive @DrctParamList(InDrctParamList[]) { all }
+input InDrctParamList { }
+*/
+
+// Generated from Sample directive-param-list
+
 /*
 Directive DrctParamList
 */
+
 namespace GqlPlus.Model_Sample_directive_param_list;
+
 public interface IInputInDrctParamList {}

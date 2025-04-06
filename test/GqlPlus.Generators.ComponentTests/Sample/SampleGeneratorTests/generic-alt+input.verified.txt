@@ -1,5 +1,12 @@
-﻿// Generated from Sample generic-alt+input
+﻿/* generic-alt+input
+input InpGnrcAlt<$type> { | $type }
+*/
+
+// Generated from Sample generic-alt+input
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_generic_alt_input;
+
 public interface IInputInpGnrcAlt {}

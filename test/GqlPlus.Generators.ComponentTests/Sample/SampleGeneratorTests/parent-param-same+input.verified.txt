@@ -1,6 +1,15 @@
-﻿// Generated from Sample parent-param-same+input
+﻿/* parent-param-same+input
+input InpPrntParamSame<$a> { :RefInpPrntParamSame<$a> field: $a }
+input RefInpPrntParamSame<$a> { | $a }
+*/
+
+// Generated from Sample parent-param-same+input
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_parent_param_same_input;
+
 public interface IInputInpPrntParamSame {}
+
 public interface IInputRefInpPrntParamSame {}

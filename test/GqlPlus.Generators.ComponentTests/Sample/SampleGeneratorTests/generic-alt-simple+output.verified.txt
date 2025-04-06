@@ -1,6 +1,15 @@
-﻿// Generated from Sample generic-alt-simple+output
+﻿/* generic-alt-simple+output
+output OutpGnrcAltSmpl { | RefOutpGnrcAltSmpl<String> }
+output RefOutpGnrcAltSmpl<$ref> { | $ref }
+*/
+
+// Generated from Sample generic-alt-simple+output
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_generic_alt_simple_output;
+
 public interface IOutputOutpGnrcAltSmpl {}
+
 public interface IOutputRefOutpGnrcAltSmpl {}

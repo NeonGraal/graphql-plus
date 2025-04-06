@@ -1,7 +1,18 @@
-﻿// Generated from Sample generic-parent-param-parent+dual
+﻿/* generic-parent-param-parent+dual
+dual DualGnrcPrntParamPrnt { :RefDualGnrcPrntParamPrnt<AltDualGnrcPrntParamPrnt> }
+dual RefDualGnrcPrntParamPrnt<$ref> { :$ref }
+dual AltDualGnrcPrntParamPrnt { alt: Number | String }
+*/
+
+// Generated from Sample generic-parent-param-parent+dual
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_generic_parent_param_parent_dual;
+
 public interface IDualDualGnrcPrntParamPrnt {}
+
 public interface IDualRefDualGnrcPrntParamPrnt {}
+
 public interface IDualAltDualGnrcPrntParamPrnt {}

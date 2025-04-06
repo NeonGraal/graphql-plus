@@ -1,7 +1,15 @@
-﻿// Generated from Sample domain-number-parent
+﻿/* domain-number-parent
+domain DmnNmbrPrnt { :PrntDmnNmbrPrnt Number 2>}
+domain PrntDmnNmbrPrnt { Number <2 }
+*/
+
+// Generated from Sample domain-number-parent
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_domain_number_parent;
+
 public interface IDomainDmnNmbrPrnt : IDomainPrntDmnNmbrPrnt {
   decimal Value { get; set; }
 }
@@ -10,6 +18,7 @@ public class DomainDmnNmbrPrnt
   , IDomainDmnNmbrPrnt
 {
 }
+
 public interface IDomainPrntDmnNmbrPrnt {
   decimal Value { get; set; }
 }

@@ -1,6 +1,16 @@
-﻿// Generated from Sample object-field+output
+﻿/* object-field+output
+output OutpObjField { field: FldOutpObjField }
+output OutpObjField { field: FldOutpObjField }
+output FldOutpObjField { }
+*/
+
+// Generated from Sample object-field+output
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_object_field_output;
+
 public interface IOutputOutpObjField {}
+
 public interface IOutputFldOutpObjField {}

@@ -1,7 +1,14 @@
-﻿// Generated from Sample domain-string-descr
+﻿/* domain-string-descr
+domain DmnStrDescr { String "DomString" "Descr" /a+/ }
+*/
+
+// Generated from Sample domain-string-descr
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_domain_string_descr;
+
 public interface IDomainDmnStrDescr {
   string Value { get; set; }
 }

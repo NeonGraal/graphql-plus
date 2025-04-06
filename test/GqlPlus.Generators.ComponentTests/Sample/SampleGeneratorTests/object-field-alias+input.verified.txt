@@ -1,6 +1,16 @@
-﻿// Generated from Sample object-field-alias+input
+﻿/* object-field-alias+input
+input InpObjFieldAlias { field [field1]: FldInpObjFieldAlias }
+input InpObjFieldAlias { field [field2]: FldInpObjFieldAlias }
+input FldInpObjFieldAlias { }
+*/
+
+// Generated from Sample object-field-alias+input
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_object_field_alias_input;
+
 public interface IInputInpObjFieldAlias {}
+
 public interface IInputFldInpObjFieldAlias {}

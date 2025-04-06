@@ -1,7 +1,15 @@
-﻿// Generated from Sample domain-string
+﻿/* domain-string
+domain DmnStr { string }
+domain DmnStr { string }
+*/
+
+// Generated from Sample domain-string
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_domain_string;
+
 public interface IDomainDmnStr {
   string Value { get; set; }
 }

@@ -1,5 +1,12 @@
-﻿// Generated from Sample field-type-descr+input
+﻿/* field-type-descr+input
+input InpFieldTypeDescr { field: "Test" "Descr" Number }
+*/
+
+// Generated from Sample field-type-descr+input
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_field_type_descr_input;
+
 public interface IInputInpFieldTypeDescr {}

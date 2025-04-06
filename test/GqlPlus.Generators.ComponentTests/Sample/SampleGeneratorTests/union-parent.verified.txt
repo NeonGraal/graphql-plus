@@ -1,22 +1,33 @@
-﻿// Generated from Sample union-parent
+﻿/* union-parent
+union UnionPrnt { :PrntUnionPrnt String }
+union PrntUnionPrnt { Number }
+*/
+
+// Generated from Sample union-parent
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_union_parent;
+
 public class IUnionPrnt
   : IPrntUnionPrnt
 {
   public String AsString { get; }
 }
+
 public class UnionUnionPrnt
   : UnionPrntUnionPrnt
   , IUnionPrnt
 {
   public String AsString { get; set; }
 }
+
 public class IPrntUnionPrnt
 {
   public Number AsNumber { get; }
 }
+
 public class UnionPrntUnionPrnt
   : IPrntUnionPrnt
 {

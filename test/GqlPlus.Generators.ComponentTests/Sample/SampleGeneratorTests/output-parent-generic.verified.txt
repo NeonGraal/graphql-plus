@@ -1,13 +1,26 @@
-﻿// Generated from Sample output-parent-generic
+﻿/* output-parent-generic
+output OutpPrntGnrc { | RefOutpPrntGnrc<EnumOutpPrntGnrc.prnt_outpPrntGnrc> }
+output RefOutpPrntGnrc<$type> { field: $type }
+enum EnumOutpPrntGnrc { :PrntOutpPrntGnrc outpPrntGnrc }
+enum PrntOutpPrntGnrc { prnt_outpPrntGnrc }
+*/
+
+// Generated from Sample output-parent-generic
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_output_parent_generic;
+
 public interface IOutputOutpPrntGnrc {}
+
 public interface IOutputRefOutpPrntGnrc {}
+
 public enum EnumOutpPrntGnrc {
   prnt_outpPrntGnrc = PrntOutpPrntGnrc.prnt_outpPrntGnrc,
   outpPrntGnrc,
 }
+
 public enum PrntOutpPrntGnrc {
   prnt_outpPrntGnrc,
 }

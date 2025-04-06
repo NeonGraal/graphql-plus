@@ -1,5 +1,12 @@
-﻿// Generated from Sample directive
+﻿/* directive
+directive @Drct { inline }
+directive @Drct { spread }
+*/
+
+// Generated from Sample directive
+
 /*
 Directive Drct
 */
+
 namespace GqlPlus.Model_Sample_directive;

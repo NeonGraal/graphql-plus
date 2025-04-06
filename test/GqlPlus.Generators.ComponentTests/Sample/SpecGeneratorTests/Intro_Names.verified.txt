@@ -1,7 +1,12 @@
 ﻿// Generated from Spec Intro_Names
+
 /*
 */
+
 namespace GqlPlus.Model_Spec_Intro_Names;
+
 public interface IDual_Aliased {}
+
 public interface IDual_Named {}
+
 public interface IDual_Described {}

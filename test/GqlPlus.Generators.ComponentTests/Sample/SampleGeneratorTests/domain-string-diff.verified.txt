@@ -1,7 +1,15 @@
-﻿// Generated from Sample domain-string-diff
+﻿/* domain-string-diff
+domain DmnStrDiff { string /a+/ }
+domain DmnStrDiff { string }
+*/
+
+// Generated from Sample domain-string-diff
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_domain_string_diff;
+
 public interface IDomainDmnStrDiff {
   string Value { get; set; }
 }

@@ -1,6 +1,15 @@
-﻿// Generated from Sample generic-alt-arg-descr+dual
+﻿/* generic-alt-arg-descr+dual
+dual DualGnrcAltArgDescr<$type> { | RefDualGnrcAltArgDescr<"Test" "Descr"$type> }
+dual RefDualGnrcAltArgDescr<$ref> { | $ref }
+*/
+
+// Generated from Sample generic-alt-arg-descr+dual
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_generic_alt_arg_descr_dual;
+
 public interface IDualDualGnrcAltArgDescr {}
+
 public interface IDualRefDualGnrcAltArgDescr {}

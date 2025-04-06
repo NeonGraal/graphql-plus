@@ -1,8 +1,22 @@
-﻿// Generated from Sample output-field-param
+﻿/* output-field-param
+output OutpFieldParam { field(OutpFieldParam1): FldOutpFieldParam }
+output OutpFieldParam { field(OutpFieldParam2): FldOutpFieldParam }
+input OutpFieldParam1 { }
+input OutpFieldParam2 { }
+dual FldOutpFieldParam { }
+*/
+
+// Generated from Sample output-field-param
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_output_field_param;
+
 public interface IOutputOutpFieldParam {}
+
 public interface IInputOutpFieldParam1 {}
+
 public interface IInputOutpFieldParam2 {}
+
 public interface IDualFldOutpFieldParam {}

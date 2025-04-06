@@ -1,5 +1,12 @@
-﻿// Generated from Sample generic-descr+dual
+﻿/* generic-descr+dual
+dual DualGnrcDescr<"Test" "Descr" $type> { field: $type }
+*/
+
+// Generated from Sample generic-descr+dual
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_generic_descr_dual;
+
 public interface IDualDualGnrcDescr {}

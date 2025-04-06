@@ -1,7 +1,18 @@
-﻿// Generated from Sample generic-parent-dual-parent+input
+﻿/* generic-parent-dual-parent+input
+input InpGnrcPrntDualPrnt { :RefInpGnrcPrntDualPrnt<AltInpGnrcPrntDualPrnt> }
+input RefInpGnrcPrntDualPrnt<$ref> { :$ref }
+dual AltInpGnrcPrntDualPrnt { alt: Number | String }
+*/
+
+// Generated from Sample generic-parent-dual-parent+input
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_generic_parent_dual_parent_input;
+
 public interface IInputInpGnrcPrntDualPrnt {}
+
 public interface IInputRefInpGnrcPrntDualPrnt {}
+
 public interface IDualAltInpGnrcPrntDualPrnt {}

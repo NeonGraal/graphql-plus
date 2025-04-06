@@ -1,5 +1,13 @@
-﻿// Generated from Sample domain-enum-diff
+﻿/* domain-enum-diff
+domain DmnEnumDiff { enum true }
+domain DmnEnumDiff { enum false }
+*/
+
+// Generated from Sample domain-enum-diff
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_domain_enum_diff;
+
 public interface IDomainDmnEnumDiff {}

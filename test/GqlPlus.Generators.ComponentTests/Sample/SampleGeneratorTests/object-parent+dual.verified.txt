@@ -1,6 +1,16 @@
-﻿// Generated from Sample object-parent+dual
+﻿/* object-parent+dual
+dual DualObjPrnt { :RefDualObjPrnt }
+dual DualObjPrnt { :RefDualObjPrnt }
+dual RefDualObjPrnt { }
+*/
+
+// Generated from Sample object-parent+dual
+
 /*
 */
+
 namespace GqlPlus.Model_Sample_object_parent_dual;
+
 public interface IDualDualObjPrnt {}
+
 public interface IDualRefDualObjPrnt {}

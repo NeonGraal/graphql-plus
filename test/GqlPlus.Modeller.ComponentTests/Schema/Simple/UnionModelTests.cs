@@ -66,7 +66,7 @@ internal sealed class UnionModelChecks(
   => AstExpected(ast, ExpectedUnion(input));
 
   protected override ToExpected<string> ExpectedAllItem(string type)
-    => member => ["- !_UnionMember", "  name: " + member, "  union: " + type];
+    => member => ["  - !_UnionMember", "    name: " + member, "    union: " + type];
 
   protected override string[] ExpectedParent(string? parent)
     => parent.TypeRefFor(TypeKind);

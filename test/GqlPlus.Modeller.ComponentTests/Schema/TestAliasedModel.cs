@@ -71,7 +71,7 @@ public class ExpectedDescriptionAliasesInput<TName>(
 #pragma warning disable CA1819 // Properties should not return arrays
   public string[] Aliases { get; protected set; } = aliases is null ? [] : [.. aliases];
   public string[] ExpectedAliases { get; protected set; }
-    = aliases is null ? [] : []; // aliases.YamlJoin("aliases: [", "]")];
+    = aliases is null ? [] : [aliases.Surround("aliases: [", "]", ",")];
 #pragma warning restore CA1819 // Properties should not return arrays
 
   internal ExpectedDescriptionAliasesInput(ExpectedDescriptionInput<TName> input)

@@ -69,7 +69,7 @@ internal abstract class CheckModelBase<TName, TSrc, TAst, TModel, TRender>
   {
     Structured render = _rendering.Render((TRender)model);
 
-    string[] yaml = []; // render.ToYaml(false).ToLines();
+    string[] yaml = render.ToLines(false).ToLines();
     yaml.ShouldBe(expected.Tidy());
   }
 

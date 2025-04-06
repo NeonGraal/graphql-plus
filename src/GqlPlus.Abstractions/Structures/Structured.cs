@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 
 namespace GqlPlus.Structures;
 
@@ -15,13 +16,13 @@ public class Structured
   public string Tag { get; } = string.Empty;
 
   public Structured(bool? value, string tag = "")
-    : base(new StructureValue(value)) => Tag = tag;
+    : base(new StructureValue(value, tag)) => Tag = tag;
   public Structured(string? value, string tag = "")
-    : base(new StructureValue(value)) => Tag = tag;
+    : base(new StructureValue(value, tag)) => Tag = tag;
   public Structured(decimal? value, string tag = "")
-    : base(new StructureValue(value)) => Tag = tag;
-  public Structured(StructureValue value, string tag = "")
-    : base(value) => Tag = tag;
+    : base(new StructureValue(value, tag)) => Tag = tag;
+  public Structured([NotNull] StructureValue value)
+    : base(value) => Tag = value.Tag;
   public Structured(IEnumerable<Structured> list, string tag = "", bool flow = false)
     : base(list) => (Tag, Flow) = (tag, flow);
   public Structured(IDictionary<StructureValue, Structured> map, string tag, bool flow = false)

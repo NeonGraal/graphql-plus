@@ -44,8 +44,8 @@ public class BuiltInTests(IModelAndRender renderer)
     Structured result = new Map<Structured>() {
       ["title"] = "BuiltIn",
       ["groups"] = new Map<Structured>() {
-        ["Basic"] = BuiltIn.Basic.Select(t => t.Name).Render(),
-        ["Internal"] = BuiltIn.Internal.Select(t => t.Name).Render(),
+        ["Basic"] = BuiltIn.Basic.Render(t => t.Name),
+        ["Internal"] = BuiltIn.Internal.Render(t => t.Name),
       }.Render(),
     }.Render("");
 

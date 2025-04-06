@@ -1,0 +1,33 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier AltOutpAlt: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: AltOutpAlt
+        output: String
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: alt
+        object: AltOutpAlt
+        type: !_OutputBase
+          output: Number
+    alternates:
+      - !_OutputAlternate
+        output: String
+    fields:
+      - !_OutputField
+        name: alt
+        type: !_OutputBase
+          output: Number
+    name: AltOutpAlt
+    typeKind: !_TypeKind Output
+  !_Identifier OutpAlt: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: OutpAlt
+        output: AltOutpAlt
+    alternates:
+      - !_OutputAlternate
+        output: AltOutpAlt
+    name: OutpAlt
+    typeKind: !_TypeKind Output

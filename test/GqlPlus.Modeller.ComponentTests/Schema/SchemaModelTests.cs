@@ -197,9 +197,9 @@ internal sealed class SchemaModelChecks(
   public IEnumerable<string> ExpectedErrors(string[] errors)
     => errors
       .SelectMany(e => new[] {
-        "- !_Error",
-        "  _kind: !_TokenKind Start",
-        "  _message: " + e })
+        "  - !_Error",
+        "    _kind: !_TokenKind Start",
+        "    _message: " + e })
       .Prepend("_errors:");
 
   public IEnumerable<string> ExpectedOutputs(string[] outputs)

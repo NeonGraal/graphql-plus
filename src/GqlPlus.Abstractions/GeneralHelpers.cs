@@ -13,8 +13,8 @@ public static class GeneralHelpers
       items?.Where(i => !string.IsNullOrWhiteSpace(i))
       ?? []);
 
-  public static string Joined<T>(this IEnumerable<T?>? items, Func<T?, string> mapping)
-    => (items?.Select(mapping)).Joined();
+  public static string Joined<T>(this IEnumerable<T?>? items, Func<T?, string> mapping, string by = " ")
+    => items?.Select(mapping).Joined(by) ?? "";
 
   [return: NotNull]
   public static T ThrowIfNull<T>([NotNull] this T? value, [CallerArgumentExpression(nameof(value))] string? expression = default)
@@ -28,4 +28,35 @@ public static class GeneralHelpers
 
   public static bool OrderedEqual<T>(this IEnumerable<T> left, IEnumerable<T> right, IComparer<T>? comparer = null)
     => left.OrderBy(l => l, comparer).SequenceEqual(right.OrderBy(r => r, comparer));
+
+  public static string Prefixed(this string? text, string prefix)
+    => text?.Length > 0 ? prefix + text : "";
+
+  public static string Suffixed(this string? text, string suffix)
+    => text?.Length > 0 ? text + suffix : "";
+
+  public static string Quoted(this string? text, string quote)
+    => text?.Length > 0
+    ? string.Concat(
+      quote,
+      text
+        .Replace("\\", "\\\\")
+        .Replace(quote, "\\" + quote),
+      quote)
+    : "";
+
+  public static string Surround(
+    this IEnumerable<string>? items,
+    string before,
+    string after,
+    string by = " ")
+   => before + items.Joined(by) + after;
+
+  public static string Surround<T>(
+    this IEnumerable<T>? items,
+    string before,
+    string after,
+    Func<T?, string> formatter,
+    string by = " ")
+   => before + items.Joined(formatter, by) + after;
 }

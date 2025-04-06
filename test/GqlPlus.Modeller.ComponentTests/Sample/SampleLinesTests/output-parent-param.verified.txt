@@ -1,0 +1,97 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier FldOutpPrntParam: !_TypeDual
+    name: FldOutpPrntParam
+    typeKind: !_TypeKind Dual
+  !_Identifier InOutpPrntParam: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_InputAlternate)
+        input: String
+        object: InOutpPrntParam
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: param
+        object: InOutpPrntParam
+        type: !_InputBase
+          input: Number
+    alternates:
+      - !_InputAlternate
+        input: String
+    fields:
+      - !_InputField
+        name: param
+        type: !_InputBase
+          input: Number
+    name: InOutpPrntParam
+    typeKind: !_TypeKind Input
+  !_Identifier OutpPrntParam: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: PrntOutpPrntParam
+        parameters:
+          - !_InputParam
+            input: PrntOutpPrntParamIn
+        type: !_DualBase
+          dual: FldOutpPrntParam
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: OutpPrntParam
+        parameters:
+          - !_InputParam
+            input: InOutpPrntParam
+        type: !_DualBase
+          dual: FldOutpPrntParam
+    fields:
+      - !_OutputField
+        name: field
+        parameters:
+          - !_InputParam
+            input: InOutpPrntParam
+        type: !_DualBase
+          dual: FldOutpPrntParam
+    name: OutpPrntParam
+    parent: !_OutputBase
+      output: PrntOutpPrntParam
+    typeKind: !_TypeKind Output
+  !_Identifier PrntOutpPrntParam: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: PrntOutpPrntParam
+        parameters:
+          - !_InputParam
+            input: PrntOutpPrntParamIn
+        type: !_DualBase
+          dual: FldOutpPrntParam
+    fields:
+      - !_OutputField
+        name: field
+        parameters:
+          - !_InputParam
+            input: PrntOutpPrntParamIn
+        type: !_DualBase
+          dual: FldOutpPrntParam
+    name: PrntOutpPrntParam
+    typeKind: !_TypeKind Output
+  !_Identifier PrntOutpPrntParamIn: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_InputAlternate)
+        input: String
+        object: PrntOutpPrntParamIn
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: parent
+        object: PrntOutpPrntParamIn
+        type: !_InputBase
+          input: Number
+    alternates:
+      - !_InputAlternate
+        input: String
+    fields:
+      - !_InputField
+        name: parent
+        type: !_InputBase
+          input: Number
+    name: PrntOutpPrntParamIn
+    typeKind: !_TypeKind Input

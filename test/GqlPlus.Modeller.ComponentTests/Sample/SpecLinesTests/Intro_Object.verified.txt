@@ -1,0 +1,329 @@
+﻿!_Schema
+_errors:
+  - !_Error
+    _kind: !_TokenKind End
+    _message: In _TypeObject can't get model for type '_ChildType'
+  - !_Error
+    _kind: !_TokenKind End
+    _message: In _ObjBase can't get model for type '_Described'
+  - !_Error
+    _kind: !_TokenKind End
+    _message: In _ObjTypeArg can't get model for type '_TypeRef'
+  - !_Error
+    _kind: !_TokenKind End
+    _message: In _TypeParam can't get model for type '_Identifier'
+  - !_Error
+    _kind: !_TokenKind End
+    _message: In _ObjTypeParam can't get model for type '_Described'
+  - !_Error
+    _kind: !_TokenKind End
+    _message: In _Field can't get model for type '_Aliased'
+types: !_Map_Type
+  !_Identifier _Alternate: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: _ObjBase
+        output: _ObjTypeParam
+    allFields:
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: typeArgs
+        object: _ObjBase
+        type: !_OutputBase
+          typeParam: arg
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: collections
+        object: _Alternate
+        type: !_OutputBase
+          output: _Collections
+    fields:
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: collections
+        type: !_OutputBase
+          output: _Collections
+    name: _Alternate
+    parent: !_OutputBase
+      output: _ObjBase
+      typeArgs:
+        - !_TypeParam arg
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_Named
+        name: arg
+  !_Identifier _Field: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: type
+        object: _Field
+        type: !_OutputBase
+          typeParam: base
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: modifiers
+        object: _Field
+        type: !_OutputBase
+          output: _Modifiers
+    fields:
+      - !_OutputField
+        name: type
+        type: !_OutputBase
+          typeParam: base
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: modifiers
+        type: !_OutputBase
+          output: _Modifiers
+    name: _Field
+    parent: !_OutputBase
+      output: _Aliased
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_Named
+        name: base
+  !_Identifier _ForParam: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: _ForParam
+        output: _Alternate
+        typeArgs:
+          - !_TypeParam base
+      - !_ObjectFor(_OutputAlternate)
+        object: _ForParam
+        output: _Field
+        typeArgs:
+          - !_TypeParam base
+    alternates:
+      - !_OutputAlternate
+        output: _Alternate
+        typeArgs:
+          - !_TypeParam base
+      - !_OutputAlternate
+        output: _Field
+        typeArgs:
+          - !_TypeParam base
+    name: _ForParam
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_Named
+        name: base
+  !_Identifier _ObjBase: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: _ObjBase
+        output: _ObjTypeParam
+    allFields:
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: typeArgs
+        object: _ObjBase
+        type: !_OutputBase
+          typeParam: arg
+    alternates:
+      - !_OutputAlternate
+        output: _ObjTypeParam
+    fields:
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: typeArgs
+        type: !_OutputBase
+          typeParam: arg
+    name: _ObjBase
+    parent: !_OutputBase
+      output: _Described
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_Named
+        name: arg
+  !_Identifier _ObjConstraint: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: _ObjConstraint
+        output: _TypeSimple
+      - !_ObjectFor(_OutputAlternate)
+        object: _ObjConstraint
+        typeParam: base
+    alternates:
+      - !_OutputAlternate
+        output: _TypeSimple
+      - !_OutputAlternate
+        typeParam: base
+    name: _ObjConstraint
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_Named
+        name: base
+  !_Identifier _ObjType: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: _ObjType
+        output: _BaseType
+        typeArgs:
+          - !_OutputArg
+            label: Internal
+            name: _TypeKind
+            typeKind: !_SimpleKind Enum
+      - !_ObjectFor(_OutputAlternate)
+        object: _ObjType
+        output: _ObjConstraint
+        typeArgs:
+          - !_TypeParam base
+    alternates:
+      - !_OutputAlternate
+        output: _BaseType
+        typeArgs:
+          - !_OutputArg
+            label: Internal
+            name: _TypeKind
+            typeKind: !_SimpleKind Enum
+      - !_OutputAlternate
+        output: _ObjConstraint
+        typeArgs:
+          - !_TypeParam base
+    name: _ObjType
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_Named
+        name: base
+  !_Identifier _ObjTypeArg: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: _ObjTypeArg
+        output: _ObjTypeParam
+    alternates:
+      - !_OutputAlternate
+        output: _ObjTypeParam
+    name: _ObjTypeArg
+    parent: !_OutputBase
+      output: _TypeRef
+      typeArgs:
+        - !_OutputArg
+          output: _TypeKind
+    typeKind: !_TypeKind Output
+  !_Identifier _ObjTypeParam: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: typeParam
+        object: _ObjTypeParam
+        type: !_OutputBase
+          output: _TypeParam
+    fields:
+      - !_OutputField
+        name: typeParam
+        type: !_OutputBase
+          output: _TypeParam
+    name: _ObjTypeParam
+    parent: !_OutputBase
+      output: _Described
+    typeKind: !_TypeKind Output
+  !_Identifier _ObjectFor: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: object
+        object: _ObjectFor
+        type: !_OutputBase
+          output: _Identifier
+    fields:
+      - !_OutputField
+        name: object
+        type: !_OutputBase
+          output: _Identifier
+    name: _ObjectFor
+    parent: !_OutputBase
+      typeParam: for
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_Named
+        name: for
+  !_Identifier _TypeObject: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: typeParams
+        object: _TypeObject
+        type: !_OutputBase
+          typeParam: typeParam
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: fields
+        object: _TypeObject
+        type: !_OutputBase
+          typeParam: field
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: alternates
+        object: _TypeObject
+        type: !_OutputBase
+          typeParam: alternate
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: allFields
+        object: _TypeObject
+        type: !_OutputBase
+          output: _ObjectFor
+          typeArgs:
+            - !_TypeParam field
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: allAlternates
+        object: _TypeObject
+        type: !_OutputBase
+          output: _ObjectFor
+          typeArgs:
+            - !_TypeParam alternate
+    fields:
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: typeParams
+        type: !_OutputBase
+          typeParam: typeParam
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: fields
+        type: !_OutputBase
+          typeParam: field
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: alternates
+        type: !_OutputBase
+          typeParam: alternate
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: allFields
+        type: !_OutputBase
+          output: _ObjectFor
+          typeArgs:
+            - !_TypeParam field
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: allAlternates
+        type: !_OutputBase
+          output: _ObjectFor
+          typeArgs:
+            - !_TypeParam alternate
+    name: _TypeObject
+    parent: !_OutputBase
+      output: _ChildType
+      typeArgs:
+        - !_TypeParam kind
+        - !_TypeParam parent
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_Named
+        name: kind
+      - !_Named
+        name: parent
+      - !_Named
+        name: typeParam
+      - !_Named
+        name: field
+      - !_Named
+        name: alternate
+  !_Identifier _TypeParam: !_DomainString
+    domainKind: !_DomainKind String
+    name: _TypeParam
+    parent: !_TypeRef(_SimpleKind)
+      name: _Identifier
+      typeKind: !_SimpleKind Domain
+    typeKind: !_TypeKind Domain

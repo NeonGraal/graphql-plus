@@ -1,0 +1,17 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DmnNmbrDiff: !_DomainNumber
+    allItems:
+      - !_DomainItem(_DomainRange)
+        domain: DmnNmbrDiff
+        exclude: false
+        from: 1
+        to: 9
+    domainKind: !_DomainKind Number
+    items:
+      - !_DomainRange
+        exclude: false
+        from: 1
+        to: 9
+    name: DmnNmbrDiff
+    typeKind: !_TypeKind Domain

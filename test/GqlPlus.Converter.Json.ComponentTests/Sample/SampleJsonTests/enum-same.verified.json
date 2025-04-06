@@ -1,0 +1,27 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnumSame": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumSame",
+          "name": "enumSame"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "enumSame"
+        }
+      ],
+      "name": "EnumSame",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    }
+  }
+}

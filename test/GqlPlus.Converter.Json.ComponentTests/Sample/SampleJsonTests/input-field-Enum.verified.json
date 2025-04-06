@@ -1,0 +1,58 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnumInpFieldEnum": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumInpFieldEnum",
+          "name": "inpFieldEnum"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "inpFieldEnum"
+        }
+      ],
+      "name": "EnumInpFieldEnum",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "InpFieldEnum": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "default": "inpFieldEnum",
+          "name": "field",
+          "object": "InpFieldEnum",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "EnumInpFieldEnum"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "default": "inpFieldEnum",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "EnumInpFieldEnum"
+          }
+        }
+      ],
+      "name": "InpFieldEnum",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    }
+  }
+}

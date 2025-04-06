@@ -1,0 +1,97 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DomCnstFieldDmn": {
+      "$tag": "_DomainString",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRegex)",
+          "domain": "DomCnstFieldDmn",
+          "exclude": false,
+          "pattern": "\\w\u002B"
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "String"
+      },
+      "items": [
+        {
+          "$tag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "\\w\u002B"
+        }
+      ],
+      "name": "DomCnstFieldDmn",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "InpCnstFieldDmn": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "RefInpCnstFieldDmn",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "DomCnstFieldDmn"
+          }
+        }
+      ],
+      "name": "InpCnstFieldDmn",
+      "parent": {
+        "$tag": "_InputBase",
+        "input": "RefInpCnstFieldDmn",
+        "typeArgs": [
+          {
+            "$tag": "_InputArg",
+            "value": "DomCnstFieldDmn"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "RefInpCnstFieldDmn": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "RefInpCnstFieldDmn",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "ref"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "ref"
+          }
+        }
+      ],
+      "name": "RefInpCnstFieldDmn",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "ref"
+        }
+      ]
+    }
+  }
+}

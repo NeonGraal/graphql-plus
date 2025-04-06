@@ -1,0 +1,29 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnumValueAlias": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "aliases": ["val1", "val2"],
+          "enum": "EnumValueAlias",
+          "name": "enumValueAlias"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "aliases": ["val1", "val2"],
+          "name": "enumValueAlias"
+        }
+      ],
+      "name": "EnumValueAlias",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    }
+  }
+}

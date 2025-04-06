@@ -1,0 +1,97 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DomCnstFieldDmn": {
+      "$tag": "_DomainString",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRegex)",
+          "domain": "DomCnstFieldDmn",
+          "exclude": false,
+          "pattern": "\\w\u002B"
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "String"
+      },
+      "items": [
+        {
+          "$tag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "\\w\u002B"
+        }
+      ],
+      "name": "DomCnstFieldDmn",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "OutpCnstFieldDmn": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "RefOutpCnstFieldDmn",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "DomCnstFieldDmn"
+          }
+        }
+      ],
+      "name": "OutpCnstFieldDmn",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "RefOutpCnstFieldDmn",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "value": "DomCnstFieldDmn"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "RefOutpCnstFieldDmn": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "RefOutpCnstFieldDmn",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "ref"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "ref"
+          }
+        }
+      ],
+      "name": "RefOutpCnstFieldDmn",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "ref"
+        }
+      ]
+    }
+  }
+}

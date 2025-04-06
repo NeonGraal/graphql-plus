@@ -65,7 +65,7 @@ internal sealed class EnumModelChecks(
     => AstExpected(ast, ExpectedEnum(input));
 
   protected override ToExpected<string> ExpectedAllItem(string type)
-    => label => ["- !_EnumLabel", "  enum: " + type, "  name: " + label];
+    => label => ["  - !_EnumLabel", "    enum: " + type, "    name: " + label];
 
   protected override string[] ExpectedParent(string? parent)
     => parent.TypeRefFor(TypeKind);

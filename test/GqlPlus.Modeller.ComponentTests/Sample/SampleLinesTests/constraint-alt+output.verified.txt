@@ -1,0 +1,15 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutpCnstAlt: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: OutpCnstAlt
+        typeParam: type
+    alternates:
+      - !_OutputAlternate
+        typeParam: type
+    name: OutpCnstAlt
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_Named
+        name: type

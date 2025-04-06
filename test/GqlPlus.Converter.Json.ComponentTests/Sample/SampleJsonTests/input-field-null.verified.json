@@ -1,0 +1,69 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "FldInpFieldNull": {
+      "$tag": "_TypeDual",
+      "name": "FldInpFieldNull",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "InpFieldNull": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "default": {
+            "$tag": "Null",
+            "value": "null"
+          },
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "field",
+          "object": "InpFieldNull",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "FldInpFieldNull"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "default": {
+            "$tag": "Null",
+            "value": "null"
+          },
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "FldInpFieldNull"
+          }
+        }
+      ],
+      "name": "InpFieldNull",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    }
+  }
+}

@@ -1,0 +1,93 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DomCnstAltDmn": {
+      "$tag": "_DomainString",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRegex)",
+          "domain": "DomCnstAltDmn",
+          "exclude": false,
+          "pattern": "\\w\u002B"
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "String"
+      },
+      "items": [
+        {
+          "$tag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "\\w\u002B"
+        }
+      ],
+      "name": "DomCnstAltDmn",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "DualCnstAltDmn": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "dual": "RefDualCnstAltDmn",
+          "object": "DualCnstAltDmn",
+          "typeArgs": [
+            {
+              "$tag": "_DualArg",
+              "value": "DomCnstAltDmn"
+            }
+          ]
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "dual": "RefDualCnstAltDmn",
+          "typeArgs": [
+            {
+              "$tag": "_DualArg",
+              "value": "DomCnstAltDmn"
+            }
+          ]
+        }
+      ],
+      "name": "DualCnstAltDmn",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "RefDualCnstAltDmn": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "RefDualCnstAltDmn",
+          "typeParam": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "value": "ref"
+        }
+      ],
+      "name": "RefDualCnstAltDmn",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "ref"
+        }
+      ]
+    }
+  }
+}

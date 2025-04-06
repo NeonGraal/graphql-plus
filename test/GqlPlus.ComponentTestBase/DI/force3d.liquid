@@ -1,0 +1,45 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+  <title>{{ name }} Dependency Injection</title>
+  <style>
+    body {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body class="container-fluid">
+  <div id="3d-graph"></div>
+
+  <script src="https://unpkg.com/3d-force-graph"></script>
+  <script>
+    // Random tree
+    const gData = {
+      nodes: [
+{%- for node in nodes %}
+    { id: '{{ node }}' }
+  {%- unless forloop.last %}, {% endunless %}
+{%- endfor %}
+      ],
+      links: [
+{%- for link in links %}
+  { source: '{{ link.From }}', target: '{{ link.To }}', style: '{{ link.Style }}' }
+  {%- unless forloop.last %}, {% endunless %}
+{%- endfor %}
+      ]
+    };
+
+    const Graph = ForceGraph3D()
+      (document.getElementById('3d-graph'))
+      .graphData(gData)
+      .nodeLabel('id')
+      .linkLabel('style')
+      .linkAutoColorBy('style')
+      .linkWidth(2)
+      .linkDirectionalArrowLength(5);
+  </script>
+</body>
+
+</html>

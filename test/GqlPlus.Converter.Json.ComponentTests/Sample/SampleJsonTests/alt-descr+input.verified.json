@@ -1,0 +1,29 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "InpAltDescr": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "description": "Test Descr",
+          "input": "String",
+          "object": "InpAltDescr"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "description": "Test Descr",
+          "input": "String"
+        }
+      ],
+      "name": "InpAltDescr",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    }
+  }
+}

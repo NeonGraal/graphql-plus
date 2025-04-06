@@ -1,0 +1,61 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "PrntUnionSamePrnt": {
+      "$tag": "_TypeUnion",
+      "allItems": [
+        {
+          "$tag": "_UnionMember",
+          "name": "String",
+          "union": "PrntUnionSamePrnt"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "String"
+        }
+      ],
+      "name": "PrntUnionSamePrnt",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Union"
+      }
+    },
+    "UnionSamePrnt": {
+      "$tag": "_TypeUnion",
+      "allItems": [
+        {
+          "$tag": "_UnionMember",
+          "name": "String",
+          "union": "PrntUnionSamePrnt"
+        },
+        {
+          "$tag": "_UnionMember",
+          "name": "Boolean",
+          "union": "UnionSamePrnt"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "Boolean"
+        }
+      ],
+      "name": "UnionSamePrnt",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "PrntUnionSamePrnt",
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Union"
+        }
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Union"
+      }
+    }
+  }
+}

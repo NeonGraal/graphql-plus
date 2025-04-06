@@ -1,0 +1,6 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier Dscrs: !_TypeOutput
+    description: 'A simple description With extra'
+    name: Dscrs
+    typeKind: !_TypeKind Output

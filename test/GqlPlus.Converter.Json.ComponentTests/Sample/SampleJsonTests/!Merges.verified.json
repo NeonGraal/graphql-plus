@@ -1,0 +1,1902 @@
+﻿{
+  "$tag": "_Schema",
+  "aliases": ["Opt1", "Opt2"],
+  "categories": {
+    "$tag": "_Map_Categories",
+    "ctgr": {
+      "$tag": "_Category",
+      "name": "ctgr",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "Ctgr",
+        "typeKind": {
+          "$tag": "_TypeKind",
+          "value": "Output"
+        }
+      },
+      "resolution": {
+        "$tag": "_Resolution",
+        "value": "Parallel"
+      }
+    },
+    "ctgrAlias": {
+      "$tag": "_Category",
+      "aliases": ["CatA1", "CatA2"],
+      "name": "ctgrAlias",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "CtgrAlias",
+        "typeKind": {
+          "$tag": "_TypeKind",
+          "value": "Output"
+        }
+      },
+      "resolution": {
+        "$tag": "_Resolution",
+        "value": "Parallel"
+      }
+    },
+    "ctgrDescr": {
+      "$tag": "_Category",
+      "description": "First category Second category",
+      "name": "ctgrDescr",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "CtgrDescr",
+        "typeKind": {
+          "$tag": "_TypeKind",
+          "value": "Output"
+        }
+      },
+      "resolution": {
+        "$tag": "_Resolution",
+        "value": "Parallel"
+      }
+    },
+    "ctgrMod": {
+      "$tag": "_Category",
+      "aliases": ["CatM1", "CatM2"],
+      "modifiers": [
+        {
+          "$tag": "_Modifier",
+          "modifierKind": {
+            "$tag": "_ModifierKind",
+            "value": "Opt"
+          }
+        }
+      ],
+      "name": "ctgrMod",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "CtgrMod",
+        "typeKind": {
+          "$tag": "_TypeKind",
+          "value": "Output"
+        }
+      },
+      "resolution": {
+        "$tag": "_Resolution",
+        "value": "Parallel"
+      }
+    }
+  },
+  "directives": {
+    "$tag": "_Map_Directives",
+    "Drct": {
+      "$tag": "_Directive",
+      "locations": {
+        "$tag": "_Set(_Location)",
+        "Inline": "_",
+        "Spread": "_"
+      },
+      "name": "Drct",
+      "repeatable": false
+    },
+    "DrctAlias": {
+      "$tag": "_Directive",
+      "aliases": ["DirA1", "DirA2"],
+      "locations": {
+        "$tag": "_Set(_Location)",
+        "Field": "_",
+        "Variable": "_"
+      },
+      "name": "DrctAlias",
+      "repeatable": false
+    },
+    "DrctParam": {
+      "$tag": "_Directive",
+      "locations": {
+        "$tag": "_Set(_Location)",
+        "Fragment": "_",
+        "Operation": "_"
+      },
+      "name": "DrctParam",
+      "parameters": [
+        {
+          "$tag": "_InputParam",
+          "value": "InDrctParam"
+        }
+      ],
+      "repeatable": false
+    }
+  },
+  "name": "Schema",
+  "settings": {
+    "$tag": "_Map_Setting",
+    "merged": {
+      "$tag": "_Setting",
+      "name": "merged",
+      "value": [true, 0]
+    }
+  },
+  "types": {
+    "$tag": "_Map_Type",
+    "Ctgr": {
+      "$tag": "_TypeOutput",
+      "name": "Ctgr",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "CtgrAlias": {
+      "$tag": "_TypeOutput",
+      "name": "CtgrAlias",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "CtgrDescr": {
+      "$tag": "_TypeOutput",
+      "name": "CtgrDescr",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "CtgrMod": {
+      "$tag": "_TypeOutput",
+      "name": "CtgrMod",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "DmnAlias": {
+      "$tag": "_DomainNumber",
+      "aliases": ["Num1", "Num2"],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Number"
+      },
+      "name": "DmnAlias",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "DmnBool": {
+      "$tag": "_DomainBoolean",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "domain": "DmnBool",
+          "exclude": false,
+          "value": false
+        },
+        {
+          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "domain": "DmnBool",
+          "exclude": false,
+          "value": true
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Boolean"
+      },
+      "items": [
+        {
+          "$tag": "_DomainTrueFalse",
+          "exclude": false,
+          "value": false
+        },
+        {
+          "$tag": "_DomainTrueFalse",
+          "exclude": false,
+          "value": true
+        }
+      ],
+      "name": "DmnBool",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "DmnBoolDiff": {
+      "$tag": "_DomainBoolean",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "domain": "DmnBoolDiff",
+          "exclude": false,
+          "value": true
+        },
+        {
+          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "domain": "DmnBoolDiff",
+          "exclude": false,
+          "value": false
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Boolean"
+      },
+      "items": [
+        {
+          "$tag": "_DomainTrueFalse",
+          "exclude": false,
+          "value": true
+        },
+        {
+          "$tag": "_DomainTrueFalse",
+          "exclude": false,
+          "value": false
+        }
+      ],
+      "name": "DmnBoolDiff",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "DmnBoolSame": {
+      "$tag": "_DomainBoolean",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "domain": "DmnBoolSame",
+          "exclude": false,
+          "value": true
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Boolean"
+      },
+      "items": [
+        {
+          "$tag": "_DomainTrueFalse",
+          "exclude": false,
+          "value": true
+        }
+      ],
+      "name": "DmnBoolSame",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "DmnEnumDiff": {
+      "$tag": "_DomainEnum",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainLabel)",
+          "domain": "DmnEnumDiff",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "true",
+            "name": "Boolean",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        },
+        {
+          "$tag": "_DomainItem(_DomainLabel)",
+          "domain": "DmnEnumDiff",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "false",
+            "name": "Boolean",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Enum"
+      },
+      "items": [
+        {
+          "$tag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "true",
+            "name": "Boolean",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        },
+        {
+          "$tag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "false",
+            "name": "Boolean",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        }
+      ],
+      "name": "DmnEnumDiff",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "DmnEnumSame": {
+      "$tag": "_DomainEnum",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainLabel)",
+          "domain": "DmnEnumSame",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "true",
+            "name": "Boolean",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Enum"
+      },
+      "items": [
+        {
+          "$tag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "true",
+            "name": "Boolean",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        }
+      ],
+      "name": "DmnEnumSame",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "DmnNmbr": {
+      "$tag": "_DomainNumber",
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Number"
+      },
+      "name": "DmnNmbr",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "DmnNmbrDiff": {
+      "$tag": "_DomainNumber",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRange)",
+          "domain": "DmnNmbrDiff",
+          "exclude": false,
+          "from": 1,
+          "to": 9
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Number"
+      },
+      "items": [
+        {
+          "$tag": "_DomainRange",
+          "exclude": false,
+          "from": 1,
+          "to": 9
+        }
+      ],
+      "name": "DmnNmbrDiff",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "DmnNmbrSame": {
+      "$tag": "_DomainNumber",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRange)",
+          "domain": "DmnNmbrSame",
+          "exclude": false,
+          "from": 1,
+          "to": 9
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Number"
+      },
+      "items": [
+        {
+          "$tag": "_DomainRange",
+          "exclude": false,
+          "from": 1,
+          "to": 9
+        }
+      ],
+      "name": "DmnNmbrSame",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "DmnStr": {
+      "$tag": "_DomainString",
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "String"
+      },
+      "name": "DmnStr",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "DmnStrDiff": {
+      "$tag": "_DomainString",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRegex)",
+          "domain": "DmnStrDiff",
+          "exclude": false,
+          "pattern": "a\u002B"
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "String"
+      },
+      "items": [
+        {
+          "$tag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "a\u002B"
+        }
+      ],
+      "name": "DmnStrDiff",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "DmnStrSame": {
+      "$tag": "_DomainString",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRegex)",
+          "domain": "DmnStrSame",
+          "exclude": false,
+          "pattern": "a\u002B"
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "String"
+      },
+      "items": [
+        {
+          "$tag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "a\u002B"
+        }
+      ],
+      "name": "DmnStrSame",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "DualObj": {
+      "$tag": "_TypeDual",
+      "name": "DualObj",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "DualObjAlias": {
+      "$tag": "_TypeDual",
+      "aliases": ["Dual1", "Dual2"],
+      "name": "DualObjAlias",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "DualObjAlt": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "dual": "DualObjAltType",
+          "object": "DualObjAlt"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "value": "DualObjAltType"
+        }
+      ],
+      "name": "DualObjAlt",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "DualObjAltType": {
+      "$tag": "_TypeDual",
+      "name": "DualObjAltType",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "DualObjField": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "DualObjField",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "FldDualObjField"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "FldDualObjField"
+          }
+        }
+      ],
+      "name": "DualObjField",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "DualObjFieldAlias": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "aliases": ["field1", "field2"],
+          "name": "field",
+          "object": "DualObjFieldAlias",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "FldDualObjFieldAlias"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "aliases": ["field1", "field2"],
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "FldDualObjFieldAlias"
+          }
+        }
+      ],
+      "name": "DualObjFieldAlias",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "DualObjParam": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "test",
+          "object": "DualObjParam",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "test"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "type",
+          "object": "DualObjParam",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "test",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "test"
+          }
+        },
+        {
+          "$tag": "_DualField",
+          "name": "type",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "type"
+          }
+        }
+      ],
+      "name": "DualObjParam",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "test"
+        },
+        {
+          "$tag": "_Named",
+          "value": "type"
+        }
+      ]
+    },
+    "DualObjParamCnst": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "test",
+          "object": "DualObjParamCnst",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "test"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "type",
+          "object": "DualObjParamCnst",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "test"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "test",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "test"
+          }
+        },
+        {
+          "$tag": "_DualField",
+          "name": "type",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "test"
+          }
+        }
+      ],
+      "name": "DualObjParamCnst",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "test"
+        }
+      ]
+    },
+    "DualObjParamDup": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "test",
+          "object": "DualObjParamDup",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "test"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "type",
+          "object": "DualObjParamDup",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "test"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "test",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "test"
+          }
+        },
+        {
+          "$tag": "_DualField",
+          "name": "type",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "test"
+          }
+        }
+      ],
+      "name": "DualObjParamDup",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "test"
+        }
+      ]
+    },
+    "DualObjPrnt": {
+      "$tag": "_TypeDual",
+      "name": "DualObjPrnt",
+      "parent": {
+        "$tag": "_DualBase",
+        "value": "RefDualObjPrnt"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "EnumAlias": {
+      "$tag": "_TypeEnum",
+      "aliases": ["En1", "En2"],
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumAlias",
+          "name": "enumAlias"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "enumAlias"
+        }
+      ],
+      "name": "EnumAlias",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumDiff": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumDiff",
+          "name": "one"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "one"
+        }
+      ],
+      "name": "EnumDiff",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumSame": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumSame",
+          "name": "enumSame"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "enumSame"
+        }
+      ],
+      "name": "EnumSame",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumSamePrnt": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "PrntEnumSamePrnt",
+          "name": "prnt_enumSamePrnt"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumSamePrnt",
+          "name": "enumSamePrnt"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "enumSamePrnt"
+        }
+      ],
+      "name": "EnumSamePrnt",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "PrntEnumSamePrnt",
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Enum"
+        }
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumValueAlias": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "aliases": ["val1", "val2"],
+          "enum": "EnumValueAlias",
+          "name": "enumValueAlias"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "aliases": ["val1", "val2"],
+          "name": "enumValueAlias"
+        }
+      ],
+      "name": "EnumValueAlias",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "FldDualObjField": {
+      "$tag": "_TypeDual",
+      "name": "FldDualObjField",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "FldDualObjFieldAlias": {
+      "$tag": "_TypeDual",
+      "name": "FldDualObjFieldAlias",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "FldInpObjField": {
+      "$tag": "_TypeInput",
+      "name": "FldInpObjField",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "FldInpObjFieldAlias": {
+      "$tag": "_TypeInput",
+      "name": "FldInpObjFieldAlias",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "FldOutpFieldParam": {
+      "$tag": "_TypeDual",
+      "name": "FldOutpFieldParam",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "FldOutpObjField": {
+      "$tag": "_TypeOutput",
+      "name": "FldOutpObjField",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "FldOutpObjFieldAlias": {
+      "$tag": "_TypeOutput",
+      "name": "FldOutpObjFieldAlias",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "InDrctParam": {
+      "$tag": "_TypeInput",
+      "name": "InDrctParam",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "InpObj": {
+      "$tag": "_TypeInput",
+      "name": "InpObj",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "InpObjAlias": {
+      "$tag": "_TypeInput",
+      "aliases": ["Inp1", "Inp2"],
+      "name": "InpObjAlias",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "InpObjAlt": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "input": "InpObjAltType",
+          "object": "InpObjAlt"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "value": "InpObjAltType"
+        }
+      ],
+      "name": "InpObjAlt",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "InpObjAltType": {
+      "$tag": "_TypeInput",
+      "name": "InpObjAltType",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "InpObjField": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "InpObjField",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "FldInpObjField"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "FldInpObjField"
+          }
+        }
+      ],
+      "name": "InpObjField",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "InpObjFieldAlias": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "aliases": ["field1", "field2"],
+          "name": "field",
+          "object": "InpObjFieldAlias",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "FldInpObjFieldAlias"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "aliases": ["field1", "field2"],
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "FldInpObjFieldAlias"
+          }
+        }
+      ],
+      "name": "InpObjFieldAlias",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "InpObjParam": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "test",
+          "object": "InpObjParam",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "test"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "type",
+          "object": "InpObjParam",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "test",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "test"
+          }
+        },
+        {
+          "$tag": "_InputField",
+          "name": "type",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "type"
+          }
+        }
+      ],
+      "name": "InpObjParam",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "test"
+        },
+        {
+          "$tag": "_Named",
+          "value": "type"
+        }
+      ]
+    },
+    "InpObjParamCnst": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "test",
+          "object": "InpObjParamCnst",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "test"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "type",
+          "object": "InpObjParamCnst",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "test"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "test",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "test"
+          }
+        },
+        {
+          "$tag": "_InputField",
+          "name": "type",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "test"
+          }
+        }
+      ],
+      "name": "InpObjParamCnst",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "test"
+        }
+      ]
+    },
+    "InpObjParamDup": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "test",
+          "object": "InpObjParamDup",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "test"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "type",
+          "object": "InpObjParamDup",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "test"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "test",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "test"
+          }
+        },
+        {
+          "$tag": "_InputField",
+          "name": "type",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "test"
+          }
+        }
+      ],
+      "name": "InpObjParamDup",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "test"
+        }
+      ]
+    },
+    "InpObjPrnt": {
+      "$tag": "_TypeInput",
+      "name": "InpObjPrnt",
+      "parent": {
+        "$tag": "_InputBase",
+        "value": "RefInpObjPrnt"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "OutpFieldEnumAlias": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "field": "field",
+          "label": "true",
+          "name": "Boolean",
+          "object": "OutpFieldEnumAlias",
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "field": "Boolean",
+          "label": "true",
+          "object": "OutpFieldEnumAlias",
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputEnum",
+          "field": "field",
+          "label": "true",
+          "name": "Boolean",
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
+          }
+        },
+        {
+          "$tag": "_OutputEnum",
+          "field": "Boolean",
+          "label": "true",
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
+          }
+        }
+      ],
+      "name": "OutpFieldEnumAlias",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "OutpFieldEnumValue": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "field": "field",
+          "label": "true",
+          "name": "Boolean",
+          "object": "OutpFieldEnumValue",
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "field": "Boolean",
+          "label": "true",
+          "object": "OutpFieldEnumValue",
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputEnum",
+          "field": "field",
+          "label": "true",
+          "name": "Boolean",
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
+          }
+        },
+        {
+          "$tag": "_OutputEnum",
+          "field": "Boolean",
+          "label": "true",
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
+          }
+        }
+      ],
+      "name": "OutpFieldEnumValue",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "OutpFieldParam": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpFieldParam",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "OutpFieldParam1"
+            },
+            {
+              "$tag": "_InputParam",
+              "value": "OutpFieldParam2"
+            }
+          ],
+          "type": {
+            "$tag": "_DualBase",
+            "value": "FldOutpFieldParam"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "OutpFieldParam1"
+            },
+            {
+              "$tag": "_InputParam",
+              "value": "OutpFieldParam2"
+            }
+          ],
+          "type": {
+            "$tag": "_DualBase",
+            "value": "FldOutpFieldParam"
+          }
+        }
+      ],
+      "name": "OutpFieldParam",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "OutpFieldParam1": {
+      "$tag": "_TypeInput",
+      "name": "OutpFieldParam1",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "OutpFieldParam2": {
+      "$tag": "_TypeInput",
+      "name": "OutpFieldParam2",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "OutpObj": {
+      "$tag": "_TypeOutput",
+      "name": "OutpObj",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "OutpObjAlias": {
+      "$tag": "_TypeOutput",
+      "aliases": ["Outp1", "Outp2"],
+      "name": "OutpObjAlias",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "OutpObjAlt": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpObjAlt",
+          "output": "OutpObjAltType"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "value": "OutpObjAltType"
+        }
+      ],
+      "name": "OutpObjAlt",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "OutpObjAltType": {
+      "$tag": "_TypeOutput",
+      "name": "OutpObjAltType",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "OutpObjField": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpObjField",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "FldOutpObjField"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "FldOutpObjField"
+          }
+        }
+      ],
+      "name": "OutpObjField",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "OutpObjFieldAlias": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "aliases": ["field1", "field2"],
+          "name": "field",
+          "object": "OutpObjFieldAlias",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "FldOutpObjFieldAlias"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "aliases": ["field1", "field2"],
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "FldOutpObjFieldAlias"
+          }
+        }
+      ],
+      "name": "OutpObjFieldAlias",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "OutpObjParam": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "test",
+          "object": "OutpObjParam",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "test"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "type",
+          "object": "OutpObjParam",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "test",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "test"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "name": "type",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "type"
+          }
+        }
+      ],
+      "name": "OutpObjParam",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "test"
+        },
+        {
+          "$tag": "_Named",
+          "value": "type"
+        }
+      ]
+    },
+    "OutpObjParamCnst": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "test",
+          "object": "OutpObjParamCnst",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "test"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "type",
+          "object": "OutpObjParamCnst",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "test"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "test",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "test"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "name": "type",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "test"
+          }
+        }
+      ],
+      "name": "OutpObjParamCnst",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "test"
+        }
+      ]
+    },
+    "OutpObjParamDup": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "test",
+          "object": "OutpObjParamDup",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "test"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "type",
+          "object": "OutpObjParamDup",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "test"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "test",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "test"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "name": "type",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "test"
+          }
+        }
+      ],
+      "name": "OutpObjParamDup",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "test"
+        }
+      ]
+    },
+    "OutpObjPrnt": {
+      "$tag": "_TypeOutput",
+      "name": "OutpObjPrnt",
+      "parent": {
+        "$tag": "_OutputBase",
+        "value": "RefOutpObjPrnt"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "PrntEnumSamePrnt": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "PrntEnumSamePrnt",
+          "name": "prnt_enumSamePrnt"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "prnt_enumSamePrnt"
+        }
+      ],
+      "name": "PrntEnumSamePrnt",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "PrntUnionSamePrnt": {
+      "$tag": "_TypeUnion",
+      "allItems": [
+        {
+          "$tag": "_UnionMember",
+          "name": "String",
+          "union": "PrntUnionSamePrnt"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "String"
+        }
+      ],
+      "name": "PrntUnionSamePrnt",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Union"
+      }
+    },
+    "RefDualObjPrnt": {
+      "$tag": "_TypeDual",
+      "name": "RefDualObjPrnt",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "RefInpObjPrnt": {
+      "$tag": "_TypeInput",
+      "name": "RefInpObjPrnt",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "RefOutpObjPrnt": {
+      "$tag": "_TypeOutput",
+      "name": "RefOutpObjPrnt",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "UnionAlias": {
+      "$tag": "_TypeUnion",
+      "aliases": ["UnA1", "UnA2"],
+      "allItems": [
+        {
+          "$tag": "_UnionMember",
+          "name": "Boolean",
+          "union": "UnionAlias"
+        },
+        {
+          "$tag": "_UnionMember",
+          "name": "Number",
+          "union": "UnionAlias"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "Boolean"
+        },
+        {
+          "$tag": "_Aliased",
+          "value": "Number"
+        }
+      ],
+      "name": "UnionAlias",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Union"
+      }
+    },
+    "UnionDiff": {
+      "$tag": "_TypeUnion",
+      "allItems": [
+        {
+          "$tag": "_UnionMember",
+          "name": "Boolean",
+          "union": "UnionDiff"
+        },
+        {
+          "$tag": "_UnionMember",
+          "name": "Number",
+          "union": "UnionDiff"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "Boolean"
+        },
+        {
+          "$tag": "_Aliased",
+          "value": "Number"
+        }
+      ],
+      "name": "UnionDiff",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Union"
+      }
+    },
+    "UnionSame": {
+      "$tag": "_TypeUnion",
+      "allItems": [
+        {
+          "$tag": "_UnionMember",
+          "name": "Boolean",
+          "union": "UnionSame"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "Boolean"
+        }
+      ],
+      "name": "UnionSame",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Union"
+      }
+    },
+    "UnionSamePrnt": {
+      "$tag": "_TypeUnion",
+      "allItems": [
+        {
+          "$tag": "_UnionMember",
+          "name": "String",
+          "union": "PrntUnionSamePrnt"
+        },
+        {
+          "$tag": "_UnionMember",
+          "name": "Boolean",
+          "union": "UnionSamePrnt"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "Boolean"
+        }
+      ],
+      "name": "UnionSamePrnt",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "PrntUnionSamePrnt",
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Union"
+        }
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Union"
+      }
+    }
+  }
+}

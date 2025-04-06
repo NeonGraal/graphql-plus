@@ -14,7 +14,7 @@ internal sealed class DomainStringModelChecks(
   , IDomainStringModelChecks
 {
   protected override string[] ExpectedItem(string input, string exclude, string[] domain)
-    => ["- !_DomainRegex", .. domain, exclude, "  pattern: " + input];
+    => ["  - !_DomainRegex", .. domain, exclude, "    pattern: " + input];
 
   protected override DomainRegexAst[]? DomainItems(string[]? inputs)
     => inputs?.DomainRegexes();

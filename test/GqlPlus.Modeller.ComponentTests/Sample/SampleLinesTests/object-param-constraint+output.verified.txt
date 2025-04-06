@@ -1,0 +1,28 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutpObjParamCnst: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: test
+        object: OutpObjParamCnst
+        type: !_OutputBase
+          typeParam: test
+      - !_ObjectFor(_OutputField)
+        name: type
+        object: OutpObjParamCnst
+        type: !_OutputBase
+          typeParam: test
+    fields:
+      - !_OutputField
+        name: test
+        type: !_OutputBase
+          typeParam: test
+      - !_OutputField
+        name: type
+        type: !_OutputBase
+          typeParam: test
+    name: OutpObjParamCnst
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_Named
+        name: test

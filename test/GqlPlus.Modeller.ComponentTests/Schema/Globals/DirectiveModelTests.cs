@@ -54,7 +54,7 @@ public class DirectiveModelTests(
       .Where(l => location.HasFlag(l))
       .Select(l => $"{l}: _").Order();
 
-    return [labels.YamlJoin("locations: !_Set(_Location) {", "}")];
+    return [labels.Bracket("locations: !_Set(_Location) {", "}").Joined()];
   }
 }
 

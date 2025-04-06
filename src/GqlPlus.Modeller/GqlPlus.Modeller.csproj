@@ -4,4 +4,8 @@
     <ProjectReference Include="..\GqlPlus.Parser\GqlPlus.Parser.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Convert\" />
+  </ItemGroup>
+
 </Project>

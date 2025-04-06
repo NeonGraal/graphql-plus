@@ -1,5 +1,4 @@
-﻿
-using Fluid;
+﻿using Fluid;
 using Fluid.Values;
 
 using Microsoft.Extensions.FileProviders;
@@ -42,7 +41,7 @@ public static class RenderFluid
   {
     ArgumentNullException.ThrowIfNull(model);
 
-    model.Add("yaml", model.ToYaml(true));
+    //model.Add("yaml", model.ToYaml(true));
     TemplateContext context = new(model, s_options);
     IFluidTemplate template = GetTemplate(initial);
     template.Render(context).WriteHtmlFile(dir, file);
@@ -52,7 +51,7 @@ public static class RenderFluid
   {
     ArgumentNullException.ThrowIfNull(model);
 
-    model.Add("yaml", model.ToYaml(true));
+    //model.Add("yaml", model.ToYaml(true));
     TemplateContext context = new(model, s_options);
     IFluidTemplate template = GetTemplate(initial);
     await template.RenderAsync(context).WriteHtmlFileAsync(dir, file);

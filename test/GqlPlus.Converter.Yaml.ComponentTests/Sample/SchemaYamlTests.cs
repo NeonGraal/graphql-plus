@@ -4,6 +4,8 @@ using GqlPlus.Merging;
 using GqlPlus.Parsing;
 using GqlPlus.Resolving;
 using GqlPlus.Result;
+using Shouldly;
+using Xunit;
 
 namespace GqlPlus.Sample;
 

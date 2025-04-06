@@ -1,1 +1,1 @@
-e33a5bc  (HEAD -> name-samples) 2025-04-03 Improve Object spec and Introspection
+8a86bba  (HEAD -> yaml) 2025-04-06 Correct verify errors

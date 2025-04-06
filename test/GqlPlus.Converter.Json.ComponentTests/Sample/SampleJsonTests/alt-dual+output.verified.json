@@ -1,0 +1,69 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutpAltDual": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "dual": "OutpDualAltDual",
+          "object": "OutpAltDual"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "value": "OutpDualAltDual"
+        }
+      ],
+      "name": "OutpAltDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "OutpDualAltDual": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "dual": "String",
+          "object": "OutpDualAltDual"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "alt",
+          "object": "OutpDualAltDual",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "value": "String"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "alt",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "OutpDualAltDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    }
+  }
+}

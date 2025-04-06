@@ -9,8 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\GqlPlus.Modeller\GqlPlus.Modeller.csproj" />
-    <ProjectReference Include="..\GqlPlus.ComponentTestBase\GqlPlus.ComponentTestBase.csproj" />
+    <ProjectReference Include="..\GqlPlus.Modeller.ComponentTestBase\GqlPlus.Modeller.ComponentTestBase.csproj" />
   </ItemGroup>
 
   <ItemGroup>

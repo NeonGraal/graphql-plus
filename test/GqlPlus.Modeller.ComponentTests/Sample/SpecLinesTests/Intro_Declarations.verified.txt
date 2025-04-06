@@ -1,0 +1,311 @@
+﻿!_Schema
+_errors:
+  - !_Error
+    _kind: !_TokenKind End
+    _message: In _Schema can't get model for type '_Named'
+types: !_Map_Type
+  !_Identifier _CategoryFilter: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_InputAlternate)
+        collections:
+          - !_Modifier
+            modifierKind: !_ModifierKind List
+        input: _NameFilter
+        object: _Filter
+    allFields:
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: names
+        object: _Filter
+        type: !_InputBase
+          input: _NameFilter
+      - !_ObjectFor(_InputField)
+        default: true
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: matchAliases
+        object: _Filter
+        type: !_InputBase
+          input: Boolean
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: aliases
+        object: _Filter
+        type: !_InputBase
+          input: _NameFilter
+      - !_ObjectFor(_InputField)
+        default: false
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: returnByAlias
+        object: _Filter
+        type: !_InputBase
+          input: Boolean
+      - !_ObjectFor(_InputField)
+        default: false
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: returnReferencedTypes
+        object: _Filter
+        type: !_InputBase
+          input: Boolean
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: resolutions
+        object: _CategoryFilter
+        type: !_InputBase
+          input: _Resolution
+    fields:
+      - !_InputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: resolutions
+        type: !_InputBase
+          input: _Resolution
+    name: _CategoryFilter
+    parent: !_InputBase
+      input: _Filter
+    typeKind: !_TypeKind Input
+  !_Identifier _Filter: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_InputAlternate)
+        collections:
+          - !_Modifier
+            modifierKind: !_ModifierKind List
+        input: _NameFilter
+        object: _Filter
+    allFields:
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: names
+        object: _Filter
+        type: !_InputBase
+          input: _NameFilter
+      - !_ObjectFor(_InputField)
+        default: true
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: matchAliases
+        object: _Filter
+        type: !_InputBase
+          input: Boolean
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: aliases
+        object: _Filter
+        type: !_InputBase
+          input: _NameFilter
+      - !_ObjectFor(_InputField)
+        default: false
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: returnByAlias
+        object: _Filter
+        type: !_InputBase
+          input: Boolean
+      - !_ObjectFor(_InputField)
+        default: false
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: returnReferencedTypes
+        object: _Filter
+        type: !_InputBase
+          input: Boolean
+    alternates:
+      - !_InputAlternate
+        collections:
+          - !_Modifier
+            modifierKind: !_ModifierKind List
+        input: _NameFilter
+    fields:
+      - !_InputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: names
+        type: !_InputBase
+          input: _NameFilter
+      - !_InputField
+        default: true
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: matchAliases
+        type: !_InputBase
+          input: Boolean
+      - !_InputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: aliases
+        type: !_InputBase
+          input: _NameFilter
+      - !_InputField
+        default: false
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: returnByAlias
+        type: !_InputBase
+          input: Boolean
+      - !_InputField
+        default: false
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: returnReferencedTypes
+        type: !_InputBase
+          input: Boolean
+    name: _Filter
+    typeKind: !_TypeKind Input
+  !_Identifier _Identifier: !_DomainString
+    allItems:
+      - !_DomainItem(_DomainRegex)
+        domain: _Identifier
+        exclude: false
+        pattern: '[A-Za-z_]+'
+    domainKind: !_DomainKind String
+    items:
+      - !_DomainRegex
+        exclude: false
+        pattern: '[A-Za-z_]+'
+    name: _Identifier
+    typeKind: !_TypeKind Domain
+  !_Identifier _NameFilter: !_DomainString
+    allItems:
+      - !_DomainItem(_DomainRegex)
+        domain: _NameFilter
+        exclude: false
+        pattern: '[A-Za-z_.*]+'
+    description: '_NameFilter is a simple match expression against _Identifier where \'.\' matches any single character and \'*\' matches zero or more of any character.'
+    domainKind: !_DomainKind String
+    items:
+      - !_DomainRegex
+        exclude: false
+        pattern: '[A-Za-z_.*]+'
+    name: _NameFilter
+    typeKind: !_TypeKind Domain
+  !_Identifier _Schema: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_ModifierDictionary{by:_Identifier,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+        name: categories
+        object: _Schema
+        parameters:
+          - !_InputParam
+            input: _CategoryFilter
+            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        type: !_OutputBase
+          output: _Categories
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_ModifierDictionary{by:_Identifier,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+        name: directives
+        object: _Schema
+        parameters:
+          - !_InputParam
+            input: _Filter
+            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        type: !_OutputBase
+          output: _Directives
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_ModifierDictionary{by:_Identifier,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+        name: types
+        object: _Schema
+        parameters:
+          - !_InputParam
+            input: _TypeFilter
+            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        type: !_OutputBase
+          output: _Type
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_ModifierDictionary{by:_Identifier,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+        name: settings
+        object: _Schema
+        parameters:
+          - !_InputParam
+            input: _Filter
+            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        type: !_OutputBase
+          output: _Setting
+    fields:
+      - !_OutputField
+        modifiers: [!_ModifierDictionary{by:_Identifier,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+        name: categories
+        parameters:
+          - !_InputParam
+            input: _CategoryFilter
+            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        type: !_OutputBase
+          output: _Categories
+      - !_OutputField
+        modifiers: [!_ModifierDictionary{by:_Identifier,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+        name: directives
+        parameters:
+          - !_InputParam
+            input: _Filter
+            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        type: !_OutputBase
+          output: _Directives
+      - !_OutputField
+        modifiers: [!_ModifierDictionary{by:_Identifier,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+        name: types
+        parameters:
+          - !_InputParam
+            input: _TypeFilter
+            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        type: !_OutputBase
+          output: _Type
+      - !_OutputField
+        modifiers: [!_ModifierDictionary{by:_Identifier,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+        name: settings
+        parameters:
+          - !_InputParam
+            input: _Filter
+            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        type: !_OutputBase
+          output: _Setting
+    name: _Schema
+    parent: !_OutputBase
+      output: _Named
+    typeKind: !_TypeKind Output
+  !_Identifier _TypeFilter: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_InputAlternate)
+        collections:
+          - !_Modifier
+            modifierKind: !_ModifierKind List
+        input: _NameFilter
+        object: _Filter
+    allFields:
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: names
+        object: _Filter
+        type: !_InputBase
+          input: _NameFilter
+      - !_ObjectFor(_InputField)
+        default: true
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: matchAliases
+        object: _Filter
+        type: !_InputBase
+          input: Boolean
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: aliases
+        object: _Filter
+        type: !_InputBase
+          input: _NameFilter
+      - !_ObjectFor(_InputField)
+        default: false
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: returnByAlias
+        object: _Filter
+        type: !_InputBase
+          input: Boolean
+      - !_ObjectFor(_InputField)
+        default: false
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: returnReferencedTypes
+        object: _Filter
+        type: !_InputBase
+          input: Boolean
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: kinds
+        object: _TypeFilter
+        type: !_InputBase
+          input: _TypeKind
+    fields:
+      - !_InputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: kinds
+        type: !_InputBase
+          input: _TypeKind
+    name: _TypeFilter
+    parent: !_InputBase
+      input: _Filter
+    typeKind: !_TypeKind Input

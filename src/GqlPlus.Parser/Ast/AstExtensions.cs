@@ -72,24 +72,8 @@ public static class AstExtensions
       ? char.ToLower(text[0], CultureInfo.InvariantCulture) + text[1..]
       : text;
 
-  public static string Prefixed(this string? text, string prefix)
-    => text?.Length > 0 ? prefix + text : "";
-
   public static string Prefixed(this IGqlpAbbreviated? ast, string prefix)
     => ast is null ? "" : $"{prefix}{ast}";
-
-  public static string Suffixed(this string? text, string suffix)
-    => text?.Length > 0 ? text + suffix : "";
-
-  public static string Quoted(this string? text, string quote)
-    => text?.Length > 0
-    ? string.Concat(
-      quote,
-      text
-        .Replace("\\", "\\\\")
-        .Replace(quote, "\\" + quote),
-      quote)
-    : "";
 
   public static IGqlpFields<TValue> ToObject<TItem, TValue>(this IEnumerable<TItem> items, Func<TItem, IGqlpFieldKey> key, Func<TItem, TValue> value)
     where TValue : IGqlpValue<TValue>

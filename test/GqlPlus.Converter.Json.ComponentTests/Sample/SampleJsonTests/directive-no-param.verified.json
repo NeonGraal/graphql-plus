@@ -1,0 +1,20 @@
+﻿{
+  "$tag": "_Schema",
+  "directives": {
+    "$tag": "_Map_Directives",
+    "DrctNoParam": {
+      "$tag": "_Directive",
+      "locations": {
+        "$tag": "_Set(_Location)",
+        "Field": "_",
+        "Fragment": "_",
+        "Inline": "_",
+        "Operation": "_",
+        "Spread": "_",
+        "Variable": "_"
+      },
+      "name": "DrctNoParam",
+      "repeatable": false
+    }
+  }
+}

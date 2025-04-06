@@ -1,0 +1,100 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "AltInpGnrcPrntParam": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "input": "String",
+          "object": "AltInpGnrcPrntParam"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "alt",
+          "object": "AltInpGnrcPrntParam",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "value": "String"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "alt",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "AltInpGnrcPrntParam",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "InpGnrcPrntParam": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "RefInpGnrcPrntParam",
+          "typeParam": "ref"
+        }
+      ],
+      "name": "InpGnrcPrntParam",
+      "parent": {
+        "$tag": "_InputBase",
+        "input": "RefInpGnrcPrntParam",
+        "typeArgs": [
+          {
+            "$tag": "_InputArg",
+            "value": "AltInpGnrcPrntParam"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "RefInpGnrcPrntParam": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "RefInpGnrcPrntParam",
+          "typeParam": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "value": "ref"
+        }
+      ],
+      "name": "RefInpGnrcPrntParam",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "ref"
+        }
+      ]
+    }
+  }
+}

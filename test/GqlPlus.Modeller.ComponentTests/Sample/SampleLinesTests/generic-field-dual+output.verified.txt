@@ -1,0 +1,56 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier AltOutpGnrcFieldDual: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_DualAlternate)
+        dual: String
+        object: AltOutpGnrcFieldDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: alt
+        object: AltOutpGnrcFieldDual
+        type: !_DualBase
+          dual: Number
+    alternates:
+      - !_DualAlternate
+        dual: String
+    fields:
+      - !_DualField
+        name: alt
+        type: !_DualBase
+          dual: Number
+    name: AltOutpGnrcFieldDual
+    typeKind: !_TypeKind Dual
+  !_Identifier OutpGnrcFieldDual: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: OutpGnrcFieldDual
+        type: !_OutputBase
+          output: RefOutpGnrcFieldDual
+          typeArgs:
+            - !_DualArg
+              dual: AltOutpGnrcFieldDual
+    fields:
+      - !_OutputField
+        name: field
+        type: !_OutputBase
+          output: RefOutpGnrcFieldDual
+          typeArgs:
+            - !_DualArg
+              dual: AltOutpGnrcFieldDual
+    name: OutpGnrcFieldDual
+    typeKind: !_TypeKind Output
+  !_Identifier RefOutpGnrcFieldDual: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: RefOutpGnrcFieldDual
+        typeParam: ref
+    alternates:
+      - !_OutputAlternate
+        typeParam: ref
+    name: RefOutpGnrcFieldDual
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_Named
+        name: ref

@@ -1,0 +1,366 @@
+﻿{
+  "$tag": "_Schema",
+  "_errors": [
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _TypeInput can\u0027t get model for type \u0027_TypeObject\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _InputBase can\u0027t get model for type \u0027_ObjBase\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _InputField can\u0027t get model for type \u0027_Field\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _InputAlternate can\u0027t get model for type \u0027_Alternate\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _InputTypeArg can\u0027t get model for type \u0027_ObjTypeArg\u0027"
+    }
+  ],
+  "types": {
+    "$tag": "_Map_Type",
+    "_InputAlternate": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "input",
+          "object": "_InputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "input",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "name": "_InputAlternate",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_Alternate",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "value": "_InputTypeArg"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_InputBase": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "_InputBase",
+          "output": "_DualBase"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "input",
+          "object": "_InputBase",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "value": "_DualBase"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "input",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "name": "_InputBase",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_ObjBase",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "value": "_InputTypeArg"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_InputField": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "default",
+          "object": "_InputField",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Constant"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "default",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Constant"
+          }
+        }
+      ],
+      "name": "_InputField",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_Field",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "value": "_InputBase"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_InputParam": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "_InputBase",
+          "output": "_DualBase"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "input",
+          "object": "_InputBase",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "modifiers",
+          "object": "_InputParam",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Modifiers"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "default",
+          "object": "_InputParam",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Constant"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "modifiers",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Modifiers"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "default",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Constant"
+          }
+        }
+      ],
+      "name": "_InputParam",
+      "parent": {
+        "$tag": "_OutputBase",
+        "value": "_InputBase"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_InputTypeArg": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "input",
+          "object": "_InputTypeArg",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "input",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "name": "_InputTypeArg",
+      "parent": {
+        "$tag": "_OutputBase",
+        "value": "_ObjTypeArg"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_TypeInput": {
+      "$tag": "_TypeOutput",
+      "name": "_TypeInput",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_TypeObject",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "label": "Input",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          },
+          {
+            "$tag": "_OutputArg",
+            "value": "_InputBase"
+          },
+          {
+            "$tag": "_OutputArg",
+            "value": "_InputField"
+          },
+          {
+            "$tag": "_OutputArg",
+            "value": "_InputAlternate"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    }
+  }
+}

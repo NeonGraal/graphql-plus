@@ -1,0 +1,182 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "_Aliased": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "_Identifier"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "aliases",
+          "object": "_Aliased",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "aliases",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "name": "_Aliased",
+      "parent": {
+        "$tag": "_DualBase",
+        "value": "_Named"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "_Described": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "description",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        }
+      ],
+      "name": "_Described",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "_Named": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "String"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "name",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "name": "_Named",
+      "parent": {
+        "$tag": "_DualBase",
+        "value": "_Described"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    }
+  }
+}

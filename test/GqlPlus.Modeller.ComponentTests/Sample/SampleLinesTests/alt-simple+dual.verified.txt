@@ -1,0 +1,12 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DualAltSmpl: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_DualAlternate)
+        dual: String
+        object: DualAltSmpl
+    alternates:
+      - !_DualAlternate
+        dual: String
+    name: DualAltSmpl
+    typeKind: !_TypeKind Dual

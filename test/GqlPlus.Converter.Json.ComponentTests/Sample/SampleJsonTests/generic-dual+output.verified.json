@@ -1,0 +1,116 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutpGnrcDual": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpGnrcDual",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutpGnrcDualRef",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "value": "OutpGnrcDualAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutpGnrcDualRef",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "value": "OutpGnrcDualAlt"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "OutpGnrcDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "OutpGnrcDualAlt": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "dual": "String",
+          "object": "OutpGnrcDualAlt"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "alt",
+          "object": "OutpGnrcDualAlt",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "value": "String"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "alt",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "OutpGnrcDualAlt",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "OutpGnrcDualRef": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpGnrcDualRef",
+          "typeParam": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "value": "ref"
+        }
+      ],
+      "name": "OutpGnrcDualRef",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "ref"
+        }
+      ]
+    }
+  }
+}

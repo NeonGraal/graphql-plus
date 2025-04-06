@@ -1,0 +1,739 @@
+﻿!_Schema
+aliases: [Opt1,Opt2]
+categories: !_Map_Categories
+  !_Identifier ctgr: !_Category
+    name: ctgr
+    output: !_TypeRef(_TypeKind)
+      name: Ctgr
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Identifier ctgrAlias: !_Category
+    aliases: [CatA1,CatA2]
+    name: ctgrAlias
+    output: !_TypeRef(_TypeKind)
+      name: CtgrAlias
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Identifier ctgrDescr: !_Category
+    description: 'First category Second category'
+    name: ctgrDescr
+    output: !_TypeRef(_TypeKind)
+      name: CtgrDescr
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Identifier ctgrMod: !_Category
+    aliases: [CatM1,CatM2]
+    modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+    name: ctgrMod
+    output: !_TypeRef(_TypeKind)
+      name: CtgrMod
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+directives: !_Map_Directives
+  !_Identifier Drct: !_Directive
+    locations: !_Set(_Location){Inline:_,Spread:_}
+    name: Drct
+    repeatable: false
+  !_Identifier DrctAlias: !_Directive
+    aliases: [DirA1,DirA2]
+    locations: !_Set(_Location){Field:_,Variable:_}
+    name: DrctAlias
+    repeatable: false
+  !_Identifier DrctParam: !_Directive
+    locations: !_Set(_Location){Fragment:_,Operation:_}
+    name: DrctParam
+    parameters:
+      - !_InputParam
+        input: InDrctParam
+    repeatable: false
+name: Schema
+settings: !_Map_Setting
+  !_Identifier merged: !_Setting
+    name: merged
+    value:
+      - true
+      - 0
+types: !_Map_Type
+  !_Identifier Ctgr: !_TypeOutput
+    name: Ctgr
+    typeKind: !_TypeKind Output
+  !_Identifier CtgrAlias: !_TypeOutput
+    name: CtgrAlias
+    typeKind: !_TypeKind Output
+  !_Identifier CtgrDescr: !_TypeOutput
+    name: CtgrDescr
+    typeKind: !_TypeKind Output
+  !_Identifier CtgrMod: !_TypeOutput
+    name: CtgrMod
+    typeKind: !_TypeKind Output
+  !_Identifier DmnAlias: !_DomainNumber
+    aliases: [Num1,Num2]
+    domainKind: !_DomainKind Number
+    name: DmnAlias
+    typeKind: !_TypeKind Domain
+  !_Identifier DmnBool: !_DomainBoolean
+    allItems:
+      - !_DomainItem(_DomainTrueFalse)
+        domain: DmnBool
+        exclude: false
+        value: false
+      - !_DomainItem(_DomainTrueFalse)
+        domain: DmnBool
+        exclude: false
+        value: true
+    domainKind: !_DomainKind Boolean
+    items:
+      - !_DomainTrueFalse
+        exclude: false
+        value: false
+      - !_DomainTrueFalse
+        exclude: false
+        value: true
+    name: DmnBool
+    typeKind: !_TypeKind Domain
+  !_Identifier DmnBoolDiff: !_DomainBoolean
+    allItems:
+      - !_DomainItem(_DomainTrueFalse)
+        domain: DmnBoolDiff
+        exclude: false
+        value: true
+      - !_DomainItem(_DomainTrueFalse)
+        domain: DmnBoolDiff
+        exclude: false
+        value: false
+    domainKind: !_DomainKind Boolean
+    items:
+      - !_DomainTrueFalse
+        exclude: false
+        value: true
+      - !_DomainTrueFalse
+        exclude: false
+        value: false
+    name: DmnBoolDiff
+    typeKind: !_TypeKind Domain
+  !_Identifier DmnBoolSame: !_DomainBoolean
+    allItems:
+      - !_DomainItem(_DomainTrueFalse)
+        domain: DmnBoolSame
+        exclude: false
+        value: true
+    domainKind: !_DomainKind Boolean
+    items:
+      - !_DomainTrueFalse
+        exclude: false
+        value: true
+    name: DmnBoolSame
+    typeKind: !_TypeKind Domain
+  !_Identifier DmnEnumDiff: !_DomainEnum
+    allItems:
+      - !_DomainItem(_DomainLabel)
+        domain: DmnEnumDiff
+        exclude: false
+        value: !_EnumValue
+          label: true
+          name: Boolean
+          typeKind: !_SimpleKind Enum
+      - !_DomainItem(_DomainLabel)
+        domain: DmnEnumDiff
+        exclude: false
+        value: !_EnumValue
+          label: false
+          name: Boolean
+          typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+      - !_DomainLabel
+        exclude: false
+        value: !_EnumValue
+          label: true
+          name: Boolean
+          typeKind: !_SimpleKind Enum
+      - !_DomainLabel
+        exclude: false
+        value: !_EnumValue
+          label: false
+          name: Boolean
+          typeKind: !_SimpleKind Enum
+    name: DmnEnumDiff
+    typeKind: !_TypeKind Domain
+  !_Identifier DmnEnumSame: !_DomainEnum
+    allItems:
+      - !_DomainItem(_DomainLabel)
+        domain: DmnEnumSame
+        exclude: false
+        value: !_EnumValue
+          label: true
+          name: Boolean
+          typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+      - !_DomainLabel
+        exclude: false
+        value: !_EnumValue
+          label: true
+          name: Boolean
+          typeKind: !_SimpleKind Enum
+    name: DmnEnumSame
+    typeKind: !_TypeKind Domain
+  !_Identifier DmnNmbr: !_DomainNumber
+    domainKind: !_DomainKind Number
+    name: DmnNmbr
+    typeKind: !_TypeKind Domain
+  !_Identifier DmnNmbrDiff: !_DomainNumber
+    allItems:
+      - !_DomainItem(_DomainRange)
+        domain: DmnNmbrDiff
+        exclude: false
+        from: 1
+        to: 9
+    domainKind: !_DomainKind Number
+    items:
+      - !_DomainRange
+        exclude: false
+        from: 1
+        to: 9
+    name: DmnNmbrDiff
+    typeKind: !_TypeKind Domain
+  !_Identifier DmnNmbrSame: !_DomainNumber
+    allItems:
+      - !_DomainItem(_DomainRange)
+        domain: DmnNmbrSame
+        exclude: false
+        from: 1
+        to: 9
+    domainKind: !_DomainKind Number
+    items:
+      - !_DomainRange
+        exclude: false
+        from: 1
+        to: 9
+    name: DmnNmbrSame
+    typeKind: !_TypeKind Domain
+  !_Identifier DmnStr: !_DomainString
+    domainKind: !_DomainKind String
+    name: DmnStr
+    typeKind: !_TypeKind Domain
+  !_Identifier DmnStrDiff: !_DomainString
+    allItems:
+      - !_DomainItem(_DomainRegex)
+        domain: DmnStrDiff
+        exclude: false
+        pattern: a+
+    domainKind: !_DomainKind String
+    items:
+      - !_DomainRegex
+        exclude: false
+        pattern: a+
+    name: DmnStrDiff
+    typeKind: !_TypeKind Domain
+  !_Identifier DmnStrSame: !_DomainString
+    allItems:
+      - !_DomainItem(_DomainRegex)
+        domain: DmnStrSame
+        exclude: false
+        pattern: a+
+    domainKind: !_DomainKind String
+    items:
+      - !_DomainRegex
+        exclude: false
+        pattern: a+
+    name: DmnStrSame
+    typeKind: !_TypeKind Domain
+  !_Identifier DualObj: !_TypeDual
+    name: DualObj
+    typeKind: !_TypeKind Dual
+  !_Identifier DualObjAlias: !_TypeDual
+    aliases: [Dual1,Dual2]
+    name: DualObjAlias
+    typeKind: !_TypeKind Dual
+  !_Identifier DualObjAlt: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_DualAlternate)
+        dual: DualObjAltType
+        object: DualObjAlt
+    alternates:
+      - !_DualAlternate
+        dual: DualObjAltType
+    name: DualObjAlt
+    typeKind: !_TypeKind Dual
+  !_Identifier DualObjAltType: !_TypeDual
+    name: DualObjAltType
+    typeKind: !_TypeKind Dual
+  !_Identifier DualObjField: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: field
+        object: DualObjField
+        type: !_DualBase
+          dual: FldDualObjField
+    fields:
+      - !_DualField
+        name: field
+        type: !_DualBase
+          dual: FldDualObjField
+    name: DualObjField
+    typeKind: !_TypeKind Dual
+  !_Identifier DualObjFieldAlias: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        aliases: [field1,field2]
+        name: field
+        object: DualObjFieldAlias
+        type: !_DualBase
+          dual: FldDualObjFieldAlias
+    fields:
+      - !_DualField
+        aliases: [field1,field2]
+        name: field
+        type: !_DualBase
+          dual: FldDualObjFieldAlias
+    name: DualObjFieldAlias
+    typeKind: !_TypeKind Dual
+  !_Identifier DualObjParam: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: test
+        object: DualObjParam
+        type: !_DualBase
+          typeParam: test
+      - !_ObjectFor(_DualField)
+        name: type
+        object: DualObjParam
+        type: !_DualBase
+          typeParam: type
+    fields:
+      - !_DualField
+        name: test
+        type: !_DualBase
+          typeParam: test
+      - !_DualField
+        name: type
+        type: !_DualBase
+          typeParam: type
+    name: DualObjParam
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_Named
+        name: test
+      - !_Named
+        name: type
+  !_Identifier DualObjPrnt: !_TypeDual
+    name: DualObjPrnt
+    parent: !_DualBase
+      dual: RefDualObjPrnt
+    typeKind: !_TypeKind Dual
+  !_Identifier EnumAlias: !_TypeEnum
+    aliases: [En1,En2]
+    allItems:
+      - !_EnumLabel
+        enum: EnumAlias
+        name: enumAlias
+    items:
+      - !_Aliased
+        name: enumAlias
+    name: EnumAlias
+    typeKind: !_TypeKind Enum
+  !_Identifier EnumDiff: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: EnumDiff
+        name: one
+    items:
+      - !_Aliased
+        name: one
+    name: EnumDiff
+    typeKind: !_TypeKind Enum
+  !_Identifier EnumSame: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: EnumSame
+        name: enumSame
+    items:
+      - !_Aliased
+        name: enumSame
+    name: EnumSame
+    typeKind: !_TypeKind Enum
+  !_Identifier EnumSamePrnt: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: PrntEnumSamePrnt
+        name: prnt_enumSamePrnt
+      - !_EnumLabel
+        enum: EnumSamePrnt
+        name: enumSamePrnt
+    items:
+      - !_Aliased
+        name: enumSamePrnt
+    name: EnumSamePrnt
+    parent: !_TypeRef(_SimpleKind)
+      name: PrntEnumSamePrnt
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
+  !_Identifier EnumValueAlias: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        aliases: [val1,val2]
+        enum: EnumValueAlias
+        name: enumValueAlias
+    items:
+      - !_Aliased
+        aliases: [val1,val2]
+        name: enumValueAlias
+    name: EnumValueAlias
+    typeKind: !_TypeKind Enum
+  !_Identifier FldDualObjField: !_TypeDual
+    name: FldDualObjField
+    typeKind: !_TypeKind Dual
+  !_Identifier FldDualObjFieldAlias: !_TypeDual
+    name: FldDualObjFieldAlias
+    typeKind: !_TypeKind Dual
+  !_Identifier FldInpObjField: !_TypeInput
+    name: FldInpObjField
+    typeKind: !_TypeKind Input
+  !_Identifier FldInpObjFieldAlias: !_TypeInput
+    name: FldInpObjFieldAlias
+    typeKind: !_TypeKind Input
+  !_Identifier FldOutpFieldParam: !_TypeDual
+    name: FldOutpFieldParam
+    typeKind: !_TypeKind Dual
+  !_Identifier FldOutpObjField: !_TypeOutput
+    name: FldOutpObjField
+    typeKind: !_TypeKind Output
+  !_Identifier FldOutpObjFieldAlias: !_TypeOutput
+    name: FldOutpObjFieldAlias
+    typeKind: !_TypeKind Output
+  !_Identifier InDrctParam: !_TypeInput
+    name: InDrctParam
+    typeKind: !_TypeKind Input
+  !_Identifier InpObj: !_TypeInput
+    name: InpObj
+    typeKind: !_TypeKind Input
+  !_Identifier InpObjAlias: !_TypeInput
+    aliases: [Inp1,Inp2]
+    name: InpObjAlias
+    typeKind: !_TypeKind Input
+  !_Identifier InpObjAlt: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_InputAlternate)
+        input: InpObjAltType
+        object: InpObjAlt
+    alternates:
+      - !_InputAlternate
+        input: InpObjAltType
+    name: InpObjAlt
+    typeKind: !_TypeKind Input
+  !_Identifier InpObjAltType: !_TypeInput
+    name: InpObjAltType
+    typeKind: !_TypeKind Input
+  !_Identifier InpObjField: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: field
+        object: InpObjField
+        type: !_InputBase
+          input: FldInpObjField
+    fields:
+      - !_InputField
+        name: field
+        type: !_InputBase
+          input: FldInpObjField
+    name: InpObjField
+    typeKind: !_TypeKind Input
+  !_Identifier InpObjFieldAlias: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        aliases: [field1,field2]
+        name: field
+        object: InpObjFieldAlias
+        type: !_InputBase
+          input: FldInpObjFieldAlias
+    fields:
+      - !_InputField
+        aliases: [field1,field2]
+        name: field
+        type: !_InputBase
+          input: FldInpObjFieldAlias
+    name: InpObjFieldAlias
+    typeKind: !_TypeKind Input
+  !_Identifier InpObjParam: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: test
+        object: InpObjParam
+        type: !_InputBase
+          typeParam: test
+      - !_ObjectFor(_InputField)
+        name: type
+        object: InpObjParam
+        type: !_InputBase
+          typeParam: type
+    fields:
+      - !_InputField
+        name: test
+        type: !_InputBase
+          typeParam: test
+      - !_InputField
+        name: type
+        type: !_InputBase
+          typeParam: type
+    name: InpObjParam
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_Named
+        name: test
+      - !_Named
+        name: type
+  !_Identifier InpObjPrnt: !_TypeInput
+    name: InpObjPrnt
+    parent: !_InputBase
+      input: RefInpObjPrnt
+    typeKind: !_TypeKind Input
+  !_Identifier OutpFieldEnumAlias: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        field: field
+        label: true
+        name: Boolean
+        object: OutpFieldEnumAlias
+        typeKind: !_SimpleKind Enum
+      - !_ObjectFor(_OutputField)
+        field: Boolean
+        label: true
+        object: OutpFieldEnumAlias
+        typeKind: !_SimpleKind Enum
+    fields:
+      - !_OutputEnum
+        field: field
+        label: true
+        name: Boolean
+        typeKind: !_SimpleKind Enum
+      - !_OutputEnum
+        field: Boolean
+        label: true
+        typeKind: !_SimpleKind Enum
+    name: OutpFieldEnumAlias
+    typeKind: !_TypeKind Output
+  !_Identifier OutpFieldEnumValue: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        field: field
+        label: true
+        name: Boolean
+        object: OutpFieldEnumValue
+        typeKind: !_SimpleKind Enum
+      - !_ObjectFor(_OutputField)
+        field: Boolean
+        label: true
+        object: OutpFieldEnumValue
+        typeKind: !_SimpleKind Enum
+    fields:
+      - !_OutputEnum
+        field: field
+        label: true
+        name: Boolean
+        typeKind: !_SimpleKind Enum
+      - !_OutputEnum
+        field: Boolean
+        label: true
+        typeKind: !_SimpleKind Enum
+    name: OutpFieldEnumValue
+    typeKind: !_TypeKind Output
+  !_Identifier OutpFieldParam: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: OutpFieldParam
+        parameters:
+          - !_InputParam
+            input: OutpFieldParam1
+          - !_InputParam
+            input: OutpFieldParam2
+        type: !_DualBase
+          dual: FldOutpFieldParam
+    fields:
+      - !_OutputField
+        name: field
+        parameters:
+          - !_InputParam
+            input: OutpFieldParam1
+          - !_InputParam
+            input: OutpFieldParam2
+        type: !_DualBase
+          dual: FldOutpFieldParam
+    name: OutpFieldParam
+    typeKind: !_TypeKind Output
+  !_Identifier OutpFieldParam1: !_TypeInput
+    name: OutpFieldParam1
+    typeKind: !_TypeKind Input
+  !_Identifier OutpFieldParam2: !_TypeInput
+    name: OutpFieldParam2
+    typeKind: !_TypeKind Input
+  !_Identifier OutpObj: !_TypeOutput
+    name: OutpObj
+    typeKind: !_TypeKind Output
+  !_Identifier OutpObjAlias: !_TypeOutput
+    aliases: [Outp1,Outp2]
+    name: OutpObjAlias
+    typeKind: !_TypeKind Output
+  !_Identifier OutpObjAlt: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: OutpObjAlt
+        output: OutpObjAltType
+    alternates:
+      - !_OutputAlternate
+        output: OutpObjAltType
+    name: OutpObjAlt
+    typeKind: !_TypeKind Output
+  !_Identifier OutpObjAltType: !_TypeOutput
+    name: OutpObjAltType
+    typeKind: !_TypeKind Output
+  !_Identifier OutpObjField: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: OutpObjField
+        type: !_OutputBase
+          output: FldOutpObjField
+    fields:
+      - !_OutputField
+        name: field
+        type: !_OutputBase
+          output: FldOutpObjField
+    name: OutpObjField
+    typeKind: !_TypeKind Output
+  !_Identifier OutpObjFieldAlias: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        aliases: [field1,field2]
+        name: field
+        object: OutpObjFieldAlias
+        type: !_OutputBase
+          output: FldOutpObjFieldAlias
+    fields:
+      - !_OutputField
+        aliases: [field1,field2]
+        name: field
+        type: !_OutputBase
+          output: FldOutpObjFieldAlias
+    name: OutpObjFieldAlias
+    typeKind: !_TypeKind Output
+  !_Identifier OutpObjParam: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: test
+        object: OutpObjParam
+        type: !_OutputBase
+          typeParam: test
+      - !_ObjectFor(_OutputField)
+        name: type
+        object: OutpObjParam
+        type: !_OutputBase
+          typeParam: type
+    fields:
+      - !_OutputField
+        name: test
+        type: !_OutputBase
+          typeParam: test
+      - !_OutputField
+        name: type
+        type: !_OutputBase
+          typeParam: type
+    name: OutpObjParam
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_Named
+        name: test
+      - !_Named
+        name: type
+  !_Identifier OutpObjPrnt: !_TypeOutput
+    name: OutpObjPrnt
+    parent: !_OutputBase
+      output: RefOutpObjPrnt
+    typeKind: !_TypeKind Output
+  !_Identifier PrntEnumSamePrnt: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: PrntEnumSamePrnt
+        name: prnt_enumSamePrnt
+    items:
+      - !_Aliased
+        name: prnt_enumSamePrnt
+    name: PrntEnumSamePrnt
+    typeKind: !_TypeKind Enum
+  !_Identifier PrntUnionSamePrnt: !_TypeUnion
+    allItems:
+      - !_UnionMember
+        name: String
+        union: PrntUnionSamePrnt
+    items:
+      - !_Aliased
+        name: String
+    name: PrntUnionSamePrnt
+    typeKind: !_TypeKind Union
+  !_Identifier RefDualObjPrnt: !_TypeDual
+    name: RefDualObjPrnt
+    typeKind: !_TypeKind Dual
+  !_Identifier RefInpObjPrnt: !_TypeInput
+    name: RefInpObjPrnt
+    typeKind: !_TypeKind Input
+  !_Identifier RefOutpObjPrnt: !_TypeOutput
+    name: RefOutpObjPrnt
+    typeKind: !_TypeKind Output
+  !_Identifier UnionAlias: !_TypeUnion
+    aliases: [UnA1,UnA2]
+    allItems:
+      - !_UnionMember
+        name: Boolean
+        union: UnionAlias
+      - !_UnionMember
+        name: Number
+        union: UnionAlias
+    items:
+      - !_Aliased
+        name: Boolean
+      - !_Aliased
+        name: Number
+    name: UnionAlias
+    typeKind: !_TypeKind Union
+  !_Identifier UnionDiff: !_TypeUnion
+    allItems:
+      - !_UnionMember
+        name: Boolean
+        union: UnionDiff
+      - !_UnionMember
+        name: Number
+        union: UnionDiff
+    items:
+      - !_Aliased
+        name: Boolean
+      - !_Aliased
+        name: Number
+    name: UnionDiff
+    typeKind: !_TypeKind Union
+  !_Identifier UnionSame: !_TypeUnion
+    allItems:
+      - !_UnionMember
+        name: Boolean
+        union: UnionSame
+    items:
+      - !_Aliased
+        name: Boolean
+    name: UnionSame
+    typeKind: !_TypeKind Union
+  !_Identifier UnionSamePrnt: !_TypeUnion
+    allItems:
+      - !_UnionMember
+        name: String
+        union: PrntUnionSamePrnt
+      - !_UnionMember
+        name: Boolean
+        union: UnionSamePrnt
+    items:
+      - !_Aliased
+        name: Boolean
+    name: UnionSamePrnt
+    parent: !_TypeRef(_SimpleKind)
+      name: PrntUnionSamePrnt
+      typeKind: !_SimpleKind Union
+    typeKind: !_TypeKind Union

@@ -1,0 +1,27 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutpAltSmpl": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpAltSmpl",
+          "output": "String"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "value": "String"
+        }
+      ],
+      "name": "OutpAltSmpl",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    }
+  }
+}

@@ -6,8 +6,8 @@ namespace GqlPlus.Convert;
 
 public abstract class RenderLinesValueBase
 {
-  abstract protected string Tag { get; }
-  abstract protected string Expected_Empty();
+  protected abstract string Tag { get; }
+  protected abstract string Expected_Empty();
   protected abstract string Expected_String(string value);
   protected abstract string Expected_Identifier(string value);
   protected abstract string Expected_Punctuation(string value);

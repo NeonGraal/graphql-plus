@@ -1,6 +1,4 @@
 ﻿using Microsoft.CodeAnalysis;
-using OpenTelemetry.Trace;
-using Xunit.DependencyInjection;
 
 namespace GqlPlus.Sample;
 
@@ -67,7 +65,6 @@ public class GqlModelGeneratorTests : SampleChecks
 
   private async Task Generate_Model(string input, string testDirectory, string test)
     => await Generate_ModelFor(input, test, "Sample");
-
 
   private async Task Generate_Model(IEnumerable<string> inputs, string test)
     => await Generate_Model(inputs.Joined(Environment.NewLine), "", test);

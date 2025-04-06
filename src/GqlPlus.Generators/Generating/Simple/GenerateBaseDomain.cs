@@ -28,7 +28,6 @@ internal abstract class GenerateBaseDomain<TItem>
     GenerateInterface(domain, context);
     context.AppendLine("}");
 
-
     context.AppendLine($"public class Domain{domain.Name}");
     if (!string.IsNullOrWhiteSpace(domain.Parent)) {
       context.AppendLine("  : Domain" + domain.Parent);

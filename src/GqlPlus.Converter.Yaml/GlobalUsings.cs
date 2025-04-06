@@ -1,3 +1,3 @@
-﻿global using YamlDotNet.Core;
+﻿global using GqlPlus.Structures;
+global using YamlDotNet.Core;
 global using YamlDotNet.Serialization;
-global using GqlPlus.Structures;

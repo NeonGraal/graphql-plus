@@ -36,7 +36,7 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "RefOutpPrntParamDiff",
-        "typeArgs": [{ "$tag": "_TypeParam", "value": "a" }]
+        "typeArgs": [{"$tag":"_TypeParam", "value":"a"}]
       },
       "typeKind": {
         "$tag": "_TypeKind",

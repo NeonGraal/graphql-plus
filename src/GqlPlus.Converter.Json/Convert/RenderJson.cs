@@ -18,5 +18,5 @@ public static class RenderJson
     };
 
   public static string ToJson(this Structured model)
-    => JsonSerializer.Serialize(model, Options) + "\n";
+    => JsonSerializer.Serialize(model, Options);
 }

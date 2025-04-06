@@ -168,7 +168,7 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_ObjBase",
-        "typeArgs": [{ "$tag": "_TypeParam", "value": "arg" }]
+        "typeArgs": [{"$tag":"_TypeParam", "value":"arg"}]
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -942,7 +942,7 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_BaseType",
-        "typeArgs": [{ "$tag": "_TypeParam", "value": "kind" }]
+        "typeArgs": [{"$tag":"_TypeParam", "value":"kind"}]
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -2154,7 +2154,7 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_DomainRef",
-        "typeArgs": [{ "$tag": "_TypeParam", "value": "kind" }]
+        "typeArgs": [{"$tag":"_TypeParam", "value":"kind"}]
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -3744,7 +3744,7 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_Modifier",
-        "typeArgs": [{ "$tag": "_TypeParam", "value": "kind" }]
+        "typeArgs": [{"$tag":"_TypeParam", "value":"kind"}]
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -4128,7 +4128,7 @@
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjType",
           "output": "_ObjConstraint",
-          "typeArgs": [{ "$tag": "_TypeParam", "value": "base" }]
+          "typeArgs": [{"$tag":"_TypeParam", "value":"base"}]
         }
       ],
       "alternates": [
@@ -4150,7 +4150,7 @@
         {
           "$tag": "_OutputAlternate",
           "output": "_ObjConstraint",
-          "typeArgs": [{ "$tag": "_TypeParam", "value": "base" }]
+          "typeArgs": [{"$tag":"_TypeParam", "value":"base"}]
         }
       ],
       "name": "_ObjType",
@@ -6072,7 +6072,7 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArgs": [{ "$tag": "_TypeParam", "value": "field" }]
+            "typeArgs": [{"$tag":"_TypeParam", "value":"field"}]
           }
         },
         {
@@ -6091,7 +6091,7 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArgs": [{ "$tag": "_TypeParam", "value": "alternate" }]
+            "typeArgs": [{"$tag":"_TypeParam", "value":"alternate"}]
           }
         }
       ],
@@ -6556,7 +6556,7 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArgs": [{ "$tag": "_TypeParam", "value": "field" }]
+            "typeArgs": [{"$tag":"_TypeParam", "value":"field"}]
           }
         },
         {
@@ -6575,7 +6575,7 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArgs": [{ "$tag": "_TypeParam", "value": "alternate" }]
+            "typeArgs": [{"$tag":"_TypeParam", "value":"alternate"}]
           }
         }
       ],
@@ -6820,7 +6820,7 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArgs": [{ "$tag": "_TypeParam", "value": "field" }]
+            "typeArgs": [{"$tag":"_TypeParam", "value":"field"}]
           }
         },
         {
@@ -6839,7 +6839,7 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArgs": [{ "$tag": "_TypeParam", "value": "alternate" }]
+            "typeArgs": [{"$tag":"_TypeParam", "value":"alternate"}]
           }
         }
       ],
@@ -6910,7 +6910,7 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArgs": [{ "$tag": "_TypeParam", "value": "field" }]
+            "typeArgs": [{"$tag":"_TypeParam", "value":"field"}]
           }
         },
         {
@@ -6928,7 +6928,7 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArgs": [{ "$tag": "_TypeParam", "value": "alternate" }]
+            "typeArgs": [{"$tag":"_TypeParam", "value":"alternate"}]
           }
         }
       ],
@@ -6936,10 +6936,7 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_ChildType",
-        "typeArgs": [
-          { "$tag": "_TypeParam", "value": "kind" },
-          { "$tag": "_TypeParam", "value": "parent" }
-        ]
+        "typeArgs": [{"$tag":"_TypeParam", "value":"kind"}, {"$tag":"_TypeParam", "value":"parent"}]
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -7100,7 +7097,7 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArgs": [{ "$tag": "_TypeParam", "value": "field" }]
+            "typeArgs": [{"$tag":"_TypeParam", "value":"field"}]
           }
         },
         {
@@ -7119,7 +7116,7 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArgs": [{ "$tag": "_TypeParam", "value": "alternate" }]
+            "typeArgs": [{"$tag":"_TypeParam", "value":"alternate"}]
           }
         }
       ],

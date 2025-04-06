@@ -15,7 +15,7 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "RefOutpGnrcPrntArg",
-        "typeArgs": [{ "$tag": "_TypeParam", "value": "type" }]
+        "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
       },
       "typeKind": {
         "$tag": "_TypeKind",

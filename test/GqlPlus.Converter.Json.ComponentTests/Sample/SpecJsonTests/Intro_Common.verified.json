@@ -95,7 +95,7 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_BaseType",
-        "typeArgs": [{ "$tag": "_TypeParam", "value": "kind" }]
+        "typeArgs": [{"$tag":"_TypeParam", "value":"kind"}]
       },
       "typeKind": {
         "$tag": "_TypeKind",

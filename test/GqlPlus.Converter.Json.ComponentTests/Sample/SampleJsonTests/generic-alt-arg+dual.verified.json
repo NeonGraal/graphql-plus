@@ -9,14 +9,14 @@
           "$tag": "_ObjectFor(_DualAlternate)",
           "dual": "RefDualGnrcAltArg",
           "object": "DualGnrcAltArg",
-          "typeArgs": [{ "$tag": "_TypeParam", "value": "type" }]
+          "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
           "dual": "RefDualGnrcAltArg",
-          "typeArgs": [{ "$tag": "_TypeParam", "value": "type" }]
+          "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
         }
       ],
       "name": "DualGnrcAltArg",

@@ -4,7 +4,7 @@
     {%- if object.typeParams %}
     <div>
       <sub>Type parameters:</sub>
-      {%- for prm in object.typeParams %} ${{ prm.name }}
+      {%- for prm in object.typeParams %} <I>${{ prm.name }}</I>
       {%- unless forloop.last -%} , {%- endunless -%}
       {%- endfor %}
     </div>

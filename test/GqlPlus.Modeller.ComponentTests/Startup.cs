@@ -3,9 +3,6 @@
 using DiffEngine;
 
 using GqlPlus.Convert;
-using GqlPlus.Modelling;
-using GqlPlus.Rendering;
-using GqlPlus.Resolving;
 
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
@@ -23,11 +20,5 @@ public static class Startup
   }
 
   public static void ConfigureServices(IServiceCollection services)
-    => services
-      .AddComponentTest()
-      .AddModellers()
-      .AddResolvers()
-      .AddRenderers()
-      // Test support
-      .AddSingleton<IModelAndRender, ModelAndRender>();
+    => services.AddModellerComponentTestBase();
 }

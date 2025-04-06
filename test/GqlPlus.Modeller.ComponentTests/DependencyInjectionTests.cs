@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+
 using Xunit.DependencyInjection;
 
 namespace GqlPlus;
@@ -19,6 +20,10 @@ public class DependencyInjectionTests(
   [Fact]
   public void DiagramModellerDI()
     => DiagramDependencyInjection("Modeller");
+
+  [Fact]
+  public void Force3DModellerDI()
+    => Force3dDependencyInjection("Modeller");
 
   [Fact]
   public void FluidModellerFiles()

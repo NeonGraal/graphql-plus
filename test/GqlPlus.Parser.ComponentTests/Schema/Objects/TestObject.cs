@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Parsing;
 using GqlPlus.Parsing.Schema.Objects;

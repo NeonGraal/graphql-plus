@@ -1,0 +1,27 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnumDiff": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumDiff",
+          "name": "one"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "one"
+        }
+      ],
+      "name": "EnumDiff",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    }
+  }
+}

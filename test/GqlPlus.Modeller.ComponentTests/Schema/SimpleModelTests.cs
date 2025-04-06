@@ -20,7 +20,7 @@ public class SimpleModelTests(
 
   [Theory, RepeatData]
   public void Model_Number(decimal number)
-    => checks.SimpleExpected(new FieldKeyAst(AstNulls.At, number), [$"{number}"]);
+    => checks.SimpleExpected(new FieldKeyAst(AstNulls.At, number), [$"{number:0.#####}"]);
 }
 
 internal sealed class SimpleModelChecks(
@@ -33,7 +33,7 @@ internal sealed class SimpleModelChecks(
     => AstExpected((FieldKeyAst)ast, expected);
 
   protected override string[] ExpectedBase(string name)
-    => [name.YamlQuoted()];
+    => [name.Quoted("'")];
 
   protected override FieldKeyAst NewBaseAst(string input)
     => new(AstNulls.At, input);

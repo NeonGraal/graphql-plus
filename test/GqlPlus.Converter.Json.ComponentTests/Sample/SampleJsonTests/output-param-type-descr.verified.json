@@ -1,0 +1,99 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "FldOutpParamTypeDescr": {
+      "$tag": "_TypeDual",
+      "name": "FldOutpParamTypeDescr",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "InOutpParamTypeDescr": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "input": "String",
+          "object": "InOutpParamTypeDescr"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "param",
+          "object": "InOutpParamTypeDescr",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "value": "String"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "param",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "InOutpParamTypeDescr",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "OutpParamTypeDescr": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpParamTypeDescr",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "InOutpParamTypeDescr"
+            }
+          ],
+          "type": {
+            "$tag": "_DualBase",
+            "description": "Test Descr",
+            "dual": "FldOutpParamTypeDescr"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "InOutpParamTypeDescr"
+            }
+          ],
+          "type": {
+            "$tag": "_DualBase",
+            "description": "Test Descr",
+            "dual": "FldOutpParamTypeDescr"
+          }
+        }
+      ],
+      "name": "OutpParamTypeDescr",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutpGnrcPrnt": {
+      "$tag": "_TypeOutput",
+      "name": "OutpGnrcPrnt",
+      "parent": {
+        "$tag": "_OutputBase",
+        "value": "type"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "type"
+        }
+      ]
+    }
+  }
+}

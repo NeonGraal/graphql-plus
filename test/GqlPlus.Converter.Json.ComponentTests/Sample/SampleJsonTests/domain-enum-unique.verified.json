@@ -1,0 +1,66 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnumDmnEnumUnq": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumDmnEnumUnq",
+          "name": "enum_dmnEnumUnq"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumDmnEnumUnq",
+          "name": "dmnEnumUnq"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "enum_dmnEnumUnq"
+        },
+        {
+          "$tag": "_Aliased",
+          "value": "dmnEnumUnq"
+        }
+      ],
+      "name": "EnumDmnEnumUnq",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumDomDup": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumDomDup",
+          "name": "dmnEnumUnq"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumDomDup",
+          "name": "dup_dmnEnumUnq"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "dmnEnumUnq"
+        },
+        {
+          "$tag": "_Aliased",
+          "value": "dup_dmnEnumUnq"
+        }
+      ],
+      "name": "EnumDomDup",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    }
+  }
+}

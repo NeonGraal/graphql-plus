@@ -1,0 +1,199 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "FldOutpPrntParam": {
+      "$tag": "_TypeDual",
+      "name": "FldOutpPrntParam",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "InOutpPrntParam": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "input": "String",
+          "object": "InOutpPrntParam"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "param",
+          "object": "InOutpPrntParam",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "value": "String"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "param",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "InOutpPrntParam",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "OutpPrntParam": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "PrntOutpPrntParam",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "PrntOutpPrntParamIn"
+            }
+          ],
+          "type": {
+            "$tag": "_DualBase",
+            "value": "FldOutpPrntParam"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpPrntParam",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "InOutpPrntParam"
+            }
+          ],
+          "type": {
+            "$tag": "_DualBase",
+            "value": "FldOutpPrntParam"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "InOutpPrntParam"
+            }
+          ],
+          "type": {
+            "$tag": "_DualBase",
+            "value": "FldOutpPrntParam"
+          }
+        }
+      ],
+      "name": "OutpPrntParam",
+      "parent": {
+        "$tag": "_OutputBase",
+        "value": "PrntOutpPrntParam"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "PrntOutpPrntParam": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "PrntOutpPrntParam",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "PrntOutpPrntParamIn"
+            }
+          ],
+          "type": {
+            "$tag": "_DualBase",
+            "value": "FldOutpPrntParam"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "value": "PrntOutpPrntParamIn"
+            }
+          ],
+          "type": {
+            "$tag": "_DualBase",
+            "value": "FldOutpPrntParam"
+          }
+        }
+      ],
+      "name": "PrntOutpPrntParam",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "PrntOutpPrntParamIn": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "input": "String",
+          "object": "PrntOutpPrntParamIn"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "parent",
+          "object": "PrntOutpPrntParamIn",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "value": "String"
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "parent",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "Number"
+          }
+        }
+      ],
+      "name": "PrntOutpPrntParamIn",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier FldOutpParam: !_TypeDual
+    name: FldOutpParam
+    typeKind: !_TypeKind Dual
+  !_Identifier InOutpParam: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_InputAlternate)
+        input: String
+        object: InOutpParam
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: param
+        object: InOutpParam
+        type: !_InputBase
+          input: Number
+    alternates:
+      - !_InputAlternate
+        input: String
+    fields:
+      - !_InputField
+        name: param
+        type: !_InputBase
+          input: Number
+    name: InOutpParam
+    typeKind: !_TypeKind Input
+  !_Identifier OutpParam: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: OutpParam
+        parameters:
+          - !_InputParam
+            input: InOutpParam
+        type: !_DualBase
+          dual: FldOutpParam
+    fields:
+      - !_OutputField
+        name: field
+        parameters:
+          - !_InputParam
+            input: InOutpParam
+        type: !_DualBase
+          dual: FldOutpParam
+    name: OutpParam
+    typeKind: !_TypeKind Output

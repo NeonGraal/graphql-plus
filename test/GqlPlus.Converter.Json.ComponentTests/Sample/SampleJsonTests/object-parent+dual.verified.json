@@ -1,0 +1,26 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DualObjPrnt": {
+      "$tag": "_TypeDual",
+      "name": "DualObjPrnt",
+      "parent": {
+        "$tag": "_DualBase",
+        "value": "RefDualObjPrnt"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "RefDualObjPrnt": {
+      "$tag": "_TypeDual",
+      "name": "RefDualObjPrnt",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    }
+  }
+}

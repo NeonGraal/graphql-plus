@@ -1,0 +1,39 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DualPrntDescr: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_DualAlternate)
+        dual: String
+        object: RefDualPrntDescr
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: parent
+        object: RefDualPrntDescr
+        type: !_DualBase
+          dual: Number
+    name: DualPrntDescr
+    parent: !_DualBase
+      description: 'Test Descr'
+      dual: RefDualPrntDescr
+    typeKind: !_TypeKind Dual
+  !_Identifier RefDualPrntDescr: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_DualAlternate)
+        dual: String
+        object: RefDualPrntDescr
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: parent
+        object: RefDualPrntDescr
+        type: !_DualBase
+          dual: Number
+    alternates:
+      - !_DualAlternate
+        dual: String
+    fields:
+      - !_DualField
+        name: parent
+        type: !_DualBase
+          dual: Number
+    name: RefDualPrntDescr
+    typeKind: !_TypeKind Dual

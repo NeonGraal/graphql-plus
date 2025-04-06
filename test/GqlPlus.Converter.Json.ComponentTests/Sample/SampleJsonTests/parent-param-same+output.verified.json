@@ -1,0 +1,80 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "OutpPrntParamSame": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "RefOutpPrntParamSame",
+          "typeParam": "a"
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpPrntParamSame",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "a"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "a"
+          }
+        }
+      ],
+      "name": "OutpPrntParamSame",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "RefOutpPrntParamSame",
+        "typeArgs": [{"$tag":"_TypeParam", "value":"a"}]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "a"
+        }
+      ]
+    },
+    "RefOutpPrntParamSame": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "RefOutpPrntParamSame",
+          "typeParam": "a"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "value": "a"
+        }
+      ],
+      "name": "RefOutpPrntParamSame",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "a"
+        }
+      ]
+    }
+  }
+}

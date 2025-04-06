@@ -1,0 +1,39 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier OutpPrntDescr: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: RefOutpPrntDescr
+        output: String
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: parent
+        object: RefOutpPrntDescr
+        type: !_OutputBase
+          output: Number
+    name: OutpPrntDescr
+    parent: !_OutputBase
+      description: 'Test Descr'
+      output: RefOutpPrntDescr
+    typeKind: !_TypeKind Output
+  !_Identifier RefOutpPrntDescr: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: RefOutpPrntDescr
+        output: String
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: parent
+        object: RefOutpPrntDescr
+        type: !_OutputBase
+          output: Number
+    alternates:
+      - !_OutputAlternate
+        output: String
+    fields:
+      - !_OutputField
+        name: parent
+        type: !_OutputBase
+          output: Number
+    name: RefOutpPrntDescr
+    typeKind: !_TypeKind Output

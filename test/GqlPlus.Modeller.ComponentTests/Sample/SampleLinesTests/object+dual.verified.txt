@@ -1,0 +1,5 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DualObj: !_TypeDual
+    name: DualObj
+    typeKind: !_TypeKind Dual

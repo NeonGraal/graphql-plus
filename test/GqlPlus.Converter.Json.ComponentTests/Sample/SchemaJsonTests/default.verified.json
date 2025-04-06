@@ -1,0 +1,89 @@
+﻿{
+  "$tag": "_Schema",
+  "categories": {
+    "$tag": "_Map_Categories",
+    "mutation": {
+      "$tag": "_Category",
+      "name": "mutation",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "Mutation",
+        "typeKind": {
+          "$tag": "_TypeKind",
+          "value": "Output"
+        }
+      },
+      "resolution": {
+        "$tag": "_Resolution",
+        "value": "Sequential"
+      }
+    },
+    "query": {
+      "$tag": "_Category",
+      "name": "query",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "Query",
+        "typeKind": {
+          "$tag": "_TypeKind",
+          "value": "Output"
+        }
+      },
+      "resolution": {
+        "$tag": "_Resolution",
+        "value": "Parallel"
+      }
+    },
+    "subscription": {
+      "$tag": "_Category",
+      "name": "subscription",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "Subscription",
+        "typeKind": {
+          "$tag": "_TypeKind",
+          "value": "Output"
+        }
+      },
+      "resolution": {
+        "$tag": "_Resolution",
+        "value": "Single"
+      }
+    }
+  },
+  "types": {
+    "$tag": "_Map_Type",
+    "_Schema": {
+      "$tag": "_TypeOutput",
+      "name": "_Schema",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "Mutation": {
+      "$tag": "_TypeOutput",
+      "name": "Mutation",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "Query": {
+      "$tag": "_TypeOutput",
+      "name": "Query",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "Subscription": {
+      "$tag": "_TypeOutput",
+      "name": "Subscription",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    }
+  }
+}

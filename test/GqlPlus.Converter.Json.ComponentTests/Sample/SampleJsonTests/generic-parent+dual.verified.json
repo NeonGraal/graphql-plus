@@ -1,0 +1,24 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DualGnrcPrnt": {
+      "$tag": "_TypeDual",
+      "name": "DualGnrcPrnt",
+      "parent": {
+        "$tag": "_DualBase",
+        "value": "type"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "type"
+        }
+      ]
+    }
+  }
+}

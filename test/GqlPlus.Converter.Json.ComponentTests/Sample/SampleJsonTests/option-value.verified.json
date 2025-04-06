@@ -1,0 +1,12 @@
+﻿{
+  "$tag": "_Schema",
+  "name": "Schema",
+  "settings": {
+    "$tag": "_Map_Setting",
+    "merged": {
+      "$tag": "_Setting",
+      "name": "merged",
+      "value": [true, 0]
+    }
+  }
+}

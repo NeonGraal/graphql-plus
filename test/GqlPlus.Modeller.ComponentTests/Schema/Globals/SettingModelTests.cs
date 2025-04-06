@@ -41,5 +41,5 @@ public record struct SettingInput(string Name, string Value)
     => [prefix + "!_Setting",
       .. description.Select(d => indent + d),
       indent + "name: " + Name,
-      indent + "value: " + Value.YamlQuoted()];
+      indent + "value: " + Value.Quoted("'")];
 }

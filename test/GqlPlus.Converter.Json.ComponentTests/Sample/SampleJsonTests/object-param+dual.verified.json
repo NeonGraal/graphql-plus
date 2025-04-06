@@ -1,0 +1,62 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DualObjParam": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "test",
+          "object": "DualObjParam",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "test"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "type",
+          "object": "DualObjParam",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "test",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "test"
+          }
+        },
+        {
+          "$tag": "_DualField",
+          "name": "type",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "type"
+          }
+        }
+      ],
+      "name": "DualObjParam",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "test"
+        },
+        {
+          "$tag": "_Named",
+          "value": "type"
+        }
+      ]
+    }
+  }
+}

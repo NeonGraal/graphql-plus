@@ -31,13 +31,4 @@ internal static class TestModelHelper
 
   internal static (string, TItem)[] ParentItems<TItem>(this IEnumerable<TItem> items, string parent)
     => [.. items.Select(i => (parent, i))];
-
-  private static string Escape(string input, params string[] args)
-    => args.Aggregate(input, (text, esc) => text.Replace(esc, "\\" + esc, StringComparison.Ordinal));
-
-  internal static string YamlQuoted(this string? input)
-    => input is null ? ""
-    : input.Contains('\'', StringComparison.Ordinal)
-      ? '"' + Escape(input, "\\", "\"") + '"'
-      : "'" + input.Replace("'", "''", StringComparison.Ordinal) + "'";
 }

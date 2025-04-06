@@ -1,0 +1,40 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier InpPrntParamDiff: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_InputAlternate)
+        object: RefInpPrntParamDiff
+        typeParam: b
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: field
+        object: InpPrntParamDiff
+        type: !_InputBase
+          typeParam: a
+    fields:
+      - !_InputField
+        name: field
+        type: !_InputBase
+          typeParam: a
+    name: InpPrntParamDiff
+    parent: !_InputBase
+      input: RefInpPrntParamDiff
+      typeArgs:
+        - !_TypeParam a
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_Named
+        name: a
+  !_Identifier RefInpPrntParamDiff: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_InputAlternate)
+        object: RefInpPrntParamDiff
+        typeParam: b
+    alternates:
+      - !_InputAlternate
+        typeParam: b
+    name: RefInpPrntParamDiff
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_Named
+        name: b

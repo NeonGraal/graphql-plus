@@ -1,0 +1,37 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier FldOutpFieldObj: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: FldOutpFieldObj
+        output: String
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: FldOutpFieldObj
+        type: !_OutputBase
+          output: Number
+    alternates:
+      - !_OutputAlternate
+        output: String
+    fields:
+      - !_OutputField
+        name: field
+        type: !_OutputBase
+          output: Number
+    name: FldOutpFieldObj
+    typeKind: !_TypeKind Output
+  !_Identifier OutpFieldObj: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: OutpFieldObj
+        type: !_OutputBase
+          output: FldOutpFieldObj
+    fields:
+      - !_OutputField
+        name: field
+        type: !_OutputBase
+          output: FldOutpFieldObj
+    name: OutpFieldObj
+    typeKind: !_TypeKind Output

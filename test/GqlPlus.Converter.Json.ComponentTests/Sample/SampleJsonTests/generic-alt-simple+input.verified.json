@@ -1,0 +1,66 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "InpGnrcAltSmpl": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "input": "RefInpGnrcAltSmpl",
+          "object": "InpGnrcAltSmpl",
+          "typeArgs": [
+            {
+              "$tag": "_InputArg",
+              "value": "String"
+            }
+          ]
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "input": "RefInpGnrcAltSmpl",
+          "typeArgs": [
+            {
+              "$tag": "_InputArg",
+              "value": "String"
+            }
+          ]
+        }
+      ],
+      "name": "InpGnrcAltSmpl",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "RefInpGnrcAltSmpl": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "RefInpGnrcAltSmpl",
+          "typeParam": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "value": "ref"
+        }
+      ],
+      "name": "RefInpGnrcAltSmpl",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "ref"
+        }
+      ]
+    }
+  }
+}

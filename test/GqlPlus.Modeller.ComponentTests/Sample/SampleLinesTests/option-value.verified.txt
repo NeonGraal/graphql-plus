@@ -1,0 +1,8 @@
+﻿!_Schema
+name: Schema
+settings: !_Map_Setting
+  !_Identifier merged: !_Setting
+    name: merged
+    value:
+      - true
+      - 0

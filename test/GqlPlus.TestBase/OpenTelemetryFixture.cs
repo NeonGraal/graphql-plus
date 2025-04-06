@@ -3,7 +3,6 @@ using OpenTelemetry;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
 using Xunit;
-using YamlDotNet.Serialization;
 
 namespace GqlPlus;
 
@@ -53,13 +52,13 @@ public sealed class OpenTelemetryFixture : IDisposable, IAsyncLifetime
       }
     }
 
-    ISerializer serializer = new SerializerBuilder()
-      .ConfigureDefaultValuesHandling(DefaultValuesHandling.OmitNull | DefaultValuesHandling.OmitDefaults | DefaultValuesHandling.OmitEmptyCollections)
-      .DisableAliases()
-      .Build();
+    //ISerializer serializer = new SerializerBuilder()
+    //  .ConfigureDefaultValuesHandling(DefaultValuesHandling.OmitNull | DefaultValuesHandling.OmitDefaults | DefaultValuesHandling.OmitEmptyCollections)
+    //  .DisableAliases()
+    //  .Build();
 
-    using StreamWriter writer = File.CreateText(outDir + "/activities.yml");
-    serializer.Serialize(writer, _activities);
+    //using StreamWriter writer = File.CreateText(outDir + "/activities.yml");
+    //serializer.Serialize(writer, _activities);
 
     return ValueTask.CompletedTask;
   }

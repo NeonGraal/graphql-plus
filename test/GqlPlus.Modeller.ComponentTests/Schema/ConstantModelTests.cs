@@ -16,17 +16,12 @@ public class ConstantModelTests(
   [Theory, RepeatData]
   public void Model_Object(string key, string value)
   {
+    Assert.SkipWhen(key == value, "key == value");
+
     string[] expected = ["!_ConstantMap", key + ": " + value, value + ": " + key];
 
-    switch (string.Compare(key, value, StringComparison.Ordinal)) {
-      case 0:
-        return;
-      case > 0:
-        expected = ["!_ConstantMap", value + ": " + key, key + ": " + value];
-        break;
-      default:
-        break;
-
+    if (string.Compare(key, value, StringComparison.Ordinal) > 0) {
+      expected = ["!_ConstantMap", value + ": " + key, key + ": " + value];
     }
 
     ConstantAst ast = new(AstNulls.At, value.ConstantObject(key));
@@ -44,7 +39,7 @@ internal sealed class ConstantModelChecks(
     => AstExpected((ConstantAst)ast, expected);
 
   protected override string[] ExpectedBase(string input)
-    => [input.YamlQuoted()];
+    => [input.Quoted("'")];
 
   protected override ConstantAst NewBaseAst(string input)
     => new(new FieldKeyAst(AstNulls.At, input));

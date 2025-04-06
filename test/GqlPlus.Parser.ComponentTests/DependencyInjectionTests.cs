@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+
 using Xunit.DependencyInjection;
 
 namespace GqlPlus;
@@ -17,8 +18,12 @@ public class DependencyInjectionTests(
     => await HtmlDependencyInjection("Parser");
 
   [Fact]
-  public async Task DiagramParserDI()
-    => await DiagramDependencyInjection("Parser");
+  public void Force3DParserDI()
+    => Force3dDependencyInjection("Parser");
+
+  [Fact]
+  public void DiagramParserDI()
+    => DiagramDependencyInjection("Parser");
 
   [Fact]
   public void FluidParserFiles()

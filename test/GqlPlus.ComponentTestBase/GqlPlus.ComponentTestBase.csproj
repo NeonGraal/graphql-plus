@@ -10,11 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="DI\diagram.liquid" />
-    <None Remove="Samples\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Fluid.Core" Version="2.21.0" />
     <PackageReference Include="MartinCostello.Logging.XUnit.v3" Version="0.5.1" />
     <PackageReference Include="Xunit.DependencyInjection" Version="10.3.0" />

@@ -116,12 +116,12 @@ internal abstract class CheckDomainModel<TValue, TAstItem, TItem, TItemModel>(
   }
 
   private Func<TValue, bool, IEnumerable<string>> ExpectedItem()
-    => (input, exclude) => ExpectedItem(input, "  exclude: " + exclude.TrueFalse(), []);
+    => (input, exclude) => ExpectedItem(input, "    exclude: " + exclude.TrueFalse(), []);
 
   private Func<(string Domain, TValue Item), bool, IEnumerable<string>> ExpectedAllItem()
         => (input, exclude) => {
-          string[] result = ExpectedItem(input.Item, "  exclude: " + exclude.TrueFalse(), ["  domain: " + input.Domain]);
-          return ["- !_DomainItem(" + result[0][3..] + ")", .. result[1..]];
+          string[] result = ExpectedItem(input.Item, "    exclude: " + exclude.TrueFalse(), ["    domain: " + input.Domain]);
+          return ["  - !_DomainItem(" + result[0][5..] + ")", .. result[1..]];
         };
 }
 

@@ -18,7 +18,7 @@ internal abstract class CheckParentModel<TAst, TTypeKind, TModel, TItem>(
     => ItemsExpected(field, items, ExpectedItem);
 
   private IEnumerable<string> ExpectedItem(string item)
-        => ["- !_Aliased", "  name: " + item];
+        => ["  - !_Aliased", "    name: " + item];
 
   public IEnumerable<string> ExpectedAllItems(string field, string[] items, string type)
     => ItemsExpected(field, items, ExpectedAllItem(type));

@@ -116,23 +116,34 @@ internal static class UsageHelpers
 
     string typeName = (type.IsTypeParam ? "$" : "") + type.Name;
     if (context.GetType(typeName, out IGqlpDescribed? value)) {
-      int numArgs = type is IGqlpObjBase baseType ? baseType.Args.Count() : 0;
-      if (value is IGqlpObject definition) {
-        if (check && definition.Label != "Dual" && definition.Label != type.Label) {
-          context.AddError(type, type.Label + labelSuffix, $"Type kind mismatch for {type.Name}. Found {definition.Label}");
-        }
-
-        int numParams = definition.TypeParams.Count();
-        if (numParams != numArgs) {
-          context.AddError(type, type.Label + labelSuffix, $"Args mismatch, expected {numParams} given {numArgs}");
-        }
-      } else if (value is IGqlpSimple simple && numArgs != 0) {
-        context.AddError(type, type.Label + labelSuffix, $"Args invalid on {type.Name}, given {numArgs}");
-      }
+      CheckTypeArgs(AddCheckError, type, check, value);
     } else {
       context.AddError(type, type.Label + labelSuffix, $"'{typeName}' not defined", check);
     }
 
     return context;
+
+    void AddCheckError(string prefix, string suffix)
+      => context.AddError(type, type.Label + labelSuffix, $"{prefix} {typeName}. {suffix}");
+  }
+
+  internal delegate void CheckError(string prefix, string suffix);
+
+  internal static void CheckTypeArgs<TObjBase>(CheckError error, TObjBase type, bool check, IGqlpDescribed? value)
+    where TObjBase : IGqlpObjType
+  {
+    int numArgs = type is IGqlpObjBase baseType ? baseType.Args.Count() : 0;
+    if (value is IGqlpObject definition) {
+      if (check && definition.Label != "Dual" && definition.Label != type.Label) {
+        error("Type kind mismatch for", $"Found {definition.Label}");
+      }
+
+      int numParams = definition.TypeParams.Count();
+      if (numParams != numArgs) {
+        error("Args mismatch on", $"Expected {numParams}, given {numArgs}");
+      }
+    } else if (value is IGqlpSimple simple && numArgs != 0) {
+      error("Args invalid on", $"Expected 0, given {numArgs}");
+    }
   }
 }

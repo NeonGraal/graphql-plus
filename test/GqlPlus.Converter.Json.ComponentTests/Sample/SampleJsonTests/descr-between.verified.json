@@ -1,0 +1,34 @@
+﻿{
+  "$tag": "_Schema",
+  "categories": {
+    "$tag": "_Map_Categories",
+    "descrBtwn": {
+      "$tag": "_Category",
+      "name": "descrBtwn",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "DescrBtwn",
+        "typeKind": {
+          "$tag": "_TypeKind",
+          "value": "Output"
+        }
+      },
+      "resolution": {
+        "$tag": "_Resolution",
+        "value": "Parallel"
+      }
+    }
+  },
+  "types": {
+    "$tag": "_Map_Type",
+    "DescrBtwn": {
+      "$tag": "_TypeOutput",
+      "description": "A description between",
+      "name": "DescrBtwn",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    }
+  }
+}

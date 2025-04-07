@@ -10,4 +10,10 @@ domain DmnEnumDiff { enum false }
 
 namespace GqlPlus.Model_Sample_domain_enum_diff;
 
-public interface IDomainDmnEnumDiff {}
+public interface IDmnEnumDiff
+{
+}
+public class DomainDmnEnumDiff
+  : IDmnEnumDiff
+{
+}

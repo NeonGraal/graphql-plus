@@ -10,10 +10,10 @@ domain DmnBoolDiff { boolean false }
 
 namespace GqlPlus.Model_Sample_domain_boolean_diff;
 
-public interface IDomainDmnBoolDiff {
-  bool Value { get; set; }
+public interface IDmnBoolDiff
+{
 }
 public class DomainDmnBoolDiff
-  : IDomainDmnBoolDiff
+  : IDmnBoolDiff
 {
 }

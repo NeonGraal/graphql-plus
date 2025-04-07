@@ -10,12 +10,10 @@ domain DmnStr { string }
 
 namespace GqlPlus.Model_Sample_domain_string;
 
-public interface IDomainDmnStr {
-  string Value { get; set; }
+public interface IDmnStr
+{
 }
 public class DomainDmnStr
-  : IDomainDmnStr
+  : IDmnStr
 {
-  string _value;
-  string Value { get => _value; set => CheckAndSet(value); }
 }

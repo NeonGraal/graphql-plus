@@ -10,8 +10,15 @@ enum EnumDmnEnumDescr { dmnEnumDescr }
 
 namespace GqlPlus.Model_Sample_domain_enum_descr;
 
-public interface IDomainDmnEnumDescr {}
+public interface IDmnEnumDescr
+{
+}
+public class DomainDmnEnumDescr
+  : IDmnEnumDescr
+{
+}
 
-public enum EnumDmnEnumDescr {
+public enum EnumDmnEnumDescr
+{
   dmnEnumDescr,
 }

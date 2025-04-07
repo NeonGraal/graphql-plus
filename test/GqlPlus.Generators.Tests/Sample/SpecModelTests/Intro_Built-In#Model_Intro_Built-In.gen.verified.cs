@@ -20,7 +20,8 @@ public interface IOutput_ModifierKeyed {}
 
 public interface IOutput_Modifiers {}
 
-public enum _ModifierKind {
+public enum _ModifierKind
+{
   Opt,
   Optional = Opt,
   List,

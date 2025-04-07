@@ -12,6 +12,7 @@ namespace GqlPlus.Model_Sample_field_mod_Enum_output;
 
 public interface IOutputOutpFieldModEnum {}
 
-public enum EnumOutpFieldModEnum {
+public enum EnumOutpFieldModEnum
+{
   value,
 }

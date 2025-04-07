@@ -12,6 +12,7 @@ namespace GqlPlus.Model_Sample_field_mod_Enum_input;
 
 public interface IInputInpFieldModEnum {}
 
-public enum EnumInpFieldModEnum {
+public enum EnumInpFieldModEnum
+{
   value,
 }

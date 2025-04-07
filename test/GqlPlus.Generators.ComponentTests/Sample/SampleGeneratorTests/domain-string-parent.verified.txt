@@ -10,23 +10,20 @@ domain PrntDmnStrPrnt { String /b+/ }
 
 namespace GqlPlus.Model_Sample_domain_string_parent;
 
-public interface IDomainDmnStrPrnt : IDomainPrntDmnStrPrnt {
-  string Value { get; set; }
+public interface IDmnStrPrnt
+  : IDmnStrPrnt
+{
 }
 public class DomainDmnStrPrnt
   : DomainPrntDmnStrPrnt
-  , IDomainDmnStrPrnt
+  , IDmnStrPrnt
 {
-  string _value;
-  string Value { get => _value; set => CheckAndSet(value); }
 }
 
-public interface IDomainPrntDmnStrPrnt {
-  string Value { get; set; }
+public interface IPrntDmnStrPrnt
+{
 }
 public class DomainPrntDmnStrPrnt
-  : IDomainPrntDmnStrPrnt
+  : IPrntDmnStrPrnt
 {
-  string _value;
-  string Value { get => _value; set => CheckAndSet(value); }
 }

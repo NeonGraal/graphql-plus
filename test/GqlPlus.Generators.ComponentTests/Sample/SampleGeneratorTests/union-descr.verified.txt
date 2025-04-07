@@ -9,11 +9,10 @@ union UnionDescr { "Union" "Descr" Number }
 
 namespace GqlPlus.Model_Sample_union_descr;
 
-public class IUnionDescr
+public interface IUnionDescr
 {
-  public Number AsNumber { get; }
+  Number AsNumber { get; }
 }
-
 public class UnionUnionDescr
   : IUnionDescr
 {

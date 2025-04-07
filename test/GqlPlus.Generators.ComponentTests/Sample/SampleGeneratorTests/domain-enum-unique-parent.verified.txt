@@ -12,18 +12,21 @@ enum DupDmnEnumUnqPrnt { dmnEnumUnqPrnt dup_dmnEnumUnqPrnt }
 
 namespace GqlPlus.Model_Sample_domain_enum_unique_parent;
 
-public enum EnumDmnEnumUnqPrnt {
-  dmnEnumUnqPrnt = PrntDmnEnumUnqPrnt.dmnEnumUnqPrnt,
-  prnt_dmnEnumUnqPrnt = PrntDmnEnumUnqPrnt.prnt_dmnEnumUnqPrnt,
+public enum EnumDmnEnumUnqPrnt
+{
+  dmnEnumUnqPrnt = PrntDmnEnumUnqPrnt.dmnEnumUnqPrnt,,
+  prnt_dmnEnumUnqPrnt = PrntDmnEnumUnqPrnt.prnt_dmnEnumUnqPrnt,,
   enum_dmnEnumUnqPrnt,
 }
 
-public enum PrntDmnEnumUnqPrnt {
+public enum PrntDmnEnumUnqPrnt
+{
   dmnEnumUnqPrnt,
   prnt_dmnEnumUnqPrnt,
 }
 
-public enum DupDmnEnumUnqPrnt {
+public enum DupDmnEnumUnqPrnt
+{
   dmnEnumUnqPrnt,
   dup_dmnEnumUnqPrnt,
 }

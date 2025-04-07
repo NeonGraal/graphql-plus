@@ -13,11 +13,13 @@ namespace GqlPlus.Model_Sample_output_field_enum_parent;
 
 public interface IOutputOutpFieldEnumPrnt {}
 
-public enum EnumOutpFieldEnumPrnt {
-  prnt_outpFieldEnumPrnt = PrntOutpFieldEnumPrnt.prnt_outpFieldEnumPrnt,
+public enum EnumOutpFieldEnumPrnt
+{
+  prnt_outpFieldEnumPrnt = PrntOutpFieldEnumPrnt.prnt_outpFieldEnumPrnt,,
   outpFieldEnumPrnt,
 }
 
-public enum PrntOutpFieldEnumPrnt {
+public enum PrntOutpFieldEnumPrnt
+{
   prnt_outpFieldEnumPrnt,
 }

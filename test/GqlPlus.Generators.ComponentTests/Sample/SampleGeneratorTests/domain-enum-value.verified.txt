@@ -10,8 +10,15 @@ enum EnumDmnEnumValue { dmnEnumValue }
 
 namespace GqlPlus.Model_Sample_domain_enum_value;
 
-public interface IDomainDmnEnumValue {}
+public interface IDmnEnumValue
+{
+}
+public class DomainDmnEnumValue
+  : IDmnEnumValue
+{
+}
 
-public enum EnumDmnEnumValue {
+public enum EnumDmnEnumValue
+{
   dmnEnumValue,
 }

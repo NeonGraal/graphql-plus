@@ -16,11 +16,13 @@ public interface IOutputOutpPrntGnrc {}
 
 public interface IOutputRefOutpPrntGnrc {}
 
-public enum EnumOutpPrntGnrc {
-  prnt_outpPrntGnrc = PrntOutpPrntGnrc.prnt_outpPrntGnrc,
+public enum EnumOutpPrntGnrc
+{
+  prnt_outpPrntGnrc = PrntOutpPrntGnrc.prnt_outpPrntGnrc,,
   outpPrntGnrc,
 }
 
-public enum PrntOutpPrntGnrc {
+public enum PrntOutpPrntGnrc
+{
   prnt_outpPrntGnrc,
 }

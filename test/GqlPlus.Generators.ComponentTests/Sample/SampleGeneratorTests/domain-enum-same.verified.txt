@@ -10,4 +10,10 @@ domain DmnEnumSame { enum true }
 
 namespace GqlPlus.Model_Sample_domain_enum_same;
 
-public interface IDomainDmnEnumSame {}
+public interface IDmnEnumSame
+{
+}
+public class DomainDmnEnumSame
+  : IDmnEnumSame
+{
+}

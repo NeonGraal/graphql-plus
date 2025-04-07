@@ -9,10 +9,10 @@ domain DmnBoolDescr { Boolean "DomBool" "Descr" true }
 
 namespace GqlPlus.Model_Sample_domain_bool_descr;
 
-public interface IDomainDmnBoolDescr {
-  bool Value { get; set; }
+public interface IDmnBoolDescr
+{
 }
 public class DomainDmnBoolDescr
-  : IDomainDmnBoolDescr
+  : IDmnBoolDescr
 {
 }

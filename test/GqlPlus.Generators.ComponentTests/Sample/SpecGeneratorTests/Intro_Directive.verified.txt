@@ -9,7 +9,8 @@ public interface IOutput_Directives {}
 
 public interface IOutput_Directive {}
 
-public enum _Location {
+public enum _Location
+{
   Operation,
   Variable,
   Field,

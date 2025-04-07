@@ -10,12 +10,10 @@ domain DmnStrDiff { string }
 
 namespace GqlPlus.Model_Sample_domain_string_diff;
 
-public interface IDomainDmnStrDiff {
-  string Value { get; set; }
+public interface IDmnStrDiff
+{
 }
 public class DomainDmnStrDiff
-  : IDomainDmnStrDiff
+  : IDmnStrDiff
 {
-  string _value;
-  string Value { get => _value; set => CheckAndSet(value); }
 }

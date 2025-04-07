@@ -10,10 +10,10 @@ domain DmnAlias [Num2] { number }
 
 namespace GqlPlus.Model_Sample_domain_alias;
 
-public interface IDomainDmnAlias {
-  decimal Value { get; set; }
+public interface IDmnAlias
+{
 }
 public class DomainDmnAlias
-  : IDomainDmnAlias
+  : IDmnAlias
 {
 }

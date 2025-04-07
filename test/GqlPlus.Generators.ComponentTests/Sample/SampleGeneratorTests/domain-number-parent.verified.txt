@@ -10,19 +10,20 @@ domain PrntDmnNmbrPrnt { Number <2 }
 
 namespace GqlPlus.Model_Sample_domain_number_parent;
 
-public interface IDomainDmnNmbrPrnt : IDomainPrntDmnNmbrPrnt {
-  decimal Value { get; set; }
+public interface IDmnNmbrPrnt
+  : IDmnNmbrPrnt
+{
 }
 public class DomainDmnNmbrPrnt
   : DomainPrntDmnNmbrPrnt
-  , IDomainDmnNmbrPrnt
+  , IDmnNmbrPrnt
 {
 }
 
-public interface IDomainPrntDmnNmbrPrnt {
-  decimal Value { get; set; }
+public interface IPrntDmnNmbrPrnt
+{
 }
 public class DomainPrntDmnNmbrPrnt
-  : IDomainPrntDmnNmbrPrnt
+  : IPrntDmnNmbrPrnt
 {
 }

@@ -10,10 +10,10 @@ domain DmnBool { boolean }
 
 namespace GqlPlus.Model_Sample_domain_boolean;
 
-public interface IDomainDmnBool {
-  bool Value { get; set; }
+public interface IDmnBool
+{
 }
 public class DomainDmnBool
-  : IDomainDmnBool
+  : IDmnBool
 {
 }

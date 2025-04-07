@@ -8,26 +8,22 @@ namespace GqlTest.Model_Intro_Complete;
 
 public interface IOutput_Schema {}
 
-public interface IDomain_Identifier {
-  string Value { get; set; }
+public interface I_Identifier
+{
 }
 public class Domain_Identifier
-  : IDomain_Identifier
+  : I_Identifier
 {
-  string _value;
-  string Value { get => _value; set => CheckAndSet(value); }
 }
 
 public interface IInput_Filter {}
 
-public interface IDomain_NameFilter {
-  string Value { get; set; }
+public interface I_NameFilter
+{
 }
 public class Domain_NameFilter
-  : IDomain_NameFilter
+  : I_NameFilter
 {
-  string _value;
-  string Value { get => _value; set => CheckAndSet(value); }
 }
 
 public interface IInput_CategoryFilter {}
@@ -44,7 +40,8 @@ public interface IOutput_Categories {}
 
 public interface IOutput_Category {}
 
-public enum _Resolution {
+public enum _Resolution
+{
   Parallel,
   Sequential,
   Single,
@@ -54,7 +51,8 @@ public interface IOutput_Directives {}
 
 public interface IOutput_Directive {}
 
-public enum _Location {
+public enum _Location
+{
   Operation,
   Variable,
   Field,
@@ -73,7 +71,8 @@ public interface IOutput_ChildType {}
 
 public interface IOutput_ParentType {}
 
-public enum _SimpleKind {
+public enum _SimpleKind
+{
   Basic,
   Enum,
   Internal,
@@ -81,12 +80,13 @@ public enum _SimpleKind {
   Union,
 }
 
-public enum _TypeKind {
-  Basic = _SimpleKind.Basic,
-  Enum = _SimpleKind.Enum,
-  Internal = _SimpleKind.Internal,
-  Domain = _SimpleKind.Domain,
-  Union = _SimpleKind.Union,
+public enum _TypeKind
+{
+  Basic = _SimpleKind.Basic,,
+  Enum = _SimpleKind.Enum,,
+  Internal = _SimpleKind.Internal,,
+  Domain = _SimpleKind.Domain,,
+  Union = _SimpleKind.Union,,
   Dual,
   Input,
   Output,
@@ -110,7 +110,8 @@ public interface IOutput_ModifierKeyed {}
 
 public interface IOutput_Modifiers {}
 
-public enum _ModifierKind {
+public enum _ModifierKind
+{
   Opt,
   Optional = Opt,
   List,
@@ -122,7 +123,8 @@ public enum _ModifierKind {
 
 public interface IOutput_Modifier {}
 
-public enum _DomainKind {
+public enum _DomainKind
+{
   Boolean,
   Enum,
   Number,
@@ -179,15 +181,14 @@ public interface IOutput_ObjBase {}
 
 public interface IOutput_ObjTypeArg {}
 
-public interface IDomain_TypeParam : IDomain_Identifier {
-  string Value { get; set; }
+public interface I_TypeParam
+  : I_TypeParam
+{
 }
 public class Domain_TypeParam
   : Domain_Identifier
-  , IDomain_TypeParam
+  , I_TypeParam
 {
-  string _value;
-  string Value { get => _value; set => CheckAndSet(value); }
 }
 
 public interface IOutput_ObjTypeParam {}

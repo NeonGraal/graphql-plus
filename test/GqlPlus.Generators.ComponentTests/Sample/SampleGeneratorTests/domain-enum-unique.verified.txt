@@ -11,12 +11,14 @@ enum EnumDomDup { dmnEnumUnq dup_dmnEnumUnq }
 
 namespace GqlPlus.Model_Sample_domain_enum_unique;
 
-public enum EnumDmnEnumUnq {
+public enum EnumDmnEnumUnq
+{
   enum_dmnEnumUnq,
   dmnEnumUnq,
 }
 
-public enum EnumDomDup {
+public enum EnumDomDup
+{
   dmnEnumUnq,
   dup_dmnEnumUnq,
 }

@@ -6,228 +6,301 @@
 
 namespace GqlTest.Model__Simple;
 
-public interface IDomainDmnBoolDescr {
-  bool Value { get; set; }
+public interface IDmnBoolDescr
+{
 }
 public class DomainDmnBoolDescr
-  : IDomainDmnBoolDescr
+  : IDmnBoolDescr
 {
 }
 
-public interface IDomainDmnBoolPrnt : IDomainPrntDmnBoolPrnt {
-  bool Value { get; set; }
+public interface IDmnBoolPrnt
+  : IDmnBoolPrnt
+{
 }
 public class DomainDmnBoolPrnt
   : DomainPrntDmnBoolPrnt
-  , IDomainDmnBoolPrnt
+  , IDmnBoolPrnt
 {
 }
 
-public interface IDomainPrntDmnBoolPrnt {
-  bool Value { get; set; }
+public interface IPrntDmnBoolPrnt
+{
 }
 public class DomainPrntDmnBoolPrnt
-  : IDomainPrntDmnBoolPrnt
+  : IPrntDmnBoolPrnt
 {
 }
 
-public interface IDomainDmnEnumAll {}
+public interface IDmnEnumAll
+{
+}
+public class DomainDmnEnumAll
+  : IDmnEnumAll
+{
+}
 
-public enum EnumDmnEnumAll {
+public enum EnumDmnEnumAll
+{
   dmnEnumAll,
   enum_dmnEnumAll,
 }
 
-public interface IDomainDmnEnumAllDescr {}
+public interface IDmnEnumAllDescr
+{
+}
+public class DomainDmnEnumAllDescr
+  : IDmnEnumAllDescr
+{
+}
 
-public enum EnumDmnEnumAllDescr {
+public enum EnumDmnEnumAllDescr
+{
   dmnEnumAllDescr,
   enum_dmnEnumAllDescr,
 }
 
-public interface IDomainDmnEnumAllPrnt {}
+public interface IDmnEnumAllPrnt
+{
+}
+public class DomainDmnEnumAllPrnt
+  : IDmnEnumAllPrnt
+{
+}
 
-public enum EnumDmnEnumAllPrnt {
-  prnt_dmnEnumAllPrnt = PrntDmnEnumAllPrnt.prnt_dmnEnumAllPrnt,
+public enum EnumDmnEnumAllPrnt
+{
+  prnt_dmnEnumAllPrnt = PrntDmnEnumAllPrnt.prnt_dmnEnumAllPrnt,,
   dmnEnumAllPrnt,
 }
 
-public enum PrntDmnEnumAllPrnt {
+public enum PrntDmnEnumAllPrnt
+{
   prnt_dmnEnumAllPrnt,
 }
 
-public interface IDomainDmnEnumDescr {}
+public interface IDmnEnumDescr
+{
+}
+public class DomainDmnEnumDescr
+  : IDmnEnumDescr
+{
+}
 
-public enum EnumDmnEnumDescr {
+public enum EnumDmnEnumDescr
+{
   dmnEnumDescr,
 }
 
-public interface IDomainDmnEnumLabel {}
+public interface IDmnEnumLabel
+{
+}
+public class DomainDmnEnumLabel
+  : IDmnEnumLabel
+{
+}
 
-public enum EnumDmnEnumLabel {
+public enum EnumDmnEnumLabel
+{
   dmnEnumLabel,
 }
 
-public interface IDomainDmnEnumPrnt : PrntDmnEnumPrnt {}
+public interface IDmnEnumPrnt
+  : IDmnEnumPrnt
+{
+}
+public class DomainDmnEnumPrnt
+  : DomainPrntDmnEnumPrnt
+  , IDmnEnumPrnt
+{
+}
 
-public interface IDomainPrntDmnEnumPrnt {}
+public interface IPrntDmnEnumPrnt
+{
+}
+public class DomainPrntDmnEnumPrnt
+  : IPrntDmnEnumPrnt
+{
+}
 
-public enum EnumDmnEnumPrnt {
+public enum EnumDmnEnumPrnt
+{
   enum_dmnEnumPrnt,
   prnt_dmnEnumPrnt,
 }
 
-public enum EnumDmnEnumUnq {
+public enum EnumDmnEnumUnq
+{
   enum_dmnEnumUnq,
   dmnEnumUnq,
 }
 
-public enum EnumDomDup {
+public enum EnumDomDup
+{
   dmnEnumUnq,
   dup_dmnEnumUnq,
 }
 
-public enum EnumDmnEnumUnqPrnt {
-  dmnEnumUnqPrnt = PrntDmnEnumUnqPrnt.dmnEnumUnqPrnt,
-  prnt_dmnEnumUnqPrnt = PrntDmnEnumUnqPrnt.prnt_dmnEnumUnqPrnt,
+public enum EnumDmnEnumUnqPrnt
+{
+  dmnEnumUnqPrnt = PrntDmnEnumUnqPrnt.dmnEnumUnqPrnt,,
+  prnt_dmnEnumUnqPrnt = PrntDmnEnumUnqPrnt.prnt_dmnEnumUnqPrnt,,
   enum_dmnEnumUnqPrnt,
 }
 
-public enum PrntDmnEnumUnqPrnt {
+public enum PrntDmnEnumUnqPrnt
+{
   dmnEnumUnqPrnt,
   prnt_dmnEnumUnqPrnt,
 }
 
-public enum DupDmnEnumUnqPrnt {
+public enum DupDmnEnumUnqPrnt
+{
   dmnEnumUnqPrnt,
   dup_dmnEnumUnqPrnt,
 }
 
-public interface IDomainDmnEnumValue {}
+public interface IDmnEnumValue
+{
+}
+public class DomainDmnEnumValue
+  : IDmnEnumValue
+{
+}
 
-public enum EnumDmnEnumValue {
+public enum EnumDmnEnumValue
+{
   dmnEnumValue,
 }
 
-public interface IDomainDmnEnumValuePrnt {}
+public interface IDmnEnumValuePrnt
+{
+}
+public class DomainDmnEnumValuePrnt
+  : IDmnEnumValuePrnt
+{
+}
 
-public enum EnumDmnEnumValuePrnt {
-  prnt_dmnEnumValuePrnt = PrntDmnEnumValuePrnt.prnt_dmnEnumValuePrnt,
+public enum EnumDmnEnumValuePrnt
+{
+  prnt_dmnEnumValuePrnt = PrntDmnEnumValuePrnt.prnt_dmnEnumValuePrnt,,
   dmnEnumValuePrnt,
 }
 
-public enum PrntDmnEnumValuePrnt {
+public enum PrntDmnEnumValuePrnt
+{
   prnt_dmnEnumValuePrnt,
 }
 
-public interface IDomainDmnNmbrDescr {
-  decimal Value { get; set; }
+public interface IDmnNmbrDescr
+{
 }
 public class DomainDmnNmbrDescr
-  : IDomainDmnNmbrDescr
+  : IDmnNmbrDescr
 {
 }
 
-public interface IDomainDmnNmbrPrnt : IDomainPrntDmnNmbrPrnt {
-  decimal Value { get; set; }
+public interface IDmnNmbrPrnt
+  : IDmnNmbrPrnt
+{
 }
 public class DomainDmnNmbrPrnt
   : DomainPrntDmnNmbrPrnt
-  , IDomainDmnNmbrPrnt
+  , IDmnNmbrPrnt
 {
 }
 
-public interface IDomainPrntDmnNmbrPrnt {
-  decimal Value { get; set; }
+public interface IPrntDmnNmbrPrnt
+{
 }
 public class DomainPrntDmnNmbrPrnt
-  : IDomainPrntDmnNmbrPrnt
+  : IPrntDmnNmbrPrnt
 {
 }
 
-public interface IDomainDmnStrDescr {
-  string Value { get; set; }
+public interface IDmnStrDescr
+{
 }
 public class DomainDmnStrDescr
-  : IDomainDmnStrDescr
+  : IDmnStrDescr
 {
-  string _value;
-  string Value { get => _value; set => CheckAndSet(value); }
 }
 
-public interface IDomainDmnStrPrnt : IDomainPrntDmnStrPrnt {
-  string Value { get; set; }
+public interface IDmnStrPrnt
+  : IDmnStrPrnt
+{
 }
 public class DomainDmnStrPrnt
   : DomainPrntDmnStrPrnt
-  , IDomainDmnStrPrnt
+  , IDmnStrPrnt
 {
-  string _value;
-  string Value { get => _value; set => CheckAndSet(value); }
 }
 
-public interface IDomainPrntDmnStrPrnt {
-  string Value { get; set; }
+public interface IPrntDmnStrPrnt
+{
 }
 public class DomainPrntDmnStrPrnt
-  : IDomainPrntDmnStrPrnt
+  : IPrntDmnStrPrnt
 {
-  string _value;
-  string Value { get => _value; set => CheckAndSet(value); }
 }
 
-public enum EnumDescr {
+public enum EnumDescr
+{
   enumDescr,
 }
 
-public enum EnumPrnt {
-  prnt_enumPrnt = PrntEnumPrnt.prnt_enumPrnt,
+public enum EnumPrnt
+{
+  prnt_enumPrnt = PrntEnumPrnt.prnt_enumPrnt,,
   enumPrnt,
 }
 
-public enum PrntEnumPrnt {
+public enum PrntEnumPrnt
+{
   prnt_enumPrnt,
 }
 
-public enum EnumPrntAlias {
-  prnt_enumPrntAlias = PrntEnumPrntAlias.prnt_enumPrntAlias,
+public enum EnumPrntAlias
+{
+  prnt_enumPrntAlias = PrntEnumPrntAlias.prnt_enumPrntAlias,,
   val_enumPrntAlias,
   prnt_enumPrntAlias,
   enumPrntAlias = prnt_enumPrntAlias,
 }
 
-public enum PrntEnumPrntAlias {
+public enum PrntEnumPrntAlias
+{
   prnt_enumPrntAlias,
 }
 
-public enum EnumPrntDup {
-  prnt_enumPrntDup = PrntEnumPrntDup.prnt_enumPrntDup,
-  enumPrntDup = PrntEnumPrntDup.prnt_enumPrntDup,
+public enum EnumPrntDup
+{
+  prnt_enumPrntDup = PrntEnumPrntDup.prnt_enumPrntDup,,
+  enumPrntDup = PrntEnumPrntDup.prnt_enumPrntDup,,
   enumPrntDup,
 }
 
-public enum PrntEnumPrntDup {
+public enum PrntEnumPrntDup
+{
   prnt_enumPrntDup,
   enumPrntDup = prnt_enumPrntDup,
 }
 
-public class IUnionDescr
+public interface IUnionDescr
 {
-  public Number AsNumber { get; }
+  Number AsNumber { get; }
 }
-
 public class UnionUnionDescr
   : IUnionDescr
 {
   public Number AsNumber { get; set; }
 }
 
-public class IUnionPrnt
-  : IPrntUnionPrnt
+public interface IUnionPrnt
+  : IUnionPrnt
 {
-  public String AsString { get; }
+  String AsString { get; }
 }
-
 public class UnionUnionPrnt
   : UnionPrntUnionPrnt
   , IUnionPrnt
@@ -235,23 +308,21 @@ public class UnionUnionPrnt
   public String AsString { get; set; }
 }
 
-public class IPrntUnionPrnt
+public interface IPrntUnionPrnt
 {
-  public Number AsNumber { get; }
+  Number AsNumber { get; }
 }
-
 public class UnionPrntUnionPrnt
   : IPrntUnionPrnt
 {
   public Number AsNumber { get; set; }
 }
 
-public class IUnionPrntDup
-  : IPrntUnionPrntDup
+public interface IUnionPrntDup
+  : IUnionPrntDup
 {
-  public Number AsNumber { get; }
+  Number AsNumber { get; }
 }
-
 public class UnionUnionPrntDup
   : UnionPrntUnionPrntDup
   , IUnionPrntDup
@@ -259,11 +330,10 @@ public class UnionUnionPrntDup
   public Number AsNumber { get; set; }
 }
 
-public class IPrntUnionPrntDup
+public interface IPrntUnionPrntDup
 {
-  public Number AsNumber { get; }
+  Number AsNumber { get; }
 }
-
 public class UnionPrntUnionPrntDup
   : IPrntUnionPrntDup
 {

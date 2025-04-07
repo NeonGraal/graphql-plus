@@ -9,7 +9,8 @@ public interface IOutput_Categories {}
 
 public interface IOutput_Category {}
 
-public enum _Resolution {
+public enum _Resolution
+{
   Parallel,
   Sequential,
   Single,

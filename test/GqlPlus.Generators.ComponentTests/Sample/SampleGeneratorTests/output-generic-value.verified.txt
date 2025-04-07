@@ -15,6 +15,7 @@ public interface IOutputOutpGnrcValue {}
 
 public interface IOutputRefOutpGnrcValue {}
 
-public enum EnumOutpGnrcValue {
+public enum EnumOutpGnrcValue
+{
   outpGnrcValue,
 }

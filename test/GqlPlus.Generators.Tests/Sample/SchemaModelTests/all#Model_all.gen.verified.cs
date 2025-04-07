@@ -9,27 +9,25 @@ Option Schema
 
 namespace GqlTest.Model_all;
 
-public interface IDomainGuid {
-  string Value { get; set; }
+public interface IGuid
+{
 }
 public class DomainGuid
-  : IDomainGuid
+  : IGuid
 {
-  string _value;
-  string Value { get => _value; set => CheckAndSet(value); }
 }
 
-public enum One {
+public enum One
+{
   Two,
   Three,
 }
 
-public class IMany
+public interface IMany
 {
-  public Guid AsGuid { get; }
-  public Number AsNumber { get; }
+  Guid AsGuid { get; }
+  Number AsNumber { get; }
 }
-
 public class UnionMany
   : IMany
 {

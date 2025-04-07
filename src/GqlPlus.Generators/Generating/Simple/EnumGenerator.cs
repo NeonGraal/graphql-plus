@@ -1,40 +1,43 @@
-﻿namespace GqlPlus.Generating.Simple;
+﻿
+
+
+namespace GqlPlus.Generating.Simple;
 
 internal sealed class EnumGenerator
   : GenerateForType<IGqlpEnum>
 {
-  protected override void Generate(IGqlpEnum ast, GeneratorContext context)
-  {
-    context.AppendLine("");
+  public override string TypePrefix => "Enum";
 
-    context.AppendLine($"public enum {ast.Name} {{");
-
-    ParentItems(ast.Parent, context);
-
-    foreach (IGqlpEnumLabel item in ast.Items) {
-      context.AppendLine("  " + item.Name + ",");
-      foreach (string alias in item.Aliases) {
-        context.AppendLine("  " + alias + " = " + item.Name + ",");
-      }
-    }
-
-    context.AppendLine("}");
-  }
-
-  private static void ParentItems(string? parent, GeneratorContext context)
+  private static IEnumerable<MapPair<string>> ParentItems(string? parent, GeneratorContext context)
   {
     IGqlpEnum? ast = context.GetTypeAst<IGqlpEnum>(parent);
-    if (ast is null) {
-      return;
+    if (parent is null || ast is null) {
+      return [];
     }
 
-    ParentItems(ast.Parent, context);
-    foreach (IGqlpEnumLabel item in ast.Items) {
+    IEnumerable<MapPair<string>> members = ast.Items.SelectMany(item => {
       string suffix = " = " + parent + "." + item.Name + ",";
-      context.AppendLine("  " + item.Name + suffix);
-      foreach (string alias in item.Aliases) {
-        context.AppendLine("  " + alias + suffix);
-      }
-    }
+      return item.Aliases
+        .Select(alias => new MapPair<string>(alias, suffix))
+        .Prepend(new MapPair<string>(item.Name, suffix));
+    });
+
+    return ParentItems(ast.Parent, context).Concat(members);
   }
+
+  internal override IEnumerable<MapPair<string>> TypeMembers(IGqlpEnum ast, GeneratorContext context)
+  {
+    IEnumerable<MapPair<string>> members = ast.Items.SelectMany(item =>
+      item.Aliases
+        .Select(alias => new MapPair<string>(alias, " = " + item.Name))
+        .Prepend(new MapPair<string>(item.Name, "")));
+
+    return ParentItems(ast.Parent, context).Concat(members);
+  }
+
+  protected override void TypeHeader(IGqlpEnum ast, GeneratorContext context)
+    => context.AppendLine($"public enum {ast.Name}");
+
+  protected override void TypeMember(MapPair<string> item, GeneratorContext context)
+    => context.AppendLine("  " + item.Key + item.Value + ",");
 }

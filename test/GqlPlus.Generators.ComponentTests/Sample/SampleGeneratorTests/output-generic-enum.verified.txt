@@ -15,6 +15,7 @@ public interface IOutputOutpGnrcEnum {}
 
 public interface IOutputRefOutpGnrcEnum {}
 
-public enum EnumOutpGnrcEnum {
+public enum EnumOutpGnrcEnum
+{
   outpGnrcEnum,
 }

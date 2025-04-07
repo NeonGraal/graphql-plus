@@ -9,10 +9,10 @@ domain DmnNmbrDescr { Number "DomNumber" "Descr" <2 }
 
 namespace GqlPlus.Model_Sample_domain_number_descr;
 
-public interface IDomainDmnNmbrDescr {
-  decimal Value { get; set; }
+public interface IDmnNmbrDescr
+{
 }
 public class DomainDmnNmbrDescr
-  : IDomainDmnNmbrDescr
+  : IDmnNmbrDescr
 {
 }

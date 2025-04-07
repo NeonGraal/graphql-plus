@@ -6,7 +6,8 @@
 
 namespace GqlTest.Model_Intro_Domain;
 
-public enum _DomainKind {
+public enum _DomainKind
+{
   Boolean,
   Enum,
   Number,

@@ -10,10 +10,10 @@ domain DmnNmbrSame { number 1~9 }
 
 namespace GqlPlus.Model_Sample_domain_number_same;
 
-public interface IDomainDmnNmbrSame {
-  decimal Value { get; set; }
+public interface IDmnNmbrSame
+{
 }
 public class DomainDmnNmbrSame
-  : IDomainDmnNmbrSame
+  : IDmnNmbrSame
 {
 }

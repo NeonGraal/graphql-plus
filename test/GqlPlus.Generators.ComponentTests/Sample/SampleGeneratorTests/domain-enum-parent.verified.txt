@@ -11,11 +11,26 @@ enum EnumDmnEnumPrnt { enum_dmnEnumPrnt prnt_dmnEnumPrnt }
 
 namespace GqlPlus.Model_Sample_domain_enum_parent;
 
-public interface IDomainDmnEnumPrnt : PrntDmnEnumPrnt {}
+public interface IDmnEnumPrnt
+  : IDmnEnumPrnt
+{
+}
+public class DomainDmnEnumPrnt
+  : DomainPrntDmnEnumPrnt
+  , IDmnEnumPrnt
+{
+}
 
-public interface IDomainPrntDmnEnumPrnt {}
+public interface IPrntDmnEnumPrnt
+{
+}
+public class DomainPrntDmnEnumPrnt
+  : IPrntDmnEnumPrnt
+{
+}
 
-public enum EnumDmnEnumPrnt {
+public enum EnumDmnEnumPrnt
+{
   enum_dmnEnumPrnt,
   prnt_dmnEnumPrnt,
 }

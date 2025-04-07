@@ -92,19 +92,22 @@ public interface IDualFldOutpFieldDual {}
 
 public interface IDualDualFieldModEnum {}
 
-public enum EnumDualFieldModEnum {
+public enum EnumDualFieldModEnum
+{
   value,
 }
 
 public interface IInputInpFieldModEnum {}
 
-public enum EnumInpFieldModEnum {
+public enum EnumInpFieldModEnum
+{
   value,
 }
 
 public interface IOutputOutpFieldModEnum {}
 
-public enum EnumOutpFieldModEnum {
+public enum EnumOutpFieldModEnum
+{
   value,
 }
 
@@ -412,7 +415,8 @@ public interface IInputInpFieldDescrNmbr {}
 
 public interface IInputInpFieldEnum {}
 
-public enum EnumInpFieldEnum {
+public enum EnumInpFieldEnum
+{
   inpFieldEnum,
 }
 
@@ -434,30 +438,35 @@ public interface IInputInOutpDescrParam {}
 
 public interface IOutputOutpFieldEnum {}
 
-public enum EnumOutpFieldEnum {
+public enum EnumOutpFieldEnum
+{
   outpFieldEnum,
 }
 
 public interface IOutputOutpFieldEnumPrnt {}
 
-public enum EnumOutpFieldEnumPrnt {
-  prnt_outpFieldEnumPrnt = PrntOutpFieldEnumPrnt.prnt_outpFieldEnumPrnt,
+public enum EnumOutpFieldEnumPrnt
+{
+  prnt_outpFieldEnumPrnt = PrntOutpFieldEnumPrnt.prnt_outpFieldEnumPrnt,,
   outpFieldEnumPrnt,
 }
 
-public enum PrntOutpFieldEnumPrnt {
+public enum PrntOutpFieldEnumPrnt
+{
   prnt_outpFieldEnumPrnt,
 }
 
 public interface IOutputOutpFieldValue {}
 
-public enum EnumOutpFieldValue {
+public enum EnumOutpFieldValue
+{
   outpFieldValue,
 }
 
 public interface IOutputOutpFieldValueDescr {}
 
-public enum EnumOutpFieldValueDescr {
+public enum EnumOutpFieldValueDescr
+{
   outpFieldValueDescr,
 }
 
@@ -465,7 +474,8 @@ public interface IOutputOutpGnrcEnum {}
 
 public interface IOutputRefOutpGnrcEnum {}
 
-public enum EnumOutpGnrcEnum {
+public enum EnumOutpGnrcEnum
+{
   outpGnrcEnum,
 }
 
@@ -473,7 +483,8 @@ public interface IOutputOutpGnrcValue {}
 
 public interface IOutputRefOutpGnrcValue {}
 
-public enum EnumOutpGnrcValue {
+public enum EnumOutpGnrcValue
+{
   outpGnrcValue,
 }
 
@@ -493,11 +504,11 @@ public interface IOutputOutpParamModDmn {}
 
 public interface IInputInOutpParamModDmn {}
 
-public interface IDomainDomOutpParamModDmn {
-  decimal Value { get; set; }
+public interface IDomOutpParamModDmn
+{
 }
 public class DomainDomOutpParamModDmn
-  : IDomainDomOutpParamModDmn
+  : IDomOutpParamModDmn
 {
 }
 
@@ -505,11 +516,11 @@ public interface IOutputOutpParamModParam {}
 
 public interface IInputInOutpParamModParam {}
 
-public interface IDomainDomOutpParamModParam {
-  decimal Value { get; set; }
+public interface IDomOutpParamModParam
+{
 }
 public class DomainDomOutpParamModParam
-  : IDomainDomOutpParamModParam
+  : IDomOutpParamModParam
 {
 }
 
@@ -523,12 +534,14 @@ public interface IOutputOutpPrntGnrc {}
 
 public interface IOutputRefOutpPrntGnrc {}
 
-public enum EnumOutpPrntGnrc {
-  prnt_outpPrntGnrc = PrntOutpPrntGnrc.prnt_outpPrntGnrc,
+public enum EnumOutpPrntGnrc
+{
+  prnt_outpPrntGnrc = PrntOutpPrntGnrc.prnt_outpPrntGnrc,,
   outpPrntGnrc,
 }
 
-public enum PrntOutpPrntGnrc {
+public enum PrntOutpPrntGnrc
+{
   prnt_outpPrntGnrc,
 }
 

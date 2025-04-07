@@ -10,10 +10,10 @@ domain DmnNmbrDiff { number }
 
 namespace GqlPlus.Model_Sample_domain_number_diff;
 
-public interface IDomainDmnNmbrDiff {
-  decimal Value { get; set; }
+public interface IDmnNmbrDiff
+{
 }
 public class DomainDmnNmbrDiff
-  : IDomainDmnNmbrDiff
+  : IDmnNmbrDiff
 {
 }

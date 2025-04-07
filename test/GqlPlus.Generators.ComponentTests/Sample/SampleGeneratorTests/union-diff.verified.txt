@@ -10,12 +10,11 @@ union UnionDiff { Number }
 
 namespace GqlPlus.Model_Sample_union_diff;
 
-public class IUnionDiff
+public interface IUnionDiff
 {
-  public Boolean AsBoolean { get; }
-  public Number AsNumber { get; }
+  Boolean AsBoolean { get; }
+  Number AsNumber { get; }
 }
-
 public class UnionUnionDiff
   : IUnionDiff
 {

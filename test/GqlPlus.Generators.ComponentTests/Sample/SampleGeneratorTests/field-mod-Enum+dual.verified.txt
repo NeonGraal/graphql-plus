@@ -12,6 +12,7 @@ namespace GqlPlus.Model_Sample_field_mod_Enum_dual;
 
 public interface IDualDualFieldModEnum {}
 
-public enum EnumDualFieldModEnum {
+public enum EnumDualFieldModEnum
+{
   value,
 }

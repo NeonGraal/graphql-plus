@@ -7,8 +7,6 @@ internal sealed class SchemaGenerator(
   IEnumerable<ITypeGenerator> typeGenerators
 ) : IGenerator<IGqlpSchema>
 {
-  private static readonly ITypeGenerator s_default = new GenerateDefaultType();
-
   public void Generate(IGqlpSchema ast, GeneratorContext context)
   {
     IGqlpType[] types = Typed<IGqlpType>(ast);
@@ -22,8 +20,12 @@ internal sealed class SchemaGenerator(
     context.AppendLine($"namespace {context.Options.BaseNamespace}.Model_" + context.SafeFile + ";");
 
     foreach (IGqlpType type in types) {
-      ITypeGenerator generator = typeGenerators.Where(g => g.ForType(type)).FirstOrDefault() ?? s_default;
-      generator.GenerateType(type, context);
+      ITypeGenerator generator = typeGenerators.Where(g => g.ForType(type)).FirstOrDefault();
+      if (generator is null) {
+        throw new InvalidOperationException("No Generator for " + type.GetType().ExpandTypeName());
+      } else {
+        generator.GenerateType(type, context);
+      }
     }
   }
 

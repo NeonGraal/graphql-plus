@@ -9,12 +9,10 @@ domain DmnStrDescr { String "DomString" "Descr" /a+/ }
 
 namespace GqlPlus.Model_Sample_domain_string_descr;
 
-public interface IDomainDmnStrDescr {
-  string Value { get; set; }
+public interface IDmnStrDescr
+{
 }
 public class DomainDmnStrDescr
-  : IDomainDmnStrDescr
+  : IDmnStrDescr
 {
-  string _value;
-  string Value { get => _value; set => CheckAndSet(value); }
 }

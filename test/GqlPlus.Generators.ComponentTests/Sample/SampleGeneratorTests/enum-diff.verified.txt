@@ -10,6 +10,7 @@ enum EnumDiff { two }
 
 namespace GqlPlus.Model_Sample_enum_diff;
 
-public enum EnumDiff {
+public enum EnumDiff
+{
   one,
 }

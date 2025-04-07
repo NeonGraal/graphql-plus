@@ -10,11 +10,10 @@ union UnionSame { Boolean }
 
 namespace GqlPlus.Model_Sample_union_same;
 
-public class IUnionSame
+public interface IUnionSame
 {
-  public Boolean AsBoolean { get; }
+  Boolean AsBoolean { get; }
 }
-
 public class UnionUnionSame
   : IUnionSame
 {

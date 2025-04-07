@@ -10,19 +10,20 @@ domain PrntDmnBoolPrnt { Boolean true }
 
 namespace GqlPlus.Model_Sample_domain_bool_parent;
 
-public interface IDomainDmnBoolPrnt : IDomainPrntDmnBoolPrnt {
-  bool Value { get; set; }
+public interface IDmnBoolPrnt
+  : IDmnBoolPrnt
+{
 }
 public class DomainDmnBoolPrnt
   : DomainPrntDmnBoolPrnt
-  , IDomainDmnBoolPrnt
+  , IDmnBoolPrnt
 {
 }
 
-public interface IDomainPrntDmnBoolPrnt {
-  bool Value { get; set; }
+public interface IPrntDmnBoolPrnt
+{
 }
 public class DomainPrntDmnBoolPrnt
-  : IDomainPrntDmnBoolPrnt
+  : IPrntDmnBoolPrnt
 {
 }

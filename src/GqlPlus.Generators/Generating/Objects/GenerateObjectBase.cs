@@ -1,13 +1,10 @@
-﻿namespace GqlPlus.Generating;
+﻿namespace GqlPlus.Generating.Objects;
 
-internal sealed class GenerateDefaultType<TAst>
-  : ITypeGenerator
-  where TAst : IGqlpType
+internal abstract class GenerateObjectBase<TObj>
+  : GenerateForType<TObj>
+  where TObj : IGqlpObject
 {
-  public bool ForType(IGqlpType ast)
-    => ast is TAst;
-
-  public void GenerateType(IGqlpType ast, GeneratorContext context)
+  protected override void Generate(TObj ast, GeneratorContext context)
   {
     context.AppendLine("");
 

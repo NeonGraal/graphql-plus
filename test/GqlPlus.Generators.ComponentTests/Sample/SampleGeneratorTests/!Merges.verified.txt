@@ -23,118 +23,130 @@ public interface IOutputCtgrMod {}
 
 public interface IInputInDrctParam {}
 
-public interface IDomainDmnAlias {
-  decimal Value { get; set; }
+public interface IDmnAlias
+{
 }
 public class DomainDmnAlias
-  : IDomainDmnAlias
+  : IDmnAlias
 {
 }
 
-public interface IDomainDmnBool {
-  bool Value { get; set; }
+public interface IDmnBool
+{
 }
 public class DomainDmnBool
-  : IDomainDmnBool
+  : IDmnBool
 {
 }
 
-public interface IDomainDmnBoolDiff {
-  bool Value { get; set; }
+public interface IDmnBoolDiff
+{
 }
 public class DomainDmnBoolDiff
-  : IDomainDmnBoolDiff
+  : IDmnBoolDiff
 {
 }
 
-public interface IDomainDmnBoolSame {
-  bool Value { get; set; }
+public interface IDmnBoolSame
+{
 }
 public class DomainDmnBoolSame
-  : IDomainDmnBoolSame
+  : IDmnBoolSame
 {
 }
 
-public interface IDomainDmnEnumDiff {}
+public interface IDmnEnumDiff
+{
+}
+public class DomainDmnEnumDiff
+  : IDmnEnumDiff
+{
+}
 
-public interface IDomainDmnEnumSame {}
+public interface IDmnEnumSame
+{
+}
+public class DomainDmnEnumSame
+  : IDmnEnumSame
+{
+}
 
-public interface IDomainDmnNmbr {
-  decimal Value { get; set; }
+public interface IDmnNmbr
+{
 }
 public class DomainDmnNmbr
-  : IDomainDmnNmbr
+  : IDmnNmbr
 {
 }
 
-public interface IDomainDmnNmbrDiff {
-  decimal Value { get; set; }
+public interface IDmnNmbrDiff
+{
 }
 public class DomainDmnNmbrDiff
-  : IDomainDmnNmbrDiff
+  : IDmnNmbrDiff
 {
 }
 
-public interface IDomainDmnNmbrSame {
-  decimal Value { get; set; }
+public interface IDmnNmbrSame
+{
 }
 public class DomainDmnNmbrSame
-  : IDomainDmnNmbrSame
+  : IDmnNmbrSame
 {
 }
 
-public interface IDomainDmnStr {
-  string Value { get; set; }
+public interface IDmnStr
+{
 }
 public class DomainDmnStr
-  : IDomainDmnStr
+  : IDmnStr
 {
-  string _value;
-  string Value { get => _value; set => CheckAndSet(value); }
 }
 
-public interface IDomainDmnStrDiff {
-  string Value { get; set; }
+public interface IDmnStrDiff
+{
 }
 public class DomainDmnStrDiff
-  : IDomainDmnStrDiff
+  : IDmnStrDiff
 {
-  string _value;
-  string Value { get => _value; set => CheckAndSet(value); }
 }
 
-public interface IDomainDmnStrSame {
-  string Value { get; set; }
+public interface IDmnStrSame
+{
 }
 public class DomainDmnStrSame
-  : IDomainDmnStrSame
+  : IDmnStrSame
 {
-  string _value;
-  string Value { get => _value; set => CheckAndSet(value); }
 }
 
-public enum EnumAlias {
+public enum EnumAlias
+{
   enumAlias,
 }
 
-public enum EnumDiff {
+public enum EnumDiff
+{
   one,
 }
 
-public enum EnumSame {
+public enum EnumSame
+{
   enumSame,
 }
 
-public enum EnumSamePrnt {
-  prnt_enumSamePrnt = PrntEnumSamePrnt.prnt_enumSamePrnt,
+public enum EnumSamePrnt
+{
+  prnt_enumSamePrnt = PrntEnumSamePrnt.prnt_enumSamePrnt,,
   enumSamePrnt,
 }
 
-public enum PrntEnumSamePrnt {
+public enum PrntEnumSamePrnt
+{
   prnt_enumSamePrnt,
 }
 
-public enum EnumValueAlias {
+public enum EnumValueAlias
+{
   enumValueAlias,
   val1 = enumValueAlias,
   val2 = enumValueAlias,
@@ -218,12 +230,11 @@ public interface IInputOutpFieldParam2 {}
 
 public interface IDualFldOutpFieldParam {}
 
-public class IUnionAlias
+public interface IUnionAlias
 {
-  public Boolean AsBoolean { get; }
-  public Number AsNumber { get; }
+  Boolean AsBoolean { get; }
+  Number AsNumber { get; }
 }
-
 public class UnionUnionAlias
   : IUnionAlias
 {
@@ -231,12 +242,11 @@ public class UnionUnionAlias
   public Number AsNumber { get; set; }
 }
 
-public class IUnionDiff
+public interface IUnionDiff
 {
-  public Boolean AsBoolean { get; }
-  public Number AsNumber { get; }
+  Boolean AsBoolean { get; }
+  Number AsNumber { get; }
 }
-
 public class UnionUnionDiff
   : IUnionDiff
 {
@@ -244,23 +254,21 @@ public class UnionUnionDiff
   public Number AsNumber { get; set; }
 }
 
-public class IUnionSame
+public interface IUnionSame
 {
-  public Boolean AsBoolean { get; }
+  Boolean AsBoolean { get; }
 }
-
 public class UnionUnionSame
   : IUnionSame
 {
   public Boolean AsBoolean { get; set; }
 }
 
-public class IUnionSamePrnt
-  : IPrntUnionSamePrnt
+public interface IUnionSamePrnt
+  : IUnionSamePrnt
 {
-  public Boolean AsBoolean { get; }
+  Boolean AsBoolean { get; }
 }
-
 public class UnionUnionSamePrnt
   : UnionPrntUnionSamePrnt
   , IUnionSamePrnt
@@ -268,11 +276,10 @@ public class UnionUnionSamePrnt
   public Boolean AsBoolean { get; set; }
 }
 
-public class IPrntUnionSamePrnt
+public interface IPrntUnionSamePrnt
 {
-  public String AsString { get; }
+  String AsString { get; }
 }
-
 public class UnionPrntUnionSamePrnt
   : IPrntUnionSamePrnt
 {

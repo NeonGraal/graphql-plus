@@ -10,12 +10,11 @@ union PrntUnionPrntDup { Number }
 
 namespace GqlPlus.Model_Sample_union_parent_dup;
 
-public class IUnionPrntDup
-  : IPrntUnionPrntDup
+public interface IUnionPrntDup
+  : IUnionPrntDup
 {
-  public Number AsNumber { get; }
+  Number AsNumber { get; }
 }
-
 public class UnionUnionPrntDup
   : UnionPrntUnionPrntDup
   , IUnionPrntDup
@@ -23,11 +22,10 @@ public class UnionUnionPrntDup
   public Number AsNumber { get; set; }
 }
 
-public class IPrntUnionPrntDup
+public interface IPrntUnionPrntDup
 {
-  public Number AsNumber { get; }
+  Number AsNumber { get; }
 }
-
 public class UnionPrntUnionPrntDup
   : IPrntUnionPrntDup
 {

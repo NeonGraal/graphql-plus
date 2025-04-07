@@ -15,10 +15,10 @@ public interface IOutputOutpParamModParam {}
 
 public interface IInputInOutpParamModParam {}
 
-public interface IDomainDomOutpParamModParam {
-  decimal Value { get; set; }
+public interface IDomOutpParamModParam
+{
 }
 public class DomainDomOutpParamModParam
-  : IDomainDomOutpParamModParam
+  : IDomOutpParamModParam
 {
 }

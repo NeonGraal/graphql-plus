@@ -3,9 +3,9 @@ using GqlPlus.Merging;
 using GqlPlus.Parsing;
 using GqlPlus.Result;
 
-namespace GqlPlus.Sample;
+namespace GqlPlus.Schema;
 
-public class SchemaMergeTests(
+public class SchemaSampleMergeTests(
     Parser<IGqlpSchema>.D schemaParser,
     IMerge<IGqlpSchema> schemaMerger
 ) : SchemaDataBase(schemaParser)
@@ -74,6 +74,6 @@ public class SchemaMergeTests(
 
     IEnumerable<IGqlpSchema> result = schemaMerger.Merge(schemas);
 
-    await Verify(result.Select(s => s.Show()), CustomSettings("Schema", "Merge", test));
+    await Verify(result.Select(s => s.Show()), CustomSettings("Merge", "Schema", test));
   }
 }

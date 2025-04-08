@@ -5,9 +5,9 @@ using GqlPlus.Result;
 using GqlPlus.Token;
 using GqlPlus.Verifying;
 
-namespace GqlPlus.Sample;
+namespace GqlPlus.Operation;
 
-public class OperationVerifierTests(
+public class OperationSampleVerifierTests(
     Parser<IGqlpOperation>.D operationParser,
     IVerify<IGqlpOperation> operationVerifier
 ) : SampleChecks

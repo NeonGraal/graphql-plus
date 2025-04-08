@@ -4,9 +4,9 @@ using GqlPlus.Parsing;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
-namespace GqlPlus.Sample;
+namespace GqlPlus.Schema;
 
-public class SchemaParserTests(
+public class SchemaSampleParserTests(
     Parser<IGqlpSchema>.D schemaParser
 ) : SampleSchemaChecks(schemaParser)
 {
@@ -18,7 +18,7 @@ public class SchemaParserTests(
 
     await CheckErrors("Schema", "", sample, ast.Errors);
 
-    await Verify(ast.Show(), CustomSettings("Sample", "Schema", sample));
+    await Verify(ast.Show(), CustomSettings("Parse", "Schema", sample));
   }
 
   [Theory]
@@ -29,7 +29,7 @@ public class SchemaParserTests(
 
     await CheckErrors("Schema", "Specification", sample, ast.Errors);
 
-    await Verify(ast.Show(), CustomSettings("Sample", "Specification", sample));
+    await Verify(ast.Show(), CustomSettings("Parse", "Specification", sample));
   }
 
   [Fact]

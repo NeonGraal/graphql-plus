@@ -3,9 +3,9 @@ using GqlPlus.Parsing;
 using GqlPlus.Parsing.Operation;
 using GqlPlus.Result;
 
-namespace GqlPlus.Sample;
+namespace GqlPlus.Operation;
 
-public class OperationParserTests(
+public class OperationSampleParserTests(
     Parser<IGqlpOperation>.D operationParser
 ) : SampleChecks
 {
@@ -19,7 +19,7 @@ public class OperationParserTests(
 
     await CheckErrors("Operation", "", sample, ast!.Errors);
 
-    await Verify(ast?.Show(), CustomSettings("Sample", "Operation", sample));
+    await Verify(ast?.Show(), CustomSettings("Operation", "Sample", sample));
   }
 
   [Theory]
@@ -28,7 +28,7 @@ public class OperationParserTests(
   {
     IGqlpOperation? ast = await ParseSampleOperation("GraphQl", example, "gql");
 
-    await Verify(ast?.Show(), CustomSettings("Sample", "GraphQl", example));
+    await Verify(ast?.Show(), CustomSettings("Operation", "GraphQl", example));
   }
 
   private async Task<IGqlpOperation?> ParseSampleOperation(string dir, string sample, string extn)

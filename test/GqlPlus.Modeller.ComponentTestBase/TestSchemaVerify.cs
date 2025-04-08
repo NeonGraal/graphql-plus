@@ -1,8 +1,7 @@
-﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Convert;
-using GqlPlus.Merging;
-using GqlPlus.Parsing;
-using GqlPlus.Result;
+﻿using GqlPlus.Abstractions;
+using GqlPlus.Abstractions.Schema;
+using GqlPlus.Resolving;
+using Shouldly;
 
 namespace GqlPlus;
 
@@ -12,12 +11,12 @@ public abstract class TestSchemaVerify(
 {
   [Fact]
   public async Task Verify_All()
-    => await Verify_Model(await SchemaValidDataAll(), "!ALL");
+    => await Verify_Model(await SchemaValidDataAll(), "!ALL", "");
 
   [Theory]
   [ClassData(typeof(SchemaValidData))]
   public async Task Verify_Groups(string group)
-    => await Verify_Model(await SchemaValidDataGroup(group), "!" + group);
+    => await Verify_Model(await SchemaValidDataGroup(group), "!" + group, "");
 
   [Theory]
   [ClassData(typeof(SamplesSchemaMergesData))]
@@ -45,7 +44,9 @@ public abstract class TestSchemaVerify(
   {
     IGqlpSchema ast = await checks.ParseSample("Schema", sample);
 
-    Structured result = checks.Verify_Asts([ast]);
+    (Structured result, ITypesContext context) = checks.Verify_Asts([ast]);
+
+    await CheckResultErrors("Schema", "", sample, context.Errors);
 
     await VerifyResult(result, "Schema", sample, "");
   }
@@ -56,16 +57,29 @@ public abstract class TestSchemaVerify(
   {
     IGqlpSchema ast = await checks.ParseSample("Spec", sample, "Specification");
 
-    Structured result = checks.Verify_Asts([ast]);
+    (Structured result, ITypesContext context) = checks.Verify_Asts([ast]);
+
+    await CheckResultErrors("Schema", "Specification", sample, context.Errors);
 
     await VerifyResult(result, "Spec", sample, "");
   }
 
   private async Task Verify_Model(string input, string testDirectory, string test)
-    => await VerifyResult(checks.Verify_Model(input), "Sample", test, testDirectory);
+      => await Verify_Model([input], test, testDirectory);
 
-  private async Task Verify_Model(IEnumerable<string> inputs, string test)
-    => await VerifyResult(checks.Verify_Model(inputs), "Sample", test, "");
+  private async Task Verify_Model(IEnumerable<string> inputs, string test, string testDirectory)
+  {
+    IEnumerable<IGqlpSchema> asts = inputs.Select(input => checks.ParseInput(input, "Sample"));
+
+    (Structured result, ITypesContext context) = checks.Verify_Asts(asts);
+
+    await VerifyResult(result, "Sample", test, testDirectory);
+
+    context.Errors.ShouldBeEmpty(test);
+  }
 
   protected abstract Task VerifyResult(Structured result, string label, string test, string testDirectory);
+
+  protected virtual Task CheckResultErrors(string category, string directory, string file, ITokenMessages errors, bool includeVerify = false)
+    => Task.CompletedTask; // No errors expected
 }

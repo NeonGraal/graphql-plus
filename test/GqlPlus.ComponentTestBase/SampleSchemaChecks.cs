@@ -11,7 +11,7 @@ public class SampleSchemaChecks(
 {
   private readonly Parser<IGqlpSchema>.L _schemaParser = schemaParser;
 
-  protected IResult<IGqlpSchema> Parse(string schema, string label)
+  public IResult<IGqlpSchema> Parse(string schema, string label)
   {
     Tokenizer tokens = new(schema);
     return _schemaParser.Parse(tokens, label);

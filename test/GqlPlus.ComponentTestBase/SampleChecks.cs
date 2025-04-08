@@ -188,6 +188,19 @@ public class SampleChecks
       .SelectMany(i => i);
   }
 
+  protected static async Task<IEnumerable<string>> ReplaceSchemaKeys(string group)
+  {
+    IEnumerable<Task<(string input, string file)>> tasks = SchemaValidData
+      .Files[group]
+      .Select(async file => (input: await ReadSchema(file, group), file));
+
+    return (await Task.WhenAll(tasks))
+        .SelectMany(p => IsObjectInput(p.input)
+          ? Replacements.Select(r => p.file + "+" + r.Item1)
+          : [p.file])
+        .Order();
+  }
+
   protected static async Task WhenAll(params Task[] tasks)
   {
     Task all = Task.WhenAll(tasks);

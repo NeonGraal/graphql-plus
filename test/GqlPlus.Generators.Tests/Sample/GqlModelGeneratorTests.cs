@@ -43,6 +43,6 @@ public class GqlModelGeneratorTests : SampleChecks
     GeneratorDriver driver = new GqlModelGenerator()
       .Generate((test + ".graphql+").AdditionalString(input), options);
 
-    await Verify(driver, CustomSettings(label, "Model", test, false));
+    await Verify(driver, CustomSettings(label, "Model", test, scrubEmptyLines: false));
   }
 }

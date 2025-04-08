@@ -81,7 +81,7 @@ internal sealed class SchemaGeneratorVerifier(
       result = "/* " + test + "\r\n" + input.TrimEnd() + "\r\n*/\r\n\r\n" + result;
     }
 
-    await Verify(result.TrimEnd(), CustomSettings(label, "Generator", test, false));
+    await Verify(result.TrimEnd(), CustomSettings(label, "Generator", test, scrubEmptyLines: false));
   }
 
   IResult<IGqlpSchema> ISchemaGeneratorVerifier.Parse(string schema, string label)

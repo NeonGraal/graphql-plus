@@ -14,5 +14,6 @@ public static class ConfigureModellerComponentTestBase
       .AddResolvers()
       .AddRenderers()
       // Test support
+      .AddTransient<ISchemaVerifyChecks, SchemaVerifyChecks>()
       .AddSingleton<IModelAndRender, ModelAndRender>();
 }

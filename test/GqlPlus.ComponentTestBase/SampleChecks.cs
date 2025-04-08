@@ -83,14 +83,15 @@ public class SampleChecks
       () => extra.ShouldBeEmpty("Extra errors"));
   }
 
-  protected VerifySettings CustomSettings(string category, string group, string file, bool scrubEmpty = true)
+  protected VerifySettings CustomSettings(string category, string group, string file, string section = "")
   {
     VerifySettings settings = new();
-    settings.UseDirectory($"{category}{group}Tests");
+    settings.ScrubEmptyLines();
     settings.UseFileName(file);
-
-    if (scrubEmpty) {
-      settings.ScrubEmptyLines();
+    if (string.IsNullOrWhiteSpace(section)) {
+      settings.UseDirectory($"{category}{group}Tests");
+    } else {
+      settings.UseDirectory($"{category}{group}Tests/{section}");
     }
 
     return settings.CheckAutoVerify();
@@ -101,27 +102,6 @@ public class SampleChecks
 
   protected static async Task<string> ReadSchema(string schema, params string[] dirs)
     => await ReadFile(schema, "graphql+", ["Schema", .. dirs]);
-
-  protected async Task<IEnumerable<string>> SchemaValidDataAll()
-  {
-    IEnumerable<Task<IEnumerable<string>>> tasks = SchemaValidData
-      .Files
-      .SelectMany(kv => kv.Value.Select(file => (file, dir: kv.Key)))
-      .Select(async p => ReplaceValue(await ReadSchema(p.file, p.dir), p.file));
-
-    return (await Task.WhenAll(tasks))
-      .SelectMany(i => i);
-  }
-
-  protected async Task<IEnumerable<string>> SchemaValidDataGroup(string group)
-  {
-    IEnumerable<Task<IEnumerable<string>>> tasks = SchemaValidData
-      .Files[group]
-      .Select(async file => ReplaceValue(await ReadSchema(file, group), file));
-
-    return (await Task.WhenAll(tasks))
-      .SelectMany(i => i);
-  }
 
   protected static bool IsObjectInput(string input)
     => input is not null && input.Contains("object ", StringComparison.Ordinal);
@@ -185,6 +165,40 @@ public class SampleChecks
     } else {
       await action(ReplaceName(input, testName), testDirectory, testName);
     }
+  }
+
+  protected async Task<IEnumerable<string>> SchemaValidDataAll()
+  {
+    IEnumerable<Task<IEnumerable<string>>> tasks = SchemaValidData
+      .Files
+      .SelectMany(kv => kv.Value.Select(file => (file, dir: kv.Key)))
+      .Select(async p => ReplaceValue(await ReadSchema(p.file, p.dir), p.file));
+
+    return (await Task.WhenAll(tasks))
+      .SelectMany(i => i);
+  }
+
+  protected async Task<IEnumerable<string>> SchemaValidDataGroup(string group)
+  {
+    IEnumerable<Task<IEnumerable<string>>> tasks = SchemaValidData
+      .Files[group]
+      .Select(async file => ReplaceValue(await ReadSchema(file, group), file));
+
+    return (await Task.WhenAll(tasks))
+      .SelectMany(i => i);
+  }
+
+  protected static async Task<IEnumerable<string>> ReplaceSchemaKeys(string group)
+  {
+    IEnumerable<Task<(string input, string file)>> tasks = SchemaValidData
+      .Files[group]
+      .Select(async file => (input: await ReadSchema(file, group), file));
+
+    return (await Task.WhenAll(tasks))
+        .SelectMany(p => IsObjectInput(p.input)
+          ? Replacements.Select(r => p.file + "+" + r.Item1)
+          : [p.file])
+        .Order();
   }
 
   protected static async Task WhenAll(params Task[] tasks)

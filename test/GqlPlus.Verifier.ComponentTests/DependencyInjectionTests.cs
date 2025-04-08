@@ -14,8 +14,8 @@ public class DependencyInjectionTests(
     => CheckDependencyInjection();
 
   [Fact]
-  public void HtmlVerifierDI()
-    => HtmlDependencyInjection("Verifier");
+  public async Task HtmlVerifierDI()
+    => await HtmlDependencyInjection("Verifier");
 
   [Fact]
   public void Force3DVerifierDI()

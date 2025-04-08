@@ -29,6 +29,12 @@ categories: !_Map_Categories
       name: CtgrMod
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
+  !_Identifier op: !_Category
+    name: op
+    output: !_TypeRef(_TypeKind)
+      name: Op
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
 directives: !_Map_Directives
   !_Identifier Drct: !_Directive
     locations: !_Set(_Location){Inline:_,Spread:_}
@@ -47,6 +53,12 @@ directives: !_Map_Directives
         input: InDrctParam
     repeatable: false
 name: Schema
+operations: !_Map_Operations
+  !_Identifier Operation: !_Operation
+    aliases: [Op1,Op2]
+    category: op
+    name: Operation
+    operation: TBC
 settings: !_Map_Setting
   !_Identifier merged: !_Setting
     name: merged
@@ -488,6 +500,9 @@ types: !_Map_Type
     parent: !_InputBase
       input: RefInpObjPrnt
     typeKind: !_TypeKind Input
+  !_Identifier Op: !_TypeOutput
+    name: Op
+    typeKind: !_TypeKind Output
   !_Identifier OutpFieldEnumAlias: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)

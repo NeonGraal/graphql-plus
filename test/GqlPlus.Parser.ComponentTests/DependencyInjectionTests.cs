@@ -14,8 +14,8 @@ public class DependencyInjectionTests(
     => CheckDependencyInjection();
 
   [Fact]
-  public void HtmlParserDI()
-    => HtmlDependencyInjection("Parser");
+  public async Task HtmlParserDI()
+    => await HtmlDependencyInjection("Parser");
 
   [Fact]
   public void Force3DParserDI()

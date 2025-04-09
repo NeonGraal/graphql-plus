@@ -1,9 +1,5 @@
 ﻿using GqlPlus;
-using GqlPlus.Abstractions.Schema;
 using GqlPlus.Convert;
-using GqlPlus.Merging;
-using GqlPlus.Parsing;
-using GqlPlus.Result;
 
 namespace GqlPlus.Sample;
 

@@ -1,7 +1,6 @@
 ﻿using GqlPlus.Abstractions;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Resolving;
-using Shouldly;
 
 namespace GqlPlus;
 

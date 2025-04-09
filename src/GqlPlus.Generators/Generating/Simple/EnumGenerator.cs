@@ -1,6 +1,4 @@
 ﻿
-
-
 namespace GqlPlus.Generating.Simple;
 
 internal sealed class EnumGenerator

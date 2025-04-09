@@ -89,7 +89,6 @@ public class SampleChecks
       settings.ScrubEmptyLines();
     }
 
-
     return settings.CheckAutoVerify();
   }
 

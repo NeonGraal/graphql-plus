@@ -8,7 +8,7 @@ namespace GqlPlus.Schema;
 
 public class SchemaSampleParserTests(
     Parser<IGqlpSchema>.D schemaParser
-) : SampleSchemaChecks(schemaParser)
+) : SchemaParseChecks(schemaParser)
 {
   [Theory]
   [ClassData(typeof(SamplesSchemaData))]
@@ -16,7 +16,7 @@ public class SchemaSampleParserTests(
   {
     IGqlpSchema ast = await ParseSample("Schema", sample);
 
-    await CheckErrors("Schema", "", sample, ast.Errors);
+    await CheckErrors(["Schema"], sample, ast.Errors);
 
     await Verify(ast.Show(), CustomSettings("Parse", "Schema", sample));
   }
@@ -27,7 +27,7 @@ public class SchemaSampleParserTests(
   {
     IGqlpSchema ast = await ParseSample("Schema", sample, "Specification");
 
-    await CheckErrors("Schema", "Specification", sample, ast.Errors);
+    await CheckErrors(["Schema", "Specification"], sample, ast.Errors);
 
     await Verify(ast.Show(), CustomSettings("Parse", "Specification", sample));
   }
@@ -117,6 +117,6 @@ public class SchemaSampleParserTests(
       parse.IsError(e => result.Add(e with { Message = "Parse Error: " + e.Message }));
     }
 
-    await CheckErrors("Schema", testDirectory, test, result);
+    await CheckErrors(["Schema", testDirectory], test, result);
   }
 }

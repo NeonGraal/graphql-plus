@@ -14,9 +14,6 @@ internal sealed class SchemaVerifyChecks(
 ) : SchemaDataBase(schemaParser)
   , ISchemaVerifyChecks
 {
-  public IGqlpSchema ParseInput(string schema, string label)
-    => Parse(schema, label).Required();
-
   public Structured Verify_Model(string input)
   {
     IGqlpSchema ast = Parse(input, "Sample").Required();
@@ -46,9 +43,7 @@ internal sealed class SchemaVerifyChecks(
 }
 
 public interface ISchemaVerifyChecks
+  : ISchemaParseChecks
 {
-  IGqlpSchema ParseInput(string schema, string label);
-  Task<IGqlpSchema> ParseSample(string label, string sample, params string[] dirs);
-
   (Structured, ITypesContext) Verify_Asts(IEnumerable<IGqlpSchema> asts);
 }

@@ -21,7 +21,7 @@ public class SchemaSampleVerifierTests(
 
     schemaVerifier.Verify(ast, errors);
 
-    await CheckErrors("Schema", "", sample, errors, true);
+    await CheckErrors(["Schema"], sample, errors, true);
   }
 
   [Theory]
@@ -33,7 +33,7 @@ public class SchemaSampleVerifierTests(
 
     schemaVerifier.Verify(ast, errors);
 
-    await CheckErrors("Schema", "Specification", sample, errors, true);
+    await CheckErrors(["Schema", "Specification"], sample, errors, true);
   }
 
   [Fact]
@@ -127,6 +127,6 @@ public class SchemaSampleVerifierTests(
       parse.IsError(e => result.Add(e with { Message = "Parse Error: " + e.Message }));
     }
 
-    await CheckErrors("Schema", testDirectory, test, result, true);
+    await CheckErrors(["Schema", testDirectory], test, result, true);
   }
 }

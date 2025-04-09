@@ -13,10 +13,8 @@ public class SchemaParseChecks(
   private readonly Parser<IGqlpSchema>.L _schemaParser = schemaParser;
 
   public IResult<IGqlpSchema> Parse(string schema, string label)
-  {
-    Tokenizer tokens = new(schema);
-    return _schemaParser.Parse(tokens, label);
-  }
+    => _schemaParser.Parse(new Tokenizer(schema), label);
+
   public IGqlpSchema ParseInput(string schema, string label)
     => Parse(schema, label).Required();
 
@@ -29,6 +27,7 @@ public class SchemaParseChecks(
 
 public interface ISchemaParseChecks
 {
+  IResult<IGqlpSchema> Parse(string schema, string label);
   IGqlpSchema ParseInput(string schema, string label);
   Task<IGqlpSchema> ParseSample(string label, string sample, params string[] dirs);
 }

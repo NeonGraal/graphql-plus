@@ -1,0 +1,205 @@
+﻿!Sc S@001/0001
+Success
+{
+  'A Category described'
+  !Ca P@010/0003
+  ctgrDscrs
+  (Parallel)
+  !Tr I@012/0003
+  CtgrDscrs
+}
+{
+  !Ou I@008/0004
+  CtgrDscrs
+}
+{
+  !Ca P@010/0006
+  ctgrOutp
+  (Parallel)
+  !Tr I@012/0006
+  CtgrOutp
+}
+{
+  !Ou I@008/0007
+  CtgrOutp
+}
+{
+  !Ca P@010/0009
+  ctgrOutpDict
+  (Parallel)
+  !Tr I@012/0009
+  CtgrOutpDict
+  [*]
+}
+{
+  !Ou I@008/0010
+  CtgrOutpDict
+}
+{
+  !Ca P@010/0012
+  ctgrOutpList
+  (Parallel)
+  !Tr I@012/0012
+  CtgrOutpList
+  []
+}
+{
+  !Ou I@008/0013
+  CtgrOutpList
+}
+{
+  !Ca P@010/0015
+  ctgrOutpOptl
+  (Parallel)
+  !Tr I@012/0015
+  CtgrOutpOptl
+  ?
+}
+{
+  !Ou I@008/0016
+  CtgrOutpOptl
+}
+{
+  'A simple description'
+  !Ou I@008/0019
+  Descr
+}
+{
+  'A backslash ("\\") description'
+  !Ou I@008/0022
+  DescrBcks
+}
+{
+  !Ca P@010/0024
+  descrBtwn
+  (Parallel)
+  !Tr I@012/0024
+  DescrBtwn
+}
+{
+  'A description between'
+  !Ou I@008/0026
+  DescrBtwn
+}
+{
+  'A "more" \'Complicated\' \\ description'
+  !Ou I@008/0029
+  DescrCmpl
+}
+{
+  'A \'double-quoted\' description'
+  !Ou I@008/0032
+  DescrDbl
+}
+{
+  'A "single-quoted" description'
+  !Ou I@008/0035
+  DescrSngl
+}
+{
+  'A simple doc With extra'
+  !Ou I@008/0039
+  Dscrs
+}
+{
+  'A directive described'
+  !Di I@012/0042
+  DrctDescr
+  (Unique)
+  All
+}
+{
+  !Di I@012/0044
+  DrctNoParam
+  (Unique)
+  All
+}
+{
+  !Di I@012/0046
+  DrctParamDict
+  (
+    !Pa
+    I@026/0046
+    InDrctParamDict
+    [String]
+  )
+  (Unique)
+  All
+}
+{
+  !In I@007/0047
+  InDrctParamDict
+}
+{
+  !Di I@012/0049
+  DrctParamIn
+  (
+    !Pa
+    I@024/0049
+    InDrctParamIn
+  )
+  (Unique)
+  All
+}
+{
+  !In I@007/0050
+  InDrctParamIn
+}
+{
+  !Di I@012/0052
+  DrctParamList
+  (
+    !Pa
+    I@026/0052
+    InDrctParamList
+    []
+  )
+  (Unique)
+  All
+}
+{
+  !In I@007/0053
+  InDrctParamList
+}
+{
+  !Di I@012/0055
+  DrctParamOpt
+  (
+    !Pa
+    I@025/0055
+    InDrctParamOpt
+    ?
+  )
+  (Unique)
+  All
+}
+{
+  !In I@007/0056
+  InDrctParamOpt
+}
+{
+  !Op I@008/0058
+  Schema
+  [
+    Alias
+  ]
+}
+{
+  !Op I@008/0060
+  Schema
+  {
+    !OS I@017/0060
+    global
+    =( !k I@024/0060 Boolean.true )
+  }
+}
+{
+  !Op I@008/0062
+  Schema
+  {
+    'Option Descr'
+    !OS S@017/0062
+    descr
+    =( !k I@040/0062 Boolean.true )
+  }
+}

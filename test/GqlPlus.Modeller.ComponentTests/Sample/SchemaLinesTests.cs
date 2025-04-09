@@ -9,8 +9,8 @@ public class SchemaLinesTests(
 ) : TestSchemaVerify(checks)
 {
 
-  protected override Task VerifyResult(Structured result, string label, string test, string testDirectory)
-    => Verify(result.ToLines(true), CustomSettings(label, "Lines", test, testDirectory));
+  protected override Task VerifyResult(Structured result, string label, string test, string section)
+    => Verify(result.ToLines(true), CustomSettings(label, "Lines", test, section));
 
   protected override void CheckNoErrors([NotNull] ITypesContext context, string test)
     => context.Errors.ShouldBeEmpty(test);

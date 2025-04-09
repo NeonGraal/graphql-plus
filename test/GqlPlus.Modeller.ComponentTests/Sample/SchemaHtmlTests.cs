@@ -54,6 +54,6 @@ public class SchemaHtmlTests(
     result.WriteHtmlFile("Spec", "index", "index");
   }
 
-  protected override Task VerifyResult(Structured result, string label, string test, string testDirectory)
-    => result.WriteHtmlFileAsync(new string[] { label, testDirectory }.Joined("/"), test);
+  protected override Task VerifyResult(Structured result, string label, string test, string section)
+    => result.WriteHtmlFileAsync(new string[] { label, section }.Joined("/"), test);
 }

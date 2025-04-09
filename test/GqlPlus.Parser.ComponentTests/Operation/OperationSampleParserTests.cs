@@ -17,7 +17,7 @@ public class OperationSampleParserTests(
   {
     IGqlpOperation? ast = await ParseSampleOperation("Operation", sample, "gql+");
 
-    await CheckErrors("Operation", "", sample, ast!.Errors);
+    await CheckErrors(["Operation"], sample, ast!.Errors);
 
     await Verify(ast?.Show(), CustomSettings("Operation", "Sample", sample));
   }

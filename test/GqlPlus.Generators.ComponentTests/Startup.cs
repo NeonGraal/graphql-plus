@@ -14,6 +14,6 @@ public static class Startup
   public static void ConfigureServices(IServiceCollection services)
     => services
       .AddGenerators()
-      .AddSingleton<ISchemaGeneratorVerifier, SchemaGeneratorVerifier>()
+      .AddSingleton<ISchemaGeneratorChecks, SchemaGeneratorChecks>()
       .AddModellerComponentTestBase();
 }

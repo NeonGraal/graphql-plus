@@ -37,17 +37,14 @@ public class SampleChecks
     => input is null ? []
     : [.. s_textInfo.ToTitleCase(input).Split('-')];
 
-  protected async Task CheckErrors(string category, string directory, string file, ITokenMessages errors, bool includeVerify = false)
+  protected async Task CheckErrors(string[] dirs, string file, ITokenMessages errors, bool includeVerify = false)
   {
     List<string> suffixes = ["", "parse-"];
     if (includeVerify) {
       suffixes.Add("verify-");
     }
 
-    string path = $"Samples/{category}/";
-    if (!string.IsNullOrWhiteSpace(directory)) {
-      path += directory + "/";
-    }
+    string path = dirs.Prepend("Samples").Joined("/");
 
     List<string> expected = [];
     foreach (string suffix in suffixes) {

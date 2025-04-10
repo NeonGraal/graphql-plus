@@ -1,0 +1,26 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  OutpPrntDescr
+  :
+  'Test Descr'
+  I@041/0001
+  RefOutpPrntDescr
+}
+{
+  !Ou I@008/0002
+  RefOutpPrntDescr
+  {
+    !OF I@027/0002
+    parent
+    :
+    I@035/0002
+    Number
+  }
+  |
+  I@044/0002
+  String
+}
+]

@@ -1,0 +1,30 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !In I@007/0001
+  InpAltModParam
+  <
+    I@023/0001
+    $mod
+  >
+  |
+  I@032/0001
+  AltInpAltModParam
+  [$mod]
+}
+{
+  !In I@007/0002
+  AltInpAltModParam
+  {
+    !IF I@027/0002
+    alt
+    :
+    I@032/0002
+    Number
+  }
+  |
+  I@041/0002
+  String
+}
+]

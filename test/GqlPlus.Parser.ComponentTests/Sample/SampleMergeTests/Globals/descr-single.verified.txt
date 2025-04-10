@@ -1,0 +1,9 @@
+﻿[  
+!Sc S@001/0001
+Success
+{
+  'A "single-quoted" description'
+  !Ou I@008/0002
+  DescrSngl
+}
+]

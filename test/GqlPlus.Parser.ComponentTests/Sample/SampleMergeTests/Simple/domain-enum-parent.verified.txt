@@ -1,0 +1,29 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Do I@008/0001
+  DmnEnumPrnt
+  Enum
+  :PrntDmnEnumPrnt
+  !DE I@044/0001
+  EnumDmnEnumPrnt
+  enum_dmnEnumPrnt
+}
+{
+  !Do I@008/0002
+  PrntDmnEnumPrnt
+  Enum
+  !DE I@031/0002
+  EnumDmnEnumPrnt
+  prnt_dmnEnumPrnt
+}
+{
+  !En I@006/0003
+  EnumDmnEnumPrnt
+  !EL I@024/0003
+  enum_dmnEnumPrnt
+  !EL I@041/0003
+  prnt_dmnEnumPrnt
+}
+]

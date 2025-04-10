@@ -1,0 +1,16 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  DualFieldDescr
+  {
+    'Test Descr'
+    !DF I@038/0001
+    field
+    :
+    P@045/0001
+    *
+  }
+}
+]

@@ -52,7 +52,12 @@ public abstract class TestSchemaInputs
 
   protected abstract Task Label_Input(string label, string input, string[] dirs, string test, string section = "");
 
-  protected abstract Task Label_Inputs(string label, IEnumerable<string> inputs, string test);
+  protected virtual async Task Label_Inputs(string label, IEnumerable<string> inputs, string test)
+  {
+    string schema = inputs.Joined(Environment.NewLine);
+
+    await Label_Input(label, schema, [label], test);
+  }
 
   protected virtual Task Sample_Input(string input, string section, string test)
     => Label_Input("Sample", input, [section], test, section);

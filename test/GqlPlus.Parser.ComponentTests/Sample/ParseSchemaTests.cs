@@ -7,62 +7,34 @@ namespace GqlPlus.Sample;
 
 public class ParseSchemaTests(
     ISchemaParseChecks checks
-) : TestSchemaInputs
-
+) : TestSchemaResult(checks)
 {
-  [Theory]
-  [ClassData(typeof(SamplesSchemaGlobalsInvalidData))]
-  public async Task Parse_GlobalsInvalid(string global)
-    => await ParseFile_Invalid("Globals/Invalid", global);
-
-  [Theory]
-  [ClassData(typeof(SamplesSchemaSimpleInvalidData))]
-  public async Task Parse_SimpleInvalid(string simple)
-    => await ParseFile_Invalid("Simple/Invalid", simple);
-
-  [Theory]
-  [ClassData(typeof(SamplesSchemaObjectsInvalidData))]
-  public async Task Parse_ObjectsInvalid(string obj)
-    => await ReplaceFileAsync("Objects/Invalid", obj, ParseInput_Invalid);
-
-  private async Task ParseFile_Invalid(string testDirectory, string testName)
+  protected override async Task Result_Valid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")
   {
-    string schema = await ReadSchema(testName, testDirectory);
+    if (string.IsNullOrWhiteSpace(section)) {
+      IGqlpSchema ast = result.Required();
 
-    await ParseInput_Invalid(schema, testDirectory, testName);
+      await CheckErrors(dirs, test, ast.Errors);
+
+      await Verify(ast.Show(), CustomSettings(label, "Parse", test));
+    } else {
+      string testName = section + " " + test;
+
+      if (result is IResultError<SchemaAst> error) {
+        error.Message.ShouldBeNull(testName);
+      }
+
+      result.IsOk().ShouldBeTrue(testName);
+    }
   }
 
-  private async Task ParseInput_Invalid(string input, string testDirectory, string test)
+  protected override async Task Result_Invalid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")
   {
-    IResult<IGqlpSchema> parse = checks.Parse(input, "Schema");
-
-    TokenMessages result = [];
-    if (!parse.IsOk()) {
-      parse.IsError(e => result.Add(e with { Message = "Parse Error: " + e.Message }));
+    TokenMessages errors = [];
+    if (!result.IsOk()) {
+      result.IsError(e => errors.Add(e with { Message = "Parse Error: " + e.Message }));
     }
 
-    await CheckErrors(["Schema", testDirectory], test, result);
-  }
-
-  protected override async Task Label_Input(string label, string input, string[] dirs, string test, string section = "")
-  {
-    IGqlpSchema ast = checks.ParseInput(input, label);
-
-    await CheckErrors(dirs, test, ast.Errors);
-
-    await Verify(ast.Show(), CustomSettings(label, "Parse", test, section));
-  }
-
-  protected override Task Sample_Input(string input, string section, string test)
-  {
-    IResult<IGqlpSchema> parse = checks.Parse(input, "Schema");
-
-    if (parse is IResultError<SchemaAst> error) {
-      error.Message.ShouldBeNull(test);
-    }
-
-    parse.IsOk().ShouldBeTrue(test);
-
-    return Task.CompletedTask;
+    await CheckErrors(dirs, test, errors);
   }
 }

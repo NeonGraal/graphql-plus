@@ -31,4 +31,8 @@ public class CanMergeSchemaTests(
 
     result.ShouldBeEmpty(test);
   }
+
+  // Todo: Add error checking for invalid schemas
+  protected override Task Result_Invalid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")
+    => Task.CompletedTask;
 }

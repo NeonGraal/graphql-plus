@@ -25,4 +25,8 @@ public class MergeSchemaTests(
 
     await Verify(result.Select(s => s.Show()), CustomSettings(label, "Merge", test, section));
   }
+
+  // Todo: Add error checking for invalid schemas
+  protected override Task Result_Invalid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")
+    => Task.CompletedTask;
 }

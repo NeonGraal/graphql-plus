@@ -18,11 +18,8 @@ public abstract class TestSchemaAsts(
   {
     IEnumerable<IGqlpSchema> asts = inputs.Select(input => checks.ParseInput(input, label));
 
-    await Test_Asts(asts, test, label);
+    await Test_Asts(asts, test, label, [label], "");
   }
-
-  protected virtual Task Test_Asts(IEnumerable<IGqlpSchema> asts, string test, string label, string[]? dirs = null)
-    => Test_Asts(asts, test, label, dirs ?? [label], "");
 
   protected abstract Task Test_Asts(IEnumerable<IGqlpSchema> asts, string test, string label, string[] dirs, string section, string input = "");
 }

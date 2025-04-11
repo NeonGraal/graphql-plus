@@ -1,7 +1,6 @@
 ﻿using GqlPlus.Abstractions;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Resolving;
-using Shouldly;
 
 namespace GqlPlus;
 
@@ -9,15 +8,6 @@ public abstract class TestSchemaVerify(
     ISchemaVerifyChecks checks
 ) : TestSchemaAsts(checks)
 {
-  protected override async Task Test_Asts(IEnumerable<IGqlpSchema> asts, string test, string label, string[]? dirs = null)
-  {
-    (Structured result, ITypesContext context) = checks.Verify_Asts(asts);
-
-    await VerifyResult(result, label, test, "");
-
-    await CheckResultErrors(dirs ?? [label], test, context.Errors);
-  }
-
   protected override async Task Test_Asts(IEnumerable<IGqlpSchema> asts, string test, string label, string[] dirs, string section, string input = "")
   {
     (Structured result, ITypesContext context) = checks.Verify_Asts(asts);

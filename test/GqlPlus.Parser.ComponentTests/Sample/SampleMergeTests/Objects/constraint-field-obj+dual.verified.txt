@@ -1,0 +1,52 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  DualCnstFieldObj
+  :
+  I@026/0001
+  RefDualCnstFieldObj
+  <
+    I@046/0001
+    AltDualCnstFieldObj
+  >
+}
+{
+  !Du I@006/0002
+  RefDualCnstFieldObj
+  <
+    I@027/0002
+    $ref
+    :PrntDualCnstFieldObj
+  >
+  {
+    !DF I@055/0002
+    field
+    :
+    I@063/0002
+    $ref
+  }
+}
+{
+  !Du I@006/0003
+  PrntDualCnstFieldObj
+  |
+  I@031/0003
+  String
+}
+{
+  !Du I@006/0004
+  AltDualCnstFieldObj
+  :
+  I@029/0004
+  PrntDualCnstFieldObj
+  {
+    !DF I@050/0004
+    alt
+    :
+    I@055/0004
+    Number
+  }
+}
+]

@@ -82,6 +82,7 @@ Success
   <
     I@024/0028
     $kind
+    :_ModifierKind
   >
   :
   I@007/0029
@@ -143,6 +144,7 @@ Success
   <
     I@019/0041
     $kind
+    :_ModifierKind
   >
   {
     !OF I@009/0042

@@ -64,6 +64,7 @@ Success
   <
     I@020/0010
     $kind
+    :_DomainKind
   >
   :
   I@007/0011
@@ -86,10 +87,13 @@ Success
   <
     I@021/0015
     $domain
-    I@029/0015
+    :_DomainKind
+    I@041/0015
     $item
-    I@035/0015
+    :_BaseDomainItem
+    I@063/0015
     $domainItem
+    :_DomainItem
   >
   :
   I@007/0016
@@ -130,6 +134,7 @@ Success
   <
     I@021/0025
     $item
+    :_BaseDomainItem
   >
   :
   I@008/0026
@@ -148,7 +153,8 @@ Success
   <
     I@022/0030
     $kind
-    I@028/0030
+    :_DomainKind
+    I@040/0030
     $value
   >
   :

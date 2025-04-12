@@ -1,0 +1,38 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  DualCnstFieldDmn
+  :
+  I@026/0001
+  RefDualCnstFieldDmn
+  <
+    I@046/0001
+    DomCnstFieldDmn
+  >
+}
+{
+  !Du I@006/0002
+  RefDualCnstFieldDmn
+  <
+    I@027/0002
+    $ref
+    :String
+  >
+  {
+    !DF I@041/0002
+    field
+    :
+    I@049/0002
+    $ref
+  }
+}
+{
+  !Do I@008/0003
+  DomCnstFieldDmn
+  String
+  !DX R@033/0003
+  /\\w+/
+}
+]

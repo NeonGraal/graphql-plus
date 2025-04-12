@@ -1,0 +1,22 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !In I@007/0001
+  InpFieldEnum
+  {
+    !IF I@022/0001
+    field
+    :
+    I@029/0001
+    EnumInpFieldEnum
+    =( !k I@048/0001 inpFieldEnum )
+  }
+}
+{
+  !En I@006/0002
+  EnumInpFieldEnum
+  !EL I@025/0002
+  inpFieldEnum
+}
+]

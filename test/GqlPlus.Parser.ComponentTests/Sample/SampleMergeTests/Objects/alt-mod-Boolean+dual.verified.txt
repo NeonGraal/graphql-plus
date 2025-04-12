@@ -1,0 +1,26 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  DualAltModBool
+  |
+  I@025/0001
+  AltDualAltModBool
+  [^]
+}
+{
+  !Du I@006/0002
+  AltDualAltModBool
+  {
+    !DF I@026/0002
+    alt
+    :
+    I@031/0002
+    Number
+  }
+  |
+  I@040/0002
+  String
+}
+]

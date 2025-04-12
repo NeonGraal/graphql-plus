@@ -1,0 +1,39 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  OutpParamTypeDescr
+  {
+    !OF I@029/0001
+    field
+    (
+      !Pa
+      I@035/0001
+      InOutpParamTypeDescr
+    )
+    :
+    'Test Descr'
+    I@073/0001
+    FldOutpParamTypeDescr
+  }
+}
+{
+  !Du I@006/0002
+  FldOutpParamTypeDescr
+}
+{
+  !In I@007/0003
+  InOutpParamTypeDescr
+  {
+    !IF I@030/0003
+    param
+    :
+    I@037/0003
+    Number
+  }
+  |
+  I@046/0003
+  String
+}
+]

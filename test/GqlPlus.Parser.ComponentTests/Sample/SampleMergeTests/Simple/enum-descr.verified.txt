@@ -1,0 +1,11 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !En I@006/0001
+  EnumDescr
+  'Enum Descr'
+  !EL I@033/0001
+  enumDescr
+}
+]

@@ -1,0 +1,18 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Do I@008/0001
+  DmnEnumDescr
+  Enum
+  !DE I@046/0001
+  EnumDmnEnumDescr
+  dmnEnumDescr
+}
+{
+  !En I@006/0002
+  EnumDmnEnumDescr
+  !EL I@025/0002
+  dmnEnumDescr
+}
+]

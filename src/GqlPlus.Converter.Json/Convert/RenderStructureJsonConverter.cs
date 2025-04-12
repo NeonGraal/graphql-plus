@@ -1,36 +1,45 @@
-﻿namespace GqlPlus.Convert;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace GqlPlus.Convert;
 internal class RenderStructureJsonConverter
   : RenderJsonConverter<Structured>
 {
   internal static RenderValueJsonConverter ValueConverter { get; } = new();
 
+  [ExcludeFromCodeCoverage]
   public override Structured? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException();
   public override void Write(Utf8JsonWriter writer, Structured value, JsonSerializerOptions options)
   {
-    if (value is null || value.IsEmpty) {
-      return;
-    }
-
     bool plain = string.IsNullOrWhiteSpace(value.Tag);
 
     if (value.List.Count > 0) {
       WriteList(writer, value.List, options);
       return;
-    } else if (value.Map.Count > 0) {
-      Structured first = value.Map.First().Value;
-      if (value.Map.Count == 1 && !plain && string.IsNullOrWhiteSpace(first.Tag) && first.Value is not null) {
-        StartTaggedValue(writer, value.Tag);
-        WriteValue(writer, first.Value);
-        writer.WriteEndObject();
-      } else {
-        WriteMap(writer, value.Map, value.Tag, options);
-      }
-    } else if (value.Value is not null) {
+    }
+
+    if (value.Map.Count > 0) {
+      WriteMap(writer, value, options, plain);
+      return;
+    }
+
+    if (value.Value is not null) {
       ValueConverter.Write(writer, value.Value, options);
     }
   }
 
-  private void WriteMap(Utf8JsonWriter writer, Structured<StructureValue, Structured>.IDict map, string tag, JsonSerializerOptions options)
+  private void WriteMap(Utf8JsonWriter writer, Structured value, JsonSerializerOptions options, bool plain)
+  {
+    Structured first = value.Map.First().Value;
+    if (value.Map.Count == 1 && !plain && string.IsNullOrWhiteSpace(first.Tag) && first.Value is not null) {
+      StartTaggedValue(writer, value.Tag);
+      WriteValue(writer, first.Value);
+      writer.WriteEndObject();
+    } else {
+      WriteFullMap(writer, value.Map, value.Tag, options);
+    }
+  }
+
+  private void WriteFullMap(Utf8JsonWriter writer, Structured<StructureValue, Structured>.IDict map, string tag, JsonSerializerOptions options)
   {
     writer.WriteStartObject();
 

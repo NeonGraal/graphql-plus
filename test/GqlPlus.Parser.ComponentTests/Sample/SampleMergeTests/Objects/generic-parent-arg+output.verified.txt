@@ -1,0 +1,30 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  OutpGnrcPrntArg
+  <
+    I@025/0001
+    $type
+  >
+  :
+  I@034/0001
+  RefOutpGnrcPrntArg
+  <
+    I@054/0001
+    $type
+  >
+}
+{
+  !Ou I@008/0002
+  RefOutpGnrcPrntArg
+  <
+    I@028/0002
+    $ref
+  >
+  |
+  P@037/0002
+  $ref
+}
+]

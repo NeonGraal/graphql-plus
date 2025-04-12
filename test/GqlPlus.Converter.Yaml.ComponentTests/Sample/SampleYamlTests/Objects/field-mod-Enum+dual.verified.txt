@@ -3,16 +3,14 @@ types: !_Map_Type
   !_Identifier DualFieldModEnum: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
-      modifiers: [!_ModifierDictionary {by: EnumDualFieldModEnum,
-          modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Enum}]
+      modifiers: [!_ModifierDictionary {by: EnumDualFieldModEnum, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Enum}]
       name: field
       object: DualFieldModEnum
       type: !_DualBase
         dual: '*'
     fields:
     - !_DualField
-      modifiers: [!_ModifierDictionary {by: EnumDualFieldModEnum,
-          modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Enum}]
+      modifiers: [!_ModifierDictionary {by: EnumDualFieldModEnum, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Enum}]
       name: field
       type: !_DualBase
         dual: '*'

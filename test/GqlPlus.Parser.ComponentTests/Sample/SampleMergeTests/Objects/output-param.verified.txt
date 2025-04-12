@@ -1,0 +1,38 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  OutpParam
+  {
+    !OF I@020/0001
+    field
+    (
+      !Pa
+      I@026/0001
+      InOutpParam
+    )
+    :
+    I@040/0001
+    FldOutpParam
+  }
+}
+{
+  !Du I@006/0002
+  FldOutpParam
+}
+{
+  !In I@007/0003
+  InOutpParam
+  {
+    !IF I@021/0003
+    param
+    :
+    I@028/0003
+    Number
+  }
+  |
+  I@037/0003
+  String
+}
+]

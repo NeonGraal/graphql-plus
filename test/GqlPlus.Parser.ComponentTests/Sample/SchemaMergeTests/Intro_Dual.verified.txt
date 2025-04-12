@@ -1,0 +1,82 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  _TypeDual
+  :
+  I@007/0002
+  _TypeObject
+  <
+    I@019/0002
+    _TypeKind.Dual
+    I@034/0002
+    _DualBase
+    I@044/0002
+    _DualField
+    I@055/0002
+    _DualAlternate
+  >
+}
+{
+  !Ou I@008/0005
+  _DualBase
+  :
+  I@007/0006
+  _ObjBase
+  <
+    I@016/0006
+    _DualTypeArg
+  >
+  {
+    !OF I@009/0007
+    dual
+    :
+    I@015/0007
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0010
+  _DualField
+  :
+  I@007/0011
+  _Field
+  <
+    I@014/0011
+    _DualBase
+  >
+}
+{
+  !Ou I@008/0014
+  _DualAlternate
+  :
+  I@007/0015
+  _Alternate
+  <
+    I@018/0015
+    _DualTypeArg
+  >
+  {
+    !OF I@009/0016
+    dual
+    :
+    I@015/0016
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0019
+  _DualTypeArg
+  :
+  I@007/0020
+  _ObjTypeArg
+  {
+    !OF I@009/0021
+    dual
+    :
+    I@015/0021
+    _Identifier
+  }
+}
+]

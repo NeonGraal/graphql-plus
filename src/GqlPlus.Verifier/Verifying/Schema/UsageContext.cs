@@ -110,10 +110,6 @@ internal static class UsageHelpers
     where TContext : UsageContext
     where TObjBase : IGqlpObjType
   {
-    if (type is null) {
-      return context;
-    }
-
     string typeName = (type.IsTypeParam ? "$" : "") + type.Name;
     if (context.GetType(typeName, out IGqlpDescribed? value)) {
       CheckTypeArgs(AddCheckError, type, check, value);

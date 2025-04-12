@@ -1,0 +1,15 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ca P@010/0001
+  ctgrOutp
+  (Parallel)
+  !Tr I@012/0001
+  CtgrOutp
+}
+{
+  !Ou I@008/0002
+  CtgrOutp
+}
+]

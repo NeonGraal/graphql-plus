@@ -1,0 +1,51 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  _TypeEnum
+  :
+  I@007/0002
+  _ParentType
+  <
+    I@019/0002
+    _TypeKind.Enum
+    I@034/0002
+    _Aliased
+    I@043/0002
+    _EnumLabel
+  >
+}
+{
+  !Du I@006/0005
+  _EnumLabel
+  :
+  I@007/0006
+  _Aliased
+  {
+    !DF I@009/0007
+    enum
+    :
+    I@015/0007
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0010
+  _EnumValue
+  :
+  I@007/0011
+  _TypeRef
+  <
+    I@016/0011
+    _TypeKind.Enum
+  >
+  {
+    !OF I@009/0012
+    label
+    :
+    I@016/0012
+    _Identifier
+  }
+}
+]

@@ -1,0 +1,125 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  _TypeOutput
+  :
+  I@007/0002
+  _TypeObject
+  <
+    I@019/0002
+    _TypeKind.Output
+    I@036/0002
+    _OutputBase
+    I@048/0002
+    _OutputField
+    I@061/0002
+    _OutputAlternate
+  >
+}
+{
+  !Ou I@008/0005
+  _OutputBase
+  :
+  I@007/0006
+  _ObjBase
+  <
+    I@016/0006
+    _OutputTypeArg
+  >
+  {
+    !OF I@009/0007
+    output
+    :
+    I@017/0007
+    _Identifier
+  }
+  |
+  I@007/0008
+  _DualBase
+}
+{
+  !Ou I@008/0011
+  _OutputField
+  :
+  I@007/0012
+  _Field
+  <
+    I@014/0012
+    _OutputBase
+  >
+  {
+    !OF I@009/0013
+    parameters
+    :
+    I@021/0013
+    _InputParam
+    []
+  }
+  |
+  I@007/0014
+  _OutputEnum
+}
+{
+  !Ou I@008/0017
+  _OutputAlternate
+  :
+  I@007/0018
+  _Alternate
+  <
+    I@018/0018
+    _OutputTypeArg
+  >
+  {
+    !OF I@009/0019
+    output
+    :
+    I@017/0019
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0022
+  _OutputTypeArg
+  :
+  I@007/0023
+  _ObjTypeArg
+  {
+    !OF I@009/0024
+    output
+    :
+    I@017/0024
+    _Identifier
+    !OF I@009/0025
+    label
+    :
+    I@016/0025
+    _Identifier
+    ?
+  }
+}
+{
+  !Ou I@008/0028
+  _OutputEnum
+  :
+  I@007/0029
+  _TypeRef
+  <
+    I@016/0029
+    _TypeKind.Enum
+  >
+  {
+    !OF I@009/0030
+    field
+    :
+    I@016/0030
+    _Identifier
+    !OF I@009/0031
+    label
+    :
+    I@016/0031
+    _Identifier
+  }
+}
+]

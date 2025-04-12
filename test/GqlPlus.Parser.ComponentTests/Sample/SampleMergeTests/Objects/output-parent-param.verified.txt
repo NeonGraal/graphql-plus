@@ -1,0 +1,71 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  OutpPrntParam
+  :
+  I@025/0001
+  PrntOutpPrntParam
+  {
+    !OF I@043/0001
+    field
+    (
+      !Pa
+      I@049/0001
+      InOutpPrntParam
+    )
+    :
+    I@067/0001
+    FldOutpPrntParam
+  }
+}
+{
+  !Ou I@008/0002
+  PrntOutpPrntParam
+  {
+    !OF I@028/0002
+    field
+    (
+      !Pa
+      I@034/0002
+      PrntOutpPrntParamIn
+    )
+    :
+    I@056/0002
+    FldOutpPrntParam
+  }
+}
+{
+  !Du I@006/0003
+  FldOutpPrntParam
+}
+{
+  !In I@007/0004
+  InOutpPrntParam
+  {
+    !IF I@025/0004
+    param
+    :
+    I@032/0004
+    Number
+  }
+  |
+  I@041/0004
+  String
+}
+{
+  !In I@007/0005
+  PrntOutpPrntParamIn
+  {
+    !IF I@029/0005
+    parent
+    :
+    I@037/0005
+    Number
+  }
+  |
+  I@046/0005
+  String
+}
+]

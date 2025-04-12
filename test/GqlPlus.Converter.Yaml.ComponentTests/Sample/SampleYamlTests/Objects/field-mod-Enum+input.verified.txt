@@ -13,16 +13,14 @@ types: !_Map_Type
   !_Identifier InpFieldModEnum: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
-      modifiers: [!_ModifierDictionary {by: EnumInpFieldModEnum,
-          modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Enum}]
+      modifiers: [!_ModifierDictionary {by: EnumInpFieldModEnum, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Enum}]
       name: field
       object: InpFieldModEnum
       type: !_InputBase
         input: '*'
     fields:
     - !_InputField
-      modifiers: [!_ModifierDictionary {by: EnumInpFieldModEnum,
-          modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Enum}]
+      modifiers: [!_ModifierDictionary {by: EnumInpFieldModEnum, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Enum}]
       name: field
       type: !_InputBase
         input: '*'

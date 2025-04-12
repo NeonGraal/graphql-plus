@@ -1,0 +1,44 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  OutpGnrcParam
+  {
+    !OF I@024/0001
+    field
+    :
+    I@031/0001
+    OutpGnrcParamRef
+    <
+      I@048/0001
+      OutpGnrcParamAlt
+    >
+  }
+}
+{
+  !Ou I@008/0002
+  OutpGnrcParamRef
+  <
+    I@026/0002
+    $ref
+  >
+  |
+  P@035/0002
+  $ref
+}
+{
+  !Ou I@008/0003
+  OutpGnrcParamAlt
+  {
+    !OF I@027/0003
+    alt
+    :
+    I@032/0003
+    Number
+  }
+  |
+  I@041/0003
+  String
+}
+]

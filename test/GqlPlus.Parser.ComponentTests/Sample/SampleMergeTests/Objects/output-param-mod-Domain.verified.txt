@@ -1,0 +1,44 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  OutpParamModDmn
+  {
+    !OF I@026/0001
+    field
+    (
+      !Pa
+      I@032/0001
+      InOutpParamModDmn
+      [DomOutpParamModDmn]
+    )
+    :
+    I@072/0001
+    DomOutpParamModDmn
+  }
+}
+{
+  !In I@007/0002
+  InOutpParamModDmn
+  {
+    !IF I@027/0002
+    param
+    :
+    I@034/0002
+    Number
+  }
+  |
+  I@043/0002
+  String
+}
+{
+  !Do I@008/0003
+  DomOutpParamModDmn
+  Number
+  !DN N@036/0003
+  1
+  ~
+  10
+}
+]

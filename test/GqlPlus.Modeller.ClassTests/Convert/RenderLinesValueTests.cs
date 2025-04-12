@@ -1,6 +1,4 @@
-﻿using Xunit.Internal;
-
-namespace GqlPlus.Convert;
+﻿namespace GqlPlus.Convert;
 
 public class RenderLinesValueTests
   : RenderLinesValueBase

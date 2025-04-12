@@ -1,0 +1,11 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Do I@008/0001
+  DmnBoolDescr
+  Boolean
+  !DT I@049/0001
+  True
+}
+]

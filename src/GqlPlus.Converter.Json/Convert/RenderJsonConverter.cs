@@ -5,10 +5,6 @@ internal abstract class RenderJsonConverter<T>
 {
   protected void WriteValue(Utf8JsonWriter writer, StructureValue value)
   {
-    if (value is null || value.IsEmpty) {
-      return;
-    }
-
     if (value.Identifier is not null) {
       writer.WriteStringValue(value.Identifier);
     } else if (value.Boolean is not null) {

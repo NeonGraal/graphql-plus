@@ -1,0 +1,20 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  OutpGnrcDescr
+  <
+    I@038/0001
+    "Test Descr"
+    $type
+  >
+  {
+    !OF I@046/0001
+    field
+    :
+    I@054/0001
+    $type
+  }
+}
+]

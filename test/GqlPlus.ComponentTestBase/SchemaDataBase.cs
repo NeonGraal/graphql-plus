@@ -6,7 +6,7 @@ namespace GqlPlus;
 
 public class SchemaDataBase(
     Parser<IGqlpSchema>.D schemaParser
-) : SampleSchemaChecks(schemaParser)
+) : SchemaParseChecks(schemaParser)
 {
   protected static IEnumerable<string> ReplaceKeys(IDictionary<string, string> inputs)
     => inputs

@@ -1,0 +1,12 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  DualAltDescr
+  |
+  'Test Descr'
+  S@023/0001
+  String
+}
+]

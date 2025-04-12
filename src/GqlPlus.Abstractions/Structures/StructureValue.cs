@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Structures;
 
-#pragma warning disable CA1036 // Override methods on comparable types
-public sealed record class StructureValue
+//  #pragma warning disable CA1036 // Override methods on comparable types
+public sealed class StructureValue
   : IComparable<StructureValue>
   , IEquatable<StructureValue>
 {
@@ -39,6 +39,7 @@ public sealed record class StructureValue
       : -1
     : -1;
 
+  public override bool Equals(object obj) => Equals(obj as StructureValue);
   public bool Equals(StructureValue? other)
     => string.Equals(Tag, other?.Tag, StringComparison.Ordinal) && (Boolean.BothValued(other?.Boolean) ? Boolean.Value == other.Boolean
       : Number.BothValued(other?.Number) ? Number.Value == other.Number
@@ -51,20 +52,11 @@ public sealed record class StructureValue
       Identifier?.GetHashCode() ?? 0,
       Text?.GetHashCode() ?? 0);
 
-  public string AsString
-  {
-    get {
-      if (Identifier is not null) {
-        return Identifier;
-      } else if (Boolean is not null) {
-        return Boolean.Value.TrueFalse();
-      } else if (Number is not null) {
-        return $"{Number}";
-      } else if (Text is not null) {
-        return Text;
-      }
-
-      return string.Empty;
-    }
-  }
+  public string AsString => this switch {
+    { Boolean: not null } => Boolean.Value.TrueFalse(),
+    { Identifier: not null } => Identifier,
+    { Number: not null } => $"{Number}",
+    { Text: not null } => Text,
+    _ => string.Empty,
+  };
 }

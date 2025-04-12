@@ -1,0 +1,20 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Di I@012/0001
+  DrctParamList
+  (
+    !Pa
+    I@026/0001
+    InDrctParamList
+    []
+  )
+  (Unique)
+  All
+}
+{
+  !In I@007/0002
+  InDrctParamList
+}
+]

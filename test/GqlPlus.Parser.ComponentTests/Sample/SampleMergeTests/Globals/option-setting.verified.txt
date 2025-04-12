@@ -1,0 +1,13 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Op I@008/0001
+  Schema
+  {
+    !OS I@017/0001
+    global
+    =( !k I@024/0001 Boolean.true )
+  }
+}
+]

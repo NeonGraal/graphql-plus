@@ -1,0 +1,11 @@
+﻿[  
+!Sc S@001/0001
+Success
+{
+  'A directive described'
+  !Di I@012/0002
+  DrctDescr
+  (Unique)
+  All
+}
+]

@@ -21,6 +21,7 @@ public static class ComponentTestStartup
         .AddFilter("NullVerifier", LogLevel.Warning)
       )
       //.AddSkippableFactSupport()
+      .AddTransient<ISchemaParseChecks, SchemaParseChecks>()
       .AddCommonParsers()
       .AddOperationParsers()
       .AddSchemaParsers()

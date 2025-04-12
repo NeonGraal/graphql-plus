@@ -1,0 +1,22 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !En I@006/0001
+  EnumPrntAlias
+  :PrntEnumPrntAlias
+  !EL I@041/0001
+  val_enumPrntAlias
+  !EL I@059/0001
+  prnt_enumPrntAlias
+  [
+    enumPrntAlias
+  ]
+}
+{
+  !En I@006/0002
+  PrntEnumPrntAlias
+  !EL I@026/0002
+  prnt_enumPrntAlias
+}
+]

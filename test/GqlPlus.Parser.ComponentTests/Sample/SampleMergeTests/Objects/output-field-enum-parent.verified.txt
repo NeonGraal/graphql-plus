@@ -1,0 +1,29 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  OutpFieldEnumPrnt
+  {
+    !OF I@028/0001
+    field
+    =
+    I@036/0001
+    EnumOutpFieldEnumPrnt
+    .prnt_outpFieldEnumPrnt
+  }
+}
+{
+  !En I@006/0002
+  EnumOutpFieldEnumPrnt
+  :PrntOutpFieldEnumPrnt
+  !EL I@053/0002
+  outpFieldEnumPrnt
+}
+{
+  !En I@006/0003
+  PrntOutpFieldEnumPrnt
+  !EL I@030/0003
+  prnt_outpFieldEnumPrnt
+}
+]

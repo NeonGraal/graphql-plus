@@ -1,0 +1,32 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  DualPrntField
+  :
+  I@023/0001
+  RefDualPrntField
+  {
+    !DF I@040/0001
+    field
+    :
+    I@047/0001
+    Number
+  }
+}
+{
+  !Du I@006/0002
+  RefDualPrntField
+  {
+    !DF I@025/0002
+    parent
+    :
+    I@033/0002
+    Number
+  }
+  |
+  I@042/0002
+  String
+}
+]

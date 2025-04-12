@@ -1,0 +1,22 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  OutpFieldValueDescr
+  {
+    !OF I@030/0001
+    EnumOutpFieldValueDescr
+    =
+    'Test Descr'
+    I@053/0001
+    .outpFieldValueDescr
+  }
+}
+{
+  !En I@006/0002
+  EnumOutpFieldValueDescr
+  !EL I@032/0002
+  outpFieldValueDescr
+}
+]

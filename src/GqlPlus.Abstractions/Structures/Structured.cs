@@ -89,20 +89,16 @@ public class Structured
   public Structured AddSet<TEnum>(string key, TEnum set, string? tag = null, bool flow = true)
     where TEnum : Enum
   {
-    Type type = typeof(TEnum);
+    string[]? flags = set.FlagNames();
 
-    if (type.GetCustomAttributes<FlagsAttribute>().Any()) {
-      int flags = (int)(object)set;
+    if (flags is not null) {
       Dict result = [];
 
-      foreach (object? value in Enum.GetValues(type)) {
-        int flag = (int)value;
-        if (flag.IsSingleFlag() && (flags & flag) == flag) {
-          result.Add(new(Enum.GetName(type, value)), new("_"));
-        }
+      foreach (string flag in flags) {
+        result.Add(new(flag), new("_"));
       }
 
-      return Add(key, new(result, $"_Set({tag ?? type.TypeTag()})", flow: flow));
+      return Add(key, new(result, $"_Set({tag ?? typeof(TEnum).TypeTag()})", flow: flow));
     }
 
     return this;
@@ -111,16 +107,13 @@ public class Structured
   public bool Equals(Structured? other)
     => string.Equals(Tag, other?.Tag, StringComparison.Ordinal)
       && (Value.BothValued(other?.Value) ? Value.Equals(other.Value)
-      : List.BothValued(other?.List) ? List.SequenceEqual(other.List)
-      : Map.BothValued(other?.Map) && Map.Equals(other.Map));
+      : List.BothAny(other?.List) ? List.SequenceEqual(other.List)
+      : Map.BothAny(other?.Map) && Map.Equals(other.Map));
 
   public override bool Equals(object? obj)
     => Equals(obj as Structured);
   public override int GetHashCode()
-    => HashCode.Combine(Tag,
-      Value?.GetHashCode() ?? 0,
-      List?.GetHashCode() ?? 0,
-      Map?.GetHashCode() ?? 0);
+    => HashCode.Combine(Tag, Value?.GetHashCode() ?? 0, List.GetHashCode(), Map.GetHashCode());
 }
 
 #pragma warning disable CA1034 // Nested types should not be visible
@@ -134,10 +127,16 @@ public class Structured<TValue, TObject>
     internal Dict() : base() { }
     internal Dict(IDictionary<TValue, TObject> dictionary)
       : base(dictionary) { }
+
+    public bool Equals(IDict other)
+      => other is not null
+      && Keys.OrderedEqual(other.Keys)
+      && Keys.All(k => this[k].Equals(other[k]));
   }
 
   public interface IDict
     : IDictionary<TValue, TObject>
+    , IEquatable<IDict>
   { }
 
   public TValue? Value { get; }

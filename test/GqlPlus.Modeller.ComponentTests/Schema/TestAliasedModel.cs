@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Convert;
 using GqlPlus.Modelling;
 
 namespace GqlPlus.Schema;

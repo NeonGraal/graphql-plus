@@ -99,6 +99,6 @@ public abstract class RenderLinesStructureBase
   private Structured AsMap<T>(MapPair<T>[] value, Func<T, Structured> mapper)
     => value.ToMap(k => k.Key, v => mapper(v.Value)).Render(MapTag, Flow);
 
-  static private bool MapDups<T>(MapPair<T>[] value)
+  private static bool MapDups<T>(MapPair<T>[] value)
     => value.Length != value.Select(v => v.Key).Distinct().Count();
 }

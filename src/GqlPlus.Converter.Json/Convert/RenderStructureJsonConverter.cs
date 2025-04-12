@@ -1,16 +1,15 @@
-﻿namespace GqlPlus.Convert;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace GqlPlus.Convert;
 internal class RenderStructureJsonConverter
   : RenderJsonConverter<Structured>
 {
   internal static RenderValueJsonConverter ValueConverter { get; } = new();
 
+  [ExcludeFromCodeCoverage]
   public override Structured? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException();
   public override void Write(Utf8JsonWriter writer, Structured value, JsonSerializerOptions options)
   {
-    if (value is null || value.IsEmpty) {
-      return;
-    }
-
     bool plain = string.IsNullOrWhiteSpace(value.Tag);
 
     if (value.List.Count > 0) {

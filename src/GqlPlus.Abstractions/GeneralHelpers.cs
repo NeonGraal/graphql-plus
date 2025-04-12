@@ -1,5 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using System.Runtime.CompilerServices;
+using GqlPlus.Structures;
 
 namespace GqlPlus;
 
@@ -7,6 +9,27 @@ public static class GeneralHelpers
 {
   public static TResult[] ArrayOf<TResult>(this IEnumerable<object>? items)
     => [.. items?.OfType<TResult>() ?? []];
+
+  public static string[]? FlagNames<TEnum>(this TEnum flagValue)
+    where TEnum : Enum
+  {
+    Type type = typeof(TEnum);
+    if (!type.GetCustomAttributes<FlagsAttribute>().Any()) {
+      return null;
+    }
+
+    int flags = (int)(object)flagValue;
+    List<string> result = [];
+
+    foreach (object? value in Enum.GetValues(type)) {
+      int flag = (int)value;
+      if (flag.IsSingleFlag() && (flags & flag) == flag) {
+        result.Add(Enum.GetName(type, flag));
+      }
+    }
+
+    return [.. result];
+  }
 
   public static string Joined(this IEnumerable<string?>? items, string by = " ")
     => string.Join(by,

@@ -55,6 +55,9 @@ public static class StructureHelper
   internal static bool BothValued<T>([NotNullWhen(true)] this T? left, [NotNullWhen(true)] T? right)
     => left is not null && right is not null;
 
+  internal static bool BothAny<T>([NotNullWhen(true)] this IEnumerable<T>? left, [NotNullWhen(true)] IEnumerable<T>? right)
+    => left.BothValued(right) && left.Any() && right.Any();
+
   public static bool IsSingleFlag(this int flag)
   {
     while (flag > 0) {

@@ -7,9 +7,9 @@ internal class MergeCategories(
   ILoggerFactory logger
 ) : AstAliasedMerger<IGqlpSchemaCategory>(logger)
 {
-  public override ITokenMessages CanMerge(IEnumerable<IGqlpSchemaCategory> items)
-    => base.CanMerge(items)
-      .Add(items.CanMergeStruct(item => item.CategoryOption));
+  protected override ITokenMessages CanMergeGroup(IGrouping<string, IGqlpSchemaCategory> group)
+    => base.CanMergeGroup(group)
+      .Add(group.CanMergeStruct(item => item.CategoryOption));
 
   protected override string ItemMatchName => "Output~Modifiers~Option";
   protected override string ItemMatchKey(IGqlpSchemaCategory item)

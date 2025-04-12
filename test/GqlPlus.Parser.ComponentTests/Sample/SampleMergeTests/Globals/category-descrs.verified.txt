@@ -1,0 +1,16 @@
+﻿[  
+!Sc S@001/0001
+Success
+{
+  'A Category described'
+  !Ca P@010/0003
+  ctgrDscrs
+  (Parallel)
+  !Tr I@012/0003
+  CtgrDscrs
+}
+{
+  !Ou I@008/0004
+  CtgrDscrs
+}
+]

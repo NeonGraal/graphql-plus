@@ -1,0 +1,19 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Do I@008/0001
+  DmnStrPrnt
+  String
+  :PrntDmnStrPrnt
+  !DX R@044/0001
+  /a+/
+}
+{
+  !Do I@008/0002
+  PrntDmnStrPrnt
+  String
+  !DX R@032/0002
+  /b+/
+}
+]

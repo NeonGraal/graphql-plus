@@ -1,0 +1,19 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  OutpGnrcField
+  <
+    I@023/0001
+    $type
+  >
+  {
+    !OF I@031/0001
+    field
+    :
+    I@039/0001
+    $type
+  }
+}
+]

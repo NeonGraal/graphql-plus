@@ -1,0 +1,20 @@
+﻿[  
+!Sc I@001/0002
+Success
+{
+  !En I@006/0002
+  EnumDmnEnumUnq
+  !EL I@023/0002
+  enum_dmnEnumUnq
+  !EL I@039/0002
+  dmnEnumUnq
+}
+{
+  !En I@006/0003
+  EnumDomDup
+  !EL I@019/0003
+  dmnEnumUnq
+  !EL I@030/0003
+  dup_dmnEnumUnq
+}
+]

@@ -1,0 +1,19 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Do I@008/0001
+  DmnBoolPrnt
+  Boolean
+  :PrntDmnBoolPrnt
+  !DT I@047/0001
+  False
+}
+{
+  !Do I@008/0002
+  PrntDmnBoolPrnt
+  Boolean
+  !DT I@034/0002
+  True
+}
+]

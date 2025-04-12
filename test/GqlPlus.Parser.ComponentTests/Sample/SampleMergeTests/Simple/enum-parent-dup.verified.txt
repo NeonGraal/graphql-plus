@@ -1,0 +1,20 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !En I@006/0001
+  EnumPrntDup
+  :PrntEnumPrntDup
+  !EL I@037/0001
+  enumPrntDup
+}
+{
+  !En I@006/0002
+  PrntEnumPrntDup
+  !EL I@024/0002
+  prnt_enumPrntDup
+  [
+    enumPrntDup
+  ]
+}
+]

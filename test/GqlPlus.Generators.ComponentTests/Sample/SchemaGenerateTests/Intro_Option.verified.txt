@@ -1,0 +1,15 @@
+﻿/* Intro_Option
+output _Setting {
+    : _Named
+        value: _Constant
+}
+*/
+
+// Generated from Schema Intro_Option
+
+/*
+*/
+
+namespace GqlPlus.Model_Schema_Intro_Option;
+
+public interface IOutput_Setting {}

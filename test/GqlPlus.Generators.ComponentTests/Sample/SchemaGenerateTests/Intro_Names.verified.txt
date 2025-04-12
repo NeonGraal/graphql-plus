@@ -1,0 +1,28 @@
+﻿/* Intro_Names
+dual _Aliased {
+    : _Named
+        aliases: _Identifier[]
+    }
+
+dual _Named {
+    : _Described
+        name: _Identifier
+    }
+
+dual _Described {
+        description: String[]
+    }
+*/
+
+// Generated from Schema Intro_Names
+
+/*
+*/
+
+namespace GqlPlus.Model_Schema_Intro_Names;
+
+public interface IDual_Aliased {}
+
+public interface IDual_Named {}
+
+public interface IDual_Described {}

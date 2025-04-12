@@ -1,0 +1,41 @@
+﻿/* Intro_Dual
+output _TypeDual {
+    : _TypeObject<_TypeKind.Dual _DualBase _DualField _DualAlternate>
+    }
+
+output _DualBase {
+    : _ObjBase<_DualTypeArg>
+        dual: _Identifier
+    }
+
+output _DualField {
+    : _Field<_DualBase>
+    }
+
+output _DualAlternate {
+    : _Alternate<_DualTypeArg>
+        dual: _Identifier
+    }
+
+output _DualTypeArg {
+    : _ObjTypeArg
+        dual: _Identifier
+    }
+*/
+
+// Generated from Schema Intro_Dual
+
+/*
+*/
+
+namespace GqlPlus.Model_Schema_Intro_Dual;
+
+public interface IOutput_TypeDual {}
+
+public interface IOutput_DualBase {}
+
+public interface IOutput_DualField {}
+
+public interface IOutput_DualAlternate {}
+
+public interface IOutput_DualTypeArg {}

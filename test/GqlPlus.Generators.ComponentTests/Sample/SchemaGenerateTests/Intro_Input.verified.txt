@@ -1,0 +1,51 @@
+﻿/* Intro_Input
+output _TypeInput {
+    : _TypeObject<_TypeKind.Input _InputBase _InputField _InputAlternate>
+    }
+
+output _InputBase {
+    : _ObjBase<_InputTypeArg>
+        input: _Identifier
+    | _DualBase
+    }
+
+output _InputField {
+    : _Field<_InputBase>
+        default: _Constant?
+    }
+
+output _InputAlternate {
+    : _Alternate<_InputTypeArg>
+        input: _Identifier
+    }
+
+output _InputTypeArg {
+    : _ObjTypeArg
+        input: _Identifier
+    }
+
+output _InputParam {
+    : _InputBase
+        modifiers: _Modifiers[]
+        default: _Constant?
+    }
+*/
+
+// Generated from Schema Intro_Input
+
+/*
+*/
+
+namespace GqlPlus.Model_Schema_Intro_Input;
+
+public interface IOutput_TypeInput {}
+
+public interface IOutput_InputBase {}
+
+public interface IOutput_InputField {}
+
+public interface IOutput_InputAlternate {}
+
+public interface IOutput_InputTypeArg {}
+
+public interface IOutput_InputParam {}

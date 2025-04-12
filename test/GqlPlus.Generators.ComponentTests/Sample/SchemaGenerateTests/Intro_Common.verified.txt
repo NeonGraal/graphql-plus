@@ -1,0 +1,85 @@
+﻿/* Intro_Common
+output _Type {
+    | _BaseType<_TypeKind.Basic>
+    | _BaseType<_TypeKind.Internal>
+    | _TypeDual
+    | _TypeEnum
+    | _TypeInput
+    | _TypeOutput
+    | _TypeDomain
+    | _TypeUnion
+    }
+
+output _BaseType<$kind> {
+    : _Aliased
+        typeKind: $kind
+    }
+
+output _ChildType<$kind $parent> {
+    : _BaseType<$kind>
+        parent: $parent
+    }
+
+output _ParentType<$kind $item $allItem> {
+    : _ChildType<$kind _Named>
+        items: $item[]
+        allItems: $allItem[]
+    }
+
+enum _SimpleKind { Basic Enum Internal Domain Union }
+
+enum _TypeKind { :_SimpleKind Dual Input Output }
+
+output _TypeRef<$kind> {
+    : _Described
+        typeKind: $kind
+        name: _Identifier
+}
+
+output _TypeSimple {
+    | _TypeRef<_TypeKind.Basic>
+    | _TypeRef<_TypeKind.Enum>
+    | _TypeRef<_TypeKind.Domain>
+    | _TypeRef<_TypeKind.Union>
+    }
+*/
+
+// Generated from Schema Intro_Common
+
+/*
+*/
+
+namespace GqlPlus.Model_Schema_Intro_Common;
+
+public interface IOutput_Type {}
+
+public interface IOutput_BaseType {}
+
+public interface IOutput_ChildType {}
+
+public interface IOutput_ParentType {}
+
+public enum _SimpleKind
+{
+  Basic,
+  Enum,
+  Internal,
+  Domain,
+  Union,
+}
+
+public enum _TypeKind
+{
+  Basic = _SimpleKind.Basic,,
+  Enum = _SimpleKind.Enum,,
+  Internal = _SimpleKind.Internal,,
+  Domain = _SimpleKind.Domain,,
+  Union = _SimpleKind.Union,,
+  Dual,
+  Input,
+  Output,
+}
+
+public interface IOutput_TypeRef {}
+
+public interface IOutput_TypeSimple {}

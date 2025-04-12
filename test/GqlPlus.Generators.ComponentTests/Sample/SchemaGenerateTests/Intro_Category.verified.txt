@@ -1,0 +1,35 @@
+﻿/* Intro_Category
+output _Categories {
+        category: _Category
+        type: _Type
+    | _Category
+    | _Type
+}
+
+output _Category {
+    : _Aliased
+        resolution: _Resolution
+        output: _TypeRef<_TypeKind.Output>
+        modifiers: _Modifiers[]
+    }
+
+enum _Resolution { Parallel Sequential Single }
+*/
+
+// Generated from Schema Intro_Category
+
+/*
+*/
+
+namespace GqlPlus.Model_Schema_Intro_Category;
+
+public interface IOutput_Categories {}
+
+public interface IOutput_Category {}
+
+public enum _Resolution
+{
+  Parallel,
+  Sequential,
+  Single,
+}

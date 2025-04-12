@@ -1,0 +1,53 @@
+﻿/* Intro_Output
+output _TypeOutput {
+    : _TypeObject<_TypeKind.Output _OutputBase _OutputField _OutputAlternate>
+    }
+
+output _OutputBase {
+    : _ObjBase<_OutputTypeArg>
+        output: _Identifier
+    | _DualBase
+    }
+
+output _OutputField {
+    : _Field<_OutputBase>
+        parameters: _InputParam[]
+    | _OutputEnum
+    }
+
+output _OutputAlternate {
+    : _Alternate<_OutputTypeArg>
+        output: _Identifier
+    }
+
+output _OutputTypeArg {
+    : _ObjTypeArg
+        output: _Identifier
+        label: _Identifier?
+    }
+
+output _OutputEnum {
+    : _TypeRef<_TypeKind.Enum>
+        field: _Identifier
+        label: _Identifier
+    }
+*/
+
+// Generated from Schema Intro_Output
+
+/*
+*/
+
+namespace GqlPlus.Model_Schema_Intro_Output;
+
+public interface IOutput_TypeOutput {}
+
+public interface IOutput_OutputBase {}
+
+public interface IOutput_OutputField {}
+
+public interface IOutput_OutputAlternate {}
+
+public interface IOutput_OutputTypeArg {}
+
+public interface IOutput_OutputEnum {}

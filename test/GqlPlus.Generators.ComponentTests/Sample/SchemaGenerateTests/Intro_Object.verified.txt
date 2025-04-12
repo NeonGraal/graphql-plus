@@ -1,0 +1,88 @@
+﻿/* Intro_Object
+output _TypeObject<$kind $parent $field $alternate> {
+    : _ChildType<$kind $parent>
+        typeParams: _ObjTypeParam[]
+        fields: $field[]
+        alternates: $alternate[]
+        allFields: _ObjectFor<$field>[]
+        allAlternates: _ObjectFor<$alternate>[]
+    }
+
+output _ObjConstraint<$base> {
+    | _TypeSimple
+    | $base
+}
+output _ObjType<$base> {
+    | _BaseType<_TypeKind.Internal>
+    | _ObjConstraint<$base>
+    }
+
+output _ObjBase<$arg> {
+    : _Described
+        typeArgs: $arg[]
+    | _ObjTypeParam
+    }
+
+output _ObjTypeArg {
+    : _TypeRef<_TypeKind>
+    | _ObjTypeParam
+}
+
+domain _TypeParam { :_Identifier String }
+
+output _ObjTypeParam {
+    : _Described
+        typeParam: _TypeParam
+}
+
+output _Alternate<$arg> {
+    : _ObjBase<$arg>
+      collections: _Collections[]
+    }
+
+output _ObjectFor<$for> {
+    : $for
+        object: _Identifier
+    }
+
+output _Field<$base> {
+    : _Aliased
+      type: $base
+      modifiers: _Modifiers[]
+    }
+*/
+
+// Generated from Schema Intro_Object
+
+/*
+*/
+
+namespace GqlPlus.Model_Schema_Intro_Object;
+
+public interface IOutput_TypeObject {}
+
+public interface IOutput_ObjConstraint {}
+
+public interface IOutput_ObjType {}
+
+public interface IOutput_ObjBase {}
+
+public interface IOutput_ObjTypeArg {}
+
+public interface I_TypeParam
+  : I_TypeParam
+{
+}
+public class Domain_TypeParam
+  : Domain_Identifier
+  , I_TypeParam
+{
+}
+
+public interface IOutput_ObjTypeParam {}
+
+public interface IOutput_Alternate {}
+
+public interface IOutput_ObjectFor {}
+
+public interface IOutput_Field {}

@@ -1,0 +1,22 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  OutpFieldModEnum
+  {
+    !OF I@027/0001
+    field
+    :
+    P@034/0001
+    *
+    [EnumOutpFieldModEnum]
+  }
+}
+{
+  !En I@006/0002
+  EnumOutpFieldModEnum
+  !EL I@029/0002
+  value
+}
+]

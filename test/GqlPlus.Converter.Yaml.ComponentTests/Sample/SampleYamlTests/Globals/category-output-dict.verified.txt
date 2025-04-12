@@ -1,8 +1,7 @@
 ﻿!_Schema
 categories: !_Map_Categories
   !_Identifier ctgrOutpDict: !_Category
-    modifiers: [!_ModifierDictionary {by: '*', modifierKind: !_ModifierKind Dict,
-        typeKind: !_SimpleKind Basic}]
+    modifiers: [!_ModifierDictionary {by: '*', modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Basic}]
     name: ctgrOutpDict
     output: !_TypeRef(_TypeKind)
       name: CtgrOutpDict

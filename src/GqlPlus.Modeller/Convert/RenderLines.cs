@@ -1,5 +1,4 @@
 ﻿using System.Text;
-using GqlPlus.Ast;
 
 namespace GqlPlus.Convert;
 
@@ -142,7 +141,7 @@ public static class RenderLines
     }
   }
 
-  private static char[] s_special = ['{', '}', '[', ']', '&', '*', '#', '?', '|', '-', '<', '>', '=', '!', '%', '@', ':', '`', ','];
+  private static readonly char[] s_special = ['{', '}', '[', ']', '&', '*', '#', '?', '|', '-', '<', '>', '=', '!', '%', '@', ':', '`', ','];
 
   private static void WriteValue(StringBuilder sb, StructureValue value, string suffix, int indent)
   {

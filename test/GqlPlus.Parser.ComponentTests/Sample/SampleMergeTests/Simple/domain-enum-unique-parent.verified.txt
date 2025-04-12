@@ -1,0 +1,27 @@
+﻿[  
+!Sc I@001/0002
+Success
+{
+  !En I@006/0002
+  EnumDmnEnumUnqPrnt
+  :PrntDmnEnumUnqPrnt
+  !EL I@047/0002
+  enum_dmnEnumUnqPrnt
+}
+{
+  !En I@006/0003
+  PrntDmnEnumUnqPrnt
+  !EL I@027/0003
+  dmnEnumUnqPrnt
+  !EL I@042/0003
+  prnt_dmnEnumUnqPrnt
+}
+{
+  !En I@006/0004
+  DupDmnEnumUnqPrnt
+  !EL I@026/0004
+  dmnEnumUnqPrnt
+  !EL I@041/0004
+  dup_dmnEnumUnqPrnt
+}
+]

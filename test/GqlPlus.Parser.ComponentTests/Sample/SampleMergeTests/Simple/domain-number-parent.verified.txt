@@ -1,0 +1,21 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Do I@008/0001
+  DmnNmbrPrnt
+  Number
+  :PrntDmnNmbrPrnt
+  !DN N@046/0001
+  2
+>
+}
+{
+!Do I@008/0002
+PrntDmnNmbrPrnt
+Number
+!DN P@033/0002
+<
+  2
+}
+]

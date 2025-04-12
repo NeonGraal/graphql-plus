@@ -1,4 +1,5 @@
-﻿using YamlDotNet.Core.Events;
+﻿using System.Diagnostics.CodeAnalysis;
+using YamlDotNet.Core.Events;
 
 namespace GqlPlus.Convert;
 
@@ -24,8 +25,11 @@ internal class RenderYamlTypeConverter
 {
   public bool Accepts(Type type) => type == typeof(Structured);
 
+  [ExcludeFromCodeCoverage]
   public object? ReadYaml(IParser parser, Type type) => throw new NotImplementedException();
+  [ExcludeFromCodeCoverage]
   public object? ReadYaml(IParser parser, Type type, ObjectDeserializer rootDeserializer) => throw new NotImplementedException();
+
   public void WriteYaml(IEmitter emitter, object? value, Type type, ObjectSerializer serializer)
   {
     if (value is Structured model) {

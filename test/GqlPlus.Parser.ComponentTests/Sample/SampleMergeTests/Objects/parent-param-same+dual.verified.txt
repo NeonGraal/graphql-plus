@@ -1,0 +1,37 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  DualPrntParamSame
+  <
+    I@025/0001
+    $a
+  >
+  :
+  I@031/0001
+  RefDualPrntParamSame
+  <
+    I@053/0001
+    $a
+  >
+  {
+    !DF I@056/0001
+    field
+    :
+    I@064/0001
+    $a
+  }
+}
+{
+  !Du I@006/0002
+  RefDualPrntParamSame
+  <
+    I@028/0002
+    $a
+  >
+  |
+  P@035/0002
+  $a
+}
+]

@@ -1,0 +1,141 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  _Categories
+  {
+    !OF I@009/0002
+    category
+    :
+    I@019/0002
+    _Category
+    !OF I@009/0003
+    type
+    :
+    I@015/0003
+    _Type
+  }
+  |
+  I@007/0004
+  _Category
+  I@007/0005
+  _Type
+}
+{
+  !Ou I@008/0008
+  _Category
+  :
+  I@007/0009
+  _Aliased
+  {
+    !OF I@009/0010
+    resolution
+    :
+    I@021/0010
+    _Resolution
+    !OF I@009/0011
+    output
+    :
+    I@017/0011
+    _TypeRef
+    <
+      I@026/0011
+      _TypeKind.Output
+    >
+    !OF I@009/0012
+    modifiers
+    :
+    I@020/0012
+    _Modifiers
+    []
+  }
+}
+{
+  !En I@006/0015
+  _Resolution
+  !EL I@020/0015
+  Parallel
+  !EL I@029/0015
+  Sequential
+  !EL I@040/0015
+  Single
+}
+{
+  !Ou I@008/0016
+  _Directives
+  {
+    !OF I@009/0017
+    directive
+    :
+    I@020/0017
+    _Directive
+    !OF I@009/0018
+    type
+    :
+    I@015/0018
+    _Type
+  }
+  |
+  I@007/0019
+  _Directive
+  I@007/0020
+  _Type
+}
+{
+  !Ou I@008/0023
+  _Directive
+  :
+  I@007/0024
+  _Aliased
+  {
+    !OF I@009/0025
+    parameters
+    :
+    I@021/0025
+    _InputParam
+    []
+    !OF I@009/0026
+    repeatable
+    :
+    I@021/0026
+    Boolean
+    !OF I@009/0027
+    locations
+    :
+    I@020/0027
+    _
+    [_Location]
+  }
+}
+{
+  !En I@006/0030
+  _Location
+  !EL I@018/0030
+  Operation
+  !EL I@028/0030
+  Variable
+  !EL I@037/0030
+  Field
+  !EL I@043/0030
+  Inline
+  !EL I@050/0030
+  Spread
+  !EL I@057/0030
+  Fragment
+}
+{
+  !Ou I@008/0032
+  _Setting
+  :
+  I@007/0033
+  _Named
+  {
+    !OF I@009/0034
+    value
+    :
+    I@016/0034
+    _Constant
+  }
+}
+]

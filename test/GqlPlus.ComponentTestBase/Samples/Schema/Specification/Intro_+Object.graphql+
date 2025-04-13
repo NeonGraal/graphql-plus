@@ -1,0 +1,141 @@
+output _TypeObject<$kind:_ObjectKind $parent:_ObjDescribed
+            $typeParam:_ObjTypeParam $field:_Field $alternate:_Alternate> {
+    : _ChildType<$kind $parent>
+        typeParams: $typeParam[]
+        fields: $field[]
+        alternates: $alternate[]
+        allFields: _ObjectFor<$field>[]
+        allAlternates: _ObjectFor<$alternate>[]
+    }
+
+output _ObjConstraint<$base:_ObjBase> {
+    | _TypeSimple
+    | $base
+    }
+output _ObjType<$base:_ObjBase> {
+    | _BaseType<_TypeKind.Internal>
+    | _ObjConstraint<$base>
+    }
+
+output _ObjBase<$arg:_ObjTypeArg> {
+    : _Described
+        typeArgs: $arg[]
+    | _ObjTypeParam
+    }
+
+output _ObjTypeArg {
+    : _TypeRef<_TypeKind>
+    | _ObjTypeParam
+    }
+
+domain _TypeParam { :_Identifier String }
+
+output _ObjTypeParam {
+    : _Described
+        typeParam: _TypeParam
+    }
+
+output _Alternate<$arg:_ObjTypeArg> {
+    : _ObjBase<$arg>
+      collections: _Collections[]
+    }
+
+output _ObjectFor<$for:_ForParam> {
+    : $for
+        object: _Identifier
+    }
+
+output _Field<$base:_ObjBase> {
+    : _Aliased
+      type: $base
+      modifiers: _Modifiers[]
+    }
+
+output _ForParam<$base:_ObjBase> {
+    | _Alternate<$base>
+    | _Field<$base>
+    }
+output _TypeDual {
+    : _TypeObject<_TypeKind.Dual _DualBase _DualTypeArg _DualField _DualAlternate>
+    }
+
+output _DualBase {
+    : _ObjBase<_DualTypeArg>
+        dual: _Identifier
+    }
+
+output _DualField {
+    : _Field<_DualBase>
+    }
+
+output _DualAlternate {
+    : _Alternate<_DualTypeArg>
+        dual: _Identifier
+    }
+
+output _DualTypeArg {
+    : _ObjTypeArg
+        dual: _Identifier
+    }
+output _TypeInput {
+    : _TypeObject<_TypeKind.Input _InputBase _InputTypeArg _InputField _InputAlternate>
+    }
+
+output _InputBase {
+    : _ObjBase<_InputTypeArg>
+        input: _Identifier
+    | _DualBase
+    }
+
+output _InputField {
+    : _Field<_InputBase>
+        default: _Constant?
+    }
+
+output _InputAlternate {
+    : _Alternate<_InputTypeArg>
+        input: _Identifier
+    }
+
+output _InputTypeArg {
+    : _ObjTypeArg
+        input: _Identifier
+    }
+
+output _InputParam {
+    : _InputBase
+        modifiers: _Modifiers[]
+        default: _Constant?
+    }
+output _TypeOutput {
+    : _TypeObject<_TypeKind.Output _OutputBase _OutputTypeArg _OutputField _OutputAlternate>
+    }
+
+output _OutputBase {
+    : _ObjBase<_OutputTypeArg>
+        output: _Identifier
+    | _DualBase
+    }
+
+output _OutputField {
+    : _Field<_OutputBase>
+        parameters: _InputParam[]
+    | _OutputEnum
+    }
+
+output _OutputAlternate {
+    : _Alternate<_OutputTypeArg>
+        output: _Identifier
+    }
+
+output _OutputTypeArg {
+    : _ObjTypeArg
+        output: _Identifier
+        label: _Identifier?
+    }
+
+output _OutputEnum {
+    : _TypeRef<_TypeKind.Enum>
+        field: _Identifier
+        label: _Identifier
+    }

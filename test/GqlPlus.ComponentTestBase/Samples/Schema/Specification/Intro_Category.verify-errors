@@ -1,7 +1,6 @@
-﻿Invalid Output Alternate. '_Type' not defined
-Invalid Output Parent. '_Aliased' not defined
-Invalid Output Field. '_Type' not defined
-Invalid Output Field. '_TypeRef' not defined
-Invalid Output Field. '_Modifiers' not defined
-Invalid Output Arg Enum. '_TypeKind' is not an Enum type
-Invalid Output Field. '_TypeKind' not defined
+﻿'_Aliased' not defined
+'_Modifiers' not defined
+'_Type' not defined
+'_TypeKind' is not an Enum type
+'_TypeKind' not defined
+'_TypeRef' not defined

@@ -1,6 +1,7 @@
 [CmdletBinding()]
 param (
-    $SpecPath = "../graphql-plus.github.io"
+  [switch]$AutoVerify = $false,
+  $SpecPath = "../graphql-plus.github.io"
 )
 
 $source = Join-Path $SpecPath "samples"
@@ -23,4 +24,8 @@ Get-ChildItem $source -Recurse -Exclude "*.md","*.yml" | ForEach-Object {
   $relative = Resolve-Path -RelativeBasePath $source -Relative $_
   $to = Join-Path $dest $relative
   Copy-Item $_ $to -Force
+}
+
+if ($AutoVerify) {
+  ./autoverify.ps1
 }

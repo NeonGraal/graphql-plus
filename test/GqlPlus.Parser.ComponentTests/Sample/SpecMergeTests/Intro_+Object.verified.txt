@@ -1,0 +1,531 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  _TypeObject
+  <
+    I@021/0001
+    $kind
+    I@027/0001
+    $parent
+    I@035/0001
+    $field
+    I@042/0001
+    $alternate
+  >
+  :
+  I@007/0002
+  _ChildType
+  <
+    I@019/0002
+    $kind
+    I@025/0002
+    $parent
+  >
+  {
+    !OF I@009/0003
+    typeParams
+    :
+    I@021/0003
+    _ObjTypeParam
+    []
+    !OF I@009/0004
+    fields
+    :
+    I@018/0004
+    $field
+    []
+    !OF I@009/0005
+    alternates
+    :
+    I@022/0005
+    $alternate
+    []
+    !OF I@009/0006
+    allFields
+    :
+    I@020/0006
+    _ObjectFor
+    <
+      I@032/0006
+      $field
+    >
+    []
+    !OF I@009/0007
+    allAlternates
+    :
+    I@024/0007
+    _ObjectFor
+    <
+      I@036/0007
+      $alternate
+    >
+    []
+  }
+}
+{
+  !Ou I@008/0010
+  _ObjConstraint
+  <
+    I@024/0010
+    $base
+  >
+  |
+  I@007/0011
+  _TypeSimple
+  P@007/0012
+  $base
+}
+{
+  !Ou I@008/0014
+  _ObjType
+  <
+    I@018/0014
+    $base
+  >
+  |
+  I@007/0015
+  _BaseType
+  <
+    I@017/0015
+    _TypeKind.Internal
+  >
+  I@007/0016
+  _ObjConstraint
+  <
+    I@023/0016
+    $base
+  >
+}
+{
+  !Ou I@008/0019
+  _ObjBase
+  <
+    I@018/0019
+    $arg
+  >
+  :
+  I@007/0020
+  _Described
+  {
+    !OF I@009/0021
+    typeArgs
+    :
+    I@020/0021
+    $arg
+    []
+  }
+  |
+  I@007/0022
+  _ObjTypeParam
+}
+{
+  !Ou I@008/0025
+  _ObjTypeArg
+  :
+  I@007/0026
+  _TypeRef
+  <
+    I@016/0026
+    _TypeKind
+  >
+  |
+  I@007/0027
+  _ObjTypeParam
+}
+{
+  !Do I@008/0030
+  _TypeParam
+  String
+  :_Identifier
+}
+{
+  !Ou I@008/0032
+  _ObjTypeParam
+  :
+  I@007/0033
+  _Described
+  {
+    !OF I@009/0034
+    typeParam
+    :
+    I@020/0034
+    _TypeParam
+  }
+}
+{
+  !Ou I@008/0037
+  _Alternate
+  <
+    I@020/0037
+    $arg
+  >
+  :
+  I@007/0038
+  _ObjBase
+  <
+    I@017/0038
+    $arg
+  >
+  {
+    !OF I@007/0039
+    collections
+    :
+    I@020/0039
+    _Collections
+    []
+  }
+}
+{
+  !Ou I@008/0042
+  _ObjectFor
+  <
+    I@020/0042
+    $for
+  >
+  :
+  I@008/0043
+  $for
+  {
+    !OF I@009/0044
+    object
+    :
+    I@017/0044
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0047
+  _Field
+  <
+    I@016/0047
+    $base
+  >
+  :
+  I@007/0048
+  _Aliased
+  {
+    !OF I@007/0049
+    type
+    :
+    I@014/0049
+    $base
+    !OF I@007/0050
+    modifiers
+    :
+    I@018/0050
+    _Modifiers
+    []
+  }
+}
+{
+  !Ou I@008/0052
+  _TypeDual
+  :
+  I@007/0053
+  _TypeObject
+  <
+    I@019/0053
+    _TypeKind.Dual
+    I@034/0053
+    _DualBase
+    I@044/0053
+    _DualField
+    I@055/0053
+    _DualAlternate
+  >
+}
+{
+  !Ou I@008/0056
+  _DualBase
+  :
+  I@007/0057
+  _ObjBase
+  <
+    I@016/0057
+    _DualTypeArg
+  >
+  {
+    !OF I@009/0058
+    dual
+    :
+    I@015/0058
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0061
+  _DualField
+  :
+  I@007/0062
+  _Field
+  <
+    I@014/0062
+    _DualBase
+  >
+}
+{
+  !Ou I@008/0065
+  _DualAlternate
+  :
+  I@007/0066
+  _Alternate
+  <
+    I@018/0066
+    _DualTypeArg
+  >
+  {
+    !OF I@009/0067
+    dual
+    :
+    I@015/0067
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0070
+  _DualTypeArg
+  :
+  I@007/0071
+  _ObjTypeArg
+  {
+    !OF I@009/0072
+    dual
+    :
+    I@015/0072
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0074
+  _TypeInput
+  :
+  I@007/0075
+  _TypeObject
+  <
+    I@019/0075
+    _TypeKind.Input
+    I@035/0075
+    _InputBase
+    I@046/0075
+    _InputField
+    I@058/0075
+    _InputAlternate
+  >
+}
+{
+  !Ou I@008/0078
+  _InputBase
+  :
+  I@007/0079
+  _ObjBase
+  <
+    I@016/0079
+    _InputTypeArg
+  >
+  {
+    !OF I@009/0080
+    input
+    :
+    I@016/0080
+    _Identifier
+  }
+  |
+  I@007/0081
+  _DualBase
+}
+{
+  !Ou I@008/0084
+  _InputField
+  :
+  I@007/0085
+  _Field
+  <
+    I@014/0085
+    _InputBase
+  >
+  {
+    !OF I@009/0086
+    default
+    :
+    I@018/0086
+    _Constant
+    ?
+  }
+}
+{
+  !Ou I@008/0089
+  _InputAlternate
+  :
+  I@007/0090
+  _Alternate
+  <
+    I@018/0090
+    _InputTypeArg
+  >
+  {
+    !OF I@009/0091
+    input
+    :
+    I@016/0091
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0094
+  _InputTypeArg
+  :
+  I@007/0095
+  _ObjTypeArg
+  {
+    !OF I@009/0096
+    input
+    :
+    I@016/0096
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0099
+  _InputParam
+  :
+  I@007/0100
+  _InputBase
+  {
+    !OF I@009/0101
+    modifiers
+    :
+    I@020/0101
+    _Modifiers
+    []
+    !OF I@009/0102
+    default
+    :
+    I@018/0102
+    _Constant
+    ?
+  }
+}
+{
+  !Ou I@008/0104
+  _TypeOutput
+  :
+  I@007/0105
+  _TypeObject
+  <
+    I@019/0105
+    _TypeKind.Output
+    I@036/0105
+    _OutputBase
+    I@048/0105
+    _OutputField
+    I@061/0105
+    _OutputAlternate
+  >
+}
+{
+  !Ou I@008/0108
+  _OutputBase
+  :
+  I@007/0109
+  _ObjBase
+  <
+    I@016/0109
+    _OutputTypeArg
+  >
+  {
+    !OF I@009/0110
+    output
+    :
+    I@017/0110
+    _Identifier
+  }
+  |
+  I@007/0111
+  _DualBase
+}
+{
+  !Ou I@008/0114
+  _OutputField
+  :
+  I@007/0115
+  _Field
+  <
+    I@014/0115
+    _OutputBase
+  >
+  {
+    !OF I@009/0116
+    parameters
+    :
+    I@021/0116
+    _InputParam
+    []
+  }
+  |
+  I@007/0117
+  _OutputEnum
+}
+{
+  !Ou I@008/0120
+  _OutputAlternate
+  :
+  I@007/0121
+  _Alternate
+  <
+    I@018/0121
+    _OutputTypeArg
+  >
+  {
+    !OF I@009/0122
+    output
+    :
+    I@017/0122
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0125
+  _OutputTypeArg
+  :
+  I@007/0126
+  _ObjTypeArg
+  {
+    !OF I@009/0127
+    output
+    :
+    I@017/0127
+    _Identifier
+    !OF I@009/0128
+    label
+    :
+    I@016/0128
+    _Identifier
+    ?
+  }
+}
+{
+  !Ou I@008/0131
+  _OutputEnum
+  :
+  I@007/0132
+  _TypeRef
+  <
+    I@016/0132
+    _TypeKind.Enum
+  >
+  {
+    !OF I@009/0133
+    field
+    :
+    I@016/0133
+    _Identifier
+    !OF I@009/0134
+    label
+    :
+    I@016/0134
+    _Identifier
+  }
+}
+]

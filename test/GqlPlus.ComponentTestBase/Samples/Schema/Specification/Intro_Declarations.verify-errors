@@ -1,7 +1,7 @@
-﻿Invalid Output Parent. '_Named' not defined
-Invalid Input Field. '_TypeKind' not defined
-Invalid Input Field. '_Resolution' not defined
-Invalid Output Field. '_Setting' not defined
-Invalid Output Field. '_Type' not defined
-Invalid Output Field. '_Directives' not defined
-Invalid Output Field. '_Categories' not defined
+﻿'_Categories' not defined
+'_Directives' not defined
+'_Named' not defined
+'_Resolution' not defined
+'_Setting' not defined
+'_Type' not defined
+'_TypeKind' not defined

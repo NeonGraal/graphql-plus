@@ -1,4 +1,3 @@
-﻿Invalid Output Alternate. '_Type' not defined
-Invalid Output Parent. '_Aliased' not defined
-Invalid Output Field. '_Type' not defined
-Invalid Output Field. '_InputParam' not defined
+﻿'_Aliased' not defined
+'_InputParam' not defined
+'_Type' not defined

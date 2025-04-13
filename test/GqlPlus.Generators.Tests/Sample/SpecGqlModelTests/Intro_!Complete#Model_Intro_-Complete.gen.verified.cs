@@ -1,10 +1,10 @@
-﻿//HintName: Model_Intro_Complete.gen.cs
-// Generated from Intro_Complete.graphql+
+﻿//HintName: Model_Intro_-Complete.gen.cs
+// Generated from Intro_-Complete.graphql+
 
 /*
 */
 
-namespace GqlTest.Model_Intro_Complete;
+namespace GqlTest.Model_Intro__Complete;
 
 public interface I_Schema
   : I_Named

@@ -1,5 +1,5 @@
-﻿//HintName: Model_-Objects.gen.cs
-// Generated from -Objects.graphql+
+﻿//HintName: Model_+Objects.gen.cs
+// Generated from +Objects.graphql+
 
 /*
 */

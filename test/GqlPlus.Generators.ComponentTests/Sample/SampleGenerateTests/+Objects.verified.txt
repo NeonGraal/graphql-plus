@@ -1,4 +1,4 @@
-﻿// Generated from Sample !Objects
+﻿// Generated from Sample +Objects
 
 /*
 */

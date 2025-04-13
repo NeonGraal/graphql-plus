@@ -1,5 +1,5 @@
-﻿//HintName: Model_-Simple.gen.cs
-// Generated from -Simple.graphql+
+﻿//HintName: Model_+Simple.gen.cs
+// Generated from +Simple.graphql+
 
 /*
 */

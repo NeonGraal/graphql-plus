@@ -1,5 +1,4 @@
-﻿//HintName: Model_-Globals.gen.cs
-// Generated from -Globals.graphql+
+﻿// Generated from Sample +Globals
 
 /*
 Category ctgrDscrs
@@ -17,7 +16,7 @@ Directive DrctParamOpt
 Option Schema
 */
 
-namespace GqlTest.Model__Globals;
+namespace GqlPlus.Model_Sample_Globals;
 
 public interface ICtgrDscrs
 {

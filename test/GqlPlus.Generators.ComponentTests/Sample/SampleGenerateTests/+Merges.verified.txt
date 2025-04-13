@@ -1,5 +1,4 @@
-﻿//HintName: Model_-Merges.gen.cs
-// Generated from -Merges.graphql+
+﻿// Generated from Sample +Merges
 
 /*
 Category ctgr
@@ -12,7 +11,7 @@ Directive DrctParam
 Option Schema
 */
 
-namespace GqlTest.Model__Merges;
+namespace GqlPlus.Model_Sample_Merges;
 
 public interface ICtgr
 {

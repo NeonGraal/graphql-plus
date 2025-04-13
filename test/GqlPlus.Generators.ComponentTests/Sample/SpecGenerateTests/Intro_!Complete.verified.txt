@@ -1,4 +1,4 @@
-﻿/* Intro_Complete
+﻿/* Intro_!Complete
 output _Schema {
     : _Named
         categories(_CategoryFilter?): _Categories[_Identifier]
@@ -392,12 +392,12 @@ output _OutputEnum {
     }
 */
 
-// Generated from Spec Intro_Complete
+// Generated from Spec Intro_!Complete
 
 /*
 */
 
-namespace GqlPlus.Model_Spec_Intro_Complete;
+namespace GqlPlus.Model_Spec_Intro__Complete;
 
 public interface I_Schema
   : I_Named

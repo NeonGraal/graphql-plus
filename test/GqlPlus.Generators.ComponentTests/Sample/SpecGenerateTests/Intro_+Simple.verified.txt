@@ -1,0 +1,340 @@
+﻿/* Intro_+Simple
+enum _DomainKind { Boolean Enum Number String }
+
+output _TypeDomain {
+    | _BaseDomain<_DomainKind.Boolean _DomainTrueFalse _DomainItemTrueFalse>
+    | _BaseDomain<_DomainKind.Enum _DomainLabel _DomainItemLabel>
+    | _BaseDomain<_DomainKind.Number _DomainRange _DomainItemRange>
+    | _BaseDomain<_DomainKind.String _DomainRegex _DomainItemRegex>
+    }
+
+output _DomainRef<$kind> {
+    : _TypeRef<_TypeKind.Domain>
+        domainKind: $kind
+    }
+
+output _BaseDomain<$domain $item $domainItem> {
+    : _ParentType<_TypeKind.Domain $item $domainItem>
+        domainKind: $domain
+    }
+
+dual _BaseDomainItem {
+    : _Described
+        exclude: Boolean
+    }
+
+output _DomainItem<$item> {
+    : $item
+        domain: _Identifier
+    }
+
+output _DomainValue<$kind $value> {
+    : _DomainRef<$kind>
+        value: $value
+    }
+dual _DomainTrueFalse {
+    : _BaseDomainItem
+        value: Boolean
+    }
+
+output _DomainItemTrueFalse {
+    : _DomainItem<_DomainTrueFalse>
+    }
+output _DomainLabel {
+    : _BaseDomainItem
+        label: _EnumValue
+    }
+
+output _DomainItemLabel {
+    : _DomainItem<_DomainLabel>
+    }
+dual _DomainRange {
+    : _BaseDomainItem
+        lower: Number?
+        upper: Number?
+    }
+
+output _DomainItemRange {
+    : _DomainItem<_DomainRange>
+    }
+dual _DomainRegex {
+    : _BaseDomainItem
+        pattern: String
+    }
+
+output _DomainItemRegex {
+    : _DomainItem<_DomainRegex>
+    }
+output _TypeEnum {
+    : _ParentType<_TypeKind.Enum _Aliased _EnumLabel>
+    }
+
+dual _EnumLabel {
+    : _Aliased
+        enum: _Identifier
+    }
+
+output _EnumValue {
+    : _TypeRef<_TypeKind.Enum>
+        label: _Identifier
+    }
+output _TypeUnion {
+    : _ParentType<_TypeKind.Union _UnionRef _UnionMember>
+    }
+
+output _UnionRef {
+    : _TypeRef<_SimpleKind>
+}
+
+output _UnionMember {
+    : _UnionRef
+        union: _Identifier
+    }
+*/
+
+// Generated from Spec Intro_+Simple
+
+/*
+*/
+
+namespace GqlPlus.Model_Spec_Intro__Simple;
+
+public enum _DomainKind
+{
+  Boolean,
+  Enum,
+  Number,
+  String,
+}
+
+public interface I_TypeDomain
+{
+  _BaseDomain As_BaseDomain { get; }
+  _BaseDomain As_BaseDomain { get; }
+  _BaseDomain As_BaseDomain { get; }
+  _BaseDomain As_BaseDomain { get; }
+}
+public class Output_TypeDomain
+  : I_TypeDomain
+{
+  public _BaseDomain As_BaseDomain { get; set; }
+  public _BaseDomain As_BaseDomain { get; set; }
+  public _BaseDomain As_BaseDomain { get; set; }
+  public _BaseDomain As_BaseDomain { get; set; }
+}
+
+public interface I_DomainRef<Tkind>
+  : I_TypeRef
+{
+  Tkind domainKind { get; }
+}
+public class Output_DomainRef<Tkind>
+  : Output_TypeRef
+  , I_DomainRef<Tkind>
+{
+  public Tkind domainKind { get; set; }
+}
+
+public interface I_BaseDomain<Tdomain,Titem,TdomainItem>
+  : I_ParentType
+{
+  Tdomain domainKind { get; }
+}
+public class Output_BaseDomain<Tdomain,Titem,TdomainItem>
+  : Output_ParentType
+  , I_BaseDomain<Tdomain,Titem,TdomainItem>
+{
+  public Tdomain domainKind { get; set; }
+}
+
+public interface I_BaseDomainItem
+  : I_Described
+{
+  Boolean exclude { get; }
+}
+public class Dual_BaseDomainItem
+  : Dual_Described
+  , I_BaseDomainItem
+{
+  public Boolean exclude { get; set; }
+}
+
+public interface I_DomainItem<Titem>
+  : Iitem
+{
+  _Identifier domain { get; }
+}
+public class Output_DomainItem<Titem>
+  : Outputitem
+  , I_DomainItem<Titem>
+{
+  public _Identifier domain { get; set; }
+}
+
+public interface I_DomainValue<Tkind,Tvalue>
+  : I_DomainRef
+{
+  Tvalue value { get; }
+}
+public class Output_DomainValue<Tkind,Tvalue>
+  : Output_DomainRef
+  , I_DomainValue<Tkind,Tvalue>
+{
+  public Tvalue value { get; set; }
+}
+
+public interface I_DomainTrueFalse
+  : I_BaseDomainItem
+{
+  Boolean value { get; }
+}
+public class Dual_DomainTrueFalse
+  : Dual_BaseDomainItem
+  , I_DomainTrueFalse
+{
+  public Boolean value { get; set; }
+}
+
+public interface I_DomainItemTrueFalse
+  : I_DomainItem
+{
+}
+public class Output_DomainItemTrueFalse
+  : Output_DomainItem
+  , I_DomainItemTrueFalse
+{
+}
+
+public interface I_DomainLabel
+  : I_BaseDomainItem
+{
+  _EnumValue label { get; }
+}
+public class Output_DomainLabel
+  : Output_BaseDomainItem
+  , I_DomainLabel
+{
+  public _EnumValue label { get; set; }
+}
+
+public interface I_DomainItemLabel
+  : I_DomainItem
+{
+}
+public class Output_DomainItemLabel
+  : Output_DomainItem
+  , I_DomainItemLabel
+{
+}
+
+public interface I_DomainRange
+  : I_BaseDomainItem
+{
+  Number lower { get; }
+  Number upper { get; }
+}
+public class Dual_DomainRange
+  : Dual_BaseDomainItem
+  , I_DomainRange
+{
+  public Number lower { get; set; }
+  public Number upper { get; set; }
+}
+
+public interface I_DomainItemRange
+  : I_DomainItem
+{
+}
+public class Output_DomainItemRange
+  : Output_DomainItem
+  , I_DomainItemRange
+{
+}
+
+public interface I_DomainRegex
+  : I_BaseDomainItem
+{
+  String pattern { get; }
+}
+public class Dual_DomainRegex
+  : Dual_BaseDomainItem
+  , I_DomainRegex
+{
+  public String pattern { get; set; }
+}
+
+public interface I_DomainItemRegex
+  : I_DomainItem
+{
+}
+public class Output_DomainItemRegex
+  : Output_DomainItem
+  , I_DomainItemRegex
+{
+}
+
+public interface I_TypeEnum
+  : I_ParentType
+{
+}
+public class Output_TypeEnum
+  : Output_ParentType
+  , I_TypeEnum
+{
+}
+
+public interface I_EnumLabel
+  : I_Aliased
+{
+  _Identifier enum { get; }
+}
+public class Dual_EnumLabel
+  : Dual_Aliased
+  , I_EnumLabel
+{
+  public _Identifier enum { get; set; }
+}
+
+public interface I_EnumValue
+  : I_TypeRef
+{
+  _Identifier label { get; }
+}
+public class Output_EnumValue
+  : Output_TypeRef
+  , I_EnumValue
+{
+  public _Identifier label { get; set; }
+}
+
+public interface I_TypeUnion
+  : I_ParentType
+{
+}
+public class Output_TypeUnion
+  : Output_ParentType
+  , I_TypeUnion
+{
+}
+
+public interface I_UnionRef
+  : I_TypeRef
+{
+}
+public class Output_UnionRef
+  : Output_TypeRef
+  , I_UnionRef
+{
+}
+
+public interface I_UnionMember
+  : I_UnionRef
+{
+  _Identifier union { get; }
+}
+public class Output_UnionMember
+  : Output_UnionRef
+  , I_UnionMember
+{
+  public _Identifier union { get; set; }
+}

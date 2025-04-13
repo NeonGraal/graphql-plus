@@ -1,10 +1,10 @@
-﻿Invalid Output Alternate. '_TypeDual' not defined
-Invalid Output Alternate. '_TypeEnum' not defined
-Invalid Output Alternate. '_TypeInput' not defined
-Invalid Output Alternate. '_TypeOutput' not defined
-Invalid Output Alternate. '_TypeDomain' not defined
-Invalid Output Alternate. '_TypeUnion' not defined
-Invalid Output Parent. '_Aliased' not defined
-Invalid Output Field. '_Identifier' not defined
-Invalid Output Parent. '_Described' not defined
-Invalid Output Parent. '_Named' not defined
+﻿'_Aliased' not defined
+'_Described' not defined
+'_Identifier' not defined
+'_Named' not defined
+'_TypeDomain' not defined
+'_TypeDual' not defined
+'_TypeEnum' not defined
+'_TypeInput' not defined
+'_TypeOutput' not defined
+'_TypeUnion' not defined

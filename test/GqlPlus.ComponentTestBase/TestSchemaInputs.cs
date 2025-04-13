@@ -10,7 +10,7 @@ public abstract class TestSchemaInputs
   [Theory]
   [ClassData(typeof(SchemaValidData))]
   public async Task Test_Groups(string group)
-    => await Label_Inputs("Sample", await SchemaValidDataGroup(group), "!" + group);
+    => await Label_Inputs("Sample", await SchemaValidDataGroup(group), "+" + group);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaMergesData))]

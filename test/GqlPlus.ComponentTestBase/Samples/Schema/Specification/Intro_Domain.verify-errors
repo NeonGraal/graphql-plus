@@ -1,7 +1,7 @@
-﻿Invalid Dual Parent. '_Described' not defined
-Invalid Output Arg Enum. '_TypeKind' is not an Enum type
-Invalid Output Field. '_EnumValue' not defined
-Invalid Output Field. '_Identifier' not defined
-Invalid Output Parent. '_ParentType' not defined
-Invalid Output Parent. '_TypeKind' not defined
-Invalid Output Parent. '_TypeRef' not defined
+﻿'_Described' not defined
+'_EnumValue' not defined
+'_Identifier' not defined
+'_ParentType' not defined
+'_TypeKind' is not an Enum type
+'_TypeKind' not defined
+'_TypeRef' not defined

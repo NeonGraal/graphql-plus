@@ -1,0 +1,363 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !En I@006/0001
+  _DomainKind
+  !EL I@020/0001
+  Boolean
+  !EL I@028/0001
+  Enum
+  !EL I@033/0001
+  Number
+  !EL I@040/0001
+  String
+}
+{
+  !Ou I@008/0003
+  _TypeDomain
+  |
+  I@007/0004
+  _BaseDomain
+  <
+    I@019/0004
+    _DomainKind.Boolean
+    I@039/0004
+    _DomainTrueFalse
+    I@056/0004
+    _DomainItemTrueFalse
+  >
+  I@007/0005
+  _BaseDomain
+  <
+    I@019/0005
+    _DomainKind.Enum
+    I@036/0005
+    _DomainLabel
+    I@049/0005
+    _DomainItemLabel
+  >
+  I@007/0006
+  _BaseDomain
+  <
+    I@019/0006
+    _DomainKind.Number
+    I@038/0006
+    _DomainRange
+    I@051/0006
+    _DomainItemRange
+  >
+  I@007/0007
+  _BaseDomain
+  <
+    I@019/0007
+    _DomainKind.String
+    I@038/0007
+    _DomainRegex
+    I@051/0007
+    _DomainItemRegex
+  >
+}
+{
+  !Ou I@008/0010
+  _DomainRef
+  <
+    I@020/0010
+    $kind
+  >
+  :
+  I@007/0011
+  _TypeRef
+  <
+    I@016/0011
+    _TypeKind.Domain
+  >
+  {
+    !OF I@009/0012
+    domainKind
+    :
+    I@022/0012
+    $kind
+  }
+}
+{
+  !Ou I@008/0015
+  _BaseDomain
+  <
+    I@021/0015
+    $domain
+    I@029/0015
+    $item
+    I@035/0015
+    $domainItem
+  >
+  :
+  I@007/0016
+  _ParentType
+  <
+    I@019/0016
+    _TypeKind.Domain
+    I@037/0016
+    $item
+    I@043/0016
+    $domainItem
+  >
+  {
+    !OF I@009/0017
+    domainKind
+    :
+    I@022/0017
+    $domain
+  }
+}
+{
+  !Du I@006/0020
+  _BaseDomainItem
+  :
+  I@007/0021
+  _Described
+  {
+    !DF I@009/0022
+    exclude
+    :
+    I@018/0022
+    Boolean
+  }
+}
+{
+  !Ou I@008/0025
+  _DomainItem
+  <
+    I@021/0025
+    $item
+  >
+  :
+  I@008/0026
+  $item
+  {
+    !OF I@009/0027
+    domain
+    :
+    I@017/0027
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0030
+  _DomainValue
+  <
+    I@022/0030
+    $kind
+    I@028/0030
+    $value
+  >
+  :
+  I@007/0031
+  _DomainRef
+  <
+    I@019/0031
+    $kind
+  >
+  {
+    !OF I@009/0032
+    value
+    :
+    I@017/0032
+    $value
+  }
+}
+{
+  !Du I@006/0034
+  _DomainTrueFalse
+  :
+  I@007/0035
+  _BaseDomainItem
+  {
+    !DF I@009/0036
+    value
+    :
+    I@016/0036
+    Boolean
+  }
+}
+{
+  !Ou I@008/0039
+  _DomainItemTrueFalse
+  :
+  I@007/0040
+  _DomainItem
+  <
+    I@019/0040
+    _DomainTrueFalse
+  >
+}
+{
+  !Ou I@008/0042
+  _DomainLabel
+  :
+  I@007/0043
+  _BaseDomainItem
+  {
+    !OF I@009/0044
+    label
+    :
+    I@016/0044
+    _EnumValue
+  }
+}
+{
+  !Ou I@008/0047
+  _DomainItemLabel
+  :
+  I@007/0048
+  _DomainItem
+  <
+    I@019/0048
+    _DomainLabel
+  >
+}
+{
+  !Du I@006/0050
+  _DomainRange
+  :
+  I@007/0051
+  _BaseDomainItem
+  {
+    !DF I@009/0052
+    lower
+    :
+    I@016/0052
+    Number
+    ?
+    !DF I@009/0053
+    upper
+    :
+    I@016/0053
+    Number
+    ?
+  }
+}
+{
+  !Ou I@008/0056
+  _DomainItemRange
+  :
+  I@007/0057
+  _DomainItem
+  <
+    I@019/0057
+    _DomainRange
+  >
+}
+{
+  !Du I@006/0059
+  _DomainRegex
+  :
+  I@007/0060
+  _BaseDomainItem
+  {
+    !DF I@009/0061
+    pattern
+    :
+    I@018/0061
+    String
+  }
+}
+{
+  !Ou I@008/0064
+  _DomainItemRegex
+  :
+  I@007/0065
+  _DomainItem
+  <
+    I@019/0065
+    _DomainRegex
+  >
+}
+{
+  !Ou I@008/0067
+  _TypeEnum
+  :
+  I@007/0068
+  _ParentType
+  <
+    I@019/0068
+    _TypeKind.Enum
+    I@034/0068
+    _Aliased
+    I@043/0068
+    _EnumLabel
+  >
+}
+{
+  !Du I@006/0071
+  _EnumLabel
+  :
+  I@007/0072
+  _Aliased
+  {
+    !DF I@009/0073
+    enum
+    :
+    I@015/0073
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0076
+  _EnumValue
+  :
+  I@007/0077
+  _TypeRef
+  <
+    I@016/0077
+    _TypeKind.Enum
+  >
+  {
+    !OF I@009/0078
+    label
+    :
+    I@016/0078
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0080
+  _TypeUnion
+  :
+  I@007/0081
+  _ParentType
+  <
+    I@019/0081
+    _TypeKind.Union
+    I@035/0081
+    _UnionRef
+    I@045/0081
+    _UnionMember
+  >
+}
+{
+  !Ou I@008/0084
+  _UnionRef
+  :
+  I@007/0085
+  _TypeRef
+  <
+    I@016/0085
+    _SimpleKind
+  >
+}
+{
+  !Ou I@008/0088
+  _UnionMember
+  :
+  I@007/0089
+  _UnionRef
+  {
+    !OF I@009/0090
+    union
+    :
+    I@016/0090
+    _Identifier
+  }
+}
+]

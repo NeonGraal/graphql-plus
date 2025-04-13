@@ -6,6 +6,20 @@
 
 namespace GqlTest.Model_parent_param_same_dual;
 
-public interface IDualDualPrntParamSame {}
+public interface IDualPrntParamSame
+{
+  $a field { get; }
+}
+public class DualDualPrntParamSame
+{
+  public $a field { get; set; }
+}
 
-public interface IDualRefDualPrntParamSame {}
+public interface IRefDualPrntParamSame
+{
+  $a Asa { get; }
+}
+public class DualRefDualPrntParamSame
+{
+  public $a Asa { get; set; }
+}

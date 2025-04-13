@@ -6,8 +6,31 @@
 
 namespace GqlTest.Model_generic_param_dual;
 
-public interface IDualDualGnrcParam {}
+public interface IDualGnrcParam
+{
+  DualGnrcParamRef < I@046/0001 DualGnrcParamAlt > field { get; }
+}
+public class DualDualGnrcParam
+{
+  public DualGnrcParamRef < I@046/0001 DualGnrcParamAlt > field { get; set; }
+}
 
-public interface IDualDualGnrcParamRef {}
+public interface IDualGnrcParamRef
+{
+  $ref Asref { get; }
+}
+public class DualDualGnrcParamRef
+{
+  public $ref Asref { get; set; }
+}
 
-public interface IDualDualGnrcParamAlt {}
+public interface IDualGnrcParamAlt
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+public class DualDualGnrcParamAlt
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

@@ -10,4 +10,9 @@ output DescrBcks { }
 
 namespace GqlPlus.Model_Sample_descr_backslash;
 
-public interface IOutputDescrBcks {}
+public interface IDescrBcks
+{
+}
+public class OutputDescrBcks
+{
+}

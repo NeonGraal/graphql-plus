@@ -6,8 +6,27 @@
 
 namespace GqlTest.Model_Intro_Enum;
 
-public interface IOutput_TypeEnum {}
+public interface I_TypeEnum
+{
+}
+public class Output_TypeEnum
+{
+}
 
-public interface IDual_EnumLabel {}
+public interface I_EnumLabel
+{
+  _Identifier enum { get; }
+}
+public class Dual_EnumLabel
+{
+  public _Identifier enum { get; set; }
+}
 
-public interface IOutput_EnumValue {}
+public interface I_EnumValue
+{
+  _Identifier label { get; }
+}
+public class Output_EnumValue
+{
+  public _Identifier label { get; set; }
+}

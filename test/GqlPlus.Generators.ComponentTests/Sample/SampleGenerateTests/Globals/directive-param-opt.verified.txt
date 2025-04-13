@@ -11,4 +11,9 @@ Directive DrctParamOpt
 
 namespace GqlPlus.Model_Sample_directive_param_opt;
 
-public interface IInputInDrctParamOpt {}
+public interface IInDrctParamOpt
+{
+}
+public class InputInDrctParamOpt
+{
+}

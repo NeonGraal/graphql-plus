@@ -62,8 +62,35 @@ public class UnionMany
   public Number AsNumber { get; set; }
 }
 
-public interface IDualField {}
+public interface IField
+{
+  String strings { get; }
+}
+public class DualField
+{
+  public String strings { get; set; }
+}
 
-public interface IInputParam {}
+public interface IParam
+{
+  Many afterId { get; }
+  Many beforeId { get; }
+  String AsString { get; }
+}
+public class InputParam
+{
+  public Many afterId { get; set; }
+  public Many beforeId { get; set; }
+  public String AsString { get; set; }
+}
 
-public interface IOutputAll {}
+public interface IAll
+{
+  Field items { get; }
+  String AsString { get; }
+}
+public class OutputAll
+{
+  public Field items { get; set; }
+  public String AsString { get; set; }
+}

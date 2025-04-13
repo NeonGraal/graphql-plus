@@ -9,4 +9,11 @@ output OutpGnrcAlt<$type> { | $type }
 
 namespace GqlPlus.Model_Sample_generic_alt_output;
 
-public interface IOutputOutpGnrcAlt {}
+public interface IOutpGnrcAlt
+{
+  $type Astype { get; }
+}
+public class OutputOutpGnrcAlt
+{
+  public $type Astype { get; set; }
+}

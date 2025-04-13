@@ -6,6 +6,22 @@
 
 namespace GqlTest.Model_parent_alt_dual;
 
-public interface IDualDualPrntAlt {}
+public interface IDualPrntAlt
+{
+  Number AsNumber { get; }
+}
+public class DualDualPrntAlt
+{
+  public Number AsNumber { get; set; }
+}
 
-public interface IDualRefDualPrntAlt {}
+public interface IRefDualPrntAlt
+{
+  Number parent { get; }
+  String AsString { get; }
+}
+public class DualRefDualPrntAlt
+{
+  public Number parent { get; set; }
+  public String AsString { get; set; }
+}

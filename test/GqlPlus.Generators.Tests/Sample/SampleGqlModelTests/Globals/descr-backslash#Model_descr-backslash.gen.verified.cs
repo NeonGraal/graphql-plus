@@ -6,4 +6,9 @@
 
 namespace GqlTest.Model_descr_backslash;
 
-public interface IOutputDescrBcks {}
+public interface IDescrBcks
+{
+}
+public class OutputDescrBcks
+{
+}

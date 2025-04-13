@@ -6,6 +6,20 @@
 
 namespace GqlTest.Model_generic_alt_arg_descr_input;
 
-public interface IInputInpGnrcAltArgDescr {}
+public interface IInpGnrcAltArgDescr
+{
+  RefInpGnrcAltArgDescr < 'Test Descr' I@074/0001 $type > AsRefInpGnrcAltArgDescr { get; }
+}
+public class InputInpGnrcAltArgDescr
+{
+  public RefInpGnrcAltArgDescr < 'Test Descr' I@074/0001 $type > AsRefInpGnrcAltArgDescr { get; set; }
+}
 
-public interface IInputRefInpGnrcAltArgDescr {}
+public interface IRefInpGnrcAltArgDescr
+{
+  $ref Asref { get; }
+}
+public class InputRefInpGnrcAltArgDescr
+{
+  public $ref Asref { get; set; }
+}

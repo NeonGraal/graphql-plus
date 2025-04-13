@@ -23,9 +23,33 @@ enum _Resolution { Parallel Sequential Single }
 
 namespace GqlPlus.Model_Spec_Intro_Category;
 
-public interface IOutput_Categories {}
+public interface I_Categories
+{
+  _Category category { get; }
+  _Type type { get; }
+  _Category As_Category { get; }
+  _Type As_Type { get; }
+}
+public class Output_Categories
+{
+  public _Category category { get; set; }
+  public _Type type { get; set; }
+  public _Category As_Category { get; set; }
+  public _Type As_Type { get; set; }
+}
 
-public interface IOutput_Category {}
+public interface I_Category
+{
+  _Resolution resolution { get; }
+  _TypeRef < I@026/0011 _TypeKind.Output > output { get; }
+  _Modifiers modifiers { get; }
+}
+public class Output_Category
+{
+  public _Resolution resolution { get; set; }
+  public _TypeRef < I@026/0011 _TypeKind.Output > output { get; set; }
+  public _Modifiers modifiers { get; set; }
+}
 
 public enum _Resolution
 {

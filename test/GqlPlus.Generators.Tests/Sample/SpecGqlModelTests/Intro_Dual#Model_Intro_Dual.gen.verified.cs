@@ -6,12 +6,43 @@
 
 namespace GqlTest.Model_Intro_Dual;
 
-public interface IOutput_TypeDual {}
+public interface I_TypeDual
+{
+}
+public class Output_TypeDual
+{
+}
 
-public interface IOutput_DualBase {}
+public interface I_DualBase
+{
+  _Identifier dual { get; }
+}
+public class Output_DualBase
+{
+  public _Identifier dual { get; set; }
+}
 
-public interface IOutput_DualField {}
+public interface I_DualField
+{
+}
+public class Output_DualField
+{
+}
 
-public interface IOutput_DualAlternate {}
+public interface I_DualAlternate
+{
+  _Identifier dual { get; }
+}
+public class Output_DualAlternate
+{
+  public _Identifier dual { get; set; }
+}
 
-public interface IOutput_DualTypeArg {}
+public interface I_DualTypeArg
+{
+  _Identifier dual { get; }
+}
+public class Output_DualTypeArg
+{
+  public _Identifier dual { get; set; }
+}

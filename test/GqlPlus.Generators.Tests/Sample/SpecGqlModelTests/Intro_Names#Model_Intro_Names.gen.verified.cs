@@ -6,8 +6,29 @@
 
 namespace GqlTest.Model_Intro_Names;
 
-public interface IDual_Aliased {}
+public interface I_Aliased
+{
+  _Identifier aliases { get; }
+}
+public class Dual_Aliased
+{
+  public _Identifier aliases { get; set; }
+}
 
-public interface IDual_Named {}
+public interface I_Named
+{
+  _Identifier name { get; }
+}
+public class Dual_Named
+{
+  public _Identifier name { get; set; }
+}
 
-public interface IDual_Described {}
+public interface I_Described
+{
+  String description { get; }
+}
+public class Dual_Described
+{
+  public String description { get; set; }
+}

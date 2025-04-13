@@ -11,4 +11,9 @@ Category ctgrOutpList
 
 namespace GqlPlus.Model_Sample_category_output_list;
 
-public interface IOutputCtgrOutpList {}
+public interface ICtgrOutpList
+{
+}
+public class OutputCtgrOutpList
+{
+}

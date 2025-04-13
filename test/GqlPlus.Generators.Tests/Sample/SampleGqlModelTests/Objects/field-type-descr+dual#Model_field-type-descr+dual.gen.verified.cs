@@ -6,4 +6,11 @@
 
 namespace GqlTest.Model_field_type_descr_dual;
 
-public interface IDualDualFieldTypeDescr {}
+public interface IDualFieldTypeDescr
+{
+  Number field { get; }
+}
+public class DualDualFieldTypeDescr
+{
+  public Number field { get; set; }
+}

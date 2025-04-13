@@ -6,4 +6,13 @@
 
 namespace GqlTest.Model_object_param_dual;
 
-public interface IDualDualObjParam {}
+public interface IDualObjParam
+{
+  $test test { get; }
+  $type type { get; }
+}
+public class DualDualObjParam
+{
+  public $test test { get; set; }
+  public $type type { get; set; }
+}

@@ -6,6 +6,18 @@
 
 namespace GqlTest.Model_input_field_null;
 
-public interface IInputInpFieldNull {}
+public interface IInpFieldNull
+{
+  FldInpFieldNull field { get; }
+}
+public class InputInpFieldNull
+{
+  public FldInpFieldNull field { get; set; }
+}
 
-public interface IDualFldInpFieldNull {}
+public interface IFldInpFieldNull
+{
+}
+public class DualFldInpFieldNull
+{
+}

@@ -10,6 +10,22 @@ input RefInpPrntAlt {  parent: Number | String }
 
 namespace GqlPlus.Model_Sample_parent_alt_input;
 
-public interface IInputInpPrntAlt {}
+public interface IInpPrntAlt
+{
+  Number AsNumber { get; }
+}
+public class InputInpPrntAlt
+{
+  public Number AsNumber { get; set; }
+}
 
-public interface IInputRefInpPrntAlt {}
+public interface IRefInpPrntAlt
+{
+  Number parent { get; }
+  String AsString { get; }
+}
+public class InputRefInpPrntAlt
+{
+  public Number parent { get; set; }
+  public String AsString { get; set; }
+}

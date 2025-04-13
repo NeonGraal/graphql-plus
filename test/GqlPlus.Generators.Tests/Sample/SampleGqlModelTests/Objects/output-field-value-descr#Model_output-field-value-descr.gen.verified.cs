@@ -6,7 +6,14 @@
 
 namespace GqlTest.Model_output_field_value_descr;
 
-public interface IOutputOutpFieldValueDescr {}
+public interface IOutpFieldValueDescr
+{
+   EnumOutpFieldValueDescr { get; }
+}
+public class OutputOutpFieldValueDescr
+{
+  public  EnumOutpFieldValueDescr { get; set; }
+}
 
 public enum EnumOutpFieldValueDescr
 {

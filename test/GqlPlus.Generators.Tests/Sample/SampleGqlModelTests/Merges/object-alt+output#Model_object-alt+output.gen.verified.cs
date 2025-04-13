@@ -6,6 +6,18 @@
 
 namespace GqlTest.Model_object_alt_output;
 
-public interface IOutputOutpObjAlt {}
+public interface IOutpObjAlt
+{
+  OutpObjAltType AsOutpObjAltType { get; }
+}
+public class OutputOutpObjAlt
+{
+  public OutpObjAltType AsOutpObjAltType { get; set; }
+}
 
-public interface IOutputOutpObjAltType {}
+public interface IOutpObjAltType
+{
+}
+public class OutputOutpObjAltType
+{
+}

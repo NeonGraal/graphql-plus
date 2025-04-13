@@ -6,4 +6,11 @@
 
 namespace GqlTest.Model_alt_simple_output;
 
-public interface IOutputOutpAltSmpl {}
+public interface IOutpAltSmpl
+{
+  String AsString { get; }
+}
+public class OutputOutpAltSmpl
+{
+  public String AsString { get; set; }
+}

@@ -9,4 +9,9 @@ output OutpGnrcPrnt<$type> { :$type }
 
 namespace GqlPlus.Model_Sample_generic_parent_output;
 
-public interface IOutputOutpGnrcPrnt {}
+public interface IOutpGnrcPrnt
+{
+}
+public class OutputOutpGnrcPrnt
+{
+}

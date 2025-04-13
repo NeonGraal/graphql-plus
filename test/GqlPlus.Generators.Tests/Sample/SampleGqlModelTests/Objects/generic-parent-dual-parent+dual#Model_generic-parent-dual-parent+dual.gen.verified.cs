@@ -6,8 +6,27 @@
 
 namespace GqlTest.Model_generic_parent_dual_parent_dual;
 
-public interface IDualDualGnrcPrntDualPrnt {}
+public interface IDualGnrcPrntDualPrnt
+{
+}
+public class DualDualGnrcPrntDualPrnt
+{
+}
 
-public interface IDualRefDualGnrcPrntDualPrnt {}
+public interface IRefDualGnrcPrntDualPrnt
+{
+}
+public class DualRefDualGnrcPrntDualPrnt
+{
+}
 
-public interface IDualAltDualGnrcPrntDualPrnt {}
+public interface IAltDualGnrcPrntDualPrnt
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+public class DualAltDualGnrcPrntDualPrnt
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

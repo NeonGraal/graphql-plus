@@ -6,4 +6,11 @@
 
 namespace GqlTest.Model_alt_simple_input;
 
-public interface IInputInpAltSmpl {}
+public interface IInpAltSmpl
+{
+  String AsString { get; }
+}
+public class InputInpAltSmpl
+{
+  public String AsString { get; set; }
+}

@@ -9,4 +9,11 @@ output OutpGnrcDescr<"Test" "Descr" $type> { field: $type }
 
 namespace GqlPlus.Model_Sample_generic_descr_output;
 
-public interface IOutputOutpGnrcDescr {}
+public interface IOutpGnrcDescr
+{
+  $type field { get; }
+}
+public class OutputOutpGnrcDescr
+{
+  public $type field { get; set; }
+}

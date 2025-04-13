@@ -6,4 +6,9 @@
 
 namespace GqlTest.Model_descr_double;
 
-public interface IOutputDescrDbl {}
+public interface IDescrDbl
+{
+}
+public class OutputDescrDbl
+{
+}

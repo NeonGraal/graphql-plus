@@ -9,4 +9,11 @@ dual DualGnrcDescr<"Test" "Descr" $type> { field: $type }
 
 namespace GqlPlus.Model_Sample_generic_descr_dual;
 
-public interface IDualDualGnrcDescr {}
+public interface IDualGnrcDescr
+{
+  $type field { get; }
+}
+public class DualDualGnrcDescr
+{
+  public $type field { get; set; }
+}

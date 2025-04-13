@@ -11,8 +11,31 @@ output AltOutpGnrcAltParam { alt: Number | String }
 
 namespace GqlPlus.Model_Sample_generic_alt_param_output;
 
-public interface IOutputOutpGnrcAltParam {}
+public interface IOutpGnrcAltParam
+{
+  RefOutpGnrcAltParam < I@049/0001 AltOutpGnrcAltParam > AsRefOutpGnrcAltParam { get; }
+}
+public class OutputOutpGnrcAltParam
+{
+  public RefOutpGnrcAltParam < I@049/0001 AltOutpGnrcAltParam > AsRefOutpGnrcAltParam { get; set; }
+}
 
-public interface IOutputRefOutpGnrcAltParam {}
+public interface IRefOutpGnrcAltParam
+{
+  $ref Asref { get; }
+}
+public class OutputRefOutpGnrcAltParam
+{
+  public $ref Asref { get; set; }
+}
 
-public interface IOutputAltOutpGnrcAltParam {}
+public interface IAltOutpGnrcAltParam
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+public class OutputAltOutpGnrcAltParam
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

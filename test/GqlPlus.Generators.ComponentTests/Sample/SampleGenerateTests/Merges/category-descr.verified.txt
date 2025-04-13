@@ -14,4 +14,9 @@ Category ctgrDescr
 
 namespace GqlPlus.Model_Sample_category_descr;
 
-public interface IOutputCtgrDescr {}
+public interface ICtgrDescr
+{
+}
+public class OutputCtgrDescr
+{
+}

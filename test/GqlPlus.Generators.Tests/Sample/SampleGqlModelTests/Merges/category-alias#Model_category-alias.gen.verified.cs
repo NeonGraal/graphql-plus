@@ -7,4 +7,9 @@ Category ctgrAlias
 
 namespace GqlTest.Model_category_alias;
 
-public interface IOutputCtgrAlias {}
+public interface ICtgrAlias
+{
+}
+public class OutputCtgrAlias
+{
+}

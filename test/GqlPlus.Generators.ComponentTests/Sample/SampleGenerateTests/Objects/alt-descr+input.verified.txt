@@ -9,4 +9,11 @@ input InpAltDescr { | "Test" "Descr" String }
 
 namespace GqlPlus.Model_Sample_alt_descr_input;
 
-public interface IInputInpAltDescr {}
+public interface IInpAltDescr
+{
+  String AsString { get; }
+}
+public class InputInpAltDescr
+{
+  public String AsString { get; set; }
+}

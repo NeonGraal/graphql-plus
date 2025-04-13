@@ -10,4 +10,13 @@ output OutpObjParam<$type> { type: $type }
 
 namespace GqlPlus.Model_Sample_object_param_output;
 
-public interface IOutputOutpObjParam {}
+public interface IOutpObjParam
+{
+  $test test { get; }
+  $type type { get; }
+}
+public class OutputOutpObjParam
+{
+  public $test test { get; set; }
+  public $type type { get; set; }
+}

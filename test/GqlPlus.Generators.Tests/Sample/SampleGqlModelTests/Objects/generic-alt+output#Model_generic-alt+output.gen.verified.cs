@@ -6,4 +6,11 @@
 
 namespace GqlTest.Model_generic_alt_output;
 
-public interface IOutputOutpGnrcAlt {}
+public interface IOutpGnrcAlt
+{
+  $type Astype { get; }
+}
+public class OutputOutpGnrcAlt
+{
+  public $type Astype { get; set; }
+}

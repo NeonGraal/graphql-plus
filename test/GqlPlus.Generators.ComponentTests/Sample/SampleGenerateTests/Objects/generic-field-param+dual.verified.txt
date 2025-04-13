@@ -11,8 +11,31 @@ dual AltDualGnrcFieldParam { alt: Number | String }
 
 namespace GqlPlus.Model_Sample_generic_field_param_dual;
 
-public interface IDualDualGnrcFieldParam {}
+public interface IDualGnrcFieldParam
+{
+  RefDualGnrcFieldParam < I@056/0001 AltDualGnrcFieldParam > field { get; }
+}
+public class DualDualGnrcFieldParam
+{
+  public RefDualGnrcFieldParam < I@056/0001 AltDualGnrcFieldParam > field { get; set; }
+}
 
-public interface IDualRefDualGnrcFieldParam {}
+public interface IRefDualGnrcFieldParam
+{
+  $ref Asref { get; }
+}
+public class DualRefDualGnrcFieldParam
+{
+  public $ref Asref { get; set; }
+}
 
-public interface IDualAltDualGnrcFieldParam {}
+public interface IAltDualGnrcFieldParam
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+public class DualAltDualGnrcFieldParam
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

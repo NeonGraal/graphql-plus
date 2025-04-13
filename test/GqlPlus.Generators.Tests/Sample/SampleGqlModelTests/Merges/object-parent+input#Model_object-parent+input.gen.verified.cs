@@ -6,6 +6,16 @@
 
 namespace GqlTest.Model_object_parent_input;
 
-public interface IInputInpObjPrnt {}
+public interface IInpObjPrnt
+{
+}
+public class InputInpObjPrnt
+{
+}
 
-public interface IInputRefInpObjPrnt {}
+public interface IRefInpObjPrnt
+{
+}
+public class InputRefInpObjPrnt
+{
+}

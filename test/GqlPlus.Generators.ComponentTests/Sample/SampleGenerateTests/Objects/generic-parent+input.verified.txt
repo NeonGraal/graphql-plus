@@ -9,4 +9,9 @@ input InpGnrcPrnt<$type> { :$type }
 
 namespace GqlPlus.Model_Sample_generic_parent_input;
 
-public interface IInputInpGnrcPrnt {}
+public interface IInpGnrcPrnt
+{
+}
+public class InputInpGnrcPrnt
+{
+}

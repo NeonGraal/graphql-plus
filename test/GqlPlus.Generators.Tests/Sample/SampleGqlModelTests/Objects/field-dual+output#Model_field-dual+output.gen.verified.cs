@@ -6,6 +6,22 @@
 
 namespace GqlTest.Model_field_dual_output;
 
-public interface IOutputOutpFieldDual {}
+public interface IOutpFieldDual
+{
+  FldOutpFieldDual field { get; }
+}
+public class OutputOutpFieldDual
+{
+  public FldOutpFieldDual field { get; set; }
+}
 
-public interface IDualFldOutpFieldDual {}
+public interface IFldOutpFieldDual
+{
+  Number field { get; }
+  String AsString { get; }
+}
+public class DualFldOutpFieldDual
+{
+  public Number field { get; set; }
+  public String AsString { get; set; }
+}

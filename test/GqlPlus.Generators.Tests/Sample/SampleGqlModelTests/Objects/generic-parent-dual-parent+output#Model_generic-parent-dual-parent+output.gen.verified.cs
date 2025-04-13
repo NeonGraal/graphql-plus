@@ -6,8 +6,27 @@
 
 namespace GqlTest.Model_generic_parent_dual_parent_output;
 
-public interface IOutputOutpGnrcPrntDualPrnt {}
+public interface IOutpGnrcPrntDualPrnt
+{
+}
+public class OutputOutpGnrcPrntDualPrnt
+{
+}
 
-public interface IOutputRefOutpGnrcPrntDualPrnt {}
+public interface IRefOutpGnrcPrntDualPrnt
+{
+}
+public class OutputRefOutpGnrcPrntDualPrnt
+{
+}
 
-public interface IDualAltOutpGnrcPrntDualPrnt {}
+public interface IAltOutpGnrcPrntDualPrnt
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+public class DualAltOutpGnrcPrntDualPrnt
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

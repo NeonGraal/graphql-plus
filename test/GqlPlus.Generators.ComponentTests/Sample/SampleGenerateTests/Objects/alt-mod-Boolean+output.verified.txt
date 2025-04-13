@@ -10,6 +10,22 @@ output AltOutpAltModBool { alt: Number | String }
 
 namespace GqlPlus.Model_Sample_alt_mod_Boolean_output;
 
-public interface IOutputOutpAltModBool {}
+public interface IOutpAltModBool
+{
+  AltOutpAltModBool AsAltOutpAltModBool { get; }
+}
+public class OutputOutpAltModBool
+{
+  public AltOutpAltModBool AsAltOutpAltModBool { get; set; }
+}
 
-public interface IOutputAltOutpAltModBool {}
+public interface IAltOutpAltModBool
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+public class OutputAltOutpAltModBool
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

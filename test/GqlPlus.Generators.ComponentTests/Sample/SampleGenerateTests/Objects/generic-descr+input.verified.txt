@@ -9,4 +9,11 @@ input InpGnrcDescr<"Test" "Descr" $type> { field: $type }
 
 namespace GqlPlus.Model_Sample_generic_descr_input;
 
-public interface IInputInpGnrcDescr {}
+public interface IInpGnrcDescr
+{
+  $type field { get; }
+}
+public class InputInpGnrcDescr
+{
+  public $type field { get; set; }
+}

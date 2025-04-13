@@ -9,4 +9,11 @@ dual DualField { field: * }
 
 namespace GqlPlus.Model_Sample_field_dual;
 
-public interface IDualDualField {}
+public interface IDualField
+{
+  String field { get; }
+}
+public class DualDualField
+{
+  public String field { get; set; }
+}

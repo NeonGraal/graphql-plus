@@ -10,4 +10,9 @@ output OutpObjAlias [Outp2] { }
 
 namespace GqlPlus.Model_Sample_object_alias_output;
 
-public interface IOutputOutpObjAlias {}
+public interface IOutpObjAlias
+{
+}
+public class OutputOutpObjAlias
+{
+}

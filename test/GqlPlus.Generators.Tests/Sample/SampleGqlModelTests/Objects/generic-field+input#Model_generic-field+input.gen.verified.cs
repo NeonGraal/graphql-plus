@@ -6,4 +6,11 @@
 
 namespace GqlTest.Model_generic_field_input;
 
-public interface IInputInpGnrcField {}
+public interface IInpGnrcField
+{
+  $type field { get; }
+}
+public class InputInpGnrcField
+{
+  public $type field { get; set; }
+}

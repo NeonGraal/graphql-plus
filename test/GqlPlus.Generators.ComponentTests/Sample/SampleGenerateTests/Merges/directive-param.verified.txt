@@ -12,4 +12,9 @@ Directive DrctParam
 
 namespace GqlPlus.Model_Sample_directive_param;
 
-public interface IInputInDrctParam {}
+public interface IInDrctParam
+{
+}
+public class InputInDrctParam
+{
+}

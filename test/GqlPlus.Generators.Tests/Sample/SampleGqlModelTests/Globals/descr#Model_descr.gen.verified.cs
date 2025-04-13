@@ -6,4 +6,9 @@
 
 namespace GqlTest.Model_descr;
 
-public interface IOutputDescr {}
+public interface IDescr
+{
+}
+public class OutputDescr
+{
+}

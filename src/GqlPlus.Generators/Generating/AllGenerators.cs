@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Abstractions;
+using GqlPlus.Generating.Objects;
 using GqlPlus.Generating.Simple;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -21,9 +22,9 @@ public static class AllGenerators
       .AddTypeGenerator<StringDomainGenerator>()
       .AddTypeGenerator<UnionGenerator>()
       // Objects
-      .AddDefaultTypeGenerator<IGqlpDualObject>()
-      .AddDefaultTypeGenerator<IGqlpInputObject>()
-      .AddDefaultTypeGenerator<IGqlpOutputObject>()
+      .AddTypeGenerator<DualGenerator>()
+      .AddTypeGenerator<InputGenerator>()
+      .AddTypeGenerator<OutputGenerator>()
     ;
 
   private static IServiceCollection AddGenerator<TAst, TGenerator>(this IServiceCollection services)

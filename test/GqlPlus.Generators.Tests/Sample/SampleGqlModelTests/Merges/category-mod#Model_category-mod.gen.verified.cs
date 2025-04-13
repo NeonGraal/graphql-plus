@@ -7,4 +7,9 @@ Category ctgrMod
 
 namespace GqlTest.Model_category_mod;
 
-public interface IOutputCtgrMod {}
+public interface ICtgrMod
+{
+}
+public class OutputCtgrMod
+{
+}

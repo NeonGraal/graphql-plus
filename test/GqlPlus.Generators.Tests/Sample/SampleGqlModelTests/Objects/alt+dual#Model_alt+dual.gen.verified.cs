@@ -6,6 +6,22 @@
 
 namespace GqlTest.Model_alt_dual;
 
-public interface IDualDualAlt {}
+public interface IDualAlt
+{
+  AltDualAlt AsAltDualAlt { get; }
+}
+public class DualDualAlt
+{
+  public AltDualAlt AsAltDualAlt { get; set; }
+}
 
-public interface IDualAltDualAlt {}
+public interface IAltDualAlt
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+public class DualAltDualAlt
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

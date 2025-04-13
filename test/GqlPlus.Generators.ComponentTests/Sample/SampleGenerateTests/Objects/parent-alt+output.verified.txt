@@ -10,6 +10,22 @@ output RefOutpPrntAlt {  parent: Number | String }
 
 namespace GqlPlus.Model_Sample_parent_alt_output;
 
-public interface IOutputOutpPrntAlt {}
+public interface IOutpPrntAlt
+{
+  Number AsNumber { get; }
+}
+public class OutputOutpPrntAlt
+{
+  public Number AsNumber { get; set; }
+}
 
-public interface IOutputRefOutpPrntAlt {}
+public interface IRefOutpPrntAlt
+{
+  Number parent { get; }
+  String AsString { get; }
+}
+public class OutputRefOutpPrntAlt
+{
+  public Number parent { get; set; }
+  public String AsString { get; set; }
+}

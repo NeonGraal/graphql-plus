@@ -1,5 +1,4 @@
-﻿
-namespace GqlPlus.Generating.Simple;
+﻿namespace GqlPlus.Generating.Simple;
 
 internal sealed class UnionGenerator
   : GenerateForSimple<IGqlpUnion>

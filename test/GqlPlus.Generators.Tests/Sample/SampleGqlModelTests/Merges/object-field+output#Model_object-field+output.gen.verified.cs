@@ -6,6 +6,18 @@
 
 namespace GqlTest.Model_object_field_output;
 
-public interface IOutputOutpObjField {}
+public interface IOutpObjField
+{
+  FldOutpObjField field { get; }
+}
+public class OutputOutpObjField
+{
+  public FldOutpObjField field { get; set; }
+}
 
-public interface IOutputFldOutpObjField {}
+public interface IFldOutpObjField
+{
+}
+public class OutputFldOutpObjField
+{
+}

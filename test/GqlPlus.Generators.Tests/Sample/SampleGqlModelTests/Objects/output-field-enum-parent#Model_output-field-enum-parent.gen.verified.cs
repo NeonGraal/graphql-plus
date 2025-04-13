@@ -6,7 +6,14 @@
 
 namespace GqlTest.Model_output_field_enum_parent;
 
-public interface IOutputOutpFieldEnumPrnt {}
+public interface IOutpFieldEnumPrnt
+{
+  EnumOutpFieldEnumPrnt field { get; }
+}
+public class OutputOutpFieldEnumPrnt
+{
+  public EnumOutpFieldEnumPrnt field { get; set; }
+}
 
 public enum EnumOutpFieldEnumPrnt
 {

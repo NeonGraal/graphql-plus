@@ -6,7 +6,14 @@
 
 namespace GqlTest.Model_field_mod_Enum_input;
 
-public interface IInputInpFieldModEnum {}
+public interface IInpFieldModEnum
+{
+  String field { get; }
+}
+public class InputInpFieldModEnum
+{
+  public String field { get; set; }
+}
 
 public enum EnumInpFieldModEnum
 {

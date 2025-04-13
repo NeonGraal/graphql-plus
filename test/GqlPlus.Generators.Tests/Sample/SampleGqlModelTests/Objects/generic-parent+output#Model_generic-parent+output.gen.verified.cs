@@ -6,4 +6,9 @@
 
 namespace GqlTest.Model_generic_parent_output;
 
-public interface IOutputOutpGnrcPrnt {}
+public interface IOutpGnrcPrnt
+{
+}
+public class OutputOutpGnrcPrnt
+{
+}

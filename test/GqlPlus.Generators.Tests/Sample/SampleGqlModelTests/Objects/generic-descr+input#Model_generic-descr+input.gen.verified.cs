@@ -6,4 +6,11 @@
 
 namespace GqlTest.Model_generic_descr_input;
 
-public interface IInputInpGnrcDescr {}
+public interface IInpGnrcDescr
+{
+  $type field { get; }
+}
+public class InputInpGnrcDescr
+{
+  public $type field { get; set; }
+}

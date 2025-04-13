@@ -9,4 +9,11 @@ dual DualGnrcField<$type> { field: $type }
 
 namespace GqlPlus.Model_Sample_generic_field_dual;
 
-public interface IDualDualGnrcField {}
+public interface IDualGnrcField
+{
+  $type field { get; }
+}
+public class DualDualGnrcField
+{
+  public $type field { get; set; }
+}

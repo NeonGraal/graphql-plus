@@ -6,4 +6,9 @@
 
 namespace GqlTest.Model_object_alias_output;
 
-public interface IOutputOutpObjAlias {}
+public interface IOutpObjAlias
+{
+}
+public class OutputOutpObjAlias
+{
+}

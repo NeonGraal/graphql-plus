@@ -6,4 +6,13 @@
 
 namespace GqlTest.Model_output_field_enum_alias;
 
-public interface IOutputOutpFieldEnumAlias {}
+public interface IOutpFieldEnumAlias
+{
+  Boolean field { get; }
+   Boolean { get; }
+}
+public class OutputOutpFieldEnumAlias
+{
+  public Boolean field { get; set; }
+  public  Boolean { get; set; }
+}

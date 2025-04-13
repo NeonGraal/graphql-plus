@@ -6,9 +6,25 @@
 
 namespace GqlTest.Model_output_param_mod_param;
 
-public interface IOutputOutpParamModParam {}
+public interface IOutpParamModParam
+{
+  DomOutpParamModParam field { get; }
+}
+public class OutputOutpParamModParam
+{
+  public DomOutpParamModParam field { get; set; }
+}
 
-public interface IInputInOutpParamModParam {}
+public interface IInOutpParamModParam
+{
+  Number param { get; }
+  String AsString { get; }
+}
+public class InputInOutpParamModParam
+{
+  public Number param { get; set; }
+  public String AsString { get; set; }
+}
 
 public interface IDomOutpParamModParam
 {

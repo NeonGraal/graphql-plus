@@ -6,4 +6,11 @@
 
 namespace GqlTest.Model_input_field_Number;
 
-public interface IInputInpFieldNmbr {}
+public interface IInpFieldNmbr
+{
+  Number field { get; }
+}
+public class InputInpFieldNmbr
+{
+  public Number field { get; set; }
+}

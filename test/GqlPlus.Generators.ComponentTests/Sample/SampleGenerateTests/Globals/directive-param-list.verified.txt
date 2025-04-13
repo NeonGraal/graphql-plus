@@ -11,4 +11,9 @@ Directive DrctParamList
 
 namespace GqlPlus.Model_Sample_directive_param_list;
 
-public interface IInputInDrctParamList {}
+public interface IInDrctParamList
+{
+}
+public class InputInDrctParamList
+{
+}

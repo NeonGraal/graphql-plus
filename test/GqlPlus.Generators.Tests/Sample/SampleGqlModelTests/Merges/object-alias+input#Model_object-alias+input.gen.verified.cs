@@ -6,4 +6,9 @@
 
 namespace GqlTest.Model_object_alias_input;
 
-public interface IInputInpObjAlias {}
+public interface IInpObjAlias
+{
+}
+public class InputInpObjAlias
+{
+}

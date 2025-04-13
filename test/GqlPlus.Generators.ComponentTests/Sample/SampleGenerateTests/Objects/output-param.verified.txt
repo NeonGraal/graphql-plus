@@ -11,8 +11,29 @@ input InOutpParam { param: Number | String }
 
 namespace GqlPlus.Model_Sample_output_param;
 
-public interface IOutputOutpParam {}
+public interface IOutpParam
+{
+  FldOutpParam field { get; }
+}
+public class OutputOutpParam
+{
+  public FldOutpParam field { get; set; }
+}
 
-public interface IDualFldOutpParam {}
+public interface IFldOutpParam
+{
+}
+public class DualFldOutpParam
+{
+}
 
-public interface IInputInOutpParam {}
+public interface IInOutpParam
+{
+  Number param { get; }
+  String AsString { get; }
+}
+public class InputInOutpParam
+{
+  public Number param { get; set; }
+  public String AsString { get; set; }
+}

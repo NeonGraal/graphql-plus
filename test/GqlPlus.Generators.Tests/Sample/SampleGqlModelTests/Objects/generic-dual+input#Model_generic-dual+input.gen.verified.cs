@@ -6,8 +6,31 @@
 
 namespace GqlTest.Model_generic_dual_input;
 
-public interface IInputInpGnrcDual {}
+public interface IInpGnrcDual
+{
+  InpGnrcDualRef < I@043/0001 InpGnrcDualAlt > field { get; }
+}
+public class InputInpGnrcDual
+{
+  public InpGnrcDualRef < I@043/0001 InpGnrcDualAlt > field { get; set; }
+}
 
-public interface IInputInpGnrcDualRef {}
+public interface IInpGnrcDualRef
+{
+  $ref Asref { get; }
+}
+public class InputInpGnrcDualRef
+{
+  public $ref Asref { get; set; }
+}
 
-public interface IDualInpGnrcDualAlt {}
+public interface IInpGnrcDualAlt
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+public class DualInpGnrcDualAlt
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

@@ -10,6 +10,20 @@ output RefOutpGnrcAltArg<$ref> { | $ref }
 
 namespace GqlPlus.Model_Sample_generic_alt_arg_output;
 
-public interface IOutputOutpGnrcAltArg {}
+public interface IOutpGnrcAltArg
+{
+  RefOutpGnrcAltArg < I@053/0001 $type > AsRefOutpGnrcAltArg { get; }
+}
+public class OutputOutpGnrcAltArg
+{
+  public RefOutpGnrcAltArg < I@053/0001 $type > AsRefOutpGnrcAltArg { get; set; }
+}
 
-public interface IOutputRefOutpGnrcAltArg {}
+public interface IRefOutpGnrcAltArg
+{
+  $ref Asref { get; }
+}
+public class OutputRefOutpGnrcAltArg
+{
+  public $ref Asref { get; set; }
+}

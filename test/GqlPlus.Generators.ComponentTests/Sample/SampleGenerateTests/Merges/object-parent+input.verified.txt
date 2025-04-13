@@ -11,6 +11,16 @@ input RefInpObjPrnt { }
 
 namespace GqlPlus.Model_Sample_object_parent_input;
 
-public interface IInputInpObjPrnt {}
+public interface IInpObjPrnt
+{
+}
+public class InputInpObjPrnt
+{
+}
 
-public interface IInputRefInpObjPrnt {}
+public interface IRefInpObjPrnt
+{
+}
+public class InputRefInpObjPrnt
+{
+}

@@ -6,4 +6,11 @@
 
 namespace GqlTest.Model_field_descr_output;
 
-public interface IOutputOutpFieldDescr {}
+public interface IOutpFieldDescr
+{
+  String field { get; }
+}
+public class OutputOutpFieldDescr
+{
+  public String field { get; set; }
+}

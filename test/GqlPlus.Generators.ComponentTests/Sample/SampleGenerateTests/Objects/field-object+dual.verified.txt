@@ -10,6 +10,22 @@ dual FldDualFieldObj { field: Number | String }
 
 namespace GqlPlus.Model_Sample_field_object_dual;
 
-public interface IDualDualFieldObj {}
+public interface IDualFieldObj
+{
+  FldDualFieldObj field { get; }
+}
+public class DualDualFieldObj
+{
+  public FldDualFieldObj field { get; set; }
+}
 
-public interface IDualFldDualFieldObj {}
+public interface IFldDualFieldObj
+{
+  Number field { get; }
+  String AsString { get; }
+}
+public class DualFldDualFieldObj
+{
+  public Number field { get; set; }
+  public String AsString { get; set; }
+}

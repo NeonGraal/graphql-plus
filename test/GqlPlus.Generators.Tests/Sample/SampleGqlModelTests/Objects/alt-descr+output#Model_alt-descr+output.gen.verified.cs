@@ -6,4 +6,11 @@
 
 namespace GqlTest.Model_alt_descr_output;
 
-public interface IOutputOutpAltDescr {}
+public interface IOutpAltDescr
+{
+  String AsString { get; }
+}
+public class OutputOutpAltDescr
+{
+  public String AsString { get; set; }
+}

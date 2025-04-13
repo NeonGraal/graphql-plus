@@ -6,8 +6,31 @@
 
 namespace GqlTest.Model_generic_param_output;
 
-public interface IOutputOutpGnrcParam {}
+public interface IOutpGnrcParam
+{
+  OutpGnrcParamRef < I@048/0001 OutpGnrcParamAlt > field { get; }
+}
+public class OutputOutpGnrcParam
+{
+  public OutpGnrcParamRef < I@048/0001 OutpGnrcParamAlt > field { get; set; }
+}
 
-public interface IOutputOutpGnrcParamRef {}
+public interface IOutpGnrcParamRef
+{
+  $ref Asref { get; }
+}
+public class OutputOutpGnrcParamRef
+{
+  public $ref Asref { get; set; }
+}
 
-public interface IOutputOutpGnrcParamAlt {}
+public interface IOutpGnrcParamAlt
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+public class OutputOutpGnrcParamAlt
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

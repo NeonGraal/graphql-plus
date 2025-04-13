@@ -6,6 +6,20 @@
 
 namespace GqlTest.Model_generic_alt_arg_descr_dual;
 
-public interface IDualDualGnrcAltArgDescr {}
+public interface IDualGnrcAltArgDescr
+{
+  RefDualGnrcAltArgDescr < 'Test Descr' I@075/0001 $type > AsRefDualGnrcAltArgDescr { get; }
+}
+public class DualDualGnrcAltArgDescr
+{
+  public RefDualGnrcAltArgDescr < 'Test Descr' I@075/0001 $type > AsRefDualGnrcAltArgDescr { get; set; }
+}
 
-public interface IDualRefDualGnrcAltArgDescr {}
+public interface IRefDualGnrcAltArgDescr
+{
+  $ref Asref { get; }
+}
+public class DualRefDualGnrcAltArgDescr
+{
+  public $ref Asref { get; set; }
+}

@@ -6,6 +6,22 @@
 
 namespace GqlTest.Model_field_dual_input;
 
-public interface IInputInpFieldDual {}
+public interface IInpFieldDual
+{
+  FldInpFieldDual field { get; }
+}
+public class InputInpFieldDual
+{
+  public FldInpFieldDual field { get; set; }
+}
 
-public interface IDualFldInpFieldDual {}
+public interface IFldInpFieldDual
+{
+  Number field { get; }
+  String AsString { get; }
+}
+public class DualFldInpFieldDual
+{
+  public Number field { get; set; }
+  public String AsString { get; set; }
+}

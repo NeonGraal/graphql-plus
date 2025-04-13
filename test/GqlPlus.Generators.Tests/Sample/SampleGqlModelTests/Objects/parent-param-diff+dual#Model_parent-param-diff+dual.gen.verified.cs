@@ -6,6 +6,20 @@
 
 namespace GqlTest.Model_parent_param_diff_dual;
 
-public interface IDualDualPrntParamDiff {}
+public interface IDualPrntParamDiff
+{
+  $a field { get; }
+}
+public class DualDualPrntParamDiff
+{
+  public $a field { get; set; }
+}
 
-public interface IDualRefDualPrntParamDiff {}
+public interface IRefDualPrntParamDiff
+{
+  $b Asb { get; }
+}
+public class DualRefDualPrntParamDiff
+{
+  public $b Asb { get; set; }
+}

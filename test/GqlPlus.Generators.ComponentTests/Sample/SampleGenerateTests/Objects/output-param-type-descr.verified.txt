@@ -11,8 +11,29 @@ input InOutpParamTypeDescr { param: Number | String }
 
 namespace GqlPlus.Model_Sample_output_param_type_descr;
 
-public interface IOutputOutpParamTypeDescr {}
+public interface IOutpParamTypeDescr
+{
+  FldOutpParamTypeDescr field { get; }
+}
+public class OutputOutpParamTypeDescr
+{
+  public FldOutpParamTypeDescr field { get; set; }
+}
 
-public interface IDualFldOutpParamTypeDescr {}
+public interface IFldOutpParamTypeDescr
+{
+}
+public class DualFldOutpParamTypeDescr
+{
+}
 
-public interface IInputInOutpParamTypeDescr {}
+public interface IInOutpParamTypeDescr
+{
+  Number param { get; }
+  String AsString { get; }
+}
+public class InputInOutpParamTypeDescr
+{
+  public Number param { get; set; }
+  public String AsString { get; set; }
+}

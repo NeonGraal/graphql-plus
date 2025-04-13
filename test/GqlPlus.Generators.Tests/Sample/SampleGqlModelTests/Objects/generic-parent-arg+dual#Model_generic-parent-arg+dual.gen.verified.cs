@@ -6,6 +6,18 @@
 
 namespace GqlTest.Model_generic_parent_arg_dual;
 
-public interface IDualDualGnrcPrntArg {}
+public interface IDualGnrcPrntArg
+{
+}
+public class DualDualGnrcPrntArg
+{
+}
 
-public interface IDualRefDualGnrcPrntArg {}
+public interface IRefDualGnrcPrntArg
+{
+  $ref Asref { get; }
+}
+public class DualRefDualGnrcPrntArg
+{
+  public $ref Asref { get; set; }
+}

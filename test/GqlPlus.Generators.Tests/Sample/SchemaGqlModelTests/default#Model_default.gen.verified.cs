@@ -9,10 +9,30 @@ Category subscription
 
 namespace GqlTest.Model_default;
 
-public interface IOutputQuery {}
+public interface IQuery
+{
+}
+public class OutputQuery
+{
+}
 
-public interface IOutputMutation {}
+public interface IMutation
+{
+}
+public class OutputMutation
+{
+}
 
-public interface IOutputSubscription {}
+public interface ISubscription
+{
+}
+public class OutputSubscription
+{
+}
 
-public interface IOutput_Schema {}
+public interface I_Schema
+{
+}
+public class Output_Schema
+{
+}

@@ -12,4 +12,9 @@ Category descrBtwn
 
 namespace GqlPlus.Model_Sample_descr_between;
 
-public interface IOutputDescrBtwn {}
+public interface IDescrBtwn
+{
+}
+public class OutputDescrBtwn
+{
+}

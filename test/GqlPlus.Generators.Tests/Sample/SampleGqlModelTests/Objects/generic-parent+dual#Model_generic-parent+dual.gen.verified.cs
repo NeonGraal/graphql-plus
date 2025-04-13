@@ -6,4 +6,9 @@
 
 namespace GqlTest.Model_generic_parent_dual;
 
-public interface IDualDualGnrcPrnt {}
+public interface IDualGnrcPrnt
+{
+}
+public class DualDualGnrcPrnt
+{
+}

@@ -6,6 +6,20 @@
 
 namespace GqlTest.Model_generic_alt_simple_dual;
 
-public interface IDualDualGnrcAltSmpl {}
+public interface IDualGnrcAltSmpl
+{
+  RefDualGnrcAltSmpl < I@045/0001 String > AsRefDualGnrcAltSmpl { get; }
+}
+public class DualDualGnrcAltSmpl
+{
+  public RefDualGnrcAltSmpl < I@045/0001 String > AsRefDualGnrcAltSmpl { get; set; }
+}
 
-public interface IDualRefDualGnrcAltSmpl {}
+public interface IRefDualGnrcAltSmpl
+{
+  $ref Asref { get; }
+}
+public class DualRefDualGnrcAltSmpl
+{
+  public $ref Asref { get; set; }
+}

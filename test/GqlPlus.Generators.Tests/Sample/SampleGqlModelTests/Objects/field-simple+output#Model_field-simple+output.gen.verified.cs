@@ -6,4 +6,11 @@
 
 namespace GqlTest.Model_field_simple_output;
 
-public interface IOutputOutpFieldSmpl {}
+public interface IOutpFieldSmpl
+{
+  Number field { get; }
+}
+public class OutputOutpFieldSmpl
+{
+  public Number field { get; set; }
+}

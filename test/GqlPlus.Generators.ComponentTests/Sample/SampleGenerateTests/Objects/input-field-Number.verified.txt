@@ -9,4 +9,11 @@ input InpFieldNmbr { field: Number = 0 }
 
 namespace GqlPlus.Model_Sample_input_field_Number;
 
-public interface IInputInpFieldNmbr {}
+public interface IInpFieldNmbr
+{
+  Number field { get; }
+}
+public class InputInpFieldNmbr
+{
+  public Number field { get; set; }
+}

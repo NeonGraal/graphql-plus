@@ -12,4 +12,9 @@ Category ctgrAlias
 
 namespace GqlPlus.Model_Sample_category_alias;
 
-public interface IOutputCtgrAlias {}
+public interface ICtgrAlias
+{
+}
+public class OutputCtgrAlias
+{
+}

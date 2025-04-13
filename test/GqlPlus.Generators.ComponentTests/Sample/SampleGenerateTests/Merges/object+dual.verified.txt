@@ -10,4 +10,9 @@ dual DualObj { }
 
 namespace GqlPlus.Model_Sample_object_dual;
 
-public interface IDualDualObj {}
+public interface IDualObj
+{
+}
+public class DualDualObj
+{
+}

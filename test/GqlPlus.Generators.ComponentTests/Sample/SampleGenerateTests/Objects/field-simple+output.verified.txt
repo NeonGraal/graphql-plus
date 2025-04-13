@@ -9,4 +9,11 @@ output OutpFieldSmpl { field: Number }
 
 namespace GqlPlus.Model_Sample_field_simple_output;
 
-public interface IOutputOutpFieldSmpl {}
+public interface IOutpFieldSmpl
+{
+  Number field { get; }
+}
+public class OutputOutpFieldSmpl
+{
+  public Number field { get; set; }
+}

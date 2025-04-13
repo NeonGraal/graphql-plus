@@ -13,15 +13,40 @@ Option Schema
 
 namespace GqlPlus.Model_Sample_Merges;
 
-public interface IOutputCtgr {}
+public interface ICtgr
+{
+}
+public class OutputCtgr
+{
+}
 
-public interface IOutputCtgrAlias {}
+public interface ICtgrAlias
+{
+}
+public class OutputCtgrAlias
+{
+}
 
-public interface IOutputCtgrDescr {}
+public interface ICtgrDescr
+{
+}
+public class OutputCtgrDescr
+{
+}
 
-public interface IOutputCtgrMod {}
+public interface ICtgrMod
+{
+}
+public class OutputCtgrMod
+{
+}
 
-public interface IInputInDrctParam {}
+public interface IInDrctParam
+{
+}
+public class InputInDrctParam
+{
+}
 
 public interface IDmnAlias
 {
@@ -152,83 +177,318 @@ public enum EnumValueAlias
   val2 = enumValueAlias,
 }
 
-public interface IDualDualObj {}
+public interface IDualObj
+{
+}
+public class DualDualObj
+{
+}
 
-public interface IInputInpObj {}
+public interface IInpObj
+{
+}
+public class InputInpObj
+{
+}
 
-public interface IOutputOutpObj {}
+public interface IOutpObj
+{
+}
+public class OutputOutpObj
+{
+}
 
-public interface IDualDualObjAlias {}
+public interface IDualObjAlias
+{
+}
+public class DualDualObjAlias
+{
+}
 
-public interface IInputInpObjAlias {}
+public interface IInpObjAlias
+{
+}
+public class InputInpObjAlias
+{
+}
 
-public interface IOutputOutpObjAlias {}
+public interface IOutpObjAlias
+{
+}
+public class OutputOutpObjAlias
+{
+}
 
-public interface IDualDualObjAlt {}
+public interface IDualObjAlt
+{
+  DualObjAltType AsDualObjAltType { get; }
+}
+public class DualDualObjAlt
+{
+  public DualObjAltType AsDualObjAltType { get; set; }
+}
 
-public interface IDualDualObjAltType {}
+public interface IDualObjAltType
+{
+}
+public class DualDualObjAltType
+{
+}
 
-public interface IInputInpObjAlt {}
+public interface IInpObjAlt
+{
+  InpObjAltType AsInpObjAltType { get; }
+}
+public class InputInpObjAlt
+{
+  public InpObjAltType AsInpObjAltType { get; set; }
+}
 
-public interface IInputInpObjAltType {}
+public interface IInpObjAltType
+{
+}
+public class InputInpObjAltType
+{
+}
 
-public interface IOutputOutpObjAlt {}
+public interface IOutpObjAlt
+{
+  OutpObjAltType AsOutpObjAltType { get; }
+}
+public class OutputOutpObjAlt
+{
+  public OutpObjAltType AsOutpObjAltType { get; set; }
+}
 
-public interface IOutputOutpObjAltType {}
+public interface IOutpObjAltType
+{
+}
+public class OutputOutpObjAltType
+{
+}
 
-public interface IDualDualObjField {}
+public interface IDualObjField
+{
+  FldDualObjField field { get; }
+}
+public class DualDualObjField
+{
+  public FldDualObjField field { get; set; }
+}
 
-public interface IDualFldDualObjField {}
+public interface IFldDualObjField
+{
+}
+public class DualFldDualObjField
+{
+}
 
-public interface IInputInpObjField {}
+public interface IInpObjField
+{
+  FldInpObjField field { get; }
+}
+public class InputInpObjField
+{
+  public FldInpObjField field { get; set; }
+}
 
-public interface IInputFldInpObjField {}
+public interface IFldInpObjField
+{
+}
+public class InputFldInpObjField
+{
+}
 
-public interface IOutputOutpObjField {}
+public interface IOutpObjField
+{
+  FldOutpObjField field { get; }
+}
+public class OutputOutpObjField
+{
+  public FldOutpObjField field { get; set; }
+}
 
-public interface IOutputFldOutpObjField {}
+public interface IFldOutpObjField
+{
+}
+public class OutputFldOutpObjField
+{
+}
 
-public interface IDualDualObjFieldAlias {}
+public interface IDualObjFieldAlias
+{
+  FldDualObjFieldAlias field { get; }
+}
+public class DualDualObjFieldAlias
+{
+  public FldDualObjFieldAlias field { get; set; }
+}
 
-public interface IDualFldDualObjFieldAlias {}
+public interface IFldDualObjFieldAlias
+{
+}
+public class DualFldDualObjFieldAlias
+{
+}
 
-public interface IInputInpObjFieldAlias {}
+public interface IInpObjFieldAlias
+{
+  FldInpObjFieldAlias field { get; }
+}
+public class InputInpObjFieldAlias
+{
+  public FldInpObjFieldAlias field { get; set; }
+}
 
-public interface IInputFldInpObjFieldAlias {}
+public interface IFldInpObjFieldAlias
+{
+}
+public class InputFldInpObjFieldAlias
+{
+}
 
-public interface IOutputOutpObjFieldAlias {}
+public interface IOutpObjFieldAlias
+{
+  FldOutpObjFieldAlias field { get; }
+}
+public class OutputOutpObjFieldAlias
+{
+  public FldOutpObjFieldAlias field { get; set; }
+}
 
-public interface IOutputFldOutpObjFieldAlias {}
+public interface IFldOutpObjFieldAlias
+{
+}
+public class OutputFldOutpObjFieldAlias
+{
+}
 
-public interface IDualDualObjParam {}
+public interface IDualObjParam
+{
+  $test test { get; }
+  $type type { get; }
+}
+public class DualDualObjParam
+{
+  public $test test { get; set; }
+  public $type type { get; set; }
+}
 
-public interface IInputInpObjParam {}
+public interface IInpObjParam
+{
+  $test test { get; }
+  $type type { get; }
+}
+public class InputInpObjParam
+{
+  public $test test { get; set; }
+  public $type type { get; set; }
+}
 
-public interface IOutputOutpObjParam {}
+public interface IOutpObjParam
+{
+  $test test { get; }
+  $type type { get; }
+}
+public class OutputOutpObjParam
+{
+  public $test test { get; set; }
+  public $type type { get; set; }
+}
 
-public interface IDualDualObjPrnt {}
+public interface IDualObjPrnt
+{
+}
+public class DualDualObjPrnt
+{
+}
 
-public interface IDualRefDualObjPrnt {}
+public interface IRefDualObjPrnt
+{
+}
+public class DualRefDualObjPrnt
+{
+}
 
-public interface IInputInpObjPrnt {}
+public interface IInpObjPrnt
+{
+}
+public class InputInpObjPrnt
+{
+}
 
-public interface IInputRefInpObjPrnt {}
+public interface IRefInpObjPrnt
+{
+}
+public class InputRefInpObjPrnt
+{
+}
 
-public interface IOutputOutpObjPrnt {}
+public interface IOutpObjPrnt
+{
+}
+public class OutputOutpObjPrnt
+{
+}
 
-public interface IOutputRefOutpObjPrnt {}
+public interface IRefOutpObjPrnt
+{
+}
+public class OutputRefOutpObjPrnt
+{
+}
 
-public interface IOutputOutpFieldEnumAlias {}
+public interface IOutpFieldEnumAlias
+{
+  Boolean field { get; }
+   Boolean { get; }
+}
+public class OutputOutpFieldEnumAlias
+{
+  public Boolean field { get; set; }
+  public  Boolean { get; set; }
+}
 
-public interface IOutputOutpFieldEnumValue {}
+public interface IOutpFieldEnumValue
+{
+  Boolean field { get; }
+   Boolean { get; }
+}
+public class OutputOutpFieldEnumValue
+{
+  public Boolean field { get; set; }
+  public  Boolean { get; set; }
+}
 
-public interface IOutputOutpFieldParam {}
+public interface IOutpFieldParam
+{
+  FldOutpFieldParam field { get; }
+}
+public class OutputOutpFieldParam
+{
+  public FldOutpFieldParam field { get; set; }
+}
 
-public interface IInputOutpFieldParam1 {}
+public interface IOutpFieldParam1
+{
+}
+public class InputOutpFieldParam1
+{
+}
 
-public interface IInputOutpFieldParam2 {}
+public interface IOutpFieldParam2
+{
+}
+public class InputOutpFieldParam2
+{
+}
 
-public interface IDualFldOutpFieldParam {}
+public interface IFldOutpFieldParam
+{
+}
+public class DualFldOutpFieldParam
+{
+}
 
 public interface IUnionAlias
 {

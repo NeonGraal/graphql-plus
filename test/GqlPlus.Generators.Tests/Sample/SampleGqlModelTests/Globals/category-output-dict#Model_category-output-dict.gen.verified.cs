@@ -7,4 +7,9 @@ Category ctgrOutpDict
 
 namespace GqlTest.Model_category_output_dict;
 
-public interface IOutputCtgrOutpDict {}
+public interface ICtgrOutpDict
+{
+}
+public class OutputCtgrOutpDict
+{
+}

@@ -6,4 +6,11 @@
 
 namespace GqlTest.Model_generic_descr_output;
 
-public interface IOutputOutpGnrcDescr {}
+public interface IOutpGnrcDescr
+{
+  $type field { get; }
+}
+public class OutputOutpGnrcDescr
+{
+  public $type field { get; set; }
+}

@@ -6,6 +6,18 @@
 
 namespace GqlTest.Model_generic_parent_arg_input;
 
-public interface IInputInpGnrcPrntArg {}
+public interface IInpGnrcPrntArg
+{
+}
+public class InputInpGnrcPrntArg
+{
+}
 
-public interface IInputRefInpGnrcPrntArg {}
+public interface IRefInpGnrcPrntArg
+{
+  $ref Asref { get; }
+}
+public class InputRefInpGnrcPrntArg
+{
+  public $ref Asref { get; set; }
+}

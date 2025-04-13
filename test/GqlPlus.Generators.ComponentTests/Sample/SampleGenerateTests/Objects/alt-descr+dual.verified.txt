@@ -9,4 +9,11 @@ dual DualAltDescr { | "Test" "Descr" String }
 
 namespace GqlPlus.Model_Sample_alt_descr_dual;
 
-public interface IDualDualAltDescr {}
+public interface IDualAltDescr
+{
+  String AsString { get; }
+}
+public class DualDualAltDescr
+{
+  public String AsString { get; set; }
+}

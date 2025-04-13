@@ -7,4 +7,9 @@ Category descrBtwn
 
 namespace GqlTest.Model_descr_between;
 
-public interface IOutputDescrBtwn {}
+public interface IDescrBtwn
+{
+}
+public class OutputDescrBtwn
+{
+}

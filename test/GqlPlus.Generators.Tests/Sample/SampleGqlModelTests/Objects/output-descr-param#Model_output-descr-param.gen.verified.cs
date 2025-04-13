@@ -6,8 +6,29 @@
 
 namespace GqlTest.Model_output_descr_param;
 
-public interface IOutputOutpDescrParam {}
+public interface IOutpDescrParam
+{
+  FldOutpDescrParam field { get; }
+}
+public class OutputOutpDescrParam
+{
+  public FldOutpDescrParam field { get; set; }
+}
 
-public interface IDualFldOutpDescrParam {}
+public interface IFldOutpDescrParam
+{
+}
+public class DualFldOutpDescrParam
+{
+}
 
-public interface IInputInOutpDescrParam {}
+public interface IInOutpDescrParam
+{
+  Number param { get; }
+  String AsString { get; }
+}
+public class InputInOutpDescrParam
+{
+  public Number param { get; set; }
+  public String AsString { get; set; }
+}

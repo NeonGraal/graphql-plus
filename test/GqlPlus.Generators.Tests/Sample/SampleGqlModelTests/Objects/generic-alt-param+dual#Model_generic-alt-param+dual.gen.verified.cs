@@ -6,8 +6,31 @@
 
 namespace GqlTest.Model_generic_alt_param_dual;
 
-public interface IDualDualGnrcAltParam {}
+public interface IDualGnrcAltParam
+{
+  RefDualGnrcAltParam < I@047/0001 AltDualGnrcAltParam > AsRefDualGnrcAltParam { get; }
+}
+public class DualDualGnrcAltParam
+{
+  public RefDualGnrcAltParam < I@047/0001 AltDualGnrcAltParam > AsRefDualGnrcAltParam { get; set; }
+}
 
-public interface IDualRefDualGnrcAltParam {}
+public interface IRefDualGnrcAltParam
+{
+  $ref Asref { get; }
+}
+public class DualRefDualGnrcAltParam
+{
+  public $ref Asref { get; set; }
+}
 
-public interface IDualAltDualGnrcAltParam {}
+public interface IAltDualGnrcAltParam
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+public class DualAltDualGnrcAltParam
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

@@ -6,6 +6,22 @@
 
 namespace GqlTest.Model_parent_field_input;
 
-public interface IInputInpPrntField {}
+public interface IInpPrntField
+{
+  Number field { get; }
+}
+public class InputInpPrntField
+{
+  public Number field { get; set; }
+}
 
-public interface IInputRefInpPrntField {}
+public interface IRefInpPrntField
+{
+  Number parent { get; }
+  String AsString { get; }
+}
+public class InputRefInpPrntField
+{
+  public Number parent { get; set; }
+  public String AsString { get; set; }
+}

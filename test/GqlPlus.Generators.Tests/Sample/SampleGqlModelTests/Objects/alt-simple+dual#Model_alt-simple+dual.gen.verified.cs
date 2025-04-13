@@ -6,4 +6,11 @@
 
 namespace GqlTest.Model_alt_simple_dual;
 
-public interface IDualDualAltSmpl {}
+public interface IDualAltSmpl
+{
+  String AsString { get; }
+}
+public class DualDualAltSmpl
+{
+  public String AsString { get; set; }
+}

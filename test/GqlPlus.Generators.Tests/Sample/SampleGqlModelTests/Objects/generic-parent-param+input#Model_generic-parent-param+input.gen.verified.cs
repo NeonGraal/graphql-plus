@@ -6,8 +6,29 @@
 
 namespace GqlTest.Model_generic_parent_param_input;
 
-public interface IInputInpGnrcPrntParam {}
+public interface IInpGnrcPrntParam
+{
+}
+public class InputInpGnrcPrntParam
+{
+}
 
-public interface IInputRefInpGnrcPrntParam {}
+public interface IRefInpGnrcPrntParam
+{
+  $ref Asref { get; }
+}
+public class InputRefInpGnrcPrntParam
+{
+  public $ref Asref { get; set; }
+}
 
-public interface IInputAltInpGnrcPrntParam {}
+public interface IAltInpGnrcPrntParam
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+public class InputAltInpGnrcPrntParam
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

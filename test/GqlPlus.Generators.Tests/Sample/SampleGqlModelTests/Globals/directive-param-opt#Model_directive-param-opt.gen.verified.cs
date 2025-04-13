@@ -7,4 +7,9 @@ Directive DrctParamOpt
 
 namespace GqlTest.Model_directive_param_opt;
 
-public interface IInputInDrctParamOpt {}
+public interface IInDrctParamOpt
+{
+}
+public class InputInDrctParamOpt
+{
+}

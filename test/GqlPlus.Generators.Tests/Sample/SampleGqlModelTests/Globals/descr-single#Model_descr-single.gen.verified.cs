@@ -6,4 +6,9 @@
 
 namespace GqlTest.Model_descr_single;
 
-public interface IOutputDescrSngl {}
+public interface IDescrSngl
+{
+}
+public class OutputDescrSngl
+{
+}

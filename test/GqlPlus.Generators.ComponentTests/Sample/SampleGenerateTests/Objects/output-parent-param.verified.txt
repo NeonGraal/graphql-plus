@@ -13,12 +13,49 @@ input PrntOutpPrntParamIn { parent: Number | String }
 
 namespace GqlPlus.Model_Sample_output_parent_param;
 
-public interface IOutputOutpPrntParam {}
+public interface IOutpPrntParam
+{
+  FldOutpPrntParam field { get; }
+}
+public class OutputOutpPrntParam
+{
+  public FldOutpPrntParam field { get; set; }
+}
 
-public interface IOutputPrntOutpPrntParam {}
+public interface IPrntOutpPrntParam
+{
+  FldOutpPrntParam field { get; }
+}
+public class OutputPrntOutpPrntParam
+{
+  public FldOutpPrntParam field { get; set; }
+}
 
-public interface IDualFldOutpPrntParam {}
+public interface IFldOutpPrntParam
+{
+}
+public class DualFldOutpPrntParam
+{
+}
 
-public interface IInputInOutpPrntParam {}
+public interface IInOutpPrntParam
+{
+  Number param { get; }
+  String AsString { get; }
+}
+public class InputInOutpPrntParam
+{
+  public Number param { get; set; }
+  public String AsString { get; set; }
+}
 
-public interface IInputPrntOutpPrntParamIn {}
+public interface IPrntOutpPrntParamIn
+{
+  Number parent { get; }
+  String AsString { get; }
+}
+public class InputPrntOutpPrntParamIn
+{
+  public Number parent { get; set; }
+  public String AsString { get; set; }
+}

@@ -6,6 +6,18 @@
 
 namespace GqlTest.Model_object_field_alias_dual;
 
-public interface IDualDualObjFieldAlias {}
+public interface IDualObjFieldAlias
+{
+  FldDualObjFieldAlias field { get; }
+}
+public class DualDualObjFieldAlias
+{
+  public FldDualObjFieldAlias field { get; set; }
+}
 
-public interface IDualFldDualObjFieldAlias {}
+public interface IFldDualObjFieldAlias
+{
+}
+public class DualFldDualObjFieldAlias
+{
+}

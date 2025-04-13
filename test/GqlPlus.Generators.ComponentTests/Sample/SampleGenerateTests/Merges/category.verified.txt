@@ -12,4 +12,9 @@ Category ctgr
 
 namespace GqlPlus.Model_Sample_category;
 
-public interface IOutputCtgr {}
+public interface ICtgr
+{
+}
+public class OutputCtgr
+{
+}

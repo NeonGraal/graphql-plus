@@ -7,4 +7,9 @@ Category ctgrOutpList
 
 namespace GqlTest.Model_category_output_list;
 
-public interface IOutputCtgrOutpList {}
+public interface ICtgrOutpList
+{
+}
+public class OutputCtgrOutpList
+{
+}

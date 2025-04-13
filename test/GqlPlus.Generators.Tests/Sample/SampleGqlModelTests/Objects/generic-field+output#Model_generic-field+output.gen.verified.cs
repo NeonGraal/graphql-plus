@@ -6,4 +6,11 @@
 
 namespace GqlTest.Model_generic_field_output;
 
-public interface IOutputOutpGnrcField {}
+public interface IOutpGnrcField
+{
+  $type field { get; }
+}
+public class OutputOutpGnrcField
+{
+  public $type field { get; set; }
+}

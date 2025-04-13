@@ -11,8 +11,31 @@ input InpGnrcParamAlt { alt: Number | String }
 
 namespace GqlPlus.Model_Sample_generic_param_input;
 
-public interface IInputInpGnrcParam {}
+public interface IInpGnrcParam
+{
+  InpGnrcParamRef < I@045/0001 InpGnrcParamAlt > field { get; }
+}
+public class InputInpGnrcParam
+{
+  public InpGnrcParamRef < I@045/0001 InpGnrcParamAlt > field { get; set; }
+}
 
-public interface IInputInpGnrcParamRef {}
+public interface IInpGnrcParamRef
+{
+  $ref Asref { get; }
+}
+public class InputInpGnrcParamRef
+{
+  public $ref Asref { get; set; }
+}
 
-public interface IInputInpGnrcParamAlt {}
+public interface IInpGnrcParamAlt
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+public class InputInpGnrcParamAlt
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

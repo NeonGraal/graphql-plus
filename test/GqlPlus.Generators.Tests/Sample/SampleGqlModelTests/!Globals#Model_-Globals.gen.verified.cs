@@ -19,34 +19,114 @@ Option Schema
 
 namespace GqlTest.Model__Globals;
 
-public interface IOutputCtgrDscrs {}
+public interface ICtgrDscrs
+{
+}
+public class OutputCtgrDscrs
+{
+}
 
-public interface IOutputCtgrOutp {}
+public interface ICtgrOutp
+{
+}
+public class OutputCtgrOutp
+{
+}
 
-public interface IOutputCtgrOutpDict {}
+public interface ICtgrOutpDict
+{
+}
+public class OutputCtgrOutpDict
+{
+}
 
-public interface IOutputCtgrOutpList {}
+public interface ICtgrOutpList
+{
+}
+public class OutputCtgrOutpList
+{
+}
 
-public interface IOutputCtgrOutpOptl {}
+public interface ICtgrOutpOptl
+{
+}
+public class OutputCtgrOutpOptl
+{
+}
 
-public interface IOutputDescr {}
+public interface IDescr
+{
+}
+public class OutputDescr
+{
+}
 
-public interface IOutputDescrBcks {}
+public interface IDescrBcks
+{
+}
+public class OutputDescrBcks
+{
+}
 
-public interface IOutputDescrBtwn {}
+public interface IDescrBtwn
+{
+}
+public class OutputDescrBtwn
+{
+}
 
-public interface IOutputDescrCmpl {}
+public interface IDescrCmpl
+{
+}
+public class OutputDescrCmpl
+{
+}
 
-public interface IOutputDescrDbl {}
+public interface IDescrDbl
+{
+}
+public class OutputDescrDbl
+{
+}
 
-public interface IOutputDescrSngl {}
+public interface IDescrSngl
+{
+}
+public class OutputDescrSngl
+{
+}
 
-public interface IOutputDscrs {}
+public interface IDscrs
+{
+}
+public class OutputDscrs
+{
+}
 
-public interface IInputInDrctParamDict {}
+public interface IInDrctParamDict
+{
+}
+public class InputInDrctParamDict
+{
+}
 
-public interface IInputInDrctParamIn {}
+public interface IInDrctParamIn
+{
+}
+public class InputInDrctParamIn
+{
+}
 
-public interface IInputInDrctParamList {}
+public interface IInDrctParamList
+{
+}
+public class InputInDrctParamList
+{
+}
 
-public interface IInputInDrctParamOpt {}
+public interface IInDrctParamOpt
+{
+}
+public class InputInDrctParamOpt
+{
+}

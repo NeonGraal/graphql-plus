@@ -10,4 +10,9 @@ output OutpObj { }
 
 namespace GqlPlus.Model_Sample_object_output;
 
-public interface IOutputOutpObj {}
+public interface IOutpObj
+{
+}
+public class OutputOutpObj
+{
+}

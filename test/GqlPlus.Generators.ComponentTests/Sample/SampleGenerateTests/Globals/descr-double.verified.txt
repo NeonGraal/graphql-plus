@@ -10,4 +10,9 @@ output DescrDbl { }
 
 namespace GqlPlus.Model_Sample_descr_double;
 
-public interface IOutputDescrDbl {}
+public interface IDescrDbl
+{
+}
+public class OutputDescrDbl
+{
+}

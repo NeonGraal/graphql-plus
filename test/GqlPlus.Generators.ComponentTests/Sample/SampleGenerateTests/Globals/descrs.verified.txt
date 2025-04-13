@@ -11,4 +11,9 @@ output Dscrs { }
 
 namespace GqlPlus.Model_Sample_descrs;
 
-public interface IOutputDscrs {}
+public interface IDscrs
+{
+}
+public class OutputDscrs
+{
+}

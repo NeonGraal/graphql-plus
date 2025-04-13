@@ -7,4 +7,9 @@ Directive DrctParamList
 
 namespace GqlTest.Model_directive_param_list;
 
-public interface IInputInDrctParamList {}
+public interface IInDrctParamList
+{
+}
+public class InputInDrctParamList
+{
+}

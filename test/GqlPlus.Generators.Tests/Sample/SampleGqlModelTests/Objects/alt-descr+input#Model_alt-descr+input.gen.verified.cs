@@ -6,4 +6,11 @@
 
 namespace GqlTest.Model_alt_descr_input;
 
-public interface IInputInpAltDescr {}
+public interface IInpAltDescr
+{
+  String AsString { get; }
+}
+public class InputInpAltDescr
+{
+  public String AsString { get; set; }
+}

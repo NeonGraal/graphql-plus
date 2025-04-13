@@ -9,4 +9,11 @@ input InpFieldNmbrDescr { field: "Test" "Descr" Number = 0 }
 
 namespace GqlPlus.Model_Sample_input_field_Number_descr;
 
-public interface IInputInpFieldNmbrDescr {}
+public interface IInpFieldNmbrDescr
+{
+  Number field { get; }
+}
+public class InputInpFieldNmbrDescr
+{
+  public Number field { get; set; }
+}

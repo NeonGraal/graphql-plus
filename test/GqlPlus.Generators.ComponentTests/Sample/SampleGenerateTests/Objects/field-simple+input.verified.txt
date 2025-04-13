@@ -9,4 +9,11 @@ input InpFieldSmpl { field: Number }
 
 namespace GqlPlus.Model_Sample_field_simple_input;
 
-public interface IInputInpFieldSmpl {}
+public interface IInpFieldSmpl
+{
+  Number field { get; }
+}
+public class InputInpFieldSmpl
+{
+  public Number field { get; set; }
+}

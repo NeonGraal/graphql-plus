@@ -6,4 +6,11 @@
 
 namespace GqlTest.Model_generic_descr_dual;
 
-public interface IDualDualGnrcDescr {}
+public interface IDualGnrcDescr
+{
+  $type field { get; }
+}
+public class DualDualGnrcDescr
+{
+  public $type field { get; set; }
+}

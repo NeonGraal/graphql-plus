@@ -7,4 +7,9 @@ Category ctgrDescr
 
 namespace GqlTest.Model_category_descr;
 
-public interface IOutputCtgrDescr {}
+public interface ICtgrDescr
+{
+}
+public class OutputCtgrDescr
+{
+}

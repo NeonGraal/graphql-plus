@@ -11,12 +11,12 @@ public class BuiltInTests(IModelAndRender renderer)
   [Theory]
   [ClassData(typeof(BuiltInBasicData))]
   public void HtmlBasicTypes(string type)
-    => RenderTypeHtml(BuiltInData.BasicMap[type], []);
+    => RenderTypeHtml("Basic", BuiltInData.BasicMap[type], []);
 
   [Theory]
   [ClassData(typeof(BuiltInInternalData))]
   public void HtmlInternalTypes(string type)
-    => RenderTypeHtml(BuiltInData.InternalMap[type], BuiltIn.Internal);
+    => RenderTypeHtml("Internal", BuiltInData.InternalMap[type], BuiltIn.Internal);
 
   [Fact]
   public void HtmlAllBasicTypes()
@@ -38,11 +38,14 @@ public class BuiltInTests(IModelAndRender renderer)
     RenderSchemaHtml(schema, "!Internal");
   }
 
+  private readonly string[] _sections = ["!Basic", "!Internal"];
+
   [Fact]
   public void Html_Index()
   {
     Structured result = new Map<Structured>() {
       ["title"] = "BuiltIn",
+      ["items"] = _sections.Render(),
       ["groups"] = new Map<Structured>() {
         ["Basic"] = BuiltIn.Basic.Render(t => t.Name),
         ["Internal"] = BuiltIn.Internal.Render(t => t.Name),
@@ -110,7 +113,7 @@ public class BuiltInTests(IModelAndRender renderer)
     context.Errors.ShouldBeEmpty(type?.Label);
   }
 
-  private void RenderTypeHtml(IGqlpType type, IGqlpType[] extras)
+  private void RenderTypeHtml(string section, IGqlpType type, IGqlpType[] extras)
   {
     Assert.SkipWhen(type is null, "type is null");
 
@@ -122,13 +125,13 @@ public class BuiltInTests(IModelAndRender renderer)
       Declarations = [.. extras.Where(e => e != type)]
     };
 
-    RenderSchemaHtml(schema, type.Name, extrasSchema);
+    RenderSchemaHtml(schema, type.Name, section, extrasSchema);
   }
 
-  private void RenderSchemaHtml(SchemaAst schema, string filename, SchemaAst? extras = null)
+  private void RenderSchemaHtml(SchemaAst schema, string filename, string section = "", SchemaAst? extras = null)
   {
     Structured result = renderer.RenderAst(schema, renderer.Context(), extras);
 
-    result.WriteHtmlFile("BuiltIn", filename);
+    result.WriteHtmlFile("BuiltIn" + section.Prefixed("/"), filename);
   }
 }

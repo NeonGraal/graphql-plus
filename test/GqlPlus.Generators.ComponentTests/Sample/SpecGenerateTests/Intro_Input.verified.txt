@@ -31,12 +31,12 @@ output _InputParam {
     }
 */
 
-// Generated from Schema Intro_Input
+// Generated from Spec Intro_Input
 
 /*
 */
 
-namespace GqlPlus.Model_Schema_Intro_Input;
+namespace GqlPlus.Model_Spec_Intro_Input;
 
 public interface IOutput_TypeInput {}
 

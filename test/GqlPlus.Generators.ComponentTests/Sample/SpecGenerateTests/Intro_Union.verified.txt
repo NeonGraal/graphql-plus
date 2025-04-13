@@ -13,12 +13,12 @@ output _UnionMember {
     }
 */
 
-// Generated from Schema Intro_Union
+// Generated from Spec Intro_Union
 
 /*
 */
 
-namespace GqlPlus.Model_Schema_Intro_Union;
+namespace GqlPlus.Model_Spec_Intro_Union;
 
 public interface IOutput_TypeUnion {}
 

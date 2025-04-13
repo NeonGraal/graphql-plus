@@ -16,12 +16,12 @@ output _Category {
 enum _Resolution { Parallel Sequential Single }
 */
 
-// Generated from Schema Intro_Category
+// Generated from Spec Intro_Category
 
 /*
 */
 
-namespace GqlPlus.Model_Schema_Intro_Category;
+namespace GqlPlus.Model_Spec_Intro_Category;
 
 public interface IOutput_Categories {}
 

@@ -32,12 +32,12 @@ input _TypeFilter {
     }
 */
 
-// Generated from Schema Intro_Declarations
+// Generated from Spec Intro_Declarations
 
 /*
 */
 
-namespace GqlPlus.Model_Schema_Intro_Declarations;
+namespace GqlPlus.Model_Spec_Intro_Declarations;
 
 public interface IOutput_Schema {}
 

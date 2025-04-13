@@ -52,12 +52,12 @@ output _Field<$base> {
     }
 */
 
-// Generated from Schema Intro_Object
+// Generated from Spec Intro_Object
 
 /*
 */
 
-namespace GqlPlus.Model_Schema_Intro_Object;
+namespace GqlPlus.Model_Spec_Intro_Object;
 
 public interface IOutput_TypeObject {}
 

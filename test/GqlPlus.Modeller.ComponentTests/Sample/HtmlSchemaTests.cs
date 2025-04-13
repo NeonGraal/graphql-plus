@@ -10,7 +10,7 @@ public class HtmlSchemaTests(
   [Fact]
   public async Task Index_Samples()
   {
-    string[] all = ["!ALL", "!Globals", "!Merges", "!Objects", "!Simple"];
+    string[] all = ["!ALL", "+Globals", "+Merges", "+Objects", "+Simple"];
 
     IEnumerable<string> merges = await ReplaceSchemaKeys("Merges");
     IEnumerable<string> objects = await ReplaceSchemaKeys("Objects");

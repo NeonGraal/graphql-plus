@@ -1,4 +1,4 @@
-﻿Invalid Output. '$arg' not used
-Invalid Output Arg. Expected Enum value not allowed after Type parameter
-Invalid Schema. Expected declaration selector. 'unknown' unknown
-Invalid Schema. Expected no more text
+﻿'$arg' not used
+Expected Enum value not allowed after Type parameter
+Expected declaration selector. 'unknown' unknown
+Expected no more text

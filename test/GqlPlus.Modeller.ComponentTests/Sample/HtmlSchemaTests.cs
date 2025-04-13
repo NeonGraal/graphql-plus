@@ -16,8 +16,8 @@ public class HtmlSchemaTests(
     IEnumerable<string> objects = await ReplaceSchemaKeys("Objects");
     Structured result = new Map<Structured>() {
       ["title"] = "Samples",
+      ["items"] = all.Render(),
       ["groups"] = new Map<Structured>() {
-        ["All"] = all.Render(),
         ["Globals"] = SamplesSchemaGlobalsData.Strings.Render(),
         ["Merges"] = merges.Render(),
         ["Objects"] = objects.Render(),

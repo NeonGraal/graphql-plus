@@ -17,7 +17,7 @@ public class MergeCategoriesTests(
   [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentOutput_ReturnsErrors(string name, string category1, string category2)
     => this
-      .SkipIf(category1 == category2)
+      .SkipEqual(category1, category2)
       .CanMerge_Errors(
         new CategoryDeclAst(AstNulls.At, name, new(AstNulls.At, category1)),
         new CategoryDeclAst(AstNulls.At, name, new(AstNulls.At, category2)));

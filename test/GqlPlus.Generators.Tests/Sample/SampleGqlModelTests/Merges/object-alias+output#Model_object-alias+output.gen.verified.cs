@@ -10,5 +10,6 @@ public interface IOutpObjAlias
 {
 }
 public class OutputOutpObjAlias
+  : IOutpObjAlias
 {
 }

@@ -11,6 +11,7 @@ public interface IInpFieldSmpl
   Number field { get; }
 }
 public class InputInpFieldSmpl
+  : IInpFieldSmpl
 {
   public Number field { get; set; }
 }

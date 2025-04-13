@@ -8,20 +8,22 @@ namespace GqlTest.Model_generic_dual_output;
 
 public interface IOutpGnrcDual
 {
-  OutpGnrcDualRef < I@046/0001 OutpGnrcDualAlt > field { get; }
+  OutpGnrcDualRef field { get; }
 }
 public class OutputOutpGnrcDual
+  : IOutpGnrcDual
 {
-  public OutpGnrcDualRef < I@046/0001 OutpGnrcDualAlt > field { get; set; }
+  public OutpGnrcDualRef field { get; set; }
 }
 
-public interface IOutpGnrcDualRef
+public interface IOutpGnrcDualRef<Tref>
 {
-  $ref Asref { get; }
+  Tref Asref { get; }
 }
-public class OutputOutpGnrcDualRef
+public class OutputOutpGnrcDualRef<Tref>
+  : IOutpGnrcDualRef<Tref>
 {
-  public $ref Asref { get; set; }
+  public Tref Asref { get; set; }
 }
 
 public interface IOutpGnrcDualAlt
@@ -30,6 +32,7 @@ public interface IOutpGnrcDualAlt
   String AsString { get; }
 }
 public class DualOutpGnrcDualAlt
+  : IOutpGnrcDualAlt
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

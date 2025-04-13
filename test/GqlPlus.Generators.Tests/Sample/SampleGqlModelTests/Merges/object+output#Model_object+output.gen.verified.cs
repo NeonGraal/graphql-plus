@@ -10,5 +10,6 @@ public interface IOutpObj
 {
 }
 public class OutputOutpObj
+  : IOutpObj
 {
 }

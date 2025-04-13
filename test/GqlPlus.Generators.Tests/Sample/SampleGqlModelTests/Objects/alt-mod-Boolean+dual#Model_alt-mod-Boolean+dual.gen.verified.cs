@@ -11,6 +11,7 @@ public interface IDualAltModBool
   AltDualAltModBool AsAltDualAltModBool { get; }
 }
 public class DualDualAltModBool
+  : IDualAltModBool
 {
   public AltDualAltModBool AsAltDualAltModBool { get; set; }
 }
@@ -21,6 +22,7 @@ public interface IAltDualAltModBool
   String AsString { get; }
 }
 public class DualAltDualAltModBool
+  : IAltDualAltModBool
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

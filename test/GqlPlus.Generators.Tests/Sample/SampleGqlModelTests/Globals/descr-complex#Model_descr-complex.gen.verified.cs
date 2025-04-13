@@ -10,5 +10,6 @@ public interface IDescrCmpl
 {
 }
 public class OutputDescrCmpl
+  : IDescrCmpl
 {
 }

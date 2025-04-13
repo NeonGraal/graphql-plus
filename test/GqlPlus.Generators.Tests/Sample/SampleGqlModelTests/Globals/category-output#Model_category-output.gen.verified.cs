@@ -11,5 +11,6 @@ public interface ICtgrOutp
 {
 }
 public class OutputCtgrOutp
+  : ICtgrOutp
 {
 }

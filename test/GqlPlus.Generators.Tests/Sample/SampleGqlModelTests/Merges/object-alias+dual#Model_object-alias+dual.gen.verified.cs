@@ -10,5 +10,6 @@ public interface IDualObjAlias
 {
 }
 public class DualDualObjAlias
+  : IDualObjAlias
 {
 }

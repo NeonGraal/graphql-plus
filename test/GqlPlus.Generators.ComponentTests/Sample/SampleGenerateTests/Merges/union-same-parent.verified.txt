@@ -12,7 +12,7 @@ union PrntUnionSamePrnt { String }
 namespace GqlPlus.Model_Sample_union_same_parent;
 
 public interface IUnionSamePrnt
-  : IUnionSamePrnt
+  : IPrntUnionSamePrnt
 {
   Boolean AsBoolean { get; }
 }

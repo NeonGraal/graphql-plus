@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Runtime.Serialization;
 using GqlPlus.Structures;
 
 namespace GqlPlus;
@@ -73,7 +74,10 @@ public static class GeneralHelpers
     string before,
     string after,
     string by = " ")
-   => before + items.Joined(by) + after;
+  {
+    string inner = items.Joined(by);
+    return string.IsNullOrWhiteSpace(inner) ? "" : before + inner + after;
+  }
 
   public static string Surround<T>(
     this IEnumerable<T>? items,
@@ -81,5 +85,8 @@ public static class GeneralHelpers
     string after,
     Func<T?, string> formatter,
     string by = " ")
-   => before + items.Joined(formatter, by) + after;
+  {
+    string inner = items.Joined(formatter, by);
+    return string.IsNullOrWhiteSpace(inner) ? "" : before + inner + after;
+  }
 }

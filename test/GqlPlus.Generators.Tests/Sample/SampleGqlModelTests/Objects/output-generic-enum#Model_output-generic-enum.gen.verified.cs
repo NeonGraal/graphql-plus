@@ -8,20 +8,22 @@ namespace GqlTest.Model_output_generic_enum;
 
 public interface IOutpGnrcEnum
 {
-  RefOutpGnrcEnum < I@041/0001 EnumOutpGnrcEnum.outpGnrcEnum > AsRefOutpGnrcEnum { get; }
+  RefOutpGnrcEnum AsRefOutpGnrcEnum { get; }
 }
 public class OutputOutpGnrcEnum
+  : IOutpGnrcEnum
 {
-  public RefOutpGnrcEnum < I@041/0001 EnumOutpGnrcEnum.outpGnrcEnum > AsRefOutpGnrcEnum { get; set; }
+  public RefOutpGnrcEnum AsRefOutpGnrcEnum { get; set; }
 }
 
-public interface IRefOutpGnrcEnum
+public interface IRefOutpGnrcEnum<Ttype>
 {
-  $type field { get; }
+  Ttype field { get; }
 }
-public class OutputRefOutpGnrcEnum
+public class OutputRefOutpGnrcEnum<Ttype>
+  : IRefOutpGnrcEnum<Ttype>
 {
-  public $type field { get; set; }
+  public Ttype field { get; set; }
 }
 
 public enum EnumOutpGnrcEnum

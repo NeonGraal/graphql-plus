@@ -11,6 +11,7 @@ public interface IDualField
   String field { get; }
 }
 public class DualDualField
+  : IDualField
 {
   public String field { get; set; }
 }

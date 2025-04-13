@@ -11,6 +11,7 @@ public interface IInpFieldDescrNmbr
   Number field { get; }
 }
 public class InputInpFieldDescrNmbr
+  : IInpFieldDescrNmbr
 {
   public Number field { get; set; }
 }

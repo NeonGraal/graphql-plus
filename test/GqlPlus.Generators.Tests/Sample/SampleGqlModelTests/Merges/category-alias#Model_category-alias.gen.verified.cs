@@ -11,5 +11,6 @@ public interface ICtgrAlias
 {
 }
 public class OutputCtgrAlias
+  : ICtgrAlias
 {
 }

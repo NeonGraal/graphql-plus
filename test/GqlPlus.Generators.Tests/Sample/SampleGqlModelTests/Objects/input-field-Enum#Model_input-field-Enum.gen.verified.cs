@@ -11,6 +11,7 @@ public interface IInpFieldEnum
   EnumInpFieldEnum field { get; }
 }
 public class InputInpFieldEnum
+  : IInpFieldEnum
 {
   public EnumInpFieldEnum field { get; set; }
 }

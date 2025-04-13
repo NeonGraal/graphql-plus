@@ -11,6 +11,7 @@ public interface IOutpFieldValue
    EnumOutpFieldValue { get; }
 }
 public class OutputOutpFieldValue
+  : IOutpFieldValue
 {
   public  EnumOutpFieldValue { get; set; }
 }

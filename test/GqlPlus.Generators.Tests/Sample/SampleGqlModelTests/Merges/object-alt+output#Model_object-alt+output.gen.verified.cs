@@ -11,6 +11,7 @@ public interface IOutpObjAlt
   OutpObjAltType AsOutpObjAltType { get; }
 }
 public class OutputOutpObjAlt
+  : IOutpObjAlt
 {
   public OutpObjAltType AsOutpObjAltType { get; set; }
 }
@@ -19,5 +20,6 @@ public interface IOutpObjAltType
 {
 }
 public class OutputOutpObjAltType
+  : IOutpObjAltType
 {
 }

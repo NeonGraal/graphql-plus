@@ -11,6 +11,7 @@ public interface IOutpFieldSmpl
   Number field { get; }
 }
 public class OutputOutpFieldSmpl
+  : IOutpFieldSmpl
 {
   public Number field { get; set; }
 }

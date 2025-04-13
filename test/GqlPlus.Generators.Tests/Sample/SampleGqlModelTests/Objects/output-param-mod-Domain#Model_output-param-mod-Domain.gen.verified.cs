@@ -11,6 +11,7 @@ public interface IOutpParamModDmn
   DomOutpParamModDmn field { get; }
 }
 public class OutputOutpParamModDmn
+  : IOutpParamModDmn
 {
   public DomOutpParamModDmn field { get; set; }
 }
@@ -21,6 +22,7 @@ public interface IInOutpParamModDmn
   String AsString { get; }
 }
 public class InputInOutpParamModDmn
+  : IInOutpParamModDmn
 {
   public Number param { get; set; }
   public String AsString { get; set; }

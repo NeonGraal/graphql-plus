@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Generating.Objects;
 
 internal class InputGenerator
-  : GenerateForObject<IGqlpInputObject>
+  : GenerateForObject<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate>
 {
   public override string TypePrefix => "Input";
 }

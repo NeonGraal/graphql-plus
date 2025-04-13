@@ -11,6 +11,7 @@ public interface IOutpAltDual
   OutpDualAltDual AsOutpDualAltDual { get; }
 }
 public class OutputOutpAltDual
+  : IOutpAltDual
 {
   public OutpDualAltDual AsOutpDualAltDual { get; set; }
 }
@@ -21,6 +22,7 @@ public interface IOutpDualAltDual
   String AsString { get; }
 }
 public class DualOutpDualAltDual
+  : IOutpDualAltDual
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

@@ -7,9 +7,12 @@
 namespace GqlTest.Model_parent_dual_dual;
 
 public interface IDualPrntDual
+  : IRefDualPrntDual
 {
 }
 public class DualDualPrntDual
+  : DualRefDualPrntDual
+  , IDualPrntDual
 {
 }
 
@@ -19,6 +22,7 @@ public interface IRefDualPrntDual
   String AsString { get; }
 }
 public class DualRefDualPrntDual
+  : IRefDualPrntDual
 {
   public Number parent { get; set; }
   public String AsString { get; set; }

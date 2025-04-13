@@ -11,6 +11,7 @@ public interface IDualAlt
   AltDualAlt AsAltDualAlt { get; }
 }
 public class DualDualAlt
+  : IDualAlt
 {
   public AltDualAlt AsAltDualAlt { get; set; }
 }
@@ -21,6 +22,7 @@ public interface IAltDualAlt
   String AsString { get; }
 }
 public class DualAltDualAlt
+  : IAltDualAlt
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

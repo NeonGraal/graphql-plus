@@ -7,9 +7,12 @@
 namespace GqlTest.Model_parent_descr_dual;
 
 public interface IDualPrntDescr
+  : IRefDualPrntDescr
 {
 }
 public class DualDualPrntDescr
+  : DualRefDualPrntDescr
+  , IDualPrntDescr
 {
 }
 
@@ -19,6 +22,7 @@ public interface IRefDualPrntDescr
   String AsString { get; }
 }
 public class DualRefDualPrntDescr
+  : IRefDualPrntDescr
 {
   public Number parent { get; set; }
   public String AsString { get; set; }

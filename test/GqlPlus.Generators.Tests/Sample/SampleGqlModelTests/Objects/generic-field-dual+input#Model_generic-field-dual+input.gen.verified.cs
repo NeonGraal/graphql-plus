@@ -8,20 +8,22 @@ namespace GqlTest.Model_generic_field_dual_input;
 
 public interface IInpGnrcFieldDual
 {
-  RefInpGnrcFieldDual < I@053/0001 AltInpGnrcFieldDual > field { get; }
+  RefInpGnrcFieldDual field { get; }
 }
 public class InputInpGnrcFieldDual
+  : IInpGnrcFieldDual
 {
-  public RefInpGnrcFieldDual < I@053/0001 AltInpGnrcFieldDual > field { get; set; }
+  public RefInpGnrcFieldDual field { get; set; }
 }
 
-public interface IRefInpGnrcFieldDual
+public interface IRefInpGnrcFieldDual<Tref>
 {
-  $ref Asref { get; }
+  Tref Asref { get; }
 }
-public class InputRefInpGnrcFieldDual
+public class InputRefInpGnrcFieldDual<Tref>
+  : IRefInpGnrcFieldDual<Tref>
 {
-  public $ref Asref { get; set; }
+  public Tref Asref { get; set; }
 }
 
 public interface IAltInpGnrcFieldDual
@@ -30,6 +32,7 @@ public interface IAltInpGnrcFieldDual
   String AsString { get; }
 }
 public class DualAltInpGnrcFieldDual
+  : IAltInpGnrcFieldDual
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

@@ -11,6 +11,7 @@ public interface IOutpAltModBool
   AltOutpAltModBool AsAltOutpAltModBool { get; }
 }
 public class OutputOutpAltModBool
+  : IOutpAltModBool
 {
   public AltOutpAltModBool AsAltOutpAltModBool { get; set; }
 }
@@ -21,6 +22,7 @@ public interface IAltOutpAltModBool
   String AsString { get; }
 }
 public class OutputAltOutpAltModBool
+  : IAltOutpAltModBool
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

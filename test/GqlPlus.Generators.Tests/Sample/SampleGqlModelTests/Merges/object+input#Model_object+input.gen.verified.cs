@@ -10,5 +10,6 @@ public interface IInpObj
 {
 }
 public class InputInpObj
+  : IInpObj
 {
 }

@@ -8,20 +8,22 @@ namespace GqlTest.Model_generic_field_param_input;
 
 public interface IInpGnrcFieldParam
 {
-  RefInpGnrcFieldParam < I@055/0001 AltInpGnrcFieldParam > field { get; }
+  RefInpGnrcFieldParam field { get; }
 }
 public class InputInpGnrcFieldParam
+  : IInpGnrcFieldParam
 {
-  public RefInpGnrcFieldParam < I@055/0001 AltInpGnrcFieldParam > field { get; set; }
+  public RefInpGnrcFieldParam field { get; set; }
 }
 
-public interface IRefInpGnrcFieldParam
+public interface IRefInpGnrcFieldParam<Tref>
 {
-  $ref Asref { get; }
+  Tref Asref { get; }
 }
-public class InputRefInpGnrcFieldParam
+public class InputRefInpGnrcFieldParam<Tref>
+  : IRefInpGnrcFieldParam<Tref>
 {
-  public $ref Asref { get; set; }
+  public Tref Asref { get; set; }
 }
 
 public interface IAltInpGnrcFieldParam
@@ -30,6 +32,7 @@ public interface IAltInpGnrcFieldParam
   String AsString { get; }
 }
 public class InputAltInpGnrcFieldParam
+  : IAltInpGnrcFieldParam
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

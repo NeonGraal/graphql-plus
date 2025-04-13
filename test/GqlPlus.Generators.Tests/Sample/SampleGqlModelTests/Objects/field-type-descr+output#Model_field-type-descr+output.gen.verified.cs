@@ -11,6 +11,7 @@ public interface IOutpFieldTypeDescr
   Number field { get; }
 }
 public class OutputOutpFieldTypeDescr
+  : IOutpFieldTypeDescr
 {
   public Number field { get; set; }
 }

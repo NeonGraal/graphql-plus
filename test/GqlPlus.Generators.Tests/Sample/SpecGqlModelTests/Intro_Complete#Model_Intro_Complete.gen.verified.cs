@@ -7,6 +7,7 @@
 namespace GqlTest.Model_Intro_Complete;
 
 public interface I_Schema
+  : I_Named
 {
   _Categories categories { get; }
   _Directives directives { get; }
@@ -14,6 +15,8 @@ public interface I_Schema
   _Setting settings { get; }
 }
 public class Output_Schema
+  : Output_Named
+  , I_Schema
 {
   public _Categories categories { get; set; }
   public _Directives directives { get; set; }
@@ -39,6 +42,7 @@ public interface I_Filter
   _NameFilter As_NameFilter { get; }
 }
 public class Input_Filter
+  : I_Filter
 {
   public _NameFilter names { get; set; }
   public Boolean matchAliases { get; set; }
@@ -57,37 +61,49 @@ public class Domain_NameFilter
 }
 
 public interface I_CategoryFilter
+  : I_Filter
 {
   _Resolution resolutions { get; }
 }
 public class Input_CategoryFilter
+  : Input_Filter
+  , I_CategoryFilter
 {
   public _Resolution resolutions { get; set; }
 }
 
 public interface I_TypeFilter
+  : I_Filter
 {
   _TypeKind kinds { get; }
 }
 public class Input_TypeFilter
+  : Input_Filter
+  , I_TypeFilter
 {
   public _TypeKind kinds { get; set; }
 }
 
 public interface I_Aliased
+  : I_Named
 {
   _Identifier aliases { get; }
 }
 public class Dual_Aliased
+  : Dual_Named
+  , I_Aliased
 {
   public _Identifier aliases { get; set; }
 }
 
 public interface I_Named
+  : I_Described
 {
   _Identifier name { get; }
 }
 public class Dual_Named
+  : Dual_Described
+  , I_Named
 {
   public _Identifier name { get; set; }
 }
@@ -97,6 +113,7 @@ public interface I_Described
   String description { get; }
 }
 public class Dual_Described
+  : I_Described
 {
   public String description { get; set; }
 }
@@ -109,6 +126,7 @@ public interface I_Categories
   _Type As_Type { get; }
 }
 public class Output_Categories
+  : I_Categories
 {
   public _Category category { get; set; }
   public _Type type { get; set; }
@@ -117,15 +135,18 @@ public class Output_Categories
 }
 
 public interface I_Category
+  : I_Aliased
 {
   _Resolution resolution { get; }
-  _TypeRef < I@026/0055 _TypeKind.Output > output { get; }
+  _TypeRef output { get; }
   _Modifiers modifiers { get; }
 }
 public class Output_Category
+  : Output_Aliased
+  , I_Category
 {
   public _Resolution resolution { get; set; }
-  public _TypeRef < I@026/0055 _TypeKind.Output > output { get; set; }
+  public _TypeRef output { get; set; }
   public _Modifiers modifiers { get; set; }
 }
 
@@ -144,6 +165,7 @@ public interface I_Directives
   _Type As_Type { get; }
 }
 public class Output_Directives
+  : I_Directives
 {
   public _Directive directive { get; set; }
   public _Type type { get; set; }
@@ -152,12 +174,15 @@ public class Output_Directives
 }
 
 public interface I_Directive
+  : I_Aliased
 {
   _InputParam parameters { get; }
   Boolean repeatable { get; }
   Unit locations { get; }
 }
 public class Output_Directive
+  : Output_Aliased
+  , I_Directive
 {
   public _InputParam parameters { get; set; }
   public Boolean repeatable { get; set; }
@@ -175,18 +200,21 @@ public enum _Location
 }
 
 public interface I_Setting
+  : I_Named
 {
   _Constant value { get; }
 }
 public class Output_Setting
+  : Output_Named
+  , I_Setting
 {
   public _Constant value { get; set; }
 }
 
 public interface I_Type
 {
-  _BaseType < I@017/0081 _TypeKind.Basic > As_BaseType { get; }
-  _BaseType < I@017/0082 _TypeKind.Internal > As_BaseType { get; }
+  _BaseType As_BaseType { get; }
+  _BaseType As_BaseType { get; }
   _TypeDual As_TypeDual { get; }
   _TypeEnum As_TypeEnum { get; }
   _TypeInput As_TypeInput { get; }
@@ -195,9 +223,10 @@ public interface I_Type
   _TypeUnion As_TypeUnion { get; }
 }
 public class Output_Type
+  : I_Type
 {
-  public _BaseType < I@017/0081 _TypeKind.Basic > As_BaseType { get; set; }
-  public _BaseType < I@017/0082 _TypeKind.Internal > As_BaseType { get; set; }
+  public _BaseType As_BaseType { get; set; }
+  public _BaseType As_BaseType { get; set; }
   public _TypeDual As_TypeDual { get; set; }
   public _TypeEnum As_TypeEnum { get; set; }
   public _TypeInput As_TypeInput { get; set; }
@@ -206,33 +235,42 @@ public class Output_Type
   public _TypeUnion As_TypeUnion { get; set; }
 }
 
-public interface I_BaseType
+public interface I_BaseType<Tkind>
+  : I_Aliased
 {
-  $kind typeKind { get; }
+  Tkind typeKind { get; }
 }
-public class Output_BaseType
+public class Output_BaseType<Tkind>
+  : Output_Aliased
+  , I_BaseType<Tkind>
 {
-  public $kind typeKind { get; set; }
-}
-
-public interface I_ChildType
-{
-  $parent parent { get; }
-}
-public class Output_ChildType
-{
-  public $parent parent { get; set; }
+  public Tkind typeKind { get; set; }
 }
 
-public interface I_ParentType
+public interface I_ChildType<Tkind,Tparent>
+  : I_BaseType
 {
-  $item items { get; }
-  $allItem allItems { get; }
+  Tparent parent { get; }
 }
-public class Output_ParentType
+public class Output_ChildType<Tkind,Tparent>
+  : Output_BaseType
+  , I_ChildType<Tkind,Tparent>
 {
-  public $item items { get; set; }
-  public $allItem allItems { get; set; }
+  public Tparent parent { get; set; }
+}
+
+public interface I_ParentType<Tkind,Titem,TallItem>
+  : I_ChildType
+{
+  Titem items { get; }
+  TallItem allItems { get; }
+}
+public class Output_ParentType<Tkind,Titem,TallItem>
+  : Output_ChildType
+  , I_ParentType<Tkind,Titem,TallItem>
+{
+  public Titem items { get; set; }
+  public TallItem allItems { get; set; }
 }
 
 public enum _SimpleKind
@@ -256,30 +294,34 @@ public enum _TypeKind
   Output,
 }
 
-public interface I_TypeRef
+public interface I_TypeRef<Tkind>
+  : I_Described
 {
-  $kind typeKind { get; }
+  Tkind typeKind { get; }
   _Identifier name { get; }
 }
-public class Output_TypeRef
+public class Output_TypeRef<Tkind>
+  : Output_Described
+  , I_TypeRef<Tkind>
 {
-  public $kind typeKind { get; set; }
+  public Tkind typeKind { get; set; }
   public _Identifier name { get; set; }
 }
 
 public interface I_TypeSimple
 {
-  _TypeRef < I@016/0118 _TypeKind.Basic > As_TypeRef { get; }
-  _TypeRef < I@016/0119 _TypeKind.Enum > As_TypeRef { get; }
-  _TypeRef < I@016/0120 _TypeKind.Domain > As_TypeRef { get; }
-  _TypeRef < I@016/0121 _TypeKind.Union > As_TypeRef { get; }
+  _TypeRef As_TypeRef { get; }
+  _TypeRef As_TypeRef { get; }
+  _TypeRef As_TypeRef { get; }
+  _TypeRef As_TypeRef { get; }
 }
 public class Output_TypeSimple
+  : I_TypeSimple
 {
-  public _TypeRef < I@016/0118 _TypeKind.Basic > As_TypeRef { get; set; }
-  public _TypeRef < I@016/0119 _TypeKind.Enum > As_TypeRef { get; set; }
-  public _TypeRef < I@016/0120 _TypeKind.Domain > As_TypeRef { get; set; }
-  public _TypeRef < I@016/0121 _TypeKind.Union > As_TypeRef { get; set; }
+  public _TypeRef As_TypeRef { get; set; }
+  public _TypeRef As_TypeRef { get; set; }
+  public _TypeRef As_TypeRef { get; set; }
+  public _TypeRef As_TypeRef { get; set; }
 }
 
 public interface I_Constant
@@ -289,6 +331,7 @@ public interface I_Constant
   _ConstantMap As_ConstantMap { get; }
 }
 public class Output_Constant
+  : I_Constant
 {
   public _Simple As_Simple { get; set; }
   public _ConstantList As_ConstantList { get; set; }
@@ -298,15 +341,16 @@ public class Output_Constant
 public interface I_Simple
 {
   Boolean AsBoolean { get; }
-  _DomainValue < I@020/0131 _DomainKind.Number I@039/0131 Number > As_DomainValue { get; }
-  _DomainValue < I@020/0132 _DomainKind.String I@039/0132 String > As_DomainValue { get; }
+  _DomainValue As_DomainValue { get; }
+  _DomainValue As_DomainValue { get; }
   _EnumValue As_EnumValue { get; }
 }
 public class Output_Simple
+  : I_Simple
 {
   public Boolean AsBoolean { get; set; }
-  public _DomainValue < I@020/0131 _DomainKind.Number I@039/0131 Number > As_DomainValue { get; set; }
-  public _DomainValue < I@020/0132 _DomainKind.String I@039/0132 String > As_DomainValue { get; set; }
+  public _DomainValue As_DomainValue { get; set; }
+  public _DomainValue As_DomainValue { get; set; }
   public _EnumValue As_EnumValue { get; set; }
 }
 
@@ -315,6 +359,7 @@ public interface I_ConstantList
   _Constant As_Constant { get; }
 }
 public class Output_ConstantList
+  : I_ConstantList
 {
   public _Constant As_Constant { get; set; }
 }
@@ -324,29 +369,34 @@ public interface I_ConstantMap
   _Constant As_Constant { get; }
 }
 public class Output_ConstantMap
+  : I_ConstantMap
 {
   public _Constant As_Constant { get; set; }
 }
 
 public interface I_Collections
 {
-  _Modifier < I@017/0145 _ModifierKind.List > As_Modifier { get; }
-  _ModifierKeyed < I@022/0146 _ModifierKind.Dictionary > As_ModifierKeyed { get; }
-  _ModifierKeyed < I@022/0147 _ModifierKind.TypeParam > As_ModifierKeyed { get; }
+  _Modifier As_Modifier { get; }
+  _ModifierKeyed As_ModifierKeyed { get; }
+  _ModifierKeyed As_ModifierKeyed { get; }
 }
 public class Output_Collections
+  : I_Collections
 {
-  public _Modifier < I@017/0145 _ModifierKind.List > As_Modifier { get; set; }
-  public _ModifierKeyed < I@022/0146 _ModifierKind.Dictionary > As_ModifierKeyed { get; set; }
-  public _ModifierKeyed < I@022/0147 _ModifierKind.TypeParam > As_ModifierKeyed { get; set; }
+  public _Modifier As_Modifier { get; set; }
+  public _ModifierKeyed As_ModifierKeyed { get; set; }
+  public _ModifierKeyed As_ModifierKeyed { get; set; }
 }
 
-public interface I_ModifierKeyed
+public interface I_ModifierKeyed<Tkind>
+  : I_Modifier
 {
   _TypeSimple by { get; }
   Boolean optional { get; }
 }
-public class Output_ModifierKeyed
+public class Output_ModifierKeyed<Tkind>
+  : Output_Modifier
+  , I_ModifierKeyed<Tkind>
 {
   public _TypeSimple by { get; set; }
   public Boolean optional { get; set; }
@@ -354,12 +404,13 @@ public class Output_ModifierKeyed
 
 public interface I_Modifiers
 {
-  _Modifier < I@017/0157 _ModifierKind.Optional > As_Modifier { get; }
+  _Modifier As_Modifier { get; }
   _Collections As_Collections { get; }
 }
 public class Output_Modifiers
+  : I_Modifiers
 {
-  public _Modifier < I@017/0157 _ModifierKind.Optional > As_Modifier { get; set; }
+  public _Modifier As_Modifier { get; set; }
   public _Collections As_Collections { get; set; }
 }
 
@@ -374,13 +425,14 @@ public enum _ModifierKind
   TypeParam = Param,
 }
 
-public interface I_Modifier
+public interface I_Modifier<Tkind>
 {
-  $kind modifierKind { get; }
+  Tkind modifierKind { get; }
 }
-public class Output_Modifier
+public class Output_Modifier<Tkind>
+  : I_Modifier<Tkind>
 {
-  public $kind modifierKind { get; set; }
+  public Tkind modifierKind { get; set; }
 }
 
 public enum _DomainKind
@@ -393,239 +445,308 @@ public enum _DomainKind
 
 public interface I_TypeDomain
 {
-  _BaseDomain < I@019/0169 _DomainKind.Boolean I@039/0169 _DomainTrueFalse I@056/0169 _DomainItemTrueFalse > As_BaseDomain { get; }
-  _BaseDomain < I@019/0170 _DomainKind.Enum I@036/0170 _DomainLabel I@049/0170 _DomainItemLabel > As_BaseDomain { get; }
-  _BaseDomain < I@019/0171 _DomainKind.Number I@038/0171 _DomainRange I@051/0171 _DomainItemRange > As_BaseDomain { get; }
-  _BaseDomain < I@019/0172 _DomainKind.String I@038/0172 _DomainRegex I@051/0172 _DomainItemRegex > As_BaseDomain { get; }
+  _BaseDomain As_BaseDomain { get; }
+  _BaseDomain As_BaseDomain { get; }
+  _BaseDomain As_BaseDomain { get; }
+  _BaseDomain As_BaseDomain { get; }
 }
 public class Output_TypeDomain
+  : I_TypeDomain
 {
-  public _BaseDomain < I@019/0169 _DomainKind.Boolean I@039/0169 _DomainTrueFalse I@056/0169 _DomainItemTrueFalse > As_BaseDomain { get; set; }
-  public _BaseDomain < I@019/0170 _DomainKind.Enum I@036/0170 _DomainLabel I@049/0170 _DomainItemLabel > As_BaseDomain { get; set; }
-  public _BaseDomain < I@019/0171 _DomainKind.Number I@038/0171 _DomainRange I@051/0171 _DomainItemRange > As_BaseDomain { get; set; }
-  public _BaseDomain < I@019/0172 _DomainKind.String I@038/0172 _DomainRegex I@051/0172 _DomainItemRegex > As_BaseDomain { get; set; }
+  public _BaseDomain As_BaseDomain { get; set; }
+  public _BaseDomain As_BaseDomain { get; set; }
+  public _BaseDomain As_BaseDomain { get; set; }
+  public _BaseDomain As_BaseDomain { get; set; }
 }
 
-public interface I_DomainRef
+public interface I_DomainRef<Tkind>
+  : I_TypeRef
 {
-  $kind domainKind { get; }
+  Tkind domainKind { get; }
 }
-public class Output_DomainRef
+public class Output_DomainRef<Tkind>
+  : Output_TypeRef
+  , I_DomainRef<Tkind>
 {
-  public $kind domainKind { get; set; }
+  public Tkind domainKind { get; set; }
 }
 
-public interface I_BaseDomain
+public interface I_BaseDomain<Tdomain,Titem,TdomainItem>
+  : I_ParentType
 {
-  $domain domainKind { get; }
+  Tdomain domainKind { get; }
 }
-public class Output_BaseDomain
+public class Output_BaseDomain<Tdomain,Titem,TdomainItem>
+  : Output_ParentType
+  , I_BaseDomain<Tdomain,Titem,TdomainItem>
 {
-  public $domain domainKind { get; set; }
+  public Tdomain domainKind { get; set; }
 }
 
 public interface I_BaseDomainItem
+  : I_Described
 {
   Boolean exclude { get; }
 }
 public class Dual_BaseDomainItem
+  : Dual_Described
+  , I_BaseDomainItem
 {
   public Boolean exclude { get; set; }
 }
 
-public interface I_DomainItem
+public interface I_DomainItem<Titem>
+  : Iitem
 {
   _Identifier domain { get; }
 }
-public class Output_DomainItem
+public class Output_DomainItem<Titem>
+  : Outputitem
+  , I_DomainItem<Titem>
 {
   public _Identifier domain { get; set; }
 }
 
-public interface I_DomainValue
+public interface I_DomainValue<Tkind,Tvalue>
+  : I_DomainRef
 {
-  $value value { get; }
+  Tvalue value { get; }
 }
-public class Output_DomainValue
+public class Output_DomainValue<Tkind,Tvalue>
+  : Output_DomainRef
+  , I_DomainValue<Tkind,Tvalue>
 {
-  public $value value { get; set; }
+  public Tvalue value { get; set; }
 }
 
 public interface I_DomainTrueFalse
+  : I_BaseDomainItem
 {
   Boolean value { get; }
 }
 public class Dual_DomainTrueFalse
+  : Dual_BaseDomainItem
+  , I_DomainTrueFalse
 {
   public Boolean value { get; set; }
 }
 
 public interface I_DomainItemTrueFalse
+  : I_DomainItem
 {
 }
 public class Output_DomainItemTrueFalse
+  : Output_DomainItem
+  , I_DomainItemTrueFalse
 {
 }
 
 public interface I_DomainLabel
+  : I_BaseDomainItem
 {
   _EnumValue label { get; }
 }
 public class Output_DomainLabel
+  : Output_BaseDomainItem
+  , I_DomainLabel
 {
   public _EnumValue label { get; set; }
 }
 
 public interface I_DomainItemLabel
+  : I_DomainItem
 {
 }
 public class Output_DomainItemLabel
+  : Output_DomainItem
+  , I_DomainItemLabel
 {
 }
 
 public interface I_DomainRange
+  : I_BaseDomainItem
 {
   Number lower { get; }
   Number upper { get; }
 }
 public class Dual_DomainRange
+  : Dual_BaseDomainItem
+  , I_DomainRange
 {
   public Number lower { get; set; }
   public Number upper { get; set; }
 }
 
 public interface I_DomainItemRange
+  : I_DomainItem
 {
 }
 public class Output_DomainItemRange
+  : Output_DomainItem
+  , I_DomainItemRange
 {
 }
 
 public interface I_DomainRegex
+  : I_BaseDomainItem
 {
   String pattern { get; }
 }
 public class Dual_DomainRegex
+  : Dual_BaseDomainItem
+  , I_DomainRegex
 {
   public String pattern { get; set; }
 }
 
 public interface I_DomainItemRegex
+  : I_DomainItem
 {
 }
 public class Output_DomainItemRegex
+  : Output_DomainItem
+  , I_DomainItemRegex
 {
 }
 
 public interface I_TypeEnum
+  : I_ParentType
 {
 }
 public class Output_TypeEnum
+  : Output_ParentType
+  , I_TypeEnum
 {
 }
 
 public interface I_EnumLabel
+  : I_Aliased
 {
   _Identifier enum { get; }
 }
 public class Dual_EnumLabel
+  : Dual_Aliased
+  , I_EnumLabel
 {
   public _Identifier enum { get; set; }
 }
 
 public interface I_EnumValue
+  : I_TypeRef
 {
   _Identifier label { get; }
 }
 public class Output_EnumValue
+  : Output_TypeRef
+  , I_EnumValue
 {
   public _Identifier label { get; set; }
 }
 
 public interface I_TypeUnion
+  : I_ParentType
 {
 }
 public class Output_TypeUnion
+  : Output_ParentType
+  , I_TypeUnion
 {
 }
 
 public interface I_UnionRef
+  : I_TypeRef
 {
 }
 public class Output_UnionRef
+  : Output_TypeRef
+  , I_UnionRef
 {
 }
 
 public interface I_UnionMember
+  : I_UnionRef
 {
   _Identifier union { get; }
 }
 public class Output_UnionMember
+  : Output_UnionRef
+  , I_UnionMember
 {
   public _Identifier union { get; set; }
 }
 
-public interface I_TypeObject
+public interface I_TypeObject<Tkind,Tparent,Tfield,Talternate>
+  : I_ChildType
 {
   _ObjTypeParam typeParams { get; }
-  $field fields { get; }
-  $alternate alternates { get; }
-  _ObjectFor < I@032/0262 $field > allFields { get; }
-  _ObjectFor < I@036/0263 $alternate > allAlternates { get; }
+  Tfield fields { get; }
+  Talternate alternates { get; }
+  _ObjectFor allFields { get; }
+  _ObjectFor allAlternates { get; }
 }
-public class Output_TypeObject
+public class Output_TypeObject<Tkind,Tparent,Tfield,Talternate>
+  : Output_ChildType
+  , I_TypeObject<Tkind,Tparent,Tfield,Talternate>
 {
   public _ObjTypeParam typeParams { get; set; }
-  public $field fields { get; set; }
-  public $alternate alternates { get; set; }
-  public _ObjectFor < I@032/0262 $field > allFields { get; set; }
-  public _ObjectFor < I@036/0263 $alternate > allAlternates { get; set; }
+  public Tfield fields { get; set; }
+  public Talternate alternates { get; set; }
+  public _ObjectFor allFields { get; set; }
+  public _ObjectFor allAlternates { get; set; }
 }
 
-public interface I_ObjConstraint
+public interface I_ObjConstraint<Tbase>
 {
   _TypeSimple As_TypeSimple { get; }
-  $base Asbase { get; }
+  Tbase Asbase { get; }
 }
-public class Output_ObjConstraint
+public class Output_ObjConstraint<Tbase>
+  : I_ObjConstraint<Tbase>
 {
   public _TypeSimple As_TypeSimple { get; set; }
-  public $base Asbase { get; set; }
+  public Tbase Asbase { get; set; }
 }
 
-public interface I_ObjType
+public interface I_ObjType<Tbase>
 {
-  _BaseType < I@017/0271 _TypeKind.Internal > As_BaseType { get; }
-  _ObjConstraint < I@023/0272 $base > As_ObjConstraint { get; }
+  _BaseType As_BaseType { get; }
+  _ObjConstraint As_ObjConstraint { get; }
 }
-public class Output_ObjType
+public class Output_ObjType<Tbase>
+  : I_ObjType<Tbase>
 {
-  public _BaseType < I@017/0271 _TypeKind.Internal > As_BaseType { get; set; }
-  public _ObjConstraint < I@023/0272 $base > As_ObjConstraint { get; set; }
+  public _BaseType As_BaseType { get; set; }
+  public _ObjConstraint As_ObjConstraint { get; set; }
 }
 
-public interface I_ObjBase
+public interface I_ObjBase<Targ>
+  : I_Described
 {
-  $arg typeArgs { get; }
+  Targ typeArgs { get; }
   _ObjTypeParam As_ObjTypeParam { get; }
 }
-public class Output_ObjBase
+public class Output_ObjBase<Targ>
+  : Output_Described
+  , I_ObjBase<Targ>
 {
-  public $arg typeArgs { get; set; }
+  public Targ typeArgs { get; set; }
   public _ObjTypeParam As_ObjTypeParam { get; set; }
 }
 
 public interface I_ObjTypeArg
+  : I_TypeRef
 {
   _ObjTypeParam As_ObjTypeParam { get; }
 }
 public class Output_ObjTypeArg
+  : Output_TypeRef
+  , I_ObjTypeArg
 {
   public _ObjTypeParam As_ObjTypeParam { get; set; }
 }
 
 public interface I_TypeParam
-  : I_TypeParam
+  : I_Identifier
 {
 }
 public class Domain_TypeParam
@@ -635,195 +756,258 @@ public class Domain_TypeParam
 }
 
 public interface I_ObjTypeParam
+  : I_Described
 {
   _TypeParam typeParam { get; }
 }
 public class Output_ObjTypeParam
+  : Output_Described
+  , I_ObjTypeParam
 {
   public _TypeParam typeParam { get; set; }
 }
 
-public interface I_Alternate
+public interface I_Alternate<Targ>
+  : I_ObjBase
 {
   _Collections collections { get; }
 }
-public class Output_Alternate
+public class Output_Alternate<Targ>
+  : Output_ObjBase
+  , I_Alternate<Targ>
 {
   public _Collections collections { get; set; }
 }
 
-public interface I_ObjectFor
+public interface I_ObjectFor<Tfor>
+  : Ifor
 {
   _Identifier object { get; }
 }
-public class Output_ObjectFor
+public class Output_ObjectFor<Tfor>
+  : Outputfor
+  , I_ObjectFor<Tfor>
 {
   public _Identifier object { get; set; }
 }
 
-public interface I_Field
+public interface I_Field<Tbase>
+  : I_Aliased
 {
-  $base type { get; }
+  Tbase type { get; }
   _Modifiers modifiers { get; }
 }
-public class Output_Field
+public class Output_Field<Tbase>
+  : Output_Aliased
+  , I_Field<Tbase>
 {
-  public $base type { get; set; }
+  public Tbase type { get; set; }
   public _Modifiers modifiers { get; set; }
 }
 
 public interface I_TypeDual
+  : I_TypeObject
 {
 }
 public class Output_TypeDual
+  : Output_TypeObject
+  , I_TypeDual
 {
 }
 
 public interface I_DualBase
+  : I_ObjBase
 {
   _Identifier dual { get; }
 }
 public class Output_DualBase
+  : Output_ObjBase
+  , I_DualBase
 {
   public _Identifier dual { get; set; }
 }
 
 public interface I_DualField
+  : I_Field
 {
 }
 public class Output_DualField
+  : Output_Field
+  , I_DualField
 {
 }
 
 public interface I_DualAlternate
+  : I_Alternate
 {
   _Identifier dual { get; }
 }
 public class Output_DualAlternate
+  : Output_Alternate
+  , I_DualAlternate
 {
   public _Identifier dual { get; set; }
 }
 
 public interface I_DualTypeArg
+  : I_ObjTypeArg
 {
   _Identifier dual { get; }
 }
 public class Output_DualTypeArg
+  : Output_ObjTypeArg
+  , I_DualTypeArg
 {
   public _Identifier dual { get; set; }
 }
 
 public interface I_TypeInput
+  : I_TypeObject
 {
 }
 public class Output_TypeInput
+  : Output_TypeObject
+  , I_TypeInput
 {
 }
 
 public interface I_InputBase
+  : I_ObjBase
 {
   _Identifier input { get; }
   _DualBase As_DualBase { get; }
 }
 public class Output_InputBase
+  : Output_ObjBase
+  , I_InputBase
 {
   public _Identifier input { get; set; }
   public _DualBase As_DualBase { get; set; }
 }
 
 public interface I_InputField
+  : I_Field
 {
   _Constant default { get; }
 }
 public class Output_InputField
+  : Output_Field
+  , I_InputField
 {
   public _Constant default { get; set; }
 }
 
 public interface I_InputAlternate
+  : I_Alternate
 {
   _Identifier input { get; }
 }
 public class Output_InputAlternate
+  : Output_Alternate
+  , I_InputAlternate
 {
   public _Identifier input { get; set; }
 }
 
 public interface I_InputTypeArg
+  : I_ObjTypeArg
 {
   _Identifier input { get; }
 }
 public class Output_InputTypeArg
+  : Output_ObjTypeArg
+  , I_InputTypeArg
 {
   public _Identifier input { get; set; }
 }
 
 public interface I_InputParam
+  : I_InputBase
 {
   _Modifiers modifiers { get; }
   _Constant default { get; }
 }
 public class Output_InputParam
+  : Output_InputBase
+  , I_InputParam
 {
   public _Modifiers modifiers { get; set; }
   public _Constant default { get; set; }
 }
 
 public interface I_TypeOutput
+  : I_TypeObject
 {
 }
 public class Output_TypeOutput
+  : Output_TypeObject
+  , I_TypeOutput
 {
 }
 
 public interface I_OutputBase
+  : I_ObjBase
 {
   _Identifier output { get; }
   _DualBase As_DualBase { get; }
 }
 public class Output_OutputBase
+  : Output_ObjBase
+  , I_OutputBase
 {
   public _Identifier output { get; set; }
   public _DualBase As_DualBase { get; set; }
 }
 
 public interface I_OutputField
+  : I_Field
 {
   _InputParam parameters { get; }
   _OutputEnum As_OutputEnum { get; }
 }
 public class Output_OutputField
+  : Output_Field
+  , I_OutputField
 {
   public _InputParam parameters { get; set; }
   public _OutputEnum As_OutputEnum { get; set; }
 }
 
 public interface I_OutputAlternate
+  : I_Alternate
 {
   _Identifier output { get; }
 }
 public class Output_OutputAlternate
+  : Output_Alternate
+  , I_OutputAlternate
 {
   public _Identifier output { get; set; }
 }
 
 public interface I_OutputTypeArg
+  : I_ObjTypeArg
 {
   _Identifier output { get; }
   _Identifier label { get; }
 }
 public class Output_OutputTypeArg
+  : Output_ObjTypeArg
+  , I_OutputTypeArg
 {
   public _Identifier output { get; set; }
   public _Identifier label { get; set; }
 }
 
 public interface I_OutputEnum
+  : I_TypeRef
 {
   _Identifier field { get; }
   _Identifier label { get; }
 }
 public class Output_OutputEnum
+  : Output_TypeRef
+  , I_OutputEnum
 {
   public _Identifier field { get; set; }
   public _Identifier label { get; set; }

@@ -14,6 +14,7 @@ public interface I_Directives
   _Type As_Type { get; }
 }
 public class Output_Directives
+  : I_Directives
 {
   public _Directive directive { get; set; }
   public _Type type { get; set; }
@@ -22,12 +23,15 @@ public class Output_Directives
 }
 
 public interface I_Directive
+  : I_Aliased
 {
   _InputParam parameters { get; }
   Boolean repeatable { get; }
   Unit locations { get; }
 }
 public class Output_Directive
+  : Output_Aliased
+  , I_Directive
 {
   public _InputParam parameters { get; set; }
   public Boolean repeatable { get; set; }

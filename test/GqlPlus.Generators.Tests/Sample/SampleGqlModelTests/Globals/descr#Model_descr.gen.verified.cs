@@ -10,5 +10,6 @@ public interface IDescr
 {
 }
 public class OutputDescr
+  : IDescr
 {
 }

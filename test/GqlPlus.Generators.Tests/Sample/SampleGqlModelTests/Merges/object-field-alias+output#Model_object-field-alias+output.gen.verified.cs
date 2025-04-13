@@ -11,6 +11,7 @@ public interface IOutpObjFieldAlias
   FldOutpObjFieldAlias field { get; }
 }
 public class OutputOutpObjFieldAlias
+  : IOutpObjFieldAlias
 {
   public FldOutpObjFieldAlias field { get; set; }
 }
@@ -19,5 +20,6 @@ public interface IFldOutpObjFieldAlias
 {
 }
 public class OutputFldOutpObjFieldAlias
+  : IFldOutpObjFieldAlias
 {
 }

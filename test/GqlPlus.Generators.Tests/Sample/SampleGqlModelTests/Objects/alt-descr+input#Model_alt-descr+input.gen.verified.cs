@@ -11,6 +11,7 @@ public interface IInpAltDescr
   String AsString { get; }
 }
 public class InputInpAltDescr
+  : IInpAltDescr
 {
   public String AsString { get; set; }
 }

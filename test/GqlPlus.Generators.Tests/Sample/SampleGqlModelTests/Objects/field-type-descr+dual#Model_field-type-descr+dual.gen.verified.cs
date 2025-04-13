@@ -11,6 +11,7 @@ public interface IDualFieldTypeDescr
   Number field { get; }
 }
 public class DualDualFieldTypeDescr
+  : IDualFieldTypeDescr
 {
   public Number field { get; set; }
 }

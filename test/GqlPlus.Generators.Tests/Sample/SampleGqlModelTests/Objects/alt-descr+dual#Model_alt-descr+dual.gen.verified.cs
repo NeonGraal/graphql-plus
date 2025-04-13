@@ -11,6 +11,7 @@ public interface IDualAltDescr
   String AsString { get; }
 }
 public class DualDualAltDescr
+  : IDualAltDescr
 {
   public String AsString { get; set; }
 }

@@ -13,20 +13,22 @@ namespace GqlPlus.Model_Sample_generic_param_dual;
 
 public interface IDualGnrcParam
 {
-  DualGnrcParamRef < I@046/0001 DualGnrcParamAlt > field { get; }
+  DualGnrcParamRef field { get; }
 }
 public class DualDualGnrcParam
+  : IDualGnrcParam
 {
-  public DualGnrcParamRef < I@046/0001 DualGnrcParamAlt > field { get; set; }
+  public DualGnrcParamRef field { get; set; }
 }
 
-public interface IDualGnrcParamRef
+public interface IDualGnrcParamRef<Tref>
 {
-  $ref Asref { get; }
+  Tref Asref { get; }
 }
-public class DualDualGnrcParamRef
+public class DualDualGnrcParamRef<Tref>
+  : IDualGnrcParamRef<Tref>
 {
-  public $ref Asref { get; set; }
+  public Tref Asref { get; set; }
 }
 
 public interface IDualGnrcParamAlt
@@ -35,6 +37,7 @@ public interface IDualGnrcParamAlt
   String AsString { get; }
 }
 public class DualDualGnrcParamAlt
+  : IDualGnrcParamAlt
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

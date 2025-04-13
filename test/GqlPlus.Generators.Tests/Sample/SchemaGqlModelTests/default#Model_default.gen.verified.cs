@@ -13,6 +13,7 @@ public interface IQuery
 {
 }
 public class OutputQuery
+  : IQuery
 {
 }
 
@@ -20,6 +21,7 @@ public interface IMutation
 {
 }
 public class OutputMutation
+  : IMutation
 {
 }
 
@@ -27,6 +29,7 @@ public interface ISubscription
 {
 }
 public class OutputSubscription
+  : ISubscription
 {
 }
 
@@ -34,5 +37,6 @@ public interface I_Schema
 {
 }
 public class Output_Schema
+  : I_Schema
 {
 }

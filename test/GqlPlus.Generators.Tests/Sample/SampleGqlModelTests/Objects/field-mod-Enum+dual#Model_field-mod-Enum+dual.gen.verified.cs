@@ -11,6 +11,7 @@ public interface IDualFieldModEnum
   String field { get; }
 }
 public class DualDualFieldModEnum
+  : IDualFieldModEnum
 {
   public String field { get; set; }
 }

@@ -11,6 +11,7 @@ public interface IDualAltSmpl
   String AsString { get; }
 }
 public class DualDualAltSmpl
+  : IDualAltSmpl
 {
   public String AsString { get; set; }
 }

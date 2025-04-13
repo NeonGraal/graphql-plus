@@ -15,7 +15,7 @@ public class DomainDmnBoolDescr
 }
 
 public interface IDmnBoolPrnt
-  : IDmnBoolPrnt
+  : IPrntDmnBoolPrnt
 {
 }
 public class DomainDmnBoolPrnt
@@ -106,7 +106,7 @@ public enum EnumDmnEnumLabel
 }
 
 public interface IDmnEnumPrnt
-  : IDmnEnumPrnt
+  : IPrntDmnEnumPrnt
 {
 }
 public class DomainDmnEnumPrnt
@@ -201,7 +201,7 @@ public class DomainDmnNmbrDescr
 }
 
 public interface IDmnNmbrPrnt
-  : IDmnNmbrPrnt
+  : IPrntDmnNmbrPrnt
 {
 }
 public class DomainDmnNmbrPrnt
@@ -227,7 +227,7 @@ public class DomainDmnStrDescr
 }
 
 public interface IDmnStrPrnt
-  : IDmnStrPrnt
+  : IPrntDmnStrPrnt
 {
 }
 public class DomainDmnStrPrnt
@@ -297,7 +297,7 @@ public class UnionUnionDescr
 }
 
 public interface IUnionPrnt
-  : IUnionPrnt
+  : IPrntUnionPrnt
 {
   String AsString { get; }
 }
@@ -319,7 +319,7 @@ public class UnionPrntUnionPrnt
 }
 
 public interface IUnionPrntDup
-  : IUnionPrntDup
+  : IPrntUnionPrntDup
 {
   Number AsNumber { get; }
 }

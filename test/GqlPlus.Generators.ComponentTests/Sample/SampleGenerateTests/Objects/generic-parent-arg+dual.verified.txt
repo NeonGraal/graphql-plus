@@ -10,18 +10,22 @@ dual RefDualGnrcPrntArg<$ref> { | $ref }
 
 namespace GqlPlus.Model_Sample_generic_parent_arg_dual;
 
-public interface IDualGnrcPrntArg
+public interface IDualGnrcPrntArg<Ttype>
+  : IRefDualGnrcPrntArg
 {
 }
-public class DualDualGnrcPrntArg
+public class DualDualGnrcPrntArg<Ttype>
+  : DualRefDualGnrcPrntArg
+  , IDualGnrcPrntArg<Ttype>
 {
 }
 
-public interface IRefDualGnrcPrntArg
+public interface IRefDualGnrcPrntArg<Tref>
 {
-  $ref Asref { get; }
+  Tref Asref { get; }
 }
-public class DualRefDualGnrcPrntArg
+public class DualRefDualGnrcPrntArg<Tref>
+  : IRefDualGnrcPrntArg<Tref>
 {
-  public $ref Asref { get; set; }
+  public Tref Asref { get; set; }
 }

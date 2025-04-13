@@ -11,7 +11,7 @@ domain PrntDmnStrPrnt { String /b+/ }
 namespace GqlPlus.Model_Sample_domain_string_parent;
 
 public interface IDmnStrPrnt
-  : IDmnStrPrnt
+  : IPrntDmnStrPrnt
 {
 }
 public class DomainDmnStrPrnt

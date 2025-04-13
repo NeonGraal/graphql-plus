@@ -7,7 +7,7 @@
 namespace GqlTest.Model_domain_string_parent;
 
 public interface IDmnStrPrnt
-  : IDmnStrPrnt
+  : IPrntDmnStrPrnt
 {
 }
 public class DomainDmnStrPrnt

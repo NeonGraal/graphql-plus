@@ -11,5 +11,6 @@ public interface ICtgrDscrs
 {
 }
 public class OutputCtgrDscrs
+  : ICtgrDscrs
 {
 }

@@ -7,7 +7,7 @@
 namespace GqlTest.Model_domain_enum_parent;
 
 public interface IDmnEnumPrnt
-  : IDmnEnumPrnt
+  : IPrntDmnEnumPrnt
 {
 }
 public class DomainDmnEnumPrnt

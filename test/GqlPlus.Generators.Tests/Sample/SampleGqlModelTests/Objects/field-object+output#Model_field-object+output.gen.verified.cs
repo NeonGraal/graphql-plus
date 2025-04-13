@@ -11,6 +11,7 @@ public interface IOutpFieldObj
   FldOutpFieldObj field { get; }
 }
 public class OutputOutpFieldObj
+  : IOutpFieldObj
 {
   public FldOutpFieldObj field { get; set; }
 }
@@ -21,6 +22,7 @@ public interface IFldOutpFieldObj
   String AsString { get; }
 }
 public class OutputFldOutpFieldObj
+  : IFldOutpFieldObj
 {
   public Number field { get; set; }
   public String AsString { get; set; }

@@ -11,6 +11,7 @@ public interface IOutpFieldModEnum
   String field { get; }
 }
 public class OutputOutpFieldModEnum
+  : IOutpFieldModEnum
 {
   public String field { get; set; }
 }

@@ -11,5 +11,6 @@ public interface ICtgrMod
 {
 }
 public class OutputCtgrMod
+  : ICtgrMod
 {
 }

@@ -8,8 +8,8 @@ namespace GqlTest.Model_Intro_Common;
 
 public interface I_Type
 {
-  _BaseType < I@017/0002 _TypeKind.Basic > As_BaseType { get; }
-  _BaseType < I@017/0003 _TypeKind.Internal > As_BaseType { get; }
+  _BaseType As_BaseType { get; }
+  _BaseType As_BaseType { get; }
   _TypeDual As_TypeDual { get; }
   _TypeEnum As_TypeEnum { get; }
   _TypeInput As_TypeInput { get; }
@@ -18,9 +18,10 @@ public interface I_Type
   _TypeUnion As_TypeUnion { get; }
 }
 public class Output_Type
+  : I_Type
 {
-  public _BaseType < I@017/0002 _TypeKind.Basic > As_BaseType { get; set; }
-  public _BaseType < I@017/0003 _TypeKind.Internal > As_BaseType { get; set; }
+  public _BaseType As_BaseType { get; set; }
+  public _BaseType As_BaseType { get; set; }
   public _TypeDual As_TypeDual { get; set; }
   public _TypeEnum As_TypeEnum { get; set; }
   public _TypeInput As_TypeInput { get; set; }
@@ -29,33 +30,42 @@ public class Output_Type
   public _TypeUnion As_TypeUnion { get; set; }
 }
 
-public interface I_BaseType
+public interface I_BaseType<Tkind>
+  : I_Aliased
 {
-  $kind typeKind { get; }
+  Tkind typeKind { get; }
 }
-public class Output_BaseType
+public class Output_BaseType<Tkind>
+  : Output_Aliased
+  , I_BaseType<Tkind>
 {
-  public $kind typeKind { get; set; }
-}
-
-public interface I_ChildType
-{
-  $parent parent { get; }
-}
-public class Output_ChildType
-{
-  public $parent parent { get; set; }
+  public Tkind typeKind { get; set; }
 }
 
-public interface I_ParentType
+public interface I_ChildType<Tkind,Tparent>
+  : I_BaseType
 {
-  $item items { get; }
-  $allItem allItems { get; }
+  Tparent parent { get; }
 }
-public class Output_ParentType
+public class Output_ChildType<Tkind,Tparent>
+  : Output_BaseType
+  , I_ChildType<Tkind,Tparent>
 {
-  public $item items { get; set; }
-  public $allItem allItems { get; set; }
+  public Tparent parent { get; set; }
+}
+
+public interface I_ParentType<Tkind,Titem,TallItem>
+  : I_ChildType
+{
+  Titem items { get; }
+  TallItem allItems { get; }
+}
+public class Output_ParentType<Tkind,Titem,TallItem>
+  : Output_ChildType
+  , I_ParentType<Tkind,Titem,TallItem>
+{
+  public Titem items { get; set; }
+  public TallItem allItems { get; set; }
 }
 
 public enum _SimpleKind
@@ -79,28 +89,32 @@ public enum _TypeKind
   Output,
 }
 
-public interface I_TypeRef
+public interface I_TypeRef<Tkind>
+  : I_Described
 {
-  $kind typeKind { get; }
+  Tkind typeKind { get; }
   _Identifier name { get; }
 }
-public class Output_TypeRef
+public class Output_TypeRef<Tkind>
+  : Output_Described
+  , I_TypeRef<Tkind>
 {
-  public $kind typeKind { get; set; }
+  public Tkind typeKind { get; set; }
   public _Identifier name { get; set; }
 }
 
 public interface I_TypeSimple
 {
-  _TypeRef < I@016/0039 _TypeKind.Basic > As_TypeRef { get; }
-  _TypeRef < I@016/0040 _TypeKind.Enum > As_TypeRef { get; }
-  _TypeRef < I@016/0041 _TypeKind.Domain > As_TypeRef { get; }
-  _TypeRef < I@016/0042 _TypeKind.Union > As_TypeRef { get; }
+  _TypeRef As_TypeRef { get; }
+  _TypeRef As_TypeRef { get; }
+  _TypeRef As_TypeRef { get; }
+  _TypeRef As_TypeRef { get; }
 }
 public class Output_TypeSimple
+  : I_TypeSimple
 {
-  public _TypeRef < I@016/0039 _TypeKind.Basic > As_TypeRef { get; set; }
-  public _TypeRef < I@016/0040 _TypeKind.Enum > As_TypeRef { get; set; }
-  public _TypeRef < I@016/0041 _TypeKind.Domain > As_TypeRef { get; set; }
-  public _TypeRef < I@016/0042 _TypeKind.Union > As_TypeRef { get; set; }
+  public _TypeRef As_TypeRef { get; set; }
+  public _TypeRef As_TypeRef { get; set; }
+  public _TypeRef As_TypeRef { get; set; }
+  public _TypeRef As_TypeRef { get; set; }
 }

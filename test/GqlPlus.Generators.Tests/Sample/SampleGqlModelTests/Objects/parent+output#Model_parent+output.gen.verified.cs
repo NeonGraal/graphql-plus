@@ -7,9 +7,12 @@
 namespace GqlTest.Model_parent_output;
 
 public interface IOutpPrnt
+  : IRefOutpPrnt
 {
 }
 public class OutputOutpPrnt
+  : OutputRefOutpPrnt
+  , IOutpPrnt
 {
 }
 
@@ -19,6 +22,7 @@ public interface IRefOutpPrnt
   String AsString { get; }
 }
 public class OutputRefOutpPrnt
+  : IRefOutpPrnt
 {
   public Number parent { get; set; }
   public String AsString { get; set; }

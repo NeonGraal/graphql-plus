@@ -11,5 +11,6 @@ public interface ICtgrDescr
 {
 }
 public class OutputCtgrDescr
+  : ICtgrDescr
 {
 }

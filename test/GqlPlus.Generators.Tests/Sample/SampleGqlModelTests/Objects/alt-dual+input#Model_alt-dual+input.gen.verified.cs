@@ -11,6 +11,7 @@ public interface IInpAltDual
   InpDualAltDual AsInpDualAltDual { get; }
 }
 public class InputInpAltDual
+  : IInpAltDual
 {
   public InpDualAltDual AsInpDualAltDual { get; set; }
 }
@@ -21,6 +22,7 @@ public interface IInpDualAltDual
   String AsString { get; }
 }
 public class DualInpDualAltDual
+  : IInpDualAltDual
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

@@ -11,7 +11,7 @@ union PrntUnionPrnt { Number }
 namespace GqlPlus.Model_Sample_union_parent;
 
 public interface IUnionPrnt
-  : IUnionPrnt
+  : IPrntUnionPrnt
 {
   String AsString { get; }
 }

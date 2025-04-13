@@ -11,6 +11,7 @@ public interface IOutpField
   String field { get; }
 }
 public class OutputOutpField
+  : IOutpField
 {
   public String field { get; set; }
 }

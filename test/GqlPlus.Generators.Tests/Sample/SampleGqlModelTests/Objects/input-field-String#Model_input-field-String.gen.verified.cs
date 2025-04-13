@@ -11,6 +11,7 @@ public interface IInpFieldStr
   String field { get; }
 }
 public class InputInpFieldStr
+  : IInpFieldStr
 {
   public String field { get; set; }
 }

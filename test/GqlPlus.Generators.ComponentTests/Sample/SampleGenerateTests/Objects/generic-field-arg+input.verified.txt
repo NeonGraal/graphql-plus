@@ -10,20 +10,22 @@ input RefInpGnrcFieldArg<$ref> { | $ref }
 
 namespace GqlPlus.Model_Sample_generic_field_arg_input;
 
-public interface IInpGnrcFieldArg
+public interface IInpGnrcFieldArg<Ttype>
 {
-  RefInpGnrcFieldArg < I@059/0001 $type > field { get; }
+  RefInpGnrcFieldArg field { get; }
 }
-public class InputInpGnrcFieldArg
+public class InputInpGnrcFieldArg<Ttype>
+  : IInpGnrcFieldArg<Ttype>
 {
-  public RefInpGnrcFieldArg < I@059/0001 $type > field { get; set; }
+  public RefInpGnrcFieldArg field { get; set; }
 }
 
-public interface IRefInpGnrcFieldArg
+public interface IRefInpGnrcFieldArg<Tref>
 {
-  $ref Asref { get; }
+  Tref Asref { get; }
 }
-public class InputRefInpGnrcFieldArg
+public class InputRefInpGnrcFieldArg<Tref>
+  : IRefInpGnrcFieldArg<Tref>
 {
-  public $ref Asref { get; set; }
+  public Tref Asref { get; set; }
 }

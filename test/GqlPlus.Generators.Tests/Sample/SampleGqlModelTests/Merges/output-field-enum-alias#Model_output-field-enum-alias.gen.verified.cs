@@ -12,6 +12,7 @@ public interface IOutpFieldEnumAlias
    Boolean { get; }
 }
 public class OutputOutpFieldEnumAlias
+  : IOutpFieldEnumAlias
 {
   public Boolean field { get; set; }
   public  Boolean { get; set; }

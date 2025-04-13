@@ -10,20 +10,24 @@ output RefOutpPrntParamSame<$a> { | $a }
 
 namespace GqlPlus.Model_Sample_parent_param_same_output;
 
-public interface IOutpPrntParamSame
+public interface IOutpPrntParamSame<Ta>
+  : IRefOutpPrntParamSame
 {
-  $a field { get; }
+  Ta field { get; }
 }
-public class OutputOutpPrntParamSame
+public class OutputOutpPrntParamSame<Ta>
+  : OutputRefOutpPrntParamSame
+  , IOutpPrntParamSame<Ta>
 {
-  public $a field { get; set; }
+  public Ta field { get; set; }
 }
 
-public interface IRefOutpPrntParamSame
+public interface IRefOutpPrntParamSame<Ta>
 {
-  $a Asa { get; }
+  Ta Asa { get; }
 }
-public class OutputRefOutpPrntParamSame
+public class OutputRefOutpPrntParamSame<Ta>
+  : IRefOutpPrntParamSame<Ta>
 {
-  public $a Asa { get; set; }
+  public Ta Asa { get; set; }
 }

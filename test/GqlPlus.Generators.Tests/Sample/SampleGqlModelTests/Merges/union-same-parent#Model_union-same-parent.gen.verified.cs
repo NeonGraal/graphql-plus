@@ -7,7 +7,7 @@
 namespace GqlTest.Model_union_same_parent;
 
 public interface IUnionSamePrnt
-  : IUnionSamePrnt
+  : IPrntUnionSamePrnt
 {
   Boolean AsBoolean { get; }
 }

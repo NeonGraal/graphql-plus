@@ -6,20 +6,22 @@
 
 namespace GqlTest.Model_generic_field_arg_dual;
 
-public interface IDualGnrcFieldArg
+public interface IDualGnrcFieldArg<Ttype>
 {
-  RefDualGnrcFieldArg < I@060/0001 $type > field { get; }
+  RefDualGnrcFieldArg field { get; }
 }
-public class DualDualGnrcFieldArg
+public class DualDualGnrcFieldArg<Ttype>
+  : IDualGnrcFieldArg<Ttype>
 {
-  public RefDualGnrcFieldArg < I@060/0001 $type > field { get; set; }
+  public RefDualGnrcFieldArg field { get; set; }
 }
 
-public interface IRefDualGnrcFieldArg
+public interface IRefDualGnrcFieldArg<Tref>
 {
-  $ref Asref { get; }
+  Tref Asref { get; }
 }
-public class DualRefDualGnrcFieldArg
+public class DualRefDualGnrcFieldArg<Tref>
+  : IRefDualGnrcFieldArg<Tref>
 {
-  public $ref Asref { get; set; }
+  public Tref Asref { get; set; }
 }

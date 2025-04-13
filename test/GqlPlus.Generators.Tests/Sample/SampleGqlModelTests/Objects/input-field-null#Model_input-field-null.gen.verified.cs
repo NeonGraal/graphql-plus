@@ -11,6 +11,7 @@ public interface IInpFieldNull
   FldInpFieldNull field { get; }
 }
 public class InputInpFieldNull
+  : IInpFieldNull
 {
   public FldInpFieldNull field { get; set; }
 }
@@ -19,5 +20,6 @@ public interface IFldInpFieldNull
 {
 }
 public class DualFldInpFieldNull
+  : IFldInpFieldNull
 {
 }

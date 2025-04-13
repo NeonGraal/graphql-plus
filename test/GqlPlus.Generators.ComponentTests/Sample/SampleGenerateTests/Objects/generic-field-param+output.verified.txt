@@ -13,20 +13,22 @@ namespace GqlPlus.Model_Sample_generic_field_param_output;
 
 public interface IOutpGnrcFieldParam
 {
-  RefOutpGnrcFieldParam < I@058/0001 AltOutpGnrcFieldParam > field { get; }
+  RefOutpGnrcFieldParam field { get; }
 }
 public class OutputOutpGnrcFieldParam
+  : IOutpGnrcFieldParam
 {
-  public RefOutpGnrcFieldParam < I@058/0001 AltOutpGnrcFieldParam > field { get; set; }
+  public RefOutpGnrcFieldParam field { get; set; }
 }
 
-public interface IRefOutpGnrcFieldParam
+public interface IRefOutpGnrcFieldParam<Tref>
 {
-  $ref Asref { get; }
+  Tref Asref { get; }
 }
-public class OutputRefOutpGnrcFieldParam
+public class OutputRefOutpGnrcFieldParam<Tref>
+  : IRefOutpGnrcFieldParam<Tref>
 {
-  public $ref Asref { get; set; }
+  public Tref Asref { get; set; }
 }
 
 public interface IAltOutpGnrcFieldParam
@@ -35,6 +37,7 @@ public interface IAltOutpGnrcFieldParam
   String AsString { get; }
 }
 public class OutputAltOutpGnrcFieldParam
+  : IAltOutpGnrcFieldParam
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

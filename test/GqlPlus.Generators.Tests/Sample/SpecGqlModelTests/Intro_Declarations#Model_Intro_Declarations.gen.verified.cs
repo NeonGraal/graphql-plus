@@ -7,6 +7,7 @@
 namespace GqlTest.Model_Intro_Declarations;
 
 public interface I_Schema
+  : I_Named
 {
   _Categories categories { get; }
   _Directives directives { get; }
@@ -14,6 +15,8 @@ public interface I_Schema
   _Setting settings { get; }
 }
 public class Output_Schema
+  : Output_Named
+  , I_Schema
 {
   public _Categories categories { get; set; }
   public _Directives directives { get; set; }
@@ -39,6 +42,7 @@ public interface I_Filter
   _NameFilter As_NameFilter { get; }
 }
 public class Input_Filter
+  : I_Filter
 {
   public _NameFilter names { get; set; }
   public Boolean matchAliases { get; set; }
@@ -57,19 +61,25 @@ public class Domain_NameFilter
 }
 
 public interface I_CategoryFilter
+  : I_Filter
 {
   _Resolution resolutions { get; }
 }
 public class Input_CategoryFilter
+  : Input_Filter
+  , I_CategoryFilter
 {
   public _Resolution resolutions { get; set; }
 }
 
 public interface I_TypeFilter
+  : I_Filter
 {
   _TypeKind kinds { get; }
 }
 public class Input_TypeFilter
+  : Input_Filter
+  , I_TypeFilter
 {
   public _TypeKind kinds { get; set; }
 }

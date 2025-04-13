@@ -10,20 +10,24 @@ input RefInpPrntParamSame<$a> { | $a }
 
 namespace GqlPlus.Model_Sample_parent_param_same_input;
 
-public interface IInpPrntParamSame
+public interface IInpPrntParamSame<Ta>
+  : IRefInpPrntParamSame
 {
-  $a field { get; }
+  Ta field { get; }
 }
-public class InputInpPrntParamSame
+public class InputInpPrntParamSame<Ta>
+  : InputRefInpPrntParamSame
+  , IInpPrntParamSame<Ta>
 {
-  public $a field { get; set; }
+  public Ta field { get; set; }
 }
 
-public interface IRefInpPrntParamSame
+public interface IRefInpPrntParamSame<Ta>
 {
-  $a Asa { get; }
+  Ta Asa { get; }
 }
-public class InputRefInpPrntParamSame
+public class InputRefInpPrntParamSame<Ta>
+  : IRefInpPrntParamSame<Ta>
 {
-  public $a Asa { get; set; }
+  public Ta Asa { get; set; }
 }

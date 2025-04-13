@@ -11,5 +11,6 @@ public interface ICtgr
 {
 }
 public class OutputCtgr
+  : ICtgr
 {
 }

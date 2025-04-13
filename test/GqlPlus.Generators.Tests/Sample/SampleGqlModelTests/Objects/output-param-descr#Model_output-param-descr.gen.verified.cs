@@ -11,6 +11,7 @@ public interface IOutpParamDescr
   FldOutpParamDescr field { get; }
 }
 public class OutputOutpParamDescr
+  : IOutpParamDescr
 {
   public FldOutpParamDescr field { get; set; }
 }
@@ -19,6 +20,7 @@ public interface IFldOutpParamDescr
 {
 }
 public class DualFldOutpParamDescr
+  : IFldOutpParamDescr
 {
 }
 
@@ -28,6 +30,7 @@ public interface IInOutpParamDescr
   String AsString { get; }
 }
 public class InputInOutpParamDescr
+  : IInOutpParamDescr
 {
   public Number param { get; set; }
   public String AsString { get; set; }

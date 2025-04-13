@@ -6,20 +6,22 @@
 
 namespace GqlTest.Model_generic_alt_arg_output;
 
-public interface IOutpGnrcAltArg
+public interface IOutpGnrcAltArg<Ttype>
 {
-  RefOutpGnrcAltArg < I@053/0001 $type > AsRefOutpGnrcAltArg { get; }
+  RefOutpGnrcAltArg AsRefOutpGnrcAltArg { get; }
 }
-public class OutputOutpGnrcAltArg
+public class OutputOutpGnrcAltArg<Ttype>
+  : IOutpGnrcAltArg<Ttype>
 {
-  public RefOutpGnrcAltArg < I@053/0001 $type > AsRefOutpGnrcAltArg { get; set; }
+  public RefOutpGnrcAltArg AsRefOutpGnrcAltArg { get; set; }
 }
 
-public interface IRefOutpGnrcAltArg
+public interface IRefOutpGnrcAltArg<Tref>
 {
-  $ref Asref { get; }
+  Tref Asref { get; }
 }
-public class OutputRefOutpGnrcAltArg
+public class OutputRefOutpGnrcAltArg<Tref>
+  : IRefOutpGnrcAltArg<Tref>
 {
-  public $ref Asref { get; set; }
+  public Tref Asref { get; set; }
 }

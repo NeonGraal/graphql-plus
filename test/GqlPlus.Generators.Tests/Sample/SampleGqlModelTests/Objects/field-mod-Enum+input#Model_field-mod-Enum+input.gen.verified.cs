@@ -11,6 +11,7 @@ public interface IInpFieldModEnum
   String field { get; }
 }
 public class InputInpFieldModEnum
+  : IInpFieldModEnum
 {
   public String field { get; set; }
 }

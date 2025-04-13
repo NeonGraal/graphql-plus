@@ -11,6 +11,7 @@ public interface IInpObjAlt
   InpObjAltType AsInpObjAltType { get; }
 }
 public class InputInpObjAlt
+  : IInpObjAlt
 {
   public InpObjAltType AsInpObjAltType { get; set; }
 }
@@ -19,5 +20,6 @@ public interface IInpObjAltType
 {
 }
 public class InputInpObjAltType
+  : IInpObjAltType
 {
 }

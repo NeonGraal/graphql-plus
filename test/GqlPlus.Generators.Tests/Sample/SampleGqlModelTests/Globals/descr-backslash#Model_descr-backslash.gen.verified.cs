@@ -10,5 +10,6 @@ public interface IDescrBcks
 {
 }
 public class OutputDescrBcks
+  : IDescrBcks
 {
 }

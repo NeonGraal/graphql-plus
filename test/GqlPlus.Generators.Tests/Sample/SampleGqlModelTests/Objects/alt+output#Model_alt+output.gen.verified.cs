@@ -11,6 +11,7 @@ public interface IOutpAlt
   AltOutpAlt AsAltOutpAlt { get; }
 }
 public class OutputOutpAlt
+  : IOutpAlt
 {
   public AltOutpAlt AsAltOutpAlt { get; set; }
 }
@@ -21,6 +22,7 @@ public interface IAltOutpAlt
   String AsString { get; }
 }
 public class OutputAltOutpAlt
+  : IAltOutpAlt
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

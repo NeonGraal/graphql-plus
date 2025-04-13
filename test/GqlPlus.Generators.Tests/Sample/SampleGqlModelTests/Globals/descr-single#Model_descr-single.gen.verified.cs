@@ -10,5 +10,6 @@ public interface IDescrSngl
 {
 }
 public class OutputDescrSngl
+  : IDescrSngl
 {
 }

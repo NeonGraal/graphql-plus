@@ -11,6 +11,7 @@ public interface IOutpAltDescr
   String AsString { get; }
 }
 public class OutputOutpAltDescr
+  : IOutpAltDescr
 {
   public String AsString { get; set; }
 }

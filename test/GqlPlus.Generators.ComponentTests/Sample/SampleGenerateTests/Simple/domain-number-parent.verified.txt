@@ -11,7 +11,7 @@ domain PrntDmnNmbrPrnt { Number <2 }
 namespace GqlPlus.Model_Sample_domain_number_parent;
 
 public interface IDmnNmbrPrnt
-  : IDmnNmbrPrnt
+  : IPrntDmnNmbrPrnt
 {
 }
 public class DomainDmnNmbrPrnt

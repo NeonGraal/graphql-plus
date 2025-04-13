@@ -11,6 +11,7 @@ public interface IInpAltModBool
   AltInpAltModBool AsAltInpAltModBool { get; }
 }
 public class InputInpAltModBool
+  : IInpAltModBool
 {
   public AltInpAltModBool AsAltInpAltModBool { get; set; }
 }
@@ -21,6 +22,7 @@ public interface IAltInpAltModBool
   String AsString { get; }
 }
 public class InputAltInpAltModBool
+  : IAltInpAltModBool
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

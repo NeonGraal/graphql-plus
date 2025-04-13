@@ -11,6 +11,7 @@ public interface IInpObjFieldAlias
   FldInpObjFieldAlias field { get; }
 }
 public class InputInpObjFieldAlias
+  : IInpObjFieldAlias
 {
   public FldInpObjFieldAlias field { get; set; }
 }
@@ -19,5 +20,6 @@ public interface IFldInpObjFieldAlias
 {
 }
 public class InputFldInpObjFieldAlias
+  : IFldInpObjFieldAlias
 {
 }

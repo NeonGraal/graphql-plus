@@ -10,5 +10,6 @@ public interface IDualObj
 {
 }
 public class DualDualObj
+  : IDualObj
 {
 }

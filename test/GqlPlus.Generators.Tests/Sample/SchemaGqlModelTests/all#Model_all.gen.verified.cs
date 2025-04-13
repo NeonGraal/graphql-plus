@@ -40,6 +40,7 @@ public interface IField
   String strings { get; }
 }
 public class DualField
+  : IField
 {
   public String strings { get; set; }
 }
@@ -51,6 +52,7 @@ public interface IParam
   String AsString { get; }
 }
 public class InputParam
+  : IParam
 {
   public Many afterId { get; set; }
   public Many beforeId { get; set; }
@@ -63,6 +65,7 @@ public interface IAll
   String AsString { get; }
 }
 public class OutputAll
+  : IAll
 {
   public Field items { get; set; }
   public String AsString { get; set; }

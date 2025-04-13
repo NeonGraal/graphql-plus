@@ -84,126 +84,166 @@ public enum _DomainKind
 
 public interface I_TypeDomain
 {
-  _BaseDomain < I@019/0004 _DomainKind.Boolean I@039/0004 _DomainTrueFalse I@056/0004 _DomainItemTrueFalse > As_BaseDomain { get; }
-  _BaseDomain < I@019/0005 _DomainKind.Enum I@036/0005 _DomainLabel I@049/0005 _DomainItemLabel > As_BaseDomain { get; }
-  _BaseDomain < I@019/0006 _DomainKind.Number I@038/0006 _DomainRange I@051/0006 _DomainItemRange > As_BaseDomain { get; }
-  _BaseDomain < I@019/0007 _DomainKind.String I@038/0007 _DomainRegex I@051/0007 _DomainItemRegex > As_BaseDomain { get; }
+  _BaseDomain As_BaseDomain { get; }
+  _BaseDomain As_BaseDomain { get; }
+  _BaseDomain As_BaseDomain { get; }
+  _BaseDomain As_BaseDomain { get; }
 }
 public class Output_TypeDomain
+  : I_TypeDomain
 {
-  public _BaseDomain < I@019/0004 _DomainKind.Boolean I@039/0004 _DomainTrueFalse I@056/0004 _DomainItemTrueFalse > As_BaseDomain { get; set; }
-  public _BaseDomain < I@019/0005 _DomainKind.Enum I@036/0005 _DomainLabel I@049/0005 _DomainItemLabel > As_BaseDomain { get; set; }
-  public _BaseDomain < I@019/0006 _DomainKind.Number I@038/0006 _DomainRange I@051/0006 _DomainItemRange > As_BaseDomain { get; set; }
-  public _BaseDomain < I@019/0007 _DomainKind.String I@038/0007 _DomainRegex I@051/0007 _DomainItemRegex > As_BaseDomain { get; set; }
+  public _BaseDomain As_BaseDomain { get; set; }
+  public _BaseDomain As_BaseDomain { get; set; }
+  public _BaseDomain As_BaseDomain { get; set; }
+  public _BaseDomain As_BaseDomain { get; set; }
 }
 
-public interface I_DomainRef
+public interface I_DomainRef<Tkind>
+  : I_TypeRef
 {
-  $kind domainKind { get; }
+  Tkind domainKind { get; }
 }
-public class Output_DomainRef
+public class Output_DomainRef<Tkind>
+  : Output_TypeRef
+  , I_DomainRef<Tkind>
 {
-  public $kind domainKind { get; set; }
+  public Tkind domainKind { get; set; }
 }
 
-public interface I_BaseDomain
+public interface I_BaseDomain<Tdomain,Titem,TdomainItem>
+  : I_ParentType
 {
-  $domain domainKind { get; }
+  Tdomain domainKind { get; }
 }
-public class Output_BaseDomain
+public class Output_BaseDomain<Tdomain,Titem,TdomainItem>
+  : Output_ParentType
+  , I_BaseDomain<Tdomain,Titem,TdomainItem>
 {
-  public $domain domainKind { get; set; }
+  public Tdomain domainKind { get; set; }
 }
 
 public interface I_BaseDomainItem
+  : I_Described
 {
   Boolean exclude { get; }
 }
 public class Dual_BaseDomainItem
+  : Dual_Described
+  , I_BaseDomainItem
 {
   public Boolean exclude { get; set; }
 }
 
-public interface I_DomainItem
+public interface I_DomainItem<Titem>
+  : Iitem
 {
   _Identifier domain { get; }
 }
-public class Output_DomainItem
+public class Output_DomainItem<Titem>
+  : Outputitem
+  , I_DomainItem<Titem>
 {
   public _Identifier domain { get; set; }
 }
 
-public interface I_DomainValue
+public interface I_DomainValue<Tkind,Tvalue>
+  : I_DomainRef
 {
-  $value value { get; }
+  Tvalue value { get; }
 }
-public class Output_DomainValue
+public class Output_DomainValue<Tkind,Tvalue>
+  : Output_DomainRef
+  , I_DomainValue<Tkind,Tvalue>
 {
-  public $value value { get; set; }
+  public Tvalue value { get; set; }
 }
 
 public interface I_DomainTrueFalse
+  : I_BaseDomainItem
 {
   Boolean value { get; }
 }
 public class Dual_DomainTrueFalse
+  : Dual_BaseDomainItem
+  , I_DomainTrueFalse
 {
   public Boolean value { get; set; }
 }
 
 public interface I_DomainItemTrueFalse
+  : I_DomainItem
 {
 }
 public class Output_DomainItemTrueFalse
+  : Output_DomainItem
+  , I_DomainItemTrueFalse
 {
 }
 
 public interface I_DomainLabel
+  : I_BaseDomainItem
 {
   _EnumValue label { get; }
 }
 public class Output_DomainLabel
+  : Output_BaseDomainItem
+  , I_DomainLabel
 {
   public _EnumValue label { get; set; }
 }
 
 public interface I_DomainItemLabel
+  : I_DomainItem
 {
 }
 public class Output_DomainItemLabel
+  : Output_DomainItem
+  , I_DomainItemLabel
 {
 }
 
 public interface I_DomainRange
+  : I_BaseDomainItem
 {
   Number lower { get; }
   Number upper { get; }
 }
 public class Dual_DomainRange
+  : Dual_BaseDomainItem
+  , I_DomainRange
 {
   public Number lower { get; set; }
   public Number upper { get; set; }
 }
 
 public interface I_DomainItemRange
+  : I_DomainItem
 {
 }
 public class Output_DomainItemRange
+  : Output_DomainItem
+  , I_DomainItemRange
 {
 }
 
 public interface I_DomainRegex
+  : I_BaseDomainItem
 {
   String pattern { get; }
 }
 public class Dual_DomainRegex
+  : Dual_BaseDomainItem
+  , I_DomainRegex
 {
   public String pattern { get; set; }
 }
 
 public interface I_DomainItemRegex
+  : I_DomainItem
 {
 }
 public class Output_DomainItemRegex
+  : Output_DomainItem
+  , I_DomainItemRegex
 {
 }

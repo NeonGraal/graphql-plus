@@ -11,6 +11,7 @@ public interface IInpAlt
   AltInpAlt AsAltInpAlt { get; }
 }
 public class InputInpAlt
+  : IInpAlt
 {
   public AltInpAlt AsAltInpAlt { get; set; }
 }
@@ -21,6 +22,7 @@ public interface IAltInpAlt
   String AsString { get; }
 }
 public class InputAltInpAlt
+  : IAltInpAlt
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

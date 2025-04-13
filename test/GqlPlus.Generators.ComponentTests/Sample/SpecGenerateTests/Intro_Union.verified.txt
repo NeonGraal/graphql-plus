@@ -21,24 +21,33 @@ output _UnionMember {
 namespace GqlPlus.Model_Spec_Intro_Union;
 
 public interface I_TypeUnion
+  : I_ParentType
 {
 }
 public class Output_TypeUnion
+  : Output_ParentType
+  , I_TypeUnion
 {
 }
 
 public interface I_UnionRef
+  : I_TypeRef
 {
 }
 public class Output_UnionRef
+  : Output_TypeRef
+  , I_UnionRef
 {
 }
 
 public interface I_UnionMember
+  : I_UnionRef
 {
   _Identifier union { get; }
 }
 public class Output_UnionMember
+  : Output_UnionRef
+  , I_UnionMember
 {
   public _Identifier union { get; set; }
 }

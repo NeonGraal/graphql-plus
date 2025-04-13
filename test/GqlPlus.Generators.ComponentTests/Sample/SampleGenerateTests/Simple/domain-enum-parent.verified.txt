@@ -12,7 +12,7 @@ enum EnumDmnEnumPrnt { enum_dmnEnumPrnt prnt_dmnEnumPrnt }
 namespace GqlPlus.Model_Sample_domain_enum_parent;
 
 public interface IDmnEnumPrnt
-  : IDmnEnumPrnt
+  : IPrntDmnEnumPrnt
 {
 }
 public class DomainDmnEnumPrnt

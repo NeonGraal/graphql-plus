@@ -10,5 +10,6 @@ public interface IInpObjAlias
 {
 }
 public class InputInpObjAlias
+  : IInpObjAlias
 {
 }

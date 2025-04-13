@@ -7,19 +7,23 @@
 namespace GqlTest.Model_generic_parent_param_dual;
 
 public interface IDualGnrcPrntParam
+  : IRefDualGnrcPrntParam
 {
 }
 public class DualDualGnrcPrntParam
+  : DualRefDualGnrcPrntParam
+  , IDualGnrcPrntParam
 {
 }
 
-public interface IRefDualGnrcPrntParam
+public interface IRefDualGnrcPrntParam<Tref>
 {
-  $ref Asref { get; }
+  Tref Asref { get; }
 }
-public class DualRefDualGnrcPrntParam
+public class DualRefDualGnrcPrntParam<Tref>
+  : IRefDualGnrcPrntParam<Tref>
 {
-  public $ref Asref { get; set; }
+  public Tref Asref { get; set; }
 }
 
 public interface IAltDualGnrcPrntParam
@@ -28,6 +32,7 @@ public interface IAltDualGnrcPrntParam
   String AsString { get; }
 }
 public class DualAltDualGnrcPrntParam
+  : IAltDualGnrcPrntParam
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

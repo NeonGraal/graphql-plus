@@ -11,6 +11,7 @@ public interface IOutpAltSmpl
   String AsString { get; }
 }
 public class OutputOutpAltSmpl
+  : IOutpAltSmpl
 {
   public String AsString { get; set; }
 }

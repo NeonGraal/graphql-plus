@@ -11,6 +11,7 @@ public interface IInpFieldTypeDescr
   Number field { get; }
 }
 public class InputInpFieldTypeDescr
+  : IInpFieldTypeDescr
 {
   public Number field { get; set; }
 }

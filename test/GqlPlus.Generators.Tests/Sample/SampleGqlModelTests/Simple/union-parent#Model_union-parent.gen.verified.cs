@@ -7,7 +7,7 @@
 namespace GqlTest.Model_union_parent;
 
 public interface IUnionPrnt
-  : IUnionPrnt
+  : IPrntUnionPrnt
 {
   String AsString { get; }
 }

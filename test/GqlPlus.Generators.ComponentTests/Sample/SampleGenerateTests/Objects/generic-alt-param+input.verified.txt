@@ -13,20 +13,22 @@ namespace GqlPlus.Model_Sample_generic_alt_param_input;
 
 public interface IInpGnrcAltParam
 {
-  RefInpGnrcAltParam < I@046/0001 AltInpGnrcAltParam > AsRefInpGnrcAltParam { get; }
+  RefInpGnrcAltParam AsRefInpGnrcAltParam { get; }
 }
 public class InputInpGnrcAltParam
+  : IInpGnrcAltParam
 {
-  public RefInpGnrcAltParam < I@046/0001 AltInpGnrcAltParam > AsRefInpGnrcAltParam { get; set; }
+  public RefInpGnrcAltParam AsRefInpGnrcAltParam { get; set; }
 }
 
-public interface IRefInpGnrcAltParam
+public interface IRefInpGnrcAltParam<Tref>
 {
-  $ref Asref { get; }
+  Tref Asref { get; }
 }
-public class InputRefInpGnrcAltParam
+public class InputRefInpGnrcAltParam<Tref>
+  : IRefInpGnrcAltParam<Tref>
 {
-  public $ref Asref { get; set; }
+  public Tref Asref { get; set; }
 }
 
 public interface IAltInpGnrcAltParam
@@ -35,6 +37,7 @@ public interface IAltInpGnrcAltParam
   String AsString { get; }
 }
 public class InputAltInpGnrcAltParam
+  : IAltInpGnrcAltParam
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

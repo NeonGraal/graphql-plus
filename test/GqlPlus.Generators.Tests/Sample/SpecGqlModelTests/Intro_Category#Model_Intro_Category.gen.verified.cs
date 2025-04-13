@@ -14,6 +14,7 @@ public interface I_Categories
   _Type As_Type { get; }
 }
 public class Output_Categories
+  : I_Categories
 {
   public _Category category { get; set; }
   public _Type type { get; set; }
@@ -22,15 +23,18 @@ public class Output_Categories
 }
 
 public interface I_Category
+  : I_Aliased
 {
   _Resolution resolution { get; }
-  _TypeRef < I@026/0011 _TypeKind.Output > output { get; }
+  _TypeRef output { get; }
   _Modifiers modifiers { get; }
 }
 public class Output_Category
+  : Output_Aliased
+  , I_Category
 {
   public _Resolution resolution { get; set; }
-  public _TypeRef < I@026/0011 _TypeKind.Output > output { get; set; }
+  public _TypeRef output { get; set; }
   public _Modifiers modifiers { get; set; }
 }
 

@@ -8,20 +8,22 @@ namespace GqlTest.Model_generic_alt_dual_input;
 
 public interface IInpGnrcAltDual
 {
-  RefInpGnrcAltDual < I@044/0001 AltInpGnrcAltDual > AsRefInpGnrcAltDual { get; }
+  RefInpGnrcAltDual AsRefInpGnrcAltDual { get; }
 }
 public class InputInpGnrcAltDual
+  : IInpGnrcAltDual
 {
-  public RefInpGnrcAltDual < I@044/0001 AltInpGnrcAltDual > AsRefInpGnrcAltDual { get; set; }
+  public RefInpGnrcAltDual AsRefInpGnrcAltDual { get; set; }
 }
 
-public interface IRefInpGnrcAltDual
+public interface IRefInpGnrcAltDual<Tref>
 {
-  $ref Asref { get; }
+  Tref Asref { get; }
 }
-public class InputRefInpGnrcAltDual
+public class InputRefInpGnrcAltDual<Tref>
+  : IRefInpGnrcAltDual<Tref>
 {
-  public $ref Asref { get; set; }
+  public Tref Asref { get; set; }
 }
 
 public interface IAltInpGnrcAltDual
@@ -30,6 +32,7 @@ public interface IAltInpGnrcAltDual
   String AsString { get; }
 }
 public class DualAltInpGnrcAltDual
+  : IAltInpGnrcAltDual
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

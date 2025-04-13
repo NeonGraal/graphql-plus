@@ -6,20 +6,24 @@
 
 namespace GqlTest.Model_parent_param_diff_output;
 
-public interface IOutpPrntParamDiff
+public interface IOutpPrntParamDiff<Ta>
+  : IRefOutpPrntParamDiff
 {
-  $a field { get; }
+  Ta field { get; }
 }
-public class OutputOutpPrntParamDiff
+public class OutputOutpPrntParamDiff<Ta>
+  : OutputRefOutpPrntParamDiff
+  , IOutpPrntParamDiff<Ta>
 {
-  public $a field { get; set; }
+  public Ta field { get; set; }
 }
 
-public interface IRefOutpPrntParamDiff
+public interface IRefOutpPrntParamDiff<Tb>
 {
-  $b Asb { get; }
+  Tb Asb { get; }
 }
-public class OutputRefOutpPrntParamDiff
+public class OutputRefOutpPrntParamDiff<Tb>
+  : IRefOutpPrntParamDiff<Tb>
 {
-  public $b Asb { get; set; }
+  public Tb Asb { get; set; }
 }

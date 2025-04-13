@@ -11,6 +11,7 @@ public interface IDualObjAlt
   DualObjAltType AsDualObjAltType { get; }
 }
 public class DualDualObjAlt
+  : IDualObjAlt
 {
   public DualObjAltType AsDualObjAltType { get; set; }
 }
@@ -19,5 +20,6 @@ public interface IDualObjAltType
 {
 }
 public class DualDualObjAltType
+  : IDualObjAltType
 {
 }

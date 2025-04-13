@@ -6,11 +6,12 @@
 
 namespace GqlTest.Model_alt_mod_param_input;
 
-public interface IInpAltModParam
+public interface IInpAltModParam<Tmod>
 {
   AltInpAltModParam AsAltInpAltModParam { get; }
 }
-public class InputInpAltModParam
+public class InputInpAltModParam<Tmod>
+  : IInpAltModParam<Tmod>
 {
   public AltInpAltModParam AsAltInpAltModParam { get; set; }
 }
@@ -21,6 +22,7 @@ public interface IAltInpAltModParam
   String AsString { get; }
 }
 public class InputAltInpAltModParam
+  : IAltInpAltModParam
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

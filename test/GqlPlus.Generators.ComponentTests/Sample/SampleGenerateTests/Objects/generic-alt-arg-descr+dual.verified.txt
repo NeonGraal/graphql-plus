@@ -10,20 +10,22 @@ dual RefDualGnrcAltArgDescr<$ref> { | $ref }
 
 namespace GqlPlus.Model_Sample_generic_alt_arg_descr_dual;
 
-public interface IDualGnrcAltArgDescr
+public interface IDualGnrcAltArgDescr<Ttype>
 {
-  RefDualGnrcAltArgDescr < 'Test Descr' I@075/0001 $type > AsRefDualGnrcAltArgDescr { get; }
+  RefDualGnrcAltArgDescr AsRefDualGnrcAltArgDescr { get; }
 }
-public class DualDualGnrcAltArgDescr
+public class DualDualGnrcAltArgDescr<Ttype>
+  : IDualGnrcAltArgDescr<Ttype>
 {
-  public RefDualGnrcAltArgDescr < 'Test Descr' I@075/0001 $type > AsRefDualGnrcAltArgDescr { get; set; }
+  public RefDualGnrcAltArgDescr AsRefDualGnrcAltArgDescr { get; set; }
 }
 
-public interface IRefDualGnrcAltArgDescr
+public interface IRefDualGnrcAltArgDescr<Tref>
 {
-  $ref Asref { get; }
+  Tref Asref { get; }
 }
-public class DualRefDualGnrcAltArgDescr
+public class DualRefDualGnrcAltArgDescr<Tref>
+  : IRefDualGnrcAltArgDescr<Tref>
 {
-  public $ref Asref { get; set; }
+  public Tref Asref { get; set; }
 }

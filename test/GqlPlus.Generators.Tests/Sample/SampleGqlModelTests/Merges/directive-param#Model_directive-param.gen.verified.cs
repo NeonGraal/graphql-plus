@@ -11,5 +11,6 @@ public interface IInDrctParam
 {
 }
 public class InputInDrctParam
+  : IInDrctParam
 {
 }

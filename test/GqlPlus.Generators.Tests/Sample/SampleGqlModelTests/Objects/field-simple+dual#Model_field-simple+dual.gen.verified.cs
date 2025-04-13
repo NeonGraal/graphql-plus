@@ -11,6 +11,7 @@ public interface IDualFieldSmpl
   Number field { get; }
 }
 public class DualDualFieldSmpl
+  : IDualFieldSmpl
 {
   public Number field { get; set; }
 }

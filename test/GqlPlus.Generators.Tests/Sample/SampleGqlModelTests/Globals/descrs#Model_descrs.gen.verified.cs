@@ -10,5 +10,6 @@ public interface IDscrs
 {
 }
 public class OutputDscrs
+  : IDscrs
 {
 }

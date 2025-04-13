@@ -21,7 +21,7 @@ internal abstract class GenerateForSimple<T>
     base.TypeHeader(ast, context);
 
     if (!string.IsNullOrWhiteSpace(ast.Parent)) {
-      context.AppendLine("  : I" + ast.Name);
+      context.AppendLine("  : I" + ast.Parent);
     }
   }
 }

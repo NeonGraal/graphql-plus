@@ -11,6 +11,7 @@ public interface IDualFieldObj
   FldDualFieldObj field { get; }
 }
 public class DualDualFieldObj
+  : IDualFieldObj
 {
   public FldDualFieldObj field { get; set; }
 }
@@ -21,6 +22,7 @@ public interface IFldDualFieldObj
   String AsString { get; }
 }
 public class DualFldDualFieldObj
+  : IFldDualFieldObj
 {
   public Number field { get; set; }
   public String AsString { get; set; }

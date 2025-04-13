@@ -13,6 +13,7 @@ public interface I_Constant
   _ConstantMap As_ConstantMap { get; }
 }
 public class Output_Constant
+  : I_Constant
 {
   public _Simple As_Simple { get; set; }
   public _ConstantList As_ConstantList { get; set; }
@@ -22,15 +23,16 @@ public class Output_Constant
 public interface I_Simple
 {
   Boolean AsBoolean { get; }
-  _DomainValue < I@020/0009 _DomainKind.Number I@039/0009 Number > As_DomainValue { get; }
-  _DomainValue < I@020/0010 _DomainKind.String I@039/0010 String > As_DomainValue { get; }
+  _DomainValue As_DomainValue { get; }
+  _DomainValue As_DomainValue { get; }
   _EnumValue As_EnumValue { get; }
 }
 public class Output_Simple
+  : I_Simple
 {
   public Boolean AsBoolean { get; set; }
-  public _DomainValue < I@020/0009 _DomainKind.Number I@039/0009 Number > As_DomainValue { get; set; }
-  public _DomainValue < I@020/0010 _DomainKind.String I@039/0010 String > As_DomainValue { get; set; }
+  public _DomainValue As_DomainValue { get; set; }
+  public _DomainValue As_DomainValue { get; set; }
   public _EnumValue As_EnumValue { get; set; }
 }
 
@@ -39,6 +41,7 @@ public interface I_ConstantList
   _Constant As_Constant { get; }
 }
 public class Output_ConstantList
+  : I_ConstantList
 {
   public _Constant As_Constant { get; set; }
 }
@@ -48,29 +51,34 @@ public interface I_ConstantMap
   _Constant As_Constant { get; }
 }
 public class Output_ConstantMap
+  : I_ConstantMap
 {
   public _Constant As_Constant { get; set; }
 }
 
 public interface I_Collections
 {
-  _Modifier < I@017/0023 _ModifierKind.List > As_Modifier { get; }
-  _ModifierKeyed < I@022/0024 _ModifierKind.Dictionary > As_ModifierKeyed { get; }
-  _ModifierKeyed < I@022/0025 _ModifierKind.TypeParam > As_ModifierKeyed { get; }
+  _Modifier As_Modifier { get; }
+  _ModifierKeyed As_ModifierKeyed { get; }
+  _ModifierKeyed As_ModifierKeyed { get; }
 }
 public class Output_Collections
+  : I_Collections
 {
-  public _Modifier < I@017/0023 _ModifierKind.List > As_Modifier { get; set; }
-  public _ModifierKeyed < I@022/0024 _ModifierKind.Dictionary > As_ModifierKeyed { get; set; }
-  public _ModifierKeyed < I@022/0025 _ModifierKind.TypeParam > As_ModifierKeyed { get; set; }
+  public _Modifier As_Modifier { get; set; }
+  public _ModifierKeyed As_ModifierKeyed { get; set; }
+  public _ModifierKeyed As_ModifierKeyed { get; set; }
 }
 
-public interface I_ModifierKeyed
+public interface I_ModifierKeyed<Tkind>
+  : I_Modifier
 {
   _TypeSimple by { get; }
   Boolean optional { get; }
 }
-public class Output_ModifierKeyed
+public class Output_ModifierKeyed<Tkind>
+  : Output_Modifier
+  , I_ModifierKeyed<Tkind>
 {
   public _TypeSimple by { get; set; }
   public Boolean optional { get; set; }
@@ -78,12 +86,13 @@ public class Output_ModifierKeyed
 
 public interface I_Modifiers
 {
-  _Modifier < I@017/0035 _ModifierKind.Optional > As_Modifier { get; }
+  _Modifier As_Modifier { get; }
   _Collections As_Collections { get; }
 }
 public class Output_Modifiers
+  : I_Modifiers
 {
-  public _Modifier < I@017/0035 _ModifierKind.Optional > As_Modifier { get; set; }
+  public _Modifier As_Modifier { get; set; }
   public _Collections As_Collections { get; set; }
 }
 
@@ -98,11 +107,12 @@ public enum _ModifierKind
   TypeParam = Param,
 }
 
-public interface I_Modifier
+public interface I_Modifier<Tkind>
 {
-  $kind modifierKind { get; }
+  Tkind modifierKind { get; }
 }
-public class Output_Modifier
+public class Output_Modifier<Tkind>
+  : I_Modifier<Tkind>
 {
-  public $kind modifierKind { get; set; }
+  public Tkind modifierKind { get; set; }
 }

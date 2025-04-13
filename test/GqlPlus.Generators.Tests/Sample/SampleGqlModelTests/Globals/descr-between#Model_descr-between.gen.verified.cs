@@ -11,5 +11,6 @@ public interface IDescrBtwn
 {
 }
 public class OutputDescrBtwn
+  : IDescrBtwn
 {
 }

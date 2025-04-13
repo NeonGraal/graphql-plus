@@ -11,6 +11,7 @@ public interface IInpAltSmpl
   String AsString { get; }
 }
 public class InputInpAltSmpl
+  : IInpAltSmpl
 {
   public String AsString { get; set; }
 }

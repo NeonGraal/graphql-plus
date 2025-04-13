@@ -7,7 +7,7 @@
 namespace GqlTest.Model_union_parent_dup;
 
 public interface IUnionPrntDup
-  : IUnionPrntDup
+  : IPrntUnionPrntDup
 {
   Number AsNumber { get; }
 }

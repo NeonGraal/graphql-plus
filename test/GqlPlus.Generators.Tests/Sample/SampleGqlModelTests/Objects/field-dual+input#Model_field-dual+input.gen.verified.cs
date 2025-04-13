@@ -11,6 +11,7 @@ public interface IInpFieldDual
   FldInpFieldDual field { get; }
 }
 public class InputInpFieldDual
+  : IInpFieldDual
 {
   public FldInpFieldDual field { get; set; }
 }
@@ -21,6 +22,7 @@ public interface IFldInpFieldDual
   String AsString { get; }
 }
 public class DualFldInpFieldDual
+  : IFldInpFieldDual
 {
   public Number field { get; set; }
   public String AsString { get; set; }

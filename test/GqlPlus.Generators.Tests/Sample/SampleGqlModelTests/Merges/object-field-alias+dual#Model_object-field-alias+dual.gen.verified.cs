@@ -11,6 +11,7 @@ public interface IDualObjFieldAlias
   FldDualObjFieldAlias field { get; }
 }
 public class DualDualObjFieldAlias
+  : IDualObjFieldAlias
 {
   public FldDualObjFieldAlias field { get; set; }
 }
@@ -19,5 +20,6 @@ public interface IFldDualObjFieldAlias
 {
 }
 public class DualFldDualObjFieldAlias
+  : IFldDualObjFieldAlias
 {
 }

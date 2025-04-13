@@ -6,20 +6,22 @@
 
 namespace GqlTest.Model_generic_field_arg_output;
 
-public interface IOutpGnrcFieldArg
+public interface IOutpGnrcFieldArg<Ttype>
 {
-  RefOutpGnrcFieldArg < I@062/0001 $type > field { get; }
+  RefOutpGnrcFieldArg field { get; }
 }
-public class OutputOutpGnrcFieldArg
+public class OutputOutpGnrcFieldArg<Ttype>
+  : IOutpGnrcFieldArg<Ttype>
 {
-  public RefOutpGnrcFieldArg < I@062/0001 $type > field { get; set; }
+  public RefOutpGnrcFieldArg field { get; set; }
 }
 
-public interface IRefOutpGnrcFieldArg
+public interface IRefOutpGnrcFieldArg<Tref>
 {
-  $ref Asref { get; }
+  Tref Asref { get; }
 }
-public class OutputRefOutpGnrcFieldArg
+public class OutputRefOutpGnrcFieldArg<Tref>
+  : IRefOutpGnrcFieldArg<Tref>
 {
-  public $ref Asref { get; set; }
+  public Tref Asref { get; set; }
 }

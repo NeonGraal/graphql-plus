@@ -8,12 +8,12 @@ namespace GqlTest.Model_generic_alt_dual_dual;
 
 public interface IDualGnrcAltDual
 {
-  RefDualGnrcAltDual AsRefDualGnrcAltDual { get; }
+  RefDualGnrcAltDual<AltDualGnrcAltDual> AsRefDualGnrcAltDual { get; }
 }
 public class DualDualGnrcAltDual
   : IDualGnrcAltDual
 {
-  public RefDualGnrcAltDual AsRefDualGnrcAltDual { get; set; }
+  public RefDualGnrcAltDual<AltDualGnrcAltDual> AsRefDualGnrcAltDual { get; set; }
 }
 
 public interface IRefDualGnrcAltDual<Tref>

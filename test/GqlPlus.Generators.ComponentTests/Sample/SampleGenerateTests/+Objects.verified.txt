@@ -724,12 +724,12 @@ public class OutputOutpGnrcAlt<Ttype>
 
 public interface IDualGnrcAltArg<Ttype>
 {
-  RefDualGnrcAltArg AsRefDualGnrcAltArg { get; }
+  RefDualGnrcAltArg<Ttype> AsRefDualGnrcAltArg { get; }
 }
 public class DualDualGnrcAltArg<Ttype>
   : IDualGnrcAltArg<Ttype>
 {
-  public RefDualGnrcAltArg AsRefDualGnrcAltArg { get; set; }
+  public RefDualGnrcAltArg<Ttype> AsRefDualGnrcAltArg { get; set; }
 }
 
 public interface IRefDualGnrcAltArg<Tref>
@@ -744,12 +744,12 @@ public class DualRefDualGnrcAltArg<Tref>
 
 public interface IInpGnrcAltArg<Ttype>
 {
-  RefInpGnrcAltArg AsRefInpGnrcAltArg { get; }
+  RefInpGnrcAltArg<Ttype> AsRefInpGnrcAltArg { get; }
 }
 public class InputInpGnrcAltArg<Ttype>
   : IInpGnrcAltArg<Ttype>
 {
-  public RefInpGnrcAltArg AsRefInpGnrcAltArg { get; set; }
+  public RefInpGnrcAltArg<Ttype> AsRefInpGnrcAltArg { get; set; }
 }
 
 public interface IRefInpGnrcAltArg<Tref>
@@ -764,12 +764,12 @@ public class InputRefInpGnrcAltArg<Tref>
 
 public interface IOutpGnrcAltArg<Ttype>
 {
-  RefOutpGnrcAltArg AsRefOutpGnrcAltArg { get; }
+  RefOutpGnrcAltArg<Ttype> AsRefOutpGnrcAltArg { get; }
 }
 public class OutputOutpGnrcAltArg<Ttype>
   : IOutpGnrcAltArg<Ttype>
 {
-  public RefOutpGnrcAltArg AsRefOutpGnrcAltArg { get; set; }
+  public RefOutpGnrcAltArg<Ttype> AsRefOutpGnrcAltArg { get; set; }
 }
 
 public interface IRefOutpGnrcAltArg<Tref>
@@ -784,12 +784,12 @@ public class OutputRefOutpGnrcAltArg<Tref>
 
 public interface IDualGnrcAltArgDescr<Ttype>
 {
-  RefDualGnrcAltArgDescr AsRefDualGnrcAltArgDescr { get; }
+  RefDualGnrcAltArgDescr<Ttype> AsRefDualGnrcAltArgDescr { get; }
 }
 public class DualDualGnrcAltArgDescr<Ttype>
   : IDualGnrcAltArgDescr<Ttype>
 {
-  public RefDualGnrcAltArgDescr AsRefDualGnrcAltArgDescr { get; set; }
+  public RefDualGnrcAltArgDescr<Ttype> AsRefDualGnrcAltArgDescr { get; set; }
 }
 
 public interface IRefDualGnrcAltArgDescr<Tref>
@@ -804,12 +804,12 @@ public class DualRefDualGnrcAltArgDescr<Tref>
 
 public interface IInpGnrcAltArgDescr<Ttype>
 {
-  RefInpGnrcAltArgDescr AsRefInpGnrcAltArgDescr { get; }
+  RefInpGnrcAltArgDescr<Ttype> AsRefInpGnrcAltArgDescr { get; }
 }
 public class InputInpGnrcAltArgDescr<Ttype>
   : IInpGnrcAltArgDescr<Ttype>
 {
-  public RefInpGnrcAltArgDescr AsRefInpGnrcAltArgDescr { get; set; }
+  public RefInpGnrcAltArgDescr<Ttype> AsRefInpGnrcAltArgDescr { get; set; }
 }
 
 public interface IRefInpGnrcAltArgDescr<Tref>
@@ -824,12 +824,12 @@ public class InputRefInpGnrcAltArgDescr<Tref>
 
 public interface IOutpGnrcAltArgDescr<Ttype>
 {
-  RefOutpGnrcAltArgDescr AsRefOutpGnrcAltArgDescr { get; }
+  RefOutpGnrcAltArgDescr<Ttype> AsRefOutpGnrcAltArgDescr { get; }
 }
 public class OutputOutpGnrcAltArgDescr<Ttype>
   : IOutpGnrcAltArgDescr<Ttype>
 {
-  public RefOutpGnrcAltArgDescr AsRefOutpGnrcAltArgDescr { get; set; }
+  public RefOutpGnrcAltArgDescr<Ttype> AsRefOutpGnrcAltArgDescr { get; set; }
 }
 
 public interface IRefOutpGnrcAltArgDescr<Tref>
@@ -844,12 +844,12 @@ public class OutputRefOutpGnrcAltArgDescr<Tref>
 
 public interface IDualGnrcAltDual
 {
-  RefDualGnrcAltDual AsRefDualGnrcAltDual { get; }
+  RefDualGnrcAltDual<AltDualGnrcAltDual> AsRefDualGnrcAltDual { get; }
 }
 public class DualDualGnrcAltDual
   : IDualGnrcAltDual
 {
-  public RefDualGnrcAltDual AsRefDualGnrcAltDual { get; set; }
+  public RefDualGnrcAltDual<AltDualGnrcAltDual> AsRefDualGnrcAltDual { get; set; }
 }
 
 public interface IRefDualGnrcAltDual<Tref>
@@ -876,12 +876,12 @@ public class DualAltDualGnrcAltDual
 
 public interface IInpGnrcAltDual
 {
-  RefInpGnrcAltDual AsRefInpGnrcAltDual { get; }
+  RefInpGnrcAltDual<AltInpGnrcAltDual> AsRefInpGnrcAltDual { get; }
 }
 public class InputInpGnrcAltDual
   : IInpGnrcAltDual
 {
-  public RefInpGnrcAltDual AsRefInpGnrcAltDual { get; set; }
+  public RefInpGnrcAltDual<AltInpGnrcAltDual> AsRefInpGnrcAltDual { get; set; }
 }
 
 public interface IRefInpGnrcAltDual<Tref>
@@ -908,12 +908,12 @@ public class DualAltInpGnrcAltDual
 
 public interface IOutpGnrcAltDual
 {
-  RefOutpGnrcAltDual AsRefOutpGnrcAltDual { get; }
+  RefOutpGnrcAltDual<AltOutpGnrcAltDual> AsRefOutpGnrcAltDual { get; }
 }
 public class OutputOutpGnrcAltDual
   : IOutpGnrcAltDual
 {
-  public RefOutpGnrcAltDual AsRefOutpGnrcAltDual { get; set; }
+  public RefOutpGnrcAltDual<AltOutpGnrcAltDual> AsRefOutpGnrcAltDual { get; set; }
 }
 
 public interface IRefOutpGnrcAltDual<Tref>
@@ -940,12 +940,12 @@ public class DualAltOutpGnrcAltDual
 
 public interface IDualGnrcAltParam
 {
-  RefDualGnrcAltParam AsRefDualGnrcAltParam { get; }
+  RefDualGnrcAltParam<AltDualGnrcAltParam> AsRefDualGnrcAltParam { get; }
 }
 public class DualDualGnrcAltParam
   : IDualGnrcAltParam
 {
-  public RefDualGnrcAltParam AsRefDualGnrcAltParam { get; set; }
+  public RefDualGnrcAltParam<AltDualGnrcAltParam> AsRefDualGnrcAltParam { get; set; }
 }
 
 public interface IRefDualGnrcAltParam<Tref>
@@ -972,12 +972,12 @@ public class DualAltDualGnrcAltParam
 
 public interface IInpGnrcAltParam
 {
-  RefInpGnrcAltParam AsRefInpGnrcAltParam { get; }
+  RefInpGnrcAltParam<AltInpGnrcAltParam> AsRefInpGnrcAltParam { get; }
 }
 public class InputInpGnrcAltParam
   : IInpGnrcAltParam
 {
-  public RefInpGnrcAltParam AsRefInpGnrcAltParam { get; set; }
+  public RefInpGnrcAltParam<AltInpGnrcAltParam> AsRefInpGnrcAltParam { get; set; }
 }
 
 public interface IRefInpGnrcAltParam<Tref>
@@ -1004,12 +1004,12 @@ public class InputAltInpGnrcAltParam
 
 public interface IOutpGnrcAltParam
 {
-  RefOutpGnrcAltParam AsRefOutpGnrcAltParam { get; }
+  RefOutpGnrcAltParam<AltOutpGnrcAltParam> AsRefOutpGnrcAltParam { get; }
 }
 public class OutputOutpGnrcAltParam
   : IOutpGnrcAltParam
 {
-  public RefOutpGnrcAltParam AsRefOutpGnrcAltParam { get; set; }
+  public RefOutpGnrcAltParam<AltOutpGnrcAltParam> AsRefOutpGnrcAltParam { get; set; }
 }
 
 public interface IRefOutpGnrcAltParam<Tref>
@@ -1036,12 +1036,12 @@ public class OutputAltOutpGnrcAltParam
 
 public interface IDualGnrcAltSmpl
 {
-  RefDualGnrcAltSmpl AsRefDualGnrcAltSmpl { get; }
+  RefDualGnrcAltSmpl<String> AsRefDualGnrcAltSmpl { get; }
 }
 public class DualDualGnrcAltSmpl
   : IDualGnrcAltSmpl
 {
-  public RefDualGnrcAltSmpl AsRefDualGnrcAltSmpl { get; set; }
+  public RefDualGnrcAltSmpl<String> AsRefDualGnrcAltSmpl { get; set; }
 }
 
 public interface IRefDualGnrcAltSmpl<Tref>
@@ -1056,12 +1056,12 @@ public class DualRefDualGnrcAltSmpl<Tref>
 
 public interface IInpGnrcAltSmpl
 {
-  RefInpGnrcAltSmpl AsRefInpGnrcAltSmpl { get; }
+  RefInpGnrcAltSmpl<String> AsRefInpGnrcAltSmpl { get; }
 }
 public class InputInpGnrcAltSmpl
   : IInpGnrcAltSmpl
 {
-  public RefInpGnrcAltSmpl AsRefInpGnrcAltSmpl { get; set; }
+  public RefInpGnrcAltSmpl<String> AsRefInpGnrcAltSmpl { get; set; }
 }
 
 public interface IRefInpGnrcAltSmpl<Tref>
@@ -1076,12 +1076,12 @@ public class InputRefInpGnrcAltSmpl<Tref>
 
 public interface IOutpGnrcAltSmpl
 {
-  RefOutpGnrcAltSmpl AsRefOutpGnrcAltSmpl { get; }
+  RefOutpGnrcAltSmpl<String> AsRefOutpGnrcAltSmpl { get; }
 }
 public class OutputOutpGnrcAltSmpl
   : IOutpGnrcAltSmpl
 {
-  public RefOutpGnrcAltSmpl AsRefOutpGnrcAltSmpl { get; set; }
+  public RefOutpGnrcAltSmpl<String> AsRefOutpGnrcAltSmpl { get; set; }
 }
 
 public interface IRefOutpGnrcAltSmpl<Tref>
@@ -1126,12 +1126,12 @@ public class OutputOutpGnrcDescr<Ttype>
 
 public interface IDualGnrcDual
 {
-  DualGnrcDualRef field { get; }
+  DualGnrcDualRef<DualGnrcDualAlt> field { get; }
 }
 public class DualDualGnrcDual
   : IDualGnrcDual
 {
-  public DualGnrcDualRef field { get; set; }
+  public DualGnrcDualRef<DualGnrcDualAlt> field { get; set; }
 }
 
 public interface IDualGnrcDualRef<Tref>
@@ -1158,12 +1158,12 @@ public class DualDualGnrcDualAlt
 
 public interface IInpGnrcDual
 {
-  InpGnrcDualRef field { get; }
+  InpGnrcDualRef<InpGnrcDualAlt> field { get; }
 }
 public class InputInpGnrcDual
   : IInpGnrcDual
 {
-  public InpGnrcDualRef field { get; set; }
+  public InpGnrcDualRef<InpGnrcDualAlt> field { get; set; }
 }
 
 public interface IInpGnrcDualRef<Tref>
@@ -1190,12 +1190,12 @@ public class DualInpGnrcDualAlt
 
 public interface IOutpGnrcDual
 {
-  OutpGnrcDualRef field { get; }
+  OutpGnrcDualRef<OutpGnrcDualAlt> field { get; }
 }
 public class OutputOutpGnrcDual
   : IOutpGnrcDual
 {
-  public OutpGnrcDualRef field { get; set; }
+  public OutpGnrcDualRef<OutpGnrcDualAlt> field { get; set; }
 }
 
 public interface IOutpGnrcDualRef<Tref>
@@ -1252,12 +1252,12 @@ public class OutputOutpGnrcField<Ttype>
 
 public interface IDualGnrcFieldArg<Ttype>
 {
-  RefDualGnrcFieldArg field { get; }
+  RefDualGnrcFieldArg<Ttype> field { get; }
 }
 public class DualDualGnrcFieldArg<Ttype>
   : IDualGnrcFieldArg<Ttype>
 {
-  public RefDualGnrcFieldArg field { get; set; }
+  public RefDualGnrcFieldArg<Ttype> field { get; set; }
 }
 
 public interface IRefDualGnrcFieldArg<Tref>
@@ -1272,12 +1272,12 @@ public class DualRefDualGnrcFieldArg<Tref>
 
 public interface IInpGnrcFieldArg<Ttype>
 {
-  RefInpGnrcFieldArg field { get; }
+  RefInpGnrcFieldArg<Ttype> field { get; }
 }
 public class InputInpGnrcFieldArg<Ttype>
   : IInpGnrcFieldArg<Ttype>
 {
-  public RefInpGnrcFieldArg field { get; set; }
+  public RefInpGnrcFieldArg<Ttype> field { get; set; }
 }
 
 public interface IRefInpGnrcFieldArg<Tref>
@@ -1292,12 +1292,12 @@ public class InputRefInpGnrcFieldArg<Tref>
 
 public interface IOutpGnrcFieldArg<Ttype>
 {
-  RefOutpGnrcFieldArg field { get; }
+  RefOutpGnrcFieldArg<Ttype> field { get; }
 }
 public class OutputOutpGnrcFieldArg<Ttype>
   : IOutpGnrcFieldArg<Ttype>
 {
-  public RefOutpGnrcFieldArg field { get; set; }
+  public RefOutpGnrcFieldArg<Ttype> field { get; set; }
 }
 
 public interface IRefOutpGnrcFieldArg<Tref>
@@ -1312,12 +1312,12 @@ public class OutputRefOutpGnrcFieldArg<Tref>
 
 public interface IDualGnrcFieldDual
 {
-  RefDualGnrcFieldDual field { get; }
+  RefDualGnrcFieldDual<AltDualGnrcFieldDual> field { get; }
 }
 public class DualDualGnrcFieldDual
   : IDualGnrcFieldDual
 {
-  public RefDualGnrcFieldDual field { get; set; }
+  public RefDualGnrcFieldDual<AltDualGnrcFieldDual> field { get; set; }
 }
 
 public interface IRefDualGnrcFieldDual<Tref>
@@ -1344,12 +1344,12 @@ public class DualAltDualGnrcFieldDual
 
 public interface IInpGnrcFieldDual
 {
-  RefInpGnrcFieldDual field { get; }
+  RefInpGnrcFieldDual<AltInpGnrcFieldDual> field { get; }
 }
 public class InputInpGnrcFieldDual
   : IInpGnrcFieldDual
 {
-  public RefInpGnrcFieldDual field { get; set; }
+  public RefInpGnrcFieldDual<AltInpGnrcFieldDual> field { get; set; }
 }
 
 public interface IRefInpGnrcFieldDual<Tref>
@@ -1376,12 +1376,12 @@ public class DualAltInpGnrcFieldDual
 
 public interface IOutpGnrcFieldDual
 {
-  RefOutpGnrcFieldDual field { get; }
+  RefOutpGnrcFieldDual<AltOutpGnrcFieldDual> field { get; }
 }
 public class OutputOutpGnrcFieldDual
   : IOutpGnrcFieldDual
 {
-  public RefOutpGnrcFieldDual field { get; set; }
+  public RefOutpGnrcFieldDual<AltOutpGnrcFieldDual> field { get; set; }
 }
 
 public interface IRefOutpGnrcFieldDual<Tref>
@@ -1408,12 +1408,12 @@ public class DualAltOutpGnrcFieldDual
 
 public interface IDualGnrcFieldParam
 {
-  RefDualGnrcFieldParam field { get; }
+  RefDualGnrcFieldParam<AltDualGnrcFieldParam> field { get; }
 }
 public class DualDualGnrcFieldParam
   : IDualGnrcFieldParam
 {
-  public RefDualGnrcFieldParam field { get; set; }
+  public RefDualGnrcFieldParam<AltDualGnrcFieldParam> field { get; set; }
 }
 
 public interface IRefDualGnrcFieldParam<Tref>
@@ -1440,12 +1440,12 @@ public class DualAltDualGnrcFieldParam
 
 public interface IInpGnrcFieldParam
 {
-  RefInpGnrcFieldParam field { get; }
+  RefInpGnrcFieldParam<AltInpGnrcFieldParam> field { get; }
 }
 public class InputInpGnrcFieldParam
   : IInpGnrcFieldParam
 {
-  public RefInpGnrcFieldParam field { get; set; }
+  public RefInpGnrcFieldParam<AltInpGnrcFieldParam> field { get; set; }
 }
 
 public interface IRefInpGnrcFieldParam<Tref>
@@ -1472,12 +1472,12 @@ public class InputAltInpGnrcFieldParam
 
 public interface IOutpGnrcFieldParam
 {
-  RefOutpGnrcFieldParam field { get; }
+  RefOutpGnrcFieldParam<AltOutpGnrcFieldParam> field { get; }
 }
 public class OutputOutpGnrcFieldParam
   : IOutpGnrcFieldParam
 {
-  public RefOutpGnrcFieldParam field { get; set; }
+  public RefOutpGnrcFieldParam<AltOutpGnrcFieldParam> field { get; set; }
 }
 
 public interface IRefOutpGnrcFieldParam<Tref>
@@ -1504,12 +1504,12 @@ public class OutputAltOutpGnrcFieldParam
 
 public interface IDualGnrcParam
 {
-  DualGnrcParamRef field { get; }
+  DualGnrcParamRef<DualGnrcParamAlt> field { get; }
 }
 public class DualDualGnrcParam
   : IDualGnrcParam
 {
-  public DualGnrcParamRef field { get; set; }
+  public DualGnrcParamRef<DualGnrcParamAlt> field { get; set; }
 }
 
 public interface IDualGnrcParamRef<Tref>
@@ -1536,12 +1536,12 @@ public class DualDualGnrcParamAlt
 
 public interface IInpGnrcParam
 {
-  InpGnrcParamRef field { get; }
+  InpGnrcParamRef<InpGnrcParamAlt> field { get; }
 }
 public class InputInpGnrcParam
   : IInpGnrcParam
 {
-  public InpGnrcParamRef field { get; set; }
+  public InpGnrcParamRef<InpGnrcParamAlt> field { get; set; }
 }
 
 public interface IInpGnrcParamRef<Tref>
@@ -1568,12 +1568,12 @@ public class InputInpGnrcParamAlt
 
 public interface IOutpGnrcParam
 {
-  OutpGnrcParamRef field { get; }
+  OutpGnrcParamRef<OutpGnrcParamAlt> field { get; }
 }
 public class OutputOutpGnrcParam
   : IOutpGnrcParam
 {
-  public OutpGnrcParamRef field { get; set; }
+  public OutpGnrcParamRef<OutpGnrcParamAlt> field { get; set; }
 }
 
 public interface IOutpGnrcParamRef<Tref>
@@ -2243,12 +2243,12 @@ public enum EnumOutpFieldValueDescr
 
 public interface IOutpGnrcEnum
 {
-  RefOutpGnrcEnum AsRefOutpGnrcEnum { get; }
+  RefOutpGnrcEnum<EnumOutpGnrcEnum> AsRefOutpGnrcEnum { get; }
 }
 public class OutputOutpGnrcEnum
   : IOutpGnrcEnum
 {
-  public RefOutpGnrcEnum AsRefOutpGnrcEnum { get; set; }
+  public RefOutpGnrcEnum<EnumOutpGnrcEnum> AsRefOutpGnrcEnum { get; set; }
 }
 
 public interface IRefOutpGnrcEnum<Ttype>
@@ -2268,12 +2268,12 @@ public enum EnumOutpGnrcEnum
 
 public interface IOutpGnrcValue
 {
-  RefOutpGnrcValue AsRefOutpGnrcValue { get; }
+  RefOutpGnrcValue<outpGnrcValue> AsRefOutpGnrcValue { get; }
 }
 public class OutputOutpGnrcValue
   : IOutpGnrcValue
 {
-  public RefOutpGnrcValue AsRefOutpGnrcValue { get; set; }
+  public RefOutpGnrcValue<outpGnrcValue> AsRefOutpGnrcValue { get; set; }
 }
 
 public interface IRefOutpGnrcValue<Ttype>
@@ -2443,12 +2443,12 @@ public class InputInOutpParamTypeDescr
 
 public interface IOutpPrntGnrc
 {
-  RefOutpPrntGnrc AsRefOutpPrntGnrc { get; }
+  RefOutpPrntGnrc<EnumOutpPrntGnrc> AsRefOutpPrntGnrc { get; }
 }
 public class OutputOutpPrntGnrc
   : IOutpPrntGnrc
 {
-  public RefOutpPrntGnrc AsRefOutpPrntGnrc { get; set; }
+  public RefOutpPrntGnrc<EnumOutpPrntGnrc> AsRefOutpPrntGnrc { get; set; }
 }
 
 public interface IRefOutpPrntGnrc<Ttype>

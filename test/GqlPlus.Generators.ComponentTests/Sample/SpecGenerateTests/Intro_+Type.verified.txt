@@ -96,8 +96,8 @@ namespace GqlPlus.Model_Spec_Intro__Type;
 
 public interface I_Type
 {
-  _BaseType As_BaseType { get; }
-  _BaseType As_BaseType { get; }
+  _BaseType<_TypeKind> As_BaseType { get; }
+  _BaseType<_TypeKind> As_BaseType { get; }
   _TypeDual As_TypeDual { get; }
   _TypeEnum As_TypeEnum { get; }
   _TypeInput As_TypeInput { get; }
@@ -108,8 +108,8 @@ public interface I_Type
 public class Output_Type
   : I_Type
 {
-  public _BaseType As_BaseType { get; set; }
-  public _BaseType As_BaseType { get; set; }
+  public _BaseType<_TypeKind> As_BaseType { get; set; }
+  public _BaseType<_TypeKind> As_BaseType { get; set; }
   public _TypeDual As_TypeDual { get; set; }
   public _TypeEnum As_TypeEnum { get; set; }
   public _TypeInput As_TypeInput { get; set; }
@@ -193,18 +193,18 @@ public class Output_TypeRef<Tkind>
 
 public interface I_TypeSimple
 {
-  _TypeRef As_TypeRef { get; }
-  _TypeRef As_TypeRef { get; }
-  _TypeRef As_TypeRef { get; }
-  _TypeRef As_TypeRef { get; }
+  _TypeRef<_TypeKind> As_TypeRef { get; }
+  _TypeRef<_TypeKind> As_TypeRef { get; }
+  _TypeRef<_TypeKind> As_TypeRef { get; }
+  _TypeRef<_TypeKind> As_TypeRef { get; }
 }
 public class Output_TypeSimple
   : I_TypeSimple
 {
-  public _TypeRef As_TypeRef { get; set; }
-  public _TypeRef As_TypeRef { get; set; }
-  public _TypeRef As_TypeRef { get; set; }
-  public _TypeRef As_TypeRef { get; set; }
+  public _TypeRef<_TypeKind> As_TypeRef { get; set; }
+  public _TypeRef<_TypeKind> As_TypeRef { get; set; }
+  public _TypeRef<_TypeKind> As_TypeRef { get; set; }
+  public _TypeRef<_TypeKind> As_TypeRef { get; set; }
 }
 
 public interface I_Constant
@@ -224,16 +224,16 @@ public class Output_Constant
 public interface I_Simple
 {
   Boolean AsBoolean { get; }
-  _DomainValue As_DomainValue { get; }
-  _DomainValue As_DomainValue { get; }
+  _DomainValue<_DomainKind, Number> As_DomainValue { get; }
+  _DomainValue<_DomainKind, String> As_DomainValue { get; }
   _EnumValue As_EnumValue { get; }
 }
 public class Output_Simple
   : I_Simple
 {
   public Boolean AsBoolean { get; set; }
-  public _DomainValue As_DomainValue { get; set; }
-  public _DomainValue As_DomainValue { get; set; }
+  public _DomainValue<_DomainKind, Number> As_DomainValue { get; set; }
+  public _DomainValue<_DomainKind, String> As_DomainValue { get; set; }
   public _EnumValue As_EnumValue { get; set; }
 }
 
@@ -259,16 +259,16 @@ public class Output_ConstantMap
 
 public interface I_Collections
 {
-  _Modifier As_Modifier { get; }
-  _ModifierKeyed As_ModifierKeyed { get; }
-  _ModifierKeyed As_ModifierKeyed { get; }
+  _Modifier<_ModifierKind> As_Modifier { get; }
+  _ModifierKeyed<_ModifierKind> As_ModifierKeyed { get; }
+  _ModifierKeyed<_ModifierKind> As_ModifierKeyed { get; }
 }
 public class Output_Collections
   : I_Collections
 {
-  public _Modifier As_Modifier { get; set; }
-  public _ModifierKeyed As_ModifierKeyed { get; set; }
-  public _ModifierKeyed As_ModifierKeyed { get; set; }
+  public _Modifier<_ModifierKind> As_Modifier { get; set; }
+  public _ModifierKeyed<_ModifierKind> As_ModifierKeyed { get; set; }
+  public _ModifierKeyed<_ModifierKind> As_ModifierKeyed { get; set; }
 }
 
 public interface I_ModifierKeyed<Tkind>
@@ -287,13 +287,13 @@ public class Output_ModifierKeyed<Tkind>
 
 public interface I_Modifiers
 {
-  _Modifier As_Modifier { get; }
+  _Modifier<_ModifierKind> As_Modifier { get; }
   _Collections As_Collections { get; }
 }
 public class Output_Modifiers
   : I_Modifiers
 {
-  public _Modifier As_Modifier { get; set; }
+  public _Modifier<_ModifierKind> As_Modifier { get; set; }
   public _Collections As_Collections { get; set; }
 }
 

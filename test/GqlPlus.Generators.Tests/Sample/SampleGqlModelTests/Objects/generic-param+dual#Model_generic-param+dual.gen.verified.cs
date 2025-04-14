@@ -8,12 +8,12 @@ namespace GqlTest.Model_generic_param_dual;
 
 public interface IDualGnrcParam
 {
-  DualGnrcParamRef field { get; }
+  DualGnrcParamRef<DualGnrcParamAlt> field { get; }
 }
 public class DualDualGnrcParam
   : IDualGnrcParam
 {
-  public DualGnrcParamRef field { get; set; }
+  public DualGnrcParamRef<DualGnrcParamAlt> field { get; set; }
 }
 
 public interface IDualGnrcParamRef<Tref>

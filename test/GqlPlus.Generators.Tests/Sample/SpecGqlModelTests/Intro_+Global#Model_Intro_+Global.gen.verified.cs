@@ -26,7 +26,7 @@ public interface I_Category
   : I_Aliased
 {
   _Resolution resolution { get; }
-  _TypeRef output { get; }
+  _TypeRef<_TypeKind> output { get; }
   _Modifiers modifiers { get; }
 }
 public class Output_Category
@@ -34,7 +34,7 @@ public class Output_Category
   , I_Category
 {
   public _Resolution resolution { get; set; }
-  public _TypeRef output { get; set; }
+  public _TypeRef<_TypeKind> output { get; set; }
   public _Modifiers modifiers { get; set; }
 }
 

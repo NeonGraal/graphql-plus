@@ -8,12 +8,12 @@ namespace GqlTest.Model_generic_param_input;
 
 public interface IInpGnrcParam
 {
-  InpGnrcParamRef field { get; }
+  InpGnrcParamRef<InpGnrcParamAlt> field { get; }
 }
 public class InputInpGnrcParam
   : IInpGnrcParam
 {
-  public InpGnrcParamRef field { get; set; }
+  public InpGnrcParamRef<InpGnrcParamAlt> field { get; set; }
 }
 
 public interface IInpGnrcParamRef<Tref>

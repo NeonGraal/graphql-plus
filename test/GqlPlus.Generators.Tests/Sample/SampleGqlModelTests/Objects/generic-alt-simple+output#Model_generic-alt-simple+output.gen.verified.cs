@@ -8,12 +8,12 @@ namespace GqlTest.Model_generic_alt_simple_output;
 
 public interface IOutpGnrcAltSmpl
 {
-  RefOutpGnrcAltSmpl AsRefOutpGnrcAltSmpl { get; }
+  RefOutpGnrcAltSmpl<String> AsRefOutpGnrcAltSmpl { get; }
 }
 public class OutputOutpGnrcAltSmpl
   : IOutpGnrcAltSmpl
 {
-  public RefOutpGnrcAltSmpl AsRefOutpGnrcAltSmpl { get; set; }
+  public RefOutpGnrcAltSmpl<String> AsRefOutpGnrcAltSmpl { get; set; }
 }
 
 public interface IRefOutpGnrcAltSmpl<Tref>

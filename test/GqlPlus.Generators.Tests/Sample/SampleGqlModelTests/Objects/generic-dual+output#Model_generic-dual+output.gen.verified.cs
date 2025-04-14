@@ -8,12 +8,12 @@ namespace GqlTest.Model_generic_dual_output;
 
 public interface IOutpGnrcDual
 {
-  OutpGnrcDualRef field { get; }
+  OutpGnrcDualRef<OutpGnrcDualAlt> field { get; }
 }
 public class OutputOutpGnrcDual
   : IOutpGnrcDual
 {
-  public OutpGnrcDualRef field { get; set; }
+  public OutpGnrcDualRef<OutpGnrcDualAlt> field { get; set; }
 }
 
 public interface IOutpGnrcDualRef<Tref>

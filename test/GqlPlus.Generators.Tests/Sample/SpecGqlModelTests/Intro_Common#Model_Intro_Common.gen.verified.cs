@@ -8,8 +8,8 @@ namespace GqlTest.Model_Intro_Common;
 
 public interface I_Type
 {
-  _BaseType As_BaseType { get; }
-  _BaseType As_BaseType { get; }
+  _BaseType<_TypeKind> As_BaseType { get; }
+  _BaseType<_TypeKind> As_BaseType { get; }
   _TypeDual As_TypeDual { get; }
   _TypeEnum As_TypeEnum { get; }
   _TypeInput As_TypeInput { get; }
@@ -20,8 +20,8 @@ public interface I_Type
 public class Output_Type
   : I_Type
 {
-  public _BaseType As_BaseType { get; set; }
-  public _BaseType As_BaseType { get; set; }
+  public _BaseType<_TypeKind> As_BaseType { get; set; }
+  public _BaseType<_TypeKind> As_BaseType { get; set; }
   public _TypeDual As_TypeDual { get; set; }
   public _TypeEnum As_TypeEnum { get; set; }
   public _TypeInput As_TypeInput { get; set; }
@@ -105,16 +105,16 @@ public class Output_TypeRef<Tkind>
 
 public interface I_TypeSimple
 {
-  _TypeRef As_TypeRef { get; }
-  _TypeRef As_TypeRef { get; }
-  _TypeRef As_TypeRef { get; }
-  _TypeRef As_TypeRef { get; }
+  _TypeRef<_TypeKind> As_TypeRef { get; }
+  _TypeRef<_TypeKind> As_TypeRef { get; }
+  _TypeRef<_TypeKind> As_TypeRef { get; }
+  _TypeRef<_TypeKind> As_TypeRef { get; }
 }
 public class Output_TypeSimple
   : I_TypeSimple
 {
-  public _TypeRef As_TypeRef { get; set; }
-  public _TypeRef As_TypeRef { get; set; }
-  public _TypeRef As_TypeRef { get; set; }
-  public _TypeRef As_TypeRef { get; set; }
+  public _TypeRef<_TypeKind> As_TypeRef { get; set; }
+  public _TypeRef<_TypeKind> As_TypeRef { get; set; }
+  public _TypeRef<_TypeKind> As_TypeRef { get; set; }
+  public _TypeRef<_TypeKind> As_TypeRef { get; set; }
 }

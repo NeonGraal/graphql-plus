@@ -8,12 +8,12 @@ namespace GqlTest.Model_generic_dual_input;
 
 public interface IInpGnrcDual
 {
-  InpGnrcDualRef field { get; }
+  InpGnrcDualRef<InpGnrcDualAlt> field { get; }
 }
 public class InputInpGnrcDual
   : IInpGnrcDual
 {
-  public InpGnrcDualRef field { get; set; }
+  public InpGnrcDualRef<InpGnrcDualAlt> field { get; set; }
 }
 
 public interface IInpGnrcDualRef<Tref>

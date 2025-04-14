@@ -8,12 +8,12 @@ namespace GqlTest.Model_generic_field_arg_dual;
 
 public interface IDualGnrcFieldArg<Ttype>
 {
-  RefDualGnrcFieldArg field { get; }
+  RefDualGnrcFieldArg<Ttype> field { get; }
 }
 public class DualDualGnrcFieldArg<Ttype>
   : IDualGnrcFieldArg<Ttype>
 {
-  public RefDualGnrcFieldArg field { get; set; }
+  public RefDualGnrcFieldArg<Ttype> field { get; set; }
 }
 
 public interface IRefDualGnrcFieldArg<Tref>

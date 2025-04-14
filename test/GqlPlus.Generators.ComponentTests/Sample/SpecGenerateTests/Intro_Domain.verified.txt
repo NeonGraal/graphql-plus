@@ -84,18 +84,18 @@ public enum _DomainKind
 
 public interface I_TypeDomain
 {
-  _BaseDomain As_BaseDomain { get; }
-  _BaseDomain As_BaseDomain { get; }
-  _BaseDomain As_BaseDomain { get; }
-  _BaseDomain As_BaseDomain { get; }
+  _BaseDomain<_DomainKind, _DomainTrueFalse, _DomainItemTrueFalse> As_BaseDomain { get; }
+  _BaseDomain<_DomainKind, _DomainLabel, _DomainItemLabel> As_BaseDomain { get; }
+  _BaseDomain<_DomainKind, _DomainRange, _DomainItemRange> As_BaseDomain { get; }
+  _BaseDomain<_DomainKind, _DomainRegex, _DomainItemRegex> As_BaseDomain { get; }
 }
 public class Output_TypeDomain
   : I_TypeDomain
 {
-  public _BaseDomain As_BaseDomain { get; set; }
-  public _BaseDomain As_BaseDomain { get; set; }
-  public _BaseDomain As_BaseDomain { get; set; }
-  public _BaseDomain As_BaseDomain { get; set; }
+  public _BaseDomain<_DomainKind, _DomainTrueFalse, _DomainItemTrueFalse> As_BaseDomain { get; set; }
+  public _BaseDomain<_DomainKind, _DomainLabel, _DomainItemLabel> As_BaseDomain { get; set; }
+  public _BaseDomain<_DomainKind, _DomainRange, _DomainItemRange> As_BaseDomain { get; set; }
+  public _BaseDomain<_DomainKind, _DomainRegex, _DomainItemRegex> As_BaseDomain { get; set; }
 }
 
 public interface I_DomainRef<Tkind>

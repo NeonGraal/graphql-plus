@@ -8,12 +8,12 @@ namespace GqlTest.Model_generic_field_arg_input;
 
 public interface IInpGnrcFieldArg<Ttype>
 {
-  RefInpGnrcFieldArg field { get; }
+  RefInpGnrcFieldArg<Ttype> field { get; }
 }
 public class InputInpGnrcFieldArg<Ttype>
   : IInpGnrcFieldArg<Ttype>
 {
-  public RefInpGnrcFieldArg field { get; set; }
+  public RefInpGnrcFieldArg<Ttype> field { get; set; }
 }
 
 public interface IRefInpGnrcFieldArg<Tref>

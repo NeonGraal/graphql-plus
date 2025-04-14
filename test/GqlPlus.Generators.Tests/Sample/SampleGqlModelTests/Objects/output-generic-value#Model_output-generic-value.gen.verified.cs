@@ -8,12 +8,12 @@ namespace GqlTest.Model_output_generic_value;
 
 public interface IOutpGnrcValue
 {
-  RefOutpGnrcValue AsRefOutpGnrcValue { get; }
+  RefOutpGnrcValue<outpGnrcValue> AsRefOutpGnrcValue { get; }
 }
 public class OutputOutpGnrcValue
   : IOutpGnrcValue
 {
-  public RefOutpGnrcValue AsRefOutpGnrcValue { get; set; }
+  public RefOutpGnrcValue<outpGnrcValue> AsRefOutpGnrcValue { get; set; }
 }
 
 public interface IRefOutpGnrcValue<Ttype>

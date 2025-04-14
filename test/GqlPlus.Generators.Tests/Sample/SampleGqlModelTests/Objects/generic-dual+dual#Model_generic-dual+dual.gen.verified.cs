@@ -8,12 +8,12 @@ namespace GqlTest.Model_generic_dual_dual;
 
 public interface IDualGnrcDual
 {
-  DualGnrcDualRef field { get; }
+  DualGnrcDualRef<DualGnrcDualAlt> field { get; }
 }
 public class DualDualGnrcDual
   : IDualGnrcDual
 {
-  public DualGnrcDualRef field { get; set; }
+  public DualGnrcDualRef<DualGnrcDualAlt> field { get; set; }
 }
 
 public interface IDualGnrcDualRef<Tref>

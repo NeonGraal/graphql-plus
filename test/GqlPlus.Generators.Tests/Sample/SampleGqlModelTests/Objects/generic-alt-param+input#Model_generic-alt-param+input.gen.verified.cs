@@ -8,12 +8,12 @@ namespace GqlTest.Model_generic_alt_param_input;
 
 public interface IInpGnrcAltParam
 {
-  RefInpGnrcAltParam AsRefInpGnrcAltParam { get; }
+  RefInpGnrcAltParam<AltInpGnrcAltParam> AsRefInpGnrcAltParam { get; }
 }
 public class InputInpGnrcAltParam
   : IInpGnrcAltParam
 {
-  public RefInpGnrcAltParam AsRefInpGnrcAltParam { get; set; }
+  public RefInpGnrcAltParam<AltInpGnrcAltParam> AsRefInpGnrcAltParam { get; set; }
 }
 
 public interface IRefInpGnrcAltParam<Tref>

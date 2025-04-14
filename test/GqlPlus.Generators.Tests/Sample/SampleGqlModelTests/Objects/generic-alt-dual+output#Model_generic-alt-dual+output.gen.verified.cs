@@ -8,12 +8,12 @@ namespace GqlTest.Model_generic_alt_dual_output;
 
 public interface IOutpGnrcAltDual
 {
-  RefOutpGnrcAltDual AsRefOutpGnrcAltDual { get; }
+  RefOutpGnrcAltDual<AltOutpGnrcAltDual> AsRefOutpGnrcAltDual { get; }
 }
 public class OutputOutpGnrcAltDual
   : IOutpGnrcAltDual
 {
-  public RefOutpGnrcAltDual AsRefOutpGnrcAltDual { get; set; }
+  public RefOutpGnrcAltDual<AltOutpGnrcAltDual> AsRefOutpGnrcAltDual { get; set; }
 }
 
 public interface IRefOutpGnrcAltDual<Tref>

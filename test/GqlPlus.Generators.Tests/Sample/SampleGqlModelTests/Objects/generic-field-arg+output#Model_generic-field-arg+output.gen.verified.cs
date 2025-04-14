@@ -8,12 +8,12 @@ namespace GqlTest.Model_generic_field_arg_output;
 
 public interface IOutpGnrcFieldArg<Ttype>
 {
-  RefOutpGnrcFieldArg field { get; }
+  RefOutpGnrcFieldArg<Ttype> field { get; }
 }
 public class OutputOutpGnrcFieldArg<Ttype>
   : IOutpGnrcFieldArg<Ttype>
 {
-  public RefOutpGnrcFieldArg field { get; set; }
+  public RefOutpGnrcFieldArg<Ttype> field { get; set; }
 }
 
 public interface IRefOutpGnrcFieldArg<Tref>

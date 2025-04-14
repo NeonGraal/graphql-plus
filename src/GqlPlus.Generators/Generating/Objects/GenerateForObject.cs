@@ -19,12 +19,22 @@ internal abstract class GenerateForObject<TObj, TBase, TField, TAlt>
     => alternate => new("As" + alternate.Name, TypeString(alternate, context));
 
   protected virtual string TypeString(IGqlpObjType type, GeneratorContext context)
-    => context.GetTypeAst<IGqlpType>(type.Name)?.Name
-      ?? (type.IsTypeParam ? "T" : "") + type.Name;
+  {
+    if (type.IsTypeParam) {
+      return "T" + type.Name;
+    }
+
+    string args = type is IGqlpObjBase baseAst ? baseAst.Args.Surround("<", ">", a => TypeString(a!, context), ", ") : "";
+
+    IGqlpType? typeAst = context.GetTypeAst<IGqlpType>(type.Name);
+    return typeAst is null
+      ? type.Name + args
+      : typeAst.Name + args;
+  }
 
   protected override void TypeHeader(TObj ast, GeneratorContext context)
   {
-    string typeParams = ast.TypeParams.Select(p => "T" + p.Name).Surround("<", ">", ",");
+    string typeParams = ast.TypeParams.Surround("<", ">", p => "T" + p!.Name, ",");
 
     context.AppendLine($"public interface I{ast.Name}{typeParams}");
     if (ast.Parent is not null) {
@@ -34,7 +44,7 @@ internal abstract class GenerateForObject<TObj, TBase, TField, TAlt>
 
   protected override void ClassHeader(TObj ast, GeneratorContext context)
   {
-    string typeParams = ast.TypeParams.Select(p => "T" + p.Name).Surround("<", ">", ",");
+    string typeParams = ast.TypeParams.Surround("<", ">", p => "T" + p!.Name, ",");
 
     context.AppendLine($"public class {TypePrefix}{ast.Name}{typeParams}");
 

@@ -23,16 +23,16 @@ public class Output_Constant
 public interface I_Simple
 {
   Boolean AsBoolean { get; }
-  _DomainValue As_DomainValue { get; }
-  _DomainValue As_DomainValue { get; }
+  _DomainValue<_DomainKind, Number> As_DomainValue { get; }
+  _DomainValue<_DomainKind, String> As_DomainValue { get; }
   _EnumValue As_EnumValue { get; }
 }
 public class Output_Simple
   : I_Simple
 {
   public Boolean AsBoolean { get; set; }
-  public _DomainValue As_DomainValue { get; set; }
-  public _DomainValue As_DomainValue { get; set; }
+  public _DomainValue<_DomainKind, Number> As_DomainValue { get; set; }
+  public _DomainValue<_DomainKind, String> As_DomainValue { get; set; }
   public _EnumValue As_EnumValue { get; set; }
 }
 
@@ -58,16 +58,16 @@ public class Output_ConstantMap
 
 public interface I_Collections
 {
-  _Modifier As_Modifier { get; }
-  _ModifierKeyed As_ModifierKeyed { get; }
-  _ModifierKeyed As_ModifierKeyed { get; }
+  _Modifier<_ModifierKind> As_Modifier { get; }
+  _ModifierKeyed<_ModifierKind> As_ModifierKeyed { get; }
+  _ModifierKeyed<_ModifierKind> As_ModifierKeyed { get; }
 }
 public class Output_Collections
   : I_Collections
 {
-  public _Modifier As_Modifier { get; set; }
-  public _ModifierKeyed As_ModifierKeyed { get; set; }
-  public _ModifierKeyed As_ModifierKeyed { get; set; }
+  public _Modifier<_ModifierKind> As_Modifier { get; set; }
+  public _ModifierKeyed<_ModifierKind> As_ModifierKeyed { get; set; }
+  public _ModifierKeyed<_ModifierKind> As_ModifierKeyed { get; set; }
 }
 
 public interface I_ModifierKeyed<Tkind>
@@ -86,13 +86,13 @@ public class Output_ModifierKeyed<Tkind>
 
 public interface I_Modifiers
 {
-  _Modifier As_Modifier { get; }
+  _Modifier<_ModifierKind> As_Modifier { get; }
   _Collections As_Collections { get; }
 }
 public class Output_Modifiers
   : I_Modifiers
 {
-  public _Modifier As_Modifier { get; set; }
+  public _Modifier<_ModifierKind> As_Modifier { get; set; }
   public _Collections As_Collections { get; set; }
 }
 

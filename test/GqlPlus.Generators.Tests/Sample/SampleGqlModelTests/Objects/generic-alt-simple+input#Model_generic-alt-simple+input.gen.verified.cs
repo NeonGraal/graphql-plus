@@ -8,12 +8,12 @@ namespace GqlTest.Model_generic_alt_simple_input;
 
 public interface IInpGnrcAltSmpl
 {
-  RefInpGnrcAltSmpl AsRefInpGnrcAltSmpl { get; }
+  RefInpGnrcAltSmpl<String> AsRefInpGnrcAltSmpl { get; }
 }
 public class InputInpGnrcAltSmpl
   : IInpGnrcAltSmpl
 {
-  public RefInpGnrcAltSmpl AsRefInpGnrcAltSmpl { get; set; }
+  public RefInpGnrcAltSmpl<String> AsRefInpGnrcAltSmpl { get; set; }
 }
 
 public interface IRefInpGnrcAltSmpl<Tref>

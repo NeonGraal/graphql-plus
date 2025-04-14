@@ -8,12 +8,12 @@ namespace GqlTest.Model_generic_field_param_dual;
 
 public interface IDualGnrcFieldParam
 {
-  RefDualGnrcFieldParam field { get; }
+  RefDualGnrcFieldParam<AltDualGnrcFieldParam> field { get; }
 }
 public class DualDualGnrcFieldParam
   : IDualGnrcFieldParam
 {
-  public RefDualGnrcFieldParam field { get; set; }
+  public RefDualGnrcFieldParam<AltDualGnrcFieldParam> field { get; set; }
 }
 
 public interface IRefDualGnrcFieldParam<Tref>

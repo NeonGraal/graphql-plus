@@ -8,12 +8,12 @@ namespace GqlTest.Model_generic_param_output;
 
 public interface IOutpGnrcParam
 {
-  OutpGnrcParamRef field { get; }
+  OutpGnrcParamRef<OutpGnrcParamAlt> field { get; }
 }
 public class OutputOutpGnrcParam
   : IOutpGnrcParam
 {
-  public OutpGnrcParamRef field { get; set; }
+  public OutpGnrcParamRef<OutpGnrcParamAlt> field { get; set; }
 }
 
 public interface IOutpGnrcParamRef<Tref>

@@ -12,8 +12,8 @@ public interface I_TypeObject<Tkind,Tparent,Tfield,Talternate>
   _ObjTypeParam typeParams { get; }
   Tfield fields { get; }
   Talternate alternates { get; }
-  _ObjectFor allFields { get; }
-  _ObjectFor allAlternates { get; }
+  _ObjectFor<Tfield> allFields { get; }
+  _ObjectFor<Talternate> allAlternates { get; }
 }
 public class Output_TypeObject<Tkind,Tparent,Tfield,Talternate>
   : Output_ChildType
@@ -22,8 +22,8 @@ public class Output_TypeObject<Tkind,Tparent,Tfield,Talternate>
   public _ObjTypeParam typeParams { get; set; }
   public Tfield fields { get; set; }
   public Talternate alternates { get; set; }
-  public _ObjectFor allFields { get; set; }
-  public _ObjectFor allAlternates { get; set; }
+  public _ObjectFor<Tfield> allFields { get; set; }
+  public _ObjectFor<Talternate> allAlternates { get; set; }
 }
 
 public interface I_ObjConstraint<Tbase>
@@ -40,14 +40,14 @@ public class Output_ObjConstraint<Tbase>
 
 public interface I_ObjType<Tbase>
 {
-  _BaseType As_BaseType { get; }
-  _ObjConstraint As_ObjConstraint { get; }
+  _BaseType<_TypeKind> As_BaseType { get; }
+  _ObjConstraint<Tbase> As_ObjConstraint { get; }
 }
 public class Output_ObjType<Tbase>
   : I_ObjType<Tbase>
 {
-  public _BaseType As_BaseType { get; set; }
-  public _ObjConstraint As_ObjConstraint { get; set; }
+  public _BaseType<_TypeKind> As_BaseType { get; set; }
+  public _ObjConstraint<Tbase> As_ObjConstraint { get; set; }
 }
 
 public interface I_ObjBase<Targ>

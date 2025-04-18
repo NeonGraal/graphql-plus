@@ -30,7 +30,7 @@ internal class ParseArg(
 
       IResult<IGqlpFieldKey> fieldKey = _fieldKey.Parse(tokens, label);
       if (fieldKey.IsOk()) {
-        return fieldKey.Map<IGqlpArg>(key =>
+        return fieldKey.Map(key =>
           tokens.Take(':')
           ? _argument.I
             .Parse(tokens, "Arg")

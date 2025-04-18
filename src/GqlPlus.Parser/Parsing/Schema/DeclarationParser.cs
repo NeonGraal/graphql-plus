@@ -55,9 +55,12 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
 
     IResult<TDefinition> definition = _definition.Parse(tokens, label);
     return definition.MapOk(
-      value => MakeResult(partial, value).Ok(),
+      value => AsResult(partial, value),
       () => definition.AsPartial(ToResult(partial)));
   }
+
+  protected virtual IResult<TResult> AsResult(AstPartial<TParam, TOption> partial, TDefinition value)
+    => MakeResult(partial, value).Ok();
 
   [return: NotNull]
   protected abstract TResult MakeResult(AstPartial<TParam, TOption> partial, TDefinition value);

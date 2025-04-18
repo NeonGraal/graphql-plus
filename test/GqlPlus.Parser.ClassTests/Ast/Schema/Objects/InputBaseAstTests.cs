@@ -5,6 +5,10 @@ namespace GqlPlus.Ast.Schema.Objects;
 public class InputBaseAstTests
   : AstObjectBaseTests<IGqlpInputBase>
 {
+  [Theory, RepeatData]
+  public void String_ForDual(string input, string[] arguments)
+    => _checks.String_ForDual(input, arguments);
+
   protected override string AbbreviatedString(string input)
     => $"( {input} )";
 

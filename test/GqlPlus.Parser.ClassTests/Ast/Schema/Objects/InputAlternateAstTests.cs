@@ -5,12 +5,15 @@ namespace GqlPlus.Ast.Schema.Objects;
 public class InputAlternateAstTests
   : AstObjectAlternateTests<IGqlpInputBase>
 {
+  [Theory, RepeatData]
+  public void String_ForDual(AlternateInput input, string[] arguments)
+    => AlternateChecks.String_ForDual(input, arguments);
+
   protected override string AbbreviatedString(AlternateInput input)
     => $"( !IA {input.Type} )";
 
-  private readonly AstObjectAlternateChecks<InputAlternateAst, IGqlpInputBase, InputBaseAst, IGqlpInputArg, InputArgAst> _checks
-    = new(dual => new(AstNulls.At, dual.Type, ""),
+  internal override IAstObjectAlternateChecks<IGqlpInputBase> AlternateChecks
+    => new AstObjectAlternateChecks<InputAlternateAst, IGqlpInputBase, InputBaseAst, IGqlpInputArg, InputArgAst>(
+      dual => new(AstNulls.At, dual.Type, ""),
       arguments => arguments.InputArgs());
-
-  internal override IAstObjectAlternateChecks<IGqlpInputBase> AlternateChecks => _checks;
 }

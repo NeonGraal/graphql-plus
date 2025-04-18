@@ -107,6 +107,20 @@ AstObjBaseChecks<TObjBase, TObjBaseAst, TObjArg, TObjArgAst>.ArgsBy createArgs
     arguments => _createBase(input) with { BaseArgs = _createArgs(arguments) },
     arguments1.OrderedEqual(arguments2));
 
+  public void String_ForDual(string input, string[] arguments)
+  {
+    TObjBaseAst theBase = _createBase(input) with { BaseArgs = _createArgs(arguments) };
+    if (theBase is not IGqlpToDual<IGqlpDualBase> objDual) {
+      return;
+    }
+
+    IGqlpDualBase dual = objDual.ToDual;
+
+    string result = $"{dual}";
+
+    result.ShouldBe($"( {input} < {arguments.Joined()} > )", "CreateInput(input).ToDual");
+  }
+
   public void FullType_WithDefault(string input)
   {
     TObjBase objBase = _createBase(input);
@@ -151,6 +165,7 @@ internal interface IAstObjBaseChecks<TObjBase>
   void String_WithArgs(string input, string[] arguments);
   void Equality_WithArgs(string input, string[] arguments);
   void Inequality_BetweenArgs(string input, string[] arguments1, string[] arguments2);
+  void String_ForDual(string input, string[] arguments);
   void FullType_WithDefault(string input);
   void FullType_WithIsTypeParam(string input);
   void FullType_WithArgs(string input, string[] arguments);

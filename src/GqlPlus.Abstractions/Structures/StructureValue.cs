@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Structures;
 
-//  #pragma warning disable CA1036 // Override methods on comparable types
+#pragma warning disable CA1036 // Override methods on comparable types
 public sealed class StructureValue
   : IComparable<StructureValue>
   , IEquatable<StructureValue>

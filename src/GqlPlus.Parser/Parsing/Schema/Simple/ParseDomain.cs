@@ -14,11 +14,13 @@ internal class ParseDomain(
   Parser<DomainDefinition>.D definition
 ) : DeclarationParser<DomainDefinition, IGqlpDomain>(name, param, aliases, option, definition)
 {
+  protected override IResult<IGqlpDomain> AsResult(AstPartial<NullAst, NullOption> partial, DomainDefinition value)
+    => value.Kind == DomainKind.Enum ? MakeEnum(partial, value) : base.AsResult(partial, value);
+
   protected override IGqlpDomain MakeResult(AstPartial<NullAst, NullOption> partial, DomainDefinition value)
   {
     return value.Kind switch {
       DomainKind.Boolean => MakeBoolean(partial, value),
-      DomainKind.Enum => MakeEnum(partial, value),
       DomainKind.Number => MakeNumber(partial, value),
       DomainKind.String => MakeString(partial, value),
       _ => MakeBoolean(partial, new() { Kind = DomainKind.Boolean }),
@@ -39,17 +41,19 @@ internal class ParseDomain(
       Parent = value.Parent
     };
 
-  private static AstDomain<DomainLabelAst, IGqlpDomainLabel> MakeEnum(AstPartial<NullAst, NullOption> partial, DomainDefinition value)
+  private static IResult<IGqlpDomain> MakeEnum(AstPartial<NullAst, NullOption> partial, DomainDefinition value)
   {
-    if (value.Labels.Length == 0) {
-      partial.Error("Invalid Domain Enum. Expected at least one Label");
-    }
-
-    return new(partial.At, partial.Name, value.Kind, value.Labels) {
+    AstDomain<DomainLabelAst, IGqlpDomainLabel> result = new(partial.At, partial.Name, value.Kind, value.Labels) {
       Aliases = partial.Aliases,
       Description = partial.Description,
       Parent = value.Parent
     };
+
+    if (value.Labels.Length == 0) {
+      return result.Partial<IGqlpDomain>(partial.Error("Invalid Domain Enum. Expected at least one Label"));
+    }
+
+    return result.Ok<IGqlpDomain>();
   }
 
   private static AstDomain<DomainTrueFalseAst, IGqlpDomainTrueFalse> MakeBoolean(AstPartial<NullAst, NullOption> partial, DomainDefinition value)

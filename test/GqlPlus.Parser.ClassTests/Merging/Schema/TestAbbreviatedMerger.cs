@@ -1,5 +1,4 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Token;
+﻿using GqlPlus.Token;
 
 using NSubstitute;
 

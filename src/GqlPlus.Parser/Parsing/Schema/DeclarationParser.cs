@@ -23,8 +23,8 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
 
   protected readonly Parser<string>.LA Aliases = aliases;
 
-  public IResult<TResult> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<TResult> Parse(ITokenizer tokens, string label)
+
   {
     string description = tokens.GetDescription();
     bool hasName = _name.ParseName(tokens, out string? name, out TokenAt? at);
@@ -69,7 +69,7 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
 
 internal interface INameParser
 {
-  bool ParseName(Tokenizer tokens, out string? name, out TokenAt at);
+  bool ParseName(ITokenizer tokens, out string? name, out TokenAt at);
 }
 
 internal abstract class DeclarationParser<TParam, TDefinition, TResult>(

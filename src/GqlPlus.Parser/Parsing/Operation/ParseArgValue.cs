@@ -16,7 +16,7 @@ internal class ParseArgValue(
 {
   private readonly Parser<IGqlpConstant>.L _constant = constant;
 
-  public override IResult<IGqlpArg> Parse<TContext>(TContext tokens, string label)
+  public override IResult<IGqlpArg> Parse(ITokenizer tokens, string label)
   {
     _ = tokens.At;
     if (!tokens.Prefix('$', out string? variable, out TokenAt? at)) {
@@ -26,7 +26,7 @@ internal class ParseArgValue(
     if (variable is not null) {
       ArgAst argument = new(at, variable);
 
-      if (tokens is OperationContext context) {
+      if (tokens is IOperationContext context) {
         context.Variables.Add(argument);
       }
 

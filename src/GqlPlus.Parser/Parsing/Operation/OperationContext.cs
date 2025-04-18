@@ -3,11 +3,22 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Operation;
 
-internal class OperationContext : Tokenizer
+internal class OperationContext
+  : Tokenizer
+  , IOperationContext
 {
+  public OperationContext(ITokenizer tokens)
+    : base(tokens) { }
+
   internal OperationContext(string operation)
     : base(operation) { }
 
-  internal readonly List<ArgAst> Variables = [];
-  internal readonly List<SpreadAst> Spreads = [];
+  List<ArgAst> IOperationContext.Variables { get; } = [];
+  List<SpreadAst> IOperationContext.Spreads { get; } = [];
+}
+
+internal interface IOperationContext
+{
+  List<ArgAst> Variables { get; }
+  List<SpreadAst> Spreads { get; }
 }

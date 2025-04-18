@@ -11,7 +11,7 @@ internal class ParseDomainTrueFalse(
 {
   public override DomainKind Kind => DomainKind.Boolean;
 
-  public override IResult<IGqlpDomainTrueFalse> Parse<TContext>(TContext tokens, string label)
+  public override IResult<IGqlpDomainTrueFalse> Parse(ITokenizer tokens, string label)
   {
     string description = tokens.Description();
     TokenAt at = tokens.At;
@@ -28,10 +28,10 @@ internal class ParseDomainTrueFalse(
           : result.Empty();
   }
 
-  protected override void ApplyItems(Tokenizer tokens, string label, DomainDefinition result, IGqlpDomainTrueFalse[] items)
+  protected override void ApplyItems(ITokenizer tokens, string label, DomainDefinition result, IGqlpDomainTrueFalse[] items)
     => result.Values = items.Length > 0 ? items.ArrayOf<DomainTrueFalseAst>()
     : [DefaultTrueFalse(tokens, false), DefaultTrueFalse(tokens, true)];
 
-  private static DomainTrueFalseAst DefaultTrueFalse(Tokenizer tokens, bool value)
+  private static DomainTrueFalseAst DefaultTrueFalse(ITokenizer tokens, bool value)
     => new(tokens.At, "", false, value);
 }

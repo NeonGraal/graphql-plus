@@ -14,8 +14,8 @@ internal class ParseArg(
   private readonly Parser<IGqlpFieldKey>.L _fieldKey = fieldKey;
   private readonly Parser<IValueParser<IGqlpArg>, IGqlpArg>.L _argument = argument;
 
-  public IResult<IGqlpArg> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<IGqlpArg> Parse(ITokenizer tokens, string label)
+
   {
     if (!tokens.Take('(')) {
       return 0.Empty<IGqlpArg>();
@@ -48,7 +48,7 @@ internal class ParseArg(
     }
   }
 
-  private ArgAst ParseArgValues(Tokenizer tokens, ArgAst initial)
+  private ArgAst ParseArgValues(ITokenizer tokens, ArgAst initial)
   {
     TokenAt at = initial.At;
     List<IGqlpArg> values = [initial];
@@ -61,7 +61,7 @@ internal class ParseArg(
       : initial;
   }
 
-  private IResult<IGqlpArg> ParseArgMid(Tokenizer tokens, TokenAt at, AstFields<IGqlpArg> fields)
+  private IResult<IGqlpArg> ParseArgMid(ITokenizer tokens, TokenAt at, AstFields<IGqlpArg> fields)
   {
     if (tokens.Take(',')) {
       return _argument.I
@@ -80,7 +80,7 @@ internal class ParseArg(
     return new ArgAst(at, fields).Ok<IGqlpArg>();
   }
 
-  private IResult<IGqlpArg> ParseArgEnd(Tokenizer tokens, TokenAt at, ArgAst value)
+  private IResult<IGqlpArg> ParseArgEnd(ITokenizer tokens, TokenAt at, ArgAst value)
   {
     IGqlpArg more = ParseArgValues(tokens, value);
     if (more.Values.Count() > 1) {

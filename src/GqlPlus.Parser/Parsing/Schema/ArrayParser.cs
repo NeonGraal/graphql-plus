@@ -9,8 +9,8 @@ internal class ArrayParser<TItem>(
 {
   private readonly Parser<TItem>.L _itemParser = itemParser;
 
-  public IResultArray<TItem> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResultArray<TItem> Parse(ITokenizer tokens, string label)
+
   {
     List<TItem> result = [];
     IResult<TItem> item = _itemParser.Parse(tokens, label);

@@ -33,7 +33,7 @@ internal class ParseDirective(
 internal class DirectiveName
   : IDirectiveName
 {
-  public bool ParseName(Tokenizer tokens, out string? name, out TokenAt at)
+  public bool ParseName(ITokenizer tokens, out string? name, out TokenAt at)
     => tokens.Prefix('@', out name, out at);
 }
 
@@ -47,8 +47,8 @@ internal class ParseDirectiveDefinition(
 {
   private readonly Parser<IEnumParser<DirectiveLocation>, DirectiveLocation>.L _location = location;
 
-  public IResult<DirectiveLocation> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<DirectiveLocation> Parse(ITokenizer tokens, string label)
+
   {
     DirectiveLocation locations = DirectiveLocation.None;
 

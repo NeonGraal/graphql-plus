@@ -18,8 +18,8 @@ internal abstract class ObjectAlternatesParser<TObjAlt, TObjAltAst, TObjBase, TO
   private readonly ParserArray<IParserCollections, IGqlpModifier>.LA _collections = collections;
   private readonly Parser<TObjBase>.L _parseBase = parseBase;
 
-  public IResultArray<TObjAlt> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResultArray<TObjAlt> Parse(ITokenizer tokens, string label)
+
   {
     tokens.ThrowIfNull();
 

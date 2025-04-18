@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
@@ -54,6 +55,7 @@ internal sealed class AstObjectAlternateChecks<TObjAltAst, TObjBase, TObjBaseAst
   private readonly AlternateBy _createAlternate;
   private readonly ArgsBy _createArgs;
 
+  [SuppressMessage("Style", "IDE0290:Use primary constructor")]
   public AstObjectAlternateChecks(AlternateBy createAlternate, ArgsBy createArgs)
     : base(input => createAlternate(input))
   {

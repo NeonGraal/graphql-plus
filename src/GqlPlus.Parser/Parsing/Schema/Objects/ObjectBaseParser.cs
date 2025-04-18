@@ -15,12 +15,12 @@ internal abstract class ObjectBaseParser<TObjBase, TObjBaseAst, TObjArg, TObjArg
 {
   private readonly Parser<TObjArg>.LA _parseArgs = parseArgs;
 
-  public IResult<TObjBase> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<TObjBase> Parse(ITokenizer tokens, string label)
+
     => ParseObjectBase(tokens, label).AsResult<TObjBase>();
 
-  private IResult<TObjBaseAst> ParseObjectBase<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  private IResult<TObjBaseAst> ParseObjectBase(ITokenizer tokens, string label)
+
   {
     string description = tokens.Description();
     if (!tokens.Prefix('$', out string? param, out TokenAt? at)) {

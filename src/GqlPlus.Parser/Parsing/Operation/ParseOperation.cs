@@ -24,9 +24,12 @@ internal class ParseOperation(
   private readonly Parser<IGqlpSelection>.LA _object = objectParser;
   private readonly Parser<IGqlpVariable>.LA _variables = variables;
 
-  public IResult<IGqlpOperation> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<IGqlpOperation> Parse(ITokenizer tokens, string label)
   {
+    if (tokens is not IOperationContext) {
+      tokens = new OperationContext(tokens);
+    }
+
     if (tokens.AtStart) {
       if (!tokens.Read()) {
         return tokens.Error<IGqlpOperation>(label, "text");
@@ -76,7 +79,7 @@ internal class ParseOperation(
     return Final().Ok();
 
     IGqlpOperation Final()
-      => tokens is OperationContext context
+      => tokens is IOperationContext context
           ? ast with {
             Errors = tokens.Errors,
             Usages = [.. context.Variables],
@@ -85,8 +88,8 @@ internal class ParseOperation(
           : ast with { Errors = tokens.Errors, };
   }
 
-  private static OperationAst ParseCategory<TContext>(TContext tokens)
-    where TContext : Tokenizer
+  private static OperationAst ParseCategory(ITokenizer tokens)
+
   {
     TokenAt at = tokens.At;
     return tokens.Identifier(out string? category)

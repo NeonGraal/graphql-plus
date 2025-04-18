@@ -13,8 +13,8 @@ internal class ParseSelection(
   private readonly Parser<IGqlpDirective>.LA _directives = directives;
   private readonly Parser<IGqlpSelection>.LA _object = objectParser;
 
-  public IResult<IGqlpSelection> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<IGqlpSelection> Parse(ITokenizer tokens, string label)
+
   {
     if (tokens.Take("...") || tokens.Take('|')) {
       TokenAt at = tokens.At;
@@ -28,7 +28,7 @@ internal class ParseSelection(
           SpreadAst selection = new(at, name);
           _directives.Parse(tokens, "Spread").Optional(directives => selection.Directives = [.. directives]);
 
-          if (tokens is OperationContext context) {
+          if (tokens is IOperationContext context) {
             context.Spreads.Add(selection);
           }
 

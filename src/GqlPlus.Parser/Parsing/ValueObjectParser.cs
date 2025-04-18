@@ -11,8 +11,8 @@ public class ValueObjectParser<TValue>(
 {
   private readonly Parser<KeyValue<TValue>>.L _field = field;
 
-  public IResult<IGqlpFields<TValue>> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<IGqlpFields<TValue>> Parse(ITokenizer tokens, string label)
+
   {
     tokens.ThrowIfNull();
 

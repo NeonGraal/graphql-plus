@@ -9,8 +9,8 @@ internal abstract class ObjectTypeParser<TObjType, TObjTypeAst>
   where TObjType : IGqlpObjType
   where TObjTypeAst : AstObjType, TObjType
 {
-  protected IResult<TObjTypeAst> ParseObjectType<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  protected IResult<TObjTypeAst> ParseObjectType(ITokenizer tokens, string label)
+
   {
     string description = tokens.Description();
     if (!tokens.Prefix('$', out string? param, out TokenAt? at)) {
@@ -41,6 +41,6 @@ internal abstract class ObjectTypeParser<TObjType, TObjTypeAst>
   }
 
   protected abstract TObjTypeAst ObjType(TokenAt at, string type, string description);
-  public abstract IResultArray<TObjType> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer;
+  public abstract IResultArray<TObjType> Parse(ITokenizer tokens, string label)
+    ;
 }

@@ -98,8 +98,8 @@ internal class ParseDomainDefinition
     }
   }
 
-  public IResult<DomainDefinition> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<DomainDefinition> Parse(ITokenizer tokens, string label)
+
   {
     DomainDefinition result = new();
 

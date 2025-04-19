@@ -1,1 +1,1 @@
-68856a1  (HEAD -> type-constraints, origin/type-constraints) 2025-04-13 Update gqlp-samples after merge
+090b8b8  (HEAD -> type-constraints) 2025-04-19 Correct Introspection of object type constraints

@@ -28,7 +28,8 @@ internal sealed class ModelAndRender(
 
     Structured result = renderer.Render(model);
     if (context.Errors.Count > 0) {
-      result.Add("_errors", context.Errors.Render());
+      string key = result.Map.ContainsKey(new("_errors")) ? "_ctxErrors" : "errors";
+      result.Add(key, context.Errors.Render());
     }
 
     return result;

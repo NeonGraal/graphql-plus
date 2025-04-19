@@ -1,6 +1,6 @@
 ﻿{
   "$tag": "_Schema",
-  "_errors": [
+  "errors": [
     {
       "$tag": "_Error",
       "_kind": {

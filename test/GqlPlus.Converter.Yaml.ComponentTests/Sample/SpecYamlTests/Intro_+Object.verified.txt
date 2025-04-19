@@ -1,8 +1,14 @@
 ﻿!_Schema
-_errors:
+errors:
 - !_Error
   _kind: !_TokenKind End
   _message: In _TypeObject can't get model for type '_ChildType'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _ObjTypeParam can't get model for type '_Named'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _ObjConstraint can't get model for type '_TypeRef'
 - !_Error
   _kind: !_TokenKind End
   _message: In _ObjBase can't get model for type '_Described'
@@ -11,10 +17,7 @@ _errors:
   _message: In _ObjTypeArg can't get model for type '_TypeRef'
 - !_Error
   _kind: !_TokenKind End
-  _message: In _TypeParam can't get model for type '_Identifier'
-- !_Error
-  _kind: !_TokenKind End
-  _message: In _ObjTypeParam can't get model for type '_Described'
+  _message: In _TypeParam can't get model for type '_Described'
 - !_Error
   _kind: !_TokenKind End
   _message: In _Field can't get model for type '_Aliased'
@@ -26,7 +29,7 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _ObjBase
-      output: _ObjTypeParam
+      output: _TypeParam
     allFields:
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
@@ -59,7 +62,7 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _ObjBase
-      output: _ObjTypeParam
+      output: _TypeParam
     allFields:
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
@@ -94,7 +97,7 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _ObjBase
-      output: _ObjTypeParam
+      output: _TypeParam
     allFields:
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
@@ -143,7 +146,7 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _ObjTypeArg
-      output: _ObjTypeParam
+      output: _TypeParam
     allFields:
     - !_ObjectFor(_OutputField)
       name: dual
@@ -158,6 +161,25 @@ types: !_Map_Type
     name: _DualTypeArg
     parent: !_OutputBase
       output: _ObjTypeArg
+    typeKind: !_TypeKind Output
+  !_Identifier _DualTypeParam: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: constraint
+      object: _ObjTypeParam
+      type: !_OutputBase
+        output: _ObjConstraint
+        typeArgs:
+        - !_TypeParam kind
+    name: _DualTypeParam
+    parent: !_OutputBase
+      output: _ObjTypeParam
+      typeArgs:
+      - !_OutputArg
+        label: Dual
+        name: _TypeKind
+        typeKind: !_SimpleKind Enum
     typeKind: !_TypeKind Output
   !_Identifier _Field: !_TypeOutput
     allFields:
@@ -219,7 +241,7 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _ObjBase
-      output: _ObjTypeParam
+      output: _TypeParam
     allFields:
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
@@ -254,7 +276,7 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _ObjBase
-      output: _ObjTypeParam
+      output: _TypeParam
     - !_ObjectFor(_OutputAlternate)
       object: _InputBase
       output: _DualBase
@@ -321,7 +343,7 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _ObjBase
-      output: _ObjTypeParam
+      output: _TypeParam
     - !_ObjectFor(_OutputAlternate)
       object: _InputBase
       output: _DualBase
@@ -368,7 +390,7 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _ObjTypeArg
-      output: _ObjTypeParam
+      output: _TypeParam
     allFields:
     - !_ObjectFor(_OutputField)
       name: input
@@ -384,11 +406,47 @@ types: !_Map_Type
     parent: !_OutputBase
       output: _ObjTypeArg
     typeKind: !_TypeKind Output
+  !_Identifier _InputTypeParam: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: _InputTypeParam
+      output: _TypeRef
+      typeArgs:
+      - !_OutputArg
+        label: Dual
+        name: _TypeKind
+        typeKind: !_SimpleKind Enum
+    allFields:
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: constraint
+      object: _ObjTypeParam
+      type: !_OutputBase
+        output: _ObjConstraint
+        typeArgs:
+        - !_TypeParam kind
+    alternates:
+    - !_OutputAlternate
+      output: _TypeRef
+      typeArgs:
+      - !_OutputArg
+        label: Dual
+        name: _TypeKind
+        typeKind: !_SimpleKind Enum
+    name: _InputTypeParam
+    parent: !_OutputBase
+      output: _ObjTypeParam
+      typeArgs:
+      - !_OutputArg
+        label: Input
+        name: _TypeKind
+        typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Output
   !_Identifier _ObjBase: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _ObjBase
-      output: _ObjTypeParam
+      output: _TypeParam
     allFields:
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
@@ -398,7 +456,7 @@ types: !_Map_Type
         typeParam: arg
     alternates:
     - !_OutputAlternate
-      output: _ObjTypeParam
+      output: _TypeParam
     fields:
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
@@ -413,23 +471,15 @@ types: !_Map_Type
     - !_Named
       name: arg
   !_Identifier _ObjConstraint: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: _ObjConstraint
-      output: _TypeSimple
-    - !_ObjectFor(_OutputAlternate)
-      object: _ObjConstraint
-      typeParam: base
-    alternates:
-    - !_OutputAlternate
-      output: _TypeSimple
-    - !_OutputAlternate
-      typeParam: base
     name: _ObjConstraint
+    parent: !_OutputBase
+      output: _TypeRef
+      typeArgs:
+      - !_TypeParam kind
     typeKind: !_TypeKind Output
     typeParams:
     - !_Named
-      name: base
+      name: kind
   !_Identifier _ObjType: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
@@ -466,10 +516,10 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _ObjTypeArg
-      output: _ObjTypeParam
+      output: _TypeParam
     alternates:
     - !_OutputAlternate
-      output: _ObjTypeParam
+      output: _TypeParam
     name: _ObjTypeArg
     parent: !_OutputBase
       output: _TypeRef
@@ -480,19 +530,28 @@ types: !_Map_Type
   !_Identifier _ObjTypeParam: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      name: typeParam
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: constraint
       object: _ObjTypeParam
       type: !_OutputBase
-        output: _TypeParam
+        output: _ObjConstraint
+        typeArgs:
+        - !_TypeParam kind
     fields:
     - !_OutputField
-      name: typeParam
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: constraint
       type: !_OutputBase
-        output: _TypeParam
+        output: _ObjConstraint
+        typeArgs:
+        - !_TypeParam kind
     name: _ObjTypeParam
     parent: !_OutputBase
-      output: _Described
+      output: _Named
     typeKind: !_TypeKind Output
+    typeParams:
+    - !_Named
+      name: kind
   !_Identifier _ObjectFor: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -516,7 +575,7 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _ObjBase
-      output: _ObjTypeParam
+      output: _TypeParam
     allFields:
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
@@ -551,7 +610,7 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _ObjBase
-      output: _ObjTypeParam
+      output: _TypeParam
     - !_ObjectFor(_OutputAlternate)
       object: _OutputBase
       output: _DualBase
@@ -655,7 +714,7 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _ObjTypeArg
-      output: _ObjTypeParam
+      output: _TypeParam
     allFields:
     - !_ObjectFor(_OutputField)
       name: output
@@ -682,6 +741,57 @@ types: !_Map_Type
     parent: !_OutputBase
       output: _ObjTypeArg
     typeKind: !_TypeKind Output
+  !_Identifier _OutputTypeParam: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: _OutputTypeParam
+      output: _TypeRef
+      typeArgs:
+      - !_OutputArg
+        label: Dual
+        name: _TypeKind
+        typeKind: !_SimpleKind Enum
+    - !_ObjectFor(_OutputAlternate)
+      object: _OutputTypeParam
+      output: _TypeRef
+      typeArgs:
+      - !_OutputArg
+        label: Enum
+        name: _TypeKind
+        typeKind: !_SimpleKind Enum
+    allFields:
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: constraint
+      object: _ObjTypeParam
+      type: !_OutputBase
+        output: _ObjConstraint
+        typeArgs:
+        - !_TypeParam kind
+    alternates:
+    - !_OutputAlternate
+      output: _TypeRef
+      typeArgs:
+      - !_OutputArg
+        label: Dual
+        name: _TypeKind
+        typeKind: !_SimpleKind Enum
+    - !_OutputAlternate
+      output: _TypeRef
+      typeArgs:
+      - !_OutputArg
+        label: Enum
+        name: _TypeKind
+        typeKind: !_SimpleKind Enum
+    name: _OutputTypeParam
+    parent: !_OutputBase
+      output: _ObjTypeParam
+      typeArgs:
+      - !_OutputArg
+        label: Output
+        name: _TypeKind
+        typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Output
   !_Identifier _TypeDual: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -689,7 +799,7 @@ types: !_Map_Type
       name: typeParams
       object: _TypeObject
       type: !_OutputBase
-        output: _DualTypeArg
+        output: _DualTypeParam
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: fields
@@ -729,7 +839,7 @@ types: !_Map_Type
       - !_OutputArg
         output: _DualBase
       - !_OutputArg
-        output: _DualTypeArg
+        output: _DualTypeParam
       - !_OutputArg
         output: _DualField
       - !_OutputArg
@@ -742,7 +852,7 @@ types: !_Map_Type
       name: typeParams
       object: _TypeObject
       type: !_OutputBase
-        output: _InputTypeArg
+        output: _InputTypeParam
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: fields
@@ -782,7 +892,7 @@ types: !_Map_Type
       - !_OutputArg
         output: _InputBase
       - !_OutputArg
-        output: _InputTypeArg
+        output: _InputTypeParam
       - !_OutputArg
         output: _InputField
       - !_OutputArg
@@ -879,7 +989,7 @@ types: !_Map_Type
       name: typeParams
       object: _TypeObject
       type: !_OutputBase
-        output: _OutputTypeArg
+        output: _OutputTypeParam
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: fields
@@ -919,16 +1029,25 @@ types: !_Map_Type
       - !_OutputArg
         output: _OutputBase
       - !_OutputArg
-        output: _OutputTypeArg
+        output: _OutputTypeParam
       - !_OutputArg
         output: _OutputField
       - !_OutputArg
         output: _OutputAlternate
     typeKind: !_TypeKind Output
-  !_Identifier _TypeParam: !_DomainString
-    domainKind: !_DomainKind String
+  !_Identifier _TypeParam: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: typeParam
+      object: _TypeParam
+      type: !_OutputBase
+        output: _Identifier
+    fields:
+    - !_OutputField
+      name: typeParam
+      type: !_OutputBase
+        output: _Identifier
     name: _TypeParam
-    parent: !_TypeRef(_SimpleKind)
-      name: _Identifier
-      typeKind: !_SimpleKind Domain
-    typeKind: !_TypeKind Domain
+    parent: !_OutputBase
+      output: _Described
+    typeKind: !_TypeKind Output

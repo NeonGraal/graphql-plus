@@ -1,6 +1,6 @@
 ﻿{
   "$tag": "_Schema",
-  "_errors": [
+  "errors": [
     {
       "$tag": "_Error",
       "_kind": {
@@ -16,6 +16,14 @@
         "value": "End"
       },
       "_message": "In _OutputBase can\u0027t get model for type \u0027_ObjBase\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _OutputTypeParam can\u0027t get model for type \u0027_ObjTypeParam\u0027"
     },
     {
       "$tag": "_Error",
@@ -342,6 +350,95 @@
         "value": "Output"
       }
     },
+    "_OutputTypeParam": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "_OutputTypeParam",
+          "output": "_TypeRef",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "label": "Dual",
+              "name": "_TypeKind",
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "_OutputTypeParam",
+          "output": "_TypeRef",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "label": "Enum",
+              "name": "_TypeKind",
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "output": "_TypeRef",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "label": "Dual",
+              "name": "_TypeKind",
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "$tag": "_OutputAlternate",
+          "output": "_TypeRef",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "label": "Enum",
+              "name": "_TypeKind",
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "name": "_OutputTypeParam",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_ObjTypeParam",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "label": "Output",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
     "_TypeOutput": {
       "$tag": "_TypeOutput",
       "name": "_TypeOutput",
@@ -364,7 +461,7 @@
           },
           {
             "$tag": "_OutputArg",
-            "value": "_OutputTypeArg"
+            "value": "_OutputTypeParam"
           },
           {
             "$tag": "_OutputArg",

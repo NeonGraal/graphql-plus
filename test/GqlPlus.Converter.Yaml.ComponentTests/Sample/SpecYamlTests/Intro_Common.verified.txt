@@ -1,5 +1,5 @@
 ﻿!_Schema
-_errors:
+errors:
 - !_Error
   _kind: !_TokenKind End
   _message: In _BaseType can't get model for type '_Aliased'

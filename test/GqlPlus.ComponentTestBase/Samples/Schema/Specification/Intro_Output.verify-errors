@@ -5,6 +5,7 @@
 '_InputParam' not defined
 '_ObjBase' not defined
 '_ObjTypeArg' not defined
+'_ObjTypeParam' not defined
 '_TypeKind' is not an Enum type
 '_TypeKind' not defined
 '_TypeObject' not defined

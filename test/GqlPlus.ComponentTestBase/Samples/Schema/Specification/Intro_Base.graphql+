@@ -8,10 +8,15 @@ output _TypeObject<$kind:_ObjectKind $parent:_ObjDescribed
         allAlternates: _ObjectFor<$alternate>[]
     }
 
-output _ObjConstraint<$base:_ObjBase> {
-    | _TypeSimple
-    | $base
+output _ObjTypeParam<$kind:_ObjectKind> {
+    : _Named
+        constraint: _ObjConstraint<$kind>?
     }
+
+output _ObjConstraint<$kind:_ObjectKind> {
+    : _TypeRef<$kind>
+    }
+
 output _ObjType<$base:_ObjBase> {
     | _BaseType<_TypeKind.Internal>
     | _ObjConstraint<$base>
@@ -20,19 +25,17 @@ output _ObjType<$base:_ObjBase> {
 output _ObjBase<$arg:_ObjTypeArg> {
     : _Described
         typeArgs: $arg[]
-    | _ObjTypeParam
+    | _TypeParam
     }
 
 output _ObjTypeArg {
     : _TypeRef<_TypeKind>
-    | _ObjTypeParam
+    | _TypeParam
     }
 
-domain _TypeParam { :_Identifier String }
-
-output _ObjTypeParam {
+output _TypeParam {
     : _Described
-        typeParam: _TypeParam
+        typeParam: _Identifier
     }
 
 output _Alternate<$arg:_ObjTypeArg> {

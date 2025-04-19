@@ -1,11 +1,14 @@
 ﻿!_Schema
-_errors:
+errors:
   - !_Error
     _kind: !_TokenKind End
     _message: In _TypeInput can't get model for type '_TypeObject'
   - !_Error
     _kind: !_TokenKind End
     _message: In _InputBase can't get model for type '_ObjBase'
+  - !_Error
+    _kind: !_TokenKind End
+    _message: In _InputTypeParam can't get model for type '_ObjTypeParam'
   - !_Error
     _kind: !_TokenKind End
     _message: In _InputField can't get model for type '_Field'
@@ -136,6 +139,33 @@ types: !_Map_Type
     parent: !_OutputBase
       output: _ObjTypeArg
     typeKind: !_TypeKind Output
+  !_Identifier _InputTypeParam: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: _InputTypeParam
+        output: _TypeRef
+        typeArgs:
+          - !_OutputArg
+            label: Dual
+            name: _TypeKind
+            typeKind: !_SimpleKind Enum
+    alternates:
+      - !_OutputAlternate
+        output: _TypeRef
+        typeArgs:
+          - !_OutputArg
+            label: Dual
+            name: _TypeKind
+            typeKind: !_SimpleKind Enum
+    name: _InputTypeParam
+    parent: !_OutputBase
+      output: _ObjTypeParam
+      typeArgs:
+        - !_OutputArg
+          label: Input
+          name: _TypeKind
+          typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Output
   !_Identifier _TypeInput: !_TypeOutput
     name: _TypeInput
     parent: !_OutputBase
@@ -148,7 +178,7 @@ types: !_Map_Type
         - !_OutputArg
           output: _InputBase
         - !_OutputArg
-          output: _InputTypeArg
+          output: _InputTypeParam
         - !_OutputArg
           output: _InputField
         - !_OutputArg

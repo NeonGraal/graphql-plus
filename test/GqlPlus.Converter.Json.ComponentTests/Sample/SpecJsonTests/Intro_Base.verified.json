@@ -1,6 +1,6 @@
 ﻿{
   "$tag": "_Schema",
-  "_errors": [
+  "errors": [
     {
       "$tag": "_Error",
       "_kind": {
@@ -8,6 +8,22 @@
         "value": "End"
       },
       "_message": "In _TypeObject can\u0027t get model for type \u0027_ChildType\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _ObjTypeParam can\u0027t get model for type \u0027_Named\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _ObjConstraint can\u0027t get model for type \u0027_TypeRef\u0027"
     },
     {
       "$tag": "_Error",
@@ -31,15 +47,7 @@
         "$tag": "_TokenKind",
         "value": "End"
       },
-      "_message": "In _TypeParam can\u0027t get model for type \u0027_Identifier\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_kind": {
-        "$tag": "_TokenKind",
-        "value": "End"
-      },
-      "_message": "In _ObjTypeParam can\u0027t get model for type \u0027_Described\u0027"
+      "_message": "In _TypeParam can\u0027t get model for type \u0027_Described\u0027"
     },
     {
       "$tag": "_Error",
@@ -58,7 +66,7 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjBase",
-          "output": "_ObjTypeParam"
+          "output": "_TypeParam"
         }
       ],
       "allFields": [
@@ -255,7 +263,7 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjBase",
-          "output": "_ObjTypeParam"
+          "output": "_TypeParam"
         }
       ],
       "allFields": [
@@ -281,7 +289,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "_ObjTypeParam"
+          "value": "_TypeParam"
         }
       ],
       "fields": [
@@ -321,29 +329,12 @@
     },
     "_ObjConstraint": {
       "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_ObjConstraint",
-          "output": "_TypeSimple"
-        },
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_ObjConstraint",
-          "typeParam": "base"
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "value": "_TypeSimple"
-        },
-        {
-          "$tag": "_OutputAlternate",
-          "value": "base"
-        }
-      ],
       "name": "_ObjConstraint",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_TypeRef",
+        "typeArgs": [{"$tag":"_TypeParam", "value":"kind"}]
+      },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
@@ -351,7 +342,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "base"
+          "value": "kind"
         }
       ]
     },
@@ -460,13 +451,13 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjTypeArg",
-          "output": "_ObjTypeParam"
+          "output": "_TypeParam"
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "_ObjTypeParam"
+          "value": "_TypeParam"
         }
       ],
       "name": "_ObjTypeArg",
@@ -490,33 +481,59 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "typeParam",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "constraint",
           "object": "_ObjTypeParam",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_TypeParam"
+            "output": "_ObjConstraint",
+            "typeArgs": [{"$tag":"_TypeParam", "value":"kind"}]
           }
         }
       ],
       "fields": [
         {
           "$tag": "_OutputField",
-          "name": "typeParam",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "constraint",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_TypeParam"
+            "output": "_ObjConstraint",
+            "typeArgs": [{"$tag":"_TypeParam", "value":"kind"}]
           }
         }
       ],
       "name": "_ObjTypeParam",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "_Described"
+        "value": "_Named"
       },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
-      }
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "value": "kind"
+        }
+      ]
     },
     "_TypeObject": {
       "$tag": "_TypeOutput",
@@ -737,23 +754,36 @@
       ]
     },
     "_TypeParam": {
-      "$tag": "_DomainString",
-      "domainKind": {
-        "$tag": "_DomainKind",
-        "value": "String"
-      },
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "typeParam",
+          "object": "_TypeParam",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "typeParam",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "_Identifier"
+          }
+        }
+      ],
       "name": "_TypeParam",
       "parent": {
-        "$tag": "_TypeRef(_SimpleKind)",
-        "name": "_Identifier",
-        "typeKind": {
-          "$tag": "_SimpleKind",
-          "value": "Domain"
-        }
+        "$tag": "_OutputBase",
+        "value": "_Described"
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Domain"
+        "value": "Output"
       }
     }
   }

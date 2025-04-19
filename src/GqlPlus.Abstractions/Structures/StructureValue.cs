@@ -59,4 +59,12 @@ public sealed class StructureValue
     { Text: not null } => Text,
     _ => string.Empty,
   };
+
+  public override string ToString() => this switch {
+    { Boolean: not null } => "B:" + Boolean.Value.TrueFalse(),
+    { Identifier: not null } => "I:" + Identifier,
+    { Number: not null } => $"N:{Number:0.#####}",
+    { Text: not null } => "T:" + Text,
+    _ => "E",
+  };
 }

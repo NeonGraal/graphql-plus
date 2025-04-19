@@ -49,11 +49,11 @@
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "test"
         },
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "type"
         }
       ]

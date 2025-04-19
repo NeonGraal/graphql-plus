@@ -15,7 +15,7 @@ types: !_Map_Type
     name: OutpGnrcAltArg
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: type
   !_Identifier RefOutpGnrcAltArg: !_TypeOutput
     allAlternates:
@@ -28,5 +28,5 @@ types: !_Map_Type
     name: RefOutpGnrcAltArg
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: ref

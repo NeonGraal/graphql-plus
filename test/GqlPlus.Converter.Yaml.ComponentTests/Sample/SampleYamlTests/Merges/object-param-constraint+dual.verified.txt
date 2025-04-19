@@ -24,5 +24,5 @@ types: !_Map_Type
     name: DualObjParamCnst
     typeKind: !_TypeKind Dual
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: test

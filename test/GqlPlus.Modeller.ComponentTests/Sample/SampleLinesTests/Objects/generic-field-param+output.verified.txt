@@ -52,5 +52,5 @@ types: !_Map_Type
     name: RefOutpGnrcFieldParam
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref

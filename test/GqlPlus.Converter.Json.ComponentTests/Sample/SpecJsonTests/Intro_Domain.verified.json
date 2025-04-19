@@ -81,15 +81,15 @@
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "domain"
         },
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "item"
         },
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "domainItem"
         }
       ]
@@ -161,7 +161,7 @@
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "item"
         }
       ]
@@ -530,7 +530,7 @@
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "kind"
         }
       ]
@@ -663,11 +663,11 @@
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "kind"
         },
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "value"
         }
       ]

@@ -1180,7 +1180,7 @@ types: !_Map_Type
     name: DualAltModParam
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: mod
   !_Identifier DualAltSmpl: !_TypeDual
     allAlternates:
@@ -1203,7 +1203,7 @@ types: !_Map_Type
     name: DualCnstAlt
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier DualCnstAltDmn: !_TypeDual
     allAlternates:
@@ -1429,7 +1429,7 @@ types: !_Map_Type
     name: DualFieldModParam
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: mod
   !_Identifier DualFieldObj: !_TypeDual
     allFields:
@@ -1486,7 +1486,7 @@ types: !_Map_Type
     name: DualGnrcAlt
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier DualGnrcAltArg: !_TypeDual
     allAlternates:
@@ -1503,7 +1503,7 @@ types: !_Map_Type
     name: DualGnrcAltArg
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier DualGnrcAltArgDescr: !_TypeDual
     allAlternates:
@@ -1520,7 +1520,7 @@ types: !_Map_Type
     name: DualGnrcAltArgDescr
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier DualGnrcAltDual: !_TypeDual
     allAlternates:
@@ -1585,7 +1585,7 @@ types: !_Map_Type
     name: DualGnrcDescr
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         description: 'Test Descr'
         name: type
   !_Identifier DualGnrcField: !_TypeDual
@@ -1603,7 +1603,7 @@ types: !_Map_Type
     name: DualGnrcField
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier DualGnrcFieldArg: !_TypeDual
     allFields:
@@ -1624,7 +1624,7 @@ types: !_Map_Type
     name: DualGnrcFieldArg
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier DualGnrcFieldDual: !_TypeDual
     allFields:
@@ -1672,7 +1672,7 @@ types: !_Map_Type
       typeParam: type
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier DualGnrcPrntArg: !_TypeDual
     allAlternates:
@@ -1686,7 +1686,7 @@ types: !_Map_Type
         - !_TypeParam type
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier DualGnrcPrntDual: !_TypeDual
     allAlternates:
@@ -1863,7 +1863,7 @@ types: !_Map_Type
         - !_TypeParam a
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: a
   !_Identifier DualPrntParamSame: !_TypeDual
     allAlternates:
@@ -1888,7 +1888,7 @@ types: !_Map_Type
         - !_TypeParam a
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: a
   !_Identifier EnumDualFieldModEnum: !_TypeEnum
     allItems:
@@ -2447,7 +2447,7 @@ types: !_Map_Type
     name: InpAltModParam
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: mod
   !_Identifier InpAltSmpl: !_TypeInput
     allAlternates:
@@ -2470,7 +2470,7 @@ types: !_Map_Type
     name: InpCnstAlt
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier InpCnstAltDmn: !_TypeInput
     allAlternates:
@@ -2730,7 +2730,7 @@ types: !_Map_Type
     name: InpFieldModParam
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: mod
   !_Identifier InpFieldNmbr: !_TypeInput
     allFields:
@@ -2853,7 +2853,7 @@ types: !_Map_Type
     name: InpGnrcAlt
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier InpGnrcAltArg: !_TypeInput
     allAlternates:
@@ -2870,7 +2870,7 @@ types: !_Map_Type
     name: InpGnrcAltArg
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier InpGnrcAltArgDescr: !_TypeInput
     allAlternates:
@@ -2887,7 +2887,7 @@ types: !_Map_Type
     name: InpGnrcAltArgDescr
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier InpGnrcAltDual: !_TypeInput
     allAlternates:
@@ -2952,7 +2952,7 @@ types: !_Map_Type
     name: InpGnrcDescr
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         description: 'Test Descr'
         name: type
   !_Identifier InpGnrcField: !_TypeInput
@@ -2970,7 +2970,7 @@ types: !_Map_Type
     name: InpGnrcField
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier InpGnrcFieldArg: !_TypeInput
     allFields:
@@ -2991,7 +2991,7 @@ types: !_Map_Type
     name: InpGnrcFieldArg
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier InpGnrcFieldDual: !_TypeInput
     allFields:
@@ -3039,7 +3039,7 @@ types: !_Map_Type
       typeParam: type
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier InpGnrcPrntArg: !_TypeInput
     allAlternates:
@@ -3053,7 +3053,7 @@ types: !_Map_Type
         - !_TypeParam type
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier InpGnrcPrntDual: !_TypeInput
     allAlternates:
@@ -3220,7 +3220,7 @@ types: !_Map_Type
         - !_TypeParam a
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: a
   !_Identifier InpPrntParamSame: !_TypeInput
     allAlternates:
@@ -3245,7 +3245,7 @@ types: !_Map_Type
         - !_TypeParam a
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: a
   !_Identifier OutpAlt: !_TypeOutput
     allAlternates:
@@ -3318,7 +3318,7 @@ types: !_Map_Type
     name: OutpAltModParam
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: mod
   !_Identifier OutpAltSmpl: !_TypeOutput
     allAlternates:
@@ -3341,7 +3341,7 @@ types: !_Map_Type
     name: OutpCnstAlt
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier OutpCnstAltDmn: !_TypeOutput
     allAlternates:
@@ -3637,7 +3637,7 @@ types: !_Map_Type
     name: OutpFieldModParam
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: mod
   !_Identifier OutpFieldObj: !_TypeOutput
     allFields:
@@ -3724,7 +3724,7 @@ types: !_Map_Type
     name: OutpGnrcAlt
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier OutpGnrcAltArg: !_TypeOutput
     allAlternates:
@@ -3741,7 +3741,7 @@ types: !_Map_Type
     name: OutpGnrcAltArg
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier OutpGnrcAltArgDescr: !_TypeOutput
     allAlternates:
@@ -3758,7 +3758,7 @@ types: !_Map_Type
     name: OutpGnrcAltArgDescr
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier OutpGnrcAltDual: !_TypeOutput
     allAlternates:
@@ -3823,7 +3823,7 @@ types: !_Map_Type
     name: OutpGnrcDescr
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         description: 'Test Descr'
         name: type
   !_Identifier OutpGnrcEnum: !_TypeOutput
@@ -3861,7 +3861,7 @@ types: !_Map_Type
     name: OutpGnrcField
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier OutpGnrcFieldArg: !_TypeOutput
     allFields:
@@ -3882,7 +3882,7 @@ types: !_Map_Type
     name: OutpGnrcFieldArg
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier OutpGnrcFieldDual: !_TypeOutput
     allFields:
@@ -3930,7 +3930,7 @@ types: !_Map_Type
       typeParam: type
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier OutpGnrcPrntArg: !_TypeOutput
     allAlternates:
@@ -3944,7 +3944,7 @@ types: !_Map_Type
         - !_TypeParam type
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier OutpGnrcPrntDual: !_TypeOutput
     allAlternates:
@@ -4099,7 +4099,7 @@ types: !_Map_Type
     name: OutpParamModParam
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: mod
   !_Identifier OutpParamTypeDescr: !_TypeOutput
     allFields:
@@ -4288,7 +4288,7 @@ types: !_Map_Type
         - !_TypeParam a
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: a
   !_Identifier OutpPrntParamSame: !_TypeOutput
     allAlternates:
@@ -4313,7 +4313,7 @@ types: !_Map_Type
         - !_TypeParam a
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: a
   !_Identifier PrntDualCnstAltDual: !_TypeDual
     allAlternates:
@@ -4567,7 +4567,7 @@ types: !_Map_Type
     name: RefDualCnstAltDmn
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefDualCnstAltDual: !_TypeDual
     allAlternates:
@@ -4580,7 +4580,7 @@ types: !_Map_Type
     name: RefDualCnstAltDual
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefDualCnstAltObj: !_TypeDual
     allAlternates:
@@ -4593,7 +4593,7 @@ types: !_Map_Type
     name: RefDualCnstAltObj
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefDualCnstFieldDmn: !_TypeDual
     allFields:
@@ -4610,7 +4610,7 @@ types: !_Map_Type
     name: RefDualCnstFieldDmn
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefDualCnstFieldDual: !_TypeDual
     allFields:
@@ -4627,7 +4627,7 @@ types: !_Map_Type
     name: RefDualCnstFieldDual
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefDualCnstFieldObj: !_TypeDual
     allFields:
@@ -4644,7 +4644,7 @@ types: !_Map_Type
     name: RefDualCnstFieldObj
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefDualCnstPrntDualPrnt: !_TypeDual
     name: RefDualCnstPrntDualPrnt
@@ -4652,7 +4652,7 @@ types: !_Map_Type
       typeParam: ref
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefDualCnstPrntObjPrnt: !_TypeDual
     name: RefDualCnstPrntObjPrnt
@@ -4660,7 +4660,7 @@ types: !_Map_Type
       typeParam: ref
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefDualGnrcAltArg: !_TypeDual
     allAlternates:
@@ -4673,7 +4673,7 @@ types: !_Map_Type
     name: RefDualGnrcAltArg
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefDualGnrcAltArgDescr: !_TypeDual
     allAlternates:
@@ -4686,7 +4686,7 @@ types: !_Map_Type
     name: RefDualGnrcAltArgDescr
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefDualGnrcAltDual: !_TypeDual
     allAlternates:
@@ -4699,7 +4699,7 @@ types: !_Map_Type
     name: RefDualGnrcAltDual
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefDualGnrcAltParam: !_TypeDual
     allAlternates:
@@ -4712,7 +4712,7 @@ types: !_Map_Type
     name: RefDualGnrcAltParam
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefDualGnrcAltSmpl: !_TypeDual
     allAlternates:
@@ -4725,7 +4725,7 @@ types: !_Map_Type
     name: RefDualGnrcAltSmpl
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefDualGnrcFieldArg: !_TypeDual
     allAlternates:
@@ -4738,7 +4738,7 @@ types: !_Map_Type
     name: RefDualGnrcFieldArg
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefDualGnrcFieldDual: !_TypeDual
     allAlternates:
@@ -4751,7 +4751,7 @@ types: !_Map_Type
     name: RefDualGnrcFieldDual
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefDualGnrcFieldParam: !_TypeDual
     allAlternates:
@@ -4764,7 +4764,7 @@ types: !_Map_Type
     name: RefDualGnrcFieldParam
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefDualGnrcPrntArg: !_TypeDual
     allAlternates:
@@ -4777,7 +4777,7 @@ types: !_Map_Type
     name: RefDualGnrcPrntArg
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefDualGnrcPrntDual: !_TypeDual
     allAlternates:
@@ -4790,7 +4790,7 @@ types: !_Map_Type
     name: RefDualGnrcPrntDual
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefDualGnrcPrntDualPrnt: !_TypeDual
     name: RefDualGnrcPrntDualPrnt
@@ -4798,7 +4798,7 @@ types: !_Map_Type
       typeParam: ref
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefDualGnrcPrntParam: !_TypeDual
     allAlternates:
@@ -4811,7 +4811,7 @@ types: !_Map_Type
     name: RefDualGnrcPrntParam
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefDualGnrcPrntParamPrnt: !_TypeDual
     name: RefDualGnrcPrntParamPrnt
@@ -4819,7 +4819,7 @@ types: !_Map_Type
       typeParam: ref
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefDualPrnt: !_TypeDual
     allAlternates:
@@ -4937,7 +4937,7 @@ types: !_Map_Type
     name: RefDualPrntParamDiff
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: b
   !_Identifier RefDualPrntParamSame: !_TypeDual
     allAlternates:
@@ -4950,7 +4950,7 @@ types: !_Map_Type
     name: RefDualPrntParamSame
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: a
   !_Identifier RefInpCnstAltDmn: !_TypeInput
     allAlternates:
@@ -4963,7 +4963,7 @@ types: !_Map_Type
     name: RefInpCnstAltDmn
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefInpCnstAltDual: !_TypeInput
     allAlternates:
@@ -4976,7 +4976,7 @@ types: !_Map_Type
     name: RefInpCnstAltDual
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefInpCnstAltObj: !_TypeInput
     allAlternates:
@@ -4989,7 +4989,7 @@ types: !_Map_Type
     name: RefInpCnstAltObj
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefInpCnstFieldDmn: !_TypeInput
     allFields:
@@ -5006,7 +5006,7 @@ types: !_Map_Type
     name: RefInpCnstFieldDmn
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefInpCnstFieldDual: !_TypeInput
     allFields:
@@ -5023,7 +5023,7 @@ types: !_Map_Type
     name: RefInpCnstFieldDual
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefInpCnstFieldObj: !_TypeInput
     allFields:
@@ -5040,7 +5040,7 @@ types: !_Map_Type
     name: RefInpCnstFieldObj
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefInpCnstPrntDualPrnt: !_TypeInput
     name: RefInpCnstPrntDualPrnt
@@ -5048,7 +5048,7 @@ types: !_Map_Type
       typeParam: ref
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefInpCnstPrntObjPrnt: !_TypeInput
     name: RefInpCnstPrntObjPrnt
@@ -5056,7 +5056,7 @@ types: !_Map_Type
       typeParam: ref
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefInpGnrcAltArg: !_TypeInput
     allAlternates:
@@ -5069,7 +5069,7 @@ types: !_Map_Type
     name: RefInpGnrcAltArg
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefInpGnrcAltArgDescr: !_TypeInput
     allAlternates:
@@ -5082,7 +5082,7 @@ types: !_Map_Type
     name: RefInpGnrcAltArgDescr
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefInpGnrcAltDual: !_TypeInput
     allAlternates:
@@ -5095,7 +5095,7 @@ types: !_Map_Type
     name: RefInpGnrcAltDual
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefInpGnrcAltParam: !_TypeInput
     allAlternates:
@@ -5108,7 +5108,7 @@ types: !_Map_Type
     name: RefInpGnrcAltParam
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefInpGnrcAltSmpl: !_TypeInput
     allAlternates:
@@ -5121,7 +5121,7 @@ types: !_Map_Type
     name: RefInpGnrcAltSmpl
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefInpGnrcFieldArg: !_TypeInput
     allAlternates:
@@ -5134,7 +5134,7 @@ types: !_Map_Type
     name: RefInpGnrcFieldArg
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefInpGnrcFieldDual: !_TypeInput
     allAlternates:
@@ -5147,7 +5147,7 @@ types: !_Map_Type
     name: RefInpGnrcFieldDual
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefInpGnrcFieldParam: !_TypeInput
     allAlternates:
@@ -5160,7 +5160,7 @@ types: !_Map_Type
     name: RefInpGnrcFieldParam
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefInpGnrcPrntArg: !_TypeInput
     allAlternates:
@@ -5173,7 +5173,7 @@ types: !_Map_Type
     name: RefInpGnrcPrntArg
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefInpGnrcPrntDual: !_TypeInput
     allAlternates:
@@ -5186,7 +5186,7 @@ types: !_Map_Type
     name: RefInpGnrcPrntDual
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefInpGnrcPrntDualPrnt: !_TypeInput
     name: RefInpGnrcPrntDualPrnt
@@ -5194,7 +5194,7 @@ types: !_Map_Type
       typeParam: ref
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefInpGnrcPrntParam: !_TypeInput
     allAlternates:
@@ -5207,7 +5207,7 @@ types: !_Map_Type
     name: RefInpGnrcPrntParam
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefInpGnrcPrntParamPrnt: !_TypeInput
     name: RefInpGnrcPrntParamPrnt
@@ -5215,7 +5215,7 @@ types: !_Map_Type
       typeParam: ref
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefInpPrnt: !_TypeInput
     allAlternates:
@@ -5333,7 +5333,7 @@ types: !_Map_Type
     name: RefInpPrntParamDiff
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: b
   !_Identifier RefInpPrntParamSame: !_TypeInput
     allAlternates:
@@ -5346,7 +5346,7 @@ types: !_Map_Type
     name: RefInpPrntParamSame
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: a
   !_Identifier RefOutpCnstAltDmn: !_TypeOutput
     allAlternates:
@@ -5359,7 +5359,7 @@ types: !_Map_Type
     name: RefOutpCnstAltDmn
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefOutpCnstAltDual: !_TypeOutput
     allAlternates:
@@ -5372,7 +5372,7 @@ types: !_Map_Type
     name: RefOutpCnstAltDual
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefOutpCnstAltObj: !_TypeOutput
     allAlternates:
@@ -5385,7 +5385,7 @@ types: !_Map_Type
     name: RefOutpCnstAltObj
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefOutpCnstEnum: !_TypeOutput
     allFields:
@@ -5402,7 +5402,7 @@ types: !_Map_Type
     name: RefOutpCnstEnum
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier RefOutpCnstFieldDmn: !_TypeOutput
     allFields:
@@ -5419,7 +5419,7 @@ types: !_Map_Type
     name: RefOutpCnstFieldDmn
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefOutpCnstFieldDual: !_TypeOutput
     allFields:
@@ -5436,7 +5436,7 @@ types: !_Map_Type
     name: RefOutpCnstFieldDual
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefOutpCnstFieldObj: !_TypeOutput
     allFields:
@@ -5453,7 +5453,7 @@ types: !_Map_Type
     name: RefOutpCnstFieldObj
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefOutpCnstPrntDualPrnt: !_TypeOutput
     name: RefOutpCnstPrntDualPrnt
@@ -5461,7 +5461,7 @@ types: !_Map_Type
       typeParam: ref
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefOutpCnstPrntObjPrnt: !_TypeOutput
     name: RefOutpCnstPrntObjPrnt
@@ -5469,7 +5469,7 @@ types: !_Map_Type
       typeParam: ref
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefOutpGnrcAltArg: !_TypeOutput
     allAlternates:
@@ -5482,7 +5482,7 @@ types: !_Map_Type
     name: RefOutpGnrcAltArg
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefOutpGnrcAltArgDescr: !_TypeOutput
     allAlternates:
@@ -5495,7 +5495,7 @@ types: !_Map_Type
     name: RefOutpGnrcAltArgDescr
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefOutpGnrcAltDual: !_TypeOutput
     allAlternates:
@@ -5508,7 +5508,7 @@ types: !_Map_Type
     name: RefOutpGnrcAltDual
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefOutpGnrcAltParam: !_TypeOutput
     allAlternates:
@@ -5521,7 +5521,7 @@ types: !_Map_Type
     name: RefOutpGnrcAltParam
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefOutpGnrcAltSmpl: !_TypeOutput
     allAlternates:
@@ -5534,7 +5534,7 @@ types: !_Map_Type
     name: RefOutpGnrcAltSmpl
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefOutpGnrcEnum: !_TypeOutput
     allFields:
@@ -5551,7 +5551,7 @@ types: !_Map_Type
     name: RefOutpGnrcEnum
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier RefOutpGnrcFieldArg: !_TypeOutput
     allAlternates:
@@ -5564,7 +5564,7 @@ types: !_Map_Type
     name: RefOutpGnrcFieldArg
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefOutpGnrcFieldDual: !_TypeOutput
     allAlternates:
@@ -5577,7 +5577,7 @@ types: !_Map_Type
     name: RefOutpGnrcFieldDual
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefOutpGnrcFieldParam: !_TypeOutput
     allAlternates:
@@ -5590,7 +5590,7 @@ types: !_Map_Type
     name: RefOutpGnrcFieldParam
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefOutpGnrcPrntArg: !_TypeOutput
     allAlternates:
@@ -5603,7 +5603,7 @@ types: !_Map_Type
     name: RefOutpGnrcPrntArg
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefOutpGnrcPrntDual: !_TypeOutput
     allAlternates:
@@ -5616,7 +5616,7 @@ types: !_Map_Type
     name: RefOutpGnrcPrntDual
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefOutpGnrcPrntDualPrnt: !_TypeOutput
     name: RefOutpGnrcPrntDualPrnt
@@ -5624,7 +5624,7 @@ types: !_Map_Type
       typeParam: ref
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefOutpGnrcPrntParam: !_TypeOutput
     allAlternates:
@@ -5637,7 +5637,7 @@ types: !_Map_Type
     name: RefOutpGnrcPrntParam
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefOutpGnrcPrntParamPrnt: !_TypeOutput
     name: RefOutpGnrcPrntParamPrnt
@@ -5645,7 +5645,7 @@ types: !_Map_Type
       typeParam: ref
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
   !_Identifier RefOutpGnrcValue: !_TypeOutput
     allFields:
@@ -5662,7 +5662,7 @@ types: !_Map_Type
     name: RefOutpGnrcValue
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier RefOutpPrnt: !_TypeOutput
     allAlternates:
@@ -5784,7 +5784,7 @@ types: !_Map_Type
     name: RefOutpPrntGnrc
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type
   !_Identifier RefOutpPrntParamDiff: !_TypeOutput
     allAlternates:
@@ -5797,7 +5797,7 @@ types: !_Map_Type
     name: RefOutpPrntParamDiff
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: b
   !_Identifier RefOutpPrntParamSame: !_TypeOutput
     allAlternates:
@@ -5810,5 +5810,5 @@ types: !_Map_Type
     name: RefOutpPrntParamSame
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: a

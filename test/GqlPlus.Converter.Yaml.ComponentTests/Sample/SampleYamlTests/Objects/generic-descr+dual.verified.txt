@@ -15,6 +15,6 @@ types: !_Map_Type
     name: DualGnrcDescr
     typeKind: !_TypeKind Dual
     typeParams:
-    - !_Named
+    - !_TypeParam
       description: 'Test Descr'
       name: type

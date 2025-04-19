@@ -121,7 +121,7 @@ types: !_Map_Type
     name: _Modifier
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: kind
   !_Identifier _ModifierKeyed: !_TypeOutput
     allFields:
@@ -156,7 +156,7 @@ types: !_Map_Type
       - !_TypeParam kind
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: kind
   !_Identifier _ModifierKind: !_TypeEnum
     allItems:

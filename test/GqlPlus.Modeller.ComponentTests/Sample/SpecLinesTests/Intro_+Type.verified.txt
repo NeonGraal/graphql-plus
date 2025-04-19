@@ -24,7 +24,7 @@ types: !_Map_Type
       output: _Aliased
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: kind
   !_Identifier _ChildType: !_TypeOutput
     allFields:
@@ -50,9 +50,9 @@ types: !_Map_Type
         - !_TypeParam kind
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: kind
-      - !_Named
+      - !_TypeParam
         name: parent
   !_Identifier _Collections: !_TypeOutput
     allAlternates:
@@ -175,7 +175,7 @@ types: !_Map_Type
     name: _Modifier
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: kind
   !_Identifier _ModifierKeyed: !_TypeOutput
     allFields:
@@ -210,7 +210,7 @@ types: !_Map_Type
         - !_TypeParam kind
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: kind
   !_Identifier _ModifierKind: !_TypeEnum
     allItems:
@@ -312,11 +312,11 @@ types: !_Map_Type
           output: _Named
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: kind
-      - !_Named
+      - !_TypeParam
         name: item
-      - !_Named
+      - !_TypeParam
         name: allItem
   !_Identifier _Simple: !_TypeOutput
     allAlternates:
@@ -530,7 +530,7 @@ types: !_Map_Type
       output: _Described
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: kind
   !_Identifier _TypeSimple: !_TypeOutput
     allAlternates:

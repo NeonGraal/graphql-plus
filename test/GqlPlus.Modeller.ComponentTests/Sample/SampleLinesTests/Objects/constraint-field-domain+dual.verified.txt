@@ -42,5 +42,5 @@ types: !_Map_Type
     name: RefDualCnstFieldDmn
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref

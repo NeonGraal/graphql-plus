@@ -264,7 +264,7 @@
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "kind"
         }
       ]
@@ -330,7 +330,7 @@
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "kind"
         }
       ]

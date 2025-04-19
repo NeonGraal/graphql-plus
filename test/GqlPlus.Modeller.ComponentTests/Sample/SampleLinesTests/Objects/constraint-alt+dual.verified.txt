@@ -11,5 +11,5 @@ types: !_Map_Type
     name: DualCnstAlt
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type

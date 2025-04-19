@@ -9,7 +9,7 @@ public record class TypeOutputModel(
 public record class OutputArgModel(
   string Name,
   string Description
-) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Enum, Name, Description), IObjArgModel
+) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Enum, Name, Description), IObjTypeArgModel
 {
   internal string? Output => Name;
   public bool IsTypeParam { get; set; }

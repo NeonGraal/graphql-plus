@@ -45,5 +45,5 @@ types: !_Map_Type
       typeParam: ref
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref

@@ -40,5 +40,5 @@ types: !_Map_Type
     name: InpAltModParam
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: mod

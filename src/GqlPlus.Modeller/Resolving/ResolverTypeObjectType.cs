@@ -55,7 +55,7 @@ internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObj
     }
   }
 
-  protected ArgumentsContext? MakeArgumentsContext(IResolveContext context, IObjArgModel[] arguments, ITypeObjectModel model)
+  protected ArgumentsContext? MakeArgumentsContext(IResolveContext context, IObjTypeArgModel[] arguments, ITypeObjectModel model)
   {
     if (arguments == null || arguments.Length == 0 || model.TypeParams.Length < arguments.Length) {
       return null;

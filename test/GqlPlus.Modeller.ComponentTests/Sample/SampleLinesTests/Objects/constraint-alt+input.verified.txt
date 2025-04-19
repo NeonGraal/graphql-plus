@@ -11,5 +11,5 @@ types: !_Map_Type
     name: InpCnstAlt
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: type

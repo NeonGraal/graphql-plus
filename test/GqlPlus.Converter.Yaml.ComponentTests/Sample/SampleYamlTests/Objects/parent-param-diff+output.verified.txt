@@ -23,7 +23,7 @@ types: !_Map_Type
       - !_TypeParam a
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: a
   !_Identifier RefOutpPrntParamDiff: !_TypeOutput
     allAlternates:
@@ -36,5 +36,5 @@ types: !_Map_Type
     name: RefOutpPrntParamDiff
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: b

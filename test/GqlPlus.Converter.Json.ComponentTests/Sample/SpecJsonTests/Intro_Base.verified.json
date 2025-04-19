@@ -138,7 +138,7 @@
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "arg"
         }
       ]
@@ -212,7 +212,7 @@
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "base"
         }
       ]
@@ -252,7 +252,7 @@
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "base"
         }
       ]
@@ -322,7 +322,7 @@
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "arg"
         }
       ]
@@ -341,7 +341,7 @@
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "kind"
         }
       ]
@@ -380,7 +380,7 @@
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "for"
         }
       ]
@@ -440,7 +440,7 @@
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "base"
         }
       ]
@@ -530,7 +530,7 @@
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "kind"
         }
       ]
@@ -732,23 +732,23 @@
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "kind"
         },
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "parent"
         },
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "typeParam"
         },
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "field"
         },
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "alternate"
         }
       ]

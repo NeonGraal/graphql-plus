@@ -66,7 +66,7 @@ types: !_Map_Type
       - !_TypeParam arg
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: arg
   !_Identifier _BaseDomain: !_TypeOutput
     allFields:
@@ -131,11 +131,11 @@ types: !_Map_Type
       - !_TypeParam domainItem
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: domain
-    - !_Named
+    - !_TypeParam
       name: item
-    - !_Named
+    - !_TypeParam
       name: domainItem
   !_Identifier _BaseDomainItem: !_TypeDual
     allFields:
@@ -193,7 +193,7 @@ types: !_Map_Type
       dual: _Aliased
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: kind
   !_Identifier _Categories: !_TypeOutput
     allAlternates:
@@ -392,9 +392,9 @@ types: !_Map_Type
       - !_TypeParam kind
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: kind
-    - !_Named
+    - !_TypeParam
       name: parent
   !_Identifier _Collections: !_TypeOutput
     allAlternates:
@@ -627,7 +627,7 @@ types: !_Map_Type
       typeParam: item
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: item
   !_Identifier _DomainItemLabel: !_TypeOutput
     allFields:
@@ -831,7 +831,7 @@ types: !_Map_Type
         typeKind: !_SimpleKind Enum
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: kind
   !_Identifier _DomainRegex: !_TypeDual
     allFields:
@@ -927,9 +927,9 @@ types: !_Map_Type
       - !_TypeParam kind
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: kind
-    - !_Named
+    - !_TypeParam
       name: value
   !_Identifier _DualAlternate: !_TypeOutput
     allAlternates:
@@ -1225,7 +1225,7 @@ types: !_Map_Type
       dual: _Aliased
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: base
   !_Identifier _Filter: !_TypeInput
     allAlternates:
@@ -1330,7 +1330,7 @@ types: !_Map_Type
     name: _ForParam
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: base
   !_Identifier _Identifier: !_DomainString
     allItems:
@@ -1662,7 +1662,7 @@ types: !_Map_Type
     name: _Modifier
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: kind
   !_Identifier _ModifierKeyed: !_TypeOutput
     allFields:
@@ -1697,7 +1697,7 @@ types: !_Map_Type
       - !_TypeParam kind
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: kind
   !_Identifier _ModifierKind: !_TypeEnum
     allItems:
@@ -1826,7 +1826,7 @@ types: !_Map_Type
       dual: _Described
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: arg
   !_Identifier _ObjConstraint: !_TypeOutput
     allFields:
@@ -1853,7 +1853,7 @@ types: !_Map_Type
       - !_TypeParam kind
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: kind
   !_Identifier _ObjType: !_TypeOutput
     allAlternates:
@@ -1885,7 +1885,7 @@ types: !_Map_Type
     name: _ObjType
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: base
   !_Identifier _ObjTypeArg: !_TypeOutput
     allAlternates:
@@ -1953,7 +1953,7 @@ types: !_Map_Type
       dual: _Named
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: kind
   !_Identifier _ObjectFor: !_TypeOutput
     allFields:
@@ -1972,7 +1972,7 @@ types: !_Map_Type
       typeParam: for
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: for
   !_Identifier _OutputAlternate: !_TypeOutput
     allAlternates:
@@ -2328,11 +2328,11 @@ types: !_Map_Type
         dual: _Named
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: kind
-    - !_Named
+    - !_TypeParam
       name: item
-    - !_Named
+    - !_TypeParam
       name: allItem
   !_Identifier _Resolution: !_TypeEnum
     allItems:
@@ -3139,15 +3139,15 @@ types: !_Map_Type
       - !_TypeParam parent
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: kind
-    - !_Named
+    - !_TypeParam
       name: parent
-    - !_Named
+    - !_TypeParam
       name: typeParam
-    - !_Named
+    - !_TypeParam
       name: field
-    - !_Named
+    - !_TypeParam
       name: alternate
   !_Identifier _TypeOutput: !_TypeOutput
     allFields:
@@ -3283,7 +3283,7 @@ types: !_Map_Type
       dual: _Described
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: kind
   !_Identifier _TypeSimple: !_TypeOutput
     allAlternates:

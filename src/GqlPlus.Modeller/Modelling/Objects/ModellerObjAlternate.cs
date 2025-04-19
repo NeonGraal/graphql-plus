@@ -6,7 +6,7 @@ internal abstract class ModellerObjAlternate<TObjArgAst, TObjAltAst, TObjArg, TO
 ) : ModellerObjBase<TObjAltAst, TObjArgAst, TObjAlt, TObjArg>(objArg)
   where TObjArgAst : IGqlpObjArg
   where TObjAltAst : IGqlpObjAlternate, IGqlpObjBase<TObjArgAst>
-  where TObjArg : IObjArgModel
+  where TObjArg : IObjTypeArgModel
   where TObjAlt : ObjAlternateModel<TObjArg>
 {
   protected override TObjAlt ToModel(TObjAltAst ast, IMap<TypeKindModel> typeKinds)

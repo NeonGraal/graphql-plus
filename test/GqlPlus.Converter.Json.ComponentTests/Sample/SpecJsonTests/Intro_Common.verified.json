@@ -54,7 +54,7 @@
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "kind"
         }
       ]
@@ -103,11 +103,11 @@
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "kind"
         },
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "parent"
         }
       ]
@@ -227,15 +227,15 @@
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "kind"
         },
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "item"
         },
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "allItem"
         }
       ]
@@ -548,7 +548,7 @@
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "value": "kind"
         }
       ]

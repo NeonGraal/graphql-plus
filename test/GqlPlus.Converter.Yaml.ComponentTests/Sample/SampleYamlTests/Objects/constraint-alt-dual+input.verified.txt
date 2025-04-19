@@ -57,5 +57,5 @@ types: !_Map_Type
     name: RefInpCnstAltDual
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: ref

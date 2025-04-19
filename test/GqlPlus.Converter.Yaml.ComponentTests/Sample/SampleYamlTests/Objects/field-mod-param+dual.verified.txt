@@ -17,7 +17,7 @@ types: !_Map_Type
     name: DualFieldModParam
     typeKind: !_TypeKind Dual
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: mod
   !_Identifier FldDualFieldModParam: !_TypeDual
     allAlternates:

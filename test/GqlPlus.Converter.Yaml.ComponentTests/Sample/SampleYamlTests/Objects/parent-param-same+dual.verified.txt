@@ -23,7 +23,7 @@ types: !_Map_Type
       - !_TypeParam a
     typeKind: !_TypeKind Dual
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: a
   !_Identifier RefDualPrntParamSame: !_TypeDual
     allAlternates:
@@ -36,5 +36,5 @@ types: !_Map_Type
     name: RefDualPrntParamSame
     typeKind: !_TypeKind Dual
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: a

@@ -49,11 +49,11 @@ types: !_Map_Type
         - !_TypeParam domainItem
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: domain
-      - !_Named
+      - !_TypeParam
         name: item
-      - !_Named
+      - !_TypeParam
         name: domainItem
   !_Identifier _BaseDomainItem: !_TypeDual
     allFields:
@@ -88,7 +88,7 @@ types: !_Map_Type
       typeParam: item
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: item
   !_Identifier _DomainItemLabel: !_TypeOutput
     allFields:
@@ -258,7 +258,7 @@ types: !_Map_Type
           typeKind: !_SimpleKind Enum
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: kind
   !_Identifier _DomainRegex: !_TypeDual
     allFields:
@@ -326,9 +326,9 @@ types: !_Map_Type
         - !_TypeParam kind
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: kind
-      - !_Named
+      - !_TypeParam
         name: value
   !_Identifier _EnumLabel: !_TypeDual
     allFields:

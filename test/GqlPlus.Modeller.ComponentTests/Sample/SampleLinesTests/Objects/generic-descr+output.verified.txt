@@ -15,6 +15,6 @@ types: !_Map_Type
     name: OutpGnrcDescr
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         description: 'Test Descr'
         name: type

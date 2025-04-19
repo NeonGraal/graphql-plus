@@ -8,20 +8,29 @@ internal class ObjectBaseRenderer<TBase, TArg>(
   IRenderer<TArg> objArg
 ) : DescribedRenderer<TBase>
   where TBase : ObjBaseModel<TArg>
-  where TArg : IObjArgModel
+  where TArg : IObjTypeArgModel
 {
   internal override Structured Render(TBase model)
     => base.Render(model)
       .AddIf(model.IsTypeParam, onFalse: s => s.AddList("typeArgs", model.Args, objArg));
 }
 
-internal record class ModifierBaseRenderers<TBase>(
+internal class TypeParamRenderer(
+  IRenderer<TypeRefModel<TypeKindModel>> typeKind
+) : NamedRenderer<TypeParamModel>
+{
+  internal override Structured Render(TypeParamModel model)
+    => base.Render(model)
+      .AddRendered("constraint", model.Constraint, typeKind);
+}
+
+internal record class FieldRenderers<TBase>(
   IRenderer<ModifierModel> Modifier,
   IRenderer<TBase> ObjBase
 ) where TBase : IObjBaseModel;
 
 internal class ObjectFieldRenderer<TField, TBase>(
-  ModifierBaseRenderers<TBase> renderers
+  FieldRenderers<TBase> renderers
 ) : AliasedRenderer<TField>
   where TField : IObjFieldModel
   where TBase : class, IObjBaseModel
@@ -32,16 +41,16 @@ internal class ObjectFieldRenderer<TField, TBase>(
       .AddRendered("type", model.BaseType as TBase, renderers.ObjBase);
 }
 
-internal record class CollectionBaseRenderers<TObjArg>(
+internal record class AlternateRenderers<TObjArg>(
   IRenderer<TObjArg> ObjArg,
   IRenderer<CollectionModel> Collection
-) where TObjArg : IObjArgModel;
+) where TObjArg : IObjTypeArgModel;
 
 internal class ObjectAlternateRenderer<TAlt, TObjArg>(
-  CollectionBaseRenderers<TObjArg> renderers
+  AlternateRenderers<TObjArg> renderers
 ) : ObjectBaseRenderer<TAlt, TObjArg>(renderers.ObjArg)
   where TAlt : ObjBaseModel<TObjArg>, IObjAlternateModel
-  where TObjArg : IObjArgModel
+  where TObjArg : IObjTypeArgModel
 {
   internal override Structured Render(TAlt model)
     => base.Render(model)
@@ -67,7 +76,7 @@ internal record class TypeObjectRenderers<TBase, TField, TAlt>(
   IRenderer<TAlt> Alternate,
   IRenderer<ObjectForModel<TAlt>> ObjAlternate,
   IRenderer<ObjectForModel<DualAlternateModel>> DualAlternate,
-  IRenderer<NamedModel> TypeParam
+  IRenderer<TypeParamModel> TypeParam
 )
   where TBase : IObjBaseModel
   where TField : IObjFieldModel
@@ -147,12 +156,12 @@ internal class DualBaseRenderer(
 }
 
 internal class DualFieldRenderer(
-  ModifierBaseRenderers<DualBaseModel> renderers
+  FieldRenderers<DualBaseModel> renderers
 ) : ObjectFieldRenderer<DualFieldModel, DualBaseModel>(renderers)
 { }
 
 internal class DualAlternateRenderer(
-  CollectionBaseRenderers<DualArgModel> renderers
+  AlternateRenderers<DualArgModel> renderers
 ) : ObjectAlternateRenderer<DualAlternateModel, DualArgModel>(renderers)
 {
   internal override Structured Render(DualAlternateModel model)
@@ -206,7 +215,7 @@ internal class InputBaseRenderer(
 
 internal class InputFieldRenderer(
   IRenderer<ConstantModel> constant,
-  ModifierBaseRenderers<InputBaseModel> renderers
+  FieldRenderers<InputBaseModel> renderers
 ) : ObjectFieldRenderer<InputFieldModel, InputBaseModel>(renderers)
 {
   internal override Structured Render(InputFieldModel model)
@@ -215,7 +224,7 @@ internal class InputFieldRenderer(
 }
 
 internal class InputAlternateRenderer(
-  CollectionBaseRenderers<InputArgModel> renderers,
+  AlternateRenderers<InputArgModel> renderers,
   IRenderer<DualAlternateModel> dual
 ) : ObjectAlternateRenderer<InputAlternateModel, InputArgModel>(renderers)
 {
@@ -289,7 +298,7 @@ internal class OutputEnumRenderer
 
 internal class OutputFieldRenderer(
   IRenderer<OutputEnumModel> outputEnum,
-  ModifierBaseRenderers<OutputBaseModel> renderers,
+  FieldRenderers<OutputBaseModel> renderers,
   IRenderer<InputParamModel> parameter
 ) : ObjectFieldRenderer<OutputFieldModel, OutputBaseModel>(renderers)
 {
@@ -301,7 +310,7 @@ internal class OutputFieldRenderer(
 }
 
 internal class OutputAlternateRenderer(
-  CollectionBaseRenderers<OutputArgModel> renderers,
+  AlternateRenderers<OutputArgModel> renderers,
   IRenderer<DualAlternateModel> dual
 ) : ObjectAlternateRenderer<OutputAlternateModel, OutputArgModel>(renderers)
 {

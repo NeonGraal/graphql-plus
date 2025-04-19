@@ -42,5 +42,5 @@ types: !_Map_Type
     name: RefInpCnstFieldDmn
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref

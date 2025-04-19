@@ -77,7 +77,7 @@ public enum TypeKindModel
   Dual,
   Input,
   Output,
-  Special,
+  Special = 19,
 }
 
 public record class TypeRefModel<TKind>(

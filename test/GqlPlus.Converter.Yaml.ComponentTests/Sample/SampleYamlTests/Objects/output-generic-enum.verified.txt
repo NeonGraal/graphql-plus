@@ -45,5 +45,5 @@ types: !_Map_Type
     name: RefOutpGnrcEnum
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: type

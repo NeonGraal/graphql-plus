@@ -313,9 +313,9 @@ types: !_Map_Type
     name: DualObjParam
     typeKind: !_TypeKind Dual
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: test
-    - !_Named
+    - !_TypeParam
       name: type
   !_Identifier DualObjParamCnst: !_TypeDual
     allFields:
@@ -341,7 +341,7 @@ types: !_Map_Type
     name: DualObjParamCnst
     typeKind: !_TypeKind Dual
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: test
   !_Identifier DualObjParamDup: !_TypeDual
     allFields:
@@ -367,7 +367,7 @@ types: !_Map_Type
     name: DualObjParamDup
     typeKind: !_TypeKind Dual
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: test
   !_Identifier DualObjPrnt: !_TypeDual
     name: DualObjPrnt
@@ -531,9 +531,9 @@ types: !_Map_Type
     name: InpObjParam
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: test
-    - !_Named
+    - !_TypeParam
       name: type
   !_Identifier InpObjParamCnst: !_TypeInput
     allFields:
@@ -559,7 +559,7 @@ types: !_Map_Type
     name: InpObjParamCnst
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: test
   !_Identifier InpObjParamDup: !_TypeInput
     allFields:
@@ -585,7 +585,7 @@ types: !_Map_Type
     name: InpObjParamDup
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: test
   !_Identifier InpObjPrnt: !_TypeInput
     name: InpObjPrnt
@@ -746,9 +746,9 @@ types: !_Map_Type
     name: OutpObjParam
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: test
-    - !_Named
+    - !_TypeParam
       name: type
   !_Identifier OutpObjParamCnst: !_TypeOutput
     allFields:
@@ -774,7 +774,7 @@ types: !_Map_Type
     name: OutpObjParamCnst
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: test
   !_Identifier OutpObjParamDup: !_TypeOutput
     allFields:
@@ -800,7 +800,7 @@ types: !_Map_Type
     name: OutpObjParamDup
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: test
   !_Identifier OutpObjPrnt: !_TypeOutput
     name: OutpObjPrnt

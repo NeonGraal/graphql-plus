@@ -56,7 +56,7 @@ types: !_Map_Type
         - !_TypeParam arg
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: arg
   !_Identifier _DualAlternate: !_TypeOutput
     allAlternates:
@@ -209,7 +209,7 @@ types: !_Map_Type
       output: _Aliased
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: base
   !_Identifier _ForParam: !_TypeOutput
     allAlternates:
@@ -235,7 +235,7 @@ types: !_Map_Type
     name: _ForParam
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: base
   !_Identifier _InputAlternate: !_TypeOutput
     allAlternates:
@@ -468,7 +468,7 @@ types: !_Map_Type
       output: _Described
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: arg
   !_Identifier _ObjConstraint: !_TypeOutput
     name: _ObjConstraint
@@ -478,7 +478,7 @@ types: !_Map_Type
         - !_TypeParam kind
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: kind
   !_Identifier _ObjType: !_TypeOutput
     allAlternates:
@@ -510,7 +510,7 @@ types: !_Map_Type
     name: _ObjType
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: base
   !_Identifier _ObjTypeArg: !_TypeOutput
     allAlternates:
@@ -550,7 +550,7 @@ types: !_Map_Type
       output: _Named
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: kind
   !_Identifier _ObjectFor: !_TypeOutput
     allFields:
@@ -569,7 +569,7 @@ types: !_Map_Type
       typeParam: for
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: for
   !_Identifier _OutputAlternate: !_TypeOutput
     allAlternates:
@@ -972,15 +972,15 @@ types: !_Map_Type
         - !_TypeParam parent
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: kind
-      - !_Named
+      - !_TypeParam
         name: parent
-      - !_Named
+      - !_TypeParam
         name: typeParam
-      - !_Named
+      - !_TypeParam
         name: field
-      - !_Named
+      - !_TypeParam
         name: alternate
   !_Identifier _TypeOutput: !_TypeOutput
     allFields:

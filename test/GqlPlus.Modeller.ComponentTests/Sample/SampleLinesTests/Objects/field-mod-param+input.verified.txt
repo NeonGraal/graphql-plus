@@ -38,5 +38,5 @@ types: !_Map_Type
     name: InpFieldModParam
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: mod

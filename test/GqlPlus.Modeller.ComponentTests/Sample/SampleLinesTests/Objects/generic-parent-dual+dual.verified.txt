@@ -44,5 +44,5 @@ types: !_Map_Type
     name: RefDualGnrcPrntDual
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref

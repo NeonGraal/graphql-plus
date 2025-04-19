@@ -38,5 +38,5 @@ types: !_Map_Type
     name: OutpFieldModParam
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: mod

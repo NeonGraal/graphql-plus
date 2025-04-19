@@ -15,7 +15,7 @@ types: !_Map_Type
     name: InpGnrcAltArgDescr
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: type
   !_Identifier RefInpGnrcAltArgDescr: !_TypeInput
     allAlternates:
@@ -28,5 +28,5 @@ types: !_Map_Type
     name: RefInpGnrcAltArgDescr
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: ref

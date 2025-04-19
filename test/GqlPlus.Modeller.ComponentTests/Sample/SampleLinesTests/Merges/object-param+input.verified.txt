@@ -24,7 +24,7 @@ types: !_Map_Type
     name: InpObjParam
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: test
-      - !_Named
+      - !_TypeParam
         name: type

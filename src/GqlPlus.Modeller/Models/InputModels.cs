@@ -9,7 +9,7 @@ public record class TypeInputModel(
 public record class InputArgModel(
   string Input,
   string Description
-) : ObjArgModel(Description)
+) : ObjTypeArgModel(Description)
 {
   internal DualArgModel? Dual { get; init; }
 }

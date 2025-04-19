@@ -27,5 +27,5 @@ types: !_Map_Type
     name: RefInpGnrcAltSmpl
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: ref

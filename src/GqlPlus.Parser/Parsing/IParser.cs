@@ -5,14 +5,14 @@ namespace GqlPlus.Parsing;
 
 public interface IParser<TResult>
 {
-  IResult<TResult> Parse<TContext>(TContext tokens)
-    where TContext : Tokenizer;
+  IResult<TResult> Parse(ITokenizer tokens)
+    ;
 }
 
 public interface IParserArray<TResult>
 {
-  IResultArray<TResult> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer;
+  IResultArray<TResult> Parse(ITokenizer tokens, string label)
+    ;
 }
 
 #pragma warning disable CA1034 // Nested types should not be visible
@@ -20,14 +20,14 @@ public static class Parser<T>
 {
   public interface I
   {
-    IResult<T> Parse<TContext>(TContext tokens, string label)
-      where TContext : Tokenizer;
+    IResult<T> Parse(ITokenizer tokens, string label)
+      ;
   }
 
   public interface IA
   {
-    IResultArray<T> Parse<TContext>(TContext tokens, string label)
-      where TContext : Tokenizer;
+    IResultArray<T> Parse(ITokenizer tokens, string label)
+      ;
   }
 
   public delegate I D();
@@ -37,8 +37,8 @@ public static class Parser<T>
   {
     public static implicit operator L(D factory) => new(factory.ThrowIfNull());
 
-    public IResult<T> Parse<TContext>(TContext tokens, string label)
-      where TContext : Tokenizer
+    public IResult<T> Parse(ITokenizer tokens, string label)
+
       => Value.Parse(tokens, label);
   }
 
@@ -46,8 +46,8 @@ public static class Parser<T>
   {
     public static implicit operator LA(DA factory) => new(factory.ThrowIfNull());
 
-    public IResultArray<T> Parse<TContext>(TContext tokens, string label)
-      where TContext : Tokenizer
+    public IResultArray<T> Parse(ITokenizer tokens, string label)
+
       => Value.Parse(tokens, label);
   }
 }

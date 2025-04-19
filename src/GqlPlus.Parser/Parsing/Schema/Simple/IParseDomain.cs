@@ -10,4 +10,4 @@ public interface IParseDomain
   ParseItems Parser { get; }
 }
 
-public delegate IResult<DomainDefinition> ParseItems(Tokenizer tokens, string label, DomainDefinition result);
+public delegate IResult<DomainDefinition> ParseItems(ITokenizer tokens, string label, DomainDefinition result);

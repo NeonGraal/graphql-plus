@@ -1,9 +1,10 @@
 [CmdletBinding()]
 param (
-    $Section = "",
-    [switch]$ClassTests = $false,
-    [switch]$Report = $false,
-    $Framework = "net9.0"
+  $Section = "",
+  [switch]$ClassTests = $false,
+  [switch]$Html = $false,
+  [switch]$Report = $false,
+  $Framework = "net9.0"
 )
 
 $coverageFile = "$PWD/coverage/Coverage.xml"
@@ -23,6 +24,10 @@ dotnet coverage @collect -- dotnet @test
 
 Write-Host "`n# Coverage Summary"
 ./make-summary.ps1
+
+if ($Html) {
+  Start-Process test/Html/index.html
+}
 
 if ($Report) {
   ./report.ps1

@@ -11,7 +11,7 @@ internal class ParseDomainLabel(
 {
   public override DomainKind Kind => DomainKind.Enum;
 
-  public override IResult<IGqlpDomainLabel> Parse<TContext>(TContext tokens, string label)
+  public override IResult<IGqlpDomainLabel> Parse(ITokenizer tokens, string label)
   {
     string description = tokens.Description();
     TokenAt at = tokens.At;
@@ -37,10 +37,10 @@ internal class ParseDomainLabel(
     return result.Ok();
   }
 
-  protected override void ApplyItems(Tokenizer tokens, string label, DomainDefinition result, IGqlpDomainLabel[] items)
+  protected override void ApplyItems(ITokenizer tokens, string label, DomainDefinition result, IGqlpDomainLabel[] items)
   {
     if (items.Length == 0) {
-      tokens.Error(label, "enum Labels");
+      tokens.Error<IGqlpDomainLabel>(label, "enum Labels");
     }
 
     result.Labels = items.ArrayOf<DomainLabelAst>();

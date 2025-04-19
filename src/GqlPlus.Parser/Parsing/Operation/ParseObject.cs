@@ -12,8 +12,8 @@ internal class ParseObject(
   private readonly Parser<IGqlpField>.L _field = field;
   private readonly Parser<IGqlpSelection>.L _selection = selection;
 
-  public IResultArray<IGqlpSelection> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResultArray<IGqlpSelection> Parse(ITokenizer tokens, string label)
+
   {
     List<IGqlpSelection> fields = [];
     if (!tokens.Take('{')) {

@@ -18,8 +18,8 @@ internal class ParseVariable(
   private readonly Parser<IParserDefault, IGqlpConstant>.L _default = defaultParser;
   private readonly Parser<IParserVarType, string>.L _varTypeParser = varTypeParser;
 
-  public IResult<IGqlpVariable> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<IGqlpVariable> Parse(ITokenizer tokens, string label)
+
   {
     bool prefix = tokens.Prefix('$', out string? name, out TokenAt? at);
     VariableAst variable = new(at, name ?? "");

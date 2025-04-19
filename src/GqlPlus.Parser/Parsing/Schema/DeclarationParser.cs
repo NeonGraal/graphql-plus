@@ -23,8 +23,8 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
 
   protected readonly Parser<string>.LA Aliases = aliases;
 
-  public IResult<TResult> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<TResult> Parse(ITokenizer tokens, string label)
+
   {
     string description = tokens.GetDescription();
     bool hasName = _name.ParseName(tokens, out string? name, out TokenAt? at);
@@ -55,9 +55,12 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
 
     IResult<TDefinition> definition = _definition.Parse(tokens, label);
     return definition.MapOk(
-      value => MakeResult(partial, value).Ok(),
+      value => AsResult(partial, value),
       () => definition.AsPartial(ToResult(partial)));
   }
+
+  protected virtual IResult<TResult> AsResult(AstPartial<TParam, TOption> partial, TDefinition value)
+    => MakeResult(partial, value).Ok();
 
   [return: NotNull]
   protected abstract TResult MakeResult(AstPartial<TParam, TOption> partial, TDefinition value);
@@ -66,7 +69,7 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
 
 internal interface INameParser
 {
-  bool ParseName(Tokenizer tokens, out string? name, out TokenAt at);
+  bool ParseName(ITokenizer tokens, out string? name, out TokenAt at);
 }
 
 internal abstract class DeclarationParser<TParam, TDefinition, TResult>(

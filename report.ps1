@@ -1,6 +1,7 @@
 [CmdletBinding()]
 param (
-    [int]$Threshold = 20
+  [switch]$Html = $false,
+  [int]$Threshold = 20
 )
 
 $coverageFile = "$PWD/coverage/Coverage*.xml"
@@ -10,5 +11,8 @@ $report += "riskHotspotsAnalysisThresholds:metricThresholdForCyclomaticComplexit
 
 dotnet tool restore
 dotnet reportgenerator @report
-Start-Process test/Html/index.html
+if ($Html) {
+  Start-Process test/Html/index.html
+}
+
 livereloadserver coverage --port 5300

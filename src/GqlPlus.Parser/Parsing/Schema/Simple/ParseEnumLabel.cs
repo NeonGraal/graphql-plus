@@ -11,8 +11,8 @@ internal class ParseEnumLabel(
 {
   private readonly Parser<string>.LA _aliases = aliases;
 
-  public IResult<IGqlpEnumLabel> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<IGqlpEnumLabel> Parse(ITokenizer tokens, string label)
+
   {
     string description = tokens.Description();
     TokenAt at = tokens.At;

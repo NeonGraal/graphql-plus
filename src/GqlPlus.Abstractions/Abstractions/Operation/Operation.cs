@@ -18,8 +18,6 @@ public interface IGqlpOperation
 
   IEnumerable<IGqlpArg> Usages { get; }
   IEnumerable<IGqlpSpread> Spreads { get; }
-
-  string Show();
 }
 
 public interface IGqlpIdentified

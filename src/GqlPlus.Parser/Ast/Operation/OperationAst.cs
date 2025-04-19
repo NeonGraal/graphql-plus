@@ -41,40 +41,6 @@ internal sealed record class OperationAst(
   public OperationAst(TokenAt at)
     : this(at, "") { }
 
-  public string Show()
-  {
-    using StringWriter sw = new();
-    int indent = 0;
-    string[] begins = ["(", "{", "[", "<"];
-    string[] ends = [")", "}", "]", ">"];
-    foreach (string? field in GetFields()) {
-      if (string.IsNullOrWhiteSpace(field)) {
-        continue;
-      }
-
-      if (begins.Contains(field)) {
-        Write(field!);
-        indent++;
-      } else if (ends.Contains(field)) {
-        indent--;
-        Write(field!);
-      } else {
-        Write(field!);
-      }
-    }
-
-    return sw.ToString();
-
-    void Write(string text)
-    {
-      for (int i = 0; i < indent; i++) {
-        sw.Write("  ");
-      }
-
-      sw.WriteLine(text);
-    }
-  }
-
   public bool Equals(OperationAst? other)
     => base.Equals(other)
     && Result == other.Result;

@@ -1,14 +1,12 @@
 ﻿namespace GqlPlus.Abstractions.Schema;
 
 public interface IGqlpSchema
-  : IGqlpError
+  : IGqlpAbbreviated
 {
   IEnumerable<IGqlpDeclaration> Declarations { get; }
 
   ParseResultKind Result { get; }
   ITokenMessages Errors { get; }
-
-  string Show();
 }
 
 public interface IGqlpDeclaration

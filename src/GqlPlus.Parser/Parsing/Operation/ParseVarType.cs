@@ -5,12 +5,12 @@ namespace GqlPlus.Parsing.Operation;
 
 internal class ParseVarType : IParserVarType
 {
-  public IResult<string> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<string> Parse(ITokenizer tokens, string label)
+
 => ParseVarNull(tokens).Select(nullType
       => tokens.Take('!') ? nullType + '!' : nullType);
 
-  internal IResult<string> ParseVarNull(Tokenizer tokens)
+  internal IResult<string> ParseVarNull(ITokenizer tokens)
   {
     if (tokens.Take('[')) {
       return Parse(tokens, "Variable Type").MapOk(

@@ -8,8 +8,8 @@ namespace GqlPlus.Parsing.Schema.Objects;
 internal class ParseTypeParams
   : Parser<IGqlpTypeParam>.IA
 {
-  public IResultArray<IGqlpTypeParam> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResultArray<IGqlpTypeParam> Parse(ITokenizer tokens, string label)
+
   {
     List<IGqlpTypeParam> list = [];
 

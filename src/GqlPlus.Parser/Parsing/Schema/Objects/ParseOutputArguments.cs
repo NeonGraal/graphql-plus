@@ -10,7 +10,7 @@ internal class ParseOutputArgs
 {
   protected override OutputArgAst ObjType(TokenAt at, string type, string description)
     => new(at, type, description);
-  protected override IResult<OutputArgAst> ArgEnumValue<TContext>(TContext tokens, OutputArgAst argument)
+  protected override IResult<OutputArgAst> ArgEnumValue(ITokenizer tokens, OutputArgAst argument)
   {
     if (tokens.Take('.')) {
       if (argument.IsTypeParam) {

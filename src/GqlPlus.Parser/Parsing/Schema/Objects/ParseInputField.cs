@@ -21,15 +21,15 @@ internal class ParseInputField(
   protected override InputFieldAst ObjField(TokenAt at, string name, string description, IGqlpInputBase typeBase)
     => new(at, name, description, typeBase);
 
-  protected override IResult<IGqlpInputField> FieldDefault<TContext>(TContext tokens, InputFieldAst field)
+  protected override IResult<IGqlpInputField> FieldDefault(ITokenizer tokens, InputFieldAst field)
     => _default.I
     .Parse(tokens, "Default")
     .AsPartial<IGqlpInputField>(field, constant => field.DefaultValue = (ConstantAst?)constant);
 
-  protected override IResult<IGqlpInputField> FieldEnumValue<TContext>(TContext tokens, InputFieldAst field)
+  protected override IResult<IGqlpInputField> FieldEnumValue(ITokenizer tokens, InputFieldAst field)
     => tokens.Error<IGqlpInputField>("Input", "':'", field);
 
-  protected override IResultArray<IGqlpInputParam> FieldParam<TContext>(TContext tokens)
+  protected override IResultArray<IGqlpInputParam> FieldParam(ITokenizer tokens)
     => 0.EmptyArray<IGqlpInputParam>();
 
   protected override IGqlpInputBase ObjBase(TokenAt at, string param, string description)

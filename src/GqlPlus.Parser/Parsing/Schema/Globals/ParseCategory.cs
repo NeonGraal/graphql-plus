@@ -42,7 +42,7 @@ internal record CategoryOutput(TypeRefAst Output)
 internal class CategoryName
   : ICategoryName
 {
-  public bool ParseName(Tokenizer tokens, out string? name, out TokenAt at)
+  public bool ParseName(ITokenizer tokens, out string? name, out TokenAt at)
   {
     at = tokens.At;
     tokens.Identifier(out name);
@@ -60,8 +60,8 @@ internal class ParseCategoryDefinition(
   private readonly Parser<IGqlpTypeRef>.L _typeRef = typeRef;
   private readonly Parser<IGqlpModifier>.LA _modifiers = modifiers;
 
-  public IResult<CategoryOutput> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<CategoryOutput> Parse(ITokenizer tokens, string label)
+
   {
     IResult<IGqlpTypeRef> output = _typeRef.Parse(tokens, "Category Output");
     if (output.IsError()) {

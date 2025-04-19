@@ -6,8 +6,8 @@ namespace GqlPlus.Parsing.Schema;
 internal class ParseAliases
   : Parser<string>.IA
 {
-  public IResultArray<string> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResultArray<string> Parse(ITokenizer tokens, string label)
+
   {
     List<string> aliases = [];
     if (tokens.Take('[')) {

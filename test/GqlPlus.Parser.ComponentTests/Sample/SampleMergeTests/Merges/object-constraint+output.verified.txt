@@ -1,0 +1,24 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  OutpObjCnst
+  <
+    I@021/0001
+    $type
+  >
+  {
+    !OF I@029/0001
+    field
+    :
+    I@037/0001
+    $type
+    !OF I@031/0002
+    str
+    :
+    I@037/0002
+    $type
+  }
+}
+]

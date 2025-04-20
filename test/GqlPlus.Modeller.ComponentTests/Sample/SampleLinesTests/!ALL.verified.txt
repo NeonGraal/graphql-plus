@@ -2401,6 +2401,32 @@ types: !_Map_Type
   !_Identifier DualObjAltType: !_TypeDual
     name: DualObjAltType
     typeKind: !_TypeKind Dual
+  !_Identifier DualObjCnst: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: field
+        object: DualObjCnst
+        type: !_DualBase
+          typeParam: type
+      - !_ObjectFor(_DualField)
+        name: str
+        object: DualObjCnst
+        type: !_DualBase
+          typeParam: type
+    fields:
+      - !_DualField
+        name: field
+        type: !_DualBase
+          typeParam: type
+      - !_DualField
+        name: str
+        type: !_DualBase
+          typeParam: type
+    name: DualObjCnst
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        name: type
   !_Identifier DualObjField: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
@@ -4233,6 +4259,32 @@ types: !_Map_Type
   !_Identifier InpObjAltType: !_TypeInput
     name: InpObjAltType
     typeKind: !_TypeKind Input
+  !_Identifier InpObjCnst: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: field
+        object: InpObjCnst
+        type: !_InputBase
+          typeParam: type
+      - !_ObjectFor(_InputField)
+        name: str
+        object: InpObjCnst
+        type: !_InputBase
+          typeParam: type
+    fields:
+      - !_InputField
+        name: field
+        type: !_InputBase
+          typeParam: type
+      - !_InputField
+        name: str
+        type: !_InputBase
+          typeParam: type
+    name: InpObjCnst
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        name: type
   !_Identifier InpObjField: !_TypeInput
     allFields:
       - !_ObjectFor(_InputField)
@@ -5361,6 +5413,32 @@ types: !_Map_Type
   !_Identifier OutpObjAltType: !_TypeOutput
     name: OutpObjAltType
     typeKind: !_TypeKind Output
+  !_Identifier OutpObjCnst: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: OutpObjCnst
+        type: !_OutputBase
+          typeParam: type
+      - !_ObjectFor(_OutputField)
+        name: str
+        object: OutpObjCnst
+        type: !_OutputBase
+          typeParam: type
+    fields:
+      - !_OutputField
+        name: field
+        type: !_OutputBase
+          typeParam: type
+      - !_OutputField
+        name: str
+        type: !_OutputBase
+          typeParam: type
+    name: OutpObjCnst
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_TypeParam
+        name: type
   !_Identifier OutpObjField: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)

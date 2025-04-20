@@ -312,6 +312,66 @@ Success
 }
 {
   !Du I@006/0001
+  DualObjCnst
+  <
+    I@019/0001
+    $type
+  >
+  {
+    !DF I@027/0001
+    field
+    :
+    I@035/0001
+    $type
+    !DF I@029/0002
+    str
+    :
+    I@035/0002
+    $type
+  }
+}
+{
+  !In I@007/0001
+  InpObjCnst
+  <
+    I@019/0001
+    $type
+  >
+  {
+    !IF I@027/0001
+    field
+    :
+    I@035/0001
+    $type
+    !IF I@029/0002
+    str
+    :
+    I@035/0002
+    $type
+  }
+}
+{
+  !Ou I@008/0001
+  OutpObjCnst
+  <
+    I@021/0001
+    $type
+  >
+  {
+    !OF I@029/0001
+    field
+    :
+    I@037/0001
+    $type
+    !OF I@031/0002
+    str
+    :
+    I@037/0002
+    $type
+  }
+}
+{
+  !Du I@006/0001
   DualObjField
   {
     !DF I@021/0001

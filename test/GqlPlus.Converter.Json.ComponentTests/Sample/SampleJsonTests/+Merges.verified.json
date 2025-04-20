@@ -574,6 +574,58 @@
         "value": "Dual"
       }
     },
+    "DualObjCnst": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "DualObjCnst",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "type"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "str",
+          "object": "DualObjCnst",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "type"
+          }
+        },
+        {
+          "$tag": "_DualField",
+          "name": "str",
+          "type": {
+            "$tag": "_DualBase",
+            "value": "type"
+          }
+        }
+      ],
+      "name": "DualObjCnst",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "value": "type"
+        }
+      ]
+    },
     "DualObjField": {
       "$tag": "_TypeDual",
       "allFields": [
@@ -1045,6 +1097,58 @@
         "value": "Input"
       }
     },
+    "InpObjCnst": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "InpObjCnst",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "type"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "str",
+          "object": "InpObjCnst",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "type"
+          }
+        },
+        {
+          "$tag": "_InputField",
+          "name": "str",
+          "type": {
+            "$tag": "_InputBase",
+            "value": "type"
+          }
+        }
+      ],
+      "name": "InpObjCnst",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "value": "type"
+        }
+      ]
+    },
     "InpObjField": {
       "$tag": "_TypeInput",
       "allFields": [
@@ -1499,6 +1603,58 @@
         "$tag": "_TypeKind",
         "value": "Output"
       }
+    },
+    "OutpObjCnst": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "OutpObjCnst",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "type"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "str",
+          "object": "OutpObjCnst",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "type"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "name": "str",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "type"
+          }
+        }
+      ],
+      "name": "OutpObjCnst",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "value": "type"
+        }
+      ]
     },
     "OutpObjField": {
       "$tag": "_TypeOutput",

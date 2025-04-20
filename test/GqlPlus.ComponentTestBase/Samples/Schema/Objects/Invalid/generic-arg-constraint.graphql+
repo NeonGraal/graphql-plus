@@ -1,2 +1,0 @@
-object Test<$type> { field: $type }
-object Test<$type:*> { str: $type }

@@ -160,6 +160,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _ObjectKind
+        typeKind: !_TypeKind Domain
       name: kind
   !_Identifier _ObjType: !_TypeOutput
     allAlternates:
@@ -235,6 +238,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _ObjectKind
+        typeKind: !_TypeKind Domain
       name: kind
   !_Identifier _ObjectFor: !_TypeOutput
     allFields:
@@ -258,6 +264,51 @@ types: !_Map_Type
         name: _ForParam
         typeKind: !_TypeKind Output
       name: for
+  !_Identifier _ObjectKind: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainLabel)
+      domain: _ObjectKind
+      exclude: false
+      value: !_EnumValue
+        label: Dual
+        name: _TypeKind
+        typeKind: !_SimpleKind Enum
+    - !_DomainItem(_DomainLabel)
+      domain: _ObjectKind
+      exclude: false
+      value: !_EnumValue
+        label: Input
+        name: _TypeKind
+        typeKind: !_SimpleKind Enum
+    - !_DomainItem(_DomainLabel)
+      domain: _ObjectKind
+      exclude: false
+      value: !_EnumValue
+        label: Output
+        name: _TypeKind
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+    - !_DomainLabel
+      exclude: false
+      value: !_EnumValue
+        label: Dual
+        name: _TypeKind
+        typeKind: !_SimpleKind Enum
+    - !_DomainLabel
+      exclude: false
+      value: !_EnumValue
+        label: Input
+        name: _TypeKind
+        typeKind: !_SimpleKind Enum
+    - !_DomainLabel
+      exclude: false
+      value: !_EnumValue
+        label: Output
+        name: _TypeKind
+        typeKind: !_SimpleKind Enum
+    name: _ObjectKind
+    typeKind: !_TypeKind Domain
   !_Identifier _TypeObject: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -333,8 +384,14 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _ObjectKind
+        typeKind: !_TypeKind Domain
       name: kind
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _ObjBase
+        typeKind: !_TypeKind Output
       name: parent
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)

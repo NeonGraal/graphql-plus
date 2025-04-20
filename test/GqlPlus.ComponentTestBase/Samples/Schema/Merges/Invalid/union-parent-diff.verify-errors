@@ -1,3 +1,3 @@
 ﻿Multiple Unions with name 'Test' can't be merged
-Group of Union for 'Test' is not singular Parent['', 'Parent']
+Group of Union for 'Test' not singular Parent['', 'Parent']
 Multiple Types with name 'Test' can't be merged

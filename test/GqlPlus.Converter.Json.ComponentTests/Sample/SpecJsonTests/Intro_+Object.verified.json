@@ -1144,7 +1144,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "kind"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ObjectKind",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Domain"
+            }
+          },
+          "name": "kind"
         }
       ]
     },
@@ -1194,6 +1202,103 @@
           "name": "for"
         }
       ]
+    },
+    "_ObjectKind": {
+      "$tag": "_DomainEnum",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainLabel)",
+          "domain": "_ObjectKind",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "Dual",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        },
+        {
+          "$tag": "_DomainItem(_DomainLabel)",
+          "domain": "_ObjectKind",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "Input",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        },
+        {
+          "$tag": "_DomainItem(_DomainLabel)",
+          "domain": "_ObjectKind",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "Output",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Enum"
+      },
+      "items": [
+        {
+          "$tag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "Dual",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        },
+        {
+          "$tag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "Input",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        },
+        {
+          "$tag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "Output",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        }
+      ],
+      "name": "_ObjectKind",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
     },
     "_ObjType": {
       "$tag": "_TypeOutput",
@@ -1349,7 +1454,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "kind"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ObjectKind",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Domain"
+            }
+          },
+          "name": "kind"
         }
       ]
     },
@@ -2317,11 +2430,27 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "kind"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ObjectKind",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Domain"
+            }
+          },
+          "name": "kind"
         },
         {
           "$tag": "_TypeParam",
-          "value": "parent"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ObjBase",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "parent"
         },
         {
           "$tag": "_TypeParam",

@@ -1,4 +1,6 @@
-output _TypeObject<$kind:_ObjectKind $parent:_ObjDescribed
+domain _ObjectKind { enum _TypeKind.Dual _TypeKind.Input _TypeKind.Output }
+
+output _TypeObject<$kind:_ObjectKind $parent:_ObjBase
             $typeParam:_ObjTypeParam $field:_Field $alternate:_Alternate> {
     : _ChildType<$kind $parent>
         typeParams: $typeParam[]

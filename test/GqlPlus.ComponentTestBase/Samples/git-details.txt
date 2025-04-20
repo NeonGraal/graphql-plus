@@ -1,1 +1,1 @@
-090b8b8  (HEAD -> type-constraints) 2025-04-19 Correct Introspection of object type constraints
+1e50a77  (HEAD -> type-constraints) 2025-04-21 Normalize use of 'is not' and 'not'

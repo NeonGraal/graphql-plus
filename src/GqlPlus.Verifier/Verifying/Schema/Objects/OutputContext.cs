@@ -32,7 +32,7 @@ internal class OutputContext(
         AddError(output, $"Output {label} Enum Value", $"'{output.EnumLabel}' not a Value of '{enumType}'");
       }
     } else {
-      AddError(output, $"Output {label} Enum", $"'{enumType}' is not an Enum type");
+      AddError(output, $"Output {label} Enum", $"'{enumType}' not an Enum type");
     }
   }
 }

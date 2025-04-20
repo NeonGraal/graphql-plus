@@ -265,7 +265,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "kind"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ModifierKind",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
+          "name": "kind"
         }
       ]
     },
@@ -331,7 +339,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "kind"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ModifierKind",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
+          "name": "kind"
         }
       ]
     },

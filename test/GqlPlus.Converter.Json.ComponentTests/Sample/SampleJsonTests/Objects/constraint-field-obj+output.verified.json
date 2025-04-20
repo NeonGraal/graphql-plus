@@ -123,7 +123,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntOutpCnstFieldObj",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "ref"
         }
       ]
     }

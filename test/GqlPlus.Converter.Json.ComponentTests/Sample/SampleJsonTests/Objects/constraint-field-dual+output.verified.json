@@ -123,7 +123,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntOutpCnstFieldDual",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Dual"
+            }
+          },
+          "name": "ref"
         }
       ]
     }

@@ -177,7 +177,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "arg"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ObjTypeArg",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "arg"
         }
       ]
     },
@@ -334,15 +342,39 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "domain"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_DomainKind",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
+          "name": "domain"
         },
         {
           "$tag": "_TypeParam",
-          "value": "item"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_BaseDomainItem",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Dual"
+            }
+          },
+          "name": "item"
         },
         {
           "$tag": "_TypeParam",
-          "value": "domainItem"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_DomainItem",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "domainItem"
         }
       ]
     },
@@ -477,7 +509,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "kind"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
+          "name": "kind"
         }
       ]
     },
@@ -951,11 +991,27 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "kind"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
+          "name": "kind"
         },
         {
           "$tag": "_TypeParam",
-          "value": "parent"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_Described",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Dual"
+            }
+          },
+          "name": "parent"
         }
       ]
     },
@@ -1499,7 +1555,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "item"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_BaseDomainItem",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Dual"
+            }
+          },
+          "name": "item"
         }
       ]
     },
@@ -1958,7 +2022,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "kind"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_DomainKind",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
+          "name": "kind"
         }
       ]
     },
@@ -2163,7 +2235,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "kind"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_DomainKind",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
+          "name": "kind"
         },
         {
           "$tag": "_TypeParam",
@@ -2865,7 +2945,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "base"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ObjBase",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "base"
         }
       ]
     },
@@ -3129,7 +3217,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "base"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ObjBase",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "base"
         }
       ]
     },
@@ -3904,7 +4000,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "kind"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ModifierKind",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
+          "name": "kind"
         }
       ]
     },
@@ -3970,7 +4074,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "kind"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ModifierKind",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
+          "name": "kind"
         }
       ]
     },
@@ -4243,7 +4355,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "arg"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ObjTypeArg",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "arg"
         }
       ]
     },
@@ -4339,7 +4459,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "for"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ForParam",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "for"
         }
       ]
     },
@@ -4399,7 +4527,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "base"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ObjBase",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "base"
         }
       ]
     },
@@ -5399,15 +5535,39 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "kind"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
+          "name": "kind"
         },
         {
           "$tag": "_TypeParam",
-          "value": "item"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_Described",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Dual"
+            }
+          },
+          "name": "item"
         },
         {
           "$tag": "_TypeParam",
-          "value": "allItem"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_Described",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Dual"
+            }
+          },
+          "name": "allItem"
         }
       ]
     },
@@ -7371,15 +7531,39 @@
         },
         {
           "$tag": "_TypeParam",
-          "value": "typeParam"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ObjTypeParam",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "typeParam"
         },
         {
           "$tag": "_TypeParam",
-          "value": "field"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_Field",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "field"
         },
         {
           "$tag": "_TypeParam",
-          "value": "alternate"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_Alternate",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "alternate"
         }
       ]
     },

@@ -1844,6 +1844,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: Number
+        typeKind: !_TypeKind Basic
       name: type
   !_Identifier DualCnstAltDmn: !_TypeDual
     allAlternates:
@@ -2493,6 +2496,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: '*'
+        typeKind: !_TypeKind Basic
       name: test
   !_Identifier DualObjParamDup: !_TypeDual
     allFields:
@@ -3582,6 +3588,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: Number
+        typeKind: !_TypeKind Basic
       name: type
   !_Identifier InpCnstAltDmn: !_TypeInput
     allAlternates:
@@ -4321,6 +4330,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: '*'
+        typeKind: !_TypeKind Basic
       name: test
   !_Identifier InpObjParamDup: !_TypeInput
     allFields:
@@ -4590,6 +4602,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: Number
+        typeKind: !_TypeKind Basic
       name: type
   !_Identifier OutpCnstAltDmn: !_TypeOutput
     allAlternates:
@@ -5445,6 +5460,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: '*'
+        typeKind: !_TypeKind Basic
       name: test
   !_Identifier OutpObjParamDup: !_TypeOutput
     allFields:
@@ -6200,6 +6218,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: String
+        typeKind: !_TypeKind Basic
       name: ref
   !_Identifier RefDualCnstAltDual: !_TypeDual
     allAlternates:
@@ -6213,6 +6234,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: PrntDualCnstAltDual
+        typeKind: !_TypeKind Dual
       name: ref
   !_Identifier RefDualCnstAltObj: !_TypeDual
     allAlternates:
@@ -6226,6 +6250,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: PrntDualCnstAltObj
+        typeKind: !_TypeKind Dual
       name: ref
   !_Identifier RefDualCnstFieldDmn: !_TypeDual
     allFields:
@@ -6243,6 +6270,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: String
+        typeKind: !_TypeKind Basic
       name: ref
   !_Identifier RefDualCnstFieldDual: !_TypeDual
     allFields:
@@ -6260,6 +6290,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: PrntDualCnstFieldDual
+        typeKind: !_TypeKind Dual
       name: ref
   !_Identifier RefDualCnstFieldObj: !_TypeDual
     allFields:
@@ -6277,6 +6310,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: PrntDualCnstFieldObj
+        typeKind: !_TypeKind Dual
       name: ref
   !_Identifier RefDualCnstPrntDualPrnt: !_TypeDual
     name: RefDualCnstPrntDualPrnt
@@ -6285,6 +6321,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: PrntDualCnstPrntDualPrnt
+        typeKind: !_TypeKind Dual
       name: ref
   !_Identifier RefDualCnstPrntObjPrnt: !_TypeDual
     name: RefDualCnstPrntObjPrnt
@@ -6293,6 +6332,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: PrntDualCnstPrntObjPrnt
+        typeKind: !_TypeKind Dual
       name: ref
   !_Identifier RefDualGnrcAltArg: !_TypeDual
     allAlternates:
@@ -6599,6 +6641,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: String
+        typeKind: !_TypeKind Basic
       name: ref
   !_Identifier RefInpCnstAltDual: !_TypeInput
     allAlternates:
@@ -6612,6 +6657,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: PrntInpCnstAltDual
+        typeKind: !_TypeKind Dual
       name: ref
   !_Identifier RefInpCnstAltObj: !_TypeInput
     allAlternates:
@@ -6625,6 +6673,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: PrntInpCnstAltObj
+        typeKind: !_TypeKind Input
       name: ref
   !_Identifier RefInpCnstFieldDmn: !_TypeInput
     allFields:
@@ -6642,6 +6693,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: String
+        typeKind: !_TypeKind Basic
       name: ref
   !_Identifier RefInpCnstFieldDual: !_TypeInput
     allFields:
@@ -6659,6 +6713,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: PrntInpCnstFieldDual
+        typeKind: !_TypeKind Dual
       name: ref
   !_Identifier RefInpCnstFieldObj: !_TypeInput
     allFields:
@@ -6676,6 +6733,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: PrntInpCnstFieldObj
+        typeKind: !_TypeKind Input
       name: ref
   !_Identifier RefInpCnstPrntDualPrnt: !_TypeInput
     name: RefInpCnstPrntDualPrnt
@@ -6684,6 +6744,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: PrntInpCnstPrntDualPrnt
+        typeKind: !_TypeKind Dual
       name: ref
   !_Identifier RefInpCnstPrntObjPrnt: !_TypeInput
     name: RefInpCnstPrntObjPrnt
@@ -6692,6 +6755,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: PrntInpCnstPrntObjPrnt
+        typeKind: !_TypeKind Input
       name: ref
   !_Identifier RefInpGnrcAltArg: !_TypeInput
     allAlternates:
@@ -6998,6 +7064,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: String
+        typeKind: !_TypeKind Basic
       name: ref
   !_Identifier RefOutpCnstAltDual: !_TypeOutput
     allAlternates:
@@ -7011,6 +7080,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: PrntOutpCnstAltDual
+        typeKind: !_TypeKind Dual
       name: ref
   !_Identifier RefOutpCnstAltObj: !_TypeOutput
     allAlternates:
@@ -7024,6 +7096,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: PrntOutpCnstAltObj
+        typeKind: !_TypeKind Output
       name: ref
   !_Identifier RefOutpCnstEnum: !_TypeOutput
     allFields:
@@ -7041,6 +7116,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: EnumOutpCnstEnum
+        typeKind: !_TypeKind Enum
       name: type
   !_Identifier RefOutpCnstFieldDmn: !_TypeOutput
     allFields:
@@ -7058,6 +7136,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: String
+        typeKind: !_TypeKind Basic
       name: ref
   !_Identifier RefOutpCnstFieldDual: !_TypeOutput
     allFields:
@@ -7075,6 +7156,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: PrntOutpCnstFieldDual
+        typeKind: !_TypeKind Dual
       name: ref
   !_Identifier RefOutpCnstFieldObj: !_TypeOutput
     allFields:
@@ -7092,6 +7176,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: PrntOutpCnstFieldObj
+        typeKind: !_TypeKind Output
       name: ref
   !_Identifier RefOutpCnstPrntDualPrnt: !_TypeOutput
     name: RefOutpCnstPrntDualPrnt
@@ -7100,6 +7187,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: PrntOutpCnstPrntDualPrnt
+        typeKind: !_TypeKind Dual
       name: ref
   !_Identifier RefOutpCnstPrntObjPrnt: !_TypeOutput
     name: RefOutpCnstPrntObjPrnt
@@ -7108,6 +7198,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: PrntOutpCnstPrntObjPrnt
+        typeKind: !_TypeKind Output
       name: ref
   !_Identifier RefOutpGnrcAltArg: !_TypeOutput
     allAlternates:

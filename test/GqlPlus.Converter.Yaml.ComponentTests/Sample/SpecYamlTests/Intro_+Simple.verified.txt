@@ -50,10 +50,19 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _DomainKind
+        typeKind: !_TypeKind Enum
       name: domain
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _BaseDomainItem
+        typeKind: !_TypeKind Dual
       name: item
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _DomainItem
+        typeKind: !_TypeKind Output
       name: domainItem
   !_Identifier _BaseDomainItem: !_TypeDual
     allFields:
@@ -89,6 +98,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _BaseDomainItem
+        typeKind: !_TypeKind Dual
       name: item
   !_Identifier _DomainItemLabel: !_TypeOutput
     allFields:
@@ -259,6 +271,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _DomainKind
+        typeKind: !_TypeKind Enum
       name: kind
   !_Identifier _DomainRegex: !_TypeDual
     allFields:
@@ -327,6 +342,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _DomainKind
+        typeKind: !_TypeKind Enum
       name: kind
     - !_TypeParam
       name: value

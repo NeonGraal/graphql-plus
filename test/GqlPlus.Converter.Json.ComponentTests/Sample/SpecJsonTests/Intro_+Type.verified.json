@@ -55,7 +55,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "kind"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
+          "name": "kind"
         }
       ]
     },
@@ -104,7 +112,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "kind"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
+          "name": "kind"
         },
         {
           "$tag": "_TypeParam",
@@ -375,7 +391,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "kind"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ModifierKind",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
+          "name": "kind"
         }
       ]
     },
@@ -441,7 +465,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "kind"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ModifierKind",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
+          "name": "kind"
         }
       ]
     },
@@ -667,7 +699,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "kind"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
+          "name": "kind"
         },
         {
           "$tag": "_TypeParam",

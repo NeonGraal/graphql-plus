@@ -58,4 +58,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: PrntDualCnstAltObj
+        typeKind: !_TypeKind Dual
       name: ref

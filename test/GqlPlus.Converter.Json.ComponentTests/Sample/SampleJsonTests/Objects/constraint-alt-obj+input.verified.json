@@ -119,7 +119,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntInpCnstAltObj",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Input"
+            }
+          },
+          "name": "ref"
         }
       ]
     }

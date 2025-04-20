@@ -57,6 +57,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
       - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _ObjTypeArg
+          typeKind: !_TypeKind Output
         name: arg
   !_Identifier _DualAlternate: !_TypeOutput
     allAlternates:
@@ -210,6 +213,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
       - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _ObjBase
+          typeKind: !_TypeKind Output
         name: base
   !_Identifier _ForParam: !_TypeOutput
     allAlternates:
@@ -236,6 +242,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
       - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _ObjBase
+          typeKind: !_TypeKind Output
         name: base
   !_Identifier _InputAlternate: !_TypeOutput
     allAlternates:
@@ -469,6 +478,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
       - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _ObjTypeArg
+          typeKind: !_TypeKind Output
         name: arg
   !_Identifier _ObjConstraint: !_TypeOutput
     name: _ObjConstraint
@@ -511,6 +523,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
       - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _ObjBase
+          typeKind: !_TypeKind Output
         name: base
   !_Identifier _ObjTypeArg: !_TypeOutput
     allAlternates:
@@ -570,6 +585,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
       - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _ForParam
+          typeKind: !_TypeKind Output
         name: for
   !_Identifier _OutputAlternate: !_TypeOutput
     allAlternates:
@@ -977,10 +995,19 @@ types: !_Map_Type
       - !_TypeParam
         name: parent
       - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _ObjTypeParam
+          typeKind: !_TypeKind Output
         name: typeParam
       - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _Field
+          typeKind: !_TypeKind Output
         name: field
       - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _Alternate
+          typeKind: !_TypeKind Output
         name: alternate
   !_Identifier _TypeOutput: !_TypeOutput
     allFields:

@@ -55,4 +55,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
       - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: PrntOutpCnstPrntDualPrnt
+          typeKind: !_TypeKind Dual
         name: ref

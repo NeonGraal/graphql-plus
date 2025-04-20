@@ -87,7 +87,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "type"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "EnumOutpCnstEnum",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
+          "name": "type"
         }
       ]
     }

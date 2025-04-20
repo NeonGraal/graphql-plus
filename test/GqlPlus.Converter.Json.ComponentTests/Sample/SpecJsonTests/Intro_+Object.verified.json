@@ -147,7 +147,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "arg"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ObjTypeArg",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "arg"
         }
       ]
     },
@@ -498,7 +506,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "base"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ObjBase",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "base"
         }
       ]
     },
@@ -538,7 +554,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "base"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ObjBase",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "base"
         }
       ]
     },
@@ -1093,7 +1117,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "arg"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ObjTypeArg",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "arg"
         }
       ]
     },
@@ -1151,7 +1183,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "for"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ForParam",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "for"
         }
       ]
     },
@@ -1211,7 +1251,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "base"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ObjBase",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "base"
         }
       ]
     },
@@ -2277,15 +2325,39 @@
         },
         {
           "$tag": "_TypeParam",
-          "value": "typeParam"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ObjTypeParam",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "typeParam"
         },
         {
           "$tag": "_TypeParam",
-          "value": "field"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_Field",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "field"
         },
         {
           "$tag": "_TypeParam",
-          "value": "alternate"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_Alternate",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "alternate"
         }
       ]
     },

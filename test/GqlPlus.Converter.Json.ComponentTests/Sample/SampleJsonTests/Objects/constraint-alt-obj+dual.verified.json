@@ -119,7 +119,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntDualCnstAltObj",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Dual"
+            }
+          },
+          "name": "ref"
         }
       ]
     }

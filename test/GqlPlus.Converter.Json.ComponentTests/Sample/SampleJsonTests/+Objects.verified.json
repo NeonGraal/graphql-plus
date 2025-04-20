@@ -2425,7 +2425,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "type"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "Number",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            }
+          },
+          "name": "type"
         }
       ]
     },
@@ -5037,7 +5045,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "type"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "Number",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            }
+          },
+          "name": "type"
         }
       ]
     },
@@ -6845,7 +6861,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "type"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "Number",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            }
+          },
+          "name": "type"
         }
       ]
     },
@@ -9410,7 +9434,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            }
+          },
+          "name": "ref"
         }
       ]
     },
@@ -9437,7 +9469,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntDualCnstAltDual",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Dual"
+            }
+          },
+          "name": "ref"
         }
       ]
     },
@@ -9464,7 +9504,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntDualCnstAltObj",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Dual"
+            }
+          },
+          "name": "ref"
         }
       ]
     },
@@ -9499,7 +9547,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            }
+          },
+          "name": "ref"
         }
       ]
     },
@@ -9534,7 +9590,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntDualCnstFieldDual",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Dual"
+            }
+          },
+          "name": "ref"
         }
       ]
     },
@@ -9569,7 +9633,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntDualCnstFieldObj",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Dual"
+            }
+          },
+          "name": "ref"
         }
       ]
     },
@@ -9587,7 +9659,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntDualCnstPrntDualPrnt",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Dual"
+            }
+          },
+          "name": "ref"
         }
       ]
     },
@@ -9605,7 +9685,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntDualCnstPrntObjPrnt",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Dual"
+            }
+          },
+          "name": "ref"
         }
       ]
     },
@@ -10229,7 +10317,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            }
+          },
+          "name": "ref"
         }
       ]
     },
@@ -10256,7 +10352,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntInpCnstAltDual",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Dual"
+            }
+          },
+          "name": "ref"
         }
       ]
     },
@@ -10283,7 +10387,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntInpCnstAltObj",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Input"
+            }
+          },
+          "name": "ref"
         }
       ]
     },
@@ -10318,7 +10430,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            }
+          },
+          "name": "ref"
         }
       ]
     },
@@ -10353,7 +10473,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntInpCnstFieldDual",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Dual"
+            }
+          },
+          "name": "ref"
         }
       ]
     },
@@ -10388,7 +10516,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntInpCnstFieldObj",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Input"
+            }
+          },
+          "name": "ref"
         }
       ]
     },
@@ -10406,7 +10542,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntInpCnstPrntDualPrnt",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Dual"
+            }
+          },
+          "name": "ref"
         }
       ]
     },
@@ -10424,7 +10568,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntInpCnstPrntObjPrnt",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Input"
+            }
+          },
+          "name": "ref"
         }
       ]
     },
@@ -11048,7 +11200,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            }
+          },
+          "name": "ref"
         }
       ]
     },
@@ -11075,7 +11235,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntOutpCnstAltDual",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Dual"
+            }
+          },
+          "name": "ref"
         }
       ]
     },
@@ -11102,7 +11270,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntOutpCnstAltObj",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "ref"
         }
       ]
     },
@@ -11137,7 +11313,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "type"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "EnumOutpCnstEnum",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
+          "name": "type"
         }
       ]
     },
@@ -11172,7 +11356,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            }
+          },
+          "name": "ref"
         }
       ]
     },
@@ -11207,7 +11399,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntOutpCnstFieldDual",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Dual"
+            }
+          },
+          "name": "ref"
         }
       ]
     },
@@ -11242,7 +11442,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntOutpCnstFieldObj",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "ref"
         }
       ]
     },
@@ -11260,7 +11468,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntOutpCnstPrntDualPrnt",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Dual"
+            }
+          },
+          "name": "ref"
         }
       ]
     },
@@ -11278,7 +11494,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntOutpCnstPrntObjPrnt",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "ref"
         }
       ]
     },

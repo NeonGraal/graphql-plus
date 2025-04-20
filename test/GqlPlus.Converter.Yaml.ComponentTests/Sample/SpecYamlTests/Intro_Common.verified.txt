@@ -25,6 +25,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _TypeKind
+        typeKind: !_TypeKind Enum
       name: kind
   !_Identifier _ChildType: !_TypeOutput
     allFields:
@@ -51,6 +54,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _TypeKind
+        typeKind: !_TypeKind Enum
       name: kind
     - !_TypeParam
       name: parent
@@ -99,6 +105,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _TypeKind
+        typeKind: !_TypeKind Enum
       name: kind
     - !_TypeParam
       name: item

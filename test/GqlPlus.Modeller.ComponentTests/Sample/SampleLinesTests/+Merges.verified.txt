@@ -342,6 +342,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
     typeParams:
       - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: '*'
+          typeKind: !_TypeKind Basic
         name: test
   !_Identifier DualObjParamDup: !_TypeDual
     allFields:
@@ -560,6 +563,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
     typeParams:
       - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: '*'
+          typeKind: !_TypeKind Basic
         name: test
   !_Identifier InpObjParamDup: !_TypeInput
     allFields:
@@ -775,6 +781,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
       - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: '*'
+          typeKind: !_TypeKind Basic
         name: test
   !_Identifier OutpObjParamDup: !_TypeOutput
     allFields:

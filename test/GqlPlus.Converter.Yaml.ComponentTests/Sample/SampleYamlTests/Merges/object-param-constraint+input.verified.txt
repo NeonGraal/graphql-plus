@@ -25,4 +25,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: '*'
+        typeKind: !_TypeKind Basic
       name: test

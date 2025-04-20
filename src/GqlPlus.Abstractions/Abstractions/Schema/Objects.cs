@@ -75,7 +75,9 @@ public interface IGqlpObjAlternate<TArg>
 
 public interface IGqlpTypeParam
   : IGqlpNamed
-{ }
+{
+  string? Constraint { get; }
+}
 
 public interface IGqlpDualObject
   : IGqlpObject<IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>

@@ -29,6 +29,16 @@ where TContext : UsageContext
         .CheckArgs(usage.ObjParent.BaseArgs, " Parent");
     }
 
+    foreach (IGqlpTypeParam param in usage.TypeParams) {
+      if (string.IsNullOrWhiteSpace(param.Constraint)) {
+        continue;
+      }
+
+      if (!context.GetType(param.Constraint, out IGqlpDescribed? value)) {
+        context.AddError(param, usage.Label + " Type Param", $"'{param.Constraint}' not defined");
+      }
+    }
+
     foreach (TObjField field in usage.ObjFields) {
       UsageField(field, context);
     }

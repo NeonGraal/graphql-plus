@@ -622,7 +622,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "type"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "*",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            }
+          },
+          "name": "type"
         }
       ]
     },
@@ -1145,7 +1153,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "type"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "*",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            }
+          },
+          "name": "type"
         }
       ]
     },
@@ -1652,7 +1668,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "type"
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "*",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            }
+          },
+          "name": "type"
         }
       ]
     },

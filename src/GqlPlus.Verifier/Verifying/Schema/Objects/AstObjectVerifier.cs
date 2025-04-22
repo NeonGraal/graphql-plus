@@ -1,6 +1,7 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Merging;
 using GqlPlus.Verifying.Schema;
+using static GqlPlus.Verifying.Schema.UsageHelpers;
 
 namespace GqlPlus.Verification.Schema;
 
@@ -24,9 +25,7 @@ where TContext : UsageContext
     base.UsageValue(usage, context);
 
     if (usage.ObjParent is not null) {
-      context
-        .CheckType(usage.ObjParent, " Parent", false)
-        .CheckArgs(usage.ObjParent.BaseArgs, " Parent");
+      CheckType(context, usage.ObjParent, " Parent", false);
     }
 
     foreach (IGqlpTypeParam param in usage.TypeParams) {
@@ -59,16 +58,56 @@ where TContext : UsageContext
   }
 
   protected virtual void UsageAlternate(TObjAlt alternate, TContext context)
-    => context
-      .CheckType(alternate, " Alternate")
-      .CheckArgs(alternate.BaseArgs, " Alternate")
+    => CheckType(context, alternate, " Alternate")
       .CheckModifiers(alternate);
 
   protected virtual void UsageField(TObjField field, TContext context)
-    => context
-      .CheckType(field.BaseType, " Field")
-      .CheckArgs(field.BaseType.BaseArgs, " Field")
+    => CheckType(context, field.BaseType, " Field")
       .CheckModifiers(field);
+
+  protected TContext CheckType<T>(TContext context, T type, string suffix, bool check = true)
+    where T : IGqlpObjType
+  {
+    string typeName = (type.IsTypeParam ? "$" : "") + type.Name;
+    if (context.GetType(typeName, out IGqlpDescribed? value)) {
+      CheckTypeArgs(AddCheckError, type, check, value);
+    } else {
+      context.AddError(type, type.Label + suffix, $"'{typeName}' not defined", check);
+    }
+
+    if (type is IGqlpObjBase baseType) {
+      foreach (IGqlpObjArg arg in baseType.Args) {
+        CheckArgType(context, arg, suffix);
+      }
+    }
+
+    return context;
+
+    void AddCheckError(string errPrefix, string errSuffix)
+      => context.AddError(type, type.Label + suffix, $"{errPrefix} {typeName}. {errSuffix}");
+  }
+
+  internal virtual void CheckArgType<TArg>(TContext context, TArg type, string suffix)
+    where TArg : IGqlpObjArg
+    => CheckType(context, type, suffix);
+
+  internal static void CheckTypeArgs<TBase>(CheckError error, TBase type, bool check, IGqlpDescribed? value)
+    where TBase : IGqlpObjType
+  {
+    int numArgs = type is IGqlpObjBase baseType ? baseType.Args.Count() : 0;
+    if (value is IGqlpObject definition) {
+      if (check && definition.Label != "Dual" && definition.Label != type.Label) {
+        error("Type kind mismatch for", $"Found {definition.Label}");
+      }
+
+      int numParams = definition.TypeParams.Count();
+      if (numParams != numArgs) {
+        error("Args mismatch on", $"Expected {numParams}, given {numArgs}");
+      }
+    } else if (value is IGqlpSimple simple && numArgs != 0) {
+      error("Args invalid on", $"Expected 0, given {numArgs}");
+    }
+  }
 
   protected override string GetParent(IGqlpType<IGqlpObjBase> usage)
   {

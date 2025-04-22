@@ -1,1 +1,1 @@
-object ObjName<$type:Undef> { | $type }
+object Test<$type:Undef> { | $type }

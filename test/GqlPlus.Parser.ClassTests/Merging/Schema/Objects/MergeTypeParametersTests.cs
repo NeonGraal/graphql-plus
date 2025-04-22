@@ -1,6 +1,5 @@
 ﻿using System.Data;
 using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Merging.Objects;
 

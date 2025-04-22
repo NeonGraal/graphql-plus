@@ -1,0 +1,3 @@
+object Ref { | Test<Dom> }
+object Test<$ref:String> { | $ref }
+domain Dom { Number }

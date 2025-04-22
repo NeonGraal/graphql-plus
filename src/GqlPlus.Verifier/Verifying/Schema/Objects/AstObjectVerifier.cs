@@ -70,14 +70,12 @@ where TContext : UsageContext
   {
     string typeName = (type.IsTypeParam ? "$" : "") + type.Name;
     if (context.GetType(typeName, out IGqlpDescribed? value)) {
-      CheckTypeArgs(AddCheckError, type, check, value);
+      CheckTypeArgs(AddCheckError, context, type, suffix, check, value);
     } else {
       context.AddError(type, type.Label + suffix, $"'{typeName}' not defined", check);
-    }
 
-    if (type is IGqlpObjBase baseType) {
-      foreach (IGqlpObjArg arg in baseType.Args) {
-        CheckArgType(context, arg, suffix);
+      if (type is IGqlpObjBase baseType) {
+        CheckArgsTypes(context, suffix, null, baseType);
       }
     }
 
@@ -87,25 +85,49 @@ where TContext : UsageContext
       => context.AddError(type, type.Label + suffix, $"{errPrefix} {typeName}. {errSuffix}");
   }
 
-  internal virtual void CheckArgType<TArg>(TContext context, TArg type, string suffix)
-    where TArg : IGqlpObjArg
-    => CheckType(context, type, suffix);
+  internal virtual void CheckArgType(TContext context, IGqlpObjArg arg, IGqlpTypeParam? param, string suffix)
+  {
+    CheckType(context, arg, suffix + " Arg");
 
-  internal static void CheckTypeArgs<TBase>(CheckError error, TBase type, bool check, IGqlpDescribed? value)
+    if (param is not null && !string.IsNullOrWhiteSpace(param.Constraint)) {
+      if (!arg.Name.Equals(param.Constraint, StringComparison.Ordinal)) {
+        // Todo: Check param Constraint matches arg
+      }
+    }
+  }
+
+  internal void CheckTypeArgs<TBase>(CheckError error, TContext context, TBase type, string suffix, bool check, IGqlpDescribed? value)
     where TBase : IGqlpObjType
   {
-    int numArgs = type is IGqlpObjBase baseType ? baseType.Args.Count() : 0;
+    int numArgs = type is IGqlpObjBase baseNum ? baseNum.Args.Count() : 0;
     if (value is IGqlpObject definition) {
       if (check && definition.Label != "Dual" && definition.Label != type.Label) {
         error("Type kind mismatch for", $"Found {definition.Label}");
       }
 
       int numParams = definition.TypeParams.Count();
-      if (numParams != numArgs) {
-        error("Args mismatch on", $"Expected {numParams}, given {numArgs}");
+      if (type is IGqlpObjBase baseType) {
+        if (numParams == numArgs) {
+          CheckArgsTypes(context, suffix, definition, baseType);
+        } else {
+          error("Args mismatch on", $"Expected {numParams}, given {numArgs}");
+          CheckArgsTypes(context, suffix, null, baseType);
+        }
+      } else if (numParams > 0) {
+        error("Args mismatch on", $"Expected {numParams}, given 0");
       }
     } else if (value is IGqlpSimple simple && numArgs != 0) {
       error("Args invalid on", $"Expected 0, given {numArgs}");
+    }
+  }
+
+  private void CheckArgsTypes(TContext context, string suffix, IGqlpObject? definition, IGqlpObjBase baseType)
+  {
+    IEnumerable<(IGqlpObjArg, IGqlpTypeParam?)> argAndParams = definition is null
+      ? baseType.Args.Select(a => (a, (IGqlpTypeParam?)null))
+      : baseType.Args.Zip(definition.TypeParams, static (a, p) => (a, (IGqlpTypeParam?)p));
+    foreach ((IGqlpObjArg arg, IGqlpTypeParam? param) in argAndParams) {
+      CheckArgType(context, arg, param, suffix + " Arg");
     }
   }
 

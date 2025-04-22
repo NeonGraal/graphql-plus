@@ -51,10 +51,10 @@ internal class VerifyOutputTypes(
     return new(validTypes, errors, aliased.MakeEnumValues());
   }
 
-  internal override void CheckArgType<TArg>(OutputContext context, TArg type, string suffix)
+  internal override void CheckArgType(OutputContext context, IGqlpObjArg arg, IGqlpTypeParam? param, string suffix)
   {
-    if (type is IGqlpOutputArg output) {
-      if (string.IsNullOrWhiteSpace(output.EnumLabel) && context.GetEnumValue(type.Name, out string? enumType)) {
+    if (arg is IGqlpOutputArg output) {
+      if (string.IsNullOrWhiteSpace(output.EnumLabel) && context.GetEnumValue(arg.Name, out string? enumType)) {
         output.SetEnumType(enumType);
       }
 
@@ -63,6 +63,6 @@ internal class VerifyOutputTypes(
       }
     }
 
-    base.CheckArgType(context, type, suffix);
+    base.CheckArgType(context, arg, param, suffix);
   }
 }

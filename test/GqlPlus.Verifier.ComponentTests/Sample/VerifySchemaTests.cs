@@ -33,7 +33,6 @@ public class VerifySchemaTests(
 
   protected override async Task Result_Invalid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")
   {
-
     TokenMessages errors = [];
     if (result.IsOk()) {
       schemaVerifier.Verify(result.Required(), errors);

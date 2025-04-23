@@ -34,7 +34,7 @@ internal class VerifyOutputTypes(
   protected override void UsageField(IGqlpOutputField field, OutputContext context)
   {
     foreach (IGqlpInputParam parameter in field.Params) {
-      CheckType(context, parameter.Type, " Param")
+      CheckTypeRef(context, parameter.Type, " Param")
         .CheckModifiers(parameter);
     }
 
@@ -51,7 +51,7 @@ internal class VerifyOutputTypes(
     return new(validTypes, errors, aliased.MakeEnumValues());
   }
 
-  internal override void CheckArgType(OutputContext context, IGqlpObjArg arg, IGqlpTypeParam? param, string suffix)
+  internal override void CheckArgType(CheckError error, OutputContext context, IGqlpObjArg arg)
   {
     if (arg is IGqlpOutputArg output) {
       if (string.IsNullOrWhiteSpace(output.EnumLabel) && context.GetEnumValue(arg.Name, out string? enumType)) {
@@ -63,6 +63,6 @@ internal class VerifyOutputTypes(
       }
     }
 
-    base.CheckArgType(context, arg, param, suffix);
+    base.CheckArgType(error, context, arg);
   }
 }

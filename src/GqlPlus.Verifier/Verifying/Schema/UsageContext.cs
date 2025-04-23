@@ -92,4 +92,4 @@ internal static class UsageHelpers
   }
 }
 
-internal delegate void CheckError(string prefix, string suffix);
+internal delegate void CheckError(string prefix, string suffix, bool check = true);

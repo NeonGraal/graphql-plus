@@ -25,7 +25,7 @@ where TContext : UsageContext
     base.UsageValue(usage, context);
 
     if (usage.ObjParent is not null) {
-      CheckType(context, usage.ObjParent, " Parent", false);
+      CheckTypeRef(context, usage.ObjParent, " Parent", false);
     }
 
     foreach (IGqlpTypeParam param in usage.TypeParams) {
@@ -58,76 +58,159 @@ where TContext : UsageContext
   }
 
   protected virtual void UsageAlternate(TObjAlt alternate, TContext context)
-    => CheckType(context, alternate, " Alternate")
+    => CheckTypeRef(context, alternate, " Alternate")
       .CheckModifiers(alternate);
 
   protected virtual void UsageField(TObjField field, TContext context)
-    => CheckType(context, field.BaseType, " Field")
+    => CheckTypeRef(context, field.BaseType, " Field")
       .CheckModifiers(field);
 
-  protected TContext CheckType<T>(TContext context, T type, string suffix, bool check = true)
+  protected TContext CheckTypeRef<T>(TContext context, T reference, string suffix, bool check = true)
     where T : IGqlpObjType
   {
-    string typeName = (type.IsTypeParam ? "$" : "") + type.Name;
-    if (context.GetType(typeName, out IGqlpDescribed? value)) {
-      CheckTypeArgs(AddCheckError, context, type, suffix, check, value);
-    } else {
-      context.AddError(type, type.Label + suffix, $"'{typeName}' not defined", check);
+    string typeName = (reference.IsTypeParam ? "$" : "") + reference.Name;
+    return CheckTypeRef(AddCheckError, context, reference, check);
 
-      if (type is IGqlpObjBase baseType) {
-        CheckArgsTypes(context, suffix, null, baseType);
+    void AddCheckError(string errPrefix, string errSuffix, bool check = true)
+    {
+      if (string.IsNullOrWhiteSpace(errSuffix)) {
+        context.AddError(reference, reference.Label + suffix, $"{errPrefix}", check);
+      } else {
+        context.AddError(reference, reference.Label + suffix, $"{errPrefix} {typeName}. {errSuffix}", check);
+      }
+    }
+  }
+
+  protected TContext CheckTypeRef<T>(CheckError error, TContext context, T reference, bool check = true)
+    where T : IGqlpObjType
+  {
+    string typeName = (reference.IsTypeParam ? "$" : "") + reference.Name;
+    if (context.GetType(typeName, out IGqlpDescribed? refType)) {
+      CheckTypeArgs(error, context, reference, check, refType);
+    } else {
+      error($"'{typeName}' not defined", "", check);
+
+      if (reference is IGqlpObjBase baseType) {
+        CheckArgsTypes(error, context, baseType);
       }
     }
 
     return context;
-
-    void AddCheckError(string errPrefix, string errSuffix)
-      => context.AddError(type, type.Label + suffix, $"{errPrefix} {typeName}. {errSuffix}");
   }
 
-  internal virtual void CheckArgType(TContext context, IGqlpObjArg arg, IGqlpTypeParam? param, string suffix)
+  private void CheckArgsTypes(CheckError error, TContext context, IGqlpObjBase baseType)
   {
-    CheckType(context, arg, suffix + " Arg");
-
-    if (param is not null && !string.IsNullOrWhiteSpace(param.Constraint)) {
-      if (!arg.Name.Equals(param.Constraint, StringComparison.Ordinal)) {
-        // Todo: Check param Constraint matches arg
-      }
+    foreach (IGqlpObjArg arg in baseType.Args) {
+      CheckArgType(error, context, arg);
     }
   }
 
-  internal void CheckTypeArgs<TBase>(CheckError error, TContext context, TBase type, string suffix, bool check, IGqlpDescribed? value)
+  internal virtual void CheckArgType(CheckError error, TContext context, IGqlpObjArg arg)
+    => CheckTypeRef(error, context, arg);
+
+  private void CheckParamsArgs(CheckError error, TContext context, IGqlpObject definition, IGqlpObjBase baseType)
+  {
+    IEnumerable<(IGqlpObjArg, IGqlpTypeParam)> argAndParams = baseType.Args
+      .Zip(definition.TypeParams, static (a, p) => (a, p));
+    foreach ((IGqlpObjArg arg, IGqlpTypeParam param) in argAndParams) {
+      CheckParamArg(error, context, param, arg);
+    }
+  }
+
+  internal void CheckParamArg(CheckError error, TContext context, IGqlpTypeParam param, IGqlpObjArg arg)
+  {
+    CheckArgType(error, context, arg);
+
+    if (string.IsNullOrWhiteSpace(param.Constraint)) {
+      return;
+    }
+
+    if (!context.GetType(param.Constraint, out IGqlpDescribed? constraint)) {
+      error("Invalid Constraint on", $"'{param.Constraint}' not defined");
+    }
+
+    string argName = arg.IsTypeParam ? "$" + arg.Name : arg.Name;
+    if (argName.Equals(param.Constraint, StringComparison.Ordinal)) {
+      return;
+    }
+
+    if (context.GetType(argName, out IGqlpDescribed? argValue)) {
+      if (argValue is IGqlpSimple simple) {
+        CheckParamSimpleParent(error, context, param, simple);
+      } else if (argValue is IGqlpObjType argObject) {
+        CheckParamObject(error, context, param, argObject);
+      }
+    } else {
+      error("Invalid Argument on", $"'{argName}' not defined");
+    }
+  }
+
+  internal void CheckParamSimpleParent(CheckError error, TContext context, IGqlpTypeParam param, IGqlpSimple simple)
+  {
+    if (simple is IGqlpDomain domain) {
+      if (domain.DomainKind == DomainKind.Enum) {
+        // Todo: match enum constraint
+      } else {
+        string kind = domain.DomainKind.ToString();
+        if (kind.Equals(param.Constraint, StringComparison.Ordinal)) {
+          return;
+        }
+
+        error("Invalid Constraint on", $"{kind} '{domain.Name}' not match '{param.Constraint}'");
+      }
+    }
+
+    if (simple.Parent is null
+        || simple.Parent.Equals(param.Constraint, StringComparison.Ordinal)) {
+      return;
+    }
+
+    if (context.GetType(simple.Parent, out IGqlpDescribed? argValue)
+        && argValue is IGqlpSimple parentSimple) {
+      CheckParamSimpleParent(error, context, param, parentSimple);
+      return;
+    }
+
+    error("Invalid Constraint on", $"'{param.Constraint}' not matched");
+  }
+
+  internal void CheckParamObject(CheckError error, TContext context, IGqlpTypeParam param, IGqlpObjType parent)
+  {
+    if (parent.Name.Equals(param.Constraint, StringComparison.Ordinal)) {
+      return;
+    }
+
+    if (context.GetType(parent.Name, out IGqlpDescribed? argValue)
+        && argValue is IGqlpObjType obj) {
+      CheckParamObject(error, context, param, obj);
+      return;
+    }
+
+    error("Invalid Constraint on", $"'{param.Constraint}' not matched");
+  }
+
+  internal void CheckTypeArgs<TBase>(CheckError error, TContext context, TBase type, bool check, IGqlpDescribed? value)
     where TBase : IGqlpObjType
   {
     int numArgs = type is IGqlpObjBase baseNum ? baseNum.Args.Count() : 0;
     if (value is IGqlpObject definition) {
       if (check && definition.Label != "Dual" && definition.Label != type.Label) {
-        error("Type kind mismatch for", $"Found {definition.Label}");
+        error("Type kind mismatch for", $"Found {definition.Label} '{definition.Name}'");
       }
 
       int numParams = definition.TypeParams.Count();
       if (type is IGqlpObjBase baseType) {
         if (numParams == numArgs) {
-          CheckArgsTypes(context, suffix, definition, baseType);
+          CheckParamsArgs(error, context, definition, baseType);
         } else {
           error("Args mismatch on", $"Expected {numParams}, given {numArgs}");
-          CheckArgsTypes(context, suffix, null, baseType);
+          CheckArgsTypes(error, context, baseType);
         }
       } else if (numParams > 0) {
         error("Args mismatch on", $"Expected {numParams}, given 0");
       }
     } else if (value is IGqlpSimple simple && numArgs != 0) {
       error("Args invalid on", $"Expected 0, given {numArgs}");
-    }
-  }
-
-  private void CheckArgsTypes(TContext context, string suffix, IGqlpObject? definition, IGqlpObjBase baseType)
-  {
-    IEnumerable<(IGqlpObjArg, IGqlpTypeParam?)> argAndParams = definition is null
-      ? baseType.Args.Select(a => (a, (IGqlpTypeParam?)null))
-      : baseType.Args.Zip(definition.TypeParams, static (a, p) => (a, (IGqlpTypeParam?)p));
-    foreach ((IGqlpObjArg arg, IGqlpTypeParam? param) in argAndParams) {
-      CheckArgType(context, arg, param, suffix + " Arg");
     }
   }
 

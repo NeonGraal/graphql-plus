@@ -1,1 +1,1 @@
-ab9529b  (HEAD -> type-constraints) 2025-04-22 Add constraint not match sample
+422828d  (HEAD -> type-constraints) 2025-04-24 Improve Type kind errors

@@ -1,0 +1,137 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnumOutpCnstEnumPrnt": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "ParentOutpCnstEnumPrnt",
+          "name": "parentOutpCnstEnumPrnt"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumOutpCnstEnumPrnt",
+          "name": "outpCnstEnumPrnt"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "outpCnstEnumPrnt"
+        }
+      ],
+      "name": "EnumOutpCnstEnumPrnt",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "ParentOutpCnstEnumPrnt",
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Enum"
+        }
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "OutpCnstEnumPrnt": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpCnstEnumPrnt",
+          "output": "RefOutpCnstEnumPrnt",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "value": "outpCnstEnumPrnt"
+            }
+          ]
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "output": "RefOutpCnstEnumPrnt",
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "value": "outpCnstEnumPrnt"
+            }
+          ]
+        }
+      ],
+      "name": "OutpCnstEnumPrnt",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "ParentOutpCnstEnumPrnt": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "ParentOutpCnstEnumPrnt",
+          "name": "parentOutpCnstEnumPrnt"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "value": "parentOutpCnstEnumPrnt"
+        }
+      ],
+      "name": "ParentOutpCnstEnumPrnt",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "RefOutpCnstEnumPrnt": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "RefOutpCnstEnumPrnt",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "value": "type"
+          }
+        }
+      ],
+      "name": "RefOutpCnstEnumPrnt",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "ParentOutpCnstEnumPrnt",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
+          "name": "type"
+        }
+      ]
+    }
+  }
+}

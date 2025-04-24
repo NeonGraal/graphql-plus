@@ -1,1 +1,1 @@
-422828d  (HEAD -> type-constraints) 2025-04-24 Improve Type kind errors
+3a61cf4  (HEAD -> type-constraints, origin/type-constraints) 2025-04-24 Valid Output object enum constraints

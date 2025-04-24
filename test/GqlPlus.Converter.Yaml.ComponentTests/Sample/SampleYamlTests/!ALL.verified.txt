@@ -2946,6 +2946,38 @@ types: !_Map_Type
       name: outpCnstEnum
     name: EnumOutpCnstEnum
     typeKind: !_TypeKind Enum
+  !_Identifier EnumOutpCnstEnumPrnt: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: ParentOutpCnstEnumPrnt
+      name: parentOutpCnstEnumPrnt
+    - !_EnumLabel
+      enum: EnumOutpCnstEnumPrnt
+      name: outpCnstEnumPrnt
+    items:
+    - !_Aliased
+      name: outpCnstEnumPrnt
+    name: EnumOutpCnstEnumPrnt
+    parent: !_TypeRef(_SimpleKind)
+      name: ParentOutpCnstEnumPrnt
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
+  !_Identifier EnumOutpCnstPrntEnum: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: ParentOutpCnstPrntEnum
+      name: parentOutpCnstPrntEnum
+    - !_EnumLabel
+      enum: EnumOutpCnstPrntEnum
+      name: outpCnstPrntEnum
+    items:
+    - !_Aliased
+      name: outpCnstPrntEnum
+    name: EnumOutpCnstPrntEnum
+    parent: !_TypeRef(_SimpleKind)
+      name: ParentOutpCnstPrntEnum
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
   !_Identifier EnumOutpFieldEnum: !_TypeEnum
     allItems:
     - !_EnumLabel
@@ -4728,6 +4760,22 @@ types: !_Map_Type
         output: outpCnstEnum
     name: OutpCnstEnum
     typeKind: !_TypeKind Output
+  !_Identifier OutpCnstEnumPrnt: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: OutpCnstEnumPrnt
+      output: RefOutpCnstEnumPrnt
+      typeArgs:
+      - !_OutputArg
+        output: outpCnstEnumPrnt
+    alternates:
+    - !_OutputAlternate
+      output: RefOutpCnstEnumPrnt
+      typeArgs:
+      - !_OutputArg
+        output: outpCnstEnumPrnt
+    name: OutpCnstEnumPrnt
+    typeKind: !_TypeKind Output
   !_Identifier OutpCnstFieldDmn: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -4787,6 +4835,22 @@ types: !_Map_Type
       typeArgs:
       - !_OutputArg
         output: AltOutpCnstPrntDualPrnt
+    typeKind: !_TypeKind Output
+  !_Identifier OutpCnstPrntEnum: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: OutpCnstPrntEnum
+      output: RefOutpCnstPrntEnum
+      typeArgs:
+      - !_OutputArg
+        output: parentOutpCnstPrntEnum
+    alternates:
+    - !_OutputAlternate
+      output: RefOutpCnstPrntEnum
+      typeArgs:
+      - !_OutputArg
+        output: parentOutpCnstPrntEnum
+    name: OutpCnstPrntEnum
     typeKind: !_TypeKind Output
   !_Identifier OutpCnstPrntObjPrnt: !_TypeOutput
     allAlternates:
@@ -5887,6 +5951,26 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       name: a
+  !_Identifier ParentOutpCnstEnumPrnt: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: ParentOutpCnstEnumPrnt
+      name: parentOutpCnstEnumPrnt
+    items:
+    - !_Aliased
+      name: parentOutpCnstEnumPrnt
+    name: ParentOutpCnstEnumPrnt
+    typeKind: !_TypeKind Enum
+  !_Identifier ParentOutpCnstPrntEnum: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: ParentOutpCnstPrntEnum
+      name: parentOutpCnstPrntEnum
+    items:
+    - !_Aliased
+      name: parentOutpCnstPrntEnum
+    name: ParentOutpCnstPrntEnum
+    typeKind: !_TypeKind Enum
   !_Identifier PrntDmnBoolPrnt: !_DomainBoolean
     allItems:
     - !_DomainItem(_DomainTrueFalse)
@@ -7207,6 +7291,26 @@ types: !_Map_Type
         name: EnumOutpCnstEnum
         typeKind: !_TypeKind Enum
       name: type
+  !_Identifier RefOutpCnstEnumPrnt: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: RefOutpCnstEnumPrnt
+      type: !_OutputBase
+        typeParam: type
+    fields:
+    - !_OutputField
+      name: field
+      type: !_OutputBase
+        typeParam: type
+    name: RefOutpCnstEnumPrnt
+    typeKind: !_TypeKind Output
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: ParentOutpCnstEnumPrnt
+        typeKind: !_TypeKind Enum
+      name: type
   !_Identifier RefOutpCnstFieldDmn: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -7278,6 +7382,26 @@ types: !_Map_Type
         name: PrntOutpCnstPrntDualPrnt
         typeKind: !_TypeKind Dual
       name: ref
+  !_Identifier RefOutpCnstPrntEnum: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: RefOutpCnstPrntEnum
+      type: !_OutputBase
+        typeParam: type
+    fields:
+    - !_OutputField
+      name: field
+      type: !_OutputBase
+        typeParam: type
+    name: RefOutpCnstPrntEnum
+    typeKind: !_TypeKind Output
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: EnumOutpCnstPrntEnum
+        typeKind: !_TypeKind Enum
+      name: type
   !_Identifier RefOutpCnstPrntObjPrnt: !_TypeOutput
     name: RefOutpCnstPrntObjPrnt
     parent: !_OutputBase

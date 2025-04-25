@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Convert;
 
-internal static class RenderLinesHelpers
+internal static class LinesHelpers
 {
   internal static Structured AsMap<T>(this MapPair<T>[] value, string tag, Func<T, Structured> mapper, bool flow = false)
     => value.ToMap(k => k.Key, v => mapper(v.Value)).Render(tag, flow);

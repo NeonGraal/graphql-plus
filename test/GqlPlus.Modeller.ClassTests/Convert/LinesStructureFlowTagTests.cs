@@ -1,28 +1,28 @@
 ﻿namespace GqlPlus.Convert;
 
-public class RenderLinesStructureTagTests
-  : RenderLinesStructureBase
+public class LinesStructureFlowTagTests
+  : LinesStructureBase
 {
-  protected override bool Flow => false;
+  protected override bool Flow => true;
   protected override string ValueTag => "value";
   protected override string ListTag => "list";
   protected override string MapTag => "map";
 
   protected override string Expected_List(string[] value)
-  => value.IsList("- !value ");
+    => value.FlowList("!value ");
 
   protected override string Expected_Map(MapPair<string>[] value)
-    => "!map".IsLine() + value.IsMap("", " !value ");
+    => value.FlowMap("!map", "!value ");
 
   protected override string Expected_ListOfLists(string[][] value)
-    => value.IsList(v => "-".IsLine() + v!.IsList("  - !value "));
+    => value.FlowList(v => v!.FlowList("!value "));
 
   protected override string Expected_MapOfLists(MapPair<string[]>[] value)
-    => "!map".IsLine() + value.IsMap("", v => "".IsLine() + v.IsList("  - !value "));
+    => value.FlowMap(v => v.FlowList("!value "), "!map");
 
   protected override string Expected_ListOfMaps(MapPair<string>[][] value)
-    => value.IsList(v => "- !map".IsLine() + v!.IsMap("  ", " !value "));
+    => value.FlowList(v => v!.FlowMap("!map", "!value "));
 
   protected override string Expected_MapOfMaps(MapPair<MapPair<string>[]>[] value)
-    => "!map".IsLine() + value.IsMap("", v => " !map".IsLine() + v.IsMap("  ", " !value "));
+    => value.FlowMap(v => v.FlowMap("!map", "!value "), "!map");
 }

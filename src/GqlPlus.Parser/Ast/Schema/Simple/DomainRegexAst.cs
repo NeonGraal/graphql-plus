@@ -23,5 +23,5 @@ internal sealed record class DomainRegexAst(
 
   internal override IEnumerable<string?> GetFields()
   => base.GetFields()
-      .Append(Pattern.Quoted("/").Prefixed(Excludes ? "!" : ""));
+      .Append(Pattern.Quoted('/').Prefixed(Excludes ? "!" : ""));
 }

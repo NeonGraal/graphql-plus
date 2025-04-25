@@ -4,7 +4,7 @@ using Shouldly;
 
 namespace GqlPlus.Convert;
 
-public abstract class RenderLinesValueBase
+public abstract class LinesValueBase
 {
   protected abstract string Tag { get; }
   protected abstract string Expected_Empty();

@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Convert;
 
-public class RenderLinesValueTests
-  : RenderLinesValueBase
+public class LinesValueTests
+  : LinesValueBase
 {
   protected override string Tag => "";
   protected override string Expected_Empty() => string.Empty;

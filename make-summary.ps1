@@ -1,5 +1,6 @@
 [CmdletBinding()]
 param (
+  [switch]$Html = $false,
   [Switch]$NoCoverage = $false,
   [Switch]$ShowGithub = $false
 )
@@ -73,12 +74,14 @@ if (-not $NoCoverage) {
 }
 
 [PsObject]$allTests = @{label = "All Tests"; skipped = 0; passed = 0; failed = 0; error = 0 }
+$allErrors = @{}
 
 $tests = Get-ChildItem . -Recurse -Filter "TestResults*.trx" | ForEach-Object {
   [xml]$trx = Get-Content $_.FullName
 
   $name = $_.Directory.Parent.Name -replace "GqlPlus\.","" -replace "\."," "
-  $counts = $trx.TestRun.ResultSummary.Counters
+  $summary = $trx.TestRun.ResultSummary
+  $counts = $summary.Counters
   $skipped = [int]$counts.total - $counts.executed
 
   $allTests.skipped += $skipped
@@ -86,12 +89,25 @@ $tests = Get-ChildItem . -Recurse -Filter "TestResults*.trx" | ForEach-Object {
   $allTests.failed += $counts.failed
   $allTests.error += $counts.error
 
+  if ($NoCoverage -and $summary.outcome -eq "Failed") {
+    $allErrors[$name] = $summary.RunInfos.RunInfo | ForEach-Object { ($_.Text -split '[[\]]')[2].Trim() }
+  }
+
   @{label = $name; failed = [int]$counts.failed; error = [int]$counts.error; passed = [int]$counts.passed; skipped = $skipped }
 }
 
 Write-Tests $allTests
 if ($tests.Count -gt 1) {
   $tests | ForEach-Object { Write-Tests $_ "- " }
+
+  $allErrors.Keys | ForEach-Object {
+    Write-Host "* $_ FAILURES"
+    $allErrors[$_].ForEach({ Write-Host "  - $_" })
+  }
+}
+
+if ($Html) {
+  Start-Process test/Html/index.html
 }
 
 if ($NoCoverage) {

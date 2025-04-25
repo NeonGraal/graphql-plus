@@ -81,7 +81,7 @@ public class GeneralHelpersTests
   {
     string? input = null;
 
-    string result = input.Quoted("\"");
+    string result = input.Quoted('"');
 
     result.ShouldBe(string.Empty);
   }

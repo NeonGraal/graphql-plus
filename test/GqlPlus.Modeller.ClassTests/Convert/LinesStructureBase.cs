@@ -3,7 +3,7 @@ using Shouldly;
 
 namespace GqlPlus.Convert;
 
-public abstract class RenderLinesStructureBase
+public abstract class LinesStructureBase
 {
   protected abstract bool Flow { get; }
   protected abstract string ValueTag { get; }

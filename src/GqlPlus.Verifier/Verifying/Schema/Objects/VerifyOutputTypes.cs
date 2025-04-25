@@ -85,9 +85,11 @@ internal class VerifyOutputTypes(
               output.SetEnumType(enumType.Name);
             }
           } else if (constraint is IGqlpDomain<IGqlpDomainLabel> domType) {
-            IGqlpEnum? domEnum = DomainHasLabel(context, domType, output.EnumType.Name);// TODO: Check if the domain is a label
+            IGqlpEnum? domEnum = DomainHasLabel(context, domType, output.EnumType.Name);
             if (domEnum is null) {
               error("Domain Enum on  ", $"'{output.EnumType.Name}' not a Value of '{param.Constraint}'");
+            } else {
+              output.SetEnumType(domEnum.Name);
             }
           }
         }
@@ -99,6 +101,16 @@ internal class VerifyOutputTypes(
 
   private IGqlpEnum? DomainHasLabel(OutputContext context, IGqlpDomain<IGqlpDomainLabel> domType, string label)
   {
+    foreach (IGqlpDomainLabel item in domType.Items.Where(i => !i.Excludes && (i.EnumItem == label || i.EnumItem == "*"))) {
+      if (context.GetTyped(item.EnumType, out IGqlpEnum? enumType)) {
+        if (EnumHasLabel(context, enumType, label)) {
+          return enumType;
+        }
+      }
+    }
+
+    // Todo: Handle domain parents
+
     return null;
   }
 
@@ -108,8 +120,7 @@ internal class VerifyOutputTypes(
       return true;
     }
 
-    if (context.GetType(enumType.Parent, out IGqlpDescribed? parent)
-        && parent is IGqlpEnum parentType) {
+    if (context.GetTyped(enumType.Parent, out IGqlpEnum? parentType)) {
       return EnumHasLabel(context, parentType, label);
     }
 

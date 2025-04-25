@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Merging;
 using GqlPlus.Verifying.Schema;
@@ -126,82 +127,103 @@ where TContext : UsageContext
       return;
     }
 
-    if (!context.GetType(param.Constraint, out IGqlpDescribed? constraint)) {
+    if (!context.GetTyped(param.Constraint, out IGqlpType? consType)) {
       error("Invalid Constraint on", $"'{param.Constraint}' not defined");
-    }
-
-    string argName = arg.IsTypeParam ? "$" + arg.Name : arg.Name;
-    if (argName.Equals(param.Constraint, StringComparison.Ordinal)) {
       return;
     }
 
-    if (context.GetType(argName, out IGqlpDescribed? argValue)
-        && argValue is IGqlpType argType) {
-      if (!MatchParamArg(context, param, argType)) {
+    if (arg.FullType.Equals(consType.Name, StringComparison.Ordinal)) {
+      return;
+    }
+
+    if (context.GetTyped(arg.FullType, out IGqlpType? argType)) {
+      if (!MatchParamArg(context, consType, argType)) {
         error("Invalid Constraint on", $"'{argType.Name}' not match '{param.Constraint}'");
       }
     }
   }
 
-  internal bool MatchParamArg(TContext context, IGqlpTypeParam param, IGqlpType argType)
+  internal bool MatchParamArg(TContext context, IGqlpType consType, IGqlpType argType)
   {
     if (argType is IGqlpSimple argSimple) {
-      return MatchParamSimple(context, param, argSimple);
+      if (consType is IGqlpSimple consSimple) {
+        return MatchSimples(context, consSimple, argSimple);
+      }
     }
 
     if (argType is IGqlpObject argObject) {
-      return MatchParamObject(context, param, argObject);
+      if (consType is IGqlpObject consObject) {
+        return MatchObjects(context, consObject, argObject);
+      }
     }
 
     return false;
   }
 
-  internal bool MatchParamSimple(TContext context, IGqlpTypeParam param, IGqlpSimple simple)
+  internal bool MatchSimples(TContext context, IGqlpSimple consSimple, IGqlpSimple argSimple)
+    => argSimple.Name.Equals(consSimple.Name, StringComparison.Ordinal)
+      || argSimple switch {
+        IGqlpUnion argUnion => MatchUnionSimple(context, argUnion, consSimple),
+        IGqlpEnum argEnum => MatchEnumSimple(context, argEnum, consSimple),
+        IGqlpDomain argDom => MatchDomainSimple(context, argDom, consSimple),
+        _ => false,
+      };
+
+  private bool MatchDomainSimple(TContext context, IGqlpDomain argDom, IGqlpSimple consSimple)
   {
-    if (simple.Name.Equals(param.Constraint, StringComparison.Ordinal)) {
-      return true;
-    }
-
-    if (simple is IGqlpDomain domain) {
-      if (domain.DomainKind == DomainKind.Enum) {
-        // Todo: match enum constraint
-      } else {
-        string kind = domain.DomainKind.ToString();
-        if (kind.Equals(param.Constraint, StringComparison.Ordinal)) {
-          return true;
-        }
-
-        return false;
-      }
-    }
-
-    if (simple is IGqlpDomain) {
-      // Todo: match domain constraint
-    }
-
-    if (simple.Parent is not null) {
-      if (simple.Parent.Equals(param.Constraint, StringComparison.Ordinal)) {
+    if (argDom.DomainKind == DomainKind.Enum) {
+      // Todo: match enum constraint
+    } else {
+      string kind = argDom.DomainKind.ToString();
+      if (kind.Equals(consSimple.Name, StringComparison.Ordinal)) {
         return true;
       }
 
-      if (context.GetType(simple.Parent, out IGqlpDescribed? argValue)
-          && argValue is IGqlpSimple parentSimple) {
-        return MatchParamSimple(context, param, parentSimple);
+      IGqlpUnion? consUnion = consSimple as IGqlpUnion;
+
+      while (consUnion is not null) {
+        if (consUnion.Items.Any(i => i.Name.Equals(argDom.Name, StringComparison.Ordinal))) {
+          return true;
+        }
+
+        context.GetTyped(consUnion.Parent, out consUnion);
       }
     }
 
     return false;
   }
 
-  internal bool MatchParamObject(TContext context, IGqlpTypeParam param, IGqlpObject argObject)
+  private bool MatchEnumSimple(TContext context, IGqlpEnum argEnum, IGqlpSimple consSimple)
+    => consSimple switch {
+      IGqlpEnum consEnum => MatchEnumEnum(context, argEnum, consEnum),
+      IGqlpDomain<IGqlpDomainLabel> consDomain => throw new NotImplementedException(),
+      IGqlpUnion consUnion => throw new NotImplementedException(),
+      _ => false
+    };
+
+  private bool MatchEnumEnum(TContext context, IGqlpEnum argEnum, IGqlpEnum consEnum)
+  => !string.IsNullOrWhiteSpace(argEnum.Parent)
+            && (argEnum.Parent!.Equals(consEnum.Name, StringComparison.Ordinal)
+              || context.GetTyped(argEnum.Parent, out IGqlpEnum? enumParent)
+                && MatchEnumEnum(context, enumParent, consEnum));
+
+#pragma warning disable IDE0060 // Remove unused parameter
+  private bool MatchUnionSimple(TContext context, IGqlpUnion argUnion, IGqlpSimple consSimple)
+    => consSimple switch {
+      IGqlpEnum consEnum => throw new NotImplementedException(),
+      IGqlpDomain<IGqlpDomainLabel> consDomain => throw new NotImplementedException(),
+      IGqlpUnion consUnion => throw new NotImplementedException(),
+      _ => false
+    };
+
+  internal bool MatchObjects(TContext context, IGqlpObject consObject, IGqlpObject argObject)
   {
-    if (argObject.Name.Equals(param.Constraint, StringComparison.Ordinal)) {
+    if (argObject.Name.Equals(consObject.Name, StringComparison.Ordinal)) {
       return true;
     }
 
-    if (context.GetType(argObject.Parent?.Name, out IGqlpDescribed? parent)
-        && parent is IGqlpObject parentObject) {
-      return MatchParamObject(context, param, parentObject);
+    if (context.GetTyped(argObject.Parent?.Name, out IGqlpObject? parentObject)) {
+      return MatchObjects(context, consObject, parentObject);
     }
 
     return false;

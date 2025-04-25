@@ -69,7 +69,7 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
 
 internal interface INameParser
 {
-  bool ParseName(ITokenizer tokens, out string? name, out TokenAt at);
+  bool ParseName(ITokenizer tokens, [NotNullWhen(true)] out string? name, out TokenAt at);
 }
 
 internal abstract class DeclarationParser<TParam, TDefinition, TResult>(

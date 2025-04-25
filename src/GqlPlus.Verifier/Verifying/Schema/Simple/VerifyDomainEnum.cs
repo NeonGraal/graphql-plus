@@ -15,13 +15,13 @@ internal class VerifyDomainEnum(
       if (string.IsNullOrWhiteSpace(label.EnumType)) {
         if (context.GetEnumValue(label.EnumItem, out string? enumType)) {
           label.SetEnumType(enumType);
-          if (context.GetEnumType(label.EnumType, out IGqlpEnum? theType)) {
+          if (context.GetTyped(label.EnumType, out IGqlpEnum? theType)) {
             labels.Add(label.Excludes, theType, label.EnumItem);
           }
         } else {
           context.AddError(label, "Domain Enum Item", $"Enum Value '{label.EnumItem}' not defined");
         }
-      } else if (context.GetEnumType(label.EnumType, out IGqlpEnum? theType)) {
+      } else if (context.GetTyped(label.EnumType, out IGqlpEnum? theType)) {
         if (label.EnumItem == "*") {
           AddAllLabels(labels, context, label.Excludes, theType);
         } else if (context.GetEnumValueType(theType, label.EnumItem, out IGqlpEnum? enumType)) {
@@ -47,7 +47,7 @@ internal class VerifyDomainEnum(
       labels.Add(excludes, enumType, enumLabel.Name);
     }
 
-    if (context.GetEnumType(enumType.Parent, out IGqlpEnum? parentType)) {
+    if (context.GetTyped(enumType.Parent, out IGqlpEnum? parentType)) {
       AddAllLabels(labels, context, excludes, parentType);
     }
   }

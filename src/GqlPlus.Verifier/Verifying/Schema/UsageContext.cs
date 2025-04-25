@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Verifying.Schema;
 
@@ -24,10 +25,21 @@ public class UsageContext(
     }
   }
 
-  internal bool GetType(string? type, out IGqlpDescribed? value)
+  internal bool GetType(string? type, [NotNullWhen(true)] out IGqlpDescribed? value)
   {
     if (types.TryGetValue(type ?? "", out value)) {
       Used.Add(type!);
+      return true;
+    }
+
+    value = default;
+    return false;
+  }
+
+  internal bool GetTyped<T>(string? type, [NotNullWhen(true)] out T? value)
+  {
+    if (GetType(type, out IGqlpDescribed? descr) && descr is T t) {
+      value = t;
       return true;
     }
 

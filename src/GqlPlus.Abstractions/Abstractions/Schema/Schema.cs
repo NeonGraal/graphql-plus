@@ -19,6 +19,8 @@ public interface IGqlpAliased
   : IGqlpNamed
 {
   IEnumerable<string> Aliases { get; }
+
+  bool IsNameOrAlias(string id);
 }
 
 public interface IGqlpDescribed

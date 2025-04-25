@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using System;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Merging;
 using GqlPlus.Verifying.Schema;
 using static GqlPlus.Verifying.Schema.UsageHelpers;
@@ -34,7 +35,7 @@ where TContext : UsageContext
       }
 
       if (!context.GetType(param.Constraint, out IGqlpDescribed? value)) {
-        context.AddError(param, usage.Label + " Type Param", $"'{param.Constraint}' not defined");
+        context.AddError(param, usage.Label + " Type Param", $"Copnstraint '{param.Constraint}' not defined");
       }
     }
 
@@ -113,11 +114,11 @@ where TContext : UsageContext
     IEnumerable<(IGqlpObjArg, IGqlpTypeParam)> argAndParams = baseType.Args
       .Zip(definition.TypeParams, static (a, p) => (a, p));
     foreach ((IGqlpObjArg arg, IGqlpTypeParam param) in argAndParams) {
-      CheckParamArg(error, context, param, arg);
+      CheckParamConstraint(error, context, param, arg);
     }
   }
 
-  internal void CheckParamArg(CheckError error, TContext context, IGqlpTypeParam param, IGqlpObjArg arg)
+  internal virtual void CheckParamConstraint(CheckError error, TContext context, IGqlpTypeParam param, IGqlpObjArg arg)
   {
     CheckArgType(error, context, arg);
 
@@ -134,59 +135,76 @@ where TContext : UsageContext
       return;
     }
 
-    if (context.GetType(argName, out IGqlpDescribed? argValue)) {
-      if (argValue is IGqlpSimple simple) {
-        CheckParamSimpleParent(error, context, param, simple);
-      } else if (argValue is IGqlpObjType argObject) {
-        CheckParamObject(error, context, param, argObject);
+    if (context.GetType(argName, out IGqlpDescribed? argValue)
+        && argValue is IGqlpType argType) {
+      if (!MatchParamArg(context, param, argType)) {
+        error("Invalid Constraint on", $"'{argType.Name}' not match '{param.Constraint}'");
       }
-    } else {
-      error("Invalid Argument on", $"'{argName}' not defined");
     }
   }
 
-  internal void CheckParamSimpleParent(CheckError error, TContext context, IGqlpTypeParam param, IGqlpSimple simple)
+  internal bool MatchParamArg(TContext context, IGqlpTypeParam param, IGqlpType argType)
   {
+    if (argType is IGqlpSimple argSimple) {
+      return MatchParamSimple(context, param, argSimple);
+    }
+
+    if (argType is IGqlpObject argObject) {
+      return MatchParamObject(context, param, argObject);
+    }
+
+    return false;
+  }
+
+  internal bool MatchParamSimple(TContext context, IGqlpTypeParam param, IGqlpSimple simple)
+  {
+    if (simple.Name.Equals(param.Constraint, StringComparison.Ordinal)) {
+      return true;
+    }
+
     if (simple is IGqlpDomain domain) {
       if (domain.DomainKind == DomainKind.Enum) {
         // Todo: match enum constraint
       } else {
         string kind = domain.DomainKind.ToString();
         if (kind.Equals(param.Constraint, StringComparison.Ordinal)) {
-          return;
+          return true;
         }
 
-        error("Invalid Constraint on", $"{kind} '{domain.Name}' not match '{param.Constraint}'");
+        return false;
       }
     }
 
-    if (simple.Parent is null
-        || simple.Parent.Equals(param.Constraint, StringComparison.Ordinal)) {
-      return;
+    if (simple is IGqlpDomain) {
+      // Todo: match domain constraint
     }
 
-    if (context.GetType(simple.Parent, out IGqlpDescribed? argValue)
-        && argValue is IGqlpSimple parentSimple) {
-      CheckParamSimpleParent(error, context, param, parentSimple);
-      return;
+    if (simple.Parent is not null) {
+      if (simple.Parent.Equals(param.Constraint, StringComparison.Ordinal)) {
+        return true;
+      }
+
+      if (context.GetType(simple.Parent, out IGqlpDescribed? argValue)
+          && argValue is IGqlpSimple parentSimple) {
+        return MatchParamSimple(context, param, parentSimple);
+      }
     }
 
-    error("Invalid Constraint on", $"'{param.Constraint}' not matched");
+    return false;
   }
 
-  internal void CheckParamObject(CheckError error, TContext context, IGqlpTypeParam param, IGqlpObjType parent)
+  internal bool MatchParamObject(TContext context, IGqlpTypeParam param, IGqlpObject argObject)
   {
-    if (parent.Name.Equals(param.Constraint, StringComparison.Ordinal)) {
-      return;
+    if (argObject.Name.Equals(param.Constraint, StringComparison.Ordinal)) {
+      return true;
     }
 
-    if (context.GetType(parent.Name, out IGqlpDescribed? argValue)
-        && argValue is IGqlpObjType obj) {
-      CheckParamObject(error, context, param, obj);
-      return;
+    if (context.GetType(argObject.Parent?.Name, out IGqlpDescribed? parent)
+        && parent is IGqlpObject parentObject) {
+      return MatchParamObject(context, param, parentObject);
     }
 
-    error("Invalid Constraint on", $"'{param.Constraint}' not matched");
+    return false;
   }
 
   internal void CheckTypeArgs<TBase>(CheckError error, TContext context, TBase type, bool check, IGqlpDescribed? value)

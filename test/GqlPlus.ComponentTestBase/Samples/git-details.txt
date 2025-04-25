@@ -1,1 +1,1 @@
-3a61cf4  (HEAD -> type-constraints, origin/type-constraints) 2025-04-24 Valid Output object enum constraints
+9cbff47  (HEAD -> type-constraints) 2025-04-25 Remove uneeded _ObjType

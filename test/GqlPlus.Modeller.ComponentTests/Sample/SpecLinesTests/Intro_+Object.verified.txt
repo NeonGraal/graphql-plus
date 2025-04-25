@@ -495,41 +495,6 @@ types: !_Map_Type
           name: _ObjectKind
           typeKind: !_TypeKind Domain
         name: kind
-  !_Identifier _ObjType: !_TypeOutput
-    allAlternates:
-      - !_ObjectFor(_OutputAlternate)
-        object: _ObjType
-        output: _BaseType
-        typeArgs:
-          - !_OutputArg
-            label: Internal
-            name: _TypeKind
-            typeKind: !_SimpleKind Enum
-      - !_ObjectFor(_OutputAlternate)
-        object: _ObjType
-        output: _ObjConstraint
-        typeArgs:
-          - !_TypeParam base
-    alternates:
-      - !_OutputAlternate
-        output: _BaseType
-        typeArgs:
-          - !_OutputArg
-            label: Internal
-            name: _TypeKind
-            typeKind: !_SimpleKind Enum
-      - !_OutputAlternate
-        output: _ObjConstraint
-        typeArgs:
-          - !_TypeParam base
-    name: _ObjType
-    typeKind: !_TypeKind Output
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: _ObjBase
-          typeKind: !_TypeKind Output
-        name: base
   !_Identifier _ObjTypeArg: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)

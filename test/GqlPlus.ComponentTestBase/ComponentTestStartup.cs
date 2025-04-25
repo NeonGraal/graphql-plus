@@ -16,10 +16,7 @@ public static class ComponentTestStartup
 
   public static IServiceCollection AddComponentTest(this IServiceCollection services)
     => services
-      .AddLogging(lb => lb
-        .AddXunitOutput(options => options.TimestampFormat = "HH:mm:ss.fff")
-        .AddFilter("NullVerifier", LogLevel.Warning)
-      )
+      .AddLogging(ConfigureComponentLogging)
       //.AddSkippableFactSupport()
       .AddTransient<ISchemaParseChecks, SchemaParseChecks>()
       .AddCommonParsers()
@@ -27,6 +24,16 @@ public static class ComponentTestStartup
       .AddSchemaParsers()
       .AddMergers()
       .AddSingleton(_ => services);
+
+  private static void ConfigureComponentLogging(ILoggingBuilder builder)
+  {
+    builder.AddFilter("NullVerifier", LogLevel.Warning);
+    builder.AddXunitOutput(options => options.TimestampFormat = "HH:mm:ss.fff");
+    if (string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("GQLPLUS_VERIFIER_LOGGING"))) {
+      builder.AddFilter("AstParentItemVerifier", LogLevel.Warning);
+      builder.AddFilter("GroupedVerifier", LogLevel.Warning);
+    }
+  }
 
   private static readonly string s_projectDir = AttributeReader.GetProjectDirectory();
 

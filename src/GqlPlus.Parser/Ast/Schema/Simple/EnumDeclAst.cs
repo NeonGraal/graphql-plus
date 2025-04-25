@@ -20,7 +20,7 @@ internal sealed record class EnumDeclAst(
     : this(at, name, "", labels) { }
 
   public bool HasValue(string value)
-    => Items.Any(v => v.Name == value || v.Aliases.Contains(value));
+    => Items.Any(v => v.IsNameOrAlias(value));
 
   public bool Equals(EnumDeclAst? other)
     => base.Equals(other);

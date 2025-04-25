@@ -65,4 +65,55 @@ internal class VerifyOutputTypes(
 
     base.CheckArgType(error, context, arg);
   }
+
+  internal override void CheckParamConstraint(CheckError error, OutputContext context, IGqlpTypeParam param, IGqlpObjArg arg)
+  {
+    if (arg is IGqlpOutputArg output) {
+      if (string.IsNullOrWhiteSpace(output.EnumLabel)) {
+        if (output.EnumType.IsTypeParam) {
+          if (context.GetType(output.FullType, out IGqlpDescribed? enumParam)
+              && enumParam is IGqlpTypeParam typeParam) {
+            if (!string.IsNullOrWhiteSpace(typeParam.Constraint)
+                && typeParam.Constraint!.Equals(param.Constraint, StringComparison.Ordinal)) {
+              return;
+            }
+          }
+        }
+
+        if (context.GetType(param.Constraint, out IGqlpDescribed? constraint)) {
+          if (constraint is IGqlpEnum enumType) {
+            if (EnumHasLabel(context, enumType, output.EnumType.Name)) {
+              output.SetEnumType(enumType.Name);
+            }
+          } else if (constraint is IGqlpDomain<IGqlpDomainLabel> domType) {
+            IGqlpEnum? domEnum = DomainHasLabel(context, domType, output.EnumType.Name);// TODO: Check if the domain is a label
+            if (domEnum is null) {
+              error("Domain Enum on  ", $"'{output.EnumType.Name}' not a Value of '{param.Constraint}'");
+            }
+          }
+        }
+      }
+    }
+
+    base.CheckParamConstraint(error, context, param, arg);
+  }
+
+  private IGqlpEnum? DomainHasLabel(OutputContext context, IGqlpDomain<IGqlpDomainLabel> domType, string label)
+  {
+    return null;
+  }
+
+  internal bool EnumHasLabel(OutputContext context, IGqlpEnum enumType, string label)
+  {
+    if (enumType.HasValue(label)) {
+      return true;
+    }
+
+    if (context.GetType(enumType.Parent, out IGqlpDescribed? parent)
+        && parent is IGqlpEnum parentType) {
+      return EnumHasLabel(context, parentType, label);
+    }
+
+    return false;
+  }
 }

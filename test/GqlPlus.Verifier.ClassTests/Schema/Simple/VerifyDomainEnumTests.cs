@@ -20,10 +20,8 @@ public class VerifyDomainEnumTests
     enumType.Name.Returns("domain");
     enumType.HasValue("item1").Returns(true);
     enumType.HasValue("item2").Returns(true);
-    IGqlpEnumLabel item1 = EFor<IGqlpEnumLabel>();
-    item1.Name.Returns("item1");
-    IGqlpEnumLabel item2 = EFor<IGqlpEnumLabel>();
-    item2.Name.Returns("item2");
+    IGqlpEnumLabel item1 = CreateEnumLabel("item1");
+    IGqlpEnumLabel item2 = CreateEnumLabel("item2");
     enumType.Items.Returns([item1, item2]);
     Types["domain"] = enumType;
 
@@ -46,6 +44,14 @@ public class VerifyDomainEnumTests
     verifier.ShouldSatisfyAllConditions(
       Items.NotCalled,
       () => Errors.ShouldBeEmpty());
+  }
+
+  private static IGqlpEnumLabel CreateEnumLabel(string name)
+  {
+    IGqlpEnumLabel enumLabel = EFor<IGqlpEnumLabel>();
+    enumLabel.Name.Returns(name);
+    enumLabel.IsNameOrAlias(name).Returns(true);
+    return enumLabel;
   }
 
   internal override AstDomainVerifier<IGqlpDomainLabel> NewDomainVerifier()

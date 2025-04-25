@@ -19,7 +19,7 @@ internal class ParseArgValue(
   public override IResult<IGqlpArg> Parse(ITokenizer tokens, string label)
   {
     _ = tokens.At;
-    if (!tokens.Prefix('$', out string? variable, out TokenAt? at)) {
+    if (!tokens.Prefix('$', out string? variable, out TokenAt at)) {
       return tokens.Error<IGqlpArg>(label, "identifier after '$'");
     }
 

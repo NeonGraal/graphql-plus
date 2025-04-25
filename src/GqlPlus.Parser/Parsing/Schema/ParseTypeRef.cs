@@ -13,7 +13,7 @@ internal class ParseTypeRef
   {
     string description = tokens.Description();
     TokenAt at = tokens.At;
-    if (tokens.Identifier(out string name)) {
+    if (tokens.Identifier(out string? name)) {
       IGqlpTypeRef result = new TypeRefAst(at, name, description);
       return result.Ok();
     } else {

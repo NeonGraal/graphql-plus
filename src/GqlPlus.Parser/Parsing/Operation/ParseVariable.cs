@@ -21,7 +21,7 @@ internal class ParseVariable(
   public IResult<IGqlpVariable> Parse(ITokenizer tokens, string label)
 
   {
-    bool prefix = tokens.Prefix('$', out string? name, out TokenAt? at);
+    bool prefix = tokens.Prefix('$', out string? name, out TokenAt at);
     VariableAst variable = new(at, name ?? "");
     if (!prefix) {
       return tokens.Partial<IGqlpVariable>(label, "identifier after '$'", () => variable);

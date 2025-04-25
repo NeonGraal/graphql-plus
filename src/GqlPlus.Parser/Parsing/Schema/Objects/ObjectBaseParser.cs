@@ -23,7 +23,7 @@ internal abstract class ObjectBaseParser<TObjBase, TObjBaseAst, TObjArg, TObjArg
 
   {
     string description = tokens.Description();
-    if (!tokens.Prefix('$', out string? param, out TokenAt? at)) {
+    if (!tokens.Prefix('$', out string? param, out TokenAt at)) {
       return tokens.Error<TObjBaseAst>(label, "identifier after '$'");
     }
 
@@ -46,7 +46,7 @@ internal abstract class ObjectBaseParser<TObjBase, TObjBaseAst, TObjArg, TObjArg
     }
 
     if (hasName) {
-      TObjBaseAst objBase = ObjBase(at, name, description);
+      TObjBaseAst objBase = ObjBase(at, name!, description);
       IResultArray<TObjArg> arguments = _parseArgs.Parse(tokens, label);
       if (!arguments.Optional(values => objBase.BaseArgs = [.. values])) {
         return arguments.AsResult(objBase);

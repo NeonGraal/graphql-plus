@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 
 using GqlPlus.Result;
 
@@ -199,16 +200,15 @@ public class Tokenizer
     return description;
   }
 
-  public bool Identifier(out string identifier)
+  public bool Identifier([NotNullWhen(true)] out string? identifier)
   {
-    identifier = "";
+    identifier = null;
     if (_kind != TokenKind.Identifer) {
       return false;
     }
 
     int end = Letters(_pos);
     identifier = GetString(end);
-    ;
 
     _pos = end;
     Read();
@@ -282,9 +282,9 @@ public class Tokenizer
     return end;
   }
 
-  public bool String(out string contents)
+  public bool String([NotNullWhen(true)] out string? contents)
   {
-    contents = "";
+    contents = null;
 
     return _kind == TokenKind.String
       && (IsTripleQuote(_pos + 3)
@@ -296,7 +296,7 @@ public class Tokenizer
     => end < _len
       && _operation[_pos..end].ToString().Equals(TripleQuote, StringComparison.Ordinal);
 
-  private bool BlockString(out string contents)
+  private bool BlockString([NotNullWhen(true)] out string? contents)
   {
     ReadOnlySpan<char> span = _operation.Span;
     int next = _pos + 3;
@@ -327,14 +327,14 @@ public class Tokenizer
     => end < _len
       && !_operation[start..end].ToString().Equals(TripleQuote, StringComparison.Ordinal);
 
-  public bool Regex(out string regex)
+  public bool Regex([NotNullWhen(true)] out string? regex)
   {
-    regex = "";
+    regex = null;
     return _kind == TokenKind.Regex
       && Delimited('/', out regex);
   }
 
-  private bool Delimited(char delimiter, out string contents)
+  private bool Delimited(char delimiter, [NotNullWhen(true)] out string? contents)
   {
     ReadOnlySpan<char> span = _operation.Span;
     int end = _pos;
@@ -425,8 +425,8 @@ public class Tokenizer
           _pos += 1;
           _kind = TokenKind.Identifer;
           at = At;
-          Identifier(out identifier);
-          return true;
+
+          return Identifier(out identifier);
         }
       }
 

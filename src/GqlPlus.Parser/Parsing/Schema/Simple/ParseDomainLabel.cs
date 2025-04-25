@@ -17,7 +17,7 @@ internal class ParseDomainLabel(
     TokenAt at = tokens.At;
     bool excluded = tokens.Take('!');
     bool hasType = tokens.Identifier(out string? enumType);
-    IGqlpDomainLabel result = new DomainLabelAst(at, description, excluded, enumType);
+    IGqlpDomainLabel result = new DomainLabelAst(at, description, excluded, enumType ?? "");
     if (!hasType) {
       return excluded
         ? tokens.Partial(label, "identifier after '!'", () => result)
@@ -26,9 +26,9 @@ internal class ParseDomainLabel(
 
     if (tokens.Take('.')) {
       if (tokens.Identifier(out string? enumItem)) {
-        result = new DomainLabelAst(at, description, excluded, enumItem) { EnumType = enumType };
+        result = new DomainLabelAst(at, description, excluded, enumItem) { EnumType = enumType! };
       } else if (tokens.Take("*")) {
-        result = new DomainLabelAst(at, description, excluded, "*") { EnumType = enumType };
+        result = new DomainLabelAst(at, description, excluded, "*") { EnumType = enumType! };
       } else {
         return tokens.Partial(label, "identifier or '*' after '.'", () => result);
       }

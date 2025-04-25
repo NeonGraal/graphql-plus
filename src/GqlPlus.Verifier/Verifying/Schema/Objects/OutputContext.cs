@@ -11,7 +11,7 @@ internal class OutputContext(
   internal void CheckEnumValue(string label, IGqlpOutputEnum output)
   {
     string enumType = output.EnumType.Name;
-    if (GetEnumType(enumType, out IGqlpEnum? theType)) {
+    if (GetTyped(enumType, out IGqlpEnum? theType)) {
       if (!GetEnumValueType(theType, output.EnumLabel ?? "", out IGqlpEnum? _)) {
         AddError(output, $"Output {label} Enum Value", $"'{output.EnumLabel}' not a Value of '{enumType}'");
       }

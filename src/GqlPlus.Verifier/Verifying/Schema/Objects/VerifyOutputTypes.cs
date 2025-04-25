@@ -71,8 +71,7 @@ internal class VerifyOutputTypes(
     if (arg is IGqlpOutputArg output) {
       if (string.IsNullOrWhiteSpace(output.EnumLabel)) {
         if (output.EnumType.IsTypeParam) {
-          if (context.GetType(output.FullType, out IGqlpDescribed? enumParam)
-              && enumParam is IGqlpTypeParam typeParam) {
+          if (context.GetTyped(output.FullType, out IGqlpTypeParam? typeParam)) {
             if (!string.IsNullOrWhiteSpace(typeParam.Constraint)
                 && typeParam.Constraint!.Equals(param.Constraint, StringComparison.Ordinal)) {
               return;

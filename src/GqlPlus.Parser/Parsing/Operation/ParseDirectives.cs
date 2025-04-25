@@ -16,7 +16,7 @@ internal class ParseDirectives(
   {
     List<IGqlpDirective> result = [];
 
-    if (!tokens.Prefix('@', out string? name, out TokenAt? at)) {
+    if (!tokens.Prefix('@', out string? name, out TokenAt at)) {
       return tokens.ErrorArray(label, "identifier after '@'", result);
     }
 

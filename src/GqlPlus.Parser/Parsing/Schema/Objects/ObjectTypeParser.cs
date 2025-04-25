@@ -13,7 +13,7 @@ internal abstract class ObjectTypeParser<TObjType, TObjTypeAst>
 
   {
     string description = tokens.Description();
-    if (!tokens.Prefix('$', out string? param, out TokenAt? at)) {
+    if (!tokens.Prefix('$', out string? param, out TokenAt at)) {
       return tokens.Error<TObjTypeAst>(label, "identifier after '$'");
     }
 
@@ -36,7 +36,7 @@ internal abstract class ObjectTypeParser<TObjType, TObjTypeAst>
     }
 
     return hasName
-      ? ObjType(at, name, description).Ok()
+      ? ObjType(at, name!, description).Ok()
       : 0.Empty<TObjTypeAst>();
   }
 

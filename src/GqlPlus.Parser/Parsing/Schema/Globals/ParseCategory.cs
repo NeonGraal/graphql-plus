@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
@@ -42,10 +43,13 @@ internal record CategoryOutput(TypeRefAst Output)
 internal class CategoryName
   : ICategoryName
 {
-  public bool ParseName(ITokenizer tokens, out string? name, out TokenAt at)
+  public bool ParseName(ITokenizer tokens, [NotNullWhen(true)] out string? name, out TokenAt at)
   {
     at = tokens.At;
-    tokens.Identifier(out name);
+    if (!tokens.Identifier(out name)) {
+      name = "";
+    }
+
     return true;
   }
 }

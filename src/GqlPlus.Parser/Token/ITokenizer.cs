@@ -19,10 +19,10 @@ public interface ITokenizer
   string GetDescription();
   string Description();
 
-  bool Identifier(out string identifier);
+  bool Identifier([NotNullWhen(true)] out string? identifier);
   bool Number(out decimal number);
-  bool String(out string contents);
-  bool Regex(out string regex);
+  bool String([NotNullWhen(true)] out string? contents);
+  bool Regex([NotNullWhen(true)] out string? regex);
 
   bool Prefix(char one, out string? identifier, out TokenAt at);
   bool Take(char one);

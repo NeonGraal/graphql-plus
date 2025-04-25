@@ -167,7 +167,7 @@ public class TokenizerTests
   {
     ITokenizer tokens = PrepareTokens(identifier);
 
-    FalseAndExpected(tokens.String, "");
+    FalseAndExpected<string>(tokens.String, null);
   }
 
   [Theory, RepeatData]
@@ -191,7 +191,7 @@ public class TokenizerTests
   {
     ITokenizer tokens = PrepareTokens(regex + '/');
 
-    FalseAndExpected(tokens.Regex, "");
+    FalseAndExpected<string>(tokens.Regex, null);
   }
 
   [Theory, RepeatData]
@@ -373,7 +373,7 @@ public class TokenizerTests
       r => r.Message.ShouldBe(message));
   }
 
-  private delegate bool Call<T>(out T result);
+  private delegate bool Call<T>(out T? result);
 
   private static void TrueAndExpected<T>(Call<T> call, T expected)
   {
@@ -384,7 +384,7 @@ public class TokenizerTests
       () => result.ShouldBe(expected));
   }
 
-  private static void FalseAndExpected<T>(Call<T> call, T expected)
+  private static void FalseAndExpected<T>(Call<T> call, T? expected)
   {
     bool success = call(out T? result);
 

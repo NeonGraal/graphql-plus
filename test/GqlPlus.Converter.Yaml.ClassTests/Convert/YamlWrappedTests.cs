@@ -1,15 +1,15 @@
 ﻿namespace GqlPlus.Convert;
 
-public class JsonUnindentedTests
+public class YamlWrappedTests
   : ConverterClassTestBase
 {
   protected override string Convert(Structured model)
-    => model.ToJson(RenderJson.Unindented);
+    => model.ToYaml(wrapped: true);
 
   protected override void WithList_Check(string result, string[] input)
-    => result.ShouldStartWith(input.Surround("[", "]", i => i.Quoted('"'), ", "));
+    => result.ShouldStartWith(input.Joined(s => "- " + s, Environment.NewLine));
   protected override void WithMap_Check(string result, string key, string value)
-    => result.ShouldStartWith($"{{\"{key}\":\"{value}\"}}");
+    => result.ShouldStartWith($"{key}: {value}");
   protected override void WithString_Check(string result, string input)
-    => result.ShouldStartWith(input.Quoted('"'));
+    => result.ShouldStartWith(input);
 }

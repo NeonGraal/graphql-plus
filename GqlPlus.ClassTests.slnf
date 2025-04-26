@@ -11,6 +11,7 @@
       "src\\GqlPlus.Verifier\\GqlPlus.Verifier.csproj",
       "test\\GqlPlus.Abstractions.ClassTests\\GqlPlus.Abstractions.ClassTests.csproj",
       "test\\GqlPlus.ClassTestBase\\GqlPlus.ClassTestBase.csproj",
+      "test\\GqlPlus.Converter.ClassTestBase\\GqlPlus.Converter.ClassTestBase.csproj",
       "test\\GqlPlus.Converter.Json.ClassTests\\GqlPlus.Converter.Json.ClassTests.csproj",
       "test\\GqlPlus.Converter.Yaml.ClassTests\\GqlPlus.Converter.Yaml.ClassTests.csproj",
       "test\\GqlPlus.Modeller.ClassTests\\GqlPlus.Modeller.ClassTests.csproj",

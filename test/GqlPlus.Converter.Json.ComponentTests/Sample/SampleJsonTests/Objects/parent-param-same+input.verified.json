@@ -18,7 +18,7 @@
           "object": "InpPrntParamSame",
           "type": {
             "$tag": "_InputBase",
-            "value": "a"
+            "typeParam": "a"
           }
         }
       ],
@@ -28,7 +28,7 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "value": "a"
+            "typeParam": "a"
           }
         }
       ],
@@ -45,7 +45,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "a"
+          "name": "a"
         }
       ]
     },
@@ -61,7 +61,7 @@
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "value": "a"
+          "typeParam": "a"
         }
       ],
       "name": "RefInpPrntParamSame",
@@ -72,7 +72,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "a"
+          "name": "a"
         }
       ]
     }

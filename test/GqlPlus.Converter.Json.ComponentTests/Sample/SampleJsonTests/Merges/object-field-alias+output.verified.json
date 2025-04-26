@@ -20,7 +20,7 @@
           "object": "OutpObjFieldAlias",
           "type": {
             "$tag": "_OutputBase",
-            "value": "FldOutpObjFieldAlias"
+            "output": "FldOutpObjFieldAlias"
           }
         }
       ],
@@ -31,7 +31,7 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "FldOutpObjFieldAlias"
+            "output": "FldOutpObjFieldAlias"
           }
         }
       ],

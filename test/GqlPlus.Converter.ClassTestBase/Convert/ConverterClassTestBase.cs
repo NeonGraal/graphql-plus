@@ -2,6 +2,20 @@
 
 public abstract class ConverterClassTestBase
 {
+  [Fact]
+  public void WithNull_ReturnsCorrect()
+  {
+    // Arrange
+    Structured[] list = [];
+    Structured model = new(list);
+
+    // Act
+    string result = Convert(model);
+
+    // Assert
+    WithNull_Check(result);
+  }
+
   [Theory, RepeatData]
   public void WithIdentifier_ReturnsCorrect(string input)
   {
@@ -81,6 +95,19 @@ public abstract class ConverterClassTestBase
   }
 
   [Theory, RepeatData]
+  public void WithListMap_ReturnsCorrect(string[] input)
+  {
+    // Arrange
+    Structured model = input.Render(MakeMap);
+
+    // Act
+    string result = Convert(model);
+
+    // Assert
+    WithListMap_Check(result, input);
+  }
+
+  [Theory, RepeatData]
   public void WithMap_ReturnsCorrect(string key, string value)
   {
     // Arrange
@@ -106,6 +133,21 @@ public abstract class ConverterClassTestBase
 
     // Assert
     WithMapFlow_Check(result, key, value);
+  }
+
+  // Tagged tests
+  [Theory, RepeatData]
+  public void WithNullTag_ReturnsCorrect(string tag)
+  {
+    // Arrange
+    Structured[] list = [];
+    Structured model = new(list, tag);
+
+    // Act
+    string result = Convert(model);
+
+    // Assert
+    WithNullTag_Check(result, tag);
   }
 
   [Theory, RepeatData]
@@ -187,6 +229,19 @@ public abstract class ConverterClassTestBase
   }
 
   [Theory, RepeatData]
+  public void WithListTagMap_ReturnsCorrect(string[] input, string tag)
+  {
+    // Arrange
+    Structured model = input.Render(MakeMap, tag);
+
+    // Act
+    string result = Convert(model);
+
+    // Assert
+    WithListTagMap_Check(result, input, tag);
+  }
+
+  [Theory, RepeatData]
   public void WithMapTag_ReturnsCorrect(string key, string value, string tag)
   {
     // Arrange
@@ -214,14 +269,19 @@ public abstract class ConverterClassTestBase
     WithMapTagFlow_Check(result, key, value, tag);
   }
 
+  private static Structured MakeMap(string s)
+    => new Map<Structured>() { ["value"] = new(s) }.Render();
+
   protected abstract string Convert(Structured model);
 
   protected abstract void WithBoolean_Check(string result, bool input);
   protected abstract void WithIdentifier_Check(string result, string input);
   protected abstract void WithList_Check(string result, string[] input);
   protected abstract void WithListFlow_Check(string result, string[] input);
+  protected abstract void WithListMap_Check(string result, string[] input);
   protected abstract void WithMap_Check(string result, string key, string value);
   protected abstract void WithMapFlow_Check(string result, string key, string value);
+  protected abstract void WithNull_Check(string result);
   protected abstract void WithNumber_Check(string result, decimal input);
   protected abstract void WithText_Check(string result, string input);
 
@@ -229,8 +289,10 @@ public abstract class ConverterClassTestBase
   protected abstract void WithIdentifierTag_Check(string result, string input, string tag);
   protected abstract void WithListTag_Check(string result, string[] input, string tag);
   protected abstract void WithListTagFlow_Check(string result, string[] input, string tag);
+  protected abstract void WithListTagMap_Check(string result, string[] input, string tag);
   protected abstract void WithMapTag_Check(string result, string key, string value, string tag);
   protected abstract void WithMapTagFlow_Check(string result, string key, string value, string tag);
+  protected abstract void WithNullTag_Check(string result, string tag);
   protected abstract void WithNumberTag_Check(string result, decimal input, string tag);
   protected abstract void WithTextTag_Check(string result, string input, string tag);
 }

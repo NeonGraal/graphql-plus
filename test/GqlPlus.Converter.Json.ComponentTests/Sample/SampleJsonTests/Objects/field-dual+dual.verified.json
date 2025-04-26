@@ -11,7 +11,7 @@
           "object": "DualFieldDual",
           "type": {
             "$tag": "_DualBase",
-            "value": "FldDualFieldDual"
+            "dual": "FldDualFieldDual"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "value": "FldDualFieldDual"
+            "dual": "FldDualFieldDual"
           }
         }
       ],
@@ -47,14 +47,14 @@
           "object": "FldDualFieldDual",
           "type": {
             "$tag": "_DualBase",
-            "value": "Number"
+            "dual": "Number"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "value": "String"
+          "dual": "String"
         }
       ],
       "fields": [
@@ -63,7 +63,7 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "value": "Number"
+            "dual": "Number"
           }
         }
       ],

@@ -22,7 +22,7 @@ public abstract class LinesValueBase
 
     string result = model.ToLines(false);
 
-    result.ShouldBe(string.Empty);
+    result.ShouldBe("");
   }
 
   [Theory, RepeatData]

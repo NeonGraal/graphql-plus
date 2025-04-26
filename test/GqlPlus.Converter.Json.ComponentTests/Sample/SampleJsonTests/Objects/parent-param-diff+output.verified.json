@@ -18,7 +18,7 @@
           "object": "OutpPrntParamDiff",
           "type": {
             "$tag": "_OutputBase",
-            "value": "a"
+            "typeParam": "a"
           }
         }
       ],
@@ -28,7 +28,7 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "a"
+            "typeParam": "a"
           }
         }
       ],
@@ -45,7 +45,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "a"
+          "name": "a"
         }
       ]
     },
@@ -61,7 +61,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "b"
+          "typeParam": "b"
         }
       ],
       "name": "RefOutpPrntParamDiff",
@@ -72,7 +72,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "b"
+          "name": "b"
         }
       ]
     }

@@ -21,7 +21,7 @@ public class GeneralHelpersTests
 
     string result = input.Joined();
 
-    result.ShouldBe(string.Empty);
+    result.ShouldBe("");
   }
 
   [Fact]
@@ -31,7 +31,7 @@ public class GeneralHelpersTests
 
     string result = input.Joined(i => $"{i}");
 
-    result.ShouldBe(string.Empty);
+    result.ShouldBe("");
   }
 
   [Fact]
@@ -63,7 +63,7 @@ public class GeneralHelpersTests
 
     string result = input.Prefixed("prefix");
 
-    result.ShouldBe(string.Empty);
+    result.ShouldBe("");
   }
 
   [Fact]
@@ -73,7 +73,7 @@ public class GeneralHelpersTests
 
     string result = input.Suffixed("suffix");
 
-    result.ShouldBe(string.Empty);
+    result.ShouldBe("");
   }
 
   [Fact]
@@ -83,7 +83,7 @@ public class GeneralHelpersTests
 
     string result = input.Quoted('"');
 
-    result.ShouldBe(string.Empty);
+    result.ShouldBe("");
   }
 
   [Fact]

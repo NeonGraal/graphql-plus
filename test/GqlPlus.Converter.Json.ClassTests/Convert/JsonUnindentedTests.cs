@@ -16,10 +16,14 @@ public class JsonUnindentedTests
     => result.ShouldStartWith(input.Surround("[", "]", i => i.Quoted('"'), ", "));
   protected override void WithList_Check(string result, string[] input)
     => result.ShouldStartWith(input.Surround("[", "]", i => i.Quoted('"'), ", "));
+  protected override void WithListMap_Check(string result, string[] input)
+    => result.ShouldStartWith(input.Surround("[", "]", i => $"{{\"value\":\"{i}\"}}", ","));
   protected override void WithMapFlow_Check(string result, string key, string value)
     => result.ShouldStartWith($"{{\"{key}\":\"{value}\"}}");
   protected override void WithMap_Check(string result, string key, string value)
     => result.ShouldStartWith($"{{\"{key}\":\"{value}\"}}");
+  protected override void WithNull_Check(string result)
+    => result.ShouldBe("");
   protected override void WithNumber_Check(string result, decimal input)
     => result.ShouldStartWith($"{input}");
   protected override void WithText_Check(string result, string input)
@@ -37,10 +41,14 @@ public class JsonUnindentedTests
     => result.ShouldStartWith(input.Surround("[", "]", i => i.Quoted('"'), ", "));
   protected override void WithListTag_Check(string result, string[] input, string tag)
     => result.ShouldStartWith(input.Surround("[", "]", i => i.Quoted('"'), ", "));
+  protected override void WithListTagMap_Check(string result, string[] input, string tag)
+    => result.ShouldStartWith(input.Surround("[", "]", i => $"{{\"value\":\"{i}\"}}", ","));
   protected override void WithMapTagFlow_Check(string result, string key, string value, string tag)
     => result.ShouldStartWith(WithTag(tag, value.Quoted('"'), key));
   protected override void WithMapTag_Check(string result, string key, string value, string tag)
     => result.ShouldStartWith(WithTag(tag, value.Quoted('"'), key));
+  protected override void WithNullTag_Check(string result, string tag)
+    => result.ShouldBe("");
   protected override void WithNumberTag_Check(string result, decimal input, string tag)
     => result.ShouldStartWith(WithTag(tag, $"{input}"));
   protected override void WithTextTag_Check(string result, string input, string tag)

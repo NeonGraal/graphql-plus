@@ -4,7 +4,7 @@ public class LinesValueTests
   : LinesValueBase
 {
   protected override string Tag => "";
-  protected override string Expected_Empty() => string.Empty;
+  protected override string Expected_Empty() => "";
   protected override string Expected_String(string value) => value.Quoted("'");
   protected override string Expected_Identifier(string value) => value;
   protected override string Expected_Punctuation(string value) => $"'{value}'";

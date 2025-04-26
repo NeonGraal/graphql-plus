@@ -129,15 +129,15 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "_Simple"
+          "output": "_Simple"
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_ConstantList"
+          "output": "_ConstantList"
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_ConstantMap"
+          "output": "_ConstantMap"
         }
       ],
       "name": "_Constant",
@@ -243,7 +243,7 @@
           "object": "_Modifier",
           "type": {
             "$tag": "_OutputBase",
-            "value": "kind"
+            "typeParam": "kind"
           }
         }
       ],
@@ -253,7 +253,7 @@
           "name": "modifierKind",
           "type": {
             "$tag": "_OutputBase",
-            "value": "kind"
+            "typeParam": "kind"
           }
         }
       ],
@@ -265,7 +265,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "kind"
+          "name": "kind"
         }
       ]
     },
@@ -278,7 +278,7 @@
           "object": "_Modifier",
           "type": {
             "$tag": "_OutputBase",
-            "value": "kind"
+            "typeParam": "kind"
           }
         },
         {
@@ -287,7 +287,7 @@
           "object": "_ModifierKeyed",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_TypeSimple"
+            "output": "_TypeSimple"
           }
         },
         {
@@ -296,7 +296,7 @@
           "object": "_ModifierKeyed",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Boolean"
+            "output": "Boolean"
           }
         }
       ],
@@ -306,7 +306,7 @@
           "name": "by",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_TypeSimple"
+            "output": "_TypeSimple"
           }
         },
         {
@@ -314,7 +314,7 @@
           "name": "optional",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Boolean"
+            "output": "Boolean"
           }
         }
       ],
@@ -331,7 +331,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "kind"
+          "name": "kind"
         }
       ]
     },
@@ -370,7 +370,7 @@
         },
         {
           "$tag": "_Aliased",
-          "value": "List"
+          "name": "List"
         },
         {
           "$tag": "_Aliased",
@@ -432,7 +432,7 @@
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_Collections"
+          "output": "_Collections"
         }
       ],
       "name": "_Modifiers",
@@ -465,7 +465,7 @@
             },
             {
               "$tag": "_OutputArg",
-              "value": "Number"
+              "output": "Number"
             }
           ]
         },
@@ -485,7 +485,7 @@
             },
             {
               "$tag": "_OutputArg",
-              "value": "String"
+              "output": "String"
             }
           ]
         },
@@ -498,7 +498,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "Boolean"
+          "output": "Boolean"
         },
         {
           "$tag": "_OutputAlternate",
@@ -515,7 +515,7 @@
             },
             {
               "$tag": "_OutputArg",
-              "value": "Number"
+              "output": "Number"
             }
           ]
         },
@@ -534,13 +534,13 @@
             },
             {
               "$tag": "_OutputArg",
-              "value": "String"
+              "output": "String"
             }
           ]
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_EnumValue"
+          "output": "_EnumValue"
         }
       ],
       "name": "_Simple",

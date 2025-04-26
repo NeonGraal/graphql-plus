@@ -14,7 +14,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "one"
+          "name": "one"
         }
       ],
       "name": "EnumDiff",

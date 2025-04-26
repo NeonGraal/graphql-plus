@@ -29,10 +29,12 @@ internal class RenderStructureJsonConverter
 
   private void WriteMap(Utf8JsonWriter writer, Structured value, JsonSerializerOptions options, bool plain)
   {
-    Structured first = value.Map.First().Value;
-    if (value.Map.Count == 1 && !plain && string.IsNullOrWhiteSpace(first.Tag) && first.Value is not null) {
-      StartTaggedValue(writer, value.Tag);
-      WriteValue(writer, first.Value);
+    KeyValuePair<StructureValue, Structured> first = value.Map.First();
+    if (value.Map.Count == 1 && !plain && string.IsNullOrWhiteSpace(first.Value.Tag) && first.Value.Value is not null) {
+      writer.WriteStartObject();
+      writer.WriteString("$tag", value.Tag);
+      writer.WritePropertyName(first.Key.AsString);
+      WriteValue(writer, first.Value.Value);
       writer.WriteEndObject();
     } else {
       WriteFullMap(writer, value.Map, value.Tag, options);

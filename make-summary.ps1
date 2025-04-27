@@ -38,27 +38,33 @@ function Write-Tests($test, $prefix = "") {
 }
 
 function Convert-Coverage($cover, $prefix = "") {
-  if ($cover.linesValid -gt 0) {
-    $linesPerc = $cover.linesCovered * 100.0 / $cover.linesValid
+  if ($cover.lineRate -gt 0) {
+    $linesPerc = $cover.lineRate
   } else {
     $linesPerc = 0.0
   }
   $params = $linesPerc, $cover.linesCovered, $cover.linesValid, $cover.label
-  Get-Badge $params "{3} Coverage" "{3}_Coverage-{0:f2}%25_covered_{1:d}_of_{2:d}" "F6F" $prefix
+  $message = "{3} Coverage: {0:f2}% covered"
+  if ($cover.linesValue -gt 0) {
+    $message += " {1:d} of {2:d} lines"
+  }
+  Get-Badge $params "{3} Coverage" $message "F6F" $prefix
 }
 
 function Write-Coverage($cover, $prefix = "") {
-  if ($cover.linesValid -gt 0) {
-    $linesPerc = $cover.linesCovered * 100.0 / $cover.linesValid
+  if ($cover.lineRate -gt 0) {
+    $linesPerc = $cover.lineRate
   } else {
     $linesPerc = 0.0
   }
-  $params = $linesPerc, $cover.linesCovered, $cover.linesValid, ($cover.label -replace "_", " ")
-  $message = "{3} Coverage: {0:f2}% covered {1:d} of {2:d} lines" -f $params
+  $message = "{1} Coverage: {0:f2}% covered" -f ($linesPerc, $cover.label)
+  if ($cover.linesValue -gt 0) {
+    $message += " {0:d} of {1:d} lines" -f ($cover.linesCovered, $cover.linesValid)
+  }
   Write-Host "$prefix$message"
 }
 
-[PsObject]$allCoverage = @{label = "All"; linesCovered = 0; linesValid = 0 }
+[PsObject]$allCoverage = @{label = "All"; linesCovered = 0; linesValid = 0; lineRate = 100.0 }
 
 if (-not $NoCoverage) {
   $coverage = Get-ChildItem coverage -Filter "Coverage*.xml" | ForEach-Object {
@@ -67,9 +73,12 @@ if (-not $NoCoverage) {
 
     $allCoverage.linesCovered += $lines."lines-covered"
     $allCoverage.linesValid += $lines."lines-valid"
+    $allCoverage.lineRate *= $lines."line-rate"
 
-    $label = $_.BaseName -replace "Coverage-", "" -replace "-", " "  
-    @{label = $label; linesCovered = [int]$lines."lines-covered"; linesValid = [int]$lines."lines-valid" }
+    $lines.packages.package | ForEach-Object {
+      $label = $_.name -replace '\.',' '
+      @{label = $label; lineRate = 100.0 * [float]$_."line-rate" }
+    }
   }
 }
 

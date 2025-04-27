@@ -76,10 +76,10 @@ if (-not $NoCoverage) {
     $allCoverage.lineRate *= $lines."line-rate"
 
     $lines.packages.package | ForEach-Object {
-      $label = $_.name -replace '\.',' '
+      $label = $_.name -replace 'GqlPlus\.','' -replace '\.',' '
       @{label = $label; lineRate = 100.0 * [float]$_."line-rate" }
     }
-  }
+  } | Sort-Object label
 }
 
 [PsObject]$allTests = @{label = "All Tests"; skipped = 0; passed = 0; failed = 0; error = 0 }
@@ -103,7 +103,7 @@ $tests = Get-ChildItem . -Recurse -Filter "TestResults*.trx" | ForEach-Object {
   }
 
   @{label = $name; failed = [int]$counts.failed; error = [int]$counts.error; passed = [int]$counts.passed; skipped = $skipped }
-}
+} | Sort-Object label
 
 Write-Tests $allTests
 if ($tests.Count -gt 1) {

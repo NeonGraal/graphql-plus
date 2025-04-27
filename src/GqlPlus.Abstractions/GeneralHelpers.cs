@@ -75,7 +75,7 @@ public static class GeneralHelpers
       quote)
     : "";
 
-  public static string Show(this IGqlpAbbreviated abbr)
+  public static string Show(this IGqlpAbbreviated? abbr)
   {
     if (abbr is null) {
       return "";

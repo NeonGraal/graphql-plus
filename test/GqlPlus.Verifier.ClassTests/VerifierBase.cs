@@ -24,6 +24,14 @@ public class VerifierBase
     return result;
   }
 
+  protected static TResult NFor<TResult>(string name)
+    where TResult : class, IGqlpNamed
+  {
+    TResult result = EFor<TResult>();
+    result.Name.Returns(name);
+    return result;
+  }
+
   protected static ITokenMessages MakeMessages(string message)
     => new TokenMessages { new TokenMessage(AstNulls.At, message) };
 }

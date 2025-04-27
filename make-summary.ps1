@@ -16,11 +16,11 @@ function Convert-Tests($test, $prefix = "") {
   if (($test.failed + $test.error) -eq 0) {
     $label = $test.label + " successful"
     $text = "{0}-{3:d}_passed%2C_{4:d}_skipped"
-    $colour = "6F6"
+    $colour = "CFA"
   } else {
     $label = $test.label + " failed"
     $text = "{0}-{1:d}_failed%2C{2:d}_errored%2C{3:d}_passed%2C_{4:d}_skipped"
-    $colour = "F66"
+    $colour = "FAC"
   }
 
   Get-Badge $params $label $text $colour $prefix
@@ -48,7 +48,12 @@ function Convert-Coverage($cover, $prefix = "") {
   if ($cover.linesValid -gt 0) {
     $message += "_{1:d}_of_{2:d}_lines"
   }
-  Get-Badge $params "{3} Coverage" $message "F6F" $prefix
+  if ($linesPerc -gt 80) {
+    $colour = "ACF"
+  } else {
+    $colour = "CAF"
+  }
+  Get-Badge $params "{3} Coverage" $message $colour $prefix
 }
 
 function Write-Coverage($cover, $prefix = "") {
@@ -105,9 +110,13 @@ $tests = Get-ChildItem . -Recurse -Filter "TestResults*.trx" | ForEach-Object {
   @{label = $name; failed = [int]$counts.failed; error = [int]$counts.error; passed = [int]$counts.passed; skipped = $skipped }
 } | Sort-Object label
 
+Set-Content summary.md "# Summary"
+
 Write-Tests $allTests
+Convert-Tests $allTests "`n" | Add-Content summary.md
 if ($tests.Count -gt 1) {
   $tests | ForEach-Object { Write-Tests $_ "- " }
+  $tests | ForEach-Object { Convert-Tests $_ "- " | Add-Content summary.md }
 
   $allErrors.Keys | ForEach-Object {
     Write-Host "* $_ FAILURES"
@@ -124,8 +133,10 @@ if ($NoCoverage) {
 }
 
 Write-Coverage $allCoverage
+Convert-Coverage $allCoverage "`n" | Add-Content summary.md
 if ($coverage.Count -gt 1) {
   $coverage | ForEach-Object { Write-Coverage $_ "- " }
+  $coverage | ForEach-Object { Convert-Coverage $_ "- " | Add-Content summary.md }
 }
 
 if ($ShowGithub) {

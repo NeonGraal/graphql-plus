@@ -44,7 +44,7 @@ function Convert-Coverage($cover, $prefix = "") {
     $linesPerc = 0.0
   }
   $params = $linesPerc, $cover.linesCovered, $cover.linesValid, $cover.label
-  $message = "{3}_Coverage:_{0:f2}%25_covered"
+  $message = "{3}_Coverage-{0:f2}%25_covered"
   if ($cover.linesValid -gt 0) {
     $message += "_{1:d}_of_{2:d}_lines"
   }

@@ -44,9 +44,9 @@ function Convert-Coverage($cover, $prefix = "") {
     $linesPerc = 0.0
   }
   $params = $linesPerc, $cover.linesCovered, $cover.linesValid, $cover.label
-  $message = "{3} Coverage: {0:f2}% covered"
-  if ($cover.linesValue -gt 0) {
-    $message += " {1:d} of {2:d} lines"
+  $message = "{3}_Coverage:_{0:f2}%25_covered"
+  if ($cover.linesValid -gt 0) {
+    $message += "_{1:d}_of_{2:d}_lines"
   }
   Get-Badge $params "{3} Coverage" $message "F6F" $prefix
 }
@@ -58,7 +58,7 @@ function Write-Coverage($cover, $prefix = "") {
     $linesPerc = 0.0
   }
   $message = "{1} Coverage: {0:f2}% covered" -f ($linesPerc, $cover.label)
-  if ($cover.linesValue -gt 0) {
+  if ($cover.linesValid -gt 0) {
     $message += " {0:d} of {1:d} lines" -f ($cover.linesCovered, $cover.linesValid)
   }
   Write-Host "$prefix$message"

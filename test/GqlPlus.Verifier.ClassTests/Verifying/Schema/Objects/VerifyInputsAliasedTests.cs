@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Verification.Schema;
-using GqlPlus.Verifying.Schema;
 namespace GqlPlus.Verifying.Schema.Objects;
 
 [TracePerTest]

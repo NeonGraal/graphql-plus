@@ -5,7 +5,6 @@ using GqlPlus.Token;
 using GqlPlus.Verification.Schema;
 using GqlPlus.Verifying.Schema;
 using Microsoft.Extensions.Logging;
-using NSubstitute;
 
 namespace GqlPlus.Verifying;
 

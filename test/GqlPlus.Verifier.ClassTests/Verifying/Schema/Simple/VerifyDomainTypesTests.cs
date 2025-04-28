@@ -1,6 +1,4 @@
-﻿using System;
-using GqlPlus.Abstractions.Schema;
-using GqlPlus.Verifying.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Verifying.Schema.Simple;
 

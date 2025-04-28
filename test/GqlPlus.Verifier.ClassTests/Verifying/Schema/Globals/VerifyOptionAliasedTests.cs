@@ -1,8 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema;
-using GqlPlus.Merging;
 using GqlPlus.Verification.Schema;
-using GqlPlus.Verifying.Schema;
 namespace GqlPlus.Verifying.Schema.Globals;
 
 [TracePerTest]

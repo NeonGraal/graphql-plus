@@ -15,9 +15,7 @@ public class VerifyAllTypesTests
   private readonly VerifyAllTypes _verifier;
 
   public VerifyAllTypesTests()
-  {
-    _verifier = new(_dualAllTypes.Intf, _enumAllTypes.Intf, _inputAllTypes.Intf, _outputAllTypes.Intf, _domainAllTypes.Intf, _unionAllTypes.Intf);
-  }
+    => _verifier = new(_dualAllTypes.Intf, _enumAllTypes.Intf, _inputAllTypes.Intf, _outputAllTypes.Intf, _domainAllTypes.Intf, _unionAllTypes.Intf);
 
   [Fact]
   public void Verify_CallsVerifierAndMergerWithoutErrors()

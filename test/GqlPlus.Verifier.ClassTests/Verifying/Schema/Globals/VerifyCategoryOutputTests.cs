@@ -44,7 +44,7 @@ public class VerifyCategoryOutputTests
   [Fact]
   public void Verify_DefinedOutput_ReturnsNoError()
   {
-    Definitions.Add(NFor<IGqlpOutputObject>("Type"));
+    Define<IGqlpOutputObject>("Type");
 
     Usages.Add(_category);
 
@@ -71,7 +71,7 @@ public class VerifyCategoryOutputTests
   [Fact]
   public void Verify_DefinedInput_ReturnsError()
   {
-    Definitions.Add(NFor<IGqlpInputObject>("Type"));
+    Define<IGqlpInputObject>("Type");
 
     Usages.Add(_category);
 

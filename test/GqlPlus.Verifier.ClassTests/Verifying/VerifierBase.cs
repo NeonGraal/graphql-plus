@@ -15,21 +15,25 @@ public class VerifierBase
   protected TokenMessages Errors { get; } = [];
   protected ILoggerFactory Logger { get; } = For<ILoggerFactory>();
 
-  protected static TResult EFor<TResult>()
-    where TResult : class, IGqlpError
+  protected static T EFor<T>()
+    where T : class, IGqlpError
   {
-    TResult result = Substitute.For<TResult>();
+    T result = Substitute.For<T>();
     result.MakeError("").ReturnsForAnyArgs(c => MakeMessages(c.ThrowIfNull().Arg<string>()));
     return result;
   }
 
-  protected static TResult NFor<TResult>(string name)
-    where TResult : class, IGqlpNamed
+  protected static T NFor<T>(string name)
+    where T : class, IGqlpNamed
   {
-    TResult result = EFor<TResult>();
+    T result = EFor<T>();
     result.Name.Returns(name);
     return result;
   }
+
+  protected static T[] NForA<T>(params string[] names)
+    where T : class, IGqlpNamed
+    => [.. names.Select(NFor<T>)];
 
   protected static ITokenMessages MakeMessages(string message)
     => new TokenMessages { new TokenMessage(AstNulls.At, message) };

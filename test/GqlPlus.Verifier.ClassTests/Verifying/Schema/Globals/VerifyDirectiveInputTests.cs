@@ -46,7 +46,7 @@ public class VerifyDirectiveInputTests
   [Fact]
   public void Verify_DefinedInput_ReturnsNoError()
   {
-    Definitions.Add(NFor<IGqlpInputObject>("Type"));
+    Define<IGqlpInputObject>("Type");
 
     Usages.Add(_directive);
 
@@ -58,7 +58,7 @@ public class VerifyDirectiveInputTests
   [Fact]
   public void Verify_DefinedOutput_ReturnsError()
   {
-    Definitions.Add(NFor<IGqlpOutputObject>("Type"));
+    Define<IGqlpOutputObject>("Type");
 
     Usages.Add(_directive);
 

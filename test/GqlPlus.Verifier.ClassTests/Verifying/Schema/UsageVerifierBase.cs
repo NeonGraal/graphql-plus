@@ -13,4 +13,11 @@ public abstract class UsageVerifierBase<TUsage>
 
   protected UsageAliased<TUsage> UsageAliased => new([.. Usages], [.. Definitions]);
 
+  internal void Define<T>(params string[] names)
+    where T : class, IGqlpType
+  {
+    foreach (string name in names) {
+      Definitions.Add(NFor<T>(name));
+    }
+  }
 }

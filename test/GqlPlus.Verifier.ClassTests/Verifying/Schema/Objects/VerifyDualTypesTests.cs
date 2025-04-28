@@ -35,6 +35,24 @@ public class VerifyDualTypesTests
   public void Verify_Dual_ReturnsNoErrors()
   {
     Usages.Add(_dual);
+    Definitions.Add(_dual);
+
+    _verifier.Verify(UsageAliased, Errors);
+
+    Errors.ShouldBeEmpty();
+  }
+
+  [Fact]
+  public void Verify_Dual_WithTypeParams_ReturnsNoErrors()
+  {
+    IGqlpTypeParam[] typeParams = NForA<IGqlpTypeParam>("a");
+    _dual.TypeParams.Returns(typeParams);
+    IGqlpDualBase parent = NFor<IGqlpDualBase>("a");
+    parent.IsTypeParam.Returns(true);
+    _dual.ObjParent.Returns(parent);
+
+    Usages.Add(_dual);
+    Definitions.Add(_dual);
 
     _verifier.Verify(UsageAliased, Errors);
 

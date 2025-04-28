@@ -86,7 +86,6 @@ public class VerifyEnumTypesTests
 
     _verifier.Verify(UsageAliased, Errors);
 
-
     _verifier.ShouldSatisfyAllConditions(
       _mergeLabels.Called,
       () => Errors.ShouldBeEmpty());

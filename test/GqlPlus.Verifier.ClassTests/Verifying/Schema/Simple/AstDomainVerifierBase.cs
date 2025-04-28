@@ -3,12 +3,10 @@
 namespace GqlPlus.Verifying.Schema.Simple;
 
 public abstract class AstDomainVerifierBase<TItem>
-  : VerifierBase
+  : VerifierTypeBase
   where TItem : class, IGqlpDomainItem
 {
   internal ForM<TItem> Items { get; } = new();
-  protected IMap<string> EnumValues { get; } = new Map<string>();
-  protected IMap<IGqlpDescribed> Types { get; } = new Map<IGqlpDescribed>();
 
   [Fact]
   public void Verify_WithoutErrors()

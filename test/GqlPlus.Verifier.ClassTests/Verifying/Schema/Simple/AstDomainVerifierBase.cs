@@ -1,5 +1,4 @@
-﻿using DiffEngine;
-using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Verifying.Schema.Simple;
 

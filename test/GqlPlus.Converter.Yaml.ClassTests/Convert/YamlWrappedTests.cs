@@ -20,6 +20,10 @@ public class YamlWrappedTests
     => result.ToLines().ShouldBe(input.Select(s => "- value: " + s));
   protected override void WithMapFlow_Check(string result, string key, string value)
     => result.ShouldStartWith($"{{{key}: {value}}}");
+  protected override void WithMapKeys_Check(string result, string[] keys)
+    => result.ShouldStartWith("{" + keys.Order(StringComparer.Ordinal).Joined(k => k + ": " + k, ", ") + "}");
+  protected override void WithMapList_Check(string result, string key, string[] value)
+    => result.ShouldStartWith($"{{{key}: [" + value.Joined(", ") + "]}");
   protected override void WithMap_Check(string result, string key, string value)
     => result.ShouldStartWith($"{key}: {value}");
   protected override void WithNull_Check(string result)
@@ -45,6 +49,10 @@ public class YamlWrappedTests
     => result.ToLines().ShouldBe(input.Select(s => "- value: " + s));
   protected override void WithMapTagFlow_Check(string result, string key, string value, string tag)
     => result.ShouldStartWith(WithTag(tag, $"{{{key}: {value}}}"));
+  protected override void WithMapTagKeys_Check(string result, string[] keys, string tag)
+    => result.ShouldStartWith($"!{tag} {{" + keys.Order(StringComparer.Ordinal).Joined(k => k + ": " + k, ", ") + "}");
+  protected override void WithMapTagList_Check(string result, string key, string[] value, string tag)
+    => result.ShouldStartWith($"!{tag} {{{key}: [" + value.Joined(", ") + "]}");
   protected override void WithMapTag_Check(string result, string key, string value, string tag)
     => result.ToLines().ShouldBe([$"!{tag}", $"{key}: {value}"]);
   protected override void WithNullTag_Check(string result, string tag)

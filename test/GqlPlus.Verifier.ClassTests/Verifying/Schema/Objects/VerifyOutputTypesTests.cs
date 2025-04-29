@@ -1,46 +1,22 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using NSubstitute;
 using NSubstitute.Core;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
 [TracePerTest]
 public class VerifyOutputTypesTests
-  : UsageVerifierBase<IGqlpOutputObject>
+  : ObjectVerifierBase<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>
 {
-  private readonly ForM<IGqlpOutputField> _fields = new();
-  private readonly ForM<IGqlpOutputAlternate> _mergeAlternates = new();
-  private readonly VerifyOutputTypes _verifier;
-
   private readonly IGqlpOutputObject _output;
+
+  protected override IGqlpOutputObject TheObject => _output;
+  protected override IVerifyUsage<IGqlpOutputObject> Verifier { get; }
 
   public VerifyOutputTypesTests()
   {
-    _verifier = new(Aliased.Intf, _fields.Intf, _mergeAlternates.Intf, Logger);
+    Verifier = new VerifyOutputTypes(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, Logger);
 
     _output = NFor<IGqlpOutputObject>("Output");
-  }
-
-  [Fact]
-  public void Verify_CallsVerifierWithoutErrors()
-  {
-    _verifier.Verify(UsageAliased, Errors);
-
-    _verifier.ShouldSatisfyAllConditions(
-      Aliased.Called,
-      _fields.NotCalled,
-      _mergeAlternates.NotCalled,
-      () => Errors.ShouldBeEmpty());
-  }
-
-  [Fact]
-  public void Verify_Output_ReturnsNoErrors()
-  {
-    Usages.Add(_output);
-
-    _verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldBeEmpty();
   }
 
   [Fact]
@@ -55,7 +31,7 @@ public class VerifyOutputTypesTests
     Usages.Add(_output);
     Definitions.Add(_output);
 
-    _verifier.Verify(UsageAliased, Errors);
+    Verifier.Verify(UsageAliased, Errors);
 
     Errors.ShouldBeEmpty();
   }
@@ -81,7 +57,7 @@ public class VerifyOutputTypesTests
 
     Usages.Add(_output);
 
-    _verifier.Verify(UsageAliased, Errors);
+    Verifier.Verify(UsageAliased, Errors);
 
     Errors.ShouldBeEmpty();
   }
@@ -101,7 +77,7 @@ public class VerifyOutputTypesTests
 
     Usages.Add(_output);
 
-    _verifier.Verify(UsageAliased, Errors);
+    Verifier.Verify(UsageAliased, Errors);
 
     Errors.ShouldBeEmpty();
   }
@@ -119,7 +95,7 @@ public class VerifyOutputTypesTests
 
     Usages.Add(_output);
 
-    _verifier.Verify(UsageAliased, Errors);
+    Verifier.Verify(UsageAliased, Errors);
 
     Errors.ShouldNotBeEmpty();
   }
@@ -139,7 +115,7 @@ public class VerifyOutputTypesTests
 
     Usages.Add(_output);
 
-    _verifier.Verify(UsageAliased, Errors);
+    Verifier.Verify(UsageAliased, Errors);
 
     Errors.ShouldNotBeEmpty();
   }
@@ -157,7 +133,7 @@ public class VerifyOutputTypesTests
 
     Usages.Add(_output);
 
-    _verifier.Verify(UsageAliased, Errors);
+    Verifier.Verify(UsageAliased, Errors);
 
     Errors.ShouldBeEmpty();
   }
@@ -173,7 +149,7 @@ public class VerifyOutputTypesTests
 
     Usages.Add(_output);
 
-    _verifier.Verify(UsageAliased, Errors);
+    Verifier.Verify(UsageAliased, Errors);
 
     Errors.ShouldNotBeEmpty();
   }
@@ -209,7 +185,7 @@ public class VerifyOutputTypesTests
     Usages.Add(_output);
     Definitions.Add(other);
 
-    _verifier.Verify(UsageAliased, Errors);
+    Verifier.Verify(UsageAliased, Errors);
 
     Errors.ShouldBeEmpty();
 

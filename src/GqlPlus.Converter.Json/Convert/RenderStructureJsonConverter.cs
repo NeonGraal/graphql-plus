@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
 namespace GqlPlus.Convert;
+
 internal class RenderStructureJsonConverter
   : RenderJsonConverter<Structured>
 {

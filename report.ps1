@@ -5,7 +5,7 @@ param (
 
 $coverageFile = "$PWD/coverage/Coverage*.xml"
 
-$report = "-reporttypes:MarkdownSummaryGithub;Html","-reports:$coverageFile","-targetdir:.\coverage "
+$report = "-reporttypes:MarkdownSummaryGithub;Html","-reports:$coverageFile","-targetdir:.\coverage","settings:rawMode=true"
 $report += "riskHotspotsAnalysisThresholds:metricThresholdForCyclomaticComplexity=$Threshold","riskHotspotsAnalysisThresholds:metricThresholdForCrapScore=$Threshold"
 
 dotnet tool restore

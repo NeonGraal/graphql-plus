@@ -135,6 +135,34 @@ public abstract class ConverterClassTestBase
     WithMapFlow_Check(result, key, value);
   }
 
+  [Theory, RepeatData]
+  public void WithMapKeys_ReturnsCorrect(string[] keys)
+  {
+    // Arrange
+    Map<string> map = keys.ToMap(k => k);
+    Structured model = map.Render(s => new(s), flow: true);
+
+    // Act
+    string result = Convert(model);
+
+    // Assert
+    WithMapKeys_Check(result, keys);
+  }
+
+  [Theory, RepeatData]
+  public void WithMapList_ReturnsCorrect(string key, string[] value)
+  {
+    // Arrange
+    Map<string[]> map = new() { [key] = value };
+    Structured model = map.Render(s => s.Render(), flow: true);
+
+    // Act
+    string result = Convert(model);
+
+    // Assert
+    WithMapList_Check(result, key, value);
+  }
+
   // Tagged tests
   [Theory, RepeatData]
   public void WithNullTag_ReturnsCorrect(string tag)
@@ -269,6 +297,34 @@ public abstract class ConverterClassTestBase
     WithMapTagFlow_Check(result, key, value, tag);
   }
 
+  [Theory, RepeatData]
+  public void WithMapTagKeys_ReturnsCorrect(string[] keys, string tag)
+  {
+    // Arrange
+    Map<string> map = keys.ToMap(k => k);
+    Structured model = map.Render(s => new(s), tag, flow: true);
+
+    // Act
+    string result = Convert(model);
+
+    // Assert
+    WithMapTagKeys_Check(result, keys, tag);
+  }
+
+  [Theory, RepeatData]
+  public void WithMapTagList_ReturnsCorrect(string key, string[] value, string tag)
+  {
+    // Arrange
+    Map<string[]> map = new() { [key] = value };
+    Structured model = map.Render(s => s.Render(), tag, flow: true);
+
+    // Act
+    string result = Convert(model);
+
+    // Assert
+    WithMapTagList_Check(result, key, value, tag);
+  }
+
   private static Structured MakeMap(string s)
     => new Map<Structured>() { ["value"] = new(s) }.Render();
 
@@ -281,6 +337,8 @@ public abstract class ConverterClassTestBase
   protected abstract void WithListMap_Check(string result, string[] input);
   protected abstract void WithMap_Check(string result, string key, string value);
   protected abstract void WithMapFlow_Check(string result, string key, string value);
+  protected abstract void WithMapKeys_Check(string result, string[] keys);
+  protected abstract void WithMapList_Check(string result, string key, string[] value);
   protected abstract void WithNull_Check(string result);
   protected abstract void WithNumber_Check(string result, decimal input);
   protected abstract void WithText_Check(string result, string input);
@@ -292,6 +350,8 @@ public abstract class ConverterClassTestBase
   protected abstract void WithListTagMap_Check(string result, string[] input, string tag);
   protected abstract void WithMapTag_Check(string result, string key, string value, string tag);
   protected abstract void WithMapTagFlow_Check(string result, string key, string value, string tag);
+  protected abstract void WithMapTagKeys_Check(string result, string[] keys, string tag);
+  protected abstract void WithMapTagList_Check(string result, string key, string[] value, string tag);
   protected abstract void WithNullTag_Check(string result, string tag);
   protected abstract void WithNumberTag_Check(string result, decimal input, string tag);
   protected abstract void WithTextTag_Check(string result, string input, string tag);

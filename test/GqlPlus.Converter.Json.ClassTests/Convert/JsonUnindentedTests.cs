@@ -20,6 +20,10 @@ public class JsonUnindentedTests
     => result.ShouldStartWith(input.Surround("[", "]", i => $"{{\"value\":\"{i}\"}}", ","));
   protected override void WithMapFlow_Check(string result, string key, string value)
     => result.ShouldStartWith($"{{\"{key}\":\"{value}\"}}");
+  protected override void WithMapKeys_Check(string result, string[] keys)
+    => result.ShouldStartWith("{" + keys.Order(StringComparer.CurrentCultureIgnoreCase).Select(k => $"\"{k}\":\"{k}\"").Joined(",") + "}");
+  protected override void WithMapList_Check(string result, string key, string[] value)
+    => result.ShouldStartWith($"{{\"{key}\":" + value.Surround("[", "]", i => i.Quoted('"'), ", ") + "}");
   protected override void WithMap_Check(string result, string key, string value)
     => result.ShouldStartWith($"{{\"{key}\":\"{value}\"}}");
   protected override void WithNull_Check(string result)
@@ -45,6 +49,10 @@ public class JsonUnindentedTests
     => result.ShouldStartWith(input.Surround("[", "]", i => $"{{\"value\":\"{i}\"}}", ","));
   protected override void WithMapTagFlow_Check(string result, string key, string value, string tag)
     => result.ShouldStartWith(WithTag(tag, value.Quoted('"'), key));
+  protected override void WithMapTagKeys_Check(string result, [NotNull] string[] keys, string tag)
+    => result.ShouldStartWith($"{{\"$tag\":\"{tag}\"," + keys.Order(StringComparer.CurrentCultureIgnoreCase).Select(k => $"\"{k}\":\"{k}\"").Joined(",") + "}");
+  protected override void WithMapTagList_Check(string result, string key, string[] value, string tag)
+    => result.ShouldStartWith($"{{\"$tag\":\"{tag}\",\"{key}\":" + value.Surround("[", "]", i => i.Quoted('"'), ", ") + "}");
   protected override void WithMapTag_Check(string result, string key, string value, string tag)
     => result.ShouldStartWith(WithTag(tag, value.Quoted('"'), key));
   protected override void WithNullTag_Check(string result, string tag)
@@ -53,4 +61,7 @@ public class JsonUnindentedTests
     => result.ShouldStartWith(WithTag(tag, $"{input}"));
   protected override void WithTextTag_Check(string result, string input, string tag)
     => result.ShouldStartWith(WithTag(tag, input.Quoted('"')));
+
+  private static Func<string, int, string> MapKeysFormat(int lastIndex)
+    => (k, i) => $"  \"{k}\": \"{k}\"" + (i < lastIndex ? "," : string.Empty);
 }

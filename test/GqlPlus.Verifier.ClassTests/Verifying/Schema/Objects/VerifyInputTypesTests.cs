@@ -1,47 +1,21 @@
-﻿using GqlPlus.Abstractions;
-using GqlPlus.Abstractions.Schema;
-using Microsoft.VisualStudio.TestPlatform.Utilities;
-using NSubstitute;
+﻿using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
 [TracePerTest]
 public class VerifyInputTypesTests
-  : UsageVerifierBase<IGqlpInputObject>
+  : ObjectVerifierBase<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate>
 {
-  private readonly ForM<IGqlpInputField> _fields = new();
-  private readonly ForM<IGqlpInputAlternate> _mergeAlternates = new();
-  private readonly VerifyInputTypes _verifier;
-
   private readonly IGqlpInputObject _input;
+
+  protected override IGqlpInputObject TheObject => _input;
+  protected override IVerifyUsage<IGqlpInputObject> Verifier { get; }
 
   public VerifyInputTypesTests()
   {
-    _verifier = new(Aliased.Intf, _fields.Intf, _mergeAlternates.Intf, Logger);
+    Verifier = new VerifyInputTypes(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, Logger);
 
     _input = NFor<IGqlpInputObject>("Input");
-  }
-
-  [Fact]
-  public void Verify_CallsVerifierWithoutErrors()
-  {
-    _verifier.Verify(UsageAliased, Errors);
-
-    _verifier.ShouldSatisfyAllConditions(
-      Aliased.Called,
-      _fields.NotCalled,
-      _mergeAlternates.NotCalled,
-      () => Errors.ShouldBeEmpty());
-  }
-
-  [Fact]
-  public void Verify_Input_ReturnsNoErrors()
-  {
-    Usages.Add(_input);
-
-    _verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldBeEmpty();
   }
 
   [Fact]
@@ -56,7 +30,7 @@ public class VerifyInputTypesTests
     Usages.Add(_input);
     Definitions.Add(_input);
 
-    _verifier.Verify(UsageAliased, Errors);
+    Verifier.Verify(UsageAliased, Errors);
 
     Errors.ShouldBeEmpty();
   }
@@ -83,7 +57,7 @@ public class VerifyInputTypesTests
 
     Usages.Add(_input);
 
-    _verifier.Verify(UsageAliased, Errors);
+    Verifier.Verify(UsageAliased, Errors);
 
     Errors.ShouldNotBeEmpty();
   }
@@ -113,7 +87,7 @@ public class VerifyInputTypesTests
 
     Usages.Add(_input);
 
-    _verifier.Verify(UsageAliased, Errors);
+    Verifier.Verify(UsageAliased, Errors);
 
     Errors.ShouldBeEmpty();
   }

@@ -4,42 +4,18 @@ namespace GqlPlus.Verifying.Schema.Objects;
 
 [TracePerTest]
 public class VerifyDualTypesTests
-  : UsageVerifierBase<IGqlpDualObject>
+  : ObjectVerifierBase<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>
 {
-  private readonly ForM<IGqlpDualField> _fields = new();
-  private readonly ForM<IGqlpDualAlternate> _mergeAlternates = new();
-  private readonly VerifyDualTypes _verifier;
-
   private readonly IGqlpDualObject _dual;
+
+  protected override IGqlpDualObject TheObject => _dual;
+  protected override IVerifyUsage<IGqlpDualObject> Verifier { get; }
 
   public VerifyDualTypesTests()
   {
-    _verifier = new(Aliased.Intf, _fields.Intf, _mergeAlternates.Intf, Logger);
+    Verifier = new VerifyDualTypes(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, Logger);
 
     _dual = NFor<IGqlpDualObject>("Dual");
-  }
-
-  [Fact]
-  public void Verify_CallsVerifierWithoutErrors()
-  {
-    _verifier.Verify(UsageAliased, Errors);
-
-    _verifier.ShouldSatisfyAllConditions(
-      Aliased.Called,
-      _fields.NotCalled,
-      _mergeAlternates.NotCalled,
-      () => Errors.ShouldBeEmpty());
-  }
-
-  [Fact]
-  public void Verify_Dual_ReturnsNoErrors()
-  {
-    Usages.Add(_dual);
-    Definitions.Add(_dual);
-
-    _verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldBeEmpty();
   }
 
   [Fact]
@@ -54,7 +30,7 @@ public class VerifyDualTypesTests
     Usages.Add(_dual);
     Definitions.Add(_dual);
 
-    _verifier.Verify(UsageAliased, Errors);
+    Verifier.Verify(UsageAliased, Errors);
 
     Errors.ShouldBeEmpty();
   }
@@ -85,7 +61,7 @@ public class VerifyDualTypesTests
     Usages.Add(_dual);
     Definitions.Add(other);
 
-    _verifier.Verify(UsageAliased, Errors);
+    Verifier.Verify(UsageAliased, Errors);
 
     Errors.ShouldBeEmpty();
   }

@@ -21,9 +21,9 @@ public class YamlWrappedTests
   protected override void WithMapFlow_Check(string result, string key, string value)
     => result.ShouldStartWith($"{{{key}: {value}}}");
   protected override void WithMapKeys_Check(string result, string[] keys)
-    => result.ToLines().ShouldBe(Wrapped("{", "}", [.. keys.Order(StringComparer.Ordinal)], k => k + ": " + k));
+    => result.ToLines().ShouldBe(Wrapped("{", "}", [.. keys.Order(StringComparer.Ordinal)], k => k + ": " + k, "  "));
   protected override void WithMapList_Check(string result, string key, [NotNull] string[] value)
-    => result.ToLines().ShouldBe(Wrapped($"{{{key}: [", "]}", value, k => k));
+    => result.ToLines().ShouldBe(Wrapped($"{{{key}: [", "]}", value, k => k, "    "));
   protected override void WithMap_Check(string result, string key, string value)
     => result.ShouldStartWith($"{key}: {value}");
   protected override void WithNull_Check(string result)
@@ -47,9 +47,9 @@ public class YamlWrappedTests
   protected override void WithMapTagFlow_Check(string result, string key, string value, string tag)
     => result.ShouldStartWith(WithTag(tag, $"{{{key}: {value}}}"));
   protected override void WithMapTagKeys_Check(string result, string[] keys, string tag)
-    => result.ToLines().ShouldBe(Wrapped($"!{tag} {{", "}", [.. keys.Order(StringComparer.Ordinal)], k => k + ": " + k));
+    => result.ToLines().ShouldBe(Wrapped($"!{tag} {{", "}", [.. keys.Order(StringComparer.Ordinal)], k => k + ": " + k, "  "));
   protected override void WithMapTagList_Check(string result, string key, [NotNull] string[] value, string tag)
-    => result.ToLines().ShouldBe(Wrapped($"!{tag} {{{key}: [", "]}", value, k => k));
+    => result.ToLines().ShouldBe(Wrapped($"!{tag} {{{key}: [", "]}", value, k => k, "    "));
   protected override void WithMapTag_Check(string result, string key, string value, string tag)
     => result.ToLines().ShouldBe([$"!{tag}", $"{key}: {value}"]);
   protected override void WithNullTag_Check(string result, string tag)
@@ -62,7 +62,7 @@ public class YamlWrappedTests
   private static string WithTag(string tag, string value)
     => $"!{tag} {value}";
 
-  private static string[] Wrapped(string prefix, string suffix, string[] values, Func<string, string> mapper)
+  private static string[] Wrapped(string prefix, string suffix, string[] values, Func<string, string> mapper, string indent)
   {
     List<string> result = [];
     string line = prefix;
@@ -74,7 +74,7 @@ public class YamlWrappedTests
           line += ", ";
         } else {
           result.Add(line + ",");
-          line = "  ";
+          line = indent;
         }
       }
     }

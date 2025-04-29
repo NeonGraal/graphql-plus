@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using YamlDotNet.Core.Tokens;
 
 namespace GqlPlus.Convert;
 
@@ -21,7 +22,7 @@ public class YamlWrappedTests
   protected override void WithMapFlow_Check(string result, string key, string value)
     => result.ShouldStartWith($"{{{key}: {value}}}");
   protected override void WithMapKeys_Check(string result, string[] keys)
-    => result.ShouldStartWith("{" + keys.Order(StringComparer.Ordinal).Joined(k => k + ": " + k, ", ") + "}");
+    => result.ShouldStartWith(Wrapped("{", "}", [.. keys.Order(StringComparer.Ordinal)]));
   protected override void WithMapList_Check(string result, string key, string[] value)
     => result.ShouldStartWith($"{{{key}: [" + value.Joined(", ") + "]}");
   protected override void WithMap_Check(string result, string key, string value)
@@ -33,10 +34,7 @@ public class YamlWrappedTests
   protected override void WithText_Check(string result, string input)
     => result.ShouldStartWith(input.Quoted("'"));
 
-  [SuppressMessage("Performance", "CA1822:Mark members as static")]
-  private string WithTag(string tag, string value)
-    => $"!{tag} {value}";
-
+  // Tagged checks
   protected override void WithBooleanTag_Check(string result, bool input, string tag)
     => result.ShouldStartWith(WithTag(tag, $"{input}"));
   protected override void WithIdentifierTag_Check(string result, string input, string tag)
@@ -50,7 +48,7 @@ public class YamlWrappedTests
   protected override void WithMapTagFlow_Check(string result, string key, string value, string tag)
     => result.ShouldStartWith(WithTag(tag, $"{{{key}: {value}}}"));
   protected override void WithMapTagKeys_Check(string result, string[] keys, string tag)
-    => result.ShouldStartWith($"!{tag} {{" + keys.Order(StringComparer.Ordinal).Joined(k => k + ": " + k, ", ") + "}");
+    => result.ShouldStartWith(Wrapped($"!{tag} {{", "}", [.. keys.Order(StringComparer.Ordinal)]));
   protected override void WithMapTagList_Check(string result, string key, string[] value, string tag)
     => result.ShouldStartWith($"!{tag} {{{key}: [" + value.Joined(", ") + "]}");
   protected override void WithMapTag_Check(string result, string key, string value, string tag)
@@ -61,4 +59,30 @@ public class YamlWrappedTests
     => result.ShouldStartWith(WithTag(tag, $"{input}"));
   protected override void WithTextTag_Check(string result, string input, string tag)
     => result.ShouldStartWith(input.Quoted("'"));
+
+  private static string WithTag(string tag, string value)
+    => $"!{tag} {value}";
+
+  private static string Wrapped(string prefix, string suffix, string[] values)
+  {
+    string result = prefix;
+    int width = result.Length;
+
+    int last = values.Length - 1;
+    for (int i = 0; i <= last; i++) {
+      result += values[i] + ": " + values[i];
+      width += values[i].Length * 2 + 2;
+      if (i < last) {
+        if (width < RenderYaml.BestWidth) {
+          result += ", ";
+          width += 2;
+        } else {
+          result += ",\r\n  ";
+          width = 2;
+        }
+      }
+    }
+
+    return result + suffix;
+  }
 }

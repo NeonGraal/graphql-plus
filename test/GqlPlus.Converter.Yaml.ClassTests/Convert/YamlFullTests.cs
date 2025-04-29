@@ -33,10 +33,7 @@ public class YamlFullTests
   protected override void WithText_Check(string result, string input)
     => result.ShouldStartWith(input.Quoted("'"));
 
-  [SuppressMessage("Performance", "CA1822:Mark members as static")]
-  private string WithTag(string tag, string value)
-    => $"!{tag} {value}";
-
+  // Tagged checks
   protected override void WithBooleanTag_Check(string result, bool input, string tag)
     => result.ShouldStartWith(WithTag(tag, $"{input}"));
   protected override void WithIdentifierTag_Check(string result, string input, string tag)
@@ -61,4 +58,7 @@ public class YamlFullTests
     => result.ShouldStartWith(WithTag(tag, $"{input}"));
   protected override void WithTextTag_Check(string result, string input, string tag)
     => result.ShouldStartWith(input.Quoted("'"));
+
+  private static string WithTag(string tag, string value)
+    => $"!{tag} {value}";
 }

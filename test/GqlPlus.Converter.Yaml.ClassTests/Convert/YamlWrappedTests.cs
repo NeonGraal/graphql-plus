@@ -22,7 +22,7 @@ public class YamlWrappedTests
   protected override void WithMapFlow_Check(string result, string key, string value)
     => result.ShouldStartWith($"{{{key}: {value}}}");
   protected override void WithMapKeys_Check(string result, string[] keys)
-    => result.ShouldStartWith(Wrapped("{", "}", [.. keys.Order(StringComparer.Ordinal)]));
+    => result.ToLines().ShouldBe(Wrapped("{", "}", [.. keys.Order(StringComparer.Ordinal)]));
   protected override void WithMapList_Check(string result, string key, string[] value)
     => result.ShouldStartWith($"{{{key}: [" + value.Joined(", ") + "]}");
   protected override void WithMap_Check(string result, string key, string value)
@@ -48,7 +48,7 @@ public class YamlWrappedTests
   protected override void WithMapTagFlow_Check(string result, string key, string value, string tag)
     => result.ShouldStartWith(WithTag(tag, $"{{{key}: {value}}}"));
   protected override void WithMapTagKeys_Check(string result, string[] keys, string tag)
-    => result.ShouldStartWith(Wrapped($"!{tag} {{", "}", [.. keys.Order(StringComparer.Ordinal)]));
+    => result.ToLines().ShouldBe(Wrapped($"!{tag} {{", "}", [.. keys.Order(StringComparer.Ordinal)]));
   protected override void WithMapTagList_Check(string result, string key, string[] value, string tag)
     => result.ShouldStartWith($"!{tag} {{{key}: [" + value.Joined(", ") + "]}");
   protected override void WithMapTag_Check(string result, string key, string value, string tag)
@@ -63,26 +63,26 @@ public class YamlWrappedTests
   private static string WithTag(string tag, string value)
     => $"!{tag} {value}";
 
-  private static string Wrapped(string prefix, string suffix, string[] values)
+  private static string[] Wrapped(string prefix, string suffix, string[] values)
   {
-    string result = prefix;
-    int width = result.Length;
+    List<string> result = [];
+    string line = prefix;
 
     int last = values.Length - 1;
     for (int i = 0; i <= last; i++) {
-      result += values[i] + ": " + values[i];
-      width += values[i].Length * 2 + 2;
+      line += values[i] + ": " + values[i];
       if (i < last) {
-        if (width < RenderYaml.BestWidth) {
-          result += ", ";
-          width += 2;
+        if (line.Length < RenderYaml.BestWidth) {
+          line += ", ";
         } else {
-          result += ",\r\n  ";
-          width = 2;
+          result.Add(line + ",");
+          line = "  ";
         }
       }
     }
 
-    return result + suffix;
+    result.Add(line + suffix);
+
+    return [.. result];
   }
 }

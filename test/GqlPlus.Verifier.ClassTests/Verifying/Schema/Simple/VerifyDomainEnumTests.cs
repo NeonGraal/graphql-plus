@@ -12,7 +12,7 @@ public class VerifyDomainEnumTests
 
   public VerifyDomainEnumTests()
   {
-    _verifier = new VerifyDomainEnum(Items.Intf);
+    _verifier = new VerifyDomainEnum(ItemsMerger.Intf);
 
     _context = new(Types, Errors, EnumValues);
 

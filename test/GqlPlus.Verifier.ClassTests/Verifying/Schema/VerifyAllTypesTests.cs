@@ -42,4 +42,29 @@ public class VerifyAllTypesTests
 
     Errors.ShouldBeEmpty();
   }
+
+  [Fact]
+  public void Verify_Schema_WithAliasedDeclarations_ReturnsNoErrors()
+  {
+    IGqlpType type = NFor<IGqlpEnum>("Enum");
+    type.Aliases.Returns(["Alias"]);
+
+    _verifier.Verify([type], Errors);
+
+    Errors.ShouldBeEmpty();
+  }
+
+  [Fact]
+  public void Verify_Schema_WithAliasDuplicates_ReturnsError()
+  {
+    IGqlpType type1 = NFor<IGqlpEnum>("Enum");
+    type1.Aliases.Returns(["Alias"]);
+
+    IGqlpType type2 = NFor<IGqlpUnion>("Union");
+    type2.Aliases.Returns(["Alias"]);
+
+    _verifier.Verify([type1, type2], Errors);
+
+    Errors.ShouldBeEmpty();
+  }
 }

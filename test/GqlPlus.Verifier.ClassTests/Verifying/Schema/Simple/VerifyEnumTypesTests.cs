@@ -90,4 +90,28 @@ public class VerifyEnumTypesTests
       _mergeLabels.Called,
       () => Errors.ShouldBeEmpty());
   }
+
+  [Fact]
+  public void Verify_EnumParentLabelsCantMerge_ReturnsErrors()
+  {
+    IGqlpEnum parent = NFor<IGqlpEnum>("Parent");
+    IGqlpEnumLabel[] parentLabels = NForA<IGqlpEnumLabel>("Label3", "Label4");
+    parent.Items.Returns(parentLabels);
+
+    Definitions.Add(parent);
+
+    IGqlpEnumLabel[] labels = NForA<IGqlpEnumLabel>("Label1", "Label2");
+    _enum.Items.Returns(labels);
+    _enum.Parent.Returns("Parent");
+
+    _mergeLabels.Intf.CanMerge(Arg.Any<IEnumerable<IGqlpEnumLabel>>()).Returns(MakeMessages("Error"));
+
+    Usages.Add(_enum);
+
+    _verifier.Verify(UsageAliased, Errors);
+
+    _verifier.ShouldSatisfyAllConditions(
+      _mergeLabels.Called,
+      () => Errors.ShouldNotBeEmpty());
+  }
 }

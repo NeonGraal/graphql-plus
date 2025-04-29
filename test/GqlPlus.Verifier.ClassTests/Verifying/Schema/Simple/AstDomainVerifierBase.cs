@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using DiffEngine;
+using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Verifying.Schema.Simple;
 
@@ -6,7 +7,7 @@ public abstract class AstDomainVerifierBase<TItem>
   : VerifierTypeBase
   where TItem : class, IGqlpDomainItem
 {
-  internal ForM<TItem> Items { get; } = new();
+  internal ForM<TItem> ItemsMerger { get; } = new();
 
   [Fact]
   public void Verify_WithoutErrors()
@@ -20,10 +21,33 @@ public abstract class AstDomainVerifierBase<TItem>
     verifier.Verify(domain, context);
 
     verifier.ShouldSatisfyAllConditions(
-      Items.NotCalled,
+      ItemsMerger.NotCalled,
       () => Errors.ShouldBeEmpty());
   }
 
+  [Fact]
+  public void CanMerge_WithParentIems_WithoutErrors()
+  {
+    IGqlpDomain<TItem> parent = NFor<IGqlpDomain<TItem>>("parent");
+    TItem parentItem = EFor<TItem>();
+    parent.Items.Returns([parentItem]);
+    Types["parent"] = parent;
+
+    IGqlpDomain<TItem> domain = NFor<IGqlpDomain<TItem>>("domain");
+    domain.Parent.Returns("parent");
+
+    EnumContext context = new(Types, Errors, EnumValues);
+
+    AstDomainVerifier<TItem> verifier = NewDomainVerifier();
+
+    ITokenMessages result = verifier.CanMergeItems(domain, context);
+
+    verifier.ShouldSatisfyAllConditions(
+      ItemsMerger.Called,
+      () => Errors.ShouldBeEmpty(),
+      () => result.ShouldBeEmpty());
+  }
+
   internal virtual AstDomainVerifier<TItem> NewDomainVerifier()
-    => new(Items.Intf);
+    => new(ItemsMerger.Intf);
 }

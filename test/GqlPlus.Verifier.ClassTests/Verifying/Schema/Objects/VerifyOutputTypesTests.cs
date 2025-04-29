@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using NSubstitute;
+using NSubstitute.Core;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
@@ -72,8 +73,10 @@ public class VerifyOutputTypesTests
     IGqlpOutputBase outType = NFor<IGqlpOutputBase>("b");
     IGqlpOutputField field = NFor<IGqlpOutputField>("a");
     field.Type.Returns(outType);
+    field.BaseType.Returns(outType);
     field.Params.Returns([param]);
 
+    _output.Fields.Returns([field]);
     _output.ObjFields.Returns([field]);
 
     Usages.Add(_output);
@@ -93,6 +96,7 @@ public class VerifyOutputTypesTests
     field.EnumLabel.Returns("l");
     field.EnumType.Returns(outType);
 
+    _output.Fields.Returns([field]);
     _output.ObjFields.Returns([field]);
 
     Usages.Add(_output);
@@ -103,6 +107,44 @@ public class VerifyOutputTypesTests
   }
 
   [Fact]
+  public void Verify_Output_WithEnumFieldUndefined_ReturnsError()
+  {
+    IGqlpOutputBase outType = NFor<IGqlpOutputBase>("b");
+    IGqlpOutputField field = NFor<IGqlpOutputField>("a");
+    field.EnumLabel.Returns("l");
+    field.EnumType.Returns(outType);
+
+    _output.Fields.Returns([field]);
+    _output.ObjFields.Returns([field]);
+
+    Usages.Add(_output);
+
+    _verifier.Verify(UsageAliased, Errors);
+
+    Errors.ShouldNotBeEmpty();
+  }
+
+  [Fact]
+  public void Verify_Output_WithEnumFieldWrongLabel_ReturnsError()
+  {
+    Enum("b", "c");
+
+    IGqlpOutputBase outType = NFor<IGqlpOutputBase>("b");
+    IGqlpOutputField field = NFor<IGqlpOutputField>("a");
+    field.EnumLabel.Returns("l");
+    field.EnumType.Returns(outType);
+
+    _output.Fields.Returns([field]);
+    _output.ObjFields.Returns([field]);
+
+    Usages.Add(_output);
+
+    _verifier.Verify(UsageAliased, Errors);
+
+    Errors.ShouldNotBeEmpty();
+  }
+
+  [Fact]
   public void Verify_Output_WithEnumLabel_ReturnsNoErrors()
   {
     Enum("b", "l");
@@ -110,6 +152,7 @@ public class VerifyOutputTypesTests
     IGqlpOutputField field = NFor<IGqlpOutputField>("a");
     field.EnumLabel.Returns("l");
 
+    _output.Fields.Returns([field]);
     _output.ObjFields.Returns([field]);
 
     Usages.Add(_output);
@@ -125,6 +168,7 @@ public class VerifyOutputTypesTests
     IGqlpOutputField field = NFor<IGqlpOutputField>("a");
     field.EnumLabel.Returns("l");
 
+    _output.Fields.Returns([field]);
     _output.ObjFields.Returns([field]);
 
     Usages.Add(_output);
@@ -132,5 +176,47 @@ public class VerifyOutputTypesTests
     _verifier.Verify(UsageAliased, Errors);
 
     Errors.ShouldNotBeEmpty();
+  }
+
+  [Fact]
+  public void Verify_Output_WithEnumTypeArg_ReturnsNoErrors()
+  {
+    Enum("b", "l");
+
+    IGqlpOutputObject other = NFor<IGqlpOutputObject>("Other");
+    IGqlpTypeParam[] typeParams = NForA<IGqlpTypeParam>("a");
+    other.TypeParams.Returns(typeParams);
+    IGqlpOutputBase parent = NFor<IGqlpOutputBase>("a");
+    parent.IsTypeParam.Returns(true);
+    other.ObjParent.Returns(parent);
+
+    IGqlpOutputField field = NFor<IGqlpOutputField>("field");
+    IGqlpOutputBase outputBase = NFor<IGqlpOutputBase>("Other");
+    IGqlpOutputArg arg = NFor<IGqlpOutputArg>("l");
+    arg.EnumLabel.Returns("");
+    arg.EnumType.Returns(arg);
+    arg.WhenForAnyArgs(a => a.SetEnumType(""))
+      .Do(HandleSetEnumType);
+
+    outputBase.Args.Returns([arg]);
+    outputBase.BaseArgs.Returns([arg]);
+    field.Type.Returns(outputBase);
+    field.BaseType.Returns(outputBase);
+
+    _output.Fields.Returns([field]);
+    _output.ObjFields.Returns([field]);
+
+    Usages.Add(_output);
+    Definitions.Add(other);
+
+    _verifier.Verify(UsageAliased, Errors);
+
+    Errors.ShouldBeEmpty();
+
+    void HandleSetEnumType(CallInfo c)
+    {
+      arg.EnumLabel.Returns("l");
+      arg.Name.Returns("b");
+    }
   }
 }

@@ -16,7 +16,7 @@ public class VerifyDualTypesTests
   {
     _verifier = new(Aliased.Intf, _fields.Intf, _mergeAlternates.Intf, Logger);
 
-    _dual = For<IGqlpDualObject>();
+    _dual = NFor<IGqlpDualObject>("Dual");
   }
 
   [Fact]
@@ -53,6 +53,37 @@ public class VerifyDualTypesTests
 
     Usages.Add(_dual);
     Definitions.Add(_dual);
+
+    _verifier.Verify(UsageAliased, Errors);
+
+    Errors.ShouldBeEmpty();
+  }
+
+  [Fact]
+  public void Verify_Dual_WithTypeArg_ReturnsNoErrors()
+  {
+    Define<IGqlpTypeSpecial>("String");
+
+    IGqlpDualObject other = NFor<IGqlpDualObject>("Other");
+    IGqlpTypeParam[] typeParams = NForA<IGqlpTypeParam>("a");
+    other.TypeParams.Returns(typeParams);
+    IGqlpDualBase parent = NFor<IGqlpDualBase>("a");
+    parent.IsTypeParam.Returns(true);
+    other.ObjParent.Returns(parent);
+
+    IGqlpDualField field = NFor<IGqlpDualField>("field");
+    IGqlpDualBase dualBase = NFor<IGqlpDualBase>("Other");
+    IGqlpDualArg[] args = NForA<IGqlpDualArg>("String");
+    dualBase.Args.Returns(args);
+    dualBase.BaseArgs.Returns(args);
+    field.Type.Returns(dualBase);
+    field.BaseType.Returns(dualBase);
+
+    _dual.Fields.Returns([field]);
+    _dual.ObjFields.Returns([field]);
+
+    Usages.Add(_dual);
+    Definitions.Add(other);
 
     _verifier.Verify(UsageAliased, Errors);
 

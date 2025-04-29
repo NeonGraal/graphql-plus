@@ -36,7 +36,7 @@ internal class VerifyOutputTypes(
     foreach (IGqlpInputParam parameter in field.Params) {
       context
         .CheckType(parameter.Type, " Param")
-        .CheckArgs(parameter.Type.Args, " Param");
+        .CheckArgs(parameter.Type.BaseArgs, " Param");
 
       context.CheckModifiers(parameter);
     }

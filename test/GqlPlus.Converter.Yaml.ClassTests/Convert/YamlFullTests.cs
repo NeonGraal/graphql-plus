@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace GqlPlus.Convert;
+﻿namespace GqlPlus.Convert;
 
 public class YamlFullTests
   : ConverterClassTestBase

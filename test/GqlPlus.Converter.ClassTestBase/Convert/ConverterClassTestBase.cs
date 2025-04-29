@@ -56,9 +56,10 @@ public abstract class ConverterClassTestBase
   }
 
   [Theory, RepeatData]
-  public void WithText_ReturnsCorrect(string input)
+  public void WithText_ReturnsCorrect(string text)
   {
     // Arrange
+    string input = text + " " + text;
     Structured model = new(StructureValue.Str(input));
 
     // Act
@@ -218,9 +219,10 @@ public abstract class ConverterClassTestBase
   }
 
   [Theory, RepeatData]
-  public void WithTextTag_ReturnsCorrect(string input, string tag)
+  public void WithTextTag_ReturnsCorrect(string text, string tag)
   {
     // Arrange
+    string input = text + " " + text;
     Structured model = new(StructureValue.Str(input, tag));
 
     // Act

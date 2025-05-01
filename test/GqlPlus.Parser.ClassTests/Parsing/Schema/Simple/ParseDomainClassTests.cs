@@ -1,12 +1,8 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Parsing.Schema;
-using GqlPlus.Parsing.Schema.Simple;
-using GqlPlus.Result;
-using NSubstitute;
 
-namespace GqlPlus.Parsing;
+namespace GqlPlus.Parsing.Schema.Simple;
 
-public class ParseDomainClassTests : ClassTestBase
+public class ParseDomainClassTests : ParserClassTestBase
 {
   [Theory, RepeatData]
   public void Parse_UnknownKind_ReturnsExpected(string name)

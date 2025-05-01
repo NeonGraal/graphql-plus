@@ -7,7 +7,7 @@ namespace GqlPlus.Verifying;
 public class AllVerifiersTests
 {
   [Fact]
-  public void AllVerifiersShouldBeInTheSameAssembly()
+  public void AllVerifiers_DefinesVerifySchema()
   {
     IServiceProvider services = new ServiceCollection()
       .AddLogging()

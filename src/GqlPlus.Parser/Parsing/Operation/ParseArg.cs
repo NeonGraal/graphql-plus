@@ -35,7 +35,7 @@ internal class ParseArg(
           ? _argument.I
             .Parse(tokens, "Arg")
             .MapOk(
-              item => ParseArgMid(tokens, at, new() { [(FieldKeyAst)key] = item }),
+              item => ParseArgMid(tokens, at, new() { [key] = item }),
               () => tokens.Error(label, "a value after field key separator", value))
           : ParseArgEnd(tokens, at, new(key)));
       }
@@ -90,7 +90,7 @@ internal class ParseArg(
     List<IGqlpArg> values = [value];
     while (_argument.I.Parse(tokens, "Arg").Required(values.Add)) { }
 
-    if (tokens.Take(")")) {
+    if (tokens.Take(')')) {
       IGqlpArg argument = values.Count > 1 ? new(at, values.ArrayOf<ArgAst>()) : value;
       return argument.Ok();
     }

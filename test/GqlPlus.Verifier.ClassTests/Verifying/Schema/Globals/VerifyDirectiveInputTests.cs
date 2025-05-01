@@ -9,6 +9,9 @@ public class VerifyDirectiveInputTests
   private readonly VerifyDirectiveInput _verifier;
   private readonly IGqlpSchemaDirective _directive;
 
+  protected override IGqlpSchemaDirective TheUsage => _directive;
+  protected override IVerifyUsage<IGqlpSchemaDirective> Verifier => _verifier;
+
   public VerifyDirectiveInputTests()
   {
     _verifier = new(Aliased.Intf);
@@ -46,6 +49,19 @@ public class VerifyDirectiveInputTests
   {
     Define<IGqlpInputObject>("Type");
 
+    Usages.Add(_directive);
+
+    _verifier.Verify(UsageAliased, Errors);
+
+    Errors.ShouldBeEmpty();
+  }
+
+  [Fact]
+  public void Verify_WithAliases_ReturnsNoError()
+  {
+    Define<IGqlpInputObject>("Type");
+
+    _directive.Aliases.Returns(["Alias1", "Alias2"]);
     Usages.Add(_directive);
 
     _verifier.Verify(UsageAliased, Errors);

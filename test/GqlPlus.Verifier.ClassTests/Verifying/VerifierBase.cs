@@ -12,7 +12,19 @@ public class VerifierBase
   : SubstituteBase
 {
   protected TokenMessages Errors { get; } = [];
-  protected ILoggerFactory Logger { get; } = For<ILoggerFactory>();
+  protected ILoggerFactory LoggerFactory { get; } = For<ILoggerFactory>();
+  protected ILogger Logger { get; } = For<ILogger>();
+
+  public VerifierBase()
+  {
+    Logger.IsEnabled(Arg.Any<LogLevel>())
+      .ReturnsForAnyArgs(true);
+
+    LoggerFactory.CreateLogger(Arg.Any<string>())
+      .ReturnsForAnyArgs(Logger);
+    LoggerFactory.CreateLogger<VerifierBase>()
+      .ReturnsForAnyArgs(Logger);
+  }
 
   protected static T EFor<T>()
     where T : class, IGqlpError
@@ -36,6 +48,17 @@ public class VerifierBase
 
   protected static ITokenMessages MakeMessages(string message)
     => new TokenMessages { new TokenMessage(AstNulls.At, message) };
+
+  protected void LoggerCalled(LogLevel level, string message, int times = 1)
+  {
+    Logger.Received(times).Log(
+      level,
+      Arg.Any<EventId>(),
+      Arg.Is<object>(o => $"{o}".Contains(message)),
+      Arg.Any<Exception>(),
+      Arg.Any<Func<object, Exception?, string>>()
+    );
+  }
 }
 
 internal readonly struct ForVU<TResult>

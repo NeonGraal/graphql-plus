@@ -8,5 +8,5 @@ public class VerifyDirectiveAliasedTests
   : AliasedVerifierBase<IGqlpSchemaDirective>
 {
   internal override GroupedVerifier<IGqlpSchemaDirective> NewGroupedVerifier()
-    => new VerifyDirectiveAliased(Definition, Merger, Logger);
+    => new VerifyDirectiveAliased(Definition, Merger, LoggerFactory);
 }

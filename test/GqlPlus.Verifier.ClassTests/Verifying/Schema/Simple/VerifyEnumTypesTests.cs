@@ -11,6 +11,9 @@ public class VerifyEnumTypesTests
 
   private readonly IGqlpEnum _enum;
 
+  protected override IGqlpEnum TheUsage => _enum;
+  protected override IVerifyUsage<IGqlpEnum> Verifier => _verifier;
+    
   public VerifyEnumTypesTests()
   {
     _verifier = new(Aliased.Intf, _mergeLabels.Intf);
@@ -43,6 +46,7 @@ public class VerifyEnumTypesTests
   public void Verify_EnumLabels_ReturnsNoErrors()
   {
     IGqlpEnumLabel[] labels = NForA<IGqlpEnumLabel>("Label1", "Label2");
+    labels[0].Aliases.Returns(["Alias1", "Alias2"]);
     _enum.Items.Returns(labels);
 
     Usages.Add(_enum);

@@ -13,11 +13,24 @@ public abstract class UsageVerifierBase<TUsage>
 
   protected UsageAliased<TUsage> UsageAliased => new([.. Usages], [.. Definitions, .. Types.Values.OfType<IGqlpType>()]);
 
+  protected abstract TUsage TheUsage { get; }
+  protected abstract IVerifyUsage<TUsage> Verifier { get; }
+
+  [Fact]
+  public void Verify_CallsVerifierAndAliased_WithoutErrors()
+  {
+    Verifier.Verify(UsageAliased, Errors);
+
+    Verifier.ShouldSatisfyAllConditions(
+      Aliased.Called,
+      () => Errors.ShouldBeEmpty());
+  }
+
   internal void Define<T>(params string[] names)
     where T : class, IGqlpType
   {
     foreach (string name in names) {
-      Definitions.Add(NFor<T>(name));
+      Definitions.Add(AddType<T>(name));
     }
   }
 }

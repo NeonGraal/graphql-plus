@@ -11,6 +11,9 @@ public class VerifyDomainTypesTests
 
   private readonly IGqlpDomain _domain;
 
+  protected override IGqlpDomain TheUsage => _domain;
+  protected override IVerifyUsage<IGqlpDomain> Verifier => _verifier;
+
   public VerifyDomainTypesTests()
   {
     _verifier = new(Aliased.Intf, [_domainVerify]);

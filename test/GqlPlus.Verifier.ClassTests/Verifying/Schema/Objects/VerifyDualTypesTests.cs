@@ -13,7 +13,7 @@ public class VerifyDualTypesTests
 
   public VerifyDualTypesTests()
   {
-    Verifier = new VerifyDualTypes(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, Logger);
+    Verifier = new VerifyDualTypes(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, LoggerFactory);
 
     _dual = NFor<IGqlpDualObject>("Dual");
   }

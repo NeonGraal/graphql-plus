@@ -8,5 +8,5 @@ public class VerifyAllTypesAliasedTests
   : GroupedVerifierBase<IGqlpType>
 {
   internal override GroupedVerifier<IGqlpType> NewGroupedVerifier()
-    => new VerifyAllTypesAliased(Merger, Logger);
+    => new VerifyAllTypesAliased(Merger, LoggerFactory);
 }

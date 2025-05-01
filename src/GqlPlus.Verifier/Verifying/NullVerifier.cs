@@ -15,7 +15,6 @@ internal class NullVerifierError<TGqlp>(
     => _logger.NullVerification(item);
 }
 
-[ExcludeFromCodeCoverage]
 internal static partial class NullVerifierLogging
 {
   internal static void NullVerification(this ILogger logger, object item)

@@ -7,5 +7,5 @@ public class VerifyOutputsAliasedTests
   : AliasedVerifierBase<IGqlpOutputObject>
 {
   internal override GroupedVerifier<IGqlpOutputObject> NewGroupedVerifier()
-    => new VerifyOutputsAliased(Definition, Merger, Logger);
+    => new VerifyOutputsAliased(Definition, Merger, LoggerFactory);
 }

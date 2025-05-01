@@ -12,16 +12,16 @@ public abstract class ObjectVerifierBase<TObject, TBase, TField, TAlternate>
   internal readonly ForM<TField> MergeFields = new();
   internal readonly ForM<TAlternate> MergeAlternates = new();
 
+  protected sealed override TObject TheUsage => TheObject;
+
   protected abstract TObject TheObject { get; }
-  protected abstract IVerifyUsage<TObject> Verifier { get; }
 
   [Fact]
-  public void Verify_CallsVerifierWithoutErrors()
+  public void Verify_CallsMergeFieldsAndAlternates_WithoutErrors()
   {
     Verifier.Verify(UsageAliased, Errors);
 
     Verifier.ShouldSatisfyAllConditions(
-      Aliased.Called,
       MergeFields.NotCalled,
       MergeAlternates.NotCalled,
       () => Errors.ShouldBeEmpty());
@@ -68,6 +68,66 @@ public abstract class ObjectVerifierBase<TObject, TBase, TField, TAlternate>
     TheObject.Alternates.Returns([alternate]);
     TheObject.ObjAlternates.Returns([alternate]);
 
+    Usages.Add(TheObject);
+
+    Verifier.Verify(UsageAliased, Errors);
+
+    Errors.ShouldBeEmpty();
+  }
+
+  [Fact]
+  public void Verify_Object_WithParent_ReturnsNoErrors()
+  {
+    Define<TObject>("Parent");
+
+    TBase parentBase = NFor<TBase>("Parent");
+    TheObject.Parent.Returns(parentBase);
+    Usages.Add(TheObject);
+    Definitions.Add(TheObject);
+
+    Verifier.Verify(UsageAliased, Errors);
+
+    Errors.ShouldBeEmpty();
+  }
+
+  [Fact]
+  public void Verify_Object_WithParentField_ReturnsNoErrors()
+  {
+    Define<IGqlpTypeSpecial>("String");
+
+    TField field = NFor<TField>("field");
+    TBase dualBase = NFor<TBase>("String");
+    field.Type.Returns(dualBase);
+    field.BaseType.Returns(dualBase);
+
+    TObject parent = NFor<TObject>("Parent");
+    parent.Fields.Returns([field]);
+    parent.ObjFields.Returns([field]);
+    Definitions.Add(parent);
+
+    TBase parentBase = NFor<TBase>("Parent");
+    TheObject.Parent.Returns(parentBase);
+    Usages.Add(TheObject);
+
+    Verifier.Verify(UsageAliased, Errors);
+
+    Errors.ShouldBeEmpty();
+  }
+
+  [Fact]
+  public void Verify_Object_WithParentAlternate_ReturnsNoErrors()
+  {
+    Define<IGqlpTypeSpecial>("String");
+
+    TAlternate alternate = NFor<TAlternate>("String");
+
+    TObject parent = NFor<TObject>("Parent");
+    parent.Alternates.Returns([alternate]);
+    parent.ObjAlternates.Returns([alternate]);
+    Definitions.Add(parent);
+
+    TBase parentBase = NFor<TBase>("Parent");
+    TheObject.Parent.Returns(parentBase);
     Usages.Add(TheObject);
 
     Verifier.Verify(UsageAliased, Errors);

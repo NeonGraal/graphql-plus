@@ -20,5 +20,5 @@ public class VerifyOptionAliasedTests
   }
 
   internal override GroupedVerifier<IGqlpSchemaOption> NewGroupedVerifier()
-    => new VerifyOptionAliased(Definition, Merger, Logger);
+    => new VerifyOptionAliased(Definition, Merger, LoggerFactory);
 }

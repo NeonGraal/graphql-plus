@@ -9,9 +9,17 @@ public abstract class VerifierTypeBase
   protected IMap<string> EnumValues { get; } = new Map<string>();
   protected IMap<IGqlpDescribed> Types { get; } = new Map<IGqlpDescribed>();
 
+  protected TResult AddType<TResult>(string name)
+    where TResult : class, IGqlpNamed
+  {
+    TResult result = NFor<TResult>(name);
+    Types[name] = result;
+    return result;
+  }
+
   protected IGqlpEnum Enum(string name, [NotNull] params string[] labels)
   {
-    IGqlpEnum result = NFor<IGqlpEnum>(name);
+    IGqlpEnum result = AddType<IGqlpEnum>(name);
     IGqlpEnumLabel[] items = NForA<IGqlpEnumLabel>(labels);
     result.Items.Returns(items);
     foreach (string label in labels) {
@@ -19,7 +27,6 @@ public abstract class VerifierTypeBase
       EnumValues[label] = name;
     }
 
-    Types[name] = result;
     return result;
   }
 }

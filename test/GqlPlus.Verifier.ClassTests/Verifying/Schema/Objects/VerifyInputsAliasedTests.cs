@@ -7,5 +7,5 @@ public class VerifyInputsAliasedTests
   : AliasedVerifierBase<IGqlpInputObject>
 {
   internal override GroupedVerifier<IGqlpInputObject> NewGroupedVerifier()
-    => new VerifyInputsAliased(Definition, Merger, Logger);
+    => new VerifyInputsAliased(Definition, Merger, LoggerFactory);
 }

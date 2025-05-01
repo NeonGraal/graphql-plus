@@ -8,5 +8,5 @@ public class VerifyCategoryAliasedTests
   : AliasedVerifierBase<IGqlpSchemaCategory>
 {
   internal override GroupedVerifier<IGqlpSchemaCategory> NewGroupedVerifier()
-    => new VerifyCategoryAliased(Definition, Merger, Logger);
+    => new VerifyCategoryAliased(Definition, Merger, LoggerFactory);
 }

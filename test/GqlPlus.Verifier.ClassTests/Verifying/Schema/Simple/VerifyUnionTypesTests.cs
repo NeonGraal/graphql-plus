@@ -10,6 +10,9 @@ public class VerifyUnionTypesTests
   private readonly VerifyUnionTypes _verifier;
   private readonly IGqlpUnion _union;
 
+  protected override IGqlpUnion TheUsage => _union;
+  protected override IVerifyUsage<IGqlpUnion> Verifier => _verifier;
+
   public VerifyUnionTypesTests()
   {
     _verifier = new(Aliased.Intf, _mergeMembers.Intf);

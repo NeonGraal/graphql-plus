@@ -9,6 +9,9 @@ public class VerifyCategoryOutputTests
   private readonly VerifyCategoryOutput _verifier;
   private readonly IGqlpSchemaCategory _category;
 
+  protected override IGqlpSchemaCategory TheUsage => _category;
+  protected override IVerifyUsage<IGqlpSchemaCategory> Verifier => _verifier;
+
   public VerifyCategoryOutputTests()
   {
     _verifier = new(Aliased.Intf);
@@ -44,6 +47,18 @@ public class VerifyCategoryOutputTests
   {
     Define<IGqlpOutputObject>("Type");
 
+    Usages.Add(_category);
+
+    _verifier.Verify(UsageAliased, Errors);
+
+    Errors.ShouldBeEmpty();
+  }
+
+  [Fact]
+  public void Verify_WithAliases_ReturnsNoError()
+  {
+    Define<IGqlpOutputObject>("Type");
+    _category.Aliases.Returns(["Alias1", "Alias2"]);
     Usages.Add(_category);
 
     _verifier.Verify(UsageAliased, Errors);

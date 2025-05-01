@@ -7,5 +7,5 @@ public class VerifyEnumsAliasedTests
   : AliasedVerifierBase<IGqlpEnum>
 {
   internal override GroupedVerifier<IGqlpEnum> NewGroupedVerifier()
-    => new VerifyEnumsAliased(Definition, Merger, Logger);
+    => new VerifyEnumsAliased(Definition, Merger, LoggerFactory);
 }

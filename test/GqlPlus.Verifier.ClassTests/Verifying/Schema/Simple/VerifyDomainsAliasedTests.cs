@@ -7,5 +7,5 @@ public class VerifyDomainsAliasedTests
   : AliasedVerifierBase<IGqlpDomain>
 {
   internal override GroupedVerifier<IGqlpDomain> NewGroupedVerifier()
-    => new VerifyDomainsAliased(Definition, Merger, Logger);
+    => new VerifyDomainsAliased(Definition, Merger, LoggerFactory);
 }

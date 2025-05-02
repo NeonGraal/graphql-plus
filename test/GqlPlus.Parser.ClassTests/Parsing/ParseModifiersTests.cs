@@ -50,7 +50,7 @@ public class ParseModifiersTests
     ParseErrorA(_collectionsParser, "error");
 
     // Act
-    var result = _parseModifiers.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpModifier> result = _parseModifiers.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

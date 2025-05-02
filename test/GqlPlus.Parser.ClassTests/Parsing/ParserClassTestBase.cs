@@ -1,4 +1,5 @@
-﻿using GqlPlus.Parsing.Schema;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Parsing.Schema;
 using GqlPlus.Parsing.Schema.Simple;
 
 namespace GqlPlus.Parsing;
@@ -7,6 +8,57 @@ namespace GqlPlus.Parsing;
 public class ParserClassTestBase
   : SubstituteBase
 {
+  protected ITokenizer Tokenizer { get; } = For<ITokenizer>();
+
+  protected static IResultError<T> Error<T>(string message)
+    where T : class
+    => new ResultError<T>(new(AstNulls.At, message));
+
+  protected static IResultArrayError<T> ErrorA<T>(string message)
+    where T : class
+    => new ResultArrayError<T>(new(AstNulls.At, message));
+
+  protected void SetupError<T>(string message)
+    where T : class
+  {
+    TokenMessage errMsg = new(AstNulls.At, message);
+    ResultError<T> error = new(errMsg);
+    ResultArrayError<T> errorA = new(errMsg);
+
+    Tokenizer.Error<T>("", "").ReturnsForAnyArgs(error);
+    Tokenizer.Error<T>("", "", null).ReturnsForAnyArgs(error);
+    Tokenizer.ErrorArray<T>("", "").ReturnsForAnyArgs(errorA);
+    Tokenizer.ErrorArray<T>("", "", null).ReturnsForAnyArgs(errorA);
+  }
+
+  protected void ParseOk<T>([NotNull] Parser<T>.I parser, T? result = null)
+    where T : class, IGqlpAbbreviated
+  {
+    IResult<T> okResult = (result ?? AtFor<T>()).Ok();
+    parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(okResult);
+  }
+
+  protected void ParseOkArray<T>([NotNull] Parser<T>.IA parser, T[]? result = null)
+    where T : class, IGqlpAbbreviated
+  {
+    IResultArray<T> okResult;
+    if (result is null) {
+      okResult = new T[] { AtFor<T>() }.OkArray();
+    } else {
+      okResult = result.OkArray();
+    }
+
+    parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(okResult);
+  }
+
+  protected void ParseEmptyArray<T>([NotNull] Parser<T>.IA parser)
+    where T : class, IGqlpAbbreviated
+    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(0.EmptyArray<T>());
+
+  protected void ParseError<T>([NotNull] Parser<T>.I parser, string message)
+    where T : class, IGqlpAbbreviated
+    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(Error<T>(message));
+
   internal static T NameFor<T>(string name)
     where T : class, INameParser
   {

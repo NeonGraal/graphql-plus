@@ -19,8 +19,7 @@ public abstract class ValueParser<TValue>(
 
   public Parser<KeyValue<TValue>>.L KeyValueParser { get; } = keyValueParser;
 
-  public abstract IResult<TValue> Parse(ITokenizer tokens, string label)
-    ;
+  public abstract IResult<TValue> Parse(ITokenizer tokens, string label);
 
   public IResult<IGqlpFields<TValue>> ParseFieldValues(ITokenizer tokens, string label, char last, IGqlpFields<TValue> fields)
   {

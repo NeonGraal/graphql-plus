@@ -11,7 +11,7 @@ public static class ResultExtensions
     }
 
     return old switch {
-      IResultMessage<TValue> msg
+      IResultMessage msg
         => result.PartialArray(msg.Message),
       _ => result.OkArray(),
     };
@@ -23,7 +23,7 @@ public static class ResultExtensions
         => new ResultArrayOk<TResult>(newResult),
       IResultPartial<TValue> part when part.Result is IEnumerable<TResult> newResult
         => new ResultArrayPartial<TResult>(newResult, part.Message),
-      IResultMessage<TValue> msg
+      IResultMessage msg
         => new ResultArrayError<TResult>(msg.Message),
       _ => new ResultArrayEmpty<TResult>(),
     };
@@ -46,7 +46,7 @@ public static class ResultExtensions
 
   public static bool IsError<TValue>(this IResult<TValue> result, Action<TokenMessage>? action = null)
   {
-    if (result is IResultMessage<TValue> error) {
+    if (result is IResultMessage error) {
       action?.Invoke(error.Message);
       return true;
     }
@@ -62,7 +62,7 @@ public static class ResultExtensions
     onEmpty.ThrowIfNull();
 
 #pragma warning disable CA1062 // Validate arguments of public methods
-    return result is IResultEmpty<TValue> ? onEmpty() : result;
+    return result is IResultEmpty ? onEmpty() : result;
 #pragma warning restore CA1062 // Validate arguments of public methods
   }
 
@@ -102,11 +102,11 @@ public static class ResultExtensions
 
   public static TValue? Optional<TValue>(this IResult<TValue> result)
     => result switch {
-      ResultEmpty<TValue>
+      IResultEmpty
         => default,
       IResultValue<TValue> ok
         => ok.Result,
-      IResultMessage<TValue> message
+      IResultMessage message
         => throw new InvalidOperationException(message.Message.ToString()),
       _ => throw new InvalidOperationException("Result for " + typeof(TValue).Name + " has no message"),
     };
@@ -132,7 +132,7 @@ public static class ResultExtensions
     => result switch {
       IResultOk<TValue> ok
         => ok.Result,
-      IResultMessage<TValue> message
+      IResultMessage message
         => throw new InvalidOperationException(message.Message.ToString()),
       _ => throw new InvalidOperationException("Result for " + typeof(TValue).Name + " is empty"),
     };
@@ -149,11 +149,11 @@ public static class ResultExtensions
     }
 
     return old switch {
-      IResultOk<TValue> when result is not null
+      IResultOk when result is not null
         => result.Ok(),
-      IResultMessage<TValue> part when result is not null
+      IResultMessage part when result is not null
         => new ResultPartial<TResult>(result, part.Message),
-      IResultEmpty<TValue> when onEmpty is not null
+      IResultEmpty when onEmpty is not null
         => onEmpty(),
       _ => old.AsResult<TResult>(),
     };
@@ -171,9 +171,9 @@ public static class ResultExtensions
     }
 
     return old switch {
-      IResultOk<TValue> when result is not null
+      IResultOk when result is not null
         => result.Ok(),
-      IResultEmpty<TValue> when onEmpty is not null
+      IResultEmpty when onEmpty is not null
         => onEmpty(),
       _ => old.AsResult<TResult>(),
     };
@@ -183,7 +183,7 @@ public static class ResultExtensions
   {
     action.ThrowIfNull();
 
-    if (result is IResultMessage<TValue> message) {
+    if (result is IResultMessage message) {
 #pragma warning disable CA1062 // Validate arguments of public methods
       action.Invoke(message.Message);
 #pragma warning restore CA1062 // Validate arguments of public methods

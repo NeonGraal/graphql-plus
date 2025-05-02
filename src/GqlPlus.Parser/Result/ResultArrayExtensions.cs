@@ -5,28 +5,18 @@ namespace GqlPlus.Result;
 
 public static class ResultArrayExtensions
 {
-  public static bool IsError<T>(this IResultArray<T> result, Action<TokenMessage>? action = null)
-  {
-    if (result is IResultMessage<IEnumerable<T>> error) {
-      action?.Invoke(error.Message);
-      return true;
-    }
-
-    return false;
-  }
-
   public static bool Optional<T>(this IResultArray<T> result, [NotNullWhen(true)] Action<IEnumerable<T>> action)
   {
     action.ThrowIfNull();
 
-    if (result is ResultArrayOk<T> ok) {
+    if (result is IResultArrayOk<T> ok) {
 #pragma warning disable CA1062 // Validate arguments of public methods
       action(ok.Result);
 #pragma warning restore CA1062 // Validate arguments of public methods
       return true;
     }
 
-    if (result is ResultArrayEmpty<T>) {
+    if (result is IResultEmpty) {
       action([]);
       return true;
     }
@@ -36,11 +26,11 @@ public static class ResultArrayExtensions
 
   public static IEnumerable<T> Optional<T>(this IResultArray<T> result)
     => result switch {
-      IResultEmpty<IEnumerable<T>>
+      IResultEmpty
         => [],
       IResultValue<IEnumerable<T>> ok
         => ok.Result,
-      IResultMessage<IEnumerable<T>> message
+      IResultMessage message
         => throw new InvalidOperationException(message.Message.ToString()),
       _ => throw new InvalidOperationException("Result for " + typeof(T).Name + " has no message"),
     };

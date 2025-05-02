@@ -13,10 +13,8 @@ internal abstract class ParseFragments(
   private readonly Parser<IGqlpDirective>.LA _directives = directives;
   private readonly Parser<IGqlpSelection>.LA _object = objectParser;
 
-  protected abstract bool FragmentPrefix(ref ITokenizer tokens)
-    ;
-  protected abstract bool TypePrefix(ref ITokenizer tokens)
-    ;
+  protected abstract bool FragmentPrefix(ref ITokenizer tokens);
+  protected abstract bool TypePrefix(ref ITokenizer tokens);
 
   public IResultArray<IGqlpFragment> Parse(ITokenizer tokens, string label)
 

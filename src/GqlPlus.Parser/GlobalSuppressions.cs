@@ -6,6 +6,7 @@
 using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("Design", "CA1033:Interface methods should be callable by child types")]
+[assembly: SuppressMessage("Design", "CA1040:Avoid empty interfaces")]
 [assembly: SuppressMessage("Naming", "CA1720:Identifier contains type name")]
 [assembly: SuppressMessage("Performance", "CA1815:Override equals and operator equals on value types")]
 [assembly: SuppressMessage("Performance", "CA1819:Properties should not return arrays")]

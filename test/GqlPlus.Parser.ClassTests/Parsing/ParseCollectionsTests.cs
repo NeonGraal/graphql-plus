@@ -55,7 +55,7 @@ public class ParseCollectionsTests
     IResultArray<IGqlpModifier> result = _parseCollections.Parse(_tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeOfType<ResultArrayOk<IGqlpModifier>>()
+    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpModifier>>()
       .Required().ShouldHaveSingleItem()
       .ShouldBeOfType<ModifierAst>()
       .ShouldSatisfyAllConditions(
@@ -100,14 +100,11 @@ public class ParseCollectionsTests
     _tokenizer.Take('$').Returns(true);
     _tokenizer.Identifier(out Arg.Any<string?>()).Returns(false);
     _tokenizer.At.Returns(AstNulls.At);
-    _tokenizer.PartialArray(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<Func<List<IGqlpModifier>>>())
-        .Returns(Substitute.For<IResultArray<IGqlpModifier>>());
 
     // Act
     IResultArray<IGqlpModifier> result = _parseCollections.Parse(_tokenizer, "testLabel");
 
     // Assert
-    result.ShouldNotBeNull();
     result.ShouldBeAssignableTo<IResultArray<IGqlpModifier>>();
   }
 }

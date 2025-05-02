@@ -10,8 +10,8 @@ public class ParseDomainClassTests : ParserClassTestBase
     Token.ITokenizer tokens = Tokens("{ ");
 
     ISimpleName simpleName = NameFor<ISimpleName>(name);
-    Parser<NullAst>.DA param = ArrayParserFor<NullAst>();
-    Parser<string>.DA aliases = ArrayParserFor<string>();
+    Parser<NullAst>.DA param = ParserAFor<NullAst>();
+    Parser<string>.DA aliases = ParserAFor<string>();
     Parser<IOptionParser<NullOption>, NullOption>.D option = OptionParserFor<NullOption>();
     Parser<DomainDefinition>.D definition = ParserFor(out Parser<DomainDefinition>.I? definitionParser);
     definitionParser.Parse(tokens, default!)

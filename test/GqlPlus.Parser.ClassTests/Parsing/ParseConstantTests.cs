@@ -14,7 +14,7 @@ public class ParseConstantTests
   {
     Parser<IGqlpFieldKey>.D fieldKeyParser = ParserFor(out _fieldKeyParser);
     Parser<KeyValue<IGqlpConstant>>.D keyValueParser = ParserFor(out _keyValueParser);
-    Parser<IGqlpConstant>.DA listParser = ArrayParserFor(out _listParser);
+    Parser<IGqlpConstant>.DA listParser = ParserAFor(out _listParser);
     Parser<IGqlpFields<IGqlpConstant>>.D objectParser = ParserFor(out _objectParser);
 
     _parseConstant = new ParseConstant(fieldKeyParser, keyValueParser, listParser, objectParser);
@@ -42,7 +42,7 @@ public class ParseConstantTests
   public void Parse_ShouldReturnListResult_WhenListParserSucceeds()
   {
     // Arrange
-    ParseOkArray(_listParser);
+    ParseOkA(_listParser);
 
     // Act
     IResult<IGqlpConstant> result = _parseConstant.Parse(Tokenizer, "testLabel");
@@ -56,14 +56,14 @@ public class ParseConstantTests
       );
   }
 
-  [Fact]
-  public void Parse_ShouldReturnObjectResult_WhenListParserFailsAndObjectParserSucceeds()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnObjectResult_WhenListParserFailsAndObjectParserSucceeds(string fieldName)
   {
     // Arrange
-    ParseEmptyArray(_listParser);
+    ParseEmptyA(_listParser);
 
     IGqlpFields<IGqlpConstant> objectResult = Substitute.For<IGqlpFields<IGqlpConstant>>();
-    FieldKeyAst fieldKey = new(AstNulls.At, "testField");
+    FieldKeyAst fieldKey = new(AstNulls.At, fieldName);
     IGqlpConstant constant = AtFor<IGqlpConstant>();
     Dictionary<IGqlpFieldKey, IGqlpConstant> dict = new() { [fieldKey] = constant };
     objectResult.GetEnumerator().Returns(dict.GetEnumerator());

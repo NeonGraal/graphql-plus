@@ -46,23 +46,26 @@ public class ParserClassTestBase
     where T : class, IGqlpAbbreviated
     => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(0.Empty<T>());
 
-  protected void ParseOkArray<T>([NotNull] Parser<T>.IA parser)
+  protected void ParseOkA<T>([NotNull] Parser<T>.IA parser)
     where T : class, IGqlpAbbreviated
   {
     IResultArray<T> okResult = new T[] { AtFor<T>() }.OkArray();
     parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(okResult);
   }
 
-  protected void ParseOkArray<T>([NotNull] Parser<T>.IA parser, T[] result)
+  protected void ParseOkA<T>([NotNull] Parser<T>.IA parser, T[] result)
     => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(result.OkArray());
 
-  protected void ParseEmptyArray<T>([NotNull] Parser<T>.IA parser)
-    where T : class, IGqlpAbbreviated
+  protected void ParseEmptyA<T>([NotNull] Parser<T>.IA parser)
     => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(0.EmptyArray<T>());
 
   protected void ParseError<T>([NotNull] Parser<T>.I parser, string message)
-    where T : class, IGqlpAbbreviated
+    where T : class
     => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(Error<T>(message));
+
+  protected void ParseErrorA<T>([NotNull] Parser<T>.IA parser, string message)
+    where T : class
+    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(ErrorA<T>(message));
 
   internal static T NameFor<T>(string name)
     where T : class, INameParser
@@ -84,9 +87,6 @@ public class ParserClassTestBase
     return result;
   }
 
-  protected static Parser<T>.D ParserFor<T>()
-    => ParserFor(out Parser<T>.I _);
-
   protected static Parser<T>.D ParserFor<T>(out Parser<T>.I parser)
   {
     parser = For<Parser<T>.I>();
@@ -94,6 +94,34 @@ public class ParserClassTestBase
       .ReturnsForAnyArgs(0.Empty<T>());
 
     Parser<T>.D result = For<Parser<T>.D>();
+    result().Returns(parser);
+
+    return result;
+  }
+
+  protected static Parser<T>.DA ParserAFor<T>()
+    => ParserAFor(out Parser<T>.IA _);
+
+  protected static Parser<T>.DA ParserAFor<T>(out Parser<T>.IA parser)
+  {
+    parser = For<Parser<T>.IA>();
+    parser.Parse(default!, default!)
+      .ReturnsForAnyArgs(0.EmptyArray<T>());
+
+    Parser<T>.DA result = For<Parser<T>.DA>();
+    result().Returns(parser);
+
+    return result;
+  }
+
+  protected static ParserArray<TInterface, T>.DA ParserAFor<TInterface, T>(out Parser<T>.IA parser)
+    where TInterface : class, Parser<T>.IA
+  {
+    parser = For<TInterface>();
+    parser.Parse(default!, default!)
+      .ReturnsForAnyArgs(0.EmptyArray<T>());
+
+    ParserArray<TInterface, T>.DA result = For<ParserArray<TInterface, T>.DA>();
     result().Returns(parser);
 
     return result;
@@ -141,21 +169,6 @@ public class ParserClassTestBase
       .ReturnsForAnyArgs(0.Empty<T>());
 
     Parser<IEnumParser<T>, T>.D result = For<Parser<IEnumParser<T>, T>.D>();
-    result().Returns(parser);
-
-    return result;
-  }
-
-  protected static Parser<T>.DA ArrayParserFor<T>()
-    => ArrayParserFor(out Parser<T>.IA _);
-
-  protected static Parser<T>.DA ArrayParserFor<T>(out Parser<T>.IA parser)
-  {
-    parser = For<Parser<T>.IA>();
-    parser.Parse(default!, default!)
-      .ReturnsForAnyArgs(0.EmptyArray<T>());
-
-    Parser<T>.DA result = For<Parser<T>.DA>();
     result().Returns(parser);
 
     return result;

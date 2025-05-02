@@ -8,40 +8,40 @@ public class ParseFieldKeyTests
   public ParseFieldKeyTests()
     => _parseFieldKey = new ParseFieldKey();
 
-  [Fact]
-  public void Parse_ShouldReturnFieldKeyResult_WhenNumberTokenIsParsed()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnFieldKeyResult_WhenNumberTokenIsParsed(decimal value)
   {
     // Arrange
-    Tokenizer.Number(out decimal number).Returns(OutNumber(42m));
+    Tokenizer.Number(out decimal _).Returns(OutNumber(value));
 
     // Act
     IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpFieldKey>>()
-      .Required().Number.ShouldNotBeNull();
+      .Required().Number.ShouldBe(value);
   }
 
-  [Fact]
-  public void Parse_ShouldReturnFieldKeyResult_WhenStringTokenIsParsed()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnFieldKeyResult_WhenStringTokenIsParsed(string contents)
   {
     // Arrange
-    Tokenizer.String(out string? contents).Returns(OutString("testString"));
+    Tokenizer.String(out string? _).Returns(OutString(contents));
 
     // Act
     IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpFieldKey>>()
-      .Required().Text.ShouldBe("testString");
+      .Required().Text.ShouldBe(contents);
   }
 
-  [Fact]
-  public void Parse_ShouldReturnFieldKeyResult_WhenEnumTypeAndLabelAreParsed()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnFieldKeyResult_WhenEnumTypeAndLabelAreParsed(string enumType, string enumLabel)
   {
     // Arrange
     Tokenizer.Take('.').Returns(true);
-    Tokenizer.Identifier(out string? enumType).Returns(OutString("EnumType"), OutString("EnumLabel"));
+    Tokenizer.Identifier(out string? _).Returns(OutString(enumType), OutString(enumLabel));
 
     // Act
     IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, "testLabel");
@@ -49,16 +49,16 @@ public class ParseFieldKeyTests
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpFieldKey>>()
       .Required().ShouldSatisfyAllConditions(
-        f => f.EnumType.ShouldBe("EnumType"),
-        f => f.EnumLabel.ShouldBe("EnumLabel")
+        f => f.EnumType.ShouldBe(enumType),
+        f => f.EnumLabel.ShouldBe(enumLabel)
       );
   }
 
-  [Fact]
-  public void Parse_ShouldReturnError_WhenInvalidEnumValue()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenInvalidEnumValue(string enumType)
   {
     // Arrange
-    Tokenizer.Identifier(out string? enumType).Returns(OutString("EnumType"), OutFail);
+    Tokenizer.Identifier(out string? _).Returns(OutString(enumType), OutFail);
     Tokenizer.Take('.').Returns(true);
     SetupError<IGqlpFieldKey>("enum value after '.'");
 

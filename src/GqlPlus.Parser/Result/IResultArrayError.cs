@@ -1,3 +1,3 @@
 ﻿namespace GqlPlus.Result;
 
-public interface IResultArrayError<T> : IResultArray<T>, IResultError<IEnumerable<T>> { }
+public interface IResultArrayError<T> : IResultArray<T>, IResultError { }

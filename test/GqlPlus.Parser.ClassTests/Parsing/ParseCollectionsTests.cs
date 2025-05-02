@@ -37,12 +37,12 @@ public class ParseCollectionsTests
       .Kind.ShouldBe(ModifierKind.List);
   }
 
-  [Fact]
-  public void Parse_ShouldReturnDictModifier_WhenDictModifierProvided()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnDictModifier_WhenDictModifierProvided(string value)
   {
     // Arrange
     Tokenizer.Take('[').Returns(true, false);
-    Tokenizer.Identifier(out string? contents).Returns(OutString("string"));
+    Tokenizer.Identifier(out string? contents).Returns(OutString(value));
     Tokenizer.Take('?').Returns(true, false);
     Tokenizer.Take(']').Returns(true);
     Tokenizer.At.Returns(AstNulls.At);
@@ -56,18 +56,18 @@ public class ParseCollectionsTests
       .ShouldBeOfType<ModifierAst>()
       .ShouldSatisfyAllConditions(
         x => x.Kind.ShouldBe(ModifierKind.Dict),
-        x => x.Key.ShouldBe("string"),
+        x => x.Key.ShouldBe(value),
         x => x.IsOptional.ShouldBeTrue()
       );
   }
 
-  [Fact]
-  public void Parse_ShouldReturnParamModifier_WhenParamModifierProvided()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnParamModifier_WhenParamModifierProvided(string paramName)
   {
     // Arrange
     Tokenizer.Take('[').Returns(true, false);
     Tokenizer.Take('$').Returns(true);
-    Tokenizer.Identifier(out string? _).Returns(OutString("paramName"));
+    Tokenizer.Identifier(out string? _).Returns(OutString(paramName));
     Tokenizer.Take(']').Returns(true);
     Tokenizer.At.Returns(AstNulls.At);
 
@@ -80,7 +80,7 @@ public class ParseCollectionsTests
       .ShouldBeOfType<ModifierAst>()
       .ShouldSatisfyAllConditions(
         x => x.Kind.ShouldBe(ModifierKind.Param),
-        x => x.Key.ShouldBe("paramName"),
+        x => x.Key.ShouldBe(paramName),
         x => x.IsOptional.ShouldBeFalse()
       );
   }

@@ -1,7 +1,4 @@
-﻿using AutoFixture.Xunit3;
-using NSubstitute;
-
-namespace GqlPlus.Parsing;
+﻿namespace GqlPlus.Parsing;
 
 public class ParseDefaultTests
   : ParserClassTestBase

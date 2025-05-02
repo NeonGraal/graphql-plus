@@ -64,7 +64,7 @@ public class ParseArgTests
     Tokenizer.Take(')').Returns(true);
 
     ParseOk(_fieldKeyParser, fieldKey);
-    ParseOk(_argumentParser, arg);
+    ParseEmpty(_argumentParser);
 
     // Act
     IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");
@@ -82,7 +82,7 @@ public class ParseArgTests
     Tokenizer.Take(')').Returns(false);
 
     ParseOk(_fieldKeyParser, fieldKey);
-    ParseOk(_argumentParser, arg);
+    ParseEmpty(_argumentParser);
 
     // Act
     IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");

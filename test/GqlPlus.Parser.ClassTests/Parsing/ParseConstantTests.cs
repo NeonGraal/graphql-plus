@@ -67,7 +67,7 @@ public class ParseConstantTests
     IGqlpConstant constant = AtFor<IGqlpConstant>();
     Dictionary<IGqlpFieldKey, IGqlpConstant> dict = new() { [fieldKey] = constant };
     objectResult.GetEnumerator().Returns(dict.GetEnumerator());
-    _objectParser.Parse(Tokenizer, "testLabel").Returns(objectResult.Ok());
+    ParseOk(_objectParser, objectResult);
 
     // Act
     IResult<IGqlpConstant> result = _parseConstant.Parse(Tokenizer, "testLabel");

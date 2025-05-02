@@ -1,19 +1,18 @@
 ﻿namespace GqlPlus.Parsing;
 
 public class ParseCollectionsTests
-  : SubstituteBase
+  : ParserClassTestBase
 {
   private readonly ParseCollections _parseCollections = new();
-  private readonly ITokenizer _tokenizer = For<ITokenizer>();
 
   [Fact]
   public void Parse_ShouldReturnEmptyArray_WhenNoModifiersProvided()
   {
     // Arrange
-    _tokenizer.Take('[').Returns(false);
+    Tokenizer.Take('[').Returns(false);
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseCollections.Parse(_tokenizer, "testLabel");
+    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeOfType<ResultArrayOk<IGqlpModifier>>()
@@ -24,12 +23,12 @@ public class ParseCollectionsTests
   public void Parse_ShouldReturnListModifier_WhenListModifierProvided()
   {
     // Arrange
-    _tokenizer.Take('[').Returns(true, false);
-    _tokenizer.Take(']').Returns(true);
-    _tokenizer.At.Returns(AstNulls.At);
+    Tokenizer.Take('[').Returns(true, false);
+    Tokenizer.Take(']').Returns(true);
+    Tokenizer.At.Returns(AstNulls.At);
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseCollections.Parse(_tokenizer, "testLabel");
+    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeOfType<ResultArrayOk<IGqlpModifier>>()
@@ -42,17 +41,14 @@ public class ParseCollectionsTests
   public void Parse_ShouldReturnDictModifier_WhenDictModifierProvided()
   {
     // Arrange
-    _tokenizer.Take('[').Returns(true, false);
-    _tokenizer.Identifier(out Arg.Any<string?>()).Returns(x => {
-      x[0] = "string";
-      return true;
-    });
-    _tokenizer.Take('?').Returns(true, false);
-    _tokenizer.Take(']').Returns(true);
-    _tokenizer.At.Returns(AstNulls.At);
+    Tokenizer.Take('[').Returns(true, false);
+    Tokenizer.Identifier(out string? contents).Returns(OutString("string"));
+    Tokenizer.Take('?').Returns(true, false);
+    Tokenizer.Take(']').Returns(true);
+    Tokenizer.At.Returns(AstNulls.At);
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseCollections.Parse(_tokenizer, "testLabel");
+    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpModifier>>()
@@ -69,17 +65,14 @@ public class ParseCollectionsTests
   public void Parse_ShouldReturnParamModifier_WhenParamModifierProvided()
   {
     // Arrange
-    _tokenizer.Take('[').Returns(true, false);
-    _tokenizer.Take('$').Returns(true);
-    _tokenizer.Identifier(out Arg.Any<string?>()).Returns(x => {
-      x[0] = "paramName";
-      return true;
-    });
-    _tokenizer.Take(']').Returns(true);
-    _tokenizer.At.Returns(AstNulls.At);
+    Tokenizer.Take('[').Returns(true, false);
+    Tokenizer.Take('$').Returns(true);
+    Tokenizer.Identifier(out string? _).Returns(OutString("paramName"));
+    Tokenizer.Take(']').Returns(true);
+    Tokenizer.At.Returns(AstNulls.At);
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseCollections.Parse(_tokenizer, "testLabel");
+    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeOfType<ResultArrayOk<IGqlpModifier>>()
@@ -96,13 +89,13 @@ public class ParseCollectionsTests
   public void Parse_ShouldReturnPartialArray_WhenInvalidTokenSequence()
   {
     // Arrange
-    _tokenizer.Take('[').Returns(true);
-    _tokenizer.Take('$').Returns(true);
-    _tokenizer.Identifier(out Arg.Any<string?>()).Returns(false);
-    _tokenizer.At.Returns(AstNulls.At);
+    Tokenizer.Take('[').Returns(true);
+    Tokenizer.Take('$').Returns(true);
+    Tokenizer.Identifier(out string? _).Returns(false);
+    Tokenizer.At.Returns(AstNulls.At);
 
     // Act
-    IResultArray<IGqlpModifier> result = _parseCollections.Parse(_tokenizer, "testLabel");
+    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeAssignableTo<IResultArray<IGqlpModifier>>();

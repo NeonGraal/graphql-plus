@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Parsing.Schema;
 using GqlPlus.Parsing.Schema.Simple;
+using NSubstitute.Core;
 
 namespace GqlPlus.Parsing;
 
@@ -31,25 +32,29 @@ public class ParserClassTestBase
     Tokenizer.ErrorArray<T>("", "", null).ReturnsForAnyArgs(errorA);
   }
 
-  protected void ParseOk<T>([NotNull] Parser<T>.I parser, T? result = null)
+  protected void ParseOk<T>([NotNull] Parser<T>.I parser)
     where T : class, IGqlpAbbreviated
   {
-    IResult<T> okResult = (result ?? AtFor<T>()).Ok();
+    IResult<T> okResult = AtFor<T>().Ok();
     parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(okResult);
   }
 
-  protected void ParseOkArray<T>([NotNull] Parser<T>.IA parser, T[]? result = null)
+  protected void ParseOk<T>([NotNull] Parser<T>.I parser, T result)
+    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(result.Ok());
+
+  protected void ParseEmpty<T>([NotNull] Parser<T>.I parser)
+    where T : class, IGqlpAbbreviated
+    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(0.Empty<T>());
+
+  protected void ParseOkArray<T>([NotNull] Parser<T>.IA parser)
     where T : class, IGqlpAbbreviated
   {
-    IResultArray<T> okResult;
-    if (result is null) {
-      okResult = new T[] { AtFor<T>() }.OkArray();
-    } else {
-      okResult = result.OkArray();
-    }
-
+    IResultArray<T> okResult = new T[] { AtFor<T>() }.OkArray();
     parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(okResult);
   }
+
+  protected void ParseOkArray<T>([NotNull] Parser<T>.IA parser, T[] result)
+    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(result.OkArray());
 
   protected void ParseEmptyArray<T>([NotNull] Parser<T>.IA parser)
     where T : class, IGqlpAbbreviated
@@ -155,4 +160,19 @@ public class ParserClassTestBase
 
     return result;
   }
+
+  protected static bool OutFail(CallInfo _)
+    => false;
+
+  protected static Func<CallInfo, bool> OutNumber(decimal value)
+    => c => {
+      c[0] = value;
+      return true;
+    };
+
+  protected static Func<CallInfo, bool> OutString(string value)
+    => c => {
+      c[0] = value;
+      return true;
+    };
 }

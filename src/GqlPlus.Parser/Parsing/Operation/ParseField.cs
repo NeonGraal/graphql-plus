@@ -37,18 +37,21 @@ internal class ParseField(
       result = new FieldAst(at, name) { FieldAlias = alias };
     }
 
-    _argument.I.Parse(tokens, "Arg").Required(argument => result.Arg = (ArgAst)argument);
+    _argument.I.Parse(tokens, "Arg").Required(argument => result.Arg = argument);
 
     IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, label);
-    if (!modifiers.Optional(value => result.Modifiers = value.ArrayOf<ModifierAst>())) {
-      return modifiers.AsResult<IGqlpField>();
+    if (!modifiers.Optional(value => result.Modifiers = [.. value])) {
+      return modifiers.AsPartial<IGqlpField>(result);
     }
 
-    _directives.Parse(tokens, label).WithResult(directives => result.Directives = [.. directives]);
+    IResultArray<IGqlpDirective> directives = _directives.Parse(tokens, label);
+    if (!directives.Optional(value => result.Directives = [.. value])) {
+      return directives.AsPartial<IGqlpField>(result);
+    }
 
     IResultArray<IGqlpSelection> selections = _object.Parse(tokens, label);
     return !selections.Optional(value => result.Selections = [.. value])
-      ? selections.AsResult<IGqlpField>()
+      ? selections.AsPartial<IGqlpField>(result)
       : result.Ok<IGqlpField>();
   }
 }

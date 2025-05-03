@@ -19,8 +19,7 @@ public class ParseDirectivesTests
   {
     // Arrange
     PrefixReturns('@', OutStringAt(directiveName), OutStringAt(null));
-    IGqlpArg argument = For<IGqlpArg>();
-    ParseOk(_argumentParser, argument);
+    IGqlpArg argument = ParseOk(_argumentParser);
 
     // Act
     IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, "testLabel");

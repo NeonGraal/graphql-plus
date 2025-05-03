@@ -9,7 +9,7 @@ internal sealed record class FieldAst(
   , IGqlpField
 {
   public string? FieldAlias { get; init; }
-  public ArgAst? Arg { get; set; }
+  public IGqlpArg? Arg { get; set; }
   public IGqlpModifier[] Modifiers { get; set; } = [];
   public IGqlpSelection[] Selections { get; set; } = [];
 

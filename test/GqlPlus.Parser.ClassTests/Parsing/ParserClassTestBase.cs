@@ -60,9 +60,13 @@ public class ParserClassTestBase
     Tokenizer.PartialArray<T>("", "", () => [result]).ReturnsForAnyArgs(partialA);
   }
 
-  protected void ParseOk<T>([NotNull] Parser<T>.I parser)
-    where T : class, IGqlpAbbreviated
-    => ParseOk<T>(parser, AtFor<T>());
+  protected T ParseOk<T>([NotNull] Parser<T>.I parser)
+    where T : class, IGqlpError
+  {
+    T result = AtFor<T>();
+    ParseOk(parser, result);
+    return result;
+  }
 
   protected void ParseOk<T>([NotNull] Parser<T>.I parser, T result)
     => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(result.Ok());
@@ -71,9 +75,20 @@ public class ParserClassTestBase
     where T : class
     => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(0.Empty<T>());
 
-  protected void ParseOkA<T>([NotNull] Parser<T>.IA parser)
-    where T : class, IGqlpAbbreviated
-    => ParseOkA(parser, [AtFor<T>()]);
+  protected T[] ParseOkA<T>([NotNull] Parser<T>.IA parser)
+    where T : class, IGqlpError
+  {
+    T[] result = [AtFor<T>()];
+    ParseOkA(parser, result);
+    return result;
+  }
+
+  protected T[] ParseOkA<T>([NotNull] Parser<T>.IA parser, T item)
+  {
+    T[] result = [item];
+    ParseOkA(parser, result);
+    return result;
+  }
 
   protected void ParseOkA<T>([NotNull] Parser<T>.IA parser, T[] result)
     => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(result.OkArray());
@@ -90,7 +105,7 @@ public class ParserClassTestBase
     => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(ErrorA<T>(message));
 
   protected void ParseOkField<T>([NotNull] Parser<IGqlpFields<T>>.I parser, string fieldName)
-    where T : class, IGqlpAbbreviated
+    where T : class, IGqlpError
   {
     IGqlpFields<T> objectResult = For<IGqlpFields<T>>();
     FieldKeyAst fieldKey = new(AstNulls.At, fieldName);
@@ -113,10 +128,13 @@ public class ParserClassTestBase
   }
 
   protected static T AtFor<T>()
-    where T : class, IGqlpAbbreviated
+    where T : class, IGqlpError
   {
     T result = EFor<T>();
-    result.At.Returns(AstNulls.At);
+    if (typeof(T).IsAssignableTo(typeof(IGqlpAbbreviated))) {
+      ((IGqlpAbbreviated)result).At.Returns(AstNulls.At);
+    }
+
     return result;
   }
 

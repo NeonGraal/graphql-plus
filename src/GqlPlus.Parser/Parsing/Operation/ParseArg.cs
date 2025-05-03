@@ -50,7 +50,7 @@ internal class ParseArg(
 
   private ArgAst ParseArgValues(ITokenizer tokens, ArgAst initial)
   {
-    TokenAt at = initial.At;
+    ITokenAt at = initial.At;
     List<IGqlpArg> values = [initial];
     while (tokens.Take(',')) {
       _argument.I.Parse(tokens, "Arg").Required(values.Add);

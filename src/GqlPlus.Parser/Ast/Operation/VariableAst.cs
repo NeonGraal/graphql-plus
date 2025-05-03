@@ -4,7 +4,7 @@ using GqlPlus.Token;
 namespace GqlPlus.Ast.Operation;
 
 internal sealed record class VariableAst(
-  TokenAt At,
+  ITokenAt At,
   string Identifier
 ) : AstDirectives(At, Identifier)
   , IEquatable<VariableAst>

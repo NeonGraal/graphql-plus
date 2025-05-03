@@ -104,7 +104,11 @@ $tests = Get-ChildItem . -Recurse -Filter "TestResults*.trx" | ForEach-Object {
   $allTests.error += $counts.error
 
   if ($NoCoverage -and $summary.outcome -eq "Failed") {
-    $allErrors[$name] = $summary.RunInfos.RunInfo | ForEach-Object { ($_.Text -split '[[\]]')[2].Trim() }
+    $allErrors[$name] = $summary.RunInfos.RunInfo | Where-Object {
+      $_.outcome -eq "Failed" -or $_.outcome -eq "Error"
+    } | ForEach-Object { 
+      ($_.Text -split '[[\]]')[2].Trim() 
+    }
   }
 
   @{label = $name; failed = [int]$counts.failed; error = [int]$counts.error; passed = [int]$counts.passed; skipped = $skipped }

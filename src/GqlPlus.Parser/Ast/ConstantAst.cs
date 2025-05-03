@@ -3,7 +3,7 @@
 namespace GqlPlus.Ast;
 
 internal sealed record class ConstantAst(
-  TokenAt At
+  ITokenAt At
 ) : AstValue<IGqlpConstant>(At)
   , IEquatable<ConstantAst>
   , IGqlpConstant

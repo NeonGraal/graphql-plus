@@ -4,7 +4,7 @@ using GqlPlus.Token;
 namespace GqlPlus.Ast.Schema.Objects;
 
 internal sealed record class InputParamAst(
-  TokenAt At,
+  ITokenAt At,
   IGqlpInputBase Type
 ) : AstAbbreviated(At)
   , IEquatable<InputParamAst>

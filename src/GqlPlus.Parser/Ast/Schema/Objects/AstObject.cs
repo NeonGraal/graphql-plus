@@ -4,7 +4,7 @@ using GqlPlus.Token;
 namespace GqlPlus.Ast.Schema.Objects;
 
 internal abstract record class AstObject<TObjBase, TObjField, TObjAlt>(
-  TokenAt At,
+  ITokenAt At,
   string Name,
   string Description
 ) : AstType<IGqlpObjBase>(At, Name, Description)

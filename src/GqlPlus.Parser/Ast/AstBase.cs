@@ -3,7 +3,7 @@
 namespace GqlPlus.Ast;
 
 internal abstract record class AstBase(
-  TokenAt At
+  ITokenAt At
 ) : IGqlpError
 {
   internal TokenMessage Error(string message)

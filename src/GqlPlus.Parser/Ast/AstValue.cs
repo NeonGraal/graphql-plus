@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Ast;
 
-internal abstract record class AstValue<TValue>(TokenAt At)
+internal abstract record class AstValue<TValue>(ITokenAt At)
   : AstAbbreviated(At)
   , IEquatable<AstValue<TValue>>
   , IGqlpValue<TValue>
@@ -14,10 +14,10 @@ internal abstract record class AstValue<TValue>(TokenAt At)
   IEnumerable<TValue> IGqlpValue<TValue>.Values => Values;
   IGqlpFields<TValue> IGqlpValue<TValue>.Fields => Fields;
 
-  internal AstValue(TokenAt at, IEnumerable<TValue> values)
+  internal AstValue(ITokenAt at, IEnumerable<TValue> values)
     : this(at)
     => Values = [.. values];
-  internal AstValue(TokenAt at, IGqlpFields<TValue> fields)
+  internal AstValue(ITokenAt at, IGqlpFields<TValue> fields)
     : this(at)
     => Fields = fields;
 

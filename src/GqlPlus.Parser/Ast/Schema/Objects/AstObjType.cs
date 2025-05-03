@@ -4,7 +4,7 @@ using GqlPlus.Token;
 namespace GqlPlus.Ast.Schema.Objects;
 
 internal abstract record class AstObjType(
-  TokenAt At,
+  ITokenAt At,
   string Name,
   string Description
 ) : AstNamed(At, Name, Description)

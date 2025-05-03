@@ -9,8 +9,8 @@ public class ParseArgTests
   private readonly Parser<IGqlpFieldKey>.I _fieldKeyParser;
   private readonly Parser<IGqlpArg>.I _argumentParser;
 
-  private readonly IGqlpFieldKey fieldKey = AtFor<IGqlpFieldKey>();
-  private readonly IGqlpArg arg = AtFor<IGqlpArg>();
+  private readonly IGqlpFieldKey _fieldKey = AtFor<IGqlpFieldKey>();
+  private readonly IGqlpArg _arg = AtFor<IGqlpArg>();
 
   public ParseArgTests()
   {
@@ -19,8 +19,8 @@ public class ParseArgTests
 
     _parseArg = new ParseArg(fieldKeyParser, argumentParser);
 
-    fieldKey.Text.Returns("fieldKey");
-    arg.Variable.Returns("arg");
+    _fieldKey.Text.Returns("fieldKey");
+    _arg.Variable.Returns("arg");
   }
 
   [Fact]
@@ -45,8 +45,8 @@ public class ParseArgTests
     Tokenizer.Take(':').Returns(true);
     Tokenizer.Take(')').Returns(true);
 
-    ParseOk(_fieldKeyParser, fieldKey);
-    ParseOk(_argumentParser, arg);
+    ParseOk(_fieldKeyParser, _fieldKey);
+    ParseOk(_argumentParser, _arg);
 
     // Act
     IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");
@@ -63,7 +63,7 @@ public class ParseArgTests
     Tokenizer.Take('(').Returns(true);
     Tokenizer.Take(')').Returns(true);
 
-    ParseOk(_fieldKeyParser, fieldKey);
+    ParseOk(_fieldKeyParser, _fieldKey);
     ParseEmpty(_argumentParser);
 
     // Act
@@ -81,7 +81,7 @@ public class ParseArgTests
     Tokenizer.Take('(').Returns(true);
     Tokenizer.Take(')').Returns(false);
 
-    ParseOk(_fieldKeyParser, fieldKey);
+    ParseOk(_fieldKeyParser, _fieldKey);
     ParseEmpty(_argumentParser);
 
     // Act

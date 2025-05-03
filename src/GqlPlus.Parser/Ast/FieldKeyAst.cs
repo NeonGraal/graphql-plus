@@ -4,8 +4,9 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast;
 
-internal sealed record class FieldKeyAst(TokenAt At)
-  : AstAbbreviated(At)
+internal sealed record class FieldKeyAst(
+  ITokenAt At
+) : AstAbbreviated(At)
   , IComparable<FieldKeyAst>
   , IGqlpFieldKey
 {

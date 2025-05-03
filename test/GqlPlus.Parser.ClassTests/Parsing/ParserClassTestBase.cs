@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Parsing.Schema;
+using GqlPlus.Parsing.Schema.Objects;
 using GqlPlus.Parsing.Schema.Simple;
 using NSubstitute.Core;
 
@@ -55,7 +56,7 @@ public class ParserClassTestBase
     => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(result.Ok());
 
   protected void ParseEmpty<T>([NotNull] Parser<T>.I parser)
-    where T : class, IGqlpAbbreviated
+    where T : class
     => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(0.Empty<T>());
 
   protected void ParseOkA<T>([NotNull] Parser<T>.IA parser)
@@ -75,6 +76,17 @@ public class ParserClassTestBase
   protected void ParseErrorA<T>([NotNull] Parser<T>.IA parser, string message)
     where T : class
     => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(ErrorA<T>(message));
+
+  protected void ParseOkField<T>([NotNull] Parser<IGqlpFields<T>>.I parser, string fieldName)
+    where T : class, IGqlpAbbreviated
+  {
+    IGqlpFields<T> objectResult = For<IGqlpFields<T>>();
+    FieldKeyAst fieldKey = new(AstNulls.At, fieldName);
+    T value = AtFor<T>();
+    Dictionary<IGqlpFieldKey, T> dict = new() { [fieldKey] = value };
+    objectResult.GetEnumerator().Returns(dict.GetEnumerator());
+    ParseOk(parser, objectResult);
+  }
 
   internal static T NameFor<T>(string name)
     where T : class, INameParser
@@ -195,6 +207,13 @@ public class ParserClassTestBase
   protected static Func<CallInfo, bool> OutString(string value)
     => c => {
       c[0] = value;
+      return true;
+    };
+
+  protected static Func<CallInfo, bool> OutStringAt(string value, int first = 1)
+    => c => {
+      c[first] = value;
+      c[first + 1] = AstNulls.At;
       return true;
     };
 }

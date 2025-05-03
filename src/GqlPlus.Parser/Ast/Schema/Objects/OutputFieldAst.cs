@@ -4,7 +4,7 @@ using GqlPlus.Token;
 namespace GqlPlus.Ast.Schema.Objects;
 
 internal sealed record class OutputFieldAst(
-  TokenAt At,
+  ITokenAt At,
   string Name,
   string Description,
   IGqlpOutputBase BaseType

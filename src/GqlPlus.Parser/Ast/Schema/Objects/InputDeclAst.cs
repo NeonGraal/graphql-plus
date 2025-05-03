@@ -4,7 +4,7 @@ using GqlPlus.Token;
 namespace GqlPlus.Ast.Schema.Objects;
 
 internal sealed record class InputDeclAst(
-  TokenAt At,
+  ITokenAt At,
   string Name,
   string Description
 ) : AstObject<IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate>(At, Name, Description)
@@ -13,6 +13,7 @@ internal sealed record class InputDeclAst(
   internal override string Abbr => "In";
   public override string Label => "Input";
 
-  public InputDeclAst(TokenAt at, string name)
-    : this(at, name, "") { }
+  public InputDeclAst(ITokenAt at, string name)
+    : this(at, name, "")
+  { }
 }

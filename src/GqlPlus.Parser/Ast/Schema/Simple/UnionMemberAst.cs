@@ -4,7 +4,7 @@ using GqlPlus.Token;
 namespace GqlPlus.Ast.Schema.Simple;
 
 internal sealed record class UnionMemberAst(
-  TokenAt At,
+  ITokenAt At,
   string Name,
   string Description
 ) : AstNamed(At, Name, Description)

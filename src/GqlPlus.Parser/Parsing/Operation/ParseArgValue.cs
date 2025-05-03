@@ -40,7 +40,7 @@ internal class ParseArgValue(
 
       IResultArray<IGqlpArg> list = ListParser.Parse(tokens, label);
       if (!list.IsEmpty()) {
-        return list.Select(value => new ArgAst(at, value.ArrayOf<ArgAst>()) as IGqlpArg);
+        return list.Select(value => new ArgAst(at, value) as IGqlpArg);
       }
 
       IResult<IGqlpFields<IGqlpArg>> fields = ObjectParser.Parse(tokens, label);
@@ -52,7 +52,7 @@ internal class ParseArgValue(
     }
 
     return _constant.Parse(tokens, "Constant").MapOk(
-      constant => new ArgAst((ConstantAst)constant).Ok<IGqlpArg>(),
+      constant => new ArgAst(constant).Ok<IGqlpArg>(),
       () => 0.Empty<IGqlpArg>());
   }
 }

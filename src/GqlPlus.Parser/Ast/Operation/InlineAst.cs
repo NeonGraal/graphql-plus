@@ -4,7 +4,7 @@ using GqlPlus.Token;
 namespace GqlPlus.Ast.Operation;
 
 internal sealed record class InlineAst(
-  TokenAt At,
+  ITokenAt At,
   params IGqlpSelection[] Selections
 ) : AstAbbreviated(At)
   , IEquatable<InlineAst>

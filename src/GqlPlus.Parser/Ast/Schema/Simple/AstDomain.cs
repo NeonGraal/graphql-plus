@@ -4,7 +4,7 @@ using GqlPlus.Token;
 namespace GqlPlus.Ast.Schema.Simple;
 
 internal record class AstDomain<TItemAst, TItem>(
-  TokenAt At,
+  ITokenAt At,
   string Name,
   string Description,
   DomainKind DomainKind
@@ -21,7 +21,7 @@ internal record class AstDomain<TItemAst, TItem>(
 
   IEnumerable<TItem> IGqlpSimple<TItem>.Items => Items;
 
-  public AstDomain(TokenAt at, string name, DomainKind kind, TItemAst[] items)
+  public AstDomain(ITokenAt at, string name, DomainKind kind, TItemAst[] items)
     : this(at, name, "", kind)
     => Items = items;
 
@@ -39,7 +39,7 @@ internal record class AstDomain<TItemAst, TItem>(
 }
 
 internal abstract record class AstDomain(
-  TokenAt At,
+  ITokenAt At,
   string Name,
   string Description,
   DomainKind DomainKind

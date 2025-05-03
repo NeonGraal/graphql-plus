@@ -91,7 +91,7 @@ internal abstract class DeclarationParser<TDefinition, TResult>(
 { }
 
 internal record class AstPartial<TParam, TOption>(
-  TokenAt At,
+  ITokenAt At,
   string Name,
   string Description
 ) : AstDeclaration(At, Name, Description)

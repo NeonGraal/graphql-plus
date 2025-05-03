@@ -4,7 +4,7 @@ using GqlPlus.Token;
 namespace GqlPlus.Ast.Schema.Objects;
 
 internal sealed record class DualAlternateAst(
-  TokenAt At,
+  ITokenAt At,
   string Dual,
   string Description
 ) : AstObjAlternate<IGqlpDualArg>(At, Dual, Description)

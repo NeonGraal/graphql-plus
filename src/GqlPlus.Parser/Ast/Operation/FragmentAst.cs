@@ -4,7 +4,7 @@ using GqlPlus.Token;
 namespace GqlPlus.Ast.Operation;
 
 internal sealed record class FragmentAst(
-  TokenAt At,
+  ITokenAt At,
   string Identifier,
   string OnType,
   params IGqlpSelection[] Selections

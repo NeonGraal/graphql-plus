@@ -4,14 +4,14 @@ using GqlPlus.Token;
 namespace GqlPlus.Ast.Schema.Simple;
 
 internal abstract record class AstSimple(
-  TokenAt At,
+  ITokenAt At,
   string Name,
   string Description
 ) : AstType<string>(At, Name, Description)
 { }
 
 internal abstract record class AstSimple<TItemAst>(
-  TokenAt At,
+  ITokenAt At,
   string Name,
   string Description,
   TItemAst[] Items

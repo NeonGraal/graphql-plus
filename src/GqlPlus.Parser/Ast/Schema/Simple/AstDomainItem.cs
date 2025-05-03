@@ -4,7 +4,7 @@ using GqlPlus.Token;
 namespace GqlPlus.Ast.Schema.Simple;
 
 internal abstract record class AstDomainItem(
-  TokenAt At,
+  ITokenAt At,
   string Description,
   bool Excludes
 ) : AstAbbreviated(At)

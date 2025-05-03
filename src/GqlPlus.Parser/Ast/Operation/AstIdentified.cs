@@ -4,7 +4,7 @@ using GqlPlus.Token;
 namespace GqlPlus.Ast.Operation;
 
 internal abstract record class AstIdentified(
-  TokenAt At,
+  ITokenAt At,
   string Identifier
 ) : AstAbbreviated(At)
   , IEquatable<AstIdentified>

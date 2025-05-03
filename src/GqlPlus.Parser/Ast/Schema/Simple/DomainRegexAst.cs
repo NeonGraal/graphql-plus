@@ -4,7 +4,7 @@ using GqlPlus.Token;
 namespace GqlPlus.Ast.Schema.Simple;
 
 internal sealed record class DomainRegexAst(
-  TokenAt At,
+  ITokenAt At,
   string Description,
   bool Excludes,
   string Pattern

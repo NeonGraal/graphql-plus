@@ -61,13 +61,7 @@ public class ParseConstantTests
   {
     // Arrange
     ParseEmptyA(_listParser);
-
-    IGqlpFields<IGqlpConstant> objectResult = Substitute.For<IGqlpFields<IGqlpConstant>>();
-    FieldKeyAst fieldKey = new(AstNulls.At, fieldName);
-    IGqlpConstant constant = AtFor<IGqlpConstant>();
-    Dictionary<IGqlpFieldKey, IGqlpConstant> dict = new() { [fieldKey] = constant };
-    objectResult.GetEnumerator().Returns(dict.GetEnumerator());
-    ParseOk(_objectParser, objectResult);
+    ParseOkField(_objectParser, fieldName);
 
     // Act
     IResult<IGqlpConstant> result = _parseConstant.Parse(Tokenizer, "testLabel");

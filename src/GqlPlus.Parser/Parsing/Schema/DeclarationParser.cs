@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Ast;
+﻿using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Result;
 using GqlPlus.Token;

@@ -12,7 +12,7 @@ public class ParseVarTypeTests
   public void Parse_ShouldReturnVariableType_WhenIdentifierIsParsed(string identifier)
   {
     // Arrange
-    Tokenizer.Identifier(out string? _).Returns(OutString(identifier));
+    IdentifierReturns(OutString(identifier));
 
     // Act
     IResult<string> result = _parseVarType.Parse(Tokenizer, "testLabel");
@@ -26,8 +26,8 @@ public class ParseVarTypeTests
   public void Parse_ShouldReturnVariableTypeWithExclamationMark_WhenExclamationMarkIsPresent(string identifier)
   {
     // Arrange
-    Tokenizer.Identifier(out string? _).Returns(OutString(identifier));
-    Tokenizer.Take('!').Returns(true, false);
+    IdentifierReturns(OutString(identifier));
+    TakeReturns('!', true, false);
 
     // Act
     IResult<string> result = _parseVarType.Parse(Tokenizer, "testLabel");
@@ -41,9 +41,9 @@ public class ParseVarTypeTests
   public void Parse_ShouldReturnArrayVariableType_WhenBracketsArePresent(string innerType)
   {
     // Arrange
-    Tokenizer.Take('[').Returns(true, false);
-    Tokenizer.Identifier(out string? _).Returns(OutString(innerType));
-    Tokenizer.Take(']').Returns(true);
+    TakeReturns('[', true, false);
+    IdentifierReturns(OutString(innerType));
+    TakeReturns(']', true);
 
     // Act
     IResult<string> result = _parseVarType.Parse(Tokenizer, "testLabel");
@@ -57,9 +57,9 @@ public class ParseVarTypeTests
   public void Parse_ShouldReturnError_WhenClosingBracketIsMissing(string innerType)
   {
     // Arrange
-    Tokenizer.Take('[').Returns(true, false);
-    Tokenizer.Identifier(out string? _).Returns(OutString(innerType));
-    Tokenizer.Take(']').Returns(false);
+    TakeReturns('[', true, false);
+    IdentifierReturns(OutString(innerType));
+    TakeReturns(']', false);
 
     SetupPartial("Expected closing bracket ']' for array type.", "");
 
@@ -74,8 +74,8 @@ public class ParseVarTypeTests
   public void Parse_ShouldReturnEmptyResult_WhenNoValidTokenIsParsed()
   {
     // Arrange
-    Tokenizer.Identifier(out string? _).Returns(false);
-    Tokenizer.Take('[').Returns(false);
+    IdentifierReturns(OutFail);
+    TakeReturns('[', false);
 
     // Act
     IResult<string> result = _parseVarType.Parse(Tokenizer, "testLabel");

@@ -9,7 +9,7 @@ public class ParseCollectionsTests
   public void Parse_ShouldReturnEmptyArray_WhenNoModifiersProvided()
   {
     // Arrange
-    Tokenizer.Take('[').Returns(false);
+    TakeReturns('[', false);
 
     // Act
     IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, "testLabel");
@@ -23,9 +23,8 @@ public class ParseCollectionsTests
   public void Parse_ShouldReturnListModifier_WhenListModifierProvided()
   {
     // Arrange
-    Tokenizer.Take('[').Returns(true, false);
-    Tokenizer.Take(']').Returns(true);
-    Tokenizer.At.Returns(AstNulls.At);
+    TakeReturns('[', true, false);
+    TakeReturns(']', true);
 
     // Act
     IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, "testLabel");
@@ -41,11 +40,10 @@ public class ParseCollectionsTests
   public void Parse_ShouldReturnDictModifier_WhenDictModifierProvided(string value)
   {
     // Arrange
-    Tokenizer.Take('[').Returns(true, false);
-    Tokenizer.Identifier(out string? contents).Returns(OutString(value));
-    Tokenizer.Take('?').Returns(true, false);
-    Tokenizer.Take(']').Returns(true);
-    Tokenizer.At.Returns(AstNulls.At);
+    TakeReturns('[', true, false);
+    IdentifierReturns(OutString(value));
+    TakeReturns('?', true, false);
+    TakeReturns(']', true);
 
     // Act
     IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, "testLabel");
@@ -65,11 +63,10 @@ public class ParseCollectionsTests
   public void Parse_ShouldReturnParamModifier_WhenParamModifierProvided(string paramName)
   {
     // Arrange
-    Tokenizer.Take('[').Returns(true, false);
-    Tokenizer.Take('$').Returns(true);
-    Tokenizer.Identifier(out string? _).Returns(OutString(paramName));
-    Tokenizer.Take(']').Returns(true);
-    Tokenizer.At.Returns(AstNulls.At);
+    TakeReturns('[', true, false);
+    TakeReturns('$', true);
+    IdentifierReturns(OutString(paramName));
+    TakeReturns(']', true);
 
     // Act
     IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, "testLabel");
@@ -89,10 +86,9 @@ public class ParseCollectionsTests
   public void Parse_ShouldReturnPartialArray_WhenInvalidTokenSequence()
   {
     // Arrange
-    Tokenizer.Take('[').Returns(true);
-    Tokenizer.Take('$').Returns(true);
-    Tokenizer.Identifier(out string? _).Returns(false);
-    Tokenizer.At.Returns(AstNulls.At);
+    TakeReturns('[', true);
+    TakeReturns('$', true);
+    IdentifierReturns(OutFail);
 
     // Act
     IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, "testLabel");

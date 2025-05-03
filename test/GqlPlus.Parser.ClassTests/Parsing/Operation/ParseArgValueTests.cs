@@ -21,14 +21,14 @@ public class ParseArgValueTests
     Parser<IGqlpConstant>.D constantParser = ParserFor(out _constantParser);
 
     _parseArgValue = new ParseArgValue(fieldKeyParser, keyValueParser, listParser, objectParser, constantParser);
-    Tokenizer.Prefix('$', out string? _, out TokenAt _).Returns(true);
+    PrefixReturns('$', OutPass);
   }
 
   [Theory, RepeatData]
   public void Parse_ShouldReturnVariableArgument_WhenVariableIsParsed(string variable)
   {
     // Arrange
-    Tokenizer.Prefix('$', out string? _, out TokenAt _).Returns(OutStringAt(variable));
+    PrefixReturns('$', OutStringAt(variable));
 
     // Act
     IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, "testLabel");
@@ -84,7 +84,7 @@ public class ParseArgValueTests
   public void Parse_ShouldReturnError_WhenVariableIsMissingAfterDollarSign()
   {
     // Arrange
-    Tokenizer.Prefix('$', out string? _, out TokenAt _).Returns(false);
+    PrefixReturns('$', OutFail);
     SetupError<IGqlpArg>("identifier after '$'");
 
     // Act

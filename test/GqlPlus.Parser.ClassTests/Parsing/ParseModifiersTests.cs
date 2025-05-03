@@ -32,7 +32,7 @@ public class ParseModifiersTests
   public void Parse_ShouldReturnOptionalModifier_WhenQuestionMarkIsPresent()
   {
     // Arrange
-    Tokenizer.Take('?').Returns(true);
+    TakeReturns('?', true);
 
     // Act
     IResultArray<IGqlpModifier> result = _parseModifiers.Parse(Tokenizer, "testLabel");
@@ -61,7 +61,7 @@ public class ParseModifiersTests
   {
     // Arrange
     ParseEmptyA(_collectionsParser);
-    Tokenizer.Take('?').Returns(false);
+    TakeReturns('?', false);
 
     // Act
     IResultArray<IGqlpModifier> result = _parseModifiers.Parse(Tokenizer, "testLabel");

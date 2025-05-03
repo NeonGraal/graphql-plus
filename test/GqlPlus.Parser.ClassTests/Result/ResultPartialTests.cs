@@ -23,11 +23,11 @@ public class ResultPartialTests : BaseResultTests
   }
 
   [Fact]
-  public void AsResultArray_ReturnsResultArrayError()
+  public void AsResultArray_ReturnsResultArrayPartial()
   {
     IResultArray<string> result = _partial.AsResultArray(SampleArray);
 
-    result.ShouldBeOfType<ResultArrayError<string>>()
+    result.ShouldBeOfType<ResultArrayPartial<string>>()
       .Message.Message.ShouldBe(Partial);
   }
 

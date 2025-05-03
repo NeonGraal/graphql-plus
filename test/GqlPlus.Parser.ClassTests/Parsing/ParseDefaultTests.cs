@@ -16,7 +16,7 @@ public class ParseDefaultTests
   public void Parse_ShouldReturnParsedResult_WhenEqualsSignIsPresent()
   {
     // Arrange
-    Tokenizer.Take('=').Returns(true);
+    TakeReturns('=', true);
     ParseOk(_constantParser);
 
     // Act
@@ -30,7 +30,7 @@ public class ParseDefaultTests
   public void Parse_ShouldReturnEmptyResult_WhenEqualsSignIsNotPresent()
   {
     // Arrange
-    Tokenizer.Take('=').Returns(false);
+    TakeReturns('=', false);
 
     // Act
     IResult<IGqlpConstant> result = _parser.Parse(Tokenizer, "TestLabel");
@@ -43,7 +43,7 @@ public class ParseDefaultTests
   public void Parse_ShouldReturnError_WhenConstantParserFails()
   {
     // Arrange
-    Tokenizer.Take('=').Returns(true);
+    TakeReturns('=', true);
     ParseError(_constantParser, "Default after error");
 
     // Act

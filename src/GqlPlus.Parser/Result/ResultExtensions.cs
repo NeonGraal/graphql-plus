@@ -17,14 +17,16 @@ public static class ResultExtensions
     };
   }
 
-  public static IResultArray<TResult> AsResultArray<TValue, TResult>(this IResult<TValue> result, IEnumerable<TResult>? _ = default)
+  public static IResultArray<TResult> AsResultArray<TValue, TResult>(this IResult<TValue> result, IEnumerable<TResult>? partial = default)
     => result switch {
       IResultOk<TValue> ok when ok.Result is IEnumerable<TResult> newResult
         => new ResultArrayOk<TResult>(newResult),
       IResultPartial<TValue> part when part.Result is IEnumerable<TResult> newResult
         => new ResultArrayPartial<TResult>(newResult, part.Message),
       IResultMessage msg
-        => new ResultArrayError<TResult>(msg.Message),
+        => partial is null
+          ? new ResultArrayError<TResult>(msg.Message)
+          : new ResultArrayPartial<TResult>(partial, msg.Message),
       _ => new ResultArrayEmpty<TResult>(),
     };
 

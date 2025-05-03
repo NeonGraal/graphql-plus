@@ -27,7 +27,7 @@ public class ParseArgTests
   public void Parse_ShouldReturnEmptyResult_WhenNoOpeningParenthesis()
   {
     // Arrange
-    Tokenizer.Take('(').Returns(false);
+    TakeReturns('(', false);
 
     // Act
     IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");
@@ -41,9 +41,9 @@ public class ParseArgTests
   public void Parse_ShouldReturnFieldKeyResult_WhenFieldKeyIsParsed()
   {
     // Arrange
-    Tokenizer.Take('(').Returns(true);
-    Tokenizer.Take(':').Returns(true);
-    Tokenizer.Take(')').Returns(true);
+    TakeReturns('(', true);
+    TakeReturns(':', true);
+    TakeReturns(')', true);
 
     ParseOk(_fieldKeyParser, _fieldKey);
     ParseOk(_argumentParser, _arg);
@@ -60,8 +60,8 @@ public class ParseArgTests
   public void Parse_ShouldReturnArgumentResult_WhenNoFieldKeyIsParsed()
   {
     // Arrange
-    Tokenizer.Take('(').Returns(true);
-    Tokenizer.Take(')').Returns(true);
+    TakeReturns('(', true);
+    TakeReturns(')', true);
 
     ParseOk(_fieldKeyParser, _fieldKey);
     ParseEmpty(_argumentParser);
@@ -78,8 +78,8 @@ public class ParseArgTests
   public void Parse_ShouldReturnError_WhenInvalidTokenSequence()
   {
     // Arrange
-    Tokenizer.Take('(').Returns(true);
-    Tokenizer.Take(')').Returns(false);
+    TakeReturns('(', true);
+    TakeReturns(')', false);
 
     ParseOk(_fieldKeyParser, _fieldKey);
     ParseEmpty(_argumentParser);

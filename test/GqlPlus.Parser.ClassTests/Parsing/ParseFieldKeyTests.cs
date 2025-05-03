@@ -40,8 +40,8 @@ public class ParseFieldKeyTests
   public void Parse_ShouldReturnFieldKeyResult_WhenEnumTypeAndLabelAreParsed(string enumType, string enumLabel)
   {
     // Arrange
-    Tokenizer.Take('.').Returns(true);
-    Tokenizer.Identifier(out string? _).Returns(OutString(enumType), OutString(enumLabel));
+    TakeReturns('.', true);
+    IdentifierReturns(OutString(enumType), OutString(enumLabel));
 
     // Act
     IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, "testLabel");
@@ -58,8 +58,8 @@ public class ParseFieldKeyTests
   public void Parse_ShouldReturnError_WhenInvalidEnumValue(string enumType)
   {
     // Arrange
-    Tokenizer.Identifier(out string? _).Returns(OutString(enumType), OutFail);
-    Tokenizer.Take('.').Returns(true);
+    IdentifierReturns(OutString(enumType), OutFail);
+    TakeReturns('.', true);
     SetupError<IGqlpFieldKey>("enum value after '.'");
 
     // Act

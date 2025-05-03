@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Parsing.Schema;
-using GqlPlus.Parsing.Schema.Objects;
 using GqlPlus.Parsing.Schema.Simple;
 using NSubstitute.Core;
 
@@ -10,7 +9,20 @@ namespace GqlPlus.Parsing;
 public class ParserClassTestBase
   : SubstituteBase
 {
+  public ParserClassTestBase() => Tokenizer.At.Returns(AstNulls.At);
+
   protected ITokenizer Tokenizer { get; } = For<ITokenizer>();
+
+  protected void IdentifierReturns(Func<CallInfo, bool> first, params Func<CallInfo, bool>[] rest)
+    => Tokenizer.Identifier(out Arg.Any<string?>()).Returns(first, rest);
+
+  protected void PrefixReturns(char prefix, Func<CallInfo, bool> first, params Func<CallInfo, bool>[] rest)
+    => Tokenizer
+      .Prefix(prefix, out Arg.Any<string?>(), out Arg.Any<TokenAt>())
+        .Returns(first, rest);
+
+  protected void TakeReturns(char take, bool first, params bool[] rest)
+    => Tokenizer.Take(take).Returns(first, rest);
 
   protected static IResultError<T> Error<T>(string message)
     where T : class
@@ -198,19 +210,22 @@ public class ParserClassTestBase
   protected static bool OutFail(CallInfo _)
     => false;
 
-  protected static Func<CallInfo, bool> OutNumber(decimal value)
+  protected static bool OutPass(CallInfo _)
+    => true;
+
+  protected static Func<CallInfo, bool> OutNumber(decimal? value)
     => c => {
       c[0] = value;
       return true;
     };
 
-  protected static Func<CallInfo, bool> OutString(string value)
+  protected static Func<CallInfo, bool> OutString(string? value)
     => c => {
       c[0] = value;
       return true;
     };
 
-  protected static Func<CallInfo, bool> OutStringAt(string value, int first = 1)
+  protected static Func<CallInfo, bool> OutStringAt(string? value, int first = 1)
     => c => {
       c[first] = value;
       c[first + 1] = AstNulls.At;

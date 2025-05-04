@@ -6,7 +6,11 @@ public class ParseFieldKeyTests
   private readonly ParseFieldKey _parseFieldKey;
 
   public ParseFieldKeyTests()
-    => _parseFieldKey = new ParseFieldKey();
+  {
+    _parseFieldKey = new ParseFieldKey();
+
+    SetupError<IGqlpFieldKey>();
+  }
 
   [Theory, RepeatData]
   public void Parse_ShouldReturnFieldKeyResult_WhenNumberTokenIsParsed(decimal value)
@@ -60,7 +64,6 @@ public class ParseFieldKeyTests
     // Arrange
     IdentifierReturns(OutString(enumType), OutFail);
     TakeReturns('.', true);
-    SetupError<IGqlpFieldKey>();
 
     // Act
     IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, "testLabel");

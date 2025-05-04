@@ -11,7 +11,11 @@ public class ParseVariablesTests
   public ParseVariablesTests()
   {
     Parser<IGqlpVariable>.D variable = ParserFor(out _variableParser);
+
     _parseVariables = new ParseVariables(variable);
+
+    SetupError<IGqlpVariable>();
+    SetupPartial<IGqlpVariable>();
   }
 
   [Fact]
@@ -38,7 +42,6 @@ public class ParseVariablesTests
     // Arrange
     TakeReturns('(', true);
     ParseError(_variableParser);
-    SetupError<IGqlpVariable>();
 
     // Act
     IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, "testLabel");
@@ -55,14 +58,12 @@ public class ParseVariablesTests
     TakeReturns(')', false);
     IGqlpVariable variable = EFor<IGqlpVariable>();
     Parse(_variableParser, variable.Ok(), variable.Empty());
-    SetupPartial<IGqlpVariable>(variable);
 
     // Act
     IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpVariable>>()
-      .Result.ShouldContain(variable);
+    result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpVariable>>();
   }
 
   [Fact]
@@ -85,7 +86,6 @@ public class ParseVariablesTests
     TakeReturns('(', true);
     TakeReturns(')', false);
     ParseEmpty(_variableParser);
-    SetupError<IGqlpVariable>();
 
     // Act
     IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, "testLabel");

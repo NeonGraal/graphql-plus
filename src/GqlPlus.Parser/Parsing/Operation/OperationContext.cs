@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast.Operation;
+﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Ast.Operation;
 using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Operation;
@@ -13,12 +14,13 @@ internal class OperationContext
   internal OperationContext(string operation)
     : base(operation) { }
 
-  List<ArgAst> IOperationContext.Variables { get; } = [];
-  List<SpreadAst> IOperationContext.Spreads { get; } = [];
+  List<IGqlpArg> IOperationContext.Variables { get; } = [];
+  List<IGqlpSpread> IOperationContext.Spreads { get; } = [];
 }
 
 internal interface IOperationContext
+  : ITokenizer
 {
-  List<ArgAst> Variables { get; }
-  List<SpreadAst> Spreads { get; }
+  List<IGqlpArg> Variables { get; }
+  List<IGqlpSpread> Spreads { get; }
 }

@@ -10,9 +10,17 @@ public class ParserClassTestBase
   : SubstituteBase
 {
   public ParserClassTestBase()
-    => Tokenizer.At.Returns(AstNulls.At);
+    : this(For<ITokenizer>())
+  { }
 
-  protected ITokenizer Tokenizer { get; } = For<ITokenizer>();
+  protected ParserClassTestBase(ITokenizer tokenizer)
+  {
+    Tokenizer = tokenizer;
+    Tokenizer.At.Returns(AstNulls.At);
+    Tokenizer.Errors.Returns(new TokenMessages());
+  }
+
+  protected ITokenizer Tokenizer { get; }
 
   protected void IdentifierReturns(Func<CallInfo, bool> first, params Func<CallInfo, bool>[] rest)
     => Tokenizer.Identifier(out Arg.Any<string?>()).Returns(first, rest);

@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Operation;
+﻿using GqlPlus.Abstractions;
+using GqlPlus.Abstractions.Operation;
 using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Operation;
@@ -16,15 +17,15 @@ internal sealed record class OperationAst(
   public string Category { get; set; } = "query";
 
   public IGqlpVariable[] Variables { get; set; } = [];
-  public ArgAst[] Usages { get; init; } = [];
+  public IGqlpArg[] Usages { get; init; } = [];
 
   public string? ResultType { get; set; }
-  public ArgAst? Arg { get; set; }
+  public IGqlpArg? Arg { get; set; }
   public IGqlpSelection[]? ResultObject { get; set; }
-  public ModifierAst[] Modifiers { get; set; } = [];
+  public IGqlpModifier[] Modifiers { get; set; } = [];
 
   public IGqlpFragment[] Fragments { get; set; } = [];
-  public SpreadAst[] Spreads { get; set; } = [];
+  public IGqlpSpread[] Spreads { get; set; } = [];
 
   internal override string Abbr => "g";
 

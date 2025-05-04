@@ -16,6 +16,8 @@ public class ParseSelectionTests
     Parser<IGqlpSelection>.DA objectParser = ParserAFor(out _objectParser);
 
     _parseSelection = new ParseSelection(directives, objectParser);
+
+    SetupError<IGqlpSelection>();
   }
 
   [Theory, RepeatData]
@@ -70,7 +72,6 @@ public class ParseSelectionTests
     Tokenizer.Take("...").Returns(true);
     Tokenizer.Take("on").Returns(true);
     Tokenizer.Identifier(out string? type).Returns(false);
-    SetupError<IGqlpSelection>();
 
     // Act
     IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, "testLabel");
@@ -87,7 +88,6 @@ public class ParseSelectionTests
     Tokenizer.Take("on").Returns(true);
     IdentifierReturns(OutString(testType));
     ParseErrorA(_objectParser);
-    SetupError<IGqlpSelection>();
 
     // Act
     IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, "testLabel");

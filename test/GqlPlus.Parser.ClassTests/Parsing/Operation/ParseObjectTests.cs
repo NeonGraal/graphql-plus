@@ -15,6 +15,8 @@ public class ParseObjectTests
     Parser<IGqlpSelection>.D selection = ParserFor(out _selectionParser);
 
     _parseObject = new ParseObject(field, selection);
+
+    SetupPartial<IGqlpSelection>();
   }
 
   [Fact]
@@ -86,8 +88,6 @@ public class ParseObjectTests
 
     ParseError(_selectionParser);
 
-    SetupPartial<IGqlpSelection>();
-
     // Act
     IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, "testLabel");
 
@@ -105,8 +105,6 @@ public class ParseObjectTests
     ParseEmpty(_selectionParser);
     ParseError(_fieldParser);
 
-    SetupPartial<IGqlpSelection>();
-
     // Act
     IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, "testLabel");
 
@@ -120,8 +118,6 @@ public class ParseObjectTests
     // Arrange
     TakeReturns('{', true);
     TakeReturns('}', true);
-
-    SetupPartial<IGqlpSelection>();
 
     // Act
     IResultArray<IGqlpSelection> result = _parseObject.Parse(Tokenizer, "testLabel");

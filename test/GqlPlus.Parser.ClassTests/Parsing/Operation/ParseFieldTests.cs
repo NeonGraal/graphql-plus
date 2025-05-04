@@ -19,6 +19,9 @@ public class ParseFieldTests
     Parser<IGqlpSelection>.DA objectParser = ParserAFor(out _objectParser);
 
     _parseField = new ParseField(modifiers, directives, argument, objectParser);
+
+    SetupError<IGqlpField>();
+    SetupPartial<IGqlpField>();
   }
 
   [Theory, RepeatData]
@@ -53,7 +56,6 @@ public class ParseFieldTests
   {
     // Arrange
     IdentifierReturns(OutFail);
-    SetupError<IGqlpField>();
 
     // Act
     IResult<IGqlpField> result = _parseField.Parse(Tokenizer, "testLabel");
@@ -68,7 +70,6 @@ public class ParseFieldTests
     // Arrange
     IdentifierReturns(OutString(alias), OutFail);
     TakeReturns(':', true);
-    SetupError<IGqlpField>();
 
     // Act
     IResult<IGqlpField> result = _parseField.Parse(Tokenizer, "testLabel");
@@ -83,7 +84,6 @@ public class ParseFieldTests
     // Arrange
     IdentifierReturns(OutString(alias));
     ParseErrorA(_modifiersParser);
-    SetupPartial<IGqlpField>();
 
     // Act
     IResult<IGqlpField> result = _parseField.Parse(Tokenizer, "testLabel");
@@ -98,7 +98,6 @@ public class ParseFieldTests
     // Arrange
     IdentifierReturns(OutString(alias));
     ParseErrorA(_objectParser);
-    SetupPartial<IGqlpField>();
 
     // Act
     IResult<IGqlpField> result = _parseField.Parse(Tokenizer, "testLabel");
@@ -113,7 +112,6 @@ public class ParseFieldTests
     // Arrange
     IdentifierReturns(OutString(alias));
     ParseErrorA(_directivesParser);
-    SetupPartial<IGqlpField>();
 
     // Act
     IResult<IGqlpField> result = _parseField.Parse(Tokenizer, "testLabel");

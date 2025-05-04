@@ -6,7 +6,11 @@ public class ParseVarTypeTests
   private readonly ParseVarType _parseVarType;
 
   public ParseVarTypeTests()
-    => _parseVarType = new ParseVarType();
+  {
+    _parseVarType = new ParseVarType();
+
+    SetupPartial("");
+  }
 
   [Theory, RepeatData]
   public void Parse_ShouldReturnVariableType_WhenIdentifierIsParsed(string identifier)
@@ -60,8 +64,6 @@ public class ParseVarTypeTests
     TakeReturns('[', true, false);
     IdentifierReturns(OutString(innerType));
     TakeReturns(']', false);
-
-    SetupPartial("");
 
     // Act
     IResult<string> result = _parseVarType.Parse(Tokenizer, "testLabel");

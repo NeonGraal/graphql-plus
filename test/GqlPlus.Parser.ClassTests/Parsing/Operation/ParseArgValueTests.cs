@@ -21,7 +21,9 @@ public class ParseArgValueTests
     Parser<IGqlpConstant>.D constantParser = ParserFor(out _constantParser);
 
     _parseArgValue = new ParseArgValue(fieldKeyParser, keyValueParser, listParser, objectParser, constantParser);
+
     PrefixReturns('$', OutPass);
+    SetupError<IGqlpArg>();
   }
 
   [Theory, RepeatData]
@@ -85,7 +87,6 @@ public class ParseArgValueTests
   {
     // Arrange
     PrefixReturns('$', OutFail);
-    SetupError<IGqlpArg>();
 
     // Act
     IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, "testLabel");

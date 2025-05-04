@@ -11,7 +11,11 @@ public class ParseDirectivesTests
   public ParseDirectivesTests()
   {
     Parser<IParserArg, IGqlpArg>.D argumentParser = ParserFor<IParserArg, IGqlpArg>(out _argumentParser);
+
     _parseDirectives = new ParseDirectives(argumentParser);
+
+    SetupError<IGqlpDirective>();
+    SetupPartial<IGqlpDirective>();
   }
 
   [Theory, RepeatData]
@@ -38,7 +42,6 @@ public class ParseDirectivesTests
   {
     // Arrange
     PrefixReturns('@', OutFail);
-    SetupError<IGqlpDirective>();
 
     // Act
     IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, "testLabel");
@@ -53,7 +56,6 @@ public class ParseDirectivesTests
     // Arrange
     PrefixReturns('@', OutStringAt(directiveName));
     ParseError(_argumentParser, "argument error");
-    SetupPartial<IGqlpDirective>();
 
     // Act
     IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, "testLabel");

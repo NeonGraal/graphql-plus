@@ -53,7 +53,7 @@ internal class ParseOperation(
     if (result is not null) {
       ast.ResultType = result;
       IResult<IGqlpArg> argument = _argument.I.Parse(tokens, "Arg");
-      if (!argument.Optional(value => ast.Arg = (ArgAst?)value)) {
+      if (!argument.Optional(value => ast.Arg = value)) {
         return argument.AsPartial(Final());
       }
     } else if (!_object.Parse(tokens, label).Required(selections => ast.ResultObject = [.. selections])) {
@@ -66,7 +66,7 @@ internal class ParseOperation(
       return modifiers.AsPartial(Final());
     }
 
-    modifiers.WithResult(value => ast.Modifiers = value.ArrayOf<ModifierAst>());
+    modifiers.WithResult(value => ast.Modifiers = [.. value]);
     _endFragments.I.Parse(tokens, label).WithResult(value =>
       ast.Fragments = [.. ast.Fragments.Concat(value)]);
 

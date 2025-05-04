@@ -19,6 +19,9 @@ public class ParseVariableTests
     Parser<IParserVarType, string>.D varTypeParser = ParserFor<IParserVarType, string>(out _varTypeParser);
 
     _parseVariable = new ParseVariable(modifiers, directives, defaultParser, varTypeParser);
+
+    SetupError<IGqlpVariable>();
+    SetupPartial<IGqlpVariable>();
   }
 
   [Theory, RepeatData]
@@ -78,7 +81,6 @@ public class ParseVariableTests
   {
     // Arrange
     PrefixReturns('$', OutFail);
-    SetupPartial<IGqlpVariable>();
 
     // Act
     IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, "testLabel");
@@ -95,8 +97,6 @@ public class ParseVariableTests
     TakeReturns(':', true);
     ParseEmpty(_varTypeParser);
 
-    SetupPartial<IGqlpVariable>();
-
     // Act
     IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, "testLabel");
 
@@ -110,8 +110,6 @@ public class ParseVariableTests
     // Arrange
     PrefixReturns('$', OutStringAt(variableName));
     ParseErrorA(_modifiersParser);
-
-    SetupError<IGqlpVariable>();
 
     // Act
     IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, "testLabel");
@@ -128,8 +126,6 @@ public class ParseVariableTests
 
     ParseEmptyA(_modifiersParser);
     ParseError(_defaultParser);
-
-    SetupError<IGqlpVariable>();
 
     // Act
     IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, "testLabel");

@@ -53,7 +53,7 @@ public class ParseDirectivesTests
     // Arrange
     PrefixReturns('@', OutStringAt(directiveName));
     ParseError(_argumentParser, "argument error");
-    SetupPartial<IGqlpDirective>("argument error");
+    SetupPartial<IGqlpDirective>();
 
     // Act
     IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, "testLabel");

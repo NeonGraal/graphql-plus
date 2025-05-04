@@ -61,7 +61,7 @@ public class ParseVarTypeTests
     IdentifierReturns(OutString(innerType));
     TakeReturns(']', false);
 
-    SetupPartial("Expected closing bracket ']' for array type.", "");
+    SetupPartial("");
 
     // Act
     IResult<string> result = _parseVarType.Parse(Tokenizer, "testLabel");

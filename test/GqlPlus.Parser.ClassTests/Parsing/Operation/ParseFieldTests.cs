@@ -83,7 +83,7 @@ public class ParseFieldTests
     // Arrange
     IdentifierReturns(OutString(alias));
     ParseErrorA(_modifiersParser);
-    SetupPartial<IGqlpField>("parse error");
+    SetupPartial<IGqlpField>();
 
     // Act
     IResult<IGqlpField> result = _parseField.Parse(Tokenizer, "testLabel");
@@ -98,7 +98,7 @@ public class ParseFieldTests
     // Arrange
     IdentifierReturns(OutString(alias));
     ParseErrorA(_objectParser);
-    SetupPartial<IGqlpField>("parse error");
+    SetupPartial<IGqlpField>();
 
     // Act
     IResult<IGqlpField> result = _parseField.Parse(Tokenizer, "testLabel");
@@ -113,7 +113,7 @@ public class ParseFieldTests
     // Arrange
     IdentifierReturns(OutString(alias));
     ParseErrorA(_directivesParser);
-    SetupPartial<IGqlpField>("parse error");
+    SetupPartial<IGqlpField>();
 
     // Act
     IResult<IGqlpField> result = _parseField.Parse(Tokenizer, "testLabel");

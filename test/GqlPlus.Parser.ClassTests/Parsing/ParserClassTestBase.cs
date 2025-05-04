@@ -33,10 +33,10 @@ public class ParserClassTestBase
     where T : class
     => new ResultArrayError<T>(new(AstNulls.At, message));
 
-  protected void SetupError<T>(string? message = null)
+  protected void SetupError<T>()
     where T : class
   {
-    TokenMessage errMsg = new(AstNulls.At, message ?? "error for " + typeof(T).ExpandTypeName());
+    TokenMessage errMsg = new(AstNulls.At, "error for " + typeof(T).ExpandTypeName());
     ResultError<T> error = new(errMsg);
     ResultArrayError<T> errorA = new(errMsg);
 
@@ -46,16 +46,16 @@ public class ParserClassTestBase
     Tokenizer.ErrorArray<T>("", "", null).ReturnsForAnyArgs(errorA);
   }
 
-  protected void SetupPartial<T>(string? message = null)
+  protected void SetupPartial<T>()
     where T : class, IGqlpError
-    => SetupPartial(AtFor<T>(), message);
+    => SetupPartial(AtFor<T>());
 
-  protected void SetupPartial<T>(T result, string? message = null)
+  protected void SetupPartial<T>(T result)
     where T : class
   {
-    TokenMessage errMsg = new(AstNulls.At, message ?? "partial error for " + typeof(T).ExpandTypeName());
+    TokenMessage errMsg = new(AstNulls.At, "partial error for " + typeof(T).ExpandTypeName());
     ResultPartial<T> partial = new(result, errMsg);
-    ResultArrayPartial<T> partialA = new([], errMsg);
+    ResultArrayPartial<T> partialA = new([result], errMsg);
 
     Tokenizer.Partial("", "", () => result).ReturnsForAnyArgs(partial);
     Tokenizer.PartialArray<T>("", "", () => [result]).ReturnsForAnyArgs(partialA);

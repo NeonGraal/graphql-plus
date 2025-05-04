@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Operation;
-using GqlPlus.Ast.Operation;
 
 namespace GqlPlus.Parsing.Operation;
 
@@ -53,7 +52,7 @@ public class ParseSelectionTests
     IGqlpSelection[] selections = ParseOkA(_objectParser);
 
     // Act
-    var result = _parseSelection.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpSelection>>()

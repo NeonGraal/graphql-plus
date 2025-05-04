@@ -17,7 +17,7 @@ public class ParserClassTestBase
   {
     Tokenizer = tokenizer;
     Tokenizer.At.Returns(AstNulls.At);
-    Tokenizer.Errors.Returns(new TokenMessages());
+    Tokenizer.Errors.Returns([]);
   }
 
   protected ITokenizer Tokenizer { get; }

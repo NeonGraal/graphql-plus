@@ -12,7 +12,7 @@ public class VariableAstTests : AstDirectivesTests
 
   [Theory, RepeatData]
   public void HashCode_WithDefault(string name, string value)
-    => _checks.HashCode(() => new(AstNulls.At, name) { DefaultValue = new(new FieldKeyAst(AstNulls.At, value)) });
+    => _checks.HashCode(() => new(AstNulls.At, name) { DefaultValue = new ConstantAst(new FieldKeyAst(AstNulls.At, value)) });
 
   [Theory, RepeatData]
   public void String_WithType(string name, string varType)
@@ -29,7 +29,7 @@ public class VariableAstTests : AstDirectivesTests
   [Theory, RepeatData]
   public void String_WithDefault(string name, string value)
     => _checks.Text(
-      () => new(AstNulls.At, name) { DefaultValue = new(new FieldKeyAst(AstNulls.At, value)) },
+      () => new(AstNulls.At, name) { DefaultValue = new ConstantAst(new FieldKeyAst(AstNulls.At, value)) },
       $"( !v {name} =( !k '{value}' ) )");
 
   [Theory, RepeatData]
@@ -57,18 +57,18 @@ public class VariableAstTests : AstDirectivesTests
 
   [Theory, RepeatData]
   public void Equality_WithDefault(string name, string value)
-    => _checks.Equality(() => new VariableAst(AstNulls.At, name) { DefaultValue = new(new FieldKeyAst(AstNulls.At, value)) });
+    => _checks.Equality(() => new VariableAst(AstNulls.At, name) { DefaultValue = new ConstantAst(new FieldKeyAst(AstNulls.At, value)) });
 
   [Theory, RepeatData]
   public void Inequality_BetweenDefault(string name, string value1, string value2)
     => _checks.InequalityBetween(value1, value2,
-      value => new VariableAst(AstNulls.At, name) { DefaultValue = new(new FieldKeyAst(AstNulls.At, value)) },
+      value => new VariableAst(AstNulls.At, name) { DefaultValue = new ConstantAst(new FieldKeyAst(AstNulls.At, value)) },
       value1 == value2);
 
   [Theory, RepeatData]
   public void Inequality_WithDefault(string name, string value)
     => _checks.InequalityWith(name,
-      () => new VariableAst(AstNulls.At, name) { DefaultValue = new(new FieldKeyAst(AstNulls.At, value)) });
+      () => new VariableAst(AstNulls.At, name) { DefaultValue = new ConstantAst(new FieldKeyAst(AstNulls.At, value)) });
 
   internal AstDirectivesChecks<VariableAst> _checks
     = new(name => new VariableAst(AstNulls.At, name));

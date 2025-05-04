@@ -24,7 +24,7 @@ internal sealed record class FieldAst(
   public bool Equals(FieldAst? other)
     => base.Equals(other)
     && FieldAlias.NullEqual(other.FieldAlias)
-    && Arg == other.Arg
+    && Arg.NullEqual(other.Arg)
     && Modifiers.SequenceEqual(other.Modifiers)
     && Selections.SequenceEqual(other.Selections);
   public override int GetHashCode()

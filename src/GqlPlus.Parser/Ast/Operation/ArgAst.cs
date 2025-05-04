@@ -5,7 +5,6 @@ namespace GqlPlus.Ast.Operation;
 
 internal sealed record class ArgAst
   : AstValue<IGqlpArg>
-  , IEquatable<ArgAst>
   , IGqlpArg
 {
   public string? Variable { get; }
@@ -26,7 +25,7 @@ internal sealed record class ArgAst
   internal ArgAst(ITokenAt at, IGqlpFields<IGqlpArg> fields)
     : base(at, fields) { }
 
-  public bool Equals(ArgAst? other)
+  public bool Equals(IGqlpArg? other)
     => base.Equals(other)
     && Variable.NullEqual(other.Variable)
     && Constant.NullEqual(other.Constant);

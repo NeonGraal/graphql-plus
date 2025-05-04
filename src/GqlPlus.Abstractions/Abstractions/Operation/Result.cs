@@ -23,6 +23,7 @@ public interface IGqlpSpread
 
 public interface IGqlpArg
   : IGqlpValue<IGqlpArg>
+  , IEquatable<IGqlpArg>
 {
   string? Variable { get; }
   IGqlpConstant? Constant { get; }

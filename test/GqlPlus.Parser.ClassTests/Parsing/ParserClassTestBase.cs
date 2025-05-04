@@ -9,7 +9,8 @@ namespace GqlPlus.Parsing;
 public class ParserClassTestBase
   : SubstituteBase
 {
-  public ParserClassTestBase() => Tokenizer.At.Returns(AstNulls.At);
+  public ParserClassTestBase()
+    => Tokenizer.At.Returns(AstNulls.At);
 
   protected ITokenizer Tokenizer { get; } = For<ITokenizer>();
 

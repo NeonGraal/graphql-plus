@@ -23,7 +23,7 @@ public class ParseSelectionTests
   public void Parse_ShouldReturnSpreadSelection_WhenSpreadIsParsed(string spreadName)
   {
     // Arrange
-    Tokenizer.Take("...").Returns(true);
+    TakeReturns("...", true);
     IdentifierReturns(OutString(spreadName));
 
     IGqlpDirective[] directives = ParseOkA(_directivesParser);
@@ -44,8 +44,8 @@ public class ParseSelectionTests
   public void Parse_ShouldReturnInlineSelection_WhenInlineFragmentIsParsed(string onType)
   {
     // Arrange
-    Tokenizer.Take("...").Returns(true);
-    Tokenizer.Take("on").Returns(true);
+    TakeReturns("...", true);
+    TakeReturns("on", true);
     IdentifierReturns(OutString(onType));
 
     IGqlpDirective[] directives = ParseOkA(_directivesParser);
@@ -68,8 +68,8 @@ public class ParseSelectionTests
   public void Parse_ShouldReturnError_WhenTypeIsMissingAfterOn()
   {
     // Arrange
-    Tokenizer.Take("...").Returns(true);
-    Tokenizer.Take("on").Returns(true);
+    TakeReturns("...", true);
+    TakeReturns("on", true);
     Tokenizer.Identifier(out string? type).Returns(false);
 
     // Act
@@ -83,8 +83,8 @@ public class ParseSelectionTests
   public void Parse_ShouldReturnError_WhenObjectParsingFails(string testType)
   {
     // Arrange
-    Tokenizer.Take("...").Returns(true);
-    Tokenizer.Take("on").Returns(true);
+    TakeReturns("...", true);
+    TakeReturns("on", true);
     IdentifierReturns(OutString(testType));
     ParseErrorA(_objectParser);
 
@@ -99,8 +99,8 @@ public class ParseSelectionTests
   public void Parse_ShouldReturnEmptyResult_WhenNoValidTokensAreParsed()
   {
     // Arrange
-    Tokenizer.Take("...").Returns(false);
-    Tokenizer.Take('|').Returns(false);
+    TakeReturns("...", false);
+    TakeReturns('|', false);
 
     // Act
     IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, "testLabel");

@@ -33,6 +33,9 @@ public class ParserClassTestBase
   protected void TakeReturns(char take, bool first, params bool[] rest)
     => Tokenizer.Take(take).Returns(first, rest);
 
+  protected void TakeReturns(string take, bool first, params bool[] rest)
+    => Tokenizer.Take(take).Returns(first, rest);
+
   protected static IResultError<T> Error<T>(string message)
     where T : class
     => new ResultError<T>(new(AstNulls.At, message));

@@ -47,7 +47,7 @@ public class ParseModifiersTests
   public void Parse_ShouldReturnError_WhenCollectionsParserFails()
   {
     // Arrange
-    ParseErrorA(_collectionsParser, "error");
+    ParseErrorA(_collectionsParser);
 
     // Act
     IResultArray<IGqlpModifier> result = _parseModifiers.Parse(Tokenizer, "testLabel");

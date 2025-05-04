@@ -32,10 +32,10 @@ public class ParserClassTestBase
     where T : class
     => new ResultArrayError<T>(new(AstNulls.At, message));
 
-  protected void SetupError<T>(string message)
+  protected void SetupError<T>(string? message = null)
     where T : class
   {
-    TokenMessage errMsg = new(AstNulls.At, message);
+    TokenMessage errMsg = new(AstNulls.At, message ?? "error for " + typeof(T).ExpandTypeName());
     ResultError<T> error = new(errMsg);
     ResultArrayError<T> errorA = new(errMsg);
 
@@ -45,20 +45,23 @@ public class ParserClassTestBase
     Tokenizer.ErrorArray<T>("", "", null).ReturnsForAnyArgs(errorA);
   }
 
-  protected void SetupPartial<T>(string message)
-    where T : class, IGqlpAbbreviated
-    => SetupPartial(message, AtFor<T>());
+  protected void SetupPartial<T>(string? message = null)
+    where T : class, IGqlpError
+    => SetupPartial(AtFor<T>(), message);
 
-  protected void SetupPartial<T>(string message, T result)
+  protected void SetupPartial<T>(T result, string? message = null)
     where T : class
   {
-    TokenMessage errMsg = new(AstNulls.At, message);
+    TokenMessage errMsg = new(AstNulls.At, message ?? "partial error for " + typeof(T).ExpandTypeName());
     ResultPartial<T> partial = new(result, errMsg);
     ResultArrayPartial<T> partialA = new([], errMsg);
 
-    Tokenizer.Partial<T>("", "", () => result).ReturnsForAnyArgs(partial);
+    Tokenizer.Partial("", "", () => result).ReturnsForAnyArgs(partial);
     Tokenizer.PartialArray<T>("", "", () => [result]).ReturnsForAnyArgs(partialA);
   }
+
+  protected void Parse<T>([NotNull] Parser<T>.I parser, IResult<T> first, params IResult<T>[] rest)
+    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(first, rest);
 
   protected T ParseOk<T>([NotNull] Parser<T>.I parser)
     where T : class, IGqlpError
@@ -96,13 +99,13 @@ public class ParserClassTestBase
   protected void ParseEmptyA<T>([NotNull] Parser<T>.IA parser)
     => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(0.EmptyArray<T>());
 
-  protected void ParseError<T>([NotNull] Parser<T>.I parser, string message)
+  protected void ParseError<T>([NotNull] Parser<T>.I parser, string? message = null)
     where T : class
-    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(Error<T>(message));
+    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(Error<T>(message ?? "error for " + typeof(T).ExpandTypeName()));
 
-  protected void ParseErrorA<T>([NotNull] Parser<T>.IA parser, string message)
+  protected void ParseErrorA<T>([NotNull] Parser<T>.IA parser, string? message = null)
     where T : class
-    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(ErrorA<T>(message));
+    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(ErrorA<T>(message ?? "error for array of " + typeof(T).ExpandTypeName()));
 
   protected void ParseOkField<T>([NotNull] Parser<IGqlpFields<T>>.I parser, string fieldName)
     where T : class, IGqlpError

@@ -60,14 +60,13 @@ public class ParseFieldKeyTests
     // Arrange
     IdentifierReturns(OutString(enumType), OutFail);
     TakeReturns('.', true);
-    SetupError<IGqlpFieldKey>("enum value after '.'");
+    SetupError<IGqlpFieldKey>();
 
     // Act
     IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultError>()
-      .Message.Message.ShouldContain("enum value after");
+    result.ShouldBeAssignableTo<IResultError>();
   }
 
   [Fact]

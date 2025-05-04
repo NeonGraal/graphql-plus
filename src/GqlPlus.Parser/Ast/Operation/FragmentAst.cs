@@ -13,7 +13,7 @@ internal sealed record class FragmentAst(
 {
   internal override string Abbr => "t";
 
-  IEnumerable<IGqlpSelection> IGqlpFragment.Selections => Selections;
+  IEnumerable<IGqlpSelection> IGqlpSelections.Selections => Selections;
 
   public bool Equals(FragmentAst? other)
     => base.Equals(other)

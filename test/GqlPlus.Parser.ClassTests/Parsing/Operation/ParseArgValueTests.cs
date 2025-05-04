@@ -85,7 +85,7 @@ public class ParseArgValueTests
   {
     // Arrange
     PrefixReturns('$', OutFail);
-    SetupError<IGqlpArg>("identifier after '$'");
+    SetupError<IGqlpArg>();
 
     // Act
     IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, "testLabel");

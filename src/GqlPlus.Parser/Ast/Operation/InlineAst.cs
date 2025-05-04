@@ -20,7 +20,7 @@ internal sealed record class InlineAst(
     get => Directives;
     init => Directives = [.. value.Cast<DirectiveAst>()];
   }
-  IEnumerable<IGqlpSelection> IGqlpInline.Selections => Selections;
+  IEnumerable<IGqlpSelection> IGqlpSelections.Selections => Selections;
 
   public bool Equals(InlineAst? other)
     => base.Equals(other)

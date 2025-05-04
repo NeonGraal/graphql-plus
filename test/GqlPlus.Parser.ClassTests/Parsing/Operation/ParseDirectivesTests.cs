@@ -38,7 +38,7 @@ public class ParseDirectivesTests
   {
     // Arrange
     PrefixReturns('@', OutFail);
-    SetupError<IGqlpDirective>("identifier after '@'");
+    SetupError<IGqlpDirective>();
 
     // Act
     IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, "testLabel");

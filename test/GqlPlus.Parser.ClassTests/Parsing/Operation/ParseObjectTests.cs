@@ -27,7 +27,7 @@ public class ParseObjectTests
     TakeReturns('}', false, false, true);
 
     IGqlpSelection selection = EFor<IGqlpSelection>();
-    Parse(_selectionParser, selection.Ok(), selection.Empty());
+    ParseOk(_selectionParser, selection);
     IGqlpField field = ParseOk(_fieldParser);
 
     // Act

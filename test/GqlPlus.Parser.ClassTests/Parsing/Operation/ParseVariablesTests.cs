@@ -26,7 +26,7 @@ public class ParseVariablesTests
     TakeReturns(')', true);
 
     IGqlpVariable variable = EFor<IGqlpVariable>();
-    Parse(_variableParser, variable.Ok(), variable.Empty());
+    ParseOk(_variableParser, variable);
 
     // Act
     IResultArray<IGqlpVariable> result = _parseVariables.Parse(Tokenizer, "testLabel");

@@ -43,14 +43,13 @@ public class ParserClassTestBase
     => new ResultArrayError<T>(new(AstNulls.At, message));
 
   protected void SetupError<T>()
-    where T : class
   {
     TokenMessage errMsg = new(AstNulls.At, "error for " + typeof(T).ExpandTypeName());
     ResultError<T> error = new(errMsg);
     ResultArrayError<T> errorA = new(errMsg);
 
     Tokenizer.Error<T>("", "").ReturnsForAnyArgs(error);
-    Tokenizer.Error<T>("", "", null).ReturnsForAnyArgs(error);
+    Tokenizer.Error<T>("", "", default).ReturnsForAnyArgs(error);
     Tokenizer.ErrorArray<T>("", "").ReturnsForAnyArgs(errorA);
     Tokenizer.ErrorArray<T>("", "", null).ReturnsForAnyArgs(errorA);
   }
@@ -82,7 +81,7 @@ public class ParserClassTestBase
   }
 
   protected void ParseOk<T>([NotNull] Parser<T>.I parser, T result)
-    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(result.Ok());
+    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(result.Ok(), result.Empty());
 
   protected void ParseEmpty<T>([NotNull] Parser<T>.I parser)
     where T : class

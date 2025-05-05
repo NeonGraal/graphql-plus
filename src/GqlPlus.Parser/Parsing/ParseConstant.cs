@@ -27,18 +27,11 @@ public class ParseConstant(
       return fieldKey.Select(value => new ConstantAst(value) as IGqlpConstant);
     }
 
-    bool oldSeparators = tokens.IgnoreSeparators;
-    try {
-      tokens.IgnoreSeparators = false;
-
-      IResultArray<IGqlpConstant> list = ListParser.Parse(tokens, label);
-      return list.MapOk(
-        theList => new ConstantAst(at, theList.ArrayOf<IGqlpConstant>()).Ok<IGqlpConstant>(),
-        () => list.IsError()
-          ? list.AsResult<IGqlpConstant>()
-          : ObjectParser.Parse(tokens, label).Select(fields => new ConstantAst(at, fields) as IGqlpConstant));
-    } finally {
-      tokens.IgnoreSeparators = oldSeparators;
-    }
+    return base.Parse(tokens, label);
   }
+
+  protected override Func<IGqlpFields<IGqlpConstant>, IGqlpConstant> NewFields(ITokenAt at)
+    => fields => new ConstantAst(at, fields);
+  protected override Func<IEnumerable<IGqlpConstant>, IGqlpConstant> NewList(ITokenAt at)
+    => list => new ConstantAst(at, list);
 }

@@ -1,4 +1,6 @@
-﻿using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Operation;
+using GqlPlus.Ast;
+using GqlPlus.Ast.Operation;
 using GqlPlus.Result;
 using GqlPlus.Token;
 
@@ -19,7 +21,31 @@ public abstract class ValueParser<TValue>(
 
   public Parser<KeyValue<TValue>>.L KeyValueParser { get; } = keyValueParser;
 
-  public abstract IResult<TValue> Parse(ITokenizer tokens, string label);
+  public virtual IResult<TValue> Parse([NotNull] ITokenizer tokens, string label)
+  {
+    bool oldSeparators = tokens.IgnoreSeparators;
+    try {
+      tokens.IgnoreSeparators = false;
+      ITokenAt at = tokens.At;
+
+      IResultArray<TValue> list = ListParser.Parse(tokens, label);
+      if (!list.IsEmpty()) {
+        return list.Select(NewList(at));
+      }
+
+      IResult<IGqlpFields<TValue>> fields = ObjectParser.Parse(tokens, label);
+      if (!fields.IsEmpty()) {
+        return fields.Select(NewFields(at));
+      }
+    } finally {
+      tokens.IgnoreSeparators = oldSeparators;
+    }
+
+    return 0.Empty<TValue>();
+  }
+
+  protected abstract Func<IEnumerable<TValue>, TValue> NewList(ITokenAt at);
+  protected abstract Func<IGqlpFields<TValue>, TValue> NewFields(ITokenAt at);
 
   public IResult<IGqlpFields<TValue>> ParseFieldValues(ITokenizer tokens, string label, char last, IGqlpFields<TValue> fields)
   {
@@ -30,7 +56,7 @@ public abstract class ValueParser<TValue>(
 #pragma warning disable CA1062 // Validate arguments of public methods
     while (!tokens.Take(last)) {
       IResult<KeyValue<TValue>> field = KeyValueParser.Parse(tokens, label);
-      if (!field.Required(value => result.Add((FieldKeyAst)value.Key, value.Value))) {
+      if (!field.Required(value => result.Add(value.Key, value.Value))) {
         return tokens.Error<IGqlpFields<TValue>>(label, "a field in object", result);
       }
 

@@ -16,11 +16,11 @@ internal sealed record class ConstantAst(
     : this((TokenAt)value.At)
     => Value = value;
 
-  internal ConstantAst(TokenAt at, IEnumerable<IGqlpConstant> values)
+  internal ConstantAst(ITokenAt at, IEnumerable<IGqlpConstant> values)
     : this(at)
     => Values = [.. values];
 
-  internal ConstantAst(TokenAt at, IGqlpFields<IGqlpConstant> fields)
+  internal ConstantAst(ITokenAt at, IGqlpFields<IGqlpConstant> fields)
     : this(at)
     => Fields = fields;
 

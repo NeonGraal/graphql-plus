@@ -37,11 +37,9 @@ public class ParserClassTestBase
     => Tokenizer.Take(take).Returns(first, rest);
 
   protected static IResultError<T> Error<T>(string message)
-    where T : class
     => new ResultError<T>(new(AstNulls.At, message));
 
   protected static IResultArrayError<T> ErrorA<T>(string message)
-    where T : class
     => new ResultArrayError<T>(new(AstNulls.At, message));
 
   protected void SetupError<T>()
@@ -112,11 +110,9 @@ public class ParserClassTestBase
     => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(0.EmptyArray<T>());
 
   protected void ParseError<T>([NotNull] Parser<T>.I parser, string? message = null)
-    where T : class
     => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(Error<T>(message ?? "error for " + typeof(T).ExpandTypeName()));
 
   protected void ParseErrorA<T>([NotNull] Parser<T>.IA parser, string? message = null)
-    where T : class
     => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(ErrorA<T>(message ?? "error for array of " + typeof(T).ExpandTypeName()));
 
   protected void ParseOkField<T>([NotNull] Parser<IGqlpFields<T>>.I parser, string fieldName)

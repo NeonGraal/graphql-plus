@@ -15,7 +15,7 @@ internal class ParseArgValue(
 {
   private readonly Parser<IGqlpConstant>.L _constant = constant;
 
-  public override IResult<IGqlpArg> Parse(ITokenizer tokens, string label)
+  public override IResult<IGqlpArg> Parse([NotNull] ITokenizer tokens, string label)
   {
     _ = tokens.At;
     if (!tokens.Prefix('$', out string? variable, out TokenAt at)) {
@@ -32,26 +32,16 @@ internal class ParseArgValue(
       return argument.Ok<IGqlpArg>();
     }
 
-    bool oldSeparators = tokens.IgnoreSeparators;
-    try {
-      tokens.IgnoreSeparators = false;
-      at = tokens.At;
-
-      IResultArray<IGqlpArg> list = ListParser.Parse(tokens, label);
-      if (!list.IsEmpty()) {
-        return list.Select(value => new ArgAst(at, value) as IGqlpArg);
-      }
-
-      IResult<IGqlpFields<IGqlpArg>> fields = ObjectParser.Parse(tokens, label);
-      if (!fields.IsEmpty()) {
-        return fields.Select(value => new ArgAst(at, value) as IGqlpArg);
-      }
-    } finally {
-      tokens.IgnoreSeparators = oldSeparators;
-    }
-
-    return _constant.Parse(tokens, "Constant").MapOk(
-      constant => new ArgAst(constant).Ok<IGqlpArg>(),
-      () => 0.Empty<IGqlpArg>());
+    IResult<IGqlpArg> baseValue = base.Parse(tokens, label);
+    return baseValue.IsEmpty()
+      ? _constant.Parse(tokens, "Constant").MapOk(
+        constant => new ArgAst(constant).Ok<IGqlpArg>(),
+        () => 0.Empty<IGqlpArg>())
+      : baseValue;
   }
+
+  protected override Func<IGqlpFields<IGqlpArg>, IGqlpArg> NewFields(ITokenAt at)
+    => fields => new ArgAst(at, fields);
+  protected override Func<IEnumerable<IGqlpArg>, IGqlpArg> NewList(ITokenAt at)
+    => list => new ArgAst(at, list);
 }

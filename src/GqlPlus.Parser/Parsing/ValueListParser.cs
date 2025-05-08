@@ -9,8 +9,8 @@ public sealed class ValueListParser<T>(
 {
   private readonly Parser<T>.L _value = value;
 
-  public IResultArray<T> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResultArray<T> Parse(ITokenizer tokens, string label)
+
   {
     tokens.ThrowIfNull();
 

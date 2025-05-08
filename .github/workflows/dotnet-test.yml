@@ -59,6 +59,8 @@ jobs:
           dotnet test --no-build --logger "trx;LogFileName=TestResults-${{ matrix.version }}.trx" --framework "net${{ matrix.version }}"
       - name: Generate Coverage Report
         if: always()
+        env:
+          REPORTGENERATOR_LICENSE: ${{ secrets.REPORTGENERATOR_LICENSE }} # Use GitHub Secrets
         run: >
           dotnet reportgenerator
           -reports:${{ github.workspace }}/coverage/Coverage-${{ matrix.version }}.xml

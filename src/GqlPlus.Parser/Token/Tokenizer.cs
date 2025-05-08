@@ -1,10 +1,12 @@
-﻿using System.Globalization;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 
 using GqlPlus.Result;
 
 namespace GqlPlus.Token;
 
 public class Tokenizer
+  : ITokenizer
 {
   internal const int ErrorContextLen = 10;
   internal const string TripleQuote = "\"\"\"";
@@ -59,7 +61,19 @@ public class Tokenizer
     _kinds['/' - ' '] = TokenKind.Regex;
   }
 
-  internal bool IgnoreSeparators { get; set; }
+  public bool IgnoreSeparators { get; set; }
+
+  protected Tokenizer(ITokenizer tokens)
+  {
+    Tokenizer other = (Tokenizer)tokens;
+
+    _operation = other.ThrowIfNull()._operation;
+    _len = other._len;
+
+    _kind = other._kind;
+    _pos = other._pos;
+    IgnoreSeparators = other.IgnoreSeparators;
+  }
 
   public Tokenizer(string operation)
   {
@@ -71,13 +85,13 @@ public class Tokenizer
     IgnoreSeparators = true;
   }
 
-  internal bool AtStart
+  public bool AtStart
     => _kind == TokenKind.Start;
 
-  internal bool AtEnd
+  public bool AtEnd
     => _kind == TokenKind.End;
 
-  internal bool Read()
+  public bool Read()
   {
     if (_kind == TokenKind.Start) {
       _line = 1;
@@ -154,7 +168,7 @@ public class Tokenizer
     _kind = TokenKind.End;
   }
 
-  internal void TakeDescription()
+  public void TakeDescription()
   {
     if (!string.IsNullOrWhiteSpace(_description)) {
       throw new InvalidOperationException("Unused description");
@@ -167,14 +181,14 @@ public class Tokenizer
     }
   }
 
-  internal string GetDescription()
+  public string GetDescription()
   {
     string description = _description;
     _description = "";
     return description;
   }
 
-  internal string Description()
+  public string Description()
   {
     string description = "";
     string sep = "";
@@ -186,16 +200,15 @@ public class Tokenizer
     return description;
   }
 
-  internal bool Identifier(out string identifier)
+  public bool Identifier([NotNullWhen(true)] out string? identifier)
   {
-    identifier = "";
+    identifier = null;
     if (_kind != TokenKind.Identifer) {
       return false;
     }
 
     int end = Letters(_pos);
     identifier = GetString(end);
-    ;
 
     _pos = end;
     Read();
@@ -227,7 +240,7 @@ public class Tokenizer
     return result.ToString();
   }
 
-  internal bool Number(out decimal number)
+  public bool Number(out decimal number)
   {
     number = default;
     if (_kind != TokenKind.Number) {
@@ -269,9 +282,9 @@ public class Tokenizer
     return end;
   }
 
-  internal bool String(out string contents)
+  public bool String([NotNullWhen(true)] out string? contents)
   {
-    contents = "";
+    contents = null;
 
     return _kind == TokenKind.String
       && (IsTripleQuote(_pos + 3)
@@ -283,7 +296,7 @@ public class Tokenizer
     => end < _len
       && _operation[_pos..end].ToString().Equals(TripleQuote, StringComparison.Ordinal);
 
-  private bool BlockString(out string contents)
+  private bool BlockString([NotNullWhen(true)] out string? contents)
   {
     ReadOnlySpan<char> span = _operation.Span;
     int next = _pos + 3;
@@ -314,14 +327,14 @@ public class Tokenizer
     => end < _len
       && !_operation[start..end].ToString().Equals(TripleQuote, StringComparison.Ordinal);
 
-  internal bool Regex(out string regex)
+  public bool Regex([NotNullWhen(true)] out string? regex)
   {
-    regex = "";
+    regex = null;
     return _kind == TokenKind.Regex
       && Delimited('/', out regex);
   }
 
-  private bool Delimited(char delimiter, out string contents)
+  private bool Delimited(char delimiter, [NotNullWhen(true)] out string? contents)
   {
     ReadOnlySpan<char> span = _operation.Span;
     int end = _pos;
@@ -344,7 +357,7 @@ public class Tokenizer
     return end < _len;
   }
 
-  internal bool Take(char one)
+  public bool Take(char one)
   {
     if (_kind != TokenKind.Punctuation || _operation.Span[_pos] != one) {
       return false;
@@ -356,7 +369,7 @@ public class Tokenizer
     return true;
   }
 
-  internal bool TakeAny(out char result, params char[] anyOf)
+  public bool TakeAny(out char result, params char[] anyOf)
   {
     if (_kind != TokenKind.Punctuation || !anyOf.Contains(_operation.Span[_pos])) {
       result = '\0';
@@ -369,7 +382,7 @@ public class Tokenizer
     return true;
   }
 
-  internal bool TakeZero()
+  public bool TakeZero()
   {
     if (_kind != TokenKind.Number || _pos >= _len || _operation.Span[_pos] != '0') {
       return false;
@@ -380,9 +393,9 @@ public class Tokenizer
     return true;
   }
 
-  internal bool Take(string text)
+  public bool Take(string text)
   {
-    if (_pos + text.Length > _len
+    if (text is null || _pos + text.Length > _len
       || !_operation.Slice(_pos, text.Length).ToString().Equals(text, StringComparison.Ordinal)
     ) {
       return false;
@@ -394,7 +407,7 @@ public class Tokenizer
     return true;
   }
 
-  internal bool Prefix(char one, out string? identifier, out TokenAt at)
+  public bool Prefix(char one, out string? identifier, out TokenAt at)
   {
     identifier = null;
     if (_kind == TokenKind.Punctuation
@@ -412,8 +425,8 @@ public class Tokenizer
           _pos += 1;
           _kind = TokenKind.Identifer;
           at = At;
-          Identifier(out identifier);
-          return true;
+
+          return Identifier(out identifier);
         }
       }
 
@@ -424,7 +437,7 @@ public class Tokenizer
     return true;
   }
 
-  internal TokenAt At
+  public TokenAt At
   => _kind switch {
     TokenKind.End => new(_kind, _pos - _lineStart, _line, "<END>"),
     TokenKind.Number => new(_kind, _pos - _lineStart, _line, GetString(Decimal(_pos))),
@@ -435,36 +448,36 @@ public class Tokenizer
   public static string ErrorContext(string context)
     => context is null ? "" : context.Length < ErrorContextLen ? context + "<END>" : context[..ErrorContextLen];
 
-  internal readonly TokenMessages Errors = [];
+  public TokenMessages Errors { get; } = [];
 
-  internal TokenMessage Error(string text)
+  public TokenMessage Error(string text)
   {
     TokenMessage parseMessage = new(At, text);
     Errors.Add(parseMessage);
     return parseMessage;
   }
 
-  internal TokenMessage Error(string label, string expected)
+  public TokenMessage Error(string label, string expected)
     => Error($"Invalid {label}. Expected {expected}.");
 
-  internal IResult<T> Error<T>(string label, string expected)
+  public IResult<T> Error<T>(string label, string expected)
     => Error(label, expected).Error<T>();
 
-  internal IResult<T> Error<T>(string label, string expected, T? result = default)
+  public IResult<T> Error<T>(string label, string expected, T? result = default)
     => result.Error(Error(label, expected));
 
-  internal IResultArray<T> ErrorArray<T>(string label, string expected, IEnumerable<T>? _ = default)
+  public IResultArray<T> ErrorArray<T>(string label, string expected, IEnumerable<T>? _ = default)
     => Error(label, expected).ErrorArray<T>();
 
-  internal IResult<T> Partial<T>(string label, string expected, Func<T> result)
+  public IResult<T> Partial<T>(string label, string expected, Func<T> result)
   {
     TokenMessage error = Error(label, expected);
-    return result().Partial(error);
+    return result.ThrowIfNull().Invoke().Partial(error);
   }
 
-  internal IResultArray<T> PartialArray<T>(string label, string expected, Func<IEnumerable<T>> result)
+  public IResultArray<T> PartialArray<T>(string label, string expected, Func<IEnumerable<T>> result)
   {
     TokenMessage error = Error(label, expected);
-    return result().PartialArray(error);
+    return result.ThrowIfNull().Invoke().PartialArray(error);
   }
 }

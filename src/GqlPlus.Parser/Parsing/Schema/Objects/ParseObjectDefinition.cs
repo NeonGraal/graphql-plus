@@ -17,8 +17,8 @@ public class ParseObjectDefinition<TObjBase, TObjField, TObjAlt>(
   private readonly Parser<TObjField>.L _parseField = parseField;
   private readonly Parser<TObjBase>.L _parseBase = parseBase;
 
-  public IResult<ObjectDefinition<TObjBase, TObjField, TObjAlt>> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<ObjectDefinition<TObjBase, TObjField, TObjAlt>> Parse(ITokenizer tokens, string label)
+
   {
     tokens.ThrowIfNull();
     ObjectDefinition<TObjBase, TObjField, TObjAlt> result = new();

@@ -9,4 +9,5 @@ namespace GqlTest.Model_enum_diff;
 public enum EnumDiff
 {
   one,
+  two,
 }

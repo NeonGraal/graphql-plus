@@ -175,13 +175,12 @@ public class DependencyInjectionChecks(
 
   public void Force3dDependencyInjection(string file)
   {
-    DiLink[] links = _diServices.Values
+    DiLink[] links = [.. _diServices.Values
       .SelectMany(s => s.Requires
-        .Select(r => new DiLink(s.Service.Safe, r.Value.Safe, r.Key)))
-      .ToArray();
-    string[] nodes = links
+        .Select(r => new DiLink(s.Service.Safe, r.Value.Safe, r.Key)))];
+    string[] nodes = [.. links
       .SelectMany(l => new string[] { l.From, l.To })
-      .Distinct().ToArray();
+      .Distinct()];
 
     TemplateContext context = new(s_options);
     context.SetValue("name", file);
@@ -315,18 +314,11 @@ public sealed record TypeIdName
   public TypeIdName? BaseName { get; }
 }
 
-public sealed class DiLink
+public sealed class DiLink(string from, string to, string style)
 {
-  public string From { get; }
-  public string To { get; }
-  public string Style { get; }
-
-  public DiLink(string from, string to, string style)
-  {
-    From = from;
-    To = to;
-    Style = style;
-  }
+  public string From { get; } = from;
+  public string To { get; } = to;
+  public string Style { get; } = style;
 }
 
 public sealed class DiService

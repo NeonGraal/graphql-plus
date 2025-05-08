@@ -731,12 +731,21 @@
           "$tag": "_EnumLabel",
           "enum": "EnumDiff",
           "name": "one"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumDiff",
+          "name": "two"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
           "value": "one"
+        },
+        {
+          "$tag": "_Aliased",
+          "value": "two"
         }
       ],
       "name": "EnumDiff",

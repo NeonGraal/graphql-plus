@@ -10,8 +10,8 @@ internal class ParseModifiers(
 {
   private readonly ParserArray<IParserCollections, IGqlpModifier>.LA _collections = collections;
 
-  public IResultArray<IGqlpModifier> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResultArray<IGqlpModifier> Parse(ITokenizer tokens, string label)
+
   {
     List<IGqlpModifier> list = [];
     IResultArray<IGqlpModifier> collections = _collections.I.Parse(tokens, label);

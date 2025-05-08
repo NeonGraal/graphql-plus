@@ -13,7 +13,7 @@ internal abstract class ParseDomainItem<TItem>(
   public abstract DomainKind Kind { get; }
   public ParseItems Parser => ParseItems;
 
-  protected IResult<DomainDefinition> ParseItems(Tokenizer tokens, string label, DomainDefinition result)
+  protected IResult<DomainDefinition> ParseItems(ITokenizer tokens, string label, DomainDefinition result)
   {
     IResultArray<TItem> items = _items.Parse(tokens, label);
     return items.Required(values => ApplyItems(tokens, label, result, [.. values]))
@@ -21,8 +21,8 @@ internal abstract class ParseDomainItem<TItem>(
       : items.AsResult(result);
   }
 
-  protected abstract void ApplyItems(Tokenizer tokens, string label, DomainDefinition result, TItem[] items);
+  protected abstract void ApplyItems(ITokenizer tokens, string label, DomainDefinition result, TItem[] items);
 
-  public abstract IResult<TItem> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer;
+  public abstract IResult<TItem> Parse(ITokenizer tokens, string label)
+    ;
 }

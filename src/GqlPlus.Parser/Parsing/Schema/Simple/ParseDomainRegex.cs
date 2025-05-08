@@ -11,7 +11,7 @@ internal class ParseDomainRegex(
 {
   public override DomainKind Kind => DomainKind.String;
 
-  public override IResult<IGqlpDomainRegex> Parse<TContext>(TContext tokens, string label)
+  public override IResult<IGqlpDomainRegex> Parse(ITokenizer tokens, string label)
   {
     string description = tokens.Description();
     TokenAt at = tokens.At;
@@ -22,7 +22,7 @@ internal class ParseDomainRegex(
       return result.Ok();
     }
 
-    result = new DomainRegexAst(at, description, false, regex);
+    result = new DomainRegexAst(at, description, false, regex ?? "");
     return string.IsNullOrEmpty(regex)
       ? excluded
         ? tokens.Error(label, "regex after '!'", result)
@@ -30,6 +30,6 @@ internal class ParseDomainRegex(
       : tokens.Error(label, "Closing '/'", result);
   }
 
-  protected override void ApplyItems(Tokenizer tokens, string label, DomainDefinition result, IGqlpDomainRegex[] items)
+  protected override void ApplyItems(ITokenizer tokens, string label, DomainDefinition result, IGqlpDomainRegex[] items)
     => result.Regexes = items.ArrayOf<DomainRegexAst>();
 }

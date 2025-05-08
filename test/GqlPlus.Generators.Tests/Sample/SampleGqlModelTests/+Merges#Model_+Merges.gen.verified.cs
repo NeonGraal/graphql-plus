@@ -158,6 +158,7 @@ public enum EnumAlias
 public enum EnumDiff
 {
   one,
+  two,
 }
 
 public enum EnumSame

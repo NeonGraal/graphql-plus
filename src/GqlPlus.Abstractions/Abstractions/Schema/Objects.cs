@@ -10,6 +10,7 @@ public interface IGqlpObject
 
 public interface IGqlpObject<TBase, TField, TAlt>
   : IGqlpObject
+  , IEquatable<IGqlpObject<TBase, TField, TAlt>>
   where TBase : IGqlpObjBase
   where TField : IGqlpObjField
   where TAlt : IGqlpObjAlternate
@@ -21,6 +22,7 @@ public interface IGqlpObject<TBase, TField, TAlt>
 
 public interface IGqlpObjType
   : IGqlpNamed
+  , IEquatable<IGqlpObjType>
 {
   string Label { get; }
   string FullType { get; }
@@ -41,6 +43,7 @@ public interface IGqlpObjBase
 
 public interface IGqlpObjBase<TArg>
   : IGqlpObjBase
+  , IEquatable<IGqlpObjBase<TArg>>
   where TArg : IGqlpObjArg
 {
   IEnumerable<TArg> BaseArgs { get; }
@@ -56,6 +59,7 @@ public interface IGqlpObjField
 
 public interface IGqlpObjField<TBase>
   : IGqlpObjField
+  , IEquatable<IGqlpObjField<TBase>>
   where TBase : IGqlpObjBase
 {
   TBase BaseType { get; }
@@ -70,6 +74,7 @@ public interface IGqlpObjAlternate
 public interface IGqlpObjAlternate<TArg>
   : IGqlpObjAlternate
   , IGqlpObjBase<TArg>
+  , IEquatable<IGqlpObjAlternate<TArg>>
   where TArg : IGqlpObjArg
 { }
 
@@ -137,6 +142,7 @@ public interface IGqlpInputBase
 
 public interface IGqlpInputField
   : IGqlpObjField<IGqlpInputBase>
+  , IEquatable<IGqlpInputField>
 {
   IGqlpConstant? DefaultValue { get; }
 }
@@ -183,6 +189,7 @@ public interface IGqlpOutputBase
 public interface IGqlpOutputField
   : IGqlpObjField<IGqlpOutputBase>
   , IGqlpOutputEnum
+  , IEquatable<IGqlpOutputField>
 {
   IEnumerable<IGqlpInputParam> Params { get; }
 }
@@ -196,6 +203,7 @@ public interface IGqlpOutputAlternate
 public interface IGqlpInputParam
   : IGqlpDescribed
   , IGqlpModifiers
+  , IEquatable<IGqlpInputParam>
 {
   IGqlpInputBase Type { get; }
   IGqlpConstant? DefaultValue { get; }

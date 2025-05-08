@@ -32,9 +32,6 @@ public static class StructureHelper
       ["_line"] = at.Line,
     }.Render("_At", true);
 
-  public static string TrueFalse(this bool value)
-    => value ? "true" : "false";
-
   public static string TypeTag(this Type type)
   {
     string result = "_" + type.ThrowIfNull().Name.Replace("Model", "");

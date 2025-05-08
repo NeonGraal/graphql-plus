@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Parsing;
 using GqlPlus.Result;
+using GqlPlus.Token;
 
 namespace GqlPlus;
 
@@ -12,7 +13,7 @@ internal class OneChecksParser<TResult>(
 
   public void TrueExpected(string input, TResult expected)
   {
-    Token.Tokenizer tokens = Tokens(input);
+    ITokenizer tokens = Tokens(input);
     IResult<TResult> result = _parser.Parse(tokens, "Test");
 
     result.ShouldSatisfyAllConditions(_type + " -> " + input,
@@ -36,7 +37,7 @@ internal class OneChecksParser<TResult>(
 
   public void OkResult(string input, TResult expected)
   {
-    Token.Tokenizer tokens = Tokens(input);
+    ITokenizer tokens = Tokens(input);
     IResult<TResult> result = _parser.Parse(tokens, "Test");
 
     result.ShouldSatisfyAllConditions(_type + " -> " + input,
@@ -47,7 +48,7 @@ internal class OneChecksParser<TResult>(
 
   public void EmptyResult(string input)
   {
-    Token.Tokenizer tokens = Tokens(input);
+    ITokenizer tokens = Tokens(input);
     IResult<TResult> result = _parser.Parse(tokens, "Test");
 
     result.ShouldSatisfyAllConditions(_type + " -> " + input,
@@ -73,7 +74,7 @@ internal sealed class OneChecksParser<TInterface, TResult>(
 
   public void TrueExpected(string input, TResult expected)
   {
-    Token.Tokenizer tokens = Tokens(input);
+    ITokenizer tokens = Tokens(input);
     IResult<TResult> result = _parser.I.Parse(tokens, "Test");
 
     result.ShouldSatisfyAllConditions(_type + " -> " + input,
@@ -93,7 +94,7 @@ internal sealed class OneChecksParser<TInterface, TResult>(
 
   public void EmptyResult(string input)
   {
-    Token.Tokenizer tokens = Tokens(input);
+    ITokenizer tokens = Tokens(input);
     IResult<TResult> result = _parser.I.Parse(tokens, "Test");
 
     result.ShouldSatisfyAllConditions(_type + " -> " + input,

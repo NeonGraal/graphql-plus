@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Modelling;
@@ -24,7 +25,7 @@ public class CategoriesModelTests(
     string name
   ) => checks
     .Model_Expected(
-      checks.ToModel(new CategoryDeclAst(AstNulls.At, name, new(AstNulls.At, output)), output),
+      checks.ToModel(new CategoryDeclAst(AstNulls.At, name, new TypeRefAst(AstNulls.At, output)), output),
       ["!_Categories",
         "category: !_Category",
         "  name: " + name,
@@ -49,7 +50,7 @@ internal sealed class CategoriesModelChecks(
     "resolution: !_Resolution Parallel"];
 
   protected override CategoryDeclAst NewBaseAst(string name)
-    => new(AstNulls.At, new(AstNulls.At, name));
+    => new(AstNulls.At, new TypeRefAst(AstNulls.At, name));
 
   IModelBase ICheckModelBase.ToModel(IGqlpError ast)
     => new CategoriesModel() { And = _modeller.ToModel((CategoryDeclAst)ast, TypeKinds) };

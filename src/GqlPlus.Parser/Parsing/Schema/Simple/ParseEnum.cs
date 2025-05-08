@@ -38,8 +38,8 @@ internal class ParseEnumDefinition(
 {
   private readonly Parser<IGqlpEnumLabel>.L _enumLabel = enumLabel;
 
-  public IResult<EnumDefinition> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<EnumDefinition> Parse(ITokenizer tokens, string label)
+
   {
     EnumDefinition result = new();
 

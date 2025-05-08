@@ -11,7 +11,7 @@ internal class ParseDomainRange(
 {
   public override DomainKind Kind => DomainKind.Number;
 
-  public override IResult<IGqlpDomainRange> Parse<TContext>(TContext tokens, string label)
+  public override IResult<IGqlpDomainRange> Parse(ITokenizer tokens, string label)
   {
     string description = tokens.Description();
     TokenAt at = tokens.At;
@@ -54,6 +54,6 @@ internal class ParseDomainRange(
       : tokens.Error(label, "upper bound after '~'", range);
   }
 
-  protected override void ApplyItems(Tokenizer tokens, string label, DomainDefinition result, IGqlpDomainRange[] items)
+  protected override void ApplyItems(ITokenizer tokens, string label, DomainDefinition result, IGqlpDomainRange[] items)
     => result.Numbers = items.ArrayOf<DomainRangeAst>();
 }

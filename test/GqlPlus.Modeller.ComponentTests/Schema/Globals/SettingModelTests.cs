@@ -35,7 +35,7 @@ public record struct SettingInput(string Name, string Value)
       => obj.Name.GetHashCode(StringComparison.Ordinal);
   }
   internal readonly OptionSettingAst ToAst(string description)
-    => new(AstNulls.At, Name, description, new(new FieldKeyAst(AstNulls.At, Value)));
+    => new(AstNulls.At, Name, description, new ConstantAst(new FieldKeyAst(AstNulls.At, Value)));
 
   internal readonly string[] Expected(string[] description, string prefix = "", string indent = "")
     => [prefix + "!_Setting",

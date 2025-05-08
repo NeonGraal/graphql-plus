@@ -98,14 +98,14 @@ public class SchemaModelTests(
   [Theory, RepeatData]
   public void Model_Category(string category)
     => checks.SchemaExpected(
-      new SchemaAst(AstNulls.At) { Declarations = [new CategoryDeclAst(AstNulls.At, category, new(AstNulls.At, category))] },
+      new SchemaAst(AstNulls.At) { Declarations = [new CategoryDeclAst(AstNulls.At, category, new TypeRefAst(AstNulls.At, category))] },
       ["!_Schema", .. checks.ExpectedCategories([category], false)]);
 
   [Theory, RepeatData]
   public void Model_Categories(string[] categories)
     => checks.SchemaExpected(
       new SchemaAst(AstNulls.At) {
-        Declarations = [.. categories.Select(d => new CategoryDeclAst(AstNulls.At, d, new(AstNulls.At, d)))]
+        Declarations = [.. categories.Select(d => new CategoryDeclAst(AstNulls.At, d, new TypeRefAst(AstNulls.At, d)))]
       },
       ["!_Schema", .. checks.ExpectedCategories(categories, false)]);
 
@@ -114,7 +114,7 @@ public class SchemaModelTests(
     => checks.SchemaExpected(
       new SchemaAst(AstNulls.At) {
         Declarations = [
-          new CategoryDeclAst(AstNulls.At, category, new(AstNulls.At, category)),
+          new CategoryDeclAst(AstNulls.At, category, new TypeRefAst(AstNulls.At, category)),
           new OutputDeclAst(AstNulls.At, category),
         ]
       },
@@ -129,7 +129,7 @@ public class SchemaModelTests(
     => checks.SchemaExpected(
       new SchemaAst(AstNulls.At) {
         Declarations = [
-          .. categories.Select(d => new CategoryDeclAst(AstNulls.At, d, new(AstNulls.At, d))),
+          .. categories.Select(d => new CategoryDeclAst(AstNulls.At, d, new TypeRefAst(AstNulls.At, d))),
           .. categories.Select(d => new OutputDeclAst(AstNulls.At, d)),
         ]
       },

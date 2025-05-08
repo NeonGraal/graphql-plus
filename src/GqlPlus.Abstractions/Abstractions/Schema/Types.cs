@@ -10,6 +10,7 @@ public interface IGqlpTypeSpecial
 
 public interface IGqlpType<TParent>
   : IGqlpType
+  , IEquatable<IGqlpType<TParent>>
 {
   TParent? Parent { get; }
 }

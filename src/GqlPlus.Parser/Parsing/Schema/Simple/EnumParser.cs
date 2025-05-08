@@ -7,8 +7,8 @@ internal class EnumParser<TEnum>
   : IEnumParser<TEnum>
   where TEnum : struct
 {
-  public IResult<TEnum> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<TEnum> Parse(ITokenizer tokens, string label)
+
       => tokens.Identifier(out string? option)
         ? Enum.TryParse(option, true, out TEnum result)
           ? result.Ok()

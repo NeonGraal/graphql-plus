@@ -8,7 +8,6 @@ internal sealed record class DirectiveDeclAst(
   string Name,
   string Description
 ) : AstDeclaration(At, Name, Description)
-  , IEquatable<DirectiveDeclAst>
   , IGqlpSchemaDirective
 {
   public DirectiveOption Option { get; set; } = DirectiveOption.Unique;
@@ -26,8 +25,10 @@ internal sealed record class DirectiveDeclAst(
     : this(at, name, "") { }
 
   public bool Equals(DirectiveDeclAst? other)
+    => other is IGqlpSchemaDirective directive && Equals(directive);
+  public bool Equals(IGqlpSchemaDirective? other)
     => base.Equals(other)
-    && Option == other.Option
+    && Option == other.DirectiveOption
     && Params.SequenceEqual(other.Params)
     && Locations == other.Locations;
   public override int GetHashCode()

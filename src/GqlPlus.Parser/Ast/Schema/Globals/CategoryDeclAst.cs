@@ -7,9 +7,8 @@ internal sealed record class CategoryDeclAst(
   TokenAt At,
   string Name,
   string Description,
-  TypeRefAst Output
+  IGqlpTypeRef Output
 ) : AstDeclaration(At, Name, Description)
-  , IEquatable<CategoryDeclAst>
   , IGqlpSchemaCategory
 {
   public IGqlpModifier[] Modifiers { get; set; } = [];
@@ -17,24 +16,25 @@ internal sealed record class CategoryDeclAst(
   internal override string Abbr => "Ca";
   public override string Label => "Category";
 
-  public TypeRefAst Output { get; set; } = Output;
+  public IGqlpTypeRef Output { get; set; } = Output;
 
   public CategoryOption Option { get; set; } = CategoryOption.Parallel;
 
   CategoryOption IGqlpSchemaCategory.CategoryOption => Option;
-  IGqlpTypeRef IGqlpSchemaCategory.Output => Output;
   IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
 
-  public CategoryDeclAst(TokenAt at, TypeRefAst output)
+  public CategoryDeclAst(TokenAt at, IGqlpTypeRef output)
     : this(at, output.Name.Camelize()!, "", output) { }
 
-  public CategoryDeclAst(TokenAt at, string name, TypeRefAst output)
+  public CategoryDeclAst(TokenAt at, string name, IGqlpTypeRef output)
     : this(at, name, "", output) { }
 
   public bool Equals(CategoryDeclAst? other)
+    => other is IGqlpSchemaCategory category && Equals(category);
+  public bool Equals(IGqlpSchemaCategory? other)
     => base.Equals(other)
-    && Option == other.Option
-    && Output == other.Output
+    && Option == other.CategoryOption
+    && Output.Equals(other.Output)
     && Modifiers.SequenceEqual(other.Modifiers);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Option, Output, Modifiers.Length);

@@ -1,6 +1,7 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Merging;
 using GqlPlus.Verification.Schema;
+using NSubstitute;
 
 namespace GqlPlus.Schema;
 
@@ -22,6 +23,23 @@ public abstract class GroupedVerifierBase<TAliased>
     verifier.Verify([item1, item2], Errors);
 
     verifier.ShouldSatisfyAllConditions(CheckSimpleVerify);
+  }
+
+  [Fact]
+  public void Verify_CantMergeGroups_ReturnsErrors()
+  {
+    GroupedVerifier<TAliased> verifier = NewGroupedVerifier();
+
+    TAliased item1 = For<TAliased>();
+    TAliased item2 = For<TAliased>();
+
+    _merger.Intf.CanMerge([]).ReturnsForAnyArgs(MakeMessages("Can't merge"));
+
+    verifier.Verify([item1, item2], Errors);
+
+    verifier.ShouldSatisfyAllConditions(
+      _merger.Called,
+      () => Errors.ShouldNotBeEmpty());
   }
 
   protected virtual void CheckSimpleVerify()

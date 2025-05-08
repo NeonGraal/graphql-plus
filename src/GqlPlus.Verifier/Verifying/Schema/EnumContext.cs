@@ -13,21 +13,11 @@ public class EnumContext(
   internal bool GetEnumValue(string value, [NotNullWhen(true)] out string? type)
     => enumValues.TryGetValue(value, out type);
 
-  internal bool GetEnumType(string? name, [NotNullWhen(true)] out IGqlpEnum? enumType)
-  {
-    enumType = null;
-    if (GetType(name, out IGqlpDescribed? theType)) {
-      enumType = theType as IGqlpEnum;
-    }
-
-    return enumType is not null;
-  }
-
   internal bool GetEnumValueType(IGqlpEnum enumType, string value, [NotNullWhen(true)] out IGqlpEnum? valueType)
   {
     valueType = enumType;
     while (!valueType.HasValue(value)) {
-      if (!GetEnumType(valueType.Parent, out valueType)) {
+      if (!GetTyped(valueType.Parent, out valueType)) {
         valueType = null;
         return false;
       }

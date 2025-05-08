@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Ast;
 using GqlPlus.Result;
+using GqlPlus.Token;
 
 namespace GqlPlus.Parsing;
 
@@ -10,7 +11,7 @@ public class ParseConstant(
   Parser<IGqlpFields<IGqlpConstant>>.D objectParser
 ) : ValueParser<IGqlpConstant>(fieldKey, keyValueParser, listParser, objectParser)
 {
-  public override IResult<IGqlpConstant> Parse<TContext>(TContext tokens, string label)
+  public override IResult<IGqlpConstant> Parse(ITokenizer tokens, string label)
   {
     tokens.ThrowIfNull();
 #pragma warning disable CA1062 // Validate arguments of public methods

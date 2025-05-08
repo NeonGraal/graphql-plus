@@ -38,8 +38,8 @@ internal class ParseUnionDefinition(
 {
   private readonly Parser<IGqlpUnionMember>.L _unionMember = unionMember;
 
-  public IResult<UnionDefinition> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<UnionDefinition> Parse(ITokenizer tokens, string label)
+
   {
     UnionDefinition result = new();
 

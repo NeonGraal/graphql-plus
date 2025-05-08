@@ -11,12 +11,12 @@ internal class ParseDirectives(
 {
   private readonly Parser<IParserArg, IGqlpArg>.L _argument = argument;
 
-  public IResultArray<IGqlpDirective> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResultArray<IGqlpDirective> Parse(ITokenizer tokens, string label)
+
   {
     List<IGqlpDirective> result = [];
 
-    if (!tokens.Prefix('@', out string? name, out TokenAt? at)) {
+    if (!tokens.Prefix('@', out string? name, out TokenAt at)) {
       return tokens.ErrorArray(label, "identifier after '@'", result);
     }
 

@@ -7,8 +7,8 @@ namespace GqlPlus.Parsing;
 internal class ParseFieldKey
   : Parser<IGqlpFieldKey>.I
 {
-  public IResult<IGqlpFieldKey> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<IGqlpFieldKey> Parse(ITokenizer tokens, string label)
+
   {
     TokenAt at = tokens.At;
     if (tokens.Number(out decimal number)) {

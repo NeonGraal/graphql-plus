@@ -45,7 +45,7 @@ internal class VerifyUnionTypes(
     if (member.Name == name) {
       context.AddError(member, "Union Member", $"'{name}' cannot refer to " + (checkType is null ? "self, even recursively" : "self"));
       return false;
-    } else if (context.GetType(member.Name, out IGqlpDescribed? alternate) && alternate is IGqlpType type) {
+    } else if (context.GetTyped(member.Name, out IGqlpType? type)) {
       if (type is IGqlpUnion typeUnion) {
         CheckSelfMember(name, typeUnion, context);
       } else {
@@ -73,10 +73,6 @@ internal class VerifyUnionTypes(
   {
     parent = null;
 
-    if (usage.Parent != name && context.GetType(usage.Parent, out IGqlpDescribed? parentType) && parentType is IGqlpUnion usageParent) {
-      parent = usageParent;
-    }
-
-    return parent is not null;
+    return usage.Parent != name && context.GetTyped(usage.Parent, out parent);
   }
 }

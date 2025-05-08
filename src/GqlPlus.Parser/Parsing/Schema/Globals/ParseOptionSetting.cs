@@ -2,6 +2,7 @@
 using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Result;
+using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Globals;
 
@@ -11,7 +12,7 @@ internal class ParseOptionSetting(
 {
   private readonly Parser<IParserDefault, IGqlpConstant>.L _default = defaultParser;
 
-  IResult<IGqlpSchemaSetting> Parser<IGqlpSchemaSetting>.I.Parse<TContext>(TContext tokens, string label)
+  IResult<IGqlpSchemaSetting> Parser<IGqlpSchemaSetting>.I.Parse(ITokenizer tokens, string label)
   {
     Token.TokenAt at = tokens.At;
     string description = tokens.Description();

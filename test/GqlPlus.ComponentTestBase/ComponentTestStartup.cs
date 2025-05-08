@@ -16,11 +16,13 @@ public static class ComponentTestStartup
 
   public static IServiceCollection AddComponentTest(this IServiceCollection services)
     => services
-      .AddLogging(lb => lb
-        .AddXunitOutput(options => options.TimestampFormat = "HH:mm:ss.fff")
-        .AddFilter("NullVerifier", LogLevel.Warning)
-      )
-      //.AddSkippableFactSupport()
+      .AddLogging(lb => {
+        lb.AddFilter("NullVerifier", LogLevel.Warning);
+        lb.AddXunitOutput(options => options.TimestampFormat = "HH:mm:ss.fff");
+        if (string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("GQLPLUS_TEST_LOGGING"))) {
+          lb.AddFilter(l => l == LogLevel.Critical);
+        }
+      })
       .AddTransient<ISchemaParseChecks, SchemaParseChecks>()
       .AddCommonParsers()
       .AddOperationParsers()

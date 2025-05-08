@@ -8,8 +8,8 @@ namespace GqlPlus.Parsing.Schema.Simple;
 internal class ParseUnionMember
   : Parser<IGqlpUnionMember>.I
 {
-  public IResult<IGqlpUnionMember> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<IGqlpUnionMember> Parse(ITokenizer tokens, string label)
+
   {
     string description = tokens.Description();
     TokenAt at = tokens.At;

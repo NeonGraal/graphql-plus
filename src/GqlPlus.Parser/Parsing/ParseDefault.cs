@@ -9,8 +9,8 @@ internal class ParseDefault(
 {
   private readonly Parser<IGqlpConstant>.L _constant = constant;
 
-  public IResult<IGqlpConstant> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<IGqlpConstant> Parse(ITokenizer tokens, string label)
+
     => tokens.Take('=') ? _constant.Parse(tokens, "Default").MapEmpty(
           () => tokens.Error<IGqlpConstant>("Default", "value after '='")
         ) : 0.Empty<IGqlpConstant>();

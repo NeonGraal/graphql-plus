@@ -10,8 +10,8 @@ internal class ParseVariables(
 {
   private readonly Parser<IGqlpVariable>.L _variable = variable;
 
-  public IResultArray<IGqlpVariable> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResultArray<IGqlpVariable> Parse(ITokenizer tokens, string label)
+
   {
     List<IGqlpVariable> list = [];
 

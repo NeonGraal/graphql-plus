@@ -8,7 +8,6 @@ internal sealed record class OptionDeclAst(
   string Name,
   string Description
 ) : AstDeclaration(At, Name, Description)
-  , IEquatable<OptionDeclAst>
   , IGqlpSchemaOption
 {
   public OptionSettingAst[] Settings { get; set; } = [];
@@ -22,6 +21,8 @@ internal sealed record class OptionDeclAst(
     : this(at, name, "") { }
 
   public bool Equals(OptionDeclAst? other)
+    => other is IGqlpSchemaOption option && Equals(option);
+  public bool Equals(IGqlpSchemaOption? other)
     => base.Equals(other)
     && Settings.SequenceEqual(other.Settings);
   public override int GetHashCode()

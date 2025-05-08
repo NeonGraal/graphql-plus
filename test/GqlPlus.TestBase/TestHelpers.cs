@@ -68,7 +68,7 @@ public static class TestHelpers
     return TripleQuote + contents + TripleQuote;
   }
 
-  public static Tokenizer Tokens(string input)
+  public static ITokenizer Tokens(string input)
   {
     Tokenizer tokens = new(input);
     tokens.Read();

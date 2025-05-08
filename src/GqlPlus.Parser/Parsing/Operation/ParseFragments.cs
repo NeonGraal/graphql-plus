@@ -13,13 +13,13 @@ internal abstract class ParseFragments(
   private readonly Parser<IGqlpDirective>.LA _directives = directives;
   private readonly Parser<IGqlpSelection>.LA _object = objectParser;
 
-  protected abstract bool FragmentPrefix<TContext>(ref TContext tokens)
-    where TContext : Tokenizer;
-  protected abstract bool TypePrefix<TContext>(ref TContext tokens)
-    where TContext : Tokenizer;
+  protected abstract bool FragmentPrefix(ref ITokenizer tokens)
+    ;
+  protected abstract bool TypePrefix(ref ITokenizer tokens)
+    ;
 
-  public IResultArray<IGqlpFragment> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResultArray<IGqlpFragment> Parse(ITokenizer tokens, string label)
+
   {
     List<IGqlpFragment> definitions = [];
 
@@ -64,9 +64,9 @@ internal class ParseStartFragments(
   Parser<IGqlpSelection>.DA objectParser
 ) : ParseFragments(directives, objectParser), IParserStartFragments
 {
-  protected override bool FragmentPrefix<TContext>(ref TContext tokens)
+  protected override bool FragmentPrefix(ref ITokenizer tokens)
     => tokens.Take('&');
-  protected override bool TypePrefix<TContext>(ref TContext tokens)
+  protected override bool TypePrefix(ref ITokenizer tokens)
     => tokens.Take(':');
 }
 
@@ -75,9 +75,9 @@ internal class ParseEndFragments(
   Parser<IGqlpSelection>.DA objectParser
 ) : ParseFragments(directives, objectParser), IParserEndFragments
 {
-  protected override bool FragmentPrefix<TContext>(ref TContext tokens)
+  protected override bool FragmentPrefix(ref ITokenizer tokens)
     => tokens.Take("fragment") || tokens.Take('&');
-  protected override bool TypePrefix<TContext>(ref TContext tokens)
+  protected override bool TypePrefix(ref ITokenizer tokens)
     => tokens.Take("on") || tokens.Take(':');
 }
 

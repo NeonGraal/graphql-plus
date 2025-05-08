@@ -37,25 +37,8 @@ public class ResultOkTests : BaseResultTests
   [Fact]
   public void Select_WithNull_ReturnsResultEmpty()
   {
-    IResult<Tokenizer> result = _ok.Select(s => (Tokenizer?)null);
+    IResult<ITokenizer> result = _ok.Select(s => (ITokenizer?)null);
 
-    result.ShouldBeOfType<ResultEmpty<Tokenizer>>();
-  }
-
-  [Fact]
-  public void SelectWithLength_ReturnsResultOk()
-  {
-    IResult<int> result = _ok.SelectOk(s => s.Length);
-
-    result.ShouldBeOfType<ResultOk<int>>()
-      .Optional().ShouldBe(2);
-  }
-
-  [Fact]
-  public void SelectWithNull_ReturnsResultEmpty()
-  {
-    IResult<Tokenizer> result = _ok.SelectOk(s => (Tokenizer?)null);
-
-    result.ShouldBeOfType<ResultEmpty<Tokenizer>>();
+    result.ShouldBeOfType<ResultEmpty<ITokenizer>>();
   }
 }

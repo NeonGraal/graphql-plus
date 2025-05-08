@@ -112,8 +112,7 @@ where TContext : UsageContext
   private void CheckAlternate(ParentUsage<TObject> input, string current, TContext context, bool top)
   {
     if (context.DifferentName(input, top ? null : current)
-      && context.GetType(input.Parent, out IGqlpDescribed? type)
-      && type is TObject alternateType) {
+      && context.GetTyped(input.Parent, out TObject? alternateType)) {
       CheckParent(input, alternateType, context, false);
 
       _logger.CheckingAlternates(input, top, alternateType.Name, current);

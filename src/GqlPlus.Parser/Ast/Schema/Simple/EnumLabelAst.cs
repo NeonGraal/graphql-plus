@@ -8,7 +8,6 @@ internal sealed record class EnumLabelAst(
   string Name,
   string Description
 ) : AstAliased(At, Name, Description)
-  , IEquatable<EnumLabelAst>
   , IGqlpEnumLabel
 {
   public EnumLabelAst(TokenAt at, string name)

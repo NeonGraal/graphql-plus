@@ -7,8 +7,8 @@ namespace GqlPlus.Parsing;
 internal class ParseCollections
   : IParserCollections
 {
-  public IResultArray<IGqlpModifier> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResultArray<IGqlpModifier> Parse(ITokenizer tokens, string label)
+
   {
     List<IGqlpModifier> list = [];
 

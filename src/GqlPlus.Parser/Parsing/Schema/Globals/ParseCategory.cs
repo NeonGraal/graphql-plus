@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
@@ -28,7 +29,7 @@ internal class ParseCategory(
   }
 
   protected override IGqlpSchemaCategory ToResult(AstPartial<NullAst, CategoryOption> partial)
-    => new CategoryDeclAst(partial.At, partial.Name, partial.Description, new(partial.At, partial.Name, "")) {
+    => new CategoryDeclAst(partial.At, partial.Name, partial.Description, new TypeRefAst(partial.At, partial.Name, "")) {
       Aliases = partial.Aliases,
       Option = partial.Option ?? CategoryOption.Parallel,
     };
@@ -42,10 +43,13 @@ internal record CategoryOutput(TypeRefAst Output)
 internal class CategoryName
   : ICategoryName
 {
-  public bool ParseName(Tokenizer tokens, out string? name, out TokenAt at)
+  public bool ParseName(ITokenizer tokens, [NotNullWhen(true)] out string? name, out TokenAt at)
   {
     at = tokens.At;
-    tokens.Identifier(out name);
+    if (!tokens.Identifier(out name)) {
+      name = "";
+    }
+
     return true;
   }
 }
@@ -60,8 +64,8 @@ internal class ParseCategoryDefinition(
   private readonly Parser<IGqlpTypeRef>.L _typeRef = typeRef;
   private readonly Parser<IGqlpModifier>.LA _modifiers = modifiers;
 
-  public IResult<CategoryOutput> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<CategoryOutput> Parse(ITokenizer tokens, string label)
+
   {
     IResult<IGqlpTypeRef> output = _typeRef.Parse(tokens, "Category Output");
     if (output.IsError()) {

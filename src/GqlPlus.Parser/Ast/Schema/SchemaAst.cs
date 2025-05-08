@@ -5,7 +5,6 @@ namespace GqlPlus.Ast.Schema;
 
 internal sealed record class SchemaAst(TokenAt At)
   : AstAbbreviated(At)
-  , IEquatable<SchemaAst>
   , IGqlpSchema
 {
   public ParseResultKind Result { get; set; }
@@ -18,41 +17,9 @@ internal sealed record class SchemaAst(TokenAt At)
   IEnumerable<IGqlpDeclaration> IGqlpSchema.Declarations => Declarations;
   ITokenMessages IGqlpSchema.Errors => Errors;
 
-  public string Show()
-  {
-    using StringWriter sw = new();
-    int indent = 0;
-    string[] begins = ["(", "{", "[", "<"];
-    string[] ends = [")", "}", "]", ">"];
-    foreach (string? field in GetFields()) {
-      if (string.IsNullOrWhiteSpace(field)) {
-        continue;
-      }
-
-      if (begins.Contains(field)) {
-        Write(field!);
-        indent++;
-      } else if (ends.Contains(field)) {
-        indent--;
-        Write(field!);
-      } else {
-        Write(field!);
-      }
-    }
-
-    return sw.ToString();
-
-    void Write(string text)
-    {
-      for (int i = 0; i < indent; i++) {
-        sw.Write("  ");
-      }
-
-      sw.WriteLine(text);
-    }
-  }
-
   public bool Equals(SchemaAst? other)
+    => other is IGqlpSchema schema && Equals(schema);
+  public bool Equals(IGqlpSchema? other)
     => base.Equals(other)
       && Result == other.Result
       && Declarations.OrderedEqual(other.Declarations, s_comparer)

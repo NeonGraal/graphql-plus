@@ -20,10 +20,10 @@ internal class ParseOutputField(
   protected override OutputFieldAst ObjField(TokenAt at, string name, string description, IGqlpOutputBase typeBase)
     => new(at, name, description, typeBase);
 
-  protected override IResult<IGqlpOutputField> FieldDefault<TContext>(TContext tokens, OutputFieldAst field)
+  protected override IResult<IGqlpOutputField> FieldDefault(ITokenizer tokens, OutputFieldAst field)
     => field.Ok<IGqlpOutputField>();
 
-  protected override IResult<IGqlpOutputField> FieldEnumValue<TContext>(TContext tokens, OutputFieldAst field)
+  protected override IResult<IGqlpOutputField> FieldEnumValue(ITokenizer tokens, OutputFieldAst field)
   {
     if (tokens.Take('=')) {
       string description = tokens.Description();
@@ -50,7 +50,7 @@ internal class ParseOutputField(
     return tokens.Error<IGqlpOutputField>("Output", "':' or '='", field);
   }
 
-  protected override IResultArray<IGqlpInputParam> FieldParam<TContext>(TContext tokens)
+  protected override IResultArray<IGqlpInputParam> FieldParam(ITokenizer tokens)
     => _parameter.Parse(tokens, "Output");
 
   protected override IGqlpOutputBase ObjBase(TokenAt at, string param, string description)

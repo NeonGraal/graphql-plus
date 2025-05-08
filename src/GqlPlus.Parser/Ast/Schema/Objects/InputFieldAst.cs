@@ -9,7 +9,6 @@ internal sealed record class InputFieldAst(
   string Description,
   IGqlpInputBase BaseType
 ) : AstObjField<IGqlpInputBase>(At, Name, Description, BaseType)
-  , IEquatable<InputFieldAst>
   , IGqlpInputField
 {
   public ConstantAst? DefaultValue { get; set; }
@@ -22,6 +21,8 @@ internal sealed record class InputFieldAst(
   IGqlpConstant? IGqlpInputField.DefaultValue => DefaultValue;
 
   public bool Equals(InputFieldAst? other)
+    => other is IGqlpInputField field && Equals(field);
+  public bool Equals(IGqlpInputField? other)
     => base.Equals(other)
     && DefaultValue.NullEqual(other.DefaultValue);
   public override int GetHashCode()

@@ -3,7 +3,9 @@
 namespace GqlPlus.Abstractions.Schema;
 
 public interface IGqlpSchemaCategory
-  : IGqlpDeclaration, IGqlpModifiers
+  : IGqlpDeclaration
+  , IGqlpModifiers
+  , IEquatable<IGqlpSchemaCategory>
 {
   CategoryOption CategoryOption { get; }
   IGqlpTypeRef Output { get; }
@@ -18,6 +20,7 @@ public enum CategoryOption
 
 public interface IGqlpSchemaDirective
   : IGqlpDeclaration
+  , IEquatable<IGqlpSchemaDirective>
 {
   IEnumerable<IGqlpInputParam> Params { get; }
   DirectiveOption DirectiveOption { get; }
@@ -58,12 +61,14 @@ public interface IGqlpSchemaOperation
 
 public interface IGqlpSchemaOption
   : IGqlpDeclaration
+  , IEquatable<IGqlpSchemaOption>
 {
   IEnumerable<IGqlpSchemaSetting> Settings { get; }
 }
 
 public interface IGqlpSchemaSetting
   : IGqlpNamed
+  , IEquatable<IGqlpSchemaSetting>
 {
   IGqlpConstant Value { get; }
 }

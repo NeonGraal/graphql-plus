@@ -88,9 +88,9 @@ public class ResultPartialTests : BaseResultTests
   [Fact]
   public void Select_WithNull_ReturnsResultPartial()
   {
-    IResult<Tokenizer> result = _partial.Select(s => (Tokenizer?)null);
+    IResult<ITokenizer> result = _partial.Select(s => (ITokenizer?)null);
 
-    result.ShouldBeOfType<ResultError<Tokenizer>>()
+    result.ShouldBeOfType<ResultError<ITokenizer>>()
       .Message.Message.ShouldBe(Partial);
   }
 
@@ -106,9 +106,9 @@ public class ResultPartialTests : BaseResultTests
   [Fact]
   public void SelectOk_WithNull_ReturnsResultError()
   {
-    IResult<Tokenizer> result = _partial.SelectOk(s => (Tokenizer?)null);
+    IResult<ITokenizer> result = _partial.SelectOk(s => (ITokenizer?)null);
 
-    result.ShouldBeOfType<ResultError<Tokenizer>>()
+    result.ShouldBeOfType<ResultError<ITokenizer>>()
       .Message.Message.ShouldBe(Partial);
   }
 }

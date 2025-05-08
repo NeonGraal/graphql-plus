@@ -37,8 +37,8 @@ internal class ParseOptionDefinition(
 {
   private readonly Parser<IGqlpSchemaSetting>.L _setting = setting;
 
-  public IResult<OptionDefinition> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<OptionDefinition> Parse(ITokenizer tokens, string label)
+
   {
     OptionDefinition result = new();
 

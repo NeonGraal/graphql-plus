@@ -8,12 +8,12 @@ namespace GqlPlus.Parsing.Schema;
 internal class ParseTypeRef
   : Parser<IGqlpTypeRef>.I
 {
-  public IResult<IGqlpTypeRef> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<IGqlpTypeRef> Parse(ITokenizer tokens, string label)
+
   {
     string description = tokens.Description();
     TokenAt at = tokens.At;
-    if (tokens.Identifier(out string name)) {
+    if (tokens.Identifier(out string? name)) {
       IGqlpTypeRef result = new TypeRefAst(at, name, description);
       return result.Ok();
     } else {

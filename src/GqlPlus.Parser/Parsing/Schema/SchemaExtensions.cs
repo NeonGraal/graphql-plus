@@ -5,7 +5,7 @@ namespace GqlPlus.Parsing.Schema;
 
 public static class SchemaExtensions
 {
-  public static IResult<T> End<T>(this Tokenizer tokens, string label, Func<T> result)
+  public static IResult<T> End<T>(this ITokenizer tokens, string label, Func<T> result)
   {
     tokens.ThrowIfNull();
     result.ThrowIfNull();

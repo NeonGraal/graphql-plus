@@ -10,7 +10,7 @@ public class ParseDomainDefinitionClassTests : ClassTestBase
   [Fact]
   public void Parse_UnknownKind_ReturnsExpected()
   {
-    Token.Tokenizer tokens = Tokens("{ ");
+    Token.ITokenizer tokens = Tokens("{ ");
 
     Parser<IEnumParser<DomainKind>, DomainKind>.D kind = EnumParserFor(out Parser<DomainKind>.I? kindParser);
     kindParser.Parse(tokens, default!)

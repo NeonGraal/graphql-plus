@@ -11,8 +11,8 @@ internal class OptionParser<TOption>(
 {
   private readonly Parser<IEnumParser<TOption>, TOption>.L _parser = parser;
 
-  public IResult<TOption> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<TOption> Parse(ITokenizer tokens, string label)
+
   {
     if (tokens.Take('(')) {
       IResult<TOption> enumResult = _parser.I.Parse(tokens, label);

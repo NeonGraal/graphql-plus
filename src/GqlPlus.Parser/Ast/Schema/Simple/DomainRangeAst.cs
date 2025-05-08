@@ -10,7 +10,6 @@ internal sealed record class DomainRangeAst(
   string Description,
   bool Excludes
 ) : AstDomainItem(At, Description, Excludes)
-  , IEquatable<DomainRangeAst>
   , IGqlpDomainRange
 {
   public decimal? Lower { get; set; }
@@ -23,6 +22,8 @@ internal sealed record class DomainRangeAst(
     => (Lower, Upper) = (lower, upper);
 
   public bool Equals(DomainRangeAst? other)
+    => other is IGqlpDomainRange range && Equals(range);
+  public bool Equals(IGqlpDomainRange? other)
     => base.Equals(other)
       && Lower.NullEqual(other.Lower)
       && Upper.NullEqual(other.Upper);

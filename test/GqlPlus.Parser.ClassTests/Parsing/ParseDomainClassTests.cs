@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
 using GqlPlus.Parsing.Schema;
 using GqlPlus.Parsing.Schema.Simple;
 using GqlPlus.Result;
@@ -12,7 +11,7 @@ public class ParseDomainClassTests : ClassTestBase
   [Theory, RepeatData]
   public void Parse_UnknownKind_ReturnsExpected(string name)
   {
-    Token.Tokenizer tokens = Tokens("{ ");
+    Token.ITokenizer tokens = Tokens("{ ");
 
     ISimpleName simpleName = NameFor<ISimpleName>(name);
     Parser<NullAst>.DA param = ArrayParserFor<NullAst>();

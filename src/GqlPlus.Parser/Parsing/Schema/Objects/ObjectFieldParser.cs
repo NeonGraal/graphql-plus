@@ -19,8 +19,8 @@ internal abstract class ObjectFieldParser<TObjField, TObjFieldAst, TObjBase>(
   private readonly Parser<IGqlpModifier>.LA _modifiers = modifiers;
   private readonly Parser<TObjBase>.L _parseBase = parseBase;
 
-  public IResult<TObjField> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<TObjField> Parse(ITokenizer tokens, string label)
+
   {
     tokens.ThrowIfNull();
     string description = tokens.Description();
@@ -66,11 +66,11 @@ internal abstract class ObjectFieldParser<TObjField, TObjFieldAst, TObjBase>(
 
   protected abstract void ApplyFieldParams(TObjFieldAst field, IGqlpInputParam[] parameters);
   protected abstract TObjFieldAst ObjField(TokenAt at, string name, string description, TObjBase typeBase);
-  protected abstract IResult<TObjField> FieldDefault<TContext>(TContext tokens, TObjFieldAst field)
-      where TContext : Tokenizer;
-  protected abstract IResult<TObjField> FieldEnumValue<TContext>(TContext tokens, TObjFieldAst field)
-      where TContext : Tokenizer;
-  protected abstract IResultArray<IGqlpInputParam> FieldParam<TContext>(TContext tokens)
-      where TContext : Tokenizer;
+  protected abstract IResult<TObjField> FieldDefault(ITokenizer tokens, TObjFieldAst field)
+      ;
+  protected abstract IResult<TObjField> FieldEnumValue(ITokenizer tokens, TObjFieldAst field)
+      ;
+  protected abstract IResultArray<IGqlpInputParam> FieldParam(ITokenizer tokens)
+      ;
   protected abstract TObjBase ObjBase(TokenAt at, string param, string description = "");
 }

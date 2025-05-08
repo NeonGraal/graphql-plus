@@ -1,11 +1,10 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Merging;
 using GqlPlus.Merging.Simple;
 using GqlPlus.Token;
 
 using NSubstitute;
 
-namespace GqlPlus.Ast.Schema.Simple;
+namespace GqlPlus.Merging.Schema.Simple;
 
 public abstract class TestDomainMerger<TItem, TItemInput>
   : TestTypedMerger<IGqlpDomain, IGqlpDomain<TItem>, string, TItem>

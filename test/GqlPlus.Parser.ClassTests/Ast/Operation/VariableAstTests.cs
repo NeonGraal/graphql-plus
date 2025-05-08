@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using GqlPlus.Abstractions.Operation;
+﻿using GqlPlus.Abstractions.Operation;
 
 namespace GqlPlus.Ast.Operation;
 

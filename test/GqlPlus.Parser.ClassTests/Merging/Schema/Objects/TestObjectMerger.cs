@@ -1,7 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Merging;
 using GqlPlus.Merging.Objects;
-using GqlPlus.Merging.Schema;
 
 namespace GqlPlus.Merging.Schema.Objects;
 

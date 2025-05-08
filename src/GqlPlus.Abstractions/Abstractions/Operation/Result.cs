@@ -26,7 +26,6 @@ public interface IGqlpInline
 public interface IGqlpSpread
   : IGqlpIdentified
   , IGqlpSelection
-  , IEquatable<IGqlpSpread>
 { }
 
 public interface IGqlpArg

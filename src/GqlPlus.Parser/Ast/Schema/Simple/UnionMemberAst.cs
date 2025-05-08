@@ -11,10 +11,4 @@ internal sealed record class UnionMemberAst(
   , IGqlpUnionMember
 {
   internal override string Abbr => "UM";
-
-  public bool Equals(UnionMemberAst other)
-    => other is IGqlpUnionMember member && Equals(member);
-  public bool Equals(IGqlpUnionMember? other)
-    => base.Equals(other);
-  public override int GetHashCode() => base.GetHashCode();
 }

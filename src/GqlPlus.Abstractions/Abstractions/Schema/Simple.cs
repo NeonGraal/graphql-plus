@@ -82,7 +82,6 @@ public interface IGqlpEnum
 
 public interface IGqlpEnumLabel
   : IGqlpAliased
-  , IEquatable<IGqlpEnumLabel>
 { }
 
 public interface IGqlpUnion
@@ -91,5 +90,4 @@ public interface IGqlpUnion
 
 public interface IGqlpUnionMember
   : IGqlpNamed
-  , IEquatable<IGqlpUnionMember>
 { }

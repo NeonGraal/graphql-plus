@@ -2,6 +2,7 @@
 
 public interface IGqlpSimple<TItem>
   : IGqlpSimple
+  , IEquatable<IGqlpSimple<TItem>>
   where TItem : IGqlpError
 {
   IEnumerable<TItem> Items { get; }
@@ -16,17 +17,22 @@ public interface IGqlpValued<TItem>
 
 public interface IGqlpDomain
   : IGqlpType<string>
+  , IEquatable<IGqlpDomain>
 {
   DomainKind DomainKind { get; }
 }
 
 public interface IGqlpDomain<TItem>
-  : IGqlpDomain, IGqlpSimple<TItem>
+  : IGqlpDomain
+  , IGqlpSimple<TItem>
+  , IEquatable<IGqlpDomain<TItem>>
   where TItem : IGqlpDomainItem
 { }
 
 public interface IGqlpDomainItem
-  : IGqlpError, IGqlpDescribed
+  : IGqlpError
+  , IGqlpDescribed
+  , IEquatable<IGqlpDomainItem>
 {
   bool Excludes { get; }
 }
@@ -47,6 +53,7 @@ public interface IGqlpDomainTrueFalse
 
 public interface IGqlpDomainLabel
   : IGqlpDomainItem
+  , IEquatable<IGqlpDomainLabel>
 {
   string EnumType { get; }
   string EnumItem { get; }
@@ -56,6 +63,7 @@ public interface IGqlpDomainLabel
 
 public interface IGqlpDomainRange
   : IGqlpDomainItem
+  , IEquatable<IGqlpDomainRange>
 {
   decimal? Lower { get; }
   decimal? Upper { get; }
@@ -63,6 +71,7 @@ public interface IGqlpDomainRange
 
 public interface IGqlpDomainRegex
   : IGqlpDomainItem
+  , IEquatable<IGqlpDomainRegex>
 {
   string Pattern { get; }
 }

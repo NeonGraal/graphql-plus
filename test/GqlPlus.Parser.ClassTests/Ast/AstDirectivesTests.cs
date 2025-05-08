@@ -48,50 +48,50 @@ public abstract class AstDirectivesTests<TInput>
 }
 
 internal sealed class AstDirectivesChecks<TAst>(
-  BaseAstChecks<TAst>.CreateBy<string> create
-) : AstDirectivesChecks<string, TAst>(create), IAstDirectivesChecks
-  where TAst : AstAbbreviated, IGqlpDirectives
-{
-}
+  AstDirectivesChecks<string, TAst>.CreateDirectives<string> createDirectives
+) : AstDirectivesChecks<string, TAst>(createDirectives)
+  , IAstDirectivesChecks
+  where TAst : IGqlpDirectives
+{ }
 
 internal class AstDirectivesChecks<TInput, TAst>(
-  BaseAstChecks<TAst>.CreateBy<TInput> create
-) : AstAbbreviatedChecks<TInput, TAst>(create), IAstDirectivesChecks<TInput>
-  where TAst : AstAbbreviated, IGqlpDirectives
+  AstDirectivesChecks<TInput, TAst>.CreateDirectives<TInput> createDirectives
+) : AstAbbreviatedChecks<TInput, TAst>(i => createDirectives(i, []))
+  , IAstDirectivesChecks<TInput>
+  where TAst : IGqlpDirectives
 {
+  internal delegate TAst CreateDirectives<TBy>(TBy input, string[] directives);
+
   public void HashCode(TInput input, string[] directives)
     => HashCode(
-      () => CreateDirective(input, directives),
+      () => createDirectives(input, directives),
       CreateExpression);
 
   public void Equality(TInput input, string[] directives)
     => Equality(
-      () => CreateDirective(input, directives),
+      () => createDirectives(input, directives),
       CreateExpression);
 
   public void Inequality_WithDirective(TInput input, string[] directives)
     => Inequality(
-      () => CreateDirective(input, directives),
+      () => createDirectives(input, directives),
       () => CreateInput(input),
       factoryExpression: CreateExpression);
 
   public void Inequality_ByDirectives(TInput input, string[] directive1, string[] directive2)
     => InequalityBetween(directive1, directive2,
-      directives => CreateDirective(input, directives),
+      directives => createDirectives(input, directives),
       directive1.SequenceEqual(directive2), CreateExpression);
 
   public void Inequality_ByInputs(TInput input1, TInput input2, string[] directives)
     => InequalityBetween(input1, input2,
-      input => CreateDirective(input, directives),
+      input => createDirectives(input, directives),
       input1.ThrowIfNull().Equals(input2), CreateExpression);
 
   public void String(TInput input, string[] directives, string expected)
     => Text(
-      () => CreateDirective(input, directives), expected,
+      () => createDirectives(input, directives), expected,
       factoryExpression: CreateExpression);
-
-  private TAst CreateDirective(TInput input, string[] directives)
-    => CreateInput(input) with { Directives = directives.Directives() };
 }
 
 internal interface IAstDirectivesChecks

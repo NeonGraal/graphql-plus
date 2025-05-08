@@ -9,6 +9,7 @@ public interface IGqlpError
 
 public interface IGqlpAbbreviated
   : IGqlpError
+  , IEquatable<IGqlpAbbreviated>
 {
   ITokenAt At { get; }
   string Abbr { get; }
@@ -29,6 +30,7 @@ public interface IGqlpFieldKey
 
 public interface IGqlpModifier
   : IGqlpError
+  , IEquatable<IGqlpModifier>
 {
   ModifierKind ModifierKind { get; }
   string? Key { get; }

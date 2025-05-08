@@ -92,4 +92,6 @@ public class FieldAstTests : AstDirectivesTests
 
   private static FieldAst Field(string name)
     => new(AstNulls.At, name);
+  private static FieldAst Field(string name, string[] directives)
+    => new(AstNulls.At, name) { Directives = directives.Directives() };
 }

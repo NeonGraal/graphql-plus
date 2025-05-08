@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
@@ -8,7 +9,6 @@ internal abstract record class AstObjBase<TObjArg>(
   string Name,
   string Description
 ) : AstObjType(At, Name, Description)
-  , IEquatable<AstObjBase<TObjArg>>
   , IGqlpObjBase<TObjArg>
   where TObjArg : IGqlpObjArg
 {
@@ -21,10 +21,12 @@ internal abstract record class AstObjBase<TObjArg>(
 
   IEnumerable<IGqlpObjArg> IGqlpObjBase.Args => BaseArgs.Cast<IGqlpObjArg>();
   IEnumerable<TObjArg> IGqlpObjBase<TObjArg>.BaseArgs => BaseArgs;
-  bool IEquatable<IGqlpObjBase>.Equals(IGqlpObjBase? other)
-    => Equals(other as AstObjBase<TObjArg>);
 
+  public bool Equals(IGqlpObjBase? other)
+    => other is IGqlpObjBase<TObjArg> objBase && Equals(objBase);
   public virtual bool Equals(AstObjBase<TObjArg>? other)
+    => other is IGqlpObjBase<TObjArg> objBase && Equals(objBase);
+  public bool Equals([NotNullWhen(true)] IGqlpObjBase<TObjArg>? other)
     => base.Equals(other)
     && BaseArgs.SequenceEqual(other.BaseArgs);
   public override int GetHashCode()

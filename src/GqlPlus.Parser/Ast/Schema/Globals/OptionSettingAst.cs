@@ -7,20 +7,19 @@ internal sealed record class OptionSettingAst(
   TokenAt At,
   string Name,
   string Description,
-  ConstantAst Value)
+  IGqlpConstant Value)
   : AstAliased(At, Name, Description)
-  , IEquatable<OptionSettingAst>
   , IGqlpSchemaSetting
 {
   internal override string Abbr => "OS";
 
-  IGqlpConstant IGqlpSchemaSetting.Value => Value;
-
-  public OptionSettingAst(TokenAt at, string name, ConstantAst value)
+  public OptionSettingAst(TokenAt at, string name, IGqlpConstant value)
     : this(at, name, "", value) { }
 
   public bool Equals(OptionSettingAst? other)
-    => base.Equals(other)
+    => other is IGqlpSchemaSetting setting && Equals(setting);
+  public bool Equals(IGqlpSchemaSetting? other)
+    => base.Equals(other as IGqlpAliased)
     && Value.Equals(other.Value);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Value);

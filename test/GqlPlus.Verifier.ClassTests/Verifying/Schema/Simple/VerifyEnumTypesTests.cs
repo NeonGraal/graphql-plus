@@ -13,7 +13,7 @@ public class VerifyEnumTypesTests
 
   protected override IGqlpEnum TheUsage => _enum;
   protected override IVerifyUsage<IGqlpEnum> Verifier => _verifier;
-    
+
   public VerifyEnumTypesTests()
   {
     _verifier = new(Aliased.Intf, _mergeLabels.Intf);

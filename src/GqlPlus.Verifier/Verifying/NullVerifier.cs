@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-using GqlPlus.Verifying;
+﻿using GqlPlus.Verifying;
 
 namespace GqlPlus.Verification;
 

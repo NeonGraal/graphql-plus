@@ -16,8 +16,8 @@ internal class ParseInputParams(
   private readonly Parser<IGqlpModifier>.LA _modifiers = modifiers;
   private readonly Parser<IParserDefault, IGqlpConstant>.L _default = defaultParser;
 
-  public IResultArray<IGqlpInputParam> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResultArray<IGqlpInputParam> Parse(ITokenizer tokens, string label)
+
   {
     List<IGqlpInputParam> list = [];
 

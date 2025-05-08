@@ -11,15 +11,15 @@ internal class ParseDomainTrueFalse(
 {
   public override DomainKind Kind => DomainKind.Boolean;
 
-  public override IResult<IGqlpDomainTrueFalse> Parse<TContext>(TContext tokens, string label)
+  public override IResult<IGqlpDomainTrueFalse> Parse(ITokenizer tokens, string label)
   {
     string description = tokens.Description();
     TokenAt at = tokens.At;
     bool excluded = tokens.Take('!');
     bool hasType = tokens.Identifier(out string? type);
-    IGqlpDomainTrueFalse result = new DomainTrueFalseAst(at, description, excluded, type.Equals("true", StringComparison.Ordinal));
+    IGqlpDomainTrueFalse result = new DomainTrueFalseAst(at, description, excluded, "true".Equals(type, StringComparison.Ordinal));
 
-    return hasType && (result.IsTrue || type.Equals("false", StringComparison.Ordinal))
+    return hasType && (result.IsTrue || "false".Equals(type, StringComparison.Ordinal))
       ? result.Ok()
       : excluded
         ? tokens.Partial(label, "boolean after '!'", () => result)
@@ -28,10 +28,10 @@ internal class ParseDomainTrueFalse(
           : result.Empty();
   }
 
-  protected override void ApplyItems(Tokenizer tokens, string label, DomainDefinition result, IGqlpDomainTrueFalse[] items)
+  protected override void ApplyItems(ITokenizer tokens, string label, DomainDefinition result, IGqlpDomainTrueFalse[] items)
     => result.Values = items.Length > 0 ? items.ArrayOf<DomainTrueFalseAst>()
     : [DefaultTrueFalse(tokens, false), DefaultTrueFalse(tokens, true)];
 
-  private static DomainTrueFalseAst DefaultTrueFalse(Tokenizer tokens, bool value)
+  private static DomainTrueFalseAst DefaultTrueFalse(ITokenizer tokens, bool value)
     => new(tokens.At, "", false, value);
 }

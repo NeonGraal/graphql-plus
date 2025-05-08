@@ -9,7 +9,6 @@ internal sealed record class OutputFieldAst(
   string Description,
   IGqlpOutputBase BaseType
 ) : AstObjField<IGqlpOutputBase>(At, Name, Description, BaseType)
-  , IEquatable<OutputFieldAst>
   , IGqlpOutputField
 {
   public IGqlpInputParam[] Params { get; set; } = [];
@@ -30,6 +29,8 @@ internal sealed record class OutputFieldAst(
   }
 
   public bool Equals(OutputFieldAst? other)
+    => other is IGqlpOutputField field && Equals(field);
+  public bool Equals(IGqlpOutputField? other)
     => base.Equals(other)
     && Params.SequenceEqual(other.Params)
     && EnumLabel == other.EnumLabel;

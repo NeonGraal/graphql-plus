@@ -18,8 +18,8 @@ internal class ParseField(
   private readonly Parser<IParserArg, IGqlpArg>.L _argument = argument;
   private readonly Parser<IGqlpSelection>.LA _object = objectParser;
 
-  public IResult<IGqlpField> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<IGqlpField> Parse(ITokenizer tokens, string label)
+
   {
     TokenAt at = tokens.At;
     if (!tokens.Identifier(out string? alias)) {

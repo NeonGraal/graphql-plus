@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using GqlPlus.Token;
 
 namespace GqlPlus;
@@ -6,7 +7,8 @@ namespace GqlPlus;
 [TracePerTest]
 public class TokenizerTests
 {
-  private static Tokenizer PrepareTokens(string input)
+  [SuppressMessage("Performance", "CA1859:Use concrete types when possible for improved performance")]
+  private static ITokenizer PrepareTokens(string input)
   {
     Tokenizer tokens = new(input + " ");
 
@@ -59,7 +61,7 @@ public class TokenizerTests
   [Theory, RepeatData]
   public void Identifier_AfterRead_ReturnsIdentifier(string expected)
   {
-    Tokenizer tokens = PrepareTokens(expected);
+    ITokenizer tokens = PrepareTokens(expected);
 
     TrueAndExpected(tokens.Identifier, expected);
   }
@@ -70,7 +72,7 @@ public class TokenizerTests
   [RepeatInlineData(Repeats, "# \r\n")]
   public void Identifier_AfterComment_ReturnsIdentifier(string comment, string expected)
   {
-    Tokenizer tokens = PrepareTokens(comment + expected);
+    ITokenizer tokens = PrepareTokens(comment + expected);
 
     TrueAndExpected(tokens.Identifier, expected);
   }
@@ -78,7 +80,7 @@ public class TokenizerTests
   [Theory, RepeatData]
   public void Number_AfterReadTrue_IsTrue(decimal expected)
   {
-    Tokenizer tokens = PrepareTokens(expected.ToString(CultureInfo.InvariantCulture));
+    ITokenizer tokens = PrepareTokens(expected.ToString(CultureInfo.InvariantCulture));
 
     TrueAndExpected(tokens.Number, expected);
   }
@@ -86,7 +88,7 @@ public class TokenizerTests
   [Theory, RepeatData]
   public void Number_WithDecimal_AfterReadTrue_IsTrue(decimal expected)
   {
-    Tokenizer tokens = PrepareTokens(expected.ToString(CultureInfo.InvariantCulture));
+    ITokenizer tokens = PrepareTokens(expected.ToString(CultureInfo.InvariantCulture));
 
     TrueAndExpected(tokens.Number, expected);
   }
@@ -99,7 +101,7 @@ public class TokenizerTests
         .Select(c => c.ToString()))
       .Replace("_._", ".", StringComparison.Ordinal)
       .Replace("-_", "-", StringComparison.Ordinal);
-    Tokenizer tokens = PrepareTokens(input);
+    ITokenizer tokens = PrepareTokens(input);
 
     TrueAndExpected(tokens.Number, expected);
   }
@@ -107,7 +109,7 @@ public class TokenizerTests
   [Theory, RepeatData]
   public void Number_Identifier_AfterReadTrue_IsFalse(string identifier)
   {
-    Tokenizer tokens = PrepareTokens(identifier);
+    ITokenizer tokens = PrepareTokens(identifier);
 
     FalseAndExpected<decimal>(tokens.Number, default);
   }
@@ -115,7 +117,7 @@ public class TokenizerTests
   [Theory, RepeatData]
   public void String_Double_AfterReadTrue_IsTrue(string sample)
   {
-    Tokenizer tokens = PrepareTokens('"' + sample + '"');
+    ITokenizer tokens = PrepareTokens('"' + sample + '"');
 
     TrueAndExpected(tokens.String, sample);
   }
@@ -123,7 +125,7 @@ public class TokenizerTests
   [Theory, RepeatData]
   public void String_DoubleWithNoEnd_AfterReadTrue_IsFalse(string sample)
   {
-    Tokenizer tokens = PrepareTokens('"' + sample);
+    ITokenizer tokens = PrepareTokens('"' + sample);
 
     FalseAndExpected(tokens.String, sample + " ", tokens);
   }
@@ -131,7 +133,7 @@ public class TokenizerTests
   [Theory, RepeatData]
   public void String_DoubleWithSingleEnd_AfterReadTrue_IsFalse(string sample)
   {
-    Tokenizer tokens = PrepareTokens('"' + sample + "'");
+    ITokenizer tokens = PrepareTokens('"' + sample + "'");
 
     FalseAndExpected(tokens.String, sample + "' ", tokens);
   }
@@ -139,7 +141,7 @@ public class TokenizerTests
   [Theory, RepeatData]
   public void String_Single_AfterReadTrue_IsTrue(string sample)
   {
-    Tokenizer tokens = PrepareTokens($"'{sample}'");
+    ITokenizer tokens = PrepareTokens($"'{sample}'");
 
     TrueAndExpected(tokens.String, sample);
   }
@@ -147,7 +149,7 @@ public class TokenizerTests
   [Theory, RepeatData]
   public void String_SingleWithNoEnd_AfterReadTrue_IsFalse(string sample)
   {
-    Tokenizer tokens = PrepareTokens("'" + sample);
+    ITokenizer tokens = PrepareTokens("'" + sample);
 
     FalseAndExpected(tokens.String, sample + " ", tokens);
   }
@@ -155,7 +157,7 @@ public class TokenizerTests
   [Theory, RepeatData]
   public void String_SingleWithDoubleEnd_AfterReadTrue_IsFalse(string sample)
   {
-    Tokenizer tokens = PrepareTokens("'" + sample + '"');
+    ITokenizer tokens = PrepareTokens("'" + sample + '"');
 
     FalseAndExpected(tokens.String, sample + '"' + ' ');
   }
@@ -163,15 +165,15 @@ public class TokenizerTests
   [Theory, RepeatData]
   public void String_Identifier_AfterReadTrue_IsFalse(string identifier)
   {
-    Tokenizer tokens = PrepareTokens(identifier);
+    ITokenizer tokens = PrepareTokens(identifier);
 
-    FalseAndExpected(tokens.String, "");
+    FalseAndExpected<string>(tokens.String, null);
   }
 
   [Theory, RepeatData]
   public void Regex_AfterReadTrue_IsTrue(string regex)
   {
-    Tokenizer tokens = PrepareTokens($"/{regex}/");
+    ITokenizer tokens = PrepareTokens($"/{regex}/");
 
     TrueAndExpected(tokens.Regex, regex);
   }
@@ -179,7 +181,7 @@ public class TokenizerTests
   [Theory, RepeatData]
   public void Regex_WithNoEnd_AfterReadTrue_IsFalse(string regex)
   {
-    Tokenizer tokens = PrepareTokens('/' + regex);
+    ITokenizer tokens = PrepareTokens('/' + regex);
 
     FalseAndExpected(tokens.Regex, regex + " ", tokens);
   }
@@ -187,16 +189,16 @@ public class TokenizerTests
   [Theory, RepeatData]
   public void Regex_WithNoStart_AfterReadTrue_IsFalse(string regex)
   {
-    Tokenizer tokens = PrepareTokens(regex + '/');
+    ITokenizer tokens = PrepareTokens(regex + '/');
 
-    FalseAndExpected(tokens.Regex, "");
+    FalseAndExpected<string>(tokens.Regex, null);
   }
 
   [Theory, RepeatData]
   public void Take_WithSingle_AfterRead_ReturnsTrue(
     [RegularExpression(PunctuationPattern)] string one)
   {
-    Tokenizer tokens = PrepareTokens(one);
+    ITokenizer tokens = PrepareTokens(one);
     char expected = one.First();
 
     tokens.Take(expected).ShouldBeTrue();
@@ -206,7 +208,7 @@ public class TokenizerTests
   public void Take_WithString_AfterRead_ReturnsString(
     [RegularExpression(PunctuationPattern + "{5}")] string many)
   {
-    Tokenizer tokens = PrepareTokens(many);
+    ITokenizer tokens = PrepareTokens(many);
 
     tokens.Take(many).ShouldBeTrue();
   }
@@ -215,7 +217,7 @@ public class TokenizerTests
   public void Take_WithShort_AfterRead_ReturnsString(
     [RegularExpression(PunctuationPattern + "{5}")] string many)
   {
-    Tokenizer tokens = PrepareTokens(many[..4]);
+    ITokenizer tokens = PrepareTokens(many[..4]);
 
     tokens.Take(many).ShouldBeFalse();
   }
@@ -224,7 +226,7 @@ public class TokenizerTests
   public void TakeAny_WithMany_AfterRead_ReturnsChar(
     [RegularExpression(PunctuationPattern + "{5}")] string many)
   {
-    Tokenizer tokens = PrepareTokens(many);
+    ITokenizer tokens = PrepareTokens(many);
     char expected = many.First();
 
     TrueAndExpected(
@@ -236,7 +238,7 @@ public class TokenizerTests
   public void Prefix_WithoutName_AfterRead_ReturnsNull(
     [RegularExpression(PunctuationPattern)] string prefix)
   {
-    Tokenizer tokens = PrepareTokens(prefix + "?");
+    ITokenizer tokens = PrepareTokens(prefix + "?");
     char expected = prefix.First();
 
     tokens.ShouldSatisfyAllConditions(
@@ -249,7 +251,7 @@ public class TokenizerTests
   public void Prefix_WithName_AfterRead_ReturnsCharThenName(
     [RegularExpression(PunctuationPattern)] string prefix, string identifier)
   {
-    Tokenizer tokens = PrepareTokens(prefix + identifier);
+    ITokenizer tokens = PrepareTokens(prefix + identifier);
     char expected = prefix.First();
 
     TrueAndExpected(
@@ -271,7 +273,7 @@ public class TokenizerTests
   public void Error_BeforePunctuationAtEnd_ReturnsAtPunctuation(
     [RegularExpression(PunctuationPattern)] string prefix, string message)
   {
-    Tokenizer tokens = PrepareTokens(prefix);
+    ITokenizer tokens = PrepareTokens(prefix);
     string expected = $"{prefix} <END>";
 
     TokenMessage result = tokens.Error(message);
@@ -283,7 +285,7 @@ public class TokenizerTests
   public void Error_BeforePunctuation_ReturnsAtPunctuation(
     [RegularExpression(PunctuationPattern)] string prefix, string contents, string message)
   {
-    Tokenizer tokens = PrepareTokens(prefix + contents);
+    ITokenizer tokens = PrepareTokens(prefix + contents);
     string expected = Tokenizer.ErrorContext(prefix + contents);
 
     TokenMessage result = tokens.Error(message);
@@ -294,7 +296,7 @@ public class TokenizerTests
   [Theory, RepeatData]
   public void Error_BeforeIdentifier_ReturnsAtIdentifier(string value, string message)
   {
-    Tokenizer tokens = PrepareTokens(value);
+    ITokenizer tokens = PrepareTokens(value);
 
     TokenMessage result = tokens.Error(message);
 
@@ -305,7 +307,7 @@ public class TokenizerTests
   public void Error_BeforeNumber_ReturnsAtNumber(decimal number, string message)
   {
     string expected = number.ToString(CultureInfo.InvariantCulture);
-    Tokenizer tokens = PrepareTokens(expected);
+    ITokenizer tokens = PrepareTokens(expected);
 
     TokenMessage result = tokens.Error(message);
 
@@ -315,7 +317,7 @@ public class TokenizerTests
   [Theory, RepeatData]
   public void Error_BeforeString_ReturnsAtString(string contents, string message)
   {
-    Tokenizer tokens = PrepareTokens(contents.Quote());
+    ITokenizer tokens = PrepareTokens(contents.Quote());
     string expected = Tokenizer.ErrorContext(contents.Quote());
 
     TokenMessage result = tokens.Error(message);
@@ -328,7 +330,7 @@ public class TokenizerTests
   [RepeatInlineData(Repeats, "\t")]
   public void Error_AfterWhitespace_ReturnsAtIdentifier(string space, string value, string message)
   {
-    Tokenizer tokens = PrepareTokens(space + value);
+    ITokenizer tokens = PrepareTokens(space + value);
 
     TokenMessage result = tokens.Error(message);
 
@@ -341,7 +343,7 @@ public class TokenizerTests
   [RepeatInlineData(Repeats, "\r\n")]
   public void Error_AfterLine_ReturnsAtIdentifier(string line, string value, string message)
   {
-    Tokenizer tokens = PrepareTokens(line + value);
+    ITokenizer tokens = PrepareTokens(line + value);
 
     TokenMessage result = tokens.Error(message);
 
@@ -354,7 +356,7 @@ public class TokenizerTests
   [RepeatInlineData(Repeats, "# \r\n")]
   public void Error_AfterComment_ReturnsAtIdentifier(string comment, string value, string message)
   {
-    Tokenizer tokens = PrepareTokens(comment + value);
+    ITokenizer tokens = PrepareTokens(comment + value);
 
     TokenMessage result = tokens.Error(message);
 
@@ -371,7 +373,7 @@ public class TokenizerTests
       r => r.Message.ShouldBe(message));
   }
 
-  private delegate bool Call<T>(out T result);
+  private delegate bool Call<T>(out T? result);
 
   private static void TrueAndExpected<T>(Call<T> call, T expected)
   {
@@ -382,7 +384,7 @@ public class TokenizerTests
       () => result.ShouldBe(expected));
   }
 
-  private static void FalseAndExpected<T>(Call<T> call, T expected)
+  private static void FalseAndExpected<T>(Call<T> call, T? expected)
   {
     bool success = call(out T? result);
 
@@ -391,7 +393,7 @@ public class TokenizerTests
       () => result.ShouldBe(expected));
   }
 
-  private static void FalseAndExpected<T>(Call<T> call, T expected, Tokenizer tokens)
+  private static void FalseAndExpected<T>(Call<T> call, T expected, ITokenizer tokens)
   {
     bool success = call(out T? result);
 

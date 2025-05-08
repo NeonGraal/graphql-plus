@@ -10,13 +10,6 @@ namespace GqlPlus.Parsing;
 #pragma warning disable CA1052 // Static holder types should be Static or NotInheritable
 public class ClassTestBase
 {
-  protected static Tokenizer Tokens(string input)
-  {
-    Tokenizer tokens = new(input);
-    tokens.Read();
-    return tokens;
-  }
-
   internal static T NameFor<T>(string name)
     where T : class, INameParser
   {
@@ -35,7 +28,7 @@ public class ClassTestBase
   protected static Parser<T>.D ParserFor<T>(out Parser<T>.I parser)
   {
     parser = Substitute.For<Parser<T>.I>();
-    parser.Parse<Tokenizer>(default!, default!)
+    parser.Parse(default!, default!)
       .ReturnsForAnyArgs(0.Empty<T>());
 
     Parser<T>.D result = Substitute.For<Parser<T>.D>();
@@ -52,7 +45,7 @@ public class ClassTestBase
     where T : struct
   {
     parser = Substitute.For<IOptionParser<T>>();
-    parser.Parse<Tokenizer>(default!, default!)
+    parser.Parse(default!, default!)
       .ReturnsForAnyArgs(0.Empty<T>());
 
     Parser<IOptionParser<T>, T>.D result = Substitute.For<Parser<IOptionParser<T>, T>.D>();
@@ -69,7 +62,7 @@ public class ClassTestBase
     where T : struct
   {
     parser = Substitute.For<IEnumParser<T>>();
-    parser.Parse<Tokenizer>(default!, default!)
+    parser.Parse(default!, default!)
       .ReturnsForAnyArgs(0.Empty<T>());
 
     Parser<IEnumParser<T>, T>.D result = Substitute.For<Parser<IEnumParser<T>, T>.D>();
@@ -84,7 +77,7 @@ public class ClassTestBase
   protected static Parser<T>.DA ArrayParserFor<T>(out Parser<T>.IA parser)
   {
     parser = Substitute.For<Parser<T>.IA>();
-    parser.Parse<Tokenizer>(default!, default!)
+    parser.Parse(default!, default!)
       .ReturnsForAnyArgs(0.EmptyArray<T>());
 
     Parser<T>.DA result = Substitute.For<Parser<T>.DA>();

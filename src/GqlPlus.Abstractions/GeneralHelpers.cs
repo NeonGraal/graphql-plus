@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using GqlPlus.Abstractions;
 using GqlPlus.Structures;
 
 namespace GqlPlus;
@@ -58,6 +59,9 @@ public static class GeneralHelpers
   public static string Suffixed(this string? text, string suffix)
     => text?.Length > 0 ? text + suffix : "";
 
+  public static string TrueFalse(this bool value)
+    => value ? "true" : "false";
+
   public static string Quoted(this string? text, string quote)
     => text?.Length > 0
     ? string.Concat(
@@ -67,6 +71,44 @@ public static class GeneralHelpers
         .Replace(quote, "\\" + quote),
       quote)
     : "";
+
+  public static string Show(this IGqlpAbbreviated abbr)
+  {
+    if (abbr is null) {
+      return "";
+    }
+
+    using StringWriter sw = new();
+    int indent = 0;
+    string[] begins = ["(", "{", "[", "<"];
+    string[] ends = [")", "}", "]", ">"];
+    foreach (string? field in abbr.GetFields()) {
+      if (string.IsNullOrWhiteSpace(field)) {
+        continue;
+      }
+
+      if (begins.Contains(field)) {
+        Write(field!);
+        indent++;
+      } else if (ends.Contains(field)) {
+        indent--;
+        Write(field!);
+      } else {
+        Write(field!);
+      }
+    }
+
+    return sw.ToString();
+
+    void Write(string text)
+    {
+      for (int i = 0; i < indent; i++) {
+        sw.Write("  ");
+      }
+
+      sw.WriteLine(text);
+    }
+  }
 
   public static string Surround(
     this IEnumerable<string>? items,

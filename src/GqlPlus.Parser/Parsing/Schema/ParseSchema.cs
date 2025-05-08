@@ -9,7 +9,7 @@ namespace GqlPlus.Parsing.Schema;
 internal class ParseSchema
   : Parser<IGqlpSchema>.I
 {
-  private delegate IResult<IGqlpDeclaration> Parser(Tokenizer tokens, string label);
+  private delegate IResult<IGqlpDeclaration> Parser(ITokenizer tokens, string label);
   private readonly Dictionary<string, Parser> _parsers = [];
 
   public ParseSchema(IEnumerable<IParseDeclaration> declarations)
@@ -19,8 +19,8 @@ internal class ParseSchema
     }
   }
 
-  public IResult<IGqlpSchema> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<IGqlpSchema> Parse(ITokenizer tokens, string label)
+
   {
     if (tokens.AtStart) {
       if (!tokens.Read()) {
@@ -40,14 +40,14 @@ internal class ParseSchema
         declaration.WithResult(declarations.Add);
       } else {
         tokens.GetDescription();
-        tokens.Error(label, $"declaration selector. '{selector}' unknown");
+        tokens.Error<IGqlpSchema>(label, $"declaration selector. '{selector}' unknown");
       }
 
       tokens.TakeDescription();
     }
 
     if (!tokens.AtEnd) {
-      tokens.Error(label, "no more text");
+      tokens.Error<IGqlpSchema>(label, "no more text");
     }
 
     if (tokens.Errors.Count == 0) {

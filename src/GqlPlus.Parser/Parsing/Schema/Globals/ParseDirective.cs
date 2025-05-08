@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Parsing.Schema.Simple;
 using GqlPlus.Result;
@@ -33,7 +34,7 @@ internal class ParseDirective(
 internal class DirectiveName
   : IDirectiveName
 {
-  public bool ParseName(Tokenizer tokens, out string? name, out TokenAt at)
+  public bool ParseName(ITokenizer tokens, [NotNullWhen(true)] out string? name, out TokenAt at)
     => tokens.Prefix('@', out name, out at);
 }
 
@@ -47,8 +48,8 @@ internal class ParseDirectiveDefinition(
 {
   private readonly Parser<IEnumParser<DirectiveLocation>, DirectiveLocation>.L _location = location;
 
-  public IResult<DirectiveLocation> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<DirectiveLocation> Parse(ITokenizer tokens, string label)
+
   {
     DirectiveLocation locations = DirectiveLocation.None;
 

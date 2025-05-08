@@ -11,7 +11,7 @@ internal abstract class ObjectArgsParser<TObjArg, TObjArgAst>
   where TObjArg : IGqlpObjArg
   where TObjArgAst : AstObjArg, TObjArg
 {
-  public override IResultArray<TObjArg> Parse<TContext>(TContext tokens, string label)
+  public override IResultArray<TObjArg> Parse(ITokenizer tokens, string label)
   {
     List<TObjArg> list = [];
 
@@ -35,7 +35,7 @@ internal abstract class ObjectArgsParser<TObjArg, TObjArgAst>
     return list.OkArray();
   }
 
-  protected virtual IResult<TObjArgAst> ArgEnumValue<TContext>(TContext tokens, TObjArgAst argument)
-    where TContext : Tokenizer
+  protected virtual IResult<TObjArgAst> ArgEnumValue(ITokenizer tokens, TObjArgAst argument)
+
     => argument.Ok();
 }

@@ -23,6 +23,8 @@ internal sealed record class ConstantAst(
     : this(at)
     => Fields = fields;
 
+  public bool Equals(ConstantAst? other)
+    => other is IGqlpConstant constant && Equals(constant);
   public bool Equals(IGqlpConstant? other)
     => base.Equals(other)
     && Value.NullEqual(other.Value);

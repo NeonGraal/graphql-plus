@@ -22,10 +22,12 @@ internal sealed record class InputParamAst(
   internal InputParamAst(TokenAt at, string input, string description = "")
     : this(at, new InputBaseAst(at, input, description)) { }
 
+  public bool Equals(InputParamAst? other)
+    => other is IGqlpInputParam inputParam && Equals(inputParam);
   public bool Equals(IGqlpDescribed? other)
-    => other is IGqlpInputParam input && Type.Equals(input.Type);
+    => other is IGqlpInputParam inputParam && Equals(inputParam);
   public bool Equals(IGqlpInputParam? other)
-    => base.Equals(other)
+    => Equals(other as IGqlpAbbreviated)
     && (Type?.Equals(other.Type) ?? other.Type is null)
     && Modifiers.SequenceEqual(other.Modifiers)
     && DefaultValue.NullEqual(other.DefaultValue);

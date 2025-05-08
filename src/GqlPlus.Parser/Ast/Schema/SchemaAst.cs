@@ -6,7 +6,6 @@ namespace GqlPlus.Ast.Schema;
 internal sealed record class SchemaAst(
   ITokenAt At
 ) : AstAbbreviated(At)
-  , IEquatable<SchemaAst>
   , IGqlpSchema
 {
   public ParseResultKind Result { get; set; }
@@ -20,6 +19,8 @@ internal sealed record class SchemaAst(
   ITokenMessages IGqlpSchema.Errors => Errors;
 
   public bool Equals(SchemaAst? other)
+    => other is IGqlpSchema schema && Equals(schema);
+  public bool Equals(IGqlpSchema? other)
     => base.Equals(other)
       && Result == other.Result
       && Declarations.OrderedEqual(other.Declarations, s_comparer)

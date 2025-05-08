@@ -5,7 +5,7 @@ using GqlPlus.Merging.Simple;
 namespace GqlPlus.Merging.Schema.Simple;
 
 public class MergeDomainAstStringsTests
-  : TestDomainAsts<IGqlpDomainRegex, string>
+  : TestDomainMerger<IGqlpDomainRegex, string>
 {
   internal override IDomainMerger<IGqlpDomainRegex> Merger { get; }
   internal override AstTypeMerger<IGqlpDomain, IGqlpDomain<IGqlpDomainRegex>, string, IGqlpDomainRegex> MergerTyped { get; }

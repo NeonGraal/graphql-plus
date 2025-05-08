@@ -7,7 +7,6 @@ internal sealed record class InputAlternateAst(
   string Input,
   string Description
 ) : AstObjAlternate<IGqlpInputArg>(At, Input, Description)
-  , IEquatable<InputAlternateAst>
   , IGqlpInputAlternate
 {
   public override string Label => "Input";

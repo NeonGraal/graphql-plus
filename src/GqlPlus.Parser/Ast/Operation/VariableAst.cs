@@ -16,9 +16,9 @@ internal sealed record class VariableAst(
 
   IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
 
-  public bool Equals(VariableAst other)
-    => Equals(other as IGqlpVariable);
-  public bool Equals(IGqlpVariable? other)
+  public bool Equals(VariableAst? other)
+    => other is IGqlpVariable variable && Equals(variable);
+  public bool Equals(IGqlpVariable other)
     => base.Equals(other)
     && Type.NullEqual(other.Type)
     && Modifiers.SequenceEqual(other.Modifiers)

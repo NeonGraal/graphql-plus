@@ -9,12 +9,21 @@
           "$tag": "_EnumLabel",
           "enum": "EnumDiff",
           "name": "one"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumDiff",
+          "name": "two"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
           "name": "one"
+        },
+        {
+          "$tag": "_Aliased",
+          "name": "two"
         }
       ],
       "name": "EnumDiff",

@@ -7,8 +7,7 @@ internal abstract record class AstObjAlternate<TObjArg>(
   string Name,
   string Description
 ) : AstObjBase<TObjArg>(At, Name, Description)
-  , IEquatable<AstObjAlternate<TObjArg>>
-  , IGqlpObjAlternate
+  , IGqlpObjAlternate<TObjArg>
   where TObjArg : IGqlpObjArg
 {
   public IGqlpModifier[] Modifiers { get; set; } = [];
@@ -18,6 +17,8 @@ internal abstract record class AstObjAlternate<TObjArg>(
   IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
 
   public virtual bool Equals(AstObjAlternate<TObjArg>? other)
+    => other is IGqlpObjAlternate<TObjArg> alternate && Equals(alternate);
+  public bool Equals(IGqlpObjAlternate<TObjArg>? other)
     => base.Equals(other)
     && Modifiers.SequenceEqual(other.Modifiers);
   public override int GetHashCode()

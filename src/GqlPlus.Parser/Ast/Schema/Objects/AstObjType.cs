@@ -7,7 +7,6 @@ internal abstract record class AstObjType(
   string Name,
   string Description
 ) : AstNamed(At, Name, Description)
-  , IEquatable<AstObjType>
   , IGqlpObjType
 {
   public bool IsTypeParam { get; set; }
@@ -19,6 +18,8 @@ internal abstract record class AstObjType(
   public virtual string FullType => TypeName;
 
   public virtual bool Equals(AstObjType? other)
+    => other is IGqlpObjType objType && Equals(objType);
+  public bool Equals(IGqlpObjType? other)
     => base.Equals(other)
     && IsTypeParam == other!.IsTypeParam;
   public override int GetHashCode()

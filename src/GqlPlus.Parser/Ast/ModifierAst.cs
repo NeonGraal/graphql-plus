@@ -38,6 +38,8 @@ internal sealed record class ModifierAst(
     => _toString;
 
   // override object.Equals
+  public bool Equals(ModifierAst? other)
+    => other is IGqlpModifier modifier && Equals(modifier);
   public bool Equals(IGqlpModifier? other)
     => other is not null
     && Kind == other.ModifierKind

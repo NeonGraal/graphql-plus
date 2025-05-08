@@ -16,9 +16,9 @@ internal abstract record class AstDirectives(
   }
 
   public virtual bool Equals(AstDirectives? other)
-    => Equals(other as IGqlpDirectives);
-  public virtual bool Equals(IGqlpDirectives? other)
-    => base.Equals(other)
+    => other is IGqlpDirectives directives && Equals(directives);
+  public bool Equals(IGqlpDirectives? other)
+    => Equals(other as IGqlpIdentified)
     && Directives.SequenceEqual(other.Directives);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Directives.Length);

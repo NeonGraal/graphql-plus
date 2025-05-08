@@ -1,7 +1,8 @@
 ﻿namespace GqlPlus.Ast;
 
-internal abstract record class AstValue<TValue>(ITokenAt At)
-  : AstAbbreviated(At)
+internal abstract record class AstValue<TValue>(
+  ITokenAt At
+) : AstAbbreviated(At)
   , IGqlpValue<TValue>
   where TValue : IGqlpValue<TValue>
 {
@@ -19,8 +20,8 @@ internal abstract record class AstValue<TValue>(ITokenAt At)
     => Fields = fields;
 
   public virtual bool Equals(AstValue<TValue>? other)
-    => Equals(other as IGqlpValue<TValue>);
-  public virtual bool Equals(IGqlpValue<TValue>? other)
+    => other is IGqlpValue<TValue> value && Equals(value);
+  public bool Equals(IGqlpValue<TValue>? other)
     => other is not null
     && Values.SequenceEqual(other.Values)
     && Fields.Equals(other.Fields);

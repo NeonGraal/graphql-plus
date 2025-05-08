@@ -19,6 +19,8 @@ internal sealed record class OptionDeclAst(
   public OptionDeclAst(ITokenAt at, string name)
     : this(at, name, "") { }
 
+  public bool Equals(OptionDeclAst? other)
+    => other is IGqlpSchemaOption option && Equals(option);
   public bool Equals(IGqlpSchemaOption? other)
     => base.Equals(other)
     && Settings.SequenceEqual(other.Settings);

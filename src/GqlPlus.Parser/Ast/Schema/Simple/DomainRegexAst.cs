@@ -8,12 +8,13 @@ internal sealed record class DomainRegexAst(
   bool Excludes,
   string Pattern
 ) : AstDomainItem(At, Description, Excludes)
-  , IEquatable<DomainRegexAst>
   , IGqlpDomainRegex
 {
   internal override string Abbr => "DX";
 
   public bool Equals(DomainRegexAst? other)
+    => other is IGqlpDomainRegex regex && Equals(regex);
+  public bool Equals(IGqlpDomainRegex? other)
     => base.Equals(other)
       && Pattern == other.Pattern
       && Excludes == other.Excludes;

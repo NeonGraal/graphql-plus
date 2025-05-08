@@ -7,7 +7,6 @@ internal sealed record class OutputAlternateAst(
   string Output,
   string Description
 ) : AstObjAlternate<IGqlpOutputArg>(At, Output, Description)
-  , IEquatable<OutputAlternateAst>
   , IGqlpOutputAlternate
 {
   public override string Label => "Output";

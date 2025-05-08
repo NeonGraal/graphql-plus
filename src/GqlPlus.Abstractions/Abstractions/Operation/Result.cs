@@ -5,14 +5,18 @@ public interface IGqlpSelection
 { }
 
 public interface IGqlpField
-  : IGqlpIdentified, IGqlpSelection, IGqlpModifiers, IGqlpSelections
+  : IGqlpIdentified
+  , IGqlpSelection
+  , IGqlpModifiers
+  , IGqlpSelections
 {
   string? FieldAlias { get; }
   IGqlpArg? Arg { get; }
 }
 
 public interface IGqlpInline
-  : IGqlpSelection
+  : IGqlpAbbreviated
+  , IGqlpSelection
   , IGqlpSelections
   , IEquatable<IGqlpInline>
 {
@@ -22,7 +26,6 @@ public interface IGqlpInline
 public interface IGqlpSpread
   : IGqlpIdentified
   , IGqlpSelection
-  , IEquatable<IGqlpSpread>
 { }
 
 public interface IGqlpArg

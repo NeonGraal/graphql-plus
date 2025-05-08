@@ -8,7 +8,6 @@ internal sealed record class InputBaseAst(
   string Name,
   string Description
 ) : AstObjBase<IGqlpInputArg>(At, Name, Description)
-  , IEquatable<InputBaseAst>
   , IGqlpInputBase
 {
   public InputBaseAst(TokenAt at, string name)

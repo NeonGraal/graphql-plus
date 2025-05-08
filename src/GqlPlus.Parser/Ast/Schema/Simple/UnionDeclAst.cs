@@ -7,15 +7,12 @@ internal sealed record class UnionDeclAst(
   ITokenAt At,
   string Name,
   string Description,
-  UnionMemberAst[] Members
-) : AstSimple<UnionMemberAst>(At, Name, Description, Members)
-  , IEquatable<UnionDeclAst>
+  IGqlpUnionMember[] Members
+) : AstSimple<IGqlpUnionMember>(At, Name, Description, Members)
   , IGqlpUnion
 {
   internal override string Abbr => "Un";
   public override string Label => "Union";
-
-  IEnumerable<IGqlpUnionMember> IGqlpSimple<IGqlpUnionMember>.Items => Items;
 
   public UnionDeclAst(TokenAt at, string name, UnionMemberAst[] members)
     : this(at, name, "", members) { }

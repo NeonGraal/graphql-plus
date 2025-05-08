@@ -26,6 +26,7 @@ public class ParseVariablesTests
     TakeReturns(')', true);
 
     IGqlpVariable variable = EFor<IGqlpVariable>();
+    variable.Equals(Arg.Any<IGqlpVariable>()).Returns(c => c[0] == variable);
     ParseOk(_variableParser, variable);
 
     // Act

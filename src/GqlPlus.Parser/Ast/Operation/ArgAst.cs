@@ -25,14 +25,14 @@ internal sealed record class ArgAst
   internal ArgAst(ITokenAt at, IGqlpFields<IGqlpArg> fields)
     : base(at, fields) { }
 
+  public bool Equals(ArgAst? other)
+    => other is IGqlpArg arg && Equals(arg);
   public bool Equals(IGqlpArg? other)
     => base.Equals(other)
     && Variable.NullEqual(other.Variable)
     && Constant.NullEqual(other.Constant);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Variable, Constant);
-  public bool Equals(ArgAst? other)
-    => Equals(other as IGqlpArg);
   internal override IEnumerable<string?> GetFields()
     => Constant?.GetFields() ?? base.GetFields().Append(Variable.Prefixed("$"));
 }

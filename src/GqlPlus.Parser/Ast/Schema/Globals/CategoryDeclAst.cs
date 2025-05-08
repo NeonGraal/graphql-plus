@@ -29,6 +29,8 @@ internal sealed record class CategoryDeclAst(
   public CategoryDeclAst(TokenAt at, string name, IGqlpTypeRef output)
     : this(at, name, "", output) { }
 
+  public bool Equals(CategoryDeclAst? other)
+    => other is IGqlpSchemaCategory category && Equals(category);
   public bool Equals(IGqlpSchemaCategory? other)
     => base.Equals(other)
     && Option == other.CategoryOption

@@ -1,12 +1,11 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Merging.Globals;
 
 namespace GqlPlus.Merging.Schema.Globals;
 
 public class MergeDirectivesTests
-  : TestAliasedAsts<IGqlpSchemaDirective>
+  : TestAliasedMerger<IGqlpSchemaDirective>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsSameOption_ReturnsGood(string name)

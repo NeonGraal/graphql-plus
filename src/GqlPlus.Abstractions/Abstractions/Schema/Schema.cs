@@ -2,6 +2,7 @@
 
 public interface IGqlpSchema
   : IGqlpAbbreviated
+  , IEquatable<IGqlpSchema>
 {
   IEnumerable<IGqlpDeclaration> Declarations { get; }
 

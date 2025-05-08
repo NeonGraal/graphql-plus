@@ -52,32 +52,34 @@ public class CategoryAstTests
   [Theory, RepeatData]
   public void HashCode_WithOption(string name, CategoryOption option)
       => _checks.HashCode(
-        () => new CategoryDeclAst(AstNulls.At, new TypeRefAst(AstNulls.At, name)) { Option = option });
+        () => Category(name) with { Option = option });
 
   [Theory, RepeatData]
   public void String_WithOption(string name, CategoryOption option)
     => _checks.Text(
-      () => new CategoryDeclAst(AstNulls.At, new TypeRefAst(AstNulls.At, name)) { Option = option },
+      () => Category(name) with { Option = option },
       $"( !Ca {name.Camelize()} ({option}) !Tr {name} )");
 
   [Theory, RepeatData]
   public void Equality_WithOption(string name, CategoryOption option)
     => _checks.Equality(
-      () => new CategoryDeclAst(AstNulls.At, new TypeRefAst(AstNulls.At, name)) { Option = option });
+      () => Category(name) with { Option = option });
 
   [Theory, RepeatData]
   public void Inequality_BetweenOptions(string name, CategoryOption option1, CategoryOption option2)
     => _checks.InequalityBetween(option1, option2,
-      option => new CategoryDeclAst(AstNulls.At, new TypeRefAst(AstNulls.At, name)) { Option = option },
+      option => Category(name) with { Option = option },
       option1 == option2);
 
   protected override string AliasesString(string input, string description, string aliases)
     => $"( {DescriptionNameString(input.Camelize(), description)}{aliases} (Parallel) !Tr {input} )";
 
-  private readonly AstAliasedChecks<CategoryDeclAst> _checks
-    = new(name => new CategoryDeclAst(AstNulls.At, new TypeRefAst(AstNulls.At, name)));
+  private readonly AstAliasedChecks<CategoryDeclAst> _checks = new(Category);
 
   internal override IAstAliasedChecks<string> AliasedChecks => _checks;
+
+  private static CategoryDeclAst Category(string name)
+    => new(AstNulls.At, name.Camelize(), new TypeRefAst(AstNulls.At, name));
 
   protected override Func<string, string, bool> SameInput
     => (name1, name2) => name1.Camelize() == name2.Camelize();

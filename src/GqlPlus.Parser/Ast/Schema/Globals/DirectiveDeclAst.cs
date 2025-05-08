@@ -24,6 +24,8 @@ internal sealed record class DirectiveDeclAst(
   public DirectiveDeclAst(TokenAt at, string name)
     : this(at, name, "") { }
 
+  public bool Equals(DirectiveDeclAst? other)
+    => other is IGqlpSchemaDirective directive && Equals(directive);
   public bool Equals(IGqlpSchemaDirective? other)
     => base.Equals(other)
     && Option == other.DirectiveOption

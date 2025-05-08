@@ -5,7 +5,6 @@ Success
   !Do I@008/0001
   DmnEnumAllDescr
   Enum
-  'DomAll Descr'
   !DE I@048/0001
   EnumDmnEnumAllDescr
   *

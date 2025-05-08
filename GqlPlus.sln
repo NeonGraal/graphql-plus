@@ -30,6 +30,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.github\workflows\dotnet-test.yml = .github\workflows\dotnet-test.yml
 		.config\dotnet-tools.json = .config\dotnet-tools.json
 		format.ps1 = format.ps1
+		make-summary.ps1 = make-summary.ps1
 		README.md = README.md
 		test.ps1 = test.ps1
 		update.ps1 = update.ps1
@@ -46,7 +47,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Coverage", "Coverage", "{B1
 		class.runsettings = class.runsettings
 		coverage.ps1 = coverage.ps1
 		coverage.runsettings = coverage.runsettings
-		make-summary.ps1 = make-summary.ps1
 		report.ps1 = report.ps1
 	EndProjectSection
 EndProject

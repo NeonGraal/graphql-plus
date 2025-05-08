@@ -6,7 +6,7 @@ using GqlPlus.Merging.Globals;
 namespace GqlPlus.Merging.Schema.Globals;
 
 public class MergeOptionsTests
-  : TestAliasedAsts<IGqlpSchemaOption>
+  : TestAliasedMerger<IGqlpSchemaOption>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsSettingsCantMerge_ReturnsErrors(string name, string[] settings)

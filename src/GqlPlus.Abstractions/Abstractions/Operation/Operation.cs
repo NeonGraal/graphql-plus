@@ -41,7 +41,8 @@ public interface IGqlpVariable
 }
 
 public interface IGqlpDirectives
-  : IEquatable<IGqlpDirectives>
+  : IGqlpError
+  , IEquatable<IGqlpDirectives>
 {
   IEnumerable<IGqlpDirective> Directives { get; init; }
 }

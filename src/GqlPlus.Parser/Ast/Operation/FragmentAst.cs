@@ -14,6 +14,8 @@ internal sealed record class FragmentAst(
 
   IEnumerable<IGqlpSelection> IGqlpSelections.Selections => Selections;
 
+  public bool Equals(FragmentAst? other)
+    => other is IGqlpFragment fragment && Equals(fragment);
   public bool Equals(IGqlpFragment? other)
     => base.Equals(other)
     && OnType == other.OnType

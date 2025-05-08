@@ -7,7 +7,6 @@ internal sealed record class InputArgAst(
   string Name,
   string Description
 ) : AstObjArg(At, Name, Description)
-  , IEquatable<InputArgAst>
   , IGqlpInputArg
 {
   public InputArgAst(ITokenAt at, string name)

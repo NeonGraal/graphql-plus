@@ -7,7 +7,7 @@ namespace GqlPlus.Merging.Schema.Simple;
 
 public class MergeUnionsTests(
   ITestOutputHelper outputHelper
-) : TestTypedAsts<IGqlpType, IGqlpUnion, string, IGqlpUnionMember>
+) : TestTypedMerger<IGqlpType, IGqlpUnion, string, IGqlpUnionMember>
 {
   [Theory, RepeatData]
   public void Merge_TwoAstsValues_ReturnsExpected(string name, string[] members1, string[] members2)

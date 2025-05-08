@@ -54,6 +54,7 @@ public interface IGqlpSchemaOption
 
 public interface IGqlpSchemaSetting
   : IGqlpNamed
+  , IEquatable<IGqlpSchemaSetting>
 {
   IGqlpConstant Value { get; }
 }

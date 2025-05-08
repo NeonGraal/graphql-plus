@@ -1,5 +1,4 @@
 ﻿using System.Globalization;
-
 using GqlPlus.Token;
 
 namespace GqlPlus.Ast;
@@ -21,8 +20,6 @@ internal sealed record class FieldKeyAst(
 
   string? IGqlpFieldKey.EnumType => Type;
   string? IGqlpFieldKey.EnumLabel => Label;
-  bool IEquatable<IGqlpFieldKey>.Equals(IGqlpFieldKey? other)
-    => CompareTo(other) == 0;
 
   internal FieldKeyAst(TokenAt at, decimal number)
     : this(at)
@@ -34,6 +31,13 @@ internal sealed record class FieldKeyAst(
     : this(at)
     => (Type, Label) = (enumType, enumLabel);
 
+  public bool Equals(FieldKeyAst? other)
+    => other is IGqlpFieldKey fieldKey && Equals(fieldKey);
+  public override int GetHashCode()
+  => HashCode.Combine(base.GetHashCode(), Type, Label, Number, Text);
+
+  public bool Equals(IGqlpFieldKey? other)
+    => CompareTo(other) == 0;
   public int CompareTo(IGqlpFieldKey? other)
     => Number is not null ? decimal.Compare(Number.Value, other?.Number ?? 0)
       : Text is not null ? string.Compare(Text, other?.Text, StringComparison.Ordinal)

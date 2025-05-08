@@ -9,9 +9,4 @@ internal sealed record class SpreadAst(
   , IGqlpSpread
 {
   internal override string Abbr => "s";
-
-  public bool Equals(IGqlpSpread? other)
-    => base.Equals(other);
-  public override int GetHashCode()
-    => base.GetHashCode();
 }

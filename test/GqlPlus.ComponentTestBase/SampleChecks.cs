@@ -19,6 +19,7 @@ public class SampleChecks
     ["Input"] = "Inp",
     ["Number"] = "Nmbr",
     ["Object"] = "Obj",
+    ["Operation"] = "Opr",
     ["Option"] = "Optn",
     ["Optional"] = "Optl",
     ["Output"] = "Outp",

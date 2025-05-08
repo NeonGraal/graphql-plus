@@ -48,6 +48,13 @@ Success
   DescrBtwn
 }
 {
+  !Ca P@010/0002
+  cat
+  (Parallel)
+  !Tr I@012/0002
+  Cat
+}
+{
   !Ca P@010/0001
   ctgr
   (Parallel)
@@ -84,6 +91,13 @@ Success
   !Tr I@020/0001
   CtgrMod
   ?
+}
+{
+  !Ca P@010/0003
+  op
+  (Parallel)
+  !Tr I@012/0003
+  Op
 }
 {
   'A directive described'
@@ -171,6 +185,20 @@ Success
   )
   (Unique)
   Operation, Fragment
+}
+{
+  !SO I@011/0001
+  Op
+  cat
+}
+{
+  !SO I@011/0001
+  Operation
+  [
+    Op1
+    Op2
+  ]
+  op
 }
 {
   !Op I@008/0001
@@ -263,6 +291,10 @@ Success
 {
   !In I@007/0002
   InDrctParamOpt
+}
+{
+  !Ou I@008/0003
+  Cat
 }
 {
   !Du I@006/0001
@@ -4224,6 +4256,10 @@ Success
 {
   !Ou I@008/0003
   RefOutpObjPrnt
+}
+{
+  !Ou I@008/0004
+  Op
 }
 {
   !Ou I@008/0001

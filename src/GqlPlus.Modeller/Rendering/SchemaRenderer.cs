@@ -3,14 +3,16 @@
 internal class SchemaRenderer(
   IRenderer<CategoriesModel> categories,
   IRenderer<DirectivesModel> directives,
-  IRenderer<BaseTypeModel> types,
-  IRenderer<SettingModel> settings
+  IRenderer<OperationsModel> operations,
+  IRenderer<SettingModel> settings,
+  IRenderer<BaseTypeModel> types
 ) : AliasedRenderer<SchemaModel>
 {
   internal override Structured Render(SchemaModel model)
     => base.Render(model)
       .AddMap("categories", model.GetCategories(default), categories, "_Categories")
       .AddMap("directives", model.GetDirectives(default), directives, "_Directives")
+      .AddMap("operations", model.GetOperations(default), operations, "_Operations")
       .AddMap("types", model.GetTypes(default), types, "_Type")
       .AddMap("settings", model.GetSettings(default), settings, "_Setting")
       .Add("_errors", model.Errors.Render());

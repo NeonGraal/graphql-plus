@@ -7,7 +7,6 @@ internal sealed record class OperationAst(
   TokenAt At,
   string Identifier
 ) : AstDirectives(At, Identifier)
-  , IEquatable<OperationAst>
   , IGqlpOperation
 {
   public ParseResultKind Result { get; set; }
@@ -42,6 +41,8 @@ internal sealed record class OperationAst(
     : this(at, "") { }
 
   public bool Equals(OperationAst? other)
+    => other is IGqlpOperation operation && Equals(operation);
+  public bool Equals(IGqlpOperation other)
     => base.Equals(other)
     && Result == other.Result;
   public override int GetHashCode()

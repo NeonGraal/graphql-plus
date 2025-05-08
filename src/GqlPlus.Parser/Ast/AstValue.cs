@@ -2,8 +2,9 @@
 
 namespace GqlPlus.Ast;
 
-internal abstract record class AstValue<TValue>(TokenAt At)
-  : AstAbbreviated(At)
+internal abstract record class AstValue<TValue>(
+  TokenAt At
+) : AstAbbreviated(At)
   , IGqlpValue<TValue>
   where TValue : IGqlpValue<TValue>
 {

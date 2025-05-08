@@ -5,7 +5,9 @@ public interface IGqlpSelection
 { }
 
 public interface IGqlpField
-  : IGqlpIdentified, IGqlpSelection, IGqlpModifiers
+  : IGqlpIdentified
+  , IGqlpSelection
+  , IGqlpModifiers
 {
   string? FieldAlias { get; }
   IGqlpArg? Arg { get; }
@@ -13,18 +15,23 @@ public interface IGqlpField
 }
 
 public interface IGqlpInline
-  : IGqlpSelection
+  : IGqlpAbbreviated
+  , IGqlpSelection
+  , IEquatable<IGqlpInline>
 {
   string? OnType { get; }
   IEnumerable<IGqlpSelection> Selections { get; }
 }
 
 public interface IGqlpSpread
-  : IGqlpIdentified, IGqlpSelection
+  : IGqlpIdentified
+  , IGqlpSelection
+  , IEquatable<IGqlpSpread>
 { }
 
 public interface IGqlpArg
   : IGqlpValue<IGqlpArg>
+  , IEquatable<IGqlpArg>
 {
   string? Variable { get; }
   IGqlpConstant? Constant { get; }

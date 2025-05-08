@@ -7,7 +7,6 @@ internal sealed record class InlineAst(
   TokenAt At,
   params IGqlpSelection[] Selections
 ) : AstAbbreviated(At)
-  , IEquatable<InlineAst>
   , IGqlpInline
 {
   public string? OnType { get; set; }
@@ -19,15 +18,21 @@ internal sealed record class InlineAst(
   IEnumerable<IGqlpDirective> IGqlpDirectives.Directives
   {
     get => Directives;
-    init => Directives = [.. value.Cast<DirectiveAst>()];
+    init => Directives = [.. value];
   }
   IEnumerable<IGqlpSelection> IGqlpInline.Selections => Selections;
 
   public bool Equals(InlineAst? other)
+    => other is IGqlpInline inline && Equals(inline);
+  public bool Equals(IGqlpDirectives? other)
+    => other is IGqlpInline inline ? Equals(inline)
+      : base.Equals(other)
+        && Directives.SequenceEqual(other.Directives);
+  public bool Equals(IGqlpInline? other)
     => base.Equals(other)
+    && Directives.SequenceEqual(other.Directives)
     && OnType.NullEqual(other.OnType)
-    && Selections.SequenceEqual(other.Selections)
-    && Directives.SequenceEqual(other.Directives);
+    && Selections.SequenceEqual(other.Selections);
   public override int GetHashCode()
     => HashCode.Combine(OnType, Selections?.Length, Directives.Length);
 

@@ -1,6 +1,9 @@
-﻿namespace GqlPlus.Ast.Operation;
+﻿using GqlPlus.Abstractions.Operation;
 
-public class FragmentAstTests : AstDirectivesTests<FragmentInput>
+namespace GqlPlus.Ast.Operation;
+
+public class FragmentAstTests
+  : AstDirectivesTests<FragmentInput>
 {
   [Fact]
   public void HashCode_Null()
@@ -24,7 +27,7 @@ public class FragmentAstTests : AstDirectivesTests<FragmentInput>
       field => new FragmentAst(AstNulls.At, name, onType, field.Fields()),
       fields1.SequenceEqual(fields2));
 
-  internal AstDirectivesChecks<FragmentInput, FragmentAst> _checks = new(Fragment);
+  internal AstDirectivesChecks<FragmentInput, IGqlpFragment> _checks = new(Fragment);
 
   private static FragmentAst Fragment(FragmentInput input, string[] directives)
     => new(AstNulls.At, input.Name, input.OnType, new[] { input.Field }.Fields()) {

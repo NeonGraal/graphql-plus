@@ -3,10 +3,10 @@ using GqlPlus.Merging;
 using GqlPlus.Merging.Objects;
 using GqlPlus.Merging.Schema;
 
-namespace GqlPlus.Ast.Schema.Objects;
+namespace GqlPlus.Merging.Schema.Objects;
 
-public abstract class TestObjectAsts<TObject, TObjBase, TObjField, TObjAlt>
-  : TestTypedAsts<IGqlpType, TObject, IGqlpObjBase, TObjField>
+public abstract class TestObjectMerger<TObject, TObjBase, TObjField, TObjAlt>
+  : TestTypedMerger<IGqlpType, TObject, IGqlpObjBase, TObjField>
   where TObject : IGqlpObject<TObjBase, TObjField, TObjAlt>
   where TObjField : IGqlpObjField
   where TObjAlt : IGqlpObjAlternate
@@ -41,7 +41,7 @@ public abstract class TestObjectAsts<TObject, TObjBase, TObjField, TObjAlt>
   protected IMerge<TObjAlt> Alternates { get; }
   protected IMerge<TObjField> Fields { get; }
 
-  protected TestObjectAsts()
+  protected TestObjectMerger()
   {
     TypeParams = Merger<IGqlpTypeParam>();
     Alternates = Merger<TObjAlt>();

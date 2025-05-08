@@ -1,9 +1,9 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Merging.Schema;
 
-namespace GqlPlus.Ast.Schema;
+namespace GqlPlus.Merging;
 
-public abstract class TestAliasedAsts<TAst>
+public abstract class TestAliasedMerger<TAst>
   : TestDescriptionsMerger<TAst>
   where TAst : IGqlpAliased
 {

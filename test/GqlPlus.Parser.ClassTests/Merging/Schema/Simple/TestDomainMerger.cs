@@ -7,8 +7,8 @@ using NSubstitute;
 
 namespace GqlPlus.Ast.Schema.Simple;
 
-public abstract class TestDomainAsts<TItem, TItemInput>
-  : TestTypedAsts<IGqlpDomain, IGqlpDomain<TItem>, string, TItem>
+public abstract class TestDomainMerger<TItem, TItemInput>
+  : TestTypedMerger<IGqlpDomain, IGqlpDomain<TItem>, string, TItem>
   where TItem : class, IGqlpDomainItem
 {
   [Theory, RepeatData]
@@ -51,7 +51,7 @@ public abstract class TestDomainAsts<TItem, TItemInput>
   internal readonly IMerge<TItem> MergeItems;
   internal abstract IDomainMerger<TItem> Merger { get; }
 
-  protected TestDomainAsts()
+  protected TestDomainMerger()
     => MergeItems = Merger<TItem>();
 
   // internal override AstTypeMerger<IGqlpDomain, IGqlpDomain<TItem>, string, TItem> MergerTyped => Merger;

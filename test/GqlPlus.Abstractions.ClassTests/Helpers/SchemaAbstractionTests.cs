@@ -41,6 +41,10 @@ public class TestAliased(string name, string[] aliases)
   public string Abbr { get; } = "Tt";
   public string Description { get; } = "";
 
+  public bool Equals(IGqlpAbbreviated? other) => other is not null;
+  public bool Equals(IGqlpAliased? other) => other is not null;
+  public bool Equals(IGqlpDescribed? other) => other is not null;
+  public bool Equals(IGqlpNamed? other) => other is not null;
   public IEnumerable<string?> GetFields() => throw new NotImplementedException();
   public bool IsNameOrAlias(string id) => id == name || aliases.Contains(id);
   public ITokenMessages MakeError(string message) => throw new NotImplementedException();

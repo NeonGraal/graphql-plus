@@ -422,9 +422,14 @@ types: !_Map_Type
       - !_EnumLabel
         enum: EnumDiff
         name: one
+      - !_EnumLabel
+        enum: EnumDiff
+        name: two
     items:
       - !_Aliased
         name: one
+      - !_Aliased
+        name: two
     name: EnumDiff
     typeKind: !_TypeKind Enum
   !_Identifier EnumSame: !_TypeEnum

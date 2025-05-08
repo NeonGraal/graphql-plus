@@ -1,9 +1,8 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Merging.Schema;
 
-namespace GqlPlus.Ast.Schema.Simple;
+namespace GqlPlus.Merging.Schema.Simple;
 
-public abstract class TestDomainItemAsts<TItem, TInput>
+public abstract class TestDomainItemMerger<TItem, TInput>
   : TestGroupsMerger<TItem, TInput>
   where TItem : IGqlpDomainItem
 {

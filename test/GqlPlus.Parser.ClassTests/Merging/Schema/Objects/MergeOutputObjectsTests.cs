@@ -5,7 +5,7 @@ using GqlPlus.Merging.Objects;
 namespace GqlPlus.Merging.Schema.Objects;
 
 public class MergeOutputObjectsTests
-  : TestObjectAsts<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>
+  : TestObjectMerger<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>
 {
   private readonly MergeOutputObjects _merger;
 

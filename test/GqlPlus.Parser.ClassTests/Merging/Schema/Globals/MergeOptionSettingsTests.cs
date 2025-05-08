@@ -30,5 +30,5 @@ public class MergeOptionSettingsTests
   internal override GroupsMerger<IGqlpSchemaSetting> MergerGroups => _merger;
 
   protected override IGqlpSchemaSetting MakeAst(string input)
-    => new OptionSettingAst(AstNulls.At, input, new(new FieldKeyAst(AstNulls.At, input)));
+    => new OptionSettingAst(AstNulls.At, input, new ConstantAst(new FieldKeyAst(AstNulls.At, input)));
 }

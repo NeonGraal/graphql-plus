@@ -1,5 +1,6 @@
 [CmdletBinding()]
 param (
+  [switch]$Html = $false,
   [Switch]$NoCoverage = $false,
   [Switch]$ShowGithub = $false
 )
@@ -15,11 +16,11 @@ function Convert-Tests($test, $prefix = "") {
   if (($test.failed + $test.error) -eq 0) {
     $label = $test.label + " successful"
     $text = "{0}-{3:d}_passed%2C_{4:d}_skipped"
-    $colour = "6F6"
+    $colour = "CFA"
   } else {
     $label = $test.label + " failed"
     $text = "{0}-{1:d}_failed%2C{2:d}_errored%2C{3:d}_passed%2C_{4:d}_skipped"
-    $colour = "F66"
+    $colour = "FAC"
   }
 
   Get-Badge $params $label $text $colour $prefix
@@ -37,27 +38,38 @@ function Write-Tests($test, $prefix = "") {
 }
 
 function Convert-Coverage($cover, $prefix = "") {
-  if ($cover.linesValid -gt 0) {
-    $linesPerc = $cover.linesCovered * 100.0 / $cover.linesValid
+  if ($cover.lineRate -gt 0) {
+    $linesPerc = $cover.lineRate
   } else {
     $linesPerc = 0.0
   }
   $params = $linesPerc, $cover.linesCovered, $cover.linesValid, $cover.label
-  Get-Badge $params "{3} Coverage" "{3}_Coverage-{0:f2}%25_covered_{1:d}_of_{2:d}" "F6F" $prefix
+  $message = "{3}_Coverage-{0:f2}%25_covered"
+  if ($cover.linesValid -gt 0) {
+    $message += "_{1:d}_of_{2:d}_lines"
+  }
+  if ($linesPerc -gt 80) {
+    $colour = "ACF"
+  } else {
+    $colour = "CAF"
+  }
+  Get-Badge $params "{3} Coverage" $message $colour $prefix
 }
 
 function Write-Coverage($cover, $prefix = "") {
-  if ($cover.linesValid -gt 0) {
-    $linesPerc = $cover.linesCovered * 100.0 / $cover.linesValid
+  if ($cover.lineRate -gt 0) {
+    $linesPerc = $cover.lineRate
   } else {
     $linesPerc = 0.0
   }
-  $params = $linesPerc, $cover.linesCovered, $cover.linesValid, ($cover.label -replace "_", " ")
-  $message = "{3} Coverage: {0:f2}% covered {1:d} of {2:d} lines" -f $params
+  $message = "{1} Coverage: {0:f2}% covered" -f ($linesPerc, $cover.label)
+  if ($cover.linesValid -gt 0) {
+    $message += " {0:d} of {1:d} lines" -f ($cover.linesCovered, $cover.linesValid)
+  }
   Write-Host "$prefix$message"
 }
 
-[PsObject]$allCoverage = @{label = "All"; linesCovered = 0; linesValid = 0 }
+[PsObject]$allCoverage = @{label = "All"; linesCovered = 0; linesValid = 0; lineRate = 100.0 }
 
 if (-not $NoCoverage) {
   $coverage = Get-ChildItem coverage -Filter "Coverage*.xml" | ForEach-Object {
@@ -66,10 +78,13 @@ if (-not $NoCoverage) {
 
     $allCoverage.linesCovered += $lines."lines-covered"
     $allCoverage.linesValid += $lines."lines-valid"
+    $allCoverage.lineRate *= $lines."line-rate"
 
-    $label = $_.BaseName -replace "Coverage-", "" -replace "-", " "  
-    @{label = $label; linesCovered = [int]$lines."lines-covered"; linesValid = [int]$lines."lines-valid" }
-  }
+    $lines.packages.package | ForEach-Object {
+      $label = $_.name -replace 'GqlPlus\.','' -replace '\.',' '
+      @{label = $label; lineRate = 100.0 * [float]$_."line-rate" }
+    }
+  } | Sort-Object label
 }
 
 [PsObject]$allTests = @{label = "All Tests"; skipped = 0; passed = 0; failed = 0; error = 0 }
@@ -89,15 +104,23 @@ $tests = Get-ChildItem . -Recurse -Filter "TestResults*.trx" | ForEach-Object {
   $allTests.error += $counts.error
 
   if ($NoCoverage -and $summary.outcome -eq "Failed") {
-    $allErrors[$name] = $summary.RunInfos.RunInfo | ForEach-Object { ($_.Text -split '[[\]]')[2].Trim() }
+    $allErrors[$name] = $summary.RunInfos.RunInfo | Where-Object {
+      $_.outcome -eq "Failed" -or $_.outcome -eq "Error"
+    } | ForEach-Object { 
+      ($_.Text -split '[[\]]')[2].Trim() 
+    }
   }
 
   @{label = $name; failed = [int]$counts.failed; error = [int]$counts.error; passed = [int]$counts.passed; skipped = $skipped }
-}
+} | Sort-Object label
+
+Set-Content summary.md "# Summary"
 
 Write-Tests $allTests
+Convert-Tests $allTests "`n" | Add-Content summary.md
 if ($tests.Count -gt 1) {
   $tests | ForEach-Object { Write-Tests $_ "- " }
+  $tests | ForEach-Object { Convert-Tests $_ "- " | Add-Content summary.md }
 
   $allErrors.Keys | ForEach-Object {
     Write-Host "* $_ FAILURES"
@@ -105,13 +128,19 @@ if ($tests.Count -gt 1) {
   }
 }
 
+if ($Html) {
+  Start-Process test/Html/index.html
+}
+
 if ($NoCoverage) {
   exit 0
 }
 
 Write-Coverage $allCoverage
+Convert-Coverage $allCoverage "`n" | Add-Content summary.md
 if ($coverage.Count -gt 1) {
   $coverage | ForEach-Object { Write-Coverage $_ "- " }
+  $coverage | ForEach-Object { Convert-Coverage $_ "- " | Add-Content summary.md }
 }
 
 if ($ShowGithub) {

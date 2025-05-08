@@ -2,6 +2,7 @@
 
 public interface IGqlpSchema
   : IGqlpAbbreviated
+  , IEquatable<IGqlpSchema>
 {
   IEnumerable<IGqlpDeclaration> Declarations { get; }
 
@@ -17,6 +18,7 @@ public interface IGqlpDeclaration
 
 public interface IGqlpAliased
   : IGqlpNamed
+  , IEquatable<IGqlpAliased>
 {
   IEnumerable<string> Aliases { get; }
 
@@ -25,12 +27,14 @@ public interface IGqlpAliased
 
 public interface IGqlpDescribed
   : IGqlpAbbreviated
+  , IEquatable<IGqlpDescribed>
 {
   string Description { get; }
 }
 
 public interface IGqlpNamed
   : IGqlpDescribed
+  , IEquatable<IGqlpNamed>
 {
   string Name { get; }
 }

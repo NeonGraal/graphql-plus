@@ -8,7 +8,6 @@ internal abstract record class AstObject<TObjBase, TObjField, TObjAlt>(
   string Name,
   string Description
 ) : AstType<IGqlpObjBase>(At, Name, Description)
-  , IEquatable<AstObject<TObjBase, TObjField, TObjAlt>>
   , IGqlpObject<TObjBase, TObjField, TObjAlt>
   where TObjBase : IGqlpObjBase
   where TObjField : IGqlpObjField
@@ -27,6 +26,8 @@ internal abstract record class AstObject<TObjBase, TObjField, TObjAlt>(
   IEnumerable<TObjAlt> IGqlpObject<TObjBase, TObjField, TObjAlt>.ObjAlternates => ObjAlternates;
 
   public virtual bool Equals(AstObject<TObjBase, TObjField, TObjAlt>? other)
+    => other is IGqlpObject<TObjBase, TObjField, TObjAlt> obj && Equals(obj);
+  public bool Equals(IGqlpObject<TObjBase, TObjField, TObjAlt>? other)
     => base.Equals(other)
       && TypeParams.SequenceEqual(other.TypeParams)
       && ObjFields.SequenceEqual(other.ObjFields)

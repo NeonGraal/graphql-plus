@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Merging.Simple;
 
@@ -7,7 +6,7 @@ namespace GqlPlus.Merging.Schema.Simple;
 
 public class MergeEnumLabelsTests(
   ITestOutputHelper outputHelper
-) : TestAliasedAsts<IGqlpEnumLabel>
+) : TestAliasedMerger<IGqlpEnumLabel>
 {
   private readonly MergeEnumLabels _merger = new(outputHelper.ToLoggerFactory());
 

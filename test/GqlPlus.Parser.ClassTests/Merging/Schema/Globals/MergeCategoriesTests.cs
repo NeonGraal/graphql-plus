@@ -7,7 +7,7 @@ namespace GqlPlus.Merging.Schema.Globals;
 
 public class MergeCategoriesTests(
   ITestOutputHelper outputHelper
-) : TestAliasedAsts<IGqlpSchemaCategory>
+) : TestAliasedMerger<IGqlpSchemaCategory>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsSameOutput_ReturnsGood(string category)

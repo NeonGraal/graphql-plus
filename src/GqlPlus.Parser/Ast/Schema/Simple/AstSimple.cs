@@ -22,6 +22,8 @@ internal abstract record class AstSimple<TItemAst>(
   IEnumerable<TItemAst> IGqlpSimple<TItemAst>.Items => Items;
 
   public virtual bool Equals(AstSimple<TItemAst>? other)
+    => other is IGqlpSimple<TItemAst> simple && Equals(simple);
+  public virtual bool Equals(IGqlpSimple<TItemAst>? other)
     => base.Equals(other)
       && Items.SequenceEqual(other.Items);
   public override int GetHashCode()

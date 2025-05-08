@@ -8,11 +8,17 @@ internal sealed record class EnumLabelAst(
   string Name,
   string Description
 ) : AstAliased(At, Name, Description)
-  , IEquatable<EnumLabelAst>
   , IGqlpEnumLabel
 {
   public EnumLabelAst(TokenAt at, string name)
     : this(at, name, "") { }
 
   internal override string Abbr => "EL";
+
+  public bool Equals(EnumLabelAst? other)
+    => other is IGqlpEnumLabel label && Equals(label);
+  public bool Equals(IGqlpEnumLabel? other)
+    => base.Equals(other);
+  public override int GetHashCode()
+    => base.GetHashCode();
 }

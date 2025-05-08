@@ -5,7 +5,7 @@ using GqlPlus.Merging.Objects;
 namespace GqlPlus.Merging.Schema.Objects;
 
 public class MergeInputFieldsTests
-  : TestObjectFieldAsts<IGqlpInputField, IGqlpInputBase>
+  : TestObjectFieldMerger<IGqlpInputField, IGqlpInputBase>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsOneDefault_ReturnsGood(string name, string type, string value)

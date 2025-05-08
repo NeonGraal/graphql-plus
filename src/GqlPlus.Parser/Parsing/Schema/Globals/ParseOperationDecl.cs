@@ -55,8 +55,7 @@ internal class ParseOperationDefinition(
   private readonly Parser<IGqlpSelection>.LA _object = objectParser;
   private readonly Parser<IGqlpVariable>.LA _variables = variables;
 
-  public IResult<OperationDefinition> Parse<TContext>(TContext tokens, string label)
-    where TContext : Tokenizer
+  public IResult<OperationDefinition> Parse(ITokenizer tokens, string label)
   {
     if (!tokens.Identifier(out string? category)) {
       return tokens.Error<OperationDefinition>(label, "category");

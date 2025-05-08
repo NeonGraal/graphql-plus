@@ -48,7 +48,10 @@ public enum DirectiveLocation
 }
 
 public interface IGqlpSchemaOperation
-  : IGqlpDeclaration, IGqlpDirectives, IGqlpModifiers
+  : IGqlpDeclaration
+  , IGqlpDirectives
+  , IGqlpModifiers
+  , IEquatable<IGqlpSchemaOperation>
 {
   string Category { get; }
 

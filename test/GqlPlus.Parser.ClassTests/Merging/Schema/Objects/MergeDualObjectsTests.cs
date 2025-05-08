@@ -5,7 +5,7 @@ using GqlPlus.Merging.Objects;
 namespace GqlPlus.Merging.Schema.Objects;
 
 public class MergeDualObjectsTests
-  : TestObjectAsts<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>
+  : TestObjectMerger<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>
 {
   private readonly MergeDualObjects _merger;
 

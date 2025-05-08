@@ -6,7 +6,7 @@ namespace GqlPlus.Merging.Schema.Simple;
 
 public class MergeDomainLabelsTests(
   ITestOutputHelper outputHelper
-) : TestDomainItemAsts<IGqlpDomainLabel, string>
+) : TestDomainItemMerger<IGqlpDomainLabel, string>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentExcludes_ReturnsErrors(string name)

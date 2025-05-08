@@ -1,16 +1,16 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Merging.Schema;
 
-namespace GqlPlus.Ast.Schema;
+namespace GqlPlus.Merging;
 
-public abstract class TestAliased<TAst>
-  : TestAliased<TAst, string>
+public abstract class TestAliasedMerger<TAst>
+  : TestAliasedMerger<TAst, string>
   where TAst : IGqlpAliased
 {
   protected override string GetName(string input) => input;
 }
 
-public abstract class TestAliased<TAst, TInput>
+public abstract class TestAliasedMerger<TAst, TInput>
   : TestDescriptionsMerger<TAst, TInput>
   where TAst : IGqlpAliased
 {

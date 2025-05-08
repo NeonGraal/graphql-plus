@@ -6,7 +6,7 @@ namespace GqlPlus.Merging.Schema.Simple;
 
 public class MergeDomainRangesTests(
   ITestOutputHelper outputHelper
-) : TestDomainItemAsts<IGqlpDomainRange, DomainRangeInput>
+) : TestDomainItemMerger<IGqlpDomainRange, DomainRangeInput>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsSameExcludes_ReturnsGood(DomainRangeInput input)

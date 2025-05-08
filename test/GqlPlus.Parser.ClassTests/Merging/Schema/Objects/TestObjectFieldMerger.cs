@@ -1,11 +1,10 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Merging;
 using GqlPlus.Merging.Objects;
 
-namespace GqlPlus.Ast.Schema.Objects;
+namespace GqlPlus.Merging.Schema.Objects;
 
-public abstract class TestObjectFieldAsts<TObjField, TObjBase>
-  : TestAliasedAsts<TObjField>
+public abstract class TestObjectFieldMerger<TObjField, TObjBase>
+  : TestAliasedMerger<TObjField>
   where TObjField : IGqlpObjField
   where TObjBase : IGqlpObjBase
 {

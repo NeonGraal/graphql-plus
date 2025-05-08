@@ -1,7 +1,4 @@
-﻿using GqlPlus.Ast;
-using GqlPlus.Ast.Schema.Globals;
-
-namespace GqlPlus.Schema.Globals;
+﻿namespace GqlPlus.Ast.Schema.Globals;
 
 public class OperationAstTests
   : AstAliasedTests<OperationInput>

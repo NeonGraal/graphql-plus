@@ -1,10 +1,9 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Merging;
 
-namespace GqlPlus.Ast.Schema;
+namespace GqlPlus.Merging;
 
-public abstract class TestTypedAsts<TBase, TType, TParent, TItem>
-  : TestAliasedAsts<TType>
+public abstract class TestTypedMerger<TBase, TType, TParent, TItem>
+  : TestAliasedMerger<TType>
   where TBase : IGqlpType
   where TType : IGqlpType<TParent>, TBase
   where TParent : IEquatable<TParent>

@@ -10,7 +10,6 @@ internal sealed record class OperationDeclAst(
   string Description,
   string Category
 ) : AstDeclaration(At, Name, Description)
-  , IEquatable<OperationDeclAst>
   , IGqlpSchemaOperation
 {
   internal override string Abbr => "SO";
@@ -28,6 +27,10 @@ internal sealed record class OperationDeclAst(
     : this(at, name, "", category) { }
 
   public bool Equals(OperationDeclAst? other)
+    => other is IGqlpSchemaOperation schema && Equals(schema);
+  public bool Equals(IGqlpDirectives? other)
+    => other is IGqlpSchemaOperation schema && Equals(schema);
+  public bool Equals(IGqlpSchemaOperation? other)
     => base.Equals(other)
     && Category == other.Category;
   public override int GetHashCode()

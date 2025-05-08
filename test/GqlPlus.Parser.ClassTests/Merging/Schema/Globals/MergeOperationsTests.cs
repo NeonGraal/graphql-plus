@@ -1,14 +1,12 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Globals;
-using GqlPlus.Merging;
 using GqlPlus.Merging.Globals;
 
-namespace GqlPlus.Schema.Globals;
+namespace GqlPlus.Merging.Schema.Globals;
 
 public class MergeOperationsTests(
   ITestOutputHelper outputHelper
-) : TestAliased<IGqlpSchemaOperation, OperationInput>
+) : TestAliasedMerger<IGqlpSchemaOperation, OperationInput>
 {
   [Theory, RepeatData(Repeats)]
   public void CanMerge_TwoAstsSameCategory_ReturnsGood(OperationInput input)

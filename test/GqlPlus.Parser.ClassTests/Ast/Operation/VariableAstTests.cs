@@ -1,35 +1,39 @@
-﻿namespace GqlPlus.Ast.Operation;
+﻿using System.Threading.Tasks;
+using GqlPlus.Abstractions.Operation;
 
-public class VariableAstTests : AstDirectivesTests
+namespace GqlPlus.Ast.Operation;
+
+public class VariableAstTests
+  : AstDirectivesTests
 {
   [Theory, RepeatData]
   public void HashCode_WithType(string name, string varType)
-    => _checks.HashCode(() => new(AstNulls.At, name) { Type = varType });
+    => _checks.HashCode(() => new VariableAst(AstNulls.At, name) { Type = varType });
 
   [Theory, RepeatData]
   public void HashCode_WithModifiers(string name)
-    => _checks.HashCode(() => new(AstNulls.At, name) { Modifiers = TestMods() });
+    => _checks.HashCode(() => new VariableAst(AstNulls.At, name) { Modifiers = TestMods() });
 
   [Theory, RepeatData]
   public void HashCode_WithDefault(string name, string value)
-    => _checks.HashCode(() => new(AstNulls.At, name) { DefaultValue = new(new FieldKeyAst(AstNulls.At, value)) });
+    => _checks.HashCode(() => new VariableAst(AstNulls.At, name) { DefaultValue = new(new FieldKeyAst(AstNulls.At, value)) });
 
   [Theory, RepeatData]
   public void String_WithType(string name, string varType)
     => _checks.Text(
-      () => new(AstNulls.At, name) { Type = varType },
+      () => new VariableAst(AstNulls.At, name) { Type = varType },
       $"( !v {name} :{varType} )");
 
   [Theory, RepeatData]
   public void String_WithModifiers(string name)
     => _checks.Text(
-      () => new(AstNulls.At, name) { Modifiers = TestMods() },
+      () => new VariableAst(AstNulls.At, name) { Modifiers = TestMods() },
       $"( !v {name} [] ? )");
 
   [Theory, RepeatData]
   public void String_WithDefault(string name, string value)
     => _checks.Text(
-      () => new(AstNulls.At, name) { DefaultValue = new(new FieldKeyAst(AstNulls.At, value)) },
+      () => new VariableAst(AstNulls.At, name) { DefaultValue = new(new FieldKeyAst(AstNulls.At, value)) },
       $"( !v {name} =( !k '{value}' ) )");
 
   [Theory, RepeatData]
@@ -70,8 +74,10 @@ public class VariableAstTests : AstDirectivesTests
     => _checks.InequalityWith(name,
       () => new VariableAst(AstNulls.At, name) { DefaultValue = new(new FieldKeyAst(AstNulls.At, value)) });
 
-  internal AstDirectivesChecks<VariableAst> _checks
-    = new(name => new VariableAst(AstNulls.At, name));
+  internal AstDirectivesChecks<IGqlpVariable> _checks = new(Variable);
+
+  private static VariableAst Variable(string input, string[] directives)
+    => new(AstNulls.At, input) { Directives = directives.Directives() };
 
   internal override IAstDirectivesChecks DirectivesChecks => _checks;
 }

@@ -66,34 +66,34 @@ public class ConstantAstTests
   [Theory, RepeatData]
   public void Equality_WithEnumValue(string enumValue)
     => _checks.Equality(
-      () => new(enumValue.FieldKey()));
+      () => new ConstantAst(enumValue.FieldKey()));
 
   [Theory, RepeatData]
   public void Equality_WithEnumTypeAndValue(string enumType, string enumValue)
     => _checks.Equality(
-      () => new(new FieldKeyAst(AstNulls.At, enumType, enumValue)));
+      () => new ConstantAst(new FieldKeyAst(AstNulls.At, enumType, enumValue)));
 
   [Theory, RepeatData]
   public void Equality_WithEnumType(string enumType)
     => _checks.Equality(
-      () => new(new FieldKeyAst(AstNulls.At, enumType, "enumValue")));
+      () => new ConstantAst(new FieldKeyAst(AstNulls.At, enumType, "enumValue")));
 
   [Theory, RepeatData]
   public void Inequality_WithEnumValue(string enumValue)
     => _checks.InequalityBetween(enumValue, enumValue + "a",
-      l => new(l.FieldKey()));
+      l => new ConstantAst(l.FieldKey()));
 
   [Theory, RepeatData]
   public void Inequality_WithEnumTypeAndValue(string enumType, string enumValue)
     => _checks.Inequality(
-      () => new(new FieldKeyAst(AstNulls.At, enumType, enumValue)),
-      () => new(new FieldKeyAst(AstNulls.At, enumValue, enumType)),
+      () => new ConstantAst(new FieldKeyAst(AstNulls.At, enumType, enumValue)),
+      () => new ConstantAst(new FieldKeyAst(AstNulls.At, enumValue, enumType)),
       enumType == enumValue);
 
   [Theory, RepeatData]
   public void Inequality_WithEnumType(string enumType)
     => _checks.InequalityBetween(enumType, enumType + "a",
-      e => new(new FieldKeyAst(AstNulls.At, e, "enumValue")));
+      e => new ConstantAst(new FieldKeyAst(AstNulls.At, e, "enumValue")));
 
   [Theory, RepeatData]
   public void Equality_WithValues(string enumValue)
@@ -104,7 +104,7 @@ public class ConstantAstTests
   public void Inequality_WithValues(string enumValue)
     => _checks.Inequality(
       () => new ConstantAst(AstNulls.At, enumValue.ConstantList()),
-      () => new(enumValue.FieldKey()));
+      () => new ConstantAst(enumValue.FieldKey()));
 
   [Theory, RepeatData]
   public void Equality_WithFields(string key, string enumValue)
@@ -115,7 +115,7 @@ public class ConstantAstTests
   public void Inequality_WithFields(string key, string enumValue)
     => _checks.Inequality(
       () => new ConstantAst(AstNulls.At, enumValue.ConstantObject(key)),
-      () => new(new FieldKeyAst(AstNulls.At, key, enumValue)));
+      () => new ConstantAst(new FieldKeyAst(AstNulls.At, key, enumValue)));
 
-  internal BaseAstChecks<ConstantAst> _checks = new();
+  internal BaseAstChecks<IGqlpConstant> _checks = new();
 }

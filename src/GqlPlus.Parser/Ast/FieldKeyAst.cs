@@ -1,12 +1,11 @@
 ﻿using System.Globalization;
-
 using GqlPlus.Token;
 
 namespace GqlPlus.Ast;
 
-internal sealed record class FieldKeyAst(TokenAt At)
-  : AstAbbreviated(At)
-  , IComparable<FieldKeyAst>
+internal sealed record class FieldKeyAst(
+  TokenAt At
+) : AstAbbreviated(At)
   , IGqlpFieldKey
 {
   public string? Type { get; }
@@ -21,10 +20,6 @@ internal sealed record class FieldKeyAst(TokenAt At)
 
   string? IGqlpFieldKey.EnumType => Type;
   string? IGqlpFieldKey.EnumLabel => Label;
-  bool IEquatable<IGqlpFieldKey>.Equals(IGqlpFieldKey? other)
-    => Equals(other as FieldKeyAst);
-  int IComparable<IGqlpFieldKey>.CompareTo(IGqlpFieldKey? other)
-    => CompareTo(other as FieldKeyAst);
 
   internal FieldKeyAst(TokenAt at, decimal number)
     : this(at)
@@ -36,7 +31,14 @@ internal sealed record class FieldKeyAst(TokenAt At)
     : this(at)
     => (Type, Label) = (enumType, enumLabel);
 
-  public int CompareTo(FieldKeyAst? other)
+  public bool Equals(FieldKeyAst? other)
+    => other is IGqlpFieldKey fieldKey && Equals(fieldKey);
+  public override int GetHashCode()
+  => HashCode.Combine(base.GetHashCode(), Type, Label, Number, Text);
+
+  public bool Equals(IGqlpFieldKey? other)
+    => CompareTo(other) == 0;
+  public int CompareTo(IGqlpFieldKey? other)
     => Number is not null ? decimal.Compare(Number.Value, other?.Number ?? 0)
       : Text is not null ? string.Compare(Text, other?.Text, StringComparison.Ordinal)
       : EnumValue is not null ? string.Compare(EnumValue, other?.EnumValue, StringComparison.Ordinal)

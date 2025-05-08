@@ -5,7 +5,6 @@ namespace GqlPlus.Ast;
 internal sealed record class ModifierAst(
   TokenAt At
 ) : AstBase(At)
-  , IEquatable<ModifierAst>
   , IGqlpModifier
 {
   internal static ModifierAst Optional(TokenAt at)
@@ -40,8 +39,10 @@ internal sealed record class ModifierAst(
 
   // override object.Equals
   public bool Equals(ModifierAst? other)
+    => other is IGqlpModifier modifier && Equals(modifier);
+  public bool Equals(IGqlpModifier? other)
     => other is not null
-    && Kind == other.Kind
+    && Kind == other.ModifierKind
     && Key.NullEqual(other.Key)
     && IsOptional.NullEqual(other.IsOptional);
 

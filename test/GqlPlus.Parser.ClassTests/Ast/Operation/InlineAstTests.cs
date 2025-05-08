@@ -22,11 +22,13 @@ public class InlineAstTests : AstDirectivesTests<string[]>
     => _checks.InequalityWith(fields,
       () => new InlineAst(AstNulls.At, fields.Fields()) { OnType = onType });
 
-  private readonly AstDirectivesChecks<string[], InlineAst> _checks
-    = new(input => new InlineAst(AstNulls.At, input?.Fields() ?? []));
+  private readonly AstDirectivesChecks<string[], InlineAst> _checks = new(Inline);
 
   internal override IAstDirectivesChecks<string[]> DirectivesChecks => _checks;
 
   protected override string DirectiveString(string[] input, string directives)
     => $"( !i{directives} {{ {input.Joined(s => "!f " + s)} }} )";
+
+  private static InlineAst Inline(string[] input, string[] directives)
+    => new(AstNulls.At, input?.Fields() ?? []) { Directives = directives.Directives() };
 }

@@ -41,6 +41,8 @@ public class TestAliased(string name, string[] aliases)
   public string Abbr { get; } = "Tt";
   public string Description { get; } = "";
 
+  public bool Equals(IGqlpAbbreviated? other)
+    => other is not null;
   public IEnumerable<string?> GetFields() => throw new NotImplementedException();
   public ITokenMessages MakeError(string message) => throw new NotImplementedException();
 }

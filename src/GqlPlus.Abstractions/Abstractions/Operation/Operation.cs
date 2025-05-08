@@ -34,6 +34,7 @@ public interface IGqlpVariable
 }
 
 public interface IGqlpDirectives
+  : IGqlpError
 {
   IEnumerable<IGqlpDirective> Directives { get; init; }
 }

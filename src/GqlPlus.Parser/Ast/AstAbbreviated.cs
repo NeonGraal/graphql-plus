@@ -4,7 +4,6 @@ namespace GqlPlus.Ast;
 
 internal abstract record class AstAbbreviated(TokenAt At)
   : AstBase(At)
-  , IEquatable<AstAbbreviated>
   , IGqlpAbbreviated
 {
   internal abstract string Abbr { get; }
@@ -22,7 +21,10 @@ internal abstract record class AstAbbreviated(TokenAt At)
 
   // override object.Equals
   public virtual bool Equals(AstAbbreviated? other)
+    => other is IGqlpAbbreviated abbr && Equals(abbr);
+  public bool Equals(IGqlpAbbreviated? other)
     => other is not null;
+  // && Abbr == other.Abbr
 
   // override object.GetHashCode
   public override int GetHashCode() => 0;

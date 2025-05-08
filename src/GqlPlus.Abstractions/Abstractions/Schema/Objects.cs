@@ -21,6 +21,7 @@ public interface IGqlpObject<TBase, TField, TAlt>
 
 public interface IGqlpObjType
   : IGqlpNamed
+  , IEquatable<IGqlpObjType>
 {
   string Label { get; }
   string FullType { get; }
@@ -196,6 +197,7 @@ public interface IGqlpOutputAlternate
 public interface IGqlpInputParam
   : IGqlpDescribed
   , IGqlpModifiers
+  , IEquatable<IGqlpInputParam>
 {
   IGqlpInputBase Type { get; }
   IGqlpConstant? DefaultValue { get; }

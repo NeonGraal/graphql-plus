@@ -4759,6 +4759,7 @@ Success
   !Do I@008/0681
   DmnBoolDescr
   Boolean
+  'DomBool Descr'
   !DT I@049/0681
   True
 }
@@ -4797,6 +4798,7 @@ Success
   !Do I@008/0689
   DmnEnumAllDescr
   Enum
+  'DomAll Descr'
   !DE I@048/0689
   EnumDmnEnumAllDescr
   *
@@ -4834,6 +4836,7 @@ Success
   !Do I@008/0696
   DmnEnumDescr
   Enum
+  'DomEnum Descr'
   !DE I@046/0696
   dmnEnumDescr
 }
@@ -4957,6 +4960,7 @@ Success
   !Do I@008/0722
   DmnNmbrDescr
   Number
+  'DomNumber Descr'
   !DN P@050/0722
   <
     2
@@ -4982,6 +4986,7 @@ Success
     !Do I@008/0727
     DmnStrDescr
     String
+    'DomString Descr'
     !DX R@049/0727
     /a+/
   }

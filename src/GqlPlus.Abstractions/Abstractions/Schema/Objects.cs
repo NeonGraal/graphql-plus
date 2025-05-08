@@ -196,6 +196,7 @@ public interface IGqlpOutputAlternate
 public interface IGqlpInputParam
   : IGqlpDescribed
   , IGqlpModifiers
+  , IEquatable<IGqlpInputParam>
 {
   IGqlpInputBase Type { get; }
   IGqlpConstant? DefaultValue { get; }

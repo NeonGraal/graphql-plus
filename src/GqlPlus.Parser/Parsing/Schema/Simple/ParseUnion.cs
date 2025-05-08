@@ -52,7 +52,7 @@ internal class ParseUnionDefinition(
     }
 
     List<IGqlpUnionMember> members = [];
-    while (!tokens.Take("}")) {
+    while (!tokens.Take('}')) {
       IResult<IGqlpUnionMember> unionMember = _unionMember.Parse(tokens, "Union Member");
       if (!unionMember.Required(members.Add)) {
         result.Values = members.ArrayOf<UnionMemberAst>();

@@ -5,7 +5,6 @@ namespace GqlPlus.Ast;
 internal sealed record class ConstantAst(
   ITokenAt At
 ) : AstValue<IGqlpConstant>(At)
-  , IEquatable<ConstantAst>
   , IGqlpConstant
 {
   public IGqlpFieldKey? Value { get; set; }
@@ -24,7 +23,7 @@ internal sealed record class ConstantAst(
     : this(at)
     => Fields = fields;
 
-  public bool Equals(ConstantAst? other)
+  public bool Equals(IGqlpConstant? other)
     => base.Equals(other)
     && Value.NullEqual(other.Value);
   public override int GetHashCode()
@@ -32,7 +31,4 @@ internal sealed record class ConstantAst(
 
   internal override IEnumerable<string?> GetFields()
     => Value?.GetFields() ?? base.GetFields();
-
-  bool IEquatable<IGqlpConstant>.Equals(IGqlpConstant? other)
-    => Equals(other as ConstantAst);
 }

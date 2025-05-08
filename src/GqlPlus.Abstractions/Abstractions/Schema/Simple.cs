@@ -21,12 +21,15 @@ public interface IGqlpDomain
 }
 
 public interface IGqlpDomain<TItem>
-  : IGqlpDomain, IGqlpSimple<TItem>
+  : IGqlpDomain
+  , IGqlpSimple<TItem>
   where TItem : IGqlpDomainItem
 { }
 
 public interface IGqlpDomainItem
-  : IGqlpError, IGqlpDescribed
+  : IGqlpError
+  , IGqlpDescribed
+  , IEquatable<IGqlpDomainItem>
 {
   bool Excludes { get; }
 }

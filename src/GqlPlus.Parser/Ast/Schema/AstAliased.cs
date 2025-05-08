@@ -7,14 +7,13 @@ internal abstract record class AstAliased(
   string Name,
   string Description
 ) : AstNamed(At, Name, Description)
-  , IEquatable<AstAliased>
   , IGqlpAliased
   , IAstSetAliases
 {
   public string[] Aliases { get; set; } = [];
   IEnumerable<string> IGqlpAliased.Aliases => Aliases;
 
-  public virtual bool Equals(AstAliased? other)
+  public virtual bool Equals(IGqlpAliased? other)
     => base.Equals(other)
     && Aliases.OrderedEqual(other.Aliases);
   public override int GetHashCode()

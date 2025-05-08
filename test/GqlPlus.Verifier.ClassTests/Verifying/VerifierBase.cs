@@ -26,18 +26,6 @@ public class VerifierBase
       .ReturnsForAnyArgs(Logger);
   }
 
-  protected static T NFor<T>(string name)
-    where T : class, IGqlpNamed
-  {
-    T result = EFor<T>();
-    result.Name.Returns(name);
-    return result;
-  }
-
-  protected static T[] NForA<T>(params string[] names)
-    where T : class, IGqlpNamed
-    => [.. names.Select(NFor<T>)];
-
   protected void LoggerCalled(LogLevel level, string message, int times = 1)
   {
     Logger.Received(times).Log(

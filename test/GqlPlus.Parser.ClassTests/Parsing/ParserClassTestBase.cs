@@ -17,10 +17,11 @@ public class ParserClassTestBase
   {
     Tokenizer = tokenizer;
     Tokenizer.At.Returns(AstNulls.At);
-    Tokenizer.Errors.Returns([]);
+    Tokenizer.Errors.Returns(_errors);
   }
 
   protected ITokenizer Tokenizer { get; }
+  private readonly TokenMessages _errors = [];
 
   protected void IdentifierReturns(Func<CallInfo, bool> first, params Func<CallInfo, bool>[] rest)
     => Tokenizer.Identifier(out Arg.Any<string?>()).Returns(first, rest);
@@ -47,6 +48,7 @@ public class ParserClassTestBase
     TokenMessage errMsg = new(AstNulls.At, "error for " + typeof(T).ExpandTypeName());
     ResultError<T> error = new(errMsg);
     ResultArrayError<T> errorA = new(errMsg);
+    _errors.Add(errMsg);
 
     Tokenizer.Error<T>("", "").ReturnsForAnyArgs(error);
     Tokenizer.Error<T>("", "", default).ReturnsForAnyArgs(error);
@@ -237,6 +239,13 @@ public class ParserClassTestBase
 
   protected static bool OutFail(CallInfo _)
     => false;
+
+  protected static Func<CallInfo, bool> OutFailAt(int first = 1)
+    => c => {
+      c[first] = null;
+      c[first + 1] = default;
+      return false;
+    };
 
   protected static bool OutPass(CallInfo _)
     => true;

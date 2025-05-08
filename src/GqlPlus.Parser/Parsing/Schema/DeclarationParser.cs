@@ -1,4 +1,5 @@
-﻿using GqlPlus.Ast;
+﻿using System.Net.Http.Headers;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -53,9 +54,15 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
     }
 
     IResult<TDefinition> definition = _definition.Parse(tokens, label);
-    return definition.MapOk(
-      value => AsResult(partial, value),
-      () => definition.AsPartial(ToResult(partial)));
+    return definition.MapOk(value => AsResult(partial, value), NotOk);
+
+    IResult<TResult> NotOk()
+    {
+      TokenMessage message = definition is IResultMessage messageResult
+        ? messageResult.Message
+        : tokens.Error(label, "definition");
+      return ToResult(partial).Partial(message);
+    }
   }
 
   protected virtual IResult<TResult> AsResult(AstPartial<TParam, TOption> partial, TDefinition value)

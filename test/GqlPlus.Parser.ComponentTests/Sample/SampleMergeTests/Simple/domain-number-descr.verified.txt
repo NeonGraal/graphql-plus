@@ -5,6 +5,7 @@ Success
   !Do I@008/0001
   DmnNmbrDescr
   Number
+  'DomNumber Descr'
   !DN P@050/0001
   <
     2

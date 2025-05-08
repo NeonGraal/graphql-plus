@@ -6,10 +6,11 @@ internal abstract record class AstIdentified(
   ITokenAt At,
   string Identifier
 ) : AstAbbreviated(At)
-  , IEquatable<AstIdentified>
   , IGqlpIdentified
 {
   public virtual bool Equals(AstIdentified? other)
+    => Equals(other as IGqlpIdentified);
+  public virtual bool Equals(IGqlpIdentified? other)
     => base.Equals(other)
     && string.Equals(Identifier, other.Identifier, StringComparison.Ordinal);
   public override int GetHashCode()

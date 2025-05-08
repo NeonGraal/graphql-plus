@@ -6,12 +6,11 @@ internal sealed record class SpreadAst(
   ITokenAt At,
   string Identifier
 ) : AstDirectives(At, Identifier)
-  , IEquatable<SpreadAst>
   , IGqlpSpread
 {
   internal override string Abbr => "s";
 
-  public bool Equals(SpreadAst? other)
+  public bool Equals(IGqlpSpread? other)
     => base.Equals(other);
   public override int GetHashCode()
     => base.GetHashCode();

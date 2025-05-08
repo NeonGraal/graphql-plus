@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Abstractions;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast;
 using GqlPlus.Token;
 using NSubstitute;
@@ -18,6 +19,18 @@ public class SubstituteBase
     result.MakeError("").ReturnsForAnyArgs(c => MakeMessages(c.ThrowIfNull().Arg<string>()));
     return result;
   }
+
+  protected static T NFor<T>(string name)
+    where T : class, IGqlpNamed
+  {
+    T result = EFor<T>();
+    result.Name.Returns(name);
+    return result;
+  }
+
+  protected static T[] NForA<T>(params string[] names)
+    where T : class, IGqlpNamed
+    => [.. names.Select(NFor<T>)];
 
   protected static ITokenMessages MakeMessages(string message)
     => new TokenMessages { new TokenMessage(AstNulls.At, message) };

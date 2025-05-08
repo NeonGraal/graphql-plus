@@ -31,7 +31,8 @@ internal sealed record class ArgAst
     && Constant.NullEqual(other.Constant);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Variable, Constant);
-
+  public bool Equals(ArgAst? other)
+    => Equals(other as IGqlpArg);
   internal override IEnumerable<string?> GetFields()
     => Constant?.GetFields() ?? base.GetFields().Append(Variable.Prefixed("$"));
 }

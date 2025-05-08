@@ -1,7 +1,10 @@
 ﻿namespace GqlPlus.Abstractions.Operation;
 
 public interface IGqlpOperation
-  : IGqlpIdentified, IGqlpDirectives, IGqlpModifiers
+  : IGqlpIdentified
+  , IGqlpDirectives
+  , IGqlpModifiers
+  , IEquatable<IGqlpOperation>
 {
   string Category { get; }
 
@@ -22,18 +25,23 @@ public interface IGqlpOperation
 
 public interface IGqlpIdentified
   : IGqlpAbbreviated
+  , IEquatable<IGqlpIdentified>
 {
   string Identifier { get; }
 }
 
 public interface IGqlpVariable
-  : IGqlpIdentified, IGqlpDirectives, IGqlpModifiers
+  : IGqlpIdentified
+  , IGqlpDirectives
+  , IGqlpModifiers
+  , IEquatable<IGqlpVariable>
 {
   string? Type { get; }
   IGqlpConstant? DefaultValue { get; }
 }
 
 public interface IGqlpDirectives
+  : IEquatable<IGqlpDirectives>
 {
   IEnumerable<IGqlpDirective> Directives { get; init; }
 }
@@ -50,7 +58,10 @@ public interface IGqlpSelections
 }
 
 public interface IGqlpFragment
-  : IGqlpIdentified, IGqlpDirectives, IGqlpSelections
+  : IGqlpIdentified
+  , IGqlpDirectives
+  , IGqlpSelections
+  , IEquatable<IGqlpFragment>
 {
   string OnType { get; }
 }

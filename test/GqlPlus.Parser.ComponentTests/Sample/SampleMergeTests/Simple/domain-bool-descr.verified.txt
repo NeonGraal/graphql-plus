@@ -5,6 +5,7 @@ Success
   !Do I@008/0001
   DmnBoolDescr
   Boolean
+  'DomBool Descr'
   !DT I@049/0001
   True
 }

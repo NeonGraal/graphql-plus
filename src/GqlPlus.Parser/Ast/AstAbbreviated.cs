@@ -2,7 +2,6 @@
 
 internal abstract record class AstAbbreviated(ITokenAt At)
   : AstBase(At)
-  , IEquatable<AstAbbreviated>
   , IGqlpAbbreviated
 {
   internal abstract string Abbr { get; }
@@ -19,8 +18,9 @@ internal abstract record class AstAbbreviated(ITokenAt At)
     => [AbbrAt];
 
   // override object.Equals
-  public virtual bool Equals(AstAbbreviated? other)
-    => other is not null;
+  public virtual bool Equals([NotNullWhen(true)] IGqlpAbbreviated? other)
+    => other is not null
+      && Abbr == other.Abbr;
 
   // override object.GetHashCode
   public override int GetHashCode() => 0;

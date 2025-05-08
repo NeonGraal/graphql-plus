@@ -12,13 +12,17 @@ public interface IGqlpField
 }
 
 public interface IGqlpInline
-  : IGqlpSelection, IGqlpSelections
+  : IGqlpSelection
+  , IGqlpSelections
+  , IEquatable<IGqlpInline>
 {
   string? OnType { get; }
 }
 
 public interface IGqlpSpread
-  : IGqlpIdentified, IGqlpSelection
+  : IGqlpIdentified
+  , IGqlpSelection
+  , IEquatable<IGqlpSpread>
 { }
 
 public interface IGqlpArg

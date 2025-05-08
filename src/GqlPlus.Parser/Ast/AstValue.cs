@@ -2,7 +2,6 @@
 
 internal abstract record class AstValue<TValue>(ITokenAt At)
   : AstAbbreviated(At)
-  , IEquatable<AstValue<TValue>>
   , IGqlpValue<TValue>
   where TValue : IGqlpValue<TValue>
 {
@@ -20,6 +19,8 @@ internal abstract record class AstValue<TValue>(ITokenAt At)
     => Fields = fields;
 
   public virtual bool Equals(AstValue<TValue>? other)
+    => Equals(other as IGqlpValue<TValue>);
+  public virtual bool Equals(IGqlpValue<TValue>? other)
     => other is not null
     && Values.SequenceEqual(other.Values)
     && Fields.Equals(other.Fields);
@@ -30,6 +31,4 @@ internal abstract record class AstValue<TValue>(ITokenAt At)
     => base.GetFields()
       .Concat(Values.Bracket("[", "]"))
       .Concat(Fields.Bracket("{", "}", kv => $"{kv.Key}:{kv.Value}"));
-  bool IEquatable<IGqlpValue<TValue>>.Equals(IGqlpValue<TValue>? other)
-    => Equals(other as AstValue<TValue>);
 }

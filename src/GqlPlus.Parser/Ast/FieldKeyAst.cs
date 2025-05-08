@@ -7,7 +7,6 @@ namespace GqlPlus.Ast;
 internal sealed record class FieldKeyAst(
   ITokenAt At
 ) : AstAbbreviated(At)
-  , IComparable<FieldKeyAst>
   , IGqlpFieldKey
 {
   public string? Type { get; }
@@ -23,9 +22,7 @@ internal sealed record class FieldKeyAst(
   string? IGqlpFieldKey.EnumType => Type;
   string? IGqlpFieldKey.EnumLabel => Label;
   bool IEquatable<IGqlpFieldKey>.Equals(IGqlpFieldKey? other)
-    => Equals(other as FieldKeyAst);
-  int IComparable<IGqlpFieldKey>.CompareTo(IGqlpFieldKey? other)
-    => CompareTo(other as FieldKeyAst);
+    => CompareTo(other) == 0;
 
   internal FieldKeyAst(TokenAt at, decimal number)
     : this(at)
@@ -37,7 +34,7 @@ internal sealed record class FieldKeyAst(
     : this(at)
     => (Type, Label) = (enumType, enumLabel);
 
-  public int CompareTo(FieldKeyAst? other)
+  public int CompareTo(IGqlpFieldKey? other)
     => Number is not null ? decimal.Compare(Number.Value, other?.Number ?? 0)
       : Text is not null ? string.Compare(Text, other?.Text, StringComparison.Ordinal)
       : EnumValue is not null ? string.Compare(EnumValue, other?.EnumValue, StringComparison.Ordinal)

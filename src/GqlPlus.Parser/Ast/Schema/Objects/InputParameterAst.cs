@@ -7,7 +7,6 @@ internal sealed record class InputParamAst(
   ITokenAt At,
   IGqlpInputBase Type
 ) : AstAbbreviated(At)
-  , IEquatable<InputParamAst>
   , IGqlpInputParam
 {
   public IGqlpModifier[] Modifiers { get; set; } = [];
@@ -23,7 +22,9 @@ internal sealed record class InputParamAst(
   internal InputParamAst(TokenAt at, string input, string description = "")
     : this(at, new InputBaseAst(at, input, description)) { }
 
-  public bool Equals(InputParamAst? other)
+  public bool Equals(IGqlpDescribed? other)
+    => other is IGqlpInputParam input && Type.Equals(input.Type);
+  public bool Equals(IGqlpInputParam? other)
     => base.Equals(other)
     && (Type?.Equals(other.Type) ?? other.Type is null)
     && Modifiers.SequenceEqual(other.Modifiers)

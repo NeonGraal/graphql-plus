@@ -28,13 +28,13 @@ internal class ParseCategory(
   }
 
   protected override IGqlpSchemaCategory ToResult(AstPartial<NullAst, CategoryOption> partial)
-    => new CategoryDeclAst(partial.At, partial.Name, partial.Description, new(partial.At, partial.Name, "")) {
+    => new CategoryDeclAst(partial.At, partial.Name, partial.Description, new TypeRefAst(partial.At, partial.Name, "")) {
       Aliases = partial.Aliases,
       Option = partial.Option ?? CategoryOption.Parallel,
     };
 }
 
-internal record CategoryOutput(TypeRefAst Output)
+internal record CategoryOutput(IGqlpTypeRef Output)
 {
   public ModifierAst[] Modifiers { get; set; } = [];
 }

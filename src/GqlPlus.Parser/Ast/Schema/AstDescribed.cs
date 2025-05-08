@@ -6,13 +6,12 @@ internal abstract record class AstDescribed(
   ITokenAt At,
   string Description
 ) : AstAbbreviated(At)
-  , IEquatable<AstDescribed>
   , IGqlpDescribed
   , IAstSetDescription
 {
   public string Description { get; internal set; } = Description;
 
-  public virtual bool Equals(AstDescribed? other)
+  public virtual bool Equals(IGqlpDescribed? other)
     => base.Equals(other)
     && Description.Equals(other.Description, StringComparison.Ordinal);
   public override int GetHashCode()

@@ -5,6 +5,7 @@ Success
   !Do I@008/0001
   DmnStrDescr
   String
+  'DomString Descr'
   !DX R@049/0001
   /a+/
 }

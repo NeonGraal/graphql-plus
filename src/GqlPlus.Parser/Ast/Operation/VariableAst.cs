@@ -6,7 +6,6 @@ internal sealed record class VariableAst(
   ITokenAt At,
   string Identifier
 ) : AstDirectives(At, Identifier)
-  , IEquatable<VariableAst>
   , IGqlpVariable
 {
   public string? Type { get; set; }
@@ -17,7 +16,9 @@ internal sealed record class VariableAst(
 
   IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
 
-  public bool Equals(VariableAst? other)
+  public bool Equals(VariableAst other)
+    => Equals(other as IGqlpVariable);
+  public bool Equals(IGqlpVariable? other)
     => base.Equals(other)
     && Type.NullEqual(other.Type)
     && Modifiers.SequenceEqual(other.Modifiers)

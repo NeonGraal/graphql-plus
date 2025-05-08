@@ -6,11 +6,10 @@ internal abstract record class AstDomainItem(
   ITokenAt At,
   string Description,
   bool Excludes
-) : AstAbbreviated(At)
-  , IEquatable<AstDomainItem>
+) : AstDescribed(At, Description)
   , IGqlpDomainItem
 {
-  public virtual bool Equals(AstDomainItem? other)
+  public virtual bool Equals(IGqlpDomainItem? other)
   => base.Equals(other)
       && Excludes.NullEqual(other.Excludes);
   public override int GetHashCode()

@@ -6,7 +6,6 @@ internal abstract record class AstDirectives(
   ITokenAt At,
   string Identifier
 ) : AstIdentified(At, Identifier)
-  , IEquatable<AstDirectives>
   , IGqlpDirectives
 {
   public IGqlpDirective[] Directives { get; set; } = [];
@@ -17,6 +16,8 @@ internal abstract record class AstDirectives(
   }
 
   public virtual bool Equals(AstDirectives? other)
+    => Equals(other as IGqlpDirectives);
+  public virtual bool Equals(IGqlpDirectives? other)
     => base.Equals(other)
     && Directives.SequenceEqual(other.Directives);
   public override int GetHashCode()

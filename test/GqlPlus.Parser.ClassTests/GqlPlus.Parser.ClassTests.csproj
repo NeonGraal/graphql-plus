@@ -9,8 +9,4 @@
     <ProjectReference Include="..\GqlPlus.ClassTestBase\GqlPlus.ClassTestBase.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Parsing\Schema\Globals\" />
-  </ItemGroup>
-
 </Project>

@@ -36,7 +36,7 @@ public class ParseDefaultTests
     IResult<IGqlpConstant> result = _parser.Parse(Tokenizer, "TestLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultEmpty<IGqlpConstant>>();
+    result.ShouldBeAssignableTo<IResultEmpty>();
   }
 
   [Fact]

@@ -39,7 +39,7 @@ public class ValueObjectParserTests
     IResult<IGqlpFields<IGqlpConstant>> result = _parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultEmpty<IGqlpFields<IGqlpConstant>>>();
+    result.ShouldBeAssignableTo<IResultEmpty>();
   }
 
   [Fact]
@@ -53,7 +53,7 @@ public class ValueObjectParserTests
     IResult<IGqlpFields<IGqlpConstant>> result = _parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultError<IGqlpFields<IGqlpConstant>>>();
+    result.ShouldBeAssignableTo<IResultError>();
   }
 
   [Fact]
@@ -68,6 +68,6 @@ public class ValueObjectParserTests
     IResult<IGqlpFields<IGqlpConstant>> result = _parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultError<IGqlpFields<IGqlpConstant>>>();
+    result.ShouldBeAssignableTo<IResultError>();
   }
 }

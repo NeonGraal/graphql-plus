@@ -115,7 +115,7 @@ public class ParseVariableTests
     IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultError<IGqlpVariable>>();
+    result.ShouldBeAssignableTo<IResultError>();
   }
 
   [Theory, RepeatData]
@@ -131,7 +131,7 @@ public class ParseVariableTests
     IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultError<IGqlpVariable>>();
+    result.ShouldBeAssignableTo<IResultError>();
   }
 
   [Fact]
@@ -144,6 +144,6 @@ public class ParseVariableTests
     IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultEmpty<IGqlpVariable>>();
+    result.ShouldBeAssignableTo<IResultEmpty>();
   }
 }

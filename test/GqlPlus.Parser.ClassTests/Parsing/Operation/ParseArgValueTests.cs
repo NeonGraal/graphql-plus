@@ -92,7 +92,7 @@ public class ParseArgValueTests
     IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultError<IGqlpArg>>();
+    result.ShouldBeAssignableTo<IResultError>();
   }
 
   [Fact]
@@ -107,6 +107,6 @@ public class ParseArgValueTests
     IResult<IGqlpArg> result = _parseArgValue.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultEmpty<IGqlpArg>>();
+    result.ShouldBeAssignableTo<IResultEmpty>();
   }
 }

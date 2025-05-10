@@ -35,7 +35,7 @@ public class ParseEnumLabelTests
     IResult<IGqlpEnumLabel> result = _parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultError<IGqlpEnumLabel>>();
+    result.ShouldBeAssignableTo<IResultError>();
   }
 
   [Theory, RepeatData]

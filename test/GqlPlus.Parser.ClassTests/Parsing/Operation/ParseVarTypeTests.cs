@@ -83,6 +83,6 @@ public class ParseVarTypeTests
     IResult<string> result = _parseVarType.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultEmpty<string>>();
+    result.ShouldBeAssignableTo<IResultEmpty>();
   }
 }

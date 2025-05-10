@@ -1,8 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Token;
-using NSubstitute;
-using Shouldly;
-using Xunit;
 
 namespace GqlPlus.Parsing.Schema.Globals;
 
@@ -48,7 +44,7 @@ public class ParseCategoryDefinitionTests : ParserClassTestBase
     IResult<CategoryOutput> result = _parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultError<CategoryOutput>>();
+    result.ShouldBeAssignableTo<IResultError>();
   }
 
   [Fact]

@@ -76,7 +76,7 @@ public class ParseSelectionTests
     IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultError<IGqlpSelection>>();
+    result.ShouldBeAssignableTo<IResultError>();
   }
 
   [Theory, RepeatData]
@@ -92,7 +92,7 @@ public class ParseSelectionTests
     IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultError<IGqlpSelection>>();
+    result.ShouldBeAssignableTo<IResultError>();
   }
 
   [Fact]
@@ -106,6 +106,6 @@ public class ParseSelectionTests
     IResult<IGqlpSelection> result = _parseSelection.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultEmpty<IGqlpSelection>>();
+    result.ShouldBeAssignableTo<IResultEmpty>();
   }
 }

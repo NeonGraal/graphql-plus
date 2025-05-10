@@ -56,7 +56,7 @@ public class ValueKeyValueParserTests
     IResult<KeyValue<IGqlpConstant>> result = _parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultError<KeyValue<IGqlpConstant>>>()
+    result.ShouldBeAssignableTo<IResultError>()
       .Message.Message.ShouldMatch("Key parsing error");
   }
 
@@ -72,7 +72,7 @@ public class ValueKeyValueParserTests
     IResult<KeyValue<IGqlpConstant>> result = _parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultError<KeyValue<IGqlpConstant>>>()
+    result.ShouldBeAssignableTo<IResultError>()
       .Message.Message.ShouldMatch("Value parsing error");
   }
 }

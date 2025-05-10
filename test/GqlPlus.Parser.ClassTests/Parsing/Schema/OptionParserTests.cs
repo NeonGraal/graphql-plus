@@ -57,6 +57,6 @@ public class OptionParserTests
     IResult<DomainKind> result = _parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultEmpty<DomainKind>>();
+    result.ShouldBeAssignableTo<IResultEmpty>();
   }
 }

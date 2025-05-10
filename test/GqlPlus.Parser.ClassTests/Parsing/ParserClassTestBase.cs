@@ -61,7 +61,6 @@ public class ParserClassTestBase
     => SetupPartial(AtFor<T>());
 
   protected void SetupPartial<T>(T result)
-    where T : class
   {
     TokenMessage errMsg = new(AstNulls.At, "partial error for " + typeof(T).ExpandTypeName());
     ResultPartial<T> partial = new(result, errMsg);

@@ -80,6 +80,9 @@ public static class ResultExtensions
 #pragma warning restore CA1062 // Validate arguments of public methods
   }
 
+  public static TokenMessage Message<TValue>(this TValue result)
+    => result is IResultMessage msg ? msg.Message : throw new InvalidOperationException("Expected Message");
+
   public static IResult<TValue> Ok<TValue>(this TValue result)
     => new ResultOk<TValue>(result);
 

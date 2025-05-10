@@ -3,22 +3,20 @@
 namespace GqlPlus.Parsing.Operation;
 
 public class ParseVariableTests
-  : ParserClassTestBase
+  : ModifiersClassTestBase
 {
   private readonly ParseVariable _parseVariable;
-  private readonly Parser<IGqlpModifier>.IA _modifiersParser;
   private readonly Parser<IGqlpDirective>.IA _directivesParser;
   private readonly Parser<IGqlpConstant>.I _defaultParser;
   private readonly Parser<string>.I _varTypeParser;
 
   public ParseVariableTests()
   {
-    Parser<IGqlpModifier>.DA modifiers = ParserAFor(out _modifiersParser);
     Parser<IGqlpDirective>.DA directives = ParserAFor(out _directivesParser);
     Parser<IParserDefault, IGqlpConstant>.D defaultParser = ParserFor<IParserDefault, IGqlpConstant>(out _defaultParser);
     Parser<IParserVarType, string>.D varTypeParser = ParserFor<IParserVarType, string>(out _varTypeParser);
 
-    _parseVariable = new ParseVariable(modifiers, directives, defaultParser, varTypeParser);
+    _parseVariable = new ParseVariable(Modifiers, directives, defaultParser, varTypeParser);
 
     SetupError<IGqlpVariable>();
     SetupPartial<IGqlpVariable>();
@@ -32,7 +30,7 @@ public class ParseVariableTests
     TakeReturns(':', true);
     ParseOk(_varTypeParser, varType);
 
-    IGqlpModifier[] modifiers = ParseOkA(_modifiersParser);
+    IGqlpModifier[] modifiers = ParseAModifier();
     IGqlpConstant constant = ParseOk(_defaultParser);
 
     IGqlpDirective[] directives = ParseOkA(_directivesParser);
@@ -57,7 +55,7 @@ public class ParseVariableTests
     // Arrange
     PrefixReturns('$', OutStringAt(variableName));
 
-    IGqlpModifier[] modifiers = ParseOkA(_modifiersParser);
+    IGqlpModifier[] modifiers = ParseAModifier();
     IGqlpConstant constant = ParseOk(_defaultParser);
 
     IGqlpDirective[] directives = ParseOkA(_directivesParser);
@@ -109,7 +107,7 @@ public class ParseVariableTests
   {
     // Arrange
     PrefixReturns('$', OutStringAt(variableName));
-    ParseErrorA(_modifiersParser);
+    ParseModifiersError();
 
     // Act
     IResult<IGqlpVariable> result = _parseVariable.Parse(Tokenizer, "testLabel");
@@ -124,7 +122,7 @@ public class ParseVariableTests
     // Arrange
     PrefixReturns('$', OutStringAt(variableName));
 
-    ParseEmptyA(_modifiersParser);
+    ParseModifiersEmpty();
     ParseError(_defaultParser);
 
     // Act

@@ -2,18 +2,17 @@
 
 namespace GqlPlus.Parsing.Schema.Globals;
 
-public class ParseCategoryDefinitionTests : ParserClassTestBase
+public class ParseCategoryDefinitionTests
+  : ModifiersClassTestBase
 {
   private readonly Parser<IGqlpTypeRef>.I _typeRefParser;
-  private readonly Parser<IGqlpModifier>.IA _modifiersParser;
   private readonly ParseCategoryDefinition _parser;
 
   public ParseCategoryDefinitionTests()
   {
     Parser<IGqlpTypeRef>.D typeRefParser = ParserFor(out _typeRefParser);
-    Parser<IGqlpModifier>.DA modifiersParser = ParserAFor(out _modifiersParser);
 
-    _parser = new ParseCategoryDefinition(typeRefParser, modifiersParser);
+    _parser = new ParseCategoryDefinition(typeRefParser, Modifiers);
 
     SetupError<CategoryOutput>();
     SetupPartial<CategoryOutput>(new(default!));
@@ -24,7 +23,7 @@ public class ParseCategoryDefinitionTests : ParserClassTestBase
   {
     // Arrange
     ParseOk(_typeRefParser);
-    ParseOkA(_modifiersParser);
+    ParseModifiersOk();
     TakeReturns('}', true, false);
 
     // Act
@@ -52,7 +51,7 @@ public class ParseCategoryDefinitionTests : ParserClassTestBase
   {
     // Arrange
     ParseOk(_typeRefParser);
-    ParseErrorA(_modifiersParser);
+    ParseModifiersError();
 
     // Act
     IResult<CategoryOutput> result = _parser.Parse(Tokenizer, "testLabel");

@@ -1,31 +1,27 @@
 ﻿namespace GqlPlus.Parsing;
 
 public class ParseModifiersTests
-  : ParserClassTestBase
+  : ModifiersClassTestBase
 {
   private readonly ParseModifiers _parseModifiers;
-  private readonly Parser<IGqlpModifier>.IA _collectionsParser;
 
   public ParseModifiersTests()
   {
-    ParserArray<IParserCollections, IGqlpModifier>.DA collections = ParserAFor<IParserCollections, IGqlpModifier>(out _collectionsParser);
-    _parseModifiers = new ParseModifiers(collections);
+    _parseModifiers = new ParseModifiers(Collections);
   }
 
   [Fact]
   public void Parse_ShouldReturnModifiersArray_WhenCollectionsParserSucceeds()
   {
     // Arrange
-    IGqlpModifier modifier = For<IGqlpModifier>();
-    ParseOkA(_collectionsParser, [modifier]);
+    IGqlpModifier[] modifiers = ParseAModifier();
 
     // Act
     IResultArray<IGqlpModifier> result = _parseModifiers.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpModifier>>()
-      .Required().ShouldHaveSingleItem()
-      .ShouldBe(modifier);
+      .Required().ShouldBe(modifiers);
   }
 
   [Fact]
@@ -47,7 +43,7 @@ public class ParseModifiersTests
   public void Parse_ShouldReturnError_WhenCollectionsParserFails()
   {
     // Arrange
-    ParseErrorA(_collectionsParser);
+    ParseModifiersError();
 
     // Act
     IResultArray<IGqlpModifier> result = _parseModifiers.Parse(Tokenizer, "testLabel");
@@ -60,7 +56,7 @@ public class ParseModifiersTests
   public void Parse_ShouldReturnEmptyResult_WhenNoModifiersAreParsed()
   {
     // Arrange
-    ParseEmptyA(_collectionsParser);
+    ParseModifiersEmpty();
     TakeReturns('?', false);
 
     // Act

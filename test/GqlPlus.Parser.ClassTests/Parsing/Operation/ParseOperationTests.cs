@@ -3,14 +3,13 @@
 namespace GqlPlus.Parsing.Operation;
 
 public class ParseOperationTests
-  : ParserClassTestBase
+  : ModifiersClassTestBase
 {
   private readonly ParseOperation _parseOperation;
   private readonly Parser<IGqlpArg>.I _argumentParser;
   private readonly Parser<IGqlpDirective>.IA _directivesParser;
   private readonly Parser<IGqlpFragment>.IA _startFragmentsParser;
   private readonly Parser<IGqlpFragment>.IA _endFragmentsParser;
-  private readonly Parser<IGqlpModifier>.IA _modifiersParser;
   private readonly Parser<IGqlpSelection>.IA _objectParser;
   private readonly Parser<IGqlpVariable>.IA _variablesParser;
 
@@ -26,11 +25,10 @@ public class ParseOperationTests
     Parser<IGqlpDirective>.DA directives = ParserAFor(out _directivesParser);
     ParserArray<IParserStartFragments, IGqlpFragment>.DA startFragments = ParserAFor<IParserStartFragments, IGqlpFragment>(out _startFragmentsParser);
     ParserArray<IParserEndFragments, IGqlpFragment>.DA endFragments = ParserAFor<IParserEndFragments, IGqlpFragment>(out _endFragmentsParser);
-    Parser<IGqlpModifier>.DA modifiers = ParserAFor(out _modifiersParser);
     Parser<IGqlpSelection>.DA objectParser = ParserAFor(out _objectParser);
     Parser<IGqlpVariable>.DA variables = ParserAFor(out _variablesParser);
 
-    _parseOperation = new ParseOperation(argument, directives, startFragments, endFragments, modifiers, objectParser, variables);
+    _parseOperation = new ParseOperation(argument, directives, startFragments, endFragments, Modifiers, objectParser, variables);
 
     SetupError<IGqlpOperation>();
     SetupPartial<IGqlpOperation>();
@@ -51,7 +49,7 @@ public class ParseOperationTests
     PrefixReturns(':', OutStringAt(resultType));
 
     IGqlpArg argument = ParseOk(_argumentParser);
-    IGqlpModifier[] modifiers = ParseOkA(_modifiersParser);
+    IGqlpModifier[] modifiers = ParseAModifier();
     IGqlpFragment[] endFragments = ParseOkA(_endFragmentsParser);
 
     // Act

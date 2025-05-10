@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Parsing.Schema;
 
 public class AliasesClassTestBase
-  : ParserClassTestBase
+  : ModifiersClassTestBase
 {
   private readonly Parser<string>.IA _aliases;
 

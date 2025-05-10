@@ -3,22 +3,20 @@
 namespace GqlPlus.Parsing.Operation;
 
 public class ParseFieldTests
-  : ParserClassTestBase
+  : ModifiersClassTestBase
 {
   private readonly ParseField _parseField;
-  private readonly Parser<IGqlpModifier>.IA _modifiersParser;
   private readonly Parser<IGqlpDirective>.IA _directivesParser;
   private readonly Parser<IGqlpArg>.I _argumentParser;
   private readonly Parser<IGqlpSelection>.IA _objectParser;
 
   public ParseFieldTests()
   {
-    Parser<IGqlpModifier>.DA modifiers = ParserAFor(out _modifiersParser);
     Parser<IGqlpDirective>.DA directives = ParserAFor(out _directivesParser);
     Parser<IParserArg, IGqlpArg>.D argument = ParserFor<IParserArg, IGqlpArg>(out _argumentParser);
     Parser<IGqlpSelection>.DA objectParser = ParserAFor(out _objectParser);
 
-    _parseField = new ParseField(modifiers, directives, argument, objectParser);
+    _parseField = new ParseField(Modifiers, directives, argument, objectParser);
 
     SetupError<IGqlpField>();
     SetupPartial<IGqlpField>();
@@ -32,7 +30,7 @@ public class ParseFieldTests
     TakeReturns(':', true);
 
     IGqlpArg argument = ParseOk(_argumentParser);
-    IGqlpModifier[] modifiers = ParseOkA(_modifiersParser);
+    IGqlpModifier[] modifiers = ParseAModifier();
     IGqlpDirective[] directives = ParseOkA(_directivesParser);
     IGqlpSelection[] selections = ParseOkA(_objectParser);
 
@@ -83,7 +81,7 @@ public class ParseFieldTests
   {
     // Arrange
     IdentifierReturns(OutString(alias));
-    ParseErrorA(_modifiersParser);
+    ParseModifiersError();
 
     // Act
     IResult<IGqlpField> result = _parseField.Parse(Tokenizer, "testLabel");

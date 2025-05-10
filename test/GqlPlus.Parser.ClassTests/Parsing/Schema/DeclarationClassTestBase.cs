@@ -3,17 +3,15 @@
 namespace GqlPlus.Parsing.Schema;
 
 public class DeclarationClassTestBase
-  : ParserClassTestBase
+  : AliasesClassTestBase
 {
   private readonly Parser<NullAst>.IA _nullParam;
-  private readonly Parser<string>.IA _aliases;
   private readonly Parser<NullOption>.I _option;
 
   internal INameParser NameParser { get; set; }
   internal ISimpleName SimpleName { get; }
 
   internal Parser<NullAst>.DA ParamNull { get; }
-  internal Parser<string>.DA Aliases { get; }
   internal Parser<IOptionParser<NullOption>, NullOption>.D OptionNull { get; }
 
   public DeclarationClassTestBase()
@@ -23,7 +21,6 @@ public class DeclarationClassTestBase
 
     ParamNull = ParserAFor(out _nullParam);
     OptionNull = OptionParserFor(out _option);
-    Aliases = ParserAFor(out _aliases);
 
     TakeReturns('{', true);
   }

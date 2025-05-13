@@ -1,7 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Models;
-
-namespace GqlPlus.Modelling;
+﻿namespace GqlPlus.Modelling;
 
 public class SchemaModellerTests
   : ModellerClassTestBase
@@ -17,6 +14,7 @@ public class SchemaModellerTests
     _sut = new SchemaModeller(category, directive, setting, types);
   }
 
+  [Fact]
   public void ToModel_WithValidSchema_ReturnsExpectedSchemaModel()
   {
     // Arrange

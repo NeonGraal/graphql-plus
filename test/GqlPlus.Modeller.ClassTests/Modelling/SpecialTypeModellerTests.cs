@@ -1,7 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Models;
-
-namespace GqlPlus.Modelling;
+﻿namespace GqlPlus.Modelling;
 
 public class SpecialTypeModellerTests
   : ModellerClassTestBase

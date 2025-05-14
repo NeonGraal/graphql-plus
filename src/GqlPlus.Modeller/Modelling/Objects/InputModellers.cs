@@ -79,7 +79,7 @@ internal class InputParamModeller(
 {
   protected override InputParamModel ToModel(IGqlpInputParam ast, IMap<TypeKindModel> typeKinds)
   {
-    InputParamModel model = new(ast.Type.Name, ast.Description) {
+    InputParamModel model = new(ast.Type.Input, ast.Description) {
       IsTypeParam = ast.Type.IsTypeParam,
       Modifiers = modifier.ToModels<ModifierModel>(ast.Modifiers, typeKinds),
       DefaultValue = constant.TryModel(ast.DefaultValue, typeKinds),

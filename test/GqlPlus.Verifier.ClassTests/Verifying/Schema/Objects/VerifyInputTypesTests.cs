@@ -48,8 +48,7 @@ public class VerifyInputTypesTests
 
     IGqlpInputBase inType = NFor<IGqlpInputBase>("b");
     IGqlpInputField field = NFor<IGqlpInputField>("a");
-    field.Type.Returns(inType);
-    field.BaseType.Returns(inType);
+    SetFieldType(field, inType);
     field.DefaultValue.Returns(nullValue);
 
     _input.Fields.Returns([field]);
@@ -75,8 +74,7 @@ public class VerifyInputTypesTests
 
     IGqlpInputBase inType = NFor<IGqlpInputBase>("b");
     IGqlpInputField field = NFor<IGqlpInputField>("a");
-    field.Type.Returns(inType);
-    field.BaseType.Returns(inType);
+    SetFieldType(field, inType);
     field.DefaultValue.Returns(nullValue);
     IGqlpModifier optional = EFor<IGqlpModifier>();
     optional.ModifierKind.Returns(ModifierKind.Optional);

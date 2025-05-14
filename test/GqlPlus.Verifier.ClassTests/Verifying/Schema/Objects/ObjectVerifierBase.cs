@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
@@ -45,8 +46,7 @@ public abstract class ObjectVerifierBase<TObject, TBase, TField, TAlternate>
 
     TField field = NFor<TField>("field");
     TBase dualBase = NFor<TBase>("String");
-    field.Type.Returns(dualBase);
-    field.BaseType.Returns(dualBase);
+    SetFieldType(field, dualBase);
 
     TheObject.Fields.Returns([field]);
     TheObject.ObjFields.Returns([field]);
@@ -97,8 +97,7 @@ public abstract class ObjectVerifierBase<TObject, TBase, TField, TAlternate>
 
     TField field = NFor<TField>("field");
     TBase dualBase = NFor<TBase>("String");
-    field.Type.Returns(dualBase);
-    field.BaseType.Returns(dualBase);
+    SetFieldType(field, dualBase);
 
     TObject parent = NFor<TObject>("Parent");
     parent.Fields.Returns([field]);
@@ -133,5 +132,11 @@ public abstract class ObjectVerifierBase<TObject, TBase, TField, TAlternate>
     Verifier.Verify(UsageAliased, Errors);
 
     Errors.ShouldBeEmpty();
+  }
+
+  protected void SetFieldType([NotNull] TField field, TBase type)
+  {
+    field.Type.Returns(type);
+    field.BaseType.Returns(type);
   }
 }

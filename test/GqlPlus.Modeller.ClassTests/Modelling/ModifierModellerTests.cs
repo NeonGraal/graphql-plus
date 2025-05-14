@@ -3,7 +3,7 @@
 public class ModifierModellerTests
   : ModellerClassTestBase<IGqlpModifier, ModifierModel>
 {
-  private readonly ModifierModeller _modeller = new ModifierModeller();
+  private readonly ModifierModeller _modeller = new();
 
   private IModeller<IGqlpModifier, CollectionModel> Collection => _modeller;
 

@@ -52,8 +52,7 @@ public class VerifyDualTypesTests
     IGqlpDualArg[] args = NForA<IGqlpDualArg>("String");
     dualBase.Args.Returns(args);
     dualBase.BaseArgs.Returns(args);
-    field.Type.Returns(dualBase);
-    field.BaseType.Returns(dualBase);
+    SetFieldType(field, dualBase);
 
     _dual.Fields.Returns([field]);
     _dual.ObjFields.Returns([field]);

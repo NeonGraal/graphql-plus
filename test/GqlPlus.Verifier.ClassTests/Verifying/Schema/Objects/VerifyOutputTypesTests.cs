@@ -48,8 +48,7 @@ public class VerifyOutputTypesTests
 
     IGqlpOutputBase outType = NFor<IGqlpOutputBase>("b");
     IGqlpOutputField field = NFor<IGqlpOutputField>("a");
-    field.Type.Returns(outType);
-    field.BaseType.Returns(outType);
+    SetFieldType(field, outType);
     field.Params.Returns([param]);
 
     _output.Fields.Returns([field]);
@@ -176,8 +175,7 @@ public class VerifyOutputTypesTests
 
     outputBase.Args.Returns([arg]);
     outputBase.BaseArgs.Returns([arg]);
-    field.Type.Returns(outputBase);
-    field.BaseType.Returns(outputBase);
+    SetFieldType(field, outputBase);
 
     _output.Fields.Returns([field]);
     _output.ObjFields.Returns([field]);

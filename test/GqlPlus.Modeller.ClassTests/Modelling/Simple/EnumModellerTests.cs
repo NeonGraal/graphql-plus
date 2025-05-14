@@ -20,7 +20,7 @@ public class EnumModellerTests
     ast.Parent.Returns(parent);
 
     // Act
-    var result = Modeller.ToModel(ast, TypeKinds);
+    TypeEnumModel result = Modeller.ToModel(ast, TypeKinds);
 
     // Assert
     result.ShouldNotBeNull()

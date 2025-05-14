@@ -1,8 +1,12 @@
 ﻿namespace GqlPlus.Modelling;
 
-public class ModellerClassTestBase
+public abstract class ModellerClassTestBase<TAst, TModel>
   : SubstituteBase
+  where TAst : IGqlpError
+  where TModel : IModelBase
 {
+  protected abstract IModeller<TAst, TModel> Modeller { get; }
+
   protected IMap<TypeKindModel> TypeKinds { get; } = For<IMap<TypeKindModel>>();
 
   internal static IGqlpFieldKey FKFor(string text)

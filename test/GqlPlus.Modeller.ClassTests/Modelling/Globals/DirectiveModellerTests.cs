@@ -1,15 +1,15 @@
 ﻿namespace GqlPlus.Modelling.Globals;
 
 public class DirectiveModellerTests
-  : ModellerClassTestBase
+  : ModellerClassTestBase<IGqlpSchemaDirective, DirectiveModel>
 {
-  private readonly DirectiveModeller _sut;
-
   public DirectiveModellerTests()
   {
     IModeller<IGqlpInputParam, InputParamModel> parameter = For<IModeller<IGqlpInputParam, InputParamModel>>();
-    _sut = new DirectiveModeller(parameter);
+    Modeller = new DirectiveModeller(parameter);
   }
+
+  protected override IModeller<IGqlpSchemaDirective, DirectiveModel> Modeller { get; }
 
   [Fact]
   public void ToModel_WithValidDirective_ReturnsExpectedDirectiveModel()
@@ -24,7 +24,7 @@ public class DirectiveModellerTests
     ast.Params.Returns([]);
 
     // Act
-    DirectiveModel result = _sut.ToModel<DirectiveModel>(ast, TypeKinds);
+    DirectiveModel result = Modeller.ToModel<DirectiveModel>(ast, TypeKinds);
 
     // Assert
     result.ShouldNotBeNull();

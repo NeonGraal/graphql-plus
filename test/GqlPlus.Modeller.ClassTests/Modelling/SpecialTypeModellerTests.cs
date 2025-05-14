@@ -1,12 +1,10 @@
 ﻿namespace GqlPlus.Modelling;
 
 public class SpecialTypeModellerTests
-  : ModellerClassTestBase
+  : ModellerClassTestBase<IGqlpTypeSpecial, SpecialTypeModel>
 {
-  private readonly SpecialTypeModeller _sut;
-
-  public SpecialTypeModellerTests()
-    => _sut = new SpecialTypeModeller();
+  protected override IModeller<IGqlpTypeSpecial, SpecialTypeModel> Modeller { get; }
+    = new SpecialTypeModeller();
 
   [Fact]
   public void ToModel_WithValidSpecialType_ReturnsExpectedSpecialTypeModel()
@@ -18,7 +16,7 @@ public class SpecialTypeModellerTests
     ast.Aliases.Returns(["Alias1", "Alias2"]);
 
     // Act
-    SpecialTypeModel result = _sut.ToModel<SpecialTypeModel>(ast, TypeKinds);
+    SpecialTypeModel result = Modeller.ToModel<SpecialTypeModel>(ast, TypeKinds);
 
     // Assert
     result.ShouldNotBeNull();

@@ -1,15 +1,13 @@
 ﻿namespace GqlPlus.Modelling;
 
 public class ModifierModellerTests
-  : ModellerClassTestBase
+  : ModellerClassTestBase<IGqlpModifier, ModifierModel>
 {
-  private readonly ModifierModeller _modeller;
+  private readonly ModifierModeller _modeller = new ModifierModeller();
 
   private IModeller<IGqlpModifier, CollectionModel> Collection => _modeller;
-  private IModeller<IGqlpModifier, ModifierModel> Modifier => _modeller;
 
-  public ModifierModellerTests()
-    => _modeller = new ModifierModeller();
+  protected override IModeller<IGqlpModifier, ModifierModel> Modeller => _modeller;
 
   [Fact]
   public void ToModel_WithValidModifier_ReturnsExpectedModifierModel()
@@ -19,7 +17,7 @@ public class ModifierModellerTests
     ast.ModifierKind.Returns(ModifierKind.Optional);
 
     // Act
-    ModifierModel result = Modifier.ToModel(ast, TypeKinds);
+    ModifierModel result = Modeller.ToModel(ast, TypeKinds);
 
     // Assert
     result.ShouldNotBeNull();
@@ -30,7 +28,7 @@ public class ModifierModellerTests
   public void TryModel_WithNullModifier_ReturnsDefault()
   {
     // Act
-    ModifierModel? result = Modifier.TryModel(null, TypeKinds);
+    ModifierModel? result = Modeller.TryModel(null, TypeKinds);
 
     // Assert
     result.ShouldBeNull();

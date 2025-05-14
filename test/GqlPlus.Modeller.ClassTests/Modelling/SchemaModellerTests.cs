@@ -1,18 +1,19 @@
 ﻿namespace GqlPlus.Modelling;
 
 public class SchemaModellerTests
-  : ModellerClassTestBase
+  : ModellerClassTestBase<IGqlpSchema, SchemaModel>
 {
-  private readonly SchemaModeller _sut;
-
   public SchemaModellerTests()
   {
     IModeller<IGqlpSchemaCategory, CategoryModel> category = For<IModeller<IGqlpSchemaCategory, CategoryModel>>();
     IModeller<IGqlpSchemaDirective, DirectiveModel> directive = For<IModeller<IGqlpSchemaDirective, DirectiveModel>>();
     IModeller<IGqlpSchemaSetting, SettingModel> setting = For<IModeller<IGqlpSchemaSetting, SettingModel>>();
     ITypesModeller types = For<ITypesModeller>();
-    _sut = new SchemaModeller(category, directive, setting, types);
+
+    Modeller = new SchemaModeller(category, directive, setting, types);
   }
+
+  protected override IModeller<IGqlpSchema, SchemaModel> Modeller { get; }
 
   [Fact]
   public void ToModel_WithValidSchema_ReturnsExpectedSchemaModel()
@@ -22,7 +23,7 @@ public class SchemaModellerTests
     ast.Declarations.Returns([]);
 
     // Act
-    SchemaModel result = _sut.ToModel<SchemaModel>(ast, TypeKinds);
+    SchemaModel result = Modeller.ToModel<SchemaModel>(ast, TypeKinds);
 
     // Assert
     result.ShouldBeOfType<SchemaModel>();

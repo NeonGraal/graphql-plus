@@ -1,15 +1,16 @@
 ﻿namespace GqlPlus.Modelling;
 
 public class ConstantModellerTests
-  : ModellerClassTestBase
+  : ModellerClassTestBase<IGqlpConstant, ConstantModel>
 {
   private readonly IModeller<IGqlpFieldKey, SimpleModel> _fieldKeyModeller;
-  private readonly ConstantModeller _sut;
+
+  protected override IModeller<IGqlpConstant, ConstantModel> Modeller { get; }
 
   public ConstantModellerTests()
   {
     _fieldKeyModeller = For<IModeller<IGqlpFieldKey, SimpleModel>>();
-    _sut = new ConstantModeller(_fieldKeyModeller);
+    Modeller = new ConstantModeller(_fieldKeyModeller);
   }
 
   [Theory, RepeatData]
@@ -26,7 +27,7 @@ public class ConstantModellerTests
         .Returns(SimpleModel.Str("", value));
 
     // Act
-    ConstantModel result = _sut.ToModel<ConstantModel>(ast, TypeKinds);
+    ConstantModel result = Modeller.ToModel<ConstantModel>(ast, TypeKinds);
 
     // Assert
     result.ShouldBeOfType<ConstantModel>();
@@ -40,7 +41,7 @@ public class ConstantModellerTests
     ast.Values.Returns(values.Select(CFor));
 
     // Act
-    ConstantModel result = _sut.ToModel<ConstantModel>(ast, TypeKinds);
+    ConstantModel result = Modeller.ToModel<ConstantModel>(ast, TypeKinds);
 
     // Assert
     result.ShouldBeOfType<ConstantModel>();
@@ -53,7 +54,7 @@ public class ConstantModellerTests
     IGqlpConstant ast = CFor(value);
 
     // Act
-    ConstantModel result = _sut.ToModel<ConstantModel>(ast, TypeKinds);
+    ConstantModel result = Modeller.ToModel<ConstantModel>(ast, TypeKinds);
 
     // Assert
     result.ShouldBeOfType<ConstantModel>();

@@ -1,15 +1,15 @@
 ﻿namespace GqlPlus.Modelling.Globals;
 
 public class SettingModellerTests
-  : ModellerClassTestBase
+  : ModellerClassTestBase<IGqlpSchemaSetting, SettingModel>
 {
-  private readonly SettingModeller _sut;
-
   public SettingModellerTests()
   {
     IModeller<IGqlpConstant, ConstantModel> constant = For<IModeller<IGqlpConstant, ConstantModel>>();
-    _sut = new SettingModeller(constant);
+    Modeller = new SettingModeller(constant);
   }
+
+  protected override IModeller<IGqlpSchemaSetting, SettingModel> Modeller { get; }
 
   [Theory, RepeatData]
   public void ToModel_WithValidSetting_ReturnsExpectedSettingModel(string value)
@@ -22,7 +22,7 @@ public class SettingModellerTests
     ast.Description.Returns("Setting description");
 
     // Act
-    SettingModel result = _sut.ToModel<SettingModel>(ast, TypeKinds);
+    SettingModel result = Modeller.ToModel<SettingModel>(ast, TypeKinds);
 
     // Assert
     result.ShouldNotBeNull();

@@ -1,36 +1,36 @@
 ﻿namespace GqlPlus.Modelling.Globals;
 
 public class CategoryModellerTests
-  : ModellerClassTestBase
+  : ModellerClassTestBase<IGqlpSchemaCategory, CategoryModel>
 {
-  private readonly CategoryModeller _modeller;
-
   public CategoryModellerTests()
   {
     IModeller<IGqlpModifier, ModifierModel> modifier = For<IModeller<IGqlpModifier, ModifierModel>>();
 
-    _modeller = new CategoryModeller(modifier);
+    Modeller = new CategoryModeller(modifier);
   }
 
+  protected override IModeller<IGqlpSchemaCategory, CategoryModel> Modeller { get; }
+
   [Theory, RepeatData]
-  public void ToModel_WithValidCategory_ReturnsExpectedCategoryModel(string outputName)
+  public void ToModel_WithValidCategory_ReturnsExpectedCategoryModel(string categoryName, string outputName, string contents)
   {
     // Arrange
     IGqlpSchemaCategory ast = For<IGqlpSchemaCategory>();
-    ast.Name.Returns("CategoryName");
+    ast.Name.Returns(categoryName);
     IGqlpTypeRef output = NFor<IGqlpTypeRef>(outputName);
     ast.Output.Returns(output);
-    ast.Description.Returns("Category description");
+    ast.Description.Returns(contents);
     ast.CategoryOption.Returns(CategoryOption.Parallel);
 
     // Act
-    CategoryModel result = _modeller.ToModel<CategoryModel>(ast, TypeKinds);
+    CategoryModel result = Modeller.ToModel(ast, TypeKinds);
 
     // Assert
     result.ShouldNotBeNull();
-    result.Name.ShouldBe("CategoryName");
+    result.Name.ShouldBe(categoryName);
     result.Output.Name.ShouldBe(outputName);
-    result.Description.ShouldBe("Category description");
+    result.Description.ShouldBe(contents);
     result.Resolution.ShouldBe(CategoryOption.Parallel);
   }
 }

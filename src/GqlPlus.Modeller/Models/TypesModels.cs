@@ -88,7 +88,7 @@ public record class TypeRefModel<TKind>(
   where TKind : struct
 { }
 
-internal record class SpecialTypeModel(
+public record class SpecialTypeModel(
   string Name,
   string Description
 ) : BaseTypeModel(TypeKindModel.Special, Name, Description)

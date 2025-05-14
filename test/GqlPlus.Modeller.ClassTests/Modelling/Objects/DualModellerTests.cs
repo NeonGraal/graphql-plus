@@ -5,9 +5,9 @@ public class DualModellerTests
 {
   public DualModellerTests()
   {
-    IModeller<IGqlpDualAlternate, DualAlternateModel> objAlt = For<IModeller<IGqlpDualAlternate, DualAlternateModel>>();
-    IModeller<IGqlpDualField, DualFieldModel> objField = For<IModeller<IGqlpDualField, DualFieldModel>>();
-    IModeller<IGqlpDualBase, DualBaseModel> objBase = For<IModeller<IGqlpDualBase, DualBaseModel>>();
+    IModeller<IGqlpDualAlternate, DualAlternateModel> objAlt = MFor<IGqlpDualAlternate, DualAlternateModel>();
+    IModeller<IGqlpDualField, DualFieldModel> objField = MFor<IGqlpDualField, DualFieldModel>();
+    IModeller<IGqlpDualBase, DualBaseModel> objBase = MFor<IGqlpDualBase, DualBaseModel>();
 
     Modeller = new DualModeller(objAlt, objField, objBase);
   }

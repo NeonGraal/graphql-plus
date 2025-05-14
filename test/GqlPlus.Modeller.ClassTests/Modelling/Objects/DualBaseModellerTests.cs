@@ -5,7 +5,7 @@ public class DualBaseModellerTests
 {
   public DualBaseModellerTests()
   {
-    IModeller<IGqlpDualArg, DualArgModel> objArg = For<IModeller<IGqlpDualArg, DualArgModel>>();
+    IModeller<IGqlpDualArg, DualArgModel> objArg = MFor<IGqlpDualArg, DualArgModel>();
 
     Modeller = new DualBaseModeller(objArg);
   }

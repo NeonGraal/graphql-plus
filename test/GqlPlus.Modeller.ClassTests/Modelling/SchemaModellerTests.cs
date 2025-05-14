@@ -5,9 +5,9 @@ public class SchemaModellerTests
 {
   public SchemaModellerTests()
   {
-    IModeller<IGqlpSchemaCategory, CategoryModel> category = For<IModeller<IGqlpSchemaCategory, CategoryModel>>();
-    IModeller<IGqlpSchemaDirective, DirectiveModel> directive = For<IModeller<IGqlpSchemaDirective, DirectiveModel>>();
-    IModeller<IGqlpSchemaSetting, SettingModel> setting = For<IModeller<IGqlpSchemaSetting, SettingModel>>();
+    IModeller<IGqlpSchemaCategory, CategoryModel> category = MFor<IGqlpSchemaCategory, CategoryModel>();
+    IModeller<IGqlpSchemaDirective, DirectiveModel> directive = MFor<IGqlpSchemaDirective, DirectiveModel>();
+    IModeller<IGqlpSchemaSetting, SettingModel> setting = MFor<IGqlpSchemaSetting, SettingModel>();
     ITypesModeller types = For<ITypesModeller>();
 
     Modeller = new SchemaModeller(category, directive, setting, types);

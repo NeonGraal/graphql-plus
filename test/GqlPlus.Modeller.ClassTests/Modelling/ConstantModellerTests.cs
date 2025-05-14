@@ -9,7 +9,7 @@ public class ConstantModellerTests
 
   public ConstantModellerTests()
   {
-    _fieldKeyModeller = For<IModeller<IGqlpFieldKey, SimpleModel>>();
+    _fieldKeyModeller = MFor<IGqlpFieldKey, SimpleModel>();
     Modeller = new ConstantModeller(_fieldKeyModeller);
   }
 

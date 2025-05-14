@@ -5,7 +5,7 @@ public class CategoryModellerTests
 {
   public CategoryModellerTests()
   {
-    IModeller<IGqlpModifier, ModifierModel> modifier = For<IModeller<IGqlpModifier, ModifierModel>>();
+    IModeller<IGqlpModifier, ModifierModel> modifier = MFor<IGqlpModifier, ModifierModel>();
 
     Modeller = new CategoryModeller(modifier);
   }

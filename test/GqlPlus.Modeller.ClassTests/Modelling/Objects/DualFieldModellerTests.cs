@@ -3,7 +3,7 @@
 public class DualFieldModellerTests
   : ModellerClassTestBase<IGqlpDualField, DualFieldModel>
 {
-  private readonly IModeller<IGqlpDualBase, DualBaseModel> _objBase = For<IModeller<IGqlpDualBase, DualBaseModel>>();
+  private readonly IModeller<IGqlpDualBase, DualBaseModel> _objBase = MFor<IGqlpDualBase, DualBaseModel>();
 
   public DualFieldModellerTests()
   {

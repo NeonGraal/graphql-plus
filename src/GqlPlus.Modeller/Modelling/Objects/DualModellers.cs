@@ -51,5 +51,5 @@ internal class DualAlternateModeller(
 ) : ModellerObjAlternate<IGqlpDualArg, IGqlpDualAlternate, DualArgModel, DualAlternateModel>(objArg, collection)
 {
   protected override DualAlternateModel AlternateModel(IGqlpDualAlternate ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name, ast.Description);
+    => new(ast.Dual, ast.Description);
 }

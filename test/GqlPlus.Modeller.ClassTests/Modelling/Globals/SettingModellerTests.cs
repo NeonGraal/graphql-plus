@@ -5,7 +5,7 @@ public class SettingModellerTests
 {
   public SettingModellerTests()
   {
-    IModeller<IGqlpConstant, ConstantModel> constant = For<IModeller<IGqlpConstant, ConstantModel>>();
+    IModeller<IGqlpConstant, ConstantModel> constant = MFor<IGqlpConstant, ConstantModel>();
     Modeller = new SettingModeller(constant);
   }
 

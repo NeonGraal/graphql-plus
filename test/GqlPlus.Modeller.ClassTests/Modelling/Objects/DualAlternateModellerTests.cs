@@ -5,8 +5,8 @@ public class DualAlternateModellerTests
 {
   public DualAlternateModellerTests()
   {
-    IModeller<IGqlpDualArg, DualArgModel> objArg = For<IModeller<IGqlpDualArg, DualArgModel>>();
-    IModeller<IGqlpModifier, CollectionModel> collection = For<IModeller<IGqlpModifier, CollectionModel>>();
+    IModeller<IGqlpDualArg, DualArgModel> objArg = MFor<IGqlpDualArg, DualArgModel>();
+    IModeller<IGqlpModifier, CollectionModel> collection = MFor<IGqlpModifier, CollectionModel>();
 
     Modeller = new DualAlternateModeller(objArg, collection);
   }
@@ -17,7 +17,8 @@ public class DualAlternateModellerTests
   public void AlternateModel_WithValidAlternate_ReturnsExpectedDualAlternateModel(string name, string contents)
   {
     // Arrange
-    IGqlpDualAlternate ast = NFor<IGqlpDualAlternate>(name);
+    IGqlpDualAlternate ast = For<IGqlpDualAlternate>();
+    ast.Dual.Returns(name);
     ast.Description.Returns(contents);
 
     // Act

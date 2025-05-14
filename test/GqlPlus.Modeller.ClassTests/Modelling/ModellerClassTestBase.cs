@@ -24,6 +24,11 @@ public abstract class ModellerClassTestBase<TAst, TModel>
     return constant;
   }
 
+  internal static IModeller<TA, TM> MFor<TA, TM>()
+    where TA : IGqlpError
+    where TM : IModelBase
+    => For<IModeller<TA, TM>>();
+
   internal static IGqlpFields<T> FieldsFor<T>(string key, T value)
     where T : IGqlpAbbreviated
   {

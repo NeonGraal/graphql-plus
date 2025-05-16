@@ -1,6 +1,4 @@
-﻿using GqlPlus.Structures;
-
-namespace GqlPlus.Rendering;
+﻿namespace GqlPlus.Rendering;
 
 public abstract class RendererClassTestBase<TModel>
   : SubstituteBase

@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using GqlPlus.Structures;
 
 namespace GqlPlus.Convert;
 

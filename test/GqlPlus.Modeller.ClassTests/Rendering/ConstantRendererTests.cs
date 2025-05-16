@@ -1,6 +1,4 @@
-﻿using Shouldly;
-
-namespace GqlPlus.Rendering;
+﻿namespace GqlPlus.Rendering;
 
 public class ConstantRendererTests
   : RendererClassTestBase<ConstantModel>

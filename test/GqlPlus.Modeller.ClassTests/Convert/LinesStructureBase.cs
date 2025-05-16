@@ -1,6 +1,4 @@
-﻿using GqlPlus.Structures;
-
-namespace GqlPlus.Convert;
+﻿namespace GqlPlus.Convert;
 
 public abstract class LinesStructureBase
 {

@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast;
-
-namespace GqlPlus.Modelling.Objects;
+﻿namespace GqlPlus.Modelling.Objects;
 
 public class InputParamModellerTests
   : ModellerClassTestBase<IGqlpInputParam, InputParamModel>

@@ -6,12 +6,12 @@ public class CollectionRendererTests
   protected override IRenderer<CollectionModel> Renderer { get; }
     = new CollectionRenderer();
 
-  [Fact]
-  public void Render_WithModifierKindDict_ReturnsStructuredWithKey()
+  [Theory, RepeatData]
+  public void Render_WithModifierKindDict_ReturnsStructuredWithKey(string key)
   {
     // Arrange
     CollectionModel model = new(ModifierKind.Dict) {
-      Key = "Key",
+      Key = key,
       IsOptional = true
     };
 
@@ -23,7 +23,7 @@ public class CollectionRendererTests
       .ToLines(false).ToLines()
       .ShouldBe([
         "!_ModifierDictionary",
-        "by: Key",
+        "by: " + key,
         "modifierKind: !_ModifierKind Dict",
         "optional: true"
         ]);

@@ -6,11 +6,11 @@ public class SimpleRendererTests
   protected override IRenderer<SimpleModel> Renderer { get; }
     = new SimpleRenderer();
 
-  [Fact]
-  public void Render_WithBoolean_ReturnsStructuredBoolean()
+  [Theory, RepeatData]
+  public void Render_WithBoolean_ReturnsStructuredBoolean(bool value)
   {
     // Arrange
-    SimpleModel model = SimpleModel.Bool(true);
+    SimpleModel model = SimpleModel.Bool(value);
 
     // Act
     Structured result = Renderer.Render(model);
@@ -19,15 +19,15 @@ public class SimpleRendererTests
     result.ShouldNotBeNull()
       .ToLines(false).ToLines()
       .ShouldBe([
-        "true"
+        value.TrueFalse()
         ]);
   }
 
-  [Fact]
-  public void Render_WithNumber_ReturnsStructuredNumber()
+  [Theory, RepeatData]
+  public void Render_WithNumber_ReturnsStructuredNumber(decimal value)
   {
     // Arrange
-    SimpleModel model = SimpleModel.Num("Type", 42);
+    SimpleModel model = SimpleModel.Num("Type", value);
 
     // Act
     Structured result = Renderer.Render(model);
@@ -36,15 +36,15 @@ public class SimpleRendererTests
     result.ShouldNotBeNull()
       .ToLines(false).ToLines()
       .ShouldBe([
-        "!Type 42"
+        $"!Type {value:0.#####}"
         ]);
   }
 
-  [Fact]
-  public void Render_WithString_ReturnsStructuredString()
+  [Theory, RepeatData]
+  public void Render_WithString_ReturnsStructuredString(string type, string value)
   {
     // Arrange
-    SimpleModel model = SimpleModel.Str("Type", "Text");
+    SimpleModel model = SimpleModel.Str(type, value);
 
     // Act
     Structured result = Renderer.Render(model);
@@ -53,7 +53,7 @@ public class SimpleRendererTests
     result.ShouldNotBeNull()
       .ToLines(false).ToLines()
       .ShouldBe([
-        "!Type 'Text'"
+        $"!{type} '{value}'"
         ]);
   }
 }

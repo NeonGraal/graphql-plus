@@ -1,6 +1,4 @@
-﻿using Shouldly;
-
-namespace GqlPlus.Rendering;
+﻿namespace GqlPlus.Rendering;
 
 public class ModifierRendererTests
   : RendererClassTestBase<ModifierModel>
@@ -8,12 +6,19 @@ public class ModifierRendererTests
   protected override IRenderer<ModifierModel> Renderer { get; }
   = new ModifierRenderer();
 
-  [Fact]
-  public void Render_WithValidModifier_ReturnsStructuredModifier()
+  [Theory, RepeatData]
+  public void Render_WithValidModifier_ReturnsStructuredModifier(ModifierKind modifier, string key)
   {
     // Arrange
-    ModifierModel model = new(ModifierKind.Optional);
-    StructureValue key = new("modifierKind");
+    ModifierModel model = new(modifier) {
+      Key = key,
+    };
+    string[] keyExpected = [];
+    string tag = "!_Modifier";
+    if (modifier is ModifierKind.Dict or ModifierKind.Param) {
+      keyExpected = [$"by: {key}"];
+      tag += modifier is ModifierKind.Param ? "TypeParam" : "Dictionary";
+    }
 
     // Act
     Structured result = Renderer.Render(model);
@@ -22,8 +27,9 @@ public class ModifierRendererTests
     result.ShouldNotBeNull()
       .ToLines(false).ToLines()
       .ShouldBe([
-        "!_Modifier",
-        "modifierKind: !_ModifierKind Opt"
+        tag,
+        ..keyExpected,
+        $"modifierKind: !_ModifierKind {modifier}"
         ]);
   }
 }

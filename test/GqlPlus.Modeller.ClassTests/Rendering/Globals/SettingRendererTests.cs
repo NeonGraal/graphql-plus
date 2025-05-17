@@ -19,16 +19,10 @@ public class SettingRendererTests
     // Arrange
     SimpleModel simple = SimpleModel.Str("", value);
     ConstantModel constant = new(simple);
-    SettingModel model = new(name, constant, "");
     _constant.Render(constant).Returns(new Structured(value));
 
     // Act
-    Structured result = Renderer.Render(model);
-
-    // Assert
-    result.ShouldNotBeNull()
-      .ToLines(false).ToLines()
-      .ShouldBe([
+    RenderAndCheck(new(name, constant, ""), [
         "!_Setting",
         "name: " + name,
         "value: " + value,

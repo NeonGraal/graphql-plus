@@ -23,20 +23,14 @@ public class CategoriesRendererTests
     // Arrange
     BaseTypeModel type = new TypeInputModel(name, "");
     CategoryModel category = new(name, new(TypeKindModel.Output, name, ""), "");
-    CategoriesModel model = new() {
-      Type = type,
-      And = category
-    };
     _baseType.Render(type).Returns(new Structured(name, "Input"));
     _category.Render(category).Returns(new Structured(name, "Category"));
 
     // Act
-    Structured result = Renderer.Render(model);
-
-    // Assert
-    result.ShouldNotBeNull()
-      .ToLines(false).ToLines()
-      .ShouldBe([
+    RenderAndCheck(new() {
+      Type = type,
+      And = category
+    }, [
         "!_Categories",
         "category: !Category " + name,
         "type: !Input " + name

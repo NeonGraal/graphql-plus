@@ -10,18 +10,10 @@ public class CollectionRendererTests
   public void Render_WithModifierKindDict_ReturnsStructuredWithKey(string key)
   {
     // Arrange
-    CollectionModel model = new(ModifierKind.Dict) {
+    RenderAndCheck(new(ModifierKind.Dict) {
       Key = key,
       IsOptional = true
-    };
-
-    // Act
-    Structured result = Renderer.Render(model);
-
-    // Assert
-    result.ShouldNotBeNull()
-      .ToLines(false).ToLines()
-      .ShouldBe([
+    }, [
         "!_ModifierDictionary",
         "by: " + key,
         "modifierKind: !_ModifierKind Dict",

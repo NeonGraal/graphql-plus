@@ -23,12 +23,7 @@ public class AllTypesRendererTests
     _typeRenderer.TypeRender(model).Returns(expectedStructured);
 
     // Act
-    Structured result = Renderer.Render(model);
-
-    // Assert
-    result.ShouldNotBeNull()
-     .ToLines(false).ToLines()
-     .ShouldBe([type]);
+    RenderAndCheck(model, [type]);
   }
 
   [Fact]

@@ -8,21 +8,10 @@ public class SpecialTypeRendererTests
 
   [Theory, RepeatData]
   public void Render_WithValidSpecialTypeModel_ReturnsStructured(string name, string content)
-  {
-    // Arrange
-    SpecialTypeModel model = new(name, content);
-
-    // Act
-    Structured result = Renderer.Render(model);
-
-    // Assert
-    result.ShouldNotBeNull()
-      .ToLines(false).ToLines()
-      .ShouldBe([
+    => RenderAndCheck(new(name, content), [
         "!_SpecialType",
         $"description: '{content}'",
         "name: " + name,
         "typeKind: !_TypeKind Special"
         ]);
-  }
 }

@@ -21,7 +21,6 @@ public class ConstantRendererTests
     SimpleModel simpleKey = SimpleModel.Str("", key);
     SimpleModel simpleValue = SimpleModel.Str("", value);
     ConstantModel valueModel = new(simpleValue);
-    ConstantModel model = new(new Dictionary<SimpleModel, ConstantModel> { { simpleKey, valueModel } });
 
     Structured renderedKey = new(key);
     Structured renderedValue = new(value);
@@ -29,12 +28,7 @@ public class ConstantRendererTests
     _simpleRenderer.Render(simpleValue).Returns(renderedValue);
 
     // Act
-    Structured result = Renderer.Render(model);
-
-    // Assert
-    result.ShouldNotBeNull()
-      .ToLines(false).ToLines()
-      .ShouldBe([
+    RenderAndCheck(new(new Dictionary<SimpleModel, ConstantModel> { { simpleKey, valueModel } }), [
         "!_ConstantMap", key + ": " + value]);
   }
 
@@ -43,18 +37,12 @@ public class ConstantRendererTests
   {
     // Arrange
     ConstantModel valueModel = new(SimpleModel.Str("", value));
-    ConstantModel model = new([valueModel]);
 
     Structured renderedValue = new(value);
     Renderer.Render(valueModel).Returns(renderedValue);
 
     // Act
-    Structured result = Renderer.Render(model);
-
-    // Assert
-    result.ShouldNotBeNull()
-      .ToLines(false).ToLines()
-      .ShouldBe(["- " + value]);
+    RenderAndCheck(new([valueModel]), ["- " + value]);
   }
 
   [Theory, RepeatData]
@@ -62,17 +50,9 @@ public class ConstantRendererTests
   {
     // Arrange
     SimpleModel valueModel = SimpleModel.Str("", value);
-    ConstantModel model = new(valueModel);
-
     Structured renderedValue = new(value);
     _simpleRenderer.Render(valueModel).Returns(renderedValue);
 
-    // Act
-    Structured result = Renderer.Render(model);
-
-    // Assert
-    result.ShouldNotBeNull()
-      .ToLines(false).ToLines()
-      .ShouldBe([value]);
+    RenderAndCheck(new(valueModel), [value]);
   }
 }

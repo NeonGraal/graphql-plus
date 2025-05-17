@@ -23,19 +23,13 @@ public class CategoryRendererTests
     // Arrange
     TypeRefModel<TypeKindModel> output = new(TypeKindModel.Output, outputName, "");
     ModifierModel modifier = new(ModifierKind.List);
-    CategoryModel model = new(name, output, contents) {
-      Modifiers = [modifier],
-    };
     _output.Render(output).Returns(new Structured(outputName, "Output"));
     _modifiers.Render(modifier).Returns(new Structured("List"));
 
     // Act
-    Structured result = Renderer.Render(model);
-
-    // Assert
-    result.ShouldNotBeNull()
-      .ToLines(false).ToLines()
-      .ShouldBe([
+    RenderAndCheck(new(name, output, contents) {
+      Modifiers = [modifier],
+    }, [
         "!_Category",
         "description: " + contents.Quoted("'"),
         "modifiers: [List]",

@@ -23,20 +23,14 @@ public class DirectivesRendererTests
     // Arrange
     BaseTypeModel type = new TypeInputModel(name, "");
     DirectiveModel directive = new(name, "");
-    DirectivesModel model = new() {
-      Type = type,
-      And = directive
-    };
     _baseType.Render(type).Returns(new Structured(name, "Input"));
     _directive.Render(directive).Returns(new Structured(name, "Directive"));
 
     // Act
-    Structured result = Renderer.Render(model);
-
-    // Assert
-    result.ShouldNotBeNull()
-      .ToLines(false).ToLines()
-      .ShouldBe([
+    RenderAndCheck(new() {
+      Type = type,
+      And = directive
+    }, [
         "!_Directives",
         "directive: !Directive " + name,
         "type: !Input " + name

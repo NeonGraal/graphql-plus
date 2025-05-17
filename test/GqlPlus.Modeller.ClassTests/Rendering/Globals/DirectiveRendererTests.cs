@@ -20,20 +20,14 @@ public class DirectiveRendererTests
   {
     // Arrange
     InputParamModel parameter = new(input, "");
-    DirectiveModel model = new(name, contents) {
-      Locations = DirectiveLocation.Operation,
-      Parameters = [parameter],
-      Repeatable = true,
-    };
     _parameter.Render(parameter).Returns(new Structured(input));
 
     // Act
-    Structured result = Renderer.Render(model);
-
-    // Assert
-    result.ShouldNotBeNull()
-      .ToLines(false).ToLines()
-      .ShouldBe([
+    RenderAndCheck(new(name, contents) {
+      Locations = DirectiveLocation.Operation,
+      Parameters = [parameter],
+      Repeatable = true,
+    }, [
         "!_Directive",
         $"description: " + contents.Quoted("'"),
         "locations: !_Set(_Location){Operation:_}",

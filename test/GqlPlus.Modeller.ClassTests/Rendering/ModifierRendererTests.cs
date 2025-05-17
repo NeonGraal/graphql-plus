@@ -10,9 +10,6 @@ public class ModifierRendererTests
   public void Render_WithValidModifier_ReturnsStructuredModifier(ModifierKind modifier, string key)
   {
     // Arrange
-    ModifierModel model = new(modifier) {
-      Key = key,
-    };
     string[] keyExpected = [];
     string tag = "!_Modifier";
     if (modifier is ModifierKind.Dict or ModifierKind.Param) {
@@ -21,12 +18,9 @@ public class ModifierRendererTests
     }
 
     // Act
-    Structured result = Renderer.Render(model);
-
-    // Assert
-    result.ShouldNotBeNull()
-      .ToLines(false).ToLines()
-      .ShouldBe([
+    RenderAndCheck(new(modifier) {
+      Key = key,
+    }, [
         tag,
         ..keyExpected,
         $"modifierKind: !_ModifierKind {modifier}"

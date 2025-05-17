@@ -3,16 +3,17 @@
 public class TypeEnumRendererTests
   : RendererClassTestBase<TypeEnumModel>
 {
-  private readonly ParentTypeRenderers<AliasedModel, EnumLabelModel> _renderers;
+  private readonly IRenderer<TypeRefModel<SimpleKindModel>> _parent;
+  private readonly IRenderer<AliasedModel> _item;
+  private readonly IRenderer<EnumLabelModel> _all;
 
   public TypeEnumRendererTests()
   {
-    IRenderer<TypeRefModel<SimpleKindModel>> parent = RFor<TypeRefModel<SimpleKindModel>>();
-    IRenderer<AliasedModel> item = RFor<AliasedModel>();
-    IRenderer<EnumLabelModel> all = RFor<EnumLabelModel>();
+    _parent = RFor<TypeRefModel<SimpleKindModel>>();
+    _item = RFor<AliasedModel>();
+    _all = RFor<EnumLabelModel>();
 
-    _renderers = new ParentTypeRenderers<AliasedModel, EnumLabelModel>(parent, item, all);
-    Renderer = new TypeEnumRenderer(_renderers);
+    Renderer = new TypeEnumRenderer(new(_parent, _item, _all));
   }
 
   protected override IRenderer<TypeEnumModel> Renderer { get; }

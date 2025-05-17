@@ -13,9 +13,12 @@ internal class DescribedRenderer<TModel>
   : BaseRenderer<TModel>
   where TModel : IDescribedModel
 {
+  internal Structured Described(Structured rendered, TModel model)
+    => rendered
+    .Add("description", StructureValue.Str(model.Description));
+
   internal override Structured Render(TModel model)
-    => base.Render(model)
-      .Add("description", StructureValue.Str(model.Description));
+    => Described(base.Render(model), model);
 }
 
 internal class NamedRenderer<TModel>

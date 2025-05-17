@@ -3,7 +3,8 @@
 public class UnionMemberRendererTests
   : RendererClassTestBase<UnionMemberModel>
 {
-  protected override IRenderer<UnionMemberModel> Renderer => new UnionMemberRenderer();
+  protected override IRenderer<UnionMemberModel> Renderer { get; }
+    = new UnionMemberRenderer();
 
   [Theory, RepeatData]
   public void Render_WithValidModel_ReturnsStructured(string name, string ofUnion, string contents)

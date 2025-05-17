@@ -3,16 +3,17 @@
 public class TypeUnionRendererTests
   : RendererClassTestBase<TypeUnionModel>
 {
-  private readonly ParentTypeRenderers<AliasedModel, UnionMemberModel> _renderers;
+  private readonly IRenderer<TypeRefModel<SimpleKindModel>> _parent;
+  private readonly IRenderer<AliasedModel> _item;
+  private readonly IRenderer<UnionMemberModel> _all;
 
   public TypeUnionRendererTests()
   {
-    IRenderer<TypeRefModel<SimpleKindModel>> parent = RFor<TypeRefModel<SimpleKindModel>>();
-    IRenderer<AliasedModel> item = RFor<AliasedModel>();
-    IRenderer<UnionMemberModel> all = RFor<UnionMemberModel>();
+    _parent = RFor<TypeRefModel<SimpleKindModel>>();
+    _item = RFor<AliasedModel>();
+    _all = RFor<UnionMemberModel>();
 
-    _renderers = new ParentTypeRenderers<AliasedModel, UnionMemberModel>(parent, item, all);
-    Renderer = new TypeUnionRenderer(_renderers);
+    Renderer = new TypeUnionRenderer(new(_parent, _item, _all));
   }
 
   protected override IRenderer<TypeUnionModel> Renderer { get; }

@@ -3,16 +3,17 @@
 public class BaseDomainRendererTests
   : RendererClassTestBase<BaseDomainModel<DomainLabelModel>>
 {
-  private readonly ParentTypeRenderers<DomainLabelModel, DomainItemModel<DomainLabelModel>> _renderers;
+  private readonly IRenderer<TypeRefModel<SimpleKindModel>> _parent;
+  private readonly IRenderer<DomainLabelModel> _item;
+  private readonly IRenderer<DomainItemModel<DomainLabelModel>> _all;
 
   public BaseDomainRendererTests()
   {
-    IRenderer<TypeRefModel<SimpleKindModel>> parent = RFor<TypeRefModel<SimpleKindModel>>();
-    IRenderer<DomainLabelModel> item = RFor<DomainLabelModel>();
-    IRenderer<DomainItemModel<DomainLabelModel>> all = RFor<DomainItemModel<DomainLabelModel>>();
-    _renderers = new ParentTypeRenderers<DomainLabelModel, DomainItemModel<DomainLabelModel>>(parent, item, all);
+    _parent = RFor<TypeRefModel<SimpleKindModel>>();
+    _item = RFor<DomainLabelModel>();
+    _all = RFor<DomainItemModel<DomainLabelModel>>();
 
-    Renderer = new BaseDomainRenderer<DomainLabelModel>(_renderers);
+    Renderer = new BaseDomainRenderer<DomainLabelModel>(new(_parent, _item, _all));
   }
 
   protected override IRenderer<BaseDomainModel<DomainLabelModel>> Renderer { get; }

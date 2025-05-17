@@ -126,13 +126,13 @@ internal abstract class TypeObjectRenderer<TObject, TBase, TField, TAlt>(
 }
 
 internal class DualArgRenderer
-  : BaseRenderer<DualArgModel>
+  : DescribedRenderer<DualArgModel>
 {
   internal override Structured Render(DualArgModel model)
-    => model.IsTypeParam
-    ? new(model.Dual, "_TypeParam")
-    : base.Render(model)
-      .Add("dual", model.Dual);
+    => base.Render(model)
+      .AddIf(model.IsTypeParam,
+        t => t.Add("typeParam", model.Dual),
+        f => f.Add("dual", model.Dual));
 }
 
 internal class DualBaseRenderer(

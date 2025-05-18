@@ -1,16 +1,10 @@
 ﻿namespace GqlPlus.Rendering.Objects;
 
 public class DualBaseRendererTests
-  : RendererClassTestBase<DualBaseModel>
+  : ObjectArgRendererBase<DualBaseModel, DualArgModel>
 {
-  private readonly IRenderer<DualArgModel> _objArgRenderer;
-
   public DualBaseRendererTests()
-  {
-    _objArgRenderer = RFor<DualArgModel>();
-
-    Renderer = new DualBaseRenderer(_objArgRenderer);
-  }
+    => Renderer = new DualBaseRenderer(ObjArg);
 
   protected override IRenderer<DualBaseModel> Renderer { get; }
 

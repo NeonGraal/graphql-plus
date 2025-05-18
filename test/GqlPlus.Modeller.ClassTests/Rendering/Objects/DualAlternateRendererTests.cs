@@ -1,17 +1,15 @@
 ﻿namespace GqlPlus.Rendering.Objects;
 
 public class DualAlternateRendererTests
-  : RendererClassTestBase<DualAlternateModel>
+  : ObjectArgRendererBase<DualAlternateModel, DualArgModel>
 {
   private readonly IRenderer<CollectionModel> _collection;
-  private readonly IRenderer<DualArgModel> _objArg;
 
   public DualAlternateRendererTests()
   {
-    _objArg = RFor<DualArgModel>();
     _collection = RFor<CollectionModel>();
 
-    Renderer = new DualAlternateRenderer(new(_objArg, _collection));
+    Renderer = new DualAlternateRenderer(new(ObjArg, _collection));
   }
 
   protected override IRenderer<DualAlternateModel> Renderer { get; }

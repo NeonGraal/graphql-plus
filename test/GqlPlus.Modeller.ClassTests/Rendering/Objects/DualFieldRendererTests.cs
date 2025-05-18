@@ -1,17 +1,15 @@
 ﻿namespace GqlPlus.Rendering.Objects;
 
 public class DualFieldRendererTests
-  : RendererClassTestBase<DualFieldModel>
+  : ObjectBaseRendererBase<DualFieldModel, DualBaseModel>
 {
   private readonly IRenderer<ModifierModel> _modifer;
-  private readonly IRenderer<DualBaseModel> _baseRenderers;
 
   public DualFieldRendererTests()
   {
     _modifer = RFor<ModifierModel>();
-    _baseRenderers = RFor<DualBaseModel>();
 
-    Renderer = new DualFieldRenderer(new(_modifer, _baseRenderers));
+    Renderer = new DualFieldRenderer(new(_modifer, Base));
   }
 
   protected override IRenderer<DualFieldModel> Renderer { get; }
@@ -21,7 +19,7 @@ public class DualFieldRendererTests
   {
     // Arrange
     DualBaseModel dualBase = new(dual, "");
-    _baseRenderers.Render(dualBase).Returns(new Structured(dual));
+    Base.Render(dualBase).Returns(new Structured(dual));
 
     // Act & Accept
     RenderAndCheck(new(name, dualBase, contents), [

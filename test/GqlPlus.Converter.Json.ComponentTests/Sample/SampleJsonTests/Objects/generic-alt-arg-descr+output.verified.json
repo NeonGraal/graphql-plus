@@ -9,14 +9,26 @@
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "OutpGnrcAltArgDescr",
           "output": "RefOutpGnrcAltArgDescr",
-          "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "description": "Test Descr",
+              "typeParam": "type"
+            }
+          ]
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
           "output": "RefOutpGnrcAltArgDescr",
-          "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "description": "Test Descr",
+              "typeParam": "type"
+            }
+          ]
         }
       ],
       "name": "OutpGnrcAltArgDescr",

@@ -36,7 +36,12 @@
       "parent": {
         "$tag": "_DualBase",
         "dual": "RefDualPrntParamDiff",
-        "typeArgs": [{"$tag":"_TypeParam", "value":"a"}]
+        "typeArgs": [
+          {
+            "$tag": "_DualArg",
+            "typeParam": "a"
+          }
+        ]
       },
       "typeKind": {
         "$tag": "_TypeKind",

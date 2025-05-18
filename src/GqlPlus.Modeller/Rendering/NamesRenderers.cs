@@ -15,7 +15,8 @@ internal class DescribedRenderer<TModel>
 {
   internal Structured Described(Structured rendered, TModel model)
     => rendered
-    .Add("description", StructureValue.Str(model.Description));
+    .AddIf(string.IsNullOrWhiteSpace(model.Description),
+      onFalse: f => f.Add("description", StructureValue.Str(model.Description)));
 
   internal override Structured Render(TModel model)
     => Described(base.Render(model), model);

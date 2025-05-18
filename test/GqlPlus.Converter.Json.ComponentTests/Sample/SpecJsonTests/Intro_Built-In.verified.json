@@ -322,7 +322,12 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_Modifier",
-        "typeArgs": [{"$tag":"_TypeParam", "value":"kind"}]
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "typeParam": "kind"
+          }
+        ]
       },
       "typeKind": {
         "$tag": "_TypeKind",

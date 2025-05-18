@@ -95,7 +95,12 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_BaseType",
-        "typeArgs": [{"$tag":"_TypeParam", "value":"kind"}]
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "typeParam": "kind"
+          }
+        ]
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -432,7 +437,12 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_Modifier",
-        "typeArgs": [{"$tag":"_TypeParam", "value":"kind"}]
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "typeParam": "kind"
+          }
+        ]
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -651,8 +661,8 @@
         "output": "_ChildType",
         "typeArgs": [
           {
-            "$tag": "_TypeParam",
-            "value": "kind"
+            "$tag": "_OutputArg",
+            "typeParam": "kind"
           },
           {
             "$tag": "_OutputArg",

@@ -36,7 +36,12 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "RefOutpPrntParamSame",
-        "typeArgs": [{"$tag":"_TypeParam", "value":"a"}]
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "typeParam": "a"
+          }
+        ]
       },
       "typeKind": {
         "$tag": "_TypeKind",

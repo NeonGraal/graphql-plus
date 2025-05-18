@@ -36,7 +36,12 @@
       "parent": {
         "$tag": "_InputBase",
         "input": "RefInpPrntParamSame",
-        "typeArgs": [{"$tag":"_TypeParam", "value":"a"}]
+        "typeArgs": [
+          {
+            "$tag": "_InputArg",
+            "typeParam": "a"
+          }
+        ]
       },
       "typeKind": {
         "$tag": "_TypeKind",

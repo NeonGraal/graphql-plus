@@ -1994,14 +1994,24 @@
           "$tag": "_ObjectFor(_DualAlternate)",
           "dual": "RefDualGnrcAltArg",
           "object": "DualGnrcAltArg",
-          "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+          "typeArgs": [
+            {
+              "$tag": "_DualArg",
+              "typeParam": "type"
+            }
+          ]
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
           "dual": "RefDualGnrcAltArg",
-          "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+          "typeArgs": [
+            {
+              "$tag": "_DualArg",
+              "typeParam": "type"
+            }
+          ]
         }
       ],
       "name": "DualGnrcAltArg",
@@ -2023,14 +2033,26 @@
           "$tag": "_ObjectFor(_DualAlternate)",
           "dual": "RefDualGnrcAltArgDescr",
           "object": "DualGnrcAltArgDescr",
-          "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+          "typeArgs": [
+            {
+              "$tag": "_DualArg",
+              "description": "Test Descr",
+              "typeParam": "type"
+            }
+          ]
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
           "dual": "RefDualGnrcAltArgDescr",
-          "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+          "typeArgs": [
+            {
+              "$tag": "_DualArg",
+              "description": "Test Descr",
+              "typeParam": "type"
+            }
+          ]
         }
       ],
       "name": "DualGnrcAltArgDescr",
@@ -2335,7 +2357,12 @@
           "type": {
             "$tag": "_DualBase",
             "dual": "RefDualGnrcFieldArg",
-            "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "typeParam": "type"
+              }
+            ]
           }
         }
       ],
@@ -2346,7 +2373,12 @@
           "type": {
             "$tag": "_DualBase",
             "dual": "RefDualGnrcFieldArg",
-            "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "typeParam": "type"
+              }
+            ]
           }
         }
       ],
@@ -2585,7 +2617,12 @@
       "parent": {
         "$tag": "_DualBase",
         "dual": "RefDualGnrcPrntArg",
-        "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+        "typeArgs": [
+          {
+            "$tag": "_DualArg",
+            "typeParam": "type"
+          }
+        ]
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -2935,7 +2972,12 @@
       "parent": {
         "$tag": "_DualBase",
         "dual": "RefDualPrntParamDiff",
-        "typeArgs": [{"$tag":"_TypeParam", "value":"a"}]
+        "typeArgs": [
+          {
+            "$tag": "_DualArg",
+            "typeParam": "a"
+          }
+        ]
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -2982,7 +3024,12 @@
       "parent": {
         "$tag": "_DualBase",
         "dual": "RefDualPrntParamSame",
-        "typeArgs": [{"$tag":"_TypeParam", "value":"a"}]
+        "typeArgs": [
+          {
+            "$tag": "_DualArg",
+            "typeParam": "a"
+          }
+        ]
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -4732,14 +4779,24 @@
           "$tag": "_ObjectFor(_InputAlternate)",
           "input": "RefInpGnrcAltArg",
           "object": "InpGnrcAltArg",
-          "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+          "typeArgs": [
+            {
+              "$tag": "_InputArg",
+              "typeParam": "type"
+            }
+          ]
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
           "input": "RefInpGnrcAltArg",
-          "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+          "typeArgs": [
+            {
+              "$tag": "_InputArg",
+              "typeParam": "type"
+            }
+          ]
         }
       ],
       "name": "InpGnrcAltArg",
@@ -4761,14 +4818,26 @@
           "$tag": "_ObjectFor(_InputAlternate)",
           "input": "RefInpGnrcAltArgDescr",
           "object": "InpGnrcAltArgDescr",
-          "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+          "typeArgs": [
+            {
+              "$tag": "_InputArg",
+              "description": "Test Descr",
+              "typeParam": "type"
+            }
+          ]
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
           "input": "RefInpGnrcAltArgDescr",
-          "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+          "typeArgs": [
+            {
+              "$tag": "_InputArg",
+              "description": "Test Descr",
+              "typeParam": "type"
+            }
+          ]
         }
       ],
       "name": "InpGnrcAltArgDescr",
@@ -5073,7 +5142,12 @@
           "type": {
             "$tag": "_InputBase",
             "input": "RefInpGnrcFieldArg",
-            "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "typeParam": "type"
+              }
+            ]
           }
         }
       ],
@@ -5084,7 +5158,12 @@
           "type": {
             "$tag": "_InputBase",
             "input": "RefInpGnrcFieldArg",
-            "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "typeParam": "type"
+              }
+            ]
           }
         }
       ],
@@ -5323,7 +5402,12 @@
       "parent": {
         "$tag": "_InputBase",
         "input": "RefInpGnrcPrntArg",
-        "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+        "typeArgs": [
+          {
+            "$tag": "_InputArg",
+            "typeParam": "type"
+          }
+        ]
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -5655,7 +5739,12 @@
       "parent": {
         "$tag": "_InputBase",
         "input": "RefInpPrntParamDiff",
-        "typeArgs": [{"$tag":"_TypeParam", "value":"a"}]
+        "typeArgs": [
+          {
+            "$tag": "_InputArg",
+            "typeParam": "a"
+          }
+        ]
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -5702,7 +5791,12 @@
       "parent": {
         "$tag": "_InputBase",
         "input": "RefInpPrntParamSame",
-        "typeArgs": [{"$tag":"_TypeParam", "value":"a"}]
+        "typeArgs": [
+          {
+            "$tag": "_InputArg",
+            "typeParam": "a"
+          }
+        ]
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -6436,14 +6530,24 @@
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "OutpGnrcAltArg",
           "output": "RefOutpGnrcAltArg",
-          "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "typeParam": "type"
+            }
+          ]
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
           "output": "RefOutpGnrcAltArg",
-          "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "typeParam": "type"
+            }
+          ]
         }
       ],
       "name": "OutpGnrcAltArg",
@@ -6465,14 +6569,26 @@
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "OutpGnrcAltArgDescr",
           "output": "RefOutpGnrcAltArgDescr",
-          "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "description": "Test Descr",
+              "typeParam": "type"
+            }
+          ]
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
           "output": "RefOutpGnrcAltArgDescr",
-          "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "description": "Test Descr",
+              "typeParam": "type"
+            }
+          ]
         }
       ],
       "name": "OutpGnrcAltArgDescr",
@@ -6820,7 +6936,12 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "RefOutpGnrcFieldArg",
-            "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "typeParam": "type"
+              }
+            ]
           }
         }
       ],
@@ -6831,7 +6952,12 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "RefOutpGnrcFieldArg",
-            "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "typeParam": "type"
+              }
+            ]
           }
         }
       ],
@@ -7070,7 +7196,12 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "RefOutpGnrcPrntArg",
-        "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "typeParam": "type"
+          }
+        ]
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -7801,7 +7932,12 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "RefOutpPrntParamDiff",
-        "typeArgs": [{"$tag":"_TypeParam", "value":"a"}]
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "typeParam": "a"
+          }
+        ]
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -7848,7 +7984,12 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "RefOutpPrntParamSame",
-        "typeArgs": [{"$tag":"_TypeParam", "value":"a"}]
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "typeParam": "a"
+          }
+        ]
       },
       "typeKind": {
         "$tag": "_TypeKind",

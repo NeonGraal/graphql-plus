@@ -106,12 +106,12 @@
             }
           },
           {
-            "$tag": "_TypeParam",
-            "value": "item"
+            "$tag": "_OutputArg",
+            "typeParam": "item"
           },
           {
-            "$tag": "_TypeParam",
-            "value": "domainItem"
+            "$tag": "_OutputArg",
+            "typeParam": "domainItem"
           }
         ]
       },
@@ -695,7 +695,12 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_DomainRef",
-        "typeArgs": [{"$tag":"_TypeParam", "value":"kind"}]
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "typeParam": "kind"
+          }
+        ]
       },
       "typeKind": {
         "$tag": "_TypeKind",

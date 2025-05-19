@@ -1,30 +1,31 @@
 ﻿namespace GqlPlus.Resolving;
 
 public class AllTypesResolverTests
+  : ResolverClassTestBase<BaseTypeModel>
 {
   private readonly IList<ITypeResolver> _typeResolvers;
-  private readonly AllTypesResolver _resolver;
+
+  protected override IResolver<BaseTypeModel> Resolver { get; }
 
   public AllTypesResolverTests()
   {
     _typeResolvers = [];
-    _resolver = new AllTypesResolver(_typeResolvers);
+    Resolver = new AllTypesResolver(_typeResolvers);
   }
 
   [Theory, RepeatData]
   public void Resolve_ReturnsResolvedType_WhenTypeResolverMatches(string name, string contents)
   {
     TypeEnumModel model = new(name, contents);
-    IResolveContext context = Substitute.For<IResolveContext>();
     TypeEnumModel expected = new(name, contents);
 
     ITypeResolver typeResolver = Substitute.For<ITypeResolver>();
     typeResolver.ForType(model).Returns(true);
-    typeResolver.ResolveType(model, context).Returns(expected);
+    typeResolver.ResolveType(model, Context).Returns(expected);
 
     _typeResolvers.Add(typeResolver);
 
-    BaseTypeModel result = _resolver.Resolve(model, context);
+    BaseTypeModel result = Resolver.Resolve(model, Context);
 
     result.ShouldBe(expected);
   }
@@ -33,14 +34,12 @@ public class AllTypesResolverTests
   public void Resolve_ReturnsOriginalModel_WhenNoTypeResolverMatches(string name, string contents)
   {
     TypeEnumModel model = new(name, contents);
-    IResolveContext context = Substitute.For<IResolveContext>();
-
     ITypeResolver typeResolver = Substitute.For<ITypeResolver>();
     typeResolver.ForType(model).Returns(false);
 
     _typeResolvers.Add(typeResolver);
 
-    BaseTypeModel result = _resolver.Resolve(model, context);
+    BaseTypeModel result = Resolver.Resolve(model, Context);
 
     result.ShouldBe(model);
   }

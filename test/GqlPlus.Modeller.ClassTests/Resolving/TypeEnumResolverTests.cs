@@ -1,20 +1,17 @@
 ﻿namespace GqlPlus.Resolving;
 
 public class TypeEnumResolverTests
+  : ResolverClassTestBase<TypeEnumModel>
 {
-  private readonly TypeEnumResolver _resolver;
-
-  public TypeEnumResolverTests()
-    => _resolver = new TypeEnumResolver();
+  protected override IResolver<TypeEnumModel> Resolver { get; }
+    = new TypeEnumResolver();
 
   [Theory, RepeatData]
   public void NewItem_CreatesEnumLabelModel_WithExpectedProperties(string name, string contents)
   {
     TypeEnumModel model = new(name, contents);
 
-    IResolveContext context = Substitute.For<IResolveContext>();
-
-    TypeEnumModel result = _resolver.Resolve(model, context);
+    TypeEnumModel result = Resolver.Resolve(model, Context);
 
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(

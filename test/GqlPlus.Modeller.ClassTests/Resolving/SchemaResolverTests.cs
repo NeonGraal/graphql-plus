@@ -1,17 +1,17 @@
-﻿using GqlPlus.Token;
-
-namespace GqlPlus.Resolving;
+﻿namespace GqlPlus.Resolving;
 
 public class SchemaResolverTests
+  : ResolverClassTestBase<SchemaModel>
 {
   private readonly IResolver<BaseTypeModel> _typeResolver;
-  private readonly SchemaResolver _resolver;
 
   public SchemaResolverTests()
   {
-    _typeResolver = Substitute.For<IResolver<BaseTypeModel>>();
-    _resolver = new SchemaResolver(_typeResolver);
+    _typeResolver = RFor<BaseTypeModel>();
+    Resolver = new SchemaResolver(_typeResolver);
   }
+
+  protected override IResolver<SchemaModel> Resolver { get; }
 
   [Theory, RepeatData]
   public void Resolve_ResolvesAllTypes_AndReturnsNewSchemaModel(string name1, string name2)
@@ -22,14 +22,12 @@ public class SchemaResolverTests
     TypeEnumModel resolved1 = new(name1, "");
     TypeUnionModel resolved2 = new(name2, "");
 
-    _typeResolver.Resolve(type1, Arg.Any<IResolveContext>()).Returns(resolved1);
-    _typeResolver.Resolve(type2, Arg.Any<IResolveContext>()).Returns(resolved2);
+    _typeResolver.Resolve(type1, Context).Returns(resolved1);
+    _typeResolver.Resolve(type2, Context).Returns(resolved2);
 
-    SchemaModel model = new("", [], [], [], [type1, type2], TokenMessages.New);
+    SchemaModel model = new("", [], [], [], [type1, type2], null);
 
-    IResolveContext context = Substitute.For<IResolveContext>();
-
-    SchemaModel result = _resolver.Resolve(model, context);
+    SchemaModel result = Resolver.Resolve(model, Context);
 
     result.ShouldNotBeNull()
       .Types.ShouldNotBeNull()

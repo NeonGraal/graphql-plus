@@ -14,7 +14,6 @@ public class InputArgRendererTests
 
   protected override IRenderer<InputArgModel> Renderer { get; }
 
-
   [Theory, RepeatData]
   public void Render_WithTypeParam_ReturnsStructuredWithTypeParam(string input, string contents)
     => RenderAndCheck(new(input, contents) { IsTypeParam = true }, [

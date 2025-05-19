@@ -1,6 +1,4 @@
-﻿using GqlPlus;
-
-namespace GqlPlus.Rendering.Globals;
+﻿namespace GqlPlus.Rendering.Globals;
 
 public class CategoryRendererTests
   : RendererClassTestBase<CategoryModel>

@@ -33,8 +33,8 @@ public class ParseArgTests
     IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldNotBeNull();
-    result.IsOk().ShouldBeFalse();
+    result.ShouldNotBeNull()
+      .IsOk().ShouldBeFalse();
   }
 
   [Fact]
@@ -52,8 +52,8 @@ public class ParseArgTests
     IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldNotBeNull();
-    result.IsOk().ShouldBeTrue();
+    result.ShouldNotBeNull()
+      .IsOk().ShouldBeTrue();
   }
 
   [Fact]
@@ -70,8 +70,8 @@ public class ParseArgTests
     IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldNotBeNull();
-    result.IsOk().ShouldBeTrue();
+    result.ShouldNotBeNull()
+      .IsOk().ShouldBeTrue();
   }
 
   [Fact]
@@ -88,7 +88,7 @@ public class ParseArgTests
     IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldNotBeNull();
-    result.IsOk().ShouldBeFalse();
+    result.ShouldNotBeNull()
+      .IsOk().ShouldBeFalse();
   }
 }

@@ -1,21 +1,16 @@
-﻿namespace GqlPlus.Resolving;
+﻿
+namespace GqlPlus.Resolving;
 
 public class TypeUnionResolverTests
-  : ResolverClassTestBase<TypeUnionModel>
+  : ResolverParentTypeTestBase<TypeUnionModel, UnionMemberModel>
 {
   protected override IResolver<TypeUnionModel> Resolver { get; }
     = new TypeUnionResolver();
 
-  [Theory, RepeatData]
-  public void NewItem_CreatesUnionMemberModel_WithExpectedProperties(string name, string contents)
-  {
-    TypeUnionModel model = new(name, contents);
-
-    TypeUnionModel result = Resolver.Resolve(model, Context);
-
-    result.ShouldNotBeNull()
-      .ShouldSatisfyAllConditions(
-        r => r.Name.ShouldBe(name),
-        r => r.Description.ShouldBe(contents));
-  }
+  protected override Func<AliasedModel, UnionMemberModel> AllItem(string name)
+    => item => new UnionMemberModel(item.Name, name, item.Description);
+  protected override TypeUnionModel NewModel(string name, string description)
+    => new(name, description);
+  protected override TypeRefModel<SimpleKindModel> NewParent(string parent, string description)
+    => new(SimpleKindModel.Union, parent, description);
 }

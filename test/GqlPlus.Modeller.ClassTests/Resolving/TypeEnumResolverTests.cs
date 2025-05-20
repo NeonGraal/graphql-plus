@@ -1,21 +1,15 @@
 ﻿namespace GqlPlus.Resolving;
 
 public class TypeEnumResolverTests
-  : ResolverClassTestBase<TypeEnumModel>
+  : ResolverParentTypeTestBase<TypeEnumModel, EnumLabelModel>
 {
   protected override IResolver<TypeEnumModel> Resolver { get; }
     = new TypeEnumResolver();
 
-  [Theory, RepeatData]
-  public void NewItem_CreatesEnumLabelModel_WithExpectedProperties(string name, string contents)
-  {
-    TypeEnumModel model = new(name, contents);
-
-    TypeEnumModel result = Resolver.Resolve(model, Context);
-
-    result.ShouldNotBeNull()
-      .ShouldSatisfyAllConditions(
-        r => r.Name.ShouldBe(name),
-        r => r.Description.ShouldBe(contents));
-  }
+  protected override Func<AliasedModel, EnumLabelModel> AllItem(string name)
+    => item => new EnumLabelModel(item.Name, name, item.Description);
+  protected override TypeEnumModel NewModel(string name, string description)
+    => new(name, description);
+  protected override TypeRefModel<SimpleKindModel> NewParent(string parent, string description)
+    => new(SimpleKindModel.Enum, parent, description);
 }

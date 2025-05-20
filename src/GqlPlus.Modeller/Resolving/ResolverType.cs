@@ -1,7 +1,8 @@
 ﻿namespace GqlPlus.Resolving;
 
 internal abstract class ResolverType<TModel>
-  : IResolver<TModel>, ITypeResolver
+  : IResolver<TModel>
+  , ITypeResolver
   where TModel : BaseTypeModel
 {
   public abstract TModel Resolve(TModel model, IResolveContext context);

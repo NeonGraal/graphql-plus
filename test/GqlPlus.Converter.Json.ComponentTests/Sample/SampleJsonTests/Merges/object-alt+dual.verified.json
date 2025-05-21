@@ -14,7 +14,7 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "value": "DualObjAltType"
+          "dual": "DualObjAltType"
         }
       ],
       "name": "DualObjAlt",

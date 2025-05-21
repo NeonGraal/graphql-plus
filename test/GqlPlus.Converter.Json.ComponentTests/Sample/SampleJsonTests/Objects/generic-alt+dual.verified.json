@@ -14,7 +14,7 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "value": "type"
+          "typeParam": "type"
         }
       ],
       "name": "DualGnrcAlt",
@@ -25,7 +25,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "type"
+          "name": "type"
         }
       ]
     }

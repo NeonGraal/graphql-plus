@@ -37,7 +37,7 @@
           "object": "_EnumLabel",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         }
       ],
@@ -47,14 +47,14 @@
           "name": "enum",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         }
       ],
       "name": "_EnumLabel",
       "parent": {
         "$tag": "_DualBase",
-        "value": "_Aliased"
+        "dual": "_Aliased"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -70,7 +70,7 @@
           "object": "_EnumValue",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -80,7 +80,7 @@
           "name": "label",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -123,11 +123,11 @@
           },
           {
             "$tag": "_OutputArg",
-            "value": "_Aliased"
+            "output": "_Aliased"
           },
           {
             "$tag": "_DualArg",
-            "value": "_EnumLabel"
+            "dual": "_EnumLabel"
           }
         ]
       },

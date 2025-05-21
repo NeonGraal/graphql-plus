@@ -20,16 +20,16 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "value": "OutpFieldParam1"
+              "input": "OutpFieldParam1"
             },
             {
               "$tag": "_InputParam",
-              "value": "OutpFieldParam2"
+              "input": "OutpFieldParam2"
             }
           ],
           "type": {
             "$tag": "_DualBase",
-            "value": "FldOutpFieldParam"
+            "dual": "FldOutpFieldParam"
           }
         }
       ],
@@ -40,16 +40,16 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "value": "OutpFieldParam1"
+              "input": "OutpFieldParam1"
             },
             {
               "$tag": "_InputParam",
-              "value": "OutpFieldParam2"
+              "input": "OutpFieldParam2"
             }
           ],
           "type": {
             "$tag": "_DualBase",
-            "value": "FldOutpFieldParam"
+            "dual": "FldOutpFieldParam"
           }
         }
       ],

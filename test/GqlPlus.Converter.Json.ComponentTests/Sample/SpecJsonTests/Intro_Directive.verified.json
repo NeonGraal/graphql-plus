@@ -30,7 +30,7 @@
           "object": "_Directive",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_InputParam"
+            "output": "_InputParam"
           }
         },
         {
@@ -39,7 +39,7 @@
           "object": "_Directive",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Boolean"
+            "output": "Boolean"
           }
         },
         {
@@ -62,7 +62,7 @@
           "object": "_Directive",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_"
+            "output": "_"
           }
         }
       ],
@@ -81,7 +81,7 @@
           "name": "parameters",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_InputParam"
+            "output": "_InputParam"
           }
         },
         {
@@ -89,7 +89,7 @@
           "name": "repeatable",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Boolean"
+            "output": "Boolean"
           }
         },
         {
@@ -111,14 +111,14 @@
           "name": "locations",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_"
+            "output": "_"
           }
         }
       ],
       "name": "_Directive",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "_Aliased"
+        "output": "_Aliased"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -146,7 +146,7 @@
           "object": "_Directives",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Directive"
+            "output": "_Directive"
           }
         },
         {
@@ -155,18 +155,18 @@
           "object": "_Directives",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Type"
+            "output": "_Type"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "_Directive"
+          "output": "_Directive"
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_Type"
+          "output": "_Type"
         }
       ],
       "fields": [
@@ -175,7 +175,7 @@
           "name": "directive",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Directive"
+            "output": "_Directive"
           }
         },
         {
@@ -183,7 +183,7 @@
           "name": "type",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Type"
+            "output": "_Type"
           }
         }
       ],
@@ -230,27 +230,27 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "Operation"
+          "name": "Operation"
         },
         {
           "$tag": "_Aliased",
-          "value": "Variable"
+          "name": "Variable"
         },
         {
           "$tag": "_Aliased",
-          "value": "Field"
+          "name": "Field"
         },
         {
           "$tag": "_Aliased",
-          "value": "Inline"
+          "name": "Inline"
         },
         {
           "$tag": "_Aliased",
-          "value": "Spread"
+          "name": "Spread"
         },
         {
           "$tag": "_Aliased",
-          "value": "Fragment"
+          "name": "Fragment"
         }
       ],
       "name": "_Location",

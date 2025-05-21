@@ -6,7 +6,7 @@ using GqlPlus.Token;
 namespace GqlPlus.Ast.Schema.Simple;
 
 internal sealed record class DomainRangeAst(
-  TokenAt At,
+  ITokenAt At,
   string Description,
   bool Excludes
 ) : AstDomainItem(At, Description, Excludes)

@@ -1,11 +1,9 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Abstractions.Schema;
-using GqlPlus.Token;
+﻿using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
 internal abstract record class AstObjBase<TObjArg>(
-  TokenAt At,
+  ITokenAt At,
   string Name,
   string Description
 ) : AstObjType(At, Name, Description)

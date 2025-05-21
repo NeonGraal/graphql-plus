@@ -1,16 +1,15 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
 internal sealed record class InputArgAst(
-  TokenAt At,
+  ITokenAt At,
   string Name,
   string Description
 ) : AstObjArg(At, Name, Description)
   , IGqlpInputArg
 {
-  public InputArgAst(TokenAt at, string name)
+  public InputArgAst(ITokenAt at, string name)
     : this(at, name, "") { }
 
   internal override string Abbr => "IR";

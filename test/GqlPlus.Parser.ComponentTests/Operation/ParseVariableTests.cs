@@ -44,7 +44,7 @@ public class ParseVariableTests(
   [Theory, RepeatData]
   public void WithDefault_ReturnsCorrectAst(string variable, decimal number)
     => checks.TrueExpected($"${variable}={number}",
-      TestVar(variable) with { DefaultValue = new(new FieldKeyAst(AstNulls.At, number)) });
+      TestVar(variable) with { DefaultValue = new ConstantAst(new FieldKeyAst(AstNulls.At, number)) });
 
   [Theory, RepeatData]
   public void WithDefaultBad_ReturnsFalse(string variable)
@@ -65,7 +65,7 @@ public class ParseVariableTests(
       TestVar(variable) with {
         Type = varType,
         Modifiers = TestMods(),
-        DefaultValue = new(new FieldKeyAst(AstNulls.At, number)),
+        DefaultValue = new ConstantAst(new FieldKeyAst(AstNulls.At, number)),
         Directives = directives.Directives()
       });
 

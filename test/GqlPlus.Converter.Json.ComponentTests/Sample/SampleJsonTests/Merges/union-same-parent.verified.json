@@ -14,7 +14,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "String"
+          "name": "String"
         }
       ],
       "name": "PrntUnionSamePrnt",
@@ -40,7 +40,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "Boolean"
+          "name": "Boolean"
         }
       ],
       "name": "UnionSamePrnt",

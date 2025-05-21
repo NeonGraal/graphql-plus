@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-using GqlPlus.Verifying;
+﻿using GqlPlus.Verifying;
 
 namespace GqlPlus.Verification;
 
@@ -15,7 +13,6 @@ internal class NullVerifierError<TGqlp>(
     => _logger.NullVerification(item);
 }
 
-[ExcludeFromCodeCoverage]
 internal static partial class NullVerifierLogging
 {
   internal static void NullVerification(this ILogger logger, object item)

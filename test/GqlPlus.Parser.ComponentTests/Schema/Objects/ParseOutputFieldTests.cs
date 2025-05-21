@@ -43,7 +43,7 @@ public class ParseOutputFieldTests(
       name + "(" + parameters.Joined(p => p + "='" + content + "'") + "):" + fieldType,
       Field(name, FieldBase(fieldType)) with {
         Params = parameters.Params(p => p with {
-          DefaultValue = new(new FieldKeyAst(AstNulls.At, content))
+          DefaultValue = new ConstantAst(new FieldKeyAst(AstNulls.At, content))
         })
       });
 

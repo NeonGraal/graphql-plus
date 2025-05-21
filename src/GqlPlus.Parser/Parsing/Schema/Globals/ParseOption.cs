@@ -43,11 +43,11 @@ internal class ParseOptionDefinition(
     OptionDefinition result = new();
 
     List<IGqlpSchemaSetting> values = [];
-    while (!tokens.Take("}")) {
+    while (!tokens.Take('}')) {
       IResult<IGqlpSchemaSetting> setting = _setting.Parse(tokens, "Option Setting");
       if (!setting.Required(values.Add)) {
         result.Settings = values.ArrayOf<OptionSettingAst>();
-        return setting.AsResult(result);
+        return result.Partial(setting.Message());
       }
     }
 

@@ -18,14 +18,14 @@
           "object": "AltOutpGnrcFieldParam",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Number"
+            "output": "Number"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "String"
+          "output": "String"
         }
       ],
       "fields": [
@@ -34,7 +34,7 @@
           "name": "alt",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Number"
+            "output": "Number"
           }
         }
       ],
@@ -57,7 +57,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "value": "AltOutpGnrcFieldParam"
+                "output": "AltOutpGnrcFieldParam"
               }
             ]
           }
@@ -73,7 +73,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "value": "AltOutpGnrcFieldParam"
+                "output": "AltOutpGnrcFieldParam"
               }
             ]
           }
@@ -97,7 +97,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "ref"
+          "typeParam": "ref"
         }
       ],
       "name": "RefOutpGnrcFieldParam",
@@ -108,7 +108,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "ref"
+          "name": "ref"
         }
       ]
     }

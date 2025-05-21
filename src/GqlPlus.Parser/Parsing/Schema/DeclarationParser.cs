@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Ast;
+﻿using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -54,9 +53,15 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
     }
 
     IResult<TDefinition> definition = _definition.Parse(tokens, label);
-    return definition.MapOk(
-      value => AsResult(partial, value),
-      () => definition.AsPartial(ToResult(partial)));
+    return definition.MapOk(value => AsResult(partial, value), NotOk);
+
+    IResult<TResult> NotOk()
+    {
+      TokenMessage message = definition is IResultMessage messageResult
+        ? messageResult.Message
+        : tokens.Error(label, "definition");
+      return ToResult(partial).Partial(message);
+    }
   }
 
   protected virtual IResult<TResult> AsResult(AstPartial<TParam, TOption> partial, TDefinition value)
@@ -91,7 +96,7 @@ internal abstract class DeclarationParser<TDefinition, TResult>(
 { }
 
 internal record class AstPartial<TParam, TOption>(
-  TokenAt At,
+  ITokenAt At,
   string Name,
   string Description
 ) : AstDeclaration(At, Name, Description)

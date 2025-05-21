@@ -18,14 +18,14 @@
           "object": "AltInpGnrcPrntDualPrnt",
           "type": {
             "$tag": "_DualBase",
-            "value": "Number"
+            "dual": "Number"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "value": "String"
+          "dual": "String"
         }
       ],
       "fields": [
@@ -34,7 +34,7 @@
           "name": "alt",
           "type": {
             "$tag": "_DualBase",
-            "value": "Number"
+            "dual": "Number"
           }
         }
       ],
@@ -53,7 +53,7 @@
         "typeArgs": [
           {
             "$tag": "_DualArg",
-            "value": "AltInpGnrcPrntDualPrnt"
+            "dual": "AltInpGnrcPrntDualPrnt"
           }
         ]
       },
@@ -67,7 +67,7 @@
       "name": "RefInpGnrcPrntDualPrnt",
       "parent": {
         "$tag": "_InputBase",
-        "value": "ref"
+        "typeParam": "ref"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -76,7 +76,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "ref"
+          "name": "ref"
         }
       ]
     }

@@ -1,10 +1,9 @@
 ﻿using GqlPlus.Abstractions.Operation;
-using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Operation;
 
 internal sealed record class InlineAst(
-  TokenAt At,
+  ITokenAt At,
   params IGqlpSelection[] Selections
 ) : AstAbbreviated(At)
   , IGqlpInline
@@ -20,7 +19,7 @@ internal sealed record class InlineAst(
     get => Directives;
     init => Directives = [.. value];
   }
-  IEnumerable<IGqlpSelection> IGqlpInline.Selections => Selections;
+  IEnumerable<IGqlpSelection> IGqlpSelections.Selections => Selections;
 
   public bool Equals(InlineAst? other)
     => other is IGqlpInline inline && Equals(inline);

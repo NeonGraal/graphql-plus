@@ -18,14 +18,14 @@
           "object": "AltInpGnrcFieldParam",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "input": "Number"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "value": "String"
+          "input": "String"
         }
       ],
       "fields": [
@@ -34,7 +34,7 @@
           "name": "alt",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "input": "Number"
           }
         }
       ],
@@ -57,7 +57,7 @@
             "typeArgs": [
               {
                 "$tag": "_InputArg",
-                "value": "AltInpGnrcFieldParam"
+                "input": "AltInpGnrcFieldParam"
               }
             ]
           }
@@ -73,7 +73,7 @@
             "typeArgs": [
               {
                 "$tag": "_InputArg",
-                "value": "AltInpGnrcFieldParam"
+                "input": "AltInpGnrcFieldParam"
               }
             ]
           }
@@ -97,7 +97,7 @@
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "value": "ref"
+          "typeParam": "ref"
         }
       ],
       "name": "RefInpGnrcFieldParam",
@@ -108,7 +108,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "ref"
+          "name": "ref"
         }
       ]
     }

@@ -84,7 +84,7 @@
           ],
           "type": {
             "$tag": "_DualBase",
-            "value": "Field"
+            "dual": "Field"
           }
         }
       ],
@@ -118,7 +118,7 @@
           ],
           "type": {
             "$tag": "_DualBase",
-            "value": "Field"
+            "dual": "Field"
           }
         }
       ],

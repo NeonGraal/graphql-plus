@@ -11,7 +11,7 @@
           "object": "InpGnrcField",
           "type": {
             "$tag": "_InputBase",
-            "value": "type"
+            "typeParam": "type"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "value": "type"
+            "typeParam": "type"
           }
         }
       ],
@@ -33,7 +33,7 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "type"
+          "name": "type"
         }
       ]
     }

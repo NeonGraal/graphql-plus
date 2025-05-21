@@ -19,7 +19,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "outpCnstPrntEnum"
+          "name": "outpCnstPrntEnum"
         }
       ],
       "name": "EnumOutpCnstPrntEnum",
@@ -46,7 +46,7 @@
           "typeArgs": [
             {
               "$tag": "_OutputArg",
-              "value": "parentOutpCnstPrntEnum"
+              "output": "parentOutpCnstPrntEnum"
             }
           ]
         }
@@ -58,7 +58,7 @@
           "typeArgs": [
             {
               "$tag": "_OutputArg",
-              "value": "parentOutpCnstPrntEnum"
+              "output": "parentOutpCnstPrntEnum"
             }
           ]
         }
@@ -81,7 +81,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "parentOutpCnstPrntEnum"
+          "name": "parentOutpCnstPrntEnum"
         }
       ],
       "name": "ParentOutpCnstPrntEnum",
@@ -99,7 +99,7 @@
           "object": "RefOutpCnstPrntEnum",
           "type": {
             "$tag": "_OutputBase",
-            "value": "type"
+            "typeParam": "type"
           }
         }
       ],
@@ -109,7 +109,7 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "type"
+            "typeParam": "type"
           }
         }
       ],

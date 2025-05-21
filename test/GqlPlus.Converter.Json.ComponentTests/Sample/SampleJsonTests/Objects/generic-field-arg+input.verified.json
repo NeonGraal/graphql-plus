@@ -12,7 +12,12 @@
           "type": {
             "$tag": "_InputBase",
             "input": "RefInpGnrcFieldArg",
-            "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "typeParam": "type"
+              }
+            ]
           }
         }
       ],
@@ -23,7 +28,12 @@
           "type": {
             "$tag": "_InputBase",
             "input": "RefInpGnrcFieldArg",
-            "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "typeParam": "type"
+              }
+            ]
           }
         }
       ],
@@ -35,7 +45,7 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "type"
+          "name": "type"
         }
       ]
     },
@@ -51,7 +61,7 @@
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "value": "ref"
+          "typeParam": "ref"
         }
       ],
       "name": "RefInpGnrcFieldArg",
@@ -62,7 +72,7 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "name": "ref"
         }
       ]
     }

@@ -69,7 +69,7 @@
           "object": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -79,7 +79,7 @@
           "name": "output",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -90,7 +90,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_OutputTypeArg"
+            "output": "_OutputTypeArg"
           }
         ]
       },
@@ -115,14 +115,14 @@
           "object": "_OutputBase",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "_DualBase"
+          "output": "_DualBase"
         }
       ],
       "fields": [
@@ -131,7 +131,7 @@
           "name": "output",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -142,7 +142,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_OutputTypeArg"
+            "output": "_OutputTypeArg"
           }
         ]
       },
@@ -160,7 +160,7 @@
           "object": "_OutputEnum",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         },
         {
@@ -169,7 +169,7 @@
           "object": "_OutputEnum",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -179,7 +179,7 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         },
         {
@@ -187,7 +187,7 @@
           "name": "label",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -237,14 +237,14 @@
           "object": "_OutputField",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_InputParam"
+            "output": "_InputParam"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "_OutputEnum"
+          "output": "_OutputEnum"
         }
       ],
       "fields": [
@@ -262,7 +262,7 @@
           "name": "parameters",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_InputParam"
+            "output": "_InputParam"
           }
         }
       ],
@@ -273,7 +273,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_OutputBase"
+            "output": "_OutputBase"
           }
         ]
       },
@@ -291,7 +291,7 @@
           "object": "_OutputTypeArg",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         },
         {
@@ -309,7 +309,7 @@
           "object": "_OutputTypeArg",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -319,7 +319,7 @@
           "name": "output",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         },
         {
@@ -336,14 +336,14 @@
           "name": "label",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
       "name": "_OutputTypeArg",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "_ObjTypeArg"
+        "output": "_ObjTypeArg"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -457,19 +457,19 @@
           },
           {
             "$tag": "_OutputArg",
-            "value": "_OutputBase"
+            "output": "_OutputBase"
           },
           {
             "$tag": "_OutputArg",
-            "value": "_OutputTypeParam"
+            "output": "_OutputTypeParam"
           },
           {
             "$tag": "_OutputArg",
-            "value": "_OutputField"
+            "output": "_OutputField"
           },
           {
             "$tag": "_OutputArg",
-            "value": "_OutputAlternate"
+            "output": "_OutputAlternate"
           }
         ]
       },

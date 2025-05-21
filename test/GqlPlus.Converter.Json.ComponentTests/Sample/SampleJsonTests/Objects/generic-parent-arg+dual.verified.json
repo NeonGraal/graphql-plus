@@ -15,7 +15,12 @@
       "parent": {
         "$tag": "_DualBase",
         "dual": "RefDualGnrcPrntArg",
-        "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+        "typeArgs": [
+          {
+            "$tag": "_DualArg",
+            "typeParam": "type"
+          }
+        ]
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -24,7 +29,7 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "type"
+          "name": "type"
         }
       ]
     },
@@ -40,7 +45,7 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "value": "ref"
+          "typeParam": "ref"
         }
       ],
       "name": "RefDualGnrcPrntArg",
@@ -51,7 +56,7 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "name": "ref"
         }
       ]
     }

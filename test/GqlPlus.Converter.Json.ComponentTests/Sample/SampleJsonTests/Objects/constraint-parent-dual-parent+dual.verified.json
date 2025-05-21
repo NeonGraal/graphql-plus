@@ -18,7 +18,7 @@
           "object": "AltDualCnstPrntDualPrnt",
           "type": {
             "$tag": "_DualBase",
-            "value": "Number"
+            "dual": "Number"
           }
         }
       ],
@@ -28,14 +28,14 @@
           "name": "alt",
           "type": {
             "$tag": "_DualBase",
-            "value": "Number"
+            "dual": "Number"
           }
         }
       ],
       "name": "AltDualCnstPrntDualPrnt",
       "parent": {
         "$tag": "_DualBase",
-        "value": "PrntDualCnstPrntDualPrnt"
+        "dual": "PrntDualCnstPrntDualPrnt"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -58,7 +58,7 @@
           "object": "AltDualCnstPrntDualPrnt",
           "type": {
             "$tag": "_DualBase",
-            "value": "Number"
+            "dual": "Number"
           }
         }
       ],
@@ -69,7 +69,7 @@
         "typeArgs": [
           {
             "$tag": "_DualArg",
-            "value": "AltDualCnstPrntDualPrnt"
+            "dual": "AltDualCnstPrntDualPrnt"
           }
         ]
       },
@@ -90,7 +90,7 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "value": "String"
+          "dual": "String"
         }
       ],
       "name": "PrntDualCnstPrntDualPrnt",
@@ -104,7 +104,7 @@
       "name": "RefDualCnstPrntDualPrnt",
       "parent": {
         "$tag": "_DualBase",
-        "value": "ref"
+        "typeParam": "ref"
       },
       "typeKind": {
         "$tag": "_TypeKind",

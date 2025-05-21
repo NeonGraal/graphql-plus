@@ -11,7 +11,7 @@
           "object": "DualObjCnst",
           "type": {
             "$tag": "_DualBase",
-            "value": "type"
+            "typeParam": "type"
           }
         },
         {
@@ -20,7 +20,7 @@
           "object": "DualObjCnst",
           "type": {
             "$tag": "_DualBase",
-            "value": "type"
+            "typeParam": "type"
           }
         }
       ],
@@ -30,7 +30,7 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "value": "type"
+            "typeParam": "type"
           }
         },
         {
@@ -38,7 +38,7 @@
           "name": "str",
           "type": {
             "$tag": "_DualBase",
-            "value": "type"
+            "typeParam": "type"
           }
         }
       ],

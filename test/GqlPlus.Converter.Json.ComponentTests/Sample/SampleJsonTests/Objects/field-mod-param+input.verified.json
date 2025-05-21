@@ -18,14 +18,14 @@
           "object": "FldInpFieldModParam",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "input": "Number"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "value": "String"
+          "input": "String"
         }
       ],
       "fields": [
@@ -34,7 +34,7 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "input": "Number"
           }
         }
       ],
@@ -63,7 +63,7 @@
           "object": "InpFieldModParam",
           "type": {
             "$tag": "_InputBase",
-            "value": "FldInpFieldModParam"
+            "input": "FldInpFieldModParam"
           }
         }
       ],
@@ -83,7 +83,7 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "value": "FldInpFieldModParam"
+            "input": "FldInpFieldModParam"
           }
         }
       ],
@@ -95,7 +95,7 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "mod"
+          "name": "mod"
         }
       ]
     }

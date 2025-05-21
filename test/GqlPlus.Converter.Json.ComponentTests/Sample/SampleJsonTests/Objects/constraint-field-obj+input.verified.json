@@ -18,7 +18,7 @@
           "object": "AltInpCnstFieldObj",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "input": "Number"
           }
         }
       ],
@@ -28,14 +28,14 @@
           "name": "alt",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "input": "Number"
           }
         }
       ],
       "name": "AltInpCnstFieldObj",
       "parent": {
         "$tag": "_InputBase",
-        "value": "PrntInpCnstFieldObj"
+        "input": "PrntInpCnstFieldObj"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -51,7 +51,7 @@
           "object": "RefInpCnstFieldObj",
           "type": {
             "$tag": "_InputBase",
-            "value": "AltInpCnstFieldObj"
+            "input": "AltInpCnstFieldObj"
           }
         }
       ],
@@ -62,7 +62,7 @@
         "typeArgs": [
           {
             "$tag": "_InputArg",
-            "value": "AltInpCnstFieldObj"
+            "input": "AltInpCnstFieldObj"
           }
         ]
       },
@@ -83,7 +83,7 @@
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "value": "String"
+          "input": "String"
         }
       ],
       "name": "PrntInpCnstFieldObj",
@@ -101,7 +101,7 @@
           "object": "RefInpCnstFieldObj",
           "type": {
             "$tag": "_InputBase",
-            "value": "ref"
+            "typeParam": "ref"
           }
         }
       ],
@@ -111,7 +111,7 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "value": "ref"
+            "typeParam": "ref"
           }
         }
       ],

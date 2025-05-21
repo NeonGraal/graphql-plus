@@ -9,14 +9,24 @@
           "$tag": "_ObjectFor(_DualAlternate)",
           "dual": "RefDualGnrcAltArg",
           "object": "DualGnrcAltArg",
-          "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+          "typeArgs": [
+            {
+              "$tag": "_DualArg",
+              "typeParam": "type"
+            }
+          ]
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
           "dual": "RefDualGnrcAltArg",
-          "typeArgs": [{"$tag":"_TypeParam", "value":"type"}]
+          "typeArgs": [
+            {
+              "$tag": "_DualArg",
+              "typeParam": "type"
+            }
+          ]
         }
       ],
       "name": "DualGnrcAltArg",
@@ -27,7 +37,7 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "type"
+          "name": "type"
         }
       ]
     },
@@ -43,7 +53,7 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "value": "ref"
+          "typeParam": "ref"
         }
       ],
       "name": "RefDualGnrcAltArg",
@@ -54,7 +64,7 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "name": "ref"
         }
       ]
     }

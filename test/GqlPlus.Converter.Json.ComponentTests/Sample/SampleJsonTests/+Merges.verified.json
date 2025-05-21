@@ -114,7 +114,7 @@
       "parameters": [
         {
           "$tag": "_InputParam",
-          "value": "InDrctParam"
+          "input": "InDrctParam"
         }
       ],
       "repeatable": false
@@ -557,7 +557,7 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "value": "DualObjAltType"
+          "dual": "DualObjAltType"
         }
       ],
       "name": "DualObjAlt",
@@ -583,7 +583,7 @@
           "object": "DualObjCnst",
           "type": {
             "$tag": "_DualBase",
-            "value": "type"
+            "typeParam": "type"
           }
         },
         {
@@ -592,7 +592,7 @@
           "object": "DualObjCnst",
           "type": {
             "$tag": "_DualBase",
-            "value": "type"
+            "typeParam": "type"
           }
         }
       ],
@@ -602,7 +602,7 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "value": "type"
+            "typeParam": "type"
           }
         },
         {
@@ -610,7 +610,7 @@
           "name": "str",
           "type": {
             "$tag": "_DualBase",
-            "value": "type"
+            "typeParam": "type"
           }
         }
       ],
@@ -643,7 +643,7 @@
           "object": "DualObjField",
           "type": {
             "$tag": "_DualBase",
-            "value": "FldDualObjField"
+            "dual": "FldDualObjField"
           }
         }
       ],
@@ -653,7 +653,7 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "value": "FldDualObjField"
+            "dual": "FldDualObjField"
           }
         }
       ],
@@ -673,7 +673,7 @@
           "object": "DualObjFieldAlias",
           "type": {
             "$tag": "_DualBase",
-            "value": "FldDualObjFieldAlias"
+            "dual": "FldDualObjFieldAlias"
           }
         }
       ],
@@ -684,7 +684,7 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "value": "FldDualObjFieldAlias"
+            "dual": "FldDualObjFieldAlias"
           }
         }
       ],
@@ -703,7 +703,7 @@
           "object": "DualObjParam",
           "type": {
             "$tag": "_DualBase",
-            "value": "test"
+            "typeParam": "test"
           }
         },
         {
@@ -712,7 +712,7 @@
           "object": "DualObjParam",
           "type": {
             "$tag": "_DualBase",
-            "value": "type"
+            "typeParam": "type"
           }
         }
       ],
@@ -722,7 +722,7 @@
           "name": "test",
           "type": {
             "$tag": "_DualBase",
-            "value": "test"
+            "typeParam": "test"
           }
         },
         {
@@ -730,7 +730,7 @@
           "name": "type",
           "type": {
             "$tag": "_DualBase",
-            "value": "type"
+            "typeParam": "type"
           }
         }
       ],
@@ -742,11 +742,11 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "test"
+          "name": "test"
         },
         {
           "$tag": "_TypeParam",
-          "value": "type"
+          "name": "type"
         }
       ]
     },
@@ -759,7 +759,7 @@
           "object": "DualObjParamCnst",
           "type": {
             "$tag": "_DualBase",
-            "value": "test"
+            "typeParam": "test"
           }
         },
         {
@@ -768,7 +768,7 @@
           "object": "DualObjParamCnst",
           "type": {
             "$tag": "_DualBase",
-            "value": "test"
+            "typeParam": "test"
           }
         }
       ],
@@ -778,7 +778,7 @@
           "name": "test",
           "type": {
             "$tag": "_DualBase",
-            "value": "test"
+            "typeParam": "test"
           }
         },
         {
@@ -786,7 +786,7 @@
           "name": "type",
           "type": {
             "$tag": "_DualBase",
-            "value": "test"
+            "typeParam": "test"
           }
         }
       ],
@@ -819,7 +819,7 @@
           "object": "DualObjParamDup",
           "type": {
             "$tag": "_DualBase",
-            "value": "test"
+            "typeParam": "test"
           }
         },
         {
@@ -828,7 +828,7 @@
           "object": "DualObjParamDup",
           "type": {
             "$tag": "_DualBase",
-            "value": "test"
+            "typeParam": "test"
           }
         }
       ],
@@ -838,7 +838,7 @@
           "name": "test",
           "type": {
             "$tag": "_DualBase",
-            "value": "test"
+            "typeParam": "test"
           }
         },
         {
@@ -846,7 +846,7 @@
           "name": "type",
           "type": {
             "$tag": "_DualBase",
-            "value": "test"
+            "typeParam": "test"
           }
         }
       ],
@@ -858,7 +858,7 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "test"
+          "name": "test"
         }
       ]
     },
@@ -867,7 +867,7 @@
       "name": "DualObjPrnt",
       "parent": {
         "$tag": "_DualBase",
-        "value": "RefDualObjPrnt"
+        "dual": "RefDualObjPrnt"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -887,7 +887,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "enumAlias"
+          "name": "enumAlias"
         }
       ],
       "name": "EnumAlias",
@@ -913,11 +913,11 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "one"
+          "name": "one"
         },
         {
           "$tag": "_Aliased",
-          "value": "two"
+          "name": "two"
         }
       ],
       "name": "EnumDiff",
@@ -938,7 +938,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "enumSame"
+          "name": "enumSame"
         }
       ],
       "name": "EnumSame",
@@ -964,7 +964,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "enumSamePrnt"
+          "name": "enumSamePrnt"
         }
       ],
       "name": "EnumSamePrnt",
@@ -1097,7 +1097,7 @@
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "value": "InpObjAltType"
+          "input": "InpObjAltType"
         }
       ],
       "name": "InpObjAlt",
@@ -1123,7 +1123,7 @@
           "object": "InpObjCnst",
           "type": {
             "$tag": "_InputBase",
-            "value": "type"
+            "typeParam": "type"
           }
         },
         {
@@ -1132,7 +1132,7 @@
           "object": "InpObjCnst",
           "type": {
             "$tag": "_InputBase",
-            "value": "type"
+            "typeParam": "type"
           }
         }
       ],
@@ -1142,7 +1142,7 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "value": "type"
+            "typeParam": "type"
           }
         },
         {
@@ -1150,7 +1150,7 @@
           "name": "str",
           "type": {
             "$tag": "_InputBase",
-            "value": "type"
+            "typeParam": "type"
           }
         }
       ],
@@ -1183,7 +1183,7 @@
           "object": "InpObjField",
           "type": {
             "$tag": "_InputBase",
-            "value": "FldInpObjField"
+            "input": "FldInpObjField"
           }
         }
       ],
@@ -1193,7 +1193,7 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "value": "FldInpObjField"
+            "input": "FldInpObjField"
           }
         }
       ],
@@ -1213,7 +1213,7 @@
           "object": "InpObjFieldAlias",
           "type": {
             "$tag": "_InputBase",
-            "value": "FldInpObjFieldAlias"
+            "input": "FldInpObjFieldAlias"
           }
         }
       ],
@@ -1224,7 +1224,7 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "value": "FldInpObjFieldAlias"
+            "input": "FldInpObjFieldAlias"
           }
         }
       ],
@@ -1243,7 +1243,7 @@
           "object": "InpObjParam",
           "type": {
             "$tag": "_InputBase",
-            "value": "test"
+            "typeParam": "test"
           }
         },
         {
@@ -1252,7 +1252,7 @@
           "object": "InpObjParam",
           "type": {
             "$tag": "_InputBase",
-            "value": "type"
+            "typeParam": "type"
           }
         }
       ],
@@ -1262,7 +1262,7 @@
           "name": "test",
           "type": {
             "$tag": "_InputBase",
-            "value": "test"
+            "typeParam": "test"
           }
         },
         {
@@ -1270,7 +1270,7 @@
           "name": "type",
           "type": {
             "$tag": "_InputBase",
-            "value": "type"
+            "typeParam": "type"
           }
         }
       ],
@@ -1282,11 +1282,11 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "test"
+          "name": "test"
         },
         {
           "$tag": "_TypeParam",
-          "value": "type"
+          "name": "type"
         }
       ]
     },
@@ -1299,7 +1299,7 @@
           "object": "InpObjParamCnst",
           "type": {
             "$tag": "_InputBase",
-            "value": "test"
+            "typeParam": "test"
           }
         },
         {
@@ -1308,7 +1308,7 @@
           "object": "InpObjParamCnst",
           "type": {
             "$tag": "_InputBase",
-            "value": "test"
+            "typeParam": "test"
           }
         }
       ],
@@ -1318,7 +1318,7 @@
           "name": "test",
           "type": {
             "$tag": "_InputBase",
-            "value": "test"
+            "typeParam": "test"
           }
         },
         {
@@ -1326,7 +1326,7 @@
           "name": "type",
           "type": {
             "$tag": "_InputBase",
-            "value": "test"
+            "typeParam": "test"
           }
         }
       ],
@@ -1359,7 +1359,7 @@
           "object": "InpObjParamDup",
           "type": {
             "$tag": "_InputBase",
-            "value": "test"
+            "typeParam": "test"
           }
         },
         {
@@ -1368,7 +1368,7 @@
           "object": "InpObjParamDup",
           "type": {
             "$tag": "_InputBase",
-            "value": "test"
+            "typeParam": "test"
           }
         }
       ],
@@ -1378,7 +1378,7 @@
           "name": "test",
           "type": {
             "$tag": "_InputBase",
-            "value": "test"
+            "typeParam": "test"
           }
         },
         {
@@ -1386,7 +1386,7 @@
           "name": "type",
           "type": {
             "$tag": "_InputBase",
-            "value": "test"
+            "typeParam": "test"
           }
         }
       ],
@@ -1398,7 +1398,7 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "test"
+          "name": "test"
         }
       ]
     },
@@ -1407,7 +1407,7 @@
       "name": "InpObjPrnt",
       "parent": {
         "$tag": "_InputBase",
-        "value": "RefInpObjPrnt"
+        "input": "RefInpObjPrnt"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -1528,16 +1528,16 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "value": "OutpFieldParam1"
+              "input": "OutpFieldParam1"
             },
             {
               "$tag": "_InputParam",
-              "value": "OutpFieldParam2"
+              "input": "OutpFieldParam2"
             }
           ],
           "type": {
             "$tag": "_DualBase",
-            "value": "FldOutpFieldParam"
+            "dual": "FldOutpFieldParam"
           }
         }
       ],
@@ -1548,16 +1548,16 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "value": "OutpFieldParam1"
+              "input": "OutpFieldParam1"
             },
             {
               "$tag": "_InputParam",
-              "value": "OutpFieldParam2"
+              "input": "OutpFieldParam2"
             }
           ],
           "type": {
             "$tag": "_DualBase",
-            "value": "FldOutpFieldParam"
+            "dual": "FldOutpFieldParam"
           }
         }
       ],
@@ -1612,7 +1612,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "OutpObjAltType"
+          "output": "OutpObjAltType"
         }
       ],
       "name": "OutpObjAlt",
@@ -1638,7 +1638,7 @@
           "object": "OutpObjCnst",
           "type": {
             "$tag": "_OutputBase",
-            "value": "type"
+            "typeParam": "type"
           }
         },
         {
@@ -1647,7 +1647,7 @@
           "object": "OutpObjCnst",
           "type": {
             "$tag": "_OutputBase",
-            "value": "type"
+            "typeParam": "type"
           }
         }
       ],
@@ -1657,7 +1657,7 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "type"
+            "typeParam": "type"
           }
         },
         {
@@ -1665,7 +1665,7 @@
           "name": "str",
           "type": {
             "$tag": "_OutputBase",
-            "value": "type"
+            "typeParam": "type"
           }
         }
       ],
@@ -1698,7 +1698,7 @@
           "object": "OutpObjField",
           "type": {
             "$tag": "_OutputBase",
-            "value": "FldOutpObjField"
+            "output": "FldOutpObjField"
           }
         }
       ],
@@ -1708,7 +1708,7 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "FldOutpObjField"
+            "output": "FldOutpObjField"
           }
         }
       ],
@@ -1728,7 +1728,7 @@
           "object": "OutpObjFieldAlias",
           "type": {
             "$tag": "_OutputBase",
-            "value": "FldOutpObjFieldAlias"
+            "output": "FldOutpObjFieldAlias"
           }
         }
       ],
@@ -1739,7 +1739,7 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "FldOutpObjFieldAlias"
+            "output": "FldOutpObjFieldAlias"
           }
         }
       ],
@@ -1758,7 +1758,7 @@
           "object": "OutpObjParam",
           "type": {
             "$tag": "_OutputBase",
-            "value": "test"
+            "typeParam": "test"
           }
         },
         {
@@ -1767,7 +1767,7 @@
           "object": "OutpObjParam",
           "type": {
             "$tag": "_OutputBase",
-            "value": "type"
+            "typeParam": "type"
           }
         }
       ],
@@ -1777,7 +1777,7 @@
           "name": "test",
           "type": {
             "$tag": "_OutputBase",
-            "value": "test"
+            "typeParam": "test"
           }
         },
         {
@@ -1785,7 +1785,7 @@
           "name": "type",
           "type": {
             "$tag": "_OutputBase",
-            "value": "type"
+            "typeParam": "type"
           }
         }
       ],
@@ -1797,11 +1797,11 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "test"
+          "name": "test"
         },
         {
           "$tag": "_TypeParam",
-          "value": "type"
+          "name": "type"
         }
       ]
     },
@@ -1814,7 +1814,7 @@
           "object": "OutpObjParamCnst",
           "type": {
             "$tag": "_OutputBase",
-            "value": "test"
+            "typeParam": "test"
           }
         },
         {
@@ -1823,7 +1823,7 @@
           "object": "OutpObjParamCnst",
           "type": {
             "$tag": "_OutputBase",
-            "value": "test"
+            "typeParam": "test"
           }
         }
       ],
@@ -1833,7 +1833,7 @@
           "name": "test",
           "type": {
             "$tag": "_OutputBase",
-            "value": "test"
+            "typeParam": "test"
           }
         },
         {
@@ -1841,7 +1841,7 @@
           "name": "type",
           "type": {
             "$tag": "_OutputBase",
-            "value": "test"
+            "typeParam": "test"
           }
         }
       ],
@@ -1874,7 +1874,7 @@
           "object": "OutpObjParamDup",
           "type": {
             "$tag": "_OutputBase",
-            "value": "test"
+            "typeParam": "test"
           }
         },
         {
@@ -1883,7 +1883,7 @@
           "object": "OutpObjParamDup",
           "type": {
             "$tag": "_OutputBase",
-            "value": "test"
+            "typeParam": "test"
           }
         }
       ],
@@ -1893,7 +1893,7 @@
           "name": "test",
           "type": {
             "$tag": "_OutputBase",
-            "value": "test"
+            "typeParam": "test"
           }
         },
         {
@@ -1901,7 +1901,7 @@
           "name": "type",
           "type": {
             "$tag": "_OutputBase",
-            "value": "test"
+            "typeParam": "test"
           }
         }
       ],
@@ -1913,7 +1913,7 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "test"
+          "name": "test"
         }
       ]
     },
@@ -1922,7 +1922,7 @@
       "name": "OutpObjPrnt",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "RefOutpObjPrnt"
+        "output": "RefOutpObjPrnt"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -1941,7 +1941,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "prnt_enumSamePrnt"
+          "name": "prnt_enumSamePrnt"
         }
       ],
       "name": "PrntEnumSamePrnt",
@@ -1962,7 +1962,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "String"
+          "name": "String"
         }
       ],
       "name": "PrntUnionSamePrnt",
@@ -2013,11 +2013,11 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "Boolean"
+          "name": "Boolean"
         },
         {
           "$tag": "_Aliased",
-          "value": "Number"
+          "name": "Number"
         }
       ],
       "name": "UnionAlias",
@@ -2043,11 +2043,11 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "Boolean"
+          "name": "Boolean"
         },
         {
           "$tag": "_Aliased",
-          "value": "Number"
+          "name": "Number"
         }
       ],
       "name": "UnionDiff",
@@ -2068,7 +2068,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "Boolean"
+          "name": "Boolean"
         }
       ],
       "name": "UnionSame",
@@ -2094,7 +2094,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "Boolean"
+          "name": "Boolean"
         }
       ],
       "name": "UnionSamePrnt",

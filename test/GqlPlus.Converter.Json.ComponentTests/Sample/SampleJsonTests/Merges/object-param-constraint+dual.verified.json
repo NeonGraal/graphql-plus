@@ -11,7 +11,7 @@
           "object": "DualObjParamCnst",
           "type": {
             "$tag": "_DualBase",
-            "value": "test"
+            "typeParam": "test"
           }
         },
         {
@@ -20,7 +20,7 @@
           "object": "DualObjParamCnst",
           "type": {
             "$tag": "_DualBase",
-            "value": "test"
+            "typeParam": "test"
           }
         }
       ],
@@ -30,7 +30,7 @@
           "name": "test",
           "type": {
             "$tag": "_DualBase",
-            "value": "test"
+            "typeParam": "test"
           }
         },
         {
@@ -38,7 +38,7 @@
           "name": "type",
           "type": {
             "$tag": "_DualBase",
-            "value": "test"
+            "typeParam": "test"
           }
         }
       ],

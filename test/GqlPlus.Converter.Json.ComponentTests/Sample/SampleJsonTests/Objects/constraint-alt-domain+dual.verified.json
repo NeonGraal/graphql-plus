@@ -39,7 +39,7 @@
           "typeArgs": [
             {
               "$tag": "_DualArg",
-              "value": "DomCnstAltDmn"
+              "dual": "DomCnstAltDmn"
             }
           ]
         }
@@ -51,7 +51,7 @@
           "typeArgs": [
             {
               "$tag": "_DualArg",
-              "value": "DomCnstAltDmn"
+              "dual": "DomCnstAltDmn"
             }
           ]
         }
@@ -74,7 +74,7 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "value": "ref"
+          "typeParam": "ref"
         }
       ],
       "name": "RefDualCnstAltDmn",

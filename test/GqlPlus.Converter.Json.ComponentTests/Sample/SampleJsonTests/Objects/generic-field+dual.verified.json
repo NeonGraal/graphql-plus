@@ -11,7 +11,7 @@
           "object": "DualGnrcField",
           "type": {
             "$tag": "_DualBase",
-            "value": "type"
+            "typeParam": "type"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "value": "type"
+            "typeParam": "type"
           }
         }
       ],
@@ -33,7 +33,7 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "type"
+          "name": "type"
         }
       ]
     }

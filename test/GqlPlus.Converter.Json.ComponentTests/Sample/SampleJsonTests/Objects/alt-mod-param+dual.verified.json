@@ -18,14 +18,14 @@
           "object": "AltDualAltModParam",
           "type": {
             "$tag": "_DualBase",
-            "value": "Number"
+            "dual": "Number"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "value": "String"
+          "dual": "String"
         }
       ],
       "fields": [
@@ -34,7 +34,7 @@
           "name": "alt",
           "type": {
             "$tag": "_DualBase",
-            "value": "Number"
+            "dual": "Number"
           }
         }
       ],
@@ -87,7 +87,7 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "mod"
+          "name": "mod"
         }
       ]
     }

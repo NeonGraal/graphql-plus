@@ -18,7 +18,7 @@
           "object": "AltOutpCnstAltDual",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Number"
+            "output": "Number"
           }
         }
       ],
@@ -28,14 +28,14 @@
           "name": "alt",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Number"
+            "output": "Number"
           }
         }
       ],
       "name": "AltOutpCnstAltDual",
       "parent": {
         "$tag": "_DualBase",
-        "value": "PrntOutpCnstAltDual"
+        "dual": "PrntOutpCnstAltDual"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -52,7 +52,7 @@
           "typeArgs": [
             {
               "$tag": "_OutputArg",
-              "value": "AltOutpCnstAltDual"
+              "output": "AltOutpCnstAltDual"
             }
           ]
         }
@@ -64,7 +64,7 @@
           "typeArgs": [
             {
               "$tag": "_OutputArg",
-              "value": "AltOutpCnstAltDual"
+              "output": "AltOutpCnstAltDual"
             }
           ]
         }
@@ -87,7 +87,7 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "value": "String"
+          "dual": "String"
         }
       ],
       "name": "PrntOutpCnstAltDual",
@@ -108,7 +108,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "ref"
+          "typeParam": "ref"
         }
       ],
       "name": "RefOutpCnstAltDual",

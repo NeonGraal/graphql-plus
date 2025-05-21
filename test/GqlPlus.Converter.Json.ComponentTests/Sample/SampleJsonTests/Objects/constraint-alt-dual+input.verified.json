@@ -18,7 +18,7 @@
           "object": "AltInpCnstAltDual",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "input": "Number"
           }
         }
       ],
@@ -28,14 +28,14 @@
           "name": "alt",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "input": "Number"
           }
         }
       ],
       "name": "AltInpCnstAltDual",
       "parent": {
         "$tag": "_DualBase",
-        "value": "PrntInpCnstAltDual"
+        "dual": "PrntInpCnstAltDual"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -52,7 +52,7 @@
           "typeArgs": [
             {
               "$tag": "_InputArg",
-              "value": "AltInpCnstAltDual"
+              "input": "AltInpCnstAltDual"
             }
           ]
         }
@@ -64,7 +64,7 @@
           "typeArgs": [
             {
               "$tag": "_InputArg",
-              "value": "AltInpCnstAltDual"
+              "input": "AltInpCnstAltDual"
             }
           ]
         }
@@ -87,7 +87,7 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "value": "String"
+          "dual": "String"
         }
       ],
       "name": "PrntInpCnstAltDual",
@@ -108,7 +108,7 @@
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "value": "ref"
+          "typeParam": "ref"
         }
       ],
       "name": "RefInpCnstAltDual",

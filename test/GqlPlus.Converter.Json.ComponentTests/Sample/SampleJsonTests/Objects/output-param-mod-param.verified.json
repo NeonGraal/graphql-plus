@@ -47,14 +47,14 @@
           "object": "InOutpParamModParam",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "input": "Number"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "value": "String"
+          "input": "String"
         }
       ],
       "fields": [
@@ -63,7 +63,7 @@
           "name": "param",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "input": "Number"
           }
         }
       ],
@@ -98,7 +98,7 @@
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "DomOutpParamModParam"
+            "output": "DomOutpParamModParam"
           }
         }
       ],
@@ -124,7 +124,7 @@
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "DomOutpParamModParam"
+            "output": "DomOutpParamModParam"
           }
         }
       ],
@@ -136,7 +136,7 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "mod"
+          "name": "mod"
         }
       ]
     }

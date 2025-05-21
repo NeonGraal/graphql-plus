@@ -12,7 +12,7 @@
           "typeArgs": [
             {
               "$tag": "_InputArg",
-              "value": "String"
+              "input": "String"
             }
           ]
         }
@@ -24,7 +24,7 @@
           "typeArgs": [
             {
               "$tag": "_InputArg",
-              "value": "String"
+              "input": "String"
             }
           ]
         }
@@ -47,7 +47,7 @@
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "value": "ref"
+          "typeParam": "ref"
         }
       ],
       "name": "RefInpGnrcAltSmpl",
@@ -58,7 +58,7 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "value": "ref"
+          "name": "ref"
         }
       ]
     }

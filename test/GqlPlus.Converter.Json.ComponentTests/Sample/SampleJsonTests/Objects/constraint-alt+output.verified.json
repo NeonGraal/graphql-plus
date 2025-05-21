@@ -14,7 +14,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "type"
+          "typeParam": "type"
         }
       ],
       "name": "OutpCnstAlt",

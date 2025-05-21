@@ -14,7 +14,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "outpCnstEnum"
+          "name": "outpCnstEnum"
         }
       ],
       "name": "EnumOutpCnstEnum",
@@ -33,7 +33,7 @@
           "typeArgs": [
             {
               "$tag": "_OutputArg",
-              "value": "outpCnstEnum"
+              "output": "outpCnstEnum"
             }
           ]
         }
@@ -45,7 +45,7 @@
           "typeArgs": [
             {
               "$tag": "_OutputArg",
-              "value": "outpCnstEnum"
+              "output": "outpCnstEnum"
             }
           ]
         }
@@ -65,7 +65,7 @@
           "object": "RefOutpCnstEnum",
           "type": {
             "$tag": "_OutputBase",
-            "value": "type"
+            "typeParam": "type"
           }
         }
       ],
@@ -75,7 +75,7 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "type"
+            "typeParam": "type"
           }
         }
       ],

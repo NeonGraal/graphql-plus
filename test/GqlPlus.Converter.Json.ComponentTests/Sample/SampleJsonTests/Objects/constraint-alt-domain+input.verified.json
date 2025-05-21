@@ -39,7 +39,7 @@
           "typeArgs": [
             {
               "$tag": "_InputArg",
-              "value": "DomCnstAltDmn"
+              "input": "DomCnstAltDmn"
             }
           ]
         }
@@ -51,7 +51,7 @@
           "typeArgs": [
             {
               "$tag": "_InputArg",
-              "value": "DomCnstAltDmn"
+              "input": "DomCnstAltDmn"
             }
           ]
         }
@@ -74,7 +74,7 @@
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "value": "ref"
+          "typeParam": "ref"
         }
       ],
       "name": "RefInpCnstAltDmn",

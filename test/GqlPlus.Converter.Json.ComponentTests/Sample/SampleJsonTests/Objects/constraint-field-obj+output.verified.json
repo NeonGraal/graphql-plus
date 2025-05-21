@@ -18,7 +18,7 @@
           "object": "AltOutpCnstFieldObj",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Number"
+            "output": "Number"
           }
         }
       ],
@@ -28,14 +28,14 @@
           "name": "alt",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Number"
+            "output": "Number"
           }
         }
       ],
       "name": "AltOutpCnstFieldObj",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "PrntOutpCnstFieldObj"
+        "output": "PrntOutpCnstFieldObj"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -51,7 +51,7 @@
           "object": "RefOutpCnstFieldObj",
           "type": {
             "$tag": "_OutputBase",
-            "value": "AltOutpCnstFieldObj"
+            "output": "AltOutpCnstFieldObj"
           }
         }
       ],
@@ -62,7 +62,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "AltOutpCnstFieldObj"
+            "output": "AltOutpCnstFieldObj"
           }
         ]
       },
@@ -83,7 +83,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "String"
+          "output": "String"
         }
       ],
       "name": "PrntOutpCnstFieldObj",
@@ -101,7 +101,7 @@
           "object": "RefOutpCnstFieldObj",
           "type": {
             "$tag": "_OutputBase",
-            "value": "ref"
+            "typeParam": "ref"
           }
         }
       ],
@@ -111,7 +111,7 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "ref"
+            "typeParam": "ref"
           }
         }
       ],

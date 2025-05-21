@@ -1,7 +1,8 @@
-﻿namespace GqlPlus.Resolving;
+﻿
+namespace GqlPlus.Resolving;
 
 public class TypeOutputResolverTests
-  : ResolverClassTestBase<TypeOutputModel>
+  : ResolverTypeObjectTypeTestBase<TypeOutputModel, OutputBaseModel, OutputFieldModel, OutputAlternateModel>
 {
   protected override IResolver<TypeOutputModel> Resolver { get; }
 
@@ -11,16 +12,8 @@ public class TypeOutputResolverTests
     Resolver = new TypeOutputResolver(dual);
   }
 
-  [Theory, RepeatData]
-  public void NewItem_CreatesOutputMemberModel_WithExpectedProperties(string name, string contents)
-  {
-    TypeOutputModel model = new(name, contents);
-
-    TypeOutputModel result = Resolver.Resolve(model, Context);
-
-    result.ShouldNotBeNull()
-      .ShouldSatisfyAllConditions(
-        r => r.Name.ShouldBe(name),
-        r => r.Description.ShouldBe(contents));
-  }
+  protected override OutputAlternateModel MakeAlternate(string alternate) => new(alternate, "");
+  protected override OutputFieldModel MakeField(FieldInput field) => new(field.Name, new(field.Type, ""), "");
+  protected override OutputBaseModel NewParent(string parent, string description) => new(parent, description);
+  protected override TypeOutputModel NewModel(string name, string description) => new(name, description);
 }

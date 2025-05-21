@@ -9,7 +9,7 @@ public abstract class ResolverParentTypeTestBase<TModel, TAll>
 }
 
 public abstract class ResolverParentTypeTestBase<TModel, TItem, TAll>
-  : ResolverChildTypeTestBase<TModel>
+  : ResolverChildTypeTestBase<TModel, TypeRefModel<SimpleKindModel>>
   where TModel : ParentTypeModel<TItem, TAll>
   where TItem : IModelBase
   where TAll : IModelBase

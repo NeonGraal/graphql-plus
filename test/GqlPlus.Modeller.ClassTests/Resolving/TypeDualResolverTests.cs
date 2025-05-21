@@ -1,20 +1,17 @@
-﻿namespace GqlPlus.Resolving;
+﻿
+namespace GqlPlus.Resolving;
 
 public class TypeDualResolverTests
-  : ResolverClassTestBase<TypeDualModel>
+  : ResolverTypeObjectTypeTestBase<TypeDualModel, DualBaseModel, DualFieldModel, DualAlternateModel>
 {
   protected override IResolver<TypeDualModel> Resolver { get; } = new TypeDualResolver();
 
-  [Theory, RepeatData]
-  public void NewItem_CreatesDualMemberModel_WithExpectedProperties(string name, string contents)
-  {
-    TypeDualModel model = new(name, contents);
-
-    TypeDualModel result = Resolver.Resolve(model, Context);
-
-    result.ShouldNotBeNull()
-      .ShouldSatisfyAllConditions(
-        r => r.Name.ShouldBe(name),
-        r => r.Description.ShouldBe(contents));
-  }
+  protected override DualAlternateModel MakeAlternate(string alternate)
+    => new(alternate, "");
+  protected override DualFieldModel MakeField(FieldInput field)
+    => new(field.Name, new(field.Type, ""), "");
+  protected override TypeDualModel NewModel(string name, string description)
+    => new(name, description);
+  protected override DualBaseModel NewParent(string parent, string description)
+    => new(parent, description);
 }

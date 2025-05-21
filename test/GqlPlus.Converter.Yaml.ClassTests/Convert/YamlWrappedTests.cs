@@ -1,10 +1,26 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using Xunit;
+using YamlDotNet.Core.Tokens;
 
 namespace GqlPlus.Convert;
 
 public class YamlWrappedTests
   : ConverterClassTestBase
 {
+  [Fact]
+  public void WithListFlowSpecific_ReturnsCorrect()
+  {
+    // Arrange
+    string[] input = ["L__8OEl_G", "G_7_x___j4GK1___8PVI", "CB83yzlk__41rUr3FU_", "mK33H_", "r3OO"];
+    Structured model = input.Render(flow: true);
+
+    // Act
+    string result = Convert(model);
+
+    // Assert
+    WithListFlow_Check(result, input);
+  }
+
   protected override string Convert(Structured model)
     => model.ToYaml(wrapped: true);
 
@@ -12,8 +28,8 @@ public class YamlWrappedTests
     => result.ShouldStartWith($"{input}");
   protected override void WithIdentifier_Check(string result, string input)
     => result.ShouldStartWith(input);
-  protected override void WithListFlow_Check(string result, string[] input)
-    => result.ShouldStartWith(input.Surround("[", "]", ", "));
+  protected override void WithListFlow_Check(string result, [NotNull] string[] input)
+    => result.ToLines().ShouldBe(Wrapped("[", "]", input, k => k, "  "));
   protected override void WithList_Check(string result, string[] input)
     => result.ToLines().ShouldBe(input.Select(s => "- " + s));
   protected override void WithListMap_Check(string result, string[] input)

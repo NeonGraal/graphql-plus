@@ -1,7 +1,8 @@
-﻿namespace GqlPlus.Resolving;
+﻿
+namespace GqlPlus.Resolving;
 
 public class TypeInputResolverTests
-  : ResolverClassTestBase<TypeInputModel>
+  : ResolverTypeObjectTypeTestBase<TypeInputModel, InputBaseModel, InputFieldModel, InputAlternateModel>
 {
   protected override IResolver<TypeInputModel> Resolver { get; }
 
@@ -11,16 +12,8 @@ public class TypeInputResolverTests
     Resolver = new TypeInputResolver(dual);
   }
 
-  [Theory, RepeatData]
-  public void NewItem_CreatesInputMemberModel_WithExpectedProperties(string name, string contents)
-  {
-    TypeInputModel model = new(name, contents);
-
-    TypeInputModel result = Resolver.Resolve(model, Context);
-
-    result.ShouldNotBeNull()
-      .ShouldSatisfyAllConditions(
-        r => r.Name.ShouldBe(name),
-        r => r.Description.ShouldBe(contents));
-  }
+  protected override InputAlternateModel MakeAlternate(string alternate) => new(alternate, "");
+  protected override InputFieldModel MakeField(FieldInput field) => new(field.Name, new(field.Type, ""), "");
+  protected override InputBaseModel NewParent(string parent, string description) => new(parent, description);
+  protected override TypeInputModel NewModel(string name, string description) => new(name, description);
 }

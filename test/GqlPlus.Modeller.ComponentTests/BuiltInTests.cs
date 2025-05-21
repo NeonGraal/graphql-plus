@@ -72,7 +72,7 @@ public class BuiltInTests(IModelAndRender renderer)
       Declarations = BuiltIn.Basic
     };
 
-    ITypesContext context = renderer.Context();
+    IModelsContext context = renderer.Context();
     Structured result = renderer.RenderAst(schema, context);
 
     context.Errors.ShouldBeEmpty();
@@ -85,7 +85,7 @@ public class BuiltInTests(IModelAndRender renderer)
       Declarations = BuiltIn.Internal
     };
 
-    ITypesContext context = renderer.Context();
+    IModelsContext context = renderer.Context();
     Structured result = renderer.RenderAst(schema, context);
 
     context.Errors.ShouldBeEmpty();
@@ -107,7 +107,7 @@ public class BuiltInTests(IModelAndRender renderer)
       Declarations = [.. extras.Where(e => e != type)]
     };
 
-    ITypesContext context = renderer.Context();
+    IModelsContext context = renderer.Context();
     Structured result = renderer.RenderAst(schema, context, extrasSchema);
 
     context.Errors.ShouldBeEmpty(type?.Label);

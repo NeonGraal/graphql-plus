@@ -13,7 +13,7 @@ internal class SchemaModeller(
   {
     IGqlpType[] typeDeclarations = ast.Declarations.ArrayOf<IGqlpType>();
     ITokenMessages errors = ast.Errors;
-    if (typeKinds is TypesContext collection) {
+    if (typeKinds is IModelsContext collection) {
       errors = collection.Errors;
       errors.Clear();
       errors.Add(ast.Errors);

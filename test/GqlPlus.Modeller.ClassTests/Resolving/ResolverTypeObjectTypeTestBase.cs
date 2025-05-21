@@ -51,7 +51,7 @@ public abstract class ResolverTypeObjectTypeTestBase<TModel, TBase, TField, TAlt
     TModel parentModel = NewModel(parent, "") with {
       Fields = objFields,
     };
-    Context.TryGetType(name, parent, out TModel? parentType).Returns(c => { c[2] = parentModel; return true; });
+    Context.AddModels([parentModel]);
 
     TModel model = NewModel(name, "") with {
       Parent = NewParent(parent, ""),
@@ -73,7 +73,7 @@ public abstract class ResolverTypeObjectTypeTestBase<TModel, TBase, TField, TAlt
     TModel parentModel = NewModel(parent, "") with {
       Alternates = objAlternates,
     };
-    Context.TryGetType(name, parent, out TModel? parentType).Returns(c => { c[2] = parentModel; return true; });
+    Context.AddModels([parentModel]);
 
     TModel model = NewModel(name, "") with {
       Parent = NewParent(parent, ""),

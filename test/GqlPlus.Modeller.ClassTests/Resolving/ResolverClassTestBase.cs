@@ -1,16 +1,11 @@
 ﻿namespace GqlPlus.Resolving;
 
-public abstract class ResolverClassTestBase<TModel>(
-  IResolveContext context
-) : SubstituteBase
+public abstract class ResolverClassTestBase<TModel>
+  : SubstituteBase
     where TModel : IModelBase
 {
   protected abstract IResolver<TModel> Resolver { get; }
-  protected IResolveContext Context { get; } = context;
-
-  protected ResolverClassTestBase()
-    : this(For<IResolveContext>())
-  { }
+  protected IModelsContext Context { get; } = new ModelsContext();
 
   protected static IResolver<T> RFor<T>()
     where T : IModelBase

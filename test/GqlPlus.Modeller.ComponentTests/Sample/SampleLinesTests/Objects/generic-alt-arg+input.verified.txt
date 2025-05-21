@@ -6,12 +6,14 @@ types: !_Map_Type
         input: RefInpGnrcAltArg
         object: InpGnrcAltArg
         typeArgs:
-          - !_TypeParam type
+          - !_InputArg
+            typeParam: type
     alternates:
       - !_InputAlternate
         input: RefInpGnrcAltArg
         typeArgs:
-          - !_TypeParam type
+          - !_InputArg
+            typeParam: type
     name: InpGnrcAltArg
     typeKind: !_TypeKind Input
     typeParams:

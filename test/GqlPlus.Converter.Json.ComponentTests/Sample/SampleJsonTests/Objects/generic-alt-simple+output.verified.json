@@ -12,7 +12,7 @@
           "typeArgs": [
             {
               "$tag": "_OutputArg",
-              "value": "String"
+              "output": "String"
             }
           ]
         }
@@ -24,7 +24,7 @@
           "typeArgs": [
             {
               "$tag": "_OutputArg",
-              "value": "String"
+              "output": "String"
             }
           ]
         }
@@ -47,7 +47,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "ref"
+          "typeParam": "ref"
         }
       ],
       "name": "RefOutpGnrcAltSmpl",
@@ -58,7 +58,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "ref"
+          "name": "ref"
         }
       ]
     }

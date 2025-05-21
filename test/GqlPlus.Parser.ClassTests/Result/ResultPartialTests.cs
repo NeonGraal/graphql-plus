@@ -1,6 +1,4 @@
-﻿using GqlPlus.Token;
-
-namespace GqlPlus.Result;
+﻿namespace GqlPlus.Result;
 
 public class ResultPartialTests : BaseResultTests
 {
@@ -25,11 +23,11 @@ public class ResultPartialTests : BaseResultTests
   }
 
   [Fact]
-  public void AsResultArray_ReturnsResultArrayError()
+  public void AsResultArray_ReturnsResultArrayPartial()
   {
     IResultArray<string> result = _partial.AsResultArray(SampleArray);
 
-    result.ShouldBeOfType<ResultArrayError<string>>()
+    result.ShouldBeOfType<ResultArrayPartial<string>>()
       .Message.Message.ShouldBe(Partial);
   }
 

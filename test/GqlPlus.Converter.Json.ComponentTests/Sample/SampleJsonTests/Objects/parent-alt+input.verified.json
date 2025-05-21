@@ -23,20 +23,20 @@
           "object": "RefInpPrntAlt",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "input": "Number"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "value": "Number"
+          "input": "Number"
         }
       ],
       "name": "InpPrntAlt",
       "parent": {
         "$tag": "_InputBase",
-        "value": "RefInpPrntAlt"
+        "input": "RefInpPrntAlt"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -59,14 +59,14 @@
           "object": "RefInpPrntAlt",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "input": "Number"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "value": "String"
+          "input": "String"
         }
       ],
       "fields": [
@@ -75,7 +75,7 @@
           "name": "parent",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "input": "Number"
           }
         }
       ],

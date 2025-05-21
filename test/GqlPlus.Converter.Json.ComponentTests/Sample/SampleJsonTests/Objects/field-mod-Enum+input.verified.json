@@ -14,7 +14,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "value"
+          "name": "value"
         }
       ],
       "name": "EnumInpFieldModEnum",
@@ -46,7 +46,7 @@
           "object": "InpFieldModEnum",
           "type": {
             "$tag": "_InputBase",
-            "value": "*"
+            "input": "*"
           }
         }
       ],
@@ -70,7 +70,7 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "value": "*"
+            "input": "*"
           }
         }
       ],

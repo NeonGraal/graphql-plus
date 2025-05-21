@@ -1,10 +1,9 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Simple;
 
 internal sealed record class DomainRegexAst(
-  TokenAt At,
+  ITokenAt At,
   string Description,
   bool Excludes,
   string Pattern
@@ -24,5 +23,5 @@ internal sealed record class DomainRegexAst(
 
   internal override IEnumerable<string?> GetFields()
   => base.GetFields()
-      .Append(Pattern.Quoted("/").Prefixed(Excludes ? "!" : ""));
+      .Append(Pattern.Quoted('/').Prefixed(Excludes ? "!" : ""));
 }

@@ -45,7 +45,7 @@ internal class ParseInputParams(
         return constant.AsResultArray(list);
       }
 
-      constant.Optional(value => parameter.DefaultValue = (ConstantAst?)value);
+      constant.Optional(value => parameter.DefaultValue = value);
     }
 
     return list.Count == 0 ? tokens.ErrorArray(label, "at least one parameter after '('", list) : list.OkArray();

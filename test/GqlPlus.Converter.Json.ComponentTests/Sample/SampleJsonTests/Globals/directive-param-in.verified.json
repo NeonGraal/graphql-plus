@@ -17,7 +17,7 @@
       "parameters": [
         {
           "$tag": "_InputParam",
-          "value": "InDrctParamIn"
+          "input": "InDrctParamIn"
         }
       ],
       "repeatable": false

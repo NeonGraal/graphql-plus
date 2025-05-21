@@ -62,11 +62,11 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dmnEnumAll"
+          "name": "dmnEnumAll"
         },
         {
           "$tag": "_Aliased",
-          "value": "enum_dmnEnumAll"
+          "name": "enum_dmnEnumAll"
         }
       ],
       "name": "EnumDmnEnumAll",

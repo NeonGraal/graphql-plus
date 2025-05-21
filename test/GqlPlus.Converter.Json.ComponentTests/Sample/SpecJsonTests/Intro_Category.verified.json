@@ -33,7 +33,7 @@
           "object": "_Categories",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Category"
+            "output": "_Category"
           }
         },
         {
@@ -42,18 +42,18 @@
           "object": "_Categories",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Type"
+            "output": "_Type"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "_Category"
+          "output": "_Category"
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_Type"
+          "output": "_Type"
         }
       ],
       "fields": [
@@ -62,7 +62,7 @@
           "name": "category",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Category"
+            "output": "_Category"
           }
         },
         {
@@ -70,7 +70,7 @@
           "name": "type",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Type"
+            "output": "_Type"
           }
         }
       ],
@@ -89,7 +89,7 @@
           "object": "_Category",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Resolution"
+            "output": "_Resolution"
           }
         },
         {
@@ -127,7 +127,7 @@
           "object": "_Category",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Modifiers"
+            "output": "_Modifiers"
           }
         }
       ],
@@ -137,7 +137,7 @@
           "name": "resolution",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Resolution"
+            "output": "_Resolution"
           }
         },
         {
@@ -173,14 +173,14 @@
           "name": "modifiers",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Modifiers"
+            "output": "_Modifiers"
           }
         }
       ],
       "name": "_Category",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "_Aliased"
+        "output": "_Aliased"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -209,15 +209,15 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "Parallel"
+          "name": "Parallel"
         },
         {
           "$tag": "_Aliased",
-          "value": "Sequential"
+          "name": "Sequential"
         },
         {
           "$tag": "_Aliased",
-          "value": "Single"
+          "name": "Single"
         }
       ],
       "name": "_Resolution",

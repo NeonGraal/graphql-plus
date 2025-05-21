@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Globals;
@@ -35,9 +34,9 @@ internal class ParseCategory(
     };
 }
 
-internal record CategoryOutput(TypeRefAst Output)
+internal record CategoryOutput(IGqlpTypeRef Output)
 {
-  public ModifierAst[] Modifiers { get; set; } = [];
+  public IGqlpModifier[] Modifiers { get; set; } = [];
 }
 
 internal class CategoryName
@@ -65,20 +64,19 @@ internal class ParseCategoryDefinition(
   private readonly Parser<IGqlpModifier>.LA _modifiers = modifiers;
 
   public IResult<CategoryOutput> Parse(ITokenizer tokens, string label)
-
   {
     IResult<IGqlpTypeRef> output = _typeRef.Parse(tokens, "Category Output");
     if (output.IsError()) {
       return tokens.Error<CategoryOutput>(label, "output type");
     }
 
-    CategoryOutput result = new((TypeRefAst)output.Required());
+    CategoryOutput result = new(output.Required());
     IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, "Param");
     if (modifiers.IsError()) {
-      return modifiers.AsResult(result);
+      return modifiers.AsPartial(result);
     }
 
-    modifiers.Optional(value => result.Modifiers = value.ArrayOf<ModifierAst>());
+    modifiers.Optional(value => result.Modifiers = [.. value]);
     return tokens.End(label, () => result);
   }
 }

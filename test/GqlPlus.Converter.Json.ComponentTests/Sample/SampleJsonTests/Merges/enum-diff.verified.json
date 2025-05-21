@@ -19,11 +19,11 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "one"
+          "name": "one"
         },
         {
           "$tag": "_Aliased",
-          "value": "two"
+          "name": "two"
         }
       ],
       "name": "EnumDiff",

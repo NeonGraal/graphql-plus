@@ -18,14 +18,14 @@
           "object": "AltOutpAlt",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Number"
+            "output": "Number"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "String"
+          "output": "String"
         }
       ],
       "fields": [
@@ -34,7 +34,7 @@
           "name": "alt",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Number"
+            "output": "Number"
           }
         }
       ],
@@ -56,7 +56,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "AltOutpAlt"
+          "output": "AltOutpAlt"
         }
       ],
       "name": "OutpAlt",

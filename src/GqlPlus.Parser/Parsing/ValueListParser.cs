@@ -3,18 +3,18 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing;
 
-public sealed class ValueListParser<T>(
-  Parser<T>.D value
-) : Parser<T>.IA
+public sealed class ValueListParser<TValue>(
+  Parser<TValue>.D value
+) : Parser<TValue>.IA
 {
-  private readonly Parser<T>.L _value = value;
+  private readonly Parser<TValue>.L _value = value;
 
-  public IResultArray<T> Parse(ITokenizer tokens, string label)
+  public IResultArray<TValue> Parse(ITokenizer tokens, string label)
 
   {
     tokens.ThrowIfNull();
 
-    List<T> list = [];
+    List<TValue> list = [];
 
 #pragma warning disable CA1062 // Validate arguments of public methods
     if (!tokens.Take('[')) {

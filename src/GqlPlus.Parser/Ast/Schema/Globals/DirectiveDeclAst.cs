@@ -4,7 +4,7 @@ using GqlPlus.Token;
 namespace GqlPlus.Ast.Schema.Globals;
 
 internal sealed record class DirectiveDeclAst(
-  TokenAt At,
+  ITokenAt At,
   string Name,
   string Description
 ) : AstDeclaration(At, Name, Description)

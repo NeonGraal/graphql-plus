@@ -26,14 +26,14 @@
           "object": "InOutpPrntParam",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "input": "Number"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "value": "String"
+          "input": "String"
         }
       ],
       "fields": [
@@ -42,7 +42,7 @@
           "name": "param",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "input": "Number"
           }
         }
       ],
@@ -62,12 +62,12 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "value": "PrntOutpPrntParamIn"
+              "input": "PrntOutpPrntParamIn"
             }
           ],
           "type": {
             "$tag": "_DualBase",
-            "value": "FldOutpPrntParam"
+            "dual": "FldOutpPrntParam"
           }
         },
         {
@@ -77,12 +77,12 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "value": "InOutpPrntParam"
+              "input": "InOutpPrntParam"
             }
           ],
           "type": {
             "$tag": "_DualBase",
-            "value": "FldOutpPrntParam"
+            "dual": "FldOutpPrntParam"
           }
         }
       ],
@@ -93,19 +93,19 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "value": "InOutpPrntParam"
+              "input": "InOutpPrntParam"
             }
           ],
           "type": {
             "$tag": "_DualBase",
-            "value": "FldOutpPrntParam"
+            "dual": "FldOutpPrntParam"
           }
         }
       ],
       "name": "OutpPrntParam",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "PrntOutpPrntParam"
+        "output": "PrntOutpPrntParam"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -122,12 +122,12 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "value": "PrntOutpPrntParamIn"
+              "input": "PrntOutpPrntParamIn"
             }
           ],
           "type": {
             "$tag": "_DualBase",
-            "value": "FldOutpPrntParam"
+            "dual": "FldOutpPrntParam"
           }
         }
       ],
@@ -138,12 +138,12 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "value": "PrntOutpPrntParamIn"
+              "input": "PrntOutpPrntParamIn"
             }
           ],
           "type": {
             "$tag": "_DualBase",
-            "value": "FldOutpPrntParam"
+            "dual": "FldOutpPrntParam"
           }
         }
       ],
@@ -169,14 +169,14 @@
           "object": "PrntOutpPrntParamIn",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "input": "Number"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "value": "String"
+          "input": "String"
         }
       ],
       "fields": [
@@ -185,7 +185,7 @@
           "name": "parent",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "input": "Number"
           }
         }
       ],

@@ -74,10 +74,10 @@ public class DomainDefinition
 {
   public DomainKind Kind { get; set; } = DomainKind.Number;
   public string? Parent { get; set; }
-  internal DomainTrueFalseAst[] Values { get; set; } = [];
-  internal DomainLabelAst[] Labels { get; set; } = [];
-  internal DomainRangeAst[] Numbers { get; set; } = [];
-  internal DomainRegexAst[] Regexes { get; set; } = [];
+  internal IGqlpDomainTrueFalse[] Values { get; set; } = [];
+  internal IGqlpDomainLabel[] Labels { get; set; } = [];
+  internal IGqlpDomainRange[] Numbers { get; set; } = [];
+  internal IGqlpDomainRegex[] Regexes { get; set; } = [];
 }
 
 internal class ParseDomainDefinition
@@ -112,10 +112,14 @@ internal class ParseDomainDefinition
     }
 
     IResult<DomainKind> domainKind = _kind.I.Parse(tokens, label);
-    return !domainKind.Required(kind => result.Kind = kind)
-      ? domainKind.AsResult(result)
-      : _kindParsers.TryGetValue(result.Kind, out ParseItems? parser)
-        ? parser(tokens, label, result)
-        : tokens.Partial(label, "valid kind", () => result);
+    if (!domainKind.Required(kind => result.Kind = kind)) {
+      return result.Partial(domainKind.Message());
+    } else {
+      if (_kindParsers.TryGetValue(result.Kind, out ParseItems? parser)) {
+        return parser(tokens, label, result);
+      } else {
+        return tokens.Partial(label, "valid kind", () => result);
+      }
+    }
   }
 }

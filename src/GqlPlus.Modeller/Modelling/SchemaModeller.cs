@@ -7,12 +7,12 @@ internal class SchemaModeller(
   IModeller<IGqlpSchemaDirective, DirectiveModel> directive,
   IModeller<IGqlpSchemaOperation, OperationModel> operation,
   IModeller<IGqlpSchemaSetting, SettingModel> setting,
-  ITypesModeller type
+  ITypesModeller types
 ) : ModellerBase<IGqlpSchema, SchemaModel>
 {
   protected override SchemaModel ToModel(IGqlpSchema ast, IMap<TypeKindModel> typeKinds)
   {
-    IGqlpType[] types = ast.Declarations.ArrayOf<IGqlpType>();
+    IGqlpType[] typeDeclarations = ast.Declarations.ArrayOf<IGqlpType>();
     ITokenMessages errors = ast.Errors;
     if (typeKinds is TypesContext collection) {
       errors = collection.Errors;
@@ -20,7 +20,7 @@ internal class SchemaModeller(
       errors.Add(ast.Errors);
     }
 
-    type.AddTypeKinds(types, typeKinds);
+    types.AddTypeKinds(typeDeclarations, typeKinds);
 
     IEnumerable<CategoryModel> categories = DeclarationModel(ast, category, typeKinds);
     IEnumerable<DirectiveModel> directives = DeclarationModel(ast, directive, typeKinds);
@@ -35,7 +35,7 @@ internal class SchemaModeller(
         directives,
         operations,
         settings,
-        types.Select(t => type.ToModel(t, typeKinds)),
+        typeDeclarations.Select(t => types.ToModel(t, typeKinds)),
         errors
         ) { Aliases = [.. aliases] };
   }

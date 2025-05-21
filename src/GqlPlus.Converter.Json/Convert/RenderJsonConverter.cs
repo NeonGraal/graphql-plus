@@ -15,11 +15,4 @@ internal abstract class RenderJsonConverter<T>
       writer.WriteStringValue(value.Text);
     }
   }
-
-  protected void StartTaggedValue(Utf8JsonWriter writer, string tag)
-  {
-    writer.WriteStartObject();
-    writer.WriteString("$tag", tag);
-    writer.WritePropertyName("value");
-  }
 }

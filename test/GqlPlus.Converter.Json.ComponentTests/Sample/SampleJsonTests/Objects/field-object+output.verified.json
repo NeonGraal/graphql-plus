@@ -18,14 +18,14 @@
           "object": "FldOutpFieldObj",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Number"
+            "output": "Number"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "String"
+          "output": "String"
         }
       ],
       "fields": [
@@ -34,7 +34,7 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Number"
+            "output": "Number"
           }
         }
       ],
@@ -53,7 +53,7 @@
           "object": "OutpFieldObj",
           "type": {
             "$tag": "_OutputBase",
-            "value": "FldOutpFieldObj"
+            "output": "FldOutpFieldObj"
           }
         }
       ],
@@ -63,7 +63,7 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "FldOutpFieldObj"
+            "output": "FldOutpFieldObj"
           }
         }
       ],

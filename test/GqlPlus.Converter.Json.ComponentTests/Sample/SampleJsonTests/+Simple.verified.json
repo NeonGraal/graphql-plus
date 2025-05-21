@@ -589,11 +589,11 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dmnEnumUnqPrnt"
+          "name": "dmnEnumUnqPrnt"
         },
         {
           "$tag": "_Aliased",
-          "value": "dup_dmnEnumUnqPrnt"
+          "name": "dup_dmnEnumUnqPrnt"
         }
       ],
       "name": "DupDmnEnumUnqPrnt",
@@ -642,11 +642,11 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dmnEnumAll"
+          "name": "dmnEnumAll"
         },
         {
           "$tag": "_Aliased",
-          "value": "enum_dmnEnumAll"
+          "name": "enum_dmnEnumAll"
         }
       ],
       "name": "EnumDmnEnumAll",
@@ -672,11 +672,11 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dmnEnumAllDescr"
+          "name": "dmnEnumAllDescr"
         },
         {
           "$tag": "_Aliased",
-          "value": "enum_dmnEnumAllDescr"
+          "name": "enum_dmnEnumAllDescr"
         }
       ],
       "name": "EnumDmnEnumAllDescr",
@@ -702,7 +702,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dmnEnumAllPrnt"
+          "name": "dmnEnumAllPrnt"
         }
       ],
       "name": "EnumDmnEnumAllPrnt",
@@ -731,7 +731,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dmnEnumDescr"
+          "name": "dmnEnumDescr"
         }
       ],
       "name": "EnumDmnEnumDescr",
@@ -752,7 +752,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dmnEnumLabel"
+          "name": "dmnEnumLabel"
         }
       ],
       "name": "EnumDmnEnumLabel",
@@ -778,11 +778,11 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "enum_dmnEnumPrnt"
+          "name": "enum_dmnEnumPrnt"
         },
         {
           "$tag": "_Aliased",
-          "value": "prnt_dmnEnumPrnt"
+          "name": "prnt_dmnEnumPrnt"
         }
       ],
       "name": "EnumDmnEnumPrnt",
@@ -808,11 +808,11 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "enum_dmnEnumUnq"
+          "name": "enum_dmnEnumUnq"
         },
         {
           "$tag": "_Aliased",
-          "value": "dmnEnumUnq"
+          "name": "dmnEnumUnq"
         }
       ],
       "name": "EnumDmnEnumUnq",
@@ -843,7 +843,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "enum_dmnEnumUnqPrnt"
+          "name": "enum_dmnEnumUnqPrnt"
         }
       ],
       "name": "EnumDmnEnumUnqPrnt",
@@ -872,7 +872,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dmnEnumValue"
+          "name": "dmnEnumValue"
         }
       ],
       "name": "EnumDmnEnumValue",
@@ -898,7 +898,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dmnEnumValuePrnt"
+          "name": "dmnEnumValuePrnt"
         }
       ],
       "name": "EnumDmnEnumValuePrnt",
@@ -932,11 +932,11 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dmnEnumUnq"
+          "name": "dmnEnumUnq"
         },
         {
           "$tag": "_Aliased",
-          "value": "dup_dmnEnumUnq"
+          "name": "dup_dmnEnumUnq"
         }
       ],
       "name": "EnumDomDup",
@@ -962,7 +962,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "enumPrnt"
+          "name": "enumPrnt"
         }
       ],
       "name": "EnumPrnt",
@@ -1002,7 +1002,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "val_enumPrntAlias"
+          "name": "val_enumPrntAlias"
         },
         {
           "$tag": "_Aliased",
@@ -1042,7 +1042,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "enumPrntDup"
+          "name": "enumPrntDup"
         }
       ],
       "name": "EnumPrntDup",
@@ -1098,7 +1098,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "prnt_dmnEnumAllPrnt"
+          "name": "prnt_dmnEnumAllPrnt"
         }
       ],
       "name": "PrntDmnEnumAllPrnt",
@@ -1167,11 +1167,11 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dmnEnumUnqPrnt"
+          "name": "dmnEnumUnqPrnt"
         },
         {
           "$tag": "_Aliased",
-          "value": "prnt_dmnEnumUnqPrnt"
+          "name": "prnt_dmnEnumUnqPrnt"
         }
       ],
       "name": "PrntDmnEnumUnqPrnt",
@@ -1192,7 +1192,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "prnt_dmnEnumValuePrnt"
+          "name": "prnt_dmnEnumValuePrnt"
         }
       ],
       "name": "PrntDmnEnumValuePrnt",
@@ -1267,7 +1267,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "prnt_enumPrnt"
+          "name": "prnt_enumPrnt"
         }
       ],
       "name": "PrntEnumPrnt",
@@ -1288,7 +1288,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "prnt_enumPrntAlias"
+          "name": "prnt_enumPrntAlias"
         }
       ],
       "name": "PrntEnumPrntAlias",
@@ -1332,7 +1332,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "Number"
+          "name": "Number"
         }
       ],
       "name": "PrntUnionPrnt",
@@ -1353,7 +1353,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "Number"
+          "name": "Number"
         }
       ],
       "name": "PrntUnionPrntDup",
@@ -1402,7 +1402,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "String"
+          "name": "String"
         }
       ],
       "name": "UnionPrnt",
@@ -1436,7 +1436,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "Number"
+          "name": "Number"
         }
       ],
       "name": "UnionPrntDup",

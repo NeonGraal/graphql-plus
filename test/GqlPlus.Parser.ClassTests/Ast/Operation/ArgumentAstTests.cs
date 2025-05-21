@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Ast.Operation;
+﻿using GqlPlus.Abstractions.Operation;
+
+namespace GqlPlus.Ast.Operation;
 
 public class ArgAstTests
 {
@@ -15,7 +17,7 @@ public class ArgAstTests
   [Theory, RepeatData]
   public void HashCode_WithConstant(string enumType, string enumValue)
     => _checks.HashCode(
-      () => new(new FieldKeyAst(AstNulls.At, enumType, enumValue)));
+      () => new ArgAst(new FieldKeyAst(AstNulls.At, enumType, enumValue)));
 
   [Theory, RepeatData]
   public void HashCode_WithValues(string enumValue)
@@ -36,7 +38,7 @@ public class ArgAstTests
   [Theory, RepeatData]
   public void String_WithConstant(string enumValue)
     => _checks.Text(
-      () => new(new ConstantAst(enumValue.FieldKey())),
+      () => new ArgAst(new ConstantAst(enumValue.FieldKey())),
       $"( !k {enumValue} )");
 
   [Theory, RepeatData]
@@ -65,13 +67,13 @@ public class ArgAstTests
   [Theory, RepeatData]
   public void Equality_WithConstant(string enumType, string enumValue)
     => _checks.Equality(
-      () => new(new FieldKeyAst(AstNulls.At, enumType, enumValue)));
+      () => new ArgAst(new FieldKeyAst(AstNulls.At, enumType, enumValue)));
 
   [Theory, RepeatData]
   public void Inequality_WithConstant(string enumType, string enumValue)
     => _checks.Inequality(
-      () => new(new FieldKeyAst(AstNulls.At, enumType, enumValue)),
-      () => new(new FieldKeyAst(AstNulls.At, enumValue, enumType)),
+      () => new ArgAst(new FieldKeyAst(AstNulls.At, enumType, enumValue)),
+      () => new ArgAst(new FieldKeyAst(AstNulls.At, enumValue, enumType)),
       enumType == enumValue);
 
   [Theory, RepeatData]
@@ -96,5 +98,5 @@ public class ArgAstTests
       () => new ArgAst(AstNulls.At, enumValue.ArgObject(key)),
       () => new ArgAst(AstNulls.At, enumValue));
 
-  internal BaseAstChecks<ArgAst> _checks = new();
+  internal BaseAstChecks<IGqlpArg> _checks = new();
 }

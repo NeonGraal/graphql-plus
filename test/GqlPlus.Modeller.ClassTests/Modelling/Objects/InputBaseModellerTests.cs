@@ -1,0 +1,36 @@
+﻿namespace GqlPlus.Modelling.Objects;
+
+public class InputBaseModellerTests
+  : ModellerClassTestBase<IGqlpInputBase, InputBaseModel>
+{
+  public InputBaseModellerTests()
+  {
+    IModeller<IGqlpInputArg, InputArgModel> objArg = MFor<IGqlpInputArg, InputArgModel>();
+    IModeller<IGqlpDualBase, DualBaseModel> dual = MFor<IGqlpDualBase, DualBaseModel>();
+
+    Modeller = new InputBaseModeller(objArg, dual);
+  }
+
+  protected override IModeller<IGqlpInputBase, InputBaseModel> Modeller { get; }
+
+  [Theory, RepeatData]
+  public void ToModel_WithValidBase_ReturnsExpectedInputBaseModel(string Input, string contents)
+  {
+    // Arrange
+    IGqlpInputBase ast = For<IGqlpInputBase>();
+    ast.Input.Returns(Input);
+    ast.Description.Returns(contents);
+    ast.IsTypeParam.Returns(true);
+
+    // Act
+    InputBaseModel result = Modeller.ToModel(ast, TypeKinds);
+
+    // Assert
+    result.ShouldNotBeNull()
+      .ShouldSatisfyAllConditions(
+        r => r.Input.ShouldBe(Input),
+        r => r.Description.ShouldBe(contents),
+        r => r.IsTypeParam.ShouldBeTrue()
+      );
+  }
+}

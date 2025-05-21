@@ -2,7 +2,7 @@
 
 public readonly struct ResultArrayOk<TValue>(
   IEnumerable<TValue> result
-) : IResultArray<TValue>, IResultOk<IEnumerable<TValue>>
+) : IResultArrayOk<TValue>
 {
   public IEnumerable<TValue> Result { get; } = result;
 

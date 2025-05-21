@@ -6,12 +6,16 @@ types: !_Map_Type
         dual: RefDualGnrcAltArgDescr
         object: DualGnrcAltArgDescr
         typeArgs:
-          - !_TypeParam type
+          - !_DualArg
+            description: 'Test Descr'
+            typeParam: type
     alternates:
       - !_DualAlternate
         dual: RefDualGnrcAltArgDescr
         typeArgs:
-          - !_TypeParam type
+          - !_DualArg
+            description: 'Test Descr'
+            typeParam: type
     name: DualGnrcAltArgDescr
     typeKind: !_TypeKind Dual
     typeParams:

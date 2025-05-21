@@ -7,7 +7,7 @@
       "name": "OutpObjPrnt",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "RefOutpObjPrnt"
+        "output": "RefOutpObjPrnt"
       },
       "typeKind": {
         "$tag": "_TypeKind",

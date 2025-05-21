@@ -9,7 +9,7 @@ public static class RenderLines
   public static string ToLines(this Structured model, bool _)
   {
     if (model is null || model.IsEmpty) {
-      return string.Empty;
+      return "";
     }
 
     StringBuilder sb = new();

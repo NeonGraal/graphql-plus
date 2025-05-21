@@ -1,8 +1,6 @@
-﻿using GqlPlus.Token;
+﻿namespace GqlPlus.Ast;
 
-namespace GqlPlus.Ast;
-
-internal abstract record class AstAbbreviated(TokenAt At)
+internal abstract record class AstAbbreviated(ITokenAt At)
   : AstBase(At)
   , IGqlpAbbreviated
 {

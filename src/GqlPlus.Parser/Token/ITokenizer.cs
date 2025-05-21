@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Result;
+﻿using GqlPlus.Result;
 
 namespace GqlPlus.Token;
 

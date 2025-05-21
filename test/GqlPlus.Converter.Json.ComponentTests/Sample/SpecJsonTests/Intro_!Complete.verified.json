@@ -20,7 +20,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -29,7 +29,7 @@
           "object": "_Named",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -47,7 +47,7 @@
           "object": "_Aliased",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         }
       ],
@@ -66,14 +66,14 @@
           "name": "aliases",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         }
       ],
       "name": "_Aliased",
       "parent": {
         "$tag": "_DualBase",
-        "value": "_Named"
+        "dual": "_Named"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -105,7 +105,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -123,7 +123,7 @@
           "object": "_ObjBase",
           "type": {
             "$tag": "_OutputBase",
-            "value": "arg"
+            "typeParam": "arg"
           }
         },
         {
@@ -141,7 +141,7 @@
           "object": "_Alternate",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Collections"
+            "output": "_Collections"
           }
         }
       ],
@@ -160,7 +160,7 @@
           "name": "collections",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Collections"
+            "output": "_Collections"
           }
         }
       ],
@@ -168,7 +168,12 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_ObjBase",
-        "typeArgs": [{"$tag":"_TypeParam", "value":"arg"}]
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "typeParam": "arg"
+          }
+        ]
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -177,7 +182,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "arg"
+          "name": "arg"
         }
       ]
     },
@@ -199,7 +204,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -208,7 +213,7 @@
           "object": "_Named",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -226,7 +231,7 @@
           "object": "_Aliased",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -235,7 +240,7 @@
           "object": "_BaseType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_TypeKind"
+            "output": "_TypeKind"
           }
         },
         {
@@ -244,7 +249,7 @@
           "object": "_ChildType",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Named"
+            "dual": "_Named"
           }
         },
         {
@@ -262,7 +267,7 @@
           "object": "_ParentType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "item"
+            "typeParam": "item"
           }
         },
         {
@@ -280,7 +285,7 @@
           "object": "_ParentType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "allItem"
+            "typeParam": "allItem"
           }
         },
         {
@@ -289,7 +294,7 @@
           "object": "_BaseDomain",
           "type": {
             "$tag": "_OutputBase",
-            "value": "domain"
+            "typeParam": "domain"
           }
         }
       ],
@@ -299,7 +304,7 @@
           "name": "domainKind",
           "type": {
             "$tag": "_OutputBase",
-            "value": "domain"
+            "typeParam": "domain"
           }
         }
       ],
@@ -318,12 +323,12 @@
             }
           },
           {
-            "$tag": "_TypeParam",
-            "value": "item"
+            "$tag": "_OutputArg",
+            "typeParam": "item"
           },
           {
-            "$tag": "_TypeParam",
-            "value": "domainItem"
+            "$tag": "_OutputArg",
+            "typeParam": "domainItem"
           }
         ]
       },
@@ -334,15 +339,15 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "domain"
+          "name": "domain"
         },
         {
           "$tag": "_Named",
-          "value": "item"
+          "name": "item"
         },
         {
           "$tag": "_Named",
-          "value": "domainItem"
+          "name": "domainItem"
         }
       ]
     },
@@ -364,7 +369,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -373,7 +378,7 @@
           "object": "_BaseDomainItem",
           "type": {
             "$tag": "_DualBase",
-            "value": "Boolean"
+            "dual": "Boolean"
           }
         }
       ],
@@ -383,14 +388,14 @@
           "name": "exclude",
           "type": {
             "$tag": "_DualBase",
-            "value": "Boolean"
+            "dual": "Boolean"
           }
         }
       ],
       "name": "_BaseDomainItem",
       "parent": {
         "$tag": "_DualBase",
-        "value": "_Described"
+        "dual": "_Described"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -415,7 +420,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -424,7 +429,7 @@
           "object": "_Named",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -442,7 +447,7 @@
           "object": "_Aliased",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -451,7 +456,7 @@
           "object": "_BaseType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "kind"
+            "typeParam": "kind"
           }
         }
       ],
@@ -461,14 +466,14 @@
           "name": "typeKind",
           "type": {
             "$tag": "_OutputBase",
-            "value": "kind"
+            "typeParam": "kind"
           }
         }
       ],
       "name": "_BaseType",
       "parent": {
         "$tag": "_DualBase",
-        "value": "_Aliased"
+        "dual": "_Aliased"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -477,7 +482,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "kind"
+          "name": "kind"
         }
       ]
     },
@@ -502,7 +507,7 @@
           "object": "_Categories",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Category"
+            "output": "_Category"
           }
         },
         {
@@ -511,18 +516,18 @@
           "object": "_Categories",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Type"
+            "output": "_Type"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "_Category"
+          "output": "_Category"
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_Type"
+          "output": "_Type"
         }
       ],
       "fields": [
@@ -531,7 +536,7 @@
           "name": "category",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Category"
+            "output": "_Category"
           }
         },
         {
@@ -539,7 +544,7 @@
           "name": "type",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Type"
+            "output": "_Type"
           }
         }
       ],
@@ -567,7 +572,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -576,7 +581,7 @@
           "object": "_Named",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -594,7 +599,7 @@
           "object": "_Aliased",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -603,7 +608,7 @@
           "object": "_Category",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Resolution"
+            "output": "_Resolution"
           }
         },
         {
@@ -641,7 +646,7 @@
           "object": "_Category",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Modifiers"
+            "output": "_Modifiers"
           }
         }
       ],
@@ -651,7 +656,7 @@
           "name": "resolution",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Resolution"
+            "output": "_Resolution"
           }
         },
         {
@@ -687,14 +692,14 @@
           "name": "modifiers",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Modifiers"
+            "output": "_Modifiers"
           }
         }
       ],
       "name": "_Category",
       "parent": {
         "$tag": "_DualBase",
-        "value": "_Aliased"
+        "dual": "_Aliased"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -735,7 +740,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "value": "_NameFilter"
+            "input": "_NameFilter"
           }
         },
         {
@@ -754,7 +759,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "value": "Boolean"
+            "input": "Boolean"
           }
         },
         {
@@ -772,7 +777,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "value": "_NameFilter"
+            "input": "_NameFilter"
           }
         },
         {
@@ -791,7 +796,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "value": "Boolean"
+            "input": "Boolean"
           }
         },
         {
@@ -810,7 +815,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "value": "Boolean"
+            "input": "Boolean"
           }
         },
         {
@@ -828,7 +833,7 @@
           "object": "_CategoryFilter",
           "type": {
             "$tag": "_InputBase",
-            "value": "_Resolution"
+            "input": "_Resolution"
           }
         }
       ],
@@ -847,14 +852,14 @@
           "name": "resolutions",
           "type": {
             "$tag": "_InputBase",
-            "value": "_Resolution"
+            "input": "_Resolution"
           }
         }
       ],
       "name": "_CategoryFilter",
       "parent": {
         "$tag": "_InputBase",
-        "value": "_Filter"
+        "input": "_Filter"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -879,7 +884,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -888,7 +893,7 @@
           "object": "_Named",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -906,7 +911,7 @@
           "object": "_Aliased",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -915,7 +920,7 @@
           "object": "_BaseType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "kind"
+            "typeParam": "kind"
           }
         },
         {
@@ -924,7 +929,7 @@
           "object": "_ChildType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "parent"
+            "typeParam": "parent"
           }
         }
       ],
@@ -934,7 +939,7 @@
           "name": "parent",
           "type": {
             "$tag": "_OutputBase",
-            "value": "parent"
+            "typeParam": "parent"
           }
         }
       ],
@@ -942,7 +947,12 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_BaseType",
-        "typeArgs": [{"$tag":"_TypeParam", "value":"kind"}]
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "typeParam": "kind"
+          }
+        ]
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -951,11 +961,11 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "kind"
+          "name": "kind"
         },
         {
           "$tag": "_Named",
-          "value": "parent"
+          "name": "parent"
         }
       ]
     },
@@ -1086,15 +1096,15 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "_Simple"
+          "output": "_Simple"
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_ConstantList"
+          "output": "_ConstantList"
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_ConstantMap"
+          "output": "_ConstantMap"
         }
       ],
       "name": "_Constant",
@@ -1209,7 +1219,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         }
       ],
@@ -1228,7 +1238,7 @@
           "name": "description",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         }
       ],
@@ -1256,7 +1266,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -1265,7 +1275,7 @@
           "object": "_Named",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -1283,7 +1293,7 @@
           "object": "_Aliased",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -1301,7 +1311,7 @@
           "object": "_Directive",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_InputParam"
+            "output": "_InputParam"
           }
         },
         {
@@ -1310,7 +1320,7 @@
           "object": "_Directive",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Boolean"
+            "output": "Boolean"
           }
         },
         {
@@ -1333,7 +1343,7 @@
           "object": "_Directive",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_"
+            "output": "_"
           }
         }
       ],
@@ -1352,7 +1362,7 @@
           "name": "parameters",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_InputParam"
+            "output": "_InputParam"
           }
         },
         {
@@ -1360,7 +1370,7 @@
           "name": "repeatable",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Boolean"
+            "output": "Boolean"
           }
         },
         {
@@ -1382,14 +1392,14 @@
           "name": "locations",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_"
+            "output": "_"
           }
         }
       ],
       "name": "_Directive",
       "parent": {
         "$tag": "_DualBase",
-        "value": "_Aliased"
+        "dual": "_Aliased"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -1417,7 +1427,7 @@
           "object": "_Directives",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Directive"
+            "output": "_Directive"
           }
         },
         {
@@ -1426,18 +1436,18 @@
           "object": "_Directives",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Type"
+            "output": "_Type"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "_Directive"
+          "output": "_Directive"
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_Type"
+          "output": "_Type"
         }
       ],
       "fields": [
@@ -1446,7 +1456,7 @@
           "name": "directive",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Directive"
+            "output": "_Directive"
           }
         },
         {
@@ -1454,7 +1464,7 @@
           "name": "type",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Type"
+            "output": "_Type"
           }
         }
       ],
@@ -1473,7 +1483,7 @@
           "object": "_DomainItem",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -1483,14 +1493,14 @@
           "name": "domain",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
       "name": "_DomainItem",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "item"
+        "typeParam": "item"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -1499,7 +1509,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "item"
+          "name": "item"
         }
       ]
     },
@@ -1521,7 +1531,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -1530,7 +1540,7 @@
           "object": "_BaseDomainItem",
           "type": {
             "$tag": "_DualBase",
-            "value": "Boolean"
+            "dual": "Boolean"
           }
         },
         {
@@ -1539,7 +1549,7 @@
           "object": "_DomainLabel",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_EnumValue"
+            "output": "_EnumValue"
           }
         },
         {
@@ -1548,7 +1558,7 @@
           "object": "_DomainItem",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -1559,7 +1569,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_DomainLabel"
+            "output": "_DomainLabel"
           }
         ]
       },
@@ -1577,7 +1587,7 @@
           "object": "_DomainItem",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -1588,7 +1598,7 @@
         "typeArgs": [
           {
             "$tag": "_DualArg",
-            "value": "_DomainRange"
+            "dual": "_DomainRange"
           }
         ]
       },
@@ -1606,7 +1616,7 @@
           "object": "_DomainItem",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -1617,7 +1627,7 @@
         "typeArgs": [
           {
             "$tag": "_DualArg",
-            "value": "_DomainRegex"
+            "dual": "_DomainRegex"
           }
         ]
       },
@@ -1635,7 +1645,7 @@
           "object": "_DomainItem",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -1646,7 +1656,7 @@
         "typeArgs": [
           {
             "$tag": "_DualArg",
-            "value": "_DomainTrueFalse"
+            "dual": "_DomainTrueFalse"
           }
         ]
       },
@@ -1682,19 +1692,19 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "Boolean"
+          "name": "Boolean"
         },
         {
           "$tag": "_Aliased",
-          "value": "Enum"
+          "name": "Enum"
         },
         {
           "$tag": "_Aliased",
-          "value": "Number"
+          "name": "Number"
         },
         {
           "$tag": "_Aliased",
-          "value": "String"
+          "name": "String"
         }
       ],
       "name": "_DomainKind",
@@ -1721,7 +1731,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -1730,7 +1740,7 @@
           "object": "_BaseDomainItem",
           "type": {
             "$tag": "_DualBase",
-            "value": "Boolean"
+            "dual": "Boolean"
           }
         },
         {
@@ -1739,7 +1749,7 @@
           "object": "_DomainLabel",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_EnumValue"
+            "output": "_EnumValue"
           }
         }
       ],
@@ -1749,14 +1759,14 @@
           "name": "label",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_EnumValue"
+            "output": "_EnumValue"
           }
         }
       ],
       "name": "_DomainLabel",
       "parent": {
         "$tag": "_DualBase",
-        "value": "_BaseDomainItem"
+        "dual": "_BaseDomainItem"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -1781,7 +1791,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -1790,7 +1800,7 @@
           "object": "_BaseDomainItem",
           "type": {
             "$tag": "_DualBase",
-            "value": "Boolean"
+            "dual": "Boolean"
           }
         },
         {
@@ -1808,7 +1818,7 @@
           "object": "_DomainRange",
           "type": {
             "$tag": "_DualBase",
-            "value": "Number"
+            "dual": "Number"
           }
         },
         {
@@ -1826,7 +1836,7 @@
           "object": "_DomainRange",
           "type": {
             "$tag": "_DualBase",
-            "value": "Number"
+            "dual": "Number"
           }
         }
       ],
@@ -1845,7 +1855,7 @@
           "name": "lower",
           "type": {
             "$tag": "_DualBase",
-            "value": "Number"
+            "dual": "Number"
           }
         },
         {
@@ -1862,14 +1872,14 @@
           "name": "upper",
           "type": {
             "$tag": "_DualBase",
-            "value": "Number"
+            "dual": "Number"
           }
         }
       ],
       "name": "_DomainRange",
       "parent": {
         "$tag": "_DualBase",
-        "value": "_BaseDomainItem"
+        "dual": "_BaseDomainItem"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -1894,7 +1904,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -1903,7 +1913,7 @@
           "object": "_TypeRef",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_TypeKind"
+            "output": "_TypeKind"
           }
         },
         {
@@ -1912,7 +1922,7 @@
           "object": "_TypeRef",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         },
         {
@@ -1921,7 +1931,7 @@
           "object": "_DomainRef",
           "type": {
             "$tag": "_OutputBase",
-            "value": "kind"
+            "typeParam": "kind"
           }
         }
       ],
@@ -1931,7 +1941,7 @@
           "name": "domainKind",
           "type": {
             "$tag": "_OutputBase",
-            "value": "kind"
+            "typeParam": "kind"
           }
         }
       ],
@@ -1958,7 +1968,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "kind"
+          "name": "kind"
         }
       ]
     },
@@ -1980,7 +1990,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -1989,7 +1999,7 @@
           "object": "_BaseDomainItem",
           "type": {
             "$tag": "_DualBase",
-            "value": "Boolean"
+            "dual": "Boolean"
           }
         },
         {
@@ -1998,7 +2008,7 @@
           "object": "_DomainRegex",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         }
       ],
@@ -2008,14 +2018,14 @@
           "name": "pattern",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         }
       ],
       "name": "_DomainRegex",
       "parent": {
         "$tag": "_DualBase",
-        "value": "_BaseDomainItem"
+        "dual": "_BaseDomainItem"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -2040,7 +2050,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -2049,7 +2059,7 @@
           "object": "_BaseDomainItem",
           "type": {
             "$tag": "_DualBase",
-            "value": "Boolean"
+            "dual": "Boolean"
           }
         },
         {
@@ -2058,7 +2068,7 @@
           "object": "_DomainTrueFalse",
           "type": {
             "$tag": "_DualBase",
-            "value": "Boolean"
+            "dual": "Boolean"
           }
         }
       ],
@@ -2068,14 +2078,14 @@
           "name": "value",
           "type": {
             "$tag": "_DualBase",
-            "value": "Boolean"
+            "dual": "Boolean"
           }
         }
       ],
       "name": "_DomainTrueFalse",
       "parent": {
         "$tag": "_DualBase",
-        "value": "_BaseDomainItem"
+        "dual": "_BaseDomainItem"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -2100,7 +2110,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -2109,7 +2119,7 @@
           "object": "_TypeRef",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_TypeKind"
+            "output": "_TypeKind"
           }
         },
         {
@@ -2118,7 +2128,7 @@
           "object": "_TypeRef",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         },
         {
@@ -2127,7 +2137,7 @@
           "object": "_DomainRef",
           "type": {
             "$tag": "_OutputBase",
-            "value": "kind"
+            "typeParam": "kind"
           }
         },
         {
@@ -2136,7 +2146,7 @@
           "object": "_DomainValue",
           "type": {
             "$tag": "_OutputBase",
-            "value": "value"
+            "typeParam": "value"
           }
         }
       ],
@@ -2146,7 +2156,7 @@
           "name": "value",
           "type": {
             "$tag": "_OutputBase",
-            "value": "value"
+            "typeParam": "value"
           }
         }
       ],
@@ -2154,7 +2164,12 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_DomainRef",
-        "typeArgs": [{"$tag":"_TypeParam", "value":"kind"}]
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "typeParam": "kind"
+          }
+        ]
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -2163,11 +2178,11 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "kind"
+          "name": "kind"
         },
         {
           "$tag": "_Named",
-          "value": "value"
+          "name": "value"
         }
       ]
     },
@@ -2196,7 +2211,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -2214,7 +2229,7 @@
           "object": "_ObjBase",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_DualTypeArg"
+            "output": "_DualTypeArg"
           }
         },
         {
@@ -2232,7 +2247,7 @@
           "object": "_Alternate",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Collections"
+            "output": "_Collections"
           }
         },
         {
@@ -2241,7 +2256,7 @@
           "object": "_DualAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -2251,7 +2266,7 @@
           "name": "dual",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -2262,7 +2277,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_DualTypeArg"
+            "output": "_DualTypeArg"
           }
         ]
       },
@@ -2296,7 +2311,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -2314,7 +2329,7 @@
           "object": "_ObjBase",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_DualTypeArg"
+            "output": "_DualTypeArg"
           }
         },
         {
@@ -2323,7 +2338,7 @@
           "object": "_DualBase",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -2333,7 +2348,7 @@
           "name": "dual",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -2344,7 +2359,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_DualTypeArg"
+            "output": "_DualTypeArg"
           }
         ]
       },
@@ -2371,7 +2386,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -2380,7 +2395,7 @@
           "object": "_Named",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -2398,7 +2413,7 @@
           "object": "_Aliased",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -2407,7 +2422,7 @@
           "object": "_Field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_DualBase"
+            "output": "_DualBase"
           }
         },
         {
@@ -2425,7 +2440,7 @@
           "object": "_Field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Modifiers"
+            "output": "_Modifiers"
           }
         }
       ],
@@ -2436,7 +2451,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_DualBase"
+            "output": "_DualBase"
           }
         ]
       },
@@ -2470,7 +2485,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -2479,7 +2494,7 @@
           "object": "_TypeRef",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_TypeKind"
+            "output": "_TypeKind"
           }
         },
         {
@@ -2488,7 +2503,7 @@
           "object": "_TypeRef",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         },
         {
@@ -2497,7 +2512,7 @@
           "object": "_DualTypeArg",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -2507,14 +2522,14 @@
           "name": "dual",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
       "name": "_DualTypeArg",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "_ObjTypeArg"
+        "output": "_ObjTypeArg"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -2539,7 +2554,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -2548,7 +2563,7 @@
           "object": "_Named",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -2566,7 +2581,7 @@
           "object": "_Aliased",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -2575,7 +2590,7 @@
           "object": "_EnumLabel",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         }
       ],
@@ -2585,14 +2600,14 @@
           "name": "enum",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         }
       ],
       "name": "_EnumLabel",
       "parent": {
         "$tag": "_DualBase",
-        "value": "_Aliased"
+        "dual": "_Aliased"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -2617,7 +2632,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -2626,7 +2641,7 @@
           "object": "_TypeRef",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_TypeKind"
+            "output": "_TypeKind"
           }
         },
         {
@@ -2635,7 +2650,7 @@
           "object": "_TypeRef",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         },
         {
@@ -2644,7 +2659,7 @@
           "object": "_EnumValue",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -2654,7 +2669,7 @@
           "name": "label",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -2697,7 +2712,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -2706,7 +2721,7 @@
           "object": "_Named",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -2724,7 +2739,7 @@
           "object": "_Aliased",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -2733,7 +2748,7 @@
           "object": "_Field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "base"
+            "typeParam": "base"
           }
         },
         {
@@ -2751,7 +2766,7 @@
           "object": "_Field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Modifiers"
+            "output": "_Modifiers"
           }
         }
       ],
@@ -2761,7 +2776,7 @@
           "name": "type",
           "type": {
             "$tag": "_OutputBase",
-            "value": "base"
+            "typeParam": "base"
           }
         },
         {
@@ -2778,14 +2793,14 @@
           "name": "modifiers",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Modifiers"
+            "output": "_Modifiers"
           }
         }
       ],
       "name": "_Field",
       "parent": {
         "$tag": "_DualBase",
-        "value": "_Aliased"
+        "dual": "_Aliased"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -2794,7 +2809,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "base"
+          "name": "base"
         }
       ]
     },
@@ -2832,7 +2847,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "value": "_NameFilter"
+            "input": "_NameFilter"
           }
         },
         {
@@ -2851,7 +2866,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "value": "Boolean"
+            "input": "Boolean"
           }
         },
         {
@@ -2869,7 +2884,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "value": "_NameFilter"
+            "input": "_NameFilter"
           }
         },
         {
@@ -2888,7 +2903,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "value": "Boolean"
+            "input": "Boolean"
           }
         },
         {
@@ -2907,7 +2922,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "value": "Boolean"
+            "input": "Boolean"
           }
         }
       ],
@@ -2941,7 +2956,7 @@
           "name": "names",
           "type": {
             "$tag": "_InputBase",
-            "value": "_NameFilter"
+            "input": "_NameFilter"
           }
         },
         {
@@ -2959,7 +2974,7 @@
           "name": "matchAliases",
           "type": {
             "$tag": "_InputBase",
-            "value": "Boolean"
+            "input": "Boolean"
           }
         },
         {
@@ -2976,7 +2991,7 @@
           "name": "aliases",
           "type": {
             "$tag": "_InputBase",
-            "value": "_NameFilter"
+            "input": "_NameFilter"
           }
         },
         {
@@ -2994,7 +3009,7 @@
           "name": "returnByAlias",
           "type": {
             "$tag": "_InputBase",
-            "value": "Boolean"
+            "input": "Boolean"
           }
         },
         {
@@ -3012,7 +3027,7 @@
           "name": "returnReferencedTypes",
           "type": {
             "$tag": "_InputBase",
-            "value": "Boolean"
+            "input": "Boolean"
           }
         }
       ],
@@ -3074,7 +3089,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -3092,7 +3107,7 @@
           "object": "_ObjBase",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_InputTypeArg"
+            "output": "_InputTypeArg"
           }
         },
         {
@@ -3110,7 +3125,7 @@
           "object": "_Alternate",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Collections"
+            "output": "_Collections"
           }
         },
         {
@@ -3119,7 +3134,7 @@
           "object": "_InputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -3129,7 +3144,7 @@
           "name": "input",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -3140,7 +3155,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_InputTypeArg"
+            "output": "_InputTypeArg"
           }
         ]
       },
@@ -3179,7 +3194,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -3197,7 +3212,7 @@
           "object": "_ObjBase",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_InputTypeArg"
+            "output": "_InputTypeArg"
           }
         },
         {
@@ -3206,14 +3221,14 @@
           "object": "_InputBase",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "_DualBase"
+          "output": "_DualBase"
         }
       ],
       "fields": [
@@ -3222,7 +3237,7 @@
           "name": "input",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -3233,7 +3248,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_InputTypeArg"
+            "output": "_InputTypeArg"
           }
         ]
       },
@@ -3260,7 +3275,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -3269,7 +3284,7 @@
           "object": "_Named",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -3287,7 +3302,7 @@
           "object": "_Aliased",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -3296,7 +3311,7 @@
           "object": "_Field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_InputBase"
+            "output": "_InputBase"
           }
         },
         {
@@ -3314,7 +3329,7 @@
           "object": "_Field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Modifiers"
+            "output": "_Modifiers"
           }
         },
         {
@@ -3332,7 +3347,7 @@
           "object": "_InputField",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Constant"
+            "output": "_Constant"
           }
         }
       ],
@@ -3351,7 +3366,7 @@
           "name": "default",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Constant"
+            "output": "_Constant"
           }
         }
       ],
@@ -3362,7 +3377,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_InputBase"
+            "output": "_InputBase"
           }
         ]
       },
@@ -3401,7 +3416,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -3419,7 +3434,7 @@
           "object": "_ObjBase",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_InputTypeArg"
+            "output": "_InputTypeArg"
           }
         },
         {
@@ -3428,7 +3443,7 @@
           "object": "_InputBase",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         },
         {
@@ -3446,7 +3461,7 @@
           "object": "_InputParam",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Modifiers"
+            "output": "_Modifiers"
           }
         },
         {
@@ -3464,7 +3479,7 @@
           "object": "_InputParam",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Constant"
+            "output": "_Constant"
           }
         }
       ],
@@ -3483,7 +3498,7 @@
           "name": "modifiers",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Modifiers"
+            "output": "_Modifiers"
           }
         },
         {
@@ -3500,14 +3515,14 @@
           "name": "default",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Constant"
+            "output": "_Constant"
           }
         }
       ],
       "name": "_InputParam",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "_InputBase"
+        "output": "_InputBase"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -3539,7 +3554,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -3548,7 +3563,7 @@
           "object": "_TypeRef",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_TypeKind"
+            "output": "_TypeKind"
           }
         },
         {
@@ -3557,7 +3572,7 @@
           "object": "_TypeRef",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         },
         {
@@ -3566,7 +3581,7 @@
           "object": "_InputTypeArg",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -3576,14 +3591,14 @@
           "name": "input",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
       "name": "_InputTypeArg",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "_ObjTypeArg"
+        "output": "_ObjTypeArg"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -3627,27 +3642,27 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "Operation"
+          "name": "Operation"
         },
         {
           "$tag": "_Aliased",
-          "value": "Variable"
+          "name": "Variable"
         },
         {
           "$tag": "_Aliased",
-          "value": "Field"
+          "name": "Field"
         },
         {
           "$tag": "_Aliased",
-          "value": "Inline"
+          "name": "Inline"
         },
         {
           "$tag": "_Aliased",
-          "value": "Spread"
+          "name": "Spread"
         },
         {
           "$tag": "_Aliased",
-          "value": "Fragment"
+          "name": "Fragment"
         }
       ],
       "name": "_Location",
@@ -3665,7 +3680,7 @@
           "object": "_Modifier",
           "type": {
             "$tag": "_OutputBase",
-            "value": "kind"
+            "typeParam": "kind"
           }
         }
       ],
@@ -3675,7 +3690,7 @@
           "name": "modifierKind",
           "type": {
             "$tag": "_OutputBase",
-            "value": "kind"
+            "typeParam": "kind"
           }
         }
       ],
@@ -3687,7 +3702,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "kind"
+          "name": "kind"
         }
       ]
     },
@@ -3700,7 +3715,7 @@
           "object": "_Modifier",
           "type": {
             "$tag": "_OutputBase",
-            "value": "kind"
+            "typeParam": "kind"
           }
         },
         {
@@ -3709,7 +3724,7 @@
           "object": "_ModifierKeyed",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_TypeSimple"
+            "output": "_TypeSimple"
           }
         },
         {
@@ -3718,7 +3733,7 @@
           "object": "_ModifierKeyed",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Boolean"
+            "output": "Boolean"
           }
         }
       ],
@@ -3728,7 +3743,7 @@
           "name": "by",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_TypeSimple"
+            "output": "_TypeSimple"
           }
         },
         {
@@ -3736,7 +3751,7 @@
           "name": "optional",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Boolean"
+            "output": "Boolean"
           }
         }
       ],
@@ -3744,7 +3759,12 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_Modifier",
-        "typeArgs": [{"$tag":"_TypeParam", "value":"kind"}]
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "typeParam": "kind"
+          }
+        ]
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -3753,7 +3773,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "kind"
+          "name": "kind"
         }
       ]
     },
@@ -3792,7 +3812,7 @@
         },
         {
           "$tag": "_Aliased",
-          "value": "List"
+          "name": "List"
         },
         {
           "$tag": "_Aliased",
@@ -3854,7 +3874,7 @@
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_Collections"
+          "output": "_Collections"
         }
       ],
       "name": "_Modifiers",
@@ -3881,7 +3901,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -3890,7 +3910,7 @@
           "object": "_Named",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         }
       ],
@@ -3900,14 +3920,14 @@
           "name": "name",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         }
       ],
       "name": "_Named",
       "parent": {
         "$tag": "_DualBase",
-        "value": "_Described"
+        "dual": "_Described"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -3967,7 +3987,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -3985,14 +4005,14 @@
           "object": "_ObjBase",
           "type": {
             "$tag": "_OutputBase",
-            "value": "arg"
+            "typeParam": "arg"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "_ObjTypeParam"
+          "output": "_ObjTypeParam"
         }
       ],
       "fields": [
@@ -4010,14 +4030,14 @@
           "name": "typeArgs",
           "type": {
             "$tag": "_OutputBase",
-            "value": "arg"
+            "typeParam": "arg"
           }
         }
       ],
       "name": "_ObjBase",
       "parent": {
         "$tag": "_DualBase",
-        "value": "_Described"
+        "dual": "_Described"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -4026,7 +4046,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "arg"
+          "name": "arg"
         }
       ]
     },
@@ -4047,11 +4067,11 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "_TypeSimple"
+          "output": "_TypeSimple"
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "base"
+          "typeParam": "base"
         }
       ],
       "name": "_ObjConstraint",
@@ -4062,7 +4082,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "base"
+          "name": "base"
         }
       ]
     },
@@ -4075,7 +4095,7 @@
           "object": "_ObjectFor",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -4085,14 +4105,14 @@
           "name": "object",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
       "name": "_ObjectFor",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "for"
+        "typeParam": "for"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -4101,7 +4121,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "for"
+          "name": "for"
         }
       ]
     },
@@ -4128,7 +4148,12 @@
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjType",
           "output": "_ObjConstraint",
-          "typeArgs": [{"$tag":"_TypeParam", "value":"base"}]
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "typeParam": "base"
+            }
+          ]
         }
       ],
       "alternates": [
@@ -4150,7 +4175,12 @@
         {
           "$tag": "_OutputAlternate",
           "output": "_ObjConstraint",
-          "typeArgs": [{"$tag":"_TypeParam", "value":"base"}]
+          "typeArgs": [
+            {
+              "$tag": "_OutputArg",
+              "typeParam": "base"
+            }
+          ]
         }
       ],
       "name": "_ObjType",
@@ -4161,7 +4191,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "base"
+          "name": "base"
         }
       ]
     },
@@ -4190,7 +4220,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -4199,7 +4229,7 @@
           "object": "_TypeRef",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_TypeKind"
+            "output": "_TypeKind"
           }
         },
         {
@@ -4208,14 +4238,14 @@
           "object": "_TypeRef",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "_ObjTypeParam"
+          "output": "_ObjTypeParam"
         }
       ],
       "name": "_ObjTypeArg",
@@ -4225,7 +4255,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_TypeKind"
+            "output": "_TypeKind"
           }
         ]
       },
@@ -4252,7 +4282,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -4261,7 +4291,7 @@
           "object": "_ObjTypeParam",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_TypeParam"
+            "output": "_TypeParam"
           }
         }
       ],
@@ -4271,14 +4301,14 @@
           "name": "typeParam",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_TypeParam"
+            "output": "_TypeParam"
           }
         }
       ],
       "name": "_ObjTypeParam",
       "parent": {
         "$tag": "_DualBase",
-        "value": "_Described"
+        "dual": "_Described"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -5468,7 +5498,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -5486,7 +5516,7 @@
           "object": "_ObjBase",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_OutputTypeArg"
+            "output": "_OutputTypeArg"
           }
         },
         {
@@ -5504,7 +5534,7 @@
           "object": "_Alternate",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Collections"
+            "output": "_Collections"
           }
         },
         {
@@ -5513,7 +5543,7 @@
           "object": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -5523,7 +5553,7 @@
           "name": "output",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -5534,7 +5564,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_OutputTypeArg"
+            "output": "_OutputTypeArg"
           }
         ]
       },
@@ -5573,7 +5603,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -5591,7 +5621,7 @@
           "object": "_ObjBase",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_OutputTypeArg"
+            "output": "_OutputTypeArg"
           }
         },
         {
@@ -5600,14 +5630,14 @@
           "object": "_OutputBase",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "_DualBase"
+          "output": "_DualBase"
         }
       ],
       "fields": [
@@ -5616,7 +5646,7 @@
           "name": "output",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -5627,7 +5657,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_OutputTypeArg"
+            "output": "_OutputTypeArg"
           }
         ]
       },
@@ -5654,7 +5684,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -5663,7 +5693,7 @@
           "object": "_TypeRef",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_TypeKind"
+            "output": "_TypeKind"
           }
         },
         {
@@ -5672,7 +5702,7 @@
           "object": "_TypeRef",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         },
         {
@@ -5681,7 +5711,7 @@
           "object": "_OutputEnum",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         },
         {
@@ -5690,7 +5720,7 @@
           "object": "_OutputEnum",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -5700,7 +5730,7 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         },
         {
@@ -5708,7 +5738,7 @@
           "name": "label",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -5758,7 +5788,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -5767,7 +5797,7 @@
           "object": "_Named",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -5785,7 +5815,7 @@
           "object": "_Aliased",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -5794,7 +5824,7 @@
           "object": "_Field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_OutputBase"
+            "output": "_OutputBase"
           }
         },
         {
@@ -5812,7 +5842,7 @@
           "object": "_Field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Modifiers"
+            "output": "_Modifiers"
           }
         },
         {
@@ -5830,14 +5860,14 @@
           "object": "_OutputField",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_InputParam"
+            "output": "_InputParam"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "_OutputEnum"
+          "output": "_OutputEnum"
         }
       ],
       "fields": [
@@ -5855,7 +5885,7 @@
           "name": "parameters",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_InputParam"
+            "output": "_InputParam"
           }
         }
       ],
@@ -5866,7 +5896,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_OutputBase"
+            "output": "_OutputBase"
           }
         ]
       },
@@ -5900,7 +5930,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -5909,7 +5939,7 @@
           "object": "_TypeRef",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_TypeKind"
+            "output": "_TypeKind"
           }
         },
         {
@@ -5918,7 +5948,7 @@
           "object": "_TypeRef",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         },
         {
@@ -5927,7 +5957,7 @@
           "object": "_OutputTypeArg",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         },
         {
@@ -5945,7 +5975,7 @@
           "object": "_OutputTypeArg",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -5955,7 +5985,7 @@
           "name": "output",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         },
         {
@@ -5972,14 +6002,14 @@
           "name": "label",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
       "name": "_OutputTypeArg",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "_ObjTypeArg"
+        "output": "_ObjTypeArg"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -6004,7 +6034,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -6013,7 +6043,7 @@
           "object": "_Named",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -6031,7 +6061,7 @@
           "object": "_Aliased",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -6040,7 +6070,7 @@
           "object": "_BaseType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "kind"
+            "typeParam": "kind"
           }
         },
         {
@@ -6049,7 +6079,7 @@
           "object": "_ChildType",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Named"
+            "dual": "_Named"
           }
         },
         {
@@ -6067,7 +6097,7 @@
           "object": "_ParentType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "item"
+            "typeParam": "item"
           }
         },
         {
@@ -6085,7 +6115,7 @@
           "object": "_ParentType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "allItem"
+            "typeParam": "allItem"
           }
         }
       ],
@@ -6104,7 +6134,7 @@
           "name": "items",
           "type": {
             "$tag": "_OutputBase",
-            "value": "item"
+            "typeParam": "item"
           }
         },
         {
@@ -6121,7 +6151,7 @@
           "name": "allItems",
           "type": {
             "$tag": "_OutputBase",
-            "value": "allItem"
+            "typeParam": "allItem"
           }
         }
       ],
@@ -6131,12 +6161,12 @@
         "output": "_ChildType",
         "typeArgs": [
           {
-            "$tag": "_TypeParam",
-            "value": "kind"
+            "$tag": "_OutputArg",
+            "typeParam": "kind"
           },
           {
             "$tag": "_DualArg",
-            "value": "_Named"
+            "dual": "_Named"
           }
         ]
       },
@@ -6147,15 +6177,15 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "kind"
+          "name": "kind"
         },
         {
           "$tag": "_Named",
-          "value": "item"
+          "name": "item"
         },
         {
           "$tag": "_Named",
-          "value": "allItem"
+          "name": "allItem"
         }
       ]
     },
@@ -6181,15 +6211,15 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "Parallel"
+          "name": "Parallel"
         },
         {
           "$tag": "_Aliased",
-          "value": "Sequential"
+          "name": "Sequential"
         },
         {
           "$tag": "_Aliased",
-          "value": "Single"
+          "name": "Single"
         }
       ],
       "name": "_Resolution",
@@ -6216,7 +6246,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -6225,7 +6255,7 @@
           "object": "_Named",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -6263,7 +6293,7 @@
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Categories"
+            "output": "_Categories"
           }
         },
         {
@@ -6301,7 +6331,7 @@
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Directives"
+            "output": "_Directives"
           }
         },
         {
@@ -6377,7 +6407,7 @@
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Type"
+            "output": "_Type"
           }
         },
         {
@@ -6415,7 +6445,7 @@
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Setting"
+            "output": "_Setting"
           }
         }
       ],
@@ -6454,7 +6484,7 @@
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Categories"
+            "output": "_Categories"
           }
         },
         {
@@ -6491,7 +6521,7 @@
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Directives"
+            "output": "_Directives"
           }
         },
         {
@@ -6565,7 +6595,7 @@
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Type"
+            "output": "_Type"
           }
         },
         {
@@ -6602,14 +6632,14 @@
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Setting"
+            "output": "_Setting"
           }
         }
       ],
       "name": "_Schema",
       "parent": {
         "$tag": "_DualBase",
-        "value": "_Named"
+        "dual": "_Named"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -6634,7 +6664,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -6643,7 +6673,7 @@
           "object": "_Named",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -6652,7 +6682,7 @@
           "object": "_Setting",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Constant"
+            "output": "_Constant"
           }
         }
       ],
@@ -6662,14 +6692,14 @@
           "name": "value",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Constant"
+            "output": "_Constant"
           }
         }
       ],
       "name": "_Setting",
       "parent": {
         "$tag": "_DualBase",
-        "value": "_Named"
+        "dual": "_Named"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -6700,7 +6730,7 @@
             },
             {
               "$tag": "_OutputArg",
-              "value": "Number"
+              "output": "Number"
             }
           ]
         },
@@ -6720,7 +6750,7 @@
             },
             {
               "$tag": "_OutputArg",
-              "value": "String"
+              "output": "String"
             }
           ]
         },
@@ -6733,7 +6763,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "Boolean"
+          "output": "Boolean"
         },
         {
           "$tag": "_OutputAlternate",
@@ -6750,7 +6780,7 @@
             },
             {
               "$tag": "_OutputArg",
-              "value": "Number"
+              "output": "Number"
             }
           ]
         },
@@ -6769,13 +6799,13 @@
             },
             {
               "$tag": "_OutputArg",
-              "value": "String"
+              "output": "String"
             }
           ]
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_EnumValue"
+          "output": "_EnumValue"
         }
       ],
       "name": "_Simple",
@@ -6816,23 +6846,23 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "Basic"
+          "name": "Basic"
         },
         {
           "$tag": "_Aliased",
-          "value": "Enum"
+          "name": "Enum"
         },
         {
           "$tag": "_Aliased",
-          "value": "Internal"
+          "name": "Internal"
         },
         {
           "$tag": "_Aliased",
-          "value": "Domain"
+          "name": "Domain"
         },
         {
           "$tag": "_Aliased",
-          "value": "Union"
+          "name": "Union"
         }
       ],
       "name": "_SimpleKind",
@@ -6940,27 +6970,27 @@
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_TypeDual"
+          "output": "_TypeDual"
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_TypeEnum"
+          "output": "_TypeEnum"
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_TypeInput"
+          "output": "_TypeInput"
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_TypeOutput"
+          "output": "_TypeOutput"
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_TypeDomain"
+          "output": "_TypeDomain"
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_TypeUnion"
+          "output": "_TypeUnion"
         }
       ],
       "name": "_Type",
@@ -6988,11 +7018,11 @@
             },
             {
               "$tag": "_DualArg",
-              "value": "_DomainTrueFalse"
+              "dual": "_DomainTrueFalse"
             },
             {
               "$tag": "_OutputArg",
-              "value": "_DomainItemTrueFalse"
+              "output": "_DomainItemTrueFalse"
             }
           ]
         },
@@ -7012,11 +7042,11 @@
             },
             {
               "$tag": "_OutputArg",
-              "value": "_DomainLabel"
+              "output": "_DomainLabel"
             },
             {
               "$tag": "_OutputArg",
-              "value": "_DomainItemLabel"
+              "output": "_DomainItemLabel"
             }
           ]
         },
@@ -7036,11 +7066,11 @@
             },
             {
               "$tag": "_DualArg",
-              "value": "_DomainRange"
+              "dual": "_DomainRange"
             },
             {
               "$tag": "_OutputArg",
-              "value": "_DomainItemRange"
+              "output": "_DomainItemRange"
             }
           ]
         },
@@ -7060,11 +7090,11 @@
             },
             {
               "$tag": "_DualArg",
-              "value": "_DomainRegex"
+              "dual": "_DomainRegex"
             },
             {
               "$tag": "_OutputArg",
-              "value": "_DomainItemRegex"
+              "output": "_DomainItemRegex"
             }
           ]
         }
@@ -7085,11 +7115,11 @@
             },
             {
               "$tag": "_DualArg",
-              "value": "_DomainTrueFalse"
+              "dual": "_DomainTrueFalse"
             },
             {
               "$tag": "_OutputArg",
-              "value": "_DomainItemTrueFalse"
+              "output": "_DomainItemTrueFalse"
             }
           ]
         },
@@ -7108,11 +7138,11 @@
             },
             {
               "$tag": "_OutputArg",
-              "value": "_DomainLabel"
+              "output": "_DomainLabel"
             },
             {
               "$tag": "_OutputArg",
-              "value": "_DomainItemLabel"
+              "output": "_DomainItemLabel"
             }
           ]
         },
@@ -7131,11 +7161,11 @@
             },
             {
               "$tag": "_DualArg",
-              "value": "_DomainRange"
+              "dual": "_DomainRange"
             },
             {
               "$tag": "_OutputArg",
-              "value": "_DomainItemRange"
+              "output": "_DomainItemRange"
             }
           ]
         },
@@ -7154,11 +7184,11 @@
             },
             {
               "$tag": "_DualArg",
-              "value": "_DomainRegex"
+              "dual": "_DomainRegex"
             },
             {
               "$tag": "_OutputArg",
-              "value": "_DomainItemRegex"
+              "output": "_DomainItemRegex"
             }
           ]
         }
@@ -7187,7 +7217,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -7196,7 +7226,7 @@
           "object": "_Named",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -7214,7 +7244,7 @@
           "object": "_Aliased",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -7223,7 +7253,7 @@
           "object": "_BaseType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_TypeKind"
+            "output": "_TypeKind"
           }
         },
         {
@@ -7232,7 +7262,7 @@
           "object": "_ChildType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_DualBase"
+            "output": "_DualBase"
           }
         },
         {
@@ -7250,7 +7280,7 @@
           "object": "_TypeObject",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_ObjTypeParam"
+            "output": "_ObjTypeParam"
           }
         },
         {
@@ -7268,7 +7298,7 @@
           "object": "_TypeObject",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_DualField"
+            "output": "_DualField"
           }
         },
         {
@@ -7286,7 +7316,7 @@
           "object": "_TypeObject",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_DualAlternate"
+            "output": "_DualAlternate"
           }
         },
         {
@@ -7305,7 +7335,12 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArgs": [{"$tag":"_TypeParam", "value":"field"}]
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "typeParam": "field"
+              }
+            ]
           }
         },
         {
@@ -7324,7 +7359,12 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArgs": [{"$tag":"_TypeParam", "value":"alternate"}]
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "typeParam": "alternate"
+              }
+            ]
           }
         }
       ],
@@ -7344,15 +7384,15 @@
           },
           {
             "$tag": "_OutputArg",
-            "value": "_DualBase"
+            "output": "_DualBase"
           },
           {
             "$tag": "_OutputArg",
-            "value": "_DualField"
+            "output": "_DualField"
           },
           {
             "$tag": "_OutputArg",
-            "value": "_DualAlternate"
+            "output": "_DualAlternate"
           }
         ]
       },
@@ -7379,7 +7419,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -7388,7 +7428,7 @@
           "object": "_Named",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -7406,7 +7446,7 @@
           "object": "_Aliased",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -7415,7 +7455,7 @@
           "object": "_BaseType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_TypeKind"
+            "output": "_TypeKind"
           }
         },
         {
@@ -7424,7 +7464,7 @@
           "object": "_ChildType",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Named"
+            "dual": "_Named"
           }
         },
         {
@@ -7442,7 +7482,7 @@
           "object": "_ParentType",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Aliased"
+            "dual": "_Aliased"
           }
         },
         {
@@ -7460,7 +7500,7 @@
           "object": "_ParentType",
           "type": {
             "$tag": "_DualBase",
-            "value": "_EnumLabel"
+            "dual": "_EnumLabel"
           }
         }
       ],
@@ -7480,11 +7520,11 @@
           },
           {
             "$tag": "_DualArg",
-            "value": "_Aliased"
+            "dual": "_Aliased"
           },
           {
             "$tag": "_DualArg",
-            "value": "_EnumLabel"
+            "dual": "_EnumLabel"
           }
         ]
       },
@@ -7527,7 +7567,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "value": "_NameFilter"
+            "input": "_NameFilter"
           }
         },
         {
@@ -7546,7 +7586,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "value": "Boolean"
+            "input": "Boolean"
           }
         },
         {
@@ -7564,7 +7604,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "value": "_NameFilter"
+            "input": "_NameFilter"
           }
         },
         {
@@ -7583,7 +7623,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "value": "Boolean"
+            "input": "Boolean"
           }
         },
         {
@@ -7602,7 +7642,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "value": "Boolean"
+            "input": "Boolean"
           }
         },
         {
@@ -7620,7 +7660,7 @@
           "object": "_TypeFilter",
           "type": {
             "$tag": "_InputBase",
-            "value": "_TypeKind"
+            "input": "_TypeKind"
           }
         }
       ],
@@ -7639,14 +7679,14 @@
           "name": "kinds",
           "type": {
             "$tag": "_InputBase",
-            "value": "_TypeKind"
+            "input": "_TypeKind"
           }
         }
       ],
       "name": "_TypeFilter",
       "parent": {
         "$tag": "_InputBase",
-        "value": "_Filter"
+        "input": "_Filter"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -7671,7 +7711,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -7680,7 +7720,7 @@
           "object": "_Named",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -7698,7 +7738,7 @@
           "object": "_Aliased",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -7707,7 +7747,7 @@
           "object": "_BaseType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_TypeKind"
+            "output": "_TypeKind"
           }
         },
         {
@@ -7716,7 +7756,7 @@
           "object": "_ChildType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_InputBase"
+            "output": "_InputBase"
           }
         },
         {
@@ -7734,7 +7774,7 @@
           "object": "_TypeObject",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_ObjTypeParam"
+            "output": "_ObjTypeParam"
           }
         },
         {
@@ -7752,7 +7792,7 @@
           "object": "_TypeObject",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_InputField"
+            "output": "_InputField"
           }
         },
         {
@@ -7770,7 +7810,7 @@
           "object": "_TypeObject",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_InputAlternate"
+            "output": "_InputAlternate"
           }
         },
         {
@@ -7789,7 +7829,12 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArgs": [{"$tag":"_TypeParam", "value":"field"}]
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "typeParam": "field"
+              }
+            ]
           }
         },
         {
@@ -7808,7 +7853,12 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArgs": [{"$tag":"_TypeParam", "value":"alternate"}]
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "typeParam": "alternate"
+              }
+            ]
           }
         }
       ],
@@ -7828,15 +7878,15 @@
           },
           {
             "$tag": "_OutputArg",
-            "value": "_InputBase"
+            "output": "_InputBase"
           },
           {
             "$tag": "_OutputArg",
-            "value": "_InputField"
+            "output": "_InputField"
           },
           {
             "$tag": "_OutputArg",
-            "value": "_InputAlternate"
+            "output": "_InputAlternate"
           }
         ]
       },
@@ -7892,15 +7942,15 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "Dual"
+          "name": "Dual"
         },
         {
           "$tag": "_Aliased",
-          "value": "Input"
+          "name": "Input"
         },
         {
           "$tag": "_Aliased",
-          "value": "Output"
+          "name": "Output"
         }
       ],
       "name": "_TypeKind",
@@ -7935,7 +7985,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -7944,7 +7994,7 @@
           "object": "_Named",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -7962,7 +8012,7 @@
           "object": "_Aliased",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -7971,7 +8021,7 @@
           "object": "_BaseType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "kind"
+            "typeParam": "kind"
           }
         },
         {
@@ -7980,7 +8030,7 @@
           "object": "_ChildType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "parent"
+            "typeParam": "parent"
           }
         },
         {
@@ -7998,7 +8048,7 @@
           "object": "_TypeObject",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_ObjTypeParam"
+            "output": "_ObjTypeParam"
           }
         },
         {
@@ -8016,7 +8066,7 @@
           "object": "_TypeObject",
           "type": {
             "$tag": "_OutputBase",
-            "value": "field"
+            "typeParam": "field"
           }
         },
         {
@@ -8034,7 +8084,7 @@
           "object": "_TypeObject",
           "type": {
             "$tag": "_OutputBase",
-            "value": "alternate"
+            "typeParam": "alternate"
           }
         },
         {
@@ -8053,7 +8103,12 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArgs": [{"$tag":"_TypeParam", "value":"field"}]
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "typeParam": "field"
+              }
+            ]
           }
         },
         {
@@ -8072,7 +8127,12 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArgs": [{"$tag":"_TypeParam", "value":"alternate"}]
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "typeParam": "alternate"
+              }
+            ]
           }
         }
       ],
@@ -8091,7 +8151,7 @@
           "name": "typeParams",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_ObjTypeParam"
+            "output": "_ObjTypeParam"
           }
         },
         {
@@ -8108,7 +8168,7 @@
           "name": "fields",
           "type": {
             "$tag": "_OutputBase",
-            "value": "field"
+            "typeParam": "field"
           }
         },
         {
@@ -8125,7 +8185,7 @@
           "name": "alternates",
           "type": {
             "$tag": "_OutputBase",
-            "value": "alternate"
+            "typeParam": "alternate"
           }
         },
         {
@@ -8143,7 +8203,12 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArgs": [{"$tag":"_TypeParam", "value":"field"}]
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "typeParam": "field"
+              }
+            ]
           }
         },
         {
@@ -8161,7 +8226,12 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArgs": [{"$tag":"_TypeParam", "value":"alternate"}]
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "typeParam": "alternate"
+              }
+            ]
           }
         }
       ],
@@ -8169,7 +8239,16 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_ChildType",
-        "typeArgs": [{"$tag":"_TypeParam", "value":"kind"}, {"$tag":"_TypeParam", "value":"parent"}]
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "typeParam": "kind"
+          },
+          {
+            "$tag": "_OutputArg",
+            "typeParam": "parent"
+          }
+        ]
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -8178,19 +8257,19 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "kind"
+          "name": "kind"
         },
         {
           "$tag": "_Named",
-          "value": "parent"
+          "name": "parent"
         },
         {
           "$tag": "_Named",
-          "value": "field"
+          "name": "field"
         },
         {
           "$tag": "_Named",
-          "value": "alternate"
+          "name": "alternate"
         }
       ]
     },
@@ -8212,7 +8291,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -8221,7 +8300,7 @@
           "object": "_Named",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -8239,7 +8318,7 @@
           "object": "_Aliased",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -8248,7 +8327,7 @@
           "object": "_BaseType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_TypeKind"
+            "output": "_TypeKind"
           }
         },
         {
@@ -8257,7 +8336,7 @@
           "object": "_ChildType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_OutputBase"
+            "output": "_OutputBase"
           }
         },
         {
@@ -8275,7 +8354,7 @@
           "object": "_TypeObject",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_ObjTypeParam"
+            "output": "_ObjTypeParam"
           }
         },
         {
@@ -8293,7 +8372,7 @@
           "object": "_TypeObject",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_OutputField"
+            "output": "_OutputField"
           }
         },
         {
@@ -8311,7 +8390,7 @@
           "object": "_TypeObject",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_OutputAlternate"
+            "output": "_OutputAlternate"
           }
         },
         {
@@ -8330,7 +8409,12 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArgs": [{"$tag":"_TypeParam", "value":"field"}]
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "typeParam": "field"
+              }
+            ]
           }
         },
         {
@@ -8349,7 +8433,12 @@
           "type": {
             "$tag": "_OutputBase",
             "output": "_ObjectFor",
-            "typeArgs": [{"$tag":"_TypeParam", "value":"alternate"}]
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "typeParam": "alternate"
+              }
+            ]
           }
         }
       ],
@@ -8369,15 +8458,15 @@
           },
           {
             "$tag": "_OutputArg",
-            "value": "_OutputBase"
+            "output": "_OutputBase"
           },
           {
             "$tag": "_OutputArg",
-            "value": "_OutputField"
+            "output": "_OutputField"
           },
           {
             "$tag": "_OutputArg",
-            "value": "_OutputAlternate"
+            "output": "_OutputAlternate"
           }
         ]
       },
@@ -8432,7 +8521,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -8441,7 +8530,7 @@
           "object": "_TypeRef",
           "type": {
             "$tag": "_OutputBase",
-            "value": "kind"
+            "typeParam": "kind"
           }
         },
         {
@@ -8450,7 +8539,7 @@
           "object": "_TypeRef",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -8460,7 +8549,7 @@
           "name": "typeKind",
           "type": {
             "$tag": "_OutputBase",
-            "value": "kind"
+            "typeParam": "kind"
           }
         },
         {
@@ -8468,14 +8557,14 @@
           "name": "name",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
       "name": "_TypeRef",
       "parent": {
         "$tag": "_DualBase",
-        "value": "_Described"
+        "dual": "_Described"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -8484,7 +8573,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "kind"
+          "name": "kind"
         }
       ]
     },
@@ -8642,7 +8731,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -8651,7 +8740,7 @@
           "object": "_Named",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -8669,7 +8758,7 @@
           "object": "_Aliased",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Identifier"
+            "dual": "_Identifier"
           }
         },
         {
@@ -8678,7 +8767,7 @@
           "object": "_BaseType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_TypeKind"
+            "output": "_TypeKind"
           }
         },
         {
@@ -8687,7 +8776,7 @@
           "object": "_ChildType",
           "type": {
             "$tag": "_DualBase",
-            "value": "_Named"
+            "dual": "_Named"
           }
         },
         {
@@ -8705,7 +8794,7 @@
           "object": "_ParentType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_UnionRef"
+            "output": "_UnionRef"
           }
         },
         {
@@ -8723,7 +8812,7 @@
           "object": "_ParentType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_UnionMember"
+            "output": "_UnionMember"
           }
         }
       ],
@@ -8743,11 +8832,11 @@
           },
           {
             "$tag": "_OutputArg",
-            "value": "_UnionRef"
+            "output": "_UnionRef"
           },
           {
             "$tag": "_OutputArg",
-            "value": "_UnionMember"
+            "output": "_UnionMember"
           }
         ]
       },
@@ -8774,7 +8863,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -8783,7 +8872,7 @@
           "object": "_TypeRef",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_SimpleKind"
+            "output": "_SimpleKind"
           }
         },
         {
@@ -8792,7 +8881,7 @@
           "object": "_TypeRef",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         },
         {
@@ -8801,7 +8890,7 @@
           "object": "_UnionMember",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -8811,14 +8900,14 @@
           "name": "union",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
       "name": "_UnionMember",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "_UnionRef"
+        "output": "_UnionRef"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -8843,7 +8932,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "value": "String"
+            "dual": "String"
           }
         },
         {
@@ -8852,7 +8941,7 @@
           "object": "_TypeRef",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_SimpleKind"
+            "output": "_SimpleKind"
           }
         },
         {
@@ -8861,7 +8950,7 @@
           "object": "_TypeRef",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -8872,7 +8961,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_SimpleKind"
+            "output": "_SimpleKind"
           }
         ]
       },

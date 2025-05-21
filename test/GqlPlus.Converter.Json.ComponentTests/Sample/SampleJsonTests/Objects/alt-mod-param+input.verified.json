@@ -18,14 +18,14 @@
           "object": "AltInpAltModParam",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "input": "Number"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "value": "String"
+          "input": "String"
         }
       ],
       "fields": [
@@ -34,7 +34,7 @@
           "name": "alt",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "input": "Number"
           }
         }
       ],
@@ -87,7 +87,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "mod"
+          "name": "mod"
         }
       ]
     }

@@ -29,7 +29,7 @@
           "object": "_BaseType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "kind"
+            "typeParam": "kind"
           }
         }
       ],
@@ -39,14 +39,14 @@
           "name": "typeKind",
           "type": {
             "$tag": "_OutputBase",
-            "value": "kind"
+            "typeParam": "kind"
           }
         }
       ],
       "name": "_BaseType",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "_Aliased"
+        "output": "_Aliased"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -55,7 +55,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "kind"
+          "name": "kind"
         }
       ]
     },
@@ -68,7 +68,7 @@
           "object": "_BaseType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "kind"
+            "typeParam": "kind"
           }
         },
         {
@@ -77,7 +77,7 @@
           "object": "_ChildType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "parent"
+            "typeParam": "parent"
           }
         }
       ],
@@ -87,7 +87,7 @@
           "name": "parent",
           "type": {
             "$tag": "_OutputBase",
-            "value": "parent"
+            "typeParam": "parent"
           }
         }
       ],
@@ -95,7 +95,12 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_BaseType",
-        "typeArgs": [{"$tag":"_TypeParam", "value":"kind"}]
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "typeParam": "kind"
+          }
+        ]
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -104,11 +109,11 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "kind"
+          "name": "kind"
         },
         {
           "$tag": "_Named",
-          "value": "parent"
+          "name": "parent"
         }
       ]
     },
@@ -239,15 +244,15 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "_Simple"
+          "output": "_Simple"
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_ConstantList"
+          "output": "_ConstantList"
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_ConstantMap"
+          "output": "_ConstantMap"
         }
       ],
       "name": "_Constant",
@@ -353,7 +358,7 @@
           "object": "_Modifier",
           "type": {
             "$tag": "_OutputBase",
-            "value": "kind"
+            "typeParam": "kind"
           }
         }
       ],
@@ -363,7 +368,7 @@
           "name": "modifierKind",
           "type": {
             "$tag": "_OutputBase",
-            "value": "kind"
+            "typeParam": "kind"
           }
         }
       ],
@@ -375,7 +380,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "kind"
+          "name": "kind"
         }
       ]
     },
@@ -388,7 +393,7 @@
           "object": "_Modifier",
           "type": {
             "$tag": "_OutputBase",
-            "value": "kind"
+            "typeParam": "kind"
           }
         },
         {
@@ -397,7 +402,7 @@
           "object": "_ModifierKeyed",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_TypeSimple"
+            "output": "_TypeSimple"
           }
         },
         {
@@ -406,7 +411,7 @@
           "object": "_ModifierKeyed",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Boolean"
+            "output": "Boolean"
           }
         }
       ],
@@ -416,7 +421,7 @@
           "name": "by",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_TypeSimple"
+            "output": "_TypeSimple"
           }
         },
         {
@@ -424,7 +429,7 @@
           "name": "optional",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Boolean"
+            "output": "Boolean"
           }
         }
       ],
@@ -432,7 +437,12 @@
       "parent": {
         "$tag": "_OutputBase",
         "output": "_Modifier",
-        "typeArgs": [{"$tag":"_TypeParam", "value":"kind"}]
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "typeParam": "kind"
+          }
+        ]
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -441,7 +451,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "kind"
+          "name": "kind"
         }
       ]
     },
@@ -480,7 +490,7 @@
         },
         {
           "$tag": "_Aliased",
-          "value": "List"
+          "name": "List"
         },
         {
           "$tag": "_Aliased",
@@ -542,7 +552,7 @@
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_Collections"
+          "output": "_Collections"
         }
       ],
       "name": "_Modifiers",
@@ -560,7 +570,7 @@
           "object": "_BaseType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "kind"
+            "typeParam": "kind"
           }
         },
         {
@@ -569,7 +579,7 @@
           "object": "_ChildType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Named"
+            "output": "_Named"
           }
         },
         {
@@ -587,7 +597,7 @@
           "object": "_ParentType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "item"
+            "typeParam": "item"
           }
         },
         {
@@ -605,7 +615,7 @@
           "object": "_ParentType",
           "type": {
             "$tag": "_OutputBase",
-            "value": "allItem"
+            "typeParam": "allItem"
           }
         }
       ],
@@ -624,7 +634,7 @@
           "name": "items",
           "type": {
             "$tag": "_OutputBase",
-            "value": "item"
+            "typeParam": "item"
           }
         },
         {
@@ -641,7 +651,7 @@
           "name": "allItems",
           "type": {
             "$tag": "_OutputBase",
-            "value": "allItem"
+            "typeParam": "allItem"
           }
         }
       ],
@@ -651,12 +661,12 @@
         "output": "_ChildType",
         "typeArgs": [
           {
-            "$tag": "_TypeParam",
-            "value": "kind"
+            "$tag": "_OutputArg",
+            "typeParam": "kind"
           },
           {
             "$tag": "_OutputArg",
-            "value": "_Named"
+            "output": "_Named"
           }
         ]
       },
@@ -667,15 +677,15 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "kind"
+          "name": "kind"
         },
         {
           "$tag": "_Named",
-          "value": "item"
+          "name": "item"
         },
         {
           "$tag": "_Named",
-          "value": "allItem"
+          "name": "allItem"
         }
       ]
     },
@@ -703,7 +713,7 @@
             },
             {
               "$tag": "_OutputArg",
-              "value": "Number"
+              "output": "Number"
             }
           ]
         },
@@ -723,7 +733,7 @@
             },
             {
               "$tag": "_OutputArg",
-              "value": "String"
+              "output": "String"
             }
           ]
         },
@@ -736,7 +746,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "Boolean"
+          "output": "Boolean"
         },
         {
           "$tag": "_OutputAlternate",
@@ -753,7 +763,7 @@
             },
             {
               "$tag": "_OutputArg",
-              "value": "Number"
+              "output": "Number"
             }
           ]
         },
@@ -772,13 +782,13 @@
             },
             {
               "$tag": "_OutputArg",
-              "value": "String"
+              "output": "String"
             }
           ]
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_EnumValue"
+          "output": "_EnumValue"
         }
       ],
       "name": "_Simple",
@@ -819,23 +829,23 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "Basic"
+          "name": "Basic"
         },
         {
           "$tag": "_Aliased",
-          "value": "Enum"
+          "name": "Enum"
         },
         {
           "$tag": "_Aliased",
-          "value": "Internal"
+          "name": "Internal"
         },
         {
           "$tag": "_Aliased",
-          "value": "Domain"
+          "name": "Domain"
         },
         {
           "$tag": "_Aliased",
-          "value": "Union"
+          "name": "Union"
         }
       ],
       "name": "_SimpleKind",
@@ -943,27 +953,27 @@
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_TypeDual"
+          "output": "_TypeDual"
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_TypeEnum"
+          "output": "_TypeEnum"
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_TypeInput"
+          "output": "_TypeInput"
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_TypeOutput"
+          "output": "_TypeOutput"
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_TypeDomain"
+          "output": "_TypeDomain"
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_TypeUnion"
+          "output": "_TypeUnion"
         }
       ],
       "name": "_Type",
@@ -1019,15 +1029,15 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "Dual"
+          "name": "Dual"
         },
         {
           "$tag": "_Aliased",
-          "value": "Input"
+          "name": "Input"
         },
         {
           "$tag": "_Aliased",
-          "value": "Output"
+          "name": "Output"
         }
       ],
       "name": "_TypeKind",
@@ -1053,7 +1063,7 @@
           "object": "_TypeRef",
           "type": {
             "$tag": "_OutputBase",
-            "value": "kind"
+            "typeParam": "kind"
           }
         },
         {
@@ -1062,7 +1072,7 @@
           "object": "_TypeRef",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -1072,7 +1082,7 @@
           "name": "typeKind",
           "type": {
             "$tag": "_OutputBase",
-            "value": "kind"
+            "typeParam": "kind"
           }
         },
         {
@@ -1080,14 +1090,14 @@
           "name": "name",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
       "name": "_TypeRef",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "_Described"
+        "output": "_Described"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -1096,7 +1106,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "kind"
+          "name": "kind"
         }
       ]
     },

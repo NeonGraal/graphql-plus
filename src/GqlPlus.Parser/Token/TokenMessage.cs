@@ -12,7 +12,7 @@ public record class TokenMessage(
 ) : TokenAt(Kind, Column, Line, After)
   , ITokenMessage
 {
-  public TokenMessage(TokenAt at, string message)
+  public TokenMessage(ITokenAt at, string message)
     : this(at.Kind, at.Column, at.Line, at.After, message) { }
 
   public override string? ToString()

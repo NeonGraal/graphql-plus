@@ -1,8 +1,4 @@
-﻿using GqlPlus.Token;
-
-using NSubstitute;
-
-namespace GqlPlus.Merging.Schema;
+﻿namespace GqlPlus.Merging.Schema;
 
 public abstract class TestAbbreviatedMerger<TAst>
   : TestAbbreviatedMerger<TAst, string>

@@ -18,14 +18,14 @@
           "object": "FldInpFieldObj",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "input": "Number"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "value": "String"
+          "input": "String"
         }
       ],
       "fields": [
@@ -34,7 +34,7 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "input": "Number"
           }
         }
       ],
@@ -53,7 +53,7 @@
           "object": "InpFieldObj",
           "type": {
             "$tag": "_InputBase",
-            "value": "FldInpFieldObj"
+            "input": "FldInpFieldObj"
           }
         }
       ],
@@ -63,7 +63,7 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "value": "FldInpFieldObj"
+            "input": "FldInpFieldObj"
           }
         }
       ],

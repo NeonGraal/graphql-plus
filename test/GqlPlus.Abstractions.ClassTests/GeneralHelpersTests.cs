@@ -1,4 +1,6 @@
-﻿namespace GqlPlus;
+﻿using NSubstitute;
+
+namespace GqlPlus;
 
 public class GeneralHelpersTests
 {
@@ -21,7 +23,7 @@ public class GeneralHelpersTests
 
     string result = input.Joined();
 
-    result.ShouldBe(string.Empty);
+    result.ShouldBe("");
   }
 
   [Fact]
@@ -31,7 +33,7 @@ public class GeneralHelpersTests
 
     string result = input.Joined(i => $"{i}");
 
-    result.ShouldBe(string.Empty);
+    result.ShouldBe("");
   }
 
   [Fact]
@@ -63,7 +65,7 @@ public class GeneralHelpersTests
 
     string result = input.Prefixed("prefix");
 
-    result.ShouldBe(string.Empty);
+    result.ShouldBe("");
   }
 
   [Fact]
@@ -73,7 +75,7 @@ public class GeneralHelpersTests
 
     string result = input.Suffixed("suffix");
 
-    result.ShouldBe(string.Empty);
+    result.ShouldBe("");
   }
 
   [Fact]
@@ -81,9 +83,30 @@ public class GeneralHelpersTests
   {
     string? input = null;
 
-    string result = input.Quoted("\"");
+    string result = input.Quoted('"');
 
-    result.ShouldBe(string.Empty);
+    result.ShouldBe("");
+  }
+
+  [Fact]
+  public void Show_Null_ReturnsCorrect()
+  {
+    IGqlpAbbreviated? input = null;
+
+    string result = input.Show();
+
+    result.ShouldBe("");
+  }
+
+  [Fact]
+  public void Show_Various_ReturnsCorrect()
+  {
+    IGqlpAbbreviated input = Substitute.For<IGqlpAbbreviated>();
+    input.GetFields().Returns(["field1", "(", "field2", ")", "", "field3"]);
+
+    string result = input.Show();
+
+    result.ToLines().ShouldBe(["field1", "(", "  field2", ")", "field3"]);
   }
 
   [Fact]

@@ -12,7 +12,7 @@ public class Structured
     && (Value?.IsEmpty ?? true);
 
   public bool Flow { get; }
-  public string Tag { get; } = string.Empty;
+  public string Tag { get; } = "";
 
   public Structured(bool? value, string tag = "")
     : base(new StructureValue(value, tag)) => Tag = tag;

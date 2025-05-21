@@ -18,14 +18,14 @@
           "object": "FldOutpFieldDual",
           "type": {
             "$tag": "_DualBase",
-            "value": "Number"
+            "dual": "Number"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "value": "String"
+          "dual": "String"
         }
       ],
       "fields": [
@@ -34,7 +34,7 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "value": "Number"
+            "dual": "Number"
           }
         }
       ],
@@ -53,7 +53,7 @@
           "object": "OutpFieldDual",
           "type": {
             "$tag": "_DualBase",
-            "value": "FldOutpFieldDual"
+            "dual": "FldOutpFieldDual"
           }
         }
       ],
@@ -63,7 +63,7 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "value": "FldOutpFieldDual"
+            "dual": "FldOutpFieldDual"
           }
         }
       ],

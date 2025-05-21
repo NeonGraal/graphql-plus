@@ -1,21 +1,19 @@
 ﻿using GqlPlus.Abstractions.Operation;
-using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Operation;
 
 internal sealed record class VariableAst(
-  TokenAt At,
+  ITokenAt At,
   string Identifier
 ) : AstDirectives(At, Identifier)
   , IGqlpVariable
 {
   public string? Type { get; set; }
   public IGqlpModifier[] Modifiers { get; set; } = [];
-  public ConstantAst? DefaultValue { get; set; }
+  public IGqlpConstant? DefaultValue { get; set; }
 
   internal override string Abbr => "v";
 
-  IGqlpConstant? IGqlpVariable.DefaultValue => DefaultValue;
   IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
 
   public bool Equals(VariableAst? other)

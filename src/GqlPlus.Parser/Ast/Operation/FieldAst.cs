@@ -1,16 +1,15 @@
 ﻿using GqlPlus.Abstractions.Operation;
-using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Operation;
 
 internal sealed record class FieldAst(
-  TokenAt At,
+  ITokenAt At,
   string Identifier
 ) : AstDirectives(At, Identifier)
   , IGqlpField
 {
   public string? FieldAlias { get; init; }
-  public ArgAst? Arg { get; set; }
+  public IGqlpArg? Arg { get; set; }
   public IGqlpModifier[] Modifiers { get; set; } = [];
   public IGqlpSelection[] Selections { get; set; } = [];
 
@@ -20,12 +19,12 @@ internal sealed record class FieldAst(
 
   IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
 
-  IEnumerable<IGqlpSelection> IGqlpField.Selections => Selections;
+  IEnumerable<IGqlpSelection> IGqlpSelections.Selections => Selections;
 
   public bool Equals(FieldAst? other)
     => base.Equals(other)
     && FieldAlias.NullEqual(other.FieldAlias)
-    && Arg == other.Arg
+    && Arg.NullEqual(other.Arg)
     && Modifiers.SequenceEqual(other.Modifiers)
     && Selections.SequenceEqual(other.Selections);
   public override int GetHashCode()

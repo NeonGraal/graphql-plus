@@ -38,11 +38,11 @@
           },
           {
             "$tag": "_OutputArg",
-            "value": "_UnionRef"
+            "output": "_UnionRef"
           },
           {
             "$tag": "_OutputArg",
-            "value": "_UnionMember"
+            "output": "_UnionMember"
           }
         ]
       },
@@ -60,7 +60,7 @@
           "object": "_UnionMember",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -70,14 +70,14 @@
           "name": "union",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
       "name": "_UnionMember",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "_UnionRef"
+        "output": "_UnionRef"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -93,7 +93,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_SimpleKind"
+            "output": "_SimpleKind"
           }
         ]
       },

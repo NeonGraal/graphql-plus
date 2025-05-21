@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -12,7 +11,7 @@ internal class ParseOptionSetting(
 {
   private readonly Parser<IParserDefault, IGqlpConstant>.L _default = defaultParser;
 
-  IResult<IGqlpSchemaSetting> Parser<IGqlpSchemaSetting>.I.Parse(ITokenizer tokens, string label)
+  public IResult<IGqlpSchemaSetting> Parse(ITokenizer tokens, string label)
   {
     Token.TokenAt at = tokens.At;
     string description = tokens.Description();
@@ -22,7 +21,7 @@ internal class ParseOptionSetting(
 
     IResult<IGqlpConstant> constant = _default.I.Parse(tokens, label);
     return constant.SelectOk(
-      value => new OptionSettingAst(at, name, description, (ConstantAst)value),
+      value => new OptionSettingAst(at, name, description, value),
       () => tokens.Error<IGqlpSchemaSetting>(label, "Value"));
   }
 }

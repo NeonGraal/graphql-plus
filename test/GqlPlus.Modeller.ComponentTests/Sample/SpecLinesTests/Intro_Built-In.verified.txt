@@ -153,7 +153,8 @@ types: !_Map_Type
     parent: !_OutputBase
       output: _Modifier
       typeArgs:
-        - !_TypeParam kind
+        - !_OutputArg
+          typeParam: kind
     typeKind: !_TypeKind Output
     typeParams:
       - !_Named

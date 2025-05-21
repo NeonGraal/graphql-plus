@@ -57,7 +57,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "dmnEnumValue"
+          "name": "dmnEnumValue"
         }
       ],
       "name": "EnumDmnEnumValue",

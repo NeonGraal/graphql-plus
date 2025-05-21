@@ -11,7 +11,7 @@
           "object": "InpFieldStr",
           "type": {
             "$tag": "_InputBase",
-            "value": "String"
+            "input": "String"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "value": "String"
+            "input": "String"
           }
         }
       ],

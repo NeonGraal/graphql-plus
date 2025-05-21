@@ -66,11 +66,8 @@ internal abstract class ObjectFieldParser<TObjField, TObjFieldAst, TObjBase>(
 
   protected abstract void ApplyFieldParams(TObjFieldAst field, IGqlpInputParam[] parameters);
   protected abstract TObjFieldAst ObjField(TokenAt at, string name, string description, TObjBase typeBase);
-  protected abstract IResult<TObjField> FieldDefault(ITokenizer tokens, TObjFieldAst field)
-      ;
-  protected abstract IResult<TObjField> FieldEnumValue(ITokenizer tokens, TObjFieldAst field)
-      ;
-  protected abstract IResultArray<IGqlpInputParam> FieldParam(ITokenizer tokens)
-      ;
+  protected abstract IResult<TObjField> FieldDefault(ITokenizer tokens, TObjFieldAst field);
+  protected abstract IResult<TObjField> FieldEnumValue(ITokenizer tokens, TObjFieldAst field);
+  protected abstract IResultArray<IGqlpInputParam> FieldParam(ITokenizer tokens);
   protected abstract TObjBase ObjBase(TokenAt at, string param, string description = "");
 }

@@ -28,7 +28,9 @@ internal abstract class ObjectAlternatesParser<TObjAlt, TObjAltAst, TObjBase, TO
       TokenAt at = tokens.At;
       IResult<TObjBase> objBase = _parseBase.Parse(tokens, label);
       if (!objBase.IsOk()) {
-        return objBase.AsPartialArray(result);
+        return objBase.IsError()
+          ? result.PartialArray(objBase.Message())
+          : result.PartialArray(tokens.Error(label, "base missing after '|'"));
       }
 
       TObjBase baseObject = objBase.Required();

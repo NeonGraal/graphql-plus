@@ -374,9 +374,19 @@ public class StructuredTests
     Structured result = new Map<Structured>().Render();
     Map<string> map = new() { [key] = value };
 
-    result.IncludeRendered(map, new RenderMap());
+    result.AddRendered(key, map, new RenderMap());
 
-    CheckMap(result, key, new Structured(value));
+    CheckMap(result, key, map.Render(s => new(s)));
+  }
+
+  [Theory, RepeatData]
+  public void AddRenderedNull_IsCorrect(string key)
+  {
+    Structured result = new Map<Structured>().Render();
+
+    result.AddRendered(key, null, new RenderMap());
+
+    result.Map.ShouldBeEmpty();
   }
 
   [Theory, RepeatData]
@@ -411,8 +421,19 @@ public class StructuredTests
     CheckMap(value, key, flags.Render(f => new(f), $"_Set({tag})"));
   }
 
+  [Theory, RepeatData]
+  public void IncludeRendered_IsCorrect(string key, string value)
+  {
+    Structured result = new Map<Structured>().Render();
+    Map<string> map = new() { [key] = value };
+
+    result.IncludeRendered(map, new RenderMap());
+
+    CheckMap(result, key, new Structured(value));
+  }
+
   [Fact]
-  public void IncludedRenderedNull_IsCorrect()
+  public void IncludeRenderedNull_IsCorrect()
   {
     Structured result = new Map<Structured>().Render();
     Map<string>? map = null;

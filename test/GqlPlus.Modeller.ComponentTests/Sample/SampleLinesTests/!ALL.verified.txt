@@ -1628,12 +1628,14 @@ types: !_Map_Type
         dual: RefDualGnrcAltArg
         object: DualGnrcAltArg
         typeArgs:
-          - !_TypeParam type
+          - !_DualArg
+            typeParam: type
     alternates:
       - !_DualAlternate
         dual: RefDualGnrcAltArg
         typeArgs:
-          - !_TypeParam type
+          - !_DualArg
+            typeParam: type
     name: DualGnrcAltArg
     typeKind: !_TypeKind Dual
     typeParams:
@@ -1645,12 +1647,16 @@ types: !_Map_Type
         dual: RefDualGnrcAltArgDescr
         object: DualGnrcAltArgDescr
         typeArgs:
-          - !_TypeParam type
+          - !_DualArg
+            description: 'Test Descr'
+            typeParam: type
     alternates:
       - !_DualAlternate
         dual: RefDualGnrcAltArgDescr
         typeArgs:
-          - !_TypeParam type
+          - !_DualArg
+            description: 'Test Descr'
+            typeParam: type
     name: DualGnrcAltArgDescr
     typeKind: !_TypeKind Dual
     typeParams:
@@ -1801,14 +1807,16 @@ types: !_Map_Type
         type: !_DualBase
           dual: RefDualGnrcFieldArg
           typeArgs:
-            - !_TypeParam type
+            - !_DualArg
+              typeParam: type
     fields:
       - !_DualField
         name: field
         type: !_DualBase
           dual: RefDualGnrcFieldArg
           typeArgs:
-            - !_TypeParam type
+            - !_DualArg
+              typeParam: type
     name: DualGnrcFieldArg
     typeKind: !_TypeKind Dual
     typeParams:
@@ -1925,7 +1933,8 @@ types: !_Map_Type
     parent: !_DualBase
       dual: RefDualGnrcPrntArg
       typeArgs:
-        - !_TypeParam type
+        - !_DualArg
+          typeParam: type
     typeKind: !_TypeKind Dual
     typeParams:
       - !_Named
@@ -2185,7 +2194,8 @@ types: !_Map_Type
     parent: !_DualBase
       dual: RefDualPrntParamDiff
       typeArgs:
-        - !_TypeParam a
+        - !_DualArg
+          typeParam: a
     typeKind: !_TypeKind Dual
     typeParams:
       - !_Named
@@ -2210,7 +2220,8 @@ types: !_Map_Type
     parent: !_DualBase
       dual: RefDualPrntParamSame
       typeArgs:
-        - !_TypeParam a
+        - !_DualArg
+          typeParam: a
     typeKind: !_TypeKind Dual
     typeParams:
       - !_Named
@@ -3376,12 +3387,14 @@ types: !_Map_Type
         input: RefInpGnrcAltArg
         object: InpGnrcAltArg
         typeArgs:
-          - !_TypeParam type
+          - !_InputArg
+            typeParam: type
     alternates:
       - !_InputAlternate
         input: RefInpGnrcAltArg
         typeArgs:
-          - !_TypeParam type
+          - !_InputArg
+            typeParam: type
     name: InpGnrcAltArg
     typeKind: !_TypeKind Input
     typeParams:
@@ -3393,12 +3406,16 @@ types: !_Map_Type
         input: RefInpGnrcAltArgDescr
         object: InpGnrcAltArgDescr
         typeArgs:
-          - !_TypeParam type
+          - !_InputArg
+            description: 'Test Descr'
+            typeParam: type
     alternates:
       - !_InputAlternate
         input: RefInpGnrcAltArgDescr
         typeArgs:
-          - !_TypeParam type
+          - !_InputArg
+            description: 'Test Descr'
+            typeParam: type
     name: InpGnrcAltArgDescr
     typeKind: !_TypeKind Input
     typeParams:
@@ -3549,14 +3566,16 @@ types: !_Map_Type
         type: !_InputBase
           input: RefInpGnrcFieldArg
           typeArgs:
-            - !_TypeParam type
+            - !_InputArg
+              typeParam: type
     fields:
       - !_InputField
         name: field
         type: !_InputBase
           input: RefInpGnrcFieldArg
           typeArgs:
-            - !_TypeParam type
+            - !_InputArg
+              typeParam: type
     name: InpGnrcFieldArg
     typeKind: !_TypeKind Input
     typeParams:
@@ -3673,7 +3692,8 @@ types: !_Map_Type
     parent: !_InputBase
       input: RefInpGnrcPrntArg
       typeArgs:
-        - !_TypeParam type
+        - !_InputArg
+          typeParam: type
     typeKind: !_TypeKind Input
     typeParams:
       - !_Named
@@ -3923,7 +3943,8 @@ types: !_Map_Type
     parent: !_InputBase
       input: RefInpPrntParamDiff
       typeArgs:
-        - !_TypeParam a
+        - !_InputArg
+          typeParam: a
     typeKind: !_TypeKind Input
     typeParams:
       - !_Named
@@ -3948,7 +3969,8 @@ types: !_Map_Type
     parent: !_InputBase
       input: RefInpPrntParamSame
       typeArgs:
-        - !_TypeParam a
+        - !_InputArg
+          typeParam: a
     typeKind: !_TypeKind Input
     typeParams:
       - !_Named
@@ -4366,12 +4388,14 @@ types: !_Map_Type
         object: OutpGnrcAltArg
         output: RefOutpGnrcAltArg
         typeArgs:
-          - !_TypeParam type
+          - !_OutputArg
+            typeParam: type
     alternates:
       - !_OutputAlternate
         output: RefOutpGnrcAltArg
         typeArgs:
-          - !_TypeParam type
+          - !_OutputArg
+            typeParam: type
     name: OutpGnrcAltArg
     typeKind: !_TypeKind Output
     typeParams:
@@ -4383,12 +4407,16 @@ types: !_Map_Type
         object: OutpGnrcAltArgDescr
         output: RefOutpGnrcAltArgDescr
         typeArgs:
-          - !_TypeParam type
+          - !_OutputArg
+            description: 'Test Descr'
+            typeParam: type
     alternates:
       - !_OutputAlternate
         output: RefOutpGnrcAltArgDescr
         typeArgs:
-          - !_TypeParam type
+          - !_OutputArg
+            description: 'Test Descr'
+            typeParam: type
     name: OutpGnrcAltArgDescr
     typeKind: !_TypeKind Output
     typeParams:
@@ -4559,14 +4587,16 @@ types: !_Map_Type
         type: !_OutputBase
           output: RefOutpGnrcFieldArg
           typeArgs:
-            - !_TypeParam type
+            - !_OutputArg
+              typeParam: type
     fields:
       - !_OutputField
         name: field
         type: !_OutputBase
           output: RefOutpGnrcFieldArg
           typeArgs:
-            - !_TypeParam type
+            - !_OutputArg
+              typeParam: type
     name: OutpGnrcFieldArg
     typeKind: !_TypeKind Output
     typeParams:
@@ -4683,7 +4713,8 @@ types: !_Map_Type
     parent: !_OutputBase
       output: RefOutpGnrcPrntArg
       typeArgs:
-        - !_TypeParam type
+        - !_OutputArg
+          typeParam: type
     typeKind: !_TypeKind Output
     typeParams:
       - !_Named
@@ -5110,7 +5141,8 @@ types: !_Map_Type
     parent: !_OutputBase
       output: RefOutpPrntParamDiff
       typeArgs:
-        - !_TypeParam a
+        - !_OutputArg
+          typeParam: a
     typeKind: !_TypeKind Output
     typeParams:
       - !_Named
@@ -5135,7 +5167,8 @@ types: !_Map_Type
     parent: !_OutputBase
       output: RefOutpPrntParamSame
       typeArgs:
-        - !_TypeParam a
+        - !_OutputArg
+          typeParam: a
     typeKind: !_TypeKind Output
     typeParams:
       - !_Named

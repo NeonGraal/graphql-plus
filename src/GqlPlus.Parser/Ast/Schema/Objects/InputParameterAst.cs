@@ -4,18 +4,17 @@ using GqlPlus.Token;
 namespace GqlPlus.Ast.Schema.Objects;
 
 internal sealed record class InputParamAst(
-  TokenAt At,
+  ITokenAt At,
   IGqlpInputBase Type
 ) : AstAbbreviated(At)
   , IGqlpInputParam
 {
   public IGqlpModifier[] Modifiers { get; set; } = [];
-  public ConstantAst? DefaultValue { get; set; }
+  public IGqlpConstant? DefaultValue { get; set; }
 
   internal override string Abbr => "Pa";
 
   IGqlpInputBase IGqlpInputParam.Type => Type;
-  IGqlpConstant? IGqlpInputParam.DefaultValue => DefaultValue;
   IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
   string IGqlpDescribed.Description => Type.Description;
 

@@ -25,7 +25,7 @@
           "object": "DualFieldModEnum",
           "type": {
             "$tag": "_DualBase",
-            "value": "*"
+            "dual": "*"
           }
         }
       ],
@@ -49,7 +49,7 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "value": "*"
+            "dual": "*"
           }
         }
       ],
@@ -71,7 +71,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "value"
+          "name": "value"
         }
       ],
       "name": "EnumDualFieldModEnum",

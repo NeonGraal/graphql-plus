@@ -21,7 +21,7 @@
           "object": "_Setting",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Constant"
+            "output": "_Constant"
           }
         }
       ],
@@ -31,14 +31,14 @@
           "name": "value",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Constant"
+            "output": "_Constant"
           }
         }
       ],
       "name": "_Setting",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "_Named"
+        "output": "_Named"
       },
       "typeKind": {
         "$tag": "_TypeKind",

@@ -14,7 +14,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "OutpObjAltType"
+          "output": "OutpObjAltType"
         }
       ],
       "name": "OutpObjAlt",

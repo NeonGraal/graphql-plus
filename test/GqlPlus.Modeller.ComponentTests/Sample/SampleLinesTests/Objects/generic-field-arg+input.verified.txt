@@ -8,14 +8,16 @@ types: !_Map_Type
         type: !_InputBase
           input: RefInpGnrcFieldArg
           typeArgs:
-            - !_TypeParam type
+            - !_InputArg
+              typeParam: type
     fields:
       - !_InputField
         name: field
         type: !_InputBase
           input: RefInpGnrcFieldArg
           typeArgs:
-            - !_TypeParam type
+            - !_InputArg
+              typeParam: type
     name: InpGnrcFieldArg
     typeKind: !_TypeKind Input
     typeParams:

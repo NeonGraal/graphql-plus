@@ -1,10 +1,9 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema;
 
 internal abstract record class AstType(
-  TokenAt At,
+  ITokenAt At,
   string Name,
   string Description
 ) : AstDeclaration(At, Name, Description)
@@ -12,7 +11,7 @@ internal abstract record class AstType(
 { }
 
 internal abstract record class AstType<TParent>(
-  TokenAt At,
+  ITokenAt At,
   string Name,
   string Description
 ) : AstType(At, Name, Description)

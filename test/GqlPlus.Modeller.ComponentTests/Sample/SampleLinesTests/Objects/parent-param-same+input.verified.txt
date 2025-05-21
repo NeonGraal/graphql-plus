@@ -20,7 +20,8 @@ types: !_Map_Type
     parent: !_InputBase
       input: RefInpPrntParamSame
       typeArgs:
-        - !_TypeParam a
+        - !_InputArg
+          typeParam: a
     typeKind: !_TypeKind Input
     typeParams:
       - !_Named

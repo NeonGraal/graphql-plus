@@ -53,7 +53,7 @@
           "object": "_InputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -63,7 +63,7 @@
           "name": "input",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -74,7 +74,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_InputTypeArg"
+            "output": "_InputTypeArg"
           }
         ]
       },
@@ -99,14 +99,14 @@
           "object": "_InputBase",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "_DualBase"
+          "output": "_DualBase"
         }
       ],
       "fields": [
@@ -115,7 +115,7 @@
           "name": "input",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -126,7 +126,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_InputTypeArg"
+            "output": "_InputTypeArg"
           }
         ]
       },
@@ -153,7 +153,7 @@
           "object": "_InputField",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Constant"
+            "output": "_Constant"
           }
         }
       ],
@@ -172,7 +172,7 @@
           "name": "default",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Constant"
+            "output": "_Constant"
           }
         }
       ],
@@ -183,7 +183,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_InputBase"
+            "output": "_InputBase"
           }
         ]
       },
@@ -208,7 +208,7 @@
           "object": "_InputBase",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         },
         {
@@ -226,7 +226,7 @@
           "object": "_InputParam",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Modifiers"
+            "output": "_Modifiers"
           }
         },
         {
@@ -244,7 +244,7 @@
           "object": "_InputParam",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Constant"
+            "output": "_Constant"
           }
         }
       ],
@@ -263,7 +263,7 @@
           "name": "modifiers",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Modifiers"
+            "output": "_Modifiers"
           }
         },
         {
@@ -280,14 +280,14 @@
           "name": "default",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Constant"
+            "output": "_Constant"
           }
         }
       ],
       "name": "_InputParam",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "_InputBase"
+        "output": "_InputBase"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -303,7 +303,7 @@
           "object": "_InputTypeArg",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -313,14 +313,14 @@
           "name": "input",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
       "name": "_InputTypeArg",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "_ObjTypeArg"
+        "output": "_ObjTypeArg"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -345,15 +345,15 @@
           },
           {
             "$tag": "_OutputArg",
-            "value": "_InputBase"
+            "output": "_InputBase"
           },
           {
             "$tag": "_OutputArg",
-            "value": "_InputField"
+            "output": "_InputField"
           },
           {
             "$tag": "_OutputArg",
-            "value": "_InputAlternate"
+            "output": "_InputAlternate"
           }
         ]
       },

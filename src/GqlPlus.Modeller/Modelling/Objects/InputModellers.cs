@@ -53,7 +53,7 @@ internal class InputFieldModeller(
 ) : ModellerObjField<IGqlpInputBase, IGqlpInputField, InputBaseModel, InputFieldModel>(modifier, refBase)
 {
   protected override InputFieldModel FieldModel(IGqlpInputField ast, InputBaseModel type, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name, type with { Description = ast.Type.Description }, ast.Description) {
+    => new(ast.Name, type with { Description = ast.BaseType.Description }, ast.Description) {
       Default = constant.TryModel(ast.DefaultValue, typeKinds),
     };
 }
@@ -79,7 +79,7 @@ internal class InputParamModeller(
 {
   protected override InputParamModel ToModel(IGqlpInputParam ast, IMap<TypeKindModel> typeKinds)
   {
-    InputParamModel model = new(ast.Type.Name, ast.Description) {
+    InputParamModel model = new(ast.Type.Input, ast.Description) {
       IsTypeParam = ast.Type.IsTypeParam,
       Modifiers = modifier.ToModels<ModifierModel>(ast.Modifiers, typeKinds),
       DefaultValue = constant.TryModel(ast.DefaultValue, typeKinds),

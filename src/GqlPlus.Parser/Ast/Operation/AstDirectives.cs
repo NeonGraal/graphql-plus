@@ -1,10 +1,9 @@
 ﻿using GqlPlus.Abstractions.Operation;
-using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Operation;
 
 internal abstract record class AstDirectives(
-  TokenAt At,
+  ITokenAt At,
   string Identifier
 ) : AstIdentified(At, Identifier)
   , IGqlpDirectives

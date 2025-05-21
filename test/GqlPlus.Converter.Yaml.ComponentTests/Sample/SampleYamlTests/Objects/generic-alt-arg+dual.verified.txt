@@ -6,12 +6,14 @@ types: !_Map_Type
       dual: RefDualGnrcAltArg
       object: DualGnrcAltArg
       typeArgs:
-      - !_TypeParam type
+      - !_DualArg
+        typeParam: type
     alternates:
     - !_DualAlternate
       dual: RefDualGnrcAltArg
       typeArgs:
-      - !_TypeParam type
+      - !_DualArg
+        typeParam: type
     name: DualGnrcAltArg
     typeKind: !_TypeKind Dual
     typeParams:

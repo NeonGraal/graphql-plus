@@ -3,7 +3,7 @@
 namespace GqlPlus.Ast;
 
 internal sealed record class ModifierAst(
-  TokenAt At
+  ITokenAt At
 ) : AstBase(At)
   , IGqlpModifier
 {

@@ -18,14 +18,14 @@
           "object": "FldOutpFieldModParam",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Number"
+            "output": "Number"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "String"
+          "output": "String"
         }
       ],
       "fields": [
@@ -34,7 +34,7 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Number"
+            "output": "Number"
           }
         }
       ],
@@ -63,7 +63,7 @@
           "object": "OutpFieldModParam",
           "type": {
             "$tag": "_OutputBase",
-            "value": "FldOutpFieldModParam"
+            "output": "FldOutpFieldModParam"
           }
         }
       ],
@@ -83,7 +83,7 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "FldOutpFieldModParam"
+            "output": "FldOutpFieldModParam"
           }
         }
       ],
@@ -95,7 +95,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "mod"
+          "name": "mod"
         }
       ]
     }

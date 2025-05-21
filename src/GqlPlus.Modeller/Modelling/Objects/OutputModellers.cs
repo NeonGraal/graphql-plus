@@ -72,10 +72,10 @@ internal class OutputAlternateModeller(
 ) : ModellerObjAlternate<IGqlpOutputArg, IGqlpOutputAlternate, OutputArgModel, OutputAlternateModel>(objArg, collection)
 {
   protected override OutputAlternateModel AlternateModel(IGqlpOutputAlternate ast, IMap<TypeKindModel> typeKinds)
-    => typeKinds.TryGetValue(ast.Name, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
+    => typeKinds.TryGetValue(ast.Output, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
     ? new("", ast.Description) {
       IsTypeParam = ast.IsTypeParam,
       Dual = dual.ToModel(ast.ToDual, typeKinds)
     }
-    : new(ast.Name, ast.Description);
+    : new(ast.Output, ast.Description);
 }

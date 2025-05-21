@@ -53,11 +53,16 @@ public interface IGqlpDirective
   IGqlpArg? Arg { get; }
 }
 
+public interface IGqlpSelections
+{
+  IEnumerable<IGqlpSelection> Selections { get; }
+}
+
 public interface IGqlpFragment
   : IGqlpIdentified
   , IGqlpDirectives
+  , IGqlpSelections
   , IEquatable<IGqlpFragment>
 {
   string OnType { get; }
-  IEnumerable<IGqlpSelection> Selections { get; }
 }

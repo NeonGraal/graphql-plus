@@ -14,7 +14,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "Number"
+          "name": "Number"
         }
       ],
       "name": "PrntUnionPrntDup",
@@ -40,7 +40,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "Number"
+          "name": "Number"
         }
       ],
       "name": "UnionPrntDup",

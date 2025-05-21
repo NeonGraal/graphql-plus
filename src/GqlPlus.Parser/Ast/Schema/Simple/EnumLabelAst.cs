@@ -4,7 +4,7 @@ using GqlPlus.Token;
 namespace GqlPlus.Ast.Schema.Simple;
 
 internal sealed record class EnumLabelAst(
-  TokenAt At,
+  ITokenAt At,
   string Name,
   string Description
 ) : AstAliased(At, Name, Description)

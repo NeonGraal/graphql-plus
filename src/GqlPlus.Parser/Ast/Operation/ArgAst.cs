@@ -12,17 +12,17 @@ internal sealed record class ArgAst
 
   internal override string Abbr => "a";
 
-  internal ArgAst(TokenAt at)
+  internal ArgAst(ITokenAt at)
     : base(at) { }
-  internal ArgAst(TokenAt at, string variable)
+  internal ArgAst(ITokenAt at, string variable)
     : base(at) => Variable = variable;
   internal ArgAst(IGqlpFieldKey field)
     : base((TokenAt)field.At) => Constant = new ConstantAst(field);
-  internal ArgAst(ConstantAst constant)
+  internal ArgAst(IGqlpConstant constant)
     : base(constant.At) => Constant = constant;
-  internal ArgAst(TokenAt at, IEnumerable<IGqlpArg> values)
+  internal ArgAst(ITokenAt at, IEnumerable<IGqlpArg> values)
     : base(at, values) { }
-  internal ArgAst(TokenAt at, IGqlpFields<IGqlpArg> fields)
+  internal ArgAst(ITokenAt at, IGqlpFields<IGqlpArg> fields)
     : base(at, fields) { }
 
   public bool Equals(ArgAst? other)
@@ -33,7 +33,6 @@ internal sealed record class ArgAst
     && Constant.NullEqual(other.Constant);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Variable, Constant);
-
   internal override IEnumerable<string?> GetFields()
     => Constant?.GetFields() ?? base.GetFields().Append(Variable.Prefixed("$"));
 }

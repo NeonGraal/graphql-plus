@@ -52,11 +52,11 @@ internal class ParseEnumDefinition(
     }
 
     List<IGqlpEnumLabel> labels = [];
-    while (!tokens.Take("}")) {
+    while (!tokens.Take('}')) {
       IResult<IGqlpEnumLabel> enumLabel = _enumLabel.Parse(tokens, "Enum Label");
       if (!enumLabel.Required(labels.Add)) {
         result.Values = labels.ArrayOf<EnumLabelAst>();
-        return enumLabel.AsResult(result);
+        return result.Partial(enumLabel.Message());
       }
     }
 

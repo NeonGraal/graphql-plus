@@ -4,7 +4,8 @@ namespace GqlPlus.Convert;
 
 public static class RenderYaml
 {
-  internal static int BestWidth = 60;
+  public const int BestWidth = 60;
+
   internal static ISerializer YamlFull { get; }
   internal static ISerializer YamlWrapped { get; }
 

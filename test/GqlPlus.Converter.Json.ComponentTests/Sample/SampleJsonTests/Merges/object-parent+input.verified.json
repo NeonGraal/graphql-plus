@@ -7,7 +7,7 @@
       "name": "InpObjPrnt",
       "parent": {
         "$tag": "_InputBase",
-        "value": "RefInpObjPrnt"
+        "input": "RefInpObjPrnt"
       },
       "typeKind": {
         "$tag": "_TypeKind",

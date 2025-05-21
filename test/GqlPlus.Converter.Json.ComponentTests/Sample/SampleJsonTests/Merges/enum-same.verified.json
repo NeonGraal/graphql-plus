@@ -14,7 +14,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "enumSame"
+          "name": "enumSame"
         }
       ],
       "name": "EnumSame",

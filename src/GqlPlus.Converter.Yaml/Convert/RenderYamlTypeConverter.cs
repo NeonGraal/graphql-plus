@@ -42,7 +42,12 @@ internal class RenderYamlTypeConverter
       } else if (model.Value is not null) {
         WriteValue(emitter, model.Value, model.Tag);
       } else {
-        emitter.Emit(new Scalar(default, model.Tag, string.Empty, ScalarStyle.Any, string.IsNullOrWhiteSpace(model.Tag), false));
+
+        if (string.IsNullOrWhiteSpace(model.Tag)) {
+          emitter.Emit(new Scalar(""));
+        } else {
+          emitter.Emit(new Scalar(default, model.Tag, string.Empty, ScalarStyle.Any, false, false));
+        }
       }
     }
   }
@@ -76,7 +81,7 @@ internal class RenderYamlTypeConverter
     bool plainImplicit = string.IsNullOrWhiteSpace(tag) && !isString;
     TagName tagName = isString || plainImplicit ? new TagName() : new TagName("!" + tag);
 
-    string text = string.Empty;
+    string text = "";
     if (value.Identifier is not null) {
       text = value.Identifier;
     } else if (value.Boolean is not null) {

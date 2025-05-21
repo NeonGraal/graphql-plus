@@ -9,7 +9,8 @@ types: !_Map_Type
     parent: !_OutputBase
       output: RefOutpGnrcPrntArg
       typeArgs:
-      - !_TypeParam type
+      - !_OutputArg
+        typeParam: type
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam

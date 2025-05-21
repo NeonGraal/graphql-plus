@@ -1,10 +1,9 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Globals;
 
 internal sealed record class OptionDeclAst(
-  TokenAt At,
+  ITokenAt At,
   string Name,
   string Description
 ) : AstDeclaration(At, Name, Description)
@@ -17,7 +16,7 @@ internal sealed record class OptionDeclAst(
 
   IEnumerable<IGqlpSchemaSetting> IGqlpSchemaOption.Settings => Settings;
 
-  public OptionDeclAst(TokenAt at, string name)
+  public OptionDeclAst(ITokenAt at, string name)
     : this(at, name, "") { }
 
   public bool Equals(OptionDeclAst? other)

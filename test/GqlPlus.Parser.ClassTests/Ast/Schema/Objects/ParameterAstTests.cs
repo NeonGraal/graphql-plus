@@ -26,23 +26,23 @@ public class ParamAstTests : AstAbbreviatedTests
   [Theory, RepeatData]
   public void HashCode_WithDefault(string name, string def)
       => _checks.HashCode(
-        () => new InputParamAst(AstNulls.At, name) { DefaultValue = new(new FieldKeyAst(AstNulls.At, def)) });
+        () => new InputParamAst(AstNulls.At, name) { DefaultValue = new ConstantAst(new FieldKeyAst(AstNulls.At, def)) });
 
   [Theory, RepeatData]
   public void String_WithDefault(string name, string def)
     => _checks.Text(
-      () => new InputParamAst(AstNulls.At, name) { DefaultValue = new(new FieldKeyAst(AstNulls.At, def)) },
+      () => new InputParamAst(AstNulls.At, name) { DefaultValue = new ConstantAst(new FieldKeyAst(AstNulls.At, def)) },
       $"( !Pa {name} =( !k '{def}' ) )");
 
   [Theory, RepeatData]
   public void Equality_WithDefault(string name, string def)
     => _checks.Equality(
-      () => new InputParamAst(AstNulls.At, name) { DefaultValue = new(new FieldKeyAst(AstNulls.At, def)) });
+      () => new InputParamAst(AstNulls.At, name) { DefaultValue = new ConstantAst(new FieldKeyAst(AstNulls.At, def)) });
 
   [Theory, RepeatData]
   public void Inequality_BetweenDefaults(string name, string def1, string def2)
     => _checks.InequalityBetween(def1, def2,
-      def => new InputParamAst(AstNulls.At, name) { DefaultValue = new(new FieldKeyAst(AstNulls.At, def)) },
+      def => new InputParamAst(AstNulls.At, name) { DefaultValue = new ConstantAst(new FieldKeyAst(AstNulls.At, def)) },
       def1 == def2);
 
   private readonly AstAbbreviatedChecks<InputParamAst> _checks

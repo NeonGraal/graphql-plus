@@ -11,7 +11,7 @@ public class ParseConstant(
   Parser<IGqlpFields<IGqlpConstant>>.D objectParser
 ) : ValueParser<IGqlpConstant>(fieldKey, keyValueParser, listParser, objectParser)
 {
-  public override IResult<IGqlpConstant> Parse(ITokenizer tokens, string label)
+  public override IResult<IGqlpConstant> Parse([NotNull] ITokenizer tokens, string label)
   {
     tokens.ThrowIfNull();
 #pragma warning disable CA1062 // Validate arguments of public methods
@@ -24,21 +24,14 @@ public class ParseConstant(
     }
 
     if (fieldKey.HasValue()) {
-      return fieldKey.Select(value => new ConstantAst((FieldKeyAst)value) as IGqlpConstant);
+      return fieldKey.Select(value => new ConstantAst(value) as IGqlpConstant);
     }
 
-    bool oldSeparators = tokens.IgnoreSeparators;
-    try {
-      tokens.IgnoreSeparators = false;
-
-      IResultArray<IGqlpConstant> list = ListParser.Parse(tokens, label);
-      return list.MapOk(
-        theList => new ConstantAst(at, theList.ArrayOf<ConstantAst>()).Ok<IGqlpConstant>(),
-        () => list.IsError()
-          ? list.AsResult<IGqlpConstant>()
-          : ObjectParser.Parse(tokens, label).Select(fields => new ConstantAst(at, fields) as IGqlpConstant));
-    } finally {
-      tokens.IgnoreSeparators = oldSeparators;
-    }
+    return base.Parse(tokens, label);
   }
+
+  protected override Func<IGqlpFields<IGqlpConstant>, IGqlpConstant> NewFields(ITokenAt at)
+    => fields => new ConstantAst(at, fields);
+  protected override Func<IEnumerable<IGqlpConstant>, IGqlpConstant> NewList(ITokenAt at)
+    => list => new ConstantAst(at, list);
 }

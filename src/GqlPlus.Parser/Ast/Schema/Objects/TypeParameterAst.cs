@@ -4,7 +4,7 @@ using GqlPlus.Token;
 namespace GqlPlus.Ast.Schema.Objects;
 
 internal sealed record class TypeParamAst(
-  TokenAt At,
+  ITokenAt At,
   string Name,
   string Description,
   string? Constraint = null
@@ -17,5 +17,5 @@ internal sealed record class TypeParamAst(
     : this(at, name, "") { }
 
   internal override IEnumerable<string?> GetFields()
-    => [At.ToString(), Description.Quoted("\""), Name.Prefixed("$"), Constraint.Prefixed(":")];
+    => [At.ToString(), Description.Quoted('"'), Name.Prefixed("$"), Constraint.Prefixed(":")];
 }

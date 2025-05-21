@@ -272,13 +272,17 @@ where TContext : UsageContext
   {
     if (input.Parent?.StartsWith("$", StringComparison.Ordinal) == true) {
       string parameter = input.Parent[1..];
-      bool addError = top && input.Usage.TypeParams.All(p => p.Name != parameter);
+      bool addError = top && input.Usage.TypeParams.All(IsParameterMismatch);
       context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Parent}' not defined", addError);
 
       return;
+
+      bool IsParameterMismatch(IGqlpTypeParam p)
+        => p.Name != parameter;
     }
 
     base.CheckParentType(input, context, top, onParent);
+
   }
 
   protected override bool CheckAstParentType(ParentUsage<TObject> input, IGqlpType astType)

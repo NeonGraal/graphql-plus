@@ -135,13 +135,13 @@ internal abstract class TypeObjectRenderer<TObject, TBase, TField, TAlt>(
 }
 
 internal class DualArgRenderer
-  : BaseRenderer<DualArgModel>
+  : DescribedRenderer<DualArgModel>
 {
   internal override Structured Render(DualArgModel model)
-    => model.IsTypeParam
-    ? new(model.Dual, "_TypeParam")
-    : base.Render(model)
-      .Add("dual", model.Dual);
+    => base.Render(model)
+      .AddIf(model.IsTypeParam,
+        t => t.Add("typeParam", model.Dual),
+        f => f.Add("dual", model.Dual));
 }
 
 internal class DualBaseRenderer(
@@ -181,14 +181,14 @@ internal class TypeDualRenderer(
 
 internal class InputArgRenderer(
   IRenderer<DualArgModel> dual
-) : BaseRenderer<InputArgModel>
+) : DescribedRenderer<InputArgModel>
 {
   internal override Structured Render(InputArgModel model)
     => model.Dual is null
-    ? model.IsTypeParam
-      ? new(model.Input, "_TypeParam")
-      : base.Render(model)
-        .Add("input", model.Input)
+    ? base.Render(model)
+      .AddIf(model.IsTypeParam,
+        t => t.Add("typeParam", model.Input),
+        f => f.Add("input", model.Input))
     : dual.Render(model.Dual);
 }
 
@@ -259,17 +259,19 @@ internal class TypeInputRenderer(
 }
 
 internal class OutputArgRenderer(
-  IRenderer<DualArgModel> dual
-) : TypeRefRenderer<OutputArgModel, SimpleKindModel>
+  IRenderer<DualArgModel> dual,
+  IRenderer<TypeRefModel<SimpleKindModel>> label
+) : DescribedRenderer<OutputArgModel>
 {
   internal override Structured Render(OutputArgModel model)
     => string.IsNullOrWhiteSpace(model.ThrowIfNull().EnumLabel)
     ? model.Dual is null
-      ? model.IsTypeParam
-        ? new(model.Output, "_TypeParam")
-        : new Map<Structured>() { ["output"] = model.Output! }.Render(model.Tag)
+      ? base.Render(model)
+        .AddIf(model.IsTypeParam,
+          t => t.Add("typeParam", model.Output ?? model.Name),
+          f => f.Add("output", model.Output ?? model.Name))
       : dual.Render(model.Dual)
-    : base.Render(model)
+    : label.Render(model)
       .Add("label", model.EnumLabel!);
 }
 

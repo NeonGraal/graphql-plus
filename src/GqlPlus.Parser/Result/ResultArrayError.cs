@@ -4,7 +4,7 @@ namespace GqlPlus.Result;
 
 public readonly struct ResultArrayError<TValue>(
   TokenMessage message
-) : IResultArray<TValue>, IResultError<IEnumerable<TValue>>
+) : IResultArrayError<TValue>
 {
   public TokenMessage Message { get; } = message;
 

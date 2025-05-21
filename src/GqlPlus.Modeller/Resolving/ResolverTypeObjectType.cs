@@ -4,18 +4,11 @@ namespace GqlPlus.Resolving;
 
 internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObjAlt>
   : ResolverChildType<TModel, TObjBase>
-  , ITypeResolver
   where TModel : TypeObjectModel<TObjBase, TObjField, TObjAlt>
   where TObjBase : IObjBaseModel
   where TObjField : IObjFieldModel
   where TObjAlt : IObjAlternateModel
 {
-  public bool ForType(BaseTypeModel model)
-    => model is TModel;
-
-  public BaseTypeModel ResolveType(BaseTypeModel model, IResolveContext context)
-    => Resolve((TModel)model, context);
-
   public override TModel Resolve(TModel model, IResolveContext context)
   {
     model = base.Resolve(model, context);

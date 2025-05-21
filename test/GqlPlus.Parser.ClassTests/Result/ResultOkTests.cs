@@ -1,6 +1,4 @@
-﻿using GqlPlus.Token;
-
-namespace GqlPlus.Result;
+﻿namespace GqlPlus.Result;
 
 public class ResultOkTests : BaseResultTests
 {

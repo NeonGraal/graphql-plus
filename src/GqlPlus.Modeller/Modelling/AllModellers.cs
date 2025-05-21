@@ -55,7 +55,10 @@ public static class AllModellers
     where TAst : IGqlpError
     where TModel : IModelBase
     where TModeller : class, IModeller<TAst, TModel>
-    => services.AddSingleton<IModeller<TAst, TModel>, TModeller>();
+    => services
+      .AddSingleton<TModeller>()
+      .AddProvider<TModeller, IModeller<TAst>>()
+      .AddProvider<TModeller, IModeller<TAst, TModel>>();
 
   private static IServiceCollection AddTypesModeller(this IServiceCollection services)
     => services
@@ -68,6 +71,7 @@ public static class AllModellers
     where TModeller : class, IModeller<TAst, TModel>, ITypeModeller
     => services
       .AddSingleton<TModeller>()
+      .AddProvider<TModeller, IModeller<TAst>>()
       .AddProvider<TModeller, IModeller<TAst, TModel>>()
       .AddProvider<TModeller, ITypeModeller>();
 
@@ -83,6 +87,7 @@ public static class AllModellers
   private static IServiceCollection AddModifierModeller(this IServiceCollection services)
     => services
       .AddSingleton<IModifierModeller, ModifierModeller>()
+      .AddProvider<IModifierModeller, IModeller<IGqlpModifier>>()
       .AddProvider<IModifierModeller, IModeller<IGqlpModifier, ModifierModel>>()
       .AddProvider<IModifierModeller, IModeller<IGqlpModifier, CollectionModel>>();
 

@@ -26,14 +26,14 @@
           "object": "InOutpParamDescr",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "input": "Number"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "value": "String"
+          "input": "String"
         }
       ],
       "fields": [
@@ -42,7 +42,7 @@
           "name": "param",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "input": "Number"
           }
         }
       ],
@@ -68,7 +68,7 @@
           ],
           "type": {
             "$tag": "_DualBase",
-            "value": "FldOutpParamDescr"
+            "dual": "FldOutpParamDescr"
           }
         }
       ],
@@ -85,7 +85,7 @@
           ],
           "type": {
             "$tag": "_DualBase",
-            "value": "FldOutpParamDescr"
+            "dual": "FldOutpParamDescr"
           }
         }
       ],

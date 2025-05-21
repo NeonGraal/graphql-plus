@@ -6,12 +6,16 @@ types: !_Map_Type
       input: RefInpGnrcAltArgDescr
       object: InpGnrcAltArgDescr
       typeArgs:
-      - !_TypeParam type
+      - !_InputArg
+        description: 'Test Descr'
+        typeParam: type
     alternates:
     - !_InputAlternate
       input: RefInpGnrcAltArgDescr
       typeArgs:
-      - !_TypeParam type
+      - !_InputArg
+        description: 'Test Descr'
+        typeParam: type
     name: InpGnrcAltArgDescr
     typeKind: !_TypeKind Input
     typeParams:

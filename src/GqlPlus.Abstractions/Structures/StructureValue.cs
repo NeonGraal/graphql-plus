@@ -57,7 +57,7 @@ public sealed class StructureValue
     { Identifier: not null } => Identifier,
     { Number: not null } => $"{Number}",
     { Text: not null } => Text,
-    _ => string.Empty,
+    _ => "",
   };
 
   public override string ToString() => this switch {

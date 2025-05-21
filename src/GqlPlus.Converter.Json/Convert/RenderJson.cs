@@ -2,9 +2,9 @@
 
 public static class RenderJson
 {
-  private static JsonSerializerOptions Options { get; } = JsonOptions(true);
+  private static JsonSerializerOptions Indented { get; } = JsonOptions(true);
 
-  internal static JsonSerializerOptions Unindented { get; } = JsonOptions(false);
+  public static JsonSerializerOptions Unindented { get; } = JsonOptions(false);
 
   private static JsonSerializerOptions JsonOptions(bool indented)
     => new() {
@@ -17,6 +17,6 @@ public static class RenderJson
       WriteIndented = indented,
     };
 
-  public static string ToJson(this Structured model)
-    => JsonSerializer.Serialize(model, Options);
+  public static string ToJson(this Structured model, JsonSerializerOptions? options = null)
+    => JsonSerializer.Serialize(model, options ?? Indented);
 }

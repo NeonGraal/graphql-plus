@@ -19,7 +19,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "enumPrnt"
+          "name": "enumPrnt"
         }
       ],
       "name": "EnumPrnt",
@@ -48,7 +48,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "prnt_enumPrnt"
+          "name": "prnt_enumPrnt"
         }
       ],
       "name": "PrntEnumPrnt",

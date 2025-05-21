@@ -36,7 +36,7 @@ internal class ParseTypeParams
 
         list.Add(result);
       } else {
-        return tokens.PartialArray(label, "type parameter", () => list);
+        return list.PartialArray(tokens.Error(label, "type parameter"));
       }
     }
 

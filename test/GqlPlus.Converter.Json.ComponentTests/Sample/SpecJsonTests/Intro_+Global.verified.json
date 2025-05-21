@@ -49,7 +49,7 @@
           "object": "_Categories",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Category"
+            "output": "_Category"
           }
         },
         {
@@ -58,18 +58,18 @@
           "object": "_Categories",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Type"
+            "output": "_Type"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "_Category"
+          "output": "_Category"
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_Type"
+          "output": "_Type"
         }
       ],
       "fields": [
@@ -78,7 +78,7 @@
           "name": "category",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Category"
+            "output": "_Category"
           }
         },
         {
@@ -86,7 +86,7 @@
           "name": "type",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Type"
+            "output": "_Type"
           }
         }
       ],
@@ -105,7 +105,7 @@
           "object": "_Category",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Resolution"
+            "output": "_Resolution"
           }
         },
         {
@@ -143,7 +143,7 @@
           "object": "_Category",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Modifiers"
+            "output": "_Modifiers"
           }
         }
       ],
@@ -153,7 +153,7 @@
           "name": "resolution",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Resolution"
+            "output": "_Resolution"
           }
         },
         {
@@ -189,14 +189,14 @@
           "name": "modifiers",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Modifiers"
+            "output": "_Modifiers"
           }
         }
       ],
       "name": "_Category",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "_Aliased"
+        "output": "_Aliased"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -221,7 +221,7 @@
           "object": "_Directive",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_InputParam"
+            "output": "_InputParam"
           }
         },
         {
@@ -230,7 +230,7 @@
           "object": "_Directive",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Boolean"
+            "output": "Boolean"
           }
         },
         {
@@ -253,7 +253,7 @@
           "object": "_Directive",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_"
+            "output": "_"
           }
         }
       ],
@@ -272,7 +272,7 @@
           "name": "parameters",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_InputParam"
+            "output": "_InputParam"
           }
         },
         {
@@ -280,7 +280,7 @@
           "name": "repeatable",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Boolean"
+            "output": "Boolean"
           }
         },
         {
@@ -302,14 +302,14 @@
           "name": "locations",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_"
+            "output": "_"
           }
         }
       ],
       "name": "_Directive",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "_Aliased"
+        "output": "_Aliased"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -337,7 +337,7 @@
           "object": "_Directives",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Directive"
+            "output": "_Directive"
           }
         },
         {
@@ -346,18 +346,18 @@
           "object": "_Directives",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Type"
+            "output": "_Type"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "_Directive"
+          "output": "_Directive"
         },
         {
           "$tag": "_OutputAlternate",
-          "value": "_Type"
+          "output": "_Type"
         }
       ],
       "fields": [
@@ -366,7 +366,7 @@
           "name": "directive",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Directive"
+            "output": "_Directive"
           }
         },
         {
@@ -374,7 +374,7 @@
           "name": "type",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Type"
+            "output": "_Type"
           }
         }
       ],
@@ -421,27 +421,27 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "Operation"
+          "name": "Operation"
         },
         {
           "$tag": "_Aliased",
-          "value": "Variable"
+          "name": "Variable"
         },
         {
           "$tag": "_Aliased",
-          "value": "Field"
+          "name": "Field"
         },
         {
           "$tag": "_Aliased",
-          "value": "Inline"
+          "name": "Inline"
         },
         {
           "$tag": "_Aliased",
-          "value": "Spread"
+          "name": "Spread"
         },
         {
           "$tag": "_Aliased",
-          "value": "Fragment"
+          "name": "Fragment"
         }
       ],
       "name": "_Location",
@@ -472,15 +472,15 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "Parallel"
+          "name": "Parallel"
         },
         {
           "$tag": "_Aliased",
-          "value": "Sequential"
+          "name": "Sequential"
         },
         {
           "$tag": "_Aliased",
-          "value": "Single"
+          "name": "Single"
         }
       ],
       "name": "_Resolution",
@@ -498,7 +498,7 @@
           "object": "_Setting",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Constant"
+            "output": "_Constant"
           }
         }
       ],
@@ -508,14 +508,14 @@
           "name": "value",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Constant"
+            "output": "_Constant"
           }
         }
       ],
       "name": "_Setting",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "_Named"
+        "output": "_Named"
       },
       "typeKind": {
         "$tag": "_TypeKind",

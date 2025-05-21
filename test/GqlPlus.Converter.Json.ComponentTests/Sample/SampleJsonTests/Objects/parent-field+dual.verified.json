@@ -18,7 +18,7 @@
           "object": "RefDualPrntField",
           "type": {
             "$tag": "_DualBase",
-            "value": "Number"
+            "dual": "Number"
           }
         },
         {
@@ -27,7 +27,7 @@
           "object": "DualPrntField",
           "type": {
             "$tag": "_DualBase",
-            "value": "Number"
+            "dual": "Number"
           }
         }
       ],
@@ -37,14 +37,14 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "value": "Number"
+            "dual": "Number"
           }
         }
       ],
       "name": "DualPrntField",
       "parent": {
         "$tag": "_DualBase",
-        "value": "RefDualPrntField"
+        "dual": "RefDualPrntField"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -67,14 +67,14 @@
           "object": "RefDualPrntField",
           "type": {
             "$tag": "_DualBase",
-            "value": "Number"
+            "dual": "Number"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "value": "String"
+          "dual": "String"
         }
       ],
       "fields": [
@@ -83,7 +83,7 @@
           "name": "parent",
           "type": {
             "$tag": "_DualBase",
-            "value": "Number"
+            "dual": "Number"
           }
         }
       ],

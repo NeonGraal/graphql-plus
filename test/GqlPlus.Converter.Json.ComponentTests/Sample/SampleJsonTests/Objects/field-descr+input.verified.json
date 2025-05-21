@@ -12,7 +12,7 @@
           "object": "InpFieldDescr",
           "type": {
             "$tag": "_InputBase",
-            "value": "*"
+            "input": "*"
           }
         }
       ],
@@ -23,7 +23,7 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "value": "*"
+            "input": "*"
           }
         }
       ],

@@ -6,12 +6,14 @@ types: !_Map_Type
       object: OutpGnrcAltArg
       output: RefOutpGnrcAltArg
       typeArgs:
-      - !_TypeParam type
+      - !_OutputArg
+        typeParam: type
     alternates:
     - !_OutputAlternate
       output: RefOutpGnrcAltArg
       typeArgs:
-      - !_TypeParam type
+      - !_OutputArg
+        typeParam: type
     name: OutpGnrcAltArg
     typeKind: !_TypeKind Output
     typeParams:

@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Result;
 
 public readonly struct ResultArrayEmpty<TValue>
-  : IResultArray<TValue>, IResultEmpty<IEnumerable<TValue>>
+  : IResultArrayEmpty<TValue>
 {
   public IResult<TResult> AsPartial<TResult>(TResult result, Action<IEnumerable<TValue>>? withValue = null, Action? action = null)
   {

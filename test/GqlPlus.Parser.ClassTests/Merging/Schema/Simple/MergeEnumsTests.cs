@@ -1,12 +1,11 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Merging.Simple;
 
 namespace GqlPlus.Merging.Schema.Simple;
 
 public class MergeEnumsTests
-  : TestTypedAsts<IGqlpType, IGqlpEnum, string, IGqlpEnumLabel>
+  : TestTypedMerger<IGqlpType, IGqlpEnum, string, IGqlpEnumLabel>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsValuesCantMerge_ReturnsErrors(string name, string[] values)

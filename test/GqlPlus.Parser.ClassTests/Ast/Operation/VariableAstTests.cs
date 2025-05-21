@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using GqlPlus.Abstractions.Operation;
+﻿using GqlPlus.Abstractions.Operation;
 
 namespace GqlPlus.Ast.Operation;
 
@@ -16,7 +15,7 @@ public class VariableAstTests
 
   [Theory, RepeatData]
   public void HashCode_WithDefault(string name, string value)
-    => _checks.HashCode(() => new VariableAst(AstNulls.At, name) { DefaultValue = new(new FieldKeyAst(AstNulls.At, value)) });
+    => _checks.HashCode(() => new VariableAst(AstNulls.At, name) { DefaultValue = new ConstantAst(new FieldKeyAst(AstNulls.At, value)) });
 
   [Theory, RepeatData]
   public void String_WithType(string name, string varType)
@@ -33,7 +32,7 @@ public class VariableAstTests
   [Theory, RepeatData]
   public void String_WithDefault(string name, string value)
     => _checks.Text(
-      () => new VariableAst(AstNulls.At, name) { DefaultValue = new(new FieldKeyAst(AstNulls.At, value)) },
+      () => new VariableAst(AstNulls.At, name) { DefaultValue = new ConstantAst(new FieldKeyAst(AstNulls.At, value)) },
       $"( !v {name} =( !k '{value}' ) )");
 
   [Theory, RepeatData]
@@ -61,18 +60,18 @@ public class VariableAstTests
 
   [Theory, RepeatData]
   public void Equality_WithDefault(string name, string value)
-    => _checks.Equality(() => new VariableAst(AstNulls.At, name) { DefaultValue = new(new FieldKeyAst(AstNulls.At, value)) });
+    => _checks.Equality(() => new VariableAst(AstNulls.At, name) { DefaultValue = new ConstantAst(new FieldKeyAst(AstNulls.At, value)) });
 
   [Theory, RepeatData]
   public void Inequality_BetweenDefault(string name, string value1, string value2)
     => _checks.InequalityBetween(value1, value2,
-      value => new VariableAst(AstNulls.At, name) { DefaultValue = new(new FieldKeyAst(AstNulls.At, value)) },
+      value => new VariableAst(AstNulls.At, name) { DefaultValue = new ConstantAst(new FieldKeyAst(AstNulls.At, value)) },
       value1 == value2);
 
   [Theory, RepeatData]
   public void Inequality_WithDefault(string name, string value)
     => _checks.InequalityWith(name,
-      () => new VariableAst(AstNulls.At, name) { DefaultValue = new(new FieldKeyAst(AstNulls.At, value)) });
+      () => new VariableAst(AstNulls.At, name) { DefaultValue = new ConstantAst(new FieldKeyAst(AstNulls.At, value)) });
 
   internal AstDirectivesChecks<IGqlpVariable> _checks = new(Variable);
 

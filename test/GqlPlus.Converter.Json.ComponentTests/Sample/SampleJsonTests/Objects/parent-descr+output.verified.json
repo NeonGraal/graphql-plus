@@ -18,7 +18,7 @@
           "object": "RefOutpPrntDescr",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Number"
+            "output": "Number"
           }
         }
       ],
@@ -49,14 +49,14 @@
           "object": "RefOutpPrntDescr",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Number"
+            "output": "Number"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "String"
+          "output": "String"
         }
       ],
       "fields": [
@@ -65,7 +65,7 @@
           "name": "parent",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Number"
+            "output": "Number"
           }
         }
       ],

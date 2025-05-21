@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Operation;
-using GqlPlus.Ast;
 using GqlPlus.Ast.Operation;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -38,12 +37,12 @@ internal class ParseVariable(
     }
 
     IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, label);
-    if (!modifiers.Optional(value => variable.Modifiers = value.ArrayOf<ModifierAst>())) {
+    if (!modifiers.Optional(value => variable.Modifiers = [.. value])) {
       return modifiers.AsResult<IGqlpVariable>(variable);
     }
 
     IResult<IGqlpConstant> constant = _default.I.Parse(tokens, label);
-    if (!constant.Optional(value => variable.DefaultValue = (ConstantAst?)value)) {
+    if (!constant.Optional(value => variable.DefaultValue = value)) {
       return constant.AsResult<IGqlpVariable>(variable);
     }
 

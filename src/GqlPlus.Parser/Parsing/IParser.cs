@@ -5,14 +5,12 @@ namespace GqlPlus.Parsing;
 
 public interface IParser<TResult>
 {
-  IResult<TResult> Parse(ITokenizer tokens)
-    ;
+  IResult<TResult> Parse([NotNull] ITokenizer tokens);
 }
 
 public interface IParserArray<TResult>
 {
-  IResultArray<TResult> Parse(ITokenizer tokens, string label)
-    ;
+  IResultArray<TResult> Parse([NotNull] ITokenizer tokens, string label);
 }
 
 #pragma warning disable CA1034 // Nested types should not be visible
@@ -20,14 +18,12 @@ public static class Parser<T>
 {
   public interface I
   {
-    IResult<T> Parse(ITokenizer tokens, string label)
-      ;
+    IResult<T> Parse(ITokenizer tokens, string label);
   }
 
   public interface IA
   {
-    IResultArray<T> Parse(ITokenizer tokens, string label)
-      ;
+    IResultArray<T> Parse(ITokenizer tokens, string label);
   }
 
   public delegate I D();

@@ -15,7 +15,7 @@
             "typeArgs": [
               {
                 "$tag": "_DualArg",
-                "value": "InpGnrcDualAlt"
+                "dual": "InpGnrcDualAlt"
               }
             ]
           }
@@ -31,7 +31,7 @@
             "typeArgs": [
               {
                 "$tag": "_DualArg",
-                "value": "InpGnrcDualAlt"
+                "dual": "InpGnrcDualAlt"
               }
             ]
           }
@@ -59,14 +59,14 @@
           "object": "InpGnrcDualAlt",
           "type": {
             "$tag": "_DualBase",
-            "value": "Number"
+            "dual": "Number"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "value": "String"
+          "dual": "String"
         }
       ],
       "fields": [
@@ -75,7 +75,7 @@
           "name": "alt",
           "type": {
             "$tag": "_DualBase",
-            "value": "Number"
+            "dual": "Number"
           }
         }
       ],
@@ -97,7 +97,7 @@
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "value": "ref"
+          "typeParam": "ref"
         }
       ],
       "name": "InpGnrcDualRef",
@@ -108,7 +108,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "ref"
+          "name": "ref"
         }
       ]
     }

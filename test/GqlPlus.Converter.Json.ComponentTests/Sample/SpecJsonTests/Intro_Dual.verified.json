@@ -53,7 +53,7 @@
           "object": "_DualAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -63,7 +63,7 @@
           "name": "dual",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -74,7 +74,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_DualTypeArg"
+            "output": "_DualTypeArg"
           }
         ]
       },
@@ -92,7 +92,7 @@
           "object": "_DualBase",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -102,7 +102,7 @@
           "name": "dual",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -113,7 +113,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_DualTypeArg"
+            "output": "_DualTypeArg"
           }
         ]
       },
@@ -131,7 +131,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "value": "_DualBase"
+            "output": "_DualBase"
           }
         ]
       },
@@ -149,7 +149,7 @@
           "object": "_DualTypeArg",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
@@ -159,14 +159,14 @@
           "name": "dual",
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Identifier"
+            "output": "_Identifier"
           }
         }
       ],
       "name": "_DualTypeArg",
       "parent": {
         "$tag": "_OutputBase",
-        "value": "_ObjTypeArg"
+        "output": "_ObjTypeArg"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -191,15 +191,15 @@
           },
           {
             "$tag": "_OutputArg",
-            "value": "_DualBase"
+            "output": "_DualBase"
           },
           {
             "$tag": "_OutputArg",
-            "value": "_DualField"
+            "output": "_DualField"
           },
           {
             "$tag": "_OutputArg",
-            "value": "_DualAlternate"
+            "output": "_DualAlternate"
           }
         ]
       },

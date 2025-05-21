@@ -18,7 +18,7 @@
           "object": "RefInpPrntDescr",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "input": "Number"
           }
         }
       ],
@@ -49,14 +49,14 @@
           "object": "RefInpPrntDescr",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "input": "Number"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "value": "String"
+          "input": "String"
         }
       ],
       "fields": [
@@ -65,7 +65,7 @@
           "name": "parent",
           "type": {
             "$tag": "_InputBase",
-            "value": "Number"
+            "input": "Number"
           }
         }
       ],

@@ -1,10 +1,9 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema.Simple;
 
 internal sealed record class DomainTrueFalseAst(
-  TokenAt At,
+  ITokenAt At,
   string Description,
   bool Excludes,
   bool Value

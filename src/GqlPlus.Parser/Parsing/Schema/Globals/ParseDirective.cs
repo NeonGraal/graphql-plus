@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Globals;
 using GqlPlus.Parsing.Schema.Simple;
 using GqlPlus.Result;
@@ -53,7 +52,7 @@ internal class ParseDirectiveDefinition(
   {
     DirectiveLocation locations = DirectiveLocation.None;
 
-    while (!tokens.Take("}")) {
+    while (!tokens.Take('}')) {
       IResult<DirectiveLocation> directiveLocation = _location.I.Parse(tokens, label);
       if (!directiveLocation.Required(value => locations |= value)) {
         return tokens.Partial(label, "location", () => locations);

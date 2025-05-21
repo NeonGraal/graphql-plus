@@ -1,8 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Models;
-using NSubstitute;
-using NSubstitute.ReceivedExtensions;
-using Shouldly;
+﻿using NSubstitute.ReceivedExtensions;
 
 namespace GqlPlus.Modelling;
 

@@ -52,9 +52,10 @@ internal abstract class GroupedVerifier<TAliased>(
 
   private void VerifyAliases(TAliased[] item, IReadOnlyCollection<string> names, ITokenMessages errors)
   {
-    IEnumerable<IGrouping<string, TAliased>> byAlias = item.SelectMany(t => t.Aliases.Select(a => (Alias: a, Item: t)))
-          .Where(a => !names.Contains(a.Alias))
-          .GroupBy(a => a.Alias, a => a.Item);
+    IEnumerable<IGrouping<string, TAliased>> byAlias = item
+      .SelectMany(ExtractAliases)
+      .Where(AliasExists)
+      .GroupBy(a => a.a, a => a.t);
 
     foreach (IGrouping<string, TAliased> alias in byAlias) {
       string[] aliases = [.. alias.Select(a => a.Name).Distinct()];
@@ -62,6 +63,12 @@ internal abstract class GroupedVerifier<TAliased>(
         errors.Add(alias.Last().MakeError($"Multiple {Label} with alias '{alias.Key}' found. Names {aliases.Joined(n => $"'{n}'")}"));
       }
     }
+
+    bool AliasExists((string a, TAliased) a)
+      => !names.Contains(a.a);
+
+    static IEnumerable<(string a, TAliased t)> ExtractAliases(TAliased t)
+      => t.Aliases.Select(a => (a, t));
   }
 }
 

@@ -42,7 +42,7 @@ internal class DualFieldModeller(
 ) : ModellerObjField<IGqlpDualBase, IGqlpDualField, DualBaseModel, DualFieldModel>(modifier, objBase)
 {
   protected override DualFieldModel FieldModel(IGqlpDualField ast, DualBaseModel type, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name, type with { Description = ast.Type.Description }, ast.Description);
+    => new(ast.Name, type with { Description = ast.BaseType.Description }, ast.Description);
 }
 
 internal class DualAlternateModeller(
@@ -51,5 +51,5 @@ internal class DualAlternateModeller(
 ) : ModellerObjAlternate<IGqlpDualArg, IGqlpDualAlternate, DualArgModel, DualAlternateModel>(objArg, collection)
 {
   protected override DualAlternateModel AlternateModel(IGqlpDualAlternate ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Name, ast.Description);
+    => new(ast.Dual, ast.Description);
 }

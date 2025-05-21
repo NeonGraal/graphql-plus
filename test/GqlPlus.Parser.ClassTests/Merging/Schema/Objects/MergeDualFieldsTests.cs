@@ -6,7 +6,7 @@ namespace GqlPlus.Merging.Schema.Objects;
 
 public class MergeDualFieldsTests(
   ITestOutputHelper outputHelper
-) : TestObjectFieldAsts<IGqlpDualField, IGqlpDualBase>
+) : TestObjectFieldMerger<IGqlpDualField, IGqlpDualBase>
 {
   private readonly MergeDualFields _merger = new(outputHelper.ToLoggerFactory());
 

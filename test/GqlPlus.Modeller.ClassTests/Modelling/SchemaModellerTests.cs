@@ -7,10 +7,11 @@ public class SchemaModellerTests
   {
     IModeller<IGqlpSchemaCategory, CategoryModel> category = MFor<IGqlpSchemaCategory, CategoryModel>();
     IModeller<IGqlpSchemaDirective, DirectiveModel> directive = MFor<IGqlpSchemaDirective, DirectiveModel>();
+    IModeller<IGqlpSchemaOperation, OperationModel> operation = MFor<IGqlpSchemaOperation, OperationModel>();
     IModeller<IGqlpSchemaSetting, SettingModel> setting = MFor<IGqlpSchemaSetting, SettingModel>();
     ITypesModeller types = For<ITypesModeller>();
 
-    Modeller = new SchemaModeller(category, directive, setting, types);
+    Modeller = new SchemaModeller(category, directive, operation, setting, types);
   }
 
   protected override IModeller<IGqlpSchema, SchemaModel> Modeller { get; }

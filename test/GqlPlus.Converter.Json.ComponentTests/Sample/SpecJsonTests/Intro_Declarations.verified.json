@@ -565,7 +565,7 @@
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Operations"
+            "output": "_Operations"
           }
         },
         {
@@ -754,7 +754,7 @@
           ],
           "type": {
             "$tag": "_OutputBase",
-            "value": "_Operations"
+            "output": "_Operations"
           }
         },
         {

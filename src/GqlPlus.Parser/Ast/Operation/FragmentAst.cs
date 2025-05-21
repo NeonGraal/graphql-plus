@@ -1,10 +1,9 @@
 ﻿using GqlPlus.Abstractions.Operation;
-using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Operation;
 
 internal sealed record class FragmentAst(
-  TokenAt At,
+  ITokenAt At,
   string Identifier,
   string OnType,
   params IGqlpSelection[] Selections
@@ -13,7 +12,7 @@ internal sealed record class FragmentAst(
 {
   internal override string Abbr => "t";
 
-  IEnumerable<IGqlpSelection> IGqlpFragment.Selections => Selections;
+  IEnumerable<IGqlpSelection> IGqlpSelections.Selections => Selections;
 
   public bool Equals(FragmentAst? other)
     => other is IGqlpFragment fragment && Equals(fragment);

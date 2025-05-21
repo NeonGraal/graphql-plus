@@ -31,22 +31,31 @@ public static class EnumContextHelper
 {
   public static IMap<string> MakeEnumValues(this IGqlpType[] aliased)
   {
-    IEnumerable<IGrouping<string, string>> enums = aliased
-        .OfType<IGqlpEnum>()
-        .SelectMany(e => e.Items.Select(v => (Label: v.Name, Type: e.Name)))
-        .GroupBy(e => e.Label, e => e.Type);
+    IGqlpEnum[] enumTypes = aliased.ArrayOf<IGqlpEnum>();
+    IEnumerable<IGrouping<string, string>> enums = GroupLabels(EnumLabels);
 
-    HashSet<string> enumNames = [.. enums.Select(e => e.Key)];
+    HashSet<string> enumNames = [.. enums.Select(GKey)];
 
-    return aliased
-        .OfType<IGqlpEnum>()
-        .SelectMany(e => e.Items.SelectMany(
-          v => v.Aliases
-            .Where(a => !enumNames.Contains(a))
-            .Select(a => (Label: a, Type: e.Name))))
-        .GroupBy(e => e.Label, e => e.Type)
+    return GroupLabels(EnumAliases)
         .Concat(enums)
-        .Where(g => g.Count() == 1)
-        .ToMap(e => e.Key, e => e.First());
+        .Where(IsUniqueGroup)
+        .ToMap(GKey, e => e.First());
+
+    IEnumerable<IGrouping<string, string>> GroupLabels(Func<IGqlpEnum, IEnumerable<(string, string)>> mapper)
+      => enumTypes.SelectMany(mapper).GroupBy(e => e.Item1, e => e.Item2);
+
+    static IEnumerable<(string, string)> EnumLabels(IGqlpEnum e)
+      => e.Items.Select(v => (v.Name, e.Name));
+
+    static string GKey(IGrouping<string, string> e) => e.Key;
+
+    IEnumerable<(string, string)> EnumAliases(IGqlpEnum e)
+      => e.Items
+          .SelectMany(v => v.Aliases
+            .Where(a => !enumNames.Contains(a))
+            .Select(a => (a, e.Name)));
+
+    static bool IsUniqueGroup(IGrouping<string, string> g)
+      => g.Count() == 1;
   }
 }

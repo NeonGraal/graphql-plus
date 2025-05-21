@@ -14,7 +14,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "outpGnrcValue"
+          "name": "outpGnrcValue"
         }
       ],
       "name": "EnumOutpGnrcValue",
@@ -33,7 +33,7 @@
           "typeArgs": [
             {
               "$tag": "_OutputArg",
-              "value": "outpGnrcValue"
+              "output": "outpGnrcValue"
             }
           ]
         }
@@ -45,7 +45,7 @@
           "typeArgs": [
             {
               "$tag": "_OutputArg",
-              "value": "outpGnrcValue"
+              "output": "outpGnrcValue"
             }
           ]
         }
@@ -65,7 +65,7 @@
           "object": "RefOutpGnrcValue",
           "type": {
             "$tag": "_OutputBase",
-            "value": "type"
+            "typeParam": "type"
           }
         }
       ],
@@ -75,7 +75,7 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "type"
+            "typeParam": "type"
           }
         }
       ],
@@ -87,7 +87,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "type"
+          "name": "type"
         }
       ]
     }

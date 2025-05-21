@@ -15,7 +15,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "value": "OutpGnrcParamAlt"
+                "output": "OutpGnrcParamAlt"
               }
             ]
           }
@@ -31,7 +31,7 @@
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "value": "OutpGnrcParamAlt"
+                "output": "OutpGnrcParamAlt"
               }
             ]
           }
@@ -59,14 +59,14 @@
           "object": "OutpGnrcParamAlt",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Number"
+            "output": "Number"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "String"
+          "output": "String"
         }
       ],
       "fields": [
@@ -75,7 +75,7 @@
           "name": "alt",
           "type": {
             "$tag": "_OutputBase",
-            "value": "Number"
+            "output": "Number"
           }
         }
       ],
@@ -97,7 +97,7 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "value": "ref"
+          "typeParam": "ref"
         }
       ],
       "name": "OutpGnrcParamRef",
@@ -108,7 +108,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "ref"
+          "name": "ref"
         }
       ]
     }

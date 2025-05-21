@@ -22,14 +22,15 @@ internal class ParseDirectives(
 
     while (name is not null) {
       DirectiveAst directive = new(at, name);
+      result.Add(directive);
+
       IResult<IGqlpArg> argument = _argument.I.Parse(tokens, "Arg");
-      if (!argument.Required(value => directive.Arg = (ArgAst)value)) {
+      if (!argument.Required(value => directive.Arg = value)) {
         if (argument.IsError()) {
           return argument.AsResultArray(result);
         }
       }
 
-      result.Add(directive);
       if (!tokens.Prefix('@', out name, out at)) {
         return tokens.PartialArray(label, "identifier after '@'", () => result);
       }

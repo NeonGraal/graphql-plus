@@ -1,11 +1,11 @@
 ﻿namespace GqlPlus.Resolving;
 
 internal abstract class ResolverChildType<TModel, TParent>
-  : IResolver<TModel>
+  : ResolverType<TModel>
   where TModel : ChildTypeModel<TParent>
   where TParent : IModelBase
 {
-  public virtual TModel Resolve(TModel model, IResolveContext context)
+  public override TModel Resolve(TModel model, IResolveContext context)
   {
     if (model.Parent is not null) {
       ResolveParent(model, context);

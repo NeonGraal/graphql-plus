@@ -11,7 +11,7 @@ public record class SchemaModel(
     IEnumerable<DirectiveModel> directives,
     IEnumerable<SettingModel> settings,
     IEnumerable<BaseTypeModel> types,
-    ITokenMessages errors)
+    ITokenMessages? errors)
     : this(name, "")
   {
     Categories = categories.ToMap(c => c.Name);

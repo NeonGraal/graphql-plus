@@ -7,7 +7,7 @@
       "name": "DualGnrcPrnt",
       "parent": {
         "$tag": "_DualBase",
-        "value": "type"
+        "typeParam": "type"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -16,7 +16,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "type"
+          "name": "type"
         }
       ]
     }

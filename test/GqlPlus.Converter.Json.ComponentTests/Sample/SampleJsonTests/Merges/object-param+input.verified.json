@@ -11,7 +11,7 @@
           "object": "InpObjParam",
           "type": {
             "$tag": "_InputBase",
-            "value": "test"
+            "typeParam": "test"
           }
         },
         {
@@ -20,7 +20,7 @@
           "object": "InpObjParam",
           "type": {
             "$tag": "_InputBase",
-            "value": "type"
+            "typeParam": "type"
           }
         }
       ],
@@ -30,7 +30,7 @@
           "name": "test",
           "type": {
             "$tag": "_InputBase",
-            "value": "test"
+            "typeParam": "test"
           }
         },
         {
@@ -38,7 +38,7 @@
           "name": "type",
           "type": {
             "$tag": "_InputBase",
-            "value": "type"
+            "typeParam": "type"
           }
         }
       ],
@@ -50,11 +50,11 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "value": "test"
+          "name": "test"
         },
         {
           "$tag": "_Named",
-          "value": "type"
+          "name": "type"
         }
       ]
     }

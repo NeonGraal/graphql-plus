@@ -24,6 +24,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.prettierrc.yml = .prettierrc.yml
 		autoverify.ps1 = autoverify.ps1
 		collect-samples.ps1 = collect-samples.ps1
+		.github\copilot-instructions.md = .github\copilot-instructions.md
 		.github\dependabot.yml = .github\dependabot.yml
 		Directory.Build.props = Directory.Build.props
 		.github\workflows\dotnet-test.yml = .github\workflows\dotnet-test.yml
@@ -100,6 +101,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Converter.Yaml.ComponentTests", "test\GqlPlus.Converter.Yaml.ComponentTests\GqlPlus.Converter.Yaml.ComponentTests.csproj", "{8F67479F-A4B7-4574-B8EA-10C8E19DA2E4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Converter.Yaml", "src\GqlPlus.Converter.Yaml\GqlPlus.Converter.Yaml.csproj", "{DF7D0CA6-48AE-460D-BCFF-B274D6D004BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Converter.Json.ClassTests", "test\GqlPlus.Converter.Json.ClassTests\GqlPlus.Converter.Json.ClassTests.csproj", "{E3D3D14A-A5FA-4292-8676-2A8386931EC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Converter.Yaml.ClassTests", "test\GqlPlus.Converter.Yaml.ClassTests\GqlPlus.Converter.Yaml.ClassTests.csproj", "{D11248A7-A1B2-4D8F-A396-36615F36A4F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Converter.ClassTestBase", "test\GqlPlus.Converter.ClassTestBase\GqlPlus.Converter.ClassTestBase.csproj", "{9A60308A-96CA-45DC-B338-92ABA3035987}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Generators.ComponentTests", "test\GqlPlus.Generators.ComponentTests\GqlPlus.Generators.ComponentTests.csproj", "{461D4743-5509-485C-934A-2B5A0193E36A}"
 EndProject
@@ -213,6 +220,18 @@ Global
 		{DF7D0CA6-48AE-460D-BCFF-B274D6D004BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF7D0CA6-48AE-460D-BCFF-B274D6D004BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF7D0CA6-48AE-460D-BCFF-B274D6D004BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3D3D14A-A5FA-4292-8676-2A8386931EC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3D3D14A-A5FA-4292-8676-2A8386931EC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3D3D14A-A5FA-4292-8676-2A8386931EC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3D3D14A-A5FA-4292-8676-2A8386931EC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D11248A7-A1B2-4D8F-A396-36615F36A4F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D11248A7-A1B2-4D8F-A396-36615F36A4F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D11248A7-A1B2-4D8F-A396-36615F36A4F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D11248A7-A1B2-4D8F-A396-36615F36A4F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A60308A-96CA-45DC-B338-92ABA3035987}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A60308A-96CA-45DC-B338-92ABA3035987}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A60308A-96CA-45DC-B338-92ABA3035987}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A60308A-96CA-45DC-B338-92ABA3035987}.Release|Any CPU.Build.0 = Release|Any CPU
 		{461D4743-5509-485C-934A-2B5A0193E36A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{461D4743-5509-485C-934A-2B5A0193E36A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{461D4743-5509-485C-934A-2B5A0193E36A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -250,6 +269,9 @@ Global
 		{7A0D7D70-6533-442A-9FD1-29131DE207F4} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{8F67479F-A4B7-4574-B8EA-10C8E19DA2E4} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{DF7D0CA6-48AE-460D-BCFF-B274D6D004BA} = {B834B2ED-0D27-4281-8523-B706B42DCC15}
+		{E3D3D14A-A5FA-4292-8676-2A8386931EC4} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
+		{D11248A7-A1B2-4D8F-A396-36615F36A4F5} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
+		{9A60308A-96CA-45DC-B338-92ABA3035987} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{461D4743-5509-485C-934A-2B5A0193E36A} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

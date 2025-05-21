@@ -1,10 +1,9 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema;
 
 internal abstract record class AstDescribed(
-  TokenAt At,
+  ITokenAt At,
   string Description
 ) : AstAbbreviated(At)
   , IGqlpDescribed

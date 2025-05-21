@@ -3,8 +3,9 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Schema;
 
-internal sealed record class SchemaAst(TokenAt At)
-  : AstAbbreviated(At)
+internal sealed record class SchemaAst(
+  ITokenAt At
+) : AstAbbreviated(At)
   , IGqlpSchema
 {
   public ParseResultKind Result { get; set; }

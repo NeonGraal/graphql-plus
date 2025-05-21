@@ -14,7 +14,7 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "value": "OutpDualAltDual"
+          "dual": "OutpDualAltDual"
         }
       ],
       "name": "OutpAltDual",
@@ -39,14 +39,14 @@
           "object": "OutpDualAltDual",
           "type": {
             "$tag": "_DualBase",
-            "value": "Number"
+            "dual": "Number"
           }
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "value": "String"
+          "dual": "String"
         }
       ],
       "fields": [
@@ -55,7 +55,7 @@
           "name": "alt",
           "type": {
             "$tag": "_DualBase",
-            "value": "Number"
+            "dual": "Number"
           }
         }
       ],

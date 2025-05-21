@@ -41,6 +41,5 @@ internal abstract class ObjectTypeParser<TObjType, TObjTypeAst>
   }
 
   protected abstract TObjTypeAst ObjType(TokenAt at, string type, string description);
-  public abstract IResultArray<TObjType> Parse(ITokenizer tokens, string label)
-    ;
+  public abstract IResultArray<TObjType> Parse(ITokenizer tokens, string label);
 }

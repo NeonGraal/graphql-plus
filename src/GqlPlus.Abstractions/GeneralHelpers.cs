@@ -63,6 +63,9 @@ public static class GeneralHelpers
   public static string TrueFalse(this bool value)
     => value ? "true" : "false";
 
+  public static string Quoted(this string? text, char quote)
+    => text.Quoted(quote.ToString());
+
   public static string Quoted(this string? text, string quote)
     => text?.Length > 0
     ? string.Concat(
@@ -73,7 +76,7 @@ public static class GeneralHelpers
       quote)
     : "";
 
-  public static string Show(this IGqlpAbbreviated abbr)
+  public static string Show(this IGqlpAbbreviated? abbr)
   {
     if (abbr is null) {
       return "";

@@ -14,7 +14,7 @@
       "items": [
         {
           "$tag": "_Aliased",
-          "value": "value"
+          "name": "value"
         }
       ],
       "name": "EnumOutpFieldModEnum",
@@ -46,7 +46,7 @@
           "object": "OutpFieldModEnum",
           "type": {
             "$tag": "_OutputBase",
-            "value": "*"
+            "output": "*"
           }
         }
       ],
@@ -70,7 +70,7 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "value": "*"
+            "output": "*"
           }
         }
       ],

@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
+﻿using System.Globalization;
 
 using GqlPlus.Result;
 
@@ -65,14 +64,14 @@ public class Tokenizer
 
   protected Tokenizer(ITokenizer tokens)
   {
-    Tokenizer other = (Tokenizer)tokens;
+    if (tokens is Tokenizer other) {
+      _operation = other.ThrowIfNull()._operation;
+      _len = other._len;
 
-    _operation = other.ThrowIfNull()._operation;
-    _len = other._len;
-
-    _kind = other._kind;
-    _pos = other._pos;
-    IgnoreSeparators = other.IgnoreSeparators;
+      _kind = other._kind;
+      _pos = other._pos;
+      IgnoreSeparators = other.IgnoreSeparators;
+    }
   }
 
   public Tokenizer(string operation)

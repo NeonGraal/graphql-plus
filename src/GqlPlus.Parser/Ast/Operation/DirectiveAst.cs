@@ -1,15 +1,14 @@
 ﻿using GqlPlus.Abstractions.Operation;
-using GqlPlus.Token;
 
 namespace GqlPlus.Ast.Operation;
 
 internal sealed record class DirectiveAst(
-  TokenAt At,
+  ITokenAt At,
   string Identifier
 ) : AstIdentified(At, Identifier)
   , IGqlpDirective
 {
-  public ArgAst? Arg { get; set; }
+  public IGqlpArg? Arg { get; set; }
 
   internal override string Abbr => "d";
 

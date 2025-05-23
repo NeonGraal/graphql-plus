@@ -5,7 +5,7 @@ public abstract class ResolverClassTestBase<TModel>
     where TModel : IModelBase
 {
   protected abstract IResolver<TModel> Resolver { get; }
-  protected IModelsContext Context { get; } = new ModelsContext();
+  internal ModelsContext Context { get; } = [];
 
   protected static IResolver<T> RFor<T>()
     where T : IModelBase

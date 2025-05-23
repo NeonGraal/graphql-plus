@@ -17,8 +17,8 @@ public class TypeInputResolverFieldTests
     => new(field.Name, new(field.Type, ""), "");
   protected override InputFieldModel MakeModifierField(FieldInput field, ModifierModel modifier)
     => new(field.Name, new(field.Type, ""), "") { Modifiers = [modifier] };
-  protected override InputFieldModel MakeParamField(FieldInput field)
-    => new(field.Name, new(field.Type, "") { IsTypeParam = true }, "");
+  protected override InputFieldModel MakeParamField(FieldInput field, ModifierModel modifier)
+    => new(field.Name, new(field.Type, "") { IsTypeParam = true }, "") { Modifiers = [modifier] };
   protected override TypeInputModel NewModel(string name, string description)
     => new(name, description);
   protected override InputBaseModel NewParam(string paramName)

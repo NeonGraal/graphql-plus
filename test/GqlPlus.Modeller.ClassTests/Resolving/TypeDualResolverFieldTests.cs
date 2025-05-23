@@ -11,8 +11,8 @@ public class TypeDualResolverFieldTests
     => new(field.Name, new(field.Type, ""), "");
   protected override DualFieldModel MakeModifierField(FieldInput field, ModifierModel modifier)
     => new(field.Name, new(field.Type, ""), "") { Modifiers = [modifier] };
-  protected override DualFieldModel MakeParamField(FieldInput field)
-    => new(field.Name, new(field.Type, "") { IsTypeParam = true }, "");
+  protected override DualFieldModel MakeParamField(FieldInput field, ModifierModel modifier)
+    => new(field.Name, new(field.Type, "") { IsTypeParam = true }, "") { Modifiers = [modifier] };
   protected override DualArgModel NewArg(string argument, bool isParam = false)
     => new(argument, "") { IsTypeParam = isParam };
   protected override TypeDualModel NewModel(string name, string description)

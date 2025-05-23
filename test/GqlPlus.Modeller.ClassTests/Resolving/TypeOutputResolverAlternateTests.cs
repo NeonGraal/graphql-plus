@@ -17,8 +17,8 @@ public class TypeOutputResolverAlternateTests
     => new(name, description) { Args = args };
   protected override OutputAlternateModel MakeCollectionAlternate(string alternate, CollectionModel collection)
     => new(alternate, "") { Collections = [collection] };
-  protected override OutputAlternateModel MakeParamAlternate(string alternate)
-    => new(alternate, "") { IsTypeParam = true };
+  protected override OutputAlternateModel MakeParamAlternate(string alternate, CollectionModel collection)
+    => new(alternate, "") { IsTypeParam = true, Collections = [collection] };
   protected override TypeOutputModel NewModel(string name, string description)
     => new(name, description);
   protected override OutputBaseModel NewParam(string paramName)

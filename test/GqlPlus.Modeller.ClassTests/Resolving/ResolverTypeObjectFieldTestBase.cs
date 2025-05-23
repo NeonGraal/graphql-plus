@@ -68,11 +68,12 @@ public abstract class ResolverTypeObjectFieldTestBase<TModel, TBase, TField, TAl
   }
 
   [Theory, RepeatData]
-  public void ModelWithParentWithArgField_ResolvesCorrectly(string name, string parent, FieldInput field)
+  public void ModelWithParentWithArgFieldModifier_ResolvesCorrectly(string name, string parent, FieldInput field, string key)
   {
+    ModifierModel modifier = new(ModifierKind.Dict) { Key = key };
     TModel parentModel = NewModel(parent, "") with {
       TypeParams = [new(field.Type, "")],
-      Fields = [MakeParamField(field)],
+      Fields = [MakeParamField(field, modifier)],
     };
     Context.AddModels([parentModel]);
 
@@ -83,7 +84,7 @@ public abstract class ResolverTypeObjectFieldTestBase<TModel, TBase, TField, TAl
       Parent = MakeBase(parent, "", NewArg(field.Type)),
     };
 
-    TField expectedField = MakeField(field);
+    TField expectedField = MakeModifierField(field, modifier);
     ObjectForModel[] allFields = [new ObjectForModel<TField>(expectedField, parent)];
     TModel expectedModel = parentModel with {
       Fields = [expectedField],
@@ -156,5 +157,5 @@ public abstract class ResolverTypeObjectFieldTestBase<TModel, TBase, TField, TAl
 
   protected abstract TField MakeField(FieldInput field);
   protected abstract TField MakeModifierField(FieldInput field, ModifierModel modifier);
-  protected abstract TField MakeParamField(FieldInput field);
+  protected abstract TField MakeParamField(FieldInput field, ModifierModel modifier);
 }

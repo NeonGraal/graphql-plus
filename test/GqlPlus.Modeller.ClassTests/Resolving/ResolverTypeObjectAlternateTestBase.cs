@@ -100,11 +100,12 @@ public abstract class ResolverTypeObjectAlternateTestBase<TModel, TBase, TField,
   }
 
   [Theory, RepeatData]
-  public void ModelWithParentWithArgAlternate_ResolvesCorrectly(string name, string parent, string alternate)
+  public void ModelWithParentWithArgAlternateCollection_ResolvesCorrectly(string name, string parent, string alternate, string key)
   {
+    CollectionModel collection = new(ModifierKind.Dict) { Key = key };
     TModel parentModel = NewModel(parent, "") with {
       TypeParams = [new(alternate, "")],
-      Alternates = [MakeParamAlternate(alternate)],
+      Alternates = [MakeParamAlternate(alternate, collection)],
     };
     Context.AddModels([parentModel]);
 
@@ -115,7 +116,7 @@ public abstract class ResolverTypeObjectAlternateTestBase<TModel, TBase, TField,
       Parent = MakeBase(parent, "", NewArg(alternate)),
     };
 
-    TAlt expectedAlternate = MakeAlternate(alternate);
+    TAlt expectedAlternate = MakeCollectionAlternate(alternate, collection);
     ObjectForModel[] allAlternates = [new ObjectForModel<TAlt>(expectedAlternate, parent)];
     TModel expectedParent = parentModel with {
       Alternates = [expectedAlternate],
@@ -155,5 +156,5 @@ public abstract class ResolverTypeObjectAlternateTestBase<TModel, TBase, TField,
 
   protected abstract TAlt MakeAlternate(string alternate);
   protected abstract TAlt MakeCollectionAlternate(string alternate, CollectionModel collection);
-  protected abstract TAlt MakeParamAlternate(string alternate);
+  protected abstract TAlt MakeParamAlternate(string alternate, CollectionModel collection);
 }

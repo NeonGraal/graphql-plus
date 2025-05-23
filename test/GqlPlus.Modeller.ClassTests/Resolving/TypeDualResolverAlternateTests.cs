@@ -11,8 +11,8 @@ public class TypeDualResolverAlternateTests
     => new(name, description) { Args = args };
   protected override DualAlternateModel MakeCollectionAlternate(string alternate, CollectionModel collection)
         => new(alternate, "") { Collections = [collection] };
-  protected override DualAlternateModel MakeParamAlternate(string alternate)
-    => new(alternate, "") { IsTypeParam = true };
+  protected override DualAlternateModel MakeParamAlternate(string alternate, CollectionModel collection)
+    => new(alternate, "") { IsTypeParam = true, Collections = [collection] };
   protected override DualArgModel NewArg(string argument, bool isParam = false)
     => new(argument, "") { IsTypeParam = isParam };
   protected override TypeDualModel NewModel(string name, string description)

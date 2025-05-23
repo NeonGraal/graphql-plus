@@ -1,6 +1,4 @@
-﻿using NSubstitute;
-
-namespace GqlPlus.Resolving;
+﻿namespace GqlPlus.Resolving;
 
 public abstract class ResolverTypeObjectFieldTestBase<TModel, TBase, TField, TAlt, TArg>
   : ResolverTypeObjectTypeTestBase<TModel, TBase, TField, TAlt, TArg>
@@ -85,13 +83,52 @@ public abstract class ResolverTypeObjectFieldTestBase<TModel, TBase, TField, TAl
       Parent = MakeBase(parent, "", NewArg(field.Type)),
     };
 
-    ObjectForModel[] allFields = [new ObjectForModel<TField>(MakeField(field), parent)];
+    TField expectedField = MakeField(field);
+    ObjectForModel[] allFields = [new ObjectForModel<TField>(expectedField, parent)];
+    TModel expectedModel = parentModel with {
+      Fields = [expectedField],
+      AllFields = allFields,
+    };
 
     TModel result = Resolver.Resolve(model, Context);
 
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
         r => r.Name.ShouldBe(name),
+        r => r.ParentModel.ShouldBeEquivalentTo(expectedModel),
+        r => r.AllFields.ShouldBeEquivalentTo(allFields));
+  }
+
+  [Theory, RepeatData]
+  public void ModelWithParentWithFieldArgModifier_ResolvesCorrectly(string name, string parent, FieldInput field, string key)
+  {
+    ModifierModel modifier = new(ModifierKind.Param) { Key = key };
+    TModel parentModel = NewModel(parent, "") with {
+      TypeParams = [new(key, "")],
+      Fields = [MakeModifierField(field, modifier)],
+    };
+    Context.AddModels([parentModel]);
+
+    TypeEnumModel enumModel = new(key, "");
+    Context.Types["$" + key] = enumModel;
+
+    TModel model = NewModel(name, "") with {
+      Parent = MakeBase(parent, "", NewArg(key)),
+    };
+
+    TField expectedField = MakeModifierField(field, new(ModifierKind.Dict) { Key = key });
+    ObjectForModel[] allFields = [new ObjectForModel<TField>(expectedField, parent)];
+    TModel expectedModel = parentModel with {
+      Fields = [expectedField],
+      AllFields = allFields,
+    };
+
+    TModel result = Resolver.Resolve(model, Context);
+
+    result.ShouldNotBeNull()
+      .ShouldSatisfyAllConditions(
+        r => r.Name.ShouldBe(name),
+        r => r.ParentModel.ShouldBeEquivalentTo(expectedModel),
         r => r.AllFields.ShouldBeEquivalentTo(allFields));
   }
 

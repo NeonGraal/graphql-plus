@@ -10,6 +10,7 @@ public record class InputArgModel(
   string Input,
   string Description
 ) : ObjArgModel(Description)
+  , IInputModel
 {
   internal DualArgModel? Dual { get; init; }
 }
@@ -18,6 +19,7 @@ public record class InputBaseModel(
   string Input,
   string Description
 ) : ObjBaseModel<InputArgModel>(Description)
+  , IInputModel
 {
   internal DualBaseModel? Dual { get; init; }
 }
@@ -35,6 +37,7 @@ public record class InputAlternateModel(
   string Input,
   string Description
 ) : ObjAlternateModel<InputArgModel>(Description)
+  , IInputModel
 {
   internal DualAlternateModel? Dual { get; init; }
 }
@@ -43,7 +46,14 @@ public record class InputParamModel(
   string Input,
   string Description
 ) : InputBaseModel(Input, Description)
+  , IInputModel
 {
   internal ModifierModel[] Modifiers { get; set; } = [];
   public ConstantModel? DefaultValue { get; set; }
+}
+
+public interface IInputModel
+{
+  string Input { get; }
+  bool IsTypeParam { get; }
 }

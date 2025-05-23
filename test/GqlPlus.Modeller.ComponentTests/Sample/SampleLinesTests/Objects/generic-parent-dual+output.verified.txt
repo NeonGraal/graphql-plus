@@ -24,8 +24,8 @@ types: !_Map_Type
   !_Identifier OutpGnrcPrntDual: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
+        dual: AltOutpGnrcPrntDual
         object: RefOutpGnrcPrntDual
-        typeParam: ref
     name: OutpGnrcPrntDual
     parent: !_OutputBase
       output: RefOutpGnrcPrntDual

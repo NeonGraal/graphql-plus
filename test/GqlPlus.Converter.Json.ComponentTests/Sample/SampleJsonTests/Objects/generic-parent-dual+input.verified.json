@@ -49,8 +49,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "RefInpGnrcPrntDual",
-          "typeParam": "ref"
+          "dual": "AltInpGnrcPrntDual",
+          "object": "RefInpGnrcPrntDual"
         }
       ],
       "name": "InpGnrcPrntDual",

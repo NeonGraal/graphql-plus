@@ -15,6 +15,8 @@ public class TypeInputResolverAlternateTests
     => new(alternate, "");
   protected override InputBaseModel MakeBase(string name, string description = "", params InputArgModel[] args)
     => new(name, description) { Args = args };
+  protected override InputAlternateModel MakeCollectionAlternate(string alternate, CollectionModel collection)
+    => new(alternate, "") { Collections = [collection] };
   protected override InputAlternateModel MakeParamAlternate(string alternate)
     => new(alternate, "") { IsTypeParam = true };
   protected override TypeInputModel NewModel(string name, string description)

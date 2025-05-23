@@ -25,7 +25,7 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: RefOutpGnrcPrntParam
-        typeParam: ref
+        output: AltOutpGnrcPrntParam
     name: OutpGnrcPrntParam
     parent: !_OutputBase
       output: RefOutpGnrcPrntParam

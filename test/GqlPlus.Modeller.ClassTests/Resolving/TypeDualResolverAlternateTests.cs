@@ -9,6 +9,8 @@ public class TypeDualResolverAlternateTests
     => new(alternate, "");
   protected override DualBaseModel MakeBase(string name, string description = "", params DualArgModel[] args)
     => new(name, description) { Args = args };
+  protected override DualAlternateModel MakeCollectionAlternate(string alternate, CollectionModel collection)
+        => new(alternate, "") { Collections = [collection] };
   protected override DualAlternateModel MakeParamAlternate(string alternate)
     => new(alternate, "") { IsTypeParam = true };
   protected override DualArgModel NewArg(string argument, bool isParam = false)

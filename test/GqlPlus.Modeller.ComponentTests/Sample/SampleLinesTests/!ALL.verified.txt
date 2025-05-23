@@ -1913,8 +1913,8 @@ types: !_Map_Type
   !_Identifier DualGnrcPrntDual: !_TypeDual
     allAlternates:
       - !_ObjectFor(_DualAlternate)
+        dual: AltDualGnrcPrntDual
         object: RefDualGnrcPrntDual
-        typeParam: ref
     name: DualGnrcPrntDual
     parent: !_DualBase
       dual: RefDualGnrcPrntDual
@@ -1943,8 +1943,8 @@ types: !_Map_Type
   !_Identifier DualGnrcPrntParam: !_TypeDual
     allAlternates:
       - !_ObjectFor(_DualAlternate)
+        dual: AltDualGnrcPrntParam
         object: RefDualGnrcPrntParam
-        typeParam: ref
     name: DualGnrcPrntParam
     parent: !_DualBase
       dual: RefDualGnrcPrntParam
@@ -3672,8 +3672,8 @@ types: !_Map_Type
   !_Identifier InpGnrcPrntDual: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
+        dual: AltInpGnrcPrntDual
         object: RefInpGnrcPrntDual
-        typeParam: ref
     name: InpGnrcPrntDual
     parent: !_InputBase
       input: RefInpGnrcPrntDual
@@ -3692,8 +3692,8 @@ types: !_Map_Type
   !_Identifier InpGnrcPrntParam: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
+        input: AltInpGnrcPrntParam
         object: RefInpGnrcPrntParam
-        typeParam: ref
     name: InpGnrcPrntParam
     parent: !_InputBase
       input: RefInpGnrcPrntParam
@@ -4690,8 +4690,8 @@ types: !_Map_Type
   !_Identifier OutpGnrcPrntDual: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
+        dual: AltOutpGnrcPrntDual
         object: RefOutpGnrcPrntDual
-        typeParam: ref
     name: OutpGnrcPrntDual
     parent: !_OutputBase
       output: RefOutpGnrcPrntDual
@@ -4711,7 +4711,7 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: RefOutpGnrcPrntParam
-        typeParam: ref
+        output: AltOutpGnrcPrntParam
     name: OutpGnrcPrntParam
     parent: !_OutputBase
       output: RefOutpGnrcPrntParam

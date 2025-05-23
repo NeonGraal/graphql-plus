@@ -62,30 +62,14 @@
     "$tag": "_Map_Type",
     "_Alternate": {
       "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_ObjBase",
-          "output": "_ObjTypeParam"
-        }
-      ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "typeArgs",
-          "object": "_ObjBase",
+          "name": "base",
+          "object": "_Alternate",
           "type": {
             "$tag": "_OutputBase",
-            "typeParam": "arg"
+            "typeParam": "base"
           }
         },
         {
@@ -108,6 +92,14 @@
         }
       ],
       "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "base",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "base"
+          }
+        },
         {
           "$tag": "_OutputField",
           "modifiers": [
@@ -127,16 +119,6 @@
         }
       ],
       "name": "_Alternate",
-      "parent": {
-        "$tag": "_OutputBase",
-        "output": "_ObjBase",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "typeParam": "arg"
-          }
-        ]
-      },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
@@ -144,36 +126,20 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "name": "arg"
+          "name": "base"
         }
       ]
     },
     "_DualAlternate": {
       "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_ObjBase",
-          "output": "_ObjTypeParam"
-        }
-      ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "typeArgs",
-          "object": "_ObjBase",
+          "name": "base",
+          "object": "_Alternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_DualTypeArg"
+            "output": "_DualBase"
           }
         },
         {
@@ -193,25 +159,6 @@
             "$tag": "_OutputBase",
             "output": "_Collections"
           }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "dual",
-          "object": "_DualAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Identifier"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "dual",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Identifier"
-          }
         }
       ],
       "name": "_DualAlternate",
@@ -221,7 +168,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "output": "_DualTypeArg"
+            "output": "_DualBase"
           }
         ]
       },
@@ -457,30 +404,14 @@
     },
     "_InputAlternate": {
       "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_ObjBase",
-          "output": "_ObjTypeParam"
-        }
-      ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "typeArgs",
-          "object": "_ObjBase",
+          "name": "base",
+          "object": "_Alternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_InputTypeArg"
+            "output": "_InputBase"
           }
         },
         {
@@ -500,25 +431,6 @@
             "$tag": "_OutputBase",
             "output": "_Collections"
           }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "input",
-          "object": "_InputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Identifier"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "input",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Identifier"
-          }
         }
       ],
       "name": "_InputAlternate",
@@ -528,7 +440,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "output": "_InputTypeArg"
+            "output": "_InputBase"
           }
         ]
       },
@@ -1142,30 +1054,14 @@
     },
     "_OutputAlternate": {
       "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_ObjBase",
-          "output": "_ObjTypeParam"
-        }
-      ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "typeArgs",
-          "object": "_ObjBase",
+          "name": "base",
+          "object": "_Alternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_OutputTypeArg"
+            "output": "_OutputBase"
           }
         },
         {
@@ -1185,25 +1081,6 @@
             "$tag": "_OutputBase",
             "output": "_Collections"
           }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "output",
-          "object": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Identifier"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "output",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Identifier"
-          }
         }
       ],
       "name": "_OutputAlternate",
@@ -1213,7 +1090,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "output": "_OutputTypeArg"
+            "output": "_OutputBase"
           }
         ]
       },

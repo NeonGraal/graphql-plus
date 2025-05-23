@@ -23,17 +23,12 @@ _errors:
   _message: In _OutputEnum can't get model for type '_TypeRef'
 types: !_Map_Type
   !_Identifier _Alternate: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: _ObjBase
-      output: _ObjTypeParam
     allFields:
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: typeArgs
-      object: _ObjBase
+      name: base
+      object: _Alternate
       type: !_OutputBase
-        typeParam: arg
+        typeParam: base
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: collections
@@ -41,55 +36,39 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Collections
     fields:
+    - !_OutputField
+      name: base
+      type: !_OutputBase
+        typeParam: base
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: collections
       type: !_OutputBase
         output: _Collections
     name: _Alternate
-    parent: !_OutputBase
-      output: _ObjBase
-      typeArgs:
-      - !_OutputArg
-        typeParam: arg
     typeKind: !_TypeKind Output
     typeParams:
     - !_Named
-      name: arg
+      name: base
   !_Identifier _DualAlternate: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: _ObjBase
-      output: _ObjTypeParam
     allFields:
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: typeArgs
-      object: _ObjBase
+      name: base
+      object: _Alternate
       type: !_OutputBase
-        output: _DualTypeArg
+        output: _DualBase
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: collections
       object: _Alternate
       type: !_OutputBase
         output: _Collections
-    - !_ObjectFor(_OutputField)
-      name: dual
-      object: _DualAlternate
-      type: !_OutputBase
-        output: _Identifier
-    fields:
-    - !_OutputField
-      name: dual
-      type: !_OutputBase
-        output: _Identifier
     name: _DualAlternate
     parent: !_OutputBase
       output: _Alternate
       typeArgs:
       - !_OutputArg
-        output: _DualTypeArg
+        output: _DualBase
     typeKind: !_TypeKind Output
   !_Identifier _DualBase: !_TypeOutput
     allAlternates:
@@ -191,39 +170,24 @@ types: !_Map_Type
     - !_Named
       name: base
   !_Identifier _InputAlternate: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: _ObjBase
-      output: _ObjTypeParam
     allFields:
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: typeArgs
-      object: _ObjBase
+      name: base
+      object: _Alternate
       type: !_OutputBase
-        output: _InputTypeArg
+        output: _InputBase
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: collections
       object: _Alternate
       type: !_OutputBase
         output: _Collections
-    - !_ObjectFor(_OutputField)
-      name: input
-      object: _InputAlternate
-      type: !_OutputBase
-        output: _Identifier
-    fields:
-    - !_OutputField
-      name: input
-      type: !_OutputBase
-        output: _Identifier
     name: _InputAlternate
     parent: !_OutputBase
       output: _Alternate
       typeArgs:
       - !_OutputArg
-        output: _InputTypeArg
+        output: _InputBase
     typeKind: !_TypeKind Output
   !_Identifier _InputBase: !_TypeOutput
     allAlternates:
@@ -490,39 +454,24 @@ types: !_Map_Type
     - !_Named
       name: for
   !_Identifier _OutputAlternate: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: _ObjBase
-      output: _ObjTypeParam
     allFields:
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: typeArgs
-      object: _ObjBase
+      name: base
+      object: _Alternate
       type: !_OutputBase
-        output: _OutputTypeArg
+        output: _OutputBase
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: collections
       object: _Alternate
       type: !_OutputBase
         output: _Collections
-    - !_ObjectFor(_OutputField)
-      name: output
-      object: _OutputAlternate
-      type: !_OutputBase
-        output: _Identifier
-    fields:
-    - !_OutputField
-      name: output
-      type: !_OutputBase
-        output: _Identifier
     name: _OutputAlternate
     parent: !_OutputBase
       output: _Alternate
       typeArgs:
       - !_OutputArg
-        output: _OutputTypeArg
+        output: _OutputBase
     typeKind: !_TypeKind Output
   !_Identifier _OutputBase: !_TypeOutput
     allAlternates:

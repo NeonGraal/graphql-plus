@@ -1,0 +1,25 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier RefDualGnrcAltModParam: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_DualAlternate)
+        collections:
+          - !_ModifierTypeParam
+            by: mod
+            modifierKind: !_ModifierKind Param
+        object: RefDualGnrcAltModParam
+        typeParam: ref
+    alternates:
+      - !_DualAlternate
+        collections:
+          - !_ModifierTypeParam
+            by: mod
+            modifierKind: !_ModifierKind Param
+        typeParam: ref
+    name: RefDualGnrcAltModParam
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_Named
+        name: ref
+      - !_Named
+        name: mod

@@ -3943,6 +3943,52 @@ types: !_Map_Type
     typeParams:
       - !_Named
         name: ref
+  !_Identifier RefDualGnrcAltModParam: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_DualAlternate)
+        collections:
+          - !_ModifierTypeParam
+            by: mod
+            modifierKind: !_ModifierKind Param
+        object: RefDualGnrcAltModParam
+        typeParam: ref
+    alternates:
+      - !_DualAlternate
+        collections:
+          - !_ModifierTypeParam
+            by: mod
+            modifierKind: !_ModifierKind Param
+        typeParam: ref
+    name: RefDualGnrcAltModParam
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_Named
+        name: ref
+      - !_Named
+        name: mod
+  !_Identifier RefDualGnrcAltModStr: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_DualAlternate)
+        collections:
+          - !_ModifierDictionary
+            by: '*'
+            modifierKind: !_ModifierKind Dict
+            typeKind: !_SimpleKind Basic
+        object: RefDualGnrcAltModStr
+        typeParam: ref
+    alternates:
+      - !_DualAlternate
+        collections:
+          - !_ModifierDictionary
+            by: '*'
+            modifierKind: !_ModifierKind Dict
+            typeKind: !_SimpleKind Basic
+        typeParam: ref
+    name: RefDualGnrcAltModStr
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_Named
+        name: ref
   !_Identifier RefDualGnrcAltParam: !_TypeDual
     allAlternates:
       - !_ObjectFor(_DualAlternate)
@@ -4233,6 +4279,52 @@ types: !_Map_Type
     typeParams:
       - !_Named
         name: ref
+  !_Identifier RefInpGnrcAltModParam: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_InputAlternate)
+        collections:
+          - !_ModifierTypeParam
+            by: mod
+            modifierKind: !_ModifierKind Param
+        object: RefInpGnrcAltModParam
+        typeParam: ref
+    alternates:
+      - !_InputAlternate
+        collections:
+          - !_ModifierTypeParam
+            by: mod
+            modifierKind: !_ModifierKind Param
+        typeParam: ref
+    name: RefInpGnrcAltModParam
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_Named
+        name: ref
+      - !_Named
+        name: mod
+  !_Identifier RefInpGnrcAltModStr: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_InputAlternate)
+        collections:
+          - !_ModifierDictionary
+            by: '*'
+            modifierKind: !_ModifierKind Dict
+            typeKind: !_SimpleKind Basic
+        object: RefInpGnrcAltModStr
+        typeParam: ref
+    alternates:
+      - !_InputAlternate
+        collections:
+          - !_ModifierDictionary
+            by: '*'
+            modifierKind: !_ModifierKind Dict
+            typeKind: !_SimpleKind Basic
+        typeParam: ref
+    name: RefInpGnrcAltModStr
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_Named
+        name: ref
   !_Identifier RefInpGnrcAltParam: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
@@ -4519,6 +4611,52 @@ types: !_Map_Type
       - !_OutputAlternate
         typeParam: ref
     name: RefOutpGnrcAltDual
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_Named
+        name: ref
+  !_Identifier RefOutpGnrcAltModParam: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        collections:
+          - !_ModifierTypeParam
+            by: mod
+            modifierKind: !_ModifierKind Param
+        object: RefOutpGnrcAltModParam
+        typeParam: ref
+    alternates:
+      - !_OutputAlternate
+        collections:
+          - !_ModifierTypeParam
+            by: mod
+            modifierKind: !_ModifierKind Param
+        typeParam: ref
+    name: RefOutpGnrcAltModParam
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_Named
+        name: ref
+      - !_Named
+        name: mod
+  !_Identifier RefOutpGnrcAltModStr: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        collections:
+          - !_ModifierDictionary
+            by: '*'
+            modifierKind: !_ModifierKind Dict
+            typeKind: !_SimpleKind Basic
+        object: RefOutpGnrcAltModStr
+        typeParam: ref
+    alternates:
+      - !_OutputAlternate
+        collections:
+          - !_ModifierDictionary
+            by: '*'
+            modifierKind: !_ModifierKind Dict
+            typeKind: !_SimpleKind Basic
+        typeParam: ref
+    name: RefOutpGnrcAltModStr
     typeKind: !_TypeKind Output
     typeParams:
       - !_Named

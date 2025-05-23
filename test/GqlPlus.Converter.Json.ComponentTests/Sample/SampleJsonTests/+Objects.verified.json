@@ -8208,6 +8208,112 @@
         }
       ]
     },
+    "RefDualGnrcAltModParam": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "collections": [
+            {
+              "$tag": "_ModifierTypeParam",
+              "by": "mod",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Param"
+              }
+            }
+          ],
+          "object": "RefDualGnrcAltModParam",
+          "typeParam": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "collections": [
+            {
+              "$tag": "_ModifierTypeParam",
+              "by": "mod",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Param"
+              }
+            }
+          ],
+          "typeParam": "ref"
+        }
+      ],
+      "name": "RefDualGnrcAltModParam",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "name": "ref"
+        },
+        {
+          "$tag": "_Named",
+          "name": "mod"
+        }
+      ]
+    },
+    "RefDualGnrcAltModStr": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "collections": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "*",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Dict"
+              },
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Basic"
+              }
+            }
+          ],
+          "object": "RefDualGnrcAltModStr",
+          "typeParam": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "collections": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "*",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Dict"
+              },
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Basic"
+              }
+            }
+          ],
+          "typeParam": "ref"
+        }
+      ],
+      "name": "RefDualGnrcAltModStr",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "name": "ref"
+        }
+      ]
+    },
     "RefDualGnrcAltParam": {
       "$tag": "_TypeDual",
       "allAlternates": [
@@ -8805,6 +8911,112 @@
         }
       ]
     },
+    "RefInpGnrcAltModParam": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "collections": [
+            {
+              "$tag": "_ModifierTypeParam",
+              "by": "mod",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Param"
+              }
+            }
+          ],
+          "object": "RefInpGnrcAltModParam",
+          "typeParam": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "collections": [
+            {
+              "$tag": "_ModifierTypeParam",
+              "by": "mod",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Param"
+              }
+            }
+          ],
+          "typeParam": "ref"
+        }
+      ],
+      "name": "RefInpGnrcAltModParam",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "name": "ref"
+        },
+        {
+          "$tag": "_Named",
+          "name": "mod"
+        }
+      ]
+    },
+    "RefInpGnrcAltModStr": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "collections": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "*",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Dict"
+              },
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Basic"
+              }
+            }
+          ],
+          "object": "RefInpGnrcAltModStr",
+          "typeParam": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "collections": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "*",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Dict"
+              },
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Basic"
+              }
+            }
+          ],
+          "typeParam": "ref"
+        }
+      ],
+      "name": "RefInpGnrcAltModStr",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "name": "ref"
+        }
+      ]
+    },
     "RefInpGnrcAltParam": {
       "$tag": "_TypeInput",
       "allAlternates": [
@@ -9391,6 +9603,112 @@
         }
       ],
       "name": "RefOutpGnrcAltDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "name": "ref"
+        }
+      ]
+    },
+    "RefOutpGnrcAltModParam": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "collections": [
+            {
+              "$tag": "_ModifierTypeParam",
+              "by": "mod",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Param"
+              }
+            }
+          ],
+          "object": "RefOutpGnrcAltModParam",
+          "typeParam": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "collections": [
+            {
+              "$tag": "_ModifierTypeParam",
+              "by": "mod",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Param"
+              }
+            }
+          ],
+          "typeParam": "ref"
+        }
+      ],
+      "name": "RefOutpGnrcAltModParam",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "name": "ref"
+        },
+        {
+          "$tag": "_Named",
+          "name": "mod"
+        }
+      ]
+    },
+    "RefOutpGnrcAltModStr": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "collections": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "*",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Dict"
+              },
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Basic"
+              }
+            }
+          ],
+          "object": "RefOutpGnrcAltModStr",
+          "typeParam": "ref"
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "collections": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "*",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Dict"
+              },
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Basic"
+              }
+            }
+          ],
+          "typeParam": "ref"
+        }
+      ],
+      "name": "RefOutpGnrcAltModStr",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

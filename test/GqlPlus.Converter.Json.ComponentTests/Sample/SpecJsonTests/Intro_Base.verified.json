@@ -54,30 +54,14 @@
     "$tag": "_Map_Type",
     "_Alternate": {
       "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_ObjBase",
-          "output": "_ObjTypeParam"
-        }
-      ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "typeArgs",
-          "object": "_ObjBase",
+          "name": "base",
+          "object": "_Alternate",
           "type": {
             "$tag": "_OutputBase",
-            "typeParam": "arg"
+            "typeParam": "base"
           }
         },
         {
@@ -102,6 +86,14 @@
       "fields": [
         {
           "$tag": "_OutputField",
+          "name": "base",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "base"
+          }
+        },
+        {
+          "$tag": "_OutputField",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -119,16 +111,6 @@
         }
       ],
       "name": "_Alternate",
-      "parent": {
-        "$tag": "_OutputBase",
-        "output": "_ObjBase",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "typeParam": "arg"
-          }
-        ]
-      },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
@@ -136,7 +118,7 @@
       "typeParams": [
         {
           "$tag": "_Named",
-          "name": "arg"
+          "name": "base"
         }
       ]
     },

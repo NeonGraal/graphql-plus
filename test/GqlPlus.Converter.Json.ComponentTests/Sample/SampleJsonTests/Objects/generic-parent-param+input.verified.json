@@ -49,8 +49,8 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "RefInpGnrcPrntParam",
-          "typeParam": "ref"
+          "input": "AltInpGnrcPrntParam",
+          "object": "RefInpGnrcPrntParam"
         }
       ],
       "name": "InpGnrcPrntParam",

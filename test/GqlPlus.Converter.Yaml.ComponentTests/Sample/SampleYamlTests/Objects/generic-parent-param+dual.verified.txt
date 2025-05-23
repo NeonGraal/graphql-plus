@@ -24,8 +24,8 @@ types: !_Map_Type
   !_Identifier DualGnrcPrntParam: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
+      dual: AltDualGnrcPrntParam
       object: RefDualGnrcPrntParam
-      typeParam: ref
     name: DualGnrcPrntParam
     parent: !_DualBase
       dual: RefDualGnrcPrntParam

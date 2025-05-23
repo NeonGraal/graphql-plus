@@ -10,12 +10,14 @@ public record class DualArgModel(
   string Dual,
   string Description
 ) : ObjArgModel(Description)
+  , IDualModel
 { }
 
 public record class DualBaseModel(
   string Dual,
   string Description
 ) : ObjBaseModel<DualArgModel>(Description)
+  , IDualModel
 { }
 
 public record class DualFieldModel(
@@ -29,4 +31,11 @@ public record class DualAlternateModel(
   string Dual,
   string Description
 ) : ObjAlternateModel<DualArgModel>(Description)
+  , IDualModel
 { }
+
+public interface IDualModel
+{
+  string Dual { get; }
+  bool IsTypeParam { get; }
+}

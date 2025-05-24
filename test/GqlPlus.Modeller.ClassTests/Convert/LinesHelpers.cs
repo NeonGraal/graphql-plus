@@ -30,13 +30,13 @@ internal static class LinesHelpers
         }
       }));
 
-  internal static string FlowMap(this MapPair<string>[] list, string mapPrefix = "", string valuePrefix = "")
-    => list.FlowMap(v => valuePrefix + v, mapPrefix);
+  internal static string FlowMap(this MapPair<string>[] list, string mapPrefix = "", string valuePrefix = "", string indent = "")
+    => list.FlowMap(v => valuePrefix + v, mapPrefix, indent);
 
-  internal static string FlowMap<T>(this MapPair<T>[] list, Func<T, string> mapper, string mapPrefix = "", string valuePrefix = "")
+  internal static string FlowMap<T>(this MapPair<T>[] list, Func<T, string> mapper, string mapPrefix = "", string indent = "")
     => FlowOr(list,
       f => mapPrefix + f.OrderBy(kv => kv.Key, StringComparer.Ordinal).Surround("{", "}", v => v.Key + ":" + mapper(v.Value), ","),
-      i => mapPrefix.IsLine(false) + i.IsMap(valuePrefix, v => " " + mapper(v)));
+      i => mapPrefix.IsLine(false) + i.IsMap(indent, v => " " + mapper(v)));
 
   internal static string IsList(this string[] value, string prefix)
     => value.IsList(v => prefix + v);

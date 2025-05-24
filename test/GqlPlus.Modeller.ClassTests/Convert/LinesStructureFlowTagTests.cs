@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.DataProtection.KeyManagement;
-using Newtonsoft.Json.Linq;
-
-namespace GqlPlus.Convert;
+﻿namespace GqlPlus.Convert;
 
 public class LinesStructureFlowTagTests
   : LinesStructureBase
@@ -28,6 +25,18 @@ public class LinesStructureFlowTagTests
     ToLines_Map(value);
   }
 
+  [Fact]
+  public void ToLines_MapOfMaps_Specific()
+  {
+    MapPair<MapPair<string>[]>[] value = [
+      new("fW__8__i6", [new("Jx","L"), new("nW7Bwe20a__","p4_u__c_S"),new("uE5Bl0aOqrGG_5cH_7CUMp","uo88__Rh0ikg_13_60kW_AC_OIR_ok_KzvW8Y_yq5_j")]),
+      new("O62__7_", [new("GW_V2ls_", "b_IsR8U"), new("o3pY__o", "NK_"), new("pPLt1", "P")]),
+      new("cb3Dj2c", [new("B_h_j_XV", "cK___iv"), new("C", "A4__e5X_"), new("u6U_Vo", "r0wE")])
+      ];
+
+    ToLines_MapOfMaps(value);
+  }
+
   protected override bool Flow => true;
   protected override string ValueTag => "value";
   protected override string ListTag => "list";
@@ -49,5 +58,5 @@ public class LinesStructureFlowTagTests
     => value.FlowList(v => v!.FlowMap("!map", "!value "));
 
   protected override string Expected_MapOfMaps(MapPair<MapPair<string>[]>[] value)
-    => value.FlowMap(v => v.FlowMap("!map", "!value "), "!map");
+    => value.FlowMap(v => v.FlowMap("!map", "!value ", "  "), "!map");
 }

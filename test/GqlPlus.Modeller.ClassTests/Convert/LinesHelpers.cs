@@ -31,7 +31,7 @@ internal static class LinesHelpers
       }));
 
   internal static string FlowMap(this MapPair<string>[] list, string mapPrefix = "", string valuePrefix = "")
-    => list.FlowMap(v => valuePrefix + v, mapPrefix, valuePrefix);
+    => list.FlowMap(v => valuePrefix + v, mapPrefix);
 
   internal static string FlowMap<T>(this MapPair<T>[] list, Func<T, string> mapper, string mapPrefix = "", string valuePrefix = "")
     => FlowOr(list,

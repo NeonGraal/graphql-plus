@@ -1,4 +1,7 @@
-﻿namespace GqlPlus.Convert;
+﻿using Microsoft.AspNetCore.DataProtection.KeyManagement;
+using Newtonsoft.Json.Linq;
+
+namespace GqlPlus.Convert;
 
 public class LinesStructureFlowTagTests
   : LinesStructureBase
@@ -12,6 +15,17 @@ public class LinesStructureFlowTagTests
       ["NMQP_871F", "N_h____w9_4OV_a1Lcfh6"]];
 
     ToLines_ListOfLists(value);
+  }
+
+  [Fact]
+  public void ToLines_Map_Specific()
+  {
+    MapPair<string>[] value = [
+      new("rAN1X_c1___No1YUC_ds_E_", "HaKYUJM0L "),
+      new("vF_8F14s_QoB_", "g24_gm_1MQ__k"),
+      new ("Z_1W0nm__2_aB", "O_81O0saDYY_G81b0P0")];
+
+    ToLines_Map(value);
   }
 
   protected override bool Flow => true;

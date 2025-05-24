@@ -15,13 +15,20 @@ internal static class LinesHelpers
     return flow.Length < RenderLines.MaxLineLength ? flow : isMap(list);
   }
 
-  internal static string FlowList(this string[] value, string valuePrefix = "")
-    => value.FlowList(v => valuePrefix + v);
+  internal static string FlowList(this string[] value, string valuePrefix = "", string indent = "")
+    => value.FlowList(v => valuePrefix + v, indent);
 
-  internal static string FlowList<T>(this T[] value, Func<T?, string> mapper)
+  internal static string FlowList<T>(this T[] value, Func<T?, string> mapper, string indent = "")
     => FlowOr(value,
       f => f.Surround("[", "]", mapper, ","),
-      i => i.IsList(v => "- " + mapper(v)));
+      i => i.IsList(v => {
+        string item = mapper(v);
+        if (item.Contains(Environment.NewLine, StringComparison.Ordinal)) {
+          return indent + "-".IsLine() + item;
+        } else {
+          return indent + "- " + item;
+        }
+      }));
 
   internal static string FlowMap(this MapPair<string>[] list, string mapPrefix = "", string valuePrefix = "")
     => list.FlowMap(v => valuePrefix + v, mapPrefix, valuePrefix);

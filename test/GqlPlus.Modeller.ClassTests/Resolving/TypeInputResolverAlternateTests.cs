@@ -12,13 +12,13 @@ public class TypeInputResolverAlternateTests
   }
 
   protected override InputAlternateModel MakeAlternate(string alternate)
-    => new(alternate, "");
+    => new(new(alternate, ""));
   protected override InputBaseModel MakeBase(string name, string description = "", params InputArgModel[] args)
     => new(name, description) { Args = args };
   protected override InputAlternateModel MakeCollectionAlternate(string alternate, CollectionModel collection)
-    => new(alternate, "") { Collections = [collection] };
+    => new(new(alternate, "")) { Collections = [collection] };
   protected override InputAlternateModel MakeParamAlternate(string alternate, CollectionModel collection)
-    => new(alternate, "") { IsTypeParam = true, Collections = [collection] };
+    => new(new(alternate, "") { IsTypeParam = true }) { Collections = [collection] };
   protected override TypeInputModel NewModel(string name, string description)
     => new(name, description);
   protected override InputBaseModel NewParam(string paramName)

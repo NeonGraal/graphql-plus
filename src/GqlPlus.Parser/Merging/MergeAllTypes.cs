@@ -52,7 +52,7 @@ internal class MergeAllTypes(
     }
 
     foreach (AstDomain<DomainLabelAst, IGqlpDomainLabel> domain in types.OfType<AstDomain<DomainLabelAst, IGqlpDomainLabel>>()) {
-      foreach (DomainLabelAst item in domain.Items) {
+      foreach (DomainLabelAst item in domain.Items.Cast<DomainLabelAst>()) {
         if (string.IsNullOrEmpty(item.EnumType)
           && enumValues.TryGetValue(item.EnumItem ?? "", out string? enumType)) {
           item.EnumType = enumType;

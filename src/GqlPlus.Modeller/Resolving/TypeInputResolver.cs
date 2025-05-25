@@ -89,18 +89,8 @@ internal class TypeInputResolver(
 
   private Func<InputAlternateModel, InputAlternateModel> ApplyAlternate(string label, ArgumentsContext arguments)
     => alternate => {
-      if (GetInputArgument(label, alternate, arguments, out InputBaseModel? argModel)) {
-        if (argModel.Dual is null) {
-          alternate = new(argModel.Input, argModel.Description) {
-            Collections = alternate.Collections
-          };
-        } else {
-          alternate = new("", argModel.Description) {
-            Dual = new(argModel.Dual.Dual, argModel.Description) {
-              Collections = alternate.Collections
-            }
-          };
-        }
+      if (GetInputArgument(label, alternate.Type, arguments, out InputBaseModel? argModel)) {
+        alternate = alternate with { Type = argModel };
       }
 
       ApplyArray(alternate.Collections, ApplyCollection(label, arguments),
@@ -109,7 +99,7 @@ internal class TypeInputResolver(
       return alternate;
     };
 
-  private bool GetInputArgument(string label, IInputModel inputBase, ArgumentsContext arguments, [NotNullWhen(true)] out InputBaseModel? outBase)
+  private bool GetInputArgument(string label, InputBaseModel inputBase, ArgumentsContext arguments, [NotNullWhen(true)] out InputBaseModel? outBase)
   {
     outBase = null;
     if (inputBase?.IsTypeParam == true) {

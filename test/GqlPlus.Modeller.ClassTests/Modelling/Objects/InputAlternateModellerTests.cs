@@ -1,15 +1,16 @@
-﻿namespace GqlPlus.Modelling.Objects;
+﻿using System.Reflection.Metadata;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+
+namespace GqlPlus.Modelling.Objects;
 
 public class InputAlternateModellerTests
-  : ModellerClassTestBase<IGqlpInputAlternate, InputAlternateModel>
+  : ModellerObjectBaseTestBase<IGqlpInputAlternate, InputAlternateModel, IGqlpInputBase, InputBaseModel>
 {
   public InputAlternateModellerTests()
   {
-    IModeller<IGqlpInputArg, InputArgModel> objArg = MFor<IGqlpInputArg, InputArgModel>();
     IModeller<IGqlpModifier, CollectionModel> collection = MFor<IGqlpModifier, CollectionModel>();
-    IModeller<IGqlpDualAlternate, DualAlternateModel> dual = MFor<IGqlpDualAlternate, DualAlternateModel>();
 
-    Modeller = new InputAlternateModeller(objArg, collection, dual);
+    Modeller = new InputAlternateModeller(collection, ObjBase);
   }
 
   protected override IModeller<IGqlpInputAlternate, InputAlternateModel> Modeller { get; }
@@ -21,15 +22,14 @@ public class InputAlternateModellerTests
     IGqlpInputAlternate ast = For<IGqlpInputAlternate>();
     ast.Input.Returns(name);
     ast.Description.Returns(contents);
+    InputBaseModel inputType = new(name, contents);
+    ObjBase.ToModel(ast, TypeKinds).Returns(inputType);
 
     // Act
     InputAlternateModel result = Modeller.ToModel(ast, TypeKinds);
 
     // Assert
     result.ShouldNotBeNull()
-      .ShouldSatisfyAllConditions(
-        r => r.Input.ShouldBe(name),
-        r => r.Description.ShouldBe(contents)
-      );
+      .BaseType.ShouldBe(inputType);
   }
 }

@@ -13,7 +13,7 @@ public class OutputFieldRendererTests
     _modifer = RFor<ModifierModel>();
     _parameter = RFor<InputParamModel>();
 
-    Renderer = new OutputFieldRenderer(_outputEnum, new(_modifer, Base), _parameter);
+    Renderer = new OutputFieldRenderer(_outputEnum, new(_modifer, ObjBase), _parameter);
   }
 
   protected override IRenderer<OutputFieldModel> Renderer { get; }
@@ -23,7 +23,7 @@ public class OutputFieldRendererTests
   {
     // Arrange
     OutputBaseModel outputBase = new(output, "");
-    Base.Render(outputBase).Returns(new Structured(output));
+    ObjBase.Render(outputBase).Returns(new Structured(output));
 
     // Act & Accept
     RenderAndCheck(new(name, outputBase, contents), [

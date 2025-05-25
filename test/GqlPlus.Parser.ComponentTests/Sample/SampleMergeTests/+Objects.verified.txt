@@ -3369,6 +3369,49 @@ Success
 }
 {
   !Ou I@008/0001
+  OutpCnstDomEnum
+  |
+  I@028/0001
+  RefOutpCnstDomEnum
+  <
+    I@047/0001
+    outpCnstDomEnum
+  >
+}
+{
+  !Ou I@008/0002
+  RefOutpCnstDomEnum
+  <
+    I@028/0002
+    $type
+    :JustOutpCnstDomEnum
+  >
+  {
+    !OF I@056/0002
+    field
+    :
+    I@064/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumOutpCnstDomEnum
+  !EL I@028/0003
+  outpCnstDomEnum
+  !EL I@044/0003
+  other
+}
+{
+  !Do I@008/0004
+  JustOutpCnstDomEnum
+  Enum
+  !DE I@035/0004
+  EnumOutpCnstDomEnum
+  outpCnstDomEnum
+}
+{
+  !Ou I@008/0001
   OutpCnstEnum
   |
   I@025/0001

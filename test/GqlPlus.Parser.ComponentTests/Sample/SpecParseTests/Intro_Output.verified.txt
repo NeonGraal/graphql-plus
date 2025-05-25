@@ -94,56 +94,49 @@ Success
   _Alternate
   <
     I@018/0024
-    _OutputTypeArg
+    _OutputBase
   >
-  {
-    !OF I@009/0025
-    output
-    :
-    I@017/0025
-    _Identifier
-  }
 }
 {
-  !Ou I@008/0028
+  !Ou I@008/0027
   _OutputTypeArg
   :
-  I@007/0029
+  I@007/0028
   _ObjTypeArg
   {
-    !OF I@009/0030
+    !OF I@009/0029
     output
     :
-    I@017/0030
+    I@017/0029
     _Identifier
-    !OF I@009/0031
+    !OF I@009/0030
     label
     :
-    I@016/0031
+    I@016/0030
     _Identifier
     ?
   }
 }
 {
-  !Ou I@008/0034
+  !Ou I@008/0033
   _OutputEnum
   :
-  I@007/0035
+  I@007/0034
   _TypeRef
   <
-    I@016/0035
+    I@016/0034
     _TypeKind.Enum
   >
   {
-    !OF I@009/0036
+    !OF I@009/0035
     field
     :
-    I@016/0036
+    I@016/0035
     _Identifier
-    !OF I@009/0037
+    !OF I@009/0036
     label
     :
-    I@016/0037
+    I@016/0036
     _Identifier
   }
 }

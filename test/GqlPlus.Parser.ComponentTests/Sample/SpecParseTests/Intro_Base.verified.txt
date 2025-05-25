@@ -180,17 +180,15 @@ Success
   _Alternate
   <
     I@020/0038
-    $arg
-    :_ObjTypeArg
-  >
-  :
-  I@007/0039
-  _ObjBase
-  <
-    I@017/0039
-    $arg
+    $base
+    :_ObjBase
   >
   {
+    !OF I@007/0039
+    type
+    :
+    I@014/0039
+    $base
     !OF I@007/0040
     collections
     :

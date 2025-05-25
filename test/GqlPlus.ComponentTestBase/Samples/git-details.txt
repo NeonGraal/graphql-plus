@@ -1,1 +1,1 @@
-9cbff47  (HEAD -> type-constraints) 2025-04-25 Remove uneeded _ObjType
+8f99f24  (HEAD -> type-constraints) 2025-04-25 Sample for Output Domain Enum constraint

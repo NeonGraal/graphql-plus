@@ -21,7 +21,7 @@ types: !_Map_Type
     name: RefOutpGnrcAltModParam
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
         name: ref
-      - !_Named
+      - !_TypeParam
         name: mod

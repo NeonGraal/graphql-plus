@@ -4,7 +4,8 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: PrntOutpCnstPrntObjPrnt
-        output: String
+        type: !_OutputBase
+          output: String
     allFields:
       - !_ObjectFor(_OutputField)
         name: alt
@@ -24,7 +25,8 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: PrntOutpCnstPrntObjPrnt
-        output: String
+        type: !_OutputBase
+          output: String
     allFields:
       - !_ObjectFor(_OutputField)
         name: alt
@@ -42,10 +44,12 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: PrntOutpCnstPrntObjPrnt
-        output: String
+        type: !_OutputBase
+          output: String
     alternates:
       - !_OutputAlternate
-        output: String
+        type: !_OutputBase
+          output: String
     name: PrntOutpCnstPrntObjPrnt
     typeKind: !_TypeKind Output
   !_Identifier RefOutpCnstPrntObjPrnt: !_TypeOutput

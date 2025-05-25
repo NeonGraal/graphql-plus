@@ -3,8 +3,9 @@ types: !_Map_Type
   !_Identifier AltDualCnstPrntDualPrnt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      dual: String
       object: PrntDualCnstPrntDualPrnt
+      type: !_DualBase
+        dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
@@ -23,8 +24,9 @@ types: !_Map_Type
   !_Identifier DualCnstPrntDualPrnt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      dual: String
       object: PrntDualCnstPrntDualPrnt
+      type: !_DualBase
+        dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
@@ -41,11 +43,13 @@ types: !_Map_Type
   !_Identifier PrntDualCnstPrntDualPrnt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      dual: String
       object: PrntDualCnstPrntDualPrnt
+      type: !_DualBase
+        dual: String
     alternates:
     - !_DualAlternate
-      dual: String
+      type: !_DualBase
+        dual: String
     name: PrntDualCnstPrntDualPrnt
     typeKind: !_TypeKind Dual
   !_Identifier RefDualCnstPrntDualPrnt: !_TypeDual

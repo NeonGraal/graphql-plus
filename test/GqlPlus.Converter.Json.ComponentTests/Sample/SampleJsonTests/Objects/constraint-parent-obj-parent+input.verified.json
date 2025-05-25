@@ -7,8 +7,11 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "input": "String",
-          "object": "PrntInpCnstPrntObjPrnt"
+          "object": "PrntInpCnstPrntObjPrnt",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "String"
+          }
         }
       ],
       "allFields": [
@@ -47,8 +50,11 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "input": "String",
-          "object": "PrntInpCnstPrntObjPrnt"
+          "object": "PrntInpCnstPrntObjPrnt",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "String"
+          }
         }
       ],
       "allFields": [
@@ -83,14 +89,20 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "input": "String",
-          "object": "PrntInpCnstPrntObjPrnt"
+          "object": "PrntInpCnstPrntObjPrnt",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "String"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "input": "String"
+          "type": {
+            "$tag": "_InputBase",
+            "input": "String"
+          }
         }
       ],
       "name": "PrntInpCnstPrntObjPrnt",

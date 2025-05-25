@@ -7,8 +7,11 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "dual": "String",
-          "object": "PrntInpCnstAltDual"
+          "object": "PrntInpCnstAltDual",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "String"
+          }
         }
       ],
       "allFields": [
@@ -47,26 +50,32 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "input": "RefInpCnstAltDual",
           "object": "InpCnstAltDual",
-          "typeArgs": [
-            {
-              "$tag": "_InputArg",
-              "input": "AltInpCnstAltDual"
-            }
-          ]
+          "type": {
+            "$tag": "_InputBase",
+            "input": "RefInpCnstAltDual",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "input": "AltInpCnstAltDual"
+              }
+            ]
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "input": "RefInpCnstAltDual",
-          "typeArgs": [
-            {
-              "$tag": "_InputArg",
-              "input": "AltInpCnstAltDual"
-            }
-          ]
+          "type": {
+            "$tag": "_InputBase",
+            "input": "RefInpCnstAltDual",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "input": "AltInpCnstAltDual"
+              }
+            ]
+          }
         }
       ],
       "name": "InpCnstAltDual",
@@ -80,14 +89,20 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "dual": "String",
-          "object": "PrntInpCnstAltDual"
+          "object": "PrntInpCnstAltDual",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "String"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "dual": "String"
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "String"
+          }
         }
       ],
       "name": "PrntInpCnstAltDual",
@@ -102,13 +117,19 @@
         {
           "$tag": "_ObjectFor(_InputAlternate)",
           "object": "RefInpCnstAltDual",
-          "typeParam": "ref"
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "ref"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "typeParam": "ref"
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "ref"
+          }
         }
       ],
       "name": "RefInpCnstAltDual",

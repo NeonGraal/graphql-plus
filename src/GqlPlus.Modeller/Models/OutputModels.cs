@@ -10,7 +10,7 @@ public record class OutputArgModel(
   string Name,
   string Description
 ) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Enum, Name, Description)
-  , IObjArgModel
+  , IObjTypeArgModel
   , IOutputModel
 {
   public string Output => Name;

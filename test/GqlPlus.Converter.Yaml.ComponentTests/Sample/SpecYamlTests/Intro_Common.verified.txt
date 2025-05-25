@@ -272,7 +272,7 @@ types: !_Map_Type
       type: !_OutputBase
         typeParam: kind
     - !_ObjectFor(_OutputField)
-      name: name
+      name: typeName
       object: _TypeRef
       type: !_OutputBase
         output: _Identifier
@@ -282,7 +282,7 @@ types: !_Map_Type
       type: !_OutputBase
         typeParam: kind
     - !_OutputField
-      name: name
+      name: typeName
       type: !_OutputBase
         output: _Identifier
     name: _TypeRef
@@ -291,6 +291,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _TypeKind
+        typeKind: !_TypeKind Enum
       name: kind
   !_Identifier _TypeSimple: !_TypeOutput
     allAlternates:

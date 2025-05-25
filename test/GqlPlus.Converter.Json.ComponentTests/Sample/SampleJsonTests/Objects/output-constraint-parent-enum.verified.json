@@ -42,25 +42,31 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "OutpCnstPrntEnum",
-          "output": "RefOutpCnstPrntEnum",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "output": "parentOutpCnstPrntEnum"
-            }
-          ]
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "RefOutpCnstPrntEnum",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "output": "parentOutpCnstPrntEnum"
+              }
+            ]
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "output": "RefOutpCnstPrntEnum",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "output": "parentOutpCnstPrntEnum"
-            }
-          ]
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "RefOutpCnstPrntEnum",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "output": "parentOutpCnstPrntEnum"
+              }
+            ]
+          }
         }
       ],
       "name": "OutpCnstPrntEnum",

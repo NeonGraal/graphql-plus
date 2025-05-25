@@ -21,7 +21,7 @@ types: !_Map_Type
     name: RefInpGnrcAltModParam
     typeKind: !_TypeKind Input
     typeParams:
-    - !_Named
+    - !_TypeParam
       name: ref
-    - !_Named
+    - !_TypeParam
       name: mod

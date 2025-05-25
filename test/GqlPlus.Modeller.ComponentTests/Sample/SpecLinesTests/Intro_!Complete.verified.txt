@@ -30,23 +30,12 @@ types: !_Map_Type
       dual: _Named
     typeKind: !_TypeKind Dual
   !_Identifier _Alternate: !_TypeOutput
-    allAlternates:
-      - !_ObjectFor(_OutputAlternate)
-        object: _ObjBase
-        output: _TypeParam
     allFields:
-      - !_ObjectFor(_DualField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: description
-        object: _Described
-        type: !_DualBase
-          dual: String
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: typeArgs
-        object: _ObjBase
+        name: type
+        object: _Alternate
         type: !_OutputBase
-          typeParam: arg
+          typeParam: base
       - !_ObjectFor(_OutputField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: collections
@@ -55,23 +44,22 @@ types: !_Map_Type
           output: _Collections
     fields:
       - !_OutputField
+        name: type
+        type: !_OutputBase
+          typeParam: base
+      - !_OutputField
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: collections
         type: !_OutputBase
           output: _Collections
     name: _Alternate
-    parent: !_OutputBase
-      output: _ObjBase
-      typeArgs:
-        - !_OutputArg
-          typeParam: arg
     typeKind: !_TypeKind Output
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          name: _ObjTypeArg
+          name: _ObjBase
           typeKind: !_TypeKind Output
-        name: arg
+        name: base
   !_Identifier _BaseDomain: !_TypeOutput
     allFields:
       - !_ObjectFor(_DualField)
@@ -217,10 +205,12 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _Categories
-        output: _Category
+        type: !_OutputBase
+          output: _Category
       - !_ObjectFor(_OutputAlternate)
         object: _Categories
-        output: _Type
+        type: !_OutputBase
+          output: _Type
     allFields:
       - !_ObjectFor(_OutputField)
         name: category
@@ -234,9 +224,11 @@ types: !_Map_Type
           output: _Type
     alternates:
       - !_OutputAlternate
-        output: _Category
+        type: !_OutputBase
+          output: _Category
       - !_OutputAlternate
-        output: _Type
+        type: !_OutputBase
+          output: _Type
     fields:
       - !_OutputField
         name: category
@@ -317,8 +309,9 @@ types: !_Map_Type
         collections:
           - !_Modifier
             modifierKind: !_ModifierKind List
-        input: _NameFilter
         object: _Filter
+        type: !_InputBase
+          input: _NameFilter
     allFields:
       - !_ObjectFor(_InputField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
@@ -425,70 +418,82 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _Collections
-        output: _Modifier
-        typeArgs:
-          - !_OutputArg
-            label: List
-            name: _ModifierKind
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: _Modifier
+          typeArgs:
+            - !_OutputArg
+              label: List
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
       - !_ObjectFor(_OutputAlternate)
         object: _Collections
-        output: _ModifierKeyed
-        typeArgs:
-          - !_OutputArg
-            label: Dictionary
-            name: _ModifierKind
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: _ModifierKeyed
+          typeArgs:
+            - !_OutputArg
+              label: Dictionary
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
       - !_ObjectFor(_OutputAlternate)
         object: _Collections
-        output: _ModifierKeyed
-        typeArgs:
-          - !_OutputArg
-            label: TypeParam
-            name: _ModifierKind
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: _ModifierKeyed
+          typeArgs:
+            - !_OutputArg
+              label: TypeParam
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
     alternates:
       - !_OutputAlternate
-        output: _Modifier
-        typeArgs:
-          - !_OutputArg
-            label: List
-            name: _ModifierKind
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: _Modifier
+          typeArgs:
+            - !_OutputArg
+              label: List
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
       - !_OutputAlternate
-        output: _ModifierKeyed
-        typeArgs:
-          - !_OutputArg
-            label: Dictionary
-            name: _ModifierKind
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: _ModifierKeyed
+          typeArgs:
+            - !_OutputArg
+              label: Dictionary
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
       - !_OutputAlternate
-        output: _ModifierKeyed
-        typeArgs:
-          - !_OutputArg
-            label: TypeParam
-            name: _ModifierKind
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: _ModifierKeyed
+          typeArgs:
+            - !_OutputArg
+              label: TypeParam
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
     name: _Collections
     typeKind: !_TypeKind Output
   !_Identifier _Constant: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _Constant
-        output: _Simple
+        type: !_OutputBase
+          output: _Simple
       - !_ObjectFor(_OutputAlternate)
         object: _Constant
-        output: _ConstantList
+        type: !_OutputBase
+          output: _ConstantList
       - !_ObjectFor(_OutputAlternate)
         object: _Constant
-        output: _ConstantMap
+        type: !_OutputBase
+          output: _ConstantMap
     alternates:
       - !_OutputAlternate
-        output: _Simple
+        type: !_OutputBase
+          output: _Simple
       - !_OutputAlternate
-        output: _ConstantList
+        type: !_OutputBase
+          output: _ConstantList
       - !_OutputAlternate
-        output: _ConstantMap
+        type: !_OutputBase
+          output: _ConstantMap
     name: _Constant
     typeKind: !_TypeKind Output
   !_Identifier _ConstantList: !_TypeOutput
@@ -498,13 +503,15 @@ types: !_Map_Type
           - !_Modifier
             modifierKind: !_ModifierKind List
         object: _ConstantList
-        output: _Constant
+        type: !_OutputBase
+          output: _Constant
     alternates:
       - !_OutputAlternate
         collections:
           - !_Modifier
             modifierKind: !_ModifierKind List
-        output: _Constant
+        type: !_OutputBase
+          output: _Constant
     name: _ConstantList
     typeKind: !_TypeKind Output
   !_Identifier _ConstantMap: !_TypeOutput
@@ -516,7 +523,8 @@ types: !_Map_Type
             modifierKind: !_ModifierKind Dict
             typeKind: !_SimpleKind Internal
         object: _ConstantMap
-        output: _Constant
+        type: !_OutputBase
+          output: _Constant
     alternates:
       - !_OutputAlternate
         collections:
@@ -524,7 +532,8 @@ types: !_Map_Type
             by: Simple
             modifierKind: !_ModifierKind Dict
             typeKind: !_SimpleKind Internal
-        output: _Constant
+        type: !_OutputBase
+          output: _Constant
     name: _ConstantMap
     typeKind: !_TypeKind Output
   !_Identifier _Described: !_TypeDual
@@ -602,10 +611,12 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _Directives
-        output: _Directive
+        type: !_OutputBase
+          output: _Directive
       - !_ObjectFor(_OutputAlternate)
         object: _Directives
-        output: _Type
+        type: !_OutputBase
+          output: _Type
     allFields:
       - !_ObjectFor(_OutputField)
         name: directive
@@ -619,9 +630,11 @@ types: !_Map_Type
           output: _Type
     alternates:
       - !_OutputAlternate
-        output: _Directive
+        type: !_OutputBase
+          output: _Directive
       - !_OutputAlternate
-        output: _Type
+        type: !_OutputBase
+          output: _Type
     fields:
       - !_OutputField
         name: directive
@@ -833,7 +846,7 @@ types: !_Map_Type
         type: !_OutputBase
           output: _TypeKind
       - !_ObjectFor(_OutputField)
-        name: name
+        name: typeName
         object: _TypeRef
         type: !_OutputBase
           output: _Identifier
@@ -930,7 +943,7 @@ types: !_Map_Type
         type: !_OutputBase
           output: _TypeKind
       - !_ObjectFor(_OutputField)
-        name: name
+        name: typeName
         object: _TypeRef
         type: !_OutputBase
           output: _Identifier
@@ -965,51 +978,31 @@ types: !_Map_Type
       - !_TypeParam
         name: value
   !_Identifier _DualAlternate: !_TypeOutput
-    allAlternates:
-      - !_ObjectFor(_OutputAlternate)
-        object: _ObjBase
-        output: _TypeParam
     allFields:
-      - !_ObjectFor(_DualField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: description
-        object: _Described
-        type: !_DualBase
-          dual: String
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: typeArgs
-        object: _ObjBase
+        name: type
+        object: _Alternate
         type: !_OutputBase
-          output: _DualTypeArg
+          output: _DualBase
       - !_ObjectFor(_OutputField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: collections
         object: _Alternate
         type: !_OutputBase
           output: _Collections
-      - !_ObjectFor(_OutputField)
-        name: dual
-        object: _DualAlternate
-        type: !_OutputBase
-          output: _Identifier
-    fields:
-      - !_OutputField
-        name: dual
-        type: !_OutputBase
-          output: _Identifier
     name: _DualAlternate
     parent: !_OutputBase
       output: _Alternate
       typeArgs:
         - !_OutputArg
-          output: _DualTypeArg
+          output: _DualBase
     typeKind: !_TypeKind Output
   !_Identifier _DualBase: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _ObjBase
-        output: _TypeParam
+        type: !_OutputBase
+          output: _TypeParam
     allFields:
       - !_ObjectFor(_DualField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
@@ -1081,7 +1074,8 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _ObjTypeArg
-        output: _TypeParam
+        type: !_OutputBase
+          output: _TypeParam
     allFields:
       - !_ObjectFor(_DualField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
@@ -1095,7 +1089,7 @@ types: !_Map_Type
         type: !_OutputBase
           output: _TypeKind
       - !_ObjectFor(_OutputField)
-        name: name
+        name: typeName
         object: _TypeRef
         type: !_OutputBase
           output: _Identifier
@@ -1191,7 +1185,7 @@ types: !_Map_Type
         type: !_OutputBase
           output: _TypeKind
       - !_ObjectFor(_OutputField)
-        name: name
+        name: typeName
         object: _TypeRef
         type: !_OutputBase
           output: _Identifier
@@ -1270,8 +1264,9 @@ types: !_Map_Type
         collections:
           - !_Modifier
             modifierKind: !_ModifierKind List
-        input: _NameFilter
         object: _Filter
+        type: !_InputBase
+          input: _NameFilter
     allFields:
       - !_ObjectFor(_InputField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
@@ -1311,7 +1306,8 @@ types: !_Map_Type
         collections:
           - !_Modifier
             modifierKind: !_ModifierKind List
-        input: _NameFilter
+        type: !_InputBase
+          input: _NameFilter
     fields:
       - !_InputField
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
@@ -1347,27 +1343,31 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _ForParam
-        output: _Alternate
-        typeArgs:
-          - !_OutputArg
-            typeParam: base
+        type: !_OutputBase
+          output: _Alternate
+          typeArgs:
+            - !_OutputArg
+              typeParam: base
       - !_ObjectFor(_OutputAlternate)
         object: _ForParam
-        output: _Field
-        typeArgs:
-          - !_OutputArg
-            typeParam: base
+        type: !_OutputBase
+          output: _Field
+          typeArgs:
+            - !_OutputArg
+              typeParam: base
     alternates:
       - !_OutputAlternate
-        output: _Alternate
-        typeArgs:
-          - !_OutputArg
-            typeParam: base
+        type: !_OutputBase
+          output: _Alternate
+          typeArgs:
+            - !_OutputArg
+              typeParam: base
       - !_OutputAlternate
-        output: _Field
-        typeArgs:
-          - !_OutputArg
-            typeParam: base
+        type: !_OutputBase
+          output: _Field
+          typeArgs:
+            - !_OutputArg
+              typeParam: base
     name: _ForParam
     typeKind: !_TypeKind Output
     typeParams:
@@ -1390,54 +1390,35 @@ types: !_Map_Type
     name: _Identifier
     typeKind: !_TypeKind Domain
   !_Identifier _InputAlternate: !_TypeOutput
-    allAlternates:
-      - !_ObjectFor(_OutputAlternate)
-        object: _ObjBase
-        output: _TypeParam
     allFields:
-      - !_ObjectFor(_DualField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: description
-        object: _Described
-        type: !_DualBase
-          dual: String
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: typeArgs
-        object: _ObjBase
+        name: type
+        object: _Alternate
         type: !_OutputBase
-          output: _InputTypeArg
+          output: _InputBase
       - !_ObjectFor(_OutputField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: collections
         object: _Alternate
         type: !_OutputBase
           output: _Collections
-      - !_ObjectFor(_OutputField)
-        name: input
-        object: _InputAlternate
-        type: !_OutputBase
-          output: _Identifier
-    fields:
-      - !_OutputField
-        name: input
-        type: !_OutputBase
-          output: _Identifier
     name: _InputAlternate
     parent: !_OutputBase
       output: _Alternate
       typeArgs:
         - !_OutputArg
-          output: _InputTypeArg
+          output: _InputBase
     typeKind: !_TypeKind Output
   !_Identifier _InputBase: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _ObjBase
-        output: _TypeParam
+        type: !_OutputBase
+          output: _TypeParam
       - !_ObjectFor(_OutputAlternate)
         object: _InputBase
-        output: _DualBase
+        type: !_OutputBase
+          output: _DualBase
     allFields:
       - !_ObjectFor(_DualField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
@@ -1458,7 +1439,8 @@ types: !_Map_Type
           output: _Identifier
     alternates:
       - !_OutputAlternate
-        output: _DualBase
+        type: !_OutputBase
+          output: _DualBase
     fields:
       - !_OutputField
         name: input
@@ -1524,10 +1506,12 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _ObjBase
-        output: _TypeParam
+        type: !_OutputBase
+          output: _TypeParam
       - !_ObjectFor(_OutputAlternate)
         object: _InputBase
-        output: _DualBase
+        type: !_OutputBase
+          output: _DualBase
     allFields:
       - !_ObjectFor(_DualField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
@@ -1577,7 +1561,8 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _ObjTypeArg
-        output: _TypeParam
+        type: !_OutputBase
+          output: _TypeParam
     allFields:
       - !_ObjectFor(_DualField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
@@ -1591,7 +1576,7 @@ types: !_Map_Type
         type: !_OutputBase
           output: _TypeKind
       - !_ObjectFor(_OutputField)
-        name: name
+        name: typeName
         object: _TypeRef
         type: !_OutputBase
           output: _Identifier
@@ -1613,12 +1598,13 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _InputTypeParam
-        output: _TypeRef
-        typeArgs:
-          - !_OutputArg
-            label: Dual
-            name: _TypeKind
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: _TypeRef
+          typeArgs:
+            - !_OutputArg
+              label: Dual
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
     allFields:
       - !_ObjectFor(_DualField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
@@ -1642,12 +1628,13 @@ types: !_Map_Type
               typeParam: kind
     alternates:
       - !_OutputAlternate
-        output: _TypeRef
-        typeArgs:
-          - !_OutputArg
-            label: Dual
-            name: _TypeKind
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: _TypeRef
+          typeArgs:
+            - !_OutputArg
+              label: Dual
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
     name: _InputTypeParam
     parent: !_OutputBase
       output: _ObjTypeParam
@@ -1786,25 +1773,29 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _Modifiers
-        output: _Modifier
-        typeArgs:
-          - !_OutputArg
-            label: Optional
-            name: _ModifierKind
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: _Modifier
+          typeArgs:
+            - !_OutputArg
+              label: Optional
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
       - !_ObjectFor(_OutputAlternate)
         object: _Modifiers
-        output: _Collections
+        type: !_OutputBase
+          output: _Collections
     alternates:
       - !_OutputAlternate
-        output: _Modifier
-        typeArgs:
-          - !_OutputArg
-            label: Optional
-            name: _ModifierKind
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: _Modifier
+          typeArgs:
+            - !_OutputArg
+              label: Optional
+              name: _ModifierKind
+              typeKind: !_SimpleKind Enum
       - !_OutputAlternate
-        output: _Collections
+        type: !_OutputBase
+          output: _Collections
     name: _Modifiers
     typeKind: !_TypeKind Output
   !_Identifier _NameFilter: !_DomainString
@@ -1847,7 +1838,8 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _ObjBase
-        output: _TypeParam
+        type: !_OutputBase
+          output: _TypeParam
     allFields:
       - !_ObjectFor(_DualField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
@@ -1863,7 +1855,8 @@ types: !_Map_Type
           typeParam: arg
     alternates:
       - !_OutputAlternate
-        output: _TypeParam
+        type: !_OutputBase
+          output: _TypeParam
     fields:
       - !_OutputField
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
@@ -1894,7 +1887,7 @@ types: !_Map_Type
         type: !_OutputBase
           typeParam: kind
       - !_ObjectFor(_OutputField)
-        name: name
+        name: typeName
         object: _TypeRef
         type: !_OutputBase
           output: _Identifier
@@ -1915,7 +1908,8 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _ObjTypeArg
-        output: _TypeParam
+        type: !_OutputBase
+          output: _TypeParam
     allFields:
       - !_ObjectFor(_DualField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
@@ -1929,13 +1923,14 @@ types: !_Map_Type
         type: !_OutputBase
           output: _TypeKind
       - !_ObjectFor(_OutputField)
-        name: name
+        name: typeName
         object: _TypeRef
         type: !_OutputBase
           output: _Identifier
     alternates:
       - !_OutputAlternate
-        output: _TypeParam
+        type: !_OutputBase
+          output: _TypeParam
     name: _ObjTypeArg
     parent: !_OutputBase
       output: _TypeRef
@@ -2052,54 +2047,35 @@ types: !_Map_Type
     name: _ObjectKind
     typeKind: !_TypeKind Domain
   !_Identifier _OutputAlternate: !_TypeOutput
-    allAlternates:
-      - !_ObjectFor(_OutputAlternate)
-        object: _ObjBase
-        output: _TypeParam
     allFields:
-      - !_ObjectFor(_DualField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: description
-        object: _Described
-        type: !_DualBase
-          dual: String
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
-        name: typeArgs
-        object: _ObjBase
+        name: type
+        object: _Alternate
         type: !_OutputBase
-          output: _OutputTypeArg
+          output: _OutputBase
       - !_ObjectFor(_OutputField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: collections
         object: _Alternate
         type: !_OutputBase
           output: _Collections
-      - !_ObjectFor(_OutputField)
-        name: output
-        object: _OutputAlternate
-        type: !_OutputBase
-          output: _Identifier
-    fields:
-      - !_OutputField
-        name: output
-        type: !_OutputBase
-          output: _Identifier
     name: _OutputAlternate
     parent: !_OutputBase
       output: _Alternate
       typeArgs:
         - !_OutputArg
-          output: _OutputTypeArg
+          output: _OutputBase
     typeKind: !_TypeKind Output
   !_Identifier _OutputBase: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _ObjBase
-        output: _TypeParam
+        type: !_OutputBase
+          output: _TypeParam
       - !_ObjectFor(_OutputAlternate)
         object: _OutputBase
-        output: _DualBase
+        type: !_OutputBase
+          output: _DualBase
     allFields:
       - !_ObjectFor(_DualField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
@@ -2120,7 +2096,8 @@ types: !_Map_Type
           output: _Identifier
     alternates:
       - !_OutputAlternate
-        output: _DualBase
+        type: !_OutputBase
+          output: _DualBase
     fields:
       - !_OutputField
         name: output
@@ -2147,7 +2124,7 @@ types: !_Map_Type
         type: !_OutputBase
           output: _TypeKind
       - !_ObjectFor(_OutputField)
-        name: name
+        name: typeName
         object: _TypeRef
         type: !_OutputBase
           output: _Identifier
@@ -2183,7 +2160,8 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _OutputField
-        output: _OutputEnum
+        type: !_OutputBase
+          output: _OutputEnum
     allFields:
       - !_ObjectFor(_DualField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
@@ -2221,7 +2199,8 @@ types: !_Map_Type
           output: _InputParam
     alternates:
       - !_OutputAlternate
-        output: _OutputEnum
+        type: !_OutputBase
+          output: _OutputEnum
     fields:
       - !_OutputField
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
@@ -2239,7 +2218,8 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _ObjTypeArg
-        output: _TypeParam
+        type: !_OutputBase
+          output: _TypeParam
     allFields:
       - !_ObjectFor(_DualField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
@@ -2253,7 +2233,7 @@ types: !_Map_Type
         type: !_OutputBase
           output: _TypeKind
       - !_ObjectFor(_OutputField)
-        name: name
+        name: typeName
         object: _TypeRef
         type: !_OutputBase
           output: _Identifier
@@ -2286,20 +2266,22 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _OutputTypeParam
-        output: _TypeRef
-        typeArgs:
-          - !_OutputArg
-            label: Dual
-            name: _TypeKind
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: _TypeRef
+          typeArgs:
+            - !_OutputArg
+              label: Dual
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
       - !_ObjectFor(_OutputAlternate)
         object: _OutputTypeParam
-        output: _TypeRef
-        typeArgs:
-          - !_OutputArg
-            label: Enum
-            name: _TypeKind
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: _TypeRef
+          typeArgs:
+            - !_OutputArg
+              label: Enum
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
     allFields:
       - !_ObjectFor(_DualField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
@@ -2323,19 +2305,21 @@ types: !_Map_Type
               typeParam: kind
     alternates:
       - !_OutputAlternate
-        output: _TypeRef
-        typeArgs:
-          - !_OutputArg
-            label: Dual
-            name: _TypeKind
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: _TypeRef
+          typeArgs:
+            - !_OutputArg
+              label: Dual
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
       - !_OutputAlternate
-        output: _TypeRef
-        typeArgs:
-          - !_OutputArg
-            label: Enum
-            name: _TypeKind
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: _TypeRef
+          typeArgs:
+            - !_OutputArg
+              label: Enum
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
     name: _OutputTypeParam
     parent: !_OutputBase
       output: _ObjTypeParam
@@ -2567,53 +2551,61 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _Simple
-        output: Boolean
+        type: !_OutputBase
+          output: Boolean
       - !_ObjectFor(_OutputAlternate)
         object: _Simple
-        output: _DomainValue
-        typeArgs:
-          - !_OutputArg
-            label: Number
-            name: _DomainKind
-            typeKind: !_SimpleKind Enum
-          - !_OutputArg
-            output: Number
+        type: !_OutputBase
+          output: _DomainValue
+          typeArgs:
+            - !_OutputArg
+              label: Number
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_OutputArg
+              output: Number
       - !_ObjectFor(_OutputAlternate)
         object: _Simple
-        output: _DomainValue
-        typeArgs:
-          - !_OutputArg
-            label: String
-            name: _DomainKind
-            typeKind: !_SimpleKind Enum
-          - !_OutputArg
-            output: String
+        type: !_OutputBase
+          output: _DomainValue
+          typeArgs:
+            - !_OutputArg
+              label: String
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_OutputArg
+              output: String
       - !_ObjectFor(_OutputAlternate)
         object: _Simple
-        output: _EnumValue
+        type: !_OutputBase
+          output: _EnumValue
     alternates:
       - !_OutputAlternate
-        output: Boolean
+        type: !_OutputBase
+          output: Boolean
       - !_OutputAlternate
-        output: _DomainValue
-        typeArgs:
-          - !_OutputArg
-            label: Number
-            name: _DomainKind
-            typeKind: !_SimpleKind Enum
-          - !_OutputArg
-            output: Number
+        type: !_OutputBase
+          output: _DomainValue
+          typeArgs:
+            - !_OutputArg
+              label: Number
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_OutputArg
+              output: Number
       - !_OutputAlternate
-        output: _DomainValue
-        typeArgs:
-          - !_OutputArg
-            label: String
-            name: _DomainKind
-            typeKind: !_SimpleKind Enum
-          - !_OutputArg
-            output: String
+        type: !_OutputBase
+          output: _DomainValue
+          typeArgs:
+            - !_OutputArg
+              label: String
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_OutputArg
+              output: String
       - !_OutputAlternate
-        output: _EnumValue
+        type: !_OutputBase
+          output: _EnumValue
     name: _Simple
     typeKind: !_TypeKind Output
   !_Identifier _SimpleKind: !_TypeEnum
@@ -2650,162 +2642,186 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _Type
-        output: _BaseType
-        typeArgs:
-          - !_OutputArg
-            label: Basic
-            name: _TypeKind
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: _BaseType
+          typeArgs:
+            - !_OutputArg
+              label: Basic
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
       - !_ObjectFor(_OutputAlternate)
         object: _Type
-        output: _BaseType
-        typeArgs:
-          - !_OutputArg
-            label: Internal
-            name: _TypeKind
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: _BaseType
+          typeArgs:
+            - !_OutputArg
+              label: Internal
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
       - !_ObjectFor(_OutputAlternate)
         object: _Type
-        output: _TypeDual
+        type: !_OutputBase
+          output: _TypeDual
       - !_ObjectFor(_OutputAlternate)
         object: _Type
-        output: _TypeEnum
+        type: !_OutputBase
+          output: _TypeEnum
       - !_ObjectFor(_OutputAlternate)
         object: _Type
-        output: _TypeInput
+        type: !_OutputBase
+          output: _TypeInput
       - !_ObjectFor(_OutputAlternate)
         object: _Type
-        output: _TypeOutput
+        type: !_OutputBase
+          output: _TypeOutput
       - !_ObjectFor(_OutputAlternate)
         object: _Type
-        output: _TypeDomain
+        type: !_OutputBase
+          output: _TypeDomain
       - !_ObjectFor(_OutputAlternate)
         object: _Type
-        output: _TypeUnion
+        type: !_OutputBase
+          output: _TypeUnion
     alternates:
       - !_OutputAlternate
-        output: _BaseType
-        typeArgs:
-          - !_OutputArg
-            label: Basic
-            name: _TypeKind
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: _BaseType
+          typeArgs:
+            - !_OutputArg
+              label: Basic
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
       - !_OutputAlternate
-        output: _BaseType
-        typeArgs:
-          - !_OutputArg
-            label: Internal
-            name: _TypeKind
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: _BaseType
+          typeArgs:
+            - !_OutputArg
+              label: Internal
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
       - !_OutputAlternate
-        output: _TypeDual
+        type: !_OutputBase
+          output: _TypeDual
       - !_OutputAlternate
-        output: _TypeEnum
+        type: !_OutputBase
+          output: _TypeEnum
       - !_OutputAlternate
-        output: _TypeInput
+        type: !_OutputBase
+          output: _TypeInput
       - !_OutputAlternate
-        output: _TypeOutput
+        type: !_OutputBase
+          output: _TypeOutput
       - !_OutputAlternate
-        output: _TypeDomain
+        type: !_OutputBase
+          output: _TypeDomain
       - !_OutputAlternate
-        output: _TypeUnion
+        type: !_OutputBase
+          output: _TypeUnion
     name: _Type
     typeKind: !_TypeKind Output
   !_Identifier _TypeDomain: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _TypeDomain
-        output: _BaseDomain
-        typeArgs:
-          - !_OutputArg
-            label: Boolean
-            name: _DomainKind
-            typeKind: !_SimpleKind Enum
-          - !_DualArg
-            dual: _DomainTrueFalse
-          - !_OutputArg
-            output: _DomainItemTrueFalse
+        type: !_OutputBase
+          output: _BaseDomain
+          typeArgs:
+            - !_OutputArg
+              label: Boolean
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_DualArg
+              dual: _DomainTrueFalse
+            - !_OutputArg
+              output: _DomainItemTrueFalse
       - !_ObjectFor(_OutputAlternate)
         object: _TypeDomain
-        output: _BaseDomain
-        typeArgs:
-          - !_OutputArg
-            label: Enum
-            name: _DomainKind
-            typeKind: !_SimpleKind Enum
-          - !_OutputArg
-            output: _DomainLabel
-          - !_OutputArg
-            output: _DomainItemLabel
+        type: !_OutputBase
+          output: _BaseDomain
+          typeArgs:
+            - !_OutputArg
+              label: Enum
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_OutputArg
+              output: _DomainLabel
+            - !_OutputArg
+              output: _DomainItemLabel
       - !_ObjectFor(_OutputAlternate)
         object: _TypeDomain
-        output: _BaseDomain
-        typeArgs:
-          - !_OutputArg
-            label: Number
-            name: _DomainKind
-            typeKind: !_SimpleKind Enum
-          - !_DualArg
-            dual: _DomainRange
-          - !_OutputArg
-            output: _DomainItemRange
+        type: !_OutputBase
+          output: _BaseDomain
+          typeArgs:
+            - !_OutputArg
+              label: Number
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_DualArg
+              dual: _DomainRange
+            - !_OutputArg
+              output: _DomainItemRange
       - !_ObjectFor(_OutputAlternate)
         object: _TypeDomain
-        output: _BaseDomain
-        typeArgs:
-          - !_OutputArg
-            label: String
-            name: _DomainKind
-            typeKind: !_SimpleKind Enum
-          - !_DualArg
-            dual: _DomainRegex
-          - !_OutputArg
-            output: _DomainItemRegex
+        type: !_OutputBase
+          output: _BaseDomain
+          typeArgs:
+            - !_OutputArg
+              label: String
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_DualArg
+              dual: _DomainRegex
+            - !_OutputArg
+              output: _DomainItemRegex
     alternates:
       - !_OutputAlternate
-        output: _BaseDomain
-        typeArgs:
-          - !_OutputArg
-            label: Boolean
-            name: _DomainKind
-            typeKind: !_SimpleKind Enum
-          - !_DualArg
-            dual: _DomainTrueFalse
-          - !_OutputArg
-            output: _DomainItemTrueFalse
+        type: !_OutputBase
+          output: _BaseDomain
+          typeArgs:
+            - !_OutputArg
+              label: Boolean
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_DualArg
+              dual: _DomainTrueFalse
+            - !_OutputArg
+              output: _DomainItemTrueFalse
       - !_OutputAlternate
-        output: _BaseDomain
-        typeArgs:
-          - !_OutputArg
-            label: Enum
-            name: _DomainKind
-            typeKind: !_SimpleKind Enum
-          - !_OutputArg
-            output: _DomainLabel
-          - !_OutputArg
-            output: _DomainItemLabel
+        type: !_OutputBase
+          output: _BaseDomain
+          typeArgs:
+            - !_OutputArg
+              label: Enum
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_OutputArg
+              output: _DomainLabel
+            - !_OutputArg
+              output: _DomainItemLabel
       - !_OutputAlternate
-        output: _BaseDomain
-        typeArgs:
-          - !_OutputArg
-            label: Number
-            name: _DomainKind
-            typeKind: !_SimpleKind Enum
-          - !_DualArg
-            dual: _DomainRange
-          - !_OutputArg
-            output: _DomainItemRange
+        type: !_OutputBase
+          output: _BaseDomain
+          typeArgs:
+            - !_OutputArg
+              label: Number
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_DualArg
+              dual: _DomainRange
+            - !_OutputArg
+              output: _DomainItemRange
       - !_OutputAlternate
-        output: _BaseDomain
-        typeArgs:
-          - !_OutputArg
-            label: String
-            name: _DomainKind
-            typeKind: !_SimpleKind Enum
-          - !_DualArg
-            dual: _DomainRegex
-          - !_OutputArg
-            output: _DomainItemRegex
+        type: !_OutputBase
+          output: _BaseDomain
+          typeArgs:
+            - !_OutputArg
+              label: String
+              name: _DomainKind
+              typeKind: !_SimpleKind Enum
+            - !_DualArg
+              dual: _DomainRegex
+            - !_OutputArg
+              output: _DomainItemRegex
     name: _TypeDomain
     typeKind: !_TypeKind Output
   !_Identifier _TypeDual: !_TypeOutput
@@ -2950,8 +2966,9 @@ types: !_Map_Type
         collections:
           - !_Modifier
             modifierKind: !_ModifierKind List
-        input: _NameFilter
         object: _Filter
+        type: !_InputBase
+          input: _NameFilter
     allFields:
       - !_ObjectFor(_InputField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
@@ -3372,7 +3389,7 @@ types: !_Map_Type
         type: !_OutputBase
           typeParam: kind
       - !_ObjectFor(_OutputField)
-        name: name
+        name: typeName
         object: _TypeRef
         type: !_OutputBase
           output: _Identifier
@@ -3382,7 +3399,7 @@ types: !_Map_Type
         type: !_OutputBase
           typeParam: kind
       - !_OutputField
-        name: name
+        name: typeName
         type: !_OutputBase
           output: _Identifier
     name: _TypeRef
@@ -3391,70 +3408,81 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
       - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _TypeKind
+          typeKind: !_TypeKind Enum
         name: kind
   !_Identifier _TypeSimple: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _TypeSimple
-        output: _TypeRef
-        typeArgs:
-          - !_OutputArg
-            label: Basic
-            name: _TypeKind
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: _TypeRef
+          typeArgs:
+            - !_OutputArg
+              label: Basic
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
       - !_ObjectFor(_OutputAlternate)
         object: _TypeSimple
-        output: _TypeRef
-        typeArgs:
-          - !_OutputArg
-            label: Enum
-            name: _TypeKind
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: _TypeRef
+          typeArgs:
+            - !_OutputArg
+              label: Enum
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
       - !_ObjectFor(_OutputAlternate)
         object: _TypeSimple
-        output: _TypeRef
-        typeArgs:
-          - !_OutputArg
-            label: Domain
-            name: _TypeKind
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: _TypeRef
+          typeArgs:
+            - !_OutputArg
+              label: Domain
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
       - !_ObjectFor(_OutputAlternate)
         object: _TypeSimple
-        output: _TypeRef
-        typeArgs:
-          - !_OutputArg
-            label: Union
-            name: _TypeKind
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: _TypeRef
+          typeArgs:
+            - !_OutputArg
+              label: Union
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
     alternates:
       - !_OutputAlternate
-        output: _TypeRef
-        typeArgs:
-          - !_OutputArg
-            label: Basic
-            name: _TypeKind
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: _TypeRef
+          typeArgs:
+            - !_OutputArg
+              label: Basic
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
       - !_OutputAlternate
-        output: _TypeRef
-        typeArgs:
-          - !_OutputArg
-            label: Enum
-            name: _TypeKind
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: _TypeRef
+          typeArgs:
+            - !_OutputArg
+              label: Enum
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
       - !_OutputAlternate
-        output: _TypeRef
-        typeArgs:
-          - !_OutputArg
-            label: Domain
-            name: _TypeKind
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: _TypeRef
+          typeArgs:
+            - !_OutputArg
+              label: Domain
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
       - !_OutputAlternate
-        output: _TypeRef
-        typeArgs:
-          - !_OutputArg
-            label: Union
-            name: _TypeKind
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: _TypeRef
+          typeArgs:
+            - !_OutputArg
+              label: Union
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
     name: _TypeSimple
     typeKind: !_TypeKind Output
   !_Identifier _TypeUnion: !_TypeOutput
@@ -3525,7 +3553,7 @@ types: !_Map_Type
         type: !_OutputBase
           output: _SimpleKind
       - !_ObjectFor(_OutputField)
-        name: name
+        name: typeName
         object: _TypeRef
         type: !_OutputBase
           output: _Identifier
@@ -3557,7 +3585,7 @@ types: !_Map_Type
         type: !_OutputBase
           output: _SimpleKind
       - !_ObjectFor(_OutputField)
-        name: name
+        name: typeName
         object: _TypeRef
         type: !_OutputBase
           output: _Identifier

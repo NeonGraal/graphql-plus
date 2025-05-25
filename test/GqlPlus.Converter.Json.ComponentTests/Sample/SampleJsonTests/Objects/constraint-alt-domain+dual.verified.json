@@ -34,26 +34,32 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "dual": "RefDualCnstAltDmn",
           "object": "DualCnstAltDmn",
-          "typeArgs": [
-            {
-              "$tag": "_DualArg",
-              "dual": "DomCnstAltDmn"
-            }
-          ]
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "RefDualCnstAltDmn",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "dual": "DomCnstAltDmn"
+              }
+            ]
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "dual": "RefDualCnstAltDmn",
-          "typeArgs": [
-            {
-              "$tag": "_DualArg",
-              "dual": "DomCnstAltDmn"
-            }
-          ]
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "RefDualCnstAltDmn",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "dual": "DomCnstAltDmn"
+              }
+            ]
+          }
         }
       ],
       "name": "DualCnstAltDmn",
@@ -68,13 +74,19 @@
         {
           "$tag": "_ObjectFor(_DualAlternate)",
           "object": "RefDualCnstAltDmn",
-          "typeParam": "ref"
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "ref"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "typeParam": "ref"
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "ref"
+          }
         }
       ],
       "name": "RefDualCnstAltDmn",

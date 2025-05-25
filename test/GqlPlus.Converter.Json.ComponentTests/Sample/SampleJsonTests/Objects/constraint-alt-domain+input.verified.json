@@ -34,26 +34,32 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "input": "RefInpCnstAltDmn",
           "object": "InpCnstAltDmn",
-          "typeArgs": [
-            {
-              "$tag": "_InputArg",
-              "input": "DomCnstAltDmn"
-            }
-          ]
+          "type": {
+            "$tag": "_InputBase",
+            "input": "RefInpCnstAltDmn",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "input": "DomCnstAltDmn"
+              }
+            ]
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "input": "RefInpCnstAltDmn",
-          "typeArgs": [
-            {
-              "$tag": "_InputArg",
-              "input": "DomCnstAltDmn"
-            }
-          ]
+          "type": {
+            "$tag": "_InputBase",
+            "input": "RefInpCnstAltDmn",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "input": "DomCnstAltDmn"
+              }
+            ]
+          }
         }
       ],
       "name": "InpCnstAltDmn",
@@ -68,13 +74,19 @@
         {
           "$tag": "_ObjectFor(_InputAlternate)",
           "object": "RefInpCnstAltDmn",
-          "typeParam": "ref"
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "ref"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "typeParam": "ref"
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "ref"
+          }
         }
       ],
       "name": "RefInpCnstAltDmn",

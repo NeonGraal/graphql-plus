@@ -20,16 +20,18 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: OutpCnstPrntEnum
-      output: RefOutpCnstPrntEnum
-      typeArgs:
-      - !_OutputArg
-        output: parentOutpCnstPrntEnum
+      type: !_OutputBase
+        output: RefOutpCnstPrntEnum
+        typeArgs:
+        - !_OutputArg
+          output: parentOutpCnstPrntEnum
     alternates:
     - !_OutputAlternate
-      output: RefOutpCnstPrntEnum
-      typeArgs:
-      - !_OutputArg
-        output: parentOutpCnstPrntEnum
+      type: !_OutputBase
+        output: RefOutpCnstPrntEnum
+        typeArgs:
+        - !_OutputArg
+          output: parentOutpCnstPrntEnum
     name: OutpCnstPrntEnum
     typeKind: !_TypeKind Output
   !_Identifier ParentOutpCnstPrntEnum: !_TypeEnum

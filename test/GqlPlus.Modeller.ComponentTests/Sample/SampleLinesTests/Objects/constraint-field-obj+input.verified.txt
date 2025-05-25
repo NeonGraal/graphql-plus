@@ -3,8 +3,9 @@ types: !_Map_Type
   !_Identifier AltInpCnstFieldObj: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
-        input: String
         object: PrntInpCnstFieldObj
+        type: !_InputBase
+          input: String
     allFields:
       - !_ObjectFor(_InputField)
         name: alt
@@ -37,11 +38,13 @@ types: !_Map_Type
   !_Identifier PrntInpCnstFieldObj: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
-        input: String
         object: PrntInpCnstFieldObj
+        type: !_InputBase
+          input: String
     alternates:
       - !_InputAlternate
-        input: String
+        type: !_InputBase
+          input: String
     name: PrntInpCnstFieldObj
     typeKind: !_TypeKind Input
   !_Identifier RefInpCnstFieldObj: !_TypeInput

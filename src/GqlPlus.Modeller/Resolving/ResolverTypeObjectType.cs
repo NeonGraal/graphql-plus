@@ -8,7 +8,7 @@ internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObj
   where TObjBase : IObjBaseModel
   where TObjField : IObjFieldModel
   where TObjAlt : IObjAlternateModel
-  where TObjArg : IObjArgModel
+  where TObjArg : IObjTypeArgModel
 {
   public override TModel Resolve(TModel model, IResolveContext context)
   {

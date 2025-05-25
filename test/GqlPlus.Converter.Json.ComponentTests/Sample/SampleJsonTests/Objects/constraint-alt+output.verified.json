@@ -8,13 +8,19 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "OutpCnstAlt",
-          "typeParam": "type"
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "type"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "typeParam": "type"
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "type"
+          }
         }
       ],
       "name": "OutpCnstAlt",

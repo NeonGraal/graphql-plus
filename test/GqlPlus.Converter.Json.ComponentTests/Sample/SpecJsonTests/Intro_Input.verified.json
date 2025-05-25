@@ -329,35 +329,41 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_InputTypeParam",
-          "output": "_TypeRef",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "label": "Dual",
-              "name": "_TypeKind",
-              "typeKind": {
-                "$tag": "_SimpleKind",
-                "value": "Enum"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_TypeRef",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "label": "Dual",
+                "name": "_TypeKind",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
-            }
-          ]
+            ]
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "output": "_TypeRef",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "label": "Dual",
-              "name": "_TypeKind",
-              "typeKind": {
-                "$tag": "_SimpleKind",
-                "value": "Enum"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_TypeRef",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "label": "Dual",
+                "name": "_TypeKind",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
-            }
-          ]
+            ]
+          }
         }
       ],
       "name": "_InputTypeParam",

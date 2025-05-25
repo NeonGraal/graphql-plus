@@ -1240,7 +1240,7 @@
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "name",
+          "name": "typeName",
           "object": "_TypeRef",
           "type": {
             "$tag": "_OutputBase",
@@ -1259,7 +1259,7 @@
         },
         {
           "$tag": "_OutputField",
-          "name": "name",
+          "name": "typeName",
           "type": {
             "$tag": "_OutputBase",
             "output": "_Identifier"
@@ -1278,6 +1278,14 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
           "name": "kind"
         }
       ]

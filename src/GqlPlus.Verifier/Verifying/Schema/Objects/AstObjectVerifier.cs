@@ -1,5 +1,4 @@
-﻿using System;
-using System.Runtime.InteropServices;
+﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Merging;
 using GqlPlus.Verifying.Schema;
@@ -7,6 +6,7 @@ using static GqlPlus.Verifying.Schema.UsageHelpers;
 
 namespace GqlPlus.Verification.Schema;
 
+[SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Todo")]
 internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField, TObjAlt, TContext>(
   IVerifyAliased<TObject> aliased,
   IMerge<TObjField> mergeFields,
@@ -170,6 +170,7 @@ where TContext : UsageContext
       };
 
   private bool MatchDomainSimple(TContext context, IGqlpDomain argDom, IGqlpSimple consSimple)
+#pragma warning restore CA1822 // Mark members as static
   {
     if (argDom.DomainKind == DomainKind.Enum) {
       // Todo: match enum constraint
@@ -202,12 +203,13 @@ where TContext : UsageContext
     };
 
   private bool MatchEnumEnum(TContext context, IGqlpEnum argEnum, IGqlpEnum consEnum)
+#pragma warning restore CA1822 // Mark members as static
   => !string.IsNullOrWhiteSpace(argEnum.Parent)
             && (argEnum.Parent!.Equals(consEnum.Name, StringComparison.Ordinal)
               || context.GetTyped(argEnum.Parent, out IGqlpEnum? enumParent)
                 && MatchEnumEnum(context, enumParent, consEnum));
 
-#pragma warning disable IDE0060 // Remove unused parameter
+  [SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Todo")]
   private bool MatchUnionSimple(TContext context, IGqlpUnion argUnion, IGqlpSimple consSimple)
     => consSimple switch {
       IGqlpEnum consEnum => throw new NotImplementedException(),

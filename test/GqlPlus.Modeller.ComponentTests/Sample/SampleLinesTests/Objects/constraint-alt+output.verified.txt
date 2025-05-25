@@ -4,10 +4,12 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: OutpCnstAlt
-        typeParam: type
+        type: !_OutputBase
+          typeParam: type
     alternates:
       - !_OutputAlternate
-        typeParam: type
+        type: !_OutputBase
+          typeParam: type
     name: OutpCnstAlt
     typeKind: !_TypeKind Output
     typeParams:

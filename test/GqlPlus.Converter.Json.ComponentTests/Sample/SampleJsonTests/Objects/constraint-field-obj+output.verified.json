@@ -8,7 +8,10 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "PrntOutpCnstFieldObj",
-          "output": "String"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "String"
+          }
         }
       ],
       "allFields": [
@@ -77,13 +80,19 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "PrntOutpCnstFieldObj",
-          "output": "String"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "String"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "output": "String"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "String"
+          }
         }
       ],
       "name": "PrntOutpCnstFieldObj",

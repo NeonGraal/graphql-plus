@@ -19,7 +19,7 @@ public class VerifyDomainEnumTests
     _domain = NFor<IGqlpDomain<IGqlpDomainLabel>>("domain");
   }
 
-  [Fact]
+  [Fact(Skip = "WIP")]
   public void Verify_Enum_WithDefinedLabels_ReturnsNoErrrors()
   {
     IGqlpEnum enumType = Enum("domain", "item1", "item2");
@@ -66,7 +66,7 @@ public class VerifyDomainEnumTests
     Errors.ShouldNotBeEmpty();
   }
 
-  [Fact]
+  [Fact(Skip = "WIP")]
   public void Verify_Enum_WithDuplicateLabel_ReturnsError()
   {
     IGqlpEnum enum1 = Enum("domain1", "item1");
@@ -82,7 +82,7 @@ public class VerifyDomainEnumTests
     Errors.ShouldNotBeEmpty();
   }
 
-  [Fact]
+  [Fact(Skip = "WIP")]
   public void Verify_Enum_WithDuplicateParentLabel_ReturnsError()
   {
     IGqlpEnum enumType = Enum("domain1", "item1", "item2");

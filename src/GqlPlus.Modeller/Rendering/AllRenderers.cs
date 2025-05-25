@@ -109,7 +109,6 @@ public static class AllRenderers
 
   private static IServiceCollection AddBaseRenderer<TBase>(this IServiceCollection services)
     where TBase : ModelBase, IObjBaseModel
-    where TArg : IObjTypeArgModel
     => services
       .AddSingleton<FieldRenderers<TBase>>()
       .AddSingleton<AlternateRenderers<TBase>>();

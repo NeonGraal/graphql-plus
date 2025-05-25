@@ -62,30 +62,14 @@
     "$tag": "_Map_Type",
     "_Alternate": {
       "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_ObjBase",
-          "output": "_TypeParam"
-        }
-      ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "typeArgs",
-          "object": "_ObjBase",
+          "name": "type",
+          "object": "_Alternate",
           "type": {
             "$tag": "_OutputBase",
-            "typeParam": "arg"
+            "typeParam": "base"
           }
         },
         {
@@ -110,6 +94,14 @@
       "fields": [
         {
           "$tag": "_OutputField",
+          "name": "type",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "base"
+          }
+        },
+        {
+          "$tag": "_OutputField",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -127,16 +119,6 @@
         }
       ],
       "name": "_Alternate",
-      "parent": {
-        "$tag": "_OutputBase",
-        "output": "_ObjBase",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "typeParam": "arg"
-          }
-        ]
-      },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
@@ -146,13 +128,13 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_ObjTypeArg",
+            "name": "_ObjBase",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Output"
             }
           },
-          "name": "arg"
+          "name": "base"
         }
       ]
     },
@@ -244,46 +226,58 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ForParam",
-          "output": "_Alternate",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "typeParam": "base"
-            }
-          ]
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Alternate",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "typeParam": "base"
+              }
+            ]
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ForParam",
-          "output": "_Field",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "typeParam": "base"
-            }
-          ]
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Field",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "typeParam": "base"
+              }
+            ]
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "output": "_Alternate",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "typeParam": "base"
-            }
-          ]
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Alternate",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "typeParam": "base"
+              }
+            ]
+          }
         },
         {
           "$tag": "_OutputAlternate",
-          "output": "_Field",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "typeParam": "base"
-            }
-          ]
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Field",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "typeParam": "base"
+              }
+            ]
+          }
         }
       ],
       "name": "_ForParam",
@@ -312,7 +306,10 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjBase",
-          "output": "_TypeParam"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_TypeParam"
+          }
         }
       ],
       "allFields": [
@@ -338,7 +335,10 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "output": "_TypeParam"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_TypeParam"
+          }
         }
       ],
       "fields": [
@@ -566,13 +566,19 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjTypeArg",
-          "output": "_TypeParam"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_TypeParam"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "output": "_TypeParam"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_TypeParam"
+          }
         }
       ],
       "name": "_ObjTypeArg",

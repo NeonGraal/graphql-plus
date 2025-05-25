@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Merging;
 using GqlPlus.Verification.Schema;
 
@@ -114,6 +115,7 @@ internal class VerifyOutputTypes(
     return null;
   }
 
+  [SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Todo")]
   internal bool EnumHasLabel(OutputContext context, IGqlpEnum enumType, string label)
   {
     if (enumType.HasValue(label)) {

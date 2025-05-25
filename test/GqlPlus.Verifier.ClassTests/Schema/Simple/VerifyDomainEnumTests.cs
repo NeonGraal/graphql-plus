@@ -1,7 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Verifying.Schema;
 using GqlPlus.Verifying.Schema.Simple;
-using NSubstitute;
 
 namespace GqlPlus.Schema.Simple;
 
@@ -42,7 +41,7 @@ public class VerifyDomainEnumTests
     verifier.Verify(domain, context);
 
     verifier.ShouldSatisfyAllConditions(
-      Items.NotCalled,
+      ItemsMerger.NotCalled,
       () => Errors.ShouldBeEmpty());
   }
 
@@ -55,5 +54,5 @@ public class VerifyDomainEnumTests
   }
 
   internal override AstDomainVerifier<IGqlpDomainLabel> NewDomainVerifier()
-    => new VerifyDomainEnum(Items.Intf);
+    => new VerifyDomainEnum(ItemsMerger.Intf);
 }

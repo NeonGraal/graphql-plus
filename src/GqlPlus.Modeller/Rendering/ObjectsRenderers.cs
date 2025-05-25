@@ -47,7 +47,7 @@ internal record class AlternateRenderers<TObjBase>(
 ) where TObjBase : IObjBaseModel;
 
 internal class ObjectAlternateRenderer<TAlt, TObjBase>(
-  CollectionBaseRenderers<TObjBase> renderers
+  AlternateRenderers<TObjBase> renderers
 ) : BaseRenderer<TAlt>()
   where TAlt : ObjAlternateModel<TObjBase>
   where TObjBase : IObjBaseModel

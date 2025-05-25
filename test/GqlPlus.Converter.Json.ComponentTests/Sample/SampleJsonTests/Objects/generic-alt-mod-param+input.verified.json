@@ -50,11 +50,11 @@
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "name": "ref"
         },
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "name": "mod"
         }
       ]

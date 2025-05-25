@@ -14,16 +14,18 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: OutpCnstEnum
-      output: RefOutpCnstEnum
-      typeArgs:
-      - !_OutputArg
-        output: outpCnstEnum
+      type: !_OutputBase
+        output: RefOutpCnstEnum
+        typeArgs:
+        - !_OutputArg
+          output: outpCnstEnum
     alternates:
     - !_OutputAlternate
-      output: RefOutpCnstEnum
-      typeArgs:
-      - !_OutputArg
-        output: outpCnstEnum
+      type: !_OutputBase
+        output: RefOutpCnstEnum
+        typeArgs:
+        - !_OutputArg
+          output: outpCnstEnum
     name: OutpCnstEnum
     typeKind: !_TypeKind Output
   !_Identifier RefOutpCnstEnum: !_TypeOutput

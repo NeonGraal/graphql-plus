@@ -144,6 +144,7 @@ Success
   <
     I@018/0032
     $kind
+    :_TypeKind
   >
   :
   I@007/0033
@@ -155,9 +156,9 @@ Success
     I@020/0034
     $kind
     !OF I@009/0035
-    name
+    typeName
     :
-    I@015/0035
+    I@019/0035
     _Identifier
   }
 }

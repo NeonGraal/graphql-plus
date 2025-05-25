@@ -135,20 +135,22 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _InputTypeParam
-      output: _TypeRef
-      typeArgs:
-      - !_OutputArg
-        label: Dual
-        name: _TypeKind
-        typeKind: !_SimpleKind Enum
+      type: !_OutputBase
+        output: _TypeRef
+        typeArgs:
+        - !_OutputArg
+          label: Dual
+          name: _TypeKind
+          typeKind: !_SimpleKind Enum
     alternates:
     - !_OutputAlternate
-      output: _TypeRef
-      typeArgs:
-      - !_OutputArg
-        label: Dual
-        name: _TypeKind
-        typeKind: !_SimpleKind Enum
+      type: !_OutputBase
+        output: _TypeRef
+        typeArgs:
+        - !_OutputArg
+          label: Dual
+          name: _TypeKind
+          typeKind: !_SimpleKind Enum
     name: _InputTypeParam
     parent: !_OutputBase
       output: _ObjTypeParam

@@ -54,27 +54,6 @@
     "$tag": "_Map_Type",
     "_OutputAlternate": {
       "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "output",
-          "object": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Identifier"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "output",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Identifier"
-          }
-        }
-      ],
       "name": "_OutputAlternate",
       "parent": {
         "$tag": "_OutputBase",
@@ -82,7 +61,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "output": "_OutputTypeArg"
+            "output": "_OutputBase"
           }
         ]
       },
@@ -97,7 +76,10 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_OutputBase",
-          "output": "_DualBase"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_DualBase"
+          }
         }
       ],
       "allFields": [
@@ -114,7 +96,10 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "output": "_DualBase"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_DualBase"
+          }
         }
       ],
       "fields": [
@@ -210,7 +195,10 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_OutputField",
-          "output": "_OutputEnum"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_OutputEnum"
+          }
         }
       ],
       "allFields": [
@@ -236,7 +224,10 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "output": "_OutputEnum"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_OutputEnum"
+          }
         }
       ],
       "fields": [

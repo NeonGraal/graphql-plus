@@ -4,7 +4,8 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_DualAlternate)
       object: RefDualPrntParamSame
-      typeParam: a
+      type: !_DualBase
+        typeParam: a
     allFields:
     - !_ObjectFor(_DualField)
       name: field
@@ -30,10 +31,12 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_DualAlternate)
       object: RefDualPrntParamSame
-      typeParam: a
+      type: !_DualBase
+        typeParam: a
     alternates:
     - !_DualAlternate
-      typeParam: a
+      type: !_DualBase
+        typeParam: a
     name: RefDualPrntParamSame
     typeKind: !_TypeKind Dual
     typeParams:

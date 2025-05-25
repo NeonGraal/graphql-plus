@@ -8,7 +8,10 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "FldOutpFieldModParam",
-          "output": "String"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "String"
+          }
         }
       ],
       "allFields": [
@@ -25,7 +28,10 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "output": "String"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "String"
+          }
         }
       ],
       "fields": [

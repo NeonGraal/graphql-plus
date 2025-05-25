@@ -249,11 +249,13 @@ types: !_Map_Type
   !_Identifier DualObjAlt: !_TypeDual
     allAlternates:
       - !_ObjectFor(_DualAlternate)
-        dual: DualObjAltType
         object: DualObjAlt
+        type: !_DualBase
+          dual: DualObjAltType
     alternates:
       - !_DualAlternate
-        dual: DualObjAltType
+        type: !_DualBase
+          dual: DualObjAltType
     name: DualObjAlt
     typeKind: !_TypeKind Dual
   !_Identifier DualObjAltType: !_TypeDual
@@ -420,11 +422,13 @@ types: !_Map_Type
   !_Identifier InpObjAlt: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
-        input: InpObjAltType
         object: InpObjAlt
+        type: !_InputBase
+          input: InpObjAltType
     alternates:
       - !_InputAlternate
-        input: InpObjAltType
+        type: !_InputBase
+          input: InpObjAltType
     name: InpObjAlt
     typeKind: !_TypeKind Input
   !_Identifier InpObjAltType: !_TypeInput
@@ -584,10 +588,12 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: OutpObjAlt
-        output: OutpObjAltType
+        type: !_OutputBase
+          output: OutpObjAltType
     alternates:
       - !_OutputAlternate
-        output: OutpObjAltType
+        type: !_OutputBase
+          output: OutpObjAltType
     name: OutpObjAlt
     typeKind: !_TypeKind Output
   !_Identifier OutpObjAltType: !_TypeOutput

@@ -14,16 +14,18 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: OutpGnrcValue
-      output: RefOutpGnrcValue
-      typeArgs:
-      - !_OutputArg
-        output: outpGnrcValue
+      type: !_OutputBase
+        output: RefOutpGnrcValue
+        typeArgs:
+        - !_OutputArg
+          output: outpGnrcValue
     alternates:
     - !_OutputAlternate
-      output: RefOutpGnrcValue
-      typeArgs:
-      - !_OutputArg
-        output: outpGnrcValue
+      type: !_OutputBase
+        output: RefOutpGnrcValue
+        typeArgs:
+        - !_OutputArg
+          output: outpGnrcValue
     name: OutpGnrcValue
     typeKind: !_TypeKind Output
   !_Identifier RefOutpGnrcValue: !_TypeOutput

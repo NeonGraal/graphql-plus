@@ -55,27 +55,20 @@ Success
   _Alternate
   <
     I@018/0015
-    _DualTypeArg
+    _DualBase
   >
-  {
-    !OF I@009/0016
-    dual
-    :
-    I@015/0016
-    _Identifier
-  }
 }
 {
-  !Ou I@008/0019
+  !Ou I@008/0018
   _DualTypeArg
   :
-  I@007/0020
+  I@007/0019
   _ObjTypeArg
   {
-    !OF I@009/0021
+    !OF I@009/0020
     dual
     :
-    I@015/0021
+    I@015/0020
     _Identifier
   }
 }

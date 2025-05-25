@@ -28,7 +28,7 @@ public abstract class AstBaseTests<TInput>
       .Inequality_WithInputs(input1, input2);
 
   protected virtual Func<TInput, TInput, bool> SameInput { get; }
-    = (TInput input1, TInput input2) => input1.ThrowIfNull().Equals(input2);
+    = (input1, input2) => input1.ThrowIfNull().Equals(input2);
 
   protected virtual string InputString(TInput input)
     => $"( !{input} )";

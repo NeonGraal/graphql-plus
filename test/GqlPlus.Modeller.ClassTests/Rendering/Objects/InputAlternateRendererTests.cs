@@ -1,34 +1,29 @@
-﻿namespace GqlPlus.Rendering.Objects;
+﻿using Microsoft.VisualStudio.TestPlatform.Utilities;
+
+namespace GqlPlus.Rendering.Objects;
 
 public class InputAlternateRendererTests
-  : ObjectArgRendererBase<InputAlternateModel, InputArgModel>
+  : ObjectBaseRendererBase<InputAlternateModel, InputBaseModel>
 {
   private readonly IRenderer<CollectionModel> _collection;
-  private readonly IRenderer<DualAlternateModel> _dual;
 
   public InputAlternateRendererTests()
   {
     _collection = RFor<CollectionModel>();
-    _dual = RFor<DualAlternateModel>();
 
-    Renderer = new InputAlternateRenderer(new(ObjArg, _collection), _dual);
+    Renderer = new ObjectAlternateRenderer<InputAlternateModel, InputBaseModel>(new(_collection, ObjBase));
   }
 
   protected override IRenderer<InputAlternateModel> Renderer { get; }
 
   [Theory, RepeatData]
-  public void Render_WithTypeParam_ReturnsStructuredWithTypeParam(string input, string contents)
-    => RenderAndCheck(new(input, contents) { IsTypeParam = true }, [
-      "!_InputAlternate",
-      "description: " + contents.Quoted("'"),
-      "typeParam: " + input
+  public void Render_ReturnsStructuredWithOutput(string input)
+  {
+    InputBaseModel objBase = new(input, "");
+    ObjBase.Render(objBase).Returns(new Structured(input));
+    RenderAndCheck(new(objBase), [
+        "!_InputAlternate",
+        "type: " + input
       ]);
-
-  [Theory, RepeatData]
-  public void Render_WithoutTypeParam_ReturnsStructuredWithInput(string input, string contents)
-    => RenderAndCheck(new(input, contents), [
-      "!_InputAlternate",
-      "description: " + contents.Quoted("'"),
-      "input: " + input
-      ]);
+  }
 }

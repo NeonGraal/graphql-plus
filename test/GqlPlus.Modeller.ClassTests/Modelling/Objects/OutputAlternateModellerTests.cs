@@ -1,15 +1,13 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
 public class OutputAlternateModellerTests
-  : ModellerClassTestBase<IGqlpOutputAlternate, OutputAlternateModel>
+  : ModellerObjectBaseTestBase<IGqlpOutputAlternate, OutputAlternateModel, IGqlpOutputBase, OutputBaseModel>
 {
   public OutputAlternateModellerTests()
   {
-    IModeller<IGqlpOutputArg, OutputArgModel> objArg = MFor<IGqlpOutputArg, OutputArgModel>();
     IModeller<IGqlpModifier, CollectionModel> collection = MFor<IGqlpModifier, CollectionModel>();
-    IModeller<IGqlpDualAlternate, DualAlternateModel> dual = MFor<IGqlpDualAlternate, DualAlternateModel>();
 
-    Modeller = new OutputAlternateModeller(objArg, collection, dual);
+    Modeller = new OutputAlternateModeller(collection, ObjBase);
   }
 
   protected override IModeller<IGqlpOutputAlternate, OutputAlternateModel> Modeller { get; }
@@ -21,15 +19,14 @@ public class OutputAlternateModellerTests
     IGqlpOutputAlternate ast = For<IGqlpOutputAlternate>();
     ast.Output.Returns(name);
     ast.Description.Returns(contents);
+    OutputBaseModel outputType = new(name, contents);
+    ObjBase.ToModel(ast, TypeKinds).Returns(outputType);
 
     // Act
     OutputAlternateModel result = Modeller.ToModel(ast, TypeKinds);
 
     // Assert
     result.ShouldNotBeNull()
-      .ShouldSatisfyAllConditions(
-        r => r.Output.ShouldBe(name),
-        r => r.Description.ShouldBe(contents)
-      );
+      .BaseType.ShouldBe(outputType);
   }
 }

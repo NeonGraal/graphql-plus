@@ -4,7 +4,8 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: FldOutpFieldModParam
-      output: String
+      type: !_OutputBase
+        output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
@@ -13,7 +14,8 @@ types: !_Map_Type
         output: Number
     alternates:
     - !_OutputAlternate
-      output: String
+      type: !_OutputBase
+        output: String
     fields:
     - !_OutputField
       name: field

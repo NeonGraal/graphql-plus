@@ -55,13 +55,19 @@
         {
           "$tag": "_ObjectFor(_DualAlternate)",
           "object": "RefDualGnrcFieldArg",
-          "typeParam": "ref"
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "ref"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "typeParam": "ref"
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "ref"
+          }
         }
       ],
       "name": "RefDualGnrcFieldArg",

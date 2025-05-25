@@ -32,19 +32,20 @@ internal class ObjectFieldRenderer<TField, TBase>(
       .AddRendered("type", model.BaseType as TBase, renderers.ObjBase);
 }
 
-internal record class CollectionBaseRenderers<TObjArg>(
-  IRenderer<TObjArg> ObjArg,
-  IRenderer<CollectionModel> Collection
-) where TObjArg : IObjArgModel;
+internal record class CollectionBaseRenderers<TObjBase>(
+  IRenderer<CollectionModel> Collection,
+  IRenderer<TObjBase> ObjBase
+) where TObjBase : IObjBaseModel;
 
-internal class ObjectAlternateRenderer<TAlt, TObjArg>(
-  CollectionBaseRenderers<TObjArg> renderers
-) : ObjectBaseRenderer<TAlt, TObjArg>(renderers.ObjArg)
-  where TAlt : ObjBaseModel<TObjArg>, IObjAlternateModel
-  where TObjArg : IObjArgModel
+internal class ObjectAlternateRenderer<TAlt, TObjBase>(
+  CollectionBaseRenderers<TObjBase> renderers
+) : BaseRenderer<TAlt>()
+  where TAlt : ObjAlternateModel<TObjBase>
+  where TObjBase : IObjBaseModel
 {
   internal override Structured Render(TAlt model)
     => base.Render(model)
+      .AddRendered("type", model.Type, renderers.ObjBase)
       .AddList("collections", model.Collections, renderers.Collection);
 }
 
@@ -151,17 +152,6 @@ internal class DualFieldRenderer(
 ) : ObjectFieldRenderer<DualFieldModel, DualBaseModel>(renderers)
 { }
 
-internal class DualAlternateRenderer(
-  CollectionBaseRenderers<DualArgModel> renderers
-) : ObjectAlternateRenderer<DualAlternateModel, DualArgModel>(renderers)
-{
-  internal override Structured Render(DualAlternateModel model)
-    => base.Render(model)
-      .AddIf(model.IsTypeParam,
-        t => t.Add("typeParam", model.Dual),
-        f => f.Add("dual", model.Dual));
-}
-
 internal class TypeDualRenderer(
   TypeObjectRenderers<DualBaseModel, DualFieldModel, DualAlternateModel> renderers
 ) : TypeObjectRenderer<TypeDualModel, DualBaseModel, DualFieldModel, DualAlternateModel>(renderers)
@@ -212,20 +202,6 @@ internal class InputFieldRenderer(
   internal override Structured Render(InputFieldModel model)
     => base.Render(model)
       .AddRendered("default", model.Default, constant);
-}
-
-internal class InputAlternateRenderer(
-  CollectionBaseRenderers<InputArgModel> renderers,
-  IRenderer<DualAlternateModel> dual
-) : ObjectAlternateRenderer<InputAlternateModel, InputArgModel>(renderers)
-{
-  internal override Structured Render(InputAlternateModel model)
-    => model.Dual is null
-      ? base.Render(model)
-        .AddIf(model.IsTypeParam,
-          t => t.Add("typeParam", model.Input),
-          f => f.Add("input", model.Input))
-      : dual.Render(model.Dual);
 }
 
 internal class InputParamRenderer(
@@ -300,20 +276,6 @@ internal class OutputFieldRenderer(
       ? base.Render(model)
         .AddList("parameters", model.Params, parameter)
       : outputEnum.Render(model.Enum);
-}
-
-internal class OutputAlternateRenderer(
-  CollectionBaseRenderers<OutputArgModel> renderers,
-  IRenderer<DualAlternateModel> dual
-) : ObjectAlternateRenderer<OutputAlternateModel, OutputArgModel>(renderers)
-{
-  internal override Structured Render(OutputAlternateModel model)
-    => model.Dual is null
-      ? base.Render(model)
-        .AddIf(model.IsTypeParam,
-          t => t.Add("typeParam", model.Output),
-          f => f.Add("output", model.Output))
-      : dual.Render(model.Dual);
 }
 
 internal class TypeOutputRenderer(

@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Rendering.Objects;
 
 public class DualAlternateRendererTests
-  : ObjectArgRendererBase<DualAlternateModel, DualArgModel>
+  : ObjectBaseRendererBase<DualAlternateModel, DualBaseModel>
 {
   private readonly IRenderer<CollectionModel> _collection;
 
@@ -9,24 +9,19 @@ public class DualAlternateRendererTests
   {
     _collection = RFor<CollectionModel>();
 
-    Renderer = new DualAlternateRenderer(new(ObjArg, _collection));
+    Renderer = new ObjectAlternateRenderer<DualAlternateModel, DualBaseModel>(new(_collection, ObjBase));
   }
 
   protected override IRenderer<DualAlternateModel> Renderer { get; }
 
   [Theory, RepeatData]
-  public void Render_WithTypeParam_ReturnsStructuredWithTypeParam(string dual, string contents)
-    => RenderAndCheck(new(dual, contents) { IsTypeParam = true }, [
-      "!_DualAlternate",
-      "description: " + contents.Quoted("'"),
-      "typeParam: " + dual
+  public void Render_WithoutTypeParam_ReturnsStructuredWithDual(string dual)
+  {
+    DualBaseModel objBase = new(dual, "");
+    ObjBase.Render(objBase).Returns(new Structured(dual));
+    RenderAndCheck(new(objBase), [
+        "!_DualAlternate",
+        "type: " + dual
       ]);
-
-  [Theory, RepeatData]
-  public void Render_WithoutTypeParam_ReturnsStructuredWithDual(string dual, string contents)
-    => RenderAndCheck(new(dual, contents), [
-      "!_DualAlternate",
-      "description: " + contents.Quoted("'"),
-      "dual: " + dual
-      ]);
+  }
 }

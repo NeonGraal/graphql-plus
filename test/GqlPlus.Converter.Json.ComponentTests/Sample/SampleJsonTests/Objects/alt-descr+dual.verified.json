@@ -7,16 +7,22 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "description": "Test Descr",
-          "dual": "String",
-          "object": "DualAltDescr"
+          "object": "DualAltDescr",
+          "type": {
+            "$tag": "_DualBase",
+            "description": "Test Descr",
+            "dual": "String"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "description": "Test Descr",
-          "dual": "String"
+          "type": {
+            "$tag": "_DualBase",
+            "description": "Test Descr",
+            "dual": "String"
+          }
         }
       ],
       "name": "DualAltDescr",

@@ -29,25 +29,31 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "OutpGnrcValue",
-          "output": "RefOutpGnrcValue",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "output": "outpGnrcValue"
-            }
-          ]
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "RefOutpGnrcValue",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "output": "outpGnrcValue"
+              }
+            ]
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "output": "RefOutpGnrcValue",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "output": "outpGnrcValue"
-            }
-          ]
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "RefOutpGnrcValue",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "output": "outpGnrcValue"
+              }
+            ]
+          }
         }
       ],
       "name": "OutpGnrcValue",

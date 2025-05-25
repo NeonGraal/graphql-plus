@@ -21,8 +21,7 @@ output _OutputField {
     }
 
 output _OutputAlternate {
-    : _Alternate<_OutputTypeArg>
-        output: _Identifier
+    : _Alternate<_OutputBase>
     }
 
 output _OutputTypeArg {

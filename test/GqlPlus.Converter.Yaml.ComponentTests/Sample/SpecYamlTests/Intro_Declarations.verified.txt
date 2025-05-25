@@ -10,8 +10,9 @@ types: !_Map_Type
       collections:
       - !_Modifier
         modifierKind: !_ModifierKind List
-      input: _NameFilter
       object: _Filter
+      type: !_InputBase
+        input: _NameFilter
     allFields:
     - !_ObjectFor(_InputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
@@ -68,8 +69,9 @@ types: !_Map_Type
       collections:
       - !_Modifier
         modifierKind: !_ModifierKind List
-      input: _NameFilter
       object: _Filter
+      type: !_InputBase
+        input: _NameFilter
     allFields:
     - !_ObjectFor(_InputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
@@ -109,7 +111,8 @@ types: !_Map_Type
       collections:
       - !_Modifier
         modifierKind: !_ModifierKind List
-      input: _NameFilter
+      type: !_InputBase
+        input: _NameFilter
     fields:
     - !_InputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
@@ -268,8 +271,9 @@ types: !_Map_Type
       collections:
       - !_Modifier
         modifierKind: !_ModifierKind List
-      input: _NameFilter
       object: _Filter
+      type: !_InputBase
+        input: _NameFilter
     allFields:
     - !_ObjectFor(_InputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]

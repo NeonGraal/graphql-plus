@@ -20,20 +20,22 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: OutpPrntGnrc
-      output: RefOutpPrntGnrc
-      typeArgs:
-      - !_OutputArg
-        label: prnt_outpPrntGnrc
-        name: EnumOutpPrntGnrc
-        typeKind: !_SimpleKind Enum
+      type: !_OutputBase
+        output: RefOutpPrntGnrc
+        typeArgs:
+        - !_OutputArg
+          label: prnt_outpPrntGnrc
+          name: EnumOutpPrntGnrc
+          typeKind: !_SimpleKind Enum
     alternates:
     - !_OutputAlternate
-      output: RefOutpPrntGnrc
-      typeArgs:
-      - !_OutputArg
-        label: prnt_outpPrntGnrc
-        name: EnumOutpPrntGnrc
-        typeKind: !_SimpleKind Enum
+      type: !_OutputBase
+        output: RefOutpPrntGnrc
+        typeArgs:
+        - !_OutputArg
+          label: prnt_outpPrntGnrc
+          name: EnumOutpPrntGnrc
+          typeKind: !_SimpleKind Enum
     name: OutpPrntGnrc
     typeKind: !_TypeKind Output
   !_Identifier PrntOutpPrntGnrc: !_TypeEnum

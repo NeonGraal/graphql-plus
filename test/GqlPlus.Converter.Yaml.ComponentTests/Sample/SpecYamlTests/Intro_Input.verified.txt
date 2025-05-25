@@ -20,29 +20,19 @@ errors:
   _message: In _InputTypeArg can't get model for type '_ObjTypeArg'
 types: !_Map_Type
   !_Identifier _InputAlternate: !_TypeOutput
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: input
-      object: _InputAlternate
-      type: !_OutputBase
-        output: _Identifier
-    fields:
-    - !_OutputField
-      name: input
-      type: !_OutputBase
-        output: _Identifier
     name: _InputAlternate
     parent: !_OutputBase
       output: _Alternate
       typeArgs:
       - !_OutputArg
-        output: _InputTypeArg
+        output: _InputBase
     typeKind: !_TypeKind Output
   !_Identifier _InputBase: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _InputBase
-      output: _DualBase
+      type: !_OutputBase
+        output: _DualBase
     allFields:
     - !_ObjectFor(_OutputField)
       name: input
@@ -51,7 +41,8 @@ types: !_Map_Type
         output: _Identifier
     alternates:
     - !_OutputAlternate
-      output: _DualBase
+      type: !_OutputBase
+        output: _DualBase
     fields:
     - !_OutputField
       name: input
@@ -89,7 +80,8 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _InputBase
-      output: _DualBase
+      type: !_OutputBase
+        output: _DualBase
     allFields:
     - !_ObjectFor(_OutputField)
       name: input

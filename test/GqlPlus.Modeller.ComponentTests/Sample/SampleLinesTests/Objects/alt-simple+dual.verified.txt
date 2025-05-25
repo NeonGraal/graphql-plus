@@ -3,10 +3,12 @@ types: !_Map_Type
   !_Identifier DualAltSmpl: !_TypeDual
     allAlternates:
       - !_ObjectFor(_DualAlternate)
-        dual: String
         object: DualAltSmpl
+        type: !_DualBase
+          dual: String
     alternates:
       - !_DualAlternate
-        dual: String
+        type: !_DualBase
+          dual: String
     name: DualAltSmpl
     typeKind: !_TypeKind Dual

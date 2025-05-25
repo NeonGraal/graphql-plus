@@ -94,8 +94,11 @@
               }
             }
           ],
-          "input": "_NameFilter",
-          "object": "_Filter"
+          "object": "_Filter",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "_NameFilter"
+          }
         }
       ],
       "allFields": [
@@ -301,8 +304,11 @@
               }
             }
           ],
-          "input": "_NameFilter",
-          "object": "_Filter"
+          "object": "_Filter",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "_NameFilter"
+          }
         }
       ],
       "allFields": [
@@ -412,7 +418,10 @@
               }
             }
           ],
-          "input": "_NameFilter"
+          "type": {
+            "$tag": "_InputBase",
+            "input": "_NameFilter"
+          }
         }
       ],
       "fields": [
@@ -974,8 +983,11 @@
               }
             }
           ],
-          "input": "_NameFilter",
-          "object": "_Filter"
+          "object": "_Filter",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "_NameFilter"
+          }
         }
       ],
       "allFields": [

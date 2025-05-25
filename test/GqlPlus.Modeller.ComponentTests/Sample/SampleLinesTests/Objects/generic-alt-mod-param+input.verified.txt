@@ -1,0 +1,27 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier RefInpGnrcAltModParam: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_InputAlternate)
+        collections:
+          - !_ModifierTypeParam
+            by: mod
+            modifierKind: !_ModifierKind Param
+        object: RefInpGnrcAltModParam
+        type: !_InputBase
+          typeParam: ref
+    alternates:
+      - !_InputAlternate
+        collections:
+          - !_ModifierTypeParam
+            by: mod
+            modifierKind: !_ModifierKind Param
+        type: !_InputBase
+          typeParam: ref
+    name: RefInpGnrcAltModParam
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_Named
+        name: ref
+      - !_Named
+        name: mod

@@ -4,7 +4,7 @@ public class TypeOutputRendererTests
   : TypeObjectRendererBase<TypeOutputModel, OutputBaseModel, OutputFieldModel, OutputAlternateModel>
 {
   public TypeOutputRendererTests()
-    => Renderer = new TypeOutputRenderer(new(Base, Field, ObjField, DualField, Alternate, ObjAlternate, DualAlternate, TypeParam));
+    => Renderer = new TypeOutputRenderer(new(ObjBase, Field, ObjField, DualField, Alternate, ObjAlternate, DualAlternate, TypeParam));
 
   protected override IRenderer<TypeOutputModel> Renderer { get; }
 

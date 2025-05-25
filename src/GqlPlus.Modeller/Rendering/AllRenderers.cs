@@ -46,27 +46,24 @@ public static class AllRenderers
       // Dual
       .AddRenderer<DualArgModel, DualArgRenderer>()
       .AddRenderer<DualBaseModel, DualBaseRenderer>()
-      .AddBaseRenderer<DualBaseModel, DualArgModel>()
+      .AddBaseRenderer<DualBaseModel>()
       .AddRenderer<DualFieldModel, DualFieldRenderer>()
-      .AddRenderer<DualAlternateModel, DualAlternateRenderer>()
       .AddTypeRenderer<TypeDualModel, TypeDualRenderer>()
       .AddObjectRenderers<DualBaseModel, DualFieldModel, DualAlternateModel>()
       // Input
       .AddRenderer<InputArgModel, InputArgRenderer>()
       .AddRenderer<InputBaseModel, InputBaseRenderer>()
-      .AddBaseRenderer<InputBaseModel, InputArgModel>()
+      .AddBaseRenderer<InputBaseModel>()
       .AddRenderer<InputFieldModel, InputFieldRenderer>()
-      .AddRenderer<InputAlternateModel, InputAlternateRenderer>()
       .AddRenderer<InputParamModel, InputParamRenderer>()
       .AddTypeRenderer<TypeInputModel, TypeInputRenderer>()
       .AddObjectRenderers<InputBaseModel, InputFieldModel, InputAlternateModel>()
       // Output
       .AddRenderer<OutputArgModel, OutputArgRenderer>()
       .AddRenderer<OutputBaseModel, OutputBaseRenderer>()
-      .AddBaseRenderer<OutputBaseModel, OutputArgModel>()
+      .AddBaseRenderer<OutputBaseModel>()
       .AddRenderer<OutputEnumModel, OutputEnumRenderer>()
       .AddRenderer<OutputFieldModel, OutputFieldRenderer>()
-      .AddRenderer<OutputAlternateModel, OutputAlternateRenderer>()
       .AddTypeRenderer<TypeOutputModel, TypeOutputRenderer>()
       .AddObjectRenderers<OutputBaseModel, OutputFieldModel, OutputAlternateModel>()
     ;
@@ -103,16 +100,17 @@ public static class AllRenderers
   private static IServiceCollection AddObjectRenderers<TBase, TField, TAlt>(this IServiceCollection services)
     where TBase : IObjBaseModel
     where TField : IObjFieldModel
-    where TAlt : IObjAlternateModel
+    where TAlt : ObjAlternateModel<TBase>
     => services
-    .AddRenderer<ObjectForModel<TAlt>, ObjectForRenderer<TAlt>>()
-    .AddRenderer<ObjectForModel<TField>, ObjectForRenderer<TField>>()
-    .AddSingleton<TypeObjectRenderers<TBase, TField, TAlt>>();
+      .AddRenderer<ObjectForModel<TAlt>, ObjectForRenderer<TAlt>>()
+      .AddRenderer<ObjectForModel<TField>, ObjectForRenderer<TField>>()
+      .AddRenderer<TAlt, ObjectAlternateRenderer<TAlt, TBase>>()
+      .AddSingleton<TypeObjectRenderers<TBase, TField, TAlt>>();
 
-  private static IServiceCollection AddBaseRenderer<TBase, TArg>(this IServiceCollection services)
+  private static IServiceCollection AddBaseRenderer<TBase>(this IServiceCollection services)
     where TBase : ModelBase, IObjBaseModel
     where TArg : IObjTypeArgModel
     => services
       .AddSingleton<FieldRenderers<TBase>>()
-      .AddSingleton<AlternateRenderers<TArg>>();
+      .AddSingleton<AlternateRenderers<TBase>>();
 }

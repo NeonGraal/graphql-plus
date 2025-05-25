@@ -8,97 +8,115 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Collections",
-          "output": "_Modifier",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "label": "List",
-              "name": "_ModifierKind",
-              "typeKind": {
-                "$tag": "_SimpleKind",
-                "value": "Enum"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Modifier",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "label": "List",
+                "name": "_ModifierKind",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
-            }
-          ]
+            ]
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Collections",
-          "output": "_ModifierKeyed",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "label": "Dictionary",
-              "name": "_ModifierKind",
-              "typeKind": {
-                "$tag": "_SimpleKind",
-                "value": "Enum"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_ModifierKeyed",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "label": "Dictionary",
+                "name": "_ModifierKind",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
-            }
-          ]
+            ]
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Collections",
-          "output": "_ModifierKeyed",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "label": "TypeParam",
-              "name": "_ModifierKind",
-              "typeKind": {
-                "$tag": "_SimpleKind",
-                "value": "Enum"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_ModifierKeyed",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "label": "TypeParam",
+                "name": "_ModifierKind",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
-            }
-          ]
+            ]
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "output": "_Modifier",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "label": "List",
-              "name": "_ModifierKind",
-              "typeKind": {
-                "$tag": "_SimpleKind",
-                "value": "Enum"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Modifier",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "label": "List",
+                "name": "_ModifierKind",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
-            }
-          ]
+            ]
+          }
         },
         {
           "$tag": "_OutputAlternate",
-          "output": "_ModifierKeyed",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "label": "Dictionary",
-              "name": "_ModifierKind",
-              "typeKind": {
-                "$tag": "_SimpleKind",
-                "value": "Enum"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_ModifierKeyed",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "label": "Dictionary",
+                "name": "_ModifierKind",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
-            }
-          ]
+            ]
+          }
         },
         {
           "$tag": "_OutputAlternate",
-          "output": "_ModifierKeyed",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "label": "TypeParam",
-              "name": "_ModifierKind",
-              "typeKind": {
-                "$tag": "_SimpleKind",
-                "value": "Enum"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_ModifierKeyed",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "label": "TypeParam",
+                "name": "_ModifierKind",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
-            }
-          ]
+            ]
+          }
         }
       ],
       "name": "_Collections",
@@ -113,31 +131,49 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Constant",
-          "output": "_Simple"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Simple"
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Constant",
-          "output": "_ConstantList"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_ConstantList"
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Constant",
-          "output": "_ConstantMap"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_ConstantMap"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "output": "_Simple"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Simple"
+          }
         },
         {
           "$tag": "_OutputAlternate",
-          "output": "_ConstantList"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_ConstantList"
+          }
         },
         {
           "$tag": "_OutputAlternate",
-          "output": "_ConstantMap"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_ConstantMap"
+          }
         }
       ],
       "name": "_Constant",
@@ -161,7 +197,10 @@
             }
           ],
           "object": "_ConstantList",
-          "output": "_Constant"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Constant"
+          }
         }
       ],
       "alternates": [
@@ -176,7 +215,10 @@
               }
             }
           ],
-          "output": "_Constant"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Constant"
+          }
         }
       ],
       "name": "_ConstantList",
@@ -205,7 +247,10 @@
             }
           ],
           "object": "_ConstantMap",
-          "output": "_Constant"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Constant"
+          }
         }
       ],
       "alternates": [
@@ -225,7 +270,10 @@
               }
             }
           ],
-          "output": "_Constant"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Constant"
+          }
         }
       ],
       "name": "_ConstantMap",
@@ -416,44 +464,56 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Modifiers",
-          "output": "_Modifier",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "label": "Optional",
-              "name": "_ModifierKind",
-              "typeKind": {
-                "$tag": "_SimpleKind",
-                "value": "Enum"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Modifier",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "label": "Optional",
+                "name": "_ModifierKind",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
-            }
-          ]
+            ]
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Modifiers",
-          "output": "_Collections"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Collections"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "output": "_Modifier",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "label": "Optional",
-              "name": "_ModifierKind",
-              "typeKind": {
-                "$tag": "_SimpleKind",
-                "value": "Enum"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Modifier",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "label": "Optional",
+                "name": "_ModifierKind",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
-            }
-          ]
+            ]
+          }
         },
         {
           "$tag": "_OutputAlternate",
-          "output": "_Collections"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Collections"
+          }
         }
       ],
       "name": "_Modifiers",
@@ -468,100 +528,124 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Simple",
-          "output": "Boolean"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "Boolean"
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Simple",
-          "output": "_DomainValue",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "label": "Number",
-              "name": "_DomainKind",
-              "typeKind": {
-                "$tag": "_SimpleKind",
-                "value": "Enum"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_DomainValue",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "label": "Number",
+                "name": "_DomainKind",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
+              },
+              {
+                "$tag": "_OutputArg",
+                "output": "Number"
               }
-            },
-            {
-              "$tag": "_OutputArg",
-              "output": "Number"
-            }
-          ]
+            ]
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Simple",
-          "output": "_DomainValue",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "label": "String",
-              "name": "_DomainKind",
-              "typeKind": {
-                "$tag": "_SimpleKind",
-                "value": "Enum"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_DomainValue",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "label": "String",
+                "name": "_DomainKind",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
+              },
+              {
+                "$tag": "_OutputArg",
+                "output": "String"
               }
-            },
-            {
-              "$tag": "_OutputArg",
-              "output": "String"
-            }
-          ]
+            ]
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Simple",
-          "output": "_EnumValue"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_EnumValue"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "output": "Boolean"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "Boolean"
+          }
         },
         {
           "$tag": "_OutputAlternate",
-          "output": "_DomainValue",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "label": "Number",
-              "name": "_DomainKind",
-              "typeKind": {
-                "$tag": "_SimpleKind",
-                "value": "Enum"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_DomainValue",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "label": "Number",
+                "name": "_DomainKind",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
+              },
+              {
+                "$tag": "_OutputArg",
+                "output": "Number"
               }
-            },
-            {
-              "$tag": "_OutputArg",
-              "output": "Number"
-            }
-          ]
+            ]
+          }
         },
         {
           "$tag": "_OutputAlternate",
-          "output": "_DomainValue",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "label": "String",
-              "name": "_DomainKind",
-              "typeKind": {
-                "$tag": "_SimpleKind",
-                "value": "Enum"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_DomainValue",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "label": "String",
+                "name": "_DomainKind",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
+              },
+              {
+                "$tag": "_OutputArg",
+                "output": "String"
               }
-            },
-            {
-              "$tag": "_OutputArg",
-              "output": "String"
-            }
-          ]
+            ]
+          }
         },
         {
           "$tag": "_OutputAlternate",
-          "output": "_EnumValue"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_EnumValue"
+          }
         }
       ],
       "name": "_Simple",

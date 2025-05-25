@@ -8,13 +8,19 @@
         {
           "$tag": "_ObjectFor(_DualAlternate)",
           "object": "DualGnrcAlt",
-          "typeParam": "type"
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "type"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "typeParam": "type"
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "type"
+          }
         }
       ],
       "name": "DualGnrcAlt",

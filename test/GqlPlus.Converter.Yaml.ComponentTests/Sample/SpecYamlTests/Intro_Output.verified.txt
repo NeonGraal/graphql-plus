@@ -23,29 +23,19 @@ errors:
   _message: In _OutputEnum can't get model for type '_TypeRef'
 types: !_Map_Type
   !_Identifier _OutputAlternate: !_TypeOutput
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: output
-      object: _OutputAlternate
-      type: !_OutputBase
-        output: _Identifier
-    fields:
-    - !_OutputField
-      name: output
-      type: !_OutputBase
-        output: _Identifier
     name: _OutputAlternate
     parent: !_OutputBase
       output: _Alternate
       typeArgs:
       - !_OutputArg
-        output: _OutputTypeArg
+        output: _OutputBase
     typeKind: !_TypeKind Output
   !_Identifier _OutputBase: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _OutputBase
-      output: _DualBase
+      type: !_OutputBase
+        output: _DualBase
     allFields:
     - !_ObjectFor(_OutputField)
       name: output
@@ -54,7 +44,8 @@ types: !_Map_Type
         output: _Identifier
     alternates:
     - !_OutputAlternate
-      output: _DualBase
+      type: !_OutputBase
+        output: _DualBase
     fields:
     - !_OutputField
       name: output
@@ -101,7 +92,8 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _OutputField
-      output: _OutputEnum
+      type: !_OutputBase
+        output: _OutputEnum
     allFields:
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
@@ -111,7 +103,8 @@ types: !_Map_Type
         output: _InputParam
     alternates:
     - !_OutputAlternate
-      output: _OutputEnum
+      type: !_OutputBase
+        output: _OutputEnum
     fields:
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]

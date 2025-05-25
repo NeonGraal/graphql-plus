@@ -15,8 +15,11 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "input": "String",
-          "object": "InOutpParamDescr"
+          "object": "InOutpParamDescr",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "String"
+          }
         }
       ],
       "allFields": [
@@ -33,7 +36,10 @@
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "input": "String"
+          "type": {
+            "$tag": "_InputBase",
+            "input": "String"
+          }
         }
       ],
       "fields": [

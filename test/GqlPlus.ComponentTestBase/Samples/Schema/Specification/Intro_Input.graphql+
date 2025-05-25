@@ -19,8 +19,7 @@ output _InputField {
     }
 
 output _InputAlternate {
-    : _Alternate<_InputTypeArg>
-        input: _Identifier
+    : _Alternate<_InputBase>
     }
 
 output _InputTypeArg {

@@ -28,10 +28,8 @@ public record class DualFieldModel(
 { }
 
 public record class DualAlternateModel(
-  string Dual,
-  string Description
-) : ObjAlternateModel<DualArgModel>(Description)
-  , IDualModel
+  DualBaseModel Type
+) : ObjAlternateModel<DualBaseModel>(Type)
 { }
 
 public interface IDualModel

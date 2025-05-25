@@ -7,26 +7,32 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "input": "RefInpGnrcAltSmpl",
           "object": "InpGnrcAltSmpl",
-          "typeArgs": [
-            {
-              "$tag": "_InputArg",
-              "input": "String"
-            }
-          ]
+          "type": {
+            "$tag": "_InputBase",
+            "input": "RefInpGnrcAltSmpl",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "input": "String"
+              }
+            ]
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "input": "RefInpGnrcAltSmpl",
-          "typeArgs": [
-            {
-              "$tag": "_InputArg",
-              "input": "String"
-            }
-          ]
+          "type": {
+            "$tag": "_InputBase",
+            "input": "RefInpGnrcAltSmpl",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "input": "String"
+              }
+            ]
+          }
         }
       ],
       "name": "InpGnrcAltSmpl",
@@ -41,13 +47,19 @@
         {
           "$tag": "_ObjectFor(_InputAlternate)",
           "object": "RefInpGnrcAltSmpl",
-          "typeParam": "ref"
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "ref"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "typeParam": "ref"
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "ref"
+          }
         }
       ],
       "name": "RefInpGnrcAltSmpl",

@@ -24,7 +24,8 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: OutpGnrcParamAlt
-      output: String
+      type: !_OutputBase
+        output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
@@ -33,7 +34,8 @@ types: !_Map_Type
         output: Number
     alternates:
     - !_OutputAlternate
-      output: String
+      type: !_OutputBase
+        output: String
     fields:
     - !_OutputField
       name: alt
@@ -45,10 +47,12 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: OutpGnrcParamRef
-      typeParam: ref
+      type: !_OutputBase
+        typeParam: ref
     alternates:
     - !_OutputAlternate
-      typeParam: ref
+      type: !_OutputBase
+        typeParam: ref
     name: OutpGnrcParamRef
     typeKind: !_TypeKind Output
     typeParams:

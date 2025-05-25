@@ -39,10 +39,8 @@ public record class OutputFieldModel(
 }
 
 public record class OutputAlternateModel(
-  string Output,
-  string Description
-) : ObjAlternateModel<OutputArgModel>(Description)
-  , IOutputModel
+  OutputBaseModel Type
+) : ObjAlternateModel<OutputBaseModel>(Type)
 {
   internal DualAlternateModel? Dual { get; init; }
 }

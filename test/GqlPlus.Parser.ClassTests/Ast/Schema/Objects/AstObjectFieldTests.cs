@@ -58,7 +58,7 @@ internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst, TOb
   private readonly ArgsBy _createArgs = createArgs;
 
   internal delegate TObjBaseAst BaseBy(FieldInput input);
-  internal delegate TObjField FieldBy(FieldInput input, TObjBase refBase);
+  internal delegate TObjField FieldBy(FieldInput input, TObjBase objBase);
   internal delegate TObjArgAst[] ArgsBy(string[] arguments);
 
   public void HashCode_WithModifiers(FieldInput input)

@@ -48,9 +48,9 @@ internal class InputBaseModeller(
 
 internal class InputFieldModeller(
   IModifierModeller modifier,
-  IModeller<IGqlpInputBase, InputBaseModel> refBase,
+  IModeller<IGqlpInputBase, InputBaseModel> objBase,
   IModeller<IGqlpConstant, ConstantModel> constant
-) : ModellerObjField<IGqlpInputBase, IGqlpInputField, InputBaseModel, InputFieldModel>(modifier, refBase)
+) : ModellerObjField<IGqlpInputBase, IGqlpInputField, InputBaseModel, InputFieldModel>(modifier, objBase)
 {
   protected override InputFieldModel FieldModel(IGqlpInputField ast, InputBaseModel type, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, type with { Description = ast.BaseType.Description }, ast.Description) {
@@ -59,17 +59,12 @@ internal class InputFieldModeller(
 }
 
 internal class InputAlternateModeller(
-  IModeller<IGqlpInputArg, InputArgModel> objArg,
   IModeller<IGqlpModifier, CollectionModel> collection,
-  IModeller<IGqlpDualAlternate, DualAlternateModel> dual
-) : ModellerObjAlternate<IGqlpInputArg, IGqlpInputAlternate, InputArgModel, InputAlternateModel>(objArg, collection)
+  IModeller<IGqlpInputBase, InputBaseModel> objBase
+) : ModellerObjAlternate<IGqlpInputBase, IGqlpInputAlternate, InputBaseModel, InputAlternateModel>(collection, objBase)
 {
-  protected override InputAlternateModel AlternateModel(IGqlpInputAlternate ast, IMap<TypeKindModel> typeKinds)
-    => typeKinds.TryGetValue(ast.Input, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
-    ? new("", ast.Description) {
-      Dual = dual.ToModel(ast.ToDual, typeKinds)
-    }
-    : new(ast.Input, ast.Description);
+  protected override InputAlternateModel AlternateModel(InputBaseModel type)
+    => new(type);
 }
 
 internal class InputParamModeller(

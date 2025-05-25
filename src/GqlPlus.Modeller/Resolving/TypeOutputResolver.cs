@@ -89,18 +89,8 @@ internal class TypeOutputResolver(
 
   private Func<OutputAlternateModel, OutputAlternateModel> ApplyAlternate(string label, ArgumentsContext arguments)
     => alternate => {
-      if (GetOutputArgument(label, alternate, arguments, out OutputBaseModel? argModel)) {
-        if (argModel.Dual is null) {
-          alternate = new(argModel.Output, argModel.Description) {
-            Collections = alternate.Collections
-          };
-        } else {
-          alternate = new("", argModel.Description) {
-            Dual = new(argModel.Dual.Dual, argModel.Description) {
-              Collections = alternate.Collections
-            }
-          };
-        }
+      if (GetOutputArgument(label, alternate.Type, arguments, out OutputBaseModel? argModel)) {
+        alternate = alternate with { Type = argModel };
       }
 
       ApplyArray(alternate.Collections, ApplyCollection(label, arguments),
@@ -109,7 +99,7 @@ internal class TypeOutputResolver(
       return alternate;
     };
 
-  private bool GetOutputArgument(string label, IOutputModel outputBase, ArgumentsContext arguments, [NotNullWhen(true)] out OutputBaseModel? outBase)
+  private bool GetOutputArgument(string label, OutputBaseModel outputBase, ArgumentsContext arguments, [NotNullWhen(true)] out OutputBaseModel? outBase)
   {
     outBase = null;
     if (outputBase?.IsTypeParam == true) {

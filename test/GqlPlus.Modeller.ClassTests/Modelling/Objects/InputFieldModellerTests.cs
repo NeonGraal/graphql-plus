@@ -1,16 +1,14 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
 public class InputFieldModellerTests
-  : ModellerClassTestBase<IGqlpInputField, InputFieldModel>
+  : ModellerObjectBaseTestBase<IGqlpInputField, InputFieldModel, IGqlpInputBase, InputBaseModel>
 {
-  private readonly IModeller<IGqlpInputBase, InputBaseModel> _objBase = MFor<IGqlpInputBase, InputBaseModel>();
-
   public InputFieldModellerTests()
   {
     IModifierModeller modifier = For<IModifierModeller>();
     IModeller<IGqlpConstant, ConstantModel> constant = MFor<IGqlpConstant, ConstantModel>();
 
-    Modeller = new InputFieldModeller(modifier, _objBase, constant);
+    Modeller = new InputFieldModeller(modifier, ObjBase, constant);
   }
 
   protected override IModeller<IGqlpInputField, InputFieldModel> Modeller { get; }
@@ -25,7 +23,7 @@ public class InputFieldModellerTests
     type.Input.Returns(typeName);
     ast.BaseType.Returns(type);
     InputBaseModel inputType = new(typeName, "");
-    _objBase.ToModel(type, TypeKinds).Returns(inputType);
+    ObjBase.ToModel(type, TypeKinds).Returns(inputType);
 
     // Act
     InputFieldModel result = Modeller.ToModel(ast, TypeKinds);

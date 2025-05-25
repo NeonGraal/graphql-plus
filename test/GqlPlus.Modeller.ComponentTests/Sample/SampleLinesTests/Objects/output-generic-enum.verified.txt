@@ -14,20 +14,22 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: OutpGnrcEnum
-        output: RefOutpGnrcEnum
-        typeArgs:
-          - !_OutputArg
-            label: outpGnrcEnum
-            name: EnumOutpGnrcEnum
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: RefOutpGnrcEnum
+          typeArgs:
+            - !_OutputArg
+              label: outpGnrcEnum
+              name: EnumOutpGnrcEnum
+              typeKind: !_SimpleKind Enum
     alternates:
       - !_OutputAlternate
-        output: RefOutpGnrcEnum
-        typeArgs:
-          - !_OutputArg
-            label: outpGnrcEnum
-            name: EnumOutpGnrcEnum
-            typeKind: !_SimpleKind Enum
+        type: !_OutputBase
+          output: RefOutpGnrcEnum
+          typeArgs:
+            - !_OutputArg
+              label: outpGnrcEnum
+              name: EnumOutpGnrcEnum
+              typeKind: !_SimpleKind Enum
     name: OutpGnrcEnum
     typeKind: !_TypeKind Output
   !_Identifier RefOutpGnrcEnum: !_TypeOutput

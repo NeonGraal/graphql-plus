@@ -6,13 +6,13 @@ public class TypeDualResolverAlternateTests
   protected override IResolver<TypeDualModel> Resolver { get; } = new TypeDualResolver();
 
   protected override DualAlternateModel MakeAlternate(string alternate)
-    => new(alternate, "");
+    => new(new(alternate, ""));
   protected override DualBaseModel MakeBase(string name, string description = "", params DualArgModel[] args)
     => new(name, description) { Args = args };
   protected override DualAlternateModel MakeCollectionAlternate(string alternate, CollectionModel collection)
-        => new(alternate, "") { Collections = [collection] };
+    => new(new(alternate, "")) { Collections = [collection] };
   protected override DualAlternateModel MakeParamAlternate(string alternate, CollectionModel collection)
-    => new(alternate, "") { IsTypeParam = true, Collections = [collection] };
+    => new(new(alternate, "") { IsTypeParam = true }) { Collections = [collection] };
   protected override DualArgModel NewArg(string argument, bool isParam = false)
     => new(argument, "") { IsTypeParam = isParam };
   protected override TypeDualModel NewModel(string name, string description)

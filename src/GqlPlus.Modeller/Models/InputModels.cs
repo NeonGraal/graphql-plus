@@ -34,10 +34,8 @@ public record class InputFieldModel(
 }
 
 public record class InputAlternateModel(
-  string Input,
-  string Description
-) : ObjAlternateModel<InputArgModel>(Description)
-  , IInputModel
+  InputBaseModel Type
+) : ObjAlternateModel<InputBaseModel>(Type)
 {
   internal DualAlternateModel? Dual { get; init; }
 }

@@ -1,15 +1,13 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
 public class DualFieldModellerTests
-  : ModellerClassTestBase<IGqlpDualField, DualFieldModel>
+  : ModellerObjectBaseTestBase<IGqlpDualField, DualFieldModel, IGqlpDualBase, DualBaseModel>
 {
-  private readonly IModeller<IGqlpDualBase, DualBaseModel> _objBase = MFor<IGqlpDualBase, DualBaseModel>();
-
   public DualFieldModellerTests()
   {
     IModifierModeller modifier = For<IModifierModeller>();
 
-    Modeller = new DualFieldModeller(modifier, _objBase);
+    Modeller = new DualFieldModeller(modifier, ObjBase);
   }
 
   protected override IModeller<IGqlpDualField, DualFieldModel> Modeller { get; }
@@ -24,7 +22,7 @@ public class DualFieldModellerTests
     type.Dual.Returns(typeName);
     ast.BaseType.Returns(type);
     DualBaseModel dualType = new(typeName, "");
-    _objBase.ToModel(type, TypeKinds).Returns(dualType);
+    ObjBase.ToModel(type, TypeKinds).Returns(dualType);
 
     // Act
     DualFieldModel result = Modeller.ToModel(ast, TypeKinds);

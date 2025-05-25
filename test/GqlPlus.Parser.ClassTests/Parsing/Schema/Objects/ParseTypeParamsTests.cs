@@ -8,9 +8,7 @@ public class ParseTypeParamsTests
   private readonly ParseTypeParams _parser;
 
   public ParseTypeParamsTests()
-  {
-    _parser = new ParseTypeParams();
-  }
+    => _parser = new ParseTypeParams();
 
   [Theory, RepeatData]
   public void Parse_ShouldReturnTypeParams_WhenValid(string param1, string param2)

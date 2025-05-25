@@ -7,16 +7,22 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "description": "Test Descr",
-          "input": "String",
-          "object": "InpAltDescr"
+          "object": "InpAltDescr",
+          "type": {
+            "$tag": "_InputBase",
+            "description": "Test Descr",
+            "input": "String"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "description": "Test Descr",
-          "input": "String"
+          "type": {
+            "$tag": "_InputBase",
+            "description": "Test Descr",
+            "input": "String"
+          }
         }
       ],
       "name": "InpAltDescr",

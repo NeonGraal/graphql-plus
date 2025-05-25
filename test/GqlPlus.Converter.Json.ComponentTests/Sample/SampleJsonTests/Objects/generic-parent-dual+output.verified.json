@@ -7,8 +7,11 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "dual": "String",
-          "object": "AltOutpGnrcPrntDual"
+          "object": "AltOutpGnrcPrntDual",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "String"
+          }
         }
       ],
       "allFields": [
@@ -25,7 +28,10 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "dual": "String"
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "String"
+          }
         }
       ],
       "fields": [
@@ -49,8 +55,11 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "dual": "AltOutpGnrcPrntDual",
-          "object": "RefOutpGnrcPrntDual"
+          "object": "RefOutpGnrcPrntDual",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "AltOutpGnrcPrntDual"
+          }
         }
       ],
       "name": "OutpGnrcPrntDual",
@@ -75,13 +84,19 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "RefOutpGnrcPrntDual",
-          "typeParam": "ref"
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "ref"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "typeParam": "ref"
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "ref"
+          }
         }
       ],
       "name": "RefOutpGnrcPrntDual",

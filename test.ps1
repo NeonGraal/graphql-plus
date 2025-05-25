@@ -3,11 +3,11 @@ param (
   $Section = "",
   [switch]$ClassTests = $false,
   [switch]$Html = $false,
-  $Framework = "net9.0"
+  $Framework = "9.0"
 )
 
 $test = "test","-e","GQLPLUS_TEST_LOGGING=1","--no-build"
-$test += "--logger","trx;LogFileName=TestResults.trx","--framework",$Framework
+$test += "--logger","trx;LogFileName=TestResults-$Framework.trx","--framework","net$Framework"
 
 if ($Section) {
   $test += "--filter", ".$Section."
@@ -27,4 +27,4 @@ Get-ChildItem test -Filter 'TestResults' -Recurse -Directory | Remove-Item -Recu
 
 dotnet @test
 
-./make-summary.ps1 -NoCoverage -Html:$Html
+./make-summary.ps1 -NoCoverage -Html:$Html -Framework $Framework

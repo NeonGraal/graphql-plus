@@ -38,9 +38,10 @@ jobs:
     needs: build
     strategy:
       matrix:
-        version:
-          - "8.0"
-          - "9.0"
+        version: ["8.0", "9.0"]
+        classTests: [true, false]
+    env:
+      testType: ${{ matrix.classTests && 'class' || 'full' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v4
@@ -54,9 +55,7 @@ jobs:
           chmod 777 -R .
           dotnet tool restore --tool-manifest .config/dotnet-tools.json
       - name: Tests with Coverage
-        run: >
-          dotnet coverage collect -o ${{ github.workspace }}/coverage/Coverage-${{ matrix.version }}.xml -f cobertura -s coverage.runsettings
-          dotnet test --no-build --logger "trx;LogFileName=TestResults-${{ matrix.version }}.trx" --framework "net${{ matrix.version }}"
+        run: pwsh just-coverage.ps1 -Framework ${{ matrix.version }} -ClassTests:${{ matrix.classTests }}
       - name: Generate Coverage Report
         if: always()
         env:
@@ -69,12 +68,12 @@ jobs:
       - name: Tests and Coverage Summary
         id: coverage
         if: always()
-        run: pwsh make-summary.ps1
+        run: pwsh make-summary.ps1 -Framework ${{ matrix.version }}
       - name: Tests Report
         uses: dorny/test-reporter@v1
         if: always()
         with:
-          name: DotNET Tests (${{ matrix.version }})
+          name: DotNET Tests (${{ matrix.version }} ${{ env.testType }})
           path: "**/TestResults-${{ matrix.version }}.trx"
           reporter: dotnet-trx
       - name: Coverage Report
@@ -82,7 +81,7 @@ jobs:
         if: always()
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          name: DotNET Coverage (${{ matrix.version }})
+          name: DotNET Coverage (${{ matrix.version }} ${{ env.testType }})
           conclusion: success
           output: '{"summary":"${{ steps.coverage.outputs.coverage_badge }}"}'
           output_text_description_file: coverage/SummaryGithub.md
@@ -96,13 +95,13 @@ jobs:
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: tests-${{ matrix.version }}
+          name: tests-${{ matrix.version }}-${{ env.testType }}
           path: "**/TestResults-${{ matrix.version }}.trx"
       - name: Upload Coverage artifact
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: coverage-${{ matrix.version }}
+          name: coverage-${{ matrix.version }}-${{ env.testType }}
           path: coverage/
       - name: Upload Pages artifact
         if: matrix.version == '9.0'

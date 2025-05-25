@@ -97,7 +97,7 @@ if (-not $NoCoverage) {
 [PsObject]$allTests = @{label = "$testSet tests"; skipped = 0; passed = 0; failed = 0; error = 0 }
 $allErrors = @{}
 
-$tests = Get-ChildItem . -Recurse -Filter "TestResults-$Framework-$Framework*.trx" | ForEach-Object {
+$tests = Get-ChildItem . -Recurse -Filter "TestResults-$Framework*.trx" | ForEach-Object {
   [xml]$trx = Get-Content $_.FullName
 
   $name = $_.Directory.Parent.Name -replace "GqlPlus\.","" -replace "\."," "

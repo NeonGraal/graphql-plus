@@ -107,7 +107,7 @@ jobs:
           name: coverage-${{ matrix.version }}-${{ env.testType }}
           path: coverage/
       - name: Upload Pages artifact
-        if: matrix.version == '9.0'
+        if: matrix.version == '9.0' && !matrix.classTests
         uses: actions/upload-pages-artifact@v3
         with:
           path: test/Html

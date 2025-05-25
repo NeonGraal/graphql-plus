@@ -4,7 +4,8 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_InputAlternate)
         object: RefInpPrntParamDiff
-        typeParam: b
+        type: !_InputBase
+          typeParam: b
     allFields:
       - !_ObjectFor(_InputField)
         name: field
@@ -30,10 +31,12 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_InputAlternate)
         object: RefInpPrntParamDiff
-        typeParam: b
+        type: !_InputBase
+          typeParam: b
     alternates:
       - !_InputAlternate
-        typeParam: b
+        type: !_InputBase
+          typeParam: b
     name: RefInpPrntParamDiff
     typeKind: !_TypeKind Input
     typeParams:

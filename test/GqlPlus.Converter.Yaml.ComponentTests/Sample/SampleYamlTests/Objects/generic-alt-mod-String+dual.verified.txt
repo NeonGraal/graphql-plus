@@ -9,7 +9,8 @@ types: !_Map_Type
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Basic
       object: RefDualGnrcAltModStr
-      typeParam: ref
+      type: !_DualBase
+        typeParam: ref
     alternates:
     - !_DualAlternate
       collections:
@@ -17,7 +18,8 @@ types: !_Map_Type
         by: '*'
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Basic
-      typeParam: ref
+      type: !_DualBase
+        typeParam: ref
     name: RefDualGnrcAltModStr
     typeKind: !_TypeKind Dual
     typeParams:

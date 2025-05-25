@@ -31,7 +31,8 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _OutputBase
-        output: _DualBase
+        type: !_OutputBase
+          output: _DualBase
     allFields:
       - !_ObjectFor(_OutputField)
         name: output
@@ -40,7 +41,8 @@ types: !_Map_Type
           output: _Identifier
     alternates:
       - !_OutputAlternate
-        output: _DualBase
+        type: !_OutputBase
+          output: _DualBase
     fields:
       - !_OutputField
         name: output
@@ -87,7 +89,8 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _OutputField
-        output: _OutputEnum
+        type: !_OutputBase
+          output: _OutputEnum
     allFields:
       - !_ObjectFor(_OutputField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
@@ -97,7 +100,8 @@ types: !_Map_Type
           output: _InputParam
     alternates:
       - !_OutputAlternate
-        output: _OutputEnum
+        type: !_OutputBase
+          output: _OutputEnum
     fields:
       - !_OutputField
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]

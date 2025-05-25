@@ -18,7 +18,10 @@
             }
           ],
           "object": "RefInpGnrcAltModParam",
-          "typeParam": "ref"
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "ref"
+          }
         }
       ],
       "alternates": [
@@ -34,7 +37,10 @@
               }
             }
           ],
-          "typeParam": "ref"
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "ref"
+          }
         }
       ],
       "name": "RefInpGnrcAltModParam",

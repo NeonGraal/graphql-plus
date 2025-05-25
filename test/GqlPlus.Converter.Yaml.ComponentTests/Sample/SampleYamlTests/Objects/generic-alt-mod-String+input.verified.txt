@@ -9,7 +9,8 @@ types: !_Map_Type
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Basic
       object: RefInpGnrcAltModStr
-      typeParam: ref
+      type: !_InputBase
+        typeParam: ref
     alternates:
     - !_InputAlternate
       collections:
@@ -17,7 +18,8 @@ types: !_Map_Type
         by: '*'
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Basic
-      typeParam: ref
+      type: !_InputBase
+        typeParam: ref
     name: RefInpGnrcAltModStr
     typeKind: !_TypeKind Input
     typeParams:

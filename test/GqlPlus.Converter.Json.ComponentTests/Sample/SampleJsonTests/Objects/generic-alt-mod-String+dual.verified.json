@@ -22,7 +22,10 @@
             }
           ],
           "object": "RefDualGnrcAltModStr",
-          "typeParam": "ref"
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "ref"
+          }
         }
       ],
       "alternates": [
@@ -42,7 +45,10 @@
               }
             }
           ],
-          "typeParam": "ref"
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "ref"
+          }
         }
       ],
       "name": "RefDualGnrcAltModStr",

@@ -8,14 +8,16 @@ types: !_Map_Type
             by: mod
             modifierKind: !_ModifierKind Param
         object: RefDualGnrcAltModParam
-        typeParam: ref
+        type: !_DualBase
+          typeParam: ref
     alternates:
       - !_DualAlternate
         collections:
           - !_ModifierTypeParam
             by: mod
             modifierKind: !_ModifierKind Param
-        typeParam: ref
+        type: !_DualBase
+          typeParam: ref
     name: RefDualGnrcAltModParam
     typeKind: !_TypeKind Dual
     typeParams:

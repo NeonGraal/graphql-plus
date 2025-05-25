@@ -22,7 +22,10 @@
             }
           ],
           "object": "RefOutpGnrcAltModStr",
-          "typeParam": "ref"
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "ref"
+          }
         }
       ],
       "alternates": [
@@ -42,7 +45,10 @@
               }
             }
           ],
-          "typeParam": "ref"
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "ref"
+          }
         }
       ],
       "name": "RefOutpGnrcAltModStr",

@@ -8,14 +8,16 @@ types: !_Map_Type
             by: mod
             modifierKind: !_ModifierKind Param
         object: RefInpGnrcAltModParam
-        typeParam: ref
+        type: !_InputBase
+          typeParam: ref
     alternates:
       - !_InputAlternate
         collections:
           - !_ModifierTypeParam
             by: mod
             modifierKind: !_ModifierKind Param
-        typeParam: ref
+        type: !_InputBase
+          typeParam: ref
     name: RefInpGnrcAltModParam
     typeKind: !_TypeKind Input
     typeParams:

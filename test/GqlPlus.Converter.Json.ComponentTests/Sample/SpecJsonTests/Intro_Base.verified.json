@@ -202,7 +202,10 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjBase",
-          "output": "_ObjTypeParam"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_ObjTypeParam"
+          }
         }
       ],
       "allFields": [
@@ -228,7 +231,10 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "output": "_ObjTypeParam"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_ObjTypeParam"
+          }
         }
       ],
       "fields": [
@@ -272,22 +278,34 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjConstraint",
-          "output": "_TypeSimple"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_TypeSimple"
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjConstraint",
-          "typeParam": "base"
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "base"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "output": "_TypeSimple"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_TypeSimple"
+          }
         },
         {
           "$tag": "_OutputAlternate",
-          "typeParam": "base"
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "base"
+          }
         }
       ],
       "name": "_ObjConstraint",
@@ -347,56 +365,68 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjType",
-          "output": "_BaseType",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "label": "Internal",
-              "name": "_TypeKind",
-              "typeKind": {
-                "$tag": "_SimpleKind",
-                "value": "Enum"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_BaseType",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "label": "Internal",
+                "name": "_TypeKind",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
-            }
-          ]
+            ]
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjType",
-          "output": "_ObjConstraint",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "typeParam": "base"
-            }
-          ]
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_ObjConstraint",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "typeParam": "base"
+              }
+            ]
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "output": "_BaseType",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "label": "Internal",
-              "name": "_TypeKind",
-              "typeKind": {
-                "$tag": "_SimpleKind",
-                "value": "Enum"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_BaseType",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "label": "Internal",
+                "name": "_TypeKind",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
-            }
-          ]
+            ]
+          }
         },
         {
           "$tag": "_OutputAlternate",
-          "output": "_ObjConstraint",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "typeParam": "base"
-            }
-          ]
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_ObjConstraint",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "typeParam": "base"
+              }
+            ]
+          }
         }
       ],
       "name": "_ObjType",
@@ -417,13 +447,19 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_ObjTypeArg",
-          "output": "_ObjTypeParam"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_ObjTypeParam"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "output": "_ObjTypeParam"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_ObjTypeParam"
+          }
         }
       ],
       "name": "_ObjTypeArg",

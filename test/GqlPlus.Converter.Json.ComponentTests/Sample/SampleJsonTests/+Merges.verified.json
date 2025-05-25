@@ -550,14 +550,20 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "dual": "DualObjAltType",
-          "object": "DualObjAlt"
+          "object": "DualObjAlt",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "DualObjAltType"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "dual": "DualObjAltType"
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "DualObjAltType"
+          }
         }
       ],
       "name": "DualObjAlt",
@@ -918,14 +924,20 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "input": "InpObjAltType",
-          "object": "InpObjAlt"
+          "object": "InpObjAlt",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "InpObjAltType"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "input": "InpObjAltType"
+          "type": {
+            "$tag": "_InputBase",
+            "input": "InpObjAltType"
+          }
         }
       ],
       "name": "InpObjAlt",
@@ -1262,13 +1274,19 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "OutpObjAlt",
-          "output": "OutpObjAltType"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutpObjAltType"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "output": "OutpObjAltType"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutpObjAltType"
+          }
         }
       ],
       "name": "OutpObjAlt",

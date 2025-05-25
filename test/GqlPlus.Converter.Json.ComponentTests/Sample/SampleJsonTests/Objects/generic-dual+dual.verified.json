@@ -48,8 +48,11 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "dual": "String",
-          "object": "DualGnrcDualAlt"
+          "object": "DualGnrcDualAlt",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "String"
+          }
         }
       ],
       "allFields": [
@@ -66,7 +69,10 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "dual": "String"
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "String"
+          }
         }
       ],
       "fields": [
@@ -91,13 +97,19 @@
         {
           "$tag": "_ObjectFor(_DualAlternate)",
           "object": "DualGnrcDualRef",
-          "typeParam": "ref"
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "ref"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "typeParam": "ref"
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "ref"
+          }
         }
       ],
       "name": "DualGnrcDualRef",

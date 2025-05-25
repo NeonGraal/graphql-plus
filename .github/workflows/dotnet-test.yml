@@ -14,6 +14,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    name: Build
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v4
@@ -40,8 +41,10 @@ jobs:
       matrix:
         version: ["8.0", "9.0"]
         classTests: [true, false]
+    name: ${{ matrix.classTests && 'Class' || 'All' }} tests for ${{ matrix.version }}
+
     env:
-      testType: ${{ matrix.classTests && 'class' || 'full' }}
+      testType: ${{ matrix.classTests && 'Class' || 'All' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v4

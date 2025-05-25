@@ -19,8 +19,8 @@ if ($LASTEXITCODE -ne 0) {
 ./just-coverage.ps1 -Section $Section -ClassTests:$ClassTests -Framework $Framework
 
 Write-Host "`n# Coverage Summary"
-./make-summary.ps1 -Html:$Html -Framework $Framework
+./make-summary.ps1 -Html:$Html -Framework $Framework -ClassTests:$ClassTests
 
 if ($Report) {
-  ./report.ps1 -Framework $Framework
+  ./report.ps1 -Framework $Framework -ClassTests:$ClassTests
 }

@@ -27,4 +27,4 @@ Get-ChildItem test -Filter 'TestResults' -Recurse -Directory | Remove-Item -Recu
 
 dotnet @test
 
-./make-summary.ps1 -NoCoverage -Html:$Html -Framework $Framework
+./make-summary.ps1 -NoCoverage -Html:$Html -Framework $Framework -ClassTests:$ClassTests

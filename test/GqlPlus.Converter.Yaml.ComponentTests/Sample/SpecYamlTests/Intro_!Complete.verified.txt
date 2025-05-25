@@ -32,7 +32,7 @@ types: !_Map_Type
   !_Identifier _Alternate: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      name: base
+      name: type
       object: _Alternate
       type: !_OutputBase
         typeParam: base
@@ -44,7 +44,7 @@ types: !_Map_Type
         output: _Collections
     fields:
     - !_OutputField
-      name: base
+      name: type
       type: !_OutputBase
         typeParam: base
     - !_OutputField
@@ -952,7 +952,7 @@ types: !_Map_Type
   !_Identifier _DualAlternate: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      name: base
+      name: type
       object: _Alternate
       type: !_OutputBase
         output: _DualBase
@@ -1293,7 +1293,7 @@ types: !_Map_Type
   !_Identifier _InputAlternate: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      name: base
+      name: type
       object: _Alternate
       type: !_OutputBase
         output: _InputBase
@@ -1856,7 +1856,7 @@ types: !_Map_Type
   !_Identifier _OutputAlternate: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      name: base
+      name: type
       object: _Alternate
       type: !_OutputBase
         output: _OutputBase

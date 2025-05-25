@@ -85,7 +85,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "base",
+          "name": "type",
           "object": "_Alternate",
           "type": {
             "$tag": "_OutputBase",
@@ -114,7 +114,7 @@
       "fields": [
         {
           "$tag": "_OutputField",
-          "name": "base",
+          "name": "type",
           "type": {
             "$tag": "_OutputBase",
             "typeParam": "base"
@@ -2230,7 +2230,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "base",
+          "name": "type",
           "object": "_Alternate",
           "type": {
             "$tag": "_OutputBase",
@@ -3067,7 +3067,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "base",
+          "name": "type",
           "object": "_Alternate",
           "type": {
             "$tag": "_OutputBase",
@@ -4331,7 +4331,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "base",
+          "name": "type",
           "object": "_Alternate",
           "type": {
             "$tag": "_OutputBase",

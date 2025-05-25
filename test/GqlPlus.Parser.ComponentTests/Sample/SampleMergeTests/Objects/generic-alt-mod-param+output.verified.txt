@@ -1,0 +1,18 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  RefOutpGnrcAltModParam
+  <
+    I@032/0001
+    $ref
+    I@037/0001
+    $mod
+  >
+  |
+  P@046/0001
+  $ref
+  [$mod]
+}
+]

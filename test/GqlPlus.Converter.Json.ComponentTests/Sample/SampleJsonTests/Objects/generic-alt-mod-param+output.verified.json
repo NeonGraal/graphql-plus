@@ -1,0 +1,63 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "RefOutpGnrcAltModParam": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "collections": [
+            {
+              "$tag": "_ModifierTypeParam",
+              "by": "mod",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Param"
+              }
+            }
+          ],
+          "object": "RefOutpGnrcAltModParam",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "collections": [
+            {
+              "$tag": "_ModifierTypeParam",
+              "by": "mod",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Param"
+              }
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "name": "RefOutpGnrcAltModParam",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_Named",
+          "name": "ref"
+        },
+        {
+          "$tag": "_Named",
+          "name": "mod"
+        }
+      ]
+    }
+  }
+}

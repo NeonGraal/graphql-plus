@@ -7,14 +7,20 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "input": "InpObjAltType",
-          "object": "InpObjAlt"
+          "object": "InpObjAlt",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "InpObjAltType"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "input": "InpObjAltType"
+          "type": {
+            "$tag": "_InputBase",
+            "input": "InpObjAltType"
+          }
         }
       ],
       "name": "InpObjAlt",

@@ -3,11 +3,13 @@ types: !_Map_Type
   !_Identifier InpPrntAlt: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      input: String
       object: RefInpPrntAlt
+      type: !_InputBase
+        input: String
     - !_ObjectFor(_InputAlternate)
-      input: Number
       object: InpPrntAlt
+      type: !_InputBase
+        input: Number
     allFields:
     - !_ObjectFor(_InputField)
       name: parent
@@ -16,7 +18,8 @@ types: !_Map_Type
         input: Number
     alternates:
     - !_InputAlternate
-      input: Number
+      type: !_InputBase
+        input: Number
     name: InpPrntAlt
     parent: !_InputBase
       input: RefInpPrntAlt
@@ -24,8 +27,9 @@ types: !_Map_Type
   !_Identifier RefInpPrntAlt: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      input: String
       object: RefInpPrntAlt
+      type: !_InputBase
+        input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: parent
@@ -34,7 +38,8 @@ types: !_Map_Type
         input: Number
     alternates:
     - !_InputAlternate
-      input: String
+      type: !_InputBase
+        input: String
     fields:
     - !_InputField
       name: parent

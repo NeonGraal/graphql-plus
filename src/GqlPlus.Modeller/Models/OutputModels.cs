@@ -10,8 +10,9 @@ public record class OutputArgModel(
   string Name,
   string Description
 ) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Enum, Name, Description), IObjArgModel
+  , IOutputModel
 {
-  internal string? Output => Name;
+  public string Output => Name;
   public bool IsTypeParam { get; set; }
   internal DualArgModel? Dual { get; init; }
 
@@ -22,6 +23,7 @@ public record class OutputBaseModel(
   string Output,
   string Description
 ) : ObjBaseModel<OutputArgModel>(Description)
+  , IOutputModel
 {
   internal DualBaseModel? Dual { get; init; }
 }
@@ -37,9 +39,8 @@ public record class OutputFieldModel(
 }
 
 public record class OutputAlternateModel(
-  string Output,
-  string Description
-) : ObjAlternateModel<OutputArgModel>(Description)
+  OutputBaseModel Type
+) : ObjAlternateModel<OutputBaseModel>(Type)
 {
   internal DualAlternateModel? Dual { get; init; }
 }
@@ -51,3 +52,9 @@ public record class OutputEnumModel(
   string Description
 ) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Enum, Type, Description)
 { }
+
+public interface IOutputModel
+{
+  string Output { get; }
+  bool IsTypeParam { get; }
+}

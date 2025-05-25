@@ -46,27 +46,6 @@
     "$tag": "_Map_Type",
     "_DualAlternate": {
       "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "dual",
-          "object": "_DualAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Identifier"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "dual",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Identifier"
-          }
-        }
-      ],
       "name": "_DualAlternate",
       "parent": {
         "$tag": "_OutputBase",
@@ -74,7 +53,7 @@
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "output": "_DualTypeArg"
+            "output": "_DualBase"
           }
         ]
       },

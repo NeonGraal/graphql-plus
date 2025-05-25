@@ -4,7 +4,8 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: AltOutpAltModBool
-        output: String
+        type: !_OutputBase
+          output: String
     allFields:
       - !_ObjectFor(_OutputField)
         name: alt
@@ -13,7 +14,8 @@ types: !_Map_Type
           output: Number
     alternates:
       - !_OutputAlternate
-        output: String
+        type: !_OutputBase
+          output: String
     fields:
       - !_OutputField
         name: alt
@@ -30,7 +32,8 @@ types: !_Map_Type
             modifierKind: !_ModifierKind Dict
             typeKind: !_SimpleKind Basic
         object: OutpAltModBool
-        output: AltOutpAltModBool
+        type: !_OutputBase
+          output: AltOutpAltModBool
     alternates:
       - !_OutputAlternate
         collections:
@@ -38,6 +41,7 @@ types: !_Map_Type
             by: ^
             modifierKind: !_ModifierKind Dict
             typeKind: !_SimpleKind Basic
-        output: AltOutpAltModBool
+        type: !_OutputBase
+          output: AltOutpAltModBool
     name: OutpAltModBool
     typeKind: !_TypeKind Output

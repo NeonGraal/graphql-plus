@@ -6,8 +6,9 @@ types: !_Map_Type
   !_Identifier InOutpPrntParam: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
-        input: String
         object: InOutpPrntParam
+        type: !_InputBase
+          input: String
     allFields:
       - !_ObjectFor(_InputField)
         name: param
@@ -16,7 +17,8 @@ types: !_Map_Type
           input: Number
     alternates:
       - !_InputAlternate
-        input: String
+        type: !_InputBase
+          input: String
     fields:
       - !_InputField
         name: param
@@ -77,8 +79,9 @@ types: !_Map_Type
   !_Identifier PrntOutpPrntParamIn: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
-        input: String
         object: PrntOutpPrntParamIn
+        type: !_InputBase
+          input: String
     allFields:
       - !_ObjectFor(_InputField)
         name: parent
@@ -87,7 +90,8 @@ types: !_Map_Type
           input: Number
     alternates:
       - !_InputAlternate
-        input: String
+        type: !_InputBase
+          input: String
     fields:
       - !_InputField
         name: parent

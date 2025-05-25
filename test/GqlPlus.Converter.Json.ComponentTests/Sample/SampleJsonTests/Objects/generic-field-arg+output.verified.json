@@ -55,13 +55,19 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "RefOutpGnrcFieldArg",
-          "typeParam": "ref"
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "ref"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "typeParam": "ref"
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "ref"
+          }
         }
       ],
       "name": "RefOutpGnrcFieldArg",

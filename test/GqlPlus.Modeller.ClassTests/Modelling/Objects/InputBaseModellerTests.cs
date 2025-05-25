@@ -14,11 +14,11 @@ public class InputBaseModellerTests
   protected override IModeller<IGqlpInputBase, InputBaseModel> Modeller { get; }
 
   [Theory, RepeatData]
-  public void ToModel_WithValidBase_ReturnsExpectedInputBaseModel(string Input, string contents)
+  public void ToModel_WithValidBase_ReturnsExpectedInputBaseModel(string input, string contents)
   {
     // Arrange
     IGqlpInputBase ast = For<IGqlpInputBase>();
-    ast.Input.Returns(Input);
+    ast.Input.Returns(input);
     ast.Description.Returns(contents);
     ast.IsTypeParam.Returns(true);
 
@@ -28,7 +28,7 @@ public class InputBaseModellerTests
     // Assert
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
-        r => r.Input.ShouldBe(Input),
+        r => r.Input.ShouldBe(input),
         r => r.Description.ShouldBe(contents),
         r => r.IsTypeParam.ShouldBeTrue()
       );

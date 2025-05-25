@@ -5,8 +5,8 @@ public abstract class ObjectBaseRendererBase<TModel, TBase>
   where TModel : IModelBase
   where TBase : IModelBase
 {
-  protected IRenderer<TBase> Base { get; }
+  protected IRenderer<TBase> ObjBase { get; }
 
   protected ObjectBaseRendererBase()
-    => Base = RFor<TBase>();
+    => ObjBase = RFor<TBase>();
 }

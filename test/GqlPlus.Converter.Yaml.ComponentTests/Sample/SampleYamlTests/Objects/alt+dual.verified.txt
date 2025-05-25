@@ -3,8 +3,9 @@ types: !_Map_Type
   !_Identifier AltDualAlt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      dual: String
       object: AltDualAlt
+      type: !_DualBase
+        dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
@@ -13,7 +14,8 @@ types: !_Map_Type
         dual: Number
     alternates:
     - !_DualAlternate
-      dual: String
+      type: !_DualBase
+        dual: String
     fields:
     - !_DualField
       name: alt
@@ -24,10 +26,12 @@ types: !_Map_Type
   !_Identifier DualAlt: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      dual: AltDualAlt
       object: DualAlt
+      type: !_DualBase
+        dual: AltDualAlt
     alternates:
     - !_DualAlternate
-      dual: AltDualAlt
+      type: !_DualBase
+        dual: AltDualAlt
     name: DualAlt
     typeKind: !_TypeKind Dual

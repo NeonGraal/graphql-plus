@@ -4,7 +4,7 @@ public class TypeDualRendererTests
   : TypeObjectRendererBase<TypeDualModel, DualBaseModel, DualFieldModel, DualAlternateModel>
 {
   public TypeDualRendererTests()
-    => Renderer = new TypeDualRenderer(new(Base, Field, ObjField, DualField, Alternate, ObjAlternate, DualAlternate, TypeParam));
+    => Renderer = new TypeDualRenderer(new(ObjBase, Field, ObjField, DualField, Alternate, ObjAlternate, DualAlternate, TypeParam));
 
   protected override IRenderer<TypeDualModel> Renderer { get; }
 

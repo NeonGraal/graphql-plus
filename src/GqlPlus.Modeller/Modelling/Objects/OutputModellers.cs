@@ -52,8 +52,8 @@ internal class OutputBaseModeller(
 internal class OutputFieldModeller(
   IModifierModeller modifier,
   IModeller<IGqlpInputParam, InputParamModel> parameter,
-  IModeller<IGqlpOutputBase, OutputBaseModel> refBase
-) : ModellerObjField<IGqlpOutputBase, IGqlpOutputField, OutputBaseModel, OutputFieldModel>(modifier, refBase)
+  IModeller<IGqlpOutputBase, OutputBaseModel> objBase
+) : ModellerObjField<IGqlpOutputBase, IGqlpOutputField, OutputBaseModel, OutputFieldModel>(modifier, objBase)
 {
   protected override OutputFieldModel FieldModel(IGqlpOutputField field, OutputBaseModel type, IMap<TypeKindModel> typeKinds)
     => string.IsNullOrWhiteSpace(field.EnumLabel)
@@ -66,16 +66,10 @@ internal class OutputFieldModeller(
 }
 
 internal class OutputAlternateModeller(
-  IModeller<IGqlpOutputArg, OutputArgModel> objArg,
   IModeller<IGqlpModifier, CollectionModel> collection,
-  IModeller<IGqlpDualAlternate, DualAlternateModel> dual
-) : ModellerObjAlternate<IGqlpOutputArg, IGqlpOutputAlternate, OutputArgModel, OutputAlternateModel>(objArg, collection)
+  IModeller<IGqlpOutputBase, OutputBaseModel> objBase
+) : ModellerObjAlternate<IGqlpOutputBase, IGqlpOutputAlternate, OutputBaseModel, OutputAlternateModel>(collection, objBase)
 {
-  protected override OutputAlternateModel AlternateModel(IGqlpOutputAlternate ast, IMap<TypeKindModel> typeKinds)
-    => typeKinds.TryGetValue(ast.Output, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
-    ? new("", ast.Description) {
-      IsTypeParam = ast.IsTypeParam,
-      Dual = dual.ToModel(ast.ToDual, typeKinds)
-    }
-    : new(ast.Output, ast.Description);
+  protected override OutputAlternateModel AlternateModel(OutputBaseModel type)
+    => new(type);
 }

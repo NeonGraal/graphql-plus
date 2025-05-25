@@ -34,8 +34,8 @@ output _ObjTypeParam {
         typeParam: _TypeParam
 }
 
-output _Alternate<$arg> {
-    : _ObjBase<$arg>
+output _Alternate<$base> {
+      base: $base
       collections: _Collections[]
     }
 

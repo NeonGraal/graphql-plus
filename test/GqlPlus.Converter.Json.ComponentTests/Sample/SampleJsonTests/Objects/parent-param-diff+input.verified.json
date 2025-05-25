@@ -8,7 +8,10 @@
         {
           "$tag": "_ObjectFor(_InputAlternate)",
           "object": "RefInpPrntParamDiff",
-          "typeParam": "b"
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "b"
+          }
         }
       ],
       "allFields": [
@@ -60,13 +63,19 @@
         {
           "$tag": "_ObjectFor(_InputAlternate)",
           "object": "RefInpPrntParamDiff",
-          "typeParam": "b"
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "b"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "typeParam": "b"
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "b"
+          }
         }
       ],
       "name": "RefInpPrntParamDiff",

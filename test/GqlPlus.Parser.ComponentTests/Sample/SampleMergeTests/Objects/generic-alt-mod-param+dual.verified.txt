@@ -1,0 +1,18 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  RefDualGnrcAltModParam
+  <
+    I@030/0001
+    $ref
+    I@035/0001
+    $mod
+  >
+  |
+  P@044/0001
+  $ref
+  [$mod]
+}
+]

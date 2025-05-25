@@ -2,12 +2,13 @@
 
 namespace GqlPlus.Resolving;
 
-internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObjAlt>
+internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObjAlt, TObjArg>
   : ResolverChildType<TModel, TObjBase>
   where TModel : TypeObjectModel<TObjBase, TObjField, TObjAlt>
   where TObjBase : IObjBaseModel
   where TObjField : IObjFieldModel
   where TObjAlt : IObjAlternateModel
+  where TObjArg : IObjArgModel
 {
   public override TModel Resolve(TModel model, IResolveContext context)
   {
@@ -77,6 +78,7 @@ internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObj
   protected abstract MakeFor<TObjField> ObjectField(string obj);
   protected abstract IEnumerable<ObjectForModel> ParentAlternatives(IModelBase? parent);
   protected abstract IEnumerable<ObjectForModel> ParentFields(IModelBase? parent);
+  protected abstract string GetArgKey(TObjArg argument);
 
   protected void ApplyArray<TItem>(TItem[] list, Func<TItem, TItem> update, Action<TItem[]> apply)
   {
@@ -90,8 +92,8 @@ internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObj
   protected Func<CollectionModel, CollectionModel> ApplyCollection(string label, ArgumentsContext arguments)
     => collection => {
       if (collection.ModifierKind == ModifierKind.Param
-        && arguments.TryGetArg(label, collection.Key!, out DualArgModel? keyModel)) {
-        return new(ModifierKind.Dict) { Key = keyModel.Dual };
+        && arguments.TryGetArg(label, collection.Key!, out TObjArg? keyModel)) {
+        return new(ModifierKind.Dict) { Key = GetArgKey(keyModel) };
       }
 
       return collection;
@@ -100,14 +102,14 @@ internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObj
   protected Func<ModifierModel, ModifierModel> ApplyModifier(string label, ArgumentsContext arguments)
     => modifier => {
       if (modifier.ModifierKind == ModifierKind.Param
-        && arguments.TryGetArg(label, modifier.Key!, out DualArgModel? keyModel)) {
-        return new(ModifierKind.Dict) { Key = keyModel.Dual };
+        && arguments.TryGetArg(label, modifier.Key!, out TObjArg? keyModel)) {
+        return new(ModifierKind.Dict) { Key = GetArgKey(keyModel) };
       }
 
       return modifier;
     };
 
-  protected bool GetDualArgument(string label, DualBaseModel dualBase, ArgumentsContext arguments, [NotNullWhen(true)] out DualBaseModel? outBase)
+  protected bool GetDualArgument(string label, IDualModel dualBase, ArgumentsContext arguments, [NotNullWhen(true)] out DualBaseModel? outBase)
   {
     outBase = null;
     if (dualBase?.IsTypeParam == true) {
@@ -125,12 +127,9 @@ internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObj
 
   protected Func<DualAlternateModel, DualAlternateModel> ApplyDualAlternate(string label, ArgumentsContext arguments)
     => alternate => {
-      //Todo:
-      //DualBaseModel? alternateType = alternate.Type;
-      //if (alternateType is not null
-      //  && GetDualArgument(label, alternate, arguments, out DualBaseModel? argModel)) {
-      //  alternate = alternate with { Type = new(argModel, alternateType.Description) };
-      //}
+      if (GetDualArgument(label, alternate.Type, arguments, out DualBaseModel? argModel)) {
+        alternate = alternate with { Type = argModel };
+      }
 
       ApplyArray(alternate.Collections, ApplyCollection(label, arguments),
         collections => alternate = alternate with { Collections = collections });

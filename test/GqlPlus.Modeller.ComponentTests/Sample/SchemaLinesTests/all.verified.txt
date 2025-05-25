@@ -24,9 +24,10 @@ types: !_Map_Type
   !_Identifier All: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
-        description: 'Alternates'
         object: All
-        output: String
+        type: !_OutputBase
+          description: 'Alternates'
+          output: String
     allFields:
       - !_ObjectFor(_OutputField)
         description: 'Some items'
@@ -40,8 +41,9 @@ types: !_Map_Type
           dual: Field
     alternates:
       - !_OutputAlternate
-        description: 'Alternates'
-        output: String
+        type: !_OutputBase
+          description: 'Alternates'
+          output: String
     description: 'An Output'
     fields:
       - !_OutputField
@@ -133,9 +135,10 @@ types: !_Map_Type
   !_Identifier Param: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
-        description: 'Alternate parameter'
-        input: String
         object: Param
+        type: !_InputBase
+          description: 'Alternate parameter'
+          input: String
     allFields:
       - !_ObjectFor(_InputField)
         description: 'First Id'
@@ -154,8 +157,9 @@ types: !_Map_Type
           input: Many
     alternates:
       - !_InputAlternate
-        description: 'Alternate parameter'
-        input: String
+        type: !_InputBase
+          description: 'Alternate parameter'
+          input: String
     description: 'An Input'
     fields:
       - !_InputField

@@ -17,10 +17,12 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _Categories
-        output: _Category
+        type: !_OutputBase
+          output: _Category
       - !_ObjectFor(_OutputAlternate)
         object: _Categories
-        output: _Type
+        type: !_OutputBase
+          output: _Type
     allFields:
       - !_ObjectFor(_OutputField)
         name: category
@@ -34,9 +36,11 @@ types: !_Map_Type
           output: _Type
     alternates:
       - !_OutputAlternate
-        output: _Category
+        type: !_OutputBase
+          output: _Category
       - !_OutputAlternate
-        output: _Type
+        type: !_OutputBase
+          output: _Type
     fields:
       - !_OutputField
         name: category
@@ -136,10 +140,12 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _Directives
-        output: _Directive
+        type: !_OutputBase
+          output: _Directive
       - !_ObjectFor(_OutputAlternate)
         object: _Directives
-        output: _Type
+        type: !_OutputBase
+          output: _Type
     allFields:
       - !_ObjectFor(_OutputField)
         name: directive
@@ -153,9 +159,11 @@ types: !_Map_Type
           output: _Type
     alternates:
       - !_OutputAlternate
-        output: _Directive
+        type: !_OutputBase
+          output: _Directive
       - !_OutputAlternate
-        output: _Type
+        type: !_OutputBase
+          output: _Type
     fields:
       - !_OutputField
         name: directive
@@ -387,20 +395,26 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _OpObject
-        output: _OpField
+        type: !_OutputBase
+          output: _OpField
       - !_ObjectFor(_OutputAlternate)
         object: _OpObject
-        output: _OpSpread
+        type: !_OutputBase
+          output: _OpSpread
       - !_ObjectFor(_OutputAlternate)
         object: _OpObject
-        output: _OpInline
+        type: !_OutputBase
+          output: _OpInline
     alternates:
       - !_OutputAlternate
-        output: _OpField
+        type: !_OutputBase
+          output: _OpField
       - !_OutputAlternate
-        output: _OpSpread
+        type: !_OutputBase
+          output: _OpSpread
       - !_OutputAlternate
-        output: _OpInline
+        type: !_OutputBase
+          output: _OpInline
     name: _OpObject
     typeKind: !_TypeKind Output
   !_Identifier _OpResult: !_TypeOutput
@@ -596,10 +610,12 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _Operations
-        output: _Operation
+        type: !_OutputBase
+          output: _Operation
       - !_ObjectFor(_OutputAlternate)
         object: _Operations
-        output: _Type
+        type: !_OutputBase
+          output: _Type
     allFields:
       - !_ObjectFor(_OutputField)
         name: operation
@@ -613,9 +629,11 @@ types: !_Map_Type
           output: _Type
     alternates:
       - !_OutputAlternate
-        output: _Operation
+        type: !_OutputBase
+          output: _Operation
       - !_OutputAlternate
-        output: _Type
+        type: !_OutputBase
+          output: _Type
     fields:
       - !_OutputField
         name: operation

@@ -27,11 +27,11 @@ internal sealed class SchemaVerifyChecks(
     return Verify_Asts(asts).Item1;
   }
 
-  public (Structured, ITypesContext) Verify_Asts(IEnumerable<IGqlpSchema> asts)
+  public (Structured, IModelsContext) Verify_Asts(IEnumerable<IGqlpSchema> asts)
   {
     IGqlpSchema schema = schemaMerger.Merge(asts).First();
 
-    ITypesContext context = schemaRenderer.WithBuiltIns();
+    IModelsContext context = schemaRenderer.WithBuiltIns();
 
     Structured structured = schemaRenderer.RenderAst(schema, context);
 
@@ -44,5 +44,5 @@ internal sealed class SchemaVerifyChecks(
 public interface ISchemaVerifyChecks
   : ISchemaParseChecks
 {
-  (Structured, ITypesContext) Verify_Asts(IEnumerable<IGqlpSchema> asts);
+  (Structured, IModelsContext) Verify_Asts(IEnumerable<IGqlpSchema> asts);
 }

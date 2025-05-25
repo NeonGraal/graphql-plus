@@ -22,7 +22,7 @@ public abstract class ResolverChildTypeTestBase<TModel, TParent>
   public void ModelWithParent_ResolvesCorrectly(string name, string parent, string contents)
   {
     TModel parentModel = NewModel(parent, contents);
-    Context.TryGetType(name, parent, out TModel? parentType).Returns(c => { c[2] = parentModel; return true; });
+    Context.AddModels([parentModel]);
 
     TModel model = NewModel(name, "") with {
       Parent = NewParent(parent, contents)

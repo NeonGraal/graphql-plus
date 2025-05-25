@@ -8,7 +8,10 @@
         {
           "$tag": "_ObjectFor(_InputAlternate)",
           "object": "RefInpPrntParamSame",
-          "typeParam": "a"
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "a"
+          }
         }
       ],
       "allFields": [
@@ -60,13 +63,19 @@
         {
           "$tag": "_ObjectFor(_InputAlternate)",
           "object": "RefInpPrntParamSame",
-          "typeParam": "a"
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "a"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_InputAlternate",
-          "typeParam": "a"
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "a"
+          }
         }
       ],
       "name": "RefInpPrntParamSame",

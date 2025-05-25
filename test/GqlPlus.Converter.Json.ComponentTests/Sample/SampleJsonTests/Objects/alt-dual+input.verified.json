@@ -7,14 +7,20 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "dual": "InpDualAltDual",
-          "object": "InpAltDual"
+          "object": "InpAltDual",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "InpDualAltDual"
+          }
         }
       ],
       "alternates": [
         {
-          "$tag": "_DualAlternate",
-          "dual": "InpDualAltDual"
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "InpDualAltDual"
+          }
         }
       ],
       "name": "InpAltDual",
@@ -28,8 +34,11 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "dual": "String",
-          "object": "InpDualAltDual"
+          "object": "InpDualAltDual",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "String"
+          }
         }
       ],
       "allFields": [
@@ -46,7 +55,10 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "dual": "String"
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "String"
+          }
         }
       ],
       "fields": [

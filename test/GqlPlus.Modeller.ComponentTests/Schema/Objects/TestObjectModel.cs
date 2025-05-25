@@ -109,7 +109,7 @@ internal abstract class CheckObjectModel<TObject, TObjectAst, TObjField, TObjFie
     => [$"  - !_{TypeKind}Field", "    name: " + field.Name, $"    type: !_{TypeKind}Base", $"      {TypeParamOrKind(field)}: {field.Type}"];
 
   internal IEnumerable<string> ExpectedAlternate(AlternateInput alternate)
-    => [$"  - !_{TypeKind}Alternate", "    collections:", "      - !_Modifier", "        modifierKind: !_ModifierKind List", $"    {TypeParamOrKind(alternate)}: {alternate.Type}"];
+    => [$"  - !_{TypeKind}Alternate", "    collections:", "      - !_Modifier", "        modifierKind: !_ModifierKind List", $"    type: !_{TypeKind}Base", $"      {TypeParamOrKind(alternate)}: {alternate.Type}"];
 
   internal IEnumerable<string> ExpectedTypeParam(string typeParam)
     => ["  - !_Named", "    name: " + typeParam];

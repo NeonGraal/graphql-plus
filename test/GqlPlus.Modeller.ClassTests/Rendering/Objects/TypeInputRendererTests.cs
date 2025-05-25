@@ -4,7 +4,7 @@ public class TypeInputRendererTests
   : TypeObjectRendererBase<TypeInputModel, InputBaseModel, InputFieldModel, InputAlternateModel>
 {
   public TypeInputRendererTests()
-    => Renderer = new TypeInputRenderer(new(Base, Field, ObjField, DualField, Alternate, ObjAlternate, DualAlternate, TypeParam));
+    => Renderer = new TypeInputRenderer(new(ObjBase, Field, ObjField, DualField, Alternate, ObjAlternate, DualAlternate, TypeParam));
 
   protected override IRenderer<TypeInputModel> Renderer { get; }
 

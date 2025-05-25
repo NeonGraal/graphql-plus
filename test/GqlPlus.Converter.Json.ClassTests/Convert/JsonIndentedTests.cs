@@ -1,10 +1,20 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using Xunit;
 
 namespace GqlPlus.Convert;
 
 public class JsonIndentedTests
   : ConverterClassTestBase
 {
+
+  [Fact]
+  public void WithMapKeysSpecific_ReturnsCorrect()
+  {
+    string[] keys = ["L6", "K", "twE39__243f", "k"];
+
+    WithMapKeys_ReturnsCorrect(keys);
+  }
+
   protected override string Convert(Structured model)
     => model.ToJson();
 
@@ -21,7 +31,7 @@ public class JsonIndentedTests
   protected override void WithMapFlow_Check(string result, string key, string value)
     => result.ToLines().ShouldBe(["{", $"  \"{key}\": \"{value}\"", "}"]);
   protected override void WithMapKeys_Check(string result, [NotNull] string[] keys)
-    => result.ToLines().ShouldBe(["{", .. keys.Order(StringComparer.CurrentCultureIgnoreCase).Select(MapKeysFormat(keys.Length - 1)), "}"]);
+    => result.ToLines().ShouldBe(["{", .. keys.Order(StringComparer.CurrentCultureIgnoreCase).Select(MapKeysFormat(keys.Length - 1)), "}"], Case.Insensitive);
   protected override void WithMapList_Check(string result, string key, string[] value)
     => result.ToLines().ShouldBe(["{", $"  \"{key}\": " + value.Surround("[", "]", s => s.Quoted('"'), ", "), "}"]);
   protected override void WithMap_Check(string result, string key, string value)

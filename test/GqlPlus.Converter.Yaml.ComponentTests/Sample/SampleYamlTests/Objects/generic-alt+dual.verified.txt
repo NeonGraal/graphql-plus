@@ -4,10 +4,12 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_DualAlternate)
       object: DualGnrcAlt
-      typeParam: type
+      type: !_DualBase
+        typeParam: type
     alternates:
     - !_DualAlternate
-      typeParam: type
+      type: !_DualBase
+        typeParam: type
     name: DualGnrcAlt
     typeKind: !_TypeKind Dual
     typeParams:

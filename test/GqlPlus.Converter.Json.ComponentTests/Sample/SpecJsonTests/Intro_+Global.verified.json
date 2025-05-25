@@ -42,12 +42,18 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Categories",
-          "output": "_Category"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Category"
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Categories",
-          "output": "_Type"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Type"
+          }
         }
       ],
       "allFields": [
@@ -73,11 +79,17 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "output": "_Category"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Category"
+          }
         },
         {
           "$tag": "_OutputAlternate",
-          "output": "_Type"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Type"
+          }
         }
       ],
       "fields": [
@@ -330,12 +342,18 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Directives",
-          "output": "_Directive"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Directive"
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Directives",
-          "output": "_Type"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Type"
+          }
         }
       ],
       "allFields": [
@@ -361,11 +379,17 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "output": "_Directive"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Directive"
+          }
         },
         {
           "$tag": "_OutputAlternate",
-          "output": "_Type"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Type"
+          }
         }
       ],
       "fields": [
@@ -683,12 +707,18 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Operations",
-          "output": "_Operation"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Operation"
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Operations",
-          "output": "_Type"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Type"
+          }
         }
       ],
       "allFields": [
@@ -714,11 +744,17 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "output": "_Operation"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Operation"
+          }
         },
         {
           "$tag": "_OutputAlternate",
-          "output": "_Type"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Type"
+          }
         }
       ],
       "fields": [
@@ -1182,31 +1218,49 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_OpObject",
-          "output": "_OpField"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_OpField"
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_OpObject",
-          "output": "_OpSpread"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_OpSpread"
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_OpObject",
-          "output": "_OpInline"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_OpInline"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "output": "_OpField"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_OpField"
+          }
         },
         {
           "$tag": "_OutputAlternate",
-          "output": "_OpSpread"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_OpSpread"
+          }
         },
         {
           "$tag": "_OutputAlternate",
-          "output": "_OpInline"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_OpInline"
+          }
         }
       ],
       "name": "_OpObject",

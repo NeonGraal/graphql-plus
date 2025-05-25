@@ -4,7 +4,7 @@ namespace GqlPlus.Resolving;
 
 internal class TypeOutputResolver(
   IResolver<TypeDualModel> dual
-) : ResolverTypeObjectType<TypeOutputModel, OutputBaseModel, OutputFieldModel, OutputAlternateModel>
+) : ResolverTypeObjectType<TypeOutputModel, OutputBaseModel, OutputFieldModel, OutputAlternateModel, OutputArgModel>
 {
   protected override TResult Apply<TResult>(TResult result, ArgumentsContext arguments)
   {
@@ -30,10 +30,10 @@ internal class TypeOutputResolver(
 
   protected override TypeOutputModel CloneModel(TypeOutputModel model)
     => model with { };
-
+  protected override string GetArgKey(OutputArgModel argument)
+    => argument.Output;
   protected override MakeFor<OutputAlternateModel> ObjectAlt(string obj)
     => alt => new(alt, obj);
-
   protected override MakeFor<OutputFieldModel> ObjectField(string obj)
     => fld => new(fld, obj);
 
@@ -89,12 +89,9 @@ internal class TypeOutputResolver(
 
   private Func<OutputAlternateModel, OutputAlternateModel> ApplyAlternate(string label, ArgumentsContext arguments)
     => alternate => {
-      //Todo:
-      //OutputBaseModel? alternateType = alternate.Type;
-      //if (alternateType is not null
-      //  && GetOutputArgument(label, alternate, arguments, out OutputBaseModel? argModel)) {
-      //  alternate = alternate with { Type = new(argModel, alternateType.Description) };
-      //}
+      if (GetOutputArgument(label, alternate.Type, arguments, out OutputBaseModel? argModel)) {
+        alternate = alternate with { Type = argModel };
+      }
 
       ApplyArray(alternate.Collections, ApplyCollection(label, arguments),
         collections => alternate = alternate with { Collections = collections });
@@ -111,7 +108,7 @@ internal class TypeOutputResolver(
           if (arguments.TryGetType(label, outputArg.Dual.Dual, out DualBaseModel? dualBase, false)) {
             outBase = new("", outputArg.Description) { Dual = dualBase };
           } else {
-            outBase = new("", outputBase.Description) { Dual = new(outputArg.Dual.Dual, outputArg.Description) { IsTypeParam = outputArg.Dual.IsTypeParam } };
+            outBase = new("", outputArg.Description) { Dual = new(outputArg.Dual.Dual, outputArg.Description) { IsTypeParam = outputArg.Dual.IsTypeParam } };
           }
         } else if (!arguments.TryGetType(label, outputArg.Output, out outBase, false)) {
           outBase = new(outputArg.Output!, outputArg.Description) { IsTypeParam = outputArg.IsTypeParam };

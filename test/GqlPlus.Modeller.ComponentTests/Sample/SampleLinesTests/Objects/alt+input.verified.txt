@@ -3,8 +3,9 @@ types: !_Map_Type
   !_Identifier AltInpAlt: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
-        input: String
         object: AltInpAlt
+        type: !_InputBase
+          input: String
     allFields:
       - !_ObjectFor(_InputField)
         name: alt
@@ -13,7 +14,8 @@ types: !_Map_Type
           input: Number
     alternates:
       - !_InputAlternate
-        input: String
+        type: !_InputBase
+          input: String
     fields:
       - !_InputField
         name: alt
@@ -24,10 +26,12 @@ types: !_Map_Type
   !_Identifier InpAlt: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
-        input: AltInpAlt
         object: InpAlt
+        type: !_InputBase
+          input: AltInpAlt
     alternates:
       - !_InputAlternate
-        input: AltInpAlt
+        type: !_InputBase
+          input: AltInpAlt
     name: InpAlt
     typeKind: !_TypeKind Input

@@ -11,7 +11,7 @@ public class InputFieldRendererTests
     _modifer = RFor<ModifierModel>();
     _constant = RFor<ConstantModel>();
 
-    Renderer = new InputFieldRenderer(_constant, new(_modifer, Base));
+    Renderer = new InputFieldRenderer(_constant, new(_modifer, ObjBase));
   }
 
   protected override IRenderer<InputFieldModel> Renderer { get; }
@@ -21,7 +21,7 @@ public class InputFieldRendererTests
   {
     // Arrange
     InputBaseModel inputBase = new(input, "");
-    Base.Render(inputBase).Returns(new Structured(input));
+    ObjBase.Render(inputBase).Returns(new Structured(input));
 
     // Act & Accept
     RenderAndCheck(new(name, inputBase, contents), [

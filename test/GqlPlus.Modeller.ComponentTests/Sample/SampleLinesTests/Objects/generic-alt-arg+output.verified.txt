@@ -4,16 +4,18 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: OutpGnrcAltArg
-        output: RefOutpGnrcAltArg
-        typeArgs:
-          - !_OutputArg
-            typeParam: type
+        type: !_OutputBase
+          output: RefOutpGnrcAltArg
+          typeArgs:
+            - !_OutputArg
+              typeParam: type
     alternates:
       - !_OutputAlternate
-        output: RefOutpGnrcAltArg
-        typeArgs:
-          - !_OutputArg
-            typeParam: type
+        type: !_OutputBase
+          output: RefOutpGnrcAltArg
+          typeArgs:
+            - !_OutputArg
+              typeParam: type
     name: OutpGnrcAltArg
     typeKind: !_TypeKind Output
     typeParams:
@@ -23,10 +25,12 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: RefOutpGnrcAltArg
-        typeParam: ref
+        type: !_OutputBase
+          typeParam: ref
     alternates:
       - !_OutputAlternate
-        typeParam: ref
+        type: !_OutputBase
+          typeParam: ref
     name: RefOutpGnrcAltArg
     typeKind: !_TypeKind Output
     typeParams:

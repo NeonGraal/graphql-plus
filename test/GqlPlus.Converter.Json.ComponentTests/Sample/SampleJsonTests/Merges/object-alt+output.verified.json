@@ -8,13 +8,19 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "OutpObjAlt",
-          "output": "OutpObjAltType"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutpObjAltType"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "output": "OutpObjAltType"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "OutpObjAltType"
+          }
         }
       ],
       "name": "OutpObjAlt",

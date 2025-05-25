@@ -8,25 +8,31 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "OutpGnrcAltSmpl",
-          "output": "RefOutpGnrcAltSmpl",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "output": "String"
-            }
-          ]
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "RefOutpGnrcAltSmpl",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "output": "String"
+              }
+            ]
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "output": "RefOutpGnrcAltSmpl",
-          "typeArgs": [
-            {
-              "$tag": "_OutputArg",
-              "output": "String"
-            }
-          ]
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "RefOutpGnrcAltSmpl",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "output": "String"
+              }
+            ]
+          }
         }
       ],
       "name": "OutpGnrcAltSmpl",
@@ -41,13 +47,19 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "RefOutpGnrcAltSmpl",
-          "typeParam": "ref"
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "ref"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "typeParam": "ref"
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "ref"
+          }
         }
       ],
       "name": "RefOutpGnrcAltSmpl",

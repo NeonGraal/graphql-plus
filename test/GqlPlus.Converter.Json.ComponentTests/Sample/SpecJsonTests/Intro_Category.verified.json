@@ -18,12 +18,18 @@
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Categories",
-          "output": "_Category"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Category"
+          }
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
           "object": "_Categories",
-          "output": "_Type"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Type"
+          }
         }
       ],
       "allFields": [
@@ -49,11 +55,17 @@
       "alternates": [
         {
           "$tag": "_OutputAlternate",
-          "output": "_Category"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Category"
+          }
         },
         {
           "$tag": "_OutputAlternate",
-          "output": "_Type"
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Type"
+          }
         }
       ],
       "fields": [

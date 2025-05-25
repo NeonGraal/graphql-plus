@@ -7,13 +7,19 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "dual": "String",
-          "object": "RefDualPrntAlt"
+          "object": "RefDualPrntAlt",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "String"
+          }
         },
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "dual": "Number",
-          "object": "DualPrntAlt"
+          "object": "DualPrntAlt",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "Number"
+          }
         }
       ],
       "allFields": [
@@ -30,7 +36,10 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "dual": "Number"
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "Number"
+          }
         }
       ],
       "name": "DualPrntAlt",
@@ -48,8 +57,11 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "dual": "String",
-          "object": "RefDualPrntAlt"
+          "object": "RefDualPrntAlt",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "String"
+          }
         }
       ],
       "allFields": [
@@ -66,7 +78,10 @@
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "dual": "String"
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "String"
+          }
         }
       ],
       "fields": [

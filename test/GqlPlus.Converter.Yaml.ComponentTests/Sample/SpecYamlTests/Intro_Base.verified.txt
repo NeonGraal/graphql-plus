@@ -20,17 +20,12 @@ _errors:
   _message: In _Field can't get model for type '_Aliased'
 types: !_Map_Type
   !_Identifier _Alternate: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: _ObjBase
-      output: _ObjTypeParam
     allFields:
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: typeArgs
-      object: _ObjBase
+      name: base
+      object: _Alternate
       type: !_OutputBase
-        typeParam: arg
+        typeParam: base
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: collections
@@ -39,20 +34,19 @@ types: !_Map_Type
         output: _Collections
     fields:
     - !_OutputField
+      name: base
+      type: !_OutputBase
+        typeParam: base
+    - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: collections
       type: !_OutputBase
         output: _Collections
     name: _Alternate
-    parent: !_OutputBase
-      output: _ObjBase
-      typeArgs:
-      - !_OutputArg
-        typeParam: arg
     typeKind: !_TypeKind Output
     typeParams:
     - !_Named
-      name: arg
+      name: base
   !_Identifier _Field: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -87,7 +81,8 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _ObjBase
-      output: _ObjTypeParam
+      type: !_OutputBase
+        output: _ObjTypeParam
     allFields:
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
@@ -97,7 +92,8 @@ types: !_Map_Type
         typeParam: arg
     alternates:
     - !_OutputAlternate
-      output: _ObjTypeParam
+      type: !_OutputBase
+        output: _ObjTypeParam
     fields:
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
@@ -115,15 +111,19 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _ObjConstraint
-      output: _TypeSimple
+      type: !_OutputBase
+        output: _TypeSimple
     - !_ObjectFor(_OutputAlternate)
       object: _ObjConstraint
-      typeParam: base
+      type: !_OutputBase
+        typeParam: base
     alternates:
     - !_OutputAlternate
-      output: _TypeSimple
+      type: !_OutputBase
+        output: _TypeSimple
     - !_OutputAlternate
-      typeParam: base
+      type: !_OutputBase
+        typeParam: base
     name: _ObjConstraint
     typeKind: !_TypeKind Output
     typeParams:
@@ -133,31 +133,35 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _ObjType
-      output: _BaseType
-      typeArgs:
-      - !_OutputArg
-        label: Internal
-        name: _TypeKind
-        typeKind: !_SimpleKind Enum
+      type: !_OutputBase
+        output: _BaseType
+        typeArgs:
+        - !_OutputArg
+          label: Internal
+          name: _TypeKind
+          typeKind: !_SimpleKind Enum
     - !_ObjectFor(_OutputAlternate)
       object: _ObjType
-      output: _ObjConstraint
-      typeArgs:
-      - !_OutputArg
-        typeParam: base
+      type: !_OutputBase
+        output: _ObjConstraint
+        typeArgs:
+        - !_OutputArg
+          typeParam: base
     alternates:
     - !_OutputAlternate
-      output: _BaseType
-      typeArgs:
-      - !_OutputArg
-        label: Internal
-        name: _TypeKind
-        typeKind: !_SimpleKind Enum
+      type: !_OutputBase
+        output: _BaseType
+        typeArgs:
+        - !_OutputArg
+          label: Internal
+          name: _TypeKind
+          typeKind: !_SimpleKind Enum
     - !_OutputAlternate
-      output: _ObjConstraint
-      typeArgs:
-      - !_OutputArg
-        typeParam: base
+      type: !_OutputBase
+        output: _ObjConstraint
+        typeArgs:
+        - !_OutputArg
+          typeParam: base
     name: _ObjType
     typeKind: !_TypeKind Output
     typeParams:
@@ -167,10 +171,12 @@ types: !_Map_Type
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _ObjTypeArg
-      output: _ObjTypeParam
+      type: !_OutputBase
+        output: _ObjTypeParam
     alternates:
     - !_OutputAlternate
-      output: _ObjTypeParam
+      type: !_OutputBase
+        output: _ObjTypeParam
     name: _ObjTypeArg
     parent: !_OutputBase
       output: _TypeRef

@@ -8,7 +8,10 @@
         {
           "$tag": "_ObjectFor(_DualAlternate)",
           "object": "RefDualPrntParamDiff",
-          "typeParam": "b"
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "b"
+          }
         }
       ],
       "allFields": [
@@ -60,13 +63,19 @@
         {
           "$tag": "_ObjectFor(_DualAlternate)",
           "object": "RefDualPrntParamDiff",
-          "typeParam": "b"
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "b"
+          }
         }
       ],
       "alternates": [
         {
           "$tag": "_DualAlternate",
-          "typeParam": "b"
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "b"
+          }
         }
       ],
       "name": "RefDualPrntParamDiff",

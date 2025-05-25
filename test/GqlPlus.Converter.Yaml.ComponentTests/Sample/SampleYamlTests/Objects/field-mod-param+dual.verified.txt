@@ -22,8 +22,9 @@ types: !_Map_Type
   !_Identifier FldDualFieldModParam: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      dual: String
       object: FldDualFieldModParam
+      type: !_DualBase
+        dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: field
@@ -32,7 +33,8 @@ types: !_Map_Type
         dual: Number
     alternates:
     - !_DualAlternate
-      dual: String
+      type: !_DualBase
+        dual: String
     fields:
     - !_DualField
       name: field

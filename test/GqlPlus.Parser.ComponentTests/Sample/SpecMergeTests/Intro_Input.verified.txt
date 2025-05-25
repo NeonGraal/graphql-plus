@@ -66,47 +66,40 @@ Success
   _Alternate
   <
     I@018/0017
-    _InputTypeArg
+    _InputBase
   >
-  {
-    !OF I@009/0018
-    input
-    :
-    I@016/0018
-    _Identifier
-  }
 }
 {
-  !Ou I@008/0021
+  !Ou I@008/0020
   _InputTypeArg
   :
-  I@007/0022
+  I@007/0021
   _ObjTypeArg
   {
-    !OF I@009/0023
+    !OF I@009/0022
     input
     :
-    I@016/0023
+    I@016/0022
     _Identifier
   }
 }
 {
-  !Ou I@008/0026
+  !Ou I@008/0025
   _InputParam
   :
-  I@007/0027
+  I@007/0026
   _InputBase
   {
-    !OF I@009/0028
+    !OF I@009/0027
     modifiers
     :
-    I@020/0028
+    I@020/0027
     _Modifiers
     []
-    !OF I@009/0029
+    !OF I@009/0028
     default
     :
-    I@018/0029
+    I@018/0028
     _Constant
     ?
   }

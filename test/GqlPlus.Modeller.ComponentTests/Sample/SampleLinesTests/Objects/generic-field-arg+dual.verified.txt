@@ -27,10 +27,12 @@ types: !_Map_Type
     allAlternates:
       - !_ObjectFor(_DualAlternate)
         object: RefDualGnrcFieldArg
-        typeParam: ref
+        type: !_DualBase
+          typeParam: ref
     alternates:
       - !_DualAlternate
-        typeParam: ref
+        type: !_DualBase
+          typeParam: ref
     name: RefDualGnrcFieldArg
     typeKind: !_TypeKind Dual
     typeParams:

@@ -10,7 +10,7 @@ public abstract class TestSchemaVerify(
 {
   protected override async Task Test_Asts(IEnumerable<IGqlpSchema> asts, string test, string label, string[] dirs, string section, string input = "")
   {
-    (Structured result, ITypesContext context) = checks.Verify_Asts(asts);
+    (Structured result, IModelsContext context) = checks.Verify_Asts(asts);
 
     await VerifyResult(result, label, test, section);
 
@@ -21,7 +21,7 @@ public abstract class TestSchemaVerify(
     }
   }
 
-  protected virtual void CheckNoErrors(ITypesContext context, string test)
+  protected virtual void CheckNoErrors(IModelsContext context, string test)
   { }
 
   protected virtual Task CheckResultErrors(string[] dirs, string test, ITokenMessages errors, bool includeVerify = false)

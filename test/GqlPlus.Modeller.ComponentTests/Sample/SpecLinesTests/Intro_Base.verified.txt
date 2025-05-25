@@ -22,7 +22,7 @@ types: !_Map_Type
   !_Identifier _Alternate: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
-        name: base
+        name: type
         object: _Alternate
         type: !_OutputBase
           typeParam: base
@@ -34,7 +34,7 @@ types: !_Map_Type
           output: _Collections
     fields:
       - !_OutputField
-        name: base
+        name: type
         type: !_OutputBase
           typeParam: base
       - !_OutputField

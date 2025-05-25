@@ -163,7 +163,7 @@ Success
   >
   {
     !OF I@007/0038
-    base
+    type
     :
     I@014/0038
     $base

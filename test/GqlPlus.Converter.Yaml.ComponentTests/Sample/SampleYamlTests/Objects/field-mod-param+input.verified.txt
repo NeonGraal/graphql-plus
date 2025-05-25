@@ -3,8 +3,9 @@ types: !_Map_Type
   !_Identifier FldInpFieldModParam: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      input: String
       object: FldInpFieldModParam
+      type: !_InputBase
+        input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: field
@@ -13,7 +14,8 @@ types: !_Map_Type
         input: Number
     alternates:
     - !_InputAlternate
-      input: String
+      type: !_InputBase
+        input: String
     fields:
     - !_InputField
       name: field

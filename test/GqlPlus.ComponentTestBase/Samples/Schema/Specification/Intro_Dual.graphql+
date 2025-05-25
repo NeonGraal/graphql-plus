@@ -12,8 +12,7 @@ output _DualField {
     }
 
 output _DualAlternate {
-    : _Alternate<_DualTypeArg>
-        dual: _Identifier
+    : _Alternate<_DualBase>
     }
 
 output _DualTypeArg {

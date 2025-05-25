@@ -42,7 +42,7 @@ public abstract class ResolverParentTypeTestBase<TModel, TItem, TAll>
       Items = itemModels,
       AllItems = allModels,
     };
-    Context.TryGetType(name, parentModel.Name, out TModel? parentType).Returns(c => { c[2] = parentModel; return true; });
+    Context.AddModels([parentModel]);
 
     TModel model = NewModel(name, "") with {
       Parent = NewParent(parent, "")

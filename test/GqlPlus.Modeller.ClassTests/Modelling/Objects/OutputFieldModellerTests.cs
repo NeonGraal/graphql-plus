@@ -1,16 +1,14 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
 public class OutputFieldModellerTests
-  : ModellerClassTestBase<IGqlpOutputField, OutputFieldModel>
+  : ModellerObjectBaseTestBase<IGqlpOutputField, OutputFieldModel, IGqlpOutputBase, OutputBaseModel>
 {
-  private readonly IModeller<IGqlpOutputBase, OutputBaseModel> _objBase = MFor<IGqlpOutputBase, OutputBaseModel>();
-
   public OutputFieldModellerTests()
   {
     IModifierModeller modifier = For<IModifierModeller>();
     IModeller<IGqlpInputParam, InputParamModel> parameter = MFor<IGqlpInputParam, InputParamModel>();
 
-    Modeller = new OutputFieldModeller(modifier, parameter, _objBase);
+    Modeller = new OutputFieldModeller(modifier, parameter, ObjBase);
   }
 
   protected override IModeller<IGqlpOutputField, OutputFieldModel> Modeller { get; }
@@ -25,7 +23,7 @@ public class OutputFieldModellerTests
     type.Output.Returns(typeName);
     ast.BaseType.Returns(type);
     OutputBaseModel outputType = new(typeName, "");
-    _objBase.ToModel(type, TypeKinds).Returns(outputType);
+    ObjBase.ToModel(type, TypeKinds).Returns(outputType);
 
     // Act
     OutputFieldModel result = Modeller.ToModel(ast, TypeKinds);

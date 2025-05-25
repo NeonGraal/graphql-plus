@@ -1,34 +1,27 @@
 ﻿namespace GqlPlus.Rendering.Objects;
 
 public class OutputAlternateRendererTests
-  : ObjectArgRendererBase<OutputAlternateModel, OutputArgModel>
+  : ObjectBaseRendererBase<OutputAlternateModel, OutputBaseModel>
 {
   private readonly IRenderer<CollectionModel> _collection;
-  private readonly IRenderer<DualAlternateModel> _dual;
 
   public OutputAlternateRendererTests()
   {
     _collection = RFor<CollectionModel>();
-    _dual = RFor<DualAlternateModel>();
 
-    Renderer = new OutputAlternateRenderer(new(ObjArg, _collection), _dual);
+    Renderer = new ObjectAlternateRenderer<OutputAlternateModel, OutputBaseModel>(new(_collection, ObjBase));
   }
 
   protected override IRenderer<OutputAlternateModel> Renderer { get; }
 
   [Theory, RepeatData]
-  public void Render_WithTypeParam_ReturnsStructuredWithTypeParam(string output, string contents)
-    => RenderAndCheck(new(output, contents) { IsTypeParam = true }, [
-      "!_OutputAlternate",
-      "description: " + contents.Quoted("'"),
-      "typeParam: " + output
+  public void Render_ReturnsStructuredWithOutput(string output)
+  {
+    OutputBaseModel objBase = new(output, "");
+    ObjBase.Render(objBase).Returns(new Structured(output));
+    RenderAndCheck(new(objBase), [
+        "!_OutputAlternate",
+        "type: " + output
       ]);
-
-  [Theory, RepeatData]
-  public void Render_WithoutTypeParam_ReturnsStructuredWithOutput(string output, string contents)
-    => RenderAndCheck(new(output, contents), [
-      "!_OutputAlternate",
-      "description: " + contents.Quoted("'"),
-      "output: " + output
-      ]);
+  }
 }

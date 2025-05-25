@@ -9,7 +9,7 @@ public class DualFieldRendererTests
   {
     _modifer = RFor<ModifierModel>();
 
-    Renderer = new DualFieldRenderer(new(_modifer, Base));
+    Renderer = new DualFieldRenderer(new(_modifer, ObjBase));
   }
 
   protected override IRenderer<DualFieldModel> Renderer { get; }
@@ -19,7 +19,7 @@ public class DualFieldRendererTests
   {
     // Arrange
     DualBaseModel dualBase = new(dual, "");
-    Base.Render(dualBase).Returns(new Structured(dual));
+    ObjBase.Render(dualBase).Returns(new Structured(dual));
 
     // Act & Accept
     RenderAndCheck(new(name, dualBase, contents), [

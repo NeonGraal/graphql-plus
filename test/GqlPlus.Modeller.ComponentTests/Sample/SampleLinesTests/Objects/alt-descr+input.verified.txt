@@ -3,12 +3,14 @@ types: !_Map_Type
   !_Identifier InpAltDescr: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
-        description: 'Test Descr'
-        input: String
         object: InpAltDescr
+        type: !_InputBase
+          description: 'Test Descr'
+          input: String
     alternates:
       - !_InputAlternate
-        description: 'Test Descr'
-        input: String
+        type: !_InputBase
+          description: 'Test Descr'
+          input: String
     name: InpAltDescr
     typeKind: !_TypeKind Input

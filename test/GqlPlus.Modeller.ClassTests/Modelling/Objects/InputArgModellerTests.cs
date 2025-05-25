@@ -13,11 +13,11 @@ public class InputArgModellerTests
   protected override IModeller<IGqlpInputArg, InputArgModel> Modeller { get; }
 
   [Theory, RepeatData]
-  public void ToModel_WithValidArg_ReturnsExpectedInputArgModel(string Input, string contents)
+  public void ToModel_WithValidArg_ReturnsExpectedInputArgModel(string input, string contents)
   {
     // Arrange
     IGqlpInputArg ast = For<IGqlpInputArg>();
-    ast.Input.Returns(Input);
+    ast.Input.Returns(input);
     ast.Description.Returns(contents);
     ast.IsTypeParam.Returns(true);
 
@@ -27,7 +27,7 @@ public class InputArgModellerTests
     // Assert
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
-        r => r.Input.ShouldBe(Input),
+        r => r.Input.ShouldBe(input),
         r => r.Description.ShouldBe(contents),
         r => r.IsTypeParam.ShouldBeTrue()
       );

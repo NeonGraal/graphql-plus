@@ -938,6 +938,66 @@ public class DualAltOutpGnrcAltDual
   public String AsString { get; set; }
 }
 
+public interface IRefDualGnrcAltModParam<Tref,Tmod>
+{
+  Tref Asref { get; }
+}
+public class DualRefDualGnrcAltModParam<Tref,Tmod>
+  : IRefDualGnrcAltModParam<Tref,Tmod>
+{
+  public Tref Asref { get; set; }
+}
+
+public interface IRefInpGnrcAltModParam<Tref,Tmod>
+{
+  Tref Asref { get; }
+}
+public class InputRefInpGnrcAltModParam<Tref,Tmod>
+  : IRefInpGnrcAltModParam<Tref,Tmod>
+{
+  public Tref Asref { get; set; }
+}
+
+public interface IRefOutpGnrcAltModParam<Tref,Tmod>
+{
+  Tref Asref { get; }
+}
+public class OutputRefOutpGnrcAltModParam<Tref,Tmod>
+  : IRefOutpGnrcAltModParam<Tref,Tmod>
+{
+  public Tref Asref { get; set; }
+}
+
+public interface IRefDualGnrcAltModStr<Tref>
+{
+  Tref Asref { get; }
+}
+public class DualRefDualGnrcAltModStr<Tref>
+  : IRefDualGnrcAltModStr<Tref>
+{
+  public Tref Asref { get; set; }
+}
+
+public interface IRefInpGnrcAltModStr<Tref>
+{
+  Tref Asref { get; }
+}
+public class InputRefInpGnrcAltModStr<Tref>
+  : IRefInpGnrcAltModStr<Tref>
+{
+  public Tref Asref { get; set; }
+}
+
+public interface IRefOutpGnrcAltModStr<Tref>
+{
+  Tref Asref { get; }
+}
+public class OutputRefOutpGnrcAltModStr<Tref>
+  : IRefOutpGnrcAltModStr<Tref>
+{
+  public Tref Asref { get; set; }
+}
+
 public interface IDualGnrcAltParam
 {
   RefDualGnrcAltParam<AltDualGnrcAltParam> AsRefDualGnrcAltParam { get; }

@@ -767,15 +767,15 @@ public class Output_ObjTypeParam
   public _TypeParam typeParam { get; set; }
 }
 
-public interface I_Alternate<Targ>
-  : I_ObjBase
+public interface I_Alternate<Tbase>
 {
+  Tbase base { get; }
   _Collections collections { get; }
 }
-public class Output_Alternate<Targ>
-  : Output_ObjBase
-  , I_Alternate<Targ>
+public class Output_Alternate<Tbase>
+  : I_Alternate<Tbase>
 {
+  public Tbase base { get; set; }
   public _Collections collections { get; set; }
 }
 
@@ -840,13 +840,11 @@ public class Output_DualField
 public interface I_DualAlternate
   : I_Alternate
 {
-  _Identifier dual { get; }
 }
 public class Output_DualAlternate
   : Output_Alternate
   , I_DualAlternate
 {
-  public _Identifier dual { get; set; }
 }
 
 public interface I_DualTypeArg
@@ -900,13 +898,11 @@ public class Output_InputField
 public interface I_InputAlternate
   : I_Alternate
 {
-  _Identifier input { get; }
 }
 public class Output_InputAlternate
   : Output_Alternate
   , I_InputAlternate
 {
-  public _Identifier input { get; set; }
 }
 
 public interface I_InputTypeArg
@@ -976,13 +972,11 @@ public class Output_OutputField
 public interface I_OutputAlternate
   : I_Alternate
 {
-  _Identifier output { get; }
 }
 public class Output_OutputAlternate
   : Output_Alternate
   , I_OutputAlternate
 {
-  public _Identifier output { get; set; }
 }
 
 public interface I_OutputTypeArg

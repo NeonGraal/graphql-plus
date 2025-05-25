@@ -98,15 +98,15 @@ public class Output_ObjTypeParam
   public _TypeParam typeParam { get; set; }
 }
 
-public interface I_Alternate<Targ>
-  : I_ObjBase
+public interface I_Alternate<Tbase>
 {
+  Tbase base { get; }
   _Collections collections { get; }
 }
-public class Output_Alternate<Targ>
-  : Output_ObjBase
-  , I_Alternate<Targ>
+public class Output_Alternate<Tbase>
+  : I_Alternate<Tbase>
 {
+  public Tbase base { get; set; }
   public _Collections collections { get; set; }
 }
 

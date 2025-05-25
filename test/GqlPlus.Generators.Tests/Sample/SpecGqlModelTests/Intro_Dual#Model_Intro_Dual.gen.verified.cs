@@ -41,13 +41,11 @@ public class Output_DualField
 public interface I_DualAlternate
   : I_Alternate
 {
-  _Identifier dual { get; }
 }
 public class Output_DualAlternate
   : Output_Alternate
   , I_DualAlternate
 {
-  public _Identifier dual { get; set; }
 }
 
 public interface I_DualTypeArg

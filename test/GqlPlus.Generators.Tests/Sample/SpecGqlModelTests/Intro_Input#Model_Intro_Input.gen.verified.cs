@@ -45,13 +45,11 @@ public class Output_InputField
 public interface I_InputAlternate
   : I_Alternate
 {
-  _Identifier input { get; }
 }
 public class Output_InputAlternate
   : Output_Alternate
   , I_InputAlternate
 {
-  public _Identifier input { get; set; }
 }
 
 public interface I_InputTypeArg

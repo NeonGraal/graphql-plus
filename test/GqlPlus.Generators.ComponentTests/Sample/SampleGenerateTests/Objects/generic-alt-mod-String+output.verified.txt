@@ -1,0 +1,20 @@
+﻿/* generic-alt-mod-String+output
+output RefOutpGnrcAltModStr<$ref> { | $ref[*] }
+*/
+
+// Generated from Sample generic-alt-mod-String+output
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_generic_alt_mod_String_output;
+
+public interface IRefOutpGnrcAltModStr<Tref>
+{
+  Tref Asref { get; }
+}
+public class OutputRefOutpGnrcAltModStr<Tref>
+  : IRefOutpGnrcAltModStr<Tref>
+{
+  public Tref Asref { get; set; }
+}

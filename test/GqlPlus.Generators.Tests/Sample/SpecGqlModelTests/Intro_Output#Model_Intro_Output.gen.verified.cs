@@ -47,13 +47,11 @@ public class Output_OutputField
 public interface I_OutputAlternate
   : I_Alternate
 {
-  _Identifier output { get; }
 }
 public class Output_OutputAlternate
   : Output_Alternate
   , I_OutputAlternate
 {
-  public _Identifier output { get; set; }
 }
 
 public interface I_OutputTypeArg

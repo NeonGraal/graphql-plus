@@ -16,8 +16,7 @@ output _OutputField {
     }
 
 output _OutputAlternate {
-    : _Alternate<_OutputTypeArg>
-        output: _Identifier
+    : _Alternate<_OutputBase>
     }
 
 output _OutputTypeArg {
@@ -81,13 +80,11 @@ public class Output_OutputField
 public interface I_OutputAlternate
   : I_Alternate
 {
-  _Identifier output { get; }
 }
 public class Output_OutputAlternate
   : Output_Alternate
   , I_OutputAlternate
 {
-  public _Identifier output { get; set; }
 }
 
 public interface I_OutputTypeArg

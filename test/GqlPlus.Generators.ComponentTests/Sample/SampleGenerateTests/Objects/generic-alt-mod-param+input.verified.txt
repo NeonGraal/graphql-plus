@@ -1,0 +1,20 @@
+﻿/* generic-alt-mod-param+input
+input RefInpGnrcAltModParam<$ref $mod> { | $ref[$mod] }
+*/
+
+// Generated from Sample generic-alt-mod-param+input
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_generic_alt_mod_param_input;
+
+public interface IRefInpGnrcAltModParam<Tref,Tmod>
+{
+  Tref Asref { get; }
+}
+public class InputRefInpGnrcAltModParam<Tref,Tmod>
+  : IRefInpGnrcAltModParam<Tref,Tmod>
+{
+  public Tref Asref { get; set; }
+}

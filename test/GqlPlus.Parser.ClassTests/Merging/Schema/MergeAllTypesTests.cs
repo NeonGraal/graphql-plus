@@ -8,8 +8,10 @@ public class MergeAllTypesTests
   : TestAbbreviatedMerger<IGqlpType>
 {
   [Theory, RepeatData]
-  public void FixupType_WithEnums_FixesType(string enumType, string enumLabel, string fieldName, string domainName)
+  public void FixupType_WithEnums_FixesType(string outputType, string enumType, string enumLabel, string fieldName, string domainType)
   {
+    this.SkipIf(outputType == enumType || outputType == domainType || enumType == domainType);
+
     // Arrange
     OutputFieldAst field = new(AstNulls.At, fieldName, new OutputBaseAst(AstNulls.At, "", "")) {
       EnumLabel = enumLabel
@@ -18,8 +20,8 @@ public class MergeAllTypesTests
 
     IGqlpType[] types = [
       new EnumDeclAst(AstNulls.At, enumType, [new(AstNulls.At, enumLabel, "")]),
-      new OutputDeclAst(AstNulls.At, "Car") { ObjFields = [field] },
-      new AstDomain<DomainLabelAst, IGqlpDomainLabel>(AstNulls.At, domainName, DomainKind.Enum, [domainLabel]),
+      new OutputDeclAst(AstNulls.At, outputType) { ObjFields = [field] },
+      new AstDomain<DomainLabelAst, IGqlpDomainLabel>(AstNulls.At, domainType, DomainKind.Enum, [domainLabel]),
     ];
 
     // Act

@@ -135,8 +135,8 @@ types: !_Map_Type
       typeArgs:
       - !_OutputArg
         label: Input
-        name: _TypeKind
         typeKind: !_SimpleKind Enum
+        typeName: _TypeKind
       - !_OutputArg
         output: _InputBase
       - !_OutputArg

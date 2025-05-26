@@ -13,8 +13,8 @@ types: !_Map_Type
       name: outpPrntGnrc
     name: EnumOutpPrntGnrc
     parent: !_TypeRef(_SimpleKind)
-      name: PrntOutpPrntGnrc
       typeKind: !_SimpleKind Enum
+      typeName: PrntOutpPrntGnrc
     typeKind: !_TypeKind Enum
   !_Identifier OutpPrntGnrc: !_TypeOutput
     allAlternates:
@@ -25,8 +25,8 @@ types: !_Map_Type
         typeArgs:
         - !_OutputArg
           label: prnt_outpPrntGnrc
-          name: EnumOutpPrntGnrc
           typeKind: !_SimpleKind Enum
+          typeName: EnumOutpPrntGnrc
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
@@ -34,8 +34,8 @@ types: !_Map_Type
         typeArgs:
         - !_OutputArg
           label: prnt_outpPrntGnrc
-          name: EnumOutpPrntGnrc
           typeKind: !_SimpleKind Enum
+          typeName: EnumOutpPrntGnrc
     name: OutpPrntGnrc
     typeKind: !_TypeKind Output
   !_Identifier PrntOutpPrntGnrc: !_TypeEnum

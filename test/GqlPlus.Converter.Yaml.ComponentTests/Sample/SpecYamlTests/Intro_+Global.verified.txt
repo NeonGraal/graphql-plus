@@ -64,8 +64,8 @@ types: !_Map_Type
         typeArgs:
         - !_OutputArg
           label: Output
-          name: _TypeKind
           typeKind: !_SimpleKind Enum
+          typeName: _TypeKind
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
@@ -84,8 +84,8 @@ types: !_Map_Type
         typeArgs:
         - !_OutputArg
           label: Output
-          name: _TypeKind
           typeKind: !_SimpleKind Enum
+          typeName: _TypeKind
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers

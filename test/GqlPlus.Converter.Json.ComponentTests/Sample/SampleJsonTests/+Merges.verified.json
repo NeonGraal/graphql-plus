@@ -8,11 +8,11 @@
       "name": "ctgr",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
-        "name": "Ctgr",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        }
+        },
+        "typeName": "Ctgr"
       },
       "resolution": {
         "$tag": "_Resolution",
@@ -25,11 +25,11 @@
       "name": "ctgrAlias",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
-        "name": "CtgrAlias",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        }
+        },
+        "typeName": "CtgrAlias"
       },
       "resolution": {
         "$tag": "_Resolution",
@@ -42,11 +42,11 @@
       "name": "ctgrDescr",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
-        "name": "CtgrDescr",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        }
+        },
+        "typeName": "CtgrDescr"
       },
       "resolution": {
         "$tag": "_Resolution",
@@ -68,11 +68,11 @@
       "name": "ctgrMod",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
-        "name": "CtgrMod",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        }
+        },
+        "typeName": "CtgrMod"
       },
       "resolution": {
         "$tag": "_Resolution",
@@ -289,11 +289,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "true",
-            "name": "Boolean",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "Boolean"
           }
         },
         {
@@ -303,11 +303,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "false",
-            "name": "Boolean",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "Boolean"
           }
         }
       ],
@@ -322,11 +322,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "true",
-            "name": "Boolean",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "Boolean"
           }
         },
         {
@@ -335,11 +335,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "false",
-            "name": "Boolean",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "Boolean"
           }
         }
       ],
@@ -359,11 +359,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "true",
-            "name": "Boolean",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "Boolean"
           }
         }
       ],
@@ -378,11 +378,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "true",
-            "name": "Boolean",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "Boolean"
           }
         }
       ],
@@ -804,11 +804,11 @@
       "name": "EnumSamePrnt",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
-        "name": "PrntEnumSamePrnt",
         "typeKind": {
           "$tag": "_SimpleKind",
           "value": "Enum"
-        }
+        },
+        "typeName": "PrntEnumSamePrnt"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -1089,22 +1089,12 @@
           "$tag": "_ObjectFor(_OutputField)",
           "field": "field",
           "label": "true",
-          "name": "Boolean",
           "object": "OutpFieldEnumAlias",
           "typeKind": {
             "$tag": "_SimpleKind",
             "value": "Enum"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "field": "Boolean",
-          "label": "true",
-          "object": "OutpFieldEnumAlias",
-          "typeKind": {
-            "$tag": "_SimpleKind",
-            "value": "Enum"
-          }
+          },
+          "typeName": "Boolean"
         }
       ],
       "fields": [
@@ -1112,20 +1102,11 @@
           "$tag": "_OutputEnum",
           "field": "field",
           "label": "true",
-          "name": "Boolean",
           "typeKind": {
             "$tag": "_SimpleKind",
             "value": "Enum"
-          }
-        },
-        {
-          "$tag": "_OutputEnum",
-          "field": "Boolean",
-          "label": "true",
-          "typeKind": {
-            "$tag": "_SimpleKind",
-            "value": "Enum"
-          }
+          },
+          "typeName": "Boolean"
         }
       ],
       "name": "OutpFieldEnumAlias",
@@ -1141,22 +1122,12 @@
           "$tag": "_ObjectFor(_OutputField)",
           "field": "field",
           "label": "true",
-          "name": "Boolean",
           "object": "OutpFieldEnumValue",
           "typeKind": {
             "$tag": "_SimpleKind",
             "value": "Enum"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "field": "Boolean",
-          "label": "true",
-          "object": "OutpFieldEnumValue",
-          "typeKind": {
-            "$tag": "_SimpleKind",
-            "value": "Enum"
-          }
+          },
+          "typeName": "Boolean"
         }
       ],
       "fields": [
@@ -1164,20 +1135,11 @@
           "$tag": "_OutputEnum",
           "field": "field",
           "label": "true",
-          "name": "Boolean",
           "typeKind": {
             "$tag": "_SimpleKind",
             "value": "Enum"
-          }
-        },
-        {
-          "$tag": "_OutputEnum",
-          "field": "Boolean",
-          "label": "true",
-          "typeKind": {
-            "$tag": "_SimpleKind",
-            "value": "Enum"
-          }
+          },
+          "typeName": "Boolean"
         }
       ],
       "name": "OutpFieldEnumValue",
@@ -1602,11 +1564,11 @@
       "name": "UnionSamePrnt",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
-        "name": "PrntUnionSamePrnt",
         "typeKind": {
           "$tag": "_SimpleKind",
           "value": "Union"
-        }
+        },
+        "typeName": "PrntUnionSamePrnt"
       },
       "typeKind": {
         "$tag": "_TypeKind",

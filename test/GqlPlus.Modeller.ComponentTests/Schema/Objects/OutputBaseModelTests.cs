@@ -24,7 +24,7 @@ internal sealed class OutputBaseModelChecks(
 {
   public string[] ExpectedEnumArgs(string[] arguments, string enumLabel)
     => [.. ItemsExpected("typeArgs:", arguments,
-      a => ["  - !_OutputArg", "    label: " + enumLabel, "    name: " + a, "    typeKind: !_SimpleKind Enum"])];
+      a => ["  - !_OutputArg", "    label: " + enumLabel, "    typeKind: !_SimpleKind Enum", "    typeName: " + a])];
 
   protected override OutputBaseAst NewObjBaseAst(string input, bool isTypeParam, IGqlpOutputArg[] args)
     => new(AstNulls.At, input) {

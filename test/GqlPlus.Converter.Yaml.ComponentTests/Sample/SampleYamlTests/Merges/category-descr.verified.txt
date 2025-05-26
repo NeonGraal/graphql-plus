@@ -4,8 +4,8 @@ categories: !_Map_Categories
     description: 'First category Second category'
     name: ctgrDescr
     output: !_TypeRef(_TypeKind)
-      name: CtgrDescr
       typeKind: !_TypeKind Output
+      typeName: CtgrDescr
     resolution: !_Resolution Parallel
 types: !_Map_Type
   !_Identifier CtgrDescr: !_TypeOutput

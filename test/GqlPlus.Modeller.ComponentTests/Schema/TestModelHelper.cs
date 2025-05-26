@@ -25,8 +25,8 @@ internal static class TestModelHelper
 
     string kindTag = typeof(TKind).TypeTag();
     return [$"{label}: !_TypeRef({kindTag})",
-      "  name: " + name,
-      $"  typeKind: !{kindTag} {kind}"];
+      $"  typeKind: !{kindTag} {kind}",
+      "  typeName: " + name];
   }
 
   internal static (string, TItem)[] ParentItems<TItem>(this IEnumerable<TItem> items, string parent)

@@ -17,8 +17,8 @@ types: !_Map_Type
         pattern: a+
     name: DmnStrPrnt
     parent: !_TypeRef(_SimpleKind)
-      name: PrntDmnStrPrnt
       typeKind: !_SimpleKind Domain
+      typeName: PrntDmnStrPrnt
     typeKind: !_TypeKind Domain
   !_Identifier PrntDmnStrPrnt: !_DomainString
     allItems:

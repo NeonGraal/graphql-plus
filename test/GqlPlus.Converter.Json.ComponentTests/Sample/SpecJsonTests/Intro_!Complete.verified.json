@@ -148,11 +148,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_ObjBase",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Output"
-            }
+            },
+            "typeName": "_ObjBase"
           },
           "name": "base"
         }
@@ -288,11 +288,11 @@
           {
             "$tag": "_OutputArg",
             "label": "Domain",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           },
           {
             "$tag": "_OutputArg",
@@ -313,11 +313,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_DomainKind",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_DomainKind"
           },
           "name": "domain"
         },
@@ -325,11 +325,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_BaseDomainItem",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Dual"
-            }
+            },
+            "typeName": "_BaseDomainItem"
           },
           "name": "item"
         },
@@ -337,11 +337,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_DomainItem",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Output"
-            }
+            },
+            "typeName": "_DomainItem"
           },
           "name": "domainItem"
         }
@@ -480,11 +480,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           },
           "name": "kind"
         }
@@ -638,11 +638,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Output",
-                "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_TypeKind"
               }
             ]
           }
@@ -685,11 +685,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Output",
-                "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_TypeKind"
               }
             ]
           }
@@ -982,11 +982,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           },
           "name": "kind"
         },
@@ -994,11 +994,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_Described",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Dual"
-            }
+            },
+            "typeName": "_Described"
           },
           "name": "parent"
         }
@@ -1017,11 +1017,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "List",
-                "name": "_ModifierKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_ModifierKind"
               }
             ]
           }
@@ -1036,11 +1036,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Dictionary",
-                "name": "_ModifierKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_ModifierKind"
               }
             ]
           }
@@ -1055,11 +1055,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "TypeParam",
-                "name": "_ModifierKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_ModifierKind"
               }
             ]
           }
@@ -1075,11 +1075,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "List",
-                "name": "_ModifierKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_ModifierKind"
               }
             ]
           }
@@ -1093,11 +1093,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Dictionary",
-                "name": "_ModifierKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_ModifierKind"
               }
             ]
           }
@@ -1111,11 +1111,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "TypeParam",
-                "name": "_ModifierKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_ModifierKind"
               }
             ]
           }
@@ -1606,11 +1606,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_BaseDomainItem",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Dual"
-            }
+            },
+            "typeName": "_BaseDomainItem"
           },
           "name": "item"
         }
@@ -2056,11 +2056,11 @@
           {
             "$tag": "_OutputArg",
             "label": "Domain",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           }
         ]
       },
@@ -2073,11 +2073,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_DomainKind",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_DomainKind"
           },
           "name": "kind"
         }
@@ -2291,11 +2291,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_DomainKind",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_DomainKind"
           },
           "name": "kind"
         },
@@ -2671,11 +2671,11 @@
           {
             "$tag": "_OutputArg",
             "label": "Dual",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           }
         ]
       },
@@ -2829,11 +2829,11 @@
           {
             "$tag": "_OutputArg",
             "label": "Enum",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           }
         ]
       },
@@ -2959,11 +2959,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_ObjBase",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Output"
-            }
+            },
+            "typeName": "_ObjBase"
           },
           "name": "base"
         }
@@ -3269,11 +3269,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_ObjBase",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Output"
-            }
+            },
+            "typeName": "_ObjBase"
           },
           "name": "base"
         }
@@ -3825,11 +3825,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Dual",
-                "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_TypeKind"
               }
             ]
           }
@@ -3898,11 +3898,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Dual",
-                "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_TypeKind"
               }
             ]
           }
@@ -3916,11 +3916,11 @@
           {
             "$tag": "_OutputArg",
             "label": "Input",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           }
         ]
       },
@@ -4028,11 +4028,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_ModifierKind",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_ModifierKind"
           },
           "name": "kind"
         }
@@ -4107,11 +4107,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_ModifierKind",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_ModifierKind"
           },
           "name": "kind"
         }
@@ -4184,11 +4184,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Optional",
-                "name": "_ModifierKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_ModifierKind"
               }
             ]
           }
@@ -4212,11 +4212,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Optional",
-                "name": "_ModifierKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_ModifierKind"
               }
             ]
           }
@@ -4406,11 +4406,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_ObjTypeArg",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Output"
-            }
+            },
+            "typeName": "_ObjTypeArg"
           },
           "name": "arg"
         }
@@ -4476,11 +4476,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_ObjectKind",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Domain"
-            }
+            },
+            "typeName": "_ObjectKind"
           },
           "name": "kind"
         }
@@ -4523,11 +4523,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_ForParam",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Output"
-            }
+            },
+            "typeName": "_ForParam"
           },
           "name": "for"
         }
@@ -4543,11 +4543,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "Dual",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           }
         },
         {
@@ -4557,11 +4557,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "Input",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           }
         },
         {
@@ -4571,11 +4571,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "Output",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           }
         }
       ],
@@ -4590,11 +4590,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "Dual",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           }
         },
         {
@@ -4603,11 +4603,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "Input",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           }
         },
         {
@@ -4616,11 +4616,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "Output",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           }
         }
       ],
@@ -4799,11 +4799,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_ObjectKind",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Domain"
-            }
+            },
+            "typeName": "_ObjectKind"
           },
           "name": "kind"
         }
@@ -5042,11 +5042,11 @@
           {
             "$tag": "_OutputArg",
             "label": "Enum",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           }
         ]
       },
@@ -5330,11 +5330,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Dual",
-                "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_TypeKind"
               }
             ]
           }
@@ -5349,11 +5349,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Enum",
-                "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_TypeKind"
               }
             ]
           }
@@ -5422,11 +5422,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Dual",
-                "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_TypeKind"
               }
             ]
           }
@@ -5440,11 +5440,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Enum",
-                "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_TypeKind"
               }
             ]
           }
@@ -5458,11 +5458,11 @@
           {
             "$tag": "_OutputArg",
             "label": "Output",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           }
         ]
       },
@@ -5634,11 +5634,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           },
           "name": "kind"
         },
@@ -5646,11 +5646,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_Described",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Dual"
-            }
+            },
+            "typeName": "_Described"
           },
           "name": "item"
         },
@@ -5658,11 +5658,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_Described",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Dual"
-            }
+            },
+            "typeName": "_Described"
           },
           "name": "allItem"
         }
@@ -6131,11 +6131,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Number",
-                "name": "_DomainKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_DomainKind"
               },
               {
                 "$tag": "_OutputArg",
@@ -6154,11 +6154,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "String",
-                "name": "_DomainKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_DomainKind"
               },
               {
                 "$tag": "_OutputArg",
@@ -6193,11 +6193,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Number",
-                "name": "_DomainKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_DomainKind"
               },
               {
                 "$tag": "_OutputArg",
@@ -6215,11 +6215,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "String",
-                "name": "_DomainKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_DomainKind"
               },
               {
                 "$tag": "_OutputArg",
@@ -6312,11 +6312,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Basic",
-                "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_TypeKind"
               }
             ]
           }
@@ -6331,11 +6331,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Internal",
-                "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_TypeKind"
               }
             ]
           }
@@ -6399,11 +6399,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Basic",
-                "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_TypeKind"
               }
             ]
           }
@@ -6417,11 +6417,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Internal",
-                "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_TypeKind"
               }
             ]
           }
@@ -6488,11 +6488,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Boolean",
-                "name": "_DomainKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_DomainKind"
               },
               {
                 "$tag": "_DualArg",
@@ -6515,11 +6515,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Enum",
-                "name": "_DomainKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_DomainKind"
               },
               {
                 "$tag": "_OutputArg",
@@ -6542,11 +6542,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Number",
-                "name": "_DomainKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_DomainKind"
               },
               {
                 "$tag": "_DualArg",
@@ -6569,11 +6569,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "String",
-                "name": "_DomainKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_DomainKind"
               },
               {
                 "$tag": "_DualArg",
@@ -6597,11 +6597,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Boolean",
-                "name": "_DomainKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_DomainKind"
               },
               {
                 "$tag": "_DualArg",
@@ -6623,11 +6623,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Enum",
-                "name": "_DomainKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_DomainKind"
               },
               {
                 "$tag": "_OutputArg",
@@ -6649,11 +6649,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Number",
-                "name": "_DomainKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_DomainKind"
               },
               {
                 "$tag": "_DualArg",
@@ -6675,11 +6675,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "String",
-                "name": "_DomainKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_DomainKind"
               },
               {
                 "$tag": "_DualArg",
@@ -6876,11 +6876,11 @@
           {
             "$tag": "_OutputArg",
             "label": "Dual",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           },
           {
             "$tag": "_OutputArg",
@@ -7016,11 +7016,11 @@
           {
             "$tag": "_OutputArg",
             "label": "Enum",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           },
           {
             "$tag": "_DualArg",
@@ -7377,11 +7377,11 @@
           {
             "$tag": "_OutputArg",
             "label": "Input",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           },
           {
             "$tag": "_OutputArg",
@@ -7467,11 +7467,11 @@
       "name": "_TypeKind",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
-        "name": "_SimpleKind",
         "typeKind": {
           "$tag": "_SimpleKind",
           "value": "Enum"
-        }
+        },
+        "typeName": "_SimpleKind"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -7770,11 +7770,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_ObjectKind",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Domain"
-            }
+            },
+            "typeName": "_ObjectKind"
           },
           "name": "kind"
         },
@@ -7782,11 +7782,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_ObjBase",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Output"
-            }
+            },
+            "typeName": "_ObjBase"
           },
           "name": "parent"
         },
@@ -7794,11 +7794,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_ObjTypeParam",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Output"
-            }
+            },
+            "typeName": "_ObjTypeParam"
           },
           "name": "typeParam"
         },
@@ -7806,11 +7806,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_Field",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Output"
-            }
+            },
+            "typeName": "_Field"
           },
           "name": "field"
         },
@@ -7818,11 +7818,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_Alternate",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Output"
-            }
+            },
+            "typeName": "_Alternate"
           },
           "name": "alternate"
         }
@@ -8005,11 +8005,11 @@
           {
             "$tag": "_OutputArg",
             "label": "Output",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           },
           {
             "$tag": "_OutputArg",
@@ -8157,11 +8157,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           },
           "name": "kind"
         }
@@ -8180,11 +8180,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Basic",
-                "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_TypeKind"
               }
             ]
           }
@@ -8199,11 +8199,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Enum",
-                "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_TypeKind"
               }
             ]
           }
@@ -8218,11 +8218,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Domain",
-                "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_TypeKind"
               }
             ]
           }
@@ -8237,11 +8237,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Union",
-                "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_TypeKind"
               }
             ]
           }
@@ -8257,11 +8257,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Basic",
-                "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_TypeKind"
               }
             ]
           }
@@ -8275,11 +8275,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Enum",
-                "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_TypeKind"
               }
             ]
           }
@@ -8293,11 +8293,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Domain",
-                "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_TypeKind"
               }
             ]
           }
@@ -8311,11 +8311,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Union",
-                "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_TypeKind"
               }
             ]
           }
@@ -8438,11 +8438,11 @@
           {
             "$tag": "_OutputArg",
             "label": "Union",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           },
           {
             "$tag": "_OutputArg",

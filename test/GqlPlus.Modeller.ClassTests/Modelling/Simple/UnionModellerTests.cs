@@ -30,6 +30,6 @@ public class UnionModellerTests
     result.Description.ShouldBe(contents);
     result.Aliases.ShouldBe(aliases);
     result.Parent.ShouldNotBeNull()
-      .Name.ShouldBe(parent);
+      .TypeName.ShouldBe(parent);
   }
 }

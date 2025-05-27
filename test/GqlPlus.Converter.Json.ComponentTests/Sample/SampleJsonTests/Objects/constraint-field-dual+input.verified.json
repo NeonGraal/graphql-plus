@@ -134,11 +134,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "PrntInpCnstFieldDual",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Dual"
-            }
+            },
+            "typeName": "PrntInpCnstFieldDual"
           },
           "name": "ref"
         }

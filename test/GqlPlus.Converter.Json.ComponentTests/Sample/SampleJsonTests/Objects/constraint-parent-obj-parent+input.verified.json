@@ -127,11 +127,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "PrntInpCnstPrntObjPrnt",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Input"
-            }
+            },
+            "typeName": "PrntInpCnstPrntObjPrnt"
           },
           "name": "ref"
         }

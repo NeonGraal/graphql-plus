@@ -7,6 +7,7 @@ internal abstract record class AstSimple(
   string Name,
   string Description
 ) : AstType<string>(At, Name, Description)
+  , IGqlpSimple
 { }
 
 internal abstract record class AstSimple<TItemAst>(

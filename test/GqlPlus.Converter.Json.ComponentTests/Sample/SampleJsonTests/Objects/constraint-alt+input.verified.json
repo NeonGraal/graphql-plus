@@ -33,11 +33,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "Number",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            }
+            },
+            "typeName": "Number"
           },
           "name": "type"
         }

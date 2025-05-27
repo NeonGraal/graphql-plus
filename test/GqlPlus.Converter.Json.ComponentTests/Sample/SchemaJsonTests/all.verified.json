@@ -9,11 +9,11 @@
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
         "description": "Category Result",
-        "name": "All",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        }
+        },
+        "typeName": "All"
       },
       "resolution": {
         "$tag": "_Resolution",

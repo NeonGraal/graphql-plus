@@ -15,6 +15,6 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          name: Number
           typeKind: !_TypeKind Basic
+          typeName: Number
         name: type

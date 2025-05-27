@@ -27,7 +27,7 @@ public record class SimpleModel
   internal string? String { get; private init; }
   internal string? Value { get; private init; }
 
-  internal string EnumValue => $"{TypeRef?.Name}.{Value}";
+  internal string EnumValue => $"{TypeRef?.TypeName}.{Value}";
 
   internal static TypeRefModel<SimpleKindModel>? TypeFor(string? type)
     => string.IsNullOrWhiteSpace(type) ? null : new(SimpleKindModel.Domain, type!, "");

@@ -127,11 +127,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "PrntOutpCnstPrntObjPrnt",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Output"
-            }
+            },
+            "typeName": "PrntOutpCnstPrntObjPrnt"
           },
           "name": "ref"
         }

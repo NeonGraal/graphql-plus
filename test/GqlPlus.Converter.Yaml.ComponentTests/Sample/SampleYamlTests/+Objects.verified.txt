@@ -1303,8 +1303,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: Number
         typeKind: !_TypeKind Basic
+        typeName: Number
       name: type
   !_Identifier DualCnstAltDmn: !_TypeDual
     allAlternates:
@@ -2108,8 +2108,8 @@ types: !_Map_Type
       name: outpCnstEnumPrnt
     name: EnumOutpCnstEnumPrnt
     parent: !_TypeRef(_SimpleKind)
-      name: ParentOutpCnstEnumPrnt
       typeKind: !_SimpleKind Enum
+      typeName: ParentOutpCnstEnumPrnt
     typeKind: !_TypeKind Enum
   !_Identifier EnumOutpCnstPrntEnum: !_TypeEnum
     allItems:
@@ -2124,8 +2124,8 @@ types: !_Map_Type
       name: outpCnstPrntEnum
     name: EnumOutpCnstPrntEnum
     parent: !_TypeRef(_SimpleKind)
-      name: ParentOutpCnstPrntEnum
       typeKind: !_SimpleKind Enum
+      typeName: ParentOutpCnstPrntEnum
     typeKind: !_TypeKind Enum
   !_Identifier EnumOutpFieldEnum: !_TypeEnum
     allItems:
@@ -2150,8 +2150,8 @@ types: !_Map_Type
       name: outpFieldEnumPrnt
     name: EnumOutpFieldEnumPrnt
     parent: !_TypeRef(_SimpleKind)
-      name: PrntOutpFieldEnumPrnt
       typeKind: !_SimpleKind Enum
+      typeName: PrntOutpFieldEnumPrnt
     typeKind: !_TypeKind Enum
   !_Identifier EnumOutpFieldModEnum: !_TypeEnum
     allItems:
@@ -2216,8 +2216,8 @@ types: !_Map_Type
       name: outpPrntGnrc
     name: EnumOutpPrntGnrc
     parent: !_TypeRef(_SimpleKind)
-      name: PrntOutpPrntGnrc
       typeKind: !_SimpleKind Enum
+      typeName: PrntOutpPrntGnrc
     typeKind: !_TypeKind Enum
   !_Identifier FldDualFieldDual: !_TypeDual
     allAlternates:
@@ -2715,8 +2715,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: Number
         typeKind: !_TypeKind Basic
+        typeName: Number
       name: type
   !_Identifier InpCnstAltDmn: !_TypeInput
     allAlternates:
@@ -3548,16 +3548,16 @@ types: !_Map_Type
       exclude: false
       value: !_EnumValue
         label: outpCnstDomEnum
-        name: EnumOutpCnstDomEnum
         typeKind: !_SimpleKind Enum
+        typeName: EnumOutpCnstDomEnum
     domainKind: !_DomainKind Enum
     items:
     - !_DomainLabel
       exclude: false
       value: !_EnumValue
         label: outpCnstDomEnum
-        name: EnumOutpCnstDomEnum
         typeKind: !_SimpleKind Enum
+        typeName: EnumOutpCnstDomEnum
     name: JustOutpCnstDomEnum
     typeKind: !_TypeKind Domain
   !_Identifier OutpAlt: !_TypeOutput
@@ -3670,8 +3670,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: Number
         typeKind: !_TypeKind Basic
+        typeName: Number
       name: type
   !_Identifier OutpCnstAltDmn: !_TypeOutput
     allAlternates:
@@ -3973,15 +3973,15 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       field: field
       label: outpFieldEnum
-      name: EnumOutpFieldEnum
       object: OutpFieldEnum
       typeKind: !_SimpleKind Enum
+      typeName: EnumOutpFieldEnum
     fields:
     - !_OutputEnum
       field: field
       label: outpFieldEnum
-      name: EnumOutpFieldEnum
       typeKind: !_SimpleKind Enum
+      typeName: EnumOutpFieldEnum
     name: OutpFieldEnum
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldEnumPrnt: !_TypeOutput
@@ -3989,15 +3989,15 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       field: field
       label: prnt_outpFieldEnumPrnt
-      name: EnumOutpFieldEnumPrnt
       object: OutpFieldEnumPrnt
       typeKind: !_SimpleKind Enum
+      typeName: EnumOutpFieldEnumPrnt
     fields:
     - !_OutputEnum
       field: field
       label: prnt_outpFieldEnumPrnt
-      name: EnumOutpFieldEnumPrnt
       typeKind: !_SimpleKind Enum
+      typeName: EnumOutpFieldEnumPrnt
     name: OutpFieldEnumPrnt
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldModEnum: !_TypeOutput
@@ -4084,31 +4084,35 @@ types: !_Map_Type
   !_Identifier OutpFieldValue: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      field: EnumOutpFieldValue
+      field: field
       label: outpFieldValue
       object: OutpFieldValue
       typeKind: !_SimpleKind Enum
+      typeName: EnumOutpFieldValue
     fields:
     - !_OutputEnum
-      field: EnumOutpFieldValue
+      field: field
       label: outpFieldValue
       typeKind: !_SimpleKind Enum
+      typeName: EnumOutpFieldValue
     name: OutpFieldValue
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldValueDescr: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       description: 'Test Descr'
-      field: EnumOutpFieldValueDescr
+      field: field
       label: outpFieldValueDescr
       object: OutpFieldValueDescr
       typeKind: !_SimpleKind Enum
+      typeName: EnumOutpFieldValueDescr
     fields:
     - !_OutputEnum
       description: 'Test Descr'
-      field: EnumOutpFieldValueDescr
+      field: field
       label: outpFieldValueDescr
       typeKind: !_SimpleKind Enum
+      typeName: EnumOutpFieldValueDescr
     name: OutpFieldValueDescr
     typeKind: !_TypeKind Output
   !_Identifier OutpGnrcAlt: !_TypeOutput
@@ -4251,8 +4255,8 @@ types: !_Map_Type
         typeArgs:
         - !_OutputArg
           label: outpGnrcEnum
-          name: EnumOutpGnrcEnum
           typeKind: !_SimpleKind Enum
+          typeName: EnumOutpGnrcEnum
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
@@ -4260,8 +4264,8 @@ types: !_Map_Type
         typeArgs:
         - !_OutputArg
           label: outpGnrcEnum
-          name: EnumOutpGnrcEnum
           typeKind: !_SimpleKind Enum
+          typeName: EnumOutpGnrcEnum
     name: OutpGnrcEnum
     typeKind: !_TypeKind Output
   !_Identifier OutpGnrcField: !_TypeOutput
@@ -4660,8 +4664,8 @@ types: !_Map_Type
         typeArgs:
         - !_OutputArg
           label: prnt_outpPrntGnrc
-          name: EnumOutpPrntGnrc
           typeKind: !_SimpleKind Enum
+          typeName: EnumOutpPrntGnrc
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
@@ -4669,8 +4673,8 @@ types: !_Map_Type
         typeArgs:
         - !_OutputArg
           label: prnt_outpPrntGnrc
-          name: EnumOutpPrntGnrc
           typeKind: !_SimpleKind Enum
+          typeName: EnumOutpPrntGnrc
     name: OutpPrntGnrc
     typeKind: !_TypeKind Output
   !_Identifier OutpPrntParam: !_TypeOutput
@@ -5071,8 +5075,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: String
         typeKind: !_TypeKind Basic
+        typeName: String
       name: ref
   !_Identifier RefDualCnstAltDual: !_TypeDual
     allAlternates:
@@ -5089,8 +5093,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: PrntDualCnstAltDual
         typeKind: !_TypeKind Dual
+        typeName: PrntDualCnstAltDual
       name: ref
   !_Identifier RefDualCnstAltObj: !_TypeDual
     allAlternates:
@@ -5107,8 +5111,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: PrntDualCnstAltObj
         typeKind: !_TypeKind Dual
+        typeName: PrntDualCnstAltObj
       name: ref
   !_Identifier RefDualCnstFieldDmn: !_TypeDual
     allFields:
@@ -5127,8 +5131,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: String
         typeKind: !_TypeKind Basic
+        typeName: String
       name: ref
   !_Identifier RefDualCnstFieldDual: !_TypeDual
     allFields:
@@ -5147,8 +5151,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: PrntDualCnstFieldDual
         typeKind: !_TypeKind Dual
+        typeName: PrntDualCnstFieldDual
       name: ref
   !_Identifier RefDualCnstFieldObj: !_TypeDual
     allFields:
@@ -5167,8 +5171,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: PrntDualCnstFieldObj
         typeKind: !_TypeKind Dual
+        typeName: PrntDualCnstFieldObj
       name: ref
   !_Identifier RefDualCnstPrntDualPrnt: !_TypeDual
     name: RefDualCnstPrntDualPrnt
@@ -5178,8 +5182,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: PrntDualCnstPrntDualPrnt
         typeKind: !_TypeKind Dual
+        typeName: PrntDualCnstPrntDualPrnt
       name: ref
   !_Identifier RefDualCnstPrntObjPrnt: !_TypeDual
     name: RefDualCnstPrntObjPrnt
@@ -5189,8 +5193,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: PrntDualCnstPrntObjPrnt
         typeKind: !_TypeKind Dual
+        typeName: PrntDualCnstPrntObjPrnt
       name: ref
   !_Identifier RefDualGnrcAltArg: !_TypeDual
     allAlternates:
@@ -5583,8 +5587,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: String
         typeKind: !_TypeKind Basic
+        typeName: String
       name: ref
   !_Identifier RefInpCnstAltDual: !_TypeInput
     allAlternates:
@@ -5601,8 +5605,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: PrntInpCnstAltDual
         typeKind: !_TypeKind Dual
+        typeName: PrntInpCnstAltDual
       name: ref
   !_Identifier RefInpCnstAltObj: !_TypeInput
     allAlternates:
@@ -5619,8 +5623,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: PrntInpCnstAltObj
         typeKind: !_TypeKind Input
+        typeName: PrntInpCnstAltObj
       name: ref
   !_Identifier RefInpCnstFieldDmn: !_TypeInput
     allFields:
@@ -5639,8 +5643,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: String
         typeKind: !_TypeKind Basic
+        typeName: String
       name: ref
   !_Identifier RefInpCnstFieldDual: !_TypeInput
     allFields:
@@ -5659,8 +5663,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: PrntInpCnstFieldDual
         typeKind: !_TypeKind Dual
+        typeName: PrntInpCnstFieldDual
       name: ref
   !_Identifier RefInpCnstFieldObj: !_TypeInput
     allFields:
@@ -5679,8 +5683,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: PrntInpCnstFieldObj
         typeKind: !_TypeKind Input
+        typeName: PrntInpCnstFieldObj
       name: ref
   !_Identifier RefInpCnstPrntDualPrnt: !_TypeInput
     name: RefInpCnstPrntDualPrnt
@@ -5690,8 +5694,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: PrntInpCnstPrntDualPrnt
         typeKind: !_TypeKind Dual
+        typeName: PrntInpCnstPrntDualPrnt
       name: ref
   !_Identifier RefInpCnstPrntObjPrnt: !_TypeInput
     name: RefInpCnstPrntObjPrnt
@@ -5701,8 +5705,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: PrntInpCnstPrntObjPrnt
         typeKind: !_TypeKind Input
+        typeName: PrntInpCnstPrntObjPrnt
       name: ref
   !_Identifier RefInpGnrcAltArg: !_TypeInput
     allAlternates:
@@ -6095,8 +6099,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: String
         typeKind: !_TypeKind Basic
+        typeName: String
       name: ref
   !_Identifier RefOutpCnstAltDual: !_TypeOutput
     allAlternates:
@@ -6113,8 +6117,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: PrntOutpCnstAltDual
         typeKind: !_TypeKind Dual
+        typeName: PrntOutpCnstAltDual
       name: ref
   !_Identifier RefOutpCnstAltObj: !_TypeOutput
     allAlternates:
@@ -6131,8 +6135,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: PrntOutpCnstAltObj
         typeKind: !_TypeKind Output
+        typeName: PrntOutpCnstAltObj
       name: ref
   !_Identifier RefOutpCnstDomEnum: !_TypeOutput
     allFields:
@@ -6151,8 +6155,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: JustOutpCnstDomEnum
         typeKind: !_TypeKind Domain
+        typeName: JustOutpCnstDomEnum
       name: type
   !_Identifier RefOutpCnstEnum: !_TypeOutput
     allFields:
@@ -6171,8 +6175,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: EnumOutpCnstEnum
         typeKind: !_TypeKind Enum
+        typeName: EnumOutpCnstEnum
       name: type
   !_Identifier RefOutpCnstEnumPrnt: !_TypeOutput
     allFields:
@@ -6191,8 +6195,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: ParentOutpCnstEnumPrnt
         typeKind: !_TypeKind Enum
+        typeName: ParentOutpCnstEnumPrnt
       name: type
   !_Identifier RefOutpCnstFieldDmn: !_TypeOutput
     allFields:
@@ -6211,8 +6215,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: String
         typeKind: !_TypeKind Basic
+        typeName: String
       name: ref
   !_Identifier RefOutpCnstFieldDual: !_TypeOutput
     allFields:
@@ -6231,8 +6235,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: PrntOutpCnstFieldDual
         typeKind: !_TypeKind Dual
+        typeName: PrntOutpCnstFieldDual
       name: ref
   !_Identifier RefOutpCnstFieldObj: !_TypeOutput
     allFields:
@@ -6251,8 +6255,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: PrntOutpCnstFieldObj
         typeKind: !_TypeKind Output
+        typeName: PrntOutpCnstFieldObj
       name: ref
   !_Identifier RefOutpCnstPrntDualPrnt: !_TypeOutput
     name: RefOutpCnstPrntDualPrnt
@@ -6262,8 +6266,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: PrntOutpCnstPrntDualPrnt
         typeKind: !_TypeKind Dual
+        typeName: PrntOutpCnstPrntDualPrnt
       name: ref
   !_Identifier RefOutpCnstPrntEnum: !_TypeOutput
     allFields:
@@ -6282,8 +6286,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: EnumOutpCnstPrntEnum
         typeKind: !_TypeKind Enum
+        typeName: EnumOutpCnstPrntEnum
       name: type
   !_Identifier RefOutpCnstPrntObjPrnt: !_TypeOutput
     name: RefOutpCnstPrntObjPrnt
@@ -6293,8 +6297,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: PrntOutpCnstPrntObjPrnt
         typeKind: !_TypeKind Output
+        typeName: PrntOutpCnstPrntObjPrnt
       name: ref
   !_Identifier RefOutpGnrcAltArg: !_TypeOutput
     allAlternates:

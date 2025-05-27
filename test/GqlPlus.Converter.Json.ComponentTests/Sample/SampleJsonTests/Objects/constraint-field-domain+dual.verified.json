@@ -91,11 +91,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            }
+            },
+            "typeName": "String"
           },
           "name": "ref"
         }

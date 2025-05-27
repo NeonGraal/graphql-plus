@@ -21,6 +21,21 @@ public class YamlWrappedTests
     WithListFlow_Check(result, input);
   }
 
+  [Fact]
+  public void WithListTagFlowSpecific_ReturnsCorrect()
+  {
+    // Arrange
+    string[] input = ["q04_9_1_84t3UnnF", "fR", "G2", "htgbTjj_57_wBW5qz25_C_rC347V17c_e8", "MP"];
+    string tag = "WvZsK2_";
+    Structured model = input.Render(tag, flow: true);
+
+    // Act
+    string result = Convert(model);
+
+    // Assert
+    WithListTagFlow_Check(result, input, tag);
+  }
+
   protected override string Convert(Structured model)
     => model.ToYaml(wrapped: true);
 
@@ -54,8 +69,8 @@ public class YamlWrappedTests
     => result.ShouldStartWith(WithTag(tag, $"{input}"));
   protected override void WithIdentifierTag_Check(string result, string input, string tag)
     => result.ShouldStartWith(WithTag(tag, input));
-  protected override void WithListTagFlow_Check(string result, string[] input, string tag)
-    => result.ShouldStartWith(input.Surround("[", "]", ", "));
+  protected override void WithListTagFlow_Check(string result, [NotNull] string[] input, string tag)
+    => result.ToLines().ShouldBe(Wrapped("[", "]", input, k => k, "  "));
   protected override void WithListTag_Check(string result, string[] input, string tag)
     => result.ToLines().ShouldBe(input.Select(s => "- " + s));
   protected override void WithListTagMap_Check(string result, string[] input, string tag)

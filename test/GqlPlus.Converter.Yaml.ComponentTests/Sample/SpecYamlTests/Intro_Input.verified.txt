@@ -140,8 +140,8 @@ types: !_Map_Type
         typeArgs:
         - !_OutputArg
           label: Dual
-          name: _TypeKind
           typeKind: !_SimpleKind Enum
+          typeName: _TypeKind
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
@@ -149,16 +149,16 @@ types: !_Map_Type
         typeArgs:
         - !_OutputArg
           label: Dual
-          name: _TypeKind
           typeKind: !_SimpleKind Enum
+          typeName: _TypeKind
     name: _InputTypeParam
     parent: !_OutputBase
       output: _ObjTypeParam
       typeArgs:
       - !_OutputArg
         label: Input
-        name: _TypeKind
         typeKind: !_SimpleKind Enum
+        typeName: _TypeKind
     typeKind: !_TypeKind Output
   !_Identifier _TypeInput: !_TypeOutput
     name: _TypeInput
@@ -167,8 +167,8 @@ types: !_Map_Type
       typeArgs:
       - !_OutputArg
         label: Input
-        name: _TypeKind
         typeKind: !_SimpleKind Enum
+        typeName: _TypeKind
       - !_OutputArg
         output: _InputBase
       - !_OutputArg

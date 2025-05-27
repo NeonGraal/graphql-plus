@@ -6,9 +6,10 @@ Success
   OutpFieldValue
   {
     !OF I@025/0001
-    EnumOutpFieldValue
+    field
     =
     I@033/0001
+    EnumOutpFieldValue
     .outpFieldValue
   }
 }

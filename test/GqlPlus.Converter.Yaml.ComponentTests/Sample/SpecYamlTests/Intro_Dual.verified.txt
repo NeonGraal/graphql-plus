@@ -77,8 +77,8 @@ types: !_Map_Type
       typeArgs:
       - !_OutputArg
         label: Dual
-        name: _TypeKind
         typeKind: !_SimpleKind Enum
+        typeName: _TypeKind
     typeKind: !_TypeKind Output
   !_Identifier _TypeDual: !_TypeOutput
     name: _TypeDual
@@ -87,8 +87,8 @@ types: !_Map_Type
       typeArgs:
       - !_OutputArg
         label: Dual
-        name: _TypeKind
         typeKind: !_SimpleKind Enum
+        typeName: _TypeKind
       - !_OutputArg
         output: _DualBase
       - !_OutputArg

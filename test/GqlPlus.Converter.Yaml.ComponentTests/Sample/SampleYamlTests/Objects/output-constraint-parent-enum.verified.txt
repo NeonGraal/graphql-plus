@@ -13,8 +13,8 @@ types: !_Map_Type
       name: outpCnstPrntEnum
     name: EnumOutpCnstPrntEnum
     parent: !_TypeRef(_SimpleKind)
-      name: ParentOutpCnstPrntEnum
       typeKind: !_SimpleKind Enum
+      typeName: ParentOutpCnstPrntEnum
     typeKind: !_TypeKind Enum
   !_Identifier OutpCnstPrntEnum: !_TypeOutput
     allAlternates:
@@ -61,6 +61,6 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
-        name: EnumOutpCnstPrntEnum
         typeKind: !_TypeKind Enum
+        typeName: EnumOutpCnstPrntEnum
       name: type

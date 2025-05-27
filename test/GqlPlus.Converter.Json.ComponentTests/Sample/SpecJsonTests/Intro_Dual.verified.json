@@ -170,11 +170,11 @@
           {
             "$tag": "_OutputArg",
             "label": "Dual",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           }
         ]
       },
@@ -193,11 +193,11 @@
           {
             "$tag": "_OutputArg",
             "label": "Dual",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           },
           {
             "$tag": "_OutputArg",

@@ -95,11 +95,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "EnumOutpCnstEnum",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "EnumOutpCnstEnum"
           },
           "name": "type"
         }

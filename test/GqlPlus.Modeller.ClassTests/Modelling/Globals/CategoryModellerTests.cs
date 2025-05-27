@@ -29,7 +29,7 @@ public class CategoryModellerTests
     // Assert
     result.ShouldNotBeNull();
     result.Name.ShouldBe(categoryName);
-    result.Output.Name.ShouldBe(outputName);
+    result.Output.TypeName.ShouldBe(outputName);
     result.Description.ShouldBe(contents);
     result.Resolution.ShouldBe(CategoryOption.Parallel);
   }

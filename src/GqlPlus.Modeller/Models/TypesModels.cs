@@ -82,9 +82,9 @@ public enum TypeKindModel
 
 public record class TypeRefModel<TKind>(
   TKind TypeKind,
-  string Name,
+  string TypeName,
   string Description
-) : NamedModel(Name, Description)
+) : DescribedModel(Description)
   where TKind : struct
 { }
 

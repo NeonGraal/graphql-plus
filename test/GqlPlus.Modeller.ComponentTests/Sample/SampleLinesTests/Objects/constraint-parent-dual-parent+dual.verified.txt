@@ -60,6 +60,6 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          name: PrntDualCnstPrntDualPrnt
           typeKind: !_TypeKind Dual
+          typeName: PrntDualCnstPrntDualPrnt
         name: ref

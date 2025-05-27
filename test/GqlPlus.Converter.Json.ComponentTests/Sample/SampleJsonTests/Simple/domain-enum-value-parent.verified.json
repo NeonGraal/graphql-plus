@@ -12,11 +12,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "prnt_dmnEnumValuePrnt",
-            "name": "EnumDmnEnumValuePrnt",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "EnumDmnEnumValuePrnt"
           }
         }
       ],
@@ -31,11 +31,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "prnt_dmnEnumValuePrnt",
-            "name": "EnumDmnEnumValuePrnt",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "EnumDmnEnumValuePrnt"
           }
         }
       ],
@@ -68,11 +68,11 @@
       "name": "EnumDmnEnumValuePrnt",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
-        "name": "PrntDmnEnumValuePrnt",
         "typeKind": {
           "$tag": "_SimpleKind",
           "value": "Enum"
-        }
+        },
+        "typeName": "PrntDmnEnumValuePrnt"
       },
       "typeKind": {
         "$tag": "_TypeKind",

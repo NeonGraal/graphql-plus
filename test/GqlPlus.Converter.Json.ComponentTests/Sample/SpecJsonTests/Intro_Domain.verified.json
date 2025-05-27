@@ -59,11 +59,11 @@
           {
             "$tag": "_OutputArg",
             "label": "Domain",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           },
           {
             "$tag": "_OutputArg",
@@ -516,11 +516,11 @@
           {
             "$tag": "_OutputArg",
             "label": "Domain",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           }
         ]
       },
@@ -690,11 +690,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Boolean",
-                "name": "_DomainKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_DomainKind"
               },
               {
                 "$tag": "_DualArg",
@@ -717,11 +717,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Enum",
-                "name": "_DomainKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_DomainKind"
               },
               {
                 "$tag": "_OutputArg",
@@ -744,11 +744,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Number",
-                "name": "_DomainKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_DomainKind"
               },
               {
                 "$tag": "_DualArg",
@@ -771,11 +771,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "String",
-                "name": "_DomainKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_DomainKind"
               },
               {
                 "$tag": "_DualArg",
@@ -799,11 +799,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Boolean",
-                "name": "_DomainKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_DomainKind"
               },
               {
                 "$tag": "_DualArg",
@@ -825,11 +825,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Enum",
-                "name": "_DomainKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_DomainKind"
               },
               {
                 "$tag": "_OutputArg",
@@ -851,11 +851,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Number",
-                "name": "_DomainKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_DomainKind"
               },
               {
                 "$tag": "_DualArg",
@@ -877,11 +877,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "String",
-                "name": "_DomainKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_DomainKind"
               },
               {
                 "$tag": "_DualArg",

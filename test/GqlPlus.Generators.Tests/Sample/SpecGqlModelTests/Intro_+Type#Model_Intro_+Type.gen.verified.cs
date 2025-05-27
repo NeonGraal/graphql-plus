@@ -93,14 +93,14 @@ public interface I_TypeRef<Tkind>
   : I_Described
 {
   Tkind typeKind { get; }
-  _Identifier name { get; }
+  _Identifier typeName { get; }
 }
 public class Output_TypeRef<Tkind>
   : Output_Described
   , I_TypeRef<Tkind>
 {
   public Tkind typeKind { get; set; }
-  public _Identifier name { get; set; }
+  public _Identifier typeName { get; set; }
 }
 
 public interface I_TypeSimple

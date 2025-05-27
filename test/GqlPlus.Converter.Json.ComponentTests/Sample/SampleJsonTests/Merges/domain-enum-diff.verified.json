@@ -12,11 +12,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "true",
-            "name": "Boolean",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "Boolean"
           }
         },
         {
@@ -26,11 +26,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "false",
-            "name": "Boolean",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "Boolean"
           }
         }
       ],
@@ -45,11 +45,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "true",
-            "name": "Boolean",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "Boolean"
           }
         },
         {
@@ -58,11 +58,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "false",
-            "name": "Boolean",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "Boolean"
           }
         }
       ],

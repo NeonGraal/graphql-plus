@@ -2422,12 +2422,12 @@ public enum PrntOutpFieldEnumPrnt
 
 public interface IOutpFieldValue
 {
-   EnumOutpFieldValue { get; }
+  EnumOutpFieldValue field { get; }
 }
 public class OutputOutpFieldValue
   : IOutpFieldValue
 {
-  public  EnumOutpFieldValue { get; set; }
+  public EnumOutpFieldValue field { get; set; }
 }
 
 public enum EnumOutpFieldValue
@@ -2437,12 +2437,12 @@ public enum EnumOutpFieldValue
 
 public interface IOutpFieldValueDescr
 {
-   EnumOutpFieldValueDescr { get; }
+  EnumOutpFieldValueDescr field { get; }
 }
 public class OutputOutpFieldValueDescr
   : IOutpFieldValueDescr
 {
-  public  EnumOutpFieldValueDescr { get; set; }
+  public EnumOutpFieldValueDescr field { get; set; }
 }
 
 public enum EnumOutpFieldValueDescr
@@ -3682,25 +3682,21 @@ public class OutputRefOutpObjPrnt
 public interface IOutpFieldEnumAlias
 {
   Boolean field { get; }
-   Boolean { get; }
 }
 public class OutputOutpFieldEnumAlias
   : IOutpFieldEnumAlias
 {
   public Boolean field { get; set; }
-  public  Boolean { get; set; }
 }
 
 public interface IOutpFieldEnumValue
 {
   Boolean field { get; }
-   Boolean { get; }
 }
 public class OutputOutpFieldEnumValue
   : IOutpFieldEnumValue
 {
   public Boolean field { get; set; }
-  public  Boolean { get; set; }
 }
 
 public interface IOutpFieldParam

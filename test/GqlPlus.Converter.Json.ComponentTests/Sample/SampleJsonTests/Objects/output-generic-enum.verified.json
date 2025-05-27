@@ -36,11 +36,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "outpGnrcEnum",
-                "name": "EnumOutpGnrcEnum",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "EnumOutpGnrcEnum"
               }
             ]
           }
@@ -56,11 +56,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "outpGnrcEnum",
-                "name": "EnumOutpGnrcEnum",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "EnumOutpGnrcEnum"
               }
             ]
           }

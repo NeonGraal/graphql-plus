@@ -487,25 +487,21 @@ public class OutputRefOutpObjPrnt
 public interface IOutpFieldEnumAlias
 {
   Boolean field { get; }
-   Boolean { get; }
 }
 public class OutputOutpFieldEnumAlias
   : IOutpFieldEnumAlias
 {
   public Boolean field { get; set; }
-  public  Boolean { get; set; }
 }
 
 public interface IOutpFieldEnumValue
 {
   Boolean field { get; }
-   Boolean { get; }
 }
 public class OutputOutpFieldEnumValue
   : IOutpFieldEnumValue
 {
   public Boolean field { get; set; }
-  public  Boolean { get; set; }
 }
 
 public interface IOutpFieldParam

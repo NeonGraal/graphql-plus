@@ -28,8 +28,8 @@ types: !_Map_Type
       typeArgs:
       - !_OutputArg
         label: Domain
-        name: _TypeKind
         typeKind: !_SimpleKind Enum
+        typeName: _TypeKind
       - !_OutputArg
         typeParam: item
       - !_OutputArg
@@ -241,8 +241,8 @@ types: !_Map_Type
       typeArgs:
       - !_OutputArg
         label: Domain
-        name: _TypeKind
         typeKind: !_SimpleKind Enum
+        typeName: _TypeKind
     typeKind: !_TypeKind Output
     typeParams:
     - !_Named
@@ -327,8 +327,8 @@ types: !_Map_Type
         typeArgs:
         - !_OutputArg
           label: Boolean
-          name: _DomainKind
           typeKind: !_SimpleKind Enum
+          typeName: _DomainKind
         - !_DualArg
           dual: _DomainTrueFalse
         - !_OutputArg
@@ -340,8 +340,8 @@ types: !_Map_Type
         typeArgs:
         - !_OutputArg
           label: Enum
-          name: _DomainKind
           typeKind: !_SimpleKind Enum
+          typeName: _DomainKind
         - !_OutputArg
           output: _DomainLabel
         - !_OutputArg
@@ -353,8 +353,8 @@ types: !_Map_Type
         typeArgs:
         - !_OutputArg
           label: Number
-          name: _DomainKind
           typeKind: !_SimpleKind Enum
+          typeName: _DomainKind
         - !_DualArg
           dual: _DomainRange
         - !_OutputArg
@@ -366,8 +366,8 @@ types: !_Map_Type
         typeArgs:
         - !_OutputArg
           label: String
-          name: _DomainKind
           typeKind: !_SimpleKind Enum
+          typeName: _DomainKind
         - !_DualArg
           dual: _DomainRegex
         - !_OutputArg
@@ -379,8 +379,8 @@ types: !_Map_Type
         typeArgs:
         - !_OutputArg
           label: Boolean
-          name: _DomainKind
           typeKind: !_SimpleKind Enum
+          typeName: _DomainKind
         - !_DualArg
           dual: _DomainTrueFalse
         - !_OutputArg
@@ -391,8 +391,8 @@ types: !_Map_Type
         typeArgs:
         - !_OutputArg
           label: Enum
-          name: _DomainKind
           typeKind: !_SimpleKind Enum
+          typeName: _DomainKind
         - !_OutputArg
           output: _DomainLabel
         - !_OutputArg
@@ -403,8 +403,8 @@ types: !_Map_Type
         typeArgs:
         - !_OutputArg
           label: Number
-          name: _DomainKind
           typeKind: !_SimpleKind Enum
+          typeName: _DomainKind
         - !_DualArg
           dual: _DomainRange
         - !_OutputArg
@@ -415,8 +415,8 @@ types: !_Map_Type
         typeArgs:
         - !_OutputArg
           label: String
-          name: _DomainKind
           typeKind: !_SimpleKind Enum
+          typeName: _DomainKind
         - !_DualArg
           dual: _DomainRegex
         - !_OutputArg

@@ -3,10 +3,10 @@
 namespace GqlPlus.Resolving;
 
 internal class TypesContext(
-  ITypesModeller types
+  IModeller<IGqlpType, BaseTypeModel> types
 ) : ModelsContext
 {
-  internal static TypesContext WithBuiltins(ITypesModeller types)
+  internal static TypesContext WithBuiltins(IModeller<IGqlpType, BaseTypeModel> types)
   {
     TypesContext typeKinds = new(types);
 

@@ -2937,9 +2937,10 @@ Success
   OutpFieldValue
   {
     !OF I@025/0001
-    EnumOutpFieldValue
+    field
     =
     I@033/0001
+    EnumOutpFieldValue
     .outpFieldValue
   }
 }
@@ -2954,10 +2955,11 @@ Success
   OutpFieldValueDescr
   {
     !OF I@030/0001
-    EnumOutpFieldValueDescr
+    field
     =
     'Test Descr'
     I@053/0001
+    EnumOutpFieldValueDescr
     .outpFieldValueDescr
   }
 }
@@ -4311,18 +4313,11 @@ Success
     field
     [
       field1
+      field2
     ]
     =
     I@046/0001
     Boolean
-    .true
-    !OF I@029/0002
-    Boolean
-    [
-      field2
-    ]
-    =
-    I@046/0002
     .true
   }
 }
@@ -4335,11 +4330,6 @@ Success
     =
     I@037/0001
     Boolean
-    .true
-    !OF I@029/0002
-    Boolean
-    =
-    I@037/0002
     .true
   }
 }

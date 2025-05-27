@@ -298,14 +298,14 @@ public interface I_TypeRef<Tkind>
   : I_Described
 {
   Tkind typeKind { get; }
-  _Identifier name { get; }
+  _Identifier typeName { get; }
 }
 public class Output_TypeRef<Tkind>
   : Output_Described
   , I_TypeRef<Tkind>
 {
   public Tkind typeKind { get; set; }
-  public _Identifier name { get; set; }
+  public _Identifier typeName { get; set; }
 }
 
 public interface I_TypeSimple
@@ -769,13 +769,13 @@ public class Output_ObjTypeParam
 
 public interface I_Alternate<Tbase>
 {
-  Tbase base { get; }
+  Tbase type { get; }
   _Collections collections { get; }
 }
 public class Output_Alternate<Tbase>
   : I_Alternate<Tbase>
 {
-  public Tbase base { get; set; }
+  public Tbase type { get; set; }
   public _Collections collections { get; set; }
 }
 

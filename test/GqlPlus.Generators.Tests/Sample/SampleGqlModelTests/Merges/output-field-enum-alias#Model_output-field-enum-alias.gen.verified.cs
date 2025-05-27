@@ -9,11 +9,9 @@ namespace GqlTest.Model_output_field_enum_alias;
 public interface IOutpFieldEnumAlias
 {
   Boolean field { get; }
-   Boolean { get; }
 }
 public class OutputOutpFieldEnumAlias
   : IOutpFieldEnumAlias
 {
   public Boolean field { get; set; }
-  public  Boolean { get; set; }
 }

@@ -23,7 +23,7 @@ internal static class LinesHelpers
       f => f.Surround("[", "]", mapper, ","),
       i => i.IsList(v => {
         string item = mapper(v);
-        if (item.Contains(Environment.NewLine, StringComparison.Ordinal)) {
+        if (!item.StartsWith('!') && item.Contains(Environment.NewLine, StringComparison.Ordinal)) {
           return indent + "-".IsLine() + item;
         } else {
           return indent + "- " + item;

@@ -100,13 +100,13 @@ public class Output_ObjTypeParam
 
 public interface I_Alternate<Tbase>
 {
-  Tbase base { get; }
+  Tbase type { get; }
   _Collections collections { get; }
 }
 public class Output_Alternate<Tbase>
   : I_Alternate<Tbase>
 {
-  public Tbase base { get; set; }
+  public Tbase type { get; set; }
   public _Collections collections { get; set; }
 }
 

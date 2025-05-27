@@ -2,8 +2,15 @@
 param (
   [switch]$Html = $false,
   [Switch]$NoCoverage = $false,
-  [Switch]$ShowGithub = $false
+  [Switch]$ShowGithub = $false,
+  [switch]$ClassTests = $false,
+  $Framework = "9.0"
 )
+
+$testSet = "All"
+if ($ClassTests) {
+  $testSet = "Class"
+}
 
 function Get-Badge($params, $label, $body, $colour, $prefix = "") {
   $labelText = $label -f $params
@@ -69,10 +76,10 @@ function Write-Coverage($cover, $prefix = "") {
   Write-Host "$prefix$message"
 }
 
-[PsObject]$allCoverage = @{label = "All"; linesCovered = 0; linesValid = 0; lineRate = 100.0 }
+[PsObject]$allCoverage = @{label = $testSet; linesCovered = 0; linesValid = 0; lineRate = 100.0 }
 
 if (-not $NoCoverage) {
-  $coverage = Get-ChildItem coverage -Filter "Coverage*.xml" | ForEach-Object {
+  $coverage = Get-ChildItem coverage -Filter "Coverage-$Framework*.xml" | ForEach-Object {
     [xml]$coverageXml = Get-Content $_.FullName
     $lines = $coverageXml.coverage
 
@@ -87,10 +94,10 @@ if (-not $NoCoverage) {
   } | Sort-Object label
 }
 
-[PsObject]$allTests = @{label = "All Tests"; skipped = 0; passed = 0; failed = 0; error = 0 }
+[PsObject]$allTests = @{label = "$testSet tests"; skipped = 0; passed = 0; failed = 0; error = 0 }
 $allErrors = @{}
 
-$tests = Get-ChildItem . -Recurse -Filter "TestResults*.trx" | ForEach-Object {
+$tests = Get-ChildItem . -Recurse -Filter "TestResults-$Framework*.trx" | ForEach-Object {
   [xml]$trx = Get-Content $_.FullName
 
   $name = $_.Directory.Parent.Name -replace "GqlPlus\.","" -replace "\."," "

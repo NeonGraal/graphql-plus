@@ -6,13 +6,21 @@ namespace GqlPlus.Convert;
 public class JsonIndentedTests
   : ConverterClassTestBase
 {
-
   [Fact]
   public void WithMapKeysSpecific_ReturnsCorrect()
   {
     string[] keys = ["L6", "K", "twE39__243f", "k"];
 
     WithMapKeys_ReturnsCorrect(keys);
+  }
+
+  [Fact]
+  public void WithMapTagKeysSpecific_ReturnsCorrect()
+  {
+    string[] keys = ["X", "E_7__6_Y_", "x", "HfVh_", "rM_f"];
+    string tag = "m";
+
+    WithMapTagKeys_ReturnsCorrect(keys, tag);
   }
 
   protected override string Convert(Structured model)
@@ -57,7 +65,7 @@ public class JsonIndentedTests
   protected override void WithMapTagFlow_Check(string result, string key, string value, string tag)
     => result.ToLines().ShouldBe(WithTag(tag, value.Quoted('"'), key));
   protected override void WithMapTagKeys_Check(string result, [NotNull] string[] keys, string tag)
-    => result.ToLines().ShouldBe(["{", $"  \"$tag\": \"{tag}\",", .. keys.Order(StringComparer.CurrentCultureIgnoreCase).Select(MapKeysFormat(keys.Length - 1)), "}"]);
+    => result.ToLines().ShouldBe(["{", $"  \"$tag\": \"{tag}\",", .. keys.Order(StringComparer.CurrentCultureIgnoreCase).Select(MapKeysFormat(keys.Length - 1)), "}"], Case.Insensitive);
   protected override void WithMapTagList_Check(string result, string key, string[] value, string tag)
     => result.ToLines().ShouldBe(["{", $"  \"$tag\": \"{tag}\",", $"  \"{key}\": " + value.Surround("[", "]", s => s.Quoted('"'), ", "), "}"]);
   protected override void WithMapTag_Check(string result, string key, string value, string tag)

@@ -1,1 +1,1 @@
-3a8c01e  (HEAD -> refactor-alternates) 2025-05-24 Change Alternates to allow collections on type Params
+4bb112c  (HEAD -> just-class-tests) 2025-05-27 Change field on _TypeRef to typeName

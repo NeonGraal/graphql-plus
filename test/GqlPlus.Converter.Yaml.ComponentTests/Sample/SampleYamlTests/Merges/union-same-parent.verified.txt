@@ -23,6 +23,6 @@ types: !_Map_Type
       name: Boolean
     name: UnionSamePrnt
     parent: !_TypeRef(_SimpleKind)
-      name: PrntUnionSamePrnt
       typeKind: !_SimpleKind Union
+      typeName: PrntUnionSamePrnt
     typeKind: !_TypeKind Union

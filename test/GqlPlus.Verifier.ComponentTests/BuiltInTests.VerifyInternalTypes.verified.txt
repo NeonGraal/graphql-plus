@@ -1,7 +1,7 @@
 ﻿[
   ( !En Void ),
   ( !En Null [ null ] !EL null ),
-  ( !Un Simple !UM ^ !UM 0 !UM * !UM _ !UM _Union !UM _Domain !UM _Enum ),
+  ( !Un Simple !UM Boolean !UM Number !UM String !UM Unit !UM _Union !UM _Domain !UM _Enum ),
   ( !Un Internal !UM Void !UM Null ),
   ( !Du _Opt < $T > | $T Null ),
   ( !Du _List < $T > | $T [] ),

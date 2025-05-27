@@ -4,30 +4,30 @@ categories: !_Map_Categories
   !_Identifier ctgr: !_Category
     name: ctgr
     output: !_TypeRef(_TypeKind)
-      name: Ctgr
       typeKind: !_TypeKind Output
+      typeName: Ctgr
     resolution: !_Resolution Parallel
   !_Identifier ctgrAlias: !_Category
     aliases: [CatA1,CatA2]
     name: ctgrAlias
     output: !_TypeRef(_TypeKind)
-      name: CtgrAlias
       typeKind: !_TypeKind Output
+      typeName: CtgrAlias
     resolution: !_Resolution Parallel
   !_Identifier ctgrDescr: !_Category
     description: 'First category Second category'
     name: ctgrDescr
     output: !_TypeRef(_TypeKind)
-      name: CtgrDescr
       typeKind: !_TypeKind Output
+      typeName: CtgrDescr
     resolution: !_Resolution Parallel
   !_Identifier ctgrMod: !_Category
     aliases: [CatM1,CatM2]
     modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
     name: ctgrMod
     output: !_TypeRef(_TypeKind)
-      name: CtgrMod
       typeKind: !_TypeKind Output
+      typeName: CtgrMod
     resolution: !_Resolution Parallel
 directives: !_Map_Directives
   !_Identifier Drct: !_Directive
@@ -131,29 +131,29 @@ types: !_Map_Type
         exclude: false
         value: !_EnumValue
           label: true
-          name: Boolean
           typeKind: !_SimpleKind Enum
+          typeName: Boolean
       - !_DomainItem(_DomainLabel)
         domain: DmnEnumDiff
         exclude: false
         value: !_EnumValue
           label: false
-          name: Boolean
           typeKind: !_SimpleKind Enum
+          typeName: Boolean
     domainKind: !_DomainKind Enum
     items:
       - !_DomainLabel
         exclude: false
         value: !_EnumValue
           label: true
-          name: Boolean
           typeKind: !_SimpleKind Enum
+          typeName: Boolean
       - !_DomainLabel
         exclude: false
         value: !_EnumValue
           label: false
-          name: Boolean
           typeKind: !_SimpleKind Enum
+          typeName: Boolean
     name: DmnEnumDiff
     typeKind: !_TypeKind Domain
   !_Identifier DmnEnumSame: !_DomainEnum
@@ -163,16 +163,16 @@ types: !_Map_Type
         exclude: false
         value: !_EnumValue
           label: true
-          name: Boolean
           typeKind: !_SimpleKind Enum
+          typeName: Boolean
     domainKind: !_DomainKind Enum
     items:
       - !_DomainLabel
         exclude: false
         value: !_EnumValue
           label: true
-          name: Boolean
           typeKind: !_SimpleKind Enum
+          typeName: Boolean
     name: DmnEnumSame
     typeKind: !_TypeKind Domain
   !_Identifier DmnNmbr: !_DomainNumber
@@ -373,8 +373,8 @@ types: !_Map_Type
         name: enumSamePrnt
     name: EnumSamePrnt
     parent: !_TypeRef(_SimpleKind)
-      name: PrntEnumSamePrnt
       typeKind: !_SimpleKind Enum
+      typeName: PrntEnumSamePrnt
     typeKind: !_TypeKind Enum
   !_Identifier EnumValueAlias: !_TypeEnum
     allItems:
@@ -502,24 +502,15 @@ types: !_Map_Type
       - !_ObjectFor(_OutputField)
         field: field
         label: true
-        name: Boolean
         object: OutpFieldEnumAlias
         typeKind: !_SimpleKind Enum
-      - !_ObjectFor(_OutputField)
-        field: Boolean
-        label: true
-        object: OutpFieldEnumAlias
-        typeKind: !_SimpleKind Enum
+        typeName: Boolean
     fields:
       - !_OutputEnum
         field: field
         label: true
-        name: Boolean
         typeKind: !_SimpleKind Enum
-      - !_OutputEnum
-        field: Boolean
-        label: true
-        typeKind: !_SimpleKind Enum
+        typeName: Boolean
     name: OutpFieldEnumAlias
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldEnumValue: !_TypeOutput
@@ -527,24 +518,15 @@ types: !_Map_Type
       - !_ObjectFor(_OutputField)
         field: field
         label: true
-        name: Boolean
         object: OutpFieldEnumValue
         typeKind: !_SimpleKind Enum
-      - !_ObjectFor(_OutputField)
-        field: Boolean
-        label: true
-        object: OutpFieldEnumValue
-        typeKind: !_SimpleKind Enum
+        typeName: Boolean
     fields:
       - !_OutputEnum
         field: field
         label: true
-        name: Boolean
         typeKind: !_SimpleKind Enum
-      - !_OutputEnum
-        field: Boolean
-        label: true
-        typeKind: !_SimpleKind Enum
+        typeName: Boolean
     name: OutpFieldEnumValue
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldParam: !_TypeOutput
@@ -745,6 +727,6 @@ types: !_Map_Type
         name: Boolean
     name: UnionSamePrnt
     parent: !_TypeRef(_SimpleKind)
-      name: PrntUnionSamePrnt
       typeKind: !_SimpleKind Union
+      typeName: PrntUnionSamePrnt
     typeKind: !_TypeKind Union

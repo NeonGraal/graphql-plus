@@ -4,10 +4,6 @@ public interface IGqlpType
   : IGqlpDeclaration
 { }
 
-public interface IGqlpTypeSpecial
-  : IGqlpType<string>
-{ }
-
 public interface IGqlpType<TParent>
   : IGqlpType
   , IEquatable<IGqlpType<TParent>>
@@ -21,4 +17,8 @@ public interface IGqlpSimple
 
 public interface IGqlpTypeRef
   : IGqlpNamed
+{ }
+
+public interface IGqlpTypeSpecial
+  : IGqlpSimple
 { }

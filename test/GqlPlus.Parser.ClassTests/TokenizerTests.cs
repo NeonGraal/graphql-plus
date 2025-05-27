@@ -170,6 +170,38 @@ public class TokenizerTests
   }
 
   [Theory, RepeatData]
+  public void BlockString_AfterReadTrue_IsTrue(string sample)
+  {
+    ITokenizer tokens = PrepareTokens(Tokenizer.TripleQuote + sample + Tokenizer.TripleQuote);
+
+    TrueAndExpected(tokens.String, sample);
+  }
+
+  [Theory, RepeatData]
+  public void BlockString_WithNoEnd_AfterReadTrue_IsFalse(string sample)
+  {
+    ITokenizer tokens = PrepareTokens(Tokenizer.TripleQuote + sample);
+
+    FalseAndExpected(tokens.String, sample, tokens);
+  }
+
+  [Theory, RepeatData]
+  public void BlockString_WithOneEnd_AfterReadTrue_IsFalse(string sample)
+  {
+    ITokenizer tokens = PrepareTokens(Tokenizer.TripleQuote + sample + '"');
+
+    FalseAndExpected(tokens.String, sample + '"', tokens);
+  }
+
+  [Theory, RepeatData]
+  public void BlockString_WithTwoEnd_AfterReadTrue_IsFalse(string sample)
+  {
+    ITokenizer tokens = PrepareTokens(Tokenizer.TripleQuote + sample + "\"\"");
+
+    FalseAndExpected(tokens.String, sample + "\"\"", tokens);
+  }
+
+  [Theory, RepeatData]
   public void Regex_AfterReadTrue_IsTrue(string regex)
   {
     ITokenizer tokens = PrepareTokens($"/{regex}/");
@@ -204,7 +236,18 @@ public class TokenizerTests
   }
 
   [Theory, RepeatData]
-  public void Take_WithString_AfterRead_ReturnsString(
+  public void Take_WithSingleWrong_AfterRead_ReturnsTrue(
+    [NotNull, RegularExpression(PunctuationPattern + "{2}")] string one)
+  {
+    ITokenizer tokens = PrepareTokens(one);
+    char expected = one.Last();
+    this.SkipIf(one[0] == expected);
+
+    tokens.Take(expected).ShouldBeFalse();
+  }
+
+  [Theory, RepeatData]
+  public void Take_WithString_AfterRead_ReturnsTrue(
     [RegularExpression(PunctuationPattern + "{5}")] string many)
   {
     ITokenizer tokens = PrepareTokens(many);
@@ -213,7 +256,7 @@ public class TokenizerTests
   }
 
   [Theory, RepeatData]
-  public void Take_WithShort_AfterRead_ReturnsString(
+  public void Take_WithShort_AfterRead_ReturnsFalse(
     [RegularExpression(PunctuationPattern + "{5}")] string many)
   {
     ITokenizer tokens = PrepareTokens(many[..4]);
@@ -231,6 +274,26 @@ public class TokenizerTests
     TrueAndExpected(
       (out char result) => tokens.TakeAny(out result, many.ToCharArray()),
       expected);
+  }
+
+  [Fact]
+  public void TakeZero_WithZero_AfterRead_ReturnsTrue()
+  {
+    ITokenizer tokens = PrepareTokens("0");
+
+    bool result = tokens.TakeZero();
+
+    result.ShouldBeTrue();
+  }
+
+  [Fact]
+  public void TakeZero_WithZero_AfterRead_ReturnsFalse()
+  {
+    ITokenizer tokens = PrepareTokens("1");
+
+    bool result = tokens.TakeZero();
+
+    result.ShouldBeFalse();
   }
 
   [Theory, RepeatData]

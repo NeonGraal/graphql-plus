@@ -21,7 +21,7 @@ public static class BuiltIn
     new EnumDeclAst(AstNulls.At, "Void", []),
     new EnumDeclAst(AstNulls.At, "Null", [new(AstNulls.At, "null")]) { Aliases = ["null"] },
 
-    new UnionDeclAst(AstNulls.At, "Simple", new[] { "^", "0", "*", "_", "_Union", "_Domain", "_Enum" }.UnionMembers()),
+    new UnionDeclAst(AstNulls.At, "Simple", new[] { "Boolean", "Number", "String", "Unit", "_Union", "_Domain", "_Enum" }.UnionMembers()),
     new UnionDeclAst(AstNulls.At, "Internal", new[] { "Void", "Null" }.UnionMembers()),
 
     DualObj("Opt", TypeParams("T"), DualAlt(null), DualType("Null")),

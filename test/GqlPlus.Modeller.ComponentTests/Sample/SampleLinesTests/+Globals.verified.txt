@@ -5,41 +5,41 @@ categories: !_Map_Categories
     description: 'A Category described'
     name: ctgrDscrs
     output: !_TypeRef(_TypeKind)
-      name: CtgrDscrs
       typeKind: !_TypeKind Output
+      typeName: CtgrDscrs
     resolution: !_Resolution Parallel
   !_Identifier ctgrOutp: !_Category
     name: ctgrOutp
     output: !_TypeRef(_TypeKind)
-      name: CtgrOutp
       typeKind: !_TypeKind Output
+      typeName: CtgrOutp
     resolution: !_Resolution Parallel
   !_Identifier ctgrOutpDict: !_Category
     modifiers: [!_ModifierDictionary{by:'*',modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Basic}]
     name: ctgrOutpDict
     output: !_TypeRef(_TypeKind)
-      name: CtgrOutpDict
       typeKind: !_TypeKind Output
+      typeName: CtgrOutpDict
     resolution: !_Resolution Parallel
   !_Identifier ctgrOutpList: !_Category
     modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
     name: ctgrOutpList
     output: !_TypeRef(_TypeKind)
-      name: CtgrOutpList
       typeKind: !_TypeKind Output
+      typeName: CtgrOutpList
     resolution: !_Resolution Parallel
   !_Identifier ctgrOutpOptl: !_Category
     modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
     name: ctgrOutpOptl
     output: !_TypeRef(_TypeKind)
-      name: CtgrOutpOptl
       typeKind: !_TypeKind Output
+      typeName: CtgrOutpOptl
     resolution: !_Resolution Parallel
   !_Identifier descrBtwn: !_Category
     name: descrBtwn
     output: !_TypeRef(_TypeKind)
-      name: DescrBtwn
       typeKind: !_TypeKind Output
+      typeName: DescrBtwn
     resolution: !_Resolution Parallel
 directives: !_Map_Directives
   !_Identifier DrctDescr: !_Directive

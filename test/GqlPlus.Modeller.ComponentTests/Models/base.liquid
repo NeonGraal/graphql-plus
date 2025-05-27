@@ -1,6 +1,5 @@
-﻿{%- assign tag = base | tag -%}
-{%- if tag == '_TypeParam' -%}
-  <I>${{ base }}</I>
+﻿{%- if base.typeParam -%}
+  <I>${{ base.typeParam }}</I>
 {%- elsif base.typeKind == "Enum" -%}
   {{ base.name }}.{{ base.member }}
 {%- else -%}

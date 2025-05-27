@@ -472,9 +472,9 @@ Success
     I@020/0113
     $kind
     !OF I@009/0114
-    name
+    typeName
     :
-    I@015/0114
+    I@019/0114
     _Identifier
   }
 }

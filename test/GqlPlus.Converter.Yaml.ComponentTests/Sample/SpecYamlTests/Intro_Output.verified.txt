@@ -82,8 +82,8 @@ types: !_Map_Type
       typeArgs:
       - !_OutputArg
         label: Enum
-        name: _TypeKind
         typeKind: !_SimpleKind Enum
+        typeName: _TypeKind
     typeKind: !_TypeKind Output
   !_Identifier _OutputField: !_TypeOutput
     allAlternates:
@@ -149,8 +149,8 @@ types: !_Map_Type
       typeArgs:
       - !_OutputArg
         label: Output
-        name: _TypeKind
         typeKind: !_SimpleKind Enum
+        typeName: _TypeKind
       - !_OutputArg
         output: _OutputBase
       - !_OutputArg

@@ -4,8 +4,8 @@ categories: !_Map_Categories
     modifiers: [!_ModifierDictionary {by: '*', modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Basic}]
     name: ctgrOutpDict
     output: !_TypeRef(_TypeKind)
-      name: CtgrOutpDict
       typeKind: !_TypeKind Output
+      typeName: CtgrOutpDict
     resolution: !_Resolution Parallel
 types: !_Map_Type
   !_Identifier CtgrOutpDict: !_TypeOutput

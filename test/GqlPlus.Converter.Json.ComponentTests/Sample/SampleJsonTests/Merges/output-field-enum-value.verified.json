@@ -9,22 +9,12 @@
           "$tag": "_ObjectFor(_OutputField)",
           "field": "field",
           "label": "true",
-          "name": "Boolean",
           "object": "OutpFieldEnumValue",
           "typeKind": {
             "$tag": "_SimpleKind",
             "value": "Enum"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "field": "Boolean",
-          "label": "true",
-          "object": "OutpFieldEnumValue",
-          "typeKind": {
-            "$tag": "_SimpleKind",
-            "value": "Enum"
-          }
+          },
+          "typeName": "Boolean"
         }
       ],
       "fields": [
@@ -32,20 +22,11 @@
           "$tag": "_OutputEnum",
           "field": "field",
           "label": "true",
-          "name": "Boolean",
           "typeKind": {
             "$tag": "_SimpleKind",
             "value": "Enum"
-          }
-        },
-        {
-          "$tag": "_OutputEnum",
-          "field": "Boolean",
-          "label": "true",
-          "typeKind": {
-            "$tag": "_SimpleKind",
-            "value": "Enum"
-          }
+          },
+          "typeName": "Boolean"
         }
       ],
       "name": "OutpFieldEnumValue",

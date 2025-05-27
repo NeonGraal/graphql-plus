@@ -38,7 +38,7 @@ public class VerifyDualTypesTests
   [Fact]
   public void Verify_Dual_WithTypeArg_ReturnsNoErrors()
   {
-    Define<IGqlpTypeSpecial>("String");
+    Define<IGqlpSimple>("String");
 
     IGqlpDualObject other = NFor<IGqlpDualObject>("Other");
     IGqlpTypeParam[] typeParams = NForA<IGqlpTypeParam>("a");

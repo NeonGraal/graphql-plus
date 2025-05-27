@@ -18,9 +18,9 @@ internal class SimpleRenderer
 {
   Structured IRenderer<SimpleModel>.Render(SimpleModel model)
     => model.Boolean is not null ? new(model.Boolean)
-      : model.Number is not null ? new(model.Number, model.TypeRef?.Name ?? "")
-      : model.String is not null ? new(StructureValue.Str(model.String, model.TypeRef?.Name ?? ""))
-      : model.Value is not null ? new(model.Value, model.TypeRef?.Name ?? "")
+      : model.Number is not null ? new(model.Number, model.TypeRef?.TypeName ?? "")
+      : model.String is not null ? new(StructureValue.Str(model.String, model.TypeRef?.TypeName ?? ""))
+      : model.Value is not null ? new(model.Value, model.TypeRef?.TypeName ?? "")
       : new("null", "Basic");
 }
 

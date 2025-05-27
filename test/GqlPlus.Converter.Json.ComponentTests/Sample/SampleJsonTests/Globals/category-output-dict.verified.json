@@ -21,11 +21,11 @@
       "name": "ctgrOutpDict",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
-        "name": "CtgrOutpDict",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        }
+        },
+        "typeName": "CtgrOutpDict"
       },
       "resolution": {
         "$tag": "_Resolution",

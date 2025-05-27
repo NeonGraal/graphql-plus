@@ -12,11 +12,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "*",
-            "name": "EnumDmnEnumAllDescr",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "EnumDmnEnumAllDescr"
           }
         }
       ],
@@ -31,11 +31,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "*",
-            "name": "EnumDmnEnumAllDescr",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "EnumDmnEnumAllDescr"
           }
         }
       ],

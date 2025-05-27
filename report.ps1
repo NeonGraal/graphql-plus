@@ -1,11 +1,18 @@
 [CmdletBinding()]
 param (
-  [int]$Threshold = 20
+  [int]$Threshold = 20,
+  [switch]$ClassTests = $false,
+  $Framework = "9.0"
 )
 
-$coverageFile = "$PWD/coverage/Coverage*.xml"
+$coverageFile = "$PWD/coverage/Coverage-$Framework*.xml"
+$testSet = "All"
+if ($ClassTests) {
+  $testSet = "Class"
+}
 
-$report = "-reporttypes:MarkdownSummaryGithub;Html","-reports:$coverageFile","-targetdir:.\coverage","settings:rawMode=true"
+$report = "-reporttypes:MarkdownSummaryGithub;Html","-reports:$coverageFile","-targetdir:.\coverage"
+$report += "settings:rawMode=true","-title:GqlPlus Coverage Report ($Framework $testSet tests)"
 $report += "riskHotspotsAnalysisThresholds:metricThresholdForCyclomaticComplexity=$Threshold","riskHotspotsAnalysisThresholds:metricThresholdForCrapScore=$Threshold"
 
 dotnet tool restore

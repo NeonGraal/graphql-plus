@@ -73,7 +73,7 @@ internal class MergeAllTypes(
     if (type is TEnum named) {
       if (string.IsNullOrWhiteSpace(named.EnumType.Name)
         && enumValues.TryGetValue(type.EnumLabel ?? "", out string? enumType)) {
-        named.Name = enumType;
+        named.SetEnumType(enumType);
       }
     }
   }

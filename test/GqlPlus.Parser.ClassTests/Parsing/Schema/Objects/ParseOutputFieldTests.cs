@@ -31,6 +31,21 @@ public class ParseOutputFieldTests
     result.ShouldBeAssignableTo<IResultOk<IGqlpOutputField>>();
   }
 
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnEnumField_WhenValid(string fieldName)
+  {
+    // Arrange
+    IdentifierReturns(OutString(fieldName));
+    TakeReturns('=', true, false);
+    ParseOk(_parseBase);
+
+    // Act
+    IResult<IGqlpOutputField> result = _parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultOk<IGqlpOutputField>>();
+  }
+
   [Fact]
   public void Parse_ShouldReturnEmpty_WhenNoFieldName()
   {

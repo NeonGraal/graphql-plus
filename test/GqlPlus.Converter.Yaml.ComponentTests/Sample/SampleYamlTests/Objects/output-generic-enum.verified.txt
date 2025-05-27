@@ -19,8 +19,8 @@ types: !_Map_Type
         typeArgs:
         - !_OutputArg
           label: outpGnrcEnum
-          name: EnumOutpGnrcEnum
           typeKind: !_SimpleKind Enum
+          typeName: EnumOutpGnrcEnum
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
@@ -28,8 +28,8 @@ types: !_Map_Type
         typeArgs:
         - !_OutputArg
           label: outpGnrcEnum
-          name: EnumOutpGnrcEnum
           typeKind: !_SimpleKind Enum
+          typeName: EnumOutpGnrcEnum
     name: OutpGnrcEnum
     typeKind: !_TypeKind Output
   !_Identifier RefOutpGnrcEnum: !_TypeOutput

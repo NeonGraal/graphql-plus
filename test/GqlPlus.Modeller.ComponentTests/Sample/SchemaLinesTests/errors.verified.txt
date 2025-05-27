@@ -16,6 +16,6 @@ categories: !_Map_Categories
   !_Identifier query: !_Category
     name: query
     output: !_TypeRef(_TypeKind)
-      name: query
       typeKind: !_TypeKind Output
+      typeName: query
     resolution: !_Resolution Parallel

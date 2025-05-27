@@ -1,6 +1,12 @@
 ﻿!_Schema
 aliases: [Alias, Opt1, Opt2]
 categories: !_Map_Categories
+  !_Identifier cat: !_Category
+    name: cat
+    output: !_TypeRef(_TypeKind)
+      typeKind: !_TypeKind Output
+      typeName: Cat
+    resolution: !_Resolution Parallel
   !_Identifier ctgr: !_Category
     name: ctgr
     output: !_TypeRef(_TypeKind)
@@ -70,6 +76,12 @@ categories: !_Map_Categories
       typeKind: !_TypeKind Output
       typeName: DescrBtwn
     resolution: !_Resolution Parallel
+  !_Identifier op: !_Category
+    name: op
+    output: !_TypeRef(_TypeKind)
+      typeKind: !_TypeKind Output
+      typeName: Op
+    resolution: !_Resolution Parallel
 directives: !_Map_Directives
   !_Identifier Drct: !_Directive
     locations: !_Set(_Location) {Inline: _, Spread: _}
@@ -135,6 +147,20 @@ directives: !_Map_Directives
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
     repeatable: false
 name: Schema
+operations: !_Map_Operations
+  !_Identifier Op: !_Operations
+    operation: !_Operation
+      category: cat
+      name: Op
+      operation: TBC
+    type: !_TypeOutput
+      name: Op
+      typeKind: !_TypeKind Output
+  !_Identifier Operation: !_Operation
+    aliases: [Op1, Op2]
+    category: op
+    name: Operation
+    operation: TBC
 settings: !_Map_Setting
   !_Identifier descr: !_Setting
     description: 'Option Descr'
@@ -907,6 +933,9 @@ types: !_Map_Type
       type: !_OutputBase
         output: Number
     name: AltOutpGnrcPrntParamPrnt
+    typeKind: !_TypeKind Output
+  !_Identifier Cat: !_TypeOutput
+    name: Cat
     typeKind: !_TypeKind Output
   !_Identifier Ctgr: !_TypeOutput
     name: Ctgr
@@ -4156,6 +4185,9 @@ types: !_Map_Type
     typeParams:
     - !_Named
       name: a
+  !_Identifier Op: !_TypeOutput
+    name: Op
+    typeKind: !_TypeKind Output
   !_Identifier OutpAlt: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)

@@ -1,0 +1,17 @@
+﻿!_Schema
+categories: !_Map_Categories
+  !_Identifier cat: !_Category
+    name: cat
+    output: !_TypeRef(_TypeKind)
+      typeKind: !_TypeKind Output
+      typeName: Cat
+    resolution: !_Resolution Parallel
+operations: !_Map_Operations
+  !_Identifier Op: !_Operation
+    category: cat
+    name: Op
+    operation: TBC
+types: !_Map_Type
+  !_Identifier Cat: !_TypeOutput
+    name: Cat
+    typeKind: !_TypeKind Output

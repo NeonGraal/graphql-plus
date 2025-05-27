@@ -27,7 +27,7 @@ public class SchemaResolverTests
     _typeResolver.Resolve(type1, Context).Returns(resolved1);
     _typeResolver.Resolve(type2, Context).Returns(resolved2);
 
-    SchemaModel model = new("", [], [], [], [type1, type2], null);
+    SchemaModel model = new("", [], [], [], [], [type1, type2], null);
 
     SchemaModel result = Resolver.Resolve(model, Context);
 

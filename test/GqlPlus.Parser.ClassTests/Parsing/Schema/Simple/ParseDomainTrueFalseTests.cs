@@ -1,8 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Token;
-using NSubstitute;
-using Shouldly;
-using Xunit;
 
 namespace GqlPlus.Parsing.Schema.Simple;
 

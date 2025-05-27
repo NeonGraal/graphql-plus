@@ -11,11 +11,6 @@ Success
     I@037/0001
     Boolean
     .true
-    !OF I@029/0002
-    Boolean
-    =
-    I@037/0002
-    .true
   }
 }
 ]

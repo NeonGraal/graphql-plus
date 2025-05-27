@@ -3,8 +3,8 @@ categories: !_Map_Categories
   !_Identifier ctgrOutp: !_Category
     name: ctgrOutp
     output: !_TypeRef(_TypeKind)
-      name: CtgrOutp
       typeKind: !_TypeKind Output
+      typeName: CtgrOutp
     resolution: !_Resolution Parallel
 types: !_Map_Type
   !_Identifier CtgrOutp: !_TypeOutput

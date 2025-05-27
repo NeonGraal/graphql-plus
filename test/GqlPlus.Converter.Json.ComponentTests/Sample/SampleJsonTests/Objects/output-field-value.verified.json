@@ -28,24 +28,26 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "field": "EnumOutpFieldValue",
+          "field": "field",
           "label": "outpFieldValue",
           "object": "OutpFieldValue",
           "typeKind": {
             "$tag": "_SimpleKind",
             "value": "Enum"
-          }
+          },
+          "typeName": "EnumOutpFieldValue"
         }
       ],
       "fields": [
         {
           "$tag": "_OutputEnum",
-          "field": "EnumOutpFieldValue",
+          "field": "field",
           "label": "outpFieldValue",
           "typeKind": {
             "$tag": "_SimpleKind",
             "value": "Enum"
-          }
+          },
+          "typeName": "EnumOutpFieldValue"
         }
       ],
       "name": "OutpFieldValue",

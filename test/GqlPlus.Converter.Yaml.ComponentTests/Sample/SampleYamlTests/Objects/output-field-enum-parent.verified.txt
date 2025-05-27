@@ -13,23 +13,23 @@ types: !_Map_Type
       name: outpFieldEnumPrnt
     name: EnumOutpFieldEnumPrnt
     parent: !_TypeRef(_SimpleKind)
-      name: PrntOutpFieldEnumPrnt
       typeKind: !_SimpleKind Enum
+      typeName: PrntOutpFieldEnumPrnt
     typeKind: !_TypeKind Enum
   !_Identifier OutpFieldEnumPrnt: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       field: field
       label: prnt_outpFieldEnumPrnt
-      name: EnumOutpFieldEnumPrnt
       object: OutpFieldEnumPrnt
       typeKind: !_SimpleKind Enum
+      typeName: EnumOutpFieldEnumPrnt
     fields:
     - !_OutputEnum
       field: field
       label: prnt_outpFieldEnumPrnt
-      name: EnumOutpFieldEnumPrnt
       typeKind: !_SimpleKind Enum
+      typeName: EnumOutpFieldEnumPrnt
     name: OutpFieldEnumPrnt
     typeKind: !_TypeKind Output
   !_Identifier PrntOutpFieldEnumPrnt: !_TypeEnum

@@ -7,11 +7,11 @@
       "name": "cat",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
-        "name": "Cat",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        }
+        },
+        "typeName": "Cat"
       },
       "resolution": {
         "$tag": "_Resolution",

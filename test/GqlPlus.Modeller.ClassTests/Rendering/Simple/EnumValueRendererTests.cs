@@ -12,7 +12,7 @@ public class EnumValueRendererTests
       "!_EnumValue",
       "description: " + contents.Quoted("'"),
       "label: " + label,
-      "name: " + enumType,
-      "typeKind: !_SimpleKind Enum"
+      "typeKind: !_SimpleKind Enum",
+      "typeName: " + enumType
       ]);
 }

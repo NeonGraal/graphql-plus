@@ -131,27 +131,23 @@ internal static class UsageHelpers
 
     return context;
 
-    void AddCheckError(string prefix, string suffix)
-      => context.AddError(type, type.Label + labelSuffix, $"{prefix} {typeName}. {suffix}");
+    void AddCheckError(string prefix, string suffix, bool addError)
+      => context.AddError(type, type.Label + labelSuffix, $"{prefix} {typeName}. {suffix}", addError);
   }
 
-  internal delegate void CheckError(string prefix, string suffix);
+  internal delegate void CheckError(string prefix, string suffix, bool addError);
 
   internal static void CheckTypeArgs<TObjBase>(CheckError error, TObjBase type, bool check, IGqlpDescribed? value)
     where TObjBase : IGqlpObjType
   {
     int numArgs = type is IGqlpObjBase baseType ? baseType.Args.Count() : 0;
     if (value is IGqlpObject definition) {
-      if (check && definition.Label != "Dual" && definition.Label != type.Label) {
-        error("Type kind mismatch for", $"Found {definition.Label}");
-      }
+      error("Type kind mismatch for", $"Found {definition.Label}", check && definition.Label != "Dual" && definition.Label != type.Label);
 
       int numParams = definition.TypeParams.Count();
-      if (numParams != numArgs) {
-        error("Args mismatch on", $"Expected {numParams}, given {numArgs}");
-      }
-    } else if (value is IGqlpSimple simple && numArgs != 0) {
-      error("Args invalid on", $"Expected 0, given {numArgs}");
+      error("Args mismatch on", $"Expected {numParams}, given {numArgs}", numParams != numArgs);
+    } else if (value is IGqlpSimple simple) {
+      error("Args invalid on", $"Expected 0, given {numArgs}", numArgs != 0);
     }
   }
 }

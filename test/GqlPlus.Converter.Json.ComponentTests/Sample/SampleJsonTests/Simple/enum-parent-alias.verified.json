@@ -36,11 +36,11 @@
       "name": "EnumPrntAlias",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
-        "name": "PrntEnumPrntAlias",
         "typeKind": {
           "$tag": "_SimpleKind",
           "value": "Enum"
-        }
+        },
+        "typeName": "PrntEnumPrntAlias"
       },
       "typeKind": {
         "$tag": "_TypeKind",

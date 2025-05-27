@@ -37,7 +37,7 @@ internal class VerifyUnionTypes(
         usage,
         "union",
         $"Type kind mismatch for {name}. Found {type?.Label}",
-        type is not IGqlpSimple and not IGqlpTypeSpecial);
+        type is not IGqlpSimple);
   }
 
   private static bool CheckMember(string name, IGqlpUnionMember member, UsageContext context, Action<string, IGqlpType>? checkType = null)

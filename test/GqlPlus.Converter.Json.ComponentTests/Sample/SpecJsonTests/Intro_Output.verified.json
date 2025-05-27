@@ -176,11 +176,11 @@
           {
             "$tag": "_OutputArg",
             "label": "Enum",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           }
         ]
       },
@@ -343,11 +343,11 @@
           {
             "$tag": "_OutputArg",
             "label": "Output",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           },
           {
             "$tag": "_OutputArg",

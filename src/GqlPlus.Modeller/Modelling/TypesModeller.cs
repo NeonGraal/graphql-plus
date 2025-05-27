@@ -2,7 +2,8 @@
 
 internal class TypesModeller(
   IEnumerable<ITypeModeller> types
-) : ModellerBase<IGqlpType, BaseTypeModel>, ITypesModeller
+) : ModellerBase<IGqlpType, BaseTypeModel>
+  , ITypesModeller
 {
   public void AddTypeKinds(IEnumerable<IGqlpType> asts, IMap<TypeKindModel> typeKinds)
   {

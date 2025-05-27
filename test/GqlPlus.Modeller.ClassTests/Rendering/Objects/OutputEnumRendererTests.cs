@@ -13,7 +13,7 @@ public class OutputEnumRendererTests
       "description: " + contents.Quoted("'"),
       "field: " + field,
       "label: " + enumLabel,
-      "name: " + enumType,
-      "typeKind: !_SimpleKind Enum"
+      "typeKind: !_SimpleKind Enum",
+      "typeName: " + enumType
     ]);
 }

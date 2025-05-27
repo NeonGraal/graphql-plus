@@ -372,11 +372,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Internal",
-                "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_TypeKind"
               }
             ]
           }
@@ -406,11 +406,11 @@
               {
                 "$tag": "_OutputArg",
                 "label": "Internal",
-                "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                }
+                },
+                "typeName": "_TypeKind"
               }
             ]
           }
@@ -763,11 +763,11 @@
       "name": "_TypeParam",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
-        "name": "_Identifier",
         "typeKind": {
           "$tag": "_SimpleKind",
           "value": "Domain"
-        }
+        },
+        "typeName": "_Identifier"
       },
       "typeKind": {
         "$tag": "_TypeKind",

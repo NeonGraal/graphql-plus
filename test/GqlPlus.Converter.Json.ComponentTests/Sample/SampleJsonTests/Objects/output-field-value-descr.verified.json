@@ -29,25 +29,27 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "description": "Test Descr",
-          "field": "EnumOutpFieldValueDescr",
+          "field": "field",
           "label": "outpFieldValueDescr",
           "object": "OutpFieldValueDescr",
           "typeKind": {
             "$tag": "_SimpleKind",
             "value": "Enum"
-          }
+          },
+          "typeName": "EnumOutpFieldValueDescr"
         }
       ],
       "fields": [
         {
           "$tag": "_OutputEnum",
           "description": "Test Descr",
-          "field": "EnumOutpFieldValueDescr",
+          "field": "field",
           "label": "outpFieldValueDescr",
           "typeKind": {
             "$tag": "_SimpleKind",
             "value": "Enum"
-          }
+          },
+          "typeName": "EnumOutpFieldValueDescr"
         }
       ],
       "name": "OutpFieldValueDescr",

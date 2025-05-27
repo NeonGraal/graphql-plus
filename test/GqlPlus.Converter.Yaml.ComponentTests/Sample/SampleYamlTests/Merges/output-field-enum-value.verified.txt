@@ -5,23 +5,14 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       field: field
       label: true
-      name: Boolean
       object: OutpFieldEnumValue
       typeKind: !_SimpleKind Enum
-    - !_ObjectFor(_OutputField)
-      field: Boolean
-      label: true
-      object: OutpFieldEnumValue
-      typeKind: !_SimpleKind Enum
+      typeName: Boolean
     fields:
     - !_OutputEnum
       field: field
       label: true
-      name: Boolean
       typeKind: !_SimpleKind Enum
-    - !_OutputEnum
-      field: Boolean
-      label: true
-      typeKind: !_SimpleKind Enum
+      typeName: Boolean
     name: OutpFieldEnumValue
     typeKind: !_TypeKind Output

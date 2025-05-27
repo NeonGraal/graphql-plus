@@ -44,8 +44,8 @@ types: !_Map_Type
       typeArgs:
         - !_OutputArg
           label: Enum
-          name: _TypeKind
           typeKind: !_SimpleKind Enum
+          typeName: _TypeKind
     typeKind: !_TypeKind Output
   !_Identifier _TypeEnum: !_TypeOutput
     name: _TypeEnum
@@ -54,8 +54,8 @@ types: !_Map_Type
       typeArgs:
         - !_OutputArg
           label: Enum
-          name: _TypeKind
           typeKind: !_SimpleKind Enum
+          typeName: _TypeKind
         - !_OutputArg
           output: _Aliased
         - !_DualArg

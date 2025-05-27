@@ -30,11 +30,11 @@
           {
             "$tag": "_OutputArg",
             "label": "Union",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           },
           {
             "$tag": "_OutputArg",

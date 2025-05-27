@@ -4,8 +4,8 @@ categories: !_Map_Categories
     description: 'A Category described'
     name: ctgrDscrs
     output: !_TypeRef(_TypeKind)
-      name: CtgrDscrs
       typeKind: !_TypeKind Output
+      typeName: CtgrDscrs
     resolution: !_Resolution Parallel
 types: !_Map_Type
   !_Identifier CtgrDscrs: !_TypeOutput

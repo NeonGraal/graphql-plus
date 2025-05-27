@@ -48,11 +48,11 @@
       "name": "query",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
-        "name": "query",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        }
+        },
+        "typeName": "query"
       },
       "resolution": {
         "$tag": "_Resolution",

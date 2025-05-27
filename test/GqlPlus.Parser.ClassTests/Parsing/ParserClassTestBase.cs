@@ -26,6 +26,9 @@ public class ParserClassTestBase
   protected void IdentifierReturns(Func<CallInfo, bool> first, params Func<CallInfo, bool>[] rest)
     => Tokenizer.Identifier(out Arg.Any<string?>()).Returns(first, rest);
 
+  protected void NumberReturns(Func<CallInfo, bool> first, params Func<CallInfo, bool>[] rest)
+    => Tokenizer.Number(out Arg.Any<decimal>()).Returns(first, rest);
+
   protected void PrefixReturns(char prefix, Func<CallInfo, bool> first, params Func<CallInfo, bool>[] rest)
     => Tokenizer
       .Prefix(prefix, out Arg.Any<string?>(), out Arg.Any<TokenAt>())
@@ -249,9 +252,9 @@ public class ParserClassTestBase
   protected static bool OutPass(CallInfo _)
     => true;
 
-  protected static Func<CallInfo, bool> OutNumber(decimal? value)
+  protected static Func<CallInfo, bool> OutNumber(decimal? value, int first = 0)
     => c => {
-      c[0] = value;
+      c[first] = value;
       return true;
     };
 

@@ -32,6 +32,6 @@ public class DomainNumberModellerTests
         r => r.Description.ShouldBe(contents),
         r => r.Aliases.ShouldBe(aliases),
         r => r.Parent.ShouldNotBeNull()
-          .Name.ShouldBe(parent));
+          .TypeName.ShouldBe(parent));
   }
 }

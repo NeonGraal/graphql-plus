@@ -3,8 +3,8 @@ categories: !_Map_Categories
   !_Identifier op: !_Category
     name: op
     output: !_TypeRef(_TypeKind)
-      name: Op
       typeKind: !_TypeKind Output
+      typeName: Op
     resolution: !_Resolution Parallel
 operations: !_Map_Operations
   !_Identifier Operation: !_Operation

@@ -1651,8 +1651,8 @@ types: !_Map_Type
         name: outpFieldEnumPrnt
     name: EnumOutpFieldEnumPrnt
     parent: !_TypeRef(_SimpleKind)
-      name: PrntOutpFieldEnumPrnt
       typeKind: !_SimpleKind Enum
+      typeName: PrntOutpFieldEnumPrnt
     typeKind: !_TypeKind Enum
   !_Identifier EnumOutpFieldModEnum: !_TypeEnum
     allItems:
@@ -1717,8 +1717,8 @@ types: !_Map_Type
         name: outpPrntGnrc
     name: EnumOutpPrntGnrc
     parent: !_TypeRef(_SimpleKind)
-      name: PrntOutpPrntGnrc
       typeKind: !_SimpleKind Enum
+      typeName: PrntOutpPrntGnrc
     typeKind: !_TypeKind Enum
   !_Identifier FldDualFieldDual: !_TypeDual
     allAlternates:
@@ -3193,15 +3193,15 @@ types: !_Map_Type
       - !_ObjectFor(_OutputField)
         field: field
         label: outpFieldEnum
-        name: EnumOutpFieldEnum
         object: OutpFieldEnum
         typeKind: !_SimpleKind Enum
+        typeName: EnumOutpFieldEnum
     fields:
       - !_OutputEnum
         field: field
         label: outpFieldEnum
-        name: EnumOutpFieldEnum
         typeKind: !_SimpleKind Enum
+        typeName: EnumOutpFieldEnum
     name: OutpFieldEnum
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldEnumPrnt: !_TypeOutput
@@ -3209,15 +3209,15 @@ types: !_Map_Type
       - !_ObjectFor(_OutputField)
         field: field
         label: prnt_outpFieldEnumPrnt
-        name: EnumOutpFieldEnumPrnt
         object: OutpFieldEnumPrnt
         typeKind: !_SimpleKind Enum
+        typeName: EnumOutpFieldEnumPrnt
     fields:
       - !_OutputEnum
         field: field
         label: prnt_outpFieldEnumPrnt
-        name: EnumOutpFieldEnumPrnt
         typeKind: !_SimpleKind Enum
+        typeName: EnumOutpFieldEnumPrnt
     name: OutpFieldEnumPrnt
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldModEnum: !_TypeOutput
@@ -3302,31 +3302,35 @@ types: !_Map_Type
   !_Identifier OutpFieldValue: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
-        field: EnumOutpFieldValue
+        field: field
         label: outpFieldValue
         object: OutpFieldValue
         typeKind: !_SimpleKind Enum
+        typeName: EnumOutpFieldValue
     fields:
       - !_OutputEnum
-        field: EnumOutpFieldValue
+        field: field
         label: outpFieldValue
         typeKind: !_SimpleKind Enum
+        typeName: EnumOutpFieldValue
     name: OutpFieldValue
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldValueDescr: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         description: 'Test Descr'
-        field: EnumOutpFieldValueDescr
+        field: field
         label: outpFieldValueDescr
         object: OutpFieldValueDescr
         typeKind: !_SimpleKind Enum
+        typeName: EnumOutpFieldValueDescr
     fields:
       - !_OutputEnum
         description: 'Test Descr'
-        field: EnumOutpFieldValueDescr
+        field: field
         label: outpFieldValueDescr
         typeKind: !_SimpleKind Enum
+        typeName: EnumOutpFieldValueDescr
     name: OutpFieldValueDescr
     typeKind: !_TypeKind Output
   !_Identifier OutpGnrcAlt: !_TypeOutput
@@ -3527,8 +3531,8 @@ types: !_Map_Type
           typeArgs:
             - !_OutputArg
               label: outpGnrcEnum
-              name: EnumOutpGnrcEnum
               typeKind: !_SimpleKind Enum
+              typeName: EnumOutpGnrcEnum
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
@@ -3536,8 +3540,8 @@ types: !_Map_Type
           typeArgs:
             - !_OutputArg
               label: outpGnrcEnum
-              name: EnumOutpGnrcEnum
               typeKind: !_SimpleKind Enum
+              typeName: EnumOutpGnrcEnum
     name: OutpGnrcEnum
     typeKind: !_TypeKind Output
   !_Identifier OutpGnrcField: !_TypeOutput
@@ -3992,8 +3996,8 @@ types: !_Map_Type
           typeArgs:
             - !_OutputArg
               label: prnt_outpPrntGnrc
-              name: EnumOutpPrntGnrc
               typeKind: !_SimpleKind Enum
+              typeName: EnumOutpPrntGnrc
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
@@ -4001,8 +4005,8 @@ types: !_Map_Type
           typeArgs:
             - !_OutputArg
               label: prnt_outpPrntGnrc
-              name: EnumOutpPrntGnrc
               typeKind: !_SimpleKind Enum
+              typeName: EnumOutpPrntGnrc
     name: OutpPrntGnrc
     typeKind: !_TypeKind Output
   !_Identifier OutpPrntParam: !_TypeOutput

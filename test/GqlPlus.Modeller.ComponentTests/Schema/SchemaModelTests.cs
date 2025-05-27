@@ -120,7 +120,6 @@ public class SchemaModelTests(
       },
       ["!_Schema",
         .. checks.ExpectedCategories([category], true),
-
         .. checks.ExpectedOutputs([category]),
       ]);
 
@@ -177,8 +176,8 @@ internal sealed class SchemaModelChecks(
     => [first,
       "    name: " + category,
       "    output: !_TypeRef(_TypeKind)",
-      "      name: " + category,
       "      typeKind: !_TypeKind Output",
+      "      typeName: " + category,
       "    resolution: !_Resolution Parallel"];
 
   public IEnumerable<string> ExpectedDirectives(string[] directives, bool withType)

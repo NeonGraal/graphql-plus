@@ -80,7 +80,7 @@ internal abstract class ParentTypeRenderer<TModel, TItem, TAll>(
         .AddList("allItems", model.AllItems, renderers.All);
 
   protected override string? ParentName(TypeRefModel<SimpleKindModel>? parent)
-    => parent?.Name;
+    => parent?.TypeName;
 
   protected abstract Func<TItem, TAll> NewItem(string parent);
 }
@@ -103,7 +103,7 @@ internal interface ITypeRenderer
 }
 
 internal class TypeRefRenderer<TModel, TKind>
-  : NamedRenderer<TModel>
+  : DescribedRenderer<TModel>
   where TModel : TypeRefModel<TKind>
   where TKind : struct
 {
@@ -111,6 +111,7 @@ internal class TypeRefRenderer<TModel, TKind>
 
   internal override Structured Render(TModel model)
     => base.Render(model)
+      .Add("typeName", model.TypeName)
       .Add("typeKind", new(model.TypeKind.ToString(), s_typeKindTag));
 }
 

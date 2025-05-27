@@ -4,83 +4,83 @@ categories: !_Map_Categories
   !_Identifier cat: !_Category
     name: cat
     output: !_TypeRef(_TypeKind)
-      name: Cat
       typeKind: !_TypeKind Output
+      typeName: Cat
     resolution: !_Resolution Parallel
   !_Identifier ctgr: !_Category
     name: ctgr
     output: !_TypeRef(_TypeKind)
-      name: Ctgr
       typeKind: !_TypeKind Output
+      typeName: Ctgr
     resolution: !_Resolution Parallel
   !_Identifier ctgrAlias: !_Category
     aliases: [CatA1, CatA2]
     name: ctgrAlias
     output: !_TypeRef(_TypeKind)
-      name: CtgrAlias
       typeKind: !_TypeKind Output
+      typeName: CtgrAlias
     resolution: !_Resolution Parallel
   !_Identifier ctgrDescr: !_Category
     description: 'First category Second category'
     name: ctgrDescr
     output: !_TypeRef(_TypeKind)
-      name: CtgrDescr
       typeKind: !_TypeKind Output
+      typeName: CtgrDescr
     resolution: !_Resolution Parallel
   !_Identifier ctgrDscrs: !_Category
     description: 'A Category described'
     name: ctgrDscrs
     output: !_TypeRef(_TypeKind)
-      name: CtgrDscrs
       typeKind: !_TypeKind Output
+      typeName: CtgrDscrs
     resolution: !_Resolution Parallel
   !_Identifier ctgrMod: !_Category
     aliases: [CatM1, CatM2]
     modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
     name: ctgrMod
     output: !_TypeRef(_TypeKind)
-      name: CtgrMod
       typeKind: !_TypeKind Output
+      typeName: CtgrMod
     resolution: !_Resolution Parallel
   !_Identifier ctgrOutp: !_Category
     name: ctgrOutp
     output: !_TypeRef(_TypeKind)
-      name: CtgrOutp
       typeKind: !_TypeKind Output
+      typeName: CtgrOutp
     resolution: !_Resolution Parallel
   !_Identifier ctgrOutpDict: !_Category
     modifiers: [!_ModifierDictionary {by: '*', modifierKind: !_ModifierKind Dict,
         typeKind: !_SimpleKind Basic}]
     name: ctgrOutpDict
     output: !_TypeRef(_TypeKind)
-      name: CtgrOutpDict
       typeKind: !_TypeKind Output
+      typeName: CtgrOutpDict
     resolution: !_Resolution Parallel
   !_Identifier ctgrOutpList: !_Category
     modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
     name: ctgrOutpList
     output: !_TypeRef(_TypeKind)
-      name: CtgrOutpList
       typeKind: !_TypeKind Output
+      typeName: CtgrOutpList
     resolution: !_Resolution Parallel
   !_Identifier ctgrOutpOptl: !_Category
     modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
     name: ctgrOutpOptl
     output: !_TypeRef(_TypeKind)
-      name: CtgrOutpOptl
       typeKind: !_TypeKind Output
+      typeName: CtgrOutpOptl
     resolution: !_Resolution Parallel
   !_Identifier descrBtwn: !_Category
     name: descrBtwn
     output: !_TypeRef(_TypeKind)
-      name: DescrBtwn
       typeKind: !_TypeKind Output
+      typeName: DescrBtwn
     resolution: !_Resolution Parallel
   !_Identifier op: !_Category
     name: op
     output: !_TypeRef(_TypeKind)
-      name: Op
       typeKind: !_TypeKind Output
+      typeName: Op
     resolution: !_Resolution Parallel
 directives: !_Map_Directives
   !_Identifier Drct: !_Directive
@@ -1064,8 +1064,8 @@ types: !_Map_Type
       value: false
     name: DmnBoolPrnt
     parent: !_TypeRef(_SimpleKind)
-      name: PrntDmnBoolPrnt
       typeKind: !_SimpleKind Domain
+      typeName: PrntDmnBoolPrnt
     typeKind: !_TypeKind Domain
   !_Identifier DmnBoolSame: !_DomainBoolean
     allItems:
@@ -1087,16 +1087,16 @@ types: !_Map_Type
       exclude: false
       value: !_EnumValue
         label: '*'
-        name: EnumDmnEnumAll
         typeKind: !_SimpleKind Enum
+        typeName: EnumDmnEnumAll
     domainKind: !_DomainKind Enum
     items:
     - !_DomainLabel
       exclude: false
       value: !_EnumValue
         label: '*'
-        name: EnumDmnEnumAll
         typeKind: !_SimpleKind Enum
+        typeName: EnumDmnEnumAll
     name: DmnEnumAll
     typeKind: !_TypeKind Domain
   !_Identifier DmnEnumAllDescr: !_DomainEnum
@@ -1106,16 +1106,16 @@ types: !_Map_Type
       exclude: false
       value: !_EnumValue
         label: '*'
-        name: EnumDmnEnumAllDescr
         typeKind: !_SimpleKind Enum
+        typeName: EnumDmnEnumAllDescr
     domainKind: !_DomainKind Enum
     items:
     - !_DomainLabel
       exclude: false
       value: !_EnumValue
         label: '*'
-        name: EnumDmnEnumAllDescr
         typeKind: !_SimpleKind Enum
+        typeName: EnumDmnEnumAllDescr
     name: DmnEnumAllDescr
     typeKind: !_TypeKind Domain
   !_Identifier DmnEnumAllPrnt: !_DomainEnum
@@ -1125,16 +1125,16 @@ types: !_Map_Type
       exclude: false
       value: !_EnumValue
         label: '*'
-        name: EnumDmnEnumAllPrnt
         typeKind: !_SimpleKind Enum
+        typeName: EnumDmnEnumAllPrnt
     domainKind: !_DomainKind Enum
     items:
     - !_DomainLabel
       exclude: false
       value: !_EnumValue
         label: '*'
-        name: EnumDmnEnumAllPrnt
         typeKind: !_SimpleKind Enum
+        typeName: EnumDmnEnumAllPrnt
     name: DmnEnumAllPrnt
     typeKind: !_TypeKind Domain
   !_Identifier DmnEnumDescr: !_DomainEnum
@@ -1144,16 +1144,16 @@ types: !_Map_Type
       exclude: false
       value: !_EnumValue
         label: dmnEnumDescr
-        name: EnumDmnEnumDescr
         typeKind: !_SimpleKind Enum
+        typeName: EnumDmnEnumDescr
     domainKind: !_DomainKind Enum
     items:
     - !_DomainLabel
       exclude: false
       value: !_EnumValue
         label: dmnEnumDescr
-        name: EnumDmnEnumDescr
         typeKind: !_SimpleKind Enum
+        typeName: EnumDmnEnumDescr
     name: DmnEnumDescr
     typeKind: !_TypeKind Domain
   !_Identifier DmnEnumDiff: !_DomainEnum
@@ -1163,29 +1163,29 @@ types: !_Map_Type
       exclude: false
       value: !_EnumValue
         label: true
-        name: Boolean
         typeKind: !_SimpleKind Enum
+        typeName: Boolean
     - !_DomainItem(_DomainLabel)
       domain: DmnEnumDiff
       exclude: false
       value: !_EnumValue
         label: false
-        name: Boolean
         typeKind: !_SimpleKind Enum
+        typeName: Boolean
     domainKind: !_DomainKind Enum
     items:
     - !_DomainLabel
       exclude: false
       value: !_EnumValue
         label: true
-        name: Boolean
         typeKind: !_SimpleKind Enum
+        typeName: Boolean
     - !_DomainLabel
       exclude: false
       value: !_EnumValue
         label: false
-        name: Boolean
         typeKind: !_SimpleKind Enum
+        typeName: Boolean
     name: DmnEnumDiff
     typeKind: !_TypeKind Domain
   !_Identifier DmnEnumLabel: !_DomainEnum
@@ -1195,16 +1195,16 @@ types: !_Map_Type
       exclude: false
       value: !_EnumValue
         label: dmnEnumLabel
-        name: EnumDmnEnumLabel
         typeKind: !_SimpleKind Enum
+        typeName: EnumDmnEnumLabel
     domainKind: !_DomainKind Enum
     items:
     - !_DomainLabel
       exclude: false
       value: !_EnumValue
         label: dmnEnumLabel
-        name: EnumDmnEnumLabel
         typeKind: !_SimpleKind Enum
+        typeName: EnumDmnEnumLabel
     name: DmnEnumLabel
     typeKind: !_TypeKind Domain
   !_Identifier DmnEnumPrnt: !_DomainEnum
@@ -1214,27 +1214,27 @@ types: !_Map_Type
       exclude: false
       value: !_EnumValue
         label: prnt_dmnEnumPrnt
-        name: EnumDmnEnumPrnt
         typeKind: !_SimpleKind Enum
+        typeName: EnumDmnEnumPrnt
     - !_DomainItem(_DomainLabel)
       domain: DmnEnumPrnt
       exclude: false
       value: !_EnumValue
         label: enum_dmnEnumPrnt
-        name: EnumDmnEnumPrnt
         typeKind: !_SimpleKind Enum
+        typeName: EnumDmnEnumPrnt
     domainKind: !_DomainKind Enum
     items:
     - !_DomainLabel
       exclude: false
       value: !_EnumValue
         label: enum_dmnEnumPrnt
-        name: EnumDmnEnumPrnt
         typeKind: !_SimpleKind Enum
+        typeName: EnumDmnEnumPrnt
     name: DmnEnumPrnt
     parent: !_TypeRef(_SimpleKind)
-      name: PrntDmnEnumPrnt
       typeKind: !_SimpleKind Domain
+      typeName: PrntDmnEnumPrnt
     typeKind: !_TypeKind Domain
   !_Identifier DmnEnumSame: !_DomainEnum
     allItems:
@@ -1243,16 +1243,16 @@ types: !_Map_Type
       exclude: false
       value: !_EnumValue
         label: true
-        name: Boolean
         typeKind: !_SimpleKind Enum
+        typeName: Boolean
     domainKind: !_DomainKind Enum
     items:
     - !_DomainLabel
       exclude: false
       value: !_EnumValue
         label: true
-        name: Boolean
         typeKind: !_SimpleKind Enum
+        typeName: Boolean
     name: DmnEnumSame
     typeKind: !_TypeKind Domain
   !_Identifier DmnEnumValue: !_DomainEnum
@@ -1262,16 +1262,16 @@ types: !_Map_Type
       exclude: false
       value: !_EnumValue
         label: dmnEnumValue
-        name: EnumDmnEnumValue
         typeKind: !_SimpleKind Enum
+        typeName: EnumDmnEnumValue
     domainKind: !_DomainKind Enum
     items:
     - !_DomainLabel
       exclude: false
       value: !_EnumValue
         label: dmnEnumValue
-        name: EnumDmnEnumValue
         typeKind: !_SimpleKind Enum
+        typeName: EnumDmnEnumValue
     name: DmnEnumValue
     typeKind: !_TypeKind Domain
   !_Identifier DmnEnumValuePrnt: !_DomainEnum
@@ -1281,16 +1281,16 @@ types: !_Map_Type
       exclude: false
       value: !_EnumValue
         label: prnt_dmnEnumValuePrnt
-        name: EnumDmnEnumValuePrnt
         typeKind: !_SimpleKind Enum
+        typeName: EnumDmnEnumValuePrnt
     domainKind: !_DomainKind Enum
     items:
     - !_DomainLabel
       exclude: false
       value: !_EnumValue
         label: prnt_dmnEnumValuePrnt
-        name: EnumDmnEnumValuePrnt
         typeKind: !_SimpleKind Enum
+        typeName: EnumDmnEnumValuePrnt
     name: DmnEnumValuePrnt
     typeKind: !_TypeKind Domain
   !_Identifier DmnNmbr: !_DomainNumber
@@ -1342,8 +1342,8 @@ types: !_Map_Type
       from: 2
     name: DmnNmbrPrnt
     parent: !_TypeRef(_SimpleKind)
-      name: PrntDmnNmbrPrnt
       typeKind: !_SimpleKind Domain
+      typeName: PrntDmnNmbrPrnt
     typeKind: !_TypeKind Domain
   !_Identifier DmnNmbrSame: !_DomainNumber
     allItems:
@@ -1407,8 +1407,8 @@ types: !_Map_Type
       pattern: a+
     name: DmnStrPrnt
     parent: !_TypeRef(_SimpleKind)
-      name: PrntDmnStrPrnt
       typeKind: !_SimpleKind Domain
+      typeName: PrntDmnStrPrnt
     typeKind: !_TypeKind Domain
   !_Identifier DmnStrSame: !_DomainString
     allItems:
@@ -2449,8 +2449,8 @@ types: !_Map_Type
       name: dmnEnumAllPrnt
     name: EnumDmnEnumAllPrnt
     parent: !_TypeRef(_SimpleKind)
-      name: PrntDmnEnumAllPrnt
       typeKind: !_SimpleKind Enum
+      typeName: PrntDmnEnumAllPrnt
     typeKind: !_TypeKind Enum
   !_Identifier EnumDmnEnumDescr: !_TypeEnum
     allItems:
@@ -2518,8 +2518,8 @@ types: !_Map_Type
       name: enum_dmnEnumUnqPrnt
     name: EnumDmnEnumUnqPrnt
     parent: !_TypeRef(_SimpleKind)
-      name: PrntDmnEnumUnqPrnt
       typeKind: !_SimpleKind Enum
+      typeName: PrntDmnEnumUnqPrnt
     typeKind: !_TypeKind Enum
   !_Identifier EnumDmnEnumValue: !_TypeEnum
     allItems:
@@ -2544,8 +2544,8 @@ types: !_Map_Type
       name: dmnEnumValuePrnt
     name: EnumDmnEnumValuePrnt
     parent: !_TypeRef(_SimpleKind)
-      name: PrntDmnEnumValuePrnt
       typeKind: !_SimpleKind Enum
+      typeName: PrntDmnEnumValuePrnt
     typeKind: !_TypeKind Enum
   !_Identifier EnumDomDup: !_TypeEnum
     allItems:
@@ -2615,8 +2615,8 @@ types: !_Map_Type
       name: outpFieldEnumPrnt
     name: EnumOutpFieldEnumPrnt
     parent: !_TypeRef(_SimpleKind)
-      name: PrntOutpFieldEnumPrnt
       typeKind: !_SimpleKind Enum
+      typeName: PrntOutpFieldEnumPrnt
     typeKind: !_TypeKind Enum
   !_Identifier EnumOutpFieldModEnum: !_TypeEnum
     allItems:
@@ -2681,8 +2681,8 @@ types: !_Map_Type
       name: outpPrntGnrc
     name: EnumOutpPrntGnrc
     parent: !_TypeRef(_SimpleKind)
-      name: PrntOutpPrntGnrc
       typeKind: !_SimpleKind Enum
+      typeName: PrntOutpPrntGnrc
     typeKind: !_TypeKind Enum
   !_Identifier EnumPrnt: !_TypeEnum
     allItems:
@@ -2697,8 +2697,8 @@ types: !_Map_Type
       name: enumPrnt
     name: EnumPrnt
     parent: !_TypeRef(_SimpleKind)
-      name: PrntEnumPrnt
       typeKind: !_SimpleKind Enum
+      typeName: PrntEnumPrnt
     typeKind: !_TypeKind Enum
   !_Identifier EnumPrntAlias: !_TypeEnum
     allItems:
@@ -2720,8 +2720,8 @@ types: !_Map_Type
       name: prnt_enumPrntAlias
     name: EnumPrntAlias
     parent: !_TypeRef(_SimpleKind)
-      name: PrntEnumPrntAlias
       typeKind: !_SimpleKind Enum
+      typeName: PrntEnumPrntAlias
     typeKind: !_TypeKind Enum
   !_Identifier EnumPrntDup: !_TypeEnum
     allItems:
@@ -2737,8 +2737,8 @@ types: !_Map_Type
       name: enumPrntDup
     name: EnumPrntDup
     parent: !_TypeRef(_SimpleKind)
-      name: PrntEnumPrntDup
       typeKind: !_SimpleKind Enum
+      typeName: PrntEnumPrntDup
     typeKind: !_TypeKind Enum
   !_Identifier EnumSame: !_TypeEnum
     allItems:
@@ -2763,8 +2763,8 @@ types: !_Map_Type
       name: enumSamePrnt
     name: EnumSamePrnt
     parent: !_TypeRef(_SimpleKind)
-      name: PrntEnumSamePrnt
       typeKind: !_SimpleKind Enum
+      typeName: PrntEnumSamePrnt
     typeKind: !_TypeKind Enum
   !_Identifier EnumValueAlias: !_TypeEnum
     allItems:
@@ -4377,15 +4377,15 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       field: field
       label: outpFieldEnum
-      name: EnumOutpFieldEnum
       object: OutpFieldEnum
       typeKind: !_SimpleKind Enum
+      typeName: EnumOutpFieldEnum
     fields:
     - !_OutputEnum
       field: field
       label: outpFieldEnum
-      name: EnumOutpFieldEnum
       typeKind: !_SimpleKind Enum
+      typeName: EnumOutpFieldEnum
     name: OutpFieldEnum
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldEnumAlias: !_TypeOutput
@@ -4393,24 +4393,15 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       field: field
       label: true
-      name: Boolean
       object: OutpFieldEnumAlias
       typeKind: !_SimpleKind Enum
-    - !_ObjectFor(_OutputField)
-      field: Boolean
-      label: true
-      object: OutpFieldEnumAlias
-      typeKind: !_SimpleKind Enum
+      typeName: Boolean
     fields:
     - !_OutputEnum
       field: field
       label: true
-      name: Boolean
       typeKind: !_SimpleKind Enum
-    - !_OutputEnum
-      field: Boolean
-      label: true
-      typeKind: !_SimpleKind Enum
+      typeName: Boolean
     name: OutpFieldEnumAlias
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldEnumPrnt: !_TypeOutput
@@ -4418,15 +4409,15 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       field: field
       label: prnt_outpFieldEnumPrnt
-      name: EnumOutpFieldEnumPrnt
       object: OutpFieldEnumPrnt
       typeKind: !_SimpleKind Enum
+      typeName: EnumOutpFieldEnumPrnt
     fields:
     - !_OutputEnum
       field: field
       label: prnt_outpFieldEnumPrnt
-      name: EnumOutpFieldEnumPrnt
       typeKind: !_SimpleKind Enum
+      typeName: EnumOutpFieldEnumPrnt
     name: OutpFieldEnumPrnt
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldEnumValue: !_TypeOutput
@@ -4434,24 +4425,15 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       field: field
       label: true
-      name: Boolean
       object: OutpFieldEnumValue
       typeKind: !_SimpleKind Enum
-    - !_ObjectFor(_OutputField)
-      field: Boolean
-      label: true
-      object: OutpFieldEnumValue
-      typeKind: !_SimpleKind Enum
+      typeName: Boolean
     fields:
     - !_OutputEnum
       field: field
       label: true
-      name: Boolean
       typeKind: !_SimpleKind Enum
-    - !_OutputEnum
-      field: Boolean
-      label: true
-      typeKind: !_SimpleKind Enum
+      typeName: Boolean
     name: OutpFieldEnumValue
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldModEnum: !_TypeOutput
@@ -4568,31 +4550,35 @@ types: !_Map_Type
   !_Identifier OutpFieldValue: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      field: EnumOutpFieldValue
+      field: field
       label: outpFieldValue
       object: OutpFieldValue
       typeKind: !_SimpleKind Enum
+      typeName: EnumOutpFieldValue
     fields:
     - !_OutputEnum
-      field: EnumOutpFieldValue
+      field: field
       label: outpFieldValue
       typeKind: !_SimpleKind Enum
+      typeName: EnumOutpFieldValue
     name: OutpFieldValue
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldValueDescr: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       description: 'Test Descr'
-      field: EnumOutpFieldValueDescr
+      field: field
       label: outpFieldValueDescr
       object: OutpFieldValueDescr
       typeKind: !_SimpleKind Enum
+      typeName: EnumOutpFieldValueDescr
     fields:
     - !_OutputEnum
       description: 'Test Descr'
-      field: EnumOutpFieldValueDescr
+      field: field
       label: outpFieldValueDescr
       typeKind: !_SimpleKind Enum
+      typeName: EnumOutpFieldValueDescr
     name: OutpFieldValueDescr
     typeKind: !_TypeKind Output
   !_Identifier OutpGnrcAlt: !_TypeOutput
@@ -4793,8 +4779,8 @@ types: !_Map_Type
         typeArgs:
         - !_OutputArg
           label: outpGnrcEnum
-          name: EnumOutpGnrcEnum
           typeKind: !_SimpleKind Enum
+          typeName: EnumOutpGnrcEnum
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
@@ -4802,8 +4788,8 @@ types: !_Map_Type
         typeArgs:
         - !_OutputArg
           label: outpGnrcEnum
-          name: EnumOutpGnrcEnum
           typeKind: !_SimpleKind Enum
+          typeName: EnumOutpGnrcEnum
     name: OutpGnrcEnum
     typeKind: !_TypeKind Output
   !_Identifier OutpGnrcField: !_TypeOutput
@@ -5345,8 +5331,8 @@ types: !_Map_Type
         typeArgs:
         - !_OutputArg
           label: prnt_outpPrntGnrc
-          name: EnumOutpPrntGnrc
           typeKind: !_SimpleKind Enum
+          typeName: EnumOutpPrntGnrc
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
@@ -5354,8 +5340,8 @@ types: !_Map_Type
         typeArgs:
         - !_OutputArg
           label: prnt_outpPrntGnrc
-          name: EnumOutpPrntGnrc
           typeKind: !_SimpleKind Enum
+          typeName: EnumOutpPrntGnrc
     name: OutpPrntGnrc
     typeKind: !_TypeKind Output
   !_Identifier OutpPrntParam: !_TypeOutput
@@ -5472,16 +5458,16 @@ types: !_Map_Type
       exclude: false
       value: !_EnumValue
         label: prnt_dmnEnumPrnt
-        name: EnumDmnEnumPrnt
         typeKind: !_SimpleKind Enum
+        typeName: EnumDmnEnumPrnt
     domainKind: !_DomainKind Enum
     items:
     - !_DomainLabel
       exclude: false
       value: !_EnumValue
         label: prnt_dmnEnumPrnt
-        name: EnumDmnEnumPrnt
         typeKind: !_SimpleKind Enum
+        typeName: EnumDmnEnumPrnt
     name: PrntDmnEnumPrnt
     typeKind: !_TypeKind Domain
   !_Identifier PrntDmnEnumUnqPrnt: !_TypeEnum
@@ -6914,8 +6900,8 @@ types: !_Map_Type
       name: String
     name: UnionPrnt
     parent: !_TypeRef(_SimpleKind)
-      name: PrntUnionPrnt
       typeKind: !_SimpleKind Union
+      typeName: PrntUnionPrnt
     typeKind: !_TypeKind Union
   !_Identifier UnionPrntDup: !_TypeUnion
     allItems:
@@ -6930,8 +6916,8 @@ types: !_Map_Type
       name: Number
     name: UnionPrntDup
     parent: !_TypeRef(_SimpleKind)
-      name: PrntUnionPrntDup
       typeKind: !_SimpleKind Union
+      typeName: PrntUnionPrntDup
     typeKind: !_TypeKind Union
   !_Identifier UnionSame: !_TypeUnion
     allItems:
@@ -6956,6 +6942,6 @@ types: !_Map_Type
       name: Boolean
     name: UnionSamePrnt
     parent: !_TypeRef(_SimpleKind)
-      name: PrntUnionSamePrnt
       typeKind: !_SimpleKind Union
+      typeName: PrntUnionSamePrnt
     typeKind: !_TypeKind Union

@@ -5,8 +5,8 @@ categories: !_Map_Categories
     name: all
     output: !_TypeRef(_TypeKind)
       description: 'Category Result'
-      name: All
       typeKind: !_TypeKind Output
+      typeName: All
     resolution: !_Resolution Parallel
 directives: !_Map_Directives
   !_Identifier all: !_Directive

@@ -62,6 +62,36 @@ public class VerifyOutputTypesTests
   }
 
   [Fact]
+  public void Verify_Output_WithFieldModifiers_ReturnsNoErrors()
+  {
+    Define<IGqlpOutputObject>("b");
+    Define<IGqlpInputObject>("c");
+    Define<IGqlpEnum>("d");
+
+    IGqlpInputBase inType = NFor<IGqlpInputBase>("c");
+    IGqlpModifier modifier = For<IGqlpModifier>();
+    modifier.ModifierKind.Returns(ModifierKind.Dict);
+    modifier.Key.Returns("d");
+    IGqlpInputParam param = EFor<IGqlpInputParam>();
+    param.Type.Returns(inType);
+    param.Modifiers.Returns([modifier]);
+
+    IGqlpOutputBase outType = NFor<IGqlpOutputBase>("b");
+    IGqlpOutputField field = NFor<IGqlpOutputField>("a");
+    SetFieldType(field, outType);
+    field.Params.Returns([param]);
+
+    _output.Fields.Returns([field]);
+    _output.ObjFields.Returns([field]);
+
+    Usages.Add(_output);
+
+    Verifier.Verify(UsageAliased, Errors);
+
+    Errors.ShouldBeEmpty();
+  }
+
+  [Fact]
   public void Verify_Output_WithEnumField_ReturnsNoErrors()
   {
     Enum("b", "l");

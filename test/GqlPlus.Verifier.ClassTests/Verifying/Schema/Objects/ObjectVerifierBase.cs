@@ -63,7 +63,37 @@ public abstract class ObjectVerifierBase<TObject, TBase, TField, TAlternate>
   {
     Define<IGqlpTypeSpecial>("String");
 
-    TAlternate alternate = NFor<TAlternate>("String");
+    TAlternate alternate = MakeAlt("String");
+
+    TheObject.Alternates.Returns([alternate]);
+    TheObject.ObjAlternates.Returns([alternate]);
+
+    Usages.Add(TheObject);
+
+    Verifier.Verify(UsageAliased, Errors);
+
+    Errors.ShouldBeEmpty();
+  }
+
+  [Fact]
+  public void Verify_Object_WithAlternateParentAlternate_ReturnsNoErrors()
+  {
+    Define<IGqlpTypeSpecial>("String");
+
+    TObject parentObject = NFor<TObject>("Parent");
+    TAlternate parentAlt = MakeAlt("String");
+    parentObject.Alternates.Returns([parentAlt]);
+    parentObject.ObjAlternates.Returns([parentAlt]);
+    Usages.Add(parentObject);
+    Definitions.Add(parentObject);
+
+    TBase parentBase = NFor<TBase>("Parent");
+    TObject altObject = NFor<TObject>("Alternate");
+    altObject.Parent.Returns(parentBase);
+    Usages.Add(altObject);
+    Definitions.Add(altObject);
+
+    TAlternate alternate = MakeAlt("Alternate");
 
     TheObject.Alternates.Returns([alternate]);
     TheObject.ObjAlternates.Returns([alternate]);
@@ -118,7 +148,7 @@ public abstract class ObjectVerifierBase<TObject, TBase, TField, TAlternate>
   {
     Define<IGqlpTypeSpecial>("String");
 
-    TAlternate alternate = NFor<TAlternate>("String");
+    TAlternate alternate = MakeAlt("String");
 
     TObject parent = NFor<TObject>("Parent");
     parent.Alternates.Returns([alternate]);
@@ -138,5 +168,12 @@ public abstract class ObjectVerifierBase<TObject, TBase, TField, TAlternate>
   {
     field.Type.Returns(type);
     field.BaseType.Returns(type);
+  }
+
+  private static TAlternate MakeAlt(string type)
+  {
+    TAlternate alternate = NFor<TAlternate>(type);
+    alternate.FullType.Returns(type);
+    return alternate;
   }
 }

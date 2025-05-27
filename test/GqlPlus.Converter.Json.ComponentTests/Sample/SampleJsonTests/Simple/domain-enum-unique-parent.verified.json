@@ -60,11 +60,11 @@
       "name": "EnumDmnEnumUnqPrnt",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
-        "name": "PrntDmnEnumUnqPrnt",
         "typeKind": {
           "$tag": "_SimpleKind",
           "value": "Enum"
-        }
+        },
+        "typeName": "PrntDmnEnumUnqPrnt"
       },
       "typeKind": {
         "$tag": "_TypeKind",

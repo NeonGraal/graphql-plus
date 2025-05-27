@@ -325,11 +325,11 @@
           {
             "$tag": "_OutputArg",
             "label": "Input",
-            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            }
+            },
+            "typeName": "_TypeKind"
           },
           {
             "$tag": "_OutputArg",

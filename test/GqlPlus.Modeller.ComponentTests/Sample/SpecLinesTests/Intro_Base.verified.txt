@@ -138,8 +138,8 @@ types: !_Map_Type
           typeArgs:
             - !_OutputArg
               label: Internal
-              name: _TypeKind
               typeKind: !_SimpleKind Enum
+              typeName: _TypeKind
       - !_ObjectFor(_OutputAlternate)
         object: _ObjType
         type: !_OutputBase
@@ -154,8 +154,8 @@ types: !_Map_Type
           typeArgs:
             - !_OutputArg
               label: Internal
-              name: _TypeKind
               typeKind: !_SimpleKind Enum
+              typeName: _TypeKind
       - !_OutputAlternate
         type: !_OutputBase
           output: _ObjConstraint
@@ -311,6 +311,6 @@ types: !_Map_Type
     domainKind: !_DomainKind String
     name: _TypeParam
     parent: !_TypeRef(_SimpleKind)
-      name: _Identifier
       typeKind: !_SimpleKind Domain
+      typeName: _Identifier
     typeKind: !_TypeKind Domain

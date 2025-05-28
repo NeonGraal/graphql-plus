@@ -24,4 +24,7 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
     typeParams:
       - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Basic
+          typeName: '*'
         name: ref

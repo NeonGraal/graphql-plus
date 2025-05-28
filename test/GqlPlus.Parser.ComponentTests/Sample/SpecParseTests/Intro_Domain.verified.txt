@@ -1,5 +1,9 @@
 ﻿!Sc I@001/0001
-Success
+Failure
+<
+  !!! P@045/0030 : Invalid Output. Expected constraint for $value. - '>\ \{\n\ \ \ \ :\ ' !!!
+  !!! P@045/0030 : Invalid Spec. Expected no more text. - '>\ \{\n\ \ \ \ :\ ' !!!
+>
 {
   !En I@006/0001
   _DomainKind
@@ -149,132 +153,4 @@ Success
 {
   !Ou I@008/0030
   _DomainValue
-  <
-    I@022/0030
-    $kind
-    :_DomainKind
-    I@040/0030
-    $value
-  >
-  :
-  I@007/0031
-  _DomainRef
-  <
-    I@019/0031
-    $kind
-  >
-  {
-    !OF I@009/0032
-    value
-    :
-    I@017/0032
-    $value
-  }
-}
-{
-  !Du I@006/0034
-  _DomainTrueFalse
-  :
-  I@007/0035
-  _BaseDomainItem
-  {
-    !DF I@009/0036
-    value
-    :
-    I@016/0036
-    Boolean
-  }
-}
-{
-  !Ou I@008/0039
-  _DomainItemTrueFalse
-  :
-  I@007/0040
-  _DomainItem
-  <
-    I@019/0040
-    _DomainTrueFalse
-  >
-}
-{
-  !Ou I@008/0042
-  _DomainLabel
-  :
-  I@007/0043
-  _BaseDomainItem
-  {
-    !OF I@009/0044
-    label
-    :
-    I@016/0044
-    _EnumValue
-  }
-}
-{
-  !Ou I@008/0047
-  _DomainItemLabel
-  :
-  I@007/0048
-  _DomainItem
-  <
-    I@019/0048
-    _DomainLabel
-  >
-}
-{
-  !Du I@006/0050
-  _DomainRange
-  :
-  I@007/0051
-  _BaseDomainItem
-  {
-    !DF I@009/0052
-    lower
-    :
-    I@016/0052
-    Number
-    ?
-    !DF I@009/0053
-    upper
-    :
-    I@016/0053
-    Number
-    ?
-  }
-}
-{
-  !Ou I@008/0056
-  _DomainItemRange
-  :
-  I@007/0057
-  _DomainItem
-  <
-    I@019/0057
-    _DomainRange
-  >
-}
-{
-  !Du I@006/0059
-  _DomainRegex
-  :
-  I@007/0060
-  _BaseDomainItem
-  {
-    !DF I@009/0061
-    pattern
-    :
-    I@018/0061
-    String
-  }
-}
-{
-  !Ou I@008/0064
-  _DomainItemRegex
-  :
-  I@007/0065
-  _DomainItem
-  <
-    I@019/0065
-    _DomainRegex
-  >
 }

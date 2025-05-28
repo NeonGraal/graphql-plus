@@ -1,0 +1,16 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier InpObjFieldTypeAlias: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: field
+        object: InpObjFieldTypeAlias
+        type: !_InputBase
+          input: String
+    fields:
+      - !_InputField
+        name: field
+        type: !_InputBase
+          input: String
+    name: InpObjFieldTypeAlias
+    typeKind: !_TypeKind Input

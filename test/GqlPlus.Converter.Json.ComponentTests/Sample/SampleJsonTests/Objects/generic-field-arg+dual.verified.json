@@ -1,42 +1,50 @@
 ﻿{
   "$tag": "_Schema",
+  "_errors": [
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 66,
+        "_line": 1
+      },
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "Punctuation"
+      },
+      "_message": "Invalid Dual. Expected \u0027\u003E\u0027 after type argument(s)."
+    },
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 66,
+        "_line": 1
+      },
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "Punctuation"
+      },
+      "_message": "Invalid Dual. Expected field type."
+    },
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 66,
+        "_line": 1
+      },
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "Punctuation"
+      },
+      "_message": "Invalid Sample. Expected no more text."
+    }
+  ],
   "types": {
     "$tag": "_Map_Type",
     "DualGnrcFieldArg": {
       "$tag": "_TypeDual",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "field",
-          "object": "DualGnrcFieldArg",
-          "type": {
-            "$tag": "_DualBase",
-            "dual": "RefDualGnrcFieldArg",
-            "typeArgs": [
-              {
-                "$tag": "_DualArg",
-                "typeParam": "type"
-              }
-            ]
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_DualField",
-          "name": "field",
-          "type": {
-            "$tag": "_DualBase",
-            "dual": "RefDualGnrcFieldArg",
-            "typeArgs": [
-              {
-                "$tag": "_DualArg",
-                "typeParam": "type"
-              }
-            ]
-          }
-        }
-      ],
       "name": "DualGnrcFieldArg",
       "typeKind": {
         "$tag": "_TypeKind",
@@ -45,40 +53,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "*"
+          },
           "name": "type"
-        }
-      ]
-    },
-    "RefDualGnrcFieldArg": {
-      "$tag": "_TypeDual",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "RefDualGnrcFieldArg",
-          "type": {
-            "$tag": "_DualBase",
-            "typeParam": "ref"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "typeParam": "ref"
-          }
-        }
-      ],
-      "name": "RefDualGnrcFieldArg",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Dual"
-      },
-      "typeParams": [
-        {
-          "$tag": "_TypeParam",
-          "name": "ref"
         }
       ]
     }

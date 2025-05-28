@@ -1,42 +1,50 @@
 ﻿{
   "$tag": "_Schema",
+  "_errors": [
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 65,
+        "_line": 1
+      },
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "Punctuation"
+      },
+      "_message": "Invalid Input. Expected \u0027\u003E\u0027 after type argument(s)."
+    },
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 65,
+        "_line": 1
+      },
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "Punctuation"
+      },
+      "_message": "Invalid Input. Expected field type."
+    },
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 65,
+        "_line": 1
+      },
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "Punctuation"
+      },
+      "_message": "Invalid Sample. Expected no more text."
+    }
+  ],
   "types": {
     "$tag": "_Map_Type",
     "InpGnrcFieldArg": {
       "$tag": "_TypeInput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_InputField)",
-          "name": "field",
-          "object": "InpGnrcFieldArg",
-          "type": {
-            "$tag": "_InputBase",
-            "input": "RefInpGnrcFieldArg",
-            "typeArgs": [
-              {
-                "$tag": "_InputArg",
-                "typeParam": "type"
-              }
-            ]
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_InputField",
-          "name": "field",
-          "type": {
-            "$tag": "_InputBase",
-            "input": "RefInpGnrcFieldArg",
-            "typeArgs": [
-              {
-                "$tag": "_InputArg",
-                "typeParam": "type"
-              }
-            ]
-          }
-        }
-      ],
       "name": "InpGnrcFieldArg",
       "typeKind": {
         "$tag": "_TypeKind",
@@ -45,40 +53,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "*"
+          },
           "name": "type"
-        }
-      ]
-    },
-    "RefInpGnrcFieldArg": {
-      "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "RefInpGnrcFieldArg",
-          "type": {
-            "$tag": "_InputBase",
-            "typeParam": "ref"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_InputAlternate",
-          "type": {
-            "$tag": "_InputBase",
-            "typeParam": "ref"
-          }
-        }
-      ],
-      "name": "RefInpGnrcFieldArg",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Input"
-      },
-      "typeParams": [
-        {
-          "$tag": "_TypeParam",
-          "name": "ref"
         }
       ]
     }

@@ -1,34 +1,18 @@
 ﻿[  
 !Sc I@001/0001
-Success
+Failure
+<
+  !!! P@065/0001 : Invalid Input. Expected '>' after type argument(s). - ':\*>\ }\ninpu' !!!
+  !!! P@065/0001 : Invalid Input. Expected field type. - ':\*>\ }\ninpu' !!!
+  !!! P@065/0001 : Invalid Sample. Expected no more text. - ':\*>\ }\ninpu' !!!
+>
 {
   !In I@007/0001
   InpGnrcFieldArg
   <
     I@024/0001
     $type
+    :*
   >
-  {
-    !IF I@032/0001
-    field
-    :
-    I@039/0001
-    RefInpGnrcFieldArg
-    <
-      I@059/0001
-      $type
-    >
-  }
-}
-{
-  !In I@007/0002
-  RefInpGnrcFieldArg
-  <
-    I@027/0002
-    $ref
-  >
-  |
-  P@036/0002
-  $ref
 }
 ]

@@ -1,33 +1,20 @@
 ﻿!_Schema
+_errors:
+- !_Error
+  _at: !_At {_col: 60, _line: 1}
+  _kind: !_TokenKind Punctuation
+  _message: Invalid Output. Expected '>' after type argument(s).
+- !_Error
+  _at: !_At {_col: 60, _line: 1}
+  _kind: !_TokenKind Punctuation
+  _message: Invalid Sample. Expected no more text.
 types: !_Map_Type
   !_Identifier OutpGnrcPrntArg: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: RefOutpGnrcPrntArg
-      type: !_OutputBase
-        typeParam: ref
     name: OutpGnrcPrntArg
-    parent: !_OutputBase
-      output: RefOutpGnrcPrntArg
-      typeArgs:
-      - !_OutputArg
-        typeParam: type
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        typeKind: !_TypeKind Basic
+        typeName: '*'
       name: type
-  !_Identifier RefOutpGnrcPrntArg: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: RefOutpGnrcPrntArg
-      type: !_OutputBase
-        typeParam: ref
-    alternates:
-    - !_OutputAlternate
-      type: !_OutputBase
-        typeParam: ref
-    name: RefOutpGnrcPrntArg
-    typeKind: !_TypeKind Output
-    typeParams:
-    - !_TypeParam
-      name: ref

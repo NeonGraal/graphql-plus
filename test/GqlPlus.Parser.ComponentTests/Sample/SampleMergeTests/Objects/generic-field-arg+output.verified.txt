@@ -1,34 +1,18 @@
 ﻿[  
 !Sc I@001/0001
-Success
+Failure
+<
+  !!! P@068/0001 : Invalid Output. Expected '>' after type argument(s). - ':\*>\ }\noutp' !!!
+  !!! P@068/0001 : Invalid Output. Expected field type. - ':\*>\ }\noutp' !!!
+  !!! P@068/0001 : Invalid Sample. Expected no more text. - ':\*>\ }\noutp' !!!
+>
 {
   !Ou I@008/0001
   OutpGnrcFieldArg
   <
     I@026/0001
     $type
+    :*
   >
-  {
-    !OF I@034/0001
-    field
-    :
-    I@041/0001
-    RefOutpGnrcFieldArg
-    <
-      I@062/0001
-      $type
-    >
-  }
-}
-{
-  !Ou I@008/0002
-  RefOutpGnrcFieldArg
-  <
-    I@029/0002
-    $ref
-  >
-  |
-  P@038/0002
-  $ref
 }
 ]

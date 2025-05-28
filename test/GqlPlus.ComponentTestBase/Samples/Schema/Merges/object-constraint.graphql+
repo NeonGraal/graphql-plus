@@ -1,2 +1,2 @@
-object ObjName<$type> { field: $type }
+object ObjName<$type:String> { field: $type }
 object ObjName<$type:*> { str: $type }

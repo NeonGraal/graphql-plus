@@ -1,51 +1,38 @@
 ﻿{
   "$tag": "_Schema",
+  "_errors": [
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 55,
+        "_line": 1
+      },
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "Punctuation"
+      },
+      "_message": "Invalid Input. Expected \u0027\u003E\u0027 after type argument(s)."
+    },
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 55,
+        "_line": 1
+      },
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "Punctuation"
+      },
+      "_message": "Invalid Sample. Expected no more text."
+    }
+  ],
   "types": {
     "$tag": "_Map_Type",
     "InpPrntParamSame": {
       "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "RefInpPrntParamSame",
-          "type": {
-            "$tag": "_InputBase",
-            "typeParam": "a"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_InputField)",
-          "name": "field",
-          "object": "InpPrntParamSame",
-          "type": {
-            "$tag": "_InputBase",
-            "typeParam": "a"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_InputField",
-          "name": "field",
-          "type": {
-            "$tag": "_InputBase",
-            "typeParam": "a"
-          }
-        }
-      ],
       "name": "InpPrntParamSame",
-      "parent": {
-        "$tag": "_InputBase",
-        "input": "RefInpPrntParamSame",
-        "typeArgs": [
-          {
-            "$tag": "_InputArg",
-            "typeParam": "a"
-          }
-        ]
-      },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Input"
@@ -53,39 +40,14 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
-          "name": "a"
-        }
-      ]
-    },
-    "RefInpPrntParamSame": {
-      "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "RefInpPrntParamSame",
-          "type": {
-            "$tag": "_InputBase",
-            "typeParam": "a"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_InputAlternate",
-          "type": {
-            "$tag": "_InputBase",
-            "typeParam": "a"
-          }
-        }
-      ],
-      "name": "RefInpPrntParamSame",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Input"
-      },
-      "typeParams": [
-        {
-          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "*"
+          },
           "name": "a"
         }
       ]

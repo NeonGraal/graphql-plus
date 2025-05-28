@@ -7,9 +7,10 @@ Success
   <
     I@023/0001
     $mod
+    :*
   >
   |
-  I@032/0001
+  I@034/0001
   AltDualAltModParam
   [$mod]
 }

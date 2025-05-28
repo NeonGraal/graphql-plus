@@ -1,30 +1,38 @@
 ﻿{
   "$tag": "_Schema",
+  "_errors": [
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 60,
+        "_line": 1
+      },
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "Punctuation"
+      },
+      "_message": "Invalid Output. Expected \u0027\u003E\u0027 after type argument(s)."
+    },
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 60,
+        "_line": 1
+      },
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "Punctuation"
+      },
+      "_message": "Invalid Sample. Expected no more text."
+    }
+  ],
   "types": {
     "$tag": "_Map_Type",
     "OutpGnrcPrntArg": {
       "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "RefOutpGnrcPrntArg",
-          "type": {
-            "$tag": "_OutputBase",
-            "typeParam": "ref"
-          }
-        }
-      ],
       "name": "OutpGnrcPrntArg",
-      "parent": {
-        "$tag": "_OutputBase",
-        "output": "RefOutpGnrcPrntArg",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "typeParam": "type"
-          }
-        ]
-      },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
@@ -32,40 +40,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "*"
+          },
           "name": "type"
-        }
-      ]
-    },
-    "RefOutpGnrcPrntArg": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "RefOutpGnrcPrntArg",
-          "type": {
-            "$tag": "_OutputBase",
-            "typeParam": "ref"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "typeParam": "ref"
-          }
-        }
-      ],
-      "name": "RefOutpGnrcPrntArg",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      },
-      "typeParams": [
-        {
-          "$tag": "_TypeParam",
-          "name": "ref"
         }
       ]
     }

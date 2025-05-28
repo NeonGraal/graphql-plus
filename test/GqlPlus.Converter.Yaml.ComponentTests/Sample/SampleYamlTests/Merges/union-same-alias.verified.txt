@@ -1,0 +1,21 @@
+﻿!_Schema
+_errors:
+- !_Error
+  _at: !_At {_col: 24, _line: 2}
+  _kind: !_TokenKind Punctuation
+  _message: Invalid Union Member. Expected member.
+- !_Error
+  _at: !_At {_col: 24, _line: 2}
+  _kind: !_TokenKind Punctuation
+  _message: Invalid Sample. Expected no more text.
+types: !_Map_Type
+  !_Identifier UnionSameAlias: !_TypeUnion
+    allItems:
+    - !_UnionMember
+      name: Boolean
+      union: UnionSameAlias
+    items:
+    - !_Aliased
+      name: Boolean
+    name: UnionSameAlias
+    typeKind: !_TypeKind Union

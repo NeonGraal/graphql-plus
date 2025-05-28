@@ -1,42 +1,42 @@
 ﻿{
   "$tag": "_Schema",
+  "_errors": [
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 40,
+        "_line": 1
+      },
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "Punctuation"
+      },
+      "_message": "Invalid Dual. Expected constraint for $type."
+    },
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 40,
+        "_line": 1
+      },
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "Punctuation"
+      },
+      "_message": "Invalid Sample. Expected no more text."
+    }
+  ],
   "types": {
     "$tag": "_Map_Type",
     "DualGnrcDescr": {
       "$tag": "_TypeDual",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "field",
-          "object": "DualGnrcDescr",
-          "type": {
-            "$tag": "_DualBase",
-            "typeParam": "type"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_DualField",
-          "name": "field",
-          "type": {
-            "$tag": "_DualBase",
-            "typeParam": "type"
-          }
-        }
-      ],
       "name": "DualGnrcDescr",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"
-      },
-      "typeParams": [
-        {
-          "$tag": "_TypeParam",
-          "description": "Test Descr",
-          "name": "type"
-        }
-      ]
+      }
     }
   }
 }

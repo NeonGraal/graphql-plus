@@ -1,27 +1,14 @@
 ﻿!_Schema
+_errors:
+  - !_Error
+    _at: !_At{_col:34,_line:1}
+    _kind: !_TokenKind Punctuation
+    _message: Invalid Input. Expected constraint for $ref.
+  - !_Error
+    _at: !_At{_col:34,_line:1}
+    _kind: !_TokenKind Punctuation
+    _message: Invalid Sample. Expected no more text.
 types: !_Map_Type
   !_Identifier RefInpGnrcAltModParam: !_TypeInput
-    allAlternates:
-      - !_ObjectFor(_InputAlternate)
-        collections:
-          - !_ModifierTypeParam
-            by: mod
-            modifierKind: !_ModifierKind Param
-        object: RefInpGnrcAltModParam
-        type: !_InputBase
-          typeParam: ref
-    alternates:
-      - !_InputAlternate
-        collections:
-          - !_ModifierTypeParam
-            by: mod
-            modifierKind: !_ModifierKind Param
-        type: !_InputBase
-          typeParam: ref
     name: RefInpGnrcAltModParam
     typeKind: !_TypeKind Input
-    typeParams:
-      - !_TypeParam
-        name: ref
-      - !_TypeParam
-        name: mod

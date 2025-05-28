@@ -7,18 +7,19 @@ Success
   <
     I@027/0001
     $mod
+    :*
   >
   {
-    !OF I@034/0001
+    !OF I@036/0001
     field
     (
       !Pa
-      I@040/0001
+      I@042/0001
       InOutpParamModParam
       [$mod]
     )
     :
-    I@068/0001
+    I@070/0001
     DomOutpParamModParam
   }
 }

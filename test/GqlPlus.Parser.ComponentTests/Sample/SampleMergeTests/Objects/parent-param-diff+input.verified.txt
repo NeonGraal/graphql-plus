@@ -1,37 +1,17 @@
 ﻿[  
 !Sc I@001/0001
-Success
+Failure
+<
+  !!! P@055/0001 : Invalid Input. Expected '>' after type argument(s). - ':\*>\ field:' !!!
+  !!! P@055/0001 : Invalid Sample. Expected no more text. - ':\*>\ field:' !!!
+>
 {
   !In I@007/0001
   InpPrntParamDiff
   <
     I@025/0001
     $a
+    :*
   >
-  :
-  I@031/0001
-  RefInpPrntParamDiff
-  <
-    I@052/0001
-    $a
-  >
-  {
-    !IF I@055/0001
-    field
-    :
-    I@063/0001
-    $a
-  }
-}
-{
-  !In I@007/0002
-  RefInpPrntParamDiff
-  <
-    I@028/0002
-    $b
-  >
-  |
-  P@035/0002
-  $b
 }
 ]

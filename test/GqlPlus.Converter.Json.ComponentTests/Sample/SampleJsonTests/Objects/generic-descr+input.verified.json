@@ -1,42 +1,42 @@
 ﻿{
   "$tag": "_Schema",
+  "_errors": [
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 40,
+        "_line": 1
+      },
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "Punctuation"
+      },
+      "_message": "Invalid Input. Expected constraint for $type."
+    },
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 40,
+        "_line": 1
+      },
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "Punctuation"
+      },
+      "_message": "Invalid Sample. Expected no more text."
+    }
+  ],
   "types": {
     "$tag": "_Map_Type",
     "InpGnrcDescr": {
       "$tag": "_TypeInput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_InputField)",
-          "name": "field",
-          "object": "InpGnrcDescr",
-          "type": {
-            "$tag": "_InputBase",
-            "typeParam": "type"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_InputField",
-          "name": "field",
-          "type": {
-            "$tag": "_InputBase",
-            "typeParam": "type"
-          }
-        }
-      ],
       "name": "InpGnrcDescr",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Input"
-      },
-      "typeParams": [
-        {
-          "$tag": "_TypeParam",
-          "description": "Test Descr",
-          "name": "type"
-        }
-      ]
+      }
     }
   }
 }

@@ -1,20 +1,12 @@
 ﻿[  
 !Sc I@001/0001
-Success
+Failure
+<
+  !!! P@040/0001 : Invalid Input. Expected constraint for $type. - '>\ \{\ field:' !!!
+  !!! P@040/0001 : Invalid Sample. Expected no more text. - '>\ \{\ field:' !!!
+>
 {
   !In I@007/0001
   InpGnrcDescr
-  <
-    I@036/0001
-    "Test Descr"
-    $type
-  >
-  {
-    !IF I@044/0001
-    field
-    :
-    I@052/0001
-    $type
-  }
 }
 ]

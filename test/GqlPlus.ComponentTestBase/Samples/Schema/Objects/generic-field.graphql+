@@ -1,1 +1,1 @@
-object ObjName<$type> { field: $type }
+object ObjName<$type:*> { field: $type }

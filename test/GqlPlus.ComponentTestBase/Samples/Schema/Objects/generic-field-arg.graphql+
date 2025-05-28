@@ -1,2 +1,2 @@
-object ObjName<$type> { field: RefObjName<$type> }
-object RefObjName<$ref> { | $ref }
+object ObjName<$type:*> { field: RefObjName<$type:*> }
+object RefObjName<$ref:*> { | $ref }

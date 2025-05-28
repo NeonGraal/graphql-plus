@@ -1,37 +1,17 @@
 ﻿[  
 !Sc I@001/0001
-Success
+Failure
+<
+  !!! P@058/0001 : Invalid Output. Expected '>' after type argument(s). - ':\*>\ field:' !!!
+  !!! P@058/0001 : Invalid Sample. Expected no more text. - ':\*>\ field:' !!!
+>
 {
   !Ou I@008/0001
   OutpPrntParamSame
   <
     I@027/0001
     $a
+    :*
   >
-  :
-  I@033/0001
-  RefOutpPrntParamSame
-  <
-    I@055/0001
-    $a
-  >
-  {
-    !OF I@058/0001
-    field
-    :
-    I@066/0001
-    $a
-  }
-}
-{
-  !Ou I@008/0002
-  RefOutpPrntParamSame
-  <
-    I@030/0002
-    $a
-  >
-  |
-  P@037/0002
-  $a
 }
 ]

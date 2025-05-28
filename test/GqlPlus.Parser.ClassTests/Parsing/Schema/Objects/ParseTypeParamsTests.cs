@@ -11,11 +11,13 @@ public class ParseTypeParamsTests
     => _parser = new ParseTypeParams();
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnTypeParams_WhenValid(string param1, string param2)
+  public void Valid_WithConstraint_ShouldReturnCorrect(string paramName, string constraint)
   {
     // Arrange
     TakeReturns('<', true);
-    PrefixReturns('$', OutStringAt(param1), OutStringAt(param2), OutPass);
+    PrefixReturns('$', OutStringAt(paramName), OutPass);
+    TakeReturns(':', true);
+    IdentifierReturns(OutString(constraint), OutFail);
     TakeReturns('>', false, true);
 
     // Act
@@ -23,7 +25,52 @@ public class ParseTypeParamsTests
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpTypeParam>>()
-      .Required().ShouldHaveSingleItem();
+      .Required().ShouldHaveSingleItem()
+      .ShouldSatisfyAllConditions(
+        r => r.Name.ShouldBe(paramName),
+        r => r.Constraint.ShouldBe(constraint));
+  }
+
+  [Theory, RepeatInlineData('^'), RepeatInlineData('_'), RepeatInlineData('*')]
+  public void Valid_WithConstraintChar_ShouldReturnCorrect(char typeChar, string paramName)
+  {
+    // Arrange
+    TakeReturns('<', true);
+    PrefixReturns('$', OutStringAt(paramName), OutPass);
+    TakeReturns(':', true);
+    Tokenizer.TakeAny(out char charType, typeChar).ReturnsForAnyArgs(OutChar(typeChar), OutFail);
+    TakeReturns('>', false, true);
+
+    // Act
+    IResultArray<IGqlpTypeParam> result = _parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpTypeParam>>()
+      .Required().ShouldHaveSingleItem()
+      .ShouldSatisfyAllConditions(
+        r => r.Name.ShouldBe(paramName),
+        r => r.Constraint.ShouldBe($"{typeChar}"));
+  }
+
+  [Theory, RepeatData]
+  public void Valid_WithConstraintZero_ShouldReturnCorrect(string paramName)
+  {
+    // Arrange
+    TakeReturns('<', true);
+    PrefixReturns('$', OutStringAt(paramName), OutPass);
+    TakeReturns(':', true);
+    Tokenizer.TakeZero().Returns(true, false);
+    TakeReturns('>', false, true);
+
+    // Act
+    IResultArray<IGqlpTypeParam> result = _parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpTypeParam>>()
+      .Required().ShouldHaveSingleItem()
+      .ShouldSatisfyAllConditions(
+        r => r.Name.ShouldBe(paramName),
+        r => r.Constraint.ShouldBe("0"));
   }
 
   [Fact]

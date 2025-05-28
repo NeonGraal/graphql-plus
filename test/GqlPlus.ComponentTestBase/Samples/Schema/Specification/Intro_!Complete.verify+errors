@@ -1,0 +1,19 @@
+!!! I@007/0084 : Invalid Output Alternate. '_TypeDual' not defined. - '_TypeDual' !!!
+!!! I@007/0085 : Invalid Output Alternate. '_TypeEnum' not defined. - '_TypeEnum' !!!
+!!! I@007/0086 : Invalid Output Alternate. '_TypeInput' not defined. - '_TypeInput' !!!
+!!! I@007/0087 : Invalid Output Alternate. '_TypeOutput' not defined. - '_TypeOutput' !!!
+!!! I@007/0089 : Invalid Output Alternate. '_TypeUnion' not defined. - '_TypeUnion' !!!
+!!! I@007/0132 : Invalid Output Alternate. Args mismatch on _DomainValue. Expected 0, given 2. - '_DomainValue' !!!
+!!! I@007/0133 : Invalid Output Alternate. Args mismatch on _DomainValue. Expected 0, given 2. - '_DomainValue' !!!
+!!! I@007/0134 : Invalid Output Alternate. '_EnumValue' not defined. - '_EnumValue' !!!
+!!! I@007/0170 : Invalid Output Alternate. '_DomainItemTrueFalse' not defined. - '_BaseDomain' !!!
+!!! I@007/0170 : Invalid Output Alternate. '_DomainTrueFalse' not defined. - '_BaseDomain' !!!
+!!! I@007/0171 : Invalid Output Alternate. '_DomainItemLabel' not defined. - '_BaseDomain' !!!
+!!! I@007/0171 : Invalid Output Alternate. '_DomainLabel' not defined. - '_BaseDomain' !!!
+!!! I@007/0172 : Invalid Output Alternate. '_DomainItemRange' not defined. - '_BaseDomain' !!!
+!!! I@007/0172 : Invalid Output Alternate. '_DomainRange' not defined. - '_BaseDomain' !!!
+!!! I@007/0173 : Invalid Output Alternate. '_DomainItemRegex' not defined. - '_BaseDomain' !!!
+!!! I@007/0173 : Invalid Output Alternate. '_DomainRegex' not defined. - '_BaseDomain' !!!
+!!! I@021/0070 : Invalid Output Field. '_InputParam' not defined. - '_InputParam' !!!
+!!! P@045/0196 : Invalid Output. Expected constraint for $value. - '>\ \{\n\ \ \ \ :\ ' !!!
+!!! P@045/0196 : Invalid Spec. Expected no more text. - '>\ \{\n\ \ \ \ :\ ' !!!

@@ -355,15 +355,6 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "Opt"
-              }
-            }
-          ],
           "name": "constraint",
           "object": "_ObjTypeParam",
           "type": {
@@ -976,15 +967,6 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "Opt"
-              }
-            }
-          ],
           "name": "constraint",
           "object": "_ObjTypeParam",
           "type": {
@@ -1342,15 +1324,6 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "Opt"
-              }
-            }
-          ],
           "name": "constraint",
           "object": "_ObjTypeParam",
           "type": {
@@ -1368,15 +1341,6 @@
       "fields": [
         {
           "$tag": "_OutputField",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "Opt"
-              }
-            }
-          ],
           "name": "constraint",
           "type": {
             "$tag": "_OutputBase",
@@ -1832,15 +1796,6 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "Opt"
-              }
-            }
-          ],
           "name": "constraint",
           "object": "_ObjTypeParam",
           "type": {

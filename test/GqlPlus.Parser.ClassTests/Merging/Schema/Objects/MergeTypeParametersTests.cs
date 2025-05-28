@@ -22,9 +22,9 @@ public class MergeTypeParamsTests
     .SkipWhitespace(constraint1)
     .SkipWhitespace(constraint2)
   .Merge_Expected([
-        new TypeParamAst(AstNulls.At, name) with { Constraint = constraint1 },
+      new TypeParamAst(AstNulls.At, name) with { Constraint = constraint1 },
       new TypeParamAst(AstNulls.At, name) with { Constraint = constraint2 }],
-        new TypeParamAst(AstNulls.At, name) with { Constraint = constraint1 + "|" + constraint2 });
+      new TypeParamAst(AstNulls.At, name) with { Constraint = constraint1 + "|" + constraint2 });
 
   [Theory, RepeatData]
   public void Merge_ManyItems_ReturnsItem(string name)

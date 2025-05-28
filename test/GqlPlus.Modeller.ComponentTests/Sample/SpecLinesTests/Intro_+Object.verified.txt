@@ -150,7 +150,6 @@ types: !_Map_Type
   !_Identifier _DualTypeParam: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: constraint
         object: _ObjTypeParam
         type: !_OutputBase
@@ -410,7 +409,6 @@ types: !_Map_Type
               typeName: _TypeKind
     allFields:
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: constraint
         object: _ObjTypeParam
         type: !_OutputBase
@@ -503,7 +501,6 @@ types: !_Map_Type
   !_Identifier _ObjTypeParam: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: constraint
         object: _ObjTypeParam
         type: !_OutputBase
@@ -513,7 +510,6 @@ types: !_Map_Type
               typeParam: kind
     fields:
       - !_OutputField
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: constraint
         type: !_OutputBase
           output: _ObjConstraint
@@ -780,7 +776,6 @@ types: !_Map_Type
               typeName: _TypeKind
     allFields:
       - !_ObjectFor(_OutputField)
-        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: constraint
         object: _ObjTypeParam
         type: !_OutputBase

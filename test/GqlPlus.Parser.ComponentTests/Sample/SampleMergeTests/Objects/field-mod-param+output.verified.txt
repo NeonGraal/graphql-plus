@@ -7,12 +7,13 @@ Success
   <
     I@027/0001
     $mod
+    :*
   >
   {
-    !OF I@034/0001
+    !OF I@036/0001
     field
     :
-    I@041/0001
+    I@043/0001
     FldOutpFieldModParam
     [$mod]
   }

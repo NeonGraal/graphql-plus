@@ -7,13 +7,14 @@ Success
   <
     I@029/0001
     $type
+    :*
   >
   |
-  I@039/0001
+  I@041/0001
   RefOutpGnrcAltArgDescr
   <
     'Test Descr'
-    I@077/0001
+    I@079/0001
     $type
   >
 }
@@ -23,9 +24,10 @@ Success
   <
     I@032/0002
     $ref
+    :*
   >
   |
-  P@041/0002
+  P@043/0002
   $ref
 }
 ]

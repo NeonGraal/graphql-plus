@@ -1,51 +1,38 @@
 ﻿{
   "$tag": "_Schema",
+  "_errors": [
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 56,
+        "_line": 1
+      },
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "Punctuation"
+      },
+      "_message": "Invalid Dual. Expected \u0027\u003E\u0027 after type argument(s)."
+    },
+    {
+      "$tag": "_Error",
+      "_at": {
+        "$tag": "_At",
+        "_col": 56,
+        "_line": 1
+      },
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "Punctuation"
+      },
+      "_message": "Invalid Sample. Expected no more text."
+    }
+  ],
   "types": {
     "$tag": "_Map_Type",
     "DualPrntParamDiff": {
       "$tag": "_TypeDual",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "RefDualPrntParamDiff",
-          "type": {
-            "$tag": "_DualBase",
-            "typeParam": "b"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "field",
-          "object": "DualPrntParamDiff",
-          "type": {
-            "$tag": "_DualBase",
-            "typeParam": "a"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_DualField",
-          "name": "field",
-          "type": {
-            "$tag": "_DualBase",
-            "typeParam": "a"
-          }
-        }
-      ],
       "name": "DualPrntParamDiff",
-      "parent": {
-        "$tag": "_DualBase",
-        "dual": "RefDualPrntParamDiff",
-        "typeArgs": [
-          {
-            "$tag": "_DualArg",
-            "typeParam": "a"
-          }
-        ]
-      },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"
@@ -53,40 +40,15 @@
       "typeParams": [
         {
           "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "*"
+          },
           "name": "a"
-        }
-      ]
-    },
-    "RefDualPrntParamDiff": {
-      "$tag": "_TypeDual",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "RefDualPrntParamDiff",
-          "type": {
-            "$tag": "_DualBase",
-            "typeParam": "b"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "typeParam": "b"
-          }
-        }
-      ],
-      "name": "RefDualPrntParamDiff",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Dual"
-      },
-      "typeParams": [
-        {
-          "$tag": "_TypeParam",
-          "name": "b"
         }
       ]
     }

@@ -1,23 +1,21 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Matching;
 using GqlPlus.Merging;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace GqlPlus.Verifying;
+namespace GqlPlus.Matching;
 
-public class AllVerifiersTests
+public class AllMatchersTests
 {
   [Fact]
-  public void AllVerifiers_DefinesVerifySchema()
+  public void AllMatchers_DefinesMatcherSchema()
   {
     IServiceProvider services = new ServiceCollection()
       .AddLogging()
       .AddMergers()
       .AddMatchers()
-      .AddVerifiers()
       .BuildServiceProvider();
 
-    services.GetService<IVerify<IGqlpSchema>>()
+    services.GetService<IMatch<IGqlpType>>()
       .ShouldNotBeNull();
   }
 }

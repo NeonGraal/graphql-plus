@@ -4,7 +4,7 @@ namespace GqlPlus.Verifying.Schema.Objects;
 
 [TracePerTest]
 public class VerifyInputTypesTests
-  : ObjectVerifierBase<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate>
+  : ObjectVerifierBase<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate, IGqlpInputArg>
 {
   private readonly IGqlpInputObject _input;
 
@@ -13,26 +13,9 @@ public class VerifyInputTypesTests
 
   public VerifyInputTypesTests()
   {
-    Verifier = new VerifyInputTypes(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, LoggerFactory);
+    Verifier = new VerifyInputTypes(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ConstraintMatcher, LoggerFactory);
 
     _input = NFor<IGqlpInputObject>("Input");
-  }
-
-  [Fact]
-  public void Verify_Input_WithTypeParams_ReturnsNoErrors()
-  {
-    IGqlpTypeParam[] typeParams = NForA<IGqlpTypeParam>("a");
-    _input.TypeParams.Returns(typeParams);
-    IGqlpInputBase parent = NFor<IGqlpInputBase>("a");
-    parent.IsTypeParam.Returns(true);
-    _input.ObjParent.Returns(parent);
-
-    Usages.Add(_input);
-    Definitions.Add(_input);
-
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldBeEmpty();
   }
 
   [Fact]

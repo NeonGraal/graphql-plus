@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Matching;
 using GqlPlus.Merging;
 using GqlPlus.Verification.Schema;
 
@@ -8,8 +9,9 @@ internal class VerifyInputTypes(
   IVerifyAliased<IGqlpInputObject> aliased,
   IMerge<IGqlpInputField> fields,
   IMerge<IGqlpInputAlternate> mergeAlternates,
+  IMatch<IGqlpType> constraintMatcher,
   ILoggerFactory logger
-) : AstObjectVerifier<IGqlpInputObject, IGqlpInputBase, IGqlpInputArg, IGqlpInputField, IGqlpInputAlternate, UsageContext>(aliased, fields, mergeAlternates, logger)
+) : AstObjectVerifier<IGqlpInputObject, IGqlpInputBase, IGqlpInputArg, IGqlpInputField, IGqlpInputAlternate, UsageContext>(aliased, fields, mergeAlternates, constraintMatcher, logger)
 {
   protected override UsageContext MakeContext(IGqlpInputObject usage, IGqlpType[] aliased, ITokenMessages errors)
   {

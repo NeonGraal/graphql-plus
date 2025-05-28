@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Matching;
 using GqlPlus.Merging;
 using GqlPlus.Token;
 using GqlPlus.Verification.Schema;
@@ -12,6 +13,9 @@ public class VerifierBase
 {
   protected TokenMessages Errors { get; } = [];
   protected ILoggerFactory LoggerFactory { get; } = For<ILoggerFactory>();
+
+  protected IMatch<IGqlpType> ConstraintMatcher { get; } = For<IMatch<IGqlpType>>();
+
   protected ILogger Logger { get; } = For<ILogger>();
 
   public VerifierBase()

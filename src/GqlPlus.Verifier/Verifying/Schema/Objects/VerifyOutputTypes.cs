@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Abstractions.Schema;
+using GqlPlus.Matching;
 using GqlPlus.Merging;
 using GqlPlus.Verification.Schema;
 
@@ -9,8 +10,9 @@ internal class VerifyOutputTypes(
   IVerifyAliased<IGqlpOutputObject> aliased,
   IMerge<IGqlpOutputField> mergeFields,
   IMerge<IGqlpOutputAlternate> mergeAlternates,
+  IMatch<IGqlpType> constraintMatcher,
   ILoggerFactory logger
-) : AstObjectVerifier<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputArg, IGqlpOutputField, IGqlpOutputAlternate, OutputContext>(aliased, mergeFields, mergeAlternates, logger)
+) : AstObjectVerifier<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputArg, IGqlpOutputField, IGqlpOutputAlternate, OutputContext>(aliased, mergeFields, mergeAlternates, constraintMatcher, logger)
 {
   protected override void UsageValue(IGqlpOutputObject usage, OutputContext context)
   {

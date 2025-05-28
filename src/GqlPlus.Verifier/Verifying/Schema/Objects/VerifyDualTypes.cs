@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Matching;
 using GqlPlus.Merging;
 using GqlPlus.Verification.Schema;
 
@@ -8,8 +9,9 @@ internal class VerifyDualTypes(
   IVerifyAliased<IGqlpDualObject> aliased,
   IMerge<IGqlpDualField> fields,
   IMerge<IGqlpDualAlternate> mergeAlternates,
+  IMatch<IGqlpType> constraintMatcher,
   ILoggerFactory logger
-) : AstObjectVerifier<IGqlpDualObject, IGqlpDualBase, IGqlpDualArg, IGqlpDualField, IGqlpDualAlternate, UsageContext>(aliased, fields, mergeAlternates, logger)
+) : AstObjectVerifier<IGqlpDualObject, IGqlpDualBase, IGqlpDualArg, IGqlpDualField, IGqlpDualAlternate, UsageContext>(aliased, fields, mergeAlternates, constraintMatcher, logger)
 {
   protected override UsageContext MakeContext(IGqlpDualObject usage, IGqlpType[] aliased, ITokenMessages errors)
   {

@@ -5,7 +5,7 @@ namespace GqlPlus.Verifying.Schema.Objects;
 
 [TracePerTest]
 public class VerifyOutputTypesTests
-  : ObjectVerifierBase<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>
+  : ObjectVerifierBase<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate, IGqlpOutputArg>
 {
   private readonly IGqlpOutputObject _output;
 
@@ -14,26 +14,9 @@ public class VerifyOutputTypesTests
 
   public VerifyOutputTypesTests()
   {
-    Verifier = new VerifyOutputTypes(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, LoggerFactory);
+    Verifier = new VerifyOutputTypes(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ConstraintMatcher, LoggerFactory);
 
     _output = NFor<IGqlpOutputObject>("Output");
-  }
-
-  [Fact]
-  public void Verify_Output_WithTypeParams_ReturnsNoErrors()
-  {
-    IGqlpTypeParam[] typeParams = NForA<IGqlpTypeParam>("a");
-    _output.TypeParams.Returns(typeParams);
-    IGqlpOutputBase parent = NFor<IGqlpOutputBase>("a");
-    parent.IsTypeParam.Returns(true);
-    _output.ObjParent.Returns(parent);
-
-    Usages.Add(_output);
-    Definitions.Add(_output);
-
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldBeEmpty();
   }
 
   [Fact]
@@ -189,8 +172,9 @@ public class VerifyOutputTypesTests
     Enum("b", "l");
 
     IGqlpOutputObject other = NFor<IGqlpOutputObject>("Other");
-    IGqlpTypeParam[] typeParams = NForA<IGqlpTypeParam>("a");
-    other.TypeParams.Returns(typeParams);
+    IGqlpTypeParam typeParam = NFor<IGqlpTypeParam>("a");
+    typeParam.Constraint.Returns("b");
+    other.TypeParams.Returns([typeParam]);
     IGqlpOutputBase parent = NFor<IGqlpOutputBase>("a");
     parent.IsTypeParam.Returns(true);
     other.ObjParent.Returns(parent);

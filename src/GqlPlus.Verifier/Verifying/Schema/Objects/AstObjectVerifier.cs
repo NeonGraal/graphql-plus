@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Abstractions.Schema;
+using GqlPlus.Matching;
 using GqlPlus.Merging;
 using GqlPlus.Verifying.Schema;
 using static GqlPlus.Verifying.Schema.UsageHelpers;
@@ -11,6 +12,7 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
   IVerifyAliased<TObject> aliased,
   IMerge<TObjField> mergeFields,
   IMerge<TObjAlt> mergeAlternates,
+  IMatch<IGqlpType> constraintMatcher,
   ILoggerFactory logger
 ) : AstParentItemVerifier<TObject, IGqlpObjBase, TContext, TObjField>(aliased, mergeFields)
   where TObject : IGqlpObject<TObjBase, TObjField, TObjAlt>
@@ -124,6 +126,7 @@ where TContext : UsageContext
     CheckArgType(error, context, arg);
 
     if (string.IsNullOrWhiteSpace(param.Constraint)) {
+      error("Invalid Constraint on", "undefined");
       return;
     }
 
@@ -137,7 +140,7 @@ where TContext : UsageContext
     }
 
     if (context.GetTyped(arg.FullType, out IGqlpType? argType)) {
-      if (!MatchParamArg(context, consType, argType)) {
+      if (!constraintMatcher.Matches(argType, consType, context)) {
         error("Invalid Constraint on", $"'{argType.Name}' not match '{param.Constraint}'");
       }
     }

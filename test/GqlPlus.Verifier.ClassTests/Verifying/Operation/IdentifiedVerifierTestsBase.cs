@@ -2,8 +2,8 @@
 
 namespace GqlPlus.Verifying.Operation;
 
-public abstract class IdentifiedVerifierBase<TUsage, TIdentified>
-  : VerifierBase
+public abstract class IdentifiedVerifierTestsBase<TUsage, TIdentified>
+  : VerifierTestsBase
   where TUsage : class, IGqlpError
   where TIdentified : class, IGqlpIdentified
 {

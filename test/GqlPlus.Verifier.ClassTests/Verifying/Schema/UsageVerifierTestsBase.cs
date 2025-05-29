@@ -3,8 +3,8 @@ using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Verifying.Schema;
 
-public abstract class UsageVerifierBase<TUsage>
-  : VerifierTypeBase
+public abstract class UsageVerifierTestsBase<TUsage>
+  : VerifierTypeTestsBase
   where TUsage : class, IGqlpAliased
 {
   internal ForVA<TUsage> Aliased { get; } = new();

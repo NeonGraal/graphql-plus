@@ -4,7 +4,7 @@ namespace GqlPlus.Verifying.Schema.Objects;
 
 [TracePerTest]
 public class VerifyInputsAliasedTests
-  : AliasedVerifierBase<IGqlpInputObject>
+  : AliasedVerifierTestsBase<IGqlpInputObject>
 {
   internal override GroupedVerifier<IGqlpInputObject> NewGroupedVerifier()
     => new VerifyInputsAliased(Definition, Merger, LoggerFactory);

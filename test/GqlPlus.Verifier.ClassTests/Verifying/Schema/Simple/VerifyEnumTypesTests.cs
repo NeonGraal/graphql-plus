@@ -4,7 +4,7 @@ namespace GqlPlus.Verifying.Schema.Simple;
 
 [TracePerTest]
 public class VerifyEnumTypesTests
-  : UsageVerifierBase<IGqlpEnum>
+  : UsageVerifierTestsBase<IGqlpEnum>
 {
   private readonly ForM<IGqlpEnumLabel> _mergeLabels = new();
   private readonly VerifyEnumTypes _verifier;

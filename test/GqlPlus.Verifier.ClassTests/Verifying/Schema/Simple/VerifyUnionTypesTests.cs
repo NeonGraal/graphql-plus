@@ -4,7 +4,7 @@ namespace GqlPlus.Verifying.Schema.Simple;
 
 [TracePerTest]
 public class VerifyUnionTypesTests
-  : UsageVerifierBase<IGqlpUnion>
+  : UsageVerifierTestsBase<IGqlpUnion>
 {
   private readonly ForM<IGqlpUnionMember> _mergeMembers = new();
   private readonly VerifyUnionTypes _verifier;

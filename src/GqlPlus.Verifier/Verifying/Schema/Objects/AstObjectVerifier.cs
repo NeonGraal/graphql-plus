@@ -9,20 +9,16 @@ namespace GqlPlus.Verification.Schema;
 
 [SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Todo")]
 internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField, TObjAlt, TContext>(
-  IVerifyAliased<TObject> aliased,
-  IMerge<TObjField> mergeFields,
-  IMerge<TObjAlt> mergeAlternates,
-  IMatch<IGqlpType> constraintMatcher,
-  ILoggerFactory logger
-) : AstParentItemVerifier<TObject, IGqlpObjBase, TContext, TObjField>(aliased, mergeFields)
+  ObjectVerifierParams<TObject, TObjField, TObjAlt> verifiers
+) : AstParentItemVerifier<TObject, IGqlpObjBase, TContext, TObjField>(verifiers.Aliased, verifiers.MergeFields)
   where TObject : IGqlpObject<TObjBase, TObjField, TObjAlt>
   where TObjField : IGqlpObjField<TObjBase>
   where TObjAlt : IGqlpObjAlternate, IGqlpObjBase<TObjArg>
   where TObjBase : IGqlpObjBase<TObjArg>
   where TObjArg : IGqlpObjArg
-where TContext : UsageContext
+  where TContext : UsageContext
 {
-  private readonly ILogger _logger = logger.CreateLogger(nameof(AstParentItemVerifier<TObject, IGqlpObjBase, TContext, IGqlpTypeParam>));
+  private readonly ILogger _logger = verifiers.Logger.CreateLogger(nameof(AstParentItemVerifier<TObject, IGqlpObjBase, TContext, IGqlpTypeParam>));
 
   protected override void UsageValue(TObject usage, TContext context)
   {
@@ -140,7 +136,7 @@ where TContext : UsageContext
     }
 
     if (context.GetTyped(arg.FullType, out IGqlpType? argType)) {
-      if (!constraintMatcher.Matches(argType, consType, context)) {
+      if (!verifiers.ConstraintMatcher.Matches(argType, consType, context)) {
         error("Invalid Constraint on", $"'{argType.Name}' not match '{param.Constraint}'");
       }
     }
@@ -333,7 +329,7 @@ where TContext : UsageContext
 
     TObjAlt[] alternates = [.. GetParentItems(input, input.Usage, context, ast => ast.ObjAlternates)];
     if (alternates.Length > 0) {
-      ITokenMessages failures = mergeAlternates.CanMerge(alternates);
+      ITokenMessages failures = verifiers.MergeAlternates.CanMerge(alternates);
       if (failures.Any()) {
         context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} alternates into Parent {input.Parent} alternates");
         context.Add(failures);
@@ -353,3 +349,15 @@ internal static partial class AstObjectVerifierLogging
   [LoggerMessage(Level = LogLevel.Information, Message = "Checking Alternates with {Input}, {Top} of {Alternate}, {Current}")]
   internal static partial void CheckingAlternates(this ILogger logger, object input, bool top, string alternate, string current);
 }
+
+internal record class ObjectVerifierParams<TObject, TObjField, TObjAlt>(
+  IVerifyAliased<TObject> Aliased,
+  IMerge<TObjField> MergeFields,
+  IMerge<TObjAlt> MergeAlternates,
+  IMatch<IGqlpType, IGqlpType> ConstraintMatcher,
+  ILoggerFactory Logger
+)
+  where TObject : IGqlpObject
+  where TObjField : IGqlpObjField
+  where TObjAlt : IGqlpObjAlternate
+  ;

@@ -3,6 +3,6 @@
 namespace GqlPlus.Verifying.Schema.Simple;
 
 public class VerifyDomainRegexTests
-  : AstDomainVerifierBase<IGqlpDomainRegex>
+  : AstDomainVerifierTestsBase<IGqlpDomainRegex>
 {
 }

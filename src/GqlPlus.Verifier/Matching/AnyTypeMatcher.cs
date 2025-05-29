@@ -5,11 +5,15 @@ namespace GqlPlus.Matching;
 
 internal class AnyTypeMatcher(
   IEnumerable<IMatcher> matchers
-) : IMatch<IGqlpType>
+) : IMatch<IGqlpType, IGqlpType>
 {
   public bool Matches(IGqlpType type, IGqlpType constraint, UsageContext context)
-    => matchers
-      .SingleOrDefault(m => m.ForConstraint(constraint))
-      ?.MatchesConstraint(type, constraint, context)
-      ?? throw new InvalidOperationException($"No Constraint Matcher for {constraint.Name}");
+  {
+    if (matchers is null || !matchers.Any()) {
+      throw new InvalidOperationException("No matchers available to match types.");
+    }
+
+    return matchers
+        .Any(m => m.MatchesTypeConstraint(type, constraint, context));
+  }
 }

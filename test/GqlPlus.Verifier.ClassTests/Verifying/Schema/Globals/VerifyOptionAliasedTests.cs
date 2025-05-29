@@ -4,7 +4,7 @@ namespace GqlPlus.Verifying.Schema.Globals;
 
 [TracePerTest]
 public class VerifyOptionAliasedTests
-  : AliasedVerifierBase<IGqlpSchemaOption>
+  : AliasedVerifierTestsBase<IGqlpSchemaOption>
 {
 
   [Fact]

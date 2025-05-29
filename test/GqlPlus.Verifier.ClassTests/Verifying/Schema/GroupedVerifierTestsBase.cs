@@ -4,8 +4,8 @@ using GqlPlus.Verification.Schema;
 
 namespace GqlPlus.Verifying.Schema;
 
-public abstract class GroupedVerifierBase<TAliased>
-  : VerifierBase
+public abstract class GroupedVerifierTestsBase<TAliased>
+  : VerifierTestsBase
   where TAliased : class, IGqlpAliased
 {
   private readonly ForM<TAliased> _merger = new();

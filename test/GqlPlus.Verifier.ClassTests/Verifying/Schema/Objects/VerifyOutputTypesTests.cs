@@ -5,7 +5,7 @@ namespace GqlPlus.Verifying.Schema.Objects;
 
 [TracePerTest]
 public class VerifyOutputTypesTests
-  : ObjectVerifierBase<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate, IGqlpOutputArg>
+  : ObjectVerifierTestsBase<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate, IGqlpOutputArg>
 {
   private readonly IGqlpOutputObject _output;
 
@@ -14,7 +14,7 @@ public class VerifyOutputTypesTests
 
   public VerifyOutputTypesTests()
   {
-    Verifier = new VerifyOutputTypes(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ConstraintMatcher, LoggerFactory);
+    Verifier = new VerifyOutputTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ConstraintMatcher, LoggerFactory));
 
     _output = NFor<IGqlpOutputObject>("Output");
   }

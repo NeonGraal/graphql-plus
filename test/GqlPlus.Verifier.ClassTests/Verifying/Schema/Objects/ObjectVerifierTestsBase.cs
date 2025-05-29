@@ -3,8 +3,8 @@ using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
-public abstract class ObjectVerifierBase<TObject, TBase, TField, TAlt, TArg>
-  : UsageVerifierBase<TObject>
+public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg>
+  : UsageVerifierTestsBase<TObject>
   where TObject : class, IGqlpObject<TBase, TField, TAlt>
   where TBase : class, IGqlpObjBase<TArg>
   where TField : class, IGqlpObjField<TBase>

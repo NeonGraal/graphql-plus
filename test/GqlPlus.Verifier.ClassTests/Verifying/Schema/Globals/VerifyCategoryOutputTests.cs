@@ -4,7 +4,7 @@ namespace GqlPlus.Verifying.Schema.Globals;
 
 [TracePerTest]
 public class VerifyCategoryOutputTests
-  : UsageVerifierBase<IGqlpSchemaCategory>
+  : UsageVerifierTestsBase<IGqlpSchemaCategory>
 {
   private readonly VerifyCategoryOutput _verifier;
   private readonly IGqlpSchemaCategory _category;

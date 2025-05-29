@@ -5,7 +5,7 @@ namespace GqlPlus.Verifying.Schema;
 
 [TracePerTest]
 public class VerifyAllTypesAliasedTests
-  : GroupedVerifierBase<IGqlpType>
+  : GroupedVerifierTestsBase<IGqlpType>
 {
   internal override GroupedVerifier<IGqlpType> NewGroupedVerifier()
     => new VerifyAllTypesAliased(Merger, LoggerFactory);

@@ -2,8 +2,8 @@
 
 namespace GqlPlus.Verifying.Schema.Simple;
 
-public abstract class AstDomainVerifierBase<TItem>
-  : VerifierTypeBase
+public abstract class AstDomainVerifierTestsBase<TItem>
+  : VerifierTypeTestsBase
   where TItem : class, IGqlpDomainItem
 {
   internal ForM<TItem> ItemsMerger { get; } = new();

@@ -3,6 +3,6 @@
 namespace GqlPlus.Verifying.Schema.Simple;
 
 public class VerifyDomainTrueFalseTests
-  : AstDomainVerifierBase<IGqlpDomainTrueFalse>
+  : AstDomainVerifierTestsBase<IGqlpDomainTrueFalse>
 {
 }

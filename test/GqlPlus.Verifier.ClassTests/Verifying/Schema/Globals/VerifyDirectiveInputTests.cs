@@ -4,7 +4,7 @@ namespace GqlPlus.Verifying.Schema.Globals;
 
 [TracePerTest]
 public class VerifyDirectiveInputTests
-  : UsageVerifierBase<IGqlpSchemaDirective>
+  : UsageVerifierTestsBase<IGqlpSchemaDirective>
 {
   private readonly VerifyDirectiveInput _verifier;
   private readonly IGqlpSchemaDirective _directive;

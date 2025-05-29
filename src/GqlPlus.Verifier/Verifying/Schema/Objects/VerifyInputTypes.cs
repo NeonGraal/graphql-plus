@@ -6,12 +6,8 @@ using GqlPlus.Verification.Schema;
 namespace GqlPlus.Verifying.Schema.Objects;
 
 internal class VerifyInputTypes(
-  IVerifyAliased<IGqlpInputObject> aliased,
-  IMerge<IGqlpInputField> fields,
-  IMerge<IGqlpInputAlternate> mergeAlternates,
-  IMatch<IGqlpType> constraintMatcher,
-  ILoggerFactory logger
-) : AstObjectVerifier<IGqlpInputObject, IGqlpInputBase, IGqlpInputArg, IGqlpInputField, IGqlpInputAlternate, UsageContext>(aliased, fields, mergeAlternates, constraintMatcher, logger)
+  ObjectVerifierParams<IGqlpInputObject, IGqlpInputField, IGqlpInputAlternate> verifiers
+) : AstObjectVerifier<IGqlpInputObject, IGqlpInputBase, IGqlpInputArg, IGqlpInputField, IGqlpInputAlternate, UsageContext>(verifiers)
 {
   protected override UsageContext MakeContext(IGqlpInputObject usage, IGqlpType[] aliased, ITokenMessages errors)
   {

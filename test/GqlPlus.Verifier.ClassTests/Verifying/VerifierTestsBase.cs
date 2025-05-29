@@ -8,24 +8,24 @@ using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Verifying;
 
-public class VerifierBase
+public class VerifierTestsBase
   : SubstituteBase
 {
   protected TokenMessages Errors { get; } = [];
   protected ILoggerFactory LoggerFactory { get; } = For<ILoggerFactory>();
 
-  protected IMatch<IGqlpType> ConstraintMatcher { get; } = For<IMatch<IGqlpType>>();
+  protected IMatch<IGqlpType, IGqlpType> ConstraintMatcher { get; } = For<IMatch<IGqlpType, IGqlpType>>();
 
   protected ILogger Logger { get; } = For<ILogger>();
 
-  public VerifierBase()
+  public VerifierTestsBase()
   {
     Logger.IsEnabled(Arg.Any<LogLevel>())
       .ReturnsForAnyArgs(true);
 
     LoggerFactory.CreateLogger(Arg.Any<string>())
       .ReturnsForAnyArgs(Logger);
-    LoggerFactory.CreateLogger<VerifierBase>()
+    LoggerFactory.CreateLogger<VerifierTestsBase>()
       .ReturnsForAnyArgs(Logger);
   }
 

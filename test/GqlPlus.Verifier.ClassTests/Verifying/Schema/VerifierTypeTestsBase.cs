@@ -3,8 +3,8 @@ using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Verifying.Schema;
 
-public abstract class VerifierTypeBase
-  : VerifierBase
+public abstract class VerifierTypeTestsBase
+  : VerifierTestsBase
 {
   protected IMap<string> EnumValues { get; } = new Map<string>();
   protected IMap<IGqlpDescribed> Types { get; } = new Map<IGqlpDescribed>();

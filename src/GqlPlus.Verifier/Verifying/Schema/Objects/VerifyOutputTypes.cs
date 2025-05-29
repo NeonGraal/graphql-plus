@@ -7,12 +7,8 @@ using GqlPlus.Verification.Schema;
 namespace GqlPlus.Verifying.Schema.Objects;
 
 internal class VerifyOutputTypes(
-  IVerifyAliased<IGqlpOutputObject> aliased,
-  IMerge<IGqlpOutputField> mergeFields,
-  IMerge<IGqlpOutputAlternate> mergeAlternates,
-  IMatch<IGqlpType> constraintMatcher,
-  ILoggerFactory logger
-) : AstObjectVerifier<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputArg, IGqlpOutputField, IGqlpOutputAlternate, OutputContext>(aliased, mergeFields, mergeAlternates, constraintMatcher, logger)
+  ObjectVerifierParams<IGqlpOutputObject, IGqlpOutputField, IGqlpOutputAlternate> verifiers
+) : AstObjectVerifier<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputArg, IGqlpOutputField, IGqlpOutputAlternate, OutputContext>(verifiers)
 {
   protected override void UsageValue(IGqlpOutputObject usage, OutputContext context)
   {

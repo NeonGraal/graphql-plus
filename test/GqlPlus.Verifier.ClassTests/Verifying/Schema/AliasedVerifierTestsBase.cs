@@ -2,8 +2,8 @@
 
 namespace GqlPlus.Verifying.Schema;
 
-public abstract class AliasedVerifierBase<TAliased>
-  : GroupedVerifierBase<TAliased>
+public abstract class AliasedVerifierTestsBase<TAliased>
+  : GroupedVerifierTestsBase<TAliased>
   where TAliased : class, IGqlpAliased
 {
   private readonly ForV<TAliased> _definition = new();

@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 namespace GqlPlus.Verifying;
 
 public class NullVerifierTests
-  : VerifierBase
+  : VerifierTestsBase
 {
   [Fact]
   public void Verify_ShouldLogNullVerification()

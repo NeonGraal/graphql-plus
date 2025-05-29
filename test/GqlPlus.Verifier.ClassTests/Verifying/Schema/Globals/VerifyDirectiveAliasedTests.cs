@@ -5,7 +5,7 @@ namespace GqlPlus.Verifying.Schema.Globals;
 
 [TracePerTest]
 public class VerifyDirectiveAliasedTests
-  : AliasedVerifierBase<IGqlpSchemaDirective>
+  : AliasedVerifierTestsBase<IGqlpSchemaDirective>
 {
   internal override GroupedVerifier<IGqlpSchemaDirective> NewGroupedVerifier()
     => new VerifyDirectiveAliased(Definition, Merger, LoggerFactory);

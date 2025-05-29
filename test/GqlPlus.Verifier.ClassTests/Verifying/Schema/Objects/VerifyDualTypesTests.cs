@@ -4,7 +4,7 @@ namespace GqlPlus.Verifying.Schema.Objects;
 
 [TracePerTest]
 public class VerifyDualTypesTests
-  : ObjectVerifierBase<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate, IGqlpDualArg>
+  : ObjectVerifierTestsBase<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate, IGqlpDualArg>
 {
   private readonly IGqlpDualObject _dual;
 
@@ -13,7 +13,7 @@ public class VerifyDualTypesTests
 
   public VerifyDualTypesTests()
   {
-    Verifier = new VerifyDualTypes(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ConstraintMatcher, LoggerFactory);
+    Verifier = new VerifyDualTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ConstraintMatcher, LoggerFactory));
 
     _dual = NFor<IGqlpDualObject>("Dual");
   }

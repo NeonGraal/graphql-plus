@@ -4,7 +4,7 @@ namespace GqlPlus.Verifying.Schema.Simple;
 
 [TracePerTest]
 public class VerifyEnumsAliasedTests
-  : AliasedVerifierBase<IGqlpEnum>
+  : AliasedVerifierTestsBase<IGqlpEnum>
 {
   internal override GroupedVerifier<IGqlpEnum> NewGroupedVerifier()
     => new VerifyEnumsAliased(Definition, Merger, LoggerFactory);

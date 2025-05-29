@@ -4,7 +4,7 @@ namespace GqlPlus.Verifying.Schema.Objects;
 
 [TracePerTest]
 public class VerifyInputTypesTests
-  : ObjectVerifierBase<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate, IGqlpInputArg>
+  : ObjectVerifierTestsBase<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate, IGqlpInputArg>
 {
   private readonly IGqlpInputObject _input;
 
@@ -13,7 +13,7 @@ public class VerifyInputTypesTests
 
   public VerifyInputTypesTests()
   {
-    Verifier = new VerifyInputTypes(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ConstraintMatcher, LoggerFactory);
+    Verifier = new VerifyInputTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ConstraintMatcher, LoggerFactory));
 
     _input = NFor<IGqlpInputObject>("Input");
   }

@@ -15,7 +15,7 @@ public class AllMatchersTests
       .AddMatchers()
       .BuildServiceProvider();
 
-    services.GetService<IMatch<IGqlpType>>()
+    services.GetService<IMatch<IGqlpType, IGqlpType>>()
       .ShouldNotBeNull();
   }
 }

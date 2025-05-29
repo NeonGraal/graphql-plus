@@ -4,7 +4,9 @@ using GqlPlus.Merging;
 using GqlPlus.Token;
 using GqlPlus.Verification.Schema;
 using GqlPlus.Verifying.Schema;
+using Microsoft.Extensions.FileSystemGlobbing;
 using Microsoft.Extensions.Logging;
+using NSubstitute;
 
 namespace GqlPlus.Verifying;
 
@@ -14,12 +16,18 @@ public class VerifierTestsBase
   protected TokenMessages Errors { get; } = [];
   protected ILoggerFactory LoggerFactory { get; } = For<ILoggerFactory>();
 
-  protected IMatch<IGqlpType> ConstraintMatcher { get; } = For<IMatch<IGqlpType>>();
+  protected Matcher<IGqlpType>.I ConstraintMatcher { get; }
+  protected Matcher<IGqlpType>.D ConstraintDelegate { get; }
 
   protected ILogger Logger { get; } = For<ILogger>();
 
   public VerifierTestsBase()
   {
+    ConstraintMatcher = For<Matcher<IGqlpType>.I>();
+
+    ConstraintDelegate = For<Matcher<IGqlpType>.D>();
+    ConstraintDelegate().Returns(ConstraintMatcher);
+
     Logger.IsEnabled(Arg.Any<LogLevel>())
       .ReturnsForAnyArgs(true);
 

@@ -4,7 +4,7 @@ using GqlPlus.Verifying.Schema;
 namespace GqlPlus.Matching;
 
 internal abstract class MatcherBase<TType>
-  : IMatch<TType>
+  : Matcher<TType>.I
   , IMatcher
   where TType : IGqlpType
 {

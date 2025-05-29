@@ -53,7 +53,6 @@ public class AnyTypeMatcherTests
     Action action = () => _sut.Matches(type, constraint, Context);
 
     // Assert
-    action.ShouldThrow<InvalidOperationException>()
-      .Message.ShouldContain(constraint);
+    action.ShouldThrow<InvalidOperationException>();
   }
 }

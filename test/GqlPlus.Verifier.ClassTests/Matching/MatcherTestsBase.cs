@@ -1,4 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Parsing;
+using GqlPlus.Result;
 using GqlPlus.Token;
 using GqlPlus.Verifying.Schema;
 
@@ -14,4 +16,14 @@ public class MatcherTestsBase
 
   public MatcherTestsBase()
     => Context = new(Types, Errors);
+
+  protected static Matcher<T>.D MatcherFor<T>(out Matcher<T>.I matcher)
+  {
+    matcher = For<Matcher<T>.I>();
+
+    Matcher<T>.D result = For<Matcher<T>.D>();
+    result().Returns(matcher);
+
+    return result;
+  }
 }

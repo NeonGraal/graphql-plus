@@ -13,7 +13,7 @@ public class VerifyInputTypesTests
 
   public VerifyInputTypesTests()
   {
-    Verifier = new VerifyInputTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ConstraintMatcher, LoggerFactory));
+    Verifier = new VerifyInputTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ConstraintDelegate, LoggerFactory));
 
     _input = NFor<IGqlpInputObject>("Input");
   }

@@ -5,9 +5,9 @@ namespace GqlPlus.Matching;
 
 internal class AnyTypeMatcher(
   IEnumerable<IMatcher> matchers
-) : IMatch<IGqlpType, IGqlpType>
+) : IMatch<IGqlpType>
 {
-  public bool Matches(IGqlpType type, IGqlpType constraint, UsageContext context)
+  public bool Matches(IGqlpType type, string constraint, UsageContext context)
   {
     if (matchers is null || !matchers.Any()) {
       throw new InvalidOperationException("No matchers available to match types.");

@@ -1,7 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Abstractions.Schema;
-using GqlPlus.Matching;
-using GqlPlus.Merging;
 using GqlPlus.Verification.Schema;
 
 namespace GqlPlus.Verifying.Schema.Objects;

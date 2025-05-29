@@ -3,14 +3,13 @@ using GqlPlus.Verifying.Schema;
 
 namespace GqlPlus.Matching;
 
-public interface IMatch<TType, TConstraint>
+public interface IMatch<TType>
   where TType : IGqlpType
-  where TConstraint : IGqlpType
 {
-  bool Matches(TType type, TConstraint constraint, UsageContext context);
+  bool Matches(TType type, string constraint, UsageContext context);
 }
 
 public interface IMatcher
 {
-  bool MatchesTypeConstraint(IGqlpType type, IGqlpType constraint, UsageContext context);
+  bool MatchesTypeConstraint(IGqlpType type, string constraint, UsageContext context);
 }

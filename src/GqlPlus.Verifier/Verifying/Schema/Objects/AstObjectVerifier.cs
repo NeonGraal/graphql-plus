@@ -136,7 +136,7 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
     }
 
     if (context.GetTyped(arg.FullType, out IGqlpType? argType)) {
-      if (!verifiers.ConstraintMatcher.Matches(argType, consType, context)) {
+      if (!verifiers.ConstraintMatcher.Matches(argType, consType.Name, context)) {
         error("Invalid Constraint on", $"'{argType.Name}' not match '{param.Constraint}'");
       }
     }
@@ -354,7 +354,7 @@ internal record class ObjectVerifierParams<TObject, TObjField, TObjAlt>(
   IVerifyAliased<TObject> Aliased,
   IMerge<TObjField> MergeFields,
   IMerge<TObjAlt> MergeAlternates,
-  IMatch<IGqlpType, IGqlpType> ConstraintMatcher,
+  IMatch<IGqlpType> ConstraintMatcher,
   ILoggerFactory Logger
 )
   where TObject : IGqlpObject

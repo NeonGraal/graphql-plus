@@ -14,7 +14,7 @@ public class VerifierTestsBase
   protected TokenMessages Errors { get; } = [];
   protected ILoggerFactory LoggerFactory { get; } = For<ILoggerFactory>();
 
-  protected IMatch<IGqlpType, IGqlpType> ConstraintMatcher { get; } = For<IMatch<IGqlpType, IGqlpType>>();
+  protected IMatch<IGqlpType> ConstraintMatcher { get; } = For<IMatch<IGqlpType>>();
 
   protected ILogger Logger { get; } = For<ILogger>();
 

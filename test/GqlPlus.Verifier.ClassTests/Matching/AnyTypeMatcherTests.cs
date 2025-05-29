@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Matching;
+﻿using GqlPlus.Abstractions.Schema;
+
+namespace GqlPlus.Matching;
 
 public class AnyTypeMatcherTests
   : MatcherTestsBase
@@ -10,45 +12,48 @@ public class AnyTypeMatcherTests
   public AnyTypeMatcherTests()
     => _sut = new AnyTypeMatcher(_matchers);
 
-  [Fact]
-  public void Matches_ReturnsTrue_WhenMatchingConstraint()
+  [Theory, RepeatData]
+  public void Matches_ReturnsTrue_WhenMatchingConstraint(string constraint)
   {
     // Arrange
-    _matcher.MatchesTypeConstraint(Type, Constraint, Context).Returns(true);
+    IGqlpType type = NFor<IGqlpType>(constraint);
+    _matcher.MatchesTypeConstraint(type, constraint, Context).Returns(true);
 
     _matchers.Add(_matcher);
 
     // Act
-    bool result = _sut.Matches(Type, Constraint, Context);
+    bool result = _sut.Matches(type, constraint, Context);
 
     // Assert
     result.ShouldBeTrue();
   }
 
-  [Fact]
-  public void Matches_ReturnsFalse_WhenNoConstraintMatcher()
+  [Theory, RepeatData]
+  public void Matches_ReturnsFalse_WhenNoConstraintMatcher(string constraint)
   {
     // Arrange
-    _matcher.MatchesTypeConstraint(Type, Constraint, Context).Returns(false);
+    IGqlpType type = NFor<IGqlpType>(constraint);
+    _matcher.MatchesTypeConstraint(type, constraint, Context).Returns(false);
     _matchers.Add(_matcher);
 
     // Act
-    bool result = _sut.Matches(Type, Constraint, Context);
+    bool result = _sut.Matches(type, constraint, Context);
 
     // Assert
     result.ShouldBeFalse();
   }
 
-  [Fact]
-  public void Matches_Throws_WhenNoMatchers()
+  [Theory, RepeatData]
+  public void Matches_Throws_WhenNoMatchers(string constraint)
   {
     // _matchers is empty
+    IGqlpType type = NFor<IGqlpType>(constraint);
 
     // Act
-    Action action = () => _sut.Matches(Type, Constraint, Context);
+    Action action = () => _sut.Matches(type, constraint, Context);
 
     // Assert
     action.ShouldThrow<InvalidOperationException>()
-      .Message.ShouldContain(Constraint.Name);
+      .Message.ShouldContain(constraint);
   }
 }

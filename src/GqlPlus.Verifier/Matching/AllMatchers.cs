@@ -7,26 +7,25 @@ public static class AllMatchers
 {
   public static IServiceCollection AddMatchers(this IServiceCollection services)
     => services
-      .AddSingleton<IMatch<IGqlpType, IGqlpType>, AnyTypeMatcher>()
+      .AddSingleton<IMatch<IGqlpType>, AnyTypeMatcher>()
       .AddSameMatcher<IGqlpTypeSpecial, SimpleSameMatcher<IGqlpTypeSpecial>>()
-      .AddMatcher<IGqlpDomain, IGqlpTypeSpecial, DomainSpecialMatcher>()
+      .AddMatcher<IGqlpDomain, DomainSpecialMatcher>()
       .AddSameMatcher<IGqlpDomain, SimpleSameMatcher<IGqlpDomain>>()
       .AddSameMatcher<IGqlpEnum, SimpleSameMatcher<IGqlpEnum>>()
-      .AddMatcher<IGqlpDomain, IGqlpEnum, DomainEnumMatcher>()
+      .AddMatcher<IGqlpDomain, DomainEnumMatcher>()
       .AddSameMatcher<IGqlpUnion, SimpleSameMatcher<IGqlpUnion>>()
     ;
 
-  private static IServiceCollection AddMatcher<TType, TConstraint, TMatcher>(this IServiceCollection services)
+  private static IServiceCollection AddMatcher<TType, TMatcher>(this IServiceCollection services)
     where TType : IGqlpType
-    where TConstraint : IGqlpType
-    where TMatcher : class, IMatch<TType, TConstraint>, IMatcher
+    where TMatcher : class, IMatch<TType>, IMatcher
     => services
       .AddSingleton<TMatcher>()
-      .AddProvider<TMatcher, IMatch<TType, TConstraint>>()
+      .AddProvider<TMatcher, IMatch<TType>>()
       .AddProvider<TMatcher, IMatcher>();
 
   private static IServiceCollection AddSameMatcher<TType, TMatcher>(this IServiceCollection services)
     where TType : IGqlpType
-    where TMatcher : class, IMatch<TType, TType>, IMatcher
-    => services.AddMatcher<TType, TType, TMatcher>();
+    where TMatcher : class, IMatch<TType>, IMatcher
+    => services.AddMatcher<TType, TMatcher>();
 }

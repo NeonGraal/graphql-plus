@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Parsing;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Matching;
@@ -17,6 +16,10 @@ public static class AllMatchers
       .AddSameMatcher<IGqlpEnum, SimpleSameMatcher<IGqlpEnum>>()
       .AddSameMatcher<IGqlpTypeSpecial, SimpleSameMatcher<IGqlpTypeSpecial>>()
       .AddSameMatcher<IGqlpUnion, SimpleSameMatcher<IGqlpUnion>>()
+
+      .AddSameMatcher<IGqlpDualObject, ObjectSameMatcher<IGqlpDualObject>>()
+      .AddSameMatcher<IGqlpInputObject, ObjectSameMatcher<IGqlpInputObject>>()
+      .AddSameMatcher<IGqlpOutputObject, ObjectSameMatcher<IGqlpOutputObject>>()
     ;
 
   private static IServiceCollection AddMatcher<TType, TMatcher>(this IServiceCollection services)

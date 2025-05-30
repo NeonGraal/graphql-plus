@@ -1,17 +1,39 @@
 ﻿[  
 !Sc I@001/0001
-Failure
-<
-  !!! P@056/0001 : Invalid Dual. Expected '>' after type argument(s). - ':\*>\ field:' !!!
-  !!! P@056/0001 : Invalid Sample. Expected no more text. - ':\*>\ field:' !!!
->
+Success
 {
   !Du I@006/0001
   DualPrntParamSame
   <
     I@025/0001
     $a
-    :*
+    :String
   >
+  :
+  I@038/0001
+  RefDualPrntParamSame
+  <
+    I@060/0001
+    $a
+  >
+  {
+    !DF I@063/0001
+    field
+    :
+    I@071/0001
+    $a
+  }
+}
+{
+  !Du I@006/0002
+  RefDualPrntParamSame
+  <
+    I@028/0002
+    $a
+    :String
+  >
+  |
+  P@042/0002
+  $a
 }
 ]

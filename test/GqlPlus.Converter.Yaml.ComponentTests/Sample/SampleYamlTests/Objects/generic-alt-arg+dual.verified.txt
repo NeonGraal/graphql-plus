@@ -1,20 +1,44 @@
 ﻿!_Schema
-_errors:
-- !_Error
-  _at: !_At {_col: 57, _line: 1}
-  _kind: !_TokenKind Punctuation
-  _message: Invalid Dual. Expected '>' after type argument(s).
-- !_Error
-  _at: !_At {_col: 57, _line: 1}
-  _kind: !_TokenKind Punctuation
-  _message: Invalid Sample. Expected no more text.
 types: !_Map_Type
   !_Identifier DualGnrcAltArg: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: DualGnrcAltArg
+      type: !_DualBase
+        dual: RefDualGnrcAltArg
+        typeArgs:
+        - !_DualArg
+          typeParam: type
+    alternates:
+    - !_DualAlternate
+      type: !_DualBase
+        dual: RefDualGnrcAltArg
+        typeArgs:
+        - !_DualArg
+          typeParam: type
     name: DualGnrcAltArg
     typeKind: !_TypeKind Dual
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
         typeKind: !_TypeKind Basic
-        typeName: '*'
+        typeName: String
       name: type
+  !_Identifier RefDualGnrcAltArg: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: RefDualGnrcAltArg
+      type: !_DualBase
+        typeParam: ref
+    alternates:
+    - !_DualAlternate
+      type: !_DualBase
+        typeParam: ref
+    name: RefDualGnrcAltArg
+    typeKind: !_TypeKind Dual
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        typeKind: !_TypeKind Basic
+        typeName: String
+      name: ref

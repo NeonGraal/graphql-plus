@@ -6,11 +6,11 @@ types: !_Map_Type
         name: field
         object: DualField
         type: !_DualBase
-          dual: '*'
+          dual: String
     fields:
       - !_DualField
         name: field
         type: !_DualBase
-          dual: '*'
+          dual: String
     name: DualField
     typeKind: !_TypeKind Dual

@@ -1,1 +1,1 @@
-bc0532b  (HEAD -> type-constraints) 2025-05-28 Add constraints to all samples
+8c2afc9  (HEAD -> type-constraints) 2025-05-30 Change alias constraints

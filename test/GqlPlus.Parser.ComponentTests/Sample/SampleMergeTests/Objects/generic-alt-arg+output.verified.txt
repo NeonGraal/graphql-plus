@@ -1,17 +1,32 @@
 ﻿[  
 !Sc I@001/0001
-Failure
-<
-  !!! P@059/0001 : Invalid Output. Expected '>' after type argument(s). - ':\*>\ }\noutp' !!!
-  !!! P@059/0001 : Invalid Sample. Expected no more text. - ':\*>\ }\noutp' !!!
->
+Success
 {
   !Ou I@008/0001
   OutpGnrcAltArg
   <
     I@024/0001
     $type
-    :*
+    :String
   >
+  |
+  I@041/0001
+  RefOutpGnrcAltArg
+  <
+    I@060/0001
+    $type
+  >
+}
+{
+  !Ou I@008/0002
+  RefOutpGnrcAltArg
+  <
+    I@027/0002
+    $ref
+    :String
+  >
+  |
+  P@043/0002
+  $ref
 }
 ]

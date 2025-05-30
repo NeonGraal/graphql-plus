@@ -1,14 +1,23 @@
 ﻿!_Schema
-_errors:
-  - !_Error
-    _at: !_At{_col:40,_line:1}
-    _kind: !_TokenKind Punctuation
-    _message: Invalid Input. Expected constraint for $type.
-  - !_Error
-    _at: !_At{_col:40,_line:1}
-    _kind: !_TokenKind Punctuation
-    _message: Invalid Sample. Expected no more text.
 types: !_Map_Type
   !_Identifier InpGnrcDescr: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: field
+        object: InpGnrcDescr
+        type: !_InputBase
+          typeParam: type
+    fields:
+      - !_InputField
+        name: field
+        type: !_InputBase
+          typeParam: type
     name: InpGnrcDescr
     typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Basic
+          typeName: String
+        description: 'Test Descr'
+        name: type

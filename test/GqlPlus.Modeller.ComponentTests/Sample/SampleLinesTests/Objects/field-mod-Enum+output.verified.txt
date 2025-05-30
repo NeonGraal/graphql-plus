@@ -17,12 +17,12 @@ types: !_Map_Type
         name: field
         object: OutpFieldModEnum
         type: !_OutputBase
-          output: '*'
+          output: String
     fields:
       - !_OutputField
         modifiers: [!_ModifierDictionary{by:EnumOutpFieldModEnum,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Enum}]
         name: field
         type: !_OutputBase
-          output: '*'
+          output: String
     name: OutpFieldModEnum
     typeKind: !_TypeKind Output

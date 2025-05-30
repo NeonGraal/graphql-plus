@@ -7,13 +7,13 @@ types: !_Map_Type
       name: field
       object: DualFieldModEnum
       type: !_DualBase
-        dual: '*'
+        dual: String
     fields:
     - !_DualField
       modifiers: [!_ModifierDictionary {by: EnumDualFieldModEnum, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Enum}]
       name: field
       type: !_DualBase
-        dual: '*'
+        dual: String
     name: DualFieldModEnum
     typeKind: !_TypeKind Dual
   !_Identifier EnumDualFieldModEnum: !_TypeEnum

@@ -1,2 +1,0 @@
-union Name { Boolean }
-union Name { ^ }

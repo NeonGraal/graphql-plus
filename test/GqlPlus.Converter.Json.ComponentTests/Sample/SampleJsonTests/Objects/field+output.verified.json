@@ -11,7 +11,7 @@
           "object": "OutpField",
           "type": {
             "$tag": "_OutputBase",
-            "output": "*"
+            "output": "String"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "output": "*"
+            "output": "String"
           }
         }
       ],

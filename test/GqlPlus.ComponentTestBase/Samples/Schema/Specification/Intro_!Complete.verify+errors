@@ -3,6 +3,7 @@
 !!! I@007/0086 : Invalid Output Alternate. '_TypeInput' not defined. - '_TypeInput' !!!
 !!! I@007/0087 : Invalid Output Alternate. '_TypeOutput' not defined. - '_TypeOutput' !!!
 !!! I@007/0089 : Invalid Output Alternate. '_TypeUnion' not defined. - '_TypeUnion' !!!
+!!! I@007/0103 : Invalid Output Parent. Invalid Constraint on _ChildType. '_Named' not match '_Described'. - '_ChildType' !!!
 !!! I@007/0132 : Invalid Output Alternate. Args mismatch on _DomainValue. Expected 0, given 2. - '_DomainValue' !!!
 !!! I@007/0133 : Invalid Output Alternate. Args mismatch on _DomainValue. Expected 0, given 2. - '_DomainValue' !!!
 !!! I@007/0134 : Invalid Output Alternate. '_EnumValue' not defined. - '_EnumValue' !!!

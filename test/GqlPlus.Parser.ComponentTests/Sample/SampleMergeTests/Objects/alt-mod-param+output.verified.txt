@@ -7,10 +7,10 @@ Success
   <
     I@025/0001
     $mod
-    :*
+    :String
   >
   |
-  I@036/0001
+  I@041/0001
   AltOutpAltModParam
   [$mod]
 }

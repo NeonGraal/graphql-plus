@@ -1,2 +1,2 @@
 object Test { field: Ref<Test1> }
-object Ref<$ref:*> { | $ref }
+object Ref<$ref:String> { | $ref }

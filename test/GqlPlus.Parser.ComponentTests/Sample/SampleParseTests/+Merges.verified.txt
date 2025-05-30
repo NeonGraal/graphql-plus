@@ -1,9 +1,5 @@
 ﻿!Sc I@001/0001
-Failure
-<
-  !!! P@024/0222 : Invalid Sample. Expected no more text. - '\^\ }\n\nunion' !!!
-  !!! P@024/0222 : Invalid Union Member. Expected member. - '\^\ }\n\nunion' !!!
->
+Success
 {
   !Ca P@010/0001
   ctgr
@@ -533,13 +529,13 @@ Failure
   <
     I@019/0111
     $type
-    :*
+    :String
   >
   {
-    !DF I@029/0111
+    !DF I@034/0111
     str
     :
-    I@035/0111
+    I@040/0111
     $type
   }
 }
@@ -565,13 +561,13 @@ Failure
   <
     I@019/0114
     $type
-    :*
+    :String
   >
   {
-    !IF I@029/0114
+    !IF I@034/0114
     str
     :
-    I@035/0114
+    I@040/0114
     $type
   }
 }
@@ -597,13 +593,13 @@ Failure
   <
     I@021/0117
     $type
-    :*
+    :String
   >
   {
-    !OF I@031/0117
+    !OF I@036/0117
     str
     :
-    I@037/0117
+    I@042/0117
     $type
   }
 }
@@ -799,8 +795,8 @@ Failure
     !DF I@030/0144
     field
     :
-    P@037/0144
-    *
+    I@037/0144
+    String
   }
 }
 {
@@ -821,8 +817,8 @@ Failure
     !IF I@030/0147
     field
     :
-    P@037/0147
-    *
+    I@037/0147
+    String
   }
 }
 {
@@ -843,8 +839,8 @@ Failure
     !OF I@032/0150
     field
     :
-    P@039/0150
-    *
+    I@039/0150
+    String
   }
 }
 {
@@ -853,13 +849,13 @@ Failure
   <
     I@020/0152
     $test
-    :*
+    :String
   >
   {
-    !DF I@030/0152
+    !DF I@035/0152
     test
     :
-    I@037/0152
+    I@042/0152
     $test
   }
 }
@@ -869,13 +865,13 @@ Failure
   <
     I@020/0153
     $type
-    :*
+    :String
   >
   {
-    !DF I@030/0153
+    !DF I@035/0153
     type
     :
-    I@037/0153
+    I@042/0153
     $type
   }
 }
@@ -885,13 +881,13 @@ Failure
   <
     I@020/0155
     $test
-    :*
+    :String
   >
   {
-    !IF I@030/0155
+    !IF I@035/0155
     test
     :
-    I@037/0155
+    I@042/0155
     $test
   }
 }
@@ -901,13 +897,13 @@ Failure
   <
     I@020/0156
     $type
-    :*
+    :String
   >
   {
-    !IF I@030/0156
+    !IF I@035/0156
     type
     :
-    I@037/0156
+    I@042/0156
     $type
   }
 }
@@ -917,13 +913,13 @@ Failure
   <
     I@022/0158
     $test
-    :*
+    :String
   >
   {
-    !OF I@032/0158
+    !OF I@037/0158
     test
     :
-    I@039/0158
+    I@044/0158
     $test
   }
 }
@@ -933,13 +929,13 @@ Failure
   <
     I@022/0159
     $type
-    :*
+    :String
   >
   {
-    !OF I@032/0159
+    !OF I@037/0159
     type
     :
-    I@039/0159
+    I@044/0159
     $type
   }
 }
@@ -949,13 +945,13 @@ Failure
   <
     I@024/0161
     $test
-    :*
+    :String
   >
   {
-    !DF I@034/0161
+    !DF I@039/0161
     test
     :
-    I@041/0161
+    I@046/0161
     $test
   }
 }
@@ -965,13 +961,13 @@ Failure
   <
     I@024/0162
     $test
-    :*
+    :String
   >
   {
-    !DF I@034/0162
+    !DF I@039/0162
     type
     :
-    I@041/0162
+    I@046/0162
     $test
   }
 }
@@ -981,13 +977,13 @@ Failure
   <
     I@024/0164
     $test
-    :*
+    :String
   >
   {
-    !IF I@034/0164
+    !IF I@039/0164
     test
     :
-    I@041/0164
+    I@046/0164
     $test
   }
 }
@@ -997,13 +993,13 @@ Failure
   <
     I@024/0165
     $test
-    :*
+    :String
   >
   {
-    !IF I@034/0165
+    !IF I@039/0165
     type
     :
-    I@041/0165
+    I@046/0165
     $test
   }
 }
@@ -1013,13 +1009,13 @@ Failure
   <
     I@026/0167
     $test
-    :*
+    :String
   >
   {
-    !OF I@036/0167
+    !OF I@041/0167
     test
     :
-    I@043/0167
+    I@048/0167
     $test
   }
 }
@@ -1029,13 +1025,13 @@ Failure
   <
     I@026/0168
     $test
-    :*
+    :String
   >
   {
-    !OF I@036/0168
+    !OF I@041/0168
     type
     :
-    I@043/0168
+    I@048/0168
     $test
   }
 }
@@ -1045,13 +1041,13 @@ Failure
   <
     I@023/0170
     $test
-    :*
+    :String
   >
   {
-    !DF I@033/0170
+    !DF I@038/0170
     test
     :
-    I@040/0170
+    I@045/0170
     $test
   }
 }
@@ -1061,13 +1057,13 @@ Failure
   <
     I@023/0171
     $test
-    :*
+    :String
   >
   {
-    !DF I@033/0171
+    !DF I@038/0171
     type
     :
-    I@040/0171
+    I@045/0171
     $test
   }
 }
@@ -1077,13 +1073,13 @@ Failure
   <
     I@023/0173
     $test
-    :*
+    :String
   >
   {
-    !IF I@033/0173
+    !IF I@038/0173
     test
     :
-    I@040/0173
+    I@045/0173
     $test
   }
 }
@@ -1093,13 +1089,13 @@ Failure
   <
     I@023/0174
     $test
-    :*
+    :String
   >
   {
-    !IF I@033/0174
+    !IF I@038/0174
     type
     :
-    I@040/0174
+    I@045/0174
     $test
   }
 }
@@ -1109,13 +1105,13 @@ Failure
   <
     I@025/0176
     $test
-    :*
+    :String
   >
   {
-    !OF I@035/0176
+    !OF I@040/0176
     test
     :
-    I@042/0176
+    I@047/0176
     $test
   }
 }
@@ -1125,13 +1121,13 @@ Failure
   <
     I@025/0177
     $test
-    :*
+    :String
   >
   {
-    !OF I@035/0177
+    !OF I@040/0177
     type
     :
-    I@042/0177
+    I@047/0177
     $test
   }
 }
@@ -1369,11 +1365,21 @@ Failure
 }
 {
   !Un I@007/0221
-  UnionSameAlias
-  !UM I@024/0221
+  UnionSamePrnt
+  :PrntUnionSamePrnt
+  !UM I@042/0221
   Boolean
 }
 {
   !Un I@007/0222
-  UnionSameAlias
+  UnionSamePrnt
+  :PrntUnionSamePrnt
+  !UM I@042/0222
+  Boolean
+}
+{
+  !Un I@007/0223
+  PrntUnionSamePrnt
+  !UM I@027/0223
+  String
 }

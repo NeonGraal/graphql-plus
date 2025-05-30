@@ -1,17 +1,32 @@
 ﻿[  
 !Sc I@001/0001
-Failure
-<
-  !!! P@057/0001 : Invalid Dual. Expected '>' after type argument(s). - ':\*>\ }\ndual' !!!
-  !!! P@057/0001 : Invalid Sample. Expected no more text. - ':\*>\ }\ndual' !!!
->
+Success
 {
   !Du I@006/0001
   DualGnrcAltArg
   <
     I@022/0001
     $type
-    :*
+    :String
   >
+  |
+  I@039/0001
+  RefDualGnrcAltArg
+  <
+    I@058/0001
+    $type
+  >
+}
+{
+  !Du I@006/0002
+  RefDualGnrcAltArg
+  <
+    I@025/0002
+    $ref
+    :String
+  >
+  |
+  P@041/0002
+  $ref
 }
 ]

@@ -7,21 +7,21 @@ Success
   <
     I@022/0001
     $test
-    :*
+    :String
     I@022/0002
     $type
-    :*
+    :String
   >
   {
-    !OF I@032/0001
+    !OF I@037/0001
     test
     :
-    I@039/0001
+    I@044/0001
     $test
-    !OF I@032/0002
+    !OF I@037/0002
     type
     :
-    I@039/0002
+    I@044/0002
     $type
   }
 }

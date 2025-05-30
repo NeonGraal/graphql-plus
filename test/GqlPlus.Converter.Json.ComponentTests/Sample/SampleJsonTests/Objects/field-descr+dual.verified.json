@@ -12,7 +12,7 @@
           "object": "DualFieldDescr",
           "type": {
             "$tag": "_DualBase",
-            "dual": "*"
+            "dual": "String"
           }
         }
       ],
@@ -23,7 +23,7 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "dual": "*"
+            "dual": "String"
           }
         }
       ],

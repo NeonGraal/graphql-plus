@@ -1,37 +1,40 @@
 ﻿{
   "$tag": "_Schema",
-  "_errors": [
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 56,
-        "_line": 1
-      },
-      "_kind": {
-        "$tag": "_TokenKind",
-        "value": "Punctuation"
-      },
-      "_message": "Invalid Input. Expected \u0027\u003E\u0027 after type argument(s)."
-    },
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 56,
-        "_line": 1
-      },
-      "_kind": {
-        "$tag": "_TokenKind",
-        "value": "Punctuation"
-      },
-      "_message": "Invalid Sample. Expected no more text."
-    }
-  ],
   "types": {
     "$tag": "_Map_Type",
     "InpGnrcAltArg": {
       "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "InpGnrcAltArg",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "RefInpGnrcAltArg",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "typeParam": "type"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "RefInpGnrcAltArg",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "typeParam": "type"
+              }
+            ]
+          }
+        }
+      ],
       "name": "InpGnrcAltArg",
       "typeKind": {
         "$tag": "_TypeKind",
@@ -46,9 +49,50 @@
               "$tag": "_TypeKind",
               "value": "Basic"
             },
-            "typeName": "*"
+            "typeName": "String"
           },
           "name": "type"
+        }
+      ]
+    },
+    "RefInpGnrcAltArg": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "RefInpGnrcAltArg",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "name": "RefInpGnrcAltArg",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
+          "name": "ref"
         }
       ]
     }

@@ -20,7 +20,7 @@ types: !_Map_Type
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
         typeKind: !_TypeKind Basic
-        typeName: '*'
+        typeName: String
       name: mod
   !_Identifier FldDualFieldModParam: !_TypeDual
     allAlternates:

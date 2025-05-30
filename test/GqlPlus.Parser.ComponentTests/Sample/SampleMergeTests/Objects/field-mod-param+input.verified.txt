@@ -7,13 +7,13 @@ Success
   <
     I@025/0001
     $mod
-    :*
+    :String
   >
   {
-    !IF I@034/0001
+    !IF I@039/0001
     field
     :
-    I@041/0001
+    I@046/0001
     FldInpFieldModParam
     [$mod]
   }

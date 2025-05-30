@@ -1,0 +1,25 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  DualObjCnst
+  <
+    I@019/0001
+    $type
+    :String
+  >
+  {
+    !DF I@034/0001
+    field
+    :
+    I@042/0001
+    $type
+    !DF I@034/0002
+    str
+    :
+    I@040/0002
+    $type
+  }
+}
+]

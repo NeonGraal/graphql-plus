@@ -8,8 +8,8 @@ Success
     !OF I@020/0001
     field
     :
-    P@027/0001
-    *
+    I@027/0001
+    String
   }
 }
 ]

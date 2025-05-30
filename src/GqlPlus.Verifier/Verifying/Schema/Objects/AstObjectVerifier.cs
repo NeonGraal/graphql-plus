@@ -128,17 +128,13 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
       return;
     }
 
-    if (!context.GetTyped(param.Constraint, out IGqlpType? consType)) {
-      error("Invalid Constraint on", $"'{param.Constraint}' not defined");
-      return;
-    }
-
-    if (arg.FullType.Equals(consType.Name, StringComparison.Ordinal)) {
+    if ("_Any".Equals(param.Constraint, StringComparison.Ordinal)
+      || arg.FullType.Equals(param.Constraint, StringComparison.Ordinal)) {
       return;
     }
 
     if (context.GetTyped(arg.FullType, out IGqlpType? argType)) {
-      if (!_constraintMatcher.Matches(argType, consType.Name, context)) {
+      if (!_constraintMatcher.Matches(argType, param.Constraint!, context)) {
         error("Invalid Constraint on", $"'{argType.Name}' not match '{param.Constraint}'");
       }
     }

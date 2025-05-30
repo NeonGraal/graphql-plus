@@ -1,20 +1,50 @@
 ﻿!_Schema
-_errors:
-- !_Error
-  _at: !_At {_col: 55, _line: 1}
-  _kind: !_TokenKind Punctuation
-  _message: Invalid Input. Expected '>' after type argument(s).
-- !_Error
-  _at: !_At {_col: 55, _line: 1}
-  _kind: !_TokenKind Punctuation
-  _message: Invalid Sample. Expected no more text.
 types: !_Map_Type
   !_Identifier InpPrntParamDiff: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: RefInpPrntParamDiff
+      type: !_InputBase
+        typeParam: b
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: InpPrntParamDiff
+      type: !_InputBase
+        typeParam: a
+    fields:
+    - !_InputField
+      name: field
+      type: !_InputBase
+        typeParam: a
     name: InpPrntParamDiff
+    parent: !_InputBase
+      input: RefInpPrntParamDiff
+      typeArgs:
+      - !_InputArg
+        typeParam: a
     typeKind: !_TypeKind Input
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
         typeKind: !_TypeKind Basic
-        typeName: '*'
+        typeName: String
       name: a
+  !_Identifier RefInpPrntParamDiff: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: RefInpPrntParamDiff
+      type: !_InputBase
+        typeParam: b
+    alternates:
+    - !_InputAlternate
+      type: !_InputBase
+        typeParam: b
+    name: RefInpPrntParamDiff
+    typeKind: !_TypeKind Input
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        typeKind: !_TypeKind Basic
+        typeName: String
+      name: b

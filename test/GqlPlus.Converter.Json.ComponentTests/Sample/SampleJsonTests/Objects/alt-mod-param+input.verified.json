@@ -105,7 +105,7 @@
               "$tag": "_TypeKind",
               "value": "Basic"
             },
-            "typeName": "*"
+            "typeName": "String"
           },
           "name": "mod"
         }

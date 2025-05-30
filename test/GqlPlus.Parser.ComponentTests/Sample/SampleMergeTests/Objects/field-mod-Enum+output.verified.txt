@@ -8,8 +8,8 @@ Success
     !OF I@027/0001
     field
     :
-    P@034/0001
-    *
+    I@034/0001
+    String
     [EnumOutpFieldModEnum]
   }
 }

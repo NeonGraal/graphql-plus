@@ -24,19 +24,19 @@ public static class BuiltIn
     new UnionDeclAst(AstNulls.At, "Simple", new[] { "Boolean", "Number", "String", "Unit", "_Union", "_Domain", "_Enum" }.UnionMembers()),
     new UnionDeclAst(AstNulls.At, "Internal", new[] { "Void", "Null" }.UnionMembers()),
 
-    DualObj("Opt", TypeParams("T"), DualAlt(null), DualType("Null")),
-    DualObj("List", TypeParams("T"), DualAlt("")),
-    DualObj("Dict", TypeParams("K", "T"), DualAltParam("K")),
-    DualObj("Map", TypeParams("T"), DualDict("String")),
-    DualObj("Array", TypeParams("T"), DualDict("Number")),
-    DualObj("IfElse", TypeParams("T"), DualDict("Boolean")),
-    DualObj("Set", TypeParams("K"), DualDict("Unit", true)),
-    DualObj("Mask", TypeParams("K"), DualDict("Boolean", true)),
+    DualObj("Opt", [TypeParam()], DualAlt(null), DualType("Null")),
+    DualObj("List", [TypeParam()], DualAlt("")),
+    DualObj("Dict", [KeyParam(), TypeParam()], DualAltParam("K")),
+    DualObj("Map", [TypeParam()], DualDict("String")),
+    DualObj("Array", [TypeParam()], DualDict("Number")),
+    DualObj("IfElse", [TypeParam()], DualDict("Boolean")),
+    DualObj("Set", [KeyParam()], DualDict("Unit", true)),
+    DualObj("Mask", [KeyParam()], DualDict("Boolean", true)),
     DualObj("Object", [], DualRef("_Map", DualArg("_Any"))) with { Aliases = ["%", "Object"] },
-    DualObj("Most", TypeParams("T"),
+    DualObj("Most", [TypeParam()],
       DualAlt(null), DualType("_Object"), DualMost("", true), DualType("_MostList", DualArgParam("T")), DualType("_MostDictionary", DualArgParam("T"))),
-    DualObj("MostList", TypeParams("T"), DualMost("")),
-    DualObj("MostDictionary", TypeParams("T"), DualMost("Simple", true)),
+    DualObj("MostList", [TypeParam()], DualMost("")),
+    DualObj("MostDictionary", [TypeParam()], DualMost("Simple", true)),
 
     new SpecialTypeAst("Any") { Aliases = ["Any"] },
     new SpecialTypeAst("Dual"),
@@ -54,8 +54,10 @@ public static class BuiltIn
     ["false"] = "Boolean",
   };
 
-  private static TypeParamAst[] TypeParams(params string[] parameters)
-    => [.. parameters.Select(r => new TypeParamAst(AstNulls.At, r))];
+  private static TypeParamAst KeyParam()
+    => new(AstNulls.At, "K") { Constraint = "Simple" };
+  private static TypeParamAst TypeParam(string constraint = "_Any")
+    => new(AstNulls.At, "T") { Constraint = constraint };
 
   private static DualDeclAst DualObj(string label, TypeParamAst[] typeParams, params IGqlpDualAlternate[] alternates)
     => new(AstNulls.At, "_" + label) { TypeParams = typeParams, ObjAlternates = alternates };

@@ -1,17 +1,39 @@
 ﻿[  
 !Sc I@001/0001
-Failure
-<
-  !!! P@055/0001 : Invalid Input. Expected '>' after type argument(s). - ':\*>\ field:' !!!
-  !!! P@055/0001 : Invalid Sample. Expected no more text. - ':\*>\ field:' !!!
->
+Success
 {
   !In I@007/0001
   InpPrntParamSame
   <
     I@025/0001
     $a
-    :*
+    :String
   >
+  :
+  I@038/0001
+  RefInpPrntParamSame
+  <
+    I@059/0001
+    $a
+  >
+  {
+    !IF I@062/0001
+    field
+    :
+    I@070/0001
+    $a
+  }
+}
+{
+  !In I@007/0002
+  RefInpPrntParamSame
+  <
+    I@028/0002
+    $a
+    :String
+  >
+  |
+  P@042/0002
+  $a
 }
 ]

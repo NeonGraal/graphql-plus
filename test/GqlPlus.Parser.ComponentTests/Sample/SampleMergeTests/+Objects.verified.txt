@@ -223,10 +223,10 @@ Success
   <
     I@023/0001
     $mod
-    :*
+    :String
   >
   |
-  I@034/0001
+  I@039/0001
   AltDualAltModParam
   [$mod]
 }
@@ -250,10 +250,10 @@ Success
   <
     I@023/0001
     $mod
-    :*
+    :String
   >
   |
-  I@034/0001
+  I@039/0001
   AltInpAltModParam
   [$mod]
 }
@@ -277,10 +277,10 @@ Success
   <
     I@025/0001
     $mod
-    :*
+    :String
   >
   |
-  I@036/0001
+  I@041/0001
   AltOutpAltModParam
   [$mod]
 }
@@ -1342,8 +1342,8 @@ Success
     !DF I@018/0001
     field
     :
-    P@025/0001
-    *
+    I@025/0001
+    String
   }
 }
 {
@@ -1353,8 +1353,8 @@ Success
     !IF I@018/0001
     field
     :
-    P@025/0001
-    *
+    I@025/0001
+    String
   }
 }
 {
@@ -1364,8 +1364,8 @@ Success
     !OF I@020/0001
     field
     :
-    P@027/0001
-    *
+    I@027/0001
+    String
   }
 }
 {
@@ -1376,8 +1376,8 @@ Success
     !DF I@038/0001
     field
     :
-    P@045/0001
-    *
+    I@045/0001
+    String
   }
 }
 {
@@ -1388,8 +1388,8 @@ Success
     !IF I@038/0001
     field
     :
-    P@045/0001
-    *
+    I@045/0001
+    String
   }
 }
 {
@@ -1400,8 +1400,8 @@ Success
     !OF I@040/0001
     field
     :
-    P@047/0001
-    *
+    I@047/0001
+    String
   }
 }
 {
@@ -1486,8 +1486,8 @@ Success
     !DF I@025/0001
     field
     :
-    P@032/0001
-    *
+    I@032/0001
+    String
     [EnumDualFieldModEnum]
   }
 }
@@ -1504,8 +1504,8 @@ Success
     !IF I@025/0001
     field
     :
-    P@032/0001
-    *
+    I@032/0001
+    String
     [EnumInpFieldModEnum]
   }
 }
@@ -1522,8 +1522,8 @@ Success
     !OF I@027/0001
     field
     :
-    P@034/0001
-    *
+    I@034/0001
+    String
     [EnumOutpFieldModEnum]
   }
 }
@@ -1539,13 +1539,13 @@ Success
   <
     I@025/0001
     $mod
-    :*
+    :String
   >
   {
-    !DF I@034/0001
+    !DF I@039/0001
     field
     :
-    I@041/0001
+    I@046/0001
     FldDualFieldModParam
     [$mod]
   }
@@ -1570,13 +1570,13 @@ Success
   <
     I@025/0001
     $mod
-    :*
+    :String
   >
   {
-    !IF I@034/0001
+    !IF I@039/0001
     field
     :
-    I@041/0001
+    I@046/0001
     FldInpFieldModParam
     [$mod]
   }
@@ -1601,13 +1601,13 @@ Success
   <
     I@027/0001
     $mod
-    :*
+    :String
   >
   {
-    !OF I@036/0001
+    !OF I@041/0001
     field
     :
-    I@043/0001
+    I@048/0001
     FldOutpFieldModParam
     [$mod]
   }
@@ -1776,10 +1776,10 @@ Success
   <
     I@019/0001
     $type
-    :*
+    :String
   >
   |
-  P@031/0001
+  P@036/0001
   $type
 }
 {
@@ -1788,10 +1788,10 @@ Success
   <
     I@019/0001
     $type
-    :*
+    :String
   >
   |
-  P@031/0001
+  P@036/0001
   $type
 }
 {
@@ -1800,10 +1800,10 @@ Success
   <
     I@021/0001
     $type
-    :*
+    :String
   >
   |
-  P@033/0001
+  P@038/0001
   $type
 }
 {
@@ -1812,8 +1812,27 @@ Success
   <
     I@022/0001
     $type
-    :*
+    :String
   >
+  |
+  I@039/0001
+  RefDualGnrcAltArg
+  <
+    I@058/0001
+    $type
+  >
+}
+{
+  !Du I@006/0002
+  RefDualGnrcAltArg
+  <
+    I@025/0002
+    $ref
+    :String
+  >
+  |
+  P@041/0002
+  $ref
 }
 {
   !In I@007/0001
@@ -1821,8 +1840,27 @@ Success
   <
     I@022/0001
     $type
-    :*
+    :String
   >
+  |
+  I@039/0001
+  RefInpGnrcAltArg
+  <
+    I@057/0001
+    $type
+  >
+}
+{
+  !In I@007/0002
+  RefInpGnrcAltArg
+  <
+    I@025/0002
+    $ref
+    :String
+  >
+  |
+  P@041/0002
+  $ref
 }
 {
   !Ou I@008/0001
@@ -1830,8 +1868,27 @@ Success
   <
     I@024/0001
     $type
-    :*
+    :String
   >
+  |
+  I@041/0001
+  RefOutpGnrcAltArg
+  <
+    I@060/0001
+    $type
+  >
+}
+{
+  !Ou I@008/0002
+  RefOutpGnrcAltArg
+  <
+    I@027/0002
+    $ref
+    :String
+  >
+  |
+  P@043/0002
+  $ref
 }
 {
   !Du I@006/0001
@@ -1839,14 +1896,14 @@ Success
   <
     I@027/0001
     $type
-    :*
+    :String
   >
   |
-  I@039/0001
+  I@044/0001
   RefDualGnrcAltArgDescr
   <
     'Test Descr'
-    I@077/0001
+    I@082/0001
     $type
   >
 }
@@ -1856,10 +1913,10 @@ Success
   <
     I@030/0002
     $ref
-    :*
+    :String
   >
   |
-  P@041/0002
+  P@046/0002
   $ref
 }
 {
@@ -1868,14 +1925,14 @@ Success
   <
     I@027/0001
     $type
-    :*
+    :String
   >
   |
-  I@039/0001
+  I@044/0001
   RefInpGnrcAltArgDescr
   <
     'Test Descr'
-    I@076/0001
+    I@081/0001
     $type
   >
 }
@@ -1885,10 +1942,10 @@ Success
   <
     I@030/0002
     $ref
-    :*
+    :String
   >
   |
-  P@041/0002
+  P@046/0002
   $ref
 }
 {
@@ -1897,14 +1954,14 @@ Success
   <
     I@029/0001
     $type
-    :*
+    :String
   >
   |
-  I@041/0001
+  I@046/0001
   RefOutpGnrcAltArgDescr
   <
     'Test Descr'
-    I@079/0001
+    I@084/0001
     $type
   >
 }
@@ -1914,10 +1971,10 @@ Success
   <
     I@032/0002
     $ref
-    :*
+    :String
   >
   |
-  P@043/0002
+  P@048/0002
   $ref
 }
 {
@@ -1937,10 +1994,10 @@ Success
   <
     I@026/0002
     $ref
-    :*
+    :String
   >
   |
-  P@037/0002
+  P@042/0002
   $ref
 }
 {
@@ -1974,10 +2031,10 @@ Success
   <
     I@026/0002
     $ref
-    :*
+    :String
   >
   |
-  P@037/0002
+  P@042/0002
   $ref
 }
 {
@@ -2011,10 +2068,10 @@ Success
   <
     I@028/0002
     $ref
-    :*
+    :String
   >
   |
-  P@039/0002
+  P@044/0002
   $ref
 }
 {
@@ -2034,14 +2091,50 @@ Success
 {
   !Du I@006/0001
   RefDualGnrcAltModParam
+  <
+    I@030/0001
+    $ref
+    :String
+    I@042/0001
+    $mod
+    :String
+  >
+  |
+  P@058/0001
+  $ref
+  [$mod]
 }
 {
   !In I@007/0001
   RefInpGnrcAltModParam
+  <
+    I@030/0001
+    $ref
+    :String
+    I@042/0001
+    $mod
+    :String
+  >
+  |
+  P@058/0001
+  $ref
+  [$mod]
 }
 {
   !Ou I@008/0001
   RefOutpGnrcAltModParam
+  <
+    I@032/0001
+    $ref
+    :String
+    I@044/0001
+    $mod
+    :String
+  >
+  |
+  P@060/0001
+  $ref
+  [$mod]
 }
 {
   !Du I@006/0001
@@ -2049,10 +2142,10 @@ Success
   <
     I@028/0001
     $ref
-    :*
+    :String
   >
   |
-  P@039/0001
+  P@044/0001
   $ref
   [*]
 }
@@ -2062,10 +2155,10 @@ Success
   <
     I@028/0001
     $ref
-    :*
+    :String
   >
   |
-  P@039/0001
+  P@044/0001
   $ref
   [*]
 }
@@ -2075,10 +2168,10 @@ Success
   <
     I@030/0001
     $ref
-    :*
+    :String
   >
   |
-  P@041/0001
+  P@046/0001
   $ref
   [*]
 }
@@ -2099,10 +2192,10 @@ Success
   <
     I@027/0002
     $ref
-    :*
+    :String
   >
   |
-  P@038/0002
+  P@043/0002
   $ref
 }
 {
@@ -2136,10 +2229,10 @@ Success
   <
     I@027/0002
     $ref
-    :*
+    :String
   >
   |
-  P@038/0002
+  P@043/0002
   $ref
 }
 {
@@ -2173,10 +2266,10 @@ Success
   <
     I@029/0002
     $ref
-    :*
+    :String
   >
   |
-  P@040/0002
+  P@045/0002
   $ref
 }
 {
@@ -2210,10 +2303,10 @@ Success
   <
     I@026/0002
     $ref
-    :*
+    :String
   >
   |
-  P@037/0002
+  P@042/0002
   $ref
 }
 {
@@ -2233,10 +2326,10 @@ Success
   <
     I@026/0002
     $ref
-    :*
+    :String
   >
   |
-  P@037/0002
+  P@042/0002
   $ref
 }
 {
@@ -2256,23 +2349,62 @@ Success
   <
     I@028/0002
     $ref
-    :*
+    :String
   >
   |
-  P@039/0002
+  P@044/0002
   $ref
 }
 {
   !Du I@006/0001
   DualGnrcDescr
+  <
+    I@036/0001
+    "Test Descr"
+    $type
+    :String
+  >
+  {
+    !DF I@051/0001
+    field
+    :
+    I@059/0001
+    $type
+  }
 }
 {
   !In I@007/0001
   InpGnrcDescr
+  <
+    I@036/0001
+    "Test Descr"
+    $type
+    :String
+  >
+  {
+    !IF I@051/0001
+    field
+    :
+    I@059/0001
+    $type
+  }
 }
 {
   !Ou I@008/0001
   OutpGnrcDescr
+  <
+    I@038/0001
+    "Test Descr"
+    $type
+    :String
+  >
+  {
+    !OF I@053/0001
+    field
+    :
+    I@061/0001
+    $type
+  }
 }
 {
   !Du I@006/0001
@@ -2280,13 +2412,13 @@ Success
   <
     I@021/0001
     $type
-    :*
+    :String
   >
   {
-    !DF I@031/0001
+    !DF I@036/0001
     field
     :
-    I@039/0001
+    I@044/0001
     $type
   }
 }
@@ -2296,13 +2428,13 @@ Success
   <
     I@021/0001
     $type
-    :*
+    :String
   >
   {
-    !IF I@031/0001
+    !IF I@036/0001
     field
     :
-    I@039/0001
+    I@044/0001
     $type
   }
 }
@@ -2312,13 +2444,13 @@ Success
   <
     I@023/0001
     $type
-    :*
+    :String
   >
   {
-    !OF I@033/0001
+    !OF I@038/0001
     field
     :
-    I@041/0001
+    I@046/0001
     $type
   }
 }
@@ -2328,8 +2460,31 @@ Success
   <
     I@024/0001
     $type
-    :*
+    :String
   >
+  {
+    !DF I@039/0001
+    field
+    :
+    I@046/0001
+    RefDualGnrcFieldArg
+    <
+      I@067/0001
+      $type
+    >
+  }
+}
+{
+  !Du I@006/0002
+  RefDualGnrcFieldArg
+  <
+    I@027/0002
+    $ref
+    :String
+  >
+  |
+  P@043/0002
+  $ref
 }
 {
   !In I@007/0001
@@ -2337,8 +2492,31 @@ Success
   <
     I@024/0001
     $type
-    :*
+    :String
   >
+  {
+    !IF I@039/0001
+    field
+    :
+    I@046/0001
+    RefInpGnrcFieldArg
+    <
+      I@066/0001
+      $type
+    >
+  }
+}
+{
+  !In I@007/0002
+  RefInpGnrcFieldArg
+  <
+    I@027/0002
+    $ref
+    :String
+  >
+  |
+  P@043/0002
+  $ref
 }
 {
   !Ou I@008/0001
@@ -2346,8 +2524,31 @@ Success
   <
     I@026/0001
     $type
-    :*
+    :String
   >
+  {
+    !OF I@041/0001
+    field
+    :
+    I@048/0001
+    RefOutpGnrcFieldArg
+    <
+      I@069/0001
+      $type
+    >
+  }
+}
+{
+  !Ou I@008/0002
+  RefOutpGnrcFieldArg
+  <
+    I@029/0002
+    $ref
+    :String
+  >
+  |
+  P@045/0002
+  $ref
 }
 {
   !Du I@006/0001
@@ -2370,10 +2571,10 @@ Success
   <
     I@028/0002
     $ref
-    :*
+    :String
   >
   |
-  P@039/0002
+  P@044/0002
   $ref
 }
 {
@@ -2411,10 +2612,10 @@ Success
   <
     I@028/0002
     $ref
-    :*
+    :String
   >
   |
-  P@039/0002
+  P@044/0002
   $ref
 }
 {
@@ -2452,10 +2653,10 @@ Success
   <
     I@030/0002
     $ref
-    :*
+    :String
   >
   |
-  P@041/0002
+  P@046/0002
   $ref
 }
 {
@@ -2493,10 +2694,10 @@ Success
   <
     I@029/0002
     $ref
-    :*
+    :String
   >
   |
-  P@040/0002
+  P@045/0002
   $ref
 }
 {
@@ -2534,10 +2735,10 @@ Success
   <
     I@029/0002
     $ref
-    :*
+    :String
   >
   |
-  P@040/0002
+  P@045/0002
   $ref
 }
 {
@@ -2575,10 +2776,10 @@ Success
   <
     I@031/0002
     $ref
-    :*
+    :String
   >
   |
-  P@042/0002
+  P@047/0002
   $ref
 }
 {
@@ -2601,10 +2802,10 @@ Success
   <
     I@020/0001
     $type
-    :*
+    :String
   >
   :
-  I@032/0001
+  I@037/0001
   $type
 }
 {
@@ -2613,10 +2814,10 @@ Success
   <
     I@020/0001
     $type
-    :*
+    :String
   >
   :
-  I@032/0001
+  I@037/0001
   $type
 }
 {
@@ -2625,10 +2826,10 @@ Success
   <
     I@022/0001
     $type
-    :*
+    :String
   >
   :
-  I@034/0001
+  I@039/0001
   $type
 }
 {
@@ -2637,8 +2838,27 @@ Success
   <
     I@023/0001
     $type
-    :*
+    :String
   >
+  :
+  I@039/0001
+  RefDualGnrcPrntArg
+  <
+    I@059/0001
+    $type
+  >
+}
+{
+  !Du I@006/0002
+  RefDualGnrcPrntArg
+  <
+    I@026/0002
+    $ref
+    :String
+  >
+  |
+  P@042/0002
+  $ref
 }
 {
   !In I@007/0001
@@ -2646,8 +2866,27 @@ Success
   <
     I@023/0001
     $type
-    :*
+    :String
   >
+  :
+  I@039/0001
+  RefInpGnrcPrntArg
+  <
+    I@058/0001
+    $type
+  >
+}
+{
+  !In I@007/0002
+  RefInpGnrcPrntArg
+  <
+    I@026/0002
+    $ref
+    :String
+  >
+  |
+  P@042/0002
+  $ref
 }
 {
   !Ou I@008/0001
@@ -2655,8 +2894,27 @@ Success
   <
     I@025/0001
     $type
-    :*
+    :String
   >
+  :
+  I@041/0001
+  RefOutpGnrcPrntArg
+  <
+    I@061/0001
+    $type
+  >
+}
+{
+  !Ou I@008/0002
+  RefOutpGnrcPrntArg
+  <
+    I@028/0002
+    $ref
+    :String
+  >
+  |
+  P@044/0002
+  $ref
 }
 {
   !Du I@006/0001
@@ -2675,10 +2933,10 @@ Success
   <
     I@027/0002
     $ref
-    :*
+    :String
   >
   |
-  P@038/0002
+  P@043/0002
   $ref
 }
 {
@@ -2712,10 +2970,10 @@ Success
   <
     I@027/0002
     $ref
-    :*
+    :String
   >
   |
-  P@038/0002
+  P@043/0002
   $ref
 }
 {
@@ -2749,10 +3007,10 @@ Success
   <
     I@029/0002
     $ref
-    :*
+    :String
   >
   |
-  P@040/0002
+  P@045/0002
   $ref
 }
 {
@@ -2786,10 +3044,10 @@ Success
   <
     I@031/0002
     $ref
-    :*
+    :String
   >
   :
-  I@042/0002
+  I@047/0002
   $ref
 }
 {
@@ -2823,10 +3081,10 @@ Success
   <
     I@031/0002
     $ref
-    :*
+    :String
   >
   :
-  I@042/0002
+  I@047/0002
   $ref
 }
 {
@@ -2860,10 +3118,10 @@ Success
   <
     I@033/0002
     $ref
-    :*
+    :String
   >
   :
-  I@044/0002
+  I@049/0002
   $ref
 }
 {
@@ -2897,10 +3155,10 @@ Success
   <
     I@028/0002
     $ref
-    :*
+    :String
   >
   |
-  P@039/0002
+  P@044/0002
   $ref
 }
 {
@@ -2934,10 +3192,10 @@ Success
   <
     I@028/0002
     $ref
-    :*
+    :String
   >
   |
-  P@039/0002
+  P@044/0002
   $ref
 }
 {
@@ -2971,10 +3229,10 @@ Success
   <
     I@030/0002
     $ref
-    :*
+    :String
   >
   |
-  P@041/0002
+  P@046/0002
   $ref
 }
 {
@@ -3008,10 +3266,10 @@ Success
   <
     I@032/0002
     $ref
-    :*
+    :String
   >
   :
-  I@043/0002
+  I@048/0002
   $ref
 }
 {
@@ -3045,10 +3303,10 @@ Success
   <
     I@032/0002
     $ref
-    :*
+    :String
   >
   :
-  I@043/0002
+  I@048/0002
   $ref
 }
 {
@@ -3082,10 +3340,10 @@ Success
   <
     I@034/0002
     $ref
-    :*
+    :String
   >
   :
-  I@045/0002
+  I@050/0002
   $ref
 }
 {
@@ -3475,13 +3733,13 @@ Success
   <
     I@025/0002
     $type
-    :*
+    :String
   >
   {
-    !OF I@035/0002
+    !OF I@040/0002
     field
     :
-    I@043/0002
+    I@048/0002
     $type
   }
 }
@@ -3508,13 +3766,13 @@ Success
   <
     I@026/0002
     $type
-    :*
+    :String
   >
   {
-    !OF I@036/0002
+    !OF I@041/0002
     field
     :
-    I@044/0002
+    I@049/0002
     $type
   }
 }
@@ -3639,19 +3897,19 @@ Success
   <
     I@027/0001
     $mod
-    :*
+    :String
   >
   {
-    !OF I@036/0001
+    !OF I@041/0001
     field
     (
       !Pa
-      I@042/0001
+      I@047/0001
       InOutpParamModParam
       [$mod]
     )
     :
-    I@070/0001
+    I@075/0001
     DomOutpParamModParam
   }
 }
@@ -3730,13 +3988,13 @@ Success
   <
     I@025/0002
     $type
-    :*
+    :String
   >
   {
-    !OF I@035/0002
+    !OF I@040/0002
     field
     :
-    I@043/0002
+    I@048/0002
     $type
   }
 }
@@ -4174,8 +4432,34 @@ Success
   <
     I@025/0001
     $a
-    :*
+    :String
   >
+  :
+  I@038/0001
+  RefDualPrntParamDiff
+  <
+    I@060/0001
+    $a
+  >
+  {
+    !DF I@063/0001
+    field
+    :
+    I@071/0001
+    $a
+  }
+}
+{
+  !Du I@006/0002
+  RefDualPrntParamDiff
+  <
+    I@028/0002
+    $b
+    :String
+  >
+  |
+  P@042/0002
+  $b
 }
 {
   !In I@007/0001
@@ -4183,8 +4467,34 @@ Success
   <
     I@025/0001
     $a
-    :*
+    :String
   >
+  :
+  I@038/0001
+  RefInpPrntParamDiff
+  <
+    I@059/0001
+    $a
+  >
+  {
+    !IF I@062/0001
+    field
+    :
+    I@070/0001
+    $a
+  }
+}
+{
+  !In I@007/0002
+  RefInpPrntParamDiff
+  <
+    I@028/0002
+    $b
+    :String
+  >
+  |
+  P@042/0002
+  $b
 }
 {
   !Ou I@008/0001
@@ -4192,8 +4502,34 @@ Success
   <
     I@027/0001
     $a
-    :*
+    :String
   >
+  :
+  I@040/0001
+  RefOutpPrntParamDiff
+  <
+    I@062/0001
+    $a
+  >
+  {
+    !OF I@065/0001
+    field
+    :
+    I@073/0001
+    $a
+  }
+}
+{
+  !Ou I@008/0002
+  RefOutpPrntParamDiff
+  <
+    I@030/0002
+    $b
+    :String
+  >
+  |
+  P@044/0002
+  $b
 }
 {
   !Du I@006/0001
@@ -4201,8 +4537,34 @@ Success
   <
     I@025/0001
     $a
-    :*
+    :String
   >
+  :
+  I@038/0001
+  RefDualPrntParamSame
+  <
+    I@060/0001
+    $a
+  >
+  {
+    !DF I@063/0001
+    field
+    :
+    I@071/0001
+    $a
+  }
+}
+{
+  !Du I@006/0002
+  RefDualPrntParamSame
+  <
+    I@028/0002
+    $a
+    :String
+  >
+  |
+  P@042/0002
+  $a
 }
 {
   !In I@007/0001
@@ -4210,8 +4572,34 @@ Success
   <
     I@025/0001
     $a
-    :*
+    :String
   >
+  :
+  I@038/0001
+  RefInpPrntParamSame
+  <
+    I@059/0001
+    $a
+  >
+  {
+    !IF I@062/0001
+    field
+    :
+    I@070/0001
+    $a
+  }
+}
+{
+  !In I@007/0002
+  RefInpPrntParamSame
+  <
+    I@028/0002
+    $a
+    :String
+  >
+  |
+  P@042/0002
+  $a
 }
 {
   !Ou I@008/0001
@@ -4219,7 +4607,33 @@ Success
   <
     I@027/0001
     $a
-    :*
+    :String
   >
+  :
+  I@040/0001
+  RefOutpPrntParamSame
+  <
+    I@062/0001
+    $a
+  >
+  {
+    !OF I@065/0001
+    field
+    :
+    I@073/0001
+    $a
+  }
+}
+{
+  !Ou I@008/0002
+  RefOutpPrntParamSame
+  <
+    I@030/0002
+    $a
+    :String
+  >
+  |
+  P@044/0002
+  $a
 }
 ]

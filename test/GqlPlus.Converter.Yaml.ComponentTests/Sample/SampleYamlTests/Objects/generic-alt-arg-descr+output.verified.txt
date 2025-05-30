@@ -24,7 +24,7 @@ types: !_Map_Type
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
         typeKind: !_TypeKind Basic
-        typeName: '*'
+        typeName: String
       name: type
   !_Identifier RefOutpGnrcAltArgDescr: !_TypeOutput
     allAlternates:
@@ -42,5 +42,5 @@ types: !_Map_Type
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
         typeKind: !_TypeKind Basic
-        typeName: '*'
+        typeName: String
       name: ref

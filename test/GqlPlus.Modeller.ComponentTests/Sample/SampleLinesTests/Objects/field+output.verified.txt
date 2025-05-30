@@ -6,11 +6,11 @@ types: !_Map_Type
         name: field
         object: OutpField
         type: !_OutputBase
-          output: '*'
+          output: String
     fields:
       - !_OutputField
         name: field
         type: !_OutputBase
-          output: '*'
+          output: String
     name: OutpField
     typeKind: !_TypeKind Output

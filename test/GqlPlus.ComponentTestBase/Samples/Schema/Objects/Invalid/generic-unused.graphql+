@@ -1,1 +1,1 @@
-object Test<$type:*> { }
+object Test<$type:String> { }

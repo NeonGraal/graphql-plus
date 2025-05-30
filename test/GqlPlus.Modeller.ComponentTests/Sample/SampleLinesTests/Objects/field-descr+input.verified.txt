@@ -7,12 +7,12 @@ types: !_Map_Type
         name: field
         object: InpFieldDescr
         type: !_InputBase
-          input: '*'
+          input: String
     fields:
       - !_InputField
         description: 'Test Descr'
         name: field
         type: !_InputBase
-          input: '*'
+          input: String
     name: InpFieldDescr
     typeKind: !_TypeKind Input

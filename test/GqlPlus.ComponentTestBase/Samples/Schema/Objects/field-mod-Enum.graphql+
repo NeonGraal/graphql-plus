@@ -1,2 +1,2 @@
-object ObjName { field: *[EnumObjName] }
+object ObjName { field: String[EnumObjName] }
 enum EnumObjName { value }

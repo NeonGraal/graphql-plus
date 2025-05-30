@@ -7,13 +7,13 @@ Success
   <
     I@023/0001
     $type
-    :*
+    :String
   >
   {
-    !OF I@033/0001
+    !OF I@038/0001
     field
     :
-    I@041/0001
+    I@046/0001
     $type
   }
 }

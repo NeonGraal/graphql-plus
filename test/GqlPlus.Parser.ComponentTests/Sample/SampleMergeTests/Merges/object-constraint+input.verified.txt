@@ -1,0 +1,25 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !In I@007/0001
+  InpObjCnst
+  <
+    I@019/0001
+    $type
+    :String
+  >
+  {
+    !IF I@034/0001
+    field
+    :
+    I@042/0001
+    $type
+    !IF I@034/0002
+    str
+    :
+    I@040/0002
+    $type
+  }
+}
+]

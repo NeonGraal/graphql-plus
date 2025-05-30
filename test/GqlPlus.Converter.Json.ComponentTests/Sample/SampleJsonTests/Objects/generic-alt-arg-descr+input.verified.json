@@ -51,7 +51,7 @@
               "$tag": "_TypeKind",
               "value": "Basic"
             },
-            "typeName": "*"
+            "typeName": "String"
           },
           "name": "type"
         }
@@ -92,7 +92,7 @@
               "$tag": "_TypeKind",
               "value": "Basic"
             },
-            "typeName": "*"
+            "typeName": "String"
           },
           "name": "ref"
         }

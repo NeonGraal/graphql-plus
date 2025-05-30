@@ -8,8 +8,8 @@ Success
     !DF I@025/0001
     field
     :
-    P@032/0001
-    *
+    I@032/0001
+    String
     [EnumDualFieldModEnum]
   }
 }

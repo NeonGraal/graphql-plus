@@ -7,12 +7,12 @@ types: !_Map_Type
       name: field
       object: DualFieldDescr
       type: !_DualBase
-        dual: '*'
+        dual: String
     fields:
     - !_DualField
       description: 'Test Descr'
       name: field
       type: !_DualBase
-        dual: '*'
+        dual: String
     name: DualFieldDescr
     typeKind: !_TypeKind Dual

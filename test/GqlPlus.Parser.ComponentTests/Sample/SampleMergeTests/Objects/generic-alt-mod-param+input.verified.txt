@@ -1,12 +1,20 @@
 ﻿[  
 !Sc I@001/0001
-Failure
-<
-  !!! P@034/0001 : Invalid Input. Expected constraint for $ref. - '\$mod>\ \{\ \|\ ' !!!
-  !!! P@034/0001 : Invalid Sample. Expected no more text. - '\$mod>\ \{\ \|\ ' !!!
->
+Success
 {
   !In I@007/0001
   RefInpGnrcAltModParam
+  <
+    I@030/0001
+    $ref
+    :String
+    I@042/0001
+    $mod
+    :String
+  >
+  |
+  P@058/0001
+  $ref
+  [$mod]
 }
 ]

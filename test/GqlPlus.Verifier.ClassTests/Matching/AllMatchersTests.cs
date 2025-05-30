@@ -1,5 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Merging;
+﻿using GqlPlus.Merging;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GqlPlus.Matching;

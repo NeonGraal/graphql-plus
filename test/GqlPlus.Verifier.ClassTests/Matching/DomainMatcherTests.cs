@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Verifying.Schema;
 
 namespace GqlPlus.Matching;
 
@@ -26,6 +26,73 @@ public class DomainMatcherTests
 
     // Act
     bool result = _sut.Matches(type, $"{kind}", Context);
+
+    // Assert
+    result.ShouldBeTrue();
+  }
+
+  [Theory, RepeatData]
+  public void Matches_ReturnsTrue_WhenMatchingEnumDomain(string domain, string constraint)
+  {
+    // Arrange
+    IGqlpDomainLabel typeLabel = For<IGqlpDomainLabel>();
+    typeLabel.EnumType.Returns(constraint);
+
+    IGqlpDomain<IGqlpDomainLabel> type = NFor<IGqlpDomain<IGqlpDomainLabel>>(domain);
+    type.DomainKind.Returns(DomainKind.Enum);
+    type.Items.Returns([typeLabel]);
+
+    // Act
+    bool result = _sut.Matches(type, constraint, Context);
+
+    // Assert
+    result.ShouldBeTrue();
+  }
+
+  [Theory, RepeatData]
+  public void Matches_ReturnsTrue_WhenMatchingEnumParent(string domain, string constraint, string enumName)
+  {
+    // Arrange
+    IGqlpDomainLabel typeLabel = For<IGqlpDomainLabel>();
+    typeLabel.EnumType.Returns(enumName);
+
+    IGqlpDomain<IGqlpDomainLabel> type = NFor<IGqlpDomain<IGqlpDomainLabel>>(domain);
+    type.DomainKind.Returns(DomainKind.Enum);
+    type.Items.Returns([typeLabel]);
+
+    IGqlpEnum enumType = NFor<IGqlpEnum>(enumName);
+    Types[enumName] = enumType;
+
+    _enumMatcher.Matches(enumType, constraint, Context).Returns(true);
+
+    // Act
+    bool result = _sut.Matches(type, enumName, Context);
+
+    // Assert
+    result.ShouldBeTrue();
+  }
+
+  [Theory, RepeatData]
+  public void Matches_ReturnsTrue_WhenMatchingLabelDomain(string domain, string constraint, string enumLabel)
+  {
+    // Arrange
+    IGqlpDomainLabel typeLabel = For<IGqlpDomainLabel>();
+    typeLabel.EnumItem.Returns(enumLabel);
+
+    IGqlpDomain<IGqlpDomainLabel> type = NFor<IGqlpDomain<IGqlpDomainLabel>>(domain);
+    type.DomainKind.Returns(DomainKind.Enum);
+    type.Items.Returns([typeLabel]);
+
+    IGqlpEnumLabel label = NFor<IGqlpEnumLabel>(enumLabel);
+    IGqlpEnum enumType = NFor<IGqlpEnum>(constraint);
+    enumType.Items.Returns([label]);
+
+    Map<string> enumValues = new() { [enumLabel] = constraint };
+
+    EnumContext enumContext = new(Types, Errors, enumValues);
+
+    // Act
+    bool result = _sut.Matches(type, constraint, enumContext);
 
     // Assert
     result.ShouldBeTrue();

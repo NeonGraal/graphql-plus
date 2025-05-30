@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Verifying.Schema;
 

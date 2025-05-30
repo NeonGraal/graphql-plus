@@ -1,6 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Verifying.Schema;
+﻿namespace GqlPlus.Verifying.Schema;
 
 public abstract class AliasedVerifierTestsBase<TAliased>
   : GroupedVerifierTestsBase<TAliased>

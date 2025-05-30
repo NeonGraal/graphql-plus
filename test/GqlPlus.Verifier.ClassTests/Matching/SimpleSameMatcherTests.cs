@@ -1,20 +1,17 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Matching;
+﻿namespace GqlPlus.Matching;
 
 public abstract class SimpleSameMatcherTests<TSimple>
   : MatcherTestsBase
   where TSimple : class, IGqlpSimple
 {
+  private readonly SimpleSameMatcher<TSimple> _sut = new();
+
   [Theory, RepeatData]
   public void Simple_Matches_SameName_ReturnsTrue(string name)
   {
     TSimple type = NFor<TSimple>(name);
-    TSimple constraint = NFor<TSimple>(name);
 
-    SimpleSameMatcher<TSimple> matcher = new();
-
-    bool result = matcher.Matches(type, name, Context);
+    bool result = _sut.Matches(type, name, Context);
 
     result.ShouldBeTrue();
   }
@@ -24,11 +21,8 @@ public abstract class SimpleSameMatcherTests<TSimple>
   {
     TSimple type = NFor<TSimple>(name);
     type.Parent.Returns(parent);
-    TSimple constraint = NFor<TSimple>(parent);
 
-    SimpleSameMatcher<TSimple> matcher = new();
-
-    bool result = matcher.Matches(type, parent, Context);
+    bool result = _sut.Matches(type, parent, Context);
 
     result.ShouldBeTrue();
   }

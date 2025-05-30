@@ -1,5 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
-using NSubstitute.Core;
+﻿using NSubstitute.Core;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 

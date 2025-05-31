@@ -36,7 +36,7 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
       }
 
       if (!context.GetType(param.Constraint, out IGqlpDescribed? value)) {
-        context.AddError(param, usage.Label + " Type Param", $"Copnstraint '{param.Constraint}' not defined");
+        context.AddError(param, usage.Label + " Type Param", $"Constraint '{param.Constraint}' not defined");
       }
     }
 
@@ -134,98 +134,14 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
     }
 
     if (context.GetTyped(arg.FullType, out IGqlpType? argType)) {
+      if (argType.Label.Prefixed("_").Equals(param.Constraint, StringComparison.Ordinal)) {
+        return;
+      }
+
       if (!_constraintMatcher.Matches(argType, param.Constraint!, context)) {
         error("Invalid Constraint on", $"'{argType.Name}' not match '{param.Constraint}'");
       }
     }
-  }
-
-  internal bool MatchParamArg(TContext context, IGqlpType consType, IGqlpType argType)
-  {
-    if (argType is IGqlpSimple argSimple) {
-      if (consType is IGqlpSimple consSimple) {
-        return MatchSimples(context, consSimple, argSimple);
-      }
-    }
-
-    if (argType is IGqlpObject argObject) {
-      if (consType is IGqlpObject consObject) {
-        return MatchObjects(context, consObject, argObject);
-      }
-    }
-
-    return false;
-  }
-
-  internal bool MatchSimples(TContext context, IGqlpSimple consSimple, IGqlpSimple argSimple)
-    => argSimple.Name.Equals(consSimple.Name, StringComparison.Ordinal)
-      || argSimple switch {
-        IGqlpUnion argUnion => MatchUnionSimple(context, argUnion, consSimple),
-        IGqlpEnum argEnum => MatchEnumSimple(context, argEnum, consSimple),
-        IGqlpDomain argDom => MatchDomainSimple(context, argDom, consSimple),
-        _ => false,
-      };
-
-  private bool MatchDomainSimple(TContext context, IGqlpDomain argDom, IGqlpSimple consSimple)
-#pragma warning restore CA1822 // Mark members as static
-  {
-    if (argDom.DomainKind == DomainKind.Enum) {
-      // Todo: match enum constraint
-    } else {
-      string kind = argDom.DomainKind.ToString();
-      if (kind.Equals(consSimple.Name, StringComparison.Ordinal)) {
-        return true;
-      }
-
-      IGqlpUnion? consUnion = consSimple as IGqlpUnion;
-
-      while (consUnion is not null) {
-        if (consUnion.Items.Any(i => i.Name.Equals(argDom.Name, StringComparison.Ordinal))) {
-          return true;
-        }
-
-        context.GetTyped(consUnion.Parent, out consUnion);
-      }
-    }
-
-    return false;
-  }
-
-  private bool MatchEnumSimple(TContext context, IGqlpEnum argEnum, IGqlpSimple consSimple)
-    => consSimple switch {
-      IGqlpEnum consEnum => MatchEnumEnum(context, argEnum, consEnum),
-      IGqlpDomain<IGqlpDomainLabel> consDomain => throw new NotImplementedException(),
-      IGqlpUnion consUnion => throw new NotImplementedException(),
-      _ => false
-    };
-
-  private bool MatchEnumEnum(TContext context, IGqlpEnum argEnum, IGqlpEnum consEnum)
-#pragma warning restore CA1822 // Mark members as static
-  => !string.IsNullOrWhiteSpace(argEnum.Parent)
-            && (argEnum.Parent!.Equals(consEnum.Name, StringComparison.Ordinal)
-              || context.GetTyped(argEnum.Parent, out IGqlpEnum? enumParent)
-                && MatchEnumEnum(context, enumParent, consEnum));
-
-  [SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Todo")]
-  private bool MatchUnionSimple(TContext context, IGqlpUnion argUnion, IGqlpSimple consSimple)
-    => consSimple switch {
-      IGqlpEnum consEnum => throw new NotImplementedException(),
-      IGqlpDomain<IGqlpDomainLabel> consDomain => throw new NotImplementedException(),
-      IGqlpUnion consUnion => throw new NotImplementedException(),
-      _ => false
-    };
-
-  internal bool MatchObjects(TContext context, IGqlpObject consObject, IGqlpObject argObject)
-  {
-    if (argObject.Name.Equals(consObject.Name, StringComparison.Ordinal)) {
-      return true;
-    }
-
-    if (context.GetTyped(argObject.Parent?.Name, out IGqlpObject? parentObject)) {
-      return MatchObjects(context, consObject, parentObject);
-    }
-
-    return false;
   }
 
   internal void CheckTypeArgs<TBase>(CheckError error, TContext context, TBase type, bool check, IGqlpDescribed? value)

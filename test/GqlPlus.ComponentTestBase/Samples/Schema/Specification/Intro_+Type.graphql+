@@ -41,6 +41,13 @@ output _TypeSimple {
     | _TypeRef<_TypeKind.Domain>
     | _TypeRef<_TypeKind.Union>
     }
+
+output _Internal {
+    | Null
+    | Object
+    | Void
+    }
+
 output _Constant {
     | _Simple
     | _ConstantList
@@ -48,10 +55,10 @@ output _Constant {
     }
 
 output _Simple {
-    | Boolean
+    | _DomainValue<_DomainKind.Boolean Boolean>
+    | _DomainValue<_DomainKind.Enum _EnumValue>
     | _DomainValue<_DomainKind.Number Number>
     | _DomainValue<_DomainKind.String String>
-    | _EnumValue
     }
 
 output _ConstantList {
@@ -84,3 +91,4 @@ enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
 output _Modifier<$kind:_ModifierKind> {
         modifierKind: $kind
     }
+

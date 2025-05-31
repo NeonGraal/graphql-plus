@@ -18,7 +18,7 @@ Success
   <
     I@028/0002
     $ref
-    :String
+    :_Input
   >
   |
   P@044/0002

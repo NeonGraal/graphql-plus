@@ -18,10 +18,10 @@ Success
   <
     I@031/0002
     $ref
-    :String
+    :_Dual
   >
   :
-  I@047/0002
+  I@046/0002
   $ref
 }
 {

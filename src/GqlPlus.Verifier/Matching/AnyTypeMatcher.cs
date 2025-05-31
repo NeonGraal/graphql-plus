@@ -13,7 +13,6 @@ internal class AnyTypeMatcher(
       throw new InvalidOperationException("No matchers available to match types.");
     }
 
-    return matchers
-        .Any(m => m.MatchesTypeConstraint(type, constraint, context));
+    return matchers.Any(m => m.MatchesTypeConstraint(type, constraint, context));
   }
 }

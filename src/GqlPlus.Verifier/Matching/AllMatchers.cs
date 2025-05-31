@@ -9,7 +9,7 @@ public static class AllMatchers
     => services
       .AddMatcher<IGqlpType, AnyTypeMatcher>()
 
-      .AddTypeMatcher<IGqlpType, UnionConstraintMatcher>()
+      .AddSingleton<IMatcher, UnionConstraintMatcher>()
 
       .AddTypeMatcher<IGqlpDomain, DomainMatcher>()
       .AddSameMatcher<IGqlpDomain, SimpleSameMatcher<IGqlpDomain>>()

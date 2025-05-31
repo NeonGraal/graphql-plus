@@ -10,3 +10,4 @@ output _UnionMember {
     : _UnionRef
         union: _Identifier
     }
+

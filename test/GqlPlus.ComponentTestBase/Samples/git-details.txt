@@ -1,1 +1,1 @@
-8c2afc9  (HEAD -> type-constraints) 2025-05-30 Change alias constraints
+7c3b530  (HEAD -> type-constraints) 2025-05-30 Correct alias constraints

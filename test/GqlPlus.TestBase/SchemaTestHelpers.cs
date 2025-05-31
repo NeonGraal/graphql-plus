@@ -5,9 +5,6 @@ namespace GqlPlus;
 
 internal static class SchemaTestHelpers
 {
-  public static EnumLabelAst[] EnumLabels(this IEnumerable<string> enumLabels)
-    => [.. enumLabels.Select(l => new EnumLabelAst(AstNulls.At, l))];
-
   public static DualFieldAst[] DualFields(this IEnumerable<FieldInput> fields)
     => [.. fields.Select(f => new DualFieldAst(AstNulls.At, f.Name, DualBase(f.Type, f.TypeParam)))];
 

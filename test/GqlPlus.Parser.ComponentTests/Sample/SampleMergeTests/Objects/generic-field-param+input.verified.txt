@@ -22,7 +22,7 @@ Success
   <
     I@029/0002
     $ref
-    :String
+    :_Input
   >
   |
   P@045/0002

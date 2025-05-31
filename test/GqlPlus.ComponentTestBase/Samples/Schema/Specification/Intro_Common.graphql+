@@ -41,3 +41,4 @@ output _TypeSimple {
     | _TypeRef<_TypeKind.Domain>
     | _TypeRef<_TypeKind.Union>
     }
+

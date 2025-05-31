@@ -30,6 +30,7 @@ input _TypeFilter {
     : _Filter
         kinds: _TypeKind[]
     }
+
 dual _Aliased {
     : _Named
         aliases: _Identifier[]
@@ -43,3 +44,4 @@ dual _Named {
 dual _Described {
         description: String[]
     }
+

@@ -11501,9 +11501,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             },
-            "typeName": "String"
+            "typeName": "_Dual"
           },
           "name": "ref"
         }
@@ -11684,9 +11684,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             },
-            "typeName": "String"
+            "typeName": "_Dual"
           },
           "name": "ref"
         }
@@ -11807,9 +11807,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             },
-            "typeName": "String"
+            "typeName": "_Dual"
           },
           "name": "ref"
         }
@@ -11848,9 +11848,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             },
-            "typeName": "String"
+            "typeName": "_Dual"
           },
           "name": "ref"
         }
@@ -11930,9 +11930,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             },
-            "typeName": "String"
+            "typeName": "_Dual"
           },
           "name": "ref"
         }
@@ -11956,9 +11956,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             },
-            "typeName": "String"
+            "typeName": "_Dual"
           },
           "name": "ref"
         }
@@ -11997,9 +11997,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             },
-            "typeName": "String"
+            "typeName": "_Dual"
           },
           "name": "ref"
         }
@@ -12023,9 +12023,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             },
-            "typeName": "String"
+            "typeName": "_Dual"
           },
           "name": "ref"
         }
@@ -12772,9 +12772,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             },
-            "typeName": "String"
+            "typeName": "_Dual"
           },
           "name": "ref"
         }
@@ -12955,9 +12955,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             },
-            "typeName": "String"
+            "typeName": "_Input"
           },
           "name": "ref"
         }
@@ -13078,9 +13078,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             },
-            "typeName": "String"
+            "typeName": "_Dual"
           },
           "name": "ref"
         }
@@ -13119,9 +13119,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             },
-            "typeName": "String"
+            "typeName": "_Input"
           },
           "name": "ref"
         }
@@ -13201,9 +13201,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             },
-            "typeName": "String"
+            "typeName": "_Dual"
           },
           "name": "ref"
         }
@@ -13227,9 +13227,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             },
-            "typeName": "String"
+            "typeName": "_Dual"
           },
           "name": "ref"
         }
@@ -13268,9 +13268,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             },
-            "typeName": "String"
+            "typeName": "_Input"
           },
           "name": "ref"
         }
@@ -13294,9 +13294,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             },
-            "typeName": "String"
+            "typeName": "_Input"
           },
           "name": "ref"
         }
@@ -14215,9 +14215,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             },
-            "typeName": "String"
+            "typeName": "_Dual"
           },
           "name": "ref"
         }
@@ -14398,9 +14398,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             },
-            "typeName": "String"
+            "typeName": "_Output"
           },
           "name": "ref"
         }
@@ -14482,9 +14482,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             },
-            "typeName": "String"
+            "typeName": "_Enum"
           },
           "name": "type"
         }
@@ -14564,9 +14564,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             },
-            "typeName": "String"
+            "typeName": "_Dual"
           },
           "name": "ref"
         }
@@ -14605,9 +14605,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             },
-            "typeName": "String"
+            "typeName": "_Output"
           },
           "name": "ref"
         }
@@ -14687,9 +14687,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             },
-            "typeName": "String"
+            "typeName": "_Dual"
           },
           "name": "ref"
         }
@@ -14713,9 +14713,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             },
-            "typeName": "String"
+            "typeName": "_Dual"
           },
           "name": "ref"
         }
@@ -14754,9 +14754,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             },
-            "typeName": "String"
+            "typeName": "_Output"
           },
           "name": "ref"
         }
@@ -14780,9 +14780,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             },
-            "typeName": "String"
+            "typeName": "_Output"
           },
           "name": "ref"
         }
@@ -14823,9 +14823,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             },
-            "typeName": "String"
+            "typeName": "_Enum"
           },
           "name": "type"
         }
@@ -15106,9 +15106,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Enum"
             },
-            "typeName": "String"
+            "typeName": "PrntOutpPrntGnrc"
           },
           "name": "type"
         }

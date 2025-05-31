@@ -5350,8 +5350,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Internal
+          typeName: _Dual
         name: ref
   !_Identifier RefDualGnrcAltModParam: !_TypeDual
     allAlternates:
@@ -5427,8 +5427,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Internal
+          typeName: _Dual
         name: ref
   !_Identifier RefDualGnrcAltSmpl: !_TypeDual
     allAlternates:
@@ -5481,8 +5481,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Internal
+          typeName: _Dual
         name: ref
   !_Identifier RefDualGnrcFieldParam: !_TypeDual
     allAlternates:
@@ -5499,8 +5499,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Internal
+          typeName: _Dual
         name: ref
   !_Identifier RefDualGnrcPrntArg: !_TypeDual
     allAlternates:
@@ -5535,8 +5535,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Internal
+          typeName: _Dual
         name: ref
   !_Identifier RefDualGnrcPrntDualPrnt: !_TypeDual
     name: RefDualGnrcPrntDualPrnt
@@ -5546,8 +5546,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Internal
+          typeName: _Dual
         name: ref
   !_Identifier RefDualGnrcPrntParam: !_TypeDual
     allAlternates:
@@ -5564,8 +5564,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Internal
+          typeName: _Dual
         name: ref
   !_Identifier RefDualGnrcPrntParamPrnt: !_TypeDual
     name: RefDualGnrcPrntParamPrnt
@@ -5575,8 +5575,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Internal
+          typeName: _Dual
         name: ref
   !_Identifier RefDualPrnt: !_TypeDual
     allAlternates:
@@ -5916,8 +5916,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Internal
+          typeName: _Dual
         name: ref
   !_Identifier RefInpGnrcAltModParam: !_TypeInput
     allAlternates:
@@ -5993,8 +5993,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Internal
+          typeName: _Input
         name: ref
   !_Identifier RefInpGnrcAltSmpl: !_TypeInput
     allAlternates:
@@ -6047,8 +6047,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Internal
+          typeName: _Dual
         name: ref
   !_Identifier RefInpGnrcFieldParam: !_TypeInput
     allAlternates:
@@ -6065,8 +6065,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Internal
+          typeName: _Input
         name: ref
   !_Identifier RefInpGnrcPrntArg: !_TypeInput
     allAlternates:
@@ -6101,8 +6101,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Internal
+          typeName: _Dual
         name: ref
   !_Identifier RefInpGnrcPrntDualPrnt: !_TypeInput
     name: RefInpGnrcPrntDualPrnt
@@ -6112,8 +6112,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Internal
+          typeName: _Dual
         name: ref
   !_Identifier RefInpGnrcPrntParam: !_TypeInput
     allAlternates:
@@ -6130,8 +6130,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Internal
+          typeName: _Input
         name: ref
   !_Identifier RefInpGnrcPrntParamPrnt: !_TypeInput
     name: RefInpGnrcPrntParamPrnt
@@ -6141,8 +6141,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Internal
+          typeName: _Input
         name: ref
   !_Identifier RefInpPrnt: !_TypeInput
     allAlternates:
@@ -6562,8 +6562,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Internal
+          typeName: _Dual
         name: ref
   !_Identifier RefOutpGnrcAltModParam: !_TypeOutput
     allAlternates:
@@ -6639,8 +6639,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Internal
+          typeName: _Output
         name: ref
   !_Identifier RefOutpGnrcAltSmpl: !_TypeOutput
     allAlternates:
@@ -6677,8 +6677,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Internal
+          typeName: _Enum
         name: type
   !_Identifier RefOutpGnrcFieldArg: !_TypeOutput
     allAlternates:
@@ -6713,8 +6713,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Internal
+          typeName: _Dual
         name: ref
   !_Identifier RefOutpGnrcFieldParam: !_TypeOutput
     allAlternates:
@@ -6731,8 +6731,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Internal
+          typeName: _Output
         name: ref
   !_Identifier RefOutpGnrcPrntArg: !_TypeOutput
     allAlternates:
@@ -6767,8 +6767,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Internal
+          typeName: _Dual
         name: ref
   !_Identifier RefOutpGnrcPrntDualPrnt: !_TypeOutput
     name: RefOutpGnrcPrntDualPrnt
@@ -6778,8 +6778,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Internal
+          typeName: _Dual
         name: ref
   !_Identifier RefOutpGnrcPrntParam: !_TypeOutput
     allAlternates:
@@ -6796,8 +6796,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Internal
+          typeName: _Output
         name: ref
   !_Identifier RefOutpGnrcPrntParamPrnt: !_TypeOutput
     name: RefOutpGnrcPrntParamPrnt
@@ -6807,8 +6807,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Internal
+          typeName: _Output
         name: ref
   !_Identifier RefOutpGnrcValue: !_TypeOutput
     allFields:
@@ -6827,8 +6827,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Internal
+          typeName: _Enum
         name: type
   !_Identifier RefOutpPrnt: !_TypeOutput
     allAlternates:
@@ -6962,8 +6962,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Enum
+          typeName: PrntOutpPrntGnrc
         name: type
   !_Identifier RefOutpPrntParamDiff: !_TypeOutput
     allAlternates:

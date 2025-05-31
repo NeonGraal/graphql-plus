@@ -13,3 +13,4 @@ output _Category {
     }
 
 enum _Resolution { Parallel Sequential Single }
+

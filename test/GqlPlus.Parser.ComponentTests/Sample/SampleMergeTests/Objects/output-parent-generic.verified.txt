@@ -18,13 +18,13 @@ Success
   <
     I@025/0002
     $type
-    :String
+    :PrntOutpPrntGnrc
   >
   {
-    !OF I@040/0002
+    !OF I@050/0002
     field
     :
-    I@048/0002
+    I@058/0002
     $type
   }
 }

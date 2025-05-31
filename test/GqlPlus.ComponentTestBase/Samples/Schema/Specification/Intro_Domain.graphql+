@@ -27,10 +27,18 @@ output _DomainItem<$item:_BaseDomainItem> {
         domain: _Identifier
     }
 
-output _DomainValue<$kind:_DomainKind $value> {
+output _DomainValue<$kind:_DomainKind $value:_Basic> {
     : _DomainRef<$kind>
         value: $value
     }
+
+output _Basic {
+    | Boolean
+    | _EnumValue
+    | Number
+    | String
+    }
+
 dual _DomainTrueFalse {
     : _BaseDomainItem
         value: Boolean
@@ -39,6 +47,7 @@ dual _DomainTrueFalse {
 output _DomainItemTrueFalse {
     : _DomainItem<_DomainTrueFalse>
     }
+
 output _DomainLabel {
     : _BaseDomainItem
         label: _EnumValue
@@ -47,6 +56,7 @@ output _DomainLabel {
 output _DomainItemLabel {
     : _DomainItem<_DomainLabel>
     }
+
 dual _DomainRange {
     : _BaseDomainItem
         lower: Number?
@@ -56,6 +66,7 @@ dual _DomainRange {
 output _DomainItemRange {
     : _DomainItem<_DomainRange>
     }
+
 dual _DomainRegex {
     : _BaseDomainItem
         pattern: String
@@ -64,3 +75,4 @@ dual _DomainRegex {
 output _DomainItemRegex {
     : _DomainItem<_DomainRegex>
     }
+

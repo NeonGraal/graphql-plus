@@ -58,6 +58,6 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
-          typeKind: !_TypeKind Basic
-          typeName: String
+          typeKind: !_TypeKind Internal
+          typeName: _Output
         name: ref

@@ -122,6 +122,32 @@ types: !_Map_Type
           output: _Constant
     name: _ConstantMap
     typeKind: !_TypeKind Output
+  !_Identifier _Internal: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: _Internal
+        type: !_OutputBase
+          output: Null
+      - !_ObjectFor(_OutputAlternate)
+        object: _Internal
+        type: !_OutputBase
+          output: Object
+      - !_ObjectFor(_OutputAlternate)
+        object: _Internal
+        type: !_OutputBase
+          output: Void
+    alternates:
+      - !_OutputAlternate
+        type: !_OutputBase
+          output: Null
+      - !_OutputAlternate
+        type: !_OutputBase
+          output: Object
+      - !_OutputAlternate
+        type: !_OutputBase
+          output: Void
+    name: _Internal
+    typeKind: !_TypeKind Output
   !_Identifier _Modifier: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
@@ -246,7 +272,25 @@ types: !_Map_Type
       - !_ObjectFor(_OutputAlternate)
         object: _Simple
         type: !_OutputBase
-          output: Boolean
+          output: _DomainValue
+          typeArgs:
+            - !_OutputArg
+              label: Boolean
+              typeKind: !_SimpleKind Enum
+              typeName: _DomainKind
+            - !_OutputArg
+              output: Boolean
+      - !_ObjectFor(_OutputAlternate)
+        object: _Simple
+        type: !_OutputBase
+          output: _DomainValue
+          typeArgs:
+            - !_OutputArg
+              label: Enum
+              typeKind: !_SimpleKind Enum
+              typeName: _DomainKind
+            - !_OutputArg
+              output: _EnumValue
       - !_ObjectFor(_OutputAlternate)
         object: _Simple
         type: !_OutputBase
@@ -269,14 +313,27 @@ types: !_Map_Type
               typeName: _DomainKind
             - !_OutputArg
               output: String
-      - !_ObjectFor(_OutputAlternate)
-        object: _Simple
-        type: !_OutputBase
-          output: _EnumValue
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
-          output: Boolean
+          output: _DomainValue
+          typeArgs:
+            - !_OutputArg
+              label: Boolean
+              typeKind: !_SimpleKind Enum
+              typeName: _DomainKind
+            - !_OutputArg
+              output: Boolean
+      - !_OutputAlternate
+        type: !_OutputBase
+          output: _DomainValue
+          typeArgs:
+            - !_OutputArg
+              label: Enum
+              typeKind: !_SimpleKind Enum
+              typeName: _DomainKind
+            - !_OutputArg
+              output: _EnumValue
       - !_OutputAlternate
         type: !_OutputBase
           output: _DomainValue
@@ -297,8 +354,5 @@ types: !_Map_Type
               typeName: _DomainKind
             - !_OutputArg
               output: String
-      - !_OutputAlternate
-        type: !_OutputBase
-          output: _EnumValue
     name: _Simple
     typeKind: !_TypeKind Output

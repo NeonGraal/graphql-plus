@@ -1,6 +1,6 @@
 ﻿{
   "$tag": "_Schema",
-  "_ctxErrors": [
+  "errors": [
     {
       "$tag": "_Error",
       "_kind": {
@@ -24,34 +24,6 @@
         "value": "End"
       },
       "_message": "In _BaseDomainItem can\u0027t get model for type \u0027_Described\u0027"
-    }
-  ],
-  "_errors": [
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 45,
-        "_line": 30
-      },
-      "_kind": {
-        "$tag": "_TokenKind",
-        "value": "Punctuation"
-      },
-      "_message": "Invalid Output. Expected constraint for $value."
-    },
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 45,
-        "_line": 30
-      },
-      "_kind": {
-        "$tag": "_TokenKind",
-        "value": "Punctuation"
-      },
-      "_message": "Invalid Spec. Expected no more text."
     }
   ],
   "types": {
@@ -179,6 +151,78 @@
         "value": "Dual"
       }
     },
+    "_Basic": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "_Basic",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "Boolean"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "_Basic",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_EnumValue"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "_Basic",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "Number"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "_Basic",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "String"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "Boolean"
+          }
+        },
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_EnumValue"
+          }
+        },
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "Number"
+          }
+        },
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "String"
+          }
+        }
+      ],
+      "name": "_Basic",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
     "_DomainItem": {
       "$tag": "_TypeOutput",
       "allFields": [
@@ -226,6 +270,140 @@
         }
       ]
     },
+    "_DomainItemLabel": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "exclude",
+          "object": "_BaseDomainItem",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "Boolean"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "label",
+          "object": "_DomainLabel",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_EnumValue"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "domain",
+          "object": "_DomainItem",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Identifier"
+          }
+        }
+      ],
+      "name": "_DomainItemLabel",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_DomainItem",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "output": "_DomainLabel"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_DomainItemRange": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "domain",
+          "object": "_DomainItem",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Identifier"
+          }
+        }
+      ],
+      "name": "_DomainItemRange",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_DomainItem",
+        "typeArgs": [
+          {
+            "$tag": "_DualArg",
+            "dual": "_DomainRange"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_DomainItemRegex": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "domain",
+          "object": "_DomainItem",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Identifier"
+          }
+        }
+      ],
+      "name": "_DomainItemRegex",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_DomainItem",
+        "typeArgs": [
+          {
+            "$tag": "_DualArg",
+            "dual": "_DomainRegex"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_DomainItemTrueFalse": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "domain",
+          "object": "_DomainItem",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_Identifier"
+          }
+        }
+      ],
+      "name": "_DomainItemTrueFalse",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_DomainItem",
+        "typeArgs": [
+          {
+            "$tag": "_DualArg",
+            "dual": "_DomainTrueFalse"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
     "_DomainKind": {
       "$tag": "_TypeEnum",
       "allItems": [
@@ -272,6 +450,143 @@
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Enum"
+      }
+    },
+    "_DomainLabel": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "exclude",
+          "object": "_BaseDomainItem",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "Boolean"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "label",
+          "object": "_DomainLabel",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_EnumValue"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "label",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "_EnumValue"
+          }
+        }
+      ],
+      "name": "_DomainLabel",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "_BaseDomainItem"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_DomainRange": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "exclude",
+          "object": "_BaseDomainItem",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "Boolean"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "lower",
+          "object": "_DomainRange",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "Number"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "upper",
+          "object": "_DomainRange",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "Number"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "lower",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "Number"
+          }
+        },
+        {
+          "$tag": "_DualField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "upper",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "Number"
+          }
+        }
+      ],
+      "name": "_DomainRange",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "_BaseDomainItem"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
       }
     },
     "_DomainRef": {
@@ -332,13 +647,163 @@
         }
       ]
     },
+    "_DomainRegex": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "exclude",
+          "object": "_BaseDomainItem",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "Boolean"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "pattern",
+          "object": "_DomainRegex",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "pattern",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "String"
+          }
+        }
+      ],
+      "name": "_DomainRegex",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "_BaseDomainItem"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "_DomainTrueFalse": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "exclude",
+          "object": "_BaseDomainItem",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "Boolean"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "value",
+          "object": "_DomainTrueFalse",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "Boolean"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "value",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "Boolean"
+          }
+        }
+      ],
+      "name": "_DomainTrueFalse",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "_BaseDomainItem"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
     "_DomainValue": {
       "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "domainKind",
+          "object": "_DomainRef",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "kind"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "value",
+          "object": "_DomainValue",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "value"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "value",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "value"
+          }
+        }
+      ],
       "name": "_DomainValue",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_DomainRef",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "typeParam": "kind"
+          }
+        ]
+      },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
-      }
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            },
+            "typeName": "_DomainKind"
+          },
+          "name": "kind"
+        },
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            },
+            "typeName": "_Basic"
+          },
+          "name": "value"
+        }
+      ]
     },
     "_TypeDomain": {
       "$tag": "_TypeOutput",
@@ -360,8 +825,8 @@
                 "typeName": "_DomainKind"
               },
               {
-                "$tag": "_OutputArg",
-                "output": "_DomainTrueFalse"
+                "$tag": "_DualArg",
+                "dual": "_DomainTrueFalse"
               },
               {
                 "$tag": "_OutputArg",
@@ -414,8 +879,8 @@
                 "typeName": "_DomainKind"
               },
               {
-                "$tag": "_OutputArg",
-                "output": "_DomainRange"
+                "$tag": "_DualArg",
+                "dual": "_DomainRange"
               },
               {
                 "$tag": "_OutputArg",
@@ -441,8 +906,8 @@
                 "typeName": "_DomainKind"
               },
               {
-                "$tag": "_OutputArg",
-                "output": "_DomainRegex"
+                "$tag": "_DualArg",
+                "dual": "_DomainRegex"
               },
               {
                 "$tag": "_OutputArg",
@@ -469,8 +934,8 @@
                 "typeName": "_DomainKind"
               },
               {
-                "$tag": "_OutputArg",
-                "output": "_DomainTrueFalse"
+                "$tag": "_DualArg",
+                "dual": "_DomainTrueFalse"
               },
               {
                 "$tag": "_OutputArg",
@@ -521,8 +986,8 @@
                 "typeName": "_DomainKind"
               },
               {
-                "$tag": "_OutputArg",
-                "output": "_DomainRange"
+                "$tag": "_DualArg",
+                "dual": "_DomainRange"
               },
               {
                 "$tag": "_OutputArg",
@@ -547,8 +1012,8 @@
                 "typeName": "_DomainKind"
               },
               {
-                "$tag": "_OutputArg",
-                "output": "_DomainRegex"
+                "$tag": "_DualArg",
+                "dual": "_DomainRegex"
               },
               {
                 "$tag": "_OutputArg",

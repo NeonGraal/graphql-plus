@@ -122,9 +122,9 @@
             "$tag": "_TypeRef(_TypeKind)",
             "typeKind": {
               "$tag": "_TypeKind",
-              "value": "Basic"
+              "value": "Internal"
             },
-            "typeName": "String"
+            "typeName": "_Dual"
           },
           "name": "ref"
         }

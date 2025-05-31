@@ -1,10 +1,6 @@
 ﻿[  
 !Sc I@001/0001
-Failure
-<
-  !!! P@045/0030 : Invalid Output. Expected constraint for $value. - '>\ \{\n\ \ \ \ :\ ' !!!
-  !!! P@045/0030 : Invalid Spec. Expected no more text. - '>\ \{\n\ \ \ \ :\ ' !!!
->
+Success
 {
   !En I@006/0001
   _DomainKind
@@ -154,5 +150,234 @@ Failure
 {
   !Ou I@008/0030
   _DomainValue
+  <
+    I@022/0030
+    $kind
+    :_DomainKind
+    I@040/0030
+    $value
+    :_Basic
+  >
+  :
+  I@007/0031
+  _DomainRef
+  <
+    I@019/0031
+    $kind
+  >
+  {
+    !OF I@009/0032
+    value
+    :
+    I@017/0032
+    $value
+  }
+}
+{
+  !Ou I@008/0035
+  _Basic
+  |
+  I@007/0036
+  Boolean
+  I@007/0037
+  _EnumValue
+  I@007/0038
+  Number
+  I@007/0039
+  String
+}
+{
+  !Du I@006/0042
+  _DomainTrueFalse
+  :
+  I@007/0043
+  _BaseDomainItem
+  {
+    !DF I@009/0044
+    value
+    :
+    I@016/0044
+    Boolean
+  }
+}
+{
+  !Ou I@008/0047
+  _DomainItemTrueFalse
+  :
+  I@007/0048
+  _DomainItem
+  <
+    I@019/0048
+    _DomainTrueFalse
+  >
+}
+{
+  !Ou I@008/0051
+  _DomainLabel
+  :
+  I@007/0052
+  _BaseDomainItem
+  {
+    !OF I@009/0053
+    label
+    :
+    I@016/0053
+    _EnumValue
+  }
+}
+{
+  !Ou I@008/0056
+  _DomainItemLabel
+  :
+  I@007/0057
+  _DomainItem
+  <
+    I@019/0057
+    _DomainLabel
+  >
+}
+{
+  !Du I@006/0060
+  _DomainRange
+  :
+  I@007/0061
+  _BaseDomainItem
+  {
+    !DF I@009/0062
+    lower
+    :
+    I@016/0062
+    Number
+    ?
+    !DF I@009/0063
+    upper
+    :
+    I@016/0063
+    Number
+    ?
+  }
+}
+{
+  !Ou I@008/0066
+  _DomainItemRange
+  :
+  I@007/0067
+  _DomainItem
+  <
+    I@019/0067
+    _DomainRange
+  >
+}
+{
+  !Du I@006/0070
+  _DomainRegex
+  :
+  I@007/0071
+  _BaseDomainItem
+  {
+    !DF I@009/0072
+    pattern
+    :
+    I@018/0072
+    String
+  }
+}
+{
+  !Ou I@008/0075
+  _DomainItemRegex
+  :
+  I@007/0076
+  _DomainItem
+  <
+    I@019/0076
+    _DomainRegex
+  >
+}
+{
+  !Ou I@008/0079
+  _TypeEnum
+  :
+  I@007/0080
+  _ParentType
+  <
+    I@019/0080
+    _TypeKind.Enum
+    I@034/0080
+    _Aliased
+    I@043/0080
+    _EnumLabel
+  >
+}
+{
+  !Du I@006/0083
+  _EnumLabel
+  :
+  I@007/0084
+  _Aliased
+  {
+    !DF I@009/0085
+    enum
+    :
+    I@015/0085
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0088
+  _EnumValue
+  :
+  I@007/0089
+  _TypeRef
+  <
+    I@016/0089
+    _TypeKind.Enum
+  >
+  {
+    !OF I@009/0090
+    label
+    :
+    I@016/0090
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0093
+  _TypeUnion
+  :
+  I@007/0094
+  _ParentType
+  <
+    I@019/0094
+    _TypeKind.Union
+    I@035/0094
+    _UnionRef
+    I@045/0094
+    _UnionMember
+  >
+}
+{
+  !Ou I@008/0097
+  _UnionRef
+  :
+  I@007/0098
+  _TypeRef
+  <
+    I@016/0098
+    _SimpleKind
+  >
+}
+{
+  !Ou I@008/0101
+  _UnionMember
+  :
+  I@007/0102
+  _UnionRef
+  {
+    !OF I@009/0103
+    union
+    :
+    I@016/0103
+    _Identifier
+  }
 }
 ]

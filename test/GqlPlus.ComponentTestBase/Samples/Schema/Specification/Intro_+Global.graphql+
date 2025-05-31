@@ -13,6 +13,7 @@ output _Category {
     }
 
 enum _Resolution { Parallel Sequential Single }
+
 output _Directives {
         directive: _Directive
         type: _Type
@@ -29,7 +30,9 @@ output _Directive {
 
 enum _Location { Operation Variable Field Inline Spread Fragment }
 
+
 output _Setting {
     : _Named
         value: _Constant
     }
+

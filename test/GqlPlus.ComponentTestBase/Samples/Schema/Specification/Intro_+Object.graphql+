@@ -55,6 +55,7 @@ output _ForParam<$base:_ObjBase> {
     | _Alternate<$base>
     | _Field<$base>
     }
+
 output _TypeDual {
     : _TypeObject<_TypeKind.Dual _DualBase _DualTypeParam _DualField _DualAlternate>
     }
@@ -80,6 +81,7 @@ output _DualTypeArg {
     : _ObjTypeArg
         dual: _Identifier
     }
+
 output _TypeInput {
     : _TypeObject<_TypeKind.Input _InputBase _InputTypeParam _InputField _InputAlternate>
     }
@@ -114,6 +116,7 @@ output _InputParam {
         modifiers: _Modifiers[]
         default: _Constant?
     }
+
 output _TypeOutput {
     : _TypeObject<_TypeKind.Output _OutputBase _OutputTypeParam _OutputField _OutputAlternate>
     }
@@ -151,3 +154,4 @@ output _OutputEnum {
         field: _Identifier
         label: _Identifier
     }
+

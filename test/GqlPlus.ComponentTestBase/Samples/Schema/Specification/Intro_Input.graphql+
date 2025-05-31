@@ -32,3 +32,4 @@ output _InputParam {
         modifiers: _Modifiers[]
         default: _Constant?
     }
+

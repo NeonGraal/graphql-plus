@@ -2,3 +2,4 @@ output _Setting {
     : _Named
         value: _Constant
     }
+

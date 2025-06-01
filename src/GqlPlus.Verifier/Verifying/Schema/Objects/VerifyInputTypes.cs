@@ -4,7 +4,7 @@ using GqlPlus.Verification.Schema;
 namespace GqlPlus.Verifying.Schema.Objects;
 
 internal class VerifyInputTypes(
-  ObjectVerifierParams<IGqlpInputObject, IGqlpInputField, IGqlpInputAlternate> verifiers
+  ObjectVerifierParams<IGqlpInputObject, IGqlpInputField, IGqlpInputAlternate, IGqlpInputArg> verifiers
 ) : AstObjectVerifier<IGqlpInputObject, IGqlpInputBase, IGqlpInputArg, IGqlpInputField, IGqlpInputAlternate, UsageContext>(verifiers)
 {
   protected override UsageContext MakeContext(IGqlpInputObject usage, IGqlpType[] aliased, ITokenMessages errors)

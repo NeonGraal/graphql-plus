@@ -33,7 +33,8 @@ public sealed class RepeatDataAttribute
   public override async ValueTask<IReadOnlyCollection<ITheoryDataRow>> GetData(MethodInfo testMethod, DisposalTracker disposalTracker)
   {
     List<ITheoryDataRow> data = [];
-    for (int i = 0; i < Repeat; ++i) {
+    int repeats = Repeat * testMethod?.GetParameters()?.Length ?? 0;
+    for (int i = 0; i < repeats; ++i) {
       IReadOnlyCollection<ITheoryDataRow> values = await base.GetData(testMethod, disposalTracker).ConfigureAwait(false);
       data.Add(values.First());
     }

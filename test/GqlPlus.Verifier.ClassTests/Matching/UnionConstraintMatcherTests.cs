@@ -1,4 +1,5 @@
 ﻿namespace GqlPlus.Matching;
+
 public class UnionConstraintMatcherTests
   : MatcherTestsBase
 {

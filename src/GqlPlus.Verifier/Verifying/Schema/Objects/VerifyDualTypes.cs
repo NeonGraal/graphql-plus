@@ -4,7 +4,7 @@ using GqlPlus.Verification.Schema;
 namespace GqlPlus.Verifying.Schema.Objects;
 
 internal class VerifyDualTypes(
-  ObjectVerifierParams<IGqlpDualObject, IGqlpDualField, IGqlpDualAlternate> verifiers
+  ObjectVerifierParams<IGqlpDualObject, IGqlpDualField, IGqlpDualAlternate, IGqlpDualArg> verifiers
 ) : AstObjectVerifier<IGqlpDualObject, IGqlpDualBase, IGqlpDualArg, IGqlpDualField, IGqlpDualAlternate, UsageContext>(verifiers)
 {
   protected override UsageContext MakeContext(IGqlpDualObject usage, IGqlpType[] aliased, ITokenMessages errors)

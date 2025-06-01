@@ -13,7 +13,7 @@ public class VerifyOutputTypesTests
 
   public VerifyOutputTypesTests()
   {
-    Verifier = new VerifyOutputTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ConstraintDelegate, LoggerFactory));
+    Verifier = new VerifyOutputTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ArgDelegate, LoggerFactory));
 
     _output = NFor<IGqlpOutputObject>("Output");
   }

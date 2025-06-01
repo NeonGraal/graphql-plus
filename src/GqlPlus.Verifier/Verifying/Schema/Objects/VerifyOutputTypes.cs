@@ -1,11 +1,12 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Abstractions.Schema;
+using GqlPlus.Matching;
 using GqlPlus.Verification.Schema;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
 internal class VerifyOutputTypes(
-  ObjectVerifierParams<IGqlpOutputObject, IGqlpOutputField, IGqlpOutputAlternate> verifiers
+  ObjectVerifierParams<IGqlpOutputObject, IGqlpOutputField, IGqlpOutputAlternate, IGqlpOutputArg> verifiers
 ) : AstObjectVerifier<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputArg, IGqlpOutputField, IGqlpOutputAlternate, OutputContext>(verifiers)
 {
   protected override void UsageValue(IGqlpOutputObject usage, OutputContext context)
@@ -63,12 +64,14 @@ internal class VerifyOutputTypes(
     base.CheckArgType(error, context, arg);
   }
 
-  internal override void CheckParamConstraint(CheckError error, OutputContext context, IGqlpTypeParam param, IGqlpObjArg arg)
+  [Obsolete]
+  internal override void CheckArgTypeConstraint(CheckError error, OutputContext context, IGqlpTypeParam param, IGqlpObjArg arg)
   {
     if (arg is IGqlpOutputArg output) {
       if (string.IsNullOrWhiteSpace(output.EnumLabel)) {
         if (output.EnumType.IsTypeParam) {
           if (context.GetTyped(output.FullType, out IGqlpTypeParam? typeParam)) {
+            // Todo: Check if the type param is a constraint of the param
             if (!string.IsNullOrWhiteSpace(typeParam.Constraint)
                 && typeParam.Constraint!.Equals(param.Constraint, StringComparison.Ordinal)) {
               return;
@@ -93,7 +96,7 @@ internal class VerifyOutputTypes(
       }
     }
 
-    base.CheckParamConstraint(error, context, param, arg);
+    base.CheckArgTypeConstraint(error, context, param, arg);
   }
 
   private IGqlpEnum? DomainHasLabel(OutputContext context, IGqlpDomain<IGqlpDomainLabel> domType, string label)

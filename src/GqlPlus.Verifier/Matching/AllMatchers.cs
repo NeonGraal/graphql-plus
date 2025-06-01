@@ -9,6 +9,10 @@ public static class AllMatchers
     => services
       .AddMatcher<IGqlpType, AnyTypeMatcher>()
 
+      .AddMatcher<IGqlpDualArg, ObjArgMatcher<IGqlpDualArg>>()
+      .AddMatcher<IGqlpInputArg, ObjArgMatcher<IGqlpInputArg>>()
+      .AddMatcher<IGqlpOutputArg, ObjArgMatcher<IGqlpOutputArg>>()
+
       .AddSingleton<IMatcher, UnionConstraintMatcher>()
 
       .AddTypeMatcher<IGqlpDomain, DomainMatcher>()
@@ -23,7 +27,6 @@ public static class AllMatchers
     ;
 
   private static IServiceCollection AddMatcher<TType, TMatcher>(this IServiceCollection services)
-    where TType : IGqlpType
     where TMatcher : class, Matcher<TType>.I
     => services
       .AddSingleton<TMatcher>()

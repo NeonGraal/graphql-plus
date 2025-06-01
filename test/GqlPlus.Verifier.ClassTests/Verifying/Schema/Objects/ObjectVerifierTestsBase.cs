@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Matching;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
@@ -13,9 +14,21 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
   internal readonly ForM<TField> MergeFields = new();
   internal readonly ForM<TAlt> MergeAlternates = new();
 
+  protected ObjectVerifierTestsBase()
+  {
+    ArgMatcher = For<Matcher<TArg>.I>();
+
+    ArgDelegate = For<Matcher<TArg>.D>();
+    ArgDelegate().Returns(ArgMatcher);
+  }
+
+  protected Matcher<TArg>.I ArgMatcher { get; }
+  protected Matcher<TArg>.D ArgDelegate { get; }
+
   protected sealed override TObject TheUsage => TheObject;
 
   protected abstract TObject TheObject { get; }
+
 
   [Fact]
   public void Verify_CallsMergeFieldsAndAlternates_WithoutErrors()

@@ -13,18 +13,10 @@ public class VerifierTestsBase
   protected TokenMessages Errors { get; } = [];
   protected ILoggerFactory LoggerFactory { get; } = For<ILoggerFactory>();
 
-  protected Matcher<IGqlpType>.I ConstraintMatcher { get; }
-  protected Matcher<IGqlpType>.D ConstraintDelegate { get; }
-
   protected ILogger Logger { get; } = For<ILogger>();
 
   public VerifierTestsBase()
   {
-    ConstraintMatcher = For<Matcher<IGqlpType>.I>();
-
-    ConstraintDelegate = For<Matcher<IGqlpType>.D>();
-    ConstraintDelegate().Returns(ConstraintMatcher);
-
     Logger.IsEnabled(Arg.Any<LogLevel>())
       .ReturnsForAnyArgs(true);
 

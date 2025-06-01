@@ -20,22 +20,20 @@ internal class ParseTypeParams
     while (!tokens.Take('>')) {
       string description = tokens.Description();
       if (tokens.Prefix('$', out string? name, out TokenAt? at) && name is not null) {
-        TypeParamAst result = new(at, name, description);
-
         if (tokens.Take(':')) {
           if (tokens.Identifier(out string? constraint)) {
-            list.Add(result with { Constraint = constraint });
+            list.Add(new TypeParamAst(at, name, description, constraint));
           } else if (tokens.TakeZero()) {
-            list.Add(result with { Constraint = "0" });
+            list.Add(new TypeParamAst(at, name, description, "0"));
           } else if (tokens.TakeAny(out char charType, '^', '_', '*')) {
-            list.Add(result with { Constraint = charType.ToString() });
+            list.Add(new TypeParamAst(at, name, description, charType.ToString()));
           } else {
-            list.Add(result);
-            return tokens.ErrorArray(label, "constraint after ':' for $" + name, list);
+            list.Add(new TypeParamAst(at, name, description, ""));
+            return list.PartialArray(tokens.Error(label, "constraint after ':' for $" + name));
           }
         } else {
-          list.Add(result);
-          return tokens.ErrorArray(label, "constraint for $" + name, list);
+          list.Add(new TypeParamAst(at, name, description, ""));
+          return list.PartialArray(tokens.Error(label, "constraint for $" + name));
         }
       } else {
         return list.PartialArray(tokens.Error(label, "type parameter"));

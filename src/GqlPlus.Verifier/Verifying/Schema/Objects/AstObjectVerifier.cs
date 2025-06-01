@@ -9,7 +9,7 @@ namespace GqlPlus.Verification.Schema;
 
 [SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Todo")]
 internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField, TObjAlt, TContext>(
-  ObjectVerifierParams<TObject, TObjField, TObjAlt> verifiers
+  ObjectVerifierParams<TObject, TObjField, TObjAlt, TObjArg> verifiers
 ) : AstParentItemVerifier<TObject, IGqlpObjBase, TContext, TObjField>(verifiers.Aliased, verifiers.MergeFields)
   where TObject : IGqlpObject<TObjBase, TObjField, TObjAlt>
   where TObjField : IGqlpObjField<TObjBase>
@@ -20,7 +20,7 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
 {
   private readonly ILogger _logger = verifiers.Logger.CreateLogger(nameof(AstParentItemVerifier<TObject, IGqlpObjBase, TContext, IGqlpTypeParam>));
 
-  private readonly Matcher<IGqlpType>.L _constraintMatcher = verifiers.ConstraintMatcher;
+  private readonly Matcher<TObjArg>.L _constraintMatcher = verifiers.ConstraintMatcher;
 
   protected override void UsageValue(TObject usage, TContext context)
   {
@@ -110,38 +110,27 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
   internal virtual void CheckArgType(CheckError error, TContext context, IGqlpObjArg arg)
     => CheckTypeRef(error, context, arg);
 
-  private void CheckParamsArgs(CheckError error, TContext context, IGqlpObject definition, IGqlpObjBase baseType)
+  private void CheckParamsArgs(CheckError error, TContext context, IGqlpObject definition, TObjBase baseType)
   {
-    IEnumerable<(IGqlpObjArg, IGqlpTypeParam)> argAndParams = baseType.Args
+    IEnumerable<(TObjArg, IGqlpTypeParam)> argAndParams = baseType.BaseArgs
       .Zip(definition.TypeParams, static (a, p) => (a, p));
-    foreach ((IGqlpObjArg arg, IGqlpTypeParam param) in argAndParams) {
-      CheckParamConstraint(error, context, param, arg);
+    foreach ((TObjArg arg, IGqlpTypeParam param) in argAndParams) {
+      CheckArgType(error, context, arg);
+
+      if (string.IsNullOrWhiteSpace(param.Constraint)) {
+        error("Invalid Constraint on", "undefined");
+        continue;
+      }
+
+      if (!_constraintMatcher.Matches(arg, param.Constraint!, context)) {
+        error("Invalid Constraint on", $"'{arg.Name}' not match '{param.Constraint}'");
+      }
     }
   }
 
-  internal virtual void CheckParamConstraint(CheckError error, TContext context, IGqlpTypeParam param, IGqlpObjArg arg)
+  [Obsolete]
+  internal virtual void CheckArgTypeConstraint(CheckError error, TContext context, IGqlpTypeParam param, IGqlpObjArg arg)
   {
-    CheckArgType(error, context, arg);
-
-    if (string.IsNullOrWhiteSpace(param.Constraint)) {
-      error("Invalid Constraint on", "undefined");
-      return;
-    }
-
-    if ("_Any".Equals(param.Constraint, StringComparison.Ordinal)
-      || arg.FullType.Equals(param.Constraint, StringComparison.Ordinal)) {
-      return;
-    }
-
-    if (context.GetTyped(arg.FullType, out IGqlpType? argType)) {
-      if (argType.Label.Prefixed("_").Equals(param.Constraint, StringComparison.Ordinal)) {
-        return;
-      }
-
-      if (!_constraintMatcher.Matches(argType, param.Constraint!, context)) {
-        error("Invalid Constraint on", $"'{argType.Name}' not match '{param.Constraint}'");
-      }
-    }
   }
 
   internal void CheckTypeArgs<TBase>(CheckError error, TContext context, TBase type, bool check, IGqlpDescribed? value)
@@ -154,7 +143,7 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
       }
 
       int numParams = definition.TypeParams.Count();
-      if (type is IGqlpObjBase baseType) {
+      if (type is TObjBase baseType) {
         if (numParams == numArgs) {
           CheckParamsArgs(error, context, definition, baseType);
         } else {
@@ -264,14 +253,15 @@ internal static partial class AstObjectVerifierLogging
   internal static partial void CheckingAlternates(this ILogger logger, object input, bool top, string alternate, string current);
 }
 
-internal record class ObjectVerifierParams<TObject, TObjField, TObjAlt>(
+internal record class ObjectVerifierParams<TObject, TObjField, TObjAlt, TObjArg>(
   IVerifyAliased<TObject> Aliased,
   IMerge<TObjField> MergeFields,
   IMerge<TObjAlt> MergeAlternates,
-  Matcher<IGqlpType>.D ConstraintMatcher,
+  Matcher<TObjArg>.D ConstraintMatcher,
   ILoggerFactory Logger
 )
   where TObject : IGqlpObject
   where TObjField : IGqlpObjField
   where TObjAlt : IGqlpObjAlternate
+  where TObjArg : IGqlpObjArg
   ;

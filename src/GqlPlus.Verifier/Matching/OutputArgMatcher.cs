@@ -25,6 +25,8 @@ internal class OutputArgMatcher(
         if (constraintType is IGqlpEnum enumType) {
           if (EnumHasLabel(context, enumType, arg.EnumType.Name)) {
             arg.SetEnumType(enumType.Name);
+          } else {
+            return false;
           }
         } else if (constraintType is IGqlpDomain<IGqlpDomainLabel> domType) {
           IGqlpEnum? domEnum = DomainHasLabel(context, domType, arg.EnumType.Name);
@@ -32,6 +34,19 @@ internal class OutputArgMatcher(
             return false;
           } else {
             arg.SetEnumType(domEnum.Name);
+          }
+        }
+      }
+    } else {
+      if (context.GetType(constraint, out IGqlpDescribed? constraintType)) {
+        if (constraintType is IGqlpEnum enumType) {
+          if (EnumHasLabel(context, enumType, arg.EnumLabel!)) {
+            return true;
+          }
+        } else if (constraintType is IGqlpDomain<IGqlpDomainLabel> domType) {
+          IGqlpEnum? domEnum = DomainHasLabel(context, domType, arg.EnumLabel!);
+          if (domEnum is not null) {
+            return true;
           }
         }
       }

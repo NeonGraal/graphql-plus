@@ -76,12 +76,15 @@ public abstract class ObjArgMatcherTests<TObjArg>
     IGqlpType baseType = NFor<IGqlpType>(type);
     Types[type] = baseType;
 
-    AnyType.Matches(baseType, constraint, Context).Returns(expected);
+    AnyTypeReturns(baseType, constraint, expected);
 
     bool result = Matcher.Matches(arg, constraint, Context);
 
     result.ShouldBe(expected);
   }
+
+  protected void AnyTypeReturns(IGqlpType type, string constraint, bool expected)
+    => AnyType.Matches(type, constraint, Context).Returns(expected);
 }
 
 public class DualArgMatcherTests

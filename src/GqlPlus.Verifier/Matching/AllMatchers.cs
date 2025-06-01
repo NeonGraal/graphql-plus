@@ -11,7 +11,7 @@ public static class AllMatchers
 
       .AddMatcher<IGqlpDualArg, ObjArgMatcher<IGqlpDualArg>>()
       .AddMatcher<IGqlpInputArg, ObjArgMatcher<IGqlpInputArg>>()
-      .AddMatcher<IGqlpOutputArg, ObjArgMatcher<IGqlpOutputArg>>()
+      .AddMatcher<IGqlpOutputArg, OutputArgMatcher>()
 
       .AddSingleton<IMatcher, UnionConstraintMatcher>()
 

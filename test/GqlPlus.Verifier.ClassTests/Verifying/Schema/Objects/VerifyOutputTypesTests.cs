@@ -189,6 +189,7 @@ public class VerifyOutputTypesTests
     outputBase.Args.Returns([arg]);
     outputBase.BaseArgs.Returns([arg]);
     SetFieldType(field, outputBase);
+    ArgMatcher.Matches(arg, "b", Arg.Any<UsageContext>()).Returns(true);
 
     _output.Fields.Returns([field]);
     _output.ObjFields.Returns([field]);

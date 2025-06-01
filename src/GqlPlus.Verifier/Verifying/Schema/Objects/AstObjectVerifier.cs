@@ -128,11 +128,6 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
     }
   }
 
-  [Obsolete]
-  internal virtual void CheckArgTypeConstraint(CheckError error, TContext context, IGqlpTypeParam param, IGqlpObjArg arg)
-  {
-  }
-
   internal void CheckTypeArgs<TBase>(CheckError error, TContext context, TBase type, bool check, IGqlpDescribed? value)
     where TBase : IGqlpObjType
   {

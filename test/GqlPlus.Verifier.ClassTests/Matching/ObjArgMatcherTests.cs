@@ -4,15 +4,16 @@ public abstract class ObjArgMatcherTests<TObjArg>
   : MatcherTestsBase
   where TObjArg : class, IGqlpObjArg
 {
-  internal ObjArgMatcher<TObjArg> Matcher { get; }
+  internal ObjArgMatcher<TObjArg> Matcher { get; set; }
 
-  private readonly Matcher<IGqlpType>.I _anyType;
+  internal Matcher<IGqlpType>.I AnyType { get; set; }
 
   protected ObjArgMatcherTests()
   {
-    Matcher<IGqlpType>.D anyType = MatcherFor(out _anyType);
+    Matcher<IGqlpType>.D anyDelegate = MatcherFor(out Matcher<IGqlpType>.I anyInterface);
+    AnyType = anyInterface;
 
-    Matcher = new(anyType);
+    Matcher = new(anyDelegate);
   }
 
   [Theory, RepeatData]
@@ -75,7 +76,7 @@ public abstract class ObjArgMatcherTests<TObjArg>
     IGqlpType baseType = NFor<IGqlpType>(type);
     Types[type] = baseType;
 
-    _anyType.Matches(baseType, constraint, Context).Returns(expected);
+    AnyType.Matches(baseType, constraint, Context).Returns(expected);
 
     bool result = Matcher.Matches(arg, constraint, Context);
 
@@ -89,8 +90,4 @@ public class DualArgMatcherTests
 
 public class InputArgMatcherTests
   : ObjArgMatcherTests<IGqlpInputArg>
-{ }
-
-public class OutputArgMatcherTests
-  : ObjArgMatcherTests<IGqlpOutputArg>
 { }

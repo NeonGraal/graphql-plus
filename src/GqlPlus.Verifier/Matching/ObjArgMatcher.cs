@@ -10,16 +10,16 @@ internal class ObjArgMatcher<TObjArg>(
 {
   private readonly Matcher<IGqlpType>.L _anyTypeMatcher = anyTypeMatcher;
 
-  public bool Matches(TObjArg type, string constraint, UsageContext context)
+  public virtual bool Matches(TObjArg arg, string constraint, UsageContext context)
   {
     if ("_Any".Equals(constraint, StringComparison.Ordinal)
-        || type.FullType.Equals(constraint, StringComparison.Ordinal)) {
+        || arg.FullType.Equals(constraint, StringComparison.Ordinal)) {
       return true;
     }
 
-    if (!context.GetTyped(type.FullType, out IGqlpType? argType)) {
+    if (!context.GetTyped(arg.FullType, out IGqlpType? argType)) {
       // todo: Handle type params properly
-      return type.IsTypeParam;
+      return arg.IsTypeParam;
     }
 
     if (argType.Label.Prefixed("_").Equals(constraint, StringComparison.Ordinal)) {

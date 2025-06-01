@@ -209,10 +209,11 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
 
     TField field = NFor<TField>(fieldName);
     TBase dualBase = NFor<TBase>(otherName);
-    TArg[] args = NForA<TArg>(argType);
-    dualBase.Args.Returns(args);
-    dualBase.BaseArgs.Returns(args);
+    TArg arg = NFor<TArg>(argType);
+    dualBase.Args.Returns([arg]);
+    dualBase.BaseArgs.Returns([arg]);
     SetFieldType(field, dualBase);
+    ArgMatcher.Matches(arg, argType, Arg.Any<UsageContext>()).Returns(true);
 
     TheObject.Fields.Returns([field]);
     TheObject.ObjFields.Returns([field]);

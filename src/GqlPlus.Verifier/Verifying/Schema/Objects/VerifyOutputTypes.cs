@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Abstractions.Schema;
-using GqlPlus.Matching;
+﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Verification.Schema;
 
 namespace GqlPlus.Verifying.Schema.Objects;
@@ -62,69 +60,5 @@ internal class VerifyOutputTypes(
     }
 
     base.CheckArgType(error, context, arg);
-  }
-
-  [Obsolete]
-  internal override void CheckArgTypeConstraint(CheckError error, OutputContext context, IGqlpTypeParam param, IGqlpObjArg arg)
-  {
-    if (arg is IGqlpOutputArg output) {
-      if (string.IsNullOrWhiteSpace(output.EnumLabel)) {
-        if (output.EnumType.IsTypeParam) {
-          if (context.GetTyped(output.FullType, out IGqlpTypeParam? typeParam)) {
-            // Todo: Check if the type param is a constraint of the param
-            if (!string.IsNullOrWhiteSpace(typeParam.Constraint)
-                && typeParam.Constraint!.Equals(param.Constraint, StringComparison.Ordinal)) {
-              return;
-            }
-          }
-        }
-
-        if (context.GetType(param.Constraint, out IGqlpDescribed? constraint)) {
-          if (constraint is IGqlpEnum enumType) {
-            if (EnumHasLabel(context, enumType, output.EnumType.Name)) {
-              output.SetEnumType(enumType.Name);
-            }
-          } else if (constraint is IGqlpDomain<IGqlpDomainLabel> domType) {
-            IGqlpEnum? domEnum = DomainHasLabel(context, domType, output.EnumType.Name);
-            if (domEnum is null) {
-              error("Domain Enum on  ", $"'{output.EnumType.Name}' not a Value of '{param.Constraint}'");
-            } else {
-              output.SetEnumType(domEnum.Name);
-            }
-          }
-        }
-      }
-    }
-
-    base.CheckArgTypeConstraint(error, context, param, arg);
-  }
-
-  private IGqlpEnum? DomainHasLabel(OutputContext context, IGqlpDomain<IGqlpDomainLabel> domType, string label)
-  {
-    foreach (IGqlpDomainLabel item in domType.Items.Where(i => !i.Excludes && (i.EnumItem == label || i.EnumItem == "*"))) {
-      if (context.GetTyped(item.EnumType, out IGqlpEnum? enumType)) {
-        if (EnumHasLabel(context, enumType, label)) {
-          return enumType;
-        }
-      }
-    }
-
-    // Todo: Handle domain parents
-
-    return null;
-  }
-
-  [SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Todo")]
-  internal bool EnumHasLabel(OutputContext context, IGqlpEnum enumType, string label)
-  {
-    if (enumType.HasValue(label)) {
-      return true;
-    }
-
-    if (context.GetTyped(enumType.Parent, out IGqlpEnum? parentType)) {
-      return EnumHasLabel(context, parentType, label);
-    }
-
-    return false;
   }
 }

@@ -3373,9 +3373,9 @@ Success
   DualGnrcPrntEnumPrnt
   :
   I@030/0445
-  RefDualGnrcPrntEnumPrnt
+  FieldDualGnrcPrntEnumPrnt
   <
-    I@054/0445
+    I@056/0445
     EnumGnrcPrntEnumPrnt
   >
 }
@@ -3413,9 +3413,9 @@ Success
   InpGnrcPrntEnumPrnt
   :
   I@030/0450
-  RefInpGnrcPrntEnumPrnt
+  FieldInpGnrcPrntEnumPrnt
   <
-    I@053/0450
+    I@055/0450
     EnumGnrcPrntEnumPrnt
   >
 }
@@ -3453,9 +3453,9 @@ Success
   OutpGnrcPrntEnumPrnt
   :
   I@032/0455
-  RefOutpGnrcPrntEnumPrnt
+  FieldOutpGnrcPrntEnumPrnt
   <
-    I@056/0455
+    I@058/0455
     EnumGnrcPrntEnumPrnt
   >
 }
@@ -3715,9 +3715,9 @@ Success
   DualGnrcPrntSmplEnum
   :
   I@030/0484
-  RefDualGnrcPrntSmplEnum
+  FieldDualGnrcPrntSmplEnum
   <
-    I@054/0484
+    I@056/0484
     EnumGnrcPrntSmplEnum
   >
 }
@@ -3748,9 +3748,9 @@ Success
   InpGnrcPrntSmplEnum
   :
   I@030/0488
-  RefInpGnrcPrntSmplEnum
+  FieldInpGnrcPrntSmplEnum
   <
-    I@053/0488
+    I@055/0488
     EnumGnrcPrntSmplEnum
   >
 }
@@ -3781,9 +3781,9 @@ Success
   OutpGnrcPrntSmplEnum
   :
   I@032/0492
-  RefOutpGnrcPrntSmplEnum
+  FieldOutpGnrcPrntSmplEnum
   <
-    I@056/0492
+    I@058/0492
     EnumGnrcPrntSmplEnum
   >
 }
@@ -3814,9 +3814,9 @@ Success
   DualGnrcPrntStrDom
   :
   I@028/0496
-  RefDualGnrcPrntStrDom
+  FieldDualGnrcPrntStrDom
   <
-    I@050/0496
+    I@052/0496
     DomGnrcPrntStrDom
   >
 }
@@ -3848,9 +3848,9 @@ Success
   InpGnrcPrntStrDom
   :
   I@028/0500
-  RefInpGnrcPrntStrDom
+  FieldInpGnrcPrntStrDom
   <
-    I@049/0500
+    I@051/0500
     DomGnrcPrntStrDom
   >
 }
@@ -3882,9 +3882,9 @@ Success
   OutpGnrcPrntStrDom
   :
   I@030/0504
-  RefOutpGnrcPrntStrDom
+  FieldOutpGnrcPrntStrDom
   <
-    I@052/0504
+    I@054/0504
     DomGnrcPrntStrDom
   >
 }

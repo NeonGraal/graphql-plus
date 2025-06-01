@@ -34,9 +34,15 @@ types: !_Map_Type
         typeName: String
       name: ref
   !_Identifier InpGnrcPrntStrDom: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: FieldInpGnrcPrntStrDom
+      type: !_InputBase
+        input: DomGnrcPrntStrDom
     name: InpGnrcPrntStrDom
     parent: !_InputBase
-      input: RefInpGnrcPrntStrDom
+      input: FieldInpGnrcPrntStrDom
       typeArgs:
       - !_InputArg
         input: DomGnrcPrntStrDom

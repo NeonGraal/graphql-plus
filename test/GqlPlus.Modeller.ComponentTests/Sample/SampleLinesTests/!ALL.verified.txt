@@ -2527,9 +2527,15 @@ types: !_Map_Type
           dual: AltDualGnrcPrntDualPrnt
     typeKind: !_TypeKind Dual
   !_Identifier DualGnrcPrntEnumPrnt: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: field
+        object: FieldDualGnrcPrntEnumPrnt
+        type: !_DualBase
+          dual: EnumGnrcPrntEnumPrnt
     name: DualGnrcPrntEnumPrnt
     parent: !_DualBase
-      dual: RefDualGnrcPrntEnumPrnt
+      dual: FieldDualGnrcPrntEnumPrnt
       typeArgs:
         - !_DualArg
           dual: EnumGnrcPrntEnumPrnt
@@ -2567,17 +2573,29 @@ types: !_Map_Type
           dual: AltDualGnrcPrntParamPrnt
     typeKind: !_TypeKind Dual
   !_Identifier DualGnrcPrntSmplEnum: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: field
+        object: FieldDualGnrcPrntSmplEnum
+        type: !_DualBase
+          dual: EnumGnrcPrntSmplEnum
     name: DualGnrcPrntSmplEnum
     parent: !_DualBase
-      dual: RefDualGnrcPrntSmplEnum
+      dual: FieldDualGnrcPrntSmplEnum
       typeArgs:
         - !_DualArg
           dual: EnumGnrcPrntSmplEnum
     typeKind: !_TypeKind Dual
   !_Identifier DualGnrcPrntStrDom: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: field
+        object: FieldDualGnrcPrntStrDom
+        type: !_DualBase
+          dual: DomGnrcPrntStrDom
     name: DualGnrcPrntStrDom
     parent: !_DualBase
-      dual: RefDualGnrcPrntStrDom
+      dual: FieldDualGnrcPrntStrDom
       typeArgs:
         - !_DualArg
           dual: DomGnrcPrntStrDom
@@ -4814,9 +4832,15 @@ types: !_Map_Type
           dual: AltInpGnrcPrntDualPrnt
     typeKind: !_TypeKind Input
   !_Identifier InpGnrcPrntEnumPrnt: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: field
+        object: FieldInpGnrcPrntEnumPrnt
+        type: !_InputBase
+          input: EnumGnrcPrntEnumPrnt
     name: InpGnrcPrntEnumPrnt
     parent: !_InputBase
-      input: RefInpGnrcPrntEnumPrnt
+      input: FieldInpGnrcPrntEnumPrnt
       typeArgs:
         - !_InputArg
           input: EnumGnrcPrntEnumPrnt
@@ -4854,17 +4878,29 @@ types: !_Map_Type
           input: AltInpGnrcPrntParamPrnt
     typeKind: !_TypeKind Input
   !_Identifier InpGnrcPrntSmplEnum: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: field
+        object: FieldInpGnrcPrntSmplEnum
+        type: !_InputBase
+          input: EnumGnrcPrntSmplEnum
     name: InpGnrcPrntSmplEnum
     parent: !_InputBase
-      input: RefInpGnrcPrntSmplEnum
+      input: FieldInpGnrcPrntSmplEnum
       typeArgs:
         - !_InputArg
           input: EnumGnrcPrntSmplEnum
     typeKind: !_TypeKind Input
   !_Identifier InpGnrcPrntStrDom: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: field
+        object: FieldInpGnrcPrntStrDom
+        type: !_InputBase
+          input: DomGnrcPrntStrDom
     name: InpGnrcPrntStrDom
     parent: !_InputBase
-      input: RefInpGnrcPrntStrDom
+      input: FieldInpGnrcPrntStrDom
       typeArgs:
         - !_InputArg
           input: DomGnrcPrntStrDom
@@ -6163,9 +6199,15 @@ types: !_Map_Type
           dual: AltOutpGnrcPrntDualPrnt
     typeKind: !_TypeKind Output
   !_Identifier OutpGnrcPrntEnumPrnt: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: FieldOutpGnrcPrntEnumPrnt
+        type: !_OutputBase
+          output: EnumGnrcPrntEnumPrnt
     name: OutpGnrcPrntEnumPrnt
     parent: !_OutputBase
-      output: RefOutpGnrcPrntEnumPrnt
+      output: FieldOutpGnrcPrntEnumPrnt
       typeArgs:
         - !_OutputArg
           output: EnumGnrcPrntEnumPrnt
@@ -6203,17 +6245,29 @@ types: !_Map_Type
           output: AltOutpGnrcPrntParamPrnt
     typeKind: !_TypeKind Output
   !_Identifier OutpGnrcPrntSmplEnum: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: FieldOutpGnrcPrntSmplEnum
+        type: !_OutputBase
+          output: EnumGnrcPrntSmplEnum
     name: OutpGnrcPrntSmplEnum
     parent: !_OutputBase
-      output: RefOutpGnrcPrntSmplEnum
+      output: FieldOutpGnrcPrntSmplEnum
       typeArgs:
         - !_OutputArg
           output: EnumGnrcPrntSmplEnum
     typeKind: !_TypeKind Output
   !_Identifier OutpGnrcPrntStrDom: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: FieldOutpGnrcPrntStrDom
+        type: !_OutputBase
+          output: DomGnrcPrntStrDom
     name: OutpGnrcPrntStrDom
     parent: !_OutputBase
-      output: RefOutpGnrcPrntStrDom
+      output: FieldOutpGnrcPrntStrDom
       typeArgs:
         - !_OutputArg
           output: DomGnrcPrntStrDom

@@ -28,9 +28,15 @@ types: !_Map_Type
     - !_TypeParam
       name: ref
   !_Identifier OutpGnrcPrntSmplEnum: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: FieldOutpGnrcPrntSmplEnum
+      type: !_OutputBase
+        output: EnumGnrcPrntSmplEnum
     name: OutpGnrcPrntSmplEnum
     parent: !_OutputBase
-      output: RefOutpGnrcPrntSmplEnum
+      output: FieldOutpGnrcPrntSmplEnum
       typeArgs:
       - !_OutputArg
         output: EnumGnrcPrntSmplEnum

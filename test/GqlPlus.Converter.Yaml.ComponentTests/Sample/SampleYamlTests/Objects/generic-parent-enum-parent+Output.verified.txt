@@ -37,9 +37,15 @@ types: !_Map_Type
         typeName: ParentGnrcPrntEnumPrnt
       name: ref
   !_Identifier OutpGnrcPrntEnumPrnt: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: FieldOutpGnrcPrntEnumPrnt
+      type: !_OutputBase
+        output: EnumGnrcPrntEnumPrnt
     name: OutpGnrcPrntEnumPrnt
     parent: !_OutputBase
-      output: RefOutpGnrcPrntEnumPrnt
+      output: FieldOutpGnrcPrntEnumPrnt
       typeArgs:
       - !_OutputArg
         output: EnumGnrcPrntEnumPrnt

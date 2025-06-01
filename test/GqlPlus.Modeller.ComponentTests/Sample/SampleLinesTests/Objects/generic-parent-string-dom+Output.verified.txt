@@ -34,9 +34,15 @@ types: !_Map_Type
           typeName: String
         name: ref
   !_Identifier OutpGnrcPrntStrDom: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: FieldOutpGnrcPrntStrDom
+        type: !_OutputBase
+          output: DomGnrcPrntStrDom
     name: OutpGnrcPrntStrDom
     parent: !_OutputBase
-      output: RefOutpGnrcPrntStrDom
+      output: FieldOutpGnrcPrntStrDom
       typeArgs:
         - !_OutputArg
           output: DomGnrcPrntStrDom

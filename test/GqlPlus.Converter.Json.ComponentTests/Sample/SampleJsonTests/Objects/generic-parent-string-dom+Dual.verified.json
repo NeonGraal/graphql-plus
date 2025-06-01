@@ -31,10 +31,21 @@
     },
     "DualGnrcPrntStrDom": {
       "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "FieldDualGnrcPrntStrDom",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "DomGnrcPrntStrDom"
+          }
+        }
+      ],
       "name": "DualGnrcPrntStrDom",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "RefDualGnrcPrntStrDom",
+        "dual": "FieldDualGnrcPrntStrDom",
         "typeArgs": [
           {
             "$tag": "_DualArg",

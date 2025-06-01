@@ -6,9 +6,9 @@ Success
   DualGnrcPrntStrDom
   :
   I@028/0001
-  RefDualGnrcPrntStrDom
+  FieldDualGnrcPrntStrDom
   <
-    I@050/0001
+    I@052/0001
     DomGnrcPrntStrDom
   >
 }

@@ -74,10 +74,21 @@
     },
     "InpGnrcPrntStrDom": {
       "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "FieldInpGnrcPrntStrDom",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "DomGnrcPrntStrDom"
+          }
+        }
+      ],
       "name": "InpGnrcPrntStrDom",
       "parent": {
         "$tag": "_InputBase",
-        "input": "RefInpGnrcPrntStrDom",
+        "input": "FieldInpGnrcPrntStrDom",
         "typeArgs": [
           {
             "$tag": "_InputArg",

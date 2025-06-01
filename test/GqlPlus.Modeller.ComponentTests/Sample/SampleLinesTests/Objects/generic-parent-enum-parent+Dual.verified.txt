@@ -1,9 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
   !_Identifier DualGnrcPrntEnumPrnt: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: field
+        object: FieldDualGnrcPrntEnumPrnt
+        type: !_DualBase
+          dual: EnumGnrcPrntEnumPrnt
     name: DualGnrcPrntEnumPrnt
     parent: !_DualBase
-      dual: RefDualGnrcPrntEnumPrnt
+      dual: FieldDualGnrcPrntEnumPrnt
       typeArgs:
         - !_DualArg
           dual: EnumGnrcPrntEnumPrnt

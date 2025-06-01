@@ -28,9 +28,15 @@ types: !_Map_Type
       - !_TypeParam
         name: ref
   !_Identifier InpGnrcPrntSmplEnum: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: field
+        object: FieldInpGnrcPrntSmplEnum
+        type: !_InputBase
+          input: EnumGnrcPrntSmplEnum
     name: InpGnrcPrntSmplEnum
     parent: !_InputBase
-      input: RefInpGnrcPrntSmplEnum
+      input: FieldInpGnrcPrntSmplEnum
       typeArgs:
         - !_InputArg
           input: EnumGnrcPrntSmplEnum

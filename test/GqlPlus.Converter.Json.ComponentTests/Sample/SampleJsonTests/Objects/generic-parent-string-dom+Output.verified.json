@@ -74,10 +74,21 @@
     },
     "OutpGnrcPrntStrDom": {
       "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "FieldOutpGnrcPrntStrDom",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "DomGnrcPrntStrDom"
+          }
+        }
+      ],
       "name": "OutpGnrcPrntStrDom",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "RefOutpGnrcPrntStrDom",
+        "output": "FieldOutpGnrcPrntStrDom",
         "typeArgs": [
           {
             "$tag": "_OutputArg",

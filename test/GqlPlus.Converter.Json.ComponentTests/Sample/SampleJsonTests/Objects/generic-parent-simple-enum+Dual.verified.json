@@ -4,10 +4,21 @@
     "$tag": "_Map_Type",
     "DualGnrcPrntSmplEnum": {
       "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "FieldDualGnrcPrntSmplEnum",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "EnumGnrcPrntSmplEnum"
+          }
+        }
+      ],
       "name": "DualGnrcPrntSmplEnum",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "RefDualGnrcPrntSmplEnum",
+        "dual": "FieldDualGnrcPrntSmplEnum",
         "typeArgs": [
           {
             "$tag": "_DualArg",

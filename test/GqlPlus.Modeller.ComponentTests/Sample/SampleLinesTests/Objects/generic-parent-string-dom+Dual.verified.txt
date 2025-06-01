@@ -14,9 +14,15 @@ types: !_Map_Type
     name: DomGnrcPrntStrDom
     typeKind: !_TypeKind Domain
   !_Identifier DualGnrcPrntStrDom: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: field
+        object: FieldDualGnrcPrntStrDom
+        type: !_DualBase
+          dual: DomGnrcPrntStrDom
     name: DualGnrcPrntStrDom
     parent: !_DualBase
-      dual: RefDualGnrcPrntStrDom
+      dual: FieldDualGnrcPrntStrDom
       typeArgs:
         - !_DualArg
           dual: DomGnrcPrntStrDom

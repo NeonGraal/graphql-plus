@@ -60,10 +60,21 @@
     },
     "InpGnrcPrntSmplEnum": {
       "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "FieldInpGnrcPrntSmplEnum",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "EnumGnrcPrntSmplEnum"
+          }
+        }
+      ],
       "name": "InpGnrcPrntSmplEnum",
       "parent": {
         "$tag": "_InputBase",
-        "input": "RefInpGnrcPrntSmplEnum",
+        "input": "FieldInpGnrcPrntSmplEnum",
         "typeArgs": [
           {
             "$tag": "_InputArg",

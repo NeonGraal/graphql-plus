@@ -6,9 +6,9 @@ Success
   OutpGnrcPrntStrDom
   :
   I@030/0001
-  RefOutpGnrcPrntStrDom
+  FieldOutpGnrcPrntStrDom
   <
-    I@052/0001
+    I@054/0001
     DomGnrcPrntStrDom
   >
 }

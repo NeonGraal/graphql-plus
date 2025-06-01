@@ -6,9 +6,9 @@ Success
   InpGnrcPrntEnumPrnt
   :
   I@030/0001
-  RefInpGnrcPrntEnumPrnt
+  FieldInpGnrcPrntEnumPrnt
   <
-    I@053/0001
+    I@055/0001
     EnumGnrcPrntEnumPrnt
   >
 }

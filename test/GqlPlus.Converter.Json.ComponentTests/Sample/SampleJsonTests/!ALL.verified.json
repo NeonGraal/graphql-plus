@@ -5501,10 +5501,21 @@
     },
     "DualGnrcPrntEnumPrnt": {
       "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "FieldDualGnrcPrntEnumPrnt",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "EnumGnrcPrntEnumPrnt"
+          }
+        }
+      ],
       "name": "DualGnrcPrntEnumPrnt",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "RefDualGnrcPrntEnumPrnt",
+        "dual": "FieldDualGnrcPrntEnumPrnt",
         "typeArgs": [
           {
             "$tag": "_DualArg",
@@ -5586,10 +5597,21 @@
     },
     "DualGnrcPrntSmplEnum": {
       "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "FieldDualGnrcPrntSmplEnum",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "EnumGnrcPrntSmplEnum"
+          }
+        }
+      ],
       "name": "DualGnrcPrntSmplEnum",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "RefDualGnrcPrntSmplEnum",
+        "dual": "FieldDualGnrcPrntSmplEnum",
         "typeArgs": [
           {
             "$tag": "_DualArg",
@@ -5604,10 +5626,21 @@
     },
     "DualGnrcPrntStrDom": {
       "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "FieldDualGnrcPrntStrDom",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "DomGnrcPrntStrDom"
+          }
+        }
+      ],
       "name": "DualGnrcPrntStrDom",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "RefDualGnrcPrntStrDom",
+        "dual": "FieldDualGnrcPrntStrDom",
         "typeArgs": [
           {
             "$tag": "_DualArg",
@@ -10389,10 +10422,21 @@
     },
     "InpGnrcPrntEnumPrnt": {
       "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "FieldInpGnrcPrntEnumPrnt",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "EnumGnrcPrntEnumPrnt"
+          }
+        }
+      ],
       "name": "InpGnrcPrntEnumPrnt",
       "parent": {
         "$tag": "_InputBase",
-        "input": "RefInpGnrcPrntEnumPrnt",
+        "input": "FieldInpGnrcPrntEnumPrnt",
         "typeArgs": [
           {
             "$tag": "_InputArg",
@@ -10474,10 +10518,21 @@
     },
     "InpGnrcPrntSmplEnum": {
       "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "FieldInpGnrcPrntSmplEnum",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "EnumGnrcPrntSmplEnum"
+          }
+        }
+      ],
       "name": "InpGnrcPrntSmplEnum",
       "parent": {
         "$tag": "_InputBase",
-        "input": "RefInpGnrcPrntSmplEnum",
+        "input": "FieldInpGnrcPrntSmplEnum",
         "typeArgs": [
           {
             "$tag": "_InputArg",
@@ -10492,10 +10547,21 @@
     },
     "InpGnrcPrntStrDom": {
       "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "FieldInpGnrcPrntStrDom",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "DomGnrcPrntStrDom"
+          }
+        }
+      ],
       "name": "InpGnrcPrntStrDom",
       "parent": {
         "$tag": "_InputBase",
-        "input": "RefInpGnrcPrntStrDom",
+        "input": "FieldInpGnrcPrntStrDom",
         "typeArgs": [
           {
             "$tag": "_InputArg",
@@ -13298,10 +13364,21 @@
     },
     "OutpGnrcPrntEnumPrnt": {
       "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "FieldOutpGnrcPrntEnumPrnt",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "EnumGnrcPrntEnumPrnt"
+          }
+        }
+      ],
       "name": "OutpGnrcPrntEnumPrnt",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "RefOutpGnrcPrntEnumPrnt",
+        "output": "FieldOutpGnrcPrntEnumPrnt",
         "typeArgs": [
           {
             "$tag": "_OutputArg",
@@ -13383,10 +13460,21 @@
     },
     "OutpGnrcPrntSmplEnum": {
       "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "FieldOutpGnrcPrntSmplEnum",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "EnumGnrcPrntSmplEnum"
+          }
+        }
+      ],
       "name": "OutpGnrcPrntSmplEnum",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "RefOutpGnrcPrntSmplEnum",
+        "output": "FieldOutpGnrcPrntSmplEnum",
         "typeArgs": [
           {
             "$tag": "_OutputArg",
@@ -13401,10 +13489,21 @@
     },
     "OutpGnrcPrntStrDom": {
       "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "FieldOutpGnrcPrntStrDom",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "DomGnrcPrntStrDom"
+          }
+        }
+      ],
       "name": "OutpGnrcPrntStrDom",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "RefOutpGnrcPrntStrDom",
+        "output": "FieldOutpGnrcPrntStrDom",
         "typeArgs": [
           {
             "$tag": "_OutputArg",

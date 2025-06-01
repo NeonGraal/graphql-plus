@@ -81,10 +81,21 @@
     },
     "InpGnrcPrntEnumPrnt": {
       "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "FieldInpGnrcPrntEnumPrnt",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "EnumGnrcPrntEnumPrnt"
+          }
+        }
+      ],
       "name": "InpGnrcPrntEnumPrnt",
       "parent": {
         "$tag": "_InputBase",
-        "input": "RefInpGnrcPrntEnumPrnt",
+        "input": "FieldInpGnrcPrntEnumPrnt",
         "typeArgs": [
           {
             "$tag": "_InputArg",

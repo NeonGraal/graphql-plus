@@ -1,0 +1,80 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnumGnrcPrntSmplEnum": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumGnrcPrntSmplEnum",
+          "name": "gnrcPrntSmplEnum"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "gnrcPrntSmplEnum"
+        }
+      ],
+      "name": "EnumGnrcPrntSmplEnum",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "FieldInpGnrcPrntSmplEnum": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "FieldInpGnrcPrntSmplEnum",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "name": "FieldInpGnrcPrntSmplEnum",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "name": "ref"
+        }
+      ]
+    },
+    "InpGnrcPrntSmplEnum": {
+      "$tag": "_TypeInput",
+      "name": "InpGnrcPrntSmplEnum",
+      "parent": {
+        "$tag": "_InputBase",
+        "input": "RefInpGnrcPrntSmplEnum",
+        "typeArgs": [
+          {
+            "$tag": "_InputArg",
+            "input": "EnumGnrcPrntSmplEnum"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    }
+  }
+}

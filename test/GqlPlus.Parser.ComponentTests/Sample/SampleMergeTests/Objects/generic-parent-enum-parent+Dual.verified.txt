@@ -1,0 +1,44 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  DualGnrcPrntEnumPrnt
+  :
+  I@030/0001
+  RefDualGnrcPrntEnumPrnt
+  <
+    I@054/0001
+    EnumGnrcPrntEnumPrnt
+  >
+}
+{
+  !Du I@006/0002
+  FieldDualGnrcPrntEnumPrnt
+  <
+    I@033/0002
+    $ref
+    :ParentGnrcPrntEnumPrnt
+  >
+  {
+    !DF I@063/0002
+    field
+    :
+    I@071/0002
+    $ref
+  }
+}
+{
+  !En I@006/0003
+  EnumGnrcPrntEnumPrnt
+  :ParentGnrcPrntEnumPrnt
+  !EL I@053/0003
+  gnrcPrntEnumPrntLabel
+}
+{
+  !En I@006/0004
+  ParentGnrcPrntEnumPrnt
+  !EL I@031/0004
+  gnrcPrntEnumPrntParent
+}
+]

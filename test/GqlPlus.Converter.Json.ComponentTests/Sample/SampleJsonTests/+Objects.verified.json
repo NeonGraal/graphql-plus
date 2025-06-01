@@ -2414,6 +2414,33 @@
         "value": "Domain"
       }
     },
+    "DomGnrcPrntStrDom": {
+      "$tag": "_DomainString",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRegex)",
+          "domain": "DomGnrcPrntStrDom",
+          "exclude": false,
+          "pattern": "\\w\u002B"
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "String"
+      },
+      "items": [
+        {
+          "$tag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "\\w\u002B"
+        }
+      ],
+      "name": "DomGnrcPrntStrDom",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
     "DomOutpParamModDmn": {
       "$tag": "_DomainNumber",
       "allItems": [
@@ -3992,6 +4019,24 @@
         "value": "Dual"
       }
     },
+    "DualGnrcPrntEnumPrnt": {
+      "$tag": "_TypeDual",
+      "name": "DualGnrcPrntEnumPrnt",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "RefDualGnrcPrntEnumPrnt",
+        "typeArgs": [
+          {
+            "$tag": "_DualArg",
+            "dual": "EnumGnrcPrntEnumPrnt"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
     "DualGnrcPrntParam": {
       "$tag": "_TypeDual",
       "allAlternates": [
@@ -4051,6 +4096,42 @@
           {
             "$tag": "_DualArg",
             "dual": "AltDualGnrcPrntParamPrnt"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "DualGnrcPrntSmplEnum": {
+      "$tag": "_TypeDual",
+      "name": "DualGnrcPrntSmplEnum",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "RefDualGnrcPrntSmplEnum",
+        "typeArgs": [
+          {
+            "$tag": "_DualArg",
+            "dual": "EnumGnrcPrntSmplEnum"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "DualGnrcPrntStrDom": {
+      "$tag": "_TypeDual",
+      "name": "DualGnrcPrntStrDom",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "RefDualGnrcPrntStrDom",
+        "typeArgs": [
+          {
+            "$tag": "_DualArg",
+            "dual": "DomGnrcPrntStrDom"
           }
         ]
       },
@@ -4403,6 +4484,61 @@
         }
       ],
       "name": "EnumDualFieldModEnum",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumGnrcPrntEnumPrnt": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "ParentGnrcPrntEnumPrnt",
+          "name": "gnrcPrntEnumPrntParent"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumGnrcPrntEnumPrnt",
+          "name": "gnrcPrntEnumPrntLabel"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "gnrcPrntEnumPrntLabel"
+        }
+      ],
+      "name": "EnumGnrcPrntEnumPrnt",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Enum"
+        },
+        "typeName": "ParentGnrcPrntEnumPrnt"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumGnrcPrntSmplEnum": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumGnrcPrntSmplEnum",
+          "name": "gnrcPrntSmplEnum"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "gnrcPrntSmplEnum"
+        }
+      ],
+      "name": "EnumGnrcPrntSmplEnum",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Enum"
@@ -4762,6 +4898,369 @@
         "$tag": "_TypeKind",
         "value": "Enum"
       }
+    },
+    "FieldDualGnrcPrntEnumPrnt": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "FieldDualGnrcPrntEnumPrnt",
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "name": "FieldDualGnrcPrntEnumPrnt",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            },
+            "typeName": "ParentGnrcPrntEnumPrnt"
+          },
+          "name": "ref"
+        }
+      ]
+    },
+    "FieldDualGnrcPrntSmplEnum": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "FieldDualGnrcPrntSmplEnum",
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "name": "FieldDualGnrcPrntSmplEnum",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "name": "ref"
+        }
+      ]
+    },
+    "FieldDualGnrcPrntStrDom": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "FieldDualGnrcPrntStrDom",
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "name": "FieldDualGnrcPrntStrDom",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
+          "name": "ref"
+        }
+      ]
+    },
+    "FieldInpGnrcPrntEnumPrnt": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "FieldInpGnrcPrntEnumPrnt",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "name": "FieldInpGnrcPrntEnumPrnt",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            },
+            "typeName": "ParentGnrcPrntEnumPrnt"
+          },
+          "name": "ref"
+        }
+      ]
+    },
+    "FieldInpGnrcPrntSmplEnum": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "FieldInpGnrcPrntSmplEnum",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "name": "FieldInpGnrcPrntSmplEnum",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "name": "ref"
+        }
+      ]
+    },
+    "FieldInpGnrcPrntStrDom": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "FieldInpGnrcPrntStrDom",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "name": "FieldInpGnrcPrntStrDom",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
+          "name": "ref"
+        }
+      ]
+    },
+    "FieldOutpGnrcPrntEnumPrnt": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "FieldOutpGnrcPrntEnumPrnt",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "name": "FieldOutpGnrcPrntEnumPrnt",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            },
+            "typeName": "ParentGnrcPrntEnumPrnt"
+          },
+          "name": "ref"
+        }
+      ]
+    },
+    "FieldOutpGnrcPrntSmplEnum": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "FieldOutpGnrcPrntSmplEnum",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "name": "FieldOutpGnrcPrntSmplEnum",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "name": "ref"
+        }
+      ]
+    },
+    "FieldOutpGnrcPrntStrDom": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "FieldOutpGnrcPrntStrDom",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "name": "FieldOutpGnrcPrntStrDom",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
+          "name": "ref"
+        }
+      ]
     },
     "FldDualFieldDual": {
       "$tag": "_TypeDual",
@@ -7290,6 +7789,24 @@
         "value": "Input"
       }
     },
+    "InpGnrcPrntEnumPrnt": {
+      "$tag": "_TypeInput",
+      "name": "InpGnrcPrntEnumPrnt",
+      "parent": {
+        "$tag": "_InputBase",
+        "input": "RefInpGnrcPrntEnumPrnt",
+        "typeArgs": [
+          {
+            "$tag": "_InputArg",
+            "input": "EnumGnrcPrntEnumPrnt"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
     "InpGnrcPrntParam": {
       "$tag": "_TypeInput",
       "allAlternates": [
@@ -7349,6 +7866,42 @@
           {
             "$tag": "_InputArg",
             "input": "AltInpGnrcPrntParamPrnt"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "InpGnrcPrntSmplEnum": {
+      "$tag": "_TypeInput",
+      "name": "InpGnrcPrntSmplEnum",
+      "parent": {
+        "$tag": "_InputBase",
+        "input": "RefInpGnrcPrntSmplEnum",
+        "typeArgs": [
+          {
+            "$tag": "_InputArg",
+            "input": "EnumGnrcPrntSmplEnum"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "InpGnrcPrntStrDom": {
+      "$tag": "_TypeInput",
+      "name": "InpGnrcPrntStrDom",
+      "parent": {
+        "$tag": "_InputBase",
+        "input": "RefInpGnrcPrntStrDom",
+        "typeArgs": [
+          {
+            "$tag": "_InputArg",
+            "input": "DomGnrcPrntStrDom"
           }
         ]
       },
@@ -9609,6 +10162,24 @@
         "value": "Output"
       }
     },
+    "OutpGnrcPrntEnumPrnt": {
+      "$tag": "_TypeOutput",
+      "name": "OutpGnrcPrntEnumPrnt",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "RefOutpGnrcPrntEnumPrnt",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "output": "EnumGnrcPrntEnumPrnt"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
     "OutpGnrcPrntParam": {
       "$tag": "_TypeOutput",
       "allAlternates": [
@@ -9668,6 +10239,42 @@
           {
             "$tag": "_OutputArg",
             "output": "AltOutpGnrcPrntParamPrnt"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "OutpGnrcPrntSmplEnum": {
+      "$tag": "_TypeOutput",
+      "name": "OutpGnrcPrntSmplEnum",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "RefOutpGnrcPrntSmplEnum",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "output": "EnumGnrcPrntSmplEnum"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "OutpGnrcPrntStrDom": {
+      "$tag": "_TypeOutput",
+      "name": "OutpGnrcPrntStrDom",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "RefOutpGnrcPrntStrDom",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "output": "DomGnrcPrntStrDom"
           }
         ]
       },
@@ -10422,6 +11029,27 @@
           "name": "a"
         }
       ]
+    },
+    "ParentGnrcPrntEnumPrnt": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "ParentGnrcPrntEnumPrnt",
+          "name": "gnrcPrntEnumPrntParent"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "gnrcPrntEnumPrntParent"
+        }
+      ],
+      "name": "ParentGnrcPrntEnumPrnt",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
     },
     "ParentOutpCnstEnumPrnt": {
       "$tag": "_TypeEnum",

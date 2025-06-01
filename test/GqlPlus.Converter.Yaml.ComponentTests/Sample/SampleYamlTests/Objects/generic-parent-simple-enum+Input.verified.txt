@@ -1,0 +1,37 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier EnumGnrcPrntSmplEnum: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnumGnrcPrntSmplEnum
+      name: gnrcPrntSmplEnum
+    items:
+    - !_Aliased
+      name: gnrcPrntSmplEnum
+    name: EnumGnrcPrntSmplEnum
+    typeKind: !_TypeKind Enum
+  !_Identifier FieldInpGnrcPrntSmplEnum: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: FieldInpGnrcPrntSmplEnum
+      type: !_InputBase
+        typeParam: ref
+    fields:
+    - !_InputField
+      name: field
+      type: !_InputBase
+        typeParam: ref
+    name: FieldInpGnrcPrntSmplEnum
+    typeKind: !_TypeKind Input
+    typeParams:
+    - !_TypeParam
+      name: ref
+  !_Identifier InpGnrcPrntSmplEnum: !_TypeInput
+    name: InpGnrcPrntSmplEnum
+    parent: !_InputBase
+      input: RefInpGnrcPrntSmplEnum
+      typeArgs:
+      - !_InputArg
+        input: EnumGnrcPrntSmplEnum
+    typeKind: !_TypeKind Input

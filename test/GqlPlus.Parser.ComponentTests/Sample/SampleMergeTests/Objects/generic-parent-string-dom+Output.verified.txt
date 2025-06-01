@@ -1,0 +1,38 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  OutpGnrcPrntStrDom
+  :
+  I@030/0001
+  RefOutpGnrcPrntStrDom
+  <
+    I@052/0001
+    DomGnrcPrntStrDom
+  >
+}
+{
+  !Ou I@008/0002
+  FieldOutpGnrcPrntStrDom
+  <
+    I@033/0002
+    $ref
+    :String
+  >
+  {
+    !OF I@047/0002
+    field
+    :
+    I@055/0002
+    $ref
+  }
+}
+{
+  !Do I@008/0003
+  DomGnrcPrntStrDom
+  String
+  !DX R@035/0003
+  /\\w+/
+}
+]

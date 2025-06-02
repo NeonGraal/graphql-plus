@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Verification.Schema;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
@@ -17,15 +16,17 @@ internal class VerifyInputTypes(
     return new(validTypes, errors, aliased.MakeEnumValues());
   }
 
-  protected override void UsageField(IGqlpInputField field, EnumContext context)
+  protected override void UsageFields(IEnumerable<IGqlpInputField> fields, EnumContext context)
   {
-    base.UsageField(field, context);
+    base.UsageFields(fields, context);
 
-    context.AddError(
-      field,
-      "Input Field Default",
-      $"'null' default requires Optional type, not '{field.ModifiedType}'",
-      field.DefaultValue?.Value?.EnumValue == "Null.null"
-        && !(field.Modifiers.LastOrDefault()?.ModifierKind == ModifierKind.Optional));
+    foreach (IGqlpInputField field in fields) {
+      context.AddError(
+        field,
+        "Input Field Default",
+        $"'null' default requires Optional type, not '{field.ModifiedType}'",
+        field.DefaultValue?.Value?.EnumValue == "Null.null"
+          && !(field.Modifiers.LastOrDefault()?.ModifierKind == ModifierKind.Optional));
+    }
   }
 }

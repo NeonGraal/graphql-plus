@@ -1,5 +1,4 @@
-﻿using GqlPlus.Verification.Schema;
-namespace GqlPlus.Verifying.Schema.Simple;
+﻿namespace GqlPlus.Verifying.Schema.Simple;
 
 [TracePerTest]
 public class VerifyEnumsAliasedTests

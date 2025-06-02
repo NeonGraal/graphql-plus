@@ -1,8 +1,6 @@
 ﻿using GqlPlus.Merging;
 using GqlPlus.Token;
-using GqlPlus.Verification.Schema;
 using GqlPlus.Verifying;
-using GqlPlus.Verifying.Schema;
 using Microsoft.Extensions.Logging;
 
 namespace GqlPlus;

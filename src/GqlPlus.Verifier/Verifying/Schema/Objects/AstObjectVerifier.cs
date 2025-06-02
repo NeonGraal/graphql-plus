@@ -2,10 +2,8 @@
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Matching;
 using GqlPlus.Merging;
-using GqlPlus.Verifying.Schema;
-using static GqlPlus.Verifying.Schema.UsageHelpers;
 
-namespace GqlPlus.Verification.Schema;
+namespace GqlPlus.Verifying.Schema.Objects;
 
 [SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Todo")]
 internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField, TObjAlt, TContext>(
@@ -30,48 +28,55 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
       CheckTypeRef(context, usage.ObjParent, " Parent", false);
     }
 
-    foreach (IGqlpTypeParam param in usage.TypeParams) {
-      if (string.IsNullOrWhiteSpace(param.Constraint)) {
-        continue;
-      }
+    UsageTypeParams(usage.Label, usage.TypeParams, context);
+    UsageFields(usage.ObjFields, context);
+    UsageAlternates(usage, context);
+    CheckParamsUsed(usage.Label, usage.TypeParams, context);
+  }
 
+  private static void UsageTypeParams(string label, IEnumerable<IGqlpTypeParam> typeParams, TContext context)
+  {
+    foreach (IGqlpTypeParam param in typeParams) {
       if (!context.GetType(param.Constraint, out IGqlpDescribed? value)) {
-        context.AddError(param, usage.Label + " Type Param", $"Constraint '{param.Constraint}' not defined");
+        context.AddError(param, label + " Type Param", $"Constraint '{param.Constraint}' not defined");
       }
     }
+  }
 
-    foreach (TObjField field in usage.ObjFields) {
-      UsageField(field, context);
+  protected virtual void UsageFields(IEnumerable<TObjField> fields, TContext context)
+  {
+    foreach (TObjField field in fields) {
+      CheckTypeRef(context, field.BaseType, " Field");
+      context.CheckModifiers(field);
     }
+  }
 
+  private void UsageAlternates(TObject usage, TContext context)
+  {
     ParentUsage<TObject> input = new([], usage, "an alternative");
     _logger.CheckingAlternates(input);
     foreach (TObjAlt alternate in usage.ObjAlternates) {
-      UsageAlternate(alternate, context);
+      CheckTypeRef(context, alternate, " Alternate");
+      context.CheckModifiers(alternate);
       if (!alternate.Modifiers.Any()) {
         CheckAlternate(new([alternate.FullType], usage, "an alternate"), usage.Name, context, true);
       }
     }
+  }
 
-    foreach (IGqlpTypeParam typeParam in usage.TypeParams) {
+  private void CheckParamsUsed(string label, IEnumerable<IGqlpTypeParam> typeParams, TContext context)
+  {
+    foreach (IGqlpTypeParam typeParam in typeParams) {
       bool paramUsed = context.Used.Contains("$" + typeParam.Name);
-      context.AddError(typeParam, usage.Label, $"'${typeParam.Name}' not used", !paramUsed);
+      context.AddError(typeParam, label, $"'${typeParam.Name}' not used", !paramUsed);
     }
   }
 
-  protected virtual void UsageAlternate(TObjAlt alternate, TContext context)
-    => CheckTypeRef(context, alternate, " Alternate")
-      .CheckModifiers(alternate);
-
-  protected virtual void UsageField(TObjField field, TContext context)
-    => CheckTypeRef(context, field.BaseType, " Field")
-      .CheckModifiers(field);
-
-  protected TContext CheckTypeRef<T>(TContext context, T reference, string suffix, bool check = true)
+  protected void CheckTypeRef<T>(TContext context, T reference, string suffix, bool check = true)
     where T : IGqlpObjType
   {
     string typeName = (reference.IsTypeParam ? "$" : "") + reference.Name;
-    return CheckTypeRef(AddCheckError, context, reference, check);
+    CheckTypeRef(AddCheckError, context, reference, check);
 
     void AddCheckError(string errPrefix, string errSuffix, bool check = true)
     {
@@ -133,23 +138,31 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
   {
     int numArgs = type is IGqlpObjBase baseNum ? baseNum.Args.Count() : 0;
     if (value is IGqlpObject definition) {
-      if (check && definition.Label != "Dual" && definition.Label != type.Label) {
-        error("Type kind mismatch for", $"Found {definition.Label} '{definition.Name}'");
-      }
-
-      int numParams = definition.TypeParams.Count();
-      if (type is TObjBase baseType) {
-        if (numParams == numArgs) {
-          CheckParamsArgs(error, context, definition, baseType);
-        } else {
-          error("Args mismatch on", $"Expected {numParams}, given {numArgs}");
-          CheckArgsTypes(error, context, baseType);
-        }
-      } else if (numParams > 0) {
-        error("Args mismatch on", $"Expected {numParams}, given 0");
-      }
+      CheckTypeArgsDefLabels(error, type, check, definition);
+      CheckTypeArgsDefBase(error, context, type, numArgs, definition, definition.TypeParams.Count());
     } else if (value is IGqlpSimple simple && numArgs != 0) {
       error("Args invalid on", $"Expected 0, given {numArgs}");
+    }
+  }
+
+  private void CheckTypeArgsDefBase<TBase>(CheckError error, TContext context, TBase type, int numArgs, IGqlpObject definition, int numParams) where TBase : IGqlpObjType
+  {
+    if (type is TObjBase baseType) {
+      if (numParams == numArgs) {
+        CheckParamsArgs(error, context, definition, baseType);
+      } else {
+        error("Args mismatch on", $"Expected {numParams}, given {numArgs}");
+        CheckArgsTypes(error, context, baseType);
+      }
+    } else if (numParams > 0) {
+      error("Args mismatch on", $"Expected {numParams}, given 0");
+    }
+  }
+
+  private static void CheckTypeArgsDefLabels<TBase>(CheckError error, TBase type, bool check, IGqlpObject definition) where TBase : IGqlpObjType
+  {
+    if (check && definition.Label != "Dual" && definition.Label != type.Label) {
+      error("Type kind mismatch for", $"Found {definition.Label} '{definition.Name}'");
     }
   }
 

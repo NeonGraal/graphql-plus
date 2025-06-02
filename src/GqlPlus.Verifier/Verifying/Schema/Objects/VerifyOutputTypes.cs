@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Verification.Schema;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
@@ -27,14 +26,16 @@ internal class VerifyOutputTypes(
     base.UsageValue(usage, context);
   }
 
-  protected override void UsageField(IGqlpOutputField field, OutputContext context)
+  protected override void UsageFields(IEnumerable<IGqlpOutputField> fields, OutputContext context)
   {
-    foreach (IGqlpInputParam parameter in field.Params) {
-      CheckTypeRef(context, parameter.Type, " Param")
-        .CheckModifiers(parameter);
-    }
+    base.UsageFields(fields, context);
 
-    base.UsageField(field, context);
+    foreach (IGqlpOutputField field in fields) {
+      foreach (IGqlpInputParam parameter in field.Params) {
+        CheckTypeRef(context, parameter.Type, " Param");
+        context.CheckModifiers(parameter);
+      }
+    }
   }
 
   protected override OutputContext MakeContext(IGqlpOutputObject usage, IGqlpType[] aliased, ITokenMessages errors)

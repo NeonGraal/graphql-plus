@@ -1,6 +1,4 @@
-﻿using GqlPlus.Verifying.Schema;
-
-namespace GqlPlus.Matching;
+﻿namespace GqlPlus.Matching;
 
 public class MatcherTestsBase
   : VerifierTestsBase

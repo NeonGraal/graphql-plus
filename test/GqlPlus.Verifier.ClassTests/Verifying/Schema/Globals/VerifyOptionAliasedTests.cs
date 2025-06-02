@@ -1,5 +1,4 @@
-﻿using GqlPlus.Verification.Schema;
-namespace GqlPlus.Verifying.Schema.Globals;
+﻿namespace GqlPlus.Verifying.Schema.Globals;
 
 [TracePerTest]
 public class VerifyOptionAliasedTests

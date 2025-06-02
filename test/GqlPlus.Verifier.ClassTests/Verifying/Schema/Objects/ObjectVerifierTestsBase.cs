@@ -177,7 +177,27 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
   }
 
   [Theory, RepeatData]
-  public void Verify_Object_WithTypeParams_ReturnsNoErrors(string typeParam)
+  public void Verify_Object_WithTypeParams_ReturnsNoErrors(string paramName, string constraint)
+  {
+    Define<IGqlpTypeSpecial>(constraint);
+
+    IGqlpTypeParam typeParam = NFor<IGqlpTypeParam>(paramName);
+    typeParam.Constraint.Returns(constraint);
+    TheObject.TypeParams.Returns([typeParam]);
+    TBase parent = NFor<TBase>(paramName);
+    parent.IsTypeParam.Returns(true);
+    TheObject.ObjParent.Returns(parent);
+
+    Usages.Add(TheObject);
+    Definitions.Add(TheObject);
+
+    Verifier.Verify(UsageAliased, Errors);
+
+    Errors.ShouldBeEmpty();
+  }
+
+  [Theory, RepeatData]
+  public void Verify_Object_WithTypeParamsNoConstraint_ReturnsError(string typeParam)
   {
     IGqlpTypeParam[] typeParams = NForA<IGqlpTypeParam>(typeParam);
     TheObject.TypeParams.Returns(typeParams);
@@ -190,7 +210,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
 
     Verifier.Verify(UsageAliased, Errors);
 
-    Errors.ShouldBeEmpty();
+    Errors.ShouldNotBeEmpty();
   }
 
   [Theory, RepeatData]

@@ -1,5 +1,4 @@
-﻿using GqlPlus.Verification.Schema;
-namespace GqlPlus.Verifying.Schema.Objects;
+﻿namespace GqlPlus.Verifying.Schema.Objects;
 
 [TracePerTest]
 public class VerifyInputsAliasedTests

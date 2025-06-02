@@ -11,7 +11,7 @@ internal class ObjArgMatcher<TObjArg>(
 {
   private readonly Matcher<IGqlpType>.L _anyTypeMatcher = anyTypeMatcher;
 
-  public override bool Matches(TObjArg arg, string constraint, UsageContext context)
+  public override bool Matches(TObjArg arg, string constraint, EnumContext context)
   {
     Logger.TryingMatch(arg, constraint);
 

@@ -6,10 +6,7 @@ public abstract class SimpleSameMatcherTests<TSimple>
 {
   private readonly SimpleSameMatcher<TSimple> _sut;
 
-  protected SimpleSameMatcherTests()
-  {
-    _sut = new(LoggerFactory);
-  }
+  protected SimpleSameMatcherTests() => _sut = new(LoggerFactory);
 
   [Theory, RepeatData]
   public void Simple_Matches_SameName_ReturnsTrue(string constraint)

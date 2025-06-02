@@ -29,7 +29,7 @@ public class UnionConstraintMatcherTests
   }
 
   [Theory, RepeatData]
-  public void Matches_ReturnsTrue_WhenMatchingUnionMemberParent(string constraint, string name, string parent)
+  public void Matches_ReturnsExpected_WhenMatchingUnionMemberParent(string constraint, string name, string parent, bool expected)
   {
     IGqlpUnion union = NFor<IGqlpUnion>(constraint);
     IGqlpUnionMember member = NFor<IGqlpUnionMember>(name);
@@ -37,10 +37,10 @@ public class UnionConstraintMatcherTests
     Types[constraint] = union;
 
     IGqlpType type = NFor<IGqlpType>(parent);
-    _anyType.Matches(type, name, Context).Returns(true);
+    _anyType.Matches(type, name, Context).Returns(expected);
 
     bool result = _sut.Matches(type, constraint, Context);
 
-    result.ShouldBeTrue();
+    result.ShouldBe(expected);
   }
 }

@@ -3,11 +3,11 @@ using GqlPlus.Verifying.Schema;
 
 namespace GqlPlus.Matching;
 
-internal class TypeSpecialConstraintMatcher(
+internal class SpecialConstraintMatcher(
   ILoggerFactory logger
 ) : TypeMatcherBase<IGqlpType>(logger)
 {
-  public override bool Matches(IGqlpType type, string constraint, UsageContext context)
+  public override bool Matches(IGqlpType type, string constraint, EnumContext context)
   {
     Logger.TryingMatch(type, constraint);
 

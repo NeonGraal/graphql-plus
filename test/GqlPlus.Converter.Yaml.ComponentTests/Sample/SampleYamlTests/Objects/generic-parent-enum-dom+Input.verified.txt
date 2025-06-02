@@ -1,0 +1,70 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DomGnrcPrntEnumDom: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainLabel)
+      domain: DomGnrcPrntEnumDom
+      exclude: false
+      value: !_EnumValue
+        label: gnrcPrntEnumDomLabel
+        typeKind: !_SimpleKind Enum
+        typeName: EnumGnrcPrntEnumDom
+    domainKind: !_DomainKind Enum
+    items:
+    - !_DomainLabel
+      exclude: false
+      value: !_EnumValue
+        label: gnrcPrntEnumDomLabel
+        typeKind: !_SimpleKind Enum
+        typeName: EnumGnrcPrntEnumDom
+    name: DomGnrcPrntEnumDom
+    typeKind: !_TypeKind Domain
+  !_Identifier EnumGnrcPrntEnumDom: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnumGnrcPrntEnumDom
+      name: gnrcPrntEnumDomLabel
+    - !_EnumLabel
+      enum: EnumGnrcPrntEnumDom
+      name: gnrcPrntEnumDomOther
+    items:
+    - !_Aliased
+      name: gnrcPrntEnumDomLabel
+    - !_Aliased
+      name: gnrcPrntEnumDomOther
+    name: EnumGnrcPrntEnumDom
+    typeKind: !_TypeKind Enum
+  !_Identifier FieldInpGnrcPrntEnumDom: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: FieldInpGnrcPrntEnumDom
+      type: !_InputBase
+        typeParam: ref
+    fields:
+    - !_InputField
+      name: field
+      type: !_InputBase
+        typeParam: ref
+    name: FieldInpGnrcPrntEnumDom
+    typeKind: !_TypeKind Input
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        typeKind: !_TypeKind Enum
+        typeName: EnumGnrcPrntEnumDom
+      name: ref
+  !_Identifier InpGnrcPrntEnumDom: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: FieldInpGnrcPrntEnumDom
+      type: !_InputBase
+        input: DomGnrcPrntEnumDom
+    name: InpGnrcPrntEnumDom
+    parent: !_InputBase
+      input: FieldInpGnrcPrntEnumDom
+      typeArgs:
+      - !_InputArg
+        input: DomGnrcPrntEnumDom
+    typeKind: !_TypeKind Input

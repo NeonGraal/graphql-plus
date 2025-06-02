@@ -10,7 +10,7 @@ internal class UnionConstraintMatcher(
 {
   private readonly Matcher<IGqlpType>.L _anyTypeMatcher = anyTypeMatcher;
 
-  public override bool Matches(IGqlpType type, string constraint, UsageContext context)
+  public override bool Matches(IGqlpType type, string constraint, EnumContext context)
   {
     Logger.TryingMatch(type, constraint);
 
@@ -18,7 +18,7 @@ internal class UnionConstraintMatcher(
           && unionType.Items.Any(MatchesUnionMember(type, context));
   }
 
-  private Func<IGqlpUnionMember, bool> MatchesUnionMember(IGqlpType type, UsageContext context)
+  private Func<IGqlpUnionMember, bool> MatchesUnionMember(IGqlpType type, EnumContext context)
     => member => member.Name.Equals(type.Name, StringComparison.Ordinal)
       || _anyTypeMatcher.Matches(type, member.Name, context);
 }

@@ -3140,6 +3140,196 @@ Success
 }
 {
   !Du I@006/0001
+  DualGnrcPrntEnumChild
+  :
+  I@031/0001
+  FieldDualGnrcPrntEnumChild
+  <
+    I@058/0001
+    ParentGnrcPrntEnumChild
+  >
+}
+{
+  !Du I@006/0002
+  FieldDualGnrcPrntEnumChild
+  <
+    I@034/0002
+    $ref
+    :EnumGnrcPrntEnumChild
+  >
+  {
+    !DF I@063/0002
+    field
+    :
+    I@071/0002
+    $ref
+  }
+}
+{
+  !En I@006/0003
+  EnumGnrcPrntEnumChild
+  :ParentGnrcPrntEnumChild
+  !EL I@055/0003
+  gnrcPrntEnumChildLabel
+}
+{
+  !En I@006/0004
+  ParentGnrcPrntEnumChild
+  !EL I@032/0004
+  gnrcPrntEnumChildParent
+}
+{
+  !In I@007/0001
+  InpGnrcPrntEnumChild
+  :
+  I@031/0001
+  FieldInpGnrcPrntEnumChild
+  <
+    I@057/0001
+    ParentGnrcPrntEnumChild
+  >
+}
+{
+  !In I@007/0002
+  FieldInpGnrcPrntEnumChild
+  <
+    I@034/0002
+    $ref
+    :EnumGnrcPrntEnumChild
+  >
+  {
+    !IF I@063/0002
+    field
+    :
+    I@071/0002
+    $ref
+  }
+}
+{
+  !Ou I@008/0001
+  OutpGnrcPrntEnumChild
+  :
+  I@033/0001
+  FieldOutpGnrcPrntEnumChild
+  <
+    I@060/0001
+    ParentGnrcPrntEnumChild
+  >
+}
+{
+  !Ou I@008/0002
+  FieldOutpGnrcPrntEnumChild
+  <
+    I@036/0002
+    $ref
+    :EnumGnrcPrntEnumChild
+  >
+  {
+    !OF I@065/0002
+    field
+    :
+    I@073/0002
+    $ref
+  }
+}
+{
+  !Du I@006/0001
+  DualGnrcPrntEnumDom
+  :
+  I@029/0001
+  FieldDualGnrcPrntEnumDom
+  <
+    I@054/0001
+    DomGnrcPrntEnumDom
+  >
+}
+{
+  !Du I@006/0002
+  FieldDualGnrcPrntEnumDom
+  <
+    I@032/0002
+    $ref
+    :EnumGnrcPrntEnumDom
+  >
+  {
+    !DF I@059/0002
+    field
+    :
+    I@067/0002
+    $ref
+  }
+}
+{
+  !En I@006/0003
+  EnumGnrcPrntEnumDom
+  !EL I@028/0003
+  gnrcPrntEnumDomLabel
+  !EL I@049/0003
+  gnrcPrntEnumDomOther
+}
+{
+  !Do I@008/0004
+  DomGnrcPrntEnumDom
+  Enum
+  !DE I@034/0004
+  gnrcPrntEnumDomLabel
+}
+{
+  !In I@007/0001
+  InpGnrcPrntEnumDom
+  :
+  I@029/0001
+  FieldInpGnrcPrntEnumDom
+  <
+    I@053/0001
+    DomGnrcPrntEnumDom
+  >
+}
+{
+  !In I@007/0002
+  FieldInpGnrcPrntEnumDom
+  <
+    I@032/0002
+    $ref
+    :EnumGnrcPrntEnumDom
+  >
+  {
+    !IF I@059/0002
+    field
+    :
+    I@067/0002
+    $ref
+  }
+}
+{
+  !Ou I@008/0001
+  OutpGnrcPrntEnumDom
+  :
+  I@031/0001
+  FieldOutpGnrcPrntEnumDom
+  <
+    I@056/0001
+    DomGnrcPrntEnumDom
+  >
+}
+{
+  !Ou I@008/0002
+  FieldOutpGnrcPrntEnumDom
+  <
+    I@034/0002
+    $ref
+    :EnumGnrcPrntEnumDom
+  >
+  {
+    !OF I@061/0002
+    field
+    :
+    I@069/0002
+    $ref
+  }
+}
+{
+  !Du I@006/0001
   DualGnrcPrntEnumPrnt
   :
   I@030/0001

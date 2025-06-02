@@ -9,6 +9,6 @@ internal abstract class TypeMatcherBase<TType>(
   , ITypeMatcher
   where TType : IGqlpType
 {
-  public virtual bool MatchesTypeConstraint(IGqlpType type, string constraint, UsageContext context)
+  public virtual bool MatchesTypeConstraint(IGqlpType type, string constraint, EnumContext context)
     => type is TType theType && Matches(theType, constraint, context);
 }

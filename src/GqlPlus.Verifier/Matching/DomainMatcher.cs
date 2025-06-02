@@ -12,7 +12,7 @@ internal class DomainMatcher(
 {
   private readonly Matcher<IGqlpEnum>.L _enumMatcher = enumMatcher;
 
-  public override bool Matches(IGqlpDomain type, string constraint, UsageContext context)
+  public override bool Matches(IGqlpDomain type, string constraint, EnumContext context)
   {
     Logger.TryingMatch(type, constraint);
 
@@ -26,17 +26,17 @@ internal class DomainMatcher(
     };
   }
 
-  private bool MatchDomainLabel(IGqlpDomainLabel i, string constraint, UsageContext context)
+  private bool MatchDomainLabel(IGqlpDomainLabel i, string constraint, EnumContext context)
     => string.IsNullOrWhiteSpace(i.EnumType)
     ? MatchEnumLabel(i.EnumItem, constraint, context)
     : MatchEnumType(i.EnumType, constraint, context);
 
-  private bool MatchEnumType(string enumName, string constraint, UsageContext context)
+  private bool MatchEnumType(string enumName, string constraint, EnumContext context)
     => enumName.Equals(constraint, StringComparison.Ordinal)
       || context.GetTyped(enumName, out IGqlpEnum? enumType)
         && _enumMatcher.Matches(enumType, constraint, context);
 
-  private bool MatchEnumLabel(string enumItem, string constraint, UsageContext context)
+  private bool MatchEnumLabel(string enumItem, string constraint, EnumContext context)
     => context is EnumContext enumContext
       && enumContext.GetEnumValue(enumItem, out string? enumType)
       && MatchEnumType(enumType, constraint, context);

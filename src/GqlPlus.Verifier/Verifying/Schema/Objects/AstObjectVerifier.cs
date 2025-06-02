@@ -16,7 +16,7 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
   where TObjAlt : IGqlpObjAlternate, IGqlpObjBase<TObjArg>
   where TObjBase : IGqlpObjBase<TObjArg>
   where TObjArg : IGqlpObjArg
-  where TContext : UsageContext
+  where TContext : EnumContext
 {
   private readonly ILogger _logger = verifiers.Logger.CreateLogger(nameof(AstParentItemVerifier<TObject, IGqlpObjBase, TContext, IGqlpTypeParam>));
 
@@ -123,7 +123,7 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
       }
 
       if (!_constraintMatcher.Matches(arg, param.Constraint!, context)) {
-        error("Invalid Constraint on", $"'{arg.Name}' not match '{param.Constraint}'");
+        error($"Invalid Constraint on ${param.Name} of", $"'{arg.Name}' not match '{param.Constraint}'");
       }
     }
   }

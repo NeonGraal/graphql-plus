@@ -5,19 +5,19 @@ namespace GqlPlus.Verifying.Schema.Objects;
 
 internal class VerifyInputTypes(
   ObjectVerifierParams<IGqlpInputObject, IGqlpInputField, IGqlpInputAlternate, IGqlpInputArg> verifiers
-) : AstObjectVerifier<IGqlpInputObject, IGqlpInputBase, IGqlpInputArg, IGqlpInputField, IGqlpInputAlternate, UsageContext>(verifiers)
+) : AstObjectVerifier<IGqlpInputObject, IGqlpInputBase, IGqlpInputArg, IGqlpInputField, IGqlpInputAlternate, EnumContext>(verifiers)
 {
-  protected override UsageContext MakeContext(IGqlpInputObject usage, IGqlpType[] aliased, ITokenMessages errors)
+  protected override EnumContext MakeContext(IGqlpInputObject usage, IGqlpType[] aliased, ITokenMessages errors)
   {
     Map<IGqlpDescribed> validTypes = aliased.AliasedGroup()
       .Select(p => (Id: p.Key, Type: (IGqlpDescribed)p.First()))
       .Concat(usage.TypeParams.Select(p => (Id: "$" + p.Name, Type: (IGqlpDescribed)p)))
       .ToMap(p => p.Id, p => p.Type);
 
-    return new(validTypes, errors);
+    return new(validTypes, errors, aliased.MakeEnumValues());
   }
 
-  protected override void UsageField(IGqlpInputField field, UsageContext context)
+  protected override void UsageField(IGqlpInputField field, EnumContext context)
   {
     base.UsageField(field, context);
 

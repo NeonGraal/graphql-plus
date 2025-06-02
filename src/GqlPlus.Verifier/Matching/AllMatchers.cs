@@ -13,7 +13,9 @@ public static class AllMatchers
       .AddMatcher<IGqlpInputArg, ObjArgMatcher<IGqlpInputArg>>()
       .AddMatcher<IGqlpOutputArg, OutputArgMatcher>()
 
-      .AddSingleton<ITypeMatcher, TypeSpecialConstraintMatcher>()
+      .AddSingleton<ITypeMatcher, AlternateConstraintMatcher>()
+      .AddSingleton<ITypeMatcher, EnumConstraintMatcher>()
+      .AddSingleton<ITypeMatcher, SpecialConstraintMatcher>()
       .AddSingleton<ITypeMatcher, UnionConstraintMatcher>()
 
       .AddTypeMatcher<IGqlpDomain, DomainMatcher>()

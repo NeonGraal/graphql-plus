@@ -50,7 +50,9 @@ internal class VerifyOutputTypes(
   internal override void CheckArgType(CheckError error, OutputContext context, IGqlpObjArg arg)
   {
     if (arg is IGqlpOutputArg output) {
-      if (string.IsNullOrWhiteSpace(output.EnumLabel) && context.GetEnumValue(arg.Name, out string? enumType)) {
+      if (string.IsNullOrWhiteSpace(output.EnumLabel)
+        && !context.GetType(arg.Name, out IGqlpDescribed? type)
+        && context.GetEnumValue(arg.Name, out string? enumType)) {
         output.SetEnumType(enumType);
       }
 

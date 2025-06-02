@@ -8,7 +8,7 @@ internal class AnyTypeMatcher(
   IEnumerable<ITypeMatcher> matchers
 ) : MatcherBase<IGqlpType>(logger)
 {
-  public override bool Matches(IGqlpType type, string constraint, UsageContext context)
+  public override bool Matches(IGqlpType type, string constraint, EnumContext context)
   {
     Logger.TryingMatch(type, constraint);
 

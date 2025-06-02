@@ -8,7 +8,7 @@ internal class SimpleSameMatcher<TType>(
 ) : TypeMatcherBase<TType>(logger)
   where TType : IGqlpSimple
 {
-  public override bool Matches(TType type, string constraint, UsageContext context)
+  public override bool Matches(TType type, string constraint, EnumContext context)
   {
     Logger.TryingMatch(type, constraint);
 

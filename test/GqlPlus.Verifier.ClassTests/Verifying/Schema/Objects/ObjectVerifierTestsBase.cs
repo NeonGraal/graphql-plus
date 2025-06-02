@@ -29,7 +29,6 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
 
   protected abstract TObject TheObject { get; }
 
-
   [Fact]
   public void Verify_CallsMergeFieldsAndAlternates_WithoutErrors()
   {
@@ -197,6 +196,8 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
   [Theory, RepeatData]
   public void Verify_Object_WithTypeArg_ReturnsNoErrors(string fieldName, string otherName, string paramName, string argType)
   {
+    this.SkipIf(argType == otherName);
+
     Define<IGqlpSimple>(argType);
 
     TObject other = NFor<TObject>(otherName);
@@ -213,7 +214,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
     dualBase.Args.Returns([arg]);
     dualBase.BaseArgs.Returns([arg]);
     SetFieldType(field, dualBase);
-    ArgMatcher.Matches(arg, argType, Arg.Any<UsageContext>()).Returns(true);
+    ArgMatcher.Matches(arg, argType, Arg.Any<EnumContext>()).Returns(true);
 
     TheObject.Fields.Returns([field]);
     TheObject.ObjFields.Returns([field]);

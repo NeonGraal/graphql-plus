@@ -1,6 +1,4 @@
-﻿using GqlPlus.Verifying.Schema;
-
-namespace GqlPlus.Matching;
+﻿namespace GqlPlus.Matching;
 
 public class DomainMatcherTests
   : MatcherTestsBase
@@ -87,12 +85,10 @@ public class DomainMatcherTests
     IGqlpEnum enumType = NFor<IGqlpEnum>(constraint);
     enumType.Items.Returns([label]);
 
-    Map<string> enumValues = new() { [enumLabel] = constraint };
-
-    EnumContext enumContext = new(Types, Errors, enumValues);
+    EnumValues[enumLabel] = constraint;
 
     // Act
-    bool result = _sut.Matches(type, constraint, enumContext);
+    bool result = _sut.Matches(type, constraint, Context);
 
     // Assert
     result.ShouldBeTrue();

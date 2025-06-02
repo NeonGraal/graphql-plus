@@ -9,7 +9,7 @@ internal class OutputArgMatcher(
   Matcher<IGqlpType>.D anyTypeMatcher
 ) : ObjArgMatcher<IGqlpOutputArg>(logger, anyTypeMatcher)
 {
-  public override bool Matches(IGqlpOutputArg arg, string constraint, UsageContext context)
+  public override bool Matches(IGqlpOutputArg arg, string constraint, EnumContext context)
   {
     if (base.Matches(arg, constraint, context)) {
       return true;
@@ -28,17 +28,13 @@ internal class OutputArgMatcher(
 
       if (context.GetType(constraint, out IGqlpDescribed? constraintType)) {
         if (constraintType is IGqlpEnum enumType) {
-          if (EnumHasLabel(context, enumType, arg.EnumType.Name)) {
-            arg.SetEnumType(enumType.Name);
-          } else {
+          if (!EnumHasLabel(context, enumType, arg.EnumType.Name)) {
             return false;
           }
         } else if (constraintType is IGqlpDomain<IGqlpDomainLabel> domType) {
           IGqlpEnum? domEnum = DomainHasLabel(context, domType, arg.EnumType.Name);
           if (domEnum is null) {
             return false;
-          } else {
-            arg.SetEnumType(domEnum.Name);
           }
         }
       }

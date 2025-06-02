@@ -264,7 +264,7 @@
           "object": "_Constant",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Simple"
+            "output": "_SimpleValue"
           }
         },
         {
@@ -289,7 +289,7 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Simple"
+            "output": "_SimpleValue"
           }
         },
         {
@@ -846,12 +846,69 @@
         }
       ]
     },
-    "_Simple": {
+    "_SimpleKind": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "_SimpleKind",
+          "name": "Basic"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "_SimpleKind",
+          "name": "Enum"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "_SimpleKind",
+          "name": "Internal"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "_SimpleKind",
+          "name": "Domain"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "_SimpleKind",
+          "name": "Union"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "Basic"
+        },
+        {
+          "$tag": "_Aliased",
+          "name": "Enum"
+        },
+        {
+          "$tag": "_Aliased",
+          "name": "Internal"
+        },
+        {
+          "$tag": "_Aliased",
+          "name": "Domain"
+        },
+        {
+          "$tag": "_Aliased",
+          "name": "Union"
+        }
+      ],
+      "name": "_SimpleKind",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "_SimpleValue": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_Simple",
+          "object": "_SimpleValue",
           "type": {
             "$tag": "_OutputBase",
             "output": "_DomainValue",
@@ -874,7 +931,7 @@
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_Simple",
+          "object": "_SimpleValue",
           "type": {
             "$tag": "_OutputBase",
             "output": "_DomainValue",
@@ -897,7 +954,7 @@
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_Simple",
+          "object": "_SimpleValue",
           "type": {
             "$tag": "_OutputBase",
             "output": "_DomainValue",
@@ -920,7 +977,7 @@
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_Simple",
+          "object": "_SimpleValue",
           "type": {
             "$tag": "_OutputBase",
             "output": "_DomainValue",
@@ -1032,67 +1089,10 @@
           }
         }
       ],
-      "name": "_Simple",
+      "name": "_SimpleValue",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
-      }
-    },
-    "_SimpleKind": {
-      "$tag": "_TypeEnum",
-      "allItems": [
-        {
-          "$tag": "_EnumLabel",
-          "enum": "_SimpleKind",
-          "name": "Basic"
-        },
-        {
-          "$tag": "_EnumLabel",
-          "enum": "_SimpleKind",
-          "name": "Enum"
-        },
-        {
-          "$tag": "_EnumLabel",
-          "enum": "_SimpleKind",
-          "name": "Internal"
-        },
-        {
-          "$tag": "_EnumLabel",
-          "enum": "_SimpleKind",
-          "name": "Domain"
-        },
-        {
-          "$tag": "_EnumLabel",
-          "enum": "_SimpleKind",
-          "name": "Union"
-        }
-      ],
-      "items": [
-        {
-          "$tag": "_Aliased",
-          "name": "Basic"
-        },
-        {
-          "$tag": "_Aliased",
-          "name": "Enum"
-        },
-        {
-          "$tag": "_Aliased",
-          "name": "Internal"
-        },
-        {
-          "$tag": "_Aliased",
-          "name": "Domain"
-        },
-        {
-          "$tag": "_Aliased",
-          "name": "Union"
-        }
-      ],
-      "name": "_SimpleKind",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Enum"
       }
     },
     "_Type": {

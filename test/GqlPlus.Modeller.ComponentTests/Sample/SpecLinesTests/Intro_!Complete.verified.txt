@@ -201,22 +201,22 @@ types: !_Map_Type
           typeKind: !_TypeKind Enum
           typeName: _TypeKind
         name: kind
-  !_Identifier _Basic: !_TypeOutput
+  !_Identifier _BasicValue: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
-        object: _Basic
+        object: _BasicValue
         type: !_OutputBase
           output: Boolean
       - !_ObjectFor(_OutputAlternate)
-        object: _Basic
+        object: _BasicValue
         type: !_OutputBase
           output: _EnumValue
       - !_ObjectFor(_OutputAlternate)
-        object: _Basic
+        object: _BasicValue
         type: !_OutputBase
           output: Number
       - !_ObjectFor(_OutputAlternate)
-        object: _Basic
+        object: _BasicValue
         type: !_OutputBase
           output: String
     alternates:
@@ -232,7 +232,7 @@ types: !_Map_Type
       - !_OutputAlternate
         type: !_OutputBase
           output: String
-    name: _Basic
+    name: _BasicValue
     typeKind: !_TypeKind Output
   !_Identifier _Categories: !_TypeOutput
     allAlternates:
@@ -508,7 +508,7 @@ types: !_Map_Type
       - !_ObjectFor(_OutputAlternate)
         object: _Constant
         type: !_OutputBase
-          output: _Simple
+          output: _SimpleValue
       - !_ObjectFor(_OutputAlternate)
         object: _Constant
         type: !_OutputBase
@@ -520,7 +520,7 @@ types: !_Map_Type
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
-          output: _Simple
+          output: _SimpleValue
       - !_OutputAlternate
         type: !_OutputBase
           output: _ConstantList
@@ -1011,7 +1011,7 @@ types: !_Map_Type
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
           typeKind: !_TypeKind Output
-          typeName: _Basic
+          typeName: _BasicValue
         name: value
   !_Identifier _DualAlternate: !_TypeOutput
     allFields:
@@ -2604,10 +2604,40 @@ types: !_Map_Type
     parent: !_DualBase
       dual: _Named
     typeKind: !_TypeKind Output
-  !_Identifier _Simple: !_TypeOutput
+  !_Identifier _SimpleKind: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: _SimpleKind
+        name: Basic
+      - !_EnumLabel
+        enum: _SimpleKind
+        name: Enum
+      - !_EnumLabel
+        enum: _SimpleKind
+        name: Internal
+      - !_EnumLabel
+        enum: _SimpleKind
+        name: Domain
+      - !_EnumLabel
+        enum: _SimpleKind
+        name: Union
+    items:
+      - !_Aliased
+        name: Basic
+      - !_Aliased
+        name: Enum
+      - !_Aliased
+        name: Internal
+      - !_Aliased
+        name: Domain
+      - !_Aliased
+        name: Union
+    name: _SimpleKind
+    typeKind: !_TypeKind Enum
+  !_Identifier _SimpleValue: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
-        object: _Simple
+        object: _SimpleValue
         type: !_OutputBase
           output: _DomainValue
           typeArgs:
@@ -2618,7 +2648,7 @@ types: !_Map_Type
             - !_OutputArg
               output: Boolean
       - !_ObjectFor(_OutputAlternate)
-        object: _Simple
+        object: _SimpleValue
         type: !_OutputBase
           output: _DomainValue
           typeArgs:
@@ -2629,7 +2659,7 @@ types: !_Map_Type
             - !_OutputArg
               output: _EnumValue
       - !_ObjectFor(_OutputAlternate)
-        object: _Simple
+        object: _SimpleValue
         type: !_OutputBase
           output: _DomainValue
           typeArgs:
@@ -2640,7 +2670,7 @@ types: !_Map_Type
             - !_OutputArg
               output: Number
       - !_ObjectFor(_OutputAlternate)
-        object: _Simple
+        object: _SimpleValue
         type: !_OutputBase
           output: _DomainValue
           typeArgs:
@@ -2691,38 +2721,8 @@ types: !_Map_Type
               typeName: _DomainKind
             - !_OutputArg
               output: String
-    name: _Simple
+    name: _SimpleValue
     typeKind: !_TypeKind Output
-  !_Identifier _SimpleKind: !_TypeEnum
-    allItems:
-      - !_EnumLabel
-        enum: _SimpleKind
-        name: Basic
-      - !_EnumLabel
-        enum: _SimpleKind
-        name: Enum
-      - !_EnumLabel
-        enum: _SimpleKind
-        name: Internal
-      - !_EnumLabel
-        enum: _SimpleKind
-        name: Domain
-      - !_EnumLabel
-        enum: _SimpleKind
-        name: Union
-    items:
-      - !_Aliased
-        name: Basic
-      - !_Aliased
-        name: Enum
-      - !_Aliased
-        name: Internal
-      - !_Aliased
-        name: Domain
-      - !_Aliased
-        name: Union
-    name: _SimpleKind
-    typeKind: !_TypeKind Enum
   !_Identifier _Type: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)

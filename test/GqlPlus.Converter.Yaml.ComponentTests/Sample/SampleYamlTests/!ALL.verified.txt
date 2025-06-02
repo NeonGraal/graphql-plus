@@ -3507,6 +3507,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        typeKind: !_TypeKind Internal
+        typeName: _Simple
       name: ref
   !_Identifier FieldDualGnrcPrntStrDom: !_TypeDual
     allFields:
@@ -3564,6 +3567,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        typeKind: !_TypeKind Internal
+        typeName: _Simple
       name: ref
   !_Identifier FieldInpGnrcPrntStrDom: !_TypeInput
     allFields:
@@ -3621,6 +3627,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        typeKind: !_TypeKind Internal
+        typeName: _Simple
       name: ref
   !_Identifier FieldOutpGnrcPrntStrDom: !_TypeOutput
     allFields:

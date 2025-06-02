@@ -8,7 +8,7 @@ public class OutputArgMatcherTests
     Matcher<IGqlpType>.D anyDelegate = MatcherFor(out Matcher<IGqlpType>.I anyInterface);
     AnyType = anyInterface;
 
-    Matcher = new OutputArgMatcher(anyDelegate);
+    Matcher = new OutputArgMatcher(LoggerFactory, anyDelegate);
   }
 
   [Theory, RepeatData]

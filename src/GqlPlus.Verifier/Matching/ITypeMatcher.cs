@@ -3,7 +3,7 @@ using GqlPlus.Verifying.Schema;
 
 namespace GqlPlus.Matching;
 
-public interface IMatcher
+public interface ITypeMatcher
 {
   bool MatchesTypeConstraint(IGqlpType type, string constraint, UsageContext context);
 }

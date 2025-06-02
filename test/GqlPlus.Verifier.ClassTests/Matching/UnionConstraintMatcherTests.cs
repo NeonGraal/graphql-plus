@@ -10,7 +10,7 @@ public class UnionConstraintMatcherTests
   {
     Matcher<IGqlpType>.D anyType = MatcherFor(out _anyType);
 
-    _sut = new(anyType);
+    _sut = new(LoggerFactory, anyType);
   }
 
   [Theory, RepeatData]

@@ -191,12 +191,12 @@
         "value": "Dual"
       }
     },
-    "_Basic": {
+    "_BasicValue": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_Basic",
+          "object": "_BasicValue",
           "type": {
             "$tag": "_OutputBase",
             "output": "Boolean"
@@ -204,7 +204,7 @@
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_Basic",
+          "object": "_BasicValue",
           "type": {
             "$tag": "_OutputBase",
             "output": "_EnumValue"
@@ -212,7 +212,7 @@
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_Basic",
+          "object": "_BasicValue",
           "type": {
             "$tag": "_OutputBase",
             "output": "Number"
@@ -220,7 +220,7 @@
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_Basic",
+          "object": "_BasicValue",
           "type": {
             "$tag": "_OutputBase",
             "output": "String"
@@ -257,7 +257,7 @@
           }
         }
       ],
-      "name": "_Basic",
+      "name": "_BasicValue",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
@@ -839,7 +839,7 @@
               "$tag": "_TypeKind",
               "value": "Output"
             },
-            "typeName": "_Basic"
+            "typeName": "_BasicValue"
           },
           "name": "value"
         }

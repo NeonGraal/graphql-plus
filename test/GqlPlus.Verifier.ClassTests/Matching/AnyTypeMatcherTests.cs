@@ -3,12 +3,12 @@
 public class AnyTypeMatcherTests
   : MatcherTestsBase
 {
-  private readonly List<IMatcher> _matchers = [];
+  private readonly List<ITypeMatcher> _matchers = [];
   private readonly AnyTypeMatcher _sut;
 
-  private readonly IMatcher _matcher = For<IMatcher>();
+  private readonly ITypeMatcher _matcher = For<ITypeMatcher>();
   public AnyTypeMatcherTests()
-    => _sut = new AnyTypeMatcher(_matchers);
+    => _sut = new AnyTypeMatcher(LoggerFactory, _matchers);
 
   [Theory, RepeatData]
   public void Matches_ReturnsTrue_WhenMatchingConstraint(string constraint)

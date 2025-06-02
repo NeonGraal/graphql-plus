@@ -5,11 +5,16 @@ using GqlPlus.Verifying.Schema;
 namespace GqlPlus.Matching;
 
 internal class OutputArgMatcher(
+  ILoggerFactory logger,
   Matcher<IGqlpType>.D anyTypeMatcher
-) : ObjArgMatcher<IGqlpOutputArg>(anyTypeMatcher)
+) : ObjArgMatcher<IGqlpOutputArg>(logger, anyTypeMatcher)
 {
   public override bool Matches(IGqlpOutputArg arg, string constraint, UsageContext context)
   {
+    if (base.Matches(arg, constraint, context)) {
+      return true;
+    }
+
     if (string.IsNullOrWhiteSpace(arg.EnumLabel)) {
       if (arg.EnumType.IsTypeParam) {
         if (context.GetTyped(arg.FullType, out IGqlpTypeParam? typeParam)) {
@@ -52,7 +57,7 @@ internal class OutputArgMatcher(
       }
     }
 
-    return base.Matches(arg, constraint, context);
+    return false;
   }
 
   private IGqlpEnum? DomainHasLabel(UsageContext context, IGqlpDomain<IGqlpDomainLabel> domType, string label)

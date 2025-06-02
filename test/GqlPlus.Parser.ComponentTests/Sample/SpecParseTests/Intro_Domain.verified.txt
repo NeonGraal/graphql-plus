@@ -155,7 +155,7 @@ Success
     :_DomainKind
     I@040/0030
     $value
-    :_Basic
+    :_BasicValue
   >
   :
   I@007/0031
@@ -174,7 +174,7 @@ Success
 }
 {
   !Ou I@008/0035
-  _Basic
+  _BasicValue
   |
   I@007/0036
   Boolean

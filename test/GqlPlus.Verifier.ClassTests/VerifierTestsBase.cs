@@ -1,18 +1,18 @@
-﻿using GqlPlus.Matching;
-using GqlPlus.Merging;
+﻿using GqlPlus.Merging;
 using GqlPlus.Token;
 using GqlPlus.Verification.Schema;
+using GqlPlus.Verifying;
 using GqlPlus.Verifying.Schema;
 using Microsoft.Extensions.Logging;
 
-namespace GqlPlus.Verifying;
+namespace GqlPlus;
 
 public class VerifierTestsBase
   : SubstituteBase
 {
   protected TokenMessages Errors { get; } = [];
-  protected ILoggerFactory LoggerFactory { get; } = For<ILoggerFactory>();
 
+  protected ILoggerFactory LoggerFactory { get; } = For<ILoggerFactory>();
   protected ILogger Logger { get; } = For<ILogger>();
 
   public VerifierTestsBase()

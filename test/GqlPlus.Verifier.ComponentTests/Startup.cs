@@ -8,7 +8,7 @@ public static class Startup
 {
   public static void ConfigureServices(IServiceCollection services)
     => services
-      .AddComponentTest()
+      .AddComponentTest(false)
       .AddMatchers()
       .AddVerifiers();
 }

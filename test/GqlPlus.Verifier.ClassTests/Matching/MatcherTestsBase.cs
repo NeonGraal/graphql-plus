@@ -4,11 +4,10 @@ using GqlPlus.Verifying.Schema;
 namespace GqlPlus.Matching;
 
 public class MatcherTestsBase
-  : SubstituteBase
+  : VerifierTestsBase
 {
   protected Map<IGqlpDescribed> Types { get; } = [];
 
-  protected TokenMessages Errors { get; } = [];
   protected UsageContext Context { get; }
 
   public MatcherTestsBase()

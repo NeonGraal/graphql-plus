@@ -1,7 +1,7 @@
 ﻿[
   ( !En Void ),
   ( !En Null [ null ] !EL null ),
-  ( !Un Simple !UM Boolean !UM Number !UM String !UM Unit !UM _Union !UM _Domain !UM _Enum ),
+  ( !Un Simple [ _Simple ] !UM Boolean !UM Number !UM String !UM Unit !UM _Union !UM _Domain !UM _Enum ),
   ( !Du Internal | Void Object Null ),
   ( !Du Object [ % _Object ] : _Map < _Any > ),
   ( !Du _Opt < $T :_Any > | $T Null ),
@@ -16,10 +16,10 @@
   ( !Du _MostList < $T :_Any > | _Most < $T > [] ),
   ( !Du _MostDictionary < $T :_Any > | _Most < $T > [Simple?] ),
   ( !TZ _Any [ Any ] ),
-  ( !TZ _Dual ),
-  ( !TZ _Enum ),
-  ( !TZ _Input ),
-  ( !TZ _Output ),
   ( !TZ _Domain ),
-  ( !TZ _Union )
+  ( !TZ _Union ),
+  ( !TZ _Enum ),
+  ( !TZ _Dual ),
+  ( !TZ _Input ),
+  ( !TZ _Output )
 ]

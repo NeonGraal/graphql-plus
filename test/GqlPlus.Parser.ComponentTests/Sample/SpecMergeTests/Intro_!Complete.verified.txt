@@ -530,7 +530,7 @@ Success
   _Constant
   |
   I@007/0137
-  _Simple
+  _SimpleValue
   I@007/0138
   _ConstantList
   I@007/0139
@@ -538,7 +538,7 @@ Success
 }
 {
   !Ou I@008/0142
-  _Simple
+  _SimpleValue
   |
   I@007/0143
   _DomainValue
@@ -845,7 +845,7 @@ Success
     :_DomainKind
     I@040/0209
     $value
-    :_Basic
+    :_BasicValue
   >
   :
   I@007/0210
@@ -864,7 +864,7 @@ Success
 }
 {
   !Ou I@008/0214
-  _Basic
+  _BasicValue
   |
   I@007/0215
   Boolean

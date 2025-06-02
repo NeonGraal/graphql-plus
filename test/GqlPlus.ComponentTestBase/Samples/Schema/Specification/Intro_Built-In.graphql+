@@ -5,12 +5,12 @@ output _Internal {
     }
 
 output _Constant {
-    | _Simple
+    | _SimpleValue
     | _ConstantList
     | _ConstantMap
     }
 
-output _Simple {
+output _SimpleValue {
     | _DomainValue<_DomainKind.Boolean Boolean>
     | _DomainValue<_DomainKind.Enum _EnumValue>
     | _DomainValue<_DomainKind.Number Number>

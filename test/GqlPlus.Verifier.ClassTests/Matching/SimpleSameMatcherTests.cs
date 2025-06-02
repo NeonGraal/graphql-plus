@@ -4,7 +4,12 @@ public abstract class SimpleSameMatcherTests<TSimple>
   : MatcherTestsBase
   where TSimple : class, IGqlpSimple
 {
-  private readonly SimpleSameMatcher<TSimple> _sut = new();
+  private readonly SimpleSameMatcher<TSimple> _sut;
+
+  protected SimpleSameMatcherTests()
+  {
+    _sut = new(LoggerFactory);
+  }
 
   [Theory, RepeatData]
   public void Simple_Matches_SameName_ReturnsTrue(string constraint)

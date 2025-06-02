@@ -3,13 +3,20 @@ using GqlPlus.Verifying.Schema;
 
 namespace GqlPlus.Matching;
 
-internal abstract class MatcherBase<TType>
-  : Matcher<TType>.I
-  , IMatcher
-  where TType : IGqlpType
+internal abstract class MatcherBase<TType>(
+  ILoggerFactory logger
+) : Matcher<TType>.I
 {
-  public bool MatchesTypeConstraint(IGqlpType type, string constraint, UsageContext context)
-    => type is TType theType && Matches(theType, constraint, context);
+  protected ILogger Logger { get; } = logger.CreateLogger(typeof(Matcher<TType>).ExpandTypeName());
 
   public abstract bool Matches(TType type, string constraint, UsageContext context);
+}
+
+internal static partial class MatcherLogging
+{
+  internal static void TryingMatch(this ILogger logger, object type, string constraint)
+    => logger.TryingMatch(type.GetType().TidyTypeName(), type, constraint);
+
+  [LoggerMessage(LogLevel.Information, Message = "Trying to match ({Type}) {Instance} to {Constraint}")]
+  internal static partial void TryingMatch(this ILogger logger, string type, object instance, string constraint);
 }

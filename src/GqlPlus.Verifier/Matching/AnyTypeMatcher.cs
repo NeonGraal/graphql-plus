@@ -4,11 +4,14 @@ using GqlPlus.Verifying.Schema;
 namespace GqlPlus.Matching;
 
 internal class AnyTypeMatcher(
-  IEnumerable<IMatcher> matchers
-) : Matcher<IGqlpType>.I
+  ILoggerFactory logger,
+  IEnumerable<ITypeMatcher> matchers
+) : MatcherBase<IGqlpType>(logger)
 {
-  public bool Matches(IGqlpType type, string constraint, UsageContext context)
+  public override bool Matches(IGqlpType type, string constraint, UsageContext context)
   {
+    Logger.TryingMatch(type, constraint);
+
     if (matchers is null || !matchers.Any()) {
       throw new InvalidOperationException("No matchers available to match types.");
     }

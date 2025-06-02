@@ -17,11 +17,13 @@ public static class BuiltIn
     Domain<DomainRegexAst, IGqlpDomainRegex>("String", DomainKind.String, "*"),
   ];
 
+  private static readonly string[] s_unionMembers = ["Boolean", "Number", "String", "Unit", "_Union", "_Domain", "_Enum"];
+
   public static IGqlpType[] Internal { get; } = [
     Enum("Void", ""),
     Enum("Null", "null", "null"),
 
-    new UnionDeclAst(AstNulls.At, "Simple", new[] { "Boolean", "Number", "String", "Unit", "_Union", "_Domain", "_Enum" }.UnionMembers()),
+    new UnionDeclAst(AstNulls.At, "Simple", s_unionMembers.UnionMembers()) { Aliases = ["_Simple"]},
     DualObj("Internal", DualAlt("Void", false), DualAlt("Object", false), DualAlt("Null" , false)),
     DualObj("Object", DualRef("_Map", DualArg("_Any")), ["%", "_Object"]),
 
@@ -39,13 +41,13 @@ public static class BuiltIn
     DualObj("MostList", [TypeParam()], DualMost("")),
     DualObj("MostDictionary", [TypeParam()], DualMost("Simple", true)),
 
-    new SpecialTypeAst("Any") { Aliases = ["Any"] },
-    new SpecialTypeAst("Dual"),
-    new SpecialTypeAst("Enum"),
-    new SpecialTypeAst("Input"),
-    new SpecialTypeAst("Output"),
-    new SpecialTypeAst("Domain"),
-    new SpecialTypeAst("Union"),
+    new SpecialTypeAst("Any", t => true) { Aliases = ["Any"] },
+    new SpecialTypeAst("Domain", t => t is IGqlpDomain),
+    new SpecialTypeAst("Union", t => t is IGqlpUnion),
+    new SpecialTypeAst("Enum", t => t is IGqlpEnum),
+    new SpecialTypeAst("Dual", t => t is IGqlpDualObject),
+    new SpecialTypeAst("Input", t => t is IGqlpInputObject),
+    new SpecialTypeAst("Output", t => t is IGqlpOutputObject),
   ];
 
   internal static Map<string> EnumValues = new() {

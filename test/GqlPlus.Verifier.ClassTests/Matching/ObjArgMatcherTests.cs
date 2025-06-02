@@ -13,18 +13,7 @@ public abstract class ObjArgMatcherTests<TObjArg>
     Matcher<IGqlpType>.D anyDelegate = MatcherFor(out Matcher<IGqlpType>.I anyInterface);
     AnyType = anyInterface;
 
-    Matcher = new(anyDelegate);
-  }
-
-  [Theory, RepeatData]
-  public void Matches_ReturnsTrue_WhenMatchingAll(string name, string constraint)
-  {
-    TObjArg arg = NFor<TObjArg>(name);
-    arg.FullType.Returns(constraint);
-
-    bool result = Matcher.Matches(arg, "_Any", Context);
-
-    result.ShouldBeTrue();
+    Matcher = new(LoggerFactory, anyDelegate);
   }
 
   [Theory, RepeatData]
@@ -48,21 +37,6 @@ public abstract class ObjArgMatcherTests<TObjArg>
     arg.IsTypeParam.Returns(true);
 
     bool result = Matcher.Matches(arg, constraint, Context);
-
-    result.ShouldBeTrue();
-  }
-
-  [Theory, RepeatData]
-  public void Matches_ReturnsTrue_WhenMatchingArgTypeLabel(string name, string type, string constraint)
-  {
-    TObjArg arg = NFor<TObjArg>(name);
-    arg.FullType.Returns(type);
-
-    IGqlpType baseType = NFor<IGqlpType>(type);
-    baseType.Label.Returns(constraint);
-    Types[type] = baseType;
-
-    bool result = Matcher.Matches(arg, "_" + constraint, Context);
 
     result.ShouldBeTrue();
   }

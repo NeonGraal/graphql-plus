@@ -206,7 +206,7 @@ Success
   _Constant
   |
   I@007/0052
-  _Simple
+  _SimpleValue
   I@007/0053
   _ConstantList
   I@007/0054
@@ -214,7 +214,7 @@ Success
 }
 {
   !Ou I@008/0057
-  _Simple
+  _SimpleValue
   |
   I@007/0058
   _DomainValue

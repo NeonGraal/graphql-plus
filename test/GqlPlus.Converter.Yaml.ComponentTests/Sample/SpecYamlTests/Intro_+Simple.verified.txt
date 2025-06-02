@@ -82,22 +82,22 @@ types: !_Map_Type
     parent: !_DualBase
       dual: _Described
     typeKind: !_TypeKind Dual
-  !_Identifier _Basic: !_TypeOutput
+  !_Identifier _BasicValue: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: _Basic
+      object: _BasicValue
       type: !_OutputBase
         output: Boolean
     - !_ObjectFor(_OutputAlternate)
-      object: _Basic
+      object: _BasicValue
       type: !_OutputBase
         output: _EnumValue
     - !_ObjectFor(_OutputAlternate)
-      object: _Basic
+      object: _BasicValue
       type: !_OutputBase
         output: Number
     - !_ObjectFor(_OutputAlternate)
-      object: _Basic
+      object: _BasicValue
       type: !_OutputBase
         output: String
     alternates:
@@ -113,7 +113,7 @@ types: !_Map_Type
     - !_OutputAlternate
       type: !_OutputBase
         output: String
-    name: _Basic
+    name: _BasicValue
     typeKind: !_TypeKind Output
   !_Identifier _DomainItem: !_TypeOutput
     allFields:
@@ -385,7 +385,7 @@ types: !_Map_Type
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
         typeKind: !_TypeKind Output
-        typeName: _Basic
+        typeName: _BasicValue
       name: value
   !_Identifier _EnumLabel: !_TypeDual
     allFields:

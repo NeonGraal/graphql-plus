@@ -61,7 +61,7 @@ types: !_Map_Type
       - !_ObjectFor(_OutputAlternate)
         object: _Constant
         type: !_OutputBase
-          output: _Simple
+          output: _SimpleValue
       - !_ObjectFor(_OutputAlternate)
         object: _Constant
         type: !_OutputBase
@@ -73,7 +73,7 @@ types: !_Map_Type
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
-          output: _Simple
+          output: _SimpleValue
       - !_OutputAlternate
         type: !_OutputBase
           output: _ConstantList
@@ -267,10 +267,10 @@ types: !_Map_Type
           output: _Collections
     name: _Modifiers
     typeKind: !_TypeKind Output
-  !_Identifier _Simple: !_TypeOutput
+  !_Identifier _SimpleValue: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
-        object: _Simple
+        object: _SimpleValue
         type: !_OutputBase
           output: _DomainValue
           typeArgs:
@@ -281,7 +281,7 @@ types: !_Map_Type
             - !_OutputArg
               output: Boolean
       - !_ObjectFor(_OutputAlternate)
-        object: _Simple
+        object: _SimpleValue
         type: !_OutputBase
           output: _DomainValue
           typeArgs:
@@ -292,7 +292,7 @@ types: !_Map_Type
             - !_OutputArg
               output: _EnumValue
       - !_ObjectFor(_OutputAlternate)
-        object: _Simple
+        object: _SimpleValue
         type: !_OutputBase
           output: _DomainValue
           typeArgs:
@@ -303,7 +303,7 @@ types: !_Map_Type
             - !_OutputArg
               output: Number
       - !_ObjectFor(_OutputAlternate)
-        object: _Simple
+        object: _SimpleValue
         type: !_OutputBase
           output: _DomainValue
           typeArgs:
@@ -354,5 +354,5 @@ types: !_Map_Type
               typeName: _DomainKind
             - !_OutputArg
               output: String
-    name: _Simple
+    name: _SimpleValue
     typeKind: !_TypeKind Output

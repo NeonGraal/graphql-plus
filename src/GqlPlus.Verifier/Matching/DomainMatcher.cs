@@ -4,13 +4,19 @@ using GqlPlus.Verifying.Schema;
 namespace GqlPlus.Matching;
 
 internal class DomainMatcher(
+  ILoggerFactory logger,
   Matcher<IGqlpEnum>.D enumMatcher
-) : MatcherBase<IGqlpDomain>
+) : TypeMatcherBase<IGqlpDomain>(logger)
+  , Matcher<IGqlpDomain>.I
+  , ITypeMatcher
 {
   private readonly Matcher<IGqlpEnum>.L _enumMatcher = enumMatcher;
 
   public override bool Matches(IGqlpDomain type, string constraint, UsageContext context)
-    => type.DomainKind switch {
+  {
+    Logger.TryingMatch(type, constraint);
+
+    return type.DomainKind switch {
       DomainKind.Boolean => constraint.Equals("Boolean", StringComparison.Ordinal),
       DomainKind.Enum => type is IGqlpDomain<IGqlpDomainLabel> domain
         && domain.Items.Any(i => MatchDomainLabel(i, constraint, context)),
@@ -18,6 +24,7 @@ internal class DomainMatcher(
       DomainKind.String => constraint.Equals("String", StringComparison.Ordinal),
       _ => false,
     };
+  }
 
   private bool MatchDomainLabel(IGqlpDomainLabel i, string constraint, UsageContext context)
     => string.IsNullOrWhiteSpace(i.EnumType)

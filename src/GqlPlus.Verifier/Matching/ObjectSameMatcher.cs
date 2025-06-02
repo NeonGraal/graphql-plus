@@ -3,13 +3,18 @@ using GqlPlus.Verifying.Schema;
 
 namespace GqlPlus.Matching;
 
-internal class ObjectSameMatcher<TType>
-  : MatcherBase<TType>
+internal class ObjectSameMatcher<TType>(
+  ILoggerFactory logger
+) : TypeMatcherBase<TType>(logger)
   where TType : IGqlpObject
 {
   public override bool Matches(TType type, string constraint, UsageContext context)
-    => type.Name.Equals(constraint, StringComparison.Ordinal)
-     || MatchParent(type.Parent?.Name, constraint, context);
+  {
+    Logger.TryingMatch(type, constraint);
+
+    return type.Name.Equals(constraint, StringComparison.Ordinal)
+        || MatchParent(type.Parent?.Name, constraint, context);
+  }
 
   private static bool MatchParent(string? parent, string constraint, UsageContext context)
     => !string.IsNullOrWhiteSpace(parent)

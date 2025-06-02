@@ -27,12 +27,12 @@ output _DomainItem<$item:_BaseDomainItem> {
         domain: _Identifier
     }
 
-output _DomainValue<$kind:_DomainKind $value:_Basic> {
+output _DomainValue<$kind:_DomainKind $value:_BasicValue> {
     : _DomainRef<$kind>
         value: $value
     }
 
-output _Basic {
+output _BasicValue {
     | Boolean
     | _EnumValue
     | Number

@@ -13,7 +13,8 @@ public static class AllMatchers
       .AddMatcher<IGqlpInputArg, ObjArgMatcher<IGqlpInputArg>>()
       .AddMatcher<IGqlpOutputArg, OutputArgMatcher>()
 
-      .AddSingleton<IMatcher, UnionConstraintMatcher>()
+      .AddSingleton<ITypeMatcher, TypeSpecialConstraintMatcher>()
+      .AddSingleton<ITypeMatcher, UnionConstraintMatcher>()
 
       .AddTypeMatcher<IGqlpDomain, DomainMatcher>()
       .AddSameMatcher<IGqlpDomain, SimpleSameMatcher<IGqlpDomain>>()
@@ -34,14 +35,14 @@ public static class AllMatchers
 
   private static IServiceCollection AddTypeMatcher<TType, TMatcher>(this IServiceCollection services)
     where TType : IGqlpType
-    where TMatcher : class, Matcher<TType>.I, IMatcher
+    where TMatcher : class, Matcher<TType>.I, ITypeMatcher
     => services
       .AddMatcher<TType, TMatcher>()
-      .AddProvider<TMatcher, IMatcher>();
+      .AddProvider<TMatcher, ITypeMatcher>();
 
   private static IServiceCollection AddSameMatcher<TType, TMatcher>(this IServiceCollection services)
     where TType : IGqlpType
-    where TMatcher : class, Matcher<TType>.I, IMatcher
+    where TMatcher : class, Matcher<TType>.I, ITypeMatcher
     => services.AddTypeMatcher<TType, TMatcher>();
 
   private static Matcher<TValue>.D GetMatcher<TService, TValue>(IServiceProvider provider)

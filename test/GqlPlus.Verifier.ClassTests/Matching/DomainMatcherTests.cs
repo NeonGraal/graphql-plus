@@ -12,7 +12,7 @@ public class DomainMatcherTests
   {
     Matcher<IGqlpEnum>.D enumMatcher = MatcherFor(out _enumMatcher);
 
-    _sut = new DomainMatcher(enumMatcher);
+    _sut = new DomainMatcher(LoggerFactory, enumMatcher);
   }
 
   [Theory, RepeatData]

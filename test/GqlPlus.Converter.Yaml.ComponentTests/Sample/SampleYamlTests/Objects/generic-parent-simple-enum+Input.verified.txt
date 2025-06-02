@@ -26,6 +26,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Input
     typeParams:
     - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        typeKind: !_TypeKind Internal
+        typeName: _Simple
       name: ref
   !_Identifier InpGnrcPrntSmplEnum: !_TypeInput
     allFields:

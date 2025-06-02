@@ -4,7 +4,10 @@ public abstract class ObjectSameMatcherTests<TObject>
   : MatcherTestsBase
   where TObject : class, IGqlpObject
 {
-  private readonly ObjectSameMatcher<TObject> _sut = new();
+  private readonly ObjectSameMatcher<TObject> _sut;
+
+  protected ObjectSameMatcherTests()
+    => _sut = new(LoggerFactory);
 
   [Theory, RepeatData]
   public void Object_Matches_SameName_ReturnsTrue(string constraint)

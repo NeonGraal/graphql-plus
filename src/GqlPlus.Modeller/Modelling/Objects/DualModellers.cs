@@ -1,16 +1,14 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
 internal class DualModeller(
-  IModeller<IGqlpDualAlternate, DualAlternateModel> objAlt,
-  IModeller<IGqlpDualField, DualFieldModel> objField,
-  IModeller<IGqlpDualBase, DualBaseModel> objBase
-) : ModellerObject<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate, TypeDualModel, DualBaseModel, DualFieldModel, DualAlternateModel>(TypeKindModel.Dual, objAlt, objField, objBase)
+  ObjectModellers<IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate, DualBaseModel, DualFieldModel, DualAlternateModel> modellers
+) : ModellerObject<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate, TypeDualModel, DualBaseModel, DualFieldModel, DualAlternateModel>(TypeKindModel.Dual, modellers)
 {
   protected override TypeDualModel ToModel(IGqlpDualObject ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, ast.Description) {
       Aliases = [.. ast.Aliases],
       Parent = ParentModel(ast.ObjParent, typeKinds),
-      TypeParams = TypeParamsModels(ast.TypeParams),
+      TypeParams = TypeParamsModels(ast.TypeParams, typeKinds),
       Fields = FieldsModels(ast.ObjFields, typeKinds),
       Alternates = AlternatesModels(ast.ObjAlternates, typeKinds),
     };

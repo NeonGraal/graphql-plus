@@ -3,19 +3,20 @@
 Success
 {
   !Du I@006/0001
-  DualAltModParam
+  AltModParamDual
   <
     I@023/0001
     $mod
+    :String
   >
   |
-  I@032/0001
-  AltDualAltModParam
+  I@039/0001
+  AltAltModParamDual
   [$mod]
 }
 {
   !Du I@006/0002
-  AltDualAltModParam
+  AltAltModParamDual
   {
     !DF I@027/0002
     alt

@@ -1,0 +1,49 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DomGnrcPrntStrDomInp: !_DomainString
+    allItems:
+    - !_DomainItem(_DomainRegex)
+      domain: DomGnrcPrntStrDomInp
+      exclude: false
+      pattern: \w+
+    domainKind: !_DomainKind String
+    items:
+    - !_DomainRegex
+      exclude: false
+      pattern: \w+
+    name: DomGnrcPrntStrDomInp
+    typeKind: !_TypeKind Domain
+  !_Identifier FieldGnrcPrntStrDomInp: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: FieldGnrcPrntStrDomInp
+      type: !_InputBase
+        typeParam: ref
+    fields:
+    - !_InputField
+      name: field
+      type: !_InputBase
+        typeParam: ref
+    name: FieldGnrcPrntStrDomInp
+    typeKind: !_TypeKind Input
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        typeKind: !_TypeKind Basic
+        typeName: String
+      name: ref
+  !_Identifier GnrcPrntStrDomInp: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: FieldGnrcPrntStrDomInp
+      type: !_InputBase
+        input: DomGnrcPrntStrDomInp
+    name: GnrcPrntStrDomInp
+    parent: !_InputBase
+      input: FieldGnrcPrntStrDomInp
+      typeArgs:
+      - !_InputArg
+        input: DomGnrcPrntStrDomInp
+    typeKind: !_TypeKind Input

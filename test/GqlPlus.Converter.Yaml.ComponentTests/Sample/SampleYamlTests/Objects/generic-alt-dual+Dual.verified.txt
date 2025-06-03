@@ -1,15 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier AltDualGnrcAltDual: !_TypeDual
+  !_Identifier AltGnrcAltDualDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: AltDualGnrcAltDual
+      object: AltGnrcAltDualDual
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: AltDualGnrcAltDual
+      object: AltGnrcAltDualDual
       type: !_DualBase
         dual: Number
     alternates:
@@ -21,38 +21,41 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: AltDualGnrcAltDual
+    name: AltGnrcAltDualDual
     typeKind: !_TypeKind Dual
-  !_Identifier DualGnrcAltDual: !_TypeDual
+  !_Identifier GnrcAltDualDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: DualGnrcAltDual
+      object: GnrcAltDualDual
       type: !_DualBase
-        dual: RefDualGnrcAltDual
+        dual: RefGnrcAltDualDual
         typeArgs:
         - !_DualArg
-          dual: AltDualGnrcAltDual
+          dual: AltGnrcAltDualDual
     alternates:
     - !_DualAlternate
       type: !_DualBase
-        dual: RefDualGnrcAltDual
+        dual: RefGnrcAltDualDual
         typeArgs:
         - !_DualArg
-          dual: AltDualGnrcAltDual
-    name: DualGnrcAltDual
+          dual: AltGnrcAltDualDual
+    name: GnrcAltDualDual
     typeKind: !_TypeKind Dual
-  !_Identifier RefDualGnrcAltDual: !_TypeDual
+  !_Identifier RefGnrcAltDualDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: RefDualGnrcAltDual
+      object: RefGnrcAltDualDual
       type: !_DualBase
         typeParam: ref
     alternates:
     - !_DualAlternate
       type: !_DualBase
         typeParam: ref
-    name: RefDualGnrcAltDual
+    name: RefGnrcAltDualDual
     typeKind: !_TypeKind Dual
     typeParams:
-    - !_Named
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        typeKind: !_TypeKind Internal
+        typeName: _Dual
       name: ref

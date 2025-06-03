@@ -1,10 +1,8 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Verifying.Schema;
+﻿namespace GqlPlus.Verifying.Schema;
 
 [TracePerTest]
 public class VerifySchemaTests
-  : VerifierBase
+  : VerifierTestsBase
 {
   private readonly ForVU<IGqlpSchemaCategory> _categoryOutputs = new();
   private readonly ForVU<IGqlpSchemaDirective> _directiveInputs = new();

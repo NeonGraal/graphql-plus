@@ -1,16 +1,14 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
 internal class OutputModeller(
-  IModeller<IGqlpOutputAlternate, OutputAlternateModel> alternate,
-  IModeller<IGqlpOutputField, OutputFieldModel> objField,
-  IModeller<IGqlpOutputBase, OutputBaseModel> objBase
-) : ModellerObject<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate, TypeOutputModel, OutputBaseModel, OutputFieldModel, OutputAlternateModel>(TypeKindModel.Output, alternate, objField, objBase)
+  ObjectModellers<IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate, OutputBaseModel, OutputFieldModel, OutputAlternateModel> modellers
+) : ModellerObject<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate, TypeOutputModel, OutputBaseModel, OutputFieldModel, OutputAlternateModel>(TypeKindModel.Output, modellers)
 {
   protected override TypeOutputModel ToModel(IGqlpOutputObject ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, ast.Description) {
       Aliases = [.. ast.Aliases],
       Parent = ParentModel(ast.ObjParent, typeKinds),
-      TypeParams = TypeParamsModels(ast.TypeParams),
+      TypeParams = TypeParamsModels(ast.TypeParams, typeKinds),
       Fields = FieldsModels(ast.ObjFields, typeKinds),
       Alternates = AlternatesModels(ast.ObjAlternates, typeKinds),
     };

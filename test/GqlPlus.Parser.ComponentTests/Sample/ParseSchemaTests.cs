@@ -2,12 +2,14 @@
 using GqlPlus.Ast.Schema;
 using GqlPlus.Result;
 using GqlPlus.Token;
+using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Sample;
 
 public class ParseSchemaTests(
-    ISchemaParseChecks checks
-) : TestSchemaResult(checks)
+  ILoggerFactory logger,
+  ISchemaParseChecks checks
+) : TestSchemaResult(logger, checks)
 {
   protected override async Task Result_Valid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")
   {

@@ -24,7 +24,7 @@ public class ParseObjectTests(
   [Theory, RepeatData]
   public void WithJustSpread_ReturnsCorrectAst(string spread)
     => checks
-      .SkipNull(spread)
+      .SkipWhitespace(spread)
       .SkipIf(spread.StartsWith("on", StringComparison.OrdinalIgnoreCase))
       .TrueExpected(
         "{|" + spread + "}",
@@ -33,7 +33,7 @@ public class ParseObjectTests(
   [Theory, RepeatData]
   public void WithAll_ReturnsCorrectAst(string field, string inline, string spread)
     => checks
-      .SkipNull(spread)
+      .SkipWhitespace(spread)
       .SkipIf(spread.StartsWith("on", StringComparison.OrdinalIgnoreCase))
       .TrueExpected(
         "{" + field + "|{" + inline + "}|" + spread + "}",

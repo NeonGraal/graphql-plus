@@ -3,16 +3,17 @@
 Success
 {
   !Ou I@008/0001
-  OutpGnrcField
+  GnrcFieldOutp
   <
     I@023/0001
     $type
+    :String
   >
   {
-    !OF I@031/0001
+    !OF I@038/0001
     field
     :
-    I@039/0001
+    I@046/0001
     $type
   }
 }

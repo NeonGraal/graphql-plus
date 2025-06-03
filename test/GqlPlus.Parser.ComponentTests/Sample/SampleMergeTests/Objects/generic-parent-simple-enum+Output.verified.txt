@@ -1,0 +1,37 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  GnrcPrntSmplEnumOutp
+  :
+  I@032/0001
+  FieldGnrcPrntSmplEnumOutp
+  <
+    I@058/0001
+    EnumGnrcPrntSmplEnumOutp
+  >
+}
+{
+  !Ou I@008/0002
+  FieldGnrcPrntSmplEnumOutp
+  <
+    I@035/0002
+    $ref
+    :_Simple
+  >
+  {
+    !OF I@050/0002
+    field
+    :
+    I@058/0002
+    $ref
+  }
+}
+{
+  !En I@006/0003
+  EnumGnrcPrntSmplEnumOutp
+  !EL I@033/0003
+  gnrcPrntSmplEnumOutp
+}
+]

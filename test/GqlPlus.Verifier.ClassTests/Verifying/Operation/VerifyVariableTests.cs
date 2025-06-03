@@ -5,7 +5,7 @@ namespace GqlPlus.Verifying.Operation;
 
 [TracePerTest]
 public class VerifyVariableTests
-  : VerifierBase
+  : VerifierTestsBase
 {
   private readonly IGqlpConstant _defValue = EFor<IGqlpConstant>();
   private readonly IGqlpConstant _constant = For<IGqlpConstant>();

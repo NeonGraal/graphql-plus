@@ -1,15 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier AltOutpGnrcAltDual: !_TypeDual
+  !_Identifier AltGnrcAltDualOutp: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: AltOutpGnrcAltDual
+      object: AltGnrcAltDualOutp
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: AltOutpGnrcAltDual
+      object: AltGnrcAltDualOutp
       type: !_DualBase
         dual: Number
     alternates:
@@ -21,38 +21,41 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: AltOutpGnrcAltDual
+    name: AltGnrcAltDualOutp
     typeKind: !_TypeKind Dual
-  !_Identifier OutpGnrcAltDual: !_TypeOutput
+  !_Identifier GnrcAltDualOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpGnrcAltDual
+      object: GnrcAltDualOutp
       type: !_OutputBase
-        output: RefOutpGnrcAltDual
+        output: RefGnrcAltDualOutp
         typeArgs:
         - !_DualArg
-          dual: AltOutpGnrcAltDual
+          dual: AltGnrcAltDualOutp
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
-        output: RefOutpGnrcAltDual
+        output: RefGnrcAltDualOutp
         typeArgs:
         - !_DualArg
-          dual: AltOutpGnrcAltDual
-    name: OutpGnrcAltDual
+          dual: AltGnrcAltDualOutp
+    name: GnrcAltDualOutp
     typeKind: !_TypeKind Output
-  !_Identifier RefOutpGnrcAltDual: !_TypeOutput
+  !_Identifier RefGnrcAltDualOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: RefOutpGnrcAltDual
+      object: RefGnrcAltDualOutp
       type: !_OutputBase
         typeParam: ref
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
         typeParam: ref
-    name: RefOutpGnrcAltDual
+    name: RefGnrcAltDualOutp
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        typeKind: !_TypeKind Internal
+        typeName: _Dual
       name: ref

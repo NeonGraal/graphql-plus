@@ -3,13 +3,15 @@ using GqlPlus.Ast.Schema;
 using GqlPlus.Result;
 using GqlPlus.Token;
 using GqlPlus.Verifying;
+using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Sample;
 
 public class VerifySchemaTests(
-    ISchemaParseChecks checks,
-    IVerify<IGqlpSchema> schemaVerifier
-) : TestSchemaResult(checks)
+  ILoggerFactory logger,
+  ISchemaParseChecks checks,
+  IVerify<IGqlpSchema> schemaVerifier
+) : TestSchemaResult(logger, checks)
 
 {
   protected override async Task Result_Valid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")
@@ -31,7 +33,6 @@ public class VerifySchemaTests(
 
   protected override async Task Result_Invalid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")
   {
-
     TokenMessages errors = [];
     if (result.IsOk()) {
       schemaVerifier.Verify(result.Required(), errors);

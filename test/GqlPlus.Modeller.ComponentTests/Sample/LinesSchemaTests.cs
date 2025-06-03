@@ -1,12 +1,14 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Convert;
 using GqlPlus.Resolving;
+using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Sample;
 
 public class LinesSchemaTests(
-    ISchemaVerifyChecks checks
-) : TestSchemaVerify(checks)
+  ILoggerFactory logger,
+  ISchemaVerifyChecks checks
+) : TestSchemaVerify(logger, checks)
 {
 
   protected override Task VerifyResult(Structured result, string label, string test, string section)

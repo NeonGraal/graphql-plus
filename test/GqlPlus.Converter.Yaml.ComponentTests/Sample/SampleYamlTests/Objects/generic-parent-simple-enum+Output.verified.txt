@@ -1,0 +1,46 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier EnumGnrcPrntSmplEnumOutp: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnumGnrcPrntSmplEnumOutp
+      name: gnrcPrntSmplEnumOutp
+    items:
+    - !_Aliased
+      name: gnrcPrntSmplEnumOutp
+    name: EnumGnrcPrntSmplEnumOutp
+    typeKind: !_TypeKind Enum
+  !_Identifier FieldGnrcPrntSmplEnumOutp: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: FieldGnrcPrntSmplEnumOutp
+      type: !_OutputBase
+        typeParam: ref
+    fields:
+    - !_OutputField
+      name: field
+      type: !_OutputBase
+        typeParam: ref
+    name: FieldGnrcPrntSmplEnumOutp
+    typeKind: !_TypeKind Output
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        typeKind: !_TypeKind Internal
+        typeName: _Simple
+      name: ref
+  !_Identifier GnrcPrntSmplEnumOutp: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: FieldGnrcPrntSmplEnumOutp
+      type: !_OutputBase
+        output: EnumGnrcPrntSmplEnumOutp
+    name: GnrcPrntSmplEnumOutp
+    parent: !_OutputBase
+      output: FieldGnrcPrntSmplEnumOutp
+      typeArgs:
+      - !_OutputArg
+        output: EnumGnrcPrntSmplEnumOutp
+    typeKind: !_TypeKind Output

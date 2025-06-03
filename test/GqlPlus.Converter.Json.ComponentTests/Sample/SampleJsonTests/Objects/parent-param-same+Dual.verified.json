@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualPrntParamSame": {
+    "PrntParamSameDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "RefDualPrntParamSame",
+          "object": "RefPrntParamSameDual",
           "type": {
             "$tag": "_DualBase",
             "typeParam": "a"
@@ -18,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "DualPrntParamSame",
+          "object": "PrntParamSameDual",
           "type": {
             "$tag": "_DualBase",
             "typeParam": "a"
@@ -35,10 +35,10 @@
           }
         }
       ],
-      "name": "DualPrntParamSame",
+      "name": "PrntParamSameDual",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "RefDualPrntParamSame",
+        "dual": "RefPrntParamSameDual",
         "typeArgs": [
           {
             "$tag": "_DualArg",
@@ -52,17 +52,25 @@
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
           "name": "a"
         }
       ]
     },
-    "RefDualPrntParamSame": {
+    "RefPrntParamSameDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "RefDualPrntParamSame",
+          "object": "RefPrntParamSameDual",
           "type": {
             "$tag": "_DualBase",
             "typeParam": "a"
@@ -78,14 +86,22 @@
           }
         }
       ],
-      "name": "RefDualPrntParamSame",
+      "name": "RefPrntParamSameDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
           "name": "a"
         }
       ]

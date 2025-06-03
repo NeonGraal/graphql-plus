@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualPrntAlt": {
+    "PrntAltDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "RefDualPrntAlt",
+          "object": "RefPrntAltDual",
           "type": {
             "$tag": "_DualBase",
             "dual": "String"
@@ -15,7 +15,7 @@
         },
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualPrntAlt",
+          "object": "PrntAltDual",
           "type": {
             "$tag": "_DualBase",
             "dual": "Number"
@@ -26,7 +26,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "parent",
-          "object": "RefDualPrntAlt",
+          "object": "RefPrntAltDual",
           "type": {
             "$tag": "_DualBase",
             "dual": "Number"
@@ -42,22 +42,22 @@
           }
         }
       ],
-      "name": "DualPrntAlt",
+      "name": "PrntAltDual",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "RefDualPrntAlt"
+        "dual": "RefPrntAltDual"
       },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"
       }
     },
-    "RefDualPrntAlt": {
+    "RefPrntAltDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "RefDualPrntAlt",
+          "object": "RefPrntAltDual",
           "type": {
             "$tag": "_DualBase",
             "dual": "String"
@@ -68,7 +68,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "parent",
-          "object": "RefDualPrntAlt",
+          "object": "RefPrntAltDual",
           "type": {
             "$tag": "_DualBase",
             "dual": "Number"
@@ -94,7 +94,7 @@
           }
         }
       ],
-      "name": "RefDualPrntAlt",
+      "name": "RefPrntAltDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"

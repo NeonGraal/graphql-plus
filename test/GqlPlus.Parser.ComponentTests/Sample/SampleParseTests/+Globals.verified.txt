@@ -97,7 +97,7 @@ Success
   DescrSngl
 }
 {
-  'A simple doc With extra'
+  'A simple description With extra'
   !Ou I@008/0039
   Dscrs
 }

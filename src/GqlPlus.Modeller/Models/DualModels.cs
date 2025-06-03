@@ -9,7 +9,7 @@ public record class TypeDualModel(
 public record class DualArgModel(
   string Dual,
   string Description
-) : ObjArgModel(Description)
+) : ObjTypeArgModel(Description)
   , IDualModel
 { }
 

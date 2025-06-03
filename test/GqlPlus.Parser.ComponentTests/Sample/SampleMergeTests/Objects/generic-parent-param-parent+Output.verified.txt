@@ -3,29 +3,30 @@
 Success
 {
   !Ou I@008/0001
-  OutpGnrcPrntParamPrnt
+  GnrcPrntParamPrntOutp
   :
   I@033/0001
-  RefOutpGnrcPrntParamPrnt
+  RefGnrcPrntParamPrntOutp
   <
     I@058/0001
-    AltOutpGnrcPrntParamPrnt
+    AltGnrcPrntParamPrntOutp
   >
 }
 {
   !Ou I@008/0002
-  RefOutpGnrcPrntParamPrnt
+  RefGnrcPrntParamPrntOutp
   <
     I@034/0002
     $ref
+    :_Output
   >
   :
-  I@043/0002
+  I@051/0002
   $ref
 }
 {
   !Ou I@008/0003
-  AltOutpGnrcPrntParamPrnt
+  AltGnrcPrntParamPrntOutp
   {
     !OF I@035/0003
     alt

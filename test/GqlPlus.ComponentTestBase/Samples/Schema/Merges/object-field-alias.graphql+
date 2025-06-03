@@ -1,3 +1,3 @@
-object ObjName { field [field1]: FldObjName }
-object ObjName { field [field2]: FldObjName }
-object FldObjName { }
+object Name { field [field1]: FldName }
+object Name { field [field2]: FldName }
+object FldName { }

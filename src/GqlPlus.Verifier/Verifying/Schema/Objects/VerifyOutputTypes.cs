@@ -1,15 +1,10 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Merging;
-using GqlPlus.Verification.Schema;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
 internal class VerifyOutputTypes(
-  IVerifyAliased<IGqlpOutputObject> aliased,
-  IMerge<IGqlpOutputField> mergeFields,
-  IMerge<IGqlpOutputAlternate> mergeAlternates,
-  ILoggerFactory logger
-) : AstObjectVerifier<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputArg, IGqlpOutputField, IGqlpOutputAlternate, OutputContext>(aliased, mergeFields, mergeAlternates, logger)
+  ObjectVerifierParams<IGqlpOutputObject, IGqlpOutputField, IGqlpOutputAlternate, IGqlpOutputArg> verifiers
+) : AstObjectVerifier<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputArg, IGqlpOutputField, IGqlpOutputAlternate, OutputContext>(verifiers)
 {
   protected override void UsageValue(IGqlpOutputObject usage, OutputContext context)
   {
@@ -31,17 +26,16 @@ internal class VerifyOutputTypes(
     base.UsageValue(usage, context);
   }
 
-  protected override void UsageField(IGqlpOutputField field, OutputContext context)
+  protected override void UsageFields(IEnumerable<IGqlpOutputField> fields, OutputContext context)
   {
-    foreach (IGqlpInputParam parameter in field.Params) {
-      context
-        .CheckType(parameter.Type, " Param")
-        .CheckArgs(parameter.Type.BaseArgs, " Param");
+    base.UsageFields(fields, context);
 
-      context.CheckModifiers(parameter);
+    foreach (IGqlpOutputField field in fields) {
+      foreach (IGqlpInputParam parameter in field.Params) {
+        CheckTypeRef(context, parameter.Type, " Param");
+        context.CheckModifiers(parameter);
+      }
     }
-
-    base.UsageField(field, context);
   }
 
   protected override OutputContext MakeContext(IGqlpOutputObject usage, IGqlpType[] aliased, ITokenMessages errors)
@@ -52,5 +46,22 @@ internal class VerifyOutputTypes(
       .ToMap(p => p.Id, p => p.Type);
 
     return new(validTypes, errors, aliased.MakeEnumValues());
+  }
+
+  internal override void CheckArgType(CheckError error, OutputContext context, IGqlpObjArg arg)
+  {
+    if (arg is IGqlpOutputArg output) {
+      if (string.IsNullOrWhiteSpace(output.EnumLabel)
+        && !context.GetType(arg.Name, out IGqlpDescribed? type)
+        && context.GetEnumValue(arg.Name, out string? enumType)) {
+        output.SetEnumType(enumType);
+      }
+
+      if (!string.IsNullOrWhiteSpace(output.EnumLabel)) {
+        context.CheckEnumValue("Arg", output);
+      }
+    }
+
+    base.CheckArgType(error, context, arg);
   }
 }

@@ -3,6 +3,6 @@
 Success
 {
   !In I@007/0001
-  InpObj
+  ObjInp
 }
 ]

@@ -1,0 +1,3 @@
+object Name { :FieldName<DomName> }
+object FieldName<$ref:String> { field: $ref }
+domain DomName { string /\w+/ }

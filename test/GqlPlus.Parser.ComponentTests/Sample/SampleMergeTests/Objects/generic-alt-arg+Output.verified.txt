@@ -3,28 +3,30 @@
 Success
 {
   !Ou I@008/0001
-  OutpGnrcAltArg
+  GnrcAltArgOutp
   <
     I@024/0001
     $type
+    :String
   >
   |
-  I@034/0001
-  RefOutpGnrcAltArg
+  I@041/0001
+  RefGnrcAltArgOutp
   <
-    I@053/0001
+    I@060/0001
     $type
   >
 }
 {
   !Ou I@008/0002
-  RefOutpGnrcAltArg
+  RefGnrcAltArgOutp
   <
     I@027/0002
     $ref
+    :String
   >
   |
-  P@036/0002
+  P@043/0002
   $ref
 }
 ]

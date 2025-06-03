@@ -1,1 +1,1 @@
-object ObjName { | "Test" "Descr" String }
+object Name { | "Test" "Descr" String }

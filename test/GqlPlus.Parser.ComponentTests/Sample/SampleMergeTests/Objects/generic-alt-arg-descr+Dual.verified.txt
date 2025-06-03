@@ -3,29 +3,31 @@
 Success
 {
   !Du I@006/0001
-  DualGnrcAltArgDescr
+  GnrcAltArgDescrDual
   <
     I@027/0001
     $type
+    :String
   >
   |
-  I@037/0001
-  RefDualGnrcAltArgDescr
+  I@044/0001
+  RefGnrcAltArgDescrDual
   <
     'Test Descr'
-    I@075/0001
+    I@082/0001
     $type
   >
 }
 {
   !Du I@006/0002
-  RefDualGnrcAltArgDescr
+  RefGnrcAltArgDescrDual
   <
     I@030/0002
     $ref
+    :String
   >
   |
-  P@039/0002
+  P@046/0002
   $ref
 }
 ]

@@ -1,15 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier AltDualGnrcFieldDual: !_TypeDual
+  !_Identifier AltGnrcFieldDualDual: !_TypeDual
     allAlternates:
       - !_ObjectFor(_DualAlternate)
-        object: AltDualGnrcFieldDual
+        object: AltGnrcFieldDualDual
         type: !_DualBase
           dual: String
     allFields:
       - !_ObjectFor(_DualField)
         name: alt
-        object: AltDualGnrcFieldDual
+        object: AltGnrcFieldDualDual
         type: !_DualBase
           dual: Number
     alternates:
@@ -21,40 +21,43 @@ types: !_Map_Type
         name: alt
         type: !_DualBase
           dual: Number
-    name: AltDualGnrcFieldDual
+    name: AltGnrcFieldDualDual
     typeKind: !_TypeKind Dual
-  !_Identifier DualGnrcFieldDual: !_TypeDual
+  !_Identifier GnrcFieldDualDual: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
         name: field
-        object: DualGnrcFieldDual
+        object: GnrcFieldDualDual
         type: !_DualBase
-          dual: RefDualGnrcFieldDual
+          dual: RefGnrcFieldDualDual
           typeArgs:
             - !_DualArg
-              dual: AltDualGnrcFieldDual
+              dual: AltGnrcFieldDualDual
     fields:
       - !_DualField
         name: field
         type: !_DualBase
-          dual: RefDualGnrcFieldDual
+          dual: RefGnrcFieldDualDual
           typeArgs:
             - !_DualArg
-              dual: AltDualGnrcFieldDual
-    name: DualGnrcFieldDual
+              dual: AltGnrcFieldDualDual
+    name: GnrcFieldDualDual
     typeKind: !_TypeKind Dual
-  !_Identifier RefDualGnrcFieldDual: !_TypeDual
+  !_Identifier RefGnrcFieldDualDual: !_TypeDual
     allAlternates:
       - !_ObjectFor(_DualAlternate)
-        object: RefDualGnrcFieldDual
+        object: RefGnrcFieldDualDual
         type: !_DualBase
           typeParam: ref
     alternates:
       - !_DualAlternate
         type: !_DualBase
           typeParam: ref
-    name: RefDualGnrcFieldDual
+    name: RefGnrcFieldDualDual
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Internal
+          typeName: _Dual
         name: ref

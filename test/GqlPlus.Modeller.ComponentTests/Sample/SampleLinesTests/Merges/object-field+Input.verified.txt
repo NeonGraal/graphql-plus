@@ -1,19 +1,19 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier FldInpObjField: !_TypeInput
-    name: FldInpObjField
+  !_Identifier FldObjFieldInp: !_TypeInput
+    name: FldObjFieldInp
     typeKind: !_TypeKind Input
-  !_Identifier InpObjField: !_TypeInput
+  !_Identifier ObjFieldInp: !_TypeInput
     allFields:
       - !_ObjectFor(_InputField)
         name: field
-        object: InpObjField
+        object: ObjFieldInp
         type: !_InputBase
-          input: FldInpObjField
+          input: FldObjFieldInp
     fields:
       - !_InputField
         name: field
         type: !_InputBase
-          input: FldInpObjField
-    name: InpObjField
+          input: FldObjFieldInp
+    name: ObjFieldInp
     typeKind: !_TypeKind Input

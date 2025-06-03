@@ -58,8 +58,9 @@ internal class BaseAstChecks<TAst>
     => Inequality(() => factory(input1), () => factory(input2), factoryExpression);
 
   public void InequalityBetween<TBy>(TBy input1, TBy input2, CreateBy<TBy> factory, bool skipIf,
-    [CallerArgumentExpression(nameof(factory))] string factoryExpression = "")
-    => Inequality(() => factory(input1), () => factory(input2), skipIf, factoryExpression);
+    [CallerArgumentExpression(nameof(factory))] string factoryExpression = "",
+    [CallerArgumentExpression(nameof(skipIf))] string skipIfExpression = "")
+    => Inequality(() => factory(input1), () => factory(input2), skipIf, factoryExpression, skipIfExpression);
 
   public void Text(AstCreator factory, string expected,
     [CallerArgumentExpression(nameof(factory))] string factoryExpression = "")

@@ -15,12 +15,12 @@ internal class VerifyAllTypes(
   {
     IGqlpType[] allTypes = [.. item, .. BuiltIn.Basic, .. BuiltIn.Internal];
 
-    IGqlpDualObject[] dualTypes = allTypes.ArrayOf<IGqlpDualObject>();
-    IGqlpEnum[] enumTypes = allTypes.ArrayOf<IGqlpEnum>();
-    IGqlpInputObject[] inputTypes = allTypes.ArrayOf<IGqlpInputObject>();
-    IGqlpOutputObject[] outputTypes = allTypes.ArrayOf<IGqlpOutputObject>();
-    IGqlpDomain[] domainTypes = allTypes.ArrayOf<IGqlpDomain>();
-    IGqlpUnion[] unionTypes = allTypes.ArrayOf<IGqlpUnion>();
+    IGqlpDualObject[] dualTypes = item.ArrayOf<IGqlpDualObject>();
+    IGqlpEnum[] enumTypes = item.ArrayOf<IGqlpEnum>();
+    IGqlpInputObject[] inputTypes = item.ArrayOf<IGqlpInputObject>();
+    IGqlpOutputObject[] outputTypes = item.ArrayOf<IGqlpOutputObject>();
+    IGqlpDomain[] domainTypes = item.ArrayOf<IGqlpDomain>();
+    IGqlpUnion[] unionTypes = item.ArrayOf<IGqlpUnion>();
 
     dualAllTypes.Verify(new(dualTypes, allTypes), errors);
     enumAllTypes.Verify(new(enumTypes, allTypes), errors);

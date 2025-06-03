@@ -1,0 +1,48 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !In I@007/0001
+  CnstAltObjInp
+  |
+  I@025/0001
+  RefCnstAltObjInp
+  <
+    I@042/0001
+    AltCnstAltObjInp
+  >
+}
+{
+  !In I@007/0002
+  RefCnstAltObjInp
+  <
+    I@025/0002
+    $ref
+    :PrntCnstAltObjInp
+  >
+  |
+  P@052/0002
+  $ref
+}
+{
+  !In I@007/0003
+  PrntCnstAltObjInp
+  |
+  I@029/0003
+  String
+}
+{
+  !In I@007/0004
+  AltCnstAltObjInp
+  :
+  I@027/0004
+  PrntCnstAltObjInp
+  {
+    !IF I@045/0004
+    alt
+    :
+    I@050/0004
+    Number
+  }
+}
+]

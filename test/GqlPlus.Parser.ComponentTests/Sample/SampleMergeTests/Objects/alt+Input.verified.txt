@@ -3,14 +3,14 @@
 Success
 {
   !In I@007/0001
-  InpAlt
+  AltInp
   |
   I@018/0001
-  AltInpAlt
+  AltAltInp
 }
 {
   !In I@007/0002
-  AltInpAlt
+  AltAltInp
   {
     !IF I@019/0002
     alt

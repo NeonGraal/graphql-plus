@@ -1,3 +1,3 @@
-output Name<$mod> { field(InName[$mod]): DomName }
+output Name<$mod:String> { field(InName[$mod]): DomName }
 input InName { param: Number | String }
 domain DomName { number 1 ~ 10 }

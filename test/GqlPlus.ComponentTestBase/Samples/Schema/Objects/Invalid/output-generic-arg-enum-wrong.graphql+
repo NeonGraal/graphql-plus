@@ -1,2 +1,2 @@
-output Test<$arg> { | Ref<$arg.unknown> }
-output Ref<$type> { field: $type }
+output Test<$arg:String> { | Ref<$arg.unknown> }
+output Ref<$type:String> { field: $type }

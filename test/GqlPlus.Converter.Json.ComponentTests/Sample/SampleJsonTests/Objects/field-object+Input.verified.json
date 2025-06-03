@@ -2,12 +2,41 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "FldInpFieldObj": {
+    "FieldObjInp": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "FieldObjInp",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "FldFieldObjInp"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "FldFieldObjInp"
+          }
+        }
+      ],
+      "name": "FieldObjInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "FldFieldObjInp": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "FldInpFieldObj",
+          "object": "FldFieldObjInp",
           "type": {
             "$tag": "_InputBase",
             "input": "String"
@@ -18,7 +47,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "FldInpFieldObj",
+          "object": "FldFieldObjInp",
           "type": {
             "$tag": "_InputBase",
             "input": "Number"
@@ -44,36 +73,7 @@
           }
         }
       ],
-      "name": "FldInpFieldObj",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Input"
-      }
-    },
-    "InpFieldObj": {
-      "$tag": "_TypeInput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_InputField)",
-          "name": "field",
-          "object": "InpFieldObj",
-          "type": {
-            "$tag": "_InputBase",
-            "input": "FldInpFieldObj"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_InputField",
-          "name": "field",
-          "type": {
-            "$tag": "_InputBase",
-            "input": "FldInpFieldObj"
-          }
-        }
-      ],
-      "name": "InpFieldObj",
+      "name": "FldFieldObjInp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Input"

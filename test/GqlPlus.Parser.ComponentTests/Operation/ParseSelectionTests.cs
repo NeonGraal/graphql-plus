@@ -41,7 +41,7 @@ public class ParseSelectionTests(
   [Theory, RepeatInlineData(Repeats, "..."), RepeatInlineData(Repeats, "|")]
   public void WithSpread_ReturnsCorrectAst(string prefix, string fragment)
     => checks
-      .SkipNull(fragment)
+      .SkipWhitespace(fragment)
       .SkipIf(fragment.StartsWith("on", StringComparison.OrdinalIgnoreCase))
       .TrueExpected(
         prefix + fragment,
@@ -50,7 +50,7 @@ public class ParseSelectionTests(
   [Theory, RepeatData]
   public void WithSpreadDirective_ReturnsCorrectAst(string fragment, string[] directives)
     => checks
-      .SkipNull(fragment)
+      .SkipWhitespace(fragment)
       .SkipIf(fragment.StartsWith("on", StringComparison.OrdinalIgnoreCase))
       .TrueExpected(
         $"|" + fragment + directives.Joined(s => "@" + s),

@@ -1,10 +1,8 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Verifying.Schema.Simple;
+﻿namespace GqlPlus.Verifying.Schema.Simple;
 
 [TracePerTest]
 public class VerifyDomainTypesTests
-  : UsageVerifierBase<IGqlpDomain>
+  : UsageVerifierTestsBase<IGqlpDomain>
 {
   private readonly IVerifyDomain _domainVerify = For<IVerifyDomain>();
   private readonly VerifyDomainTypes _verifier;

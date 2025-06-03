@@ -1,14 +1,14 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpAltSmpl: !_TypeOutput
+  !_Identifier AltSmplOutp: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
-        object: OutpAltSmpl
+        object: AltSmplOutp
         type: !_OutputBase
           output: String
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
           output: String
-    name: OutpAltSmpl
+    name: AltSmplOutp
     typeKind: !_TypeKind Output

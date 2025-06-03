@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifying.Operation;
 
 public class VerifyFragmentUsageTests
-  : IdentifiedVerifierBase<IGqlpSpread, IGqlpFragment>
+  : IdentifiedVerifierTestsBase<IGqlpSpread, IGqlpFragment>
 {
   protected override IEnumerable<IGqlpFragment> OneDefinition(string name)
   {

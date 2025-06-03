@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpPrntAlt": {
+    "PrntAltOutp": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "RefOutpPrntAlt",
+          "object": "RefPrntAltOutp",
           "type": {
             "$tag": "_OutputBase",
             "output": "String"
@@ -15,7 +15,7 @@
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpPrntAlt",
+          "object": "PrntAltOutp",
           "type": {
             "$tag": "_OutputBase",
             "output": "Number"
@@ -26,7 +26,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "parent",
-          "object": "RefOutpPrntAlt",
+          "object": "RefPrntAltOutp",
           "type": {
             "$tag": "_OutputBase",
             "output": "Number"
@@ -42,22 +42,22 @@
           }
         }
       ],
-      "name": "OutpPrntAlt",
+      "name": "PrntAltOutp",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "RefOutpPrntAlt"
+        "output": "RefPrntAltOutp"
       },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
       }
     },
-    "RefOutpPrntAlt": {
+    "RefPrntAltOutp": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "RefOutpPrntAlt",
+          "object": "RefPrntAltOutp",
           "type": {
             "$tag": "_OutputBase",
             "output": "String"
@@ -68,7 +68,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "parent",
-          "object": "RefOutpPrntAlt",
+          "object": "RefPrntAltOutp",
           "type": {
             "$tag": "_OutputBase",
             "output": "Number"
@@ -94,7 +94,7 @@
           }
         }
       ],
-      "name": "RefOutpPrntAlt",
+      "name": "RefPrntAltOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

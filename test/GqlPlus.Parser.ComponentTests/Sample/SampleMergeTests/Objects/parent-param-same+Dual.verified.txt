@@ -3,35 +3,37 @@
 Success
 {
   !Du I@006/0001
-  DualPrntParamSame
+  PrntParamSameDual
   <
     I@025/0001
     $a
+    :String
   >
   :
-  I@031/0001
-  RefDualPrntParamSame
+  I@038/0001
+  RefPrntParamSameDual
   <
-    I@053/0001
+    I@060/0001
     $a
   >
   {
-    !DF I@056/0001
+    !DF I@063/0001
     field
     :
-    I@064/0001
+    I@071/0001
     $a
   }
 }
 {
   !Du I@006/0002
-  RefDualPrntParamSame
+  RefPrntParamSameDual
   <
     I@028/0002
     $a
+    :String
   >
   |
-  P@035/0002
+  P@042/0002
   $a
 }
 ]

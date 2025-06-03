@@ -47,5 +47,8 @@ types: !_Map_Type
     name: RefOutpGnrcEnum
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Internal
+          typeName: _Enum
         name: type

@@ -1,13 +1,13 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier RefInpGnrcAltModParam: !_TypeInput
+  !_Identifier RefGnrcAltModParamInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
         collections:
           - !_ModifierTypeParam
             by: mod
             modifierKind: !_ModifierKind Param
-        object: RefInpGnrcAltModParam
+        object: RefGnrcAltModParamInp
         type: !_InputBase
           typeParam: ref
     alternates:
@@ -18,10 +18,16 @@ types: !_Map_Type
             modifierKind: !_ModifierKind Param
         type: !_InputBase
           typeParam: ref
-    name: RefInpGnrcAltModParam
+    name: RefGnrcAltModParamInp
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Basic
+          typeName: String
         name: ref
-      - !_Named
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Basic
+          typeName: String
         name: mod

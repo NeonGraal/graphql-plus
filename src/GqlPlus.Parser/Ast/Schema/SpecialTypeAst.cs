@@ -11,12 +11,16 @@ internal sealed record class SpecialTypeAst
   public override string Label { get; }
   public new string? Parent => null;
 
-  public SpecialTypeAst(string label)
+  private readonly Func<IGqlpType, bool> _matcher;
+
+  public SpecialTypeAst(string label, Func<IGqlpType, bool> matcher)
     : base(AstNulls.At, "_" + label, "")
-    => Label = label;
+    => (Label, _matcher) = (label, matcher);
 
   public bool Equals(SpecialTypeAst? other)
     => other is IGqlpType<string> parented && Equals(parented);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Label);
+  public bool MatchesTypeSpecial(IGqlpType type)
+    => _matcher(type);
 }

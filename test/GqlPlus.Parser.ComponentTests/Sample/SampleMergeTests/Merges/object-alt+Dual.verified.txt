@@ -3,13 +3,13 @@
 Success
 {
   !Du I@006/0001
-  DualObjAlt
+  ObjAltDual
   |
   I@021/0001
-  DualObjAltType
+  ObjAltDualType
 }
 {
   !Du I@006/0003
-  DualObjAltType
+  ObjAltDualType
 }
 ]

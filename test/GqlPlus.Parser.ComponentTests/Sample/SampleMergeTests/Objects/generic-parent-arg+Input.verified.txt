@@ -3,28 +3,30 @@
 Success
 {
   !In I@007/0001
-  InpGnrcPrntArg
+  GnrcPrntArgInp
   <
     I@023/0001
     $type
+    :String
   >
   :
-  I@032/0001
-  RefInpGnrcPrntArg
+  I@039/0001
+  RefGnrcPrntArgInp
   <
-    I@051/0001
+    I@058/0001
     $type
   >
 }
 {
   !In I@007/0002
-  RefInpGnrcPrntArg
+  RefGnrcPrntArgInp
   <
     I@026/0002
     $ref
+    :String
   >
   |
-  P@035/0002
+  P@042/0002
   $ref
 }
 ]

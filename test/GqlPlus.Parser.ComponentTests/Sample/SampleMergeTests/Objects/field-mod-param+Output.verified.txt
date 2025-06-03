@@ -3,23 +3,24 @@
 Success
 {
   !Ou I@008/0001
-  OutpFieldModParam
+  FieldModParamOutp
   <
     I@027/0001
     $mod
+    :String
   >
   {
-    !OF I@034/0001
+    !OF I@041/0001
     field
     :
-    I@041/0001
-    FldOutpFieldModParam
+    I@048/0001
+    FldFieldModParamOutp
     [$mod]
   }
 }
 {
   !Ou I@008/0002
-  FldOutpFieldModParam
+  FldFieldModParamOutp
   {
     !OF I@031/0002
     field

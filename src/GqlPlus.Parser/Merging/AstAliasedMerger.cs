@@ -36,7 +36,7 @@ internal abstract class AstAliasedMerger<TItem>(
     _logger.AliasesNotSingular(typeName, group.Key, ItemMatchName, values);
 
     return group.Last().item
-        .MakeError($"Aliases of {typeName} for '{group.Key}' is not singular {ItemMatchName}[{values}]");
+        .MakeError($"Aliases of {typeName} for '{group.Key}' not singular {ItemMatchName}[{values}]");
   }
 
   protected override TItem MergeGroup(IEnumerable<TItem> group)

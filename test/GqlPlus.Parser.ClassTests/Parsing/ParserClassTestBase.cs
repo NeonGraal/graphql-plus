@@ -252,6 +252,12 @@ public class ParserClassTestBase
   protected static bool OutPass(CallInfo _)
     => true;
 
+  protected static Func<CallInfo, bool> OutChar(char? value, int first = 0)
+    => c => {
+      c[first] = value;
+      return true;
+    };
+
   protected static Func<CallInfo, bool> OutNumber(decimal? value, int first = 0)
     => c => {
       c[first] = value;

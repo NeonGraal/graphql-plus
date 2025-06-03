@@ -2,12 +2,7 @@
   {%- if object.typeParams or object.parent %}
   <div class="grid">
     {%- if object.typeParams %}
-    <div>
-      <sub>Type parameters:</sub>
-      {%- for prm in object.typeParams %} <I>${{ prm.name }}</I>
-      {%- unless forloop.last -%} , {%- endunless -%}
-      {%- endfor %}
-    </div>
+    {%- render "typeParams" with object.typeParams as typeParams -%}
     {%- endif -%}
     {%- if object.parent %}
     <div>

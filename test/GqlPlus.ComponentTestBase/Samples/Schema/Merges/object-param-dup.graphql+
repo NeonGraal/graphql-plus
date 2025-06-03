@@ -1,0 +1,2 @@
+object Name<$test:String> { test: $test }
+object Name<$test:String> { type: $test }

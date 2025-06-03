@@ -3,32 +3,34 @@
 Success
 {
   !Du I@006/0001
-  DualGnrcFieldArg
+  GnrcFieldArgDual
   <
     I@024/0001
     $type
+    :String
   >
   {
-    !DF I@032/0001
+    !DF I@039/0001
     field
     :
-    I@039/0001
-    RefDualGnrcFieldArg
+    I@046/0001
+    RefGnrcFieldArgDual
     <
-      I@060/0001
+      I@067/0001
       $type
     >
   }
 }
 {
   !Du I@006/0002
-  RefDualGnrcFieldArg
+  RefGnrcFieldArgDual
   <
     I@027/0002
     $ref
+    :String
   >
   |
-  P@036/0002
+  P@043/0002
   $ref
 }
 ]

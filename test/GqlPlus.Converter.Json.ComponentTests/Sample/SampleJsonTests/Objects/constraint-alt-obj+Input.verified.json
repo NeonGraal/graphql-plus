@@ -1,0 +1,156 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "AltCnstAltObjInp": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "PrntCnstAltObjInp",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "alt",
+          "object": "AltCnstAltObjInp",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "Number"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "alt",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "Number"
+          }
+        }
+      ],
+      "name": "AltCnstAltObjInp",
+      "parent": {
+        "$tag": "_InputBase",
+        "input": "PrntCnstAltObjInp"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "CnstAltObjInp": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "CnstAltObjInp",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "RefCnstAltObjInp",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "input": "AltCnstAltObjInp"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "RefCnstAltObjInp",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "input": "AltCnstAltObjInp"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "CnstAltObjInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "PrntCnstAltObjInp": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "PrntCnstAltObjInp",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "String"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "String"
+          }
+        }
+      ],
+      "name": "PrntCnstAltObjInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "RefCnstAltObjInp": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "RefCnstAltObjInp",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "name": "RefCnstAltObjInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Input"
+            },
+            "typeName": "PrntCnstAltObjInp"
+          },
+          "name": "ref"
+        }
+      ]
+    }
+  }
+}

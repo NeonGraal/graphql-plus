@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "AltInpAltModBool": {
+    "AltAltModBoolInp": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "AltInpAltModBool",
+          "object": "AltAltModBoolInp",
           "type": {
             "$tag": "_InputBase",
             "input": "String"
@@ -18,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "alt",
-          "object": "AltInpAltModBool",
+          "object": "AltAltModBoolInp",
           "type": {
             "$tag": "_InputBase",
             "input": "Number"
@@ -44,13 +44,13 @@
           }
         }
       ],
-      "name": "AltInpAltModBool",
+      "name": "AltAltModBoolInp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Input"
       }
     },
-    "InpAltModBool": {
+    "AltModBoolInp": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
@@ -69,10 +69,10 @@
               }
             }
           ],
-          "object": "InpAltModBool",
+          "object": "AltModBoolInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "AltInpAltModBool"
+            "input": "AltAltModBoolInp"
           }
         }
       ],
@@ -95,11 +95,11 @@
           ],
           "type": {
             "$tag": "_InputBase",
-            "input": "AltInpAltModBool"
+            "input": "AltAltModBoolInp"
           }
         }
       ],
-      "name": "InpAltModBool",
+      "name": "AltModBoolInp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Input"

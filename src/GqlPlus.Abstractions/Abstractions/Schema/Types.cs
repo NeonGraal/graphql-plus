@@ -21,4 +21,6 @@ public interface IGqlpTypeRef
 
 public interface IGqlpTypeSpecial
   : IGqlpSimple
-{ }
+{
+  bool MatchesTypeSpecial(IGqlpType type);
+}

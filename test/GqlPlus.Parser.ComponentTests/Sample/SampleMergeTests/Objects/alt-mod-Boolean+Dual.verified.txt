@@ -3,15 +3,15 @@
 Success
 {
   !Du I@006/0001
-  DualAltModBool
+  AltModBoolDual
   |
   I@025/0001
-  AltDualAltModBool
+  AltAltModBoolDual
   [^]
 }
 {
   !Du I@006/0002
-  AltDualAltModBool
+  AltAltModBoolDual
   {
     !DF I@026/0002
     alt

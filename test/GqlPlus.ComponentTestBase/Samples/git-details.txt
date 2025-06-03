@@ -1,1 +1,1 @@
-4bb112c  (HEAD -> just-class-tests) 2025-05-27 Change field on _TypeRef to typeName
+7ca597e  (HEAD -> operation) 2025-06-04 Merge branch 'main' into operation

@@ -3,35 +3,37 @@
 Success
 {
   !In I@007/0001
-  InpPrntParamSame
+  PrntParamSameInp
   <
     I@025/0001
     $a
+    :String
   >
   :
-  I@031/0001
-  RefInpPrntParamSame
+  I@038/0001
+  RefPrntParamSameInp
   <
-    I@052/0001
+    I@059/0001
     $a
   >
   {
-    !IF I@055/0001
+    !IF I@062/0001
     field
     :
-    I@063/0001
+    I@070/0001
     $a
   }
 }
 {
   !In I@007/0002
-  RefInpPrntParamSame
+  RefPrntParamSameInp
   <
     I@028/0002
     $a
+    :String
   >
   |
-  P@035/0002
+  P@042/0002
   $a
 }
 ]

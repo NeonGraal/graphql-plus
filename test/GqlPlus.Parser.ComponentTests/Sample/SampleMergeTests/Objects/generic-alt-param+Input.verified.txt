@@ -3,29 +3,30 @@
 Success
 {
   !In I@007/0001
-  InpGnrcAltParam
+  GnrcAltParamInp
   |
   I@027/0001
-  RefInpGnrcAltParam
+  RefGnrcAltParamInp
   <
     I@046/0001
-    AltInpGnrcAltParam
+    AltGnrcAltParamInp
   >
 }
 {
   !In I@007/0002
-  RefInpGnrcAltParam
+  RefGnrcAltParamInp
   <
     I@027/0002
     $ref
+    :_Input
   >
   |
-  P@036/0002
+  P@043/0002
   $ref
 }
 {
   !In I@007/0003
-  AltInpGnrcAltParam
+  AltGnrcAltParamInp
   {
     !IF I@028/0003
     alt

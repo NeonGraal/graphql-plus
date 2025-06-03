@@ -2,7 +2,7 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "RefInpGnrcAltModParam": {
+    "RefGnrcAltModParamInp": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
@@ -17,7 +17,7 @@
               }
             }
           ],
-          "object": "RefInpGnrcAltModParam",
+          "object": "RefGnrcAltModParamInp",
           "type": {
             "$tag": "_InputBase",
             "typeParam": "ref"
@@ -43,18 +43,34 @@
           }
         }
       ],
-      "name": "RefInpGnrcAltModParam",
+      "name": "RefGnrcAltModParamInp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Input"
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
           "name": "ref"
         },
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
           "name": "mod"
         }
       ]

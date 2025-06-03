@@ -3,23 +3,25 @@
 Success
 {
   !Du I@006/0001
-  DualObjParam
+  ObjParamDual
   <
     I@020/0001
     $test
+    :String
     I@020/0002
     $type
+    :String
   >
   {
-    !DF I@028/0001
+    !DF I@035/0001
     test
     :
-    I@035/0001
+    I@042/0001
     $test
-    !DF I@028/0002
+    !DF I@035/0002
     type
     :
-    I@035/0002
+    I@042/0002
     $type
   }
 }

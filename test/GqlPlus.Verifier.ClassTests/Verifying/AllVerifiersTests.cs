@@ -1,4 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Matching;
 using GqlPlus.Merging;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,6 +12,7 @@ public class AllVerifiersTests
     IServiceProvider services = new ServiceCollection()
       .AddLogging()
       .AddMergers()
+      .AddMatchers()
       .AddVerifiers()
       .BuildServiceProvider();
 

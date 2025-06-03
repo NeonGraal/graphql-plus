@@ -2,9 +2,9 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpObj": {
+    "ObjOutp": {
       "$tag": "_TypeOutput",
-      "name": "OutpObj",
+      "name": "ObjOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

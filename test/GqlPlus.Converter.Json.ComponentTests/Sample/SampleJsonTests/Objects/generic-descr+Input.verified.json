@@ -2,13 +2,13 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpGnrcDescr": {
+    "GnrcDescrInp": {
       "$tag": "_TypeInput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "InpGnrcDescr",
+          "object": "GnrcDescrInp",
           "type": {
             "$tag": "_InputBase",
             "typeParam": "type"
@@ -25,14 +25,22 @@
           }
         }
       ],
-      "name": "InpGnrcDescr",
+      "name": "GnrcDescrInp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Input"
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
           "description": "Test Descr",
           "name": "type"
         }

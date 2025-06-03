@@ -3,23 +3,24 @@
 Success
 {
   !In I@007/0001
-  InpFieldModParam
+  FieldModParamInp
   <
     I@025/0001
     $mod
+    :String
   >
   {
-    !IF I@032/0001
+    !IF I@039/0001
     field
     :
-    I@039/0001
-    FldInpFieldModParam
+    I@046/0001
+    FldFieldModParamInp
     [$mod]
   }
 }
 {
   !In I@007/0002
-  FldInpFieldModParam
+  FldFieldModParamInp
   {
     !IF I@029/0002
     field

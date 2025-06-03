@@ -3,7 +3,7 @@
 Success
 {
   !Ou I@008/0001
-  OutpAltSmpl
+  AltSmplOutp
   |
   I@024/0001
   String

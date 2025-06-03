@@ -3,15 +3,15 @@
 Success
 {
   !In I@007/0001
-  InpPrntDescr
+  PrntDescrInp
   :
   'Test Descr'
   I@039/0001
-  RefInpPrntDescr
+  RefPrntDescrInp
 }
 {
   !In I@007/0002
-  RefInpPrntDescr
+  RefPrntDescrInp
   {
     !IF I@025/0002
     parent

@@ -3,13 +3,14 @@
 Success
 {
   !Du I@006/0001
-  DualGnrcPrnt
+  GnrcPrntDual
   <
     I@020/0001
     $type
+    :String
   >
   :
-  I@030/0001
+  I@037/0001
   $type
 }
 ]

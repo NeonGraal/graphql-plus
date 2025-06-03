@@ -1,0 +1,4 @@
+object Name { :FieldName<EnumName> }
+object FieldName<$ref:ParentName> { field: $ref }
+enum EnumName { :ParentName nameLabel }
+enum ParentName { nameParent }

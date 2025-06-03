@@ -1,0 +1,99 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnumGnrcPrntSmplEnumOutp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumGnrcPrntSmplEnumOutp",
+          "name": "gnrcPrntSmplEnumOutp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "gnrcPrntSmplEnumOutp"
+        }
+      ],
+      "name": "EnumGnrcPrntSmplEnumOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "FieldGnrcPrntSmplEnumOutp": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "FieldGnrcPrntSmplEnumOutp",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "name": "FieldGnrcPrntSmplEnumOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Internal"
+            },
+            "typeName": "_Simple"
+          },
+          "name": "ref"
+        }
+      ]
+    },
+    "GnrcPrntSmplEnumOutp": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "FieldGnrcPrntSmplEnumOutp",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "EnumGnrcPrntSmplEnumOutp"
+          }
+        }
+      ],
+      "name": "GnrcPrntSmplEnumOutp",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "FieldGnrcPrntSmplEnumOutp",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "output": "EnumGnrcPrntSmplEnumOutp"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    }
+  }
+}

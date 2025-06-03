@@ -6,7 +6,7 @@ public abstract class ResolverTypeObjectParentTestBase<TModel, TBase, TField, TA
   where TBase : IObjBaseModel
   where TField : IObjFieldModel
   where TAlt : IObjAlternateModel
-  where TArg : IObjArgModel
+  where TArg : IObjTypeArgModel
 {
   [Theory, RepeatData]
   public void ModelWithParentWithArgParent_ResolvesCorrectly(string name, string parent, string grandParent)

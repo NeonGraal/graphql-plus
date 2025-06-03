@@ -1,0 +1,34 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  CnstAltDmnOutp
+  |
+  I@027/0001
+  RefCnstAltDmnOutp
+  <
+    I@045/0001
+    DomCnstAltDmnOutp
+  >
+}
+{
+  !Ou I@008/0002
+  RefCnstAltDmnOutp
+  <
+    I@027/0002
+    $ref
+    :String
+  >
+  |
+  P@043/0002
+  $ref
+}
+{
+  !Do I@008/0003
+  DomCnstAltDmnOutp
+  String
+  !DX R@035/0003
+  /\\w+/
+}
+]

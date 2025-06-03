@@ -3,14 +3,14 @@
 Success
 {
   !Ou I@008/0001
-  OutpPrnt
+  PrntOutp
   :
   I@020/0001
-  RefOutpPrnt
+  RefPrntOutp
 }
 {
   !Ou I@008/0002
-  RefOutpPrnt
+  RefPrntOutp
   {
     !OF I@022/0002
     parent

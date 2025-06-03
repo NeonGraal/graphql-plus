@@ -1,20 +1,20 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpPrntField: !_TypeInput
+  !_Identifier PrntFieldInp: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: RefInpPrntField
+      object: RefPrntFieldInp
       type: !_InputBase
         input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: parent
-      object: RefInpPrntField
+      object: RefPrntFieldInp
       type: !_InputBase
         input: Number
     - !_ObjectFor(_InputField)
       name: field
-      object: InpPrntField
+      object: PrntFieldInp
       type: !_InputBase
         input: Number
     fields:
@@ -22,20 +22,20 @@ types: !_Map_Type
       name: field
       type: !_InputBase
         input: Number
-    name: InpPrntField
+    name: PrntFieldInp
     parent: !_InputBase
-      input: RefInpPrntField
+      input: RefPrntFieldInp
     typeKind: !_TypeKind Input
-  !_Identifier RefInpPrntField: !_TypeInput
+  !_Identifier RefPrntFieldInp: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: RefInpPrntField
+      object: RefPrntFieldInp
       type: !_InputBase
         input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: parent
-      object: RefInpPrntField
+      object: RefPrntFieldInp
       type: !_InputBase
         input: Number
     alternates:
@@ -47,5 +47,5 @@ types: !_Map_Type
       name: parent
       type: !_InputBase
         input: Number
-    name: RefInpPrntField
+    name: RefPrntFieldInp
     typeKind: !_TypeKind Input

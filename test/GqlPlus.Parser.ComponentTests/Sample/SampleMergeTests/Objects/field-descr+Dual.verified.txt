@@ -3,14 +3,14 @@
 Success
 {
   !Du I@006/0001
-  DualFieldDescr
+  FieldDescrDual
   {
     'Test Descr'
     !DF I@038/0001
     field
     :
-    P@045/0001
-    *
+    I@045/0001
+    String
   }
 }
 ]

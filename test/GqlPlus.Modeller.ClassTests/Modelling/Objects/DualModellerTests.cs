@@ -5,10 +5,11 @@ public class DualModellerTests
 {
   public DualModellerTests()
   {
+    IModeller<IGqlpTypeParam, TypeParamModel> typeParam = MFor<IGqlpTypeParam, TypeParamModel>();
     IModeller<IGqlpDualAlternate, DualAlternateModel> objAlt = MFor<IGqlpDualAlternate, DualAlternateModel>();
     IModeller<IGqlpDualField, DualFieldModel> objField = MFor<IGqlpDualField, DualFieldModel>();
 
-    Modeller = new DualModeller(objAlt, objField, ObjBase);
+    Modeller = new DualModeller(new(typeParam, objAlt, objField, ObjBase));
   }
 
   protected override IModeller<IGqlpDualObject, TypeDualModel> Modeller { get; }

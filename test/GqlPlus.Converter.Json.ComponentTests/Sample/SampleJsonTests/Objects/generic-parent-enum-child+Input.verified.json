@@ -1,0 +1,133 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnumGnrcPrntEnumChildInp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "ParentGnrcPrntEnumChildInp",
+          "name": "gnrcPrntEnumChildInpParent"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumGnrcPrntEnumChildInp",
+          "name": "gnrcPrntEnumChildInpLabel"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "gnrcPrntEnumChildInpLabel"
+        }
+      ],
+      "name": "EnumGnrcPrntEnumChildInp",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Enum"
+        },
+        "typeName": "ParentGnrcPrntEnumChildInp"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "FieldGnrcPrntEnumChildInp": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "FieldGnrcPrntEnumChildInp",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "name": "FieldGnrcPrntEnumChildInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            },
+            "typeName": "EnumGnrcPrntEnumChildInp"
+          },
+          "name": "ref"
+        }
+      ]
+    },
+    "GnrcPrntEnumChildInp": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "FieldGnrcPrntEnumChildInp",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "ParentGnrcPrntEnumChildInp"
+          }
+        }
+      ],
+      "name": "GnrcPrntEnumChildInp",
+      "parent": {
+        "$tag": "_InputBase",
+        "input": "FieldGnrcPrntEnumChildInp",
+        "typeArgs": [
+          {
+            "$tag": "_InputArg",
+            "input": "ParentGnrcPrntEnumChildInp"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "ParentGnrcPrntEnumChildInp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "ParentGnrcPrntEnumChildInp",
+          "name": "gnrcPrntEnumChildInpParent"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "gnrcPrntEnumChildInpParent"
+        }
+      ],
+      "name": "ParentGnrcPrntEnumChildInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    }
+  }
+}

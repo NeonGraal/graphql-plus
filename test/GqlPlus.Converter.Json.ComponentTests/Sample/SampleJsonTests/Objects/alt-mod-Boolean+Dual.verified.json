@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "AltDualAltModBool": {
+    "AltAltModBoolDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "AltDualAltModBool",
+          "object": "AltAltModBoolDual",
           "type": {
             "$tag": "_DualBase",
             "dual": "String"
@@ -18,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "AltDualAltModBool",
+          "object": "AltAltModBoolDual",
           "type": {
             "$tag": "_DualBase",
             "dual": "Number"
@@ -44,13 +44,13 @@
           }
         }
       ],
-      "name": "AltDualAltModBool",
+      "name": "AltAltModBoolDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"
       }
     },
-    "DualAltModBool": {
+    "AltModBoolDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
@@ -69,10 +69,10 @@
               }
             }
           ],
-          "object": "DualAltModBool",
+          "object": "AltModBoolDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "AltDualAltModBool"
+            "dual": "AltAltModBoolDual"
           }
         }
       ],
@@ -95,11 +95,11 @@
           ],
           "type": {
             "$tag": "_DualBase",
-            "dual": "AltDualAltModBool"
+            "dual": "AltAltModBoolDual"
           }
         }
       ],
-      "name": "DualAltModBool",
+      "name": "AltModBoolDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"

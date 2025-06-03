@@ -1,0 +1,141 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "AltCnstPrntObjPrntDual": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "PrntCnstPrntObjPrntDual",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "alt",
+          "object": "AltCnstPrntObjPrntDual",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "Number"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "alt",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "Number"
+          }
+        }
+      ],
+      "name": "AltCnstPrntObjPrntDual",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "PrntCnstPrntObjPrntDual"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "CnstPrntObjPrntDual": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "PrntCnstPrntObjPrntDual",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "alt",
+          "object": "AltCnstPrntObjPrntDual",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "Number"
+          }
+        }
+      ],
+      "name": "CnstPrntObjPrntDual",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "RefCnstPrntObjPrntDual",
+        "typeArgs": [
+          {
+            "$tag": "_DualArg",
+            "dual": "AltCnstPrntObjPrntDual"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "PrntCnstPrntObjPrntDual": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "PrntCnstPrntObjPrntDual",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "String"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "String"
+          }
+        }
+      ],
+      "name": "PrntCnstPrntObjPrntDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "RefCnstPrntObjPrntDual": {
+      "$tag": "_TypeDual",
+      "name": "RefCnstPrntObjPrntDual",
+      "parent": {
+        "$tag": "_DualBase",
+        "typeParam": "ref"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Dual"
+            },
+            "typeName": "PrntCnstPrntObjPrntDual"
+          },
+          "name": "ref"
+        }
+      ]
+    }
+  }
+}

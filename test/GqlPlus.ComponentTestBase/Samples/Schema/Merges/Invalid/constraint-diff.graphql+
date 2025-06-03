@@ -1,0 +1,2 @@
+object Test<$type:0> { num: $type }
+object Test<$type:String> { str: $type }

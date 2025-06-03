@@ -3,14 +3,14 @@
 Success
 {
   !Ou I@008/0001
-  OutpPrntDual
+  PrntDualOutp
   :
   I@024/0001
-  RefOutpPrntDual
+  RefPrntDualOutp
 }
 {
   !Du I@006/0002
-  RefOutpPrntDual
+  RefPrntDualOutp
   {
     !DF I@024/0002
     parent

@@ -2,25 +2,25 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "FldOutpObjFieldAlias": {
+    "FldObjFieldAliasOutp": {
       "$tag": "_TypeOutput",
-      "name": "FldOutpObjFieldAlias",
+      "name": "FldObjFieldAliasOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
       }
     },
-    "OutpObjFieldAlias": {
+    "ObjFieldAliasOutp": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "aliases": ["field1", "field2"],
           "name": "field",
-          "object": "OutpObjFieldAlias",
+          "object": "ObjFieldAliasOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "FldOutpObjFieldAlias"
+            "output": "FldObjFieldAliasOutp"
           }
         }
       ],
@@ -31,11 +31,11 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "output": "FldOutpObjFieldAlias"
+            "output": "FldObjFieldAliasOutp"
           }
         }
       ],
-      "name": "OutpObjFieldAlias",
+      "name": "ObjFieldAliasOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

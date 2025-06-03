@@ -1,10 +1,8 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Verifying.Schema;
+﻿namespace GqlPlus.Verifying.Schema;
 
 [TracePerTest]
 public class VerifyAllTypesTests
-  : VerifierBase
+  : VerifierTestsBase
 {
   private readonly ForVU<IGqlpDualObject> _dualAllTypes = new();
   private readonly ForVU<IGqlpEnum> _enumAllTypes = new();

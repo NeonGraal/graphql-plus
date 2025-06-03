@@ -1,14 +1,14 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpAltSmpl: !_TypeInput
+  !_Identifier AltSmplInp: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpAltSmpl
+      object: AltSmplInp
       type: !_InputBase
         input: String
     alternates:
     - !_InputAlternate
       type: !_InputBase
         input: String
-    name: InpAltSmpl
+    name: AltSmplInp
     typeKind: !_TypeKind Input

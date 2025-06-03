@@ -3,13 +3,13 @@
 Success
 {
   !Ou I@008/0001
-  OutpField
+  FieldOutp
   {
     !OF I@020/0001
     field
     :
-    P@027/0001
-    *
+    I@027/0001
+    String
   }
 }
 ]

@@ -29,5 +29,9 @@ internal sealed record class DomainLabelAst(
       .Append(EnumItem);
 
   void IGqlpDomainLabel.SetEnumType(string enumType)
-    => EnumType ??= enumType;
+  {
+    if (string.IsNullOrWhiteSpace(EnumType)) {
+      EnumType = enumType;
+    }
+  }
 }

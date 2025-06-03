@@ -5,9 +5,6 @@ namespace GqlPlus;
 
 internal static class SchemaTestHelpers
 {
-  public static EnumLabelAst[] EnumLabels(this IEnumerable<string> enumLabels)
-    => [.. enumLabels.Select(l => new EnumLabelAst(AstNulls.At, l))];
-
   public static DualFieldAst[] DualFields(this IEnumerable<FieldInput> fields)
     => [.. fields.Select(f => new DualFieldAst(AstNulls.At, f.Name, DualBase(f.Type, f.TypeParam)))];
 
@@ -79,5 +76,5 @@ internal static class SchemaTestHelpers
     => [.. regexes.WithExcludes(r => new DomainRegexAst(AstNulls.At, "", false, r))];
 
   public static TypeParamAst[] TypeParams(this string[] parameters)
-    => [.. parameters.Select(parameter => new TypeParamAst(AstNulls.At, parameter))];
+    => [.. parameters.Select(parameter => new TypeParamAst(AstNulls.At, parameter) { Constraint = "*" })];
 }

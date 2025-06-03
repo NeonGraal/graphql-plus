@@ -2,7 +2,7 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualFieldModParam": {
+    "FieldModParamDual": {
       "$tag": "_TypeDual",
       "allFields": [
         {
@@ -18,10 +18,10 @@
             }
           ],
           "name": "field",
-          "object": "DualFieldModParam",
+          "object": "FieldModParamDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "FldDualFieldModParam"
+            "dual": "FldFieldModParamDual"
           }
         }
       ],
@@ -41,28 +41,36 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "dual": "FldDualFieldModParam"
+            "dual": "FldFieldModParamDual"
           }
         }
       ],
-      "name": "DualFieldModParam",
+      "name": "FieldModParamDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
           "name": "mod"
         }
       ]
     },
-    "FldDualFieldModParam": {
+    "FldFieldModParamDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "FldDualFieldModParam",
+          "object": "FldFieldModParamDual",
           "type": {
             "$tag": "_DualBase",
             "dual": "String"
@@ -73,7 +81,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "FldDualFieldModParam",
+          "object": "FldFieldModParamDual",
           "type": {
             "$tag": "_DualBase",
             "dual": "Number"
@@ -99,7 +107,7 @@
           }
         }
       ],
-      "name": "FldDualFieldModParam",
+      "name": "FldFieldModParamDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"

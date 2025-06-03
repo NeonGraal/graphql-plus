@@ -1,15 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier AltOutpGnrcFieldParam: !_TypeOutput
+  !_Identifier AltGnrcFieldParamOutp: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
-        object: AltOutpGnrcFieldParam
+        object: AltGnrcFieldParamOutp
         type: !_OutputBase
           output: String
     allFields:
       - !_ObjectFor(_OutputField)
         name: alt
-        object: AltOutpGnrcFieldParam
+        object: AltGnrcFieldParamOutp
         type: !_OutputBase
           output: Number
     alternates:
@@ -21,40 +21,43 @@ types: !_Map_Type
         name: alt
         type: !_OutputBase
           output: Number
-    name: AltOutpGnrcFieldParam
+    name: AltGnrcFieldParamOutp
     typeKind: !_TypeKind Output
-  !_Identifier OutpGnrcFieldParam: !_TypeOutput
+  !_Identifier GnrcFieldParamOutp: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         name: field
-        object: OutpGnrcFieldParam
+        object: GnrcFieldParamOutp
         type: !_OutputBase
-          output: RefOutpGnrcFieldParam
+          output: RefGnrcFieldParamOutp
           typeArgs:
             - !_OutputArg
-              output: AltOutpGnrcFieldParam
+              output: AltGnrcFieldParamOutp
     fields:
       - !_OutputField
         name: field
         type: !_OutputBase
-          output: RefOutpGnrcFieldParam
+          output: RefGnrcFieldParamOutp
           typeArgs:
             - !_OutputArg
-              output: AltOutpGnrcFieldParam
-    name: OutpGnrcFieldParam
+              output: AltGnrcFieldParamOutp
+    name: GnrcFieldParamOutp
     typeKind: !_TypeKind Output
-  !_Identifier RefOutpGnrcFieldParam: !_TypeOutput
+  !_Identifier RefGnrcFieldParamOutp: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
-        object: RefOutpGnrcFieldParam
+        object: RefGnrcFieldParamOutp
         type: !_OutputBase
           typeParam: ref
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
           typeParam: ref
-    name: RefOutpGnrcFieldParam
+    name: RefGnrcFieldParamOutp
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Internal
+          typeName: _Output
         name: ref

@@ -1,11 +1,11 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpGnrcAltArgDescr: !_TypeOutput
+  !_Identifier GnrcAltArgDescrOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpGnrcAltArgDescr
+      object: GnrcAltArgDescrOutp
       type: !_OutputBase
-        output: RefOutpGnrcAltArgDescr
+        output: RefGnrcAltArgDescrOutp
         typeArgs:
         - !_OutputArg
           description: 'Test Descr'
@@ -13,28 +13,34 @@ types: !_Map_Type
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
-        output: RefOutpGnrcAltArgDescr
+        output: RefGnrcAltArgDescrOutp
         typeArgs:
         - !_OutputArg
           description: 'Test Descr'
           typeParam: type
-    name: OutpGnrcAltArgDescr
+    name: GnrcAltArgDescrOutp
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        typeKind: !_TypeKind Basic
+        typeName: String
       name: type
-  !_Identifier RefOutpGnrcAltArgDescr: !_TypeOutput
+  !_Identifier RefGnrcAltArgDescrOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: RefOutpGnrcAltArgDescr
+      object: RefGnrcAltArgDescrOutp
       type: !_OutputBase
         typeParam: ref
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
         typeParam: ref
-    name: RefOutpGnrcAltArgDescr
+    name: RefGnrcAltArgDescrOutp
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        typeKind: !_TypeKind Basic
+        typeName: String
       name: ref

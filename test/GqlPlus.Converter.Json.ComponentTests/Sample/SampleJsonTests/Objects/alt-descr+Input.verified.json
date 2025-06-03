@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpAltDescr": {
+    "AltDescrInp": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpAltDescr",
+          "object": "AltDescrInp",
           "type": {
             "$tag": "_InputBase",
             "description": "Test Descr",
@@ -25,7 +25,7 @@
           }
         }
       ],
-      "name": "InpAltDescr",
+      "name": "AltDescrInp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Input"

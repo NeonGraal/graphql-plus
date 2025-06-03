@@ -5,10 +5,11 @@ public class OutputModellerTests
 {
   public OutputModellerTests()
   {
+    IModeller<IGqlpTypeParam, TypeParamModel> typeParam = MFor<IGqlpTypeParam, TypeParamModel>();
     IModeller<IGqlpOutputAlternate, OutputAlternateModel> objAlt = MFor<IGqlpOutputAlternate, OutputAlternateModel>();
     IModeller<IGqlpOutputField, OutputFieldModel> objField = MFor<IGqlpOutputField, OutputFieldModel>();
 
-    Modeller = new OutputModeller(objAlt, objField, ObjBase);
+    Modeller = new OutputModeller(new(typeParam, objAlt, objField, ObjBase));
   }
 
   protected override IModeller<IGqlpOutputObject, TypeOutputModel> Modeller { get; }

@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpPrntField": {
+    "PrntFieldInp": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "RefInpPrntField",
+          "object": "RefPrntFieldInp",
           "type": {
             "$tag": "_InputBase",
             "input": "String"
@@ -18,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "parent",
-          "object": "RefInpPrntField",
+          "object": "RefPrntFieldInp",
           "type": {
             "$tag": "_InputBase",
             "input": "Number"
@@ -27,7 +27,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "InpPrntField",
+          "object": "PrntFieldInp",
           "type": {
             "$tag": "_InputBase",
             "input": "Number"
@@ -44,22 +44,22 @@
           }
         }
       ],
-      "name": "InpPrntField",
+      "name": "PrntFieldInp",
       "parent": {
         "$tag": "_InputBase",
-        "input": "RefInpPrntField"
+        "input": "RefPrntFieldInp"
       },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Input"
       }
     },
-    "RefInpPrntField": {
+    "RefPrntFieldInp": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "RefInpPrntField",
+          "object": "RefPrntFieldInp",
           "type": {
             "$tag": "_InputBase",
             "input": "String"
@@ -70,7 +70,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "parent",
-          "object": "RefInpPrntField",
+          "object": "RefPrntFieldInp",
           "type": {
             "$tag": "_InputBase",
             "input": "Number"
@@ -96,7 +96,7 @@
           }
         }
       ],
-      "name": "RefInpPrntField",
+      "name": "RefPrntFieldInp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Input"

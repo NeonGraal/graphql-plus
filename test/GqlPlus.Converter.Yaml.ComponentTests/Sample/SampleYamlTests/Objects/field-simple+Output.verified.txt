@@ -1,10 +1,10 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpFieldSmpl: !_TypeOutput
+  !_Identifier FieldSmplOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
-      object: OutpFieldSmpl
+      object: FieldSmplOutp
       type: !_OutputBase
         output: Number
     fields:
@@ -12,5 +12,5 @@ types: !_Map_Type
       name: field
       type: !_OutputBase
         output: Number
-    name: OutpFieldSmpl
+    name: FieldSmplOutp
     typeKind: !_TypeKind Output

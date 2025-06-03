@@ -2,13 +2,13 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualFieldSmpl": {
+    "FieldSmplDual": {
       "$tag": "_TypeDual",
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "DualFieldSmpl",
+          "object": "FieldSmplDual",
           "type": {
             "$tag": "_DualBase",
             "dual": "Number"
@@ -25,7 +25,7 @@
           }
         }
       ],
-      "name": "DualFieldSmpl",
+      "name": "FieldSmplDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"

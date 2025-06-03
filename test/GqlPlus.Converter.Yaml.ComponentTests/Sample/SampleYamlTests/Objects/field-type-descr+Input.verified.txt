@@ -1,10 +1,10 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpFieldTypeDescr: !_TypeInput
+  !_Identifier FieldTypeDescrInp: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: field
-      object: InpFieldTypeDescr
+      object: FieldTypeDescrInp
       type: !_InputBase
         description: 'Test Descr'
         input: Number
@@ -14,5 +14,5 @@ types: !_Map_Type
       type: !_InputBase
         description: 'Test Descr'
         input: Number
-    name: InpFieldTypeDescr
+    name: FieldTypeDescrInp
     typeKind: !_TypeKind Input

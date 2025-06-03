@@ -1,10 +1,13 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpGnrcPrnt: !_TypeOutput
-    name: OutpGnrcPrnt
+  !_Identifier GnrcPrntOutp: !_TypeOutput
+    name: GnrcPrntOutp
     parent: !_OutputBase
       typeParam: type
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Basic
+          typeName: String
         name: type

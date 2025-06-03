@@ -1,10 +1,10 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualObjPrnt: !_TypeDual
-    name: DualObjPrnt
+  !_Identifier ObjPrntDual: !_TypeDual
+    name: ObjPrntDual
     parent: !_DualBase
-      dual: RefDualObjPrnt
+      dual: RefObjPrntDual
     typeKind: !_TypeKind Dual
-  !_Identifier RefDualObjPrnt: !_TypeDual
-    name: RefDualObjPrnt
+  !_Identifier RefObjPrntDual: !_TypeDual
+    name: RefObjPrntDual
     typeKind: !_TypeKind Dual

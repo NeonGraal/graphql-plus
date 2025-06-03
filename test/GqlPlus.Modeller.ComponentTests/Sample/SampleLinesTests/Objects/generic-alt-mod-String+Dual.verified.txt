@@ -1,6 +1,6 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier RefDualGnrcAltModStr: !_TypeDual
+  !_Identifier RefGnrcAltModStrDual: !_TypeDual
     allAlternates:
       - !_ObjectFor(_DualAlternate)
         collections:
@@ -8,7 +8,7 @@ types: !_Map_Type
             by: '*'
             modifierKind: !_ModifierKind Dict
             typeKind: !_SimpleKind Basic
-        object: RefDualGnrcAltModStr
+        object: RefGnrcAltModStrDual
         type: !_DualBase
           typeParam: ref
     alternates:
@@ -20,8 +20,11 @@ types: !_Map_Type
             typeKind: !_SimpleKind Basic
         type: !_DualBase
           typeParam: ref
-    name: RefDualGnrcAltModStr
+    name: RefGnrcAltModStrDual
     typeKind: !_TypeKind Dual
     typeParams:
-      - !_Named
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Basic
+          typeName: String
         name: ref

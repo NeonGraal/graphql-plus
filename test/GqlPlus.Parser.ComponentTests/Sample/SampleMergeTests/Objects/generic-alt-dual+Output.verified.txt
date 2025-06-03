@@ -3,29 +3,30 @@
 Success
 {
   !Ou I@008/0001
-  OutpGnrcAltDual
+  GnrcAltDualOutp
   |
   I@028/0001
-  RefOutpGnrcAltDual
+  RefGnrcAltDualOutp
   <
     I@047/0001
-    AltOutpGnrcAltDual
+    AltGnrcAltDualOutp
   >
 }
 {
   !Ou I@008/0002
-  RefOutpGnrcAltDual
+  RefGnrcAltDualOutp
   <
     I@028/0002
     $ref
+    :_Dual
   >
   |
-  P@037/0002
+  P@043/0002
   $ref
 }
 {
   !Du I@006/0003
-  AltOutpGnrcAltDual
+  AltGnrcAltDualOutp
   {
     !DF I@027/0003
     alt

@@ -3,19 +3,19 @@
 Success
 {
   !Ou I@008/0001
-  OutpFieldModEnum
+  FieldModEnumOutp
   {
     !OF I@027/0001
     field
     :
-    P@034/0001
-    *
-    [EnumOutpFieldModEnum]
+    I@034/0001
+    String
+    [EnumFieldModEnumOutp]
   }
 }
 {
   !En I@006/0002
-  EnumOutpFieldModEnum
+  EnumFieldModEnumOutp
   !EL I@029/0002
   value
 }

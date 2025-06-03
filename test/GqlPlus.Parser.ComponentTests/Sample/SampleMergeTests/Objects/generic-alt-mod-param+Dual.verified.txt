@@ -3,15 +3,17 @@
 Success
 {
   !Du I@006/0001
-  RefDualGnrcAltModParam
+  RefGnrcAltModParamDual
   <
     I@030/0001
     $ref
-    I@035/0001
+    :String
+    I@042/0001
     $mod
+    :String
   >
   |
-  P@044/0001
+  P@058/0001
   $ref
   [$mod]
 }

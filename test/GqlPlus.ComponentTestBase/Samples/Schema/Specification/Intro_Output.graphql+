@@ -1,11 +1,17 @@
 output _TypeOutput {
-    : _TypeObject<_TypeKind.Output _OutputBase _OutputField _OutputAlternate>
+    : _TypeObject<_TypeKind.Output _OutputBase _OutputTypeParam _OutputField _OutputAlternate>
     }
 
 output _OutputBase {
     : _ObjBase<_OutputTypeArg>
         output: _Identifier
     | _DualBase
+    }
+
+output _OutputTypeParam {
+    : _ObjTypeParam<_TypeKind.Output>
+    | _TypeRef<_TypeKind.Dual>
+    | _TypeRef<_TypeKind.Enum>
     }
 
 output _OutputField {
@@ -29,3 +35,4 @@ output _OutputEnum {
         field: _Identifier
         label: _Identifier
     }
+

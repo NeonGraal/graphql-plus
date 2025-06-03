@@ -1,2 +1,2 @@
-object ObjName { field: FldObjName }
-dual FldObjName { field: Number | String }
+object Name { field: FldName }
+dual FldName { field: Number | String }

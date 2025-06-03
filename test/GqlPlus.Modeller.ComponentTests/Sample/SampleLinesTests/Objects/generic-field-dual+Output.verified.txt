@@ -1,15 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier AltOutpGnrcFieldDual: !_TypeDual
+  !_Identifier AltGnrcFieldDualOutp: !_TypeDual
     allAlternates:
       - !_ObjectFor(_DualAlternate)
-        object: AltOutpGnrcFieldDual
+        object: AltGnrcFieldDualOutp
         type: !_DualBase
           dual: String
     allFields:
       - !_ObjectFor(_DualField)
         name: alt
-        object: AltOutpGnrcFieldDual
+        object: AltGnrcFieldDualOutp
         type: !_DualBase
           dual: Number
     alternates:
@@ -21,40 +21,43 @@ types: !_Map_Type
         name: alt
         type: !_DualBase
           dual: Number
-    name: AltOutpGnrcFieldDual
+    name: AltGnrcFieldDualOutp
     typeKind: !_TypeKind Dual
-  !_Identifier OutpGnrcFieldDual: !_TypeOutput
+  !_Identifier GnrcFieldDualOutp: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         name: field
-        object: OutpGnrcFieldDual
+        object: GnrcFieldDualOutp
         type: !_OutputBase
-          output: RefOutpGnrcFieldDual
+          output: RefGnrcFieldDualOutp
           typeArgs:
             - !_DualArg
-              dual: AltOutpGnrcFieldDual
+              dual: AltGnrcFieldDualOutp
     fields:
       - !_OutputField
         name: field
         type: !_OutputBase
-          output: RefOutpGnrcFieldDual
+          output: RefGnrcFieldDualOutp
           typeArgs:
             - !_DualArg
-              dual: AltOutpGnrcFieldDual
-    name: OutpGnrcFieldDual
+              dual: AltGnrcFieldDualOutp
+    name: GnrcFieldDualOutp
     typeKind: !_TypeKind Output
-  !_Identifier RefOutpGnrcFieldDual: !_TypeOutput
+  !_Identifier RefGnrcFieldDualOutp: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
-        object: RefOutpGnrcFieldDual
+        object: RefGnrcFieldDualOutp
         type: !_OutputBase
           typeParam: ref
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
           typeParam: ref
-    name: RefOutpGnrcFieldDual
+    name: RefGnrcFieldDualOutp
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Internal
+          typeName: _Dual
         name: ref

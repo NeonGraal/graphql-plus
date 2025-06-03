@@ -1,15 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier AltInpGnrcFieldParam: !_TypeInput
+  !_Identifier AltGnrcFieldParamInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
-        object: AltInpGnrcFieldParam
+        object: AltGnrcFieldParamInp
         type: !_InputBase
           input: String
     allFields:
       - !_ObjectFor(_InputField)
         name: alt
-        object: AltInpGnrcFieldParam
+        object: AltGnrcFieldParamInp
         type: !_InputBase
           input: Number
     alternates:
@@ -21,40 +21,43 @@ types: !_Map_Type
         name: alt
         type: !_InputBase
           input: Number
-    name: AltInpGnrcFieldParam
+    name: AltGnrcFieldParamInp
     typeKind: !_TypeKind Input
-  !_Identifier InpGnrcFieldParam: !_TypeInput
+  !_Identifier GnrcFieldParamInp: !_TypeInput
     allFields:
       - !_ObjectFor(_InputField)
         name: field
-        object: InpGnrcFieldParam
+        object: GnrcFieldParamInp
         type: !_InputBase
-          input: RefInpGnrcFieldParam
+          input: RefGnrcFieldParamInp
           typeArgs:
             - !_InputArg
-              input: AltInpGnrcFieldParam
+              input: AltGnrcFieldParamInp
     fields:
       - !_InputField
         name: field
         type: !_InputBase
-          input: RefInpGnrcFieldParam
+          input: RefGnrcFieldParamInp
           typeArgs:
             - !_InputArg
-              input: AltInpGnrcFieldParam
-    name: InpGnrcFieldParam
+              input: AltGnrcFieldParamInp
+    name: GnrcFieldParamInp
     typeKind: !_TypeKind Input
-  !_Identifier RefInpGnrcFieldParam: !_TypeInput
+  !_Identifier RefGnrcFieldParamInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
-        object: RefInpGnrcFieldParam
+        object: RefGnrcFieldParamInp
         type: !_InputBase
           typeParam: ref
     alternates:
       - !_InputAlternate
         type: !_InputBase
           typeParam: ref
-    name: RefInpGnrcFieldParam
+    name: RefGnrcFieldParamInp
     typeKind: !_TypeKind Input
     typeParams:
-      - !_Named
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Internal
+          typeName: _Input
         name: ref

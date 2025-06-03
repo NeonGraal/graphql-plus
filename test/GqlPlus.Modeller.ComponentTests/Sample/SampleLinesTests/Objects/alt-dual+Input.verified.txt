@@ -1,27 +1,27 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpAltDual: !_TypeInput
+  !_Identifier AltDualInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
-        object: InpAltDual
+        object: AltDualInp
         type: !_DualBase
-          dual: InpDualAltDual
+          dual: ObjDualAltDualInp
     alternates:
       - !_InputAlternate
         type: !_DualBase
-          dual: InpDualAltDual
-    name: InpAltDual
+          dual: ObjDualAltDualInp
+    name: AltDualInp
     typeKind: !_TypeKind Input
-  !_Identifier InpDualAltDual: !_TypeDual
+  !_Identifier ObjDualAltDualInp: !_TypeDual
     allAlternates:
       - !_ObjectFor(_DualAlternate)
-        object: InpDualAltDual
+        object: ObjDualAltDualInp
         type: !_DualBase
           dual: String
     allFields:
       - !_ObjectFor(_DualField)
         name: alt
-        object: InpDualAltDual
+        object: ObjDualAltDualInp
         type: !_DualBase
           dual: Number
     alternates:
@@ -33,5 +33,5 @@ types: !_Map_Type
         name: alt
         type: !_DualBase
           dual: Number
-    name: InpDualAltDual
+    name: ObjDualAltDualInp
     typeKind: !_TypeKind Dual

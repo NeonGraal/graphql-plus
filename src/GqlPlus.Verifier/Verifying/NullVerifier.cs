@@ -1,6 +1,4 @@
-﻿using GqlPlus.Verifying;
-
-namespace GqlPlus.Verification;
+﻿namespace GqlPlus.Verifying;
 
 internal class NullVerifierError<TGqlp>(
   ILoggerFactory logger

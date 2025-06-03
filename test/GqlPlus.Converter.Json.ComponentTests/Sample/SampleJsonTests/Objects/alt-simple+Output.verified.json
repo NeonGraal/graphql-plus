@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpAltSmpl": {
+    "AltSmplOutp": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpAltSmpl",
+          "object": "AltSmplOutp",
           "type": {
             "$tag": "_OutputBase",
             "output": "String"
@@ -23,7 +23,7 @@
           }
         }
       ],
-      "name": "OutpAltSmpl",
+      "name": "AltSmplOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

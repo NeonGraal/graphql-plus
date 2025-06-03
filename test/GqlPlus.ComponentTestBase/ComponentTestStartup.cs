@@ -14,12 +14,12 @@ public static class ComponentTestStartup
   static ComponentTestStartup()
     => DiffRunner.MaxInstancesToLaunch(20);
 
-  public static IServiceCollection AddComponentTest(this IServiceCollection services)
+  public static IServiceCollection AddComponentTest(this IServiceCollection services, bool checkEnv = true)
     => services
       .AddLogging(lb => {
         lb.AddFilter("NullVerifier", LogLevel.Warning);
         lb.AddXunitOutput(options => options.TimestampFormat = "HH:mm:ss.fff");
-        if (string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("GQLPLUS_TEST_LOGGING"))) {
+        if (checkEnv && string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("GQLPLUS_TEST_LOGGING"))) {
           lb.AddFilter(l => l == LogLevel.Critical);
         }
       })

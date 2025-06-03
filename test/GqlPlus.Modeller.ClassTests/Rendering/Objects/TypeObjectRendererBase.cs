@@ -13,7 +13,7 @@ public abstract class TypeObjectRendererBase<TObject, TBase, TField, TAlt>
   protected IRenderer<TAlt> Alternate { get; }
   protected IRenderer<ObjectForModel<TAlt>> ObjAlternate { get; }
   protected IRenderer<ObjectForModel<DualAlternateModel>> DualAlternate { get; }
-  protected IRenderer<NamedModel> TypeParam { get; }
+  protected IRenderer<TypeParamModel> TypeParam { get; }
 
   protected TypeObjectRendererBase()
   {
@@ -23,6 +23,6 @@ public abstract class TypeObjectRendererBase<TObject, TBase, TField, TAlt>
     Alternate = RFor<TAlt>();
     ObjAlternate = RFor<ObjectForModel<TAlt>>();
     DualAlternate = RFor<ObjectForModel<DualAlternateModel>>();
-    TypeParam = RFor<NamedModel>();
+    TypeParam = RFor<TypeParamModel>();
   }
 }

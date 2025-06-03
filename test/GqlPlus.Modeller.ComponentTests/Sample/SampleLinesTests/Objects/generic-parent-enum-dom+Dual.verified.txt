@@ -1,0 +1,70 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DomGnrcPrntEnumDomDual: !_DomainEnum
+    allItems:
+      - !_DomainItem(_DomainLabel)
+        domain: DomGnrcPrntEnumDomDual
+        exclude: false
+        value: !_EnumValue
+          label: gnrcPrntEnumDomDualLabel
+          typeKind: !_SimpleKind Enum
+          typeName: EnumGnrcPrntEnumDomDual
+    domainKind: !_DomainKind Enum
+    items:
+      - !_DomainLabel
+        exclude: false
+        value: !_EnumValue
+          label: gnrcPrntEnumDomDualLabel
+          typeKind: !_SimpleKind Enum
+          typeName: EnumGnrcPrntEnumDomDual
+    name: DomGnrcPrntEnumDomDual
+    typeKind: !_TypeKind Domain
+  !_Identifier EnumGnrcPrntEnumDomDual: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: EnumGnrcPrntEnumDomDual
+        name: gnrcPrntEnumDomDualLabel
+      - !_EnumLabel
+        enum: EnumGnrcPrntEnumDomDual
+        name: gnrcPrntEnumDomDualOther
+    items:
+      - !_Aliased
+        name: gnrcPrntEnumDomDualLabel
+      - !_Aliased
+        name: gnrcPrntEnumDomDualOther
+    name: EnumGnrcPrntEnumDomDual
+    typeKind: !_TypeKind Enum
+  !_Identifier FieldGnrcPrntEnumDomDual: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: field
+        object: FieldGnrcPrntEnumDomDual
+        type: !_DualBase
+          typeParam: ref
+    fields:
+      - !_DualField
+        name: field
+        type: !_DualBase
+          typeParam: ref
+    name: FieldGnrcPrntEnumDomDual
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Enum
+          typeName: EnumGnrcPrntEnumDomDual
+        name: ref
+  !_Identifier GnrcPrntEnumDomDual: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: field
+        object: FieldGnrcPrntEnumDomDual
+        type: !_DualBase
+          dual: DomGnrcPrntEnumDomDual
+    name: GnrcPrntEnumDomDual
+    parent: !_DualBase
+      dual: FieldGnrcPrntEnumDomDual
+      typeArgs:
+        - !_DualArg
+          dual: DomGnrcPrntEnumDomDual
+    typeKind: !_TypeKind Dual

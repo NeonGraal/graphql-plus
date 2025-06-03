@@ -1,0 +1,151 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DomGnrcPrntEnumDomOutp": {
+      "$tag": "_DomainEnum",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainLabel)",
+          "domain": "DomGnrcPrntEnumDomOutp",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "gnrcPrntEnumDomOutpLabel",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            },
+            "typeName": "EnumGnrcPrntEnumDomOutp"
+          }
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Enum"
+      },
+      "items": [
+        {
+          "$tag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "gnrcPrntEnumDomOutpLabel",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            },
+            "typeName": "EnumGnrcPrntEnumDomOutp"
+          }
+        }
+      ],
+      "name": "DomGnrcPrntEnumDomOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "EnumGnrcPrntEnumDomOutp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumGnrcPrntEnumDomOutp",
+          "name": "gnrcPrntEnumDomOutpLabel"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumGnrcPrntEnumDomOutp",
+          "name": "gnrcPrntEnumDomOutpOther"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "gnrcPrntEnumDomOutpLabel"
+        },
+        {
+          "$tag": "_Aliased",
+          "name": "gnrcPrntEnumDomOutpOther"
+        }
+      ],
+      "name": "EnumGnrcPrntEnumDomOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "FieldGnrcPrntEnumDomOutp": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "FieldGnrcPrntEnumDomOutp",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "ref"
+          }
+        }
+      ],
+      "name": "FieldGnrcPrntEnumDomOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            },
+            "typeName": "EnumGnrcPrntEnumDomOutp"
+          },
+          "name": "ref"
+        }
+      ]
+    },
+    "GnrcPrntEnumDomOutp": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "FieldGnrcPrntEnumDomOutp",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "DomGnrcPrntEnumDomOutp"
+          }
+        }
+      ],
+      "name": "GnrcPrntEnumDomOutp",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "FieldGnrcPrntEnumDomOutp",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "output": "DomGnrcPrntEnumDomOutp"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    }
+  }
+}

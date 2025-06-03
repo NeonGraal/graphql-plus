@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpAltSmpl": {
+    "AltSmplInp": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpAltSmpl",
+          "object": "AltSmplInp",
           "type": {
             "$tag": "_InputBase",
             "input": "String"
@@ -23,7 +23,7 @@
           }
         }
       ],
-      "name": "InpAltSmpl",
+      "name": "AltSmplInp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Input"

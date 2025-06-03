@@ -3,7 +3,7 @@
 Success
 {
   !In I@007/0001
-  InpFieldSmpl
+  FieldSmplInp
   {
     !IF I@022/0001
     field

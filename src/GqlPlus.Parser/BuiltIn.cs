@@ -9,42 +9,45 @@ namespace GqlPlus;
 public static class BuiltIn
 {
   public static IGqlpType[] Basic { get; } = [
-    new EnumDeclAst(AstNulls.At, "Boolean", [new(AstNulls.At, "false"), new(AstNulls.At, "true")]) { Aliases = ["^"] },
-    new EnumDeclAst(AstNulls.At, "Unit", [new(AstNulls.At, "_")]) { Aliases = ["_"] },
+    Enum("Boolean", "^", "false", "true"),
+    Enum("Unit", "_", "_"),
 
-    new AstDomain<DomainLabelAst, IGqlpDomainLabel>(AstNulls.At, "Enum", DomainKind.Enum, []),
-    new AstDomain<DomainRangeAst, IGqlpDomainRange>(AstNulls.At, "Number", DomainKind.Number, []) { Aliases = ["0"] },
-    new AstDomain<DomainRegexAst, IGqlpDomainRegex>(AstNulls.At, "String", DomainKind.String, []) { Aliases = ["*"] },
+    Domain<DomainLabelAst, IGqlpDomainLabel>("Enum", DomainKind.Enum),
+    Domain<DomainRangeAst, IGqlpDomainRange>("Number", DomainKind.Number, "0"),
+    Domain<DomainRegexAst, IGqlpDomainRegex>("String", DomainKind.String, "*"),
   ];
 
+  private static readonly string[] s_unionMembers = ["Boolean", "Number", "String", "Unit", "_Union", "_Domain", "_Enum"];
+
   public static IGqlpType[] Internal { get; } = [
-    new EnumDeclAst(AstNulls.At, "Void", []),
-    new EnumDeclAst(AstNulls.At, "Null", [new(AstNulls.At, "null")]) { Aliases = ["null"] },
+    Enum("Void", ""),
+    Enum("Null", "null", "null"),
 
-    new UnionDeclAst(AstNulls.At, "Simple", new[] { "Boolean", "Number", "String", "Unit", "_Union", "_Domain", "_Enum" }.UnionMembers()),
-    new UnionDeclAst(AstNulls.At, "Internal", new[] { "Void", "Null" }.UnionMembers()),
+    new UnionDeclAst(AstNulls.At, "Simple", s_unionMembers.UnionMembers()) { Aliases = ["_Simple"]},
+    DualObj("Internal", DualAlt("Void", false), DualAlt("Object", false), DualAlt("Null" , false)),
+    DualObj("Object", DualRef("_Map", DualArg("_Any")), ["%", "_Object"]),
 
-    DualObj("Opt", TypeParams("T"), DualAlt(null), DualType("Null")),
-    DualObj("List", TypeParams("T"), DualAlt("")),
-    DualObj("Dict", TypeParams("K", "T"), DualAltParam("K")),
-    DualObj("Map", TypeParams("T"), DualDict("String")),
-    DualObj("Array", TypeParams("T"), DualDict("Number")),
-    DualObj("IfElse", TypeParams("T"), DualDict("Boolean")),
-    DualObj("Set", TypeParams("K"), DualDict("Unit", true)),
-    DualObj("Mask", TypeParams("K"), DualDict("Boolean", true)),
-    DualObj("Object", [], DualRef("_Map", DualArg("_Any"))) with { Aliases = ["%", "Object"] },
-    DualObj("Most", TypeParams("T"),
+    DualObj("Opt", [TypeParam()], DualAlt(null), DualType("Null")),
+    DualObj("List", [TypeParam()], DualAlt("")),
+    DualObj("Dict", [KeyParam(), TypeParam()], DualAltParam("K")),
+    DualObj("Map", [TypeParam()], DualDict("String")),
+    DualObj("Array", [TypeParam()], DualDict("Number")),
+    DualObj("IfElse", [TypeParam()], DualDict("Boolean")),
+    DualObj("Set", [KeyParam()], DualDict("Unit", true)),
+    DualObj("Mask", [KeyParam()], DualDict("Boolean", true)),
+
+    DualObj("Most", [TypeParam()],
       DualAlt(null), DualType("_Object"), DualMost("", true), DualType("_MostList", DualArgParam("T")), DualType("_MostDictionary", DualArgParam("T"))),
-    DualObj("MostList", TypeParams("T"), DualMost("")),
-    DualObj("MostDictionary", TypeParams("T"), DualMost("Simple", true)),
+    DualObj("MostList", [TypeParam()], DualMost("")),
+    DualObj("MostDictionary", [TypeParam()], DualMost("Simple", true)),
 
-    new SpecialTypeAst("Any") { Aliases = ["Any"] },
-    new SpecialTypeAst("Dual"),
-    new SpecialTypeAst("Enum"),
-    new SpecialTypeAst("Input"),
-    new SpecialTypeAst("Output"),
-    new SpecialTypeAst("Domain"),
-    new SpecialTypeAst("Union"),
+    new SpecialTypeAst("Any", t => true) { Aliases = ["Any"] },
+    new SpecialTypeAst("Domain", t => t is IGqlpDomain),
+    new SpecialTypeAst("Union", t => t is IGqlpUnion),
+    new SpecialTypeAst("Enum", t => t is IGqlpEnum),
+    new SpecialTypeAst("Dual", t => t is IGqlpDualObject),
+    new SpecialTypeAst("Input", t => t is IGqlpInputObject),
+    new SpecialTypeAst("Output", t => t is IGqlpOutputObject),
   ];
 
   internal static Map<string> EnumValues = new() {
@@ -54,8 +57,11 @@ public static class BuiltIn
     ["false"] = "Boolean",
   };
 
-  private static TypeParamAst[] TypeParams(params string[] parameters)
-    => [.. parameters.Select(r => new TypeParamAst(AstNulls.At, r))];
+  private static DualDeclAst DualObj(string label, params IGqlpDualAlternate[] alternates)
+    => new(AstNulls.At, label) { ObjAlternates = alternates };
+
+  private static DualDeclAst DualObj(string label, DualBaseAst parent, params string[] aliases)
+    => new(AstNulls.At, label) { Aliases = aliases, Parent = parent };
 
   private static DualDeclAst DualObj(string label, TypeParamAst[] typeParams, params IGqlpDualAlternate[] alternates)
     => new(AstNulls.At, "_" + label) { TypeParams = typeParams, ObjAlternates = alternates };
@@ -66,16 +72,18 @@ public static class BuiltIn
   private static DualAlternateAst DualType(string type, params IGqlpDualArg[] args)
     => new DualAlternateAst(AstNulls.At, type, "") with { BaseArgs = args };
 
-  private static DualAlternateAst DualAlt(string? key)
-    => new(AstNulls.At, "T", "") {
-      IsTypeParam = true,
-      Modifiers = key switch {
-        null => [],
-        "" => [ModifierAst.List(AstNulls.At)],
-        "$K" => [ModifierAst.Param(AstNulls.At, "K", false)],
-        _ => [ModifierAst.Dict(AstNulls.At, key, false)],
+  private static DualAlternateAst DualAlt(string? type, bool typeParam = true)
+    => typeParam || type is null
+      ? new(AstNulls.At, "T", "") {
+        IsTypeParam = true,
+        Modifiers = type switch {
+          null => [],
+          "" => [ModifierAst.List(AstNulls.At)],
+          "$K" => [ModifierAst.Param(AstNulls.At, "K", false)],
+          _ => [ModifierAst.Dict(AstNulls.At, type, false)],
+        }
       }
-    };
+      : new(AstNulls.At, type, "");
 
   private static DualAlternateAst DualAltParam(string param)
     => new(AstNulls.At, "T", "") {
@@ -95,9 +103,6 @@ public static class BuiltIn
   private static DualBaseAst DualRef(string name, params IGqlpDualArg[] args)
     => new DualBaseAst(AstNulls.At, name, "") with { BaseArgs = args };
 
-  private static DualBaseAst DualRefParam(string name)
-    => DualRef(name) with { IsTypeParam = true };
-
   private static DualArgAst DualArg(string name)
     => new(AstNulls.At, name, "");
 
@@ -111,4 +116,21 @@ public static class BuiltIn
         paramSecond ? DualArg(type) : DualArgParam("T")
       ]
     };
+
+  private static EnumDeclAst Enum(string type, string alias, params string[] labels)
+    => new(AstNulls.At, type, labels.EnumLabels()) {
+      Aliases = string.IsNullOrWhiteSpace(alias) ? [] : [alias]
+    };
+
+  private static AstDomain<TAst, TLabel> Domain<TAst, TLabel>(string type, DomainKind kind, params string[] aliases)
+    where TAst : AstBase, TLabel
+    where TLabel : IGqlpDomainItem, IGqlpError
+    => new(AstNulls.At, type, kind, []) { Aliases = aliases };
+
+
+  private static TypeParamAst KeyParam()
+      => new(AstNulls.At, "K") { Constraint = "Simple" };
+
+  private static TypeParamAst TypeParam(string constraint = "_Any")
+    => new(AstNulls.At, "T") { Constraint = constraint };
 }

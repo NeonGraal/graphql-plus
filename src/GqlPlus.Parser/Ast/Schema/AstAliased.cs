@@ -20,7 +20,8 @@ internal abstract record class AstAliased(
     && Aliases.OrderedEqual(other.Aliases);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Aliases.Length);
-
+  public bool IsNameOrAlias(string id)
+    => Name == id || Aliases.Contains(id);
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
       .Concat(Aliases.Bracket("[", "]"));

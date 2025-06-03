@@ -3,23 +3,23 @@
 Success
 {
   !In I@007/0001
-  InpAltDual
+  AltDualInp
   |
   I@022/0001
-  InpDualAltDual
+  ObjDualAltDualInp
 }
 {
   !Du I@006/0002
-  InpDualAltDual
+  ObjDualAltDualInp
   {
-    !DF I@023/0002
+    !DF I@026/0002
     alt
     :
-    I@028/0002
+    I@031/0002
     Number
   }
   |
-  I@037/0002
+  I@040/0002
   String
 }
 ]

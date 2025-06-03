@@ -2,12 +2,41 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "FldOutpFieldDual": {
+    "FieldDualOutp": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "FieldDualOutp",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "FldFieldDualOutp"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "FldFieldDualOutp"
+          }
+        }
+      ],
+      "name": "FieldDualOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "FldFieldDualOutp": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "FldOutpFieldDual",
+          "object": "FldFieldDualOutp",
           "type": {
             "$tag": "_DualBase",
             "dual": "String"
@@ -18,7 +47,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "FldOutpFieldDual",
+          "object": "FldFieldDualOutp",
           "type": {
             "$tag": "_DualBase",
             "dual": "Number"
@@ -44,39 +73,10 @@
           }
         }
       ],
-      "name": "FldOutpFieldDual",
+      "name": "FldFieldDualOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"
-      }
-    },
-    "OutpFieldDual": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "field",
-          "object": "OutpFieldDual",
-          "type": {
-            "$tag": "_DualBase",
-            "dual": "FldOutpFieldDual"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "field",
-          "type": {
-            "$tag": "_DualBase",
-            "dual": "FldOutpFieldDual"
-          }
-        }
-      ],
-      "name": "OutpFieldDual",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
       }
     }
   }

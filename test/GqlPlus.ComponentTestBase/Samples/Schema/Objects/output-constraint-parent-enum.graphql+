@@ -1,0 +1,4 @@
+output Name { | RefName<parentName> }
+output RefName<$type:EnumName> { field: $type }
+enum EnumName { :ParentName name }
+enum ParentName { parentName }

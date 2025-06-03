@@ -1,21 +1,21 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier FldOutpObjFieldAlias: !_TypeOutput
-    name: FldOutpObjFieldAlias
+  !_Identifier FldObjFieldAliasOutp: !_TypeOutput
+    name: FldObjFieldAliasOutp
     typeKind: !_TypeKind Output
-  !_Identifier OutpObjFieldAlias: !_TypeOutput
+  !_Identifier ObjFieldAliasOutp: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         aliases: [field1,field2]
         name: field
-        object: OutpObjFieldAlias
+        object: ObjFieldAliasOutp
         type: !_OutputBase
-          output: FldOutpObjFieldAlias
+          output: FldObjFieldAliasOutp
     fields:
       - !_OutputField
         aliases: [field1,field2]
         name: field
         type: !_OutputBase
-          output: FldOutpObjFieldAlias
-    name: OutpObjFieldAlias
+          output: FldObjFieldAliasOutp
+    name: ObjFieldAliasOutp
     typeKind: !_TypeKind Output

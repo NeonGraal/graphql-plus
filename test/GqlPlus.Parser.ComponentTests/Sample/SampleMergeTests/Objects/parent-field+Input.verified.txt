@@ -3,10 +3,10 @@
 Success
 {
   !In I@007/0001
-  InpPrntField
+  PrntFieldInp
   :
   I@023/0001
-  RefInpPrntField
+  RefPrntFieldInp
   {
     !IF I@039/0001
     field
@@ -17,7 +17,7 @@ Success
 }
 {
   !In I@007/0002
-  RefInpPrntField
+  RefPrntFieldInp
   {
     !IF I@025/0002
     parent

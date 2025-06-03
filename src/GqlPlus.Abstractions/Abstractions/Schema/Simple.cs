@@ -16,7 +16,7 @@ public interface IGqlpValued<TItem>
 }
 
 public interface IGqlpDomain
-  : IGqlpType<string>
+  : IGqlpSimple
   , IEquatable<IGqlpDomain>
 {
   DomainKind DomainKind { get; }

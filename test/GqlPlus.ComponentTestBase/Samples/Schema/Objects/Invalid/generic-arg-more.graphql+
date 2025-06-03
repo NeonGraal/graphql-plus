@@ -1,2 +1,2 @@
-object Test<$type> { field: Ref<$type> }
+object Test<$type:String> { field: Ref<$type> }
 object Ref { }

@@ -1,2 +1,2 @@
-object ObjName [Obj1] { }
-object ObjName [Obj2] { }
+object Name [Object1] { }
+object Name [Object2] { }

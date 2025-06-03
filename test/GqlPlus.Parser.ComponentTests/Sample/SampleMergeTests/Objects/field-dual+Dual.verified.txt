@@ -3,18 +3,18 @@
 Success
 {
   !Du I@006/0001
-  DualFieldDual
+  FieldDualDual
   {
     !DF I@022/0001
     field
     :
     I@029/0001
-    FldDualFieldDual
+    FldFieldDualDual
   }
 }
 {
   !Du I@006/0002
-  FldDualFieldDual
+  FldFieldDualDual
   {
     !DF I@025/0002
     field

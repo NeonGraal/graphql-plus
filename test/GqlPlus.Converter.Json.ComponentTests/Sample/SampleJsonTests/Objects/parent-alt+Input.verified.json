@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpPrntAlt": {
+    "PrntAltInp": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "RefInpPrntAlt",
+          "object": "RefPrntAltInp",
           "type": {
             "$tag": "_InputBase",
             "input": "String"
@@ -15,7 +15,7 @@
         },
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpPrntAlt",
+          "object": "PrntAltInp",
           "type": {
             "$tag": "_InputBase",
             "input": "Number"
@@ -26,7 +26,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "parent",
-          "object": "RefInpPrntAlt",
+          "object": "RefPrntAltInp",
           "type": {
             "$tag": "_InputBase",
             "input": "Number"
@@ -42,22 +42,22 @@
           }
         }
       ],
-      "name": "InpPrntAlt",
+      "name": "PrntAltInp",
       "parent": {
         "$tag": "_InputBase",
-        "input": "RefInpPrntAlt"
+        "input": "RefPrntAltInp"
       },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Input"
       }
     },
-    "RefInpPrntAlt": {
+    "RefPrntAltInp": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "RefInpPrntAlt",
+          "object": "RefPrntAltInp",
           "type": {
             "$tag": "_InputBase",
             "input": "String"
@@ -68,7 +68,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "parent",
-          "object": "RefInpPrntAlt",
+          "object": "RefPrntAltInp",
           "type": {
             "$tag": "_InputBase",
             "input": "Number"
@@ -94,7 +94,7 @@
           }
         }
       ],
-      "name": "RefInpPrntAlt",
+      "name": "RefPrntAltInp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Input"

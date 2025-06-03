@@ -2,7 +2,7 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "RefDualGnrcAltModParam": {
+    "RefGnrcAltModParamDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
@@ -17,7 +17,7 @@
               }
             }
           ],
-          "object": "RefDualGnrcAltModParam",
+          "object": "RefGnrcAltModParamDual",
           "type": {
             "$tag": "_DualBase",
             "typeParam": "ref"
@@ -43,18 +43,34 @@
           }
         }
       ],
-      "name": "RefDualGnrcAltModParam",
+      "name": "RefGnrcAltModParamDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
           "name": "ref"
         },
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
           "name": "mod"
         }
       ]

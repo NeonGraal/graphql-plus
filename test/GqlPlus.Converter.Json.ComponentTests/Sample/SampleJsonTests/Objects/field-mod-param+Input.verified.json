@@ -2,12 +2,75 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "FldInpFieldModParam": {
+    "FieldModParamInp": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "modifiers": [
+            {
+              "$tag": "_ModifierTypeParam",
+              "by": "mod",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Param"
+              }
+            }
+          ],
+          "name": "field",
+          "object": "FieldModParamInp",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "FldFieldModParamInp"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "modifiers": [
+            {
+              "$tag": "_ModifierTypeParam",
+              "by": "mod",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Param"
+              }
+            }
+          ],
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "FldFieldModParamInp"
+          }
+        }
+      ],
+      "name": "FieldModParamInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
+          "name": "mod"
+        }
+      ]
+    },
+    "FldFieldModParamInp": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "FldInpFieldModParam",
+          "object": "FldFieldModParamInp",
           "type": {
             "$tag": "_InputBase",
             "input": "String"
@@ -18,7 +81,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "FldInpFieldModParam",
+          "object": "FldFieldModParamInp",
           "type": {
             "$tag": "_InputBase",
             "input": "Number"
@@ -44,66 +107,11 @@
           }
         }
       ],
-      "name": "FldInpFieldModParam",
+      "name": "FldFieldModParamInp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Input"
       }
-    },
-    "InpFieldModParam": {
-      "$tag": "_TypeInput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_InputField)",
-          "modifiers": [
-            {
-              "$tag": "_ModifierTypeParam",
-              "by": "mod",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "Param"
-              }
-            }
-          ],
-          "name": "field",
-          "object": "InpFieldModParam",
-          "type": {
-            "$tag": "_InputBase",
-            "input": "FldInpFieldModParam"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_InputField",
-          "modifiers": [
-            {
-              "$tag": "_ModifierTypeParam",
-              "by": "mod",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "Param"
-              }
-            }
-          ],
-          "name": "field",
-          "type": {
-            "$tag": "_InputBase",
-            "input": "FldInpFieldModParam"
-          }
-        }
-      ],
-      "name": "InpFieldModParam",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Input"
-      },
-      "typeParams": [
-        {
-          "$tag": "_Named",
-          "name": "mod"
-        }
-      ]
     }
   }
 }

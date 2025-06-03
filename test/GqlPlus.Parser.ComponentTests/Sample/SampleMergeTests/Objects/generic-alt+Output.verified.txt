@@ -3,13 +3,14 @@
 Success
 {
   !Ou I@008/0001
-  OutpGnrcAlt
+  GnrcAltOutp
   <
     I@021/0001
     $type
+    :String
   >
   |
-  P@031/0001
+  P@038/0001
   $type
 }
 ]

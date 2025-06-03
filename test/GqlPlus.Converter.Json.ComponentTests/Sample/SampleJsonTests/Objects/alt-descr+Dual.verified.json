@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualAltDescr": {
+    "AltDescrDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualAltDescr",
+          "object": "AltDescrDual",
           "type": {
             "$tag": "_DualBase",
             "description": "Test Descr",
@@ -25,7 +25,7 @@
           }
         }
       ],
-      "name": "DualAltDescr",
+      "name": "AltDescrDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"

@@ -6,7 +6,7 @@ public abstract class ResolverTypeObjectAlternateTestBase<TModel, TBase, TField,
   where TBase : IObjBaseModel
   where TField : IObjFieldModel
   where TAlt : IObjAlternateModel
-  where TArg : IObjArgModel
+  where TArg : IObjTypeArgModel
 {
   [Theory, RepeatData]
   public void ModelWithAlternateCollection_ResolvesCorrectly(string name, string alternate, string key)

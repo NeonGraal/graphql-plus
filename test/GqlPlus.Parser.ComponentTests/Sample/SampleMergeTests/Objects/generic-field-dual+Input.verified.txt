@@ -3,33 +3,34 @@
 Success
 {
   !In I@007/0001
-  InpGnrcFieldDual
+  GnrcFieldDualInp
   {
     !IF I@026/0001
     field
     :
     I@033/0001
-    RefInpGnrcFieldDual
+    RefGnrcFieldDualInp
     <
       I@053/0001
-      AltInpGnrcFieldDual
+      AltGnrcFieldDualInp
     >
   }
 }
 {
   !In I@007/0002
-  RefInpGnrcFieldDual
+  RefGnrcFieldDualInp
   <
     I@028/0002
     $ref
+    :_Dual
   >
   |
-  P@037/0002
+  P@043/0002
   $ref
 }
 {
   !Du I@006/0003
-  AltInpGnrcFieldDual
+  AltGnrcFieldDualInp
   {
     !DF I@028/0003
     alt

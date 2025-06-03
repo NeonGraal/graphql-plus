@@ -3,10 +3,10 @@
 Success
 {
   !Du I@006/0001
-  DualPrntField
+  PrntFieldDual
   :
   I@023/0001
-  RefDualPrntField
+  RefPrntFieldDual
   {
     !DF I@040/0001
     field
@@ -17,7 +17,7 @@ Success
 }
 {
   !Du I@006/0002
-  RefDualPrntField
+  RefPrntFieldDual
   {
     !DF I@025/0002
     parent

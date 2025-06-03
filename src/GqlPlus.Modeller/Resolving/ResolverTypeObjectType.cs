@@ -8,7 +8,7 @@ internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObj
   where TObjBase : IObjBaseModel
   where TObjField : IObjFieldModel
   where TObjAlt : IObjAlternateModel
-  where TObjArg : IObjArgModel
+  where TObjArg : IObjTypeArgModel
 {
   public override TModel Resolve(TModel model, IResolveContext context)
   {
@@ -49,7 +49,7 @@ internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObj
     }
   }
 
-  protected ArgumentsContext? MakeArgumentsContext(IResolveContext context, IObjArgModel[] arguments, ITypeObjectModel model)
+  protected ArgumentsContext? MakeArgumentsContext(IResolveContext context, IObjTypeArgModel[] arguments, ITypeObjectModel model)
   {
     if (arguments == null || arguments.Length == 0 || model.TypeParams.Length < arguments.Length) {
       return null;

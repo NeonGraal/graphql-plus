@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualPrntField": {
+    "PrntFieldDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "RefDualPrntField",
+          "object": "RefPrntFieldDual",
           "type": {
             "$tag": "_DualBase",
             "dual": "String"
@@ -18,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "parent",
-          "object": "RefDualPrntField",
+          "object": "RefPrntFieldDual",
           "type": {
             "$tag": "_DualBase",
             "dual": "Number"
@@ -27,7 +27,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "DualPrntField",
+          "object": "PrntFieldDual",
           "type": {
             "$tag": "_DualBase",
             "dual": "Number"
@@ -44,22 +44,22 @@
           }
         }
       ],
-      "name": "DualPrntField",
+      "name": "PrntFieldDual",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "RefDualPrntField"
+        "dual": "RefPrntFieldDual"
       },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"
       }
     },
-    "RefDualPrntField": {
+    "RefPrntFieldDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "RefDualPrntField",
+          "object": "RefPrntFieldDual",
           "type": {
             "$tag": "_DualBase",
             "dual": "String"
@@ -70,7 +70,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "parent",
-          "object": "RefDualPrntField",
+          "object": "RefPrntFieldDual",
           "type": {
             "$tag": "_DualBase",
             "dual": "Number"
@@ -96,7 +96,7 @@
           }
         }
       ],
-      "name": "RefDualPrntField",
+      "name": "RefPrntFieldDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"

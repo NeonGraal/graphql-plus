@@ -2,15 +2,15 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpObjAlt": {
+    "ObjAltOutp": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpObjAlt",
+          "object": "ObjAltOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "OutpObjAltType"
+            "output": "ObjAltOutpType"
           }
         }
       ],
@@ -19,19 +19,19 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "OutpObjAltType"
+            "output": "ObjAltOutpType"
           }
         }
       ],
-      "name": "OutpObjAlt",
+      "name": "ObjAltOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
       }
     },
-    "OutpObjAltType": {
+    "ObjAltOutpType": {
       "$tag": "_TypeOutput",
-      "name": "OutpObjAltType",
+      "name": "ObjAltOutpType",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

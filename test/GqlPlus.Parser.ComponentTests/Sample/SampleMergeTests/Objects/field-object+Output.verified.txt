@@ -3,18 +3,18 @@
 Success
 {
   !Ou I@008/0001
-  OutpFieldObj
+  FieldObjOutp
   {
     !OF I@023/0001
     field
     :
     I@030/0001
-    FldOutpFieldObj
+    FldFieldObjOutp
   }
 }
 {
   !Ou I@008/0002
-  FldOutpFieldObj
+  FldFieldObjOutp
   {
     !OF I@026/0002
     field

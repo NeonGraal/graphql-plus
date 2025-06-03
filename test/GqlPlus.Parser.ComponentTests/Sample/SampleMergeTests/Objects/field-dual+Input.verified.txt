@@ -3,18 +3,18 @@
 Success
 {
   !In I@007/0001
-  InpFieldDual
+  FieldDualInp
   {
     !IF I@022/0001
     field
     :
     I@029/0001
-    FldInpFieldDual
+    FldFieldDualInp
   }
 }
 {
   !Du I@006/0002
-  FldInpFieldDual
+  FldFieldDualInp
   {
     !DF I@024/0002
     field

@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "AltDualAltModParam": {
+    "AltAltModParamDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "AltDualAltModParam",
+          "object": "AltAltModParamDual",
           "type": {
             "$tag": "_DualBase",
             "dual": "String"
@@ -18,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "AltDualAltModParam",
+          "object": "AltAltModParamDual",
           "type": {
             "$tag": "_DualBase",
             "dual": "Number"
@@ -44,13 +44,13 @@
           }
         }
       ],
-      "name": "AltDualAltModParam",
+      "name": "AltAltModParamDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"
       }
     },
-    "DualAltModParam": {
+    "AltModParamDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
@@ -65,10 +65,10 @@
               }
             }
           ],
-          "object": "DualAltModParam",
+          "object": "AltModParamDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "AltDualAltModParam"
+            "dual": "AltAltModParamDual"
           }
         }
       ],
@@ -87,18 +87,26 @@
           ],
           "type": {
             "$tag": "_DualBase",
-            "dual": "AltDualAltModParam"
+            "dual": "AltAltModParamDual"
           }
         }
       ],
-      "name": "DualAltModParam",
+      "name": "AltModParamDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
           "name": "mod"
         }
       ]

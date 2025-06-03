@@ -1,15 +1,29 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier FldInpFieldDual: !_TypeDual
+  !_Identifier FieldDualInp: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: field
+        object: FieldDualInp
+        type: !_DualBase
+          dual: FldFieldDualInp
+    fields:
+      - !_InputField
+        name: field
+        type: !_DualBase
+          dual: FldFieldDualInp
+    name: FieldDualInp
+    typeKind: !_TypeKind Input
+  !_Identifier FldFieldDualInp: !_TypeDual
     allAlternates:
       - !_ObjectFor(_DualAlternate)
-        object: FldInpFieldDual
+        object: FldFieldDualInp
         type: !_DualBase
           dual: String
     allFields:
       - !_ObjectFor(_DualField)
         name: field
-        object: FldInpFieldDual
+        object: FldFieldDualInp
         type: !_DualBase
           dual: Number
     alternates:
@@ -21,19 +35,5 @@ types: !_Map_Type
         name: field
         type: !_DualBase
           dual: Number
-    name: FldInpFieldDual
+    name: FldFieldDualInp
     typeKind: !_TypeKind Dual
-  !_Identifier InpFieldDual: !_TypeInput
-    allFields:
-      - !_ObjectFor(_InputField)
-        name: field
-        object: InpFieldDual
-        type: !_DualBase
-          dual: FldInpFieldDual
-    fields:
-      - !_InputField
-        name: field
-        type: !_DualBase
-          dual: FldInpFieldDual
-    name: InpFieldDual
-    typeKind: !_TypeKind Input

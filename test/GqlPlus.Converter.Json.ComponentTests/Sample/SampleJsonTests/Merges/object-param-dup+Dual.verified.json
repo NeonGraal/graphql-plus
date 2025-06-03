@@ -1,0 +1,66 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "ObjParamDupDual": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "test",
+          "object": "ObjParamDupDual",
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "test"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "type",
+          "object": "ObjParamDupDual",
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "test"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "test",
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "test"
+          }
+        },
+        {
+          "$tag": "_DualField",
+          "name": "type",
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "test"
+          }
+        }
+      ],
+      "name": "ObjParamDupDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
+          "name": "test"
+        }
+      ]
+    }
+  }
+}

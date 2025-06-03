@@ -47,10 +47,6 @@ public class UsageContext(
     return false;
   }
 
-  internal virtual void CheckArgType<TObjArg>(TObjArg type, string labelSuffix)
-    where TObjArg : IGqlpObjArg
-    => this.CheckType(type, labelSuffix);
-
   internal bool DifferentName<TAst>(ParentUsage<TAst> input, string? current)
     where TAst : IGqlpType
   {
@@ -106,48 +102,6 @@ internal static class UsageHelpers
 
     return context;
   }
-
-  internal static TContext CheckArgs<TContext, TObjArg>(this TContext context, IEnumerable<TObjArg> arguments, string labelSuffix)
-    where TContext : UsageContext
-    where TObjArg : IGqlpObjArg
-  {
-    foreach (TObjArg arg in arguments) {
-      context.CheckArgType(arg, labelSuffix);
-    }
-
-    return context;
-  }
-
-  internal static TContext CheckType<TContext, TObjBase>(this TContext context, TObjBase type, string labelSuffix, bool check = true)
-    where TContext : UsageContext
-    where TObjBase : IGqlpObjType
-  {
-    string typeName = (type.IsTypeParam ? "$" : "") + type.Name;
-    if (context.GetType(typeName, out IGqlpDescribed? value)) {
-      CheckTypeArgs(AddCheckError, type, check, value);
-    } else {
-      context.AddError(type, type.Label + labelSuffix, $"'{typeName}' not defined", check);
-    }
-
-    return context;
-
-    void AddCheckError(string prefix, string suffix, bool addError)
-      => context.AddError(type, type.Label + labelSuffix, $"{prefix} {typeName}. {suffix}", addError);
-  }
-
-  internal delegate void CheckError(string prefix, string suffix, bool addError);
-
-  internal static void CheckTypeArgs<TObjBase>(CheckError error, TObjBase type, bool check, IGqlpDescribed? value)
-    where TObjBase : IGqlpObjType
-  {
-    int numArgs = type is IGqlpObjBase baseType ? baseType.Args.Count() : 0;
-    if (value is IGqlpObject definition) {
-      error("Type kind mismatch for", $"Found {definition.Label}", check && definition.Label != "Dual" && definition.Label != type.Label);
-
-      int numParams = definition.TypeParams.Count();
-      error("Args mismatch on", $"Expected {numParams}, given {numArgs}", numParams != numArgs);
-    } else if (value is IGqlpSimple simple) {
-      error("Args invalid on", $"Expected 0, given {numArgs}", numArgs != 0);
-    }
-  }
 }
+
+internal delegate void CheckError(string prefix, string suffix, bool check = true);

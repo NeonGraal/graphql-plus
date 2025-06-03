@@ -1,0 +1,4 @@
+object Name { :FieldName<DomName> }
+object FieldName<$ref:EnumName> { field: $ref }
+enum EnumName { nameLabel nameOther }
+domain DomName { enum nameLabel }

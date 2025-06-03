@@ -1,0 +1,109 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnumOutpCnstEnum": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumOutpCnstEnum",
+          "name": "outpCnstEnum"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "outpCnstEnum"
+        }
+      ],
+      "name": "EnumOutpCnstEnum",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "OutpCnstEnum": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpCnstEnum",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "RefOutpCnstEnum",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "output": "outpCnstEnum"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "RefOutpCnstEnum",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "output": "outpCnstEnum"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "OutpCnstEnum",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "RefOutpCnstEnum": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "RefOutpCnstEnum",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "name": "RefOutpCnstEnum",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            },
+            "typeName": "EnumOutpCnstEnum"
+          },
+          "name": "type"
+        }
+      ]
+    }
+  }
+}

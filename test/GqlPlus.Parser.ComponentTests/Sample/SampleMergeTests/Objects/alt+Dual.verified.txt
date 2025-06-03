@@ -3,14 +3,14 @@
 Success
 {
   !Du I@006/0001
-  DualAlt
+  AltDual
   |
   I@018/0001
-  AltDualAlt
+  AltAltDual
 }
 {
   !Du I@006/0002
-  AltDualAlt
+  AltAltDual
   {
     !DF I@019/0002
     alt

@@ -6,7 +6,7 @@ public abstract class ResolverTypeObjectTypeTestBase<TModel, TBase, TField, TAlt
   where TBase : IObjBaseModel
   where TField : IObjFieldModel
   where TAlt : IObjAlternateModel
-  where TArg : IObjArgModel
+  where TArg : IObjTypeArgModel
 {
   protected sealed override TBase NewParent(string parent, string description)
     => MakeBase(parent, description);

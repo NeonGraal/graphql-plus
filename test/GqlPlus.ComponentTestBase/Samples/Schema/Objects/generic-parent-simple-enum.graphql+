@@ -1,0 +1,3 @@
+object Name { :FieldName<EnumName> }
+object FieldName<$ref:_Simple> { field: $ref }
+enum EnumName { name }

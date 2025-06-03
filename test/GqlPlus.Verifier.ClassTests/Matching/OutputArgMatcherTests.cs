@@ -84,6 +84,8 @@ public class OutputArgMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsExpected_WhenConstraintChildOfEnum_WithArgLabel(string name, string enumName, string enumLabel, string constraint, bool expected)
   {
+    this.SkipIf(enumName == constraint);
+
     IGqlpOutputArg arg = NFor<IGqlpOutputArg>(name);
     IGqlpObjType enumType = NFor<IGqlpObjType>(enumName);
     arg.FullType.Returns(enumName);

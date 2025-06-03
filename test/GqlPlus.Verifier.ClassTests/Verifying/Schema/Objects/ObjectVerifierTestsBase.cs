@@ -90,6 +90,8 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
   [Theory, RepeatData]
   public void Verify_Object_WithAlternateParentAlternate_ReturnsNoErrors(string parentName, string alternateName)
   {
+    this.SkipIf(parentName == alternateName);
+
     Define<IGqlpTypeSpecial>("String");
 
     TObject parentObject = NFor<TObject>(parentName);

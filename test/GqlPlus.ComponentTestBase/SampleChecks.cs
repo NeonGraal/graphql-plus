@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using GqlPlus.Abstractions;
 
 namespace GqlPlus;
@@ -111,7 +112,7 @@ public class SampleChecks
       .Select(s => Abbreviations.TryGetValue(s, out string? abbr) ? abbr : s)
       .Select((s, i) => i > 0 ? s : s.ToLowerInvariant()));
 
-  public static readonly (string, string)[] Replacements = [("dual", "Dual"), ("input", "Inp"), ("output", "Outp")];
+  public static readonly (string, string)[] Replacements = [("Dual", "Dual"), ("Input", "Inp"), ("Output", "Outp")];
 
   protected static string ReplaceName(string? input, string testName)
     => input is null ? ""
@@ -119,10 +120,11 @@ public class SampleChecks
       .Replace("name", CamelCase(testName), StringComparison.InvariantCulture)
       .Replace("Name", PascalCase(testName), StringComparison.InvariantCulture);
 
-  protected static string ReplaceObject(string? input, string testName, string objectReplace, string objReplace)
+  protected static string ReplaceObject(string? input, string testName, [NotNull] string objectReplace, string objReplace)
     => input is null ? ""
     : input
-      .Replace("object", objectReplace, StringComparison.InvariantCulture)
+      .Replace("object", objectReplace.ToLowerInvariant(), StringComparison.InvariantCulture)
+      .Replace("Object", objectReplace, StringComparison.InvariantCulture)
       .Replace("Obj", objReplace, StringComparison.InvariantCulture)
       .Replace("name", CamelCase(testName), StringComparison.InvariantCulture)
       .Replace("Name", PascalCase(testName), StringComparison.InvariantCulture);

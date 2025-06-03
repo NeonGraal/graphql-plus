@@ -1,1 +1,1 @@
-4bb112c  (HEAD -> just-class-tests) 2025-05-27 Change field on _TypeRef to typeName
+d1334e5  (HEAD -> type-constraints) 2025-06-03 Remove Obj replacement

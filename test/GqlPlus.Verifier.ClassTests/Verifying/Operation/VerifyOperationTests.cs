@@ -4,7 +4,7 @@ namespace GqlPlus.Verifying.Operation;
 
 [TracePerTest]
 public class VerifyOperationTests
-  : VerifierBase
+  : VerifierTestsBase
 {
   [Fact]
   public void Verify_CallsVerifiersAndCombinesErrors()

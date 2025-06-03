@@ -144,7 +144,7 @@ internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt
 
   public void WithTypeParams(string name, string other, string[] parameters)
     => TrueExpected(
-      name + "<" + parameters.Joined(s => "$" + s) + ">{|" + other + "}",
+      name + "<" + parameters.Joined(s => "$" + s + ":*") + ">{|" + other + "}",
        Object(name) with {
          ObjAlternates = [ObjAlternate(other)],
          TypeParams = parameters.TypeParams(),

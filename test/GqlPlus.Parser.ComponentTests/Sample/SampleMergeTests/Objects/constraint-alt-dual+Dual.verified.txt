@@ -1,0 +1,48 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  CnstAltDualDual
+  |
+  I@026/0001
+  RefCnstAltDualDual
+  <
+    I@045/0001
+    AltCnstAltDualDual
+  >
+}
+{
+  !Du I@006/0002
+  RefCnstAltDualDual
+  <
+    I@026/0002
+    $ref
+    :PrntCnstAltDualDual
+  >
+  |
+  P@055/0002
+  $ref
+}
+{
+  !Du I@006/0003
+  PrntCnstAltDualDual
+  |
+  I@030/0003
+  String
+}
+{
+  !Du I@006/0004
+  AltCnstAltDualDual
+  :
+  I@028/0004
+  PrntCnstAltDualDual
+  {
+    !DF I@048/0004
+    alt
+    :
+    I@053/0004
+    Number
+  }
+}
+]

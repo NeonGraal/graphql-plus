@@ -1,0 +1,41 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  GnrcPrntDualDual
+  :
+  I@026/0001
+  RefGnrcPrntDualDual
+  <
+    I@046/0001
+    AltGnrcPrntDualDual
+  >
+}
+{
+  !Du I@006/0002
+  RefGnrcPrntDualDual
+  <
+    I@027/0002
+    $ref
+    :_Dual
+  >
+  |
+  P@042/0002
+  $ref
+}
+{
+  !Du I@006/0003
+  AltGnrcPrntDualDual
+  {
+    !DF I@028/0003
+    alt
+    :
+    I@033/0003
+    Number
+  }
+  |
+  I@042/0003
+  String
+}
+]

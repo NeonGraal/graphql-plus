@@ -62,7 +62,7 @@ internal class EnumLabels
 
   internal void Add(bool excluded, IGqlpEnum theEnum, string theLabel)
   {
-    IGqlpEnumLabel enumLabel = theEnum.Items.First(m => m.Name == theLabel || m.Aliases.Contains(theLabel));
+    IGqlpEnumLabel enumLabel = theEnum.Items.First(m => m.IsNameOrAlias(theLabel));
     if (excluded) {
       _excludes.Add(new(theEnum, enumLabel.Name));
     } else {

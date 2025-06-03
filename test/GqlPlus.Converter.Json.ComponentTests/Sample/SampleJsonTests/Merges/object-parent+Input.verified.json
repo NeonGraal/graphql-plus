@@ -1,0 +1,26 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "ObjPrntInp": {
+      "$tag": "_TypeInput",
+      "name": "ObjPrntInp",
+      "parent": {
+        "$tag": "_InputBase",
+        "input": "RefObjPrntInp"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "RefObjPrntInp": {
+      "$tag": "_TypeInput",
+      "name": "RefObjPrntInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    }
+  }
+}

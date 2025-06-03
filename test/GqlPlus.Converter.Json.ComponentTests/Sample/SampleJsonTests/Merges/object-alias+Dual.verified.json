@@ -1,0 +1,15 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "ObjAliasDual": {
+      "$tag": "_TypeDual",
+      "aliases": ["Dual1", "Dual2"],
+      "name": "ObjAliasDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    }
+  }
+}

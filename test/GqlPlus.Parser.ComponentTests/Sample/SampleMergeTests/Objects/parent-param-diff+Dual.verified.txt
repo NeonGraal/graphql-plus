@@ -1,0 +1,39 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  PrntParamDiffDual
+  <
+    I@025/0001
+    $a
+    :String
+  >
+  :
+  I@038/0001
+  RefPrntParamDiffDual
+  <
+    I@060/0001
+    $a
+  >
+  {
+    !DF I@063/0001
+    field
+    :
+    I@071/0001
+    $a
+  }
+}
+{
+  !Du I@006/0002
+  RefPrntParamDiffDual
+  <
+    I@028/0002
+    $b
+    :String
+  >
+  |
+  P@042/0002
+  $b
+}
+]

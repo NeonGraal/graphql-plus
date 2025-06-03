@@ -1,0 +1,110 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "PrntParamDiffInp": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "RefPrntParamDiffInp",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "b"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "PrntParamDiffInp",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "a"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "a"
+          }
+        }
+      ],
+      "name": "PrntParamDiffInp",
+      "parent": {
+        "$tag": "_InputBase",
+        "input": "RefPrntParamDiffInp",
+        "typeArgs": [
+          {
+            "$tag": "_InputArg",
+            "typeParam": "a"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
+          "name": "a"
+        }
+      ]
+    },
+    "RefPrntParamDiffInp": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "RefPrntParamDiffInp",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "b"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "b"
+          }
+        }
+      ],
+      "name": "RefPrntParamDiffInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
+          "name": "b"
+        }
+      ]
+    }
+  }
+}

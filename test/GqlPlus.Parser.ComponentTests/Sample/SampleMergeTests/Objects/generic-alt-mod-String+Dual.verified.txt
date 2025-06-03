@@ -1,0 +1,17 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  RefGnrcAltModStrDual
+  <
+    I@028/0001
+    $ref
+    :String
+  >
+  |
+  P@044/0001
+  $ref
+  [*]
+}
+]

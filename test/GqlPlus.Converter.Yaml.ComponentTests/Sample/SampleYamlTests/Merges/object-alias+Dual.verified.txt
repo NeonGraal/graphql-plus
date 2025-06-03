@@ -1,0 +1,6 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier ObjAliasDual: !_TypeDual
+    aliases: [Dual1, Dual2]
+    name: ObjAliasDual
+    typeKind: !_TypeKind Dual

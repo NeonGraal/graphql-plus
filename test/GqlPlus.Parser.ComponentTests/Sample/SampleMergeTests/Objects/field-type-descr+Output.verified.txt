@@ -1,0 +1,16 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  FieldTypeDescrOutp
+  {
+    !OF I@029/0001
+    field
+    :
+    'Test Descr'
+    I@051/0001
+    Number
+  }
+}
+]

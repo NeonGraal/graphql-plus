@@ -1,0 +1,19 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  ObjFieldDual
+  {
+    !DF I@021/0001
+    field
+    :
+    I@028/0001
+    FldObjFieldDual
+  }
+}
+{
+  !Du I@006/0003
+  FldObjFieldDual
+}
+]

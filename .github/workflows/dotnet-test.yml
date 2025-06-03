@@ -79,6 +79,8 @@ jobs:
           name: DotNET Tests (${{ matrix.version }} ${{ env.testType }})
           path: "**/TestResults-${{ matrix.version }}.trx"
           reporter: dotnet-trx
+          list-tests: failed
+          use-actions-summary: false
       - name: Coverage Report
         uses: LouisBrunner/checks-action@v2.0.0
         if: always()

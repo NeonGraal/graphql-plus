@@ -1,0 +1,29 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !In I@007/0001
+  FieldDualInp
+  {
+    !IF I@022/0001
+    field
+    :
+    I@029/0001
+    FldFieldDualInp
+  }
+}
+{
+  !Du I@006/0002
+  FldFieldDualInp
+  {
+    !DF I@024/0002
+    field
+    :
+    I@031/0002
+    Number
+  }
+  |
+  I@040/0002
+  String
+}
+]

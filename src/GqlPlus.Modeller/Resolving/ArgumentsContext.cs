@@ -4,17 +4,17 @@ namespace GqlPlus.Resolving;
 
 internal class ArgumentsContext(
   IResolveContext parent
-) : Map<IObjArgModel>
+) : Map<IObjTypeArgModel>
   , IResolveContext
 {
   internal IResolveContext Parent { get; } = parent;
 
   public bool TryGetArg<TArg>(string label, string name, [NotNullWhen(true)] out TArg? arg, bool canError = true)
-    where TArg : IObjArgModel
+    where TArg : IObjTypeArgModel
   {
     arg = default;
 
-    if (!TryGetValue("$" + name, out IObjArgModel? argValue)) {
+    if (!TryGetValue("$" + name, out IObjTypeArgModel? argValue)) {
       return false;
     }
 
@@ -35,7 +35,7 @@ internal class ArgumentsContext(
       return false;
     }
 
-    if (TryGetValue(name, out IObjArgModel? type) && type is TModel modelType) {
+    if (TryGetValue(name, out IObjTypeArgModel? type) && type is TModel modelType) {
       model = modelType;
       return true;
     }

@@ -1,4 +1,4 @@
 output Name { | RefName<EnumName.prnt_name> }
-output RefName<$type> { field: $type }
+output RefName<$type:PrntName> { field: $type }
 enum EnumName { :PrntName name }
 enum PrntName { prnt_name }

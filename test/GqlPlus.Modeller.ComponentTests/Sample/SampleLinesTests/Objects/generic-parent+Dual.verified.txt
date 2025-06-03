@@ -1,0 +1,13 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier GnrcPrntDual: !_TypeDual
+    name: GnrcPrntDual
+    parent: !_DualBase
+      typeParam: type
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Basic
+          typeName: String
+        name: type

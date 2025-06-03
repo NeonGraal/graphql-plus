@@ -1,0 +1,41 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !In I@007/0001
+  GnrcPrntParamInp
+  :
+  I@027/0001
+  RefGnrcPrntParamInp
+  <
+    I@047/0001
+    AltGnrcPrntParamInp
+  >
+}
+{
+  !In I@007/0002
+  RefGnrcPrntParamInp
+  <
+    I@028/0002
+    $ref
+    :_Input
+  >
+  |
+  P@044/0002
+  $ref
+}
+{
+  !In I@007/0003
+  AltGnrcPrntParamInp
+  {
+    !IF I@029/0003
+    alt
+    :
+    I@034/0003
+    Number
+  }
+  |
+  I@043/0003
+  String
+}
+]

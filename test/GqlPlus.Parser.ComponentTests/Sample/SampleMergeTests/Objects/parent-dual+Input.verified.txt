@@ -1,0 +1,25 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !In I@007/0001
+  PrntDualInp
+  :
+  I@022/0001
+  RefPrntDualInp
+}
+{
+  !Du I@006/0002
+  RefPrntDualInp
+  {
+    !DF I@023/0002
+    parent
+    :
+    I@031/0002
+    Number
+  }
+  |
+  I@040/0002
+  String
+}
+]

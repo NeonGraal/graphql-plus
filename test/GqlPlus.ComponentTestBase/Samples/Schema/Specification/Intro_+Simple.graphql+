@@ -7,12 +7,12 @@ output _TypeDomain {
     | _BaseDomain<_DomainKind.String _DomainRegex _DomainItemRegex>
     }
 
-output _DomainRef<$kind> {
+output _DomainRef<$kind:_DomainKind> {
     : _TypeRef<_TypeKind.Domain>
         domainKind: $kind
     }
 
-output _BaseDomain<$domain $item $domainItem> {
+output _BaseDomain<$domain:_DomainKind $item:_BaseDomainItem $domainItem:_DomainItem> {
     : _ParentType<_TypeKind.Domain $item $domainItem>
         domainKind: $domain
     }
@@ -22,15 +22,23 @@ dual _BaseDomainItem {
         exclude: Boolean
     }
 
-output _DomainItem<$item> {
+output _DomainItem<$item:_BaseDomainItem> {
     : $item
         domain: _Identifier
     }
 
-output _DomainValue<$kind $value> {
+output _DomainValue<$kind:_DomainKind $value:_BasicValue> {
     : _DomainRef<$kind>
         value: $value
     }
+
+output _BasicValue {
+    | Boolean
+    | _EnumValue
+    | Number
+    | String
+    }
+
 dual _DomainTrueFalse {
     : _BaseDomainItem
         value: Boolean
@@ -39,6 +47,7 @@ dual _DomainTrueFalse {
 output _DomainItemTrueFalse {
     : _DomainItem<_DomainTrueFalse>
     }
+
 output _DomainLabel {
     : _BaseDomainItem
         label: _EnumValue
@@ -47,6 +56,7 @@ output _DomainLabel {
 output _DomainItemLabel {
     : _DomainItem<_DomainLabel>
     }
+
 dual _DomainRange {
     : _BaseDomainItem
         lower: Number?
@@ -56,6 +66,7 @@ dual _DomainRange {
 output _DomainItemRange {
     : _DomainItem<_DomainRange>
     }
+
 dual _DomainRegex {
     : _BaseDomainItem
         pattern: String
@@ -64,6 +75,7 @@ dual _DomainRegex {
 output _DomainItemRegex {
     : _DomainItem<_DomainRegex>
     }
+
 output _TypeEnum {
     : _ParentType<_TypeKind.Enum _Aliased _EnumLabel>
     }
@@ -77,15 +89,17 @@ output _EnumValue {
     : _TypeRef<_TypeKind.Enum>
         label: _Identifier
     }
+
 output _TypeUnion {
     : _ParentType<_TypeKind.Union _UnionRef _UnionMember>
     }
 
 output _UnionRef {
     : _TypeRef<_SimpleKind>
-}
+    }
 
 output _UnionMember {
     : _UnionRef
         union: _Identifier
     }
+

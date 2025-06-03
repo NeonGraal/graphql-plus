@@ -1,0 +1,13 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier GnrcPrntInp: !_TypeInput
+    name: GnrcPrntInp
+    parent: !_InputBase
+      typeParam: type
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Basic
+          typeName: String
+        name: type

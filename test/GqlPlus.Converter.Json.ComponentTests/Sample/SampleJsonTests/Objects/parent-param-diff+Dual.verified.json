@@ -1,0 +1,110 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "PrntParamDiffDual": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "RefPrntParamDiffDual",
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "b"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "PrntParamDiffDual",
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "a"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "a"
+          }
+        }
+      ],
+      "name": "PrntParamDiffDual",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "RefPrntParamDiffDual",
+        "typeArgs": [
+          {
+            "$tag": "_DualArg",
+            "typeParam": "a"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
+          "name": "a"
+        }
+      ]
+    },
+    "RefPrntParamDiffDual": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "RefPrntParamDiffDual",
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "b"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "b"
+          }
+        }
+      ],
+      "name": "RefPrntParamDiffDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
+          "name": "b"
+        }
+      ]
+    }
+  }
+}

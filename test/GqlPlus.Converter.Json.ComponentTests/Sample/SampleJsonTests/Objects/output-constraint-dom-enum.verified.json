@@ -1,0 +1,161 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnumOutpCnstDomEnum": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumOutpCnstDomEnum",
+          "name": "outpCnstDomEnum"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumOutpCnstDomEnum",
+          "name": "other"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "outpCnstDomEnum"
+        },
+        {
+          "$tag": "_Aliased",
+          "name": "other"
+        }
+      ],
+      "name": "EnumOutpCnstDomEnum",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "JustOutpCnstDomEnum": {
+      "$tag": "_DomainEnum",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainLabel)",
+          "domain": "JustOutpCnstDomEnum",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "outpCnstDomEnum",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            },
+            "typeName": "EnumOutpCnstDomEnum"
+          }
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Enum"
+      },
+      "items": [
+        {
+          "$tag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "outpCnstDomEnum",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            },
+            "typeName": "EnumOutpCnstDomEnum"
+          }
+        }
+      ],
+      "name": "JustOutpCnstDomEnum",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "OutpCnstDomEnum": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "OutpCnstDomEnum",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "RefOutpCnstDomEnum",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "output": "outpCnstDomEnum"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "output": "RefOutpCnstDomEnum",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "output": "outpCnstDomEnum"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "OutpCnstDomEnum",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "RefOutpCnstDomEnum": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "RefOutpCnstDomEnum",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "name": "RefOutpCnstDomEnum",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Domain"
+            },
+            "typeName": "JustOutpCnstDomEnum"
+          },
+          "name": "type"
+        }
+      ]
+    }
+  }
+}

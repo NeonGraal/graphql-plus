@@ -1,0 +1,32 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !In I@007/0001
+  GnrcAltArgInp
+  <
+    I@022/0001
+    $type
+    :String
+  >
+  |
+  I@039/0001
+  RefGnrcAltArgInp
+  <
+    I@057/0001
+    $type
+  >
+}
+{
+  !In I@007/0002
+  RefGnrcAltArgInp
+  <
+    I@025/0002
+    $ref
+    :String
+  >
+  |
+  P@041/0002
+  $ref
+}
+]

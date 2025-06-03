@@ -1,0 +1,31 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  AltModParamOutp
+  <
+    I@025/0001
+    $mod
+    :String
+  >
+  |
+  I@041/0001
+  AltAltModParamOutp
+  [$mod]
+}
+{
+  !Ou I@008/0002
+  AltAltModParamOutp
+  {
+    !OF I@029/0002
+    alt
+    :
+    I@034/0002
+    Number
+  }
+  |
+  I@043/0002
+  String
+}
+]

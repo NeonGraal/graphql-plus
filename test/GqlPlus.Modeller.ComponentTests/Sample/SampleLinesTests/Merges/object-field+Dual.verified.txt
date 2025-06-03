@@ -1,0 +1,19 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier FldObjFieldDual: !_TypeDual
+    name: FldObjFieldDual
+    typeKind: !_TypeKind Dual
+  !_Identifier ObjFieldDual: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: field
+        object: ObjFieldDual
+        type: !_DualBase
+          dual: FldObjFieldDual
+    fields:
+      - !_DualField
+        name: field
+        type: !_DualBase
+          dual: FldObjFieldDual
+    name: ObjFieldDual
+    typeKind: !_TypeKind Dual

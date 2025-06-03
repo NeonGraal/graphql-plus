@@ -1,0 +1,25 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  AltDualDual
+  |
+  I@022/0001
+  ObjDualAltDualDual
+}
+{
+  !Du I@006/0002
+  ObjDualAltDualDual
+  {
+    !DF I@027/0002
+    alt
+    :
+    I@032/0002
+    Number
+  }
+  |
+  I@041/0002
+  String
+}
+]

@@ -1,0 +1,15 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  ObjPrntDual
+  :
+  I@021/0001
+  RefObjPrntDual
+}
+{
+  !Du I@006/0003
+  RefObjPrntDual
+}
+]

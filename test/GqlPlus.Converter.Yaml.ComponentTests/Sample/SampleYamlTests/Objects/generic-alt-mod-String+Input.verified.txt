@@ -1,0 +1,30 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier RefGnrcAltModStrInp: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      collections:
+      - !_ModifierDictionary
+        by: '*'
+        modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Basic
+      object: RefGnrcAltModStrInp
+      type: !_InputBase
+        typeParam: ref
+    alternates:
+    - !_InputAlternate
+      collections:
+      - !_ModifierDictionary
+        by: '*'
+        modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Basic
+      type: !_InputBase
+        typeParam: ref
+    name: RefGnrcAltModStrInp
+    typeKind: !_TypeKind Input
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        typeKind: !_TypeKind Basic
+        typeName: String
+      name: ref

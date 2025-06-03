@@ -1,0 +1,22 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier GnrcFieldInp: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: field
+        object: GnrcFieldInp
+        type: !_InputBase
+          typeParam: type
+    fields:
+      - !_InputField
+        name: field
+        type: !_InputBase
+          typeParam: type
+    name: GnrcFieldInp
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Basic
+          typeName: String
+        name: type

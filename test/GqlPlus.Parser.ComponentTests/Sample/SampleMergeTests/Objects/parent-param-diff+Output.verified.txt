@@ -1,0 +1,39 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  PrntParamDiffOutp
+  <
+    I@027/0001
+    $a
+    :String
+  >
+  :
+  I@040/0001
+  RefPrntParamDiffOutp
+  <
+    I@062/0001
+    $a
+  >
+  {
+    !OF I@065/0001
+    field
+    :
+    I@073/0001
+    $a
+  }
+}
+{
+  !Ou I@008/0002
+  RefPrntParamDiffOutp
+  <
+    I@030/0002
+    $b
+    :String
+  >
+  |
+  P@044/0002
+  $b
+}
+]

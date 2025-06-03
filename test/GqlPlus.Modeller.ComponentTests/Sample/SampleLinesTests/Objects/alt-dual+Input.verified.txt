@@ -1,0 +1,37 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier AltDualInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_InputAlternate)
+        object: AltDualInp
+        type: !_DualBase
+          dual: ObjDualAltDualInp
+    alternates:
+      - !_InputAlternate
+        type: !_DualBase
+          dual: ObjDualAltDualInp
+    name: AltDualInp
+    typeKind: !_TypeKind Input
+  !_Identifier ObjDualAltDualInp: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_DualAlternate)
+        object: ObjDualAltDualInp
+        type: !_DualBase
+          dual: String
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: alt
+        object: ObjDualAltDualInp
+        type: !_DualBase
+          dual: Number
+    alternates:
+      - !_DualAlternate
+        type: !_DualBase
+          dual: String
+    fields:
+      - !_DualField
+        name: alt
+        type: !_DualBase
+          dual: Number
+    name: ObjDualAltDualInp
+    typeKind: !_TypeKind Dual

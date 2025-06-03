@@ -1,0 +1,45 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  GnrcFieldParamDual
+  {
+    !DF I@027/0001
+    field
+    :
+    I@034/0001
+    RefGnrcFieldParamDual
+    <
+      I@056/0001
+      AltGnrcFieldParamDual
+    >
+  }
+}
+{
+  !Du I@006/0002
+  RefGnrcFieldParamDual
+  <
+    I@029/0002
+    $ref
+    :_Dual
+  >
+  |
+  P@044/0002
+  $ref
+}
+{
+  !Du I@006/0003
+  AltGnrcFieldParamDual
+  {
+    !DF I@030/0003
+    alt
+    :
+    I@035/0003
+    Number
+  }
+  |
+  I@044/0003
+  String
+}
+]

@@ -1,0 +1,23 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier GnrcDescrDual: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: GnrcDescrDual
+      type: !_DualBase
+        typeParam: type
+    fields:
+    - !_DualField
+      name: field
+      type: !_DualBase
+        typeParam: type
+    name: GnrcDescrDual
+    typeKind: !_TypeKind Dual
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        typeKind: !_TypeKind Basic
+        typeName: String
+      description: 'Test Descr'
+      name: type

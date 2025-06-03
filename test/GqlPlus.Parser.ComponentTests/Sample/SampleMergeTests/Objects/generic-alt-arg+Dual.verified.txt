@@ -1,0 +1,32 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  GnrcAltArgDual
+  <
+    I@022/0001
+    $type
+    :String
+  >
+  |
+  I@039/0001
+  RefGnrcAltArgDual
+  <
+    I@058/0001
+    $type
+  >
+}
+{
+  !Du I@006/0002
+  RefGnrcAltArgDual
+  <
+    I@025/0002
+    $ref
+    :String
+  >
+  |
+  P@041/0002
+  $ref
+}
+]

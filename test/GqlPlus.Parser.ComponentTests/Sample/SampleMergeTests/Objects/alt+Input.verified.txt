@@ -1,0 +1,25 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !In I@007/0001
+  AltInp
+  |
+  I@018/0001
+  AltAltInp
+}
+{
+  !In I@007/0002
+  AltAltInp
+  {
+    !IF I@019/0002
+    alt
+    :
+    I@024/0002
+    Number
+  }
+  |
+  I@033/0002
+  String
+}
+]

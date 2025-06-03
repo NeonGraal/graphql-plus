@@ -1,0 +1,15 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !In I@007/0001
+  FieldInp
+  {
+    !IF I@018/0001
+    field
+    :
+    I@025/0001
+    String
+  }
+}
+]

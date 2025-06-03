@@ -1,0 +1,41 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "ObjAltInp": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "ObjAltInp",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "ObjAltInpType"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "ObjAltInpType"
+          }
+        }
+      ],
+      "name": "ObjAltInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "ObjAltInpType": {
+      "$tag": "_TypeInput",
+      "name": "ObjAltInpType",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    }
+  }
+}

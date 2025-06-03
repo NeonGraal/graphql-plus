@@ -1,0 +1,14 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier AltSmplInp: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: AltSmplInp
+      type: !_InputBase
+        input: String
+    alternates:
+    - !_InputAlternate
+      type: !_InputBase
+        input: String
+    name: AltSmplInp
+    typeKind: !_TypeKind Input

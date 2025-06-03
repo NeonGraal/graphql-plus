@@ -1,0 +1,28 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  ObjParamDual
+  <
+    I@020/0001
+    $test
+    :String
+    I@020/0002
+    $type
+    :String
+  >
+  {
+    !DF I@035/0001
+    test
+    :
+    I@042/0001
+    $test
+    !DF I@035/0002
+    type
+    :
+    I@042/0002
+    $type
+  }
+}
+]

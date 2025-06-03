@@ -1,6 +1,0 @@
-﻿!_Schema
-types: !_Map_Type
-  !_Identifier OutpObjAlias: !_TypeOutput
-    aliases: [Outp1,Outp2]
-    name: OutpObjAlias
-    typeKind: !_TypeKind Output

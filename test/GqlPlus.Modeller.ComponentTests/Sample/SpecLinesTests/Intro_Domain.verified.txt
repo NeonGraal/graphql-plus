@@ -1,5 +1,5 @@
 ﻿!_Schema
-_errors:
+errors:
   - !_Error
     _kind: !_TokenKind End
     _message: In _DomainRef can't get model for type '_TypeRef'
@@ -36,11 +36,20 @@ types: !_Map_Type
           typeParam: domainItem
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Enum
+          typeName: _DomainKind
         name: domain
-      - !_Named
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Dual
+          typeName: _BaseDomainItem
         name: item
-      - !_Named
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Output
+          typeName: _DomainItem
         name: domainItem
   !_Identifier _BaseDomainItem: !_TypeDual
     allFields:
@@ -58,6 +67,39 @@ types: !_Map_Type
     parent: !_DualBase
       dual: _Described
     typeKind: !_TypeKind Dual
+  !_Identifier _BasicValue: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: _BasicValue
+        type: !_OutputBase
+          output: Boolean
+      - !_ObjectFor(_OutputAlternate)
+        object: _BasicValue
+        type: !_OutputBase
+          output: _EnumValue
+      - !_ObjectFor(_OutputAlternate)
+        object: _BasicValue
+        type: !_OutputBase
+          output: Number
+      - !_ObjectFor(_OutputAlternate)
+        object: _BasicValue
+        type: !_OutputBase
+          output: String
+    alternates:
+      - !_OutputAlternate
+        type: !_OutputBase
+          output: Boolean
+      - !_OutputAlternate
+        type: !_OutputBase
+          output: _EnumValue
+      - !_OutputAlternate
+        type: !_OutputBase
+          output: Number
+      - !_OutputAlternate
+        type: !_OutputBase
+          output: String
+    name: _BasicValue
+    typeKind: !_TypeKind Output
   !_Identifier _DomainItem: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
@@ -75,7 +117,10 @@ types: !_Map_Type
       typeParam: item
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Dual
+          typeName: _BaseDomainItem
         name: item
   !_Identifier _DomainItemLabel: !_TypeOutput
     allFields:
@@ -245,7 +290,10 @@ types: !_Map_Type
           typeName: _TypeKind
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Enum
+          typeName: _DomainKind
         name: kind
   !_Identifier _DomainRegex: !_TypeDual
     allFields:
@@ -314,9 +362,15 @@ types: !_Map_Type
           typeParam: kind
     typeKind: !_TypeKind Output
     typeParams:
-      - !_Named
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Enum
+          typeName: _DomainKind
         name: kind
-      - !_Named
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Output
+          typeName: _BasicValue
         name: value
   !_Identifier _TypeDomain: !_TypeOutput
     allAlternates:

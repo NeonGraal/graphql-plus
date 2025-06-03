@@ -3,10 +3,10 @@
 Success
 {
   !Ou I@008/0001
-  OutpObjAlias
+  ObjAliasOutp
   [
-    Outp1
-    Outp2
+    Output1
+    Output2
   ]
 }
 ]

@@ -189,4 +189,54 @@ public class StructureValueTests
 
     value.AsString.ShouldBe($"{number}");
   }
+
+  [Fact]
+  public void ToString_Empty_IsCorrect()
+  {
+    StructureValue value = new((string?)null);
+
+    string result = $"{value}";
+
+    result.ShouldBe("E");
+  }
+
+  [Theory, RepeatData]
+  public void ToString_Identifier_IsCorrect(string identifier)
+  {
+    StructureValue value = new(identifier);
+
+    string result = $"{value}";
+
+    result.ShouldBe("I:" + identifier);
+  }
+
+  [Theory, RepeatData]
+  public void ToString_Text_IsCorrect(string text)
+  {
+    StructureValue value = StructureValue.Str(text);
+
+    string result = $"{value}";
+
+    result.ShouldBe("T:" + text);
+  }
+
+  [Theory, RepeatData]
+  public void ToString_Boolean_IsCorrect(bool check)
+  {
+    StructureValue value = new(check);
+
+    string result = $"{value}";
+
+    result.ShouldBe("B:" + check.TrueFalse());
+  }
+
+  [Theory, RepeatData]
+  public void ToString_Number_IsCorrect(decimal number)
+  {
+    StructureValue value = new(number);
+
+    string result = $"{value}";
+
+    result.ShouldBe($"N:{number:0.#####}");
+  }
 }

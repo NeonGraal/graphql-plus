@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "AltOutpAltModBool": {
+    "AltAltModBoolOutp": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "AltOutpAltModBool",
+          "object": "AltAltModBoolOutp",
           "type": {
             "$tag": "_OutputBase",
             "output": "String"
@@ -18,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "alt",
-          "object": "AltOutpAltModBool",
+          "object": "AltAltModBoolOutp",
           "type": {
             "$tag": "_OutputBase",
             "output": "Number"
@@ -44,13 +44,13 @@
           }
         }
       ],
-      "name": "AltOutpAltModBool",
+      "name": "AltAltModBoolOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
       }
     },
-    "OutpAltModBool": {
+    "AltModBoolOutp": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
@@ -69,10 +69,10 @@
               }
             }
           ],
-          "object": "OutpAltModBool",
+          "object": "AltModBoolOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "AltOutpAltModBool"
+            "output": "AltAltModBoolOutp"
           }
         }
       ],
@@ -95,11 +95,11 @@
           ],
           "type": {
             "$tag": "_OutputBase",
-            "output": "AltOutpAltModBool"
+            "output": "AltAltModBoolOutp"
           }
         }
       ],
-      "name": "OutpAltModBool",
+      "name": "AltModBoolOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

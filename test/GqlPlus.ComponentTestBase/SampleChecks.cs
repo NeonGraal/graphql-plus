@@ -12,6 +12,7 @@ public class SampleChecks
     ["Boolean"] = "Bool",
     ["Category"] = "Ctgr",
     ["Complex"] = "Cmpl",
+    ["Constraint"] = "Cnst",
     ["Descrs"] = "Dscrs",
     ["Directive"] = "Drct",
     ["Domain"] = "Dmn",
@@ -30,6 +31,7 @@ public class SampleChecks
     ["Single"] = "Sngl",
     ["String"] = "Str",
     ["Unique"] = "Unq",
+    //    ["Unused"] = "Unsd",
   };
 
   private static readonly TextInfo s_textInfo = CultureInfo.InvariantCulture.TextInfo;
@@ -59,6 +61,10 @@ public class SampleChecks
     if (expected.Count == 0) {
       if (includeVerify && errors?.Count > 0 && AttributeReader.TryGetProjectDirectory(out string? project)) {
         IOrderedEnumerable<string> errorLines = errors.Select(e => e.ToString() ?? "").Distinct().Order();
+        if (!Directory.Exists($"{project}/{path}")) {
+          Directory.CreateDirectory($"{project}/{path}");
+        }
+
         await File.WriteAllLinesAsync($"{project}/{path}/{file}.verify+errors", errorLines);
       }
 
@@ -112,7 +118,7 @@ public class SampleChecks
       .Select(s => Abbreviations.TryGetValue(s, out string? abbr) ? abbr : s)
       .Select((s, i) => i > 0 ? s : s.ToLowerInvariant()));
 
-  public static readonly (string, string)[] Replacements = [("Dual", "Dual"), ("Input", "Inp"), ("Output", "Outp")];
+  public static readonly string[] Replacements = ["Dual", "Input", "Output"];
 
   protected static string ReplaceName(string? input, string testName)
     => input is null ? ""
@@ -120,20 +126,19 @@ public class SampleChecks
       .Replace("name", CamelCase(testName), StringComparison.InvariantCulture)
       .Replace("Name", PascalCase(testName), StringComparison.InvariantCulture);
 
-  protected static string ReplaceObject(string? input, string testName, [NotNull] string objectReplace, string objReplace)
+  protected static string ReplaceObject(string? input, string testName, [NotNull] string objectReplace)
     => input is null ? ""
     : input
       .Replace("object", objectReplace.ToLowerInvariant(), StringComparison.InvariantCulture)
       .Replace("Object", objectReplace, StringComparison.InvariantCulture)
-      .Replace("Obj", objReplace, StringComparison.InvariantCulture)
-      .Replace("name", CamelCase(testName), StringComparison.InvariantCulture)
-      .Replace("Name", PascalCase(testName), StringComparison.InvariantCulture);
+      .Replace("name", CamelCase(testName + "-" + objectReplace), StringComparison.InvariantCulture)
+      .Replace("Name", PascalCase(testName + "-" + objectReplace), StringComparison.InvariantCulture);
 
   protected static IEnumerable<string> ReplaceValue(string input, string testName)
     => input
       .ThrowIfNull()
       .Contains("object ", StringComparison.Ordinal)
-        ? Replacements.Select(r => ReplaceObject(input, testName, r.Item1, r.Item2))
+        ? Replacements.Select(r => ReplaceObject(input, testName, r))
         : [ReplaceName(input, testName)];
 
   protected static async Task ReplaceFile(string testDirectory, string testName, Action<string, string, string> action)
@@ -144,8 +149,8 @@ public class SampleChecks
     if (IsObjectInput(input)) {
       action.ShouldSatisfyAllConditions(
         () => {
-          foreach ((string label, string abbr) in Replacements) {
-            action(ReplaceObject(input, abbr, label, abbr), testDirectory, testName + "+" + label);
+          foreach (string label in Replacements) {
+            action(ReplaceObject(input, testName, label), testDirectory, testName + "+" + label);
           }
         });
     } else {
@@ -160,7 +165,7 @@ public class SampleChecks
 
     if (IsObjectInput(input)) {
       await WhenAll([.. Replacements
-        .Select(r => action(ReplaceObject(input, testName, r.Item1, r.Item2), testDirectory, testName + "+" + r.Item1))]);
+        .Select(r => action(ReplaceObject(input, testName, r), testDirectory, testName + "+" + r))]);
     } else {
       await action(ReplaceName(input, testName), testDirectory, testName);
     }
@@ -195,7 +200,7 @@ public class SampleChecks
 
     return (await Task.WhenAll(tasks))
         .SelectMany(p => IsObjectInput(p.input)
-          ? Replacements.Select(r => p.file + "+" + r.Item1)
+          ? Replacements.Select(r => p.file + "+" + r)
           : [p.file])
         .Order();
   }

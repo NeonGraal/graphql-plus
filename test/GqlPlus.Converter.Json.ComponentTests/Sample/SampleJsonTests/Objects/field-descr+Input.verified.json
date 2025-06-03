@@ -2,17 +2,17 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpFieldDescr": {
+    "FieldDescrInp": {
       "$tag": "_TypeInput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "description": "Test Descr",
           "name": "field",
-          "object": "InpFieldDescr",
+          "object": "FieldDescrInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "*"
+            "input": "String"
           }
         }
       ],
@@ -23,11 +23,11 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "input": "*"
+            "input": "String"
           }
         }
       ],
-      "name": "InpFieldDescr",
+      "name": "FieldDescrInp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Input"

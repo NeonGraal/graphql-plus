@@ -1,5 +1,5 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpObj: !_TypeInput
-    name: InpObj
+  !_Identifier ObjInp: !_TypeInput
+    name: ObjInp
     typeKind: !_TypeKind Input

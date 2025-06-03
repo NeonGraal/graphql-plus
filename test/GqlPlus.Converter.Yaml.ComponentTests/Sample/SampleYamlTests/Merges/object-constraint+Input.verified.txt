@@ -1,0 +1,31 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier ObjCnstInp: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: ObjCnstInp
+      type: !_InputBase
+        typeParam: type
+    - !_ObjectFor(_InputField)
+      name: str
+      object: ObjCnstInp
+      type: !_InputBase
+        typeParam: type
+    fields:
+    - !_InputField
+      name: field
+      type: !_InputBase
+        typeParam: type
+    - !_InputField
+      name: str
+      type: !_InputBase
+        typeParam: type
+    name: ObjCnstInp
+    typeKind: !_TypeKind Input
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        typeKind: !_TypeKind Basic
+        typeName: String
+      name: type

@@ -3,17 +3,17 @@
 Success
 {
   !Ou I@008/0001
-  OutpPrntAlt
+  PrntAltOutp
   :
   I@023/0001
-  RefOutpPrntAlt
+  RefPrntAltOutp
   |
   I@040/0001
   Number
 }
 {
   !Ou I@008/0002
-  RefOutpPrntAlt
+  RefPrntAltOutp
   {
     !OF I@026/0002
     parent

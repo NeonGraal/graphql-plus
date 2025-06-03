@@ -3,13 +3,13 @@
 Success
 {
   !Ou I@008/0001
-  OutpObjPrnt
+  ObjPrntOutp
   :
   I@023/0001
-  RefOutpObjPrnt
+  RefObjPrntOutp
 }
 {
   !Ou I@008/0003
-  RefOutpObjPrnt
+  RefObjPrntOutp
 }
 ]

@@ -1,0 +1,66 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "ObjParamCnstOutp": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "test",
+          "object": "ObjParamCnstOutp",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "test"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "type",
+          "object": "ObjParamCnstOutp",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "test"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "test",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "test"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "name": "type",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "test"
+          }
+        }
+      ],
+      "name": "ObjParamCnstOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
+          "name": "test"
+        }
+      ]
+    }
+  }
+}

@@ -1,6 +1,6 @@
 ﻿{
   "$tag": "_Schema",
-  "_errors": [
+  "errors": [
     {
       "$tag": "_Error",
       "_kind": {
@@ -16,6 +16,14 @@
         "value": "End"
       },
       "_message": "In _DualBase can\u0027t get model for type \u0027_ObjBase\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _DualTypeParam can\u0027t get model for type \u0027_ObjTypeParam\u0027"
     },
     {
       "$tag": "_Error",
@@ -152,6 +160,29 @@
         "value": "Output"
       }
     },
+    "_DualTypeParam": {
+      "$tag": "_TypeOutput",
+      "name": "_DualTypeParam",
+      "parent": {
+        "$tag": "_OutputBase",
+        "output": "_ObjTypeParam",
+        "typeArgs": [
+          {
+            "$tag": "_OutputArg",
+            "label": "Dual",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            },
+            "typeName": "_TypeKind"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
     "_TypeDual": {
       "$tag": "_TypeOutput",
       "name": "_TypeDual",
@@ -171,6 +202,10 @@
           {
             "$tag": "_OutputArg",
             "output": "_DualBase"
+          },
+          {
+            "$tag": "_OutputArg",
+            "output": "_DualTypeParam"
           },
           {
             "$tag": "_OutputArg",

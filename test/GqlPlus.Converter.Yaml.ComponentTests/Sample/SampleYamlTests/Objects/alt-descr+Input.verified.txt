@@ -1,9 +1,9 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpAltDescr: !_TypeInput
+  !_Identifier AltDescrInp: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpAltDescr
+      object: AltDescrInp
       type: !_InputBase
         description: 'Test Descr'
         input: String
@@ -12,5 +12,5 @@ types: !_Map_Type
       type: !_InputBase
         description: 'Test Descr'
         input: String
-    name: InpAltDescr
+    name: AltDescrInp
     typeKind: !_TypeKind Input

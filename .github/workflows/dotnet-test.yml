@@ -73,12 +73,14 @@ jobs:
         if: always()
         run: pwsh make-summary.ps1 -Framework ${{ matrix.version }}
       - name: Tests Report
-        uses: dorny/test-reporter@v1
+        uses: dorny/test-reporter@v2
         if: always()
         with:
           name: DotNET Tests (${{ matrix.version }} ${{ env.testType }})
           path: "**/TestResults-${{ matrix.version }}.trx"
           reporter: dotnet-trx
+          list-tests: failed
+          use-actions-summary: false
       - name: Coverage Report
         uses: LouisBrunner/checks-action@v2.0.0
         if: always()

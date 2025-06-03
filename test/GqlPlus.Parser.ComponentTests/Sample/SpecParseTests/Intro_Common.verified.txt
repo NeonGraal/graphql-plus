@@ -35,6 +35,7 @@ Success
   <
     I@019/0012
     $kind
+    :_TypeKind
   >
   :
   I@007/0013
@@ -53,8 +54,10 @@ Success
   <
     I@020/0017
     $kind
-    I@026/0017
+    :_TypeKind
+    I@036/0017
     $parent
+    :_Described
   >
   :
   I@007/0018
@@ -77,10 +80,13 @@ Success
   <
     I@021/0022
     $kind
-    I@027/0022
+    :_TypeKind
+    I@037/0022
     $item
-    I@033/0022
+    :_Described
+    I@054/0022
     $allItem
+    :_Described
   >
   :
   I@007/0023
@@ -137,6 +143,7 @@ Success
   <
     I@018/0032
     $kind
+    :_TypeKind
   >
   :
   I@007/0033

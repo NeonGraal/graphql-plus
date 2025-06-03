@@ -3,23 +3,24 @@
 Success
 {
   !Du I@006/0001
-  DualFieldModParam
+  FieldModParamDual
   <
     I@025/0001
     $mod
+    :String
   >
   {
-    !DF I@032/0001
+    !DF I@039/0001
     field
     :
-    I@039/0001
-    FldDualFieldModParam
+    I@046/0001
+    FldFieldModParamDual
     [$mod]
   }
 }
 {
   !Du I@006/0002
-  FldDualFieldModParam
+  FldFieldModParamDual
   {
     !DF I@029/0002
     field

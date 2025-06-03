@@ -3,13 +3,13 @@
 Success
 {
   !Du I@006/0001
-  DualObjPrnt
+  ObjPrntDual
   :
   I@021/0001
-  RefDualObjPrnt
+  RefObjPrntDual
 }
 {
   !Du I@006/0003
-  RefDualObjPrnt
+  RefObjPrntDual
 }
 ]

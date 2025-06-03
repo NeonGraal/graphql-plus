@@ -3,15 +3,15 @@
 Success
 {
   !In I@007/0001
-  InpAltModBool
+  AltModBoolInp
   |
   I@025/0001
-  AltInpAltModBool
+  AltAltModBoolInp
   [^]
 }
 {
   !In I@007/0002
-  AltInpAltModBool
+  AltAltModBoolInp
   {
     !IF I@026/0002
     alt

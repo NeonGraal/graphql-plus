@@ -2,15 +2,15 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualGnrcAltSmpl": {
+    "GnrcAltSmplDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualGnrcAltSmpl",
+          "object": "GnrcAltSmplDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "RefDualGnrcAltSmpl",
+            "dual": "RefGnrcAltSmplDual",
             "typeArgs": [
               {
                 "$tag": "_DualArg",
@@ -25,7 +25,7 @@
           "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
-            "dual": "RefDualGnrcAltSmpl",
+            "dual": "RefGnrcAltSmplDual",
             "typeArgs": [
               {
                 "$tag": "_DualArg",
@@ -35,18 +35,18 @@
           }
         }
       ],
-      "name": "DualGnrcAltSmpl",
+      "name": "GnrcAltSmplDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"
       }
     },
-    "RefDualGnrcAltSmpl": {
+    "RefGnrcAltSmplDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "RefDualGnrcAltSmpl",
+          "object": "RefGnrcAltSmplDual",
           "type": {
             "$tag": "_DualBase",
             "typeParam": "ref"
@@ -62,14 +62,22 @@
           }
         }
       ],
-      "name": "RefDualGnrcAltSmpl",
+      "name": "RefGnrcAltSmplDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
           "name": "ref"
         }
       ]

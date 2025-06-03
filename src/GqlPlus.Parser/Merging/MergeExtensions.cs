@@ -43,6 +43,38 @@ public static class MergeExtensions
     return TokenMessages.New;
   }
 
+  public static ITokenMessages CanMergeString<TItem>(
+      this IEnumerable<TItem> items,
+      Func<TItem, string?> field,
+      [CallerArgumentExpression(nameof(field))] string? fieldExpr = null)
+    where TItem : IGqlpError
+  {
+    items.ThrowIfNull();
+    field.ThrowIfNull();
+
+    string? result = null;
+
+#pragma warning disable CA1062 // Validate arguments of public methods
+    foreach (TItem item in items) {
+      string? value = field(item);
+#pragma warning restore CA1062 // Validate arguments of public methods
+      if (string.IsNullOrWhiteSpace(value)) {
+        continue;
+      }
+
+      if (string.IsNullOrWhiteSpace(result)) {
+        result = value;
+        continue;
+      }
+
+      if (!result!.Equals(value, StringComparison.Ordinal)) {
+        return item.MakeError($"Different values merging {fieldExpr}: {result} != {value}");
+      }
+    }
+
+    return TokenMessages.New;
+  }
+
   public static ITokenMessages CanMerge<TItem, TObjField>(
       this IEnumerable<TItem> items,
       Func<TItem, TObjField?> field,

@@ -1,11 +1,13 @@
 ﻿using GqlPlus;
 using GqlPlus.Convert;
+using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Sample;
 
 public class HtmlSchemaTests(
-    ISchemaVerifyChecks checks
-) : TestSchemaVerify(checks)
+  ILoggerFactory logger,
+  ISchemaVerifyChecks checks
+) : TestSchemaVerify(logger, checks)
 {
   [Fact]
   public async Task Index_Samples()

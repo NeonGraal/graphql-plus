@@ -3,14 +3,14 @@
 Success
 {
   !In I@007/0001
-  InpFieldDescr
+  FieldDescrInp
   {
     'Test Descr'
     !IF I@038/0001
     field
     :
-    P@045/0001
-    *
+    I@045/0001
+    String
   }
 }
 ]

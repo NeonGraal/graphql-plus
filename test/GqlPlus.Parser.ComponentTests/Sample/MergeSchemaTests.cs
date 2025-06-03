@@ -1,13 +1,15 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Merging;
 using GqlPlus.Result;
+using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Sample;
 
 public class MergeSchemaTests(
-    ISchemaParseChecks checks,
-    IMerge<IGqlpSchema> schemaMerger
-) : TestSchemaResult(checks)
+  ILoggerFactory logger,
+  ISchemaParseChecks checks,
+  IMerge<IGqlpSchema> schemaMerger
+) : TestSchemaResult(logger, checks)
 {
   protected override Task Result_Valid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")
     => Check_Merge([result.Required()], test, label, section);

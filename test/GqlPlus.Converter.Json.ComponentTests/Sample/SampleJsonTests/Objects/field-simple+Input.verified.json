@@ -2,13 +2,13 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpFieldSmpl": {
+    "FieldSmplInp": {
       "$tag": "_TypeInput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "InpFieldSmpl",
+          "object": "FieldSmplInp",
           "type": {
             "$tag": "_InputBase",
             "input": "Number"
@@ -25,7 +25,7 @@
           }
         }
       ],
-      "name": "InpFieldSmpl",
+      "name": "FieldSmplInp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Input"

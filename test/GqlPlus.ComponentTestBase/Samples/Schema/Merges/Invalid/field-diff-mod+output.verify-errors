@@ -1,3 +1,2 @@
-﻿Multiple Outputs with name 'Test' can't be merged
-Group of OutputField for 'field' is not singular ModifiedType['Test', 'Test []']
-Multiple Types with name 'Test' can't be merged
+﻿'Test' can't be merged
+Group of OutputField for 'field' not singular ModifiedType['Test', 'Test []']

@@ -3,18 +3,18 @@
 Success
 {
   !Ou I@008/0001
-  OutpGnrcAltParam
+  GnrcAltParamOutp
   |
   I@029/0001
-  RefOutpGnrcAltParam
+  RefGnrcAltParamOutp
   <
     I@049/0001
-    AltOutpGnrcAltParam
+    AltGnrcAltParamOutp
   >
 }
 {
   !Ou I@008/0002
-  RefOutpGnrcAltParam
+  RefGnrcAltParamOutp
   <
     I@029/0002
     $ref
@@ -26,7 +26,7 @@ Success
 }
 {
   !Ou I@008/0003
-  AltOutpGnrcAltParam
+  AltGnrcAltParamOutp
   {
     !OF I@030/0003
     alt

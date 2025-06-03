@@ -2,7 +2,7 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "RefInpGnrcAltModStr": {
+    "RefGnrcAltModStrInp": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
@@ -21,7 +21,7 @@
               }
             }
           ],
-          "object": "RefInpGnrcAltModStr",
+          "object": "RefGnrcAltModStrInp",
           "type": {
             "$tag": "_InputBase",
             "typeParam": "ref"
@@ -51,7 +51,7 @@
           }
         }
       ],
-      "name": "RefInpGnrcAltModStr",
+      "name": "RefGnrcAltModStrInp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Input"

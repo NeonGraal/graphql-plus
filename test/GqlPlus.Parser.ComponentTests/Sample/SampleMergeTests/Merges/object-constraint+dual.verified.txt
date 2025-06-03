@@ -3,7 +3,7 @@
 Success
 {
   !Du I@006/0001
-  DualObjCnst
+  ObjCnstDual
   <
     I@019/0001
     $type

@@ -3,7 +3,7 @@
 Success
 {
   !Ou I@008/0001
-  OutpGnrcPrntArg
+  GnrcPrntArgOutp
   <
     I@025/0001
     $type
@@ -11,7 +11,7 @@ Success
   >
   :
   I@041/0001
-  RefOutpGnrcPrntArg
+  RefGnrcPrntArgOutp
   <
     I@061/0001
     $type
@@ -19,7 +19,7 @@ Success
 }
 {
   !Ou I@008/0002
-  RefOutpGnrcPrntArg
+  RefGnrcPrntArgOutp
   <
     I@028/0002
     $ref

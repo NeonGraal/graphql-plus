@@ -2,7 +2,7 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "RefOutpGnrcAltModStr": {
+    "RefGnrcAltModStrOutp": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
@@ -21,7 +21,7 @@
               }
             }
           ],
-          "object": "RefOutpGnrcAltModStr",
+          "object": "RefGnrcAltModStrOutp",
           "type": {
             "$tag": "_OutputBase",
             "typeParam": "ref"
@@ -51,7 +51,7 @@
           }
         }
       ],
-      "name": "RefOutpGnrcAltModStr",
+      "name": "RefGnrcAltModStrOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

@@ -3,7 +3,7 @@
 Success
 {
   !Ou I@008/0001
-  OutpGnrcAltArgDescr
+  GnrcAltArgDescrOutp
   <
     I@029/0001
     $type
@@ -11,7 +11,7 @@ Success
   >
   |
   I@046/0001
-  RefOutpGnrcAltArgDescr
+  RefGnrcAltArgDescrOutp
   <
     'Test Descr'
     I@084/0001
@@ -20,7 +20,7 @@ Success
 }
 {
   !Ou I@008/0002
-  RefOutpGnrcAltArgDescr
+  RefGnrcAltArgDescrOutp
   <
     I@032/0002
     $ref

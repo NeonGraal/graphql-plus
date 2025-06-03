@@ -1,10 +1,10 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpObjFieldTypeAlias: !_TypeInput
+  !_Identifier ObjFieldTypeAliasInp: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: field
-      object: InpObjFieldTypeAlias
+      object: ObjFieldTypeAliasInp
       type: !_InputBase
         input: String
     fields:
@@ -12,5 +12,5 @@ types: !_Map_Type
       name: field
       type: !_InputBase
         input: String
-    name: InpObjFieldTypeAlias
+    name: ObjFieldTypeAliasInp
     typeKind: !_TypeKind Input

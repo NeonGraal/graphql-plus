@@ -2,13 +2,13 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualGnrcField": {
+    "GnrcFieldDual": {
       "$tag": "_TypeDual",
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "DualGnrcField",
+          "object": "GnrcFieldDual",
           "type": {
             "$tag": "_DualBase",
             "typeParam": "type"
@@ -25,7 +25,7 @@
           }
         }
       ],
-      "name": "DualGnrcField",
+      "name": "GnrcFieldDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"

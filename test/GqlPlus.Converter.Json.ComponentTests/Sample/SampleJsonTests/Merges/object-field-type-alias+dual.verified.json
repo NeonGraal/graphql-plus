@@ -2,13 +2,13 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualObjFieldTypeAlias": {
+    "ObjFieldTypeAliasDual": {
       "$tag": "_TypeDual",
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "DualObjFieldTypeAlias",
+          "object": "ObjFieldTypeAliasDual",
           "type": {
             "$tag": "_DualBase",
             "dual": "String"
@@ -25,7 +25,7 @@
           }
         }
       ],
-      "name": "DualObjFieldTypeAlias",
+      "name": "ObjFieldTypeAliasDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"

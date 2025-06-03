@@ -3,18 +3,18 @@
 Success
 {
   !Ou I@008/0001
-  OutpGnrcPrntStrDom
+  GnrcPrntStrDomOutp
   :
   I@030/0001
-  FieldOutpGnrcPrntStrDom
+  FieldGnrcPrntStrDomOutp
   <
     I@054/0001
-    DomGnrcPrntStrDom
+    DomGnrcPrntStrDomOutp
   >
 }
 {
   !Ou I@008/0002
-  FieldOutpGnrcPrntStrDom
+  FieldGnrcPrntStrDomOutp
   <
     I@033/0002
     $ref
@@ -30,9 +30,9 @@ Success
 }
 {
   !Do I@008/0003
-  DomGnrcPrntStrDom
+  DomGnrcPrntStrDomOutp
   String
-  !DX R@035/0003
+  !DX R@039/0003
   /\\w+/
 }
 ]

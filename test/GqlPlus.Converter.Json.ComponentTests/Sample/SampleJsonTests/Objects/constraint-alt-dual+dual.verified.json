@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "AltDualCnstAltDual": {
+    "AltCnstAltDualDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "PrntDualCnstAltDual",
+          "object": "PrntCnstAltDualDual",
           "type": {
             "$tag": "_DualBase",
             "dual": "String"
@@ -18,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "AltDualCnstAltDual",
+          "object": "AltCnstAltDualDual",
           "type": {
             "$tag": "_DualBase",
             "dual": "Number"
@@ -35,29 +35,29 @@
           }
         }
       ],
-      "name": "AltDualCnstAltDual",
+      "name": "AltCnstAltDualDual",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "PrntDualCnstAltDual"
+        "dual": "PrntCnstAltDualDual"
       },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"
       }
     },
-    "DualCnstAltDual": {
+    "CnstAltDualDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualCnstAltDual",
+          "object": "CnstAltDualDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "RefDualCnstAltDual",
+            "dual": "RefCnstAltDualDual",
             "typeArgs": [
               {
                 "$tag": "_DualArg",
-                "dual": "AltDualCnstAltDual"
+                "dual": "AltCnstAltDualDual"
               }
             ]
           }
@@ -68,28 +68,28 @@
           "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
-            "dual": "RefDualCnstAltDual",
+            "dual": "RefCnstAltDualDual",
             "typeArgs": [
               {
                 "$tag": "_DualArg",
-                "dual": "AltDualCnstAltDual"
+                "dual": "AltCnstAltDualDual"
               }
             ]
           }
         }
       ],
-      "name": "DualCnstAltDual",
+      "name": "CnstAltDualDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"
       }
     },
-    "PrntDualCnstAltDual": {
+    "PrntCnstAltDualDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "PrntDualCnstAltDual",
+          "object": "PrntCnstAltDualDual",
           "type": {
             "$tag": "_DualBase",
             "dual": "String"
@@ -105,18 +105,18 @@
           }
         }
       ],
-      "name": "PrntDualCnstAltDual",
+      "name": "PrntCnstAltDualDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"
       }
     },
-    "RefDualCnstAltDual": {
+    "RefCnstAltDualDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "RefDualCnstAltDual",
+          "object": "RefCnstAltDualDual",
           "type": {
             "$tag": "_DualBase",
             "typeParam": "ref"
@@ -132,7 +132,7 @@
           }
         }
       ],
-      "name": "RefDualCnstAltDual",
+      "name": "RefCnstAltDualDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"
@@ -146,7 +146,7 @@
               "$tag": "_TypeKind",
               "value": "Dual"
             },
-            "typeName": "PrntDualCnstAltDual"
+            "typeName": "PrntCnstAltDualDual"
           },
           "name": "ref"
         }

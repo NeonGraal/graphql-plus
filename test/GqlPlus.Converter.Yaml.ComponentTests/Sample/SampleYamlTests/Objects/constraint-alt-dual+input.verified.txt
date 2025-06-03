@@ -1,15 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier AltInpCnstAltDual: !_TypeInput
+  !_Identifier AltCnstAltDualInp: !_TypeInput
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: PrntInpCnstAltDual
+      object: PrntCnstAltDualInp
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
-      object: AltInpCnstAltDual
+      object: AltCnstAltDualInp
       type: !_InputBase
         input: Number
     fields:
@@ -17,55 +17,55 @@ types: !_Map_Type
       name: alt
       type: !_InputBase
         input: Number
-    name: AltInpCnstAltDual
+    name: AltCnstAltDualInp
     parent: !_DualBase
-      dual: PrntInpCnstAltDual
+      dual: PrntCnstAltDualInp
     typeKind: !_TypeKind Input
-  !_Identifier InpCnstAltDual: !_TypeInput
+  !_Identifier CnstAltDualInp: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpCnstAltDual
+      object: CnstAltDualInp
       type: !_InputBase
-        input: RefInpCnstAltDual
+        input: RefCnstAltDualInp
         typeArgs:
         - !_InputArg
-          input: AltInpCnstAltDual
+          input: AltCnstAltDualInp
     alternates:
     - !_InputAlternate
       type: !_InputBase
-        input: RefInpCnstAltDual
+        input: RefCnstAltDualInp
         typeArgs:
         - !_InputArg
-          input: AltInpCnstAltDual
-    name: InpCnstAltDual
+          input: AltCnstAltDualInp
+    name: CnstAltDualInp
     typeKind: !_TypeKind Input
-  !_Identifier PrntInpCnstAltDual: !_TypeDual
+  !_Identifier PrntCnstAltDualInp: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: PrntInpCnstAltDual
+      object: PrntCnstAltDualInp
       type: !_DualBase
         dual: String
     alternates:
     - !_DualAlternate
       type: !_DualBase
         dual: String
-    name: PrntInpCnstAltDual
+    name: PrntCnstAltDualInp
     typeKind: !_TypeKind Dual
-  !_Identifier RefInpCnstAltDual: !_TypeInput
+  !_Identifier RefCnstAltDualInp: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: RefInpCnstAltDual
+      object: RefCnstAltDualInp
       type: !_InputBase
         typeParam: ref
     alternates:
     - !_InputAlternate
       type: !_InputBase
         typeParam: ref
-    name: RefInpCnstAltDual
+    name: RefCnstAltDualInp
     typeKind: !_TypeKind Input
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
         typeKind: !_TypeKind Dual
-        typeName: PrntInpCnstAltDual
+        typeName: PrntCnstAltDualInp
       name: ref

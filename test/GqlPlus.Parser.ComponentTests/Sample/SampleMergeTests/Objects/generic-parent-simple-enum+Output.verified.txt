@@ -3,18 +3,18 @@
 Success
 {
   !Ou I@008/0001
-  OutpGnrcPrntSmplEnum
+  GnrcPrntSmplEnumOutp
   :
   I@032/0001
-  FieldOutpGnrcPrntSmplEnum
+  FieldGnrcPrntSmplEnumOutp
   <
     I@058/0001
-    EnumGnrcPrntSmplEnum
+    EnumGnrcPrntSmplEnumOutp
   >
 }
 {
   !Ou I@008/0002
-  FieldOutpGnrcPrntSmplEnum
+  FieldGnrcPrntSmplEnumOutp
   <
     I@035/0002
     $ref
@@ -30,8 +30,8 @@ Success
 }
 {
   !En I@006/0003
-  EnumGnrcPrntSmplEnum
-  !EL I@029/0003
-  gnrcPrntSmplEnum
+  EnumGnrcPrntSmplEnumOutp
+  !EL I@033/0003
+  gnrcPrntSmplEnumOutp
 }
 ]

@@ -2,9 +2,9 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpGnrcPrnt": {
+    "GnrcPrntInp": {
       "$tag": "_TypeInput",
-      "name": "InpGnrcPrnt",
+      "name": "GnrcPrntInp",
       "parent": {
         "$tag": "_InputBase",
         "typeParam": "type"

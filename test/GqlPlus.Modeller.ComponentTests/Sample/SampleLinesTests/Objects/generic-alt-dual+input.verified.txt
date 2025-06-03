@@ -1,15 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier AltInpGnrcAltDual: !_TypeDual
+  !_Identifier AltGnrcAltDualInp: !_TypeDual
     allAlternates:
       - !_ObjectFor(_DualAlternate)
-        object: AltInpGnrcAltDual
+        object: AltGnrcAltDualInp
         type: !_DualBase
           dual: String
     allFields:
       - !_ObjectFor(_DualField)
         name: alt
-        object: AltInpGnrcAltDual
+        object: AltGnrcAltDualInp
         type: !_DualBase
           dual: Number
     alternates:
@@ -21,37 +21,37 @@ types: !_Map_Type
         name: alt
         type: !_DualBase
           dual: Number
-    name: AltInpGnrcAltDual
+    name: AltGnrcAltDualInp
     typeKind: !_TypeKind Dual
-  !_Identifier InpGnrcAltDual: !_TypeInput
+  !_Identifier GnrcAltDualInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
-        object: InpGnrcAltDual
+        object: GnrcAltDualInp
         type: !_InputBase
-          input: RefInpGnrcAltDual
+          input: RefGnrcAltDualInp
           typeArgs:
             - !_DualArg
-              dual: AltInpGnrcAltDual
+              dual: AltGnrcAltDualInp
     alternates:
       - !_InputAlternate
         type: !_InputBase
-          input: RefInpGnrcAltDual
+          input: RefGnrcAltDualInp
           typeArgs:
             - !_DualArg
-              dual: AltInpGnrcAltDual
-    name: InpGnrcAltDual
+              dual: AltGnrcAltDualInp
+    name: GnrcAltDualInp
     typeKind: !_TypeKind Input
-  !_Identifier RefInpGnrcAltDual: !_TypeInput
+  !_Identifier RefGnrcAltDualInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
-        object: RefInpGnrcAltDual
+        object: RefGnrcAltDualInp
         type: !_InputBase
           typeParam: ref
     alternates:
       - !_InputAlternate
         type: !_InputBase
           typeParam: ref
-    name: RefInpGnrcAltDual
+    name: RefGnrcAltDualInp
     typeKind: !_TypeKind Input
     typeParams:
       - !_TypeParam

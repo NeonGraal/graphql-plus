@@ -3,7 +3,7 @@
 Success
 {
   !In I@007/0001
-  InpCnstAlt
+  CnstAltInp
   <
     I@019/0001
     $type

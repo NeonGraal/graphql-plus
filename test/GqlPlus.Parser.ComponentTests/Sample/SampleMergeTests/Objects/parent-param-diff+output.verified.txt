@@ -3,7 +3,7 @@
 Success
 {
   !Ou I@008/0001
-  OutpPrntParamDiff
+  PrntParamDiffOutp
   <
     I@027/0001
     $a
@@ -11,7 +11,7 @@ Success
   >
   :
   I@040/0001
-  RefOutpPrntParamDiff
+  RefPrntParamDiffOutp
   <
     I@062/0001
     $a
@@ -26,7 +26,7 @@ Success
 }
 {
   !Ou I@008/0002
-  RefOutpPrntParamDiff
+  RefPrntParamDiffOutp
   <
     I@030/0002
     $b

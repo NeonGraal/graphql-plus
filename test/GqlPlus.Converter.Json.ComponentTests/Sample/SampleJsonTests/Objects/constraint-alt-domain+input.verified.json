@@ -2,12 +2,51 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DomCnstAltDmn": {
+    "CnstAltDmnInp": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "CnstAltDmnInp",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "RefCnstAltDmnInp",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "input": "DomCnstAltDmnInp"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "RefCnstAltDmnInp",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "input": "DomCnstAltDmnInp"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "CnstAltDmnInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "DomCnstAltDmnInp": {
       "$tag": "_DomainString",
       "allItems": [
         {
           "$tag": "_DomainItem(_DomainRegex)",
-          "domain": "DomCnstAltDmn",
+          "domain": "DomCnstAltDmnInp",
           "exclude": false,
           "pattern": "\\w\u002B"
         }
@@ -23,57 +62,18 @@
           "pattern": "\\w\u002B"
         }
       ],
-      "name": "DomCnstAltDmn",
+      "name": "DomCnstAltDmnInp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Domain"
       }
     },
-    "InpCnstAltDmn": {
+    "RefCnstAltDmnInp": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpCnstAltDmn",
-          "type": {
-            "$tag": "_InputBase",
-            "input": "RefInpCnstAltDmn",
-            "typeArgs": [
-              {
-                "$tag": "_InputArg",
-                "input": "DomCnstAltDmn"
-              }
-            ]
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_InputAlternate",
-          "type": {
-            "$tag": "_InputBase",
-            "input": "RefInpCnstAltDmn",
-            "typeArgs": [
-              {
-                "$tag": "_InputArg",
-                "input": "DomCnstAltDmn"
-              }
-            ]
-          }
-        }
-      ],
-      "name": "InpCnstAltDmn",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Input"
-      }
-    },
-    "RefInpCnstAltDmn": {
-      "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "RefInpCnstAltDmn",
+          "object": "RefCnstAltDmnInp",
           "type": {
             "$tag": "_InputBase",
             "typeParam": "ref"
@@ -89,7 +89,7 @@
           }
         }
       ],
-      "name": "RefInpCnstAltDmn",
+      "name": "RefCnstAltDmnInp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Input"

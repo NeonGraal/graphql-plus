@@ -1,15 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier AltInpCnstFieldObj: !_TypeInput
+  !_Identifier AltCnstFieldObjInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
-        object: PrntInpCnstFieldObj
+        object: PrntCnstFieldObjInp
         type: !_InputBase
           input: String
     allFields:
       - !_ObjectFor(_InputField)
         name: alt
-        object: AltInpCnstFieldObj
+        object: AltCnstFieldObjInp
         type: !_InputBase
           input: Number
     fields:
@@ -17,41 +17,41 @@ types: !_Map_Type
         name: alt
         type: !_InputBase
           input: Number
-    name: AltInpCnstFieldObj
+    name: AltCnstFieldObjInp
     parent: !_InputBase
-      input: PrntInpCnstFieldObj
+      input: PrntCnstFieldObjInp
     typeKind: !_TypeKind Input
-  !_Identifier InpCnstFieldObj: !_TypeInput
+  !_Identifier CnstFieldObjInp: !_TypeInput
     allFields:
       - !_ObjectFor(_InputField)
         name: field
-        object: RefInpCnstFieldObj
+        object: RefCnstFieldObjInp
         type: !_InputBase
-          input: AltInpCnstFieldObj
-    name: InpCnstFieldObj
+          input: AltCnstFieldObjInp
+    name: CnstFieldObjInp
     parent: !_InputBase
-      input: RefInpCnstFieldObj
+      input: RefCnstFieldObjInp
       typeArgs:
         - !_InputArg
-          input: AltInpCnstFieldObj
+          input: AltCnstFieldObjInp
     typeKind: !_TypeKind Input
-  !_Identifier PrntInpCnstFieldObj: !_TypeInput
+  !_Identifier PrntCnstFieldObjInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
-        object: PrntInpCnstFieldObj
+        object: PrntCnstFieldObjInp
         type: !_InputBase
           input: String
     alternates:
       - !_InputAlternate
         type: !_InputBase
           input: String
-    name: PrntInpCnstFieldObj
+    name: PrntCnstFieldObjInp
     typeKind: !_TypeKind Input
-  !_Identifier RefInpCnstFieldObj: !_TypeInput
+  !_Identifier RefCnstFieldObjInp: !_TypeInput
     allFields:
       - !_ObjectFor(_InputField)
         name: field
-        object: RefInpCnstFieldObj
+        object: RefCnstFieldObjInp
         type: !_InputBase
           typeParam: ref
     fields:
@@ -59,11 +59,11 @@ types: !_Map_Type
         name: field
         type: !_InputBase
           typeParam: ref
-    name: RefInpCnstFieldObj
+    name: RefCnstFieldObjInp
     typeKind: !_TypeKind Input
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
           typeKind: !_TypeKind Input
-          typeName: PrntInpCnstFieldObj
+          typeName: PrntCnstFieldObjInp
         name: ref

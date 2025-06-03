@@ -2,12 +2,51 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DomCnstAltDmn": {
+    "CnstAltDmnDual": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "CnstAltDmnDual",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "RefCnstAltDmnDual",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "dual": "DomCnstAltDmnDual"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "RefCnstAltDmnDual",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "dual": "DomCnstAltDmnDual"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "CnstAltDmnDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "DomCnstAltDmnDual": {
       "$tag": "_DomainString",
       "allItems": [
         {
           "$tag": "_DomainItem(_DomainRegex)",
-          "domain": "DomCnstAltDmn",
+          "domain": "DomCnstAltDmnDual",
           "exclude": false,
           "pattern": "\\w\u002B"
         }
@@ -23,57 +62,18 @@
           "pattern": "\\w\u002B"
         }
       ],
-      "name": "DomCnstAltDmn",
+      "name": "DomCnstAltDmnDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Domain"
       }
     },
-    "DualCnstAltDmn": {
+    "RefCnstAltDmnDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualCnstAltDmn",
-          "type": {
-            "$tag": "_DualBase",
-            "dual": "RefDualCnstAltDmn",
-            "typeArgs": [
-              {
-                "$tag": "_DualArg",
-                "dual": "DomCnstAltDmn"
-              }
-            ]
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "dual": "RefDualCnstAltDmn",
-            "typeArgs": [
-              {
-                "$tag": "_DualArg",
-                "dual": "DomCnstAltDmn"
-              }
-            ]
-          }
-        }
-      ],
-      "name": "DualCnstAltDmn",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Dual"
-      }
-    },
-    "RefDualCnstAltDmn": {
-      "$tag": "_TypeDual",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "RefDualCnstAltDmn",
+          "object": "RefCnstAltDmnDual",
           "type": {
             "$tag": "_DualBase",
             "typeParam": "ref"
@@ -89,7 +89,7 @@
           }
         }
       ],
-      "name": "RefDualCnstAltDmn",
+      "name": "RefCnstAltDmnDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"

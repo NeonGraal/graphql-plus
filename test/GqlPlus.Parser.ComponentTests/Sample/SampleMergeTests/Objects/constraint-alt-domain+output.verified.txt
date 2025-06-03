@@ -3,18 +3,18 @@
 Success
 {
   !Ou I@008/0001
-  OutpCnstAltDmn
+  CnstAltDmnOutp
   |
   I@027/0001
-  RefOutpCnstAltDmn
+  RefCnstAltDmnOutp
   <
     I@045/0001
-    DomCnstAltDmn
+    DomCnstAltDmnOutp
   >
 }
 {
   !Ou I@008/0002
-  RefOutpCnstAltDmn
+  RefCnstAltDmnOutp
   <
     I@027/0002
     $ref
@@ -26,9 +26,9 @@ Success
 }
 {
   !Do I@008/0003
-  DomCnstAltDmn
+  DomCnstAltDmnOutp
   String
-  !DX R@031/0003
+  !DX R@035/0003
   /\\w+/
 }
 ]

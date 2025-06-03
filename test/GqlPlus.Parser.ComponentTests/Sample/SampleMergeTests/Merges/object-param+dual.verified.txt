@@ -3,7 +3,7 @@
 Success
 {
   !Du I@006/0001
-  DualObjParam
+  ObjParamDual
   <
     I@020/0001
     $test

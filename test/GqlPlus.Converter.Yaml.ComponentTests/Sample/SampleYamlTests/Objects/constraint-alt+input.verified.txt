@@ -1,16 +1,16 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpCnstAlt: !_TypeInput
+  !_Identifier CnstAltInp: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpCnstAlt
+      object: CnstAltInp
       type: !_InputBase
         typeParam: type
     alternates:
     - !_InputAlternate
       type: !_InputBase
         typeParam: type
-    name: InpCnstAlt
+    name: CnstAltInp
     typeKind: !_TypeKind Input
     typeParams:
     - !_TypeParam

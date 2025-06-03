@@ -1,6 +1,6 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier RefOutpGnrcAltModStr: !_TypeOutput
+  !_Identifier RefGnrcAltModStrOutp: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         collections:
@@ -8,7 +8,7 @@ types: !_Map_Type
             by: '*'
             modifierKind: !_ModifierKind Dict
             typeKind: !_SimpleKind Basic
-        object: RefOutpGnrcAltModStr
+        object: RefGnrcAltModStrOutp
         type: !_OutputBase
           typeParam: ref
     alternates:
@@ -20,7 +20,7 @@ types: !_Map_Type
             typeKind: !_SimpleKind Basic
         type: !_OutputBase
           typeParam: ref
-    name: RefOutpGnrcAltModStr
+    name: RefGnrcAltModStrOutp
     typeKind: !_TypeKind Output
     typeParams:
       - !_TypeParam

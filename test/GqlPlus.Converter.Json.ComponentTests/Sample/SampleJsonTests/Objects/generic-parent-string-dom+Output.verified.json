@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DomGnrcPrntStrDom": {
+    "DomGnrcPrntStrDomOutp": {
       "$tag": "_DomainString",
       "allItems": [
         {
           "$tag": "_DomainItem(_DomainRegex)",
-          "domain": "DomGnrcPrntStrDom",
+          "domain": "DomGnrcPrntStrDomOutp",
           "exclude": false,
           "pattern": "\\w\u002B"
         }
@@ -23,19 +23,19 @@
           "pattern": "\\w\u002B"
         }
       ],
-      "name": "DomGnrcPrntStrDom",
+      "name": "DomGnrcPrntStrDomOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Domain"
       }
     },
-    "FieldOutpGnrcPrntStrDom": {
+    "FieldGnrcPrntStrDomOutp": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "FieldOutpGnrcPrntStrDom",
+          "object": "FieldGnrcPrntStrDomOutp",
           "type": {
             "$tag": "_OutputBase",
             "typeParam": "ref"
@@ -52,7 +52,7 @@
           }
         }
       ],
-      "name": "FieldOutpGnrcPrntStrDom",
+      "name": "FieldGnrcPrntStrDomOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
@@ -72,27 +72,27 @@
         }
       ]
     },
-    "OutpGnrcPrntStrDom": {
+    "GnrcPrntStrDomOutp": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "FieldOutpGnrcPrntStrDom",
+          "object": "FieldGnrcPrntStrDomOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "DomGnrcPrntStrDom"
+            "output": "DomGnrcPrntStrDomOutp"
           }
         }
       ],
-      "name": "OutpGnrcPrntStrDom",
+      "name": "GnrcPrntStrDomOutp",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "FieldOutpGnrcPrntStrDom",
+        "output": "FieldGnrcPrntStrDomOutp",
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "output": "DomGnrcPrntStrDom"
+            "output": "DomGnrcPrntStrDomOutp"
           }
         ]
       },

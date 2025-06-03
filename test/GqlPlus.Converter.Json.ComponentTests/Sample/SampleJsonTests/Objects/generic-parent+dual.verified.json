@@ -2,9 +2,9 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualGnrcPrnt": {
+    "GnrcPrntDual": {
       "$tag": "_TypeDual",
-      "name": "DualGnrcPrnt",
+      "name": "GnrcPrntDual",
       "parent": {
         "$tag": "_DualBase",
         "typeParam": "type"

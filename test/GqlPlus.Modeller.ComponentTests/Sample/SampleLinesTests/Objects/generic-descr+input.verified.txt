@@ -1,10 +1,10 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpGnrcDescr: !_TypeInput
+  !_Identifier GnrcDescrInp: !_TypeInput
     allFields:
       - !_ObjectFor(_InputField)
         name: field
-        object: InpGnrcDescr
+        object: GnrcDescrInp
         type: !_InputBase
           typeParam: type
     fields:
@@ -12,7 +12,7 @@ types: !_Map_Type
         name: field
         type: !_InputBase
           typeParam: type
-    name: InpGnrcDescr
+    name: GnrcDescrInp
     typeKind: !_TypeKind Input
     typeParams:
       - !_TypeParam

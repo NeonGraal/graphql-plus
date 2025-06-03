@@ -1,15 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier AltDualCnstFieldDual: !_TypeDual
+  !_Identifier AltCnstFieldDualDual: !_TypeDual
     allAlternates:
       - !_ObjectFor(_DualAlternate)
-        object: PrntDualCnstFieldDual
+        object: PrntCnstFieldDualDual
         type: !_DualBase
           dual: String
     allFields:
       - !_ObjectFor(_DualField)
         name: alt
-        object: AltDualCnstFieldDual
+        object: AltCnstFieldDualDual
         type: !_DualBase
           dual: Number
     fields:
@@ -17,41 +17,41 @@ types: !_Map_Type
         name: alt
         type: !_DualBase
           dual: Number
-    name: AltDualCnstFieldDual
+    name: AltCnstFieldDualDual
     parent: !_DualBase
-      dual: PrntDualCnstFieldDual
+      dual: PrntCnstFieldDualDual
     typeKind: !_TypeKind Dual
-  !_Identifier DualCnstFieldDual: !_TypeDual
+  !_Identifier CnstFieldDualDual: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
         name: field
-        object: RefDualCnstFieldDual
+        object: RefCnstFieldDualDual
         type: !_DualBase
-          dual: AltDualCnstFieldDual
-    name: DualCnstFieldDual
+          dual: AltCnstFieldDualDual
+    name: CnstFieldDualDual
     parent: !_DualBase
-      dual: RefDualCnstFieldDual
+      dual: RefCnstFieldDualDual
       typeArgs:
         - !_DualArg
-          dual: AltDualCnstFieldDual
+          dual: AltCnstFieldDualDual
     typeKind: !_TypeKind Dual
-  !_Identifier PrntDualCnstFieldDual: !_TypeDual
+  !_Identifier PrntCnstFieldDualDual: !_TypeDual
     allAlternates:
       - !_ObjectFor(_DualAlternate)
-        object: PrntDualCnstFieldDual
+        object: PrntCnstFieldDualDual
         type: !_DualBase
           dual: String
     alternates:
       - !_DualAlternate
         type: !_DualBase
           dual: String
-    name: PrntDualCnstFieldDual
+    name: PrntCnstFieldDualDual
     typeKind: !_TypeKind Dual
-  !_Identifier RefDualCnstFieldDual: !_TypeDual
+  !_Identifier RefCnstFieldDualDual: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
         name: field
-        object: RefDualCnstFieldDual
+        object: RefCnstFieldDualDual
         type: !_DualBase
           typeParam: ref
     fields:
@@ -59,11 +59,11 @@ types: !_Map_Type
         name: field
         type: !_DualBase
           typeParam: ref
-    name: RefDualCnstFieldDual
+    name: RefCnstFieldDualDual
     typeKind: !_TypeKind Dual
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
           typeKind: !_TypeKind Dual
-          typeName: PrntDualCnstFieldDual
+          typeName: PrntCnstFieldDualDual
         name: ref

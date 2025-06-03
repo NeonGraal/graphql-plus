@@ -1,1 +1,1 @@
-object ObjName<"Test" "Descr" $type:String> { field: $type }
+object Name<"Test" "Descr" $type:String> { field: $type }

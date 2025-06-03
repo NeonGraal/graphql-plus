@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "AltDualCnstFieldObj": {
+    "AltCnstFieldObjDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "PrntDualCnstFieldObj",
+          "object": "PrntCnstFieldObjDual",
           "type": {
             "$tag": "_DualBase",
             "dual": "String"
@@ -18,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "AltDualCnstFieldObj",
+          "object": "AltCnstFieldObjDual",
           "type": {
             "$tag": "_DualBase",
             "dual": "Number"
@@ -35,37 +35,37 @@
           }
         }
       ],
-      "name": "AltDualCnstFieldObj",
+      "name": "AltCnstFieldObjDual",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "PrntDualCnstFieldObj"
+        "dual": "PrntCnstFieldObjDual"
       },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"
       }
     },
-    "DualCnstFieldObj": {
+    "CnstFieldObjDual": {
       "$tag": "_TypeDual",
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "RefDualCnstFieldObj",
+          "object": "RefCnstFieldObjDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "AltDualCnstFieldObj"
+            "dual": "AltCnstFieldObjDual"
           }
         }
       ],
-      "name": "DualCnstFieldObj",
+      "name": "CnstFieldObjDual",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "RefDualCnstFieldObj",
+        "dual": "RefCnstFieldObjDual",
         "typeArgs": [
           {
             "$tag": "_DualArg",
-            "dual": "AltDualCnstFieldObj"
+            "dual": "AltCnstFieldObjDual"
           }
         ]
       },
@@ -74,12 +74,12 @@
         "value": "Dual"
       }
     },
-    "PrntDualCnstFieldObj": {
+    "PrntCnstFieldObjDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "PrntDualCnstFieldObj",
+          "object": "PrntCnstFieldObjDual",
           "type": {
             "$tag": "_DualBase",
             "dual": "String"
@@ -95,19 +95,19 @@
           }
         }
       ],
-      "name": "PrntDualCnstFieldObj",
+      "name": "PrntCnstFieldObjDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"
       }
     },
-    "RefDualCnstFieldObj": {
+    "RefCnstFieldObjDual": {
       "$tag": "_TypeDual",
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "RefDualCnstFieldObj",
+          "object": "RefCnstFieldObjDual",
           "type": {
             "$tag": "_DualBase",
             "typeParam": "ref"
@@ -124,7 +124,7 @@
           }
         }
       ],
-      "name": "RefDualCnstFieldObj",
+      "name": "RefCnstFieldObjDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"
@@ -138,7 +138,7 @@
               "$tag": "_TypeKind",
               "value": "Dual"
             },
-            "typeName": "PrntDualCnstFieldObj"
+            "typeName": "PrntCnstFieldObjDual"
           },
           "name": "ref"
         }

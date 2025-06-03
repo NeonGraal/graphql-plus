@@ -1,1 +1,1 @@
-object ObjName { field: "Test" "Descr" Number }
+object Name { field: "Test" "Descr" Number }

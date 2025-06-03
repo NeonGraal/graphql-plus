@@ -1,9 +1,27 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DomCnstAltDmn: !_DomainString
+  !_Identifier CnstAltDmnInp: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: CnstAltDmnInp
+      type: !_InputBase
+        input: RefCnstAltDmnInp
+        typeArgs:
+        - !_InputArg
+          input: DomCnstAltDmnInp
+    alternates:
+    - !_InputAlternate
+      type: !_InputBase
+        input: RefCnstAltDmnInp
+        typeArgs:
+        - !_InputArg
+          input: DomCnstAltDmnInp
+    name: CnstAltDmnInp
+    typeKind: !_TypeKind Input
+  !_Identifier DomCnstAltDmnInp: !_DomainString
     allItems:
     - !_DomainItem(_DomainRegex)
-      domain: DomCnstAltDmn
+      domain: DomCnstAltDmnInp
       exclude: false
       pattern: \w+
     domainKind: !_DomainKind String
@@ -11,37 +29,19 @@ types: !_Map_Type
     - !_DomainRegex
       exclude: false
       pattern: \w+
-    name: DomCnstAltDmn
+    name: DomCnstAltDmnInp
     typeKind: !_TypeKind Domain
-  !_Identifier InpCnstAltDmn: !_TypeInput
+  !_Identifier RefCnstAltDmnInp: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: InpCnstAltDmn
-      type: !_InputBase
-        input: RefInpCnstAltDmn
-        typeArgs:
-        - !_InputArg
-          input: DomCnstAltDmn
-    alternates:
-    - !_InputAlternate
-      type: !_InputBase
-        input: RefInpCnstAltDmn
-        typeArgs:
-        - !_InputArg
-          input: DomCnstAltDmn
-    name: InpCnstAltDmn
-    typeKind: !_TypeKind Input
-  !_Identifier RefInpCnstAltDmn: !_TypeInput
-    allAlternates:
-    - !_ObjectFor(_InputAlternate)
-      object: RefInpCnstAltDmn
+      object: RefCnstAltDmnInp
       type: !_InputBase
         typeParam: ref
     alternates:
     - !_InputAlternate
       type: !_InputBase
         typeParam: ref
-    name: RefInpCnstAltDmn
+    name: RefCnstAltDmnInp
     typeKind: !_TypeKind Input
     typeParams:
     - !_TypeParam

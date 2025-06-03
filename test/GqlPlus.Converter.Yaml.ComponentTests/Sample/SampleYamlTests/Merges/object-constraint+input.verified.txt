@@ -1,15 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpObjCnst: !_TypeInput
+  !_Identifier ObjCnstInp: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
       name: field
-      object: InpObjCnst
+      object: ObjCnstInp
       type: !_InputBase
         typeParam: type
     - !_ObjectFor(_InputField)
       name: str
-      object: InpObjCnst
+      object: ObjCnstInp
       type: !_InputBase
         typeParam: type
     fields:
@@ -21,7 +21,7 @@ types: !_Map_Type
       name: str
       type: !_InputBase
         typeParam: type
-    name: InpObjCnst
+    name: ObjCnstInp
     typeKind: !_TypeKind Input
     typeParams:
     - !_TypeParam

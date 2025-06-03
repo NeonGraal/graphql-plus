@@ -1,1 +1,1 @@
-object RefObjName<$ref:String $mod:String> { | $ref[$mod] }
+object RefName<$ref:String $mod:String> { | $ref[$mod] }

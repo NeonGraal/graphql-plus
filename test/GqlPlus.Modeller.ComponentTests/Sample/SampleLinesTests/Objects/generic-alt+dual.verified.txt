@@ -1,16 +1,16 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualGnrcAlt: !_TypeDual
+  !_Identifier GnrcAltDual: !_TypeDual
     allAlternates:
       - !_ObjectFor(_DualAlternate)
-        object: DualGnrcAlt
+        object: GnrcAltDual
         type: !_DualBase
           typeParam: type
     alternates:
       - !_DualAlternate
         type: !_DualBase
           typeParam: type
-    name: DualGnrcAlt
+    name: GnrcAltDual
     typeKind: !_TypeKind Dual
     typeParams:
       - !_TypeParam

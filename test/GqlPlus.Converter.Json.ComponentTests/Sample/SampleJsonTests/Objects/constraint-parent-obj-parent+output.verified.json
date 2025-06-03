@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "AltOutpCnstPrntObjPrnt": {
+    "AltCnstPrntObjPrntOutp": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "PrntOutpCnstPrntObjPrnt",
+          "object": "PrntCnstPrntObjPrntOutp",
           "type": {
             "$tag": "_OutputBase",
             "output": "String"
@@ -18,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "alt",
-          "object": "AltOutpCnstPrntObjPrnt",
+          "object": "AltCnstPrntObjPrntOutp",
           "type": {
             "$tag": "_OutputBase",
             "output": "Number"
@@ -35,22 +35,22 @@
           }
         }
       ],
-      "name": "AltOutpCnstPrntObjPrnt",
+      "name": "AltCnstPrntObjPrntOutp",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "PrntOutpCnstPrntObjPrnt"
+        "output": "PrntCnstPrntObjPrntOutp"
       },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
       }
     },
-    "OutpCnstPrntObjPrnt": {
+    "CnstPrntObjPrntOutp": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "PrntOutpCnstPrntObjPrnt",
+          "object": "PrntCnstPrntObjPrntOutp",
           "type": {
             "$tag": "_OutputBase",
             "output": "String"
@@ -61,21 +61,21 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "alt",
-          "object": "AltOutpCnstPrntObjPrnt",
+          "object": "AltCnstPrntObjPrntOutp",
           "type": {
             "$tag": "_OutputBase",
             "output": "Number"
           }
         }
       ],
-      "name": "OutpCnstPrntObjPrnt",
+      "name": "CnstPrntObjPrntOutp",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "RefOutpCnstPrntObjPrnt",
+        "output": "RefCnstPrntObjPrntOutp",
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "output": "AltOutpCnstPrntObjPrnt"
+            "output": "AltCnstPrntObjPrntOutp"
           }
         ]
       },
@@ -84,12 +84,12 @@
         "value": "Output"
       }
     },
-    "PrntOutpCnstPrntObjPrnt": {
+    "PrntCnstPrntObjPrntOutp": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "PrntOutpCnstPrntObjPrnt",
+          "object": "PrntCnstPrntObjPrntOutp",
           "type": {
             "$tag": "_OutputBase",
             "output": "String"
@@ -105,15 +105,15 @@
           }
         }
       ],
-      "name": "PrntOutpCnstPrntObjPrnt",
+      "name": "PrntCnstPrntObjPrntOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
       }
     },
-    "RefOutpCnstPrntObjPrnt": {
+    "RefCnstPrntObjPrntOutp": {
       "$tag": "_TypeOutput",
-      "name": "RefOutpCnstPrntObjPrnt",
+      "name": "RefCnstPrntObjPrntOutp",
       "parent": {
         "$tag": "_OutputBase",
         "typeParam": "ref"
@@ -131,7 +131,7 @@
               "$tag": "_TypeKind",
               "value": "Output"
             },
-            "typeName": "PrntOutpCnstPrntObjPrnt"
+            "typeName": "PrntCnstPrntObjPrntOutp"
           },
           "name": "ref"
         }

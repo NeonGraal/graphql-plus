@@ -3,7 +3,7 @@
 Success
 {
   !In I@007/0001
-  InpAltModParam
+  AltModParamInp
   <
     I@023/0001
     $mod
@@ -11,12 +11,12 @@ Success
   >
   |
   I@039/0001
-  AltInpAltModParam
+  AltAltModParamInp
   [$mod]
 }
 {
   !In I@007/0002
-  AltInpAltModParam
+  AltAltModParamInp
   {
     !IF I@027/0002
     alt

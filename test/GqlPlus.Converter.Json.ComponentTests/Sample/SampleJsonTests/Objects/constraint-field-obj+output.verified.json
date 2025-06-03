@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "AltOutpCnstFieldObj": {
+    "AltCnstFieldObjOutp": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "PrntOutpCnstFieldObj",
+          "object": "PrntCnstFieldObjOutp",
           "type": {
             "$tag": "_OutputBase",
             "output": "String"
@@ -18,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "alt",
-          "object": "AltOutpCnstFieldObj",
+          "object": "AltCnstFieldObjOutp",
           "type": {
             "$tag": "_OutputBase",
             "output": "Number"
@@ -35,37 +35,37 @@
           }
         }
       ],
-      "name": "AltOutpCnstFieldObj",
+      "name": "AltCnstFieldObjOutp",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "PrntOutpCnstFieldObj"
+        "output": "PrntCnstFieldObjOutp"
       },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
       }
     },
-    "OutpCnstFieldObj": {
+    "CnstFieldObjOutp": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "RefOutpCnstFieldObj",
+          "object": "RefCnstFieldObjOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "AltOutpCnstFieldObj"
+            "output": "AltCnstFieldObjOutp"
           }
         }
       ],
-      "name": "OutpCnstFieldObj",
+      "name": "CnstFieldObjOutp",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "RefOutpCnstFieldObj",
+        "output": "RefCnstFieldObjOutp",
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "output": "AltOutpCnstFieldObj"
+            "output": "AltCnstFieldObjOutp"
           }
         ]
       },
@@ -74,12 +74,12 @@
         "value": "Output"
       }
     },
-    "PrntOutpCnstFieldObj": {
+    "PrntCnstFieldObjOutp": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "PrntOutpCnstFieldObj",
+          "object": "PrntCnstFieldObjOutp",
           "type": {
             "$tag": "_OutputBase",
             "output": "String"
@@ -95,19 +95,19 @@
           }
         }
       ],
-      "name": "PrntOutpCnstFieldObj",
+      "name": "PrntCnstFieldObjOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
       }
     },
-    "RefOutpCnstFieldObj": {
+    "RefCnstFieldObjOutp": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "RefOutpCnstFieldObj",
+          "object": "RefCnstFieldObjOutp",
           "type": {
             "$tag": "_OutputBase",
             "typeParam": "ref"
@@ -124,7 +124,7 @@
           }
         }
       ],
-      "name": "RefOutpCnstFieldObj",
+      "name": "RefCnstFieldObjOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
@@ -138,7 +138,7 @@
               "$tag": "_TypeKind",
               "value": "Output"
             },
-            "typeName": "PrntOutpCnstFieldObj"
+            "typeName": "PrntCnstFieldObjOutp"
           },
           "name": "ref"
         }

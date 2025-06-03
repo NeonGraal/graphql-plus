@@ -389,127 +389,127 @@ Success
 }
 {
   !Du I@006/0080
-  DualObj
+  ObjDual
 }
 {
   !Du I@006/0081
-  DualObj
+  ObjDual
 }
 {
   !In I@007/0083
-  InpObj
+  ObjInp
 }
 {
   !In I@007/0084
-  InpObj
+  ObjInp
 }
 {
   !Ou I@008/0086
-  OutpObj
+  ObjOutp
 }
 {
   !Ou I@008/0087
-  OutpObj
+  ObjOutp
 }
 {
   !Du I@006/0089
-  DualObjAlias
+  ObjAliasDual
   [
     Dual1
   ]
 }
 {
   !Du I@006/0090
-  DualObjAlias
+  ObjAliasDual
   [
     Dual2
   ]
 }
 {
   !In I@007/0092
-  InpObjAlias
+  ObjAliasInp
   [
-    Inp1
+    Input1
   ]
 }
 {
   !In I@007/0093
-  InpObjAlias
+  ObjAliasInp
   [
-    Inp2
+    Input2
   ]
 }
 {
   !Ou I@008/0095
-  OutpObjAlias
+  ObjAliasOutp
   [
-    Outp1
+    Output1
   ]
 }
 {
   !Ou I@008/0096
-  OutpObjAlias
+  ObjAliasOutp
   [
-    Outp2
+    Output2
   ]
 }
 {
   !Du I@006/0098
-  DualObjAlt
+  ObjAltDual
   |
   I@021/0098
-  DualObjAltType
+  ObjAltDualType
 }
 {
   !Du I@006/0099
-  DualObjAlt
+  ObjAltDual
   |
   I@021/0099
-  DualObjAltType
+  ObjAltDualType
 }
 {
   !Du I@006/0100
-  DualObjAltType
+  ObjAltDualType
 }
 {
   !In I@007/0102
-  InpObjAlt
+  ObjAltInp
   |
   I@021/0102
-  InpObjAltType
+  ObjAltInpType
 }
 {
   !In I@007/0103
-  InpObjAlt
+  ObjAltInp
   |
   I@021/0103
-  InpObjAltType
+  ObjAltInpType
 }
 {
   !In I@007/0104
-  InpObjAltType
+  ObjAltInpType
 }
 {
   !Ou I@008/0106
-  OutpObjAlt
+  ObjAltOutp
   |
   I@023/0106
-  OutpObjAltType
+  ObjAltOutpType
 }
 {
   !Ou I@008/0107
-  OutpObjAlt
+  ObjAltOutp
   |
   I@023/0107
-  OutpObjAltType
+  ObjAltOutpType
 }
 {
   !Ou I@008/0108
-  OutpObjAltType
+  ObjAltOutpType
 }
 {
   !Du I@006/0110
-  DualObjCnst
+  ObjCnstDual
   <
     I@019/0110
     $type
@@ -525,7 +525,7 @@ Success
 }
 {
   !Du I@006/0111
-  DualObjCnst
+  ObjCnstDual
   <
     I@019/0111
     $type
@@ -541,7 +541,7 @@ Success
 }
 {
   !In I@007/0113
-  InpObjCnst
+  ObjCnstInp
   <
     I@019/0113
     $type
@@ -557,7 +557,7 @@ Success
 }
 {
   !In I@007/0114
-  InpObjCnst
+  ObjCnstInp
   <
     I@019/0114
     $type
@@ -573,7 +573,7 @@ Success
 }
 {
   !Ou I@008/0116
-  OutpObjCnst
+  ObjCnstOutp
   <
     I@021/0116
     $type
@@ -589,7 +589,7 @@ Success
 }
 {
   !Ou I@008/0117
-  OutpObjCnst
+  ObjCnstOutp
   <
     I@021/0117
     $type
@@ -605,85 +605,85 @@ Success
 }
 {
   !Du I@006/0119
-  DualObjField
+  ObjFieldDual
   {
     !DF I@021/0119
     field
     :
     I@028/0119
-    FldDualObjField
+    FldObjFieldDual
   }
 }
 {
   !Du I@006/0120
-  DualObjField
+  ObjFieldDual
   {
     !DF I@021/0120
     field
     :
     I@028/0120
-    FldDualObjField
+    FldObjFieldDual
   }
 }
 {
   !Du I@006/0121
-  FldDualObjField
+  FldObjFieldDual
 }
 {
   !In I@007/0123
-  InpObjField
+  ObjFieldInp
   {
     !IF I@021/0123
     field
     :
     I@028/0123
-    FldInpObjField
+    FldObjFieldInp
   }
 }
 {
   !In I@007/0124
-  InpObjField
+  ObjFieldInp
   {
     !IF I@021/0124
     field
     :
     I@028/0124
-    FldInpObjField
+    FldObjFieldInp
   }
 }
 {
   !In I@007/0125
-  FldInpObjField
+  FldObjFieldInp
 }
 {
   !Ou I@008/0127
-  OutpObjField
+  ObjFieldOutp
   {
     !OF I@023/0127
     field
     :
     I@030/0127
-    FldOutpObjField
+    FldObjFieldOutp
   }
 }
 {
   !Ou I@008/0128
-  OutpObjField
+  ObjFieldOutp
   {
     !OF I@023/0128
     field
     :
     I@030/0128
-    FldOutpObjField
+    FldObjFieldOutp
   }
 }
 {
   !Ou I@008/0129
-  FldOutpObjField
+  FldObjFieldOutp
 }
 {
   !Du I@006/0131
-  DualObjFieldAlias
+  ObjFieldAliasDual
   {
     !DF I@026/0131
     field
@@ -692,12 +692,12 @@ Success
     ]
     :
     I@042/0131
-    FldDualObjFieldAlias
+    FldObjFieldAliasDual
   }
 }
 {
   !Du I@006/0132
-  DualObjFieldAlias
+  ObjFieldAliasDual
   {
     !DF I@026/0132
     field
@@ -706,16 +706,16 @@ Success
     ]
     :
     I@042/0132
-    FldDualObjFieldAlias
+    FldObjFieldAliasDual
   }
 }
 {
   !Du I@006/0133
-  FldDualObjFieldAlias
+  FldObjFieldAliasDual
 }
 {
   !In I@007/0135
-  InpObjFieldAlias
+  ObjFieldAliasInp
   {
     !IF I@026/0135
     field
@@ -724,12 +724,12 @@ Success
     ]
     :
     I@042/0135
-    FldInpObjFieldAlias
+    FldObjFieldAliasInp
   }
 }
 {
   !In I@007/0136
-  InpObjFieldAlias
+  ObjFieldAliasInp
   {
     !IF I@026/0136
     field
@@ -738,16 +738,16 @@ Success
     ]
     :
     I@042/0136
-    FldInpObjFieldAlias
+    FldObjFieldAliasInp
   }
 }
 {
   !In I@007/0137
-  FldInpObjFieldAlias
+  FldObjFieldAliasInp
 }
 {
   !Ou I@008/0139
-  OutpObjFieldAlias
+  ObjFieldAliasOutp
   {
     !OF I@028/0139
     field
@@ -756,12 +756,12 @@ Success
     ]
     :
     I@044/0139
-    FldOutpObjFieldAlias
+    FldObjFieldAliasOutp
   }
 }
 {
   !Ou I@008/0140
-  OutpObjFieldAlias
+  ObjFieldAliasOutp
   {
     !OF I@028/0140
     field
@@ -770,16 +770,16 @@ Success
     ]
     :
     I@044/0140
-    FldOutpObjFieldAlias
+    FldObjFieldAliasOutp
   }
 }
 {
   !Ou I@008/0141
-  FldOutpObjFieldAlias
+  FldObjFieldAliasOutp
 }
 {
   !Du I@006/0143
-  DualObjFieldTypeAlias
+  ObjFieldTypeAliasDual
   {
     !DF I@030/0143
     field
@@ -790,7 +790,7 @@ Success
 }
 {
   !Du I@006/0144
-  DualObjFieldTypeAlias
+  ObjFieldTypeAliasDual
   {
     !DF I@030/0144
     field
@@ -801,7 +801,7 @@ Success
 }
 {
   !In I@007/0146
-  InpObjFieldTypeAlias
+  ObjFieldTypeAliasInp
   {
     !IF I@030/0146
     field
@@ -812,7 +812,7 @@ Success
 }
 {
   !In I@007/0147
-  InpObjFieldTypeAlias
+  ObjFieldTypeAliasInp
   {
     !IF I@030/0147
     field
@@ -823,7 +823,7 @@ Success
 }
 {
   !Ou I@008/0149
-  OutpObjFieldTypeAlias
+  ObjFieldTypeAliasOutp
   {
     !OF I@032/0149
     field
@@ -834,7 +834,7 @@ Success
 }
 {
   !Ou I@008/0150
-  OutpObjFieldTypeAlias
+  ObjFieldTypeAliasOutp
   {
     !OF I@032/0150
     field
@@ -845,7 +845,7 @@ Success
 }
 {
   !Du I@006/0152
-  DualObjParam
+  ObjParamDual
   <
     I@020/0152
     $test
@@ -861,7 +861,7 @@ Success
 }
 {
   !Du I@006/0153
-  DualObjParam
+  ObjParamDual
   <
     I@020/0153
     $type
@@ -877,7 +877,7 @@ Success
 }
 {
   !In I@007/0155
-  InpObjParam
+  ObjParamInp
   <
     I@020/0155
     $test
@@ -893,7 +893,7 @@ Success
 }
 {
   !In I@007/0156
-  InpObjParam
+  ObjParamInp
   <
     I@020/0156
     $type
@@ -909,7 +909,7 @@ Success
 }
 {
   !Ou I@008/0158
-  OutpObjParam
+  ObjParamOutp
   <
     I@022/0158
     $test
@@ -925,7 +925,7 @@ Success
 }
 {
   !Ou I@008/0159
-  OutpObjParam
+  ObjParamOutp
   <
     I@022/0159
     $type
@@ -941,7 +941,7 @@ Success
 }
 {
   !Du I@006/0161
-  DualObjParamCnst
+  ObjParamCnstDual
   <
     I@024/0161
     $test
@@ -957,7 +957,7 @@ Success
 }
 {
   !Du I@006/0162
-  DualObjParamCnst
+  ObjParamCnstDual
   <
     I@024/0162
     $test
@@ -973,7 +973,7 @@ Success
 }
 {
   !In I@007/0164
-  InpObjParamCnst
+  ObjParamCnstInp
   <
     I@024/0164
     $test
@@ -989,7 +989,7 @@ Success
 }
 {
   !In I@007/0165
-  InpObjParamCnst
+  ObjParamCnstInp
   <
     I@024/0165
     $test
@@ -1005,7 +1005,7 @@ Success
 }
 {
   !Ou I@008/0167
-  OutpObjParamCnst
+  ObjParamCnstOutp
   <
     I@026/0167
     $test
@@ -1021,7 +1021,7 @@ Success
 }
 {
   !Ou I@008/0168
-  OutpObjParamCnst
+  ObjParamCnstOutp
   <
     I@026/0168
     $test
@@ -1037,7 +1037,7 @@ Success
 }
 {
   !Du I@006/0170
-  DualObjParamDup
+  ObjParamDupDual
   <
     I@023/0170
     $test
@@ -1053,7 +1053,7 @@ Success
 }
 {
   !Du I@006/0171
-  DualObjParamDup
+  ObjParamDupDual
   <
     I@023/0171
     $test
@@ -1069,7 +1069,7 @@ Success
 }
 {
   !In I@007/0173
-  InpObjParamDup
+  ObjParamDupInp
   <
     I@023/0173
     $test
@@ -1085,7 +1085,7 @@ Success
 }
 {
   !In I@007/0174
-  InpObjParamDup
+  ObjParamDupInp
   <
     I@023/0174
     $test
@@ -1101,7 +1101,7 @@ Success
 }
 {
   !Ou I@008/0176
-  OutpObjParamDup
+  ObjParamDupOutp
   <
     I@025/0176
     $test
@@ -1117,7 +1117,7 @@ Success
 }
 {
   !Ou I@008/0177
-  OutpObjParamDup
+  ObjParamDupOutp
   <
     I@025/0177
     $test
@@ -1133,57 +1133,57 @@ Success
 }
 {
   !Du I@006/0179
-  DualObjPrnt
+  ObjPrntDual
   :
   I@021/0179
-  RefDualObjPrnt
+  RefObjPrntDual
 }
 {
   !Du I@006/0180
-  DualObjPrnt
+  ObjPrntDual
   :
   I@021/0180
-  RefDualObjPrnt
+  RefObjPrntDual
 }
 {
   !Du I@006/0181
-  RefDualObjPrnt
+  RefObjPrntDual
 }
 {
   !In I@007/0183
-  InpObjPrnt
+  ObjPrntInp
   :
   I@021/0183
-  RefInpObjPrnt
+  RefObjPrntInp
 }
 {
   !In I@007/0184
-  InpObjPrnt
+  ObjPrntInp
   :
   I@021/0184
-  RefInpObjPrnt
+  RefObjPrntInp
 }
 {
   !In I@007/0185
-  RefInpObjPrnt
+  RefObjPrntInp
 }
 {
   !Ou I@008/0187
-  OutpObjPrnt
+  ObjPrntOutp
   :
   I@023/0187
-  RefOutpObjPrnt
+  RefObjPrntOutp
 }
 {
   !Ou I@008/0188
-  OutpObjPrnt
+  ObjPrntOutp
   :
   I@023/0188
-  RefOutpObjPrnt
+  RefObjPrntOutp
 }
 {
   !Ou I@008/0189
-  RefOutpObjPrnt
+  RefObjPrntOutp
 }
 {
   !Op I@008/0191

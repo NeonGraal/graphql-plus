@@ -3,7 +3,7 @@
 Success
 {
   !Ou I@008/0001
-  OutpObjCnst
+  ObjCnstOutp
   <
     I@021/0001
     $type

@@ -3,7 +3,7 @@
 Success
 {
   !Ou I@008/0001
-  OutpFieldModParam
+  FieldModParamOutp
   <
     I@027/0001
     $mod
@@ -14,13 +14,13 @@ Success
     field
     :
     I@048/0001
-    FldOutpFieldModParam
+    FldFieldModParamOutp
     [$mod]
   }
 }
 {
   !Ou I@008/0002
-  FldOutpFieldModParam
+  FldFieldModParamOutp
   {
     !OF I@031/0002
     field

@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualGnrcAlt": {
+    "GnrcAltDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualGnrcAlt",
+          "object": "GnrcAltDual",
           "type": {
             "$tag": "_DualBase",
             "typeParam": "type"
@@ -23,7 +23,7 @@
           }
         }
       ],
-      "name": "DualGnrcAlt",
+      "name": "GnrcAltDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"

@@ -1,2 +1,2 @@
-object ObjName<$test:String> { test: $test }
-object ObjName<$type:String> { type: $type }
+object Name<$test:String> { test: $test }
+object Name<$type:String> { type: $type }

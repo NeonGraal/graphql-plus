@@ -2,12 +2,41 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DomCnstFieldDmn": {
+    "CnstFieldDmnInp": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "RefCnstFieldDmnInp",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "DomCnstFieldDmnInp"
+          }
+        }
+      ],
+      "name": "CnstFieldDmnInp",
+      "parent": {
+        "$tag": "_InputBase",
+        "input": "RefCnstFieldDmnInp",
+        "typeArgs": [
+          {
+            "$tag": "_InputArg",
+            "input": "DomCnstFieldDmnInp"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "DomCnstFieldDmnInp": {
       "$tag": "_DomainString",
       "allItems": [
         {
           "$tag": "_DomainItem(_DomainRegex)",
-          "domain": "DomCnstFieldDmn",
+          "domain": "DomCnstFieldDmnInp",
           "exclude": false,
           "pattern": "\\w\u002B"
         }
@@ -23,48 +52,19 @@
           "pattern": "\\w\u002B"
         }
       ],
-      "name": "DomCnstFieldDmn",
+      "name": "DomCnstFieldDmnInp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Domain"
       }
     },
-    "InpCnstFieldDmn": {
+    "RefCnstFieldDmnInp": {
       "$tag": "_TypeInput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "RefInpCnstFieldDmn",
-          "type": {
-            "$tag": "_InputBase",
-            "input": "DomCnstFieldDmn"
-          }
-        }
-      ],
-      "name": "InpCnstFieldDmn",
-      "parent": {
-        "$tag": "_InputBase",
-        "input": "RefInpCnstFieldDmn",
-        "typeArgs": [
-          {
-            "$tag": "_InputArg",
-            "input": "DomCnstFieldDmn"
-          }
-        ]
-      },
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Input"
-      }
-    },
-    "RefInpCnstFieldDmn": {
-      "$tag": "_TypeInput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_InputField)",
-          "name": "field",
-          "object": "RefInpCnstFieldDmn",
+          "object": "RefCnstFieldDmnInp",
           "type": {
             "$tag": "_InputBase",
             "typeParam": "ref"
@@ -81,7 +81,7 @@
           }
         }
       ],
-      "name": "RefInpCnstFieldDmn",
+      "name": "RefCnstFieldDmnInp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Input"

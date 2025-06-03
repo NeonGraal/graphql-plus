@@ -3,22 +3,22 @@
 Success
 {
   !In I@007/0001
-  InpCnstFieldDual
+  CnstFieldDualInp
   :
   I@027/0001
-  RefInpCnstFieldDual
+  RefCnstFieldDualInp
   <
     I@047/0001
-    AltInpCnstFieldDual
+    AltCnstFieldDualInp
   >
 }
 {
   !In I@007/0002
-  RefInpCnstFieldDual
+  RefCnstFieldDualInp
   <
     I@028/0002
     $ref
-    :PrntInpCnstFieldDual
+    :PrntCnstFieldDualInp
   >
   {
     !IF I@056/0002
@@ -30,17 +30,17 @@ Success
 }
 {
   !Du I@006/0003
-  PrntInpCnstFieldDual
+  PrntCnstFieldDualInp
   |
   I@031/0003
   String
 }
 {
   !In I@007/0004
-  AltInpCnstFieldDual
+  AltCnstFieldDualInp
   :
   I@030/0004
-  PrntInpCnstFieldDual
+  PrntCnstFieldDualInp
   {
     !IF I@051/0004
     alt

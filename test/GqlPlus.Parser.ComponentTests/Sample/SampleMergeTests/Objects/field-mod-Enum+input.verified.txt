@@ -3,19 +3,19 @@
 Success
 {
   !In I@007/0001
-  InpFieldModEnum
+  FieldModEnumInp
   {
     !IF I@025/0001
     field
     :
     I@032/0001
     String
-    [EnumInpFieldModEnum]
+    [EnumFieldModEnumInp]
   }
 }
 {
   !En I@006/0002
-  EnumInpFieldModEnum
+  EnumFieldModEnumInp
   !EL I@028/0002
   value
 }

@@ -1,11 +1,11 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpFieldDescr: !_TypeOutput
+  !_Identifier FieldDescrOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       description: 'Test Descr'
       name: field
-      object: OutpFieldDescr
+      object: FieldDescrOutp
       type: !_OutputBase
         output: String
     fields:
@@ -14,5 +14,5 @@ types: !_Map_Type
       name: field
       type: !_OutputBase
         output: String
-    name: OutpFieldDescr
+    name: FieldDescrOutp
     typeKind: !_TypeKind Output

@@ -3,22 +3,22 @@
 Success
 {
   !In I@007/0001
-  InpGnrcFieldParam
+  GnrcFieldParamInp
   {
     !IF I@027/0001
     field
     :
     I@034/0001
-    RefInpGnrcFieldParam
+    RefGnrcFieldParamInp
     <
       I@055/0001
-      AltInpGnrcFieldParam
+      AltGnrcFieldParamInp
     >
   }
 }
 {
   !In I@007/0002
-  RefInpGnrcFieldParam
+  RefGnrcFieldParamInp
   <
     I@029/0002
     $ref
@@ -30,7 +30,7 @@ Success
 }
 {
   !In I@007/0003
-  AltInpGnrcFieldParam
+  AltGnrcFieldParamInp
   {
     !IF I@030/0003
     alt

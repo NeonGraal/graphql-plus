@@ -3,7 +3,7 @@
 Success
 {
   !In I@007/0001
-  InpFieldModParam
+  FieldModParamInp
   <
     I@025/0001
     $mod
@@ -14,13 +14,13 @@ Success
     field
     :
     I@046/0001
-    FldInpFieldModParam
+    FldFieldModParamInp
     [$mod]
   }
 }
 {
   !In I@007/0002
-  FldInpFieldModParam
+  FldFieldModParamInp
   {
     !IF I@029/0002
     field

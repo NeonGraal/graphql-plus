@@ -1,15 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualObjCnst: !_TypeDual
+  !_Identifier ObjCnstDual: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
         name: field
-        object: DualObjCnst
+        object: ObjCnstDual
         type: !_DualBase
           typeParam: type
       - !_ObjectFor(_DualField)
         name: str
-        object: DualObjCnst
+        object: ObjCnstDual
         type: !_DualBase
           typeParam: type
     fields:
@@ -21,7 +21,7 @@ types: !_Map_Type
         name: str
         type: !_DualBase
           typeParam: type
-    name: DualObjCnst
+    name: ObjCnstDual
     typeKind: !_TypeKind Dual
     typeParams:
       - !_TypeParam

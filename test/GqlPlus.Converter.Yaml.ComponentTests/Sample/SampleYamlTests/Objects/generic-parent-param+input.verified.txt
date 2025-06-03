@@ -1,15 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier AltInpGnrcPrntParam: !_TypeInput
+  !_Identifier AltGnrcPrntParamInp: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: AltInpGnrcPrntParam
+      object: AltGnrcPrntParamInp
       type: !_InputBase
         input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
-      object: AltInpGnrcPrntParam
+      object: AltGnrcPrntParamInp
       type: !_InputBase
         input: Number
     alternates:
@@ -21,32 +21,32 @@ types: !_Map_Type
       name: alt
       type: !_InputBase
         input: Number
-    name: AltInpGnrcPrntParam
+    name: AltGnrcPrntParamInp
     typeKind: !_TypeKind Input
-  !_Identifier InpGnrcPrntParam: !_TypeInput
+  !_Identifier GnrcPrntParamInp: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: RefInpGnrcPrntParam
+      object: RefGnrcPrntParamInp
       type: !_InputBase
-        input: AltInpGnrcPrntParam
-    name: InpGnrcPrntParam
+        input: AltGnrcPrntParamInp
+    name: GnrcPrntParamInp
     parent: !_InputBase
-      input: RefInpGnrcPrntParam
+      input: RefGnrcPrntParamInp
       typeArgs:
       - !_InputArg
-        input: AltInpGnrcPrntParam
+        input: AltGnrcPrntParamInp
     typeKind: !_TypeKind Input
-  !_Identifier RefInpGnrcPrntParam: !_TypeInput
+  !_Identifier RefGnrcPrntParamInp: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: RefInpGnrcPrntParam
+      object: RefGnrcPrntParamInp
       type: !_InputBase
         typeParam: ref
     alternates:
     - !_InputAlternate
       type: !_InputBase
         typeParam: ref
-    name: RefInpGnrcPrntParam
+    name: RefGnrcPrntParamInp
     typeKind: !_TypeKind Input
     typeParams:
     - !_TypeParam

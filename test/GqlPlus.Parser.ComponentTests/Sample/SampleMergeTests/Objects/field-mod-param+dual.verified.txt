@@ -3,7 +3,7 @@
 Success
 {
   !Du I@006/0001
-  DualFieldModParam
+  FieldModParamDual
   <
     I@025/0001
     $mod
@@ -14,13 +14,13 @@ Success
     field
     :
     I@046/0001
-    FldDualFieldModParam
+    FldFieldModParamDual
     [$mod]
   }
 }
 {
   !Du I@006/0002
-  FldDualFieldModParam
+  FldFieldModParamDual
   {
     !DF I@029/0002
     field

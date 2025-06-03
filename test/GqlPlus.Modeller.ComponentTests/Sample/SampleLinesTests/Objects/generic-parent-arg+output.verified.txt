@@ -1,14 +1,14 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpGnrcPrntArg: !_TypeOutput
+  !_Identifier GnrcPrntArgOutp: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
-        object: RefOutpGnrcPrntArg
+        object: RefGnrcPrntArgOutp
         type: !_OutputBase
           typeParam: ref
-    name: OutpGnrcPrntArg
+    name: GnrcPrntArgOutp
     parent: !_OutputBase
-      output: RefOutpGnrcPrntArg
+      output: RefGnrcPrntArgOutp
       typeArgs:
         - !_OutputArg
           typeParam: type
@@ -19,17 +19,17 @@ types: !_Map_Type
           typeKind: !_TypeKind Basic
           typeName: String
         name: type
-  !_Identifier RefOutpGnrcPrntArg: !_TypeOutput
+  !_Identifier RefGnrcPrntArgOutp: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
-        object: RefOutpGnrcPrntArg
+        object: RefGnrcPrntArgOutp
         type: !_OutputBase
           typeParam: ref
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
           typeParam: ref
-    name: RefOutpGnrcPrntArg
+    name: RefGnrcPrntArgOutp
     typeKind: !_TypeKind Output
     typeParams:
       - !_TypeParam

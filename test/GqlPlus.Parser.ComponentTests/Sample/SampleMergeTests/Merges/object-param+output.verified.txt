@@ -3,7 +3,7 @@
 Success
 {
   !Ou I@008/0001
-  OutpObjParam
+  ObjParamOutp
   <
     I@022/0001
     $test

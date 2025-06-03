@@ -3,7 +3,7 @@
 Success
 {
   !Ou I@008/0001
-  OutpGnrcField
+  GnrcFieldOutp
   <
     I@023/0001
     $type

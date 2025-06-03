@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "AltInpGnrcPrntDualPrnt": {
+    "AltGnrcPrntDualPrntInp": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "AltInpGnrcPrntDualPrnt",
+          "object": "AltGnrcPrntDualPrntInp",
           "type": {
             "$tag": "_DualBase",
             "dual": "String"
@@ -18,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "AltInpGnrcPrntDualPrnt",
+          "object": "AltGnrcPrntDualPrntInp",
           "type": {
             "$tag": "_DualBase",
             "dual": "Number"
@@ -44,22 +44,22 @@
           }
         }
       ],
-      "name": "AltInpGnrcPrntDualPrnt",
+      "name": "AltGnrcPrntDualPrntInp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"
       }
     },
-    "InpGnrcPrntDualPrnt": {
+    "GnrcPrntDualPrntInp": {
       "$tag": "_TypeInput",
-      "name": "InpGnrcPrntDualPrnt",
+      "name": "GnrcPrntDualPrntInp",
       "parent": {
         "$tag": "_InputBase",
-        "input": "RefInpGnrcPrntDualPrnt",
+        "input": "RefGnrcPrntDualPrntInp",
         "typeArgs": [
           {
             "$tag": "_DualArg",
-            "dual": "AltInpGnrcPrntDualPrnt"
+            "dual": "AltGnrcPrntDualPrntInp"
           }
         ]
       },
@@ -68,9 +68,9 @@
         "value": "Input"
       }
     },
-    "RefInpGnrcPrntDualPrnt": {
+    "RefGnrcPrntDualPrntInp": {
       "$tag": "_TypeInput",
-      "name": "RefInpGnrcPrntDualPrnt",
+      "name": "RefGnrcPrntDualPrntInp",
       "parent": {
         "$tag": "_InputBase",
         "typeParam": "ref"

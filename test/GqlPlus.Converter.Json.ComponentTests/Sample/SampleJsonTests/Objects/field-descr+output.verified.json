@@ -2,14 +2,14 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpFieldDescr": {
+    "FieldDescrOutp": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "description": "Test Descr",
           "name": "field",
-          "object": "OutpFieldDescr",
+          "object": "FieldDescrOutp",
           "type": {
             "$tag": "_OutputBase",
             "output": "String"
@@ -27,7 +27,7 @@
           }
         }
       ],
-      "name": "OutpFieldDescr",
+      "name": "FieldDescrOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

@@ -1,2 +1,2 @@
-object ObjName { :RefObjName field: Number }
-object RefObjName { parent: Number | String }
+object Name { :RefName field: Number }
+object RefName { parent: Number | String }

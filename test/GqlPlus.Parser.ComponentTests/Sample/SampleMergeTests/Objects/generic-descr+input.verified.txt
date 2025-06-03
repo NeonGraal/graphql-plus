@@ -3,7 +3,7 @@
 Success
 {
   !In I@007/0001
-  InpGnrcDescr
+  GnrcDescrInp
   <
     I@036/0001
     "Test Descr"

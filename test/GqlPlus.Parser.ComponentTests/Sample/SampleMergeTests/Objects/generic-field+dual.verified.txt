@@ -3,7 +3,7 @@
 Success
 {
   !Du I@006/0001
-  DualGnrcField
+  GnrcFieldDual
   <
     I@021/0001
     $type

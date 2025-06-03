@@ -1,9 +1,23 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DomCnstFieldDmn: !_DomainString
+  !_Identifier CnstFieldDmnDual: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: RefCnstFieldDmnDual
+      type: !_DualBase
+        dual: DomCnstFieldDmnDual
+    name: CnstFieldDmnDual
+    parent: !_DualBase
+      dual: RefCnstFieldDmnDual
+      typeArgs:
+      - !_DualArg
+        dual: DomCnstFieldDmnDual
+    typeKind: !_TypeKind Dual
+  !_Identifier DomCnstFieldDmnDual: !_DomainString
     allItems:
     - !_DomainItem(_DomainRegex)
-      domain: DomCnstFieldDmn
+      domain: DomCnstFieldDmnDual
       exclude: false
       pattern: \w+
     domainKind: !_DomainKind String
@@ -11,27 +25,13 @@ types: !_Map_Type
     - !_DomainRegex
       exclude: false
       pattern: \w+
-    name: DomCnstFieldDmn
+    name: DomCnstFieldDmnDual
     typeKind: !_TypeKind Domain
-  !_Identifier DualCnstFieldDmn: !_TypeDual
+  !_Identifier RefCnstFieldDmnDual: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: field
-      object: RefDualCnstFieldDmn
-      type: !_DualBase
-        dual: DomCnstFieldDmn
-    name: DualCnstFieldDmn
-    parent: !_DualBase
-      dual: RefDualCnstFieldDmn
-      typeArgs:
-      - !_DualArg
-        dual: DomCnstFieldDmn
-    typeKind: !_TypeKind Dual
-  !_Identifier RefDualCnstFieldDmn: !_TypeDual
-    allFields:
-    - !_ObjectFor(_DualField)
-      name: field
-      object: RefDualCnstFieldDmn
+      object: RefCnstFieldDmnDual
       type: !_DualBase
         typeParam: ref
     fields:
@@ -39,7 +39,7 @@ types: !_Map_Type
       name: field
       type: !_DualBase
         typeParam: ref
-    name: RefDualCnstFieldDmn
+    name: RefCnstFieldDmnDual
     typeKind: !_TypeKind Dual
     typeParams:
     - !_TypeParam

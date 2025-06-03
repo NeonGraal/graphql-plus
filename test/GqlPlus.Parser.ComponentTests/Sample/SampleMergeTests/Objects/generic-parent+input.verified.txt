@@ -3,7 +3,7 @@
 Success
 {
   !In I@007/0001
-  InpGnrcPrnt
+  GnrcPrntInp
   <
     I@020/0001
     $type

@@ -1,15 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier AltInpCnstPrntObjPrnt: !_TypeInput
+  !_Identifier AltCnstPrntObjPrntInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
-        object: PrntInpCnstPrntObjPrnt
+        object: PrntCnstPrntObjPrntInp
         type: !_InputBase
           input: String
     allFields:
       - !_ObjectFor(_InputField)
         name: alt
-        object: AltInpCnstPrntObjPrnt
+        object: AltCnstPrntObjPrntInp
         type: !_InputBase
           input: Number
     fields:
@@ -17,43 +17,43 @@ types: !_Map_Type
         name: alt
         type: !_InputBase
           input: Number
-    name: AltInpCnstPrntObjPrnt
+    name: AltCnstPrntObjPrntInp
     parent: !_InputBase
-      input: PrntInpCnstPrntObjPrnt
+      input: PrntCnstPrntObjPrntInp
     typeKind: !_TypeKind Input
-  !_Identifier InpCnstPrntObjPrnt: !_TypeInput
+  !_Identifier CnstPrntObjPrntInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
-        object: PrntInpCnstPrntObjPrnt
+        object: PrntCnstPrntObjPrntInp
         type: !_InputBase
           input: String
     allFields:
       - !_ObjectFor(_InputField)
         name: alt
-        object: AltInpCnstPrntObjPrnt
+        object: AltCnstPrntObjPrntInp
         type: !_InputBase
           input: Number
-    name: InpCnstPrntObjPrnt
+    name: CnstPrntObjPrntInp
     parent: !_InputBase
-      input: RefInpCnstPrntObjPrnt
+      input: RefCnstPrntObjPrntInp
       typeArgs:
         - !_InputArg
-          input: AltInpCnstPrntObjPrnt
+          input: AltCnstPrntObjPrntInp
     typeKind: !_TypeKind Input
-  !_Identifier PrntInpCnstPrntObjPrnt: !_TypeInput
+  !_Identifier PrntCnstPrntObjPrntInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
-        object: PrntInpCnstPrntObjPrnt
+        object: PrntCnstPrntObjPrntInp
         type: !_InputBase
           input: String
     alternates:
       - !_InputAlternate
         type: !_InputBase
           input: String
-    name: PrntInpCnstPrntObjPrnt
+    name: PrntCnstPrntObjPrntInp
     typeKind: !_TypeKind Input
-  !_Identifier RefInpCnstPrntObjPrnt: !_TypeInput
-    name: RefInpCnstPrntObjPrnt
+  !_Identifier RefCnstPrntObjPrntInp: !_TypeInput
+    name: RefCnstPrntObjPrntInp
     parent: !_InputBase
       typeParam: ref
     typeKind: !_TypeKind Input
@@ -61,5 +61,5 @@ types: !_Map_Type
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
           typeKind: !_TypeKind Input
-          typeName: PrntInpCnstPrntObjPrnt
+          typeName: PrntCnstPrntObjPrntInp
         name: ref

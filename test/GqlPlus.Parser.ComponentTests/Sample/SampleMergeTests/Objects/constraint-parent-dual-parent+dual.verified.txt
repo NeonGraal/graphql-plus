@@ -3,22 +3,22 @@
 Success
 {
   !Du I@006/0001
-  DualCnstPrntDualPrnt
+  CnstPrntDualPrntDual
   :
   I@030/0001
-  RefDualCnstPrntDualPrnt
+  RefCnstPrntDualPrntDual
   <
     I@054/0001
-    AltDualCnstPrntDualPrnt
+    AltCnstPrntDualPrntDual
   >
 }
 {
   !Du I@006/0002
-  RefDualCnstPrntDualPrnt
+  RefCnstPrntDualPrntDual
   <
     I@031/0002
     $ref
-    :PrntDualCnstPrntDualPrnt
+    :PrntCnstPrntDualPrntDual
   >
   :
   I@065/0002
@@ -26,17 +26,17 @@ Success
 }
 {
   !Du I@006/0003
-  PrntDualCnstPrntDualPrnt
+  PrntCnstPrntDualPrntDual
   |
   I@035/0003
   String
 }
 {
   !Du I@006/0004
-  AltDualCnstPrntDualPrnt
+  AltCnstPrntDualPrntDual
   :
   I@033/0004
-  PrntDualCnstPrntDualPrnt
+  PrntCnstPrntDualPrntDual
   {
     !DF I@058/0004
     alt

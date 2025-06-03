@@ -3,18 +3,18 @@
 Success
 {
   !Ou I@008/0001
-  OutpGnrcPrntDualPrnt
+  GnrcPrntDualPrntOutp
   :
   I@032/0001
-  RefOutpGnrcPrntDualPrnt
+  RefGnrcPrntDualPrntOutp
   <
     I@056/0001
-    AltOutpGnrcPrntDualPrnt
+    AltGnrcPrntDualPrntOutp
   >
 }
 {
   !Ou I@008/0002
-  RefOutpGnrcPrntDualPrnt
+  RefGnrcPrntDualPrntOutp
   <
     I@033/0002
     $ref
@@ -26,7 +26,7 @@ Success
 }
 {
   !Du I@006/0003
-  AltOutpGnrcPrntDualPrnt
+  AltGnrcPrntDualPrntOutp
   {
     !DF I@032/0003
     alt

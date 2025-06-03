@@ -1,10 +1,10 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualGnrcDescr: !_TypeDual
+  !_Identifier GnrcDescrDual: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
         name: field
-        object: DualGnrcDescr
+        object: GnrcDescrDual
         type: !_DualBase
           typeParam: type
     fields:
@@ -12,7 +12,7 @@ types: !_Map_Type
         name: field
         type: !_DualBase
           typeParam: type
-    name: DualGnrcDescr
+    name: GnrcDescrDual
     typeKind: !_TypeKind Dual
     typeParams:
       - !_TypeParam

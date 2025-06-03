@@ -1,10 +1,10 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpGnrcField: !_TypeOutput
+  !_Identifier GnrcFieldOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
-      object: OutpGnrcField
+      object: GnrcFieldOutp
       type: !_OutputBase
         typeParam: type
     fields:
@@ -12,7 +12,7 @@ types: !_Map_Type
       name: field
       type: !_OutputBase
         typeParam: type
-    name: OutpGnrcField
+    name: GnrcFieldOutp
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam

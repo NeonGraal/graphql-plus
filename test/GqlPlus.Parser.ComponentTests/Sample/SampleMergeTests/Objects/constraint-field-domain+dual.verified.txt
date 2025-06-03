@@ -3,18 +3,18 @@
 Success
 {
   !Du I@006/0001
-  DualCnstFieldDmn
+  CnstFieldDmnDual
   :
   I@026/0001
-  RefDualCnstFieldDmn
+  RefCnstFieldDmnDual
   <
     I@046/0001
-    DomCnstFieldDmn
+    DomCnstFieldDmnDual
   >
 }
 {
   !Du I@006/0002
-  RefDualCnstFieldDmn
+  RefCnstFieldDmnDual
   <
     I@027/0002
     $ref
@@ -30,9 +30,9 @@ Success
 }
 {
   !Do I@008/0003
-  DomCnstFieldDmn
+  DomCnstFieldDmnDual
   String
-  !DX R@033/0003
+  !DX R@037/0003
   /\\w+/
 }
 ]

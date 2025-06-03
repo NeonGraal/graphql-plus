@@ -1,16 +1,16 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpGnrcAlt: !_TypeOutput
+  !_Identifier GnrcAltOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpGnrcAlt
+      object: GnrcAltOutp
       type: !_OutputBase
         typeParam: type
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
         typeParam: type
-    name: OutpGnrcAlt
+    name: GnrcAltOutp
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam

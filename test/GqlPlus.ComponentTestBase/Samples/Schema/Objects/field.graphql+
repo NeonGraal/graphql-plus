@@ -1,1 +1,1 @@
-object ObjName { field: String }
+object Name { field: String }

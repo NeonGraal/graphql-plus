@@ -1,15 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpObjParamCnst: !_TypeOutput
+  !_Identifier ObjParamCnstOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: test
-      object: OutpObjParamCnst
+      object: ObjParamCnstOutp
       type: !_OutputBase
         typeParam: test
     - !_ObjectFor(_OutputField)
       name: type
-      object: OutpObjParamCnst
+      object: ObjParamCnstOutp
       type: !_OutputBase
         typeParam: test
     fields:
@@ -21,7 +21,7 @@ types: !_Map_Type
       name: type
       type: !_OutputBase
         typeParam: test
-    name: OutpObjParamCnst
+    name: ObjParamCnstOutp
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam

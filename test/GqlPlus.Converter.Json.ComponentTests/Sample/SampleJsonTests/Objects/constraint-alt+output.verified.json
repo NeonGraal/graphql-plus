@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpCnstAlt": {
+    "CnstAltOutp": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpCnstAlt",
+          "object": "CnstAltOutp",
           "type": {
             "$tag": "_OutputBase",
             "typeParam": "type"
@@ -23,7 +23,7 @@
           }
         }
       ],
-      "name": "OutpCnstAlt",
+      "name": "CnstAltOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

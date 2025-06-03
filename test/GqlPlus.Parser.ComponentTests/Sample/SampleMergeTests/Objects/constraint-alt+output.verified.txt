@@ -3,7 +3,7 @@
 Success
 {
   !Ou I@008/0001
-  OutpCnstAlt
+  CnstAltOutp
   <
     I@021/0001
     $type

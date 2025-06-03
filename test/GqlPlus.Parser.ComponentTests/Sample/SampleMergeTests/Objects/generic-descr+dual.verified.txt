@@ -3,7 +3,7 @@
 Success
 {
   !Du I@006/0001
-  DualGnrcDescr
+  GnrcDescrDual
   <
     I@036/0001
     "Test Descr"

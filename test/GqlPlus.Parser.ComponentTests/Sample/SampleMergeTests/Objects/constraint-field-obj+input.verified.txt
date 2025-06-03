@@ -3,22 +3,22 @@
 Success
 {
   !In I@007/0001
-  InpCnstFieldObj
+  CnstFieldObjInp
   :
   I@026/0001
-  RefInpCnstFieldObj
+  RefCnstFieldObjInp
   <
     I@045/0001
-    AltInpCnstFieldObj
+    AltCnstFieldObjInp
   >
 }
 {
   !In I@007/0002
-  RefInpCnstFieldObj
+  RefCnstFieldObjInp
   <
     I@027/0002
     $ref
-    :PrntInpCnstFieldObj
+    :PrntCnstFieldObjInp
   >
   {
     !IF I@054/0002
@@ -30,17 +30,17 @@ Success
 }
 {
   !In I@007/0003
-  PrntInpCnstFieldObj
+  PrntCnstFieldObjInp
   |
   I@031/0003
   String
 }
 {
   !In I@007/0004
-  AltInpCnstFieldObj
+  AltCnstFieldObjInp
   :
   I@029/0004
-  PrntInpCnstFieldObj
+  PrntCnstFieldObjInp
   {
     !IF I@049/0004
     alt

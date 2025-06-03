@@ -2,13 +2,13 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpObjCnst": {
+    "ObjCnstOutp": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutpObjCnst",
+          "object": "ObjCnstOutp",
           "type": {
             "$tag": "_OutputBase",
             "typeParam": "type"
@@ -17,7 +17,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "str",
-          "object": "OutpObjCnst",
+          "object": "ObjCnstOutp",
           "type": {
             "$tag": "_OutputBase",
             "typeParam": "type"
@@ -42,7 +42,7 @@
           }
         }
       ],
-      "name": "OutpObjCnst",
+      "name": "ObjCnstOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

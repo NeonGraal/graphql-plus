@@ -3,42 +3,42 @@
 Success
 {
   !Ou I@008/0001
-  OutpGnrcPrntEnumChild
+  GnrcPrntEnumChildOutp
   :
   I@033/0001
-  FieldOutpGnrcPrntEnumChild
+  FieldGnrcPrntEnumChildOutp
   <
     I@060/0001
-    ParentGnrcPrntEnumChild
+    ParentGnrcPrntEnumChildOutp
   >
 }
 {
   !Ou I@008/0002
-  FieldOutpGnrcPrntEnumChild
+  FieldGnrcPrntEnumChildOutp
   <
     I@036/0002
     $ref
-    :EnumGnrcPrntEnumChild
+    :EnumGnrcPrntEnumChildOutp
   >
   {
-    !OF I@065/0002
+    !OF I@069/0002
     field
     :
-    I@073/0002
+    I@077/0002
     $ref
   }
 }
 {
   !En I@006/0003
-  EnumGnrcPrntEnumChild
-  :ParentGnrcPrntEnumChild
-  !EL I@055/0003
-  gnrcPrntEnumChildLabel
+  EnumGnrcPrntEnumChildOutp
+  :ParentGnrcPrntEnumChildOutp
+  !EL I@063/0003
+  gnrcPrntEnumChildOutpLabel
 }
 {
   !En I@006/0004
-  ParentGnrcPrntEnumChild
-  !EL I@032/0004
-  gnrcPrntEnumChildParent
+  ParentGnrcPrntEnumChildOutp
+  !EL I@036/0004
+  gnrcPrntEnumChildOutpParent
 }
 ]

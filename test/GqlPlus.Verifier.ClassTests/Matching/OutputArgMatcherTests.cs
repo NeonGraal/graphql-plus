@@ -33,6 +33,55 @@ public class OutputArgMatcherTests
   }
 
   [Theory, RepeatData]
+  public void Matches_ReturnsFalse_WhenConstraintNotLabel_WithArgType(string name, string enumLabel, string constraint)
+  {
+    IGqlpOutputArg arg = NFor<IGqlpOutputArg>(name);
+    IGqlpObjType enumType = NFor<IGqlpObjType>(enumLabel);
+    arg.EnumType.Returns(enumType);
+
+    IGqlpEnum enumConstraint = NFor<IGqlpEnum>(constraint);
+    Types[constraint] = enumConstraint;
+
+    bool result = Matcher.Matches(arg, constraint, Context);
+
+    result.ShouldBeFalse();
+  }
+
+  [Theory(Skip = "WIP"), RepeatData]
+  public void Matches_ReturnsTrue_WhenConstraintLabel_WithArgType(string name, string enumLabel, string constraint)
+  {
+    IGqlpOutputArg arg = NFor<IGqlpOutputArg>(name);
+    IGqlpObjType enumType = NFor<IGqlpObjType>(enumLabel);
+    arg.EnumType.Returns(enumType);
+
+    IGqlpEnum enumConstraint = NFor<IGqlpEnum>(constraint);
+    enumConstraint.HasValue(enumLabel).Returns(true);
+    Types[constraint] = enumConstraint;
+
+    bool result = Matcher.Matches(arg, constraint, Context);
+
+    result.ShouldBeTrue();
+  }
+
+  [Theory, RepeatData]
+  public void Matches_ReturnsTrue_WhenConstraintSame_WithEnumTypeParam(string name, string enumName, string paramName, string constraint)
+  {
+    IGqlpOutputArg arg = NFor<IGqlpOutputArg>(name);
+    IGqlpObjType enumType = NFor<IGqlpObjType>(enumName);
+    enumType.IsTypeParam.Returns(true);
+    arg.EnumType.Returns(enumType);
+    arg.FullType.Returns("$" + enumName);
+
+    IGqlpTypeParam typeParam = NFor<IGqlpTypeParam>(paramName);
+    typeParam.Constraint.Returns(constraint);
+    Types[arg.FullType] = typeParam;
+
+    bool result = Matcher.Matches(arg, constraint, Context);
+
+    result.ShouldBeTrue();
+  }
+
+  [Theory, RepeatData]
   public void Matches_ReturnsExpected_WhenConstraintChildOfEnum_WithArgLabel(string name, string enumName, string enumLabel, string constraint, bool expected)
   {
     IGqlpOutputArg arg = NFor<IGqlpOutputArg>(name);

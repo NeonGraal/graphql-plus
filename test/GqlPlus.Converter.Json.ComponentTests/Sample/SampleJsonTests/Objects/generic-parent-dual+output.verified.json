@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "AltOutpGnrcPrntDual": {
+    "AltGnrcPrntDualOutp": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "AltOutpGnrcPrntDual",
+          "object": "AltGnrcPrntDualOutp",
           "type": {
             "$tag": "_DualBase",
             "dual": "String"
@@ -18,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "alt",
-          "object": "AltOutpGnrcPrntDual",
+          "object": "AltGnrcPrntDualOutp",
           "type": {
             "$tag": "_DualBase",
             "dual": "Number"
@@ -44,32 +44,32 @@
           }
         }
       ],
-      "name": "AltOutpGnrcPrntDual",
+      "name": "AltGnrcPrntDualOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"
       }
     },
-    "OutpGnrcPrntDual": {
+    "GnrcPrntDualOutp": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "RefOutpGnrcPrntDual",
+          "object": "RefGnrcPrntDualOutp",
           "type": {
             "$tag": "_DualBase",
-            "dual": "AltOutpGnrcPrntDual"
+            "dual": "AltGnrcPrntDualOutp"
           }
         }
       ],
-      "name": "OutpGnrcPrntDual",
+      "name": "GnrcPrntDualOutp",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "RefOutpGnrcPrntDual",
+        "output": "RefGnrcPrntDualOutp",
         "typeArgs": [
           {
             "$tag": "_DualArg",
-            "dual": "AltOutpGnrcPrntDual"
+            "dual": "AltGnrcPrntDualOutp"
           }
         ]
       },
@@ -78,12 +78,12 @@
         "value": "Output"
       }
     },
-    "RefOutpGnrcPrntDual": {
+    "RefGnrcPrntDualOutp": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "RefOutpGnrcPrntDual",
+          "object": "RefGnrcPrntDualOutp",
           "type": {
             "$tag": "_OutputBase",
             "typeParam": "ref"
@@ -99,7 +99,7 @@
           }
         }
       ],
-      "name": "RefOutpGnrcPrntDual",
+      "name": "RefGnrcPrntDualOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

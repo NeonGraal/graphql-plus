@@ -1,15 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier AltOutpCnstAltObj: !_TypeOutput
+  !_Identifier AltCnstAltObjOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: PrntOutpCnstAltObj
+      object: PrntCnstAltObjOutp
       type: !_OutputBase
         output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
-      object: AltOutpCnstAltObj
+      object: AltCnstAltObjOutp
       type: !_OutputBase
         output: Number
     fields:
@@ -17,55 +17,55 @@ types: !_Map_Type
       name: alt
       type: !_OutputBase
         output: Number
-    name: AltOutpCnstAltObj
+    name: AltCnstAltObjOutp
     parent: !_OutputBase
-      output: PrntOutpCnstAltObj
+      output: PrntCnstAltObjOutp
     typeKind: !_TypeKind Output
-  !_Identifier OutpCnstAltObj: !_TypeOutput
+  !_Identifier CnstAltObjOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpCnstAltObj
+      object: CnstAltObjOutp
       type: !_OutputBase
-        output: RefOutpCnstAltObj
+        output: RefCnstAltObjOutp
         typeArgs:
         - !_OutputArg
-          output: AltOutpCnstAltObj
+          output: AltCnstAltObjOutp
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
-        output: RefOutpCnstAltObj
+        output: RefCnstAltObjOutp
         typeArgs:
         - !_OutputArg
-          output: AltOutpCnstAltObj
-    name: OutpCnstAltObj
+          output: AltCnstAltObjOutp
+    name: CnstAltObjOutp
     typeKind: !_TypeKind Output
-  !_Identifier PrntOutpCnstAltObj: !_TypeOutput
+  !_Identifier PrntCnstAltObjOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: PrntOutpCnstAltObj
+      object: PrntCnstAltObjOutp
       type: !_OutputBase
         output: String
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
         output: String
-    name: PrntOutpCnstAltObj
+    name: PrntCnstAltObjOutp
     typeKind: !_TypeKind Output
-  !_Identifier RefOutpCnstAltObj: !_TypeOutput
+  !_Identifier RefCnstAltObjOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: RefOutpCnstAltObj
+      object: RefCnstAltObjOutp
       type: !_OutputBase
         typeParam: ref
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
         typeParam: ref
-    name: RefOutpCnstAltObj
+    name: RefCnstAltObjOutp
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
         typeKind: !_TypeKind Output
-        typeName: PrntOutpCnstAltObj
+        typeName: PrntCnstAltObjOutp
       name: ref

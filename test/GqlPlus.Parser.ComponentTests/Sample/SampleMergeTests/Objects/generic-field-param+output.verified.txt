@@ -3,22 +3,22 @@
 Success
 {
   !Ou I@008/0001
-  OutpGnrcFieldParam
+  GnrcFieldParamOutp
   {
     !OF I@029/0001
     field
     :
     I@036/0001
-    RefOutpGnrcFieldParam
+    RefGnrcFieldParamOutp
     <
       I@058/0001
-      AltOutpGnrcFieldParam
+      AltGnrcFieldParamOutp
     >
   }
 }
 {
   !Ou I@008/0002
-  RefOutpGnrcFieldParam
+  RefGnrcFieldParamOutp
   <
     I@031/0002
     $ref
@@ -30,7 +30,7 @@ Success
 }
 {
   !Ou I@008/0003
-  AltOutpGnrcFieldParam
+  AltGnrcFieldParamOutp
   {
     !OF I@032/0003
     alt

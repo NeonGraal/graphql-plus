@@ -3,22 +3,22 @@
 Success
 {
   !Du I@006/0001
-  DualCnstAltObj
+  CnstAltObjDual
   |
   I@025/0001
-  RefDualCnstAltObj
+  RefCnstAltObjDual
   <
     I@043/0001
-    AltDualCnstAltObj
+    AltCnstAltObjDual
   >
 }
 {
   !Du I@006/0002
-  RefDualCnstAltObj
+  RefCnstAltObjDual
   <
     I@025/0002
     $ref
-    :PrntDualCnstAltObj
+    :PrntCnstAltObjDual
   >
   |
   P@053/0002
@@ -26,17 +26,17 @@ Success
 }
 {
   !Du I@006/0003
-  PrntDualCnstAltObj
+  PrntCnstAltObjDual
   |
   I@029/0003
   String
 }
 {
   !Du I@006/0004
-  AltDualCnstAltObj
+  AltCnstAltObjDual
   :
   I@027/0004
-  PrntDualCnstAltObj
+  PrntCnstAltObjDual
   {
     !DF I@046/0004
     alt

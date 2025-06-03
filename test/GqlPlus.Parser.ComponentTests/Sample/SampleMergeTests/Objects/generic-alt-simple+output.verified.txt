@@ -3,10 +3,10 @@
 Success
 {
   !Ou I@008/0001
-  OutpGnrcAltSmpl
+  GnrcAltSmplOutp
   |
   I@028/0001
-  RefOutpGnrcAltSmpl
+  RefGnrcAltSmplOutp
   <
     I@047/0001
     String
@@ -14,7 +14,7 @@ Success
 }
 {
   !Ou I@008/0002
-  RefOutpGnrcAltSmpl
+  RefGnrcAltSmplOutp
   <
     I@028/0002
     $ref

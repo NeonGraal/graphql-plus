@@ -3,18 +3,18 @@
 Success
 {
   !Du I@006/0001
-  DualGnrcPrntSmplEnum
+  GnrcPrntSmplEnumDual
   :
   I@030/0001
-  FieldDualGnrcPrntSmplEnum
+  FieldGnrcPrntSmplEnumDual
   <
     I@056/0001
-    EnumGnrcPrntSmplEnum
+    EnumGnrcPrntSmplEnumDual
   >
 }
 {
   !Du I@006/0002
-  FieldDualGnrcPrntSmplEnum
+  FieldGnrcPrntSmplEnumDual
   <
     I@033/0002
     $ref
@@ -30,8 +30,8 @@ Success
 }
 {
   !En I@006/0003
-  EnumGnrcPrntSmplEnum
-  !EL I@029/0003
-  gnrcPrntSmplEnum
+  EnumGnrcPrntSmplEnumDual
+  !EL I@033/0003
+  gnrcPrntSmplEnumDual
 }
 ]

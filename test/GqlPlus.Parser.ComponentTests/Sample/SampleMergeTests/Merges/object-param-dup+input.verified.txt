@@ -3,7 +3,7 @@
 Success
 {
   !In I@007/0001
-  InpObjParamDup
+  ObjParamDupInp
   <
     I@023/0001
     $test

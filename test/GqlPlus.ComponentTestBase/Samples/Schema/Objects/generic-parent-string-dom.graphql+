@@ -1,3 +1,3 @@
-object ObjName { :FieldObjName<DomName> }
-object FieldObjName<$ref:String> { field: $ref }
+object Name { :FieldName<DomName> }
+object FieldName<$ref:String> { field: $ref }
 domain DomName { string /\w+/ }

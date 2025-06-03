@@ -2,22 +2,22 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpGnrcPrntArg": {
+    "GnrcPrntArgOutp": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "RefOutpGnrcPrntArg",
+          "object": "RefGnrcPrntArgOutp",
           "type": {
             "$tag": "_OutputBase",
             "typeParam": "ref"
           }
         }
       ],
-      "name": "OutpGnrcPrntArg",
+      "name": "GnrcPrntArgOutp",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "RefOutpGnrcPrntArg",
+        "output": "RefGnrcPrntArgOutp",
         "typeArgs": [
           {
             "$tag": "_OutputArg",
@@ -44,12 +44,12 @@
         }
       ]
     },
-    "RefOutpGnrcPrntArg": {
+    "RefGnrcPrntArgOutp": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "RefOutpGnrcPrntArg",
+          "object": "RefGnrcPrntArgOutp",
           "type": {
             "$tag": "_OutputBase",
             "typeParam": "ref"
@@ -65,7 +65,7 @@
           }
         }
       ],
-      "name": "RefOutpGnrcPrntArg",
+      "name": "RefGnrcPrntArgOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

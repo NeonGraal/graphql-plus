@@ -1,1 +1,1 @@
-object RefObjName<$ref:String> { | $ref[*] }
+object RefName<$ref:String> { | $ref[*] }

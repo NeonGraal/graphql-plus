@@ -3,14 +3,14 @@
 Success
 {
   !Ou I@008/0001
-  OutpAlt
+  AltOutp
   |
   I@020/0001
-  AltOutpAlt
+  AltAltOutp
 }
 {
   !Ou I@008/0002
-  AltOutpAlt
+  AltAltOutp
   {
     !OF I@021/0002
     alt

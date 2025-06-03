@@ -1,4 +1,4 @@
-object ObjName { :RefObjName<AltObjName> }
-object RefObjName<$ref:PrntObjName> { field: $ref }
-dual PrntObjName { | String }
-object AltObjName { :PrntObjName alt: Number }
+object Name { :RefName<AltName> }
+object RefName<$ref:PrntName> { field: $ref }
+dual PrntName { | String }
+object AltName { :PrntName alt: Number }

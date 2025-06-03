@@ -16,7 +16,7 @@ internal class MergeTypeParams
     IGqlpTypeParam[] asts = [.. group];
     TypeParamAst ast = (TypeParamAst)asts.First();
     string[] constraint = [.. asts
-      .Select(p => p.Constraint ?? "")
+      .Select(p => p.Constraint)
       .Where(c => !string.IsNullOrWhiteSpace(c))
       .Distinct()];
 

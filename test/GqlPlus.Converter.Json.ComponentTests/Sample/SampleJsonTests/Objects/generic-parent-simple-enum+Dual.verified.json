@@ -2,63 +2,34 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualGnrcPrntSmplEnum": {
-      "$tag": "_TypeDual",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "field",
-          "object": "FieldDualGnrcPrntSmplEnum",
-          "type": {
-            "$tag": "_DualBase",
-            "dual": "EnumGnrcPrntSmplEnum"
-          }
-        }
-      ],
-      "name": "DualGnrcPrntSmplEnum",
-      "parent": {
-        "$tag": "_DualBase",
-        "dual": "FieldDualGnrcPrntSmplEnum",
-        "typeArgs": [
-          {
-            "$tag": "_DualArg",
-            "dual": "EnumGnrcPrntSmplEnum"
-          }
-        ]
-      },
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Dual"
-      }
-    },
-    "EnumGnrcPrntSmplEnum": {
+    "EnumGnrcPrntSmplEnumDual": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "enum": "EnumGnrcPrntSmplEnum",
-          "name": "gnrcPrntSmplEnum"
+          "enum": "EnumGnrcPrntSmplEnumDual",
+          "name": "gnrcPrntSmplEnumDual"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "name": "gnrcPrntSmplEnum"
+          "name": "gnrcPrntSmplEnumDual"
         }
       ],
-      "name": "EnumGnrcPrntSmplEnum",
+      "name": "EnumGnrcPrntSmplEnumDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Enum"
       }
     },
-    "FieldDualGnrcPrntSmplEnum": {
+    "FieldGnrcPrntSmplEnumDual": {
       "$tag": "_TypeDual",
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "FieldDualGnrcPrntSmplEnum",
+          "object": "FieldGnrcPrntSmplEnumDual",
           "type": {
             "$tag": "_DualBase",
             "typeParam": "ref"
@@ -75,7 +46,7 @@
           }
         }
       ],
-      "name": "FieldDualGnrcPrntSmplEnum",
+      "name": "FieldGnrcPrntSmplEnumDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"
@@ -94,6 +65,35 @@
           "name": "ref"
         }
       ]
+    },
+    "GnrcPrntSmplEnumDual": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "FieldGnrcPrntSmplEnumDual",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "EnumGnrcPrntSmplEnumDual"
+          }
+        }
+      ],
+      "name": "GnrcPrntSmplEnumDual",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "FieldGnrcPrntSmplEnumDual",
+        "typeArgs": [
+          {
+            "$tag": "_DualArg",
+            "dual": "EnumGnrcPrntSmplEnumDual"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
     }
   }
 }

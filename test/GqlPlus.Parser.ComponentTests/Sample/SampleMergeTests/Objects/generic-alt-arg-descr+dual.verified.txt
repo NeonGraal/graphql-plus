@@ -3,7 +3,7 @@
 Success
 {
   !Du I@006/0001
-  DualGnrcAltArgDescr
+  GnrcAltArgDescrDual
   <
     I@027/0001
     $type
@@ -11,7 +11,7 @@ Success
   >
   |
   I@044/0001
-  RefDualGnrcAltArgDescr
+  RefGnrcAltArgDescrDual
   <
     'Test Descr'
     I@082/0001
@@ -20,7 +20,7 @@ Success
 }
 {
   !Du I@006/0002
-  RefDualGnrcAltArgDescr
+  RefGnrcAltArgDescrDual
   <
     I@030/0002
     $ref

@@ -3,18 +3,18 @@
 Success
 {
   !Du I@006/0001
-  DualGnrcPrntStrDom
+  GnrcPrntStrDomDual
   :
   I@028/0001
-  FieldDualGnrcPrntStrDom
+  FieldGnrcPrntStrDomDual
   <
     I@052/0001
-    DomGnrcPrntStrDom
+    DomGnrcPrntStrDomDual
   >
 }
 {
   !Du I@006/0002
-  FieldDualGnrcPrntStrDom
+  FieldGnrcPrntStrDomDual
   <
     I@031/0002
     $ref
@@ -30,9 +30,9 @@ Success
 }
 {
   !Do I@008/0003
-  DomGnrcPrntStrDom
+  DomGnrcPrntStrDomDual
   String
-  !DX R@035/0003
+  !DX R@039/0003
   /\\w+/
 }
 ]

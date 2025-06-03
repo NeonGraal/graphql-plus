@@ -2,22 +2,22 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpGnrcPrntArg": {
+    "GnrcPrntArgInp": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "RefInpGnrcPrntArg",
+          "object": "RefGnrcPrntArgInp",
           "type": {
             "$tag": "_InputBase",
             "typeParam": "ref"
           }
         }
       ],
-      "name": "InpGnrcPrntArg",
+      "name": "GnrcPrntArgInp",
       "parent": {
         "$tag": "_InputBase",
-        "input": "RefInpGnrcPrntArg",
+        "input": "RefGnrcPrntArgInp",
         "typeArgs": [
           {
             "$tag": "_InputArg",
@@ -44,12 +44,12 @@
         }
       ]
     },
-    "RefInpGnrcPrntArg": {
+    "RefGnrcPrntArgInp": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "RefInpGnrcPrntArg",
+          "object": "RefGnrcPrntArgInp",
           "type": {
             "$tag": "_InputBase",
             "typeParam": "ref"
@@ -65,7 +65,7 @@
           }
         }
       ],
-      "name": "RefInpGnrcPrntArg",
+      "name": "RefGnrcPrntArgInp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Input"

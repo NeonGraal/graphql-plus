@@ -3,7 +3,7 @@
 Success
 {
   !In I@007/0001
-  InpObjCnst
+  ObjCnstInp
   <
     I@019/0001
     $type

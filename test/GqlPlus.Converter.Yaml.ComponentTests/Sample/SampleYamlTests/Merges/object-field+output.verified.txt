@@ -1,19 +1,19 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier FldOutpObjField: !_TypeOutput
-    name: FldOutpObjField
+  !_Identifier FldObjFieldOutp: !_TypeOutput
+    name: FldObjFieldOutp
     typeKind: !_TypeKind Output
-  !_Identifier OutpObjField: !_TypeOutput
+  !_Identifier ObjFieldOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
-      object: OutpObjField
+      object: ObjFieldOutp
       type: !_OutputBase
-        output: FldOutpObjField
+        output: FldObjFieldOutp
     fields:
     - !_OutputField
       name: field
       type: !_OutputBase
-        output: FldOutpObjField
-    name: OutpObjField
+        output: FldObjFieldOutp
+    name: ObjFieldOutp
     typeKind: !_TypeKind Output

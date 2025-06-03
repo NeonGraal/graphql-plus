@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualCnstAlt": {
+    "CnstAltDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "DualCnstAlt",
+          "object": "CnstAltDual",
           "type": {
             "$tag": "_DualBase",
             "typeParam": "type"
@@ -23,7 +23,7 @@
           }
         }
       ],
-      "name": "DualCnstAlt",
+      "name": "CnstAltDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"

@@ -3,7 +3,7 @@
 Success
 {
   !In I@007/0001
-  InpGnrcFieldArg
+  GnrcFieldArgInp
   <
     I@024/0001
     $type
@@ -14,7 +14,7 @@ Success
     field
     :
     I@046/0001
-    RefInpGnrcFieldArg
+    RefGnrcFieldArgInp
     <
       I@066/0001
       $type
@@ -23,7 +23,7 @@ Success
 }
 {
   !In I@007/0002
-  RefInpGnrcFieldArg
+  RefGnrcFieldArgInp
   <
     I@027/0002
     $ref

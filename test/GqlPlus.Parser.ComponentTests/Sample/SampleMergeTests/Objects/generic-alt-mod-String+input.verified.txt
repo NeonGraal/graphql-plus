@@ -3,7 +3,7 @@
 Success
 {
   !In I@007/0001
-  RefInpGnrcAltModStr
+  RefGnrcAltModStrInp
   <
     I@028/0001
     $ref

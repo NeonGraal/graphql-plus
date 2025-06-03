@@ -3,7 +3,7 @@
 Success
 {
   !Du I@006/0001
-  DualFieldDescr
+  FieldDescrDual
   {
     'Test Descr'
     !DF I@038/0001

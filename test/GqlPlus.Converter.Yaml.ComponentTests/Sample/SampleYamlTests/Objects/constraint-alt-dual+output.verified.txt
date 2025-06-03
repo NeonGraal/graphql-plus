@@ -1,15 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier AltOutpCnstAltDual: !_TypeOutput
+  !_Identifier AltCnstAltDualOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: PrntOutpCnstAltDual
+      object: PrntCnstAltDualOutp
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
-      object: AltOutpCnstAltDual
+      object: AltCnstAltDualOutp
       type: !_OutputBase
         output: Number
     fields:
@@ -17,55 +17,55 @@ types: !_Map_Type
       name: alt
       type: !_OutputBase
         output: Number
-    name: AltOutpCnstAltDual
+    name: AltCnstAltDualOutp
     parent: !_DualBase
-      dual: PrntOutpCnstAltDual
+      dual: PrntCnstAltDualOutp
     typeKind: !_TypeKind Output
-  !_Identifier OutpCnstAltDual: !_TypeOutput
+  !_Identifier CnstAltDualOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: OutpCnstAltDual
+      object: CnstAltDualOutp
       type: !_OutputBase
-        output: RefOutpCnstAltDual
+        output: RefCnstAltDualOutp
         typeArgs:
         - !_OutputArg
-          output: AltOutpCnstAltDual
+          output: AltCnstAltDualOutp
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
-        output: RefOutpCnstAltDual
+        output: RefCnstAltDualOutp
         typeArgs:
         - !_OutputArg
-          output: AltOutpCnstAltDual
-    name: OutpCnstAltDual
+          output: AltCnstAltDualOutp
+    name: CnstAltDualOutp
     typeKind: !_TypeKind Output
-  !_Identifier PrntOutpCnstAltDual: !_TypeDual
+  !_Identifier PrntCnstAltDualOutp: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: PrntOutpCnstAltDual
+      object: PrntCnstAltDualOutp
       type: !_DualBase
         dual: String
     alternates:
     - !_DualAlternate
       type: !_DualBase
         dual: String
-    name: PrntOutpCnstAltDual
+    name: PrntCnstAltDualOutp
     typeKind: !_TypeKind Dual
-  !_Identifier RefOutpCnstAltDual: !_TypeOutput
+  !_Identifier RefCnstAltDualOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: RefOutpCnstAltDual
+      object: RefCnstAltDualOutp
       type: !_OutputBase
         typeParam: ref
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
         typeParam: ref
-    name: RefOutpCnstAltDual
+    name: RefCnstAltDualOutp
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
         typeKind: !_TypeKind Dual
-        typeName: PrntOutpCnstAltDual
+        typeName: PrntCnstAltDualOutp
       name: ref

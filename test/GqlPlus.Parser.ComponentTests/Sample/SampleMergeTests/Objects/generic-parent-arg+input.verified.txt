@@ -3,7 +3,7 @@
 Success
 {
   !In I@007/0001
-  InpGnrcPrntArg
+  GnrcPrntArgInp
   <
     I@023/0001
     $type
@@ -11,7 +11,7 @@ Success
   >
   :
   I@039/0001
-  RefInpGnrcPrntArg
+  RefGnrcPrntArgInp
   <
     I@058/0001
     $type
@@ -19,7 +19,7 @@ Success
 }
 {
   !In I@007/0002
-  RefInpGnrcPrntArg
+  RefGnrcPrntArgInp
   <
     I@026/0002
     $ref

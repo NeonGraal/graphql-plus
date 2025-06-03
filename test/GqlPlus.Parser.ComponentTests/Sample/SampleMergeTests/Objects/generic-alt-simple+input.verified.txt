@@ -3,10 +3,10 @@
 Success
 {
   !In I@007/0001
-  InpGnrcAltSmpl
+  GnrcAltSmplInp
   |
   I@026/0001
-  RefInpGnrcAltSmpl
+  RefGnrcAltSmplInp
   <
     I@044/0001
     String
@@ -14,7 +14,7 @@ Success
 }
 {
   !In I@007/0002
-  RefInpGnrcAltSmpl
+  RefGnrcAltSmplInp
   <
     I@026/0002
     $ref

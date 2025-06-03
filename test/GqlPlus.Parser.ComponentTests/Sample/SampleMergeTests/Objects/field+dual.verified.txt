@@ -3,7 +3,7 @@
 Success
 {
   !Du I@006/0001
-  DualField
+  FieldDual
   {
     !DF I@018/0001
     field

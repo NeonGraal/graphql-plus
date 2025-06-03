@@ -1,15 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualPrntParamDiff: !_TypeDual
+  !_Identifier PrntParamDiffDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: RefDualPrntParamDiff
+      object: RefPrntParamDiffDual
       type: !_DualBase
         typeParam: b
     allFields:
     - !_ObjectFor(_DualField)
       name: field
-      object: DualPrntParamDiff
+      object: PrntParamDiffDual
       type: !_DualBase
         typeParam: a
     fields:
@@ -17,9 +17,9 @@ types: !_Map_Type
       name: field
       type: !_DualBase
         typeParam: a
-    name: DualPrntParamDiff
+    name: PrntParamDiffDual
     parent: !_DualBase
-      dual: RefDualPrntParamDiff
+      dual: RefPrntParamDiffDual
       typeArgs:
       - !_DualArg
         typeParam: a
@@ -30,17 +30,17 @@ types: !_Map_Type
         typeKind: !_TypeKind Basic
         typeName: String
       name: a
-  !_Identifier RefDualPrntParamDiff: !_TypeDual
+  !_Identifier RefPrntParamDiffDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: RefDualPrntParamDiff
+      object: RefPrntParamDiffDual
       type: !_DualBase
         typeParam: b
     alternates:
     - !_DualAlternate
       type: !_DualBase
         typeParam: b
-    name: RefDualPrntParamDiff
+    name: RefPrntParamDiffDual
     typeKind: !_TypeKind Dual
     typeParams:
     - !_TypeParam

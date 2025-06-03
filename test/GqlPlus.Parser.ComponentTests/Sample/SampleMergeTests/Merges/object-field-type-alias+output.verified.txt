@@ -3,7 +3,7 @@
 Success
 {
   !Ou I@008/0001
-  OutpObjFieldTypeAlias
+  ObjFieldTypeAliasOutp
   {
     !OF I@032/0001
     field

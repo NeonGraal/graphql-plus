@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "AltInpGnrcPrntParamPrnt": {
+    "AltGnrcPrntParamPrntInp": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "AltInpGnrcPrntParamPrnt",
+          "object": "AltGnrcPrntParamPrntInp",
           "type": {
             "$tag": "_InputBase",
             "input": "String"
@@ -18,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "alt",
-          "object": "AltInpGnrcPrntParamPrnt",
+          "object": "AltGnrcPrntParamPrntInp",
           "type": {
             "$tag": "_InputBase",
             "input": "Number"
@@ -44,18 +44,18 @@
           }
         }
       ],
-      "name": "AltInpGnrcPrntParamPrnt",
+      "name": "AltGnrcPrntParamPrntInp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Input"
       }
     },
-    "InpGnrcPrntParamPrnt": {
+    "GnrcPrntParamPrntInp": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "AltInpGnrcPrntParamPrnt",
+          "object": "AltGnrcPrntParamPrntInp",
           "type": {
             "$tag": "_InputBase",
             "input": "String"
@@ -66,21 +66,21 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "alt",
-          "object": "AltInpGnrcPrntParamPrnt",
+          "object": "AltGnrcPrntParamPrntInp",
           "type": {
             "$tag": "_InputBase",
             "input": "Number"
           }
         }
       ],
-      "name": "InpGnrcPrntParamPrnt",
+      "name": "GnrcPrntParamPrntInp",
       "parent": {
         "$tag": "_InputBase",
-        "input": "RefInpGnrcPrntParamPrnt",
+        "input": "RefGnrcPrntParamPrntInp",
         "typeArgs": [
           {
             "$tag": "_InputArg",
-            "input": "AltInpGnrcPrntParamPrnt"
+            "input": "AltGnrcPrntParamPrntInp"
           }
         ]
       },
@@ -89,9 +89,9 @@
         "value": "Input"
       }
     },
-    "RefInpGnrcPrntParamPrnt": {
+    "RefGnrcPrntParamPrntInp": {
       "$tag": "_TypeInput",
-      "name": "RefInpGnrcPrntParamPrnt",
+      "name": "RefGnrcPrntParamPrntInp",
       "parent": {
         "$tag": "_InputBase",
         "typeParam": "ref"

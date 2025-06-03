@@ -2,7 +2,28 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualFieldModEnum": {
+    "EnumFieldModEnumDual": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumFieldModEnumDual",
+          "name": "value"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "value"
+        }
+      ],
+      "name": "EnumFieldModEnumDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "FieldModEnumDual": {
       "$tag": "_TypeDual",
       "allFields": [
         {
@@ -10,7 +31,7 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "EnumDualFieldModEnum",
+              "by": "EnumFieldModEnumDual",
               "modifierKind": {
                 "$tag": "_ModifierKind",
                 "value": "Dict"
@@ -22,7 +43,7 @@
             }
           ],
           "name": "field",
-          "object": "DualFieldModEnum",
+          "object": "FieldModEnumDual",
           "type": {
             "$tag": "_DualBase",
             "dual": "String"
@@ -35,7 +56,7 @@
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "EnumDualFieldModEnum",
+              "by": "EnumFieldModEnumDual",
               "modifierKind": {
                 "$tag": "_ModifierKind",
                 "value": "Dict"
@@ -53,31 +74,10 @@
           }
         }
       ],
-      "name": "DualFieldModEnum",
+      "name": "FieldModEnumDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"
-      }
-    },
-    "EnumDualFieldModEnum": {
-      "$tag": "_TypeEnum",
-      "allItems": [
-        {
-          "$tag": "_EnumLabel",
-          "enum": "EnumDualFieldModEnum",
-          "name": "value"
-        }
-      ],
-      "items": [
-        {
-          "$tag": "_Aliased",
-          "name": "value"
-        }
-      ],
-      "name": "EnumDualFieldModEnum",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Enum"
       }
     }
   }

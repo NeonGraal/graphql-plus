@@ -2,15 +2,15 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpGnrcAltSmpl": {
+    "GnrcAltSmplOutp": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGnrcAltSmpl",
+          "object": "GnrcAltSmplOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "RefOutpGnrcAltSmpl",
+            "output": "RefGnrcAltSmplOutp",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
@@ -25,7 +25,7 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "RefOutpGnrcAltSmpl",
+            "output": "RefGnrcAltSmplOutp",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
@@ -35,18 +35,18 @@
           }
         }
       ],
-      "name": "OutpGnrcAltSmpl",
+      "name": "GnrcAltSmplOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
       }
     },
-    "RefOutpGnrcAltSmpl": {
+    "RefGnrcAltSmplOutp": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "RefOutpGnrcAltSmpl",
+          "object": "RefGnrcAltSmplOutp",
           "type": {
             "$tag": "_OutputBase",
             "typeParam": "ref"
@@ -62,7 +62,7 @@
           }
         }
       ],
-      "name": "RefOutpGnrcAltSmpl",
+      "name": "RefGnrcAltSmplOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

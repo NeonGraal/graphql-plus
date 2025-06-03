@@ -3,7 +3,7 @@
 Success
 {
   !Du I@006/0001
-  DualPrntParamDiff
+  PrntParamDiffDual
   <
     I@025/0001
     $a
@@ -11,7 +11,7 @@ Success
   >
   :
   I@038/0001
-  RefDualPrntParamDiff
+  RefPrntParamDiffDual
   <
     I@060/0001
     $a
@@ -26,7 +26,7 @@ Success
 }
 {
   !Du I@006/0002
-  RefDualPrntParamDiff
+  RefPrntParamDiffDual
   <
     I@028/0002
     $b

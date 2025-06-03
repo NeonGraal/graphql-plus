@@ -1,58 +1,44 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DomGnrcPrntEnumDom: !_DomainEnum
+  !_Identifier DomGnrcPrntEnumDomDual: !_DomainEnum
     allItems:
     - !_DomainItem(_DomainLabel)
-      domain: DomGnrcPrntEnumDom
+      domain: DomGnrcPrntEnumDomDual
       exclude: false
       value: !_EnumValue
-        label: gnrcPrntEnumDomLabel
+        label: gnrcPrntEnumDomDualLabel
         typeKind: !_SimpleKind Enum
-        typeName: EnumGnrcPrntEnumDom
+        typeName: EnumGnrcPrntEnumDomDual
     domainKind: !_DomainKind Enum
     items:
     - !_DomainLabel
       exclude: false
       value: !_EnumValue
-        label: gnrcPrntEnumDomLabel
+        label: gnrcPrntEnumDomDualLabel
         typeKind: !_SimpleKind Enum
-        typeName: EnumGnrcPrntEnumDom
-    name: DomGnrcPrntEnumDom
+        typeName: EnumGnrcPrntEnumDomDual
+    name: DomGnrcPrntEnumDomDual
     typeKind: !_TypeKind Domain
-  !_Identifier DualGnrcPrntEnumDom: !_TypeDual
-    allFields:
-    - !_ObjectFor(_DualField)
-      name: field
-      object: FieldDualGnrcPrntEnumDom
-      type: !_DualBase
-        dual: DomGnrcPrntEnumDom
-    name: DualGnrcPrntEnumDom
-    parent: !_DualBase
-      dual: FieldDualGnrcPrntEnumDom
-      typeArgs:
-      - !_DualArg
-        dual: DomGnrcPrntEnumDom
-    typeKind: !_TypeKind Dual
-  !_Identifier EnumGnrcPrntEnumDom: !_TypeEnum
+  !_Identifier EnumGnrcPrntEnumDomDual: !_TypeEnum
     allItems:
     - !_EnumLabel
-      enum: EnumGnrcPrntEnumDom
-      name: gnrcPrntEnumDomLabel
+      enum: EnumGnrcPrntEnumDomDual
+      name: gnrcPrntEnumDomDualLabel
     - !_EnumLabel
-      enum: EnumGnrcPrntEnumDom
-      name: gnrcPrntEnumDomOther
+      enum: EnumGnrcPrntEnumDomDual
+      name: gnrcPrntEnumDomDualOther
     items:
     - !_Aliased
-      name: gnrcPrntEnumDomLabel
+      name: gnrcPrntEnumDomDualLabel
     - !_Aliased
-      name: gnrcPrntEnumDomOther
-    name: EnumGnrcPrntEnumDom
+      name: gnrcPrntEnumDomDualOther
+    name: EnumGnrcPrntEnumDomDual
     typeKind: !_TypeKind Enum
-  !_Identifier FieldDualGnrcPrntEnumDom: !_TypeDual
+  !_Identifier FieldGnrcPrntEnumDomDual: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: field
-      object: FieldDualGnrcPrntEnumDom
+      object: FieldGnrcPrntEnumDomDual
       type: !_DualBase
         typeParam: ref
     fields:
@@ -60,11 +46,25 @@ types: !_Map_Type
       name: field
       type: !_DualBase
         typeParam: ref
-    name: FieldDualGnrcPrntEnumDom
+    name: FieldGnrcPrntEnumDomDual
     typeKind: !_TypeKind Dual
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
         typeKind: !_TypeKind Enum
-        typeName: EnumGnrcPrntEnumDom
+        typeName: EnumGnrcPrntEnumDomDual
       name: ref
+  !_Identifier GnrcPrntEnumDomDual: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: FieldGnrcPrntEnumDomDual
+      type: !_DualBase
+        dual: DomGnrcPrntEnumDomDual
+    name: GnrcPrntEnumDomDual
+    parent: !_DualBase
+      dual: FieldGnrcPrntEnumDomDual
+      typeArgs:
+      - !_DualArg
+        dual: DomGnrcPrntEnumDomDual
+    typeKind: !_TypeKind Dual

@@ -1,12 +1,12 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualGnrcFieldArg: !_TypeDual
+  !_Identifier GnrcFieldArgDual: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
         name: field
-        object: DualGnrcFieldArg
+        object: GnrcFieldArgDual
         type: !_DualBase
-          dual: RefDualGnrcFieldArg
+          dual: RefGnrcFieldArgDual
           typeArgs:
             - !_DualArg
               typeParam: type
@@ -14,11 +14,11 @@ types: !_Map_Type
       - !_DualField
         name: field
         type: !_DualBase
-          dual: RefDualGnrcFieldArg
+          dual: RefGnrcFieldArgDual
           typeArgs:
             - !_DualArg
               typeParam: type
-    name: DualGnrcFieldArg
+    name: GnrcFieldArgDual
     typeKind: !_TypeKind Dual
     typeParams:
       - !_TypeParam
@@ -26,17 +26,17 @@ types: !_Map_Type
           typeKind: !_TypeKind Basic
           typeName: String
         name: type
-  !_Identifier RefDualGnrcFieldArg: !_TypeDual
+  !_Identifier RefGnrcFieldArgDual: !_TypeDual
     allAlternates:
       - !_ObjectFor(_DualAlternate)
-        object: RefDualGnrcFieldArg
+        object: RefGnrcFieldArgDual
         type: !_DualBase
           typeParam: ref
     alternates:
       - !_DualAlternate
         type: !_DualBase
           typeParam: ref
-    name: RefDualGnrcFieldArg
+    name: RefGnrcFieldArgDual
     typeKind: !_TypeKind Dual
     typeParams:
       - !_TypeParam

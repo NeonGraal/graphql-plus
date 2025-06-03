@@ -3,19 +3,19 @@
 Success
 {
   !Du I@006/0001
-  DualFieldModEnum
+  FieldModEnumDual
   {
     !DF I@025/0001
     field
     :
     I@032/0001
     String
-    [EnumDualFieldModEnum]
+    [EnumFieldModEnumDual]
   }
 }
 {
   !En I@006/0002
-  EnumDualFieldModEnum
+  EnumFieldModEnumDual
   !EL I@029/0002
   value
 }

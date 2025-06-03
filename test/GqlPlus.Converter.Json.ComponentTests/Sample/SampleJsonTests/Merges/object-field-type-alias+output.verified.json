@@ -2,13 +2,13 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpObjFieldTypeAlias": {
+    "ObjFieldTypeAliasOutp": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutpObjFieldTypeAlias",
+          "object": "ObjFieldTypeAliasOutp",
           "type": {
             "$tag": "_OutputBase",
             "output": "String"
@@ -25,7 +25,7 @@
           }
         }
       ],
-      "name": "OutpObjFieldTypeAlias",
+      "name": "ObjFieldTypeAliasOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

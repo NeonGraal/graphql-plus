@@ -1,12 +1,12 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier OutpGnrcFieldArg: !_TypeOutput
+  !_Identifier GnrcFieldArgOutp: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
-      object: OutpGnrcFieldArg
+      object: GnrcFieldArgOutp
       type: !_OutputBase
-        output: RefOutpGnrcFieldArg
+        output: RefGnrcFieldArgOutp
         typeArgs:
         - !_OutputArg
           typeParam: type
@@ -14,11 +14,11 @@ types: !_Map_Type
     - !_OutputField
       name: field
       type: !_OutputBase
-        output: RefOutpGnrcFieldArg
+        output: RefGnrcFieldArgOutp
         typeArgs:
         - !_OutputArg
           typeParam: type
-    name: OutpGnrcFieldArg
+    name: GnrcFieldArgOutp
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
@@ -26,17 +26,17 @@ types: !_Map_Type
         typeKind: !_TypeKind Basic
         typeName: String
       name: type
-  !_Identifier RefOutpGnrcFieldArg: !_TypeOutput
+  !_Identifier RefGnrcFieldArgOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: RefOutpGnrcFieldArg
+      object: RefGnrcFieldArgOutp
       type: !_OutputBase
         typeParam: ref
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
         typeParam: ref
-    name: RefOutpGnrcFieldArg
+    name: RefGnrcFieldArgOutp
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam

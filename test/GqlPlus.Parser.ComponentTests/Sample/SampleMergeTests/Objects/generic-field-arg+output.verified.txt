@@ -3,7 +3,7 @@
 Success
 {
   !Ou I@008/0001
-  OutpGnrcFieldArg
+  GnrcFieldArgOutp
   <
     I@026/0001
     $type
@@ -14,7 +14,7 @@ Success
     field
     :
     I@048/0001
-    RefOutpGnrcFieldArg
+    RefGnrcFieldArgOutp
     <
       I@069/0001
       $type
@@ -23,7 +23,7 @@ Success
 }
 {
   !Ou I@008/0002
-  RefOutpGnrcFieldArg
+  RefGnrcFieldArgOutp
   <
     I@029/0002
     $ref

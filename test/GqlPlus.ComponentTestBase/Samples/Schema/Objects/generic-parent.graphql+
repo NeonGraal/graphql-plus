@@ -1,1 +1,1 @@
-object ObjName<$type:String> { :$type }
+object Name<$type:String> { :$type }

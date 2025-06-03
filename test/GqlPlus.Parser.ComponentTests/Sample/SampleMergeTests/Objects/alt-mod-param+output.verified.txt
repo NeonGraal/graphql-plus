@@ -3,7 +3,7 @@
 Success
 {
   !Ou I@008/0001
-  OutpAltModParam
+  AltModParamOutp
   <
     I@025/0001
     $mod
@@ -11,12 +11,12 @@ Success
   >
   |
   I@041/0001
-  AltOutpAltModParam
+  AltAltModParamOutp
   [$mod]
 }
 {
   !Ou I@008/0002
-  AltOutpAltModParam
+  AltAltModParamOutp
   {
     !OF I@029/0002
     alt

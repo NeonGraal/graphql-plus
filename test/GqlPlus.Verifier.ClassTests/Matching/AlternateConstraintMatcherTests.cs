@@ -31,6 +31,8 @@ public class AlternateConstraintMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsExpected_WhenMatchingAlternateMemberParent(string constraint, string name, string parent, bool expected)
   {
+    this.SkipIf(name == constraint);
+
     IGqlpObject objectType = NFor<IGqlpObject>(constraint);
     IGqlpObjAlternate alternate = NFor<IGqlpObjAlternate>(name);
     objectType.Alternates.Returns([alternate]);

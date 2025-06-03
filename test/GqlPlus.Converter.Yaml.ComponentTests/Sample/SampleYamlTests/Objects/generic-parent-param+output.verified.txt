@@ -1,15 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier AltOutpGnrcPrntParam: !_TypeOutput
+  !_Identifier AltGnrcPrntParamOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: AltOutpGnrcPrntParam
+      object: AltGnrcPrntParamOutp
       type: !_OutputBase
         output: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
-      object: AltOutpGnrcPrntParam
+      object: AltGnrcPrntParamOutp
       type: !_OutputBase
         output: Number
     alternates:
@@ -21,32 +21,32 @@ types: !_Map_Type
       name: alt
       type: !_OutputBase
         output: Number
-    name: AltOutpGnrcPrntParam
+    name: AltGnrcPrntParamOutp
     typeKind: !_TypeKind Output
-  !_Identifier OutpGnrcPrntParam: !_TypeOutput
+  !_Identifier GnrcPrntParamOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: RefOutpGnrcPrntParam
+      object: RefGnrcPrntParamOutp
       type: !_OutputBase
-        output: AltOutpGnrcPrntParam
-    name: OutpGnrcPrntParam
+        output: AltGnrcPrntParamOutp
+    name: GnrcPrntParamOutp
     parent: !_OutputBase
-      output: RefOutpGnrcPrntParam
+      output: RefGnrcPrntParamOutp
       typeArgs:
       - !_OutputArg
-        output: AltOutpGnrcPrntParam
+        output: AltGnrcPrntParamOutp
     typeKind: !_TypeKind Output
-  !_Identifier RefOutpGnrcPrntParam: !_TypeOutput
+  !_Identifier RefGnrcPrntParamOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: RefOutpGnrcPrntParam
+      object: RefGnrcPrntParamOutp
       type: !_OutputBase
         typeParam: ref
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
         typeParam: ref
-    name: RefOutpGnrcPrntParam
+    name: RefGnrcPrntParamOutp
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam

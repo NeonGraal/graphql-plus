@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpPrntParamDiff": {
+    "PrntParamDiffInp": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "RefInpPrntParamDiff",
+          "object": "RefPrntParamDiffInp",
           "type": {
             "$tag": "_InputBase",
             "typeParam": "b"
@@ -18,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "InpPrntParamDiff",
+          "object": "PrntParamDiffInp",
           "type": {
             "$tag": "_InputBase",
             "typeParam": "a"
@@ -35,10 +35,10 @@
           }
         }
       ],
-      "name": "InpPrntParamDiff",
+      "name": "PrntParamDiffInp",
       "parent": {
         "$tag": "_InputBase",
-        "input": "RefInpPrntParamDiff",
+        "input": "RefPrntParamDiffInp",
         "typeArgs": [
           {
             "$tag": "_InputArg",
@@ -65,12 +65,12 @@
         }
       ]
     },
-    "RefInpPrntParamDiff": {
+    "RefPrntParamDiffInp": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "RefInpPrntParamDiff",
+          "object": "RefPrntParamDiffInp",
           "type": {
             "$tag": "_InputBase",
             "typeParam": "b"
@@ -86,7 +86,7 @@
           }
         }
       ],
-      "name": "RefInpPrntParamDiff",
+      "name": "RefPrntParamDiffInp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Input"

@@ -6,8 +6,8 @@ internal class TypeParamModeller
 {
   protected override TypeParamModel ToModel(IGqlpTypeParam ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, ast.Description) {
-      Constraint = typeKinds.TryGetValue(ast.Constraint ?? "", out TypeKindModel typeKind)
-        ? new TypeRefModel<TypeKindModel>(typeKind, ast.Constraint!, "")
+      Constraint = typeKinds.TryGetValue(ast.Constraint, out TypeKindModel typeKind)
+        ? new TypeRefModel<TypeKindModel>(typeKind, ast.Constraint, "")
         : null,
     };
 }

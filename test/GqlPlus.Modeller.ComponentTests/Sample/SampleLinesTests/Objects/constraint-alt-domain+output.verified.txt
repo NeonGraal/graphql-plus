@@ -1,9 +1,27 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DomCnstAltDmn: !_DomainString
+  !_Identifier CnstAltDmnOutp: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: CnstAltDmnOutp
+        type: !_OutputBase
+          output: RefCnstAltDmnOutp
+          typeArgs:
+            - !_OutputArg
+              output: DomCnstAltDmnOutp
+    alternates:
+      - !_OutputAlternate
+        type: !_OutputBase
+          output: RefCnstAltDmnOutp
+          typeArgs:
+            - !_OutputArg
+              output: DomCnstAltDmnOutp
+    name: CnstAltDmnOutp
+    typeKind: !_TypeKind Output
+  !_Identifier DomCnstAltDmnOutp: !_DomainString
     allItems:
       - !_DomainItem(_DomainRegex)
-        domain: DomCnstAltDmn
+        domain: DomCnstAltDmnOutp
         exclude: false
         pattern: \w+
     domainKind: !_DomainKind String
@@ -11,37 +29,19 @@ types: !_Map_Type
       - !_DomainRegex
         exclude: false
         pattern: \w+
-    name: DomCnstAltDmn
+    name: DomCnstAltDmnOutp
     typeKind: !_TypeKind Domain
-  !_Identifier OutpCnstAltDmn: !_TypeOutput
+  !_Identifier RefCnstAltDmnOutp: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
-        object: OutpCnstAltDmn
-        type: !_OutputBase
-          output: RefOutpCnstAltDmn
-          typeArgs:
-            - !_OutputArg
-              output: DomCnstAltDmn
-    alternates:
-      - !_OutputAlternate
-        type: !_OutputBase
-          output: RefOutpCnstAltDmn
-          typeArgs:
-            - !_OutputArg
-              output: DomCnstAltDmn
-    name: OutpCnstAltDmn
-    typeKind: !_TypeKind Output
-  !_Identifier RefOutpCnstAltDmn: !_TypeOutput
-    allAlternates:
-      - !_ObjectFor(_OutputAlternate)
-        object: RefOutpCnstAltDmn
+        object: RefCnstAltDmnOutp
         type: !_OutputBase
           typeParam: ref
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
           typeParam: ref
-    name: RefOutpCnstAltDmn
+    name: RefCnstAltDmnOutp
     typeKind: !_TypeKind Output
     typeParams:
       - !_TypeParam

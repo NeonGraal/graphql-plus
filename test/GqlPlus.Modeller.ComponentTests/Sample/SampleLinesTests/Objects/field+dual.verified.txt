@@ -1,10 +1,10 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualField: !_TypeDual
+  !_Identifier FieldDual: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
         name: field
-        object: DualField
+        object: FieldDual
         type: !_DualBase
           dual: String
     fields:
@@ -12,5 +12,5 @@ types: !_Map_Type
         name: field
         type: !_DualBase
           dual: String
-    name: DualField
+    name: FieldDual
     typeKind: !_TypeKind Dual

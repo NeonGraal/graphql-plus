@@ -3,22 +3,22 @@
 Success
 {
   !Du I@006/0001
-  DualGnrcFieldParam
+  GnrcFieldParamDual
   {
     !DF I@027/0001
     field
     :
     I@034/0001
-    RefDualGnrcFieldParam
+    RefGnrcFieldParamDual
     <
       I@056/0001
-      AltDualGnrcFieldParam
+      AltGnrcFieldParamDual
     >
   }
 }
 {
   !Du I@006/0002
-  RefDualGnrcFieldParam
+  RefGnrcFieldParamDual
   <
     I@029/0002
     $ref
@@ -30,7 +30,7 @@ Success
 }
 {
   !Du I@006/0003
-  AltDualGnrcFieldParam
+  AltGnrcFieldParamDual
   {
     !DF I@030/0003
     alt

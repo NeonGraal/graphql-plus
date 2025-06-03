@@ -1,9 +1,9 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DomGnrcPrntStrDom: !_DomainString
+  !_Identifier DomGnrcPrntStrDomDual: !_DomainString
     allItems:
     - !_DomainItem(_DomainRegex)
-      domain: DomGnrcPrntStrDom
+      domain: DomGnrcPrntStrDomDual
       exclude: false
       pattern: \w+
     domainKind: !_DomainKind String
@@ -11,27 +11,13 @@ types: !_Map_Type
     - !_DomainRegex
       exclude: false
       pattern: \w+
-    name: DomGnrcPrntStrDom
+    name: DomGnrcPrntStrDomDual
     typeKind: !_TypeKind Domain
-  !_Identifier DualGnrcPrntStrDom: !_TypeDual
+  !_Identifier FieldGnrcPrntStrDomDual: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: field
-      object: FieldDualGnrcPrntStrDom
-      type: !_DualBase
-        dual: DomGnrcPrntStrDom
-    name: DualGnrcPrntStrDom
-    parent: !_DualBase
-      dual: FieldDualGnrcPrntStrDom
-      typeArgs:
-      - !_DualArg
-        dual: DomGnrcPrntStrDom
-    typeKind: !_TypeKind Dual
-  !_Identifier FieldDualGnrcPrntStrDom: !_TypeDual
-    allFields:
-    - !_ObjectFor(_DualField)
-      name: field
-      object: FieldDualGnrcPrntStrDom
+      object: FieldGnrcPrntStrDomDual
       type: !_DualBase
         typeParam: ref
     fields:
@@ -39,7 +25,7 @@ types: !_Map_Type
       name: field
       type: !_DualBase
         typeParam: ref
-    name: FieldDualGnrcPrntStrDom
+    name: FieldGnrcPrntStrDomDual
     typeKind: !_TypeKind Dual
     typeParams:
     - !_TypeParam
@@ -47,3 +33,17 @@ types: !_Map_Type
         typeKind: !_TypeKind Basic
         typeName: String
       name: ref
+  !_Identifier GnrcPrntStrDomDual: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: FieldGnrcPrntStrDomDual
+      type: !_DualBase
+        dual: DomGnrcPrntStrDomDual
+    name: GnrcPrntStrDomDual
+    parent: !_DualBase
+      dual: FieldGnrcPrntStrDomDual
+      typeArgs:
+      - !_DualArg
+        dual: DomGnrcPrntStrDomDual
+    typeKind: !_TypeKind Dual

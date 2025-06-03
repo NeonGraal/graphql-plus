@@ -3,22 +3,22 @@
 Success
 {
   !Ou I@008/0001
-  OutpCnstAltObj
+  CnstAltObjOutp
   |
   I@027/0001
-  RefOutpCnstAltObj
+  RefCnstAltObjOutp
   <
     I@045/0001
-    AltOutpCnstAltObj
+    AltCnstAltObjOutp
   >
 }
 {
   !Ou I@008/0002
-  RefOutpCnstAltObj
+  RefCnstAltObjOutp
   <
     I@027/0002
     $ref
-    :PrntOutpCnstAltObj
+    :PrntCnstAltObjOutp
   >
   |
   P@055/0002
@@ -26,17 +26,17 @@ Success
 }
 {
   !Ou I@008/0003
-  PrntOutpCnstAltObj
+  PrntCnstAltObjOutp
   |
   I@031/0003
   String
 }
 {
   !Ou I@008/0004
-  AltOutpCnstAltObj
+  AltCnstAltObjOutp
   :
   I@029/0004
-  PrntOutpCnstAltObj
+  PrntCnstAltObjOutp
   {
     !OF I@048/0004
     alt

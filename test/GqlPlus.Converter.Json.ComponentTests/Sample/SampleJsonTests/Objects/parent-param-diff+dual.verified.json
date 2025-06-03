@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualPrntParamDiff": {
+    "PrntParamDiffDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "RefDualPrntParamDiff",
+          "object": "RefPrntParamDiffDual",
           "type": {
             "$tag": "_DualBase",
             "typeParam": "b"
@@ -18,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "DualPrntParamDiff",
+          "object": "PrntParamDiffDual",
           "type": {
             "$tag": "_DualBase",
             "typeParam": "a"
@@ -35,10 +35,10 @@
           }
         }
       ],
-      "name": "DualPrntParamDiff",
+      "name": "PrntParamDiffDual",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "RefDualPrntParamDiff",
+        "dual": "RefPrntParamDiffDual",
         "typeArgs": [
           {
             "$tag": "_DualArg",
@@ -65,12 +65,12 @@
         }
       ]
     },
-    "RefDualPrntParamDiff": {
+    "RefPrntParamDiffDual": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "RefDualPrntParamDiff",
+          "object": "RefPrntParamDiffDual",
           "type": {
             "$tag": "_DualBase",
             "typeParam": "b"
@@ -86,7 +86,7 @@
           }
         }
       ],
-      "name": "RefDualPrntParamDiff",
+      "name": "RefPrntParamDiffDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"

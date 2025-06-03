@@ -2,21 +2,21 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DomGnrcPrntEnumDom": {
+    "DomGnrcPrntEnumDomInp": {
       "$tag": "_DomainEnum",
       "allItems": [
         {
           "$tag": "_DomainItem(_DomainLabel)",
-          "domain": "DomGnrcPrntEnumDom",
+          "domain": "DomGnrcPrntEnumDomInp",
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "label": "gnrcPrntEnumDomLabel",
+            "label": "gnrcPrntEnumDomInpLabel",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
             },
-            "typeName": "EnumGnrcPrntEnumDom"
+            "typeName": "EnumGnrcPrntEnumDomInp"
           }
         }
       ],
@@ -30,58 +30,58 @@
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "label": "gnrcPrntEnumDomLabel",
+            "label": "gnrcPrntEnumDomInpLabel",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
             },
-            "typeName": "EnumGnrcPrntEnumDom"
+            "typeName": "EnumGnrcPrntEnumDomInp"
           }
         }
       ],
-      "name": "DomGnrcPrntEnumDom",
+      "name": "DomGnrcPrntEnumDomInp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Domain"
       }
     },
-    "EnumGnrcPrntEnumDom": {
+    "EnumGnrcPrntEnumDomInp": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "enum": "EnumGnrcPrntEnumDom",
-          "name": "gnrcPrntEnumDomLabel"
+          "enum": "EnumGnrcPrntEnumDomInp",
+          "name": "gnrcPrntEnumDomInpLabel"
         },
         {
           "$tag": "_EnumLabel",
-          "enum": "EnumGnrcPrntEnumDom",
-          "name": "gnrcPrntEnumDomOther"
+          "enum": "EnumGnrcPrntEnumDomInp",
+          "name": "gnrcPrntEnumDomInpOther"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "name": "gnrcPrntEnumDomLabel"
+          "name": "gnrcPrntEnumDomInpLabel"
         },
         {
           "$tag": "_Aliased",
-          "name": "gnrcPrntEnumDomOther"
+          "name": "gnrcPrntEnumDomInpOther"
         }
       ],
-      "name": "EnumGnrcPrntEnumDom",
+      "name": "EnumGnrcPrntEnumDomInp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Enum"
       }
     },
-    "FieldInpGnrcPrntEnumDom": {
+    "FieldGnrcPrntEnumDomInp": {
       "$tag": "_TypeInput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "FieldInpGnrcPrntEnumDom",
+          "object": "FieldGnrcPrntEnumDomInp",
           "type": {
             "$tag": "_InputBase",
             "typeParam": "ref"
@@ -98,7 +98,7 @@
           }
         }
       ],
-      "name": "FieldInpGnrcPrntEnumDom",
+      "name": "FieldGnrcPrntEnumDomInp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Input"
@@ -112,33 +112,33 @@
               "$tag": "_TypeKind",
               "value": "Enum"
             },
-            "typeName": "EnumGnrcPrntEnumDom"
+            "typeName": "EnumGnrcPrntEnumDomInp"
           },
           "name": "ref"
         }
       ]
     },
-    "InpGnrcPrntEnumDom": {
+    "GnrcPrntEnumDomInp": {
       "$tag": "_TypeInput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "field",
-          "object": "FieldInpGnrcPrntEnumDom",
+          "object": "FieldGnrcPrntEnumDomInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "DomGnrcPrntEnumDom"
+            "input": "DomGnrcPrntEnumDomInp"
           }
         }
       ],
-      "name": "InpGnrcPrntEnumDom",
+      "name": "GnrcPrntEnumDomInp",
       "parent": {
         "$tag": "_InputBase",
-        "input": "FieldInpGnrcPrntEnumDom",
+        "input": "FieldGnrcPrntEnumDomInp",
         "typeArgs": [
           {
             "$tag": "_InputArg",
-            "input": "DomGnrcPrntEnumDom"
+            "input": "DomGnrcPrntEnumDomInp"
           }
         ]
       },

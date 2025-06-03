@@ -2,14 +2,14 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualFieldDescr": {
+    "FieldDescrDual": {
       "$tag": "_TypeDual",
       "allFields": [
         {
           "$tag": "_ObjectFor(_DualField)",
           "description": "Test Descr",
           "name": "field",
-          "object": "DualFieldDescr",
+          "object": "FieldDescrDual",
           "type": {
             "$tag": "_DualBase",
             "dual": "String"
@@ -27,7 +27,7 @@
           }
         }
       ],
-      "name": "DualFieldDescr",
+      "name": "FieldDescrDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"

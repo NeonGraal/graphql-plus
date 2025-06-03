@@ -3,18 +3,18 @@
 Success
 {
   !In I@007/0001
-  InpGnrcPrntParamPrnt
+  GnrcPrntParamPrntInp
   :
   I@031/0001
-  RefInpGnrcPrntParamPrnt
+  RefGnrcPrntParamPrntInp
   <
     I@055/0001
-    AltInpGnrcPrntParamPrnt
+    AltGnrcPrntParamPrntInp
   >
 }
 {
   !In I@007/0002
-  RefInpGnrcPrntParamPrnt
+  RefGnrcPrntParamPrntInp
   <
     I@032/0002
     $ref
@@ -26,7 +26,7 @@ Success
 }
 {
   !In I@007/0003
-  AltInpGnrcPrntParamPrnt
+  AltGnrcPrntParamPrntInp
   {
     !IF I@033/0003
     alt

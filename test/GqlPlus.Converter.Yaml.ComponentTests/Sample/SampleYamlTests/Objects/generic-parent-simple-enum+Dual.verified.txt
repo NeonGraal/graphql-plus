@@ -1,34 +1,20 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualGnrcPrntSmplEnum: !_TypeDual
-    allFields:
-    - !_ObjectFor(_DualField)
-      name: field
-      object: FieldDualGnrcPrntSmplEnum
-      type: !_DualBase
-        dual: EnumGnrcPrntSmplEnum
-    name: DualGnrcPrntSmplEnum
-    parent: !_DualBase
-      dual: FieldDualGnrcPrntSmplEnum
-      typeArgs:
-      - !_DualArg
-        dual: EnumGnrcPrntSmplEnum
-    typeKind: !_TypeKind Dual
-  !_Identifier EnumGnrcPrntSmplEnum: !_TypeEnum
+  !_Identifier EnumGnrcPrntSmplEnumDual: !_TypeEnum
     allItems:
     - !_EnumLabel
-      enum: EnumGnrcPrntSmplEnum
-      name: gnrcPrntSmplEnum
+      enum: EnumGnrcPrntSmplEnumDual
+      name: gnrcPrntSmplEnumDual
     items:
     - !_Aliased
-      name: gnrcPrntSmplEnum
-    name: EnumGnrcPrntSmplEnum
+      name: gnrcPrntSmplEnumDual
+    name: EnumGnrcPrntSmplEnumDual
     typeKind: !_TypeKind Enum
-  !_Identifier FieldDualGnrcPrntSmplEnum: !_TypeDual
+  !_Identifier FieldGnrcPrntSmplEnumDual: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
       name: field
-      object: FieldDualGnrcPrntSmplEnum
+      object: FieldGnrcPrntSmplEnumDual
       type: !_DualBase
         typeParam: ref
     fields:
@@ -36,7 +22,7 @@ types: !_Map_Type
       name: field
       type: !_DualBase
         typeParam: ref
-    name: FieldDualGnrcPrntSmplEnum
+    name: FieldGnrcPrntSmplEnumDual
     typeKind: !_TypeKind Dual
     typeParams:
     - !_TypeParam
@@ -44,3 +30,17 @@ types: !_Map_Type
         typeKind: !_TypeKind Internal
         typeName: _Simple
       name: ref
+  !_Identifier GnrcPrntSmplEnumDual: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: FieldGnrcPrntSmplEnumDual
+      type: !_DualBase
+        dual: EnumGnrcPrntSmplEnumDual
+    name: GnrcPrntSmplEnumDual
+    parent: !_DualBase
+      dual: FieldGnrcPrntSmplEnumDual
+      typeArgs:
+      - !_DualArg
+        dual: EnumGnrcPrntSmplEnumDual
+    typeKind: !_TypeKind Dual

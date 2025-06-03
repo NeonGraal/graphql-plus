@@ -1,15 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier AltInpCnstAltObj: !_TypeInput
+  !_Identifier AltCnstAltObjInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
-        object: PrntInpCnstAltObj
+        object: PrntCnstAltObjInp
         type: !_InputBase
           input: String
     allFields:
       - !_ObjectFor(_InputField)
         name: alt
-        object: AltInpCnstAltObj
+        object: AltCnstAltObjInp
         type: !_InputBase
           input: Number
     fields:
@@ -17,55 +17,55 @@ types: !_Map_Type
         name: alt
         type: !_InputBase
           input: Number
-    name: AltInpCnstAltObj
+    name: AltCnstAltObjInp
     parent: !_InputBase
-      input: PrntInpCnstAltObj
+      input: PrntCnstAltObjInp
     typeKind: !_TypeKind Input
-  !_Identifier InpCnstAltObj: !_TypeInput
+  !_Identifier CnstAltObjInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
-        object: InpCnstAltObj
+        object: CnstAltObjInp
         type: !_InputBase
-          input: RefInpCnstAltObj
+          input: RefCnstAltObjInp
           typeArgs:
             - !_InputArg
-              input: AltInpCnstAltObj
+              input: AltCnstAltObjInp
     alternates:
       - !_InputAlternate
         type: !_InputBase
-          input: RefInpCnstAltObj
+          input: RefCnstAltObjInp
           typeArgs:
             - !_InputArg
-              input: AltInpCnstAltObj
-    name: InpCnstAltObj
+              input: AltCnstAltObjInp
+    name: CnstAltObjInp
     typeKind: !_TypeKind Input
-  !_Identifier PrntInpCnstAltObj: !_TypeInput
+  !_Identifier PrntCnstAltObjInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
-        object: PrntInpCnstAltObj
+        object: PrntCnstAltObjInp
         type: !_InputBase
           input: String
     alternates:
       - !_InputAlternate
         type: !_InputBase
           input: String
-    name: PrntInpCnstAltObj
+    name: PrntCnstAltObjInp
     typeKind: !_TypeKind Input
-  !_Identifier RefInpCnstAltObj: !_TypeInput
+  !_Identifier RefCnstAltObjInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
-        object: RefInpCnstAltObj
+        object: RefCnstAltObjInp
         type: !_InputBase
           typeParam: ref
     alternates:
       - !_InputAlternate
         type: !_InputBase
           typeParam: ref
-    name: RefInpCnstAltObj
+    name: RefCnstAltObjInp
     typeKind: !_TypeKind Input
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
           typeKind: !_TypeKind Input
-          typeName: PrntInpCnstAltObj
+          typeName: PrntCnstAltObjInp
         name: ref

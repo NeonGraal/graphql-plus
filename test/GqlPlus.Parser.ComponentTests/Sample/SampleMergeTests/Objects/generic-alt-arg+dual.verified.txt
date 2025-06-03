@@ -3,7 +3,7 @@
 Success
 {
   !Du I@006/0001
-  DualGnrcAltArg
+  GnrcAltArgDual
   <
     I@022/0001
     $type
@@ -11,7 +11,7 @@ Success
   >
   |
   I@039/0001
-  RefDualGnrcAltArg
+  RefGnrcAltArgDual
   <
     I@058/0001
     $type
@@ -19,7 +19,7 @@ Success
 }
 {
   !Du I@006/0002
-  RefDualGnrcAltArg
+  RefGnrcAltArgDual
   <
     I@025/0002
     $ref

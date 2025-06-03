@@ -22,6 +22,8 @@ public abstract class ObjectSameMatcherTests<TObject>
   [Theory, RepeatData]
   public void Object_Matches_Parent_ReturnsTrue(string name, string constraint)
   {
+    this.SkipIf(name == constraint);
+
     TObject type = NFor<TObject>(name);
     IGqlpObjBase typeBase = NFor<IGqlpObjBase>(constraint);
     type.Parent.Returns(typeBase);
@@ -34,6 +36,8 @@ public abstract class ObjectSameMatcherTests<TObject>
   [Theory, RepeatData]
   public void Object_Matches_GrandParent_ReturnsTrue(string name, string parent, string constraint)
   {
+    this.SkipIf(name == parent);
+
     TObject type = NFor<TObject>(name);
     IGqlpObjBase typeBase = NFor<IGqlpObjBase>(parent);
     type.Parent.Returns(typeBase);

@@ -21,6 +21,8 @@ public abstract class SimpleSameMatcherTests<TSimple>
   [Theory, RepeatData]
   public void Simple_Matches_Parent_ReturnsTrue(string name, string constraint)
   {
+    this.SkipIf(name == constraint);
+
     TSimple type = NFor<TSimple>(name);
     type.Parent.Returns(constraint);
 
@@ -32,6 +34,8 @@ public abstract class SimpleSameMatcherTests<TSimple>
   [Theory, RepeatData]
   public void Simple_Matches_GrandParent_ReturnsTrue(string name, string parent, string constraint)
   {
+    this.SkipIf(name == constraint);
+
     TSimple type = NFor<TSimple>(name);
     type.Parent.Returns(parent);
 

@@ -14,6 +14,8 @@ public class OutputArgMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsTrue_WhenConstraintParentOfEnum_WithArgLabel(string name, string enumName, string enumLabel, string constraint)
   {
+    this.SkipIf(enumName == constraint);
+
     IGqlpOutputArg arg = NFor<IGqlpOutputArg>(name);
     IGqlpObjType enumType = NFor<IGqlpObjType>(enumName);
     arg.EnumType.Returns(enumType);
@@ -50,6 +52,8 @@ public class OutputArgMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsTrue_WhenConstraintDomParentOfEnum_WithArgLabel(string name, string enumName, string enumLabel, string constraint)
   {
+    this.SkipIf(enumName == constraint);
+
     IGqlpOutputArg arg = NFor<IGqlpOutputArg>(name);
     IGqlpObjType enumType = NFor<IGqlpObjType>(enumName);
     arg.EnumType.Returns(enumType);

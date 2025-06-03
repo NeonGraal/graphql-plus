@@ -44,6 +44,8 @@ public abstract class ObjArgMatcherTests<TObjArg>
   [Theory, RepeatData]
   public void Matches_ReturnsSame_WhenCallingAnyMatcher(string name, string type, string constraint, bool expected)
   {
+    this.SkipIf(type == constraint);
+
     TObjArg arg = NFor<TObjArg>(name);
     arg.FullType.Returns(type);
 

@@ -31,6 +31,8 @@ public class UnionConstraintMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsExpected_WhenMatchingUnionMemberParent(string constraint, string name, string parent, bool expected)
   {
+    this.SkipIf(name == parent);
+
     IGqlpUnion union = NFor<IGqlpUnion>(constraint);
     IGqlpUnionMember member = NFor<IGqlpUnionMember>(name);
     union.Items.Returns([member]);

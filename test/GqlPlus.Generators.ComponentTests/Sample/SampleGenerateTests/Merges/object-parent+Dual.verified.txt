@@ -1,0 +1,30 @@
+﻿/* object-parent+Dual
+dual DualObjPrnt { :RefDualObjPrnt }
+dual DualObjPrnt { :RefDualObjPrnt }
+dual RefDualObjPrnt { }
+*/
+
+// Generated from Sample object-parent+Dual
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_object_parent_Dual;
+
+public interface IDualObjPrnt
+  : IRefDualObjPrnt
+{
+}
+public class DualDualObjPrnt
+  : DualRefDualObjPrnt
+  , IDualObjPrnt
+{
+}
+
+public interface IRefDualObjPrnt
+{
+}
+public class DualRefDualObjPrnt
+  : IRefDualObjPrnt
+{
+}

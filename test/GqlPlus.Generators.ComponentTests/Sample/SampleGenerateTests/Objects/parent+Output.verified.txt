@@ -1,0 +1,33 @@
+﻿/* parent+Output
+output OutpPrnt { :RefOutpPrnt }
+output RefOutpPrnt { parent: Number | String }
+*/
+
+// Generated from Sample parent+Output
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_parent_Output;
+
+public interface IOutpPrnt
+  : IRefOutpPrnt
+{
+}
+public class OutputOutpPrnt
+  : OutputRefOutpPrnt
+  , IOutpPrnt
+{
+}
+
+public interface IRefOutpPrnt
+{
+  Number parent { get; }
+  String AsString { get; }
+}
+public class OutputRefOutpPrnt
+  : IRefOutpPrnt
+{
+  public Number parent { get; set; }
+  public String AsString { get; set; }
+}

@@ -1,0 +1,20 @@
+﻿/* field-descr+Dual
+dual DualFieldDescr { "Test" "Descr" field: * }
+*/
+
+// Generated from Sample field-descr+Dual
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_field_descr_Dual;
+
+public interface IDualFieldDescr
+{
+  String field { get; }
+}
+public class DualDualFieldDescr
+  : IDualFieldDescr
+{
+  public String field { get; set; }
+}

@@ -1,0 +1,20 @@
+﻿/* field-type-descr+Output
+output OutpFieldTypeDescr { field: "Test" "Descr" Number }
+*/
+
+// Generated from Sample field-type-descr+Output
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_field_type_descr_Output;
+
+public interface IOutpFieldTypeDescr
+{
+  Number field { get; }
+}
+public class OutputOutpFieldTypeDescr
+  : IOutpFieldTypeDescr
+{
+  public Number field { get; set; }
+}

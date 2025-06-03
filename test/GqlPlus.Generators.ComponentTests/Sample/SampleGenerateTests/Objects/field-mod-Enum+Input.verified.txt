@@ -1,0 +1,26 @@
+﻿/* field-mod-Enum+Input
+input InpFieldModEnum { field: *[EnumInpFieldModEnum] }
+enum EnumInpFieldModEnum { value }
+*/
+
+// Generated from Sample field-mod-Enum+Input
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_field_mod_Enum_Input;
+
+public interface IInpFieldModEnum
+{
+  String field { get; }
+}
+public class InputInpFieldModEnum
+  : IInpFieldModEnum
+{
+  public String field { get; set; }
+}
+
+public enum EnumInpFieldModEnum
+{
+  value,
+}

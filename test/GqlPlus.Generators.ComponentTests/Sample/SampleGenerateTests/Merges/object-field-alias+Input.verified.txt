@@ -1,0 +1,30 @@
+﻿/* object-field-alias+Input
+input InpObjFieldAlias { field [field1]: FldInpObjFieldAlias }
+input InpObjFieldAlias { field [field2]: FldInpObjFieldAlias }
+input FldInpObjFieldAlias { }
+*/
+
+// Generated from Sample object-field-alias+Input
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_object_field_alias_Input;
+
+public interface IInpObjFieldAlias
+{
+  FldInpObjFieldAlias field { get; }
+}
+public class InputInpObjFieldAlias
+  : IInpObjFieldAlias
+{
+  public FldInpObjFieldAlias field { get; set; }
+}
+
+public interface IFldInpObjFieldAlias
+{
+}
+public class InputFldInpObjFieldAlias
+  : IFldInpObjFieldAlias
+{
+}

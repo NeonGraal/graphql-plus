@@ -1,0 +1,20 @@
+﻿/* generic-alt-mod-param+Dual
+dual RefDualGnrcAltModParam<$ref $mod> { | $ref[$mod] }
+*/
+
+// Generated from Sample generic-alt-mod-param+Dual
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_generic_alt_mod_param_Dual;
+
+public interface IRefDualGnrcAltModParam<Tref,Tmod>
+{
+  Tref Asref { get; }
+}
+public class DualRefDualGnrcAltModParam<Tref,Tmod>
+  : IRefDualGnrcAltModParam<Tref,Tmod>
+{
+  public Tref Asref { get; set; }
+}

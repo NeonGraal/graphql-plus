@@ -1,0 +1,30 @@
+﻿/* object-parent+Output
+output OutpObjPrnt { :RefOutpObjPrnt }
+output OutpObjPrnt { :RefOutpObjPrnt }
+output RefOutpObjPrnt { }
+*/
+
+// Generated from Sample object-parent+Output
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_object_parent_Output;
+
+public interface IOutpObjPrnt
+  : IRefOutpObjPrnt
+{
+}
+public class OutputOutpObjPrnt
+  : OutputRefOutpObjPrnt
+  , IOutpObjPrnt
+{
+}
+
+public interface IRefOutpObjPrnt
+{
+}
+public class OutputRefOutpObjPrnt
+  : IRefOutpObjPrnt
+{
+}

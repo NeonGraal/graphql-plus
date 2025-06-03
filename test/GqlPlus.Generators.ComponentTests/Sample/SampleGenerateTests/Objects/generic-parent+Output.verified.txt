@@ -1,0 +1,20 @@
+﻿/* generic-parent+Output
+output OutpGnrcPrnt<$type> { :$type }
+*/
+
+// Generated from Sample generic-parent+Output
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_generic_parent_Output;
+
+public interface IOutpGnrcPrnt<Ttype>
+  : Itype
+{
+}
+public class OutputOutpGnrcPrnt<Ttype>
+  : Outputtype
+  , IOutpGnrcPrnt<Ttype>
+{
+}

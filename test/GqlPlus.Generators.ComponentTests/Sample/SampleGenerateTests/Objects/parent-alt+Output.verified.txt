@@ -1,0 +1,35 @@
+﻿/* parent-alt+Output
+output OutpPrntAlt { :RefOutpPrntAlt | Number }
+output RefOutpPrntAlt {  parent: Number | String }
+*/
+
+// Generated from Sample parent-alt+Output
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_parent_alt_Output;
+
+public interface IOutpPrntAlt
+  : IRefOutpPrntAlt
+{
+  Number AsNumber { get; }
+}
+public class OutputOutpPrntAlt
+  : OutputRefOutpPrntAlt
+  , IOutpPrntAlt
+{
+  public Number AsNumber { get; set; }
+}
+
+public interface IRefOutpPrntAlt
+{
+  Number parent { get; }
+  String AsString { get; }
+}
+public class OutputRefOutpPrntAlt
+  : IRefOutpPrntAlt
+{
+  public Number parent { get; set; }
+  public String AsString { get; set; }
+}

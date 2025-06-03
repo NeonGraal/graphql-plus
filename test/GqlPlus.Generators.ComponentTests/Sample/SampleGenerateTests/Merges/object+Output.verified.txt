@@ -1,0 +1,19 @@
+﻿/* object+Output
+output OutpObj { }
+output OutpObj { }
+*/
+
+// Generated from Sample object+Output
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_object_Output;
+
+public interface IOutpObj
+{
+}
+public class OutputOutpObj
+  : IOutpObj
+{
+}

@@ -1,0 +1,33 @@
+﻿/* parent-param-same+Input
+input InpPrntParamSame<$a> { :RefInpPrntParamSame<$a> field: $a }
+input RefInpPrntParamSame<$a> { | $a }
+*/
+
+// Generated from Sample parent-param-same+Input
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_parent_param_same_Input;
+
+public interface IInpPrntParamSame<Ta>
+  : IRefInpPrntParamSame
+{
+  Ta field { get; }
+}
+public class InputInpPrntParamSame<Ta>
+  : InputRefInpPrntParamSame
+  , IInpPrntParamSame<Ta>
+{
+  public Ta field { get; set; }
+}
+
+public interface IRefInpPrntParamSame<Ta>
+{
+  Ta Asa { get; }
+}
+public class InputRefInpPrntParamSame<Ta>
+  : IRefInpPrntParamSame<Ta>
+{
+  public Ta Asa { get; set; }
+}

@@ -1,0 +1,35 @@
+﻿/* parent-field+Dual
+dual DualPrntField { :RefDualPrntField field: Number }
+dual RefDualPrntField { parent: Number | String }
+*/
+
+// Generated from Sample parent-field+Dual
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_parent_field_Dual;
+
+public interface IDualPrntField
+  : IRefDualPrntField
+{
+  Number field { get; }
+}
+public class DualDualPrntField
+  : DualRefDualPrntField
+  , IDualPrntField
+{
+  public Number field { get; set; }
+}
+
+public interface IRefDualPrntField
+{
+  Number parent { get; }
+  String AsString { get; }
+}
+public class DualRefDualPrntField
+  : IRefDualPrntField
+{
+  public Number parent { get; set; }
+  public String AsString { get; set; }
+}

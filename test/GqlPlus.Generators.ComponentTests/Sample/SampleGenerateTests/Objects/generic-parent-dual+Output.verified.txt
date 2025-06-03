@@ -1,0 +1,44 @@
+﻿/* generic-parent-dual+Output
+output OutpGnrcPrntDual { :RefOutpGnrcPrntDual<AltOutpGnrcPrntDual> }
+output RefOutpGnrcPrntDual<$ref> { | $ref }
+dual AltOutpGnrcPrntDual { alt: Number | String }
+*/
+
+// Generated from Sample generic-parent-dual+Output
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_generic_parent_dual_Output;
+
+public interface IOutpGnrcPrntDual
+  : IRefOutpGnrcPrntDual
+{
+}
+public class OutputOutpGnrcPrntDual
+  : OutputRefOutpGnrcPrntDual
+  , IOutpGnrcPrntDual
+{
+}
+
+public interface IRefOutpGnrcPrntDual<Tref>
+{
+  Tref Asref { get; }
+}
+public class OutputRefOutpGnrcPrntDual<Tref>
+  : IRefOutpGnrcPrntDual<Tref>
+{
+  public Tref Asref { get; set; }
+}
+
+public interface IAltOutpGnrcPrntDual
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+public class DualAltOutpGnrcPrntDual
+  : IAltOutpGnrcPrntDual
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

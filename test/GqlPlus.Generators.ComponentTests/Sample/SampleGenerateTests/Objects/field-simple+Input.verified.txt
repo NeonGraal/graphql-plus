@@ -1,0 +1,20 @@
+﻿/* field-simple+Input
+input InpFieldSmpl { field: Number }
+*/
+
+// Generated from Sample field-simple+Input
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_field_simple_Input;
+
+public interface IInpFieldSmpl
+{
+  Number field { get; }
+}
+public class InputInpFieldSmpl
+  : IInpFieldSmpl
+{
+  public Number field { get; set; }
+}

@@ -1,0 +1,20 @@
+﻿/* generic-alt+Output
+output OutpGnrcAlt<$type> { | $type }
+*/
+
+// Generated from Sample generic-alt+Output
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_generic_alt_Output;
+
+public interface IOutpGnrcAlt<Ttype>
+{
+  Ttype Astype { get; }
+}
+public class OutputOutpGnrcAlt<Ttype>
+  : IOutpGnrcAlt<Ttype>
+{
+  public Ttype Astype { get; set; }
+}

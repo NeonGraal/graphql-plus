@@ -1,0 +1,31 @@
+﻿/* generic-alt-simple+Input
+input InpGnrcAltSmpl { | RefInpGnrcAltSmpl<String> }
+input RefInpGnrcAltSmpl<$ref> { | $ref }
+*/
+
+// Generated from Sample generic-alt-simple+Input
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_generic_alt_simple_Input;
+
+public interface IInpGnrcAltSmpl
+{
+  RefInpGnrcAltSmpl<String> AsRefInpGnrcAltSmpl { get; }
+}
+public class InputInpGnrcAltSmpl
+  : IInpGnrcAltSmpl
+{
+  public RefInpGnrcAltSmpl<String> AsRefInpGnrcAltSmpl { get; set; }
+}
+
+public interface IRefInpGnrcAltSmpl<Tref>
+{
+  Tref Asref { get; }
+}
+public class InputRefInpGnrcAltSmpl<Tref>
+  : IRefInpGnrcAltSmpl<Tref>
+{
+  public Tref Asref { get; set; }
+}

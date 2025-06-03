@@ -1,0 +1,20 @@
+﻿/* field+Dual
+dual DualField { field: * }
+*/
+
+// Generated from Sample field+Dual
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_field_Dual;
+
+public interface IDualField
+{
+  String field { get; }
+}
+public class DualDualField
+  : IDualField
+{
+  public String field { get; set; }
+}

@@ -1,0 +1,20 @@
+﻿/* field-type-descr+Dual
+dual DualFieldTypeDescr { field: "Test" "Descr" Number }
+*/
+
+// Generated from Sample field-type-descr+Dual
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_field_type_descr_Dual;
+
+public interface IDualFieldTypeDescr
+{
+  Number field { get; }
+}
+public class DualDualFieldTypeDescr
+  : IDualFieldTypeDescr
+{
+  public Number field { get; set; }
+}

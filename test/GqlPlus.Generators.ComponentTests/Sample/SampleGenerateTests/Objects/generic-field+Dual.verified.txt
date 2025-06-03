@@ -1,0 +1,20 @@
+﻿/* generic-field+Dual
+dual DualGnrcField<$type> { field: $type }
+*/
+
+// Generated from Sample generic-field+Dual
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_generic_field_Dual;
+
+public interface IDualGnrcField<Ttype>
+{
+  Ttype field { get; }
+}
+public class DualDualGnrcField<Ttype>
+  : IDualGnrcField<Ttype>
+{
+  public Ttype field { get; set; }
+}

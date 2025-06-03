@@ -1,0 +1,20 @@
+﻿/* alt-simple+Input
+input InpAltSmpl { | String }
+*/
+
+// Generated from Sample alt-simple+Input
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_alt_simple_Input;
+
+public interface IInpAltSmpl
+{
+  String AsString { get; }
+}
+public class InputInpAltSmpl
+  : IInpAltSmpl
+{
+  public String AsString { get; set; }
+}

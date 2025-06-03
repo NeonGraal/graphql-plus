@@ -1,0 +1,31 @@
+﻿/* generic-alt-arg+Output
+output OutpGnrcAltArg<$type> { | RefOutpGnrcAltArg<$type> }
+output RefOutpGnrcAltArg<$ref> { | $ref }
+*/
+
+// Generated from Sample generic-alt-arg+Output
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_generic_alt_arg_Output;
+
+public interface IOutpGnrcAltArg<Ttype>
+{
+  RefOutpGnrcAltArg<Ttype> AsRefOutpGnrcAltArg { get; }
+}
+public class OutputOutpGnrcAltArg<Ttype>
+  : IOutpGnrcAltArg<Ttype>
+{
+  public RefOutpGnrcAltArg<Ttype> AsRefOutpGnrcAltArg { get; set; }
+}
+
+public interface IRefOutpGnrcAltArg<Tref>
+{
+  Tref Asref { get; }
+}
+public class OutputRefOutpGnrcAltArg<Tref>
+  : IRefOutpGnrcAltArg<Tref>
+{
+  public Tref Asref { get; set; }
+}

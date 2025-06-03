@@ -1,0 +1,19 @@
+﻿/* object-alias+Input
+input InpObjAlias [Inp1] { }
+input InpObjAlias [Inp2] { }
+*/
+
+// Generated from Sample object-alias+Input
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_object_alias_Input;
+
+public interface IInpObjAlias
+{
+}
+public class InputInpObjAlias
+  : IInpObjAlias
+{
+}

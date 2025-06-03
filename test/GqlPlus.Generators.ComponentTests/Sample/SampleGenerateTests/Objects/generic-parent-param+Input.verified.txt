@@ -1,0 +1,44 @@
+﻿/* generic-parent-param+Input
+input InpGnrcPrntParam { :RefInpGnrcPrntParam<AltInpGnrcPrntParam> }
+input RefInpGnrcPrntParam<$ref> { | $ref }
+input AltInpGnrcPrntParam { alt: Number | String }
+*/
+
+// Generated from Sample generic-parent-param+Input
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_generic_parent_param_Input;
+
+public interface IInpGnrcPrntParam
+  : IRefInpGnrcPrntParam
+{
+}
+public class InputInpGnrcPrntParam
+  : InputRefInpGnrcPrntParam
+  , IInpGnrcPrntParam
+{
+}
+
+public interface IRefInpGnrcPrntParam<Tref>
+{
+  Tref Asref { get; }
+}
+public class InputRefInpGnrcPrntParam<Tref>
+  : IRefInpGnrcPrntParam<Tref>
+{
+  public Tref Asref { get; set; }
+}
+
+public interface IAltInpGnrcPrntParam
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+public class InputAltInpGnrcPrntParam
+  : IAltInpGnrcPrntParam
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

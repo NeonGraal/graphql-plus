@@ -1,0 +1,30 @@
+﻿/* object-field+Output
+output OutpObjField { field: FldOutpObjField }
+output OutpObjField { field: FldOutpObjField }
+output FldOutpObjField { }
+*/
+
+// Generated from Sample object-field+Output
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_object_field_Output;
+
+public interface IOutpObjField
+{
+  FldOutpObjField field { get; }
+}
+public class OutputOutpObjField
+  : IOutpObjField
+{
+  public FldOutpObjField field { get; set; }
+}
+
+public interface IFldOutpObjField
+{
+}
+public class OutputFldOutpObjField
+  : IFldOutpObjField
+{
+}

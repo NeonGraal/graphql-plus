@@ -1,0 +1,33 @@
+﻿/* field-mod-param+Input
+input InpFieldModParam<$mod> { field: FldInpFieldModParam[$mod] }
+input FldInpFieldModParam { field: Number | String }
+*/
+
+// Generated from Sample field-mod-param+Input
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_field_mod_param_Input;
+
+public interface IInpFieldModParam<Tmod>
+{
+  FldInpFieldModParam field { get; }
+}
+public class InputInpFieldModParam<Tmod>
+  : IInpFieldModParam<Tmod>
+{
+  public FldInpFieldModParam field { get; set; }
+}
+
+public interface IFldInpFieldModParam
+{
+  Number field { get; }
+  String AsString { get; }
+}
+public class InputFldInpFieldModParam
+  : IFldInpFieldModParam
+{
+  public Number field { get; set; }
+  public String AsString { get; set; }
+}

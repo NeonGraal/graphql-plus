@@ -1,0 +1,23 @@
+﻿/* object-param+Output
+output OutpObjParam<$test> { test: $test }
+output OutpObjParam<$type> { type: $type }
+*/
+
+// Generated from Sample object-param+Output
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_object_param_Output;
+
+public interface IOutpObjParam<Ttest,Ttype>
+{
+  Ttest test { get; }
+  Ttype type { get; }
+}
+public class OutputOutpObjParam<Ttest,Ttype>
+  : IOutpObjParam<Ttest,Ttype>
+{
+  public Ttest test { get; set; }
+  public Ttype type { get; set; }
+}

@@ -1,0 +1,31 @@
+﻿/* generic-field-arg+Dual
+dual DualGnrcFieldArg<$type> { field: RefDualGnrcFieldArg<$type> }
+dual RefDualGnrcFieldArg<$ref> { | $ref }
+*/
+
+// Generated from Sample generic-field-arg+Dual
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_generic_field_arg_Dual;
+
+public interface IDualGnrcFieldArg<Ttype>
+{
+  RefDualGnrcFieldArg<Ttype> field { get; }
+}
+public class DualDualGnrcFieldArg<Ttype>
+  : IDualGnrcFieldArg<Ttype>
+{
+  public RefDualGnrcFieldArg<Ttype> field { get; set; }
+}
+
+public interface IRefDualGnrcFieldArg<Tref>
+{
+  Tref Asref { get; }
+}
+public class DualRefDualGnrcFieldArg<Tref>
+  : IRefDualGnrcFieldArg<Tref>
+{
+  public Tref Asref { get; set; }
+}

@@ -1,0 +1,30 @@
+﻿/* object-field-alias+Output
+output OutpObjFieldAlias { field [field1]: FldOutpObjFieldAlias }
+output OutpObjFieldAlias { field [field2]: FldOutpObjFieldAlias }
+output FldOutpObjFieldAlias { }
+*/
+
+// Generated from Sample object-field-alias+Output
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_object_field_alias_Output;
+
+public interface IOutpObjFieldAlias
+{
+  FldOutpObjFieldAlias field { get; }
+}
+public class OutputOutpObjFieldAlias
+  : IOutpObjFieldAlias
+{
+  public FldOutpObjFieldAlias field { get; set; }
+}
+
+public interface IFldOutpObjFieldAlias
+{
+}
+public class OutputFldOutpObjFieldAlias
+  : IFldOutpObjFieldAlias
+{
+}

@@ -1,0 +1,20 @@
+﻿/* field-simple+Dual
+dual DualFieldSmpl { field: Number }
+*/
+
+// Generated from Sample field-simple+Dual
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_field_simple_Dual;
+
+public interface IDualFieldSmpl
+{
+  Number field { get; }
+}
+public class DualDualFieldSmpl
+  : IDualFieldSmpl
+{
+  public Number field { get; set; }
+}

@@ -1,0 +1,20 @@
+﻿/* field-simple+Output
+output OutpFieldSmpl { field: Number }
+*/
+
+// Generated from Sample field-simple+Output
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_field_simple_Output;
+
+public interface IOutpFieldSmpl
+{
+  Number field { get; }
+}
+public class OutputOutpFieldSmpl
+  : IOutpFieldSmpl
+{
+  public Number field { get; set; }
+}

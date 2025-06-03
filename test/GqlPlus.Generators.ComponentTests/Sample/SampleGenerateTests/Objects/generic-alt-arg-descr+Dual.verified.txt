@@ -1,0 +1,31 @@
+﻿/* generic-alt-arg-descr+Dual
+dual DualGnrcAltArgDescr<$type> { | RefDualGnrcAltArgDescr<"Test" "Descr"$type> }
+dual RefDualGnrcAltArgDescr<$ref> { | $ref }
+*/
+
+// Generated from Sample generic-alt-arg-descr+Dual
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_generic_alt_arg_descr_Dual;
+
+public interface IDualGnrcAltArgDescr<Ttype>
+{
+  RefDualGnrcAltArgDescr<Ttype> AsRefDualGnrcAltArgDescr { get; }
+}
+public class DualDualGnrcAltArgDescr<Ttype>
+  : IDualGnrcAltArgDescr<Ttype>
+{
+  public RefDualGnrcAltArgDescr<Ttype> AsRefDualGnrcAltArgDescr { get; set; }
+}
+
+public interface IRefDualGnrcAltArgDescr<Tref>
+{
+  Tref Asref { get; }
+}
+public class DualRefDualGnrcAltArgDescr<Tref>
+  : IRefDualGnrcAltArgDescr<Tref>
+{
+  public Tref Asref { get; set; }
+}

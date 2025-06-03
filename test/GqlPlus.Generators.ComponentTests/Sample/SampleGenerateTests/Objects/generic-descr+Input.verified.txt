@@ -1,0 +1,20 @@
+﻿/* generic-descr+Input
+input InpGnrcDescr<"Test" "Descr" $type> { field: $type }
+*/
+
+// Generated from Sample generic-descr+Input
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_generic_descr_Input;
+
+public interface IInpGnrcDescr<Ttype>
+{
+  Ttype field { get; }
+}
+public class InputInpGnrcDescr<Ttype>
+  : IInpGnrcDescr<Ttype>
+{
+  public Ttype field { get; set; }
+}

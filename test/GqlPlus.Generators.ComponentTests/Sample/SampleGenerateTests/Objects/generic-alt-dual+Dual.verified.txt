@@ -1,0 +1,44 @@
+﻿/* generic-alt-dual+Dual
+dual DualGnrcAltDual { | RefDualGnrcAltDual<AltDualGnrcAltDual> }
+dual RefDualGnrcAltDual<$ref> { | $ref }
+dual AltDualGnrcAltDual { alt: Number | String }
+*/
+
+// Generated from Sample generic-alt-dual+Dual
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_generic_alt_dual_Dual;
+
+public interface IDualGnrcAltDual
+{
+  RefDualGnrcAltDual<AltDualGnrcAltDual> AsRefDualGnrcAltDual { get; }
+}
+public class DualDualGnrcAltDual
+  : IDualGnrcAltDual
+{
+  public RefDualGnrcAltDual<AltDualGnrcAltDual> AsRefDualGnrcAltDual { get; set; }
+}
+
+public interface IRefDualGnrcAltDual<Tref>
+{
+  Tref Asref { get; }
+}
+public class DualRefDualGnrcAltDual<Tref>
+  : IRefDualGnrcAltDual<Tref>
+{
+  public Tref Asref { get; set; }
+}
+
+public interface IAltDualGnrcAltDual
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+public class DualAltDualGnrcAltDual
+  : IAltDualGnrcAltDual
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

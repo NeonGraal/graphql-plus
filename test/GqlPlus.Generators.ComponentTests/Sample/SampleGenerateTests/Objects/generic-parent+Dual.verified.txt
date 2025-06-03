@@ -1,0 +1,20 @@
+﻿/* generic-parent+Dual
+dual DualGnrcPrnt<$type> { :$type }
+*/
+
+// Generated from Sample generic-parent+Dual
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_generic_parent_Dual;
+
+public interface IDualGnrcPrnt<Ttype>
+  : Itype
+{
+}
+public class DualDualGnrcPrnt<Ttype>
+  : Dualtype
+  , IDualGnrcPrnt<Ttype>
+{
+}

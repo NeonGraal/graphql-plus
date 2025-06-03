@@ -1,0 +1,20 @@
+﻿/* field+Input
+input InpField { field: * }
+*/
+
+// Generated from Sample field+Input
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_field_Input;
+
+public interface IInpField
+{
+  String field { get; }
+}
+public class InputInpField
+  : IInpField
+{
+  public String field { get; set; }
+}

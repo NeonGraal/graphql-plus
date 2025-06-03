@@ -1,0 +1,20 @@
+﻿/* generic-field+Output
+output OutpGnrcField<$type> { field: $type }
+*/
+
+// Generated from Sample generic-field+Output
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_generic_field_Output;
+
+public interface IOutpGnrcField<Ttype>
+{
+  Ttype field { get; }
+}
+public class OutputOutpGnrcField<Ttype>
+  : IOutpGnrcField<Ttype>
+{
+  public Ttype field { get; set; }
+}

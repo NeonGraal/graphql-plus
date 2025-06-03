@@ -1,0 +1,20 @@
+﻿/* alt-descr+Output
+output OutpAltDescr { | "Test" "Descr" String }
+*/
+
+// Generated from Sample alt-descr+Output
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_alt_descr_Output;
+
+public interface IOutpAltDescr
+{
+  String AsString { get; }
+}
+public class OutputOutpAltDescr
+  : IOutpAltDescr
+{
+  public String AsString { get; set; }
+}

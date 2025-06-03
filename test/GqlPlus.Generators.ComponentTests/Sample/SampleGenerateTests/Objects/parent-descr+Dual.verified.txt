@@ -1,0 +1,33 @@
+﻿/* parent-descr+Dual
+dual DualPrntDescr { : "Test" "Descr" RefDualPrntDescr }
+dual RefDualPrntDescr { parent: Number | String }
+*/
+
+// Generated from Sample parent-descr+Dual
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_parent_descr_Dual;
+
+public interface IDualPrntDescr
+  : IRefDualPrntDescr
+{
+}
+public class DualDualPrntDescr
+  : DualRefDualPrntDescr
+  , IDualPrntDescr
+{
+}
+
+public interface IRefDualPrntDescr
+{
+  Number parent { get; }
+  String AsString { get; }
+}
+public class DualRefDualPrntDescr
+  : IRefDualPrntDescr
+{
+  public Number parent { get; set; }
+  public String AsString { get; set; }
+}

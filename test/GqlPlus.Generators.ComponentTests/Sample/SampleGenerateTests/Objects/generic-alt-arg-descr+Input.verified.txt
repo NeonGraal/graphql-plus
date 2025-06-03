@@ -1,0 +1,31 @@
+﻿/* generic-alt-arg-descr+Input
+input InpGnrcAltArgDescr<$type> { | RefInpGnrcAltArgDescr<"Test" "Descr"$type> }
+input RefInpGnrcAltArgDescr<$ref> { | $ref }
+*/
+
+// Generated from Sample generic-alt-arg-descr+Input
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_generic_alt_arg_descr_Input;
+
+public interface IInpGnrcAltArgDescr<Ttype>
+{
+  RefInpGnrcAltArgDescr<Ttype> AsRefInpGnrcAltArgDescr { get; }
+}
+public class InputInpGnrcAltArgDescr<Ttype>
+  : IInpGnrcAltArgDescr<Ttype>
+{
+  public RefInpGnrcAltArgDescr<Ttype> AsRefInpGnrcAltArgDescr { get; set; }
+}
+
+public interface IRefInpGnrcAltArgDescr<Tref>
+{
+  Tref Asref { get; }
+}
+public class InputRefInpGnrcAltArgDescr<Tref>
+  : IRefInpGnrcAltArgDescr<Tref>
+{
+  public Tref Asref { get; set; }
+}

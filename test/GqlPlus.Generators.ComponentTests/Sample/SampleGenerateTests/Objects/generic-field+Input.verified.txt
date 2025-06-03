@@ -1,0 +1,20 @@
+﻿/* generic-field+Input
+input InpGnrcField<$type> { field: $type }
+*/
+
+// Generated from Sample generic-field+Input
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_generic_field_Input;
+
+public interface IInpGnrcField<Ttype>
+{
+  Ttype field { get; }
+}
+public class InputInpGnrcField<Ttype>
+  : IInpGnrcField<Ttype>
+{
+  public Ttype field { get; set; }
+}

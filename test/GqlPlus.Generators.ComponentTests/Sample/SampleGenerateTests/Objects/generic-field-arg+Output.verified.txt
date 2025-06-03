@@ -1,0 +1,31 @@
+﻿/* generic-field-arg+Output
+output OutpGnrcFieldArg<$type> { field: RefOutpGnrcFieldArg<$type> }
+output RefOutpGnrcFieldArg<$ref> { | $ref }
+*/
+
+// Generated from Sample generic-field-arg+Output
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_generic_field_arg_Output;
+
+public interface IOutpGnrcFieldArg<Ttype>
+{
+  RefOutpGnrcFieldArg<Ttype> field { get; }
+}
+public class OutputOutpGnrcFieldArg<Ttype>
+  : IOutpGnrcFieldArg<Ttype>
+{
+  public RefOutpGnrcFieldArg<Ttype> field { get; set; }
+}
+
+public interface IRefOutpGnrcFieldArg<Tref>
+{
+  Tref Asref { get; }
+}
+public class OutputRefOutpGnrcFieldArg<Tref>
+  : IRefOutpGnrcFieldArg<Tref>
+{
+  public Tref Asref { get; set; }
+}

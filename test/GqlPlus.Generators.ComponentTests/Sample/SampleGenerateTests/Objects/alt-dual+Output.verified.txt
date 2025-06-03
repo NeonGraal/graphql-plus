@@ -1,0 +1,33 @@
+﻿/* alt-dual+Output
+output OutpAltDual { | OutpDualAltDual }
+dual OutpDualAltDual { alt: Number | String }
+*/
+
+// Generated from Sample alt-dual+Output
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_alt_dual_Output;
+
+public interface IOutpAltDual
+{
+  OutpDualAltDual AsOutpDualAltDual { get; }
+}
+public class OutputOutpAltDual
+  : IOutpAltDual
+{
+  public OutpDualAltDual AsOutpDualAltDual { get; set; }
+}
+
+public interface IOutpDualAltDual
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+public class DualOutpDualAltDual
+  : IOutpDualAltDual
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

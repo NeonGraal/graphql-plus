@@ -1,0 +1,33 @@
+﻿/* parent-param-same+Output
+output OutpPrntParamSame<$a> { :RefOutpPrntParamSame<$a> field: $a }
+output RefOutpPrntParamSame<$a> { | $a }
+*/
+
+// Generated from Sample parent-param-same+Output
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_parent_param_same_Output;
+
+public interface IOutpPrntParamSame<Ta>
+  : IRefOutpPrntParamSame
+{
+  Ta field { get; }
+}
+public class OutputOutpPrntParamSame<Ta>
+  : OutputRefOutpPrntParamSame
+  , IOutpPrntParamSame<Ta>
+{
+  public Ta field { get; set; }
+}
+
+public interface IRefOutpPrntParamSame<Ta>
+{
+  Ta Asa { get; }
+}
+public class OutputRefOutpPrntParamSame<Ta>
+  : IRefOutpPrntParamSame<Ta>
+{
+  public Ta Asa { get; set; }
+}

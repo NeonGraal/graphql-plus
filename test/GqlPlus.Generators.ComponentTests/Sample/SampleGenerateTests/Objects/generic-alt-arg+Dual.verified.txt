@@ -1,0 +1,31 @@
+﻿/* generic-alt-arg+Dual
+dual DualGnrcAltArg<$type> { | RefDualGnrcAltArg<$type> }
+dual RefDualGnrcAltArg<$ref> { | $ref }
+*/
+
+// Generated from Sample generic-alt-arg+Dual
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_generic_alt_arg_Dual;
+
+public interface IDualGnrcAltArg<Ttype>
+{
+  RefDualGnrcAltArg<Ttype> AsRefDualGnrcAltArg { get; }
+}
+public class DualDualGnrcAltArg<Ttype>
+  : IDualGnrcAltArg<Ttype>
+{
+  public RefDualGnrcAltArg<Ttype> AsRefDualGnrcAltArg { get; set; }
+}
+
+public interface IRefDualGnrcAltArg<Tref>
+{
+  Tref Asref { get; }
+}
+public class DualRefDualGnrcAltArg<Tref>
+  : IRefDualGnrcAltArg<Tref>
+{
+  public Tref Asref { get; set; }
+}

@@ -1,0 +1,30 @@
+﻿/* object-field-alias+Dual
+dual DualObjFieldAlias { field [field1]: FldDualObjFieldAlias }
+dual DualObjFieldAlias { field [field2]: FldDualObjFieldAlias }
+dual FldDualObjFieldAlias { }
+*/
+
+// Generated from Sample object-field-alias+Dual
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_object_field_alias_Dual;
+
+public interface IDualObjFieldAlias
+{
+  FldDualObjFieldAlias field { get; }
+}
+public class DualDualObjFieldAlias
+  : IDualObjFieldAlias
+{
+  public FldDualObjFieldAlias field { get; set; }
+}
+
+public interface IFldDualObjFieldAlias
+{
+}
+public class DualFldDualObjFieldAlias
+  : IFldDualObjFieldAlias
+{
+}

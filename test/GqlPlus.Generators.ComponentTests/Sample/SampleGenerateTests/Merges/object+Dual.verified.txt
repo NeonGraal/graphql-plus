@@ -1,0 +1,19 @@
+﻿/* object+Dual
+dual DualObj { }
+dual DualObj { }
+*/
+
+// Generated from Sample object+Dual
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_object_Dual;
+
+public interface IDualObj
+{
+}
+public class DualDualObj
+  : IDualObj
+{
+}

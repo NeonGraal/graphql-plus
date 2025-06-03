@@ -1,0 +1,33 @@
+﻿/* alt-mod-param+Output
+output OutpAltModParam<$mod> { | AltOutpAltModParam[$mod] }
+output AltOutpAltModParam { alt: Number | String }
+*/
+
+// Generated from Sample alt-mod-param+Output
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_alt_mod_param_Output;
+
+public interface IOutpAltModParam<Tmod>
+{
+  AltOutpAltModParam AsAltOutpAltModParam { get; }
+}
+public class OutputOutpAltModParam<Tmod>
+  : IOutpAltModParam<Tmod>
+{
+  public AltOutpAltModParam AsAltOutpAltModParam { get; set; }
+}
+
+public interface IAltOutpAltModParam
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+public class OutputAltOutpAltModParam
+  : IAltOutpAltModParam
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

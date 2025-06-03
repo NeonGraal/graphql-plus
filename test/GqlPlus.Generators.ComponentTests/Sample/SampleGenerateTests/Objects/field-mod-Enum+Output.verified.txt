@@ -1,0 +1,26 @@
+﻿/* field-mod-Enum+Output
+output OutpFieldModEnum { field: *[EnumOutpFieldModEnum] }
+enum EnumOutpFieldModEnum { value }
+*/
+
+// Generated from Sample field-mod-Enum+Output
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_field_mod_Enum_Output;
+
+public interface IOutpFieldModEnum
+{
+  String field { get; }
+}
+public class OutputOutpFieldModEnum
+  : IOutpFieldModEnum
+{
+  public String field { get; set; }
+}
+
+public enum EnumOutpFieldModEnum
+{
+  value,
+}

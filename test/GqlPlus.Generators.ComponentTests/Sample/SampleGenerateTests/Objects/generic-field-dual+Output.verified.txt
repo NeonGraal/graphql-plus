@@ -1,0 +1,44 @@
+﻿/* generic-field-dual+Output
+output OutpGnrcFieldDual { field: RefOutpGnrcFieldDual<AltOutpGnrcFieldDual> }
+output RefOutpGnrcFieldDual<$ref> { | $ref }
+dual AltOutpGnrcFieldDual { alt: Number | String }
+*/
+
+// Generated from Sample generic-field-dual+Output
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_generic_field_dual_Output;
+
+public interface IOutpGnrcFieldDual
+{
+  RefOutpGnrcFieldDual<AltOutpGnrcFieldDual> field { get; }
+}
+public class OutputOutpGnrcFieldDual
+  : IOutpGnrcFieldDual
+{
+  public RefOutpGnrcFieldDual<AltOutpGnrcFieldDual> field { get; set; }
+}
+
+public interface IRefOutpGnrcFieldDual<Tref>
+{
+  Tref Asref { get; }
+}
+public class OutputRefOutpGnrcFieldDual<Tref>
+  : IRefOutpGnrcFieldDual<Tref>
+{
+  public Tref Asref { get; set; }
+}
+
+public interface IAltOutpGnrcFieldDual
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+public class DualAltOutpGnrcFieldDual
+  : IAltOutpGnrcFieldDual
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

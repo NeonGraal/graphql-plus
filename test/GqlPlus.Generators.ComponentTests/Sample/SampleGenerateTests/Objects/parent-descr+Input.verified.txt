@@ -1,0 +1,33 @@
+﻿/* parent-descr+Input
+input InpPrntDescr { : "Test" "Descr" RefInpPrntDescr }
+input RefInpPrntDescr { parent: Number | String }
+*/
+
+// Generated from Sample parent-descr+Input
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_parent_descr_Input;
+
+public interface IInpPrntDescr
+  : IRefInpPrntDescr
+{
+}
+public class InputInpPrntDescr
+  : InputRefInpPrntDescr
+  , IInpPrntDescr
+{
+}
+
+public interface IRefInpPrntDescr
+{
+  Number parent { get; }
+  String AsString { get; }
+}
+public class InputRefInpPrntDescr
+  : IRefInpPrntDescr
+{
+  public Number parent { get; set; }
+  public String AsString { get; set; }
+}

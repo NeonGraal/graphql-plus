@@ -1,0 +1,19 @@
+﻿/* object-alias+Dual
+dual DualObjAlias [Dual1] { }
+dual DualObjAlias [Dual2] { }
+*/
+
+// Generated from Sample object-alias+Dual
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_object_alias_Dual;
+
+public interface IDualObjAlias
+{
+}
+public class DualDualObjAlias
+  : IDualObjAlias
+{
+}

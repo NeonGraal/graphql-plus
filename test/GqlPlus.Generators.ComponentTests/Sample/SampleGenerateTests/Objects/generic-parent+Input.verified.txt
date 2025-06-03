@@ -1,0 +1,20 @@
+﻿/* generic-parent+Input
+input InpGnrcPrnt<$type> { :$type }
+*/
+
+// Generated from Sample generic-parent+Input
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_generic_parent_Input;
+
+public interface IInpGnrcPrnt<Ttype>
+  : Itype
+{
+}
+public class InputInpGnrcPrnt<Ttype>
+  : Inputtype
+  , IInpGnrcPrnt<Ttype>
+{
+}

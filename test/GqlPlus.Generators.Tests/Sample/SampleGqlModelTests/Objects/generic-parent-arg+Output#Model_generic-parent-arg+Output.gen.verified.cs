@@ -6,22 +6,22 @@
 
 namespace GqlTest.Model_generic_parent_arg_Output;
 
-public interface IOutpGnrcPrntArg<Ttype>
-  : IRefOutpGnrcPrntArg
+public interface IGnrcPrntArgOutp<Ttype>
+  : IRefGnrcPrntArgOutp
 {
 }
-public class OutputOutpGnrcPrntArg<Ttype>
-  : OutputRefOutpGnrcPrntArg
-  , IOutpGnrcPrntArg<Ttype>
+public class OutputGnrcPrntArgOutp<Ttype>
+  : OutputRefGnrcPrntArgOutp
+  , IGnrcPrntArgOutp<Ttype>
 {
 }
 
-public interface IRefOutpGnrcPrntArg<Tref>
+public interface IRefGnrcPrntArgOutp<Tref>
 {
   Tref Asref { get; }
 }
-public class OutputRefOutpGnrcPrntArg<Tref>
-  : IRefOutpGnrcPrntArg<Tref>
+public class OutputRefGnrcPrntArgOutp<Tref>
+  : IRefGnrcPrntArgOutp<Tref>
 {
   public Tref Asref { get; set; }
 }

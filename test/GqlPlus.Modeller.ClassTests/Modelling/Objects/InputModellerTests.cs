@@ -5,10 +5,11 @@ public class InputModellerTests
 {
   public InputModellerTests()
   {
+    IModeller<IGqlpTypeParam, TypeParamModel> typeParam = MFor<IGqlpTypeParam, TypeParamModel>();
     IModeller<IGqlpInputAlternate, InputAlternateModel> objAlt = MFor<IGqlpInputAlternate, InputAlternateModel>();
     IModeller<IGqlpInputField, InputFieldModel> objField = MFor<IGqlpInputField, InputFieldModel>();
 
-    Modeller = new InputModeller(objAlt, objField, ObjBase);
+    Modeller = new InputModeller(new(typeParam, objAlt, objField, ObjBase));
   }
 
   protected override IModeller<IGqlpInputObject, TypeInputModel> Modeller { get; }

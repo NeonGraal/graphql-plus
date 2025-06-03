@@ -6,23 +6,23 @@
 
 namespace GqlTest.Model_alt_Output;
 
-public interface IOutpAlt
+public interface IAltOutp
 {
-  AltOutpAlt AsAltOutpAlt { get; }
+  AltAltOutp AsAltAltOutp { get; }
 }
-public class OutputOutpAlt
-  : IOutpAlt
+public class OutputAltOutp
+  : IAltOutp
 {
-  public AltOutpAlt AsAltOutpAlt { get; set; }
+  public AltAltOutp AsAltAltOutp { get; set; }
 }
 
-public interface IAltOutpAlt
+public interface IAltAltOutp
 {
   Number alt { get; }
   String AsString { get; }
 }
-public class OutputAltOutpAlt
-  : IAltOutpAlt
+public class OutputAltAltOutp
+  : IAltAltOutp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

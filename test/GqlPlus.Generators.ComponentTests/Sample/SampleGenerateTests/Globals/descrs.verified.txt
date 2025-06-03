@@ -1,5 +1,5 @@
 ﻿/* descrs
-"A simple doc"
+"A simple description"
 "With extra"
 output Dscrs { }
 */

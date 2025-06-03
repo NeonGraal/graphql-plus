@@ -1,7 +1,7 @@
 ﻿/* object-field+Output
-output OutpObjField { field: FldOutpObjField }
-output OutpObjField { field: FldOutpObjField }
-output FldOutpObjField { }
+output ObjFieldOutp { field: FldObjFieldOutp }
+output ObjFieldOutp { field: FldObjFieldOutp }
+output FldObjFieldOutp { }
 */
 
 // Generated from Sample object-field+Output
@@ -11,20 +11,20 @@ output FldOutpObjField { }
 
 namespace GqlPlus.Model_Sample_object_field_Output;
 
-public interface IOutpObjField
+public interface IObjFieldOutp
 {
-  FldOutpObjField field { get; }
+  FldObjFieldOutp field { get; }
 }
-public class OutputOutpObjField
-  : IOutpObjField
+public class OutputObjFieldOutp
+  : IObjFieldOutp
 {
-  public FldOutpObjField field { get; set; }
+  public FldObjFieldOutp field { get; set; }
 }
 
-public interface IFldOutpObjField
+public interface IFldObjFieldOutp
 {
 }
-public class OutputFldOutpObjField
-  : IFldOutpObjField
+public class OutputFldObjFieldOutp
+  : IFldObjFieldOutp
 {
 }

@@ -6,23 +6,23 @@
 
 namespace GqlTest.Model_parent_Input;
 
-public interface IInpPrnt
-  : IRefInpPrnt
+public interface IPrntInp
+  : IRefPrntInp
 {
 }
-public class InputInpPrnt
-  : InputRefInpPrnt
-  , IInpPrnt
+public class InputPrntInp
+  : InputRefPrntInp
+  , IPrntInp
 {
 }
 
-public interface IRefInpPrnt
+public interface IRefPrntInp
 {
   Number parent { get; }
   String AsString { get; }
 }
-public class InputRefInpPrnt
-  : IRefInpPrnt
+public class InputRefPrntInp
+  : IRefPrntInp
 {
   public Number parent { get; set; }
   public String AsString { get; set; }

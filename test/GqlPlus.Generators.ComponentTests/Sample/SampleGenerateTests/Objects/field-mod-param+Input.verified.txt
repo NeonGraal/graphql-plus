@@ -1,6 +1,6 @@
 ﻿/* field-mod-param+Input
-input InpFieldModParam<$mod> { field: FldInpFieldModParam[$mod] }
-input FldInpFieldModParam { field: Number | String }
+input FieldModParamInp<$mod:String> { field: FldFieldModParamInp[$mod] }
+input FldFieldModParamInp { field: Number | String }
 */
 
 // Generated from Sample field-mod-param+Input
@@ -10,23 +10,23 @@ input FldInpFieldModParam { field: Number | String }
 
 namespace GqlPlus.Model_Sample_field_mod_param_Input;
 
-public interface IInpFieldModParam<Tmod>
+public interface IFieldModParamInp<Tmod>
 {
-  FldInpFieldModParam field { get; }
+  FldFieldModParamInp field { get; }
 }
-public class InputInpFieldModParam<Tmod>
-  : IInpFieldModParam<Tmod>
+public class InputFieldModParamInp<Tmod>
+  : IFieldModParamInp<Tmod>
 {
-  public FldInpFieldModParam field { get; set; }
+  public FldFieldModParamInp field { get; set; }
 }
 
-public interface IFldInpFieldModParam
+public interface IFldFieldModParamInp
 {
   Number field { get; }
   String AsString { get; }
 }
-public class InputFldInpFieldModParam
-  : IFldInpFieldModParam
+public class InputFldFieldModParamInp
+  : IFldFieldModParamInp
 {
   public Number field { get; set; }
   public String AsString { get; set; }

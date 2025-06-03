@@ -6,13 +6,13 @@
 
 namespace GqlTest.Model_object_param_Input;
 
-public interface IInpObjParam<Ttest,Ttype>
+public interface IObjParamInp<Ttest,Ttype>
 {
   Ttest test { get; }
   Ttype type { get; }
 }
-public class InputInpObjParam<Ttest,Ttype>
-  : IInpObjParam<Ttest,Ttype>
+public class InputObjParamInp<Ttest,Ttype>
+  : IObjParamInp<Ttest,Ttype>
 {
   public Ttest test { get; set; }
   public Ttype type { get; set; }

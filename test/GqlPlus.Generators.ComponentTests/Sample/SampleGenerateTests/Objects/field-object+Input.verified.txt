@@ -1,6 +1,6 @@
 ﻿/* field-object+Input
-input InpFieldObj { field: FldInpFieldObj }
-input FldInpFieldObj { field: Number | String }
+input FieldObjInp { field: FldFieldObjInp }
+input FldFieldObjInp { field: Number | String }
 */
 
 // Generated from Sample field-object+Input
@@ -10,23 +10,23 @@ input FldInpFieldObj { field: Number | String }
 
 namespace GqlPlus.Model_Sample_field_object_Input;
 
-public interface IInpFieldObj
+public interface IFieldObjInp
 {
-  FldInpFieldObj field { get; }
+  FldFieldObjInp field { get; }
 }
-public class InputInpFieldObj
-  : IInpFieldObj
+public class InputFieldObjInp
+  : IFieldObjInp
 {
-  public FldInpFieldObj field { get; set; }
+  public FldFieldObjInp field { get; set; }
 }
 
-public interface IFldInpFieldObj
+public interface IFldFieldObjInp
 {
   Number field { get; }
   String AsString { get; }
 }
-public class InputFldInpFieldObj
-  : IFldInpFieldObj
+public class InputFldFieldObjInp
+  : IFldFieldObjInp
 {
   public Number field { get; set; }
   public String AsString { get; set; }

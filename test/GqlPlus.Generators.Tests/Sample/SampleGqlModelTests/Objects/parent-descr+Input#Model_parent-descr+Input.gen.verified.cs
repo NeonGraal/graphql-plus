@@ -6,23 +6,23 @@
 
 namespace GqlTest.Model_parent_descr_Input;
 
-public interface IInpPrntDescr
-  : IRefInpPrntDescr
+public interface IPrntDescrInp
+  : IRefPrntDescrInp
 {
 }
-public class InputInpPrntDescr
-  : InputRefInpPrntDescr
-  , IInpPrntDescr
+public class InputPrntDescrInp
+  : InputRefPrntDescrInp
+  , IPrntDescrInp
 {
 }
 
-public interface IRefInpPrntDescr
+public interface IRefPrntDescrInp
 {
   Number parent { get; }
   String AsString { get; }
 }
-public class InputRefInpPrntDescr
-  : IRefInpPrntDescr
+public class InputRefPrntDescrInp
+  : IRefPrntDescrInp
 {
   public Number parent { get; set; }
   public String AsString { get; set; }

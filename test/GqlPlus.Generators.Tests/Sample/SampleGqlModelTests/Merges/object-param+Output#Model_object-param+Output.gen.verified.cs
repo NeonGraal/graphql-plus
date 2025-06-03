@@ -6,13 +6,13 @@
 
 namespace GqlTest.Model_object_param_Output;
 
-public interface IOutpObjParam<Ttest,Ttype>
+public interface IObjParamOutp<Ttest,Ttype>
 {
   Ttest test { get; }
   Ttype type { get; }
 }
-public class OutputOutpObjParam<Ttest,Ttype>
-  : IOutpObjParam<Ttest,Ttype>
+public class OutputObjParamOutp<Ttest,Ttype>
+  : IObjParamOutp<Ttest,Ttype>
 {
   public Ttest test { get; set; }
   public Ttype type { get; set; }

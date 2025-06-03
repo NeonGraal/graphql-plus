@@ -6,24 +6,24 @@
 
 namespace GqlTest.Model_parent_param_same_Output;
 
-public interface IOutpPrntParamSame<Ta>
-  : IRefOutpPrntParamSame
+public interface IPrntParamSameOutp<Ta>
+  : IRefPrntParamSameOutp
 {
   Ta field { get; }
 }
-public class OutputOutpPrntParamSame<Ta>
-  : OutputRefOutpPrntParamSame
-  , IOutpPrntParamSame<Ta>
+public class OutputPrntParamSameOutp<Ta>
+  : OutputRefPrntParamSameOutp
+  , IPrntParamSameOutp<Ta>
 {
   public Ta field { get; set; }
 }
 
-public interface IRefOutpPrntParamSame<Ta>
+public interface IRefPrntParamSameOutp<Ta>
 {
   Ta Asa { get; }
 }
-public class OutputRefOutpPrntParamSame<Ta>
-  : IRefOutpPrntParamSame<Ta>
+public class OutputRefPrntParamSameOutp<Ta>
+  : IRefPrntParamSameOutp<Ta>
 {
   public Ta Asa { get; set; }
 }

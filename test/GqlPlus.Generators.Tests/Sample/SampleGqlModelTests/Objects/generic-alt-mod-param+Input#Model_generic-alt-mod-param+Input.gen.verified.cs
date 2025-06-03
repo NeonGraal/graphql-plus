@@ -6,12 +6,12 @@
 
 namespace GqlTest.Model_generic_alt_mod_param_Input;
 
-public interface IRefInpGnrcAltModParam<Tref,Tmod>
+public interface IRefGnrcAltModParamInp<Tref,Tmod>
 {
   Tref Asref { get; }
 }
-public class InputRefInpGnrcAltModParam<Tref,Tmod>
-  : IRefInpGnrcAltModParam<Tref,Tmod>
+public class InputRefGnrcAltModParamInp<Tref,Tmod>
+  : IRefGnrcAltModParamInp<Tref,Tmod>
 {
   public Tref Asref { get; set; }
 }

@@ -3,7 +3,7 @@
 namespace GqlPlus.Verifying.Operation;
 
 public class VerifyVariableUsageTests
-  : IdentifiedVerifierBase<IGqlpArg, IGqlpVariable>
+  : IdentifiedVerifierTestsBase<IGqlpArg, IGqlpVariable>
 {
   protected override IEnumerable<IGqlpVariable> OneDefinition(string name)
   {

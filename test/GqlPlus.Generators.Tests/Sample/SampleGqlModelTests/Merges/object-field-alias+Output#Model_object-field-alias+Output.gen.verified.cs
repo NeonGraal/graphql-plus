@@ -6,20 +6,20 @@
 
 namespace GqlTest.Model_object_field_alias_Output;
 
-public interface IOutpObjFieldAlias
+public interface IObjFieldAliasOutp
 {
-  FldOutpObjFieldAlias field { get; }
+  FldObjFieldAliasOutp field { get; }
 }
-public class OutputOutpObjFieldAlias
-  : IOutpObjFieldAlias
+public class OutputObjFieldAliasOutp
+  : IObjFieldAliasOutp
 {
-  public FldOutpObjFieldAlias field { get; set; }
+  public FldObjFieldAliasOutp field { get; set; }
 }
 
-public interface IFldOutpObjFieldAlias
+public interface IFldObjFieldAliasOutp
 {
 }
-public class OutputFldOutpObjFieldAlias
-  : IFldOutpObjFieldAlias
+public class OutputFldObjFieldAliasOutp
+  : IFldObjFieldAliasOutp
 {
 }

@@ -30,6 +30,18 @@ public class Output_InputBase
   public _DualBase As_DualBase { get; set; }
 }
 
+public interface I_InputTypeParam
+  : I_ObjTypeParam
+{
+  _TypeRef<_TypeKind> As_TypeRef { get; }
+}
+public class Output_InputTypeParam
+  : Output_ObjTypeParam
+  , I_InputTypeParam
+{
+  public _TypeRef<_TypeKind> As_TypeRef { get; set; }
+}
+
 public interface I_InputField
   : I_Field
 {

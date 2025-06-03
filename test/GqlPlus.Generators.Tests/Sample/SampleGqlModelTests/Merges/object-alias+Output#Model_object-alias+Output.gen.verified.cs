@@ -6,10 +6,10 @@
 
 namespace GqlTest.Model_object_alias_Output;
 
-public interface IOutpObjAlias
+public interface IObjAliasOutp
 {
 }
-public class OutputOutpObjAlias
-  : IOutpObjAlias
+public class OutputObjAliasOutp
+  : IObjAliasOutp
 {
 }

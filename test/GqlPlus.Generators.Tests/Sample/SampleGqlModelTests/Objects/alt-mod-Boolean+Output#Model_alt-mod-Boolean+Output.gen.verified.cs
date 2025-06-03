@@ -6,23 +6,23 @@
 
 namespace GqlTest.Model_alt_mod_Boolean_Output;
 
-public interface IOutpAltModBool
+public interface IAltModBoolOutp
 {
-  AltOutpAltModBool AsAltOutpAltModBool { get; }
+  AltAltModBoolOutp AsAltAltModBoolOutp { get; }
 }
-public class OutputOutpAltModBool
-  : IOutpAltModBool
+public class OutputAltModBoolOutp
+  : IAltModBoolOutp
 {
-  public AltOutpAltModBool AsAltOutpAltModBool { get; set; }
+  public AltAltModBoolOutp AsAltAltModBoolOutp { get; set; }
 }
 
-public interface IAltOutpAltModBool
+public interface IAltAltModBoolOutp
 {
   Number alt { get; }
   String AsString { get; }
 }
-public class OutputAltOutpAltModBool
-  : IAltOutpAltModBool
+public class OutputAltAltModBoolOutp
+  : IAltAltModBoolOutp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

@@ -6,23 +6,23 @@
 
 namespace GqlTest.Model_field_mod_param_Dual;
 
-public interface IDualFieldModParam<Tmod>
+public interface IFieldModParamDual<Tmod>
 {
-  FldDualFieldModParam field { get; }
+  FldFieldModParamDual field { get; }
 }
-public class DualDualFieldModParam<Tmod>
-  : IDualFieldModParam<Tmod>
+public class DualFieldModParamDual<Tmod>
+  : IFieldModParamDual<Tmod>
 {
-  public FldDualFieldModParam field { get; set; }
+  public FldFieldModParamDual field { get; set; }
 }
 
-public interface IFldDualFieldModParam
+public interface IFldFieldModParamDual
 {
   Number field { get; }
   String AsString { get; }
 }
-public class DualFldDualFieldModParam
-  : IFldDualFieldModParam
+public class DualFldFieldModParamDual
+  : IFldFieldModParamDual
 {
   public Number field { get; set; }
   public String AsString { get; set; }

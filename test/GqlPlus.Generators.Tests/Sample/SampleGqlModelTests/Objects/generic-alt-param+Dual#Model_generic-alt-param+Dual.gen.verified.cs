@@ -6,33 +6,33 @@
 
 namespace GqlTest.Model_generic_alt_param_Dual;
 
-public interface IDualGnrcAltParam
+public interface IGnrcAltParamDual
 {
-  RefDualGnrcAltParam<AltDualGnrcAltParam> AsRefDualGnrcAltParam { get; }
+  RefGnrcAltParamDual<AltGnrcAltParamDual> AsRefGnrcAltParamDual { get; }
 }
-public class DualDualGnrcAltParam
-  : IDualGnrcAltParam
+public class DualGnrcAltParamDual
+  : IGnrcAltParamDual
 {
-  public RefDualGnrcAltParam<AltDualGnrcAltParam> AsRefDualGnrcAltParam { get; set; }
+  public RefGnrcAltParamDual<AltGnrcAltParamDual> AsRefGnrcAltParamDual { get; set; }
 }
 
-public interface IRefDualGnrcAltParam<Tref>
+public interface IRefGnrcAltParamDual<Tref>
 {
   Tref Asref { get; }
 }
-public class DualRefDualGnrcAltParam<Tref>
-  : IRefDualGnrcAltParam<Tref>
+public class DualRefGnrcAltParamDual<Tref>
+  : IRefGnrcAltParamDual<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public interface IAltDualGnrcAltParam
+public interface IAltGnrcAltParamDual
 {
   Number alt { get; }
   String AsString { get; }
 }
-public class DualAltDualGnrcAltParam
-  : IAltDualGnrcAltParam
+public class DualAltGnrcAltParamDual
+  : IAltGnrcAltParamDual
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

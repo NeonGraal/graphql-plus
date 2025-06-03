@@ -6,20 +6,20 @@
 
 namespace GqlTest.Model_object_field_Output;
 
-public interface IOutpObjField
+public interface IObjFieldOutp
 {
-  FldOutpObjField field { get; }
+  FldObjFieldOutp field { get; }
 }
-public class OutputOutpObjField
-  : IOutpObjField
+public class OutputObjFieldOutp
+  : IObjFieldOutp
 {
-  public FldOutpObjField field { get; set; }
+  public FldObjFieldOutp field { get; set; }
 }
 
-public interface IFldOutpObjField
+public interface IFldObjFieldOutp
 {
 }
-public class OutputFldOutpObjField
-  : IFldOutpObjField
+public class OutputFldObjFieldOutp
+  : IFldObjFieldOutp
 {
 }

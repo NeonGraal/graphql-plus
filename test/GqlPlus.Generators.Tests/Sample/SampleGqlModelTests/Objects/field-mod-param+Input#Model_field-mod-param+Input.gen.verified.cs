@@ -6,23 +6,23 @@
 
 namespace GqlTest.Model_field_mod_param_Input;
 
-public interface IInpFieldModParam<Tmod>
+public interface IFieldModParamInp<Tmod>
 {
-  FldInpFieldModParam field { get; }
+  FldFieldModParamInp field { get; }
 }
-public class InputInpFieldModParam<Tmod>
-  : IInpFieldModParam<Tmod>
+public class InputFieldModParamInp<Tmod>
+  : IFieldModParamInp<Tmod>
 {
-  public FldInpFieldModParam field { get; set; }
+  public FldFieldModParamInp field { get; set; }
 }
 
-public interface IFldInpFieldModParam
+public interface IFldFieldModParamInp
 {
   Number field { get; }
   String AsString { get; }
 }
-public class InputFldInpFieldModParam
-  : IFldInpFieldModParam
+public class InputFldFieldModParamInp
+  : IFldFieldModParamInp
 {
   public Number field { get; set; }
   public String AsString { get; set; }

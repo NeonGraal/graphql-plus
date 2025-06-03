@@ -1,7 +1,7 @@
 ﻿/* generic-parent-param+Dual
-dual DualGnrcPrntParam { :RefDualGnrcPrntParam<AltDualGnrcPrntParam> }
-dual RefDualGnrcPrntParam<$ref> { | $ref }
-dual AltDualGnrcPrntParam { alt: Number | String }
+dual GnrcPrntParamDual { :RefGnrcPrntParamDual<AltGnrcPrntParamDual> }
+dual RefGnrcPrntParamDual<$ref:_Dual> { | $ref }
+dual AltGnrcPrntParamDual { alt: Number | String }
 */
 
 // Generated from Sample generic-parent-param+Dual
@@ -11,33 +11,33 @@ dual AltDualGnrcPrntParam { alt: Number | String }
 
 namespace GqlPlus.Model_Sample_generic_parent_param_Dual;
 
-public interface IDualGnrcPrntParam
-  : IRefDualGnrcPrntParam
+public interface IGnrcPrntParamDual
+  : IRefGnrcPrntParamDual
 {
 }
-public class DualDualGnrcPrntParam
-  : DualRefDualGnrcPrntParam
-  , IDualGnrcPrntParam
+public class DualGnrcPrntParamDual
+  : DualRefGnrcPrntParamDual
+  , IGnrcPrntParamDual
 {
 }
 
-public interface IRefDualGnrcPrntParam<Tref>
+public interface IRefGnrcPrntParamDual<Tref>
 {
   Tref Asref { get; }
 }
-public class DualRefDualGnrcPrntParam<Tref>
-  : IRefDualGnrcPrntParam<Tref>
+public class DualRefGnrcPrntParamDual<Tref>
+  : IRefGnrcPrntParamDual<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public interface IAltDualGnrcPrntParam
+public interface IAltGnrcPrntParamDual
 {
   Number alt { get; }
   String AsString { get; }
 }
-public class DualAltDualGnrcPrntParam
-  : IAltDualGnrcPrntParam
+public class DualAltGnrcPrntParamDual
+  : IAltGnrcPrntParamDual
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

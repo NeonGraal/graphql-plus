@@ -1,6 +1,6 @@
 ﻿/* field-mod-Enum+Dual
-dual DualFieldModEnum { field: *[EnumDualFieldModEnum] }
-enum EnumDualFieldModEnum { value }
+dual FieldModEnumDual { field: String[EnumFieldModEnumDual] }
+enum EnumFieldModEnumDual { value }
 */
 
 // Generated from Sample field-mod-Enum+Dual
@@ -10,17 +10,17 @@ enum EnumDualFieldModEnum { value }
 
 namespace GqlPlus.Model_Sample_field_mod_Enum_Dual;
 
-public interface IDualFieldModEnum
+public interface IFieldModEnumDual
 {
   String field { get; }
 }
-public class DualDualFieldModEnum
-  : IDualFieldModEnum
+public class DualFieldModEnumDual
+  : IFieldModEnumDual
 {
   public String field { get; set; }
 }
 
-public enum EnumDualFieldModEnum
+public enum EnumFieldModEnumDual
 {
   value,
 }

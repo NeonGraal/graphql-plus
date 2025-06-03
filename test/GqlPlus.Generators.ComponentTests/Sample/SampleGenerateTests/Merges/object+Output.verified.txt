@@ -1,6 +1,6 @@
 ﻿/* object+Output
-output OutpObj { }
-output OutpObj { }
+output ObjOutp { }
+output ObjOutp { }
 */
 
 // Generated from Sample object+Output
@@ -10,10 +10,10 @@ output OutpObj { }
 
 namespace GqlPlus.Model_Sample_object_Output;
 
-public interface IOutpObj
+public interface IObjOutp
 {
 }
-public class OutputOutpObj
-  : IOutpObj
+public class OutputObjOutp
+  : IObjOutp
 {
 }

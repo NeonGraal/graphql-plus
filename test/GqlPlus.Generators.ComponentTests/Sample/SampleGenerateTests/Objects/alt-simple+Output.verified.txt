@@ -1,5 +1,5 @@
 ﻿/* alt-simple+Output
-output OutpAltSmpl { | String }
+output AltSmplOutp { | String }
 */
 
 // Generated from Sample alt-simple+Output
@@ -9,12 +9,12 @@ output OutpAltSmpl { | String }
 
 namespace GqlPlus.Model_Sample_alt_simple_Output;
 
-public interface IOutpAltSmpl
+public interface IAltSmplOutp
 {
   String AsString { get; }
 }
-public class OutputOutpAltSmpl
-  : IOutpAltSmpl
+public class OutputAltSmplOutp
+  : IAltSmplOutp
 {
   public String AsString { get; set; }
 }

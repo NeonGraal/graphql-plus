@@ -90,6 +90,22 @@ public class Output_DomainValue<Tkind,Tvalue>
   public Tvalue value { get; set; }
 }
 
+public interface I_BasicValue
+{
+  Boolean AsBoolean { get; }
+  _EnumValue As_EnumValue { get; }
+  Number AsNumber { get; }
+  String AsString { get; }
+}
+public class Output_BasicValue
+  : I_BasicValue
+{
+  public Boolean AsBoolean { get; set; }
+  public _EnumValue As_EnumValue { get; set; }
+  public Number AsNumber { get; set; }
+  public String AsString { get; set; }
+}
+
 public interface I_DomainTrueFalse
   : I_BaseDomainItem
 {

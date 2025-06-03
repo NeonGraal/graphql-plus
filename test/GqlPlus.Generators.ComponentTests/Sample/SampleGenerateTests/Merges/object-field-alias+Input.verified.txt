@@ -1,7 +1,7 @@
 ﻿/* object-field-alias+Input
-input InpObjFieldAlias { field [field1]: FldInpObjFieldAlias }
-input InpObjFieldAlias { field [field2]: FldInpObjFieldAlias }
-input FldInpObjFieldAlias { }
+input ObjFieldAliasInp { field [field1]: FldObjFieldAliasInp }
+input ObjFieldAliasInp { field [field2]: FldObjFieldAliasInp }
+input FldObjFieldAliasInp { }
 */
 
 // Generated from Sample object-field-alias+Input
@@ -11,20 +11,20 @@ input FldInpObjFieldAlias { }
 
 namespace GqlPlus.Model_Sample_object_field_alias_Input;
 
-public interface IInpObjFieldAlias
+public interface IObjFieldAliasInp
 {
-  FldInpObjFieldAlias field { get; }
+  FldObjFieldAliasInp field { get; }
 }
-public class InputInpObjFieldAlias
-  : IInpObjFieldAlias
+public class InputObjFieldAliasInp
+  : IObjFieldAliasInp
 {
-  public FldInpObjFieldAlias field { get; set; }
+  public FldObjFieldAliasInp field { get; set; }
 }
 
-public interface IFldInpObjFieldAlias
+public interface IFldObjFieldAliasInp
 {
 }
-public class InputFldInpObjFieldAlias
-  : IFldInpObjFieldAlias
+public class InputFldObjFieldAliasInp
+  : IFldObjFieldAliasInp
 {
 }

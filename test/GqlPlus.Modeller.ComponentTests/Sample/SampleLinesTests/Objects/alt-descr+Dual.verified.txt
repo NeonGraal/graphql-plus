@@ -1,9 +1,9 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualAltDescr: !_TypeDual
+  !_Identifier AltDescrDual: !_TypeDual
     allAlternates:
       - !_ObjectFor(_DualAlternate)
-        object: DualAltDescr
+        object: AltDescrDual
         type: !_DualBase
           description: 'Test Descr'
           dual: String
@@ -12,5 +12,5 @@ types: !_Map_Type
         type: !_DualBase
           description: 'Test Descr'
           dual: String
-    name: DualAltDescr
+    name: AltDescrDual
     typeKind: !_TypeKind Dual

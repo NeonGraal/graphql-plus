@@ -1,5 +1,5 @@
 ﻿/* generic-field+Input
-input InpGnrcField<$type> { field: $type }
+input GnrcFieldInp<$type:String> { field: $type }
 */
 
 // Generated from Sample generic-field+Input
@@ -9,12 +9,12 @@ input InpGnrcField<$type> { field: $type }
 
 namespace GqlPlus.Model_Sample_generic_field_Input;
 
-public interface IInpGnrcField<Ttype>
+public interface IGnrcFieldInp<Ttype>
 {
   Ttype field { get; }
 }
-public class InputInpGnrcField<Ttype>
-  : IInpGnrcField<Ttype>
+public class InputGnrcFieldInp<Ttype>
+  : IGnrcFieldInp<Ttype>
 {
   public Ttype field { get; set; }
 }

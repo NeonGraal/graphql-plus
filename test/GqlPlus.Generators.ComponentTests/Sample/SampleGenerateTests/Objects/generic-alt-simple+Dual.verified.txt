@@ -1,6 +1,6 @@
 ﻿/* generic-alt-simple+Dual
-dual DualGnrcAltSmpl { | RefDualGnrcAltSmpl<String> }
-dual RefDualGnrcAltSmpl<$ref> { | $ref }
+dual GnrcAltSmplDual { | RefGnrcAltSmplDual<String> }
+dual RefGnrcAltSmplDual<$ref:String> { | $ref }
 */
 
 // Generated from Sample generic-alt-simple+Dual
@@ -10,22 +10,22 @@ dual RefDualGnrcAltSmpl<$ref> { | $ref }
 
 namespace GqlPlus.Model_Sample_generic_alt_simple_Dual;
 
-public interface IDualGnrcAltSmpl
+public interface IGnrcAltSmplDual
 {
-  RefDualGnrcAltSmpl<String> AsRefDualGnrcAltSmpl { get; }
+  RefGnrcAltSmplDual<String> AsRefGnrcAltSmplDual { get; }
 }
-public class DualDualGnrcAltSmpl
-  : IDualGnrcAltSmpl
+public class DualGnrcAltSmplDual
+  : IGnrcAltSmplDual
 {
-  public RefDualGnrcAltSmpl<String> AsRefDualGnrcAltSmpl { get; set; }
+  public RefGnrcAltSmplDual<String> AsRefGnrcAltSmplDual { get; set; }
 }
 
-public interface IRefDualGnrcAltSmpl<Tref>
+public interface IRefGnrcAltSmplDual<Tref>
 {
   Tref Asref { get; }
 }
-public class DualRefDualGnrcAltSmpl<Tref>
-  : IRefDualGnrcAltSmpl<Tref>
+public class DualRefGnrcAltSmplDual<Tref>
+  : IRefGnrcAltSmplDual<Tref>
 {
   public Tref Asref { get; set; }
 }

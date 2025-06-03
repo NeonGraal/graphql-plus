@@ -6,7 +6,7 @@ public abstract class ResolverTypeObjectFieldTestBase<TModel, TBase, TField, TAl
   where TBase : IObjBaseModel
   where TField : IObjFieldModel
   where TAlt : IObjAlternateModel
-  where TArg : IObjArgModel
+  where TArg : IObjTypeArgModel
 {
   [Theory, RepeatData]
   public void ModelWithFieldModifier_ResolvesCorrectly(string name, FieldInput field, string key)

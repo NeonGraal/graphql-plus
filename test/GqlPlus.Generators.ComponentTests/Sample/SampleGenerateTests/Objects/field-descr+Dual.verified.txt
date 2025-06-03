@@ -1,5 +1,5 @@
 ﻿/* field-descr+Dual
-dual DualFieldDescr { "Test" "Descr" field: * }
+dual FieldDescrDual { "Test" "Descr" field: String }
 */
 
 // Generated from Sample field-descr+Dual
@@ -9,12 +9,12 @@ dual DualFieldDescr { "Test" "Descr" field: * }
 
 namespace GqlPlus.Model_Sample_field_descr_Dual;
 
-public interface IDualFieldDescr
+public interface IFieldDescrDual
 {
   String field { get; }
 }
-public class DualDualFieldDescr
-  : IDualFieldDescr
+public class DualFieldDescrDual
+  : IFieldDescrDual
 {
   public String field { get; set; }
 }

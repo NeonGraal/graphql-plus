@@ -6,34 +6,48 @@
 
 namespace GqlTest.Model_Intro_Built_In;
 
+public interface I_Internal
+{
+  Null AsNull { get; }
+  Object AsObject { get; }
+  Void AsVoid { get; }
+}
+public class Output_Internal
+  : I_Internal
+{
+  public Null AsNull { get; set; }
+  public Object AsObject { get; set; }
+  public Void AsVoid { get; set; }
+}
+
 public interface I_Constant
 {
-  _Simple As_Simple { get; }
+  _SimpleValue As_SimpleValue { get; }
   _ConstantList As_ConstantList { get; }
   _ConstantMap As_ConstantMap { get; }
 }
 public class Output_Constant
   : I_Constant
 {
-  public _Simple As_Simple { get; set; }
+  public _SimpleValue As_SimpleValue { get; set; }
   public _ConstantList As_ConstantList { get; set; }
   public _ConstantMap As_ConstantMap { get; set; }
 }
 
-public interface I_Simple
+public interface I_SimpleValue
 {
-  Boolean AsBoolean { get; }
+  _DomainValue<_DomainKind, Boolean> As_DomainValue { get; }
+  _DomainValue<_DomainKind, _EnumValue> As_DomainValue { get; }
   _DomainValue<_DomainKind, Number> As_DomainValue { get; }
   _DomainValue<_DomainKind, String> As_DomainValue { get; }
-  _EnumValue As_EnumValue { get; }
 }
-public class Output_Simple
-  : I_Simple
+public class Output_SimpleValue
+  : I_SimpleValue
 {
-  public Boolean AsBoolean { get; set; }
+  public _DomainValue<_DomainKind, Boolean> As_DomainValue { get; set; }
+  public _DomainValue<_DomainKind, _EnumValue> As_DomainValue { get; set; }
   public _DomainValue<_DomainKind, Number> As_DomainValue { get; set; }
   public _DomainValue<_DomainKind, String> As_DomainValue { get; set; }
-  public _EnumValue As_EnumValue { get; set; }
 }
 
 public interface I_ConstantList

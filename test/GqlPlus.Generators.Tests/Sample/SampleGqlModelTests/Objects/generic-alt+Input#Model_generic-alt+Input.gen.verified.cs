@@ -6,12 +6,12 @@
 
 namespace GqlTest.Model_generic_alt_Input;
 
-public interface IInpGnrcAlt<Ttype>
+public interface IGnrcAltInp<Ttype>
 {
   Ttype Astype { get; }
 }
-public class InputInpGnrcAlt<Ttype>
-  : IInpGnrcAlt<Ttype>
+public class InputGnrcAltInp<Ttype>
+  : IGnrcAltInp<Ttype>
 {
   public Ttype Astype { get; set; }
 }

@@ -4,7 +4,7 @@ output _Directives {
         type: _Type
     | _Directive
     | _Type
-}
+    }
 
 output _Directive {
     : _Aliased

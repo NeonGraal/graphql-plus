@@ -1,5 +1,5 @@
 ﻿/* generic-alt-mod-String+Input
-input RefInpGnrcAltModStr<$ref> { | $ref[*] }
+input RefGnrcAltModStrInp<$ref:String> { | $ref[*] }
 */
 
 // Generated from Sample generic-alt-mod-String+Input
@@ -9,12 +9,12 @@ input RefInpGnrcAltModStr<$ref> { | $ref[*] }
 
 namespace GqlPlus.Model_Sample_generic_alt_mod_String_Input;
 
-public interface IRefInpGnrcAltModStr<Tref>
+public interface IRefGnrcAltModStrInp<Tref>
 {
   Tref Asref { get; }
 }
-public class InputRefInpGnrcAltModStr<Tref>
-  : IRefInpGnrcAltModStr<Tref>
+public class InputRefGnrcAltModStrInp<Tref>
+  : IRefGnrcAltModStrInp<Tref>
 {
   public Tref Asref { get; set; }
 }

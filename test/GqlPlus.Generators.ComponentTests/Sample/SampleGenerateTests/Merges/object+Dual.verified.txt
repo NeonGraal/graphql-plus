@@ -1,6 +1,6 @@
 ﻿/* object+Dual
-dual DualObj { }
-dual DualObj { }
+dual ObjDual { }
+dual ObjDual { }
 */
 
 // Generated from Sample object+Dual
@@ -10,10 +10,10 @@ dual DualObj { }
 
 namespace GqlPlus.Model_Sample_object_Dual;
 
-public interface IDualObj
+public interface IObjDual
 {
 }
-public class DualDualObj
-  : IDualObj
+public class DualObjDual
+  : IObjDual
 {
 }

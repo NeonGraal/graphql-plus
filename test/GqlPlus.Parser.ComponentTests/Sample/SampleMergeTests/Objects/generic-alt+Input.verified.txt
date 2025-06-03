@@ -3,13 +3,14 @@
 Success
 {
   !In I@007/0001
-  InpGnrcAlt
+  GnrcAltInp
   <
     I@019/0001
     $type
+    :String
   >
   |
-  P@029/0001
+  P@036/0001
   $type
 }
 ]

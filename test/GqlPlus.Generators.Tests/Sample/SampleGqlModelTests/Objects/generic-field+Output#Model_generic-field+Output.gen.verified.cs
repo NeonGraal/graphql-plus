@@ -6,12 +6,12 @@
 
 namespace GqlTest.Model_generic_field_Output;
 
-public interface IOutpGnrcField<Ttype>
+public interface IGnrcFieldOutp<Ttype>
 {
   Ttype field { get; }
 }
-public class OutputOutpGnrcField<Ttype>
-  : IOutpGnrcField<Ttype>
+public class OutputGnrcFieldOutp<Ttype>
+  : IGnrcFieldOutp<Ttype>
 {
   public Ttype field { get; set; }
 }

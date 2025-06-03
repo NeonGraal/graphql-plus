@@ -6,22 +6,22 @@
 
 namespace GqlTest.Model_generic_alt_arg_Dual;
 
-public interface IDualGnrcAltArg<Ttype>
+public interface IGnrcAltArgDual<Ttype>
 {
-  RefDualGnrcAltArg<Ttype> AsRefDualGnrcAltArg { get; }
+  RefGnrcAltArgDual<Ttype> AsRefGnrcAltArgDual { get; }
 }
-public class DualDualGnrcAltArg<Ttype>
-  : IDualGnrcAltArg<Ttype>
+public class DualGnrcAltArgDual<Ttype>
+  : IGnrcAltArgDual<Ttype>
 {
-  public RefDualGnrcAltArg<Ttype> AsRefDualGnrcAltArg { get; set; }
+  public RefGnrcAltArgDual<Ttype> AsRefGnrcAltArgDual { get; set; }
 }
 
-public interface IRefDualGnrcAltArg<Tref>
+public interface IRefGnrcAltArgDual<Tref>
 {
   Tref Asref { get; }
 }
-public class DualRefDualGnrcAltArg<Tref>
-  : IRefDualGnrcAltArg<Tref>
+public class DualRefGnrcAltArgDual<Tref>
+  : IRefGnrcAltArgDual<Tref>
 {
   public Tref Asref { get; set; }
 }

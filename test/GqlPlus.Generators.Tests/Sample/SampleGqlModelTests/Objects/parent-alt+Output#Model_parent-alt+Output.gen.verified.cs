@@ -6,25 +6,25 @@
 
 namespace GqlTest.Model_parent_alt_Output;
 
-public interface IOutpPrntAlt
-  : IRefOutpPrntAlt
+public interface IPrntAltOutp
+  : IRefPrntAltOutp
 {
   Number AsNumber { get; }
 }
-public class OutputOutpPrntAlt
-  : OutputRefOutpPrntAlt
-  , IOutpPrntAlt
+public class OutputPrntAltOutp
+  : OutputRefPrntAltOutp
+  , IPrntAltOutp
 {
   public Number AsNumber { get; set; }
 }
 
-public interface IRefOutpPrntAlt
+public interface IRefPrntAltOutp
 {
   Number parent { get; }
   String AsString { get; }
 }
-public class OutputRefOutpPrntAlt
-  : IRefOutpPrntAlt
+public class OutputRefPrntAltOutp
+  : IRefPrntAltOutp
 {
   public Number parent { get; set; }
   public String AsString { get; set; }

@@ -1,11 +1,15 @@
 ﻿/* Intro_Dual
 output _TypeDual {
-    : _TypeObject<_TypeKind.Dual _DualBase _DualField _DualAlternate>
+    : _TypeObject<_TypeKind.Dual _DualBase _DualTypeParam _DualField _DualAlternate>
     }
 
 output _DualBase {
     : _ObjBase<_DualTypeArg>
         dual: _Identifier
+    }
+
+output _DualTypeParam {
+    : _ObjTypeParam<_TypeKind.Dual>
     }
 
 output _DualField {
@@ -49,6 +53,16 @@ public class Output_DualBase
   , I_DualBase
 {
   public _Identifier dual { get; set; }
+}
+
+public interface I_DualTypeParam
+  : I_ObjTypeParam
+{
+}
+public class Output_DualTypeParam
+  : Output_ObjTypeParam
+  , I_DualTypeParam
+{
 }
 
 public interface I_DualField

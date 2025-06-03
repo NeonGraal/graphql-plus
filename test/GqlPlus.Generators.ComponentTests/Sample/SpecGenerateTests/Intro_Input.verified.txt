@@ -1,12 +1,17 @@
 ﻿/* Intro_Input
 output _TypeInput {
-    : _TypeObject<_TypeKind.Input _InputBase _InputField _InputAlternate>
+    : _TypeObject<_TypeKind.Input _InputBase _InputTypeParam _InputField _InputAlternate>
     }
 
 output _InputBase {
     : _ObjBase<_InputTypeArg>
         input: _Identifier
     | _DualBase
+    }
+
+output _InputTypeParam {
+    : _ObjTypeParam<_TypeKind.Input>
+    | _TypeRef<_TypeKind.Dual>
     }
 
 output _InputField {
@@ -59,6 +64,18 @@ public class Output_InputBase
 {
   public _Identifier input { get; set; }
   public _DualBase As_DualBase { get; set; }
+}
+
+public interface I_InputTypeParam
+  : I_ObjTypeParam
+{
+  _TypeRef<_TypeKind> As_TypeRef { get; }
+}
+public class Output_InputTypeParam
+  : Output_ObjTypeParam
+  , I_InputTypeParam
+{
+  public _TypeRef<_TypeKind> As_TypeRef { get; set; }
 }
 
 public interface I_InputField

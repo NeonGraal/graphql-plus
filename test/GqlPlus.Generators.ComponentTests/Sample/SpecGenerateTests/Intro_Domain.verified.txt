@@ -8,12 +8,12 @@ output _TypeDomain {
     | _BaseDomain<_DomainKind.String _DomainRegex _DomainItemRegex>
     }
 
-output _DomainRef<$kind> {
+output _DomainRef<$kind:_DomainKind> {
     : _TypeRef<_TypeKind.Domain>
         domainKind: $kind
     }
 
-output _BaseDomain<$domain $item $domainItem> {
+output _BaseDomain<$domain:_DomainKind $item:_BaseDomainItem $domainItem:_DomainItem> {
     : _ParentType<_TypeKind.Domain $item $domainItem>
         domainKind: $domain
     }
@@ -23,15 +23,23 @@ dual _BaseDomainItem {
         exclude: Boolean
     }
 
-output _DomainItem<$item> {
+output _DomainItem<$item:_BaseDomainItem> {
     : $item
         domain: _Identifier
     }
 
-output _DomainValue<$kind $value> {
+output _DomainValue<$kind:_DomainKind $value:_BasicValue> {
     : _DomainRef<$kind>
         value: $value
     }
+
+output _BasicValue {
+    | Boolean
+    | _EnumValue
+    | Number
+    | String
+    }
+
 dual _DomainTrueFalse {
     : _BaseDomainItem
         value: Boolean
@@ -40,6 +48,7 @@ dual _DomainTrueFalse {
 output _DomainItemTrueFalse {
     : _DomainItem<_DomainTrueFalse>
     }
+
 output _DomainLabel {
     : _BaseDomainItem
         label: _EnumValue
@@ -48,6 +57,7 @@ output _DomainLabel {
 output _DomainItemLabel {
     : _DomainItem<_DomainLabel>
     }
+
 dual _DomainRange {
     : _BaseDomainItem
         lower: Number?
@@ -57,6 +67,7 @@ dual _DomainRange {
 output _DomainItemRange {
     : _DomainItem<_DomainRange>
     }
+
 dual _DomainRegex {
     : _BaseDomainItem
         pattern: String
@@ -156,6 +167,22 @@ public class Output_DomainValue<Tkind,Tvalue>
   , I_DomainValue<Tkind,Tvalue>
 {
   public Tvalue value { get; set; }
+}
+
+public interface I_BasicValue
+{
+  Boolean AsBoolean { get; }
+  _EnumValue As_EnumValue { get; }
+  Number AsNumber { get; }
+  String AsString { get; }
+}
+public class Output_BasicValue
+  : I_BasicValue
+{
+  public Boolean AsBoolean { get; set; }
+  public _EnumValue As_EnumValue { get; set; }
+  public Number AsNumber { get; set; }
+  public String AsString { get; set; }
 }
 
 public interface I_DomainTrueFalse

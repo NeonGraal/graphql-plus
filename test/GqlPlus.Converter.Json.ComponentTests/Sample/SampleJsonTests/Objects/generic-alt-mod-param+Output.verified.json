@@ -2,7 +2,7 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "RefOutpGnrcAltModParam": {
+    "RefGnrcAltModParamOutp": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
@@ -17,7 +17,7 @@
               }
             }
           ],
-          "object": "RefOutpGnrcAltModParam",
+          "object": "RefGnrcAltModParamOutp",
           "type": {
             "$tag": "_OutputBase",
             "typeParam": "ref"
@@ -43,18 +43,34 @@
           }
         }
       ],
-      "name": "RefOutpGnrcAltModParam",
+      "name": "RefGnrcAltModParamOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
           "name": "ref"
         },
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
           "name": "mod"
         }
       ]

@@ -1,7 +1,7 @@
 ﻿/* object-parent+Output
-output OutpObjPrnt { :RefOutpObjPrnt }
-output OutpObjPrnt { :RefOutpObjPrnt }
-output RefOutpObjPrnt { }
+output ObjPrntOutp { :RefObjPrntOutp }
+output ObjPrntOutp { :RefObjPrntOutp }
+output RefObjPrntOutp { }
 */
 
 // Generated from Sample object-parent+Output
@@ -11,20 +11,20 @@ output RefOutpObjPrnt { }
 
 namespace GqlPlus.Model_Sample_object_parent_Output;
 
-public interface IOutpObjPrnt
-  : IRefOutpObjPrnt
+public interface IObjPrntOutp
+  : IRefObjPrntOutp
 {
 }
-public class OutputOutpObjPrnt
-  : OutputRefOutpObjPrnt
-  , IOutpObjPrnt
+public class OutputObjPrntOutp
+  : OutputRefObjPrntOutp
+  , IObjPrntOutp
 {
 }
 
-public interface IRefOutpObjPrnt
+public interface IRefObjPrntOutp
 {
 }
-public class OutputRefOutpObjPrnt
-  : IRefOutpObjPrnt
+public class OutputRefObjPrntOutp
+  : IRefObjPrntOutp
 {
 }

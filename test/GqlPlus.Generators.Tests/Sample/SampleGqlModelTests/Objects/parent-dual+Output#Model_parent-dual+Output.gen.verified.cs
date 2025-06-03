@@ -6,23 +6,23 @@
 
 namespace GqlTest.Model_parent_dual_Output;
 
-public interface IOutpPrntDual
-  : IRefOutpPrntDual
+public interface IPrntDualOutp
+  : IRefPrntDualOutp
 {
 }
-public class OutputOutpPrntDual
-  : OutputRefOutpPrntDual
-  , IOutpPrntDual
+public class OutputPrntDualOutp
+  : OutputRefPrntDualOutp
+  , IPrntDualOutp
 {
 }
 
-public interface IRefOutpPrntDual
+public interface IRefPrntDualOutp
 {
   Number parent { get; }
   String AsString { get; }
 }
-public class DualRefOutpPrntDual
-  : IRefOutpPrntDual
+public class DualRefPrntDualOutp
+  : IRefPrntDualOutp
 {
   public Number parent { get; set; }
   public String AsString { get; set; }

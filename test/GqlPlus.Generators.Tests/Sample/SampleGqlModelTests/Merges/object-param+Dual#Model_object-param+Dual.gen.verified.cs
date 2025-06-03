@@ -6,13 +6,13 @@
 
 namespace GqlTest.Model_object_param_Dual;
 
-public interface IDualObjParam<Ttest,Ttype>
+public interface IObjParamDual<Ttest,Ttype>
 {
   Ttest test { get; }
   Ttype type { get; }
 }
-public class DualDualObjParam<Ttest,Ttype>
-  : IDualObjParam<Ttest,Ttype>
+public class DualObjParamDual<Ttest,Ttype>
+  : IObjParamDual<Ttest,Ttype>
 {
   public Ttest test { get; set; }
   public Ttype type { get; set; }

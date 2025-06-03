@@ -1,5 +1,5 @@
 ﻿/* generic-descr+Dual
-dual DualGnrcDescr<"Test" "Descr" $type> { field: $type }
+dual GnrcDescrDual<"Test" "Descr" $type:String> { field: $type }
 */
 
 // Generated from Sample generic-descr+Dual
@@ -9,12 +9,12 @@ dual DualGnrcDescr<"Test" "Descr" $type> { field: $type }
 
 namespace GqlPlus.Model_Sample_generic_descr_Dual;
 
-public interface IDualGnrcDescr<Ttype>
+public interface IGnrcDescrDual<Ttype>
 {
   Ttype field { get; }
 }
-public class DualDualGnrcDescr<Ttype>
-  : IDualGnrcDescr<Ttype>
+public class DualGnrcDescrDual<Ttype>
+  : IGnrcDescrDual<Ttype>
 {
   public Ttype field { get; set; }
 }

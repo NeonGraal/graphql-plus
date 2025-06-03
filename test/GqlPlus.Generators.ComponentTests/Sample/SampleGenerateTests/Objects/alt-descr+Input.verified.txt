@@ -1,5 +1,5 @@
 ﻿/* alt-descr+Input
-input InpAltDescr { | "Test" "Descr" String }
+input AltDescrInp { | "Test" "Descr" String }
 */
 
 // Generated from Sample alt-descr+Input
@@ -9,12 +9,12 @@ input InpAltDescr { | "Test" "Descr" String }
 
 namespace GqlPlus.Model_Sample_alt_descr_Input;
 
-public interface IInpAltDescr
+public interface IAltDescrInp
 {
   String AsString { get; }
 }
-public class InputInpAltDescr
-  : IInpAltDescr
+public class InputAltDescrInp
+  : IAltDescrInp
 {
   public String AsString { get; set; }
 }

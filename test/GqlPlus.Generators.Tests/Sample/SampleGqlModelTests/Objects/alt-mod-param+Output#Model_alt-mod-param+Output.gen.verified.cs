@@ -6,23 +6,23 @@
 
 namespace GqlTest.Model_alt_mod_param_Output;
 
-public interface IOutpAltModParam<Tmod>
+public interface IAltModParamOutp<Tmod>
 {
-  AltOutpAltModParam AsAltOutpAltModParam { get; }
+  AltAltModParamOutp AsAltAltModParamOutp { get; }
 }
-public class OutputOutpAltModParam<Tmod>
-  : IOutpAltModParam<Tmod>
+public class OutputAltModParamOutp<Tmod>
+  : IAltModParamOutp<Tmod>
 {
-  public AltOutpAltModParam AsAltOutpAltModParam { get; set; }
+  public AltAltModParamOutp AsAltAltModParamOutp { get; set; }
 }
 
-public interface IAltOutpAltModParam
+public interface IAltAltModParamOutp
 {
   Number alt { get; }
   String AsString { get; }
 }
-public class OutputAltOutpAltModParam
-  : IAltOutpAltModParam
+public class OutputAltAltModParamOutp
+  : IAltAltModParamOutp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

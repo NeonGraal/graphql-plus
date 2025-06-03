@@ -6,12 +6,12 @@
 
 namespace GqlTest.Model_generic_parent_Input;
 
-public interface IInpGnrcPrnt<Ttype>
+public interface IGnrcPrntInp<Ttype>
   : Itype
 {
 }
-public class InputInpGnrcPrnt<Ttype>
+public class InputGnrcPrntInp<Ttype>
   : Inputtype
-  , IInpGnrcPrnt<Ttype>
+  , IGnrcPrntInp<Ttype>
 {
 }

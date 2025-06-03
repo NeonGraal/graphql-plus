@@ -6,22 +6,22 @@
 
 namespace GqlTest.Model_generic_alt_arg_Input;
 
-public interface IInpGnrcAltArg<Ttype>
+public interface IGnrcAltArgInp<Ttype>
 {
-  RefInpGnrcAltArg<Ttype> AsRefInpGnrcAltArg { get; }
+  RefGnrcAltArgInp<Ttype> AsRefGnrcAltArgInp { get; }
 }
-public class InputInpGnrcAltArg<Ttype>
-  : IInpGnrcAltArg<Ttype>
+public class InputGnrcAltArgInp<Ttype>
+  : IGnrcAltArgInp<Ttype>
 {
-  public RefInpGnrcAltArg<Ttype> AsRefInpGnrcAltArg { get; set; }
+  public RefGnrcAltArgInp<Ttype> AsRefGnrcAltArgInp { get; set; }
 }
 
-public interface IRefInpGnrcAltArg<Tref>
+public interface IRefGnrcAltArgInp<Tref>
 {
   Tref Asref { get; }
 }
-public class InputRefInpGnrcAltArg<Tref>
-  : IRefInpGnrcAltArg<Tref>
+public class InputRefGnrcAltArgInp<Tref>
+  : IRefGnrcAltArgInp<Tref>
 {
   public Tref Asref { get; set; }
 }

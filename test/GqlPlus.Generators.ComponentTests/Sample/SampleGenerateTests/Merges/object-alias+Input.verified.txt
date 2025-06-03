@@ -1,6 +1,6 @@
 ﻿/* object-alias+Input
-input InpObjAlias [Inp1] { }
-input InpObjAlias [Inp2] { }
+input ObjAliasInp [Input1] { }
+input ObjAliasInp [Input2] { }
 */
 
 // Generated from Sample object-alias+Input
@@ -10,10 +10,10 @@ input InpObjAlias [Inp2] { }
 
 namespace GqlPlus.Model_Sample_object_alias_Input;
 
-public interface IInpObjAlias
+public interface IObjAliasInp
 {
 }
-public class InputInpObjAlias
-  : IInpObjAlias
+public class InputObjAliasInp
+  : IObjAliasInp
 {
 }

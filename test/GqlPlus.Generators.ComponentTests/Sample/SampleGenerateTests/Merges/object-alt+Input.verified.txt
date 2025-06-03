@@ -1,7 +1,7 @@
 ﻿/* object-alt+Input
-input InpObjAlt { | InpObjAltType }
-input InpObjAlt { | InpObjAltType }
-input InpObjAltType { }
+input ObjAltInp { | ObjAltInpType }
+input ObjAltInp { | ObjAltInpType }
+input ObjAltInpType { }
 */
 
 // Generated from Sample object-alt+Input
@@ -11,20 +11,20 @@ input InpObjAltType { }
 
 namespace GqlPlus.Model_Sample_object_alt_Input;
 
-public interface IInpObjAlt
+public interface IObjAltInp
 {
-  InpObjAltType AsInpObjAltType { get; }
+  ObjAltInpType AsObjAltInpType { get; }
 }
-public class InputInpObjAlt
-  : IInpObjAlt
+public class InputObjAltInp
+  : IObjAltInp
 {
-  public InpObjAltType AsInpObjAltType { get; set; }
+  public ObjAltInpType AsObjAltInpType { get; set; }
 }
 
-public interface IInpObjAltType
+public interface IObjAltInpType
 {
 }
-public class InputInpObjAltType
-  : IInpObjAltType
+public class InputObjAltInpType
+  : IObjAltInpType
 {
 }

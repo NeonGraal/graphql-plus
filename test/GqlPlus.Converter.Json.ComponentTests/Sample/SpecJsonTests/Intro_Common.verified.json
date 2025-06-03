@@ -1,6 +1,6 @@
 ﻿{
   "$tag": "_Schema",
-  "_errors": [
+  "errors": [
     {
       "$tag": "_Error",
       "_kind": {
@@ -54,7 +54,15 @@
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            },
+            "typeName": "_TypeKind"
+          },
           "name": "kind"
         }
       ]
@@ -108,11 +116,19 @@
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            },
+            "typeName": "_TypeKind"
+          },
           "name": "kind"
         },
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "name": "parent"
         }
       ]
@@ -232,15 +248,23 @@
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            },
+            "typeName": "_TypeKind"
+          },
           "name": "kind"
         },
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "name": "item"
         },
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
           "name": "allItem"
         }
       ]
@@ -601,7 +625,15 @@
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            },
+            "typeName": "_TypeKind"
+          },
           "name": "kind"
         }
       ]

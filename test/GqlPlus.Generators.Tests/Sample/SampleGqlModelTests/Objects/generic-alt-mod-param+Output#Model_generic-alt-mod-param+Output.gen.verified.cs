@@ -6,12 +6,12 @@
 
 namespace GqlTest.Model_generic_alt_mod_param_Output;
 
-public interface IRefOutpGnrcAltModParam<Tref,Tmod>
+public interface IRefGnrcAltModParamOutp<Tref,Tmod>
 {
   Tref Asref { get; }
 }
-public class OutputRefOutpGnrcAltModParam<Tref,Tmod>
-  : IRefOutpGnrcAltModParam<Tref,Tmod>
+public class OutputRefGnrcAltModParamOutp<Tref,Tmod>
+  : IRefGnrcAltModParamOutp<Tref,Tmod>
 {
   public Tref Asref { get; set; }
 }

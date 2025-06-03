@@ -6,23 +6,23 @@
 
 namespace GqlTest.Model_parent_descr_Dual;
 
-public interface IDualPrntDescr
-  : IRefDualPrntDescr
+public interface IPrntDescrDual
+  : IRefPrntDescrDual
 {
 }
-public class DualDualPrntDescr
-  : DualRefDualPrntDescr
-  , IDualPrntDescr
+public class DualPrntDescrDual
+  : DualRefPrntDescrDual
+  , IPrntDescrDual
 {
 }
 
-public interface IRefDualPrntDescr
+public interface IRefPrntDescrDual
 {
   Number parent { get; }
   String AsString { get; }
 }
-public class DualRefDualPrntDescr
-  : IRefDualPrntDescr
+public class DualRefPrntDescrDual
+  : IRefPrntDescrDual
 {
   public Number parent { get; set; }
   public String AsString { get; set; }

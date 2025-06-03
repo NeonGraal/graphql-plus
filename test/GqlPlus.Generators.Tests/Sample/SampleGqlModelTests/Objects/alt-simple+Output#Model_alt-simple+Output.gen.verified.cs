@@ -6,12 +6,12 @@
 
 namespace GqlTest.Model_alt_simple_Output;
 
-public interface IOutpAltSmpl
+public interface IAltSmplOutp
 {
   String AsString { get; }
 }
-public class OutputOutpAltSmpl
-  : IOutpAltSmpl
+public class OutputAltSmplOutp
+  : IAltSmplOutp
 {
   public String AsString { get; set; }
 }

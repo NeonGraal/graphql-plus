@@ -4,7 +4,7 @@ output _Categories {
         type: _Type
     | _Category
     | _Type
-}
+    }
 
 output _Category {
     : _Aliased
@@ -14,12 +14,13 @@ output _Category {
     }
 
 enum _Resolution { Parallel Sequential Single }
+
 output _Directives {
         directive: _Directive
         type: _Type
     | _Directive
     | _Type
-}
+    }
 
 output _Directive {
     : _Aliased
@@ -30,10 +31,11 @@ output _Directive {
 
 enum _Location { Operation Variable Field Inline Spread Fragment }
 
+
 output _Setting {
     : _Named
         value: _Constant
-}
+    }
 */
 
 // Generated from Spec Intro_+Global

@@ -3,7 +3,7 @@
 Success
 {
   !In I@007/0001
-  InpFieldTypeDescr
+  FieldTypeDescrInp
   {
     !IF I@027/0001
     field

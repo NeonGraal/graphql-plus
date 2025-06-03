@@ -1,6 +1,6 @@
 ﻿/* parent-alt+Dual
-dual DualPrntAlt { :RefDualPrntAlt | Number }
-dual RefDualPrntAlt {  parent: Number | String }
+dual PrntAltDual { :RefPrntAltDual | Number }
+dual RefPrntAltDual {  parent: Number | String }
 */
 
 // Generated from Sample parent-alt+Dual
@@ -10,25 +10,25 @@ dual RefDualPrntAlt {  parent: Number | String }
 
 namespace GqlPlus.Model_Sample_parent_alt_Dual;
 
-public interface IDualPrntAlt
-  : IRefDualPrntAlt
+public interface IPrntAltDual
+  : IRefPrntAltDual
 {
   Number AsNumber { get; }
 }
-public class DualDualPrntAlt
-  : DualRefDualPrntAlt
-  , IDualPrntAlt
+public class DualPrntAltDual
+  : DualRefPrntAltDual
+  , IPrntAltDual
 {
   public Number AsNumber { get; set; }
 }
 
-public interface IRefDualPrntAlt
+public interface IRefPrntAltDual
 {
   Number parent { get; }
   String AsString { get; }
 }
-public class DualRefDualPrntAlt
-  : IRefDualPrntAlt
+public class DualRefPrntAltDual
+  : IRefPrntAltDual
 {
   public Number parent { get; set; }
   public String AsString { get; set; }

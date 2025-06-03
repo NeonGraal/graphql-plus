@@ -1,6 +1,6 @@
 ﻿/* object+Input
-input InpObj { }
-input InpObj { }
+input ObjInp { }
+input ObjInp { }
 */
 
 // Generated from Sample object+Input
@@ -10,10 +10,10 @@ input InpObj { }
 
 namespace GqlPlus.Model_Sample_object_Input;
 
-public interface IInpObj
+public interface IObjInp
 {
 }
-public class InputInpObj
-  : IInpObj
+public class InputObjInp
+  : IObjInp
 {
 }

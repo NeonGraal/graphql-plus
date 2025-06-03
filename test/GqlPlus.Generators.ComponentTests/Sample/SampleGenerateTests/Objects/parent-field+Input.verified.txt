@@ -1,6 +1,6 @@
 ﻿/* parent-field+Input
-input InpPrntField { :RefInpPrntField field: Number }
-input RefInpPrntField { parent: Number | String }
+input PrntFieldInp { :RefPrntFieldInp field: Number }
+input RefPrntFieldInp { parent: Number | String }
 */
 
 // Generated from Sample parent-field+Input
@@ -10,25 +10,25 @@ input RefInpPrntField { parent: Number | String }
 
 namespace GqlPlus.Model_Sample_parent_field_Input;
 
-public interface IInpPrntField
-  : IRefInpPrntField
+public interface IPrntFieldInp
+  : IRefPrntFieldInp
 {
   Number field { get; }
 }
-public class InputInpPrntField
-  : InputRefInpPrntField
-  , IInpPrntField
+public class InputPrntFieldInp
+  : InputRefPrntFieldInp
+  , IPrntFieldInp
 {
   public Number field { get; set; }
 }
 
-public interface IRefInpPrntField
+public interface IRefPrntFieldInp
 {
   Number parent { get; }
   String AsString { get; }
 }
-public class InputRefInpPrntField
-  : IRefInpPrntField
+public class InputRefPrntFieldInp
+  : IRefPrntFieldInp
 {
   public Number parent { get; set; }
   public String AsString { get; set; }

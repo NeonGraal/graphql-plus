@@ -6,22 +6,22 @@
 
 namespace GqlTest.Model_generic_parent_arg_Input;
 
-public interface IInpGnrcPrntArg<Ttype>
-  : IRefInpGnrcPrntArg
+public interface IGnrcPrntArgInp<Ttype>
+  : IRefGnrcPrntArgInp
 {
 }
-public class InputInpGnrcPrntArg<Ttype>
-  : InputRefInpGnrcPrntArg
-  , IInpGnrcPrntArg<Ttype>
+public class InputGnrcPrntArgInp<Ttype>
+  : InputRefGnrcPrntArgInp
+  , IGnrcPrntArgInp<Ttype>
 {
 }
 
-public interface IRefInpGnrcPrntArg<Tref>
+public interface IRefGnrcPrntArgInp<Tref>
 {
   Tref Asref { get; }
 }
-public class InputRefInpGnrcPrntArg<Tref>
-  : IRefInpGnrcPrntArg<Tref>
+public class InputRefGnrcPrntArgInp<Tref>
+  : IRefGnrcPrntArgInp<Tref>
 {
   public Tref Asref { get; set; }
 }

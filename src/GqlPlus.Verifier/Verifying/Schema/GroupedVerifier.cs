@@ -1,8 +1,7 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Merging;
-using GqlPlus.Verifying;
 
-namespace GqlPlus.Verification.Schema;
+namespace GqlPlus.Verifying.Schema;
 
 internal abstract class GroupedVerifier<TAliased>(
    IMerge<TAliased> merger,

@@ -6,12 +6,12 @@
 
 namespace GqlTest.Model_field_Input;
 
-public interface IInpField
+public interface IFieldInp
 {
   String field { get; }
 }
-public class InputInpField
-  : IInpField
+public class InputFieldInp
+  : IFieldInp
 {
   public String field { get; set; }
 }

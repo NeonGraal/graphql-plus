@@ -1,5 +1,5 @@
 ﻿/* field+Output
-output OutpField { field: * }
+output FieldOutp { field: String }
 */
 
 // Generated from Sample field+Output
@@ -9,12 +9,12 @@ output OutpField { field: * }
 
 namespace GqlPlus.Model_Sample_field_Output;
 
-public interface IOutpField
+public interface IFieldOutp
 {
   String field { get; }
 }
-public class OutputOutpField
-  : IOutpField
+public class OutputFieldOutp
+  : IFieldOutp
 {
   public String field { get; set; }
 }

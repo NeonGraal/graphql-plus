@@ -6,12 +6,12 @@
 
 namespace GqlTest.Model_generic_descr_Dual;
 
-public interface IDualGnrcDescr<Ttype>
+public interface IGnrcDescrDual<Ttype>
 {
   Ttype field { get; }
 }
-public class DualDualGnrcDescr<Ttype>
-  : IDualGnrcDescr<Ttype>
+public class DualGnrcDescrDual<Ttype>
+  : IGnrcDescrDual<Ttype>
 {
   public Ttype field { get; set; }
 }

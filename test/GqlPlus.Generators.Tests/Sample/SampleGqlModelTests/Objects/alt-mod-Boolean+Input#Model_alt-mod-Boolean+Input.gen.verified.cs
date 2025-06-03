@@ -6,23 +6,23 @@
 
 namespace GqlTest.Model_alt_mod_Boolean_Input;
 
-public interface IInpAltModBool
+public interface IAltModBoolInp
 {
-  AltInpAltModBool AsAltInpAltModBool { get; }
+  AltAltModBoolInp AsAltAltModBoolInp { get; }
 }
-public class InputInpAltModBool
-  : IInpAltModBool
+public class InputAltModBoolInp
+  : IAltModBoolInp
 {
-  public AltInpAltModBool AsAltInpAltModBool { get; set; }
+  public AltAltModBoolInp AsAltAltModBoolInp { get; set; }
 }
 
-public interface IAltInpAltModBool
+public interface IAltAltModBoolInp
 {
   Number alt { get; }
   String AsString { get; }
 }
-public class InputAltInpAltModBool
-  : IAltInpAltModBool
+public class InputAltAltModBoolInp
+  : IAltAltModBoolInp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

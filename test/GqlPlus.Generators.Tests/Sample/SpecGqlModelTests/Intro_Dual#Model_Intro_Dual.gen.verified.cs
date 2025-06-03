@@ -28,6 +28,16 @@ public class Output_DualBase
   public _Identifier dual { get; set; }
 }
 
+public interface I_DualTypeParam
+  : I_ObjTypeParam
+{
+}
+public class Output_DualTypeParam
+  : Output_ObjTypeParam
+  , I_DualTypeParam
+{
+}
+
 public interface I_DualField
   : I_Field
 {

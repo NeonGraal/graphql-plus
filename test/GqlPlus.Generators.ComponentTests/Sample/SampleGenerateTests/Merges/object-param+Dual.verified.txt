@@ -1,6 +1,6 @@
 ﻿/* object-param+Dual
-dual DualObjParam<$test> { test: $test }
-dual DualObjParam<$type> { type: $type }
+dual ObjParamDual<$test:String> { test: $test }
+dual ObjParamDual<$type:String> { type: $type }
 */
 
 // Generated from Sample object-param+Dual
@@ -10,13 +10,13 @@ dual DualObjParam<$type> { type: $type }
 
 namespace GqlPlus.Model_Sample_object_param_Dual;
 
-public interface IDualObjParam<Ttest,Ttype>
+public interface IObjParamDual<Ttest,Ttype>
 {
   Ttest test { get; }
   Ttype type { get; }
 }
-public class DualDualObjParam<Ttest,Ttype>
-  : IDualObjParam<Ttest,Ttype>
+public class DualObjParamDual<Ttest,Ttype>
+  : IObjParamDual<Ttest,Ttype>
 {
   public Ttest test { get; set; }
   public Ttype type { get; set; }

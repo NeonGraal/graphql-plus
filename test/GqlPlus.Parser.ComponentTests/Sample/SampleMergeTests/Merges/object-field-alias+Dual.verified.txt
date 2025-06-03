@@ -3,7 +3,7 @@
 Success
 {
   !Du I@006/0001
-  DualObjFieldAlias
+  ObjFieldAliasDual
   {
     !DF I@026/0001
     field
@@ -13,11 +13,11 @@ Success
     ]
     :
     I@042/0001
-    FldDualObjFieldAlias
+    FldObjFieldAliasDual
   }
 }
 {
   !Du I@006/0003
-  FldDualObjFieldAlias
+  FldObjFieldAliasDual
 }
 ]

@@ -1,0 +1,44 @@
+﻿/* generic-parent-enum-parent+Dual
+dual GnrcPrntEnumPrntDual { :FieldGnrcPrntEnumPrntDual<EnumGnrcPrntEnumPrntDual> }
+dual FieldGnrcPrntEnumPrntDual<$ref:ParentGnrcPrntEnumPrntDual> { field: $ref }
+enum EnumGnrcPrntEnumPrntDual { :ParentGnrcPrntEnumPrntDual gnrcPrntEnumPrntDualLabel }
+enum ParentGnrcPrntEnumPrntDual { gnrcPrntEnumPrntDualParent }
+*/
+
+// Generated from Sample generic-parent-enum-parent+Dual
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_generic_parent_enum_parent_Dual;
+
+public interface IGnrcPrntEnumPrntDual
+  : IFieldGnrcPrntEnumPrntDual
+{
+}
+public class DualGnrcPrntEnumPrntDual
+  : DualFieldGnrcPrntEnumPrntDual
+  , IGnrcPrntEnumPrntDual
+{
+}
+
+public interface IFieldGnrcPrntEnumPrntDual<Tref>
+{
+  Tref field { get; }
+}
+public class DualFieldGnrcPrntEnumPrntDual<Tref>
+  : IFieldGnrcPrntEnumPrntDual<Tref>
+{
+  public Tref field { get; set; }
+}
+
+public enum EnumGnrcPrntEnumPrntDual
+{
+  gnrcPrntEnumPrntDualParent = ParentGnrcPrntEnumPrntDual.gnrcPrntEnumPrntDualParent,,
+  gnrcPrntEnumPrntDualLabel,
+}
+
+public enum ParentGnrcPrntEnumPrntDual
+{
+  gnrcPrntEnumPrntDualParent,
+}

@@ -1,11 +1,16 @@
 output _TypeInput {
-    : _TypeObject<_TypeKind.Input _InputBase _InputField _InputAlternate>
+    : _TypeObject<_TypeKind.Input _InputBase _InputTypeParam _InputField _InputAlternate>
     }
 
 output _InputBase {
     : _ObjBase<_InputTypeArg>
         input: _Identifier
     | _DualBase
+    }
+
+output _InputTypeParam {
+    : _ObjTypeParam<_TypeKind.Input>
+    | _TypeRef<_TypeKind.Dual>
     }
 
 output _InputField {
@@ -27,3 +32,4 @@ output _InputParam {
         modifiers: _Modifiers[]
         default: _Constant?
     }
+

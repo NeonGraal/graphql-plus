@@ -1,7 +1,7 @@
 ﻿/* object-field+Dual
-dual DualObjField { field: FldDualObjField }
-dual DualObjField { field: FldDualObjField }
-dual FldDualObjField { }
+dual ObjFieldDual { field: FldObjFieldDual }
+dual ObjFieldDual { field: FldObjFieldDual }
+dual FldObjFieldDual { }
 */
 
 // Generated from Sample object-field+Dual
@@ -11,20 +11,20 @@ dual FldDualObjField { }
 
 namespace GqlPlus.Model_Sample_object_field_Dual;
 
-public interface IDualObjField
+public interface IObjFieldDual
 {
-  FldDualObjField field { get; }
+  FldObjFieldDual field { get; }
 }
-public class DualDualObjField
-  : IDualObjField
+public class DualObjFieldDual
+  : IObjFieldDual
 {
-  public FldDualObjField field { get; set; }
+  public FldObjFieldDual field { get; set; }
 }
 
-public interface IFldDualObjField
+public interface IFldObjFieldDual
 {
 }
-public class DualFldDualObjField
-  : IFldDualObjField
+public class DualFldObjFieldDual
+  : IFldObjFieldDual
 {
 }

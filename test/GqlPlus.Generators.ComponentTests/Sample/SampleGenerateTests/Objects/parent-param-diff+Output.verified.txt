@@ -1,6 +1,6 @@
 ﻿/* parent-param-diff+Output
-output OutpPrntParamDiff<$a> { :RefOutpPrntParamDiff<$a> field: $a }
-output RefOutpPrntParamDiff<$b> { | $b }
+output PrntParamDiffOutp<$a:String> { :RefPrntParamDiffOutp<$a> field: $a }
+output RefPrntParamDiffOutp<$b:String> { | $b }
 */
 
 // Generated from Sample parent-param-diff+Output
@@ -10,24 +10,24 @@ output RefOutpPrntParamDiff<$b> { | $b }
 
 namespace GqlPlus.Model_Sample_parent_param_diff_Output;
 
-public interface IOutpPrntParamDiff<Ta>
-  : IRefOutpPrntParamDiff
+public interface IPrntParamDiffOutp<Ta>
+  : IRefPrntParamDiffOutp
 {
   Ta field { get; }
 }
-public class OutputOutpPrntParamDiff<Ta>
-  : OutputRefOutpPrntParamDiff
-  , IOutpPrntParamDiff<Ta>
+public class OutputPrntParamDiffOutp<Ta>
+  : OutputRefPrntParamDiffOutp
+  , IPrntParamDiffOutp<Ta>
 {
   public Ta field { get; set; }
 }
 
-public interface IRefOutpPrntParamDiff<Tb>
+public interface IRefPrntParamDiffOutp<Tb>
 {
   Tb Asb { get; }
 }
-public class OutputRefOutpPrntParamDiff<Tb>
-  : IRefOutpPrntParamDiff<Tb>
+public class OutputRefPrntParamDiffOutp<Tb>
+  : IRefPrntParamDiffOutp<Tb>
 {
   public Tb Asb { get; set; }
 }

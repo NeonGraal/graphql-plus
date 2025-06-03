@@ -1,5 +1,5 @@
 ﻿/* generic-alt+Dual
-dual DualGnrcAlt<$type> { | $type }
+dual GnrcAltDual<$type:String> { | $type }
 */
 
 // Generated from Sample generic-alt+Dual
@@ -9,12 +9,12 @@ dual DualGnrcAlt<$type> { | $type }
 
 namespace GqlPlus.Model_Sample_generic_alt_Dual;
 
-public interface IDualGnrcAlt<Ttype>
+public interface IGnrcAltDual<Ttype>
 {
   Ttype Astype { get; }
 }
-public class DualDualGnrcAlt<Ttype>
-  : IDualGnrcAlt<Ttype>
+public class DualGnrcAltDual<Ttype>
+  : IGnrcAltDual<Ttype>
 {
   public Ttype Astype { get; set; }
 }

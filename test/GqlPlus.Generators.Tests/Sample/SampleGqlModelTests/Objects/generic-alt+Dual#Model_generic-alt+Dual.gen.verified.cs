@@ -6,12 +6,12 @@
 
 namespace GqlTest.Model_generic_alt_Dual;
 
-public interface IDualGnrcAlt<Ttype>
+public interface IGnrcAltDual<Ttype>
 {
   Ttype Astype { get; }
 }
-public class DualDualGnrcAlt<Ttype>
-  : IDualGnrcAlt<Ttype>
+public class DualGnrcAltDual<Ttype>
+  : IGnrcAltDual<Ttype>
 {
   public Ttype Astype { get; set; }
 }

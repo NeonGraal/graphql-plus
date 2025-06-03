@@ -6,25 +6,25 @@
 
 namespace GqlTest.Model_parent_alt_Input;
 
-public interface IInpPrntAlt
-  : IRefInpPrntAlt
+public interface IPrntAltInp
+  : IRefPrntAltInp
 {
   Number AsNumber { get; }
 }
-public class InputInpPrntAlt
-  : InputRefInpPrntAlt
-  , IInpPrntAlt
+public class InputPrntAltInp
+  : InputRefPrntAltInp
+  , IPrntAltInp
 {
   public Number AsNumber { get; set; }
 }
 
-public interface IRefInpPrntAlt
+public interface IRefPrntAltInp
 {
   Number parent { get; }
   String AsString { get; }
 }
-public class InputRefInpPrntAlt
-  : IRefInpPrntAlt
+public class InputRefPrntAltInp
+  : IRefPrntAltInp
 {
   public Number parent { get; set; }
   public String AsString { get; set; }

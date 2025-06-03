@@ -6,10 +6,10 @@
 
 namespace GqlTest.Model_object_Input;
 
-public interface IInpObj
+public interface IObjInp
 {
 }
-public class InputInpObj
-  : IInpObj
+public class InputObjInp
+  : IObjInp
 {
 }

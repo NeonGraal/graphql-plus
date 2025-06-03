@@ -3,17 +3,18 @@
 Success
 {
   !Du I@006/0001
-  DualGnrcDescr
+  GnrcDescrDual
   <
     I@036/0001
     "Test Descr"
     $type
+    :String
   >
   {
-    !DF I@044/0001
+    !DF I@051/0001
     field
     :
-    I@052/0001
+    I@059/0001
     $type
   }
 }

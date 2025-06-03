@@ -1,6 +1,6 @@
 ﻿/* parent-param-same+Dual
-dual DualPrntParamSame<$a> { :RefDualPrntParamSame<$a> field: $a }
-dual RefDualPrntParamSame<$a> { | $a }
+dual PrntParamSameDual<$a:String> { :RefPrntParamSameDual<$a> field: $a }
+dual RefPrntParamSameDual<$a:String> { | $a }
 */
 
 // Generated from Sample parent-param-same+Dual
@@ -10,24 +10,24 @@ dual RefDualPrntParamSame<$a> { | $a }
 
 namespace GqlPlus.Model_Sample_parent_param_same_Dual;
 
-public interface IDualPrntParamSame<Ta>
-  : IRefDualPrntParamSame
+public interface IPrntParamSameDual<Ta>
+  : IRefPrntParamSameDual
 {
   Ta field { get; }
 }
-public class DualDualPrntParamSame<Ta>
-  : DualRefDualPrntParamSame
-  , IDualPrntParamSame<Ta>
+public class DualPrntParamSameDual<Ta>
+  : DualRefPrntParamSameDual
+  , IPrntParamSameDual<Ta>
 {
   public Ta field { get; set; }
 }
 
-public interface IRefDualPrntParamSame<Ta>
+public interface IRefPrntParamSameDual<Ta>
 {
   Ta Asa { get; }
 }
-public class DualRefDualPrntParamSame<Ta>
-  : IRefDualPrntParamSame<Ta>
+public class DualRefPrntParamSameDual<Ta>
+  : IRefPrntParamSameDual<Ta>
 {
   public Ta Asa { get; set; }
 }

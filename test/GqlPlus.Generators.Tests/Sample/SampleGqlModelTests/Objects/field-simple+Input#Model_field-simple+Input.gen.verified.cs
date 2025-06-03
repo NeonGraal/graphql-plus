@@ -6,12 +6,12 @@
 
 namespace GqlTest.Model_field_simple_Input;
 
-public interface IInpFieldSmpl
+public interface IFieldSmplInp
 {
   Number field { get; }
 }
-public class InputInpFieldSmpl
-  : IInpFieldSmpl
+public class InputFieldSmplInp
+  : IFieldSmplInp
 {
   public Number field { get; set; }
 }

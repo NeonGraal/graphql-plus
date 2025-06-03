@@ -1,0 +1,66 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "ObjCnstInp": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "ObjCnstInp",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "type"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "str",
+          "object": "ObjCnstInp",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "type"
+          }
+        },
+        {
+          "$tag": "_InputField",
+          "name": "str",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "name": "ObjCnstInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
+          "name": "type"
+        }
+      ]
+    }
+  }
+}

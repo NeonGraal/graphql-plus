@@ -6,12 +6,12 @@
 
 namespace GqlTest.Model_field_type_descr_Input;
 
-public interface IInpFieldTypeDescr
+public interface IFieldTypeDescrInp
 {
   Number field { get; }
 }
-public class InputInpFieldTypeDescr
-  : IInpFieldTypeDescr
+public class InputFieldTypeDescrInp
+  : IFieldTypeDescrInp
 {
   public Number field { get; set; }
 }

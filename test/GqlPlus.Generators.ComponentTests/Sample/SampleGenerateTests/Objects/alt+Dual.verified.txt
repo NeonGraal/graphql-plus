@@ -1,6 +1,6 @@
 ﻿/* alt+Dual
-dual DualAlt { | AltDualAlt }
-dual AltDualAlt { alt: Number | String }
+dual AltDual { | AltAltDual }
+dual AltAltDual { alt: Number | String }
 */
 
 // Generated from Sample alt+Dual
@@ -10,23 +10,23 @@ dual AltDualAlt { alt: Number | String }
 
 namespace GqlPlus.Model_Sample_alt_Dual;
 
-public interface IDualAlt
+public interface IAltDual
 {
-  AltDualAlt AsAltDualAlt { get; }
+  AltAltDual AsAltAltDual { get; }
 }
-public class DualDualAlt
-  : IDualAlt
+public class DualAltDual
+  : IAltDual
 {
-  public AltDualAlt AsAltDualAlt { get; set; }
+  public AltAltDual AsAltAltDual { get; set; }
 }
 
-public interface IAltDualAlt
+public interface IAltAltDual
 {
   Number alt { get; }
   String AsString { get; }
 }
-public class DualAltDualAlt
-  : IAltDualAlt
+public class DualAltAltDual
+  : IAltAltDual
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

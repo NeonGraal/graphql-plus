@@ -6,20 +6,20 @@
 
 namespace GqlTest.Model_object_field_Input;
 
-public interface IInpObjField
+public interface IObjFieldInp
 {
-  FldInpObjField field { get; }
+  FldObjFieldInp field { get; }
 }
-public class InputInpObjField
-  : IInpObjField
+public class InputObjFieldInp
+  : IObjFieldInp
 {
-  public FldInpObjField field { get; set; }
+  public FldObjFieldInp field { get; set; }
 }
 
-public interface IFldInpObjField
+public interface IFldObjFieldInp
 {
 }
-public class InputFldInpObjField
-  : IFldInpObjField
+public class InputFldObjFieldInp
+  : IFldObjFieldInp
 {
 }

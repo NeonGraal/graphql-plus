@@ -1,5 +1,5 @@
 ﻿/* generic-descr+Output
-output OutpGnrcDescr<"Test" "Descr" $type> { field: $type }
+output GnrcDescrOutp<"Test" "Descr" $type:String> { field: $type }
 */
 
 // Generated from Sample generic-descr+Output
@@ -9,12 +9,12 @@ output OutpGnrcDescr<"Test" "Descr" $type> { field: $type }
 
 namespace GqlPlus.Model_Sample_generic_descr_Output;
 
-public interface IOutpGnrcDescr<Ttype>
+public interface IGnrcDescrOutp<Ttype>
 {
   Ttype field { get; }
 }
-public class OutputOutpGnrcDescr<Ttype>
-  : IOutpGnrcDescr<Ttype>
+public class OutputGnrcDescrOutp<Ttype>
+  : IGnrcDescrOutp<Ttype>
 {
   public Ttype field { get; set; }
 }

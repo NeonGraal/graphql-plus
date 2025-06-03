@@ -1,5 +1,5 @@
 ﻿/* output-param-mod-param
-output OutpParamModParam<$mod> { field(InOutpParamModParam[$mod]): DomOutpParamModParam }
+output OutpParamModParam<$mod:String> { field(InOutpParamModParam[$mod]): DomOutpParamModParam }
 input InOutpParamModParam { param: Number | String }
 domain DomOutpParamModParam { number 1 ~ 10 }
 */

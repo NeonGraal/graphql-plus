@@ -10,17 +10,17 @@ output _Type {
     | _TypeUnion
     }
 
-output _BaseType<$kind> {
+output _BaseType<$kind:_TypeKind> {
     : _Aliased
         typeKind: $kind
     }
 
-output _ChildType<$kind $parent> {
+output _ChildType<$kind:_TypeKind $parent:_Described> {
     : _BaseType<$kind>
         parent: $parent
     }
 
-output _ParentType<$kind $item $allItem> {
+output _ParentType<$kind:_TypeKind $item:_Described $allItem:_Described> {
     : _ChildType<$kind _Named>
         items: $item[]
         allItems: $allItem[]
@@ -30,7 +30,7 @@ enum _SimpleKind { Basic Enum Internal Domain Union }
 
 enum _TypeKind { :_SimpleKind Dual Input Output }
 
-output _TypeRef<$kind> {
+output _TypeRef<$kind:_TypeKind> {
     : _Described
         typeKind: $kind
         typeName: _Identifier
@@ -42,18 +42,25 @@ output _TypeSimple {
     | _TypeRef<_TypeKind.Domain>
     | _TypeRef<_TypeKind.Union>
     }
+
+output _Internal {
+    | Null
+    | Object
+    | Void
+    }
+
 output _Constant {
-    | _Simple
+    | _SimpleValue
     | _ConstantList
     | _ConstantMap
     }
 
-output _Simple {
-    | Boolean
+output _SimpleValue {
+    | _DomainValue<_DomainKind.Boolean Boolean>
+    | _DomainValue<_DomainKind.Enum _EnumValue>
     | _DomainValue<_DomainKind.Number Number>
     | _DomainValue<_DomainKind.String String>
-    | _EnumValue
-}
+    }
 
 output _ConstantList {
     | _Constant[]
@@ -69,7 +76,7 @@ output _Collections {
     | _ModifierKeyed<_ModifierKind.TypeParam>
     }
 
-output _ModifierKeyed<$kind> {
+output _ModifierKeyed<$kind:_ModifierKind> {
     : _Modifier<$kind>
         by: _TypeSimple
         optional: Boolean
@@ -82,7 +89,7 @@ output _Modifiers {
 
 enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
 
-output _Modifier<$kind> {
+output _Modifier<$kind:_ModifierKind> {
         modifierKind: $kind
     }
 */
@@ -207,34 +214,48 @@ public class Output_TypeSimple
   public _TypeRef<_TypeKind> As_TypeRef { get; set; }
 }
 
+public interface I_Internal
+{
+  Null AsNull { get; }
+  Object AsObject { get; }
+  Void AsVoid { get; }
+}
+public class Output_Internal
+  : I_Internal
+{
+  public Null AsNull { get; set; }
+  public Object AsObject { get; set; }
+  public Void AsVoid { get; set; }
+}
+
 public interface I_Constant
 {
-  _Simple As_Simple { get; }
+  _SimpleValue As_SimpleValue { get; }
   _ConstantList As_ConstantList { get; }
   _ConstantMap As_ConstantMap { get; }
 }
 public class Output_Constant
   : I_Constant
 {
-  public _Simple As_Simple { get; set; }
+  public _SimpleValue As_SimpleValue { get; set; }
   public _ConstantList As_ConstantList { get; set; }
   public _ConstantMap As_ConstantMap { get; set; }
 }
 
-public interface I_Simple
+public interface I_SimpleValue
 {
-  Boolean AsBoolean { get; }
+  _DomainValue<_DomainKind, Boolean> As_DomainValue { get; }
+  _DomainValue<_DomainKind, _EnumValue> As_DomainValue { get; }
   _DomainValue<_DomainKind, Number> As_DomainValue { get; }
   _DomainValue<_DomainKind, String> As_DomainValue { get; }
-  _EnumValue As_EnumValue { get; }
 }
-public class Output_Simple
-  : I_Simple
+public class Output_SimpleValue
+  : I_SimpleValue
 {
-  public Boolean AsBoolean { get; set; }
+  public _DomainValue<_DomainKind, Boolean> As_DomainValue { get; set; }
+  public _DomainValue<_DomainKind, _EnumValue> As_DomainValue { get; set; }
   public _DomainValue<_DomainKind, Number> As_DomainValue { get; set; }
   public _DomainValue<_DomainKind, String> As_DomainValue { get; set; }
-  public _EnumValue As_EnumValue { get; set; }
 }
 
 public interface I_ConstantList

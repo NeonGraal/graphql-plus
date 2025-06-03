@@ -1,5 +1,5 @@
 ﻿/* field-descr+Input
-input InpFieldDescr { "Test" "Descr" field: * }
+input FieldDescrInp { "Test" "Descr" field: String }
 */
 
 // Generated from Sample field-descr+Input
@@ -9,12 +9,12 @@ input InpFieldDescr { "Test" "Descr" field: * }
 
 namespace GqlPlus.Model_Sample_field_descr_Input;
 
-public interface IInpFieldDescr
+public interface IFieldDescrInp
 {
   String field { get; }
 }
-public class InputInpFieldDescr
-  : IInpFieldDescr
+public class InputFieldDescrInp
+  : IFieldDescrInp
 {
   public String field { get; set; }
 }

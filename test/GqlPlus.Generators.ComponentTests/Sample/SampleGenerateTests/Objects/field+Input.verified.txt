@@ -1,5 +1,5 @@
 ﻿/* field+Input
-input InpField { field: * }
+input FieldInp { field: String }
 */
 
 // Generated from Sample field+Input
@@ -9,12 +9,12 @@ input InpField { field: * }
 
 namespace GqlPlus.Model_Sample_field_Input;
 
-public interface IInpField
+public interface IFieldInp
 {
   String field { get; }
 }
-public class InputInpField
-  : IInpField
+public class InputFieldInp
+  : IFieldInp
 {
   public String field { get; set; }
 }

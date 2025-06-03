@@ -1,5 +1,5 @@
 ﻿/* field+Dual
-dual DualField { field: * }
+dual FieldDual { field: String }
 */
 
 // Generated from Sample field+Dual
@@ -9,12 +9,12 @@ dual DualField { field: * }
 
 namespace GqlPlus.Model_Sample_field_Dual;
 
-public interface IDualField
+public interface IFieldDual
 {
   String field { get; }
 }
-public class DualDualField
-  : IDualField
+public class DualFieldDual
+  : IFieldDual
 {
   public String field { get; set; }
 }

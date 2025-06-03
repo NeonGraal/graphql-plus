@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpAltDescr": {
+    "AltDescrOutp": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpAltDescr",
+          "object": "AltDescrOutp",
           "type": {
             "$tag": "_OutputBase",
             "description": "Test Descr",
@@ -25,7 +25,7 @@
           }
         }
       ],
-      "name": "OutpAltDescr",
+      "name": "AltDescrOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

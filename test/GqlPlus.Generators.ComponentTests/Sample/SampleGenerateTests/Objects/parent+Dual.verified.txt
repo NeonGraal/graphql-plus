@@ -1,6 +1,6 @@
 ﻿/* parent+Dual
-dual DualPrnt { :RefDualPrnt }
-dual RefDualPrnt { parent: Number | String }
+dual PrntDual { :RefPrntDual }
+dual RefPrntDual { parent: Number | String }
 */
 
 // Generated from Sample parent+Dual
@@ -10,23 +10,23 @@ dual RefDualPrnt { parent: Number | String }
 
 namespace GqlPlus.Model_Sample_parent_Dual;
 
-public interface IDualPrnt
-  : IRefDualPrnt
+public interface IPrntDual
+  : IRefPrntDual
 {
 }
-public class DualDualPrnt
-  : DualRefDualPrnt
-  , IDualPrnt
+public class DualPrntDual
+  : DualRefPrntDual
+  , IPrntDual
 {
 }
 
-public interface IRefDualPrnt
+public interface IRefPrntDual
 {
   Number parent { get; }
   String AsString { get; }
 }
-public class DualRefDualPrnt
-  : IRefDualPrnt
+public class DualRefPrntDual
+  : IRefPrntDual
 {
   public Number parent { get; set; }
   public String AsString { get; set; }

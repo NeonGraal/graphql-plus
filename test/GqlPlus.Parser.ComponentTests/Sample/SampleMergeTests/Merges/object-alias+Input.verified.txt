@@ -3,10 +3,10 @@
 Success
 {
   !In I@007/0001
-  InpObjAlias
+  ObjAliasInp
   [
-    Inp1
-    Inp2
+    Input1
+    Input2
   ]
 }
 ]

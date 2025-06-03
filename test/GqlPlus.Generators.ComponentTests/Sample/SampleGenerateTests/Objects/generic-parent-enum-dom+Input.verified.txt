@@ -1,0 +1,47 @@
+﻿/* generic-parent-enum-dom+Input
+input GnrcPrntEnumDomInp { :FieldGnrcPrntEnumDomInp<DomGnrcPrntEnumDomInp> }
+input FieldGnrcPrntEnumDomInp<$ref:EnumGnrcPrntEnumDomInp> { field: $ref }
+enum EnumGnrcPrntEnumDomInp { gnrcPrntEnumDomInpLabel gnrcPrntEnumDomInpOther }
+domain DomGnrcPrntEnumDomInp { enum gnrcPrntEnumDomInpLabel }
+*/
+
+// Generated from Sample generic-parent-enum-dom+Input
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_generic_parent_enum_dom_Input;
+
+public interface IGnrcPrntEnumDomInp
+  : IFieldGnrcPrntEnumDomInp
+{
+}
+public class InputGnrcPrntEnumDomInp
+  : InputFieldGnrcPrntEnumDomInp
+  , IGnrcPrntEnumDomInp
+{
+}
+
+public interface IFieldGnrcPrntEnumDomInp<Tref>
+{
+  Tref field { get; }
+}
+public class InputFieldGnrcPrntEnumDomInp<Tref>
+  : IFieldGnrcPrntEnumDomInp<Tref>
+{
+  public Tref field { get; set; }
+}
+
+public enum EnumGnrcPrntEnumDomInp
+{
+  gnrcPrntEnumDomInpLabel,
+  gnrcPrntEnumDomInpOther,
+}
+
+public interface IDomGnrcPrntEnumDomInp
+{
+}
+public class DomainDomGnrcPrntEnumDomInp
+  : IDomGnrcPrntEnumDomInp
+{
+}

@@ -1,15 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier AltDualAltModBool: !_TypeDual
+  !_Identifier AltAltModBoolDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: AltDualAltModBool
+      object: AltAltModBoolDual
       type: !_DualBase
         dual: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
-      object: AltDualAltModBool
+      object: AltAltModBoolDual
       type: !_DualBase
         dual: Number
     alternates:
@@ -21,9 +21,9 @@ types: !_Map_Type
       name: alt
       type: !_DualBase
         dual: Number
-    name: AltDualAltModBool
+    name: AltAltModBoolDual
     typeKind: !_TypeKind Dual
-  !_Identifier DualAltModBool: !_TypeDual
+  !_Identifier AltModBoolDual: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
       collections:
@@ -31,9 +31,9 @@ types: !_Map_Type
         by: ^
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Basic
-      object: DualAltModBool
+      object: AltModBoolDual
       type: !_DualBase
-        dual: AltDualAltModBool
+        dual: AltAltModBoolDual
     alternates:
     - !_DualAlternate
       collections:
@@ -42,6 +42,6 @@ types: !_Map_Type
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Basic
       type: !_DualBase
-        dual: AltDualAltModBool
-    name: DualAltModBool
+        dual: AltAltModBoolDual
+    name: AltModBoolDual
     typeKind: !_TypeKind Dual

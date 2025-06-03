@@ -6,33 +6,33 @@
 
 namespace GqlTest.Model_generic_field_param_Output;
 
-public interface IOutpGnrcFieldParam
+public interface IGnrcFieldParamOutp
 {
-  RefOutpGnrcFieldParam<AltOutpGnrcFieldParam> field { get; }
+  RefGnrcFieldParamOutp<AltGnrcFieldParamOutp> field { get; }
 }
-public class OutputOutpGnrcFieldParam
-  : IOutpGnrcFieldParam
+public class OutputGnrcFieldParamOutp
+  : IGnrcFieldParamOutp
 {
-  public RefOutpGnrcFieldParam<AltOutpGnrcFieldParam> field { get; set; }
+  public RefGnrcFieldParamOutp<AltGnrcFieldParamOutp> field { get; set; }
 }
 
-public interface IRefOutpGnrcFieldParam<Tref>
+public interface IRefGnrcFieldParamOutp<Tref>
 {
   Tref Asref { get; }
 }
-public class OutputRefOutpGnrcFieldParam<Tref>
-  : IRefOutpGnrcFieldParam<Tref>
+public class OutputRefGnrcFieldParamOutp<Tref>
+  : IRefGnrcFieldParamOutp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public interface IAltOutpGnrcFieldParam
+public interface IAltGnrcFieldParamOutp
 {
   Number alt { get; }
   String AsString { get; }
 }
-public class OutputAltOutpGnrcFieldParam
-  : IAltOutpGnrcFieldParam
+public class OutputAltGnrcFieldParamOutp
+  : IAltGnrcFieldParamOutp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

@@ -2,12 +2,14 @@
 using GqlPlus.Generating;
 using GqlPlus.Merging;
 using GqlPlus.Parsing;
+using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Sample;
 
 public class GenerateSchemaTests(
-    ISchemaGeneratorChecks checks
-) : TestSchemaAsts(checks)
+  ILoggerFactory logger,
+  ISchemaGeneratorChecks checks
+) : TestSchemaAsts(logger, checks)
 {
   protected override async Task Test_Asts(IEnumerable<IGqlpSchema> asts, string test, string label, string[] dirs, string section, string input = "")
   {

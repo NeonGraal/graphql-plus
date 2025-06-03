@@ -6,12 +6,12 @@
 
 namespace GqlTest.Model_alt_descr_Dual;
 
-public interface IDualAltDescr
+public interface IAltDescrDual
 {
   String AsString { get; }
 }
-public class DualDualAltDescr
-  : IDualAltDescr
+public class DualAltDescrDual
+  : IAltDescrDual
 {
   public String AsString { get; set; }
 }

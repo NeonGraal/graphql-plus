@@ -3,7 +3,7 @@
 Success
 {
   !In I@007/0001
-  InpAltSmpl
+  AltSmplInp
   |
   I@022/0001
   String

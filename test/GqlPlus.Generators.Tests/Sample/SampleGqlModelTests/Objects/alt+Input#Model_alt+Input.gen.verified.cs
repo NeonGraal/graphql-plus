@@ -6,23 +6,23 @@
 
 namespace GqlTest.Model_alt_Input;
 
-public interface IInpAlt
+public interface IAltInp
 {
-  AltInpAlt AsAltInpAlt { get; }
+  AltAltInp AsAltAltInp { get; }
 }
-public class InputInpAlt
-  : IInpAlt
+public class InputAltInp
+  : IAltInp
 {
-  public AltInpAlt AsAltInpAlt { get; set; }
+  public AltAltInp AsAltAltInp { get; set; }
 }
 
-public interface IAltInpAlt
+public interface IAltAltInp
 {
   Number alt { get; }
   String AsString { get; }
 }
-public class InputAltInpAlt
-  : IAltInpAlt
+public class InputAltAltInp
+  : IAltAltInp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

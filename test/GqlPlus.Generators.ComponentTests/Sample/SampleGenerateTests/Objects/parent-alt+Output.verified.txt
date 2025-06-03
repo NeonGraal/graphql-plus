@@ -1,6 +1,6 @@
 ﻿/* parent-alt+Output
-output OutpPrntAlt { :RefOutpPrntAlt | Number }
-output RefOutpPrntAlt {  parent: Number | String }
+output PrntAltOutp { :RefPrntAltOutp | Number }
+output RefPrntAltOutp {  parent: Number | String }
 */
 
 // Generated from Sample parent-alt+Output
@@ -10,25 +10,25 @@ output RefOutpPrntAlt {  parent: Number | String }
 
 namespace GqlPlus.Model_Sample_parent_alt_Output;
 
-public interface IOutpPrntAlt
-  : IRefOutpPrntAlt
+public interface IPrntAltOutp
+  : IRefPrntAltOutp
 {
   Number AsNumber { get; }
 }
-public class OutputOutpPrntAlt
-  : OutputRefOutpPrntAlt
-  , IOutpPrntAlt
+public class OutputPrntAltOutp
+  : OutputRefPrntAltOutp
+  , IPrntAltOutp
 {
   public Number AsNumber { get; set; }
 }
 
-public interface IRefOutpPrntAlt
+public interface IRefPrntAltOutp
 {
   Number parent { get; }
   String AsString { get; }
 }
-public class OutputRefOutpPrntAlt
-  : IRefOutpPrntAlt
+public class OutputRefPrntAltOutp
+  : IRefPrntAltOutp
 {
   public Number parent { get; set; }
   public String AsString { get; set; }

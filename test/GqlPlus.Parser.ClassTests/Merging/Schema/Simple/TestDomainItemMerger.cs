@@ -7,23 +7,23 @@ public abstract class TestDomainItemMerger<TItem, TInput>
   where TItem : IGqlpDomainItem
 {
   [Theory, RepeatData]
-  public void CanMerge_TwoAstsSame_ReturnsGood(TInput name)
-    => CanMerge_Good([MakeAst(name), MakeAst(name)]);
+  public void CanMerge_TwoAstsSame_ReturnsGood(TInput input)
+    => CanMerge_Good([MakeAst(input), MakeAst(input)]);
 
   [Theory, RepeatData]
-  public void Merge_TwoAstsSame_ReturnsExpected(TInput name)
+  public void Merge_TwoAstsSame_ReturnsExpected(TInput input)
     => Merge_Expected(
-      [MakeAst(name), MakeAst(name)],
-      MakeAst(name));
+      [MakeAst(input), MakeAst(input)],
+      MakeAst(input));
 
   [Theory, RepeatData]
-  public void Merge_TwoAstsDifferent_ReturnsExpected(TInput name1, TInput name2)
+  public void Merge_TwoAstsDifferent_ReturnsExpected(TInput input1, TInput input2)
     => this
-      .SkipNull(name1)
-      .SkipIf(name1.Equals(name2))
+      .SkipNull(input1)
+      .SkipIf(input1.Equals(input2))
       .Merge_Expected(
-        [MakeAst(name1), MakeAst(name2)],
-        MakeAst(name1), MakeAst(name2));
+        [MakeAst(input1), MakeAst(input2)],
+        MakeAst(input1), MakeAst(input2));
 
   protected abstract TItem MakeItem(TInput input, bool excludes);
 

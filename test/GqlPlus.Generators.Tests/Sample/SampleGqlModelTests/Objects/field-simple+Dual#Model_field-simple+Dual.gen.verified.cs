@@ -6,12 +6,12 @@
 
 namespace GqlTest.Model_field_simple_Dual;
 
-public interface IDualFieldSmpl
+public interface IFieldSmplDual
 {
   Number field { get; }
 }
-public class DualDualFieldSmpl
-  : IDualFieldSmpl
+public class DualFieldSmplDual
+  : IFieldSmplDual
 {
   public Number field { get; set; }
 }

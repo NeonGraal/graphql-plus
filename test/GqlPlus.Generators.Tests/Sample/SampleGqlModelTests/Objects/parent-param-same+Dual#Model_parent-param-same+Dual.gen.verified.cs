@@ -6,24 +6,24 @@
 
 namespace GqlTest.Model_parent_param_same_Dual;
 
-public interface IDualPrntParamSame<Ta>
-  : IRefDualPrntParamSame
+public interface IPrntParamSameDual<Ta>
+  : IRefPrntParamSameDual
 {
   Ta field { get; }
 }
-public class DualDualPrntParamSame<Ta>
-  : DualRefDualPrntParamSame
-  , IDualPrntParamSame<Ta>
+public class DualPrntParamSameDual<Ta>
+  : DualRefPrntParamSameDual
+  , IPrntParamSameDual<Ta>
 {
   public Ta field { get; set; }
 }
 
-public interface IRefDualPrntParamSame<Ta>
+public interface IRefPrntParamSameDual<Ta>
 {
   Ta Asa { get; }
 }
-public class DualRefDualPrntParamSame<Ta>
-  : IRefDualPrntParamSame<Ta>
+public class DualRefPrntParamSameDual<Ta>
+  : IRefPrntParamSameDual<Ta>
 {
   public Ta Asa { get; set; }
 }

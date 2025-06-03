@@ -6,12 +6,12 @@
 
 namespace GqlTest.Model_generic_field_Input;
 
-public interface IInpGnrcField<Ttype>
+public interface IGnrcFieldInp<Ttype>
 {
   Ttype field { get; }
 }
-public class InputInpGnrcField<Ttype>
-  : IInpGnrcField<Ttype>
+public class InputGnrcFieldInp<Ttype>
+  : IGnrcFieldInp<Ttype>
 {
   public Ttype field { get; set; }
 }

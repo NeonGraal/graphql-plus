@@ -2,69 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "DualFieldModEnum": {
-      "$tag": "_TypeDual",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_ModifierDictionary",
-              "by": "EnumDualFieldModEnum",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "Dict"
-              },
-              "typeKind": {
-                "$tag": "_SimpleKind",
-                "value": "Enum"
-              }
-            }
-          ],
-          "name": "field",
-          "object": "DualFieldModEnum",
-          "type": {
-            "$tag": "_DualBase",
-            "dual": "*"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_DualField",
-          "modifiers": [
-            {
-              "$tag": "_ModifierDictionary",
-              "by": "EnumDualFieldModEnum",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "Dict"
-              },
-              "typeKind": {
-                "$tag": "_SimpleKind",
-                "value": "Enum"
-              }
-            }
-          ],
-          "name": "field",
-          "type": {
-            "$tag": "_DualBase",
-            "dual": "*"
-          }
-        }
-      ],
-      "name": "DualFieldModEnum",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Dual"
-      }
-    },
-    "EnumDualFieldModEnum": {
+    "EnumFieldModEnumDual": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "enum": "EnumDualFieldModEnum",
+          "enum": "EnumFieldModEnumDual",
           "name": "value"
         }
       ],
@@ -74,10 +17,67 @@
           "name": "value"
         }
       ],
-      "name": "EnumDualFieldModEnum",
+      "name": "EnumFieldModEnumDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Enum"
+      }
+    },
+    "FieldModEnumDual": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "EnumFieldModEnumDual",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Dict"
+              },
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Enum"
+              }
+            }
+          ],
+          "name": "field",
+          "object": "FieldModEnumDual",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "modifiers": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "EnumFieldModEnumDual",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Dict"
+              },
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Enum"
+              }
+            }
+          ],
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "String"
+          }
+        }
+      ],
+      "name": "FieldModEnumDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
       }
     }
   }

@@ -6,17 +6,17 @@
 
 namespace GqlTest.Model_field_mod_Enum_Dual;
 
-public interface IDualFieldModEnum
+public interface IFieldModEnumDual
 {
   String field { get; }
 }
-public class DualDualFieldModEnum
-  : IDualFieldModEnum
+public class DualFieldModEnumDual
+  : IFieldModEnumDual
 {
   public String field { get; set; }
 }
 
-public enum EnumDualFieldModEnum
+public enum EnumFieldModEnumDual
 {
   value,
 }

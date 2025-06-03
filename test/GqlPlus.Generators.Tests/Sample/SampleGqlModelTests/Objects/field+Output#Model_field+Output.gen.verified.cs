@@ -6,12 +6,12 @@
 
 namespace GqlTest.Model_field_Output;
 
-public interface IOutpField
+public interface IFieldOutp
 {
   String field { get; }
 }
-public class OutputOutpField
-  : IOutpField
+public class OutputFieldOutp
+  : IFieldOutp
 {
   public String field { get; set; }
 }

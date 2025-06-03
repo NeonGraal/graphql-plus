@@ -6,20 +6,20 @@
 
 namespace GqlTest.Model_object_field_Dual;
 
-public interface IDualObjField
+public interface IObjFieldDual
 {
-  FldDualObjField field { get; }
+  FldObjFieldDual field { get; }
 }
-public class DualDualObjField
-  : IDualObjField
+public class DualObjFieldDual
+  : IObjFieldDual
 {
-  public FldDualObjField field { get; set; }
+  public FldObjFieldDual field { get; set; }
 }
 
-public interface IFldDualObjField
+public interface IFldObjFieldDual
 {
 }
-public class DualFldDualObjField
-  : IFldDualObjField
+public class DualFldObjFieldDual
+  : IFldObjFieldDual
 {
 }

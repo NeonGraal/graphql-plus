@@ -1,6 +1,6 @@
 ﻿/* output-parent-generic
 output OutpPrntGnrc { | RefOutpPrntGnrc<EnumOutpPrntGnrc.prnt_outpPrntGnrc> }
-output RefOutpPrntGnrc<$type> { field: $type }
+output RefOutpPrntGnrc<$type:PrntOutpPrntGnrc> { field: $type }
 enum EnumOutpPrntGnrc { :PrntOutpPrntGnrc outpPrntGnrc }
 enum PrntOutpPrntGnrc { prnt_outpPrntGnrc }
 */

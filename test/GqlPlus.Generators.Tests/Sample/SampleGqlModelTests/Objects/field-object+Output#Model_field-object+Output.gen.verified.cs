@@ -6,23 +6,23 @@
 
 namespace GqlTest.Model_field_object_Output;
 
-public interface IOutpFieldObj
+public interface IFieldObjOutp
 {
-  FldOutpFieldObj field { get; }
+  FldFieldObjOutp field { get; }
 }
-public class OutputOutpFieldObj
-  : IOutpFieldObj
+public class OutputFieldObjOutp
+  : IFieldObjOutp
 {
-  public FldOutpFieldObj field { get; set; }
+  public FldFieldObjOutp field { get; set; }
 }
 
-public interface IFldOutpFieldObj
+public interface IFldFieldObjOutp
 {
   Number field { get; }
   String AsString { get; }
 }
-public class OutputFldOutpFieldObj
-  : IFldOutpFieldObj
+public class OutputFldFieldObjOutp
+  : IFldFieldObjOutp
 {
   public Number field { get; set; }
   public String AsString { get; set; }

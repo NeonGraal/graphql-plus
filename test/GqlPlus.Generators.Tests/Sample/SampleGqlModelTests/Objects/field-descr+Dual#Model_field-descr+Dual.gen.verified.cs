@@ -6,12 +6,12 @@
 
 namespace GqlTest.Model_field_descr_Dual;
 
-public interface IDualFieldDescr
+public interface IFieldDescrDual
 {
   String field { get; }
 }
-public class DualDualFieldDescr
-  : IDualFieldDescr
+public class DualFieldDescrDual
+  : IFieldDescrDual
 {
   public String field { get; set; }
 }

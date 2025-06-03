@@ -6,10 +6,10 @@
 
 namespace GqlTest.Model_object_Dual;
 
-public interface IDualObj
+public interface IObjDual
 {
 }
-public class DualDualObj
-  : IDualObj
+public class DualObjDual
+  : IObjDual
 {
 }

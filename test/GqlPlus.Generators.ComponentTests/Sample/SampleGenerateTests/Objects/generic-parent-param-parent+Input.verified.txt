@@ -1,7 +1,7 @@
 ﻿/* generic-parent-param-parent+Input
-input InpGnrcPrntParamPrnt { :RefInpGnrcPrntParamPrnt<AltInpGnrcPrntParamPrnt> }
-input RefInpGnrcPrntParamPrnt<$ref> { :$ref }
-input AltInpGnrcPrntParamPrnt { alt: Number | String }
+input GnrcPrntParamPrntInp { :RefGnrcPrntParamPrntInp<AltGnrcPrntParamPrntInp> }
+input RefGnrcPrntParamPrntInp<$ref:_Input> { :$ref }
+input AltGnrcPrntParamPrntInp { alt: Number | String }
 */
 
 // Generated from Sample generic-parent-param-parent+Input
@@ -11,33 +11,33 @@ input AltInpGnrcPrntParamPrnt { alt: Number | String }
 
 namespace GqlPlus.Model_Sample_generic_parent_param_parent_Input;
 
-public interface IInpGnrcPrntParamPrnt
-  : IRefInpGnrcPrntParamPrnt
+public interface IGnrcPrntParamPrntInp
+  : IRefGnrcPrntParamPrntInp
 {
 }
-public class InputInpGnrcPrntParamPrnt
-  : InputRefInpGnrcPrntParamPrnt
-  , IInpGnrcPrntParamPrnt
+public class InputGnrcPrntParamPrntInp
+  : InputRefGnrcPrntParamPrntInp
+  , IGnrcPrntParamPrntInp
 {
 }
 
-public interface IRefInpGnrcPrntParamPrnt<Tref>
+public interface IRefGnrcPrntParamPrntInp<Tref>
   : Iref
 {
 }
-public class InputRefInpGnrcPrntParamPrnt<Tref>
+public class InputRefGnrcPrntParamPrntInp<Tref>
   : Inputref
-  , IRefInpGnrcPrntParamPrnt<Tref>
+  , IRefGnrcPrntParamPrntInp<Tref>
 {
 }
 
-public interface IAltInpGnrcPrntParamPrnt
+public interface IAltGnrcPrntParamPrntInp
 {
   Number alt { get; }
   String AsString { get; }
 }
-public class InputAltInpGnrcPrntParamPrnt
-  : IAltInpGnrcPrntParamPrnt
+public class InputAltGnrcPrntParamPrntInp
+  : IAltGnrcPrntParamPrntInp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

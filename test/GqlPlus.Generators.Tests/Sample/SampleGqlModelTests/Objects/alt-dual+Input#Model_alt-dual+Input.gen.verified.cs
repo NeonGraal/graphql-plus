@@ -6,23 +6,23 @@
 
 namespace GqlTest.Model_alt_dual_Input;
 
-public interface IInpAltDual
+public interface IAltDualInp
 {
-  InpDualAltDual AsInpDualAltDual { get; }
+  ObjDualAltDualInp AsObjDualAltDualInp { get; }
 }
-public class InputInpAltDual
-  : IInpAltDual
+public class InputAltDualInp
+  : IAltDualInp
 {
-  public InpDualAltDual AsInpDualAltDual { get; set; }
+  public ObjDualAltDualInp AsObjDualAltDualInp { get; set; }
 }
 
-public interface IInpDualAltDual
+public interface IObjDualAltDualInp
 {
   Number alt { get; }
   String AsString { get; }
 }
-public class DualInpDualAltDual
-  : IInpDualAltDual
+public class DualObjDualAltDualInp
+  : IObjDualAltDualInp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

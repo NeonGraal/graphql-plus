@@ -6,23 +6,23 @@
 
 namespace GqlTest.Model_field_mod_param_Output;
 
-public interface IOutpFieldModParam<Tmod>
+public interface IFieldModParamOutp<Tmod>
 {
-  FldOutpFieldModParam field { get; }
+  FldFieldModParamOutp field { get; }
 }
-public class OutputOutpFieldModParam<Tmod>
-  : IOutpFieldModParam<Tmod>
+public class OutputFieldModParamOutp<Tmod>
+  : IFieldModParamOutp<Tmod>
 {
-  public FldOutpFieldModParam field { get; set; }
+  public FldFieldModParamOutp field { get; set; }
 }
 
-public interface IFldOutpFieldModParam
+public interface IFldFieldModParamOutp
 {
   Number field { get; }
   String AsString { get; }
 }
-public class OutputFldOutpFieldModParam
-  : IFldOutpFieldModParam
+public class OutputFldFieldModParamOutp
+  : IFldFieldModParamOutp
 {
   public Number field { get; set; }
   public String AsString { get; set; }

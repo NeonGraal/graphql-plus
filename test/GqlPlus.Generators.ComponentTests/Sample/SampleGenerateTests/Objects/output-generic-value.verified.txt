@@ -1,6 +1,6 @@
 ﻿/* output-generic-value
 output OutpGnrcValue { | RefOutpGnrcValue<outpGnrcValue> }
-output RefOutpGnrcValue<$type> { field: $type }
+output RefOutpGnrcValue<$type:_Enum> { field: $type }
 enum EnumOutpGnrcValue { outpGnrcValue }
 */
 

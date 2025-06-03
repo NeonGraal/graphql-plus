@@ -6,12 +6,12 @@
 
 namespace GqlTest.Model_generic_alt_mod_String_Dual;
 
-public interface IRefDualGnrcAltModStr<Tref>
+public interface IRefGnrcAltModStrDual<Tref>
 {
   Tref Asref { get; }
 }
-public class DualRefDualGnrcAltModStr<Tref>
-  : IRefDualGnrcAltModStr<Tref>
+public class DualRefGnrcAltModStrDual<Tref>
+  : IRefGnrcAltModStrDual<Tref>
 {
   public Tref Asref { get; set; }
 }

@@ -6,12 +6,12 @@
 
 namespace GqlTest.Model_generic_descr_Input;
 
-public interface IInpGnrcDescr<Ttype>
+public interface IGnrcDescrInp<Ttype>
 {
   Ttype field { get; }
 }
-public class InputInpGnrcDescr<Ttype>
-  : IInpGnrcDescr<Ttype>
+public class InputGnrcDescrInp<Ttype>
+  : IGnrcDescrInp<Ttype>
 {
   public Ttype field { get; set; }
 }

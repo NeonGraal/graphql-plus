@@ -1,7 +1,7 @@
 ﻿/* generic-field-dual+Input
-input InpGnrcFieldDual { field: RefInpGnrcFieldDual<AltInpGnrcFieldDual> }
-input RefInpGnrcFieldDual<$ref> { | $ref }
-dual AltInpGnrcFieldDual { alt: Number | String }
+input GnrcFieldDualInp { field: RefGnrcFieldDualInp<AltGnrcFieldDualInp> }
+input RefGnrcFieldDualInp<$ref:_Dual> { | $ref }
+dual AltGnrcFieldDualInp { alt: Number | String }
 */
 
 // Generated from Sample generic-field-dual+Input
@@ -11,33 +11,33 @@ dual AltInpGnrcFieldDual { alt: Number | String }
 
 namespace GqlPlus.Model_Sample_generic_field_dual_Input;
 
-public interface IInpGnrcFieldDual
+public interface IGnrcFieldDualInp
 {
-  RefInpGnrcFieldDual<AltInpGnrcFieldDual> field { get; }
+  RefGnrcFieldDualInp<AltGnrcFieldDualInp> field { get; }
 }
-public class InputInpGnrcFieldDual
-  : IInpGnrcFieldDual
+public class InputGnrcFieldDualInp
+  : IGnrcFieldDualInp
 {
-  public RefInpGnrcFieldDual<AltInpGnrcFieldDual> field { get; set; }
+  public RefGnrcFieldDualInp<AltGnrcFieldDualInp> field { get; set; }
 }
 
-public interface IRefInpGnrcFieldDual<Tref>
+public interface IRefGnrcFieldDualInp<Tref>
 {
   Tref Asref { get; }
 }
-public class InputRefInpGnrcFieldDual<Tref>
-  : IRefInpGnrcFieldDual<Tref>
+public class InputRefGnrcFieldDualInp<Tref>
+  : IRefGnrcFieldDualInp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public interface IAltInpGnrcFieldDual
+public interface IAltGnrcFieldDualInp
 {
   Number alt { get; }
   String AsString { get; }
 }
-public class DualAltInpGnrcFieldDual
-  : IAltInpGnrcFieldDual
+public class DualAltGnrcFieldDualInp
+  : IAltGnrcFieldDualInp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

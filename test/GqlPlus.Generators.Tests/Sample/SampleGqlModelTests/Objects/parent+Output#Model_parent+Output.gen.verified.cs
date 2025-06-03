@@ -6,23 +6,23 @@
 
 namespace GqlTest.Model_parent_Output;
 
-public interface IOutpPrnt
-  : IRefOutpPrnt
+public interface IPrntOutp
+  : IRefPrntOutp
 {
 }
-public class OutputOutpPrnt
-  : OutputRefOutpPrnt
-  , IOutpPrnt
+public class OutputPrntOutp
+  : OutputRefPrntOutp
+  , IPrntOutp
 {
 }
 
-public interface IRefOutpPrnt
+public interface IRefPrntOutp
 {
   Number parent { get; }
   String AsString { get; }
 }
-public class OutputRefOutpPrnt
-  : IRefOutpPrnt
+public class OutputRefPrntOutp
+  : IRefPrntOutp
 {
   public Number parent { get; set; }
   public String AsString { get; set; }

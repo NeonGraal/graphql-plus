@@ -1,5 +1,5 @@
 ﻿/* generic-alt+Input
-input InpGnrcAlt<$type> { | $type }
+input GnrcAltInp<$type:String> { | $type }
 */
 
 // Generated from Sample generic-alt+Input
@@ -9,12 +9,12 @@ input InpGnrcAlt<$type> { | $type }
 
 namespace GqlPlus.Model_Sample_generic_alt_Input;
 
-public interface IInpGnrcAlt<Ttype>
+public interface IGnrcAltInp<Ttype>
 {
   Ttype Astype { get; }
 }
-public class InputInpGnrcAlt<Ttype>
-  : IInpGnrcAlt<Ttype>
+public class InputGnrcAltInp<Ttype>
+  : IGnrcAltInp<Ttype>
 {
   public Ttype Astype { get; set; }
 }

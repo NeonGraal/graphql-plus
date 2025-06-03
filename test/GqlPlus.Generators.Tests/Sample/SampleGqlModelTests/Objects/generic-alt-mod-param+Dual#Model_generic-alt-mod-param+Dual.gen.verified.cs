@@ -6,12 +6,12 @@
 
 namespace GqlTest.Model_generic_alt_mod_param_Dual;
 
-public interface IRefDualGnrcAltModParam<Tref,Tmod>
+public interface IRefGnrcAltModParamDual<Tref,Tmod>
 {
   Tref Asref { get; }
 }
-public class DualRefDualGnrcAltModParam<Tref,Tmod>
-  : IRefDualGnrcAltModParam<Tref,Tmod>
+public class DualRefGnrcAltModParamDual<Tref,Tmod>
+  : IRefGnrcAltModParamDual<Tref,Tmod>
 {
   public Tref Asref { get; set; }
 }

@@ -6,25 +6,25 @@
 
 namespace GqlTest.Model_parent_field_Dual;
 
-public interface IDualPrntField
-  : IRefDualPrntField
+public interface IPrntFieldDual
+  : IRefPrntFieldDual
 {
   Number field { get; }
 }
-public class DualDualPrntField
-  : DualRefDualPrntField
-  , IDualPrntField
+public class DualPrntFieldDual
+  : DualRefPrntFieldDual
+  , IPrntFieldDual
 {
   public Number field { get; set; }
 }
 
-public interface IRefDualPrntField
+public interface IRefPrntFieldDual
 {
   Number parent { get; }
   String AsString { get; }
 }
-public class DualRefDualPrntField
-  : IRefDualPrntField
+public class DualRefPrntFieldDual
+  : IRefPrntFieldDual
 {
   public Number parent { get; set; }
   public String AsString { get; set; }

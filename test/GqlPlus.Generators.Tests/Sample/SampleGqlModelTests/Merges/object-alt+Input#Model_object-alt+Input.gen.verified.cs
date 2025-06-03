@@ -6,20 +6,20 @@
 
 namespace GqlTest.Model_object_alt_Input;
 
-public interface IInpObjAlt
+public interface IObjAltInp
 {
-  InpObjAltType AsInpObjAltType { get; }
+  ObjAltInpType AsObjAltInpType { get; }
 }
-public class InputInpObjAlt
-  : IInpObjAlt
+public class InputObjAltInp
+  : IObjAltInp
 {
-  public InpObjAltType AsInpObjAltType { get; set; }
+  public ObjAltInpType AsObjAltInpType { get; set; }
 }
 
-public interface IInpObjAltType
+public interface IObjAltInpType
 {
 }
-public class InputInpObjAltType
-  : IInpObjAltType
+public class InputObjAltInpType
+  : IObjAltInpType
 {
 }

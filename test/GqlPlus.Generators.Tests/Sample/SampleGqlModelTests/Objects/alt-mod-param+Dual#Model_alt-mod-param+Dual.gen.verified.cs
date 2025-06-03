@@ -6,23 +6,23 @@
 
 namespace GqlTest.Model_alt_mod_param_Dual;
 
-public interface IDualAltModParam<Tmod>
+public interface IAltModParamDual<Tmod>
 {
-  AltDualAltModParam AsAltDualAltModParam { get; }
+  AltAltModParamDual AsAltAltModParamDual { get; }
 }
-public class DualDualAltModParam<Tmod>
-  : IDualAltModParam<Tmod>
+public class DualAltModParamDual<Tmod>
+  : IAltModParamDual<Tmod>
 {
-  public AltDualAltModParam AsAltDualAltModParam { get; set; }
+  public AltAltModParamDual AsAltAltModParamDual { get; set; }
 }
 
-public interface IAltDualAltModParam
+public interface IAltAltModParamDual
 {
   Number alt { get; }
   String AsString { get; }
 }
-public class DualAltDualAltModParam
-  : IAltDualAltModParam
+public class DualAltAltModParamDual
+  : IAltAltModParamDual
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

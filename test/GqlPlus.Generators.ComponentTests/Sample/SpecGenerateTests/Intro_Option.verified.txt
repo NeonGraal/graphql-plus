@@ -2,7 +2,7 @@
 output _Setting {
     : _Named
         value: _Constant
-}
+    }
 */
 
 // Generated from Spec Intro_Option

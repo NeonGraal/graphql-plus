@@ -6,20 +6,20 @@
 
 namespace GqlTest.Model_object_alt_Dual;
 
-public interface IDualObjAlt
+public interface IObjAltDual
 {
-  DualObjAltType AsDualObjAltType { get; }
+  ObjAltDualType AsObjAltDualType { get; }
 }
-public class DualDualObjAlt
-  : IDualObjAlt
+public class DualObjAltDual
+  : IObjAltDual
 {
-  public DualObjAltType AsDualObjAltType { get; set; }
+  public ObjAltDualType AsObjAltDualType { get; set; }
 }
 
-public interface IDualObjAltType
+public interface IObjAltDualType
 {
 }
-public class DualDualObjAltType
-  : IDualObjAltType
+public class DualObjAltDualType
+  : IObjAltDualType
 {
 }

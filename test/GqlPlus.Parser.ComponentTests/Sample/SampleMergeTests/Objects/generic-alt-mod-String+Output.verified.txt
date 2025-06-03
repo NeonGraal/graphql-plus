@@ -3,13 +3,14 @@
 Success
 {
   !Ou I@008/0001
-  RefOutpGnrcAltModStr
+  RefGnrcAltModStrOutp
   <
     I@030/0001
     $ref
+    :String
   >
   |
-  P@039/0001
+  P@046/0001
   $ref
   [*]
 }

@@ -324,34 +324,48 @@ public class Output_TypeSimple
   public _TypeRef<_TypeKind> As_TypeRef { get; set; }
 }
 
+public interface I_Internal
+{
+  Null AsNull { get; }
+  Object AsObject { get; }
+  Void AsVoid { get; }
+}
+public class Output_Internal
+  : I_Internal
+{
+  public Null AsNull { get; set; }
+  public Object AsObject { get; set; }
+  public Void AsVoid { get; set; }
+}
+
 public interface I_Constant
 {
-  _Simple As_Simple { get; }
+  _SimpleValue As_SimpleValue { get; }
   _ConstantList As_ConstantList { get; }
   _ConstantMap As_ConstantMap { get; }
 }
 public class Output_Constant
   : I_Constant
 {
-  public _Simple As_Simple { get; set; }
+  public _SimpleValue As_SimpleValue { get; set; }
   public _ConstantList As_ConstantList { get; set; }
   public _ConstantMap As_ConstantMap { get; set; }
 }
 
-public interface I_Simple
+public interface I_SimpleValue
 {
-  Boolean AsBoolean { get; }
+  _DomainValue<_DomainKind, Boolean> As_DomainValue { get; }
+  _DomainValue<_DomainKind, _EnumValue> As_DomainValue { get; }
   _DomainValue<_DomainKind, Number> As_DomainValue { get; }
   _DomainValue<_DomainKind, String> As_DomainValue { get; }
-  _EnumValue As_EnumValue { get; }
 }
-public class Output_Simple
-  : I_Simple
+public class Output_SimpleValue
+  : I_SimpleValue
 {
-  public Boolean AsBoolean { get; set; }
+  public _DomainValue<_DomainKind, Boolean> As_DomainValue { get; set; }
+  public _DomainValue<_DomainKind, _EnumValue> As_DomainValue { get; set; }
   public _DomainValue<_DomainKind, Number> As_DomainValue { get; set; }
   public _DomainValue<_DomainKind, String> As_DomainValue { get; set; }
-  public _EnumValue As_EnumValue { get; set; }
 }
 
 public interface I_ConstantList
@@ -519,6 +533,22 @@ public class Output_DomainValue<Tkind,Tvalue>
   public Tvalue value { get; set; }
 }
 
+public interface I_BasicValue
+{
+  Boolean AsBoolean { get; }
+  _EnumValue As_EnumValue { get; }
+  Number AsNumber { get; }
+  String AsString { get; }
+}
+public class Output_BasicValue
+  : I_BasicValue
+{
+  public Boolean AsBoolean { get; set; }
+  public _EnumValue As_EnumValue { get; set; }
+  public Number AsNumber { get; set; }
+  public String AsString { get; set; }
+}
+
 public interface I_DomainTrueFalse
   : I_BaseDomainItem
 {
@@ -675,96 +705,92 @@ public class Output_UnionMember
   public _Identifier union { get; set; }
 }
 
-public interface I_TypeObject<Tkind,Tparent,Tfield,Talternate>
+public interface I_ObjectKind
+{
+}
+public class Domain_ObjectKind
+  : I_ObjectKind
+{
+}
+
+public interface I_TypeObject<Tkind,Tparent,TtypeParam,Tfield,Talternate>
   : I_ChildType
 {
-  _ObjTypeParam typeParams { get; }
+  TtypeParam typeParams { get; }
   Tfield fields { get; }
   Talternate alternates { get; }
   _ObjectFor<Tfield> allFields { get; }
   _ObjectFor<Talternate> allAlternates { get; }
 }
-public class Output_TypeObject<Tkind,Tparent,Tfield,Talternate>
+public class Output_TypeObject<Tkind,Tparent,TtypeParam,Tfield,Talternate>
   : Output_ChildType
-  , I_TypeObject<Tkind,Tparent,Tfield,Talternate>
+  , I_TypeObject<Tkind,Tparent,TtypeParam,Tfield,Talternate>
 {
-  public _ObjTypeParam typeParams { get; set; }
+  public TtypeParam typeParams { get; set; }
   public Tfield fields { get; set; }
   public Talternate alternates { get; set; }
   public _ObjectFor<Tfield> allFields { get; set; }
   public _ObjectFor<Talternate> allAlternates { get; set; }
 }
 
-public interface I_ObjConstraint<Tbase>
+public interface I_ObjTypeParam<Tkind>
+  : I_Named
 {
-  _TypeSimple As_TypeSimple { get; }
-  Tbase Asbase { get; }
+  _ObjConstraint<Tkind> constraint { get; }
 }
-public class Output_ObjConstraint<Tbase>
-  : I_ObjConstraint<Tbase>
+public class Output_ObjTypeParam<Tkind>
+  : Output_Named
+  , I_ObjTypeParam<Tkind>
 {
-  public _TypeSimple As_TypeSimple { get; set; }
-  public Tbase Asbase { get; set; }
+  public _ObjConstraint<Tkind> constraint { get; set; }
 }
 
-public interface I_ObjType<Tbase>
+public interface I_ObjConstraint<Tkind>
+  : I_TypeRef
 {
-  _BaseType<_TypeKind> As_BaseType { get; }
-  _ObjConstraint<Tbase> As_ObjConstraint { get; }
 }
-public class Output_ObjType<Tbase>
-  : I_ObjType<Tbase>
+public class Output_ObjConstraint<Tkind>
+  : Output_TypeRef
+  , I_ObjConstraint<Tkind>
 {
-  public _BaseType<_TypeKind> As_BaseType { get; set; }
-  public _ObjConstraint<Tbase> As_ObjConstraint { get; set; }
 }
 
 public interface I_ObjBase<Targ>
   : I_Described
 {
   Targ typeArgs { get; }
-  _ObjTypeParam As_ObjTypeParam { get; }
+  _TypeParam As_TypeParam { get; }
 }
 public class Output_ObjBase<Targ>
   : Output_Described
   , I_ObjBase<Targ>
 {
   public Targ typeArgs { get; set; }
-  public _ObjTypeParam As_ObjTypeParam { get; set; }
+  public _TypeParam As_TypeParam { get; set; }
 }
 
 public interface I_ObjTypeArg
   : I_TypeRef
 {
-  _ObjTypeParam As_ObjTypeParam { get; }
+  _TypeParam As_TypeParam { get; }
 }
 public class Output_ObjTypeArg
   : Output_TypeRef
   , I_ObjTypeArg
 {
-  public _ObjTypeParam As_ObjTypeParam { get; set; }
+  public _TypeParam As_TypeParam { get; set; }
 }
 
 public interface I_TypeParam
-  : I_Identifier
-{
-}
-public class Domain_TypeParam
-  : Domain_Identifier
-  , I_TypeParam
-{
-}
-
-public interface I_ObjTypeParam
   : I_Described
 {
-  _TypeParam typeParam { get; }
+  _Identifier typeParam { get; }
 }
-public class Output_ObjTypeParam
+public class Output_TypeParam
   : Output_Described
-  , I_ObjTypeParam
+  , I_TypeParam
 {
-  public _TypeParam typeParam { get; set; }
+  public _Identifier typeParam { get; set; }
 }
 
 public interface I_Alternate<Tbase>
@@ -805,6 +831,18 @@ public class Output_Field<Tbase>
   public _Modifiers modifiers { get; set; }
 }
 
+public interface I_ForParam<Tbase>
+{
+  _Alternate<Tbase> As_Alternate { get; }
+  _Field<Tbase> As_Field { get; }
+}
+public class Output_ForParam<Tbase>
+  : I_ForParam<Tbase>
+{
+  public _Alternate<Tbase> As_Alternate { get; set; }
+  public _Field<Tbase> As_Field { get; set; }
+}
+
 public interface I_TypeDual
   : I_TypeObject
 {
@@ -825,6 +863,16 @@ public class Output_DualBase
   , I_DualBase
 {
   public _Identifier dual { get; set; }
+}
+
+public interface I_DualTypeParam
+  : I_ObjTypeParam
+{
+}
+public class Output_DualTypeParam
+  : Output_ObjTypeParam
+  , I_DualTypeParam
+{
 }
 
 public interface I_DualField
@@ -881,6 +929,18 @@ public class Output_InputBase
 {
   public _Identifier input { get; set; }
   public _DualBase As_DualBase { get; set; }
+}
+
+public interface I_InputTypeParam
+  : I_ObjTypeParam
+{
+  _TypeRef<_TypeKind> As_TypeRef { get; }
+}
+public class Output_InputTypeParam
+  : Output_ObjTypeParam
+  , I_InputTypeParam
+{
+  public _TypeRef<_TypeKind> As_TypeRef { get; set; }
 }
 
 public interface I_InputField
@@ -953,6 +1013,20 @@ public class Output_OutputBase
 {
   public _Identifier output { get; set; }
   public _DualBase As_DualBase { get; set; }
+}
+
+public interface I_OutputTypeParam
+  : I_ObjTypeParam
+{
+  _TypeRef<_TypeKind> As_TypeRef { get; }
+  _TypeRef<_TypeKind> As_TypeRef { get; }
+}
+public class Output_OutputTypeParam
+  : Output_ObjTypeParam
+  , I_OutputTypeParam
+{
+  public _TypeRef<_TypeKind> As_TypeRef { get; set; }
+  public _TypeRef<_TypeKind> As_TypeRef { get; set; }
 }
 
 public interface I_OutputField

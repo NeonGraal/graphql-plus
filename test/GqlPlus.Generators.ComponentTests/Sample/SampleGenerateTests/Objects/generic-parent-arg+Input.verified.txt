@@ -1,6 +1,6 @@
 ﻿/* generic-parent-arg+Input
-input InpGnrcPrntArg<$type> { :RefInpGnrcPrntArg<$type> }
-input RefInpGnrcPrntArg<$ref> { | $ref }
+input GnrcPrntArgInp<$type:String> { :RefGnrcPrntArgInp<$type> }
+input RefGnrcPrntArgInp<$ref:String> { | $ref }
 */
 
 // Generated from Sample generic-parent-arg+Input
@@ -10,22 +10,22 @@ input RefInpGnrcPrntArg<$ref> { | $ref }
 
 namespace GqlPlus.Model_Sample_generic_parent_arg_Input;
 
-public interface IInpGnrcPrntArg<Ttype>
-  : IRefInpGnrcPrntArg
+public interface IGnrcPrntArgInp<Ttype>
+  : IRefGnrcPrntArgInp
 {
 }
-public class InputInpGnrcPrntArg<Ttype>
-  : InputRefInpGnrcPrntArg
-  , IInpGnrcPrntArg<Ttype>
+public class InputGnrcPrntArgInp<Ttype>
+  : InputRefGnrcPrntArgInp
+  , IGnrcPrntArgInp<Ttype>
 {
 }
 
-public interface IRefInpGnrcPrntArg<Tref>
+public interface IRefGnrcPrntArgInp<Tref>
 {
   Tref Asref { get; }
 }
-public class InputRefInpGnrcPrntArg<Tref>
-  : IRefInpGnrcPrntArg<Tref>
+public class InputRefGnrcPrntArgInp<Tref>
+  : IRefGnrcPrntArgInp<Tref>
 {
   public Tref Asref { get; set; }
 }

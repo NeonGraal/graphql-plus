@@ -1,5 +1,5 @@
 ﻿/* field-simple+Output
-output OutpFieldSmpl { field: Number }
+output FieldSmplOutp { field: Number }
 */
 
 // Generated from Sample field-simple+Output
@@ -9,12 +9,12 @@ output OutpFieldSmpl { field: Number }
 
 namespace GqlPlus.Model_Sample_field_simple_Output;
 
-public interface IOutpFieldSmpl
+public interface IFieldSmplOutp
 {
   Number field { get; }
 }
-public class OutputOutpFieldSmpl
-  : IOutpFieldSmpl
+public class OutputFieldSmplOutp
+  : IFieldSmplOutp
 {
   public Number field { get; set; }
 }

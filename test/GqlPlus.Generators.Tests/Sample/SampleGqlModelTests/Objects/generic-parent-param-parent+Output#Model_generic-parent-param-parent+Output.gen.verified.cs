@@ -6,33 +6,33 @@
 
 namespace GqlTest.Model_generic_parent_param_parent_Output;
 
-public interface IOutpGnrcPrntParamPrnt
-  : IRefOutpGnrcPrntParamPrnt
+public interface IGnrcPrntParamPrntOutp
+  : IRefGnrcPrntParamPrntOutp
 {
 }
-public class OutputOutpGnrcPrntParamPrnt
-  : OutputRefOutpGnrcPrntParamPrnt
-  , IOutpGnrcPrntParamPrnt
+public class OutputGnrcPrntParamPrntOutp
+  : OutputRefGnrcPrntParamPrntOutp
+  , IGnrcPrntParamPrntOutp
 {
 }
 
-public interface IRefOutpGnrcPrntParamPrnt<Tref>
+public interface IRefGnrcPrntParamPrntOutp<Tref>
   : Iref
 {
 }
-public class OutputRefOutpGnrcPrntParamPrnt<Tref>
+public class OutputRefGnrcPrntParamPrntOutp<Tref>
   : Outputref
-  , IRefOutpGnrcPrntParamPrnt<Tref>
+  , IRefGnrcPrntParamPrntOutp<Tref>
 {
 }
 
-public interface IAltOutpGnrcPrntParamPrnt
+public interface IAltGnrcPrntParamPrntOutp
 {
   Number alt { get; }
   String AsString { get; }
 }
-public class OutputAltOutpGnrcPrntParamPrnt
-  : IAltOutpGnrcPrntParamPrnt
+public class OutputAltGnrcPrntParamPrntOutp
+  : IAltGnrcPrntParamPrntOutp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

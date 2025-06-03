@@ -1,6 +1,6 @@
 ﻿/* generic-alt-arg-descr+Output
-output OutpGnrcAltArgDescr<$type> { | RefOutpGnrcAltArgDescr<"Test" "Descr"$type> }
-output RefOutpGnrcAltArgDescr<$ref> { | $ref }
+output GnrcAltArgDescrOutp<$type:String> { | RefGnrcAltArgDescrOutp<"Test" "Descr"$type> }
+output RefGnrcAltArgDescrOutp<$ref:String> { | $ref }
 */
 
 // Generated from Sample generic-alt-arg-descr+Output
@@ -10,22 +10,22 @@ output RefOutpGnrcAltArgDescr<$ref> { | $ref }
 
 namespace GqlPlus.Model_Sample_generic_alt_arg_descr_Output;
 
-public interface IOutpGnrcAltArgDescr<Ttype>
+public interface IGnrcAltArgDescrOutp<Ttype>
 {
-  RefOutpGnrcAltArgDescr<Ttype> AsRefOutpGnrcAltArgDescr { get; }
+  RefGnrcAltArgDescrOutp<Ttype> AsRefGnrcAltArgDescrOutp { get; }
 }
-public class OutputOutpGnrcAltArgDescr<Ttype>
-  : IOutpGnrcAltArgDescr<Ttype>
+public class OutputGnrcAltArgDescrOutp<Ttype>
+  : IGnrcAltArgDescrOutp<Ttype>
 {
-  public RefOutpGnrcAltArgDescr<Ttype> AsRefOutpGnrcAltArgDescr { get; set; }
+  public RefGnrcAltArgDescrOutp<Ttype> AsRefGnrcAltArgDescrOutp { get; set; }
 }
 
-public interface IRefOutpGnrcAltArgDescr<Tref>
+public interface IRefGnrcAltArgDescrOutp<Tref>
 {
   Tref Asref { get; }
 }
-public class OutputRefOutpGnrcAltArgDescr<Tref>
-  : IRefOutpGnrcAltArgDescr<Tref>
+public class OutputRefGnrcAltArgDescrOutp<Tref>
+  : IRefGnrcAltArgDescrOutp<Tref>
 {
   public Tref Asref { get; set; }
 }

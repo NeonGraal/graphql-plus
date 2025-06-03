@@ -1,0 +1,8 @@
+﻿<div>
+  <sub>Type parameters:</sub>
+  {%- for prm in typeParams %} <I>${{ prm.name }}</I>
+  {%- if prm.constraint %} <I>: {{ prm.constraint.name }}</I>
+  {%- endif %}
+  {%- unless forloop.last -%} , {%- endunless -%}
+  {%- endfor %}
+</div>

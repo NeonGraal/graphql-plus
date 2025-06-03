@@ -3,23 +3,23 @@
 Success
 {
   !Ou I@008/0001
-  OutpAltDual
+  AltDualOutp
   |
   I@024/0001
-  OutpDualAltDual
+  ObjDualAltDualOutp
 }
 {
   !Du I@006/0002
-  OutpDualAltDual
+  ObjDualAltDualOutp
   {
-    !DF I@024/0002
+    !DF I@027/0002
     alt
     :
-    I@029/0002
+    I@032/0002
     Number
   }
   |
-  I@038/0002
+  I@041/0002
   String
 }
 ]

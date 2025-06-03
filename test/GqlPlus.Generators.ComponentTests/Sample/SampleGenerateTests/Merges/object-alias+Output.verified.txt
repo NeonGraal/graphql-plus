@@ -1,6 +1,6 @@
 ﻿/* object-alias+Output
-output OutpObjAlias [Outp1] { }
-output OutpObjAlias [Outp2] { }
+output ObjAliasOutp [Output1] { }
+output ObjAliasOutp [Output2] { }
 */
 
 // Generated from Sample object-alias+Output
@@ -10,10 +10,10 @@ output OutpObjAlias [Outp2] { }
 
 namespace GqlPlus.Model_Sample_object_alias_Output;
 
-public interface IOutpObjAlias
+public interface IObjAliasOutp
 {
 }
-public class OutputOutpObjAlias
-  : IOutpObjAlias
+public class OutputObjAliasOutp
+  : IObjAliasOutp
 {
 }

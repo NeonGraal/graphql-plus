@@ -3,7 +3,7 @@
 Success
 {
   !In I@007/0001
-  InpAltDescr
+  AltDescrInp
   |
   'Test Descr'
   S@023/0001

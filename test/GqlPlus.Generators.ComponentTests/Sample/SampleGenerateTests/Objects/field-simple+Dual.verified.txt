@@ -1,5 +1,5 @@
 ﻿/* field-simple+Dual
-dual DualFieldSmpl { field: Number }
+dual FieldSmplDual { field: Number }
 */
 
 // Generated from Sample field-simple+Dual
@@ -9,12 +9,12 @@ dual DualFieldSmpl { field: Number }
 
 namespace GqlPlus.Model_Sample_field_simple_Dual;
 
-public interface IDualFieldSmpl
+public interface IFieldSmplDual
 {
   Number field { get; }
 }
-public class DualDualFieldSmpl
-  : IDualFieldSmpl
+public class DualFieldSmplDual
+  : IFieldSmplDual
 {
   public Number field { get; set; }
 }

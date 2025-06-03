@@ -6,24 +6,24 @@
 
 namespace GqlTest.Model_parent_param_same_Input;
 
-public interface IInpPrntParamSame<Ta>
-  : IRefInpPrntParamSame
+public interface IPrntParamSameInp<Ta>
+  : IRefPrntParamSameInp
 {
   Ta field { get; }
 }
-public class InputInpPrntParamSame<Ta>
-  : InputRefInpPrntParamSame
-  , IInpPrntParamSame<Ta>
+public class InputPrntParamSameInp<Ta>
+  : InputRefPrntParamSameInp
+  , IPrntParamSameInp<Ta>
 {
   public Ta field { get; set; }
 }
 
-public interface IRefInpPrntParamSame<Ta>
+public interface IRefPrntParamSameInp<Ta>
 {
   Ta Asa { get; }
 }
-public class InputRefInpPrntParamSame<Ta>
-  : IRefInpPrntParamSame<Ta>
+public class InputRefPrntParamSameInp<Ta>
+  : IRefPrntParamSameInp<Ta>
 {
   public Ta Asa { get; set; }
 }

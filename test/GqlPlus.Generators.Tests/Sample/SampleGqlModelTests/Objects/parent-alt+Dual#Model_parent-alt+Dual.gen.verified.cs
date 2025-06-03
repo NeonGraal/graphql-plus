@@ -6,25 +6,25 @@
 
 namespace GqlTest.Model_parent_alt_Dual;
 
-public interface IDualPrntAlt
-  : IRefDualPrntAlt
+public interface IPrntAltDual
+  : IRefPrntAltDual
 {
   Number AsNumber { get; }
 }
-public class DualDualPrntAlt
-  : DualRefDualPrntAlt
-  , IDualPrntAlt
+public class DualPrntAltDual
+  : DualRefPrntAltDual
+  , IPrntAltDual
 {
   public Number AsNumber { get; set; }
 }
 
-public interface IRefDualPrntAlt
+public interface IRefPrntAltDual
 {
   Number parent { get; }
   String AsString { get; }
 }
-public class DualRefDualPrntAlt
-  : IRefDualPrntAlt
+public class DualRefPrntAltDual
+  : IRefPrntAltDual
 {
   public Number parent { get; set; }
   public String AsString { get; set; }

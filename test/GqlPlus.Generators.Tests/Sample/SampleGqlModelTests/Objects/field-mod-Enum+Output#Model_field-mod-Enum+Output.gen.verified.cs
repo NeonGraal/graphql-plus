@@ -6,17 +6,17 @@
 
 namespace GqlTest.Model_field_mod_Enum_Output;
 
-public interface IOutpFieldModEnum
+public interface IFieldModEnumOutp
 {
   String field { get; }
 }
-public class OutputOutpFieldModEnum
-  : IOutpFieldModEnum
+public class OutputFieldModEnumOutp
+  : IFieldModEnumOutp
 {
   public String field { get; set; }
 }
 
-public enum EnumOutpFieldModEnum
+public enum EnumFieldModEnumOutp
 {
   value,
 }

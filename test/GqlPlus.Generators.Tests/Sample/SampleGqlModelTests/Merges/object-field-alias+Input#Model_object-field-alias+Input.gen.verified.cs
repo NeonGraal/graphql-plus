@@ -6,20 +6,20 @@
 
 namespace GqlTest.Model_object_field_alias_Input;
 
-public interface IInpObjFieldAlias
+public interface IObjFieldAliasInp
 {
-  FldInpObjFieldAlias field { get; }
+  FldObjFieldAliasInp field { get; }
 }
-public class InputInpObjFieldAlias
-  : IInpObjFieldAlias
+public class InputObjFieldAliasInp
+  : IObjFieldAliasInp
 {
-  public FldInpObjFieldAlias field { get; set; }
+  public FldObjFieldAliasInp field { get; set; }
 }
 
-public interface IFldInpObjFieldAlias
+public interface IFldObjFieldAliasInp
 {
 }
-public class InputFldInpObjFieldAlias
-  : IFldInpObjFieldAlias
+public class InputFldObjFieldAliasInp
+  : IFldObjFieldAliasInp
 {
 }

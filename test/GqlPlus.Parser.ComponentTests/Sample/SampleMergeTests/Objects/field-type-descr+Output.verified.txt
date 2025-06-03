@@ -3,7 +3,7 @@
 Success
 {
   !Ou I@008/0001
-  OutpFieldTypeDescr
+  FieldTypeDescrOutp
   {
     !OF I@029/0001
     field

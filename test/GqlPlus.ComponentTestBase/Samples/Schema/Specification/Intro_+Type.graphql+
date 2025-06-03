@@ -9,17 +9,17 @@ output _Type {
     | _TypeUnion
     }
 
-output _BaseType<$kind> {
+output _BaseType<$kind:_TypeKind> {
     : _Aliased
         typeKind: $kind
     }
 
-output _ChildType<$kind $parent> {
+output _ChildType<$kind:_TypeKind $parent:_Described> {
     : _BaseType<$kind>
         parent: $parent
     }
 
-output _ParentType<$kind $item $allItem> {
+output _ParentType<$kind:_TypeKind $item:_Described $allItem:_Described> {
     : _ChildType<$kind _Named>
         items: $item[]
         allItems: $allItem[]
@@ -29,7 +29,7 @@ enum _SimpleKind { Basic Enum Internal Domain Union }
 
 enum _TypeKind { :_SimpleKind Dual Input Output }
 
-output _TypeRef<$kind> {
+output _TypeRef<$kind:_TypeKind> {
     : _Described
         typeKind: $kind
         typeName: _Identifier
@@ -41,18 +41,25 @@ output _TypeSimple {
     | _TypeRef<_TypeKind.Domain>
     | _TypeRef<_TypeKind.Union>
     }
+
+output _Internal {
+    | Null
+    | Object
+    | Void
+    }
+
 output _Constant {
-    | _Simple
+    | _SimpleValue
     | _ConstantList
     | _ConstantMap
     }
 
-output _Simple {
-    | Boolean
+output _SimpleValue {
+    | _DomainValue<_DomainKind.Boolean Boolean>
+    | _DomainValue<_DomainKind.Enum _EnumValue>
     | _DomainValue<_DomainKind.Number Number>
     | _DomainValue<_DomainKind.String String>
-    | _EnumValue
-}
+    }
 
 output _ConstantList {
     | _Constant[]
@@ -68,7 +75,7 @@ output _Collections {
     | _ModifierKeyed<_ModifierKind.TypeParam>
     }
 
-output _ModifierKeyed<$kind> {
+output _ModifierKeyed<$kind:_ModifierKind> {
     : _Modifier<$kind>
         by: _TypeSimple
         optional: Boolean
@@ -81,6 +88,7 @@ output _Modifiers {
 
 enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
 
-output _Modifier<$kind> {
+output _Modifier<$kind:_ModifierKind> {
         modifierKind: $kind
     }
+

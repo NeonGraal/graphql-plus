@@ -2,12 +2,12 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpPrntField": {
+    "PrntFieldOutp": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "RefOutpPrntField",
+          "object": "RefPrntFieldOutp",
           "type": {
             "$tag": "_OutputBase",
             "output": "String"
@@ -18,7 +18,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "parent",
-          "object": "RefOutpPrntField",
+          "object": "RefPrntFieldOutp",
           "type": {
             "$tag": "_OutputBase",
             "output": "Number"
@@ -27,7 +27,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "OutpPrntField",
+          "object": "PrntFieldOutp",
           "type": {
             "$tag": "_OutputBase",
             "output": "Number"
@@ -44,22 +44,22 @@
           }
         }
       ],
-      "name": "OutpPrntField",
+      "name": "PrntFieldOutp",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "RefOutpPrntField"
+        "output": "RefPrntFieldOutp"
       },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
       }
     },
-    "RefOutpPrntField": {
+    "RefPrntFieldOutp": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "RefOutpPrntField",
+          "object": "RefPrntFieldOutp",
           "type": {
             "$tag": "_OutputBase",
             "output": "String"
@@ -70,7 +70,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "parent",
-          "object": "RefOutpPrntField",
+          "object": "RefPrntFieldOutp",
           "type": {
             "$tag": "_OutputBase",
             "output": "Number"
@@ -96,7 +96,7 @@
           }
         }
       ],
-      "name": "RefOutpPrntField",
+      "name": "RefPrntFieldOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

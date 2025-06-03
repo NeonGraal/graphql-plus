@@ -3,15 +3,15 @@
 Success
 {
   !Ou I@008/0001
-  OutpPrntDescr
+  PrntDescrOutp
   :
   'Test Descr'
   I@041/0001
-  RefOutpPrntDescr
+  RefPrntDescrOutp
 }
 {
   !Ou I@008/0002
-  RefOutpPrntDescr
+  RefPrntDescrOutp
   {
     !OF I@027/0002
     parent

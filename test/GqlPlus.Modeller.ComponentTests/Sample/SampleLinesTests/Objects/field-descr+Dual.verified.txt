@@ -1,18 +1,18 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier DualFieldDescr: !_TypeDual
+  !_Identifier FieldDescrDual: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)
         description: 'Test Descr'
         name: field
-        object: DualFieldDescr
+        object: FieldDescrDual
         type: !_DualBase
-          dual: '*'
+          dual: String
     fields:
       - !_DualField
         description: 'Test Descr'
         name: field
         type: !_DualBase
-          dual: '*'
-    name: DualFieldDescr
+          dual: String
+    name: FieldDescrDual
     typeKind: !_TypeKind Dual

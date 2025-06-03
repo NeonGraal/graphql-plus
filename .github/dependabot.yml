@@ -1,0 +1,25 @@
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  - package-ecosystem: "nuget"
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "weekly"
+    groups:
+      patch:
+        applies-to: version-updates
+        update-types:
+          - "patch"
+      minor:
+        applies-to: version-updates
+        update-types:
+          - "minor"
+      major:
+        applies-to: version-updates
+        update-types:
+          - "major"
+  - package-ecosystem: "github-actions" # See documentation for possible values
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "weekly"

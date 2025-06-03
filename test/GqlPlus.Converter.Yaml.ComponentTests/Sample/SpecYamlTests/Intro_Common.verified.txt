@@ -1,5 +1,5 @@
 ﻿!_Schema
-_errors:
+errors:
 - !_Error
   _kind: !_TokenKind End
   _message: In _BaseType can't get model for type '_Aliased'
@@ -24,7 +24,10 @@ types: !_Map_Type
       output: _Aliased
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        typeKind: !_TypeKind Enum
+        typeName: _TypeKind
       name: kind
   !_Identifier _ChildType: !_TypeOutput
     allFields:
@@ -51,9 +54,12 @@ types: !_Map_Type
         typeParam: kind
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        typeKind: !_TypeKind Enum
+        typeName: _TypeKind
       name: kind
-    - !_Named
+    - !_TypeParam
       name: parent
   !_Identifier _ParentType: !_TypeOutput
     allFields:
@@ -100,11 +106,14 @@ types: !_Map_Type
         output: _Named
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        typeKind: !_TypeKind Enum
+        typeName: _TypeKind
       name: kind
-    - !_Named
+    - !_TypeParam
       name: item
-    - !_Named
+    - !_TypeParam
       name: allItem
   !_Identifier _SimpleKind: !_TypeEnum
     allItems:
@@ -281,7 +290,10 @@ types: !_Map_Type
       output: _Described
     typeKind: !_TypeKind Output
     typeParams:
-    - !_Named
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        typeKind: !_TypeKind Enum
+        typeName: _TypeKind
       name: kind
   !_Identifier _TypeSimple: !_TypeOutput
     allAlternates:

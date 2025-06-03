@@ -1,15 +1,15 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier AltInpAltModBool: !_TypeInput
+  !_Identifier AltAltModBoolInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
-        object: AltInpAltModBool
+        object: AltAltModBoolInp
         type: !_InputBase
           input: String
     allFields:
       - !_ObjectFor(_InputField)
         name: alt
-        object: AltInpAltModBool
+        object: AltAltModBoolInp
         type: !_InputBase
           input: Number
     alternates:
@@ -21,9 +21,9 @@ types: !_Map_Type
         name: alt
         type: !_InputBase
           input: Number
-    name: AltInpAltModBool
+    name: AltAltModBoolInp
     typeKind: !_TypeKind Input
-  !_Identifier InpAltModBool: !_TypeInput
+  !_Identifier AltModBoolInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
         collections:
@@ -31,9 +31,9 @@ types: !_Map_Type
             by: ^
             modifierKind: !_ModifierKind Dict
             typeKind: !_SimpleKind Basic
-        object: InpAltModBool
+        object: AltModBoolInp
         type: !_InputBase
-          input: AltInpAltModBool
+          input: AltAltModBoolInp
     alternates:
       - !_InputAlternate
         collections:
@@ -42,6 +42,6 @@ types: !_Map_Type
             modifierKind: !_ModifierKind Dict
             typeKind: !_SimpleKind Basic
         type: !_InputBase
-          input: AltInpAltModBool
-    name: InpAltModBool
+          input: AltAltModBoolInp
+    name: AltModBoolInp
     typeKind: !_TypeKind Input

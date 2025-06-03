@@ -3,15 +3,15 @@
 Success
 {
   !Ou I@008/0001
-  OutpAltModBool
+  AltModBoolOutp
   |
   I@027/0001
-  AltOutpAltModBool
+  AltAltModBoolOutp
   [^]
 }
 {
   !Ou I@008/0002
-  AltOutpAltModBool
+  AltAltModBoolOutp
   {
     !OF I@028/0002
     alt

@@ -1,32 +1,32 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier InpPrntDescr: !_TypeInput
+  !_Identifier PrntDescrInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
-        object: RefInpPrntDescr
+        object: RefPrntDescrInp
         type: !_InputBase
           input: String
     allFields:
       - !_ObjectFor(_InputField)
         name: parent
-        object: RefInpPrntDescr
+        object: RefPrntDescrInp
         type: !_InputBase
           input: Number
-    name: InpPrntDescr
+    name: PrntDescrInp
     parent: !_InputBase
       description: 'Test Descr'
-      input: RefInpPrntDescr
+      input: RefPrntDescrInp
     typeKind: !_TypeKind Input
-  !_Identifier RefInpPrntDescr: !_TypeInput
+  !_Identifier RefPrntDescrInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
-        object: RefInpPrntDescr
+        object: RefPrntDescrInp
         type: !_InputBase
           input: String
     allFields:
       - !_ObjectFor(_InputField)
         name: parent
-        object: RefInpPrntDescr
+        object: RefPrntDescrInp
         type: !_InputBase
           input: Number
     alternates:
@@ -38,5 +38,5 @@ types: !_Map_Type
         name: parent
         type: !_InputBase
           input: Number
-    name: RefInpPrntDescr
+    name: RefPrntDescrInp
     typeKind: !_TypeKind Input

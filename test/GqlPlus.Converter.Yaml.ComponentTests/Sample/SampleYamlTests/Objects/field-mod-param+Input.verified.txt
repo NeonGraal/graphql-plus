@@ -1,15 +1,37 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier FldInpFieldModParam: !_TypeInput
+  !_Identifier FieldModParamInp: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
+      name: field
+      object: FieldModParamInp
+      type: !_InputBase
+        input: FldFieldModParamInp
+    fields:
+    - !_InputField
+      modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
+      name: field
+      type: !_InputBase
+        input: FldFieldModParamInp
+    name: FieldModParamInp
+    typeKind: !_TypeKind Input
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        typeKind: !_TypeKind Basic
+        typeName: String
+      name: mod
+  !_Identifier FldFieldModParamInp: !_TypeInput
     allAlternates:
     - !_ObjectFor(_InputAlternate)
-      object: FldInpFieldModParam
+      object: FldFieldModParamInp
       type: !_InputBase
         input: String
     allFields:
     - !_ObjectFor(_InputField)
       name: field
-      object: FldInpFieldModParam
+      object: FldFieldModParamInp
       type: !_InputBase
         input: Number
     alternates:
@@ -21,24 +43,5 @@ types: !_Map_Type
       name: field
       type: !_InputBase
         input: Number
-    name: FldInpFieldModParam
+    name: FldFieldModParamInp
     typeKind: !_TypeKind Input
-  !_Identifier InpFieldModParam: !_TypeInput
-    allFields:
-    - !_ObjectFor(_InputField)
-      modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
-      name: field
-      object: InpFieldModParam
-      type: !_InputBase
-        input: FldInpFieldModParam
-    fields:
-    - !_InputField
-      modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
-      name: field
-      type: !_InputBase
-        input: FldInpFieldModParam
-    name: InpFieldModParam
-    typeKind: !_TypeKind Input
-    typeParams:
-    - !_Named
-      name: mod

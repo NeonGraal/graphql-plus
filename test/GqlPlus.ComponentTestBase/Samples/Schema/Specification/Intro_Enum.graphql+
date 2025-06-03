@@ -11,3 +11,4 @@ output _EnumValue {
     : _TypeRef<_TypeKind.Enum>
         label: _Identifier
     }
+

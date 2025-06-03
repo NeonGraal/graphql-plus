@@ -2,15 +2,15 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "InpGnrcAltArgDescr": {
+    "GnrcAltArgDescrInp": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "InpGnrcAltArgDescr",
+          "object": "GnrcAltArgDescrInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "RefInpGnrcAltArgDescr",
+            "input": "RefGnrcAltArgDescrInp",
             "typeArgs": [
               {
                 "$tag": "_InputArg",
@@ -26,7 +26,7 @@
           "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
-            "input": "RefInpGnrcAltArgDescr",
+            "input": "RefGnrcAltArgDescrInp",
             "typeArgs": [
               {
                 "$tag": "_InputArg",
@@ -37,24 +37,32 @@
           }
         }
       ],
-      "name": "InpGnrcAltArgDescr",
+      "name": "GnrcAltArgDescrInp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Input"
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
           "name": "type"
         }
       ]
     },
-    "RefInpGnrcAltArgDescr": {
+    "RefGnrcAltArgDescrInp": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "RefInpGnrcAltArgDescr",
+          "object": "RefGnrcAltArgDescrInp",
           "type": {
             "$tag": "_InputBase",
             "typeParam": "ref"
@@ -70,14 +78,22 @@
           }
         }
       ],
-      "name": "RefInpGnrcAltArgDescr",
+      "name": "RefGnrcAltArgDescrInp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Input"
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
           "name": "ref"
         }
       ]

@@ -1,2 +1,2 @@
-object ObjName<$mod> { field: FldObjName[$mod] }
-object FldObjName { field: Number | String }
+object Name<$mod:String> { field: FldName[$mod] }
+object FldName { field: Number | String }

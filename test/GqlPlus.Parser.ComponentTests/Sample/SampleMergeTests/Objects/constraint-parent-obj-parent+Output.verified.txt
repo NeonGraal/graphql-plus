@@ -1,0 +1,48 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  CnstPrntObjPrntOutp
+  :
+  I@031/0001
+  RefCnstPrntObjPrntOutp
+  <
+    I@054/0001
+    AltCnstPrntObjPrntOutp
+  >
+}
+{
+  !Ou I@008/0002
+  RefCnstPrntObjPrntOutp
+  <
+    I@032/0002
+    $ref
+    :PrntCnstPrntObjPrntOutp
+  >
+  :
+  I@065/0002
+  $ref
+}
+{
+  !Ou I@008/0003
+  PrntCnstPrntObjPrntOutp
+  |
+  I@036/0003
+  String
+}
+{
+  !Ou I@008/0004
+  AltCnstPrntObjPrntOutp
+  :
+  I@034/0004
+  PrntCnstPrntObjPrntOutp
+  {
+    !OF I@058/0004
+    alt
+    :
+    I@063/0004
+    Number
+  }
+}
+]

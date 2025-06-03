@@ -42,6 +42,7 @@ public static class AllRenderers
       .AddTypeRenderer<TypeUnionModel, TypeUnionRenderer>()
       .AddItemRenderer<UnionMemberModel, UnionMemberRenderer>()
       // Object
+      .AddRenderer<TypeParamModel, TypeParamRenderer>()
       // Dual
       .AddRenderer<DualArgModel, DualArgRenderer>()
       .AddRenderer<DualBaseModel, DualBaseRenderer>()
@@ -109,6 +110,6 @@ public static class AllRenderers
   private static IServiceCollection AddBaseRenderer<TBase>(this IServiceCollection services)
     where TBase : ModelBase, IObjBaseModel
     => services
-      .AddSingleton<ModifierBaseRenderers<TBase>>()
-      .AddSingleton<CollectionBaseRenderers<TBase>>();
+      .AddSingleton<FieldRenderers<TBase>>()
+      .AddSingleton<AlternateRenderers<TBase>>();
 }

@@ -3,10 +3,10 @@
 Success
 {
   !Ou I@008/0001
-  OutpPrntField
+  PrntFieldOutp
   :
   I@025/0001
-  RefOutpPrntField
+  RefPrntFieldOutp
   {
     !OF I@042/0001
     field
@@ -17,7 +17,7 @@ Success
 }
 {
   !Ou I@008/0002
-  RefOutpPrntField
+  RefPrntFieldOutp
   {
     !OF I@027/0002
     parent

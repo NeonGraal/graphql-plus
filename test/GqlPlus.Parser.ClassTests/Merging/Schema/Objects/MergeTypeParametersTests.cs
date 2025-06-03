@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using System.Data;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Merging.Objects;
 
@@ -7,6 +8,24 @@ namespace GqlPlus.Merging.Schema.Objects;
 public class MergeTypeParamsTests
   : TestDescriptionsMerger<IGqlpTypeParam>
 {
+  [Theory(Skip = "WIP"), RepeatData]
+  public void CanMerge_TwoAstsConstraintCantMerge_ReturnsErrors(string name, string constraint)
+    => this
+      .SkipWhitespace(constraint)
+      .CanMerge_Errors(
+        new TypeParamAst(AstNulls.At, name) with { Constraint = constraint },
+        new TypeParamAst(AstNulls.At, name));
+
+  [Theory(Skip = "WIP"), RepeatData]
+  public void Merge_TwoAstsWithConstraint_CallsConstraintMerge(string name, string constraint1, string constraint2)
+    => this
+    .SkipWhitespace(constraint1)
+    .SkipWhitespace(constraint2)
+  .Merge_Expected([
+      new TypeParamAst(AstNulls.At, name) with { Constraint = constraint1 },
+      new TypeParamAst(AstNulls.At, name) with { Constraint = constraint2 }],
+      new TypeParamAst(AstNulls.At, name) with { Constraint = constraint1 + "|" + constraint2 });
+
   [Theory, RepeatData]
   public void Merge_ManyItems_ReturnsItem(string name)
   {
@@ -22,5 +41,5 @@ public class MergeTypeParamsTests
   internal override GroupsMerger<IGqlpTypeParam> MergerGroups => _merger;
 
   protected override IGqlpTypeParam MakeDescribed(string name, string description = "")
-    => new TypeParamAst(AstNulls.At, name, description);
+    => new TypeParamAst(AstNulls.At, name, description, "");
 }

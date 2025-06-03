@@ -2,9 +2,9 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpGnrcPrnt": {
+    "GnrcPrntOutp": {
       "$tag": "_TypeOutput",
-      "name": "OutpGnrcPrnt",
+      "name": "GnrcPrntOutp",
       "parent": {
         "$tag": "_OutputBase",
         "typeParam": "type"
@@ -15,7 +15,15 @@
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
           "name": "type"
         }
       ]

@@ -14,7 +14,7 @@ public abstract record class TypeObjectModel<TObjBase, TObjField, TObjAlt>(
   where TObjField : IObjFieldModel
   where TObjAlt : IObjAlternateModel
 {
-  public NamedModel[] TypeParams { get; set; } = [];
+  public TypeParamModel[] TypeParams { get; set; } = [];
   internal TObjField[] Fields { get; set; } = [];
   internal TObjAlt[] Alternates { get; set; } = [];
 
@@ -35,40 +35,55 @@ public abstract record class TypeObjectModel<TObjBase, TObjField, TObjAlt>(
 
 public interface ITypeObjectModel
 {
-  NamedModel[] TypeParams { get; }
+  TypeParamModel[] TypeParams { get; }
   ObjectForModel[] AllFields { get; }
   ObjectForModel[] AllAlternates { get; }
 }
 
-public record class ObjArgModel(
+public record class ObjTypeArgModel(
   string Description
 ) : DescribedModel(Description)
-  , IObjArgModel
+  , IObjTypeArgModel
 {
   public bool IsTypeParam { get; set; }
 }
 
-public interface IObjArgModel
+public interface IObjTypeArgModel
   : IDescribedModel
 {
   bool IsTypeParam { get; }
+}
+
+public record class TypeParamModel(
+  string Name,
+  string Description
+) : NamedModel(Name, Description)
+  , ITypeParamModel
+{
+  public TypeRefModel<TypeKindModel>? Constraint { get; set; }
+}
+
+public interface ITypeParamModel
+  : INamedModel
+{
+  TypeRefModel<TypeKindModel>? Constraint { get; }
 }
 
 public record class ObjBaseModel<TObjArg>(
   string Description
 ) : DescribedModel(Description)
   , IObjBaseModel
-  where TObjArg : IObjArgModel
+where TObjArg : IObjTypeArgModel
 {
   internal TObjArg[] Args { get; set; } = [];
   public bool IsTypeParam { get; set; }
-  IObjArgModel[] IObjBaseModel.Args => [.. Args.Cast<IObjArgModel>()];
+  IObjTypeArgModel[] IObjBaseModel.Args => [.. Args.Cast<IObjTypeArgModel>()];
 }
 
 public interface IObjBaseModel
   : IDescribedModel
 {
-  IObjArgModel[] Args { get; }
+  IObjTypeArgModel[] Args { get; }
 
   bool IsTypeParam { get; }
 }

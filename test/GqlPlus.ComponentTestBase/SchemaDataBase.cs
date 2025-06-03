@@ -13,7 +13,7 @@ public class SchemaDataBase(
       .ThrowIfNull()
       .Keys
       .SelectMany(k => IsObjectInput(inputs[k])
-        ? Replacements.Select(r => k + "+" + r.Item1)
+        ? Replacements.Select(r => k + "+" + r)
         : [k])
       .Order();
 
@@ -27,8 +27,8 @@ public class SchemaDataBase(
     ArgumentNullException.ThrowIfNull(action);
 
     if (IsObjectInput(input)) {
-      foreach ((string label, string abbr) in Replacements) {
-        action(ReplaceObject(input, abbr, label, abbr), testName + "+" + label);
+      foreach (string label in Replacements) {
+        action(ReplaceObject(input, testName, label), testName + "+" + label);
       }
     } else {
       action(ReplaceName(input, testName), testName);
@@ -40,7 +40,7 @@ public class SchemaDataBase(
     ArgumentNullException.ThrowIfNull(action);
 
     if (IsObjectInput(input)) {
-      await WhenAll([.. Replacements.Select(r => action(ReplaceObject(input, testName, r.Item1, r.Item2), testName + "+" + r.Item1))]);
+      await WhenAll([.. Replacements.Select(r => action(ReplaceObject(input, testName, r), testName + "+" + r))]);
     } else {
       await action(ReplaceName(input, testName), testName);
     }

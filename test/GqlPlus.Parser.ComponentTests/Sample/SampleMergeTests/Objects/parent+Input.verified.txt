@@ -3,14 +3,14 @@
 Success
 {
   !In I@007/0001
-  InpPrnt
+  PrntInp
   :
   I@018/0001
-  RefInpPrnt
+  RefPrntInp
 }
 {
   !In I@007/0002
-  RefInpPrnt
+  RefPrntInp
   {
     !IF I@020/0002
     parent

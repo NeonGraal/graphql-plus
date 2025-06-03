@@ -2,13 +2,13 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
-    "OutpObjParam": {
+    "ObjParamOutp": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "test",
-          "object": "OutpObjParam",
+          "object": "ObjParamOutp",
           "type": {
             "$tag": "_OutputBase",
             "typeParam": "test"
@@ -17,7 +17,7 @@
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "type",
-          "object": "OutpObjParam",
+          "object": "ObjParamOutp",
           "type": {
             "$tag": "_OutputBase",
             "typeParam": "type"
@@ -42,18 +42,34 @@
           }
         }
       ],
-      "name": "OutpObjParam",
+      "name": "ObjParamOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
       },
       "typeParams": [
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
           "name": "test"
         },
         {
-          "$tag": "_Named",
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
           "name": "type"
         }
       ]

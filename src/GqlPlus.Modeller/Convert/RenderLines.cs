@@ -27,7 +27,7 @@ public static class RenderLines
         WriteFlowMap(flow, item.Tag, item.Map, indent);
       }
 
-      if (flow.Length is > 0 and < MaxLineLength) {
+      if (flow.Length is > 0 and <= MaxLineLength) {
         sb.AppendLine(flow.ToString());
         flow.Clear();
         return;

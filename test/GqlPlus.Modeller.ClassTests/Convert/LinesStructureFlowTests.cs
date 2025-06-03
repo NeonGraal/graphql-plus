@@ -3,6 +3,18 @@
 public class LinesStructureFlowTests
   : LinesStructureBase
 {
+  [Fact]
+  public void ToLines_ListOfMaps_Specific()
+  {
+    MapPair<string>[][] value = [
+      [new("iw1_", "r_47"), new("qei_nNY", "m" ), new("Q866_", "tE_e3o_Rl9dCn_vh_rH7" )],
+      [new("r8tkWB9_7", "i" ), new("e", "tW" ), new("b_", "y" )],
+      [new("IN_1__oYnsOow____0Gm_8_yLPMm9X4435", "v" ), new("xh_N_e_0_A22_n_____6Q_7___UrRSa_lG39_OSa3p_z_A4_l_44_T2", "w8tK" ), new("bF_f3_gu_Eno_", "p___6" )]
+    ];
+
+    ToLines_ListOfMaps(value);
+  }
+
   protected override bool Flow => true;
   protected override string ValueTag => "";
   protected override string ListTag => "";

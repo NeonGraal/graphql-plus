@@ -22,7 +22,7 @@ public class EnumConstraintMatcherTests
     IGqlpType type = NFor<IGqlpType>(name);
     _enumMatcher.Matches(enumType, name, Context).Returns(expected);
 
-    bool result = _sut.Matches(type, constraint, Context);
+    bool result = _sut.MatchesTypeConstraint(type, constraint, Context);
 
     result.ShouldBe(expected);
   }

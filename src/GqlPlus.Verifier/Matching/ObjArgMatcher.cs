@@ -13,7 +13,7 @@ internal class ObjArgMatcher<TObjArg>(
 
   public override bool Matches(TObjArg arg, string constraint, EnumContext context)
   {
-    Logger.TryingMatch(arg, constraint);
+    TryingMatch(arg, constraint);
 
     if (arg.FullType.Equals(constraint, StringComparison.Ordinal)) {
       return true;

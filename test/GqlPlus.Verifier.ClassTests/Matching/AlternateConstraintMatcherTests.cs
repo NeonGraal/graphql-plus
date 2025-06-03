@@ -23,7 +23,7 @@ public class AlternateConstraintMatcherTests
 
     IGqlpType type = NFor<IGqlpType>(name);
 
-    bool result = _sut.Matches(type, constraint, Context);
+    bool result = _sut.MatchesTypeConstraint(type, constraint, Context);
 
     result.ShouldBeTrue();
   }
@@ -41,7 +41,7 @@ public class AlternateConstraintMatcherTests
     IGqlpType type = NFor<IGqlpType>(parent);
     _anyType.Matches(type, name, Context).Returns(expected);
 
-    bool result = _sut.Matches(type, constraint, Context);
+    bool result = _sut.MatchesTypeConstraint(type, constraint, Context);
 
     result.ShouldBe(expected);
   }

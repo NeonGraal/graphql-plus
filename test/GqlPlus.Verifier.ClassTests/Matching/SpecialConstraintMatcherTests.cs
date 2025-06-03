@@ -18,7 +18,7 @@ public class SpecialConstraintMatcherTests
     bool expected = false;
     special.MatchesTypeSpecial(type).Returns(expected);
 
-    bool result = _sut.Matches(type, constraint, Context);
+    bool result = _sut.MatchesTypeConstraint(type, constraint, Context);
 
     result.ShouldBe(expected);
   }

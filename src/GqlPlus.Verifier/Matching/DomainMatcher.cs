@@ -14,7 +14,7 @@ internal class DomainMatcher(
 
   public override bool Matches(IGqlpDomain type, string constraint, EnumContext context)
   {
-    Logger.TryingMatch(type, constraint);
+    TryingMatch(type, constraint);
 
     return type.DomainKind switch {
       DomainKind.Boolean => constraint.Equals("Boolean", StringComparison.Ordinal),
@@ -37,7 +37,6 @@ internal class DomainMatcher(
         && _enumMatcher.Matches(enumType, constraint, context);
 
   private bool MatchEnumLabel(string enumItem, string constraint, EnumContext context)
-    => context is EnumContext enumContext
-      && enumContext.GetEnumValue(enumItem, out string? enumType)
+    => context.GetEnumValue(enumItem, out string? enumType)
       && MatchEnumType(enumType, constraint, context);
 }

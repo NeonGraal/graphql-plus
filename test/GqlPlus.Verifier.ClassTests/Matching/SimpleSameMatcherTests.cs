@@ -13,7 +13,7 @@ public abstract class SimpleSameMatcherTests<TSimple>
   {
     TSimple type = NFor<TSimple>(constraint);
 
-    bool result = _sut.Matches(type, constraint, Context);
+    bool result = _sut.MatchesTypeConstraint(type, constraint, Context);
 
     result.ShouldBeTrue();
   }
@@ -24,7 +24,7 @@ public abstract class SimpleSameMatcherTests<TSimple>
     TSimple type = NFor<TSimple>(name);
     type.Parent.Returns(constraint);
 
-    bool result = _sut.Matches(type, constraint, Context);
+    bool result = _sut.MatchesTypeConstraint(type, constraint, Context);
 
     result.ShouldBeTrue();
   }
@@ -39,7 +39,7 @@ public abstract class SimpleSameMatcherTests<TSimple>
     parentType.Parent.Returns(constraint);
     Types[parent] = parentType;
 
-    bool result = _sut.Matches(type, constraint, Context);
+    bool result = _sut.MatchesTypeConstraint(type, constraint, Context);
 
     result.ShouldBeTrue();
   }

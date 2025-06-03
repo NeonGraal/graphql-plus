@@ -33,7 +33,7 @@ public class OutputArgMatcherTests
   }
 
   [Theory, RepeatData]
-  public void Matches_ReturnsFalse_WhenConstraintNotLabel_WithArgType(string name, string enumLabel, string constraint)
+  public void Matches_ReturnsFalse_WhenConstraintEnumNotLabel_WithArgType(string name, string enumLabel, string constraint)
   {
     IGqlpOutputArg arg = NFor<IGqlpOutputArg>(name);
     IGqlpObjType enumType = NFor<IGqlpObjType>(enumLabel);
@@ -47,20 +47,43 @@ public class OutputArgMatcherTests
     result.ShouldBeFalse();
   }
 
-  [Theory(Skip = "WIP"), RepeatData]
-  public void Matches_ReturnsTrue_WhenConstraintLabel_WithArgType(string name, string enumLabel, string constraint)
+  [Theory, RepeatData]
+  public void Matches_ReturnsTrue_WhenConstraintDomParentOfEnum_WithArgLabel(string name, string enumName, string enumLabel, string constraint)
+  {
+    IGqlpOutputArg arg = NFor<IGqlpOutputArg>(name);
+    IGqlpObjType enumType = NFor<IGqlpObjType>(enumName);
+    arg.EnumType.Returns(enumType);
+    arg.EnumLabel.Returns(enumLabel);
+
+    IGqlpEnum enumParent = NFor<IGqlpEnum>(enumName);
+    enumParent.HasValue(enumLabel).Returns(true);
+    Types[enumName] = enumParent;
+
+    IGqlpDomain<IGqlpDomainLabel> domConstraint = NFor<IGqlpDomain<IGqlpDomainLabel>>(constraint);
+    IGqlpDomainLabel domainLabel = EFor<IGqlpDomainLabel>();
+    domainLabel.EnumType.Returns(enumName);
+    domainLabel.EnumItem.Returns(enumLabel);
+    domConstraint.Items.Returns([domainLabel]);
+    Types[constraint] = domConstraint;
+
+    bool result = Matcher.Matches(arg, constraint, Context);
+
+    result.ShouldBeTrue();
+  }
+
+  [Theory, RepeatData]
+  public void Matches_ReturnsFalse_WhenConstraintDomNotLabel_WithArgType(string name, string enumLabel, string constraint)
   {
     IGqlpOutputArg arg = NFor<IGqlpOutputArg>(name);
     IGqlpObjType enumType = NFor<IGqlpObjType>(enumLabel);
     arg.EnumType.Returns(enumType);
 
-    IGqlpEnum enumConstraint = NFor<IGqlpEnum>(constraint);
-    enumConstraint.HasValue(enumLabel).Returns(true);
-    Types[constraint] = enumConstraint;
+    IGqlpDomain<IGqlpDomainLabel> domConstraint = NFor<IGqlpDomain<IGqlpDomainLabel>>(constraint);
+    Types[constraint] = domConstraint;
 
     bool result = Matcher.Matches(arg, constraint, Context);
 
-    result.ShouldBeTrue();
+    result.ShouldBeFalse();
   }
 
   [Theory, RepeatData]

@@ -10,7 +10,7 @@ internal class SimpleSameMatcher<TType>(
 {
   public override bool Matches(TType type, string constraint, EnumContext context)
   {
-    Logger.TryingMatch(type, constraint);
+    TryingMatch(type, constraint);
 
     return type.Name.Equals(constraint, StringComparison.Ordinal)
         || MatchParent(type.Parent, constraint, context);

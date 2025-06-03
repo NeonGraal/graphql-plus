@@ -5,13 +5,9 @@ namespace GqlPlus.Matching;
 
 internal class SpecialConstraintMatcher(
   ILoggerFactory logger
-) : TypeMatcherBase<IGqlpType>(logger)
+) : ConstraintMatcherBase<IGqlpTypeSpecial>(logger)
 {
-  public override bool Matches(IGqlpType type, string constraint, EnumContext context)
-  {
-    Logger.TryingMatch(type, constraint);
-
-    return context.GetTyped(constraint, out IGqlpTypeSpecial? typespecialType)
-          && typespecialType.MatchesTypeSpecial(type);
-  }
+  public override bool MatchesConstraint(IGqlpType type, IGqlpTypeSpecial constraint, EnumContext context)
+    => base.MatchesConstraint(type, constraint, context)
+      || constraint.MatchesTypeSpecial(type);
 }

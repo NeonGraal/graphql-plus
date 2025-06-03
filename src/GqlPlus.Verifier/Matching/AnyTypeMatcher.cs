@@ -10,7 +10,7 @@ internal class AnyTypeMatcher(
 {
   public override bool Matches(IGqlpType type, string constraint, EnumContext context)
   {
-    Logger.TryingMatch(type, constraint);
+    TryingMatch(type, constraint);
 
     if (matchers is null || !matchers.Any()) {
       throw new InvalidOperationException("No matchers available to match types.");

@@ -27,3 +27,10 @@ public interface ITypeMatcher
 {
   bool MatchesTypeConstraint(IGqlpType type, string constraint, EnumContext context);
 }
+
+public interface IConstraintMatcher<TType>
+  : ITypeMatcher
+  where TType : IGqlpType
+{
+  bool MatchesConstraint(IGqlpType type, TType constraint, EnumContext context);
+}

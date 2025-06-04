@@ -12,7 +12,7 @@ internal static class LinesHelpers
   {
     string flow = flowMap(list);
 
-    return flow.Length < RenderLines.MaxLineLength ? flow : isMap(list);
+    return flow.Length <= RenderLines.MaxLineLength ? flow : isMap(list);
   }
 
   internal static string FlowList(this string[] value, string valuePrefix = "", string indent = "")
@@ -31,12 +31,12 @@ internal static class LinesHelpers
       }));
 
   internal static string FlowMap(this MapPair<string>[] list, string mapPrefix = "", string valuePrefix = "", string indent = "")
-    => list.FlowMap(v => valuePrefix + v, mapPrefix, indent);
+    => list.FlowMap((p, v) => p + valuePrefix + v, mapPrefix, indent);
 
-  internal static string FlowMap<T>(this MapPair<T>[] list, Func<T, string> mapper, string mapPrefix = "", string indent = "")
+  internal static string FlowMap<T>(this MapPair<T>[] list, Func<string, T, string> mapper, string mapPrefix = "", string indent = "")
     => FlowOr(list,
-      f => mapPrefix + f.OrderBy(kv => kv.Key, StringComparer.Ordinal).Surround("{", "}", v => v.Key + ":" + mapper(v.Value), ","),
-      i => mapPrefix.IsLine(false) + i.IsMap(indent, v => " " + mapper(v)));
+      f => mapPrefix + f.OrderBy(kv => kv.Key, StringComparer.Ordinal).Surround("{", "}", v => mapper(v.Key + ":", v.Value), ","),
+      i => mapPrefix.IsLine(false) + i.IsMap(indent, v => mapper(" ", v)));
 
   internal static string IsList(this string[] value, string prefix)
     => value.IsList(v => prefix + v);

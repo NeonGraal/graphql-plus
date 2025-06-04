@@ -14,13 +14,13 @@ updates:
       minor:
         applies-to: version-updates
         exclude-patterns:
-          - Microsoft.CodeAnalysis
+          - "Microsoft.CodeAnalysis*"
         update-types:
           - "minor"
       major:
         applies-to: version-updates
         exclude-patterns:
-          - Microsoft.CodeAnalysis
+          - "Microsoft.CodeAnalysis*"
         update-types:
           - "major"
   - package-ecosystem: "github-actions" # See documentation for possible values

@@ -14,16 +14,16 @@ public class DependencyInjectionTests(
     => CheckDependencyInjection();
 
   [Fact]
-  public void HtmlParserDI()
-    => HtmlDependencyInjection("Parser");
+  public async Task HtmlParserDI()
+    => await HtmlDependencyInjection("Parser");
 
   [Fact]
-  public void Force3DParserDI()
-    => Force3dDependencyInjection("Parser");
+  public async Task Force3DParserDI()
+    => await Force3dDependencyInjection("Parser");
 
   [Fact]
-  public void DiagramParserDI()
-    => DiagramDependencyInjection("Parser");
+  public async Task DiagramParserDI()
+    => await DiagramDependencyInjection("Parser");
 
   [Fact]
   public void FluidParserFiles()

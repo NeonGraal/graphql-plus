@@ -40,6 +40,13 @@ Success
   ?
 }
 {
+  !Ca P@010/0003
+  op
+  (Parallel)
+  !Tr I@012/0003
+  Op
+}
+{
   !Di I@012/0001
   Drct
   (Unique)
@@ -65,6 +72,15 @@ Success
   )
   (Unique)
   Operation, Fragment
+}
+{
+  !SO I@011/0001
+  Operation
+  [
+    Op1
+    Op2
+  ]
+  op
 }
 {
   !Op I@008/0001
@@ -738,6 +754,10 @@ Success
 {
   !Ou I@008/0003
   RefObjPrntOutp
+}
+{
+  !Ou I@008/0004
+  Op
 }
 {
   !Ou I@008/0001

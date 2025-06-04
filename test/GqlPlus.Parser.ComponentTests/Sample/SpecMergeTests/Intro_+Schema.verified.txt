@@ -33,156 +33,168 @@ Success
     _Directives
     [_Identifier]
     !OF I@009/0005
-    types
+    operations
     (
       !Pa
-      I@015/0005
-      _TypeFilter
-      ?
-    )
-    :
-    I@030/0005
-    _Type
-    [_Identifier]
-    !OF I@009/0006
-    settings
-    (
-      !Pa
-      I@018/0006
+      I@020/0005
       _Filter
       ?
     )
     :
-    I@029/0006
+    I@031/0005
+    _Operations
+    [_Identifier]
+    !OF I@009/0006
+    types
+    (
+      !Pa
+      I@015/0006
+      _TypeFilter
+      ?
+    )
+    :
+    I@030/0006
+    _Type
+    [_Identifier]
+    !OF I@009/0007
+    settings
+    (
+      !Pa
+      I@018/0007
+      _Filter
+      ?
+    )
+    :
+    I@029/0007
     _Setting
     [_Identifier]
   }
 }
 {
-  !Do I@008/0009
+  !Do I@008/0010
   _Identifier
   String
-  !DX R@029/0009
+  !DX R@029/0010
   /[A-Za-z_]+/
 }
 {
-  !In I@007/0011
+  !In I@007/0012
   _Filter
   {
-    !IF I@009/0012
+    !IF I@009/0013
     names
     :
-    I@016/0012
+    I@016/0013
     _NameFilter
     []
-    !IF I@009/0013
+    !IF I@009/0014
     matchAliases
     :
-    I@023/0013
+    I@023/0014
     Boolean
     ?
-    =( !k I@034/0013 Boolean.true )
-    !IF I@009/0014
+    =( !k I@034/0014 Boolean.true )
+    !IF I@009/0015
     aliases
     :
-    I@018/0014
+    I@018/0015
     _NameFilter
     []
-    !IF I@009/0015
+    !IF I@009/0016
     returnByAlias
     :
-    I@024/0015
+    I@024/0016
     Boolean
     ?
-    =( !k I@035/0015 Boolean.false )
-    !IF I@009/0016
+    =( !k I@035/0016 Boolean.false )
+    !IF I@009/0017
     returnReferencedTypes
     :
-    I@032/0016
+    I@032/0017
     Boolean
     ?
-    =( !k I@043/0016 Boolean.false )
+    =( !k I@043/0017 Boolean.false )
   }
   |
-  I@007/0017
+  I@007/0018
   _NameFilter
   []
 }
 {
   '_NameFilter is a simple match expression against _Identifier where \'.\' matches any single character and \'*\' matches zero or more of any character.'
-  !Do I@008/0022
+  !Do I@008/0023
   _NameFilter
   String
-  !DX R@029/0022
+  !DX R@029/0023
   /[A-Za-z_.*]+/
 }
 {
-  !In I@007/0024
+  !In I@007/0025
   _CategoryFilter
   :
-  I@007/0025
+  I@007/0026
   _Filter
   {
-    !IF I@009/0026
+    !IF I@009/0027
     resolutions
     :
-    I@022/0026
+    I@022/0027
     _Resolution
     []
   }
 }
 {
-  !In I@007/0029
+  !In I@007/0030
   _TypeFilter
   :
-  I@007/0030
+  I@007/0031
   _Filter
   {
-    !IF I@009/0031
+    !IF I@009/0032
     kinds
     :
-    I@016/0031
+    I@016/0032
     _TypeKind
     []
   }
 }
 {
-  !Du I@006/0034
+  !Du I@006/0035
   _Aliased
   :
-  I@007/0035
+  I@007/0036
   _Named
   {
-    !DF I@009/0036
+    !DF I@009/0037
     aliases
     :
-    I@018/0036
+    I@018/0037
     _Identifier
     []
   }
 }
 {
-  !Du I@006/0039
+  !Du I@006/0040
   _Named
   :
-  I@007/0040
+  I@007/0041
   _Described
   {
-    !DF I@009/0041
+    !DF I@009/0042
     name
     :
-    I@015/0041
+    I@015/0042
     _Identifier
   }
 }
 {
-  !Du I@006/0044
+  !Du I@006/0045
   _Described
   {
-    !DF I@009/0045
+    !DF I@009/0046
     description
     :
-    I@022/0045
+    I@022/0046
     String
     []
   }

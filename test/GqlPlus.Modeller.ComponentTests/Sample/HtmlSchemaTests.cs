@@ -31,25 +31,25 @@ public class HtmlSchemaTests(
   }
 
   [Fact]
-  public void Index_Schema()
+  public async Task Index_Schema()
   {
     Structured result = new Map<Structured>() {
       ["title"] = "Schema",
       ["items"] = SamplesSchemaData.Strings.Render(),
     }.Render("");
 
-    result.WriteHtmlFile("Schema", "index", "index");
+    await result.WriteHtmlFile("Schema", "index", "index");
   }
 
   [Fact]
-  public void Index_Spec()
+  public async Task Index_Spec()
   {
     Structured result = new Map<Structured>() {
       ["title"] = "Specification",
       ["items"] = SamplesSchemaSpecificationData.Strings.Render(),
     }.Render("");
 
-    result.WriteHtmlFile("Spec", "index", "index");
+    await result.WriteHtmlFile("Spec", "index", "index");
   }
 
   protected override Task VerifyResult(Structured result, string label, string test, string section)

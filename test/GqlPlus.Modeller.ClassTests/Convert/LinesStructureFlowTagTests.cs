@@ -38,6 +38,18 @@ public class LinesStructureFlowTagTests
   }
 
   [Fact]
+  public void ToLines_MapOfLists_Specific()
+  {
+    MapPair<string[]>[] value = [
+      new("w", ["u", "G36","M57_"]),
+      new("wS", ["dK", "L", "g5K", "C__bu_128", "A33PX"]),
+      new("x9", ["i"])
+      ];
+
+    ToLines_MapOfLists(value);
+  }
+
+  [Fact]
   public void ToLines_MapOfMaps_Specific()
   {
     MapPair<MapPair<string>[]>[] value = [
@@ -64,11 +76,11 @@ public class LinesStructureFlowTagTests
     => value.FlowList(v => v!.FlowList("!value ", "  "));
 
   protected override string Expected_MapOfLists(MapPair<string[]>[] value)
-    => value.FlowMap(v => v.FlowList("!value ", "  "), "!map");
+    => value.FlowMap((p, v) => p + v.FlowList("!value ", "  "), "!map");
 
   protected override string Expected_ListOfMaps(MapPair<string>[][] value)
     => value.FlowList(v => v!.FlowMap("!map", "!value ", "  "));
 
   protected override string Expected_MapOfMaps(MapPair<MapPair<string>[]>[] value)
-    => value.FlowMap(v => v.FlowMap("!map", "!value ", "  "), "!map");
+    => value.FlowMap((p, v) => v.FlowMap(p + "!map", "!value ", "  "), "!map");
 }

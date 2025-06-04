@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using Newtonsoft.Json.Linq;
 using Xunit;
 using YamlDotNet.Core.Tokens;
 
@@ -12,13 +13,8 @@ public class YamlWrappedTests
   {
     // Arrange
     string[] input = ["L__8OEl_G", "G_7_x___j4GK1___8PVI", "CB83yzlk__41rUr3FU_", "mK33H_", "r3OO"];
-    Structured model = input.Render(flow: true);
 
-    // Act
-    string result = Convert(model);
-
-    // Assert
-    WithListFlow_Check(result, input);
+    WithListFlow_ReturnsCorrect(input);
   }
 
   [Fact]
@@ -27,14 +23,15 @@ public class YamlWrappedTests
     // Arrange
     string[] input = ["q04_9_1_84t3UnnF", "fR", "G2", "htgbTjj_57_wBW5qz25_C_rC347V17c_e8", "MP"];
     string tag = "WvZsK2_";
-    Structured model = input.Render(tag, flow: true);
 
-    // Act
-    string result = Convert(model);
-
-    // Assert
-    WithListTagFlow_Check(result, input, tag);
+    WithListTagFlow_ReturnsCorrect(input, tag);
   }
+
+  [Theory]
+  [InlineData("aWlSP6nd9e82fS561t_6zz8Od18c_tsA68GH_3", new string[] { "d1V80", "Fm5s4" }, "a_WF4s3N1ZRDk6_t_2")]
+  [InlineData("yh91_y__", new string[] { "B_8p_2_k5_9zR_H73_", "O_H_wFq", "W____CR_Tm", "Fz9hiMpL2q_F" }, "JYE91__")]
+  public void WithMapTagListSpecific_ReturnsCorrect(string key, string[] value, string tag)
+    => WithMapTagList_ReturnsCorrect(key, value, tag);
 
   protected override string Convert(Structured model)
     => model.ToYaml(wrapped: true);
@@ -97,15 +94,21 @@ public class YamlWrappedTests
   {
     List<string> result = [];
     string line = prefix;
+    if (line.Length >= RenderYaml.BestWidth) {
+      result.Add(line);
+      line = indent;
+    }
+
     int last = values.Length - 1;
     for (int i = 0; i <= last; i++) {
       line += mapper(values[i]);
+
       if (i < last) {
-        if (line.Length < RenderYaml.BestWidth) {
-          line += ", ";
-        } else {
+        if (line.Length >= RenderYaml.BestWidth) {
           result.Add(line + ",");
           line = indent;
+        } else {
+          line += ", ";
         }
       }
     }

@@ -27,16 +27,11 @@ public class YamlWrappedTests
     WithListTagFlow_ReturnsCorrect(input, tag);
   }
 
-  [Fact]
-  public void WithMapTagListSpecific_ReturnsCorrect()
-  {
-    // Arrange
-    string key = "aWlSP6nd9e82fS561t_6zz8Od18c_tsA68GH_3";
-    string[] value = ["d1V80", "Fm5s4"];
-    string tag = "a_WF4s3N1ZRDk6_t_2";
-
-    WithMapTagList_ReturnsCorrect(key, value, tag);
-  }
+  [Theory]
+  [InlineData("aWlSP6nd9e82fS561t_6zz8Od18c_tsA68GH_3", new string[] { "d1V80", "Fm5s4" }, "a_WF4s3N1ZRDk6_t_2")]
+  [InlineData("yh91_y__", new string[] { "B_8p_2_k5_9zR_H73_", "O_H_wFq", "W____CR_Tm", "Fz9hiMpL2q_F" }, "JYE91__")]
+  public void WithMapTagListSpecific_ReturnsCorrect(string key, string[] value, string tag)
+    => WithMapTagList_ReturnsCorrect(key, value, tag);
 
   protected override string Convert(Structured model)
     => model.ToYaml(wrapped: true);
@@ -99,7 +94,7 @@ public class YamlWrappedTests
   {
     List<string> result = [];
     string line = prefix;
-    if (line.Length > RenderYaml.BestWidth) {
+    if (line.Length >= RenderYaml.BestWidth) {
       result.Add(line);
       line = indent;
     }
@@ -109,7 +104,7 @@ public class YamlWrappedTests
       line += mapper(values[i]);
 
       if (i < last) {
-        if (line.Length > RenderYaml.BestWidth) {
+        if (line.Length >= RenderYaml.BestWidth) {
           result.Add(line + ",");
           line = indent;
         } else {

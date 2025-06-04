@@ -30,11 +30,11 @@ public class LinesStructureFlowTests
     => value.FlowList(v => v!.FlowList());
 
   protected override string Expected_MapOfLists(MapPair<string[]>[] value)
-    => value.FlowMap(v => v.FlowList());
+    => value.FlowMap((p, v) => p + v.FlowList());
 
   protected override string Expected_ListOfMaps(MapPair<string>[][] value)
     => value.FlowList(v => v!.FlowMap());
 
   protected override string Expected_MapOfMaps(MapPair<MapPair<string>[]>[] value)
-    => value.FlowMap(v => v.FlowMap());
+    => value.FlowMap((p, v) => v.FlowMap(p));
 }

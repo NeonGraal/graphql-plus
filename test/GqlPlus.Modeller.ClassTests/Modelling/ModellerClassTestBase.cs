@@ -24,6 +24,15 @@ public abstract class ModellerClassTestBase<TAst, TModel>
     return constant;
   }
 
+  internal static IGqlpModifier ModifierFor(ModifierKind kind, string key = "")
+  {
+    IGqlpModifier modifier = For<IGqlpModifier>();
+    modifier.ModifierKind.Returns(kind);
+    modifier.Key.Returns(key);
+
+    return modifier;
+  }
+
   internal static IModeller<TA, TM> MFor<TA, TM>()
     where TA : IGqlpError
     where TM : IModelBase

@@ -1,14 +1,14 @@
-﻿namespace GqlPlus.Modelling.Globals;
+﻿using NSubstitute.Core;
+
+namespace GqlPlus.Modelling.Globals;
 
 public class CategoryModellerTests
   : ModellerClassTestBase<IGqlpSchemaCategory, CategoryModel>
 {
-  public CategoryModellerTests()
-  {
-    IModeller<IGqlpModifier, ModifierModel> modifier = MFor<IGqlpModifier, ModifierModel>();
+  private readonly IModeller<IGqlpModifier, ModifierModel> _modifier = MFor<IGqlpModifier, ModifierModel>();
 
-    Modeller = new CategoryModeller(modifier);
-  }
+  public CategoryModellerTests()
+    => Modeller = new CategoryModeller(_modifier);
 
   protected override IModeller<IGqlpSchemaCategory, CategoryModel> Modeller { get; }
 
@@ -16,21 +16,27 @@ public class CategoryModellerTests
   public void ToModel_WithValidCategory_ReturnsExpectedCategoryModel(string categoryName, string outputName, string contents)
   {
     // Arrange
-    IGqlpSchemaCategory ast = For<IGqlpSchemaCategory>();
-    ast.Name.Returns(categoryName);
+    IGqlpSchemaCategory ast = NFor<IGqlpSchemaCategory>(categoryName, contents);
     IGqlpTypeRef output = NFor<IGqlpTypeRef>(outputName);
     ast.Output.Returns(output);
-    ast.Description.Returns(contents);
     ast.CategoryOption.Returns(CategoryOption.Parallel);
+    IEnumerable<IGqlpModifier> modifiers = [ModifierFor(ModifierKind.List), ModifierFor(ModifierKind.Opt)];
+    ast.Modifiers.Returns(modifiers);
+
+    _modifier.ToModels(modifiers, TypeKinds)
+      .Returns([new ModifierModel(ModifierKind.List), new ModifierModel(ModifierKind.Opt)]);
 
     // Act
     CategoryModel result = Modeller.ToModel(ast, TypeKinds);
 
     // Assert
-    result.ShouldNotBeNull();
-    result.Name.ShouldBe(categoryName);
-    result.Output.TypeName.ShouldBe(outputName);
-    result.Description.ShouldBe(contents);
-    result.Resolution.ShouldBe(CategoryOption.Parallel);
+    result.ShouldNotBeNull()
+      .ShouldSatisfyAllConditions(
+      r => r.Name.ShouldBe(categoryName),
+      r => r.Output.TypeName.ShouldBe(outputName),
+      r => r.Description.ShouldBe(contents),
+      r => r.Resolution.ShouldBe(CategoryOption.Parallel),
+      r => r.Modifiers.ShouldNotBeNull().Length.ShouldBe(2)
+    );
   }
 }

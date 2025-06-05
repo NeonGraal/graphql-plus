@@ -6,7 +6,7 @@ public class ParseInputFieldTests
   : AliasesClassTestBase
 {
   private readonly Parser<IGqlpInputBase>.I _parseBase;
-  private readonly Parser<IGqlpConstant>.I _parseDefault;
+  private readonly IParserDefault _parseDefault;
   private readonly ParseInputField _parser;
 
   public ParseInputFieldTests()
@@ -21,7 +21,7 @@ public class ParseInputFieldTests
   {
     // Arrange
     IdentifierReturns(OutString(fieldName));
-    TakeReturns(':', true, false);
+    TakeReturns(':', true);
     ParseOk(_parseBase);
 
     // Act

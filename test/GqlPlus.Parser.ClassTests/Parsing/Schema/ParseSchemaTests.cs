@@ -15,7 +15,7 @@ public class ParseSchemaTests
   public void Parse_ShouldReturnSchema_WhenValid()
   {
     // Arrange
-    IdentifierReturns(OutString("category"), OutFail);
+    IdentifierReturns(OutString("category"));
     Tokenizer.AtEnd.Returns(true);
 
     _declarationParser.Selector.Returns("category");
@@ -33,7 +33,7 @@ public class ParseSchemaTests
   public void Parse_ShouldReturnError_WhenUnknownSelector()
   {
     // Arrange
-    IdentifierReturns(OutString("unknown"), OutFail);
+    IdentifierReturns(OutString("unknown"));
     Tokenizer.AtEnd.Returns(true);
 
     _declarationParser.Selector.Returns("category");

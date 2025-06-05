@@ -7,7 +7,7 @@ public class ParseDirectiveTests
 {
   private readonly ParseDirective _parser;
   private readonly Parser<IGqlpInputParam>.IA _param;
-  private readonly Parser<DirectiveOption>.I _option;
+  private readonly IOptionParser<DirectiveOption> _option;
   private readonly Parser<DirectiveLocation>.I _definition;
 
   public ParseDirectiveTests()
@@ -16,7 +16,7 @@ public class ParseDirectiveTests
     NameParser = name;
 
     Parser<IGqlpInputParam>.DA param = ParserAFor(out _param);
-    Parser<IOptionParser<DirectiveOption>, DirectiveOption>.D option = ParserFor<IOptionParser<DirectiveOption>, DirectiveOption>(out _option);
+    Parser<IOptionParser<DirectiveOption>, DirectiveOption>.D option = OptionParserFor<DirectiveOption>(out _option);
     Parser<DirectiveLocation>.D definition = ParserFor(out _definition);
 
     _parser = new ParseDirective(name, param, Aliases, option, definition);

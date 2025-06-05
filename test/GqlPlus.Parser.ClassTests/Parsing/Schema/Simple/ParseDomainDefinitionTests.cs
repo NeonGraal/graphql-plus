@@ -5,7 +5,7 @@ namespace GqlPlus.Parsing.Schema.Simple;
 public class ParseDomainDefinitionTests
   : ParserClassTestBase
 {
-  private readonly Parser<DomainKind>.I _kindParser;
+  private readonly IEnumParser<DomainKind> _kindParser;
   private readonly IParseDomain _domainParser = Substitute.For<IParseDomain>();
   private readonly ParseDomainDefinition _parser;
 

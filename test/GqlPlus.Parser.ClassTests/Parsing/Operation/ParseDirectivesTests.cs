@@ -6,7 +6,7 @@ public class ParseDirectivesTests
   : ParserClassTestBase
 {
   private readonly ParseDirectives _parseDirectives;
-  private readonly Parser<IGqlpArg>.I _argumentParser;
+  private readonly IParserArg _argumentParser;
 
   public ParseDirectivesTests()
   {

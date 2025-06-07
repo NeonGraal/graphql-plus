@@ -25,7 +25,7 @@ public class ParseVariablesTests
     TakeReturns('(', true);
     TakeReturns(')', true);
 
-    IGqlpVariable variable = EFor<IGqlpVariable>();
+    IGqlpVariable variable = A.Error<IGqlpVariable>();
     variable.Equals(Arg.Any<IGqlpVariable>()).Returns(c => c[0] == variable);
     ParseOk(_variableParser, variable);
 
@@ -57,7 +57,7 @@ public class ParseVariablesTests
     // Arrange
     TakeReturns('(', true);
     TakeReturns(')', false);
-    IGqlpVariable variable = EFor<IGqlpVariable>();
+    IGqlpVariable variable = A.Error<IGqlpVariable>();
     Parse(_variableParser, variable.Ok(), variable.Empty());
 
     // Act

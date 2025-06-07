@@ -16,12 +16,12 @@ public class UnionConstraintMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsTrue_WhenMatchingUnionMember(string name, string constraint)
   {
-    IGqlpUnion union = NFor<IGqlpUnion>(constraint);
-    IGqlpUnionMember member = NFor<IGqlpUnionMember>(name);
+    IGqlpUnion union = A.Named<IGqlpUnion>(constraint);
+    IGqlpUnionMember member = A.Named<IGqlpUnionMember>(name);
     union.Items.Returns([member]);
     Types[constraint] = union;
 
-    IGqlpType type = NFor<IGqlpType>(name);
+    IGqlpType type = A.Named<IGqlpType>(name);
 
     bool result = _sut.MatchesTypeConstraint(type, constraint, Context);
 
@@ -33,12 +33,12 @@ public class UnionConstraintMatcherTests
   {
     this.SkipIf(name == parent);
 
-    IGqlpUnion union = NFor<IGqlpUnion>(constraint);
-    IGqlpUnionMember member = NFor<IGqlpUnionMember>(name);
+    IGqlpUnion union = A.Named<IGqlpUnion>(constraint);
+    IGqlpUnionMember member = A.Named<IGqlpUnionMember>(name);
     union.Items.Returns([member]);
     Types[constraint] = union;
 
-    IGqlpType type = NFor<IGqlpType>(parent);
+    IGqlpType type = A.Named<IGqlpType>(parent);
     _anyType.Matches(type, name, Context).Returns(expected);
 
     bool result = _sut.MatchesTypeConstraint(type, constraint, Context);

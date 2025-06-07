@@ -14,10 +14,7 @@ public class DomainEnumModellerTests
     string[] aliases)
   {
     // Arrange
-    IGqlpDomain<IGqlpDomainLabel> ast = For<IGqlpDomain<IGqlpDomainLabel>>();
-    ast.Name.Returns(name);
-    ast.Description.Returns(contents);
-    ast.Aliases.Returns(aliases);
+    IGqlpDomain<IGqlpDomainLabel> ast = A.Aliased<IGqlpDomain<IGqlpDomainLabel>>(name, aliases, contents);
     ast.Parent.Returns(parent);
 
     // Act

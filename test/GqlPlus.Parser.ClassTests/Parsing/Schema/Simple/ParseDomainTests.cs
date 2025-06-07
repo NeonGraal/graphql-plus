@@ -25,7 +25,7 @@ public class ParseDomainTests
   {
     // Arrange
     NameReturns(domainName);
-    IGqlpDomainLabel label = EFor<IGqlpDomainLabel>();
+    IGqlpDomainLabel label = A.Error<IGqlpDomainLabel>();
     DomainDefinition definition = new() { Kind = domainKind, Labels = [label] };
     ParseOk(_definition, definition);
 

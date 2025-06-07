@@ -5,7 +5,7 @@ public class OutputFieldModellerTests
 {
   public OutputFieldModellerTests()
   {
-    IModifierModeller modifier = For<IModifierModeller>();
+    IModifierModeller modifier = A.Of<IModifierModeller>();
     IModeller<IGqlpInputParam, InputParamModel> parameter = MFor<IGqlpInputParam, InputParamModel>();
 
     Modeller = new OutputFieldModeller(modifier, parameter, ObjBase);
@@ -17,11 +17,11 @@ public class OutputFieldModellerTests
   public void FieldModel_WithValidField_ReturnsExpectedOutputFieldModel(string name, string contents, string typeName)
   {
     // Arrange
-    IGqlpOutputField ast = NFor<IGqlpOutputField>(name);
-    ast.Description.Returns(contents);
-    IGqlpOutputBase type = For<IGqlpOutputBase>();
+    IGqlpOutputBase type = A.Of<IGqlpOutputBase>();
     type.Output.Returns(typeName);
+    IGqlpOutputField ast = A.Named<IGqlpOutputField>(name, contents);
     ast.BaseType.Returns(type);
+
     OutputBaseModel outputType = new(typeName, "");
     ObjBase.ToModel(type, TypeKinds).Returns(outputType);
 

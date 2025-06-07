@@ -11,7 +11,7 @@ public abstract class VerifierTypeTestsBase
   protected TResult AddType<TResult>(string name)
     where TResult : class, IGqlpNamed
   {
-    TResult result = NFor<TResult>(name);
+    TResult result = A.Named<TResult>(name);
     Types[name] = result;
     return result;
   }
@@ -19,7 +19,7 @@ public abstract class VerifierTypeTestsBase
   protected IGqlpEnum Enum(string name, [NotNull] params string[] labels)
   {
     IGqlpEnum result = AddType<IGqlpEnum>(name);
-    IGqlpEnumLabel[] items = NForA<IGqlpEnumLabel>(labels);
+    IGqlpEnumLabel[] items = A.NamedArray<IGqlpEnumLabel>(labels);
     result.Items.Returns(items);
     foreach (string label in labels) {
       result.HasValue(label).Returns(true);

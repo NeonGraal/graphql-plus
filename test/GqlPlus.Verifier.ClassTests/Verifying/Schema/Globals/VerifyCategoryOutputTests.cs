@@ -14,9 +14,9 @@ public class VerifyCategoryOutputTests
   {
     _verifier = new(Aliased.Intf);
 
-    IGqlpTypeRef output = NFor<IGqlpTypeRef>("Type");
+    IGqlpTypeRef output = A.Named<IGqlpTypeRef>("Type");
 
-    _category = EFor<IGqlpSchemaCategory>();
+    _category = A.Error<IGqlpSchemaCategory>();
     _category.Output.Returns(output);
   }
 
@@ -67,8 +67,8 @@ public class VerifyCategoryOutputTests
   [Fact]
   public void Verify_DefinedGenericOutput_ReturnsError()
   {
-    IGqlpOutputObject outputType = NFor<IGqlpOutputObject>("Type");
-    IGqlpTypeParam[] typeParams = [EFor<IGqlpTypeParam>()];
+    IGqlpOutputObject outputType = A.Named<IGqlpOutputObject>("Type");
+    IGqlpTypeParam[] typeParams = [A.Error<IGqlpTypeParam>()];
     outputType.TypeParams.Returns(typeParams);
     Definitions.Add(outputType);
 

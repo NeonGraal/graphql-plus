@@ -16,10 +16,7 @@ public class DomainNumberModellerTests
     string[] aliases)
   {
     // Arrange
-    IGqlpDomain<IGqlpDomainRange> ast = For<IGqlpDomain<IGqlpDomainRange>>();
-    ast.Name.Returns(name);
-    ast.Description.Returns(contents);
-    ast.Aliases.Returns(aliases);
+    IGqlpDomain<IGqlpDomainRange> ast = A.Aliased<IGqlpDomain<IGqlpDomainRange>>(name, aliases, contents);
     ast.Parent.Returns(parent);
 
     // Act

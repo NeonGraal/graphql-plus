@@ -12,7 +12,7 @@ public abstract class ObjectSameMatcherTests<TObject>
   [Theory, RepeatData]
   public void Object_Matches_SameName_ReturnsTrue(string constraint)
   {
-    TObject type = NFor<TObject>(constraint);
+    TObject type = A.Named<TObject>(constraint);
 
     bool result = _sut.Matches(type, constraint, Context);
 
@@ -24,8 +24,8 @@ public abstract class ObjectSameMatcherTests<TObject>
   {
     this.SkipIf(name == constraint);
 
-    TObject type = NFor<TObject>(name);
-    IGqlpObjBase typeBase = NFor<IGqlpObjBase>(constraint);
+    TObject type = A.Named<TObject>(name);
+    IGqlpObjBase typeBase = A.Named<IGqlpObjBase>(constraint);
     type.Parent.Returns(typeBase);
 
     bool result = _sut.Matches(type, constraint, Context);
@@ -38,12 +38,12 @@ public abstract class ObjectSameMatcherTests<TObject>
   {
     this.SkipIf(name == parent);
 
-    TObject type = NFor<TObject>(name);
-    IGqlpObjBase typeBase = NFor<IGqlpObjBase>(parent);
+    TObject type = A.Named<TObject>(name);
+    IGqlpObjBase typeBase = A.Named<IGqlpObjBase>(parent);
     type.Parent.Returns(typeBase);
 
-    TObject parentType = NFor<TObject>(parent);
-    IGqlpObjBase parentBase = NFor<IGqlpObjBase>(constraint);
+    TObject parentType = A.Named<TObject>(parent);
+    IGqlpObjBase parentBase = A.Named<IGqlpObjBase>(constraint);
     parentType.Parent.Returns(parentBase);
     Types[parent] = parentType;
 

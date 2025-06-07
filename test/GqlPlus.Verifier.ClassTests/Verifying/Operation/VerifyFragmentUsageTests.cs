@@ -7,7 +7,7 @@ public class VerifyFragmentUsageTests
 {
   protected override IEnumerable<IGqlpFragment> OneDefinition(string name)
   {
-    IGqlpFragment definition = EFor<IGqlpFragment>();
+    IGqlpFragment definition = A.Error<IGqlpFragment>();
     definition.Identifier.Returns(name);
 
     return [definition];
@@ -15,7 +15,7 @@ public class VerifyFragmentUsageTests
 
   protected override IEnumerable<IGqlpSpread> OneUsage(string key)
   {
-    IGqlpSpread usage = EFor<IGqlpSpread>();
+    IGqlpSpread usage = A.Error<IGqlpSpread>();
     usage.Identifier.Returns(key);
 
     return [usage];

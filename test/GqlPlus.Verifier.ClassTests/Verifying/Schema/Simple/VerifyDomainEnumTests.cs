@@ -14,7 +14,7 @@ public class VerifyDomainEnumTests
 
     _context = new(Types, Errors, EnumValues);
 
-    _domain = NFor<IGqlpDomain<IGqlpDomainLabel>>("domain");
+    _domain = A.Named<IGqlpDomain<IGqlpDomainLabel>>("domain");
   }
 
   [Fact(Skip = "WIP")]
@@ -41,7 +41,7 @@ public class VerifyDomainEnumTests
 
     EnumContext context = new(Types, Errors, EnumValues);
 
-    IGqlpEnum enumType = EFor<IGqlpEnum>();
+    IGqlpEnum enumType = A.Error<IGqlpEnum>();
     enumType.Name.Returns("domain");
     enumType.HasValue("item1").Returns(true);
     enumType.HasValue("item2").Returns(true);
@@ -53,12 +53,12 @@ public class VerifyDomainEnumTests
     EnumValues["item1"] = "domain";
     EnumValues["item2"] = "domain";
 
-    IGqlpDomain<IGqlpDomainLabel> domain = EFor<IGqlpDomain<IGqlpDomainLabel>>();
+    IGqlpDomain<IGqlpDomainLabel> domain = A.Error<IGqlpDomain<IGqlpDomainLabel>>();
     domain.Name.Returns("domain");
-    IGqlpDomainLabel label1 = EFor<IGqlpDomainLabel>();
+    IGqlpDomainLabel label1 = A.Error<IGqlpDomainLabel>();
     label1.EnumItem.Returns("item1");
     label1.EnumType.Returns("", "domain");
-    IGqlpDomainLabel label2 = EFor<IGqlpDomainLabel>();
+    IGqlpDomainLabel label2 = A.Error<IGqlpDomainLabel>();
     label2.EnumItem.Returns("item2");
     label2.EnumType.Returns("domain");
     label2.Excludes.Returns(true);
@@ -140,7 +140,7 @@ public class VerifyDomainEnumTests
 
   private static IGqlpDomainLabel EnumLabel(string label, string type)
   {
-    IGqlpDomainLabel result = EFor<IGqlpDomainLabel>();
+    IGqlpDomainLabel result = A.Error<IGqlpDomainLabel>();
     result.EnumItem.Returns(label);
     result.EnumType.Returns(type);
     return result;
@@ -148,7 +148,7 @@ public class VerifyDomainEnumTests
 
   private static IGqlpEnumLabel CreateEnumLabel(string name)
   {
-    IGqlpEnumLabel enumLabel = EFor<IGqlpEnumLabel>();
+    IGqlpEnumLabel enumLabel = A.Error<IGqlpEnumLabel>();
     enumLabel.Name.Returns(name);
     enumLabel.IsNameOrAlias(name).Returns(true);
     return enumLabel;

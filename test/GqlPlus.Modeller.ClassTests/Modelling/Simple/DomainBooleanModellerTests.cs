@@ -14,10 +14,7 @@ public class DomainBooleanModellerTests
     string[] aliases)
   {
     // Arrange
-    IGqlpDomain<IGqlpDomainTrueFalse> ast = For<IGqlpDomain<IGqlpDomainTrueFalse>>();
-    ast.Name.Returns(name);
-    ast.Description.Returns(contents);
-    ast.Aliases.Returns(aliases);
+    IGqlpDomain<IGqlpDomainTrueFalse> ast = A.Aliased<IGqlpDomain<IGqlpDomainTrueFalse>>(name, aliases, contents);
     ast.Parent.Returns(parent);
 
     // Act

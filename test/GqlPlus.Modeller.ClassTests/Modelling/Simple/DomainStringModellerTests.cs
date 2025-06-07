@@ -14,10 +14,7 @@ public class DomainStringModellerTests
     string[] aliases)
   {
     // Arrange
-    IGqlpDomain<IGqlpDomainRegex> ast = For<IGqlpDomain<IGqlpDomainRegex>>();
-    ast.Name.Returns(name);
-    ast.Description.Returns(contents);
-    ast.Aliases.Returns(aliases);
+    IGqlpDomain<IGqlpDomainRegex> ast = A.Aliased<IGqlpDomain<IGqlpDomainRegex>>(name, aliases, contents);
     ast.Parent.Returns(parent);
 
     // Act

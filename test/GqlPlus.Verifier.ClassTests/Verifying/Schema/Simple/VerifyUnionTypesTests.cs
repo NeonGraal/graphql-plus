@@ -15,7 +15,7 @@ public class VerifyUnionTypesTests
   {
     _verifier = new(Aliased.Intf, _mergeMembers.Intf);
 
-    _union = NFor<IGqlpUnion>("Union");
+    _union = A.Named<IGqlpUnion>("Union");
   }
 
   [Fact]
@@ -42,7 +42,7 @@ public class VerifyUnionTypesTests
   [Fact]
   public void Verify_Union_WithUndefinedMembers_ReturnsErrors()
   {
-    IGqlpUnionMember[] members = NForA<IGqlpUnionMember>("Member1", "Member2");
+    IGqlpUnionMember[] members = A.NamedArray<IGqlpUnionMember>("Member1", "Member2");
     _union.Items.Returns(members);
 
     Usages.Add(_union);
@@ -57,7 +57,7 @@ public class VerifyUnionTypesTests
   {
     Define<IGqlpEnum>("Member1", "Member2");
 
-    IGqlpUnionMember[] members = NForA<IGqlpUnionMember>("Member1", "Member2");
+    IGqlpUnionMember[] members = A.NamedArray<IGqlpUnionMember>("Member1", "Member2");
     _union.Items.Returns(members);
 
     Usages.Add(_union);
@@ -70,7 +70,7 @@ public class VerifyUnionTypesTests
   [Fact]
   public void Verify_Union_WithSelfMember_ReturnsError()
   {
-    IGqlpUnionMember[] members = NForA<IGqlpUnionMember>("Union");
+    IGqlpUnionMember[] members = A.NamedArray<IGqlpUnionMember>("Union");
     _union.Items.Returns(members);
 
     Usages.Add(_union);
@@ -97,12 +97,12 @@ public class VerifyUnionTypesTests
   {
     Define<IGqlpEnum>("Member1", "Member2", "Member3", "Member4");
 
-    IGqlpUnion parent = NFor<IGqlpUnion>("Parent");
-    IGqlpUnionMember[] parentMembers = NForA<IGqlpUnionMember>("Member3", "Member4");
+    IGqlpUnion parent = A.Named<IGqlpUnion>("Parent");
+    IGqlpUnionMember[] parentMembers = A.NamedArray<IGqlpUnionMember>("Member3", "Member4");
     parent.Items.Returns(parentMembers);
     Definitions.Add(parent);
 
-    IGqlpUnionMember[] members = [NFor<IGqlpUnionMember>("Member1"), NFor<IGqlpUnionMember>("Member2")];
+    IGqlpUnionMember[] members = [A.Named<IGqlpUnionMember>("Member1"), A.Named<IGqlpUnionMember>("Member2")];
     _union.Items.Returns(members);
     _union.Parent.Returns("Parent");
 
@@ -120,12 +120,12 @@ public class VerifyUnionTypesTests
   {
     Define<IGqlpEnum>("Member1", "Member2", "Member3", "Member4");
 
-    IGqlpUnion member = NFor<IGqlpUnion>("Member");
-    IGqlpUnionMember[] memberMembers = NForA<IGqlpUnionMember>("Member3", "Member4");
+    IGqlpUnion member = A.Named<IGqlpUnion>("Member");
+    IGqlpUnionMember[] memberMembers = A.NamedArray<IGqlpUnionMember>("Member3", "Member4");
     member.Items.Returns(memberMembers);
     Definitions.Add(member);
 
-    IGqlpUnionMember[] members = NForA<IGqlpUnionMember>("Member1", "Member2", "Member");
+    IGqlpUnionMember[] members = A.NamedArray<IGqlpUnionMember>("Member1", "Member2", "Member");
     _union.Items.Returns(members);
 
     Usages.Add(_union);
@@ -140,12 +140,12 @@ public class VerifyUnionTypesTests
   {
     Define<IGqlpEnum>("Member1", "Member2", "Member3", "Member4");
 
-    IGqlpUnion member = NFor<IGqlpUnion>("Member");
-    IGqlpUnionMember[] memberMembers = NForA<IGqlpUnionMember>("Member3", "Member4", "Union");
+    IGqlpUnion member = A.Named<IGqlpUnion>("Member");
+    IGqlpUnionMember[] memberMembers = A.NamedArray<IGqlpUnionMember>("Member3", "Member4", "Union");
     member.Items.Returns(memberMembers);
     Definitions.Add(member);
 
-    IGqlpUnionMember[] members = NForA<IGqlpUnionMember>("Member1", "Member2", "Member");
+    IGqlpUnionMember[] members = A.NamedArray<IGqlpUnionMember>("Member1", "Member2", "Member");
     _union.Items.Returns(members);
 
     Usages.Add(_union);
@@ -160,16 +160,16 @@ public class VerifyUnionTypesTests
   {
     Define<IGqlpEnum>("Member1", "Member2");
 
-    IGqlpUnion parent = NFor<IGqlpUnion>("Parent");
-    IGqlpUnionMember[] parentMembers = NForA<IGqlpUnionMember>("Member2", "Union");
+    IGqlpUnion parent = A.Named<IGqlpUnion>("Parent");
+    IGqlpUnionMember[] parentMembers = A.NamedArray<IGqlpUnionMember>("Member2", "Union");
     parent.Items.Returns(parentMembers);
     Definitions.Add(parent);
 
-    IGqlpUnion member = NFor<IGqlpUnion>("Member");
+    IGqlpUnion member = A.Named<IGqlpUnion>("Member");
     member.Parent.Returns("Parent");
     Definitions.Add(member);
 
-    IGqlpUnionMember[] members = NForA<IGqlpUnionMember>("Member1", "Member");
+    IGqlpUnionMember[] members = A.NamedArray<IGqlpUnionMember>("Member1", "Member");
     _union.Items.Returns(members);
 
     Usages.Add(_union);

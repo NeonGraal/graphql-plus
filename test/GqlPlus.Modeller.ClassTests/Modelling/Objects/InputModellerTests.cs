@@ -18,9 +18,7 @@ public class InputModellerTests
   public void ToModel_WithValidObject_ReturnsExpectedTypeInputModel(string name, string[] aliases, string content)
   {
     // Arrange
-    IGqlpInputObject ast = For<IGqlpInputObject>();
-    ast.Name.Returns(name);
-    ast.Description.Returns(content);
+    IGqlpInputObject ast = A.Named<IGqlpInputObject>(name, content);
     ast.Aliases.Returns(aliases);
 
     // Act

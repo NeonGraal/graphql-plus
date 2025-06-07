@@ -8,7 +8,7 @@ public abstract class RendererClassTestBase<TModel>
 
   internal static IRenderer<TM> RFor<TM>()
     where TM : IModelBase
-    => For<IRenderer<TM>>();
+    => A.Of<IRenderer<TM>>();
 
   internal void RenderAndCheck(TModel model, string[] expected)
     => Renderer.Render(model)

@@ -7,11 +7,11 @@ namespace GqlPlus.Verifying.Operation;
 public class VerifyVariableTests
   : VerifierTestsBase
 {
-  private readonly IGqlpConstant _defValue = EFor<IGqlpConstant>();
-  private readonly IGqlpConstant _constant = For<IGqlpConstant>();
+  private readonly IGqlpConstant _defValue = A.Error<IGqlpConstant>();
+  private readonly IGqlpConstant _constant = A.Of<IGqlpConstant>();
 
-  private readonly IGqlpVariable _item = For<IGqlpVariable>();
-  private readonly IGqlpFieldKey _keyField = EFor<IGqlpFieldKey>();
+  private readonly IGqlpVariable _item = A.Of<IGqlpVariable>();
+  private readonly IGqlpFieldKey _keyField = A.Error<IGqlpFieldKey>();
 
   private readonly VerifyVariable _verifier = new();
   private readonly List<IGqlpModifier> _modifiers = [];
@@ -79,7 +79,7 @@ public class VerifyVariableTests
   [Fact]
   public void Verify_ObjectListDefault()
   {
-    IGqlpFields<IGqlpConstant> fields = For<IGqlpFields<IGqlpConstant>>();
+    IGqlpFields<IGqlpConstant> fields = A.Of<IGqlpFields<IGqlpConstant>>();
     fields.Count.Returns(1);
     _defValue.Fields.Returns(fields);
 
@@ -127,11 +127,11 @@ public class VerifyVariableTests
     Errors.ShouldBeEmpty();
   }
 
-  [Fact]
-  public void Verify_ObjectOptionalListDefault()
+  [Theory, RepeatData]
+  public void Verify_ObjectOptionalListDefault(string key, string value)
   {
-    IGqlpFields<IGqlpConstant> fields = For<IGqlpFields<IGqlpConstant>>();
-    fields.Count.Returns(1);
+    IGqlpConstant constant = A.Constant(value);
+    IGqlpFields<IGqlpConstant> fields = A.Fields(key, constant);
     _defValue.Fields.Returns(fields);
 
     AddModifier(ModifierKind.List);
@@ -170,8 +170,7 @@ public class VerifyVariableTests
 
   private void AddModifier(ModifierKind kind)
   {
-    IGqlpModifier modifier = For<IGqlpModifier>();
-    modifier.ModifierKind.Returns(kind);
+    IGqlpModifier modifier = A.Modifier(kind);
     _modifiers.Add(modifier);
   }
 }

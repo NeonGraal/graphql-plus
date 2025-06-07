@@ -13,7 +13,7 @@ public class VerifyInputTypesTests
   {
     Verifier = new VerifyInputTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ArgDelegate, LoggerFactory));
 
-    _input = NFor<IGqlpInputObject>("Input");
+    _input = A.Named<IGqlpInputObject>("Input");
   }
 
   [Fact]
@@ -21,14 +21,14 @@ public class VerifyInputTypesTests
   {
     Define<IGqlpInputObject>("b");
 
-    IGqlpFieldKey nullLabel = EFor<IGqlpFieldKey>();
+    IGqlpFieldKey nullLabel = A.Error<IGqlpFieldKey>();
     nullLabel.EnumValue.Returns("Null.null");
 
-    IGqlpConstant nullValue = EFor<IGqlpConstant>();
+    IGqlpConstant nullValue = A.Error<IGqlpConstant>();
     nullValue.Value.Returns(nullLabel);
 
-    IGqlpInputBase inType = NFor<IGqlpInputBase>("b");
-    IGqlpInputField field = NFor<IGqlpInputField>("a");
+    IGqlpInputBase inType = A.Named<IGqlpInputBase>("b");
+    IGqlpInputField field = A.Named<IGqlpInputField>("a");
     SetFieldType(field, inType);
     field.DefaultValue.Returns(nullValue);
 
@@ -47,17 +47,17 @@ public class VerifyInputTypesTests
   {
     Define<IGqlpInputObject>("b");
 
-    IGqlpFieldKey nullLabel = EFor<IGqlpFieldKey>();
+    IGqlpFieldKey nullLabel = A.Error<IGqlpFieldKey>();
     nullLabel.EnumValue.Returns("Null.null");
 
-    IGqlpConstant nullValue = EFor<IGqlpConstant>();
+    IGqlpConstant nullValue = A.Error<IGqlpConstant>();
     nullValue.Value.Returns(nullLabel);
 
-    IGqlpInputBase inType = NFor<IGqlpInputBase>("b");
-    IGqlpInputField field = NFor<IGqlpInputField>("a");
+    IGqlpInputBase inType = A.Named<IGqlpInputBase>("b");
+    IGqlpInputField field = A.Named<IGqlpInputField>("a");
     SetFieldType(field, inType);
     field.DefaultValue.Returns(nullValue);
-    IGqlpModifier optional = EFor<IGqlpModifier>();
+    IGqlpModifier optional = A.Error<IGqlpModifier>();
     optional.ModifierKind.Returns(ModifierKind.Optional);
     field.Modifiers.Returns([optional]);
 

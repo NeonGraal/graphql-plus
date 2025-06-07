@@ -16,7 +16,7 @@ public class VerifyEnumTypesTests
   {
     _verifier = new(Aliased.Intf, _mergeLabels.Intf);
 
-    _enum = NFor<IGqlpEnum>("Enum");
+    _enum = A.Named<IGqlpEnum>("Enum");
   }
 
   [Fact]
@@ -43,7 +43,7 @@ public class VerifyEnumTypesTests
   [Fact]
   public void Verify_EnumLabels_ReturnsNoErrors()
   {
-    IGqlpEnumLabel[] labels = NForA<IGqlpEnumLabel>("Label1", "Label2");
+    IGqlpEnumLabel[] labels = A.NamedArray<IGqlpEnumLabel>("Label1", "Label2");
     labels[0].Aliases.Returns(["Alias1", "Alias2"]);
     _enum.Items.Returns(labels);
 
@@ -73,13 +73,13 @@ public class VerifyEnumTypesTests
   [Fact]
   public void Verify_EnumParentLabels_ReturnsNoErrors()
   {
-    IGqlpEnum parent = NFor<IGqlpEnum>("Parent");
-    IGqlpEnumLabel[] parentLabels = NForA<IGqlpEnumLabel>("Label3", "Label4");
+    IGqlpEnum parent = A.Named<IGqlpEnum>("Parent");
+    IGqlpEnumLabel[] parentLabels = A.NamedArray<IGqlpEnumLabel>("Label3", "Label4");
     parent.Items.Returns(parentLabels);
 
     Definitions.Add(parent);
 
-    IGqlpEnumLabel[] labels = NForA<IGqlpEnumLabel>("Label1", "Label2");
+    IGqlpEnumLabel[] labels = A.NamedArray<IGqlpEnumLabel>("Label1", "Label2");
     _enum.Items.Returns(labels);
     _enum.Parent.Returns("Parent");
 
@@ -95,17 +95,17 @@ public class VerifyEnumTypesTests
   [Fact]
   public void Verify_EnumParentLabelsCantMerge_ReturnsErrors()
   {
-    IGqlpEnum parent = NFor<IGqlpEnum>("Parent");
-    IGqlpEnumLabel[] parentLabels = NForA<IGqlpEnumLabel>("Label3", "Label4");
+    IGqlpEnum parent = A.Named<IGqlpEnum>("Parent");
+    IGqlpEnumLabel[] parentLabels = A.NamedArray<IGqlpEnumLabel>("Label3", "Label4");
     parent.Items.Returns(parentLabels);
 
     Definitions.Add(parent);
 
-    IGqlpEnumLabel[] labels = NForA<IGqlpEnumLabel>("Label1", "Label2");
+    IGqlpEnumLabel[] labels = A.NamedArray<IGqlpEnumLabel>("Label1", "Label2");
     _enum.Items.Returns(labels);
     _enum.Parent.Returns("Parent");
 
-    _mergeLabels.Intf.CanMerge(Arg.Any<IEnumerable<IGqlpEnumLabel>>()).Returns(MakeMessages("Error"));
+    _mergeLabels.Intf.CanMerge(Arg.Any<IEnumerable<IGqlpEnumLabel>>()).Returns("Error".MakeMessages());
 
     Usages.Add(_enum);
 

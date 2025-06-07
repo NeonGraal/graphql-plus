@@ -14,11 +14,11 @@ public class VerifyDirectiveInputTests
   {
     _verifier = new(Aliased.Intf);
 
-    IGqlpInputParam input = EFor<IGqlpInputParam>();
-    IGqlpInputBase type = NFor<IGqlpInputBase>("Type");
+    IGqlpInputParam input = A.Error<IGqlpInputParam>();
+    IGqlpInputBase type = A.Named<IGqlpInputBase>("Type");
     input.Type.Returns(type);
 
-    _directive = EFor<IGqlpSchemaDirective>();
+    _directive = A.Error<IGqlpSchemaDirective>();
     _directive.Params.Returns([input]);
   }
 

@@ -8,10 +8,10 @@ public class VerifyVariableTests
   : VerifierTestsBase
 {
   private readonly IGqlpConstant _defValue = A.Error<IGqlpConstant>();
-  private readonly IGqlpConstant _constant = A.Of<IGqlpConstant>();
+  private readonly IGqlpConstant _constant = A.Constant("constant");
 
-  private readonly IGqlpVariable _item = A.Of<IGqlpVariable>();
-  private readonly IGqlpFieldKey _keyField = A.Error<IGqlpFieldKey>();
+  private readonly IGqlpVariable _item = A.Variable("item");
+  private readonly IGqlpFieldKey _keyField = A.FieldKey("field");
 
   private readonly VerifyVariable _verifier = new();
   private readonly List<IGqlpModifier> _modifiers = [];
@@ -79,8 +79,7 @@ public class VerifyVariableTests
   [Fact]
   public void Verify_ObjectListDefault()
   {
-    IGqlpFields<IGqlpConstant> fields = A.Of<IGqlpFields<IGqlpConstant>>();
-    fields.Count.Returns(1);
+    IGqlpFields<IGqlpConstant> fields = A.Fields<IGqlpConstant>("", default!);
     _defValue.Fields.Returns(fields);
 
     AddModifier(ModifierKind.List);

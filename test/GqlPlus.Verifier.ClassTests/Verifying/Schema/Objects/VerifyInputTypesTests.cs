@@ -21,11 +21,10 @@ public class VerifyInputTypesTests
   {
     Define<IGqlpInputObject>("b");
 
-    IGqlpFieldKey nullLabel = A.Error<IGqlpFieldKey>();
+    IGqlpFieldKey nullLabel = A.FieldKey("null");
     nullLabel.EnumValue.Returns("Null.null");
 
-    IGqlpConstant nullValue = A.Error<IGqlpConstant>();
-    nullValue.Value.Returns(nullLabel);
+    IGqlpConstant nullValue = A.Constant(nullLabel);
 
     IGqlpInputBase inType = A.Named<IGqlpInputBase>("b");
     IGqlpInputField field = A.Named<IGqlpInputField>("a");
@@ -47,18 +46,16 @@ public class VerifyInputTypesTests
   {
     Define<IGqlpInputObject>("b");
 
-    IGqlpFieldKey nullLabel = A.Error<IGqlpFieldKey>();
+    IGqlpFieldKey nullLabel = A.FieldKey("null");
     nullLabel.EnumValue.Returns("Null.null");
 
-    IGqlpConstant nullValue = A.Error<IGqlpConstant>();
-    nullValue.Value.Returns(nullLabel);
+    IGqlpConstant nullValue = A.Constant(nullLabel);
 
     IGqlpInputBase inType = A.Named<IGqlpInputBase>("b");
     IGqlpInputField field = A.Named<IGqlpInputField>("a");
     SetFieldType(field, inType);
     field.DefaultValue.Returns(nullValue);
-    IGqlpModifier optional = A.Error<IGqlpModifier>();
-    optional.ModifierKind.Returns(ModifierKind.Optional);
+    IGqlpModifier optional = A.Modifier(ModifierKind.Optional);
     field.Modifiers.Returns([optional]);
 
     _input.Fields.Returns([field]);

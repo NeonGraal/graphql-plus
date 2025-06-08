@@ -121,11 +121,8 @@ public class ParserClassTestBase
   protected void ParseOkField<T>([NotNull] Parser<IGqlpFields<T>>.I parser, string fieldName)
     where T : class, IGqlpError
   {
-    IGqlpFields<T> objectResult = A.Of<IGqlpFields<T>>();
-    FieldKeyAst fieldKey = new(AstNulls.At, fieldName);
     T value = AtFor<T>();
-    Dictionary<IGqlpFieldKey, T> dict = new() { [fieldKey] = value };
-    objectResult.GetEnumerator().Returns(dict.GetEnumerator());
+    IGqlpFields<T> objectResult = A.Fields(fieldName, value);
     ParseOk(parser, objectResult);
   }
 

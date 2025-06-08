@@ -24,9 +24,7 @@ public class VerifyOutputTypesTests
     Define<IGqlpOutputObject>("b");
     Define<IGqlpInputObject>("c");
 
-    IGqlpInputBase inType = A.Named<IGqlpInputBase>("c");
-    IGqlpInputParam param = A.Error<IGqlpInputParam>();
-    param.Type.Returns(inType);
+    IGqlpInputParam param = A.InputParam("c");
 
     IGqlpOutputBase outType = A.Named<IGqlpOutputBase>("b");
     IGqlpOutputField field = A.Named<IGqlpOutputField>("a");
@@ -50,10 +48,8 @@ public class VerifyOutputTypesTests
     Define<IGqlpInputObject>("c");
     Define<IGqlpEnum>("d");
 
-    IGqlpInputBase inType = A.Named<IGqlpInputBase>("c");
     IGqlpModifier modifier = A.Modifier(ModifierKind.Dict, "d");
-    IGqlpInputParam param = A.Error<IGqlpInputParam>();
-    param.Type.Returns(inType);
+    IGqlpInputParam param = A.InputParam("c");
     param.Modifiers.Returns([modifier]);
 
     IGqlpOutputBase outType = A.Named<IGqlpOutputBase>("b");
@@ -169,8 +165,7 @@ public class VerifyOutputTypesTests
     Enum("b", "l");
 
     IGqlpOutputObject other = A.Named<IGqlpOutputObject>("Other");
-    IGqlpTypeParam typeParam = A.Named<IGqlpTypeParam>("a");
-    typeParam.Constraint.Returns("b");
+    IGqlpTypeParam typeParam = A.TypeParam("a", "b");
     other.TypeParams.Returns([typeParam]);
     IGqlpOutputBase parent = A.Named<IGqlpOutputBase>("a");
     parent.IsTypeParam.Returns(true);

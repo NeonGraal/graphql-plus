@@ -21,12 +21,10 @@ public class OutputArgMatcherTests
     arg.EnumType.Returns(enumType);
     arg.EnumLabel.Returns(enumLabel);
 
-    IGqlpEnum enumParent = A.Named<IGqlpEnum>(enumName);
-    enumParent.HasValue(enumLabel).Returns(true);
+    IGqlpEnum enumParent = A.Enum(enumName, [enumLabel]);
     Types[enumName] = enumParent;
 
-    IGqlpEnum enumConstraint = A.Named<IGqlpEnum>(constraint);
-    enumConstraint.Parent.Returns(enumName);
+    IGqlpEnum enumConstraint = A.Enum(constraint, [], enumName);
     Types[constraint] = enumConstraint;
 
     bool result = Matcher.Matches(arg, constraint, Context);
@@ -41,7 +39,7 @@ public class OutputArgMatcherTests
     IGqlpObjType enumType = A.Named<IGqlpObjType>(enumLabel);
     arg.EnumType.Returns(enumType);
 
-    IGqlpEnum enumConstraint = A.Named<IGqlpEnum>(constraint);
+    IGqlpEnum enumConstraint = A.Enum(constraint, []);
     Types[constraint] = enumConstraint;
 
     bool result = Matcher.Matches(arg, constraint, Context);
@@ -59,15 +57,10 @@ public class OutputArgMatcherTests
     arg.EnumType.Returns(enumType);
     arg.EnumLabel.Returns(enumLabel);
 
-    IGqlpEnum enumParent = A.Named<IGqlpEnum>(enumName);
-    enumParent.HasValue(enumLabel).Returns(true);
+    IGqlpEnum enumParent = A.Enum(enumName, [enumLabel]);
     Types[enumName] = enumParent;
 
-    IGqlpDomain<IGqlpDomainLabel> domConstraint = A.Named<IGqlpDomain<IGqlpDomainLabel>>(constraint);
-    IGqlpDomainLabel domainLabel = A.Error<IGqlpDomainLabel>();
-    domainLabel.EnumType.Returns(enumName);
-    domainLabel.EnumItem.Returns(enumLabel);
-    domConstraint.Items.Returns([domainLabel]);
+    IGqlpDomain<IGqlpDomainLabel> domConstraint = A.DomainEnum(constraint, enumName, enumLabel);
     Types[constraint] = domConstraint;
 
     bool result = Matcher.Matches(arg, constraint, Context);
@@ -82,7 +75,7 @@ public class OutputArgMatcherTests
     IGqlpObjType enumType = A.Named<IGqlpObjType>(enumLabel);
     arg.EnumType.Returns(enumType);
 
-    IGqlpDomain<IGqlpDomainLabel> domConstraint = A.Named<IGqlpDomain<IGqlpDomainLabel>>(constraint);
+    IGqlpDomain<IGqlpDomainLabel> domConstraint = A.DomainEnum(constraint, "", "");
     Types[constraint] = domConstraint;
 
     bool result = Matcher.Matches(arg, constraint, Context);
@@ -99,8 +92,7 @@ public class OutputArgMatcherTests
     arg.EnumType.Returns(enumType);
     arg.FullType.Returns("$" + enumName);
 
-    IGqlpTypeParam typeParam = A.Named<IGqlpTypeParam>(paramName);
-    typeParam.Constraint.Returns(constraint);
+    IGqlpTypeParam typeParam = A.TypeParam(paramName, constraint);
     Types[arg.FullType] = typeParam;
 
     bool result = Matcher.Matches(arg, constraint, Context);
@@ -119,12 +111,10 @@ public class OutputArgMatcherTests
     arg.EnumType.Returns(enumType);
     arg.EnumLabel.Returns(enumLabel);
 
-    IGqlpEnum enumParent = A.Named<IGqlpEnum>(enumName);
-    enumParent.Parent.Returns(constraint);
-    enumParent.HasValue(enumLabel).Returns(true);
+    IGqlpEnum enumParent = A.Enum(enumName, [enumLabel], constraint);
     Types[enumName] = enumParent;
 
-    IGqlpEnum enumConstraint = A.Named<IGqlpEnum>(constraint);
+    IGqlpEnum enumConstraint = A.Enum(constraint, []);
     Types[constraint] = enumConstraint;
 
     AnyTypeReturns(enumParent, constraint, expected);

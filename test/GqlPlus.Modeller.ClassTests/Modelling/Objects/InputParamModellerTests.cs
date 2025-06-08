@@ -20,12 +20,7 @@ public class InputParamModellerTests
   public void ToModel_WithValidInputParam_ReturnsExpectedInputParamModel(string paramType, string content, string text)
   {
     // Arrange
-    IGqlpInputBase type = A.Of<IGqlpInputBase>();
-    type.Input.Returns(paramType);
-    type.IsTypeParam.Returns(true);
-
-    IGqlpInputParam ast = A.Descr<IGqlpInputParam>(content);
-    ast.Type.Returns(type);
+    IGqlpInputParam ast = A.InputParam(paramType, content, true);
     IGqlpModifier modifier = A.Modifier(ModifierKind.Opt);
     ast.Modifiers.Returns([modifier]);
     IGqlpConstant constant = A.Constant(text);
@@ -54,10 +49,7 @@ public class InputParamModellerTests
   public void ToModel_WithNoModifiersOrDefaultValue_ReturnsInputParamModelWithoutModifiersOrDefaultValue(string paramType, string content)
   {
     // Arrange
-    IGqlpInputBase type = A.Of<IGqlpInputBase>();
-    type.Input.Returns(paramType);
-    IGqlpInputParam ast = A.Descr<IGqlpInputParam>(content);
-    ast.Type.Returns(type);
+    IGqlpInputParam ast = A.InputParam(paramType, content);
     ast.Modifiers.Returns([]);
 
     // Act

@@ -9,7 +9,7 @@ public class SimpleModellerTests
   public void ToModel_WithNumber_ReturnsExpectedSimpleModel()
   {
     // Arrange
-    IGqlpFieldKey ast = A.Of<IGqlpFieldKey>();
+    IGqlpFieldKey ast = A.FieldKey(null!);
     ast.Number.Returns(42);
 
     // Act

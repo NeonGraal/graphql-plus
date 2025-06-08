@@ -13,7 +13,7 @@ public abstract class AstDomainVerifierTestsBase<TItem>
 
     EnumContext context = new(Types, Errors, EnumValues);
 
-    IGqlpDomain<TItem> domain = A.Error<IGqlpDomain<TItem>>();
+    IGqlpDomain<TItem> domain = A.Domain<TItem>("", DomainKind.Boolean);
 
     verifier.Verify(domain, context);
 
@@ -25,12 +25,11 @@ public abstract class AstDomainVerifierTestsBase<TItem>
   [Fact]
   public void CanMerge_WithParentIems_WithoutErrors()
   {
-    IGqlpDomain<TItem> parent = A.Named<IGqlpDomain<TItem>>("parent");
     TItem parentItem = A.Error<TItem>();
-    parent.Items.Returns([parentItem]);
+    IGqlpDomain<TItem> parent = A.Domain("parent", DomainKind.Boolean, parentItem);
     Types["parent"] = parent;
 
-    IGqlpDomain<TItem> domain = A.Named<IGqlpDomain<TItem>>("domain");
+    IGqlpDomain<TItem> domain = A.Domain<TItem>("domain", DomainKind.Boolean);
     domain.Parent.Returns("parent");
 
     EnumContext context = new(Types, Errors, EnumValues);

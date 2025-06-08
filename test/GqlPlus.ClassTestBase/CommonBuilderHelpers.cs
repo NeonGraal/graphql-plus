@@ -56,6 +56,13 @@ public static class CommonBuilderHelpers
     return constant;
   }
 
+  public static IGqlpConstant Constant(this IMockBuilder builder, IGqlpFieldKey value)
+  {
+    IGqlpConstant constant = builder.Of<IGqlpConstant>();
+    constant.Value.Returns(value);
+    return constant;
+  }
+
   public static IGqlpConstant Constant(this IMockBuilder builder, string[] values)
   {
     IGqlpConstant constant = builder.Of<IGqlpConstant>();

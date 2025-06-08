@@ -68,8 +68,8 @@ public class VerifyCategoryOutputTests
   public void Verify_DefinedGenericOutput_ReturnsError()
   {
     IGqlpOutputObject outputType = A.Named<IGqlpOutputObject>("Type");
-    IGqlpTypeParam[] typeParams = [A.Error<IGqlpTypeParam>()];
-    outputType.TypeParams.Returns(typeParams);
+    IGqlpTypeParam typeParam = A.TypeParam("a", "b");
+    outputType.TypeParams.Returns([typeParam]);
     Definitions.Add(outputType);
 
     Usages.Add(_category);

@@ -7,8 +7,7 @@ public class VerifyVariableUsageTests
 {
   protected override IEnumerable<IGqlpVariable> OneDefinition(string name)
   {
-    IGqlpVariable definition = A.Error<IGqlpVariable>();
-    definition.Identifier.Returns(name);
+    IGqlpVariable definition = A.Variable(name);
 
     return [definition];
   }

@@ -19,8 +19,7 @@ public class DomainMatcherTests
     this.SkipIf(kind == DomainKind.Enum, "Enum kind requires specific label matching logic.");
 
     // Arrange
-    IGqlpDomain type = A.Named<IGqlpDomain>(name);
-    type.DomainKind.Returns(kind);
+    IGqlpDomain type = A.Domain<IGqlpDomainLabel>(name, kind);
 
     // Act
     bool result = _sut.Matches(type, $"{kind}", Context);
@@ -33,12 +32,7 @@ public class DomainMatcherTests
   public void Matches_ReturnsTrue_WhenMatchingEnumDomain(string domain, string constraint)
   {
     // Arrange
-    IGqlpDomainLabel typeLabel = A.Of<IGqlpDomainLabel>();
-    typeLabel.EnumType.Returns(constraint);
-
-    IGqlpDomain<IGqlpDomainLabel> type = A.Named<IGqlpDomain<IGqlpDomainLabel>>(domain);
-    type.DomainKind.Returns(DomainKind.Enum);
-    type.Items.Returns([typeLabel]);
+    IGqlpDomain<IGqlpDomainLabel> type = A.DomainEnum(domain, constraint, "");
 
     // Act
     bool result = _sut.Matches(type, constraint, Context);
@@ -51,14 +45,9 @@ public class DomainMatcherTests
   public void Matches_ReturnsTrue_WhenMatchingEnumParent(string domain, string constraint, string enumName)
   {
     // Arrange
-    IGqlpDomainLabel typeLabel = A.Of<IGqlpDomainLabel>();
-    typeLabel.EnumType.Returns(enumName);
+    IGqlpDomain<IGqlpDomainLabel> type = A.DomainEnum(domain, enumName, "");
 
-    IGqlpDomain<IGqlpDomainLabel> type = A.Named<IGqlpDomain<IGqlpDomainLabel>>(domain);
-    type.DomainKind.Returns(DomainKind.Enum);
-    type.Items.Returns([typeLabel]);
-
-    IGqlpEnum enumType = A.Named<IGqlpEnum>(enumName);
+    IGqlpEnum enumType = A.Enum(enumName, []);
     Types[enumName] = enumType;
 
     _enumMatcher.Matches(enumType, constraint, Context).Returns(true);
@@ -74,17 +63,9 @@ public class DomainMatcherTests
   public void Matches_ReturnsTrue_WhenMatchingLabelDomain(string domain, string constraint, string enumLabel)
   {
     // Arrange
-    IGqlpDomainLabel typeLabel = A.Of<IGqlpDomainLabel>();
-    typeLabel.EnumItem.Returns(enumLabel);
+    IGqlpDomain<IGqlpDomainLabel> type = A.DomainEnum(domain, "", enumLabel);
 
-    IGqlpDomain<IGqlpDomainLabel> type = A.Named<IGqlpDomain<IGqlpDomainLabel>>(domain);
-    type.DomainKind.Returns(DomainKind.Enum);
-    type.Items.Returns([typeLabel]);
-
-    IGqlpEnumLabel label = A.Named<IGqlpEnumLabel>(enumLabel);
-    IGqlpEnum enumType = A.Named<IGqlpEnum>(constraint);
-    enumType.Items.Returns([label]);
-
+    IGqlpEnum enumType = A.Enum(constraint, [enumLabel]);
     EnumValues[enumLabel] = constraint;
 
     // Act

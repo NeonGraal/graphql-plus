@@ -14,9 +14,7 @@ public class VerifyDirectiveInputTests
   {
     _verifier = new(Aliased.Intf);
 
-    IGqlpInputParam input = A.Error<IGqlpInputParam>();
-    IGqlpInputBase type = A.Named<IGqlpInputBase>("Type");
-    input.Type.Returns(type);
+    IGqlpInputParam input = A.InputParam("Type");
 
     _directive = A.Error<IGqlpSchemaDirective>();
     _directive.Params.Returns([input]);

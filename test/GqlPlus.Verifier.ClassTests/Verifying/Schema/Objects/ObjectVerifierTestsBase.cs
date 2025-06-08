@@ -183,8 +183,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
   {
     Define<IGqlpTypeSpecial>(constraint);
 
-    IGqlpTypeParam typeParam = A.Named<IGqlpTypeParam>(paramName);
-    typeParam.Constraint.Returns(constraint);
+    IGqlpTypeParam typeParam = A.TypeParam(paramName, constraint);
     TheObject.TypeParams.Returns([typeParam]);
     TBase parent = A.Named<TBase>(paramName);
     parent.IsTypeParam.Returns(true);
@@ -223,8 +222,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
     Define<IGqlpSimple>(argType);
 
     TObject other = A.Named<TObject>(otherName);
-    IGqlpTypeParam typeParam = A.Named<IGqlpTypeParam>(paramName);
-    typeParam.Constraint.Returns(argType);
+    IGqlpTypeParam typeParam = A.TypeParam(paramName, argType);
     other.TypeParams.Returns([typeParam]);
     TBase parent = A.Named<TBase>(paramName);
     parent.IsTypeParam.Returns(true);

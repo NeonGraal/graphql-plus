@@ -16,7 +16,7 @@ public class EnumConstraintMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsExpected_WhenMatchingEnumLabelParent(string constraint, string name, bool expected)
   {
-    IGqlpEnum enumType = A.Enum(constraint, []);
+    IGqlpEnum enumType = A.Enum(constraint, "");
     Types[constraint] = enumType;
 
     IGqlpType type = A.Named<IGqlpType>(name);

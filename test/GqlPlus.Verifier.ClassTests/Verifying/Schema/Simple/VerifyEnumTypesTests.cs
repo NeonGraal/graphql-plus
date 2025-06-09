@@ -16,7 +16,7 @@ public class VerifyEnumTypesTests
   {
     _verifier = new(Aliased.Intf, _mergeLabels.Intf);
 
-    _enum = A.Enum("Enum", []);
+    _enum = A.Enum("Enum", "");
   }
 
   [Fact]
@@ -63,7 +63,7 @@ public class VerifyEnumTypesTests
 
     Define<IGqlpEnum>(parentName);
 
-    IGqlpEnum anEnum = A.Enum(name, [], parentName);
+    IGqlpEnum anEnum = A.Enum(name, parentName);
     Usages.Add(anEnum);
 
     _verifier.Verify(UsageAliased, Errors);
@@ -76,10 +76,10 @@ public class VerifyEnumTypesTests
   {
     this.SkipIf(name == parentName);
 
-    IGqlpEnum parent = A.Enum(parentName, parentLabels);
+    IGqlpEnum parent = A.Enum(parentName, "", parentLabels);
     Definitions.Add(parent);
 
-    IGqlpEnum anEnum = A.Enum(name, labels, parentName);
+    IGqlpEnum anEnum = A.Enum(name, parentName, labels);
     Usages.Add(anEnum);
 
     _verifier.Verify(UsageAliased, Errors);
@@ -92,10 +92,10 @@ public class VerifyEnumTypesTests
   [Theory, RepeatData]
   public void Verify_EnumParentLabelsCantMerge_ReturnsErrors(string name, string[] labels, string parentName, string[] parentLabels)
   {
-    IGqlpEnum parent = A.Enum(parentName, parentLabels);
+    IGqlpEnum parent = A.Enum(parentName, "", parentLabels);
     Definitions.Add(parent);
 
-    IGqlpEnum anEnum = A.Enum(name, labels, parentName);
+    IGqlpEnum anEnum = A.Enum(name, parentName, labels);
     Usages.Add(anEnum);
 
     _mergeLabels.Intf.CanMerge(Arg.Any<IEnumerable<IGqlpEnumLabel>>()).Returns("Error".MakeMessages());

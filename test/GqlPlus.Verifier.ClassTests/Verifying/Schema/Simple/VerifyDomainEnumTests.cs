@@ -41,7 +41,7 @@ public class VerifyDomainEnumTests
 
     EnumContext context = new(Types, Errors, EnumValues);
 
-    IGqlpEnum enumType = A.Enum("domain", ["item1", "item2"]);
+    IGqlpEnum enumType = A.Enum("domain", "", ["item1", "item2"]);
     Types["domain"] = enumType;
 
     EnumValues["item1"] = "domain";

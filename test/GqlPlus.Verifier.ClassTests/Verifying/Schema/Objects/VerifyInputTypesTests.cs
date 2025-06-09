@@ -26,9 +26,7 @@ public class VerifyInputTypesTests
 
     IGqlpConstant nullValue = A.Constant(nullLabel);
 
-    IGqlpInputBase inType = A.Named<IGqlpInputBase>("b");
-    IGqlpInputField field = A.Named<IGqlpInputField>("a");
-    SetFieldType(field, inType);
+    IGqlpInputField field = A.InputField("a", "b");
     field.DefaultValue.Returns(nullValue);
 
     _input.Fields.Returns([field]);
@@ -51,12 +49,9 @@ public class VerifyInputTypesTests
 
     IGqlpConstant nullValue = A.Constant(nullLabel);
 
-    IGqlpInputBase inType = A.Named<IGqlpInputBase>("b");
-    IGqlpInputField field = A.Named<IGqlpInputField>("a");
-    SetFieldType(field, inType);
-    field.DefaultValue.Returns(nullValue);
     IGqlpModifier optional = A.Modifier(ModifierKind.Optional);
-    field.Modifiers.Returns([optional]);
+    IGqlpInputField field = A.InputField("a", "b", optional);
+    field.DefaultValue.Returns(nullValue);
 
     _input.Fields.Returns([field]);
     _input.ObjFields.Returns([field]);

@@ -25,10 +25,7 @@ public class VerifyOutputTypesTests
     Define<IGqlpInputObject>("c");
 
     IGqlpInputParam param = A.InputParam("c");
-
-    IGqlpOutputBase outType = A.Named<IGqlpOutputBase>("b");
-    IGqlpOutputField field = A.Named<IGqlpOutputField>("a");
-    SetFieldType(field, outType);
+    IGqlpOutputField field = A.OutputField("a", "b");
     field.Params.Returns([param]);
 
     _output.Fields.Returns([field]);
@@ -52,9 +49,7 @@ public class VerifyOutputTypesTests
     IGqlpInputParam param = A.InputParam("c");
     param.Modifiers.Returns([modifier]);
 
-    IGqlpOutputBase outType = A.Named<IGqlpOutputBase>("b");
-    IGqlpOutputField field = A.Named<IGqlpOutputField>("a");
-    SetFieldType(field, outType);
+    IGqlpOutputField field = A.OutputField("a", "b");
     field.Params.Returns([param]);
 
     _output.Fields.Returns([field]);
@@ -72,8 +67,8 @@ public class VerifyOutputTypesTests
   {
     Enum("b", "l");
 
-    IGqlpOutputBase outType = A.Named<IGqlpOutputBase>("b");
-    IGqlpOutputField field = A.Named<IGqlpOutputField>("a");
+    IGqlpOutputBase outType = A.OutputBase("b");
+    IGqlpOutputField field = A.OutputField("a", outType);
     field.EnumLabel.Returns("l");
     field.EnumType.Returns(outType);
 
@@ -90,8 +85,8 @@ public class VerifyOutputTypesTests
   [Fact]
   public void Verify_Output_WithEnumFieldUndefined_ReturnsError()
   {
-    IGqlpOutputBase outType = A.Named<IGqlpOutputBase>("b");
-    IGqlpOutputField field = A.Named<IGqlpOutputField>("a");
+    IGqlpOutputBase outType = A.OutputBase("b");
+    IGqlpOutputField field = A.OutputField("a", outType);
     field.EnumLabel.Returns("l");
     field.EnumType.Returns(outType);
 
@@ -110,8 +105,8 @@ public class VerifyOutputTypesTests
   {
     Enum("b", "c");
 
-    IGqlpOutputBase outType = A.Named<IGqlpOutputBase>("b");
-    IGqlpOutputField field = A.Named<IGqlpOutputField>("a");
+    IGqlpOutputBase outType = A.OutputBase("b");
+    IGqlpOutputField field = A.OutputField("a", outType);
     field.EnumLabel.Returns("l");
     field.EnumType.Returns(outType);
 
@@ -130,7 +125,7 @@ public class VerifyOutputTypesTests
   {
     Enum("b", "l");
 
-    IGqlpOutputField field = A.Named<IGqlpOutputField>("a");
+    IGqlpOutputField field = A.OutputField("a", "b");
     field.EnumLabel.Returns("l");
 
     _output.Fields.Returns([field]);
@@ -146,7 +141,7 @@ public class VerifyOutputTypesTests
   [Fact]
   public void Verify_Output_WithUndefinedEnumLabel_ReturnsError()
   {
-    IGqlpOutputField field = A.Named<IGqlpOutputField>("a");
+    IGqlpOutputField field = A.OutputField("a", "b");
     field.EnumLabel.Returns("l");
 
     _output.Fields.Returns([field]);
@@ -171,17 +166,16 @@ public class VerifyOutputTypesTests
     parent.IsTypeParam.Returns(true);
     other.ObjParent.Returns(parent);
 
-    IGqlpOutputField field = A.Named<IGqlpOutputField>("field");
-    IGqlpOutputBase outputBase = A.Named<IGqlpOutputBase>("Other");
     IGqlpOutputArg arg = A.Named<IGqlpOutputArg>("l");
     arg.EnumLabel.Returns("");
     arg.EnumType.Returns(arg);
     arg.WhenForAnyArgs(a => a.SetEnumType(""))
       .Do(HandleSetEnumType);
 
-    outputBase.Args.Returns([arg]);
-    outputBase.BaseArgs.Returns([arg]);
-    SetFieldType(field, outputBase);
+    IGqlpOutputBase outputBase = A.OutputBase("Other", arg);
+
+    IGqlpOutputField field = A.OutputField("field", outputBase);
+
     ArgMatcher.Matches(arg, "b", Arg.Any<EnumContext>()).Returns(true);
 
     _output.Fields.Returns([field]);

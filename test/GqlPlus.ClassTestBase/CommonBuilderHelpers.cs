@@ -1,7 +1,5 @@
-﻿using GqlPlus.Abstractions;
-using GqlPlus.Ast;
+﻿using GqlPlus.Ast;
 using GqlPlus.Token;
-using NSubstitute;
 
 namespace GqlPlus;
 

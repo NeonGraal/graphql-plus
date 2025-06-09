@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Matching;
+﻿using GqlPlus.Matching;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
@@ -56,9 +55,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
   {
     Define<IGqlpTypeSpecial>("String");
 
-    TField field = A.Named<TField>(fieldName);
-    TBase dualBase = A.Named<TBase>("String");
-    SetFieldType(field, dualBase);
+    TField field = A.ObjField<TField, TBase>(fieldName, A.ObjBase<TBase>("String"), "");
 
     TheObject.Fields.Returns([field]);
     TheObject.ObjFields.Returns([field]);
@@ -139,9 +136,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
   {
     Define<IGqlpTypeSpecial>("String");
 
-    TField field = A.Named<TField>(fieldName);
-    TBase dualBase = A.Named<TBase>("String");
-    SetFieldType(field, dualBase);
+    TField field = A.ObjField<TField, TBase>(fieldName, A.ObjBase<TBase>("String"), "");
 
     TObject parent = A.Named<TObject>(parentName);
     parent.Fields.Returns([field]);
@@ -228,12 +223,9 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
     parent.IsTypeParam.Returns(true);
     other.ObjParent.Returns(parent);
 
-    TField field = A.Named<TField>(fieldName);
-    TBase dualBase = A.Named<TBase>(otherName);
     TArg arg = A.Named<TArg>(argType);
-    dualBase.Args.Returns([arg]);
-    dualBase.BaseArgs.Returns([arg]);
-    SetFieldType(field, dualBase);
+    TBase objBase = A.ObjBase<TBase, TArg>(otherName, arg);
+    TField field = A.ObjField<TField, TBase>(fieldName, objBase, "");
     ArgMatcher.Matches(arg, argType, Arg.Any<EnumContext>()).Returns(true);
 
     TheObject.Fields.Returns([field]);
@@ -245,12 +237,6 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
     Verifier.Verify(UsageAliased, Errors);
 
     Errors.ShouldBeEmpty();
-  }
-
-  protected void SetFieldType([NotNull] TField field, TBase type)
-  {
-    field.Type.Returns(type);
-    field.BaseType.Returns(type);
   }
 
   private static TAlt MakeAlt(string type)

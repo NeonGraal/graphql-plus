@@ -17,10 +17,7 @@ public class InputFieldModellerTests
   public void FieldModel_WithValidField_ReturnsExpectedInputFieldModel(string name, string contents, string typeName)
   {
     // Arrange
-    IGqlpInputBase type = A.Of<IGqlpInputBase>();
-    type.Input.Returns(typeName);
-    IGqlpInputField ast = A.Named<IGqlpInputField>(name, contents);
-    ast.BaseType.Returns(type);
+    IGqlpInputField ast = A.InputField(name, typeName, contents);
 
     InputBaseModel inputType = new(typeName, "");
     ToModelReturns(ObjBase, inputType);

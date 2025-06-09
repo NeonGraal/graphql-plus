@@ -17,13 +17,10 @@ public class OutputFieldModellerTests
   public void FieldModel_WithValidField_ReturnsExpectedOutputFieldModel(string name, string contents, string typeName)
   {
     // Arrange
-    IGqlpOutputBase type = A.Of<IGqlpOutputBase>();
-    type.Output.Returns(typeName);
-    IGqlpOutputField ast = A.Named<IGqlpOutputField>(name, contents);
-    ast.BaseType.Returns(type);
+    IGqlpOutputField ast = A.OutputField(name, typeName, contents);
 
     OutputBaseModel outputType = new(typeName, "");
-    ObjBase.ToModel(type, TypeKinds).Returns(outputType);
+    ToModelReturns(ObjBase, outputType);
 
     // Act
     OutputFieldModel result = Modeller.ToModel(ast, TypeKinds);

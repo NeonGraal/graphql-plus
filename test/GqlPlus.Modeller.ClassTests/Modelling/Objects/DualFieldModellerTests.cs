@@ -16,10 +16,7 @@ public class DualFieldModellerTests
   public void FieldModel_WithValidField_ReturnsExpectedDualFieldModel(string name, string contents, string typeName)
   {
     // Arrange
-    IGqlpDualBase type = A.Error<IGqlpDualBase>();
-    type.Dual.Returns(typeName);
-    IGqlpDualField ast = A.Named<IGqlpDualField>(name, contents);
-    ast.BaseType.Returns(type);
+    IGqlpDualField ast = A.DualField(name, typeName, contents);
     DualBaseModel dualType = new(typeName, "");
     ToModelReturns(ObjBase, dualType);
 

@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Ast;
 
-internal static class AstNulls
+public static class AstNulls
 {
-  internal static readonly TokenAt At = new(TokenKind.Start, 0, 0, "");
+  public static readonly TokenAt At = new(TokenKind.Start, 0, 0, "");
 }

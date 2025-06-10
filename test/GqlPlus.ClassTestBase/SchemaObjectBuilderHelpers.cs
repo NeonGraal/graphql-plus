@@ -26,6 +26,15 @@ public static class SchemaObjectBuilderHelpers
   public static IGqlpInputField InputField(this IMockBuilder builder, string name, string type, params IGqlpModifier[] modifiers)
     => builder.ObjField<IGqlpInputField, IGqlpInputBase>(name, builder.InputBase(type, ""), "", modifiers);
 
+  public static IGqlpOutputArg OutputEnumArg(this IMockBuilder builder, string name, string enumType, string enumLabel)
+  {
+    IGqlpOutputArg theArg = builder.Named<IGqlpOutputArg>(name);
+    IGqlpObjType enumObjType = builder.Named<IGqlpObjType>(enumType);
+    theArg.FullType.Returns(enumType);
+    theArg.EnumType.Returns(enumObjType);
+    theArg.EnumLabel.Returns(enumLabel);
+    return theArg;
+  }
   public static IGqlpOutputBase OutputBase(this IMockBuilder builder, string name, params IGqlpOutputArg[] args)
   {
     IGqlpOutputBase theBase = builder.ObjBase<IGqlpOutputBase, IGqlpOutputArg>(name, args);

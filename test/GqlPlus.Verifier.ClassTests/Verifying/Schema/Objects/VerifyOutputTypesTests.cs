@@ -159,16 +159,13 @@ public class VerifyOutputTypesTests
   {
     Enum("b", "l");
 
-    IGqlpOutputObject other = A.Named<IGqlpOutputObject>("Other");
     IGqlpTypeParam typeParam = A.TypeParam("a", "b");
+    IGqlpOutputBase parent = A.OutputBase("a", isTypeParam: true);
+    IGqlpOutputObject other = A.Named<IGqlpOutputObject>("Other");
     other.TypeParams.Returns([typeParam]);
-    IGqlpOutputBase parent = A.Named<IGqlpOutputBase>("a");
-    parent.IsTypeParam.Returns(true);
     other.ObjParent.Returns(parent);
 
-    IGqlpOutputArg arg = A.Named<IGqlpOutputArg>("l");
-    arg.EnumLabel.Returns("");
-    arg.EnumType.Returns(arg);
+    IGqlpOutputArg arg = A.OutputEnumArg("l", "l", "");
     arg.WhenForAnyArgs(a => a.SetEnumType(""))
       .Do(HandleSetEnumType);
 
@@ -192,6 +189,7 @@ public class VerifyOutputTypesTests
     {
       arg.EnumLabel.Returns("l");
       arg.Name.Returns("b");
+      arg.EnumType.Name.Returns("b");
     }
   }
 }

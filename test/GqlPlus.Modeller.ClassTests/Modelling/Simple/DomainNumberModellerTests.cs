@@ -16,8 +16,7 @@ public class DomainNumberModellerTests
     string[] aliases)
   {
     // Arrange
-    IGqlpDomain<IGqlpDomainRange> ast = A.Aliased<IGqlpDomain<IGqlpDomainRange>>(name, aliases, contents);
-    ast.Parent.Returns(parent);
+    IGqlpDomain<IGqlpDomainRange> ast = A.Domain<IGqlpDomainRange>(name, aliases, parent, contents, DomainKind.Number);
 
     // Act
     BaseDomainModel<DomainRangeModel> result = Modeller.ToModel(ast, TypeKinds);
@@ -26,6 +25,7 @@ public class DomainNumberModellerTests
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
         r => r.Name.ShouldBe(name),
+        r => r.DomainKind.ShouldBe(DomainKindModel.Number),
         r => r.Description.ShouldBe(contents),
         r => r.Aliases.ShouldBe(aliases),
         r => r.Parent.ShouldNotBeNull()

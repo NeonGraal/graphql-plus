@@ -15,7 +15,7 @@ public class VerifyUnionTypesTests
   {
     _verifier = new(Aliased.Intf, _mergeMembers.Intf);
 
-    _union = A.Named<IGqlpUnion>("Union");
+    _union = A.Union("Union");
   }
 
   [Fact]

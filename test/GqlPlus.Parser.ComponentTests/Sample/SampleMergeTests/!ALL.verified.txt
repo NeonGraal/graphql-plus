@@ -18,6 +18,14 @@ Success
 }
 {
   !Ca P@010/0001
+  ctgrOutpDescr
+  (Parallel)
+  'Output comment'
+  !Tr I@029/0001
+  CtgrOutpDescr
+}
+{
+  !Ca P@010/0001
   ctgrOutpDict
   (Parallel)
   !Tr I@012/0001
@@ -200,6 +208,10 @@ Success
 {
   !Ou I@008/0002
   CtgrOutp
+}
+{
+  !Ou I@008/0002
+  CtgrOutpDescr
 }
 {
   !Ou I@008/0002
@@ -3206,6 +3218,45 @@ Success
   |
   P@044/0002
   $ref
+}
+{
+  !Du I@006/0001
+  GnrcPrntDescrDual
+  <
+    I@025/0001
+    $type
+    :String
+  >
+  :
+  'Parent comment'
+  I@058/0001
+  $type
+}
+{
+  !In I@007/0001
+  GnrcPrntDescrInp
+  <
+    I@025/0001
+    $type
+    :String
+  >
+  :
+  'Parent comment'
+  I@058/0001
+  $type
+}
+{
+  !Ou I@008/0001
+  GnrcPrntDescrOutp
+  <
+    I@027/0001
+    $type
+    :String
+  >
+  :
+  'Parent comment'
+  I@060/0001
+  $type
 }
 {
   !Du I@006/0001
@@ -6279,6 +6330,21 @@ Success
 }
 {
   !Do I@008/0001
+  DmnBoolPrntDescr
+  Boolean
+  :( 'Parent comment' !Tr I@044/0001 PrntDmnBoolPrntDescr )
+  !DT I@073/0001
+  False
+}
+{
+  !Do I@008/0002
+  PrntDmnBoolPrntDescr
+  Boolean
+  !DT I@039/0002
+  True
+}
+{
+  !Do I@008/0001
   DmnEnumAll
   Enum
   !DE I@026/0001
@@ -6384,6 +6450,31 @@ Success
   prnt_dmnEnumPrnt
 }
 {
+  !Do I@008/0001
+  DmnEnumPrntDescr
+  Enum
+  :( 'Parent comment' !Tr I@044/0001 PrntDmnEnumPrntDescr )
+  !DE I@070/0001
+  EnumDmnEnumPrntDescr
+  enum_dmnEnumPrntDescr
+}
+{
+  !Do I@008/0002
+  PrntDmnEnumPrntDescr
+  Enum
+  !DE I@036/0002
+  EnumDmnEnumPrntDescr
+  prnt_dmnEnumPrntDescr
+}
+{
+  !En I@006/0003
+  EnumDmnEnumPrntDescr
+  !EL I@029/0003
+  enum_dmnEnumPrntDescr
+  !EL I@051/0003
+  prnt_dmnEnumPrntDescr
+}
+{
   !En I@006/0002
   EnumDmnEnumUnq
   !EL I@023/0002
@@ -6484,6 +6575,23 @@ Success
   }
   {
     !Do I@008/0001
+    DmnNmbrPrntDescr
+    Number
+    :( 'Parent comment' !Tr I@044/0001 PrntDmnNmbrPrntDescr )
+    !DN N@072/0001
+    2
+  >
+}
+{
+  !Do I@008/0002
+  PrntDmnNmbrPrntDescr
+  Number
+  !DN P@038/0002
+  <
+    2
+  }
+  {
+    !Do I@008/0001
     DmnStrDescr
     String
     !DX R@049/0001
@@ -6502,6 +6610,21 @@ Success
     PrntDmnStrPrnt
     String
     !DX R@032/0002
+    /b+/
+  }
+  {
+    !Do I@008/0001
+    DmnStrPrntDescr
+    String
+    :( 'Parent comment' !Tr I@043/0001 PrntDmnStrPrntDescr )
+    !DX R@070/0001
+    /a+/
+  }
+  {
+    !Do I@008/0002
+    PrntDmnStrPrntDescr
+    String
+    !DX R@037/0002
     /b+/
   }
   {
@@ -6544,6 +6667,19 @@ Success
   }
   {
     !En I@006/0001
+    EnumPrntDescr
+    :( 'Parent comment' !Tr I@041/0001 PrntEnumPrntDescr )
+    !EL I@059/0001
+    enumPrntDescr
+  }
+  {
+    !En I@006/0002
+    PrntEnumPrntDescr
+    !EL I@026/0002
+    prnt_enumPrntDescr
+  }
+  {
+    !En I@006/0001
     EnumPrntDup
     :( !Tr I@021/0001 PrntEnumPrntDup )
     !EL I@037/0001
@@ -6576,6 +6712,19 @@ Success
     !Un I@007/0002
     PrntUnionPrnt
     !UM I@023/0002
+    Number
+  }
+  {
+    !Un I@007/0001
+    UnionPrntDescr
+    :( 'Parent comment' !Tr I@041/0001 PrntUnionPrntDescr )
+    !UM I@060/0001
+    Number
+  }
+  {
+    !Un I@007/0002
+    PrntUnionPrntDescr
+    !UM I@028/0002
     Number
   }
   {

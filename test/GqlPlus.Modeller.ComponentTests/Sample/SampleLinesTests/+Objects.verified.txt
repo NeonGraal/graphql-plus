@@ -4088,6 +4088,42 @@ types: !_Map_Type
           typeKind: !_TypeKind Basic
           typeName: String
         name: type
+  !_Identifier GnrcPrntDescrDual: !_TypeDual
+    name: GnrcPrntDescrDual
+    parent: !_DualBase
+      description: 'Parent comment'
+      typeParam: type
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Basic
+          typeName: String
+        name: type
+  !_Identifier GnrcPrntDescrInp: !_TypeInput
+    name: GnrcPrntDescrInp
+    parent: !_InputBase
+      description: 'Parent comment'
+      typeParam: type
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Basic
+          typeName: String
+        name: type
+  !_Identifier GnrcPrntDescrOutp: !_TypeOutput
+    name: GnrcPrntDescrOutp
+    parent: !_OutputBase
+      description: 'Parent comment'
+      typeParam: type
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Basic
+          typeName: String
+        name: type
   !_Identifier GnrcPrntDual: !_TypeDual
     name: GnrcPrntDual
     parent: !_DualBase

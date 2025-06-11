@@ -1,0 +1,2 @@
+domain Name { :"Parent comment"PrntName Boolean false }
+domain PrntName { Boolean true }

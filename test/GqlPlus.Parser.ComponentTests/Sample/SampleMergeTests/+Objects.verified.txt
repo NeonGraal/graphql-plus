@@ -2946,6 +2946,45 @@ Success
 }
 {
   !Du I@006/0001
+  GnrcPrntDescrDual
+  <
+    I@025/0001
+    $type
+    :String
+  >
+  :
+  'Parent comment'
+  I@058/0001
+  $type
+}
+{
+  !In I@007/0001
+  GnrcPrntDescrInp
+  <
+    I@025/0001
+    $type
+    :String
+  >
+  :
+  'Parent comment'
+  I@058/0001
+  $type
+}
+{
+  !Ou I@008/0001
+  GnrcPrntDescrOutp
+  <
+    I@027/0001
+    $type
+    :String
+  >
+  :
+  'Parent comment'
+  I@060/0001
+  $type
+}
+{
+  !Du I@006/0001
   GnrcPrntDualDual
   :
   I@026/0001

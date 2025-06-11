@@ -20,7 +20,8 @@ public class VerifyDomainEnumTests
   [Fact(Skip = "WIP")]
   public void Verify_Enum_WithDefinedLabels_ReturnsNoErrrors()
   {
-    IGqlpEnum enumType = Enum("domain", "item1", "item2");
+    IGqlpEnum enumType = A.Enum("domain", ["item1", "item2"]);
+    AddTypes(enumType);
 
     IGqlpDomainLabel label1 = A.DomainLabel("domain", "item1");
     label1.EnumType.Returns("", "domain");
@@ -41,8 +42,8 @@ public class VerifyDomainEnumTests
 
     EnumContext context = new(Types, Errors, EnumValues);
 
-    IGqlpEnum enumType = A.Enum("domain", "", ["item1", "item2"]);
-    Types["domain"] = enumType;
+    IGqlpEnum enumType = A.Enum("domain", ["item1", "item2"]);
+    AddTypes(enumType);
 
     EnumValues["item1"] = "domain";
     EnumValues["item2"] = "domain";
@@ -77,7 +78,8 @@ public class VerifyDomainEnumTests
   [Fact]
   public void Verify_Enum_WithUndefinedLabel_ReturnsError()
   {
-    IGqlpEnum enumType = Enum("domain", "item1");
+    IGqlpEnum enumType = A.Enum("domain", ["item1"]);
+    AddTypes(enumType);
 
     IGqlpDomainLabel label1 = A.DomainLabel("domain", "item2");
     IGqlpDomainLabel label2 = A.DomainLabel("", "item2");
@@ -93,8 +95,9 @@ public class VerifyDomainEnumTests
   [Fact(Skip = "WIP")]
   public void Verify_Enum_WithDuplicateLabel_ReturnsError()
   {
-    IGqlpEnum enum1 = Enum("domain1", "item1");
-    IGqlpEnum enum2 = Enum("domain2", "item1");
+    IGqlpEnum enum1 = A.Enum("domain1", ["item1"]);
+    IGqlpEnum enum2 = A.Enum("domain2", ["item1"]);
+    AddTypes(enum1, enum2);
 
     IGqlpDomainLabel label1 = A.DomainLabel("domain1", "*");
     IGqlpDomainLabel label2 = A.DomainLabel("domain2", "*");
@@ -109,10 +112,10 @@ public class VerifyDomainEnumTests
   [Fact(Skip = "WIP")]
   public void Verify_Enum_WithDuplicateParentLabel_ReturnsError()
   {
-    IGqlpEnum enumType = Enum("domain1", "item1", "item2");
-    IGqlpEnum parent = Enum("parent", "item3", "item4");
-    enumType.Parent.Returns("parent");
-    IGqlpEnum enum2 = Enum("domain2", "item3");
+    IGqlpEnum enumType = A.Enum("domain1", ["item1", "item2"]);
+    IGqlpEnum parent = A.Enum("parent", ["item3", "item4"], "parent");
+    IGqlpEnum enum2 = A.Enum("domain2", ["item3"]);
+    AddTypes(enumType, parent, enum2);
 
     IGqlpDomainLabel label1 = A.DomainLabel("domain1", "*");
     IGqlpDomainLabel label2 = A.DomainLabel("domain2", "*");

@@ -23,8 +23,7 @@ public abstract class SimpleSameMatcherTests<TSimple>
   {
     this.SkipIf(name == constraint);
 
-    TSimple type = A.Named<TSimple>(name);
-    type.Parent.Returns(constraint);
+    TSimple type = A.Simple<TSimple>(name, constraint);
 
     bool result = _sut.MatchesTypeConstraint(type, constraint, Context);
 
@@ -36,11 +35,9 @@ public abstract class SimpleSameMatcherTests<TSimple>
   {
     this.SkipIf(name == constraint);
 
-    TSimple type = A.Named<TSimple>(name);
-    type.Parent.Returns(parent);
+    TSimple type = A.Simple<TSimple>(name, parent);
 
-    TSimple parentType = A.Named<TSimple>(parent);
-    parentType.Parent.Returns(constraint);
+    TSimple parentType = A.Simple<TSimple>(parent, constraint);
     Types[parent] = parentType;
 
     bool result = _sut.MatchesTypeConstraint(type, constraint, Context);

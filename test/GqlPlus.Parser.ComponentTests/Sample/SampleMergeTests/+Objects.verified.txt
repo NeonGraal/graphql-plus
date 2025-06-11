@@ -3196,7 +3196,7 @@ Success
 {
   !En I@006/0003
   EnumGnrcPrntEnumChildDual
-  :ParentGnrcPrntEnumChildDual
+  :( !Tr I@035/0003 ParentGnrcPrntEnumChildDual )
   !EL I@063/0003
   gnrcPrntEnumChildDualLabel
 }
@@ -3236,7 +3236,7 @@ Success
 {
   !En I@006/0003
   EnumGnrcPrntEnumChildInp
-  :ParentGnrcPrntEnumChildInp
+  :( !Tr I@034/0003 ParentGnrcPrntEnumChildInp )
   !EL I@061/0003
   gnrcPrntEnumChildInpLabel
 }
@@ -3276,7 +3276,7 @@ Success
 {
   !En I@006/0003
   EnumGnrcPrntEnumChildOutp
-  :ParentGnrcPrntEnumChildOutp
+  :( !Tr I@035/0003 ParentGnrcPrntEnumChildOutp )
   !EL I@063/0003
   gnrcPrntEnumChildOutpLabel
 }
@@ -3445,7 +3445,7 @@ Success
 {
   !En I@006/0003
   EnumGnrcPrntEnumPrntDual
-  :ParentGnrcPrntEnumPrntDual
+  :( !Tr I@034/0003 ParentGnrcPrntEnumPrntDual )
   !EL I@061/0003
   gnrcPrntEnumPrntDualLabel
 }
@@ -3485,7 +3485,7 @@ Success
 {
   !En I@006/0003
   EnumGnrcPrntEnumPrntInp
-  :ParentGnrcPrntEnumPrntInp
+  :( !Tr I@033/0003 ParentGnrcPrntEnumPrntInp )
   !EL I@059/0003
   gnrcPrntEnumPrntInpLabel
 }
@@ -3525,7 +3525,7 @@ Success
 {
   !En I@006/0003
   EnumGnrcPrntEnumPrntOutp
-  :ParentGnrcPrntEnumPrntOutp
+  :( !Tr I@034/0003 ParentGnrcPrntEnumPrntOutp )
   !EL I@061/0003
   gnrcPrntEnumPrntOutpLabel
 }
@@ -4149,7 +4149,7 @@ Success
 {
   !En I@006/0003
   EnumOutpCnstEnumPrnt
-  :ParentOutpCnstEnumPrnt
+  :( !Tr I@030/0003 ParentOutpCnstEnumPrnt )
   !EL I@053/0003
   outpCnstEnumPrnt
 }
@@ -4189,7 +4189,7 @@ Success
 {
   !En I@006/0003
   EnumOutpCnstPrntEnum
-  :ParentOutpCnstPrntEnum
+  :( !Tr I@030/0003 ParentOutpCnstPrntEnum )
   !EL I@053/0003
   outpCnstPrntEnum
 }
@@ -4267,7 +4267,7 @@ Success
 {
   !En I@006/0002
   EnumOutpFieldEnumPrnt
-  :PrntOutpFieldEnumPrnt
+  :( !Tr I@031/0002 PrntOutpFieldEnumPrnt )
   !EL I@053/0002
   outpFieldEnumPrnt
 }
@@ -4599,7 +4599,7 @@ Success
 {
   !En I@006/0003
   EnumOutpPrntGnrc
-  :PrntOutpPrntGnrc
+  :( !Tr I@026/0003 PrntOutpPrntGnrc )
   !EL I@043/0003
   outpPrntGnrc
 }

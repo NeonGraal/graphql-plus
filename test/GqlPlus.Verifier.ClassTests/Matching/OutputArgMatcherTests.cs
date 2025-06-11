@@ -17,7 +17,7 @@ public class OutputArgMatcherTests
     this.SkipIf(enumName == constraint);
 
     IGqlpOutputArg arg = A.OutputEnumArg(name, enumLabel, enumLabel);
-    IGqlpEnum enumParent = A.Enum(enumName, "", [enumLabel]);
+    IGqlpEnum enumParent = A.Enum(enumName, [enumLabel]);
     Types[enumName] = enumParent;
 
     IGqlpEnum enumConstraint = A.Enum(constraint, enumName);
@@ -34,7 +34,7 @@ public class OutputArgMatcherTests
     this.SkipIf(enumLabel == constraint);
 
     IGqlpOutputArg arg = A.OutputEnumArg(name, enumLabel, "");
-    IGqlpEnum enumConstraint = A.Enum(constraint, "");
+    IGqlpEnum enumConstraint = A.Enum(constraint, []);
     Types[constraint] = enumConstraint;
 
     bool result = Matcher.Matches(arg, constraint, Context);
@@ -48,10 +48,10 @@ public class OutputArgMatcherTests
     this.SkipIf(enumName == constraint);
 
     IGqlpOutputArg arg = A.OutputEnumArg(name, enumName, enumLabel);
-    IGqlpEnum enumParent = A.Enum(enumName, "", [enumLabel]);
+    IGqlpEnum enumParent = A.Enum(enumName, [enumLabel]);
     Types[enumName] = enumParent;
 
-    IGqlpDomain<IGqlpDomainLabel> domConstraint = A.DomainEnum(constraint, "", enumName, enumLabel);
+    IGqlpDomain<IGqlpDomainLabel> domConstraint = A.DomainEnum(constraint, null, enumName, enumLabel);
     Types[constraint] = domConstraint;
 
     bool result = Matcher.Matches(arg, constraint, Context);
@@ -65,7 +65,7 @@ public class OutputArgMatcherTests
     this.SkipIf(enumLabel == constraint);
 
     IGqlpOutputArg arg = A.OutputEnumArg(name, enumLabel, "");
-    IGqlpDomain<IGqlpDomainLabel> domConstraint = A.DomainEnum(constraint, "");
+    IGqlpDomain<IGqlpDomainLabel> domConstraint = A.DomainEnum(constraint, null);
     Types[constraint] = domConstraint;
 
     bool result = Matcher.Matches(arg, constraint, Context);
@@ -96,10 +96,10 @@ public class OutputArgMatcherTests
     this.SkipIf(enumName == constraint);
 
     IGqlpOutputArg arg = A.OutputEnumArg(name, enumName, enumLabel);
-    IGqlpEnum enumParent = A.Enum(enumName, constraint, [enumLabel]);
+    IGqlpEnum enumParent = A.Enum(enumName, [enumLabel], constraint);
     Types[enumName] = enumParent;
 
-    IGqlpEnum enumConstraint = A.Enum(constraint, "");
+    IGqlpEnum enumConstraint = A.Enum(constraint, []);
     Types[constraint] = enumConstraint;
 
     AnyTypeReturns(enumParent, constraint, expected);

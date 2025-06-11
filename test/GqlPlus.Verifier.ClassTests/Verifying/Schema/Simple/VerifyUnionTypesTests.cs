@@ -83,7 +83,8 @@ public class VerifyUnionTypesTests
   [Fact]
   public void Verify_Union_WithSelfParent_ReturnsError()
   {
-    _union.Parent.Returns("Union");
+    IGqlpTypeRef parentRef = A.Named<IGqlpTypeRef>("Union");
+    _union.Parent.Returns(parentRef);
 
     Usages.Add(_union);
 
@@ -102,7 +103,8 @@ public class VerifyUnionTypesTests
 
     IGqlpUnionMember[] members = A.NamedArray<IGqlpUnionMember>("Member1", "Member2");
     _union.Items.Returns(members);
-    _union.Parent.Returns("Parent");
+    IGqlpTypeRef parentRef = A.Named<IGqlpTypeRef>("Parent");
+    _union.Parent.Returns(parentRef);
 
     Usages.Add(_union);
 
@@ -158,7 +160,8 @@ public class VerifyUnionTypesTests
     Definitions.Add(parent);
 
     IGqlpUnion member = A.Union("Member");
-    member.Parent.Returns("Parent");
+    IGqlpTypeRef parentRef = A.Named<IGqlpTypeRef>("Parent");
+    member.Parent.Returns(parentRef);
     Definitions.Add(member);
 
     IGqlpUnionMember[] members = A.NamedArray<IGqlpUnionMember>("Member1", "Member");

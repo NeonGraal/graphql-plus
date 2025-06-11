@@ -8,7 +8,7 @@ internal abstract class CheckParentModel<TAst, TTypeKind, TModel, TItem>(
 ) : CheckTypeModel<TAst, TTypeKind, TModel>(inputs, kind)
   , IParentModel<TItem>
   , ICheckTypeModel<TTypeKind, TModel>
-  where TAst : IGqlpType<string>
+  where TAst : IGqlpType<IGqlpTypeRef>
   where TModel : IModelBase
 {
   BaseTypeModel IParentModel<TItem>.NewParent(string name, TItem[] items, string? parent)

@@ -3398,7 +3398,7 @@ Success
 {
   !En I@006/0447
   EnumGnrcPrntEnumChildDual
-  :ParentGnrcPrntEnumChildDual
+  :( !Tr I@035/0447 ParentGnrcPrntEnumChildDual )
   !EL I@063/0447
   gnrcPrntEnumChildDualLabel
 }
@@ -3438,7 +3438,7 @@ Success
 {
   !En I@006/0452
   EnumGnrcPrntEnumChildInp
-  :ParentGnrcPrntEnumChildInp
+  :( !Tr I@034/0452 ParentGnrcPrntEnumChildInp )
   !EL I@061/0452
   gnrcPrntEnumChildInpLabel
 }
@@ -3478,7 +3478,7 @@ Success
 {
   !En I@006/0457
   EnumGnrcPrntEnumChildOutp
-  :ParentGnrcPrntEnumChildOutp
+  :( !Tr I@035/0457 ParentGnrcPrntEnumChildOutp )
   !EL I@063/0457
   gnrcPrntEnumChildOutpLabel
 }
@@ -3644,7 +3644,7 @@ Success
 {
   !En I@006/0477
   EnumGnrcPrntEnumPrntDual
-  :ParentGnrcPrntEnumPrntDual
+  :( !Tr I@034/0477 ParentGnrcPrntEnumPrntDual )
   !EL I@061/0477
   gnrcPrntEnumPrntDualLabel
 }
@@ -3684,7 +3684,7 @@ Success
 {
   !En I@006/0482
   EnumGnrcPrntEnumPrntInp
-  :ParentGnrcPrntEnumPrntInp
+  :( !Tr I@033/0482 ParentGnrcPrntEnumPrntInp )
   !EL I@059/0482
   gnrcPrntEnumPrntInpLabel
 }
@@ -3724,7 +3724,7 @@ Success
 {
   !En I@006/0487
   EnumGnrcPrntEnumPrntOutp
-  :ParentGnrcPrntEnumPrntOutp
+  :( !Tr I@034/0487 ParentGnrcPrntEnumPrntOutp )
   !EL I@061/0487
   gnrcPrntEnumPrntOutpLabel
 }
@@ -4348,7 +4348,7 @@ Success
 {
   !En I@006/0563
   EnumOutpCnstEnumPrnt
-  :ParentOutpCnstEnumPrnt
+  :( !Tr I@030/0563 ParentOutpCnstEnumPrnt )
   !EL I@053/0563
   outpCnstEnumPrnt
 }
@@ -4388,7 +4388,7 @@ Success
 {
   !En I@006/0567
   EnumOutpCnstPrntEnum
-  :ParentOutpCnstPrntEnum
+  :( !Tr I@030/0567 ParentOutpCnstPrntEnum )
   !EL I@053/0567
   outpCnstPrntEnum
 }
@@ -4466,7 +4466,7 @@ Success
 {
   !En I@006/0577
   EnumOutpFieldEnumPrnt
-  :PrntOutpFieldEnumPrnt
+  :( !Tr I@031/0577 PrntOutpFieldEnumPrnt )
   !EL I@053/0577
   outpFieldEnumPrnt
 }
@@ -4796,7 +4796,7 @@ Success
 {
   !En I@006/0616
   EnumOutpPrntGnrc
-  :PrntOutpPrntGnrc
+  :( !Tr I@026/0616 PrntOutpPrntGnrc )
   !EL I@043/0616
   outpPrntGnrc
 }
@@ -5783,14 +5783,14 @@ Success
 {
   !En I@006/0760
   EnumSamePrnt
-  :PrntEnumSamePrnt
+  :( !Tr I@022/0760 PrntEnumSamePrnt )
   !EL I@039/0760
   enumSamePrnt
 }
 {
   !En I@006/0761
   EnumSamePrnt
-  :PrntEnumSamePrnt
+  :( !Tr I@022/0761 PrntEnumSamePrnt )
   !EL I@039/0761
   enumSamePrnt
 }
@@ -6797,14 +6797,14 @@ Success
 {
   !Un I@007/0908
   UnionSamePrnt
-  :PrntUnionSamePrnt
+  :( !Tr I@024/0908 PrntUnionSamePrnt )
   !UM I@042/0908
   Boolean
 }
 {
   !Un I@007/0909
   UnionSamePrnt
-  :PrntUnionSamePrnt
+  :( !Tr I@024/0909 PrntUnionSamePrnt )
   !UM I@042/0909
   Boolean
 }
@@ -6825,7 +6825,7 @@ Success
   !Do I@008/0913
   DmnBoolPrnt
   Boolean
-  :PrntDmnBoolPrnt
+  :( !Tr I@023/0913 PrntDmnBoolPrnt )
   !DT I@047/0913
   False
 }
@@ -6879,7 +6879,7 @@ Success
 {
   !En I@006/0923
   EnumDmnEnumAllPrnt
-  :PrntDmnEnumAllPrnt
+  :( !Tr I@028/0923 PrntDmnEnumAllPrnt )
   !EL I@047/0923
   dmnEnumAllPrnt
 }
@@ -6919,7 +6919,7 @@ Success
   !Do I@008/0932
   DmnEnumPrnt
   Enum
-  :PrntDmnEnumPrnt
+  :( !Tr I@023/0932 PrntDmnEnumPrnt )
   !DE I@044/0932
   enum_dmnEnumPrnt
 }
@@ -6957,7 +6957,7 @@ Success
 {
   !En I@006/0941
   EnumDmnEnumUnqPrnt
-  :PrntDmnEnumUnqPrnt
+  :( !Tr I@028/0941 PrntDmnEnumUnqPrnt )
   !EL I@047/0941
   enum_dmnEnumUnqPrnt
 }
@@ -7002,7 +7002,7 @@ Success
 {
   !En I@006/0949
   EnumDmnEnumValuePrnt
-  :PrntDmnEnumValuePrnt
+  :( !Tr I@030/0949 PrntDmnEnumValuePrnt )
   !EL I@051/0949
   dmnEnumValuePrnt
 }
@@ -7024,7 +7024,7 @@ Success
     !Do I@008/0954
     DmnNmbrPrnt
     Number
-    :PrntDmnNmbrPrnt
+    :( !Tr I@023/0954 PrntDmnNmbrPrnt )
     !DN N@046/0954
     2
   >
@@ -7048,7 +7048,7 @@ Success
     !Do I@008/0959
     DmnStrPrnt
     String
-    :PrntDmnStrPrnt
+    :( !Tr I@022/0959 PrntDmnStrPrnt )
     !DX R@044/0959
     /a+/
   }
@@ -7069,7 +7069,7 @@ Success
   {
     !En I@006/0964
     EnumPrnt
-    :PrntEnumPrnt
+    :( !Tr I@018/0964 PrntEnumPrnt )
     !EL I@031/0964
     enumPrnt
   }
@@ -7082,7 +7082,7 @@ Success
   {
     !En I@006/0967
     EnumPrntAlias
-    :PrntEnumPrntAlias
+    :( !Tr I@023/0967 PrntEnumPrntAlias )
     !EL I@041/0967
     val_enumPrntAlias
     !EL I@059/0967
@@ -7100,7 +7100,7 @@ Success
   {
     !En I@006/0970
     EnumPrntDup
-    :PrntEnumPrntDup
+    :( !Tr I@021/0970 PrntEnumPrntDup )
     !EL I@037/0970
     enumPrntDup
   }
@@ -7123,7 +7123,7 @@ Success
   {
     !Un I@007/0975
     UnionPrnt
-    :PrntUnionPrnt
+    :( !Tr I@020/0975 PrntUnionPrnt )
     !UM I@034/0975
     String
   }
@@ -7136,7 +7136,7 @@ Success
   {
     !Un I@007/0978
     UnionPrntDup
-    :PrntUnionPrntDup
+    :( !Tr I@023/0978 PrntUnionPrntDup )
     !UM I@040/0978
     Number
   }

@@ -130,7 +130,7 @@ Success
 {
   !En I@006/0030
   _TypeKind
-  :_SimpleKind
+  :( !Tr I@019/0030 _SimpleKind )
   !EL I@031/0030
   Dual
   !EL I@036/0030

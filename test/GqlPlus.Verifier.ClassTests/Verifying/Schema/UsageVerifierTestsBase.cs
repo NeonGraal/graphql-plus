@@ -8,9 +8,11 @@ public abstract class UsageVerifierTestsBase<TUsage>
 {
   internal ForVA<TUsage> Aliased { get; } = new();
   protected Collection<TUsage> Usages { get; } = [];
-  protected Collection<IGqlpType> Definitions { get; } = [];
+  protected ICollection<IGqlpType> Definitions => _definitions;
 
-  protected UsageAliased<TUsage> UsageAliased => new([.. Usages], [.. Definitions, .. Types.Values.OfType<IGqlpType>()]);
+  private readonly List<IGqlpType> _definitions = [];
+
+  protected UsageAliased<TUsage> UsageAliased => new([.. Usages], [.. _definitions, .. Types.Values.OfType<IGqlpType>()]);
 
   protected abstract TUsage TheUsage { get; }
   protected abstract IVerifyUsage<TUsage> Verifier { get; }
@@ -28,8 +30,19 @@ public abstract class UsageVerifierTestsBase<TUsage>
   internal void Define<T>(params string[] names)
     where T : class, IGqlpType
   {
-    foreach (string name in names) {
-      Definitions.Add(AddType<T>(name));
-    }
+    IGqlpType[] types = A.NamedArray<T>(names);
+    AddTypes(types);
+    _definitions.AddRange(types);
+  }
+
+  internal void Define<T, T1>(string name)
+    where T : class, IGqlpType
+    where T1 : class, IGqlpType
+  {
+    IGqlpType type = A.Of<T, T1>();
+    type.Name.Returns(name);
+    type.MakeError("").ReturnsForAnyArgs(c => c.ThrowIfNull().Arg<string>().MakeMessages());
+    AddTypes(type);
+    _definitions.Add(type);
   }
 }

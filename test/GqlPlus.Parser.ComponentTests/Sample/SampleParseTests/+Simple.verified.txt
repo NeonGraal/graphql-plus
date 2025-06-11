@@ -11,7 +11,7 @@ Success
   !Do I@008/0003
   DmnBoolPrnt
   Boolean
-  :PrntDmnBoolPrnt
+  :( !Tr I@023/0003 PrntDmnBoolPrnt )
   !DT I@047/0003
   False
 }
@@ -65,7 +65,7 @@ Success
 {
   !En I@006/0013
   EnumDmnEnumAllPrnt
-  :PrntDmnEnumAllPrnt
+  :( !Tr I@028/0013 PrntDmnEnumAllPrnt )
   !EL I@047/0013
   dmnEnumAllPrnt
 }
@@ -105,7 +105,7 @@ Success
   !Do I@008/0022
   DmnEnumPrnt
   Enum
-  :PrntDmnEnumPrnt
+  :( !Tr I@023/0022 PrntDmnEnumPrnt )
   !DE I@044/0022
   enum_dmnEnumPrnt
 }
@@ -143,7 +143,7 @@ Success
 {
   !En I@006/0031
   EnumDmnEnumUnqPrnt
-  :PrntDmnEnumUnqPrnt
+  :( !Tr I@028/0031 PrntDmnEnumUnqPrnt )
   !EL I@047/0031
   enum_dmnEnumUnqPrnt
 }
@@ -188,7 +188,7 @@ Success
 {
   !En I@006/0039
   EnumDmnEnumValuePrnt
-  :PrntDmnEnumValuePrnt
+  :( !Tr I@030/0039 PrntDmnEnumValuePrnt )
   !EL I@051/0039
   dmnEnumValuePrnt
 }
@@ -210,7 +210,7 @@ Success
     !Do I@008/0044
     DmnNmbrPrnt
     Number
-    :PrntDmnNmbrPrnt
+    :( !Tr I@023/0044 PrntDmnNmbrPrnt )
     !DN N@046/0044
     2
   >
@@ -234,7 +234,7 @@ Success
     !Do I@008/0049
     DmnStrPrnt
     String
-    :PrntDmnStrPrnt
+    :( !Tr I@022/0049 PrntDmnStrPrnt )
     !DX R@044/0049
     /a+/
   }
@@ -255,7 +255,7 @@ Success
   {
     !En I@006/0054
     EnumPrnt
-    :PrntEnumPrnt
+    :( !Tr I@018/0054 PrntEnumPrnt )
     !EL I@031/0054
     enumPrnt
   }
@@ -268,7 +268,7 @@ Success
   {
     !En I@006/0057
     EnumPrntAlias
-    :PrntEnumPrntAlias
+    :( !Tr I@023/0057 PrntEnumPrntAlias )
     !EL I@041/0057
     val_enumPrntAlias
     !EL I@059/0057
@@ -286,7 +286,7 @@ Success
   {
     !En I@006/0060
     EnumPrntDup
-    :PrntEnumPrntDup
+    :( !Tr I@021/0060 PrntEnumPrntDup )
     !EL I@037/0060
     enumPrntDup
   }
@@ -309,7 +309,7 @@ Success
   {
     !Un I@007/0065
     UnionPrnt
-    :PrntUnionPrnt
+    :( !Tr I@020/0065 PrntUnionPrnt )
     !UM I@034/0065
     String
   }
@@ -322,7 +322,7 @@ Success
   {
     !Un I@007/0068
     UnionPrntDup
-    :PrntUnionPrntDup
+    :( !Tr I@023/0068 PrntUnionPrntDup )
     !UM I@040/0068
     Number
   }

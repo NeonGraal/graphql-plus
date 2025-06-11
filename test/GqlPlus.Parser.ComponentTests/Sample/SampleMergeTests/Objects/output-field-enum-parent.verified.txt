@@ -16,7 +16,7 @@ Success
 {
   !En I@006/0002
   EnumOutpFieldEnumPrnt
-  :PrntOutpFieldEnumPrnt
+  :( !Tr I@031/0002 PrntOutpFieldEnumPrnt )
   !EL I@053/0002
   outpFieldEnumPrnt
 }

@@ -13,11 +13,7 @@ public class EnumModellerTests
     string[] aliases)
   {
     // Arrange
-    IGqlpEnum ast = For<IGqlpEnum>();
-    ast.Name.Returns(name);
-    ast.Description.Returns(contents);
-    ast.Aliases.Returns(aliases);
-    ast.Parent.Returns(parent);
+    IGqlpEnum ast = A.Enum(name, aliases, parent, contents);
 
     // Act
     TypeEnumModel result = Modeller.ToModel(ast, TypeKinds);

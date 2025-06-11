@@ -14,12 +14,7 @@ public class UnionModellerTests
     string[] aliases)
   {
     // Arrange
-    IGqlpUnion ast = For<IGqlpUnion>();
-    ast.Name.Returns(name);
-    ast.Description.Returns(contents);
-    ast.Aliases.Returns(aliases);
-    ast.Parent.Returns(parent);
-    ast.Items.Returns([]);
+    IGqlpUnion ast = A.Union(name, aliases, parent, contents);
 
     // Act
     TypeUnionModel result = Modeller.ToModel(ast, TypeKinds);

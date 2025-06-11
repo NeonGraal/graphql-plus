@@ -9,20 +9,20 @@ public class ModifiersClassTestBase
   internal Parser<IGqlpModifier>.DA Modifiers { get; }
 
   public ModifiersClassTestBase()
-    : this(For<ITokenizer>())
+    : this(A.Of<ITokenizer>())
   { }
 
   public ModifiersClassTestBase(ITokenizer tokenizer)
     : base(tokenizer)
   {
-    _modifiers = Substitute.For<Parser<IGqlpModifier>.IA, IParserCollections>();
+    _modifiers = A.Of<Parser<IGqlpModifier>.IA, IParserCollections>();
     _modifiers.Parse(default!, default!)
       .ReturnsForAnyArgs(0.EmptyArray<IGqlpModifier>());
 
-    Modifiers = For<Parser<IGqlpModifier>.DA>();
+    Modifiers = A.Of<Parser<IGqlpModifier>.DA>();
     Modifiers().Returns(_modifiers);
 
-    Collections = For<ParserArray<IParserCollections, IGqlpModifier>.DA>();
+    Collections = A.Of<ParserArray<IParserCollections, IGqlpModifier>.DA>();
     Collections().Returns(_modifiers);
   }
 

@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Convert;
 
-internal class RenderStructureJsonConverter
+internal sealed class RenderStructureJsonConverter
   : RenderJsonConverter<Structured>
 {
   internal static RenderValueJsonConverter ValueConverter { get; } = new();

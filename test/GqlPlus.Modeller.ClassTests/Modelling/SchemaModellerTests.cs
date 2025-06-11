@@ -8,7 +8,7 @@ public class SchemaModellerTests
     IModeller<IGqlpSchemaCategory, CategoryModel> category = MFor<IGqlpSchemaCategory, CategoryModel>();
     IModeller<IGqlpSchemaDirective, DirectiveModel> directive = MFor<IGqlpSchemaDirective, DirectiveModel>();
     IModeller<IGqlpSchemaSetting, SettingModel> setting = MFor<IGqlpSchemaSetting, SettingModel>();
-    ITypesModeller types = For<ITypesModeller>();
+    ITypesModeller types = A.Of<ITypesModeller>();
 
     Modeller = new SchemaModeller(category, directive, setting, types);
   }
@@ -19,7 +19,7 @@ public class SchemaModellerTests
   public void ToModel_WithValidSchema_ReturnsExpectedSchemaModel()
   {
     // Arrange
-    IGqlpSchema ast = For<IGqlpSchema>();
+    IGqlpSchema ast = A.Of<IGqlpSchema>();
     ast.Declarations.Returns([]);
 
     // Act

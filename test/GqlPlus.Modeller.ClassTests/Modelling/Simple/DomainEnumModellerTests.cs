@@ -14,11 +14,7 @@ public class DomainEnumModellerTests
     string[] aliases)
   {
     // Arrange
-    IGqlpDomain<IGqlpDomainLabel> ast = For<IGqlpDomain<IGqlpDomainLabel>>();
-    ast.Name.Returns(name);
-    ast.Description.Returns(contents);
-    ast.Aliases.Returns(aliases);
-    ast.Parent.Returns(parent);
+    IGqlpDomain<IGqlpDomainLabel> ast = A.Domain<IGqlpDomainLabel>(name, aliases, parent, contents, DomainKind.Enum);
 
     // Act
     BaseDomainModel<DomainLabelModel> result = Modeller.ToModel(ast, TypeKinds);
@@ -27,6 +23,7 @@ public class DomainEnumModellerTests
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
         r => r.Name.ShouldBe(name),
+        r => r.DomainKind.ShouldBe(DomainKindModel.Enum),
         r => r.Description.ShouldBe(contents),
         r => r.Aliases.ShouldBe(aliases),
         r => r.Parent.ShouldNotBeNull()

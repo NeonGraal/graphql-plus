@@ -16,7 +16,7 @@ public class VerifySchemaTests(
 {
   protected override async Task Result_Valid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")
   {
-    if (result is IResultError<SchemaAst> error) {
+    if (result is IResultError error) {
       error.Message.ShouldBeNull(section.Prefixed(" ") + test);
     }
 

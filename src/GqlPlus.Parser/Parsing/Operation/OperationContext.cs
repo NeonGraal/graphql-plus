@@ -4,14 +4,14 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Operation;
 
 [ExcludeFromCodeCoverage]
-internal class OperationContext
+public class OperationContext
   : Tokenizer
   , IOperationContext
 {
   public OperationContext(ITokenizer tokens)
     : base(tokens) { }
 
-  internal OperationContext(string operation)
+  public OperationContext(string operation)
     : base(operation) { }
 
   List<IGqlpArg> IOperationContext.Variables { get; } = [];

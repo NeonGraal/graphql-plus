@@ -15,7 +15,7 @@ public class VerifyOutputTypesTests
   {
     Verifier = new VerifyOutputTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ArgDelegate, LoggerFactory));
 
-    _output = NFor<IGqlpOutputObject>("Output");
+    _output = A.Named<IGqlpOutputObject>("Output");
   }
 
   [Fact]
@@ -24,13 +24,8 @@ public class VerifyOutputTypesTests
     Define<IGqlpOutputObject>("b");
     Define<IGqlpInputObject>("c");
 
-    IGqlpInputBase inType = NFor<IGqlpInputBase>("c");
-    IGqlpInputParam param = EFor<IGqlpInputParam>();
-    param.Type.Returns(inType);
-
-    IGqlpOutputBase outType = NFor<IGqlpOutputBase>("b");
-    IGqlpOutputField field = NFor<IGqlpOutputField>("a");
-    SetFieldType(field, outType);
+    IGqlpInputParam param = A.InputParam("c");
+    IGqlpOutputField field = A.OutputField("a", "b");
     field.Params.Returns([param]);
 
     _output.Fields.Returns([field]);
@@ -50,17 +45,11 @@ public class VerifyOutputTypesTests
     Define<IGqlpInputObject>("c");
     Define<IGqlpEnum>("d");
 
-    IGqlpInputBase inType = NFor<IGqlpInputBase>("c");
-    IGqlpModifier modifier = For<IGqlpModifier>();
-    modifier.ModifierKind.Returns(ModifierKind.Dict);
-    modifier.Key.Returns("d");
-    IGqlpInputParam param = EFor<IGqlpInputParam>();
-    param.Type.Returns(inType);
+    IGqlpModifier modifier = A.Modifier(ModifierKind.Dict, "d");
+    IGqlpInputParam param = A.InputParam("c");
     param.Modifiers.Returns([modifier]);
 
-    IGqlpOutputBase outType = NFor<IGqlpOutputBase>("b");
-    IGqlpOutputField field = NFor<IGqlpOutputField>("a");
-    SetFieldType(field, outType);
+    IGqlpOutputField field = A.OutputField("a", "b");
     field.Params.Returns([param]);
 
     _output.Fields.Returns([field]);
@@ -78,8 +67,8 @@ public class VerifyOutputTypesTests
   {
     Enum("b", "l");
 
-    IGqlpOutputBase outType = NFor<IGqlpOutputBase>("b");
-    IGqlpOutputField field = NFor<IGqlpOutputField>("a");
+    IGqlpOutputBase outType = A.OutputBase("b");
+    IGqlpOutputField field = A.OutputField("a", outType);
     field.EnumLabel.Returns("l");
     field.EnumType.Returns(outType);
 
@@ -96,8 +85,8 @@ public class VerifyOutputTypesTests
   [Fact]
   public void Verify_Output_WithEnumFieldUndefined_ReturnsError()
   {
-    IGqlpOutputBase outType = NFor<IGqlpOutputBase>("b");
-    IGqlpOutputField field = NFor<IGqlpOutputField>("a");
+    IGqlpOutputBase outType = A.OutputBase("b");
+    IGqlpOutputField field = A.OutputField("a", outType);
     field.EnumLabel.Returns("l");
     field.EnumType.Returns(outType);
 
@@ -116,8 +105,8 @@ public class VerifyOutputTypesTests
   {
     Enum("b", "c");
 
-    IGqlpOutputBase outType = NFor<IGqlpOutputBase>("b");
-    IGqlpOutputField field = NFor<IGqlpOutputField>("a");
+    IGqlpOutputBase outType = A.OutputBase("b");
+    IGqlpOutputField field = A.OutputField("a", outType);
     field.EnumLabel.Returns("l");
     field.EnumType.Returns(outType);
 
@@ -136,7 +125,7 @@ public class VerifyOutputTypesTests
   {
     Enum("b", "l");
 
-    IGqlpOutputField field = NFor<IGqlpOutputField>("a");
+    IGqlpOutputField field = A.OutputField("a", "b");
     field.EnumLabel.Returns("l");
 
     _output.Fields.Returns([field]);
@@ -152,7 +141,7 @@ public class VerifyOutputTypesTests
   [Fact]
   public void Verify_Output_WithUndefinedEnumLabel_ReturnsError()
   {
-    IGqlpOutputField field = NFor<IGqlpOutputField>("a");
+    IGqlpOutputField field = A.OutputField("a", "b");
     field.EnumLabel.Returns("l");
 
     _output.Fields.Returns([field]);
@@ -170,25 +159,20 @@ public class VerifyOutputTypesTests
   {
     Enum("b", "l");
 
-    IGqlpOutputObject other = NFor<IGqlpOutputObject>("Other");
-    IGqlpTypeParam typeParam = NFor<IGqlpTypeParam>("a");
-    typeParam.Constraint.Returns("b");
+    IGqlpTypeParam typeParam = A.TypeParam("a", "b");
+    IGqlpOutputBase parent = A.OutputBase("a", isTypeParam: true);
+    IGqlpOutputObject other = A.Named<IGqlpOutputObject>("Other");
     other.TypeParams.Returns([typeParam]);
-    IGqlpOutputBase parent = NFor<IGqlpOutputBase>("a");
-    parent.IsTypeParam.Returns(true);
     other.ObjParent.Returns(parent);
 
-    IGqlpOutputField field = NFor<IGqlpOutputField>("field");
-    IGqlpOutputBase outputBase = NFor<IGqlpOutputBase>("Other");
-    IGqlpOutputArg arg = NFor<IGqlpOutputArg>("l");
-    arg.EnumLabel.Returns("");
-    arg.EnumType.Returns(arg);
+    IGqlpOutputArg arg = A.OutputEnumArg("l", "l", "");
     arg.WhenForAnyArgs(a => a.SetEnumType(""))
       .Do(HandleSetEnumType);
 
-    outputBase.Args.Returns([arg]);
-    outputBase.BaseArgs.Returns([arg]);
-    SetFieldType(field, outputBase);
+    IGqlpOutputBase outputBase = A.OutputBase("Other", arg);
+
+    IGqlpOutputField field = A.OutputField("field", outputBase);
+
     ArgMatcher.Matches(arg, "b", Arg.Any<EnumContext>()).Returns(true);
 
     _output.Fields.Returns([field]);
@@ -205,6 +189,7 @@ public class VerifyOutputTypesTests
     {
       arg.EnumLabel.Returns("l");
       arg.Name.Returns("b");
+      arg.EnumType.Name.Returns("b");
     }
   }
 }

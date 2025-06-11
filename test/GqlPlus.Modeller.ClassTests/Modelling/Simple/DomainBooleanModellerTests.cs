@@ -14,11 +14,7 @@ public class DomainBooleanModellerTests
     string[] aliases)
   {
     // Arrange
-    IGqlpDomain<IGqlpDomainTrueFalse> ast = For<IGqlpDomain<IGqlpDomainTrueFalse>>();
-    ast.Name.Returns(name);
-    ast.Description.Returns(contents);
-    ast.Aliases.Returns(aliases);
-    ast.Parent.Returns(parent);
+    IGqlpDomain<IGqlpDomainTrueFalse> ast = A.Domain<IGqlpDomainTrueFalse>(name, aliases, parent, contents, DomainKind.Boolean);
 
     // Act
     BaseDomainModel<DomainTrueFalseModel> result = Modeller.ToModel(ast, TypeKinds);
@@ -27,6 +23,7 @@ public class DomainBooleanModellerTests
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
         r => r.Name.ShouldBe(name),
+        r => r.DomainKind.ShouldBe(DomainKindModel.Boolean),
         r => r.Description.ShouldBe(contents),
         r => r.Aliases.ShouldBe(aliases),
         r => r.Parent.ShouldNotBeNull()

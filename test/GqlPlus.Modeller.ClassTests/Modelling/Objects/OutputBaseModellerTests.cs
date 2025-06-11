@@ -17,9 +17,8 @@ public class OutputBaseModellerTests
   public void ToModel_WithValidBase_ReturnsExpectedOutputBaseModel(string output, string contents)
   {
     // Arrange
-    IGqlpOutputBase ast = For<IGqlpOutputBase>();
+    IGqlpOutputBase ast = A.Descr<IGqlpOutputBase>(contents);
     ast.Output.Returns(output);
-    ast.Description.Returns(contents);
     ast.IsTypeParam.Returns(true);
 
     // Act

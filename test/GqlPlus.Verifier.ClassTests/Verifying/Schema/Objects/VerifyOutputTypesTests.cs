@@ -43,7 +43,7 @@ public class VerifyOutputTypesTests
   {
     Define<IGqlpOutputObject>("b");
     Define<IGqlpInputObject>("c");
-    Define<IGqlpEnum>("d");
+    Define<IGqlpEnum, IGqlpSimple>("d");
 
     IGqlpModifier modifier = A.Modifier(ModifierKind.Dict, "d");
     IGqlpInputParam param = A.InputParam("c");
@@ -65,7 +65,7 @@ public class VerifyOutputTypesTests
   [Fact]
   public void Verify_Output_WithEnumField_ReturnsNoErrors()
   {
-    Enum("b", "l");
+    AddTypes(A.Enum("b", ["l"]));
 
     IGqlpOutputBase outType = A.OutputBase("b");
     IGqlpOutputField field = A.OutputField("a", outType);
@@ -103,7 +103,7 @@ public class VerifyOutputTypesTests
   [Fact]
   public void Verify_Output_WithEnumFieldWrongLabel_ReturnsError()
   {
-    Enum("b", "c");
+    AddTypes(A.Enum("b", ["c"]));
 
     IGqlpOutputBase outType = A.OutputBase("b");
     IGqlpOutputField field = A.OutputField("a", outType);
@@ -123,7 +123,7 @@ public class VerifyOutputTypesTests
   [Fact]
   public void Verify_Output_WithEnumLabel_ReturnsNoErrors()
   {
-    Enum("b", "l");
+    AddTypes(A.Enum("b", ["l"]));
 
     IGqlpOutputField field = A.OutputField("a", "b");
     field.EnumLabel.Returns("l");
@@ -157,7 +157,7 @@ public class VerifyOutputTypesTests
   [Fact]
   public void Verify_Output_WithEnumTypeArg_ReturnsNoErrors()
   {
-    Enum("b", "l");
+    AddTypes(A.Enum("b", ["l"]));
 
     IGqlpTypeParam typeParam = A.TypeParam("a", "b");
     IGqlpOutputBase parent = A.OutputBase("a", isTypeParam: true);

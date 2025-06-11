@@ -27,10 +27,9 @@ public abstract class AstDomainVerifierTestsBase<TItem>
   {
     TItem parentItem = A.Error<TItem>();
     IGqlpDomain<TItem> parent = A.Domain("parent", DomainKind.Boolean, parentItem);
-    Types["parent"] = parent;
+    AddTypes(parent);
 
-    IGqlpDomain<TItem> domain = A.Domain<TItem>("domain", DomainKind.Boolean);
-    domain.Parent.Returns("parent");
+    IGqlpDomain<TItem> domain = A.Domain<TItem>("domain", [], "parent", "", DomainKind.Boolean);
 
     EnumContext context = new(Types, Errors, EnumValues);
 

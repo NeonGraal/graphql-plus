@@ -18,6 +18,14 @@ Success
 }
 {
   !Ca P@010/0001
+  ctgrOutpDescr
+  (Parallel)
+  'Output comment'
+  !Tr I@029/0001
+  CtgrOutpDescr
+}
+{
+  !Ca P@010/0001
   ctgrOutpDict
   (Parallel)
   !Tr I@012/0001
@@ -130,6 +138,10 @@ Success
 {
   !Ou I@008/0002
   CtgrOutp
+}
+{
+  !Ou I@008/0002
+  CtgrOutpDescr
 }
 {
   !Ou I@008/0002

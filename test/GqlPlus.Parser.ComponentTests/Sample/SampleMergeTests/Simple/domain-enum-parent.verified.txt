@@ -5,7 +5,7 @@ Success
   !Do I@008/0001
   DmnEnumPrnt
   Enum
-  :PrntDmnEnumPrnt
+  :( !Tr I@023/0001 PrntDmnEnumPrnt )
   !DE I@044/0001
   EnumDmnEnumPrnt
   enum_dmnEnumPrnt

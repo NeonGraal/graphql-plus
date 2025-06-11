@@ -1,0 +1,29 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Do I@008/0001
+  DmnEnumPrntDescr
+  Enum
+  :( 'Parent comment' !Tr I@044/0001 PrntDmnEnumPrntDescr )
+  !DE I@070/0001
+  EnumDmnEnumPrntDescr
+  enum_dmnEnumPrntDescr
+}
+{
+  !Do I@008/0002
+  PrntDmnEnumPrntDescr
+  Enum
+  !DE I@036/0002
+  EnumDmnEnumPrntDescr
+  prnt_dmnEnumPrntDescr
+}
+{
+  !En I@006/0003
+  EnumDmnEnumPrntDescr
+  !EL I@029/0003
+  enum_dmnEnumPrntDescr
+  !EL I@051/0003
+  prnt_dmnEnumPrntDescr
+}
+]

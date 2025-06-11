@@ -6,9 +6,9 @@ public static class SchemaSimpleBuilderHelpers
 {
   public static IGqlpDomain<TItem> Domain<TItem>(this IMockBuilder builder, string name, DomainKind kind, params TItem[] items)
     where TItem : IGqlpDomainItem
-    => builder.Domain(name, [], "", "", kind, items);
+    => builder.Domain(name, [], null, "", kind, items);
 
-  public static IGqlpDomain<TItem> Domain<TItem>(this IMockBuilder builder, string name, string[] aliases, string parent, string description, DomainKind kind, params TItem[] items)
+  public static IGqlpDomain<TItem> Domain<TItem>(this IMockBuilder builder, string name, string[] aliases, string? parent, string description, DomainKind kind, params TItem[] items)
     where TItem : IGqlpDomainItem
   {
     IGqlpDomain<TItem> domain = builder.Simple<IGqlpDomain<TItem>>(name, aliases, parent, description);
@@ -17,9 +17,9 @@ public static class SchemaSimpleBuilderHelpers
     return domain;
   }
 
-  public static IGqlpDomain<IGqlpDomainLabel> DomainEnum(this IMockBuilder builder, string name, string parent, string enumType, string enumLabel)
+  public static IGqlpDomain<IGqlpDomainLabel> DomainEnum(this IMockBuilder builder, string name, string? parent, string enumType, string enumLabel)
     => builder.DomainEnum(name, parent, builder.DomainLabel(enumType, enumLabel));
-  public static IGqlpDomain<IGqlpDomainLabel> DomainEnum(this IMockBuilder builder, string name, string parent, params IGqlpDomainLabel[] labels)
+  public static IGqlpDomain<IGqlpDomainLabel> DomainEnum(this IMockBuilder builder, string name, string? parent, params IGqlpDomainLabel[] labels)
     => builder.Domain(name, [], parent, "", DomainKind.Enum, labels);
 
   public static IGqlpDomainLabel DomainLabel(this IMockBuilder builder, string enumType, string enumLabel)
@@ -30,11 +30,11 @@ public static class SchemaSimpleBuilderHelpers
     return domainLabel;
   }
 
-  public static IGqlpEnum Enum(this IMockBuilder builder, string name, string parent, string[] labels)
+  public static IGqlpEnum Enum(this IMockBuilder builder, string name, string[] labels, string? parent = null)
     => builder.Enum(name, parent, builder.ArrayOf((b, i) => b.EnumLabel(i), labels));
-  public static IGqlpEnum Enum(this IMockBuilder builder, string name, string parent, params IGqlpEnumLabel[] enumLabels)
+  public static IGqlpEnum Enum(this IMockBuilder builder, string name, string? parent, params IGqlpEnumLabel[] enumLabels)
     => builder.Enum(name, [], parent, "", enumLabels);
-  public static IGqlpEnum Enum(this IMockBuilder builder, string name, string[] aliases, string parent, string description, params IGqlpEnumLabel[] enumLabels)
+  public static IGqlpEnum Enum(this IMockBuilder builder, string name, string[] aliases, string? parent, string description, params IGqlpEnumLabel[] enumLabels)
   {
     IGqlpEnum gqlpEnum = builder.Simple<IGqlpEnum>(name, aliases, parent, description);
     gqlpEnum.Items.Returns(enumLabels);
@@ -51,17 +51,24 @@ public static class SchemaSimpleBuilderHelpers
     return enumLabel;
   }
 
-  public static TSimple Simple<TSimple>(this IMockBuilder builder, string name, string[] aliases, string parent = "", string description = "")
+  public static TSimple Simple<TSimple>(this IMockBuilder builder, string name, string parent)
+    where TSimple : class, IGqlpSimple
+    => builder.Simple<TSimple>(name, [], parent);
+  public static TSimple Simple<TSimple>(this IMockBuilder builder, string name, string[] aliases, string? parent = null, string description = "")
     where TSimple : class, IGqlpSimple
   {
     TSimple simple = builder.Aliased<TSimple>(name, aliases, description);
-    simple.Parent.Returns(parent);
+    if (!string.IsNullOrWhiteSpace(parent)) {
+      IGqlpTypeRef parentRef = builder.Named<IGqlpTypeRef>(parent);
+      simple.Parent.Returns(parentRef);
+    }
+
     return simple;
   }
 
   public static IGqlpUnion Union(this IMockBuilder builder, string name, params string[] members)
-    => builder.Union(name, [], "", "", builder.NamedArray<IGqlpUnionMember>(members));
-  public static IGqlpUnion Union(this IMockBuilder builder, string name, string[] aliases, string parent, string description, params IGqlpUnionMember[] unionMembers)
+    => builder.Union(name, [], null, "", builder.NamedArray<IGqlpUnionMember>(members));
+  public static IGqlpUnion Union(this IMockBuilder builder, string name, string[] aliases, string? parent, string description, params IGqlpUnionMember[] unionMembers)
   {
     IGqlpUnion union = builder.Simple<IGqlpUnion>(name, aliases, parent, description);
     union.Items.Returns(unionMembers);

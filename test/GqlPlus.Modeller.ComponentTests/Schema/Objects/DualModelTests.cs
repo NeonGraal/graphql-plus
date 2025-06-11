@@ -16,14 +16,14 @@ internal sealed class DualModelChecks(
   protected override DualDeclAst NewObjectAst(ExpectedObjectInput input, IGqlpObjBase? parent = null)
     => new(AstNulls.At, input.Name, input.Description) {
       Aliases = input.Aliases,
-      Parent = parent ?? (input.Parent is not null ? NewParentAst(input.Parent) : null),
+      Parent = parent ?? NewParentAst(input.Parent),
       TypeParams = input.TypeParams.TypeParams(),
       ObjFields = input.Fields.DualFields(),
       ObjAlternates = input.Alternates.DualAlternates(),
     };
 
-  internal override IGqlpDualBase NewParentAst(string input)
-    => new DualBaseAst(AstNulls.At, input);
+  internal override IGqlpDualBase? NewParentAst(string? input)
+    => string.IsNullOrWhiteSpace(input) ? null : new DualBaseAst(AstNulls.At, input);
 }
 
 public interface IDualModelChecks

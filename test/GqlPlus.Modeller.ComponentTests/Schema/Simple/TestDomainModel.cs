@@ -77,7 +77,7 @@ internal abstract class CheckDomainModel<TValue, TAstItem, TItem, TItemModel>(
     => AstExpected(domain, expected);
 
   BaseTypeModel IParentModel<TValue>.NewParent(string name, TValue[] items, string? parent)
-    => _modeller.ToModel(NewDomainAst(name, null, [], null, items) with { Parent = parent }, TypeKinds);
+    => _modeller.ToModel(NewDomainAst(name, null, [], null, items) with { Parent = NewParentAst(parent) }, TypeKinds);
 
   protected IEnumerable<string> Items(TValue[]? inputs)
     => Items("items:", inputs, ExpectedItem());
@@ -88,7 +88,7 @@ internal abstract class CheckDomainModel<TValue, TAstItem, TItem, TItemModel>(
   protected override string[] ExpectedType(ExpectedTypeInput<string> input)
     => ExpectedDomain(new ExpectedDomainInput<TValue>(input));
 
-  internal override AstDomain<TAstItem, TItem> NewTypeAst(string name, string? parent, string? description, string[]? aliases)
+  internal override AstDomain<TAstItem, TItem> NewTypeAst(string name, IGqlpTypeRef? parent, string? description, string[]? aliases)
     => new(AstNulls.At, name, description ?? "", kind) {
       Parent = parent,
       Aliases = aliases ?? [],
@@ -105,7 +105,7 @@ internal abstract class CheckDomainModel<TValue, TAstItem, TItem, TItemModel>(
     => new(AstNulls.At, name, kind, DomainItems(items) ?? []) {
       Description = description ?? "",
       Aliases = aliases ?? [],
-      Parent = parent,
+      Parent = NewParentAst(parent),
     };
 
   private IEnumerable<string> Items<TInput>(string field, TInput[]? inputs, Func<TInput, bool, IEnumerable<string>> mapping)

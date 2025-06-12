@@ -7,7 +7,7 @@ public class AllTypesRendererTests
 
   public AllTypesRendererTests()
   {
-    _typeRenderer = For<ITypeRenderer>();
+    _typeRenderer = A.Of<ITypeRenderer>();
     Renderer = new AllTypesRenderer([_typeRenderer]);
   }
 

@@ -1,0 +1,2 @@
+domain Name { :"Parent comment"PrntName String /a+/ }
+domain PrntName { String /b+/ }

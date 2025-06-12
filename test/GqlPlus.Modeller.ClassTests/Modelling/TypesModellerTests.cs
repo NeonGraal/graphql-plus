@@ -8,10 +8,10 @@ public class TypesModellerTests
   [Fact]
   public void ToModel_ForType_CallsToTypeModel()
   {
-    IGqlpType ast = For<IGqlpType>();
+    IGqlpType ast = A.Of<IGqlpType>();
     Map<TypeKindModel> typeKinds = [];
 
-    ITypeModeller modeller = For<ITypeModeller>();
+    ITypeModeller modeller = A.Of<ITypeModeller>();
     modeller.ForType(ast).Returns(true);
     modeller.ToTypeModel(ast, typeKinds).Returns(new TestTypeModel());
 

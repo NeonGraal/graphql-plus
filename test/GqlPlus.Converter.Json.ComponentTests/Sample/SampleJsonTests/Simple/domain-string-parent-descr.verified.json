@@ -1,0 +1,75 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DmnStrPrntDescr": {
+      "$tag": "_DomainString",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRegex)",
+          "domain": "PrntDmnStrPrntDescr",
+          "exclude": false,
+          "pattern": "b\u002B"
+        },
+        {
+          "$tag": "_DomainItem(_DomainRegex)",
+          "domain": "DmnStrPrntDescr",
+          "exclude": false,
+          "pattern": "a\u002B"
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "String"
+      },
+      "items": [
+        {
+          "$tag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "a\u002B"
+        }
+      ],
+      "name": "DmnStrPrntDescr",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "description": "Parent comment",
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Domain"
+        },
+        "typeName": "PrntDmnStrPrntDescr"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "PrntDmnStrPrntDescr": {
+      "$tag": "_DomainString",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRegex)",
+          "domain": "PrntDmnStrPrntDescr",
+          "exclude": false,
+          "pattern": "b\u002B"
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "String"
+      },
+      "items": [
+        {
+          "$tag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "b\u002B"
+        }
+      ],
+      "name": "PrntDmnStrPrntDescr",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    }
+  }
+}

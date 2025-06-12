@@ -14,11 +14,7 @@ public class DomainStringModellerTests
     string[] aliases)
   {
     // Arrange
-    IGqlpDomain<IGqlpDomainRegex> ast = For<IGqlpDomain<IGqlpDomainRegex>>();
-    ast.Name.Returns(name);
-    ast.Description.Returns(contents);
-    ast.Aliases.Returns(aliases);
-    ast.Parent.Returns(parent);
+    IGqlpDomain<IGqlpDomainRegex> ast = A.Domain<IGqlpDomainRegex>(name, aliases, parent, contents, DomainKind.String);
 
     // Act
     BaseDomainModel<DomainRegexModel> result = Modeller.ToModel(ast, TypeKinds);
@@ -27,6 +23,7 @@ public class DomainStringModellerTests
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
         r => r.Name.ShouldBe(name),
+        r => r.DomainKind.ShouldBe(DomainKindModel.String),
         r => r.Description.ShouldBe(contents),
         r => r.Aliases.ShouldBe(aliases),
         r => r.Parent.ShouldNotBeNull()

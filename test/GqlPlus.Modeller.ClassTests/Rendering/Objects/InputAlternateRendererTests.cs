@@ -1,6 +1,4 @@
-﻿using Microsoft.VisualStudio.TestPlatform.Utilities;
-
-namespace GqlPlus.Rendering.Objects;
+﻿namespace GqlPlus.Rendering.Objects;
 
 public class InputAlternateRendererTests
   : ObjectBaseRendererBase<InputAlternateModel, InputBaseModel>

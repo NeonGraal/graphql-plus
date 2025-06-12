@@ -10,7 +10,7 @@ public class VerifyOptionAliasedTests
   {
     GroupedVerifier<IGqlpSchemaOption> verifier = NewGroupedVerifier();
 
-    IGqlpSchemaOption[] items = NForA<IGqlpSchemaOption>("Schema", "Name");
+    IGqlpSchemaOption[] items = A.NamedArray<IGqlpSchemaOption>("Schema", "Name");
 
     verifier.Verify(items, Errors);
 

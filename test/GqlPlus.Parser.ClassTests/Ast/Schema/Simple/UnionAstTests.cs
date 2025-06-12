@@ -6,7 +6,7 @@ public class UnionAstTests
   [Theory, RepeatData]
   public void Inequality_BetweenParent(string name, string parent1, string parent2)
     => _checks.InequalityBetween(parent1, parent2,
-      parent => new UnionDeclAst(AstNulls.At, name, []) { Parent = parent },
+      parent => new UnionDeclAst(AstNulls.At, name, []) { Parent = _checks.CreateParent(parent) },
       parent1 == parent2);
 
   [Theory, RepeatData]

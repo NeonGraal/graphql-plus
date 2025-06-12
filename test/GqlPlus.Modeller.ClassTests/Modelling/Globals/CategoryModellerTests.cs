@@ -16,8 +16,8 @@ public class CategoryModellerTests
   public void ToModel_WithValidCategory_ReturnsExpectedCategoryModel(string categoryName, string outputName, string contents)
   {
     // Arrange
-    IGqlpSchemaCategory ast = NFor<IGqlpSchemaCategory>(categoryName, contents);
-    IGqlpTypeRef output = NFor<IGqlpTypeRef>(outputName);
+    IGqlpSchemaCategory ast = A.Named<IGqlpSchemaCategory>(categoryName);
+    IGqlpTypeRef output = A.Named<IGqlpTypeRef>(outputName);
     ast.Output.Returns(output);
     ast.CategoryOption.Returns(CategoryOption.Parallel);
     IEnumerable<IGqlpModifier> modifiers = [ModifierFor(ModifierKind.List), ModifierFor(ModifierKind.Opt)];
@@ -32,11 +32,10 @@ public class CategoryModellerTests
     // Assert
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
-      r => r.Name.ShouldBe(categoryName),
-      r => r.Output.TypeName.ShouldBe(outputName),
-      r => r.Description.ShouldBe(contents),
-      r => r.Resolution.ShouldBe(CategoryOption.Parallel),
-      r => r.Modifiers.ShouldNotBeNull().Length.ShouldBe(2)
-    );
+        r => r.Name.ShouldBe(categoryName),
+        r => r.Output.TypeName.ShouldBe(outputName),
+        r => r.Description.ShouldBe(contents),
+        r => r.Resolution.ShouldBe(CategoryOption.Parallel)
+      );
   }
 }

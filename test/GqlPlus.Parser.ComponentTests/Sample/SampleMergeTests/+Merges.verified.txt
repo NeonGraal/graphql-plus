@@ -221,7 +221,7 @@ Success
 {
   !En I@006/0001
   EnumSamePrnt
-  :PrntEnumSamePrnt
+  :( !Tr I@022/0001 PrntEnumSamePrnt )
   !EL I@039/0001
   enumSamePrnt
 }
@@ -827,7 +827,7 @@ Success
 {
   !Un I@007/0001
   UnionSamePrnt
-  :PrntUnionSamePrnt
+  :( !Tr I@024/0001 PrntUnionSamePrnt )
   !UM I@042/0001
   Boolean
 }

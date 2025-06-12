@@ -12,7 +12,7 @@ internal class AstDomainVerifier<TItem>(
   public ITokenMessages CanMergeItems(IGqlpDomain usage, EnumContext context)
   {
     return usage is not IGqlpDomain<TItem> domain
-      || !context.GetTyped(domain.Parent, out IGqlpDomain<TItem>? domainParent)
+      || !context.GetTyped(domain.Parent?.Name, out IGqlpDomain<TItem>? domainParent)
       ? TokenMessages.New
       : CanMergeDomain(domain, domainParent, context);
   }

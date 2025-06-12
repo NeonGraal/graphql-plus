@@ -13,7 +13,7 @@ public class ModifierModellerTests
   public void ToModel_WithValidModifier_ReturnsExpectedModifierModel()
   {
     // Arrange
-    IGqlpModifier ast = ModifierFor(ModifierKind.Optional);
+    IGqlpModifier ast = A.Modifier(ModifierKind.Optional);
 
     // Act
     ModifierModel result = Modeller.ToModel(ast, TypeKinds);
@@ -37,7 +37,7 @@ public class ModifierModellerTests
   public void ToModel_WithValidCollection_ReturnsExpectedCollectionModel()
   {
     // Arrange
-    IGqlpModifier ast = ModifierFor(ModifierKind.Dict, "key");
+    IGqlpModifier ast = A.Modifier(ModifierKind.Dict, "key");
     ast.IsOptional.Returns(true);
 
     TypeKindIs("key", TypeKindModel.Basic);

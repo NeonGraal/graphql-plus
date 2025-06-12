@@ -1,0 +1,33 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "GnrcPrntDescrInp": {
+      "$tag": "_TypeInput",
+      "name": "GnrcPrntDescrInp",
+      "parent": {
+        "$tag": "_InputBase",
+        "description": "Parent comment",
+        "typeParam": "type"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
+          "name": "type"
+        }
+      ]
+    }
+  }
+}

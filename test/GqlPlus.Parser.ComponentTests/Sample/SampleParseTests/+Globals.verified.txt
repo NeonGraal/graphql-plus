@@ -25,101 +25,113 @@ Success
 }
 {
   !Ca P@010/0009
+  ctgrOutpDescr
+  (Parallel)
+  'Output comment'
+  !Tr I@029/0009
+  CtgrOutpDescr
+}
+{
+  !Ou I@008/0010
+  CtgrOutpDescr
+}
+{
+  !Ca P@010/0012
   ctgrOutpDict
   (Parallel)
-  !Tr I@012/0009
+  !Tr I@012/0012
   CtgrOutpDict
   [*]
 }
 {
-  !Ou I@008/0010
+  !Ou I@008/0013
   CtgrOutpDict
 }
 {
-  !Ca P@010/0012
+  !Ca P@010/0015
   ctgrOutpList
   (Parallel)
-  !Tr I@012/0012
+  !Tr I@012/0015
   CtgrOutpList
   []
 }
 {
-  !Ou I@008/0013
+  !Ou I@008/0016
   CtgrOutpList
 }
 {
-  !Ca P@010/0015
+  !Ca P@010/0018
   ctgrOutpOptl
   (Parallel)
-  !Tr I@012/0015
+  !Tr I@012/0018
   CtgrOutpOptl
   ?
 }
 {
-  !Ou I@008/0016
+  !Ou I@008/0019
   CtgrOutpOptl
 }
 {
   'A simple description'
-  !Ou I@008/0019
+  !Ou I@008/0022
   Descr
 }
 {
   'A backslash ("\\") description'
-  !Ou I@008/0022
+  !Ou I@008/0025
   DescrBcks
 }
 {
-  !Ca P@010/0024
+  !Ca P@010/0027
   descrBtwn
   (Parallel)
-  !Tr I@012/0024
+  !Tr I@012/0027
   DescrBtwn
 }
 {
   'A description between'
-  !Ou I@008/0026
+  !Ou I@008/0029
   DescrBtwn
 }
 {
   'A "more" \'Complicated\' \\ description'
-  !Ou I@008/0029
+  !Ou I@008/0032
   DescrCmpl
 }
 {
   'A \'double-quoted\' description'
-  !Ou I@008/0032
+  !Ou I@008/0035
   DescrDbl
 }
 {
   'A "single-quoted" description'
-  !Ou I@008/0035
+  !Ou I@008/0038
   DescrSngl
 }
 {
   'A simple description With extra'
-  !Ou I@008/0039
+  !Ou I@008/0042
   Dscrs
 }
 {
   'A directive described'
-  !Di I@012/0042
+  !Di I@012/0045
   DrctDescr
   (Unique)
   All
 }
 {
-  !Di I@012/0044
+  !Di I@012/0047
   DrctNoParam
   (Unique)
   All
 }
 {
-  !Di I@012/0046
+  !Di I@012/0049
   DrctParamDict
   (
     !Pa
-    I@026/0046
+    I@026/0049
     InDrctParamDict
     [String]
   )
@@ -127,30 +139,30 @@ Success
   All
 }
 {
-  !In I@007/0047
+  !In I@007/0050
   InDrctParamDict
 }
 {
-  !Di I@012/0049
+  !Di I@012/0052
   DrctParamIn
   (
     !Pa
-    I@024/0049
+    I@024/0052
     InDrctParamIn
   )
   (Unique)
   All
 }
 {
-  !In I@007/0050
+  !In I@007/0053
   InDrctParamIn
 }
 {
-  !Di I@012/0052
+  !Di I@012/0055
   DrctParamList
   (
     !Pa
-    I@026/0052
+    I@026/0055
     InDrctParamList
     []
   )
@@ -158,15 +170,15 @@ Success
   All
 }
 {
-  !In I@007/0053
+  !In I@007/0056
   InDrctParamList
 }
 {
-  !Di I@012/0055
+  !Di I@012/0058
   DrctParamOpt
   (
     !Pa
-    I@025/0055
+    I@025/0058
     InDrctParamOpt
     ?
   )
@@ -174,32 +186,32 @@ Success
   All
 }
 {
-  !In I@007/0056
+  !In I@007/0059
   InDrctParamOpt
 }
 {
-  !Op I@008/0058
+  !Op I@008/0061
   Schema
   [
     Alias
   ]
 }
 {
-  !Op I@008/0060
+  !Op I@008/0063
   Schema
   {
-    !OS I@017/0060
+    !OS I@017/0063
     global
-    =( !k I@024/0060 Boolean.true )
+    =( !k I@024/0063 Boolean.true )
   }
 }
 {
-  !Op I@008/0062
+  !Op I@008/0065
   Schema
   {
     'Option Descr'
-    !OS S@017/0062
+    !OS S@017/0065
     descr
-    =( !k I@040/0062 Boolean.true )
+    =( !k I@040/0065 Boolean.true )
   }
 }

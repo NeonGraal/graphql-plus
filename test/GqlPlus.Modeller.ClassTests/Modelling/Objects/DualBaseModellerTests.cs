@@ -16,9 +16,8 @@ public class DualBaseModellerTests
   public void ToModel_WithValidBase_ReturnsExpectedDualBaseModel(string dual, string contents)
   {
     // Arrange
-    IGqlpDualBase ast = For<IGqlpDualBase>();
+    IGqlpDualBase ast = A.Descr<IGqlpDualBase>(contents);
     ast.Dual.Returns(dual);
-    ast.Description.Returns(contents);
     ast.IsTypeParam.Returns(true);
 
     // Act

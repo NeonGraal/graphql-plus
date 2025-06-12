@@ -10,8 +10,8 @@ public class VerifierTestsBase
 {
   protected TokenMessages Errors { get; } = [];
 
-  protected ILoggerFactory LoggerFactory { get; } = For<ILoggerFactory>();
-  protected ILogger Logger { get; } = For<ILogger>();
+  protected ILoggerFactory LoggerFactory { get; } = A.Of<ILoggerFactory>();
+  protected ILogger Logger { get; } = A.Of<ILogger>();
 
   public VerifierTestsBase()
   {

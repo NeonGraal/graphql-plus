@@ -44,10 +44,8 @@ public abstract class GroupedVerifierTestsBase<TAliased>
   {
     GroupedVerifier<TAliased> verifier = NewGroupedVerifier();
 
-    TAliased item1 = A.Of<TAliased>();
-    item1.Aliases.Returns(["alias1", "alias2"]);
-    TAliased item2 = A.Of<TAliased>();
-    item2.Aliases.Returns(["alias0", "alias3"]);
+    TAliased item1 = A.Aliased<TAliased>("name", ["alias1", "alias2"]);
+    TAliased item2 = A.Aliased<TAliased>("name", ["alias0", "alias3"]);
 
     _merger.Intf.CanMerge([]).ReturnsForAnyArgs("Can't merge".MakeMessages());
 
@@ -56,6 +54,19 @@ public abstract class GroupedVerifierTestsBase<TAliased>
     verifier.ShouldSatisfyAllConditions(
       _merger.Called,
       () => Errors.ShouldNotBeEmpty());
+  }
+
+  [Fact]
+  public void Verify_CantMergeGroupsWithDuplicateAliases_ReturnsErrors()
+  {
+    GroupedVerifier<TAliased> verifier = NewGroupedVerifier();
+
+    TAliased item1 = A.Aliased<TAliased>("name1", ["alias1", "alias2"]);
+    TAliased item2 = A.Aliased<TAliased>("name2", ["alias0", "alias1"]);
+
+    verifier.Verify([item1, item2], Errors);
+
+    Errors.ShouldNotBeEmpty();
   }
 
   protected virtual void CheckSimpleVerify()

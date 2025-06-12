@@ -8,7 +8,7 @@ internal class TypesModeller(
   public void AddTypeKinds(IEnumerable<IGqlpType> asts, IMap<TypeKindModel> typeKinds)
   {
     foreach (IGqlpType ast in asts) {
-      typeKinds.Add(ast.Name, types.Single(t => t.ForType(ast)).Kind);
+      typeKinds.Add(ast.Name, GetTypeKind(ast));
     }
   }
 

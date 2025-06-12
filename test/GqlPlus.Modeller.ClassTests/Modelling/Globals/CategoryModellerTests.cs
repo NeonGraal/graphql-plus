@@ -1,6 +1,4 @@
-﻿using NSubstitute.Core;
-
-namespace GqlPlus.Modelling.Globals;
+﻿namespace GqlPlus.Modelling.Globals;
 
 public class CategoryModellerTests
   : ModellerClassTestBase<IGqlpSchemaCategory, CategoryModel>
@@ -16,11 +14,11 @@ public class CategoryModellerTests
   public void ToModel_WithValidCategory_ReturnsExpectedCategoryModel(string categoryName, string outputName, string contents)
   {
     // Arrange
-    IGqlpSchemaCategory ast = A.Named<IGqlpSchemaCategory>(categoryName);
+    IGqlpSchemaCategory ast = A.Named<IGqlpSchemaCategory>(categoryName, contents);
     IGqlpTypeRef output = A.Named<IGqlpTypeRef>(outputName);
     ast.Output.Returns(output);
     ast.CategoryOption.Returns(CategoryOption.Parallel);
-    IEnumerable<IGqlpModifier> modifiers = [ModifierFor(ModifierKind.List), ModifierFor(ModifierKind.Opt)];
+    IEnumerable<IGqlpModifier> modifiers = [A.Modifier(ModifierKind.List), A.Modifier(ModifierKind.Opt)];
     ast.Modifiers.Returns(modifiers);
 
     _modifier.ToModels(modifiers, TypeKinds)

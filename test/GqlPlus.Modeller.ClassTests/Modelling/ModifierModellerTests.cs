@@ -67,7 +67,7 @@ public class ModifierModellerTests
   public void ToModels_WithMultipleModifiers_ReturnsExpectedModifierModels()
   {
     // Arrange
-    IGqlpModifier[] astList = [ModifierFor(ModifierKind.Optional), ModifierFor(ModifierKind.List)];
+    IGqlpModifier[] astList = [A.Modifier(ModifierKind.Optional), A.Modifier(ModifierKind.List)];
 
     // Act
     ModifierModel[] results = Modeller.ToModels(astList, TypeKinds);
@@ -92,7 +92,7 @@ public class ModifierModellerTests
   public void TryModels_WithSomeNullModifiers_IncludesNulls()
   {
     // Arrange
-    IGqlpModifier[] astList = [ModifierFor(ModifierKind.Optional), null!, ModifierFor(ModifierKind.List)];
+    IGqlpModifier[] astList = [A.Modifier(ModifierKind.Optional), null!, A.Modifier(ModifierKind.List)];
 
     // Act
     ModifierModel?[] results = [.. Modeller.TryModels(astList, TypeKinds)];

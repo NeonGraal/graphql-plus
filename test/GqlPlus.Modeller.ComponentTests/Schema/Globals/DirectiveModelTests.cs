@@ -22,9 +22,9 @@ public class DirectiveModelTests(
       new(name, parameters: checks.ExpectedParams(parameters)));
 
   [Theory, RepeatData]
-  public void Model_Locations(string name, DirectiveLocation[] locations)
+  public void Model_Locations(string name, DirectiveLocation locations)
     => checks.DirectiveExpected(
-      new DirectiveDeclAst(AstNulls.At, name) { Locations = DirectiveModeller.Combine(locations) },
+      new DirectiveDeclAst(AstNulls.At, name) { Locations = locations },
       new(name, locations: ExpectedLocations(locations)));
 
   [Theory, RepeatData]
@@ -34,20 +34,19 @@ public class DirectiveModelTests(
     string[] parameters,
     string[] aliases,
     DirectiveOption option,
-    DirectiveLocation[] locations
+    DirectiveLocation location
   ) => checks.DirectiveExpected(
       new DirectiveDeclAst(AstNulls.At, name) {
         Aliases = aliases,
         Description = contents,
-        Locations = DirectiveModeller.Combine(locations),
+        Locations = location,
         Option = option,
         Params = parameters.Params(),
       },
-      new(name, aliases, contents, checks.ExpectedParams(parameters), option, ExpectedLocations(locations)));
+      new(name, aliases, contents, checks.ExpectedParams(parameters), option, ExpectedLocations(location)));
 
-  private static string[] ExpectedLocations(DirectiveLocation[] locations)
+  private static string[] ExpectedLocations(DirectiveLocation location)
   {
-    DirectiveLocation location = DirectiveModeller.Combine(locations);
     IOrderedEnumerable<string> labels = Enum.GetValues<DirectiveLocation>()
       .Where(v => int.PopCount((int)v) == 1)
       .Where(l => location.HasFlag(l))

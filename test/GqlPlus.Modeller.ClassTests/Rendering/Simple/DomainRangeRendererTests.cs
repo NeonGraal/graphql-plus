@@ -15,3 +15,11 @@ public class DomainRangeRendererTests
       $"to: {to:0.#####}"
       ]);
 }
+
+public class DomainNumberRendererTests
+  : BaseDomainRendererTests<DomainRangeModel, DomainRangeInput>
+{
+  protected override DomainKindModel DomainKind => DomainKindModel.Number;
+
+  protected override DomainRangeModel NewItem(DomainRangeInput item) => new(item.Lower, item.Upper, false);
+}

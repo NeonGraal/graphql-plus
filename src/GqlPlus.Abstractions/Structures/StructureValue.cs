@@ -55,7 +55,7 @@ public sealed class StructureValue
   public string AsString => this switch {
     { Boolean: not null } => Boolean.Value.TrueFalse(),
     { Identifier: not null } => Identifier,
-    { Number: not null } => $"{Number}",
+    { Number: not null } => $"{Number:0.#####}",
     { Text: not null } => Text,
     _ => "",
   };

@@ -19,15 +19,15 @@ public record struct DomainRangeInput(decimal? Min, decimal? Max)
   public override string ToString()
   {
     if (Lower is null) {
-      return $"< {Upper}";
+      return $"< {Upper:0.#####}";
     }
 
-    string result = $"{Lower}";
+    string result = $"{Lower:0.#####}";
 
     if (Upper is null) {
       result += " >";
     } else if (Upper != Lower) {
-      result += $" ~ {Upper}";
+      result += $" ~ {Upper:0.#####}";
     }
 
     return result;

@@ -96,18 +96,16 @@ internal class EnumValueRenderer
 }
 
 internal class TypeUnionRenderer(
-  ParentTypeRenderers<AliasedModel, UnionMemberModel> renderers
-) : ParentTypeRenderer<TypeUnionModel, AliasedModel, UnionMemberModel>(renderers)
+  ParentTypeRenderers<NamedModel, UnionMemberModel> renderers
+) : ParentTypeRenderer<TypeUnionModel, NamedModel, UnionMemberModel>(renderers)
 {
-  protected override Func<AliasedModel, UnionMemberModel> NewItem(string parent)
+  protected override Func<NamedModel, UnionMemberModel> NewItem(string parent)
     => member
-        => new(member.Name, parent, member.Description) {
-          Aliases = member.Aliases,
-        };
+        => new(member.Name, parent, member.Description);
 }
 
 internal class UnionMemberRenderer
-  : AliasedRenderer<UnionMemberModel>
+  : NamedRenderer<UnionMemberModel>
 {
   internal override Structured Render(UnionMemberModel model)
     => base.Render(model)

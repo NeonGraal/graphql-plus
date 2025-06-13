@@ -64,15 +64,15 @@ internal record class ParentTypeRenderers<TItem, TAll>(
   IRenderer<TypeRefModel<SimpleKindModel>> Parent,
   IRenderer<TItem> Item,
   IRenderer<TAll> All
-  ) where TItem : ModelBase
-    where TAll : ModelBase;
+  ) where TItem : IModelBase
+    where TAll : IModelBase;
 
 internal abstract class ParentTypeRenderer<TModel, TItem, TAll>(
   ParentTypeRenderers<TItem, TAll> renderers
 ) : ChildTypeRenderer<TModel, TypeRefModel<SimpleKindModel>>(renderers.Parent)
   where TModel : ParentTypeModel<TItem, TAll>
-  where TItem : ModelBase
-  where TAll : ModelBase
+  where TItem : IModelBase
+  where TAll : IModelBase
 {
   internal override Structured Render(TModel model)
     => base.Render(model)

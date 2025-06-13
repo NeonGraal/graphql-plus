@@ -14,3 +14,11 @@ public class DomainTrueFalseRendererTests
       "value: " + value.TrueFalse()
       ]);
 }
+
+public class DomainBooleanRendererTests
+  : BaseDomainRendererTests<DomainTrueFalseModel, bool>
+{
+  protected override DomainKindModel DomainKind => DomainKindModel.Boolean;
+
+  protected override DomainTrueFalseModel NewItem(bool item) => new(item, false);
+}

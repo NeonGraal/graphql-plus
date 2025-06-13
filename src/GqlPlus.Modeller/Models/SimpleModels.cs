@@ -83,12 +83,12 @@ public record class EnumValueModel(
 public record class TypeUnionModel(
   string Name,
   string Description
-) : ParentTypeModel<AliasedModel, UnionMemberModel>(TypeKindModel.Union, Name, Description)
+) : ParentTypeModel<NamedModel, UnionMemberModel>(TypeKindModel.Union, Name, Description)
 { }
 
 public record class UnionMemberModel(
   string Name,
   string OfUnion,
   string Description
-) : AliasedModel(Name, Description)
+) : NamedModel(Name, Description)
 { }

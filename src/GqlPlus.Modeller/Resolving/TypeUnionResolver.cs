@@ -1,8 +1,8 @@
 ﻿namespace GqlPlus.Resolving;
 
 internal class TypeUnionResolver
-  : ResolverParentType<TypeUnionModel, AliasedModel, UnionMemberModel>
+  : ResolverParentType<TypeUnionModel, NamedModel, UnionMemberModel>
 {
-  protected override UnionMemberModel NewItem(TypeUnionModel model, AliasedModel item)
+  protected override UnionMemberModel NewItem(TypeUnionModel model, NamedModel item)
     => new(item.Name, model.Name, item.Description);
 }

@@ -32,3 +32,11 @@ public class DomainLabelRendererTests
       ]);
   }
 }
+
+public class DomainEnumRendererTests
+  : BaseDomainRendererTests<DomainLabelModel, string>
+{
+  protected override DomainKindModel DomainKind => DomainKindModel.Enum;
+
+  protected override DomainLabelModel NewItem(string item) => new(item, "", false);
+}

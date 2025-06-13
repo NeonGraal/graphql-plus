@@ -1,30 +1,29 @@
 ﻿namespace GqlPlus.Rendering.Simple;
 
-public class BaseDomainRendererTests
-  : RendererClassTestBase<BaseDomainModel<DomainLabelModel>>
+public abstract class BaseDomainRendererTests<TItem, TInput>
+  : ParentTypeRendererClassTestBase<BaseDomainModel<TItem>, TItem, DomainItemModel<TItem>, TInput>
+  where TItem : BaseDomainItemModel
 {
-  private readonly IRenderer<TypeRefModel<SimpleKindModel>> _parent;
-  private readonly IRenderer<DomainLabelModel> _item;
-  private readonly IRenderer<DomainItemModel<DomainLabelModel>> _all;
+  protected BaseDomainRendererTests()
+    => Renderer = new BaseDomainRenderer<TItem>(Renderers);
 
-  public BaseDomainRendererTests()
+  protected override IRenderer<BaseDomainModel<TItem>> Renderer { get; }
+  protected override SimpleKindModel Kind => SimpleKindModel.Domain;
+
+  protected override BaseDomainModel<TItem> NewModel(string name, string contents, TypeRefModel<SimpleKindModel>? parent)
+    => new(DomainKind, name, contents) { Parent = parent };
+  protected override DomainItemModel<TItem> NewAll(TInput item, string name) => new(NewItem(item), name);
+  protected override string[] ValidModelExpected(string name, string parent, string contents)
   {
-    _parent = RFor<TypeRefModel<SimpleKindModel>>();
-    _item = RFor<DomainLabelModel>();
-    _all = RFor<DomainItemModel<DomainLabelModel>>();
-
-    Renderer = new BaseDomainRenderer<DomainLabelModel>(new(_parent, _item, _all));
+    string[] result = base.ValidModelExpected(name, parent, contents);
+    return [$"!_Domain{DomainKind}", result[1], $"domainKind: !_DomainKind {DomainKind}", .. result[2..]];
   }
 
-  protected override IRenderer<BaseDomainModel<DomainLabelModel>> Renderer { get; }
+  protected override string[] WithItemExpected(string name, TInput item)
+  {
+    string[] result = base.WithItemExpected(name, item);
+    return [$"!_Domain{DomainKind}", .. result[1..3], $"domainKind: !_DomainKind {DomainKind}", .. result[3..]];
+  }
 
-  [Theory, RepeatData]
-  public void Render_WithValidModel_ReturnsStructured(string name, string contents)
-    => RenderAndCheck(new(DomainKindModel.Enum, name, contents), [
-      "!_DomainEnum",
-      "description: " + contents.Quoted("'"),
-      "domainKind: !_DomainKind Enum",
-      "name: " + name,
-      "typeKind: !_TypeKind Domain"
-      ]);
+  protected abstract DomainKindModel DomainKind { get; }
 }

@@ -14,3 +14,11 @@ public class DomainRegexRendererTests
       "pattern: " + pattern
       ]);
 }
+
+public class DomainStringRendererTests
+  : BaseDomainRendererTests<DomainRegexModel, string>
+{
+  protected override DomainKindModel DomainKind => DomainKindModel.String;
+
+  protected override DomainRegexModel NewItem(string item) => new(item, false);
+}

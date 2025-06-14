@@ -9,7 +9,7 @@ internal sealed record class SpecialTypeAst
 {
   internal override string Abbr => "TZ";
   public override string Label { get; }
-  public new string? Parent => null;
+  public new IGqlpTypeRef? Parent => null;
 
   private readonly Func<IGqlpType, bool> _matcher;
 
@@ -18,7 +18,7 @@ internal sealed record class SpecialTypeAst
     => (Label, _matcher) = (label, matcher);
 
   public bool Equals(SpecialTypeAst? other)
-    => other is IGqlpType<string> parented && Equals(parented);
+    => other is IGqlpType<IGqlpTypeRef> parented && Equals(parented);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Label);
   public bool MatchesTypeSpecial(IGqlpType type)

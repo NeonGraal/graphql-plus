@@ -5,10 +5,10 @@ namespace GqlPlus.Verifying.Schema.Simple;
 internal class VerifyDomainTypes(
   IVerifyAliased<IGqlpDomain> aliased,
   IEnumerable<IVerifyDomain> domains
-) : AstParentVerifier<IGqlpDomain, string, EnumContext>(aliased)
+) : AstParentVerifier<IGqlpDomain, IGqlpTypeRef, EnumContext>(aliased)
 {
-  protected override string GetParent(IGqlpType<string> usage)
-    => usage.Parent ?? "";
+  protected sealed override string GetParent(IGqlpType<IGqlpTypeRef> usage)
+    => usage.Parent?.Name ?? "";
 
   protected override EnumContext MakeContext(IGqlpDomain usage, IGqlpType[] aliased, ITokenMessages errors)
   {

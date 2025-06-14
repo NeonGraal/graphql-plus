@@ -6,16 +6,16 @@ using GqlPlus.Merging.Simple;
 namespace GqlPlus.Merging.Schema.Simple;
 
 public class MergeEnumsTests
-  : TestTypedMerger<IGqlpType, IGqlpEnum, string, IGqlpEnumLabel>
+  : TestSimpleMerger<IGqlpType, IGqlpEnum, IGqlpEnumLabel, string>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsValuesCantMerge_ReturnsErrors(string name, string[] values)
     => this
       .SkipUnless(values)
-      .CanMergeReturnsError(_enumLabels)
-    .CanMerge_Errors(
-      new EnumDeclAst(AstNulls.At, name, values.EnumLabels()),
-      new EnumDeclAst(AstNulls.At, name, []));
+      .CanMergeReturnsError(MergeItems)
+      .CanMerge_Errors(
+        new EnumDeclAst(AstNulls.At, name, values.EnumLabels()),
+        new EnumDeclAst(AstNulls.At, name, []));
 
   [Theory, RepeatData]
   public void Merge_TwoAstsValues_ReturnsExpected(string name, string[] values1, string[] values2)
@@ -28,20 +28,18 @@ public class MergeEnumsTests
       new EnumDeclAst(AstNulls.At, name, combined));
   }
 
-  private readonly IMerge<IGqlpEnumLabel> _enumLabels;
   private readonly MergeEnums _merger;
 
   public MergeEnumsTests(ITestOutputHelper outputHelper)
-  {
-    _enumLabels = Merger<IGqlpEnumLabel>();
+    => _merger = new(outputHelper.ToLoggerFactory(), MergeItems);
 
-    _merger = new(outputHelper.ToLoggerFactory(), _enumLabels);
-  }
+  internal override AstSimpleMerger<IGqlpType, IGqlpEnum, IGqlpEnumLabel> MergerSimple => _merger;
 
-  internal override AstTypeMerger<IGqlpType, IGqlpEnum, string, IGqlpEnumLabel> MergerTyped => _merger;
-
-  protected override IGqlpEnum MakeTyped(string name, string[]? aliases = null, string description = "", string? parent = default)
-    => new EnumDeclAst(AstNulls.At, name, description, []) { Aliases = aliases ?? [], Parent = parent, };
-  protected override string MakeParent(string parent)
-    => parent;
+  protected override IGqlpEnumLabel[] MakeItems(string input)
+    => new[] { input }.EnumLabels();
+  protected override IGqlpEnum MakeSimple(string name, string[]? aliases = null, string description = "", IGqlpTypeRef? parent = null, IEnumerable<IGqlpEnumLabel>? items = null)
+    => new EnumDeclAst(AstNulls.At, name, description, [.. items ?? []]) {
+      Aliases = aliases ?? [],
+      Parent = parent,
+    };
 }

@@ -1,29 +1,16 @@
 ﻿namespace GqlPlus.Rendering.Simple;
 
 public class TypeEnumRendererTests
-  : RendererClassTestBase<TypeEnumModel>
+  : ParentTypeRendererClassTestBase<TypeEnumModel, AliasedModel, EnumLabelModel, string>
 {
-  private readonly IRenderer<TypeRefModel<SimpleKindModel>> _parent;
-  private readonly IRenderer<AliasedModel> _item;
-  private readonly IRenderer<EnumLabelModel> _all;
-
   public TypeEnumRendererTests()
-  {
-    _parent = RFor<TypeRefModel<SimpleKindModel>>();
-    _item = RFor<AliasedModel>();
-    _all = RFor<EnumLabelModel>();
-
-    Renderer = new TypeEnumRenderer(new(_parent, _item, _all));
-  }
+    => Renderer = new TypeEnumRenderer(Renderers);
 
   protected override IRenderer<TypeEnumModel> Renderer { get; }
+  protected override SimpleKindModel Kind => SimpleKindModel.Enum;
 
-  [Theory, RepeatData]
-  public void Render_WithValidModel_ReturnsStructured(string name, string contents)
-    => RenderAndCheck(new(name, contents), [
-      "!_TypeEnum",
-      "description: " + contents.Quoted("'"),
-      "name: " + name,
-      "typeKind: !_TypeKind Enum"
-    ]);
+  protected override EnumLabelModel NewAll(string item, string name) => new(item, name, "");
+  protected override AliasedModel NewItem(string item) => new(item, "");
+  protected override TypeEnumModel NewModel(string name, string contents, TypeRefModel<SimpleKindModel>? parent)
+    => new(name, contents) { Parent = parent };
 }

@@ -4,7 +4,7 @@ Success
 {
   !En I@006/0001
   EnumSamePrnt
-  :PrntEnumSamePrnt
+  :( !Tr I@022/0001 PrntEnumSamePrnt )
   !EL I@039/0001
   enumSamePrnt
 }

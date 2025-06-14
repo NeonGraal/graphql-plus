@@ -15,4 +15,9 @@ internal record class TypeRefAst(
   { }
 
   internal override string Abbr => "Tr";
+
+  public bool Equals(IGqlpTypeRef other)
+    => base.Equals(other);
+  public override int GetHashCode()
+    => base.GetHashCode();
 }

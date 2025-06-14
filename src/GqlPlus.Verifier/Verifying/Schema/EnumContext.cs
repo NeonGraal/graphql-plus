@@ -17,7 +17,7 @@ public class EnumContext(
   {
     valueType = enumType;
     while (!valueType.HasValue(value)) {
-      if (!GetTyped(valueType.Parent, out valueType)) {
+      if (!GetTyped(valueType.Parent?.Name, out valueType)) {
         valueType = null;
         return false;
       }

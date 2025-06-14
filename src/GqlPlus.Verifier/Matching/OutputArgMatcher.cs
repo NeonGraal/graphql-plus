@@ -100,7 +100,7 @@ internal class OutputArgMatcher(
       return true;
     }
 
-    if (context.GetTyped(enumType.Parent, out IGqlpEnum? parentType)) {
+    if (context.GetTyped(enumType.Parent?.Name, out IGqlpEnum? parentType)) {
       return EnumHasLabel(context, parentType, label);
     }
 

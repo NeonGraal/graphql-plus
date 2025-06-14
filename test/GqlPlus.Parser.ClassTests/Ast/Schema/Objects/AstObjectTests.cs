@@ -96,7 +96,7 @@ AstTypeChecks<TObjectAst, IGqlpObjBase>.ParentCreator createParent,
   public void String_WithTypeParams(string name, string[] typeParams)
     => Text(
       () => CreateInput(name) with { TypeParams = typeParams.TypeParams() },
-      $"( !{Abbr} {name} < {typeParams.Joined(s => "$" + s + " :*")} > )");
+      $"( !{Abbr} {name} < {typeParams.Joined(s => "$" + s + " :_Any")} > )");
   public void Equality_WithTypeParams(string name, string[] typeParams)
     => Equality(
       () => CreateInput(name) with { TypeParams = typeParams.TypeParams() });

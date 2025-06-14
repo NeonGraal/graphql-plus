@@ -30,7 +30,7 @@ public abstract class AstDomainTests<TInput>
   internal override IAstTypeChecks TypeChecks => Checks;
 
   protected override string ParentString(string name, string parent)
-    => $"( !{AliasedChecks.Abbr} {name} {Checks.Kind} :{parent} )";
+    => $"( !{AliasedChecks.Abbr} {name} {Checks.Kind} :( !Tr {parent} ) )";
 }
 
 internal abstract class AstDomainChecks<TInput, TItemAst, TItem>(

@@ -12,7 +12,7 @@ internal class ParseEnum(
   Parser<string>.DA aliases,
   Parser<IOptionParser<NullOption>, NullOption>.D option,
   Parser<EnumDefinition>.D definition
-) : DeclarationParser<EnumDefinition, IGqlpEnum>(name, param, aliases, option, definition)
+) : SimpleParser<EnumDefinition, IGqlpEnum>(name, param, aliases, option, definition)
 {
   protected override IGqlpEnum MakeResult(AstPartial<NullAst, NullOption> partial, EnumDefinition value)
     => new EnumDeclAst(partial.At, partial.Name, partial.Description, value.Values) {
@@ -27,28 +27,24 @@ internal class ParseEnum(
 }
 
 internal class EnumDefinition
+  : SimpleDefinition
 {
-  internal string? Parent { get; set; }
   internal EnumLabelAst[] Values { get; set; } = [];
 }
 
 internal class ParseEnumDefinition(
+  Parser<IGqlpTypeRef>.D typeRef,
   Parser<IGqlpEnumLabel>.D enumLabel
-) : Parser<EnumDefinition>.I
+) : SimpleDefinitionParser<EnumDefinition>(typeRef)
 {
   private readonly Parser<IGqlpEnumLabel>.L _enumLabel = enumLabel;
 
-  public IResult<EnumDefinition> Parse(ITokenizer tokens, string label)
-
+  public override IResult<EnumDefinition> Parse(ITokenizer tokens, string label)
   {
     EnumDefinition result = new();
 
-    if (tokens.Take(':')) {
-      if (tokens.Identifier(out string? parent)) {
-        result.Parent = parent;
-      } else {
-        return tokens.Error(label, "type after ':'", result);
-      }
+    if (!ParseParent(tokens, result)) {
+      return tokens.Error(label, "parent type after ':'", result);
     }
 
     List<IGqlpEnumLabel> labels = [];

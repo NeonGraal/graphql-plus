@@ -3,30 +3,34 @@
 public class SettingModellerTests
   : ModellerClassTestBase<IGqlpSchemaSetting, SettingModel>
 {
+  private readonly IModeller<IGqlpConstant, ConstantModel> _constant = MFor<IGqlpConstant, ConstantModel>();
+
   public SettingModellerTests()
-  {
-    IModeller<IGqlpConstant, ConstantModel> constant = MFor<IGqlpConstant, ConstantModel>();
-    Modeller = new SettingModeller(constant);
-  }
+    => Modeller = new SettingModeller(_constant);
 
   protected override IModeller<IGqlpSchemaSetting, SettingModel> Modeller { get; }
 
   [Theory, RepeatData]
-  public void ToModel_WithValidSetting_ReturnsExpectedSettingModel(string value)
+  public void ToModel_WithValidSetting_ReturnsExpectedSettingModel(string name, string contents, string value)
   {
     // Arrange
-    IGqlpSchemaSetting ast = For<IGqlpSchemaSetting>();
-    ast.Name.Returns("SettingName");
-    IGqlpConstant constant = CFor(value);
+    IGqlpConstant constant = A.Constant(value);
+    IGqlpSchemaSetting ast = A.Named<IGqlpSchemaSetting>(name, contents);
     ast.Value.Returns(constant);
-    ast.Description.Returns("Setting description");
+
+    ToModelReturns(_constant, constant, new ConstantModel(SimpleModel.Str("", value)));
 
     // Act
     SettingModel result = Modeller.ToModel<SettingModel>(ast, TypeKinds);
 
     // Assert
-    result.ShouldNotBeNull();
-    result.Name.ShouldBe("SettingName");
-    result.Description.ShouldBe("Setting description");
+    result.ShouldNotBeNull()
+      .ShouldSatisfyAllConditions(
+        r => r.Name.ShouldBe(name),
+        r => r.Description.ShouldBe(contents),
+        r => r.Value.ShouldNotBeNull()
+          .Value.ShouldNotBeNull()
+          .String.ShouldBe(value)
+      );
   }
 }

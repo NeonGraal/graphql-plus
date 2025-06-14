@@ -9,14 +9,14 @@ public class VerifyOperationTests
   [Fact]
   public void Verify_CallsVerifiersAndCombinesErrors()
   {
-    IVerifyIdentified<IGqlpArg, IGqlpVariable> usages = For<IVerifyIdentified<IGqlpArg, IGqlpVariable>>();
-    IVerifyIdentified<IGqlpSpread, IGqlpFragment> spreads = For<IVerifyIdentified<IGqlpSpread, IGqlpFragment>>();
+    IVerifyIdentified<IGqlpArg, IGqlpVariable> usages = A.Of<IVerifyIdentified<IGqlpArg, IGqlpVariable>>();
+    IVerifyIdentified<IGqlpSpread, IGqlpFragment> spreads = A.Of<IVerifyIdentified<IGqlpSpread, IGqlpFragment>>();
     VerifyOperation verifier = new(usages, spreads);
 
-    IGqlpOperation item = For<IGqlpOperation>();
-    item.Errors.Returns(MakeMessages("item"));
+    IGqlpOperation item = A.Of<IGqlpOperation>();
+    item.Errors.Returns("item".MakeMessages());
 
-    Errors.AddRange(MakeMessages("error"));
+    Errors.AddRange("error".MakeMessages());
 
     verifier.Verify(item, Errors);
 

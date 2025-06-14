@@ -1,8 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-using GqlPlus.Resolving;
-
-namespace GqlPlus.Rendering;
+﻿namespace GqlPlus.Rendering;
 
 internal class ObjectBaseRenderer<TBase, TArg>(
   IRenderer<TArg> objArg
@@ -122,17 +118,6 @@ internal abstract class TypeObjectRenderer<TObject, TBase, TField, TAlt>(
         .AddList("alternates", model.Alternates, renderers.Alternate)
         .Add("allAlternates", ObjRender(model.AllAlternates, renderers.ObjAlternate, renderers.DualAlternate));
   }
-
-  internal override bool GetParentModel<TInput, TResult>(TInput input, IResolveContext context, [NotNullWhen(true)] out TResult? result)
-    where TResult : default
-  {
-    if (input.Parent?.IsTypeParam == false) {
-      return base.GetParentModel(input, context, out result);
-    }
-
-    result = default;
-    return false;
-  }
 }
 
 internal class DualArgRenderer
@@ -164,10 +149,7 @@ internal class DualFieldRenderer(
 internal class TypeDualRenderer(
   TypeObjectRenderers<DualBaseModel, DualFieldModel, DualAlternateModel> renderers
 ) : TypeObjectRenderer<TypeDualModel, DualBaseModel, DualFieldModel, DualAlternateModel>(renderers)
-{
-  protected override string? ParentName(DualBaseModel? parent)
-    => parent?.Dual;
-}
+{ }
 
 internal class InputArgRenderer(
   IRenderer<DualArgModel> dual
@@ -229,10 +211,7 @@ internal class InputParamRenderer(
 internal class TypeInputRenderer(
   TypeObjectRenderers<InputBaseModel, InputFieldModel, InputAlternateModel> renderers
 ) : TypeObjectRenderer<TypeInputModel, InputBaseModel, InputFieldModel, InputAlternateModel>(renderers)
-{
-  protected override string? ParentName(InputBaseModel? parent)
-    => parent?.Input;
-}
+{ }
 
 internal class OutputArgRenderer(
   IRenderer<DualArgModel> dual,
@@ -290,7 +269,4 @@ internal class OutputFieldRenderer(
 internal class TypeOutputRenderer(
   TypeObjectRenderers<OutputBaseModel, OutputFieldModel, OutputAlternateModel> renderers
 ) : TypeObjectRenderer<TypeOutputModel, OutputBaseModel, OutputFieldModel, OutputAlternateModel>(renderers)
-{
-  protected override string? ParentName(OutputBaseModel? parent)
-    => parent?.Output;
-}
+{ }

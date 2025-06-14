@@ -5,7 +5,7 @@ Success
   !Do I@008/0001
   DmnNmbrPrnt
   Number
-  :PrntDmnNmbrPrnt
+  :( !Tr I@023/0001 PrntDmnNmbrPrnt )
   !DN N@046/0001
   2
 >

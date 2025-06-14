@@ -19,7 +19,7 @@ public abstract class ObjArgMatcherTests<TObjArg>
   [Theory, RepeatData]
   public void Matches_ReturnsTrue_WhenMatchingArgFullType(string name, string constraint)
   {
-    TObjArg arg = NFor<TObjArg>(name);
+    TObjArg arg = A.Named<TObjArg>(name);
     arg.FullType.Returns(constraint);
 
     bool result = Matcher.Matches(arg, constraint, Context);
@@ -32,7 +32,7 @@ public abstract class ObjArgMatcherTests<TObjArg>
   {
     this.SkipIf(type == constraint);
 
-    TObjArg arg = NFor<TObjArg>(name);
+    TObjArg arg = A.Named<TObjArg>(name);
     arg.FullType.Returns(type);
     arg.IsTypeParam.Returns(true);
 
@@ -46,10 +46,10 @@ public abstract class ObjArgMatcherTests<TObjArg>
   {
     this.SkipIf(type == constraint);
 
-    TObjArg arg = NFor<TObjArg>(name);
+    TObjArg arg = A.Named<TObjArg>(name);
     arg.FullType.Returns(type);
 
-    IGqlpType baseType = NFor<IGqlpType>(type);
+    IGqlpType baseType = A.Named<IGqlpType>(type);
     Types[type] = baseType;
 
     AnyTypeReturns(baseType, constraint, expected);

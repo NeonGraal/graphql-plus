@@ -17,9 +17,8 @@ public class InputBaseModellerTests
   public void ToModel_WithValidBase_ReturnsExpectedInputBaseModel(string input, string contents)
   {
     // Arrange
-    IGqlpInputBase ast = For<IGqlpInputBase>();
+    IGqlpInputBase ast = A.Descr<IGqlpInputBase>(contents);
     ast.Input.Returns(input);
-    ast.Description.Returns(contents);
     ast.IsTypeParam.Returns(true);
 
     // Act

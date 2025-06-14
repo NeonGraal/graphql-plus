@@ -31,7 +31,7 @@ Success
 {
   !En I@006/0003
   EnumOutpCnstEnumPrnt
-  :ParentOutpCnstEnumPrnt
+  :( !Tr I@030/0003 ParentOutpCnstEnumPrnt )
   !EL I@053/0003
   outpCnstEnumPrnt
 }

@@ -29,4 +29,14 @@ public class InputArgRendererTests
       "description: " + contents.Quoted("'"),
       "input: " + input
       ]);
+
+  [Theory, RepeatData]
+  public void Render_WithDual_ReturnsStructuredWithInput(string input)
+  {
+    InputArgModel model = new("", "") { Dual = new(input, "") };
+
+    RenderReturnsMap(_dual, "_DualArg", input);
+
+    RenderAndCheck(model, [$"value: !_DualArg '{input}'"]);
+  }
 }

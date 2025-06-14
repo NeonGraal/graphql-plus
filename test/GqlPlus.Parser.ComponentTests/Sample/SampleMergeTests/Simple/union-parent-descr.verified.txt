@@ -1,0 +1,17 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Un I@007/0001
+  UnionPrntDescr
+  :( 'Parent comment' !Tr I@041/0001 PrntUnionPrntDescr )
+  !UM I@060/0001
+  Number
+}
+{
+  !Un I@007/0002
+  PrntUnionPrntDescr
+  !UM I@028/0002
+  Number
+}
+]

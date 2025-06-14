@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Ast.Schema;
 
@@ -32,7 +33,7 @@ public abstract class AstTypeTests
       .Inequality_ByParents(name, parent1, parent2);
 
   protected virtual string ParentString(string name, string parent)
-    => $"( !{AliasedChecks.Abbr} {name} :{parent} )";
+    => $"( !{AliasedChecks.Abbr} {name} :( !Tr {parent} ) )";
 
   internal sealed override IAstAliasedChecks<string> AliasedChecks => TypeChecks;
 
@@ -46,9 +47,9 @@ internal class AstTypeChecks<TType, TParent>(
 ) : AstAliasedChecks<TType>(createInput, createExpression)
   , IAstTypeChecks
   where TType : AstType<TParent>
-  where TParent : IEquatable<TParent>
+  where TParent : IGqlpDescribed, IEquatable<TParent>
 {
-  protected readonly ParentCreator CreateParent = createParent;
+  internal readonly ParentCreator CreateParent = createParent;
 
   internal delegate TParent ParentCreator(string parent);
 
@@ -74,10 +75,13 @@ internal class AstTypeChecks<TType, TParent>(
 internal class AstTypeChecks<TType>(
   BaseAstChecks<TType>.CreateBy<string> createInput,
   [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
-) : AstTypeChecks<TType, string>(createInput, parent => parent, createExpression)
+) : AstTypeChecks<TType, IGqlpTypeRef>(createInput, MakeParent, createExpression)
   , IAstTypeChecks
-  where TType : AstType<string>
-{ }
+  where TType : AstType<IGqlpTypeRef>
+{
+  internal static IGqlpTypeRef MakeParent(string parent)
+    => new TypeRefAst(AstNulls.At, parent);
+}
 
 internal interface IAstTypeChecks
   : IAstAliasedChecks

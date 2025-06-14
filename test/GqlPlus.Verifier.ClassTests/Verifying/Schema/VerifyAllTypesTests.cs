@@ -18,8 +18,8 @@ public class VerifyAllTypesTests
   [Fact]
   public void Verify_CallsVerifierAndMergerWithoutErrors()
   {
-    IGqlpType item1 = EFor<IGqlpType>();
-    IGqlpType item2 = EFor<IGqlpType>();
+    IGqlpType item1 = A.Error<IGqlpType>();
+    IGqlpType item2 = A.Error<IGqlpType>();
 
     _verifier.Verify([item1, item2], Errors);
 
@@ -44,8 +44,7 @@ public class VerifyAllTypesTests
   [Fact]
   public void Verify_Schema_WithAliasedDeclarations_ReturnsNoErrors()
   {
-    IGqlpType type = NFor<IGqlpEnum>("Enum");
-    type.Aliases.Returns(["Alias"]);
+    IGqlpType type = A.Enum("Enum", ["Alias"], "", "");
 
     _verifier.Verify([type], Errors);
 
@@ -55,11 +54,9 @@ public class VerifyAllTypesTests
   [Fact]
   public void Verify_Schema_WithAliasDuplicates_ReturnsError()
   {
-    IGqlpType type1 = NFor<IGqlpEnum>("Enum");
-    type1.Aliases.Returns(["Alias"]);
+    IGqlpType type1 = A.Enum("Enum", ["Alias"], "", "");
 
-    IGqlpType type2 = NFor<IGqlpUnion>("Union");
-    type2.Aliases.Returns(["Alias"]);
+    IGqlpType type2 = A.Union("Union", ["Alias"], "", "");
 
     _verifier.Verify([type1, type2], Errors);
 

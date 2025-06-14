@@ -5,15 +5,15 @@ namespace GqlPlus.Modelling;
 public class TypesModellerTests
   : SubstituteBase
 {
-  [Fact]
-  public void ToModel_ForType_CallsToTypeModel()
+  [Theory, RepeatData]
+  public void ToModel_ForType_CallsToTypeModel(string name)
   {
-    IGqlpType ast = For<IGqlpType>();
+    IGqlpType ast = A.Of<IGqlpType>();
     Map<TypeKindModel> typeKinds = [];
 
-    ITypeModeller modeller = For<ITypeModeller>();
+    ITypeModeller modeller = A.Of<ITypeModeller>();
     modeller.ForType(ast).Returns(true);
-    modeller.ToTypeModel(ast, typeKinds).Returns(new TestTypeModel());
+    modeller.ToTypeModel(ast, typeKinds).Returns(new SpecialTypeModel(name, ""));
 
     TypesModeller sut = new([modeller]);
 
@@ -23,12 +23,23 @@ public class TypesModellerTests
       m => m.ReceivedWithAnyArgs(1).ForType(ast),
       m => m.ReceivedWithAnyArgs(1).ToTypeModel(ast, typeKinds));
   }
-}
 
-internal sealed record TestTypeModel
-  : BaseTypeModel
-{
-  public TestTypeModel()
-    : base(TypeKindModel.Basic, "Test", "")
-  { }
+  [Theory, RepeatData]
+  public void AddTypeKind_ForType_CallsToTypeModel(string name)
+  {
+    IGqlpType ast = A.Named<IGqlpType>(name, "");
+    Map<TypeKindModel> typeKinds = [];
+
+    ITypeModeller modeller = A.Of<ITypeModeller>();
+    modeller.ForType(ast).Returns(true);
+    modeller.Kind.Returns(TypeKindModel.Special);
+
+    TypesModeller sut = new([modeller]);
+
+    sut.AddTypeKinds([ast], typeKinds);
+
+    modeller.ShouldSatisfyAllConditions(
+      () => _ = modeller.ReceivedWithAnyArgs(1).Kind,
+      () => typeKinds.ShouldContainKey(name));
+  }
 }

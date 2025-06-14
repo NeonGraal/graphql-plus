@@ -7,11 +7,11 @@
 namespace GqlTest.Model_domain_enum_parent;
 
 public interface IDmnEnumPrnt
-  : IPrntDmnEnumPrnt
+  : I( !Tr I@023/0001 PrntDmnEnumPrnt )
 {
 }
 public class DomainDmnEnumPrnt
-  : DomainPrntDmnEnumPrnt
+  : Domain( !Tr I@023/0001 PrntDmnEnumPrnt )
   , IDmnEnumPrnt
 {
 }

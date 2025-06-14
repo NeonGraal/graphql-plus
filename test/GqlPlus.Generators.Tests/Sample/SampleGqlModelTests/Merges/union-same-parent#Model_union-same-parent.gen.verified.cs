@@ -7,12 +7,12 @@
 namespace GqlTest.Model_union_same_parent;
 
 public interface IUnionSamePrnt
-  : IPrntUnionSamePrnt
+  : I( !Tr I@024/0001 PrntUnionSamePrnt )
 {
   Boolean AsBoolean { get; }
 }
 public class UnionUnionSamePrnt
-  : UnionPrntUnionSamePrnt
+  : Union( !Tr I@024/0001 PrntUnionSamePrnt )
   , IUnionSamePrnt
 {
   public Boolean AsBoolean { get; set; }

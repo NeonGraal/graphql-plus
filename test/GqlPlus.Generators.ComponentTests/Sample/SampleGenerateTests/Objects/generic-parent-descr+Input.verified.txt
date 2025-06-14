@@ -1,0 +1,20 @@
+﻿/* generic-parent-descr+Input
+input GnrcPrntDescrInp<$type:String> { :"Parent comment"$type }
+*/
+
+// Generated from Sample generic-parent-descr+Input
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_generic_parent_descr_Input;
+
+public interface IGnrcPrntDescrInp<Ttype>
+  : Itype
+{
+}
+public class InputGnrcPrntDescrInp<Ttype>
+  : Inputtype
+  , IGnrcPrntDescrInp<Ttype>
+{
+}

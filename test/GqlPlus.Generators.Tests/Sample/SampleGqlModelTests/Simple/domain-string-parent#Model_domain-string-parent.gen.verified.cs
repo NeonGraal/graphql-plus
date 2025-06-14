@@ -7,11 +7,11 @@
 namespace GqlTest.Model_domain_string_parent;
 
 public interface IDmnStrPrnt
-  : IPrntDmnStrPrnt
+  : I( !Tr I@022/0001 PrntDmnStrPrnt )
 {
 }
 public class DomainDmnStrPrnt
-  : DomainPrntDmnStrPrnt
+  : Domain( !Tr I@022/0001 PrntDmnStrPrnt )
   , IDmnStrPrnt
 {
 }

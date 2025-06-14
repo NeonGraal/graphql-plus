@@ -1,0 +1,29 @@
+﻿/* domain-number-parent-descr
+domain DmnNmbrPrntDescr { :"Parent comment"PrntDmnNmbrPrntDescr Number 2>}
+domain PrntDmnNmbrPrntDescr { Number <2 }
+*/
+
+// Generated from Sample domain-number-parent-descr
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_domain_number_parent_descr;
+
+public interface IDmnNmbrPrntDescr
+  : I( 'Parent comment' !Tr I@044/0001 PrntDmnNmbrPrntDescr )
+{
+}
+public class DomainDmnNmbrPrntDescr
+  : Domain( 'Parent comment' !Tr I@044/0001 PrntDmnNmbrPrntDescr )
+  , IDmnNmbrPrntDescr
+{
+}
+
+public interface IPrntDmnNmbrPrntDescr
+{
+}
+public class DomainPrntDmnNmbrPrntDescr
+  : IPrntDmnNmbrPrntDescr
+{
+}

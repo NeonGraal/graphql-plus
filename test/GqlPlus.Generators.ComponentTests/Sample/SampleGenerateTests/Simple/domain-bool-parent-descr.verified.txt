@@ -1,0 +1,29 @@
+﻿/* domain-bool-parent-descr
+domain DmnBoolPrntDescr { :"Parent comment"PrntDmnBoolPrntDescr Boolean false }
+domain PrntDmnBoolPrntDescr { Boolean true }
+*/
+
+// Generated from Sample domain-bool-parent-descr
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_domain_bool_parent_descr;
+
+public interface IDmnBoolPrntDescr
+  : I( 'Parent comment' !Tr I@044/0001 PrntDmnBoolPrntDescr )
+{
+}
+public class DomainDmnBoolPrntDescr
+  : Domain( 'Parent comment' !Tr I@044/0001 PrntDmnBoolPrntDescr )
+  , IDmnBoolPrntDescr
+{
+}
+
+public interface IPrntDmnBoolPrntDescr
+{
+}
+public class DomainPrntDmnBoolPrntDescr
+  : IPrntDmnBoolPrntDescr
+{
+}

@@ -11,7 +11,7 @@ internal sealed class GenerateDefaultType<TAst>
   {
     context.AppendLine("");
 
-    if (ast is IGqlpType<string> simpleParent && !string.IsNullOrWhiteSpace(simpleParent.Parent)) {
+    if (ast is IGqlpType<IGqlpTypeRef> simpleParent && !string.IsNullOrWhiteSpace(simpleParent.Parent?.Name)) {
       context.AppendLine($"// Parent {simpleParent.Parent}");
     }
 

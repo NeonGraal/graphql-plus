@@ -4,6 +4,7 @@
 /*
 Category ctgrDscrs
 Category ctgrOutp
+Category ctgrOutpDescr
 Category ctgrOutpDict
 Category ctgrOutpList
 Category ctgrOutpOptl
@@ -32,6 +33,14 @@ public interface ICtgrOutp
 }
 public class OutputCtgrOutp
   : ICtgrOutp
+{
+}
+
+public interface ICtgrOutpDescr
+{
+}
+public class OutputCtgrOutpDescr
+  : ICtgrOutpDescr
 {
 }
 

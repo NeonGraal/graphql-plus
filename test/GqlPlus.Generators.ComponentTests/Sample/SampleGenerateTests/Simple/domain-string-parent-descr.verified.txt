@@ -1,0 +1,29 @@
+﻿/* domain-string-parent-descr
+domain DmnStrPrntDescr { :"Parent comment"PrntDmnStrPrntDescr String /a+/ }
+domain PrntDmnStrPrntDescr { String /b+/ }
+*/
+
+// Generated from Sample domain-string-parent-descr
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_domain_string_parent_descr;
+
+public interface IDmnStrPrntDescr
+  : I( 'Parent comment' !Tr I@043/0001 PrntDmnStrPrntDescr )
+{
+}
+public class DomainDmnStrPrntDescr
+  : Domain( 'Parent comment' !Tr I@043/0001 PrntDmnStrPrntDescr )
+  , IDmnStrPrntDescr
+{
+}
+
+public interface IPrntDmnStrPrntDescr
+{
+}
+public class DomainPrntDmnStrPrntDescr
+  : IPrntDmnStrPrntDescr
+{
+}

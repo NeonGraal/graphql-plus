@@ -2510,6 +2510,36 @@ public class OutputRefGnrcPrntArgOutp<Tref>
   public Tref Asref { get; set; }
 }
 
+public interface IGnrcPrntDescrDual<Ttype>
+  : Itype
+{
+}
+public class DualGnrcPrntDescrDual<Ttype>
+  : Dualtype
+  , IGnrcPrntDescrDual<Ttype>
+{
+}
+
+public interface IGnrcPrntDescrInp<Ttype>
+  : Itype
+{
+}
+public class InputGnrcPrntDescrInp<Ttype>
+  : Inputtype
+  , IGnrcPrntDescrInp<Ttype>
+{
+}
+
+public interface IGnrcPrntDescrOutp<Ttype>
+  : Itype
+{
+}
+public class OutputGnrcPrntDescrOutp<Ttype>
+  : Outputtype
+  , IGnrcPrntDescrOutp<Ttype>
+{
+}
+
 public interface IGnrcPrntDualDual
   : IRefGnrcPrntDualDual
 {

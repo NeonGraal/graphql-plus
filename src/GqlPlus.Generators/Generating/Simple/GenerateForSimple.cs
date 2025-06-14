@@ -8,7 +8,7 @@ internal abstract class GenerateForSimple<T>
   {
     base.ClassHeader(ast, context);
 
-    if (!string.IsNullOrWhiteSpace(ast.Parent)) {
+    if (!string.IsNullOrWhiteSpace(ast.Parent?.Name)) {
       context.AppendLine("  : " + TypePrefix + ast.Parent);
       context.AppendLine("  , I" + ast.Name);
     } else {
@@ -20,7 +20,7 @@ internal abstract class GenerateForSimple<T>
   {
     base.TypeHeader(ast, context);
 
-    if (!string.IsNullOrWhiteSpace(ast.Parent)) {
+    if (!string.IsNullOrWhiteSpace(ast.Parent?.Name)) {
       context.AppendLine("  : I" + ast.Parent);
     }
   }

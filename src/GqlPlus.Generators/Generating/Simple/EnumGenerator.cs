@@ -20,7 +20,7 @@ internal sealed class EnumGenerator
         .Prepend(new MapPair<string>(item.Name, suffix));
     });
 
-    return ParentItems(ast.Parent, context).Concat(members);
+    return ParentItems(ast.Parent?.Name, context).Concat(members);
   }
 
   internal override IEnumerable<MapPair<string>> TypeMembers(IGqlpEnum ast, GeneratorContext context)
@@ -30,7 +30,7 @@ internal sealed class EnumGenerator
         .Select(alias => new MapPair<string>(alias, " = " + item.Name))
         .Prepend(new MapPair<string>(item.Name, "")));
 
-    return ParentItems(ast.Parent, context).Concat(members);
+    return ParentItems(ast.Parent?.Name, context).Concat(members);
   }
 
   protected override void TypeHeader(IGqlpEnum ast, GeneratorContext context)

@@ -29,7 +29,7 @@ internal abstract class BaseSimpleChecks<TInput, TSimpleAst, TSimple>(
     //    => TrueExpected(input.Type + "{:" + parent + " " + input.Member + "}",
     => TrueExpected(ParentString(input, string.Empty, parent),
       NamedFactory(input) with {
-        Parent = parent,
+        Parent = ParentFactory(parent),
       });
 
   protected internal override string AliasesString(TInput input, string aliases)
@@ -43,4 +43,5 @@ public interface IBaseSimpleChecks<TInput, TSimple>
   where TSimple : IGqlpSimple
 {
   void WithParent(TInput input, string parent);
+  IGqlpTypeRef ParentFactory(string parent);
 }

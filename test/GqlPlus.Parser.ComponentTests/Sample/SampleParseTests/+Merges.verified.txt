@@ -352,14 +352,14 @@ Success
 {
   !En I@006/0073
   EnumSamePrnt
-  :PrntEnumSamePrnt
+  :( !Tr I@022/0073 PrntEnumSamePrnt )
   !EL I@039/0073
   enumSamePrnt
 }
 {
   !En I@006/0074
   EnumSamePrnt
-  :PrntEnumSamePrnt
+  :( !Tr I@022/0074 PrntEnumSamePrnt )
   !EL I@039/0074
   enumSamePrnt
 }
@@ -1366,14 +1366,14 @@ Success
 {
   !Un I@007/0221
   UnionSamePrnt
-  :PrntUnionSamePrnt
+  :( !Tr I@024/0221 PrntUnionSamePrnt )
   !UM I@042/0221
   Boolean
 }
 {
   !Un I@007/0222
   UnionSamePrnt
-  :PrntUnionSamePrnt
+  :( !Tr I@024/0222 PrntUnionSamePrnt )
   !UM I@042/0222
   Boolean
 }

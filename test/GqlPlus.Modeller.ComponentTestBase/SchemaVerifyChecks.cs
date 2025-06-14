@@ -32,6 +32,7 @@ internal sealed class SchemaVerifyChecks(
     IGqlpSchema schema = schemaMerger.Merge(asts).First();
 
     IModelsContext context = schemaRenderer.WithBuiltIns();
+    context.TypeKinds.Add("_Described", TypeKindModel.Dual);
 
     Structured structured = schemaRenderer.RenderAst(schema, context);
 

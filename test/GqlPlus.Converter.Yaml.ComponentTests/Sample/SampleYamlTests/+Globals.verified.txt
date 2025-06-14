@@ -14,6 +14,13 @@ categories: !_Map_Categories
       typeKind: !_TypeKind Output
       typeName: CtgrOutp
     resolution: !_Resolution Parallel
+  !_Identifier ctgrOutpDescr: !_Category
+    name: ctgrOutpDescr
+    output: !_TypeRef(_TypeKind)
+      description: 'Output comment'
+      typeKind: !_TypeKind Output
+      typeName: CtgrOutpDescr
+    resolution: !_Resolution Parallel
   !_Identifier ctgrOutpDict: !_Category
     modifiers: [!_ModifierDictionary {by: '*', modifierKind: !_ModifierKind Dict,
         typeKind: !_SimpleKind Basic}]
@@ -105,6 +112,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier CtgrOutp: !_TypeOutput
     name: CtgrOutp
+    typeKind: !_TypeKind Output
+  !_Identifier CtgrOutpDescr: !_TypeOutput
+    name: CtgrOutpDescr
     typeKind: !_TypeKind Output
   !_Identifier CtgrOutpDict: !_TypeOutput
     name: CtgrOutpDict

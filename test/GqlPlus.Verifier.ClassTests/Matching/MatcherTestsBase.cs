@@ -12,9 +12,9 @@ public class MatcherTestsBase
 
   protected static Matcher<T>.D MatcherFor<T>(out Matcher<T>.I matcher)
   {
-    matcher = For<Matcher<T>.I>();
+    matcher = A.Of<Matcher<T>.I>();
 
-    Matcher<T>.D result = For<Matcher<T>.D>();
+    Matcher<T>.D result = A.Of<Matcher<T>.D>();
     result().Returns(matcher);
 
     return result;

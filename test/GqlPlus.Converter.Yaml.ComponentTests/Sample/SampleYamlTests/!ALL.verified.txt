@@ -42,6 +42,13 @@ categories: !_Map_Categories
       typeKind: !_TypeKind Output
       typeName: CtgrOutp
     resolution: !_Resolution Parallel
+  !_Identifier ctgrOutpDescr: !_Category
+    name: ctgrOutpDescr
+    output: !_TypeRef(_TypeKind)
+      description: 'Output comment'
+      typeKind: !_TypeKind Output
+      typeName: CtgrOutpDescr
+    resolution: !_Resolution Parallel
   !_Identifier ctgrOutpDict: !_Category
     modifiers: [!_ModifierDictionary {by: '*', modifierKind: !_ModifierKind Dict,
         typeKind: !_SimpleKind Basic}]
@@ -2054,6 +2061,9 @@ types: !_Map_Type
   !_Identifier CtgrOutp: !_TypeOutput
     name: CtgrOutp
     typeKind: !_TypeKind Output
+  !_Identifier CtgrOutpDescr: !_TypeOutput
+    name: CtgrOutpDescr
+    typeKind: !_TypeKind Output
   !_Identifier CtgrOutpDict: !_TypeOutput
     name: CtgrOutpDict
     typeKind: !_TypeKind Output
@@ -2165,6 +2175,27 @@ types: !_Map_Type
     parent: !_TypeRef(_SimpleKind)
       typeKind: !_SimpleKind Domain
       typeName: PrntDmnBoolPrnt
+    typeKind: !_TypeKind Domain
+  !_Identifier DmnBoolPrntDescr: !_DomainBoolean
+    allItems:
+    - !_DomainItem(_DomainTrueFalse)
+      domain: PrntDmnBoolPrntDescr
+      exclude: false
+      value: true
+    - !_DomainItem(_DomainTrueFalse)
+      domain: DmnBoolPrntDescr
+      exclude: false
+      value: false
+    domainKind: !_DomainKind Boolean
+    items:
+    - !_DomainTrueFalse
+      exclude: false
+      value: false
+    name: DmnBoolPrntDescr
+    parent: !_TypeRef(_SimpleKind)
+      description: 'Parent comment'
+      typeKind: !_SimpleKind Domain
+      typeName: PrntDmnBoolPrntDescr
     typeKind: !_TypeKind Domain
   !_Identifier DmnBoolSame: !_DomainBoolean
     allItems:
@@ -2335,6 +2366,36 @@ types: !_Map_Type
       typeKind: !_SimpleKind Domain
       typeName: PrntDmnEnumPrnt
     typeKind: !_TypeKind Domain
+  !_Identifier DmnEnumPrntDescr: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainLabel)
+      domain: PrntDmnEnumPrntDescr
+      exclude: false
+      value: !_EnumValue
+        label: prnt_dmnEnumPrntDescr
+        typeKind: !_SimpleKind Enum
+        typeName: EnumDmnEnumPrntDescr
+    - !_DomainItem(_DomainLabel)
+      domain: DmnEnumPrntDescr
+      exclude: false
+      value: !_EnumValue
+        label: enum_dmnEnumPrntDescr
+        typeKind: !_SimpleKind Enum
+        typeName: EnumDmnEnumPrntDescr
+    domainKind: !_DomainKind Enum
+    items:
+    - !_DomainLabel
+      exclude: false
+      value: !_EnumValue
+        label: enum_dmnEnumPrntDescr
+        typeKind: !_SimpleKind Enum
+        typeName: EnumDmnEnumPrntDescr
+    name: DmnEnumPrntDescr
+    parent: !_TypeRef(_SimpleKind)
+      description: 'Parent comment'
+      typeKind: !_SimpleKind Domain
+      typeName: PrntDmnEnumPrntDescr
+    typeKind: !_TypeKind Domain
   !_Identifier DmnEnumSame: !_DomainEnum
     allItems:
     - !_DomainItem(_DomainLabel)
@@ -2444,6 +2505,27 @@ types: !_Map_Type
       typeKind: !_SimpleKind Domain
       typeName: PrntDmnNmbrPrnt
     typeKind: !_TypeKind Domain
+  !_Identifier DmnNmbrPrntDescr: !_DomainNumber
+    allItems:
+    - !_DomainItem(_DomainRange)
+      domain: PrntDmnNmbrPrntDescr
+      exclude: false
+      to: 2
+    - !_DomainItem(_DomainRange)
+      domain: DmnNmbrPrntDescr
+      exclude: false
+      from: 2
+    domainKind: !_DomainKind Number
+    items:
+    - !_DomainRange
+      exclude: false
+      from: 2
+    name: DmnNmbrPrntDescr
+    parent: !_TypeRef(_SimpleKind)
+      description: 'Parent comment'
+      typeKind: !_SimpleKind Domain
+      typeName: PrntDmnNmbrPrntDescr
+    typeKind: !_TypeKind Domain
   !_Identifier DmnNmbrSame: !_DomainNumber
     allItems:
     - !_DomainItem(_DomainRange)
@@ -2508,6 +2590,27 @@ types: !_Map_Type
     parent: !_TypeRef(_SimpleKind)
       typeKind: !_SimpleKind Domain
       typeName: PrntDmnStrPrnt
+    typeKind: !_TypeKind Domain
+  !_Identifier DmnStrPrntDescr: !_DomainString
+    allItems:
+    - !_DomainItem(_DomainRegex)
+      domain: PrntDmnStrPrntDescr
+      exclude: false
+      pattern: b+
+    - !_DomainItem(_DomainRegex)
+      domain: DmnStrPrntDescr
+      exclude: false
+      pattern: a+
+    domainKind: !_DomainKind String
+    items:
+    - !_DomainRegex
+      exclude: false
+      pattern: a+
+    name: DmnStrPrntDescr
+    parent: !_TypeRef(_SimpleKind)
+      description: 'Parent comment'
+      typeKind: !_SimpleKind Domain
+      typeName: PrntDmnStrPrntDescr
     typeKind: !_TypeKind Domain
   !_Identifier DmnStrSame: !_DomainString
     allItems:
@@ -2864,6 +2967,21 @@ types: !_Map_Type
     - !_Aliased
       name: prnt_dmnEnumPrnt
     name: EnumDmnEnumPrnt
+    typeKind: !_TypeKind Enum
+  !_Identifier EnumDmnEnumPrntDescr: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnumDmnEnumPrntDescr
+      name: enum_dmnEnumPrntDescr
+    - !_EnumLabel
+      enum: EnumDmnEnumPrntDescr
+      name: prnt_dmnEnumPrntDescr
+    items:
+    - !_Aliased
+      name: enum_dmnEnumPrntDescr
+    - !_Aliased
+      name: prnt_dmnEnumPrntDescr
+    name: EnumDmnEnumPrntDescr
     typeKind: !_TypeKind Enum
   !_Identifier EnumDmnEnumUnq: !_TypeEnum
     allItems:
@@ -3328,6 +3446,23 @@ types: !_Map_Type
     parent: !_TypeRef(_SimpleKind)
       typeKind: !_SimpleKind Enum
       typeName: PrntEnumPrntAlias
+    typeKind: !_TypeKind Enum
+  !_Identifier EnumPrntDescr: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: PrntEnumPrntDescr
+      name: prnt_enumPrntDescr
+    - !_EnumLabel
+      enum: EnumPrntDescr
+      name: enumPrntDescr
+    items:
+    - !_Aliased
+      name: enumPrntDescr
+    name: EnumPrntDescr
+    parent: !_TypeRef(_SimpleKind)
+      description: 'Parent comment'
+      typeKind: !_SimpleKind Enum
+      typeName: PrntEnumPrntDescr
     typeKind: !_TypeKind Enum
   !_Identifier EnumPrntDup: !_TypeEnum
     allItems:
@@ -5051,6 +5186,42 @@ types: !_Map_Type
       typeArgs:
       - !_OutputArg
         typeParam: type
+    typeKind: !_TypeKind Output
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        typeKind: !_TypeKind Basic
+        typeName: String
+      name: type
+  !_Identifier GnrcPrntDescrDual: !_TypeDual
+    name: GnrcPrntDescrDual
+    parent: !_DualBase
+      description: 'Parent comment'
+      typeParam: type
+    typeKind: !_TypeKind Dual
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        typeKind: !_TypeKind Basic
+        typeName: String
+      name: type
+  !_Identifier GnrcPrntDescrInp: !_TypeInput
+    name: GnrcPrntDescrInp
+    parent: !_InputBase
+      description: 'Parent comment'
+      typeParam: type
+    typeKind: !_TypeKind Input
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        typeKind: !_TypeKind Basic
+        typeName: String
+      name: type
+  !_Identifier GnrcPrntDescrOutp: !_TypeOutput
+    name: GnrcPrntDescrOutp
+    parent: !_OutputBase
+      description: 'Parent comment'
+      typeParam: type
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
@@ -7273,6 +7444,19 @@ types: !_Map_Type
       value: true
     name: PrntDmnBoolPrnt
     typeKind: !_TypeKind Domain
+  !_Identifier PrntDmnBoolPrntDescr: !_DomainBoolean
+    allItems:
+    - !_DomainItem(_DomainTrueFalse)
+      domain: PrntDmnBoolPrntDescr
+      exclude: false
+      value: true
+    domainKind: !_DomainKind Boolean
+    items:
+    - !_DomainTrueFalse
+      exclude: false
+      value: true
+    name: PrntDmnBoolPrntDescr
+    typeKind: !_TypeKind Domain
   !_Identifier PrntDmnEnumAllPrnt: !_TypeEnum
     allItems:
     - !_EnumLabel
@@ -7301,6 +7485,25 @@ types: !_Map_Type
         typeKind: !_SimpleKind Enum
         typeName: EnumDmnEnumPrnt
     name: PrntDmnEnumPrnt
+    typeKind: !_TypeKind Domain
+  !_Identifier PrntDmnEnumPrntDescr: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainLabel)
+      domain: PrntDmnEnumPrntDescr
+      exclude: false
+      value: !_EnumValue
+        label: prnt_dmnEnumPrntDescr
+        typeKind: !_SimpleKind Enum
+        typeName: EnumDmnEnumPrntDescr
+    domainKind: !_DomainKind Enum
+    items:
+    - !_DomainLabel
+      exclude: false
+      value: !_EnumValue
+        label: prnt_dmnEnumPrntDescr
+        typeKind: !_SimpleKind Enum
+        typeName: EnumDmnEnumPrntDescr
+    name: PrntDmnEnumPrntDescr
     typeKind: !_TypeKind Domain
   !_Identifier PrntDmnEnumUnqPrnt: !_TypeEnum
     allItems:
@@ -7340,6 +7543,19 @@ types: !_Map_Type
       to: 2
     name: PrntDmnNmbrPrnt
     typeKind: !_TypeKind Domain
+  !_Identifier PrntDmnNmbrPrntDescr: !_DomainNumber
+    allItems:
+    - !_DomainItem(_DomainRange)
+      domain: PrntDmnNmbrPrntDescr
+      exclude: false
+      to: 2
+    domainKind: !_DomainKind Number
+    items:
+    - !_DomainRange
+      exclude: false
+      to: 2
+    name: PrntDmnNmbrPrntDescr
+    typeKind: !_TypeKind Domain
   !_Identifier PrntDmnStrPrnt: !_DomainString
     allItems:
     - !_DomainItem(_DomainRegex)
@@ -7352,6 +7568,19 @@ types: !_Map_Type
       exclude: false
       pattern: b+
     name: PrntDmnStrPrnt
+    typeKind: !_TypeKind Domain
+  !_Identifier PrntDmnStrPrntDescr: !_DomainString
+    allItems:
+    - !_DomainItem(_DomainRegex)
+      domain: PrntDmnStrPrntDescr
+      exclude: false
+      pattern: b+
+    domainKind: !_DomainKind String
+    items:
+    - !_DomainRegex
+      exclude: false
+      pattern: b+
+    name: PrntDmnStrPrntDescr
     typeKind: !_TypeKind Domain
   !_Identifier PrntDual: !_TypeDual
     allAlternates:
@@ -7436,6 +7665,16 @@ types: !_Map_Type
     - !_Aliased
       name: prnt_enumPrntAlias
     name: PrntEnumPrntAlias
+    typeKind: !_TypeKind Enum
+  !_Identifier PrntEnumPrntDescr: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: PrntEnumPrntDescr
+      name: prnt_enumPrntDescr
+    items:
+    - !_Aliased
+      name: prnt_enumPrntDescr
+    name: PrntEnumPrntDescr
     typeKind: !_TypeKind Enum
   !_Identifier PrntEnumPrntDup: !_TypeEnum
     allItems:
@@ -7821,6 +8060,16 @@ types: !_Map_Type
     - !_Aliased
       name: Number
     name: PrntUnionPrnt
+    typeKind: !_TypeKind Union
+  !_Identifier PrntUnionPrntDescr: !_TypeUnion
+    allItems:
+    - !_UnionMember
+      name: Number
+      union: PrntUnionPrntDescr
+    items:
+    - !_Aliased
+      name: Number
+    name: PrntUnionPrntDescr
     typeKind: !_TypeKind Union
   !_Identifier PrntUnionPrntDup: !_TypeUnion
     allItems:
@@ -9747,6 +9996,23 @@ types: !_Map_Type
     parent: !_TypeRef(_SimpleKind)
       typeKind: !_SimpleKind Union
       typeName: PrntUnionPrnt
+    typeKind: !_TypeKind Union
+  !_Identifier UnionPrntDescr: !_TypeUnion
+    allItems:
+    - !_UnionMember
+      name: Number
+      union: PrntUnionPrntDescr
+    - !_UnionMember
+      name: Number
+      union: UnionPrntDescr
+    items:
+    - !_Aliased
+      name: Number
+    name: UnionPrntDescr
+    parent: !_TypeRef(_SimpleKind)
+      description: 'Parent comment'
+      typeKind: !_SimpleKind Union
+      typeName: PrntUnionPrntDescr
     typeKind: !_TypeKind Union
   !_Identifier UnionPrntDup: !_TypeUnion
     allItems:

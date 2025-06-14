@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Rendering.Simple;
 
 public class DomainLabelRendererTests
-  : RendererClassTestBase<DomainLabelModel>
+  : DomainItemRendererTestBase<DomainLabelModel, EnumLabelInput>
 {
   private readonly IRenderer<EnumValueModel> _enumValueRenderer;
 
@@ -13,22 +13,34 @@ public class DomainLabelRendererTests
 
   protected override IRenderer<DomainLabelModel> Renderer { get; }
 
-  [Theory, RepeatData]
-  public void Render_WithValidModel_ReturnsStructured(string name, string label, bool exclude)
+  protected override string[] ItemExpected(EnumLabelInput item, bool excluded)
+    => ["!_DomainLabel",
+        "exclude: " + excluded.TrueFalse(),
+        "value:",
+        $"  value: !_EnumValue '{item}'",
+        ];
+  protected override DomainLabelModel NewItem(EnumLabelInput item, bool excluded)
   {
-    // Arrange
-    EnumValueModel enumValue = new(name, label, "");
-    DomainLabelModel model = new(enumValue, exclude);
-    Map<string> map = new() { ["name"] = name, ["label"] = label };
-    _enumValueRenderer.Render(enumValue).Returns(map.Render(s => new Structured(s)));
-
-    // Act
-    RenderAndCheck(model, [
-      "!_DomainLabel",
-      "exclude: " + exclude.TrueFalse(),
-      "value:",
-      "  label: " + label,
-      "  name: " + name,
-      ]);
+    RenderReturnsMap(_enumValueRenderer, "_EnumValue", item);
+    return new(item.EnumType, item.Label, excluded);
   }
+}
+
+public class DomainItemLabelRendererTests
+  : DomainAllRendererTestBase<DomainLabelModel, EnumLabelInput>
+{
+  protected override string[] AllExpected(string name, EnumLabelInput item)
+    => ["!_DomainItem(_DomainLabel)",
+        "domain: " + name,
+        $"value: !_ItemModel '{item}'",
+        ];
+  protected override DomainLabelModel NewItem(EnumLabelInput item) => new(item.EnumType, item.Label, false);
+}
+
+public class DomainEnumRendererTests
+  : DomainRendererTestBase<DomainLabelModel, string>
+{
+  protected override DomainKindModel DomainKind => DomainKindModel.Enum;
+
+  protected override DomainLabelModel NewItem(string item) => new(item, "", false);
 }

@@ -13,12 +13,12 @@ internal class SimpleSameMatcher<TType>(
     TryingMatch(type, constraint);
 
     return type.Name.Equals(constraint, StringComparison.Ordinal)
-        || MatchParent(type.Parent, constraint, context);
+        || MatchParent(type.Parent?.Name, constraint, context);
   }
 
   private static bool MatchParent(string? parent, string constraint, UsageContext context)
     => !string.IsNullOrWhiteSpace(parent)
       && (parent!.Equals(constraint, StringComparison.Ordinal)
         || context.GetTyped(parent, out TType? typeParent)
-          && MatchParent(typeParent.Parent, constraint, context));
+          && MatchParent(typeParent.Parent?.Name, constraint, context));
 }

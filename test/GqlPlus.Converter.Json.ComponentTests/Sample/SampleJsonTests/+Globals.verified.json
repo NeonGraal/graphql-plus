@@ -36,6 +36,23 @@
         "value": "Parallel"
       }
     },
+    "ctgrOutpDescr": {
+      "$tag": "_Category",
+      "name": "ctgrOutpDescr",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "description": "Output comment",
+        "typeKind": {
+          "$tag": "_TypeKind",
+          "value": "Output"
+        },
+        "typeName": "CtgrOutpDescr"
+      },
+      "resolution": {
+        "$tag": "_Resolution",
+        "value": "Parallel"
+      }
+    },
     "ctgrOutpDict": {
       "$tag": "_Category",
       "modifiers": [
@@ -305,6 +322,14 @@
     "CtgrOutp": {
       "$tag": "_TypeOutput",
       "name": "CtgrOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "CtgrOutpDescr": {
+      "$tag": "_TypeOutput",
+      "name": "CtgrOutpDescr",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

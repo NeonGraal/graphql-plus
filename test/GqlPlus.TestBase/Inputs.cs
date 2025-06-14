@@ -2,6 +2,15 @@
 
 namespace GqlPlus;
 
+public record struct EnumLabelInput(string EnumType, string Label)
+  : IComparable<EnumLabelInput>
+{
+  public readonly int CompareTo(EnumLabelInput other)
+    => string.CompareOrdinal(ToString(), other.ToString());
+  public override readonly string ToString()
+    => string.IsNullOrEmpty(EnumType) ? Label : $"{EnumType}.{Label}";
+}
+
 public record struct DomainRangeInput(decimal? Min, decimal? Max)
 {
   private bool? _minLtMax;
@@ -19,15 +28,15 @@ public record struct DomainRangeInput(decimal? Min, decimal? Max)
   public override string ToString()
   {
     if (Lower is null) {
-      return $"< {Upper}";
+      return $"< {Upper:0.#####}";
     }
 
-    string result = $"{Lower}";
+    string result = $"{Lower:0.#####}";
 
     if (Upper is null) {
       result += " >";
     } else if (Upper != Lower) {
-      result += $" ~ {Upper}";
+      result += $" ~ {Upper:0.#####}";
     }
 
     return result;

@@ -4,7 +4,7 @@ Success
 {
   !Un I@007/0001
   UnionSamePrnt
-  :PrntUnionSamePrnt
+  :( !Tr I@024/0001 PrntUnionSamePrnt )
   !UM I@042/0001
   Boolean
 }

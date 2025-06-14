@@ -1,0 +1,19 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Do I@008/0001
+  DmnStrPrntDescr
+  String
+  :( 'Parent comment' !Tr I@043/0001 PrntDmnStrPrntDescr )
+  !DX R@070/0001
+  /a+/
+}
+{
+  !Do I@008/0002
+  PrntDmnStrPrntDescr
+  String
+  !DX R@037/0002
+  /b+/
+}
+]

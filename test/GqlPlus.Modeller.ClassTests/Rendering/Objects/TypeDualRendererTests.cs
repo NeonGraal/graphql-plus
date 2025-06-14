@@ -25,7 +25,7 @@ public class TypeDualRendererTests
     ObjectForModel<DualAlternateModel> alternateFor = new(alternate, name);
     DualFieldModel field = new(fieldName, null, "");
     ObjectForModel<DualFieldModel> fieldFor = new(field, name);
-    TypeParamModel typeParam = new(paramName, "");
+    TypeParamModel typeParam = new(paramName, "", default!);
 
     TypeDualModel model = new(name, "") {
       Parent = parent,

@@ -25,7 +25,7 @@ public class TypeInputRendererTests
     ObjectForModel<DualAlternateModel> alternateFor = new(alternate, name);
     DualFieldModel field = new(fieldName, new("", ""), "");
     ObjectForModel<DualFieldModel> fieldFor = new(field, name);
-    TypeParamModel typeParam = new(paramName, "");
+    TypeParamModel typeParam = new(paramName, "", default!);
 
     TypeInputModel model = new(name, "") {
       Parent = new("", "") { Dual = parent },

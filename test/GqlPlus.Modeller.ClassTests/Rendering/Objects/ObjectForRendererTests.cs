@@ -19,7 +19,7 @@ public class ObjectForRendererTests
   {
     RenderReturnsMap(_typeParam, "_TypeParam", input);
 
-    RenderAndCheck(new(new(input, ""), name),
+    RenderAndCheck(new(new(input, "", default!), name),
       ["!_ObjectFor(_TypeParam)",
         "object: " + name,
         $"value: !_TypeParam '{input}'"

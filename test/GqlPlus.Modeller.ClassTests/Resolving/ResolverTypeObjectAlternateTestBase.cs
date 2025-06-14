@@ -71,7 +71,7 @@ public abstract class ResolverTypeObjectAlternateTestBase<TModel, TBase, TField,
   public void ModelWithParentWithAlternateArgCollection_ResolvesCorrectly(string name, string parent, string alternate, string key)
   {
     TModel parentModel = NewModel(parent, "") with {
-      TypeParams = [new(key, "")],
+      TypeParams = [new(key, "", default!)],
       Alternates = [MakeCollectionAlternate(alternate, new(ModifierKind.Param) { Key = key })],
     };
     Context.AddModels([parentModel]);
@@ -104,7 +104,7 @@ public abstract class ResolverTypeObjectAlternateTestBase<TModel, TBase, TField,
   {
     CollectionModel collection = new(ModifierKind.Dict) { Key = key };
     TModel parentModel = NewModel(parent, "") with {
-      TypeParams = [new(alternate, "")],
+      TypeParams = [new(alternate, "", default!)],
       Alternates = [MakeParamAlternate(alternate, collection)],
     };
     Context.AddModels([parentModel]);

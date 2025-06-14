@@ -15,10 +15,17 @@ public class TypeParamRendererTests
   protected override IRenderer<TypeParamModel> Renderer { get; }
 
   [Theory, RepeatData]
-  public void Render_WithValidModel_ReturnsStructured(string input, string contents)
-    => RenderAndCheck(new(input, contents), [
-      "!_TypeParam",
-      "description: " + contents.Quoted("'"),
-      "name: " + input
-      ]);
+  public void Render_WithValidModel_ReturnsStructured(string input, string contents, string typeName)
+  {
+    TypeRefModel<TypeKindModel> typeRef = new(TypeKindModel.Special, typeName, "");
+
+    RenderReturnsMap(_typeKind, "_TypeRef", typeName);
+
+    RenderAndCheck(new(input, contents, typeRef),
+      ["!_TypeParam",
+        "constraint:", $"  value: !_TypeRef '{typeName}'",
+        "description: " + contents.Quoted("'"),
+        "name: " + input
+        ]);
+  }
 }

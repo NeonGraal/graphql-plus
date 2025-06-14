@@ -8,7 +8,13 @@ internal class TypesModeller(
   public void AddTypeKinds(IEnumerable<IGqlpType> asts, IMap<TypeKindModel> typeKinds)
   {
     foreach (IGqlpType ast in asts) {
-      typeKinds.Add(ast.Name, GetTypeKind(ast));
+      if (typeKinds.TryGetValue(ast.Name, out TypeKindModel kind)) {
+        if (kind != GetTypeKind(ast)) {
+          throw new ModelTypeException<IGqlpType>($"Type '{ast.Name}' has multiple kinds: {kind} and {GetTypeKind(ast)}.");
+        }
+      } else {
+        typeKinds.Add(ast.Name, GetTypeKind(ast));
+      }
     }
   }
 

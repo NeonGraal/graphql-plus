@@ -27,18 +27,16 @@ public class TypeParamModellerTests
   }
 
   [Theory, RepeatData]
-  public void ToModel_WithInvalidConstraint_ReturnsExpectedTypeParamModel(string name, string constraint)
+  public void ToModel_WithInvalidConstraint_ThrowsException(string name, string constraint)
   {
     // Arrange
     IGqlpTypeParam ast = A.TypeParam(name, constraint);
 
     // Act
-    TypeParamModel result = Modeller.ToModel(ast, TypeKinds);
+    Action action = () => Modeller.ToModel(ast, TypeKinds);
 
     // Assert
-    result.ShouldNotBeNull()
-      .ShouldSatisfyAllConditions(
-        r => r.Name.ShouldBe(name),
-        r => r.Constraint.ShouldBeNull());
+    action.ShouldThrow<ModelTypeException<IGqlpTypeParam>>()
+      .Message.ShouldContain($"Kind of {constraint} not found");
   }
 }

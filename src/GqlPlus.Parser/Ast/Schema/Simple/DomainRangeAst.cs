@@ -33,16 +33,16 @@ internal sealed record class DomainRangeAst(
   => Lower is null
     ? base.GetFields()
       .Append("<")
-      .Append(Upper?.ToString(CultureInfo.InvariantCulture))
+      .Append(Upper?.ToString(GqlpStrings.NumberFormat, CultureInfo.InvariantCulture))
     : Upper is null
     ? base.GetFields()
-      .Append(Lower?.ToString(CultureInfo.InvariantCulture))
+      .Append(Lower?.ToString(GqlpStrings.NumberFormat, CultureInfo.InvariantCulture))
       .Append(">")
     : Lower.Equals(Upper)
     ? base.GetFields()
-      .Append(Lower?.ToString(CultureInfo.InvariantCulture))
+      .Append(Lower?.ToString(GqlpStrings.NumberFormat, CultureInfo.InvariantCulture))
     : base.GetFields()
-      .Append(Lower?.ToString(CultureInfo.InvariantCulture))
+      .Append(Lower?.ToString(GqlpStrings.NumberFormat, CultureInfo.InvariantCulture))
       .Append("~")
-      .Append(Upper?.ToString(CultureInfo.InvariantCulture));
+      .Append(Upper?.ToString(GqlpStrings.NumberFormat, CultureInfo.InvariantCulture));
 }

@@ -36,11 +36,11 @@ public static class AllRenderers
       .AddDomainRenderer<DomainTrueFalseModel, DomainTrueFalseRenderer>()
       // Enum
       .AddTypeRenderer<TypeEnumModel, TypeEnumRenderer>()
-      .AddItemRenderer<EnumLabelModel, EnumLabelRenderer>()
+      .AddItemRenderer<AliasedModel, EnumLabelModel, EnumLabelRenderer>()
       .AddRenderer<EnumValueModel, EnumValueRenderer>()
       // Union
       .AddTypeRenderer<TypeUnionModel, TypeUnionRenderer>()
-      .AddItemRenderer<UnionMemberModel, UnionMemberRenderer>()
+      .AddItemRenderer<NamedModel, UnionMemberModel, UnionMemberRenderer>()
       // Object
       .AddRenderer<TypeParamModel, TypeParamRenderer>()
       // Dual
@@ -82,12 +82,13 @@ public static class AllRenderers
       .AddTypeRenderer<BaseDomainModel<TItem>, BaseDomainRenderer<TItem>>()
       .AddRenderer<DomainItemModel<TItem>, DomainItemRenderer<TItem>>();
 
-  private static IServiceCollection AddItemRenderer<TItem, TRenderer>(this IServiceCollection services)
-    where TItem : AliasedModel
-    where TRenderer : class, IRenderer<TItem>
+  private static IServiceCollection AddItemRenderer<TItem, TAll, TRenderer>(this IServiceCollection services)
+    where TItem : NamedModel
+    where TAll : NamedModel
+    where TRenderer : class, IRenderer<TAll>
     => services
-      .AddRenderer<TItem, TRenderer>()
-      .AddSingleton<ParentTypeRenderers<AliasedModel, TItem>>();
+      .AddRenderer<TAll, TRenderer>()
+      .AddSingleton<ParentTypeRenderers<TItem, TAll>>();
 
   private static IServiceCollection AddTypeRenderer<TModel, TRenderer>(this IServiceCollection services)
     where TModel : IModelBase

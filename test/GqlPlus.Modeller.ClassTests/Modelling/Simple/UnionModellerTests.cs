@@ -1,30 +1,34 @@
-﻿
-namespace GqlPlus.Modelling.Simple;
+﻿namespace GqlPlus.Modelling.Simple;
 
 public class UnionModellerTests
-  : ModellerClassTestBase<IGqlpUnion, TypeUnionModel>
+  : TypeModellerTests<IGqlpUnion, TypeUnionModel>
 {
+  public UnionModellerTests()
+    : base(TypeKindModel.Union)
+  { }
+
   protected override IModeller<IGqlpUnion, TypeUnionModel> Modeller { get; } = new UnionModeller();
 
   [Theory, RepeatData]
   public void ToModel_WithValidUnion_ReturnsExpectedTypeUnionModel(
     string name,
-    string parent,
-    string contents,
-    string[] aliases)
+    string memberName,
+    string contents)
   {
     // Arrange
-    IGqlpUnion ast = A.Union(name, aliases, parent, contents);
+    IGqlpUnionMember member = A.Named<IGqlpUnionMember>(memberName, contents);
+    IGqlpUnion ast = A.Union(name, [], null, "", member);
 
     // Act
     TypeUnionModel result = Modeller.ToModel(ast, TypeKinds);
 
     // Assert
-    result.ShouldNotBeNull();
-    result.Name.ShouldBe(name);
-    result.Description.ShouldBe(contents);
-    result.Aliases.ShouldBe(aliases);
-    result.Parent.ShouldNotBeNull()
-      .TypeName.ShouldBe(parent);
+    result.ShouldNotBeNull()
+      .ShouldSatisfyAllConditions(
+        r => r.Name.ShouldBe(name),
+        r => r.Items.ShouldHaveSingleItem()
+          .ShouldSatisfyAllConditions(
+            m => m.Name.ShouldBe(memberName),
+            m => m.Description.ShouldBe(contents)));
   }
 }

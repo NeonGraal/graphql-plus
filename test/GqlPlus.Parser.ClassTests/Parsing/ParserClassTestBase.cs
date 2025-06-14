@@ -250,22 +250,13 @@ public class ParserClassTestBase
     => true;
 
   protected static Func<CallInfo, bool> OutChar(char? value, int first = 0)
-    => c => {
-      c[first] = value;
-      return true;
-    };
+    => OutValue(value, first);
 
   protected static Func<CallInfo, bool> OutNumber(decimal? value, int first = 0)
-    => c => {
-      c[first] = value;
-      return true;
-    };
+    => OutValue(value, first);
 
   protected static Func<CallInfo, bool> OutString(string? value)
-    => c => {
-      c[0] = value;
-      return true;
-    };
+    => OutValue(value);
 
   protected static Func<CallInfo, bool> OutStringAt(string? value, int first = 1)
     => c => {

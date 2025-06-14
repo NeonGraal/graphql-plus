@@ -11,7 +11,4 @@ internal class DirectiveModeller(
       Locations = ast.Locations,
       Parameters = parameter.ToModels(ast.Params, typeKinds),
     };
-
-  internal static DirectiveLocation Combine(DirectiveLocation[] values)
-    => values.Aggregate((a, b) => a | b);
 }

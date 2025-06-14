@@ -5,7 +5,7 @@ Success
   !Do I@008/0001
   DmnStrPrnt
   String
-  :PrntDmnStrPrnt
+  :( !Tr I@022/0001 PrntDmnStrPrnt )
   !DX R@044/0001
   /a+/
 }

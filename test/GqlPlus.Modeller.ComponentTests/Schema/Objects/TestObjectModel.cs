@@ -75,16 +75,20 @@ public abstract class TestObjectModel<TObject, TObjBase, TObjField, TObjAlt, TMo
   [Theory, RepeatData]
   public void Model_TypeParam(string name, string typeParam)
     => objectChecks
+      .AddTypeKinds(BuiltIn.Internal, TypeKindModel.Internal)
       .ObjectExpected(new(name, typeParams: [typeParam]));
 
   [Theory, RepeatData]
   public void Model_TypeParams(string name, string[] typeParams)
     => objectChecks
+      .AddTypeKinds(BuiltIn.Internal, TypeKindModel.Internal)
       .ObjectExpected(new(name, typeParams: typeParams));
 
   [Theory, RepeatData]
   public void Model_All(string name, string contents, string parent, string[] aliases, FieldInput[] fields, AlternateInput[] alternates, string[] typeParams)
-    => objectChecks.ObjectExpected(new(name, parent, typeParams, fields, alternates, aliases, contents));
+    => objectChecks
+      .AddTypeKinds(BuiltIn.Internal, TypeKindModel.Internal)
+      .ObjectExpected(new(name, parent, typeParams, fields, alternates, aliases, contents));
 }
 
 internal abstract class CheckObjectModel<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase, TObjArg, TModel>(
@@ -112,7 +116,9 @@ internal abstract class CheckObjectModel<TObject, TObjectAst, TObjField, TObjFie
     => [$"  - !_{TypeKind}Alternate", "    collections:", "      - !_Modifier", "        modifierKind: !_ModifierKind List", $"    type: !_{TypeKind}Base", $"      {TypeParamOrKind(alternate)}: {alternate.Type}"];
 
   internal IEnumerable<string> ExpectedTypeParam(string typeParam)
-    => ["  - !_TypeParam", "    name: " + typeParam];
+    => ["  - !_TypeParam",
+        "    constraint: !_TypeRef(_TypeKind)", "      typeKind: !_TypeKind Internal", "      typeName: _Any",
+        "    name: " + typeParam];
 
   protected override string[] ExpectedParent(string? parent)
     => parent is null ? []

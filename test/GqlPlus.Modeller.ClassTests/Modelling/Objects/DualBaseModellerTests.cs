@@ -3,12 +3,10 @@
 public class DualBaseModellerTests
   : ModellerClassTestBase<IGqlpDualBase, DualBaseModel>
 {
-  public DualBaseModellerTests()
-  {
-    IModeller<IGqlpDualArg, DualArgModel> objArg = MFor<IGqlpDualArg, DualArgModel>();
+  private readonly IModeller<IGqlpDualArg, DualArgModel> _objArg = MFor<IGqlpDualArg, DualArgModel>();
 
-    Modeller = new DualBaseModeller(objArg);
-  }
+  public DualBaseModellerTests()
+    => Modeller = new DualBaseModeller(_objArg);
 
   protected override IModeller<IGqlpDualBase, DualBaseModel> Modeller { get; }
 
@@ -16,9 +14,8 @@ public class DualBaseModellerTests
   public void ToModel_WithValidBase_ReturnsExpectedDualBaseModel(string dual, string contents)
   {
     // Arrange
-    IGqlpDualBase ast = For<IGqlpDualBase>();
+    IGqlpDualBase ast = A.Descr<IGqlpDualBase>(contents);
     ast.Dual.Returns(dual);
-    ast.Description.Returns(contents);
     ast.IsTypeParam.Returns(true);
 
     // Act
@@ -30,6 +27,30 @@ public class DualBaseModellerTests
         r => r.Dual.ShouldBe(dual),
         r => r.Description.ShouldBe(contents),
         r => r.IsTypeParam.ShouldBeTrue()
+      );
+  }
+
+  [Theory, RepeatData]
+  public void ToModel_WithArgs_ReturnsExpectedDualBaseModel(string dual, string argName)
+  {
+    // Arrange
+    IGqlpDualBase ast = A.Error<IGqlpDualBase>();
+    ast.Dual.Returns(dual);
+    IGqlpDualArg arg = A.Named<IGqlpDualArg>(argName);
+    ast.Args.Returns([arg]);
+    ast.BaseArgs.Returns([arg]);
+
+    DualArgModel argModel = new(argName, "");
+    ToModelReturns(_objArg, argModel);
+
+    // Act
+    DualBaseModel result = Modeller.ToModel(ast, TypeKinds);
+
+    // Assert
+    result.ShouldNotBeNull()
+      .ShouldSatisfyAllConditions(
+        r => r.Dual.ShouldBe(dual),
+        r => r.Args.ShouldContain(argModel)
       );
   }
 }

@@ -14,7 +14,7 @@ public abstract class ResolverTypeObjectParentTestBase<TModel, TBase, TField, TA
     this.SkipIf(parent == grandParent);
 
     TModel parentModel = NewModel(parent, "") with {
-      TypeParams = [new(grandParent, "")],
+      TypeParams = [new(grandParent, "", default!)],
       Parent = NewParam(grandParent),
     };
     TModel grandModel = NewModel(grandParent, "");

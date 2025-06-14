@@ -1,0 +1,34 @@
+﻿{
+  "$tag": "_Schema",
+  "categories": {
+    "$tag": "_Map_Categories",
+    "ctgrOutpDescr": {
+      "$tag": "_Category",
+      "name": "ctgrOutpDescr",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "description": "Output comment",
+        "typeKind": {
+          "$tag": "_TypeKind",
+          "value": "Output"
+        },
+        "typeName": "CtgrOutpDescr"
+      },
+      "resolution": {
+        "$tag": "_Resolution",
+        "value": "Parallel"
+      }
+    }
+  },
+  "types": {
+    "$tag": "_Map_Type",
+    "CtgrOutpDescr": {
+      "$tag": "_TypeOutput",
+      "name": "CtgrOutpDescr",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@ Success
 {
   !Un I@007/0001
   UnionPrntDup
-  :PrntUnionPrntDup
+  :( !Tr I@023/0001 PrntUnionPrntDup )
   !UM I@040/0001
   Number
 }

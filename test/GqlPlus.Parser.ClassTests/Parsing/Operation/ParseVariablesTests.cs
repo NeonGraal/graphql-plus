@@ -18,14 +18,14 @@ public class ParseVariablesTests
     SetupPartial<IGqlpVariable>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnVariablesArray_WhenVariablesAreParsed()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnVariablesArray_WhenVariablesAreParsed(string name)
   {
     // Arrange
     TakeReturns('(', true);
     TakeReturns(')', true);
 
-    IGqlpVariable variable = EFor<IGqlpVariable>();
+    IGqlpVariable variable = A.Variable(name);
     variable.Equals(Arg.Any<IGqlpVariable>()).Returns(c => c[0] == variable);
     ParseOk(_variableParser, variable);
 
@@ -51,13 +51,13 @@ public class ParseVariablesTests
     result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpVariable>>();
   }
 
-  [Fact]
-  public void Parse_ShouldReturnPartialResult_WhenClosingParenthesisIsMissing()
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnPartialResult_WhenClosingParenthesisIsMissing(string name)
   {
     // Arrange
     TakeReturns('(', true);
     TakeReturns(')', false);
-    IGqlpVariable variable = EFor<IGqlpVariable>();
+    IGqlpVariable variable = A.Variable(name);
     Parse(_variableParser, variable.Ok(), variable.Empty());
 
     // Act

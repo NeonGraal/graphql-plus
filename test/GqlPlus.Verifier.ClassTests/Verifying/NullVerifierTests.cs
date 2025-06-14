@@ -10,8 +10,8 @@ public class NullVerifierTests
   {
     // Arrange
     NullVerifierError<IGqlpError> verifier = new(LoggerFactory);
-    IGqlpError mockItem = For<IGqlpError>();
-    ITokenMessages mockErrors = For<ITokenMessages>();
+    IGqlpError mockItem = A.Of<IGqlpError>();
+    ITokenMessages mockErrors = A.Of<ITokenMessages>();
 
     // Act
     verifier.Verify(mockItem, mockErrors);

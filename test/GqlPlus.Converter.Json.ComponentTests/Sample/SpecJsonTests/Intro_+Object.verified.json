@@ -1084,8 +1084,8 @@
       ],
       "name": "_ObjBase",
       "parent": {
-        "$tag": "_OutputBase",
-        "output": "_Described"
+        "$tag": "_DualBase",
+        "dual": "_Described"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -2610,8 +2610,8 @@
       ],
       "name": "_TypeParam",
       "parent": {
-        "$tag": "_OutputBase",
-        "output": "_Described"
+        "$tag": "_DualBase",
+        "dual": "_Described"
       },
       "typeKind": {
         "$tag": "_TypeKind",

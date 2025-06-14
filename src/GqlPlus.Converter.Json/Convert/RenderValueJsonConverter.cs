@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Convert;
 
-internal class RenderValueJsonConverter
+internal sealed class RenderValueJsonConverter
   : RenderJsonConverter<StructureValue>
 {
   [ExcludeFromCodeCoverage]

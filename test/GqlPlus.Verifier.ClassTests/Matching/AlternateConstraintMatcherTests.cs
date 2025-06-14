@@ -16,12 +16,12 @@ public class AlternateConstraintMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsTrue_WhenMatchingAlternateMember(string name, string constraint)
   {
-    IGqlpObject objectType = NFor<IGqlpObject>(constraint);
-    IGqlpObjAlternate alternate = NFor<IGqlpObjAlternate>(name);
+    IGqlpObject objectType = A.Named<IGqlpObject>(constraint);
+    IGqlpObjAlternate alternate = A.Named<IGqlpObjAlternate>(name);
     objectType.Alternates.Returns([alternate]);
     Types[constraint] = objectType;
 
-    IGqlpType type = NFor<IGqlpType>(name);
+    IGqlpType type = A.Named<IGqlpType>(name);
 
     bool result = _sut.MatchesTypeConstraint(type, constraint, Context);
 
@@ -33,12 +33,12 @@ public class AlternateConstraintMatcherTests
   {
     this.SkipIf(name == constraint || name == parent || constraint == parent);
 
-    IGqlpObject objectType = NFor<IGqlpObject>(constraint);
-    IGqlpObjAlternate alternate = NFor<IGqlpObjAlternate>(name);
+    IGqlpObject objectType = A.Named<IGqlpObject>(constraint);
+    IGqlpObjAlternate alternate = A.Named<IGqlpObjAlternate>(name);
     objectType.Alternates.Returns([alternate]);
     Types[constraint] = objectType;
 
-    IGqlpType type = NFor<IGqlpType>(parent);
+    IGqlpType type = A.Named<IGqlpType>(parent);
     _anyType.Matches(type, name, Context).Returns(expected);
 
     bool result = _sut.MatchesTypeConstraint(type, constraint, Context);

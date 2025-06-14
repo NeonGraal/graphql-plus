@@ -58,6 +58,4 @@ public sealed class RepeatDataAttribute
 
     return data;
   }
-
-
 }

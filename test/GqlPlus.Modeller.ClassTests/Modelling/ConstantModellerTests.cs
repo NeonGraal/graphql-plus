@@ -17,11 +17,8 @@ public class ConstantModellerTests
   public void ToModel_WithFields_ReturnsExpectedConstantModel(string key, string value)
   {
     // Arrange
-    IGqlpConstant ast = For<IGqlpConstant>();
-
-    IGqlpConstant fieldConstant = CFor(value);
-    IGqlpFields<IGqlpConstant> astFields = FieldsFor(key, fieldConstant);
-    ast.Fields.Returns(astFields);
+    IGqlpConstant valueConstant = A.Constant(value);
+    IGqlpConstant ast = A.Constant(key, valueConstant);
 
     _fieldKeyModeller.ToModel(Arg.Any<IGqlpFieldKey>(), TypeKinds)
         .Returns(SimpleModel.Str("", value));
@@ -37,8 +34,7 @@ public class ConstantModellerTests
   public void ToModel_WithValues_ReturnsExpectedConstantModel(string[] values)
   {
     // Arrange
-    IGqlpConstant ast = For<IGqlpConstant>();
-    ast.Values.Returns(values.Select(CFor));
+    IGqlpConstant ast = A.Constant(values);
 
     // Act
     ConstantModel result = Modeller.ToModel<ConstantModel>(ast, TypeKinds);
@@ -51,7 +47,7 @@ public class ConstantModellerTests
   public void ToModel_WithNullValue_ReturnsDefaultConstantModel(string value)
   {
     // Arrange
-    IGqlpConstant ast = CFor(value);
+    IGqlpConstant ast = A.Constant(value);
 
     // Act
     ConstantModel result = Modeller.ToModel<ConstantModel>(ast, TypeKinds);

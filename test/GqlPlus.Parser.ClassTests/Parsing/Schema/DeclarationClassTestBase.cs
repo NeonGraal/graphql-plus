@@ -16,7 +16,7 @@ public class DeclarationClassTestBase
 
   public DeclarationClassTestBase()
   {
-    SimpleName = For<ISimpleName>();
+    SimpleName = A.Of<ISimpleName>();
     NameParser = SimpleName;
 
     ParamNull = ParserAFor(out _nullParam);

@@ -10,30 +10,27 @@ public class InputParamModellerTests
 
   public InputParamModellerTests()
   {
-    _modifier = For<IModifierModeller>();
+    _modifier = A.Of<IModifierModeller>();
     _constant = MFor<IGqlpConstant, ConstantModel>();
 
     Modeller = new InputParamModeller(_modifier, _constant);
   }
 
   [Theory, RepeatData]
-  public void ToModel_WithValidInputParam_ReturnsExpectedInputParamModel(string paramType, string content)
+  public void ToModel_WithValidInputParam_ReturnsExpectedInputParamModel(string paramType, string content, string text)
   {
     // Arrange
-    IGqlpInputParam ast = For<IGqlpInputParam>();
-    IGqlpInputBase type = For<IGqlpInputBase>();
-    type.Input.Returns(paramType);
-    type.IsTypeParam.Returns(true);
-    ast.Type.Returns(type);
-    ast.Description.Returns(content);
-    ast.Modifiers.Returns([For<IGqlpModifier>()]);
-    ast.DefaultValue.Returns(For<IGqlpConstant>());
+    IGqlpInputParam ast = A.InputParam(paramType, content, true);
+    IGqlpModifier modifier = A.Modifier(ModifierKind.Opt);
+    ast.Modifiers.Returns([modifier]);
+    IGqlpConstant constant = A.Constant(text);
+    ast.DefaultValue.Returns(constant);
 
-    ModifierModel[] modifiers = [new ModifierModel(ModifierKind.Optional)];
-    _modifier.ToModels<ModifierModel>(ast.Modifiers, TypeKinds).Returns(modifiers);
+    ModifierModel[] modifiers = [new(ModifierKind.Optional)];
+    ToModelsReturns(_modifier, ast.Modifiers, modifiers);
 
-    ConstantModel defaultValue = new(SimpleModel.Str("", "DefaultValue"));
-    _constant.TryModel(ast.DefaultValue, TypeKinds).Returns(defaultValue);
+    ConstantModel defaultValue = new(SimpleModel.Str("", text));
+    TryModelReturns(_constant, ast.DefaultValue!, defaultValue);
 
     // Act
     InputParamModel result = Modeller.ToModel(ast, TypeKinds);
@@ -52,11 +49,7 @@ public class InputParamModellerTests
   public void ToModel_WithNoModifiersOrDefaultValue_ReturnsInputParamModelWithoutModifiersOrDefaultValue(string paramType, string content)
   {
     // Arrange
-    IGqlpInputParam ast = For<IGqlpInputParam>();
-    IGqlpInputBase type = For<IGqlpInputBase>();
-    type.Input.Returns(paramType);
-    ast.Type.Returns(type);
-    ast.Description.Returns(content);
+    IGqlpInputParam ast = A.InputParam(paramType, content);
     ast.Modifiers.Returns([]);
 
     // Act

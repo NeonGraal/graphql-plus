@@ -65,7 +65,7 @@ public class ParseArgTests
 
     ParseOk(_fieldKeyParser, _fieldKey);
     ParseOk(_argumentParser, _arg);
-    IGqlpFields<IGqlpArg> keyValuePairs = For<IGqlpFields<IGqlpArg>>();
+    IGqlpFields<IGqlpArg> keyValuePairs = A.Of<IGqlpFields<IGqlpArg>>();
     _argumentParser.ParseFieldValues(Tokenizer, "Arg", ')', default!).ReturnsForAnyArgs(keyValuePairs.Ok());
 
     // Act

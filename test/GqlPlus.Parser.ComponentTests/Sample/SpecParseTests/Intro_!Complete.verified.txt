@@ -452,7 +452,7 @@ Success
 {
   !En I@006/0115
   _TypeKind
-  :_SimpleKind
+  :( !Tr I@019/0115 _SimpleKind )
   !EL I@031/0115
   Dual
   !EL I@036/0115

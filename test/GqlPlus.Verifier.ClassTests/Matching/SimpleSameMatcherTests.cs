@@ -11,7 +11,7 @@ public abstract class SimpleSameMatcherTests<TSimple>
   [Theory, RepeatData]
   public void Simple_Matches_SameName_ReturnsTrue(string constraint)
   {
-    TSimple type = NFor<TSimple>(constraint);
+    TSimple type = A.Named<TSimple>(constraint);
 
     bool result = _sut.MatchesTypeConstraint(type, constraint, Context);
 
@@ -23,8 +23,7 @@ public abstract class SimpleSameMatcherTests<TSimple>
   {
     this.SkipIf(name == constraint);
 
-    TSimple type = NFor<TSimple>(name);
-    type.Parent.Returns(constraint);
+    TSimple type = A.Simple<TSimple>(name, constraint);
 
     bool result = _sut.MatchesTypeConstraint(type, constraint, Context);
 
@@ -36,11 +35,9 @@ public abstract class SimpleSameMatcherTests<TSimple>
   {
     this.SkipIf(name == constraint);
 
-    TSimple type = NFor<TSimple>(name);
-    type.Parent.Returns(parent);
+    TSimple type = A.Simple<TSimple>(name, parent);
 
-    TSimple parentType = NFor<TSimple>(parent);
-    parentType.Parent.Returns(constraint);
+    TSimple parentType = A.Simple<TSimple>(parent, constraint);
     Types[parent] = parentType;
 
     bool result = _sut.MatchesTypeConstraint(type, constraint, Context);

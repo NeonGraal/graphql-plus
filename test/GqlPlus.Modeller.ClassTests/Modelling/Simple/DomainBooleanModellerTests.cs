@@ -6,27 +6,6 @@ public class DomainBooleanModellerTests
   protected override IDomainModeller<IGqlpDomainTrueFalse, DomainTrueFalseModel> DomainModeller { get; }
     = new DomainBooleanModeller();
 
-  [Theory, RepeatData]
-  public void ToModel_WithValidDomain_ReturnsExpectedBaseDomainModel(
-    string name,
-    string parent,
-    string contents,
-    string[] aliases)
-  {
-    // Arrange
-    IGqlpDomain<IGqlpDomainTrueFalse> ast = A.Domain<IGqlpDomainTrueFalse>(name, aliases, parent, contents, DomainKind.Boolean);
-
-    // Act
-    BaseDomainModel<DomainTrueFalseModel> result = Modeller.ToModel(ast, TypeKinds);
-
-    // Assert
-    result.ShouldNotBeNull()
-      .ShouldSatisfyAllConditions(
-        r => r.Name.ShouldBe(name),
-        r => r.DomainKind.ShouldBe(DomainKindModel.Boolean),
-        r => r.Description.ShouldBe(contents),
-        r => r.Aliases.ShouldBe(aliases),
-        r => r.Parent.ShouldNotBeNull()
-          .TypeName.ShouldBe(parent));
-  }
+  protected override DomainKind Kind => DomainKind.Boolean;
+  protected override DomainKindModel KindModel => DomainKindModel.Boolean;
 }

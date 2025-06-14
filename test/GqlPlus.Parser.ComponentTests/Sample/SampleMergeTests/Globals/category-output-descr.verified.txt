@@ -1,0 +1,16 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ca P@010/0001
+  ctgrOutpDescr
+  (Parallel)
+  'Output comment'
+  !Tr I@029/0001
+  CtgrOutpDescr
+}
+{
+  !Ou I@008/0002
+  CtgrOutpDescr
+}
+]

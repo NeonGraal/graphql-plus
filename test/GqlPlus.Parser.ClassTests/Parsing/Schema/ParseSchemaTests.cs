@@ -5,7 +5,7 @@ namespace GqlPlus.Parsing.Schema;
 public class ParseSchemaTests
   : ParserClassTestBase
 {
-  private readonly IParseDeclaration _declarationParser = For<IParseDeclaration>();
+  private readonly IParseDeclaration _declarationParser = A.Of<IParseDeclaration>();
   private readonly ParseSchema _parser;
 
   public ParseSchemaTests()

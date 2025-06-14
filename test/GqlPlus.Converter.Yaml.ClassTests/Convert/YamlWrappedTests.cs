@@ -1,7 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using Newtonsoft.Json.Linq;
 using Xunit;
-using YamlDotNet.Core.Tokens;
 
 namespace GqlPlus.Convert;
 

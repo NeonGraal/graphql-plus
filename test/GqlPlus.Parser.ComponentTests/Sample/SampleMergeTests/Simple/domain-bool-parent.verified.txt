@@ -5,7 +5,7 @@ Success
   !Do I@008/0001
   DmnBoolPrnt
   Boolean
-  :PrntDmnBoolPrnt
+  :( !Tr I@023/0001 PrntDmnBoolPrnt )
   !DT I@047/0001
   False
 }

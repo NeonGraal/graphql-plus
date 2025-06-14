@@ -60,6 +60,9 @@ types: !_Map_Type
           typeName: _TypeKind
         name: kind
       - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Dual
+          typeName: _Described
         name: parent
   !_Identifier _ParentType: !_TypeOutput
     allFields:
@@ -112,8 +115,14 @@ types: !_Map_Type
           typeName: _TypeKind
         name: kind
       - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Dual
+          typeName: _Described
         name: item
       - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          typeKind: !_TypeKind Dual
+          typeName: _Described
         name: allItem
   !_Identifier _SimpleKind: !_TypeEnum
     allItems:
@@ -286,8 +295,8 @@ types: !_Map_Type
         type: !_OutputBase
           output: _Identifier
     name: _TypeRef
-    parent: !_OutputBase
-      output: _Described
+    parent: !_DualBase
+      dual: _Described
     typeKind: !_TypeKind Output
     typeParams:
       - !_TypeParam

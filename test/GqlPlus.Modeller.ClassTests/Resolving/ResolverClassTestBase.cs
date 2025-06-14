@@ -10,7 +10,7 @@ public abstract class ResolverClassTestBase<TModel>
   protected static IResolver<T> RFor<T>()
     where T : IModelBase
   {
-    IResolver<T> result = For<IResolver<T>>();
+    IResolver<T> result = A.Of<IResolver<T>>();
     return result;
   }
 }

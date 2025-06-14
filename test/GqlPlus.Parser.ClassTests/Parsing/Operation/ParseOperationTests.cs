@@ -14,7 +14,7 @@ public class ParseOperationTests
   private readonly Parser<IGqlpVariable>.IA _variablesParser;
 
   public ParseOperationTests()
-    : base(For<IOperationContext>())
+    : base(A.Of<IOperationContext>())
   {
     if (Tokenizer is IOperationContext operation) {
       operation.Variables.Returns([]);

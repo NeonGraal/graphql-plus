@@ -129,6 +129,14 @@
         },
         {
           "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Dual"
+            },
+            "typeName": "_Described"
+          },
           "name": "parent"
         }
       ]
@@ -838,10 +846,26 @@
         },
         {
           "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Dual"
+            },
+            "typeName": "_Described"
+          },
           "name": "item"
         },
         {
           "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Dual"
+            },
+            "typeName": "_Described"
+          },
           "name": "allItem"
         }
       ]
@@ -1385,8 +1409,8 @@
       ],
       "name": "_TypeRef",
       "parent": {
-        "$tag": "_OutputBase",
-        "output": "_Described"
+        "$tag": "_DualBase",
+        "dual": "_Described"
       },
       "typeKind": {
         "$tag": "_TypeKind",

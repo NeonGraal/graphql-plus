@@ -56,17 +56,16 @@ public interface IObjTypeArgModel
 
 public record class TypeParamModel(
   string Name,
-  string Description
+  string Description,
+  TypeRefModel<TypeKindModel> Constraint
 ) : NamedModel(Name, Description)
   , ITypeParamModel
-{
-  public TypeRefModel<TypeKindModel>? Constraint { get; set; }
-}
+{ }
 
 public interface ITypeParamModel
   : INamedModel
 {
-  TypeRefModel<TypeKindModel>? Constraint { get; }
+  TypeRefModel<TypeKindModel> Constraint { get; }
 }
 
 public record class ObjBaseModel<TObjArg>(

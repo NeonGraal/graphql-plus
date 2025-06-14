@@ -4,7 +4,7 @@ Success
 {
   !Un I@007/0001
   UnionPrnt
-  :PrntUnionPrnt
+  :( !Tr I@020/0001 PrntUnionPrnt )
   !UM I@034/0001
   String
 }

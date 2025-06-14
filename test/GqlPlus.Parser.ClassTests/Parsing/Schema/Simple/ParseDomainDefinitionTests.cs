@@ -3,7 +3,7 @@
 namespace GqlPlus.Parsing.Schema.Simple;
 
 public class ParseDomainDefinitionTests
-  : ParserClassTestBase
+  : SimpleParserClassTestBase
 {
   private readonly Parser<DomainKind>.I _kindParser;
   private readonly IParseDomain _domainParser = Substitute.For<IParseDomain>();
@@ -13,7 +13,7 @@ public class ParseDomainDefinitionTests
   {
     _domainParser.Kind.Returns(DomainKind.Enum);
     Parser<IEnumParser<DomainKind>, DomainKind>.D kindParser = EnumParserFor(out _kindParser);
-    _parser = new ParseDomainDefinition(kindParser, [_domainParser]);
+    _parser = new ParseDomainDefinition(TypeRef, kindParser, [_domainParser]);
   }
 
   [Theory, RepeatData]
@@ -21,7 +21,7 @@ public class ParseDomainDefinitionTests
   {
     // Arrange
     TakeReturns(':', true);
-    IdentifierReturns(OutString(parentType));
+    ParseTypeRefOk(parentType);
     ParseOk(_kindParser, DomainKind.Enum);
     _domainParser.Parser(Tokenizer, "testLabel", Arg.Any<DomainDefinition>()).Returns(c => new DomainDefinition().Ok());
 
@@ -37,7 +37,7 @@ public class ParseDomainDefinitionTests
   {
     // Arrange
     TakeReturns(':', true);
-    IdentifierReturns(OutString(parentType));
+    ParseTypeRefOk(parentType);
     ParseOk(_kindParser, (DomainKind)99);
     SetupPartial(new DomainDefinition());
 

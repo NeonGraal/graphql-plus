@@ -11,10 +11,10 @@ public class SpecialConstraintMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsExpected_WhenMatchingSpecialMember(string name, string constraint)
   {
-    IGqlpTypeSpecial special = NFor<IGqlpTypeSpecial>(constraint);
+    IGqlpTypeSpecial special = A.Named<IGqlpTypeSpecial>(constraint);
     Types[constraint] = special;
 
-    IGqlpType type = NFor<IGqlpType>(name);
+    IGqlpType type = A.Named<IGqlpType>(name);
     bool expected = false;
     special.MatchesTypeSpecial(type).Returns(expected);
 

@@ -1,1 +1,1 @@
-7ca597e  (HEAD -> operation) 2025-06-04 Merge branch 'main' into operation
+0d5d04c  (HEAD -> simple-parent) 2025-06-12 Add description to category output and various samples

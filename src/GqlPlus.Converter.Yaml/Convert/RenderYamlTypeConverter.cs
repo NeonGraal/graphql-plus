@@ -3,13 +3,13 @@ using YamlDotNet.Core.Events;
 
 namespace GqlPlus.Convert;
 
-internal class RenderYamlFullConverter
+internal sealed class RenderYamlFullConverter
   : RenderYamlTypeConverter
 {
   public static readonly IYamlTypeConverter Instance = new RenderYamlFullConverter();
 }
 
-internal class RenderYamlWrappedConverter
+internal sealed class RenderYamlWrappedConverter
   : RenderYamlTypeConverter
 {
   public static readonly IYamlTypeConverter Instance = new RenderYamlWrappedConverter();

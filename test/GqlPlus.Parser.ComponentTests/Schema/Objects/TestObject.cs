@@ -28,7 +28,8 @@ where TObject : IGqlpObject
 
   [Theory, RepeatData]
   public void WithTypeParams_ReturnsCorrectAst(string name, string other, string[] parameters)
-    => objectChecks.WithTypeParams(name, other, parameters);
+    => objectChecks
+      .WithTypeParams(name, other, parameters);
 
   [Theory, RepeatData]
   public void WithTypeParamBad_ReturnsFalse(string name, string other)
@@ -144,7 +145,7 @@ internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt
 
   public void WithTypeParams(string name, string other, string[] parameters)
     => TrueExpected(
-      name + "<" + parameters.Joined(s => "$" + s + ":*") + ">{|" + other + "}",
+      name + "<" + parameters.Joined(s => "$" + s + ":_Any") + ">{|" + other + "}",
        Object(name) with {
          ObjAlternates = [ObjAlternate(other)],
          TypeParams = parameters.TypeParams(),

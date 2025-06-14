@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Parsing;
 
@@ -38,6 +39,10 @@ internal abstract class BaseAliasedChecks<TInput, TAliasedAst, TAliased>(
 
   public void WithAliasesNone(TInput input)
     => FalseExpected(AliasesString(input, "[]"));
+
+  [SuppressMessage("Performance", "CA1822:Mark members as static")]
+  public IGqlpTypeRef ParentFactory(string parent)
+    => new TypeRefAst(AstNulls.At, parent);
 
   protected internal abstract string AliasesString(TInput input, string aliases);
 

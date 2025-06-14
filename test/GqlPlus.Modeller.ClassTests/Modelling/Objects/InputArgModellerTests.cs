@@ -16,9 +16,8 @@ public class InputArgModellerTests
   public void ToModel_WithValidArg_ReturnsExpectedInputArgModel(string input, string contents)
   {
     // Arrange
-    IGqlpInputArg ast = For<IGqlpInputArg>();
+    IGqlpInputArg ast = A.Descr<IGqlpInputArg>(contents);
     ast.Input.Returns(input);
-    ast.Description.Returns(contents);
     ast.IsTypeParam.Returns(true);
 
     // Act

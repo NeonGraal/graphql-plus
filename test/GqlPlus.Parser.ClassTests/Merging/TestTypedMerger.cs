@@ -6,7 +6,7 @@ public abstract class TestTypedMerger<TBase, TType, TParent, TItem>
   : TestAliasedMerger<TType>
   where TBase : IGqlpType
   where TType : IGqlpType<TParent>, TBase
-  where TParent : IEquatable<TParent>
+  where TParent : IGqlpDescribed, IEquatable<TParent>
   where TItem : IGqlpError
 {
   [Theory, RepeatData]
@@ -27,7 +27,7 @@ public abstract class TestTypedMerger<TBase, TType, TParent, TItem>
   internal override GroupsMerger<TType> MergerGroups => MergerTyped;
 
   protected abstract TType MakeTyped(string name, string[]? aliases = null, string description = "", TParent? parent = default);
-  protected abstract TParent MakeParent(string parent);
+  protected abstract TParent? MakeParent(string? parent);
   protected override TType MakeAliased(string name, string[]? aliases = null, string description = "")
     => MakeTyped(name, aliases, description);
 }

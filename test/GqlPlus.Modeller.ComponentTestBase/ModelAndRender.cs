@@ -16,12 +16,14 @@ internal sealed class ModelAndRender(
 
   public Structured RenderAst(IGqlpSchema schema, IModelsContext context, IGqlpSchema? extras = null)
   {
-    SchemaModel model = modeller.ToModel(schema, context.TypeKinds);
-    context.AddModels(model.Types.Values);
+    types.AddTypeKinds(schema.Declarations.ArrayOf<IGqlpType>(), context.TypeKinds);
     if (extras is not null) {
       SchemaModel extraModel = modeller.ToModel(extras, context.TypeKinds);
       context.AddModels(extraModel.Types.Values);
     }
+
+    SchemaModel model = modeller.ToModel(schema, context.TypeKinds);
+    context.AddModels(model.Types.Values);
 
     context.Errors.Clear();
     model = resolver.Resolve(model, context);

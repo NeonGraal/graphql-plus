@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Modelling.Simple;
 
 internal abstract class ModellerDomain<TItemAst, TItemModel>
-  : ModellerType<IGqlpDomain<TItemAst>, string, BaseDomainModel<TItemModel>>
+  : ModellerType<IGqlpDomain<TItemAst>, IGqlpTypeRef, BaseDomainModel<TItemModel>>
   , IDomainModeller<TItemAst, TItemModel>
   where TItemAst : IGqlpDomainItem
   where TItemModel : BaseDomainItemModel

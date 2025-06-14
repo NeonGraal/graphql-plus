@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast.Schema;
 using GqlPlus.Modelling;
 using GqlPlus.Resolving;
 
@@ -8,6 +9,7 @@ public abstract class TestTypeModel<TAstParent, TParent, TTypeKind, TRender>(
   ICheckTypeModel<TAstParent, TParent, TTypeKind, TRender> typeChecks
 ) : TestAliasedModel<string, TRender>(typeChecks)
   where TRender : IModelBase
+  where TAstParent : IGqlpDescribed
 {
   [Theory, RepeatData]
   public void Model_Parent(string name, TParent parent)
@@ -18,7 +20,7 @@ public abstract class TestTypeModel<TAstParent, TParent, TTypeKind, TRender>(
 
 public abstract class TestTypeModel<TTypeKind, TRender>(
   ICheckTypeModel<TTypeKind, TRender> typeChecks
-) : TestTypeModel<string, string, TTypeKind, TRender>(typeChecks)
+) : TestTypeModel<IGqlpTypeRef, string, TTypeKind, TRender>(typeChecks)
   where TRender : IModelBase
 { }
 
@@ -29,6 +31,7 @@ internal abstract class CheckTypeModel<TAstParent, TParent, TAst, TTypeKind, TMo
   , ICheckTypeModel<TAstParent, TParent, TTypeKind, TModel>
   where TAst : IGqlpType<TAstParent>
   where TModel : IModelBase
+  where TAstParent : IGqlpDescribed
 {
   private readonly CheckTypeInputs<TAst, TModel> _inputs = inputs;
   protected readonly TTypeKind TypeKind = kind;
@@ -49,12 +52,12 @@ internal abstract class CheckTypeModel<TAstParent, TParent, TAst, TTypeKind, TMo
 
   internal abstract TAst NewTypeAst(string name, TAstParent? parent = default, string? description = null, string[]? aliases = null);
 
-  internal abstract TAstParent NewParentAst(TParent input);
+  internal abstract TAstParent? NewParentAst(TParent? input);
 
   string[] ICheckTypeModel<TAstParent, TParent, TTypeKind, TModel>.ExpectedType(ExpectedTypeInput<TParent> input)
     => ExpectedType(input);
 
-  TAstParent ICheckTypeModel<TAstParent, TParent, TTypeKind, TModel>.ParentAst(TParent parent)
+  TAstParent? ICheckTypeModel<TAstParent, TParent, TTypeKind, TModel>.ParentAst(TParent? parent)
     => NewParentAst(parent);
   IGqlpType<TAstParent> ICheckTypeModel<TAstParent, TParent, TTypeKind, TModel>.TypeAst(string name, TParent parent)
     => NewTypeAst(name, NewParentAst(parent), "");
@@ -71,13 +74,13 @@ internal abstract class CheckTypeModel<TAstParent, TParent, TAst, TTypeKind, TMo
 internal abstract class CheckTypeModel<TAst, TTypeKind, TModel>(
   CheckTypeInputs<TAst, TModel> inputs,
   TTypeKind kind
-) : CheckTypeModel<string, string, TAst, TTypeKind, TModel>(inputs, kind)
+) : CheckTypeModel<IGqlpTypeRef, string, TAst, TTypeKind, TModel>(inputs, kind)
   , ICheckTypeModel<TTypeKind, TModel>
-  where TAst : IGqlpType<string>
+  where TAst : IGqlpType<IGqlpTypeRef>
   where TModel : IModelBase
 {
-  internal override string NewParentAst(string input)
-    => input;
+  internal override IGqlpTypeRef? NewParentAst(string? input)
+    => string.IsNullOrWhiteSpace(input) ? null : new TypeRefAst(AstNulls.At, input);
 }
 
 public record class CheckTypeInputs<TAst, TModel>(
@@ -90,17 +93,18 @@ public record class CheckTypeInputs<TAst, TModel>(
 public interface ICheckTypeModel<TAstParent, TParent, TTypeKind, TRender>
   : ICheckAliasedModel<string, TRender>
   where TRender : IModelBase
+  where TAstParent : IGqlpDescribed
 {
   TTypeKind TypeKind { get; }
   string TypeKindLower { get; }
   void TypeExpected(IGqlpType<TAstParent> type, string[] expected);
   IGqlpType<TAstParent> TypeAst(string name, TParent parent);
-  TAstParent ParentAst(TParent parent);
+  TAstParent? ParentAst(TParent? parent);
   string[] ExpectedType(ExpectedTypeInput<TParent> input);
 }
 
 public interface ICheckTypeModel<TTypeKind, TRender>
-  : ICheckTypeModel<string, string, TTypeKind, TRender>
+  : ICheckTypeModel<IGqlpTypeRef, string, TTypeKind, TRender>
   where TRender : IModelBase
 { }
 

@@ -12,7 +12,7 @@ public class ParseDirectiveTests
 
   public ParseDirectiveTests()
   {
-    IDirectiveName name = For<IDirectiveName>();
+    IDirectiveName name = A.Of<IDirectiveName>();
     NameParser = name;
 
     Parser<IGqlpInputParam>.DA param = ParserAFor(out _param);

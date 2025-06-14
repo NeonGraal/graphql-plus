@@ -5,37 +5,21 @@ using GqlPlus.Merging.Simple;
 
 namespace GqlPlus.Merging.Schema.Simple;
 
-public class MergeUnionsTests(
-  ITestOutputHelper outputHelper
-) : TestTypedMerger<IGqlpType, IGqlpUnion, string, IGqlpUnionMember>
+public class MergeUnionsTests
+  : TestSimpleMerger<IGqlpType, IGqlpUnion, IGqlpUnionMember, string>
 {
-  [Theory, RepeatData]
-  public void Merge_TwoAstsValues_ReturnsExpected(string name, string[] members1, string[] members2)
-  {
-    string[] combined = [.. members1.Concat(members2).Distinct()];
+  private readonly MergeUnions _merger;
 
-    Merge_Expected([
-      new UnionDeclAst(AstNulls.At, name, members1.UnionMembers()),
-      new UnionDeclAst(AstNulls.At, name, members2.UnionMembers())],
-      new UnionDeclAst(AstNulls.At, name, combined.UnionMembers()));
-  }
+  public MergeUnionsTests(ITestOutputHelper outputHelper)
+    => _merger = new(outputHelper.ToLoggerFactory(), MergeItems);
 
-  [Theory, RepeatData]
-  public void Merge_TwoAstsSameValues_ReturnsExpected(string name, string[] members)
-    => Merge_Expected([
-        new UnionDeclAst(AstNulls.At, name, members.UnionMembers()),
-      new UnionDeclAst(AstNulls.At, name, members.UnionMembers())],
-        new UnionDeclAst(AstNulls.At, name, members.UnionMembers()));
+  internal override AstSimpleMerger<IGqlpType, IGqlpUnion, IGqlpUnionMember> MergerSimple => _merger;
 
-  private readonly MergeUnions _merger = new(outputHelper.ToLoggerFactory(), new MergeUnionMembers());
-
-  internal override AstTypeMerger<IGqlpType, IGqlpUnion, string, IGqlpUnionMember> MergerTyped => _merger;
-
-  protected override IGqlpUnion MakeTyped(string name, string[]? aliases = null, string description = "", string? parent = default)
-    => new UnionDeclAst(AstNulls.At, name, description, []) {
+  protected override IGqlpUnionMember[] MakeItems(string input)
+    => new[] { input }.UnionMembers();
+  protected override IGqlpUnion MakeSimple(string name, string[]? aliases = null, string description = "", IGqlpTypeRef? parent = null, IEnumerable<IGqlpUnionMember>? items = null)
+    => new UnionDeclAst(AstNulls.At, name, description, [.. items ?? []]) {
       Aliases = aliases ?? [],
       Parent = parent,
     };
-  protected override string MakeParent(string parent)
-    => parent;
 }

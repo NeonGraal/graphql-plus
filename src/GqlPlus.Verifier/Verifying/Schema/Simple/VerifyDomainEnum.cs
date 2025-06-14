@@ -47,7 +47,7 @@ internal class VerifyDomainEnum(
       labels.Add(excludes, enumType, enumLabel.Name);
     }
 
-    if (context.GetTyped(enumType.Parent, out IGqlpEnum? parentType)) {
+    if (context.GetTyped(enumType.Parent?.Name, out IGqlpEnum? parentType)) {
       AddAllLabels(labels, context, excludes, parentType);
     }
   }

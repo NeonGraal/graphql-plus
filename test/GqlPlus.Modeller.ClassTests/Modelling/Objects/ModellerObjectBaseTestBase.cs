@@ -13,9 +13,9 @@ public abstract class ModellerObjectBaseTestBase<TAst, TModel, TBaseAst, TBaseMo
 
   protected TBaseAst BaseReturns(string contents, [NotNull] Action<TBaseAst> astName, TBaseModel baseModel)
   {
-    TBaseAst baseAst = For<TBaseAst>();
+    TBaseAst baseAst = A.Descr<TBaseAst>(contents);
     astName(baseAst);
-    baseAst.Description.Returns(contents);
+
     ObjBase.ToModel(baseAst, TypeKinds).Returns(baseModel);
 
     return baseAst;

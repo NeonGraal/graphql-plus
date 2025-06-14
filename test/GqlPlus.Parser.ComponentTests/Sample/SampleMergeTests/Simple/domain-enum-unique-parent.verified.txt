@@ -4,7 +4,7 @@ Success
 {
   !En I@006/0002
   EnumDmnEnumUnqPrnt
-  :PrntDmnEnumUnqPrnt
+  :( !Tr I@028/0002 PrntDmnEnumUnqPrnt )
   !EL I@047/0002
   enum_dmnEnumUnqPrnt
 }

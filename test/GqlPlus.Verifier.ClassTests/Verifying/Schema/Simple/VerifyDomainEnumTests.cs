@@ -4,7 +4,7 @@ public class VerifyDomainEnumTests
   : AstDomainVerifierTestsBase<IGqlpDomainLabel>
 {
   private readonly VerifyDomainEnum _verifier;
-  private readonly EnumContext _context;
+  private EnumContext _context;
 
   private readonly IGqlpDomain<IGqlpDomainLabel> _domain;
 
@@ -14,17 +14,21 @@ public class VerifyDomainEnumTests
 
     _context = new(Types, Errors, EnumValues);
 
-    _domain = NFor<IGqlpDomain<IGqlpDomainLabel>>("domain");
+    _domain = A.Domain<IGqlpDomainLabel>("domain", DomainKind.Enum);
   }
 
-  [Fact(Skip = "WIP")]
+  [Fact]
   public void Verify_Enum_WithDefinedLabels_ReturnsNoErrrors()
   {
-    IGqlpEnum enumType = Enum("domain", "item1", "item2");
+    IGqlpEnum enumType = A.Enum("domain", null, A.EnumLabel("item1", ["i1"]), A.EnumLabel("item2", ["i2"]));
+    AddTypes(enumType);
+    EnumValues["item1"] = "domain";
 
-    IGqlpDomainLabel label1 = EnumLabel("item1", "domain");
+    _context = new(Types, Errors, Types.Values.ArrayOf<IGqlpType>().MakeEnumValues());
+
+    IGqlpDomainLabel label1 = A.DomainLabel("domain", "item1");
     label1.EnumType.Returns("", "domain");
-    IGqlpDomainLabel label2 = EnumLabel("item2", "domain");
+    IGqlpDomainLabel label2 = A.DomainLabel("domain", "item2");
     label2.Excludes.Returns(true);
 
     _domain.Items.Returns([label1, label2]);
@@ -41,28 +45,17 @@ public class VerifyDomainEnumTests
 
     EnumContext context = new(Types, Errors, EnumValues);
 
-    IGqlpEnum enumType = EFor<IGqlpEnum>();
-    enumType.Name.Returns("domain");
-    enumType.HasValue("item1").Returns(true);
-    enumType.HasValue("item2").Returns(true);
-    IGqlpEnumLabel item1 = CreateEnumLabel("item1");
-    IGqlpEnumLabel item2 = CreateEnumLabel("item2");
-    enumType.Items.Returns([item1, item2]);
-    Types["domain"] = enumType;
+    IGqlpEnum enumType = A.Enum("domain", ["item1", "item2"]);
+    AddTypes(enumType);
 
     EnumValues["item1"] = "domain";
     EnumValues["item2"] = "domain";
 
-    IGqlpDomain<IGqlpDomainLabel> domain = EFor<IGqlpDomain<IGqlpDomainLabel>>();
-    domain.Name.Returns("domain");
-    IGqlpDomainLabel label1 = EFor<IGqlpDomainLabel>();
-    label1.EnumItem.Returns("item1");
+    IGqlpDomainLabel label1 = A.DomainLabel("", "item1");
     label1.EnumType.Returns("", "domain");
-    IGqlpDomainLabel label2 = EFor<IGqlpDomainLabel>();
-    label2.EnumItem.Returns("item2");
-    label2.EnumType.Returns("domain");
+    IGqlpDomainLabel label2 = A.DomainLabel("domain", "item2");
     label2.Excludes.Returns(true);
-    domain.Items.Returns([label1, label2]);
+    IGqlpDomain<IGqlpDomainLabel> domain = A.Domain("domain", DomainKind.Enum, label1, label2);
 
     verifier.Verify(domain, context);
 
@@ -74,8 +67,8 @@ public class VerifyDomainEnumTests
   [Fact]
   public void Verify_Enum_WithUndefinedEnum_ReturnsError()
   {
-    IGqlpDomainLabel label1 = EnumLabel("*", "domain");
-    IGqlpDomainLabel label2 = EnumLabel("item2", "domain");
+    IGqlpDomainLabel label1 = A.DomainLabel("domain", "*");
+    IGqlpDomainLabel label2 = A.DomainLabel("domain", "item2");
     label2.Excludes.Returns(true);
 
     _domain.Items.Returns([label1, label2]);
@@ -88,10 +81,11 @@ public class VerifyDomainEnumTests
   [Fact]
   public void Verify_Enum_WithUndefinedLabel_ReturnsError()
   {
-    IGqlpEnum enumType = Enum("domain", "item1");
+    IGqlpEnum enumType = A.Enum("domain", ["item1"]);
+    AddTypes(enumType);
 
-    IGqlpDomainLabel label1 = EnumLabel("item2", "domain");
-    IGqlpDomainLabel label2 = EnumLabel("item2", "");
+    IGqlpDomainLabel label1 = A.DomainLabel("domain", "item2");
+    IGqlpDomainLabel label2 = A.DomainLabel("", "item2");
     label2.Excludes.Returns(true);
 
     _domain.Items.Returns([label1, label2]);
@@ -101,14 +95,15 @@ public class VerifyDomainEnumTests
     Errors.ShouldNotBeEmpty();
   }
 
-  [Fact(Skip = "WIP")]
+  [Fact]
   public void Verify_Enum_WithDuplicateLabel_ReturnsError()
   {
-    IGqlpEnum enum1 = Enum("domain1", "item1");
-    IGqlpEnum enum2 = Enum("domain2", "item1");
+    IGqlpEnum enum1 = A.Enum("domain1", ["item1"]);
+    IGqlpEnum enum2 = A.Enum("domain2", ["item1"]);
+    AddTypes(enum1, enum2);
 
-    IGqlpDomainLabel label1 = EnumLabel("*", "domain1");
-    IGqlpDomainLabel label2 = EnumLabel("*", "domain2");
+    IGqlpDomainLabel label1 = A.DomainLabel("domain1", "*");
+    IGqlpDomainLabel label2 = A.DomainLabel("domain2", "*");
 
     _domain.Items.Returns([label1, label2]);
 
@@ -120,13 +115,13 @@ public class VerifyDomainEnumTests
   [Fact(Skip = "WIP")]
   public void Verify_Enum_WithDuplicateParentLabel_ReturnsError()
   {
-    IGqlpEnum enumType = Enum("domain1", "item1", "item2");
-    IGqlpEnum parent = Enum("parent", "item3", "item4");
-    enumType.Parent.Returns("parent");
-    IGqlpEnum enum2 = Enum("domain2", "item3");
+    IGqlpEnum enumType = A.Enum("domain1", ["item1", "item2"]);
+    IGqlpEnum parent = A.Enum("parent", ["item3", "item4"], "parent");
+    IGqlpEnum enum2 = A.Enum("domain2", ["item3"]);
+    AddTypes(enumType, parent, enum2);
 
-    IGqlpDomainLabel label1 = EnumLabel("*", "domain1");
-    IGqlpDomainLabel label2 = EnumLabel("*", "domain2");
+    IGqlpDomainLabel label1 = A.DomainLabel("domain1", "*");
+    IGqlpDomainLabel label2 = A.DomainLabel("domain2", "*");
 
     _domain.Items.Returns([label1, label2]);
 
@@ -137,20 +132,4 @@ public class VerifyDomainEnumTests
 
   internal override AstDomainVerifier<IGqlpDomainLabel> NewDomainVerifier()
     => _verifier;
-
-  private static IGqlpDomainLabel EnumLabel(string label, string type)
-  {
-    IGqlpDomainLabel result = EFor<IGqlpDomainLabel>();
-    result.EnumItem.Returns(label);
-    result.EnumType.Returns(type);
-    return result;
-  }
-
-  private static IGqlpEnumLabel CreateEnumLabel(string name)
-  {
-    IGqlpEnumLabel enumLabel = EFor<IGqlpEnumLabel>();
-    enumLabel.Name.Returns(name);
-    enumLabel.IsNameOrAlias(name).Returns(true);
-    return enumLabel;
-  }
 }

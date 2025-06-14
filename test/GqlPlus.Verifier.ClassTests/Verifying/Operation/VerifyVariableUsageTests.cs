@@ -7,15 +7,14 @@ public class VerifyVariableUsageTests
 {
   protected override IEnumerable<IGqlpVariable> OneDefinition(string name)
   {
-    IGqlpVariable definition = EFor<IGqlpVariable>();
-    definition.Identifier.Returns(name);
+    IGqlpVariable definition = A.Variable(name);
 
     return [definition];
   }
 
   protected override IEnumerable<IGqlpArg> OneUsage(string key)
   {
-    IGqlpArg usage = EFor<IGqlpArg>();
+    IGqlpArg usage = A.Error<IGqlpArg>();
     usage.Variable.Returns(key);
 
     return [usage];

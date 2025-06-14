@@ -6,7 +6,7 @@ internal abstract record class AstSimple(
   ITokenAt At,
   string Name,
   string Description
-) : AstType<string>(At, Name, Description)
+) : AstType<IGqlpTypeRef>(At, Name, Description)
   , IGqlpSimple
 { }
 

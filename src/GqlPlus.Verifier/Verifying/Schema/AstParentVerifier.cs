@@ -8,7 +8,7 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
   IVerifyAliased<TAst> aliased
 ) : UsageVerifier<TAst, TContext>(aliased)
   where TAst : IGqlpType<TParent>
-  where TParent : IEquatable<TParent>
+  where TParent : IGqlpDescribed, IEquatable<TParent>
   where TContext : UsageContext
 {
   protected override void UsageValue(TAst usage, TContext context)

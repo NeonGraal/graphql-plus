@@ -3,7 +3,7 @@
 namespace GqlPlus.Parsing.Schema.Simple;
 
 public class ParseEnumDefinitionTests
-  : ParserClassTestBase
+  : SimpleParserClassTestBase
 {
   private readonly Parser<IGqlpEnumLabel>.I _enumLabelParser;
   private readonly ParseEnumDefinition _parser;
@@ -11,7 +11,7 @@ public class ParseEnumDefinitionTests
   public ParseEnumDefinitionTests()
   {
     Parser<IGqlpEnumLabel>.D enumLabelParser = ParserFor(out _enumLabelParser);
-    _parser = new ParseEnumDefinition(enumLabelParser);
+    _parser = new ParseEnumDefinition(TypeRef, enumLabelParser);
   }
 
   [Theory, RepeatData]
@@ -19,7 +19,7 @@ public class ParseEnumDefinitionTests
   {
     // Arrange
     TakeReturns(':', true);
-    IdentifierReturns(OutString(parentType));
+    ParseTypeRefOk(parentType);
     ParseOk(_enumLabelParser);
     TakeReturns('}', false, true);
 

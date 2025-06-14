@@ -21,7 +21,7 @@ public class EnumModelTests(
     => checks
     .AddParent(checks.NewParent(parent, parentLabels))
     .EnumExpected(
-      new EnumDeclAst(AstNulls.At, name, []) { Parent = parent, },
+      new EnumDeclAst(AstNulls.At, name, []) { Parent = new TypeRefAst(AstNulls.At, parent), },
       new(name, parent, allLabels: checks.ExpectedAllItems("allItems:", parentLabels, parent)));
 
   [Theory, RepeatData]
@@ -31,7 +31,7 @@ public class EnumModelTests(
     .AddParent(checks.NewParent(parent, parentLabels, grandParent))
     .AddParent(checks.NewParent(grandParent, grandParentLabels))
     .EnumExpected(
-      new EnumDeclAst(AstNulls.At, name, []) { Parent = parent, },
+      new EnumDeclAst(AstNulls.At, name, []) { Parent = new TypeRefAst(AstNulls.At, parent), },
       new(name, parent, allLabels: checks
         .ExpectedAllItems("allItems:", grandParentLabels, grandParent)
         .Concat(checks.ExpectedAllItems("", parentLabels, parent))));
@@ -50,7 +50,7 @@ public class EnumModelTests(
       new EnumDeclAst(AstNulls.At, name, labels.EnumLabels()) {
         Aliases = aliases,
         Description = contents,
-        Parent = parent,
+        Parent = new TypeRefAst(AstNulls.At, parent),
       },
       new(name, parent, aliases, contents, checks.ExpectedItems("items:", labels),
         checks.ExpectedAllItems("allItems:", parentLabels, parent)
@@ -93,7 +93,7 @@ internal sealed class EnumModelChecks(
       Items = [.. labels.Select(m => new AliasedModel(m, ""))]
     };
 
-  internal override EnumDeclAst NewTypeAst(string name, string? parent, string? description, string[]? aliases)
+  internal override EnumDeclAst NewTypeAst(string name, IGqlpTypeRef? parent, string? description, string[]? aliases)
     => new(AstNulls.At, name, description ?? "", []) {
       Parent = parent,
       Aliases = aliases ?? [],

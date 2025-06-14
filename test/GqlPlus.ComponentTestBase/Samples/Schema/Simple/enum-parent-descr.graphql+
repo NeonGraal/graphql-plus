@@ -1,0 +1,2 @@
+enum Name { : "Parent comment" PrntName name  }
+enum PrntName { prnt_name }

@@ -7,16 +7,18 @@ public interface IGqlpType
 public interface IGqlpType<TParent>
   : IGqlpType
   , IEquatable<IGqlpType<TParent>>
+  where TParent : IGqlpDescribed
 {
   TParent? Parent { get; }
 }
 
 public interface IGqlpSimple
-  : IGqlpType<string>
+  : IGqlpType<IGqlpTypeRef>
 { }
 
 public interface IGqlpTypeRef
   : IGqlpNamed
+  , IEquatable<IGqlpTypeRef>
 { }
 
 public interface IGqlpTypeSpecial

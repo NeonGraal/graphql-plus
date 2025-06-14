@@ -3,7 +3,7 @@
 namespace GqlPlus.Parsing.Schema.Simple;
 
 public class ParseUnionDefinitionTests
-  : ParserClassTestBase
+  : SimpleParserClassTestBase
 {
   private readonly Parser<IGqlpUnionMember>.I _unionMemberParser;
   private readonly ParseUnionDefinition _parser;
@@ -11,7 +11,7 @@ public class ParseUnionDefinitionTests
   public ParseUnionDefinitionTests()
   {
     Parser<IGqlpUnionMember>.D unionMemberParser = ParserFor(out _unionMemberParser);
-    _parser = new ParseUnionDefinition(unionMemberParser);
+    _parser = new ParseUnionDefinition(TypeRef, unionMemberParser);
   }
 
   [Theory, RepeatData]
@@ -19,7 +19,7 @@ public class ParseUnionDefinitionTests
   {
     // Arrange
     TakeReturns(':', true);
-    IdentifierReturns(OutString(parentType));
+    ParseTypeRefOk(parentType);
     ParseOk(_unionMemberParser);
     TakeReturns('}', false, true);
 

@@ -127,7 +127,6 @@ public static class BuiltIn
     where TLabel : IGqlpDomainItem, IGqlpError
     => new(AstNulls.At, type, kind, []) { Aliases = aliases };
 
-
   private static TypeParamAst KeyParam()
       => new(AstNulls.At, "K") { Constraint = "Simple" };
 

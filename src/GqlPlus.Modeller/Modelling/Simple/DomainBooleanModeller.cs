@@ -8,6 +8,7 @@ internal class DomainBooleanModeller
       Aliases = [.. ast.Aliases],
       Parent = ast.Parent.TypeRef(SimpleKindModel.Domain),
       Items = ToItems(ast, typeKinds),
+      AllItems = ToAllItems(ast, typeKinds),
     };
 
   protected override DomainTrueFalseModel ToItem(IGqlpDomainTrueFalse ast, IMap<TypeKindModel> typeKinds)

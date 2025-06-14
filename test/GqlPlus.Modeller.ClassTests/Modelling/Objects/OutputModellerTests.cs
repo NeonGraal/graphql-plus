@@ -18,10 +18,7 @@ public class OutputModellerTests
   public void ToModel_WithValidObject_ReturnsExpectedTypeOutputModel(string name, string[] aliases, string content)
   {
     // Arrange
-    IGqlpOutputObject ast = For<IGqlpOutputObject>();
-    ast.Name.Returns(name);
-    ast.Description.Returns(content);
-    ast.Aliases.Returns(aliases);
+    IGqlpOutputObject ast = A.Aliased<IGqlpOutputObject>(name, aliases, content);
 
     // Act
     TypeOutputModel result = Modeller.ToModel(ast, TypeKinds);

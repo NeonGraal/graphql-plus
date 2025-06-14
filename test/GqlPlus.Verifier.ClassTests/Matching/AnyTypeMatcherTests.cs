@@ -6,7 +6,7 @@ public class AnyTypeMatcherTests
   private readonly List<ITypeMatcher> _matchers = [];
   private readonly AnyTypeMatcher _sut;
 
-  private readonly ITypeMatcher _matcher = For<ITypeMatcher>();
+  private readonly ITypeMatcher _matcher = A.Of<ITypeMatcher>();
   public AnyTypeMatcherTests()
     => _sut = new AnyTypeMatcher(LoggerFactory, _matchers);
 
@@ -14,7 +14,7 @@ public class AnyTypeMatcherTests
   public void Matches_ReturnsTrue_WhenMatchingConstraint(string constraint)
   {
     // Arrange
-    IGqlpType type = NFor<IGqlpType>(constraint);
+    IGqlpType type = A.Named<IGqlpType>(constraint);
     _matcher.MatchesTypeConstraint(type, constraint, Context).Returns(true);
 
     _matchers.Add(_matcher);
@@ -30,7 +30,7 @@ public class AnyTypeMatcherTests
   public void Matches_ReturnsFalse_WhenNoConstraintMatcher(string constraint)
   {
     // Arrange
-    IGqlpType type = NFor<IGqlpType>(constraint);
+    IGqlpType type = A.Named<IGqlpType>(constraint);
     _matcher.MatchesTypeConstraint(type, constraint, Context).Returns(false);
     _matchers.Add(_matcher);
 
@@ -45,7 +45,7 @@ public class AnyTypeMatcherTests
   public void Matches_Throws_WhenNoMatchers(string constraint)
   {
     // _matchers is empty
-    IGqlpType type = NFor<IGqlpType>(constraint);
+    IGqlpType type = A.Named<IGqlpType>(constraint);
 
     // Act
     Action action = () => _sut.Matches(type, constraint, Context);

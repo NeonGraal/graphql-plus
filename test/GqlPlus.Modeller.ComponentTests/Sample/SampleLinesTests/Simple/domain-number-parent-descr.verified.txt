@@ -1,0 +1,36 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DmnNmbrPrntDescr: !_DomainNumber
+    allItems:
+      - !_DomainItem(_DomainRange)
+        domain: PrntDmnNmbrPrntDescr
+        exclude: false
+        to: 2
+      - !_DomainItem(_DomainRange)
+        domain: DmnNmbrPrntDescr
+        exclude: false
+        from: 2
+    domainKind: !_DomainKind Number
+    items:
+      - !_DomainRange
+        exclude: false
+        from: 2
+    name: DmnNmbrPrntDescr
+    parent: !_TypeRef(_SimpleKind)
+      description: 'Parent comment'
+      typeKind: !_SimpleKind Domain
+      typeName: PrntDmnNmbrPrntDescr
+    typeKind: !_TypeKind Domain
+  !_Identifier PrntDmnNmbrPrntDescr: !_DomainNumber
+    allItems:
+      - !_DomainItem(_DomainRange)
+        domain: PrntDmnNmbrPrntDescr
+        exclude: false
+        to: 2
+    domainKind: !_DomainKind Number
+    items:
+      - !_DomainRange
+        exclude: false
+        to: 2
+    name: PrntDmnNmbrPrntDescr
+    typeKind: !_TypeKind Domain

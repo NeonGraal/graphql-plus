@@ -70,6 +70,48 @@
         "value": "Domain"
       }
     },
+    "DmnBoolPrntDescr": {
+      "$tag": "_DomainBoolean",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "domain": "PrntDmnBoolPrntDescr",
+          "exclude": false,
+          "value": true
+        },
+        {
+          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "domain": "DmnBoolPrntDescr",
+          "exclude": false,
+          "value": false
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Boolean"
+      },
+      "items": [
+        {
+          "$tag": "_DomainTrueFalse",
+          "exclude": false,
+          "value": false
+        }
+      ],
+      "name": "DmnBoolPrntDescr",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "description": "Parent comment",
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Domain"
+        },
+        "typeName": "PrntDmnBoolPrntDescr"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
     "DmnEnumAll": {
       "$tag": "_DomainEnum",
       "allItems": [
@@ -350,6 +392,72 @@
         "value": "Domain"
       }
     },
+    "DmnEnumPrntDescr": {
+      "$tag": "_DomainEnum",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainLabel)",
+          "domain": "PrntDmnEnumPrntDescr",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "prnt_dmnEnumPrntDescr",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            },
+            "typeName": "EnumDmnEnumPrntDescr"
+          }
+        },
+        {
+          "$tag": "_DomainItem(_DomainLabel)",
+          "domain": "DmnEnumPrntDescr",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "enum_dmnEnumPrntDescr",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            },
+            "typeName": "EnumDmnEnumPrntDescr"
+          }
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Enum"
+      },
+      "items": [
+        {
+          "$tag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "enum_dmnEnumPrntDescr",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            },
+            "typeName": "EnumDmnEnumPrntDescr"
+          }
+        }
+      ],
+      "name": "DmnEnumPrntDescr",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "description": "Parent comment",
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Domain"
+        },
+        "typeName": "PrntDmnEnumPrntDescr"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
     "DmnEnumValue": {
       "$tag": "_DomainEnum",
       "allItems": [
@@ -504,6 +612,48 @@
         "value": "Domain"
       }
     },
+    "DmnNmbrPrntDescr": {
+      "$tag": "_DomainNumber",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRange)",
+          "domain": "PrntDmnNmbrPrntDescr",
+          "exclude": false,
+          "to": 2
+        },
+        {
+          "$tag": "_DomainItem(_DomainRange)",
+          "domain": "DmnNmbrPrntDescr",
+          "exclude": false,
+          "from": 2
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Number"
+      },
+      "items": [
+        {
+          "$tag": "_DomainRange",
+          "exclude": false,
+          "from": 2
+        }
+      ],
+      "name": "DmnNmbrPrntDescr",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "description": "Parent comment",
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Domain"
+        },
+        "typeName": "PrntDmnNmbrPrntDescr"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
     "DmnStrDescr": {
       "$tag": "_DomainString",
       "allItems": [
@@ -566,6 +716,48 @@
           "value": "Domain"
         },
         "typeName": "PrntDmnStrPrnt"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "DmnStrPrntDescr": {
+      "$tag": "_DomainString",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRegex)",
+          "domain": "PrntDmnStrPrntDescr",
+          "exclude": false,
+          "pattern": "b\u002B"
+        },
+        {
+          "$tag": "_DomainItem(_DomainRegex)",
+          "domain": "DmnStrPrntDescr",
+          "exclude": false,
+          "pattern": "a\u002B"
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "String"
+      },
+      "items": [
+        {
+          "$tag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "a\u002B"
+        }
+      ],
+      "name": "DmnStrPrntDescr",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "description": "Parent comment",
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Domain"
+        },
+        "typeName": "PrntDmnStrPrntDescr"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -786,6 +978,36 @@
         }
       ],
       "name": "EnumDmnEnumPrnt",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumDmnEnumPrntDescr": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumDmnEnumPrntDescr",
+          "name": "enum_dmnEnumPrntDescr"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumDmnEnumPrntDescr",
+          "name": "prnt_dmnEnumPrntDescr"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "enum_dmnEnumPrntDescr"
+        },
+        {
+          "$tag": "_Aliased",
+          "name": "prnt_dmnEnumPrntDescr"
+        }
+      ],
+      "name": "EnumDmnEnumPrntDescr",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Enum"
@@ -1024,6 +1246,41 @@
         "value": "Enum"
       }
     },
+    "EnumPrntDescr": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "PrntEnumPrntDescr",
+          "name": "prnt_enumPrntDescr"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumPrntDescr",
+          "name": "enumPrntDescr"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "enumPrntDescr"
+        }
+      ],
+      "name": "EnumPrntDescr",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "description": "Parent comment",
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Enum"
+        },
+        "typeName": "PrntEnumPrntDescr"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
     "EnumPrntDup": {
       "$tag": "_TypeEnum",
       "allItems": [
@@ -1081,6 +1338,33 @@
         }
       ],
       "name": "PrntDmnBoolPrnt",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "PrntDmnBoolPrntDescr": {
+      "$tag": "_DomainBoolean",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainTrueFalse)",
+          "domain": "PrntDmnBoolPrntDescr",
+          "exclude": false,
+          "value": true
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Boolean"
+      },
+      "items": [
+        {
+          "$tag": "_DomainTrueFalse",
+          "exclude": false,
+          "value": true
+        }
+      ],
+      "name": "PrntDmnBoolPrntDescr",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Domain"
@@ -1145,6 +1429,49 @@
         }
       ],
       "name": "PrntDmnEnumPrnt",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "PrntDmnEnumPrntDescr": {
+      "$tag": "_DomainEnum",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainLabel)",
+          "domain": "PrntDmnEnumPrntDescr",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "prnt_dmnEnumPrntDescr",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            },
+            "typeName": "EnumDmnEnumPrntDescr"
+          }
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Enum"
+      },
+      "items": [
+        {
+          "$tag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "prnt_dmnEnumPrntDescr",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            },
+            "typeName": "EnumDmnEnumPrntDescr"
+          }
+        }
+      ],
+      "name": "PrntDmnEnumPrntDescr",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Domain"
@@ -1228,6 +1555,33 @@
         "value": "Domain"
       }
     },
+    "PrntDmnNmbrPrntDescr": {
+      "$tag": "_DomainNumber",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRange)",
+          "domain": "PrntDmnNmbrPrntDescr",
+          "exclude": false,
+          "to": 2
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Number"
+      },
+      "items": [
+        {
+          "$tag": "_DomainRange",
+          "exclude": false,
+          "to": 2
+        }
+      ],
+      "name": "PrntDmnNmbrPrntDescr",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
     "PrntDmnStrPrnt": {
       "$tag": "_DomainString",
       "allItems": [
@@ -1250,6 +1604,33 @@
         }
       ],
       "name": "PrntDmnStrPrnt",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "PrntDmnStrPrntDescr": {
+      "$tag": "_DomainString",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRegex)",
+          "domain": "PrntDmnStrPrntDescr",
+          "exclude": false,
+          "pattern": "b\u002B"
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "String"
+      },
+      "items": [
+        {
+          "$tag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "b\u002B"
+        }
+      ],
+      "name": "PrntDmnStrPrntDescr",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Domain"
@@ -1297,6 +1678,27 @@
         "value": "Enum"
       }
     },
+    "PrntEnumPrntDescr": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "PrntEnumPrntDescr",
+          "name": "prnt_enumPrntDescr"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "prnt_enumPrntDescr"
+        }
+      ],
+      "name": "PrntEnumPrntDescr",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
     "PrntEnumPrntDup": {
       "$tag": "_TypeEnum",
       "allItems": [
@@ -1336,6 +1738,27 @@
         }
       ],
       "name": "PrntUnionPrnt",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Union"
+      }
+    },
+    "PrntUnionPrntDescr": {
+      "$tag": "_TypeUnion",
+      "allItems": [
+        {
+          "$tag": "_UnionMember",
+          "name": "Number",
+          "union": "PrntUnionPrntDescr"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "Number"
+        }
+      ],
+      "name": "PrntUnionPrntDescr",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Union"
@@ -1413,6 +1836,41 @@
           "value": "Union"
         },
         "typeName": "PrntUnionPrnt"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Union"
+      }
+    },
+    "UnionPrntDescr": {
+      "$tag": "_TypeUnion",
+      "allItems": [
+        {
+          "$tag": "_UnionMember",
+          "name": "Number",
+          "union": "PrntUnionPrntDescr"
+        },
+        {
+          "$tag": "_UnionMember",
+          "name": "Number",
+          "union": "UnionPrntDescr"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "Number"
+        }
+      ],
+      "name": "UnionPrntDescr",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "description": "Parent comment",
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Union"
+        },
+        "typeName": "PrntUnionPrntDescr"
       },
       "typeKind": {
         "$tag": "_TypeKind",

@@ -8785,6 +8785,87 @@
         }
       ]
     },
+    "GnrcPrntDescrDual": {
+      "$tag": "_TypeDual",
+      "name": "GnrcPrntDescrDual",
+      "parent": {
+        "$tag": "_DualBase",
+        "description": "Parent comment",
+        "typeParam": "type"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
+          "name": "type"
+        }
+      ]
+    },
+    "GnrcPrntDescrInp": {
+      "$tag": "_TypeInput",
+      "name": "GnrcPrntDescrInp",
+      "parent": {
+        "$tag": "_InputBase",
+        "description": "Parent comment",
+        "typeParam": "type"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
+          "name": "type"
+        }
+      ]
+    },
+    "GnrcPrntDescrOutp": {
+      "$tag": "_TypeOutput",
+      "name": "GnrcPrntDescrOutp",
+      "parent": {
+        "$tag": "_OutputBase",
+        "description": "Parent comment",
+        "typeParam": "type"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
+          "name": "type"
+        }
+      ]
+    },
     "GnrcPrntDual": {
       "$tag": "_TypeDual",
       "name": "GnrcPrntDual",

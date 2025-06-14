@@ -72,7 +72,7 @@ public abstract class ResolverTypeObjectFieldTestBase<TModel, TBase, TField, TAl
   {
     ModifierModel modifier = new(ModifierKind.Dict) { Key = key };
     TModel parentModel = NewModel(parent, "") with {
-      TypeParams = [new(field.Type, "")],
+      TypeParams = [new(field.Type, "", default!)],
       Fields = [MakeParamField(field, modifier)],
     };
     Context.AddModels([parentModel]);
@@ -105,7 +105,7 @@ public abstract class ResolverTypeObjectFieldTestBase<TModel, TBase, TField, TAl
   {
     ModifierModel modifier = new(ModifierKind.Param) { Key = key };
     TModel parentModel = NewModel(parent, "") with {
-      TypeParams = [new(key, "")],
+      TypeParams = [new(key, "", default!)],
       Fields = [MakeModifierField(field, modifier)],
     };
     Context.AddModels([parentModel]);

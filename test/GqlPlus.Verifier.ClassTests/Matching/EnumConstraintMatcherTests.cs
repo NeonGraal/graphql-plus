@@ -16,10 +16,10 @@ public class EnumConstraintMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsExpected_WhenMatchingEnumLabelParent(string constraint, string name, bool expected)
   {
-    IGqlpEnum enumType = NFor<IGqlpEnum>(constraint);
+    IGqlpEnum enumType = A.Enum(constraint, []);
     Types[constraint] = enumType;
 
-    IGqlpType type = NFor<IGqlpType>(name);
+    IGqlpType type = A.Named<IGqlpType>(name);
     _enumMatcher.Matches(enumType, name, Context).Returns(expected);
 
     bool result = _sut.MatchesTypeConstraint(type, constraint, Context);

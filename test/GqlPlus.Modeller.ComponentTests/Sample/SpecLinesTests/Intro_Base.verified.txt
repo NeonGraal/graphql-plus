@@ -147,8 +147,8 @@ types: !_Map_Type
         type: !_OutputBase
           typeParam: arg
     name: _ObjBase
-    parent: !_OutputBase
-      output: _Described
+    parent: !_DualBase
+      dual: _Described
     typeKind: !_TypeKind Output
     typeParams:
       - !_TypeParam
@@ -400,6 +400,6 @@ types: !_Map_Type
         type: !_OutputBase
           output: _Identifier
     name: _TypeParam
-    parent: !_OutputBase
-      output: _Described
+    parent: !_DualBase
+      dual: _Described
     typeKind: !_TypeKind Output

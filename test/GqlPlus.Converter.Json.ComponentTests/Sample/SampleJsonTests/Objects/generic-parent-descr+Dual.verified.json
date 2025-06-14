@@ -1,0 +1,33 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "GnrcPrntDescrDual": {
+      "$tag": "_TypeDual",
+      "name": "GnrcPrntDescrDual",
+      "parent": {
+        "$tag": "_DualBase",
+        "description": "Parent comment",
+        "typeParam": "type"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Basic"
+            },
+            "typeName": "String"
+          },
+          "name": "type"
+        }
+      ]
+    }
+  }
+}

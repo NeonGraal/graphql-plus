@@ -4,7 +4,7 @@ Success
 {
   !En I@006/0001
   EnumPrntAlias
-  :PrntEnumPrntAlias
+  :( !Tr I@023/0001 PrntEnumPrntAlias )
   !EL I@041/0001
   val_enumPrntAlias
   !EL I@059/0001

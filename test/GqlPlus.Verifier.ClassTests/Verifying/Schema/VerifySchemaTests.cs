@@ -17,15 +17,15 @@ public class VerifySchemaTests
   {
     _verifier = new(_categoryOutputs.Intf, _directiveInputs.Intf, _optionsAliased.Intf, _typesAliased.Intf, _types.Intf);
 
-    _schema = EFor<IGqlpSchema>();
+    _schema = A.Error<IGqlpSchema>();
   }
 
   [Fact]
   public void Verify_CallsVerifiersAndCombinesErrors()
   {
-    _schema.Errors.Returns(MakeMessages("item"));
+    _schema.Errors.Returns("item".MakeMessages());
 
-    Errors.AddRange(MakeMessages("error"));
+    Errors.AddRange("error".MakeMessages());
 
     _verifier.Verify(_schema, Errors);
 

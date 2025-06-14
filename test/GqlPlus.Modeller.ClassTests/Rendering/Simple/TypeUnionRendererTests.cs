@@ -1,29 +1,16 @@
 ﻿namespace GqlPlus.Rendering.Simple;
 
 public class TypeUnionRendererTests
-  : RendererClassTestBase<TypeUnionModel>
+  : ParentTypeRendererClassTestBase<TypeUnionModel, NamedModel, UnionMemberModel, string>
 {
-  private readonly IRenderer<TypeRefModel<SimpleKindModel>> _parent;
-  private readonly IRenderer<AliasedModel> _item;
-  private readonly IRenderer<UnionMemberModel> _all;
-
   public TypeUnionRendererTests()
-  {
-    _parent = RFor<TypeRefModel<SimpleKindModel>>();
-    _item = RFor<AliasedModel>();
-    _all = RFor<UnionMemberModel>();
-
-    Renderer = new TypeUnionRenderer(new(_parent, _item, _all));
-  }
+    => Renderer = new TypeUnionRenderer(Renderers);
 
   protected override IRenderer<TypeUnionModel> Renderer { get; }
+  protected override SimpleKindModel Kind => SimpleKindModel.Union;
 
-  [Theory, RepeatData]
-  public void Render_WithValidModel_ReturnsStructured(string name, string contents)
-    => RenderAndCheck(new(name, contents), [
-      "!_TypeUnion",
-      "description: " + contents.Quoted("'"),
-      "name: " + name,
-      "typeKind: !_TypeKind Union"
-    ]);
+  protected override UnionMemberModel NewAll(string item, string name) => new(item, name, "");
+  protected override NamedModel NewItem(string item) => new(item, "");
+  protected override TypeUnionModel NewModel(string name, string contents, TypeRefModel<SimpleKindModel>? parent)
+    => new(name, contents) { Parent = parent };
 }

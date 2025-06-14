@@ -7,37 +7,60 @@ public abstract class ModellerClassTestBase<TAst, TModel>
 {
   protected abstract IModeller<TAst, TModel> Modeller { get; }
 
-  protected IMap<TypeKindModel> TypeKinds { get; } = For<IMap<TypeKindModel>>();
-
-  internal static IGqlpFieldKey FKFor(string text)
-  {
-    IGqlpFieldKey fieldKey = For<IGqlpFieldKey>();
-    fieldKey.Text.Returns(text);
-    return fieldKey;
-  }
-
-  internal static IGqlpConstant CFor(string text)
-  {
-    IGqlpFieldKey fieldKey = FKFor(text);
-    IGqlpConstant constant = For<IGqlpConstant>();
-    constant.Value.Returns(fieldKey);
-    return constant;
-  }
+  protected IMap<TypeKindModel> TypeKinds { get; } = A.Of<IMap<TypeKindModel>>();
 
   internal static IModeller<TA, TM> MFor<TA, TM>()
     where TA : IGqlpError
     where TM : IModelBase
-    => For<IModeller<TA, TM>>();
+    => A.Of<IModeller<TA, TM>>();
 
-  internal static IGqlpFields<T> FieldsFor<T>(string key, T value)
-    where T : IGqlpAbbreviated
+  internal void ToModelReturns<TA, TM>(IModeller<TA, TM> modeller, TM result)
+    where TA : IGqlpError
+    where TM : IModelBase
   {
-    IGqlpFieldKey fieldKey = FKFor(key);
-    Dictionary<IGqlpFieldKey, T> dict = new() { [fieldKey] = value };
-    IGqlpFields<T> fields = For<IGqlpFields<T>>();
-    fields.Count.Returns(1);
-    fields.GetEnumerator().Returns(dict.GetEnumerator());
-    return fields;
+    modeller.ToModel(default, TypeKinds).ReturnsForAnyArgs(result);
+    modeller.ToModel<TM>(default, TypeKinds).ReturnsForAnyArgs(result);
+  }
+
+  internal void ToModelReturns<TA, TM>(IModeller<TA, TM> modeller, TA arg, TM result)
+    where TA : IGqlpError
+    where TM : IModelBase
+  {
+    modeller.ToModel(arg, TypeKinds).Returns(result);
+    modeller.ToModel<TM>(arg, TypeKinds).Returns(result);
+  }
+
+  internal void ToModelsReturns<TA, TM>(IModeller<TA, TM> modeller, TM[] results)
+    where TA : IGqlpError
+    where TM : IModelBase
+  {
+    modeller.ToModels(default, TypeKinds).ReturnsForAnyArgs(results);
+    modeller.ToModels<TM>(default, TypeKinds).ReturnsForAnyArgs(results);
+  }
+
+  internal void ToModelsReturns<TI, TA, TM>(TI modeller, IEnumerable<TA> args, TM[] results)
+    where TI : IModeller<TA, TM>
+    where TA : IGqlpError
+    where TM : IModelBase
+  {
+    modeller.ToModels(args, TypeKinds).Returns(results);
+    modeller.ToModels<TM>(args, TypeKinds).Returns(results);
+  }
+
+  internal void TryModelReturns<TA, TM>(IModeller<TA, TM> modeller, TM result)
+    where TA : IGqlpError
+    where TM : IModelBase
+  {
+    modeller.TryModel(default, TypeKinds).ReturnsForAnyArgs(result);
+    modeller.TryModel<TM>(default, TypeKinds).ReturnsForAnyArgs(result);
+  }
+
+  internal void TryModelReturns<TA, TM>(IModeller<TA, TM> modeller, TA arg, TM result)
+    where TA : IGqlpError
+    where TM : IModelBase
+  {
+    modeller.TryModel(arg, TypeKinds).Returns(result);
+    modeller.TryModel<TM>(arg, TypeKinds).Returns(result);
   }
 
   internal void TypeKindIs(string key, TypeKindModel typeKind)

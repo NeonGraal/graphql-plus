@@ -39,7 +39,9 @@ internal abstract class BaseDomainChecks<TInput, TDomainAst, TDomain>(
 
   public void WithParent(TInput input, string parent)
     => TrueExpected(KindString(input, _kind.ToString(), ":" + parent + " "),
-      NamedFactory(input) with { Parent = parent });
+      NamedFactory(input) with {
+        Parent = ParentFactory(parent)
+      });
 
   public void WithParentBad(TInput input)
     => FalseExpected(

@@ -16,9 +16,8 @@ public class OutputArgModellerTests
   public void ToModel_WithValidArg_ReturnsExpectedOutputArgModel(string output, string contents)
   {
     // Arrange
-    IGqlpOutputArg ast = For<IGqlpOutputArg>();
+    IGqlpOutputArg ast = A.Descr<IGqlpOutputArg>(contents);
     ast.Output.Returns(output);
-    ast.Description.Returns(contents);
     ast.IsTypeParam.Returns(true);
 
     // Act

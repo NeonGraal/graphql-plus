@@ -18,10 +18,7 @@ public class DualModellerTests
   public void ToModel_WithValidObject_ReturnsExpectedTypeDualModel(string name, string[] aliases, string content)
   {
     // Arrange
-    IGqlpDualObject ast = For<IGqlpDualObject>();
-    ast.Name.Returns(name);
-    ast.Description.Returns(content);
-    ast.Aliases.Returns(aliases);
+    IGqlpDualObject ast = A.Aliased<IGqlpDualObject>(name, aliases, content);
 
     // Act
     TypeDualModel result = Modeller.ToModel(ast, TypeKinds);

@@ -12,7 +12,7 @@ internal class ParseUnion(
   Parser<string>.DA aliases,
   Parser<IOptionParser<NullOption>, NullOption>.D option,
   Parser<UnionDefinition>.D definition
-) : DeclarationParser<UnionDefinition, IGqlpUnion>(name, param, aliases, option, definition)
+) : SimpleParser<UnionDefinition, IGqlpUnion>(name, param, aliases, option, definition)
 {
   protected override IGqlpUnion MakeResult(AstPartial<NullAst, NullOption> partial, UnionDefinition value)
     => new UnionDeclAst(partial.At, partial.Name, partial.Description, value.Values) {
@@ -27,28 +27,24 @@ internal class ParseUnion(
 }
 
 internal class UnionDefinition
+  : SimpleDefinition
 {
-  internal string? Parent { get; set; }
   internal UnionMemberAst[] Values { get; set; } = [];
 }
 
 internal class ParseUnionDefinition(
+  Parser<IGqlpTypeRef>.D typeRef,
   Parser<IGqlpUnionMember>.D unionMember
-) : Parser<UnionDefinition>.I
+) : SimpleDefinitionParser<UnionDefinition>(typeRef)
 {
   private readonly Parser<IGqlpUnionMember>.L _unionMember = unionMember;
 
-  public IResult<UnionDefinition> Parse(ITokenizer tokens, string label)
-
+  public override IResult<UnionDefinition> Parse(ITokenizer tokens, string label)
   {
     UnionDefinition result = new();
 
-    if (tokens.Take(':')) {
-      if (tokens.Identifier(out string? parent)) {
-        result.Parent = parent;
-      } else {
-        return tokens.Error(label, "type after ':'", result);
-      }
+    if (!ParseParent(tokens, result)) {
+      return tokens.Error(label, "parent type after ':'", result);
     }
 
     List<IGqlpUnionMember> members = [];

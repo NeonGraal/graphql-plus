@@ -187,7 +187,7 @@ public class StructureValueTests
   {
     StructureValue value = new(number);
 
-    value.AsString.ShouldBe($"{number}");
+    value.AsString.ShouldBe($"{number:0.#####}");
   }
 
   [Fact]

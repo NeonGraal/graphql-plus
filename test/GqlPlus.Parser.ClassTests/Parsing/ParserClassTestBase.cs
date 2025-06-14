@@ -10,7 +10,7 @@ public class ParserClassTestBase
   : SubstituteBase
 {
   public ParserClassTestBase()
-    : this(For<ITokenizer>())
+    : this(A.Of<ITokenizer>())
   { }
 
   protected ParserClassTestBase(ITokenizer tokenizer)
@@ -121,18 +121,15 @@ public class ParserClassTestBase
   protected void ParseOkField<T>([NotNull] Parser<IGqlpFields<T>>.I parser, string fieldName)
     where T : class, IGqlpError
   {
-    IGqlpFields<T> objectResult = For<IGqlpFields<T>>();
-    FieldKeyAst fieldKey = new(AstNulls.At, fieldName);
     T value = AtFor<T>();
-    Dictionary<IGqlpFieldKey, T> dict = new() { [fieldKey] = value };
-    objectResult.GetEnumerator().Returns(dict.GetEnumerator());
+    IGqlpFields<T> objectResult = A.Fields(fieldName, value);
     ParseOk(parser, objectResult);
   }
 
   internal static T NameFor<T>(string name)
     where T : class, INameParser
   {
-    T nameParser = For<T>();
+    T nameParser = A.Of<T>();
     nameParser.ParseName(default!, out string? _, out TokenAt _)
       .ReturnsForAnyArgs(c => {
         c[1] = name;
@@ -144,7 +141,7 @@ public class ParserClassTestBase
   protected static T AtFor<T>()
     where T : class, IGqlpError
   {
-    T result = EFor<T>();
+    T result = A.Error<T>();
     if (typeof(T).IsAssignableTo(typeof(IGqlpAbbreviated))) {
       ((IGqlpAbbreviated)result).At.Returns(AstNulls.At);
     }
@@ -154,11 +151,11 @@ public class ParserClassTestBase
 
   protected static Parser<T>.D ParserFor<T>(out Parser<T>.I parser)
   {
-    parser = For<Parser<T>.I>();
+    parser = A.Of<Parser<T>.I>();
     parser.Parse(default!, default!)
       .ReturnsForAnyArgs(0.Empty<T>());
 
-    Parser<T>.D result = For<Parser<T>.D>();
+    Parser<T>.D result = A.Of<Parser<T>.D>();
     result().Returns(parser);
 
     return result;
@@ -169,11 +166,11 @@ public class ParserClassTestBase
 
   protected static Parser<T>.DA ParserAFor<T>(out Parser<T>.IA parser)
   {
-    parser = For<Parser<T>.IA>();
+    parser = A.Of<Parser<T>.IA>();
     parser.Parse(default!, default!)
       .ReturnsForAnyArgs(0.EmptyArray<T>());
 
-    Parser<T>.DA result = For<Parser<T>.DA>();
+    Parser<T>.DA result = A.Of<Parser<T>.DA>();
     result().Returns(parser);
 
     return result;
@@ -186,7 +183,7 @@ public class ParserClassTestBase
     parser.Parse(default!, default!)
       .ReturnsForAnyArgs(0.Empty<T>());
 
-    Parser<TInterface, T>.D result = For<Parser<TInterface, T>.D>();
+    Parser<TInterface, T>.D result = A.Of<Parser<TInterface, T>.D>();
     result().Returns(parser);
 
     return result;
@@ -195,11 +192,11 @@ public class ParserClassTestBase
   protected static ParserArray<TInterface, T>.DA ParserAFor<TInterface, T>(out Parser<T>.IA parser)
     where TInterface : class, Parser<T>.IA
   {
-    parser = For<TInterface>();
+    parser = A.Of<TInterface>();
     parser.Parse(default!, default!)
       .ReturnsForAnyArgs(0.EmptyArray<T>());
 
-    ParserArray<TInterface, T>.DA result = For<ParserArray<TInterface, T>.DA>();
+    ParserArray<TInterface, T>.DA result = A.Of<ParserArray<TInterface, T>.DA>();
     result().Returns(parser);
 
     return result;
@@ -212,11 +209,11 @@ public class ParserClassTestBase
   protected static Parser<IOptionParser<T>, T>.D OptionParserFor<T>(out Parser<T>.I parser)
     where T : struct
   {
-    parser = For<IOptionParser<T>>();
+    parser = A.Of<IOptionParser<T>>();
     parser.Parse(default!, default!)
       .ReturnsForAnyArgs(0.Empty<T>());
 
-    Parser<IOptionParser<T>, T>.D result = For<Parser<IOptionParser<T>, T>.D>();
+    Parser<IOptionParser<T>, T>.D result = A.Of<Parser<IOptionParser<T>, T>.D>();
     result().Returns(parser);
 
     return result;
@@ -229,11 +226,11 @@ public class ParserClassTestBase
   protected static Parser<IEnumParser<T>, T>.D EnumParserFor<T>(out Parser<T>.I parser)
     where T : struct
   {
-    parser = For<IEnumParser<T>>();
+    parser = A.Of<IEnumParser<T>>();
     parser.Parse(default!, default!)
       .ReturnsForAnyArgs(0.Empty<T>());
 
-    Parser<IEnumParser<T>, T>.D result = For<Parser<IEnumParser<T>, T>.D>();
+    Parser<IEnumParser<T>, T>.D result = A.Of<Parser<IEnumParser<T>, T>.D>();
     result().Returns(parser);
 
     return result;
@@ -253,22 +250,13 @@ public class ParserClassTestBase
     => true;
 
   protected static Func<CallInfo, bool> OutChar(char? value, int first = 0)
-    => c => {
-      c[first] = value;
-      return true;
-    };
+    => OutValue(value, first);
 
   protected static Func<CallInfo, bool> OutNumber(decimal? value, int first = 0)
-    => c => {
-      c[first] = value;
-      return true;
-    };
+    => OutValue(value, first);
 
   protected static Func<CallInfo, bool> OutString(string? value)
-    => c => {
-      c[0] = value;
-      return true;
-    };
+    => OutValue(value);
 
   protected static Func<CallInfo, bool> OutStringAt(string? value, int first = 1)
     => c => {

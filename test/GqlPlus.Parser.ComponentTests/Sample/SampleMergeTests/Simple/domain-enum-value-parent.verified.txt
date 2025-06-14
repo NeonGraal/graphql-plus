@@ -12,7 +12,7 @@ Success
 {
   !En I@006/0002
   EnumDmnEnumValuePrnt
-  :PrntDmnEnumValuePrnt
+  :( !Tr I@030/0002 PrntDmnEnumValuePrnt )
   !EL I@051/0002
   dmnEnumValuePrnt
 }

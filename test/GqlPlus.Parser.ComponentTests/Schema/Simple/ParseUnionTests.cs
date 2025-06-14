@@ -28,7 +28,7 @@ public sealed class ParseUnionTests(
     => checks.TrueExpected(
       name + members.Prepend(parent.Prefixed(":")).Bracket("{", "}").Joined(),
       new UnionDeclAst(AstNulls.At, name, members.UnionMembers()) {
-        Parent = parent,
+        Parent = checks.ParentFactory(parent),
       });
 }
 

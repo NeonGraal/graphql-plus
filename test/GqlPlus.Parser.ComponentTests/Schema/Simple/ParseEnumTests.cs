@@ -32,7 +32,9 @@ public sealed class ParseEnumTests(
   public void WithAll_ReturnsCorrectAst(string name, string parent, string[] labels)
     => checks.TrueExpected(
       name + labels.Prepend(parent.Prefixed(":")).Bracket("{", "}").Joined(),
-      new EnumDeclAst(AstNulls.At, name, labels.EnumLabels()) { Parent = parent });
+      new EnumDeclAst(AstNulls.At, name, labels.EnumLabels()) {
+        Parent = checks.ParentFactory(parent)
+      });
 }
 
 internal sealed class ParseEnumChecks(

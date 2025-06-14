@@ -4,10 +4,11 @@
 public class VerifyDomainTypesTests
   : UsageVerifierTestsBase<IGqlpDomain>
 {
-  private readonly IVerifyDomain _domainVerify = For<IVerifyDomain>();
+  private readonly IVerifyDomain _domainVerify = A.Of<IVerifyDomain>();
   private readonly VerifyDomainTypes _verifier;
 
   private readonly IGqlpDomain _domain;
+  private readonly IGqlpDomainRegex _domainRegex = A.Error<IGqlpDomainRegex>();
 
   protected override IGqlpDomain TheUsage => _domain;
   protected override IVerifyUsage<IGqlpDomain> Verifier => _verifier;
@@ -16,7 +17,7 @@ public class VerifyDomainTypesTests
   {
     _verifier = new(Aliased.Intf, [_domainVerify]);
 
-    _domain = NFor<IGqlpDomain>("Domain");
+    _domain = A.Domain("Domain", DomainKind.String, _domainRegex);
   }
 
   [Fact]
@@ -42,12 +43,11 @@ public class VerifyDomainTypesTests
   [Fact]
   public void Verify_Domain_WithSameParent_ReturnsNoErrors()
   {
-    IGqlpDomain parent = NFor<IGqlpDomain>("Parent");
-    parent.DomainKind.Returns(DomainKind.String);
+    IGqlpDomain parent = A.Domain("Parent", DomainKind.String, _domainRegex);
     Definitions.Add(parent);
 
-    _domain.DomainKind.Returns(DomainKind.String);
-    _domain.Parent.Returns("Parent");
+    IGqlpTypeRef parentRef = A.Named<IGqlpTypeRef>("Parent");
+    _domain.Parent.Returns(parentRef);
 
     Usages.Add(_domain);
 
@@ -59,14 +59,13 @@ public class VerifyDomainTypesTests
   [Fact]
   public void Verify_Domain_WithSameParentMergeErrors_ReturnsMoreErrors()
   {
-    IGqlpDomain parent = NFor<IGqlpDomain>("Parent");
-    parent.DomainKind.Returns(DomainKind.String);
+    IGqlpDomain parent = A.Domain("Parent", DomainKind.String, _domainRegex);
     Definitions.Add(parent);
 
-    _domain.DomainKind.Returns(DomainKind.String);
-    _domain.Parent.Returns("Parent");
+    IGqlpTypeRef parentRef = A.Named<IGqlpTypeRef>("Parent");
+    _domain.Parent.Returns(parentRef);
 
-    _domainVerify.CanMergeItems(_domain, Arg.Any<EnumContext>()).Returns(MakeMessages("merge error"));
+    _domainVerify.CanMergeItems(_domain, Arg.Any<EnumContext>()).Returns("merge error".MakeMessages());
 
     Usages.Add(_domain);
 
@@ -78,12 +77,12 @@ public class VerifyDomainTypesTests
   [Fact]
   public void Verify_Domain_WithDiffKindParent_ReturnsError()
   {
-    IGqlpDomain parent = NFor<IGqlpDomain>("Parent");
-    parent.DomainKind.Returns(DomainKind.Number);
+    IGqlpDomain parent = A.Domain<IGqlpDomainRange>("Parent", DomainKind.Number);
     Definitions.Add(parent);
 
     _domain.DomainKind.Returns(DomainKind.String);
-    _domain.Parent.Returns("Parent");
+    IGqlpTypeRef parentRef = A.Named<IGqlpTypeRef>("Parent");
+    _domain.Parent.Returns(parentRef);
 
     Usages.Add(_domain);
 

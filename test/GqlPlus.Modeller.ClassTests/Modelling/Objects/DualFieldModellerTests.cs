@@ -5,7 +5,7 @@ public class DualFieldModellerTests
 {
   public DualFieldModellerTests()
   {
-    IModifierModeller modifier = For<IModifierModeller>();
+    IModifierModeller modifier = A.Of<IModifierModeller>();
 
     Modeller = new DualFieldModeller(modifier, ObjBase);
   }
@@ -16,13 +16,9 @@ public class DualFieldModellerTests
   public void FieldModel_WithValidField_ReturnsExpectedDualFieldModel(string name, string contents, string typeName)
   {
     // Arrange
-    IGqlpDualField ast = NFor<IGqlpDualField>(name);
-    ast.Description.Returns(contents);
-    IGqlpDualBase type = For<IGqlpDualBase>();
-    type.Dual.Returns(typeName);
-    ast.BaseType.Returns(type);
+    IGqlpDualField ast = A.DualField(name, typeName, contents);
     DualBaseModel dualType = new(typeName, "");
-    ObjBase.ToModel(type, TypeKinds).Returns(dualType);
+    ToModelReturns(ObjBase, dualType);
 
     // Act
     DualFieldModel result = Modeller.ToModel(ast, TypeKinds);

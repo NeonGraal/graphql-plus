@@ -1,0 +1,75 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "DmnNmbrPrntDescr": {
+      "$tag": "_DomainNumber",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRange)",
+          "domain": "PrntDmnNmbrPrntDescr",
+          "exclude": false,
+          "to": 2
+        },
+        {
+          "$tag": "_DomainItem(_DomainRange)",
+          "domain": "DmnNmbrPrntDescr",
+          "exclude": false,
+          "from": 2
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Number"
+      },
+      "items": [
+        {
+          "$tag": "_DomainRange",
+          "exclude": false,
+          "from": 2
+        }
+      ],
+      "name": "DmnNmbrPrntDescr",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "description": "Parent comment",
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Domain"
+        },
+        "typeName": "PrntDmnNmbrPrntDescr"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "PrntDmnNmbrPrntDescr": {
+      "$tag": "_DomainNumber",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRange)",
+          "domain": "PrntDmnNmbrPrntDescr",
+          "exclude": false,
+          "to": 2
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Number"
+      },
+      "items": [
+        {
+          "$tag": "_DomainRange",
+          "exclude": false,
+          "to": 2
+        }
+      ],
+      "name": "PrntDmnNmbrPrntDescr",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    }
+  }
+}

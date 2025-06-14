@@ -5,7 +5,7 @@ public class InputFieldModellerTests
 {
   public InputFieldModellerTests()
   {
-    IModifierModeller modifier = For<IModifierModeller>();
+    IModifierModeller modifier = A.Of<IModifierModeller>();
     IModeller<IGqlpConstant, ConstantModel> constant = MFor<IGqlpConstant, ConstantModel>();
 
     Modeller = new InputFieldModeller(modifier, ObjBase, constant);
@@ -17,13 +17,10 @@ public class InputFieldModellerTests
   public void FieldModel_WithValidField_ReturnsExpectedInputFieldModel(string name, string contents, string typeName)
   {
     // Arrange
-    IGqlpInputField ast = NFor<IGqlpInputField>(name);
-    ast.Description.Returns(contents);
-    IGqlpInputBase type = For<IGqlpInputBase>();
-    type.Input.Returns(typeName);
-    ast.BaseType.Returns(type);
+    IGqlpInputField ast = A.InputField(name, typeName, contents);
+
     InputBaseModel inputType = new(typeName, "");
-    ObjBase.ToModel(type, TypeKinds).Returns(inputType);
+    ToModelReturns(ObjBase, inputType);
 
     // Act
     InputFieldModel result = Modeller.ToModel(ast, TypeKinds);

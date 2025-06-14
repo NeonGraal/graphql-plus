@@ -1,0 +1,62 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnumPrntDescr": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "PrntEnumPrntDescr",
+          "name": "prnt_enumPrntDescr"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumPrntDescr",
+          "name": "enumPrntDescr"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "enumPrntDescr"
+        }
+      ],
+      "name": "EnumPrntDescr",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "description": "Parent comment",
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Enum"
+        },
+        "typeName": "PrntEnumPrntDescr"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "PrntEnumPrntDescr": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "PrntEnumPrntDescr",
+          "name": "prnt_enumPrntDescr"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "prnt_enumPrntDescr"
+        }
+      ],
+      "name": "PrntEnumPrntDescr",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    }
+  }
+}

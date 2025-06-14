@@ -1,4 +1,5 @@
-﻿using GqlPlus.Convert;
+﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Convert;
 using GqlPlus.Modelling;
 using GqlPlus.Resolving;
 
@@ -129,8 +130,12 @@ internal static class CheckModelBaseHelper
   internal static TCheck AddTypeKinds<TCheck, TItem>(this TCheck check, IEnumerable<TItem> types, TypeKindModel kind)
     where TCheck : ICheckModelBase
   {
-    foreach (TItem? type in types) {
+    foreach (TItem type in types) {
       string key = $"{type}";
+      if (type is IGqlpNamed named) {
+        key = named.Name;
+      }
+
       if (!string.IsNullOrWhiteSpace(key)) {
         check.TypeKinds[key] = kind;
       }

@@ -9,7 +9,7 @@ internal abstract class AstTypeMerger<TAst, TType, TParent, TItem>(
   , IMergeAll<TAst>
   where TAst : IGqlpType
   where TType : IGqlpType<TParent>, TAst
-  where TParent : IEquatable<TParent>
+  where TParent : IGqlpDescribed, IEquatable<TParent>
   where TItem : IGqlpError
 {
   internal abstract IEnumerable<TItem> GetItems(TType type);

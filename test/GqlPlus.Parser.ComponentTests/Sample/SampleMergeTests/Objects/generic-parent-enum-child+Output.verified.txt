@@ -31,7 +31,7 @@ Success
 {
   !En I@006/0003
   EnumGnrcPrntEnumChildOutp
-  :ParentGnrcPrntEnumChildOutp
+  :( !Tr I@035/0003 ParentGnrcPrntEnumChildOutp )
   !EL I@063/0003
   gnrcPrntEnumChildOutpLabel
 }

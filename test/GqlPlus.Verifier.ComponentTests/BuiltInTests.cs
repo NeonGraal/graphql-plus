@@ -1,5 +1,5 @@
-﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema;
+﻿using GqlPlus.Abstractions;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Token;
 using GqlPlus.Verifying;
 
@@ -35,12 +35,26 @@ public class BuiltInTests(
     Assert.SkipWhen(type is null, "type is null");
 
     TokenMessages result = [];
-    SchemaAst schema = new(AstNulls.At) {
-      Declarations = [type]
-    };
+    TestSchema schema = new(type);
 
     verifier.Verify(schema, result);
 
     result.ShouldBeEmpty(type?.Label);
+  }
+
+  private sealed class TestSchema(
+    IGqlpType type
+  ) : IGqlpSchema
+  {
+    public IEnumerable<IGqlpDeclaration> Declarations { get; } = [type];
+    public ParseResultKind Result { get; } = ParseResultKind.Success;
+    public ITokenMessages Errors { get; } = new TokenMessages();
+    public ITokenAt At { get; } = new TokenAt(TokenKind.Start, 0, 0, string.Empty);
+    public string Abbr { get; } = "testSchema";
+
+    public bool Equals(IGqlpAbbreviated? other) => false;
+    public bool Equals(IGqlpSchema? other) => false;
+    public IEnumerable<string?> GetFields() => throw new NotImplementedException();
+    public ITokenMessages MakeError(string message) => throw new NotImplementedException();
   }
 }

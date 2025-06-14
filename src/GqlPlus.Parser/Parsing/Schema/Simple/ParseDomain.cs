@@ -12,7 +12,7 @@ internal class ParseDomain(
   Parser<string>.DA aliases,
   Parser<IOptionParser<NullOption>, NullOption>.D option,
   Parser<DomainDefinition>.D definition
-) : DeclarationParser<DomainDefinition, IGqlpDomain>(name, param, aliases, option, definition)
+) : SimpleParser<DomainDefinition, IGqlpDomain>(name, param, aliases, option, definition)
 {
   protected override IResult<IGqlpDomain> AsResult(AstPartial<NullAst, NullOption> partial, DomainDefinition value)
     => value.Kind == DomainKind.Enum ? MakeEnum(partial, value) : base.AsResult(partial, value);
@@ -70,10 +70,10 @@ internal class ParseDomain(
     };
 }
 
-public class DomainDefinition
+internal class DomainDefinition
+  : SimpleDefinition
 {
   public DomainKind Kind { get; set; } = DomainKind.Number;
-  public string? Parent { get; set; }
   internal IGqlpDomainTrueFalse[] Values { get; set; } = [];
   internal IGqlpDomainLabel[] Labels { get; set; } = [];
   internal IGqlpDomainRange[] Numbers { get; set; } = [];
@@ -81,15 +81,16 @@ public class DomainDefinition
 }
 
 internal class ParseDomainDefinition
-  : Parser<DomainDefinition>.I
+  : SimpleDefinitionParser<DomainDefinition>
 {
   private readonly Parser<IEnumParser<DomainKind>, DomainKind>.L _kind;
-
   private readonly Dictionary<DomainKind, ParseItems> _kindParsers = [];
 
   public ParseDomainDefinition(
+      Parser<IGqlpTypeRef>.D typeRef,
       Parser<IEnumParser<DomainKind>, DomainKind>.D kind,
       IEnumerable<IParseDomain> domains)
+    : base(typeRef)
   {
     _kind = kind;
 
@@ -98,17 +99,12 @@ internal class ParseDomainDefinition
     }
   }
 
-  public IResult<DomainDefinition> Parse(ITokenizer tokens, string label)
-
+  public override IResult<DomainDefinition> Parse(ITokenizer tokens, string label)
   {
     DomainDefinition result = new();
 
-    if (tokens.Take(':')) {
-      if (tokens.Identifier(out string? parent)) {
-        result.Parent = parent;
-      } else {
-        return tokens.Error(label, "type after ':'", result);
-      }
+    if (!ParseParent(tokens, result)) {
+      return tokens.Error(label, "parent type after ':'", result);
     }
 
     IResult<DomainKind> domainKind = _kind.I.Parse(tokens, label);

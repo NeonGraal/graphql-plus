@@ -10,9 +10,12 @@ internal abstract class ModellerObjAlternate<TObjBaseAst, TObjAltAst, TObjBase, 
   where TObjAlt : ObjAlternateModel<TObjBase>
 {
   protected override TObjAlt ToModel(TObjAltAst ast, IMap<TypeKindModel> typeKinds)
-    => AlternateModel(objBase.ToModel(ast, typeKinds)) with {
-      Collections = collection.ToModels(ast.Modifiers, typeKinds),
+  {
+    CollectionModel[] collections = collection.ToModels(ast.Modifiers, typeKinds);
+    return AlternateModel(objBase.ToModel(ast, typeKinds)) with {
+      Collections = collections,
     };
+  }
 
   protected abstract TObjAlt AlternateModel(TObjBase type);
 }

@@ -1,7 +1,4 @@
-﻿using System.Reflection.Metadata;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-
-namespace GqlPlus.Modelling.Objects;
+﻿namespace GqlPlus.Modelling.Objects;
 
 public class InputAlternateModellerTests
   : ModellerObjectBaseTestBase<IGqlpInputAlternate, InputAlternateModel, IGqlpInputBase, InputBaseModel>
@@ -19,9 +16,7 @@ public class InputAlternateModellerTests
   public void AlternateModel_WithValidAlternate_ReturnsExpectedInputAlternateModel(string name, string contents)
   {
     // Arrange
-    IGqlpInputAlternate ast = For<IGqlpInputAlternate>();
-    ast.Input.Returns(name);
-    ast.Description.Returns(contents);
+    IGqlpInputAlternate ast = A.Named<IGqlpInputAlternate>(name, contents);
     InputBaseModel inputType = new(name, contents);
     ObjBase.ToModel(ast, TypeKinds).Returns(inputType);
 

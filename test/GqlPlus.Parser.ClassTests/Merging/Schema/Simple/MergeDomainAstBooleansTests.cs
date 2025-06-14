@@ -8,20 +8,20 @@ public class MergeDomainAstBooleansTests
   : TestDomainMerger<IGqlpDomainTrueFalse, bool>
 {
   internal override IDomainMerger<IGqlpDomainTrueFalse> Merger { get; }
-  internal override AstTypeMerger<IGqlpDomain, IGqlpDomain<IGqlpDomainTrueFalse>, string, IGqlpDomainTrueFalse> MergerTyped { get; }
+  internal override AstSimpleMerger<IGqlpDomain, IGqlpDomain<IGqlpDomainTrueFalse>, IGqlpDomainTrueFalse> MergerSimple { get; }
 
   public MergeDomainAstBooleansTests(ITestOutputHelper outputHelper)
   {
     MergeDomains<DomainTrueFalseAst, IGqlpDomainTrueFalse> merger = new(outputHelper.ToLoggerFactory(), MergeItems);
     Merger = merger;
-    MergerTyped = merger;
+    MergerSimple = merger;
   }
 
-  protected override IGqlpDomain<IGqlpDomainTrueFalse> MakeDomain(string name, string[]? aliases = null, string description = "", string? parent = null, DomainKind? kind = null, IEnumerable<IGqlpDomainTrueFalse>? items = null)
+  protected override IGqlpDomain<IGqlpDomainTrueFalse> MakeDomain(string name, string[]? aliases = null, string description = "", IGqlpTypeRef? parent = null, DomainKind? kind = null, IEnumerable<IGqlpDomainTrueFalse>? items = null)
     => new AstDomain<DomainTrueFalseAst, IGqlpDomainTrueFalse>(AstNulls.At, name, description, kind ?? DomainKind.Boolean) {
       Aliases = aliases ?? [],
       Parent = parent,
-      Items = items?.ArrayOf<DomainTrueFalseAst>() ?? [],
+      Items = [.. items ?? []],
     };
 
   protected override IGqlpDomainTrueFalse[] MakeItems(bool input)

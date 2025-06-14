@@ -8,6 +8,7 @@ internal class DomainStringModeller
       Aliases = [.. ast.Aliases],
       Parent = ast.Parent.TypeRef(SimpleKindModel.Domain),
       Items = ToItems(ast, typeKinds),
+      AllItems = ToAllItems(ast, typeKinds),
     };
 
   protected override DomainRegexModel ToItem(IGqlpDomainRegex ast, IMap<TypeKindModel> typeKinds)

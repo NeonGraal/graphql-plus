@@ -21,7 +21,7 @@ public class UnionModelTests(
     => checks
     .AddParent(checks.NewParent(parent, parentMembers))
     .UnionExpected(
-      new UnionDeclAst(AstNulls.At, name, []) { Parent = parent, },
+      new UnionDeclAst(AstNulls.At, name, []) { Parent = new TypeRefAst(AstNulls.At, parent), },
       new(name, parent, allMembers: checks.ExpectedAllItems("allItems:", parentMembers, parent)));
 
   [Theory, RepeatData]
@@ -31,7 +31,7 @@ public class UnionModelTests(
     .AddParent(checks.NewParent(parent, parentMembers, grandParent))
     .AddParent(checks.NewParent(grandParent, grandParentMembers))
     .UnionExpected(
-      new UnionDeclAst(AstNulls.At, name, []) { Parent = parent, },
+      new UnionDeclAst(AstNulls.At, name, []) { Parent = new TypeRefAst(AstNulls.At, parent), },
       new(name, parent, allMembers: checks
         .ExpectedAllItems("allItems:", grandParentMembers, grandParent)
         .Concat(checks.ExpectedAllItems("", parentMembers, parent))));
@@ -50,7 +50,7 @@ public class UnionModelTests(
       new UnionDeclAst(AstNulls.At, name, members.UnionMembers()) {
         Aliases = aliases,
         Description = contents,
-        Parent = parent,
+        Parent = new TypeRefAst(AstNulls.At, parent),
       },
       new(name, parent, aliases, contents, checks.ExpectedItems("items:", members),
         checks.ExpectedAllItems("allItems:", parentMembers, parent)
@@ -93,7 +93,7 @@ internal sealed class UnionModelChecks(
       Items = [.. members.Select(m => new AliasedModel(m, ""))]
     };
 
-  internal override UnionDeclAst NewTypeAst(string name, string? parent = default, string? description = null, string[]? aliases = null)
+  internal override UnionDeclAst NewTypeAst(string name, IGqlpTypeRef? parent = default, string? description = null, string[]? aliases = null)
     => new(AstNulls.At, name, description ?? "", []) {
       Parent = parent,
       Aliases = aliases ?? [],

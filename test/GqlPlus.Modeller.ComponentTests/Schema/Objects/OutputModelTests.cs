@@ -16,14 +16,14 @@ internal sealed class OutputModelChecks(
   protected override OutputDeclAst NewObjectAst(ExpectedObjectInput input, IGqlpObjBase? parent = null)
     => new(AstNulls.At, input.Name, input.Description) {
       Aliases = input.Aliases,
-      Parent = parent ?? (input.Parent is not null ? NewParentAst(input.Parent) : null),
+      Parent = parent ?? NewParentAst(input.Parent),
       TypeParams = input.TypeParams.TypeParams(),
       ObjFields = input.Fields.OutputFields(),
       ObjAlternates = input.Alternates.OutputAlternates(),
     };
 
-  internal override IGqlpOutputBase NewParentAst(string input)
-    => new OutputBaseAst(AstNulls.At, input);
+  internal override IGqlpOutputBase? NewParentAst(string? input)
+    => string.IsNullOrWhiteSpace(input) ? null : new OutputBaseAst(AstNulls.At, input);
 }
 
 public interface IOutputModelChecks

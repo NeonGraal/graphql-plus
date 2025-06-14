@@ -1,1 +1,1 @@
-d1334e5  (HEAD -> type-constraints) 2025-06-03 Remove Obj replacement
+0d5d04c  (HEAD -> simple-parent) 2025-06-12 Add description to category output and various samples

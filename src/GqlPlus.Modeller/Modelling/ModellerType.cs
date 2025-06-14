@@ -4,7 +4,7 @@ internal abstract class ModellerType<TAst, TParent, TModel>(
   TypeKindModel kind
 ) : ModellerBase<TAst, TModel>, ITypeModeller
   where TAst : IGqlpType<TParent>
-  where TParent : IEquatable<TParent>
+  where TParent : IGqlpDescribed, IEquatable<TParent>
   where TModel : BaseTypeModel
 {
   TypeKindModel ITypeModeller.Kind => kind;

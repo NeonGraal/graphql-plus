@@ -10,9 +10,8 @@ public class DualArgModellerTests
   public void ToModel_WithValidArg_ReturnsExpectedDualArgModel(string dual, string contents)
   {
     // Arrange
-    IGqlpDualArg ast = For<IGqlpDualArg>();
+    IGqlpDualArg ast = A.Descr<IGqlpDualArg>(contents);
     ast.Dual.Returns(dual);
-    ast.Description.Returns(contents);
     ast.IsTypeParam.Returns(true);
 
     // Act

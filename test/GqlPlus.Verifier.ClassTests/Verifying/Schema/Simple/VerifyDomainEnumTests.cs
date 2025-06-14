@@ -4,7 +4,7 @@ public class VerifyDomainEnumTests
   : AstDomainVerifierTestsBase<IGqlpDomainLabel>
 {
   private readonly VerifyDomainEnum _verifier;
-  private readonly EnumContext _context;
+  private EnumContext _context;
 
   private readonly IGqlpDomain<IGqlpDomainLabel> _domain;
 
@@ -20,9 +20,11 @@ public class VerifyDomainEnumTests
   [Fact]
   public void Verify_Enum_WithDefinedLabels_ReturnsNoErrrors()
   {
-    IGqlpEnum enumType = A.Enum("domain", ["item1", "item2"]);
+    IGqlpEnum enumType = A.Enum("domain", null, A.EnumLabel("item1", ["i1"]), A.EnumLabel("item2", ["i2"]));
     AddTypes(enumType);
     EnumValues["item1"] = "domain";
+
+    _context = new(Types, Errors, Types.Values.ArrayOf<IGqlpType>().MakeEnumValues());
 
     IGqlpDomainLabel label1 = A.DomainLabel("domain", "item1");
     label1.EnumType.Returns("", "domain");

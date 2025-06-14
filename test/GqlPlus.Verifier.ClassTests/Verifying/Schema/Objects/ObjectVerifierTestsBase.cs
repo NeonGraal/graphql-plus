@@ -55,7 +55,8 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
   {
     Define<IGqlpTypeSpecial>("String");
 
-    TField field = A.ObjField<TField, TBase>(fieldName, A.ObjBase<TBase>("String"), "");
+    TBase objBase = A.ObjBase<TBase>("String");
+    TField field = A.ObjField<TField, TBase>(fieldName, objBase, "");
 
     TheObject.Fields.Returns([field]);
     TheObject.ObjFields.Returns([field]);
@@ -65,6 +66,110 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
     Verifier.Verify(UsageAliased, Errors);
 
     Errors.ShouldBeEmpty();
+  }
+
+  [Theory, RepeatData]
+  public void Verify_Object_WithFieldParam_ReturnsNoErrors(string fieldName, string paramName, string constraint)
+  {
+    Define<IGqlpTypeSpecial>(constraint);
+
+    IGqlpTypeParam typeParam = A.TypeParam(paramName, constraint);
+    TheObject.TypeParams.Returns([typeParam]);
+
+    TBase objBase = A.ObjBase<TBase>(paramName, "", true);
+    TField field = A.ObjField<TField, TBase>(fieldName, objBase, "");
+
+    TheObject.Fields.Returns([field]);
+    TheObject.ObjFields.Returns([field]);
+
+    Usages.Add(TheObject);
+
+    Verifier.Verify(UsageAliased, Errors);
+
+    Errors.ShouldBeEmpty();
+  }
+
+  [Theory, RepeatData]
+  public void Verify_Object_WithFieldDict_ReturnsNoErrors(string fieldName, string key)
+  {
+    Define<IGqlpTypeSpecial>("String", key);
+
+    TBase objBase = A.ObjBase<TBase>("String");
+    TField field = A.ObjField<TField, TBase>(fieldName, objBase, "");
+    IGqlpModifier modifier = A.Modifier(ModifierKind.Dict, key);
+    field.Modifiers.Returns([modifier]);
+
+    TheObject.Fields.Returns([field]);
+    TheObject.ObjFields.Returns([field]);
+
+    Usages.Add(TheObject);
+
+    Verifier.Verify(UsageAliased, Errors);
+
+    Errors.ShouldBeEmpty();
+  }
+
+  [Theory, RepeatData]
+  public void Verify_Object_WithFieldDictUndefined_ReturnsError(string fieldName, string key)
+  {
+    Define<IGqlpTypeSpecial>("String");
+
+    TBase objBase = A.ObjBase<TBase>("String");
+    TField field = A.ObjField<TField, TBase>(fieldName, objBase, "");
+    IGqlpModifier modifier = A.Modifier(ModifierKind.Dict, key);
+    field.Modifiers.Returns([modifier]);
+
+    TheObject.Fields.Returns([field]);
+    TheObject.ObjFields.Returns([field]);
+
+    Usages.Add(TheObject);
+
+    Verifier.Verify(UsageAliased, Errors);
+
+    Errors.ShouldNotBeEmpty();
+  }
+
+  [Theory, RepeatData]
+  public void Verify_Object_WithFieldDictParam_ReturnsNoErrors(string fieldName, string paramName, string constraint)
+  {
+    Define<IGqlpTypeSpecial>("String", constraint);
+
+    IGqlpTypeParam typeParam = A.TypeParam(paramName, constraint);
+    TheObject.TypeParams.Returns([typeParam]);
+
+    TBase objBase = A.ObjBase<TBase>("String");
+    TField field = A.ObjField<TField, TBase>(fieldName, objBase, "");
+    IGqlpModifier modifier = A.Modifier(ModifierKind.Param, paramName);
+    field.Modifiers.Returns([modifier]);
+
+    TheObject.Fields.Returns([field]);
+    TheObject.ObjFields.Returns([field]);
+
+    Usages.Add(TheObject);
+
+    Verifier.Verify(UsageAliased, Errors);
+
+    Errors.ShouldBeEmpty();
+  }
+
+  [Theory, RepeatData]
+  public void Verify_Object_WithFieldDictParamUndefined_ReturnsNoErrors(string fieldName, string paramName)
+  {
+    Define<IGqlpTypeSpecial>("String");
+
+    TBase objBase = A.ObjBase<TBase>("String");
+    TField field = A.ObjField<TField, TBase>(fieldName, objBase, "");
+    IGqlpModifier modifier = A.Modifier(ModifierKind.Param, paramName);
+    field.Modifiers.Returns([modifier]);
+
+    TheObject.Fields.Returns([field]);
+    TheObject.ObjFields.Returns([field]);
+
+    Usages.Add(TheObject);
+
+    Verifier.Verify(UsageAliased, Errors);
+
+    Errors.ShouldNotBeEmpty();
   }
 
   [Fact]
@@ -129,6 +234,25 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
     Verifier.Verify(UsageAliased, Errors);
 
     Errors.ShouldBeEmpty();
+  }
+
+  [Theory, RepeatData]
+  public void Verify_Object_WithWrongParamParent_ReturnsErrors(string parentName, string paramName, string constraint)
+  {
+    this.SkipIf(parentName == paramName);
+
+    Define<IGqlpTypeSpecial>(constraint);
+
+    IGqlpTypeParam typeParam = A.TypeParam(paramName, constraint);
+    TheObject.TypeParams.Returns([typeParam]);
+    TBase parentBase = A.ObjBase<TBase>(parentName, "", true);
+    TheObject.Parent.Returns(parentBase);
+    Usages.Add(TheObject);
+    Definitions.Add(TheObject);
+
+    Verifier.Verify(UsageAliased, Errors);
+
+    Errors.ShouldNotBeEmpty();
   }
 
   [Theory, RepeatData]

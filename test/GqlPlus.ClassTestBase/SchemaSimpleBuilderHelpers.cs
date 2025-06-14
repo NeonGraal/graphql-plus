@@ -31,7 +31,7 @@ public static class SchemaSimpleBuilderHelpers
   }
 
   public static IGqlpEnum Enum(this IMockBuilder builder, string name, string[] labels, string? parent = null)
-    => builder.Enum(name, parent, builder.ArrayOf((b, i) => b.EnumLabel(i), labels));
+    => builder.Enum(name, parent, builder.ArrayOf((b, i) => b.EnumLabel(i, []), labels));
   public static IGqlpEnum Enum(this IMockBuilder builder, string name, string? parent, params IGqlpEnumLabel[] enumLabels)
     => builder.Enum(name, [], parent, "", enumLabels);
   public static IGqlpEnum Enum(this IMockBuilder builder, string name, string[] aliases, string? parent, string description, params IGqlpEnumLabel[] enumLabels)
@@ -43,11 +43,10 @@ public static class SchemaSimpleBuilderHelpers
     return gqlpEnum;
   }
 
-  public static IGqlpEnumLabel EnumLabel(this IMockBuilder builder, string label)
+  public static IGqlpEnumLabel EnumLabel(this IMockBuilder builder, string label, string[] aliases)
   {
-    IGqlpEnumLabel enumLabel = builder.Error<IGqlpEnumLabel>();
-    enumLabel.Name.Returns(label);
-    enumLabel.IsNameOrAlias(label).Returns(true);
+    IGqlpEnumLabel enumLabel = builder.Aliased<IGqlpEnumLabel>(label, aliases);
+    enumLabel.IsNameOrAlias("").ReturnsForAnyArgs(c => label == c.Arg<string>() || aliases.Contains(c.Arg<string>()));
     return enumLabel;
   }
 

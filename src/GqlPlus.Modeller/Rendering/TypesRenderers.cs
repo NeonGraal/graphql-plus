@@ -1,8 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-using GqlPlus.Resolving;
-
-namespace GqlPlus.Rendering;
+﻿namespace GqlPlus.Rendering;
 
 internal class BaseTypeRenderer<TModel>
   : AliasedRenderer<TModel>
@@ -29,35 +25,6 @@ internal abstract class ChildTypeRenderer<TModel, TParent>(
   internal override Structured Render(TModel model)
     => base.Render(model)
       .AddRendered("parent", model.Parent, parent);
-
-  internal virtual bool GetParentModel<TInput, TResult>(TInput input, IResolveContext context, [NotNullWhen(true)] out TResult? result)
-    where TInput : ChildTypeModel<TParent>
-    where TResult : IModelBase
-  {
-    if (input.ParentModel is null) {
-      input.ParentModel = result = context.TryGetType(input.Name, ParentName(input.Parent), out TResult? parentModel)
-        ? parentModel : default;
-    } else {
-      result = (TResult?)input.ParentModel;
-    }
-
-    return result is not null;
-  }
-
-  internal void ForParent<TInput, TResult>(TInput input, IResolveContext context, Action<TResult> action)
-    where TInput : ChildTypeModel<TParent>
-    where TResult : IChildTypeModel
-  {
-    if (GetParentModel(input, context, out TResult? parentModel)) {
-      if (parentModel is ChildTypeModel<TParent> childModel) {
-        ForParent(childModel, context, action);
-      }
-
-      action(parentModel);
-    }
-  }
-
-  protected abstract string? ParentName(TParent? parent);
 }
 
 internal record class ParentTypeRenderers<TItem, TAll>(
@@ -78,11 +45,6 @@ internal abstract class ParentTypeRenderer<TModel, TItem, TAll>(
     => base.Render(model)
         .AddList("items", model.Items, renderers.Item)
         .AddList("allItems", model.AllItems, renderers.All);
-
-  protected override string? ParentName(TypeRefModel<SimpleKindModel>? parent)
-    => parent?.TypeName;
-
-  protected abstract Func<TItem, TAll> NewItem(string parent);
 }
 
 internal class AllTypesRenderer(

@@ -12,7 +12,6 @@ public abstract class ParentTypeRendererClassTestBase<TModel, TItem, TAll, TInpu
 
   internal ParentTypeRenderers<TItem, TAll> Renderers { get; }
 
-
   protected abstract SimpleKindModel Kind { get; }
 
   protected ParentTypeRendererClassTestBase()

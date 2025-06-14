@@ -37,7 +37,6 @@ public abstract class DomainModellerClassTestBase<TItemAst, TItemModel>
         r => r.AllItems.ShouldNotBeEmpty());
   }
 
-
   protected abstract DomainKind Kind { get; }
   protected abstract DomainKindModel KindModel { get; }
   protected abstract IDomainModeller<TItemAst, TItemModel> DomainModeller { get; }

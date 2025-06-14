@@ -1,22 +1,21 @@
 ﻿namespace GqlPlus.Rendering.Simple;
 
 public class DomainTrueFalseRendererTests
-  : RendererClassTestBase<DomainTrueFalseModel>
+  : DomainItemRendererTestBase<DomainTrueFalseModel, bool>
 {
   protected override IRenderer<DomainTrueFalseModel> Renderer { get; }
     = new DomainTrueFalseRenderer();
 
-  [Theory, RepeatData]
-  public void Render_WithValidModel_ReturnsStructured(bool value, bool exclude)
-    => RenderAndCheck(new(value, exclude), [
-      "!_DomainTrueFalse",
-      "exclude: " + exclude.TrueFalse(),
-      "value: " + value.TrueFalse()
-      ]);
+  protected override string[] ItemExpected(bool item, bool excluded)
+    => ["!_DomainTrueFalse",
+        "exclude: " + excluded.TrueFalse(),
+        "value: " + item.TrueFalse()
+        ];
+  protected override DomainTrueFalseModel NewItem(bool item, bool excluded) => new(item, excluded);
 }
 
 public class DomainBooleanRendererTests
-  : BaseDomainRendererTests<DomainTrueFalseModel, bool>
+  : DomainRendererTestBase<DomainTrueFalseModel, bool>
 {
   protected override DomainKindModel DomainKind => DomainKindModel.Boolean;
 

@@ -6,9 +6,6 @@ internal class BaseDomainRenderer<TItem>(
 ) : ParentTypeRenderer<BaseDomainModel<TItem>, TItem, DomainItemModel<TItem>>(renderers)
   where TItem : BaseDomainItemModel
 {
-  protected override Func<TItem, DomainItemModel<TItem>> NewItem(string parent)
-    => item => new(item, parent);
-
   internal override Structured Render(BaseDomainModel<TItem> model)
     => base.Render(model)
       .Add("domainKind", model.DomainKind.RenderEnum());
@@ -71,13 +68,7 @@ internal class DomainTrueFalseRenderer
 internal class TypeEnumRenderer(
   ParentTypeRenderers<AliasedModel, EnumLabelModel> renderers
 ) : ParentTypeRenderer<TypeEnumModel, AliasedModel, EnumLabelModel>(renderers)
-{
-  protected override Func<AliasedModel, EnumLabelModel> NewItem(string parent)
-    => label
-        => new(label.Name, parent, label.Description) {
-          Aliases = label.Aliases,
-        };
-}
+{ }
 
 internal class EnumLabelRenderer
   : AliasedRenderer<EnumLabelModel>
@@ -98,11 +89,7 @@ internal class EnumValueRenderer
 internal class TypeUnionRenderer(
   ParentTypeRenderers<NamedModel, UnionMemberModel> renderers
 ) : ParentTypeRenderer<TypeUnionModel, NamedModel, UnionMemberModel>(renderers)
-{
-  protected override Func<NamedModel, UnionMemberModel> NewItem(string parent)
-    => member
-        => new(member.Name, parent, member.Description);
-}
+{ }
 
 internal class UnionMemberRenderer
   : NamedRenderer<UnionMemberModel>

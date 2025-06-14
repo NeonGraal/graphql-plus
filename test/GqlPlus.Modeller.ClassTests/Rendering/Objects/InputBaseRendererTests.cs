@@ -29,4 +29,29 @@ public class InputBaseRendererTests
       "description: " + contents.Quoted("'"),
       "input: " + input
       ]);
+
+  [Theory, RepeatData]
+  public void Render_WithArg_ReturnsStructuredWithInput(string input, string argType)
+  {
+    InputArgModel argModel = new(argType, "");
+    InputBaseModel model = new(input, "") { Args = [argModel] };
+
+    RenderReturnsMap(ObjArg, "_InputArg", argType);
+
+    RenderAndCheck(model, [
+      "!_InputBase",
+      "input: " + input,
+      "typeArgs:", "  -", $"    value: !_InputArg '{argType}'"
+      ]);
+  }
+
+  [Theory, RepeatData]
+  public void Render_WithDual_ReturnsStructuredWithInput(string input)
+  {
+    InputBaseModel model = new("", "") { Dual = new DualBaseModel(input, "") };
+
+    RenderReturnsMap(_dual, "_DualBase", input);
+
+    RenderAndCheck(model, [$"value: !_DualBase '{input}'"]);
+  }
 }

@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.DataProtection.KeyManagement;
-
-namespace GqlPlus.Modelling;
+﻿namespace GqlPlus.Modelling;
 
 public class ModifierModellerTests
   : ModellerClassTestBase<IGqlpModifier, ModifierModel>

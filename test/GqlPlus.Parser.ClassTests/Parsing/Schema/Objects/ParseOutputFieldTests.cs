@@ -21,7 +21,7 @@ public class ParseOutputFieldTests
   {
     // Arrange
     IdentifierReturns(OutString(fieldName));
-    TakeReturns(':', true, false);
+    TakeReturns(':', true);
     ParseOk(_parseBase);
 
     // Act
@@ -35,8 +35,8 @@ public class ParseOutputFieldTests
   public void Parse_ShouldReturnEnumField_WhenValid(string fieldName)
   {
     // Arrange
-    IdentifierReturns(OutString(fieldName));
-    TakeReturns('=', true, false);
+    IdentifierReturns(OutString(fieldName), OutString(fieldName));
+    TakeReturns('=', true);
     ParseOk(_parseBase);
 
     // Act

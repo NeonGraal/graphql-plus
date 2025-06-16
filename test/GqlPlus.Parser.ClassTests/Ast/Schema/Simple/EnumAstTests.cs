@@ -20,6 +20,16 @@ public class EnumAstTests
       () => new EnumDeclAst(AstNulls.At, name, enumLabels.EnumLabels()));
 
   [Theory, RepeatData]
+  public void HasValue_WithLabel(string name, string enumLabel)
+  {
+    EnumDeclAst enumType = new(AstNulls.At, name, new[] { enumLabel }.EnumLabels());
+
+    bool result = enumType.HasValue(enumLabel);
+
+    result.ShouldBeTrue();
+  }
+
+  [Theory, RepeatData]
   public void Inequality_BetweenLabels(string name, string[] enumLabels1, string[] enumLabels2)
     => _checks.InequalityBetween(enumLabels1, enumLabels2,
       enumLabel => new EnumDeclAst(AstNulls.At, name, enumLabel.EnumLabels()),

@@ -19,6 +19,7 @@ internal class ParseCollections
         if (tokens.Identifier(out string? param)) {
           modifier = ModifierAst.Param(at, param, tokens.Take('?'));
         } else {
+          list.Add(modifier);
           return tokens.PartialArray(label, "identitifer after '$'.", () => list);
         }
       } else if (tokens.Identifier(out string? key)) {
@@ -29,9 +30,8 @@ internal class ParseCollections
         modifier = ModifierAst.Dict(at, charType.ToString(), tokens.Take('?'));
       }
 
-      if (tokens.Take(']')) {
-        list.Add(modifier);
-      } else {
+      list.Add(modifier);
+      if (!tokens.Take(']')) {
         return tokens.PartialArray(label, "']' at end of list or dictionary modifier.", () => list);
       }
 

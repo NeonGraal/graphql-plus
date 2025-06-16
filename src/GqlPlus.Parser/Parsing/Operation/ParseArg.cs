@@ -37,18 +37,18 @@ internal class ParseArg(
             .MapOk(
               item => ParseArgMid(tokens, at, new() { [key] = item }),
               () => tokens.Error(label, "a value after field key separator", value))
-          : ParseArgEnd(tokens, at, new(key)));
+          : ParseArgEnd(tokens, at, new ArgAst(key)));
       }
 
       IResult<IGqlpArg> argValue = _argument.I.Parse(tokens, label);
 
-      return argValue.MapOk(value => ParseArgEnd(tokens, at, (ArgAst)value), () => argValue);
+      return argValue.MapOk(value => ParseArgEnd(tokens, at, value), () => argValue);
     } finally {
       tokens.IgnoreSeparators = oldSeparators;
     }
   }
 
-  private ArgAst ParseArgValues(ITokenizer tokens, ArgAst initial)
+  private IGqlpArg ParseArgValues(ITokenizer tokens, IGqlpArg initial)
   {
     ITokenAt at = initial.At;
     List<IGqlpArg> values = [initial];
@@ -57,7 +57,7 @@ internal class ParseArg(
     }
 
     return values.Count > 1
-      ? new(at, values.ArrayOf<ArgAst>())
+      ? new ArgAst(at, values)
       : initial;
   }
 
@@ -72,15 +72,19 @@ internal class ParseArg(
     while (!tokens.Take(')')) {
       IResult<KeyValue<IGqlpArg>> field = _argument.I.KeyValueParser.Parse(tokens, "Arg");
 
-      if (!field.Required(value => fields.Add((FieldKeyAst)value.Key, ParseArgValues(tokens, (ArgAst)value.Value)))) {
-        return field.AsResult<IGqlpArg>();
+      if (!field.Required(value => fields.Add(value.Key, ParseArgValues(tokens, value.Value)))) {
+        return field.IsEmpty()
+          ? Result().Error(tokens.Error("Arg", "fields"))
+          : field.AsResult(Result());
       }
     }
 
-    return new ArgAst(at, fields).Ok<IGqlpArg>();
+    return Result().Ok();
+
+    IGqlpArg Result() => new ArgAst(at, fields);
   }
 
-  private IResult<IGqlpArg> ParseArgEnd(ITokenizer tokens, TokenAt at, ArgAst value)
+  private IResult<IGqlpArg> ParseArgEnd(ITokenizer tokens, TokenAt at, IGqlpArg value)
   {
     IGqlpArg more = ParseArgValues(tokens, value);
     if (more.Values.Count() > 1) {
@@ -91,7 +95,7 @@ internal class ParseArg(
     while (_argument.I.Parse(tokens, "Arg").Required(values.Add)) { }
 
     if (tokens.Take(')')) {
-      IGqlpArg argument = values.Count > 1 ? new(at, values.ArrayOf<ArgAst>()) : value;
+      IGqlpArg argument = values.Count > 1 ? new ArgAst(at, values) : value;
       return argument.Ok();
     }
 

@@ -23,7 +23,7 @@ public class ParseCollectionsTests
   public void Parse_ShouldReturnListModifier_WhenListModifierProvided()
   {
     // Arrange
-    TakeReturns('[', true, false);
+    TakeReturns('[', true);
     TakeReturns(']', true);
 
     // Act
@@ -40,9 +40,9 @@ public class ParseCollectionsTests
   public void Parse_ShouldReturnDictModifier_WhenDictModifierProvided(string value)
   {
     // Arrange
-    TakeReturns('[', true, false);
+    TakeReturns('[', true);
     IdentifierReturns(OutString(value));
-    TakeReturns('?', true, false);
+    TakeReturns('?', true);
     TakeReturns(']', true);
 
     // Act
@@ -63,7 +63,7 @@ public class ParseCollectionsTests
   public void Parse_ShouldReturnParamModifier_WhenParamModifierProvided(string paramName)
   {
     // Arrange
-    TakeReturns('[', true, false);
+    TakeReturns('[', true);
     TakeReturns('$', true);
     IdentifierReturns(OutString(paramName));
     TakeReturns(']', true);
@@ -89,11 +89,13 @@ public class ParseCollectionsTests
     TakeReturns('[', true);
     TakeReturns('$', true);
     IdentifierReturns(OutFail);
+    SetupPartial<IGqlpModifier>();
 
     // Act
     IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArray<IGqlpModifier>>();
+    result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpModifier>>()
+      .Result.ShouldHaveSingleItem();
   }
 }

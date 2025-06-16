@@ -15,6 +15,35 @@ public class ParseDomainRegexTests
   }
 
   [Fact]
+  public void ParseItems_ShouldReturnDomainTrueFalse_WhenValid()
+  {
+    // Arrange
+    TakeReturns('}', true);
+    DomainDefinition initial = new() { Kind = DomainKind.String };
+    ParseOkA(_itemsParser);
+
+    // Act
+    IResult<DomainDefinition> result = _parser.Parser(Tokenizer, "testLabel", initial);
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultOk<DomainDefinition>>();
+  }
+
+  [Fact]
+  public void ParseItems_ShouldReturnError_WhenInvalid()
+  {
+    // Arrange
+    DomainDefinition initial = new() { Kind = DomainKind.String };
+    ParseErrorA(_itemsParser);
+
+    // Act
+    IResult<DomainDefinition> result = _parser.Parser(Tokenizer, "testLabel", initial);
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultError>();
+  }
+
+  [Fact]
   public void Parse_ShouldReturnDomainRegex_WhenValid()
   {
     // Arrange

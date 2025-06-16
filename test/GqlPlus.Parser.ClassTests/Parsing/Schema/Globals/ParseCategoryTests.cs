@@ -5,7 +5,7 @@ namespace GqlPlus.Parsing.Schema.Globals;
 public class ParseCategoryTests
   : DeclarationClassTestBase
 {
-  private readonly Parser<CategoryOption>.I _option;
+  private readonly IOptionParser<CategoryOption> _option;
   private readonly Parser<CategoryOutput>.I _definition;
   private readonly ParseCategory _parser;
 
@@ -14,7 +14,7 @@ public class ParseCategoryTests
     ICategoryName name = Substitute.For<ICategoryName>();
     NameParser = name;
 
-    Parser<IOptionParser<CategoryOption>, CategoryOption>.D option = ParserFor<IOptionParser<CategoryOption>, CategoryOption>(out _option);
+    Parser<IOptionParser<CategoryOption>, CategoryOption>.D option = OptionParserFor(out _option);
     Parser<CategoryOutput>.D definition = ParserFor(out _definition);
 
     _parser = new ParseCategory(name, ParamNull, Aliases, option, definition);

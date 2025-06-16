@@ -24,21 +24,21 @@ public class ParserClassTestBase
   private readonly TokenMessages _errors = [];
 
   protected void IdentifierReturns(Func<CallInfo, bool> first, params Func<CallInfo, bool>[] rest)
-    => Tokenizer.Identifier(out Arg.Any<string?>()).Returns(first, rest);
+    => Tokenizer.Identifier(out Arg.Any<string?>()).Returns(first, [.. rest, OutFail]);
 
   protected void NumberReturns(Func<CallInfo, bool> first, params Func<CallInfo, bool>[] rest)
-    => Tokenizer.Number(out Arg.Any<decimal>()).Returns(first, rest);
+    => Tokenizer.Number(out Arg.Any<decimal>()).Returns(first, [.. rest, OutFail]);
 
   protected void PrefixReturns(char prefix, Func<CallInfo, bool> first, params Func<CallInfo, bool>[] rest)
     => Tokenizer
       .Prefix(prefix, out Arg.Any<string?>(), out Arg.Any<TokenAt>())
-        .Returns(first, rest);
+        .Returns(first, [.. rest, OutFailAt()]);
 
   protected void TakeReturns(char take, bool first, params bool[] rest)
-    => Tokenizer.Take(take).Returns(first, rest);
+    => Tokenizer.Take(take).Returns(first, [.. rest, false]);
 
   protected void TakeReturns(string take, bool first, params bool[] rest)
-    => Tokenizer.Take(take).Returns(first, rest);
+    => Tokenizer.Take(take).Returns(first, [.. rest, false]);
 
   protected static IResultError<T> Error<T>(string message)
     => new ResultError<T>(new(AstNulls.At, message));
@@ -66,11 +66,11 @@ public class ParserClassTestBase
   protected void SetupPartial<T>(T result)
   {
     TokenMessage errMsg = new(AstNulls.At, "partial error for " + typeof(T).ExpandTypeName());
-    ResultPartial<T> partial = new(result, errMsg);
-    ResultArrayPartial<T> partialA = new([result], errMsg);
+    ResultPartial<T> Partial(CallInfo c) => new(c.Arg<Func<T>>().Invoke(), errMsg);
+    ResultArrayPartial<T> PartialA(CallInfo c) => new(c.Arg<Func<IEnumerable<T>>>().Invoke(), errMsg);
 
-    Tokenizer.Partial("", "", () => result).ReturnsForAnyArgs(partial);
-    Tokenizer.PartialArray<T>("", "", () => [result]).ReturnsForAnyArgs(partialA);
+    Tokenizer.Partial("", "", () => result).ReturnsForAnyArgs(c => Partial(c));
+    Tokenizer.PartialArray<T>("", "", () => [result]).ReturnsForAnyArgs(c => PartialA(c));
   }
 
   protected void Parse<T>([NotNull] Parser<T>.I parser, IResult<T> first, params IResult<T>[] rest)
@@ -176,7 +176,7 @@ public class ParserClassTestBase
     return result;
   }
 
-  protected static Parser<TInterface, T>.D ParserFor<TInterface, T>(out Parser<T>.I parser)
+  protected static Parser<TInterface, T>.D ParserFor<TInterface, T>(out TInterface parser)
     where TInterface : class, Parser<T>.I
   {
     parser = Substitute.For<TInterface, Parser<T>.I>();
@@ -189,7 +189,7 @@ public class ParserClassTestBase
     return result;
   }
 
-  protected static ParserArray<TInterface, T>.DA ParserAFor<TInterface, T>(out Parser<T>.IA parser)
+  protected static ParserArray<TInterface, T>.DA ParserAFor<TInterface, T>(out TInterface parser)
     where TInterface : class, Parser<T>.IA
   {
     parser = A.Of<TInterface>();
@@ -204,9 +204,9 @@ public class ParserClassTestBase
 
   protected static Parser<IOptionParser<T>, T>.D OptionParserFor<T>()
     where T : struct
-    => OptionParserFor(out Parser<T>.I _);
+    => OptionParserFor(out IOptionParser<T> _);
 
-  protected static Parser<IOptionParser<T>, T>.D OptionParserFor<T>(out Parser<T>.I parser)
+  protected static Parser<IOptionParser<T>, T>.D OptionParserFor<T>(out IOptionParser<T> parser)
     where T : struct
   {
     parser = A.Of<IOptionParser<T>>();
@@ -221,9 +221,9 @@ public class ParserClassTestBase
 
   protected static Parser<IEnumParser<T>, T>.D EnumParserFor<T>()
     where T : struct
-    => EnumParserFor(out Parser<T>.I _);
+    => EnumParserFor(out IEnumParser<T> _);
 
-  protected static Parser<IEnumParser<T>, T>.D EnumParserFor<T>(out Parser<T>.I parser)
+  protected static Parser<IEnumParser<T>, T>.D EnumParserFor<T>(out IEnumParser<T> parser)
     where T : struct
   {
     parser = A.Of<IEnumParser<T>>();

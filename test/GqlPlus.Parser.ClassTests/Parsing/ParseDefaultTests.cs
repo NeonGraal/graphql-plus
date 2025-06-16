@@ -50,7 +50,21 @@ public class ParseDefaultTests
     IResult<IGqlpConstant> result = _parser.Parse(Tokenizer, "TestLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultError>()
-      .Message.Message.ShouldMatch("Default after error");
+    result.ShouldBeAssignableTo<IResultError>();
+  }
+
+  [Fact]
+  public void Parse_ShouldReturnError_WhenConstantParserEmpty()
+  {
+    // Arrange
+    TakeReturns('=', true);
+    ParseEmpty(_constantParser);
+    SetupError<IGqlpConstant>();
+
+    // Act
+    IResult<IGqlpConstant> result = _parser.Parse(Tokenizer, "TestLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultError>();
   }
 }

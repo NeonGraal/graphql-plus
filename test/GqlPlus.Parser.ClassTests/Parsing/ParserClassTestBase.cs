@@ -66,11 +66,11 @@ public class ParserClassTestBase
   protected void SetupPartial<T>(T result)
   {
     TokenMessage errMsg = new(AstNulls.At, "partial error for " + typeof(T).ExpandTypeName());
-    ResultPartial<T> partial = new(result, errMsg);
-    ResultArrayPartial<T> partialA = new([result], errMsg);
+    ResultPartial<T> Partial(CallInfo c) => new(c.Arg<Func<T>>().Invoke(), errMsg);
+    ResultArrayPartial<T> PartialA(CallInfo c) => new(c.Arg<Func<IEnumerable<T>>>().Invoke(), errMsg);
 
-    Tokenizer.Partial("", "", () => result).ReturnsForAnyArgs(partial);
-    Tokenizer.PartialArray<T>("", "", () => [result]).ReturnsForAnyArgs(partialA);
+    Tokenizer.Partial("", "", () => result).ReturnsForAnyArgs(c => Partial(c));
+    Tokenizer.PartialArray<T>("", "", () => [result]).ReturnsForAnyArgs(c => PartialA(c));
   }
 
   protected void Parse<T>([NotNull] Parser<T>.I parser, IResult<T> first, params IResult<T>[] rest)

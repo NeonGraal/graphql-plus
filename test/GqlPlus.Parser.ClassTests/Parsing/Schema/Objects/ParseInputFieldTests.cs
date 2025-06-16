@@ -17,18 +17,36 @@ public class ParseInputFieldTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnInputField_WhenValid(string fieldName)
+  public void Parse_ShouldReturnInputField_WhenValidDefault(string fieldName)
   {
     // Arrange
     IdentifierReturns(OutString(fieldName));
     TakeReturns(':', true);
     ParseOk(_parseBase);
+    ParseOk(_parseDefault);
 
     // Act
     IResult<IGqlpInputField> result = _parser.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpInputField>>();
+  }
+
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnPartial_WhenDefaultErrors(string fieldName)
+  {
+    // Arrange
+    IdentifierReturns(OutString(fieldName));
+    TakeReturns(':', true);
+    ParseOk(_parseBase);
+    ParseError(_parseDefault);
+    SetupPartial<IGqlpInputField>();
+
+    // Act
+    IResult<IGqlpInputField> result = _parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultPartial<IGqlpInputField>>();
   }
 
   [Fact]

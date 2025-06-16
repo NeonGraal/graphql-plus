@@ -89,11 +89,13 @@ public class ParseCollectionsTests
     TakeReturns('[', true);
     TakeReturns('$', true);
     IdentifierReturns(OutFail);
+    SetupPartial<IGqlpModifier>();
 
     // Act
     IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArray<IGqlpModifier>>();
+    result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpModifier>>()
+      .Result.ShouldHaveSingleItem();
   }
 }

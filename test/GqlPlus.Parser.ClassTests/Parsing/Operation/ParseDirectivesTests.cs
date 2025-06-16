@@ -37,6 +37,20 @@ public class ParseDirectivesTests
       );
   }
 
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnPartial_WhenSecondDirectiveNameFails(string directiveName)
+  {
+    // Arrange
+    PrefixReturns('@', OutStringAt(directiveName), OutFail);
+    IGqlpArg argument = ParseOk(_argumentParser);
+
+    // Act
+    IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpDirective>>();
+  }
+
   [Fact]
   public void Parse_ShouldReturnError_WhenDirectiveNameIsMissing()
   {

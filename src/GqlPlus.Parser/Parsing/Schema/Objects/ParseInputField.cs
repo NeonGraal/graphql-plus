@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -24,7 +23,7 @@ internal class ParseInputField(
   protected override IResult<IGqlpInputField> FieldDefault(ITokenizer tokens, InputFieldAst field)
     => _default.I
     .Parse(tokens, "Default")
-    .AsPartial<IGqlpInputField>(field, constant => field.DefaultValue = (ConstantAst?)constant);
+    .AsPartial<IGqlpInputField>(field, constant => field.DefaultValue = constant);
 
   protected override IResult<IGqlpInputField> FieldEnumValue(ITokenizer tokens, InputFieldAst field)
     => tokens.Error<IGqlpInputField>("Input", "':'", field);

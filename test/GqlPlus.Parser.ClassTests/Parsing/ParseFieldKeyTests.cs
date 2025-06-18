@@ -62,7 +62,7 @@ public class ParseFieldKeyTests
   public void Parse_ShouldReturnError_WhenInvalidEnumValue(string enumType)
   {
     // Arrange
-    IdentifierReturns(OutString(enumType), OutFail);
+    IdentifierReturns(OutString(enumType));
     TakeReturns('.', true);
 
     // Act

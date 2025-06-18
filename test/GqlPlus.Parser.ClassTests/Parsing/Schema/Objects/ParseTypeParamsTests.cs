@@ -21,7 +21,7 @@ public class ParseTypeParamsTests
     TakeReturns('<', true);
     PrefixReturns('$', OutStringAt(paramName), OutPass);
     TakeReturns(':', true);
-    IdentifierReturns(OutString(constraint), OutFail);
+    IdentifierReturns(OutString(constraint));
     TakeReturns('>', false, true);
 
     // Act

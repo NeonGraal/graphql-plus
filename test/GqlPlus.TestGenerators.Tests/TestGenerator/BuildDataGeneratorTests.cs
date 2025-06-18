@@ -1,6 +1,6 @@
 ﻿using Microsoft.CodeAnalysis;
 
-namespace GqlPlus;
+namespace GqlPlus.TestGenerator;
 
 public class BuildDataGeneratorTests
 {
@@ -12,7 +12,7 @@ public class BuildDataGeneratorTests
     GeneratorDriver driver = new BuildDataGenerator("GqlPlusTests")
       .Generate([]);
 
-    return Verifier.Verify(driver, _settings);
+    return Verify(driver, _settings);
   }
 
   private static readonly string[] s_additionalFilesWithIncorrectOne = [
@@ -26,7 +26,7 @@ public class BuildDataGeneratorTests
     GeneratorDriver driver = new BuildDataGenerator("GqlPlusTests")
       .Generate(s_additionalFilesWithIncorrectOne.AdditionalPaths(nameof(IgnoresIncorrectAdditionalFiles)));
 
-    await Verifier.Verify(driver, _settings);
+    await Verify(driver, _settings);
   }
 
   private static readonly string[] s_additionalSubdirectoryFiles = [
@@ -40,7 +40,7 @@ public class BuildDataGeneratorTests
     GeneratorDriver driver = new BuildDataGenerator("GqlPlusTests")
       .Generate(s_additionalSubdirectoryFiles.AdditionalPaths(nameof(SubDirectoryAdditionalFiles)));
 
-    await Verifier.Verify(driver, _settings);
+    await Verify(driver, _settings);
   }
 
   private static readonly string[] s_topDirs = ["Top", "Left", "Centre", "Right", "Bottom"];
@@ -63,6 +63,6 @@ public class BuildDataGeneratorTests
     GeneratorDriver driver = new BuildDataGenerator("GqlPlusTests")
       .Generate(manyFiles.AdditionalPaths(nameof(ManyFiles)));
 
-    await Verifier.Verify(driver, _settings);
+    await Verify(driver, _settings);
   }
 }

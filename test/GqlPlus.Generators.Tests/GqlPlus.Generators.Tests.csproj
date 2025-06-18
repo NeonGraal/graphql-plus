@@ -14,11 +14,4 @@
     <ProjectReference Include="..\GqlPlus.GeneratorsTestBase\GqlPlus.GeneratorsTestBase.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Remove="TestResults\**" />
-    <EmbeddedResource Remove="TestResults\**" />
-    <None Remove="TestResults\**" />
-    <Folder Remove="TestResults" />
-  </ItemGroup>
-
 </Project>

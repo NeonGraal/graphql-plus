@@ -110,6 +110,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Converter.ClassTest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Generators.ComponentTests", "test\GqlPlus.Generators.ComponentTests\GqlPlus.Generators.ComponentTests.csproj", "{461D4743-5509-485C-934A-2B5A0193E36A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Generators.ClassTests", "test\GqlPlus.Generators.ClassTests\GqlPlus.Generators.ClassTests.csproj", "{D4DC52CA-26B4-408C-A965-BF026787ADB8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -236,6 +238,10 @@ Global
 		{461D4743-5509-485C-934A-2B5A0193E36A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{461D4743-5509-485C-934A-2B5A0193E36A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{461D4743-5509-485C-934A-2B5A0193E36A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4DC52CA-26B4-408C-A965-BF026787ADB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4DC52CA-26B4-408C-A965-BF026787ADB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4DC52CA-26B4-408C-A965-BF026787ADB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4DC52CA-26B4-408C-A965-BF026787ADB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -273,6 +279,7 @@ Global
 		{D11248A7-A1B2-4D8F-A396-36615F36A4F5} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{9A60308A-96CA-45DC-B338-92ABA3035987} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{461D4743-5509-485C-934A-2B5A0193E36A} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
+		{D4DC52CA-26B4-408C-A965-BF026787ADB8} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {148B651C-DFAA-434F-B1ED-51E535FC2DE8}

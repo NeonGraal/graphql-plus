@@ -5,6 +5,7 @@
       "src\\GqlPlus.Abstractions\\GqlPlus.Abstractions.csproj",
       "src\\GqlPlus.Converter.Json\\GqlPlus.Converter.Json.csproj",
       "src\\GqlPlus.Converter.Yaml\\GqlPlus.Converter.Yaml.csproj",
+      "src\\GqlPlus.Generators\\GqlPlus.Generators.csproj",
       "src\\GqlPlus.Modeller\\GqlPlus.Modeller.csproj",
       "src\\GqlPlus.Parser\\GqlPlus.Parser.csproj",
       "src\\GqlPlus.PolyFill\\GqlPlus.PolyFill.csproj",
@@ -14,10 +15,13 @@
       "test\\GqlPlus.Converter.ClassTestBase\\GqlPlus.Converter.ClassTestBase.csproj",
       "test\\GqlPlus.Converter.Json.ClassTests\\GqlPlus.Converter.Json.ClassTests.csproj",
       "test\\GqlPlus.Converter.Yaml.ClassTests\\GqlPlus.Converter.Yaml.ClassTests.csproj",
+      "test\\GqlPlus.Generators.ClassTests\\GqlPlus.Generators.ClassTests.csproj",
+      "test\\GqlPlus.GeneratorsTestBase\\GqlPlus.GeneratorsTestBase.csproj",
       "test\\GqlPlus.Modeller.ClassTests\\GqlPlus.Modeller.ClassTests.csproj",
       "test\\GqlPlus.Parser.ClassTests\\GqlPlus.Parser.ClassTests.csproj",
       "test\\GqlPlus.TestBase\\GqlPlus.TestBase.csproj",
-      "test\\GqlPlus.Verifier.ClassTests\\GqlPlus.Verifier.ClassTests.csproj"
+      "test\\GqlPlus.Verifier.ClassTests\\GqlPlus.Verifier.ClassTests.csproj",
+      "test\\GqlPlus.VerifyTestBase\\GqlPlus.VerifyTestBase.csproj"
     ]
   }
 }

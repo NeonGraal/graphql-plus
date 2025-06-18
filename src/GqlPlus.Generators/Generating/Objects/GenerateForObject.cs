@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast;
-
-namespace GqlPlus.Generating.Objects;
+﻿namespace GqlPlus.Generating.Objects;
 
 internal abstract class GenerateForObject<TObj, TBase, TField, TAlt>
   : GenerateForClass<TObj>

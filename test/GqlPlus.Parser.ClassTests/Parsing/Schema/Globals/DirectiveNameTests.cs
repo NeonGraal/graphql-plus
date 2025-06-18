@@ -9,7 +9,7 @@ public class DirectiveNameTests
   public void ParseName_ShouldReturnTrue_WhenIdentifierIsValid(string input)
   {
     // Arrange
-    PrefixReturns('@', OutStringAt(input), OutFailAt());
+    PrefixReturns('@', OutStringAt(input));
     IdentifierReturns(OutString(input));
 
     // Act

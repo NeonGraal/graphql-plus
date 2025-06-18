@@ -46,11 +46,26 @@ public class ParseEnumDefinitionTests
   }
 
   [Fact]
-  public void Parse_ShouldReturnPartial_WhenNoLabels()
+  public void Parse_ShouldReturnPartial_WhenLabelErrors()
   {
     // Arrange
     TakeReturns(':', false);
     ParseError(_enumLabelParser);
+    SetupPartial(new EnumDefinition());
+
+    // Act
+    IResult<EnumDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultPartial<EnumDefinition>>();
+  }
+
+  [Fact]
+  public void Parse_ShouldReturnPartial_WhenNoLabels()
+  {
+    // Arrange
+    TakeReturns(':', false);
+    TakeReturns('}', true);
     SetupPartial(new EnumDefinition());
 
     // Act

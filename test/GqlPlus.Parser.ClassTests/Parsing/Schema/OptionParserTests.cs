@@ -6,12 +6,12 @@ namespace GqlPlus.Parsing.Schema;
 public class OptionParserTests
   : ParserClassTestBase
 {
-  private readonly Parser<DomainKind>.I _domainParser;
+  private readonly IEnumParser<DomainKind> _domainParser;
   private readonly OptionParser<DomainKind> _parser;
 
   public OptionParserTests()
   {
-    Parser<IEnumParser<DomainKind>, DomainKind>.D domainParser = ParserFor<IEnumParser<DomainKind>, DomainKind>(out _domainParser);
+    Parser<IEnumParser<DomainKind>, DomainKind>.D domainParser = EnumParserFor<DomainKind>(out _domainParser);
     _parser = new OptionParser<DomainKind>(domainParser);
     SetupPartial(DomainKind.Number);
   }

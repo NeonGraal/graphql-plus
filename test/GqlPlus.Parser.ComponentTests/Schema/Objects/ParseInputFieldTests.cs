@@ -14,7 +14,7 @@ public class ParseInputFieldTests(
     => checks.TrueExpected(
       name + ":" + fieldType + "='" + content + "'",
       new InputFieldAst(AstNulls.At, name, new InputBaseAst(AstNulls.At, fieldType)) {
-        DefaultValue = new(new FieldKeyAst(AstNulls.At, content))
+        DefaultValue = new ConstantAst(new FieldKeyAst(AstNulls.At, content))
       });
 }
 

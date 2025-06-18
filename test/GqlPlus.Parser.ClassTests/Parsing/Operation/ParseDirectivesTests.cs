@@ -6,7 +6,7 @@ public class ParseDirectivesTests
   : ParserClassTestBase
 {
   private readonly ParseDirectives _parseDirectives;
-  private readonly Parser<IGqlpArg>.I _argumentParser;
+  private readonly IParserArg _argumentParser;
 
   public ParseDirectivesTests()
   {
@@ -35,6 +35,20 @@ public class ParseDirectivesTests
         x => x.Identifier.ShouldBe(directiveName),
         x => x.Arg.ShouldBe(argument)
       );
+  }
+
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnPartial_WhenSecondDirectiveNameFails(string directiveName)
+  {
+    // Arrange
+    PrefixReturns('@', OutStringAt(directiveName), OutFail);
+    IGqlpArg argument = ParseOk(_argumentParser);
+
+    // Act
+    IResultArray<IGqlpDirective> result = _parseDirectives.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpDirective>>();
   }
 
   [Fact]

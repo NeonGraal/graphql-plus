@@ -5,7 +5,7 @@ namespace GqlPlus.Parsing.Schema.Globals;
 
 public class ParseDirectiveDefinitionTests : ParserClassTestBase
 {
-  private readonly Parser<DirectiveLocation>.I _locationParser;
+  private readonly IEnumParser<DirectiveLocation> _locationParser;
   private readonly ParseDirectiveDefinition _parser;
 
   public ParseDirectiveDefinitionTests()
@@ -13,7 +13,7 @@ public class ParseDirectiveDefinitionTests : ParserClassTestBase
     Parser<IEnumParser<DirectiveLocation>, DirectiveLocation>.D locationParser = EnumParserFor(out _locationParser);
     _parser = new ParseDirectiveDefinition(locationParser);
     SetupPartial(DirectiveLocation.None);
-    TakeReturns('}', false, true, false);
+    TakeReturns('}', false, true);
   }
 
   [Fact]

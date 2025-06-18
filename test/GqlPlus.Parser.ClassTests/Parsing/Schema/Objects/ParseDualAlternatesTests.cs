@@ -18,7 +18,7 @@ public class ParseDualAlternatesTests
   public void Parse_ShouldReturnDualAlternate_WhenValid()
   {
     // Arrange
-    TakeReturns('|', true, false);
+    TakeReturns('|', true);
     ParseOk(_parseBase);
 
     // Act
@@ -47,7 +47,7 @@ public class ParseDualAlternatesTests
   public void Parse_ShouldReturnError_WhenInvalid()
   {
     // Arrange
-    TakeReturns('|', true, false);
+    TakeReturns('|', true);
     ParseError(_parseBase);
     SetupPartial<IGqlpDualAlternate>();
 

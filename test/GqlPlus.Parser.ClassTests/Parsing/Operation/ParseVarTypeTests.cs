@@ -31,7 +31,7 @@ public class ParseVarTypeTests
   {
     // Arrange
     IdentifierReturns(OutString(identifier));
-    TakeReturns('!', true, false);
+    TakeReturns('!', true);
 
     // Act
     IResult<string> result = _parseVarType.Parse(Tokenizer, "testLabel");
@@ -45,7 +45,7 @@ public class ParseVarTypeTests
   public void Parse_ShouldReturnArrayVariableType_WhenBracketsArePresent(string innerType)
   {
     // Arrange
-    TakeReturns('[', true, false);
+    TakeReturns('[', true);
     IdentifierReturns(OutString(innerType));
     TakeReturns(']', true);
 
@@ -61,7 +61,7 @@ public class ParseVarTypeTests
   public void Parse_ShouldReturnError_WhenClosingBracketIsMissing(string innerType)
   {
     // Arrange
-    TakeReturns('[', true, false);
+    TakeReturns('[', true);
     IdentifierReturns(OutString(innerType));
     TakeReturns(']', false);
 

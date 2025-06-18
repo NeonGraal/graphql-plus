@@ -48,7 +48,7 @@ public class MergeInputFieldsTests
 
   internal static IGqlpInputField MakeFieldDefault(string name, string type, string defaultValue)
     => new InputFieldAst(AstNulls.At, name, new InputBaseAst(AstNulls.At, type)) {
-      DefaultValue = new(defaultValue.FieldKey())
+      DefaultValue = new ConstantAst(defaultValue.FieldKey())
     };
   protected override IGqlpInputField MakeFieldModifiers(string name)
     => new InputFieldAst(AstNulls.At, name, new InputBaseAst(AstNulls.At, name)) {

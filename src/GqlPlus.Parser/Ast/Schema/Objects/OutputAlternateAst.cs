@@ -13,6 +13,7 @@ internal sealed record class OutputAlternateAst(
   internal override string Abbr => "OA";
 
   IGqlpDualBase IGqlpToDual<IGqlpDualBase>.ToDual => ToDual();
+  IGqlpDualAlternate IGqlpToDual<IGqlpDualAlternate>.ToDual => ToDual();
 
   public DualAlternateAst ToDual()
     => new(At, Output, Description) {

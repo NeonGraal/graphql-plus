@@ -13,7 +13,7 @@ public class ParseOptionDefinitionTests
     Parser<IGqlpSchemaSetting>.D settingParser = ParserFor(out _settingParser);
     _parser = new ParseOptionDefinition(settingParser);
     SetupError<OptionDefinition>();
-    TakeReturns('}', false, true, false);
+    TakeReturns('}', false, true);
   }
 
   [Fact]

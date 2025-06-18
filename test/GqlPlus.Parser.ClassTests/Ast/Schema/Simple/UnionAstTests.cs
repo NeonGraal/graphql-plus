@@ -26,6 +26,16 @@ public class UnionAstTests
       () => new UnionDeclAst(AstNulls.At, name, unionMembers.UnionMembers()));
 
   [Theory, RepeatData]
+  public void HasValue_WithMember(string name, string unionMember)
+  {
+    UnionDeclAst union = new(AstNulls.At, name, new[] { unionMember }.UnionMembers());
+
+    bool result = union.HasValue(unionMember);
+
+    result.ShouldBeTrue();
+  }
+
+  [Theory, RepeatData]
   public void Inequality_BetweenUnionMembers(string name, string[] unionMembers1, string[] unionMembers2)
     => _checks.InequalityBetween(unionMembers1, unionMembers2,
       unionMembers => new UnionDeclAst(AstNulls.At, name, unionMembers.UnionMembers()),

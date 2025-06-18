@@ -46,11 +46,26 @@ public class ParseUnionDefinitionTests
   }
 
   [Fact]
-  public void Parse_ShouldReturnPartial_WhenNoMembers()
+  public void Parse_ShouldReturnPartial_WhenMemberErrors()
   {
     // Arrange
     TakeReturns(':', false);
     ParseError(_unionMemberParser);
+    SetupPartial(new UnionDefinition());
+
+    // Act
+    IResult<UnionDefinition> result = _parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultPartial<UnionDefinition>>();
+  }
+
+  [Fact]
+  public void Parse_ShouldReturnPartial_WhenNoMembers()
+  {
+    // Arrange
+    TakeReturns(':', false);
+    TakeReturns('}', true);
     SetupPartial(new UnionDefinition());
 
     // Act

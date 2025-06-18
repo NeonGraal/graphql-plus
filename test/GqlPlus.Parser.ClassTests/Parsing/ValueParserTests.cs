@@ -55,7 +55,7 @@ public class ValueParserTests
 
     KeyValue<IGqlpConstant> keyValue = new(AtFor<IGqlpFieldKey>(), AtFor<IGqlpConstant>());
     ParseOk(_keyValueParser, keyValue);
-    TakeReturns('}', true);
+    TakeReturns('}', false, true);
 
     // Act
     IResult<IGqlpFields<IGqlpConstant>> result = _valueParser.ParseFieldValues(Tokenizer, "testLabel", '}', new AstFields<IGqlpConstant>());

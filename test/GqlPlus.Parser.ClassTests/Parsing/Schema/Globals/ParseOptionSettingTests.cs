@@ -4,7 +4,7 @@ namespace GqlPlus.Parsing.Schema.Globals;
 
 public class ParseOptionSettingTests : ParserClassTestBase
 {
-  private readonly Parser<IGqlpConstant>.I _defaultParser;
+  private readonly IParserDefault _defaultParser;
   private readonly ParseOptionSetting _parser;
 
   public ParseOptionSettingTests()

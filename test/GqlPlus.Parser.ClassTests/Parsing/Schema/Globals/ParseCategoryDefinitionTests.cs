@@ -24,7 +24,7 @@ public class ParseCategoryDefinitionTests
     // Arrange
     ParseOk(_typeRefParser);
     ParseModifiersOk();
-    TakeReturns('}', true, false);
+    TakeReturns('}', true);
 
     // Act
     IResult<CategoryOutput> result = _parser.Parse(Tokenizer, "testLabel");

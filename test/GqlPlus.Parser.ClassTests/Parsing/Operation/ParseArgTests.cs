@@ -7,7 +7,7 @@ public class ParseArgTests
 {
   private readonly ParseArg _parseArg;
   private readonly Parser<IGqlpFieldKey>.I _fieldKeyParser;
-  private readonly Parser<IGqlpArg>.I _argumentParser;
+  private readonly IValueParser<IGqlpArg> _argumentParser;
 
   private readonly IGqlpFieldKey _fieldKey = AtFor<IGqlpFieldKey>();
   private readonly IGqlpArg _arg = AtFor<IGqlpArg>();
@@ -33,12 +33,11 @@ public class ParseArgTests
     IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldNotBeNull()
-      .IsOk().ShouldBeFalse();
+    result.ShouldBeAssignableTo<IResultEmpty>();
   }
 
   [Fact]
-  public void Parse_ShouldReturnFieldKeyResult_WhenFieldKeyIsParsed()
+  public void Parse_ShouldReturnFieldValueResult_WhenFieldValueIsParsed()
   {
     // Arrange
     TakeReturns('(', true);
@@ -52,8 +51,131 @@ public class ParseArgTests
     IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldNotBeNull()
-      .IsOk().ShouldBeTrue();
+    result.ShouldBeAssignableTo<IResultOk>();
+  }
+
+  [Fact]
+  public void Parse_ShouldReturnFieldListResult_WhenFieldValueIsParsed()
+  {
+    // Arrange
+    TakeReturns('(', true);
+    TakeReturns(':', true);
+    TakeReturns(',', true);
+    TakeReturns(')', true);
+
+    ParseOk(_fieldKeyParser, _fieldKey);
+    ParseOk(_argumentParser, _arg);
+    IGqlpFields<IGqlpArg> keyValuePairs = A.Of<IGqlpFields<IGqlpArg>>();
+    _argumentParser.ParseFieldValues(Tokenizer, "Arg", ')', default!).ReturnsForAnyArgs(keyValuePairs.Ok());
+
+    // Act
+    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultOk>();
+  }
+
+  [Fact]
+  public void Parse_ShouldReturnFieldValuesResult_WhenFieldValuesAreParsed()
+  {
+    // Arrange
+    TakeReturns('(', true);
+    TakeReturns(':', true);
+    TakeReturns(')', false, true);
+
+    ParseOk(_fieldKeyParser, _fieldKey);
+    ParseOk(_argumentParser, _arg);
+
+    Parser<KeyValue<IGqlpArg>>.D keyValueDelegate = ParserFor(out Parser<KeyValue<IGqlpArg>>.I keyValueParser);
+    _argumentParser.KeyValueParser.Returns(keyValueDelegate);
+    ParseOk(keyValueParser, new KeyValue<IGqlpArg>(_fieldKey, _arg));
+
+    // Act
+    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultOk>();
+  }
+
+  [Fact]
+  public void Parse_ShouldReturnFieldValueListResult_WhenFieldValueListIsParsed()
+  {
+    // Arrange
+    TakeReturns('(', true);
+    TakeReturns(':', true);
+    TakeReturns(',', false, true);
+    TakeReturns(')', false, true);
+
+    ParseOk(_fieldKeyParser, _fieldKey);
+    Parse(_argumentParser, _arg.Ok(), _arg.Ok(), _arg.Empty());
+
+    Parser<KeyValue<IGqlpArg>>.D keyValueDelegate = ParserFor(out Parser<KeyValue<IGqlpArg>>.I keyValueParser);
+    _argumentParser.KeyValueParser.Returns(keyValueDelegate);
+    ParseOk(keyValueParser, new KeyValue<IGqlpArg>(_fieldKey, _arg));
+
+    // Act
+    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultOk>();
+  }
+
+  [Fact]
+  public void Parse_ShouldReturnError_WhenFieldValueErrors()
+  {
+    // Arrange
+    TakeReturns('(', true);
+    TakeReturns(':', true);
+    TakeReturns(')', false, true);
+
+    ParseOk(_fieldKeyParser, _fieldKey);
+    ParseOk(_argumentParser, _arg);
+
+    Parser<KeyValue<IGqlpArg>>.D keyValueDelegate = ParserFor(out Parser<KeyValue<IGqlpArg>>.I keyValueParser);
+    _argumentParser.KeyValueParser.Returns(keyValueDelegate);
+    ParseError(keyValueParser);
+
+    // Act
+    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultError>();
+  }
+
+  [Fact]
+  public void Parse_ShouldReturnError_WhenFieldValueFails()
+  {
+    // Arrange
+    TakeReturns('(', true);
+    TakeReturns(':', true);
+    TakeReturns(')', true);
+
+    ParseOk(_fieldKeyParser, _fieldKey);
+    ParseError(_argumentParser);
+
+    SetupError<IGqlpArg>();
+
+    // Act
+    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultError>();
+  }
+
+  [Fact]
+  public void Parse_ShouldReturnListResult_WhenFieldKeyIsParsed()
+  {
+    // Arrange
+    TakeReturns('(', true);
+    TakeReturns(')', true);
+
+    ParseOk(_fieldKeyParser, _fieldKey);
+
+    // Act
+    IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultOk>();
   }
 
   [Fact]
@@ -63,15 +185,14 @@ public class ParseArgTests
     TakeReturns('(', true);
     TakeReturns(')', true);
 
-    ParseOk(_fieldKeyParser, _fieldKey);
-    ParseEmpty(_argumentParser);
+    ParseEmpty(_fieldKeyParser);
+    ParseOk(_argumentParser, _arg);
 
     // Act
     IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldNotBeNull()
-      .IsOk().ShouldBeTrue();
+    result.ShouldBeAssignableTo<IResultOk>();
   }
 
   [Fact]
@@ -84,11 +205,12 @@ public class ParseArgTests
     ParseOk(_fieldKeyParser, _fieldKey);
     ParseEmpty(_argumentParser);
 
+    SetupError<IGqlpArg>();
+
     // Act
     IResult<IGqlpArg> result = _parseArg.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldNotBeNull()
-      .IsOk().ShouldBeFalse();
+    result.ShouldBeAssignableTo<IResultError>();
   }
 }

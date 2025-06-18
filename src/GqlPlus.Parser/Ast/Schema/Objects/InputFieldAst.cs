@@ -11,14 +11,12 @@ internal sealed record class InputFieldAst(
 ) : AstObjField<IGqlpInputBase>(At, Name, Description, BaseType)
   , IGqlpInputField
 {
-  public ConstantAst? DefaultValue { get; set; }
+  public IGqlpConstant? DefaultValue { get; set; }
 
   public InputFieldAst(TokenAt at, string name, IGqlpInputBase typeBase)
     : this(at, name, "", typeBase) { }
 
   internal override string Abbr => "IF";
-
-  IGqlpConstant? IGqlpInputField.DefaultValue => DefaultValue;
 
   public bool Equals(InputFieldAst? other)
     => other is IGqlpInputField field && Equals(field);

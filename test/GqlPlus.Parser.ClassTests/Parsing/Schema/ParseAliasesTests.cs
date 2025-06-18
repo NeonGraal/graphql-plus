@@ -9,9 +9,9 @@ public class ParseAliasesTests
   public void Parse_ShouldReturnAliases_WhenValid(string alias1, string alias2)
   {
     // Arrange
-    TakeReturns('[', true, false);
-    TakeReturns(']', true, false);
-    IdentifierReturns(OutString(alias1), OutString(alias2), OutFail);
+    TakeReturns('[', true);
+    TakeReturns(']', true);
+    IdentifierReturns(OutString(alias1), OutString(alias2));
 
     // Act
     IResultArray<string> result = _parser.Parse(Tokenizer, "testLabel");
@@ -28,9 +28,9 @@ public class ParseAliasesTests
   public void Parse_ShouldReturnError_WhenClosingBracketIsMissing(string alias1, string alias2)
   {
     // Arrange
-    TakeReturns('[', true, false);
+    TakeReturns('[', true);
     TakeReturns(']', false);
-    IdentifierReturns(OutString(alias1), OutString(alias2), OutFail);
+    IdentifierReturns(OutString(alias1), OutString(alias2));
     SetupPartial("");
 
     // Act

@@ -7,7 +7,7 @@ public class ParseFieldTests
 {
   private readonly ParseField _parseField;
   private readonly Parser<IGqlpDirective>.IA _directivesParser;
-  private readonly Parser<IGqlpArg>.I _argumentParser;
+  private readonly IParserArg _argumentParser;
   private readonly Parser<IGqlpSelection>.IA _objectParser;
 
   public ParseFieldTests()
@@ -66,7 +66,7 @@ public class ParseFieldTests
   public void Parse_ShouldReturnError_WhenNameIsMissingAfterAlias(string alias)
   {
     // Arrange
-    IdentifierReturns(OutString(alias), OutFail);
+    IdentifierReturns(OutString(alias));
     TakeReturns(':', true);
 
     // Act

@@ -6,7 +6,7 @@ public class ParseInputParamsTests
   : AliasesClassTestBase
 {
   private readonly Parser<IGqlpInputBase>.I _input;
-  private readonly Parser<IGqlpConstant>.I _defaultParser;
+  private readonly IParserDefault _defaultParser;
   private readonly ParseInputParams _parser;
 
   public ParseInputParamsTests()

@@ -38,14 +38,14 @@ public static class RenderFluid
       ? new StringValue(tagged.Tag)
       : EmptyValue.Instance;
 
-  internal static void WriteHtmlFile(this Structured model, string dir, string file, string initial = "default")
+  internal static async Task WriteHtmlFile(this Structured model, string dir, string file, string initial = "default")
   {
     ArgumentNullException.ThrowIfNull(model);
 
     model.Add("yaml", model.ToLines(true));
     TemplateContext context = new(model, s_options);
     IFluidTemplate template = GetTemplate(initial);
-    template.Render(context).WriteHtmlFile(dir, file);
+    await template.RenderAsync(context).WriteHtmlFile(dir, file);
   }
 
   internal static async Task WriteHtmlFileAsync(this Structured model, string dir, string file, string initial = "default")
@@ -55,7 +55,7 @@ public static class RenderFluid
     model.Add("yaml", model.ToLines(true));
     TemplateContext context = new(model, s_options);
     IFluidTemplate template = GetTemplate(initial);
-    await template.RenderAsync(context).WriteHtmlFileAsync(dir, file);
+    await template.RenderAsync(context).WriteHtmlFile(dir, file);
   }
 
   private static object RenderConverter(object input)

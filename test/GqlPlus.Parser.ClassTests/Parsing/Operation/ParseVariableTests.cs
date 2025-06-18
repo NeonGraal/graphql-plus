@@ -7,8 +7,8 @@ public class ParseVariableTests
 {
   private readonly ParseVariable _parseVariable;
   private readonly Parser<IGqlpDirective>.IA _directivesParser;
-  private readonly Parser<IGqlpConstant>.I _defaultParser;
-  private readonly Parser<string>.I _varTypeParser;
+  private readonly IParserDefault _defaultParser;
+  private readonly IParserVarType _varTypeParser;
 
   public ParseVariableTests()
   {

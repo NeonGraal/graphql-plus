@@ -6,7 +6,7 @@ public class DeclarationClassTestBase
   : AliasesClassTestBase
 {
   private readonly Parser<NullAst>.IA _nullParam;
-  private readonly Parser<NullOption>.I _option;
+  private readonly IOptionParser<NullOption> _option;
 
   internal INameParser NameParser { get; set; }
   internal ISimpleName SimpleName { get; }

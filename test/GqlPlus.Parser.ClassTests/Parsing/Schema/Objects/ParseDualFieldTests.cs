@@ -19,7 +19,7 @@ public class ParseDualFieldTests
   {
     // Arrange
     IdentifierReturns(OutString(fieldName));
-    TakeReturns(':', true, false);
+    TakeReturns(':', true);
     ParseOk(_parseBase);
 
     // Act

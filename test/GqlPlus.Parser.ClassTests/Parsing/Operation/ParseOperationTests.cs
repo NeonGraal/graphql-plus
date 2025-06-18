@@ -6,10 +6,10 @@ public class ParseOperationTests
   : ModifiersClassTestBase
 {
   private readonly ParseOperation _parseOperation;
-  private readonly Parser<IGqlpArg>.I _argumentParser;
+  private readonly IParserArg _argumentParser;
   private readonly Parser<IGqlpDirective>.IA _directivesParser;
-  private readonly Parser<IGqlpFragment>.IA _startFragmentsParser;
-  private readonly Parser<IGqlpFragment>.IA _endFragmentsParser;
+  private readonly IParserStartFragments _startFragmentsParser;
+  private readonly IParserEndFragments _endFragmentsParser;
   private readonly Parser<IGqlpSelection>.IA _objectParser;
   private readonly Parser<IGqlpVariable>.IA _variablesParser;
 

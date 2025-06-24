@@ -35,8 +35,8 @@ public class DirectivesModelTests(
 
 internal sealed class DirectivesModelChecks(
   IModeller<IGqlpSchemaDirective, DirectiveModel> modeller,
-  IRenderer<DirectivesModel> rendering
-) : CheckModelBase<string, IGqlpSchemaDirective, DirectiveDeclAst, DirectiveModel, DirectivesModel>(modeller, rendering)
+  IEncoder<DirectivesModel> encoding
+) : CheckModelBase<string, IGqlpSchemaDirective, DirectiveDeclAst, DirectiveModel, DirectivesModel>(modeller, encoding)
   , IDirectivesModelChecks
 {
   protected override string[] ExpectedBase(string name)

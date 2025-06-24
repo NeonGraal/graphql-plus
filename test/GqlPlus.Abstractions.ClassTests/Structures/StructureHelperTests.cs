@@ -6,14 +6,14 @@ namespace GqlPlus.Structures;
 public class StructureHelperTests
 {
   [Theory, RepeatData]
-  public void Render_Errors_ReturnsCorrect([NotNull] string[] messages)
+  public void Encode_Errors_ReturnsCorrect([NotNull] string[] messages)
   {
     // Arrange
     TokenAt at = new(TokenKind.Identifer, 1, 1, "id");
     ITokenMessages errors = new TokenMessages([.. messages.Select(m => new TokenMessage(at, m))]);
 
     // Act
-    Structured result = errors.Render();
+    Structured result = errors.Encode();
 
     // Assert
     result.ShouldSatisfyAllConditions(
@@ -24,13 +24,13 @@ public class StructureHelperTests
   }
 
   [Theory, RepeatData]
-  public void RenderEnum_ReturnsCorrect([NotNull] TokenKind value)
+  public void EncodeEnum_ReturnsCorrect([NotNull] TokenKind value)
   {
     //Arrange
     string typeTag = typeof(TokenKind).TypeTag();
 
     // Act
-    Structured result = value.RenderEnum();
+    Structured result = value.EncodeEnum();
 
     // Assert
     result.ShouldSatisfyAllConditions(

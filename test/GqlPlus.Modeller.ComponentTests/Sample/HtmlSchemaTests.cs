@@ -18,14 +18,14 @@ public class HtmlSchemaTests(
     IEnumerable<string> objects = await ReplaceSchemaKeys("Objects");
     Structured result = new Map<Structured>() {
       ["title"] = "Samples",
-      ["items"] = all.Render(),
+      ["items"] = all.Encode(),
       ["groups"] = new Map<Structured>() {
-        ["Globals"] = SamplesSchemaGlobalsData.Strings.Render(),
-        ["Merges"] = merges.Render(),
-        ["Objects"] = objects.Render(),
-        ["Simple"] = SamplesSchemaSimpleData.Strings.Render(),
-      }.Render()
-    }.Render();
+        ["Globals"] = SamplesSchemaGlobalsData.Strings.Encode(),
+        ["Merges"] = merges.Encode(),
+        ["Objects"] = objects.Encode(),
+        ["Simple"] = SamplesSchemaSimpleData.Strings.Encode(),
+      }.Encode()
+    }.Encode();
 
     await result.WriteHtmlFileAsync("Sample", "index", "index");
   }
@@ -35,8 +35,8 @@ public class HtmlSchemaTests(
   {
     Structured result = new Map<Structured>() {
       ["title"] = "Schema",
-      ["items"] = SamplesSchemaData.Strings.Render(),
-    }.Render("");
+      ["items"] = SamplesSchemaData.Strings.Encode(),
+    }.Encode("");
 
     result.WriteHtmlFile("Schema", "index", "index");
   }
@@ -46,8 +46,8 @@ public class HtmlSchemaTests(
   {
     Structured result = new Map<Structured>() {
       ["title"] = "Specification",
-      ["items"] = SamplesSchemaSpecificationData.Strings.Render(),
-    }.Render("");
+      ["items"] = SamplesSchemaSpecificationData.Strings.Encode(),
+    }.Encode("");
 
     result.WriteHtmlFile("Spec", "index", "index");
   }

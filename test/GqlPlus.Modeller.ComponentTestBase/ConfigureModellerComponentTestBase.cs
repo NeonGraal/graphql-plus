@@ -1,5 +1,5 @@
 ﻿using GqlPlus.Modelling;
-using GqlPlus.Rendering;
+using GqlPlus.Encoding;
 using GqlPlus.Resolving;
 
 using Microsoft.Extensions.DependencyInjection;
@@ -12,8 +12,8 @@ public static class ConfigureModellerComponentTestBase
       .AddComponentTest()
       .AddModellers()
       .AddResolvers()
-      .AddRenderers()
+      .AddEncoders()
       // Test support
       .AddTransient<ISchemaVerifyChecks, SchemaVerifyChecks>()
-      .AddSingleton<IModelAndRender, ModelAndRender>();
+      .AddSingleton<IModelAndEncode, ModelAndEncode>();
 }

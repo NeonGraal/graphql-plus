@@ -36,10 +36,10 @@ public abstract class TestObjectFieldModel<TObjField, TObjBase, TModel>(
 }
 
 internal abstract class CheckObjectFieldModel<TObjField, TObjFieldAst, TObjBase, TModel>(
-  IModeller<TObjField, TModel> field, IRenderer
-  <TModel> rendering,
+  IModeller<TObjField, TModel> field, IEncoder
+  <TModel> encoding,
   TypeKindModel kind
-) : CheckModelBase<FieldInput, TObjField, TModel>(field, rendering),
+) : CheckModelBase<FieldInput, TObjField, TModel>(field, encoding),
     ICheckObjectFieldModel<TObjField, TModel>
   where TObjField : IGqlpObjField
   where TObjFieldAst : AstObjField<TObjBase>, TObjField

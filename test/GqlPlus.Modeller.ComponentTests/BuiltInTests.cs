@@ -6,7 +6,7 @@ using GqlPlus.Resolving;
 
 namespace GqlPlus;
 
-public class BuiltInTests(IModelAndRender renderer)
+public class BuiltInTests(IModelAndEncode encoder)
 {
   [Theory]
   [ClassData(typeof(BuiltInBasicData))]
@@ -45,12 +45,12 @@ public class BuiltInTests(IModelAndRender renderer)
   {
     Structured result = new Map<Structured>() {
       ["title"] = "BuiltIn",
-      ["items"] = _sections.Render(),
+      ["items"] = _sections.Encode(),
       ["groups"] = new Map<Structured>() {
-        ["Basic"] = BuiltIn.Basic.Render(t => t.Name),
-        ["Internal"] = BuiltIn.Internal.Render(t => t.Name),
-      }.Render(),
-    }.Render("");
+        ["Basic"] = BuiltIn.Basic.Encode(t => t.Name),
+        ["Internal"] = BuiltIn.Internal.Encode(t => t.Name),
+      }.Encode(),
+    }.Encode("");
 
     result.WriteHtmlFile("BuiltIn", "index", "index");
   }
@@ -72,8 +72,8 @@ public class BuiltInTests(IModelAndRender renderer)
       Declarations = BuiltIn.Basic
     };
 
-    IModelsContext context = renderer.Context();
-    Structured result = renderer.RenderAst(schema, context);
+    IModelsContext context = encoder.Context();
+    Structured result = encoder.EncodeAst(schema, context);
 
     context.Errors.ShouldBeEmpty();
   }
@@ -85,8 +85,8 @@ public class BuiltInTests(IModelAndRender renderer)
       Declarations = BuiltIn.Internal
     };
 
-    IModelsContext context = renderer.Context();
-    Structured result = renderer.RenderAst(schema, context);
+    IModelsContext context = encoder.Context();
+    Structured result = encoder.EncodeAst(schema, context);
 
     context.Errors.ShouldBeEmpty();
   }
@@ -107,8 +107,8 @@ public class BuiltInTests(IModelAndRender renderer)
       Declarations = [.. extras.Where(e => e != type)]
     };
 
-    IModelsContext context = renderer.Context();
-    Structured result = renderer.RenderAst(schema, context, extrasSchema);
+    IModelsContext context = encoder.Context();
+    Structured result = encoder.EncodeAst(schema, context, extrasSchema);
 
     context.Errors.ShouldBeEmpty(type?.Label);
   }
@@ -130,7 +130,7 @@ public class BuiltInTests(IModelAndRender renderer)
 
   private void RenderSchemaHtml(SchemaAst schema, string filename, string section = "", SchemaAst? extras = null)
   {
-    Structured result = renderer.RenderAst(schema, renderer.Context(), extras);
+    Structured result = encoder.EncodeAst(schema, encoder.Context(), extras);
 
     result.WriteHtmlFile("BuiltIn" + section.Prefixed("/"), filename);
   }

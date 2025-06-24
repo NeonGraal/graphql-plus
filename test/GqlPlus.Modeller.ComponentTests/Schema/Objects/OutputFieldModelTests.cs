@@ -25,8 +25,8 @@ public class OutputFieldModelTests(
 
 internal sealed class OutputFieldModelChecks(
   IModeller<IGqlpOutputField, OutputFieldModel> modeller,
-  IRenderer<OutputFieldModel> rendering
-) : CheckObjectFieldModel<IGqlpOutputField, OutputFieldAst, IGqlpOutputBase, OutputFieldModel>(modeller, rendering, TypeKindModel.Output)
+  IEncoder<OutputFieldModel> encoding
+) : CheckObjectFieldModel<IGqlpOutputField, OutputFieldAst, IGqlpOutputBase, OutputFieldModel>(modeller, encoding, TypeKindModel.Output)
   , IOutputFieldModelChecks
 {
   internal override OutputFieldAst NewFieldAst(FieldInput input, string[] aliases, bool withModifiers)

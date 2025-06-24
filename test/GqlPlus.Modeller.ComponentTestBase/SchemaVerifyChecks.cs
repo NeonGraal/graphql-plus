@@ -9,7 +9,7 @@ namespace GqlPlus;
 internal sealed class SchemaVerifyChecks(
     Parser<IGqlpSchema>.D schemaParser,
     IMerge<IGqlpSchema> schemaMerger,
-    IModelAndRender schemaRenderer
+    IModelAndEncode schemaEncoder
 ) : SchemaDataBase(schemaParser)
   , ISchemaVerifyChecks
 {
@@ -31,10 +31,10 @@ internal sealed class SchemaVerifyChecks(
   {
     IGqlpSchema schema = schemaMerger.Merge(asts).First();
 
-    IModelsContext context = schemaRenderer.WithBuiltIns();
+    IModelsContext context = schemaEncoder.WithBuiltIns();
     context.TypeKinds.Add("_Described", TypeKindModel.Dual);
 
-    Structured structured = schemaRenderer.RenderAst(schema, context);
+    Structured structured = schemaEncoder.EncodeAst(schema, context);
 
     context.Errors.Add(asts.SelectMany(a => a.Errors));
 

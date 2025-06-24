@@ -11,8 +11,8 @@ public class InputParamModelTests(
 
 internal sealed class InputParamModelChecks(
   IModeller<IGqlpInputParam, InputParamModel> modeller,
-  IRenderer<InputParamModel> rendering
-) : CheckDescribedModel<string, IGqlpInputParam, InputParamModel>(modeller, rendering)
+  IEncoder<InputParamModel> encoding
+) : CheckDescribedModel<string, IGqlpInputParam, InputParamModel>(modeller, encoding)
 {
   protected override string[] ExpectedDescription(ExpectedDescriptionInput<string> input)
     => ["!_InputParam", .. input.ExpectedDescription, "input: " + input.Name];

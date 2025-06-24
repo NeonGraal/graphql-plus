@@ -73,7 +73,7 @@ public abstract class ConverterClassTestBase
   public void WithList_ReturnsCorrect(string[] input)
   {
     // Arrange
-    Structured model = input.Render();
+    Structured model = input.Encode();
 
     // Act
     string result = Convert(model);
@@ -86,7 +86,7 @@ public abstract class ConverterClassTestBase
   public void WithListFlow_ReturnsCorrect(string[] input)
   {
     // Arrange
-    Structured model = input.Render(flow: true);
+    Structured model = input.Encode(flow: true);
 
     // Act
     string result = Convert(model);
@@ -99,7 +99,7 @@ public abstract class ConverterClassTestBase
   public void WithListMap_ReturnsCorrect(string[] input)
   {
     // Arrange
-    Structured model = input.Render(MakeMap);
+    Structured model = input.Encode(MakeMap);
 
     // Act
     string result = Convert(model);
@@ -113,7 +113,7 @@ public abstract class ConverterClassTestBase
   {
     // Arrange
     Map<string> map = new() { [key] = value };
-    Structured model = map.Render(s => new(s));
+    Structured model = map.Encode(s => new(s));
 
     // Act
     string result = Convert(model);
@@ -127,7 +127,7 @@ public abstract class ConverterClassTestBase
   {
     // Arrange
     Map<string> map = new() { [key] = value };
-    Structured model = map.Render(s => new(s), flow: true);
+    Structured model = map.Encode(s => new(s), flow: true);
 
     // Act
     string result = Convert(model);
@@ -141,7 +141,7 @@ public abstract class ConverterClassTestBase
   {
     // Arrange
     Map<string> map = keys.ToMap(k => k);
-    Structured model = map.Render(s => new(s), flow: true);
+    Structured model = map.Encode(s => new(s), flow: true);
 
     // Act
     string result = Convert(model);
@@ -155,7 +155,7 @@ public abstract class ConverterClassTestBase
   {
     // Arrange
     Map<string[]> map = new() { [key] = value };
-    Structured model = map.Render(s => s.Render(), flow: true);
+    Structured model = map.Encode(s => s.Encode(), flow: true);
 
     // Act
     string result = Convert(model);
@@ -236,7 +236,7 @@ public abstract class ConverterClassTestBase
   public void WithListTag_ReturnsCorrect(string[] input, string tag)
   {
     // Arrange
-    Structured model = input.Render(tag);
+    Structured model = input.Encode(tag);
 
     // Act
     string result = Convert(model);
@@ -249,7 +249,7 @@ public abstract class ConverterClassTestBase
   public void WithListTagFlow_ReturnsCorrect(string[] input, string tag)
   {
     // Arrange
-    Structured model = input.Render(tag, flow: true);
+    Structured model = input.Encode(tag, flow: true);
 
     // Act
     string result = Convert(model);
@@ -262,7 +262,7 @@ public abstract class ConverterClassTestBase
   public void WithListTagMap_ReturnsCorrect(string[] input, string tag)
   {
     // Arrange
-    Structured model = input.Render(MakeMap, tag);
+    Structured model = input.Encode(MakeMap, tag);
 
     // Act
     string result = Convert(model);
@@ -276,7 +276,7 @@ public abstract class ConverterClassTestBase
   {
     // Arrange
     Map<string> map = new() { [key] = value };
-    Structured model = map.Render(s => new(s), tag);
+    Structured model = map.Encode(s => new(s), tag);
 
     // Act
     string result = Convert(model);
@@ -290,7 +290,7 @@ public abstract class ConverterClassTestBase
   {
     // Arrange
     Map<string> map = new() { [key] = value };
-    Structured model = map.Render(s => new(s), tag, flow: true);
+    Structured model = map.Encode(s => new(s), tag, flow: true);
 
     // Act
     string result = Convert(model);
@@ -304,7 +304,7 @@ public abstract class ConverterClassTestBase
   {
     // Arrange
     Map<string> map = keys.ToMap(k => k);
-    Structured model = map.Render(s => new(s), tag, flow: true);
+    Structured model = map.Encode(s => new(s), tag, flow: true);
 
     // Act
     string result = Convert(model);
@@ -318,7 +318,7 @@ public abstract class ConverterClassTestBase
   {
     // Arrange
     Map<string[]> map = new() { [key] = value };
-    Structured model = map.Render(s => s.Render(), tag, flow: true);
+    Structured model = map.Encode(s => s.Encode(), tag, flow: true);
 
     // Act
     string result = Convert(model);
@@ -328,7 +328,7 @@ public abstract class ConverterClassTestBase
   }
 
   private static Structured MakeMap(string s)
-    => new Map<Structured>() { ["value"] = new(s) }.Render();
+    => new Map<Structured>() { ["value"] = new(s) }.Encode();
 
   protected abstract string Convert(Structured model);
 

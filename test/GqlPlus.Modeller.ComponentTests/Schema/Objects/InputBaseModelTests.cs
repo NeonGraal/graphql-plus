@@ -11,8 +11,8 @@ public class InputBaseModelTests(
 
 internal sealed class InputBaseModelChecks(
   IModeller<IGqlpInputBase, InputBaseModel> modeller,
-  IRenderer<InputBaseModel> rendering
-) : CheckObjBaseModel<IGqlpInputBase, IGqlpInputArg, InputBaseAst, InputArgAst, InputBaseModel>(modeller, rendering, TypeKindModel.Input)
+  IEncoder<InputBaseModel> encoding
+) : CheckObjBaseModel<IGqlpInputBase, IGqlpInputArg, InputBaseAst, InputArgAst, InputBaseModel>(modeller, encoding, TypeKindModel.Input)
   , IInputBaseModelChecks
 {
   protected override InputArgAst NewObjArgAst(string input, bool isTypeParam)

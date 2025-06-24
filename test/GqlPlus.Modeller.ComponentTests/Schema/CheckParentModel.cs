@@ -28,9 +28,9 @@ internal abstract class CheckParentModel<TAst, TTypeKind, TModel, TItem>(
   protected abstract ToExpected<string> ExpectedAllItem(string type);
 }
 
-public interface ICheckParentModel<TTypeKind, TRender>
-  : ICheckTypeModel<TTypeKind, TRender>
-  where TRender : IModelBase
+public interface ICheckParentModel<TTypeKind, TModel>
+  : ICheckTypeModel<TTypeKind, TModel>
+  where TModel : IModelBase
 {
   IEnumerable<string> ExpectedItems(string field, string[] items);
   IEnumerable<string> ExpectedAllItems(string field, string[] items, string type);

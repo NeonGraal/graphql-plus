@@ -152,8 +152,8 @@ public class SchemaModelTests(
 
 internal sealed class SchemaModelChecks(
   IModeller<IGqlpSchema, SchemaModel> modeller,
-  IRenderer<SchemaModel> rendering
-) : CheckModelBase<string, IGqlpSchema, SchemaAst, SchemaModel>(modeller, rendering)
+  IEncoder<SchemaModel> encoding
+) : CheckModelBase<string, IGqlpSchema, SchemaAst, SchemaModel>(modeller, encoding)
   , ISchemaModelChecks
 {
   protected override string[] ExpectedBase(string name)

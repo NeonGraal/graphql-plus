@@ -49,15 +49,15 @@ public class Structured
   public Structured AddBool(string key, bool value)
     => value ? Add(key, value) : this;
 
-  public Structured IncludeRendered<TValue>(TValue? value, IRenderer<TValue> renderer)
+  public Structured IncludeEncoded<TValue>(TValue? value, IEncoder<TValue> encoder)
   {
     if (value is null) {
       return this;
     }
 
-    renderer.ThrowIfNull();
+    encoder.ThrowIfNull();
 
-    foreach (KeyValuePair<StructureValue, Structured> item in renderer.Render(value).Map) {
+    foreach (KeyValuePair<StructureValue, Structured> item in encoder.Encode(value).Map) {
       Map.Add(item.Key, item.Value);
     }
 
@@ -68,17 +68,17 @@ public class Structured
     where TValue : Enum
     => Add(key, new(value.ToString(), tag ?? typeof(TValue).TypeTag()));
 
-  public Structured AddRendered<TValue>(string key, TValue? value, IRenderer<TValue> renderer)
+  public Structured AddEncoded<TValue>(string key, TValue? value, IEncoder<TValue> encoder)
     => value is null ? this
-    : Add(key, renderer.ThrowIfNull().Render(value));
+    : Add(key, encoder.ThrowIfNull().Encode(value));
 
-  public Structured AddList<TValue>(string key, IEnumerable<TValue> values, IRenderer<TValue> renderer, string tag = "", bool flow = false)
-    => Add(key, new(values.Select(renderer.ThrowIfNull().Render), tag, flow));
+  public Structured AddList<TValue>(string key, IEnumerable<TValue> values, IEncoder<TValue> encoder, string tag = "", bool flow = false)
+    => Add(key, new(values.Select(encoder.ThrowIfNull().Encode), tag, flow));
 
-  public Structured AddMap<TValue>(string key, IMap<TValue> values, IRenderer<TValue> renderer, string dictTag, bool flow = false, string keyTag = "_Identifier")
+  public Structured AddMap<TValue>(string key, IMap<TValue> values, IEncoder<TValue> encoder, string dictTag, bool flow = false, string keyTag = "_Identifier")
     => Add(key, new(values.ToDictionary(
         p => new StructureValue(p.Key, keyTag),
-        p => renderer.Render(p.Value)), "_Map" + dictTag, flow));
+        p => encoder.Encode(p.Value)), "_Map" + dictTag, flow));
 
   public Structured AddIf(bool optional, Func<Structured, Structured>? onTrue = null, Func<Structured, Structured>? onFalse = null)
     => optional

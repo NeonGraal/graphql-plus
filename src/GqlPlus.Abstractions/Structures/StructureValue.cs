@@ -14,14 +14,14 @@ public sealed class StructureValue
 
   public string? Identifier { get; private init; }
 
-  public StructureValue(bool? value, string tag = "")
+  public StructureValue(bool? value, string? tag = null)
     : base(value, tag) { }
-  public StructureValue(string? value, string tag = "")
+  public StructureValue(string? value, string? tag = null)
     : base(value, tag) => Identifier = value;
-  public StructureValue(decimal? value, string tag = "")
+  public StructureValue(decimal? value, string? tag = null)
     : base(value, tag) { }
 
-  public static StructureValue Str(string? value, string tag = "")
+  public static StructureValue Str(string? value, string? tag = null)
     => new(value, tag) {
       Identifier = null
     };

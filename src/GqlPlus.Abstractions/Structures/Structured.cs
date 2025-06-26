@@ -16,18 +16,18 @@ public class Structured
   public bool Flow { get; }
   public string Tag { get; } = "";
 
-  public Structured(bool? value, string tag = "")
-    : base(new StructureValue(value, tag)) => Tag = tag;
-  public Structured(string? value, string tag = "")
-    : base(new StructureValue(value, tag)) => Tag = tag;
-  public Structured(decimal? value, string tag = "")
-    : base(new StructureValue(value, tag)) => Tag = tag;
+  public Structured(bool? value, string? tag = null)
+    : base(new StructureValue(value, tag)) => Tag = tag ?? "";
+  public Structured(string? value, string? tag = null)
+    : base(new StructureValue(value, tag)) => Tag = tag ?? "";
+  public Structured(decimal? value, string? tag = null)
+    : base(new StructureValue(value, tag)) => Tag = tag ?? "";
   public Structured([NotNull] StructureValue value)
     : base(value) => Tag = value.Tag;
-  public Structured(IEnumerable<Structured> list, string tag = "", bool flow = false)
-    : base(list) => (Tag, Flow) = (tag, flow);
-  public Structured(IDictionary<StructureValue, Structured> map, string tag, bool flow = false)
-    : base(map) => (Tag, Flow) = (tag, flow);
+  public Structured(IEnumerable<Structured> list, string? tag = null, bool flow = false)
+    : base(list) => (Tag, Flow) = (tag ?? "", flow);
+  public Structured(IDictionary<StructureValue, Structured> map, string? tag = null, bool flow = false)
+    : base(map) => (Tag, Flow) = (tag ?? "", flow);
 
   public static implicit operator Structured(StructureValue value)
     => new(value);
@@ -74,7 +74,7 @@ public class Structured
     => value is null ? this
     : Add(key, encoder.ThrowIfNull().Encode(value));
 
-  public Structured AddList<TValue>(string key, IEnumerable<TValue> values, IEncoder<TValue> encoder, string tag = "", bool flow = false)
+  public Structured AddList<TValue>(string key, IEnumerable<TValue> values, IEncoder<TValue> encoder, string? tag = null, bool flow = false)
     => Add(key, new(values.Select(encoder.ThrowIfNull().Encode), tag, flow));
 
   public Structured AddMap<TValue>(string key, IMap<TValue> values, IEncoder<TValue> encoder, string dictTag, bool flow = false, string keyTag = "_Identifier")

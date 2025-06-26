@@ -33,15 +33,16 @@ public class SimpleModel
   public override string Tag => "_Simple";
 
   internal TypeRefModel<SimpleKindModel>? TypeRef { get; private init; }
-  internal string? Value { get; private init; }
+  internal string? TypeName => TypeRef?.TypeName;
 
+  internal string? Value { get; private init; }
   internal string EnumValue => $"{TypeRef?.TypeName}.{Value}";
 
   internal static TypeRefModel<SimpleKindModel>? TypeFor(string? type)
     => string.IsNullOrWhiteSpace(type) ? null : new(SimpleKindModel.Domain, type!, "");
 
-  internal static SimpleModel Bool(bool value)
-    => new(value);
+  internal static SimpleModel Bool(string type, bool value)
+    => new(value) { TypeRef = TypeFor(type) };
   internal static SimpleModel Num(string type, decimal value)
     => new(value) { TypeRef = TypeFor(type) };
   internal static SimpleModel Str(string type, string value)

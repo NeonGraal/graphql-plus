@@ -15,12 +15,12 @@ public interface IValue
 public class ScalarValue
   : IValue
 {
-  public ScalarValue(bool? value, string tag = "")
-    => (Boolean, Tag) = (value, tag);
-  public ScalarValue(string? value, string tag = "")
-    => (Text, Tag) = (value, tag);
-  public ScalarValue(decimal? value, string tag = "")
-    => (Number, Tag) = (value, tag);
+  public ScalarValue(bool? value, string? tag = null)
+    => (Boolean, Tag) = (value, tag ?? "");
+  public ScalarValue(string? value, string? tag = null)
+    => (Text, Tag) = (value, tag ?? "");
+  public ScalarValue(decimal? value, string? tag = null)
+    => (Number, Tag) = (value, tag ?? "");
 
   public virtual string Tag { get; protected set; } = "";
 

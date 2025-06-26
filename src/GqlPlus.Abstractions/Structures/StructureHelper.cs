@@ -5,16 +5,16 @@ namespace GqlPlus.Structures;
 
 public static class StructureHelper
 {
-  public static Structured Encode<T>(this IEnumerable<T> list, Func<T, Structured> mapper, string tag = "", bool flow = false)
+  public static Structured Encode<T>(this IEnumerable<T> list, Func<T, Structured> mapper, string? tag = null, bool flow = false)
     => new(list.Select(mapper), tag, flow);
 
-  public static Structured Encode(this IEnumerable<string> list, string tag = "", bool flow = false)
+  public static Structured Encode(this IEnumerable<string> list, string? tag = null, bool flow = false)
     => list.Encode(i => new(i), tag, flow);
 
-  public static Structured Encode<T>(this IMap<T> groups, Func<T, Structured> mapper, string tag = "", bool flow = false)
+  public static Structured Encode<T>(this IMap<T> groups, Func<T, Structured> mapper, string? tag = null, bool flow = false)
     => new(groups.ToDictionary(k => new StructureValue(k.Key), v => mapper(v.Value)), tag, flow);
 
-  public static Structured Encode(this IMap<Structured> groups, string tag = "", bool flow = false)
+  public static Structured Encode(this IMap<Structured> groups, string? tag = null, bool flow = false)
     => groups.Encode(v => v, tag, flow);
 
   public static Structured Encode(this ITokenMessages errors)

@@ -24,11 +24,11 @@ internal class SimpleEncoder
   Structured IEncoder<SimpleModel>.Encode(SimpleModel model)
     => model switch {
       { Value: not null } when !string.IsNullOrWhiteSpace(model.Value)
-        => new(model.Value, model.TypeRef?.TypeName ?? ""),
-      { Boolean: not null } => new(model.Boolean),
-      { Number: not null } => new(model.Number, model.TypeRef?.TypeName ?? ""),
+        => new(model.Value, model.TypeName),
+      { Boolean: not null } => new(model.Boolean, model.TypeName),
+      { Number: not null } => new(model.Number, model.TypeName),
       { Text: not null } when !string.IsNullOrEmpty(model.Text)
-        => new(StructureValue.Str(model.Text, model.TypeRef?.TypeName ?? "")),
+        => new(StructureValue.Str(model.Text, model.TypeName)),
       _ => new(""), // new("null", "Basic"),
     };
 }

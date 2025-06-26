@@ -9,7 +9,7 @@ internal class SimpleModeller
       { Text: not null } when !string.IsNullOrEmpty(ast.Text)
         => SimpleModel.Str("", ast.Text),
       { EnumType: not null } when "Boolean".Equals(ast.EnumType, StringComparison.OrdinalIgnoreCase)
-        => SimpleModel.Bool("true".Equals(ast.EnumLabel, StringComparison.OrdinalIgnoreCase)),
+        => SimpleModel.Bool("", "true".Equals(ast.EnumLabel, StringComparison.OrdinalIgnoreCase)),
       { EnumLabel: not null } when !string.IsNullOrWhiteSpace(ast.EnumLabel)
         => SimpleModel.Enum(ast.EnumType ?? "", ast.EnumLabel),
       _ => new("")

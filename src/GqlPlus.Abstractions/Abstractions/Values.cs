@@ -12,14 +12,14 @@ public interface IValue
   bool TryGetMap(out IMap<IValue>? map);
 }
 
-public class BaseValue
+public class ScalarValue
   : IValue
 {
-  public BaseValue(bool? value, string tag = "")
+  public ScalarValue(bool? value, string tag = "")
     => (Boolean, Tag) = (value, tag);
-  public BaseValue(string? value, string tag = "")
+  public ScalarValue(string? value, string tag = "")
     => (Text, Tag) = (value, tag);
-  public BaseValue(decimal? value, string tag = "")
+  public ScalarValue(decimal? value, string tag = "")
     => (Number, Tag) = (value, tag);
 
   public virtual string Tag { get; protected set; } = "";
@@ -74,4 +74,39 @@ public class BaseValue
 
   public virtual bool TryGetMap(out IMap<IValue>? map)
     => TryGet(out map, () => null);
+}
+
+#pragma warning disable CA1034 // Nested types should not be visible
+public class ComplexValue<TValue, TObject>
+  where TValue : ScalarValue
+  where TObject : ComplexValue<TValue, TObject>
+{
+  internal sealed class Dict
+    : Dictionary<TValue, TObject>, IDict
+  {
+    internal Dict() : base() { }
+    internal Dict(IDictionary<TValue, TObject> dictionary)
+      : base(dictionary) { }
+
+    public bool Equals(IDict other)
+      => other is not null
+      && Keys.OrderedEqual(other.Keys)
+      && Keys.All(k => this[k].Equals(other[k]));
+  }
+
+  public interface IDict
+    : IDictionary<TValue, TObject>
+    , IEquatable<IDict>
+  { }
+
+  public TValue? Value { get; }
+  public IList<TObject> List { get; } = [];
+  public IDict Map { get; } = new Dict();
+
+  public ComplexValue(TValue value)
+    => Value = value;
+  public ComplexValue(IEnumerable<TObject> values)
+    => List = [.. values];
+  public ComplexValue(IDictionary<TValue, TObject> values)
+    => Map = new Dict(values);
 }

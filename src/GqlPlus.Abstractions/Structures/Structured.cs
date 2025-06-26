@@ -4,7 +4,7 @@ using GqlPlus.Abstractions;
 namespace GqlPlus.Structures;
 
 public class Structured
-  : Structured<StructureValue, Structured>
+  : ComplexValue<StructureValue, Structured>
   , IEquatable<Structured>
   , IValue
 {
@@ -126,49 +126,14 @@ public class Structured
   public bool TryGetBoolean(out bool? value)
     => SingleValue?.TryGetBoolean(out value) ?? (value = null) is not null;
   public bool TryGetList(out IEnumerable<IValue>? list)
-    => BaseValue.TryGet(out list, () => this switch {
+    => ScalarValue.TryGet(out list, () => this switch {
       { Value: not null } => [Value],
       { List.Count: > 0 } => List.Cast<IValue>(),
       { Map.Count: > 0 } => [this],
       _ => null,
     });
   public bool TryGetMap(out IMap<IValue>? map)
-    => BaseValue.TryGet(out map, () => Map.Count > 0
+    => ScalarValue.TryGet(out map, () => Map.Count > 0
       ? Map.ToMap(k => k.Key.AsString, v => v.Value as IValue)
       : null);
-}
-
-#pragma warning disable CA1034 // Nested types should not be visible
-public class Structured<TValue, TObject>
-  where TValue : notnull, IValue
-  where TObject : Structured<TValue, TObject>
-{
-  internal sealed class Dict
-    : Dictionary<TValue, TObject>, IDict
-  {
-    internal Dict() : base() { }
-    internal Dict(IDictionary<TValue, TObject> dictionary)
-      : base(dictionary) { }
-
-    public bool Equals(IDict other)
-      => other is not null
-      && Keys.OrderedEqual(other.Keys)
-      && Keys.All(k => this[k].Equals(other[k]));
-  }
-
-  public interface IDict
-    : IDictionary<TValue, TObject>
-    , IEquatable<IDict>
-  { }
-
-  public TValue? Value { get; }
-  public IList<TObject> List { get; } = [];
-  public IDict Map { get; } = new Dict();
-
-  public Structured(TValue value)
-    => Value = value;
-  public Structured(IEnumerable<TObject> values)
-    => List = [.. values];
-  public Structured(IDictionary<TValue, TObject> values)
-    => Map = new Dict(values);
 }

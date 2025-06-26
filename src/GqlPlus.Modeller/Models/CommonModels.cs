@@ -2,7 +2,7 @@
 namespace GqlPlus.Models;
 
 public class ConstantModel
-  : Structured<SimpleModel, ConstantModel>
+  : ComplexValue<SimpleModel, ConstantModel>
   , IModelBase
 {
   public string Tag => "_Constant";
@@ -18,7 +18,7 @@ public class ConstantModel
 }
 
 public class SimpleModel
-  : BaseValue
+  : ScalarValue
   , IModelBase
 {
   public SimpleModel(bool? value)

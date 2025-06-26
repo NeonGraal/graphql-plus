@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Abstractions;
 
 namespace GqlPlus.Convert;
 
@@ -42,7 +43,7 @@ internal sealed class RenderStructureJsonConverter
     }
   }
 
-  private void WriteFullMap(Utf8JsonWriter writer, Structured<StructureValue, Structured>.IDict map, string tag, JsonSerializerOptions options)
+  private void WriteFullMap(Utf8JsonWriter writer, ComplexValue<StructureValue, Structured>.IDict map, string tag, JsonSerializerOptions options)
   {
     writer.WriteStartObject();
 

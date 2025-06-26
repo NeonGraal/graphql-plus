@@ -5,23 +5,32 @@ internal class ConstantEncoder(
 ) : IEncoder<ConstantModel>
 {
   public Structured Encode(ConstantModel model)
-    => model.Map.Count > 0 ? new Structured(model.Map.ToDictionary(
-        p => simple.Encode(p.Key).Value!,
-        p => Encode(p.Value)), "_ConstantMap")
-    : model.List.Count > 0 ? new(model.List.Select(Encode), "_ConstantList")
-    : model.Value is not null ? simple.Encode(model.Value)
-    : new("");
+    => model switch {
+      { Map.Count: > 0 }
+        => new Structured(model.Map.ToDictionary(
+          p => simple.Encode(p.Key).Value!,
+          p => Encode(p.Value)), "_ConstantMap"),
+      { List.Count: > 0 }
+        => new(model.List.Select(Encode), "_ConstantList"),
+      { Value: not null }
+        => simple.Encode(model.Value),
+      _ => new(""),
+    };
 }
 
 internal class SimpleEncoder
   : IEncoder<SimpleModel>
 {
   Structured IEncoder<SimpleModel>.Encode(SimpleModel model)
-    => model.Boolean is not null ? new(model.Boolean)
-      : model.Number is not null ? new(model.Number, model.TypeRef?.TypeName ?? "")
-      : model.String is not null ? new(StructureValue.Str(model.String, model.TypeRef?.TypeName ?? ""))
-      : model.Value is not null ? new(model.Value, model.TypeRef?.TypeName ?? "")
-      : new("null", "Basic");
+    => model switch {
+      { Value: not null } when !string.IsNullOrWhiteSpace(model.Value)
+        => new(model.Value, model.TypeRef?.TypeName ?? ""),
+      { Boolean: not null } => new(model.Boolean),
+      { Number: not null } => new(model.Number, model.TypeRef?.TypeName ?? ""),
+      { Text: not null } when !string.IsNullOrEmpty(model.Text)
+        => new(StructureValue.Str(model.Text, model.TypeRef?.TypeName ?? "")),
+      _ => new(""), // new("null", "Basic"),
+    };
 }
 
 internal class CollectionEncoder

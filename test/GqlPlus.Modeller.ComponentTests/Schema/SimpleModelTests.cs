@@ -16,7 +16,7 @@ public class SimpleModelTests(
 
   [Fact]
   public void Model_Nothing()
-    => checks.SimpleExpected(new FieldKeyAst(AstNulls.At), ["!Basic null"]);
+    => checks.SimpleExpected(new FieldKeyAst(AstNulls.At), [""]);
 
   [Theory, RepeatData]
   public void Model_Number(decimal number)

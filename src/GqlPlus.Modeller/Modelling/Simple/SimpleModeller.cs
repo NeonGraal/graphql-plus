@@ -4,9 +4,14 @@ internal class SimpleModeller
   : ModellerBase<IGqlpFieldKey, SimpleModel>
 {
   protected override SimpleModel ToModel(IGqlpFieldKey ast, IMap<TypeKindModel> typeKinds)
-    => ast.Number.HasValue ? SimpleModel.Num("", ast.Number.Value)
-    : ast.Text is not null ? SimpleModel.Str("", ast.Text)
-    : "Boolean".Equals(ast.EnumType, StringComparison.OrdinalIgnoreCase) ? SimpleModel.Bool("true".Equals(ast.EnumLabel, StringComparison.OrdinalIgnoreCase))
-    : ast.EnumType is not null ? SimpleModel.Enum(ast.EnumType, ast.EnumLabel ?? "")
-    : new();
+    => ast switch {
+      { Number: not null } => SimpleModel.Num("", ast.Number.Value),
+      { Text: not null } when !string.IsNullOrEmpty(ast.Text)
+        => SimpleModel.Str("", ast.Text),
+      { EnumType: not null } when "Boolean".Equals(ast.EnumType, StringComparison.OrdinalIgnoreCase)
+        => SimpleModel.Bool("true".Equals(ast.EnumLabel, StringComparison.OrdinalIgnoreCase)),
+      { EnumLabel: not null } when !string.IsNullOrWhiteSpace(ast.EnumLabel)
+        => SimpleModel.Enum(ast.EnumType ?? "", ast.EnumLabel),
+      _ => new("")
+    };
 }

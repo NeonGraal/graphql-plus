@@ -30,7 +30,7 @@ public class SettingModellerTests
         r => r.Description.ShouldBe(contents),
         r => r.Value.ShouldNotBeNull()
           .Value.ShouldNotBeNull()
-          .String.ShouldBe(value)
+          .Text.ShouldBe(value)
       );
   }
 }

@@ -16,8 +16,8 @@ public class SimpleModellerTests
     SimpleModel result = Modeller.ToModel(ast, TypeKinds);
 
     // Assert
-    result.ShouldNotBeNull();
-    result.Number.ShouldBe(42);
+    result.ShouldNotBeNull()
+      .Number.ShouldBe(42);
   }
 
   [Fact]
@@ -30,7 +30,7 @@ public class SimpleModellerTests
     SimpleModel result = Modeller.ToModel(ast, TypeKinds);
 
     // Assert
-    result.ShouldNotBeNull();
-    result.String.ShouldBe("SampleText");
+    result.ShouldNotBeNull()
+      .Text.ShouldBe("SampleText");
   }
 }

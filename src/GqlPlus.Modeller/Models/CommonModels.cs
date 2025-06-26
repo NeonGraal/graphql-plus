@@ -1,4 +1,5 @@
-﻿namespace GqlPlus.Models;
+﻿
+namespace GqlPlus.Models;
 
 public class ConstantModel
   : Structured<SimpleModel, ConstantModel>
@@ -16,15 +17,22 @@ public class ConstantModel
     : base(values) { }
 }
 
-public record class SimpleModel
-  : IModelBase
+public class SimpleModel
+  : BaseValue
+  , IModelBase
 {
-  public string Tag => "_Simple";
+  public SimpleModel(bool? value)
+    : base(value, "") { }
 
-  internal bool? Boolean { get; private init; }
+  public SimpleModel(string? value)
+    : base(value, "") { }
+
+  public SimpleModel(decimal? value)
+    : base(value, "") { }
+
+  public override string Tag => "_Simple";
+
   internal TypeRefModel<SimpleKindModel>? TypeRef { get; private init; }
-  internal decimal? Number { get; private init; }
-  internal string? String { get; private init; }
   internal string? Value { get; private init; }
 
   internal string EnumValue => $"{TypeRef?.TypeName}.{Value}";
@@ -33,13 +41,13 @@ public record class SimpleModel
     => string.IsNullOrWhiteSpace(type) ? null : new(SimpleKindModel.Domain, type!, "");
 
   internal static SimpleModel Bool(bool value)
-    => new() { Boolean = value };
+    => new(value);
   internal static SimpleModel Num(string type, decimal value)
-    => new() { TypeRef = TypeFor(type), Number = value };
+    => new(value) { TypeRef = TypeFor(type) };
   internal static SimpleModel Str(string type, string value)
-    => new() { TypeRef = TypeFor(type), String = value };
+    => new(value) { TypeRef = TypeFor(type) };
   internal static SimpleModel Enum(string type, string value)
-    => new() { TypeRef = TypeFor(type), Value = value };
+    => new("") { TypeRef = TypeFor(type), Value = value };
 }
 
 public record class CollectionModel(

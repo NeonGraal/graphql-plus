@@ -1,10 +1,12 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Abstractions;
 
 namespace GqlPlus.Structures;
 
 public class Structured
   : Structured<StructureValue, Structured>
   , IEquatable<Structured>
+  , IValue
 {
   public bool IsEmpty
     => List.Count == 0
@@ -113,11 +115,32 @@ public class Structured
     => Equals(obj as Structured);
   public override int GetHashCode()
     => HashCode.Combine(Tag, Value?.GetHashCode() ?? 0, List.GetHashCode(), Map.GetHashCode());
+
+  private IValue? SingleValue
+    => Value ?? (List.Count > 0 ? List[0] : null);
+
+  public bool TryGetString(out string? value)
+    => SingleValue?.TryGetString(out value) ?? (value = null) is not null;
+  public bool TryGetNumber(out decimal? value)
+    => SingleValue?.TryGetNumber(out value) ?? (value = null) is not null;
+  public bool TryGetBoolean(out bool? value)
+    => SingleValue?.TryGetBoolean(out value) ?? (value = null) is not null;
+  public bool TryGetList(out IEnumerable<IValue>? list)
+    => BaseValue.TryGet(out list, () => this switch {
+      { Value: not null } => [Value],
+      { List.Count: > 0 } => List.Cast<IValue>(),
+      { Map.Count: > 0 } => [this],
+      _ => null,
+    });
+  public bool TryGetMap(out IMap<IValue>? map)
+    => BaseValue.TryGet(out map, () => Map.Count > 0
+      ? Map.ToMap(k => k.Key.AsString, v => v.Value as IValue)
+      : null);
 }
 
 #pragma warning disable CA1034 // Nested types should not be visible
 public class Structured<TValue, TObject>
-  where TValue : notnull
+  where TValue : notnull, IValue
   where TObject : Structured<TValue, TObject>
 {
   internal sealed class Dict

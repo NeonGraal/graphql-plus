@@ -44,7 +44,7 @@ public sealed class OpenTelemetryFixture : IDisposable, IAsyncLifetime
     string? outDir = dir;
 
     string? parent = Path.GetDirectoryName(dir);
-    while (parent is not null && parent != dir) {
+    while (!string.IsNullOrWhiteSpace(parent) && parent != dir) {
       dir = parent;
       parent = Path.GetDirectoryName(dir);
       if (Path.GetFileName(dir) == "bin") {

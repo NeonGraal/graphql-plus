@@ -1,40 +1,36 @@
-﻿namespace GqlPlus.Structures;
+﻿using GqlPlus.Abstractions;
+
+namespace GqlPlus.Structures;
 
 #pragma warning disable CA1036 // Override methods on comparable types
 public sealed class StructureValue
-  : IComparable<StructureValue>
+  : BaseValue
+  , IComparable<StructureValue>
   , IEquatable<StructureValue>
 {
-  public bool IsEmpty
-    => string.IsNullOrEmpty(Identifier)
-    && string.IsNullOrEmpty(Text)
-    && Boolean is null
-    && Number is null;
+  public override bool IsEmpty
+    => string.IsNullOrWhiteSpace(Identifier)
+    && base.IsEmpty;
 
-  public bool? Boolean { get; }
-  public string? Identifier { get; }
-  public string? Text { get; private init; }
-  public decimal? Number { get; }
-
-  public string Tag { get; private init; } = "";
+  public string? Identifier { get; private init; }
 
   public StructureValue(bool? value, string tag = "")
-    => (Boolean, Tag) = (value, tag);
+    : base(value, tag) { }
   public StructureValue(string? value, string tag = "")
-    => (Identifier, Tag) = (value, tag);
+    : base(value, tag) => Identifier = value;
   public StructureValue(decimal? value, string tag = "")
-    => (Number, Tag) = (value, tag);
-
-  private StructureValue() { }
+    : base(value, tag) { }
 
   public static StructureValue Str(string? value, string tag = "")
-    => new() { Text = value, Tag = tag };
+    => new(value, tag) {
+      Identifier = null
+    };
 
   public int CompareTo(StructureValue? other)
     => string.Equals(Tag, other?.Tag, StringComparison.Ordinal)
       ? Boolean.BothValued(other?.Boolean) ? Boolean.Value.CompareTo(other.Boolean)
-      : Number.BothValued(other?.Number) ? Number.Value.CompareTo(other.Number)
       : Identifier.BothValued(other?.Identifier) ? string.Compare(Identifier, other.Identifier, StringComparison.Ordinal)
+      : Number.BothValued(other?.Number) ? Number.Value.CompareTo(other.Number)
       : Text.BothValued(other?.Text) ? string.Compare(Text, other.Text, StringComparison.Ordinal)
       : -1
     : -1;
@@ -42,29 +38,29 @@ public sealed class StructureValue
   public override bool Equals(object obj) => Equals(obj as StructureValue);
   public bool Equals(StructureValue? other)
     => string.Equals(Tag, other?.Tag, StringComparison.Ordinal) && (Boolean.BothValued(other?.Boolean) ? Boolean.Value == other.Boolean
-      : Number.BothValued(other?.Number) ? Number.Value == other.Number
       : Identifier.BothValued(other?.Identifier) ? string.Equals(Identifier, other.Identifier, StringComparison.Ordinal)
+      : Number.BothValued(other?.Number) ? Number.Value == other.Number
       : Text.BothValued(other?.Text) && string.Equals(Text, other.Text, StringComparison.Ordinal));
   public override int GetHashCode()
     => HashCode.Combine(Tag,
       Boolean?.GetHashCode() ?? 0,
-      Number?.GetHashCode() ?? 0,
       Identifier?.GetHashCode() ?? 0,
+      Number?.GetHashCode() ?? 0,
       Text?.GetHashCode() ?? 0);
 
   public string AsString => this switch {
     { Boolean: not null } => Boolean.Value.TrueFalse(),
-    { Identifier: not null } => Identifier,
+    { Identifier: not null } when !string.IsNullOrWhiteSpace(Identifier) => Identifier,
     { Number: not null } => $"{Number:0.#####}",
-    { Text: not null } => Text,
+    { Text: not null } when !string.IsNullOrEmpty(Text) => Text,
     _ => "",
   };
 
   public override string ToString() => this switch {
     { Boolean: not null } => "B:" + Boolean.Value.TrueFalse(),
-    { Identifier: not null } => "I:" + Identifier,
+    { Identifier: not null } when !string.IsNullOrWhiteSpace(Identifier) => "I:" + Identifier,
     { Number: not null } => $"N:{Number:0.#####}",
-    { Text: not null } => "T:" + Text,
+    { Text: not null } when !string.IsNullOrEmpty(Text) => "T:" + Text,
     _ => "E",
   };
 }

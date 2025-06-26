@@ -33,6 +33,23 @@ public class ParseInputFieldTests
   }
 
   [Theory, RepeatData]
+  public void Parse_ShouldReturnInputField_WhenNoDefault(string fieldName)
+  {
+    // Arrange
+    IdentifierReturns(OutString(fieldName));
+    TakeReturns(':', true);
+    ParseOk(_parseBase);
+    ParseEmpty(_parseDefault);
+
+    // Act
+    IResult<IGqlpInputField> result = _parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultOk<IGqlpInputField>>()
+      .Required().DefaultValue.ShouldBeNull();
+  }
+
+  [Theory, RepeatData]
   public void Parse_ShouldReturnPartial_WhenDefaultErrors(string fieldName)
   {
     // Arrange

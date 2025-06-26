@@ -55,7 +55,7 @@ public class UsageContext(
     }
 
     string message = $"'{input.UsageName}' cannot be {input.Label} of itself";
-    if (current is not null) {
+    if (!string.IsNullOrEmpty(current)) {
       message += $", even recursively via {current}";
     }
 

@@ -23,4 +23,10 @@ public class SimpleEncoderTests
     => EncodeAndCheck(SimpleModel.Str(type, value), [
         $"!{type} '{value}'"
         ]);
+
+  [Theory, RepeatData]
+  public void Encode_WithValue_ReturnsStructuredString(string type, string value)
+    => EncodeAndCheck(SimpleModel.Enum(type, value), [
+        $"!{type} {value}"
+        ]);
 }

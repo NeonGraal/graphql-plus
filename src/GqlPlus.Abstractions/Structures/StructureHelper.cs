@@ -49,6 +49,9 @@ public static class StructureHelper
     where TEnum : struct
     => new(value.ToString(), value.GetType().TypeTag());
 
+  internal static bool BothValued([NotNullWhen(true)] this string? left, [NotNullWhen(true)] string? right)
+    => !string.IsNullOrEmpty(left) && !string.IsNullOrEmpty(right);
+
   internal static bool BothValued<T>([NotNullWhen(true)] this T? left, [NotNullWhen(true)] T? right)
     => left is not null && right is not null;
 

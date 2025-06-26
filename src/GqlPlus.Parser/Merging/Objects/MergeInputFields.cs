@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Merging.Objects;
@@ -15,6 +14,6 @@ internal class MergeInputFields(
 
   protected override IGqlpInputField MergeGroup(IEnumerable<IGqlpInputField> group)
     => (InputFieldAst)base.MergeGroup(group) with {
-      DefaultValue = (ConstantAst?)group.Merge(item => item.DefaultValue, constant).FirstOrDefault()
+      DefaultValue = group.Merge(item => item.DefaultValue, constant).FirstOrDefault()
     };
 }

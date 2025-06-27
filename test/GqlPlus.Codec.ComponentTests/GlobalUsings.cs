@@ -1,7 +1,7 @@
 ﻿global using GqlPlus.Abstractions;
-global using GqlPlus.Abstractions.Schema;
+global using GqlPlus.Ast;
 global using GqlPlus.Models;
 global using GqlPlus.Structures;
-global using NSubstitute;
 global using Shouldly;
 global using Xunit;
+global using static GqlPlus.TestHelpers;

@@ -58,7 +58,7 @@ internal class AllTypesEncoder(
     ?? throw new InvalidOperationException("Unable to find Encoder for " + model.GetType().ExpandTypeName());
 }
 
-internal interface ITypeEncoder
+public interface ITypeEncoder
 {
   bool ForType(BaseTypeModel model);
   Structured TypeEncode(BaseTypeModel model);

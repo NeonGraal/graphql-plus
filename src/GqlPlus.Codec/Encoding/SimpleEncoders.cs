@@ -1,5 +1,4 @@
-﻿
-namespace GqlPlus.Encoding;
+﻿namespace GqlPlus.Encoding;
 
 internal class BaseDomainEncoder<TItem>(
   ParentTypeEncoders<TItem, DomainItemModel<TItem>> encoders

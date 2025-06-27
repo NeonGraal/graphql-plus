@@ -1,5 +1,4 @@
-﻿
-namespace GqlPlus.Structures;
+﻿namespace GqlPlus.Structures;
 
 internal sealed class EncodeMap
   : IEncoder<Map<string>>

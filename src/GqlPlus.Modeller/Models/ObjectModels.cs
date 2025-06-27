@@ -15,8 +15,8 @@ public abstract record class TypeObjectModel<TObjBase, TObjField, TObjAlt>(
   where TObjAlt : IObjAlternateModel
 {
   public TypeParamModel[] TypeParams { get; set; } = [];
-  internal TObjField[] Fields { get; set; } = [];
-  internal TObjAlt[] Alternates { get; set; } = [];
+  public TObjField[] Fields { get; set; } = [];
+  public TObjAlt[] Alternates { get; set; } = [];
 
   public ObjectForModel[] AllFields { get; set; } = [];
   public ObjectForModel[] AllAlternates { get; set; } = [];
@@ -74,7 +74,7 @@ public record class ObjBaseModel<TObjArg>(
   , IObjBaseModel
 where TObjArg : IObjTypeArgModel
 {
-  internal TObjArg[] Args { get; set; } = [];
+  public TObjArg[] Args { get; set; } = [];
   public bool IsTypeParam { get; set; }
   IObjTypeArgModel[] IObjBaseModel.Args => [.. Args.Cast<IObjTypeArgModel>()];
 }

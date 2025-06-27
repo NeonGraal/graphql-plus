@@ -33,9 +33,9 @@ public class SimpleModel
   public override string Tag => "_Simple";
 
   internal TypeRefModel<SimpleKindModel>? TypeRef { get; private init; }
-  internal string? TypeName => TypeRef?.TypeName;
+  public string? TypeName => TypeRef?.TypeName;
 
-  internal string? Value { get; private init; }
+  public string? Value { get; private init; }
   internal string EnumValue => $"{TypeRef?.TypeName}.{Value}";
 
   internal static TypeRefModel<SimpleKindModel>? TypeFor(string? type)

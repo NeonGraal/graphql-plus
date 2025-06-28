@@ -6,7 +6,6 @@ namespace GqlPlus.Structures;
 public class Structured
   : ComplexValue<StructureValue, Structured>
   , IEquatable<Structured>
-  , IValue
 {
   public bool IsEmpty
     => List.Count == 0
@@ -14,7 +13,6 @@ public class Structured
     && (Value?.IsEmpty ?? true);
 
   public bool Flow { get; }
-  public string Tag { get; } = "";
 
   public Structured(bool? value, string? tag = null)
     : base(new StructureValue(value, tag)) => Tag = tag ?? "";
@@ -115,25 +113,4 @@ public class Structured
     => Equals(obj as Structured);
   public override int GetHashCode()
     => HashCode.Combine(Tag, Value?.GetHashCode() ?? 0, List.GetHashCode(), Map.GetHashCode());
-
-  private IValue? SingleValue
-    => Value ?? (List.Count > 0 ? List[0] : null);
-
-  public bool TryGetString(out string? value)
-    => SingleValue?.TryGetString(out value) ?? (value = null) is not null;
-  public bool TryGetNumber(out decimal? value)
-    => SingleValue?.TryGetNumber(out value) ?? (value = null) is not null;
-  public bool TryGetBoolean(out bool? value)
-    => SingleValue?.TryGetBoolean(out value) ?? (value = null) is not null;
-  public bool TryGetList(out IEnumerable<IValue>? list)
-    => ScalarValue.TryGet(out list, () => this switch {
-      { Value: not null } => [Value],
-      { List.Count: > 0 } => List.Cast<IValue>(),
-      { Map.Count: > 0 } => [this],
-      _ => null,
-    });
-  public bool TryGetMap(out IMap<IValue>? map)
-    => ScalarValue.TryGet(out map, () => Map.Count > 0
-      ? Map.ToMap(k => k.Key.AsString, v => v.Value as IValue)
-      : null);
 }

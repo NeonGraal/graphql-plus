@@ -1,24 +1,34 @@
-﻿
+﻿using GqlPlus.Ast;
+
 namespace GqlPlus.Models;
 
 public class ConstantModel
   : ComplexValue<SimpleModel, ConstantModel>
+  , IEquatable<ConstantModel>
   , IModelBase
 {
-  public string Tag => "_Constant";
+  public override string Tag => "_Constant";
 
-  internal ConstantModel(SimpleModel value)
+  public ConstantModel(SimpleModel value)
     : base(value) { }
 
-  internal ConstantModel(IEnumerable<ConstantModel> values)
+  public ConstantModel(IEnumerable<ConstantModel> values)
     : base(values) { }
 
-  internal ConstantModel(Dictionary<SimpleModel, ConstantModel> values)
+  public ConstantModel(Dictionary<SimpleModel, ConstantModel> values)
     : base(values) { }
+
+  public bool Equals(ConstantModel? other)
+    => Equals(other as ComplexValue<SimpleModel, ConstantModel>);
+  public override bool Equals(object obj)
+    => Equals(obj as ConstantModel);
+  public override int GetHashCode()
+    => base.GetHashCode();
 }
 
 public class SimpleModel
   : ScalarValue
+  , IEquatable<SimpleModel>
   , IModelBase
 {
   public SimpleModel(bool? value)
@@ -49,6 +59,18 @@ public class SimpleModel
     => new(value) { TypeRef = TypeFor(type) };
   internal static SimpleModel Enum(string type, string value)
     => new("") { TypeRef = TypeFor(type), Value = value };
+
+  public override bool Equals(object obj)
+    => Equals(obj as SimpleModel);
+  public bool Equals(SimpleModel? other)
+    => TypeRef.NullEqual(other?.TypeRef) &&
+      (Equals(other as ScalarValue)
+        || !string.IsNullOrWhiteSpace(Value)
+         && Value.NullEqual(other?.Value));
+  public override int GetHashCode()
+    => HashCode.Combine(base.GetHashCode(),
+      TypeRef?.GetHashCode() ?? 0,
+      Value?.GetHashCode() ?? 0);
 }
 
 public record class CollectionModel(

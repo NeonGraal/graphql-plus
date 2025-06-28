@@ -9,5 +9,5 @@ public interface IEncoder<TModel>
 
 public interface IDecoder<TModel>
 {
-  TModel Decode(IValue value);
+  TModel? Decode(IValue value);
 }

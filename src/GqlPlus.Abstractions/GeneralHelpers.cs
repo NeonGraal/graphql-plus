@@ -62,6 +62,9 @@ public static class GeneralHelpers
   public static string TrueFalse(this bool value)
     => value ? "true" : "false";
 
+  public static string TrueFalse(this bool? value)
+    => value is null ? "" : value == true ? "true" : "false";
+
   public static string Quoted(this string? text, char quote)
     => text.Quoted(quote.ToString());
 

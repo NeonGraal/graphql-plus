@@ -31,7 +31,7 @@ public static class TestHelpers
     IGqlpFieldKey valueAst = value.FieldKey();
 
     return key == value
-      ? new AstFields<IGqlpConstant>() { [keyAst] = new ConstantAst(valueAst) }
+      ? new AstFields<IGqlpConstant>(keyAst, new ConstantAst(valueAst))
       : new AstFields<IGqlpConstant>() { [keyAst] = new ConstantAst(valueAst), [valueAst] = new ConstantAst(keyAst) };
   }
 

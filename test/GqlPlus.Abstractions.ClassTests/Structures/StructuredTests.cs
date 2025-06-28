@@ -199,9 +199,7 @@ public class StructuredTests
   [Theory, RepeatData]
   public void GetHashCode_Map_IsCorrect(string key, string value)
   {
-    Structured result = new Map<Structured>() {
-      [key] = new(value),
-    }.Encode();
+    Structured result = key.MapWith(new Structured(value)).Encode();
 
     result.GetHashCode().ShouldNotBe(0);
   }
@@ -372,7 +370,7 @@ public class StructuredTests
   public void AddEncoded_IsCorrect(string key, string value)
   {
     Structured result = new Map<Structured>().Encode();
-    Map<string> map = new() { [key] = value };
+    Map<string> map = key.MapWith(value);
 
     result.AddEncoded(key, map, new EncodeMap());
 
@@ -425,7 +423,7 @@ public class StructuredTests
   public void IncludeEncoded_IsCorrect(string key, string value)
   {
     Structured result = new Map<Structured>().Encode();
-    Map<string> map = new() { [key] = value };
+    Map<string> map = key.MapWith(value);
 
     result.IncludeEncoded(map, new EncodeMap());
 

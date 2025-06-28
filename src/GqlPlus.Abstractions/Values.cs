@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace GqlPlus.Abstractions;
+namespace GqlPlus;
 
 public interface IValue
 {
@@ -14,7 +14,7 @@ public interface IValue
   bool TryGetMap([NotNullWhen(true)] out IMap<IValue>? map);
 }
 
-public class BaseValue
+public abstract class BaseValue
   : IValue
 {
   public virtual string Tag { get; protected set; } = "";
@@ -25,12 +25,9 @@ public class BaseValue
     return value is not null;
   }
 
-  public virtual bool TryGetBoolean([NotNullWhen(true)] out bool? value)
-    => (value = null) is not null;
-  public virtual bool TryGetNumber([NotNullWhen(true)] out decimal? value)
-    => (value = null) is not null;
-  public virtual bool TryGetText([NotNullWhen(true)] out string? value)
-    => (value = null) is not null;
+  public abstract bool TryGetBoolean([NotNullWhen(true)] out bool? value);
+  public abstract bool TryGetNumber([NotNullWhen(true)] out decimal? value);
+  public abstract bool TryGetText([NotNullWhen(true)] out string? value);
 
   public virtual bool TryGetList([NotNullWhen(true)] out IEnumerable<IValue>? list)
     => (list = null) is not null;

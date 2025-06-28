@@ -38,7 +38,7 @@ public static class CommonBuilderHelpers
   public static IGqlpFields<T> Fields<T>(this IMockBuilder builder, string key, T value)
   {
     IGqlpFieldKey fieldKey = builder.FieldKey(key);
-    Dictionary<IGqlpFieldKey, T> dict = new() { [fieldKey] = value };
+    Dictionary<IGqlpFieldKey, T> dict = fieldKey.DictWith(value);
     IGqlpFields<T> fields = builder.Of<IGqlpFields<T>>();
     fields.Count.Returns(1);
     fields.GetEnumerator().Returns(dict.GetEnumerator());

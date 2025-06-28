@@ -6,11 +6,12 @@ public abstract class ScalarDecoderClassTestBase<TModel, TInput>
   [Theory, RepeatData]
   public void Decode_Bool(bool value)
     => DecodeAndCheck(new(value), ExpectedBool(value));
-  [Theory, InlineData(0), InlineData(1), InlineData(2)]
+
+  [Theory, RepeatData]
   public void Decode_Number(decimal value)
     => DecodeAndCheck(new(value), ExpectedNumber(value));
 
-  [Theory, InlineData("true"), InlineData("false"), InlineData("")]
+  [Theory, RepeatData, InlineData("")]
   public void Decode_Text(string value)
     => DecodeAndCheck(new(value), ExpectedText(value));
 
@@ -18,7 +19,7 @@ public abstract class ScalarDecoderClassTestBase<TModel, TInput>
   public void Decode_List(TInput value)
     => DecodeAndCheck(new([Value(value)]), ExpectedList(value));
 
-  [Theory, RepeatData]
+  [Theory, RepeatData, RepeatInlineData("")]
   public void Decode_Dict(string key, TInput value)
     => DecodeAndCheck(key.MapWith(value).Encode(Value), ExpectedDict(key, value));
 

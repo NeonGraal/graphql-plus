@@ -37,6 +37,22 @@ public abstract class DomainModellerClassTestBase<TItemAst, TItemModel>
         r => r.AllItems.ShouldNotBeEmpty());
   }
 
+  [Theory, RepeatData]
+  public void ToModel_WithNullParent_ReturnsBaseDomainModelWithNullParent(string name)
+  {
+    // Arrange
+    IGqlpDomain<TItemAst> ast = A.Domain<TItemAst>(name, [], null, "", Kind);
+
+    // Act
+    BaseDomainModel<TItemModel> result = DomainModeller.ToModel(ast, TypeKinds);
+
+    // Assert
+    result.ShouldNotBeNull()
+      .ShouldSatisfyAllConditions(
+        r => r.Name.ShouldBe(name),
+        r => r.Parent.ShouldBeNull());
+  }
+
   protected abstract DomainKind Kind { get; }
   protected abstract DomainKindModel KindModel { get; }
   protected abstract IDomainModeller<TItemAst, TItemModel> DomainModeller { get; }

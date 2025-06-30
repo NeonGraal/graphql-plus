@@ -5,11 +5,14 @@ public class SimpleModellerTests
 {
   protected override IModeller<IGqlpFieldKey, SimpleModel> Modeller { get; } = new SimpleModeller();
 
-  [Fact]
-  public void ToModel_WithNothing_ReturnsExpectedSimpleModel()
+  [Theory]
+  [InlineData(null)]
+  [InlineData("")]
+  public void ToModel_WithNothing_ReturnsExpectedSimpleModel(string? value)
   {
     // Arrange
-    IGqlpFieldKey ast = A.FieldKey(null!);
+    IGqlpFieldKey ast = A.Error<IGqlpFieldKey>();
+    ast.Text.Returns(value);
 
     // Act
     SimpleModel result = Modeller.ToModel(ast, TypeKinds);
@@ -19,20 +22,24 @@ public class SimpleModellerTests
       .IsEmpty.ShouldBe(true);
   }
 
-  [Fact]
-  public void ToModel_WithBoolean_ReturnsExpectedSimpleModel()
+  [Theory]
+  [InlineData("Boolean", "true", true)]
+  [InlineData("boolean", "False", false)]
+  [InlineData("BOOLEAN", "tRUe", true)]
+  [InlineData("BooLEan", "FALSE", false)]
+  public void ToModel_WithBoolean_ReturnsExpectedSimpleModel(string type, string label, bool expected)
   {
     // Arrange
     IGqlpFieldKey ast = A.FieldKey(null!);
-    ast.EnumType.Returns("Boolean");
-    ast.EnumLabel.Returns("true");
+    ast.EnumType.Returns(type);
+    ast.EnumLabel.Returns(label);
 
     // Act
     SimpleModel result = Modeller.ToModel(ast, TypeKinds);
 
     // Assert
     result.ShouldNotBeNull()
-      .Boolean.ShouldBe(true);
+      .Boolean.ShouldBe(expected);
   }
 
   [Theory, RepeatData]

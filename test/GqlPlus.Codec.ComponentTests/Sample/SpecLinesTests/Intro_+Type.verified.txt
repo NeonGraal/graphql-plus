@@ -169,7 +169,7 @@ types: !_Map_Type
       - !_ObjectFor(_OutputAlternate)
         collections:
           - !_ModifierDictionary
-            by: Simple
+            by: _Key
             modifierKind: !_ModifierKind Dict
             typeKind: !_SimpleKind Internal
         object: _ConstantMap
@@ -179,38 +179,12 @@ types: !_Map_Type
       - !_OutputAlternate
         collections:
           - !_ModifierDictionary
-            by: Simple
+            by: _Key
             modifierKind: !_ModifierKind Dict
             typeKind: !_SimpleKind Internal
         type: !_OutputBase
           output: _Constant
     name: _ConstantMap
-    typeKind: !_TypeKind Output
-  !_Identifier _Internal: !_TypeOutput
-    allAlternates:
-      - !_ObjectFor(_OutputAlternate)
-        object: _Internal
-        type: !_OutputBase
-          output: Null
-      - !_ObjectFor(_OutputAlternate)
-        object: _Internal
-        type: !_OutputBase
-          output: Object
-      - !_ObjectFor(_OutputAlternate)
-        object: _Internal
-        type: !_OutputBase
-          output: Void
-    alternates:
-      - !_OutputAlternate
-        type: !_OutputBase
-          output: Null
-      - !_OutputAlternate
-        type: !_OutputBase
-          output: Object
-      - !_OutputAlternate
-        type: !_OutputBase
-          output: Void
-    name: _Internal
     typeKind: !_TypeKind Output
   !_Identifier _Modifier: !_TypeOutput
     allFields:

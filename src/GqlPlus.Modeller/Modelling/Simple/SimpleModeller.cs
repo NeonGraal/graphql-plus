@@ -5,6 +5,7 @@ internal class SimpleModeller
 {
   protected override SimpleModel ToModel(IGqlpFieldKey ast, IMap<TypeKindModel> typeKinds)
     => ast switch {
+      null => throw new ModelTypeException<IGqlpFieldKey>("Null ast"),
       { Number: not null } => SimpleModel.Num("", ast.Number.Value),
       { Text: not null } when !string.IsNullOrEmpty(ast.Text)
         => SimpleModel.Str("", ast.Text),

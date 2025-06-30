@@ -235,7 +235,7 @@
           "collections": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "Simple",
+              "by": "_Key",
               "modifierKind": {
                 "$tag": "_ModifierKind",
                 "value": "Dict"
@@ -259,7 +259,7 @@
           "collections": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "Simple",
+              "by": "_Key",
               "modifierKind": {
                 "$tag": "_ModifierKind",
                 "value": "Dict"
@@ -277,63 +277,6 @@
         }
       ],
       "name": "_ConstantMap",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "_Internal": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_Internal",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "Null"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_Internal",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "Object"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_Internal",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "Void"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "Null"
-          }
-        },
-        {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "Object"
-          }
-        },
-        {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "Void"
-          }
-        }
-      ],
-      "name": "_Internal",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

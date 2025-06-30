@@ -1,1 +1,1 @@
-7617b02  (HEAD -> coding) 2025-06-26 Use better defaults for input field defaults
+1a12a91  (HEAD -> coding) 2025-07-01 Improve Builtin definitions

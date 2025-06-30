@@ -1,7 +1,6 @@
 ﻿[
-  ( !En Boolean [ ^ ] !EL false !EL true ),
-  ( !En Unit [ _ ] !EL _ ),
-  ( !Do Enum Enum ),
-  ( !Do Number [ 0 ] Number ),
-  ( !Do String [ * ] String )
+  ( !En Boolean [ ^ _Boolean ] !EL false !EL true ),
+  ( !En Unit [ _ _Unit ] !EL _ ),
+  ( !Do Number [ 0 _Number ] Number ),
+  ( !Do String [ * _String ] String )
 ]

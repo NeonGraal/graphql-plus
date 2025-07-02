@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Abstractions;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Resolving;
 using Microsoft.Extensions.Logging;
@@ -12,15 +13,22 @@ public abstract class TestSchemaVerify(
 {
   protected override async Task Test_Asts(IEnumerable<IGqlpSchema> asts, string test, string label, string[] dirs, string section, string input = "")
   {
-    (Structured result, IModelsContext context) = checks.Verify_Asts(asts);
+    (SchemaModel model, IModelsContext context) = checks.Model_Asts(asts);
 
-    await VerifyResult(result, label, test, section);
+    await RenderModel(model, context, test, label, dirs, section);
 
     if (string.IsNullOrWhiteSpace(section)) {
       await CheckResultErrors(dirs, test, context.Errors);
     } else {
       CheckNoErrors(context, test);
     }
+  }
+
+  protected async virtual Task RenderModel([NotNull] SchemaModel model, IModelsContext context, string test, string label, string[] dirs, string section)
+  {
+    Structured result = checks.Render_Model(model, context);
+
+    await VerifyResult(result, label, test, section);
   }
 
   protected virtual void CheckNoErrors(IModelsContext context, string test)

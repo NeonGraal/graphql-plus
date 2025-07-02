@@ -1,10 +1,12 @@
-﻿using GqlPlus;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus;
 using GqlPlus.Convert;
+using GqlPlus.Resolving;
 using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Sample;
 
-public class HtmlSchemaTests(
+public class DocumentSchemaTests(
   ILoggerFactory logger,
   ISchemaVerifyChecks checks
 ) : TestSchemaVerify(logger, checks)
@@ -27,7 +29,7 @@ public class HtmlSchemaTests(
       }.Render()
     }.Render();
 
-    await result.WriteHtmlFileAsync("Sample", "index", "index");
+    await result.WriteHtmlFileAsync("Doc/Sample", "index", "index");
   }
 
   [Fact]
@@ -38,7 +40,7 @@ public class HtmlSchemaTests(
       ["items"] = SamplesSchemaData.Strings.Render(),
     }.Render("");
 
-    await result.WriteHtmlFileAsync("Schema", "index", "index");
+    await result.WriteHtmlFileAsync("Doc/Schema", "index", "index");
   }
 
   [Fact]
@@ -49,26 +51,14 @@ public class HtmlSchemaTests(
       ["items"] = SamplesSchemaSpecificationData.Strings.Render(),
     }.Render("");
 
-    await result.WriteHtmlFileAsync("Spec", "index", "index");
+    await result.WriteHtmlFileAsync("Doc/Spec", "index", "index");
   }
 
-  [Fact]
-  public async Task Index_DI()
+  protected override Task RenderModel([NotNull] SchemaModel model, IModelsContext context, string test, string label, string[] dirs, string section)
   {
-    string[] files = ["Parser", "Modeller", "Verifier"];
-
-    Structured result = new Map<Structured>() {
-      ["title"] = "Dependency Injection",
-      ["groups"] = new Map<Structured>() {
-        ["Table"] = files.Render(),
-        ["Diagram"] = files.Render(),
-        ["Force-3D"] = files.Render(),
-      }.Render()
-    }.Render("");
-
-    await result.WriteHtmlFileAsync("DI", "index", "index");
+    return base.RenderModel(model, context, test, label, dirs, section);
   }
 
   protected override Task VerifyResult(Structured result, string label, string test, string section)
-    => result.WriteHtmlFileAsync(new string[] { label, section }.Joined("/"), test);
+    => result.WriteHtmlFileAsync(new string[] { "Doc", label, section }.Joined("/"), test);
 }

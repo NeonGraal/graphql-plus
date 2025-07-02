@@ -1,13 +1,15 @@
 [CmdletBinding()]
 param (
   $Section = "",
+  [switch]$IncludeTests = $false,
   [switch]$ClassTests = $false,
   $Framework = "9.0"
 )
 
 $coverageFile = "$PWD/coverage/Coverage-$Framework.xml"
 $testResults = "TestResults-$Framework.trx"
-$collect = "collect","-o",$coverageFile,"-f","cobertura","-s","coverage.runsettings"
+$collect = "collect","-o",$coverageFile,"-f","cobertura"
+$settings = "-s","coverage.runsettings"
 $test = "test","--no-build","--logger","trx;LogFileName=$testResults","--framework","net$Framework"
 
 if ($Section) {
@@ -16,7 +18,10 @@ if ($Section) {
 if ($ClassTests) {
   $test += @("GqlPlus.ClassTests.slnf")
 }
+if ($IncludeTests) {
+  $settings = "-s","tests-coverage.runsettings"
+}
 
 Get-ChildItem test -Filter 'TestResults' -Recurse -Directory | Remove-Item -Recurse -Force
 
-dotnet coverage @collect -- dotnet @test
+dotnet coverage @collect @settings -- dotnet @test

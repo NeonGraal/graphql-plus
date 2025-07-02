@@ -48,20 +48,19 @@ public class DependencyInjectionChecks(
 
   private readonly Map<DiService> _diServices = DependencyInjectionServices(services);
 
+  private static DiService GetOrCreate(Map<DiService> diServices, Type type)
+  {
+    if (!diServices.TryGetValue(type.FullTypeName(), out DiService? di)) {
+      di = new(type);
+      diServices[di.Service.Id] = di;
+    }
+
+    return di;
+  }
+
   internal static Map<DiService> DependencyInjectionServices(IServiceCollection services)
   {
     Map<DiService> diServices = [];
-    TypeIdName func = new(typeof(Func<>));
-
-    DiService GetOrCreate(Type type)
-    {
-      if (!diServices.TryGetValue(type.FullTypeName(), out DiService? di)) {
-        di = new(type);
-        diServices[di.Service.Id] = di;
-      }
-
-      return di;
-    }
 
     foreach (ServiceDescriptor sd in services) {
       string context = sd.ServiceType.Namespace ?? "";
@@ -70,46 +69,28 @@ public class DependencyInjectionChecks(
         continue;
       }
 
-      DiService service = GetOrCreate(sd.ServiceType);
-
-      TypeIdName? baseName = service.Service.BaseName;
-      if (baseName is not null) {
-        if (!diServices.TryGetValue(baseName.Id, out DiService? baseService)) {
-          baseService = service.BaseService;
-          diServices[baseName.Id] = baseService;
-        }
-
-        service.Requires[ParentRequirement] = baseName;
-      }
+      DiService service = GetOrCreate(diServices, sd.ServiceType);
+      ServiceBase(diServices, service, service.Service.BaseName);
 
       if (sd.ImplementationType is not null) {
-        if (sd.ImplementationType != sd.ServiceType) {
-          TypeIdName impl = new(sd.ImplementationType);
-          if (!service.Requires.Values.Any(r => r == impl)) {
-            string key = service.Requires.Count.ToString(CultureInfo.InvariantCulture);
-            service.Requires[key] = impl;
-          }
-
-          service = GetOrCreate(sd.ImplementationType);
-        }
-
-        service.AddParams(sd.ImplementationType);
+        ServiceType(sd.ImplementationType, service, sd.ImplementationType == sd.ServiceType, diServices);
       } else if (sd.ImplementationFactory is not null) {
-        service.Requires[FunctionRequirement] = func;
-        if (sd.ImplementationFactory.Method.IsGenericMethod) {
-          Type[] args = sd.ImplementationFactory.Method.GetGenericArguments();
-          if (args.Length > 0) {
-            service.Requires[FunctionRequirement] = new(args[0]);
-          }
-        }
+        ServiceFactory(sd.ImplementationFactory, service);
       } else if (sd.ImplementationInstance is not null) {
         service.Requires[InstanceRequirement] = new(sd.ImplementationInstance.GetType());
       }
     }
 
+    CalculateServicesRequiredBy(diServices);
+
+    return diServices;
+  }
+
+  private static void CalculateServicesRequiredBy(Map<DiService> diServices)
+  {
     Map<int> requiredBy = diServices.Values
       .SelectMany(s => s.Requires
-        .Where(r => r.Value != func && r.Key != InstanceRequirement)
+        .Where(r => r.Value != s_func && r.Key != InstanceRequirement)
         .Select(r => r.Value.Id))
       .GroupBy(t => t)
       .ToMap(g => g.Key, g => g.Count());
@@ -119,8 +100,48 @@ public class DependencyInjectionChecks(
         service.RequiredBy = count;
       }
     }
+  }
 
-    return diServices;
+  private static void ServiceType(Type implementationType, DiService service, bool selfImplementing, Map<DiService> diServices)
+  {
+    if (!selfImplementing) {
+      TypeIdName impl = new(implementationType);
+      if (!service.Requires.Values.Any(r => r == impl)) {
+        string key = service.Requires.Count.ToString(CultureInfo.InvariantCulture);
+        service.Requires[key] = impl;
+      }
+
+      service = GetOrCreate(diServices, implementationType);
+    }
+
+    service.AddParams(implementationType);
+  }
+
+  private static TypeIdName s_func = new(typeof(Func<>));
+
+  private static void ServiceFactory(Func<IServiceProvider, object> implementationFactory, DiService service)
+  {
+    service.Requires[FunctionRequirement] = s_func;
+    if (implementationFactory.Method.IsGenericMethod) {
+      Type[] args = implementationFactory.Method.GetGenericArguments();
+      if (args.Length > 0) {
+        service.Requires[FunctionRequirement] = new(args[0]);
+      }
+    }
+  }
+
+  private static void ServiceBase(Map<DiService> diServices, DiService service, TypeIdName? baseName)
+  {
+    if (baseName is null) {
+      return;
+    }
+
+    if (!diServices.TryGetValue(baseName.Id, out DiService? baseService)) {
+      baseService = service.BaseService;
+      diServices[baseName.Id] = baseService;
+    }
+
+    service.Requires[ParentRequirement] = baseName;
   }
 
   public void CheckDependencyInjection()
@@ -170,7 +191,7 @@ public class DependencyInjectionChecks(
     context.SetValue("services", services);
 
     IFluidTemplate template = GetTemplate("table");
-    template.Render(context).WriteHtmlFile("DI", file + "-table");
+    template.Render(context).WriteHtmlFile("DI/Table", file);
   }
 
   public void Force3dDependencyInjection(string file)
@@ -188,7 +209,7 @@ public class DependencyInjectionChecks(
     context.SetValue("links", links);
 
     IFluidTemplate template = GetTemplate("force3d");
-    template.Render(context).WriteHtmlFile("DI", file + "-force3d");
+    template.Render(context).WriteHtmlFile("DI/Force-3D", file);
   }
 
   private readonly HashSet<string> _ids = [];
@@ -239,7 +260,7 @@ public class DependencyInjectionChecks(
     context.SetValue("services", groups);
 
     IFluidTemplate template = GetTemplate("diagram");
-    template.Render(context).WriteHtmlFile("DI", file + "-diagram");
+    template.Render(context).WriteHtmlFile("DI/Diagram", file);
   }
 
   private void AddToGroup(DiService di)

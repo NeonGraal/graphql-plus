@@ -55,9 +55,7 @@ public class DocumentSchemaTests(
   }
 
   protected override Task RenderModel([NotNull] SchemaModel model, IModelsContext context, string test, string label, string[] dirs, string section)
-  {
-    return base.RenderModel(model, context, test, label, dirs, section);
-  }
+    => base.RenderModel(model, context, test, label, dirs, section);
 
   protected override Task VerifyResult(Structured result, string label, string test, string section)
     => result.WriteHtmlFileAsync(new string[] { "Doc", label, section }.Joined("/"), test);

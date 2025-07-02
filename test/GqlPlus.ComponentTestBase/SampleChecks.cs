@@ -92,6 +92,7 @@ public class SampleChecks
     if (includeVerify) {
       suffixes.Add("verify-");
     }
+
     foreach (string suffix in suffixes) {
       string errorsFile = $"{file}.{suffix}errors";
 

@@ -117,7 +117,7 @@ public class DependencyInjectionChecks(
     service.AddParams(implementationType);
   }
 
-  private static TypeIdName s_func = new(typeof(Func<>));
+  private static readonly TypeIdName s_func = new(typeof(Func<>));
 
   private static void ServiceFactory(Func<IServiceProvider, object> implementationFactory, DiService service)
   {

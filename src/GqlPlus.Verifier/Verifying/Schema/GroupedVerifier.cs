@@ -9,7 +9,7 @@ internal abstract class GroupedVerifier<TAliased>(
 ) : IVerifyAliased<TAliased>
  where TAliased : IGqlpAliased
 {
-  private readonly ILogger _logger = logger.CreateLogger(nameof(GroupedVerifier<TAliased>));
+  private readonly ILogger _logger = logger.CreateTypedLogger<GroupedVerifier<TAliased>>();
 
   public abstract string Label { get; }
 

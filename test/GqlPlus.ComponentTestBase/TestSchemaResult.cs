@@ -29,7 +29,7 @@ public abstract class TestSchemaResult(
   public async Task Test_SimpleInvalid(string simple)
     => await ReplaceFileAsync("Simple/Invalid", simple, SampleInvalid_Input);
 
-  private readonly ILogger _logger = logger.CreateLogger(nameof(TestSchemaAsts));
+  private readonly ILogger _logger = logger.CreateTypedLogger<TestSchemaAsts>();
 
   protected virtual async Task SampleInvalid_Input(string input, string section, string test)
   {

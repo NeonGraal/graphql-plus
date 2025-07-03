@@ -4,7 +4,8 @@
     {%- render "pico" -%}
     <title>{{ title }} Index</title>
     <style>
-      aside li { padding: 0 ; font-size: 50%; }
+      aside ul { padding-inline: 0; font-size: 50%; }
+      aside li { padding: 0; }
       .grid { grid-template-columns: repeat(4, 1fr); }
     </style>
   </head>
@@ -14,7 +15,7 @@
       <aside>
         <details open="">
           <summary>TOC</summary>
-          <ul  class="overflow-auto">
+          <ul class="overflow-auto">
             {%- for group in groups %}
             <li>
               <a href="#{{ group[0] }}">{{ group[0] }}</a>

@@ -20,8 +20,8 @@ public class VerifierTestsBase
 
     LoggerFactory.CreateLogger(Arg.Any<string>())
       .ReturnsForAnyArgs(Logger);
-    LoggerFactory.CreateLogger<VerifierTestsBase>()
-      .ReturnsForAnyArgs(Logger);
+    //LoggerFactory.CreateLogger<VerifierTestsBase>()
+    //  .ReturnsForAnyArgs(Logger);
   }
 
   protected void LoggerCalled(LogLevel level, string message, int times = 1)

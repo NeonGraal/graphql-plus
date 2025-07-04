@@ -42,30 +42,13 @@ public class SampleChecks
 
   protected async Task CheckErrors(string[] dirs, string file, ITokenMessages errors, bool includeVerify = false)
   {
-    List<string> suffixes = ["", "parse-"];
-    if (includeVerify) {
-      suffixes.Add("verify-");
-    }
-
     string path = dirs.Prepend("Samples").Joined("/");
 
-    List<string> expected = [];
-    foreach (string suffix in suffixes) {
-      string errorsFile = $"{path}/{file}.{suffix}errors";
-
-      if (File.Exists(errorsFile)) {
-        expected.AddRange(await File.ReadAllLinesAsync(errorsFile));
-      }
-    }
+    List<string> expected = await ReadExpectedErrors($"{path}/{file}", includeVerify);
 
     if (expected.Count == 0) {
-      if (includeVerify && errors?.Count > 0 && AttributeReader.TryGetProjectDirectory(out string? project)) {
-        IOrderedEnumerable<string> errorLines = errors.Select(e => e.ToString() ?? "").Distinct().Order();
-        if (!Directory.Exists($"{project}/{path}")) {
-          Directory.CreateDirectory($"{project}/{path}");
-        }
-
-        await File.WriteAllLinesAsync($"{project}/{path}/{file}.verify+errors", errorLines);
+      if (includeVerify) {
+        await WriteUnexpectedErrors(file, errors, path);
       }
 
       return;
@@ -85,6 +68,40 @@ public class SampleChecks
     errors.ShouldSatisfyAllConditions(
       () => missing.ShouldBeEmpty("Missing errors"),
       () => extra.ShouldBeEmpty("Extra errors"));
+  }
+
+  [ExcludeFromCodeCoverage]
+  private static async Task WriteUnexpectedErrors(string file, ITokenMessages errors, string path)
+  {
+    if (errors is null || errors.Count < 1 || !AttributeReader.TryGetProjectDirectory(out string? project)) {
+      return;
+    }
+
+    IOrderedEnumerable<string> errorLines = errors.Select(e => e.ToString() ?? "").Distinct().Order();
+    if (!Directory.Exists($"{project}/{path}")) {
+      Directory.CreateDirectory($"{project}/{path}");
+    }
+
+    await File.WriteAllLinesAsync($"{project}/{path}/{file}.verify+errors", errorLines);
+  }
+
+  private static async Task<List<string>> ReadExpectedErrors(string file, bool includeVerify)
+  {
+    List<string> expected = [];
+    List<string> suffixes = ["", "parse-"];
+    if (includeVerify) {
+      suffixes.Add("verify-");
+    }
+
+    foreach (string suffix in suffixes) {
+      string errorsFile = $"{file}.{suffix}errors";
+
+      if (File.Exists(errorsFile)) {
+        expected.AddRange(await File.ReadAllLinesAsync(errorsFile));
+      }
+    }
+
+    return expected;
   }
 
   protected VerifySettings CustomSettings(string category, string group, string file, string section = "")
@@ -140,23 +157,6 @@ public class SampleChecks
       .Contains("object ", StringComparison.Ordinal)
         ? Replacements.Select(r => ReplaceObject(input, testName, r))
         : [ReplaceName(input, testName)];
-
-  protected static async Task ReplaceFile(string testDirectory, string testName, Action<string, string, string> action)
-  {
-    ArgumentNullException.ThrowIfNull(action);
-    string input = await ReadSchema(testName, testDirectory);
-
-    if (IsObjectInput(input)) {
-      action.ShouldSatisfyAllConditions(
-        () => {
-          foreach (string label in Replacements) {
-            action(ReplaceObject(input, testName, label), testDirectory, testName + "+" + label);
-          }
-        });
-    } else {
-      action(ReplaceName(input, testName), testDirectory, testName);
-    }
-  }
 
   protected static async Task ReplaceFileAsync(string testDirectory, string testName, Func<string, string, string, Task> action)
   {

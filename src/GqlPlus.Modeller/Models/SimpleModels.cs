@@ -14,9 +14,17 @@ public sealed record class BaseDomainModel<TItem>(
   string Name,
   string Description
 ) : ParentTypeModel<TItem, DomainItemModel<TItem>>(TypeKindModel.Domain, Name, Description)
+  , ITypeDomainModel
   where TItem : BaseDomainItemModel
 {
   internal override string Tag => $"_Domain{DomainKind}";
+}
+
+public interface ITypeDomainModel
+{
+  DomainKindModel DomainKind { get; }
+  string Name { get; }
+  string Description { get; }
 }
 
 public record class BaseDomainItemModel(

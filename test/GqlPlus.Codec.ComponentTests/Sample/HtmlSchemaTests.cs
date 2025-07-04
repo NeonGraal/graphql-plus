@@ -31,25 +31,42 @@ public class HtmlSchemaTests(
   }
 
   [Fact]
-  public void Index_Schema()
+  public async Task Index_Schema()
   {
     Structured result = new Map<Structured>() {
       ["title"] = "Schema",
       ["items"] = SamplesSchemaData.Strings.Encode(),
     }.Encode("");
 
-    result.WriteHtmlFile("Schema", "index", "index");
+    await result.WriteHtmlFileAsync("Schema", "index", "index");
   }
 
   [Fact]
-  public void Index_Spec()
+  public async Task Index_Spec()
   {
     Structured result = new Map<Structured>() {
       ["title"] = "Specification",
       ["items"] = SamplesSchemaSpecificationData.Strings.Encode(),
     }.Encode("");
 
-    result.WriteHtmlFile("Spec", "index", "index");
+    await result.WriteHtmlFileAsync("Spec", "index", "index");
+  }
+
+  [Fact]
+  public async Task Index_DI()
+  {
+    string[] files = ["Parser", "Modeller", "Verifier"];
+
+    Structured result = new Map<Structured>() {
+      ["title"] = "Dependency Injection",
+      ["groups"] = new Map<Structured>() {
+        ["Table"] = files.Encode(),
+        ["Diagram"] = files.Encode(),
+        ["Force-3D"] = files.Encode(),
+      }.Encode()
+    }.Encode("");
+
+    await result.WriteHtmlFileAsync("DI", "index", "index");
   }
 
   protected override Task VerifyResult(Structured result, string label, string test, string section)

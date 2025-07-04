@@ -16,6 +16,9 @@ internal sealed class ModelAndEncode(
   public IModelsContext Context() => new TypesContext(types);
 
   public Structured EncodeAst(IGqlpSchema schema, IModelsContext context, IGqlpSchema? extras = null)
+    => EncodeModel(ModelAst(schema, context, extras), context);
+
+  public SchemaModel ModelAst(IGqlpSchema schema, IModelsContext context, IGqlpSchema? extras = null)
   {
     types.AddTypeKinds(schema.Declarations.ArrayOf<IGqlpType>(), context.TypeKinds);
     if (extras is not null) {
@@ -27,10 +30,13 @@ internal sealed class ModelAndEncode(
     context.AddModels(model.Types.Values);
 
     context.Errors.Clear();
-    model = resolver.Resolve(model, context);
+    return resolver.Resolve(model, context);
+  }
 
+  public Structured EncodeModel(SchemaModel model, IModelsContext? context)
+  {
     Structured result = encoder.Encode(model);
-    if (context.Errors.Count > 0) {
+    if (context?.Errors.Count > 0) {
       string key = result.Map.ContainsKey(new("_errors")) ? "_ctxErrors" : "errors";
       result.Add(key, context.Errors.Encode());
     }
@@ -47,4 +53,6 @@ public interface IModelAndEncode
   IModelsContext Context();
   IModelsContext WithBuiltIns();
   Structured EncodeAst(IGqlpSchema schema, IModelsContext context, IGqlpSchema? extras = null);
+  SchemaModel ModelAst(IGqlpSchema schema, IModelsContext context, IGqlpSchema? extras = null);
+  Structured EncodeModel(SchemaModel model, IModelsContext context);
 }

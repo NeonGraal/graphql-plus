@@ -10,40 +10,30 @@ internal sealed class SchemaVerifyChecks(
     Parser<IGqlpSchema>.D schemaParser,
     IMerge<IGqlpSchema> schemaMerger,
     IModelAndEncode schemaEncoder
-) : SchemaDataBase(schemaParser)
+) : SchemaParseChecks(schemaParser)
   , ISchemaVerifyChecks
 {
-  public Structured Verify_Model(string input)
-  {
-    IGqlpSchema ast = Parse(input, "Sample").Required();
-
-    return Verify_Asts([ast]).Item1;
-  }
-
-  public Structured Verify_Model(IEnumerable<string> inputs)
-  {
-    IEnumerable<IGqlpSchema> asts = inputs.Select(input => Parse(input, "Sample").Required());
-
-    return Verify_Asts(asts).Item1;
-  }
-
-  public (Structured, IModelsContext) Verify_Asts(IEnumerable<IGqlpSchema> asts)
+  public (SchemaModel, IModelsContext) Model_Asts(IEnumerable<IGqlpSchema> asts)
   {
     IGqlpSchema schema = schemaMerger.Merge(asts).First();
 
     IModelsContext context = schemaEncoder.WithBuiltIns();
     context.TypeKinds.Add("_Described", TypeKindModel.Dual);
 
-    Structured structured = schemaEncoder.EncodeAst(schema, context);
+    SchemaModel model = schemaEncoder.ModelAst(schema, context);
 
     context.Errors.Add(asts.SelectMany(a => a.Errors));
 
-    return (structured, context);
+    return (model, context);
   }
+
+  public Structured Encode_Model(SchemaModel model, IModelsContext context)
+    => schemaEncoder.EncodeModel(model, context);
 }
 
 public interface ISchemaVerifyChecks
   : ISchemaParseChecks
 {
-  (Structured, IModelsContext) Verify_Asts(IEnumerable<IGqlpSchema> asts);
+  (SchemaModel, IModelsContext) Model_Asts(IEnumerable<IGqlpSchema> asts);
+  Structured Encode_Model(SchemaModel model, IModelsContext context);
 }

@@ -38,15 +38,8 @@ public static class RenderFluid
       ? new StringValue(tagged.Tag)
       : EmptyValue.Instance;
 
-  internal static void WriteHtmlFile(this Structured model, string dir, string file, string initial = "default")
-  {
-    ArgumentNullException.ThrowIfNull(model);
-
-    model.Add("yaml", model.ToLines(true));
-    TemplateContext context = new(model, s_options);
-    IFluidTemplate template = GetTemplate(initial);
-    template.Render(context).WriteHtmlFile(dir, file);
-  }
+  internal static Structured Links(this IEnumerable<string> list)
+    => new(list.ToDictionary(i => new StructureValue(i), i => new Structured(i)), "links");
 
   internal static async Task WriteHtmlFileAsync(this Structured model, string dir, string file, string initial = "default")
   {

@@ -47,6 +47,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Coverage", "Coverage", "{B1
 		class.runsettings = class.runsettings
 		coverage.ps1 = coverage.ps1
 		coverage.runsettings = coverage.runsettings
+		just-coverage.ps1 = just-coverage.ps1
+		tests-coverage.runsettings = tests-coverage.runsettings
 		report.ps1 = report.ps1
 	EndProjectSection
 EndProject

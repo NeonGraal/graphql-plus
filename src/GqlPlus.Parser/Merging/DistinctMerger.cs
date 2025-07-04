@@ -8,7 +8,7 @@ internal abstract class DistinctMerger<TItem>(
 ) : GroupsMerger<TItem>
   where TItem : IGqlpError
 {
-  private readonly ILogger _logger = logger.CreateLogger(nameof(DistinctMerger<TItem>));
+  private readonly ILogger _logger = logger.CreateTypedLogger<DistinctMerger<TItem>>();
 
   protected override ITokenMessages CanMergeGroup(IGrouping<string, TItem> group)
   {

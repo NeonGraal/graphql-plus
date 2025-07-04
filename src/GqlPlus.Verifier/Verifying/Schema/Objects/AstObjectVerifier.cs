@@ -16,7 +16,7 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
   where TObjArg : IGqlpObjArg
   where TContext : EnumContext
 {
-  private readonly ILogger _logger = verifiers.Logger.CreateLogger(nameof(AstParentItemVerifier<TObject, IGqlpObjBase, TContext, IGqlpTypeParam>));
+  private readonly ILogger _logger = verifiers.Logger.CreateTypedLogger<AstParentItemVerifier<TObject, IGqlpObjBase, TContext, IGqlpTypeParam>>();
 
   private readonly Matcher<TObjArg>.L _constraintMatcher = verifiers.ConstraintMatcher;
 

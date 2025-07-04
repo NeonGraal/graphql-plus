@@ -11,7 +11,7 @@ internal abstract class AstAliasedMerger<TItem>(
 ) : DistinctMerger<TItem>(logger)
   where TItem : IGqlpAliased
 {
-  private readonly ILogger _logger = logger.CreateLogger(nameof(AstAliasedMerger<TItem>));
+  private readonly ILogger _logger = logger.CreateTypedLogger<AstAliasedMerger<TItem>>();
 
   protected override string ItemGroupKey(TItem item) => item.Name;
 

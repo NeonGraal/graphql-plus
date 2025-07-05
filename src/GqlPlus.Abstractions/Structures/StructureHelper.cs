@@ -8,6 +8,10 @@ public static class StructureHelper
   public static Structured Encode<T>(this IEnumerable<T> list, Func<T, Structured> mapper, string? tag = null, bool flow = false)
     => new(list.Select(mapper), tag, flow);
 
+  public static Structured Encode<T>(this IEnumerable<T> list, string? tag = null, bool flow = false)
+    where T : Enum
+    => new(list.Select(v => new Structured(v.ToString(), tag ?? typeof(T).TypeTag())), flow: flow);
+
   public static Structured Encode(this IEnumerable<string> list, string? tag = null, bool flow = false)
     => list.Encode(i => new(i), tag, flow);
 

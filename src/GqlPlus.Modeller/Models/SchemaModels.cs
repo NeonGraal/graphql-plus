@@ -31,28 +31,28 @@ public record class SchemaModel(
   public ITokenMessages Errors { get; } = TokenMessages.New;
 
 #pragma warning disable IDE0060 // Remove unused parameter
-  public IMap<CategoriesModel> GetCategories(CategoryFilterParam? filter)
+  public IMap<CategoriesModel> GetCategories(CategoryFilterModel? filter)
     => Categories.ToMap(c => c.Key,
       c => new CategoriesModel() {
         And = c.Value,
         Type = Types.TryGetValue(c.Key, out BaseTypeModel? type) ? type : null,
       });
 
-  public IMap<DirectivesModel> GetDirectives(FilterParam? filter)
+  public IMap<DirectivesModel> GetDirectives(FilterModel? filter)
     => Directives.ToMap(d => d.Key,
       d => new DirectivesModel() {
         And = d.Value,
         Type = Types.TryGetValue(d.Key, out BaseTypeModel? type) ? type : null,
       });
 
-  public IMap<BaseTypeModel> GetTypes(TypeFilterParam? filter) => Types;
-  public IMap<SettingModel> GetSettings(FilterParam? filter) => Settings;
+  public IMap<BaseTypeModel> GetTypes(TypeFilterModel? filter) => Types;
+  public IMap<SettingModel> GetSettings(FilterModel? filter) => Settings;
 #pragma warning restore IDE0060
 }
 
-public record class FilterParam(
+public record class FilterModel(
   string[] Names
-)
+) : ModelBase
 {
   public bool MatchAliases { get; set; } = true;
   public string[] Aliases { get; set; } = [];
@@ -60,17 +60,27 @@ public record class FilterParam(
   public bool ReturnByAlias { get; set; }
 }
 
-public record class CategoryFilterParam(
-  string[] Names
-) : FilterParam(Names)
+public record class CategoryFilterModel
+  : FilterModel
 {
+  public CategoryFilterModel(string[] names)
+  : base(names) { }
+
+  public CategoryFilterModel(FilterModel filter)
+    : base(filter) { }
+
   public CategoryOption[] Resolutions { get; set; } = [];
 }
 
-public record class TypeFilterParam(
-  string[] Names
-) : FilterParam(Names)
+public record class TypeFilterModel
+  : FilterModel
 {
+  public TypeFilterModel(string[] names)
+    : base(names) { }
+
+  public TypeFilterModel(FilterModel filter)
+    : base(filter) { }
+
   public TypeKindModel[] Kinds { get; set; } = [];
 }
 

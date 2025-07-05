@@ -1,35 +1,5 @@
 ﻿namespace GqlPlus.Decoding;
 
-internal abstract class ScalarDecoder<TModel>
-  : IDecoder<TModel>
-{
-  public TModel? Decode(IValue value)
-  {
-    if (value.TryGetBoolean(out bool? boolValue)) {
-      return DecodeBoolean(boolValue);
-    }
-
-    if (value.TryGetNumber(out decimal? numValue)) {
-      return DecodeNumber(numValue);
-    }
-
-    if (value.TryGetText(out string? strValue)) {
-      return DecodeText(strValue);
-    }
-
-    if (value.TryGetList(out IEnumerable<IValue>? list)
-        && list.Count() == 1) {
-      return Decode(list.First());
-    }
-
-    return default;
-  }
-
-  protected abstract TModel? DecodeBoolean(bool? boolValue);
-  protected abstract TModel? DecodeNumber(decimal? numValue);
-  protected abstract TModel? DecodeText(string strValue);
-}
-
 internal class BooleanDecoder
   : ScalarDecoder<bool?>
 {

@@ -1,5 +1,4 @@
-﻿
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Decoding;

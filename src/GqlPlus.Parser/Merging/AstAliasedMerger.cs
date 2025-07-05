@@ -15,20 +15,20 @@ internal abstract class AstAliasedMerger<TItem>(
 
   protected override string ItemGroupKey(TItem item) => item.Name;
 
-  public override ITokenMessages CanMerge(IEnumerable<TItem> items)
+  public override IMessages CanMerge(IEnumerable<TItem> items)
     => base.CanMerge(items)
       .Add(items
       .SelectMany(item => item.Aliases.Select(alias => (alias, item)))
       .GroupBy(pair => pair.alias)
       .SelectMany(CanMergeAliases));
 
-  private ITokenMessages CanMergeAliases(IGrouping<string, (string alias, TItem item)> group)
+  private IMessages CanMergeAliases(IGrouping<string, (string alias, TItem item)> group)
   {
     IEnumerable<string> distinct = group
       .Select(pair => ItemGroupKey(pair.item))
       .Distinct();
     if (distinct.Count() == 1) {
-      return TokenMessages.New;
+      return Messages.New;
     }
 
     string typeName = typeof(TItem).TidyTypeName();

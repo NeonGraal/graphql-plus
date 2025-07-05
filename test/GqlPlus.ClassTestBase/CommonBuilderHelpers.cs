@@ -25,8 +25,8 @@ public static class CommonBuilderHelpers
     return result;
   }
 
-  public static ITokenMessages MakeMessages(this string message)
-    => new TokenMessages { new TokenMessage(AstNulls.At, message) };
+  public static IMessages MakeMessages(this string message)
+    => new Messages { new TokenMessage(AstNulls.At, message) };
 
   public static IGqlpFieldKey FieldKey(this IMockBuilder builder, string text)
   {

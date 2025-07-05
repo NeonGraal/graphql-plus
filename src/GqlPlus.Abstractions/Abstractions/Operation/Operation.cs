@@ -17,7 +17,7 @@ public interface IGqlpOperation
   IEnumerable<IGqlpFragment> Fragments { get; }
 
   ParseResultKind Result { get; }
-  ITokenMessages Errors { get; }
+  IMessages Errors { get; }
 
   IEnumerable<IGqlpArg> Usages { get; }
   IEnumerable<IGqlpSpread> Spreads { get; }

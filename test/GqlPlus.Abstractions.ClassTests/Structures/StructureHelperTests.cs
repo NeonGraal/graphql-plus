@@ -10,7 +10,7 @@ public class StructureHelperTests
   {
     // Arrange
     TokenAt at = new(TokenKind.Identifer, 1, 1, "id");
-    ITokenMessages errors = new TokenMessages([.. messages.Select(m => new TokenMessage(at, m))]);
+    IMessages errors = new Messages([.. messages.Select(m => new TokenMessage(at, m))]);
 
     // Act
     Structured result = errors.Encode();

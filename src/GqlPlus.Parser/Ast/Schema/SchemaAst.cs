@@ -9,14 +9,14 @@ internal sealed record class SchemaAst(
   , IGqlpSchema
 {
   public ParseResultKind Result { get; set; }
-  internal TokenMessages Errors { get; set; } = [];
+  internal Messages Errors { get; set; } = [];
 
   public IGqlpDeclaration[] Declarations { get; set; } = [];
 
   internal override string Abbr => "Sc";
 
   IEnumerable<IGqlpDeclaration> IGqlpSchema.Declarations => Declarations;
-  ITokenMessages IGqlpSchema.Errors => Errors;
+  IMessages IGqlpSchema.Errors => Errors;
 
   public bool Equals(SchemaAst? other)
     => other is IGqlpSchema schema && Equals(schema);

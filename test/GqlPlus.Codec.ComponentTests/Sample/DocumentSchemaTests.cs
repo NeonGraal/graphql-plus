@@ -77,7 +77,6 @@ public class DocumentSchemaTests(
       .AddMap("Input", inputs, types, "_Type")
       .AddMap("Output", outputs, types, "_Type");
 
-
     IEnumerable<CategoryModel> categories = model.GetCategories(null).Values.Select(c => c.And).Where(c => c is not null).Cast<CategoryModel>();
     IEnumerable<DirectiveModel> directives = model.GetDirectives(null).Values.Select(c => c.And).Where(c => c is not null).Cast<DirectiveModel>();
     ICollection<SettingModel> settings = model.GetSettings(null).Values;

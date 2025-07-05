@@ -10,7 +10,7 @@ internal class VerifySchema(
   IVerify<IGqlpType[]> types
 ) : IVerify<IGqlpSchema>
 {
-  public void Verify(IGqlpSchema item, ITokenMessages errors)
+  public void Verify(IGqlpSchema item, IMessages errors)
   {
     IGqlpSchemaCategory[] categories = item.Declarations.ArrayOf<IGqlpSchemaCategory>();
     IGqlpSchemaDirective[] directives = item.Declarations.ArrayOf<IGqlpSchemaDirective>();

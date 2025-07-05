@@ -15,27 +15,8 @@ public record class TokenMessage(
   public TokenMessage(ITokenAt at, string message)
     : this(at.Kind, at.Column, at.Line, at.After, message) { }
 
+  MessageLevel IMessage.Level => MessageLevel.Error;
+
   public override string? ToString()
     => $"!!! {base.ToString()} : {Message} - '{Regex.Escape(After)}' !!!";
-}
-
-public class TokenMessages(
-  params ITokenMessage[] collection
-) : List<ITokenMessage>(collection)
-  , ITokenMessages
-{
-  public static ITokenMessages New
-    => new TokenMessages();
-
-  ITokenMessages ITokenMessages.Add(IEnumerable<ITokenMessage> messages)
-    => messages.Aggregate(this as ITokenMessages, (a, m) => a.Add(m));
-
-  ITokenMessages ITokenMessages.Add(ITokenMessage message)
-  {
-    if (!Contains(message)) {
-      Add(message);
-    }
-
-    return this;
-  }
 }

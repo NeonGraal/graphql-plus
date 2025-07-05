@@ -11,14 +11,14 @@ public record class SchemaModel(
     IEnumerable<DirectiveModel> directives,
     IEnumerable<SettingModel> settings,
     IEnumerable<BaseTypeModel> types,
-    ITokenMessages? errors)
+    IMessages? errors)
     : this(name, "")
   {
     Categories = categories.ToMap(c => c.Name);
     Directives = directives.ToMap(d => d.Name);
     Types = types.ToMap(t => t.Name);
     Settings = settings.ToMap(s => s.Name);
-    Errors = TokenMessages.New;
+    Errors = Messages.New;
     if (errors is not null) {
       Errors.Add(errors);
     }
@@ -28,7 +28,7 @@ public record class SchemaModel(
   internal IMap<DirectiveModel> Directives { get; } = new Map<DirectiveModel>();
   internal IMap<BaseTypeModel> Types { get; init; } = new Map<BaseTypeModel>();
   internal IMap<SettingModel> Settings { get; init; } = new Map<SettingModel>();
-  public ITokenMessages Errors { get; } = TokenMessages.New;
+  public IMessages Errors { get; } = new Messages();
 
 #pragma warning disable IDE0060 // Remove unused parameter
   public IMap<CategoriesModel> GetCategories(CategoryFilterModel? filter)

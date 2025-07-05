@@ -21,14 +21,22 @@ public static class StructureHelper
   public static Structured Encode(this IMap<Structured> groups, string? tag = null, bool flow = false)
     => groups.Encode(v => v, tag, flow);
 
-  public static Structured Encode(this ITokenMessages errors)
+  public static Structured Encode(this IMessages errors)
     => new(errors.Select(Encode), "_Errors");
 
-  private static Structured Encode(ITokenMessage error)
-    => new Map<Structured>() { ["_message"] = error.Message }.Encode("_Error")
-      .AddIf(error.Kind is TokenKind.Start or TokenKind.End,
-        onFalse: r => r.Add("_at", EncodeAt(error)))
-      .AddEnum("_kind", error.Kind);
+  private static Structured Encode(IMessage msg)
+  {
+    Structured result = new Map<Structured>() { ["_message"] = msg.Message }.Encode($"_{msg.Level}");
+
+    if (msg is ITokenMessage error) {
+      result
+        .AddIf(error.Kind is TokenKind.Start or TokenKind.End,
+          onFalse: r => r.Add("_at", EncodeAt(error)))
+        .AddEnum("_kind", error.Kind);
+    }
+
+    return result;
+  }
 
   private static Structured EncodeAt(ITokenAt at)
     => new Map<Structured>() {

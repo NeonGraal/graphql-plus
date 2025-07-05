@@ -10,7 +10,7 @@ internal sealed record class OperationAst(
   , IGqlpOperation
 {
   public ParseResultKind Result { get; set; }
-  internal TokenMessages Errors { get; set; } = [];
+  internal Messages Errors { get; set; } = [];
 
   public string Category { get; set; } = "query";
 
@@ -32,7 +32,7 @@ internal sealed record class OperationAst(
   IGqlpArg? IGqlpOperation.Arg => Arg;
   IEnumerable<IGqlpSelection>? IGqlpOperation.ResultObject => ResultObject;
   IEnumerable<IGqlpFragment> IGqlpOperation.Fragments => Fragments;
-  ITokenMessages IGqlpOperation.Errors => Errors;
+  IMessages IGqlpOperation.Errors => Errors;
 
   IEnumerable<IGqlpArg> IGqlpOperation.Usages => Usages;
   IEnumerable<IGqlpSpread> IGqlpOperation.Spreads => Spreads;

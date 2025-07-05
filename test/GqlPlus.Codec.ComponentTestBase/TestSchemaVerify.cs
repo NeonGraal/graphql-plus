@@ -34,7 +34,7 @@ public abstract class TestSchemaVerify(
   protected virtual void CheckNoErrors(IModelsContext context, string test)
   { }
 
-  protected virtual Task CheckResultErrors(string[] dirs, string test, ITokenMessages errors, bool includeVerify = false)
+  protected virtual Task CheckResultErrors(string[] dirs, string test, IMessages errors, bool includeVerify = false)
     => Task.CompletedTask;
 
   protected abstract Task VerifyResult(Structured result, string label, string test, string section);

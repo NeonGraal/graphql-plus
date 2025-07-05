@@ -4,7 +4,7 @@ namespace GqlPlus.Verifying.Schema.Objects;
 
 internal class OutputContext(
   IMap<IGqlpDescribed> types,
-  ITokenMessages errors,
+  IMessages errors,
   IMap<string> enumValues
 ) : EnumContext(types, errors, enumValues)
 {

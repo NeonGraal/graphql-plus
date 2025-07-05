@@ -5,12 +5,12 @@ namespace GqlPlus.Verifying.Schema;
 
 public class UsageContext(
   IMap<IGqlpDescribed> types,
-  ITokenMessages errors
+  IMessages errors
 )
 {
   internal readonly HashSet<string> Used = [];
 
-  internal void Add(IEnumerable<ITokenMessage> messages)
+  internal void Add(IEnumerable<IMessage> messages)
     => errors.Add(messages);
 
   internal void AddError<TAst>(TAst item, string label, string message)

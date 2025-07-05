@@ -49,5 +49,5 @@ public class TestAliased(string name, string[] aliases)
     && Name == other.Name;
   public IEnumerable<string?> GetFields() => throw new NotImplementedException();
   public bool IsNameOrAlias(string id) => id == name || aliases.Contains(id);
-  public ITokenMessages MakeError(string message) => throw new NotImplementedException();
+  public IMessages MakeError(string message) => throw new NotImplementedException();
 }

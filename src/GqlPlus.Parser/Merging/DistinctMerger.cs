@@ -10,11 +10,11 @@ internal abstract class DistinctMerger<TItem>(
 {
   private readonly ILogger _logger = logger.CreateTypedLogger<DistinctMerger<TItem>>();
 
-  protected override ITokenMessages CanMergeGroup(IGrouping<string, TItem> group)
+  protected override IMessages CanMergeGroup(IGrouping<string, TItem> group)
   {
     IEnumerable<string> distinct = group.Select(ItemMatchKey).Distinct();
     if (distinct.Count() == 1) {
-      return TokenMessages.New;
+      return Messages.New;
     }
 
     string typeName = typeof(TItem).TidyTypeName();

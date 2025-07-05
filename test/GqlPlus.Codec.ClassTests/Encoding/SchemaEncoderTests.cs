@@ -45,7 +45,7 @@ public class SchemaEncoderTests
     IEnumerable<DirectiveModel> directives = [new(directiveName, "")];
     IEnumerable<SettingModel> settings = [new(settingName, null!, "")];
     IEnumerable<TypeOutputModel> types = [new(typeName, "")];
-    ITokenMessages? errors = new TokenMessages(new TokenMessage(AstNulls.At, errorMessage));
+    IMessages? errors = new Messages(new TokenMessage(AstNulls.At, errorMessage));
     SchemaModel model = new(name, categories, directives, settings, types, errors) {
       Aliases = aliases
     };

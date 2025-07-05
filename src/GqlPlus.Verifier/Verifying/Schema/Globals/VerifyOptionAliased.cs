@@ -11,7 +11,7 @@ internal class VerifyOptionAliased(
 {
   public override string Label => "Options";
 
-  public override void Verify(IGqlpSchemaOption[] item, ITokenMessages errors)
+  public override void Verify(IGqlpSchemaOption[] item, IMessages errors)
   {
     if (item.Select(i => i.Name).Distinct().Count() > 1) {
       errors.Add(item.Last().MakeError($"Multiple Schema names ({Label}) found."));

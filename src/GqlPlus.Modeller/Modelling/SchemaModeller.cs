@@ -12,7 +12,7 @@ internal class SchemaModeller(
   protected override SchemaModel ToModel(IGqlpSchema ast, IMap<TypeKindModel> typeKinds)
   {
     IGqlpType[] typeDeclarations = ast.Declarations.ArrayOf<IGqlpType>();
-    ITokenMessages errors = ast.Errors;
+    IMessages errors = ast.Errors;
     if (typeKinds is IModelsContext collection) {
       errors = collection.Errors;
       errors.Clear();

@@ -8,7 +8,7 @@ internal class MergeInputFields(
   IMerge<IGqlpConstant> constant
 ) : AstObjectFieldsMerger<IGqlpInputField>(logger)
 {
-  protected override ITokenMessages CanMergeGroup(IGrouping<string, IGqlpInputField> group)
+  protected override IMessages CanMergeGroup(IGrouping<string, IGqlpInputField> group)
     => base.CanMergeGroup(group)
       .Add(group.CanMerge(item => item.DefaultValue, constant));
 

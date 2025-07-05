@@ -17,6 +17,6 @@ public class LinesSchemaTests(
   protected override void CheckNoErrors([NotNull] IModelsContext context, string test)
     => context.Errors.ShouldBeEmpty(test);
 
-  protected override Task CheckResultErrors(string[] dirs, string test, ITokenMessages errors, bool includeVerify = false)
+  protected override Task CheckResultErrors(string[] dirs, string test, IMessages errors, bool includeVerify = false)
     => CheckErrors(dirs, test, errors, includeVerify);
 }

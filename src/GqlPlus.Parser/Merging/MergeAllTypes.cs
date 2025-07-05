@@ -13,7 +13,7 @@ internal class MergeAllTypes(
   protected override string ItemMatchName => "Type";
   protected override string ItemMatchKey(IGqlpType item) => item.Label;
 
-  public override ITokenMessages CanMerge(IEnumerable<IGqlpType> items)
+  public override IMessages CanMerge(IEnumerable<IGqlpType> items)
   {
     FixupEnums(items);
 

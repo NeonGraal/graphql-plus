@@ -32,7 +32,7 @@ public class ParseSchemaTests(
 
   protected override async Task Result_Invalid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")
   {
-    TokenMessages errors = [];
+    Messages errors = [];
     if (!result.IsOk()) {
       result.IsError(e => errors.Add(e with { Message = "Parse Error: " + e.Message }));
     }

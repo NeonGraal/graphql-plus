@@ -10,7 +10,7 @@ internal abstract class AliasedVerifier<TAliased>(
 ) : GroupedVerifier<TAliased>(merger, logger)
  where TAliased : IGqlpAliased
 {
-  public override void Verify(TAliased[] item, ITokenMessages errors)
+  public override void Verify(TAliased[] item, IMessages errors)
   {
     base.Verify(item, errors);
 

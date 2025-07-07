@@ -3,9 +3,11 @@
 public abstract class ScalarDecoderClassTestBase<TModel, TInput>
   : DecoderClassTestBase<TModel>
 {
+  public string BoolMapped { get; protected set; } = "";
+
   [Theory, RepeatData]
   public void Decode_Bool(bool value)
-    => DecodeAndCheck(new(value), ExpectedBool(value));
+    => DecodeAndCheck(new(value), ExpectedBool(value), BoolMapped);
 
   [Theory, RepeatData]
   public void Decode_Number(decimal value)

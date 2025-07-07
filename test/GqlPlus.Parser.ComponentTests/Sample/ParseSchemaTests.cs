@@ -1,7 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Result;
-using GqlPlus.Token;
 using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Sample;

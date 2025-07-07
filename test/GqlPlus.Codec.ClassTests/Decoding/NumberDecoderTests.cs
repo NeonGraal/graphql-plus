@@ -4,6 +4,9 @@ namespace GqlPlus.Decoding;
 public class NumberDecoderTests
   : ScalarDecoderClassTestBase<decimal?, decimal>
 {
+  public NumberDecoderTests()
+    => BoolMapped = "Mapped";
+
   protected override IDecoder<decimal?> Decoder { get; }
     = new NumberDecoder();
 

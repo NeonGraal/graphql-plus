@@ -41,3 +41,18 @@ public class Messages(
     return this;
   }
 }
+
+public static class MessageHelpers
+{
+  public static IMessage Error(this string message)
+    => new AMessage(MessageLevel.Error, message);
+  public static IMessage Warning(this string message)
+    => new AMessage(MessageLevel.Warning, message);
+  public static IMessage Info(this string message)
+    => new AMessage(MessageLevel.Info, message);
+
+  private sealed record class AMessage(
+    MessageLevel Level,
+    string Message
+  ) : IMessage;
+}

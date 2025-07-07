@@ -4,68 +4,69 @@ using GqlPlus.Abstractions.Schema;
 namespace GqlPlus.Decoding;
 
 internal abstract class ObjectDecoder<TModel>
-  : IDecoder<TModel>
+  : DecoderBase<TModel>
   where TModel : class
 {
-  protected delegate TModel? Decoder(IValue value);
+  protected delegate IMessages Decoder(IValue input, out TModel? output);
   protected readonly List<Decoder> Decoders = [];
 
   protected ObjectDecoder()
     => Decoders.Add(DecodeObject);
 
-  public TModel? Decode(IValue value)
+  public override IMessages Decode(IValue input, out TModel? output)
   {
+    IMessages messages = Messages.New;
     foreach (Decoder decoder in Decoders) {
-      TModel? result = decoder(value);
-      if (result is not null) {
-        return result;
+      messages.Add(decoder(input, out output));
+      if (output is not null) {
+        return messages;
       }
     }
 
-    return null;
+    output = null;
+    return messages.Add(Err($"Unable to decode {input}"));
   }
 
-  protected virtual TModel? DecodeObject(IValue value)
+  protected virtual IMessages DecodeObject(IValue input, out TModel? output)
   {
-    if (value.TryGetMap(out IMap<IValue>? map)
-        || value.TryGetList(out IEnumerable<IValue>? list)
+    if (input.TryGetMap(out IMap<IValue>? map)
+        || input.TryGetList(out IEnumerable<IValue>? list)
           && list.Count() == 1 && list.First().TryGetMap(out map)) {
-      return DecodeMap(map);
+      return DecodeMap(map, out output);
     }
 
-    return null;
+    output = null;
+    return new Messages(Err($"Unable to decode {input}"));
   }
 
-  protected void DecodeScalarField<T>(IDecoder<T> decoder, IMap<IValue> map, out T? value, T? defaultValue = default, [CallerArgumentExpression(nameof(value))] string valueExpr = "")
+  protected void DecodeScalarField<T>(IMessages messages, IDecoder<T> decoder, IMap<IValue> map, out T? value, T? defaultValue = default, [CallerArgumentExpression(nameof(value))] string valueExpr = "")
   {
     string fieldName = valueExpr.Split()[1];
     if (map.TryGetValue(fieldName, out IValue? fieldValue)) {
-      value = decoder.Decode(fieldValue) ?? defaultValue;
+      messages.Add(decoder.Decode(fieldValue, out value));
     } else {
       value = defaultValue;
     }
   }
 
-  protected void DecodeListField<T>(IDecoder<T> decoder, IMap<IValue> map, out T[] value, [CallerArgumentExpression(nameof(value))] string valueExpr = "")
+  protected void DecodeListField<T>(IMessages messages, IDecoder<T> decoder, IMap<IValue> map, out T[] value, [CallerArgumentExpression(nameof(value))] string valueExpr = "")
   {
+    value = [];
     string fieldName = valueExpr.Split()[1];
     if (map.TryGetValue(fieldName, out IValue? fieldValue)) {
-      DecodeList(decoder, fieldValue, out value);
-    } else {
-      value = [];
+      if (fieldValue.TryGetList(out IEnumerable<IValue>? list)) {
+        messages.Add(DecodeList(list, decoder, out IEnumerable<T>? result));
+        if (result?.Count() > 0) {
+          value = [.. result];
+          return;
+        }
+      }
+
+      messages.Add(Err($"Unable to decode list field '{fieldName}' with value {fieldValue}"));
     }
   }
 
-  protected void DecodeList<T>(IDecoder<T> decoder, IValue input, out T[] value)
-  {
-    if (input.TryGetList(out IEnumerable<IValue>? list)) {
-      value = [.. list.Select(decoder.Decode).Where(v => v is not null).Cast<T>()];
-    } else {
-      value = [];
-    }
-  }
-
-  protected abstract TModel? DecodeMap(IMap<IValue> map);
+  protected abstract IMessages DecodeMap(IMap<IValue> map, out TModel? output);
 }
 
 internal abstract class FilterModelDecoder<TModel>
@@ -83,43 +84,54 @@ internal abstract class FilterModelDecoder<TModel>
     Decoders.Add(DecodeNames);
   }
 
-  protected abstract TModel? DecodeNames(IValue value);
+  protected abstract IMessages DecodeNames(IValue input, out TModel? output);
 
-  protected FilterModel? DecodeFilterMap(IMap<IValue> map)
+  protected IMessages DecodeFilterMap(IMap<IValue> map, out FilterModel? output)
   {
-    DecodeListField(_nameFilter, map, out string[]? names);
-    DecodeScalarField(_boolean, map, out bool matchAliases, true);
-    DecodeListField(_nameFilter, map, out string[]? aliases);
-    DecodeScalarField(_boolean, map, out bool returnByAlias);
-    DecodeScalarField(_boolean, map, out bool returnReferencedTypes);
+    IMessages messages = Messages.New;
 
-    return new(names) {
+    DecodeListField(messages, _nameFilter, map, out string[]? names);
+    DecodeScalarField(messages, _boolean, map, out bool matchAliases, true);
+    DecodeListField(messages, _nameFilter, map, out string[]? aliases);
+    DecodeScalarField(messages, _boolean, map, out bool returnByAlias);
+    DecodeScalarField(messages, _boolean, map, out bool returnReferencedTypes);
+
+    output = new(names) {
       MatchAliases = matchAliases,
       Aliases = aliases,
       ReturnByAlias = returnByAlias,
       ReturnReferencedTypes = returnReferencedTypes
     };
+
+    return messages;
   }
 
-  protected FilterModel? DecodeFilterNames(IValue value)
+  protected IMessages DecodeFilterNames(IValue input, out FilterModel? output)
   {
-    DecodeList(_nameFilter, value, out string[]? names);
-    if (names.Length > 0) {
-      return new FilterModel(names);
+    IMessages messages = Messages.New;
+    output = null;
+
+    if (input.TryGetText(out string? strValue)) {
+      output = new FilterModel([strValue]);
+    } else if (input.TryGetList(out IEnumerable<IValue>? list)) {
+      messages.Add(DecodeList(list, _nameFilter, out IEnumerable<string> names));
+      if (names.Any()) {
+        output = new FilterModel([.. names]);
+      }
     }
 
-    return null;
+    return messages;
   }
 }
 
 internal class FilterModelDecoder(IDecoder<bool> boolean, IDecoder<string> nameFilter)
   : FilterModelDecoder<FilterModel>(boolean, nameFilter)
 {
-  protected override FilterModel? DecodeMap(IMap<IValue> map)
-    => DecodeFilterMap(map);
+  protected override IMessages DecodeMap(IMap<IValue> map, out FilterModel? output)
+    => DecodeFilterMap(map, out output);
 
-  protected override FilterModel? DecodeNames(IValue value)
-    => DecodeFilterNames(value);
+  protected override IMessages DecodeNames(IValue value, out FilterModel? output)
+    => DecodeFilterNames(value, out output);
 }
 
 internal class CategoryFilterModelDecoder(
@@ -128,23 +140,26 @@ internal class CategoryFilterModelDecoder(
   IDecoder<CategoryOption> resolution
 ) : FilterModelDecoder<CategoryFilterModel>(boolean, nameFilter)
 {
-  protected override CategoryFilterModel? DecodeMap(IMap<IValue> map)
+  protected override IMessages DecodeMap(IMap<IValue> map, out CategoryFilterModel? output)
   {
-    FilterModel? filterModel = DecodeFilterMap(map);
+    IMessages messages = DecodeFilterMap(map, out FilterModel? filterModel);
     if (filterModel is null) {
-      return null;
+      output = null;
+      return messages;
     }
 
-    DecodeListField(resolution, map, out CategoryOption[]? resolutions);
+    DecodeListField(messages, resolution, map, out CategoryOption[]? resolutions);
 
-    return new(filterModel) { Resolutions = resolutions ?? [], };
+    output = new(filterModel) { Resolutions = resolutions ?? [], };
+    return messages;
   }
 
-  protected override CategoryFilterModel? DecodeNames(IValue value)
+  protected override IMessages DecodeNames(IValue value, out CategoryFilterModel? output)
   {
-    FilterModel? filterModel = DecodeFilterNames(value);
+    IMessages messages = DecodeFilterNames(value, out FilterModel? filterModel);
 
-    return filterModel is null ? null : new(filterModel);
+    output = filterModel is null ? null : new(filterModel);
+    return messages;
   }
 }
 
@@ -154,22 +169,25 @@ internal class TypeFilterModelDecoder(
   IDecoder<TypeKindModel> kind
 ) : FilterModelDecoder<TypeFilterModel>(boolean, nameFilter)
 {
-  protected override TypeFilterModel? DecodeMap(IMap<IValue> map)
+  protected override IMessages DecodeMap(IMap<IValue> map, out TypeFilterModel? output)
   {
-    FilterModel? filterModel = DecodeFilterMap(map);
+    IMessages messages = DecodeFilterMap(map, out FilterModel? filterModel);
     if (filterModel is null) {
-      return null;
+      output = null;
+      return messages;
     }
 
-    DecodeListField(kind, map, out TypeKindModel[]? kinds);
+    DecodeListField(messages, kind, map, out TypeKindModel[]? kinds);
 
-    return new(filterModel) { Kinds = kinds ?? [], };
+    output = new(filterModel) { Kinds = kinds ?? [], };
+    return messages;
   }
 
-  protected override TypeFilterModel? DecodeNames(IValue value)
+  protected override IMessages DecodeNames(IValue value, out TypeFilterModel? output)
   {
-    FilterModel? filterModel = DecodeFilterNames(value);
+    IMessages messages = DecodeFilterNames(value, out FilterModel? filterModel);
 
-    return filterModel is null ? null : new(filterModel);
+    output = filterModel is null ? null : new(filterModel);
+    return messages;
   }
 }

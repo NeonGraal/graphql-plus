@@ -1,62 +1,139 @@
 ﻿namespace GqlPlus.Decoding;
 
-internal class EnumDecoder<T>
+internal abstract class DecoderBase<T>
   : IDecoder<T>
-  where T : struct, Enum
 {
   private string? _tag;
 
+  protected DecoderBase() { }
+
+  protected DecoderBase(string tag)
+    => _tag = tag;
+
   internal virtual string Tag => _tag ??= typeof(T).TypeTag();
 
-  public T Decode(IValue value)
+  protected IMessage Err(string message)
+    => $"Error decoding {Tag}: {message}".Error();
+  protected IMessage Warn(string message)
+    => $"Warning decoding {Tag}: {message}".Warning();
+
+  protected IMessages Ok(T? _)
+    => Messages.New;
+
+  protected IMessages Mapped(object? input, T? output)
   {
-    if (!string.IsNullOrWhiteSpace(value.Tag) && Tag != value.Tag) {
-      return default;
+    if (input is null) {
+      return Messages.New.Add(Err($"Unable to map from null input"));
     }
 
-    if (value.TryGetNumber(out decimal? numValue) && Enum.IsDefined(typeof(T), (int)numValue)) {
-      return (T)(object)(int)numValue;
+    if (output is null) {
+      return Messages.New.Add(Err($"Unable to map from {input}"));
     }
 
-    if (value.TryGetText(out string? strValue) && Enum.TryParse(strValue, out T result)) {
-      return result;
+    return Messages.New.Add(Warn($"Mapped {input} to {output}"));
+  }
+
+  protected IMessages Parsed(object? input, T? output)
+  {
+    if (input is null) {
+      return Messages.New.Add(Err($"Unable to parse from null input"));
     }
 
-    if (value.TryGetList(out IEnumerable<IValue>? list)
+    if (output is null) {
+      return Messages.New.Add(Err($"Unable to parse from {input}"));
+    }
+
+    return Messages.New.Add(Warn($"Parsed {input} to {output}"));
+  }
+
+  protected IMessages DecodeList<TR>(IEnumerable<IValue> list, IDecoder<TR> decoder, out IEnumerable<TR> output)
+  {
+    List<TR> result = [];
+    IMessages messages = Messages.New;
+    foreach (IValue item in list) {
+      messages.Add(decoder.Decode(item, out TR? itemOutput));
+      if (itemOutput is not null) {
+        result.Add(itemOutput);
+      }
+    }
+
+    output = result;
+    return messages;
+  }
+
+  public abstract IMessages Decode(IValue input, out T? output);
+}
+
+internal class EnumDecoder<T>
+  : DecoderBase<T?>
+  where T : struct, Enum
+{
+  public EnumDecoder()
+    : base(typeof(T).TypeTag())
+  { }
+
+  public override IMessages Decode(IValue input, out T? output)
+  {
+    output = null;
+    IMessages messages = Messages.New;
+
+    if (!string.IsNullOrWhiteSpace(input.Tag) && Tag != input.Tag) {
+      return messages.Add(Err($"Invalid tag {input.Tag}"));
+    }
+
+    if (input.TryGetNumber(out decimal? numValue)) {
+      if (Enum.IsDefined(typeof(T), (int)numValue)) {
+        output = (T)(object)(int)numValue;
+      }
+
+      return Mapped(numValue, output);
+    }
+
+    if (input.TryGetText(out string? strValue)) {
+      if (Enum.TryParse(strValue, out T result)) {
+        output = result;
+        return messages;
+      }
+
+      return messages.Add(Err($"Unable to parse {strValue}"));
+    }
+
+    if (input.TryGetList(out IEnumerable<IValue>? list)
         && list.Count() == 1) {
-      return Decode(list.First());
+      return Decode(list.First(), out output);
     }
 
-    return default;
+    return messages.Add(Err($"Unable to decode {input}"));
   }
 }
 
 internal abstract class ScalarDecoder<TModel>
-  : IDecoder<TModel>
+  : DecoderBase<TModel>
 {
-  public TModel? Decode(IValue value)
+  public override IMessages Decode(IValue input, out TModel? output)
   {
-    if (value.TryGetBoolean(out bool? boolValue)) {
-      return DecodeBoolean(boolValue);
+    if (input.TryGetBoolean(out bool? boolValue)) {
+      return DecodeBoolean(boolValue, out output);
     }
 
-    if (value.TryGetNumber(out decimal? numValue)) {
-      return DecodeNumber(numValue);
+    if (input.TryGetNumber(out decimal? numValue)) {
+      return DecodeNumber(numValue, out output);
     }
 
-    if (value.TryGetText(out string? strValue)) {
-      return DecodeText(strValue);
+    if (input.TryGetText(out string? strValue)) {
+      return DecodeText(strValue, out output);
     }
 
-    if (value.TryGetList(out IEnumerable<IValue>? list)
+    if (input.TryGetList(out IEnumerable<IValue>? list)
         && list.Count() == 1) {
-      return Decode(list.First());
+      return Decode(list.First(), out output);
     }
 
-    return default;
+    output = default;
+    return new Messages(Err($"Unable to decode {input}"));
   }
 
-  protected abstract TModel? DecodeBoolean(bool? boolValue);
-  protected abstract TModel? DecodeNumber(decimal? numValue);
-  protected abstract TModel? DecodeText(string strValue);
+  protected abstract IMessages DecodeBoolean(bool? boolValue, out TModel? output);
+  protected abstract IMessages DecodeNumber(decimal? numValue, out TModel? output);
+  protected abstract IMessages DecodeText(string strValue, out TModel? output);
 }

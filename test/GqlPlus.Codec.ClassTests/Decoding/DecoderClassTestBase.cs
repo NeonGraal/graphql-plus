@@ -12,17 +12,43 @@ public abstract class DecoderClassTestBase<TModel>
   internal static IDecoder<TM> DFor<TM>()
     => A.Of<IDecoder<TM>>();
   public void DecodeReturns<T>([NotNull] IDecoder<T> decoder, T returns)
-    => decoder.Decode(null!).ReturnsForAnyArgs(returns);
+  {
+    decoder.Decode(null!, out T? output).ReturnsForAnyArgs(x => {
+      x[1] = returns;
+      return Messages.New;
+    });
+  }
 
   public Action DecoderCalled<T>([NotNull] IDecoder<T> decoder, int count, [CallerArgumentExpression(nameof(decoder))] string? name = "")
-    => () => decoder.ReceivedWithAnyArgs(new NamedQuantity(count, name)).Decode(null!);
+    => () => decoder.ReceivedWithAnyArgs(new NamedQuantity(count, name)).Decode(null!, out T? _);
 
   internal void DecodeAndCheck(Structured input, TModel? expected)
   {
-    TModel? result = Decoder.Decode(input);
+    IMessages messages = Decoder.Decode(input, out TModel? result);
 
-    result.ShouldBeEquivalentTo(expected);
+    result.ShouldSatisfyAllConditions(
+      () => result.ShouldBeEquivalentTo(expected),
+      MessagesEmpty(messages, result));
   }
+
+  public Action MessagesEmpty(IMessages messages, TModel? expected)
+    => expected is null
+      ? () => messages.ShouldNotBeEmpty()
+      : () => messages.ShouldBeEmpty();
+
+  internal void DecodeAndCheck(Structured input, TModel? expected, string message)
+  {
+    IMessages messages = Decoder.Decode(input, out TModel? result);
+
+    result.ShouldSatisfyAllConditions(
+      () => result.ShouldBeEquivalentTo(expected),
+      MessagesContain(messages, message));
+  }
+
+  public Action MessagesContain(IMessages messages, string message)
+    => string.IsNullOrEmpty(message)
+      ? () => messages.ShouldBeEmpty()
+      : () => messages.ShouldContain(m => m.Message.Contains(message));
 
   private sealed class NamedQuantity(int count, string? name) : Quantity
   {

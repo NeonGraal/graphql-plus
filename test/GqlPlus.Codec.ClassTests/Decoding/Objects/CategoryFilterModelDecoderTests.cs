@@ -23,7 +23,7 @@ public class CategoryFilterModelDecoderTests
       ["resolutions"] = resolutions.Encode()
     };
 
-    CategoryFilterModel? result = Decoder.Decode(input.Encode());
+    IMessages messages = Decoder.Decode(input.Encode(), out CategoryFilterModel? result);
 
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
@@ -32,5 +32,6 @@ public class CategoryFilterModelDecoderTests
         DecoderCalled(NameFilter, names.Length),
         DecoderCalled(Resolution, resolutions.Length)
       );
+    messages.ShouldNotBeNull();
   }
 }

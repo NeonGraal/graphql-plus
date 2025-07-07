@@ -9,6 +9,12 @@ public abstract class FilterModelDecoderTestBase<TModel>
   protected IDecoder<bool> Boolean { get; } = DFor<bool>();
   protected IDecoder<string> NameFilter { get; } = DFor<string>();
 
+  protected FilterModelDecoderTestBase()
+  {
+    DecodeReturns(NameFilter, "");
+    DecodeReturns(Boolean, false);
+  }
+
   [Fact]
   public void Decode_Empty_ReturnsNull()
     => DecodeAndCheck(new(""), null);
@@ -29,27 +35,41 @@ public abstract class FilterModelDecoderTestBase<TModel>
       ["returnByAlias"] = returnByAlias
     };
 
-    FilterModel? result = Decoder.Decode(input.Encode());
+    IMessages messages = Decoder.Decode(input.Encode(), out TModel? result);
 
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
         () => result.Names.Length.ShouldBe(names.Length),
         () => result.Aliases.Length.ShouldBe(aliases.Length),
         DecoderCalled(Boolean, 3),
-        DecoderCalled(NameFilter, names.Length + aliases.Length)
+        DecoderCalled(NameFilter, names.Length + aliases.Length),
+        () => messages.ShouldNotBeNull()
       );
   }
 
   [Theory, RepeatData]
-  public void Decode_Names_ReturnsExpected(
-    [NotNull] string[] names)
+  public void Decode_Name_ReturnsExpected(string name)
   {
-    FilterModel? result = Decoder.Decode(names.Encode());
+    IMessages messages = Decoder.Decode(new[] { name }.Encode(), out TModel? result);
+
+    result.ShouldNotBeNull()
+      .ShouldSatisfyAllConditions(
+        () => result.Names.Length.ShouldBe(1),
+        DecoderCalled(NameFilter, 1),
+        () => messages.ShouldNotBeNull()
+      );
+  }
+
+  [Theory, RepeatData]
+  public void Decode_Names_ReturnsExpected([NotNull] string[] names)
+  {
+    IMessages messages = Decoder.Decode(names.Encode(), out TModel? result);
 
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
         () => result.Names.Length.ShouldBe(names.Length),
-        DecoderCalled(NameFilter, names.Length)
+        DecoderCalled(NameFilter, names.Length),
+        () => messages.ShouldNotBeNull()
       );
   }
 }

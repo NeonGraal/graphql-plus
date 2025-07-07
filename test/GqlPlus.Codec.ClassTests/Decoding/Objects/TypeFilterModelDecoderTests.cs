@@ -23,7 +23,7 @@ public class TypeFilterModelDecoderTests
       ["kinds"] = kinds.Encode()
     };
 
-    TypeFilterModel? result = Decoder.Decode(input.Encode());
+    IMessages messages = Decoder.Decode(input.Encode(), out TypeFilterModel? result);
 
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
@@ -32,5 +32,6 @@ public class TypeFilterModelDecoderTests
         DecoderCalled(NameFilter, names.Length),
         DecoderCalled(Kind, kinds.Length)
       );
+    messages.ShouldNotBeNull();
   }
 }

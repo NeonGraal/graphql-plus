@@ -1,10 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using GqlPlus;
-using GqlPlus.Abstractions;
-using GqlPlus.Abstractions.Schema;
 using GqlPlus.Convert;
-using GqlPlus.Merging;
-using GqlPlus.Modelling;
 using GqlPlus.Resolving;
 using Microsoft.Extensions.Logging;
 

@@ -2,7 +2,6 @@
 using GqlPlus.Parsing;
 using GqlPlus.Parsing.Operation;
 using GqlPlus.Result;
-using GqlPlus.Token;
 using GqlPlus.Verifying;
 
 namespace GqlPlus.Sample;

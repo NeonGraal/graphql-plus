@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Abstractions;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Resolving;
 using Microsoft.Extensions.Logging;
@@ -24,7 +23,7 @@ public abstract class TestSchemaVerify(
     }
   }
 
-  protected async virtual Task EncodeModel([NotNull] SchemaModel model, IModelsContext context, string test, string label, string[] dirs, string section)
+  protected virtual async Task EncodeModel([NotNull] SchemaModel model, IModelsContext context, string test, string label, string[] dirs, string section)
   {
     Structured result = checks.Encode_Model(model, context);
 

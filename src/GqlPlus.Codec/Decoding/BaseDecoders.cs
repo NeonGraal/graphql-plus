@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Decoding;
 
-internal abstract class DecoderBase<T>
-  : IDecoder<T>
+internal abstract class DecoderBase<TModel>
+  : IDecoder<TModel>
 {
   private string? _tag;
 
@@ -10,17 +10,17 @@ internal abstract class DecoderBase<T>
   protected DecoderBase(string tag)
     => _tag = tag;
 
-  internal virtual string Tag => _tag ??= typeof(T).TypeTag();
+  internal virtual string Tag => _tag ??= typeof(TModel).TypeTag();
 
   protected IMessage Err(string message)
     => $"Error decoding {Tag}: {message}".Error();
   protected IMessage Warn(string message)
     => $"Warning decoding {Tag}: {message}".Warning();
 
-  protected IMessages Ok(T? _)
+  protected IMessages Ok(TModel? _)
     => Messages.New;
 
-  protected IMessages Mapped(object? input, T? output)
+  protected IMessages Mapped(object? input, TModel? output)
   {
     if (input is null) {
       return Messages.New.Add(Err($"Unable to map from null input"));
@@ -33,7 +33,7 @@ internal abstract class DecoderBase<T>
     return Messages.New.Add(Warn($"Mapped {input} to {output}"));
   }
 
-  protected IMessages Parsed(object? input, T? output)
+  protected IMessages Parsed(object? input, TModel? output)
   {
     if (input is null) {
       return Messages.New.Add(Err($"Unable to parse from null input"));
@@ -46,12 +46,13 @@ internal abstract class DecoderBase<T>
     return Messages.New.Add(Warn($"Parsed {input} to {output}"));
   }
 
-  protected IMessages DecodeList<TR>(IEnumerable<IValue> list, IDecoder<TR> decoder, out IEnumerable<TR> output)
+  protected IMessages DecodeClassList<T>(IEnumerable<IValue> list, IDecoder<T> decoder, out IEnumerable<T> output)
+    where T : class
   {
-    List<TR> result = [];
+    List<T> result = [];
     IMessages messages = Messages.New;
     foreach (IValue item in list) {
-      messages.Add(decoder.Decode(item, out TR? itemOutput));
+      messages.Add(decoder.Decode(item, out T? itemOutput));
       if (itemOutput is not null) {
         result.Add(itemOutput);
       }
@@ -61,7 +62,23 @@ internal abstract class DecoderBase<T>
     return messages;
   }
 
-  public abstract IMessages Decode(IValue input, out T? output);
+  protected IMessages DecodeStructList<T>(IEnumerable<IValue> list, IDecoder<T?> decoder, out IEnumerable<T> output)
+    where T : struct
+  {
+    List<T> result = [];
+    IMessages messages = Messages.New;
+    foreach (IValue item in list) {
+      messages.Add(decoder.Decode(item, out T? itemOutput));
+      if (itemOutput is not null) {
+        result.Add(itemOutput.Value);
+      }
+    }
+
+    output = result;
+    return messages;
+  }
+
+  public abstract IMessages Decode(IValue input, out TModel? output);
 }
 
 internal class EnumDecoder<T>

@@ -23,6 +23,8 @@ public class CategoryFilterModelDecoderTests
       ["resolutions"] = resolutions.Encode()
     };
 
+    DecodeReturns(Resolution, CategoryOption.Parallel);
+
     IMessages messages = Decoder.Decode(input.Encode(), out CategoryFilterModel? result);
 
     result.ShouldNotBeNull()

@@ -23,6 +23,8 @@ public class TypeFilterModelDecoderTests
       ["kinds"] = kinds.Encode()
     };
 
+    DecodeReturns(Kind, TypeKindModel.Internal);
+
     IMessages messages = Decoder.Decode(input.Encode(), out TypeFilterModel? result);
 
     result.ShouldNotBeNull()

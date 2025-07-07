@@ -39,23 +39,42 @@ internal abstract class ObjectDecoder<TModel>
     return new Messages(Err($"Unable to decode {input}"));
   }
 
-  protected void DecodeScalarField<T>(IMessages messages, IDecoder<T> decoder, IMap<IValue> map, out T? value, T? defaultValue = default, [CallerArgumentExpression(nameof(value))] string valueExpr = "")
+  protected void DecodeScalarField<T>(IMessages messages, IDecoder<T> decoder, IMap<IValue> map, out T? value, [CallerArgumentExpression(nameof(value))] string valueExpr = "")
   {
     string fieldName = valueExpr.Split()[1];
     if (map.TryGetValue(fieldName, out IValue? fieldValue)) {
       messages.Add(decoder.Decode(fieldValue, out value));
     } else {
-      value = defaultValue;
+      value = default;
     }
   }
 
-  protected void DecodeListField<T>(IMessages messages, IDecoder<T> decoder, IMap<IValue> map, out IEnumerable<T> value, [CallerArgumentExpression(nameof(value))] string valueExpr = "")
+  protected void DecodeClassListField<T>(IMessages messages, IDecoder<T> decoder, IMap<IValue> map, out IEnumerable<T> value, [CallerArgumentExpression(nameof(value))] string valueExpr = "")
+    where T : class
   {
     value = [];
     string fieldName = valueExpr.Split()[1];
     if (map.TryGetValue(fieldName, out IValue? fieldValue)) {
       if (fieldValue.TryGetList(out IEnumerable<IValue>? list)) {
-        messages.Add(DecodeList(list, decoder, out IEnumerable<T>? result));
+        messages.Add(DecodeClassList(list, decoder, out IEnumerable<T>? result));
+        if (result?.Count() > 0) {
+          value = result;
+          return;
+        }
+      }
+
+      messages.Add(Err($"Unable to decode list field '{fieldName}' with value {fieldValue}"));
+    }
+  }
+
+  protected void DecodeStructListField<T>(IMessages messages, IDecoder<T?> decoder, IMap<IValue> map, out IEnumerable<T> value, [CallerArgumentExpression(nameof(value))] string valueExpr = "")
+    where T : struct
+  {
+    value = [];
+    string fieldName = valueExpr.Split()[1];
+    if (map.TryGetValue(fieldName, out IValue? fieldValue)) {
+      if (fieldValue.TryGetList(out IEnumerable<IValue>? list)) {
+        messages.Add(DecodeStructList(list, decoder, out IEnumerable<T>? result));
         if (result?.Count() > 0) {
           value = result;
           return;
@@ -90,9 +109,9 @@ internal abstract class FilterModelDecoder<TModel>
   {
     IMessages messages = Messages.New;
 
-    DecodeListField(messages, _nameFilter, map, out IEnumerable<string>? names);
-    DecodeScalarField(messages, _boolean, map, out bool? matchAliases, true);
-    DecodeListField(messages, _nameFilter, map, out IEnumerable<string>? aliases);
+    DecodeClassListField(messages, _nameFilter, map, out IEnumerable<string>? names);
+    DecodeScalarField(messages, _boolean, map, out bool? matchAliases);
+    DecodeClassListField(messages, _nameFilter, map, out IEnumerable<string>? aliases);
     DecodeScalarField(messages, _boolean, map, out bool? returnByAlias);
     DecodeScalarField(messages, _boolean, map, out bool? returnReferencedTypes);
 
@@ -114,7 +133,7 @@ internal abstract class FilterModelDecoder<TModel>
     if (input.TryGetText(out string? strValue)) {
       output = new FilterModel([strValue]);
     } else if (input.TryGetList(out IEnumerable<IValue>? list)) {
-      messages.Add(DecodeList(list, _nameFilter, out IEnumerable<string> names));
+      messages.Add(DecodeClassList(list, _nameFilter, out IEnumerable<string> names));
       if (names.Any()) {
         output = new FilterModel([.. names]);
       }
@@ -148,9 +167,9 @@ internal class CategoryFilterModelDecoder(
       return messages;
     }
 
-    DecodeListField(messages, resolution, map, out IEnumerable<CategoryOption?>? resolutions);
+    DecodeStructListField(messages, resolution, map, out IEnumerable<CategoryOption>? resolutions);
 
-    output = new(filterModel) { Resolutions = [.. resolutions.OfType<CategoryOption>()], };
+    output = new(filterModel) { Resolutions = [.. resolutions], };
     return messages;
   }
 
@@ -177,9 +196,9 @@ internal class TypeFilterModelDecoder(
       return messages;
     }
 
-    DecodeListField(messages, kind, map, out IEnumerable<TypeKindModel?>? kinds);
+    DecodeStructListField(messages, kind, map, out IEnumerable<TypeKindModel>? kinds);
 
-    output = new(filterModel) { Kinds = [.. kinds.OfType<TypeKindModel>()], };
+    output = new(filterModel) { Kinds = [.. kinds], };
     return messages;
   }
 

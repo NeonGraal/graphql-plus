@@ -74,7 +74,7 @@ internal class ConstantDecoder
 
   private IMessages DecodeConstantList(IEnumerable<IValue> list, out ConstantModel? output)
   {
-    IMessages messages = DecodeList(list, this, out IEnumerable<ConstantModel>? result);
+    IMessages messages = DecodeClassList(list, this, out IEnumerable<ConstantModel>? result);
     if (result?.Count() > 0) {
       output = new(result);
     } else {

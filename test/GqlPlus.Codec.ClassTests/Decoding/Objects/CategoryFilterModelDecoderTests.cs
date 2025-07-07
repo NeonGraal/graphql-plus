@@ -5,8 +5,8 @@ namespace GqlPlus.Decoding.Objects;
 public class CategoryFilterModelDecoderTests
   : FilterModelDecoderTestBase<CategoryFilterModel>
 {
-  private IDecoder<CategoryOption> Resolution { get; }
-    = DFor<CategoryOption>();
+  private IDecoder<CategoryOption?> Resolution { get; }
+    = DFor<CategoryOption?>();
 
   public CategoryFilterModelDecoderTests()
     => Decoder = new CategoryFilterModelDecoder(Boolean, NameFilter, Resolution);

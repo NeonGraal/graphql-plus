@@ -8,8 +8,11 @@ namespace GqlPlus;
 
 public static class GeneralHelpers
 {
-  public static TResult[] ArrayOf<TResult>(this IEnumerable<object>? items)
-    => [.. items?.OfType<TResult>() ?? []];
+  public static T[] ArrayOf<T>(this IEnumerable<object>? items)
+    => [.. items?.OfType<T>() ?? []];
+
+  public static T[] ArrayJust<T>(this IEnumerable<T?>? items)
+    => [.. items?.OfType<T>() ?? []];
 
   public static Dictionary<TKey, TValue> DictWith<TKey, TValue>(this TKey key, TValue value)
     where TKey : notnull

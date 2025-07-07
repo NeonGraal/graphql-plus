@@ -6,7 +6,7 @@ public abstract class FilterModelDecoderTestBase<TModel>
   : DecoderClassTestBase<TModel>
   where TModel : FilterModel
 {
-  protected IDecoder<bool> Boolean { get; } = DFor<bool>();
+  protected IDecoder<bool?> Boolean { get; } = DFor<bool?>();
   protected IDecoder<string> NameFilter { get; } = DFor<string>();
 
   protected FilterModelDecoderTestBase()

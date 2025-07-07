@@ -5,8 +5,8 @@ namespace GqlPlus.Decoding.Objects;
 public class TypeFilterModelDecoderTests
   : FilterModelDecoderTestBase<TypeFilterModel>
 {
-  private IDecoder<TypeKindModel> Kind { get; }
-    = DFor<TypeKindModel>();
+  private IDecoder<TypeKindModel?> Kind { get; }
+    = DFor<TypeKindModel?>();
 
   public TypeFilterModelDecoderTests()
     => Decoder = new TypeFilterModelDecoder(Boolean, NameFilter, Kind);

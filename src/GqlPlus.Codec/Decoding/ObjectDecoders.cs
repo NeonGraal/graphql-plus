@@ -21,10 +21,11 @@ internal abstract class ObjectDecoder<TModel>
       if (output is not null) {
         return messages;
       }
+      messages.Convert();
     }
 
     output = null;
-    return messages.Add(Err($"Unable to decode {input}"));
+    return messages.Add(TagMsg($"Unable to decode {input}").Error());
   }
 
   protected virtual IMessages DecodeObject(IValue input, out TModel? output)
@@ -36,7 +37,7 @@ internal abstract class ObjectDecoder<TModel>
     }
 
     output = null;
-    return new Messages(Err($"Unable to decode {input}"));
+    return new Messages(TagMsg($"Unable to decode {input}").Error());
   }
 
   protected void DecodeScalarField<T>(IMessages messages, IDecoder<T> decoder, IMap<IValue> map, out T? value, [CallerArgumentExpression(nameof(value))] string valueExpr = "")
@@ -63,7 +64,7 @@ internal abstract class ObjectDecoder<TModel>
         }
       }
 
-      messages.Add(Err($"Unable to decode list field '{fieldName}' with value {fieldValue}"));
+      messages.Add(TagMsg($"Unable to decode list field '{fieldName}' with value {fieldValue}").Error());
     }
   }
 
@@ -81,7 +82,7 @@ internal abstract class ObjectDecoder<TModel>
         }
       }
 
-      messages.Add(Err($"Unable to decode list field '{fieldName}' with value {fieldValue}"));
+      messages.Add(TagMsg($"Unable to decode list field '{fieldName}' with value {fieldValue}").Error());
     }
   }
 

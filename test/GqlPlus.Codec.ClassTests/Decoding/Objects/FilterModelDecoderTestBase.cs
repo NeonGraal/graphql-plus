@@ -43,7 +43,7 @@ public abstract class FilterModelDecoderTestBase<TModel>
         () => result.Aliases.Length.ShouldBe(aliases.Length),
         DecoderCalled(Boolean, 3),
         DecoderCalled(NameFilter, names.Length + aliases.Length),
-        () => messages.ShouldNotBeNull()
+        MessagesEmpty(messages, result)
       );
   }
 
@@ -56,7 +56,7 @@ public abstract class FilterModelDecoderTestBase<TModel>
       .ShouldSatisfyAllConditions(
         () => result.Names.Length.ShouldBe(1),
         DecoderCalled(NameFilter, 1),
-        () => messages.ShouldNotBeNull()
+        MessagesEmpty(messages, result)
       );
   }
 
@@ -69,7 +69,7 @@ public abstract class FilterModelDecoderTestBase<TModel>
       .ShouldSatisfyAllConditions(
         () => result.Names.Length.ShouldBe(names.Length),
         DecoderCalled(NameFilter, names.Length),
-        () => messages.ShouldNotBeNull()
+        MessagesEmpty(messages, result)
       );
   }
 }

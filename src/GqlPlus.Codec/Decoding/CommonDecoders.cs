@@ -47,7 +47,7 @@ internal class ConstantDecoder
     }
 
     output = null;
-    return new Messages(Err($"Unable to decode {input}"));
+    return new Messages(TagMsg($"Unable to decode {input}").Error());
   }
 
   private IMessages DecodeConstantMap(IMap<IValue> map, out ConstantModel? output)
@@ -66,7 +66,7 @@ internal class ConstantDecoder
       output = new(dict);
     } else {
       output = null;
-      messages.Add(Err($"Unable to decode map {map}"));
+      messages.Add(TagMsg($"Unable to decode map {map}").Error());
     }
 
     return messages;
@@ -79,7 +79,7 @@ internal class ConstantDecoder
       output = new(result);
     } else {
       output = null;
-      messages.Add(Err($"Unable to decode list {list}"));
+      messages.Add(TagMsg($"Unable to decode list {list}").Error());
     }
 
     return messages;

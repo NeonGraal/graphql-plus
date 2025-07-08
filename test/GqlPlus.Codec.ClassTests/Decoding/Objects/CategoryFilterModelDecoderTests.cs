@@ -32,8 +32,8 @@ public class CategoryFilterModelDecoderTests
         () => result.Names.Length.ShouldBe(names.Length),
         () => result.Resolutions.Length.ShouldBe(resolutions.Length),
         DecoderCalled(NameFilter, names.Length),
-        DecoderCalled(Resolution, resolutions.Length)
+        DecoderCalled(Resolution, resolutions.Length),
+        MessagesEmpty(messages, result)
       );
-    messages.ShouldNotBeNull();
   }
 }

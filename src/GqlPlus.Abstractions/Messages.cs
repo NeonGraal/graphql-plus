@@ -10,6 +10,7 @@ public interface IMessages
   : IReadOnlyList<IMessage>
 {
   void Clear();
+  void Convert();
   IMessages Add(IMessage message);
   IMessages Add(IEnumerable<IMessage> messages);
 }
@@ -28,6 +29,15 @@ public class Messages(
 {
   public static IMessages New
     => new Messages();
+
+  public void Convert()
+  {
+    for (int i = 0; i < Count; i++) {
+      if (this[i].Level == MessageLevel.Error) {
+        this[i] = this[i].Message.Warning();
+      }
+    }
+  }
 
   IMessages IMessages.Add(IEnumerable<IMessage> messages)
     => messages.Aggregate(this as IMessages, (a, m) => a.Add(m));

@@ -12,10 +12,8 @@ internal abstract class DecoderBase<TModel>
 
   internal virtual string Tag => _tag ??= typeof(TModel).TypeTag();
 
-  protected IMessage Err(string message)
-    => $"Error decoding {Tag}: {message}".Error();
-  protected IMessage Warn(string message)
-    => $"Warning decoding {Tag}: {message}".Warning();
+  protected string TagMsg(string message)
+    => $"Decoding {Tag}: {message}";
 
   protected IMessages Ok(TModel? _)
     => Messages.New;
@@ -23,27 +21,27 @@ internal abstract class DecoderBase<TModel>
   protected IMessages Mapped(object? input, TModel? output)
   {
     if (input is null) {
-      return Messages.New.Add(Err($"Unable to map from null input"));
+      return Messages.New.Add(TagMsg("Unable to map from null input").Error());
     }
 
     if (output is null) {
-      return Messages.New.Add(Err($"Unable to map from {input}"));
+      return Messages.New.Add(TagMsg($"Unable to map from {input}").Error());
     }
 
-    return Messages.New.Add(Warn($"Mapped {input} to {output}"));
+    return Messages.New.Add(TagMsg($"Mapped {input} to {output}").Warning());
   }
 
   protected IMessages Parsed(object? input, TModel? output)
   {
     if (input is null) {
-      return Messages.New.Add(Err($"Unable to parse from null input"));
+      return Messages.New.Add(TagMsg("Unable to parse from null input").Error());
     }
 
     if (output is null) {
-      return Messages.New.Add(Err($"Unable to parse from {input}"));
+      return Messages.New.Add(TagMsg($"Unable to parse from {input}").Error());
     }
 
-    return Messages.New.Add(Warn($"Parsed {input} to {output}"));
+    return Messages.New.Add(TagMsg($"Parsed {input} to {output}").Info());
   }
 
   protected IMessages DecodeClassList<T>(IEnumerable<IValue> list, IDecoder<T> decoder, out IEnumerable<T> output)
@@ -95,7 +93,7 @@ internal class EnumDecoder<T>
     IMessages messages = Messages.New;
 
     if (!string.IsNullOrWhiteSpace(input.Tag) && Tag != input.Tag) {
-      return messages.Add(Err($"Invalid tag {input.Tag}"));
+      return messages.Add(TagMsg($"Invalid tag {input.Tag}").Error());
     }
 
     if (input.TryGetNumber(out decimal? numValue)) {
@@ -112,7 +110,7 @@ internal class EnumDecoder<T>
         return messages;
       }
 
-      return messages.Add(Err($"Unable to parse {strValue}"));
+      return messages.Add(TagMsg($"Unable to parse {strValue}").Error());
     }
 
     if (input.TryGetList(out IEnumerable<IValue>? list)
@@ -120,7 +118,7 @@ internal class EnumDecoder<T>
       return Decode(list.First(), out output);
     }
 
-    return messages.Add(Err($"Unable to decode {input}"));
+    return messages.Add(TagMsg($"Unable to decode {input}").Error());
   }
 }
 
@@ -147,7 +145,7 @@ internal abstract class ScalarDecoder<TModel>
     }
 
     output = default;
-    return new Messages(Err($"Unable to decode {input}"));
+    return new Messages(TagMsg($"Unable to decode {input}").Error());
   }
 
   protected abstract IMessages DecodeBoolean(bool? boolValue, out TModel? output);

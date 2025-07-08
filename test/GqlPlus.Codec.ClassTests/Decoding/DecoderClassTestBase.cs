@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using NSubstitute.ReceivedExtensions;
+using Shouldly;
 
 namespace GqlPlus.Decoding;
 
@@ -33,8 +34,8 @@ public abstract class DecoderClassTestBase<TModel>
 
   public Action MessagesEmpty(IMessages messages, TModel? expected)
     => expected is null
-      ? () => messages.ShouldNotBeEmpty()
-      : () => messages.ShouldBeEmpty();
+      ? () => messages.ShouldContain(m => m.Level == MessageLevel.Error)
+      : () => messages.ShouldNotContain(m => m.Level == MessageLevel.Error);
 
   internal void DecodeAndCheck(Structured input, TModel? expected, string message)
   {

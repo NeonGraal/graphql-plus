@@ -15,9 +15,9 @@ public record class OutputArgModel(
 {
   public string Output => Name;
   public bool IsTypeParam { get; set; }
-  internal DualArgModel? Dual { get; init; }
+  public DualArgModel? Dual { get; init; }
 
-  internal string? EnumLabel { get; set; }
+  public string? EnumLabel { get; set; }
 }
 
 public record class OutputBaseModel(
@@ -26,7 +26,7 @@ public record class OutputBaseModel(
 ) : ObjBaseModel<OutputArgModel>(Description)
   , IOutputModel
 {
-  internal DualBaseModel? Dual { get; init; }
+  public DualBaseModel? Dual { get; init; }
 }
 
 public record class OutputFieldModel(
@@ -35,15 +35,15 @@ public record class OutputFieldModel(
   string Description
 ) : ObjFieldModel<OutputBaseModel>(Name, Type, Description)
 {
-  internal InputParamModel[] Params { get; set; } = [];
-  internal OutputEnumModel? Enum { get; set; }
+  public InputParamModel[] Params { get; set; } = [];
+  public OutputEnumModel? Enum { get; set; }
 }
 
 public record class OutputAlternateModel(
   OutputBaseModel Type
 ) : ObjAlternateModel<OutputBaseModel>(Type)
 {
-  internal DualAlternateModel? Dual { get; init; }
+  public DualAlternateModel? Dual { get; init; }
 }
 
 public record class OutputEnumModel(

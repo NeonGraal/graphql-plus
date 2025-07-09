@@ -22,8 +22,8 @@ internal class ParseArgValue(
       return tokens.Error<IGqlpArg>(label, "identifier after '$'");
     }
 
-    if (variable is not null) {
-      ArgAst argument = new(at, variable);
+    if (!string.IsNullOrWhiteSpace(variable)) {
+      ArgAst argument = new(at, variable!);
 
       if (tokens is IOperationContext context) {
         context.Variables.Add(argument);

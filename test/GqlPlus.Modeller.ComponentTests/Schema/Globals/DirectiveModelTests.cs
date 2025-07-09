@@ -57,8 +57,8 @@ public class DirectiveModelTests(
 
 internal sealed class DirectiveModelChecks(
   IModeller<IGqlpSchemaDirective, DirectiveModel> modeller,
-  IRenderer<DirectiveModel> rendering
-) : CheckAliasedModel<string, IGqlpSchemaDirective, DirectiveDeclAst, DirectiveModel>(modeller, rendering)
+  IEncoder<DirectiveModel> encoding
+) : CheckAliasedModel<string, IGqlpSchemaDirective, DirectiveDeclAst, DirectiveModel>(modeller, encoding)
   , IDirectiveModelChecks
 {
   protected override string[] ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<string> input)

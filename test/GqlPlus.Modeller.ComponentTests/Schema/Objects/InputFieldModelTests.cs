@@ -20,8 +20,8 @@ public class InputFieldModelTests(
 
 internal sealed class InputFieldModelChecks(
   IModeller<IGqlpInputField, InputFieldModel> modeller,
-  IRenderer<InputFieldModel> rendering
-) : CheckObjectFieldModel<IGqlpInputField, InputFieldAst, IGqlpInputBase, InputFieldModel>(modeller, rendering, TypeKindModel.Input)
+  IEncoder<InputFieldModel> encoding
+) : CheckObjectFieldModel<IGqlpInputField, InputFieldAst, IGqlpInputBase, InputFieldModel>(modeller, encoding, TypeKindModel.Input)
   , IInputFieldModelChecks
 {
   internal override InputFieldAst NewFieldAst(FieldInput input, string[] aliases, bool withModifiers)

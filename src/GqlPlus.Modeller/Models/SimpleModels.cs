@@ -20,7 +20,7 @@ public sealed record class BaseDomainModel<TItem>(
   internal override string Tag => $"_Domain{DomainKind}";
 }
 
-internal interface ITypeDomainModel
+public interface ITypeDomainModel
 {
   DomainKindModel DomainKind { get; }
   string Name { get; }

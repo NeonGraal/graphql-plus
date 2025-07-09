@@ -14,7 +14,7 @@ internal abstract class AstTypeMerger<TAst, TType, TParent, TItem>(
 {
   internal abstract IEnumerable<TItem> GetItems(TType type);
 
-  protected override ITokenMessages CanMergeGroup(IGrouping<string, TType> group)
+  protected override IMessages CanMergeGroup(IGrouping<string, TType> group)
     => base.CanMergeGroup(group)
     .Add(group.ManyCanMerge(GetItems, mergeItems));
 
@@ -27,11 +27,11 @@ internal abstract class AstTypeMerger<TAst, TType, TParent, TItem>(
     return SetItems(base.MergeGroup(group), items);
   }
 
-  ITokenMessages IMerge<TAst>.CanMerge(IEnumerable<TAst> items)
+  IMessages IMerge<TAst>.CanMerge(IEnumerable<TAst> items)
   {
     IEnumerable<TType> aliases = items.OfType<TType>();
 
-    return aliases.Any() ? CanMerge(aliases) : Messages();
+    return aliases.Any() ? CanMerge(aliases) : new Messages();
   }
 
   IEnumerable<TAst> IMerge<TAst>.Merge(IEnumerable<TAst> items)

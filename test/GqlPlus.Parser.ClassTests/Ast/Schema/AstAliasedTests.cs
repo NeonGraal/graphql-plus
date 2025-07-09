@@ -37,7 +37,7 @@ public abstract class AstAliasedTests<TInput>
 
   [Theory, RepeatData]
   public void Inequality_WithAlias(TInput input, string aliased)
-    => AliasedChecks.Inequality_WithAliases(input, aliased);
+    => AliasedChecks.Inequality_WithAliases(input, aliased + "Z");
 
   [Theory, RepeatData]
   public void Inequality_WithAliases(TInput input, string alias1, string alias2)

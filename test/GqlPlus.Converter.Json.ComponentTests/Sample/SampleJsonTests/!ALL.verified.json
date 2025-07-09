@@ -12555,7 +12555,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
-          "default": 0,
+          "default": 42,
           "description": "Test Descr",
           "name": "field",
           "object": "InpFieldDescrNmbr",
@@ -12568,7 +12568,7 @@
       "fields": [
         {
           "$tag": "_InputField",
-          "default": 0,
+          "default": 42,
           "description": "Test Descr",
           "name": "field",
           "type": {
@@ -12619,7 +12619,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
-          "default": 0,
+          "default": 42,
           "name": "field",
           "object": "InpFieldNmbr",
           "type": {
@@ -12631,7 +12631,7 @@
       "fields": [
         {
           "$tag": "_InputField",
-          "default": 0,
+          "default": 42,
           "name": "field",
           "type": {
             "$tag": "_InputBase",
@@ -12650,7 +12650,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
-          "default": 0,
+          "default": 42,
           "name": "field",
           "object": "InpFieldNmbrDescr",
           "type": {
@@ -12663,7 +12663,7 @@
       "fields": [
         {
           "$tag": "_InputField",
-          "default": 0,
+          "default": 42,
           "name": "field",
           "type": {
             "$tag": "_InputBase",
@@ -12738,6 +12738,7 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
+          "default": "default",
           "name": "field",
           "object": "InpFieldStr",
           "type": {
@@ -12749,6 +12750,7 @@
       "fields": [
         {
           "$tag": "_InputField",
+          "default": "default",
           "name": "field",
           "type": {
             "$tag": "_InputBase",

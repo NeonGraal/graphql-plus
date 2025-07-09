@@ -12,8 +12,8 @@ public class SettingModelTests(
 
 internal sealed class SettingModelChecks(
   IModeller<IGqlpSchemaSetting, SettingModel> modeller,
-  IRenderer<SettingModel> rendering
-) : CheckDescribedModel<SettingInput, IGqlpSchemaSetting, OptionSettingAst, SettingModel>(modeller, rendering)
+  IEncoder<SettingModel> encoding
+) : CheckDescribedModel<SettingInput, IGqlpSchemaSetting, OptionSettingAst, SettingModel>(modeller, encoding)
 {
   protected override string[] ExpectedDescription(ExpectedDescriptionInput<SettingInput> input)
     => input.Name.Expected(input.ExpectedDescription ?? []);

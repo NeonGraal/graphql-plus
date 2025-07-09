@@ -37,9 +37,9 @@ public abstract class TestObjBaseModel<TObjBase, TObjArg, TModel>(
 
 internal abstract class CheckObjBaseModel<TObjBase, TObjArg, TObjBaseAst, TObjArgAst, TModel>(
   IModeller<TObjBase, TModel> objBase,
-  IRenderer<TModel> rendering,
+  IEncoder<TModel> encoding,
   TypeKindModel kind
-) : CheckModelBase<string, TObjBase, TModel>(objBase, rendering),
+) : CheckModelBase<string, TObjBase, TModel>(objBase, encoding),
     ICheckObjBaseModel<TObjBase, TObjArg, TModel>
   where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjArg>, TObjBase

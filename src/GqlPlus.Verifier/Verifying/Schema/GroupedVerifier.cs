@@ -13,7 +13,7 @@ internal abstract class GroupedVerifier<TAliased>(
 
   public abstract string Label { get; }
 
-  public virtual void Verify(TAliased[] item, ITokenMessages errors)
+  public virtual void Verify(TAliased[] item, IMessages errors)
   {
     if (item.Length == 0) {
       return;
@@ -32,7 +32,7 @@ internal abstract class GroupedVerifier<TAliased>(
   private void GroupVerifying(Type type)
     => _logger.GroupVerifying(type.GetElementType()?.TidyTypeName());
 
-  private void VerifyDefinitions(Map<TAliased[]> byName, ITokenMessages errors)
+  private void VerifyDefinitions(Map<TAliased[]> byName, IMessages errors)
   {
     foreach (MapPair<TAliased[]> item in byName) {
       if (item.Value.Length == 1) {
@@ -41,7 +41,7 @@ internal abstract class GroupedVerifier<TAliased>(
 
       _logger.VerifyingWithDefinitions(item.Key, item.Value.Length);
 
-      ITokenMessages failures = merger.CanMerge(item.Value);
+      IMessages failures = merger.CanMerge(item.Value);
       if (failures.Any()) {
         errors.Add(item.Value.Last().MakeError($"Multiple {Label} with name '{item.Key}' can't be merged."));
         errors.Add(failures);
@@ -49,7 +49,7 @@ internal abstract class GroupedVerifier<TAliased>(
     }
   }
 
-  private void VerifyAliases(TAliased[] item, IReadOnlyCollection<string> names, ITokenMessages errors)
+  private void VerifyAliases(TAliased[] item, IReadOnlyCollection<string> names, IMessages errors)
   {
     IEnumerable<IGrouping<string, TAliased>> byAlias = item
       .SelectMany(ExtractAliases)

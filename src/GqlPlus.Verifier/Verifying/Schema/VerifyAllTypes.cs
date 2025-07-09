@@ -11,7 +11,7 @@ internal class VerifyAllTypes(
   IVerifyUsage<IGqlpUnion> unionAllTypes
 ) : IVerify<IGqlpType[]>
 {
-  public void Verify(IGqlpType[] item, ITokenMessages errors)
+  public void Verify(IGqlpType[] item, IMessages errors)
   {
     IGqlpType[] allTypes = [.. item, .. BuiltIn.Basic, .. BuiltIn.Internal];
 

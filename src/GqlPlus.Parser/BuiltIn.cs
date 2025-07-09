@@ -9,15 +9,17 @@ namespace GqlPlus;
 public static class BuiltIn
 {
   public static IGqlpType[] Basic { get; } = [
-    Enum("Boolean", "^", "false", "true"),
-    Enum("Unit", "_", "_"),
+    Enum("Boolean", ["^", "_Boolean"], "false", "true"),
+    Enum("Unit", ["_", "_Unit"], "_"),
 
-    Domain<DomainLabelAst, IGqlpDomainLabel>("Enum", DomainKind.Enum),
-    Domain<DomainRangeAst, IGqlpDomainRange>("Number", DomainKind.Number, "0"),
-    Domain<DomainRegexAst, IGqlpDomainRegex>("String", DomainKind.String, "*"),
+    Domain<DomainRangeAst, IGqlpDomainRange>("Number", DomainKind.Number, "0", "_Number"),
+    Domain<DomainRegexAst, IGqlpDomainRegex>("String", DomainKind.String, "*", "_String"),
   ];
 
-  private static readonly string[] s_unionMembers = ["Boolean", "Number", "String", "Unit", "_Union", "_Domain", "_Enum"];
+  private static readonly string[] s_basicMembers = ["Boolean", "Number", "String", "Unit"];
+  private static readonly string[] s_internalMembers = ["Null", "Void"];
+  private static readonly string[] s_simpleMembers = ["_Union", "_Domain", "_Enum"];
+  private static readonly string[] s_keyMembers = ["_Basic", "_Internal", "_Simple"];
 
   static BuiltIn()
     => Internal = [.. InternalSimple, .. InternalObject, .. Special];
@@ -25,13 +27,15 @@ public static class BuiltIn
   public static IGqlpType[] Internal { get; }
 
   internal static IGqlpType[] InternalSimple { get; } = [
-    Enum("Void", ""),
-    Enum("Null", "null", "null"),
-    new UnionDeclAst(AstNulls.At, "Simple", s_unionMembers.UnionMembers()) { Aliases = ["_Simple"]},
+    Enum("Void", ["_Void"]),
+    Enum("Null", ["null", "_Null"], "null"),
+    new UnionDeclAst(AstNulls.At, "_Basic", s_basicMembers.UnionMembers()) { Aliases = ["Basic"]},
+    new UnionDeclAst(AstNulls.At, "_Internal", s_internalMembers.UnionMembers()) { Aliases = ["Internal"]},
+    new UnionDeclAst(AstNulls.At, "_Simple", s_simpleMembers.UnionMembers()) { Aliases = ["Simple"]},
+    new UnionDeclAst(AstNulls.At, "_Key", s_keyMembers.UnionMembers()) { Aliases = ["Key"]},
   ];
 
   internal static IGqlpType[] InternalObject { get; } = [
-    DualObj("Internal", DualAlt("Void", false), DualAlt("Object", false), DualAlt("Null" , false)),
     DualObj("Object", DualRef("_Map", DualArg("_Any")), ["%", "_Object"]),
 
     DualObj("Opt", [TypeParam()], DualAlt(null), DualType("Null")),
@@ -50,7 +54,7 @@ public static class BuiltIn
   ];
 
   internal static SpecialTypeAst[] Special { get; } = [
-    new SpecialTypeAst("Any", t => true) { Aliases = ["Any"] },
+    new SpecialTypeAst("Any", t => true),
     new SpecialTypeAst("Domain", t => t is IGqlpDomain),
     new SpecialTypeAst("Union", t => t is IGqlpUnion),
     new SpecialTypeAst("Enum", t => t is IGqlpEnum),
@@ -126,10 +130,8 @@ public static class BuiltIn
       ]
     };
 
-  private static EnumDeclAst Enum(string type, string alias, params string[] labels)
-    => new(AstNulls.At, type, labels.EnumLabels()) {
-      Aliases = string.IsNullOrWhiteSpace(alias) ? [] : [alias]
-    };
+  private static EnumDeclAst Enum(string type, string[] aliases, params string[] labels)
+    => new(AstNulls.At, type, labels.EnumLabels()) { Aliases = aliases };
 
   private static AstDomain<TAst, TLabel> Domain<TAst, TLabel>(string type, DomainKind kind, params string[] aliases)
     where TAst : AstBase, TLabel
@@ -137,7 +139,7 @@ public static class BuiltIn
     => new(AstNulls.At, type, kind, []) { Aliases = aliases };
 
   private static TypeParamAst KeyParam()
-      => new(AstNulls.At, "K") { Constraint = "Simple" };
+      => new(AstNulls.At, "K") { Constraint = "_Key" };
 
   private static TypeParamAst TypeParam(string constraint = "_Any")
     => new(AstNulls.At, "T") { Constraint = constraint };

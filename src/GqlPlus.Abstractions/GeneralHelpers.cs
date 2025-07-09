@@ -8,8 +8,15 @@ namespace GqlPlus;
 
 public static class GeneralHelpers
 {
-  public static TResult[] ArrayOf<TResult>(this IEnumerable<object>? items)
-    => [.. items?.OfType<TResult>() ?? []];
+  public static T[] ArrayOf<T>(this IEnumerable<object>? items)
+    => [.. items?.OfType<T>() ?? []];
+
+  public static T[] ArrayJust<T>(this IEnumerable<T?>? items)
+    => [.. items?.OfType<T>() ?? []];
+
+  public static Dictionary<TKey, TValue> DictWith<TKey, TValue>(this TKey key, TValue value)
+    where TKey : notnull
+    => new() { [key] = value };
 
   public static string[]? FlagNames<TEnum>(this TEnum flagValue)
     where TEnum : Enum
@@ -40,15 +47,8 @@ public static class GeneralHelpers
   public static string Joined<T>(this IEnumerable<T?>? items, Func<T?, string> mapping, string by = " ")
     => items?.Select(mapping).Joined(by) ?? "";
 
-  [return: NotNull]
-  public static T ThrowIfNull<T>([NotNull] this T? value, [CallerArgumentExpression(nameof(value))] string? expression = default)
-  {
-    if (value is null) {
-      throw new ArgumentNullException(expression);
-    }
-
-    return value;
-  }
+  public static Map<TValue> MapWith<TValue>(this string key, TValue value)
+    => new() { [key] = value };
 
   public static bool OrderedEqual<T>(this IEnumerable<T> left, IEnumerable<T> right, IComparer<T>? comparer = null)
     => left.OrderBy(l => l, comparer).SequenceEqual(right.OrderBy(r => r, comparer));
@@ -59,8 +59,21 @@ public static class GeneralHelpers
   public static string Suffixed(this string? text, string suffix)
     => text?.Length > 0 ? text + suffix : "";
 
+  [return: NotNull]
+  public static T ThrowIfNull<T>([NotNull] this T? value, [CallerArgumentExpression(nameof(value))] string? expression = default)
+  {
+    if (value is null) {
+      throw new ArgumentNullException(expression);
+    }
+
+    return value;
+  }
+
   public static string TrueFalse(this bool value)
     => value ? "true" : "false";
+
+  public static string TrueFalse(this bool? value)
+    => value is null ? "" : value == true ? "true" : "false";
 
   public static string Quoted(this string? text, char quote)
     => text.Quoted(quote.ToString());

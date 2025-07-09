@@ -77,19 +77,19 @@ internal class RenderYamlTypeConverter
 
   private void WriteValue(IEmitter emitter, StructureValue value, string tag)
   {
-    bool isString = !string.IsNullOrWhiteSpace(value.Text);
+    bool isString = !string.IsNullOrEmpty(value.Text) && string.IsNullOrWhiteSpace(value.Identifier);
     bool plainImplicit = string.IsNullOrWhiteSpace(tag) && !isString;
     TagName tagName = isString || plainImplicit ? new TagName() : new TagName("!" + tag);
 
     string text = "";
-    if (value.Identifier is not null) {
-      text = value.Identifier;
+    if (!string.IsNullOrWhiteSpace(value.Identifier)) {
+      text = value.Identifier!;
     } else if (value.Boolean is not null) {
       text = value.Boolean.Value.TrueFalse();
     } else if (value.Number is not null) {
       text = $"{value.Number}";
-    } else if (value.Text is not null) {
-      text = value.Text;
+    } else if (!string.IsNullOrEmpty(value.Text)) {
+      text = value.Text!;
     }
 
     ScalarStyle style = ScalarStyle.Any;

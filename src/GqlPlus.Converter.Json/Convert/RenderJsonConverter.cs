@@ -5,13 +5,13 @@ internal abstract class RenderJsonConverter<T>
 {
   protected void WriteValue(Utf8JsonWriter writer, StructureValue value)
   {
-    if (value.Identifier is not null) {
+    if (!string.IsNullOrWhiteSpace(value.Identifier)) {
       writer.WriteStringValue(value.Identifier);
     } else if (value.Boolean is not null) {
       writer.WriteBooleanValue(value.Boolean.Value);
     } else if (value.Number is not null) {
       writer.WriteNumberValue(value.Number.Value);
-    } else if (value.Text is not null) {
+    } else if (!string.IsNullOrEmpty(value.Text)) {
       writer.WriteStringValue(value.Text);
     }
   }

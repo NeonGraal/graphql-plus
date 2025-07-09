@@ -193,177 +193,166 @@ Success
 }
 {
   !Ou I@008/0045
-  _Internal
-  |
-  I@007/0046
-  Null
-  I@007/0047
-  Object
-  I@007/0048
-  Void
-}
-{
-  !Ou I@008/0051
   _Constant
   |
-  I@007/0052
+  I@007/0046
   _SimpleValue
-  I@007/0053
+  I@007/0047
   _ConstantList
-  I@007/0054
+  I@007/0048
   _ConstantMap
 }
 {
-  !Ou I@008/0057
+  !Ou I@008/0051
   _SimpleValue
   |
-  I@007/0058
+  I@007/0052
   _DomainValue
   <
-    I@020/0058
+    I@020/0052
     _DomainKind.Boolean
-    I@040/0058
+    I@040/0052
     Boolean
   >
-  I@007/0059
+  I@007/0053
   _DomainValue
   <
-    I@020/0059
+    I@020/0053
     _DomainKind.Enum
-    I@037/0059
+    I@037/0053
     _EnumValue
   >
-  I@007/0060
+  I@007/0054
   _DomainValue
   <
-    I@020/0060
+    I@020/0054
     _DomainKind.Number
-    I@039/0060
+    I@039/0054
     Number
   >
-  I@007/0061
+  I@007/0055
   _DomainValue
   <
-    I@020/0061
+    I@020/0055
     _DomainKind.String
-    I@039/0061
+    I@039/0055
     String
   >
 }
 {
-  !Ou I@008/0064
+  !Ou I@008/0058
   _ConstantList
   |
-  I@007/0065
+  I@007/0059
   _Constant
   []
 }
 {
-  !Ou I@008/0068
+  !Ou I@008/0062
   _ConstantMap
   |
-  I@007/0069
+  I@007/0063
   _Constant
-  [Simple]
+  [_Key]
 }
 {
-  !Ou I@008/0072
+  !Ou I@008/0066
   _Collections
   |
-  I@007/0073
+  I@007/0067
   _Modifier
   <
-    I@017/0073
+    I@017/0067
     _ModifierKind.List
   >
-  I@007/0074
+  I@007/0068
   _ModifierKeyed
   <
-    I@022/0074
+    I@022/0068
     _ModifierKind.Dictionary
   >
-  I@007/0075
+  I@007/0069
   _ModifierKeyed
   <
-    I@022/0075
+    I@022/0069
     _ModifierKind.TypeParam
   >
 }
 {
-  !Ou I@008/0078
+  !Ou I@008/0072
   _ModifierKeyed
   <
-    I@024/0078
+    I@024/0072
     $kind
     :_ModifierKind
   >
   :
-  I@007/0079
+  I@007/0073
   _Modifier
   <
-    I@018/0079
+    I@018/0073
     $kind
   >
   {
-    !OF I@009/0080
+    !OF I@009/0074
     by
     :
-    I@013/0080
+    I@013/0074
     _TypeSimple
-    !OF I@009/0081
+    !OF I@009/0075
     optional
     :
-    I@019/0081
+    I@019/0075
     Boolean
   }
 }
 {
-  !Ou I@008/0084
+  !Ou I@008/0078
   _Modifiers
   |
-  I@007/0085
+  I@007/0079
   _Modifier
   <
-    I@017/0085
+    I@017/0079
     _ModifierKind.Optional
   >
-  I@007/0086
+  I@007/0080
   _Collections
 }
 {
-  !En I@006/0089
+  !En I@006/0083
   _ModifierKind
-  !EL I@022/0089
+  !EL I@022/0083
   Opt
   [
     Optional
   ]
-  !EL I@036/0089
+  !EL I@036/0083
   List
-  !EL I@041/0089
+  !EL I@041/0083
   Dict
   [
     Dictionary
   ]
-  !EL I@058/0089
+  !EL I@058/0083
   Param
   [
     TypeParam
   ]
 }
 {
-  !Ou I@008/0091
+  !Ou I@008/0085
   _Modifier
   <
-    I@019/0091
+    I@019/0085
     $kind
     :_ModifierKind
   >
   {
-    !OF I@009/0092
+    !OF I@009/0086
     modifierKind
     :
-    I@024/0092
+    I@024/0086
     $kind
   }
 }

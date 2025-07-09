@@ -5,10 +5,10 @@ using GqlPlus.Resolving;
 
 namespace GqlPlus.Schema;
 
-public abstract class TestTypeModel<TAstParent, TParent, TTypeKind, TRender>(
-  ICheckTypeModel<TAstParent, TParent, TTypeKind, TRender> typeChecks
-) : TestAliasedModel<string, TRender>(typeChecks)
-  where TRender : IModelBase
+public abstract class TestTypeModel<TAstParent, TParent, TTypeKind, TModel>(
+  ICheckTypeModel<TAstParent, TParent, TTypeKind, TModel> typeChecks
+) : TestAliasedModel<string, TModel>(typeChecks)
+  where TModel : IModelBase
   where TAstParent : IGqlpDescribed
 {
   [Theory, RepeatData]
@@ -18,16 +18,16 @@ public abstract class TestTypeModel<TAstParent, TParent, TTypeKind, TRender>(
       typeChecks.ExpectedType(new(name, parent)));
 }
 
-public abstract class TestTypeModel<TTypeKind, TRender>(
-  ICheckTypeModel<TTypeKind, TRender> typeChecks
-) : TestTypeModel<IGqlpTypeRef, string, TTypeKind, TRender>(typeChecks)
-  where TRender : IModelBase
+public abstract class TestTypeModel<TTypeKind, TModel>(
+  ICheckTypeModel<TTypeKind, TModel> typeChecks
+) : TestTypeModel<IGqlpTypeRef, string, TTypeKind, TModel>(typeChecks)
+  where TModel : IModelBase
 { }
 
 internal abstract class CheckTypeModel<TAstParent, TParent, TAst, TTypeKind, TModel>(
   CheckTypeInputs<TAst, TModel> inputs,
   TTypeKind kind
-) : CheckAliasedModel<string, TAst, TModel>(inputs.Modeller, inputs.Rendering)
+) : CheckAliasedModel<string, TAst, TModel>(inputs.Modeller, inputs.Encoding)
   , ICheckTypeModel<TAstParent, TParent, TTypeKind, TModel>
   where TAst : IGqlpType<TAstParent>
   where TModel : IModelBase
@@ -86,13 +86,13 @@ internal abstract class CheckTypeModel<TAst, TTypeKind, TModel>(
 public record class CheckTypeInputs<TAst, TModel>(
   IModeller<TAst, TModel> Modeller,
   IResolver<TModel> Resolver,
-  IRenderer<TModel> Rendering
+  IEncoder<TModel> Encoding
 ) where TAst : IGqlpError
   where TModel : IModelBase;
 
-public interface ICheckTypeModel<TAstParent, TParent, TTypeKind, TRender>
-  : ICheckAliasedModel<string, TRender>
-  where TRender : IModelBase
+public interface ICheckTypeModel<TAstParent, TParent, TTypeKind, TModel>
+  : ICheckAliasedModel<string, TModel>
+  where TModel : IModelBase
   where TAstParent : IGqlpDescribed
 {
   TTypeKind TypeKind { get; }
@@ -103,9 +103,9 @@ public interface ICheckTypeModel<TAstParent, TParent, TTypeKind, TRender>
   string[] ExpectedType(ExpectedTypeInput<TParent> input);
 }
 
-public interface ICheckTypeModel<TTypeKind, TRender>
-  : ICheckTypeModel<IGqlpTypeRef, string, TTypeKind, TRender>
-  where TRender : IModelBase
+public interface ICheckTypeModel<TTypeKind, TModel>
+  : ICheckTypeModel<IGqlpTypeRef, string, TTypeKind, TModel>
+  where TModel : IModelBase
 { }
 
 public interface IParentModel<TItem>

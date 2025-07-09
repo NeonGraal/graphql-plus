@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-using GqlPlus.Abstractions;
 
 namespace GqlPlus;
 
@@ -40,7 +39,7 @@ public class SampleChecks
     => input is null ? []
     : [.. s_textInfo.ToTitleCase(input).Split('-')];
 
-  protected async Task CheckErrors(string[] dirs, string file, ITokenMessages errors, bool includeVerify = false)
+  protected async Task CheckErrors(string[] dirs, string file, IMessages errors, bool includeVerify = false)
   {
     string path = dirs.Prepend("Samples").Joined("/");
 
@@ -71,7 +70,7 @@ public class SampleChecks
   }
 
   [ExcludeFromCodeCoverage]
-  private static async Task WriteUnexpectedErrors(string file, ITokenMessages errors, string path)
+  private static async Task WriteUnexpectedErrors(string file, IMessages errors, string path)
   {
     if (errors is null || errors.Count < 1 || !AttributeReader.TryGetProjectDirectory(out string? project)) {
       return;

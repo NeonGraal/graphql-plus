@@ -9,9 +9,9 @@ internal abstract class UsageVerifier<TUsage, TContext>(
   where TContext : UsageContext
 {
   protected abstract void UsageValue(TUsage usage, TContext context);
-  protected abstract TContext MakeContext(TUsage usage, IGqlpType[] aliased, ITokenMessages errors);
+  protected abstract TContext MakeContext(TUsage usage, IGqlpType[] aliased, IMessages errors);
 
-  public virtual void Verify(UsageAliased<TUsage> item, ITokenMessages errors)
+  public virtual void Verify(UsageAliased<TUsage> item, IMessages errors)
   {
     foreach (TUsage usage in item.Usages) {
       TContext context = MakeContext(usage, item.Definitions, errors);
@@ -21,7 +21,7 @@ internal abstract class UsageVerifier<TUsage, TContext>(
     aliased.Verify(item.Usages, errors);
   }
 
-  protected static UsageContext MakeUsageContext(IGqlpType[] aliased, ITokenMessages errors)
+  protected static UsageContext MakeUsageContext(IGqlpType[] aliased, IMessages errors)
     => new(
       aliased.AliasedMap(p => (IGqlpDescribed)p.First())
       , errors);

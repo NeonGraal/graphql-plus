@@ -18,8 +18,8 @@ public class OutputBaseModelTests(
 
 internal sealed class OutputBaseModelChecks(
   IModeller<IGqlpOutputBase, OutputBaseModel> modeller,
-  IRenderer<OutputBaseModel> rendering
-) : CheckObjBaseModel<IGqlpOutputBase, IGqlpOutputArg, OutputBaseAst, OutputArgAst, OutputBaseModel>(modeller, rendering, TypeKindModel.Output)
+  IEncoder<OutputBaseModel> encoding
+) : CheckObjBaseModel<IGqlpOutputBase, IGqlpOutputArg, OutputBaseAst, OutputArgAst, OutputBaseModel>(modeller, encoding, TypeKindModel.Output)
   , IOutputBaseModelChecks
 {
   public string[] ExpectedEnumArgs(string[] arguments, string enumLabel)

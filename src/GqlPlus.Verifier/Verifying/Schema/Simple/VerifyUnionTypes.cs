@@ -11,7 +11,7 @@ internal class VerifyUnionTypes(
   protected override IEnumerable<IGqlpUnionMember> GetItems(IGqlpUnion usage)
     => usage.Items;
 
-  protected override UsageContext MakeContext(IGqlpUnion usage, IGqlpType[] aliased, ITokenMessages errors)
+  protected override UsageContext MakeContext(IGqlpUnion usage, IGqlpType[] aliased, IMessages errors)
     => MakeUsageContext(aliased, errors);
 
   protected override void UsageValue(IGqlpUnion usage, UsageContext context)

@@ -55,7 +55,7 @@ public class HtmlSchemaTests(
   [Fact]
   public async Task Index_DI()
   {
-    string[] files = ["Parser", "Modeller", "Verifier"];
+    string[] files = ["Codec", "Parser", "Modeller", "Verifier"];
 
     Structured result = new Map<Structured>() {
       ["title"] = "Dependency Injection",

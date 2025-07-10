@@ -90,33 +90,12 @@
           }
         }
       ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "output",
-          "object": "_OutputBase",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Identifier"
-          }
-        }
-      ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
             "output": "_DualBase"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "output",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Identifier"
           }
         }
       ],
@@ -278,15 +257,6 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "output",
-          "object": "_OutputTypeArg",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -305,14 +275,6 @@
         }
       ],
       "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "output",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Identifier"
-          }
-        },
         {
           "$tag": "_OutputField",
           "modifiers": [

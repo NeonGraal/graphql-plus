@@ -1,0 +1,163 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "AltCnstPrntDualGrndInp": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "GrndCnstPrntDualGrndInp",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "alt",
+          "object": "AltCnstPrntDualGrndInp",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "Number"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "alt",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "Number"
+          }
+        }
+      ],
+      "name": "AltCnstPrntDualGrndInp",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "PrntCnstPrntDualGrndInp"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "CnstPrntDualGrndInp": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "GrndCnstPrntDualGrndInp",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "alt",
+          "object": "AltCnstPrntDualGrndInp",
+          "type": {
+            "$tag": "_InputBase",
+            "input": "Number"
+          }
+        }
+      ],
+      "name": "CnstPrntDualGrndInp",
+      "parent": {
+        "$tag": "_InputBase",
+        "input": "RefCnstPrntDualGrndInp",
+        "typeArgs": [
+          {
+            "$tag": "_InputArg",
+            "input": "AltCnstPrntDualGrndInp"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "GrndCnstPrntDualGrndInp": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "GrndCnstPrntDualGrndInp",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "String"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "String"
+          }
+        }
+      ],
+      "name": "GrndCnstPrntDualGrndInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "PrntCnstPrntDualGrndInp": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "GrndCnstPrntDualGrndInp",
+          "type": {
+            "$tag": "_DualBase",
+            "dual": "String"
+          }
+        }
+      ],
+      "name": "PrntCnstPrntDualGrndInp",
+      "parent": {
+        "$tag": "_DualBase",
+        "dual": "GrndCnstPrntDualGrndInp"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "RefCnstPrntDualGrndInp": {
+      "$tag": "_TypeInput",
+      "name": "RefCnstPrntDualGrndInp",
+      "parent": {
+        "$tag": "_InputBase",
+        "typeParam": "ref"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Dual"
+            },
+            "typeName": "GrndCnstPrntDualGrndInp"
+          },
+          "name": "ref"
+        }
+      ]
+    }
+  }
+}

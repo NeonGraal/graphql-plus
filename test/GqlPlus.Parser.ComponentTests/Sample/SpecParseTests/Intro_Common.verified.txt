@@ -147,46 +147,41 @@ Success
   >
   :
   I@007/0033
-  _Described
+  _Named
   {
     !OF I@009/0034
     typeKind
     :
     I@020/0034
     $kind
-    !OF I@009/0035
-    typeName
-    :
-    I@019/0035
-    _Identifier
   }
 }
 {
-  !Ou I@008/0038
+  !Ou I@008/0037
   _TypeSimple
   |
+  I@007/0038
+  _TypeRef
+  <
+    I@016/0038
+    _TypeKind.Basic
+  >
   I@007/0039
   _TypeRef
   <
     I@016/0039
-    _TypeKind.Basic
+    _TypeKind.Enum
   >
   I@007/0040
   _TypeRef
   <
     I@016/0040
-    _TypeKind.Enum
+    _TypeKind.Domain
   >
   I@007/0041
   _TypeRef
   <
     I@016/0041
-    _TypeKind.Domain
-  >
-  I@007/0042
-  _TypeRef
-  <
-    I@016/0042
     _TypeKind.Union
   >
 }

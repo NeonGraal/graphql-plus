@@ -17,6 +17,7 @@ public class SampleChecks
     ["Domain"] = "Dmn",
     ["Double"] = "Dbl",
     ["Generic"] = "Gnrc",
+    ["Grandparent"] = "Grnd",
     ["Input"] = "Inp",
     ["Number"] = "Nmbr",
     ["Object"] = "Obj",

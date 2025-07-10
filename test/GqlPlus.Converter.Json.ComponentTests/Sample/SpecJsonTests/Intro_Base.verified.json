@@ -31,7 +31,7 @@
         "$tag": "_TokenKind",
         "value": "End"
       },
-      "_message": "In _ObjBase can\u0027t get model for type \u0027_Described\u0027"
+      "_message": "In _ObjBase can\u0027t get model for type \u0027_Named\u0027"
     },
     {
       "$tag": "_Error",
@@ -47,7 +47,7 @@
         "$tag": "_TokenKind",
         "value": "End"
       },
-      "_message": "In _TypeParam can\u0027t get model for type \u0027_Described\u0027"
+      "_message": "In _TypeParam can\u0027t get model for type \u0027_Named\u0027"
     },
     {
       "$tag": "_Error",
@@ -362,8 +362,8 @@
       ],
       "name": "_ObjBase",
       "parent": {
-        "$tag": "_DualBase",
-        "dual": "_Described"
+        "$tag": "_OutputBase",
+        "output": "_Named"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -968,8 +968,8 @@
       ],
       "name": "_TypeParam",
       "parent": {
-        "$tag": "_DualBase",
-        "dual": "_Described"
+        "$tag": "_OutputBase",
+        "output": "_Named"
       },
       "typeKind": {
         "$tag": "_TypeKind",

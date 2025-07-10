@@ -5,7 +5,7 @@ errors:
     _message: In _BaseType can't get model for type '_Aliased'
   - !_Error
     _kind: !_TokenKind End
-    _message: In _TypeRef can't get model for type '_Described'
+    _message: In _TypeRef can't get model for type '_Named'
 types: !_Map_Type
   !_Identifier _BaseType: !_TypeOutput
     allFields:
@@ -610,23 +610,14 @@ types: !_Map_Type
         object: _TypeRef
         type: !_OutputBase
           typeParam: kind
-      - !_ObjectFor(_OutputField)
-        name: typeName
-        object: _TypeRef
-        type: !_OutputBase
-          output: _Identifier
     fields:
       - !_OutputField
         name: typeKind
         type: !_OutputBase
           typeParam: kind
-      - !_OutputField
-        name: typeName
-        type: !_OutputBase
-          output: _Identifier
     name: _TypeRef
-    parent: !_DualBase
-      dual: _Described
+    parent: !_OutputBase
+      output: _Named
     typeKind: !_TypeKind Output
     typeParams:
       - !_TypeParam

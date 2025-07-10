@@ -82,33 +82,12 @@
           }
         }
       ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "input",
-          "object": "_InputBase",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Identifier"
-          }
-        }
-      ],
       "alternates": [
         {
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
             "output": "_DualBase"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "input",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Identifier"
           }
         }
       ],
@@ -200,15 +179,6 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "input",
-          "object": "_InputBase",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -292,27 +262,6 @@
     },
     "_InputTypeArg": {
       "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "input",
-          "object": "_InputTypeArg",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Identifier"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "input",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Identifier"
-          }
-        }
-      ],
       "name": "_InputTypeArg",
       "parent": {
         "$tag": "_OutputBase",

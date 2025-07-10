@@ -20,7 +20,7 @@ output _ObjConstraint<$kind:_ObjectKind> {
     }
 
 output _ObjBase<$arg:_ObjTypeArg> {
-    : _Described
+    : _Named
         typeArgs: $arg[]
     | _TypeParam
     }
@@ -31,7 +31,7 @@ output _ObjTypeArg {
     }
 
 output _TypeParam {
-    : _Described
+    : _Named
         typeParam: _Identifier
     }
 

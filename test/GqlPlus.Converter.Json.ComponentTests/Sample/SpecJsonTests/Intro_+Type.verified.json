@@ -15,7 +15,7 @@
         "$tag": "_TokenKind",
         "value": "End"
       },
-      "_message": "In _TypeRef can\u0027t get model for type \u0027_Described\u0027"
+      "_message": "In _TypeRef can\u0027t get model for type \u0027_Named\u0027"
     }
   ],
   "types": {
@@ -1321,15 +1321,6 @@
             "$tag": "_OutputBase",
             "typeParam": "kind"
           }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "typeName",
-          "object": "_TypeRef",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Identifier"
-          }
         }
       ],
       "fields": [
@@ -1340,20 +1331,12 @@
             "$tag": "_OutputBase",
             "typeParam": "kind"
           }
-        },
-        {
-          "$tag": "_OutputField",
-          "name": "typeName",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Identifier"
-          }
         }
       ],
       "name": "_TypeRef",
       "parent": {
-        "$tag": "_DualBase",
-        "dual": "_Described"
+        "$tag": "_OutputBase",
+        "output": "_Named"
       },
       "typeKind": {
         "$tag": "_TypeKind",

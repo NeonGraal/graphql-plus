@@ -11,13 +11,13 @@ errors:
   _message: In _ObjConstraint can't get model for type '_TypeRef'
 - !_Error
   _kind: !_TokenKind End
-  _message: In _ObjBase can't get model for type '_Described'
+  _message: In _ObjBase can't get model for type '_Named'
 - !_Error
   _kind: !_TokenKind End
   _message: In _ObjTypeArg can't get model for type '_TypeRef'
 - !_Error
   _kind: !_TokenKind End
-  _message: In _TypeParam can't get model for type '_Described'
+  _message: In _TypeParam can't get model for type '_Named'
 - !_Error
   _kind: !_TokenKind End
   _message: In _Field can't get model for type '_Aliased'
@@ -89,16 +89,6 @@ types: !_Map_Type
       object: _ObjBase
       type: !_OutputBase
         output: _DualTypeArg
-    - !_ObjectFor(_OutputField)
-      name: dual
-      object: _DualBase
-      type: !_OutputBase
-        output: _Identifier
-    fields:
-    - !_OutputField
-      name: dual
-      type: !_OutputBase
-        output: _Identifier
     name: _DualBase
     parent: !_OutputBase
       output: _ObjBase
@@ -132,17 +122,6 @@ types: !_Map_Type
       object: _ObjTypeArg
       type: !_OutputBase
         output: _TypeParam
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: dual
-      object: _DualTypeArg
-      type: !_OutputBase
-        output: _Identifier
-    fields:
-    - !_OutputField
-      name: dual
-      type: !_OutputBase
-        output: _Identifier
     name: _DualTypeArg
     parent: !_OutputBase
       output: _ObjTypeArg
@@ -273,20 +252,10 @@ types: !_Map_Type
       object: _ObjBase
       type: !_OutputBase
         output: _InputTypeArg
-    - !_ObjectFor(_OutputField)
-      name: input
-      object: _InputBase
-      type: !_OutputBase
-        output: _Identifier
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
         output: _DualBase
-    fields:
-    - !_OutputField
-      name: input
-      type: !_OutputBase
-        output: _Identifier
     name: _InputBase
     parent: !_OutputBase
       output: _ObjBase
@@ -344,11 +313,6 @@ types: !_Map_Type
       type: !_OutputBase
         output: _InputTypeArg
     - !_ObjectFor(_OutputField)
-      name: input
-      object: _InputBase
-      type: !_OutputBase
-        output: _Identifier
-    - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
       object: _InputParam
@@ -381,17 +345,6 @@ types: !_Map_Type
       object: _ObjTypeArg
       type: !_OutputBase
         output: _TypeParam
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: input
-      object: _InputTypeArg
-      type: !_OutputBase
-        output: _Identifier
-    fields:
-    - !_OutputField
-      name: input
-      type: !_OutputBase
-        output: _Identifier
     name: _InputTypeArg
     parent: !_OutputBase
       output: _ObjTypeArg
@@ -458,8 +411,8 @@ types: !_Map_Type
       type: !_OutputBase
         typeParam: arg
     name: _ObjBase
-    parent: !_DualBase
-      dual: _Described
+    parent: !_OutputBase
+      output: _Named
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
@@ -630,20 +583,10 @@ types: !_Map_Type
       object: _ObjBase
       type: !_OutputBase
         output: _OutputTypeArg
-    - !_ObjectFor(_OutputField)
-      name: output
-      object: _OutputBase
-      type: !_OutputBase
-        output: _Identifier
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
         output: _DualBase
-    fields:
-    - !_OutputField
-      name: output
-      type: !_OutputBase
-        output: _Identifier
     name: _OutputBase
     parent: !_OutputBase
       output: _ObjBase
@@ -730,21 +673,12 @@ types: !_Map_Type
         output: _TypeParam
     allFields:
     - !_ObjectFor(_OutputField)
-      name: output
-      object: _OutputTypeArg
-      type: !_OutputBase
-        output: _Identifier
-    - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: label
       object: _OutputTypeArg
       type: !_OutputBase
         output: _Identifier
     fields:
-    - !_OutputField
-      name: output
-      type: !_OutputBase
-        output: _Identifier
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: label
@@ -1092,6 +1026,6 @@ types: !_Map_Type
       type: !_OutputBase
         output: _Identifier
     name: _TypeParam
-    parent: !_DualBase
-      dual: _Described
+    parent: !_OutputBase
+      output: _Named
     typeKind: !_TypeKind Output

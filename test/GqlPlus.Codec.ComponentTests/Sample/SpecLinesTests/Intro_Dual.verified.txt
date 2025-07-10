@@ -28,17 +28,6 @@ types: !_Map_Type
           output: _DualBase
     typeKind: !_TypeKind Output
   !_Identifier _DualBase: !_TypeOutput
-    allFields:
-      - !_ObjectFor(_OutputField)
-        name: dual
-        object: _DualBase
-        type: !_OutputBase
-          output: _Identifier
-    fields:
-      - !_OutputField
-        name: dual
-        type: !_OutputBase
-          output: _Identifier
     name: _DualBase
     parent: !_OutputBase
       output: _ObjBase
@@ -55,17 +44,6 @@ types: !_Map_Type
           output: _DualBase
     typeKind: !_TypeKind Output
   !_Identifier _DualTypeArg: !_TypeOutput
-    allFields:
-      - !_ObjectFor(_OutputField)
-        name: dual
-        object: _DualTypeArg
-        type: !_OutputBase
-          output: _Identifier
-    fields:
-      - !_OutputField
-        name: dual
-        type: !_OutputBase
-          output: _Identifier
     name: _DualTypeArg
     parent: !_OutputBase
       output: _ObjTypeArg

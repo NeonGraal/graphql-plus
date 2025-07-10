@@ -33,21 +33,10 @@ types: !_Map_Type
         object: _InputBase
         type: !_OutputBase
           output: _DualBase
-    allFields:
-      - !_ObjectFor(_OutputField)
-        name: input
-        object: _InputBase
-        type: !_OutputBase
-          output: _Identifier
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
           output: _DualBase
-    fields:
-      - !_OutputField
-        name: input
-        type: !_OutputBase
-          output: _Identifier
     name: _InputBase
     parent: !_OutputBase
       output: _ObjBase
@@ -84,11 +73,6 @@ types: !_Map_Type
           output: _DualBase
     allFields:
       - !_ObjectFor(_OutputField)
-        name: input
-        object: _InputBase
-        type: !_OutputBase
-          output: _Identifier
-      - !_ObjectFor(_OutputField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: modifiers
         object: _InputParam
@@ -116,17 +100,6 @@ types: !_Map_Type
       output: _InputBase
     typeKind: !_TypeKind Output
   !_Identifier _InputTypeArg: !_TypeOutput
-    allFields:
-      - !_ObjectFor(_OutputField)
-        name: input
-        object: _InputTypeArg
-        type: !_OutputBase
-          output: _Identifier
-    fields:
-      - !_OutputField
-        name: input
-        type: !_OutputBase
-          output: _Identifier
     name: _InputTypeArg
     parent: !_OutputBase
       output: _ObjTypeArg

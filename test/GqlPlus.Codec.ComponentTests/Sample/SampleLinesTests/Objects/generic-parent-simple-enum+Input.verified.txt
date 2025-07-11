@@ -27,8 +27,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: _Simple
           typeKind: !_TypeKind Internal
-          typeName: _Simple
         name: ref
   !_Identifier GnrcPrntSmplEnumInp: !_TypeInput
     allFields:
@@ -36,11 +36,11 @@ types: !_Map_Type
         name: field
         object: FieldGnrcPrntSmplEnumInp
         type: !_InputBase
-          input: EnumGnrcPrntSmplEnumInp
+          name: EnumGnrcPrntSmplEnumInp
     name: GnrcPrntSmplEnumInp
     parent: !_InputBase
-      input: FieldGnrcPrntSmplEnumInp
+      name: FieldGnrcPrntSmplEnumInp
       typeArgs:
         - !_InputArg
-          input: EnumGnrcPrntSmplEnumInp
+          name: EnumGnrcPrntSmplEnumInp
     typeKind: !_TypeKind Input

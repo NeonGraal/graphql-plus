@@ -5,7 +5,7 @@ types: !_Map_Type
     - !_ObjectFor(_DualAlternate)
       object: GnrcAltArgDescrDual
       type: !_DualBase
-        dual: RefGnrcAltArgDescrDual
+        name: RefGnrcAltArgDescrDual
         typeArgs:
         - !_DualArg
           description: 'Test Descr'
@@ -13,7 +13,7 @@ types: !_Map_Type
     alternates:
     - !_DualAlternate
       type: !_DualBase
-        dual: RefGnrcAltArgDescrDual
+        name: RefGnrcAltArgDescrDual
         typeArgs:
         - !_DualArg
           description: 'Test Descr'
@@ -23,8 +23,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
+        name: String
         typeKind: !_TypeKind Basic
-        typeName: String
       name: type
   !_Identifier RefGnrcAltArgDescrDual: !_TypeDual
     allAlternates:
@@ -41,6 +41,6 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
+        name: String
         typeKind: !_TypeKind Basic
-        typeName: String
       name: ref

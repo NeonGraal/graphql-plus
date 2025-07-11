@@ -10,7 +10,7 @@
           "object": "RefPrntFieldOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "String"
+            "name": "String"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "object": "RefPrntFieldOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "Number"
+            "name": "Number"
           }
         },
         {
@@ -30,7 +30,7 @@
           "object": "PrntFieldOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -40,14 +40,14 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "output": "Number"
+            "name": "Number"
           }
         }
       ],
       "name": "PrntFieldOutp",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "RefPrntFieldOutp"
+        "name": "RefPrntFieldOutp"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -62,7 +62,7 @@
           "object": "RefPrntFieldOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "String"
+            "name": "String"
           }
         }
       ],
@@ -73,7 +73,7 @@
           "object": "RefPrntFieldOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -82,7 +82,7 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "String"
+            "name": "String"
           }
         }
       ],
@@ -92,7 +92,7 @@
           "name": "parent",
           "type": {
             "$tag": "_OutputBase",
-            "output": "Number"
+            "name": "Number"
           }
         }
       ],

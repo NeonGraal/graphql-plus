@@ -196,7 +196,7 @@ public class SampleChecks
   {
     IEnumerable<Task<(string input, string file)>> tasks = SchemaValidData
       .Files[group]
-      .Select(async file => (input: await ReadSchema(file, group), file));
+      .Select(async file => (name: await ReadSchema(file, group), file));
 
     return (await Task.WhenAll(tasks))
         .SelectMany(p => IsObjectInput(p.input)

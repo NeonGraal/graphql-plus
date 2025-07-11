@@ -30,8 +30,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: String
           typeKind: !_TypeKind Basic
-          typeName: String
         name: ref
   !_Identifier GnrcPrntStrDomDual: !_TypeDual
     allFields:
@@ -39,11 +39,11 @@ types: !_Map_Type
         name: field
         object: FieldGnrcPrntStrDomDual
         type: !_DualBase
-          dual: DomGnrcPrntStrDomDual
+          name: DomGnrcPrntStrDomDual
     name: GnrcPrntStrDomDual
     parent: !_DualBase
-      dual: FieldGnrcPrntStrDomDual
+      name: FieldGnrcPrntStrDomDual
       typeArgs:
         - !_DualArg
-          dual: DomGnrcPrntStrDomDual
+          name: DomGnrcPrntStrDomDual
     typeKind: !_TypeKind Dual

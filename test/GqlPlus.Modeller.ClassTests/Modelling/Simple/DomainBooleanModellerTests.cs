@@ -33,7 +33,7 @@ public class DomainBooleanModellerTests
       .ShouldSatisfyAllConditions(
         r => r.Name.ShouldBe(name),
         r => r.DomainKind.ShouldBe(DomainKindModel.Boolean),
-        r => r.Parent.ShouldNotBeNull().TypeName.ShouldBe(parent),
+        r => r.Parent.ShouldNotBeNull().Name.ShouldBe(parent),
         r => r.Items.Length.ShouldBe(boolValues.Length),
         r => r.AllItems.Length.ShouldBe(boolValues.Length));
 
@@ -66,7 +66,7 @@ public class DomainBooleanModellerTests
       .ShouldSatisfyAllConditions(
         r => r.Name.ShouldBe(name),
         r => r.DomainKind.ShouldBe(DomainKindModel.Boolean),
-        r => r.Parent.ShouldNotBeNull().TypeName.ShouldBe(parent),
+        r => r.Parent.ShouldNotBeNull().Name.ShouldBe(parent),
         r => r.Items.ShouldBeEmpty(),
         r => r.AllItems.ShouldBeEmpty());
   }

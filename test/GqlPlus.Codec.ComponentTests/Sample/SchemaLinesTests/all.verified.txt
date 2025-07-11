@@ -5,8 +5,8 @@ categories: !_Map_Categories
     name: all
     output: !_TypeRef(_TypeKind)
       description: 'Category Result'
+      name: All
       typeKind: !_TypeKind Output
-      typeName: All
     resolution: !_Resolution Parallel
 directives: !_Map_Directives
   !_Identifier all: !_Directive
@@ -27,7 +27,7 @@ types: !_Map_Type
         object: All
         type: !_OutputBase
           description: 'Alternates'
-          output: String
+          name: String
     allFields:
       - !_ObjectFor(_OutputField)
         description: 'Some items'
@@ -35,15 +35,15 @@ types: !_Map_Type
         object: All
         parameters:
           - !_InputParam
-            input: Param
             modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+            name: Param
         type: !_DualBase
-          dual: Field
+          name: Field
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
           description: 'Alternates'
-          output: String
+          name: String
     description: 'An Output'
     fields:
       - !_OutputField
@@ -51,10 +51,10 @@ types: !_Map_Type
         name: items
         parameters:
           - !_InputParam
-            input: Param
             modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+            name: Param
         type: !_DualBase
-          dual: Field
+          name: Field
     name: All
     typeKind: !_TypeKind Output
   !_Identifier Field: !_TypeDual
@@ -66,7 +66,7 @@ types: !_Map_Type
         object: Field
         type: !_DualBase
           description: 'Strings array'
-          dual: String
+          name: String
     description: 'A Dual'
     fields:
       - !_DualField
@@ -75,7 +75,7 @@ types: !_Map_Type
         name: strings
         type: !_DualBase
           description: 'Strings array'
-          dual: String
+          name: String
     name: Field
     typeKind: !_TypeKind Dual
   !_Identifier Guid: !_DomainString
@@ -138,7 +138,7 @@ types: !_Map_Type
         object: Param
         type: !_InputBase
           description: 'Alternate parameter'
-          input: String
+          name: String
     allFields:
       - !_ObjectFor(_InputField)
         description: 'First Id'
@@ -147,19 +147,19 @@ types: !_Map_Type
         object: Param
         type: !_InputBase
           description: 'Guid or Int'
-          input: Many
+          name: Many
       - !_ObjectFor(_InputField)
         description: 'Last Id'
         name: beforeId
         object: Param
         type: !_InputBase
           description: 'Guid or Int'
-          input: Many
+          name: Many
     alternates:
       - !_InputAlternate
         type: !_InputBase
           description: 'Alternate parameter'
-          input: String
+          name: String
     description: 'An Input'
     fields:
       - !_InputField
@@ -168,12 +168,12 @@ types: !_Map_Type
         name: afterId
         type: !_InputBase
           description: 'Guid or Int'
-          input: Many
+          name: Many
       - !_InputField
         description: 'Last Id'
         name: beforeId
         type: !_InputBase
           description: 'Guid or Int'
-          input: Many
+          name: Many
     name: Param
     typeKind: !_TypeKind Input

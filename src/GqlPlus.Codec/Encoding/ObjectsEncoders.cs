@@ -1,5 +1,16 @@
 ﻿namespace GqlPlus.Encoding;
 
+internal class ObjectArgEncoder<TArg>
+  : DescribedEncoder<TArg>
+  where TArg : IObjTypeArgModel
+{
+  internal override Structured Encode(TArg model)
+    => base.Encode(model)
+      .AddIf(model.IsTypeParam,
+        t => t.Add("typeParam", model.Name),
+        f => f.Add("name", model.Name));
+}
+
 internal class ObjectBaseEncoder<TBase, TArg>(
   IEncoder<TArg> objArg
 ) : DescribedEncoder<TBase>
@@ -8,7 +19,10 @@ internal class ObjectBaseEncoder<TBase, TArg>(
 {
   internal override Structured Encode(TBase model)
     => base.Encode(model)
-      .AddIf(model.IsTypeParam, onFalse: s => s.AddList("typeArgs", model.Args, objArg));
+      .AddIf(model.IsTypeParam,
+        t => t.Add("typeParam", model.Name),
+        f => f.Add("name", model.Name)
+          .AddList("typeArgs", model.Args, objArg));
 }
 
 internal class TypeParamEncoder(
@@ -89,18 +103,6 @@ internal abstract class TypeObjectEncoder<TObject, TBase, TField, TAlt>(
 {
   internal override Structured Encode(TObject model)
   {
-    List<ModelBase> allAlternates = [];
-    List<ModelBase> allFields = [];
-
-    //void AddMembers(ITypeObjectModel model)
-    //{
-    //  allAlternates.AddRange(model.AllAlternates);
-    //  allFields.AddRange(model.AllFields);
-    //}
-
-    //ForParent<TObject, ITypeObjectModel>(model, context, AddMembers);
-    // AddMembers(model);
-
     Structured ObjEncode<TModel, TDual>(ModelBase[] list, IEncoder<ObjectForModel<TModel>> encoder, IEncoder<ObjectForModel<TDual>> dual)
       where TModel : IModelBase
       where TDual : ModelBase
@@ -126,20 +128,14 @@ internal class DualArgEncoder
   internal override Structured Encode(DualArgModel model)
     => base.Encode(model)
       .AddIf(model.IsTypeParam,
-        t => t.Add("typeParam", model.Dual),
-        f => f.Add("dual", model.Dual));
+        t => t.Add("typeParam", model.Name),
+        f => f.Add("name", model.Name));
 }
 
 internal class DualBaseEncoder(
   IEncoder<DualArgModel> objArg
 ) : ObjectBaseEncoder<DualBaseModel, DualArgModel>(objArg)
-{
-  internal override Structured Encode(DualBaseModel model)
-    => base.Encode(model)
-      .AddIf(model.IsTypeParam,
-        t => t.Add("typeParam", model.Dual),
-        f => f.Add("dual", model.Dual));
-}
+{ }
 
 internal class DualFieldEncoder(
   FieldEncoders<DualBaseModel> encoders
@@ -159,8 +155,8 @@ internal class InputArgEncoder(
     => model.Dual is null
     ? base.Encode(model)
       .AddIf(model.IsTypeParam,
-        t => t.Add("typeParam", model.Input),
-        f => f.Add("input", model.Input))
+        t => t.Add("typeParam", model.Name),
+        f => f.Add("name", model.Name))
     : dual.Encode(model.Dual);
 }
 
@@ -173,9 +169,6 @@ internal class InputDualEncoder<TObj>(
   internal override Structured Encode(TObj model)
     => model.Dual is null
       ? base.Encode(model)
-        .AddIf(model.IsTypeParam,
-          t => t.Add("typeParam", model.Input),
-          f => f.Add("input", model.Input))
       : dual.Encode(model.Dual);
 }
 
@@ -223,10 +216,10 @@ internal class OutputArgEncoder(
     ? model.Dual is null
       ? base.Encode(model)
         .AddIf(model.IsTypeParam,
-          t => t.Add("typeParam", model.Output ?? model.Name),
-          f => f.Add("output", model.Output ?? model.Name))
+          t => t.Add("typeParam", model.Name),
+          f => f.Add("name", model.Name))
       : dual.Encode(model.Dual)
-    : label.Encode(model)
+    : label.Encode(new(SimpleKindModel.Enum, model.Name, model.Description))
       .Add("label", model.EnumLabel!);
 }
 
@@ -238,9 +231,6 @@ internal class OutputBaseEncoder(
   internal override Structured Encode(OutputBaseModel model)
     => model.Dual is null
       ? base.Encode(model)
-        .AddIf(model.IsTypeParam,
-          t => t.Add("typeParam", model.Output),
-          f => f.Add("output", model.Output))
       : dual.Encode(model.Dual);
 }
 

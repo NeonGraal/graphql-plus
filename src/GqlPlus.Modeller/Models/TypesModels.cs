@@ -82,11 +82,19 @@ public enum TypeKindModel
 
 public record class TypeRefModel<TKind>(
   TKind TypeKind,
-  string TypeName,
+  string Name,
   string Description
-) : DescribedModel(Description)
+) : NamedModel(Name, Description)
+  , ITypeRefModel<TKind>
   where TKind : struct
 { }
+
+internal interface ITypeRefModel<TKind>
+  : INamedModel
+  where TKind : struct
+{
+  TKind TypeKind { get; }
+}
 
 public record class SpecialTypeModel(
   string Name,

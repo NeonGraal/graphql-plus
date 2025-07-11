@@ -14,8 +14,8 @@ types: !_Map_Type
     name: EnumPrntDescr
     parent: !_TypeRef(_SimpleKind)
       description: 'Parent comment'
+      name: PrntEnumPrntDescr
       typeKind: !_SimpleKind Enum
-      typeName: PrntEnumPrntDescr
     typeKind: !_TypeKind Enum
   !_Identifier PrntEnumPrntDescr: !_TypeEnum
     allItems:

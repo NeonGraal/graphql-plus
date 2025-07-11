@@ -7,28 +7,28 @@ types: !_Map_Type
         exclude: false
         value: !_EnumValue
           label: true
+          name: Boolean
           typeKind: !_SimpleKind Enum
-          typeName: Boolean
       - !_DomainItem(_DomainLabel)
         domain: DmnEnumDiff
         exclude: false
         value: !_EnumValue
           label: false
+          name: Boolean
           typeKind: !_SimpleKind Enum
-          typeName: Boolean
     domainKind: !_DomainKind Enum
     items:
       - !_DomainLabel
         exclude: false
         value: !_EnumValue
           label: true
+          name: Boolean
           typeKind: !_SimpleKind Enum
-          typeName: Boolean
       - !_DomainLabel
         exclude: false
         value: !_EnumValue
           label: false
+          name: Boolean
           typeKind: !_SimpleKind Enum
-          typeName: Boolean
     name: DmnEnumDiff
     typeKind: !_TypeKind Domain

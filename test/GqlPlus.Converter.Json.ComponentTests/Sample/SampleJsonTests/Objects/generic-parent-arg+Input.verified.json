@@ -17,7 +17,7 @@
       "name": "GnrcPrntArgInp",
       "parent": {
         "$tag": "_InputBase",
-        "input": "RefGnrcPrntArgInp",
+        "name": "RefGnrcPrntArgInp",
         "typeArgs": [
           {
             "$tag": "_InputArg",
@@ -34,11 +34,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "type"
         }
@@ -75,11 +75,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "ref"
         }

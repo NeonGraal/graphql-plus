@@ -5,38 +5,38 @@ types: !_Map_Type
     - !_ObjectFor(_DualAlternate)
       object: PrntCnstAltDualOutp
       type: !_DualBase
-        dual: String
+        name: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
       object: AltCnstAltDualOutp
       type: !_OutputBase
-        output: Number
+        name: Number
     fields:
     - !_OutputField
       name: alt
       type: !_OutputBase
-        output: Number
+        name: Number
     name: AltCnstAltDualOutp
     parent: !_DualBase
-      dual: PrntCnstAltDualOutp
+      name: PrntCnstAltDualOutp
     typeKind: !_TypeKind Output
   !_Identifier CnstAltDualOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: CnstAltDualOutp
       type: !_OutputBase
-        output: RefCnstAltDualOutp
+        name: RefCnstAltDualOutp
         typeArgs:
         - !_OutputArg
-          output: AltCnstAltDualOutp
+          name: AltCnstAltDualOutp
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
-        output: RefCnstAltDualOutp
+        name: RefCnstAltDualOutp
         typeArgs:
         - !_OutputArg
-          output: AltCnstAltDualOutp
+          name: AltCnstAltDualOutp
     name: CnstAltDualOutp
     typeKind: !_TypeKind Output
   !_Identifier PrntCnstAltDualOutp: !_TypeDual
@@ -44,11 +44,11 @@ types: !_Map_Type
     - !_ObjectFor(_DualAlternate)
       object: PrntCnstAltDualOutp
       type: !_DualBase
-        dual: String
+        name: String
     alternates:
     - !_DualAlternate
       type: !_DualBase
-        dual: String
+        name: String
     name: PrntCnstAltDualOutp
     typeKind: !_TypeKind Dual
   !_Identifier RefCnstAltDualOutp: !_TypeOutput
@@ -66,6 +66,6 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
+        name: PrntCnstAltDualOutp
         typeKind: !_TypeKind Dual
-        typeName: PrntCnstAltDualOutp
       name: ref

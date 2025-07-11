@@ -43,10 +43,10 @@ public class SimpleModel
   public override string Tag => "_Simple";
 
   internal TypeRefModel<SimpleKindModel>? TypeRef { get; private init; }
-  public string? TypeName => TypeRef?.TypeName;
+  public string? TypeName => TypeRef?.Name;
 
   public string? Value { get; private init; }
-  internal string EnumValue => $"{TypeRef?.TypeName}.{Value}";
+  internal string EnumValue => $"{TypeRef?.Name}.{Value}";
 
   internal static TypeRefModel<SimpleKindModel>? TypeFor(string? type)
     => string.IsNullOrWhiteSpace(type) ? null : new(SimpleKindModel.Domain, type!, "");

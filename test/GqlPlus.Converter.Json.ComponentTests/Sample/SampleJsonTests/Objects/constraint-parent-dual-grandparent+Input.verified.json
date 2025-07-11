@@ -10,7 +10,7 @@
           "object": "GrndCnstPrntDualGrndInp",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "object": "AltCnstPrntDualGrndInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -31,14 +31,14 @@
           "name": "alt",
           "type": {
             "$tag": "_InputBase",
-            "input": "Number"
+            "name": "Number"
           }
         }
       ],
       "name": "AltCnstPrntDualGrndInp",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "PrntCnstPrntDualGrndInp"
+        "name": "PrntCnstPrntDualGrndInp"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -53,7 +53,7 @@
           "object": "GrndCnstPrntDualGrndInp",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -64,18 +64,18 @@
           "object": "AltCnstPrntDualGrndInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "Number"
+            "name": "Number"
           }
         }
       ],
       "name": "CnstPrntDualGrndInp",
       "parent": {
         "$tag": "_InputBase",
-        "input": "RefCnstPrntDualGrndInp",
+        "name": "RefCnstPrntDualGrndInp",
         "typeArgs": [
           {
             "$tag": "_InputArg",
-            "input": "AltCnstPrntDualGrndInp"
+            "name": "AltCnstPrntDualGrndInp"
           }
         ]
       },
@@ -92,7 +92,7 @@
           "object": "GrndCnstPrntDualGrndInp",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -101,7 +101,7 @@
           "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -119,14 +119,14 @@
           "object": "GrndCnstPrntDualGrndInp",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
       "name": "PrntCnstPrntDualGrndInp",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "GrndCnstPrntDualGrndInp"
+        "name": "GrndCnstPrntDualGrndInp"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -149,11 +149,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "GrndCnstPrntDualGrndInp",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Dual"
-            },
-            "typeName": "GrndCnstPrntDualGrndInp"
+            }
           },
           "name": "ref"
         }

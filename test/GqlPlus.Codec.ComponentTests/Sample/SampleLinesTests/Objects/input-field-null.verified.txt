@@ -11,13 +11,13 @@ types: !_Map_Type
         name: field
         object: InpFieldNull
         type: !_DualBase
-          dual: FldInpFieldNull
+          name: FldInpFieldNull
     fields:
       - !_InputField
         default: !Null null
         modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: field
         type: !_DualBase
-          dual: FldInpFieldNull
+          name: FldInpFieldNull
     name: InpFieldNull
     typeKind: !_TypeKind Input

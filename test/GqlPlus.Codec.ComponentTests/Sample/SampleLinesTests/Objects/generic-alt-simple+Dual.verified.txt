@@ -5,17 +5,17 @@ types: !_Map_Type
       - !_ObjectFor(_DualAlternate)
         object: GnrcAltSmplDual
         type: !_DualBase
-          dual: RefGnrcAltSmplDual
+          name: RefGnrcAltSmplDual
           typeArgs:
             - !_DualArg
-              dual: String
+              name: String
     alternates:
       - !_DualAlternate
         type: !_DualBase
-          dual: RefGnrcAltSmplDual
+          name: RefGnrcAltSmplDual
           typeArgs:
             - !_DualArg
-              dual: String
+              name: String
     name: GnrcAltSmplDual
     typeKind: !_TypeKind Dual
   !_Identifier RefGnrcAltSmplDual: !_TypeDual
@@ -33,6 +33,6 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: String
           typeKind: !_TypeKind Basic
-          typeName: String
         name: ref

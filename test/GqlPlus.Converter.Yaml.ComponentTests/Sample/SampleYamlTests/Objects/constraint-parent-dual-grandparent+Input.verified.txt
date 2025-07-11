@@ -5,51 +5,51 @@ types: !_Map_Type
     - !_ObjectFor(_DualAlternate)
       object: GrndCnstPrntDualGrndInp
       type: !_DualBase
-        dual: String
+        name: String
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
       object: AltCnstPrntDualGrndInp
       type: !_InputBase
-        input: Number
+        name: Number
     fields:
     - !_InputField
       name: alt
       type: !_InputBase
-        input: Number
+        name: Number
     name: AltCnstPrntDualGrndInp
     parent: !_DualBase
-      dual: PrntCnstPrntDualGrndInp
+      name: PrntCnstPrntDualGrndInp
     typeKind: !_TypeKind Input
   !_Identifier CnstPrntDualGrndInp: !_TypeInput
     allAlternates:
     - !_ObjectFor(_DualAlternate)
       object: GrndCnstPrntDualGrndInp
       type: !_DualBase
-        dual: String
+        name: String
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
       object: AltCnstPrntDualGrndInp
       type: !_InputBase
-        input: Number
+        name: Number
     name: CnstPrntDualGrndInp
     parent: !_InputBase
-      input: RefCnstPrntDualGrndInp
+      name: RefCnstPrntDualGrndInp
       typeArgs:
       - !_InputArg
-        input: AltCnstPrntDualGrndInp
+        name: AltCnstPrntDualGrndInp
     typeKind: !_TypeKind Input
   !_Identifier GrndCnstPrntDualGrndInp: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
       object: GrndCnstPrntDualGrndInp
       type: !_DualBase
-        dual: String
+        name: String
     alternates:
     - !_DualAlternate
       type: !_DualBase
-        dual: String
+        name: String
     name: GrndCnstPrntDualGrndInp
     typeKind: !_TypeKind Dual
   !_Identifier PrntCnstPrntDualGrndInp: !_TypeDual
@@ -57,10 +57,10 @@ types: !_Map_Type
     - !_ObjectFor(_DualAlternate)
       object: GrndCnstPrntDualGrndInp
       type: !_DualBase
-        dual: String
+        name: String
     name: PrntCnstPrntDualGrndInp
     parent: !_DualBase
-      dual: GrndCnstPrntDualGrndInp
+      name: GrndCnstPrntDualGrndInp
     typeKind: !_TypeKind Dual
   !_Identifier RefCnstPrntDualGrndInp: !_TypeInput
     name: RefCnstPrntDualGrndInp
@@ -70,6 +70,6 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
+        name: GrndCnstPrntDualGrndInp
         typeKind: !_TypeKind Dual
-        typeName: GrndCnstPrntDualGrndInp
       name: ref

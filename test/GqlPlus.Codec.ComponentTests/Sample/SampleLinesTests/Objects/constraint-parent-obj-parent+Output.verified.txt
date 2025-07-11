@@ -5,51 +5,51 @@ types: !_Map_Type
       - !_ObjectFor(_OutputAlternate)
         object: PrntCnstPrntObjPrntOutp
         type: !_OutputBase
-          output: String
+          name: String
     allFields:
       - !_ObjectFor(_OutputField)
         name: alt
         object: AltCnstPrntObjPrntOutp
         type: !_OutputBase
-          output: Number
+          name: Number
     fields:
       - !_OutputField
         name: alt
         type: !_OutputBase
-          output: Number
+          name: Number
     name: AltCnstPrntObjPrntOutp
     parent: !_OutputBase
-      output: PrntCnstPrntObjPrntOutp
+      name: PrntCnstPrntObjPrntOutp
     typeKind: !_TypeKind Output
   !_Identifier CnstPrntObjPrntOutp: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: PrntCnstPrntObjPrntOutp
         type: !_OutputBase
-          output: String
+          name: String
     allFields:
       - !_ObjectFor(_OutputField)
         name: alt
         object: AltCnstPrntObjPrntOutp
         type: !_OutputBase
-          output: Number
+          name: Number
     name: CnstPrntObjPrntOutp
     parent: !_OutputBase
-      output: RefCnstPrntObjPrntOutp
+      name: RefCnstPrntObjPrntOutp
       typeArgs:
         - !_OutputArg
-          output: AltCnstPrntObjPrntOutp
+          name: AltCnstPrntObjPrntOutp
     typeKind: !_TypeKind Output
   !_Identifier PrntCnstPrntObjPrntOutp: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: PrntCnstPrntObjPrntOutp
         type: !_OutputBase
-          output: String
+          name: String
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
-          output: String
+          name: String
     name: PrntCnstPrntObjPrntOutp
     typeKind: !_TypeKind Output
   !_Identifier RefCnstPrntObjPrntOutp: !_TypeOutput
@@ -60,6 +60,6 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: PrntCnstPrntObjPrntOutp
           typeKind: !_TypeKind Output
-          typeName: PrntCnstPrntObjPrntOutp
         name: ref

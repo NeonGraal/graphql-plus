@@ -8,22 +8,22 @@ types: !_Map_Type
       - !_ObjectFor(_InputAlternate)
         object: InOutpPrntParam
         type: !_InputBase
-          input: String
+          name: String
     allFields:
       - !_ObjectFor(_InputField)
         name: param
         object: InOutpPrntParam
         type: !_InputBase
-          input: Number
+          name: Number
     alternates:
       - !_InputAlternate
         type: !_InputBase
-          input: String
+          name: String
     fields:
       - !_InputField
         name: param
         type: !_InputBase
-          input: Number
+          name: Number
     name: InOutpPrntParam
     typeKind: !_TypeKind Input
   !_Identifier OutpPrntParam: !_TypeOutput
@@ -33,28 +33,28 @@ types: !_Map_Type
         object: PrntOutpPrntParam
         parameters:
           - !_InputParam
-            input: PrntOutpPrntParamIn
+            name: PrntOutpPrntParamIn
         type: !_DualBase
-          dual: FldOutpPrntParam
+          name: FldOutpPrntParam
       - !_ObjectFor(_OutputField)
         name: field
         object: OutpPrntParam
         parameters:
           - !_InputParam
-            input: InOutpPrntParam
+            name: InOutpPrntParam
         type: !_DualBase
-          dual: FldOutpPrntParam
+          name: FldOutpPrntParam
     fields:
       - !_OutputField
         name: field
         parameters:
           - !_InputParam
-            input: InOutpPrntParam
+            name: InOutpPrntParam
         type: !_DualBase
-          dual: FldOutpPrntParam
+          name: FldOutpPrntParam
     name: OutpPrntParam
     parent: !_OutputBase
-      output: PrntOutpPrntParam
+      name: PrntOutpPrntParam
     typeKind: !_TypeKind Output
   !_Identifier PrntOutpPrntParam: !_TypeOutput
     allFields:
@@ -63,17 +63,17 @@ types: !_Map_Type
         object: PrntOutpPrntParam
         parameters:
           - !_InputParam
-            input: PrntOutpPrntParamIn
+            name: PrntOutpPrntParamIn
         type: !_DualBase
-          dual: FldOutpPrntParam
+          name: FldOutpPrntParam
     fields:
       - !_OutputField
         name: field
         parameters:
           - !_InputParam
-            input: PrntOutpPrntParamIn
+            name: PrntOutpPrntParamIn
         type: !_DualBase
-          dual: FldOutpPrntParam
+          name: FldOutpPrntParam
     name: PrntOutpPrntParam
     typeKind: !_TypeKind Output
   !_Identifier PrntOutpPrntParamIn: !_TypeInput
@@ -81,21 +81,21 @@ types: !_Map_Type
       - !_ObjectFor(_InputAlternate)
         object: PrntOutpPrntParamIn
         type: !_InputBase
-          input: String
+          name: String
     allFields:
       - !_ObjectFor(_InputField)
         name: parent
         object: PrntOutpPrntParamIn
         type: !_InputBase
-          input: Number
+          name: Number
     alternates:
       - !_InputAlternate
         type: !_InputBase
-          input: String
+          name: String
     fields:
       - !_InputField
         name: parent
         type: !_InputBase
-          input: Number
+          name: Number
     name: PrntOutpPrntParamIn
     typeKind: !_TypeKind Input

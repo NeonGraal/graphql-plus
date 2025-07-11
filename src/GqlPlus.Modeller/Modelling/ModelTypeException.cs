@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Modelling;
 
 public class ModelTypeException<TModel>
-  : Exception
+  : ModelException
 {
   private static string ModelTypeMessage(object? type)
     => $"Type '{type?.GetType().TidyTypeName() ?? "null"}' Model is not '{typeof(TModel).TidyTypeName()}'";

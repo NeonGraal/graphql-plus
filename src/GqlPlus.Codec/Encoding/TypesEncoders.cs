@@ -65,7 +65,7 @@ public interface ITypeEncoder
 }
 
 internal class TypeRefEncoder<TModel, TKind>
-  : DescribedEncoder<TModel>
+  : NamedEncoder<TModel>
   where TModel : TypeRefModel<TKind>
   where TKind : struct
 {
@@ -73,7 +73,6 @@ internal class TypeRefEncoder<TModel, TKind>
 
   internal override Structured Encode(TModel model)
     => base.Encode(model)
-      .Add("typeName", model.TypeName)
       .Add("typeKind", new(model.TypeKind.ToString(), s_typeKindTag));
 }
 

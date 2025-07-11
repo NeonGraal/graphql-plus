@@ -5,38 +5,38 @@ types: !_Map_Type
       - !_ObjectFor(_OutputAlternate)
         object: PrntCnstAltObjOutp
         type: !_OutputBase
-          output: String
+          name: String
     allFields:
       - !_ObjectFor(_OutputField)
         name: alt
         object: AltCnstAltObjOutp
         type: !_OutputBase
-          output: Number
+          name: Number
     fields:
       - !_OutputField
         name: alt
         type: !_OutputBase
-          output: Number
+          name: Number
     name: AltCnstAltObjOutp
     parent: !_OutputBase
-      output: PrntCnstAltObjOutp
+      name: PrntCnstAltObjOutp
     typeKind: !_TypeKind Output
   !_Identifier CnstAltObjOutp: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: CnstAltObjOutp
         type: !_OutputBase
-          output: RefCnstAltObjOutp
+          name: RefCnstAltObjOutp
           typeArgs:
             - !_OutputArg
-              output: AltCnstAltObjOutp
+              name: AltCnstAltObjOutp
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
-          output: RefCnstAltObjOutp
+          name: RefCnstAltObjOutp
           typeArgs:
             - !_OutputArg
-              output: AltCnstAltObjOutp
+              name: AltCnstAltObjOutp
     name: CnstAltObjOutp
     typeKind: !_TypeKind Output
   !_Identifier PrntCnstAltObjOutp: !_TypeOutput
@@ -44,11 +44,11 @@ types: !_Map_Type
       - !_ObjectFor(_OutputAlternate)
         object: PrntCnstAltObjOutp
         type: !_OutputBase
-          output: String
+          name: String
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
-          output: String
+          name: String
     name: PrntCnstAltObjOutp
     typeKind: !_TypeKind Output
   !_Identifier RefCnstAltObjOutp: !_TypeOutput
@@ -66,6 +66,6 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: PrntCnstAltObjOutp
           typeKind: !_TypeKind Output
-          typeName: PrntCnstAltObjOutp
         name: ref

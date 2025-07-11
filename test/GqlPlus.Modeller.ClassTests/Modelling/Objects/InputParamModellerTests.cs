@@ -38,7 +38,7 @@ public class InputParamModellerTests
     // Assert
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
-        r => r.Input.ShouldBe(paramType),
+        r => r.Name.ShouldBe(paramType),
         r => r.Description.ShouldBe(content),
         r => r.IsTypeParam.ShouldBeTrue(),
         r => r.Modifiers.ShouldBe(modifiers),
@@ -58,7 +58,7 @@ public class InputParamModellerTests
     // Assert
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
-        r => r.Input.ShouldBe(paramType),
+        r => r.Name.ShouldBe(paramType),
         r => r.Description.ShouldBe(content),
         r => r.IsTypeParam.ShouldBeFalse(),
         r => r.Modifiers.ShouldBeEmpty(),

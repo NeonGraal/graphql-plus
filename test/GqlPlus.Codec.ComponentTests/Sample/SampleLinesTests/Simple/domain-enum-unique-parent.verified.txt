@@ -31,8 +31,8 @@ types: !_Map_Type
         name: enum_dmnEnumUnqPrnt
     name: EnumDmnEnumUnqPrnt
     parent: !_TypeRef(_SimpleKind)
+      name: PrntDmnEnumUnqPrnt
       typeKind: !_SimpleKind Enum
-      typeName: PrntDmnEnumUnqPrnt
     typeKind: !_TypeKind Enum
   !_Identifier PrntDmnEnumUnqPrnt: !_TypeEnum
     allItems:

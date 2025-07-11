@@ -10,7 +10,7 @@
           "object": "PrntCnstPrntDualPrntOutp",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "object": "AltCnstPrntDualPrntOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -31,14 +31,14 @@
           "name": "alt",
           "type": {
             "$tag": "_OutputBase",
-            "output": "Number"
+            "name": "Number"
           }
         }
       ],
       "name": "AltCnstPrntDualPrntOutp",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "PrntCnstPrntDualPrntOutp"
+        "name": "PrntCnstPrntDualPrntOutp"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -53,7 +53,7 @@
           "object": "PrntCnstPrntDualPrntOutp",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -64,18 +64,18 @@
           "object": "AltCnstPrntDualPrntOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "Number"
+            "name": "Number"
           }
         }
       ],
       "name": "CnstPrntDualPrntOutp",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "RefCnstPrntDualPrntOutp",
+        "name": "RefCnstPrntDualPrntOutp",
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "output": "AltCnstPrntDualPrntOutp"
+            "name": "AltCnstPrntDualPrntOutp"
           }
         ]
       },
@@ -92,7 +92,7 @@
           "object": "PrntCnstPrntDualPrntOutp",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -101,7 +101,7 @@
           "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -127,11 +127,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntCnstPrntDualPrntOutp",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Dual"
-            },
-            "typeName": "PrntCnstPrntDualPrntOutp"
+            }
           },
           "name": "ref"
         }

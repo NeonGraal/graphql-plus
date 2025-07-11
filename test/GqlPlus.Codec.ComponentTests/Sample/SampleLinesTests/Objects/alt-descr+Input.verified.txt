@@ -6,11 +6,11 @@ types: !_Map_Type
         object: AltDescrInp
         type: !_InputBase
           description: 'Test Descr'
-          input: String
+          name: String
     alternates:
       - !_InputAlternate
         type: !_InputBase
           description: 'Test Descr'
-          input: String
+          name: String
     name: AltDescrInp
     typeKind: !_TypeKind Input

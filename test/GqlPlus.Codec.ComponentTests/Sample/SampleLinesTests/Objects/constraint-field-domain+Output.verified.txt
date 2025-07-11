@@ -6,13 +6,13 @@ types: !_Map_Type
         name: field
         object: RefCnstFieldDmnOutp
         type: !_OutputBase
-          output: DomCnstFieldDmnOutp
+          name: DomCnstFieldDmnOutp
     name: CnstFieldDmnOutp
     parent: !_OutputBase
-      output: RefCnstFieldDmnOutp
+      name: RefCnstFieldDmnOutp
       typeArgs:
         - !_OutputArg
-          output: DomCnstFieldDmnOutp
+          name: DomCnstFieldDmnOutp
     typeKind: !_TypeKind Output
   !_Identifier DomCnstFieldDmnOutp: !_DomainString
     allItems:
@@ -44,6 +44,6 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: String
           typeKind: !_TypeKind Basic
-          typeName: String
         name: ref

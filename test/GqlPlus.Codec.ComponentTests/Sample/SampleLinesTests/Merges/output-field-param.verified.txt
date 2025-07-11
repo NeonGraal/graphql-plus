@@ -10,21 +10,21 @@ types: !_Map_Type
         object: OutpFieldParam
         parameters:
           - !_InputParam
-            input: OutpFieldParam1
+            name: OutpFieldParam1
           - !_InputParam
-            input: OutpFieldParam2
+            name: OutpFieldParam2
         type: !_DualBase
-          dual: FldOutpFieldParam
+          name: FldOutpFieldParam
     fields:
       - !_OutputField
         name: field
         parameters:
           - !_InputParam
-            input: OutpFieldParam1
+            name: OutpFieldParam1
           - !_InputParam
-            input: OutpFieldParam2
+            name: OutpFieldParam2
         type: !_DualBase
-          dual: FldOutpFieldParam
+          name: FldOutpFieldParam
     name: OutpFieldParam
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldParam1: !_TypeInput

@@ -23,6 +23,6 @@ types: !_Map_Type
         name: String
     name: UnionPrnt
     parent: !_TypeRef(_SimpleKind)
+      name: PrntUnionPrnt
       typeKind: !_SimpleKind Union
-      typeName: PrntUnionPrnt
     typeKind: !_TypeKind Union

@@ -43,34 +43,41 @@ public class SimpleModel
   public override string Tag => "_Simple";
 
   internal TypeRefModel<SimpleKindModel>? TypeRef { get; private init; }
-  public string? TypeName => TypeRef?.Name;
+  public string? TypeName => string.IsNullOrWhiteSpace(TypeRef?.Name) ? EnumValue?.Name : TypeRef?.Name;
 
-  public string? Value { get; private init; }
-  internal string EnumValue => $"{TypeRef?.Name}.{Value}";
+  public EnumValueModel? EnumValue { get; private init; }
 
-  internal static TypeRefModel<SimpleKindModel>? TypeFor(string? type)
-    => string.IsNullOrWhiteSpace(type) ? null : new(SimpleKindModel.Domain, type!, "");
+  internal static TypeRefModel<SimpleKindModel>? DomainFor(string? type, DomainKind kind)
+    => string.IsNullOrWhiteSpace(type) ? null : new DomainRefModel(type!, kind, "");
 
-  internal static SimpleModel Bool(string type, bool value)
-    => new(value) { TypeRef = TypeFor(type) };
-  internal static SimpleModel Num(string type, decimal value)
-    => new(value) { TypeRef = TypeFor(type) };
-  internal static SimpleModel Str(string type, string value)
-    => new(value) { TypeRef = TypeFor(type) };
+  internal static SimpleModel Bool(bool value)
+    => new(value);
+  internal static SimpleModel Num(decimal value)
+    => new(value);
+  internal static SimpleModel Str(string value)
+    => new(value);
   internal static SimpleModel Enum(string type, string value)
-    => new("") { TypeRef = TypeFor(type), Value = value };
+    => new("") { EnumValue = new(type, value, "") };
+
+  internal static SimpleModel BoolDom(string domain, bool value)
+    => new(value) { TypeRef = DomainFor(domain, DomainKind.Boolean) };
+  internal static SimpleModel NumDom(string domain, decimal value)
+    => new(value) { TypeRef = DomainFor(domain, DomainKind.Number) };
+  internal static SimpleModel StrDom(string domain, string value)
+    => new(value) { TypeRef = DomainFor(domain, DomainKind.String) };
+  internal static SimpleModel EnumDom(string domain, string type, string value)
+    => new("") { TypeRef = DomainFor(domain, DomainKind.Enum), EnumValue = new(type, value, "") };
 
   public override bool Equals(object obj)
     => Equals(obj as SimpleModel);
   public bool Equals(SimpleModel? other)
     => TypeRef.NullEqual(other?.TypeRef) &&
       (Equals(other as ScalarValue)
-        || !string.IsNullOrWhiteSpace(Value)
-         && Value.NullEqual(other?.Value));
+        || EnumValue is not null && EnumValue.Equals(other?.EnumValue));
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(),
       TypeRef?.GetHashCode() ?? 0,
-      Value?.GetHashCode() ?? 0);
+      EnumValue?.GetHashCode() ?? 0);
 }
 
 public record class CollectionModel(

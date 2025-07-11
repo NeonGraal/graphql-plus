@@ -113,10 +113,10 @@ public class ParserClassTestBase
     => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(0.EmptyArray<T>());
 
   protected void ParseError<T>([NotNull] Parser<T>.I parser, string? message = null)
-    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(Error<T>(message ?? "error for " + typeof(T).ExpandTypeName()));
+    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(Error<T>(message.IfWhitespace("error for " + typeof(T).ExpandTypeName())));
 
   protected void ParseErrorA<T>([NotNull] Parser<T>.IA parser, string? message = null)
-    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(ErrorA<T>(message ?? "error for array of " + typeof(T).ExpandTypeName()));
+    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(ErrorA<T>(message.IfWhitespace("error for array of " + typeof(T).ExpandTypeName())));
 
   protected void ParseOkField<T>([NotNull] Parser<IGqlpFields<T>>.I parser, string fieldName)
     where T : class, IGqlpError

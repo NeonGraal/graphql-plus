@@ -50,12 +50,14 @@ public class SimpleModellerTests
     ast.EnumType.Returns(enumType);
     ast.EnumLabel.Returns(enumLabel);
 
+    EnumValueModel expected = new(enumType, enumLabel, "");
+
     // Act
     SimpleModel result = Modeller.ToModel(ast, TypeKinds);
 
     // Assert
     result.ShouldNotBeNull()
-      .EnumValue.ShouldBe($"{enumType}.{enumLabel}");
+      .EnumValue.ShouldBe(expected);
   }
 
   [Theory, RepeatData]

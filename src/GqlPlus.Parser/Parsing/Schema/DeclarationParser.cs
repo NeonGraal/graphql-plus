@@ -27,7 +27,7 @@ internal abstract class DeclarationParser<TName, TParam, TOption, TDefinition, T
   {
     string description = tokens.GetDescription();
     bool hasName = _name.ParseName(tokens, out string? name, out TokenAt? at);
-    AstPartial<TParam, TOption> partial = new(at, name ?? "", description);
+    AstPartial<TParam, TOption> partial = new(at, name.IfWhitespace(), description);
 
     if (!hasName) {
       return tokens.Error(label, "name", ToResult(partial));

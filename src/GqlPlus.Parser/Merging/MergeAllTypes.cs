@@ -54,7 +54,7 @@ internal class MergeAllTypes(
     foreach (AstDomain<DomainLabelAst, IGqlpDomainLabel> domain in types.OfType<AstDomain<DomainLabelAst, IGqlpDomainLabel>>()) {
       foreach (DomainLabelAst item in domain.Items.Cast<DomainLabelAst>()) {
         if (string.IsNullOrEmpty(item.EnumType)
-          && enumValues.TryGetValue(item.EnumItem ?? "", out string? enumType)) {
+          && enumValues.TryGetValue(item.EnumItem.IfWhitespace(), out string? enumType)) {
           item.EnumType = enumType;
         }
       }
@@ -72,7 +72,7 @@ internal class MergeAllTypes(
   {
     if (type is TEnum named) {
       if (string.IsNullOrWhiteSpace(named.EnumType.Name)
-        && enumValues.TryGetValue(type.EnumLabel ?? "", out string? enumType)) {
+        && enumValues.TryGetValue(type.EnumLabel.IfWhitespace(), out string? enumType)) {
         named.SetEnumType(enumType);
       }
     }

@@ -29,7 +29,7 @@ public class InputParamModellerTests
     ModifierModel[] modifiers = [new(ModifierKind.Optional)];
     ToModelsReturns(_modifier, ast.Modifiers, modifiers);
 
-    ConstantModel defaultValue = new(SimpleModel.Str("", text));
+    ConstantModel defaultValue = new(SimpleModel.Str(text));
     TryModelReturns(_constant, ast.DefaultValue!, defaultValue);
 
     // Act

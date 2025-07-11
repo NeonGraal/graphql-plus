@@ -23,8 +23,7 @@ internal class SimpleEncoder
 {
   Structured IEncoder<SimpleModel>.Encode(SimpleModel model)
     => model switch {
-      { Value: not null } when !string.IsNullOrWhiteSpace(model.Value)
-        => new(model.Value, model.TypeName),
+      { EnumValue: not null } => new(model.EnumValue.Label, model.TypeName.IfWhitespace(model.EnumValue.Name)),
       { Boolean: not null } => new(model.Boolean, model.TypeName),
       { Number: not null } => new(model.Number, model.TypeName),
       { Text: not null } when !string.IsNullOrEmpty(model.Text)

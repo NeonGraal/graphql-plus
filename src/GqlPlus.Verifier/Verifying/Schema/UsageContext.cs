@@ -27,7 +27,7 @@ public class UsageContext(
 
   internal bool GetType(string? type, [NotNullWhen(true)] out IGqlpDescribed? value)
   {
-    if (types.TryGetValue(type ?? "", out value)) {
+    if (types.TryGetValue(type.IfWhitespace(), out value)) {
       Used.Add(type!);
       return true;
     }

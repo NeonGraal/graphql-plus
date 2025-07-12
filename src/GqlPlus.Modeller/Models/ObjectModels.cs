@@ -1,8 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-using GqlPlus.Resolving;
-
-namespace GqlPlus.Models;
+﻿namespace GqlPlus.Models;
 
 public abstract record class TypeObjectModel<TObjBase, TObjField, TObjAlt>(
   TypeKindModel Kind,
@@ -20,17 +16,6 @@ public abstract record class TypeObjectModel<TObjBase, TObjField, TObjAlt>(
 
   public ObjectForModel[] AllFields { get; set; } = [];
   public ObjectForModel[] AllAlternates { get; set; } = [];
-
-  internal override bool GetParentModel<TResult>(IResolveContext context, [NotNullWhen(true)] out TResult? model)
-    where TResult : default
-  {
-    if (Parent?.IsTypeParam == false) {
-      return base.GetParentModel(context, out model);
-    }
-
-    model = default;
-    return false;
-  }
 }
 
 public interface ITypeObjectModel

@@ -47,7 +47,7 @@ public class SimpleModel
 
   public EnumValueModel? EnumValue { get; private init; }
 
-  internal static TypeRefModel<SimpleKindModel>? DomainFor(string? type, DomainKind kind)
+  internal static TypeRefModel<SimpleKindModel>? DomainFor(string? type, DomainKindModel kind)
     => string.IsNullOrWhiteSpace(type) ? null : new DomainRefModel(type!, kind, "");
 
   internal static SimpleModel Bool(bool value)
@@ -60,13 +60,13 @@ public class SimpleModel
     => new("") { EnumValue = new(type, value, "") };
 
   internal static SimpleModel BoolDom(string domain, bool value)
-    => new(value) { TypeRef = DomainFor(domain, DomainKind.Boolean) };
+    => new(value) { TypeRef = DomainFor(domain, DomainKindModel.Boolean) };
   internal static SimpleModel NumDom(string domain, decimal value)
-    => new(value) { TypeRef = DomainFor(domain, DomainKind.Number) };
+    => new(value) { TypeRef = DomainFor(domain, DomainKindModel.Number) };
   internal static SimpleModel StrDom(string domain, string value)
-    => new(value) { TypeRef = DomainFor(domain, DomainKind.String) };
+    => new(value) { TypeRef = DomainFor(domain, DomainKindModel.String) };
   internal static SimpleModel EnumDom(string domain, string type, string value)
-    => new("") { TypeRef = DomainFor(domain, DomainKind.Enum), EnumValue = new(type, value, "") };
+    => new("") { TypeRef = DomainFor(domain, DomainKindModel.Enum), EnumValue = new(type, value, "") };
 
   public override bool Equals(object obj)
     => Equals(obj as SimpleModel);

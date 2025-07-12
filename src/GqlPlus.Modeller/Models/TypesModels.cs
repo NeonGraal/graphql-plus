@@ -1,7 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-using GqlPlus.Resolving;
-
 namespace GqlPlus.Models;
 
 // TypeModel => BaseTypeModel
@@ -18,38 +16,11 @@ public abstract record class ChildTypeModel<TParent>(
   string Name,
   string Description
 ) : BaseTypeModel(Kind, Name, Description)
-  , IChildTypeModel
   where TParent : IModelBase
 {
   public TParent? Parent { get; set; }
 
   internal IModelBase? ParentModel { get; set; }
-
-  internal virtual bool GetParentModel<TResult>(IResolveContext context, [NotNullWhen(true)] out TResult? model)
-    where TResult : IModelBase
-  {
-    model = default;
-    return false;
-  }
-
-  internal void ForParent<TResult>(IResolveContext context, Action<TResult> action)
-    where TResult : IChildTypeModel
-  {
-    if (GetParentModel(context, out TResult? parentModel)) {
-      parentModel.ForParent(context, action);
-      action(parentModel);
-    }
-  }
-
-  void IChildTypeModel.ForParent<TModel>(IResolveContext context, Action<TModel> action)
-    => ForParent(context, action);
-}
-
-public interface IChildTypeModel
-  : IModelBase
-{
-  void ForParent<TModel>(IResolveContext context, Action<TModel> action)
-    where TModel : IChildTypeModel;
 }
 
 public record class ParentTypeModel<TItem, TAll>(
@@ -86,12 +57,12 @@ public record class TypeRefModel<TKind>(
   string Description
 ) : NamedModel(Name, Description)
   , ITypeRefModel<TKind>
-  where TKind : struct
+  where TKind : Enum
 { }
 
 internal interface ITypeRefModel<TKind>
   : INamedModel
-  where TKind : struct
+  where TKind : Enum
 {
   TKind TypeKind { get; }
 }
@@ -106,11 +77,11 @@ internal static class ModelHelper
 {
   [return: NotNullIfNotNull(nameof(input))]
   internal static TypeRefModel<TKind>? TypeRef<TKind>(this string? input, TKind kind)
-    where TKind : struct
+    where TKind : Enum
     => input is null ? null : new(kind, input, "");
 
   [return: NotNullIfNotNull(nameof(input))]
   internal static TypeRefModel<TKind>? TypeRef<TKind>(this IGqlpTypeRef? input, TKind kind)
-    where TKind : struct
+    where TKind : Enum
     => input is null ? null : new(kind, input.Name, input.Description);
 }

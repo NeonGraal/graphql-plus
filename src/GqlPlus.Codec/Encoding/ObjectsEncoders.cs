@@ -123,14 +123,8 @@ internal abstract class TypeObjectEncoder<TObject, TBase, TField, TAlt>(
 }
 
 internal class DualArgEncoder
-  : DescribedEncoder<DualArgModel>
-{
-  internal override Structured Encode(DualArgModel model)
-    => base.Encode(model)
-      .AddIf(model.IsTypeParam,
-        t => t.Add("typeParam", model.Name),
-        f => f.Add("name", model.Name));
-}
+  : ObjectArgEncoder<DualArgModel>
+{ }
 
 internal class DualBaseEncoder(
   IEncoder<DualArgModel> objArg
@@ -149,14 +143,11 @@ internal class TypeDualEncoder(
 
 internal class InputArgEncoder(
   IEncoder<DualArgModel> dual
-) : DescribedEncoder<InputArgModel>
+) : ObjectArgEncoder<InputArgModel>
 {
   internal override Structured Encode(InputArgModel model)
     => model.Dual is null
     ? base.Encode(model)
-      .AddIf(model.IsTypeParam,
-        t => t.Add("typeParam", model.Name),
-        f => f.Add("name", model.Name))
     : dual.Encode(model.Dual);
 }
 
@@ -209,15 +200,12 @@ internal class TypeInputEncoder(
 internal class OutputArgEncoder(
   IEncoder<DualArgModel> dual,
   IEncoder<TypeRefModel<SimpleKindModel>> label
-) : DescribedEncoder<OutputArgModel>
+) : ObjectArgEncoder<OutputArgModel>
 {
   internal override Structured Encode(OutputArgModel model)
     => string.IsNullOrWhiteSpace(model.ThrowIfNull().EnumLabel)
     ? model.Dual is null
       ? base.Encode(model)
-        .AddIf(model.IsTypeParam,
-          t => t.Add("typeParam", model.Name),
-          f => f.Add("name", model.Name))
       : dual.Encode(model.Dual)
     : label.Encode(new(SimpleKindModel.Enum, model.Name, model.Description))
       .Add("label", model.EnumLabel!);

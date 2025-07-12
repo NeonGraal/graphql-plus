@@ -67,13 +67,19 @@ public interface ITypeEncoder
 internal class TypeRefEncoder<TModel, TKind>
   : NamedEncoder<TModel>
   where TModel : TypeRefModel<TKind>
-  where TKind : struct
+  where TKind : Enum
 {
-  private static readonly string s_typeKindTag = typeof(TKind).TypeTag();
-
   internal override Structured Encode(TModel model)
     => base.Encode(model)
-      .Add("typeKind", new(model.TypeKind.ToString(), s_typeKindTag));
+      .AddEnum("typeKind", model.TypeKind);
+}
+
+internal class DomainRefEncoder
+  : TypeRefEncoder<DomainRefModel, SimpleKindModel>
+{
+  internal override Structured Encode(DomainRefModel model)
+    => base.Encode(model)
+      .AddEnum("domainKind", model.DomainKind);
 }
 
 internal class SpecialTypeEncoder

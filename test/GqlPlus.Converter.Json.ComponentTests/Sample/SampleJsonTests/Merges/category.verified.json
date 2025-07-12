@@ -7,11 +7,11 @@
       "name": "ctgr",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
+        "name": "Ctgr",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        },
-        "typeName": "Ctgr"
+        }
       },
       "resolution": {
         "$tag": "_Resolution",

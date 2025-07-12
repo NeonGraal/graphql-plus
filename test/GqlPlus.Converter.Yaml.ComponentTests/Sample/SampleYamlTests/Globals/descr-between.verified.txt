@@ -3,8 +3,8 @@ categories: !_Map_Categories
   !_Identifier descrBtwn: !_Category
     name: descrBtwn
     output: !_TypeRef(_TypeKind)
+      name: DescrBtwn
       typeKind: !_TypeKind Output
-      typeName: DescrBtwn
     resolution: !_Resolution Parallel
 types: !_Map_Type
   !_Identifier DescrBtwn: !_TypeOutput

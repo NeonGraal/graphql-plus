@@ -10,7 +10,7 @@
           "object": "AltGnrcFieldDualDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "object": "AltGnrcFieldDualDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -30,7 +30,7 @@
           "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -40,7 +40,7 @@
           "name": "alt",
           "type": {
             "$tag": "_DualBase",
-            "dual": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -59,11 +59,11 @@
           "object": "GnrcFieldDualDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "RefGnrcFieldDualDual",
+            "name": "RefGnrcFieldDualDual",
             "typeArgs": [
               {
                 "$tag": "_DualArg",
-                "dual": "AltGnrcFieldDualDual"
+                "name": "AltGnrcFieldDualDual"
               }
             ]
           }
@@ -75,11 +75,11 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "dual": "RefGnrcFieldDualDual",
+            "name": "RefGnrcFieldDualDual",
             "typeArgs": [
               {
                 "$tag": "_DualArg",
-                "dual": "AltGnrcFieldDualDual"
+                "name": "AltGnrcFieldDualDual"
               }
             ]
           }
@@ -122,11 +122,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "_Dual",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Internal"
-            },
-            "typeName": "_Dual"
+            }
           },
           "name": "ref"
         }

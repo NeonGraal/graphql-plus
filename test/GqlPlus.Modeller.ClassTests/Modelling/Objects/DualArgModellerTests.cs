@@ -7,11 +7,11 @@ public class DualArgModellerTests
     = new DualArgModeller();
 
   [Theory, RepeatData]
-  public void ToModel_WithValidArg_ReturnsExpectedDualArgModel(string dual, string contents)
+  public void ToModel_WithValidArg_ReturnsExpectedDualArgModel(string name, string contents)
   {
     // Arrange
     IGqlpDualArg ast = A.Descr<IGqlpDualArg>(contents);
-    ast.Dual.Returns(dual);
+    ast.Name.Returns(name);
     ast.IsTypeParam.Returns(true);
 
     // Act
@@ -20,7 +20,7 @@ public class DualArgModellerTests
     // Assert
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
-        r => r.Dual.ShouldBe(dual),
+        r => r.Name.ShouldBe(name),
         r => r.Description.ShouldBe(contents),
         r => r.IsTypeParam.ShouldBeTrue()
       );

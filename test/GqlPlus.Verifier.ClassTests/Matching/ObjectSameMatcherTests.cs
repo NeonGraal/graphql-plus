@@ -4,17 +4,17 @@ public abstract class ObjectSameMatcherTests<TObject>
   : MatcherTestsBase
   where TObject : class, IGqlpObject
 {
-  private readonly ObjectSameMatcher<TObject> _sut;
+  internal ObjectSameMatcher<TObject> Sut { get; }
 
   protected ObjectSameMatcherTests()
-    => _sut = new(LoggerFactory);
+    => Sut = new(LoggerFactory);
 
   [Theory, RepeatData]
   public void Object_Matches_SameName_ReturnsTrue(string constraint)
   {
     TObject type = A.Named<TObject>(constraint);
 
-    bool result = _sut.Matches(type, constraint, Context);
+    bool result = Sut.Matches(type, constraint, Context);
 
     result.ShouldBeTrue();
   }
@@ -28,7 +28,7 @@ public abstract class ObjectSameMatcherTests<TObject>
     IGqlpObjBase typeBase = A.Named<IGqlpObjBase>(constraint);
     type.Parent.Returns(typeBase);
 
-    bool result = _sut.Matches(type, constraint, Context);
+    bool result = Sut.Matches(type, constraint, Context);
 
     result.ShouldBeTrue();
   }
@@ -47,7 +47,7 @@ public abstract class ObjectSameMatcherTests<TObject>
     parentType.Parent.Returns(parentBase);
     Types[parent] = parentType;
 
-    bool result = _sut.Matches(type, constraint, Context);
+    bool result = Sut.Matches(type, constraint, Context);
 
     result.ShouldBeTrue();
   }
@@ -57,10 +57,35 @@ public class DualObjectSameMatcherTests
   : ObjectSameMatcherTests<IGqlpDualObject>
 { }
 
+public abstract class ObjectDualSameMatcherTests<TObject>
+  : ObjectSameMatcherTests<TObject>
+  where TObject : class, IGqlpObject
+{
+
+  [Theory, RepeatData]
+  public void Object_Matches_DualParent_ReturnsTrue(string name, string parent, string constraint)
+  {
+    this.SkipIf(name == parent);
+
+    TObject type = A.Named<TObject>(name);
+    IGqlpObjBase typeBase = A.Named<IGqlpObjBase>(parent);
+    type.Parent.Returns(typeBase);
+
+    IGqlpDualObject parentType = A.Named<IGqlpDualObject>(parent);
+    IGqlpObjBase parentBase = A.Named<IGqlpObjBase>(constraint);
+    parentType.Parent.Returns(parentBase);
+    Types[parent] = parentType;
+
+    bool result = Sut.Matches(type, constraint, Context);
+
+    result.ShouldBeTrue();
+  }
+}
+
 public class InputObjectSameMatcherTests
-  : ObjectSameMatcherTests<IGqlpInputObject>
+  : ObjectDualSameMatcherTests<IGqlpInputObject>
 { }
 
 public class OutputObjectSameMatcherTests
-  : ObjectSameMatcherTests<IGqlpOutputObject>
+  : ObjectDualSameMatcherTests<IGqlpOutputObject>
 { }

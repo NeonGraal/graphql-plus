@@ -7,16 +7,16 @@ types: !_Map_Type
         exclude: false
         value: !_EnumValue
           label: '*'
+          name: EnumDmnEnumAllDescr
           typeKind: !_SimpleKind Enum
-          typeName: EnumDmnEnumAllDescr
     domainKind: !_DomainKind Enum
     items:
       - !_DomainLabel
         exclude: false
         value: !_EnumValue
           label: '*'
+          name: EnumDmnEnumAllDescr
           typeKind: !_SimpleKind Enum
-          typeName: EnumDmnEnumAllDescr
     name: DmnEnumAllDescr
     typeKind: !_TypeKind Domain
   !_Identifier EnumDmnEnumAllDescr: !_TypeEnum

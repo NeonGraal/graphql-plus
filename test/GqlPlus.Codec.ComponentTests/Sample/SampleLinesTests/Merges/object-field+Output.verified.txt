@@ -9,11 +9,11 @@ types: !_Map_Type
         name: field
         object: ObjFieldOutp
         type: !_OutputBase
-          output: FldObjFieldOutp
+          name: FldObjFieldOutp
     fields:
       - !_OutputField
         name: field
         type: !_OutputBase
-          output: FldObjFieldOutp
+          name: FldObjFieldOutp
     name: ObjFieldOutp
     typeKind: !_TypeKind Output

@@ -7,16 +7,16 @@ types: !_Map_Type
       exclude: false
       value: !_EnumValue
         label: gnrcPrntEnumDomOutpLabel
+        name: EnumGnrcPrntEnumDomOutp
         typeKind: !_SimpleKind Enum
-        typeName: EnumGnrcPrntEnumDomOutp
     domainKind: !_DomainKind Enum
     items:
     - !_DomainLabel
       exclude: false
       value: !_EnumValue
         label: gnrcPrntEnumDomOutpLabel
+        name: EnumGnrcPrntEnumDomOutp
         typeKind: !_SimpleKind Enum
-        typeName: EnumGnrcPrntEnumDomOutp
     name: DomGnrcPrntEnumDomOutp
     typeKind: !_TypeKind Domain
   !_Identifier EnumGnrcPrntEnumDomOutp: !_TypeEnum
@@ -51,8 +51,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
+        name: EnumGnrcPrntEnumDomOutp
         typeKind: !_TypeKind Enum
-        typeName: EnumGnrcPrntEnumDomOutp
       name: ref
   !_Identifier GnrcPrntEnumDomOutp: !_TypeOutput
     allFields:
@@ -60,11 +60,11 @@ types: !_Map_Type
       name: field
       object: FieldGnrcPrntEnumDomOutp
       type: !_OutputBase
-        output: DomGnrcPrntEnumDomOutp
+        name: DomGnrcPrntEnumDomOutp
     name: GnrcPrntEnumDomOutp
     parent: !_OutputBase
-      output: FieldGnrcPrntEnumDomOutp
+      name: FieldGnrcPrntEnumDomOutp
       typeArgs:
       - !_OutputArg
-        output: DomGnrcPrntEnumDomOutp
+        name: DomGnrcPrntEnumDomOutp
     typeKind: !_TypeKind Output

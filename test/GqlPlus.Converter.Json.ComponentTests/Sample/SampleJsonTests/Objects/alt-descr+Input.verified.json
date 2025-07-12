@@ -11,7 +11,7 @@
           "type": {
             "$tag": "_InputBase",
             "description": "Test Descr",
-            "input": "String"
+            "name": "String"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "type": {
             "$tag": "_InputBase",
             "description": "Test Descr",
-            "input": "String"
+            "name": "String"
           }
         }
       ],

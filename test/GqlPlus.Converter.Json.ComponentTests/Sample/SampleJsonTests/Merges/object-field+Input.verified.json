@@ -19,7 +19,7 @@
           "object": "ObjFieldInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "FldObjFieldInp"
+            "name": "FldObjFieldInp"
           }
         }
       ],
@@ -29,7 +29,7 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "input": "FldObjFieldInp"
+            "name": "FldObjFieldInp"
           }
         }
       ],

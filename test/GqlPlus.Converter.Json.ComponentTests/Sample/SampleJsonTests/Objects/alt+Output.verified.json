@@ -10,7 +10,7 @@
           "object": "AltAltOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "String"
+            "name": "String"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "object": "AltAltOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -30,7 +30,7 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "String"
+            "name": "String"
           }
         }
       ],
@@ -40,7 +40,7 @@
           "name": "alt",
           "type": {
             "$tag": "_OutputBase",
-            "output": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -58,7 +58,7 @@
           "object": "AltOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "AltAltOutp"
+            "name": "AltAltOutp"
           }
         }
       ],
@@ -67,7 +67,7 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "AltAltOutp"
+            "name": "AltAltOutp"
           }
         }
       ],

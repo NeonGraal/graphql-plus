@@ -31,11 +31,11 @@
           "object": "OutpCnstEnum",
           "type": {
             "$tag": "_OutputBase",
-            "output": "RefOutpCnstEnum",
+            "name": "RefOutpCnstEnum",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "output": "outpCnstEnum"
+                "name": "outpCnstEnum"
               }
             ]
           }
@@ -46,11 +46,11 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "RefOutpCnstEnum",
+            "name": "RefOutpCnstEnum",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "output": "outpCnstEnum"
+                "name": "outpCnstEnum"
               }
             ]
           }
@@ -95,11 +95,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "EnumOutpCnstEnum",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Enum"
-            },
-            "typeName": "EnumOutpCnstEnum"
+            }
           },
           "name": "type"
         }

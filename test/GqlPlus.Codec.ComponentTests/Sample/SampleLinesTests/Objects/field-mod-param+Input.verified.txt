@@ -7,41 +7,41 @@ types: !_Map_Type
         name: field
         object: FieldModParamInp
         type: !_InputBase
-          input: FldFieldModParamInp
+          name: FldFieldModParamInp
     fields:
       - !_InputField
         modifiers: [!_ModifierTypeParam{by:mod,modifierKind:!_ModifierKind Param}]
         name: field
         type: !_InputBase
-          input: FldFieldModParamInp
+          name: FldFieldModParamInp
     name: FieldModParamInp
     typeKind: !_TypeKind Input
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: String
           typeKind: !_TypeKind Basic
-          typeName: String
         name: mod
   !_Identifier FldFieldModParamInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
         object: FldFieldModParamInp
         type: !_InputBase
-          input: String
+          name: String
     allFields:
       - !_ObjectFor(_InputField)
         name: field
         object: FldFieldModParamInp
         type: !_InputBase
-          input: Number
+          name: Number
     alternates:
       - !_InputAlternate
         type: !_InputBase
-          input: String
+          name: String
     fields:
       - !_InputField
         name: field
         type: !_InputBase
-          input: Number
+          name: Number
     name: FldFieldModParamInp
     typeKind: !_TypeKind Input

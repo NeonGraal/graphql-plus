@@ -31,11 +31,11 @@
           "object": "OutpGnrcValue",
           "type": {
             "$tag": "_OutputBase",
-            "output": "RefOutpGnrcValue",
+            "name": "RefOutpGnrcValue",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "output": "outpGnrcValue"
+                "name": "outpGnrcValue"
               }
             ]
           }
@@ -46,11 +46,11 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "RefOutpGnrcValue",
+            "name": "RefOutpGnrcValue",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "output": "outpGnrcValue"
+                "name": "outpGnrcValue"
               }
             ]
           }
@@ -95,11 +95,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "_Enum",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Internal"
-            },
-            "typeName": "_Enum"
+            }
           },
           "name": "type"
         }

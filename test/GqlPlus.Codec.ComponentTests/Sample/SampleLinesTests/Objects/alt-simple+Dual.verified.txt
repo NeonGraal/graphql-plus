@@ -5,10 +5,10 @@ types: !_Map_Type
       - !_ObjectFor(_DualAlternate)
         object: AltSmplDual
         type: !_DualBase
-          dual: String
+          name: String
     alternates:
       - !_DualAlternate
         type: !_DualBase
-          dual: String
+          name: String
     name: AltSmplDual
     typeKind: !_TypeKind Dual

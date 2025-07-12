@@ -24,6 +24,6 @@ types: !_Map_Type
     name: UnionPrntDescr
     parent: !_TypeRef(_SimpleKind)
       description: 'Parent comment'
+      name: PrntUnionPrntDescr
       typeKind: !_SimpleKind Union
-      typeName: PrntUnionPrntDescr
     typeKind: !_TypeKind Union

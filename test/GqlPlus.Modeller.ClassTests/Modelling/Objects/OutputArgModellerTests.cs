@@ -13,11 +13,10 @@ public class OutputArgModellerTests
   protected override IModeller<IGqlpOutputArg, OutputArgModel> Modeller { get; }
 
   [Theory, RepeatData]
-  public void ToModel_WithValidArg_ReturnsExpectedOutputArgModel(string output, string contents)
+  public void ToModel_WithValidArg_ReturnsExpectedOutputArgModel(string name, string contents)
   {
     // Arrange
-    IGqlpOutputArg ast = A.Descr<IGqlpOutputArg>(contents);
-    ast.Output.Returns(output);
+    IGqlpOutputArg ast = A.Named<IGqlpOutputArg>(name, contents);
     ast.IsTypeParam.Returns(true);
 
     // Act
@@ -26,7 +25,7 @@ public class OutputArgModellerTests
     // Assert
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
-        r => r.Output.ShouldBe(output),
+        r => r.Name.ShouldBe(name),
         r => r.Description.ShouldBe(contents),
         r => r.IsTypeParam.ShouldBeTrue()
       );

@@ -5,45 +5,45 @@ types: !_Map_Type
       - !_ObjectFor(_OutputAlternate)
         object: RefPrntAltOutp
         type: !_OutputBase
-          output: String
+          name: String
       - !_ObjectFor(_OutputAlternate)
         object: PrntAltOutp
         type: !_OutputBase
-          output: Number
+          name: Number
     allFields:
       - !_ObjectFor(_OutputField)
         name: parent
         object: RefPrntAltOutp
         type: !_OutputBase
-          output: Number
+          name: Number
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
-          output: Number
+          name: Number
     name: PrntAltOutp
     parent: !_OutputBase
-      output: RefPrntAltOutp
+      name: RefPrntAltOutp
     typeKind: !_TypeKind Output
   !_Identifier RefPrntAltOutp: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: RefPrntAltOutp
         type: !_OutputBase
-          output: String
+          name: String
     allFields:
       - !_ObjectFor(_OutputField)
         name: parent
         object: RefPrntAltOutp
         type: !_OutputBase
-          output: Number
+          name: Number
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
-          output: String
+          name: String
     fields:
       - !_OutputField
         name: parent
         type: !_OutputBase
-          output: Number
+          name: Number
     name: RefPrntAltOutp
     typeKind: !_TypeKind Output

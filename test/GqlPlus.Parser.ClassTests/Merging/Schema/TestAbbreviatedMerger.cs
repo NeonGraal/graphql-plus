@@ -11,7 +11,7 @@ public abstract class TestAbbreviatedMerger<TAst, TInput>
   where TAst : IGqlpError
 {
   [Fact]
-  public void CanMerge_NoAsts_ReturnsErrors()
+  public virtual void CanMerge_NoAsts_ReturnsErrors()
    => CanMerge_Errors([]);
 
   [Theory, RepeatData]

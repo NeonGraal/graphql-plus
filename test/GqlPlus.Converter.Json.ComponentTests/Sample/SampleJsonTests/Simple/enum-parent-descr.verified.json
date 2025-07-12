@@ -26,11 +26,11 @@
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
         "description": "Parent comment",
+        "name": "PrntEnumPrntDescr",
         "typeKind": {
           "$tag": "_SimpleKind",
           "value": "Enum"
-        },
-        "typeName": "PrntEnumPrntDescr"
+        }
       },
       "typeKind": {
         "$tag": "_TypeKind",

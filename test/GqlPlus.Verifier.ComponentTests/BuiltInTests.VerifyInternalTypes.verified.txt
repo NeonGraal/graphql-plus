@@ -1,11 +1,11 @@
 ﻿[
   ( !En Void [ _Void ] ),
-  ( !En Null [ null _Null ] !EL null ),
+  ( !En Null [ _Null null ] !EL null ),
   ( !Un _Basic [ Basic ] !UM Boolean !UM Number !UM String !UM Unit ),
   ( !Un _Internal [ Internal ] !UM Null !UM Void ),
   ( !Un _Simple [ Simple ] !UM _Union !UM _Domain !UM _Enum ),
   ( !Un _Key [ Key ] !UM _Basic !UM _Internal !UM _Simple ),
-  ( !Du Object [ % _Object ] : _Map < _Any > ),
+  ( !Du Object [ _Object % ] : _Map < _Any > ),
   ( !Du _Opt < $T :_Any > | $T Null ),
   ( !Du _List < $T :_Any > | $T [] ),
   ( !Du _Dict < $K :_Key $T :_Any > | $T [$K] ),

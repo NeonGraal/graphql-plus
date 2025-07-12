@@ -18,7 +18,7 @@ public class SettingModellerTests
     IGqlpSchemaSetting ast = A.Named<IGqlpSchemaSetting>(name, contents);
     ast.Value.Returns(constant);
 
-    ToModelReturns(_constant, constant, new ConstantModel(SimpleModel.Str("", value)));
+    ToModelReturns(_constant, constant, new ConstantModel(SimpleModel.Str(value)));
 
     // Act
     SettingModel result = Modeller.ToModel<SettingModel>(ast, TypeKinds);

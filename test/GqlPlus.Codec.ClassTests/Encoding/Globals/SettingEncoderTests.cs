@@ -17,7 +17,7 @@ public class SettingEncoderTests
   public void Encode_WithValidSettingModel_ReturnsStructured(string name, string value)
   {
     // Arrange
-    SimpleModel simple = SimpleModel.Str("", value);
+    SimpleModel simple = SimpleModel.Str(value);
     ConstantModel constant = new(simple);
     _constant.Encode(constant).Returns(new Structured(value));
 

@@ -6,7 +6,7 @@ types: !_Map_Type
       name: field
       object: GnrcFieldArgInp
       type: !_InputBase
-        input: RefGnrcFieldArgInp
+        name: RefGnrcFieldArgInp
         typeArgs:
         - !_InputArg
           typeParam: type
@@ -14,7 +14,7 @@ types: !_Map_Type
     - !_InputField
       name: field
       type: !_InputBase
-        input: RefGnrcFieldArgInp
+        name: RefGnrcFieldArgInp
         typeArgs:
         - !_InputArg
           typeParam: type
@@ -23,8 +23,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
+        name: String
         typeKind: !_TypeKind Basic
-        typeName: String
       name: type
   !_Identifier RefGnrcFieldArgInp: !_TypeInput
     allAlternates:
@@ -41,6 +41,6 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
+        name: String
         typeKind: !_TypeKind Basic
-        typeName: String
       name: ref

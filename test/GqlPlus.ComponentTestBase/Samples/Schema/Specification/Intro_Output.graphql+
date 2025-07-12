@@ -4,7 +4,6 @@ output _TypeOutput {
 
 output _OutputBase {
     : _ObjBase<_OutputTypeArg>
-        output: _Identifier
     | _DualBase
     }
 
@@ -26,7 +25,6 @@ output _OutputAlternate {
 
 output _OutputTypeArg {
     : _ObjTypeArg
-        output: _Identifier
         label: _Identifier?
     }
 

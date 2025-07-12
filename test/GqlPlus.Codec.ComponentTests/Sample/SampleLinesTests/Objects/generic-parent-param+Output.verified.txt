@@ -5,22 +5,22 @@ types: !_Map_Type
       - !_ObjectFor(_OutputAlternate)
         object: AltGnrcPrntParamOutp
         type: !_OutputBase
-          output: String
+          name: String
     allFields:
       - !_ObjectFor(_OutputField)
         name: alt
         object: AltGnrcPrntParamOutp
         type: !_OutputBase
-          output: Number
+          name: Number
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
-          output: String
+          name: String
     fields:
       - !_OutputField
         name: alt
         type: !_OutputBase
-          output: Number
+          name: Number
     name: AltGnrcPrntParamOutp
     typeKind: !_TypeKind Output
   !_Identifier GnrcPrntParamOutp: !_TypeOutput
@@ -28,13 +28,13 @@ types: !_Map_Type
       - !_ObjectFor(_OutputAlternate)
         object: RefGnrcPrntParamOutp
         type: !_OutputBase
-          output: AltGnrcPrntParamOutp
+          name: AltGnrcPrntParamOutp
     name: GnrcPrntParamOutp
     parent: !_OutputBase
-      output: RefGnrcPrntParamOutp
+      name: RefGnrcPrntParamOutp
       typeArgs:
         - !_OutputArg
-          output: AltGnrcPrntParamOutp
+          name: AltGnrcPrntParamOutp
     typeKind: !_TypeKind Output
   !_Identifier RefGnrcPrntParamOutp: !_TypeOutput
     allAlternates:
@@ -51,6 +51,6 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: _Output
           typeKind: !_TypeKind Internal
-          typeName: _Output
         name: ref

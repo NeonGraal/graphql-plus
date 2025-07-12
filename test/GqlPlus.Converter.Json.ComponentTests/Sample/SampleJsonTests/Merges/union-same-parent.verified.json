@@ -46,11 +46,11 @@
       "name": "UnionSamePrnt",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
+        "name": "PrntUnionSamePrnt",
         "typeKind": {
           "$tag": "_SimpleKind",
           "value": "Union"
-        },
-        "typeName": "PrntUnionSamePrnt"
+        }
       },
       "typeKind": {
         "$tag": "_TypeKind",

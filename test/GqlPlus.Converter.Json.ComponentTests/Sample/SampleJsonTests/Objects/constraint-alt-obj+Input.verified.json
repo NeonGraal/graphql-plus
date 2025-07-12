@@ -10,7 +10,7 @@
           "object": "PrntCnstAltObjInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "String"
+            "name": "String"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "object": "AltCnstAltObjInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -31,14 +31,14 @@
           "name": "alt",
           "type": {
             "$tag": "_InputBase",
-            "input": "Number"
+            "name": "Number"
           }
         }
       ],
       "name": "AltCnstAltObjInp",
       "parent": {
         "$tag": "_InputBase",
-        "input": "PrntCnstAltObjInp"
+        "name": "PrntCnstAltObjInp"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -53,11 +53,11 @@
           "object": "CnstAltObjInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "RefCnstAltObjInp",
+            "name": "RefCnstAltObjInp",
             "typeArgs": [
               {
                 "$tag": "_InputArg",
-                "input": "AltCnstAltObjInp"
+                "name": "AltCnstAltObjInp"
               }
             ]
           }
@@ -68,11 +68,11 @@
           "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
-            "input": "RefCnstAltObjInp",
+            "name": "RefCnstAltObjInp",
             "typeArgs": [
               {
                 "$tag": "_InputArg",
-                "input": "AltCnstAltObjInp"
+                "name": "AltCnstAltObjInp"
               }
             ]
           }
@@ -92,7 +92,7 @@
           "object": "PrntCnstAltObjInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "String"
+            "name": "String"
           }
         }
       ],
@@ -101,7 +101,7 @@
           "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
-            "input": "String"
+            "name": "String"
           }
         }
       ],
@@ -142,11 +142,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntCnstAltObjInp",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Input"
-            },
-            "typeName": "PrntCnstAltObjInp"
+            }
           },
           "name": "ref"
         }

@@ -62,11 +62,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "ref"
         }
@@ -81,18 +81,18 @@
           "object": "FieldGnrcPrntStrDomDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "DomGnrcPrntStrDomDual"
+            "name": "DomGnrcPrntStrDomDual"
           }
         }
       ],
       "name": "GnrcPrntStrDomDual",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "FieldGnrcPrntStrDomDual",
+        "name": "FieldGnrcPrntStrDomDual",
         "typeArgs": [
           {
             "$tag": "_DualArg",
-            "dual": "DomGnrcPrntStrDomDual"
+            "name": "DomGnrcPrntStrDomDual"
           }
         ]
       },

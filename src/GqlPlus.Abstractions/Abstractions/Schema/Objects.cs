@@ -88,20 +88,12 @@ public interface IGqlpDualObject
   : IGqlpObject<IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>
 { }
 
-public interface IGqlpDualNamed
-  : IGqlpNamed
-{
-  string Dual { get; }
-}
-
 public interface IGqlpDualArg
   : IGqlpObjArg
-  , IGqlpDualNamed
 { }
 
 public interface IGqlpDualBase
   : IGqlpObjBase<IGqlpDualArg>
-  , IGqlpDualNamed
 { }
 
 public interface IGqlpDualField
@@ -123,21 +115,13 @@ public interface IGqlpInputObject
   : IGqlpObject<IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate>
 { }
 
-public interface IGqlpInputNamed
-  : IGqlpNamed
-{
-  string Input { get; }
-}
-
 public interface IGqlpInputArg
   : IGqlpObjArg
-  , IGqlpInputNamed
   , IGqlpToDual<IGqlpDualArg>
 { }
 
 public interface IGqlpInputBase
   : IGqlpObjBase<IGqlpInputArg>
-  , IGqlpInputNamed
   , IGqlpToDual<IGqlpDualBase>
 { }
 
@@ -158,12 +142,6 @@ public interface IGqlpOutputObject
   : IGqlpObject<IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>
 { }
 
-public interface IGqlpOutputNamed
-  : IGqlpNamed
-{
-  string Output { get; }
-}
-
 public interface IGqlpOutputEnum
   : IGqlpError
 {
@@ -175,14 +153,12 @@ public interface IGqlpOutputEnum
 
 public interface IGqlpOutputArg
   : IGqlpObjArg
-  , IGqlpOutputNamed
   , IGqlpOutputEnum
   , IGqlpToDual<IGqlpDualArg>
 { }
 
 public interface IGqlpOutputBase
   : IGqlpObjBase<IGqlpOutputArg>
-  , IGqlpOutputNamed
   , IGqlpToDual<IGqlpDualBase>
 { }
 

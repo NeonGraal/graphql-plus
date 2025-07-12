@@ -16,15 +16,15 @@ types: !_Map_Type
       description: 'Test Descr'
       field: field
       label: outpFieldValueDescr
+      name: EnumOutpFieldValueDescr
       object: OutpFieldValueDescr
       typeKind: !_SimpleKind Enum
-      typeName: EnumOutpFieldValueDescr
     fields:
     - !_OutputEnum
       description: 'Test Descr'
       field: field
       label: outpFieldValueDescr
+      name: EnumOutpFieldValueDescr
       typeKind: !_SimpleKind Enum
-      typeName: EnumOutpFieldValueDescr
     name: OutpFieldValueDescr
     typeKind: !_TypeKind Output

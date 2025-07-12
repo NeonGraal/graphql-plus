@@ -2,9 +2,9 @@
 
 public enum DomainKindModel { Boolean, Enum, Number, String, Union }
 
-internal record class DomainRefModel(
+public record class DomainRefModel(
   string Name,
-  DomainKind DomainKind,
+  DomainKindModel DomainKind,
   string Description
 ) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Domain, Name, Description)
 { }

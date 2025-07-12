@@ -7,12 +7,12 @@ types: !_Map_Type
       name: field
       object: InpFieldNmbr
       type: !_InputBase
-        input: Number
+        name: Number
     fields:
     - !_InputField
       default: 42
       name: field
       type: !_InputBase
-        input: Number
+        name: Number
     name: InpFieldNmbr
     typeKind: !_TypeKind Input

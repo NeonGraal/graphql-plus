@@ -17,7 +17,6 @@
       "parameters": [
         {
           "$tag": "_InputParam",
-          "input": "InDrctParamOpt",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -26,7 +25,8 @@
                 "value": "Opt"
               }
             }
-          ]
+          ],
+          "name": "InDrctParamOpt"
         }
       ],
       "repeatable": false

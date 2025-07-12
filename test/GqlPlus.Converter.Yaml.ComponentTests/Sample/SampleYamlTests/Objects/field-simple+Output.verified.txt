@@ -6,11 +6,11 @@ types: !_Map_Type
       name: field
       object: FieldSmplOutp
       type: !_OutputBase
-        output: Number
+        name: Number
     fields:
     - !_OutputField
       name: field
       type: !_OutputBase
-        output: Number
+        name: Number
     name: FieldSmplOutp
     typeKind: !_TypeKind Output

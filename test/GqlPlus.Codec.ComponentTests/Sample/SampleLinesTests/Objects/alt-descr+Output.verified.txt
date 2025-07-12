@@ -6,11 +6,11 @@ types: !_Map_Type
         object: AltDescrOutp
         type: !_OutputBase
           description: 'Test Descr'
-          output: String
+          name: String
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
           description: 'Test Descr'
-          output: String
+          name: String
     name: AltDescrOutp
     typeKind: !_TypeKind Output

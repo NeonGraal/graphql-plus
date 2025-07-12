@@ -14,7 +14,7 @@ using Xunit.Internal;
 
 namespace GqlPlus;
 
-public class DependencyInjectionChecks(
+public abstract class DependencyInjectionChecks(
   IServiceCollection services,
   ITestOutputHelperAccessor output
 )
@@ -27,6 +27,8 @@ public class DependencyInjectionChecks(
   private static readonly FluidParser s_parser = new();
   private static readonly Map<IFluidTemplate> s_templates = [];
   private static readonly TemplateOptions s_options = new();
+
+  protected abstract string Label { get; }
 
   static DependencyInjectionChecks()
   {
@@ -144,6 +146,7 @@ public class DependencyInjectionChecks(
     service.Requires[ParentRequirement] = baseName;
   }
 
+  [Fact]
   public void CheckDependencyInjection()
   {
     StringBuilder sb = new();
@@ -152,7 +155,7 @@ public class DependencyInjectionChecks(
 
     HashSet<string> hashset = [.. _diServices.Keys];
 
-    services.ShouldSatisfyAllConditions(
+    services.ShouldSatisfyAllConditions(Label,
       s =>
         s.ForEach(di => {
           sb.Clear();
@@ -169,32 +172,35 @@ public class DependencyInjectionChecks(
         }));
   }
 
+  [Fact]
   public void CheckFluidFiles()
   {
     IFileProvider files = s_options.FileProvider;
 
     IDirectoryContents contents = files.GetDirectoryContents("");
 
-    contents.ShouldSatisfyAllConditions(
+    contents.ShouldSatisfyAllConditions(Label,
       c => c.Exists.ShouldBeTrue(),
       c => c.ShouldNotBeEmpty(),
       c => c.ShouldContain(fi => fi.Name == "pico.liquid"));
   }
 
-  public void HtmlDependencyInjection(string file)
+  [Fact]
+  public void HtmlDependencyInjection()
   {
     IOrderedEnumerable<DiService> services = _diServices.Values
       .OrderBy(s => (s.RequiredBy, s.Service.Name));
 
     TemplateContext context = new(s_options);
-    context.SetValue("name", file);
+    context.SetValue("name", Label);
     context.SetValue("services", services);
 
     IFluidTemplate template = GetTemplate("table");
-    template.Render(context).WriteHtmlFile("DI/Table", file);
+    template.Render(context).WriteHtmlFile("DI/Table", Label);
   }
 
-  public void Force3dDependencyInjection(string file)
+  [Fact]
+  public void Force3dDependencyInjection()
   {
     DiLink[] links = [.. _diServices.Values
       .SelectMany(s => s.Requires
@@ -204,19 +210,20 @@ public class DependencyInjectionChecks(
       .Distinct()];
 
     TemplateContext context = new(s_options);
-    context.SetValue("name", file);
+    context.SetValue("name", Label);
     context.SetValue("nodes", nodes);
     context.SetValue("links", links);
 
     IFluidTemplate template = GetTemplate("force3d");
-    template.Render(context).WriteHtmlFile("DI/Force-3D", file);
+    template.Render(context).WriteHtmlFile("DI/Force-3D", Label);
   }
 
   private readonly HashSet<string> _ids = [];
   private readonly List<DiService> _group = [];
   private readonly HashSet<string> _groupIds = [];
 
-  public void DiagramDependencyInjection(string file)
+  [Fact]
+  public void DiagramDependencyInjection()
   {
     _ids.Clear();
     Map<DiService[]> groups = [];
@@ -256,11 +263,11 @@ public class DependencyInjectionChecks(
     }
 
     TemplateContext context = new(s_options);
-    context.SetValue("name", file);
+    context.SetValue("name", Label);
     context.SetValue("services", groups);
 
     IFluidTemplate template = GetTemplate("diagram");
-    template.Render(context).WriteHtmlFile("DI/Diagram", file);
+    template.Render(context).WriteHtmlFile("DI/Diagram", Label);
   }
 
   private void AddToGroup(DiService di)

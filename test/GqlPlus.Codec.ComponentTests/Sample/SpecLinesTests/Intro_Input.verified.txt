@@ -22,38 +22,27 @@ types: !_Map_Type
   !_Identifier _InputAlternate: !_TypeOutput
     name: _InputAlternate
     parent: !_OutputBase
-      output: _Alternate
+      name: _Alternate
       typeArgs:
         - !_OutputArg
-          output: _InputBase
+          name: _InputBase
     typeKind: !_TypeKind Output
   !_Identifier _InputBase: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _InputBase
         type: !_OutputBase
-          output: _DualBase
-    allFields:
-      - !_ObjectFor(_OutputField)
-        name: input
-        object: _InputBase
-        type: !_OutputBase
-          output: _Identifier
+          name: _DualBase
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
-          output: _DualBase
-    fields:
-      - !_OutputField
-        name: input
-        type: !_OutputBase
-          output: _Identifier
+          name: _DualBase
     name: _InputBase
     parent: !_OutputBase
-      output: _ObjBase
+      name: _ObjBase
       typeArgs:
         - !_OutputArg
-          output: _InputTypeArg
+          name: _InputTypeArg
     typeKind: !_TypeKind Output
   !_Identifier _InputField: !_TypeOutput
     allFields:
@@ -62,119 +51,103 @@ types: !_Map_Type
         name: default
         object: _InputField
         type: !_OutputBase
-          output: _Constant
+          name: _Constant
     fields:
       - !_OutputField
         modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: default
         type: !_OutputBase
-          output: _Constant
+          name: _Constant
     name: _InputField
     parent: !_OutputBase
-      output: _Field
+      name: _Field
       typeArgs:
         - !_OutputArg
-          output: _InputBase
+          name: _InputBase
     typeKind: !_TypeKind Output
   !_Identifier _InputParam: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _InputBase
         type: !_OutputBase
-          output: _DualBase
+          name: _DualBase
     allFields:
-      - !_ObjectFor(_OutputField)
-        name: input
-        object: _InputBase
-        type: !_OutputBase
-          output: _Identifier
       - !_ObjectFor(_OutputField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: modifiers
         object: _InputParam
         type: !_OutputBase
-          output: _Modifiers
+          name: _Modifiers
       - !_ObjectFor(_OutputField)
         modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: default
         object: _InputParam
         type: !_OutputBase
-          output: _Constant
+          name: _Constant
     fields:
       - !_OutputField
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: modifiers
         type: !_OutputBase
-          output: _Modifiers
+          name: _Modifiers
       - !_OutputField
         modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: default
         type: !_OutputBase
-          output: _Constant
+          name: _Constant
     name: _InputParam
     parent: !_OutputBase
-      output: _InputBase
+      name: _InputBase
     typeKind: !_TypeKind Output
   !_Identifier _InputTypeArg: !_TypeOutput
-    allFields:
-      - !_ObjectFor(_OutputField)
-        name: input
-        object: _InputTypeArg
-        type: !_OutputBase
-          output: _Identifier
-    fields:
-      - !_OutputField
-        name: input
-        type: !_OutputBase
-          output: _Identifier
     name: _InputTypeArg
     parent: !_OutputBase
-      output: _ObjTypeArg
+      name: _ObjTypeArg
     typeKind: !_TypeKind Output
   !_Identifier _InputTypeParam: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: _InputTypeParam
         type: !_OutputBase
-          output: _TypeRef
+          name: _TypeRef
           typeArgs:
-            - !_OutputArg
+            - !_TypeRef(_SimpleKind)
               label: Dual
+              name: _TypeKind
               typeKind: !_SimpleKind Enum
-              typeName: _TypeKind
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
-          output: _TypeRef
+          name: _TypeRef
           typeArgs:
-            - !_OutputArg
+            - !_TypeRef(_SimpleKind)
               label: Dual
+              name: _TypeKind
               typeKind: !_SimpleKind Enum
-              typeName: _TypeKind
     name: _InputTypeParam
     parent: !_OutputBase
-      output: _ObjTypeParam
+      name: _ObjTypeParam
       typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Input
+          name: _TypeKind
           typeKind: !_SimpleKind Enum
-          typeName: _TypeKind
     typeKind: !_TypeKind Output
   !_Identifier _TypeInput: !_TypeOutput
     name: _TypeInput
     parent: !_OutputBase
-      output: _TypeObject
+      name: _TypeObject
       typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Input
+          name: _TypeKind
           typeKind: !_SimpleKind Enum
-          typeName: _TypeKind
         - !_OutputArg
-          output: _InputBase
+          name: _InputBase
         - !_OutputArg
-          output: _InputTypeParam
+          name: _InputTypeParam
         - !_OutputArg
-          output: _InputField
+          name: _InputField
         - !_OutputArg
-          output: _InputAlternate
+          name: _InputAlternate
     typeKind: !_TypeKind Output

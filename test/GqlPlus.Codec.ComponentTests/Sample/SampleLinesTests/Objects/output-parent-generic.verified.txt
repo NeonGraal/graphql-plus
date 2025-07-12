@@ -13,29 +13,29 @@ types: !_Map_Type
         name: outpPrntGnrc
     name: EnumOutpPrntGnrc
     parent: !_TypeRef(_SimpleKind)
+      name: PrntOutpPrntGnrc
       typeKind: !_SimpleKind Enum
-      typeName: PrntOutpPrntGnrc
     typeKind: !_TypeKind Enum
   !_Identifier OutpPrntGnrc: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
         object: OutpPrntGnrc
         type: !_OutputBase
-          output: RefOutpPrntGnrc
+          name: RefOutpPrntGnrc
           typeArgs:
-            - !_OutputArg
+            - !_TypeRef(_SimpleKind)
               label: prnt_outpPrntGnrc
+              name: EnumOutpPrntGnrc
               typeKind: !_SimpleKind Enum
-              typeName: EnumOutpPrntGnrc
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
-          output: RefOutpPrntGnrc
+          name: RefOutpPrntGnrc
           typeArgs:
-            - !_OutputArg
+            - !_TypeRef(_SimpleKind)
               label: prnt_outpPrntGnrc
+              name: EnumOutpPrntGnrc
               typeKind: !_SimpleKind Enum
-              typeName: EnumOutpPrntGnrc
     name: OutpPrntGnrc
     typeKind: !_TypeKind Output
   !_Identifier PrntOutpPrntGnrc: !_TypeEnum
@@ -65,6 +65,6 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: PrntOutpPrntGnrc
           typeKind: !_TypeKind Enum
-          typeName: PrntOutpPrntGnrc
         name: type

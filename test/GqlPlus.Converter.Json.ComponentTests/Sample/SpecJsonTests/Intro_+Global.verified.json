@@ -36,7 +36,7 @@
           "object": "_Categories",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Category"
+            "name": "_Category"
           }
         },
         {
@@ -44,7 +44,7 @@
           "object": "_Categories",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Type"
+            "name": "_Type"
           }
         }
       ],
@@ -55,7 +55,7 @@
           "object": "_Categories",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Category"
+            "name": "_Category"
           }
         },
         {
@@ -64,7 +64,7 @@
           "object": "_Categories",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Type"
+            "name": "_Type"
           }
         }
       ],
@@ -73,14 +73,14 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Category"
+            "name": "_Category"
           }
         },
         {
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Type"
+            "name": "_Type"
           }
         }
       ],
@@ -90,7 +90,7 @@
           "name": "category",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Category"
+            "name": "_Category"
           }
         },
         {
@@ -98,7 +98,7 @@
           "name": "type",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Type"
+            "name": "_Type"
           }
         }
       ],
@@ -117,25 +117,25 @@
           "object": "_Category",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Resolution"
+            "name": "_Resolution"
           }
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "output",
+          "name": "name",
           "object": "_Category",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_TypeRef",
+            "name": "_TypeRef",
             "typeArgs": [
               {
-                "$tag": "_OutputArg",
+                "$tag": "_TypeRef(_SimpleKind)",
                 "label": "Output",
+                "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                },
-                "typeName": "_TypeKind"
+                }
               }
             ]
           }
@@ -155,7 +155,7 @@
           "object": "_Category",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Modifiers"
+            "name": "_Modifiers"
           }
         }
       ],
@@ -165,24 +165,24 @@
           "name": "resolution",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Resolution"
+            "name": "_Resolution"
           }
         },
         {
           "$tag": "_OutputField",
-          "name": "output",
+          "name": "name",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_TypeRef",
+            "name": "_TypeRef",
             "typeArgs": [
               {
-                "$tag": "_OutputArg",
+                "$tag": "_TypeRef(_SimpleKind)",
                 "label": "Output",
+                "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                },
-                "typeName": "_TypeKind"
+                }
               }
             ]
           }
@@ -201,14 +201,14 @@
           "name": "modifiers",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Modifiers"
+            "name": "_Modifiers"
           }
         }
       ],
       "name": "_Category",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_Aliased"
+        "name": "_Aliased"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -233,7 +233,7 @@
           "object": "_Directive",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_InputParam"
+            "name": "_InputParam"
           }
         },
         {
@@ -242,7 +242,7 @@
           "object": "_Directive",
           "type": {
             "$tag": "_OutputBase",
-            "output": "Boolean"
+            "name": "Boolean"
           }
         },
         {
@@ -265,7 +265,7 @@
           "object": "_Directive",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_"
+            "name": "_"
           }
         }
       ],
@@ -284,7 +284,7 @@
           "name": "parameters",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_InputParam"
+            "name": "_InputParam"
           }
         },
         {
@@ -292,7 +292,7 @@
           "name": "repeatable",
           "type": {
             "$tag": "_OutputBase",
-            "output": "Boolean"
+            "name": "Boolean"
           }
         },
         {
@@ -314,14 +314,14 @@
           "name": "locations",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_"
+            "name": "_"
           }
         }
       ],
       "name": "_Directive",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_Aliased"
+        "name": "_Aliased"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -336,7 +336,7 @@
           "object": "_Directives",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Directive"
+            "name": "_Directive"
           }
         },
         {
@@ -344,7 +344,7 @@
           "object": "_Directives",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Type"
+            "name": "_Type"
           }
         }
       ],
@@ -355,7 +355,7 @@
           "object": "_Directives",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Directive"
+            "name": "_Directive"
           }
         },
         {
@@ -364,7 +364,7 @@
           "object": "_Directives",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Type"
+            "name": "_Type"
           }
         }
       ],
@@ -373,14 +373,14 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Directive"
+            "name": "_Directive"
           }
         },
         {
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Type"
+            "name": "_Type"
           }
         }
       ],
@@ -390,7 +390,7 @@
           "name": "directive",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Directive"
+            "name": "_Directive"
           }
         },
         {
@@ -398,7 +398,7 @@
           "name": "type",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Type"
+            "name": "_Type"
           }
         }
       ],
@@ -522,7 +522,7 @@
           "object": "_Setting",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Constant"
+            "name": "_Constant"
           }
         }
       ],
@@ -532,14 +532,14 @@
           "name": "value",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Constant"
+            "name": "_Constant"
           }
         }
       ],
       "name": "_Setting",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_Named"
+        "name": "_Named"
       },
       "typeKind": {
         "$tag": "_TypeKind",

@@ -9,11 +9,11 @@ types: !_Map_Type
       name: field
       object: ObjFieldDual
       type: !_DualBase
-        dual: FldObjFieldDual
+        name: FldObjFieldDual
     fields:
     - !_DualField
       name: field
       type: !_DualBase
-        dual: FldObjFieldDual
+        name: FldObjFieldDual
     name: ObjFieldDual
     typeKind: !_TypeKind Dual

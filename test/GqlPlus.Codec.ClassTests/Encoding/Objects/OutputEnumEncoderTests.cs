@@ -13,7 +13,7 @@ public class OutputEnumEncoderTests
       "description: " + contents.Quoted("'"),
       "field: " + field,
       "label: " + enumLabel,
-      "typeKind: !_SimpleKind Enum",
-      "typeName: " + enumType
+      "name: " + enumType,
+      "typeKind: !_SimpleKind Enum"
     ]);
 }

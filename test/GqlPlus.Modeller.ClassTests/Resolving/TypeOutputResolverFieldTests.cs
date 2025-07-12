@@ -24,5 +24,5 @@ public class TypeOutputResolverFieldTests
   protected override OutputBaseModel NewParam(string paramName)
     => new(paramName, "") { IsTypeParam = true };
   protected override OutputArgModel NewArg(string argument, bool isParam = false)
-    => new(argument, "") { IsTypeParam = isParam };
+    => new(TypeKindModel.Output, argument, "") { IsTypeParam = isParam };
 }

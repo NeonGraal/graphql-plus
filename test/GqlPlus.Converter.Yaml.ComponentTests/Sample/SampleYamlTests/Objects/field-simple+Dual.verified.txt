@@ -6,11 +6,11 @@ types: !_Map_Type
       name: field
       object: FieldSmplDual
       type: !_DualBase
-        dual: Number
+        name: Number
     fields:
     - !_DualField
       name: field
       type: !_DualBase
-        dual: Number
+        name: Number
     name: FieldSmplDual
     typeKind: !_TypeKind Dual

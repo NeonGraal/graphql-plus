@@ -56,11 +56,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "_Simple",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Internal"
-            },
-            "typeName": "_Simple"
+            }
           },
           "name": "ref"
         }
@@ -75,18 +75,18 @@
           "object": "FieldGnrcPrntSmplEnumDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "EnumGnrcPrntSmplEnumDual"
+            "name": "EnumGnrcPrntSmplEnumDual"
           }
         }
       ],
       "name": "GnrcPrntSmplEnumDual",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "FieldGnrcPrntSmplEnumDual",
+        "name": "FieldGnrcPrntSmplEnumDual",
         "typeArgs": [
           {
             "$tag": "_DualArg",
-            "dual": "EnumGnrcPrntSmplEnumDual"
+            "name": "EnumGnrcPrntSmplEnumDual"
           }
         ]
       },

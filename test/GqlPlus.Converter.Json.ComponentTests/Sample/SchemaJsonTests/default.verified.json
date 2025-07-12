@@ -7,11 +7,11 @@
       "name": "mutation",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
+        "name": "Mutation",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        },
-        "typeName": "Mutation"
+        }
       },
       "resolution": {
         "$tag": "_Resolution",
@@ -23,11 +23,11 @@
       "name": "query",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
+        "name": "Query",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        },
-        "typeName": "Query"
+        }
       },
       "resolution": {
         "$tag": "_Resolution",
@@ -39,11 +39,11 @@
       "name": "subscription",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
+        "name": "Subscription",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        },
-        "typeName": "Subscription"
+        }
       },
       "resolution": {
         "$tag": "_Resolution",

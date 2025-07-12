@@ -5,10 +5,10 @@ types: !_Map_Type
       - !_ObjectFor(_OutputAlternate)
         object: AltSmplOutp
         type: !_OutputBase
-          output: String
+          name: String
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
-          output: String
+          name: String
     name: AltSmplOutp
     typeKind: !_TypeKind Output

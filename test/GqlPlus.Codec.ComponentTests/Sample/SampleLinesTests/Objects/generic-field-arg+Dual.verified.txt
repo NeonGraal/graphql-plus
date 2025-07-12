@@ -6,7 +6,7 @@ types: !_Map_Type
         name: field
         object: GnrcFieldArgDual
         type: !_DualBase
-          dual: RefGnrcFieldArgDual
+          name: RefGnrcFieldArgDual
           typeArgs:
             - !_DualArg
               typeParam: type
@@ -14,7 +14,7 @@ types: !_Map_Type
       - !_DualField
         name: field
         type: !_DualBase
-          dual: RefGnrcFieldArgDual
+          name: RefGnrcFieldArgDual
           typeArgs:
             - !_DualArg
               typeParam: type
@@ -23,8 +23,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: String
           typeKind: !_TypeKind Basic
-          typeName: String
         name: type
   !_Identifier RefGnrcFieldArgDual: !_TypeDual
     allAlternates:
@@ -41,6 +41,6 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: String
           typeKind: !_TypeKind Basic
-          typeName: String
         name: ref

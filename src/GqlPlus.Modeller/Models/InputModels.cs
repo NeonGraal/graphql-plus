@@ -7,19 +7,18 @@ public record class TypeInputModel(
 { }
 
 public record class InputArgModel(
-  string Input,
+  TypeKindModel Kind,
+  string Name,
   string Description
-) : ObjTypeArgModel(Description)
-  , IInputModel
+) : ObjTypeArgModel(Kind, Name, Description)
 {
   public DualArgModel? Dual { get; init; }
 }
 
 public record class InputBaseModel(
-  string Input,
+  string Name,
   string Description
-) : ObjBaseModel<InputArgModel>(Description)
-  , IInputModel
+) : ObjBaseModel<InputArgModel>(Name, Description)
 {
   public DualBaseModel? Dual { get; init; }
 }
@@ -41,17 +40,10 @@ public record class InputAlternateModel(
 }
 
 public record class InputParamModel(
-  string Input,
+  string Name,
   string Description
-) : InputBaseModel(Input, Description)
-  , IInputModel
+) : InputBaseModel(Name, Description)
 {
   public ModifierModel[] Modifiers { get; set; } = [];
   public ConstantModel? DefaultValue { get; set; }
-}
-
-public interface IInputModel
-{
-  string Input { get; }
-  bool IsTypeParam { get; }
 }

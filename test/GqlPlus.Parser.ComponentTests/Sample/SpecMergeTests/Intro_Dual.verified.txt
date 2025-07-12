@@ -30,59 +30,45 @@ Success
     I@016/0006
     _DualTypeArg
   >
-  {
-    !OF I@009/0007
-    dual
-    :
-    I@015/0007
-    _Identifier
-  }
 }
 {
-  !Ou I@008/0010
+  !Ou I@008/0009
   _DualTypeParam
   :
-  I@007/0011
+  I@007/0010
   _ObjTypeParam
   <
-    I@021/0011
+    I@021/0010
     _TypeKind.Dual
   >
 }
 {
-  !Ou I@008/0014
+  !Ou I@008/0013
   _DualField
   :
-  I@007/0015
+  I@007/0014
   _Field
   <
-    I@014/0015
+    I@014/0014
     _DualBase
   >
 }
 {
-  !Ou I@008/0018
+  !Ou I@008/0017
   _DualAlternate
   :
-  I@007/0019
+  I@007/0018
   _Alternate
   <
-    I@018/0019
+    I@018/0018
     _DualBase
   >
 }
 {
-  !Ou I@008/0022
+  !Ou I@008/0021
   _DualTypeArg
   :
-  I@007/0023
+  I@007/0022
   _ObjTypeArg
-  {
-    !OF I@009/0024
-    dual
-    :
-    I@015/0024
-    _Identifier
-  }
 }
 ]

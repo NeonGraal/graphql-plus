@@ -7,12 +7,12 @@ types: !_Map_Type
       object: FieldTypeDescrInp
       type: !_InputBase
         description: 'Test Descr'
-        input: Number
+        name: Number
     fields:
     - !_InputField
       name: field
       type: !_InputBase
         description: 'Test Descr'
-        input: Number
+        name: Number
     name: FieldTypeDescrInp
     typeKind: !_TypeKind Input

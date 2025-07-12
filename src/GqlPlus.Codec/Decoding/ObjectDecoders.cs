@@ -21,6 +21,7 @@ internal abstract class ObjectDecoder<TModel>
       if (output is not null) {
         return messages;
       }
+
       messages.Convert();
     }
 

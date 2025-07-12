@@ -20,8 +20,8 @@ types: !_Map_Type
       name: prnt_enumPrntAlias
     name: EnumPrntAlias
     parent: !_TypeRef(_SimpleKind)
+      name: PrntEnumPrntAlias
       typeKind: !_SimpleKind Enum
-      typeName: PrntEnumPrntAlias
     typeKind: !_TypeKind Enum
   !_Identifier PrntEnumPrntAlias: !_TypeEnum
     allItems:

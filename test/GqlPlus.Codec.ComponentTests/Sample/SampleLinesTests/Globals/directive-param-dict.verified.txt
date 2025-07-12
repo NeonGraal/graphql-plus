@@ -5,8 +5,8 @@ directives: !_Map_Directives
     name: DrctParamDict
     parameters:
       - !_InputParam
-        input: InDrctParamDict
         modifiers: [!_ModifierDictionary{by:String,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Basic}]
+        name: InDrctParamDict
     repeatable: false
 types: !_Map_Type
   !_Identifier InDrctParamDict: !_TypeInput

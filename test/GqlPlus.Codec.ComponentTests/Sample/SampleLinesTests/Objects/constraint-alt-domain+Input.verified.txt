@@ -5,17 +5,17 @@ types: !_Map_Type
       - !_ObjectFor(_InputAlternate)
         object: CnstAltDmnInp
         type: !_InputBase
-          input: RefCnstAltDmnInp
+          name: RefCnstAltDmnInp
           typeArgs:
             - !_InputArg
-              input: DomCnstAltDmnInp
+              name: DomCnstAltDmnInp
     alternates:
       - !_InputAlternate
         type: !_InputBase
-          input: RefCnstAltDmnInp
+          name: RefCnstAltDmnInp
           typeArgs:
             - !_InputArg
-              input: DomCnstAltDmnInp
+              name: DomCnstAltDmnInp
     name: CnstAltDmnInp
     typeKind: !_TypeKind Input
   !_Identifier DomCnstAltDmnInp: !_DomainString
@@ -46,6 +46,6 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: String
           typeKind: !_TypeKind Basic
-          typeName: String
         name: ref

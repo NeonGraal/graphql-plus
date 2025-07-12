@@ -17,7 +17,6 @@
       "parameters": [
         {
           "$tag": "_InputParam",
-          "input": "InDrctParamDict",
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
@@ -31,7 +30,8 @@
                 "value": "Basic"
               }
             }
-          ]
+          ],
+          "name": "InDrctParamDict"
         }
       ],
       "repeatable": false

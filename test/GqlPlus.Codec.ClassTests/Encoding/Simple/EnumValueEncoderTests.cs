@@ -12,7 +12,7 @@ public class EnumValueEncoderTests
       "!_EnumValue",
       "description: " + contents.Quoted("'"),
       "label: " + input.Label,
-      "typeKind: !_SimpleKind Enum",
-      "typeName: " + input.EnumType
+      "name: " + input.EnumType,
+      "typeKind: !_SimpleKind Enum"
       ]);
 }

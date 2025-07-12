@@ -10,7 +10,7 @@
           "object": "RefPrntFieldDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "object": "RefPrntFieldDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "Number"
+            "name": "Number"
           }
         },
         {
@@ -30,7 +30,7 @@
           "object": "PrntFieldDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -40,14 +40,14 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "dual": "Number"
+            "name": "Number"
           }
         }
       ],
       "name": "PrntFieldDual",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "RefPrntFieldDual"
+        "name": "RefPrntFieldDual"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -62,7 +62,7 @@
           "object": "RefPrntFieldDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -73,7 +73,7 @@
           "object": "RefPrntFieldDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -82,7 +82,7 @@
           "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -92,7 +92,7 @@
           "name": "parent",
           "type": {
             "$tag": "_DualBase",
-            "dual": "Number"
+            "name": "Number"
           }
         }
       ],

@@ -10,7 +10,7 @@
           "object": "AltGnrcFieldParamInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "String"
+            "name": "String"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "object": "AltGnrcFieldParamInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -30,7 +30,7 @@
           "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
-            "input": "String"
+            "name": "String"
           }
         }
       ],
@@ -40,7 +40,7 @@
           "name": "alt",
           "type": {
             "$tag": "_InputBase",
-            "input": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -59,11 +59,11 @@
           "object": "GnrcFieldParamInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "RefGnrcFieldParamInp",
+            "name": "RefGnrcFieldParamInp",
             "typeArgs": [
               {
                 "$tag": "_InputArg",
-                "input": "AltGnrcFieldParamInp"
+                "name": "AltGnrcFieldParamInp"
               }
             ]
           }
@@ -75,11 +75,11 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "input": "RefGnrcFieldParamInp",
+            "name": "RefGnrcFieldParamInp",
             "typeArgs": [
               {
                 "$tag": "_InputArg",
-                "input": "AltGnrcFieldParamInp"
+                "name": "AltGnrcFieldParamInp"
               }
             ]
           }
@@ -122,11 +122,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "_Input",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Internal"
-            },
-            "typeName": "_Input"
+            }
           },
           "name": "ref"
         }

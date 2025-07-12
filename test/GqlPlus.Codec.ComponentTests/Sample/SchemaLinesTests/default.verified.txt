@@ -3,20 +3,20 @@ categories: !_Map_Categories
   !_Identifier mutation: !_Category
     name: mutation
     output: !_TypeRef(_TypeKind)
+      name: Mutation
       typeKind: !_TypeKind Output
-      typeName: Mutation
     resolution: !_Resolution Sequential
   !_Identifier query: !_Category
     name: query
     output: !_TypeRef(_TypeKind)
+      name: Query
       typeKind: !_TypeKind Output
-      typeName: Query
     resolution: !_Resolution Parallel
   !_Identifier subscription: !_Category
     name: subscription
     output: !_TypeRef(_TypeKind)
+      name: Subscription
       typeKind: !_TypeKind Output
-      typeName: Subscription
     resolution: !_Resolution Single
 types: !_Map_Type
   !_Identifier Mutation: !_TypeOutput

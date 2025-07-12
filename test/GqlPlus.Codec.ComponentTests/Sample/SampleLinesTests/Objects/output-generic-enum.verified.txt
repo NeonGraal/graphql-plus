@@ -15,21 +15,21 @@ types: !_Map_Type
       - !_ObjectFor(_OutputAlternate)
         object: OutpGnrcEnum
         type: !_OutputBase
-          output: RefOutpGnrcEnum
+          name: RefOutpGnrcEnum
           typeArgs:
-            - !_OutputArg
+            - !_TypeRef(_SimpleKind)
               label: outpGnrcEnum
+              name: EnumOutpGnrcEnum
               typeKind: !_SimpleKind Enum
-              typeName: EnumOutpGnrcEnum
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
-          output: RefOutpGnrcEnum
+          name: RefOutpGnrcEnum
           typeArgs:
-            - !_OutputArg
+            - !_TypeRef(_SimpleKind)
               label: outpGnrcEnum
+              name: EnumOutpGnrcEnum
               typeKind: !_SimpleKind Enum
-              typeName: EnumOutpGnrcEnum
     name: OutpGnrcEnum
     typeKind: !_TypeKind Output
   !_Identifier RefOutpGnrcEnum: !_TypeOutput
@@ -49,6 +49,6 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: _Enum
           typeKind: !_TypeKind Internal
-          typeName: _Enum
         name: type

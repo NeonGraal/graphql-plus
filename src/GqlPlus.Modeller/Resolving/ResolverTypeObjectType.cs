@@ -32,7 +32,7 @@ internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObj
     TObjBase parentBase = model.Parent;
 
     if (parentBase.IsTypeParam) {
-      string paramName = '$' + ParentName(model);
+      string paramName = '$' + parentBase.Name;
       if (context.TryGetType(model.Name, paramName, out TModel? parentModel, false)) {
         model.ParentModel = Resolve(parentModel, context);
       }
@@ -109,13 +109,13 @@ internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObj
       return modifier;
     };
 
-  protected bool GetDualArgument(string label, IDualModel dualBase, ArgumentsContext arguments, [NotNullWhen(true)] out DualBaseModel? outBase)
+  protected bool GetDualArgument(string label, IObjBaseModel dualBase, ArgumentsContext arguments, [NotNullWhen(true)] out DualBaseModel? outBase)
   {
     outBase = null;
     if (dualBase?.IsTypeParam == true) {
-      if (arguments.TryGetArg(label, dualBase.Dual, out DualArgModel? dualArg)) {
-        if (!arguments.TryGetType(label, dualArg.Dual, out outBase, false)) {
-          outBase = new(dualArg.Dual, dualArg.Description) { IsTypeParam = dualArg.IsTypeParam };
+      if (arguments.TryGetArg(label, dualBase.Name, out DualArgModel? dualArg)) {
+        if (!arguments.TryGetType(label, dualArg.Name, out outBase, false)) {
+          outBase = new(dualArg.Name, dualArg.Description) { IsTypeParam = dualArg.IsTypeParam };
         }
 
         return true;
@@ -142,7 +142,7 @@ internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObj
       DualBaseModel? fieldType = field.Type;
       if (fieldType is not null
         && GetDualArgument(label + " - " + field.Name, fieldType, arguments, out DualBaseModel? argModel)) {
-        field = field with { Type = new(argModel.Dual, fieldType.Description) };
+        field = field with { Type = new(argModel.Name, fieldType.Description) };
       }
 
       ApplyArray(field.Modifiers, ApplyModifier(label, arguments),
@@ -155,7 +155,7 @@ internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObj
   {
     if (dual.Parent is not null
       && GetDualArgument(dual.Name, dual.Parent, arguments, out DualBaseModel? parentModel)) {
-      dual.Parent = new(parentModel.Dual, dual.Parent.Description);
+      dual.Parent = new(parentModel.Name, dual.Parent.Description);
       dual.ParentModel = null;
     }
 

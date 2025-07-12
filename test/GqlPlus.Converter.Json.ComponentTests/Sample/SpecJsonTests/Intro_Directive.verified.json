@@ -30,7 +30,7 @@
           "object": "_Directive",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_InputParam"
+            "name": "_InputParam"
           }
         },
         {
@@ -39,7 +39,7 @@
           "object": "_Directive",
           "type": {
             "$tag": "_OutputBase",
-            "output": "Boolean"
+            "name": "Boolean"
           }
         },
         {
@@ -62,7 +62,7 @@
           "object": "_Directive",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_"
+            "name": "_"
           }
         }
       ],
@@ -81,7 +81,7 @@
           "name": "parameters",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_InputParam"
+            "name": "_InputParam"
           }
         },
         {
@@ -89,7 +89,7 @@
           "name": "repeatable",
           "type": {
             "$tag": "_OutputBase",
-            "output": "Boolean"
+            "name": "Boolean"
           }
         },
         {
@@ -111,14 +111,14 @@
           "name": "locations",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_"
+            "name": "_"
           }
         }
       ],
       "name": "_Directive",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_Aliased"
+        "name": "_Aliased"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -133,7 +133,7 @@
           "object": "_Directives",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Directive"
+            "name": "_Directive"
           }
         },
         {
@@ -141,7 +141,7 @@
           "object": "_Directives",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Type"
+            "name": "_Type"
           }
         }
       ],
@@ -152,7 +152,7 @@
           "object": "_Directives",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Directive"
+            "name": "_Directive"
           }
         },
         {
@@ -161,7 +161,7 @@
           "object": "_Directives",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Type"
+            "name": "_Type"
           }
         }
       ],
@@ -170,14 +170,14 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Directive"
+            "name": "_Directive"
           }
         },
         {
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Type"
+            "name": "_Type"
           }
         }
       ],
@@ -187,7 +187,7 @@
           "name": "directive",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Directive"
+            "name": "_Directive"
           }
         },
         {
@@ -195,7 +195,7 @@
           "name": "type",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Type"
+            "name": "_Type"
           }
         }
       ],

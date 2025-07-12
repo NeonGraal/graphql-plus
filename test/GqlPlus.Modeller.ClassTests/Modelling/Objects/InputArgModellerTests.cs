@@ -16,8 +16,7 @@ public class InputArgModellerTests
   public void ToModel_WithValidArg_ReturnsExpectedInputArgModel(string input, string contents)
   {
     // Arrange
-    IGqlpInputArg ast = A.Descr<IGqlpInputArg>(contents);
-    ast.Input.Returns(input);
+    IGqlpInputArg ast = A.Named<IGqlpInputArg>(input, contents);
     ast.IsTypeParam.Returns(true);
 
     // Act
@@ -26,7 +25,7 @@ public class InputArgModellerTests
     // Assert
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
-        r => r.Input.ShouldBe(input),
+        r => r.Name.ShouldBe(input),
         r => r.Description.ShouldBe(contents),
         r => r.IsTypeParam.ShouldBeTrue()
       );

@@ -13,8 +13,8 @@ types: !_Map_Type
         name: gnrcPrntEnumChildOutpLabel
     name: EnumGnrcPrntEnumChildOutp
     parent: !_TypeRef(_SimpleKind)
+      name: ParentGnrcPrntEnumChildOutp
       typeKind: !_SimpleKind Enum
-      typeName: ParentGnrcPrntEnumChildOutp
     typeKind: !_TypeKind Enum
   !_Identifier FieldGnrcPrntEnumChildOutp: !_TypeOutput
     allFields:
@@ -33,8 +33,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: EnumGnrcPrntEnumChildOutp
           typeKind: !_TypeKind Enum
-          typeName: EnumGnrcPrntEnumChildOutp
         name: ref
   !_Identifier GnrcPrntEnumChildOutp: !_TypeOutput
     allFields:
@@ -42,13 +42,13 @@ types: !_Map_Type
         name: field
         object: FieldGnrcPrntEnumChildOutp
         type: !_OutputBase
-          output: ParentGnrcPrntEnumChildOutp
+          name: ParentGnrcPrntEnumChildOutp
     name: GnrcPrntEnumChildOutp
     parent: !_OutputBase
-      output: FieldGnrcPrntEnumChildOutp
+      name: FieldGnrcPrntEnumChildOutp
       typeArgs:
         - !_OutputArg
-          output: ParentGnrcPrntEnumChildOutp
+          name: ParentGnrcPrntEnumChildOutp
     typeKind: !_TypeKind Output
   !_Identifier ParentGnrcPrntEnumChildOutp: !_TypeEnum
     allItems:

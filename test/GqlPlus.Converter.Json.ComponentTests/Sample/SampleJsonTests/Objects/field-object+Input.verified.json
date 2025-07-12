@@ -11,7 +11,7 @@
           "object": "FieldObjInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "FldFieldObjInp"
+            "name": "FldFieldObjInp"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "input": "FldFieldObjInp"
+            "name": "FldFieldObjInp"
           }
         }
       ],
@@ -39,7 +39,7 @@
           "object": "FldFieldObjInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "String"
+            "name": "String"
           }
         }
       ],
@@ -50,7 +50,7 @@
           "object": "FldFieldObjInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -59,7 +59,7 @@
           "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
-            "input": "String"
+            "name": "String"
           }
         }
       ],
@@ -69,7 +69,7 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "input": "Number"
+            "name": "Number"
           }
         }
       ],

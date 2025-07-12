@@ -16,7 +16,7 @@ public class InputArgEncoderTests
 
   [Theory, RepeatData]
   public void Encode_WithTypeParam_ReturnsStructuredWithTypeParam(string input, string contents)
-    => EncodeAndCheck(new(input, contents) { IsTypeParam = true }, [
+    => EncodeAndCheck(new(TypeKindModel.Input, input, contents) { IsTypeParam = true }, [
       "!_InputArg",
       "description: " + contents.Quoted("'"),
       "typeParam: " + input
@@ -24,16 +24,16 @@ public class InputArgEncoderTests
 
   [Theory, RepeatData]
   public void Encode_WithoutTypeParam_ReturnsStructuredWithInput(string input, string contents)
-    => EncodeAndCheck(new(input, contents), [
+    => EncodeAndCheck(new(TypeKindModel.Input, input, contents), [
       "!_InputArg",
       "description: " + contents.Quoted("'"),
-      "input: " + input
+      "name: " + input
       ]);
 
   [Theory, RepeatData]
   public void Encode_WithDual_ReturnsStructuredWithInput(string input)
   {
-    InputArgModel model = new("", "") { Dual = new(input, "") };
+    InputArgModel model = new(TypeKindModel.Input, "", "") { Dual = new(TypeKindModel.Dual, input, "") };
 
     EncodeReturnsMap(_dual, "_DualArg", input);
 

@@ -8,7 +8,7 @@ public class DualArgEncoderTests
 
   [Theory, RepeatData]
   public void Encode_WithTypeParam_ReturnsStructuredWithTypeParam(string dual, string contents)
-    => EncodeAndCheck(new(dual, contents) { IsTypeParam = true }, [
+    => EncodeAndCheck(new(TypeKindModel.Dual, dual, contents) { IsTypeParam = true }, [
       "!_DualArg",
       "description: " + contents.Quoted("'"),
       "typeParam: " + dual
@@ -16,9 +16,9 @@ public class DualArgEncoderTests
 
   [Theory, RepeatData]
   public void Encode_WithoutTypeParam_ReturnsStructuredWithDual(string dual, string contents)
-    => EncodeAndCheck(new(dual, contents), [
+    => EncodeAndCheck(new(TypeKindModel.Dual, dual, contents), [
       "!_DualArg",
       "description: " + contents.Quoted("'"),
-      "dual: " + dual
+      "name: " + dual
       ]);
 }

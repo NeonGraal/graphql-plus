@@ -7,12 +7,12 @@ types: !_Map_Type
         name: field
         object: FieldDescrOutp
         type: !_OutputBase
-          output: String
+          name: String
     fields:
       - !_OutputField
         description: 'Test Descr'
         name: field
         type: !_OutputBase
-          output: String
+          name: String
     name: FieldDescrOutp
     typeKind: !_TypeKind Output

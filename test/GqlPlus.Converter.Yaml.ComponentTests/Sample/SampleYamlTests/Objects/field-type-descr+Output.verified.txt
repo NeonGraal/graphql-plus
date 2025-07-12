@@ -7,12 +7,12 @@ types: !_Map_Type
       object: FieldTypeDescrOutp
       type: !_OutputBase
         description: 'Test Descr'
-        output: Number
+        name: Number
     fields:
     - !_OutputField
       name: field
       type: !_OutputBase
         description: 'Test Descr'
-        output: Number
+        name: Number
     name: FieldTypeDescrOutp
     typeKind: !_TypeKind Output

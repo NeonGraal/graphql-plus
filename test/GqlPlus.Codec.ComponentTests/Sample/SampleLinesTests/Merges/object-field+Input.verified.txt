@@ -9,11 +9,11 @@ types: !_Map_Type
         name: field
         object: ObjFieldInp
         type: !_InputBase
-          input: FldObjFieldInp
+          name: FldObjFieldInp
     fields:
       - !_InputField
         name: field
         type: !_InputBase
-          input: FldObjFieldInp
+          name: FldObjFieldInp
     name: ObjFieldInp
     typeKind: !_TypeKind Input

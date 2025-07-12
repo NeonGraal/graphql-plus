@@ -12,7 +12,7 @@
           "type": {
             "$tag": "_DualBase",
             "description": "Test Descr",
-            "dual": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -23,7 +23,7 @@
           "type": {
             "$tag": "_DualBase",
             "description": "Test Descr",
-            "dual": "Number"
+            "name": "Number"
           }
         }
       ],

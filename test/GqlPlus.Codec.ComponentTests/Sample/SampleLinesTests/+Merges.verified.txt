@@ -4,30 +4,30 @@ categories: !_Map_Categories
   !_Identifier ctgr: !_Category
     name: ctgr
     output: !_TypeRef(_TypeKind)
+      name: Ctgr
       typeKind: !_TypeKind Output
-      typeName: Ctgr
     resolution: !_Resolution Parallel
   !_Identifier ctgrAlias: !_Category
     aliases: [CatA1,CatA2]
     name: ctgrAlias
     output: !_TypeRef(_TypeKind)
+      name: CtgrAlias
       typeKind: !_TypeKind Output
-      typeName: CtgrAlias
     resolution: !_Resolution Parallel
   !_Identifier ctgrDescr: !_Category
     description: 'First category Second category'
     name: ctgrDescr
     output: !_TypeRef(_TypeKind)
+      name: CtgrDescr
       typeKind: !_TypeKind Output
-      typeName: CtgrDescr
     resolution: !_Resolution Parallel
   !_Identifier ctgrMod: !_Category
     aliases: [CatM1,CatM2]
     modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
     name: ctgrMod
     output: !_TypeRef(_TypeKind)
+      name: CtgrMod
       typeKind: !_TypeKind Output
-      typeName: CtgrMod
     resolution: !_Resolution Parallel
 directives: !_Map_Directives
   !_Identifier Drct: !_Directive
@@ -44,7 +44,7 @@ directives: !_Map_Directives
     name: DrctParam
     parameters:
       - !_InputParam
-        input: InDrctParam
+        name: InDrctParam
     repeatable: false
 name: Schema
 settings: !_Map_Setting
@@ -131,29 +131,29 @@ types: !_Map_Type
         exclude: false
         value: !_EnumValue
           label: true
+          name: Boolean
           typeKind: !_SimpleKind Enum
-          typeName: Boolean
       - !_DomainItem(_DomainLabel)
         domain: DmnEnumDiff
         exclude: false
         value: !_EnumValue
           label: false
+          name: Boolean
           typeKind: !_SimpleKind Enum
-          typeName: Boolean
     domainKind: !_DomainKind Enum
     items:
       - !_DomainLabel
         exclude: false
         value: !_EnumValue
           label: true
+          name: Boolean
           typeKind: !_SimpleKind Enum
-          typeName: Boolean
       - !_DomainLabel
         exclude: false
         value: !_EnumValue
           label: false
+          name: Boolean
           typeKind: !_SimpleKind Enum
-          typeName: Boolean
     name: DmnEnumDiff
     typeKind: !_TypeKind Domain
   !_Identifier DmnEnumSame: !_DomainEnum
@@ -163,16 +163,16 @@ types: !_Map_Type
         exclude: false
         value: !_EnumValue
           label: true
+          name: Boolean
           typeKind: !_SimpleKind Enum
-          typeName: Boolean
     domainKind: !_DomainKind Enum
     items:
       - !_DomainLabel
         exclude: false
         value: !_EnumValue
           label: true
+          name: Boolean
           typeKind: !_SimpleKind Enum
-          typeName: Boolean
     name: DmnEnumSame
     typeKind: !_TypeKind Domain
   !_Identifier DmnNmbr: !_DomainNumber
@@ -288,8 +288,8 @@ types: !_Map_Type
         name: enumSamePrnt
     name: EnumSamePrnt
     parent: !_TypeRef(_SimpleKind)
+      name: PrntEnumSamePrnt
       typeKind: !_SimpleKind Enum
-      typeName: PrntEnumSamePrnt
     typeKind: !_TypeKind Enum
   !_Identifier EnumValueAlias: !_TypeEnum
     allItems:
@@ -344,11 +344,11 @@ types: !_Map_Type
       - !_ObjectFor(_DualAlternate)
         object: ObjAltDual
         type: !_DualBase
-          dual: ObjAltDualType
+          name: ObjAltDualType
     alternates:
       - !_DualAlternate
         type: !_DualBase
-          dual: ObjAltDualType
+          name: ObjAltDualType
     name: ObjAltDual
     typeKind: !_TypeKind Dual
   !_Identifier ObjAltDualType: !_TypeDual
@@ -359,11 +359,11 @@ types: !_Map_Type
       - !_ObjectFor(_InputAlternate)
         object: ObjAltInp
         type: !_InputBase
-          input: ObjAltInpType
+          name: ObjAltInpType
     alternates:
       - !_InputAlternate
         type: !_InputBase
-          input: ObjAltInpType
+          name: ObjAltInpType
     name: ObjAltInp
     typeKind: !_TypeKind Input
   !_Identifier ObjAltInpType: !_TypeInput
@@ -374,11 +374,11 @@ types: !_Map_Type
       - !_ObjectFor(_OutputAlternate)
         object: ObjAltOutp
         type: !_OutputBase
-          output: ObjAltOutpType
+          name: ObjAltOutpType
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
-          output: ObjAltOutpType
+          name: ObjAltOutpType
     name: ObjAltOutp
     typeKind: !_TypeKind Output
   !_Identifier ObjAltOutpType: !_TypeOutput
@@ -410,8 +410,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: String
           typeKind: !_TypeKind Basic
-          typeName: String
         name: type
   !_Identifier ObjCnstInp: !_TypeInput
     allFields:
@@ -439,8 +439,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: String
           typeKind: !_TypeKind Basic
-          typeName: String
         name: type
   !_Identifier ObjCnstOutp: !_TypeOutput
     allFields:
@@ -468,8 +468,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: String
           typeKind: !_TypeKind Basic
-          typeName: String
         name: type
   !_Identifier ObjDual: !_TypeDual
     name: ObjDual
@@ -481,13 +481,13 @@ types: !_Map_Type
         name: field
         object: ObjFieldAliasDual
         type: !_DualBase
-          dual: FldObjFieldAliasDual
+          name: FldObjFieldAliasDual
     fields:
       - !_DualField
         aliases: [field1,field2]
         name: field
         type: !_DualBase
-          dual: FldObjFieldAliasDual
+          name: FldObjFieldAliasDual
     name: ObjFieldAliasDual
     typeKind: !_TypeKind Dual
   !_Identifier ObjFieldAliasInp: !_TypeInput
@@ -497,13 +497,13 @@ types: !_Map_Type
         name: field
         object: ObjFieldAliasInp
         type: !_InputBase
-          input: FldObjFieldAliasInp
+          name: FldObjFieldAliasInp
     fields:
       - !_InputField
         aliases: [field1,field2]
         name: field
         type: !_InputBase
-          input: FldObjFieldAliasInp
+          name: FldObjFieldAliasInp
     name: ObjFieldAliasInp
     typeKind: !_TypeKind Input
   !_Identifier ObjFieldAliasOutp: !_TypeOutput
@@ -513,13 +513,13 @@ types: !_Map_Type
         name: field
         object: ObjFieldAliasOutp
         type: !_OutputBase
-          output: FldObjFieldAliasOutp
+          name: FldObjFieldAliasOutp
     fields:
       - !_OutputField
         aliases: [field1,field2]
         name: field
         type: !_OutputBase
-          output: FldObjFieldAliasOutp
+          name: FldObjFieldAliasOutp
     name: ObjFieldAliasOutp
     typeKind: !_TypeKind Output
   !_Identifier ObjFieldDual: !_TypeDual
@@ -528,12 +528,12 @@ types: !_Map_Type
         name: field
         object: ObjFieldDual
         type: !_DualBase
-          dual: FldObjFieldDual
+          name: FldObjFieldDual
     fields:
       - !_DualField
         name: field
         type: !_DualBase
-          dual: FldObjFieldDual
+          name: FldObjFieldDual
     name: ObjFieldDual
     typeKind: !_TypeKind Dual
   !_Identifier ObjFieldInp: !_TypeInput
@@ -542,12 +542,12 @@ types: !_Map_Type
         name: field
         object: ObjFieldInp
         type: !_InputBase
-          input: FldObjFieldInp
+          name: FldObjFieldInp
     fields:
       - !_InputField
         name: field
         type: !_InputBase
-          input: FldObjFieldInp
+          name: FldObjFieldInp
     name: ObjFieldInp
     typeKind: !_TypeKind Input
   !_Identifier ObjFieldOutp: !_TypeOutput
@@ -556,12 +556,12 @@ types: !_Map_Type
         name: field
         object: ObjFieldOutp
         type: !_OutputBase
-          output: FldObjFieldOutp
+          name: FldObjFieldOutp
     fields:
       - !_OutputField
         name: field
         type: !_OutputBase
-          output: FldObjFieldOutp
+          name: FldObjFieldOutp
     name: ObjFieldOutp
     typeKind: !_TypeKind Output
   !_Identifier ObjFieldTypeAliasDual: !_TypeDual
@@ -570,12 +570,12 @@ types: !_Map_Type
         name: field
         object: ObjFieldTypeAliasDual
         type: !_DualBase
-          dual: String
+          name: String
     fields:
       - !_DualField
         name: field
         type: !_DualBase
-          dual: String
+          name: String
     name: ObjFieldTypeAliasDual
     typeKind: !_TypeKind Dual
   !_Identifier ObjFieldTypeAliasInp: !_TypeInput
@@ -584,12 +584,12 @@ types: !_Map_Type
         name: field
         object: ObjFieldTypeAliasInp
         type: !_InputBase
-          input: String
+          name: String
     fields:
       - !_InputField
         name: field
         type: !_InputBase
-          input: String
+          name: String
     name: ObjFieldTypeAliasInp
     typeKind: !_TypeKind Input
   !_Identifier ObjFieldTypeAliasOutp: !_TypeOutput
@@ -598,12 +598,12 @@ types: !_Map_Type
         name: field
         object: ObjFieldTypeAliasOutp
         type: !_OutputBase
-          output: String
+          name: String
     fields:
       - !_OutputField
         name: field
         type: !_OutputBase
-          output: String
+          name: String
     name: ObjFieldTypeAliasOutp
     typeKind: !_TypeKind Output
   !_Identifier ObjInp: !_TypeInput
@@ -638,8 +638,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: String
           typeKind: !_TypeKind Basic
-          typeName: String
         name: test
   !_Identifier ObjParamCnstInp: !_TypeInput
     allFields:
@@ -667,8 +667,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: String
           typeKind: !_TypeKind Basic
-          typeName: String
         name: test
   !_Identifier ObjParamCnstOutp: !_TypeOutput
     allFields:
@@ -696,8 +696,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: String
           typeKind: !_TypeKind Basic
-          typeName: String
         name: test
   !_Identifier ObjParamDual: !_TypeDual
     allFields:
@@ -725,13 +725,13 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: String
           typeKind: !_TypeKind Basic
-          typeName: String
         name: test
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: String
           typeKind: !_TypeKind Basic
-          typeName: String
         name: type
   !_Identifier ObjParamDupDual: !_TypeDual
     allFields:
@@ -759,8 +759,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: String
           typeKind: !_TypeKind Basic
-          typeName: String
         name: test
   !_Identifier ObjParamDupInp: !_TypeInput
     allFields:
@@ -788,8 +788,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: String
           typeKind: !_TypeKind Basic
-          typeName: String
         name: test
   !_Identifier ObjParamDupOutp: !_TypeOutput
     allFields:
@@ -817,8 +817,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: String
           typeKind: !_TypeKind Basic
-          typeName: String
         name: test
   !_Identifier ObjParamInp: !_TypeInput
     allFields:
@@ -846,13 +846,13 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: String
           typeKind: !_TypeKind Basic
-          typeName: String
         name: test
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: String
           typeKind: !_TypeKind Basic
-          typeName: String
         name: type
   !_Identifier ObjParamOutp: !_TypeOutput
     allFields:
@@ -880,43 +880,43 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: String
           typeKind: !_TypeKind Basic
-          typeName: String
         name: test
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: String
           typeKind: !_TypeKind Basic
-          typeName: String
         name: type
   !_Identifier ObjPrntDual: !_TypeDual
     name: ObjPrntDual
     parent: !_DualBase
-      dual: RefObjPrntDual
+      name: RefObjPrntDual
     typeKind: !_TypeKind Dual
   !_Identifier ObjPrntInp: !_TypeInput
     name: ObjPrntInp
     parent: !_InputBase
-      input: RefObjPrntInp
+      name: RefObjPrntInp
     typeKind: !_TypeKind Input
   !_Identifier ObjPrntOutp: !_TypeOutput
     name: ObjPrntOutp
     parent: !_OutputBase
-      output: RefObjPrntOutp
+      name: RefObjPrntOutp
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldEnumAlias: !_TypeOutput
     allFields:
       - !_ObjectFor(_OutputField)
         field: field
         label: true
+        name: Boolean
         object: OutpFieldEnumAlias
         typeKind: !_SimpleKind Enum
-        typeName: Boolean
     fields:
       - !_OutputEnum
         field: field
         label: true
+        name: Boolean
         typeKind: !_SimpleKind Enum
-        typeName: Boolean
     name: OutpFieldEnumAlias
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldEnumValue: !_TypeOutput
@@ -924,15 +924,15 @@ types: !_Map_Type
       - !_ObjectFor(_OutputField)
         field: field
         label: true
+        name: Boolean
         object: OutpFieldEnumValue
         typeKind: !_SimpleKind Enum
-        typeName: Boolean
     fields:
       - !_OutputEnum
         field: field
         label: true
+        name: Boolean
         typeKind: !_SimpleKind Enum
-        typeName: Boolean
     name: OutpFieldEnumValue
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldParam: !_TypeOutput
@@ -942,21 +942,21 @@ types: !_Map_Type
         object: OutpFieldParam
         parameters:
           - !_InputParam
-            input: OutpFieldParam1
+            name: OutpFieldParam1
           - !_InputParam
-            input: OutpFieldParam2
+            name: OutpFieldParam2
         type: !_DualBase
-          dual: FldOutpFieldParam
+          name: FldOutpFieldParam
     fields:
       - !_OutputField
         name: field
         parameters:
           - !_InputParam
-            input: OutpFieldParam1
+            name: OutpFieldParam1
           - !_InputParam
-            input: OutpFieldParam2
+            name: OutpFieldParam2
         type: !_DualBase
-          dual: FldOutpFieldParam
+          name: FldOutpFieldParam
     name: OutpFieldParam
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldParam1: !_TypeInput
@@ -1048,6 +1048,6 @@ types: !_Map_Type
         name: Boolean
     name: UnionSamePrnt
     parent: !_TypeRef(_SimpleKind)
+      name: PrntUnionSamePrnt
       typeKind: !_SimpleKind Union
-      typeName: PrntUnionSamePrnt
     typeKind: !_TypeKind Union

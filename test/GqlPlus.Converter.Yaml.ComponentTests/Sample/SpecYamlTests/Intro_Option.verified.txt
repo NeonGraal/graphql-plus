@@ -10,13 +10,13 @@ types: !_Map_Type
       name: value
       object: _Setting
       type: !_OutputBase
-        output: _Constant
+        name: _Constant
     fields:
     - !_OutputField
       name: value
       type: !_OutputBase
-        output: _Constant
+        name: _Constant
     name: _Setting
     parent: !_OutputBase
-      output: _Named
+      name: _Named
     typeKind: !_TypeKind Output

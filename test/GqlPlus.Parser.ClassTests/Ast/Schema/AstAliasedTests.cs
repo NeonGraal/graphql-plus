@@ -62,7 +62,7 @@ public abstract class AstAliasedTests<TInput>
     => AliasesString(input, description, "");
 
   private static string Aliases(params string[] aliases)
-    => aliases.Bracket(" [", "]").Joined();
+    => aliases.Bracket(" [", "]", true).Joined();
 
   internal sealed override IAstNamedChecks<TInput> NamedChecks => AliasedChecks;
 

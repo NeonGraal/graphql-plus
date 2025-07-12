@@ -16,15 +16,15 @@ types: !_Map_Type
         name: enum
         object: _EnumLabel
         type: !_DualBase
-          dual: _Identifier
+          name: _Identifier
     fields:
       - !_DualField
         name: enum
         type: !_DualBase
-          dual: _Identifier
+          name: _Identifier
     name: _EnumLabel
     parent: !_DualBase
-      dual: _Aliased
+      name: _Aliased
     typeKind: !_TypeKind Dual
   !_Identifier _EnumValue: !_TypeOutput
     allFields:
@@ -32,32 +32,32 @@ types: !_Map_Type
         name: label
         object: _EnumValue
         type: !_OutputBase
-          output: _Identifier
+          name: _Identifier
     fields:
       - !_OutputField
         name: label
         type: !_OutputBase
-          output: _Identifier
+          name: _Identifier
     name: _EnumValue
     parent: !_OutputBase
-      output: _TypeRef
+      name: _TypeRef
       typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Enum
+          name: _TypeKind
           typeKind: !_SimpleKind Enum
-          typeName: _TypeKind
     typeKind: !_TypeKind Output
   !_Identifier _TypeEnum: !_TypeOutput
     name: _TypeEnum
     parent: !_OutputBase
-      output: _ParentType
+      name: _ParentType
       typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Enum
+          name: _TypeKind
           typeKind: !_SimpleKind Enum
-          typeName: _TypeKind
         - !_OutputArg
-          output: _Aliased
+          name: _Aliased
         - !_DualArg
-          dual: _EnumLabel
+          name: _EnumLabel
     typeKind: !_TypeKind Output

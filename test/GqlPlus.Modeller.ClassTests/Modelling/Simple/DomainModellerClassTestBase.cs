@@ -32,7 +32,7 @@ public abstract class DomainModellerClassTestBase<TItemAst, TItemModel>
         r => r.Description.ShouldBe(contents),
         r => r.Aliases.ShouldBe(aliases),
         r => r.Parent.ShouldNotBeNull()
-          .TypeName.ShouldBe(parent),
+          .Name.ShouldBe(parent),
         r => r.Items.ShouldNotBeEmpty(),
         r => r.AllItems.ShouldNotBeEmpty());
   }

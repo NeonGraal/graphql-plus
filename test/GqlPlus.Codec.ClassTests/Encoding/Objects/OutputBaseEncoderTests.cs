@@ -27,6 +27,6 @@ public class OutputBaseEncoderTests
     => EncodeAndCheck(new(output, contents), [
       "!_OutputBase",
       "description: " + contents.Quoted("'"),
-      "output: " + output
+      "name: " + output
       ]);
 }

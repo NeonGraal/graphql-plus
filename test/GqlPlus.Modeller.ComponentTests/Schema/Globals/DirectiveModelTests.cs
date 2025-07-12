@@ -80,7 +80,7 @@ internal sealed class DirectiveModelChecks(
     => [.. ItemsExpected(
        "parameters:",
         parameters,
-        p => ["  - !_InputParam", "    input: " + p])];
+        p => ["  - !_InputParam", "    name: " + p])];
 
   public void DirectiveExpected(IGqlpSchemaDirective ast, ExpectedDirectiveInput input)
     => AstExpected((DirectiveDeclAst)ast, ExpectedDirective(input));

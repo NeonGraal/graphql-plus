@@ -21,6 +21,6 @@ public class DualBaseEncoderTests
     => EncodeAndCheck(new(dual, contents), [
       "!_DualBase",
       "description: " + contents.Quoted("'"),
-      "dual: " + dual
+      "name: " + dual
       ]);
 }

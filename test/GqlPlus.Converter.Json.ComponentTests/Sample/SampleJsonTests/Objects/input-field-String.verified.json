@@ -12,7 +12,7 @@
           "object": "InpFieldStr",
           "type": {
             "$tag": "_InputBase",
-            "input": "String"
+            "name": "String"
           }
         }
       ],
@@ -23,7 +23,7 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "input": "String"
+            "name": "String"
           }
         }
       ],

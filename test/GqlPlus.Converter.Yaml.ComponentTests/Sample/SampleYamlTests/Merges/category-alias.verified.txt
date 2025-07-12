@@ -4,8 +4,8 @@ categories: !_Map_Categories
     aliases: [CatA1, CatA2]
     name: ctgrAlias
     output: !_TypeRef(_TypeKind)
+      name: CtgrAlias
       typeKind: !_TypeKind Output
-      typeName: CtgrAlias
     resolution: !_Resolution Parallel
 types: !_Map_Type
   !_Identifier CtgrAlias: !_TypeOutput

@@ -18,25 +18,19 @@ public class BuiltInTests(IModelAndEncode encoder)
   public async Task HtmlInternalTypes(string type)
     => await RenderTypeHtml("Internal", BuiltInData.InternalMap[type], BuiltIn.Internal);
 
+  private readonly SchemaAst _basicSchema = new(AstNulls.At) { Declarations = BuiltIn.Basic };
+
   [Fact]
   public async Task HtmlAllBasicTypes()
-  {
-    SchemaAst schema = new(AstNulls.At) {
-      Declarations = BuiltIn.Basic
-    };
+    => await RenderSchemaHtml(_basicSchema, "!Basic");
 
-    await RenderSchemaHtml(schema, "!Basic");
-  }
+  private readonly SchemaAst _internalSchema = new(AstNulls.At) {
+    Declarations = BuiltIn.Internal
+  };
 
   [Fact]
   public async Task HtmlAllInternalTypes()
-  {
-    SchemaAst schema = new(AstNulls.At) {
-      Declarations = BuiltIn.Internal
-    };
-
-    await RenderSchemaHtml(schema, "!Internal");
-  }
+    => await RenderSchemaHtml(_internalSchema, "!Internal", extras: _basicSchema);
 
   private readonly string[] _sections = ["!Basic", "!Internal"];
 
@@ -68,12 +62,8 @@ public class BuiltInTests(IModelAndEncode encoder)
   [Fact]
   public void ModelAllBasicTypes()
   {
-    SchemaAst schema = new(AstNulls.At) {
-      Declarations = BuiltIn.Basic
-    };
-
     IModelsContext context = encoder.Context();
-    Structured result = encoder.EncodeAst(schema, context);
+    Structured result = encoder.EncodeAst(_basicSchema, context);
 
     context.Errors.ShouldBeEmpty();
   }
@@ -81,12 +71,8 @@ public class BuiltInTests(IModelAndEncode encoder)
   [Fact]
   public void ModelAllInternalTypes()
   {
-    SchemaAst schema = new(AstNulls.At) {
-      Declarations = BuiltIn.Internal
-    };
-
     IModelsContext context = encoder.Context();
-    Structured result = encoder.EncodeAst(schema, context);
+    Structured result = encoder.EncodeAst(_internalSchema, context, _basicSchema);
 
     context.Errors.ShouldBeEmpty();
   }

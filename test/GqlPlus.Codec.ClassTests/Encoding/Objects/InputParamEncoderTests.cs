@@ -25,6 +25,6 @@ public class InputParamEncoderTests
     => EncodeAndCheck(new(input, contents), [
       "!_InputParam",
       "description: " + contents.Quoted("'"),
-      "input: " + input
+      "name: " + input
       ]);
 }

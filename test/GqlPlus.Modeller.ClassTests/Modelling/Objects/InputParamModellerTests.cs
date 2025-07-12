@@ -29,7 +29,7 @@ public class InputParamModellerTests
     ModifierModel[] modifiers = [new(ModifierKind.Optional)];
     ToModelsReturns(_modifier, ast.Modifiers, modifiers);
 
-    ConstantModel defaultValue = new(SimpleModel.Str("", text));
+    ConstantModel defaultValue = new(SimpleModel.Str(text));
     TryModelReturns(_constant, ast.DefaultValue!, defaultValue);
 
     // Act
@@ -38,7 +38,7 @@ public class InputParamModellerTests
     // Assert
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
-        r => r.Input.ShouldBe(paramType),
+        r => r.Name.ShouldBe(paramType),
         r => r.Description.ShouldBe(content),
         r => r.IsTypeParam.ShouldBeTrue(),
         r => r.Modifiers.ShouldBe(modifiers),
@@ -58,7 +58,7 @@ public class InputParamModellerTests
     // Assert
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
-        r => r.Input.ShouldBe(paramType),
+        r => r.Name.ShouldBe(paramType),
         r => r.Description.ShouldBe(content),
         r => r.IsTypeParam.ShouldBeFalse(),
         r => r.Modifiers.ShouldBeEmpty(),

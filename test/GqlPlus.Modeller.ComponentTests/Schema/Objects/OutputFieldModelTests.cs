@@ -42,10 +42,10 @@ internal sealed class OutputFieldModelChecks(
     => [.. ItemsExpected(
        "parameters:",
         parameters,
-        p => ["  - !_InputParam", "    input: " + p])];
+        p => ["  - !_InputParam", "    name: " + p])];
 
   public string[] ExpectedEnum(FieldInput input, string enumLabel)
-    => [$"!_OutputEnum", "field: " + input.Name, "label: " + enumLabel, $"typeKind: !_SimpleKind Enum", "typeName: " + input.Type];
+    => [$"!_OutputEnum", "field: " + input.Name, "label: " + enumLabel, "name: " + input.Type, $"typeKind: !_SimpleKind Enum"];
 }
 
 public interface IOutputFieldModelChecks

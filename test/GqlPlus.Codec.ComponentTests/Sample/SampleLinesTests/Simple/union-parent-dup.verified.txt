@@ -23,6 +23,6 @@ types: !_Map_Type
         name: Number
     name: UnionPrntDup
     parent: !_TypeRef(_SimpleKind)
+      name: PrntUnionPrntDup
       typeKind: !_SimpleKind Union
-      typeName: PrntUnionPrntDup
     typeKind: !_TypeKind Union

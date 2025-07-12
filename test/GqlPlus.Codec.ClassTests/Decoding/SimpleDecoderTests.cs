@@ -8,13 +8,13 @@ public class SimpleDecoderTests
     = new SimpleDecoder();
 
   protected override SimpleModel? ExpectedBool(bool value)
-    => SimpleModel.Bool("", value);
+    => SimpleModel.Bool(value);
   protected override SimpleModel? ExpectedNumber(decimal value)
-    => SimpleModel.Num("", value);
+    => SimpleModel.Num(value);
   protected override SimpleModel? ExpectedText(string value)
-    => string.IsNullOrWhiteSpace(value) ? null : SimpleModel.Str("", value);
+    => string.IsNullOrWhiteSpace(value) ? null : SimpleModel.Str(value);
   protected override SimpleModel? ExpectedList(string value)
-    => SimpleModel.Str("", value);
+    => SimpleModel.Str(value);
   protected override SimpleModel? ExpectedDict(string key, string value)
     => null;
 }

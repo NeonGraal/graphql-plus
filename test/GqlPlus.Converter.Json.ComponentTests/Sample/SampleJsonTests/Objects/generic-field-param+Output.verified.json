@@ -10,7 +10,7 @@
           "object": "AltGnrcFieldParamOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "String"
+            "name": "String"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "object": "AltGnrcFieldParamOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -30,7 +30,7 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "String"
+            "name": "String"
           }
         }
       ],
@@ -40,7 +40,7 @@
           "name": "alt",
           "type": {
             "$tag": "_OutputBase",
-            "output": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -59,11 +59,11 @@
           "object": "GnrcFieldParamOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "RefGnrcFieldParamOutp",
+            "name": "RefGnrcFieldParamOutp",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "output": "AltGnrcFieldParamOutp"
+                "name": "AltGnrcFieldParamOutp"
               }
             ]
           }
@@ -75,11 +75,11 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "output": "RefGnrcFieldParamOutp",
+            "name": "RefGnrcFieldParamOutp",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "output": "AltGnrcFieldParamOutp"
+                "name": "AltGnrcFieldParamOutp"
               }
             ]
           }
@@ -122,11 +122,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "_Output",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Internal"
-            },
-            "typeName": "_Output"
+            }
           },
           "name": "ref"
         }

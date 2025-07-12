@@ -5,51 +5,51 @@ types: !_Map_Type
       - !_ObjectFor(_InputAlternate)
         object: PrntCnstPrntObjPrntInp
         type: !_InputBase
-          input: String
+          name: String
     allFields:
       - !_ObjectFor(_InputField)
         name: alt
         object: AltCnstPrntObjPrntInp
         type: !_InputBase
-          input: Number
+          name: Number
     fields:
       - !_InputField
         name: alt
         type: !_InputBase
-          input: Number
+          name: Number
     name: AltCnstPrntObjPrntInp
     parent: !_InputBase
-      input: PrntCnstPrntObjPrntInp
+      name: PrntCnstPrntObjPrntInp
     typeKind: !_TypeKind Input
   !_Identifier CnstPrntObjPrntInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
         object: PrntCnstPrntObjPrntInp
         type: !_InputBase
-          input: String
+          name: String
     allFields:
       - !_ObjectFor(_InputField)
         name: alt
         object: AltCnstPrntObjPrntInp
         type: !_InputBase
-          input: Number
+          name: Number
     name: CnstPrntObjPrntInp
     parent: !_InputBase
-      input: RefCnstPrntObjPrntInp
+      name: RefCnstPrntObjPrntInp
       typeArgs:
         - !_InputArg
-          input: AltCnstPrntObjPrntInp
+          name: AltCnstPrntObjPrntInp
     typeKind: !_TypeKind Input
   !_Identifier PrntCnstPrntObjPrntInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
         object: PrntCnstPrntObjPrntInp
         type: !_InputBase
-          input: String
+          name: String
     alternates:
       - !_InputAlternate
         type: !_InputBase
-          input: String
+          name: String
     name: PrntCnstPrntObjPrntInp
     typeKind: !_TypeKind Input
   !_Identifier RefCnstPrntObjPrntInp: !_TypeInput
@@ -60,6 +60,6 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: PrntCnstPrntObjPrntInp
           typeKind: !_TypeKind Input
-          typeName: PrntCnstPrntObjPrntInp
         name: ref

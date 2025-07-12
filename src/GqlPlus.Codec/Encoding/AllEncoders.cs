@@ -25,6 +25,7 @@ public static class AllEncoders
       .AddEncoder<SettingModel, SettingEncoder>()
       // Types
       .AddEncoder<BaseTypeModel, AllTypesEncoder>()
+      .AddEncoder<DomainRefModel, DomainRefEncoder>()
       .AddEncoder<TypeRefModel<SimpleKindModel>, TypeRefEncoder<TypeRefModel<SimpleKindModel>, SimpleKindModel>>()
       .AddEncoder<TypeRefModel<TypeKindModel>, TypeRefEncoder<TypeRefModel<TypeKindModel>, TypeKindModel>>()
       .AddTypeEncoder<SpecialTypeModel, SpecialTypeEncoder>()

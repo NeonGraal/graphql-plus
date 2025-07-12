@@ -19,7 +19,7 @@
           "object": "ObjFieldDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "FldObjFieldDual"
+            "name": "FldObjFieldDual"
           }
         }
       ],
@@ -29,7 +29,7 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "dual": "FldObjFieldDual"
+            "name": "FldObjFieldDual"
           }
         }
       ],

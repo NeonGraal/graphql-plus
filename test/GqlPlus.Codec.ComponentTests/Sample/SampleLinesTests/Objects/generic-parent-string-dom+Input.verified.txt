@@ -30,8 +30,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: String
           typeKind: !_TypeKind Basic
-          typeName: String
         name: ref
   !_Identifier GnrcPrntStrDomInp: !_TypeInput
     allFields:
@@ -39,11 +39,11 @@ types: !_Map_Type
         name: field
         object: FieldGnrcPrntStrDomInp
         type: !_InputBase
-          input: DomGnrcPrntStrDomInp
+          name: DomGnrcPrntStrDomInp
     name: GnrcPrntStrDomInp
     parent: !_InputBase
-      input: FieldGnrcPrntStrDomInp
+      name: FieldGnrcPrntStrDomInp
       typeArgs:
         - !_InputArg
-          input: DomGnrcPrntStrDomInp
+          name: DomGnrcPrntStrDomInp
     typeKind: !_TypeKind Input

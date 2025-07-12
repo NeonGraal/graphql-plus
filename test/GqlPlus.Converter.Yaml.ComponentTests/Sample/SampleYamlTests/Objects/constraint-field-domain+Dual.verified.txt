@@ -6,13 +6,13 @@ types: !_Map_Type
       name: field
       object: RefCnstFieldDmnDual
       type: !_DualBase
-        dual: DomCnstFieldDmnDual
+        name: DomCnstFieldDmnDual
     name: CnstFieldDmnDual
     parent: !_DualBase
-      dual: RefCnstFieldDmnDual
+      name: RefCnstFieldDmnDual
       typeArgs:
       - !_DualArg
-        dual: DomCnstFieldDmnDual
+        name: DomCnstFieldDmnDual
     typeKind: !_TypeKind Dual
   !_Identifier DomCnstFieldDmnDual: !_DomainString
     allItems:
@@ -44,6 +44,6 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
+        name: String
         typeKind: !_TypeKind Basic
-        typeName: String
       name: ref

@@ -8,11 +8,11 @@
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
         "description": "Output comment",
+        "name": "CtgrOutpDescr",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        },
-        "typeName": "CtgrOutpDescr"
+        }
       },
       "resolution": {
         "$tag": "_Resolution",

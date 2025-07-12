@@ -18,14 +18,14 @@ public class ConstantEncoderTests
   public void Encode_WithMap_ReturnsStructuredMap(string key, string value)
   {
     // Arrange
-    SimpleModel simpleKey = SimpleModel.Str("", key);
-    SimpleModel simpleValue = SimpleModel.Str("", value);
+    SimpleModel simpleKey = SimpleModel.Str(key);
+    SimpleModel simpleValue = SimpleModel.Str(value);
     ConstantModel valueModel = new(simpleValue);
 
     Structured encodedKey = new(key);
     Structured encodedValue = new(value);
-    _simpleEncoder.Encode(simpleKey).Returns(encodedKey);
-    _simpleEncoder.Encode(simpleValue).Returns(encodedValue);
+    _simpleEncoder.Encode(simpleKey).Returns(_ => encodedKey);
+    _simpleEncoder.Encode(simpleValue).Returns(_ => encodedValue);
 
     // Act
     EncodeAndCheck(new(new Dictionary<SimpleModel, ConstantModel> { { simpleKey, valueModel } }), [
@@ -36,7 +36,7 @@ public class ConstantEncoderTests
   public void Encode_WithList_ReturnsStructuredList(string value)
   {
     // Arrange
-    ConstantModel valueModel = new(SimpleModel.Str("", value));
+    ConstantModel valueModel = new(SimpleModel.Str(value));
 
     Structured encodedValue = new(value);
     Encoder.Encode(valueModel).Returns(encodedValue);
@@ -49,7 +49,7 @@ public class ConstantEncoderTests
   public void Encode_WithValue_ReturnsSimpleEncodedValue(string value)
   {
     // Arrange
-    SimpleModel valueModel = SimpleModel.Str("", value);
+    SimpleModel valueModel = SimpleModel.Str(value);
     Structured encodedValue = new(value);
     _simpleEncoder.Encode(valueModel).Returns(encodedValue);
 

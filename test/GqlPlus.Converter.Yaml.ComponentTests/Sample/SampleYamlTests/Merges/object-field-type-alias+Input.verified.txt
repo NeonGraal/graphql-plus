@@ -6,11 +6,11 @@ types: !_Map_Type
       name: field
       object: ObjFieldTypeAliasInp
       type: !_InputBase
-        input: String
+        name: String
     fields:
     - !_InputField
       name: field
       type: !_InputBase
-        input: String
+        name: String
     name: ObjFieldTypeAliasInp
     typeKind: !_TypeKind Input

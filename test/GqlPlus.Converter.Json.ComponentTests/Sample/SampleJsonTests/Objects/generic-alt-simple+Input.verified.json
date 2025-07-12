@@ -10,11 +10,11 @@
           "object": "GnrcAltSmplInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "RefGnrcAltSmplInp",
+            "name": "RefGnrcAltSmplInp",
             "typeArgs": [
               {
                 "$tag": "_InputArg",
-                "input": "String"
+                "name": "String"
               }
             ]
           }
@@ -25,11 +25,11 @@
           "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
-            "input": "RefGnrcAltSmplInp",
+            "name": "RefGnrcAltSmplInp",
             "typeArgs": [
               {
                 "$tag": "_InputArg",
-                "input": "String"
+                "name": "String"
               }
             ]
           }
@@ -72,11 +72,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "ref"
         }

@@ -8,7 +8,7 @@ internal abstract class ResolverParentType<TModel, TItem, TAll>
   where TAll : IModelBase
 {
   protected override string? ParentName(TModel model)
-    => model.Parent?.TypeName;
+    => model.Parent?.Name;
 
   public override TModel Resolve(TModel model, IResolveContext context)
   {

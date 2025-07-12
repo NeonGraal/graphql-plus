@@ -4,9 +4,9 @@ namespace GqlPlus.Ast.Schema.Objects;
 
 internal sealed record class InputAlternateAst(
   ITokenAt At,
-  string Input,
+  string Name,
   string Description
-) : AstObjAlternate<IGqlpInputArg>(At, Input, Description)
+) : AstObjAlternate<IGqlpInputArg>(At, Name, Description)
   , IGqlpInputAlternate
 {
   public override string Label => "Input";
@@ -16,7 +16,7 @@ internal sealed record class InputAlternateAst(
   IGqlpDualAlternate IGqlpToDual<IGqlpDualAlternate>.ToDual => ToDual();
 
   public DualAlternateAst ToDual()
-    => new(At, Input, Description) {
+    => new(At, Name, Description) {
       IsTypeParam = IsTypeParam,
       BaseArgs = [.. BaseArgs.Select(a => a.ToDual)],
       Modifiers = [.. Modifiers],

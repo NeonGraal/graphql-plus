@@ -1,1 +1,1 @@
-1a12a91  (HEAD -> coding) 2025-07-01 Improve Builtin definitions
+5353adb  (HEAD -> object-name) 2025-07-10 More constraint samples

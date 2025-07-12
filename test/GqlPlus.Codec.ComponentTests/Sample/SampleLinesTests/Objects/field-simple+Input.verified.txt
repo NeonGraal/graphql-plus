@@ -6,11 +6,11 @@ types: !_Map_Type
         name: field
         object: FieldSmplInp
         type: !_InputBase
-          input: Number
+          name: Number
     fields:
       - !_InputField
         name: field
         type: !_InputBase
-          input: Number
+          name: Number
     name: FieldSmplInp
     typeKind: !_TypeKind Input

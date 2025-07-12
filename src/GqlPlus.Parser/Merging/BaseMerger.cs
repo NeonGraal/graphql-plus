@@ -3,7 +3,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Merging;
 
-internal class BaseMerger<TItem>
+internal abstract class BaseMerger<TItem>
   : IMerge<TItem>
   where TItem : IGqlpError
 {
@@ -12,6 +12,5 @@ internal class BaseMerger<TItem>
       new TokenMessage(AstNulls.At, $"No items to merge for {GetType().ExpandTypeName()}")
       );
 
-  public virtual IEnumerable<TItem> Merge(IEnumerable<TItem> items)
-    => items ?? [];
+  public abstract IEnumerable<TItem> Merge(IEnumerable<TItem> items);
 }

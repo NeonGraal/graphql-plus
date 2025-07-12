@@ -7,12 +7,24 @@ public abstract class ParseDomainClassTestBase<TItem>
   where TItem : IGqlpDomainItem
 {
   [Fact]
+  public void Kind_ShouldReturnDomainKind()
+  {
+    // Arrange
+
+    // Act
+    DomainKind kind = Parser.Kind;
+
+    // Assert
+    kind.ShouldBe(_kind);
+  }
+
+  [Fact]
   public void ParseItems_ShouldReturnDomainDefinition_WhenValid()
   {
     // Arrange
     TakeReturns('}', true);
     DomainDefinition initial = new() { Kind = _kind };
-    ParseOkA(_itemsParser, NewItem());
+    ParseOkA(ItemsParser, NewItem());
 
     // Act
     IResult<DomainDefinition> result = Parser.Parser(Tokenizer, "testLabel", initial);
@@ -26,7 +38,7 @@ public abstract class ParseDomainClassTestBase<TItem>
   {
     // Arrange
     DomainDefinition initial = new() { Kind = _kind };
-    ParseErrorA(_itemsParser);
+    ParseErrorA(ItemsParser);
 
     // Act
     IResult<DomainDefinition> result = Parser.Parser(Tokenizer, "testLabel", initial);
@@ -61,7 +73,7 @@ public abstract class ParseDomainClassTestBase<TItem>
     result.ShouldBeAssignableTo<IResultEmpty>();
   }
 
-  private readonly Parser<TItem>.IA _itemsParser;
+  protected Parser<TItem>.IA ItemsParser { get; }
   private readonly Lazy<ParseDomainItem<TItem>> _parser;
   private readonly DomainKind _kind;
 
@@ -70,8 +82,9 @@ public abstract class ParseDomainClassTestBase<TItem>
   protected ParseDomainClassTestBase(DomainKind kind)
   {
     _kind = kind;
-    Parser<TItem>.DA itemsParser = ParserAFor(out _itemsParser);
-    _parser = new(() => MakeParser(itemsParser));
+    Parser<TItem>.DA itemsFactory = ParserAFor(out Parser<TItem>.IA itemsParser);
+    ItemsParser = itemsParser;
+    _parser = new(() => MakeParser(itemsFactory));
   }
 
   internal abstract ParseDomainItem<TItem> MakeParser(Parser<TItem>.DA itemsParser);

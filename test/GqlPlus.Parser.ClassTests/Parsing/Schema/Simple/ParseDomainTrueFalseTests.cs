@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using System;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Parsing.Schema.Simple;
@@ -33,6 +34,21 @@ public class ParseDomainTrueFalseTests
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpDomainTrueFalse>>();
+  }
+
+  [Fact]
+  public void ParseItems_ShouldReturnDefault_WhenEmpty()
+  {
+    // Arrange
+    TakeReturns('}', true);
+    DomainDefinition initial = new() { Kind = DomainKind.Boolean };
+    ParseOkA(ItemsParser, []);
+
+    // Act
+    IResult<DomainDefinition> result = Parser.Parser(Tokenizer, "testLabel", initial);
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultOk<DomainDefinition>>();
   }
 
   public ParseDomainTrueFalseTests()

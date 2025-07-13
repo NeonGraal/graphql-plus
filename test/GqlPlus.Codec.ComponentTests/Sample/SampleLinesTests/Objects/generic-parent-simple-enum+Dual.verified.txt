@@ -27,8 +27,8 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: _Simple
           typeKind: !_TypeKind Internal
-          typeName: _Simple
         name: ref
   !_Identifier GnrcPrntSmplEnumDual: !_TypeDual
     allFields:
@@ -36,11 +36,11 @@ types: !_Map_Type
         name: field
         object: FieldGnrcPrntSmplEnumDual
         type: !_DualBase
-          dual: EnumGnrcPrntSmplEnumDual
+          name: EnumGnrcPrntSmplEnumDual
     name: GnrcPrntSmplEnumDual
     parent: !_DualBase
-      dual: FieldGnrcPrntSmplEnumDual
+      name: FieldGnrcPrntSmplEnumDual
       typeArgs:
         - !_DualArg
-          dual: EnumGnrcPrntSmplEnumDual
+          name: EnumGnrcPrntSmplEnumDual
     typeKind: !_TypeKind Dual

@@ -3,7 +3,7 @@ types: !_Map_Type
   !_Identifier ObjPrntOutp: !_TypeOutput
     name: ObjPrntOutp
     parent: !_OutputBase
-      output: RefObjPrntOutp
+      name: RefObjPrntOutp
     typeKind: !_TypeKind Output
   !_Identifier RefObjPrntOutp: !_TypeOutput
     name: RefObjPrntOutp

@@ -5,10 +5,10 @@ types: !_Map_Type
     - !_ObjectFor(_InputAlternate)
       object: AltSmplInp
       type: !_InputBase
-        input: String
+        name: String
     alternates:
     - !_InputAlternate
       type: !_InputBase
-        input: String
+        name: String
     name: AltSmplInp
     typeKind: !_TypeKind Input

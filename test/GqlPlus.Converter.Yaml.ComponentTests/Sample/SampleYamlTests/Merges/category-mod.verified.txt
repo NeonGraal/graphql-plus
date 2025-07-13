@@ -5,8 +5,8 @@ categories: !_Map_Categories
     modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
     name: ctgrMod
     output: !_TypeRef(_TypeKind)
+      name: CtgrMod
       typeKind: !_TypeKind Output
-      typeName: CtgrMod
     resolution: !_Resolution Parallel
 types: !_Map_Type
   !_Identifier CtgrMod: !_TypeOutput

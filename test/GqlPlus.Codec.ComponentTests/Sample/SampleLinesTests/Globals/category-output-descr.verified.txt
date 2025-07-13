@@ -4,8 +4,8 @@ categories: !_Map_Categories
     name: ctgrOutpDescr
     output: !_TypeRef(_TypeKind)
       description: 'Output comment'
+      name: CtgrOutpDescr
       typeKind: !_TypeKind Output
-      typeName: CtgrOutpDescr
     resolution: !_Resolution Parallel
 types: !_Map_Type
   !_Identifier CtgrOutpDescr: !_TypeOutput

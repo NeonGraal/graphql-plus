@@ -18,8 +18,8 @@ types: !_Map_Type
     name: DmnNmbrPrntDescr
     parent: !_TypeRef(_SimpleKind)
       description: 'Parent comment'
+      name: PrntDmnNmbrPrntDescr
       typeKind: !_SimpleKind Domain
-      typeName: PrntDmnNmbrPrntDescr
     typeKind: !_TypeKind Domain
   !_Identifier PrntDmnNmbrPrntDescr: !_DomainNumber
     allItems:

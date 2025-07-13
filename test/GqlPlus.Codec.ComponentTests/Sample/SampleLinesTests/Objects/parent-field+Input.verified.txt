@@ -5,47 +5,47 @@ types: !_Map_Type
       - !_ObjectFor(_InputAlternate)
         object: RefPrntFieldInp
         type: !_InputBase
-          input: String
+          name: String
     allFields:
       - !_ObjectFor(_InputField)
         name: parent
         object: RefPrntFieldInp
         type: !_InputBase
-          input: Number
+          name: Number
       - !_ObjectFor(_InputField)
         name: field
         object: PrntFieldInp
         type: !_InputBase
-          input: Number
+          name: Number
     fields:
       - !_InputField
         name: field
         type: !_InputBase
-          input: Number
+          name: Number
     name: PrntFieldInp
     parent: !_InputBase
-      input: RefPrntFieldInp
+      name: RefPrntFieldInp
     typeKind: !_TypeKind Input
   !_Identifier RefPrntFieldInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
         object: RefPrntFieldInp
         type: !_InputBase
-          input: String
+          name: String
     allFields:
       - !_ObjectFor(_InputField)
         name: parent
         object: RefPrntFieldInp
         type: !_InputBase
-          input: Number
+          name: Number
     alternates:
       - !_InputAlternate
         type: !_InputBase
-          input: String
+          name: String
     fields:
       - !_InputField
         name: parent
         type: !_InputBase
-          input: Number
+          name: Number
     name: RefPrntFieldInp
     typeKind: !_TypeKind Input

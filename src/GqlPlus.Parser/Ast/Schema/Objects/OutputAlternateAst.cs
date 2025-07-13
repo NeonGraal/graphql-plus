@@ -4,9 +4,9 @@ namespace GqlPlus.Ast.Schema.Objects;
 
 internal sealed record class OutputAlternateAst(
   ITokenAt At,
-  string Output,
+  string Name,
   string Description
-) : AstObjAlternate<IGqlpOutputArg>(At, Output, Description)
+) : AstObjAlternate<IGqlpOutputArg>(At, Name, Description)
   , IGqlpOutputAlternate
 {
   public override string Label => "Output";
@@ -16,7 +16,7 @@ internal sealed record class OutputAlternateAst(
   IGqlpDualAlternate IGqlpToDual<IGqlpDualAlternate>.ToDual => ToDual();
 
   public DualAlternateAst ToDual()
-    => new(At, Output, Description) {
+    => new(At, Name, Description) {
       IsTypeParam = IsTypeParam,
       BaseArgs = [.. BaseArgs.Select(a => a.ToDual)],
       Modifiers = [.. Modifiers],

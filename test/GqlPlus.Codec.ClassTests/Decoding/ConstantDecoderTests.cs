@@ -7,13 +7,13 @@ public class ConstantDecoderTests
     = new ConstantDecoder();
 
   protected override ConstantModel? ExpectedBool(bool value)
-    => new(SimpleModel.Bool("", value));
+    => new(SimpleModel.Bool(value));
   protected override ConstantModel? ExpectedNumber(decimal value)
-    => new(SimpleModel.Num("", value));
+    => new(SimpleModel.Num(value));
   protected override ConstantModel? ExpectedText(string value)
-    => string.IsNullOrWhiteSpace(value) ? null : new(SimpleModel.Str("", value));
+    => string.IsNullOrWhiteSpace(value) ? null : new(SimpleModel.Str(value));
   protected override ConstantModel? ExpectedList(string value)
     => new([ExpectedText(value)!]);
   protected override ConstantModel? ExpectedDict(string key, string value)
-    => new(SimpleModel.Str("", key).DictWith(ExpectedText(value)!));
+    => new(SimpleModel.Str(key).DictWith(ExpectedText(value)!));
 }

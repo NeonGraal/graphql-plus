@@ -1,0 +1,5 @@
+object Name { :RefName<AltName> }
+object RefName<$ref:GrndName> { :$ref }
+dual GrndName { | String }
+dual PrntName { :GrndName }
+object AltName { :PrntName alt: Number }

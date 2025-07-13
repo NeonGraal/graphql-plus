@@ -10,7 +10,7 @@
           "object": "RefPrntOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "String"
+            "name": "String"
           }
         }
       ],
@@ -21,14 +21,14 @@
           "object": "RefPrntOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "Number"
+            "name": "Number"
           }
         }
       ],
       "name": "PrntOutp",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "RefPrntOutp"
+        "name": "RefPrntOutp"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -43,7 +43,7 @@
           "object": "RefPrntOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "String"
+            "name": "String"
           }
         }
       ],
@@ -54,7 +54,7 @@
           "object": "RefPrntOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -63,7 +63,7 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "String"
+            "name": "String"
           }
         }
       ],
@@ -73,7 +73,7 @@
           "name": "parent",
           "type": {
             "$tag": "_OutputBase",
-            "output": "Number"
+            "name": "Number"
           }
         }
       ],

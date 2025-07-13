@@ -22,16 +22,16 @@ types: !_Map_Type
         exclude: false
         value: !_EnumValue
           label: outpCnstDomEnum
+          name: EnumOutpCnstDomEnum
           typeKind: !_SimpleKind Enum
-          typeName: EnumOutpCnstDomEnum
     domainKind: !_DomainKind Enum
     items:
       - !_DomainLabel
         exclude: false
         value: !_EnumValue
           label: outpCnstDomEnum
+          name: EnumOutpCnstDomEnum
           typeKind: !_SimpleKind Enum
-          typeName: EnumOutpCnstDomEnum
     name: JustOutpCnstDomEnum
     typeKind: !_TypeKind Domain
   !_Identifier OutpCnstDomEnum: !_TypeOutput
@@ -39,17 +39,17 @@ types: !_Map_Type
       - !_ObjectFor(_OutputAlternate)
         object: OutpCnstDomEnum
         type: !_OutputBase
-          output: RefOutpCnstDomEnum
+          name: RefOutpCnstDomEnum
           typeArgs:
             - !_OutputArg
-              output: outpCnstDomEnum
+              name: outpCnstDomEnum
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
-          output: RefOutpCnstDomEnum
+          name: RefOutpCnstDomEnum
           typeArgs:
             - !_OutputArg
-              output: outpCnstDomEnum
+              name: outpCnstDomEnum
     name: OutpCnstDomEnum
     typeKind: !_TypeKind Output
   !_Identifier RefOutpCnstDomEnum: !_TypeOutput
@@ -69,6 +69,6 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: JustOutpCnstDomEnum
           typeKind: !_TypeKind Domain
-          typeName: JustOutpCnstDomEnum
         name: type

@@ -5,38 +5,38 @@ types: !_Map_Type
       - !_ObjectFor(_InputAlternate)
         object: PrntCnstAltObjInp
         type: !_InputBase
-          input: String
+          name: String
     allFields:
       - !_ObjectFor(_InputField)
         name: alt
         object: AltCnstAltObjInp
         type: !_InputBase
-          input: Number
+          name: Number
     fields:
       - !_InputField
         name: alt
         type: !_InputBase
-          input: Number
+          name: Number
     name: AltCnstAltObjInp
     parent: !_InputBase
-      input: PrntCnstAltObjInp
+      name: PrntCnstAltObjInp
     typeKind: !_TypeKind Input
   !_Identifier CnstAltObjInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_InputAlternate)
         object: CnstAltObjInp
         type: !_InputBase
-          input: RefCnstAltObjInp
+          name: RefCnstAltObjInp
           typeArgs:
             - !_InputArg
-              input: AltCnstAltObjInp
+              name: AltCnstAltObjInp
     alternates:
       - !_InputAlternate
         type: !_InputBase
-          input: RefCnstAltObjInp
+          name: RefCnstAltObjInp
           typeArgs:
             - !_InputArg
-              input: AltCnstAltObjInp
+              name: AltCnstAltObjInp
     name: CnstAltObjInp
     typeKind: !_TypeKind Input
   !_Identifier PrntCnstAltObjInp: !_TypeInput
@@ -44,11 +44,11 @@ types: !_Map_Type
       - !_ObjectFor(_InputAlternate)
         object: PrntCnstAltObjInp
         type: !_InputBase
-          input: String
+          name: String
     alternates:
       - !_InputAlternate
         type: !_InputBase
-          input: String
+          name: String
     name: PrntCnstAltObjInp
     typeKind: !_TypeKind Input
   !_Identifier RefCnstAltObjInp: !_TypeInput
@@ -66,6 +66,6 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: PrntCnstAltObjInp
           typeKind: !_TypeKind Input
-          typeName: PrntCnstAltObjInp
         name: ref

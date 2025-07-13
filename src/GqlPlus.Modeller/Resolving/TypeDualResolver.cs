@@ -15,7 +15,7 @@ internal class TypeDualResolver
   protected override TypeDualModel CloneModel(TypeDualModel model)
     => model with { };
   protected override string GetArgKey(DualArgModel argument)
-    => argument.Dual;
+    => argument.Name;
   protected override MakeFor<DualAlternateModel> ObjectAlt(string obj)
     => alt => new(alt, obj);
   protected override MakeFor<DualFieldModel> ObjectField(string obj)
@@ -25,5 +25,5 @@ internal class TypeDualResolver
   protected override IEnumerable<ObjectForModel> ParentFields(IModelBase? parent)
     => parent is TypeDualModel dual ? dual.AllFields : [];
   protected override string? ParentName(TypeDualModel model)
-    => model.Parent?.Dual;
+    => model.Parent?.Name;
 }

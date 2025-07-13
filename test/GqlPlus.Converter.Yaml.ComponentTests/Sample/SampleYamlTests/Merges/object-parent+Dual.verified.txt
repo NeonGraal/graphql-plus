@@ -3,7 +3,7 @@ types: !_Map_Type
   !_Identifier ObjPrntDual: !_TypeDual
     name: ObjPrntDual
     parent: !_DualBase
-      dual: RefObjPrntDual
+      name: RefObjPrntDual
     typeKind: !_TypeKind Dual
   !_Identifier RefObjPrntDual: !_TypeDual
     name: RefObjPrntDual

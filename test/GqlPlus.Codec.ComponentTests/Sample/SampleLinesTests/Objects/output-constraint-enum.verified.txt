@@ -15,17 +15,17 @@ types: !_Map_Type
       - !_ObjectFor(_OutputAlternate)
         object: OutpCnstEnum
         type: !_OutputBase
-          output: RefOutpCnstEnum
+          name: RefOutpCnstEnum
           typeArgs:
             - !_OutputArg
-              output: outpCnstEnum
+              name: outpCnstEnum
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
-          output: RefOutpCnstEnum
+          name: RefOutpCnstEnum
           typeArgs:
             - !_OutputArg
-              output: outpCnstEnum
+              name: outpCnstEnum
     name: OutpCnstEnum
     typeKind: !_TypeKind Output
   !_Identifier RefOutpCnstEnum: !_TypeOutput
@@ -45,6 +45,6 @@ types: !_Map_Type
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
+          name: EnumOutpCnstEnum
           typeKind: !_TypeKind Enum
-          typeName: EnumOutpCnstEnum
         name: type

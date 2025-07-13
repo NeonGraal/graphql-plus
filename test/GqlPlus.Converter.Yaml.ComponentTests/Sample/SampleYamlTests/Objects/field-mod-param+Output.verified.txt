@@ -7,41 +7,41 @@ types: !_Map_Type
       name: field
       object: FieldModParamOutp
       type: !_OutputBase
-        output: FldFieldModParamOutp
+        name: FldFieldModParamOutp
     fields:
     - !_OutputField
       modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
       name: field
       type: !_OutputBase
-        output: FldFieldModParamOutp
+        name: FldFieldModParamOutp
     name: FieldModParamOutp
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
+        name: String
         typeKind: !_TypeKind Basic
-        typeName: String
       name: mod
   !_Identifier FldFieldModParamOutp: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: FldFieldModParamOutp
       type: !_OutputBase
-        output: String
+        name: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: field
       object: FldFieldModParamOutp
       type: !_OutputBase
-        output: Number
+        name: Number
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
-        output: String
+        name: String
     fields:
     - !_OutputField
       name: field
       type: !_OutputBase
-        output: Number
+        name: Number
     name: FldFieldModParamOutp
     typeKind: !_TypeKind Output

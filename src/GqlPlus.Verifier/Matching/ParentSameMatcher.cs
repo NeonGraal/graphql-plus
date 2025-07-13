@@ -14,12 +14,15 @@ internal class ParentSameMatcher<TParent, TType>(
     TryingMatch(type, constraint);
 
     return type.Name.Equals(constraint, StringComparison.Ordinal)
-        || MatchParent(type.Parent?.Name, constraint, context);
+      || MatchParent(type.Parent?.Name, constraint, context);
   }
 
-  private static bool MatchParent(string? parent, string constraint, UsageContext context)
+  protected static bool MatchName(string? parent, string constraint)
     => !string.IsNullOrWhiteSpace(parent)
-      && (parent!.Equals(constraint, StringComparison.Ordinal)
-        || context.GetTyped(parent, out TType? typeParent)
-          && MatchParent(typeParent.Parent?.Name, constraint, context));
+      && parent!.Equals(constraint, StringComparison.Ordinal);
+
+  protected virtual bool MatchParent(string? parent, string constraint, UsageContext context)
+    => MatchName(parent, constraint)
+      || context.GetTyped(parent, out TType? typeParent)
+        && MatchParent(typeParent.Parent?.Name, constraint, context);
 }

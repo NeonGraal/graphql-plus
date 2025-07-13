@@ -5,22 +5,22 @@ types: !_Map_Type
       - !_ObjectFor(_DualAlternate)
         object: AltAltModBoolDual
         type: !_DualBase
-          dual: String
+          name: String
     allFields:
       - !_ObjectFor(_DualField)
         name: alt
         object: AltAltModBoolDual
         type: !_DualBase
-          dual: Number
+          name: Number
     alternates:
       - !_DualAlternate
         type: !_DualBase
-          dual: String
+          name: String
     fields:
       - !_DualField
         name: alt
         type: !_DualBase
-          dual: Number
+          name: Number
     name: AltAltModBoolDual
     typeKind: !_TypeKind Dual
   !_Identifier AltModBoolDual: !_TypeDual
@@ -33,7 +33,7 @@ types: !_Map_Type
             typeKind: !_SimpleKind Basic
         object: AltModBoolDual
         type: !_DualBase
-          dual: AltAltModBoolDual
+          name: AltAltModBoolDual
     alternates:
       - !_DualAlternate
         collections:
@@ -42,6 +42,6 @@ types: !_Map_Type
             modifierKind: !_ModifierKind Dict
             typeKind: !_SimpleKind Basic
         type: !_DualBase
-          dual: AltAltModBoolDual
+          name: AltAltModBoolDual
     name: AltModBoolDual
     typeKind: !_TypeKind Dual

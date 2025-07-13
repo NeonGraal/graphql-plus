@@ -11,18 +11,18 @@
           "object": "RefCnstFieldDmnDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "DomCnstFieldDmnDual"
+            "name": "DomCnstFieldDmnDual"
           }
         }
       ],
       "name": "CnstFieldDmnDual",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "RefCnstFieldDmnDual",
+        "name": "RefCnstFieldDmnDual",
         "typeArgs": [
           {
             "$tag": "_DualArg",
-            "dual": "DomCnstFieldDmnDual"
+            "name": "DomCnstFieldDmnDual"
           }
         ]
       },
@@ -91,11 +91,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "ref"
         }

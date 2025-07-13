@@ -7,7 +7,6 @@ public static class SchemaObjectBuilderHelpers
   public static IGqlpDualBase DualBase(this IMockBuilder builder, string name, string typeDescr = "", bool isTypeParam = false)
   {
     IGqlpDualBase theBase = builder.ObjBase<IGqlpDualBase>(name, typeDescr, isTypeParam);
-    theBase.Dual.Returns(name);
     return theBase;
   }
   public static IGqlpDualField DualField(this IMockBuilder builder, string name, string type, string fieldDescr, string typeDescr = "")
@@ -18,7 +17,6 @@ public static class SchemaObjectBuilderHelpers
   public static IGqlpInputBase InputBase(this IMockBuilder builder, string name, string typeDescr = "", bool isTypeParam = false)
   {
     IGqlpInputBase theBase = builder.ObjBase<IGqlpInputBase>(name, typeDescr, isTypeParam);
-    theBase.Input.Returns(name);
     return theBase;
   }
   public static IGqlpInputField InputField(this IMockBuilder builder, string name, string type, string fieldDescr, string typeDescr = "")
@@ -36,17 +34,9 @@ public static class SchemaObjectBuilderHelpers
     return theArg;
   }
   public static IGqlpOutputBase OutputBase(this IMockBuilder builder, string name, params IGqlpOutputArg[] args)
-  {
-    IGqlpOutputBase theBase = builder.ObjBase<IGqlpOutputBase, IGqlpOutputArg>(name, args);
-    theBase.Output.Returns(name);
-    return theBase;
-  }
+    => builder.ObjBase<IGqlpOutputBase, IGqlpOutputArg>(name, args);
   public static IGqlpOutputBase OutputBase(this IMockBuilder builder, string name, string typeDescr = "", bool isTypeParam = false)
-  {
-    IGqlpOutputBase theBase = builder.ObjBase<IGqlpOutputBase>(name, typeDescr, isTypeParam);
-    theBase.Output.Returns(name);
-    return theBase;
-  }
+    => builder.ObjBase<IGqlpOutputBase>(name, typeDescr, isTypeParam);
   public static IGqlpOutputField OutputField(this IMockBuilder builder, string name, string type, string fieldDescr, string typeDescr = "")
     => builder.ObjField<IGqlpOutputField, IGqlpOutputBase>(name, builder.OutputBase(type, typeDescr), fieldDescr);
   public static IGqlpOutputField OutputField(this IMockBuilder builder, string name, string type, params IGqlpModifier[] modifiers)

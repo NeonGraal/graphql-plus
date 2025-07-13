@@ -5,17 +5,17 @@ types: !_Map_Type
     - !_ObjectFor(_OutputAlternate)
       object: GnrcAltSmplOutp
       type: !_OutputBase
-        output: RefGnrcAltSmplOutp
+        name: RefGnrcAltSmplOutp
         typeArgs:
         - !_OutputArg
-          output: String
+          name: String
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
-        output: RefGnrcAltSmplOutp
+        name: RefGnrcAltSmplOutp
         typeArgs:
         - !_OutputArg
-          output: String
+          name: String
     name: GnrcAltSmplOutp
     typeKind: !_TypeKind Output
   !_Identifier RefGnrcAltSmplOutp: !_TypeOutput
@@ -33,6 +33,6 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
+        name: String
         typeKind: !_TypeKind Basic
-        typeName: String
       name: ref

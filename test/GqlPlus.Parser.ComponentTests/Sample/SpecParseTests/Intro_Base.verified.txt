@@ -133,7 +133,7 @@ Success
   >
   :
   I@007/0023
-  _Described
+  _Named
   {
     !OF I@009/0024
     typeArgs
@@ -165,7 +165,7 @@ Success
   _TypeParam
   :
   I@007/0034
-  _Described
+  _Named
   {
     !OF I@009/0035
     typeParam

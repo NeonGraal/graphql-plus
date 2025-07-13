@@ -8,49 +8,61 @@ public class SimpleEncoderTests
 
   [Theory, RepeatData]
   public void Encode_WithBoolean_ReturnsStructuredBoolean(bool value)
-    => EncodeAndCheck(SimpleModel.Bool("", value), [
+    => EncodeAndCheck(SimpleModel.Bool(value), [
         value.TrueFalse()
         ]);
 
   [Theory, RepeatData]
-  public void Encode_WithTypedBoolean_ReturnsStructuredBoolean(string type, bool value)
-    => EncodeAndCheck(SimpleModel.Bool(type, value), [
-        $"!{type} {value.TrueFalse()}"
+  public void Encode_WithDomainBoolean_ReturnsStructuredBoolean(string domain, bool value)
+    => EncodeAndCheck(SimpleModel.BoolDom(domain, value), [
+        $"!{domain} {value.TrueFalse()}"
         ]);
 
   [Theory, RepeatData]
   public void Encode_WithNumber_ReturnsStructuredNumber(decimal value)
-    => EncodeAndCheck(SimpleModel.Num("", value), [
+    => EncodeAndCheck(SimpleModel.Num(value), [
         $"{value:0.#####}"
         ]);
 
   [Theory, RepeatData]
-  public void Encode_WithTypedNumber_ReturnsStructuredNumber(string type, decimal value)
-    => EncodeAndCheck(SimpleModel.Num(type, value), [
-        $"!{type} {value:0.#####}"
+  public void Encode_WithDomainNumber_ReturnsStructuredNumber(string domain, decimal value)
+    => EncodeAndCheck(SimpleModel.NumDom(domain, value), [
+        $"!{domain} {value:0.#####}"
         ]);
 
   [Theory, RepeatData]
   public void Encode_WithString_ReturnsStructuredString(string value)
-    => EncodeAndCheck(SimpleModel.Str("", value), [
+    => EncodeAndCheck(SimpleModel.Str(value), [
         $"'{value}'"
         ]);
 
   [Theory, RepeatData]
-  public void Encode_WithTypedString_ReturnsStructuredString(string type, string value)
-    => EncodeAndCheck(SimpleModel.Str(type, value), [
-        $"!{type} '{value}'"
+  public void Encode_WithDomainString_ReturnsStructuredString(string domain, string value)
+    => EncodeAndCheck(SimpleModel.StrDom(domain, value), [
+        $"!{domain} '{value}'"
         ]);
 
   [Theory, RepeatData]
-  public void Encode_WithValue_ReturnsStructuredString(string value)
+  public void Encode_WithLabel_ReturnsStructuredString(string value)
     => EncodeAndCheck(SimpleModel.Enum("", value), [
         value
         ]);
 
   [Theory, RepeatData]
-  public void Encode_WithTypedValue_ReturnsStructuredString(string type, string value)
+  public void Encode_WithTypedLabel_ReturnsStructuredString(string type, string value)
     => EncodeAndCheck(SimpleModel.Enum(type, value), [
         $"!{type} {value}"
+        ]);
+
+  [Theory, RepeatData]
+  public void Encode_WithDomainLabel_ReturnsStructuredString(string domain, string value)
+    => EncodeAndCheck(SimpleModel.EnumDom(domain, "", value), [
+        $"!{domain} {value}"
+        ]);
+
+  [Theory, RepeatData]
+  public void Encode_WithDomainTypedLabel_ReturnsStructuredString(string domain, string type, string value)
+    => EncodeAndCheck(SimpleModel.EnumDom(domain, type, value), [
+        $"!{domain} {value}"
         ]);
 }

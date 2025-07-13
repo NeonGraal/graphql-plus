@@ -6,11 +6,11 @@ types: !_Map_Type
       object: AltDescrDual
       type: !_DualBase
         description: 'Test Descr'
-        dual: String
+        name: String
     alternates:
     - !_DualAlternate
       type: !_DualBase
         description: 'Test Descr'
-        dual: String
+        name: String
     name: AltDescrDual
     typeKind: !_TypeKind Dual

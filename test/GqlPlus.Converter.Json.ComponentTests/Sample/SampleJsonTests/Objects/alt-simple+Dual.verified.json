@@ -10,7 +10,7 @@
           "object": "AltSmplDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -19,7 +19,7 @@
           "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],

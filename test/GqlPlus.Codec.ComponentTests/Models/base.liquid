@@ -1,9 +1,10 @@
 ﻿{%- if base.typeParam -%}
   <I>${{ base.typeParam }}</I>
-{%- elsif base.typeKind == "Enum" -%}
-  {{ base.name }}.{{ base.member }}
 {%- else -%}
-  {{ base.dual }}{{ base.input }}{{ base.output }}
+  {{ base.name }}
+  {%- if base.typeKind == "Enum" -%}
+    .{{ base.member }}
+  {%- endif -%}
   {%- if base.typeArgs -%}
     <B>&lt;</B>
     {%- for arg in base.typeArgs -%}

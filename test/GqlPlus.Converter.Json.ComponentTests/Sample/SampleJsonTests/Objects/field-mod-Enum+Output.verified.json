@@ -46,7 +46,7 @@
           "object": "FieldModEnumOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "String"
+            "name": "String"
           }
         }
       ],
@@ -70,7 +70,7 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "output": "String"
+            "name": "String"
           }
         }
       ],

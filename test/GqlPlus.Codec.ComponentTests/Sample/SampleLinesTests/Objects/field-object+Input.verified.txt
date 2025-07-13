@@ -6,12 +6,12 @@ types: !_Map_Type
         name: field
         object: FieldObjInp
         type: !_InputBase
-          input: FldFieldObjInp
+          name: FldFieldObjInp
     fields:
       - !_InputField
         name: field
         type: !_InputBase
-          input: FldFieldObjInp
+          name: FldFieldObjInp
     name: FieldObjInp
     typeKind: !_TypeKind Input
   !_Identifier FldFieldObjInp: !_TypeInput
@@ -19,21 +19,21 @@ types: !_Map_Type
       - !_ObjectFor(_InputAlternate)
         object: FldFieldObjInp
         type: !_InputBase
-          input: String
+          name: String
     allFields:
       - !_ObjectFor(_InputField)
         name: field
         object: FldFieldObjInp
         type: !_InputBase
-          input: Number
+          name: Number
     alternates:
       - !_InputAlternate
         type: !_InputBase
-          input: String
+          name: String
     fields:
       - !_InputField
         name: field
         type: !_InputBase
-          input: Number
+          name: Number
     name: FldFieldObjInp
     typeKind: !_TypeKind Input

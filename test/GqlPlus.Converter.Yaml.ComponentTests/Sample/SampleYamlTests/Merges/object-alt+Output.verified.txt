@@ -5,11 +5,11 @@ types: !_Map_Type
     - !_ObjectFor(_OutputAlternate)
       object: ObjAltOutp
       type: !_OutputBase
-        output: ObjAltOutpType
+        name: ObjAltOutpType
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
-        output: ObjAltOutpType
+        name: ObjAltOutpType
     name: ObjAltOutp
     typeKind: !_TypeKind Output
   !_Identifier ObjAltOutpType: !_TypeOutput

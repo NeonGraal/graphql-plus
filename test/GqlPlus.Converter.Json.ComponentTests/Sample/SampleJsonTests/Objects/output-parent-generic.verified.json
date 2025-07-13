@@ -25,11 +25,11 @@
       "name": "EnumOutpPrntGnrc",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
+        "name": "PrntOutpPrntGnrc",
         "typeKind": {
           "$tag": "_SimpleKind",
           "value": "Enum"
-        },
-        "typeName": "PrntOutpPrntGnrc"
+        }
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -44,16 +44,16 @@
           "object": "OutpPrntGnrc",
           "type": {
             "$tag": "_OutputBase",
-            "output": "RefOutpPrntGnrc",
+            "name": "RefOutpPrntGnrc",
             "typeArgs": [
               {
-                "$tag": "_OutputArg",
+                "$tag": "_TypeRef(_SimpleKind)",
                 "label": "prnt_outpPrntGnrc",
+                "name": "EnumOutpPrntGnrc",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                },
-                "typeName": "EnumOutpPrntGnrc"
+                }
               }
             ]
           }
@@ -64,16 +64,16 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "RefOutpPrntGnrc",
+            "name": "RefOutpPrntGnrc",
             "typeArgs": [
               {
-                "$tag": "_OutputArg",
+                "$tag": "_TypeRef(_SimpleKind)",
                 "label": "prnt_outpPrntGnrc",
+                "name": "EnumOutpPrntGnrc",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                },
-                "typeName": "EnumOutpPrntGnrc"
+                }
               }
             ]
           }
@@ -139,11 +139,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntOutpPrntGnrc",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Enum"
-            },
-            "typeName": "PrntOutpPrntGnrc"
+            }
           },
           "name": "type"
         }

@@ -37,7 +37,7 @@
           "object": "_EnumLabel",
           "type": {
             "$tag": "_DualBase",
-            "dual": "_Identifier"
+            "name": "_Identifier"
           }
         }
       ],
@@ -47,14 +47,14 @@
           "name": "enum",
           "type": {
             "$tag": "_DualBase",
-            "dual": "_Identifier"
+            "name": "_Identifier"
           }
         }
       ],
       "name": "_EnumLabel",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "_Aliased"
+        "name": "_Aliased"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -70,7 +70,7 @@
           "object": "_EnumValue",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Identifier"
+            "name": "_Identifier"
           }
         }
       ],
@@ -80,23 +80,23 @@
           "name": "label",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Identifier"
+            "name": "_Identifier"
           }
         }
       ],
       "name": "_EnumValue",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_TypeRef",
+        "name": "_TypeRef",
         "typeArgs": [
           {
-            "$tag": "_OutputArg",
+            "$tag": "_TypeRef(_SimpleKind)",
             "label": "Enum",
+            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            },
-            "typeName": "_TypeKind"
+            }
           }
         ]
       },
@@ -110,24 +110,24 @@
       "name": "_TypeEnum",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_ParentType",
+        "name": "_ParentType",
         "typeArgs": [
           {
-            "$tag": "_OutputArg",
+            "$tag": "_TypeRef(_SimpleKind)",
             "label": "Enum",
+            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            },
-            "typeName": "_TypeKind"
+            }
           },
           {
             "$tag": "_OutputArg",
-            "output": "_Aliased"
+            "name": "_Aliased"
           },
           {
             "$tag": "_DualArg",
-            "dual": "_EnumLabel"
+            "name": "_EnumLabel"
           }
         ]
       },

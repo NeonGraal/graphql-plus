@@ -138,7 +138,7 @@ public interface I_Category
   : I_Aliased
 {
   _Resolution resolution { get; }
-  _TypeRef<_TypeKind> output { get; }
+  _TypeRef<_TypeKind> name { get; }
   _Modifiers modifiers { get; }
 }
 public class Output_Category
@@ -146,7 +146,7 @@ public class Output_Category
   , I_Category
 {
   public _Resolution resolution { get; set; }
-  public _TypeRef<_TypeKind> output { get; set; }
+  public _TypeRef<_TypeKind> name { get; set; }
   public _Modifiers modifiers { get; set; }
 }
 
@@ -295,17 +295,15 @@ public enum _TypeKind
 }
 
 public interface I_TypeRef<Tkind>
-  : I_Described
+  : I_Named
 {
   Tkind typeKind { get; }
-  _Identifier typeName { get; }
 }
 public class Output_TypeRef<Tkind>
-  : Output_Described
+  : Output_Named
   , I_TypeRef<Tkind>
 {
   public Tkind typeKind { get; set; }
-  public _Identifier typeName { get; set; }
 }
 
 public interface I_TypeSimple
@@ -322,20 +320,6 @@ public class Output_TypeSimple
   public _TypeRef<_TypeKind> As_TypeRef { get; set; }
   public _TypeRef<_TypeKind> As_TypeRef { get; set; }
   public _TypeRef<_TypeKind> As_TypeRef { get; set; }
-}
-
-public interface I_Internal
-{
-  Null AsNull { get; }
-  Object AsObject { get; }
-  Void AsVoid { get; }
-}
-public class Output_Internal
-  : I_Internal
-{
-  public Null AsNull { get; set; }
-  public Object AsObject { get; set; }
-  public Void AsVoid { get; set; }
 }
 
 public interface I_Constant
@@ -756,13 +740,13 @@ public class Output_ObjConstraint<Tkind>
 }
 
 public interface I_ObjBase<Targ>
-  : I_Described
+  : I_Named
 {
   Targ typeArgs { get; }
   _TypeParam As_TypeParam { get; }
 }
 public class Output_ObjBase<Targ>
-  : Output_Described
+  : Output_Named
   , I_ObjBase<Targ>
 {
   public Targ typeArgs { get; set; }
@@ -782,12 +766,12 @@ public class Output_ObjTypeArg
 }
 
 public interface I_TypeParam
-  : I_Described
+  : I_Named
 {
   _Identifier typeParam { get; }
 }
 public class Output_TypeParam
-  : Output_Described
+  : Output_Named
   , I_TypeParam
 {
   public _Identifier typeParam { get; set; }
@@ -856,13 +840,11 @@ public class Output_TypeDual
 public interface I_DualBase
   : I_ObjBase
 {
-  _Identifier dual { get; }
 }
 public class Output_DualBase
   : Output_ObjBase
   , I_DualBase
 {
-  public _Identifier dual { get; set; }
 }
 
 public interface I_DualTypeParam
@@ -898,13 +880,11 @@ public class Output_DualAlternate
 public interface I_DualTypeArg
   : I_ObjTypeArg
 {
-  _Identifier dual { get; }
 }
 public class Output_DualTypeArg
   : Output_ObjTypeArg
   , I_DualTypeArg
 {
-  public _Identifier dual { get; set; }
 }
 
 public interface I_TypeInput
@@ -920,14 +900,12 @@ public class Output_TypeInput
 public interface I_InputBase
   : I_ObjBase
 {
-  _Identifier input { get; }
   _DualBase As_DualBase { get; }
 }
 public class Output_InputBase
   : Output_ObjBase
   , I_InputBase
 {
-  public _Identifier input { get; set; }
   public _DualBase As_DualBase { get; set; }
 }
 
@@ -968,13 +946,11 @@ public class Output_InputAlternate
 public interface I_InputTypeArg
   : I_ObjTypeArg
 {
-  _Identifier input { get; }
 }
 public class Output_InputTypeArg
   : Output_ObjTypeArg
   , I_InputTypeArg
 {
-  public _Identifier input { get; set; }
 }
 
 public interface I_InputParam
@@ -1004,14 +980,12 @@ public class Output_TypeOutput
 public interface I_OutputBase
   : I_ObjBase
 {
-  _Identifier output { get; }
   _DualBase As_DualBase { get; }
 }
 public class Output_OutputBase
   : Output_ObjBase
   , I_OutputBase
 {
-  public _Identifier output { get; set; }
   public _DualBase As_DualBase { get; set; }
 }
 
@@ -1056,14 +1030,12 @@ public class Output_OutputAlternate
 public interface I_OutputTypeArg
   : I_ObjTypeArg
 {
-  _Identifier output { get; }
   _Identifier label { get; }
 }
 public class Output_OutputTypeArg
   : Output_ObjTypeArg
   , I_OutputTypeArg
 {
-  public _Identifier output { get; set; }
   public _Identifier label { get; set; }
 }
 

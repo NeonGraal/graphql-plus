@@ -19,13 +19,11 @@ public class Output_TypeDual
 public interface I_DualBase
   : I_ObjBase
 {
-  _Identifier dual { get; }
 }
 public class Output_DualBase
   : Output_ObjBase
   , I_DualBase
 {
-  public _Identifier dual { get; set; }
 }
 
 public interface I_DualTypeParam
@@ -61,11 +59,9 @@ public class Output_DualAlternate
 public interface I_DualTypeArg
   : I_ObjTypeArg
 {
-  _Identifier dual { get; }
 }
 public class Output_DualTypeArg
   : Output_ObjTypeArg
   , I_DualTypeArg
 {
-  public _Identifier dual { get; set; }
 }

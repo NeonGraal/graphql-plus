@@ -1,10 +1,4 @@
 ﻿/* Intro_Built-In
-output _Internal {
-    | Null
-    | Object
-    | Void
-    }
-
 output _Constant {
     | _SimpleValue
     | _ConstantList
@@ -23,7 +17,7 @@ output _ConstantList {
     }
 
 output _ConstantMap {
-    | _Constant[Simple]
+    | _Constant[_Key]
     }
 
 output _Collections {
@@ -56,20 +50,6 @@ output _Modifier<$kind:_ModifierKind> {
 */
 
 namespace GqlPlus.Model_Spec_Intro_Built_In;
-
-public interface I_Internal
-{
-  Null AsNull { get; }
-  Object AsObject { get; }
-  Void AsVoid { get; }
-}
-public class Output_Internal
-  : I_Internal
-{
-  public Null AsNull { get; set; }
-  public Object AsObject { get; set; }
-  public Void AsVoid { get; set; }
-}
 
 public interface I_Constant
 {

@@ -90,17 +90,15 @@ public enum _TypeKind
 }
 
 public interface I_TypeRef<Tkind>
-  : I_Described
+  : I_Named
 {
   Tkind typeKind { get; }
-  _Identifier typeName { get; }
 }
 public class Output_TypeRef<Tkind>
-  : Output_Described
+  : Output_Named
   , I_TypeRef<Tkind>
 {
   public Tkind typeKind { get; set; }
-  public _Identifier typeName { get; set; }
 }
 
 public interface I_TypeSimple
@@ -117,20 +115,6 @@ public class Output_TypeSimple
   public _TypeRef<_TypeKind> As_TypeRef { get; set; }
   public _TypeRef<_TypeKind> As_TypeRef { get; set; }
   public _TypeRef<_TypeKind> As_TypeRef { get; set; }
-}
-
-public interface I_Internal
-{
-  Null AsNull { get; }
-  Object AsObject { get; }
-  Void AsVoid { get; }
-}
-public class Output_Internal
-  : I_Internal
-{
-  public Null AsNull { get; set; }
-  public Object AsObject { get; set; }
-  public Void AsVoid { get; set; }
 }
 
 public interface I_Constant

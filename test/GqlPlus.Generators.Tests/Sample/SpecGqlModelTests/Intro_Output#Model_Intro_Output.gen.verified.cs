@@ -19,14 +19,12 @@ public class Output_TypeOutput
 public interface I_OutputBase
   : I_ObjBase
 {
-  _Identifier output { get; }
   _DualBase As_DualBase { get; }
 }
 public class Output_OutputBase
   : Output_ObjBase
   , I_OutputBase
 {
-  public _Identifier output { get; set; }
   public _DualBase As_DualBase { get; set; }
 }
 
@@ -71,14 +69,12 @@ public class Output_OutputAlternate
 public interface I_OutputTypeArg
   : I_ObjTypeArg
 {
-  _Identifier output { get; }
   _Identifier label { get; }
 }
 public class Output_OutputTypeArg
   : Output_ObjTypeArg
   , I_OutputTypeArg
 {
-  public _Identifier output { get; set; }
   public _Identifier label { get; set; }
 }
 

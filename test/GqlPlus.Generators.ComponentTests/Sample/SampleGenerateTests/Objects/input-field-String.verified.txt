@@ -1,5 +1,5 @@
 ﻿/* input-field-String
-input InpFieldStr { field: String = '' }
+input InpFieldStr { field: String = 'default' }
 */
 
 // Generated from Sample input-field-String

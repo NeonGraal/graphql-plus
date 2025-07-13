@@ -6,20 +6,6 @@
 
 namespace GqlTest.Model_Intro_Built_In;
 
-public interface I_Internal
-{
-  Null AsNull { get; }
-  Object AsObject { get; }
-  Void AsVoid { get; }
-}
-public class Output_Internal
-  : I_Internal
-{
-  public Null AsNull { get; set; }
-  public Object AsObject { get; set; }
-  public Void AsVoid { get; set; }
-}
-
 public interface I_Constant
 {
   _SimpleValue As_SimpleValue { get; }

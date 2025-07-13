@@ -57,13 +57,13 @@ public class Output_ObjConstraint<Tkind>
 }
 
 public interface I_ObjBase<Targ>
-  : I_Described
+  : I_Named
 {
   Targ typeArgs { get; }
   _TypeParam As_TypeParam { get; }
 }
 public class Output_ObjBase<Targ>
-  : Output_Described
+  : Output_Named
   , I_ObjBase<Targ>
 {
   public Targ typeArgs { get; set; }
@@ -83,12 +83,12 @@ public class Output_ObjTypeArg
 }
 
 public interface I_TypeParam
-  : I_Described
+  : I_Named
 {
   _Identifier typeParam { get; }
 }
 public class Output_TypeParam
-  : Output_Described
+  : Output_Named
   , I_TypeParam
 {
   public _Identifier typeParam { get; set; }
@@ -157,13 +157,11 @@ public class Output_TypeDual
 public interface I_DualBase
   : I_ObjBase
 {
-  _Identifier dual { get; }
 }
 public class Output_DualBase
   : Output_ObjBase
   , I_DualBase
 {
-  public _Identifier dual { get; set; }
 }
 
 public interface I_DualTypeParam
@@ -199,13 +197,11 @@ public class Output_DualAlternate
 public interface I_DualTypeArg
   : I_ObjTypeArg
 {
-  _Identifier dual { get; }
 }
 public class Output_DualTypeArg
   : Output_ObjTypeArg
   , I_DualTypeArg
 {
-  public _Identifier dual { get; set; }
 }
 
 public interface I_TypeInput
@@ -221,14 +217,12 @@ public class Output_TypeInput
 public interface I_InputBase
   : I_ObjBase
 {
-  _Identifier input { get; }
   _DualBase As_DualBase { get; }
 }
 public class Output_InputBase
   : Output_ObjBase
   , I_InputBase
 {
-  public _Identifier input { get; set; }
   public _DualBase As_DualBase { get; set; }
 }
 
@@ -269,13 +263,11 @@ public class Output_InputAlternate
 public interface I_InputTypeArg
   : I_ObjTypeArg
 {
-  _Identifier input { get; }
 }
 public class Output_InputTypeArg
   : Output_ObjTypeArg
   , I_InputTypeArg
 {
-  public _Identifier input { get; set; }
 }
 
 public interface I_InputParam
@@ -305,14 +297,12 @@ public class Output_TypeOutput
 public interface I_OutputBase
   : I_ObjBase
 {
-  _Identifier output { get; }
   _DualBase As_DualBase { get; }
 }
 public class Output_OutputBase
   : Output_ObjBase
   , I_OutputBase
 {
-  public _Identifier output { get; set; }
   public _DualBase As_DualBase { get; set; }
 }
 
@@ -357,14 +347,12 @@ public class Output_OutputAlternate
 public interface I_OutputTypeArg
   : I_ObjTypeArg
 {
-  _Identifier output { get; }
   _Identifier label { get; }
 }
 public class Output_OutputTypeArg
   : Output_ObjTypeArg
   , I_OutputTypeArg
 {
-  public _Identifier output { get; set; }
   public _Identifier label { get; set; }
 }
 

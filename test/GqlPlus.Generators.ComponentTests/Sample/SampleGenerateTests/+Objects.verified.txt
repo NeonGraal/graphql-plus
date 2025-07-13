@@ -1031,6 +1031,162 @@ public class OutputAltCnstFieldObjOutp
   public Number alt { get; set; }
 }
 
+public interface ICnstPrntDualGrndDual
+  : IRefCnstPrntDualGrndDual
+{
+}
+public class DualCnstPrntDualGrndDual
+  : DualRefCnstPrntDualGrndDual
+  , ICnstPrntDualGrndDual
+{
+}
+
+public interface IRefCnstPrntDualGrndDual<Tref>
+  : Iref
+{
+}
+public class DualRefCnstPrntDualGrndDual<Tref>
+  : Dualref
+  , IRefCnstPrntDualGrndDual<Tref>
+{
+}
+
+public interface IGrndCnstPrntDualGrndDual
+{
+  String AsString { get; }
+}
+public class DualGrndCnstPrntDualGrndDual
+  : IGrndCnstPrntDualGrndDual
+{
+  public String AsString { get; set; }
+}
+
+public interface IPrntCnstPrntDualGrndDual
+  : IGrndCnstPrntDualGrndDual
+{
+}
+public class DualPrntCnstPrntDualGrndDual
+  : DualGrndCnstPrntDualGrndDual
+  , IPrntCnstPrntDualGrndDual
+{
+}
+
+public interface IAltCnstPrntDualGrndDual
+  : IPrntCnstPrntDualGrndDual
+{
+  Number alt { get; }
+}
+public class DualAltCnstPrntDualGrndDual
+  : DualPrntCnstPrntDualGrndDual
+  , IAltCnstPrntDualGrndDual
+{
+  public Number alt { get; set; }
+}
+
+public interface ICnstPrntDualGrndInp
+  : IRefCnstPrntDualGrndInp
+{
+}
+public class InputCnstPrntDualGrndInp
+  : InputRefCnstPrntDualGrndInp
+  , ICnstPrntDualGrndInp
+{
+}
+
+public interface IRefCnstPrntDualGrndInp<Tref>
+  : Iref
+{
+}
+public class InputRefCnstPrntDualGrndInp<Tref>
+  : Inputref
+  , IRefCnstPrntDualGrndInp<Tref>
+{
+}
+
+public interface IGrndCnstPrntDualGrndInp
+{
+  String AsString { get; }
+}
+public class DualGrndCnstPrntDualGrndInp
+  : IGrndCnstPrntDualGrndInp
+{
+  public String AsString { get; set; }
+}
+
+public interface IPrntCnstPrntDualGrndInp
+  : IGrndCnstPrntDualGrndInp
+{
+}
+public class DualPrntCnstPrntDualGrndInp
+  : DualGrndCnstPrntDualGrndInp
+  , IPrntCnstPrntDualGrndInp
+{
+}
+
+public interface IAltCnstPrntDualGrndInp
+  : IPrntCnstPrntDualGrndInp
+{
+  Number alt { get; }
+}
+public class InputAltCnstPrntDualGrndInp
+  : InputPrntCnstPrntDualGrndInp
+  , IAltCnstPrntDualGrndInp
+{
+  public Number alt { get; set; }
+}
+
+public interface ICnstPrntDualGrndOutp
+  : IRefCnstPrntDualGrndOutp
+{
+}
+public class OutputCnstPrntDualGrndOutp
+  : OutputRefCnstPrntDualGrndOutp
+  , ICnstPrntDualGrndOutp
+{
+}
+
+public interface IRefCnstPrntDualGrndOutp<Tref>
+  : Iref
+{
+}
+public class OutputRefCnstPrntDualGrndOutp<Tref>
+  : Outputref
+  , IRefCnstPrntDualGrndOutp<Tref>
+{
+}
+
+public interface IGrndCnstPrntDualGrndOutp
+{
+  String AsString { get; }
+}
+public class DualGrndCnstPrntDualGrndOutp
+  : IGrndCnstPrntDualGrndOutp
+{
+  public String AsString { get; set; }
+}
+
+public interface IPrntCnstPrntDualGrndOutp
+  : IGrndCnstPrntDualGrndOutp
+{
+}
+public class DualPrntCnstPrntDualGrndOutp
+  : DualGrndCnstPrntDualGrndOutp
+  , IPrntCnstPrntDualGrndOutp
+{
+}
+
+public interface IAltCnstPrntDualGrndOutp
+  : IPrntCnstPrntDualGrndOutp
+{
+  Number alt { get; }
+}
+public class OutputAltCnstPrntDualGrndOutp
+  : OutputPrntCnstPrntDualGrndOutp
+  , IAltCnstPrntDualGrndOutp
+{
+  public Number alt { get; set; }
+}
+
 public interface ICnstPrntDualPrntDual
   : IRefCnstPrntDualPrntDual
 {

@@ -57,13 +57,13 @@ public class Output_ObjConstraint<Tkind>
 }
 
 public interface I_ObjBase<Targ>
-  : I_Described
+  : I_Named
 {
   Targ typeArgs { get; }
   _TypeParam As_TypeParam { get; }
 }
 public class Output_ObjBase<Targ>
-  : Output_Described
+  : Output_Named
   , I_ObjBase<Targ>
 {
   public Targ typeArgs { get; set; }
@@ -83,12 +83,12 @@ public class Output_ObjTypeArg
 }
 
 public interface I_TypeParam
-  : I_Described
+  : I_Named
 {
   _Identifier typeParam { get; }
 }
 public class Output_TypeParam
-  : Output_Described
+  : Output_Named
   , I_TypeParam
 {
   public _Identifier typeParam { get; set; }

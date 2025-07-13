@@ -1,5 +1,5 @@
 ﻿/* input-field-descr-Number
-input InpFieldDescrNmbr { "Test" "Descr" field: Number = 0 }
+input InpFieldDescrNmbr { "Test" "Descr" field: Number = 42 }
 */
 
 // Generated from Sample input-field-descr-Number

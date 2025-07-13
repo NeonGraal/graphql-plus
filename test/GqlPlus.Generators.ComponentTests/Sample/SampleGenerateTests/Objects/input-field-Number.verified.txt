@@ -1,5 +1,5 @@
 ﻿/* input-field-Number
-input InpFieldNmbr { field: Number = 0 }
+input InpFieldNmbr { field: Number = 42 }
 */
 
 // Generated from Sample input-field-Number

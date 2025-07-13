@@ -1189,6 +1189,162 @@ public class OutputAltCnstFieldObjOutp
   public Number alt { get; set; }
 }
 
+public interface ICnstPrntDualGrndDual
+  : IRefCnstPrntDualGrndDual
+{
+}
+public class DualCnstPrntDualGrndDual
+  : DualRefCnstPrntDualGrndDual
+  , ICnstPrntDualGrndDual
+{
+}
+
+public interface IRefCnstPrntDualGrndDual<Tref>
+  : Iref
+{
+}
+public class DualRefCnstPrntDualGrndDual<Tref>
+  : Dualref
+  , IRefCnstPrntDualGrndDual<Tref>
+{
+}
+
+public interface IGrndCnstPrntDualGrndDual
+{
+  String AsString { get; }
+}
+public class DualGrndCnstPrntDualGrndDual
+  : IGrndCnstPrntDualGrndDual
+{
+  public String AsString { get; set; }
+}
+
+public interface IPrntCnstPrntDualGrndDual
+  : IGrndCnstPrntDualGrndDual
+{
+}
+public class DualPrntCnstPrntDualGrndDual
+  : DualGrndCnstPrntDualGrndDual
+  , IPrntCnstPrntDualGrndDual
+{
+}
+
+public interface IAltCnstPrntDualGrndDual
+  : IPrntCnstPrntDualGrndDual
+{
+  Number alt { get; }
+}
+public class DualAltCnstPrntDualGrndDual
+  : DualPrntCnstPrntDualGrndDual
+  , IAltCnstPrntDualGrndDual
+{
+  public Number alt { get; set; }
+}
+
+public interface ICnstPrntDualGrndInp
+  : IRefCnstPrntDualGrndInp
+{
+}
+public class InputCnstPrntDualGrndInp
+  : InputRefCnstPrntDualGrndInp
+  , ICnstPrntDualGrndInp
+{
+}
+
+public interface IRefCnstPrntDualGrndInp<Tref>
+  : Iref
+{
+}
+public class InputRefCnstPrntDualGrndInp<Tref>
+  : Inputref
+  , IRefCnstPrntDualGrndInp<Tref>
+{
+}
+
+public interface IGrndCnstPrntDualGrndInp
+{
+  String AsString { get; }
+}
+public class DualGrndCnstPrntDualGrndInp
+  : IGrndCnstPrntDualGrndInp
+{
+  public String AsString { get; set; }
+}
+
+public interface IPrntCnstPrntDualGrndInp
+  : IGrndCnstPrntDualGrndInp
+{
+}
+public class DualPrntCnstPrntDualGrndInp
+  : DualGrndCnstPrntDualGrndInp
+  , IPrntCnstPrntDualGrndInp
+{
+}
+
+public interface IAltCnstPrntDualGrndInp
+  : IPrntCnstPrntDualGrndInp
+{
+  Number alt { get; }
+}
+public class InputAltCnstPrntDualGrndInp
+  : InputPrntCnstPrntDualGrndInp
+  , IAltCnstPrntDualGrndInp
+{
+  public Number alt { get; set; }
+}
+
+public interface ICnstPrntDualGrndOutp
+  : IRefCnstPrntDualGrndOutp
+{
+}
+public class OutputCnstPrntDualGrndOutp
+  : OutputRefCnstPrntDualGrndOutp
+  , ICnstPrntDualGrndOutp
+{
+}
+
+public interface IRefCnstPrntDualGrndOutp<Tref>
+  : Iref
+{
+}
+public class OutputRefCnstPrntDualGrndOutp<Tref>
+  : Outputref
+  , IRefCnstPrntDualGrndOutp<Tref>
+{
+}
+
+public interface IGrndCnstPrntDualGrndOutp
+{
+  String AsString { get; }
+}
+public class DualGrndCnstPrntDualGrndOutp
+  : IGrndCnstPrntDualGrndOutp
+{
+  public String AsString { get; set; }
+}
+
+public interface IPrntCnstPrntDualGrndOutp
+  : IGrndCnstPrntDualGrndOutp
+{
+}
+public class DualPrntCnstPrntDualGrndOutp
+  : DualGrndCnstPrntDualGrndOutp
+  , IPrntCnstPrntDualGrndOutp
+{
+}
+
+public interface IAltCnstPrntDualGrndOutp
+  : IPrntCnstPrntDualGrndOutp
+{
+  Number alt { get; }
+}
+public class OutputAltCnstPrntDualGrndOutp
+  : OutputPrntCnstPrntDualGrndOutp
+  , IAltCnstPrntDualGrndOutp
+{
+  public Number alt { get; set; }
+}
+
 public interface ICnstPrntDualPrntDual
   : IRefCnstPrntDualPrntDual
 {
@@ -5275,12 +5431,12 @@ public class UnionUnionSame
 }
 
 public interface IUnionSamePrnt
-  : I( !Tr I@024/0917 PrntUnionSamePrnt )
+  : I( !Tr I@024/0935 PrntUnionSamePrnt )
 {
   Boolean AsBoolean { get; }
 }
 public class UnionUnionSamePrnt
-  : Union( !Tr I@024/0917 PrntUnionSamePrnt )
+  : Union( !Tr I@024/0935 PrntUnionSamePrnt )
   , IUnionSamePrnt
 {
   public Boolean AsBoolean { get; set; }
@@ -5305,11 +5461,11 @@ public class DomainDmnBoolDescr
 }
 
 public interface IDmnBoolPrnt
-  : I( !Tr I@023/0922 PrntDmnBoolPrnt )
+  : I( !Tr I@023/0940 PrntDmnBoolPrnt )
 {
 }
 public class DomainDmnBoolPrnt
-  : Domain( !Tr I@023/0922 PrntDmnBoolPrnt )
+  : Domain( !Tr I@023/0940 PrntDmnBoolPrnt )
   , IDmnBoolPrnt
 {
 }
@@ -5323,11 +5479,11 @@ public class DomainPrntDmnBoolPrnt
 }
 
 public interface IDmnBoolPrntDescr
-  : I( 'Parent comment' !Tr I@044/0925 PrntDmnBoolPrntDescr )
+  : I( 'Parent comment' !Tr I@044/0943 PrntDmnBoolPrntDescr )
 {
 }
 public class DomainDmnBoolPrntDescr
-  : Domain( 'Parent comment' !Tr I@044/0925 PrntDmnBoolPrntDescr )
+  : Domain( 'Parent comment' !Tr I@044/0943 PrntDmnBoolPrntDescr )
   , IDmnBoolPrntDescr
 {
 }
@@ -5414,11 +5570,11 @@ public enum EnumDmnEnumLabel
 }
 
 public interface IDmnEnumPrnt
-  : I( !Tr I@023/0944 PrntDmnEnumPrnt )
+  : I( !Tr I@023/0962 PrntDmnEnumPrnt )
 {
 }
 public class DomainDmnEnumPrnt
-  : Domain( !Tr I@023/0944 PrntDmnEnumPrnt )
+  : Domain( !Tr I@023/0962 PrntDmnEnumPrnt )
   , IDmnEnumPrnt
 {
 }
@@ -5438,11 +5594,11 @@ public enum EnumDmnEnumPrnt
 }
 
 public interface IDmnEnumPrntDescr
-  : I( 'Parent comment' !Tr I@044/0948 PrntDmnEnumPrntDescr )
+  : I( 'Parent comment' !Tr I@044/0966 PrntDmnEnumPrntDescr )
 {
 }
 public class DomainDmnEnumPrntDescr
-  : Domain( 'Parent comment' !Tr I@044/0948 PrntDmnEnumPrntDescr )
+  : Domain( 'Parent comment' !Tr I@044/0966 PrntDmnEnumPrntDescr )
   , IDmnEnumPrntDescr
 {
 }
@@ -5533,11 +5689,11 @@ public class DomainDmnNmbrDescr
 }
 
 public interface IDmnNmbrPrnt
-  : I( !Tr I@023/0970 PrntDmnNmbrPrnt )
+  : I( !Tr I@023/0988 PrntDmnNmbrPrnt )
 {
 }
 public class DomainDmnNmbrPrnt
-  : Domain( !Tr I@023/0970 PrntDmnNmbrPrnt )
+  : Domain( !Tr I@023/0988 PrntDmnNmbrPrnt )
   , IDmnNmbrPrnt
 {
 }
@@ -5551,11 +5707,11 @@ public class DomainPrntDmnNmbrPrnt
 }
 
 public interface IDmnNmbrPrntDescr
-  : I( 'Parent comment' !Tr I@044/0973 PrntDmnNmbrPrntDescr )
+  : I( 'Parent comment' !Tr I@044/0991 PrntDmnNmbrPrntDescr )
 {
 }
 public class DomainDmnNmbrPrntDescr
-  : Domain( 'Parent comment' !Tr I@044/0973 PrntDmnNmbrPrntDescr )
+  : Domain( 'Parent comment' !Tr I@044/0991 PrntDmnNmbrPrntDescr )
   , IDmnNmbrPrntDescr
 {
 }
@@ -5577,11 +5733,11 @@ public class DomainDmnStrDescr
 }
 
 public interface IDmnStrPrnt
-  : I( !Tr I@022/0978 PrntDmnStrPrnt )
+  : I( !Tr I@022/0996 PrntDmnStrPrnt )
 {
 }
 public class DomainDmnStrPrnt
-  : Domain( !Tr I@022/0978 PrntDmnStrPrnt )
+  : Domain( !Tr I@022/0996 PrntDmnStrPrnt )
   , IDmnStrPrnt
 {
 }
@@ -5595,11 +5751,11 @@ public class DomainPrntDmnStrPrnt
 }
 
 public interface IDmnStrPrntDescr
-  : I( 'Parent comment' !Tr I@043/0981 PrntDmnStrPrntDescr )
+  : I( 'Parent comment' !Tr I@043/0999 PrntDmnStrPrntDescr )
 {
 }
 public class DomainDmnStrPrntDescr
-  : Domain( 'Parent comment' !Tr I@043/0981 PrntDmnStrPrntDescr )
+  : Domain( 'Parent comment' !Tr I@043/0999 PrntDmnStrPrntDescr )
   , IDmnStrPrntDescr
 {
 }
@@ -5676,12 +5832,12 @@ public class UnionUnionDescr
 }
 
 public interface IUnionPrnt
-  : I( !Tr I@020/1000 PrntUnionPrnt )
+  : I( !Tr I@020/1018 PrntUnionPrnt )
 {
   String AsString { get; }
 }
 public class UnionUnionPrnt
-  : Union( !Tr I@020/1000 PrntUnionPrnt )
+  : Union( !Tr I@020/1018 PrntUnionPrnt )
   , IUnionPrnt
 {
   public String AsString { get; set; }
@@ -5698,12 +5854,12 @@ public class UnionPrntUnionPrnt
 }
 
 public interface IUnionPrntDescr
-  : I( 'Parent comment' !Tr I@041/1003 PrntUnionPrntDescr )
+  : I( 'Parent comment' !Tr I@041/1021 PrntUnionPrntDescr )
 {
   Number AsNumber { get; }
 }
 public class UnionUnionPrntDescr
-  : Union( 'Parent comment' !Tr I@041/1003 PrntUnionPrntDescr )
+  : Union( 'Parent comment' !Tr I@041/1021 PrntUnionPrntDescr )
   , IUnionPrntDescr
 {
   public Number AsNumber { get; set; }
@@ -5720,12 +5876,12 @@ public class UnionPrntUnionPrntDescr
 }
 
 public interface IUnionPrntDup
-  : I( !Tr I@023/1006 PrntUnionPrntDup )
+  : I( !Tr I@023/1024 PrntUnionPrntDup )
 {
   Number AsNumber { get; }
 }
 public class UnionUnionPrntDup
-  : Union( !Tr I@023/1006 PrntUnionPrntDup )
+  : Union( !Tr I@023/1024 PrntUnionPrntDup )
   , IUnionPrntDup
 {
   public Number AsNumber { get; set; }

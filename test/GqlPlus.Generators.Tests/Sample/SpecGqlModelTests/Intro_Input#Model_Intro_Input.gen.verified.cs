@@ -19,14 +19,12 @@ public class Output_TypeInput
 public interface I_InputBase
   : I_ObjBase
 {
-  _Identifier input { get; }
   _DualBase As_DualBase { get; }
 }
 public class Output_InputBase
   : Output_ObjBase
   , I_InputBase
 {
-  public _Identifier input { get; set; }
   public _DualBase As_DualBase { get; set; }
 }
 
@@ -67,13 +65,11 @@ public class Output_InputAlternate
 public interface I_InputTypeArg
   : I_ObjTypeArg
 {
-  _Identifier input { get; }
 }
 public class Output_InputTypeArg
   : Output_ObjTypeArg
   , I_InputTypeArg
 {
-  public _Identifier input { get; set; }
 }
 
 public interface I_InputParam

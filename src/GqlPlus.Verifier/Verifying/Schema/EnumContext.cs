@@ -6,7 +6,7 @@ namespace GqlPlus.Verifying.Schema;
 
 public class EnumContext(
   IMap<IGqlpDescribed> types,
-  ITokenMessages errors,
+  IMessages errors,
   IMap<string> enumValues
 ) : UsageContext(types, errors)
 {

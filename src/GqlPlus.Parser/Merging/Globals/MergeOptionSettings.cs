@@ -10,7 +10,7 @@ internal class MergeOptionSettings(
 {
   protected override string ItemGroupKey(IGqlpSchemaSetting item) => item.Name;
 
-  protected override ITokenMessages CanMergeGroup(IGrouping<string, IGqlpSchemaSetting> group)
+  protected override IMessages CanMergeGroup(IGrouping<string, IGqlpSchemaSetting> group)
     => group.CanMerge(item => item.Value, values);
 
   protected override IGqlpSchemaSetting MergeGroup(IEnumerable<IGqlpSchemaSetting> group)

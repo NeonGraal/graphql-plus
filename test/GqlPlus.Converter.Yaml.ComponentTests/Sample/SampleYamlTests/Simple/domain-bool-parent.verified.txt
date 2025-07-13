@@ -17,8 +17,8 @@ types: !_Map_Type
       value: false
     name: DmnBoolPrnt
     parent: !_TypeRef(_SimpleKind)
+      name: PrntDmnBoolPrnt
       typeKind: !_SimpleKind Domain
-      typeName: PrntDmnBoolPrnt
     typeKind: !_TypeKind Domain
   !_Identifier PrntDmnBoolPrnt: !_DomainBoolean
     allItems:

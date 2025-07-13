@@ -33,11 +33,11 @@
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
         "description": "Parent comment",
+        "name": "PrntDmnNmbrPrntDescr",
         "typeKind": {
           "$tag": "_SimpleKind",
           "value": "Domain"
-        },
-        "typeName": "PrntDmnNmbrPrntDescr"
+        }
       },
       "typeKind": {
         "$tag": "_TypeKind",

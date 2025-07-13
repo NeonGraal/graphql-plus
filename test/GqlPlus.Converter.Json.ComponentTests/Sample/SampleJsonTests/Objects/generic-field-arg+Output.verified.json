@@ -11,7 +11,7 @@
           "object": "GnrcFieldArgOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "RefGnrcFieldArgOutp",
+            "name": "RefGnrcFieldArgOutp",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
@@ -27,7 +27,7 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "output": "RefGnrcFieldArgOutp",
+            "name": "RefGnrcFieldArgOutp",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
@@ -47,11 +47,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "type"
         }
@@ -88,11 +88,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "ref"
         }

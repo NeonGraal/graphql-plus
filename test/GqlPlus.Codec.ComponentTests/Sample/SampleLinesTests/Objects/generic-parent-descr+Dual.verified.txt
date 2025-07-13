@@ -1,0 +1,14 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier GnrcPrntDescrDual: !_TypeDual
+    name: GnrcPrntDescrDual
+    parent: !_DualBase
+      description: 'Parent comment'
+      typeParam: type
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: type

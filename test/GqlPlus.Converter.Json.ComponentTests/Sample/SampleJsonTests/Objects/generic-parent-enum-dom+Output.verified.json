@@ -12,11 +12,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "gnrcPrntEnumDomOutpLabel",
+            "name": "EnumGnrcPrntEnumDomOutp",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            },
-            "typeName": "EnumGnrcPrntEnumDomOutp"
+            }
           }
         }
       ],
@@ -31,11 +31,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "gnrcPrntEnumDomOutpLabel",
+            "name": "EnumGnrcPrntEnumDomOutp",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            },
-            "typeName": "EnumGnrcPrntEnumDomOutp"
+            }
           }
         }
       ],
@@ -108,11 +108,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "EnumGnrcPrntEnumDomOutp",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Enum"
-            },
-            "typeName": "EnumGnrcPrntEnumDomOutp"
+            }
           },
           "name": "ref"
         }
@@ -127,18 +127,18 @@
           "object": "FieldGnrcPrntEnumDomOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "DomGnrcPrntEnumDomOutp"
+            "name": "DomGnrcPrntEnumDomOutp"
           }
         }
       ],
       "name": "GnrcPrntEnumDomOutp",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "FieldGnrcPrntEnumDomOutp",
+        "name": "FieldGnrcPrntEnumDomOutp",
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "output": "DomGnrcPrntEnumDomOutp"
+            "name": "DomGnrcPrntEnumDomOutp"
           }
         ]
       },

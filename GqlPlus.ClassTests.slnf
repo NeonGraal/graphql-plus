@@ -3,6 +3,7 @@
     "path": "GqlPlus.sln",
     "projects": [
       "src\\GqlPlus.Abstractions\\GqlPlus.Abstractions.csproj",
+      "src\\GqlPlus.Codec\\GqlPlus.Codec.csproj",
       "src\\GqlPlus.Converter.Json\\GqlPlus.Converter.Json.csproj",
       "src\\GqlPlus.Converter.Yaml\\GqlPlus.Converter.Yaml.csproj",
       "src\\GqlPlus.Generators\\GqlPlus.Generators.csproj",
@@ -12,6 +13,7 @@
       "src\\GqlPlus.Verifier\\GqlPlus.Verifier.csproj",
       "test\\GqlPlus.Abstractions.ClassTests\\GqlPlus.Abstractions.ClassTests.csproj",
       "test\\GqlPlus.ClassTestBase\\GqlPlus.ClassTestBase.csproj",
+      "test\\GqlPlus.Codec.ClassTests\\GqlPlus.Codec.ClassTests.csproj",
       "test\\GqlPlus.Converter.ClassTestBase\\GqlPlus.Converter.ClassTestBase.csproj",
       "test\\GqlPlus.Converter.Json.ClassTests\\GqlPlus.Converter.Json.ClassTests.csproj",
       "test\\GqlPlus.Converter.Yaml.ClassTests\\GqlPlus.Converter.Yaml.ClassTests.csproj",

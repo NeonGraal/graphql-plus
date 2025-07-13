@@ -40,7 +40,7 @@ public class SchemaModellerTests
     ToModelReturns(_category, categoryModel);
     DirectiveModel directiveModel = new(directiveName, "");
     ToModelReturns(_directive, directiveModel);
-    SettingModel settingModel = new(settingName, new(SimpleModel.Str("value", "")), "");
+    SettingModel settingModel = new(settingName, new(SimpleModel.Str("value")), "");
     ToModelsReturns(_setting, [settingModel]);
     SpecialTypeModel typeModel = new(typeName, contents);
     ToModelReturns(_types, typeModel);

@@ -27,8 +27,8 @@ internal abstract class ObjectBaseParser<TObjBase, TObjBaseAst, TObjArg, TObjArg
       return tokens.Error<TObjBaseAst>(label, "identifier after '$'");
     }
 
-    if (param is not null) {
-      TObjBaseAst objBase = ObjBase(at, param, description) with {
+    if (!string.IsNullOrWhiteSpace(param)) {
+      TObjBaseAst objBase = ObjBase(at, param!, description) with {
         IsTypeParam = true,
       };
       return objBase.Ok();

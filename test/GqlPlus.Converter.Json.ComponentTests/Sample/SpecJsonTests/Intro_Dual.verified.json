@@ -57,11 +57,11 @@
       "name": "_DualAlternate",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_Alternate",
+        "name": "_Alternate",
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "output": "_DualBase"
+            "name": "_DualBase"
           }
         ]
       },
@@ -72,35 +72,14 @@
     },
     "_DualBase": {
       "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "dual",
-          "object": "_DualBase",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Identifier"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "dual",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Identifier"
-          }
-        }
-      ],
       "name": "_DualBase",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_ObjBase",
+        "name": "_ObjBase",
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "output": "_DualTypeArg"
+            "name": "_DualTypeArg"
           }
         ]
       },
@@ -114,11 +93,11 @@
       "name": "_DualField",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_Field",
+        "name": "_Field",
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "output": "_DualBase"
+            "name": "_DualBase"
           }
         ]
       },
@@ -129,31 +108,10 @@
     },
     "_DualTypeArg": {
       "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "dual",
-          "object": "_DualTypeArg",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Identifier"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "dual",
-          "type": {
-            "$tag": "_OutputBase",
-            "output": "_Identifier"
-          }
-        }
-      ],
       "name": "_DualTypeArg",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_ObjTypeArg"
+        "name": "_ObjTypeArg"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -165,16 +123,16 @@
       "name": "_DualTypeParam",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_ObjTypeParam",
+        "name": "_ObjTypeParam",
         "typeArgs": [
           {
-            "$tag": "_OutputArg",
+            "$tag": "_TypeRef(_SimpleKind)",
             "label": "Dual",
+            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            },
-            "typeName": "_TypeKind"
+            }
           }
         ]
       },
@@ -188,32 +146,32 @@
       "name": "_TypeDual",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_TypeObject",
+        "name": "_TypeObject",
         "typeArgs": [
           {
-            "$tag": "_OutputArg",
+            "$tag": "_TypeRef(_SimpleKind)",
             "label": "Dual",
+            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            },
-            "typeName": "_TypeKind"
+            }
           },
           {
             "$tag": "_OutputArg",
-            "output": "_DualBase"
+            "name": "_DualBase"
           },
           {
             "$tag": "_OutputArg",
-            "output": "_DualTypeParam"
+            "name": "_DualTypeParam"
           },
           {
             "$tag": "_OutputArg",
-            "output": "_DualField"
+            "name": "_DualField"
           },
           {
             "$tag": "_OutputArg",
-            "output": "_DualAlternate"
+            "name": "_DualAlternate"
           }
         ]
       },

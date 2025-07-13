@@ -5,9 +5,9 @@ using GqlPlus.Resolving;
 
 namespace GqlPlus.Schema;
 
-public abstract class TestModelBase<TName, TRender>(
-  ICheckModelBase<TName, TRender> baseChecks
-) where TRender : IModelBase
+public abstract class TestModelBase<TName, TResult>(
+  ICheckModelBase<TName, TResult> baseChecks
+) where TResult : IModelBase
 {
   [Theory, RepeatData]
   public void Model_Default(TName name)
@@ -26,41 +26,41 @@ public abstract class TestModelBase<TName, TRender>(
 
 internal abstract class CheckModelBase<TName, TAst, TModel>(
   IModeller<TAst, TModel> modeller,
-  IRenderer<TModel> rendering
-) : CheckModelBase<TName, TAst, TAst, TModel, TModel>(modeller, rendering)
+  IEncoder<TModel> encoding
+) : CheckModelBase<TName, TAst, TAst, TModel, TModel>(modeller, encoding)
   where TAst : IGqlpError
   where TModel : IModelBase
 { }
 
 internal abstract class CheckModelBase<TName, TSrc, TAst, TModel>(
   IModeller<TSrc, TModel> modeller,
-  IRenderer<TModel> rendering
-) : CheckModelBase<TName, TSrc, TAst, TModel, TModel>(modeller, rendering)
+  IEncoder<TModel> encoding
+) : CheckModelBase<TName, TSrc, TAst, TModel, TModel>(modeller, encoding)
   where TSrc : IGqlpError
   where TAst : IGqlpError, TSrc
   where TModel : IModelBase
 { }
 
-internal abstract class CheckModelBase<TName, TSrc, TAst, TModel, TRender>
-  : ICheckModelBase<TName, TRender>
+internal abstract class CheckModelBase<TName, TSrc, TAst, TModel, TResult>
+  : ICheckModelBase<TName, TResult>
   where TSrc : IGqlpError
   where TAst : IGqlpError, TSrc
   where TModel : IModelBase
-  where TRender : IModelBase
+  where TResult : IModelBase
 {
   protected IModeller<TSrc, TModel> _modeller;
-  protected IRenderer<TRender> _rendering;
+  protected IEncoder<TResult> _encoding;
 
   public IResolveContext Context { get; } = new TestResolveContext();
   public IMap<TypeKindModel> TypeKinds { get; } = new Map<TypeKindModel>();
 
-  protected CheckModelBase(IModeller<TSrc, TModel> modeller, IRenderer<TRender> rendering)
+  protected CheckModelBase(IModeller<TSrc, TModel> modeller, IEncoder<TResult> encoding)
   {
     ArgumentNullException.ThrowIfNull(modeller);
-    ArgumentNullException.ThrowIfNull(rendering);
+    ArgumentNullException.ThrowIfNull(encoding);
 
     _modeller = modeller;
-    _rendering = rendering;
+    _encoding = encoding;
   }
 
   internal void AstExpected(TAst ast, string[] expected)
@@ -68,7 +68,7 @@ internal abstract class CheckModelBase<TName, TSrc, TAst, TModel, TRender>
 
   internal void Model_Expected(IModelBase model, string[] expected)
   {
-    Structured render = _rendering.Render((TRender)model);
+    Structured render = _encoding.Encode((TResult)model);
 
     string[] yaml = render.ToLines(false).ToLines();
     yaml.ShouldBe(expected.Tidy());
@@ -87,16 +87,16 @@ internal abstract class CheckModelBase<TName, TSrc, TAst, TModel, TRender>
         : items.SelectMany(i => mapping(i)).Prepend(field);
 
   void ICheckModelBase.Model_Expected(IModelBase model, string[] expected) => Model_Expected(model, expected);
-  IGqlpError ICheckModelBase<TName, TRender>.BaseAst(TName name) => NewBaseAst(name);
+  IGqlpError ICheckModelBase<TName, TResult>.BaseAst(TName name) => NewBaseAst(name);
   IModelBase ICheckModelBase.ToModel(IGqlpError ast) => AstToModel((TAst)ast);
-  string[] ICheckModelBase<TName, TRender>.ExpectedBase(TName name) => ExpectedBase(name);
+  string[] ICheckModelBase<TName, TResult>.ExpectedBase(TName name) => ExpectedBase(name);
 }
 
 public delegate IEnumerable<string> ToExpected<TItem>(TItem input);
 
-public interface ICheckModelBase<TName, TRender>
+public interface ICheckModelBase<TName, TResult>
   : ICheckModelBase
-  where TRender : IModelBase
+  where TResult : IModelBase
 {
   IGqlpError BaseAst(TName name);
   string[] ExpectedBase(TName name);

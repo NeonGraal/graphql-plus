@@ -447,7 +447,7 @@ public class Tokenizer
   public static string ErrorContext(string context)
     => context is null ? "" : context.Length < ErrorContextLen ? context + "<END>" : context[..ErrorContextLen];
 
-  public TokenMessages Errors { get; } = [];
+  public Messages Errors { get; } = [];
 
   public TokenMessage Error(string text)
   {

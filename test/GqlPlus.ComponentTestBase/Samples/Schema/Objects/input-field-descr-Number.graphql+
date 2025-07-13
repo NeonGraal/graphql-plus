@@ -1,1 +1,1 @@
-input Name { "Test" "Descr" field: Number = 0 }
+input Name { "Test" "Descr" field: Number = 42 }

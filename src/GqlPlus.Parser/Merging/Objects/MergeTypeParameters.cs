@@ -6,7 +6,7 @@ namespace GqlPlus.Merging.Objects;
 internal class MergeTypeParams
   : GroupsMerger<IGqlpTypeParam>
 {
-  protected override ITokenMessages CanMergeGroup(IGrouping<string, IGqlpTypeParam> group)
+  protected override IMessages CanMergeGroup(IGrouping<string, IGqlpTypeParam> group)
     => group.CanMergeString(p => p.Constraint);
 
   protected override string ItemGroupKey(IGqlpTypeParam item) => item.Name;

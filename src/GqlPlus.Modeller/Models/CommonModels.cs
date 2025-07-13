@@ -1,45 +1,83 @@
-﻿namespace GqlPlus.Models;
+﻿using GqlPlus.Ast;
+
+namespace GqlPlus.Models;
 
 public class ConstantModel
-  : Structured<SimpleModel, ConstantModel>
+  : ComplexValue<SimpleModel, ConstantModel>
+  , IEquatable<ConstantModel>
   , IModelBase
 {
-  public string Tag => "_Constant";
+  public override string Tag => "_Constant";
 
-  internal ConstantModel(SimpleModel value)
+  public ConstantModel(SimpleModel value)
     : base(value) { }
 
-  internal ConstantModel(IEnumerable<ConstantModel> values)
+  public ConstantModel(IEnumerable<ConstantModel> values)
     : base(values) { }
 
-  internal ConstantModel(Dictionary<SimpleModel, ConstantModel> values)
+  public ConstantModel(Dictionary<SimpleModel, ConstantModel> values)
     : base(values) { }
+
+  public bool Equals(ConstantModel? other)
+    => Equals(other as ComplexValue<SimpleModel, ConstantModel>);
+  public override bool Equals(object obj)
+    => Equals(obj as ConstantModel);
+  public override int GetHashCode()
+    => base.GetHashCode();
 }
 
-public record class SimpleModel
-  : IModelBase
+public class SimpleModel
+  : ScalarValue
+  , IEquatable<SimpleModel>
+  , IModelBase
 {
-  public string Tag => "_Simple";
+  public SimpleModel(bool? value)
+    : base(value, "") { }
 
-  internal bool? Boolean { get; private init; }
+  public SimpleModel(string? value)
+    : base(value, "") { }
+
+  public SimpleModel(decimal? value)
+    : base(value, "") { }
+
+  public override string Tag => "_Simple";
+
   internal TypeRefModel<SimpleKindModel>? TypeRef { get; private init; }
-  internal decimal? Number { get; private init; }
-  internal string? String { get; private init; }
-  internal string? Value { get; private init; }
+  public string? TypeName => string.IsNullOrWhiteSpace(TypeRef?.Name) ? EnumValue?.Name : TypeRef?.Name;
 
-  internal string EnumValue => $"{TypeRef?.TypeName}.{Value}";
+  public EnumValueModel? EnumValue { get; private init; }
 
-  internal static TypeRefModel<SimpleKindModel>? TypeFor(string? type)
-    => string.IsNullOrWhiteSpace(type) ? null : new(SimpleKindModel.Domain, type!, "");
+  internal static TypeRefModel<SimpleKindModel>? DomainFor(string? type, DomainKindModel kind)
+    => string.IsNullOrWhiteSpace(type) ? null : new DomainRefModel(type!, kind, "");
 
   internal static SimpleModel Bool(bool value)
-    => new() { Boolean = value };
-  internal static SimpleModel Num(string type, decimal value)
-    => new() { TypeRef = TypeFor(type), Number = value };
-  internal static SimpleModel Str(string type, string value)
-    => new() { TypeRef = TypeFor(type), String = value };
+    => new(value);
+  internal static SimpleModel Num(decimal value)
+    => new(value);
+  internal static SimpleModel Str(string value)
+    => new(value);
   internal static SimpleModel Enum(string type, string value)
-    => new() { TypeRef = TypeFor(type), Value = value };
+    => new("") { EnumValue = new(type, value, "") };
+
+  internal static SimpleModel BoolDom(string domain, bool value)
+    => new(value) { TypeRef = DomainFor(domain, DomainKindModel.Boolean) };
+  internal static SimpleModel NumDom(string domain, decimal value)
+    => new(value) { TypeRef = DomainFor(domain, DomainKindModel.Number) };
+  internal static SimpleModel StrDom(string domain, string value)
+    => new(value) { TypeRef = DomainFor(domain, DomainKindModel.String) };
+  internal static SimpleModel EnumDom(string domain, string type, string value)
+    => new("") { TypeRef = DomainFor(domain, DomainKindModel.Enum), EnumValue = new(type, value, "") };
+
+  public override bool Equals(object obj)
+    => Equals(obj as SimpleModel);
+  public bool Equals(SimpleModel? other)
+    => TypeRef.NullEqual(other?.TypeRef) &&
+      (Equals(other as ScalarValue)
+        || EnumValue is not null && EnumValue.Equals(other?.EnumValue));
+  public override int GetHashCode()
+    => HashCode.Combine(base.GetHashCode(),
+      TypeRef?.GetHashCode() ?? 0,
+      EnumValue?.GetHashCode() ?? 0);
 }
 
 public record class CollectionModel(

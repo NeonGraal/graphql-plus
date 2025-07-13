@@ -6,7 +6,7 @@ internal class VerifyDualTypes(
   ObjectVerifierParams<IGqlpDualObject, IGqlpDualField, IGqlpDualAlternate, IGqlpDualArg> verifiers
 ) : AstObjectVerifier<IGqlpDualObject, IGqlpDualBase, IGqlpDualArg, IGqlpDualField, IGqlpDualAlternate, EnumContext>(verifiers)
 {
-  protected override EnumContext MakeContext(IGqlpDualObject usage, IGqlpType[] aliased, ITokenMessages errors)
+  protected override EnumContext MakeContext(IGqlpDualObject usage, IGqlpType[] aliased, IMessages errors)
   {
     Map<IGqlpDescribed> validTypes = aliased.AliasedGroup()
       .Select(p => (Id: p.Key, Type: (IGqlpDescribed)p.First()))

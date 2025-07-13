@@ -7,17 +7,16 @@ public record class TypeDualModel(
 { }
 
 public record class DualArgModel(
-  string Dual,
+  TypeKindModel Kind,
+  string Name,
   string Description
-) : ObjTypeArgModel(Description)
-  , IDualModel
+) : ObjTypeArgModel(Kind, Name, Description)
 { }
 
 public record class DualBaseModel(
-  string Dual,
+  string Name,
   string Description
-) : ObjBaseModel<DualArgModel>(Description)
-  , IDualModel
+) : ObjBaseModel<DualArgModel>(Name, Description)
 { }
 
 public record class DualFieldModel(
@@ -31,9 +30,3 @@ public record class DualAlternateModel(
   DualBaseModel Type
 ) : ObjAlternateModel<DualBaseModel>(Type)
 { }
-
-public interface IDualModel
-{
-  string Dual { get; }
-  bool IsTypeParam { get; }
-}

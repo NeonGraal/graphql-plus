@@ -5,14 +5,21 @@ namespace GqlPlus.Ast;
 
 public static class AstExtensions
 {
+  public static bool NullEqual(this string? left, string? right)
+    => string.IsNullOrEmpty(left) && string.IsNullOrEmpty(right)
+    || !string.IsNullOrEmpty(left) && !string.IsNullOrEmpty(right) && left!.Equals(right, StringComparison.Ordinal);
+
+  public static bool NullEqual(this decimal? left, decimal? right)
+    => left is null && right is null
+    || left is not null && left == right;
+
   public static bool NullEqual<T>(this T? left, T? right)
     where T : IEquatable<T>
     => left is null && right is null
     || left is not null && right is not null && left.Equals(right);
 
-  public static bool NullEqual(this decimal? left, decimal? right)
-    => left is null && right is null
-    || left is not null && left == right;
+  public static bool OrderedEqual<T>(this IEnumerable<T> left, IEnumerable<T> right, IComparer<T>? comparer = null)
+    => left.OrderBy(t => t, comparer).SequenceEqual(right.OrderBy(t => t, comparer));
 
   public static IEnumerable<string> AsString<T>(this IEnumerable<T>? items)
     => items?.Any() == true

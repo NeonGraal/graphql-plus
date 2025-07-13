@@ -19,11 +19,11 @@ internal class InputArgModeller(
 ) : ModellerObjArg<IGqlpInputArg, InputArgModel>
 {
   protected override InputArgModel ToModel(IGqlpInputArg ast, IMap<TypeKindModel> typeKinds)
-    => typeKinds.TryGetValue(ast.Input, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
-    ? new("", ast.Description) {
+    => typeKinds.TryGetValue(ast.Name, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
+    ? new(TypeKindModel.Dual, "", ast.Description) {
       Dual = dual.ToModel(ast.ToDual, typeKinds)
     }
-    : new(ast.Input, ast.Description) {
+    : new(TypeKindModel.Input, ast.Name, ast.Description) {
       IsTypeParam = ast.IsTypeParam,
     };
 }
@@ -34,11 +34,11 @@ internal class InputBaseModeller(
 ) : ModellerObjBase<IGqlpInputBase, IGqlpInputArg, InputBaseModel, InputArgModel>(objArg)
 {
   protected override InputBaseModel ToModel(IGqlpInputBase ast, IMap<TypeKindModel> typeKinds)
-    => typeKinds.TryGetValue(ast.Input, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
+    => typeKinds.TryGetValue(ast.Name, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
     ? new("", ast.Description) {
       Dual = dual.ToModel(ast.ToDual, typeKinds)
     }
-    : new(ast.Input, ast.Description) {
+    : new(ast.Name, ast.Description) {
       IsTypeParam = ast.IsTypeParam,
       Args = ModelArgs(ast, typeKinds),
     };
@@ -72,7 +72,7 @@ internal class InputParamModeller(
 {
   protected override InputParamModel ToModel(IGqlpInputParam ast, IMap<TypeKindModel> typeKinds)
   {
-    InputParamModel model = new(ast.Type.Input, ast.Description) {
+    InputParamModel model = new(ast.Type.Name, ast.Description) {
       IsTypeParam = ast.Type.IsTypeParam,
       Modifiers = modifier.ToModels<ModifierModel>(ast.Modifiers, typeKinds),
       DefaultValue = constant.TryModel(ast.DefaultValue, typeKinds),

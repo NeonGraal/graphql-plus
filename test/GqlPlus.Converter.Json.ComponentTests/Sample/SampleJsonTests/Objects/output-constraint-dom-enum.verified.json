@@ -42,11 +42,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "outpCnstDomEnum",
+            "name": "EnumOutpCnstDomEnum",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            },
-            "typeName": "EnumOutpCnstDomEnum"
+            }
           }
         }
       ],
@@ -61,11 +61,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "outpCnstDomEnum",
+            "name": "EnumOutpCnstDomEnum",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            },
-            "typeName": "EnumOutpCnstDomEnum"
+            }
           }
         }
       ],
@@ -83,11 +83,11 @@
           "object": "OutpCnstDomEnum",
           "type": {
             "$tag": "_OutputBase",
-            "output": "RefOutpCnstDomEnum",
+            "name": "RefOutpCnstDomEnum",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "output": "outpCnstDomEnum"
+                "name": "outpCnstDomEnum"
               }
             ]
           }
@@ -98,11 +98,11 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "RefOutpCnstDomEnum",
+            "name": "RefOutpCnstDomEnum",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "output": "outpCnstDomEnum"
+                "name": "outpCnstDomEnum"
               }
             ]
           }
@@ -147,11 +147,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "JustOutpCnstDomEnum",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Domain"
-            },
-            "typeName": "JustOutpCnstDomEnum"
+            }
           },
           "name": "type"
         }

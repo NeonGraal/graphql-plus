@@ -9,11 +9,11 @@
       "name": "ctgrDscrs",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
+        "name": "CtgrDscrs",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        },
-        "typeName": "CtgrDscrs"
+        }
       },
       "resolution": {
         "$tag": "_Resolution",
@@ -25,11 +25,11 @@
       "name": "ctgrOutp",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
+        "name": "CtgrOutp",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        },
-        "typeName": "CtgrOutp"
+        }
       },
       "resolution": {
         "$tag": "_Resolution",
@@ -42,11 +42,11 @@
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
         "description": "Output comment",
+        "name": "CtgrOutpDescr",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        },
-        "typeName": "CtgrOutpDescr"
+        }
       },
       "resolution": {
         "$tag": "_Resolution",
@@ -72,11 +72,11 @@
       "name": "ctgrOutpDict",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
+        "name": "CtgrOutpDict",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        },
-        "typeName": "CtgrOutpDict"
+        }
       },
       "resolution": {
         "$tag": "_Resolution",
@@ -97,11 +97,11 @@
       "name": "ctgrOutpList",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
+        "name": "CtgrOutpList",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        },
-        "typeName": "CtgrOutpList"
+        }
       },
       "resolution": {
         "$tag": "_Resolution",
@@ -122,11 +122,11 @@
       "name": "ctgrOutpOptl",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
+        "name": "CtgrOutpOptl",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        },
-        "typeName": "CtgrOutpOptl"
+        }
       },
       "resolution": {
         "$tag": "_Resolution",
@@ -138,11 +138,11 @@
       "name": "descrBtwn",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
+        "name": "DescrBtwn",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        },
-        "typeName": "DescrBtwn"
+        }
       },
       "resolution": {
         "$tag": "_Resolution",
@@ -196,7 +196,6 @@
       "parameters": [
         {
           "$tag": "_InputParam",
-          "input": "InDrctParamDict",
           "modifiers": [
             {
               "$tag": "_ModifierDictionary",
@@ -210,7 +209,8 @@
                 "value": "Basic"
               }
             }
-          ]
+          ],
+          "name": "InDrctParamDict"
         }
       ],
       "repeatable": false
@@ -230,7 +230,7 @@
       "parameters": [
         {
           "$tag": "_InputParam",
-          "input": "InDrctParamIn"
+          "name": "InDrctParamIn"
         }
       ],
       "repeatable": false
@@ -250,7 +250,6 @@
       "parameters": [
         {
           "$tag": "_InputParam",
-          "input": "InDrctParamList",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -259,7 +258,8 @@
                 "value": "List"
               }
             }
-          ]
+          ],
+          "name": "InDrctParamList"
         }
       ],
       "repeatable": false
@@ -279,7 +279,6 @@
       "parameters": [
         {
           "$tag": "_InputParam",
-          "input": "InDrctParamOpt",
           "modifiers": [
             {
               "$tag": "_Modifier",
@@ -288,7 +287,8 @@
                 "value": "Opt"
               }
             }
-          ]
+          ],
+          "name": "InDrctParamOpt"
         }
       ],
       "repeatable": false

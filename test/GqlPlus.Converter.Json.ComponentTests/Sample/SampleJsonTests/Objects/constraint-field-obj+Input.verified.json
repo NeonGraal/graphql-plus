@@ -10,7 +10,7 @@
           "object": "PrntCnstFieldObjInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "String"
+            "name": "String"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "object": "AltCnstFieldObjInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -31,14 +31,14 @@
           "name": "alt",
           "type": {
             "$tag": "_InputBase",
-            "input": "Number"
+            "name": "Number"
           }
         }
       ],
       "name": "AltCnstFieldObjInp",
       "parent": {
         "$tag": "_InputBase",
-        "input": "PrntCnstFieldObjInp"
+        "name": "PrntCnstFieldObjInp"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -54,18 +54,18 @@
           "object": "RefCnstFieldObjInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "AltCnstFieldObjInp"
+            "name": "AltCnstFieldObjInp"
           }
         }
       ],
       "name": "CnstFieldObjInp",
       "parent": {
         "$tag": "_InputBase",
-        "input": "RefCnstFieldObjInp",
+        "name": "RefCnstFieldObjInp",
         "typeArgs": [
           {
             "$tag": "_InputArg",
-            "input": "AltCnstFieldObjInp"
+            "name": "AltCnstFieldObjInp"
           }
         ]
       },
@@ -82,7 +82,7 @@
           "object": "PrntCnstFieldObjInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "String"
+            "name": "String"
           }
         }
       ],
@@ -91,7 +91,7 @@
           "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
-            "input": "String"
+            "name": "String"
           }
         }
       ],
@@ -134,11 +134,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntCnstFieldObjInp",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Input"
-            },
-            "typeName": "PrntCnstFieldObjInp"
+            }
           },
           "name": "ref"
         }

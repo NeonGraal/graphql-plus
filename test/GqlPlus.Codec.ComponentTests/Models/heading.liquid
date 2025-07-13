@@ -1,0 +1,14 @@
+﻿<header id="{{ label }}-{{ dec.name }}">
+  <div class="grid">
+    <div>
+      <h2>
+        <sup>{{ label }}</sup> {{ dec.name }}
+      </h2>
+    </div>
+    <div>
+      {%- if dec.aliases %}
+      <sub>Aliases:</sub> {{ dec.aliases | join: ", " }}
+      {%- endif -%}
+    </div>
+  </div>
+</header>

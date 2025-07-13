@@ -5,7 +5,7 @@ namespace GqlPlus.Verifying.Operation;
 internal class VerifyVariable
   : IVerify<IGqlpVariable>
 {
-  public void Verify(IGqlpVariable item, ITokenMessages errors)
+  public void Verify(IGqlpVariable item, IMessages errors)
   {
     IGqlpConstant? def = item.DefaultValue;
     if (def is null) {
@@ -24,7 +24,7 @@ internal class VerifyVariable
     VerifyVariableDefault("", lastModifier, def, errors);
   }
 
-  private static void VerifyVariableDefault(string label, IGqlpModifier? lastModifier, IGqlpConstant def, ITokenMessages errors)
+  private static void VerifyVariableDefault(string label, IGqlpModifier? lastModifier, IGqlpConstant def, IMessages errors)
   {
     if (lastModifier?.ModifierKind == ModifierKind.Dict && (def.Values.Any() || def.Value is not null)) {
       errors.Add(def.MakeError($"Invalid Variable definition. {label}Dictionary Type must have Object default."));
@@ -35,7 +35,7 @@ internal class VerifyVariable
     }
   }
 
-  private static void VerifyVariableNullDefault(IGqlpConstant def, ITokenMessages errors)
+  private static void VerifyVariableNullDefault(IGqlpConstant def, IMessages errors)
   {
     if (def.Value?.EnumValue == "Null.null") {
       errors.Add(def.MakeError("Invalid Variable definition. Default of 'null' must be on Optional Type."));

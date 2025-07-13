@@ -5,17 +5,17 @@ types: !_Map_Type
     - !_ObjectFor(_OutputAlternate)
       object: CnstAltDmnOutp
       type: !_OutputBase
-        output: RefCnstAltDmnOutp
+        name: RefCnstAltDmnOutp
         typeArgs:
         - !_OutputArg
-          output: DomCnstAltDmnOutp
+          name: DomCnstAltDmnOutp
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
-        output: RefCnstAltDmnOutp
+        name: RefCnstAltDmnOutp
         typeArgs:
         - !_OutputArg
-          output: DomCnstAltDmnOutp
+          name: DomCnstAltDmnOutp
     name: CnstAltDmnOutp
     typeKind: !_TypeKind Output
   !_Identifier DomCnstAltDmnOutp: !_DomainString
@@ -46,6 +46,6 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
+        name: String
         typeKind: !_TypeKind Basic
-        typeName: String
       name: ref

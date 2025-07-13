@@ -5,12 +5,12 @@ namespace GqlPlus.Verifying.Schema;
 
 public class UsageContext(
   IMap<IGqlpDescribed> types,
-  ITokenMessages errors
+  IMessages errors
 )
 {
   internal readonly HashSet<string> Used = [];
 
-  internal void Add(IEnumerable<ITokenMessage> messages)
+  internal void Add(IEnumerable<IMessage> messages)
     => errors.Add(messages);
 
   internal void AddError<TAst>(TAst item, string label, string message)
@@ -27,7 +27,7 @@ public class UsageContext(
 
   internal bool GetType(string? type, [NotNullWhen(true)] out IGqlpDescribed? value)
   {
-    if (types.TryGetValue(type ?? "", out value)) {
+    if (types.TryGetValue(type.IfWhitespace(), out value)) {
       Used.Add(type!);
       return true;
     }
@@ -55,7 +55,7 @@ public class UsageContext(
     }
 
     string message = $"'{input.UsageName}' cannot be {input.Label} of itself";
-    if (current is not null) {
+    if (!string.IsNullOrEmpty(current)) {
       message += $", even recursively via {current}";
     }
 

@@ -12,7 +12,7 @@ internal abstract class IdentifiedVerifier<TUsage, TIdentified>(
   public abstract string Label { get; }
   public abstract string UsageKey(TUsage item);
 
-  public void Verify(UsageIdentified<TUsage, TIdentified> item, ITokenMessages errors)
+  public void Verify(UsageIdentified<TUsage, TIdentified> item, IMessages errors)
   {
     Dictionary<string, TUsage> used = item.Usages.ToDictionary(UsageKey);
 

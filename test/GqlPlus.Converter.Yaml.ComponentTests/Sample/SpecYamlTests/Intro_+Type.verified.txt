@@ -5,7 +5,7 @@ errors:
   _message: In _BaseType can't get model for type '_Aliased'
 - !_Error
   _kind: !_TokenKind End
-  _message: In _TypeRef can't get model for type '_Described'
+  _message: In _TypeRef can't get model for type '_Named'
 types: !_Map_Type
   !_Identifier _BaseType: !_TypeOutput
     allFields:
@@ -21,13 +21,13 @@ types: !_Map_Type
         typeParam: kind
     name: _BaseType
     parent: !_OutputBase
-      output: _Aliased
+      name: _Aliased
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
+        name: _TypeKind
         typeKind: !_TypeKind Enum
-        typeName: _TypeKind
       name: kind
   !_Identifier _ChildType: !_TypeOutput
     allFields:
@@ -48,7 +48,7 @@ types: !_Map_Type
         typeParam: parent
     name: _ChildType
     parent: !_OutputBase
-      output: _BaseType
+      name: _BaseType
       typeArgs:
       - !_OutputArg
         typeParam: kind
@@ -56,68 +56,68 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
+        name: _TypeKind
         typeKind: !_TypeKind Enum
-        typeName: _TypeKind
       name: kind
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
+        name: _Described
         typeKind: !_TypeKind Dual
-        typeName: _Described
       name: parent
   !_Identifier _Collections: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _Collections
       type: !_OutputBase
-        output: _Modifier
+        name: _Modifier
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: List
+          name: _ModifierKind
           typeKind: !_SimpleKind Enum
-          typeName: _ModifierKind
     - !_ObjectFor(_OutputAlternate)
       object: _Collections
       type: !_OutputBase
-        output: _ModifierKeyed
+        name: _ModifierKeyed
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Dictionary
+          name: _ModifierKind
           typeKind: !_SimpleKind Enum
-          typeName: _ModifierKind
     - !_ObjectFor(_OutputAlternate)
       object: _Collections
       type: !_OutputBase
-        output: _ModifierKeyed
+        name: _ModifierKeyed
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: TypeParam
+          name: _ModifierKind
           typeKind: !_SimpleKind Enum
-          typeName: _ModifierKind
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
-        output: _Modifier
+        name: _Modifier
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: List
+          name: _ModifierKind
           typeKind: !_SimpleKind Enum
-          typeName: _ModifierKind
     - !_OutputAlternate
       type: !_OutputBase
-        output: _ModifierKeyed
+        name: _ModifierKeyed
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Dictionary
+          name: _ModifierKind
           typeKind: !_SimpleKind Enum
-          typeName: _ModifierKind
     - !_OutputAlternate
       type: !_OutputBase
-        output: _ModifierKeyed
+        name: _ModifierKeyed
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: TypeParam
+          name: _ModifierKind
           typeKind: !_SimpleKind Enum
-          typeName: _ModifierKind
     name: _Collections
     typeKind: !_TypeKind Output
   !_Identifier _Constant: !_TypeOutput
@@ -125,25 +125,25 @@ types: !_Map_Type
     - !_ObjectFor(_OutputAlternate)
       object: _Constant
       type: !_OutputBase
-        output: _SimpleValue
+        name: _SimpleValue
     - !_ObjectFor(_OutputAlternate)
       object: _Constant
       type: !_OutputBase
-        output: _ConstantList
+        name: _ConstantList
     - !_ObjectFor(_OutputAlternate)
       object: _Constant
       type: !_OutputBase
-        output: _ConstantMap
+        name: _ConstantMap
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
-        output: _SimpleValue
+        name: _SimpleValue
     - !_OutputAlternate
       type: !_OutputBase
-        output: _ConstantList
+        name: _ConstantList
     - !_OutputAlternate
       type: !_OutputBase
-        output: _ConstantMap
+        name: _ConstantMap
     name: _Constant
     typeKind: !_TypeKind Output
   !_Identifier _ConstantList: !_TypeOutput
@@ -154,14 +154,14 @@ types: !_Map_Type
         modifierKind: !_ModifierKind List
       object: _ConstantList
       type: !_OutputBase
-        output: _Constant
+        name: _Constant
     alternates:
     - !_OutputAlternate
       collections:
       - !_Modifier
         modifierKind: !_ModifierKind List
       type: !_OutputBase
-        output: _Constant
+        name: _Constant
     name: _ConstantList
     typeKind: !_TypeKind Output
   !_Identifier _ConstantMap: !_TypeOutput
@@ -169,48 +169,22 @@ types: !_Map_Type
     - !_ObjectFor(_OutputAlternate)
       collections:
       - !_ModifierDictionary
-        by: Simple
+        by: _Key
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Internal
       object: _ConstantMap
       type: !_OutputBase
-        output: _Constant
+        name: _Constant
     alternates:
     - !_OutputAlternate
       collections:
       - !_ModifierDictionary
-        by: Simple
+        by: _Key
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Internal
       type: !_OutputBase
-        output: _Constant
+        name: _Constant
     name: _ConstantMap
-    typeKind: !_TypeKind Output
-  !_Identifier _Internal: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: _Internal
-      type: !_OutputBase
-        output: Null
-    - !_ObjectFor(_OutputAlternate)
-      object: _Internal
-      type: !_OutputBase
-        output: Object
-    - !_ObjectFor(_OutputAlternate)
-      object: _Internal
-      type: !_OutputBase
-        output: Void
-    alternates:
-    - !_OutputAlternate
-      type: !_OutputBase
-        output: Null
-    - !_OutputAlternate
-      type: !_OutputBase
-        output: Object
-    - !_OutputAlternate
-      type: !_OutputBase
-        output: Void
-    name: _Internal
     typeKind: !_TypeKind Output
   !_Identifier _Modifier: !_TypeOutput
     allFields:
@@ -229,8 +203,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
+        name: _ModifierKind
         typeKind: !_TypeKind Enum
-        typeName: _ModifierKind
       name: kind
   !_Identifier _ModifierKeyed: !_TypeOutput
     allFields:
@@ -243,24 +217,24 @@ types: !_Map_Type
       name: by
       object: _ModifierKeyed
       type: !_OutputBase
-        output: _TypeSimple
+        name: _TypeSimple
     - !_ObjectFor(_OutputField)
       name: optional
       object: _ModifierKeyed
       type: !_OutputBase
-        output: Boolean
+        name: Boolean
     fields:
     - !_OutputField
       name: by
       type: !_OutputBase
-        output: _TypeSimple
+        name: _TypeSimple
     - !_OutputField
       name: optional
       type: !_OutputBase
-        output: Boolean
+        name: Boolean
     name: _ModifierKeyed
     parent: !_OutputBase
-      output: _Modifier
+      name: _Modifier
       typeArgs:
       - !_OutputArg
         typeParam: kind
@@ -268,8 +242,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
+        name: _ModifierKind
         typeKind: !_TypeKind Enum
-        typeName: _ModifierKind
       name: kind
   !_Identifier _ModifierKind: !_TypeEnum
     allItems:
@@ -307,28 +281,28 @@ types: !_Map_Type
     - !_ObjectFor(_OutputAlternate)
       object: _Modifiers
       type: !_OutputBase
-        output: _Modifier
+        name: _Modifier
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Optional
+          name: _ModifierKind
           typeKind: !_SimpleKind Enum
-          typeName: _ModifierKind
     - !_ObjectFor(_OutputAlternate)
       object: _Modifiers
       type: !_OutputBase
-        output: _Collections
+        name: _Collections
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
-        output: _Modifier
+        name: _Modifier
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Optional
+          name: _ModifierKind
           typeKind: !_SimpleKind Enum
-          typeName: _ModifierKind
     - !_OutputAlternate
       type: !_OutputBase
-        output: _Collections
+        name: _Collections
     name: _Modifiers
     typeKind: !_TypeKind Output
   !_Identifier _ParentType: !_TypeOutput
@@ -342,7 +316,7 @@ types: !_Map_Type
       name: parent
       object: _ChildType
       type: !_OutputBase
-        output: _Named
+        name: _Named
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: items
@@ -368,28 +342,28 @@ types: !_Map_Type
         typeParam: allItem
     name: _ParentType
     parent: !_OutputBase
-      output: _ChildType
+      name: _ChildType
       typeArgs:
       - !_OutputArg
         typeParam: kind
       - !_OutputArg
-        output: _Named
+        name: _Named
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
+        name: _TypeKind
         typeKind: !_TypeKind Enum
-        typeName: _TypeKind
       name: kind
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
+        name: _Described
         typeKind: !_TypeKind Dual
-        typeName: _Described
       name: item
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
+        name: _Described
         typeKind: !_TypeKind Dual
-        typeName: _Described
       name: allItem
   !_Identifier _SimpleKind: !_TypeEnum
     allItems:
@@ -426,88 +400,88 @@ types: !_Map_Type
     - !_ObjectFor(_OutputAlternate)
       object: _SimpleValue
       type: !_OutputBase
-        output: _DomainValue
+        name: _DomainValue
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Boolean
+          name: _DomainKind
           typeKind: !_SimpleKind Enum
-          typeName: _DomainKind
         - !_OutputArg
-          output: Boolean
+          name: Boolean
     - !_ObjectFor(_OutputAlternate)
       object: _SimpleValue
       type: !_OutputBase
-        output: _DomainValue
+        name: _DomainValue
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Enum
+          name: _DomainKind
           typeKind: !_SimpleKind Enum
-          typeName: _DomainKind
         - !_OutputArg
-          output: _EnumValue
+          name: _EnumValue
     - !_ObjectFor(_OutputAlternate)
       object: _SimpleValue
       type: !_OutputBase
-        output: _DomainValue
+        name: _DomainValue
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Number
+          name: _DomainKind
           typeKind: !_SimpleKind Enum
-          typeName: _DomainKind
         - !_OutputArg
-          output: Number
+          name: Number
     - !_ObjectFor(_OutputAlternate)
       object: _SimpleValue
       type: !_OutputBase
-        output: _DomainValue
+        name: _DomainValue
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: String
+          name: _DomainKind
           typeKind: !_SimpleKind Enum
-          typeName: _DomainKind
         - !_OutputArg
-          output: String
+          name: String
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
-        output: _DomainValue
+        name: _DomainValue
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Boolean
+          name: _DomainKind
           typeKind: !_SimpleKind Enum
-          typeName: _DomainKind
         - !_OutputArg
-          output: Boolean
+          name: Boolean
     - !_OutputAlternate
       type: !_OutputBase
-        output: _DomainValue
+        name: _DomainValue
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Enum
+          name: _DomainKind
           typeKind: !_SimpleKind Enum
-          typeName: _DomainKind
         - !_OutputArg
-          output: _EnumValue
+          name: _EnumValue
     - !_OutputAlternate
       type: !_OutputBase
-        output: _DomainValue
+        name: _DomainValue
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Number
+          name: _DomainKind
           typeKind: !_SimpleKind Enum
-          typeName: _DomainKind
         - !_OutputArg
-          output: Number
+          name: Number
     - !_OutputAlternate
       type: !_OutputBase
-        output: _DomainValue
+        name: _DomainValue
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: String
+          name: _DomainKind
           typeKind: !_SimpleKind Enum
-          typeName: _DomainKind
         - !_OutputArg
-          output: String
+          name: String
     name: _SimpleValue
     typeKind: !_TypeKind Output
   !_Identifier _Type: !_TypeOutput
@@ -515,80 +489,80 @@ types: !_Map_Type
     - !_ObjectFor(_OutputAlternate)
       object: _Type
       type: !_OutputBase
-        output: _BaseType
+        name: _BaseType
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Basic
+          name: _TypeKind
           typeKind: !_SimpleKind Enum
-          typeName: _TypeKind
     - !_ObjectFor(_OutputAlternate)
       object: _Type
       type: !_OutputBase
-        output: _BaseType
+        name: _BaseType
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Internal
+          name: _TypeKind
           typeKind: !_SimpleKind Enum
-          typeName: _TypeKind
     - !_ObjectFor(_OutputAlternate)
       object: _Type
       type: !_OutputBase
-        output: _TypeDual
+        name: _TypeDual
     - !_ObjectFor(_OutputAlternate)
       object: _Type
       type: !_OutputBase
-        output: _TypeEnum
+        name: _TypeEnum
     - !_ObjectFor(_OutputAlternate)
       object: _Type
       type: !_OutputBase
-        output: _TypeInput
+        name: _TypeInput
     - !_ObjectFor(_OutputAlternate)
       object: _Type
       type: !_OutputBase
-        output: _TypeOutput
+        name: _TypeOutput
     - !_ObjectFor(_OutputAlternate)
       object: _Type
       type: !_OutputBase
-        output: _TypeDomain
+        name: _TypeDomain
     - !_ObjectFor(_OutputAlternate)
       object: _Type
       type: !_OutputBase
-        output: _TypeUnion
+        name: _TypeUnion
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
-        output: _BaseType
+        name: _BaseType
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Basic
+          name: _TypeKind
           typeKind: !_SimpleKind Enum
-          typeName: _TypeKind
     - !_OutputAlternate
       type: !_OutputBase
-        output: _BaseType
+        name: _BaseType
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Internal
+          name: _TypeKind
           typeKind: !_SimpleKind Enum
-          typeName: _TypeKind
     - !_OutputAlternate
       type: !_OutputBase
-        output: _TypeDual
+        name: _TypeDual
     - !_OutputAlternate
       type: !_OutputBase
-        output: _TypeEnum
+        name: _TypeEnum
     - !_OutputAlternate
       type: !_OutputBase
-        output: _TypeInput
+        name: _TypeInput
     - !_OutputAlternate
       type: !_OutputBase
-        output: _TypeOutput
+        name: _TypeOutput
     - !_OutputAlternate
       type: !_OutputBase
-        output: _TypeDomain
+        name: _TypeDomain
     - !_OutputAlternate
       type: !_OutputBase
-        output: _TypeUnion
+        name: _TypeUnion
     name: _Type
     typeKind: !_TypeKind Output
   !_Identifier _TypeKind: !_TypeEnum
@@ -626,8 +600,8 @@ types: !_Map_Type
       name: Output
     name: _TypeKind
     parent: !_TypeRef(_SimpleKind)
+      name: _SimpleKind
       typeKind: !_SimpleKind Enum
-      typeName: _SimpleKind
     typeKind: !_TypeKind Enum
   !_Identifier _TypeRef: !_TypeOutput
     allFields:
@@ -636,100 +610,91 @@ types: !_Map_Type
       object: _TypeRef
       type: !_OutputBase
         typeParam: kind
-    - !_ObjectFor(_OutputField)
-      name: typeName
-      object: _TypeRef
-      type: !_OutputBase
-        output: _Identifier
     fields:
     - !_OutputField
       name: typeKind
       type: !_OutputBase
         typeParam: kind
-    - !_OutputField
-      name: typeName
-      type: !_OutputBase
-        output: _Identifier
     name: _TypeRef
-    parent: !_DualBase
-      dual: _Described
+    parent: !_OutputBase
+      name: _Named
     typeKind: !_TypeKind Output
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
+        name: _TypeKind
         typeKind: !_TypeKind Enum
-        typeName: _TypeKind
       name: kind
   !_Identifier _TypeSimple: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _TypeSimple
       type: !_OutputBase
-        output: _TypeRef
+        name: _TypeRef
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Basic
+          name: _TypeKind
           typeKind: !_SimpleKind Enum
-          typeName: _TypeKind
     - !_ObjectFor(_OutputAlternate)
       object: _TypeSimple
       type: !_OutputBase
-        output: _TypeRef
+        name: _TypeRef
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Enum
+          name: _TypeKind
           typeKind: !_SimpleKind Enum
-          typeName: _TypeKind
     - !_ObjectFor(_OutputAlternate)
       object: _TypeSimple
       type: !_OutputBase
-        output: _TypeRef
+        name: _TypeRef
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Domain
+          name: _TypeKind
           typeKind: !_SimpleKind Enum
-          typeName: _TypeKind
     - !_ObjectFor(_OutputAlternate)
       object: _TypeSimple
       type: !_OutputBase
-        output: _TypeRef
+        name: _TypeRef
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Union
+          name: _TypeKind
           typeKind: !_SimpleKind Enum
-          typeName: _TypeKind
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
-        output: _TypeRef
+        name: _TypeRef
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Basic
+          name: _TypeKind
           typeKind: !_SimpleKind Enum
-          typeName: _TypeKind
     - !_OutputAlternate
       type: !_OutputBase
-        output: _TypeRef
+        name: _TypeRef
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Enum
+          name: _TypeKind
           typeKind: !_SimpleKind Enum
-          typeName: _TypeKind
     - !_OutputAlternate
       type: !_OutputBase
-        output: _TypeRef
+        name: _TypeRef
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Domain
+          name: _TypeKind
           typeKind: !_SimpleKind Enum
-          typeName: _TypeKind
     - !_OutputAlternate
       type: !_OutputBase
-        output: _TypeRef
+        name: _TypeRef
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Union
+          name: _TypeKind
           typeKind: !_SimpleKind Enum
-          typeName: _TypeKind
     name: _TypeSimple
     typeKind: !_TypeKind Output

@@ -72,8 +72,8 @@ public class GqlModelGenerator : IIncrementalGenerator
       schemaGenerator.Generate(merged, context);
 
       sourceContext.AddSource("Model_" + context.File + ".gen.cs", context.ToString());
-      foreach (ITokenMessage error in merged.Errors) {
-        LinePosition at = new(error.Line, error.Column);
+      foreach (IMessage error in merged.Errors) {
+        LinePosition at = error is ITokenMessage token ? new(token.Line, token.Column) : default;
         Location location = Location.Create(text.Path, default, new(at, at));
         Diagnostic diagnostic = Diagnostic.Create(
                        new DiagnosticDescriptor(

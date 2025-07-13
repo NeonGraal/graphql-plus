@@ -10,7 +10,7 @@
           "object": "ObjAltOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "ObjAltOutpType"
+            "name": "ObjAltOutpType"
           }
         }
       ],
@@ -19,7 +19,7 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "ObjAltOutpType"
+            "name": "ObjAltOutpType"
           }
         }
       ],

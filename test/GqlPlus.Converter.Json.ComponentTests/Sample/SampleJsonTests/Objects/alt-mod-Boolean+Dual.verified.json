@@ -10,7 +10,7 @@
           "object": "AltAltModBoolDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "object": "AltAltModBoolDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -30,7 +30,7 @@
           "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -40,7 +40,7 @@
           "name": "alt",
           "type": {
             "$tag": "_DualBase",
-            "dual": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -72,7 +72,7 @@
           "object": "AltModBoolDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "AltAltModBoolDual"
+            "name": "AltAltModBoolDual"
           }
         }
       ],
@@ -95,7 +95,7 @@
           ],
           "type": {
             "$tag": "_DualBase",
-            "dual": "AltAltModBoolDual"
+            "name": "AltAltModBoolDual"
           }
         }
       ],

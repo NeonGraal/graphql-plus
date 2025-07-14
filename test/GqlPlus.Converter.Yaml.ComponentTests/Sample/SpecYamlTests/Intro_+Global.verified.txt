@@ -15,38 +15,38 @@ types: !_Map_Type
     - !_ObjectFor(_OutputAlternate)
       object: _Categories
       type: !_OutputBase
-        output: _Category
+        name: _Category
     - !_ObjectFor(_OutputAlternate)
       object: _Categories
       type: !_OutputBase
-        output: _Type
+        name: _Type
     allFields:
     - !_ObjectFor(_OutputField)
       name: category
       object: _Categories
       type: !_OutputBase
-        output: _Category
+        name: _Category
     - !_ObjectFor(_OutputField)
       name: type
       object: _Categories
       type: !_OutputBase
-        output: _Type
+        name: _Type
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
-        output: _Category
+        name: _Category
     - !_OutputAlternate
       type: !_OutputBase
-        output: _Type
+        name: _Type
     fields:
     - !_OutputField
       name: category
       type: !_OutputBase
-        output: _Category
+        name: _Category
     - !_OutputField
       name: type
       type: !_OutputBase
-        output: _Type
+        name: _Type
     name: _Categories
     typeKind: !_TypeKind Output
   !_Identifier _Category: !_TypeOutput
@@ -55,45 +55,45 @@ types: !_Map_Type
       name: resolution
       object: _Category
       type: !_OutputBase
-        output: _Resolution
+        name: _Resolution
     - !_ObjectFor(_OutputField)
-      name: output
+      name: name
       object: _Category
       type: !_OutputBase
-        output: _TypeRef
+        name: _TypeRef
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Output
+          name: _TypeKind
           typeKind: !_SimpleKind Enum
-          typeName: _TypeKind
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
       object: _Category
       type: !_OutputBase
-        output: _Modifiers
+        name: _Modifiers
     fields:
     - !_OutputField
       name: resolution
       type: !_OutputBase
-        output: _Resolution
+        name: _Resolution
     - !_OutputField
-      name: output
+      name: name
       type: !_OutputBase
-        output: _TypeRef
+        name: _TypeRef
         typeArgs:
-        - !_OutputArg
+        - !_TypeRef(_SimpleKind)
           label: Output
+          name: _TypeKind
           typeKind: !_SimpleKind Enum
-          typeName: _TypeKind
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
       type: !_OutputBase
-        output: _Modifiers
+        name: _Modifiers
     name: _Category
     parent: !_OutputBase
-      output: _Aliased
+      name: _Aliased
     typeKind: !_TypeKind Output
   !_Identifier _Directive: !_TypeOutput
     allFields:
@@ -102,76 +102,76 @@ types: !_Map_Type
       name: parameters
       object: _Directive
       type: !_OutputBase
-        output: _InputParam
+        name: _InputParam
     - !_ObjectFor(_OutputField)
       name: repeatable
       object: _Directive
       type: !_OutputBase
-        output: Boolean
+        name: Boolean
     - !_ObjectFor(_OutputField)
       modifiers: [!_ModifierDictionary {by: _Location, modifierKind: !_ModifierKind Dict,
           typeKind: !_SimpleKind Enum}]
       name: locations
       object: _Directive
       type: !_OutputBase
-        output: _
+        name: _
     fields:
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: parameters
       type: !_OutputBase
-        output: _InputParam
+        name: _InputParam
     - !_OutputField
       name: repeatable
       type: !_OutputBase
-        output: Boolean
+        name: Boolean
     - !_OutputField
       modifiers: [!_ModifierDictionary {by: _Location, modifierKind: !_ModifierKind Dict,
           typeKind: !_SimpleKind Enum}]
       name: locations
       type: !_OutputBase
-        output: _
+        name: _
     name: _Directive
     parent: !_OutputBase
-      output: _Aliased
+      name: _Aliased
     typeKind: !_TypeKind Output
   !_Identifier _Directives: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _Directives
       type: !_OutputBase
-        output: _Directive
+        name: _Directive
     - !_ObjectFor(_OutputAlternate)
       object: _Directives
       type: !_OutputBase
-        output: _Type
+        name: _Type
     allFields:
     - !_ObjectFor(_OutputField)
       name: directive
       object: _Directives
       type: !_OutputBase
-        output: _Directive
+        name: _Directive
     - !_ObjectFor(_OutputField)
       name: type
       object: _Directives
       type: !_OutputBase
-        output: _Type
+        name: _Type
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
-        output: _Directive
+        name: _Directive
     - !_OutputAlternate
       type: !_OutputBase
-        output: _Type
+        name: _Type
     fields:
     - !_OutputField
       name: directive
       type: !_OutputBase
-        output: _Directive
+        name: _Directive
     - !_OutputField
       name: type
       type: !_OutputBase
-        output: _Type
+        name: _Type
     name: _Directives
     typeKind: !_TypeKind Output
   !_Identifier _Location: !_TypeEnum
@@ -235,13 +235,13 @@ types: !_Map_Type
       name: value
       object: _Setting
       type: !_OutputBase
-        output: _Constant
+        name: _Constant
     fields:
     - !_OutputField
       name: value
       type: !_OutputBase
-        output: _Constant
+        name: _Constant
     name: _Setting
     parent: !_OutputBase
-      output: _Named
+      name: _Named
     typeKind: !_TypeKind Output

@@ -10,7 +10,7 @@
           "object": "AltDualDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "ObjDualAltDualDual"
+            "name": "ObjDualAltDualDual"
           }
         }
       ],
@@ -19,7 +19,7 @@
           "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
-            "dual": "ObjDualAltDualDual"
+            "name": "ObjDualAltDualDual"
           }
         }
       ],
@@ -37,7 +37,7 @@
           "object": "ObjDualAltDualDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -48,7 +48,7 @@
           "object": "ObjDualAltDualDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -57,7 +57,7 @@
           "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -67,7 +67,7 @@
           "name": "alt",
           "type": {
             "$tag": "_DualBase",
-            "dual": "Number"
+            "name": "Number"
           }
         }
       ],

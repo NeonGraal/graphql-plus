@@ -4,7 +4,7 @@ namespace GqlPlus.Abstractions;
 
 public interface IGqlpError
 {
-  ITokenMessages MakeError(string message);
+  IMessages MakeError(string message);
 }
 
 public interface IGqlpAbbreviated

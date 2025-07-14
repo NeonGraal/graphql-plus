@@ -29,6 +29,56 @@ public class ParseOutputArgsTests
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpOutputArg>>();
   }
 
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnOutputArg_WhenValidEnum(string argType, string argLabel)
+  {
+    // Arrange
+    TakeReturns('<', true);
+    IdentifierReturns(OutString(argType), OutString(argLabel), OutFail);
+    TakeReturns('.', true);
+    TakeReturns('>', true);
+
+    // Act
+    IResultArray<IGqlpOutputArg> result = _parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpOutputArg>>();
+  }
+
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenTypeParamEnum(string argType)
+  {
+    // Arrange
+    TakeReturns('<', true);
+    IdentifierReturns(OutFail);
+    PrefixReturns('$', OutStringAt(argType));
+    TakeReturns('.', true);
+    SetupError<IGqlpOutputArg>();
+
+
+    // Act
+    IResultArray<IGqlpOutputArg> result = _parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultError>();
+  }
+
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenErrorEnum(string argType)
+  {
+    // Arrange
+    TakeReturns('<', true);
+    IdentifierReturns(OutString(argType));
+    TakeReturns('.', true);
+    SetupError<IGqlpOutputArg>();
+
+    // Act
+    IResultArray<IGqlpOutputArg> result = _parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultError>();
+  }
+
   [Fact]
   public void Parse_ShouldReturnEmpty_WhenNoArgs()
   {

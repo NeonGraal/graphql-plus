@@ -8,7 +8,7 @@ public class TypeDualResolverParentTests
   protected override DualBaseModel MakeBase(string name, string description = "", params DualArgModel[] args)
     => new(name, description) { Args = args };
   protected override DualArgModel NewArg(string argument, bool isParam = false)
-    => new(argument, "") { IsTypeParam = isParam };
+    => new(TypeKindModel.Dual, argument, "") { IsTypeParam = isParam };
   protected override TypeDualModel NewModel(string name, string description)
     => new(name, description);
   protected override DualBaseModel NewParam(string paramName)

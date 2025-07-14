@@ -1,0 +1,50 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier PrntParamSameDual: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_DualAlternate)
+        object: RefPrntParamSameDual
+        type: !_DualBase
+          typeParam: a
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: field
+        object: PrntParamSameDual
+        type: !_DualBase
+          typeParam: a
+    fields:
+      - !_DualField
+        name: field
+        type: !_DualBase
+          typeParam: a
+    name: PrntParamSameDual
+    parent: !_DualBase
+      name: RefPrntParamSameDual
+      typeArgs:
+        - !_DualArg
+          typeParam: a
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: a
+  !_Identifier RefPrntParamSameDual: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_DualAlternate)
+        object: RefPrntParamSameDual
+        type: !_DualBase
+          typeParam: a
+    alternates:
+      - !_DualAlternate
+        type: !_DualBase
+          typeParam: a
+    name: RefPrntParamSameDual
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: a

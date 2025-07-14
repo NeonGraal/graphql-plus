@@ -3,16 +3,16 @@ types: !_Map_Type
   !_Identifier InpFieldNmbr: !_TypeInput
     allFields:
     - !_ObjectFor(_InputField)
-      default: 0
+      default: 42
       name: field
       object: InpFieldNmbr
       type: !_InputBase
-        input: Number
+        name: Number
     fields:
     - !_InputField
-      default: 0
+      default: 42
       name: field
       type: !_InputBase
-        input: Number
+        name: Number
     name: InpFieldNmbr
     typeKind: !_TypeKind Input

@@ -1,0 +1,31 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier ObjParamDupDual: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: test
+        object: ObjParamDupDual
+        type: !_DualBase
+          typeParam: test
+      - !_ObjectFor(_DualField)
+        name: type
+        object: ObjParamDupDual
+        type: !_DualBase
+          typeParam: test
+    fields:
+      - !_DualField
+        name: test
+        type: !_DualBase
+          typeParam: test
+      - !_DualField
+        name: type
+        type: !_DualBase
+          typeParam: test
+    name: ObjParamDupDual
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: test

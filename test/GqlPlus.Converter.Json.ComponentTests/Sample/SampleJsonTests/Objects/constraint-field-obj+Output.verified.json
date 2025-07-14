@@ -10,7 +10,7 @@
           "object": "PrntCnstFieldObjOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "String"
+            "name": "String"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "object": "AltCnstFieldObjOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -31,14 +31,14 @@
           "name": "alt",
           "type": {
             "$tag": "_OutputBase",
-            "output": "Number"
+            "name": "Number"
           }
         }
       ],
       "name": "AltCnstFieldObjOutp",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "PrntCnstFieldObjOutp"
+        "name": "PrntCnstFieldObjOutp"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -54,18 +54,18 @@
           "object": "RefCnstFieldObjOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "AltCnstFieldObjOutp"
+            "name": "AltCnstFieldObjOutp"
           }
         }
       ],
       "name": "CnstFieldObjOutp",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "RefCnstFieldObjOutp",
+        "name": "RefCnstFieldObjOutp",
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "output": "AltCnstFieldObjOutp"
+            "name": "AltCnstFieldObjOutp"
           }
         ]
       },
@@ -82,7 +82,7 @@
           "object": "PrntCnstFieldObjOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "String"
+            "name": "String"
           }
         }
       ],
@@ -91,7 +91,7 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "String"
+            "name": "String"
           }
         }
       ],
@@ -134,11 +134,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntCnstFieldObjOutp",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Output"
-            },
-            "typeName": "PrntCnstFieldObjOutp"
+            }
           },
           "name": "ref"
         }

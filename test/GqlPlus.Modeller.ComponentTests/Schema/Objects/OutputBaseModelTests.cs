@@ -18,13 +18,13 @@ public class OutputBaseModelTests(
 
 internal sealed class OutputBaseModelChecks(
   IModeller<IGqlpOutputBase, OutputBaseModel> modeller,
-  IRenderer<OutputBaseModel> rendering
-) : CheckObjBaseModel<IGqlpOutputBase, IGqlpOutputArg, OutputBaseAst, OutputArgAst, OutputBaseModel>(modeller, rendering, TypeKindModel.Output)
+  IEncoder<OutputBaseModel> encoding
+) : CheckObjBaseModel<IGqlpOutputBase, IGqlpOutputArg, OutputBaseAst, OutputArgAst, OutputBaseModel>(modeller, encoding, TypeKindModel.Output)
   , IOutputBaseModelChecks
 {
   public string[] ExpectedEnumArgs(string[] arguments, string enumLabel)
     => [.. ItemsExpected("typeArgs:", arguments,
-      a => ["  - !_OutputArg", "    label: " + enumLabel, "    typeKind: !_SimpleKind Enum", "    typeName: " + a])];
+      a => ["  - !_TypeRef(_SimpleKind)", "    label: " + enumLabel, "    name: " + a, "    typeKind: !_SimpleKind Enum"])];
 
   protected override OutputBaseAst NewObjBaseAst(string input, bool isTypeParam, IGqlpOutputArg[] args)
     => new(AstNulls.At, input) {

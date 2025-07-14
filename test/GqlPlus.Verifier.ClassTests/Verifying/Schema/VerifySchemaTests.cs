@@ -45,4 +45,15 @@ public class VerifySchemaTests
 
     Errors.ShouldBeEmpty();
   }
+
+  [Fact]
+  public void Verify_Schema_WithOutputDeclaration_ReturnsNoErrors()
+  {
+    IGqlpOutputObject output = A.Of<IGqlpOutputObject, IGqlpType>();
+    _schema.Declarations.Returns([output]);
+
+    _verifier.Verify(_schema, Errors);
+
+    Errors.ShouldBeEmpty();
+  }
 }

@@ -16,7 +16,7 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
   where TObjArg : IGqlpObjArg
   where TContext : EnumContext
 {
-  private readonly ILogger _logger = verifiers.Logger.CreateLogger(nameof(AstParentItemVerifier<TObject, IGqlpObjBase, TContext, IGqlpTypeParam>));
+  private readonly ILogger _logger = verifiers.Logger.CreateTypedLogger<AstParentItemVerifier<TObject, IGqlpObjBase, TContext, IGqlpTypeParam>>();
 
   private readonly Matcher<TObjArg>.L _constraintMatcher = verifiers.ConstraintMatcher;
 
@@ -240,7 +240,7 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
 
     TObjAlt[] alternates = [.. GetParentItems(input, input.Usage, context, ast => ast.ObjAlternates)];
     if (alternates.Length > 0) {
-      ITokenMessages failures = verifiers.MergeAlternates.CanMerge(alternates);
+      IMessages failures = verifiers.MergeAlternates.CanMerge(alternates);
       if (failures.Any()) {
         context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} alternates into Parent {input.Parent} alternates");
         context.Add(failures);

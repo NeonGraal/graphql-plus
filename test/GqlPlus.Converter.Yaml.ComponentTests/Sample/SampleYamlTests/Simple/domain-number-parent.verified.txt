@@ -17,8 +17,8 @@ types: !_Map_Type
       from: 2
     name: DmnNmbrPrnt
     parent: !_TypeRef(_SimpleKind)
+      name: PrntDmnNmbrPrnt
       typeKind: !_SimpleKind Domain
-      typeName: PrntDmnNmbrPrnt
     typeKind: !_TypeKind Domain
   !_Identifier PrntDmnNmbrPrnt: !_DomainNumber
     allItems:

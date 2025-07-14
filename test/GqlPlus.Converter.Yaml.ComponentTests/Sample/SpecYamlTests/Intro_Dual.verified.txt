@@ -22,79 +22,57 @@ types: !_Map_Type
   !_Identifier _DualAlternate: !_TypeOutput
     name: _DualAlternate
     parent: !_OutputBase
-      output: _Alternate
+      name: _Alternate
       typeArgs:
       - !_OutputArg
-        output: _DualBase
+        name: _DualBase
     typeKind: !_TypeKind Output
   !_Identifier _DualBase: !_TypeOutput
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: dual
-      object: _DualBase
-      type: !_OutputBase
-        output: _Identifier
-    fields:
-    - !_OutputField
-      name: dual
-      type: !_OutputBase
-        output: _Identifier
     name: _DualBase
     parent: !_OutputBase
-      output: _ObjBase
+      name: _ObjBase
       typeArgs:
       - !_OutputArg
-        output: _DualTypeArg
+        name: _DualTypeArg
     typeKind: !_TypeKind Output
   !_Identifier _DualField: !_TypeOutput
     name: _DualField
     parent: !_OutputBase
-      output: _Field
+      name: _Field
       typeArgs:
       - !_OutputArg
-        output: _DualBase
+        name: _DualBase
     typeKind: !_TypeKind Output
   !_Identifier _DualTypeArg: !_TypeOutput
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: dual
-      object: _DualTypeArg
-      type: !_OutputBase
-        output: _Identifier
-    fields:
-    - !_OutputField
-      name: dual
-      type: !_OutputBase
-        output: _Identifier
     name: _DualTypeArg
     parent: !_OutputBase
-      output: _ObjTypeArg
+      name: _ObjTypeArg
     typeKind: !_TypeKind Output
   !_Identifier _DualTypeParam: !_TypeOutput
     name: _DualTypeParam
     parent: !_OutputBase
-      output: _ObjTypeParam
+      name: _ObjTypeParam
       typeArgs:
-      - !_OutputArg
+      - !_TypeRef(_SimpleKind)
         label: Dual
+        name: _TypeKind
         typeKind: !_SimpleKind Enum
-        typeName: _TypeKind
     typeKind: !_TypeKind Output
   !_Identifier _TypeDual: !_TypeOutput
     name: _TypeDual
     parent: !_OutputBase
-      output: _TypeObject
+      name: _TypeObject
       typeArgs:
-      - !_OutputArg
+      - !_TypeRef(_SimpleKind)
         label: Dual
+        name: _TypeKind
         typeKind: !_SimpleKind Enum
-        typeName: _TypeKind
       - !_OutputArg
-        output: _DualBase
+        name: _DualBase
       - !_OutputArg
-        output: _DualTypeParam
+        name: _DualTypeParam
       - !_OutputArg
-        output: _DualField
+        name: _DualField
       - !_OutputArg
-        output: _DualAlternate
+        name: _DualAlternate
     typeKind: !_TypeKind Output

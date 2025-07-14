@@ -38,7 +38,7 @@ internal class VerifyOutputTypes(
     }
   }
 
-  protected override OutputContext MakeContext(IGqlpOutputObject usage, IGqlpType[] aliased, ITokenMessages errors)
+  protected override OutputContext MakeContext(IGqlpOutputObject usage, IGqlpType[] aliased, IMessages errors)
   {
     Map<IGqlpDescribed> validTypes = aliased.AliasedGroup()
       .Select(p => (Id: p.Key, Type: (IGqlpDescribed)p.First()))

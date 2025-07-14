@@ -1,24 +1,16 @@
-﻿using System.Reflection;
-using DiffEngine;
+﻿using DiffEngine;
 using GqlPlus.Abstractions.Schema;
-using GqlPlus.Convert;
 using GqlPlus.Schema.Globals;
 using GqlPlus.Schema.Objects;
 using GqlPlus.Schema.Simple;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.FileProviders;
 
 namespace GqlPlus.Schema;
 
 public static class Startup
 {
   static Startup()
-  {
-    DiffRunner.MaxInstancesToLaunch(20);
-    RenderFluid.Setup(
-        new EmbeddedFileProvider(Assembly.GetExecutingAssembly(),
-          "GqlPlus.Models"));
-  }
+    => DiffRunner.MaxInstancesToLaunch(20);
 
   public static void ConfigureServices(IServiceCollection services)
     => services

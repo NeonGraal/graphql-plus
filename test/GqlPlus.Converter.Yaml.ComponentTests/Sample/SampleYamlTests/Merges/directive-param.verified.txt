@@ -5,7 +5,7 @@ directives: !_Map_Directives
     name: DrctParam
     parameters:
     - !_InputParam
-      input: InDrctParam
+      name: InDrctParam
     repeatable: false
 types: !_Map_Type
   !_Identifier InDrctParam: !_TypeInput

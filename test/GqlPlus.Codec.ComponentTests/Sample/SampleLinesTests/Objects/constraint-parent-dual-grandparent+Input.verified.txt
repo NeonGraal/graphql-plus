@@ -1,0 +1,75 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier AltCnstPrntDualGrndInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_DualAlternate)
+        object: GrndCnstPrntDualGrndInp
+        type: !_DualBase
+          name: String
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: alt
+        object: AltCnstPrntDualGrndInp
+        type: !_InputBase
+          name: Number
+    fields:
+      - !_InputField
+        name: alt
+        type: !_InputBase
+          name: Number
+    name: AltCnstPrntDualGrndInp
+    parent: !_DualBase
+      name: PrntCnstPrntDualGrndInp
+    typeKind: !_TypeKind Input
+  !_Identifier CnstPrntDualGrndInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_DualAlternate)
+        object: GrndCnstPrntDualGrndInp
+        type: !_DualBase
+          name: String
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: alt
+        object: AltCnstPrntDualGrndInp
+        type: !_InputBase
+          name: Number
+    name: CnstPrntDualGrndInp
+    parent: !_InputBase
+      name: RefCnstPrntDualGrndInp
+      typeArgs:
+        - !_InputArg
+          name: AltCnstPrntDualGrndInp
+    typeKind: !_TypeKind Input
+  !_Identifier GrndCnstPrntDualGrndInp: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_DualAlternate)
+        object: GrndCnstPrntDualGrndInp
+        type: !_DualBase
+          name: String
+    alternates:
+      - !_DualAlternate
+        type: !_DualBase
+          name: String
+    name: GrndCnstPrntDualGrndInp
+    typeKind: !_TypeKind Dual
+  !_Identifier PrntCnstPrntDualGrndInp: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_DualAlternate)
+        object: GrndCnstPrntDualGrndInp
+        type: !_DualBase
+          name: String
+    name: PrntCnstPrntDualGrndInp
+    parent: !_DualBase
+      name: GrndCnstPrntDualGrndInp
+    typeKind: !_TypeKind Dual
+  !_Identifier RefCnstPrntDualGrndInp: !_TypeInput
+    name: RefCnstPrntDualGrndInp
+    parent: !_InputBase
+      typeParam: ref
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: GrndCnstPrntDualGrndInp
+          typeKind: !_TypeKind Dual
+        name: ref

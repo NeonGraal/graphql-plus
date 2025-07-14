@@ -4,7 +4,6 @@ output _TypeInput {
 
 output _InputBase {
     : _ObjBase<_InputTypeArg>
-        input: _Identifier
     | _DualBase
     }
 
@@ -24,7 +23,6 @@ output _InputAlternate {
 
 output _InputTypeArg {
     : _ObjTypeArg
-        input: _Identifier
     }
 
 output _InputParam {

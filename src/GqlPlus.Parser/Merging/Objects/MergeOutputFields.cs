@@ -12,7 +12,7 @@ internal class MergeOutputFields(
   protected override string ItemMatchKey(IGqlpOutputField item)
     => item.ModifiedType + item.EnumLabel.Prefixed(".");
 
-  protected override ITokenMessages CanMergeGroup(IGrouping<string, IGqlpOutputField> group)
+  protected override IMessages CanMergeGroup(IGrouping<string, IGqlpOutputField> group)
     => base.CanMergeGroup(group)
       .Add(group.ManyCanMerge(item => item.Params, parameters));
   protected override IGqlpOutputField MergeGroup(IEnumerable<IGqlpOutputField> group)

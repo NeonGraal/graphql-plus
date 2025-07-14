@@ -1101,6 +1101,159 @@ Success
 }
 {
   !Du I@006/0001
+  CnstPrntDualGrndDual
+  :
+  I@030/0001
+  RefCnstPrntDualGrndDual
+  <
+    I@054/0001
+    AltCnstPrntDualGrndDual
+  >
+}
+{
+  !Du I@006/0002
+  RefCnstPrntDualGrndDual
+  <
+    I@031/0002
+    $ref
+    :GrndCnstPrntDualGrndDual
+  >
+  :
+  I@065/0002
+  $ref
+}
+{
+  !Du I@006/0003
+  GrndCnstPrntDualGrndDual
+  |
+  I@035/0003
+  String
+}
+{
+  !Du I@006/0004
+  PrntCnstPrntDualGrndDual
+  :
+  I@034/0004
+  GrndCnstPrntDualGrndDual
+}
+{
+  !Du I@006/0005
+  AltCnstPrntDualGrndDual
+  :
+  I@033/0005
+  PrntCnstPrntDualGrndDual
+  {
+    !DF I@058/0005
+    alt
+    :
+    I@063/0005
+    Number
+  }
+}
+{
+  !In I@007/0001
+  CnstPrntDualGrndInp
+  :
+  I@030/0001
+  RefCnstPrntDualGrndInp
+  <
+    I@053/0001
+    AltCnstPrntDualGrndInp
+  >
+}
+{
+  !In I@007/0002
+  RefCnstPrntDualGrndInp
+  <
+    I@031/0002
+    $ref
+    :GrndCnstPrntDualGrndInp
+  >
+  :
+  I@064/0002
+  $ref
+}
+{
+  !Du I@006/0003
+  GrndCnstPrntDualGrndInp
+  |
+  I@034/0003
+  String
+}
+{
+  !Du I@006/0004
+  PrntCnstPrntDualGrndInp
+  :
+  I@033/0004
+  GrndCnstPrntDualGrndInp
+}
+{
+  !In I@007/0005
+  AltCnstPrntDualGrndInp
+  :
+  I@033/0005
+  PrntCnstPrntDualGrndInp
+  {
+    !IF I@057/0005
+    alt
+    :
+    I@062/0005
+    Number
+  }
+}
+{
+  !Ou I@008/0001
+  CnstPrntDualGrndOutp
+  :
+  I@032/0001
+  RefCnstPrntDualGrndOutp
+  <
+    I@056/0001
+    AltCnstPrntDualGrndOutp
+  >
+}
+{
+  !Ou I@008/0002
+  RefCnstPrntDualGrndOutp
+  <
+    I@033/0002
+    $ref
+    :GrndCnstPrntDualGrndOutp
+  >
+  :
+  I@067/0002
+  $ref
+}
+{
+  !Du I@006/0003
+  GrndCnstPrntDualGrndOutp
+  |
+  I@035/0003
+  String
+}
+{
+  !Du I@006/0004
+  PrntCnstPrntDualGrndOutp
+  :
+  I@034/0004
+  GrndCnstPrntDualGrndOutp
+}
+{
+  !Ou I@008/0005
+  AltCnstPrntDualGrndOutp
+  :
+  I@035/0005
+  PrntCnstPrntDualGrndOutp
+  {
+    !OF I@060/0005
+    alt
+    :
+    I@065/0005
+    Number
+  }
+}
+{
+  !Du I@006/0001
   CnstPrntDualPrntDual
   :
   I@030/0001
@@ -4007,7 +4160,7 @@ Success
     :
     I@049/0001
     Number
-    =( !k N@058/0001 0 )
+    =( !k N@058/0001 42 )
   }
 }
 {
@@ -4054,7 +4207,7 @@ Success
     :
     I@029/0001
     Number
-    =( !k N@038/0001 0 )
+    =( !k N@038/0001 42 )
   }
 }
 {
@@ -4067,7 +4220,7 @@ Success
     'Test Descr'
     I@049/0001
     Number
-    =( !k N@058/0001 0 )
+    =( !k N@058/0001 42 )
   }
 }
 {
@@ -4079,7 +4232,7 @@ Success
     :
     I@028/0001
     String
-    =( !k S@037/0001 '' )
+    =( !k S@037/0001 'default' )
   }
 }
 {

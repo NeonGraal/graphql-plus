@@ -56,6 +56,13 @@ Success
   DescrBtwn
 }
 {
+  !Ca P@010/0002
+  cat
+  (Parallel)
+  !Tr I@012/0002
+  Cat
+}
+{
   'A directive described'
   !Di I@012/0002
   DrctDescr
@@ -114,6 +121,11 @@ Success
   )
   (Unique)
   All
+}
+{
+  !SO I@011/0001
+  Op
+  cat
 }
 {
   !Op I@008/0001
@@ -205,5 +217,9 @@ Success
 {
   !In I@007/0002
   InDrctParamOpt
+}
+{
+  !Ou I@008/0003
+  Cat
 }
 ]

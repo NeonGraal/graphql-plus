@@ -106,7 +106,7 @@
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "name",
+          "name": "output",
           "object": "_Category",
           "type": {
             "$tag": "_OutputBase",
@@ -154,7 +154,7 @@
         },
         {
           "$tag": "_OutputField",
-          "name": "name",
+          "name": "output",
           "type": {
             "$tag": "_OutputBase",
             "name": "_TypeRef",

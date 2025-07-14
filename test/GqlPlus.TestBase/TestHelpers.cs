@@ -88,6 +88,30 @@ public static class TestHelpers
     return check;
   }
 
+  public static TCheck SkipEqual<TCheck>(
+    this TCheck check,
+    string? input1,
+    string? input2,
+    [CallerArgumentExpression(nameof(input1))] string? input1Expression = null,
+    [CallerArgumentExpression(nameof(input2))] string? input2Expression = null)
+  {
+    Assert.SkipWhen(string.Equals(input1, input2, StringComparison.Ordinal), input1Expression + " != " + input2Expression);
+
+    return check;
+  }
+
+  public static TCheck SkipEqual<TCheck>(
+    this TCheck check,
+    object? input1,
+    object? input2,
+    [CallerArgumentExpression(nameof(input1))] string? input1Expression = null,
+    [CallerArgumentExpression(nameof(input2))] string? input2Expression = null)
+  {
+    Assert.SkipWhen(input1 is null ? input2 is null : input1.Equals(input2), input1Expression + " != " + input2Expression);
+
+    return check;
+  }
+
   public static TCheck SkipNull<TCheck>(this TCheck check, [NotNull] object? obj, [CallerArgumentExpression(nameof(obj))] string? objExpression = null)
   {
     Assert.SkipWhen(obj is null, objExpression + " is null");

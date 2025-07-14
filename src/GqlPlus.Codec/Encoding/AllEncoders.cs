@@ -22,6 +22,9 @@ public static class AllEncoders
       .AddEncoder<DirectivesModel, DirectivesEncoder>()
       .AddEncoder<DirectiveModel, DirectiveEncoder>()
       .AddSingleton<AndBaseTypeEncoders<DirectiveModel>>()
+      .AddEncoder<OperationsModel, OperationsEncoder>()
+      .AddEncoder<OperationModel, OperationEncoder>()
+      .AddSingleton<AndBaseTypeEncoders<OperationModel>>()
       .AddEncoder<SettingModel, SettingEncoder>()
       // Types
       .AddEncoder<BaseTypeModel, AllTypesEncoder>()

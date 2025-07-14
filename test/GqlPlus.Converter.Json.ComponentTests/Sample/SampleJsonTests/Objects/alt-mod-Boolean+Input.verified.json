@@ -10,7 +10,7 @@
           "object": "AltAltModBoolInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "String"
+            "name": "String"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "object": "AltAltModBoolInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -30,7 +30,7 @@
           "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
-            "input": "String"
+            "name": "String"
           }
         }
       ],
@@ -40,7 +40,7 @@
           "name": "alt",
           "type": {
             "$tag": "_InputBase",
-            "input": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -72,7 +72,7 @@
           "object": "AltModBoolInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "AltAltModBoolInp"
+            "name": "AltAltModBoolInp"
           }
         }
       ],
@@ -95,7 +95,7 @@
           ],
           "type": {
             "$tag": "_InputBase",
-            "input": "AltAltModBoolInp"
+            "name": "AltAltModBoolInp"
           }
         }
       ],

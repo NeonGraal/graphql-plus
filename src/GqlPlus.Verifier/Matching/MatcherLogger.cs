@@ -5,7 +5,7 @@ internal abstract class MatcherLogger
   protected ILogger Logger { get; }
 
   protected MatcherLogger(ILoggerFactory logger)
-    => Logger = logger.CreateLogger(GetType().ExpandTypeName());
+    => Logger = logger.CreateTypedLogger(this);
 
   internal void TryingMatch(object type, string constraint)
     => Logger.TryingMatch(type, constraint);

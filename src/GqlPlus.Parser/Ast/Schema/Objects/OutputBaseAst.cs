@@ -23,6 +23,4 @@ internal sealed record class OutputBaseAst(
     };
 
   IGqlpDualBase IGqlpToDual<IGqlpDualBase>.ToDual => ToDual();
-
-  string IGqlpOutputNamed.Output => Name;
 }

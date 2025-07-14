@@ -3,10 +3,10 @@ using GqlPlus.Modelling;
 
 namespace GqlPlus.Schema;
 
-public abstract class TestAliasedModel<TInput, TRender>(
-  ICheckAliasedModel<TInput, TRender> aliasedChecks
-) : TestDescribedModel<TInput, TRender>(aliasedChecks)
-  where TRender : IModelBase
+public abstract class TestAliasedModel<TInput, TModel>(
+  ICheckAliasedModel<TInput, TModel> aliasedChecks
+) : TestDescribedModel<TInput, TModel>(aliasedChecks)
+  where TModel : IModelBase
 {
   [Theory, RepeatData]
   public void Model_Aliases(TInput input, string[] aliases)
@@ -21,16 +21,16 @@ public abstract class TestAliasedModel<TInput, TRender>(
 
 internal abstract class CheckAliasedModel<TName, TAst, TModel>(
   IModeller<TAst, TModel> modeller,
-  IRenderer<TModel> rendering
-) : CheckAliasedModel<TName, TAst, TAst, TModel>(modeller, rendering)
+  IEncoder<TModel> encoding
+) : CheckAliasedModel<TName, TAst, TAst, TModel>(modeller, encoding)
   where TAst : IGqlpAliased
   where TModel : IModelBase
 { }
 
 internal abstract class CheckAliasedModel<TName, TSrc, TAst, TModel>(
   IModeller<TSrc, TModel> modeller,
-  IRenderer<TModel> rendering
-) : CheckDescribedModel<TName, TSrc, TAst, TModel>(modeller, rendering)
+  IEncoder<TModel> encoding
+) : CheckDescribedModel<TName, TSrc, TAst, TModel>(modeller, encoding)
   , ICheckAliasedModel<TName, TModel>
   where TSrc : IGqlpError, IGqlpDescribed
   where TAst : IGqlpAliased, TSrc
@@ -52,9 +52,9 @@ internal abstract class CheckAliasedModel<TName, TSrc, TAst, TModel>(
   protected abstract TAst NewAliasedAst(TName name, string? description = null, string[]? aliases = null);
 }
 
-public interface ICheckAliasedModel<TName, TRender>
-  : ICheckDescribedModel<TName, TRender>
-  where TRender : IModelBase
+public interface ICheckAliasedModel<TName, TModel>
+  : ICheckDescribedModel<TName, TModel>
+  where TModel : IModelBase
 {
   IGqlpAliased AliasedAst(TName name, string[]? aliases = null);
   IModelBase ToModel(IGqlpAliased aliased);

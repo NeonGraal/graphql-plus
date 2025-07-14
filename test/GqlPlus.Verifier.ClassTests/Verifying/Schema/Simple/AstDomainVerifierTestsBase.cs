@@ -35,7 +35,7 @@ public abstract class AstDomainVerifierTestsBase<TItem>
 
     AstDomainVerifier<TItem> verifier = NewDomainVerifier();
 
-    ITokenMessages result = verifier.CanMergeItems(domain, context);
+    IMessages result = verifier.CanMergeItems(domain, context);
 
     verifier.ShouldSatisfyAllConditions(
       ItemsMerger.Called,

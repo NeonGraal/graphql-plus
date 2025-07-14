@@ -17,11 +17,11 @@
       "name": "ctgrMod",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
+        "name": "CtgrMod",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        },
-        "typeName": "CtgrMod"
+        }
       },
       "resolution": {
         "$tag": "_Resolution",

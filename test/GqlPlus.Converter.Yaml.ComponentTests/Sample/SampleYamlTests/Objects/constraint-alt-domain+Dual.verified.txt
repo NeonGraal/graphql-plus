@@ -5,17 +5,17 @@ types: !_Map_Type
     - !_ObjectFor(_DualAlternate)
       object: CnstAltDmnDual
       type: !_DualBase
-        dual: RefCnstAltDmnDual
+        name: RefCnstAltDmnDual
         typeArgs:
         - !_DualArg
-          dual: DomCnstAltDmnDual
+          name: DomCnstAltDmnDual
     alternates:
     - !_DualAlternate
       type: !_DualBase
-        dual: RefCnstAltDmnDual
+        name: RefCnstAltDmnDual
         typeArgs:
         - !_DualArg
-          dual: DomCnstAltDmnDual
+          name: DomCnstAltDmnDual
     name: CnstAltDmnDual
     typeKind: !_TypeKind Dual
   !_Identifier DomCnstAltDmnDual: !_DomainString
@@ -46,6 +46,6 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
+        name: String
         typeKind: !_TypeKind Basic
-        typeName: String
       name: ref

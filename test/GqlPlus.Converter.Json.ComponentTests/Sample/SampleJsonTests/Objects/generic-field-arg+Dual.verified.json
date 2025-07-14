@@ -11,7 +11,7 @@
           "object": "GnrcFieldArgDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "RefGnrcFieldArgDual",
+            "name": "RefGnrcFieldArgDual",
             "typeArgs": [
               {
                 "$tag": "_DualArg",
@@ -27,7 +27,7 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "dual": "RefGnrcFieldArgDual",
+            "name": "RefGnrcFieldArgDual",
             "typeArgs": [
               {
                 "$tag": "_DualArg",
@@ -47,11 +47,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "type"
         }
@@ -88,11 +88,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "ref"
         }

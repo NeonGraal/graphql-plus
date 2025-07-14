@@ -31,7 +31,7 @@ public static class TestHelpers
     IGqlpFieldKey valueAst = value.FieldKey();
 
     return key == value
-      ? new AstFields<IGqlpConstant>() { [keyAst] = new ConstantAst(valueAst) }
+      ? new AstFields<IGqlpConstant>(keyAst, new ConstantAst(valueAst))
       : new AstFields<IGqlpConstant>() { [keyAst] = new ConstantAst(valueAst), [valueAst] = new ConstantAst(keyAst) };
   }
 
@@ -83,7 +83,7 @@ public static class TestHelpers
 
   public static TCheck SkipIf<TCheck>(this TCheck check, bool skipIf, [CallerArgumentExpression(nameof(skipIf))] string? skipExpression = null)
   {
-    Assert.SkipWhen(skipIf, skipExpression ?? "");
+    Assert.SkipWhen(skipIf, skipExpression.IfWhitespace());
 
     return check;
   }

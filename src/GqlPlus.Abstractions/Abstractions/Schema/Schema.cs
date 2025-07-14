@@ -7,7 +7,7 @@ public interface IGqlpSchema
   IEnumerable<IGqlpDeclaration> Declarations { get; }
 
   ParseResultKind Result { get; }
-  ITokenMessages Errors { get; }
+  IMessages Errors { get; }
 }
 
 public interface IGqlpDeclaration

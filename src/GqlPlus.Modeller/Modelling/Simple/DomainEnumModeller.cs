@@ -12,5 +12,5 @@ internal class DomainEnumModeller
     };
 
   protected override DomainLabelModel ToItem(IGqlpDomainLabel ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.EnumType ?? "", ast.EnumItem, ast.Excludes);
+    => new(ast.EnumType.IfWhitespace(), ast.EnumItem, ast.Excludes);
 }

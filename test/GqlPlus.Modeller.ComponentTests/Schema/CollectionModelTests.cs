@@ -14,8 +14,8 @@ public class CollectionModelTests(
 
 internal sealed class CollectionModelChecks(
   IModeller<IGqlpModifier, CollectionModel> modeller,
-  IRenderer<CollectionModel> rendering
-) : CheckModelBase<ModifierInput, IGqlpModifier, ModifierAst, CollectionModel>(modeller, rendering)
+  IEncoder<CollectionModel> encoding
+) : CheckModelBase<ModifierInput, IGqlpModifier, ModifierAst, CollectionModel>(modeller, encoding)
 {
   protected override string[] ExpectedBase(ModifierInput name)
     => name.Kind switch {

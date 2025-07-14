@@ -11,7 +11,7 @@
           "object": "FieldSmplOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "output": "Number"
+            "name": "Number"
           }
         }
       ],

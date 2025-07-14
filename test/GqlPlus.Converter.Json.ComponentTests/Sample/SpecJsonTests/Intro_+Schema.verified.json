@@ -20,7 +20,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         },
         {
@@ -29,7 +29,7 @@
           "object": "_Named",
           "type": {
             "$tag": "_DualBase",
-            "dual": "_Identifier"
+            "name": "_Identifier"
           }
         },
         {
@@ -47,7 +47,7 @@
           "object": "_Aliased",
           "type": {
             "$tag": "_DualBase",
-            "dual": "_Identifier"
+            "name": "_Identifier"
           }
         }
       ],
@@ -66,14 +66,14 @@
           "name": "aliases",
           "type": {
             "$tag": "_DualBase",
-            "dual": "_Identifier"
+            "name": "_Identifier"
           }
         }
       ],
       "name": "_Aliased",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "_Named"
+        "name": "_Named"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -97,7 +97,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "input": "_NameFilter"
+            "name": "_NameFilter"
           }
         }
       ],
@@ -117,7 +117,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "input": "_NameFilter"
+            "name": "_NameFilter"
           }
         },
         {
@@ -136,7 +136,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "input": "Boolean"
+            "name": "Boolean"
           }
         },
         {
@@ -154,7 +154,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "input": "_NameFilter"
+            "name": "_NameFilter"
           }
         },
         {
@@ -173,7 +173,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "input": "Boolean"
+            "name": "Boolean"
           }
         },
         {
@@ -192,7 +192,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "input": "Boolean"
+            "name": "Boolean"
           }
         },
         {
@@ -210,7 +210,7 @@
           "object": "_CategoryFilter",
           "type": {
             "$tag": "_InputBase",
-            "input": "_Resolution"
+            "name": "_Resolution"
           }
         }
       ],
@@ -229,14 +229,14 @@
           "name": "resolutions",
           "type": {
             "$tag": "_InputBase",
-            "input": "_Resolution"
+            "name": "_Resolution"
           }
         }
       ],
       "name": "_CategoryFilter",
       "parent": {
         "$tag": "_InputBase",
-        "input": "_Filter"
+        "name": "_Filter"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -261,7 +261,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -280,7 +280,7 @@
           "name": "description",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -307,7 +307,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "input": "_NameFilter"
+            "name": "_NameFilter"
           }
         }
       ],
@@ -327,7 +327,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "input": "_NameFilter"
+            "name": "_NameFilter"
           }
         },
         {
@@ -346,7 +346,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "input": "Boolean"
+            "name": "Boolean"
           }
         },
         {
@@ -364,7 +364,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "input": "_NameFilter"
+            "name": "_NameFilter"
           }
         },
         {
@@ -383,7 +383,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "input": "Boolean"
+            "name": "Boolean"
           }
         },
         {
@@ -402,7 +402,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "input": "Boolean"
+            "name": "Boolean"
           }
         }
       ],
@@ -420,7 +420,7 @@
           ],
           "type": {
             "$tag": "_InputBase",
-            "input": "_NameFilter"
+            "name": "_NameFilter"
           }
         }
       ],
@@ -439,7 +439,7 @@
           "name": "names",
           "type": {
             "$tag": "_InputBase",
-            "input": "_NameFilter"
+            "name": "_NameFilter"
           }
         },
         {
@@ -457,7 +457,7 @@
           "name": "matchAliases",
           "type": {
             "$tag": "_InputBase",
-            "input": "Boolean"
+            "name": "Boolean"
           }
         },
         {
@@ -474,7 +474,7 @@
           "name": "aliases",
           "type": {
             "$tag": "_InputBase",
-            "input": "_NameFilter"
+            "name": "_NameFilter"
           }
         },
         {
@@ -492,7 +492,7 @@
           "name": "returnByAlias",
           "type": {
             "$tag": "_InputBase",
-            "input": "Boolean"
+            "name": "Boolean"
           }
         },
         {
@@ -510,7 +510,7 @@
           "name": "returnReferencedTypes",
           "type": {
             "$tag": "_InputBase",
-            "input": "Boolean"
+            "name": "Boolean"
           }
         }
       ],
@@ -565,7 +565,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         },
         {
@@ -574,7 +574,7 @@
           "object": "_Named",
           "type": {
             "$tag": "_DualBase",
-            "dual": "_Identifier"
+            "name": "_Identifier"
           }
         }
       ],
@@ -584,14 +584,14 @@
           "name": "name",
           "type": {
             "$tag": "_DualBase",
-            "dual": "_Identifier"
+            "name": "_Identifier"
           }
         }
       ],
       "name": "_Named",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "_Described"
+        "name": "_Described"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -644,7 +644,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         },
         {
@@ -653,7 +653,7 @@
           "object": "_Named",
           "type": {
             "$tag": "_DualBase",
-            "dual": "_Identifier"
+            "name": "_Identifier"
           }
         },
         {
@@ -677,7 +677,6 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "input": "_CategoryFilter",
               "modifiers": [
                 {
                   "$tag": "_Modifier",
@@ -686,12 +685,13 @@
                     "value": "Opt"
                   }
                 }
-              ]
+              ],
+              "name": "_CategoryFilter"
             }
           ],
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Categories"
+            "name": "_Categories"
           }
         },
         {
@@ -715,7 +715,6 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "input": "_Filter",
               "modifiers": [
                 {
                   "$tag": "_Modifier",
@@ -724,12 +723,13 @@
                     "value": "Opt"
                   }
                 }
-              ]
+              ],
+              "name": "_Filter"
             }
           ],
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Directives"
+            "name": "_Directives"
           }
         },
         {
@@ -753,7 +753,6 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "input": "_Filter",
               "modifiers": [
                 {
                   "$tag": "_Modifier",
@@ -762,12 +761,13 @@
                     "value": "Opt"
                   }
                 }
-              ]
+              ],
+              "name": "_Filter"
             }
           ],
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Operations"
+            "name": "_Operations"
           }
         },
         {
@@ -791,7 +791,6 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "input": "_TypeFilter",
               "modifiers": [
                 {
                   "$tag": "_Modifier",
@@ -800,12 +799,13 @@
                     "value": "Opt"
                   }
                 }
-              ]
+              ],
+              "name": "_TypeFilter"
             }
           ],
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Type"
+            "name": "_Type"
           }
         },
         {
@@ -829,7 +829,6 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "input": "_Filter",
               "modifiers": [
                 {
                   "$tag": "_Modifier",
@@ -838,12 +837,13 @@
                     "value": "Opt"
                   }
                 }
-              ]
+              ],
+              "name": "_Filter"
             }
           ],
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Setting"
+            "name": "_Setting"
           }
         }
       ],
@@ -868,7 +868,6 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "input": "_CategoryFilter",
               "modifiers": [
                 {
                   "$tag": "_Modifier",
@@ -877,12 +876,13 @@
                     "value": "Opt"
                   }
                 }
-              ]
+              ],
+              "name": "_CategoryFilter"
             }
           ],
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Categories"
+            "name": "_Categories"
           }
         },
         {
@@ -905,7 +905,6 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "input": "_Filter",
               "modifiers": [
                 {
                   "$tag": "_Modifier",
@@ -914,12 +913,13 @@
                     "value": "Opt"
                   }
                 }
-              ]
+              ],
+              "name": "_Filter"
             }
           ],
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Directives"
+            "name": "_Directives"
           }
         },
         {
@@ -942,7 +942,6 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "input": "_Filter",
               "modifiers": [
                 {
                   "$tag": "_Modifier",
@@ -951,12 +950,13 @@
                     "value": "Opt"
                   }
                 }
-              ]
+              ],
+              "name": "_Filter"
             }
           ],
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Operations"
+            "name": "_Operations"
           }
         },
         {
@@ -979,7 +979,6 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "input": "_TypeFilter",
               "modifiers": [
                 {
                   "$tag": "_Modifier",
@@ -988,12 +987,13 @@
                     "value": "Opt"
                   }
                 }
-              ]
+              ],
+              "name": "_TypeFilter"
             }
           ],
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Type"
+            "name": "_Type"
           }
         },
         {
@@ -1016,7 +1016,6 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "input": "_Filter",
               "modifiers": [
                 {
                   "$tag": "_Modifier",
@@ -1025,19 +1024,20 @@
                     "value": "Opt"
                   }
                 }
-              ]
+              ],
+              "name": "_Filter"
             }
           ],
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Setting"
+            "name": "_Setting"
           }
         }
       ],
       "name": "_Schema",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "_Named"
+        "name": "_Named"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -1061,7 +1061,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "input": "_NameFilter"
+            "name": "_NameFilter"
           }
         }
       ],
@@ -1081,7 +1081,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "input": "_NameFilter"
+            "name": "_NameFilter"
           }
         },
         {
@@ -1100,7 +1100,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "input": "Boolean"
+            "name": "Boolean"
           }
         },
         {
@@ -1118,7 +1118,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "input": "_NameFilter"
+            "name": "_NameFilter"
           }
         },
         {
@@ -1137,7 +1137,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "input": "Boolean"
+            "name": "Boolean"
           }
         },
         {
@@ -1156,7 +1156,7 @@
           "object": "_Filter",
           "type": {
             "$tag": "_InputBase",
-            "input": "Boolean"
+            "name": "Boolean"
           }
         },
         {
@@ -1174,7 +1174,7 @@
           "object": "_TypeFilter",
           "type": {
             "$tag": "_InputBase",
-            "input": "_TypeKind"
+            "name": "_TypeKind"
           }
         }
       ],
@@ -1193,14 +1193,14 @@
           "name": "kinds",
           "type": {
             "$tag": "_InputBase",
-            "input": "_TypeKind"
+            "name": "_TypeKind"
           }
         }
       ],
       "name": "_TypeFilter",
       "parent": {
         "$tag": "_InputBase",
-        "input": "_Filter"
+        "name": "_Filter"
       },
       "typeKind": {
         "$tag": "_TypeKind",

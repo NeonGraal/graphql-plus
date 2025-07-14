@@ -1,2 +1,2 @@
-object Test { | Alt[Domain] }
+object Test { | Alt[Dom] }
 object Alt { }

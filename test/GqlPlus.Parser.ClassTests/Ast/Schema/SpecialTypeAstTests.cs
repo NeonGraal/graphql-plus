@@ -7,5 +7,8 @@ public class SpecialTypeAstTests
     = new AstAliasedChecks<SpecialTypeAst>(name => new SpecialTypeAst(name, t => false));
 
   protected override string AliasesString(string input, string description, string aliases)
-    => $"( {DescriptionNameString("_" + input, description)}{aliases} )";
+    => $"( {DescriptionNameString("_" + input, description)}{SpecialTypeAstTests.SpecialTypeAliases(input, aliases)} )";
+
+  protected static string SpecialTypeAliases(string input, string aliases)
+    => string.IsNullOrWhiteSpace(aliases) ? $" [ {input} ]" : aliases;
 }

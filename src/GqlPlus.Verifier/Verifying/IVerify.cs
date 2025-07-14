@@ -2,5 +2,5 @@
 
 public interface IVerify<TItem>
 {
-  void Verify(TItem item, ITokenMessages errors);
+  void Verify(TItem item, IMessages errors);
 }

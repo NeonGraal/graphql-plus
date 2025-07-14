@@ -37,9 +37,9 @@ public abstract class TestObjBaseModel<TObjBase, TObjArg, TModel>(
 
 internal abstract class CheckObjBaseModel<TObjBase, TObjArg, TObjBaseAst, TObjArgAst, TModel>(
   IModeller<TObjBase, TModel> objBase,
-  IRenderer<TModel> rendering,
+  IEncoder<TModel> encoding,
   TypeKindModel kind
-) : CheckModelBase<string, TObjBase, TModel>(objBase, rendering),
+) : CheckModelBase<string, TObjBase, TModel>(objBase, encoding),
     ICheckObjBaseModel<TObjBase, TObjArg, TModel>
   where TObjBase : IGqlpObjBase
   where TObjBaseAst : AstObjBase<TObjArg>, TObjBase
@@ -48,7 +48,6 @@ internal abstract class CheckObjBaseModel<TObjBase, TObjArg, TObjBaseAst, TObjAr
   where TModel : IModelBase
 {
   protected readonly TypeKindModel TypeKind = kind;
-  protected readonly string TypeKindLower = $"{kind}".ToLowerInvariant();
 
   protected override TObjBaseAst NewBaseAst(string input)
     => NewObjBaseAst(input, false, []);
@@ -56,9 +55,9 @@ internal abstract class CheckObjBaseModel<TObjBase, TObjArg, TObjBaseAst, TObjAr
     => ExpectedObjBase(input, false, []);
 
   protected string[] ExpectedObjBase(string input, bool isTypeParam, string[] args)
-    => [$"!_{TypeKind}Base", (isTypeParam ? "typeParam" : TypeKindLower) + ": " + input, .. args];
+    => [$"!_{TypeKind}Base", (isTypeParam ? "typeParam" : "name") + ": " + input, .. args];
   protected string[] ExpectedDual(string input)
-    => ["!_DualBase", "dual: " + input];
+    => ["!_DualBase", "name: " + input];
 
   protected abstract TObjBaseAst NewObjBaseAst(string input, bool isTypeParam, TObjArg[] args);
   protected abstract TObjArg NewObjArgAst(string input, bool isTypeParam);
@@ -72,7 +71,7 @@ internal abstract class CheckObjBaseModel<TObjBase, TObjArg, TObjBaseAst, TObjAr
   string[] ICheckObjBaseModel<TObjBase, TObjArg, TModel>.ExpectedDual(string input)
     => ExpectedDual(input);
   string[] ICheckObjBaseModel<TObjBase, TObjArg, TModel>.ExpectedArgs(string[] args)
-    => [.. ItemsExpected("typeArgs:", args, a => [$"  - !_{TypeKind}Arg", $"    {TypeKindLower}: {a}"])];
+    => [.. ItemsExpected("typeArgs:", args, a => [$"  - !_{TypeKind}Arg", $"    name: {a}"])];
   TObjArg ICheckObjBaseModel<TObjBase, TObjArg, TModel>.ObjArgAst(string input, bool isTypeParam) => NewObjArgAst(input, isTypeParam);
 }
 

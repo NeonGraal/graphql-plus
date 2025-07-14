@@ -10,11 +10,11 @@
           "object": "CnstAltDmnOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "RefCnstAltDmnOutp",
+            "name": "RefCnstAltDmnOutp",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "output": "DomCnstAltDmnOutp"
+                "name": "DomCnstAltDmnOutp"
               }
             ]
           }
@@ -25,11 +25,11 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "RefCnstAltDmnOutp",
+            "name": "RefCnstAltDmnOutp",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "output": "DomCnstAltDmnOutp"
+                "name": "DomCnstAltDmnOutp"
               }
             ]
           }
@@ -99,11 +99,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "ref"
         }

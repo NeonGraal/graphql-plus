@@ -11,7 +11,7 @@
           "type": {
             "$tag": "_OutputBase",
             "description": "Test Descr",
-            "output": "String"
+            "name": "String"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "type": {
             "$tag": "_OutputBase",
             "description": "Test Descr",
-            "output": "String"
+            "name": "String"
           }
         }
       ],

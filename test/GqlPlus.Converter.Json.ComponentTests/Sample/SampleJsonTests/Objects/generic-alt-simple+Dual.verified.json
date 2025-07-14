@@ -10,11 +10,11 @@
           "object": "GnrcAltSmplDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "RefGnrcAltSmplDual",
+            "name": "RefGnrcAltSmplDual",
             "typeArgs": [
               {
                 "$tag": "_DualArg",
-                "dual": "String"
+                "name": "String"
               }
             ]
           }
@@ -25,11 +25,11 @@
           "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
-            "dual": "RefGnrcAltSmplDual",
+            "name": "RefGnrcAltSmplDual",
             "typeArgs": [
               {
                 "$tag": "_DualArg",
-                "dual": "String"
+                "name": "String"
               }
             ]
           }
@@ -72,11 +72,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "ref"
         }

@@ -21,7 +21,7 @@ public class ConstantModellerTests
     IGqlpConstant ast = A.Constant(key, valueConstant);
 
     _fieldKeyModeller.ToModel(Arg.Any<IGqlpFieldKey>(), TypeKinds)
-        .Returns(SimpleModel.Str("", value));
+        .Returns(SimpleModel.Str(value));
 
     // Act
     ConstantModel result = Modeller.ToModel<ConstantModel>(ast, TypeKinds);

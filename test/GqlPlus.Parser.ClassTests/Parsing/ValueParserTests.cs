@@ -52,13 +52,13 @@ public class ValueParserTests
   public void ParseFieldValues_ShouldReturnFields_WhenSuccessful()
   {
     // Arrange
-
+    AstFields<IGqlpConstant> fields = new(AtFor<IGqlpFieldKey>(), AtFor<IGqlpConstant>());
     KeyValue<IGqlpConstant> keyValue = new(AtFor<IGqlpFieldKey>(), AtFor<IGqlpConstant>());
     ParseOk(_keyValueParser, keyValue);
     TakeReturns('}', false, true);
 
     // Act
-    IResult<IGqlpFields<IGqlpConstant>> result = _valueParser.ParseFieldValues(Tokenizer, "testLabel", '}', new AstFields<IGqlpConstant>());
+    IResult<IGqlpFields<IGqlpConstant>> result = _valueParser.ParseFieldValues(Tokenizer, "testLabel", '}', fields);
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpFields<IGqlpConstant>>>();

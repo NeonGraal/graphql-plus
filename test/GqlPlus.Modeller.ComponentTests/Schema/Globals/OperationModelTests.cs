@@ -23,8 +23,8 @@ public class OperationModelTests(
 
 internal sealed class OperationModelChecks(
   IModeller<IGqlpSchemaOperation, OperationModel> modeller,
-  IRenderer<OperationModel> rendering
-) : CheckAliasedModel<OperationInput, IGqlpSchemaOperation, OperationDeclAst, OperationModel>(modeller, rendering)
+  IEncoder<OperationModel> encoding
+) : CheckAliasedModel<OperationInput, IGqlpSchemaOperation, OperationDeclAst, OperationModel>(modeller, encoding)
   , IOperationModelChecks
 {
   protected override string[] ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<OperationInput> input)

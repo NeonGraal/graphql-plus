@@ -1,0 +1,23 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier GnrcDescrOutp: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: GnrcDescrOutp
+        type: !_OutputBase
+          typeParam: type
+    fields:
+      - !_OutputField
+        name: field
+        type: !_OutputBase
+          typeParam: type
+    name: GnrcDescrOutp
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        description: 'Test Descr'
+        name: type

@@ -6,7 +6,7 @@ internal class VerifyDirectiveInput(
   IVerifyAliased<IGqlpSchemaDirective> aliased
 ) : UsageVerifier<IGqlpSchemaDirective, UsageContext>(aliased)
 {
-  protected override UsageContext MakeContext(IGqlpSchemaDirective usage, IGqlpType[] aliased, ITokenMessages errors)
+  protected override UsageContext MakeContext(IGqlpSchemaDirective usage, IGqlpType[] aliased, IMessages errors)
     => MakeUsageContext(aliased, errors);
 
   protected override void UsageValue(IGqlpSchemaDirective usage, UsageContext context)

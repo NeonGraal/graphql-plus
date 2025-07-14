@@ -17,17 +17,10 @@ public class SchemaParseChecks(
 
   public IGqlpSchema ParseInput(string schema, string label)
     => Parse(schema, label).Required();
-
-  public async Task<IGqlpSchema> ParseSample(string label, string sample, params string[] dirs)
-  {
-    string schema = await ReadSchema(sample, dirs);
-    return Parse(schema, label).Required();
-  }
 }
 
 public interface ISchemaParseChecks
 {
   IResult<IGqlpSchema> Parse(string schema, string label);
   IGqlpSchema ParseInput(string schema, string label);
-  Task<IGqlpSchema> ParseSample(string label, string sample, params string[] dirs);
 }

@@ -7,7 +7,7 @@ internal class VerifyOperation(
   IVerifyIdentified<IGqlpSpread, IGqlpFragment> spreads
 ) : IVerify<IGqlpOperation>
 {
-  public void Verify(IGqlpOperation item, ITokenMessages errors)
+  public void Verify(IGqlpOperation item, IMessages errors)
   {
     usages.Verify(new(item.Usages, item.Variables), errors);
     spreads.Verify(new(item.Spreads, item.Fragments), errors);

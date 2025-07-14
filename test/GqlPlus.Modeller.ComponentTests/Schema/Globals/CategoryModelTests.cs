@@ -46,8 +46,8 @@ public class CategoryModelTests(
 
 internal sealed class CategoryModelChecks(
   IModeller<IGqlpSchemaCategory, CategoryModel> modeller,
-  IRenderer<CategoryModel> rendering
-) : CheckAliasedModel<string, IGqlpSchemaCategory, CategoryDeclAst, CategoryModel>(modeller, rendering)
+  IEncoder<CategoryModel> encoding
+) : CheckAliasedModel<string, IGqlpSchemaCategory, CategoryDeclAst, CategoryModel>(modeller, encoding)
   , ICategoryModelChecks
 {
   protected override string[] ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<string> input)

@@ -1,0 +1,66 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DmnEnumPrntDescr: !_DomainEnum
+    allItems:
+      - !_DomainItem(_DomainLabel)
+        domain: PrntDmnEnumPrntDescr
+        exclude: false
+        value: !_EnumValue
+          label: prnt_dmnEnumPrntDescr
+          name: EnumDmnEnumPrntDescr
+          typeKind: !_SimpleKind Enum
+      - !_DomainItem(_DomainLabel)
+        domain: DmnEnumPrntDescr
+        exclude: false
+        value: !_EnumValue
+          label: enum_dmnEnumPrntDescr
+          name: EnumDmnEnumPrntDescr
+          typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+      - !_DomainLabel
+        exclude: false
+        value: !_EnumValue
+          label: enum_dmnEnumPrntDescr
+          name: EnumDmnEnumPrntDescr
+          typeKind: !_SimpleKind Enum
+    name: DmnEnumPrntDescr
+    parent: !_TypeRef(_SimpleKind)
+      description: 'Parent comment'
+      name: PrntDmnEnumPrntDescr
+      typeKind: !_SimpleKind Domain
+    typeKind: !_TypeKind Domain
+  !_Identifier EnumDmnEnumPrntDescr: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: EnumDmnEnumPrntDescr
+        name: enum_dmnEnumPrntDescr
+      - !_EnumLabel
+        enum: EnumDmnEnumPrntDescr
+        name: prnt_dmnEnumPrntDescr
+    items:
+      - !_Aliased
+        name: enum_dmnEnumPrntDescr
+      - !_Aliased
+        name: prnt_dmnEnumPrntDescr
+    name: EnumDmnEnumPrntDescr
+    typeKind: !_TypeKind Enum
+  !_Identifier PrntDmnEnumPrntDescr: !_DomainEnum
+    allItems:
+      - !_DomainItem(_DomainLabel)
+        domain: PrntDmnEnumPrntDescr
+        exclude: false
+        value: !_EnumValue
+          label: prnt_dmnEnumPrntDescr
+          name: EnumDmnEnumPrntDescr
+          typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+      - !_DomainLabel
+        exclude: false
+        value: !_EnumValue
+          label: prnt_dmnEnumPrntDescr
+          name: EnumDmnEnumPrntDescr
+          typeKind: !_SimpleKind Enum
+    name: PrntDmnEnumPrntDescr
+    typeKind: !_TypeKind Domain

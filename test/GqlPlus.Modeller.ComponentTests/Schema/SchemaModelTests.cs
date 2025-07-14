@@ -152,8 +152,8 @@ public class SchemaModelTests(
 
 internal sealed class SchemaModelChecks(
   IModeller<IGqlpSchema, SchemaModel> modeller,
-  IRenderer<SchemaModel> rendering
-) : CheckModelBase<string, IGqlpSchema, SchemaAst, SchemaModel>(modeller, rendering)
+  IEncoder<SchemaModel> encoding
+) : CheckModelBase<string, IGqlpSchema, SchemaAst, SchemaModel>(modeller, encoding)
   , ISchemaModelChecks
 {
   protected override string[] ExpectedBase(string name)
@@ -176,8 +176,8 @@ internal sealed class SchemaModelChecks(
     => [first,
       "    name: " + category,
       "    output: !_TypeRef(_TypeKind)",
+      "      name: " + category,
       "      typeKind: !_TypeKind Output",
-      "      typeName: " + category,
       "    resolution: !_Resolution Parallel"];
 
   public IEnumerable<string> ExpectedDirectives(string[] directives, bool withType)

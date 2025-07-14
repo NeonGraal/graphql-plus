@@ -15,8 +15,8 @@ public class ModifierModelTests(
 
 internal sealed class ModifierModelChecks(
   IModeller<IGqlpModifier, ModifierModel> modeller,
-  IRenderer<ModifierModel> rendering
-) : CheckModelBase<ModifierInput, IGqlpModifier, ModifierAst, ModifierModel>(modeller, rendering)
+  IEncoder<ModifierModel> encoding
+) : CheckModelBase<ModifierInput, IGqlpModifier, ModifierAst, ModifierModel>(modeller, encoding)
 {
   protected override string[] ExpectedBase(ModifierInput name)
     => name.Kind switch {

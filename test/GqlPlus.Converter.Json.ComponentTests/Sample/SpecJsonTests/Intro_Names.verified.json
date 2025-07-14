@@ -20,7 +20,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         },
         {
@@ -29,7 +29,7 @@
           "object": "_Named",
           "type": {
             "$tag": "_DualBase",
-            "dual": "_Identifier"
+            "name": "_Identifier"
           }
         },
         {
@@ -47,7 +47,7 @@
           "object": "_Aliased",
           "type": {
             "$tag": "_DualBase",
-            "dual": "_Identifier"
+            "name": "_Identifier"
           }
         }
       ],
@@ -66,14 +66,14 @@
           "name": "aliases",
           "type": {
             "$tag": "_DualBase",
-            "dual": "_Identifier"
+            "name": "_Identifier"
           }
         }
       ],
       "name": "_Aliased",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "_Named"
+        "name": "_Named"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -98,7 +98,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -117,7 +117,7 @@
           "name": "description",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -145,7 +145,7 @@
           "object": "_Described",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         },
         {
@@ -154,7 +154,7 @@
           "object": "_Named",
           "type": {
             "$tag": "_DualBase",
-            "dual": "_Identifier"
+            "name": "_Identifier"
           }
         }
       ],
@@ -164,14 +164,14 @@
           "name": "name",
           "type": {
             "$tag": "_DualBase",
-            "dual": "_Identifier"
+            "name": "_Identifier"
           }
         }
       ],
       "name": "_Named",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "_Described"
+        "name": "_Described"
       },
       "typeKind": {
         "$tag": "_TypeKind",

@@ -8,9 +8,9 @@ internal class VerifyDomainTypes(
 ) : AstParentVerifier<IGqlpDomain, IGqlpTypeRef, EnumContext>(aliased)
 {
   protected sealed override string GetParent(IGqlpType<IGqlpTypeRef> usage)
-    => usage.Parent?.Name ?? "";
+    => (usage.Parent?.Name).IfWhitespace();
 
-  protected override EnumContext MakeContext(IGqlpDomain usage, IGqlpType[] aliased, ITokenMessages errors)
+  protected override EnumContext MakeContext(IGqlpDomain usage, IGqlpType[] aliased, IMessages errors)
   {
     IMap<IGqlpDescribed> validTypes = aliased.AliasedMap(p => (IGqlpDescribed)p.First());
 
@@ -41,7 +41,7 @@ internal class VerifyDomainTypes(
 
   protected override void CheckMergeParent(ParentUsage<IGqlpDomain> input, EnumContext context)
   {
-    IEnumerable<ITokenMessage> failures = domains.SelectMany(domain => domain.CanMergeItems(input.Usage, context));
+    IEnumerable<IMessage> failures = domains.SelectMany(domain => domain.CanMergeItems(input.Usage, context));
     if (failures.Any()) {
       context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} items into Parent {input.Parent} items");
       context.Add(failures);

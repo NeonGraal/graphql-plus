@@ -1,0 +1,47 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier AltAltModBoolInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_InputAlternate)
+        object: AltAltModBoolInp
+        type: !_InputBase
+          name: String
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: alt
+        object: AltAltModBoolInp
+        type: !_InputBase
+          name: Number
+    alternates:
+      - !_InputAlternate
+        type: !_InputBase
+          name: String
+    fields:
+      - !_InputField
+        name: alt
+        type: !_InputBase
+          name: Number
+    name: AltAltModBoolInp
+    typeKind: !_TypeKind Input
+  !_Identifier AltModBoolInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_InputAlternate)
+        collections:
+          - !_ModifierDictionary
+            by: ^
+            modifierKind: !_ModifierKind Dict
+            typeKind: !_SimpleKind Basic
+        object: AltModBoolInp
+        type: !_InputBase
+          name: AltAltModBoolInp
+    alternates:
+      - !_InputAlternate
+        collections:
+          - !_ModifierDictionary
+            by: ^
+            modifierKind: !_ModifierKind Dict
+            typeKind: !_SimpleKind Basic
+        type: !_InputBase
+          name: AltAltModBoolInp
+    name: AltModBoolInp
+    typeKind: !_TypeKind Input

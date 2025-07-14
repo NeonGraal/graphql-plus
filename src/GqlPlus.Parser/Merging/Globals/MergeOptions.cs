@@ -14,7 +14,7 @@ internal class MergeOptions(
   protected override string ItemMatchName => "Name";
   protected override string ItemMatchKey(IGqlpSchemaOption item) => item.Name;
 
-  protected override ITokenMessages CanMergeGroup(IGrouping<string, IGqlpSchemaOption> group)
+  protected override IMessages CanMergeGroup(IGrouping<string, IGqlpSchemaOption> group)
     => base.CanMergeGroup(group)
       .Add(group.ManyGroupCanMerge(d => d.Settings, s => s.Name, settings));
 

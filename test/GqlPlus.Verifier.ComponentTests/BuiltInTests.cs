@@ -34,7 +34,7 @@ public class BuiltInTests(
   {
     Assert.SkipWhen(type is null, "type is null");
 
-    TokenMessages result = [];
+    Messages result = [];
     TestSchema schema = new(type);
 
     verifier.Verify(schema, result);
@@ -48,13 +48,13 @@ public class BuiltInTests(
   {
     public IEnumerable<IGqlpDeclaration> Declarations { get; } = [type];
     public ParseResultKind Result { get; } = ParseResultKind.Success;
-    public ITokenMessages Errors { get; } = new TokenMessages();
+    public IMessages Errors { get; } = new Messages();
     public ITokenAt At { get; } = new TokenAt(TokenKind.Start, 0, 0, string.Empty);
     public string Abbr { get; } = "testSchema";
 
     public bool Equals(IGqlpAbbreviated? other) => false;
     public bool Equals(IGqlpSchema? other) => false;
     public IEnumerable<string?> GetFields() => throw new NotImplementedException();
-    public ITokenMessages MakeError(string message) => throw new NotImplementedException();
+    public IMessages MakeError(string message) => throw new NotImplementedException();
   }
 }

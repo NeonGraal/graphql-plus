@@ -5,7 +5,7 @@ namespace GqlPlus.Merging;
 public interface IMerge<TItem>
   where TItem : IGqlpError
 {
-  ITokenMessages CanMerge(IEnumerable<TItem> items);
+  IMessages CanMerge(IEnumerable<TItem> items);
   IEnumerable<TItem> Merge(IEnumerable<TItem> items);
 }
 

@@ -3,10 +3,10 @@ using GqlPlus.Modelling;
 
 namespace GqlPlus.Schema;
 
-public abstract class TestDescribedModel<TName, TRender>(
-  ICheckDescribedModel<TName, TRender> describedChecks
-) : TestModelBase<TName, TRender>(describedChecks)
-  where TRender : IModelBase
+public abstract class TestDescribedModel<TName, TModel>(
+  ICheckDescribedModel<TName, TModel> describedChecks
+) : TestModelBase<TName, TModel>(describedChecks)
+  where TModel : IModelBase
 {
   [Theory, RepeatData]
   public void Model_Description(TName name, string contents)
@@ -21,16 +21,16 @@ public abstract class TestDescribedModel<TName, TRender>(
 
 internal abstract class CheckDescribedModel<TName, TAst, TModel>(
   IModeller<TAst, TModel> modeller,
-  IRenderer<TModel> rendering
-) : CheckDescribedModel<TName, TAst, TAst, TModel>(modeller, rendering)
+  IEncoder<TModel> encoding
+) : CheckDescribedModel<TName, TAst, TAst, TModel>(modeller, encoding)
   where TAst : IGqlpError, IGqlpDescribed
   where TModel : IModelBase
 { }
 
 internal abstract class CheckDescribedModel<TName, TSrc, TAst, TModel>(
   IModeller<TSrc, TModel> modeller,
-  IRenderer<TModel> rendering
-) : CheckModelBase<TName, TSrc, TAst, TModel>(modeller, rendering)
+  IEncoder<TModel> encoding
+) : CheckModelBase<TName, TSrc, TAst, TModel>(modeller, encoding)
   , ICheckDescribedModel<TName, TModel>
   where TSrc : IGqlpError, IGqlpDescribed
   where TAst : IGqlpError, TSrc
@@ -46,9 +46,9 @@ internal abstract class CheckDescribedModel<TName, TSrc, TAst, TModel>(
   string[] ICheckDescribedModel<TName, TModel>.ExpectedDescription(ExpectedDescriptionInput<TName> input) => ExpectedDescription(input);
 }
 
-public interface ICheckDescribedModel<TName, TRender>
-  : ICheckModelBase<TName, TRender>
-  where TRender : IModelBase
+public interface ICheckDescribedModel<TName, TModel>
+  : ICheckModelBase<TName, TModel>
+  where TModel : IModelBase
 {
   IGqlpError DescribedAst(TName name, string description);
   string[] ExpectedDescription(ExpectedDescriptionInput<TName> input);

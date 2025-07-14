@@ -11,8 +11,8 @@ public class DualFieldModelTests(
 
 internal sealed class DualFieldModelChecks(
   IModeller<IGqlpDualField, DualFieldModel> modeller,
-  IRenderer<DualFieldModel> rendering
-) : CheckObjectFieldModel<IGqlpDualField, DualFieldAst, IGqlpDualBase, DualFieldModel>(modeller, rendering, TypeKindModel.Dual)
+  IEncoder<DualFieldModel> encoding
+) : CheckObjectFieldModel<IGqlpDualField, DualFieldAst, IGqlpDualBase, DualFieldModel>(modeller, encoding, TypeKindModel.Dual)
   , IDualFieldModelChecks
 {
   internal override DualFieldAst NewFieldAst(FieldInput input, string[] aliases, bool withModifiers)

@@ -17,7 +17,7 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
+        name: String
         typeKind: !_TypeKind Basic
-        typeName: String
       description: 'Test Descr'
       name: type

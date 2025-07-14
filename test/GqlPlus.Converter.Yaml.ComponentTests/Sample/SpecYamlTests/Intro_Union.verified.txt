@@ -10,16 +10,16 @@ types: !_Map_Type
   !_Identifier _TypeUnion: !_TypeOutput
     name: _TypeUnion
     parent: !_OutputBase
-      output: _ParentType
+      name: _ParentType
       typeArgs:
-      - !_OutputArg
+      - !_TypeRef(_SimpleKind)
         label: Union
+        name: _TypeKind
         typeKind: !_SimpleKind Enum
-        typeName: _TypeKind
       - !_OutputArg
-        output: _UnionRef
+        name: _UnionRef
       - !_OutputArg
-        output: _UnionMember
+        name: _UnionMember
     typeKind: !_TypeKind Output
   !_Identifier _UnionMember: !_TypeOutput
     allFields:
@@ -27,21 +27,21 @@ types: !_Map_Type
       name: union
       object: _UnionMember
       type: !_OutputBase
-        output: _Identifier
+        name: _Identifier
     fields:
     - !_OutputField
       name: union
       type: !_OutputBase
-        output: _Identifier
+        name: _Identifier
     name: _UnionMember
     parent: !_OutputBase
-      output: _UnionRef
+      name: _UnionRef
     typeKind: !_TypeKind Output
   !_Identifier _UnionRef: !_TypeOutput
     name: _UnionRef
     parent: !_OutputBase
-      output: _TypeRef
+      name: _TypeRef
       typeArgs:
       - !_OutputArg
-        output: _SimpleKind
+        name: _SimpleKind
     typeKind: !_TypeKind Output

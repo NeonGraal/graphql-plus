@@ -10,7 +10,7 @@
           "object": "AltGnrcAltDualOutp",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "object": "AltGnrcAltDualOutp",
           "type": {
             "$tag": "_DualBase",
-            "dual": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -30,7 +30,7 @@
           "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -40,7 +40,7 @@
           "name": "alt",
           "type": {
             "$tag": "_DualBase",
-            "dual": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -58,11 +58,11 @@
           "object": "GnrcAltDualOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "RefGnrcAltDualOutp",
+            "name": "RefGnrcAltDualOutp",
             "typeArgs": [
               {
                 "$tag": "_DualArg",
-                "dual": "AltGnrcAltDualOutp"
+                "name": "AltGnrcAltDualOutp"
               }
             ]
           }
@@ -73,11 +73,11 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "RefGnrcAltDualOutp",
+            "name": "RefGnrcAltDualOutp",
             "typeArgs": [
               {
                 "$tag": "_DualArg",
-                "dual": "AltGnrcAltDualOutp"
+                "name": "AltGnrcAltDualOutp"
               }
             ]
           }
@@ -120,11 +120,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "_Dual",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Internal"
-            },
-            "typeName": "_Dual"
+            }
           },
           "name": "ref"
         }

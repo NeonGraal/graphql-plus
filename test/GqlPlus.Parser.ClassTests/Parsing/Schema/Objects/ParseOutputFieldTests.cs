@@ -3,59 +3,63 @@
 namespace GqlPlus.Parsing.Schema.Objects;
 
 public class ParseOutputFieldTests
-  : AliasesClassTestBase
+  : ParseObjectFieldTestBase<IGqlpOutputField, IGqlpOutputBase>
 {
-  private readonly Parser<IGqlpOutputBase>.I _parseBase;
   private readonly Parser<IGqlpInputParam>.IA _parameter;
-  private readonly ParseOutputField _parser;
+
+  protected override Parser<IGqlpOutputField>.I Parser { get; }
 
   public ParseOutputFieldTests()
   {
-    Parser<IGqlpOutputBase>.D parseBase = ParserFor(out _parseBase);
     Parser<IGqlpInputParam>.DA parameter = ParserAFor(out _parameter);
-    _parser = new ParseOutputField(Aliases, Modifiers, parseBase, parameter);
+    Parser = new ParseOutputField(Aliases, Modifiers, ParseBase, parameter);
+
+    ParseEmptyA(_parameter);
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnOutputField_WhenValid(string fieldName)
+  public void Parse_ShouldReturnParams_WhenValid(string fieldName)
   {
     // Arrange
     IdentifierReturns(OutString(fieldName));
     TakeReturns(':', true);
-    ParseOk(_parseBase);
+    ParseBaseOk();
+    ParseOkA(_parameter);
 
     // Act
-    IResult<IGqlpOutputField> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpOutputField> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpOutputField>>();
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnEnumField_WhenValid(string fieldName)
+  public void Parse_ShouldReturnError_WhenParamsError(string fieldName)
+  {
+    // Arrange
+    IdentifierReturns(OutString(fieldName));
+    ParseErrorA(_parameter);
+
+    // Act
+    IResult<IGqlpOutputField> result = Parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultError>();
+  }
+
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnEnumField_WhenValid(string fieldName, string[] aliases)
   {
     // Arrange
     IdentifierReturns(OutString(fieldName), OutString(fieldName));
     TakeReturns('=', true);
-    ParseOk(_parseBase);
+    ParseAliasesOk(aliases);
+    ParseBaseOk();
 
     // Act
-    IResult<IGqlpOutputField> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpOutputField> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpOutputField>>();
-  }
-
-  [Fact]
-  public void Parse_ShouldReturnEmpty_WhenNoFieldName()
-  {
-    // Arrange
-    IdentifierReturns(OutFail);
-
-    // Act
-    IResult<IGqlpOutputField> result = _parser.Parse(Tokenizer, "testLabel");
-
-    // Assert
-    result.ShouldBeAssignableTo<IResultEmpty>();
   }
 }

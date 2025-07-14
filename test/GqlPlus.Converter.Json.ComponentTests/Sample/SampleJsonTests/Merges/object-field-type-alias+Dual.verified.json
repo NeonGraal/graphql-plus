@@ -11,7 +11,7 @@
           "object": "ObjFieldTypeAliasDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],

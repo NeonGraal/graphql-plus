@@ -7,7 +7,7 @@ internal class ModelsContext
   , IModelsContext
 {
   internal IMap<IModelBase> Types { get; } = new Map<IModelBase>();
-  public ITokenMessages Errors { get; } = TokenMessages.New;
+  public IMessages Errors { get; } = Messages.New;
   IMap<TypeKindModel> IModelsContext.TypeKinds => this;
 
   public void AddModels(IEnumerable<BaseTypeModel> models)
@@ -44,6 +44,6 @@ public interface IModelsContext
   : IResolveContext
 {
   IMap<TypeKindModel> TypeKinds { get; }
-  ITokenMessages Errors { get; }
+  IMessages Errors { get; }
   void AddModels(IEnumerable<BaseTypeModel> models);
 }

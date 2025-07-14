@@ -17,8 +17,7 @@ public class InputBaseModellerTests
   public void ToModel_WithValidBase_ReturnsExpectedInputBaseModel(string input, string contents)
   {
     // Arrange
-    IGqlpInputBase ast = A.Descr<IGqlpInputBase>(contents);
-    ast.Input.Returns(input);
+    IGqlpInputBase ast = A.Named<IGqlpInputBase>(input, contents);
     ast.IsTypeParam.Returns(true);
 
     // Act
@@ -27,7 +26,7 @@ public class InputBaseModellerTests
     // Assert
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
-        r => r.Input.ShouldBe(input),
+        r => r.Name.ShouldBe(input),
         r => r.Description.ShouldBe(contents),
         r => r.IsTypeParam.ShouldBeTrue()
       );

@@ -17,9 +17,9 @@ public abstract class TestSimpleMerger<TBase, TType, TItem, TItemInput>
       MakeSimple(name, items: MakeItems(input)),
       MakeSimple(name, items: MakeItems(input)),
     ];
-    MergeItems.CanMerge([]).ReturnsForAnyArgs(new TokenMessages(new TokenMessage(AstNulls.At, "Error!")));
+    MergeItems.CanMerge([]).ReturnsForAnyArgs(new Messages(new TokenMessage(AstNulls.At, "Error!")));
 
-    ITokenMessages result = MergerSimple.CanMerge(items);
+    IMessages result = MergerSimple.CanMerge(items);
 
     result.ShouldNotBeEmpty();
   }

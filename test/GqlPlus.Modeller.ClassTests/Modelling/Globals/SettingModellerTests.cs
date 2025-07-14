@@ -18,7 +18,7 @@ public class SettingModellerTests
     IGqlpSchemaSetting ast = A.Named<IGqlpSchemaSetting>(name, contents);
     ast.Value.Returns(constant);
 
-    ToModelReturns(_constant, constant, new ConstantModel(SimpleModel.Str("", value)));
+    ToModelReturns(_constant, constant, new ConstantModel(SimpleModel.Str(value)));
 
     // Act
     SettingModel result = Modeller.ToModel<SettingModel>(ast, TypeKinds);
@@ -30,7 +30,7 @@ public class SettingModellerTests
         r => r.Description.ShouldBe(contents),
         r => r.Value.ShouldNotBeNull()
           .Value.ShouldNotBeNull()
-          .String.ShouldBe(value)
+          .Text.ShouldBe(value)
       );
   }
 }

@@ -25,24 +25,24 @@
       "name": "_TypeUnion",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_ParentType",
+        "name": "_ParentType",
         "typeArgs": [
           {
-            "$tag": "_OutputArg",
+            "$tag": "_TypeRef(_SimpleKind)",
             "label": "Union",
+            "name": "_TypeKind",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            },
-            "typeName": "_TypeKind"
+            }
           },
           {
             "$tag": "_OutputArg",
-            "output": "_UnionRef"
+            "name": "_UnionRef"
           },
           {
             "$tag": "_OutputArg",
-            "output": "_UnionMember"
+            "name": "_UnionMember"
           }
         ]
       },
@@ -60,7 +60,7 @@
           "object": "_UnionMember",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Identifier"
+            "name": "_Identifier"
           }
         }
       ],
@@ -70,14 +70,14 @@
           "name": "union",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Identifier"
+            "name": "_Identifier"
           }
         }
       ],
       "name": "_UnionMember",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_UnionRef"
+        "name": "_UnionRef"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -89,11 +89,11 @@
       "name": "_UnionRef",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_TypeRef",
+        "name": "_TypeRef",
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "output": "_SimpleKind"
+            "name": "_SimpleKind"
           }
         ]
       },

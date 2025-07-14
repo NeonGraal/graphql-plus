@@ -7,23 +7,23 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
-          "default": 0,
+          "default": 42,
           "name": "field",
           "object": "InpFieldNmbr",
           "type": {
             "$tag": "_InputBase",
-            "input": "Number"
+            "name": "Number"
           }
         }
       ],
       "fields": [
         {
           "$tag": "_InputField",
-          "default": 0,
+          "default": 42,
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "input": "Number"
+            "name": "Number"
           }
         }
       ],

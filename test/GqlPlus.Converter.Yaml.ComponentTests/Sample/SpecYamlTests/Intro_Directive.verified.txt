@@ -11,76 +11,76 @@ types: !_Map_Type
       name: parameters
       object: _Directive
       type: !_OutputBase
-        output: _InputParam
+        name: _InputParam
     - !_ObjectFor(_OutputField)
       name: repeatable
       object: _Directive
       type: !_OutputBase
-        output: Boolean
+        name: Boolean
     - !_ObjectFor(_OutputField)
       modifiers: [!_ModifierDictionary {by: _Location, modifierKind: !_ModifierKind Dict,
           typeKind: !_SimpleKind Enum}]
       name: locations
       object: _Directive
       type: !_OutputBase
-        output: _
+        name: _
     fields:
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: parameters
       type: !_OutputBase
-        output: _InputParam
+        name: _InputParam
     - !_OutputField
       name: repeatable
       type: !_OutputBase
-        output: Boolean
+        name: Boolean
     - !_OutputField
       modifiers: [!_ModifierDictionary {by: _Location, modifierKind: !_ModifierKind Dict,
           typeKind: !_SimpleKind Enum}]
       name: locations
       type: !_OutputBase
-        output: _
+        name: _
     name: _Directive
     parent: !_OutputBase
-      output: _Aliased
+      name: _Aliased
     typeKind: !_TypeKind Output
   !_Identifier _Directives: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
       object: _Directives
       type: !_OutputBase
-        output: _Directive
+        name: _Directive
     - !_ObjectFor(_OutputAlternate)
       object: _Directives
       type: !_OutputBase
-        output: _Type
+        name: _Type
     allFields:
     - !_ObjectFor(_OutputField)
       name: directive
       object: _Directives
       type: !_OutputBase
-        output: _Directive
+        name: _Directive
     - !_ObjectFor(_OutputField)
       name: type
       object: _Directives
       type: !_OutputBase
-        output: _Type
+        name: _Type
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
-        output: _Directive
+        name: _Directive
     - !_OutputAlternate
       type: !_OutputBase
-        output: _Type
+        name: _Type
     fields:
     - !_OutputField
       name: directive
       type: !_OutputBase
-        output: _Directive
+        name: _Directive
     - !_OutputField
       name: type
       type: !_OutputBase
-        output: _Type
+        name: _Type
     name: _Directives
     typeKind: !_TypeKind Output
   !_Identifier _Location: !_TypeEnum

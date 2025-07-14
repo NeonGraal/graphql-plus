@@ -6,7 +6,7 @@ internal class VerifyInputTypes(
   ObjectVerifierParams<IGqlpInputObject, IGqlpInputField, IGqlpInputAlternate, IGqlpInputArg> verifiers
 ) : AstObjectVerifier<IGqlpInputObject, IGqlpInputBase, IGqlpInputArg, IGqlpInputField, IGqlpInputAlternate, EnumContext>(verifiers)
 {
-  protected override EnumContext MakeContext(IGqlpInputObject usage, IGqlpType[] aliased, ITokenMessages errors)
+  protected override EnumContext MakeContext(IGqlpInputObject usage, IGqlpType[] aliased, IMessages errors)
   {
     Map<IGqlpDescribed> validTypes = aliased.AliasedGroup()
       .Select(p => (Id: p.Key, Type: (IGqlpDescribed)p.First()))

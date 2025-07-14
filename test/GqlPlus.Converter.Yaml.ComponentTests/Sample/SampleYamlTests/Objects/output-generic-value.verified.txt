@@ -15,17 +15,17 @@ types: !_Map_Type
     - !_ObjectFor(_OutputAlternate)
       object: OutpGnrcValue
       type: !_OutputBase
-        output: RefOutpGnrcValue
+        name: RefOutpGnrcValue
         typeArgs:
         - !_OutputArg
-          output: outpGnrcValue
+          name: outpGnrcValue
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
-        output: RefOutpGnrcValue
+        name: RefOutpGnrcValue
         typeArgs:
         - !_OutputArg
-          output: outpGnrcValue
+          name: outpGnrcValue
     name: OutpGnrcValue
     typeKind: !_TypeKind Output
   !_Identifier RefOutpGnrcValue: !_TypeOutput
@@ -45,6 +45,6 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
+        name: _Enum
         typeKind: !_TypeKind Internal
-        typeName: _Enum
       name: type

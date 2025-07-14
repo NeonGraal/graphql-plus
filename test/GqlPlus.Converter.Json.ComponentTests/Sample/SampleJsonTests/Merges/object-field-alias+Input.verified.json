@@ -20,7 +20,7 @@
           "object": "ObjFieldAliasInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "FldObjFieldAliasInp"
+            "name": "FldObjFieldAliasInp"
           }
         }
       ],
@@ -31,7 +31,7 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "input": "FldObjFieldAliasInp"
+            "name": "FldObjFieldAliasInp"
           }
         }
       ],

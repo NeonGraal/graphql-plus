@@ -38,9 +38,9 @@ public class CategoriesModelTests(
 
 internal sealed class CategoriesModelChecks(
   IModeller<IGqlpSchemaCategory, CategoryModel> modeller,
-  IRenderer<CategoriesModel> rendering,
+  IEncoder<CategoriesModel> encoding,
   IModeller<IGqlpOutputObject, TypeOutputModel> typeOutput
-) : CheckModelBase<string, IGqlpSchemaCategory, CategoryDeclAst, CategoryModel, CategoriesModel>(modeller, rendering)
+) : CheckModelBase<string, IGqlpSchemaCategory, CategoryDeclAst, CategoryModel, CategoriesModel>(modeller, encoding)
   , ICategoriesModelChecks
 {
   protected override string[] ExpectedBase(string name)

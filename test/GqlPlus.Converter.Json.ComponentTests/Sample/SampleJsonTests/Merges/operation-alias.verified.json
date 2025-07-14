@@ -7,11 +7,11 @@
       "name": "op",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
+        "name": "Op",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        },
-        "typeName": "Op"
+        }
       },
       "resolution": {
         "$tag": "_Resolution",

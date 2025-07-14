@@ -12,7 +12,7 @@ public abstract class TestDomainMerger<TItem, TItemInput>
   {
     IGqlpDomain<TItem>[] items = [MakeDomain(name), MakeDomain(name)];
 
-    ITokenMessages result = Merger.CanMerge(items);
+    IMessages result = Merger.CanMerge(items);
 
     result.ShouldBeEmpty();
   }
@@ -25,7 +25,7 @@ public abstract class TestDomainMerger<TItem, TItemInput>
       : DomainKind.String;
     IGqlpDomain<TItem>[] items = [MakeDomain(name, kind: domainKind), MakeDomain(name)];
 
-    ITokenMessages result = Merger.CanMerge(items);
+    IMessages result = Merger.CanMerge(items);
 
     result.ShouldNotBeEmpty();
   }

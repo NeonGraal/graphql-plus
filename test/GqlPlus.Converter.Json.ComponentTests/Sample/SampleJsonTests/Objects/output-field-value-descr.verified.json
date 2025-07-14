@@ -31,12 +31,12 @@
           "description": "Test Descr",
           "field": "field",
           "label": "outpFieldValueDescr",
+          "name": "EnumOutpFieldValueDescr",
           "object": "OutpFieldValueDescr",
           "typeKind": {
             "$tag": "_SimpleKind",
             "value": "Enum"
-          },
-          "typeName": "EnumOutpFieldValueDescr"
+          }
         }
       ],
       "fields": [
@@ -45,11 +45,11 @@
           "description": "Test Descr",
           "field": "field",
           "label": "outpFieldValueDescr",
+          "name": "EnumOutpFieldValueDescr",
           "typeKind": {
             "$tag": "_SimpleKind",
             "value": "Enum"
-          },
-          "typeName": "EnumOutpFieldValueDescr"
+          }
         }
       ],
       "name": "OutpFieldValueDescr",

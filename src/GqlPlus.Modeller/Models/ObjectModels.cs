@@ -1,8 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-using GqlPlus.Resolving;
-
-namespace GqlPlus.Models;
+﻿namespace GqlPlus.Models;
 
 public abstract record class TypeObjectModel<TObjBase, TObjField, TObjAlt>(
   TypeKindModel Kind,
@@ -15,22 +11,11 @@ public abstract record class TypeObjectModel<TObjBase, TObjField, TObjAlt>(
   where TObjAlt : IObjAlternateModel
 {
   public TypeParamModel[] TypeParams { get; set; } = [];
-  internal TObjField[] Fields { get; set; } = [];
-  internal TObjAlt[] Alternates { get; set; } = [];
+  public TObjField[] Fields { get; set; } = [];
+  public TObjAlt[] Alternates { get; set; } = [];
 
   public ObjectForModel[] AllFields { get; set; } = [];
   public ObjectForModel[] AllAlternates { get; set; } = [];
-
-  internal override bool GetParentModel<TResult>(IResolveContext context, [NotNullWhen(true)] out TResult? model)
-    where TResult : default
-  {
-    if (Parent?.IsTypeParam == false) {
-      return base.GetParentModel(context, out model);
-    }
-
-    model = default;
-    return false;
-  }
 }
 
 public interface ITypeObjectModel
@@ -41,15 +26,17 @@ public interface ITypeObjectModel
 }
 
 public record class ObjTypeArgModel(
+  TypeKindModel Kind,
+  string Name,
   string Description
-) : DescribedModel(Description)
+) : TypeRefModel<TypeKindModel>(Kind, Name, Description)
   , IObjTypeArgModel
 {
   public bool IsTypeParam { get; set; }
 }
 
 public interface IObjTypeArgModel
-  : IDescribedModel
+  : INamedModel
 {
   bool IsTypeParam { get; }
 }
@@ -69,22 +56,22 @@ public interface ITypeParamModel
 }
 
 public record class ObjBaseModel<TObjArg>(
+  string Name,
   string Description
-) : DescribedModel(Description)
+) : NamedModel(Name, Description)
   , IObjBaseModel
 where TObjArg : IObjTypeArgModel
 {
-  internal TObjArg[] Args { get; set; } = [];
   public bool IsTypeParam { get; set; }
+  public TObjArg[] Args { get; set; } = [];
   IObjTypeArgModel[] IObjBaseModel.Args => [.. Args.Cast<IObjTypeArgModel>()];
 }
 
 public interface IObjBaseModel
-  : IDescribedModel
+  : INamedModel
 {
+  bool IsTypeParam { get; set; }
   IObjTypeArgModel[] Args { get; }
-
-  bool IsTypeParam { get; }
 }
 
 public record class ObjectForModel(

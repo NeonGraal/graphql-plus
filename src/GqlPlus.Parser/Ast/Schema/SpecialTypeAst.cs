@@ -15,7 +15,7 @@ internal sealed record class SpecialTypeAst
 
   public SpecialTypeAst(string label, Func<IGqlpType, bool> matcher)
     : base(AstNulls.At, "_" + label, "")
-    => (Label, _matcher) = (label, matcher);
+    => (Aliases, Label, _matcher) = ([label], label, matcher);
 
   public bool Equals(SpecialTypeAst? other)
     => other is IGqlpType<IGqlpTypeRef> parented && Equals(parented);

@@ -35,7 +35,7 @@ internal class ParseArg(
           ? _argument.I
             .Parse(tokens, "Arg")
             .MapOk(
-              item => ParseArgMid(tokens, at, new() { [key] = item }),
+              item => ParseArgMid(tokens, at, new(key, item)),
               () => tokens.Error(label, "a value after field key separator", value))
           : ParseArgEnd(tokens, at, new ArgAst(key)));
       }

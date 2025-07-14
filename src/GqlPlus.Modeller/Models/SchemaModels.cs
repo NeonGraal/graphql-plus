@@ -12,7 +12,7 @@ public record class SchemaModel(
     IEnumerable<OperationModel> operations,
     IEnumerable<SettingModel> settings,
     IEnumerable<BaseTypeModel> types,
-    ITokenMessages? errors)
+    IMessages? errors)
     : this(name, "")
   {
     Categories = categories.ToMap(c => c.Name);
@@ -20,7 +20,7 @@ public record class SchemaModel(
     Operations = operations.ToMap(d => d.Name);
     Types = types.ToMap(t => t.Name);
     Settings = settings.ToMap(s => s.Name);
-    Errors = TokenMessages.New;
+    Errors = Messages.New;
     if (errors is not null) {
       Errors.Add(errors);
     }
@@ -31,38 +31,38 @@ public record class SchemaModel(
   internal IMap<OperationModel> Operations { get; } = new Map<OperationModel>();
   internal IMap<BaseTypeModel> Types { get; init; } = new Map<BaseTypeModel>();
   internal IMap<SettingModel> Settings { get; init; } = new Map<SettingModel>();
-  public ITokenMessages Errors { get; } = TokenMessages.New;
+  public IMessages Errors { get; } = new Messages();
 
 #pragma warning disable IDE0060 // Remove unused parameter
-  public IMap<CategoriesModel> GetCategories(CategoryFilterParam? filter)
+  public IMap<CategoriesModel> GetCategories(CategoryFilterModel? filter)
     => Categories.ToMap(c => c.Key,
       c => new CategoriesModel() {
         And = c.Value,
         Type = Types.TryGetValue(c.Key, out BaseTypeModel? type) ? type : null,
       });
 
-  public IMap<DirectivesModel> GetDirectives(FilterParam? filter)
+  public IMap<DirectivesModel> GetDirectives(FilterModel? filter)
     => Directives.ToMap(d => d.Key,
       d => new DirectivesModel() {
         And = d.Value,
         Type = Types.TryGetValue(d.Key, out BaseTypeModel? type) ? type : null,
       });
 
-  public IMap<OperationsModel> GetOperations(FilterParam? filter)
+  public IMap<OperationsModel> GetOperations(FilterModel? filter)
     => Operations.ToMap(o => o.Key,
       o => new OperationsModel() {
         And = o.Value,
         Type = Types.TryGetValue(o.Key, out BaseTypeModel? type) ? type : null,
       });
 
-  public IMap<SettingModel> GetSettings(FilterParam? filter) => Settings;
-  public IMap<BaseTypeModel> GetTypes(TypeFilterParam? filter) => Types;
+  public IMap<SettingModel> GetSettings(FilterModel? filter) => Settings;
+  public IMap<BaseTypeModel> GetTypes(TypeFilterModel? filter) => Types;
 #pragma warning restore IDE0060
 }
 
-public record class FilterParam(
+public record class FilterModel(
   string[] Names
-)
+) : ModelBase
 {
   public bool MatchAliases { get; set; } = true;
   public string[] Aliases { get; set; } = [];
@@ -70,17 +70,27 @@ public record class FilterParam(
   public bool ReturnByAlias { get; set; }
 }
 
-public record class CategoryFilterParam(
-  string[] Names
-) : FilterParam(Names)
+public record class CategoryFilterModel
+  : FilterModel
 {
+  public CategoryFilterModel(string[] names)
+  : base(names) { }
+
+  public CategoryFilterModel(FilterModel filter)
+    : base(filter) { }
+
   public CategoryOption[] Resolutions { get; set; } = [];
 }
 
-public record class TypeFilterParam(
-  string[] Names
-) : FilterParam(Names)
+public record class TypeFilterModel
+  : FilterModel
 {
+  public TypeFilterModel(string[] names)
+    : base(names) { }
+
+  public TypeFilterModel(FilterModel filter)
+    : base(filter) { }
+
   public TypeKindModel[] Kinds { get; set; } = [];
 }
 

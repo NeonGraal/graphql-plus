@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Models\*.liquid" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GqlPlus.Codec.ComponentTestBase\GqlPlus.Codec.ComponentTestBase.csproj" />
+  </ItemGroup>
+
+</Project>

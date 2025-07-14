@@ -128,8 +128,8 @@ internal abstract class CheckDomainModel<TValue, TAstItem, TItem, TItemModel>(
 public record class CheckDomainInputs<TItem, TItemModel>(
     IDomainModeller<TItem, TItemModel> DomainModeller,
     IResolver<BaseDomainModel<TItemModel>> Resolver,
-    IRenderer<BaseDomainModel<TItemModel>> Rendering
-  ) : CheckTypeInputs<IGqlpDomain<TItem>, BaseDomainModel<TItemModel>>(DomainModeller, Resolver, Rendering)
+    IEncoder<BaseDomainModel<TItemModel>> Encoding
+  ) : CheckTypeInputs<IGqlpDomain<TItem>, BaseDomainModel<TItemModel>>(DomainModeller, Resolver, Encoding)
   where TItem : IGqlpDomainItem
   where TItemModel : BaseDomainItemModel
 { }

@@ -10,7 +10,7 @@
           "object": "PrntCnstFieldObjDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "object": "AltCnstFieldObjDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -31,14 +31,14 @@
           "name": "alt",
           "type": {
             "$tag": "_DualBase",
-            "dual": "Number"
+            "name": "Number"
           }
         }
       ],
       "name": "AltCnstFieldObjDual",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "PrntCnstFieldObjDual"
+        "name": "PrntCnstFieldObjDual"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -54,18 +54,18 @@
           "object": "RefCnstFieldObjDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "AltCnstFieldObjDual"
+            "name": "AltCnstFieldObjDual"
           }
         }
       ],
       "name": "CnstFieldObjDual",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "RefCnstFieldObjDual",
+        "name": "RefCnstFieldObjDual",
         "typeArgs": [
           {
             "$tag": "_DualArg",
-            "dual": "AltCnstFieldObjDual"
+            "name": "AltCnstFieldObjDual"
           }
         ]
       },
@@ -82,7 +82,7 @@
           "object": "PrntCnstFieldObjDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -91,7 +91,7 @@
           "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -134,11 +134,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "PrntCnstFieldObjDual",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Dual"
-            },
-            "typeName": "PrntCnstFieldObjDual"
+            }
           },
           "name": "ref"
         }

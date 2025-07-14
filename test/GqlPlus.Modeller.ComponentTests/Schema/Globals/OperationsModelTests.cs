@@ -36,8 +36,8 @@ public class OperationsModelTests(
 
 internal sealed class OperationsModelChecks(
   IModeller<IGqlpSchemaOperation, OperationModel> modeller,
-  IRenderer<OperationsModel> rendering
-) : CheckModelBase<OperationInput, IGqlpSchemaOperation, OperationDeclAst, OperationModel, OperationsModel>(modeller, rendering)
+  IEncoder<OperationsModel> encoding
+) : CheckModelBase<OperationInput, IGqlpSchemaOperation, OperationDeclAst, OperationModel, OperationsModel>(modeller, encoding)
   , IOperationsModelChecks
 {
   protected override string[] ExpectedBase(OperationInput input)

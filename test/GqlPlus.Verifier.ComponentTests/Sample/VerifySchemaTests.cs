@@ -1,6 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Result;
-using GqlPlus.Token;
 using GqlPlus.Verifying;
 using Microsoft.Extensions.Logging;
 
@@ -19,7 +18,7 @@ public class VerifySchemaTests(
       error.Message.ShouldBeNull(section.Prefixed(" ") + test);
     }
 
-    TokenMessages errors = [];
+    Messages errors = [];
 
     schemaVerifier.Verify(result.Required(), errors);
 
@@ -32,7 +31,7 @@ public class VerifySchemaTests(
 
   protected override async Task Result_Invalid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")
   {
-    TokenMessages errors = [];
+    Messages errors = [];
     if (result.IsOk()) {
       schemaVerifier.Verify(result.Required(), errors);
     } else {

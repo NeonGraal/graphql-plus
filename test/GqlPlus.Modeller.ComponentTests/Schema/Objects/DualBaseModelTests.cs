@@ -11,8 +11,8 @@ public class DualBaseModelTests(
 
 internal sealed class DualBaseModelChecks(
   IModeller<IGqlpDualBase, DualBaseModel> modeller,
-  IRenderer<DualBaseModel> rendering
-) : CheckObjBaseModel<IGqlpDualBase, IGqlpDualArg, DualBaseAst, DualArgAst, DualBaseModel>(modeller, rendering, TypeKindModel.Dual)
+  IEncoder<DualBaseModel> encoding
+) : CheckObjBaseModel<IGqlpDualBase, IGqlpDualArg, DualBaseAst, DualArgAst, DualBaseModel>(modeller, encoding, TypeKindModel.Dual)
   , IDualBaseModelChecks
 {
   protected override DualArgAst NewObjArgAst(string input, bool isTypeParam)

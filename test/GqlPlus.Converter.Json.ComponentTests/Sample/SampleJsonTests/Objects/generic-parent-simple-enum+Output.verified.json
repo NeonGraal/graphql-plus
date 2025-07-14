@@ -56,11 +56,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "_Simple",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Internal"
-            },
-            "typeName": "_Simple"
+            }
           },
           "name": "ref"
         }
@@ -75,18 +75,18 @@
           "object": "FieldGnrcPrntSmplEnumOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "EnumGnrcPrntSmplEnumOutp"
+            "name": "EnumGnrcPrntSmplEnumOutp"
           }
         }
       ],
       "name": "GnrcPrntSmplEnumOutp",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "FieldGnrcPrntSmplEnumOutp",
+        "name": "FieldGnrcPrntSmplEnumOutp",
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "output": "EnumGnrcPrntSmplEnumOutp"
+            "name": "EnumGnrcPrntSmplEnumOutp"
           }
         ]
       },

@@ -1,0 +1,18 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier FieldDescrDual: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        description: 'Test Descr'
+        name: field
+        object: FieldDescrDual
+        type: !_DualBase
+          name: String
+    fields:
+      - !_DualField
+        description: 'Test Descr'
+        name: field
+        type: !_DualBase
+          name: String
+    name: FieldDescrDual
+    typeKind: !_TypeKind Dual

@@ -3,14 +3,13 @@
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Result;
-using GqlPlus.Token;
 
 namespace GqlPlus.Merging;
 
 #pragma warning disable CA1508 // Avoid dead conditional code
 public static class MergeExtensions
 {
-  public static ITokenMessages CanMergeStruct<TItem, TObjField>(
+  public static IMessages CanMergeStruct<TItem, TObjField>(
       this IEnumerable<TItem> items,
       Func<TItem, TObjField> field,
       [CallerArgumentExpression(nameof(field))] string? fieldExpr = null)
@@ -40,10 +39,10 @@ public static class MergeExtensions
       }
     }
 
-    return TokenMessages.New;
+    return Messages.New;
   }
 
-  public static ITokenMessages CanMergeString<TItem>(
+  public static IMessages CanMergeString<TItem>(
       this IEnumerable<TItem> items,
       Func<TItem, string?> field,
       [CallerArgumentExpression(nameof(field))] string? fieldExpr = null)
@@ -72,10 +71,10 @@ public static class MergeExtensions
       }
     }
 
-    return TokenMessages.New;
+    return Messages.New;
   }
 
-  public static ITokenMessages CanMerge<TItem, TObjField>(
+  public static IMessages CanMerge<TItem, TObjField>(
       this IEnumerable<TItem> items,
       Func<TItem, TObjField?> field,
       IMerge<TObjField> merger)
@@ -86,11 +85,11 @@ public static class MergeExtensions
     TObjField[] fields = [.. items.Select(field).Where(f => f is not null).Cast<TObjField>()];
 
 #pragma warning disable CA1062 // Validate arguments of public methods
-    return fields.Length > 0 ? merger.CanMerge(fields) : TokenMessages.New;
+    return fields.Length > 0 ? merger.CanMerge(fields) : Messages.New;
 #pragma warning restore CA1062 // Validate arguments of public methods
   }
 
-  public static ITokenMessages ManyCanMerge<TItem, TGroup>(
+  public static IMessages ManyCanMerge<TItem, TGroup>(
       this IEnumerable<TItem> items,
       Func<TItem, IEnumerable<TGroup>> many,
       IMerge<TGroup> merger)
@@ -100,7 +99,7 @@ public static class MergeExtensions
 
     TGroup[] groups = [.. items.SelectMany(many)];
 #pragma warning disable CA1062 // Validate arguments of public methods
-    return groups.Length < 2 ? TokenMessages.New
+    return groups.Length < 2 ? Messages.New
       : merger.CanMerge(groups);
 #pragma warning restore CA1062 // Validate arguments of public methods
   }
@@ -133,13 +132,13 @@ public static class MergeExtensions
 #pragma warning restore CA1062 // Validate arguments of public methods
   }
 
-  public static ITokenMessages ManyGroupCanMerge<TItem, TGroup>(
+  public static IMessages ManyGroupCanMerge<TItem, TGroup>(
       this IEnumerable<TItem> items,
       Func<TItem, IEnumerable<TGroup>> many,
       Func<TGroup, string> key,
       IMerge<TGroup> merger)
     where TGroup : IGqlpError
-    => TokenMessages.New
+    => Messages.New
       .Add(items
         .SelectMany(many).GroupBy(key)
         .SelectMany(p => merger.CanMerge([.. p])));

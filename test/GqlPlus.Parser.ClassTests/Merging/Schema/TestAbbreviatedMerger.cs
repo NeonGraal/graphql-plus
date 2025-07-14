@@ -11,7 +11,7 @@ public abstract class TestAbbreviatedMerger<TAst, TInput>
   where TAst : IGqlpError
 {
   [Fact]
-  public void CanMerge_NoAsts_ReturnsErrors()
+  public virtual void CanMerge_NoAsts_ReturnsErrors()
    => CanMerge_Errors([]);
 
   [Theory, RepeatData]
@@ -48,14 +48,14 @@ public abstract class TestAbbreviatedMerger<TAst, TInput>
 
   protected void CanMerge_Errors(params TAst[] asts)
   {
-    ITokenMessages result = MergerBase.CanMerge(asts);
+    IMessages result = MergerBase.CanMerge(asts);
 
     result.ShouldNotBeEmpty();
   }
 
   protected void CanMerge_Good(params TAst[] asts)
   {
-    ITokenMessages result = MergerBase.CanMerge(asts);
+    IMessages result = MergerBase.CanMerge(asts);
 
     result.ShouldBeEmpty();
   }
@@ -70,7 +70,7 @@ public abstract class TestAbbreviatedMerger<TAst, TInput>
     return this;
   }
 
-  protected static ITokenMessages EmptyMessages => TokenMessages.New;
+  protected static IMessages EmptyMessages => Messages.New;
 
   protected IMerge<TResult> Merger<TResult>()
     where TResult : IGqlpError
@@ -84,7 +84,7 @@ public abstract class TestAbbreviatedMerger<TAst, TInput>
 
 public static class TestMergeHelper
 {
-  private static ITokenMessages ErrorMessages => new TokenMessages(new TokenMessage(AstNulls.At, "Error!"));
+  private static IMessages ErrorMessages => new Messages(new TokenMessage(AstNulls.At, "Error!"));
 
   public static TTests CanMergeReturnsError<TTests, TResult>(this TTests tests, IMerge<TResult> merger)
     where TResult : IGqlpError

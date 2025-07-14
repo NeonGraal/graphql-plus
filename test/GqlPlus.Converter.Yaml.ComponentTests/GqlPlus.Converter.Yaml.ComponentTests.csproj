@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\GqlPlus.Converter.Yaml\GqlPlus.Converter.Yaml.csproj" />
-    <ProjectReference Include="..\GqlPlus.Modeller.ComponentTestBase\GqlPlus.Modeller.ComponentTestBase.csproj" />
+    <ProjectReference Include="..\GqlPlus.Codec.ComponentTestBase\GqlPlus.Codec.ComponentTestBase.csproj" />
   </ItemGroup>
 
   <ItemGroup>

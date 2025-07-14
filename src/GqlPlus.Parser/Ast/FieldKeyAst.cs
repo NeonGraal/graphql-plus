@@ -39,14 +39,24 @@ internal sealed record class FieldKeyAst(
   public bool Equals(IGqlpFieldKey? other)
     => CompareTo(other) == 0;
   public int CompareTo(IGqlpFieldKey? other)
-    => Number is not null ? decimal.Compare(Number.Value, other?.Number ?? 0)
-      : Text is not null ? string.Compare(Text, other?.Text, StringComparison.Ordinal)
-      : EnumValue is not null ? string.Compare(EnumValue, other?.EnumValue, StringComparison.Ordinal)
-      : -1;
+    => this switch {
+      { Number: not null } => decimal.Compare(Number.Value, other?.Number ?? 0),
+      { EnumValue: not null } when !string.IsNullOrWhiteSpace(EnumValue)
+        => string.Compare(EnumValue, other?.EnumValue, StringComparison.Ordinal),
+      { Text: not null } when !string.IsNullOrEmpty(Text)
+        => string.Compare(Text, other?.Text, StringComparison.Ordinal),
+      _ => -1
+    };
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
-      .Append(Number?.ToString(CultureInfo.InvariantCulture))
-      .Append(EnumValue?.ToString())
-      .Append(Text is not null ? $"'{Text}'" : null);
+      .Append(this switch {
+        { Number: not null }
+          => Number?.ToString(CultureInfo.InvariantCulture),
+        { EnumValue: not null } when !string.IsNullOrWhiteSpace(EnumValue)
+          => EnumValue,
+        { Text: not null }
+          => $"'{Text}'",
+        _ => null
+      });
 }

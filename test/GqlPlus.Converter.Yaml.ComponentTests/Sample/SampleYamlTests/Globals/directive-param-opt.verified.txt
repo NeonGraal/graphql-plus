@@ -5,8 +5,8 @@ directives: !_Map_Directives
     name: DrctParamOpt
     parameters:
     - !_InputParam
-      input: InDrctParamOpt
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: InDrctParamOpt
     repeatable: false
 types: !_Map_Type
   !_Identifier InDrctParamOpt: !_TypeInput

@@ -1,0 +1,16 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier ObjFieldTypeAliasOutp: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: ObjFieldTypeAliasOutp
+        type: !_OutputBase
+          name: String
+    fields:
+      - !_OutputField
+        name: field
+        type: !_OutputBase
+          name: String
+    name: ObjFieldTypeAliasOutp
+    typeKind: !_TypeKind Output

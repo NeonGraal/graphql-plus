@@ -17,12 +17,12 @@ types: !_Map_Type
       name: field
       object: FieldModEnumInp
       type: !_InputBase
-        input: String
+        name: String
     fields:
     - !_InputField
       modifiers: [!_ModifierDictionary {by: EnumFieldModEnumInp, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Enum}]
       name: field
       type: !_InputBase
-        input: String
+        name: String
     name: FieldModEnumInp
     typeKind: !_TypeKind Input

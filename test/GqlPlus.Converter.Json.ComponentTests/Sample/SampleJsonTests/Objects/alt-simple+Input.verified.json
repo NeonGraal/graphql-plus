@@ -10,7 +10,7 @@
           "object": "AltSmplInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "String"
+            "name": "String"
           }
         }
       ],
@@ -19,7 +19,7 @@
           "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
-            "input": "String"
+            "name": "String"
           }
         }
       ],

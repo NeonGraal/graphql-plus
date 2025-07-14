@@ -36,10 +36,10 @@ public abstract class TestObjectFieldModel<TObjField, TObjBase, TModel>(
 }
 
 internal abstract class CheckObjectFieldModel<TObjField, TObjFieldAst, TObjBase, TModel>(
-  IModeller<TObjField, TModel> field, IRenderer
-  <TModel> rendering,
+  IModeller<TObjField, TModel> field, IEncoder
+  <TModel> encoding,
   TypeKindModel kind
-) : CheckModelBase<FieldInput, TObjField, TModel>(field, rendering),
+) : CheckModelBase<FieldInput, TObjField, TModel>(field, encoding),
     ICheckObjectFieldModel<TObjField, TModel>
   where TObjField : IGqlpObjField
   where TObjFieldAst : AstObjField<TObjBase>, TObjField
@@ -47,7 +47,6 @@ internal abstract class CheckObjectFieldModel<TObjField, TObjFieldAst, TObjBase,
   where TModel : IObjFieldModel
 {
   protected readonly TypeKindModel TypeKind = kind;
-  protected readonly string TypeKindLower = $"{kind}".ToLowerInvariant();
 
   protected override TObjFieldAst NewBaseAst(FieldInput input)
     => NewFieldAst(input, [], false);
@@ -55,9 +54,9 @@ internal abstract class CheckObjectFieldModel<TObjField, TObjFieldAst, TObjBase,
     => ExpectedField(input, [], []);
 
   protected string[] ExpectedField(FieldInput input, string[] extras, string[] parameters)
-    => [$"!_{TypeKind}Field", .. extras, "name: " + input.Name, .. parameters, $"type: !_{TypeKind}Base", $"  {TypeKindLower}: {input.Type}"];
+    => [$"!_{TypeKind}Field", .. extras, "name: " + input.Name, .. parameters, $"type: !_{TypeKind}Base", $"  name: {input.Type}"];
   protected string[] ExpectedDual(FieldInput input)
-    => [$"!_{TypeKind}Field", "name: " + input.Name, $"type: !_DualBase", "  dual: " + input.Type];
+    => [$"!_{TypeKind}Field", "name: " + input.Name, $"type: !_DualBase", "  name: " + input.Type];
 
   internal abstract TObjFieldAst NewFieldAst(FieldInput name, string[] aliases, bool withModifiers);
 

@@ -25,11 +25,11 @@
       "name": "EnumOutpCnstEnumPrnt",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
+        "name": "ParentOutpCnstEnumPrnt",
         "typeKind": {
           "$tag": "_SimpleKind",
           "value": "Enum"
-        },
-        "typeName": "ParentOutpCnstEnumPrnt"
+        }
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -44,11 +44,11 @@
           "object": "OutpCnstEnumPrnt",
           "type": {
             "$tag": "_OutputBase",
-            "output": "RefOutpCnstEnumPrnt",
+            "name": "RefOutpCnstEnumPrnt",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "output": "outpCnstEnumPrnt"
+                "name": "outpCnstEnumPrnt"
               }
             ]
           }
@@ -59,11 +59,11 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "RefOutpCnstEnumPrnt",
+            "name": "RefOutpCnstEnumPrnt",
             "typeArgs": [
               {
                 "$tag": "_OutputArg",
-                "output": "outpCnstEnumPrnt"
+                "name": "outpCnstEnumPrnt"
               }
             ]
           }
@@ -129,11 +129,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "ParentOutpCnstEnumPrnt",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Enum"
-            },
-            "typeName": "ParentOutpCnstEnumPrnt"
+            }
           },
           "name": "type"
         }

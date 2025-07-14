@@ -10,7 +10,7 @@
           "object": "RefPrntDescrDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "object": "RefPrntDescrDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -29,7 +29,7 @@
       "parent": {
         "$tag": "_DualBase",
         "description": "Test Descr",
-        "dual": "RefPrntDescrDual"
+        "name": "RefPrntDescrDual"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -44,7 +44,7 @@
           "object": "RefPrntDescrDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -55,7 +55,7 @@
           "object": "RefPrntDescrDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -64,7 +64,7 @@
           "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -74,7 +74,7 @@
           "name": "parent",
           "type": {
             "$tag": "_DualBase",
-            "dual": "Number"
+            "name": "Number"
           }
         }
       ],

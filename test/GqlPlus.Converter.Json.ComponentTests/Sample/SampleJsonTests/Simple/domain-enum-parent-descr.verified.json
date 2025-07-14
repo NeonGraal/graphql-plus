@@ -12,11 +12,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "prnt_dmnEnumPrntDescr",
+            "name": "EnumDmnEnumPrntDescr",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            },
-            "typeName": "EnumDmnEnumPrntDescr"
+            }
           }
         },
         {
@@ -26,11 +26,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "enum_dmnEnumPrntDescr",
+            "name": "EnumDmnEnumPrntDescr",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            },
-            "typeName": "EnumDmnEnumPrntDescr"
+            }
           }
         }
       ],
@@ -45,11 +45,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "enum_dmnEnumPrntDescr",
+            "name": "EnumDmnEnumPrntDescr",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            },
-            "typeName": "EnumDmnEnumPrntDescr"
+            }
           }
         }
       ],
@@ -57,11 +57,11 @@
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
         "description": "Parent comment",
+        "name": "PrntDmnEnumPrntDescr",
         "typeKind": {
           "$tag": "_SimpleKind",
           "value": "Domain"
-        },
-        "typeName": "PrntDmnEnumPrntDescr"
+        }
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -108,11 +108,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "prnt_dmnEnumPrntDescr",
+            "name": "EnumDmnEnumPrntDescr",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            },
-            "typeName": "EnumDmnEnumPrntDescr"
+            }
           }
         }
       ],
@@ -127,11 +127,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "prnt_dmnEnumPrntDescr",
+            "name": "EnumDmnEnumPrntDescr",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            },
-            "typeName": "EnumDmnEnumPrntDescr"
+            }
           }
         }
       ],

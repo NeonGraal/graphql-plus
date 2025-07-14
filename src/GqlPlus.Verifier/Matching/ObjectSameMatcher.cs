@@ -5,20 +5,20 @@ namespace GqlPlus.Matching;
 
 internal class ObjectSameMatcher<TType>(
   ILoggerFactory logger
-) : TypeMatcherBase<TType>(logger)
+) : ParentSameMatcher<IGqlpObjBase, TType>(logger)
   where TType : IGqlpObject
 {
-  public override bool Matches(TType type, string constraint, EnumContext context)
+  protected override bool MatchParent(string? parent, string constraint, UsageContext context)
   {
-    TryingMatch(type, constraint);
+    if (base.MatchParent(parent, constraint, context)) {
+      return true;
+    }
 
-    return type.Name.Equals(constraint, StringComparison.Ordinal)
-        || MatchParent(type.Parent?.Name, constraint, context);
+    return MatchDualParent(parent, constraint, context);
   }
 
-  private static bool MatchParent(string? parent, string constraint, UsageContext context)
-    => !string.IsNullOrWhiteSpace(parent)
-      && (parent!.Equals(constraint, StringComparison.Ordinal)
-        || context.GetTyped(parent, out TType? typeParent)
-          && MatchParent(typeParent.Parent?.Name, constraint, context));
+  private static bool MatchDualParent(string? parent, string constraint, UsageContext context)
+    => MatchName(parent, constraint)
+      || context.GetTyped(parent, out IGqlpDualObject? typeParent)
+        && MatchDualParent(typeParent.Parent?.Name, constraint, context);
 }

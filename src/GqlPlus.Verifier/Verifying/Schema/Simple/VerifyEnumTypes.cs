@@ -11,6 +11,6 @@ internal class VerifyEnumTypes(
   protected override IEnumerable<IGqlpEnumLabel> GetItems(IGqlpEnum usage)
     => usage.Items;
 
-  protected override UsageContext MakeContext(IGqlpEnum usage, IGqlpType[] aliased, ITokenMessages errors)
+  protected override UsageContext MakeContext(IGqlpEnum usage, IGqlpType[] aliased, IMessages errors)
     => MakeUsageContext(aliased, errors);
 }

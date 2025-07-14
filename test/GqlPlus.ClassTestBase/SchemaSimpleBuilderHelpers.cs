@@ -30,6 +30,14 @@ public static class SchemaSimpleBuilderHelpers
     return domainLabel;
   }
 
+  public static IGqlpDomainTrueFalse DomainTrueFalse(this IMockBuilder builder, bool value, bool excludes = false)
+  {
+    IGqlpDomainTrueFalse domainTrueFalse = builder.Error<IGqlpDomainTrueFalse>();
+    domainTrueFalse.IsTrue.Returns(value);
+    domainTrueFalse.Excludes.Returns(excludes);
+    return domainTrueFalse;
+  }
+
   public static IGqlpEnum Enum(this IMockBuilder builder, string name, string[] labels, string? parent = null)
     => builder.Enum(name, parent, builder.ArrayOf((b, i) => b.EnumLabel(i, []), labels));
   public static IGqlpEnum Enum(this IMockBuilder builder, string name, string? parent, params IGqlpEnumLabel[] enumLabels)
@@ -60,6 +68,8 @@ public static class SchemaSimpleBuilderHelpers
     if (!string.IsNullOrWhiteSpace(parent)) {
       IGqlpTypeRef parentRef = builder.Named<IGqlpTypeRef>(parent);
       simple.Parent.Returns(parentRef);
+    } else {
+      simple.Parent.Returns((IGqlpTypeRef?)null);
     }
 
     return simple;

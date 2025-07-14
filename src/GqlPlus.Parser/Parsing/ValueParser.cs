@@ -49,7 +49,7 @@ public abstract class ValueParser<TValue>(
   {
     tokens.ThrowIfNull();
 
-    AstFields<TValue> result = new(fields);
+    AstFields<TValue> result = new(fields.ToDictionary(p => p.Key, p => p.Value));
 
 #pragma warning disable CA1062 // Validate arguments of public methods
     while (!tokens.Take(last)) {

@@ -2,7 +2,6 @@
 using GqlPlus.Parsing;
 using GqlPlus.Parsing.Operation;
 using GqlPlus.Result;
-using GqlPlus.Token;
 using GqlPlus.Verifying;
 
 namespace GqlPlus.Sample;
@@ -23,7 +22,7 @@ public class VerifyOperationTests(
       error.Message.ShouldBeNull();
     }
 
-    TokenMessages result = [];
+    Messages result = [];
 
     operationVerifier.Verify(parse.Required(), result);
 
@@ -36,7 +35,7 @@ public class VerifyOperationTests(
   {
     IResult<IGqlpOperation> parse = await Parse("Invalid", operation);
 
-    TokenMessages result = [];
+    Messages result = [];
     if (parse.IsOk()) {
       operationVerifier.Verify(parse.Required(), result);
     } else {

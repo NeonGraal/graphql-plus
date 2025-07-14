@@ -16,7 +16,7 @@ public class SimpleModelTests(
 
   [Fact]
   public void Model_Nothing()
-    => checks.SimpleExpected(new FieldKeyAst(AstNulls.At), ["!Basic null"]);
+    => checks.SimpleExpected(new FieldKeyAst(AstNulls.At), [""]);
 
   [Theory, RepeatData]
   public void Model_Number(decimal number)
@@ -25,8 +25,8 @@ public class SimpleModelTests(
 
 internal sealed class SimpleModelChecks(
   IModeller<IGqlpFieldKey, SimpleModel> modeller,
-  IRenderer<SimpleModel> rendering
-) : CheckModelBase<string, IGqlpFieldKey, FieldKeyAst, SimpleModel>(modeller, rendering)
+  IEncoder<SimpleModel> encoding
+) : CheckModelBase<string, IGqlpFieldKey, FieldKeyAst, SimpleModel>(modeller, encoding)
   , ISimpleModelChecks
 {
   public void SimpleExpected(IGqlpFieldKey ast, string[] expected)

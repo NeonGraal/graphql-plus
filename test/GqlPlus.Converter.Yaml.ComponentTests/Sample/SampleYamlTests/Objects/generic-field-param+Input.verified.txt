@@ -5,22 +5,22 @@ types: !_Map_Type
     - !_ObjectFor(_InputAlternate)
       object: AltGnrcFieldParamInp
       type: !_InputBase
-        input: String
+        name: String
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
       object: AltGnrcFieldParamInp
       type: !_InputBase
-        input: Number
+        name: Number
     alternates:
     - !_InputAlternate
       type: !_InputBase
-        input: String
+        name: String
     fields:
     - !_InputField
       name: alt
       type: !_InputBase
-        input: Number
+        name: Number
     name: AltGnrcFieldParamInp
     typeKind: !_TypeKind Input
   !_Identifier GnrcFieldParamInp: !_TypeInput
@@ -29,18 +29,18 @@ types: !_Map_Type
       name: field
       object: GnrcFieldParamInp
       type: !_InputBase
-        input: RefGnrcFieldParamInp
+        name: RefGnrcFieldParamInp
         typeArgs:
         - !_InputArg
-          input: AltGnrcFieldParamInp
+          name: AltGnrcFieldParamInp
     fields:
     - !_InputField
       name: field
       type: !_InputBase
-        input: RefGnrcFieldParamInp
+        name: RefGnrcFieldParamInp
         typeArgs:
         - !_InputArg
-          input: AltGnrcFieldParamInp
+          name: AltGnrcFieldParamInp
     name: GnrcFieldParamInp
     typeKind: !_TypeKind Input
   !_Identifier RefGnrcFieldParamInp: !_TypeInput
@@ -58,6 +58,6 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
+        name: _Input
         typeKind: !_TypeKind Internal
-        typeName: _Input
       name: ref

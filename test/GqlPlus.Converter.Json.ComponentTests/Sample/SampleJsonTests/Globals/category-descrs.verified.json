@@ -8,11 +8,11 @@
       "name": "ctgrDscrs",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
+        "name": "CtgrDscrs",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        },
-        "typeName": "CtgrDscrs"
+        }
       },
       "resolution": {
         "$tag": "_Resolution",

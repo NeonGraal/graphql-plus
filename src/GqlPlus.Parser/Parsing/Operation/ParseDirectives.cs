@@ -20,8 +20,8 @@ internal class ParseDirectives(
       return tokens.ErrorArray(label, "identifier after '@'", result);
     }
 
-    while (name is not null) {
-      DirectiveAst directive = new(at, name);
+    while (!string.IsNullOrWhiteSpace(name)) {
+      DirectiveAst directive = new(at, name!);
       result.Add(directive);
 
       IResult<IGqlpArg> argument = _argument.I.Parse(tokens, "Arg");

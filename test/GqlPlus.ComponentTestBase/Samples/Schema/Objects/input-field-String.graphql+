@@ -1,1 +1,1 @@
-input Name { field: String = '' }
+input Name { field: String = 'default' }

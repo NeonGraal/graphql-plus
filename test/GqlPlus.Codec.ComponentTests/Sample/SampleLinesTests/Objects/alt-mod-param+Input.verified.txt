@@ -1,0 +1,51 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier AltAltModParamInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_InputAlternate)
+        object: AltAltModParamInp
+        type: !_InputBase
+          name: String
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: alt
+        object: AltAltModParamInp
+        type: !_InputBase
+          name: Number
+    alternates:
+      - !_InputAlternate
+        type: !_InputBase
+          name: String
+    fields:
+      - !_InputField
+        name: alt
+        type: !_InputBase
+          name: Number
+    name: AltAltModParamInp
+    typeKind: !_TypeKind Input
+  !_Identifier AltModParamInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_InputAlternate)
+        collections:
+          - !_ModifierTypeParam
+            by: mod
+            modifierKind: !_ModifierKind Param
+        object: AltModParamInp
+        type: !_InputBase
+          name: AltAltModParamInp
+    alternates:
+      - !_InputAlternate
+        collections:
+          - !_ModifierTypeParam
+            by: mod
+            modifierKind: !_ModifierKind Param
+        type: !_InputBase
+          name: AltAltModParamInp
+    name: AltModParamInp
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: mod

@@ -49,10 +49,10 @@ internal abstract class ObjectFieldParser<TObjField, TObjFieldAst, TObjBase>(
         hasParam.WithResult(parameter => ApplyFieldParams(field, [.. parameter]));
         IResultArray<IGqlpModifier> modifiers = _modifiers.Parse(tokens, label);
         if (modifiers.IsError()) {
-          return modifiers.AsResult<TObjField>();
+          return modifiers.AsPartial<TObjField>(field);
         }
 
-        modifiers.WithResult(modifiers => field.Modifiers = modifiers.ArrayOf<ModifierAst>());
+        modifiers.WithResult(modifiers => field.Modifiers = [.. modifiers]);
 
         return FieldDefault(tokens, field);
       }

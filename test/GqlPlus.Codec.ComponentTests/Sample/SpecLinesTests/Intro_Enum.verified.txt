@@ -1,0 +1,63 @@
+﻿!_Schema
+errors:
+  - !_Error
+    _kind: !_TokenKind End
+    _message: In _TypeEnum can't get model for type '_ParentType'
+  - !_Error
+    _kind: !_TokenKind End
+    _message: In _EnumLabel can't get model for type '_Aliased'
+  - !_Error
+    _kind: !_TokenKind End
+    _message: In _EnumValue can't get model for type '_TypeRef'
+types: !_Map_Type
+  !_Identifier _EnumLabel: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: enum
+        object: _EnumLabel
+        type: !_DualBase
+          name: _Identifier
+    fields:
+      - !_DualField
+        name: enum
+        type: !_DualBase
+          name: _Identifier
+    name: _EnumLabel
+    parent: !_DualBase
+      name: _Aliased
+    typeKind: !_TypeKind Dual
+  !_Identifier _EnumValue: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: label
+        object: _EnumValue
+        type: !_OutputBase
+          name: _Identifier
+    fields:
+      - !_OutputField
+        name: label
+        type: !_OutputBase
+          name: _Identifier
+    name: _EnumValue
+    parent: !_OutputBase
+      name: _TypeRef
+      typeArgs:
+        - !_TypeRef(_SimpleKind)
+          label: Enum
+          name: _TypeKind
+          typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Output
+  !_Identifier _TypeEnum: !_TypeOutput
+    name: _TypeEnum
+    parent: !_OutputBase
+      name: _ParentType
+      typeArgs:
+        - !_TypeRef(_SimpleKind)
+          label: Enum
+          name: _TypeKind
+          typeKind: !_SimpleKind Enum
+        - !_OutputArg
+          name: _Aliased
+        - !_DualArg
+          name: _EnumLabel
+    typeKind: !_TypeKind Output

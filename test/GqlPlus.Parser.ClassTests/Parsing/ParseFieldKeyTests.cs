@@ -40,6 +40,20 @@ public class ParseFieldKeyTests
       .Required().Text.ShouldBe(contents);
   }
 
+  [Fact]
+  public void Parse_ShouldReturnFieldKeyResult_WhenEmptyStringTokenIsParsed()
+  {
+    // Arrange
+    Tokenizer.String(out string? _).Returns(OutString(""));
+
+    // Act
+    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultOk<IGqlpFieldKey>>()
+      .Required().Text.ShouldBe("");
+  }
+
   [Theory, RepeatData]
   public void Parse_ShouldReturnFieldKeyResult_WhenEnumTypeAndLabelAreParsed(string enumType, string enumLabel)
   {

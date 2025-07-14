@@ -91,10 +91,10 @@ public abstract class LinesStructureBase
     => new(value, ValueTag);
 
   private Structured AsList<T>(T[] value, Func<T, Structured> mapper)
-    => value.Render(mapper, ListTag, Flow);
+    => value.Encode(mapper, ListTag, Flow);
 
   private Structured AsMap<T>(MapPair<T>[] value, Func<T, Structured> mapper)
-    => value.ToMap(k => k.Key, v => mapper(v.Value)).Render(MapTag, Flow);
+    => value.ToMap(k => k.Key, v => mapper(v.Value)).Encode(MapTag, Flow);
 
   private static bool MapDups<T>(MapPair<T>[] value)
     => value.Length != value.Select(v => v.Key).Distinct().Count();

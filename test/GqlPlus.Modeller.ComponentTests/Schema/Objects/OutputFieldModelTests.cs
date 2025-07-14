@@ -25,8 +25,8 @@ public class OutputFieldModelTests(
 
 internal sealed class OutputFieldModelChecks(
   IModeller<IGqlpOutputField, OutputFieldModel> modeller,
-  IRenderer<OutputFieldModel> rendering
-) : CheckObjectFieldModel<IGqlpOutputField, OutputFieldAst, IGqlpOutputBase, OutputFieldModel>(modeller, rendering, TypeKindModel.Output)
+  IEncoder<OutputFieldModel> encoding
+) : CheckObjectFieldModel<IGqlpOutputField, OutputFieldAst, IGqlpOutputBase, OutputFieldModel>(modeller, encoding, TypeKindModel.Output)
   , IOutputFieldModelChecks
 {
   internal override OutputFieldAst NewFieldAst(FieldInput input, string[] aliases, bool withModifiers)
@@ -42,10 +42,10 @@ internal sealed class OutputFieldModelChecks(
     => [.. ItemsExpected(
        "parameters:",
         parameters,
-        p => ["  - !_InputParam", "    input: " + p])];
+        p => ["  - !_InputParam", "    name: " + p])];
 
   public string[] ExpectedEnum(FieldInput input, string enumLabel)
-    => [$"!_OutputEnum", "field: " + input.Name, "label: " + enumLabel, $"typeKind: !_SimpleKind Enum", "typeName: " + input.Type];
+    => [$"!_OutputEnum", "field: " + input.Name, "label: " + enumLabel, "name: " + input.Type, $"typeKind: !_SimpleKind Enum"];
 }
 
 public interface IOutputFieldModelChecks

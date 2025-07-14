@@ -22,7 +22,7 @@ internal class ParseDomainRegex(
       return result.Ok();
     }
 
-    result = new DomainRegexAst(at, description, false, regex ?? "");
+    result = new DomainRegexAst(at, description, false, regex.IfWhitespace());
     return string.IsNullOrEmpty(regex)
       ? excluded
         ? tokens.Error(label, "regex after '!'", result)

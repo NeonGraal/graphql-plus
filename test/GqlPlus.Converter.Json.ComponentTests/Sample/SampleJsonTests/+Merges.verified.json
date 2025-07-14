@@ -8,11 +8,11 @@
       "name": "ctgr",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
+        "name": "Ctgr",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        },
-        "typeName": "Ctgr"
+        }
       },
       "resolution": {
         "$tag": "_Resolution",
@@ -25,11 +25,11 @@
       "name": "ctgrAlias",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
+        "name": "CtgrAlias",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        },
-        "typeName": "CtgrAlias"
+        }
       },
       "resolution": {
         "$tag": "_Resolution",
@@ -42,11 +42,11 @@
       "name": "ctgrDescr",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
+        "name": "CtgrDescr",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        },
-        "typeName": "CtgrDescr"
+        }
       },
       "resolution": {
         "$tag": "_Resolution",
@@ -68,11 +68,11 @@
       "name": "ctgrMod",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
+        "name": "CtgrMod",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        },
-        "typeName": "CtgrMod"
+        }
       },
       "resolution": {
         "$tag": "_Resolution",
@@ -84,11 +84,11 @@
       "name": "op",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
+        "name": "Op",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        },
-        "typeName": "Op"
+        }
       },
       "resolution": {
         "$tag": "_Resolution",
@@ -130,7 +130,7 @@
       "parameters": [
         {
           "$tag": "_InputParam",
-          "input": "InDrctParam"
+          "name": "InDrctParam"
         }
       ],
       "repeatable": false
@@ -315,11 +315,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "true",
+            "name": "Boolean",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            },
-            "typeName": "Boolean"
+            }
           }
         },
         {
@@ -329,11 +329,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "false",
+            "name": "Boolean",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            },
-            "typeName": "Boolean"
+            }
           }
         }
       ],
@@ -348,11 +348,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "true",
+            "name": "Boolean",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            },
-            "typeName": "Boolean"
+            }
           }
         },
         {
@@ -361,11 +361,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "false",
+            "name": "Boolean",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            },
-            "typeName": "Boolean"
+            }
           }
         }
       ],
@@ -385,11 +385,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "true",
+            "name": "Boolean",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            },
-            "typeName": "Boolean"
+            }
           }
         }
       ],
@@ -404,11 +404,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "true",
+            "name": "Boolean",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            },
-            "typeName": "Boolean"
+            }
           }
         }
       ],
@@ -650,11 +650,11 @@
       "name": "EnumSamePrnt",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
+        "name": "PrntEnumSamePrnt",
         "typeKind": {
           "$tag": "_SimpleKind",
           "value": "Enum"
-        },
-        "typeName": "PrntEnumSamePrnt"
+        }
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -783,7 +783,7 @@
           "object": "ObjAltDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "ObjAltDualType"
+            "name": "ObjAltDualType"
           }
         }
       ],
@@ -792,7 +792,7 @@
           "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
-            "dual": "ObjAltDualType"
+            "name": "ObjAltDualType"
           }
         }
       ],
@@ -818,7 +818,7 @@
           "object": "ObjAltInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "ObjAltInpType"
+            "name": "ObjAltInpType"
           }
         }
       ],
@@ -827,7 +827,7 @@
           "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
-            "input": "ObjAltInpType"
+            "name": "ObjAltInpType"
           }
         }
       ],
@@ -853,7 +853,7 @@
           "object": "ObjAltOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "ObjAltOutpType"
+            "name": "ObjAltOutpType"
           }
         }
       ],
@@ -862,7 +862,7 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "ObjAltOutpType"
+            "name": "ObjAltOutpType"
           }
         }
       ],
@@ -930,11 +930,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "type"
         }
@@ -990,11 +990,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "type"
         }
@@ -1050,11 +1050,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "type"
         }
@@ -1078,7 +1078,7 @@
           "object": "ObjFieldAliasDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "FldObjFieldAliasDual"
+            "name": "FldObjFieldAliasDual"
           }
         }
       ],
@@ -1089,7 +1089,7 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "dual": "FldObjFieldAliasDual"
+            "name": "FldObjFieldAliasDual"
           }
         }
       ],
@@ -1109,7 +1109,7 @@
           "object": "ObjFieldAliasInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "FldObjFieldAliasInp"
+            "name": "FldObjFieldAliasInp"
           }
         }
       ],
@@ -1120,7 +1120,7 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "input": "FldObjFieldAliasInp"
+            "name": "FldObjFieldAliasInp"
           }
         }
       ],
@@ -1140,7 +1140,7 @@
           "object": "ObjFieldAliasOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "FldObjFieldAliasOutp"
+            "name": "FldObjFieldAliasOutp"
           }
         }
       ],
@@ -1151,7 +1151,7 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "output": "FldObjFieldAliasOutp"
+            "name": "FldObjFieldAliasOutp"
           }
         }
       ],
@@ -1170,7 +1170,7 @@
           "object": "ObjFieldDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "FldObjFieldDual"
+            "name": "FldObjFieldDual"
           }
         }
       ],
@@ -1180,7 +1180,7 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "dual": "FldObjFieldDual"
+            "name": "FldObjFieldDual"
           }
         }
       ],
@@ -1199,7 +1199,7 @@
           "object": "ObjFieldInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "FldObjFieldInp"
+            "name": "FldObjFieldInp"
           }
         }
       ],
@@ -1209,7 +1209,7 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "input": "FldObjFieldInp"
+            "name": "FldObjFieldInp"
           }
         }
       ],
@@ -1228,7 +1228,7 @@
           "object": "ObjFieldOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "FldObjFieldOutp"
+            "name": "FldObjFieldOutp"
           }
         }
       ],
@@ -1238,7 +1238,7 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "output": "FldObjFieldOutp"
+            "name": "FldObjFieldOutp"
           }
         }
       ],
@@ -1257,7 +1257,7 @@
           "object": "ObjFieldTypeAliasDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -1267,7 +1267,7 @@
           "name": "field",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -1286,7 +1286,7 @@
           "object": "ObjFieldTypeAliasInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "String"
+            "name": "String"
           }
         }
       ],
@@ -1296,7 +1296,7 @@
           "name": "field",
           "type": {
             "$tag": "_InputBase",
-            "input": "String"
+            "name": "String"
           }
         }
       ],
@@ -1315,7 +1315,7 @@
           "object": "ObjFieldTypeAliasOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "String"
+            "name": "String"
           }
         }
       ],
@@ -1325,7 +1325,7 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "output": "String"
+            "name": "String"
           }
         }
       ],
@@ -1401,11 +1401,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "test"
         }
@@ -1461,11 +1461,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "test"
         }
@@ -1521,11 +1521,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "test"
         }
@@ -1581,11 +1581,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "test"
         },
@@ -1593,11 +1593,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "type"
         }
@@ -1653,11 +1653,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "test"
         }
@@ -1713,11 +1713,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "test"
         }
@@ -1773,11 +1773,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "test"
         }
@@ -1833,11 +1833,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "test"
         },
@@ -1845,11 +1845,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "type"
         }
@@ -1905,11 +1905,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "test"
         },
@@ -1917,11 +1917,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "type"
         }
@@ -1932,7 +1932,7 @@
       "name": "ObjPrntDual",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "RefObjPrntDual"
+        "name": "RefObjPrntDual"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -1944,7 +1944,7 @@
       "name": "ObjPrntInp",
       "parent": {
         "$tag": "_InputBase",
-        "input": "RefObjPrntInp"
+        "name": "RefObjPrntInp"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -1956,7 +1956,7 @@
       "name": "ObjPrntOutp",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "RefObjPrntOutp"
+        "name": "RefObjPrntOutp"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -1978,12 +1978,12 @@
           "$tag": "_ObjectFor(_OutputField)",
           "field": "field",
           "label": "true",
+          "name": "Boolean",
           "object": "OutpFieldEnumAlias",
           "typeKind": {
             "$tag": "_SimpleKind",
             "value": "Enum"
-          },
-          "typeName": "Boolean"
+          }
         }
       ],
       "fields": [
@@ -1991,11 +1991,11 @@
           "$tag": "_OutputEnum",
           "field": "field",
           "label": "true",
+          "name": "Boolean",
           "typeKind": {
             "$tag": "_SimpleKind",
             "value": "Enum"
-          },
-          "typeName": "Boolean"
+          }
         }
       ],
       "name": "OutpFieldEnumAlias",
@@ -2011,12 +2011,12 @@
           "$tag": "_ObjectFor(_OutputField)",
           "field": "field",
           "label": "true",
+          "name": "Boolean",
           "object": "OutpFieldEnumValue",
           "typeKind": {
             "$tag": "_SimpleKind",
             "value": "Enum"
-          },
-          "typeName": "Boolean"
+          }
         }
       ],
       "fields": [
@@ -2024,11 +2024,11 @@
           "$tag": "_OutputEnum",
           "field": "field",
           "label": "true",
+          "name": "Boolean",
           "typeKind": {
             "$tag": "_SimpleKind",
             "value": "Enum"
-          },
-          "typeName": "Boolean"
+          }
         }
       ],
       "name": "OutpFieldEnumValue",
@@ -2047,16 +2047,16 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "input": "OutpFieldParam1"
+              "name": "OutpFieldParam1"
             },
             {
               "$tag": "_InputParam",
-              "input": "OutpFieldParam2"
+              "name": "OutpFieldParam2"
             }
           ],
           "type": {
             "$tag": "_DualBase",
-            "dual": "FldOutpFieldParam"
+            "name": "FldOutpFieldParam"
           }
         }
       ],
@@ -2067,16 +2067,16 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "input": "OutpFieldParam1"
+              "name": "OutpFieldParam1"
             },
             {
               "$tag": "_InputParam",
-              "input": "OutpFieldParam2"
+              "name": "OutpFieldParam2"
             }
           ],
           "type": {
             "$tag": "_DualBase",
-            "dual": "FldOutpFieldParam"
+            "name": "FldOutpFieldParam"
           }
         }
       ],
@@ -2273,11 +2273,11 @@
       "name": "UnionSamePrnt",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
+        "name": "PrntUnionSamePrnt",
         "typeKind": {
           "$tag": "_SimpleKind",
           "value": "Union"
-        },
-        "typeName": "PrntUnionSamePrnt"
+        }
       },
       "typeKind": {
         "$tag": "_TypeKind",

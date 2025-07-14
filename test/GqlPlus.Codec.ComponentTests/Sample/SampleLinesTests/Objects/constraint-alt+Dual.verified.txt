@@ -1,0 +1,20 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier CnstAltDual: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_DualAlternate)
+        object: CnstAltDual
+        type: !_DualBase
+          typeParam: type
+    alternates:
+      - !_DualAlternate
+        type: !_DualBase
+          typeParam: type
+    name: CnstAltDual
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: Number
+          typeKind: !_TypeKind Basic
+        name: type

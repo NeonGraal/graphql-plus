@@ -20,7 +20,7 @@
           "object": "_Categories",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Category"
+            "name": "_Category"
           }
         },
         {
@@ -28,7 +28,7 @@
           "object": "_Categories",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Type"
+            "name": "_Type"
           }
         }
       ],
@@ -39,7 +39,7 @@
           "object": "_Categories",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Category"
+            "name": "_Category"
           }
         },
         {
@@ -48,7 +48,7 @@
           "object": "_Categories",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Type"
+            "name": "_Type"
           }
         }
       ],
@@ -57,14 +57,14 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Category"
+            "name": "_Category"
           }
         },
         {
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Type"
+            "name": "_Type"
           }
         }
       ],
@@ -74,7 +74,7 @@
           "name": "category",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Category"
+            "name": "_Category"
           }
         },
         {
@@ -82,7 +82,7 @@
           "name": "type",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Type"
+            "name": "_Type"
           }
         }
       ],
@@ -101,25 +101,25 @@
           "object": "_Category",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Resolution"
+            "name": "_Resolution"
           }
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "output",
+          "name": "name",
           "object": "_Category",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_TypeRef",
+            "name": "_TypeRef",
             "typeArgs": [
               {
-                "$tag": "_OutputArg",
+                "$tag": "_TypeRef(_SimpleKind)",
                 "label": "Output",
+                "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                },
-                "typeName": "_TypeKind"
+                }
               }
             ]
           }
@@ -139,7 +139,7 @@
           "object": "_Category",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Modifiers"
+            "name": "_Modifiers"
           }
         }
       ],
@@ -149,24 +149,24 @@
           "name": "resolution",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Resolution"
+            "name": "_Resolution"
           }
         },
         {
           "$tag": "_OutputField",
-          "name": "output",
+          "name": "name",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_TypeRef",
+            "name": "_TypeRef",
             "typeArgs": [
               {
-                "$tag": "_OutputArg",
+                "$tag": "_TypeRef(_SimpleKind)",
                 "label": "Output",
+                "name": "_TypeKind",
                 "typeKind": {
                   "$tag": "_SimpleKind",
                   "value": "Enum"
-                },
-                "typeName": "_TypeKind"
+                }
               }
             ]
           }
@@ -185,14 +185,14 @@
           "name": "modifiers",
           "type": {
             "$tag": "_OutputBase",
-            "output": "_Modifiers"
+            "name": "_Modifiers"
           }
         }
       ],
       "name": "_Category",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "_Aliased"
+        "name": "_Aliased"
       },
       "typeKind": {
         "$tag": "_TypeKind",

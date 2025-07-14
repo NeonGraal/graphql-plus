@@ -24,7 +24,7 @@ public static class AllMatchers
       .AddSameMatcher<IGqlpTypeSpecial, SimpleSameMatcher<IGqlpTypeSpecial>>()
       .AddSameMatcher<IGqlpUnion, SimpleSameMatcher<IGqlpUnion>>()
 
-      .AddSameMatcher<IGqlpDualObject, ObjectSameMatcher<IGqlpDualObject>>()
+      .AddSameMatcher<IGqlpDualObject, ParentSameMatcher<IGqlpObjBase, IGqlpDualObject>>()
       .AddSameMatcher<IGqlpInputObject, ObjectSameMatcher<IGqlpInputObject>>()
       .AddSameMatcher<IGqlpOutputObject, ObjectSameMatcher<IGqlpOutputObject>>()
     ;

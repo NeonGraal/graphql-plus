@@ -47,6 +47,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Coverage", "Coverage", "{B1
 		class.runsettings = class.runsettings
 		coverage.ps1 = coverage.ps1
 		coverage.runsettings = coverage.runsettings
+		just-coverage.ps1 = just-coverage.ps1
+		tests-coverage.runsettings = tests-coverage.runsettings
 		report.ps1 = report.ps1
 	EndProjectSection
 EndProject
@@ -92,7 +94,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Converter.Json", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Converter.Json.ComponentTests", "test\GqlPlus.Converter.Json.ComponentTests\GqlPlus.Converter.Json.ComponentTests.csproj", "{3289A609-8CB0-495D-9D10-326D63BAA5F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Modeller.ComponentTestBase", "test\GqlPlus.Modeller.ComponentTestBase\GqlPlus.Modeller.ComponentTestBase.csproj", "{7A0D7D70-6533-442A-9FD1-29131DE207F4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Codec.ComponentTestBase", "test\GqlPlus.Codec.ComponentTestBase\GqlPlus.Codec.ComponentTestBase.csproj", "{7A0D7D70-6533-442A-9FD1-29131DE207F4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Converter.Yaml.ComponentTests", "test\GqlPlus.Converter.Yaml.ComponentTests\GqlPlus.Converter.Yaml.ComponentTests.csproj", "{8F67479F-A4B7-4574-B8EA-10C8E19DA2E4}"
 EndProject
@@ -103,6 +105,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Converter.Yaml.ClassTests", "test\GqlPlus.Converter.Yaml.ClassTests\GqlPlus.Converter.Yaml.ClassTests.csproj", "{D11248A7-A1B2-4D8F-A396-36615F36A4F5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Converter.ClassTestBase", "test\GqlPlus.Converter.ClassTestBase\GqlPlus.Converter.ClassTestBase.csproj", "{9A60308A-96CA-45DC-B338-92ABA3035987}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Codec", "src\GqlPlus.Codec\GqlPlus.Codec.csproj", "{0E70B5E4-06A2-4186-B025-952E1424EB57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Codec.ClassTests", "test\GqlPlus.Codec.ClassTests\GqlPlus.Codec.ClassTests.csproj", "{3D07CC4F-1DF7-47AB-A02F-FE73EF1D5542}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Codec.ComponentTests", "test\GqlPlus.Codec.ComponentTests\GqlPlus.Codec.ComponentTests.csproj", "{7607F6AB-9D34-42AD-8174-06A46760AABE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -218,6 +226,18 @@ Global
 		{9A60308A-96CA-45DC-B338-92ABA3035987}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A60308A-96CA-45DC-B338-92ABA3035987}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A60308A-96CA-45DC-B338-92ABA3035987}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E70B5E4-06A2-4186-B025-952E1424EB57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E70B5E4-06A2-4186-B025-952E1424EB57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E70B5E4-06A2-4186-B025-952E1424EB57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E70B5E4-06A2-4186-B025-952E1424EB57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D07CC4F-1DF7-47AB-A02F-FE73EF1D5542}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D07CC4F-1DF7-47AB-A02F-FE73EF1D5542}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D07CC4F-1DF7-47AB-A02F-FE73EF1D5542}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D07CC4F-1DF7-47AB-A02F-FE73EF1D5542}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7607F6AB-9D34-42AD-8174-06A46760AABE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7607F6AB-9D34-42AD-8174-06A46760AABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7607F6AB-9D34-42AD-8174-06A46760AABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7607F6AB-9D34-42AD-8174-06A46760AABE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -252,6 +272,9 @@ Global
 		{E3D3D14A-A5FA-4292-8676-2A8386931EC4} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{D11248A7-A1B2-4D8F-A396-36615F36A4F5} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 		{9A60308A-96CA-45DC-B338-92ABA3035987} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
+		{0E70B5E4-06A2-4186-B025-952E1424EB57} = {B834B2ED-0D27-4281-8523-B706B42DCC15}
+		{3D07CC4F-1DF7-47AB-A02F-FE73EF1D5542} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
+		{7607F6AB-9D34-42AD-8174-06A46760AABE} = {3B90AC37-1A6B-41AF-8490-E9D48E429ACD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {148B651C-DFAA-434F-B1ED-51E535FC2DE8}

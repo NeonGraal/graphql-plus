@@ -56,7 +56,7 @@ output _Categories {
 output _Category {
     : _Aliased
         resolution: _Resolution
-        name: _TypeRef<_TypeKind.Output>
+        output: _TypeRef<_TypeKind.Output>
         modifiers: _Modifiers[]
     }
 

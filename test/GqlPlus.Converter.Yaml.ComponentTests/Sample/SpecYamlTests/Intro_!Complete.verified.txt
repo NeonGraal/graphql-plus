@@ -298,7 +298,7 @@ types: !_Map_Type
       type: !_OutputBase
         name: _Resolution
     - !_ObjectFor(_OutputField)
-      name: name
+      name: output
       object: _Category
       type: !_OutputBase
         name: _TypeRef
@@ -319,7 +319,7 @@ types: !_Map_Type
       type: !_OutputBase
         name: _Resolution
     - !_OutputField
-      name: name
+      name: output
       type: !_OutputBase
         name: _TypeRef
         typeArgs:

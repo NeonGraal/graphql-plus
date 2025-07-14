@@ -232,12 +232,12 @@ Success
     I@021/0058
     _Resolution
     !OF I@009/0059
-    name
+    output
     :
-    I@015/0059
+    I@017/0059
     _TypeRef
     <
-      I@024/0059
+      I@026/0059
       _TypeKind.Output
     >
     !OF I@009/0060

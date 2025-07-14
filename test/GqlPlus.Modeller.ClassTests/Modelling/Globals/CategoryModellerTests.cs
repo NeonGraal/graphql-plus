@@ -31,7 +31,7 @@ public class CategoryModellerTests
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
         r => r.Name.ShouldBe(categoryName),
-        r => r.Output.TypeName.ShouldBe(outputName),
+        r => r.Output.Name.ShouldBe(outputName),
         r => r.Description.ShouldBe(contents),
         r => r.Resolution.ShouldBe(CategoryOption.Parallel)
       );

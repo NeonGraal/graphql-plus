@@ -95,7 +95,7 @@ public static class RenderLines
     }
   }
 
-  private static void WriteFlowMap(StringBuilder flow, string tag, Structured<StructureValue, Structured>.IDict map, int indent)
+  private static void WriteFlowMap(StringBuilder flow, string tag, ComplexValue<StructureValue, Structured>.IDict map, int indent)
   {
     string prefix = "{";
     if (!string.IsNullOrWhiteSpace(tag)) {
@@ -118,7 +118,7 @@ public static class RenderLines
     flow.Append('}');
   }
 
-  private static void WriteMap(StringBuilder sb, string tag, Structured<StructureValue, Structured>.IDict map, int indent)
+  private static void WriteMap(StringBuilder sb, string tag, ComplexValue<StructureValue, Structured>.IDict map, int indent)
   {
     string prefix = "";
 

@@ -12,11 +12,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "prnt_dmnEnumPrnt",
+            "name": "EnumDmnEnumPrnt",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            },
-            "typeName": "EnumDmnEnumPrnt"
+            }
           }
         },
         {
@@ -26,11 +26,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "enum_dmnEnumPrnt",
+            "name": "EnumDmnEnumPrnt",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            },
-            "typeName": "EnumDmnEnumPrnt"
+            }
           }
         }
       ],
@@ -45,22 +45,22 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "enum_dmnEnumPrnt",
+            "name": "EnumDmnEnumPrnt",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            },
-            "typeName": "EnumDmnEnumPrnt"
+            }
           }
         }
       ],
       "name": "DmnEnumPrnt",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
+        "name": "PrntDmnEnumPrnt",
         "typeKind": {
           "$tag": "_SimpleKind",
           "value": "Domain"
-        },
-        "typeName": "PrntDmnEnumPrnt"
+        }
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -107,11 +107,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "prnt_dmnEnumPrnt",
+            "name": "EnumDmnEnumPrnt",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            },
-            "typeName": "EnumDmnEnumPrnt"
+            }
           }
         }
       ],
@@ -126,11 +126,11 @@
           "value": {
             "$tag": "_EnumValue",
             "label": "prnt_dmnEnumPrnt",
+            "name": "EnumDmnEnumPrnt",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
-            },
-            "typeName": "EnumDmnEnumPrnt"
+            }
           }
         }
       ],

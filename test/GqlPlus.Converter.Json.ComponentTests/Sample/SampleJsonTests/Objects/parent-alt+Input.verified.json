@@ -10,7 +10,7 @@
           "object": "RefPrntAltInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "String"
+            "name": "String"
           }
         },
         {
@@ -18,7 +18,7 @@
           "object": "PrntAltInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -29,7 +29,7 @@
           "object": "RefPrntAltInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -38,14 +38,14 @@
           "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
-            "input": "Number"
+            "name": "Number"
           }
         }
       ],
       "name": "PrntAltInp",
       "parent": {
         "$tag": "_InputBase",
-        "input": "RefPrntAltInp"
+        "name": "RefPrntAltInp"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -60,7 +60,7 @@
           "object": "RefPrntAltInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "String"
+            "name": "String"
           }
         }
       ],
@@ -71,7 +71,7 @@
           "object": "RefPrntAltInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -80,7 +80,7 @@
           "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
-            "input": "String"
+            "name": "String"
           }
         }
       ],
@@ -90,7 +90,7 @@
           "name": "parent",
           "type": {
             "$tag": "_InputBase",
-            "input": "Number"
+            "name": "Number"
           }
         }
       ],

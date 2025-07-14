@@ -7,11 +7,11 @@
       "name": "descrBtwn",
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
+        "name": "DescrBtwn",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        },
-        "typeName": "DescrBtwn"
+        }
       },
       "resolution": {
         "$tag": "_Resolution",

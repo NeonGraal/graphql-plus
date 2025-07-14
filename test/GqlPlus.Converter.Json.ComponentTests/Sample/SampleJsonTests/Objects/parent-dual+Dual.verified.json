@@ -10,7 +10,7 @@
           "object": "RefPrntDualDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -21,14 +21,14 @@
           "object": "RefPrntDualDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "Number"
+            "name": "Number"
           }
         }
       ],
       "name": "PrntDualDual",
       "parent": {
         "$tag": "_DualBase",
-        "dual": "RefPrntDualDual"
+        "name": "RefPrntDualDual"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -43,7 +43,7 @@
           "object": "RefPrntDualDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -54,7 +54,7 @@
           "object": "RefPrntDualDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -63,7 +63,7 @@
           "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -73,7 +73,7 @@
           "name": "parent",
           "type": {
             "$tag": "_DualBase",
-            "dual": "Number"
+            "name": "Number"
           }
         }
       ],

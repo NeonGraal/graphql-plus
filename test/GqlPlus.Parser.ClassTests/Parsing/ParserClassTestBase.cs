@@ -21,7 +21,7 @@ public class ParserClassTestBase
   }
 
   protected ITokenizer Tokenizer { get; }
-  private readonly TokenMessages _errors = [];
+  private readonly Messages _errors = [];
 
   protected void IdentifierReturns(Func<CallInfo, bool> first, params Func<CallInfo, bool>[] rest)
     => Tokenizer.Identifier(out Arg.Any<string?>()).Returns(first, [.. rest, OutFail]);
@@ -113,10 +113,10 @@ public class ParserClassTestBase
     => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(0.EmptyArray<T>());
 
   protected void ParseError<T>([NotNull] Parser<T>.I parser, string? message = null)
-    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(Error<T>(message ?? "error for " + typeof(T).ExpandTypeName()));
+    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(Error<T>(message.IfWhitespace("error for " + typeof(T).ExpandTypeName())));
 
   protected void ParseErrorA<T>([NotNull] Parser<T>.IA parser, string? message = null)
-    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(ErrorA<T>(message ?? "error for array of " + typeof(T).ExpandTypeName()));
+    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(ErrorA<T>(message.IfWhitespace("error for array of " + typeof(T).ExpandTypeName())));
 
   protected void ParseOkField<T>([NotNull] Parser<IGqlpFields<T>>.I parser, string fieldName)
     where T : class, IGqlpError

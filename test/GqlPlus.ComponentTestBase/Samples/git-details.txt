@@ -1,1 +1,1 @@
-0d5d04c  (HEAD -> simple-parent) 2025-06-12 Add description to category output and various samples
+5353adb  (HEAD -> object-name) 2025-07-10 More constraint samples

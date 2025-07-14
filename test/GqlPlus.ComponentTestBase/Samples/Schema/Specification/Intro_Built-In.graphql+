@@ -1,9 +1,3 @@
-output _Internal {
-    | Null
-    | Object
-    | Void
-    }
-
 output _Constant {
     | _SimpleValue
     | _ConstantList
@@ -22,7 +16,7 @@ output _ConstantList {
     }
 
 output _ConstantMap {
-    | _Constant[Simple]
+    | _Constant[_Key]
     }
 
 output _Collections {

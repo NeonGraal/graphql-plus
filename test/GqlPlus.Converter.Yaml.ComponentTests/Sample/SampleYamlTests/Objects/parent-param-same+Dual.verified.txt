@@ -19,7 +19,7 @@ types: !_Map_Type
         typeParam: a
     name: PrntParamSameDual
     parent: !_DualBase
-      dual: RefPrntParamSameDual
+      name: RefPrntParamSameDual
       typeArgs:
       - !_DualArg
         typeParam: a
@@ -27,8 +27,8 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
+        name: String
         typeKind: !_TypeKind Basic
-        typeName: String
       name: a
   !_Identifier RefPrntParamSameDual: !_TypeDual
     allAlternates:
@@ -45,6 +45,6 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
+        name: String
         typeKind: !_TypeKind Basic
-        typeName: String
       name: a

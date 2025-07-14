@@ -19,7 +19,7 @@
           "object": "ObjFieldOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "FldObjFieldOutp"
+            "name": "FldObjFieldOutp"
           }
         }
       ],
@@ -29,7 +29,7 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "output": "FldObjFieldOutp"
+            "name": "FldObjFieldOutp"
           }
         }
       ],

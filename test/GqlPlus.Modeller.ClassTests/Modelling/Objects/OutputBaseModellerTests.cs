@@ -14,11 +14,10 @@ public class OutputBaseModellerTests
   protected override IModeller<IGqlpOutputBase, OutputBaseModel> Modeller { get; }
 
   [Theory, RepeatData]
-  public void ToModel_WithValidBase_ReturnsExpectedOutputBaseModel(string output, string contents)
+  public void ToModel_WithValidBase_ReturnsExpectedOutputBaseModel(string name, string contents)
   {
     // Arrange
-    IGqlpOutputBase ast = A.Descr<IGqlpOutputBase>(contents);
-    ast.Output.Returns(output);
+    IGqlpOutputBase ast = A.Named<IGqlpOutputBase>(name, contents);
     ast.IsTypeParam.Returns(true);
 
     // Act
@@ -27,7 +26,7 @@ public class OutputBaseModellerTests
     // Assert
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
-        r => r.Output.ShouldBe(output),
+        r => r.Name.ShouldBe(name),
         r => r.Description.ShouldBe(contents),
         r => r.IsTypeParam.ShouldBeTrue()
       );

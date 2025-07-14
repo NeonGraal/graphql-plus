@@ -14,7 +14,7 @@ public class StructuredTests
   {
     string[] list = [value];
 
-    Structured result = list.Render();
+    Structured result = list.Encode();
 
     result.IsEmpty.ShouldBeFalse();
   }
@@ -23,7 +23,7 @@ public class StructuredTests
   {
     Map<Structured> map = new() { [key] = new(value), };
 
-    Structured result = map.Render();
+    Structured result = map.Encode();
 
     result.IsEmpty.ShouldBeFalse();
   }
@@ -61,18 +61,18 @@ public class StructuredTests
   {
     string[] list = [value];
 
-    Structured result = list.Render();
+    Structured result = list.Encode();
 
-    result.Equals(list.Render()).ShouldBeTrue();
+    result.Equals(list.Encode()).ShouldBeTrue();
   }
   [Theory, RepeatData]
   public void Equals_SameMap_IsTrue(string key, string value)
   {
     Map<Structured> map = new() { [key] = new(value), };
 
-    Structured result = map.Render();
+    Structured result = map.Encode();
 
-    result.Equals(map.Render()).ShouldBeTrue();
+    result.Equals(map.Encode()).ShouldBeTrue();
   }
   [Theory, RepeatData]
   public void Equals_ValueAndNull_IsFalse(string value)
@@ -86,7 +86,7 @@ public class StructuredTests
   {
     string[] list = [value];
 
-    Structured result = list.Render();
+    Structured result = list.Encode();
 
     result.Equals(null).ShouldBeFalse();
   }
@@ -95,7 +95,7 @@ public class StructuredTests
   {
     Map<Structured> map = new() { [key] = new(value), };
 
-    Structured result = map.Render();
+    Structured result = map.Encode();
 
     result.Equals(null).ShouldBeFalse();
   }
@@ -127,9 +127,9 @@ public class StructuredTests
     string[] list1 = [value1];
     string[] list2 = [value2];
 
-    Structured result = list1.Render();
+    Structured result = list1.Encode();
 
-    result.Equals(list2.Render()).ShouldBeFalse();
+    result.Equals(list2.Encode()).ShouldBeFalse();
   }
   [Theory, RepeatData]
   public void Equals_MapDiffKey_IsFalse(string key1, string value1, string key2)
@@ -139,9 +139,9 @@ public class StructuredTests
     Map<Structured> map1 = new() { [key1] = new(value1), };
     Map<Structured> map2 = new() { [key2] = new(value1), };
 
-    Structured result = map1.Render();
+    Structured result = map1.Encode();
 
-    result.Equals(map2.Render()).ShouldBeFalse();
+    result.Equals(map2.Encode()).ShouldBeFalse();
   }
   [Theory, RepeatData]
   public void Equals_MapDiffValue_IsFalse(string key1, string value1, string value2)
@@ -151,9 +151,9 @@ public class StructuredTests
     Map<Structured> map1 = new() { [key1] = new(value1), };
     Map<Structured> map2 = new() { [key1] = new(value2), };
 
-    Structured result = map1.Render();
+    Structured result = map1.Encode();
 
-    result.Equals(map2.Render()).ShouldBeFalse();
+    result.Equals(map2.Encode()).ShouldBeFalse();
   }
   [Theory, RepeatData]
   public void Equals_MapDiffBoth_IsFalse(string key1, string value1, string key2, string value2)
@@ -163,9 +163,9 @@ public class StructuredTests
     Map<Structured> map1 = new() { [key1] = new(value1), };
     Map<Structured> map2 = new() { [key2] = new(value2), };
 
-    Structured result = map1.Render();
+    Structured result = map1.Encode();
 
-    result.Equals(map2.Render()).ShouldBeFalse();
+    result.Equals(map2.Encode()).ShouldBeFalse();
   }
   [Fact]
   public void Equals_New_IsFalse()
@@ -192,16 +192,14 @@ public class StructuredTests
   [Theory, RepeatData]
   public void GetHashCode_List_IsCorrect(string value)
   {
-    Structured result = new[] { value }.Render();
+    Structured result = new[] { value }.Encode();
 
     result.GetHashCode().ShouldNotBe(0);
   }
   [Theory, RepeatData]
   public void GetHashCode_Map_IsCorrect(string key, string value)
   {
-    Structured result = new Map<Structured>() {
-      [key] = new(value),
-    }.Render();
+    Structured result = key.MapWith(new Structured(value)).Encode();
 
     result.GetHashCode().ShouldNotBe(0);
   }
@@ -223,7 +221,7 @@ public class StructuredTests
   [Theory, RepeatData]
   public void Add_Null_IsCorrect(string key)
   {
-    Structured value = new Map<Structured>().Render();
+    Structured value = new Map<Structured>().Encode();
 
     value.Add(key, null);
 
@@ -233,7 +231,7 @@ public class StructuredTests
   [Theory, RepeatData]
   public void Add_StructureValue_IsCorrect(string key, string identifier)
   {
-    Structured value = new Map<Structured>().Render();
+    Structured value = new Map<Structured>().Encode();
 
     value.Add(key, new StructureValue(identifier));
 
@@ -244,7 +242,7 @@ public class StructuredTests
   [Theory, RepeatData]
   public void Add_Text_IsCorrect(string key, string text)
   {
-    Structured value = new Map<Structured>().Render();
+    Structured value = new Map<Structured>().Encode();
 
     value.Add(key, text);
 
@@ -255,7 +253,7 @@ public class StructuredTests
   [Theory, RepeatData]
   public void Add_Boolean_IsCorrect(string key, bool check)
   {
-    Structured value = new Map<Structured>().Render();
+    Structured value = new Map<Structured>().Encode();
 
     value.Add(key, check);
 
@@ -265,7 +263,7 @@ public class StructuredTests
   [Theory, RepeatData]
   public void Add_Number_IsCorrect(string key, decimal number)
   {
-    Structured value = new Map<Structured>().Render();
+    Structured value = new Map<Structured>().Encode();
 
     value.Add(key, number);
 
@@ -275,7 +273,7 @@ public class StructuredTests
   [Theory, RepeatData]
   public void AddBool_IsCorrect(string key, bool check)
   {
-    Structured value = new Map<Structured>().Render();
+    Structured value = new Map<Structured>().Encode();
 
     value.AddBool(key, check);
 
@@ -291,7 +289,7 @@ public class StructuredTests
   [Theory, RepeatData]
   public void AddEnum_IsCorrect(string key, EnumForTesting check)
   {
-    Structured value = new Map<Structured>().Render();
+    Structured value = new Map<Structured>().Encode();
 
     value.AddEnum(key, check);
 
@@ -301,7 +299,7 @@ public class StructuredTests
   [Theory, RepeatData]
   public void AddIfBoth_IsCorrect(string key, string value, bool check)
   {
-    Structured result = new Map<Structured>().Render();
+    Structured result = new Map<Structured>().Encode();
 
     result.AddIf(check, r => r.Add(key, value), r => r.Add(value, key));
 
@@ -319,7 +317,7 @@ public class StructuredTests
   [Theory, RepeatData]
   public void AddIfFalse_IsCorrect(string key, string value, bool check)
   {
-    Structured result = new Map<Structured>().Render();
+    Structured result = new Map<Structured>().Encode();
 
     result.AddIf(check, onFalse: r => r.Add(value, key));
 
@@ -335,7 +333,7 @@ public class StructuredTests
   [Theory, RepeatData]
   public void AddIfTrue_IsCorrect(string key, string value, bool check)
   {
-    Structured result = new Map<Structured>().Render();
+    Structured result = new Map<Structured>().Encode();
 
     result.AddIf(check, r => r.Add(key, value));
 
@@ -351,40 +349,40 @@ public class StructuredTests
   [Theory, RepeatData]
   public void AddList_IsCorrect(string key, string[] values)
   {
-    Structured result = new Map<Structured>().Render();
+    Structured result = new Map<Structured>().Encode();
 
-    result.AddList(key, values, new RenderString());
+    result.AddList(key, values, new EncodeString());
 
-    CheckMap(result, key, values.Render());
+    CheckMap(result, key, values.Encode());
   }
 
   [Theory, RepeatData]
   public void AddMap_IsCorrect(string key, string[] values)
   {
-    Structured result = new Map<Structured>().Render();
+    Structured result = new Map<Structured>().Encode();
 
-    result.AddMap(key, values.ToMap(k => k), new RenderString(), "", keyTag: "");
+    result.AddMap(key, values.ToMap(k => k), new EncodeString(), "", keyTag: "");
 
-    CheckMap(result, key, values.ToMap(k => k, v => new Structured(v)).Render("_Map"));
+    CheckMap(result, key, values.ToMap(k => k, v => new Structured(v)).Encode("_Map"));
   }
 
   [Theory, RepeatData]
-  public void AddRendered_IsCorrect(string key, string value)
+  public void AddEncoded_IsCorrect(string key, string value)
   {
-    Structured result = new Map<Structured>().Render();
-    Map<string> map = new() { [key] = value };
+    Structured result = new Map<Structured>().Encode();
+    Map<string> map = key.MapWith(value);
 
-    result.AddRendered(key, map, new RenderMap());
+    result.AddEncoded(key, map, new EncodeMap());
 
-    CheckMap(result, key, map.Render(s => new(s)));
+    CheckMap(result, key, map.Encode(s => new(s)));
   }
 
   [Theory, RepeatData]
-  public void AddRenderedNull_IsCorrect(string key)
+  public void AddEncodedNull_IsCorrect(string key)
   {
-    Structured result = new Map<Structured>().Render();
+    Structured result = new Map<Structured>().Encode();
 
-    result.AddRendered(key, null, new RenderMap());
+    result.AddEncoded(key, null, new EncodeMap());
 
     result.Map.ShouldBeEmpty();
   }
@@ -392,7 +390,7 @@ public class StructuredTests
   [Theory, RepeatData]
   public void AddSet_WithEnum_IsEmpty(string key, EnumForTesting check)
   {
-    Structured value = new Map<Structured>().Render();
+    Structured value = new Map<Structured>().Encode();
 
     value.AddSet(key, check);
 
@@ -402,43 +400,43 @@ public class StructuredTests
   [Theory, RepeatData]
   public void AddSet_WithFlags_IsCorrect(string key, FlagsForTesting check)
   {
-    Structured value = new Map<Structured>().Render();
+    Structured value = new Map<Structured>().Encode();
     Map<string> flags = check.FlagNames().ToMap(k => k, v => "_");
 
     value.AddSet(key, check);
 
-    CheckMap(value, key, flags.Render(f => new(f), "_Set(_FlagsForTesting)"));
+    CheckMap(value, key, flags.Encode(f => new(f), "_Set(_FlagsForTesting)"));
   }
 
   [Theory, RepeatData]
   public void AddSet_WithTagFlags_IsCorrect(string key, FlagsForTesting check, string tag)
   {
-    Structured value = new Map<Structured>().Render();
+    Structured value = new Map<Structured>().Encode();
     Map<string> flags = check.FlagNames().ToMap(k => k, v => "_");
 
     value.AddSet(key, check, tag);
 
-    CheckMap(value, key, flags.Render(f => new(f), $"_Set({tag})"));
+    CheckMap(value, key, flags.Encode(f => new(f), $"_Set({tag})"));
   }
 
   [Theory, RepeatData]
-  public void IncludeRendered_IsCorrect(string key, string value)
+  public void IncludeEncoded_IsCorrect(string key, string value)
   {
-    Structured result = new Map<Structured>().Render();
-    Map<string> map = new() { [key] = value };
+    Structured result = new Map<Structured>().Encode();
+    Map<string> map = key.MapWith(value);
 
-    result.IncludeRendered(map, new RenderMap());
+    result.IncludeEncoded(map, new EncodeMap());
 
     CheckMap(result, key, new Structured(value));
   }
 
   [Fact]
-  public void IncludeRenderedNull_IsCorrect()
+  public void IncludeEncodedNull_IsCorrect()
   {
-    Structured result = new Map<Structured>().Render();
+    Structured result = new Map<Structured>().Encode();
     Map<string>? map = null;
 
-    result.IncludeRendered(map, new RenderMap());
+    result.IncludeEncoded(map, new EncodeMap());
 
     result.IsEmpty.ShouldBeTrue();
   }

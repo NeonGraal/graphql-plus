@@ -1,5 +1,4 @@
 ﻿using GqlPlus.Merging;
-using GqlPlus.Token;
 using GqlPlus.Verifying;
 using Microsoft.Extensions.Logging;
 
@@ -8,7 +7,7 @@ namespace GqlPlus;
 public class VerifierTestsBase
   : SubstituteBase
 {
-  protected TokenMessages Errors { get; } = [];
+  protected Messages Errors { get; } = [];
 
   protected ILoggerFactory LoggerFactory { get; } = A.Of<ILoggerFactory>();
   protected ILogger Logger { get; } = A.Of<ILogger>();
@@ -20,8 +19,8 @@ public class VerifierTestsBase
 
     LoggerFactory.CreateLogger(Arg.Any<string>())
       .ReturnsForAnyArgs(Logger);
-    LoggerFactory.CreateLogger<VerifierTestsBase>()
-      .ReturnsForAnyArgs(Logger);
+    //LoggerFactory.CreateLogger<VerifierTestsBase>()
+    //  .ReturnsForAnyArgs(Logger);
   }
 
   protected void LoggerCalled(LogLevel level, string message, int times = 1)
@@ -43,8 +42,8 @@ internal readonly struct ForVU<TResult>
 
   public ForVU() => Intf = Substitute.For<IVerifyUsage<TResult>>();
 
-  internal void Called() => Intf.ReceivedWithAnyArgs().Verify(Arg.Any<UsageAliased<TResult>>(), Arg.Any<ITokenMessages>());
-  internal void NotCalled() => Intf.DidNotReceiveWithAnyArgs().Verify(Arg.Any<UsageAliased<TResult>>(), Arg.Any<ITokenMessages>());
+  internal void Called() => Intf.ReceivedWithAnyArgs().Verify(Arg.Any<UsageAliased<TResult>>(), Arg.Any<IMessages>());
+  internal void NotCalled() => Intf.DidNotReceiveWithAnyArgs().Verify(Arg.Any<UsageAliased<TResult>>(), Arg.Any<IMessages>());
 }
 
 internal readonly struct ForVA<TResult>
@@ -54,8 +53,8 @@ internal readonly struct ForVA<TResult>
 
   public ForVA() => Intf = Substitute.For<IVerifyAliased<TResult>>();
 
-  internal void Called() => Intf.ReceivedWithAnyArgs().Verify(Arg.Any<TResult[]>(), Arg.Any<ITokenMessages>());
-  internal void NotCalled() => Intf.DidNotReceiveWithAnyArgs().Verify(Arg.Any<TResult[]>(), Arg.Any<ITokenMessages>());
+  internal void Called() => Intf.ReceivedWithAnyArgs().Verify(Arg.Any<TResult[]>(), Arg.Any<IMessages>());
+  internal void NotCalled() => Intf.DidNotReceiveWithAnyArgs().Verify(Arg.Any<TResult[]>(), Arg.Any<IMessages>());
 }
 
 internal readonly struct ForV<TResult>
@@ -64,8 +63,8 @@ internal readonly struct ForV<TResult>
 
   public ForV() => Intf = Substitute.For<IVerify<TResult>>();
 
-  internal void Called() => Intf.ReceivedWithAnyArgs().Verify(Arg.Any<TResult>(), Arg.Any<ITokenMessages>());
-  internal void NotCalled() => Intf.DidNotReceiveWithAnyArgs().Verify(Arg.Any<TResult>(), Arg.Any<ITokenMessages>());
+  internal void Called() => Intf.ReceivedWithAnyArgs().Verify(Arg.Any<TResult>(), Arg.Any<IMessages>());
+  internal void NotCalled() => Intf.DidNotReceiveWithAnyArgs().Verify(Arg.Any<TResult>(), Arg.Any<IMessages>());
 }
 
 internal readonly struct ForM<TItem>

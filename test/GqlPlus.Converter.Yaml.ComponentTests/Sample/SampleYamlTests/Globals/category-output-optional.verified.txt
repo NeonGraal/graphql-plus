@@ -4,8 +4,8 @@ categories: !_Map_Categories
     modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
     name: ctgrOutpOptl
     output: !_TypeRef(_TypeKind)
+      name: CtgrOutpOptl
       typeKind: !_TypeKind Output
-      typeName: CtgrOutpOptl
     resolution: !_Resolution Parallel
 types: !_Map_Type
   !_Identifier CtgrOutpOptl: !_TypeOutput

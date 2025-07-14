@@ -10,7 +10,7 @@
           "object": "ObjAltDual",
           "type": {
             "$tag": "_DualBase",
-            "dual": "ObjAltDualType"
+            "name": "ObjAltDualType"
           }
         }
       ],
@@ -19,7 +19,7 @@
           "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
-            "dual": "ObjAltDualType"
+            "name": "ObjAltDualType"
           }
         }
       ],

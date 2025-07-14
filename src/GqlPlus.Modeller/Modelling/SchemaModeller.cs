@@ -12,7 +12,7 @@ internal class SchemaModeller(
   protected override SchemaModel ToModel(IGqlpSchema ast, IMap<TypeKindModel> typeKinds)
   {
     IGqlpType[] typeDeclarations = ast.Declarations.ArrayOf<IGqlpType>();
-    ITokenMessages errors = ast.Errors;
+    IMessages errors = ast.Errors;
     if (typeKinds is IModelsContext collection) {
       errors = collection.Errors;
       errors.Clear();
@@ -22,11 +22,11 @@ internal class SchemaModeller(
     types.AddTypeKinds(typeDeclarations, typeKinds);
 
     IGqlpSchemaOption[] options = ast.Declarations.ArrayOf<IGqlpSchemaOption>();
-    string name = options.LastOrDefault(options => !string.IsNullOrWhiteSpace(options.Name))?.Name ?? "";
+    string? name = options.LastOrDefault(options => !string.IsNullOrWhiteSpace(options.Name))?.Name;
     IEnumerable<string> aliases = options.SelectMany(a => a.Aliases);
     IEnumerable<SettingModel> settings = options.SelectMany(o => setting.ToModels(o.Settings, typeKinds));
 
-    return new(name,
+    return new(name.IfWhitespace(),
         DeclarationModel(ast, category, typeKinds),
         DeclarationModel(ast, directive, typeKinds),
         settings,

@@ -77,7 +77,7 @@ public class JsonIndentedTests
   protected override void WithTextTag_Check(string result, string input, string tag)
     => result.ToLines().ShouldBe(WithTag(tag, input.Quoted('"')));
 
-  private static IEnumerable<string> ListLines(string before, string after, string[]? input, Func<string, string> mapper, string tag = "")
+  private static IEnumerable<string> ListLines(string before, string after, string[]? input, Func<string, string> mapper, string? tag = null)
   {
     if (input is null) {
       return [];

@@ -10,7 +10,7 @@
           "object": "ObjAltInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "ObjAltInpType"
+            "name": "ObjAltInpType"
           }
         }
       ],
@@ -19,7 +19,7 @@
           "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
-            "input": "ObjAltInpType"
+            "name": "ObjAltInpType"
           }
         }
       ],

@@ -26,15 +26,5 @@ public enum TokenKind
 }
 
 public interface ITokenMessage
-  : ITokenAt
-{
-  string Message { get; }
-}
-
-public interface ITokenMessages
-  : IReadOnlyList<ITokenMessage>
-{
-  void Clear();
-  ITokenMessages Add(ITokenMessage message);
-  ITokenMessages Add(IEnumerable<ITokenMessage> messages);
-}
+  : ITokenAt, IMessage
+{ }

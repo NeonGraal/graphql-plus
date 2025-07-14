@@ -15,13 +15,13 @@ internal abstract class AstObjectsMerger<TObject, TObjBase, TObjField, TObjAlt>(
 {
   protected override string ItemMatchName => "Parent";
   protected override string ItemMatchKey(TObject item)
-    => item.Parent?.FullType ?? "";
+    => (item.Parent?.FullType).IfWhitespace();
 
-  protected override ITokenMessages CanMergeGroup(IGrouping<string, TObject> group)
+  protected override IMessages CanMergeGroup(IGrouping<string, TObject> group)
   {
-    ITokenMessages baseCanMerge = base.CanMergeGroup(group);
-    ITokenMessages typeParamsCanMerge = group.ManyCanMerge(item => item.TypeParams, typeParams);
-    ITokenMessages alternatesCanMerge = group.ManyGroupCanMerge(item => item.ObjAlternates, a => a.FullType, alternates);
+    IMessages baseCanMerge = base.CanMergeGroup(group);
+    IMessages typeParamsCanMerge = group.ManyCanMerge(item => item.TypeParams, typeParams);
+    IMessages alternatesCanMerge = group.ManyGroupCanMerge(item => item.ObjAlternates, a => a.FullType, alternates);
 
     return baseCanMerge.Add(typeParamsCanMerge).Add(alternatesCanMerge);
   }

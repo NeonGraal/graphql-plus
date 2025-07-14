@@ -10,7 +10,7 @@
           "object": "AltAltModParamInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "String"
+            "name": "String"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "object": "AltAltModParamInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -30,7 +30,7 @@
           "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
-            "input": "String"
+            "name": "String"
           }
         }
       ],
@@ -40,7 +40,7 @@
           "name": "alt",
           "type": {
             "$tag": "_InputBase",
-            "input": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -68,7 +68,7 @@
           "object": "AltModParamInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "AltAltModParamInp"
+            "name": "AltAltModParamInp"
           }
         }
       ],
@@ -87,7 +87,7 @@
           ],
           "type": {
             "$tag": "_InputBase",
-            "input": "AltAltModParamInp"
+            "name": "AltAltModParamInp"
           }
         }
       ],
@@ -101,11 +101,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "mod"
         }

@@ -57,8 +57,8 @@ public class DirectiveModelTests(
 
 internal sealed class DirectiveModelChecks(
   IModeller<IGqlpSchemaDirective, DirectiveModel> modeller,
-  IRenderer<DirectiveModel> rendering
-) : CheckAliasedModel<string, IGqlpSchemaDirective, DirectiveDeclAst, DirectiveModel>(modeller, rendering)
+  IEncoder<DirectiveModel> encoding
+) : CheckAliasedModel<string, IGqlpSchemaDirective, DirectiveDeclAst, DirectiveModel>(modeller, encoding)
   , IDirectiveModelChecks
 {
   protected override string[] ExpectedDescriptionAliases(ExpectedDescriptionAliasesInput<string> input)
@@ -80,7 +80,7 @@ internal sealed class DirectiveModelChecks(
     => [.. ItemsExpected(
        "parameters:",
         parameters,
-        p => ["  - !_InputParam", "    input: " + p])];
+        p => ["  - !_InputParam", "    name: " + p])];
 
   public void DirectiveExpected(IGqlpSchemaDirective ast, ExpectedDirectiveInput input)
     => AstExpected((DirectiveDeclAst)ast, ExpectedDirective(input));

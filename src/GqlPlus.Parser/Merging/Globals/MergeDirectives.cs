@@ -13,7 +13,7 @@ internal class MergeDirectives(
   protected override string ItemMatchKey(IGqlpSchemaDirective item)
     => item.DirectiveOption.ToString();
 
-  protected override ITokenMessages CanMergeGroup(IGrouping<string, IGqlpSchemaDirective> group)
+  protected override IMessages CanMergeGroup(IGrouping<string, IGqlpSchemaDirective> group)
     => base.CanMergeGroup(group)
       .Add(group.ManyCanMerge(d => d.Params, parameters));
 

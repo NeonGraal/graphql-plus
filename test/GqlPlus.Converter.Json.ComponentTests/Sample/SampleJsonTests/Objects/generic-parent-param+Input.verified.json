@@ -10,7 +10,7 @@
           "object": "AltGnrcPrntParamInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "String"
+            "name": "String"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "object": "AltGnrcPrntParamInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -30,7 +30,7 @@
           "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
-            "input": "String"
+            "name": "String"
           }
         }
       ],
@@ -40,7 +40,7 @@
           "name": "alt",
           "type": {
             "$tag": "_InputBase",
-            "input": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -58,18 +58,18 @@
           "object": "RefGnrcPrntParamInp",
           "type": {
             "$tag": "_InputBase",
-            "input": "AltGnrcPrntParamInp"
+            "name": "AltGnrcPrntParamInp"
           }
         }
       ],
       "name": "GnrcPrntParamInp",
       "parent": {
         "$tag": "_InputBase",
-        "input": "RefGnrcPrntParamInp",
+        "name": "RefGnrcPrntParamInp",
         "typeArgs": [
           {
             "$tag": "_InputArg",
-            "input": "AltGnrcPrntParamInp"
+            "name": "AltGnrcPrntParamInp"
           }
         ]
       },
@@ -109,11 +109,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "_Input",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Internal"
-            },
-            "typeName": "_Input"
+            }
           },
           "name": "ref"
         }

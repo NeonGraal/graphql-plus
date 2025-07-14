@@ -3,17 +3,18 @@
 namespace GqlPlus.Parsing.Schema.Objects;
 
 public class ParseInputFieldTests
-  : AliasesClassTestBase
+  : ParseObjectFieldTestBase<IGqlpInputField, IGqlpInputBase>
 {
-  private readonly Parser<IGqlpInputBase>.I _parseBase;
   private readonly IParserDefault _parseDefault;
-  private readonly ParseInputField _parser;
+
+  protected override Parser<IGqlpInputField>.I Parser { get; }
 
   public ParseInputFieldTests()
   {
-    Parser<IGqlpInputBase>.D parseBase = ParserFor(out _parseBase);
     Parser<IParserDefault, IGqlpConstant>.D parseDefault = ParserFor<IParserDefault, IGqlpConstant>(out _parseDefault);
-    _parser = new ParseInputField(Aliases, Modifiers, parseBase, parseDefault);
+    Parser = new ParseInputField(Aliases, Modifiers, ParseBase, parseDefault);
+
+    ParseEmpty(_parseDefault);
   }
 
   [Theory, RepeatData]
@@ -22,11 +23,11 @@ public class ParseInputFieldTests
     // Arrange
     IdentifierReturns(OutString(fieldName));
     TakeReturns(':', true);
-    ParseOk(_parseBase);
+    ParseBaseOk();
     ParseOk(_parseDefault);
 
     // Act
-    IResult<IGqlpInputField> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpInputField> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpInputField>>();
@@ -38,27 +39,14 @@ public class ParseInputFieldTests
     // Arrange
     IdentifierReturns(OutString(fieldName));
     TakeReturns(':', true);
-    ParseOk(_parseBase);
+    ParseBaseOk();
     ParseError(_parseDefault);
     SetupPartial<IGqlpInputField>();
 
     // Act
-    IResult<IGqlpInputField> result = _parser.Parse(Tokenizer, "testLabel");
+    IResult<IGqlpInputField> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeAssignableTo<IResultPartial<IGqlpInputField>>();
-  }
-
-  [Fact]
-  public void Parse_ShouldReturnEmpty_WhenNoFieldName()
-  {
-    // Arrange
-    IdentifierReturns(OutFail);
-
-    // Act
-    IResult<IGqlpInputField> result = _parser.Parse(Tokenizer, "testLabel");
-
-    // Assert
-    result.ShouldBeAssignableTo<IResultEmpty>();
   }
 }

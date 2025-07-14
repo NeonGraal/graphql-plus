@@ -12,7 +12,7 @@ internal abstract class AstSimpleMerger<TAst, TType, TItem>(
 {
   protected override string ItemMatchName => "Parent";
   protected override string ItemMatchKey(TType item)
-    => item.Parent?.Name ?? "";
+    => (item.Parent?.Name).IfWhitespace();
 
   internal sealed override IEnumerable<TItem> GetItems(TType type)
     => type.Items;

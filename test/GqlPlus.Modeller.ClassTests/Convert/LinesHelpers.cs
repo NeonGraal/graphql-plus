@@ -3,7 +3,7 @@
 internal static class LinesHelpers
 {
   internal static Structured AsMap<T>(this MapPair<T>[] value, string tag, Func<T, Structured> mapper, bool flow = false)
-    => value.ToMap(k => k.Key, v => mapper(v.Value)).Render(tag, flow);
+    => value.ToMap(k => k.Key, v => mapper(v.Value)).Encode(tag, flow);
 
   internal static string IsLine(this string value, bool always = true)
     => always | value.Length > 0 ? value + Environment.NewLine : "";

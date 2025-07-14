@@ -8,11 +8,11 @@ internal abstract class AllMerger<TItem>(
 ) : DistinctMerger<TItem>(logger)
   where TItem : IGqlpType
 {
-  protected override ITokenMessages CanMergeGroup(IGrouping<string, TItem> group)
+  protected override IMessages CanMergeGroup(IGrouping<string, TItem> group)
   {
-    ITokenMessages result = base.CanMergeGroup(group);
+    IMessages result = base.CanMergeGroup(group);
     if (!result.Any()) {
-      List<(IMergeAll<TItem> domain, ITokenMessages)> each = [.. all.Select(domain => (domain, domain.CanMerge(group)))];
+      List<(IMergeAll<TItem> domain, IMessages)> each = [.. all.Select(domain => (domain, domain.CanMerge(group)))];
       result.Add(each.SelectMany(item => item.Item2));
     }
 

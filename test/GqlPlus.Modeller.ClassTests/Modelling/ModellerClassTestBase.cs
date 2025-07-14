@@ -5,6 +5,15 @@ public abstract class ModellerClassTestBase<TAst, TModel>
   where TAst : IGqlpError
   where TModel : IModelBase
 {
+  [Fact]
+  public void ToModel_WithNullAst_ThrowsModelTypeException()
+  {
+    Action act = () => Modeller.ToModel(default, TypeKinds);
+
+    // Act & Assert
+    act.ShouldThrow<ModelTypeException<TAst>>();
+  }
+
   protected abstract IModeller<TAst, TModel> Modeller { get; }
 
   protected IMap<TypeKindModel> TypeKinds { get; } = A.Of<IMap<TypeKindModel>>();

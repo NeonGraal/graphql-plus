@@ -8,22 +8,22 @@ types: !_Map_Type
     - !_ObjectFor(_InputAlternate)
       object: InOutpDescrParam
       type: !_InputBase
-        input: String
+        name: String
     allFields:
     - !_ObjectFor(_InputField)
       name: param
       object: InOutpDescrParam
       type: !_InputBase
-        input: Number
+        name: Number
     alternates:
     - !_InputAlternate
       type: !_InputBase
-        input: String
+        name: String
     fields:
     - !_InputField
       name: param
       type: !_InputBase
-        input: Number
+        name: Number
     name: InOutpDescrParam
     typeKind: !_TypeKind Input
   !_Identifier OutpDescrParam: !_TypeOutput
@@ -34,17 +34,17 @@ types: !_Map_Type
       object: OutpDescrParam
       parameters:
       - !_InputParam
-        input: InOutpDescrParam
+        name: InOutpDescrParam
       type: !_DualBase
-        dual: FldOutpDescrParam
+        name: FldOutpDescrParam
     fields:
     - !_OutputField
       description: 'Test Descr'
       name: field
       parameters:
       - !_InputParam
-        input: InOutpDescrParam
+        name: InOutpDescrParam
       type: !_DualBase
-        dual: FldOutpDescrParam
+        name: FldOutpDescrParam
     name: OutpDescrParam
     typeKind: !_TypeKind Output

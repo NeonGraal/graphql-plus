@@ -9,11 +9,11 @@
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
         "description": "Category Result",
+        "name": "All",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
-        },
-        "typeName": "All"
+        }
       },
       "resolution": {
         "$tag": "_Resolution",
@@ -60,7 +60,7 @@
           "type": {
             "$tag": "_OutputBase",
             "description": "Alternates",
-            "output": "String"
+            "name": "String"
           }
         }
       ],
@@ -73,7 +73,6 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "input": "Param",
               "modifiers": [
                 {
                   "$tag": "_Modifier",
@@ -82,12 +81,13 @@
                     "value": "Opt"
                   }
                 }
-              ]
+              ],
+              "name": "Param"
             }
           ],
           "type": {
             "$tag": "_DualBase",
-            "dual": "Field"
+            "name": "Field"
           }
         }
       ],
@@ -97,7 +97,7 @@
           "type": {
             "$tag": "_OutputBase",
             "description": "Alternates",
-            "output": "String"
+            "name": "String"
           }
         }
       ],
@@ -110,7 +110,6 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "input": "Param",
               "modifiers": [
                 {
                   "$tag": "_Modifier",
@@ -119,12 +118,13 @@
                     "value": "Opt"
                   }
                 }
-              ]
+              ],
+              "name": "Param"
             }
           ],
           "type": {
             "$tag": "_DualBase",
-            "dual": "Field"
+            "name": "Field"
           }
         }
       ],
@@ -154,7 +154,7 @@
           "type": {
             "$tag": "_DualBase",
             "description": "Strings array",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -176,7 +176,7 @@
           "type": {
             "$tag": "_DualBase",
             "description": "Strings array",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -293,7 +293,7 @@
           "type": {
             "$tag": "_InputBase",
             "description": "Alternate parameter",
-            "input": "String"
+            "name": "String"
           }
         }
       ],
@@ -315,7 +315,7 @@
           "type": {
             "$tag": "_InputBase",
             "description": "Guid or Int",
-            "input": "Many"
+            "name": "Many"
           }
         },
         {
@@ -326,7 +326,7 @@
           "type": {
             "$tag": "_InputBase",
             "description": "Guid or Int",
-            "input": "Many"
+            "name": "Many"
           }
         }
       ],
@@ -336,7 +336,7 @@
           "type": {
             "$tag": "_InputBase",
             "description": "Alternate parameter",
-            "input": "String"
+            "name": "String"
           }
         }
       ],
@@ -358,7 +358,7 @@
           "type": {
             "$tag": "_InputBase",
             "description": "Guid or Int",
-            "input": "Many"
+            "name": "Many"
           }
         },
         {
@@ -368,7 +368,7 @@
           "type": {
             "$tag": "_InputBase",
             "description": "Guid or Int",
-            "input": "Many"
+            "name": "Many"
           }
         }
       ],

@@ -2,7 +2,6 @@
 using GqlPlus.Ast;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Result;
-using GqlPlus.Token;
 
 namespace GqlPlus.Merging;
 
@@ -11,24 +10,24 @@ internal abstract class AstAliasedMerger<TItem>(
 ) : DistinctMerger<TItem>(logger)
   where TItem : IGqlpAliased
 {
-  private readonly ILogger _logger = logger.CreateLogger(nameof(AstAliasedMerger<TItem>));
+  private readonly ILogger _logger = logger.CreateTypedLogger<AstAliasedMerger<TItem>>();
 
   protected override string ItemGroupKey(TItem item) => item.Name;
 
-  public override ITokenMessages CanMerge(IEnumerable<TItem> items)
+  public override IMessages CanMerge(IEnumerable<TItem> items)
     => base.CanMerge(items)
       .Add(items
       .SelectMany(item => item.Aliases.Select(alias => (alias, item)))
       .GroupBy(pair => pair.alias)
       .SelectMany(CanMergeAliases));
 
-  private ITokenMessages CanMergeAliases(IGrouping<string, (string alias, TItem item)> group)
+  private IMessages CanMergeAliases(IGrouping<string, (string alias, TItem item)> group)
   {
     IEnumerable<string> distinct = group
       .Select(pair => ItemGroupKey(pair.item))
       .Distinct();
     if (distinct.Count() == 1) {
-      return TokenMessages.New;
+      return Messages.New;
     }
 
     string typeName = typeof(TItem).TidyTypeName();

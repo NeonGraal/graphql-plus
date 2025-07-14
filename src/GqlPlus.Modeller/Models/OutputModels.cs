@@ -7,26 +7,23 @@ public record class TypeOutputModel(
 { }
 
 public record class OutputArgModel(
+  TypeKindModel Kind,
   string Name,
   string Description
-) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Enum, Name, Description)
+) : ObjTypeArgModel(Kind, Name, Description)
   , IObjTypeArgModel
-  , IOutputModel
 {
-  public string Output => Name;
-  public bool IsTypeParam { get; set; }
-  internal DualArgModel? Dual { get; init; }
+  public DualArgModel? Dual { get; init; }
 
-  internal string? EnumLabel { get; set; }
+  public string? EnumLabel { get; set; }
 }
 
 public record class OutputBaseModel(
-  string Output,
+  string Name,
   string Description
-) : ObjBaseModel<OutputArgModel>(Description)
-  , IOutputModel
+) : ObjBaseModel<OutputArgModel>(Name, Description)
 {
-  internal DualBaseModel? Dual { get; init; }
+  public DualBaseModel? Dual { get; init; }
 }
 
 public record class OutputFieldModel(
@@ -35,15 +32,15 @@ public record class OutputFieldModel(
   string Description
 ) : ObjFieldModel<OutputBaseModel>(Name, Type, Description)
 {
-  internal InputParamModel[] Params { get; set; } = [];
-  internal OutputEnumModel? Enum { get; set; }
+  public InputParamModel[] Params { get; set; } = [];
+  public OutputEnumModel? Enum { get; set; }
 }
 
 public record class OutputAlternateModel(
   OutputBaseModel Type
 ) : ObjAlternateModel<OutputBaseModel>(Type)
 {
-  internal DualAlternateModel? Dual { get; init; }
+  public DualAlternateModel? Dual { get; init; }
 }
 
 public record class OutputEnumModel(
@@ -53,9 +50,3 @@ public record class OutputEnumModel(
   string Description
 ) : TypeRefModel<SimpleKindModel>(SimpleKindModel.Enum, Type, Description)
 { }
-
-public interface IOutputModel
-{
-  string Output { get; }
-  bool IsTypeParam { get; }
-}

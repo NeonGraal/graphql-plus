@@ -3,12 +3,13 @@
 public class InputFieldModellerTests
   : ModellerObjectBaseTestBase<IGqlpInputField, InputFieldModel, IGqlpInputBase, InputBaseModel>
 {
+  private readonly IModeller<IGqlpConstant, ConstantModel> _constant = MFor<IGqlpConstant, ConstantModel>();
+
   public InputFieldModellerTests()
   {
     IModifierModeller modifier = A.Of<IModifierModeller>();
-    IModeller<IGqlpConstant, ConstantModel> constant = MFor<IGqlpConstant, ConstantModel>();
 
-    Modeller = new InputFieldModeller(modifier, ObjBase, constant);
+    Modeller = new InputFieldModeller(modifier, ObjBase, _constant);
   }
 
   protected override IModeller<IGqlpInputField, InputFieldModel> Modeller { get; }
@@ -19,8 +20,8 @@ public class InputFieldModellerTests
     // Arrange
     IGqlpInputField ast = A.InputField(name, typeName, contents);
 
-    InputBaseModel inputType = new(typeName, "");
-    ToModelReturns(ObjBase, inputType);
+    InputBaseModel typeModel = new(typeName, "");
+    ToModelReturns(ObjBase, typeModel);
 
     // Act
     InputFieldModel result = Modeller.ToModel(ast, TypeKinds);
@@ -30,7 +31,35 @@ public class InputFieldModellerTests
       .ShouldSatisfyAllConditions(
         r => r.Name.ShouldBe(name),
         r => r.Description.ShouldBe(contents),
-        r => r.Type.ShouldBe(inputType)
+        r => r.Type.ShouldBe(typeModel),
+        r => r.Default.ShouldBeNull()
+      );
+  }
+
+  [Theory, RepeatData]
+  public void FieldModel_WithValidDefault_ReturnsExpectedInputFieldModel(string name, string contents, string typeName, string defaultValue)
+  {
+    // Arrange
+    IGqlpInputField ast = A.InputField(name, typeName, contents);
+    IGqlpConstant defaultAst = A.Constant(defaultValue);
+    ast.DefaultValue.Returns(defaultAst);
+
+    InputBaseModel typeModel = new(typeName, "");
+    ToModelReturns(ObjBase, typeModel);
+
+    ConstantModel defaultModel = new(new SimpleModel(defaultValue));
+    TryModelReturns(_constant, defaultModel);
+
+    // Act
+    InputFieldModel result = Modeller.ToModel(ast, TypeKinds);
+
+    // Assert
+    result.ShouldNotBeNull()
+      .ShouldSatisfyAllConditions(
+        r => r.Name.ShouldBe(name),
+        r => r.Description.ShouldBe(contents),
+        r => r.Type.ShouldBe(typeModel),
+        r => r.Default.ShouldBe(defaultModel)
       );
   }
 }

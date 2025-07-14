@@ -24,7 +24,7 @@ internal abstract record class AstAliased(
     => Name == id || Aliases.Contains(id);
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
-      .Concat(Aliases.Bracket("[", "]"));
+      .Concat(Aliases.Bracket("[", "]", true));
   void IAstSetAliases.SetAliases(IEnumerable<string> aliases)
     => Aliases = [.. aliases];
 }

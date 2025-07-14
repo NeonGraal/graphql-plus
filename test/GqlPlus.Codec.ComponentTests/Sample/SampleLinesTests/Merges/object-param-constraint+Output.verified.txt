@@ -1,0 +1,31 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier ObjParamCnstOutp: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: test
+        object: ObjParamCnstOutp
+        type: !_OutputBase
+          typeParam: test
+      - !_ObjectFor(_OutputField)
+        name: type
+        object: ObjParamCnstOutp
+        type: !_OutputBase
+          typeParam: test
+    fields:
+      - !_OutputField
+        name: test
+        type: !_OutputBase
+          typeParam: test
+      - !_OutputField
+        name: type
+        type: !_OutputBase
+          typeParam: test
+    name: ObjParamCnstOutp
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: test

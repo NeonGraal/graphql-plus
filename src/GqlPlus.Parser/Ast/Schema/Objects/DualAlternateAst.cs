@@ -4,9 +4,9 @@ namespace GqlPlus.Ast.Schema.Objects;
 
 internal sealed record class DualAlternateAst(
   ITokenAt At,
-  string Dual,
+  string Name,
   string Description
-) : AstObjAlternate<IGqlpDualArg>(At, Dual, Description)
+) : AstObjAlternate<IGqlpDualArg>(At, Name, Description)
   , IGqlpDualAlternate
 {
   internal override string Abbr => "DA";

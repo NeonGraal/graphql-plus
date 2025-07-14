@@ -30,12 +30,12 @@
           "$tag": "_ObjectFor(_OutputField)",
           "field": "field",
           "label": "outpFieldValue",
+          "name": "EnumOutpFieldValue",
           "object": "OutpFieldValue",
           "typeKind": {
             "$tag": "_SimpleKind",
             "value": "Enum"
-          },
-          "typeName": "EnumOutpFieldValue"
+          }
         }
       ],
       "fields": [
@@ -43,11 +43,11 @@
           "$tag": "_OutputEnum",
           "field": "field",
           "label": "outpFieldValue",
+          "name": "EnumOutpFieldValue",
           "typeKind": {
             "$tag": "_SimpleKind",
             "value": "Enum"
-          },
-          "typeName": "EnumOutpFieldValue"
+          }
         }
       ],
       "name": "OutpFieldValue",

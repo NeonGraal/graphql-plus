@@ -1,0 +1,92 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    {%- render "pico" -%}
+    <title>Schema {{ name }} Documentation</title>
+    <style>
+      aside { font-size: 50%; }
+      aside ul { padding-inline: 0; }
+      aside li { padding-top: 0; padding-bottom: 0; }
+      aside details summary a { display: inline-block; }
+      table { width: 80%; }
+      sub { font-style: italic; }
+      .from { width: 15%; text-align: right;}
+
+      aside li details, aside details[open]>summary, ul ul, article article:last-child
+      { margin-bottom: 0;}
+    </style>
+  </head>
+  <body class="container">
+    <aside>
+      {%- render 'toc' -%}
+      <details>
+        <summary>YAML</summary>
+        <pre class="overflow-auto">{{ yaml }}</pre>
+      </details>
+    </aside>
+    {%- if name or aliases -%}
+    {%- render 'schema' -%}
+    {%- endif -%}
+    <main>
+      {%- if _errors %}
+      <article>
+        <header>
+          <h3 id="_errors">Errors</h3>
+        </header>
+        <ul>
+          {% render 'error' for _errors as error %}
+        </ul>
+      </article>
+      {%- endif -%}
+      {%- if groups %}
+      {%- for group in groups %}
+      <article>
+        <header>
+          <h1 id="{{ group[0] }}s">{{ group[0] }}s</h1>
+        </header>
+        {%- render 'type' for group[1] as type %}
+      </article>
+      {%- endfor -%}
+
+      {%- endif -%}
+      {%- if types %}
+      <article>
+        <header>
+          <h1 id="types">Types</h1>
+        </header>
+        {%- render 'type' for types as type %}
+      </article>
+      {%- endif -%}
+      {%- if categories %}
+      <article>
+        <header>
+          <h1 id="categories">Categories</h1>
+        </header>
+        {%- render 'category' for categories as category %}
+      </article>
+      {%- endif -%}
+      {%- if directives %}
+      <article>
+        <header>
+          <h1 id="directives">Directives</h1>
+        </header>
+        {%- render 'directive' for directives as directive %}
+      </article>
+      {%- endif -%}
+      {%- if settings %}
+      <article>
+        <header>
+          <h1 id="settings">Settings
+        </header>
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Value</th>
+          </tr>
+          {%- render 'setting' for settings as setting %}
+        </table>
+      </article>
+      {%- endif %}
+    </main>
+  </body>
+</html>

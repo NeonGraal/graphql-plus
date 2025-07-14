@@ -1,0 +1,60 @@
+﻿<details open="">
+  <summary>TOC</summary>
+  <ul class="overflow-auto">
+    {%- if _errors %}
+    <li>
+      <a href="#_errors">Errors</a>
+    </li>
+    {%- endif -%}
+    {%- for group in groups %}
+    <li>
+      <details>
+        <summary>
+          <a href="#{{ group[0] }}s">{{ group[0] }}s</a>
+        </summary>
+        <ul class="overflow-auto">
+          {%- for type in group[1] %}
+          <li>
+            <a href="#{{ group[0] }}-{{ type[1].name }}">{{ type[1].name }}</a>
+          </li>
+          {%- endfor %}
+        </ul>
+      </details>
+    </li>
+    {%- endfor -%}
+    {%- if types %}
+    <li>
+      <details>
+        <summary>
+          <a href="#types">Types</a>
+        </summary>
+        <ul class="overflow-auto">
+          {%- for type in types %}
+          <li>
+            {%- assign typ = type[1] %}
+            <a href="#{{ typ.typeKind }}-{{ typ.name }}">
+              {{ typ.name }} <sup>({{ typ.typeKind }})</sup>
+            </a>
+          </li>
+          {%- endfor %}
+        </ul>
+      </details>
+    </li>
+    {%- endif -%}
+    {%- if categories %}
+    <li>
+      <a href="#categories">Categories</a>
+    </li>
+    {%- endif -%}
+    {%- if directives %}
+    <li>
+      <a href="#directives">Directives</a>
+    </li>
+    {%- endif -%}
+    {%- if settings %}
+    <li>
+      <a href="#settings">Settings</a>
+    </li>
+    {%- endif -%}
+  </ul>
+</details>

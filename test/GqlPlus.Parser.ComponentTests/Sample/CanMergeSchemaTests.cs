@@ -29,7 +29,7 @@ public class CanMergeSchemaTests(
 
   private void Check_CanMerge(IGqlpSchema[] schemas, string test)
   {
-    ITokenMessages result = schemaMerger.CanMerge(schemas);
+    IMessages result = schemaMerger.CanMerge(schemas);
 
     result.ShouldBeEmpty(test);
   }

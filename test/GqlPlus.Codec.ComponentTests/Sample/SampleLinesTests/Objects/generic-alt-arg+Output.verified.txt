@@ -1,0 +1,44 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier GnrcAltArgOutp: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: GnrcAltArgOutp
+        type: !_OutputBase
+          name: RefGnrcAltArgOutp
+          typeArgs:
+            - !_OutputArg
+              typeParam: type
+    alternates:
+      - !_OutputAlternate
+        type: !_OutputBase
+          name: RefGnrcAltArgOutp
+          typeArgs:
+            - !_OutputArg
+              typeParam: type
+    name: GnrcAltArgOutp
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: type
+  !_Identifier RefGnrcAltArgOutp: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: RefGnrcAltArgOutp
+        type: !_OutputBase
+          typeParam: ref
+    alternates:
+      - !_OutputAlternate
+        type: !_OutputBase
+          typeParam: ref
+    name: RefGnrcAltArgOutp
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: String
+          typeKind: !_TypeKind Basic
+        name: ref

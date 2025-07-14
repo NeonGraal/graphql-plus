@@ -24,7 +24,7 @@ public static class OperationTestHelpers
     IGqlpFieldKey valueAst = value.FieldKey();
 
     return key == value
-      ? new AstFields<IGqlpArg>() { [keyAst] = new ArgAst(AstNulls.At, value) }
+      ? new AstFields<IGqlpArg>(keyAst, new ArgAst(AstNulls.At, value))
       : new AstFields<IGqlpArg>() { [keyAst] = new ArgAst(AstNulls.At, value), [valueAst] = new ArgAst(keyAst) };
   }
 }

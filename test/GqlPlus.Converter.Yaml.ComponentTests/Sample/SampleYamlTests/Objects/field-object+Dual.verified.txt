@@ -6,12 +6,12 @@ types: !_Map_Type
       name: field
       object: FieldObjDual
       type: !_DualBase
-        dual: FldFieldObjDual
+        name: FldFieldObjDual
     fields:
     - !_DualField
       name: field
       type: !_DualBase
-        dual: FldFieldObjDual
+        name: FldFieldObjDual
     name: FieldObjDual
     typeKind: !_TypeKind Dual
   !_Identifier FldFieldObjDual: !_TypeDual
@@ -19,21 +19,21 @@ types: !_Map_Type
     - !_ObjectFor(_DualAlternate)
       object: FldFieldObjDual
       type: !_DualBase
-        dual: String
+        name: String
     allFields:
     - !_ObjectFor(_DualField)
       name: field
       object: FldFieldObjDual
       type: !_DualBase
-        dual: Number
+        name: Number
     alternates:
     - !_DualAlternate
       type: !_DualBase
-        dual: String
+        name: String
     fields:
     - !_DualField
       name: field
       type: !_DualBase
-        dual: Number
+        name: Number
     name: FldFieldObjDual
     typeKind: !_TypeKind Dual

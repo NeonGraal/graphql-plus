@@ -5,51 +5,51 @@ types: !_Map_Type
     - !_ObjectFor(_DualAlternate)
       object: PrntCnstPrntDualPrntInp
       type: !_DualBase
-        dual: String
+        name: String
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
       object: AltCnstPrntDualPrntInp
       type: !_InputBase
-        input: Number
+        name: Number
     fields:
     - !_InputField
       name: alt
       type: !_InputBase
-        input: Number
+        name: Number
     name: AltCnstPrntDualPrntInp
     parent: !_DualBase
-      dual: PrntCnstPrntDualPrntInp
+      name: PrntCnstPrntDualPrntInp
     typeKind: !_TypeKind Input
   !_Identifier CnstPrntDualPrntInp: !_TypeInput
     allAlternates:
     - !_ObjectFor(_DualAlternate)
       object: PrntCnstPrntDualPrntInp
       type: !_DualBase
-        dual: String
+        name: String
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
       object: AltCnstPrntDualPrntInp
       type: !_InputBase
-        input: Number
+        name: Number
     name: CnstPrntDualPrntInp
     parent: !_InputBase
-      input: RefCnstPrntDualPrntInp
+      name: RefCnstPrntDualPrntInp
       typeArgs:
       - !_InputArg
-        input: AltCnstPrntDualPrntInp
+        name: AltCnstPrntDualPrntInp
     typeKind: !_TypeKind Input
   !_Identifier PrntCnstPrntDualPrntInp: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
       object: PrntCnstPrntDualPrntInp
       type: !_DualBase
-        dual: String
+        name: String
     alternates:
     - !_DualAlternate
       type: !_DualBase
-        dual: String
+        name: String
     name: PrntCnstPrntDualPrntInp
     typeKind: !_TypeKind Dual
   !_Identifier RefCnstPrntDualPrntInp: !_TypeInput
@@ -60,6 +60,6 @@ types: !_Map_Type
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
+        name: PrntCnstPrntDualPrntInp
         typeKind: !_TypeKind Dual
-        typeName: PrntCnstPrntDualPrntInp
       name: ref

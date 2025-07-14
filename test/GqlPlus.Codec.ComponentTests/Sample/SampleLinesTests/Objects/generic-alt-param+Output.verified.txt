@@ -1,0 +1,61 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier AltGnrcAltParamOutp: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: AltGnrcAltParamOutp
+        type: !_OutputBase
+          name: String
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: alt
+        object: AltGnrcAltParamOutp
+        type: !_OutputBase
+          name: Number
+    alternates:
+      - !_OutputAlternate
+        type: !_OutputBase
+          name: String
+    fields:
+      - !_OutputField
+        name: alt
+        type: !_OutputBase
+          name: Number
+    name: AltGnrcAltParamOutp
+    typeKind: !_TypeKind Output
+  !_Identifier GnrcAltParamOutp: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: GnrcAltParamOutp
+        type: !_OutputBase
+          name: RefGnrcAltParamOutp
+          typeArgs:
+            - !_OutputArg
+              name: AltGnrcAltParamOutp
+    alternates:
+      - !_OutputAlternate
+        type: !_OutputBase
+          name: RefGnrcAltParamOutp
+          typeArgs:
+            - !_OutputArg
+              name: AltGnrcAltParamOutp
+    name: GnrcAltParamOutp
+    typeKind: !_TypeKind Output
+  !_Identifier RefGnrcAltParamOutp: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: RefGnrcAltParamOutp
+        type: !_OutputBase
+          typeParam: ref
+    alternates:
+      - !_OutputAlternate
+        type: !_OutputBase
+          typeParam: ref
+    name: RefGnrcAltParamOutp
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: _Output
+          typeKind: !_TypeKind Internal
+        name: ref

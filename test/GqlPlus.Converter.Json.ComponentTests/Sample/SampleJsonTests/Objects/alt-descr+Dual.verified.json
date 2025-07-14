@@ -11,7 +11,7 @@
           "type": {
             "$tag": "_DualBase",
             "description": "Test Descr",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],
@@ -21,7 +21,7 @@
           "type": {
             "$tag": "_DualBase",
             "description": "Test Descr",
-            "dual": "String"
+            "name": "String"
           }
         }
       ],

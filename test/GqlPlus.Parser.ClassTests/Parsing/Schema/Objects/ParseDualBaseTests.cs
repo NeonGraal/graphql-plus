@@ -30,7 +30,7 @@ public class ParseDualBaseTests
     result.ShouldBeAssignableTo<IResultOk<IGqlpDualBase>>()
       .Required().ShouldSatisfyAllConditions(
         r => r.IsTypeParam.ShouldBeTrue(),
-        r => r.Dual.ShouldBe(paramName)
+        r => r.Name.ShouldBe(paramName)
       );
   }
 

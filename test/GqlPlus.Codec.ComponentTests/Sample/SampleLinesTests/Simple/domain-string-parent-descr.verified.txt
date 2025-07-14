@@ -1,0 +1,36 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier DmnStrPrntDescr: !_DomainString
+    allItems:
+      - !_DomainItem(_DomainRegex)
+        domain: PrntDmnStrPrntDescr
+        exclude: false
+        pattern: b+
+      - !_DomainItem(_DomainRegex)
+        domain: DmnStrPrntDescr
+        exclude: false
+        pattern: a+
+    domainKind: !_DomainKind String
+    items:
+      - !_DomainRegex
+        exclude: false
+        pattern: a+
+    name: DmnStrPrntDescr
+    parent: !_TypeRef(_SimpleKind)
+      description: 'Parent comment'
+      name: PrntDmnStrPrntDescr
+      typeKind: !_SimpleKind Domain
+    typeKind: !_TypeKind Domain
+  !_Identifier PrntDmnStrPrntDescr: !_DomainString
+    allItems:
+      - !_DomainItem(_DomainRegex)
+        domain: PrntDmnStrPrntDescr
+        exclude: false
+        pattern: b+
+    domainKind: !_DomainKind String
+    items:
+      - !_DomainRegex
+        exclude: false
+        pattern: b+
+    name: PrntDmnStrPrntDescr
+    typeKind: !_TypeKind Domain

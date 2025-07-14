@@ -31,8 +31,8 @@ public class ConstantModelTests(
 
 internal sealed class ConstantModelChecks(
   IModeller<IGqlpConstant, ConstantModel> modeller,
-  IRenderer<ConstantModel> rendering
-) : CheckModelBase<string, IGqlpConstant, ConstantAst, ConstantModel>(modeller, rendering)
+  IEncoder<ConstantModel> encoding
+) : CheckModelBase<string, IGqlpConstant, ConstantAst, ConstantModel>(modeller, encoding)
   , IConstantModelChecks
 {
   public void ConstantExpected(IGqlpConstant ast, string[] expected)

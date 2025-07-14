@@ -5,11 +5,11 @@ types: !_Map_Type
     - !_ObjectFor(_DualAlternate)
       object: ObjAltDual
       type: !_DualBase
-        dual: ObjAltDualType
+        name: ObjAltDualType
     alternates:
     - !_DualAlternate
       type: !_DualBase
-        dual: ObjAltDualType
+        name: ObjAltDualType
     name: ObjAltDual
     typeKind: !_TypeKind Dual
   !_Identifier ObjAltDualType: !_TypeDual

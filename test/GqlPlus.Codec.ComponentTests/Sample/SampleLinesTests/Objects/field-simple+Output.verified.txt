@@ -1,0 +1,16 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier FieldSmplOutp: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: FieldSmplOutp
+        type: !_OutputBase
+          name: Number
+    fields:
+      - !_OutputField
+        name: field
+        type: !_OutputBase
+          name: Number
+    name: FieldSmplOutp
+    typeKind: !_TypeKind Output

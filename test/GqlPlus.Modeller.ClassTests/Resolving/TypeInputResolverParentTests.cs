@@ -18,5 +18,5 @@ public class TypeInputResolverParentTests
   protected override InputBaseModel NewParam(string paramName)
     => new(paramName, "") { IsTypeParam = true };
   protected override InputArgModel NewArg(string argument, bool isParam = false)
-    => new(argument, "") { IsTypeParam = isParam };
+    => new(TypeKindModel.Output, argument, "") { IsTypeParam = isParam };
 }

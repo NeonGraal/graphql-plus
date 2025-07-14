@@ -4,7 +4,6 @@ output _TypeDual {
 
 output _DualBase {
     : _ObjBase<_DualTypeArg>
-        dual: _Identifier
     }
 
 output _DualTypeParam {
@@ -21,6 +20,5 @@ output _DualAlternate {
 
 output _DualTypeArg {
     : _ObjTypeArg
-        dual: _Identifier
     }
 

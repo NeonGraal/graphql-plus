@@ -1,0 +1,56 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    {%- render "pico" -%}
+    <title>{{ title }} Index</title>
+    <style>
+      aside ul { padding-inline: 0; font-size: 50%; }
+      aside li { padding: 0; }
+      .grid { grid-template-columns: repeat(4, 1fr); }
+    </style>
+  </head>
+  <body class="container">
+    <main>
+      {%- if groups.size > 1 -%}
+      <aside>
+        <details open="">
+          <summary>TOC</summary>
+          <ul class="overflow-auto">
+            {%- for group in groups %}
+            <li>
+              <a href="#{{ group[0] }}">{{ group[0] }}</a>
+            </li>
+            {%- endfor -%}
+          </ul>
+        </details>
+      </aside>
+      {%- endif -%}
+      <h1>{{ title }} Index</h1>
+      {%- if items.size > 0 -%}
+      <article>
+        <div class="grid">
+          {%- for item in items %}
+          <div>
+            <a href="{{ item }}.html">{{ item }}</a>
+          </div>
+          {%- endfor %}
+        </div>
+      </article>
+      {%- endif -%}
+      {%- for group in groups %}
+      <article>
+        <header>
+          <h2 id="{{ group[0] }}">{{ group[0] }}</h2>
+        </header>
+        <div class="grid">
+          {%- for item in group[1] %}
+          <div>
+            <a href="{{ group[0] }}/{{ item }}.html">{{ item }}</a>
+          </div>
+          {%- endfor %}
+        </div>
+      </article>
+      {%- endfor %}
+    </main>
+  </body>
+</html>

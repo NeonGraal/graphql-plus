@@ -21,7 +21,7 @@
           "object": "FieldModParamOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "FldFieldModParamOutp"
+            "name": "FldFieldModParamOutp"
           }
         }
       ],
@@ -41,7 +41,7 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "output": "FldFieldModParamOutp"
+            "name": "FldFieldModParamOutp"
           }
         }
       ],
@@ -55,11 +55,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "mod"
         }
@@ -73,7 +73,7 @@
           "object": "FldFieldModParamOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "String"
+            "name": "String"
           }
         }
       ],
@@ -84,7 +84,7 @@
           "object": "FldFieldModParamOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -93,7 +93,7 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "output": "String"
+            "name": "String"
           }
         }
       ],
@@ -103,7 +103,7 @@
           "name": "field",
           "type": {
             "$tag": "_OutputBase",
-            "output": "Number"
+            "name": "Number"
           }
         }
       ],

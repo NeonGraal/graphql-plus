@@ -18,7 +18,7 @@
           "object": "InOutpParam",
           "type": {
             "$tag": "_InputBase",
-            "input": "String"
+            "name": "String"
           }
         }
       ],
@@ -29,7 +29,7 @@
           "object": "InOutpParam",
           "type": {
             "$tag": "_InputBase",
-            "input": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -38,7 +38,7 @@
           "$tag": "_InputAlternate",
           "type": {
             "$tag": "_InputBase",
-            "input": "String"
+            "name": "String"
           }
         }
       ],
@@ -48,7 +48,7 @@
           "name": "param",
           "type": {
             "$tag": "_InputBase",
-            "input": "Number"
+            "name": "Number"
           }
         }
       ],
@@ -68,12 +68,12 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "input": "InOutpParam"
+              "name": "InOutpParam"
             }
           ],
           "type": {
             "$tag": "_DualBase",
-            "dual": "FldOutpParam"
+            "name": "FldOutpParam"
           }
         }
       ],
@@ -84,12 +84,12 @@
           "parameters": [
             {
               "$tag": "_InputParam",
-              "input": "InOutpParam"
+              "name": "InOutpParam"
             }
           ],
           "type": {
             "$tag": "_DualBase",
-            "dual": "FldOutpParam"
+            "name": "FldOutpParam"
           }
         }
       ],

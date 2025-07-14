@@ -15,7 +15,7 @@ internal class TypeOutputResolver(
     if (result is TypeOutputModel output) {
       if (output.Parent is not null
         && GetOutputArgument(output.Name, output.Parent, arguments, out OutputBaseModel? parentModel)) {
-        output.Parent = new(parentModel.Output, output.Parent.Description);
+        output.Parent = new(parentModel.Name, output.Parent.Description);
         output.ParentModel = null;
       }
 
@@ -31,7 +31,7 @@ internal class TypeOutputResolver(
   protected override TypeOutputModel CloneModel(TypeOutputModel model)
     => model with { };
   protected override string GetArgKey(OutputArgModel argument)
-    => argument.Output;
+    => argument.Name;
   protected override MakeFor<OutputAlternateModel> ObjectAlt(string obj)
     => alt => new(alt, obj);
   protected override MakeFor<OutputFieldModel> ObjectField(string obj)
@@ -52,13 +52,13 @@ internal class TypeOutputResolver(
     };
 
   protected override string? ParentName(TypeOutputModel model)
-    => model.Parent?.Output;
+    => model.Parent?.Name;
 
   protected override void ResolveParent(TypeOutputModel model, IResolveContext context)
   {
     DualBaseModel? parentDual = model.Parent?.Dual;
     if (parentDual is not null) {
-      if (context.TryGetType(model.Name, parentDual.Dual, out TypeDualModel? parentModel)) {
+      if (context.TryGetType(model.Name, parentDual.Name, out TypeDualModel? parentModel)) {
         parentModel = dual.Resolve(parentModel, context);
         ArgumentsContext? argsContext = MakeArgumentsContext(context, parentDual.Args, parentModel);
         if (argsContext is not null) {
@@ -103,15 +103,15 @@ internal class TypeOutputResolver(
   {
     outBase = null;
     if (outputBase?.IsTypeParam == true) {
-      if (arguments.TryGetArg(label, outputBase.Output, out OutputArgModel? outputArg)) {
+      if (arguments.TryGetArg(label, outputBase.Name, out OutputArgModel? outputArg)) {
         if (outputArg.Dual is not null) {
-          if (arguments.TryGetType(label, outputArg.Dual.Dual, out DualBaseModel? dualBase, false)) {
+          if (arguments.TryGetType(label, outputArg.Dual.Name, out DualBaseModel? dualBase, false)) {
             outBase = new("", outputArg.Description) { Dual = dualBase };
           } else {
-            outBase = new("", outputArg.Description) { Dual = new(outputArg.Dual.Dual, outputArg.Description) { IsTypeParam = outputArg.Dual.IsTypeParam } };
+            outBase = new("", outputArg.Description) { Dual = new(outputArg.Dual.Name, outputArg.Description) { IsTypeParam = outputArg.Dual.IsTypeParam } };
           }
-        } else if (!arguments.TryGetType(label, outputArg.Output, out outBase, false)) {
-          outBase = new(outputArg.Output!, outputArg.Description) { IsTypeParam = outputArg.IsTypeParam };
+        } else if (!arguments.TryGetType(label, outputArg.Name, out outBase, false)) {
+          outBase = new(outputArg.Name!, outputArg.Description) { IsTypeParam = outputArg.IsTypeParam };
         }
 
         return true;

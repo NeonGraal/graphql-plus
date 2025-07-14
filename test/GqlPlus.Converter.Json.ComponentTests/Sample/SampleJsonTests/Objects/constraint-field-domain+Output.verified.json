@@ -11,18 +11,18 @@
           "object": "RefCnstFieldDmnOutp",
           "type": {
             "$tag": "_OutputBase",
-            "output": "DomCnstFieldDmnOutp"
+            "name": "DomCnstFieldDmnOutp"
           }
         }
       ],
       "name": "CnstFieldDmnOutp",
       "parent": {
         "$tag": "_OutputBase",
-        "output": "RefCnstFieldDmnOutp",
+        "name": "RefCnstFieldDmnOutp",
         "typeArgs": [
           {
             "$tag": "_OutputArg",
-            "output": "DomCnstFieldDmnOutp"
+            "name": "DomCnstFieldDmnOutp"
           }
         ]
       },
@@ -91,11 +91,11 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
+            "name": "String",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Basic"
-            },
-            "typeName": "String"
+            }
           },
           "name": "ref"
         }

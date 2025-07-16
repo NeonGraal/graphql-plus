@@ -1,8 +1,7 @@
-﻿
-namespace GqlPlus.Generating.Simple;
+﻿namespace GqlPlus.Generating.Simple;
 
 public class EnumGeneratorTests
-  : TypeGeneratorClassTestBase<IGqlpEnum>
+  : TypeGeneratorClassTestBase<IGqlpEnum, IGqlpTypeRef>
 {
   private readonly EnumGenerator _generator;
 
@@ -19,6 +18,7 @@ public class EnumGeneratorTests
     IGqlpEnum enumType = A.Named<IGqlpEnum>(enumName);
     IGqlpEnumLabel label = A.Named<IGqlpEnumLabel>(labelName);
     enumType.Items.Returns([label]);
+    enumType.Parent.Returns((IGqlpTypeRef?)null);
 
     // Act
     MapPair<string>[] result = [.. _generator.TypeMembers(enumType, Context)];
@@ -28,4 +28,10 @@ public class EnumGeneratorTests
     result[0].Key.ShouldBe(labelName);
     result[0].Value.ShouldBe("");
   }
+
+  protected override Action<string> CheckGeneratedCodeName(string name)
+    => result => result.ShouldContain("public enum " + name);
+
+  protected override Action<string> CheckGeneratedCodeParent(string parent)
+    => result => { };
 }

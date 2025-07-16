@@ -2,7 +2,7 @@
 namespace GqlPlus.Generating.Simple;
 
 public abstract class DomainGeneratorTestBase<TItem>
-  : TypeGeneratorClassTestBase<IGqlpDomain<TItem>>
+  : TypeGeneratorClassTestBase<IGqlpDomain<TItem>, IGqlpTypeRef>
   where TItem : class, IGqlpDomainItem
 {
   public override string ExpectedTypePrefix => "Domain";

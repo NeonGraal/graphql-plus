@@ -1,8 +1,7 @@
-﻿
-namespace GqlPlus.Generating.Objects;
+﻿namespace GqlPlus.Generating.Objects;
 
 public class DualGeneratorTests
-  : TypeGeneratorClassTestBase<IGqlpDualObject>
+  : TypeGeneratorClassTestBase<IGqlpDualObject, IGqlpObjBase>
 {
   public override string ExpectedTypePrefix => "Dual";
   internal override GenerateForType<IGqlpDualObject> TypeGenerator { get; }

@@ -1,17 +1,18 @@
 ﻿namespace GqlPlus.Generating;
 
-public abstract class TypeGeneratorClassTestBase<T>
+public abstract class TypeGeneratorClassTestBase<TType, TParent>
   : GeneratorClassTestBase
-  where T : class, IGqlpType
+  where TType : class, IGqlpType<TParent>
+  where TParent : class, IGqlpNamed
 {
   public abstract string ExpectedTypePrefix { get; }
-  internal abstract GenerateForType<T> TypeGenerator { get; }
+  internal abstract GenerateForType<TType> TypeGenerator { get; }
 
   [Fact]
   public void ForType_WithType_ReturnsTrue()
   {
     // Arrange
-    T type = A.Error<T>();
+    TType type = A.Error<TType>();
 
     // Act
     bool result = TypeGenerator.ForType(type);
@@ -36,4 +37,40 @@ public abstract class TypeGeneratorClassTestBase<T>
   [Fact]
   public void TypePrefix_ReturnsDomain() =>
     TypeGenerator.TypePrefix.ShouldBe(ExpectedTypePrefix);
+
+  [Theory, RepeatData]
+  public void GenerateType_WithName_GeneratesCorrectCode(string name)
+  {
+    // Arrange
+    TType type = A.Parented<TType, TParent>(name);
+
+    // Act
+    TypeGenerator.GenerateType(type, Context);
+
+    // Assert
+    string result = Context.ToString();
+    CheckGeneratedCodeName(name)(result);
+  }
+
+  [Theory, RepeatData]
+  public void GenerateType_WithParent_GeneratesCorrectCode(string name, string parent)
+  {
+    // Arrange
+    TType type = A.Parented<TType, TParent>(name, parent);
+
+    // Act
+    TypeGenerator.GenerateType(type, Context);
+
+    // Assert
+    string result = Context.ToString();
+    result.ShouldSatisfyAllConditions(
+      CheckGeneratedCodeName(name),
+      CheckGeneratedCodeParent(parent));
+  }
+
+  protected virtual Action<string> CheckGeneratedCodeName(string name)
+    => result => result.ShouldContain("public interface I" + name);
+
+  protected virtual Action<string> CheckGeneratedCodeParent(string parent)
+    => result => result.ShouldContain(": I" + parent);
 }

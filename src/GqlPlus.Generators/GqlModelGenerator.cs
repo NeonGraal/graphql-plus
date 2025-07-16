@@ -1,4 +1,5 @@
 ﻿using System.Collections.Immutable;
+using System.Diagnostics.CodeAnalysis;
 using GqlPlus.Abstractions;
 using GqlPlus.Generating;
 using GqlPlus.Merging;
@@ -15,7 +16,7 @@ using Microsoft.Extensions.Logging.Abstractions;
 
 namespace GqlPlus;
 
-[Generator(LanguageNames.CSharp)]
+[Generator(LanguageNames.CSharp), ExcludeFromCodeCoverage]
 public class GqlModelGenerator : IIncrementalGenerator
 {
   public void Initialize(IncrementalGeneratorInitializationContext context)

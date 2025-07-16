@@ -55,7 +55,6 @@ public class ParseOutputArgsTests
     TakeReturns('.', true);
     SetupError<IGqlpOutputArg>();
 
-
     // Act
     IResultArray<IGqlpOutputArg> result = _parser.Parse(Tokenizer, "testLabel");
 

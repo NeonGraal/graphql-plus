@@ -1,8 +1,7 @@
-﻿
-namespace GqlPlus.Generating.Objects;
+﻿namespace GqlPlus.Generating.Objects;
 
 public class OutputGeneratorTests
-  : TypeGeneratorClassTestBase<IGqlpOutputObject>
+  : TypeGeneratorClassTestBase<IGqlpOutputObject, IGqlpObjBase>
 {
   public override string ExpectedTypePrefix => "Output";
   internal override GenerateForType<IGqlpOutputObject> TypeGenerator { get; }

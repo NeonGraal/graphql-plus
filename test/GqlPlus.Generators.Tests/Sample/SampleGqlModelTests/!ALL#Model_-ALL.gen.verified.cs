@@ -5431,12 +5431,12 @@ public class UnionUnionSame
 }
 
 public interface IUnionSamePrnt
-  : I( !Tr I@024/0935 PrntUnionSamePrnt )
+  : IPrntUnionSamePrnt
 {
   Boolean AsBoolean { get; }
 }
 public class UnionUnionSamePrnt
-  : Union( !Tr I@024/0935 PrntUnionSamePrnt )
+  : UnionPrntUnionSamePrnt
   , IUnionSamePrnt
 {
   public Boolean AsBoolean { get; set; }
@@ -5461,11 +5461,11 @@ public class DomainDmnBoolDescr
 }
 
 public interface IDmnBoolPrnt
-  : I( !Tr I@023/0940 PrntDmnBoolPrnt )
+  : IPrntDmnBoolPrnt
 {
 }
 public class DomainDmnBoolPrnt
-  : Domain( !Tr I@023/0940 PrntDmnBoolPrnt )
+  : DomainPrntDmnBoolPrnt
   , IDmnBoolPrnt
 {
 }
@@ -5479,11 +5479,11 @@ public class DomainPrntDmnBoolPrnt
 }
 
 public interface IDmnBoolPrntDescr
-  : I( 'Parent comment' !Tr I@044/0943 PrntDmnBoolPrntDescr )
+  : IPrntDmnBoolPrntDescr
 {
 }
 public class DomainDmnBoolPrntDescr
-  : Domain( 'Parent comment' !Tr I@044/0943 PrntDmnBoolPrntDescr )
+  : DomainPrntDmnBoolPrntDescr
   , IDmnBoolPrntDescr
 {
 }
@@ -5570,11 +5570,11 @@ public enum EnumDmnEnumLabel
 }
 
 public interface IDmnEnumPrnt
-  : I( !Tr I@023/0962 PrntDmnEnumPrnt )
+  : IPrntDmnEnumPrnt
 {
 }
 public class DomainDmnEnumPrnt
-  : Domain( !Tr I@023/0962 PrntDmnEnumPrnt )
+  : DomainPrntDmnEnumPrnt
   , IDmnEnumPrnt
 {
 }
@@ -5594,11 +5594,11 @@ public enum EnumDmnEnumPrnt
 }
 
 public interface IDmnEnumPrntDescr
-  : I( 'Parent comment' !Tr I@044/0966 PrntDmnEnumPrntDescr )
+  : IPrntDmnEnumPrntDescr
 {
 }
 public class DomainDmnEnumPrntDescr
-  : Domain( 'Parent comment' !Tr I@044/0966 PrntDmnEnumPrntDescr )
+  : DomainPrntDmnEnumPrntDescr
   , IDmnEnumPrntDescr
 {
 }
@@ -5689,11 +5689,11 @@ public class DomainDmnNmbrDescr
 }
 
 public interface IDmnNmbrPrnt
-  : I( !Tr I@023/0988 PrntDmnNmbrPrnt )
+  : IPrntDmnNmbrPrnt
 {
 }
 public class DomainDmnNmbrPrnt
-  : Domain( !Tr I@023/0988 PrntDmnNmbrPrnt )
+  : DomainPrntDmnNmbrPrnt
   , IDmnNmbrPrnt
 {
 }
@@ -5707,11 +5707,11 @@ public class DomainPrntDmnNmbrPrnt
 }
 
 public interface IDmnNmbrPrntDescr
-  : I( 'Parent comment' !Tr I@044/0991 PrntDmnNmbrPrntDescr )
+  : IPrntDmnNmbrPrntDescr
 {
 }
 public class DomainDmnNmbrPrntDescr
-  : Domain( 'Parent comment' !Tr I@044/0991 PrntDmnNmbrPrntDescr )
+  : DomainPrntDmnNmbrPrntDescr
   , IDmnNmbrPrntDescr
 {
 }
@@ -5733,11 +5733,11 @@ public class DomainDmnStrDescr
 }
 
 public interface IDmnStrPrnt
-  : I( !Tr I@022/0996 PrntDmnStrPrnt )
+  : IPrntDmnStrPrnt
 {
 }
 public class DomainDmnStrPrnt
-  : Domain( !Tr I@022/0996 PrntDmnStrPrnt )
+  : DomainPrntDmnStrPrnt
   , IDmnStrPrnt
 {
 }
@@ -5751,11 +5751,11 @@ public class DomainPrntDmnStrPrnt
 }
 
 public interface IDmnStrPrntDescr
-  : I( 'Parent comment' !Tr I@043/0999 PrntDmnStrPrntDescr )
+  : IPrntDmnStrPrntDescr
 {
 }
 public class DomainDmnStrPrntDescr
-  : Domain( 'Parent comment' !Tr I@043/0999 PrntDmnStrPrntDescr )
+  : DomainPrntDmnStrPrntDescr
   , IDmnStrPrntDescr
 {
 }
@@ -5832,12 +5832,12 @@ public class UnionUnionDescr
 }
 
 public interface IUnionPrnt
-  : I( !Tr I@020/1018 PrntUnionPrnt )
+  : IPrntUnionPrnt
 {
   String AsString { get; }
 }
 public class UnionUnionPrnt
-  : Union( !Tr I@020/1018 PrntUnionPrnt )
+  : UnionPrntUnionPrnt
   , IUnionPrnt
 {
   public String AsString { get; set; }
@@ -5854,12 +5854,12 @@ public class UnionPrntUnionPrnt
 }
 
 public interface IUnionPrntDescr
-  : I( 'Parent comment' !Tr I@041/1021 PrntUnionPrntDescr )
+  : IPrntUnionPrntDescr
 {
   Number AsNumber { get; }
 }
 public class UnionUnionPrntDescr
-  : Union( 'Parent comment' !Tr I@041/1021 PrntUnionPrntDescr )
+  : UnionPrntUnionPrntDescr
   , IUnionPrntDescr
 {
   public Number AsNumber { get; set; }
@@ -5876,12 +5876,12 @@ public class UnionPrntUnionPrntDescr
 }
 
 public interface IUnionPrntDup
-  : I( !Tr I@023/1024 PrntUnionPrntDup )
+  : IPrntUnionPrntDup
 {
   Number AsNumber { get; }
 }
 public class UnionUnionPrntDup
-  : Union( !Tr I@023/1024 PrntUnionPrntDup )
+  : UnionPrntUnionPrntDup
   , IUnionPrntDup
 {
   public Number AsNumber { get; set; }

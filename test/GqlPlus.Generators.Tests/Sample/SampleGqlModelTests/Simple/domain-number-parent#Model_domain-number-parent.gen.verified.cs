@@ -7,11 +7,11 @@
 namespace GqlTest.Model_domain_number_parent;
 
 public interface IDmnNmbrPrnt
-  : I( !Tr I@023/0001 PrntDmnNmbrPrnt )
+  : IPrntDmnNmbrPrnt
 {
 }
 public class DomainDmnNmbrPrnt
-  : Domain( !Tr I@023/0001 PrntDmnNmbrPrnt )
+  : DomainPrntDmnNmbrPrnt
   , IDmnNmbrPrnt
 {
 }

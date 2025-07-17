@@ -7,11 +7,11 @@
 namespace GqlTest.Model_domain_bool_parent;
 
 public interface IDmnBoolPrnt
-  : I( !Tr I@023/0001 PrntDmnBoolPrnt )
+  : IPrntDmnBoolPrnt
 {
 }
 public class DomainDmnBoolPrnt
-  : Domain( !Tr I@023/0001 PrntDmnBoolPrnt )
+  : DomainPrntDmnBoolPrnt
   , IDmnBoolPrnt
 {
 }

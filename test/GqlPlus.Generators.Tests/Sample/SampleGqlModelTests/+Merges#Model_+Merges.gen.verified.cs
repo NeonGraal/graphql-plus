@@ -711,12 +711,12 @@ public class UnionUnionSame
 }
 
 public interface IUnionSamePrnt
-  : I( !Tr I@024/0221 PrntUnionSamePrnt )
+  : IPrntUnionSamePrnt
 {
   Boolean AsBoolean { get; }
 }
 public class UnionUnionSamePrnt
-  : Union( !Tr I@024/0221 PrntUnionSamePrnt )
+  : UnionPrntUnionSamePrnt
   , IUnionSamePrnt
 {
   public Boolean AsBoolean { get; set; }

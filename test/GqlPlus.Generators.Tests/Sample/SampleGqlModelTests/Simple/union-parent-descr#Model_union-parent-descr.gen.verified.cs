@@ -7,12 +7,12 @@
 namespace GqlTest.Model_union_parent_descr;
 
 public interface IUnionPrntDescr
-  : I( 'Parent comment' !Tr I@041/0001 PrntUnionPrntDescr )
+  : IPrntUnionPrntDescr
 {
   Number AsNumber { get; }
 }
 public class UnionUnionPrntDescr
-  : Union( 'Parent comment' !Tr I@041/0001 PrntUnionPrntDescr )
+  : UnionPrntUnionPrntDescr
   , IUnionPrntDescr
 {
   public Number AsNumber { get; set; }

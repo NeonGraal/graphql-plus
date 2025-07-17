@@ -7,11 +7,11 @@
 namespace GqlTest.Model_domain_string_parent_descr;
 
 public interface IDmnStrPrntDescr
-  : I( 'Parent comment' !Tr I@043/0001 PrntDmnStrPrntDescr )
+  : IPrntDmnStrPrntDescr
 {
 }
 public class DomainDmnStrPrntDescr
-  : Domain( 'Parent comment' !Tr I@043/0001 PrntDmnStrPrntDescr )
+  : DomainPrntDmnStrPrntDescr
   , IDmnStrPrntDescr
 {
 }

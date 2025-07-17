@@ -7,11 +7,11 @@
 namespace GqlTest.Model_domain_bool_parent_descr;
 
 public interface IDmnBoolPrntDescr
-  : I( 'Parent comment' !Tr I@044/0001 PrntDmnBoolPrntDescr )
+  : IPrntDmnBoolPrntDescr
 {
 }
 public class DomainDmnBoolPrntDescr
-  : Domain( 'Parent comment' !Tr I@044/0001 PrntDmnBoolPrntDescr )
+  : DomainPrntDmnBoolPrntDescr
   , IDmnBoolPrntDescr
 {
 }

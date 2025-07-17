@@ -7,12 +7,12 @@
 namespace GqlTest.Model_union_parent;
 
 public interface IUnionPrnt
-  : I( !Tr I@020/0001 PrntUnionPrnt )
+  : IPrntUnionPrnt
 {
   String AsString { get; }
 }
 public class UnionUnionPrnt
-  : Union( !Tr I@020/0001 PrntUnionPrnt )
+  : UnionPrntUnionPrnt
   , IUnionPrnt
 {
   public String AsString { get; set; }

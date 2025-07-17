@@ -7,11 +7,11 @@
 namespace GqlTest.Model_domain_enum_parent_descr;
 
 public interface IDmnEnumPrntDescr
-  : I( 'Parent comment' !Tr I@044/0001 PrntDmnEnumPrntDescr )
+  : IPrntDmnEnumPrntDescr
 {
 }
 public class DomainDmnEnumPrntDescr
-  : Domain( 'Parent comment' !Tr I@044/0001 PrntDmnEnumPrntDescr )
+  : DomainPrntDmnEnumPrntDescr
   , IDmnEnumPrntDescr
 {
 }

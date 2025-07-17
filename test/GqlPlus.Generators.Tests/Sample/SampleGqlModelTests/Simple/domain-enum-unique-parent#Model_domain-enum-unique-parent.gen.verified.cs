@@ -8,8 +8,8 @@ namespace GqlTest.Model_domain_enum_unique_parent;
 
 public enum EnumDmnEnumUnqPrnt
 {
-  dmnEnumUnqPrnt = PrntDmnEnumUnqPrnt.dmnEnumUnqPrnt,,
-  prnt_dmnEnumUnqPrnt = PrntDmnEnumUnqPrnt.prnt_dmnEnumUnqPrnt,,
+  dmnEnumUnqPrnt = PrntDmnEnumUnqPrnt.dmnEnumUnqPrnt,
+  prnt_dmnEnumUnqPrnt = PrntDmnEnumUnqPrnt.prnt_dmnEnumUnqPrnt,
   enum_dmnEnumUnqPrnt,
 }
 

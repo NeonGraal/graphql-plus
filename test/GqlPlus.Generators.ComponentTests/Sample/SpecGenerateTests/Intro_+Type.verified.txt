@@ -167,11 +167,11 @@ public enum _SimpleKind
 
 public enum _TypeKind
 {
-  Basic = _SimpleKind.Basic,,
-  Enum = _SimpleKind.Enum,,
-  Internal = _SimpleKind.Internal,,
-  Domain = _SimpleKind.Domain,,
-  Union = _SimpleKind.Union,,
+  Basic = _SimpleKind.Basic,
+  Enum = _SimpleKind.Enum,
+  Internal = _SimpleKind.Internal,
+  Domain = _SimpleKind.Domain,
+  Union = _SimpleKind.Union,
   Dual,
   Input,
   Output,

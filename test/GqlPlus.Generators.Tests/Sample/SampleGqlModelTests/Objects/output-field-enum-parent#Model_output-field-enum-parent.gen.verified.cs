@@ -18,7 +18,7 @@ public class OutputOutpFieldEnumPrnt
 
 public enum EnumOutpFieldEnumPrnt
 {
-  prnt_outpFieldEnumPrnt = PrntOutpFieldEnumPrnt.prnt_outpFieldEnumPrnt,,
+  prnt_outpFieldEnumPrnt = PrntOutpFieldEnumPrnt.prnt_outpFieldEnumPrnt,
   outpFieldEnumPrnt,
 }
 

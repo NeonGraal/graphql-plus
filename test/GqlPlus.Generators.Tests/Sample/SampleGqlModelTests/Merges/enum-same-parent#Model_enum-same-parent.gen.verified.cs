@@ -8,7 +8,7 @@ namespace GqlTest.Model_enum_same_parent;
 
 public enum EnumSamePrnt
 {
-  prnt_enumSamePrnt = PrntEnumSamePrnt.prnt_enumSamePrnt,,
+  prnt_enumSamePrnt = PrntEnumSamePrnt.prnt_enumSamePrnt,
   enumSamePrnt,
 }
 

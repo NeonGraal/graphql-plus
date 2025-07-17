@@ -8,8 +8,8 @@ namespace GqlTest.Model_enum_parent_dup;
 
 public enum EnumPrntDup
 {
-  prnt_enumPrntDup = PrntEnumPrntDup.prnt_enumPrntDup,,
-  enumPrntDup = PrntEnumPrntDup.prnt_enumPrntDup,,
+  prnt_enumPrntDup = PrntEnumPrntDup.prnt_enumPrntDup,
+  enumPrntDup = PrntEnumPrntDup.prnt_enumPrntDup,
   enumPrntDup,
 }
 

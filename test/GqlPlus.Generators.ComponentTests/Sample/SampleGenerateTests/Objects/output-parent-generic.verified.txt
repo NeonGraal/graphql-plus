@@ -34,7 +34,7 @@ public class OutputRefOutpPrntGnrc<Ttype>
 
 public enum EnumOutpPrntGnrc
 {
-  prnt_outpPrntGnrc = PrntOutpPrntGnrc.prnt_outpPrntGnrc,,
+  prnt_outpPrntGnrc = PrntOutpPrntGnrc.prnt_outpPrntGnrc,
   outpPrntGnrc,
 }
 

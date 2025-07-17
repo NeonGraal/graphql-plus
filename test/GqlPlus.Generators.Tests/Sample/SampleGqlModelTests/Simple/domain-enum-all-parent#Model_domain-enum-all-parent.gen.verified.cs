@@ -16,7 +16,7 @@ public class DomainDmnEnumAllPrnt
 
 public enum EnumDmnEnumAllPrnt
 {
-  prnt_dmnEnumAllPrnt = PrntDmnEnumAllPrnt.prnt_dmnEnumAllPrnt,,
+  prnt_dmnEnumAllPrnt = PrntDmnEnumAllPrnt.prnt_dmnEnumAllPrnt,
   dmnEnumAllPrnt,
 }
 

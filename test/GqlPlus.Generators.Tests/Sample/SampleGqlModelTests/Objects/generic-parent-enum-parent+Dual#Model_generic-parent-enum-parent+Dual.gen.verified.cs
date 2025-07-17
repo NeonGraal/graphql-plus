@@ -28,7 +28,7 @@ public class DualFieldGnrcPrntEnumPrntDual<Tref>
 
 public enum EnumGnrcPrntEnumPrntDual
 {
-  gnrcPrntEnumPrntDualParent = ParentGnrcPrntEnumPrntDual.gnrcPrntEnumPrntDualParent,,
+  gnrcPrntEnumPrntDualParent = ParentGnrcPrntEnumPrntDual.gnrcPrntEnumPrntDualParent,
   gnrcPrntEnumPrntDualLabel,
 }
 

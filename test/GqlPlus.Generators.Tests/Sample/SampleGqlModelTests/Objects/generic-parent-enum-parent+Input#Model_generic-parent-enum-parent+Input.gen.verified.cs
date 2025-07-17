@@ -28,7 +28,7 @@ public class InputFieldGnrcPrntEnumPrntInp<Tref>
 
 public enum EnumGnrcPrntEnumPrntInp
 {
-  gnrcPrntEnumPrntInpParent = ParentGnrcPrntEnumPrntInp.gnrcPrntEnumPrntInpParent,,
+  gnrcPrntEnumPrntInpParent = ParentGnrcPrntEnumPrntInp.gnrcPrntEnumPrntInpParent,
   gnrcPrntEnumPrntInpLabel,
 }
 

@@ -8,7 +8,7 @@ namespace GqlTest.Model_enum_parent_descr;
 
 public enum EnumPrntDescr
 {
-  prnt_enumPrntDescr = PrntEnumPrntDescr.prnt_enumPrntDescr,,
+  prnt_enumPrntDescr = PrntEnumPrntDescr.prnt_enumPrntDescr,
   enumPrntDescr,
 }
 

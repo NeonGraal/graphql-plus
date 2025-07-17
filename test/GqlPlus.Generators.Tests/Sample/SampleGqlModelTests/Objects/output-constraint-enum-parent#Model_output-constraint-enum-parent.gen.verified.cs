@@ -28,7 +28,7 @@ public class OutputRefOutpCnstEnumPrnt<Ttype>
 
 public enum EnumOutpCnstEnumPrnt
 {
-  parentOutpCnstEnumPrnt = ParentOutpCnstEnumPrnt.parentOutpCnstEnumPrnt,,
+  parentOutpCnstEnumPrnt = ParentOutpCnstEnumPrnt.parentOutpCnstEnumPrnt,
   outpCnstEnumPrnt,
 }
 

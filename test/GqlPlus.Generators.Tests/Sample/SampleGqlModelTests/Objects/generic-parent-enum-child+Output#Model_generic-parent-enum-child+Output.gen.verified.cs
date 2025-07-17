@@ -28,7 +28,7 @@ public class OutputFieldGnrcPrntEnumChildOutp<Tref>
 
 public enum EnumGnrcPrntEnumChildOutp
 {
-  gnrcPrntEnumChildOutpParent = ParentGnrcPrntEnumChildOutp.gnrcPrntEnumChildOutpParent,,
+  gnrcPrntEnumChildOutpParent = ParentGnrcPrntEnumChildOutp.gnrcPrntEnumChildOutpParent,
   gnrcPrntEnumChildOutpLabel,
 }
 

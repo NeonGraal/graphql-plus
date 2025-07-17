@@ -168,7 +168,7 @@ public enum EnumSame
 
 public enum EnumSamePrnt
 {
-  prnt_enumSamePrnt = PrntEnumSamePrnt.prnt_enumSamePrnt,,
+  prnt_enumSamePrnt = PrntEnumSamePrnt.prnt_enumSamePrnt,
   enumSamePrnt,
 }
 

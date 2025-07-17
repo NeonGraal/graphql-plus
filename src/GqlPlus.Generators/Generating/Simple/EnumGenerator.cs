@@ -14,7 +14,7 @@ internal sealed class EnumGenerator
     }
 
     IEnumerable<MapPair<string>> members = ast.Items.SelectMany(item => {
-      string suffix = " = " + parent + "." + item.Name + ",";
+      string suffix = " = " + parent + "." + item.Name;
       return item.Aliases
         .Select(alias => new MapPair<string>(alias, suffix))
         .Prepend(new MapPair<string>(item.Name, suffix));

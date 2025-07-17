@@ -17,10 +17,10 @@ public static class AllGenerators
       .AddGenerator<IGqlpSchemaOption, OptionGenerator>()
       //Simple
       .AddTypeGenerator<EnumGenerator>()
-      .AddTypeGenerator<BooleanDomainGenerator>()
-      .AddTypeGenerator<EnumDomainGenerator>()
-      .AddTypeGenerator<NumberDomainGenerator>()
-      .AddTypeGenerator<StringDomainGenerator>()
+      .AddTypeGenerator<DomainBooleanGenerator>()
+      .AddTypeGenerator<DomainEnumGenerator>()
+      .AddTypeGenerator<DomainNumberGenerator>()
+      .AddTypeGenerator<DomainStringGenerator>()
       .AddTypeGenerator<UnionGenerator>()
       // Objects
       .AddTypeGenerator<DualGenerator>()

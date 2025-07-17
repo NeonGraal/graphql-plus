@@ -1,9 +1,8 @@
-﻿
-namespace GqlPlus.Generating.Simple;
+﻿namespace GqlPlus.Generating.Simple;
 
-public class EnumDomainGeneratorTests
+public class DomainEnumGeneratorTests
   : DomainGeneratorTestBase<IGqlpDomainLabel>
 {
   internal override GenerateBaseDomain<IGqlpDomainLabel> Generator { get; }
-    = new EnumDomainGenerator();
+    = new DomainEnumGenerator();
 }

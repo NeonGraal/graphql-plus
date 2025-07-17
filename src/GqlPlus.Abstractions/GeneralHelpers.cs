@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using GqlPlus.Abstractions;
 using System.Runtime.Serialization;
+using GqlPlus.Abstractions;
 using GqlPlus.Structures;
 
 namespace GqlPlus;

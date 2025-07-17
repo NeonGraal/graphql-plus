@@ -1,9 +1,8 @@
-﻿
-namespace GqlPlus.Generating.Simple;
+﻿namespace GqlPlus.Generating.Simple;
 
-public class StringDomainGeneratorTests
+public class DomainStringGeneratorTests
   : DomainGeneratorTestBase<IGqlpDomainRegex>
 {
   internal override GenerateBaseDomain<IGqlpDomainRegex> Generator { get; }
-    = new StringDomainGenerator();
+    = new DomainStringGenerator();
 }

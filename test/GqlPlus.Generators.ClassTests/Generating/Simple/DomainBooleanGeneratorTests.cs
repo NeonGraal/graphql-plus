@@ -1,9 +1,8 @@
-﻿
-namespace GqlPlus.Generating.Simple;
+﻿namespace GqlPlus.Generating.Simple;
 
-public class BooleanDomainGeneratorTests
+public class DomainBooleanGeneratorTests
   : DomainGeneratorTestBase<IGqlpDomainTrueFalse>
 {
   internal override GenerateBaseDomain<IGqlpDomainTrueFalse> Generator { get; }
-    = new BooleanDomainGenerator();
+    = new DomainBooleanGenerator();
 }

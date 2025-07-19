@@ -1,0 +1,21 @@
+﻿/* object-field-type-alias+Output
+output ObjFieldTypeAliasOutp { field: String }
+output ObjFieldTypeAliasOutp { field: String }
+*/
+
+// Generated from Sample object-field-type-alias+Output
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_object_field_type_alias_Output;
+
+public interface IObjFieldTypeAliasOutp
+{
+  String field { get; }
+}
+public class OutputObjFieldTypeAliasOutp
+  : IObjFieldTypeAliasOutp
+{
+  public String field { get; set; }
+}

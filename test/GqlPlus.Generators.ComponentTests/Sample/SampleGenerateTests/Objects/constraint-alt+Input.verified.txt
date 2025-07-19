@@ -1,0 +1,20 @@
+﻿/* constraint-alt+Input
+input CnstAltInp<$type:Number> { | $type }
+*/
+
+// Generated from Sample constraint-alt+Input
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_constraint_alt_Input;
+
+public interface ICnstAltInp<Ttype>
+{
+  Ttype Astype { get; }
+}
+public class InputCnstAltInp<Ttype>
+  : ICnstAltInp<Ttype>
+{
+  public Ttype Astype { get; set; }
+}

@@ -1,0 +1,23 @@
+﻿/* object-param-constraint+Input
+input ObjParamCnstInp<$test:String> { test: $test }
+input ObjParamCnstInp<$test:String> { type: $test }
+*/
+
+// Generated from Sample object-param-constraint+Input
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_object_param_constraint_Input;
+
+public interface IObjParamCnstInp<Ttest>
+{
+  Ttest test { get; }
+  Ttest type { get; }
+}
+public class InputObjParamCnstInp<Ttest>
+  : IObjParamCnstInp<Ttest>
+{
+  public Ttest test { get; set; }
+  public Ttest type { get; set; }
+}

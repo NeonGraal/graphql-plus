@@ -1,0 +1,18 @@
+﻿/* errors
+category query {}
+directive @ {}
+domain Other { Enum }
+enum None [] {}
+union Missing {}
+dual Nothing [] {}
+input Empty {}
+output NoParams<> {}
+*/
+
+// Generated from Schema errors
+
+/*
+Category query
+*/
+
+namespace GqlPlus.Model_Schema_errors;

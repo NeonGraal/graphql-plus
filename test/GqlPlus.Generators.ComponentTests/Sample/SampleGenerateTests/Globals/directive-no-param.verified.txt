@@ -1,0 +1,11 @@
+﻿/* directive-no-param
+directive @DrctNoParam { all }
+*/
+
+// Generated from Sample directive-no-param
+
+/*
+Directive DrctNoParam
+*/
+
+namespace GqlPlus.Model_Sample_directive_no_param;

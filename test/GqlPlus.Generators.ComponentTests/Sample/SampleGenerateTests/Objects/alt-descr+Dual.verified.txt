@@ -1,0 +1,20 @@
+﻿/* alt-descr+Dual
+dual AltDescrDual { | "Test" "Descr" String }
+*/
+
+// Generated from Sample alt-descr+Dual
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_alt_descr_Dual;
+
+public interface IAltDescrDual
+{
+  String AsString { get; }
+}
+public class DualAltDescrDual
+  : IAltDescrDual
+{
+  public String AsString { get; set; }
+}

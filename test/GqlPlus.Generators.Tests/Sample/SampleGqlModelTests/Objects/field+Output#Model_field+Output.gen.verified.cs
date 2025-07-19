@@ -1,0 +1,17 @@
+﻿//HintName: Model_field+Output.gen.cs
+// Generated from field+Output.graphql+
+
+/*
+*/
+
+namespace GqlTest.Model_field_Output;
+
+public interface IFieldOutp
+{
+  String field { get; }
+}
+public class OutputFieldOutp
+  : IFieldOutp
+{
+  public String field { get; set; }
+}

@@ -1,0 +1,19 @@
+﻿/* domain-string-diff
+domain DmnStrDiff { string /a+/ }
+domain DmnStrDiff { string }
+*/
+
+// Generated from Sample domain-string-diff
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_domain_string_diff;
+
+public interface IDmnStrDiff
+{
+}
+public class DomainDmnStrDiff
+  : IDmnStrDiff
+{
+}

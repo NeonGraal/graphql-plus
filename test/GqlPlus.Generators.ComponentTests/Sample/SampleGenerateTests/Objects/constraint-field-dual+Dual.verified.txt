@@ -1,0 +1,55 @@
+﻿/* constraint-field-dual+Dual
+dual CnstFieldDualDual { :RefCnstFieldDualDual<AltCnstFieldDualDual> }
+dual RefCnstFieldDualDual<$ref:PrntCnstFieldDualDual> { field: $ref }
+dual PrntCnstFieldDualDual { | String }
+dual AltCnstFieldDualDual { :PrntCnstFieldDualDual alt: Number }
+*/
+
+// Generated from Sample constraint-field-dual+Dual
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_constraint_field_dual_Dual;
+
+public interface ICnstFieldDualDual
+  : IRefCnstFieldDualDual
+{
+}
+public class DualCnstFieldDualDual
+  : DualRefCnstFieldDualDual
+  , ICnstFieldDualDual
+{
+}
+
+public interface IRefCnstFieldDualDual<Tref>
+{
+  Tref field { get; }
+}
+public class DualRefCnstFieldDualDual<Tref>
+  : IRefCnstFieldDualDual<Tref>
+{
+  public Tref field { get; set; }
+}
+
+public interface IPrntCnstFieldDualDual
+{
+  String AsString { get; }
+}
+public class DualPrntCnstFieldDualDual
+  : IPrntCnstFieldDualDual
+{
+  public String AsString { get; set; }
+}
+
+public interface IAltCnstFieldDualDual
+  : IPrntCnstFieldDualDual
+{
+  Number alt { get; }
+}
+public class DualAltCnstFieldDualDual
+  : DualPrntCnstFieldDualDual
+  , IAltCnstFieldDualDual
+{
+  public Number alt { get; set; }
+}

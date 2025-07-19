@@ -1,0 +1,66 @@
+﻿/* constraint-parent-dual-grandparent+Dual
+dual CnstPrntDualGrndDual { :RefCnstPrntDualGrndDual<AltCnstPrntDualGrndDual> }
+dual RefCnstPrntDualGrndDual<$ref:GrndCnstPrntDualGrndDual> { :$ref }
+dual GrndCnstPrntDualGrndDual { | String }
+dual PrntCnstPrntDualGrndDual { :GrndCnstPrntDualGrndDual }
+dual AltCnstPrntDualGrndDual { :PrntCnstPrntDualGrndDual alt: Number }
+*/
+
+// Generated from Sample constraint-parent-dual-grandparent+Dual
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_constraint_parent_dual_grandparent_Dual;
+
+public interface ICnstPrntDualGrndDual
+  : IRefCnstPrntDualGrndDual
+{
+}
+public class DualCnstPrntDualGrndDual
+  : DualRefCnstPrntDualGrndDual
+  , ICnstPrntDualGrndDual
+{
+}
+
+public interface IRefCnstPrntDualGrndDual<Tref>
+  : Iref
+{
+}
+public class DualRefCnstPrntDualGrndDual<Tref>
+  : Dualref
+  , IRefCnstPrntDualGrndDual<Tref>
+{
+}
+
+public interface IGrndCnstPrntDualGrndDual
+{
+  String AsString { get; }
+}
+public class DualGrndCnstPrntDualGrndDual
+  : IGrndCnstPrntDualGrndDual
+{
+  public String AsString { get; set; }
+}
+
+public interface IPrntCnstPrntDualGrndDual
+  : IGrndCnstPrntDualGrndDual
+{
+}
+public class DualPrntCnstPrntDualGrndDual
+  : DualGrndCnstPrntDualGrndDual
+  , IPrntCnstPrntDualGrndDual
+{
+}
+
+public interface IAltCnstPrntDualGrndDual
+  : IPrntCnstPrntDualGrndDual
+{
+  Number alt { get; }
+}
+public class DualAltCnstPrntDualGrndDual
+  : DualPrntCnstPrntDualGrndDual
+  , IAltCnstPrntDualGrndDual
+{
+  public Number alt { get; set; }
+}

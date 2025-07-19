@@ -1,0 +1,11 @@
+﻿/* option-setting
+option Schema { global=true }
+*/
+
+// Generated from Sample option-setting
+
+/*
+Option Schema
+*/
+
+namespace GqlPlus.Model_Sample_option_setting;

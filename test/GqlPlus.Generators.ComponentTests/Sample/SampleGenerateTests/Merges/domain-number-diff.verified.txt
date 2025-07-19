@@ -1,0 +1,19 @@
+﻿/* domain-number-diff
+domain DmnNmbrDiff { number 1~9 }
+domain DmnNmbrDiff { number }
+*/
+
+// Generated from Sample domain-number-diff
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_domain_number_diff;
+
+public interface IDmnNmbrDiff
+{
+}
+public class DomainDmnNmbrDiff
+  : IDmnNmbrDiff
+{
+}

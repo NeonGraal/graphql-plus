@@ -29,10 +29,10 @@ public static class SchemaBuilderHelpers
     return input;
   }
 
-  public static T Named<T>(this IMockBuilder builder, string name)
-    where T : class, IGqlpNamed
+  public static TType Named<TType>(this IMockBuilder builder, string name)
+    where TType : class, IGqlpNamed
   {
-    T result = builder.Error<T>();
+    TType result = builder.Error<TType>();
     result.Name.Returns(name);
     return result;
   }
@@ -47,12 +47,25 @@ public static class SchemaBuilderHelpers
 
   public static T[] NamedArray<T>(this IMockBuilder builder, params string[] names)
     where T : class, IGqlpNamed
-    => builder.ArrayOf((b, i) => b.Named<T>(i), names);
+    => builder.ArrayOf((Func<IMockBuilder, string, T>)((b, i) => (T)SchemaBuilderHelpers.Named<T>(b, i)), names);
 
   public static IGqlpTypeParam TypeParam(this IMockBuilder builder, string paramName, string constraint)
   {
     IGqlpTypeParam typeParam = builder.Named<IGqlpTypeParam>(paramName);
     typeParam.Constraint.Returns(constraint);
     return typeParam;
+  }
+
+  public static TType Parented<TType, TParent>(this IMockBuilder builder, string name, string? parent = null)
+    where TType : class, IGqlpType<TParent>
+    where TParent : class, IGqlpNamed
+  {
+    TParent? parentType = string.IsNullOrWhiteSpace(parent)
+      ? null : builder.Named<TParent>(parent);
+
+    TType result = builder.Error<TType>();
+    result.Name.Returns(name);
+    result.Parent.Returns(parentType);
+    return result;
   }
 }

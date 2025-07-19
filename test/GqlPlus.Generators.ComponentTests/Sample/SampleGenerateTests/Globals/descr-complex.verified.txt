@@ -1,0 +1,19 @@
+﻿/* descr-complex
+"A \"more\" 'Complicated' \\ description"
+output DescrCmpl { }
+*/
+
+// Generated from Sample descr-complex
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_descr_complex;
+
+public interface IDescrCmpl
+{
+}
+public class OutputDescrCmpl
+  : IDescrCmpl
+{
+}

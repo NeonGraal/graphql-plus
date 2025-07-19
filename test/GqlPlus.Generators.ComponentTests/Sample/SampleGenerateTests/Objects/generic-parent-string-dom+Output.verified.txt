@@ -1,0 +1,40 @@
+﻿/* generic-parent-string-dom+Output
+output GnrcPrntStrDomOutp { :FieldGnrcPrntStrDomOutp<DomGnrcPrntStrDomOutp> }
+output FieldGnrcPrntStrDomOutp<$ref:String> { field: $ref }
+domain DomGnrcPrntStrDomOutp { string /\w+/ }
+*/
+
+// Generated from Sample generic-parent-string-dom+Output
+
+/*
+*/
+
+namespace GqlPlus.Model_Sample_generic_parent_string_dom_Output;
+
+public interface IGnrcPrntStrDomOutp
+  : IFieldGnrcPrntStrDomOutp
+{
+}
+public class OutputGnrcPrntStrDomOutp
+  : OutputFieldGnrcPrntStrDomOutp
+  , IGnrcPrntStrDomOutp
+{
+}
+
+public interface IFieldGnrcPrntStrDomOutp<Tref>
+{
+  Tref field { get; }
+}
+public class OutputFieldGnrcPrntStrDomOutp<Tref>
+  : IFieldGnrcPrntStrDomOutp<Tref>
+{
+  public Tref field { get; set; }
+}
+
+public interface IDomGnrcPrntStrDomOutp
+{
+}
+public class DomainDomGnrcPrntStrDomOutp
+  : IDomGnrcPrntStrDomOutp
+{
+}

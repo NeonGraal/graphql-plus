@@ -72,6 +72,26 @@ public class EnumGeneratorTests
   }
 
   [Theory, RepeatData]
+  public void GenerateType_WithEnumAlias_GeneratesCorrectCode(string enumName, string labelName, string alias)
+  {
+    // Arrange
+    IGqlpEnum enumType = A.Parented<IGqlpEnum, IGqlpTypeRef>(enumName);
+    IGqlpEnumLabel label = A.Aliased<IGqlpEnumLabel>(labelName, [alias]);
+    enumType.Items.Returns([label]);
+    enumType.Parent.Returns((IGqlpTypeRef?)null);
+
+    // Act
+    TypeGenerator.GenerateType(enumType, Context);
+
+    // Assert
+    string result = Context.ToString();
+    result.ShouldSatisfyAllConditions(
+      CheckGeneratedCodeName(enumName),
+      CheckGeneratedCodeLabel(labelName),
+      CheckGeneratedCodeLabel($"{alias} = {labelName}"));
+  }
+
+  [Theory, RepeatData]
   public void GenerateType_WithParentItems_GeneratesCorrectCode(string enumName, string parentName, string labelName)
   {
     // Arrange
@@ -93,6 +113,31 @@ public class EnumGeneratorTests
     result.ShouldSatisfyAllConditions(
       CheckGeneratedCodeName(enumName),
       CheckGeneratedCodeParentLabel(parentName, labelName));
+  }
+
+  [Theory, RepeatData]
+  public void GenerateType_WithParentAlias_GeneratesCorrectCode(string enumName, string parentName, string labelName, string alias)
+  {
+    // Arrange
+    IGqlpEnum enumType = A.Parented<IGqlpEnum, IGqlpTypeRef>(enumName);
+    IGqlpTypeRef parentTypeRef = A.Named<IGqlpTypeRef>(parentName);
+    enumType.Parent.Returns(parentTypeRef);
+
+    IGqlpEnum parentType = A.Named<IGqlpEnum>(parentName);
+    IGqlpEnumLabel label = A.Aliased<IGqlpEnumLabel>(labelName, [alias]);
+    parentType.Items.Returns([label]);
+
+    Context.AddTypes([parentType]);
+
+    // Act
+    TypeGenerator.GenerateType(enumType, Context);
+
+    // Assert
+    string result = Context.ToString();
+    result.ShouldSatisfyAllConditions(
+      CheckGeneratedCodeName(enumName),
+      CheckGeneratedCodeParentLabel(parentName, labelName),
+      CheckGeneratedCodeLabel($"{alias} = {parentName}.{labelName}"));
   }
 
   protected override Action<string> CheckGeneratedCodeName(string name)

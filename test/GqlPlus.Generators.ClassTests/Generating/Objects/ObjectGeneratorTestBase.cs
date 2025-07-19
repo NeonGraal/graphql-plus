@@ -48,8 +48,31 @@ public abstract class ObjectGeneratorTestBase<TObject, TBase, TField, TAlt>
       CheckGeneratedCodeAlternate(alternateType));
   }
 
+  [Theory, RepeatData]
+  public void GenerateType_WithAlternateArgs_GeneratesCorrectCode(string name, string alternateType, string argName)
+  {
+    // Arrange
+    TObject obj = A.Parented<TObject, IGqlpObjBase>(name);
+    TAlt alternate = A.Named<TAlt>(alternateType);
+    IGqlpObjArg arg = A.Named<IGqlpObjArg>(argName);
+    alternate.Args.Returns([arg]);
+    obj.Alternates.Returns([alternate]);
+
+    // Act
+    TypeGenerator.GenerateType(obj, Context);
+
+    // Assert
+    string result = Context.ToString();
+    result.ShouldSatisfyAllConditions(
+      CheckGeneratedCodeName(name),
+      CheckGeneratedCodeAlternateArg(alternateType, argName));
+  }
+
   protected virtual Action<string> CheckGeneratedCodeAlternate(string alternateType)
-    => result => result.ShouldContain(alternateType + " As" + alternateType + " { get; }");
+    => result => result.ShouldContain($"{alternateType} As{alternateType} {{ get; }}");
+
+  protected virtual Action<string> CheckGeneratedCodeAlternateArg(string alternateType, string argName)
+    => result => result.ShouldContain($"{alternateType}<{argName}> As{alternateType} {{ get; }}");
 
   [Theory, RepeatData]
   public void GenerateType_WithFieldAndAlternate_GeneratesCorrectCode(string name, string fieldName, string fieldType, string alternateType)
@@ -73,5 +96,21 @@ public abstract class ObjectGeneratorTestBase<TObject, TBase, TField, TAlt>
       CheckGeneratedCodeName(name),
       CheckGeneratedCodeField(fieldName, fieldType),
       CheckGeneratedCodeAlternate(alternateType));
+  }
+
+  [Theory, RepeatData]
+  public void GenerateType_WithParams_GeneratesCorrectCode(string name, string[] parameters)
+  {
+    // Arrange
+    TObject type = A.Parented<TObject, IGqlpObjBase>(name);
+    IGqlpTypeParam[] typeParams = [.. parameters.Select(A.Named<IGqlpTypeParam>)];
+    type.TypeParams.Returns(typeParams);
+
+    // Act
+    TypeGenerator.GenerateType(type, Context);
+
+    // Assert
+    string result = Context.ToString();
+    CheckGeneratedCodeName(name + parameters.Surround("<", ">", s => "T" + s, ","))(result);
   }
 }

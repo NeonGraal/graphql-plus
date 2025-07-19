@@ -33,3 +33,6 @@ Various scripts presume these dotnet tools are installed globally:
 - [Liquid](https://shopify.github.io/liquid/)
 - [Pico Css](https://picocss.com/) [jsDelivr](https://www.jsdelivr.com/package/npm/@picocss/pico)
 - [Mermaid](https://mermaid.js.org/syntax/flowchart.html) [jsDelivr](https://www.jsdelivr.com/package/npm/mermaid)
+- Source Generators
+  - [Incremental Roslyn Source Generators](https://www.thinktecture.com/en/net/roslyn-source-generators-high-level-api-forattributewithmetadataname/)
+  - [Source Generators in 2024](https://posts.specterops.io/dotnet-source-generators-in-2024-part-1-getting-started-76d619b633f5)

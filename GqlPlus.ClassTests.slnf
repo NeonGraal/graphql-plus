@@ -18,7 +18,6 @@
       "test\\GqlPlus.Converter.Json.ClassTests\\GqlPlus.Converter.Json.ClassTests.csproj",
       "test\\GqlPlus.Converter.Yaml.ClassTests\\GqlPlus.Converter.Yaml.ClassTests.csproj",
       "test\\GqlPlus.Generators.ClassTests\\GqlPlus.Generators.ClassTests.csproj",
-      "test\\GqlPlus.GeneratorsTestBase\\GqlPlus.GeneratorsTestBase.csproj",
       "test\\GqlPlus.Modeller.ClassTests\\GqlPlus.Modeller.ClassTests.csproj",
       "test\\GqlPlus.Parser.ClassTests\\GqlPlus.Parser.ClassTests.csproj",
       "test\\GqlPlus.TestBase\\GqlPlus.TestBase.csproj",

@@ -7,7 +7,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\GqlPlus.Generators\GqlPlus.Generators.csproj" PrivateAssets="contentfiles;build" />
     <ProjectReference Include="..\GqlPlus.ClassTestBase\GqlPlus.ClassTestBase.csproj" />
-    <ProjectReference Include="..\GqlPlus.GeneratorsTestBase\GqlPlus.GeneratorsTestBase.csproj" />
   </ItemGroup>
 
 </Project>

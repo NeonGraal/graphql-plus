@@ -86,7 +86,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.TestGenerators.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.PolyFill", "src\GqlPlus.PolyFill\GqlPlus.PolyFill.csproj", "{44D55F97-4EBA-48C8-A72C-7FBC12A44719}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.GeneratorsTestBase", "test\GqlPlus.GeneratorsTestBase\GqlPlus.GeneratorsTestBase.csproj", "{0336A900-AA73-4B44-99BD-B70A5B2D14D3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.Generators.ComponentTestBase", "test\GqlPlus.Generators.ComponentTestBase\GqlPlus.Generators.ComponentTestBase.csproj", "{0336A900-AA73-4B44-99BD-B70A5B2D14D3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GqlPlus.VerifyTestBase", "test\GqlPlus.VerifyTestBase\GqlPlus.VerifyTestBase.csproj", "{14F619F3-163D-43D5-B3A4-14817438274E}"
 EndProject

@@ -1,4 +1,6 @@
 ﻿using System.Collections.Immutable;
+using System.Globalization;
+using System.Reflection;
 using DiffEngine;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
@@ -12,17 +14,33 @@ public static class TestGeneratorsHelper
   static TestGeneratorsHelper()
     => DiffRunner.MaxInstancesToLaunch(20);
 
-  public static GeneratorDriver Generate(this IIncrementalGenerator generator, ImmutableArray<AdditionalText> additionalPaths, AnalyzerConfigOptionsProvider? configOptions = null)
+  public static GeneratorDriver Generate(
+    this IIncrementalGenerator generator,
+    string source,
+    ImmutableArray<AdditionalText> additionalPaths,
+    AnalyzerConfigOptionsProvider? configOptions = null)
   {
-    SyntaxTree syntaxTree = CSharpSyntaxTree.ParseText("");
+    SyntaxTree syntaxTree = CSharpSyntaxTree.ParseText(source);
 
-    IEnumerable<PortableExecutableReference> references =
-    [MetadataReference.CreateFromFile(typeof(object).Assembly.Location)];
+    IEnumerable<PortableExecutableReference> references = [
+      MetadataReference.CreateFromFile(Assembly.Load("netstandard, Version=2.0.0.0").Location),
+      MetadataReference.CreateFromFile(Assembly.Load("System.Runtime, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a").Location),
+      MetadataReference.CreateFromFile(typeof(object).Assembly.Location),
+      MetadataReference.CreateFromFile(typeof(GqlpGeneratorAttribute).Assembly.Location)
+      ];
 
     CSharpCompilation compilation = CSharpCompilation.Create(
         assemblyName: "Tests",
         syntaxTrees: [syntaxTree],
         references: references);
+
+    Diagnostic[] diagnostics = [.. compilation.GetDiagnostics().Where(d => d.Id != "CS5001")];
+
+    if (diagnostics.Length > 0) {
+      throw new InvalidOperationException(
+        "Compilation failed with the following diagnostics:\n" +
+        string.Join("\n", diagnostics.Select(d => $"{d.Id}: {d.GetMessage(CultureInfo.InvariantCulture)}")));
+    }
 
     GeneratorDriver driver = CSharpGeneratorDriver.Create(generator)
       .AddAdditionalTexts(additionalPaths);

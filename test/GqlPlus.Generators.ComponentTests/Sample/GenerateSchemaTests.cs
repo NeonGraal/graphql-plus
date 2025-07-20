@@ -30,7 +30,7 @@ internal sealed class SchemaGeneratorChecks(
   {
     IGqlpSchema schema = schemaMerger.Merge(asts).First();
 
-    GeneratorContext context = new(label + " " + test, new GqlModelOptions("GqlPlus"));
+    GqlpGeneratorContext context = new(label + " " + test, new($"GqlPlus.{label}_{test}", GqlpGeneratorType.Implementation), new GqlpModelOptions("GqlpTest"));
 
     schemaGenerator.Generate(schema, context);
 

@@ -47,7 +47,7 @@ public static class SchemaBuilderHelpers
 
   public static T[] NamedArray<T>(this IMockBuilder builder, params string[] names)
     where T : class, IGqlpNamed
-    => builder.ArrayOf((Func<IMockBuilder, string, T>)((b, i) => (T)SchemaBuilderHelpers.Named<T>(b, i)), names);
+    => builder.ArrayOf((b, i) => b.Named<T>(i), names);
 
   public static IGqlpTypeParam TypeParam(this IMockBuilder builder, string paramName, string constraint)
   {

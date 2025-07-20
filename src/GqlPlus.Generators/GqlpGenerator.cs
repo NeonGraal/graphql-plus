@@ -1,0 +1,127 @@
+﻿using System.Collections.Immutable;
+using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Abstractions;
+using GqlPlus.Generating;
+using GqlPlus.Merging;
+using GqlPlus.Parsing;
+using GqlPlus.Parsing.Schema;
+using GqlPlus.Result;
+using GqlPlus.Token;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.Diagnostics;
+using Microsoft.CodeAnalysis.Text;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
+
+namespace GqlPlus;
+
+[Generator(LanguageNames.CSharp), ExcludeFromCodeCoverage]
+public class GqlpGenerator : IIncrementalGenerator
+{
+  public void Initialize(IncrementalGeneratorInitializationContext context)
+  {
+    IncrementalValuesProvider<GqlpGeneratorOptions?> generatorOptions = context.SyntaxProvider
+             .ForAttributeWithMetadataName(typeof(GqlpGeneratorAttribute).FullName,
+                 predicate: static (s, _) => true,
+                 transform: static (ctx, _) => GetGeneratorOptions(ctx.SemanticModel, ctx.TargetNode, ctx.Attributes))
+             .Where(static m => m is not null);
+
+    IncrementalValueProvider<GqlpModelOptions> gqlModelOptions = context.AnalyzerConfigOptionsProvider.Select(MakeGqlModelOptions);
+
+    IncrementalValueProvider<ImmutableArray<AdditionalText>> samples = context.AdditionalTextsProvider
+                                .Where(text => Path.GetExtension(text.Path).Equals(".graphql+", StringComparison.OrdinalIgnoreCase))
+                                .Collect();
+
+    context.RegisterSourceOutput(generatorOptions.Combine(samples.Combine(gqlModelOptions)), GenerateCode);
+  }
+
+  private static GqlpGeneratorOptions? GetGeneratorOptions(SemanticModel model, SyntaxNode node, ImmutableArray<AttributeData> attributes)
+  {
+    if (model.GetDeclaredSymbol(node) is not INamedTypeSymbol classType) {
+      return null;
+    }
+
+    GqlpGeneratorType types = GqlpGeneratorType.None;
+    foreach (AttributeData attribute in attributes) {
+      foreach (TypedConstant argument in attribute.ConstructorArguments) {
+        if (argument is {
+          Kind: TypedConstantKind.Enum,
+          Type.Name: nameof(GqlpGeneratorType),
+          Value: not null
+        }) {
+          types |= (GqlpGeneratorType)argument.Value;
+        } else if (argument is { Value: string typeString }
+            && Enum.TryParse(typeString, out GqlpGeneratorType type)) {
+          types |= type;
+        }
+      }
+    }
+
+    return new GqlpGeneratorOptions(classType.ToString(), types);
+  }
+
+  private static GqlpModelOptions MakeGqlModelOptions(AnalyzerConfigOptionsProvider provider, CancellationToken _)
+  {
+    if (!provider.GlobalOptions.TryGetValue("build_property.GqlPlus_BaseNamespace", out string? baseNamespace)) {
+      baseNamespace = "GqlPlus";
+    }
+
+    return new GqlpModelOptions(baseNamespace);
+  }
+
+  private void GenerateCode(
+    SourceProductionContext sourceContext,
+    (GqlpGeneratorOptions? Left,
+      (ImmutableArray<AdditionalText> Left,
+        GqlpModelOptions Right)) tuple)
+  {
+    (GqlpGeneratorOptions? generatorOptions, (ImmutableArray<AdditionalText> array, GqlpModelOptions? modelOptions)) = tuple;
+
+    if (generatorOptions is null || modelOptions is null || array.IsDefaultOrEmpty) {
+      return;
+    }
+
+    IServiceProvider services = new ServiceCollection()
+      .AddSingleton<ILoggerFactory, NullLoggerFactory>()
+      .AddCommonParsers()
+      .AddSchemaParsers()
+      .AddMergers()
+      .AddGenerators()
+      .BuildServiceProvider();
+
+    Parser<IGqlpSchema>.L schemaParser = services.GetRequiredService<Parser<IGqlpSchema>.D>();
+    IMerge<IGqlpSchema> schemaMerger = services.GetRequiredService<IMerge<IGqlpSchema>>();
+    IGenerator<IGqlpSchema> schemaGenerator = services.GetRequiredService<IGenerator<IGqlpSchema>>();
+
+    foreach (AdditionalText text in array) {
+      string? lines = text.GetText()?.ToString();
+      if (lines is null) {
+        continue;
+      }
+
+      Tokenizer tokens = new(lines);
+      IGqlpSchema parsed = schemaParser.Parse(tokens, "Schema").Required();
+      IGqlpSchema merged = schemaMerger.Merge([parsed]).Single();
+
+      GqlpGeneratorContext context = new(text.Path, generatorOptions, modelOptions);
+      schemaGenerator.Generate(merged, context);
+
+      sourceContext.AddSource("Model_" + context.File + ".gen.cs", context.ToString());
+      foreach (IMessage error in merged.Errors) {
+        LinePosition at = error is ITokenMessage token ? new(token.Line, token.Column) : default;
+        Location location = Location.Create(text.Path, default, new(at, at));
+        Diagnostic diagnostic = Diagnostic.Create(
+                       new DiagnosticDescriptor(
+                           "GQLP001",
+                           error.Message,
+                           error.Message,
+                           "GraphQl+",
+                           DiagnosticSeverity.Error,
+                           isEnabledByDefault: true),
+                       location);
+        sourceContext.ReportDiagnostic(diagnostic);
+      }
+    }
+  }
+}

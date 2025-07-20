@@ -6,6 +6,6 @@ internal abstract class GenerateBaseDomain<TItem>
 {
   public override string TypePrefix => "Domain";
 
-  internal override IEnumerable<MapPair<string>> TypeMembers(IGqlpDomain<TItem> ast, GeneratorContext context)
+  internal override IEnumerable<MapPair<string>> TypeMembers(IGqlpDomain<TItem> ast, GqlpGeneratorContext context)
     => [];
 }

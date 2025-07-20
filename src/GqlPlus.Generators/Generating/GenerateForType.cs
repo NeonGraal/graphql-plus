@@ -9,10 +9,10 @@ internal abstract class GenerateForType<T>
   public bool ForType(IGqlpType ast)
     => ast is T;
 
-  public void GenerateType(IGqlpType ast, GeneratorContext context)
+  public void GenerateType(IGqlpType ast, GqlpGeneratorContext context)
     => Generate((T)ast, context);
 
-  protected virtual void Generate(T ast, GeneratorContext context)
+  protected virtual void Generate(T ast, GqlpGeneratorContext context)
   {
     context.AppendLine("");
 
@@ -22,18 +22,18 @@ internal abstract class GenerateForType<T>
     context.AppendLine("}");
   }
 
-  protected virtual void TypeBody(T ast, GeneratorContext context)
+  protected virtual void TypeBody(T ast, GqlpGeneratorContext context)
   {
     foreach (MapPair<string> item in TypeMembers(ast, context)) {
       TypeMember(item, context);
     }
   }
 
-  protected virtual void TypeHeader(T ast, GeneratorContext context)
+  protected virtual void TypeHeader(T ast, GqlpGeneratorContext context)
     => context.AppendLine($"public interface I{ast.Name}");
 
-  protected virtual void TypeMember(MapPair<string> item, GeneratorContext context)
+  protected virtual void TypeMember(MapPair<string> item, GqlpGeneratorContext context)
     => context.AppendLine($"  {item.Value} {item.Key} {{ get; }}");
 
-  internal abstract IEnumerable<MapPair<string>> TypeMembers(T ast, GeneratorContext context);
+  internal abstract IEnumerable<MapPair<string>> TypeMembers(T ast, GqlpGeneratorContext context);
 }

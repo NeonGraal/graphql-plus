@@ -4,7 +4,7 @@ internal abstract class GenerateForSimple<T>
   : GenerateForClass<T>
   where T : IGqlpSimple
 {
-  protected override void ClassHeader(T ast, GeneratorContext context)
+  protected override void ClassHeader(T ast, GqlpGeneratorContext context)
   {
     base.ClassHeader(ast, context);
 
@@ -16,7 +16,7 @@ internal abstract class GenerateForSimple<T>
     }
   }
 
-  protected override void TypeHeader(T ast, GeneratorContext context)
+  protected override void TypeHeader(T ast, GqlpGeneratorContext context)
   {
     base.TypeHeader(ast, context);
 

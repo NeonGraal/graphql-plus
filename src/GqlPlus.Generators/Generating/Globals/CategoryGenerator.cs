@@ -3,6 +3,6 @@
 internal class CategoryGenerator
   : IGenerator<IGqlpSchemaCategory>
 {
-  public void Generate(IGqlpSchemaCategory ast, GeneratorContext context)
+  public void Generate(IGqlpSchemaCategory ast, GqlpGeneratorContext context)
     => context.AppendLine(ast.Label + " " + ast.Name);
 }

@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\GqlPlus.Generators.Attributes\GqlPlus.Generators.Attributes.csproj" />
     <ProjectReference Include="..\GqlPlus.VerifyTestBase\GqlPlus.VerifyTestBase.csproj" />
   </ItemGroup>
 

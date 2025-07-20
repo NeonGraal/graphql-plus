@@ -3,7 +3,7 @@
 public class GeneratorClassTestBase
   : SubstituteBase
 {
-  internal readonly GeneratorContext Context = new("testPath", new("testNamespace"));
+  internal readonly GqlpGeneratorContext Context = new("testPath", new("testNamespace.testClass", GqlpGeneratorType.Implementation), new("testNamespace"));
 
   internal static IGenerator<T> GFor<T>()
     where T : IGqlpError

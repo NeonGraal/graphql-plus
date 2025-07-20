@@ -6,7 +6,7 @@ internal sealed class EnumGenerator
 {
   public override string TypePrefix => "Enum";
 
-  private static IEnumerable<MapPair<string>> ParentItems(string? parent, GeneratorContext context)
+  private static IEnumerable<MapPair<string>> ParentItems(string? parent, GqlpGeneratorContext context)
   {
     IGqlpEnum? ast = context.GetTypeAst<IGqlpEnum>(parent);
     if (parent is null || ast is null) {
@@ -23,7 +23,7 @@ internal sealed class EnumGenerator
     return ParentItems(ast.Parent?.Name, context).Concat(members);
   }
 
-  internal override IEnumerable<MapPair<string>> TypeMembers(IGqlpEnum ast, GeneratorContext context)
+  internal override IEnumerable<MapPair<string>> TypeMembers(IGqlpEnum ast, GqlpGeneratorContext context)
   {
     IEnumerable<MapPair<string>> members = ast.Items.SelectMany(item =>
       item.Aliases
@@ -33,9 +33,9 @@ internal sealed class EnumGenerator
     return ParentItems(ast.Parent?.Name, context).Concat(members);
   }
 
-  protected override void TypeHeader(IGqlpEnum ast, GeneratorContext context)
+  protected override void TypeHeader(IGqlpEnum ast, GqlpGeneratorContext context)
     => context.AppendLine($"public enum {ast.Name}");
 
-  protected override void TypeMember(MapPair<string> item, GeneratorContext context)
+  protected override void TypeMember(MapPair<string> item, GqlpGeneratorContext context)
     => context.AppendLine("  " + item.Key + item.Value + ",");
 }

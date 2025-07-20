@@ -14,11 +14,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GqlPlus.Generators.Attributes\GqlPlus.Generators.Attributes.csproj" />
     <ProjectReference Include="..\GqlPlus.Parser\GqlPlus.Parser.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="GqlModelGenerator.props" Pack="true" PackagePath="build" />
+    <None Update="GqlpGenerator.props" Pack="true" PackagePath="build" />
   </ItemGroup>
 
 </Project>

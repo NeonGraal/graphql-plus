@@ -1,0 +1,26 @@
+﻿/* constraint-field-domain+Dual
+dual CnstFieldDmnDual { :RefCnstFieldDmnDual<DomCnstFieldDmnDual> }
+dual RefCnstFieldDmnDual<$ref:String> { field: $ref }
+domain DomCnstFieldDmnDual { String /\w+/ }
+*/
+
+// Generated from Sample constraint-field-domain+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_constraint_field_domain_Dual;
+public class DualCnstFieldDmnDual
+  : DualRefCnstFieldDmnDual
+  , ICnstFieldDmnDual
+{
+}
+public class DualRefCnstFieldDmnDual<Tref>
+  : IRefCnstFieldDmnDual<Tref>
+{
+  public Tref field { get; set; }
+}
+public class DomainDomCnstFieldDmnDual
+  : IDomCnstFieldDmnDual
+{
+}

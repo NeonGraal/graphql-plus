@@ -41,11 +41,11 @@ public class ScalarValue
   , IEquatable<ScalarValue>
 {
   public ScalarValue(bool? value, string? tag = null)
-    => (Boolean, Tag) = (value, tag.IfWhitespace());
+    => (Boolean, Tag) = (value, tag.IfWhiteSpace());
   public ScalarValue(string? value, string? tag = null)
-    => (Text, Tag) = (value, tag.IfWhitespace());
+    => (Text, Tag) = (value, tag.IfWhiteSpace());
   public ScalarValue(decimal? value, string? tag = null)
-    => (Number, Tag) = (value, tag.IfWhitespace());
+    => (Number, Tag) = (value, tag.IfWhiteSpace());
 
   public virtual bool IsEmpty
     => string.IsNullOrEmpty(Text)

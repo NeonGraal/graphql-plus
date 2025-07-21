@@ -22,7 +22,7 @@ if ($IncludeTests) {
   $settings = "-s","tests-coverage.runsettings"
 }
 
-Get-ChildItem coverage -File | Remove-Item -Recurse -Force
+Get-ChildItem coverage -File -ErrorAction Ignore | Remove-Item -Force
 Get-ChildItem test -Filter 'TestResults' -Recurse -Directory | Remove-Item -Recurse -Force
 
 dotnet coverage @collect @settings -- dotnet @test

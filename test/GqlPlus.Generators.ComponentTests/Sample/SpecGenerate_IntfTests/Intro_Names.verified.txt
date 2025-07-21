@@ -1,0 +1,39 @@
+﻿/* Intro_Names
+dual _Aliased {
+    : _Named
+        aliases: _Identifier[]
+    }
+
+dual _Named {
+    : _Described
+        name: _Identifier
+    }
+
+dual _Described {
+        description: String[]
+    }
+*/
+
+// Generated from Spec Intro_Names
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Spec_Intro_Names;
+
+public interface I_Aliased
+  : I_Named
+{
+  _Identifier aliases { get; }
+}
+
+public interface I_Named
+  : I_Described
+{
+  _Identifier name { get; }
+}
+
+public interface I_Described
+{
+  String description { get; }
+}

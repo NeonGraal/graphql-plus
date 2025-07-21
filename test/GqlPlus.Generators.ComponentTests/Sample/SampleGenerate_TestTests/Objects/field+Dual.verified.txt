@@ -1,0 +1,10 @@
+﻿/* field+Dual
+dual FieldDual { field: String }
+*/
+
+// Generated from Sample field+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_field_Dual;

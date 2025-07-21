@@ -1,0 +1,11 @@
+﻿/* domain-number
+domain DmnNmbr { number }
+domain DmnNmbr { number }
+*/
+
+// Generated from Sample domain-number
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_domain_number;

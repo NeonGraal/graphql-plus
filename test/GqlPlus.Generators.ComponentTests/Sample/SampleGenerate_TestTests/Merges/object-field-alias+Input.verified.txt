@@ -1,0 +1,12 @@
+﻿/* object-field-alias+Input
+input ObjFieldAliasInp { field [field1]: FldObjFieldAliasInp }
+input ObjFieldAliasInp { field [field2]: FldObjFieldAliasInp }
+input FldObjFieldAliasInp { }
+*/
+
+// Generated from Sample object-field-alias+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_object_field_alias_Input;

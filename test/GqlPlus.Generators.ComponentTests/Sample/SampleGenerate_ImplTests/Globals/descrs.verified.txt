@@ -1,0 +1,16 @@
+﻿/* descrs
+"A simple description"
+"With extra"
+output Dscrs { }
+*/
+
+// Generated from Sample descrs
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_descrs;
+public class OutputDscrs
+  : IDscrs
+{
+}

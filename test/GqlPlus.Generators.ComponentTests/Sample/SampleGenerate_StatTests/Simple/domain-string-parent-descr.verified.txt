@@ -1,0 +1,11 @@
+﻿/* domain-string-parent-descr
+domain DmnStrPrntDescr { :"Parent comment"PrntDmnStrPrntDescr String /a+/ }
+domain PrntDmnStrPrntDescr { String /b+/ }
+*/
+
+// Generated from Sample domain-string-parent-descr
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_domain_string_parent_descr;

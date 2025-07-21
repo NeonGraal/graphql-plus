@@ -1,0 +1,22 @@
+﻿/* field-dual+Input
+input FieldDualInp { field: FldFieldDualInp }
+dual FldFieldDualInp { field: Number | String }
+*/
+
+// Generated from Sample field-dual+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_field_dual_Input;
+
+public interface IFieldDualInp
+{
+  FldFieldDualInp field { get; }
+}
+
+public interface IFldFieldDualInp
+{
+  Number field { get; }
+  String AsString { get; }
+}

@@ -1,0 +1,15 @@
+﻿/* field-descr+Output
+output FieldDescrOutp { "Test" "Descr" field: String }
+*/
+
+// Generated from Sample field-descr+Output
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_field_descr_Output;
+public class OutputFieldDescrOutp
+  : IFieldDescrOutp
+{
+  public String field { get; set; }
+}

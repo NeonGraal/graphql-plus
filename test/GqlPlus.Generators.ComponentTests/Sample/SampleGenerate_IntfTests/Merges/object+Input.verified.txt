@@ -1,0 +1,15 @@
+﻿/* object+Input
+input ObjInp { }
+input ObjInp { }
+*/
+
+// Generated from Sample object+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_object_Input;
+
+public interface IObjInp
+{
+}

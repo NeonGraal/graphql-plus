@@ -1,0 +1,11 @@
+﻿/* object-constraint+Input
+input ObjCnstInp<$type:String> { field: $type }
+input ObjCnstInp<$type:String> { str: $type }
+*/
+
+// Generated from Sample object-constraint+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_object_constraint_Input;

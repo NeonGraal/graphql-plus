@@ -1,0 +1,22 @@
+﻿/* union-parent-descr
+union UnionPrntDescr { :"Parent comment"PrntUnionPrntDescr Number }
+union PrntUnionPrntDescr { Number }
+*/
+
+// Generated from Sample union-parent-descr
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_union_parent_descr;
+public class UnionUnionPrntDescr
+  : UnionPrntUnionPrntDescr
+  , IUnionPrntDescr
+{
+  public Number AsNumber { get; set; }
+}
+public class UnionPrntUnionPrntDescr
+  : IPrntUnionPrntDescr
+{
+  public Number AsNumber { get; set; }
+}

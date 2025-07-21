@@ -1,0 +1,15 @@
+﻿/* generic-parent+Output
+output GnrcPrntOutp<$type:String> { :$type }
+*/
+
+// Generated from Sample generic-parent+Output
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_generic_parent_Output;
+
+public interface IGnrcPrntOutp<Ttype>
+  : Itype
+{
+}

@@ -1,0 +1,17 @@
+﻿/* object-param-dup+Input
+input ObjParamDupInp<$test:String> { test: $test }
+input ObjParamDupInp<$test:String> { type: $test }
+*/
+
+// Generated from Sample object-param-dup+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_object_param_dup_Input;
+
+public interface IObjParamDupInp<Ttest>
+{
+  Ttest test { get; }
+  Ttest type { get; }
+}

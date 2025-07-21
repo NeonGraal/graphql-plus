@@ -1,0 +1,11 @@
+﻿/* directive-param-opt
+directive @DrctParamOpt(InDrctParamOpt?) { all }
+input InDrctParamOpt { }
+*/
+
+// Generated from Sample directive-param-opt
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_directive_param_opt;

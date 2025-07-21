@@ -1,0 +1,12 @@
+﻿/* output-param-type-descr
+output OutpParamTypeDescr { field(InOutpParamTypeDescr): "Test" "Descr" FldOutpParamTypeDescr }
+dual FldOutpParamTypeDescr { }
+input InOutpParamTypeDescr { param: Number | String }
+*/
+
+// Generated from Sample output-param-type-descr
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_output_param_type_descr;

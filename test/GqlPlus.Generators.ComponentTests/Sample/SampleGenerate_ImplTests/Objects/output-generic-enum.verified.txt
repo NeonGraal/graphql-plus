@@ -1,0 +1,22 @@
+﻿/* output-generic-enum
+output OutpGnrcEnum { | RefOutpGnrcEnum<EnumOutpGnrcEnum.outpGnrcEnum> }
+output RefOutpGnrcEnum<$type:_Enum> { field: $type }
+enum EnumOutpGnrcEnum { outpGnrcEnum }
+*/
+
+// Generated from Sample output-generic-enum
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_output_generic_enum;
+public class OutputOutpGnrcEnum
+  : IOutpGnrcEnum
+{
+  public RefOutpGnrcEnum<EnumOutpGnrcEnum> AsRefOutpGnrcEnum { get; set; }
+}
+public class OutputRefOutpGnrcEnum<Ttype>
+  : IRefOutpGnrcEnum<Ttype>
+{
+  public Ttype field { get; set; }
+}

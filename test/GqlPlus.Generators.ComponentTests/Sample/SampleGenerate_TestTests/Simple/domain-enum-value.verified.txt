@@ -1,0 +1,11 @@
+﻿/* domain-enum-value
+domain DmnEnumValue { Enum EnumDmnEnumValue.dmnEnumValue }
+enum EnumDmnEnumValue { dmnEnumValue }
+*/
+
+// Generated from Sample domain-enum-value
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_domain_enum_value;

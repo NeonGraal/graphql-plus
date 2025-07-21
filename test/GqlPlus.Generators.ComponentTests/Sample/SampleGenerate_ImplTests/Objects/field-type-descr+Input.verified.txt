@@ -1,0 +1,15 @@
+﻿/* field-type-descr+Input
+input FieldTypeDescrInp { field: "Test" "Descr" Number }
+*/
+
+// Generated from Sample field-type-descr+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_field_type_descr_Input;
+public class InputFieldTypeDescrInp
+  : IFieldTypeDescrInp
+{
+  public Number field { get; set; }
+}

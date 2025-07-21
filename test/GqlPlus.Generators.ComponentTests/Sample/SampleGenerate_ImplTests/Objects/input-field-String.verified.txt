@@ -1,0 +1,15 @@
+﻿/* input-field-String
+input InpFieldStr { field: String = 'default' }
+*/
+
+// Generated from Sample input-field-String
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_input_field_String;
+public class InputInpFieldStr
+  : IInpFieldStr
+{
+  public String field { get; set; }
+}

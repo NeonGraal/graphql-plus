@@ -1,0 +1,21 @@
+﻿/* generic-field-arg+Input
+input GnrcFieldArgInp<$type:String> { field: RefGnrcFieldArgInp<$type> }
+input RefGnrcFieldArgInp<$ref:String> { | $ref }
+*/
+
+// Generated from Sample generic-field-arg+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_generic_field_arg_Input;
+
+public interface IGnrcFieldArgInp<Ttype>
+{
+  RefGnrcFieldArgInp<Ttype> field { get; }
+}
+
+public interface IRefGnrcFieldArgInp<Tref>
+{
+  Tref Asref { get; }
+}

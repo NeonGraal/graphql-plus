@@ -1,0 +1,6 @@
+﻿// Generated from Sample +Simple
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_Simple;

@@ -1,0 +1,11 @@
+﻿/* object-alias+Dual
+dual ObjAliasDual [Dual1] { }
+dual ObjAliasDual [Dual2] { }
+*/
+
+// Generated from Sample object-alias+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_object_alias_Dual;

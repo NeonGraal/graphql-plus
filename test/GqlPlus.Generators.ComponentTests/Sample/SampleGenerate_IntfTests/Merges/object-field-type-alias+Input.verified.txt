@@ -1,0 +1,16 @@
+﻿/* object-field-type-alias+Input
+input ObjFieldTypeAliasInp { field: String }
+input ObjFieldTypeAliasInp { field: String }
+*/
+
+// Generated from Sample object-field-type-alias+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_object_field_type_alias_Input;
+
+public interface IObjFieldTypeAliasInp
+{
+  String field { get; }
+}

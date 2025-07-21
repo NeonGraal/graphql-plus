@@ -1,0 +1,22 @@
+﻿/* field-object+Dual
+dual FieldObjDual { field: FldFieldObjDual }
+dual FldFieldObjDual { field: Number | String }
+*/
+
+// Generated from Sample field-object+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_field_object_Dual;
+public class DualFieldObjDual
+  : IFieldObjDual
+{
+  public FldFieldObjDual field { get; set; }
+}
+public class DualFldFieldObjDual
+  : IFldFieldObjDual
+{
+  public Number field { get; set; }
+  public String AsString { get; set; }
+}

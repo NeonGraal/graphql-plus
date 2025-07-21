@@ -1,0 +1,10 @@
+﻿/* constraint-alt+Output
+output CnstAltOutp<$type:Number> { | $type }
+*/
+
+// Generated from Sample constraint-alt+Output
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_constraint_alt_Output;

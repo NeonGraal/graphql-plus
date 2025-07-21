@@ -1,0 +1,11 @@
+﻿/* alt-mod-Boolean+Dual
+dual AltModBoolDual { | AltAltModBoolDual[^] }
+dual AltAltModBoolDual { alt: Number | String }
+*/
+
+// Generated from Sample alt-mod-Boolean+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_alt_mod_Boolean_Dual;

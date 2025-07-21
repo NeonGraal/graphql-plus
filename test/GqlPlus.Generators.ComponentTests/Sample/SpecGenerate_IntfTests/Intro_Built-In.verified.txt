@@ -1,0 +1,102 @@
+﻿/* Intro_Built-In
+output _Constant {
+    | _SimpleValue
+    | _ConstantList
+    | _ConstantMap
+    }
+
+output _SimpleValue {
+    | _DomainValue<_DomainKind.Boolean Boolean>
+    | _DomainValue<_DomainKind.Enum _EnumValue>
+    | _DomainValue<_DomainKind.Number Number>
+    | _DomainValue<_DomainKind.String String>
+    }
+
+output _ConstantList {
+    | _Constant[]
+    }
+
+output _ConstantMap {
+    | _Constant[_Key]
+    }
+
+output _Collections {
+    | _Modifier<_ModifierKind.List>
+    | _ModifierKeyed<_ModifierKind.Dictionary>
+    | _ModifierKeyed<_ModifierKind.TypeParam>
+    }
+
+output _ModifierKeyed<$kind:_ModifierKind> {
+    : _Modifier<$kind>
+        by: _TypeSimple
+        optional: Boolean
+    }
+
+output _Modifiers {
+    | _Modifier<_ModifierKind.Optional>
+    | _Collections
+    }
+
+enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
+
+output _Modifier<$kind:_ModifierKind> {
+        modifierKind: $kind
+    }
+*/
+
+// Generated from Spec Intro_Built-In
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Spec_Intro_Built_In;
+
+public interface I_Constant
+{
+  _SimpleValue As_SimpleValue { get; }
+  _ConstantList As_ConstantList { get; }
+  _ConstantMap As_ConstantMap { get; }
+}
+
+public interface I_SimpleValue
+{
+  _DomainValue<_DomainKind, Boolean> As_DomainValue { get; }
+  _DomainValue<_DomainKind, _EnumValue> As_DomainValue { get; }
+  _DomainValue<_DomainKind, Number> As_DomainValue { get; }
+  _DomainValue<_DomainKind, String> As_DomainValue { get; }
+}
+
+public interface I_ConstantList
+{
+  _Constant As_Constant { get; }
+}
+
+public interface I_ConstantMap
+{
+  _Constant As_Constant { get; }
+}
+
+public interface I_Collections
+{
+  _Modifier<_ModifierKind> As_Modifier { get; }
+  _ModifierKeyed<_ModifierKind> As_ModifierKeyed { get; }
+  _ModifierKeyed<_ModifierKind> As_ModifierKeyed { get; }
+}
+
+public interface I_ModifierKeyed<Tkind>
+  : I_Modifier
+{
+  _TypeSimple by { get; }
+  Boolean optional { get; }
+}
+
+public interface I_Modifiers
+{
+  _Modifier<_ModifierKind> As_Modifier { get; }
+  _Collections As_Collections { get; }
+}
+
+public interface I_Modifier<Tkind>
+{
+  Tkind modifierKind { get; }
+}

@@ -1,0 +1,28 @@
+﻿/* generic-alt-dual+Output
+output GnrcAltDualOutp { | RefGnrcAltDualOutp<AltGnrcAltDualOutp> }
+output RefGnrcAltDualOutp<$ref:_Dual> { | $ref }
+dual AltGnrcAltDualOutp { alt: Number | String }
+*/
+
+// Generated from Sample generic-alt-dual+Output
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_generic_alt_dual_Output;
+public class OutputGnrcAltDualOutp
+  : IGnrcAltDualOutp
+{
+  public RefGnrcAltDualOutp<AltGnrcAltDualOutp> AsRefGnrcAltDualOutp { get; set; }
+}
+public class OutputRefGnrcAltDualOutp<Tref>
+  : IRefGnrcAltDualOutp<Tref>
+{
+  public Tref Asref { get; set; }
+}
+public class DualAltGnrcAltDualOutp
+  : IAltGnrcAltDualOutp
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

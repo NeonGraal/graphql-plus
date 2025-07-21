@@ -1,0 +1,11 @@
+﻿/* category-output
+category { CtgrOutp }
+output CtgrOutp { }
+*/
+
+// Generated from Sample category-output
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_category_output;

@@ -1,0 +1,13 @@
+﻿/* constraint-alt-obj+Output
+output CnstAltObjOutp { | RefCnstAltObjOutp<AltCnstAltObjOutp> }
+output RefCnstAltObjOutp<$ref:PrntCnstAltObjOutp> { | $ref }
+output PrntCnstAltObjOutp { | String }
+output AltCnstAltObjOutp { :PrntCnstAltObjOutp alt: Number }
+*/
+
+// Generated from Sample constraint-alt-obj+Output
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_constraint_alt_obj_Output;

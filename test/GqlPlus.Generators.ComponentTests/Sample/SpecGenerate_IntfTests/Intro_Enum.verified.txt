@@ -1,0 +1,39 @@
+﻿/* Intro_Enum
+output _TypeEnum {
+    : _ParentType<_TypeKind.Enum _Aliased _EnumLabel>
+    }
+
+dual _EnumLabel {
+    : _Aliased
+        enum: _Identifier
+    }
+
+output _EnumValue {
+    : _TypeRef<_TypeKind.Enum>
+        label: _Identifier
+    }
+*/
+
+// Generated from Spec Intro_Enum
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Spec_Intro_Enum;
+
+public interface I_TypeEnum
+  : I_ParentType
+{
+}
+
+public interface I_EnumLabel
+  : I_Aliased
+{
+  _Identifier enum { get; }
+}
+
+public interface I_EnumValue
+  : I_TypeRef
+{
+  _Identifier label { get; }
+}

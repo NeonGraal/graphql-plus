@@ -1,0 +1,21 @@
+﻿/* generic-field-arg+Output
+output GnrcFieldArgOutp<$type:String> { field: RefGnrcFieldArgOutp<$type> }
+output RefGnrcFieldArgOutp<$ref:String> { | $ref }
+*/
+
+// Generated from Sample generic-field-arg+Output
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_generic_field_arg_Output;
+
+public interface IGnrcFieldArgOutp<Ttype>
+{
+  RefGnrcFieldArgOutp<Ttype> field { get; }
+}
+
+public interface IRefGnrcFieldArgOutp<Tref>
+{
+  Tref Asref { get; }
+}

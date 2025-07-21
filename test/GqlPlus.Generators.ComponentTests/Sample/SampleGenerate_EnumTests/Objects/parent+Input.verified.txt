@@ -1,0 +1,11 @@
+﻿/* parent+Input
+input PrntInp { :RefPrntInp }
+input RefPrntInp { parent: Number | String }
+*/
+
+// Generated from Sample parent+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_parent_Input;

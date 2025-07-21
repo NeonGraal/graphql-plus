@@ -1,0 +1,22 @@
+﻿/* field-object+Output
+output FieldObjOutp { field: FldFieldObjOutp }
+output FldFieldObjOutp { field: Number | String }
+*/
+
+// Generated from Sample field-object+Output
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_field_object_Output;
+
+public interface IFieldObjOutp
+{
+  FldFieldObjOutp field { get; }
+}
+
+public interface IFldFieldObjOutp
+{
+  Number field { get; }
+  String AsString { get; }
+}

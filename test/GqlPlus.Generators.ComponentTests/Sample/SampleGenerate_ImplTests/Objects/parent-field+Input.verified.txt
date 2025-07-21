@@ -1,0 +1,23 @@
+﻿/* parent-field+Input
+input PrntFieldInp { :RefPrntFieldInp field: Number }
+input RefPrntFieldInp { parent: Number | String }
+*/
+
+// Generated from Sample parent-field+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_parent_field_Input;
+public class InputPrntFieldInp
+  : InputRefPrntFieldInp
+  , IPrntFieldInp
+{
+  public Number field { get; set; }
+}
+public class InputRefPrntFieldInp
+  : IRefPrntFieldInp
+{
+  public Number parent { get; set; }
+  public String AsString { get; set; }
+}

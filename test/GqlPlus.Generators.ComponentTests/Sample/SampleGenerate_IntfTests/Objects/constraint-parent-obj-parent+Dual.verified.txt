@@ -1,0 +1,34 @@
+﻿/* constraint-parent-obj-parent+Dual
+dual CnstPrntObjPrntDual { :RefCnstPrntObjPrntDual<AltCnstPrntObjPrntDual> }
+dual RefCnstPrntObjPrntDual<$ref:PrntCnstPrntObjPrntDual> { :$ref }
+dual PrntCnstPrntObjPrntDual { | String }
+dual AltCnstPrntObjPrntDual { :PrntCnstPrntObjPrntDual alt: Number }
+*/
+
+// Generated from Sample constraint-parent-obj-parent+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_constraint_parent_obj_parent_Dual;
+
+public interface ICnstPrntObjPrntDual
+  : IRefCnstPrntObjPrntDual
+{
+}
+
+public interface IRefCnstPrntObjPrntDual<Tref>
+  : Iref
+{
+}
+
+public interface IPrntCnstPrntObjPrntDual
+{
+  String AsString { get; }
+}
+
+public interface IAltCnstPrntObjPrntDual
+  : IPrntCnstPrntObjPrntDual
+{
+  Number alt { get; }
+}

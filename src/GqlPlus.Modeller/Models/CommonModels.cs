@@ -48,7 +48,7 @@ public class SimpleModel
   public EnumValueModel? EnumValue { get; private init; }
 
   internal static TypeRefModel<SimpleKindModel>? DomainFor(string? type, DomainKindModel kind)
-    => string.IsNullOrWhiteSpace(type) ? null : new DomainRefModel(type!, kind, "");
+    => type.IsWhiteSpace() ? null : new DomainRefModel(type!, kind, "");
 
   internal static SimpleModel Bool(bool value)
     => new(value);

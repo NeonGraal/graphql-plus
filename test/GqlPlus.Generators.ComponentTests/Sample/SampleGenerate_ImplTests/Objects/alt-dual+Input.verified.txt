@@ -1,0 +1,22 @@
+﻿/* alt-dual+Input
+input AltDualInp { | ObjDualAltDualInp }
+dual ObjDualAltDualInp { alt: Number | String }
+*/
+
+// Generated from Sample alt-dual+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_alt_dual_Input;
+public class InputAltDualInp
+  : IAltDualInp
+{
+  public ObjDualAltDualInp AsObjDualAltDualInp { get; set; }
+}
+public class DualObjDualAltDualInp
+  : IObjDualAltDualInp
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

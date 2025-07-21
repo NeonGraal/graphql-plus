@@ -1,0 +1,22 @@
+﻿/* alt-mod-param+Dual
+dual AltModParamDual<$mod:String> { | AltAltModParamDual[$mod] }
+dual AltAltModParamDual { alt: Number | String }
+*/
+
+// Generated from Sample alt-mod-param+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_alt_mod_param_Dual;
+
+public interface IAltModParamDual<Tmod>
+{
+  AltAltModParamDual AsAltAltModParamDual { get; }
+}
+
+public interface IAltAltModParamDual
+{
+  Number alt { get; }
+  String AsString { get; }
+}

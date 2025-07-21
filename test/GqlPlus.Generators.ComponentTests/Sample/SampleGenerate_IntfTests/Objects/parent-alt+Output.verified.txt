@@ -1,0 +1,23 @@
+﻿/* parent-alt+Output
+output PrntAltOutp { :RefPrntAltOutp | Number }
+output RefPrntAltOutp {  parent: Number | String }
+*/
+
+// Generated from Sample parent-alt+Output
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_parent_alt_Output;
+
+public interface IPrntAltOutp
+  : IRefPrntAltOutp
+{
+  Number AsNumber { get; }
+}
+
+public interface IRefPrntAltOutp
+{
+  Number parent { get; }
+  String AsString { get; }
+}

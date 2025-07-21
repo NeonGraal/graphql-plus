@@ -1,0 +1,22 @@
+﻿/* output-generic-value
+output OutpGnrcValue { | RefOutpGnrcValue<outpGnrcValue> }
+output RefOutpGnrcValue<$type:_Enum> { field: $type }
+enum EnumOutpGnrcValue { outpGnrcValue }
+*/
+
+// Generated from Sample output-generic-value
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_output_generic_value;
+
+public interface IOutpGnrcValue
+{
+  RefOutpGnrcValue<outpGnrcValue> AsRefOutpGnrcValue { get; }
+}
+
+public interface IRefOutpGnrcValue<Ttype>
+{
+  Ttype field { get; }
+}

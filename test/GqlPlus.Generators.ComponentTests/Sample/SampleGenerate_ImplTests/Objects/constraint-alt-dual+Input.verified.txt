@@ -1,0 +1,34 @@
+﻿/* constraint-alt-dual+Input
+input CnstAltDualInp { | RefCnstAltDualInp<AltCnstAltDualInp> }
+input RefCnstAltDualInp<$ref:PrntCnstAltDualInp> { | $ref }
+dual PrntCnstAltDualInp { | String }
+input AltCnstAltDualInp { :PrntCnstAltDualInp alt: Number }
+*/
+
+// Generated from Sample constraint-alt-dual+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_constraint_alt_dual_Input;
+public class InputCnstAltDualInp
+  : ICnstAltDualInp
+{
+  public RefCnstAltDualInp<AltCnstAltDualInp> AsRefCnstAltDualInp { get; set; }
+}
+public class InputRefCnstAltDualInp<Tref>
+  : IRefCnstAltDualInp<Tref>
+{
+  public Tref Asref { get; set; }
+}
+public class DualPrntCnstAltDualInp
+  : IPrntCnstAltDualInp
+{
+  public String AsString { get; set; }
+}
+public class InputAltCnstAltDualInp
+  : InputPrntCnstAltDualInp
+  , IAltCnstAltDualInp
+{
+  public Number alt { get; set; }
+}

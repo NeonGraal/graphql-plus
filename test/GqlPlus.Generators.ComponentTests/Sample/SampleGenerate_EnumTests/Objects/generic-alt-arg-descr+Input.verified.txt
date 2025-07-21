@@ -1,0 +1,11 @@
+﻿/* generic-alt-arg-descr+Input
+input GnrcAltArgDescrInp<$type:String> { | RefGnrcAltArgDescrInp<"Test" "Descr"$type> }
+input RefGnrcAltArgDescrInp<$ref:String> { | $ref }
+*/
+
+// Generated from Sample generic-alt-arg-descr+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_generic_alt_arg_descr_Input;

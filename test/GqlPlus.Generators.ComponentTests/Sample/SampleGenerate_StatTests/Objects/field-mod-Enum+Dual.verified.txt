@@ -1,0 +1,11 @@
+﻿/* field-mod-Enum+Dual
+dual FieldModEnumDual { field: String[EnumFieldModEnumDual] }
+enum EnumFieldModEnumDual { value }
+*/
+
+// Generated from Sample field-mod-Enum+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_field_mod_Enum_Dual;

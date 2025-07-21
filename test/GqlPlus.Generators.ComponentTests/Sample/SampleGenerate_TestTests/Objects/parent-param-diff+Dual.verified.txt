@@ -1,0 +1,11 @@
+﻿/* parent-param-diff+Dual
+dual PrntParamDiffDual<$a:String> { :RefPrntParamDiffDual<$a> field: $a }
+dual RefPrntParamDiffDual<$b:String> { | $b }
+*/
+
+// Generated from Sample parent-param-diff+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_parent_param_diff_Dual;

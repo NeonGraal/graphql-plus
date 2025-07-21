@@ -1,0 +1,24 @@
+﻿/* Intro_Category
+output _Categories {
+        category: _Category
+        type: _Type
+    | _Category
+    | _Type
+    }
+
+output _Category {
+    : _Aliased
+        resolution: _Resolution
+        name: _TypeRef<_TypeKind.Output>
+        modifiers: _Modifiers[]
+    }
+
+enum _Resolution { Parallel Sequential Single }
+*/
+
+// Generated from Spec Intro_Category
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Spec_Intro_Category;

@@ -1,0 +1,12 @@
+﻿/* constraint-field-domain+Input
+input CnstFieldDmnInp { :RefCnstFieldDmnInp<DomCnstFieldDmnInp> }
+input RefCnstFieldDmnInp<$ref:String> { field: $ref }
+domain DomCnstFieldDmnInp { String /\w+/ }
+*/
+
+// Generated from Sample constraint-field-domain+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_constraint_field_domain_Input;

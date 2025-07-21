@@ -57,11 +57,11 @@ public static class MergeExtensions
     foreach (TItem item in items) {
       string? value = field(item);
 #pragma warning restore CA1062 // Validate arguments of public methods
-      if (string.IsNullOrWhiteSpace(value)) {
+      if (value.IsWhiteSpace()) {
         continue;
       }
 
-      if (string.IsNullOrWhiteSpace(result)) {
+      if (result.IsWhiteSpace()) {
         result = value;
         continue;
       }
@@ -183,7 +183,7 @@ public static class MergeExtensions
     where TItem : IGqlpDescribed
   {
     string description = items.Select(item => item.Description).Joined(" ");
-    if (!string.IsNullOrWhiteSpace(description)) {
+    if (!description.IsWhiteSpace()) {
       descr.SetDescription(description);
     }
 

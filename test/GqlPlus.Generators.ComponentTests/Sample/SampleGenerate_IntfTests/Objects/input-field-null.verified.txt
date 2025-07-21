@@ -1,0 +1,20 @@
+﻿/* input-field-null
+input InpFieldNull { field: FldInpFieldNull? = null }
+dual FldInpFieldNull { }
+*/
+
+// Generated from Sample input-field-null
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_input_field_null;
+
+public interface IInpFieldNull
+{
+  FldInpFieldNull field { get; }
+}
+
+public interface IFldInpFieldNull
+{
+}

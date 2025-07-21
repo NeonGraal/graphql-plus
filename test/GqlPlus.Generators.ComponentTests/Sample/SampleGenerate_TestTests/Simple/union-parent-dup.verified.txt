@@ -1,0 +1,11 @@
+﻿/* union-parent-dup
+union UnionPrntDup { :PrntUnionPrntDup Number }
+union PrntUnionPrntDup { Number }
+*/
+
+// Generated from Sample union-parent-dup
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_union_parent_dup;

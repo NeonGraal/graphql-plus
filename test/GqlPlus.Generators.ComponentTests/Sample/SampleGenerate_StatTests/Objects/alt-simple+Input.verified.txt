@@ -1,0 +1,10 @@
+﻿/* alt-simple+Input
+input AltSmplInp { | String }
+*/
+
+// Generated from Sample alt-simple+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_alt_simple_Input;

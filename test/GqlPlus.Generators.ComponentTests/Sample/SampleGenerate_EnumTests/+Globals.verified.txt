@@ -1,0 +1,6 @@
+﻿// Generated from Sample +Globals
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_Globals;

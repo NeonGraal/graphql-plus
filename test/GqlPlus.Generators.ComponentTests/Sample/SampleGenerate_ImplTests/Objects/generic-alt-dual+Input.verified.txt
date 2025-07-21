@@ -1,0 +1,28 @@
+﻿/* generic-alt-dual+Input
+input GnrcAltDualInp { | RefGnrcAltDualInp<AltGnrcAltDualInp> }
+input RefGnrcAltDualInp<$ref:_Dual> { | $ref }
+dual AltGnrcAltDualInp { alt: Number | String }
+*/
+
+// Generated from Sample generic-alt-dual+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_generic_alt_dual_Input;
+public class InputGnrcAltDualInp
+  : IGnrcAltDualInp
+{
+  public RefGnrcAltDualInp<AltGnrcAltDualInp> AsRefGnrcAltDualInp { get; set; }
+}
+public class InputRefGnrcAltDualInp<Tref>
+  : IRefGnrcAltDualInp<Tref>
+{
+  public Tref Asref { get; set; }
+}
+public class DualAltGnrcAltDualInp
+  : IAltGnrcAltDualInp
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

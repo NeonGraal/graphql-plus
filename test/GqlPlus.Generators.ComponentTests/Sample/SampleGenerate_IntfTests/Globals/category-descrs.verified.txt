@@ -1,0 +1,17 @@
+﻿/* category-descrs
+"A Category"
+"described"
+category { CtgrDscrs }
+output CtgrDscrs { }
+*/
+
+// Generated from Sample category-descrs
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_category_descrs;
+
+public interface ICtgrDscrs
+{
+}

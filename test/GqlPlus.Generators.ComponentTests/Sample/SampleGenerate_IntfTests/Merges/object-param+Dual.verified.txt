@@ -1,0 +1,17 @@
+﻿/* object-param+Dual
+dual ObjParamDual<$test:String> { test: $test }
+dual ObjParamDual<$type:String> { type: $type }
+*/
+
+// Generated from Sample object-param+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_object_param_Dual;
+
+public interface IObjParamDual<Ttest,Ttype>
+{
+  Ttest test { get; }
+  Ttype type { get; }
+}

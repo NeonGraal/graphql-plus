@@ -1,0 +1,21 @@
+﻿/* object-parent+Input
+input ObjPrntInp { :RefObjPrntInp }
+input ObjPrntInp { :RefObjPrntInp }
+input RefObjPrntInp { }
+*/
+
+// Generated from Sample object-parent+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_object_parent_Input;
+
+public interface IObjPrntInp
+  : IRefObjPrntInp
+{
+}
+
+public interface IRefObjPrntInp
+{
+}

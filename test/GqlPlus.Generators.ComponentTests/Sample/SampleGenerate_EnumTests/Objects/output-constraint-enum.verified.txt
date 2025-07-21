@@ -1,0 +1,17 @@
+﻿/* output-constraint-enum
+output OutpCnstEnum { | RefOutpCnstEnum<outpCnstEnum> }
+output RefOutpCnstEnum<$type:EnumOutpCnstEnum> { field: $type }
+enum EnumOutpCnstEnum { outpCnstEnum }
+*/
+
+// Generated from Sample output-constraint-enum
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_output_constraint_enum;
+
+public enum EnumOutpCnstEnum
+{
+  outpCnstEnum,
+}

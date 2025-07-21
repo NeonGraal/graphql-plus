@@ -1,0 +1,19 @@
+﻿/* output-constraint-dom-enum
+output OutpCnstDomEnum { | RefOutpCnstDomEnum<outpCnstDomEnum> }
+output RefOutpCnstDomEnum<$type:JustOutpCnstDomEnum> { field: $type }
+enum EnumOutpCnstDomEnum { outpCnstDomEnum other }
+domain JustOutpCnstDomEnum { enum EnumOutpCnstDomEnum.outpCnstDomEnum }
+*/
+
+// Generated from Sample output-constraint-dom-enum
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_output_constraint_dom_enum;
+
+public enum EnumOutpCnstDomEnum
+{
+  outpCnstDomEnum,
+  other,
+}

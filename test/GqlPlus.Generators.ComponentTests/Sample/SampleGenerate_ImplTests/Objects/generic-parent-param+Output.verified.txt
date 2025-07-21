@@ -1,0 +1,28 @@
+﻿/* generic-parent-param+Output
+output GnrcPrntParamOutp { :RefGnrcPrntParamOutp<AltGnrcPrntParamOutp> }
+output RefGnrcPrntParamOutp<$ref:_Output> { | $ref }
+output AltGnrcPrntParamOutp { alt: Number | String }
+*/
+
+// Generated from Sample generic-parent-param+Output
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_generic_parent_param_Output;
+public class OutputGnrcPrntParamOutp
+  : OutputRefGnrcPrntParamOutp
+  , IGnrcPrntParamOutp
+{
+}
+public class OutputRefGnrcPrntParamOutp<Tref>
+  : IRefGnrcPrntParamOutp<Tref>
+{
+  public Tref Asref { get; set; }
+}
+public class OutputAltGnrcPrntParamOutp
+  : IAltGnrcPrntParamOutp
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

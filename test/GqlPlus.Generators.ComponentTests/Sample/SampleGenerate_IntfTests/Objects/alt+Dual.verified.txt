@@ -1,0 +1,22 @@
+﻿/* alt+Dual
+dual AltDual { | AltAltDual }
+dual AltAltDual { alt: Number | String }
+*/
+
+// Generated from Sample alt+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_alt_Dual;
+
+public interface IAltDual
+{
+  AltAltDual AsAltAltDual { get; }
+}
+
+public interface IAltAltDual
+{
+  Number alt { get; }
+  String AsString { get; }
+}

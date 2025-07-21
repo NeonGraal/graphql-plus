@@ -1,0 +1,17 @@
+﻿/* object-param+Output
+output ObjParamOutp<$test:String> { test: $test }
+output ObjParamOutp<$type:String> { type: $type }
+*/
+
+// Generated from Sample object-param+Output
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_object_param_Output;
+
+public interface IObjParamOutp<Ttest,Ttype>
+{
+  Ttest test { get; }
+  Ttype type { get; }
+}

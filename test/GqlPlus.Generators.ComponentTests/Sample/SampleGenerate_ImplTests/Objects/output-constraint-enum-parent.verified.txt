@@ -1,0 +1,23 @@
+﻿/* output-constraint-enum-parent
+output OutpCnstEnumPrnt { | RefOutpCnstEnumPrnt<outpCnstEnumPrnt> }
+output RefOutpCnstEnumPrnt<$type:ParentOutpCnstEnumPrnt> { field: $type }
+enum EnumOutpCnstEnumPrnt { :ParentOutpCnstEnumPrnt outpCnstEnumPrnt }
+enum ParentOutpCnstEnumPrnt { parentOutpCnstEnumPrnt }
+*/
+
+// Generated from Sample output-constraint-enum-parent
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_output_constraint_enum_parent;
+public class OutputOutpCnstEnumPrnt
+  : IOutpCnstEnumPrnt
+{
+  public RefOutpCnstEnumPrnt<outpCnstEnumPrnt> AsRefOutpCnstEnumPrnt { get; set; }
+}
+public class OutputRefOutpCnstEnumPrnt<Ttype>
+  : IRefOutpCnstEnumPrnt<Ttype>
+{
+  public Ttype field { get; set; }
+}

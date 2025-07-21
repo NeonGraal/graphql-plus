@@ -1,0 +1,18 @@
+﻿/* enum-value-alias
+enum EnumValueAlias { enumValueAlias [val1] }
+enum EnumValueAlias { enumValueAlias [val2] }
+*/
+
+// Generated from Sample enum-value-alias
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_enum_value_alias;
+
+public enum EnumValueAlias
+{
+  enumValueAlias,
+  val1 = enumValueAlias,
+  val2 = enumValueAlias,
+}

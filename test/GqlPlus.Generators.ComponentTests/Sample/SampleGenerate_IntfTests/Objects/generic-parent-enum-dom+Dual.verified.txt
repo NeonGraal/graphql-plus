@@ -1,0 +1,27 @@
+﻿/* generic-parent-enum-dom+Dual
+dual GnrcPrntEnumDomDual { :FieldGnrcPrntEnumDomDual<DomGnrcPrntEnumDomDual> }
+dual FieldGnrcPrntEnumDomDual<$ref:EnumGnrcPrntEnumDomDual> { field: $ref }
+enum EnumGnrcPrntEnumDomDual { gnrcPrntEnumDomDualLabel gnrcPrntEnumDomDualOther }
+domain DomGnrcPrntEnumDomDual { enum gnrcPrntEnumDomDualLabel }
+*/
+
+// Generated from Sample generic-parent-enum-dom+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_generic_parent_enum_dom_Dual;
+
+public interface IGnrcPrntEnumDomDual
+  : IFieldGnrcPrntEnumDomDual
+{
+}
+
+public interface IFieldGnrcPrntEnumDomDual<Tref>
+{
+  Tref field { get; }
+}
+
+public interface IDomGnrcPrntEnumDomDual
+{
+}

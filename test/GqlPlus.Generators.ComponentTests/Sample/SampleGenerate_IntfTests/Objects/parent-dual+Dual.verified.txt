@@ -1,0 +1,22 @@
+﻿/* parent-dual+Dual
+dual PrntDualDual { :RefPrntDualDual }
+dual RefPrntDualDual { parent: Number | String }
+*/
+
+// Generated from Sample parent-dual+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_parent_dual_Dual;
+
+public interface IPrntDualDual
+  : IRefPrntDualDual
+{
+}
+
+public interface IRefPrntDualDual
+{
+  Number parent { get; }
+  String AsString { get; }
+}

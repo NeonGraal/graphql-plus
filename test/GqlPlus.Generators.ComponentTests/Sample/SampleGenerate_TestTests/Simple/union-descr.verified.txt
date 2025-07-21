@@ -1,0 +1,10 @@
+﻿/* union-descr
+union UnionDescr { "Union" "Descr" Number }
+*/
+
+// Generated from Sample union-descr
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_union_descr;

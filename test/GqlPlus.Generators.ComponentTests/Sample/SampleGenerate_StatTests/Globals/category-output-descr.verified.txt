@@ -1,0 +1,12 @@
+﻿/* category-output-descr
+category { "Output comment" CtgrOutpDescr }
+output CtgrOutpDescr { }
+*/
+
+// Generated from Sample category-output-descr
+
+/*
+Category ctgrOutpDescr
+*/
+
+namespace GqlPlus.Gqlp_Sample_category_output_descr;

@@ -1,0 +1,12 @@
+﻿/* generic-parent-string-dom+Dual
+dual GnrcPrntStrDomDual { :FieldGnrcPrntStrDomDual<DomGnrcPrntStrDomDual> }
+dual FieldGnrcPrntStrDomDual<$ref:String> { field: $ref }
+domain DomGnrcPrntStrDomDual { string /\w+/ }
+*/
+
+// Generated from Sample generic-parent-string-dom+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_generic_parent_string_dom_Dual;

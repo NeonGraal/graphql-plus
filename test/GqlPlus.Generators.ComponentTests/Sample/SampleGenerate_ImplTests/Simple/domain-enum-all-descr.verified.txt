@@ -1,0 +1,15 @@
+﻿/* domain-enum-all-descr
+domain DmnEnumAllDescr { enum "DomAll" "Descr" EnumDmnEnumAllDescr.* }
+enum EnumDmnEnumAllDescr { dmnEnumAllDescr enum_dmnEnumAllDescr }
+*/
+
+// Generated from Sample domain-enum-all-descr
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_domain_enum_all_descr;
+public class DomainDmnEnumAllDescr
+  : IDmnEnumAllDescr
+{
+}

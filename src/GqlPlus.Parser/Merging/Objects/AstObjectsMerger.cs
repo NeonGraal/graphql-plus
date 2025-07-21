@@ -15,7 +15,7 @@ internal abstract class AstObjectsMerger<TObject, TObjBase, TObjField, TObjAlt>(
 {
   protected override string ItemMatchName => "Parent";
   protected override string ItemMatchKey(TObject item)
-    => (item.Parent?.FullType).IfWhitespace();
+    => (item.Parent?.FullType).IfWhiteSpace();
 
   protected override IMessages CanMergeGroup(IGrouping<string, TObject> group)
   {

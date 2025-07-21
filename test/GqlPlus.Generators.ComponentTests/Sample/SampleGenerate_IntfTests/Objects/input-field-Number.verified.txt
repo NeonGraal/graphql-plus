@@ -1,0 +1,15 @@
+﻿/* input-field-Number
+input InpFieldNmbr { field: Number = 42 }
+*/
+
+// Generated from Sample input-field-Number
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_input_field_Number;
+
+public interface IInpFieldNmbr
+{
+  Number field { get; }
+}

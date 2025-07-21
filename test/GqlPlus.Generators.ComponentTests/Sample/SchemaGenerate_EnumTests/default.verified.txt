@@ -1,0 +1,19 @@
+﻿/* default
+category { Query }
+output Query { }
+
+category { (sequential) Mutation }
+output Mutation { }
+
+category { (single) Subscription }
+output Subscription { }
+
+output _Schema { }
+*/
+
+// Generated from Schema default
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Schema_default;

@@ -26,7 +26,7 @@ internal class SchemaModeller(
     IEnumerable<string> aliases = options.SelectMany(a => a.Aliases);
     IEnumerable<SettingModel> settings = options.SelectMany(o => setting.ToModels(o.Settings, typeKinds));
 
-    return new(name.IfWhitespace(),
+    return new(name.IfWhiteSpace(),
         DeclarationModel(ast, category, typeKinds),
         DeclarationModel(ast, directive, typeKinds),
         settings,

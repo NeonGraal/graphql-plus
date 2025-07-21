@@ -83,7 +83,7 @@ public static class TestHelpers
 
   public static TCheck SkipIf<TCheck>(this TCheck check, bool skipIf, [CallerArgumentExpression(nameof(skipIf))] string? skipExpression = null)
   {
-    Assert.SkipWhen(skipIf, skipExpression.IfWhitespace());
+    Assert.SkipWhen(skipIf, skipExpression.IfWhiteSpace());
 
     return check;
   }
@@ -97,7 +97,7 @@ public static class TestHelpers
 
   public static TCheck SkipWhitespace<TCheck>(this TCheck check, [NotNull] string? str, [CallerArgumentExpression(nameof(str))] string? objExpression = null)
   {
-    Assert.SkipWhen(string.IsNullOrWhiteSpace(str), objExpression + " is null, empty or only whitespace");
+    Assert.SkipWhen(str is null || str.IsWhiteSpace(), objExpression + " is null, empty or only whitespace");
 
     return check;
   }

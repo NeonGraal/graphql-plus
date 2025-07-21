@@ -1,0 +1,23 @@
+﻿/* parent-alt+Input
+input PrntAltInp { :RefPrntAltInp | Number }
+input RefPrntAltInp {  parent: Number | String }
+*/
+
+// Generated from Sample parent-alt+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_parent_alt_Input;
+public class InputPrntAltInp
+  : InputRefPrntAltInp
+  , IPrntAltInp
+{
+  public Number AsNumber { get; set; }
+}
+public class InputRefPrntAltInp
+  : IRefPrntAltInp
+{
+  public Number parent { get; set; }
+  public String AsString { get; set; }
+}

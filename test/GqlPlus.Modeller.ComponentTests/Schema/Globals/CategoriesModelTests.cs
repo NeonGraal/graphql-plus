@@ -58,7 +58,7 @@ internal sealed class CategoriesModelChecks(
   public CategoriesModel ToModel(IGqlpSchemaCategory? ast, string output)
     => new() {
       And = _modeller.TryModel(ast, TypeKinds),
-      Type = string.IsNullOrWhiteSpace(output) ? null : typeOutput.ToModel(new OutputDeclAst(AstNulls.At, output), TypeKinds),
+      Type = output.IsWhiteSpace() ? null : typeOutput.ToModel(new OutputDeclAst(AstNulls.At, output), TypeKinds),
     };
 }
 

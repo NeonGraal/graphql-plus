@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_output-constraint-parent-enum_Intf.gen.cs
-// Generated from output-constraint-parent-enum.graphql+
+// Generated from output-constraint-parent-enum.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_output_constraint_parent_enum;
 
 public interface IOutpCnstPrntEnum

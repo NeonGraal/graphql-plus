@@ -5,11 +5,10 @@ output _Setting {
     }
 */
 
-// Generated from Spec Intro_Option
+// Generated from Spec Intro_Option for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Spec_Intro_Option;
 public class Output_Setting
   : Output_Named

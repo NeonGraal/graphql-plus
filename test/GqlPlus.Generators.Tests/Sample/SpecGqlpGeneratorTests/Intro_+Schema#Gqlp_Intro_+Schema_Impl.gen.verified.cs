@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_Intro_+Schema_Impl.gen.cs
-// Generated from Intro_+Schema.graphql+
+// Generated from Intro_+Schema.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro__Schema;
 public class Output_Schema
   : Output_Named

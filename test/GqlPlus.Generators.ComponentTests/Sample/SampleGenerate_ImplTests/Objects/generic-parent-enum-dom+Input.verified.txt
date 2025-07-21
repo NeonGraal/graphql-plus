@@ -5,11 +5,10 @@ enum EnumGnrcPrntEnumDomInp { gnrcPrntEnumDomInpLabel gnrcPrntEnumDomInpOther }
 domain DomGnrcPrntEnumDomInp { enum gnrcPrntEnumDomInpLabel }
 */
 
-// Generated from Sample generic-parent-enum-dom+Input
+// Generated from Sample generic-parent-enum-dom+Input for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_parent_enum_dom_Input;
 public class InputGnrcPrntEnumDomInp
   : InputFieldGnrcPrntEnumDomInp

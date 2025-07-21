@@ -2,11 +2,10 @@
 dual FieldTypeDescrDual { field: "Test" "Descr" Number }
 */
 
-// Generated from Sample field-type-descr+Dual
+// Generated from Sample field-type-descr+Dual for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_field_type_descr_Dual;
 
 public interface IFieldTypeDescrDual

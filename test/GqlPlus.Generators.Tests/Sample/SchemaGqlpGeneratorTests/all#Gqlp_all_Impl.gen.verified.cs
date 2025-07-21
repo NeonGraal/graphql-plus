@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_all_Impl.gen.cs
-// Generated from all.graphql+
+// Generated from all.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_all;
 public class DomainGuid
   : IGuid

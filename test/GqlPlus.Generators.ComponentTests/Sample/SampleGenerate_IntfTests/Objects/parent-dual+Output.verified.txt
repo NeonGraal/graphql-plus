@@ -3,11 +3,10 @@ output PrntDualOutp { :RefPrntDualOutp }
 dual RefPrntDualOutp { parent: Number | String }
 */
 
-// Generated from Sample parent-dual+Output
+// Generated from Sample parent-dual+Output for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_parent_dual_Output;
 
 public interface IPrntDualOutp

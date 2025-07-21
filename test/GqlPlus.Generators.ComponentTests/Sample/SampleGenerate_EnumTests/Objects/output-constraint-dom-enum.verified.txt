@@ -5,11 +5,10 @@ enum EnumOutpCnstDomEnum { outpCnstDomEnum other }
 domain JustOutpCnstDomEnum { enum EnumOutpCnstDomEnum.outpCnstDomEnum }
 */
 
-// Generated from Sample output-constraint-dom-enum
+// Generated from Sample output-constraint-dom-enum for Enum
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_output_constraint_dom_enum;
 
 public enum EnumOutpCnstDomEnum

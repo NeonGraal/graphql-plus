@@ -2,11 +2,10 @@
 input GnrcAltInp<$type:String> { | $type }
 */
 
-// Generated from Sample generic-alt+Input
+// Generated from Sample generic-alt+Input for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_alt_Input;
 public class InputGnrcAltInp<Ttype>
   : IGnrcAltInp<Ttype>

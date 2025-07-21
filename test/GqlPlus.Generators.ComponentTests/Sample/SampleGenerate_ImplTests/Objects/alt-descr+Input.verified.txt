@@ -2,11 +2,10 @@
 input AltDescrInp { | "Test" "Descr" String }
 */
 
-// Generated from Sample alt-descr+Input
+// Generated from Sample alt-descr+Input for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_alt_descr_Input;
 public class InputAltDescrInp
   : IAltDescrInp

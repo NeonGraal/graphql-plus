@@ -3,11 +3,10 @@ output AltOutp { | AltAltOutp }
 output AltAltOutp { alt: Number | String }
 */
 
-// Generated from Sample alt+Output
+// Generated from Sample alt+Output for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_alt_Output;
 
 public interface IAltOutp

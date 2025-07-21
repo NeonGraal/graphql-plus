@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_+Globals_Impl.gen.cs
-// Generated from +Globals.graphql+
+// Generated from +Globals.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp__Globals;
 public class OutputCtgrDscrs
   : ICtgrDscrs

@@ -4,11 +4,10 @@ output ObjFieldOutp { field: FldObjFieldOutp }
 output FldObjFieldOutp { }
 */
 
-// Generated from Sample object-field+Output
+// Generated from Sample object-field+Output for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_object_field_Output;
 
 public interface IObjFieldOutp

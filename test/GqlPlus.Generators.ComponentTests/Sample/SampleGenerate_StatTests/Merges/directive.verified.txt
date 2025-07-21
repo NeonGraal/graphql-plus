@@ -3,10 +3,10 @@ directive @Drct { inline }
 directive @Drct { spread }
 */
 
-// Generated from Sample directive
+// Generated from Sample directive for Stat
 
 /*
+
 Directive Drct
 */
-
 namespace GqlPlus.Gqlp_Sample_directive;

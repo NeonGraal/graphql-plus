@@ -3,11 +3,10 @@ output OutpFieldEnum { field = EnumOutpFieldEnum.outpFieldEnum }
 enum EnumOutpFieldEnum { outpFieldEnum }
 */
 
-// Generated from Sample output-field-enum
+// Generated from Sample output-field-enum for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_output_field_enum;
 
 public interface IOutpFieldEnum

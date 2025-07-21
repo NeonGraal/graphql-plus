@@ -2,11 +2,10 @@
 dual GnrcPrntDescrDual<$type:String> { :"Parent comment"$type }
 */
 
-// Generated from Sample generic-parent-descr+Dual
+// Generated from Sample generic-parent-descr+Dual for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_parent_descr_Dual;
 public class DualGnrcPrntDescrDual<Ttype>
   : Dualtype

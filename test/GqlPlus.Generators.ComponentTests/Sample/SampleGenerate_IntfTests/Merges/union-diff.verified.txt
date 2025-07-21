@@ -3,11 +3,10 @@ union UnionDiff { Boolean }
 union UnionDiff { Number }
 */
 
-// Generated from Sample union-diff
+// Generated from Sample union-diff for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_union_diff;
 
 public interface IUnionDiff

@@ -3,11 +3,10 @@ domain DmnEnumAllDescr { enum "DomAll" "Descr" EnumDmnEnumAllDescr.* }
 enum EnumDmnEnumAllDescr { dmnEnumAllDescr enum_dmnEnumAllDescr }
 */
 
-// Generated from Sample domain-enum-all-descr
+// Generated from Sample domain-enum-all-descr for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_domain_enum_all_descr;
 
 public interface IDmnEnumAllDescr

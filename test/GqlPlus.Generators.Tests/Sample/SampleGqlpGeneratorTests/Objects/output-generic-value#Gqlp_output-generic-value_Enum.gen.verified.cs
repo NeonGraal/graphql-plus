@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_output-generic-value_Enum.gen.cs
-// Generated from output-generic-value.graphql+
+// Generated from output-generic-value.graphql+ for Enum
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_output_generic_value;
 
 public enum EnumOutpGnrcValue

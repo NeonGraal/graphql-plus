@@ -5,11 +5,10 @@ input PrntCnstFieldObjInp { | String }
 input AltCnstFieldObjInp { :PrntCnstFieldObjInp alt: Number }
 */
 
-// Generated from Sample constraint-field-obj+Input
+// Generated from Sample constraint-field-obj+Input for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_constraint_field_obj_Input;
 public class InputCnstFieldObjInp
   : InputRefCnstFieldObjInp

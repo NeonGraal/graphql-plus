@@ -4,11 +4,10 @@ output RefGnrcAltParamOutp<$ref:_Output> { | $ref }
 output AltGnrcAltParamOutp { alt: Number | String }
 */
 
-// Generated from Sample generic-alt-param+Output
+// Generated from Sample generic-alt-param+Output for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_alt_param_Output;
 
 public interface IGnrcAltParamOutp

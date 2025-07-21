@@ -3,11 +3,10 @@ output OutpFieldEnumValue { field = Boolean.true }
 output OutpFieldEnumValue { field = true }
 */
 
-// Generated from Sample output-field-enum-value
+// Generated from Sample output-field-enum-value for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_output_field_enum_value;
 public class OutputOutpFieldEnumValue
   : IOutpFieldEnumValue

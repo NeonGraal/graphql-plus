@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_Intro_Enum_Impl.gen.cs
-// Generated from Intro_Enum.graphql+
+// Generated from Intro_Enum.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro_Enum;
 public class Output_TypeEnum
   : Output_ParentType

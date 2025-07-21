@@ -2,10 +2,10 @@
 option Schema { global=true }
 */
 
-// Generated from Sample option-setting
+// Generated from Sample option-setting for Stat
 
 /*
+
 Option Schema
 */
-
 namespace GqlPlus.Gqlp_Sample_option_setting;

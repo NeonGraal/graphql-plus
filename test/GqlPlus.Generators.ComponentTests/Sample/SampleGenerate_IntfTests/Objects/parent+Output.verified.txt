@@ -3,11 +3,10 @@ output PrntOutp { :RefPrntOutp }
 output RefPrntOutp { parent: Number | String }
 */
 
-// Generated from Sample parent+Output
+// Generated from Sample parent+Output for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_parent_Output;
 
 public interface IPrntOutp

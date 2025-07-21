@@ -3,11 +3,10 @@ dual PrntFieldDual { :RefPrntFieldDual field: Number }
 dual RefPrntFieldDual { parent: Number | String }
 */
 
-// Generated from Sample parent-field+Dual
+// Generated from Sample parent-field+Dual for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_parent_field_Dual;
 
 public interface IPrntFieldDual

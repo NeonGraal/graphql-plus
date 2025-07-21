@@ -4,11 +4,10 @@ input ObjFieldAliasInp { field [field2]: FldObjFieldAliasInp }
 input FldObjFieldAliasInp { }
 */
 
-// Generated from Sample object-field-alias+Input
+// Generated from Sample object-field-alias+Input for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_object_field_alias_Input;
 public class InputObjFieldAliasInp
   : IObjFieldAliasInp

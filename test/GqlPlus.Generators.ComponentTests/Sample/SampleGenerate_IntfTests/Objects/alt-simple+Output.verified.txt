@@ -2,11 +2,10 @@
 output AltSmplOutp { | String }
 */
 
-// Generated from Sample alt-simple+Output
+// Generated from Sample alt-simple+Output for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_alt_simple_Output;
 
 public interface IAltSmplOutp

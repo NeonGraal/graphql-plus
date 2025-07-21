@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_object-parent+Input_Intf.gen.cs
-// Generated from object-parent+Input.graphql+
+// Generated from object-parent+Input.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_object_parent_Input;
 
 public interface IObjPrntInp

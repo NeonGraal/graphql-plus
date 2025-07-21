@@ -3,11 +3,10 @@ input GnrcAltArgDescrInp<$type:String> { | RefGnrcAltArgDescrInp<"Test" "Descr"$
 input RefGnrcAltArgDescrInp<$ref:String> { | $ref }
 */
 
-// Generated from Sample generic-alt-arg-descr+Input
+// Generated from Sample generic-alt-arg-descr+Input for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_alt_arg_descr_Input;
 
 public interface IGnrcAltArgDescrInp<Ttype>

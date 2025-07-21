@@ -4,11 +4,10 @@ dual RefCnstAltDmnDual<$ref:String> { | $ref }
 domain DomCnstAltDmnDual { String /\w+/ }
 */
 
-// Generated from Sample constraint-alt-domain+Dual
+// Generated from Sample constraint-alt-domain+Dual for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_constraint_alt_domain_Dual;
 public class DualCnstAltDmnDual
   : ICnstAltDmnDual

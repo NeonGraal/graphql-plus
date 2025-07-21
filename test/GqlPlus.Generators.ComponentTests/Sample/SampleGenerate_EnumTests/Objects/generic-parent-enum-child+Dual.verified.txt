@@ -5,11 +5,10 @@ enum EnumGnrcPrntEnumChildDual { :ParentGnrcPrntEnumChildDual gnrcPrntEnumChildD
 enum ParentGnrcPrntEnumChildDual { gnrcPrntEnumChildDualParent }
 */
 
-// Generated from Sample generic-parent-enum-child+Dual
+// Generated from Sample generic-parent-enum-child+Dual for Enum
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_parent_enum_child_Dual;
 
 public enum EnumGnrcPrntEnumChildDual

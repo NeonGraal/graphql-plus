@@ -58,11 +58,10 @@ output _ForParam<$base:_ObjBase> {
     }
 */
 
-// Generated from Spec Intro_Base
+// Generated from Spec Intro_Base for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Spec_Intro_Base;
 
 public interface I_ObjectKind

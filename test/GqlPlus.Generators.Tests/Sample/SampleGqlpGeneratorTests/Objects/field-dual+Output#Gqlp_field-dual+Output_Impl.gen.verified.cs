@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_field-dual+Output_Impl.gen.cs
-// Generated from field-dual+Output.graphql+
+// Generated from field-dual+Output.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_field_dual_Output;
 public class OutputFieldDualOutp
   : IFieldDualOutp

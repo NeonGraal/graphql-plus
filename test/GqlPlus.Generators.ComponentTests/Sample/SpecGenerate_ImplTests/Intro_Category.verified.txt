@@ -16,11 +16,10 @@ output _Category {
 enum _Resolution { Parallel Sequential Single }
 */
 
-// Generated from Spec Intro_Category
+// Generated from Spec Intro_Category for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Spec_Intro_Category;
 public class Output_Categories
   : I_Categories

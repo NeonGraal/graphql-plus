@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_generic-parent-dual+Output_Impl.gen.cs
-// Generated from generic-parent-dual+Output.graphql+
+// Generated from generic-parent-dual+Output.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_parent_dual_Output;
 public class OutputGnrcPrntDualOutp
   : OutputRefGnrcPrntDualOutp

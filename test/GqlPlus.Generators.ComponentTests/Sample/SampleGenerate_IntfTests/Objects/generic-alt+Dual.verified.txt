@@ -2,11 +2,10 @@
 dual GnrcAltDual<$type:String> { | $type }
 */
 
-// Generated from Sample generic-alt+Dual
+// Generated from Sample generic-alt+Dual for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_alt_Dual;
 
 public interface IGnrcAltDual<Ttype>

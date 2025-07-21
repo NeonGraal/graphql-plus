@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_Intro_Built-In_Intf.gen.cs
-// Generated from Intro_Built-In.graphql+
+// Generated from Intro_Built-In.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro_Built_In;
 
 public interface I_Constant

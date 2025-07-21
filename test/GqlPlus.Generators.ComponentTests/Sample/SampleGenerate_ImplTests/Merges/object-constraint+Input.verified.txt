@@ -3,11 +3,10 @@ input ObjCnstInp<$type:String> { field: $type }
 input ObjCnstInp<$type:String> { str: $type }
 */
 
-// Generated from Sample object-constraint+Input
+// Generated from Sample object-constraint+Input for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_object_constraint_Input;
 public class InputObjCnstInp<Ttype>
   : IObjCnstInp<Ttype>

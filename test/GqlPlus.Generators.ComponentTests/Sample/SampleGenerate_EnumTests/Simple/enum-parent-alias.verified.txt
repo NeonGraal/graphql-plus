@@ -3,11 +3,10 @@ enum EnumPrntAlias { :PrntEnumPrntAlias val_enumPrntAlias prnt_enumPrntAlias[enu
 enum PrntEnumPrntAlias { prnt_enumPrntAlias }
 */
 
-// Generated from Sample enum-parent-alias
+// Generated from Sample enum-parent-alias for Enum
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_enum_parent_alias;
 
 public enum EnumPrntAlias

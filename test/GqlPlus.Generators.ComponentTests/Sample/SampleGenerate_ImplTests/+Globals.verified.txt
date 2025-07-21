@@ -1,8 +1,11 @@
-﻿// Generated from Sample +Globals
+﻿/* +Globals
+
+*/
+
+// Generated from Sample +Globals for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_Globals;
 public class OutputCtgrDscrs
   : ICtgrDscrs

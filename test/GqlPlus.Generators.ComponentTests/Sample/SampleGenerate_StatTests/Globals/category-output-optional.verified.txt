@@ -3,10 +3,10 @@ category { CtgrOutpOptl? }
 output CtgrOutpOptl { }
 */
 
-// Generated from Sample category-output-optional
+// Generated from Sample category-output-optional for Stat
 
 /*
+
 Category ctgrOutpOptl
 */
-
 namespace GqlPlus.Gqlp_Sample_category_output_optional;

@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_union-parent_Intf.gen.cs
-// Generated from union-parent.graphql+
+// Generated from union-parent.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_union_parent;
 
 public interface IUnionPrnt

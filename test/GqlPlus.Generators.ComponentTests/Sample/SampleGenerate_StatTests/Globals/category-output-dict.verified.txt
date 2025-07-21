@@ -3,10 +3,10 @@ category { CtgrOutpDict[*] }
 output CtgrOutpDict { }
 */
 
-// Generated from Sample category-output-dict
+// Generated from Sample category-output-dict for Stat
 
 /*
+
 Category ctgrOutpDict
 */
-
 namespace GqlPlus.Gqlp_Sample_category_output_dict;

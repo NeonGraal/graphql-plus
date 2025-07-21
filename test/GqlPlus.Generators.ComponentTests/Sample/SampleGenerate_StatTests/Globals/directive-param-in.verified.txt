@@ -3,10 +3,10 @@ directive @DrctParamIn(InDrctParamIn) { all }
 input InDrctParamIn { }
 */
 
-// Generated from Sample directive-param-in
+// Generated from Sample directive-param-in for Stat
 
 /*
+
 Directive DrctParamIn
 */
-
 namespace GqlPlus.Gqlp_Sample_directive_param_in;

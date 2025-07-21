@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_enum-value-alias_Enum.gen.cs
-// Generated from enum-value-alias.graphql+
+// Generated from enum-value-alias.graphql+ for Enum
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_enum_value_alias;
 
 public enum EnumValueAlias

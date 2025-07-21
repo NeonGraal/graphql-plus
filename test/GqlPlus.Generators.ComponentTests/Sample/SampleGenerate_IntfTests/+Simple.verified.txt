@@ -1,8 +1,11 @@
-﻿// Generated from Sample +Simple
+﻿/* +Simple
+
+*/
+
+// Generated from Sample +Simple for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_Simple;
 
 public interface IDmnBoolDescr

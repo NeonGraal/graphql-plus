@@ -2,11 +2,10 @@
 domain DmnStrDescr { String "DomString" "Descr" /a+/ }
 */
 
-// Generated from Sample domain-string-descr
+// Generated from Sample domain-string-descr for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_domain_string_descr;
 public class DomainDmnStrDescr
   : IDmnStrDescr

@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_object-param-dup+Dual_Intf.gen.cs
-// Generated from object-param-dup+Dual.graphql+
+// Generated from object-param-dup+Dual.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_object_param_dup_Dual;
 
 public interface IObjParamDupDual<Ttest>

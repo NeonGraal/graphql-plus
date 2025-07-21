@@ -3,10 +3,10 @@ directive @DrctParamOpt(InDrctParamOpt?) { all }
 input InDrctParamOpt { }
 */
 
-// Generated from Sample directive-param-opt
+// Generated from Sample directive-param-opt for Stat
 
 /*
+
 Directive DrctParamOpt
 */
-
 namespace GqlPlus.Gqlp_Sample_directive_param_opt;

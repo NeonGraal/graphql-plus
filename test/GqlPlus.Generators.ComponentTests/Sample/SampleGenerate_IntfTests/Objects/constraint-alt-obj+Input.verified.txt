@@ -5,11 +5,10 @@ input PrntCnstAltObjInp { | String }
 input AltCnstAltObjInp { :PrntCnstAltObjInp alt: Number }
 */
 
-// Generated from Sample constraint-alt-obj+Input
+// Generated from Sample constraint-alt-obj+Input for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_constraint_alt_obj_Input;
 
 public interface ICnstAltObjInp

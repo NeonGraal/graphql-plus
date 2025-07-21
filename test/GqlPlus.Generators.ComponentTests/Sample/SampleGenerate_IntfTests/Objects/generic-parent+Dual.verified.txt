@@ -2,11 +2,10 @@
 dual GnrcPrntDual<$type:String> { :$type }
 */
 
-// Generated from Sample generic-parent+Dual
+// Generated from Sample generic-parent+Dual for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_parent_Dual;
 
 public interface IGnrcPrntDual<Ttype>

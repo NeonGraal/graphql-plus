@@ -4,11 +4,10 @@ category [CatM2] { CtgrMod? }
 output CtgrMod { }
 */
 
-// Generated from Sample category-mod
+// Generated from Sample category-mod for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_category_mod;
 public class OutputCtgrMod
   : ICtgrMod

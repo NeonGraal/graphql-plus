@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_+Objects_Intf.gen.cs
-// Generated from +Objects.graphql+
+// Generated from +Objects.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp__Objects;
 
 public interface IAltDual

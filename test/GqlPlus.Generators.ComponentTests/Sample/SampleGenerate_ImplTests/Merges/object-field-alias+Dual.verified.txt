@@ -4,11 +4,10 @@ dual ObjFieldAliasDual { field [field2]: FldObjFieldAliasDual }
 dual FldObjFieldAliasDual { }
 */
 
-// Generated from Sample object-field-alias+Dual
+// Generated from Sample object-field-alias+Dual for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_object_field_alias_Dual;
 public class DualObjFieldAliasDual
   : IObjFieldAliasDual

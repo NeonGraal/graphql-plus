@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_-ALL_Intf.gen.cs
-// Generated from -ALL.graphql+
+// Generated from -ALL.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp__ALL;
 
 public interface ICtgrDscrs

@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_+Merges_Enum.gen.cs
-// Generated from +Merges.graphql+
+// Generated from +Merges.graphql+ for Enum
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp__Merges;
 
 public enum EnumAlias

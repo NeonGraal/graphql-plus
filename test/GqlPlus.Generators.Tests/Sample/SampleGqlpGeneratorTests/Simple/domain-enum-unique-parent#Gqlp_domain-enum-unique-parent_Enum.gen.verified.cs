@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_domain-enum-unique-parent_Enum.gen.cs
-// Generated from domain-enum-unique-parent.graphql+
+// Generated from domain-enum-unique-parent.graphql+ for Enum
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_domain_enum_unique_parent;
 
 public enum EnumDmnEnumUnqPrnt

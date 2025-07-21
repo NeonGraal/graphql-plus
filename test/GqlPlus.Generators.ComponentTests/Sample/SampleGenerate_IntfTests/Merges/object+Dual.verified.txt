@@ -3,11 +3,10 @@ dual ObjDual { }
 dual ObjDual { }
 */
 
-// Generated from Sample object+Dual
+// Generated from Sample object+Dual for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_object_Dual;
 
 public interface IObjDual

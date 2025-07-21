@@ -151,11 +151,10 @@ output _OutputEnum {
     }
 */
 
-// Generated from Spec Intro_+Object
+// Generated from Spec Intro_+Object for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Spec_Intro__Object;
 public class Domain_ObjectKind
   : I_ObjectKind

@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_object-alt+Output_Intf.gen.cs
-// Generated from object-alt+Output.graphql+
+// Generated from object-alt+Output.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_object_alt_Output;
 
 public interface IObjAltOutp

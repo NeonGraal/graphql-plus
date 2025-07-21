@@ -1,7 +1,8 @@
 ﻿//HintName: Gqlp_-ALL_Stat.gen.cs
-// Generated from -ALL.graphql+
+// Generated from -ALL.graphql+ for Stat
 
 /*
+
 Category ctgrDscrs
 Category ctgrOutp
 Category ctgrOutpDescr
@@ -24,5 +25,4 @@ Directive DrctAlias
 Directive DrctParam
 Option Schema
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp__ALL;

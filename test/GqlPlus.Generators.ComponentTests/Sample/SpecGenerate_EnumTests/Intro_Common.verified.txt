@@ -43,11 +43,10 @@ output _TypeSimple {
     }
 */
 
-// Generated from Spec Intro_Common
+// Generated from Spec Intro_Common for Enum
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Spec_Intro_Common;
 
 public enum _SimpleKind

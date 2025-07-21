@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_default_Impl.gen.cs
-// Generated from default.graphql+
+// Generated from default.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_default;
 public class OutputQuery
   : IQuery

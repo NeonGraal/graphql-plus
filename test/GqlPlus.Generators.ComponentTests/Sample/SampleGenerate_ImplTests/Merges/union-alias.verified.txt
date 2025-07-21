@@ -3,11 +3,10 @@ union UnionAlias [UnA1] { Boolean }
 union UnionAlias [UnA2] { Number }
 */
 
-// Generated from Sample union-alias
+// Generated from Sample union-alias for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_union_alias;
 public class UnionUnionAlias
   : IUnionAlias

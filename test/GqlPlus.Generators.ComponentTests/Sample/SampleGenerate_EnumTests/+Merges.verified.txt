@@ -1,8 +1,11 @@
-﻿// Generated from Sample +Merges
+﻿/* +Merges
+
+*/
+
+// Generated from Sample +Merges for Enum
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_Merges;
 
 public enum EnumAlias

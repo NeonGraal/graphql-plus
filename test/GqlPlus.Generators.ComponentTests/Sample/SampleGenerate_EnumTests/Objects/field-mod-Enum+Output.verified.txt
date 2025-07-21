@@ -3,11 +3,10 @@ output FieldModEnumOutp { field: String[EnumFieldModEnumOutp] }
 enum EnumFieldModEnumOutp { value }
 */
 
-// Generated from Sample field-mod-Enum+Output
+// Generated from Sample field-mod-Enum+Output for Enum
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_field_mod_Enum_Output;
 
 public enum EnumFieldModEnumOutp

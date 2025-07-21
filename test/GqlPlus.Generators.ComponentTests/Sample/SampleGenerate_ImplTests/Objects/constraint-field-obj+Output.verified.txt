@@ -5,11 +5,10 @@ output PrntCnstFieldObjOutp { | String }
 output AltCnstFieldObjOutp { :PrntCnstFieldObjOutp alt: Number }
 */
 
-// Generated from Sample constraint-field-obj+Output
+// Generated from Sample constraint-field-obj+Output for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_constraint_field_obj_Output;
 public class OutputCnstFieldObjOutp
   : OutputRefCnstFieldObjOutp

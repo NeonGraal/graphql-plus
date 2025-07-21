@@ -3,10 +3,10 @@ category { "Output comment" CtgrOutpDescr }
 output CtgrOutpDescr { }
 */
 
-// Generated from Sample category-output-descr
+// Generated from Sample category-output-descr for Stat
 
 /*
+
 Category ctgrOutpDescr
 */
-
 namespace GqlPlus.Gqlp_Sample_category_output_descr;

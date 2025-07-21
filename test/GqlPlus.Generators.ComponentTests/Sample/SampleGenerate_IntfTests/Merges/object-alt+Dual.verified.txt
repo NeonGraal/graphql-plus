@@ -4,11 +4,10 @@ dual ObjAltDual { | ObjAltDualType }
 dual ObjAltDualType { }
 */
 
-// Generated from Sample object-alt+Dual
+// Generated from Sample object-alt+Dual for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_object_alt_Dual;
 
 public interface IObjAltDual

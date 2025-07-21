@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_parent-field+Output_Impl.gen.cs
-// Generated from parent-field+Output.graphql+
+// Generated from parent-field+Output.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_parent_field_Output;
 public class OutputPrntFieldOutp
   : OutputRefPrntFieldOutp

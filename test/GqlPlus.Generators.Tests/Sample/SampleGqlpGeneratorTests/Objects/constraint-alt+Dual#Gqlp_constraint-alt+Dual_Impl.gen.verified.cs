@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_constraint-alt+Dual_Impl.gen.cs
-// Generated from constraint-alt+Dual.graphql+
+// Generated from constraint-alt+Dual.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_constraint_alt_Dual;
 public class DualCnstAltDual<Ttype>
   : ICnstAltDual<Ttype>

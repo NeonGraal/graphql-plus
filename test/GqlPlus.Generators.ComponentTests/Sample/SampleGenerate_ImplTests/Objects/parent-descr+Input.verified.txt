@@ -3,11 +3,10 @@ input PrntDescrInp { : "Test" "Descr" RefPrntDescrInp }
 input RefPrntDescrInp { parent: Number | String }
 */
 
-// Generated from Sample parent-descr+Input
+// Generated from Sample parent-descr+Input for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_parent_descr_Input;
 public class InputPrntDescrInp
   : InputRefPrntDescrInp

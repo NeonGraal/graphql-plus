@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_output-generic-enum_Intf.gen.cs
-// Generated from output-generic-enum.graphql+
+// Generated from output-generic-enum.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_output_generic_enum;
 
 public interface IOutpGnrcEnum

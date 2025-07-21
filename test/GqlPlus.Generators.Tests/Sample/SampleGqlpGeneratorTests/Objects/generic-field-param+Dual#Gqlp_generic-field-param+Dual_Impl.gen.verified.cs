@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_generic-field-param+Dual_Impl.gen.cs
-// Generated from generic-field-param+Dual.graphql+
+// Generated from generic-field-param+Dual.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_field_param_Dual;
 public class DualGnrcFieldParamDual
   : IGnrcFieldParamDual

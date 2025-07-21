@@ -2,11 +2,10 @@
 input GnrcDescrInp<"Test" "Descr" $type:String> { field: $type }
 */
 
-// Generated from Sample generic-descr+Input
+// Generated from Sample generic-descr+Input for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_descr_Input;
 
 public interface IGnrcDescrInp<Ttype>

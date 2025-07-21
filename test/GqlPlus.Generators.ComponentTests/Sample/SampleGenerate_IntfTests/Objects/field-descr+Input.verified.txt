@@ -2,11 +2,10 @@
 input FieldDescrInp { "Test" "Descr" field: String }
 */
 
-// Generated from Sample field-descr+Input
+// Generated from Sample field-descr+Input for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_field_descr_Input;
 
 public interface IFieldDescrInp

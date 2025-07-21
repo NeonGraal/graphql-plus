@@ -5,11 +5,10 @@ dual PrntCnstPrntObjPrntDual { | String }
 dual AltCnstPrntObjPrntDual { :PrntCnstPrntObjPrntDual alt: Number }
 */
 
-// Generated from Sample constraint-parent-obj-parent+Dual
+// Generated from Sample constraint-parent-obj-parent+Dual for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_constraint_parent_obj_parent_Dual;
 public class DualCnstPrntObjPrntDual
   : DualRefCnstPrntObjPrntDual

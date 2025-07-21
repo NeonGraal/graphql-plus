@@ -5,11 +5,10 @@ dual PrntCnstFieldObjDual { | String }
 dual AltCnstFieldObjDual { :PrntCnstFieldObjDual alt: Number }
 */
 
-// Generated from Sample constraint-field-obj+Dual
+// Generated from Sample constraint-field-obj+Dual for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_constraint_field_obj_Dual;
 public class DualCnstFieldObjDual
   : DualRefCnstFieldObjDual

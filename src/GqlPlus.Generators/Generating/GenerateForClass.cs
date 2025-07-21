@@ -12,9 +12,9 @@ internal abstract class GenerateForClass<T>
 
     if (context.GeneratorOptions.GeneratorType == GqlpGeneratorType.Implementation) {
       ClassHeader(ast, context);
-      context.AppendLine("{");
+      context.Write("{");
       ClassBody(ast, context);
-      context.AppendLine("}");
+      context.Write("}");
     }
   }
 
@@ -26,8 +26,8 @@ internal abstract class GenerateForClass<T>
   }
 
   protected virtual void ClassHeader(T ast, GqlpGeneratorContext context)
-    => context.AppendLine($"public class {TypePrefix}{ast.Name}");
+    => context.Write($"public class {TypePrefix}{ast.Name}");
 
   protected virtual void ClassMember(MapPair<string> item, GqlpGeneratorContext context)
-    => context.AppendLine($"  public {item.Value} {item.Key} {{ get; set; }}");
+    => context.Write($"  public {item.Value} {item.Key} {{ get; set; }}");
 }

@@ -5,11 +5,10 @@ output PrntCnstPrntObjPrntOutp { | String }
 output AltCnstPrntObjPrntOutp { :PrntCnstPrntObjPrntOutp alt: Number }
 */
 
-// Generated from Sample constraint-parent-obj-parent+Output
+// Generated from Sample constraint-parent-obj-parent+Output for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_constraint_parent_obj_parent_Output;
 public class OutputCnstPrntObjPrntOutp
   : OutputRefCnstPrntObjPrntOutp

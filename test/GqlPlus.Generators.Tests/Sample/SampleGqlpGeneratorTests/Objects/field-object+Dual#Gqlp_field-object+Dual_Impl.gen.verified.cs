@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_field-object+Dual_Impl.gen.cs
-// Generated from field-object+Dual.graphql+
+// Generated from field-object+Dual.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_field_object_Dual;
 public class DualFieldObjDual
   : IFieldObjDual

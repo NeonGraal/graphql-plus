@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_Intro_+Type_Enum.gen.cs
-// Generated from Intro_+Type.graphql+
+// Generated from Intro_+Type.graphql+ for Enum
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro__Type;
 
 public enum _SimpleKind

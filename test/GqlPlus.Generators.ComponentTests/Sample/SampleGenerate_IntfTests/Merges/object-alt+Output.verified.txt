@@ -4,11 +4,10 @@ output ObjAltOutp { | ObjAltOutpType }
 output ObjAltOutpType { }
 */
 
-// Generated from Sample object-alt+Output
+// Generated from Sample object-alt+Output for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_object_alt_Output;
 
 public interface IObjAltOutp

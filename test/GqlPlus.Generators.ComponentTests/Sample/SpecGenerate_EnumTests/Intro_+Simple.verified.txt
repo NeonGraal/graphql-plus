@@ -105,11 +105,10 @@ output _UnionMember {
     }
 */
 
-// Generated from Spec Intro_+Simple
+// Generated from Spec Intro_+Simple for Enum
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Spec_Intro__Simple;
 
 public enum _DomainKind

@@ -4,11 +4,10 @@ output RefOutpGnrcEnum<$type:_Enum> { field: $type }
 enum EnumOutpGnrcEnum { outpGnrcEnum }
 */
 
-// Generated from Sample output-generic-enum
+// Generated from Sample output-generic-enum for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_output_generic_enum;
 public class OutputOutpGnrcEnum
   : IOutpGnrcEnum

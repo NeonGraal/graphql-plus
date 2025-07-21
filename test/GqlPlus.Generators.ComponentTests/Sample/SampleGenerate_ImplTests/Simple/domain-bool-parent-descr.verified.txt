@@ -3,11 +3,10 @@ domain DmnBoolPrntDescr { :"Parent comment"PrntDmnBoolPrntDescr Boolean false }
 domain PrntDmnBoolPrntDescr { Boolean true }
 */
 
-// Generated from Sample domain-bool-parent-descr
+// Generated from Sample domain-bool-parent-descr for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_domain_bool_parent_descr;
 public class DomainDmnBoolPrntDescr
   : DomainPrntDmnBoolPrntDescr

@@ -3,11 +3,10 @@ dual PrntDual { :RefPrntDual }
 dual RefPrntDual { parent: Number | String }
 */
 
-// Generated from Sample parent+Dual
+// Generated from Sample parent+Dual for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_parent_Dual;
 
 public interface IPrntDual

@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_Intro_Dual_Impl.gen.cs
-// Generated from Intro_Dual.graphql+
+// Generated from Intro_Dual.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro_Dual;
 public class Output_TypeDual
   : Output_TypeObject

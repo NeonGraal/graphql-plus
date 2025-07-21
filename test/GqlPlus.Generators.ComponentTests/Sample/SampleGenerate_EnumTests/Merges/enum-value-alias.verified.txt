@@ -3,11 +3,10 @@ enum EnumValueAlias { enumValueAlias [val1] }
 enum EnumValueAlias { enumValueAlias [val2] }
 */
 
-// Generated from Sample enum-value-alias
+// Generated from Sample enum-value-alias for Enum
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_enum_value_alias;
 
 public enum EnumValueAlias

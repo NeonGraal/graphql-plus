@@ -4,10 +4,10 @@ category [CatM2] { CtgrMod? }
 output CtgrMod { }
 */
 
-// Generated from Sample category-mod
+// Generated from Sample category-mod for Stat
 
 /*
+
 Category ctgrMod
 */
-
 namespace GqlPlus.Gqlp_Sample_category_mod;

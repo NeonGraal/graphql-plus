@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_generic-alt-mod-String+Dual_Intf.gen.cs
-// Generated from generic-alt-mod-String+Dual.graphql+
+// Generated from generic-alt-mod-String+Dual.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_alt_mod_String_Dual;
 
 public interface IRefGnrcAltModStrDual<Tref>

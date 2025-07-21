@@ -26,11 +26,10 @@ output All {
     }
 */
 
-// Generated from Schema all
+// Generated from Schema all for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Schema_all;
 public class DomainGuid
   : IGuid

@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_field-mod-param+Output_Intf.gen.cs
-// Generated from field-mod-param+Output.graphql+
+// Generated from field-mod-param+Output.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_field_mod_param_Output;
 
 public interface IFieldModParamOutp<Tmod>

@@ -5,11 +5,10 @@ output PrntCnstAltObjOutp { | String }
 output AltCnstAltObjOutp { :PrntCnstAltObjOutp alt: Number }
 */
 
-// Generated from Sample constraint-alt-obj+Output
+// Generated from Sample constraint-alt-obj+Output for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_constraint_alt_obj_Output;
 
 public interface ICnstAltObjOutp

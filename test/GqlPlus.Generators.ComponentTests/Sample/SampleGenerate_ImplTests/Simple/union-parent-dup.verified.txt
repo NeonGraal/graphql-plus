@@ -3,11 +3,10 @@ union UnionPrntDup { :PrntUnionPrntDup Number }
 union PrntUnionPrntDup { Number }
 */
 
-// Generated from Sample union-parent-dup
+// Generated from Sample union-parent-dup for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_union_parent_dup;
 public class UnionUnionPrntDup
   : UnionPrntUnionPrntDup

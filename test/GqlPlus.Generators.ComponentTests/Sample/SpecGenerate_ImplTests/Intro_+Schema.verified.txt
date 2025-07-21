@@ -47,11 +47,10 @@ dual _Described {
     }
 */
 
-// Generated from Spec Intro_+Schema
+// Generated from Spec Intro_+Schema for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Spec_Intro__Schema;
 public class Output_Schema
   : Output_Named

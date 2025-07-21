@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_Intro_Names_Intf.gen.cs
-// Generated from Intro_Names.graphql+
+// Generated from Intro_Names.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro_Names;
 
 public interface I_Aliased

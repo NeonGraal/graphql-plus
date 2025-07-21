@@ -2,11 +2,10 @@
 dual GnrcFieldDual<$type:String> { field: $type }
 */
 
-// Generated from Sample generic-field+Dual
+// Generated from Sample generic-field+Dual for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_field_Dual;
 
 public interface IGnrcFieldDual<Ttype>

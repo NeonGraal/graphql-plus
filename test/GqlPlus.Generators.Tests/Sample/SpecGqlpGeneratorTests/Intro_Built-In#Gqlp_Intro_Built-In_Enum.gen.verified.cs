@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_Intro_Built-In_Enum.gen.cs
-// Generated from Intro_Built-In.graphql+
+// Generated from Intro_Built-In.graphql+ for Enum
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro_Built_In;
 
 public enum _ModifierKind

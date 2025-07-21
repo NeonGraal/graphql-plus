@@ -1,8 +1,11 @@
-﻿// Generated from Sample !ALL
+﻿/* !ALL
+
+*/
+
+// Generated from Sample !ALL for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_ALL;
 
 public interface ICtgrDscrs

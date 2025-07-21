@@ -2,11 +2,10 @@
 dual FieldDescrDual { "Test" "Descr" field: String }
 */
 
-// Generated from Sample field-descr+Dual
+// Generated from Sample field-descr+Dual for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_field_descr_Dual;
 public class DualFieldDescrDual
   : IFieldDescrDual

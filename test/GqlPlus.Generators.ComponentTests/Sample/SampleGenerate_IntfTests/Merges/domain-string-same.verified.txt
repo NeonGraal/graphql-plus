@@ -3,11 +3,10 @@ domain DmnStrSame { string /a+/ }
 domain DmnStrSame { string /a+/ }
 */
 
-// Generated from Sample domain-string-same
+// Generated from Sample domain-string-same for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_domain_string_same;
 
 public interface IDmnStrSame

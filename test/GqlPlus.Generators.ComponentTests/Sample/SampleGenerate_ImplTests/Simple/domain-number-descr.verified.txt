@@ -2,11 +2,10 @@
 domain DmnNmbrDescr { Number "DomNumber" "Descr" <2 }
 */
 
-// Generated from Sample domain-number-descr
+// Generated from Sample domain-number-descr for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_domain_number_descr;
 public class DomainDmnNmbrDescr
   : IDmnNmbrDescr

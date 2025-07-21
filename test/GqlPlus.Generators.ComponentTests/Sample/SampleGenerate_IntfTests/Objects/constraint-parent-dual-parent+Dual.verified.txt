@@ -5,11 +5,10 @@ dual PrntCnstPrntDualPrntDual { | String }
 dual AltCnstPrntDualPrntDual { :PrntCnstPrntDualPrntDual alt: Number }
 */
 
-// Generated from Sample constraint-parent-dual-parent+Dual
+// Generated from Sample constraint-parent-dual-parent+Dual for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_constraint_parent_dual_parent_Dual;
 
 public interface ICnstPrntDualPrntDual

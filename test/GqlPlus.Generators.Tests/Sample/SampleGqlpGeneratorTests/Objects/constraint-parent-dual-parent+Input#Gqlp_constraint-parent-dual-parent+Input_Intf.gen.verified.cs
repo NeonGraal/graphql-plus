@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_constraint-parent-dual-parent+Input_Intf.gen.cs
-// Generated from constraint-parent-dual-parent+Input.graphql+
+// Generated from constraint-parent-dual-parent+Input.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_constraint_parent_dual_parent_Input;
 
 public interface ICnstPrntDualPrntInp

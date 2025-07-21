@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_object-field-alias+Input_Impl.gen.cs
-// Generated from object-field-alias+Input.graphql+
+// Generated from object-field-alias+Input.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_object_field_alias_Input;
 public class InputObjFieldAliasInp
   : IObjFieldAliasInp

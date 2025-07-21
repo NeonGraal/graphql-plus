@@ -2,11 +2,10 @@
 input AltSmplInp { | String }
 */
 
-// Generated from Sample alt-simple+Input
+// Generated from Sample alt-simple+Input for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_alt_simple_Input;
 
 public interface IAltSmplInp

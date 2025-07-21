@@ -13,11 +13,10 @@ output _UnionMember {
     }
 */
 
-// Generated from Spec Intro_Union
+// Generated from Spec Intro_Union for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Spec_Intro_Union;
 
 public interface I_TypeUnion

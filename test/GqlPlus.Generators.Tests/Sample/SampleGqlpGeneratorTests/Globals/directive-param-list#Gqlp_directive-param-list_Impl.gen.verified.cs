@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_directive-param-list_Impl.gen.cs
-// Generated from directive-param-list.graphql+
+// Generated from directive-param-list.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_directive_param_list;
 public class InputInDrctParamList
   : IInDrctParamList

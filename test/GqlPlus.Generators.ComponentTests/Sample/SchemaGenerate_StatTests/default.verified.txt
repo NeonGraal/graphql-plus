@@ -11,12 +11,12 @@ output Subscription { }
 output _Schema { }
 */
 
-// Generated from Schema default
+// Generated from Schema default for Stat
 
 /*
+
 Category query
 Category mutation
 Category subscription
 */
-
 namespace GqlPlus.Gqlp_Schema_default;

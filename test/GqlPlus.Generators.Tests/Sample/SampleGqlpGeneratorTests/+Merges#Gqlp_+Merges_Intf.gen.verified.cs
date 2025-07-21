@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_+Merges_Intf.gen.cs
-// Generated from +Merges.graphql+
+// Generated from +Merges.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp__Merges;
 
 public interface ICtgr

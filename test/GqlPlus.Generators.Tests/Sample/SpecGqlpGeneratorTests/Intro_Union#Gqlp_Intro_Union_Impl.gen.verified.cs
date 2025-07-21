@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_Intro_Union_Impl.gen.cs
-// Generated from Intro_Union.graphql+
+// Generated from Intro_Union.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro_Union;
 public class Output_TypeUnion
   : Output_ParentType

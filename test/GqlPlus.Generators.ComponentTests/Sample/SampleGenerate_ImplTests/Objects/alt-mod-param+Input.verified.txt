@@ -3,11 +3,10 @@ input AltModParamInp<$mod:String> { | AltAltModParamInp[$mod] }
 input AltAltModParamInp { alt: Number | String }
 */
 
-// Generated from Sample alt-mod-param+Input
+// Generated from Sample alt-mod-param+Input for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_alt_mod_param_Input;
 public class InputAltModParamInp<Tmod>
   : IAltModParamInp<Tmod>

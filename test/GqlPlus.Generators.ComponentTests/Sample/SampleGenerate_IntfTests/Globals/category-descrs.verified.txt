@@ -5,11 +5,10 @@ category { CtgrDscrs }
 output CtgrDscrs { }
 */
 
-// Generated from Sample category-descrs
+// Generated from Sample category-descrs for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_category_descrs;
 
 public interface ICtgrDscrs

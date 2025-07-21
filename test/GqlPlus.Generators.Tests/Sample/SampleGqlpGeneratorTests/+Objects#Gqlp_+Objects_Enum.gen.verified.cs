@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_+Objects_Enum.gen.cs
-// Generated from +Objects.graphql+
+// Generated from +Objects.graphql+ for Enum
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp__Objects;
 
 public enum EnumFieldModEnumDual

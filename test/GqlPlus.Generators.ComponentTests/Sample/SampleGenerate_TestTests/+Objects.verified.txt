@@ -1,6 +1,0 @@
-﻿// Generated from Sample +Objects
-
-/*
-*/
-
-namespace GqlPlus.Gqlp_Sample_Objects;

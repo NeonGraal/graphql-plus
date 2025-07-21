@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_output-parent-generic_Impl.gen.cs
-// Generated from output-parent-generic.graphql+
+// Generated from output-parent-generic.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_output_parent_generic;
 public class OutputOutpPrntGnrc
   : IOutpPrntGnrc

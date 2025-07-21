@@ -5,11 +5,10 @@ dual PrntCnstAltDualInp { | String }
 input AltCnstAltDualInp { :PrntCnstAltDualInp alt: Number }
 */
 
-// Generated from Sample constraint-alt-dual+Input
+// Generated from Sample constraint-alt-dual+Input for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_constraint_alt_dual_Input;
 public class InputCnstAltDualInp
   : ICnstAltDualInp

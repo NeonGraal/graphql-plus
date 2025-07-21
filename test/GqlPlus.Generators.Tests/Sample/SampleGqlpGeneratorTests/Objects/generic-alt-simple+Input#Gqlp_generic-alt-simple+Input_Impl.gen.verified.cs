@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_generic-alt-simple+Input_Impl.gen.cs
-// Generated from generic-alt-simple+Input.graphql+
+// Generated from generic-alt-simple+Input.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_alt_simple_Input;
 public class InputGnrcAltSmplInp
   : IGnrcAltSmplInp

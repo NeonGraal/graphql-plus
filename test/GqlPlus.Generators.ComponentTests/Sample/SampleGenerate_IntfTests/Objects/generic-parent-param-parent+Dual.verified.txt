@@ -4,11 +4,10 @@ dual RefGnrcPrntParamPrntDual<$ref:_Dual> { :$ref }
 dual AltGnrcPrntParamPrntDual { alt: Number | String }
 */
 
-// Generated from Sample generic-parent-param-parent+Dual
+// Generated from Sample generic-parent-param-parent+Dual for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_parent_param_parent_Dual;
 
 public interface IGnrcPrntParamPrntDual

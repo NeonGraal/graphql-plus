@@ -4,11 +4,10 @@ input InOutpParamModParam { param: Number | String }
 domain DomOutpParamModParam { number 1 ~ 10 }
 */
 
-// Generated from Sample output-param-mod-param
+// Generated from Sample output-param-mod-param for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_output_param_mod_param;
 
 public interface IOutpParamModParam<Tmod>

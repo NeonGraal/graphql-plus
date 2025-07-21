@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_alt-descr+Output_Intf.gen.cs
-// Generated from alt-descr+Output.graphql+
+// Generated from alt-descr+Output.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_alt_descr_Output;
 
 public interface IAltDescrOutp

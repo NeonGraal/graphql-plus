@@ -3,11 +3,10 @@ output ObjParamCnstOutp<$test:String> { test: $test }
 output ObjParamCnstOutp<$test:String> { type: $test }
 */
 
-// Generated from Sample object-param-constraint+Output
+// Generated from Sample object-param-constraint+Output for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_object_param_constraint_Output;
 
 public interface IObjParamCnstOutp<Ttest>

@@ -4,11 +4,10 @@ dual FldOutpParam { }
 input InOutpParam { param: Number | String }
 */
 
-// Generated from Sample output-param
+// Generated from Sample output-param for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_output_param;
 
 public interface IOutpParam

@@ -4,11 +4,10 @@ input RefCnstAltDmnInp<$ref:String> { | $ref }
 domain DomCnstAltDmnInp { String /\w+/ }
 */
 
-// Generated from Sample constraint-alt-domain+Input
+// Generated from Sample constraint-alt-domain+Input for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_constraint_alt_domain_Input;
 public class InputCnstAltDmnInp
   : ICnstAltDmnInp

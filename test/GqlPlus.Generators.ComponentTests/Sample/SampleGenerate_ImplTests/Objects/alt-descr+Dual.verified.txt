@@ -2,11 +2,10 @@
 dual AltDescrDual { | "Test" "Descr" String }
 */
 
-// Generated from Sample alt-descr+Dual
+// Generated from Sample alt-descr+Dual for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_alt_descr_Dual;
 public class DualAltDescrDual
   : IAltDescrDual

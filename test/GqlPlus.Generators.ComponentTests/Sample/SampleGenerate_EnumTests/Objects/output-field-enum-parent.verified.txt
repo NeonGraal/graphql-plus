@@ -4,11 +4,10 @@ enum EnumOutpFieldEnumPrnt { :PrntOutpFieldEnumPrnt outpFieldEnumPrnt }
 enum PrntOutpFieldEnumPrnt { prnt_outpFieldEnumPrnt }
 */
 
-// Generated from Sample output-field-enum-parent
+// Generated from Sample output-field-enum-parent for Enum
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_output_field_enum_parent;
 
 public enum EnumOutpFieldEnumPrnt

@@ -36,11 +36,10 @@ output _OutputEnum {
     }
 */
 
-// Generated from Spec Intro_Output
+// Generated from Spec Intro_Output for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Spec_Intro_Output;
 
 public interface I_TypeOutput

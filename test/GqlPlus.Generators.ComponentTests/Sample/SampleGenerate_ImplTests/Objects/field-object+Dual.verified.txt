@@ -3,11 +3,10 @@ dual FieldObjDual { field: FldFieldObjDual }
 dual FldFieldObjDual { field: Number | String }
 */
 
-// Generated from Sample field-object+Dual
+// Generated from Sample field-object+Dual for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_field_object_Dual;
 public class DualFieldObjDual
   : IFieldObjDual

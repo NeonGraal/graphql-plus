@@ -3,11 +3,10 @@ input ObjAliasInp [Input1] { }
 input ObjAliasInp [Input2] { }
 */
 
-// Generated from Sample object-alias+Input
+// Generated from Sample object-alias+Input for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_object_alias_Input;
 
 public interface IObjAliasInp

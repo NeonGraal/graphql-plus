@@ -5,11 +5,10 @@ enum EnumGnrcPrntEnumChildOutp { :ParentGnrcPrntEnumChildOutp gnrcPrntEnumChildO
 enum ParentGnrcPrntEnumChildOutp { gnrcPrntEnumChildOutpParent }
 */
 
-// Generated from Sample generic-parent-enum-child+Output
+// Generated from Sample generic-parent-enum-child+Output for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_parent_enum_child_Output;
 public class OutputGnrcPrntEnumChildOutp
   : OutputFieldGnrcPrntEnumChildOutp

@@ -3,11 +3,10 @@ input InpFieldNull { field: FldInpFieldNull? = null }
 dual FldInpFieldNull { }
 */
 
-// Generated from Sample input-field-null
+// Generated from Sample input-field-null for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_input_field_null;
 
 public interface IInpFieldNull

@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_constraint-parent-dual-grandparent+Input_Impl.gen.cs
-// Generated from constraint-parent-dual-grandparent+Input.graphql+
+// Generated from constraint-parent-dual-grandparent+Input.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_constraint_parent_dual_grandparent_Input;
 public class InputCnstPrntDualGrndInp
   : InputRefCnstPrntDualGrndInp

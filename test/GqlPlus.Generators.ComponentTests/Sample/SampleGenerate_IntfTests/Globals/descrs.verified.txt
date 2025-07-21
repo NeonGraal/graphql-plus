@@ -4,11 +4,10 @@
 output Dscrs { }
 */
 
-// Generated from Sample descrs
+// Generated from Sample descrs for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_descrs;
 
 public interface IDscrs

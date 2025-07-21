@@ -4,10 +4,10 @@ category { DescrBtwn }
 output DescrBtwn { }
 */
 
-// Generated from Sample descr-between
+// Generated from Sample descr-between for Stat
 
 /*
+
 Category descrBtwn
 */
-
 namespace GqlPlus.Gqlp_Sample_descr_between;

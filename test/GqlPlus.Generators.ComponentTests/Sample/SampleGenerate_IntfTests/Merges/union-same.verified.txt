@@ -3,11 +3,10 @@ union UnionSame { Boolean }
 union UnionSame { Boolean }
 */
 
-// Generated from Sample union-same
+// Generated from Sample union-same for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_union_same;
 
 public interface IUnionSame

@@ -4,11 +4,10 @@ input FieldGnrcPrntStrDomInp<$ref:String> { field: $ref }
 domain DomGnrcPrntStrDomInp { string /\w+/ }
 */
 
-// Generated from Sample generic-parent-string-dom+Input
+// Generated from Sample generic-parent-string-dom+Input for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_parent_string_dom_Input;
 public class InputGnrcPrntStrDomInp
   : InputFieldGnrcPrntStrDomInp

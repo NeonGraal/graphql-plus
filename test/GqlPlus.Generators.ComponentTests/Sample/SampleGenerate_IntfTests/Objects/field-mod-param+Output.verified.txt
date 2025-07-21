@@ -3,11 +3,10 @@ output FieldModParamOutp<$mod:String> { field: FldFieldModParamOutp[$mod] }
 output FldFieldModParamOutp { field: Number | String }
 */
 
-// Generated from Sample field-mod-param+Output
+// Generated from Sample field-mod-param+Output for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_field_mod_param_Output;
 
 public interface IFieldModParamOutp<Tmod>

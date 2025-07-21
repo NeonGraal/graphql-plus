@@ -3,10 +3,10 @@ option Schema { merged=true }
 option Schema { merged=[0] }
 */
 
-// Generated from Sample option-value
+// Generated from Sample option-value for Stat
 
 /*
+
 Option Schema
 */
-
 namespace GqlPlus.Gqlp_Sample_option_value;

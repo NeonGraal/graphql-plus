@@ -1,8 +1,11 @@
-﻿// Generated from Sample +Objects
+﻿/* +Objects
+
+*/
+
+// Generated from Sample +Objects for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_Objects;
 public class DualAltDual
   : IAltDual

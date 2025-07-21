@@ -6,11 +6,10 @@ dual PrntCnstPrntDualGrndOutp { :GrndCnstPrntDualGrndOutp }
 output AltCnstPrntDualGrndOutp { :PrntCnstPrntDualGrndOutp alt: Number }
 */
 
-// Generated from Sample constraint-parent-dual-grandparent+Output
+// Generated from Sample constraint-parent-dual-grandparent+Output for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_constraint_parent_dual_grandparent_Output;
 
 public interface ICnstPrntDualGrndOutp

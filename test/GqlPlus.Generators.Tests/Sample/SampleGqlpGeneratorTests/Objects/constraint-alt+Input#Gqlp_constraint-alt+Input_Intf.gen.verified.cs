@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_constraint-alt+Input_Intf.gen.cs
-// Generated from constraint-alt+Input.graphql+
+// Generated from constraint-alt+Input.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_constraint_alt_Input;
 
 public interface ICnstAltInp<Ttype>

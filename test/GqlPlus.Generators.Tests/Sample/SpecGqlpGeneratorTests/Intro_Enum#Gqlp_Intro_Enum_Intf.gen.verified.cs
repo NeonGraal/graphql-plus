@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_Intro_Enum_Intf.gen.cs
-// Generated from Intro_Enum.graphql+
+// Generated from Intro_Enum.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro_Enum;
 
 public interface I_TypeEnum

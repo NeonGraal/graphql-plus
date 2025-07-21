@@ -4,11 +4,10 @@ enum EnumDmnEnumUnq { enum_dmnEnumUnq dmnEnumUnq }
 enum EnumDomDup { dmnEnumUnq dup_dmnEnumUnq }
 */
 
-// Generated from Sample domain-enum-unique
+// Generated from Sample domain-enum-unique for Enum
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_domain_enum_unique;
 
 public enum EnumDmnEnumUnq

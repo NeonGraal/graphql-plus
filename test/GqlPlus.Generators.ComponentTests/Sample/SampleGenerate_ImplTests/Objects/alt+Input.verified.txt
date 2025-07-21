@@ -3,11 +3,10 @@ input AltInp { | AltAltInp }
 input AltAltInp { alt: Number | String }
 */
 
-// Generated from Sample alt+Input
+// Generated from Sample alt+Input for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_alt_Input;
 public class InputAltInp
   : IAltInp

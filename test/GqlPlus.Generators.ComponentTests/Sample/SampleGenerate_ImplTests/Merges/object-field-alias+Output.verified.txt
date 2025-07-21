@@ -4,11 +4,10 @@ output ObjFieldAliasOutp { field [field2]: FldObjFieldAliasOutp }
 output FldObjFieldAliasOutp { }
 */
 
-// Generated from Sample object-field-alias+Output
+// Generated from Sample object-field-alias+Output for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_object_field_alias_Output;
 public class OutputObjFieldAliasOutp
   : IObjFieldAliasOutp

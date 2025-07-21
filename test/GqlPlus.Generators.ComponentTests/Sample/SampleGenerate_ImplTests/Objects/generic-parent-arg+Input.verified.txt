@@ -3,11 +3,10 @@ input GnrcPrntArgInp<$type:String> { :RefGnrcPrntArgInp<$type> }
 input RefGnrcPrntArgInp<$ref:String> { | $ref }
 */
 
-// Generated from Sample generic-parent-arg+Input
+// Generated from Sample generic-parent-arg+Input for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_parent_arg_Input;
 public class InputGnrcPrntArgInp<Ttype>
   : InputRefGnrcPrntArgInp

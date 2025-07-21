@@ -3,11 +3,10 @@ domain DmnEnumLabel { enum dmnEnumLabel }
 enum EnumDmnEnumLabel { dmnEnumLabel }
 */
 
-// Generated from Sample domain-enum-label
+// Generated from Sample domain-enum-label for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_domain_enum_label;
 
 public interface IDmnEnumLabel

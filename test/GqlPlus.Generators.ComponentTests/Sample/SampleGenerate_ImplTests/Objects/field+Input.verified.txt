@@ -2,11 +2,10 @@
 input FieldInp { field: String }
 */
 
-// Generated from Sample field+Input
+// Generated from Sample field+Input for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_field_Input;
 public class InputFieldInp
   : IFieldInp

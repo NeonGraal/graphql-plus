@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_generic-parent-dual+Input_Impl.gen.cs
-// Generated from generic-parent-dual+Input.graphql+
+// Generated from generic-parent-dual+Input.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_parent_dual_Input;
 public class InputGnrcPrntDualInp
   : InputRefGnrcPrntDualInp

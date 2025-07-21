@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_-ALL_Enum.gen.cs
-// Generated from -ALL.graphql+
+// Generated from -ALL.graphql+ for Enum
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp__ALL;
 
 public enum EnumFieldModEnumDual

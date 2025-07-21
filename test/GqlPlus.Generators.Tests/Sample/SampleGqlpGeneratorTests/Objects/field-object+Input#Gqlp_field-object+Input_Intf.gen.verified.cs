@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_field-object+Input_Intf.gen.cs
-// Generated from field-object+Input.graphql+
+// Generated from field-object+Input.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_field_object_Input;
 
 public interface IFieldObjInp

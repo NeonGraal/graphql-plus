@@ -3,11 +3,10 @@ output AltModParamOutp<$mod:String> { | AltAltModParamOutp[$mod] }
 output AltAltModParamOutp { alt: Number | String }
 */
 
-// Generated from Sample alt-mod-param+Output
+// Generated from Sample alt-mod-param+Output for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_alt_mod_param_Output;
 
 public interface IAltModParamOutp<Tmod>

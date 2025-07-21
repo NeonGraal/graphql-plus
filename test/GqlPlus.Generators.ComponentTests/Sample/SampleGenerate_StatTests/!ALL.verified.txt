@@ -1,6 +1,11 @@
-﻿// Generated from Sample !ALL
+﻿/* !ALL
+
+*/
+
+// Generated from Sample !ALL for Stat
 
 /*
+
 Category ctgrDscrs
 Category ctgrOutp
 Category ctgrOutpDescr
@@ -23,5 +28,4 @@ Directive DrctAlias
 Directive DrctParam
 Option Schema
 */
-
 namespace GqlPlus.Gqlp_Sample_ALL;

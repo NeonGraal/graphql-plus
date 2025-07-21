@@ -3,11 +3,10 @@ output FieldObjOutp { field: FldFieldObjOutp }
 output FldFieldObjOutp { field: Number | String }
 */
 
-// Generated from Sample field-object+Output
+// Generated from Sample field-object+Output for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_field_object_Output;
 public class OutputFieldObjOutp
   : IFieldObjOutp

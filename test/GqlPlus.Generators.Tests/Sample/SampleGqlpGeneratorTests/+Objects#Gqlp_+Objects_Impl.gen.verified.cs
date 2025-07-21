@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_+Objects_Impl.gen.cs
-// Generated from +Objects.graphql+
+// Generated from +Objects.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp__Objects;
 public class DualAltDual
   : IAltDual

@@ -3,11 +3,10 @@ input AltModBoolInp { | AltAltModBoolInp[^] }
 input AltAltModBoolInp { alt: Number | String }
 */
 
-// Generated from Sample alt-mod-Boolean+Input
+// Generated from Sample alt-mod-Boolean+Input for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_alt_mod_Boolean_Input;
 
 public interface IAltModBoolInp

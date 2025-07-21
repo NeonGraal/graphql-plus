@@ -3,11 +3,10 @@ union UnionPrnt { :PrntUnionPrnt String }
 union PrntUnionPrnt { Number }
 */
 
-// Generated from Sample union-parent
+// Generated from Sample union-parent for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_union_parent;
 
 public interface IUnionPrnt

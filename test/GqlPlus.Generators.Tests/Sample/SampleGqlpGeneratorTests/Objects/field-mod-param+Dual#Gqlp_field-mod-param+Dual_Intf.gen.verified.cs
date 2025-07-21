@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_field-mod-param+Dual_Intf.gen.cs
-// Generated from field-mod-param+Dual.graphql+
+// Generated from field-mod-param+Dual.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_field_mod_param_Dual;
 
 public interface IFieldModParamDual<Tmod>

@@ -3,11 +3,10 @@ input ObjInp { }
 input ObjInp { }
 */
 
-// Generated from Sample object+Input
+// Generated from Sample object+Input for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_object_Input;
 
 public interface IObjInp

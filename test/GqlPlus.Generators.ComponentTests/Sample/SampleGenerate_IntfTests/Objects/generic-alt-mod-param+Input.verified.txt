@@ -2,11 +2,10 @@
 input RefGnrcAltModParamInp<$ref:String $mod:String> { | $ref[$mod] }
 */
 
-// Generated from Sample generic-alt-mod-param+Input
+// Generated from Sample generic-alt-mod-param+Input for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_alt_mod_param_Input;
 
 public interface IRefGnrcAltModParamInp<Tref,Tmod>

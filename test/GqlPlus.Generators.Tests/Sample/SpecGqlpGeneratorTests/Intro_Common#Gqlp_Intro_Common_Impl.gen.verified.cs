@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_Intro_Common_Impl.gen.cs
-// Generated from Intro_Common.graphql+
+// Generated from Intro_Common.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro_Common;
 public class Output_Type
   : I_Type

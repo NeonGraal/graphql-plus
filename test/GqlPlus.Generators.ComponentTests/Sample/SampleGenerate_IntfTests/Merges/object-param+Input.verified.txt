@@ -3,11 +3,10 @@ input ObjParamInp<$test:String> { test: $test }
 input ObjParamInp<$type:String> { type: $type }
 */
 
-// Generated from Sample object-param+Input
+// Generated from Sample object-param+Input for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_object_param_Input;
 
 public interface IObjParamInp<Ttest,Ttype>

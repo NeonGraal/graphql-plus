@@ -4,11 +4,10 @@ category { DescrBtwn }
 output DescrBtwn { }
 */
 
-// Generated from Sample descr-between
+// Generated from Sample descr-between for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_descr_between;
 public class OutputDescrBtwn
   : IDescrBtwn

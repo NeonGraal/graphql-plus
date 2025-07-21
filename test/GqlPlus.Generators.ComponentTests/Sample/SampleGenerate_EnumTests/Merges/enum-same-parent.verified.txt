@@ -4,11 +4,10 @@ enum EnumSamePrnt { :PrntEnumSamePrnt enumSamePrnt }
 enum PrntEnumSamePrnt { prnt_enumSamePrnt }
 */
 
-// Generated from Sample enum-same-parent
+// Generated from Sample enum-same-parent for Enum
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_enum_same_parent;
 
 public enum EnumSamePrnt

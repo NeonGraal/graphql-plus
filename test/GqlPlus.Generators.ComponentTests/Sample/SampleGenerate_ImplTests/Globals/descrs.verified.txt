@@ -4,11 +4,10 @@
 output Dscrs { }
 */
 
-// Generated from Sample descrs
+// Generated from Sample descrs for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_descrs;
 public class OutputDscrs
   : IDscrs

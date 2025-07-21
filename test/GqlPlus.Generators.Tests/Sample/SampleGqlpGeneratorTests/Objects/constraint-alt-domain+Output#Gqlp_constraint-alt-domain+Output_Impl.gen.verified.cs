@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_constraint-alt-domain+Output_Impl.gen.cs
-// Generated from constraint-alt-domain+Output.graphql+
+// Generated from constraint-alt-domain+Output.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_constraint_alt_domain_Output;
 public class OutputCnstAltDmnOutp
   : ICnstAltDmnOutp

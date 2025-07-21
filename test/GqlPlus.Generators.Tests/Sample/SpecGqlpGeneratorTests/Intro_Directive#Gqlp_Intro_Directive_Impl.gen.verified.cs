@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_Intro_Directive_Impl.gen.cs
-// Generated from Intro_Directive.graphql+
+// Generated from Intro_Directive.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro_Directive;
 public class Output_Directives
   : I_Directives

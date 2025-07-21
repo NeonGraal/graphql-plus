@@ -36,11 +36,10 @@ output _OutputEnum {
     }
 */
 
-// Generated from Spec Intro_Output
+// Generated from Spec Intro_Output for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Spec_Intro_Output;
 public class Output_TypeOutput
   : Output_TypeObject

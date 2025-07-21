@@ -3,11 +3,10 @@ dual GnrcFieldArgDual<$type:String> { field: RefGnrcFieldArgDual<$type> }
 dual RefGnrcFieldArgDual<$ref:String> { | $ref }
 */
 
-// Generated from Sample generic-field-arg+Dual
+// Generated from Sample generic-field-arg+Dual for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_field_arg_Dual;
 
 public interface IGnrcFieldArgDual<Ttype>

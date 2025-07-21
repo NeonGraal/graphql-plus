@@ -428,11 +428,10 @@ output _OutputEnum {
     }
 */
 
-// Generated from Spec Intro_!Complete
+// Generated from Spec Intro_!Complete for Enum
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Spec_Intro__Complete;
 
 public enum _Resolution

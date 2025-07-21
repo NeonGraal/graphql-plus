@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_Intro_Built-In_Impl.gen.cs
-// Generated from Intro_Built-In.graphql+
+// Generated from Intro_Built-In.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro_Built_In;
 public class Output_Constant
   : I_Constant

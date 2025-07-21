@@ -1,6 +1,11 @@
-﻿// Generated from Sample +Merges
+﻿/* +Merges
+
+*/
+
+// Generated from Sample +Merges for Stat
 
 /*
+
 Category ctgr
 Category ctgrAlias
 Category ctgrDescr
@@ -10,5 +15,4 @@ Directive DrctAlias
 Directive DrctParam
 Option Schema
 */
-
 namespace GqlPlus.Gqlp_Sample_Merges;

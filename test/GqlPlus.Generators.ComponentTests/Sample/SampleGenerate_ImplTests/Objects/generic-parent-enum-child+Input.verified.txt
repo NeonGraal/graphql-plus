@@ -5,11 +5,10 @@ enum EnumGnrcPrntEnumChildInp { :ParentGnrcPrntEnumChildInp gnrcPrntEnumChildInp
 enum ParentGnrcPrntEnumChildInp { gnrcPrntEnumChildInpParent }
 */
 
-// Generated from Sample generic-parent-enum-child+Input
+// Generated from Sample generic-parent-enum-child+Input for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_parent_enum_child_Input;
 public class InputGnrcPrntEnumChildInp
   : InputFieldGnrcPrntEnumChildInp

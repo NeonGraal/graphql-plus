@@ -3,11 +3,10 @@ output PrntDescrOutp { : "Test" "Descr" RefPrntDescrOutp }
 output RefPrntDescrOutp { parent: Number | String }
 */
 
-// Generated from Sample parent-descr+Output
+// Generated from Sample parent-descr+Output for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_parent_descr_Output;
 public class OutputPrntDescrOutp
   : OutputRefPrntDescrOutp

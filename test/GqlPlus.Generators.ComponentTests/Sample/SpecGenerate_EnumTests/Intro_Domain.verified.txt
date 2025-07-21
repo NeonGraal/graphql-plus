@@ -78,11 +78,10 @@ output _DomainItemRegex {
     }
 */
 
-// Generated from Spec Intro_Domain
+// Generated from Spec Intro_Domain for Enum
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Spec_Intro_Domain;
 
 public enum _DomainKind

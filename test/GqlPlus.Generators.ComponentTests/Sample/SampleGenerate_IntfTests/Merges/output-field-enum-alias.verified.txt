@@ -3,11 +3,10 @@ output OutpFieldEnumAlias { field [field1] = Boolean.true }
 output OutpFieldEnumAlias { field [field2] = true }
 */
 
-// Generated from Sample output-field-enum-alias
+// Generated from Sample output-field-enum-alias for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_output_field_enum_alias;
 
 public interface IOutpFieldEnumAlias

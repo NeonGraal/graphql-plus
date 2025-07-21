@@ -3,10 +3,10 @@ category { CtgrOutp }
 output CtgrOutp { }
 */
 
-// Generated from Sample category-output
+// Generated from Sample category-output for Stat
 
 /*
+
 Category ctgrOutp
 */
-
 namespace GqlPlus.Gqlp_Sample_category_output;

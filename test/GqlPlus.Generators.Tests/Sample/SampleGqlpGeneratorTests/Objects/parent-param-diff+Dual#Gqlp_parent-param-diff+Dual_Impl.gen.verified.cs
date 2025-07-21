@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_parent-param-diff+Dual_Impl.gen.cs
-// Generated from parent-param-diff+Dual.graphql+
+// Generated from parent-param-diff+Dual.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_parent_param_diff_Dual;
 public class DualPrntParamDiffDual<Ta>
   : DualRefPrntParamDiffDual

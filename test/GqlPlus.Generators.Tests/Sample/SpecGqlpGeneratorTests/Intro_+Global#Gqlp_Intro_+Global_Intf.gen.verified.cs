@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_Intro_+Global_Intf.gen.cs
-// Generated from Intro_+Global.graphql+
+// Generated from Intro_+Global.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro__Global;
 
 public interface I_Categories

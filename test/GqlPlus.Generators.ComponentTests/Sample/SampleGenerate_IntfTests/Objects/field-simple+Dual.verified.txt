@@ -2,11 +2,10 @@
 dual FieldSmplDual { field: Number }
 */
 
-// Generated from Sample field-simple+Dual
+// Generated from Sample field-simple+Dual for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_field_simple_Dual;
 
 public interface IFieldSmplDual

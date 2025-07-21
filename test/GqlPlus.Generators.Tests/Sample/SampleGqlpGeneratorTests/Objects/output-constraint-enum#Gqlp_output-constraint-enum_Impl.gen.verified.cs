@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_output-constraint-enum_Impl.gen.cs
-// Generated from output-constraint-enum.graphql+
+// Generated from output-constraint-enum.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_output_constraint_enum;
 public class OutputOutpCnstEnum
   : IOutpCnstEnum

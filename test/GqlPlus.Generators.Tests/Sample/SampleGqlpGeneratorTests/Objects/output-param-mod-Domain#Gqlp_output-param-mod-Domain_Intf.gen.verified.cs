@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_output-param-mod-Domain_Intf.gen.cs
-// Generated from output-param-mod-Domain.graphql+
+// Generated from output-param-mod-Domain.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_output_param_mod_Domain;
 
 public interface IOutpParamModDmn

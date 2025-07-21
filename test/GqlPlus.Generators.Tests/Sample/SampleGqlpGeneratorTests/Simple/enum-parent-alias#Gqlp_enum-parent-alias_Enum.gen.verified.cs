@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_enum-parent-alias_Enum.gen.cs
-// Generated from enum-parent-alias.graphql+
+// Generated from enum-parent-alias.graphql+ for Enum
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_enum_parent_alias;
 
 public enum EnumPrntAlias

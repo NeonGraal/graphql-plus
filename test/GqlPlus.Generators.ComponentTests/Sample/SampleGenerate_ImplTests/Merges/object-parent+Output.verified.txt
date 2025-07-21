@@ -4,11 +4,10 @@ output ObjPrntOutp { :RefObjPrntOutp }
 output RefObjPrntOutp { }
 */
 
-// Generated from Sample object-parent+Output
+// Generated from Sample object-parent+Output for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_object_parent_Output;
 public class OutputObjPrntOutp
   : OutputRefObjPrntOutp

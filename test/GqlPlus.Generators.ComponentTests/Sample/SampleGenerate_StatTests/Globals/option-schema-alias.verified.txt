@@ -2,10 +2,10 @@
 option Schema [Alias] { }
 */
 
-// Generated from Sample option-schema-alias
+// Generated from Sample option-schema-alias for Stat
 
 /*
+
 Option Schema
 */
-
 namespace GqlPlus.Gqlp_Sample_option_schema_alias;

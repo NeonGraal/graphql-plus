@@ -3,11 +3,10 @@ output ObjOutp { }
 output ObjOutp { }
 */
 
-// Generated from Sample object+Output
+// Generated from Sample object+Output for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_object_Output;
 public class OutputObjOutp
   : IObjOutp

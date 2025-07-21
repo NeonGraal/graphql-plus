@@ -6,11 +6,10 @@ dual PrntCnstPrntDualGrndDual { :GrndCnstPrntDualGrndDual }
 dual AltCnstPrntDualGrndDual { :PrntCnstPrntDualGrndDual alt: Number }
 */
 
-// Generated from Sample constraint-parent-dual-grandparent+Dual
+// Generated from Sample constraint-parent-dual-grandparent+Dual for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_constraint_parent_dual_grandparent_Dual;
 public class DualCnstPrntDualGrndDual
   : DualRefCnstPrntDualGrndDual

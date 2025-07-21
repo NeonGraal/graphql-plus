@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_generic-alt-dual+Input_Impl.gen.cs
-// Generated from generic-alt-dual+Input.graphql+
+// Generated from generic-alt-dual+Input.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_alt_dual_Input;
 public class InputGnrcAltDualInp
   : IGnrcAltDualInp

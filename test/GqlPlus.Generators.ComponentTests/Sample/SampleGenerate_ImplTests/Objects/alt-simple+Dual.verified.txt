@@ -2,11 +2,10 @@
 dual AltSmplDual { | String }
 */
 
-// Generated from Sample alt-simple+Dual
+// Generated from Sample alt-simple+Dual for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_alt_simple_Dual;
 public class DualAltSmplDual
   : IAltSmplDual

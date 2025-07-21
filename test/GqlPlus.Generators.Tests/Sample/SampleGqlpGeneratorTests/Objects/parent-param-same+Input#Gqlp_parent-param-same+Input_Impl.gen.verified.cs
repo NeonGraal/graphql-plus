@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_parent-param-same+Input_Impl.gen.cs
-// Generated from parent-param-same+Input.graphql+
+// Generated from parent-param-same+Input.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_parent_param_same_Input;
 public class InputPrntParamSameInp<Ta>
   : InputRefPrntParamSameInp

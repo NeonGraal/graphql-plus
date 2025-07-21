@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_parent-alt+Input_Impl.gen.cs
-// Generated from parent-alt+Input.graphql+
+// Generated from parent-alt+Input.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_parent_alt_Input;
 public class InputPrntAltInp
   : InputRefPrntAltInp

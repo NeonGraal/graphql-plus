@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_output-param-mod-param_Impl.gen.cs
-// Generated from output-param-mod-param.graphql+
+// Generated from output-param-mod-param.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_output_param_mod_param;
 public class OutputOutpParamModParam<Tmod>
   : IOutpParamModParam<Tmod>

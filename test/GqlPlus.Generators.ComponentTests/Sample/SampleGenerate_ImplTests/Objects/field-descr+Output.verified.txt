@@ -2,11 +2,10 @@
 output FieldDescrOutp { "Test" "Descr" field: String }
 */
 
-// Generated from Sample field-descr+Output
+// Generated from Sample field-descr+Output for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_field_descr_Output;
 public class OutputFieldDescrOutp
   : IFieldDescrOutp

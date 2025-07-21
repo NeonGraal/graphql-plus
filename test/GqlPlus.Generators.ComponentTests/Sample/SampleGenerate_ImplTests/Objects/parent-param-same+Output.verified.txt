@@ -3,11 +3,10 @@ output PrntParamSameOutp<$a:String> { :RefPrntParamSameOutp<$a> field: $a }
 output RefPrntParamSameOutp<$a:String> { | $a }
 */
 
-// Generated from Sample parent-param-same+Output
+// Generated from Sample parent-param-same+Output for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_parent_param_same_Output;
 public class OutputPrntParamSameOutp<Ta>
   : OutputRefPrntParamSameOutp

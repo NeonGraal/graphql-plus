@@ -5,11 +5,10 @@ enum EnumGnrcPrntEnumDomOutp { gnrcPrntEnumDomOutpLabel gnrcPrntEnumDomOutpOther
 domain DomGnrcPrntEnumDomOutp { enum gnrcPrntEnumDomOutpLabel }
 */
 
-// Generated from Sample generic-parent-enum-dom+Output
+// Generated from Sample generic-parent-enum-dom+Output for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_parent_enum_dom_Output;
 public class OutputGnrcPrntEnumDomOutp
   : OutputFieldGnrcPrntEnumDomOutp

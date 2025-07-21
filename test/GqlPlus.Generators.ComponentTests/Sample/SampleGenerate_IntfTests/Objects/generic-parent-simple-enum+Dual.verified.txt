@@ -4,11 +4,10 @@ dual FieldGnrcPrntSmplEnumDual<$ref:_Simple> { field: $ref }
 enum EnumGnrcPrntSmplEnumDual { gnrcPrntSmplEnumDual }
 */
 
-// Generated from Sample generic-parent-simple-enum+Dual
+// Generated from Sample generic-parent-simple-enum+Dual for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_parent_simple_enum_Dual;
 
 public interface IGnrcPrntSmplEnumDual

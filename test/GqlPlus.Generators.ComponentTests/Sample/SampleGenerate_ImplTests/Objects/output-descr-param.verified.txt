@@ -4,11 +4,10 @@ dual FldOutpDescrParam { }
 input InOutpDescrParam { param: Number | String }
 */
 
-// Generated from Sample output-descr-param
+// Generated from Sample output-descr-param for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_output_descr_param;
 public class OutputOutpDescrParam
   : IOutpDescrParam

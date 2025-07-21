@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_Intro_Names_Impl.gen.cs
-// Generated from Intro_Names.graphql+
+// Generated from Intro_Names.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro_Names;
 public class Dual_Aliased
   : Dual_Named

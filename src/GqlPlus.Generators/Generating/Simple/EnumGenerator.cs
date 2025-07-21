@@ -41,8 +41,8 @@ internal sealed class EnumGenerator
   }
 
   protected override void TypeHeader(IGqlpEnum ast, GqlpGeneratorContext context)
-    => context.AppendLine($"public enum {ast.Name}");
+    => context.Write($"public enum {ast.Name}");
 
   protected override void TypeMember(MapPair<string> item, GqlpGeneratorContext context)
-    => context.AppendLine("  " + item.Key + item.Value + ",");
+    => context.Write("  " + item.Key + item.Value + ",");
 }

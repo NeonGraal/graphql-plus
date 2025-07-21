@@ -4,11 +4,10 @@ input RefGnrcPrntParamPrntInp<$ref:_Input> { :$ref }
 input AltGnrcPrntParamPrntInp { alt: Number | String }
 */
 
-// Generated from Sample generic-parent-param-parent+Input
+// Generated from Sample generic-parent-param-parent+Input for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_parent_param_parent_Input;
 
 public interface IGnrcPrntParamPrntInp

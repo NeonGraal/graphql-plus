@@ -4,11 +4,10 @@ union UnionSamePrnt { :PrntUnionSamePrnt Boolean }
 union PrntUnionSamePrnt { String }
 */
 
-// Generated from Sample union-same-parent
+// Generated from Sample union-same-parent for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_union_same_parent;
 public class UnionUnionSamePrnt
   : UnionPrntUnionSamePrnt

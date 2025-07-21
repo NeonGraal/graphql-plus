@@ -5,11 +5,10 @@ enum EnumGnrcPrntEnumDomDual { gnrcPrntEnumDomDualLabel gnrcPrntEnumDomDualOther
 domain DomGnrcPrntEnumDomDual { enum gnrcPrntEnumDomDualLabel }
 */
 
-// Generated from Sample generic-parent-enum-dom+Dual
+// Generated from Sample generic-parent-enum-dom+Dual for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_parent_enum_dom_Dual;
 
 public interface IGnrcPrntEnumDomDual

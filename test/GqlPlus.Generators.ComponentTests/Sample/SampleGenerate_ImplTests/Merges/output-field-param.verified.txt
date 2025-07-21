@@ -6,11 +6,10 @@ input OutpFieldParam2 { }
 dual FldOutpFieldParam { }
 */
 
-// Generated from Sample output-field-param
+// Generated from Sample output-field-param for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_output_field_param;
 public class OutputOutpFieldParam
   : IOutpFieldParam

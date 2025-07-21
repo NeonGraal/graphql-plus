@@ -4,11 +4,10 @@ directive @DrctParam { fragment }
 input InDrctParam { }
 */
 
-// Generated from Sample directive-param
+// Generated from Sample directive-param for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_directive_param;
 public class InputInDrctParam
   : IInDrctParam

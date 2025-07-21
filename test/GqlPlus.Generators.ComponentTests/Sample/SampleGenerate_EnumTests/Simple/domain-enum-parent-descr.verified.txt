@@ -4,11 +4,10 @@ domain PrntDmnEnumPrntDescr { Enum prnt_dmnEnumPrntDescr }
 enum EnumDmnEnumPrntDescr { enum_dmnEnumPrntDescr prnt_dmnEnumPrntDescr }
 */
 
-// Generated from Sample domain-enum-parent-descr
+// Generated from Sample domain-enum-parent-descr for Enum
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_domain_enum_parent_descr;
 
 public enum EnumDmnEnumPrntDescr

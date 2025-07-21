@@ -3,11 +3,10 @@ output ObjParamDupOutp<$test:String> { test: $test }
 output ObjParamDupOutp<$test:String> { type: $test }
 */
 
-// Generated from Sample object-param-dup+Output
+// Generated from Sample object-param-dup+Output for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_object_param_dup_Output;
 
 public interface IObjParamDupOutp<Ttest>

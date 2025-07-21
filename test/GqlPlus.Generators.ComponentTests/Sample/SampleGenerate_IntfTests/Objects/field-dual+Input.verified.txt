@@ -3,11 +3,10 @@ input FieldDualInp { field: FldFieldDualInp }
 dual FldFieldDualInp { field: Number | String }
 */
 
-// Generated from Sample field-dual+Input
+// Generated from Sample field-dual+Input for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_field_dual_Input;
 
 public interface IFieldDualInp

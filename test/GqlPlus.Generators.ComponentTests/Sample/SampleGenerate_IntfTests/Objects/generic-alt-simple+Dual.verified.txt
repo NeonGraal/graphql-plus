@@ -3,11 +3,10 @@ dual GnrcAltSmplDual { | RefGnrcAltSmplDual<String> }
 dual RefGnrcAltSmplDual<$ref:String> { | $ref }
 */
 
-// Generated from Sample generic-alt-simple+Dual
+// Generated from Sample generic-alt-simple+Dual for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_alt_simple_Dual;
 
 public interface IGnrcAltSmplDual

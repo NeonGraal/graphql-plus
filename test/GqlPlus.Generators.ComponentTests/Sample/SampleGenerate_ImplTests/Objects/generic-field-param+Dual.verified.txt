@@ -4,11 +4,10 @@ dual RefGnrcFieldParamDual<$ref:_Dual> { | $ref }
 dual AltGnrcFieldParamDual { alt: Number | String }
 */
 
-// Generated from Sample generic-field-param+Dual
+// Generated from Sample generic-field-param+Dual for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_field_param_Dual;
 public class DualGnrcFieldParamDual
   : IGnrcFieldParamDual

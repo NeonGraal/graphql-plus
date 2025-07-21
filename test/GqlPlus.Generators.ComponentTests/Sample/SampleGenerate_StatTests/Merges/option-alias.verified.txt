@@ -3,10 +3,10 @@ option Schema [Opt1] { }
 option Schema [Opt2] { }
 */
 
-// Generated from Sample option-alias
+// Generated from Sample option-alias for Stat
 
 /*
+
 Option Schema
 */
-
 namespace GqlPlus.Gqlp_Sample_option_alias;

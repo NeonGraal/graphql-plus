@@ -5,11 +5,10 @@ dual PrntCnstFieldDualOutp { | String }
 output AltCnstFieldDualOutp { :PrntCnstFieldDualOutp alt: Number }
 */
 
-// Generated from Sample constraint-field-dual+Output
+// Generated from Sample constraint-field-dual+Output for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_constraint_field_dual_Output;
 public class OutputCnstFieldDualOutp
   : OutputRefCnstFieldDualOutp

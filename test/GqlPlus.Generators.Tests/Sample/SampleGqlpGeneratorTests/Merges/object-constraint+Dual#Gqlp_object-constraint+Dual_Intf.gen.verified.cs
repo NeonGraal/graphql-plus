@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_object-constraint+Dual_Intf.gen.cs
-// Generated from object-constraint+Dual.graphql+
+// Generated from object-constraint+Dual.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_object_constraint_Dual;
 
 public interface IObjCnstDual<Ttype>

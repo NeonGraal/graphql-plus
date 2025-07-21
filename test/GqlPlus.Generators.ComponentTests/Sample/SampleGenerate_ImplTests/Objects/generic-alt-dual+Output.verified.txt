@@ -4,11 +4,10 @@ output RefGnrcAltDualOutp<$ref:_Dual> { | $ref }
 dual AltGnrcAltDualOutp { alt: Number | String }
 */
 
-// Generated from Sample generic-alt-dual+Output
+// Generated from Sample generic-alt-dual+Output for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_alt_dual_Output;
 public class OutputGnrcAltDualOutp
   : IGnrcAltDualOutp

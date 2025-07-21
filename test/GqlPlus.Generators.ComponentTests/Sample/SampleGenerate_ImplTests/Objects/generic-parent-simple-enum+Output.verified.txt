@@ -4,11 +4,10 @@ output FieldGnrcPrntSmplEnumOutp<$ref:_Simple> { field: $ref }
 enum EnumGnrcPrntSmplEnumOutp { gnrcPrntSmplEnumOutp }
 */
 
-// Generated from Sample generic-parent-simple-enum+Output
+// Generated from Sample generic-parent-simple-enum+Output for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_parent_simple_enum_Output;
 public class OutputGnrcPrntSmplEnumOutp
   : OutputFieldGnrcPrntSmplEnumOutp

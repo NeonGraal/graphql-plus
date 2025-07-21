@@ -2,11 +2,10 @@
 output GnrcDescrOutp<"Test" "Descr" $type:String> { field: $type }
 */
 
-// Generated from Sample generic-descr+Output
+// Generated from Sample generic-descr+Output for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_descr_Output;
 
 public interface IGnrcDescrOutp<Ttype>

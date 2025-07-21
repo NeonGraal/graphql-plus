@@ -4,11 +4,10 @@ output RefOutpGnrcValue<$type:_Enum> { field: $type }
 enum EnumOutpGnrcValue { outpGnrcValue }
 */
 
-// Generated from Sample output-generic-value
+// Generated from Sample output-generic-value for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_output_generic_value;
 
 public interface IOutpGnrcValue

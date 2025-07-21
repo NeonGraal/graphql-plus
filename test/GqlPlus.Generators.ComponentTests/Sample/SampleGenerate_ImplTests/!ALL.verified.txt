@@ -1,8 +1,11 @@
-﻿// Generated from Sample !ALL
+﻿/* !ALL
+
+*/
+
+// Generated from Sample !ALL for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_ALL;
 public class OutputCtgrDscrs
   : ICtgrDscrs

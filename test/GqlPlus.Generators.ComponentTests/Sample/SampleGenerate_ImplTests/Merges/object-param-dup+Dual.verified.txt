@@ -3,11 +3,10 @@ dual ObjParamDupDual<$test:String> { test: $test }
 dual ObjParamDupDual<$test:String> { type: $test }
 */
 
-// Generated from Sample object-param-dup+Dual
+// Generated from Sample object-param-dup+Dual for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_object_param_dup_Dual;
 public class DualObjParamDupDual<Ttest>
   : IObjParamDupDual<Ttest>

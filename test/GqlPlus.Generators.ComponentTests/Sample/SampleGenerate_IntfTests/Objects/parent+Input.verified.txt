@@ -3,11 +3,10 @@ input PrntInp { :RefPrntInp }
 input RefPrntInp { parent: Number | String }
 */
 
-// Generated from Sample parent+Input
+// Generated from Sample parent+Input for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_parent_Input;
 
 public interface IPrntInp

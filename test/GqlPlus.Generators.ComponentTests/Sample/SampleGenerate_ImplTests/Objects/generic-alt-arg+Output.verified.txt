@@ -3,11 +3,10 @@ output GnrcAltArgOutp<$type:String> { | RefGnrcAltArgOutp<$type> }
 output RefGnrcAltArgOutp<$ref:String> { | $ref }
 */
 
-// Generated from Sample generic-alt-arg+Output
+// Generated from Sample generic-alt-arg+Output for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_alt_arg_Output;
 public class OutputGnrcAltArgOutp<Ttype>
   : IGnrcAltArgOutp<Ttype>

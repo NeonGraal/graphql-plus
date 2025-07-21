@@ -38,11 +38,10 @@ output _Setting {
     }
 */
 
-// Generated from Spec Intro_+Global
+// Generated from Spec Intro_+Global for Enum
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Spec_Intro__Global;
 
 public enum _Resolution

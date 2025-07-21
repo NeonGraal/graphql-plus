@@ -3,11 +3,10 @@
 output DescrCmpl { }
 */
 
-// Generated from Sample descr-complex
+// Generated from Sample descr-complex for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_descr_complex;
 
 public interface IDescrCmpl

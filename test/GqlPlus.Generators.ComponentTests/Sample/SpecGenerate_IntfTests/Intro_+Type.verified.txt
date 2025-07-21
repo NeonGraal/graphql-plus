@@ -87,11 +87,10 @@ output _Modifier<$kind:_ModifierKind> {
     }
 */
 
-// Generated from Spec Intro_+Type
+// Generated from Spec Intro_+Type for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Spec_Intro__Type;
 
 public interface I_Type

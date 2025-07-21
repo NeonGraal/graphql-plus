@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_Intro_+Global_Impl.gen.cs
-// Generated from Intro_+Global.graphql+
+// Generated from Intro_+Global.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro__Global;
 public class Output_Categories
   : I_Categories

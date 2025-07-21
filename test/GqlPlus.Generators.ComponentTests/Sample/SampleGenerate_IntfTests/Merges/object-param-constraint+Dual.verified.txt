@@ -3,11 +3,10 @@ dual ObjParamCnstDual<$test:String> { test: $test }
 dual ObjParamCnstDual<$test:String> { type: $test }
 */
 
-// Generated from Sample object-param-constraint+Dual
+// Generated from Sample object-param-constraint+Dual for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_object_param_constraint_Dual;
 
 public interface IObjParamCnstDual<Ttest>

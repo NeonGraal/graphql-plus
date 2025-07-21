@@ -9,10 +9,10 @@ input Empty {}
 output NoParams<> {}
 */
 
-// Generated from Schema errors
+// Generated from Schema errors for Stat
 
 /*
+
 Category query
 */
-
 namespace GqlPlus.Gqlp_Schema_errors;

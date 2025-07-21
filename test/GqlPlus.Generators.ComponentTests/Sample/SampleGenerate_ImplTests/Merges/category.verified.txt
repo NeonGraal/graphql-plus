@@ -4,11 +4,10 @@ category ctgr { Ctgr }
 output Ctgr { }
 */
 
-// Generated from Sample category
+// Generated from Sample category for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_category;
 public class OutputCtgr
   : ICtgr

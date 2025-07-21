@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_+Simple_Impl.gen.cs
-// Generated from +Simple.graphql+
+// Generated from +Simple.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp__Simple;
 public class DomainDmnBoolDescr
   : IDmnBoolDescr

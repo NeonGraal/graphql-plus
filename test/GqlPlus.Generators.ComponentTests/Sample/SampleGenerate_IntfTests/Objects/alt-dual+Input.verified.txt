@@ -3,11 +3,10 @@ input AltDualInp { | ObjDualAltDualInp }
 dual ObjDualAltDualInp { alt: Number | String }
 */
 
-// Generated from Sample alt-dual+Input
+// Generated from Sample alt-dual+Input for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_alt_dual_Input;
 
 public interface IAltDualInp

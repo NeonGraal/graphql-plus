@@ -24,11 +24,10 @@ output _DualTypeArg {
     }
 */
 
-// Generated from Spec Intro_Dual
+// Generated from Spec Intro_Dual for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Spec_Intro_Dual;
 
 public interface I_TypeDual

@@ -44,11 +44,10 @@ output _Modifier<$kind:_ModifierKind> {
     }
 */
 
-// Generated from Spec Intro_Built-In
+// Generated from Spec Intro_Built-In for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Spec_Intro_Built_In;
 
 public interface I_Constant

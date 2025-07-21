@@ -4,11 +4,10 @@ output RefOutpCnstEnum<$type:EnumOutpCnstEnum> { field: $type }
 enum EnumOutpCnstEnum { outpCnstEnum }
 */
 
-// Generated from Sample output-constraint-enum
+// Generated from Sample output-constraint-enum for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_output_constraint_enum;
 public class OutputOutpCnstEnum
   : IOutpCnstEnum

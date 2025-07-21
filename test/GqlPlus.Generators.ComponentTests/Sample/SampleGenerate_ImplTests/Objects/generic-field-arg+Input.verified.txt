@@ -3,11 +3,10 @@ input GnrcFieldArgInp<$type:String> { field: RefGnrcFieldArgInp<$type> }
 input RefGnrcFieldArgInp<$ref:String> { | $ref }
 */
 
-// Generated from Sample generic-field-arg+Input
+// Generated from Sample generic-field-arg+Input for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_field_arg_Input;
 public class InputGnrcFieldArgInp<Ttype>
   : IGnrcFieldArgInp<Ttype>

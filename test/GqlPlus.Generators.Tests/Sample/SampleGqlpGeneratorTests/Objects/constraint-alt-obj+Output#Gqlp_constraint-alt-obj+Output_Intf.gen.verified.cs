@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_constraint-alt-obj+Output_Intf.gen.cs
-// Generated from constraint-alt-obj+Output.graphql+
+// Generated from constraint-alt-obj+Output.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_constraint_alt_obj_Output;
 
 public interface ICnstAltObjOutp

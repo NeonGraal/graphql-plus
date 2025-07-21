@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_Intro_Base_Intf.gen.cs
-// Generated from Intro_Base.graphql+
+// Generated from Intro_Base.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro_Base;
 
 public interface I_ObjectKind

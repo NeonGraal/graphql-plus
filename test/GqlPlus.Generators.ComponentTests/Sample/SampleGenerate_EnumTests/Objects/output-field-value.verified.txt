@@ -3,11 +3,10 @@ output OutpFieldValue { field = outpFieldValue }
 enum EnumOutpFieldValue { outpFieldValue }
 */
 
-// Generated from Sample output-field-value
+// Generated from Sample output-field-value for Enum
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_output_field_value;
 
 public enum EnumOutpFieldValue

@@ -6,7 +6,7 @@ internal class CategoryGenerator
   public void Generate(IGqlpSchemaCategory ast, GqlpGeneratorContext context)
   {
     if (context.GeneratorOptions.GeneratorType == GqlpGeneratorType.Static) {
-      context.AppendLine(ast.Label + " " + ast.Name);
+      context.Write(ast.Label + " " + ast.Name);
     }
   }
 }

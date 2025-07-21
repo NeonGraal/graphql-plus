@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_parent-dual+Dual_Impl.gen.cs
-// Generated from parent-dual+Dual.graphql+
+// Generated from parent-dual+Dual.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_parent_dual_Dual;
 public class DualPrntDualDual
   : DualRefPrntDualDual

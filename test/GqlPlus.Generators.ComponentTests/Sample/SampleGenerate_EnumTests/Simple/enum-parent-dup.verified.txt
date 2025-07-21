@@ -3,11 +3,10 @@ enum EnumPrntDup { :PrntEnumPrntDup enumPrntDup  }
 enum PrntEnumPrntDup { prnt_enumPrntDup[enumPrntDup] }
 */
 
-// Generated from Sample enum-parent-dup
+// Generated from Sample enum-parent-dup for Enum
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_enum_parent_dup;
 
 public enum EnumPrntDup

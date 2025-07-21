@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_alt-mod-param+Input_Intf.gen.cs
-// Generated from alt-mod-param+Input.graphql+
+// Generated from alt-mod-param+Input.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_alt_mod_param_Input;
 
 public interface IAltModParamInp<Tmod>

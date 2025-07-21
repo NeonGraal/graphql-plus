@@ -3,11 +3,10 @@ domain DmnStrPrntDescr { :"Parent comment"PrntDmnStrPrntDescr String /a+/ }
 domain PrntDmnStrPrntDescr { String /b+/ }
 */
 
-// Generated from Sample domain-string-parent-descr
+// Generated from Sample domain-string-parent-descr for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_domain_string_parent_descr;
 
 public interface IDmnStrPrntDescr

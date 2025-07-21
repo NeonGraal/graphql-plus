@@ -33,11 +33,10 @@ input _TypeFilter {
     }
 */
 
-// Generated from Spec Intro_Declarations
+// Generated from Spec Intro_Declarations for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Spec_Intro_Declarations;
 
 public interface I_Schema

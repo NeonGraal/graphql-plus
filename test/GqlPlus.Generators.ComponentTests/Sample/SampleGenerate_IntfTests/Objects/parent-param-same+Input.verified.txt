@@ -3,11 +3,10 @@ input PrntParamSameInp<$a:String> { :RefPrntParamSameInp<$a> field: $a }
 input RefPrntParamSameInp<$a:String> { | $a }
 */
 
-// Generated from Sample parent-param-same+Input
+// Generated from Sample parent-param-same+Input for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_parent_param_same_Input;
 
 public interface IPrntParamSameInp<Ta>

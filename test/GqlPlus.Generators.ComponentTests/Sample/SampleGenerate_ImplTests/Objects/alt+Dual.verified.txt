@@ -3,11 +3,10 @@ dual AltDual { | AltAltDual }
 dual AltAltDual { alt: Number | String }
 */
 
-// Generated from Sample alt+Dual
+// Generated from Sample alt+Dual for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_alt_Dual;
 public class DualAltDual
   : IAltDual

@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_alt-mod-Boolean+Dual_Impl.gen.cs
-// Generated from alt-mod-Boolean+Dual.graphql+
+// Generated from alt-mod-Boolean+Dual.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_alt_mod_Boolean_Dual;
 public class DualAltModBoolDual
   : IAltModBoolDual

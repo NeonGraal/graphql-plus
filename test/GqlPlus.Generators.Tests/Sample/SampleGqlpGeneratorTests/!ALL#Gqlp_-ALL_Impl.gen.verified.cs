@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_-ALL_Impl.gen.cs
-// Generated from -ALL.graphql+
+// Generated from -ALL.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp__ALL;
 public class OutputCtgrDscrs
   : ICtgrDscrs

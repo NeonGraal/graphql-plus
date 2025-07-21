@@ -3,11 +3,10 @@ input PrntParamDiffInp<$a:String> { :RefPrntParamDiffInp<$a> field: $a }
 input RefPrntParamDiffInp<$b:String> { | $b }
 */
 
-// Generated from Sample parent-param-diff+Input
+// Generated from Sample parent-param-diff+Input for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_parent_param_diff_Input;
 
 public interface IPrntParamDiffInp<Ta>

@@ -9,10 +9,10 @@ internal abstract class GenerateForSimple<T>
     base.ClassHeader(ast, context);
 
     if (!string.IsNullOrWhiteSpace(ast.Parent?.Name)) {
-      context.AppendLine("  : " + TypePrefix + ast.Parent!.Name);
-      context.AppendLine("  , I" + ast.Name);
+      context.Write("  : " + TypePrefix + ast.Parent!.Name);
+      context.Write("  , I" + ast.Name);
     } else {
-      context.AppendLine("  : I" + ast.Name);
+      context.Write("  : I" + ast.Name);
     }
   }
 
@@ -21,7 +21,7 @@ internal abstract class GenerateForSimple<T>
     base.TypeHeader(ast, context);
 
     if (!string.IsNullOrWhiteSpace(ast.Parent?.Name)) {
-      context.AppendLine("  : I" + ast.Parent!.Name);
+      context.Write("  : I" + ast.Parent!.Name);
     }
   }
 }

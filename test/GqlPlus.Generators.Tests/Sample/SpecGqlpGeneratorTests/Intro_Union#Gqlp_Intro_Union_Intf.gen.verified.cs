@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_Intro_Union_Intf.gen.cs
-// Generated from Intro_Union.graphql+
+// Generated from Intro_Union.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro_Union;
 
 public interface I_TypeUnion

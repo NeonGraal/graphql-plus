@@ -3,11 +3,10 @@ domain DmnBoolDiff { boolean true }
 domain DmnBoolDiff { boolean false }
 */
 
-// Generated from Sample domain-boolean-diff
+// Generated from Sample domain-boolean-diff for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_domain_boolean_diff;
 
 public interface IDmnBoolDiff

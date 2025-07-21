@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_parent+Input_Impl.gen.cs
-// Generated from parent+Input.graphql+
+// Generated from parent+Input.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_parent_Input;
 public class InputPrntInp
   : InputRefPrntInp

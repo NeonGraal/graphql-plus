@@ -38,11 +38,10 @@ output _Setting {
     }
 */
 
-// Generated from Spec Intro_+Global
+// Generated from Spec Intro_+Global for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Spec_Intro__Global;
 public class Output_Categories
   : I_Categories

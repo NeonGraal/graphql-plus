@@ -2,11 +2,10 @@
 output GnrcPrntOutp<$type:String> { :$type }
 */
 
-// Generated from Sample generic-parent+Output
+// Generated from Sample generic-parent+Output for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_parent_Output;
 public class OutputGnrcPrntOutp<Ttype>
   : Outputtype

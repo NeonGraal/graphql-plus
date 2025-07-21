@@ -4,11 +4,10 @@ input ObjPrntInp { :RefObjPrntInp }
 input RefObjPrntInp { }
 */
 
-// Generated from Sample object-parent+Input
+// Generated from Sample object-parent+Input for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_object_parent_Input;
 public class InputObjPrntInp
   : InputRefObjPrntInp

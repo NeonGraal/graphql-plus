@@ -3,11 +3,10 @@ output PrntParamDiffOutp<$a:String> { :RefPrntParamDiffOutp<$a> field: $a }
 output RefPrntParamDiffOutp<$b:String> { | $b }
 */
 
-// Generated from Sample parent-param-diff+Output
+// Generated from Sample parent-param-diff+Output for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_parent_param_diff_Output;
 public class OutputPrntParamDiffOutp<Ta>
   : OutputRefPrntParamDiffOutp

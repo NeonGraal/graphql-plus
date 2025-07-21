@@ -3,11 +3,10 @@ enum EnumPrntDescr { : "Parent comment" PrntEnumPrntDescr enumPrntDescr  }
 enum PrntEnumPrntDescr { prnt_enumPrntDescr }
 */
 
-// Generated from Sample enum-parent-descr
+// Generated from Sample enum-parent-descr for Enum
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_enum_parent_descr;
 
 public enum EnumPrntDescr

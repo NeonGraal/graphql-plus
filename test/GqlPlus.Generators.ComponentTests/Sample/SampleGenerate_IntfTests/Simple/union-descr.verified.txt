@@ -2,11 +2,10 @@
 union UnionDescr { "Union" "Descr" Number }
 */
 
-// Generated from Sample union-descr
+// Generated from Sample union-descr for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_union_descr;
 
 public interface IUnionDescr

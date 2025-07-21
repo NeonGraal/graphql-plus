@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_Intro_Domain_Impl.gen.cs
-// Generated from Intro_Domain.graphql+
+// Generated from Intro_Domain.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro_Domain;
 public class Output_TypeDomain
   : I_TypeDomain

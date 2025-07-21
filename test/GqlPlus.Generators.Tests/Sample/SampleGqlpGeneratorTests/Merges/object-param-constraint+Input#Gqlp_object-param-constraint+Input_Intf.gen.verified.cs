@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_object-param-constraint+Input_Intf.gen.cs
-// Generated from object-param-constraint+Input.graphql+
+// Generated from object-param-constraint+Input.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_object_param_constraint_Input;
 
 public interface IObjParamCnstInp<Ttest>

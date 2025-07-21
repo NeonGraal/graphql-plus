@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_output-generic-enum_Impl.gen.cs
-// Generated from output-generic-enum.graphql+
+// Generated from output-generic-enum.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_output_generic_enum;
 public class OutputOutpGnrcEnum
   : IOutpGnrcEnum

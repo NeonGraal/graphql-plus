@@ -33,11 +33,10 @@ input _TypeFilter {
     }
 */
 
-// Generated from Spec Intro_Declarations
+// Generated from Spec Intro_Declarations for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Spec_Intro_Declarations;
 public class Output_Schema
   : Output_Named

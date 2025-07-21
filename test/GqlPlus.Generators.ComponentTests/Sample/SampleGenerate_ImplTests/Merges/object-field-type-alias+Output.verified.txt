@@ -3,11 +3,10 @@ output ObjFieldTypeAliasOutp { field: String }
 output ObjFieldTypeAliasOutp { field: String }
 */
 
-// Generated from Sample object-field-type-alias+Output
+// Generated from Sample object-field-type-alias+Output for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_object_field_type_alias_Output;
 public class OutputObjFieldTypeAliasOutp
   : IObjFieldTypeAliasOutp

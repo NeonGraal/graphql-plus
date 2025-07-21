@@ -38,11 +38,10 @@ output _Setting {
     }
 */
 
-// Generated from Spec Intro_+Global
+// Generated from Spec Intro_+Global for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Spec_Intro__Global;
 
 public interface I_Categories

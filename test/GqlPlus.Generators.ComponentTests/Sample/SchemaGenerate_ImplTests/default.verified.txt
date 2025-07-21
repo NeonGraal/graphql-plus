@@ -11,11 +11,10 @@ output Subscription { }
 output _Schema { }
 */
 
-// Generated from Schema default
+// Generated from Schema default for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Schema_default;
 public class OutputQuery
   : IQuery

@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_Intro_+Schema_Intf.gen.cs
-// Generated from Intro_+Schema.graphql+
+// Generated from Intro_+Schema.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro__Schema;
 
 public interface I_Schema

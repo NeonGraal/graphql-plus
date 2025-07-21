@@ -3,11 +3,10 @@ output OutpFieldValueDescr { field = "Test" "Descr" outpFieldValueDescr }
 enum EnumOutpFieldValueDescr { outpFieldValueDescr }
 */
 
-// Generated from Sample output-field-value-descr
+// Generated from Sample output-field-value-descr for Enum
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_output_field_value_descr;
 
 public enum EnumOutpFieldValueDescr

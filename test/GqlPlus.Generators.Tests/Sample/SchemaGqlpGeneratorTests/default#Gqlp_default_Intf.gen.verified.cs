@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_default_Intf.gen.cs
-// Generated from default.graphql+
+// Generated from default.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_default;
 
 public interface IQuery

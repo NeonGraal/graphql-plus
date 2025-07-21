@@ -33,11 +33,10 @@ output _InputParam {
     }
 */
 
-// Generated from Spec Intro_Input
+// Generated from Spec Intro_Input for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Spec_Intro_Input;
 public class Output_TypeInput
   : Output_TypeObject

@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_constraint-parent-obj-parent+Input_Impl.gen.cs
-// Generated from constraint-parent-obj-parent+Input.graphql+
+// Generated from constraint-parent-obj-parent+Input.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_constraint_parent_obj_parent_Input;
 public class InputCnstPrntObjPrntInp
   : InputRefCnstPrntObjPrntInp

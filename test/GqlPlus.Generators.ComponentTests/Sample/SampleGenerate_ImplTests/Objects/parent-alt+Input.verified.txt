@@ -3,11 +3,10 @@ input PrntAltInp { :RefPrntAltInp | Number }
 input RefPrntAltInp {  parent: Number | String }
 */
 
-// Generated from Sample parent-alt+Input
+// Generated from Sample parent-alt+Input for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_parent_alt_Input;
 public class InputPrntAltInp
   : InputRefPrntAltInp

@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_generic-parent-dual+Output_Intf.gen.cs
-// Generated from generic-parent-dual+Output.graphql+
+// Generated from generic-parent-dual+Output.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_parent_dual_Output;
 
 public interface IGnrcPrntDualOutp

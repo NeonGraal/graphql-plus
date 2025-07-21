@@ -4,11 +4,10 @@ dual FieldGnrcPrntStrDomDual<$ref:String> { field: $ref }
 domain DomGnrcPrntStrDomDual { string /\w+/ }
 */
 
-// Generated from Sample generic-parent-string-dom+Dual
+// Generated from Sample generic-parent-string-dom+Dual for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_parent_string_dom_Dual;
 
 public interface IGnrcPrntStrDomDual

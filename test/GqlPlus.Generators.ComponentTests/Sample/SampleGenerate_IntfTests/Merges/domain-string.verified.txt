@@ -3,11 +3,10 @@ domain DmnStr { string }
 domain DmnStr { string }
 */
 
-// Generated from Sample domain-string
+// Generated from Sample domain-string for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_domain_string;
 
 public interface IDmnStr

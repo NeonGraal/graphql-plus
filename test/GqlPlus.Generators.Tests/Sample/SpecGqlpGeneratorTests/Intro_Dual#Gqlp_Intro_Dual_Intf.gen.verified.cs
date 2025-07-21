@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_Intro_Dual_Intf.gen.cs
-// Generated from Intro_Dual.graphql+
+// Generated from Intro_Dual.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro_Dual;
 
 public interface I_TypeDual

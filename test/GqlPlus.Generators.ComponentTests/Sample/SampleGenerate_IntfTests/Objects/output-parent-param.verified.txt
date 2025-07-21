@@ -6,11 +6,10 @@ input InOutpPrntParam { param: Number | String }
 input PrntOutpPrntParamIn { parent: Number | String }
 */
 
-// Generated from Sample output-parent-param
+// Generated from Sample output-parent-param for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_output_parent_param;
 
 public interface IOutpPrntParam

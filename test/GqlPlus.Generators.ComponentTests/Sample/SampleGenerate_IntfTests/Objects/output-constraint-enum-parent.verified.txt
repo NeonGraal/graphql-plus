@@ -5,11 +5,10 @@ enum EnumOutpCnstEnumPrnt { :ParentOutpCnstEnumPrnt outpCnstEnumPrnt }
 enum ParentOutpCnstEnumPrnt { parentOutpCnstEnumPrnt }
 */
 
-// Generated from Sample output-constraint-enum-parent
+// Generated from Sample output-constraint-enum-parent for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_output_constraint_enum_parent;
 
 public interface IOutpCnstEnumPrnt

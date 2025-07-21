@@ -4,10 +4,10 @@ category [CatA2] { CtgrAlias }
 output CtgrAlias { }
 */
 
-// Generated from Sample category-alias
+// Generated from Sample category-alias for Stat
 
 /*
+
 Category ctgrAlias
 */
-
 namespace GqlPlus.Gqlp_Sample_category_alias;

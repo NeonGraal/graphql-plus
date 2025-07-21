@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_parent-alt+Output_Intf.gen.cs
-// Generated from parent-alt+Output.graphql+
+// Generated from parent-alt+Output.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_parent_alt_Output;
 
 public interface IPrntAltOutp

@@ -3,11 +3,10 @@ input PrntDualInp { :RefPrntDualInp }
 dual RefPrntDualInp { parent: Number | String }
 */
 
-// Generated from Sample parent-dual+Input
+// Generated from Sample parent-dual+Input for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_parent_dual_Input;
 public class InputPrntDualInp
   : InputRefPrntDualInp

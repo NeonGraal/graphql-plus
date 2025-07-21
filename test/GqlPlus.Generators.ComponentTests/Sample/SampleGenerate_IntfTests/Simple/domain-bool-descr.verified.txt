@@ -2,11 +2,10 @@
 domain DmnBoolDescr { Boolean "DomBool" "Descr" true }
 */
 
-// Generated from Sample domain-bool-descr
+// Generated from Sample domain-bool-descr for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_domain_bool_descr;
 
 public interface IDmnBoolDescr

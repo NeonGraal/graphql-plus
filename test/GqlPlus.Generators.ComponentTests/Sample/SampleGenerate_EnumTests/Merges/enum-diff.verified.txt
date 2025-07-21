@@ -3,11 +3,10 @@ enum EnumDiff { one }
 enum EnumDiff { two }
 */
 
-// Generated from Sample enum-diff
+// Generated from Sample enum-diff for Enum
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_enum_diff;
 
 public enum EnumDiff

@@ -4,11 +4,10 @@ input RefGnrcPrntDualPrntInp<$ref:_Dual> { :$ref }
 dual AltGnrcPrntDualPrntInp { alt: Number | String }
 */
 
-// Generated from Sample generic-parent-dual-parent+Input
+// Generated from Sample generic-parent-dual-parent+Input for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_parent_dual_parent_Input;
 
 public interface IGnrcPrntDualPrntInp

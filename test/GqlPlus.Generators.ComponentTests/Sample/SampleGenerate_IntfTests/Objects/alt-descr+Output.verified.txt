@@ -2,11 +2,10 @@
 output AltDescrOutp { | "Test" "Descr" String }
 */
 
-// Generated from Sample alt-descr+Output
+// Generated from Sample alt-descr+Output for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_alt_descr_Output;
 
 public interface IAltDescrOutp

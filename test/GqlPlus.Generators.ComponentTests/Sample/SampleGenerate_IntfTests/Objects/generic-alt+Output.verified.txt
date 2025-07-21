@@ -2,11 +2,10 @@
 output GnrcAltOutp<$type:String> { | $type }
 */
 
-// Generated from Sample generic-alt+Output
+// Generated from Sample generic-alt+Output for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_alt_Output;
 
 public interface IGnrcAltOutp<Ttype>

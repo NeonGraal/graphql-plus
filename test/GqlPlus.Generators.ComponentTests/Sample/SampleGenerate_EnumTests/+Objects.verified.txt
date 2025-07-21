@@ -1,8 +1,11 @@
-﻿// Generated from Sample +Objects
+﻿/* +Objects
+
+*/
+
+// Generated from Sample +Objects for Enum
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_Objects;
 
 public enum EnumFieldModEnumDual

@@ -111,8 +111,12 @@ public class GqlpGenerator : IIncrementalGenerator
 
       GqlpGeneratorContext context = new(text.Path, generatorOptions, modelOptions);
       schemaGenerator.Generate(merged, context);
+      string source = context.ToString();
 
-      sourceContext.AddSource(context.FileName, context.ToString());
+      if (!source.IsWhiteSpace()) {
+        sourceContext.AddSource(context.FileName, source);
+      }
+
       foreach (IMessage error in merged.Errors) {
         LinePosition at = error is ITokenMessage token ? new(token.Line, token.Column) : default;
         Location location = Location.Create(text.Path, default, new(at, at));

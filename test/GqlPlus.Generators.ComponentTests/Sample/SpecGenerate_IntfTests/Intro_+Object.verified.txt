@@ -151,11 +151,10 @@ output _OutputEnum {
     }
 */
 
-// Generated from Spec Intro_+Object
+// Generated from Spec Intro_+Object for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Spec_Intro__Object;
 
 public interface I_ObjectKind

@@ -14,11 +14,10 @@ dual _Described {
     }
 */
 
-// Generated from Spec Intro_Names
+// Generated from Spec Intro_Names for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Spec_Intro_Names;
 
 public interface I_Aliased

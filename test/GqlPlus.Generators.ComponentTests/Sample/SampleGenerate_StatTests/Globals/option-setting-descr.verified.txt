@@ -2,10 +2,10 @@
 option Schema { "Option" "Descr" descr=true }
 */
 
-// Generated from Sample option-setting-descr
+// Generated from Sample option-setting-descr for Stat
 
 /*
+
 Option Schema
 */
-
 namespace GqlPlus.Gqlp_Sample_option_setting_descr;

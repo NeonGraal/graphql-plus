@@ -3,11 +3,10 @@ dual ObjAliasDual [Dual1] { }
 dual ObjAliasDual [Dual2] { }
 */
 
-// Generated from Sample object-alias+Dual
+// Generated from Sample object-alias+Dual for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_object_alias_Dual;
 
 public interface IObjAliasDual

@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_constraint-field-obj+Dual_Impl.gen.cs
-// Generated from constraint-field-obj+Dual.graphql+
+// Generated from constraint-field-obj+Dual.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_constraint_field_obj_Dual;
 public class DualCnstFieldObjDual
   : DualRefCnstFieldObjDual

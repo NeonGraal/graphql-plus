@@ -2,11 +2,10 @@
 output GnrcPrntDescrOutp<$type:String> { :"Parent comment"$type }
 */
 
-// Generated from Sample generic-parent-descr+Output
+// Generated from Sample generic-parent-descr+Output for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_parent_descr_Output;
 
 public interface IGnrcPrntDescrOutp<Ttype>

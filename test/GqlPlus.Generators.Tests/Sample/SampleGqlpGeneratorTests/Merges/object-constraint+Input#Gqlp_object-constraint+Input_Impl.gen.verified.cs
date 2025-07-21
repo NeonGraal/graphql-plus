@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_object-constraint+Input_Impl.gen.cs
-// Generated from object-constraint+Input.graphql+
+// Generated from object-constraint+Input.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_object_constraint_Input;
 public class InputObjCnstInp<Ttype>
   : IObjCnstInp<Ttype>

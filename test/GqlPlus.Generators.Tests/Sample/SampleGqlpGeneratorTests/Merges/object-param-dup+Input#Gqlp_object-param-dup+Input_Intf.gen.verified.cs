@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_object-param-dup+Input_Intf.gen.cs
-// Generated from object-param-dup+Input.graphql+
+// Generated from object-param-dup+Input.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_object_param_dup_Input;
 
 public interface IObjParamDupInp<Ttest>

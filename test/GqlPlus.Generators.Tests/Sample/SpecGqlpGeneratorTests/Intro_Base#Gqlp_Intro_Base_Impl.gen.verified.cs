@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_Intro_Base_Impl.gen.cs
-// Generated from Intro_Base.graphql+
+// Generated from Intro_Base.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro_Base;
 public class Domain_ObjectKind
   : I_ObjectKind

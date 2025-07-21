@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_output-param_Intf.gen.cs
-// Generated from output-param.graphql+
+// Generated from output-param.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_output_param;
 
 public interface IOutpParam

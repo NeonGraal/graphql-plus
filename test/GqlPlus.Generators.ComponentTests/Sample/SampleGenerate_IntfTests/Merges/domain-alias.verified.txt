@@ -3,11 +3,10 @@ domain DmnAlias [Num1] { number }
 domain DmnAlias [Num2] { number }
 */
 
-// Generated from Sample domain-alias
+// Generated from Sample domain-alias for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_domain_alias;
 
 public interface IDmnAlias

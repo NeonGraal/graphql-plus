@@ -5,11 +5,10 @@ dual PrntCnstAltObjDual { | String }
 dual AltCnstAltObjDual { :PrntCnstAltObjDual alt: Number }
 */
 
-// Generated from Sample constraint-alt-obj+Dual
+// Generated from Sample constraint-alt-obj+Dual for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_constraint_alt_obj_Dual;
 
 public interface ICnstAltObjDual

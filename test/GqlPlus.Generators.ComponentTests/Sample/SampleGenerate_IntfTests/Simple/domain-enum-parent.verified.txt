@@ -4,11 +4,10 @@ domain PrntDmnEnumPrnt { Enum prnt_dmnEnumPrnt }
 enum EnumDmnEnumPrnt { enum_dmnEnumPrnt prnt_dmnEnumPrnt }
 */
 
-// Generated from Sample domain-enum-parent
+// Generated from Sample domain-enum-parent for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_domain_enum_parent;
 
 public interface IDmnEnumPrnt

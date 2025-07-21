@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_Intro_Output_Intf.gen.cs
-// Generated from Intro_Output.graphql+
+// Generated from Intro_Output.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro_Output;
 
 public interface I_TypeOutput

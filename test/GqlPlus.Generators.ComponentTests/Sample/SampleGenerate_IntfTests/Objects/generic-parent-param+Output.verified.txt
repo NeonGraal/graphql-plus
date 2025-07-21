@@ -4,11 +4,10 @@ output RefGnrcPrntParamOutp<$ref:_Output> { | $ref }
 output AltGnrcPrntParamOutp { alt: Number | String }
 */
 
-// Generated from Sample generic-parent-param+Output
+// Generated from Sample generic-parent-param+Output for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_parent_param_Output;
 
 public interface IGnrcPrntParamOutp

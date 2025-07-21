@@ -3,11 +3,10 @@ domain DmnNmbrSame { number 1~9 }
 domain DmnNmbrSame { number 1~9 }
 */
 
-// Generated from Sample domain-number-same
+// Generated from Sample domain-number-same for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_domain_number_same;
 public class DomainDmnNmbrSame
   : IDmnNmbrSame

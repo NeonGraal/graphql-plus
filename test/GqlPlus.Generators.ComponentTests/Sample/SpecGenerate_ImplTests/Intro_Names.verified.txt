@@ -14,11 +14,10 @@ dual _Described {
     }
 */
 
-// Generated from Spec Intro_Names
+// Generated from Spec Intro_Names for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Spec_Intro_Names;
 public class Dual_Aliased
   : Dual_Named

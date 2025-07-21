@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_Intro_Directive_Intf.gen.cs
-// Generated from Intro_Directive.graphql+
+// Generated from Intro_Directive.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro_Directive;
 
 public interface I_Directives

@@ -3,11 +3,10 @@ input FieldModParamInp<$mod:String> { field: FldFieldModParamInp[$mod] }
 input FldFieldModParamInp { field: Number | String }
 */
 
-// Generated from Sample field-mod-param+Input
+// Generated from Sample field-mod-param+Input for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_field_mod_param_Input;
 public class InputFieldModParamInp<Tmod>
   : IFieldModParamInp<Tmod>

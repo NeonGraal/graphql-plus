@@ -4,11 +4,10 @@ input ObjFieldInp { field: FldObjFieldInp }
 input FldObjFieldInp { }
 */
 
-// Generated from Sample object-field+Input
+// Generated from Sample object-field+Input for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_object_field_Input;
 public class InputObjFieldInp
   : IObjFieldInp

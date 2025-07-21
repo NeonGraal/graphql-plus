@@ -2,11 +2,10 @@
 output RefGnrcAltModStrOutp<$ref:String> { | $ref[*] }
 */
 
-// Generated from Sample generic-alt-mod-String+Output
+// Generated from Sample generic-alt-mod-String+Output for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_alt_mod_String_Output;
 public class OutputRefGnrcAltModStrOutp<Tref>
   : IRefGnrcAltModStrOutp<Tref>

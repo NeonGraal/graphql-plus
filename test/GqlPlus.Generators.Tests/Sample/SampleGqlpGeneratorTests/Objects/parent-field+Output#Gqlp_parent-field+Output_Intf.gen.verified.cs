@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_parent-field+Output_Intf.gen.cs
-// Generated from parent-field+Output.graphql+
+// Generated from parent-field+Output.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_parent_field_Output;
 
 public interface IPrntFieldOutp

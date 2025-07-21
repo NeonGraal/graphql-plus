@@ -3,11 +3,10 @@ output ObjCnstOutp<$type:String> { field: $type }
 output ObjCnstOutp<$type:String> { str: $type }
 */
 
-// Generated from Sample object-constraint+Output
+// Generated from Sample object-constraint+Output for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_object_constraint_Output;
 
 public interface IObjCnstOutp<Ttype>

@@ -3,11 +3,10 @@ output PrntAltOutp { :RefPrntAltOutp | Number }
 output RefPrntAltOutp {  parent: Number | String }
 */
 
-// Generated from Sample parent-alt+Output
+// Generated from Sample parent-alt+Output for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_parent_alt_Output;
 public class OutputPrntAltOutp
   : OutputRefPrntAltOutp

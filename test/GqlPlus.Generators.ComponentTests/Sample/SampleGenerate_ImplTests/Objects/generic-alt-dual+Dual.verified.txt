@@ -4,11 +4,10 @@ dual RefGnrcAltDualDual<$ref:_Dual> { | $ref }
 dual AltGnrcAltDualDual { alt: Number | String }
 */
 
-// Generated from Sample generic-alt-dual+Dual
+// Generated from Sample generic-alt-dual+Dual for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_alt_dual_Dual;
 public class DualGnrcAltDualDual
   : IGnrcAltDualDual

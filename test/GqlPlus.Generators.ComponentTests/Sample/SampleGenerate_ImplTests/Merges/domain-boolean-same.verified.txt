@@ -3,11 +3,10 @@ domain DmnBoolSame { boolean true }
 domain DmnBoolSame { boolean true }
 */
 
-// Generated from Sample domain-boolean-same
+// Generated from Sample domain-boolean-same for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_domain_boolean_same;
 public class DomainDmnBoolSame
   : IDmnBoolSame

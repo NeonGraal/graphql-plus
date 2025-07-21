@@ -1,8 +1,11 @@
-﻿// Generated from Sample +Objects
+﻿/* +Objects
+
+*/
+
+// Generated from Sample +Objects for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_Objects;
 
 public interface IAltDual

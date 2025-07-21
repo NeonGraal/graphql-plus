@@ -3,11 +3,10 @@ directive @DrctParamDict(InDrctParamDict[String]) { all }
 input InDrctParamDict { }
 */
 
-// Generated from Sample directive-param-dict
+// Generated from Sample directive-param-dict for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_directive_param_dict;
 
 public interface IInDrctParamDict

@@ -1,7 +1,8 @@
 ﻿//HintName: Gqlp_+Merges_Stat.gen.cs
-// Generated from +Merges.graphql+
+// Generated from +Merges.graphql+ for Stat
 
 /*
+
 Category ctgr
 Category ctgrAlias
 Category ctgrDescr
@@ -11,5 +12,4 @@ Directive DrctAlias
 Directive DrctParam
 Option Schema
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp__Merges;

@@ -34,9 +34,9 @@ internal abstract class GenerateForObject<TObj, TBase, TField, TAlt>
   {
     string typeParams = ast.TypeParams.Surround("<", ">", p => "T" + p!.Name, ",");
 
-    context.AppendLine($"public interface I{ast.Name}{typeParams}");
+    context.Write($"public interface I{ast.Name}{typeParams}");
     if (ast.Parent is not null) {
-      context.AppendLine("  : I" + ast.Parent.Name);
+      context.Write("  : I" + ast.Parent.Name);
     }
   }
 
@@ -44,13 +44,13 @@ internal abstract class GenerateForObject<TObj, TBase, TField, TAlt>
   {
     string typeParams = ast.TypeParams.Surround("<", ">", p => "T" + p!.Name, ",");
 
-    context.AppendLine($"public class {TypePrefix}{ast.Name}{typeParams}");
+    context.Write($"public class {TypePrefix}{ast.Name}{typeParams}");
 
     if (ast.Parent is not null) {
-      context.AppendLine("  : " + TypePrefix + ast.Parent.Name);
-      context.AppendLine("  , I" + ast.Name + typeParams);
+      context.Write("  : " + TypePrefix + ast.Parent.Name);
+      context.Write("  , I" + ast.Name + typeParams);
     } else {
-      context.AppendLine("  : I" + ast.Name + typeParams);
+      context.Write("  : I" + ast.Name + typeParams);
     }
   }
 }

@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_input-field-Number_Impl.gen.cs
-// Generated from input-field-Number.graphql+
+// Generated from input-field-Number.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_input_field_Number;
 public class InputInpFieldNmbr
   : IInpFieldNmbr

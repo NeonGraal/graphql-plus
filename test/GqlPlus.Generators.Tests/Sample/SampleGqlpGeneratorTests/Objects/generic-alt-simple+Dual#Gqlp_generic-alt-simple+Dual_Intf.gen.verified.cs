@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_generic-alt-simple+Dual_Intf.gen.cs
-// Generated from generic-alt-simple+Dual.graphql+
+// Generated from generic-alt-simple+Dual.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_alt_simple_Dual;
 
 public interface IGnrcAltSmplDual

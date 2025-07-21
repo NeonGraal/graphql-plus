@@ -2,11 +2,10 @@
 input GnrcPrntInp<$type:String> { :$type }
 */
 
-// Generated from Sample generic-parent+Input
+// Generated from Sample generic-parent+Input for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_parent_Input;
 
 public interface IGnrcPrntInp<Ttype>

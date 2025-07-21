@@ -3,11 +3,10 @@ domain DmnBoolPrnt { :PrntDmnBoolPrnt Boolean false }
 domain PrntDmnBoolPrnt { Boolean true }
 */
 
-// Generated from Sample domain-bool-parent
+// Generated from Sample domain-bool-parent for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_domain_bool_parent;
 
 public interface IDmnBoolPrnt

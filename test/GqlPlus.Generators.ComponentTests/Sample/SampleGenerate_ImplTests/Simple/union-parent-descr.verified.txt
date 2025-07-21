@@ -3,11 +3,10 @@ union UnionPrntDescr { :"Parent comment"PrntUnionPrntDescr Number }
 union PrntUnionPrntDescr { Number }
 */
 
-// Generated from Sample union-parent-descr
+// Generated from Sample union-parent-descr for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_union_parent_descr;
 public class UnionUnionPrntDescr
   : UnionPrntUnionPrntDescr

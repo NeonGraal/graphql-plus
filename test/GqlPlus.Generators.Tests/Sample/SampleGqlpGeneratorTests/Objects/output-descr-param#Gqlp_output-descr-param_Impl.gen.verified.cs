@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_output-descr-param_Impl.gen.cs
-// Generated from output-descr-param.graphql+
+// Generated from output-descr-param.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_output_descr_param;
 public class OutputOutpDescrParam
   : IOutpDescrParam

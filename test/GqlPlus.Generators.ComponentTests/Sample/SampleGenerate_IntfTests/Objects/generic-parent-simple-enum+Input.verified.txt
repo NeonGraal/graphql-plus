@@ -4,11 +4,10 @@ input FieldGnrcPrntSmplEnumInp<$ref:_Simple> { field: $ref }
 enum EnumGnrcPrntSmplEnumInp { gnrcPrntSmplEnumInp }
 */
 
-// Generated from Sample generic-parent-simple-enum+Input
+// Generated from Sample generic-parent-simple-enum+Input for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_parent_simple_enum_Input;
 
 public interface IGnrcPrntSmplEnumInp

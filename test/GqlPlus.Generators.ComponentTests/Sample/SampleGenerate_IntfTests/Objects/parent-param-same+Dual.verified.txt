@@ -3,11 +3,10 @@ dual PrntParamSameDual<$a:String> { :RefPrntParamSameDual<$a> field: $a }
 dual RefPrntParamSameDual<$a:String> { | $a }
 */
 
-// Generated from Sample parent-param-same+Dual
+// Generated from Sample parent-param-same+Dual for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_parent_param_same_Dual;
 
 public interface IPrntParamSameDual<Ta>

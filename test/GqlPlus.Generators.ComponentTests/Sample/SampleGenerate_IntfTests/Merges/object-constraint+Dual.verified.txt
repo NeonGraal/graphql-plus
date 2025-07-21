@@ -3,11 +3,10 @@ dual ObjCnstDual<$type:String> { field: $type }
 dual ObjCnstDual<$type:String> { str: $type }
 */
 
-// Generated from Sample object-constraint+Dual
+// Generated from Sample object-constraint+Dual for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_object_constraint_Dual;
 
 public interface IObjCnstDual<Ttype>

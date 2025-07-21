@@ -5,11 +5,10 @@ enum EnumOutpPrntGnrc { :PrntOutpPrntGnrc outpPrntGnrc }
 enum PrntOutpPrntGnrc { prnt_outpPrntGnrc }
 */
 
-// Generated from Sample output-parent-generic
+// Generated from Sample output-parent-generic for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_output_parent_generic;
 public class OutputOutpPrntGnrc
   : IOutpPrntGnrc

@@ -2,11 +2,10 @@
 dual GnrcDescrDual<"Test" "Descr" $type:String> { field: $type }
 */
 
-// Generated from Sample generic-descr+Dual
+// Generated from Sample generic-descr+Dual for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_descr_Dual;
 
 public interface IGnrcDescrDual<Ttype>

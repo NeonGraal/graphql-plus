@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_generic-parent-param+Dual_Impl.gen.cs
-// Generated from generic-parent-param+Dual.graphql+
+// Generated from generic-parent-param+Dual.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_parent_param_Dual;
 public class DualGnrcPrntParamDual
   : DualRefGnrcPrntParamDual

@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_generic-field-param+Input_Impl.gen.cs
-// Generated from generic-field-param+Input.graphql+
+// Generated from generic-field-param+Input.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_field_param_Input;
 public class InputGnrcFieldParamInp
   : IGnrcFieldParamInp

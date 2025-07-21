@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_generic-parent-param+Input_Impl.gen.cs
-// Generated from generic-parent-param+Input.graphql+
+// Generated from generic-parent-param+Input.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_parent_param_Input;
 public class InputGnrcPrntParamInp
   : InputRefGnrcPrntParamInp

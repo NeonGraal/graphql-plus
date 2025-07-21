@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_enum-parent-descr_Enum.gen.cs
-// Generated from enum-parent-descr.graphql+
+// Generated from enum-parent-descr.graphql+ for Enum
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_enum_parent_descr;
 
 public enum EnumPrntDescr

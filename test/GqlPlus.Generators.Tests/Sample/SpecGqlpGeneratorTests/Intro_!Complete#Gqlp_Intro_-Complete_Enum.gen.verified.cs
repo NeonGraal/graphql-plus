@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_Intro_-Complete_Enum.gen.cs
-// Generated from Intro_-Complete.graphql+
+// Generated from Intro_-Complete.graphql+ for Enum
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro__Complete;
 
 public enum _Resolution

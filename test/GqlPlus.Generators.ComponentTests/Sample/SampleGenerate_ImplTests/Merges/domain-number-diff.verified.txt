@@ -3,11 +3,10 @@ domain DmnNmbrDiff { number 1~9 }
 domain DmnNmbrDiff { number }
 */
 
-// Generated from Sample domain-number-diff
+// Generated from Sample domain-number-diff for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_domain_number_diff;
 public class DomainDmnNmbrDiff
   : IDmnNmbrDiff

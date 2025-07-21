@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_alt+Output_Impl.gen.cs
-// Generated from alt+Output.graphql+
+// Generated from alt+Output.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_alt_Output;
 public class OutputAltOutp
   : IAltOutp

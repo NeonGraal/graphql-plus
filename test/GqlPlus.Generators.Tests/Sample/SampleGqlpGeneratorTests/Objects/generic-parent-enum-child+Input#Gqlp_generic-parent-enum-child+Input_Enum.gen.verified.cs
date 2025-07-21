@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_generic-parent-enum-child+Input_Enum.gen.cs
-// Generated from generic-parent-enum-child+Input.graphql+
+// Generated from generic-parent-enum-child+Input.graphql+ for Enum
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_parent_enum_child_Input;
 
 public enum EnumGnrcPrntEnumChildInp

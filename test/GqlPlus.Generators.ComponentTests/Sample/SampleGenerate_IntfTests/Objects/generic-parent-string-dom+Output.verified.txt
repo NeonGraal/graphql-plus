@@ -4,11 +4,10 @@ output FieldGnrcPrntStrDomOutp<$ref:String> { field: $ref }
 domain DomGnrcPrntStrDomOutp { string /\w+/ }
 */
 
-// Generated from Sample generic-parent-string-dom+Output
+// Generated from Sample generic-parent-string-dom+Output for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_generic_parent_string_dom_Output;
 
 public interface IGnrcPrntStrDomOutp

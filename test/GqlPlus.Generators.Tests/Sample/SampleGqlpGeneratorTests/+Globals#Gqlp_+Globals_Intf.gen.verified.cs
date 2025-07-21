@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_+Globals_Intf.gen.cs
-// Generated from +Globals.graphql+
+// Generated from +Globals.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp__Globals;
 
 public interface ICtgrDscrs

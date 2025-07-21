@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_+Merges_Impl.gen.cs
-// Generated from +Merges.graphql+
+// Generated from +Merges.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp__Merges;
 public class OutputCtgr
   : ICtgr

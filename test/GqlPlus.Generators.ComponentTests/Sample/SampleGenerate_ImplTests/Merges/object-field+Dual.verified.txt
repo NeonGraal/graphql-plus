@@ -4,11 +4,10 @@ dual ObjFieldDual { field: FldObjFieldDual }
 dual FldObjFieldDual { }
 */
 
-// Generated from Sample object-field+Dual
+// Generated from Sample object-field+Dual for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_object_field_Dual;
 public class DualObjFieldDual
   : IObjFieldDual

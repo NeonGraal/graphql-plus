@@ -2,11 +2,10 @@
 output FieldSmplOutp { field: Number }
 */
 
-// Generated from Sample field-simple+Output
+// Generated from Sample field-simple+Output for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_field_simple_Output;
 public class OutputFieldSmplOutp
   : IFieldSmplOutp

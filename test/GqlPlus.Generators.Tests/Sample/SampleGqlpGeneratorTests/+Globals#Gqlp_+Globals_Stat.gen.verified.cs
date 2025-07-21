@@ -1,7 +1,8 @@
 ﻿//HintName: Gqlp_+Globals_Stat.gen.cs
-// Generated from +Globals.graphql+
+// Generated from +Globals.graphql+ for Stat
 
 /*
+
 Category ctgrDscrs
 Category ctgrOutp
 Category ctgrOutpDescr
@@ -17,5 +18,4 @@ Directive DrctParamList
 Directive DrctParamOpt
 Option Schema
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp__Globals;

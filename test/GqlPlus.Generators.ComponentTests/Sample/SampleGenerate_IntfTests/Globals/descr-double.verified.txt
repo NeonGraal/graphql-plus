@@ -3,11 +3,10 @@
 output DescrDbl { }
 */
 
-// Generated from Sample descr-double
+// Generated from Sample descr-double for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_descr_double;
 
 public interface IDescrDbl

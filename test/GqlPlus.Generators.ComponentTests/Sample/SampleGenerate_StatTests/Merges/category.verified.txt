@@ -4,10 +4,10 @@ category ctgr { Ctgr }
 output Ctgr { }
 */
 
-// Generated from Sample category
+// Generated from Sample category for Stat
 
 /*
+
 Category ctgr
 */
-
 namespace GqlPlus.Gqlp_Sample_category;

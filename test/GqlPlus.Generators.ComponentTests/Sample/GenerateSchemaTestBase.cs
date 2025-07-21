@@ -40,7 +40,7 @@ internal sealed class SchemaGeneratorChecks(
     schemaGenerator.Generate(schema, context);
 
     string result = context.ToString();
-    if (!input.IsWhiteSpace()) {
+    if (!result.IsWhiteSpace()) {
       result = "/* " + test + "\r\n" + input.TrimEnd() + "\r\n*/\r\n\r\n" + result;
     }
 

@@ -16,11 +16,10 @@ output _Directive {
 enum _Location { Operation Variable Field Inline Spread Fragment }
 */
 
-// Generated from Spec Intro_Directive
+// Generated from Spec Intro_Directive for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Spec_Intro_Directive;
 
 public interface I_Directives

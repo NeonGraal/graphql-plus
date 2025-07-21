@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_constraint-field-obj+Input_Intf.gen.cs
-// Generated from constraint-field-obj+Input.graphql+
+// Generated from constraint-field-obj+Input.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_constraint_field_obj_Input;
 
 public interface ICnstFieldObjInp

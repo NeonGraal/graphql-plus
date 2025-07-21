@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_union-same-parent_Impl.gen.cs
-// Generated from union-same-parent.graphql+
+// Generated from union-same-parent.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_union_same_parent;
 public class UnionUnionSamePrnt
   : UnionPrntUnionSamePrnt

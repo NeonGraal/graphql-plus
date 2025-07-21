@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_generic-field-dual+Input_Intf.gen.cs
-// Generated from generic-field-dual+Input.graphql+
+// Generated from generic-field-dual+Input.graphql+ for Intf
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_field_dual_Input;
 
 public interface IGnrcFieldDualInp

@@ -3,11 +3,10 @@ domain DmnStrDiff { string /a+/ }
 domain DmnStrDiff { string }
 */
 
-// Generated from Sample domain-string-diff
+// Generated from Sample domain-string-diff for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_domain_string_diff;
 public class DomainDmnStrDiff
   : IDmnStrDiff

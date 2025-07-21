@@ -3,11 +3,10 @@ dual PrntDescrDual { : "Test" "Descr" RefPrntDescrDual }
 dual RefPrntDescrDual { parent: Number | String }
 */
 
-// Generated from Sample parent-descr+Dual
+// Generated from Sample parent-descr+Dual for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_parent_descr_Dual;
 public class DualPrntDescrDual
   : DualRefPrntDescrDual

@@ -3,11 +3,10 @@ category { CtgrOutpDict[*] }
 output CtgrOutpDict { }
 */
 
-// Generated from Sample category-output-dict
+// Generated from Sample category-output-dict for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_category_output_dict;
 public class OutputCtgrOutpDict
   : ICtgrOutpDict

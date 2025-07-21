@@ -3,11 +3,10 @@
 output DescrBcks { }
 */
 
-// Generated from Sample descr-backslash
+// Generated from Sample descr-backslash for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_descr_backslash;
 public class OutputDescrBcks
   : IDescrBcks

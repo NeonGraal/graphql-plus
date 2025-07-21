@@ -3,11 +3,10 @@
 output DescrSngl { }
 */
 
-// Generated from Sample descr-single
+// Generated from Sample descr-single for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_descr_single;
 
 public interface IDescrSngl

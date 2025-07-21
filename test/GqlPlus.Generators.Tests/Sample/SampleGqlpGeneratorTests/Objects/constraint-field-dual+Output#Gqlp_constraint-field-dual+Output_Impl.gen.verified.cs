@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_constraint-field-dual+Output_Impl.gen.cs
-// Generated from constraint-field-dual+Output.graphql+
+// Generated from constraint-field-dual+Output.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_constraint_field_dual_Output;
 public class OutputCnstFieldDualOutp
   : OutputRefCnstFieldDualOutp

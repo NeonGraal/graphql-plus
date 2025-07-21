@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_object-constraint+Dual_Impl.gen.cs
-// Generated from object-constraint+Dual.graphql+
+// Generated from object-constraint+Dual.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_object_constraint_Dual;
 public class DualObjCnstDual<Ttype>
   : IObjCnstDual<Ttype>

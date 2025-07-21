@@ -2,11 +2,10 @@
 input InpFieldStr { field: String = 'default' }
 */
 
-// Generated from Sample input-field-String
+// Generated from Sample input-field-String for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_input_field_String;
 public class InputInpFieldStr
   : IInpFieldStr

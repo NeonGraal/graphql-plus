@@ -3,11 +3,10 @@ domain DmnNmbr { number }
 domain DmnNmbr { number }
 */
 
-// Generated from Sample domain-number
+// Generated from Sample domain-number for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_domain_number;
 public class DomainDmnNmbr
   : IDmnNmbr

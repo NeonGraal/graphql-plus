@@ -4,11 +4,10 @@ enum EnumDmnEnumAllPrnt { :PrntDmnEnumAllPrnt dmnEnumAllPrnt }
 enum PrntDmnEnumAllPrnt { prnt_dmnEnumAllPrnt }
 */
 
-// Generated from Sample domain-enum-all-parent
+// Generated from Sample domain-enum-all-parent for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_domain_enum_all_parent;
 
 public interface IDmnEnumAllPrnt

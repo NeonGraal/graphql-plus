@@ -3,11 +3,10 @@ category { CtgrOutpList[] }
 output CtgrOutpList { }
 */
 
-// Generated from Sample category-output-list
+// Generated from Sample category-output-list for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_category_output_list;
 public class OutputCtgrOutpList
   : ICtgrOutpList

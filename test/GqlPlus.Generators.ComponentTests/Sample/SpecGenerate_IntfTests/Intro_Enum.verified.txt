@@ -14,11 +14,10 @@ output _EnumValue {
     }
 */
 
-// Generated from Spec Intro_Enum
+// Generated from Spec Intro_Enum for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Spec_Intro_Enum;
 
 public interface I_TypeEnum

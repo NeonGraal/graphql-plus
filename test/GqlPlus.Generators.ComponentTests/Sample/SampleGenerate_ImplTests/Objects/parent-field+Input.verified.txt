@@ -3,11 +3,10 @@ input PrntFieldInp { :RefPrntFieldInp field: Number }
 input RefPrntFieldInp { parent: Number | String }
 */
 
-// Generated from Sample parent-field+Input
+// Generated from Sample parent-field+Input for Impl
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_parent_field_Input;
 public class InputPrntFieldInp
   : InputRefPrntFieldInp

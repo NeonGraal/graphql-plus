@@ -3,11 +3,10 @@ domain DmnEnumAll { enum EnumDmnEnumAll.* }
 enum EnumDmnEnumAll { dmnEnumAll enum_dmnEnumAll }
 */
 
-// Generated from Sample domain-enum-all
+// Generated from Sample domain-enum-all for Enum
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_domain_enum_all;
 
 public enum EnumDmnEnumAll

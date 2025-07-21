@@ -2,11 +2,10 @@
 input CnstAltInp<$type:Number> { | $type }
 */
 
-// Generated from Sample constraint-alt+Input
+// Generated from Sample constraint-alt+Input for Intf
 
 /*
 */
-
 namespace GqlPlus.Gqlp_Sample_constraint_alt_Input;
 
 public interface ICnstAltInp<Ttype>

@@ -1,9 +1,8 @@
 ﻿//HintName: Gqlp_alt+Dual_Impl.gen.cs
-// Generated from alt+Dual.graphql+
+// Generated from alt+Dual.graphql+ for Impl
 
 /*
 */
-
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_alt_Dual;
 public class DualAltDual
   : IAltDual

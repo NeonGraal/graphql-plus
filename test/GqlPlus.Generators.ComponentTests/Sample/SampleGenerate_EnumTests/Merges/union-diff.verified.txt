@@ -1,0 +1,11 @@
+﻿/* union-diff
+union UnionDiff { Boolean }
+union UnionDiff { Number }
+*/
+
+// Generated from Sample union-diff
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_union_diff;

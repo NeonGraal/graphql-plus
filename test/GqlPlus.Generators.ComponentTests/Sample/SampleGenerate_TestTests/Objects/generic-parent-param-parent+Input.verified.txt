@@ -1,0 +1,12 @@
+﻿/* generic-parent-param-parent+Input
+input GnrcPrntParamPrntInp { :RefGnrcPrntParamPrntInp<AltGnrcPrntParamPrntInp> }
+input RefGnrcPrntParamPrntInp<$ref:_Input> { :$ref }
+input AltGnrcPrntParamPrntInp { alt: Number | String }
+*/
+
+// Generated from Sample generic-parent-param-parent+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_generic_parent_param_parent_Input;

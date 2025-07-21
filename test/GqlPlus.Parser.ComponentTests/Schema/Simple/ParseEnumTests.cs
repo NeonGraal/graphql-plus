@@ -46,7 +46,7 @@ internal sealed class ParseEnumChecks(
 
   protected override string ParentString(EnumInput input, string aliases, string? parent)
     => input.Type + aliases + "{" +
-    (string.IsNullOrWhiteSpace(parent) ? "" : $":{parent} ") +
+    (parent.IsWhiteSpace() ? "" : $":{parent} ") +
     input.Label + "}";
 }
 

@@ -1,0 +1,11 @@
+﻿/* alt-mod-Boolean+Output
+output AltModBoolOutp { | AltAltModBoolOutp[^] }
+output AltAltModBoolOutp { alt: Number | String }
+*/
+
+// Generated from Sample alt-mod-Boolean+Output
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_alt_mod_Boolean_Output;

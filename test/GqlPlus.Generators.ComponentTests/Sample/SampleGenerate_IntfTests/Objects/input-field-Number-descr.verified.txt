@@ -1,0 +1,15 @@
+﻿/* input-field-Number-descr
+input InpFieldNmbrDescr { field: "Test" "Descr" Number = 42 }
+*/
+
+// Generated from Sample input-field-Number-descr
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_input_field_Number_descr;
+
+public interface IInpFieldNmbrDescr
+{
+  Number field { get; }
+}

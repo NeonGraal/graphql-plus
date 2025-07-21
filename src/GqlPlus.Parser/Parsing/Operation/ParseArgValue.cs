@@ -22,7 +22,7 @@ internal class ParseArgValue(
       return tokens.Error<IGqlpArg>(label, "identifier after '$'");
     }
 
-    if (!string.IsNullOrWhiteSpace(variable)) {
+    if (!variable.IsWhiteSpace()) {
       ArgAst argument = new(at, variable!);
 
       if (tokens is IOperationContext context) {

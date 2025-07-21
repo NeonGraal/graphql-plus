@@ -18,7 +18,7 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
 
     string parent = GetParent(usage);
 
-    if (!string.IsNullOrWhiteSpace(parent)) {
+    if (!parent.IsWhiteSpace()) {
       input = input.AddParent(parent);
       CheckMergeParent(input, context);
     }
@@ -72,7 +72,7 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
   protected void CheckParent(ParentUsage<TAst> input, IGqlpType<TParent> child, TContext context, bool top)
   {
     string parent = GetParent(child);
-    if (string.IsNullOrWhiteSpace(parent)) {
+    if (parent.IsWhiteSpace()) {
       return;
     }
 

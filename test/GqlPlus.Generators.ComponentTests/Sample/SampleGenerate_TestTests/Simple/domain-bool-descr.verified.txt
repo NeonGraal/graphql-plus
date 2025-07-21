@@ -1,0 +1,10 @@
+﻿/* domain-bool-descr
+domain DmnBoolDescr { Boolean "DomBool" "Descr" true }
+*/
+
+// Generated from Sample domain-bool-descr
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_domain_bool_descr;

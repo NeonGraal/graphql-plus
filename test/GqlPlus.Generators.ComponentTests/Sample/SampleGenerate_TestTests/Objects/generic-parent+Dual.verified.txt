@@ -1,0 +1,10 @@
+﻿/* generic-parent+Dual
+dual GnrcPrntDual<$type:String> { :$type }
+*/
+
+// Generated from Sample generic-parent+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_generic_parent_Dual;

@@ -1,0 +1,11 @@
+﻿/* object+Output
+output ObjOutp { }
+output ObjOutp { }
+*/
+
+// Generated from Sample object+Output
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_object_Output;

@@ -9,13 +9,14 @@ public class CategoryGeneratorTests
   public void Generate_ReturnsExpected(string name)
   {
     // Arrange
+    GqlpGeneratorContext context = Context(GqlpBaseType.Other, GqlpGeneratorType.Static);
     IGqlpSchemaCategory category = A.Named<IGqlpSchemaCategory>(name);
 
     // Act
-    _generator.Generate(category, Context);
+    _generator.Generate(category, context);
 
     // Assert
-    string result = Context.ToString();
+    string result = context.ToString();
     result.ShouldContain(name);
   }
 }

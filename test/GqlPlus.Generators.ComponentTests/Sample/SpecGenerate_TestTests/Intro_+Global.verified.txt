@@ -1,0 +1,46 @@
+﻿/* Intro_+Global
+output _Categories {
+        category: _Category
+        type: _Type
+    | _Category
+    | _Type
+    }
+
+output _Category {
+    : _Aliased
+        resolution: _Resolution
+        name: _TypeRef<_TypeKind.Output>
+        modifiers: _Modifiers[]
+    }
+
+enum _Resolution { Parallel Sequential Single }
+
+output _Directives {
+        directive: _Directive
+        type: _Type
+    | _Directive
+    | _Type
+    }
+
+output _Directive {
+    : _Aliased
+        parameters: _InputParam[]
+        repeatable: Boolean
+        locations: _[_Location]
+    }
+
+enum _Location { Operation Variable Field Inline Spread Fragment }
+
+
+output _Setting {
+    : _Named
+        value: _Constant
+    }
+*/
+
+// Generated from Spec Intro_+Global
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Spec_Intro__Global;

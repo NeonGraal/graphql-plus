@@ -1,0 +1,34 @@
+﻿/* constraint-alt-obj+Input
+input CnstAltObjInp { | RefCnstAltObjInp<AltCnstAltObjInp> }
+input RefCnstAltObjInp<$ref:PrntCnstAltObjInp> { | $ref }
+input PrntCnstAltObjInp { | String }
+input AltCnstAltObjInp { :PrntCnstAltObjInp alt: Number }
+*/
+
+// Generated from Sample constraint-alt-obj+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_constraint_alt_obj_Input;
+public class InputCnstAltObjInp
+  : ICnstAltObjInp
+{
+  public RefCnstAltObjInp<AltCnstAltObjInp> AsRefCnstAltObjInp { get; set; }
+}
+public class InputRefCnstAltObjInp<Tref>
+  : IRefCnstAltObjInp<Tref>
+{
+  public Tref Asref { get; set; }
+}
+public class InputPrntCnstAltObjInp
+  : IPrntCnstAltObjInp
+{
+  public String AsString { get; set; }
+}
+public class InputAltCnstAltObjInp
+  : InputPrntCnstAltObjInp
+  , IAltCnstAltObjInp
+{
+  public Number alt { get; set; }
+}

@@ -1,0 +1,10 @@
+﻿/* field-simple+Input
+input FieldSmplInp { field: Number }
+*/
+
+// Generated from Sample field-simple+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_field_simple_Input;

@@ -1,0 +1,11 @@
+﻿/* generic-field-arg+Dual
+dual GnrcFieldArgDual<$type:String> { field: RefGnrcFieldArgDual<$type> }
+dual RefGnrcFieldArgDual<$ref:String> { | $ref }
+*/
+
+// Generated from Sample generic-field-arg+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_generic_field_arg_Dual;

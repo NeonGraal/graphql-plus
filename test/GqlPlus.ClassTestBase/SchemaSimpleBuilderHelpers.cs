@@ -65,8 +65,8 @@ public static class SchemaSimpleBuilderHelpers
     where TSimple : class, IGqlpSimple
   {
     TSimple simple = builder.Aliased<TSimple>(name, aliases, description);
-    if (!string.IsNullOrWhiteSpace(parent)) {
-      IGqlpTypeRef parentRef = builder.Named<IGqlpTypeRef>(parent);
+    if (!parent.IsWhiteSpace()) {
+      IGqlpTypeRef parentRef = builder.Named<IGqlpTypeRef>(parent!);
       simple.Parent.Returns(parentRef);
     } else {
       simple.Parent.Returns((IGqlpTypeRef?)null);

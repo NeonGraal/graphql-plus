@@ -1,0 +1,15 @@
+﻿/* generic-parent-descr+Dual
+dual GnrcPrntDescrDual<$type:String> { :"Parent comment"$type }
+*/
+
+// Generated from Sample generic-parent-descr+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_generic_parent_descr_Dual;
+
+public interface IGnrcPrntDescrDual<Ttype>
+  : Itype
+{
+}

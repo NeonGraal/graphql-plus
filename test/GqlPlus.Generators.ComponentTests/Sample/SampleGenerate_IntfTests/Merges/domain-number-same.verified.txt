@@ -1,0 +1,15 @@
+﻿/* domain-number-same
+domain DmnNmbrSame { number 1~9 }
+domain DmnNmbrSame { number 1~9 }
+*/
+
+// Generated from Sample domain-number-same
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_domain_number_same;
+
+public interface IDmnNmbrSame
+{
+}

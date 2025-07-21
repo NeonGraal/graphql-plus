@@ -1,0 +1,11 @@
+﻿/* enum-alias
+enum EnumAlias [En1] { enumAlias }
+enum EnumAlias [En2] { enumAlias }
+*/
+
+// Generated from Sample enum-alias
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_enum_alias;

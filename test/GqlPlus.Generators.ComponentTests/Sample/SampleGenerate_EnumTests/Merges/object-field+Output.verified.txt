@@ -1,0 +1,12 @@
+﻿/* object-field+Output
+output ObjFieldOutp { field: FldObjFieldOutp }
+output ObjFieldOutp { field: FldObjFieldOutp }
+output FldObjFieldOutp { }
+*/
+
+// Generated from Sample object-field+Output
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_object_field_Output;

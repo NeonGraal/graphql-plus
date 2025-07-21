@@ -21,11 +21,11 @@ public class GqlpGenerator : IIncrementalGenerator
 {
   public void Initialize(IncrementalGeneratorInitializationContext context)
   {
-    IncrementalValuesProvider<GqlpGeneratorOptions?> generatorOptions = context.SyntaxProvider
+    IncrementalValuesProvider<GqlpGeneratorOptions> generatorOptions = context.SyntaxProvider
              .ForAttributeWithMetadataName(typeof(GqlpGeneratorAttribute).FullName,
                  predicate: static (s, _) => true,
                  transform: static (ctx, _) => GetGeneratorOptions(ctx.SemanticModel, ctx.TargetNode, ctx.Attributes))
-             .Where(static m => m is not null);
+             .SelectMany((m, _) => m);
 
     IncrementalValueProvider<GqlpModelOptions> gqlModelOptions = context.AnalyzerConfigOptionsProvider.Select(MakeGqlModelOptions);
 
@@ -36,13 +36,20 @@ public class GqlpGenerator : IIncrementalGenerator
     context.RegisterSourceOutput(generatorOptions.Combine(samples.Combine(gqlModelOptions)), GenerateCode);
   }
 
-  private static GqlpGeneratorOptions? GetGeneratorOptions(SemanticModel model, SyntaxNode node, ImmutableArray<AttributeData> attributes)
+  private static IEnumerable<GqlpGeneratorOptions> GetGeneratorOptions(SemanticModel model, SyntaxNode node, ImmutableArray<AttributeData> attributes)
   {
-    if (model.GetDeclaredSymbol(node) is not INamedTypeSymbol classType) {
-      return null;
+    if (model.GetDeclaredSymbol(node) is not INamedTypeSymbol baseSymbol) {
+      yield break;
     }
 
-    GqlpGeneratorType types = GqlpGeneratorType.None;
+    string baseName = baseSymbol.ToString();
+    GqlpBaseType baseType = baseSymbol.TypeKind switch {
+      TypeKind.Class => GqlpBaseType.Class,
+      TypeKind.Interface => GqlpBaseType.Interface,
+      _ => GqlpBaseType.Other,
+    };
+
+    GqlpGeneratorType type = GqlpGeneratorType.None;
     foreach (AttributeData attribute in attributes) {
       foreach (TypedConstant argument in attribute.ConstructorArguments) {
         if (argument is {
@@ -50,15 +57,13 @@ public class GqlpGenerator : IIncrementalGenerator
           Type.Name: nameof(GqlpGeneratorType),
           Value: not null
         }) {
-          types |= (GqlpGeneratorType)argument.Value;
+          yield return new GqlpGeneratorOptions(baseName, baseType, (GqlpGeneratorType)argument.Value);
         } else if (argument is { Value: string typeString }
-            && Enum.TryParse(typeString, out GqlpGeneratorType type)) {
-          types |= type;
+            && Enum.TryParse(typeString, out type)) {
+          yield return new GqlpGeneratorOptions(baseName, baseType, type);
         }
       }
     }
-
-    return new GqlpGeneratorOptions(classType.ToString(), types);
   }
 
   private static GqlpModelOptions MakeGqlModelOptions(AnalyzerConfigOptionsProvider provider, CancellationToken _)
@@ -107,7 +112,7 @@ public class GqlpGenerator : IIncrementalGenerator
       GqlpGeneratorContext context = new(text.Path, generatorOptions, modelOptions);
       schemaGenerator.Generate(merged, context);
 
-      sourceContext.AddSource("Model_" + context.File + ".gen.cs", context.ToString());
+      sourceContext.AddSource(context.FileName, context.ToString());
       foreach (IMessage error in merged.Errors) {
         LinePosition at = error is ITokenMessage token ? new(token.Line, token.Column) : default;
         Location location = Location.Create(text.Path, default, new(at, at));

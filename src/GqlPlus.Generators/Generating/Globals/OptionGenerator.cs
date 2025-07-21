@@ -4,5 +4,9 @@ internal class OptionGenerator
   : IGenerator<IGqlpSchemaOption>
 {
   public void Generate(IGqlpSchemaOption ast, GqlpGeneratorContext context)
-    => context.AppendLine(ast.Label + " " + ast.Name);
+  {
+    if (context.GeneratorOptions.GeneratorType == GqlpGeneratorType.Static) {
+      context.AppendLine(ast.Label + " " + ast.Name);
+    }
+  }
 }

@@ -15,12 +15,13 @@ public abstract class DomainGeneratorTestBase<TItem>
   public void TypeMembers_WithDomainItems_ReturnsAsNamePairs(string domainName, string _)
   {
     // Arrange
+    GqlpGeneratorContext context = Context();
     IGqlpDomain<TItem> domainType = A.Named<IGqlpDomain<TItem>>(domainName);
     TItem item = A.Error<TItem>();
     domainType.Items.Returns([item]);
 
     // Act
-    MapPair<string>[] result = [.. Generator.TypeMembers(domainType, Context)];
+    MapPair<string>[] result = [.. Generator.TypeMembers(domainType, context)];
 
     // Assert
     result.Length.ShouldBe(0);

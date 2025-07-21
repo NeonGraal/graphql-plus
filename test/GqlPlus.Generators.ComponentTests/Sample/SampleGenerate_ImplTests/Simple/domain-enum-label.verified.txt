@@ -1,0 +1,15 @@
+﻿/* domain-enum-label
+domain DmnEnumLabel { enum dmnEnumLabel }
+enum EnumDmnEnumLabel { dmnEnumLabel }
+*/
+
+// Generated from Sample domain-enum-label
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_domain_enum_label;
+public class DomainDmnEnumLabel
+  : IDmnEnumLabel
+{
+}

@@ -1,0 +1,15 @@
+﻿/* category-descr
+"First category"
+category { CtgrDescr }
+"Second category"
+category { CtgrDescr }
+output CtgrDescr { }
+*/
+
+// Generated from Sample category-descr
+
+/*
+Category ctgrDescr
+*/
+
+namespace GqlPlus.Gqlp_Sample_category_descr;

@@ -1,0 +1,15 @@
+﻿/* alt-simple+Output
+output AltSmplOutp { | String }
+*/
+
+// Generated from Sample alt-simple+Output
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_alt_simple_Output;
+
+public interface IAltSmplOutp
+{
+  String AsString { get; }
+}

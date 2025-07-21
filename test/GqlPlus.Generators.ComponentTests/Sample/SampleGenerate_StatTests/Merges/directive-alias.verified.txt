@@ -1,0 +1,12 @@
+﻿/* directive-alias
+directive @DrctAlias [DirA1] { variable }
+directive @DrctAlias [DirA2] { field }
+*/
+
+// Generated from Sample directive-alias
+
+/*
+Directive DrctAlias
+*/
+
+namespace GqlPlus.Gqlp_Sample_directive_alias;

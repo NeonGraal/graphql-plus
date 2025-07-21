@@ -1,0 +1,11 @@
+﻿/* parent+Dual
+dual PrntDual { :RefPrntDual }
+dual RefPrntDual { parent: Number | String }
+*/
+
+// Generated from Sample parent+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_parent_Dual;

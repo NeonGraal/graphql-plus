@@ -1,0 +1,20 @@
+﻿/* domain-number-parent
+domain DmnNmbrPrnt { :PrntDmnNmbrPrnt Number 2>}
+domain PrntDmnNmbrPrnt { Number <2 }
+*/
+
+// Generated from Sample domain-number-parent
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_domain_number_parent;
+public class DomainDmnNmbrPrnt
+  : DomainPrntDmnNmbrPrnt
+  , IDmnNmbrPrnt
+{
+}
+public class DomainPrntDmnNmbrPrnt
+  : IPrntDmnNmbrPrnt
+{
+}

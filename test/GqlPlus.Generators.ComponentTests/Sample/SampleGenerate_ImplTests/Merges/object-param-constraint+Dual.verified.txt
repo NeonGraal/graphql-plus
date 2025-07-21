@@ -1,0 +1,17 @@
+﻿/* object-param-constraint+Dual
+dual ObjParamCnstDual<$test:String> { test: $test }
+dual ObjParamCnstDual<$test:String> { type: $test }
+*/
+
+// Generated from Sample object-param-constraint+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_object_param_constraint_Dual;
+public class DualObjParamCnstDual<Ttest>
+  : IObjParamCnstDual<Ttest>
+{
+  public Ttest test { get; set; }
+  public Ttest type { get; set; }
+}

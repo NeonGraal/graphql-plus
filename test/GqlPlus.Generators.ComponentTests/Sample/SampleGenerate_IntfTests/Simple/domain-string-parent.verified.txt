@@ -1,0 +1,20 @@
+﻿/* domain-string-parent
+domain DmnStrPrnt { :PrntDmnStrPrnt String /a+/ }
+domain PrntDmnStrPrnt { String /b+/ }
+*/
+
+// Generated from Sample domain-string-parent
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_domain_string_parent;
+
+public interface IDmnStrPrnt
+  : IPrntDmnStrPrnt
+{
+}
+
+public interface IPrntDmnStrPrnt
+{
+}

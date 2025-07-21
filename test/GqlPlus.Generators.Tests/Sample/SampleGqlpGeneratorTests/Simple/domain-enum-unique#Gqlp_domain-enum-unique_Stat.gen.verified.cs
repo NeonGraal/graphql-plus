@@ -1,0 +1,7 @@
+﻿//HintName: Gqlp_domain-enum-unique_Stat.gen.cs
+// Generated from domain-enum-unique.graphql+
+
+/*
+*/
+
+namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_domain_enum_unique;

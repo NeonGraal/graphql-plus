@@ -46,7 +46,7 @@ internal sealed class RenderStructureJsonConverter
   {
     writer.WriteStartObject();
 
-    if (!string.IsNullOrWhiteSpace(tag)) {
+    if (!tag.IsWhiteSpace()) {
       writer.WriteString("$tag", tag);
     }
 

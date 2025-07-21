@@ -1,0 +1,11 @@
+﻿/* object-param-dup+Output
+output ObjParamDupOutp<$test:String> { test: $test }
+output ObjParamDupOutp<$test:String> { type: $test }
+*/
+
+// Generated from Sample object-param-dup+Output
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_object_param_dup_Output;

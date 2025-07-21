@@ -1,0 +1,11 @@
+﻿/* object-field-type-alias+Dual
+dual ObjFieldTypeAliasDual { field: String }
+dual ObjFieldTypeAliasDual { field: String }
+*/
+
+// Generated from Sample object-field-type-alias+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_object_field_type_alias_Dual;

@@ -1,0 +1,10 @@
+﻿/* constraint-alt+Dual
+dual CnstAltDual<$type:Number> { | $type }
+*/
+
+// Generated from Sample constraint-alt+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_constraint_alt_Dual;

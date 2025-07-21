@@ -1,0 +1,6 @@
+﻿// Generated from Sample !ALL
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_ALL;

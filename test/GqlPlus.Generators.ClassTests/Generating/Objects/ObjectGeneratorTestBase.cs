@@ -11,6 +11,7 @@ public abstract class ObjectGeneratorTestBase<TObject, TBase, TField, TAlt>
   public void GenerateType_WithField_GeneratesCorrectCode(string name, string fieldName, string fieldType)
   {
     // Arrange
+    GqlpGeneratorContext context = Context(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
     TObject obj = A.Parented<TObject, IGqlpObjBase>(name);
     TBase type = A.Named<TBase>(fieldType);
     TField field = A.Named<TField>(fieldName);
@@ -18,10 +19,10 @@ public abstract class ObjectGeneratorTestBase<TObject, TBase, TField, TAlt>
     obj.Fields.Returns([field]);
 
     // Act
-    TypeGenerator.GenerateType(obj, Context);
+    TypeGenerator.GenerateType(obj, context);
 
     // Assert
-    string result = Context.ToString();
+    string result = context.ToString();
     result.ShouldSatisfyAllConditions(
       CheckGeneratedCodeName(name),
       CheckGeneratedCodeField(fieldName, fieldType));
@@ -34,15 +35,16 @@ public abstract class ObjectGeneratorTestBase<TObject, TBase, TField, TAlt>
   public void GenerateType_WithAlternate_GeneratesCorrectCode(string name, string alternateType)
   {
     // Arrange
+    GqlpGeneratorContext context = Context(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
     TObject obj = A.Parented<TObject, IGqlpObjBase>(name);
     TAlt alternate = A.Named<TAlt>(alternateType);
     obj.Alternates.Returns([alternate]);
 
     // Act
-    TypeGenerator.GenerateType(obj, Context);
+    TypeGenerator.GenerateType(obj, context);
 
     // Assert
-    string result = Context.ToString();
+    string result = context.ToString();
     result.ShouldSatisfyAllConditions(
       CheckGeneratedCodeName(name),
       CheckGeneratedCodeAlternate(alternateType));
@@ -52,6 +54,7 @@ public abstract class ObjectGeneratorTestBase<TObject, TBase, TField, TAlt>
   public void GenerateType_WithAlternateArgs_GeneratesCorrectCode(string name, string alternateType, string argName)
   {
     // Arrange
+    GqlpGeneratorContext context = Context(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
     TObject obj = A.Parented<TObject, IGqlpObjBase>(name);
     TAlt alternate = A.Named<TAlt>(alternateType);
     IGqlpObjArg arg = A.Named<IGqlpObjArg>(argName);
@@ -59,10 +62,10 @@ public abstract class ObjectGeneratorTestBase<TObject, TBase, TField, TAlt>
     obj.Alternates.Returns([alternate]);
 
     // Act
-    TypeGenerator.GenerateType(obj, Context);
+    TypeGenerator.GenerateType(obj, context);
 
     // Assert
-    string result = Context.ToString();
+    string result = context.ToString();
     result.ShouldSatisfyAllConditions(
       CheckGeneratedCodeName(name),
       CheckGeneratedCodeAlternateArg(alternateType, argName));
@@ -78,6 +81,7 @@ public abstract class ObjectGeneratorTestBase<TObject, TBase, TField, TAlt>
   public void GenerateType_WithFieldAndAlternate_GeneratesCorrectCode(string name, string fieldName, string fieldType, string alternateType)
   {
     // Arrange
+    GqlpGeneratorContext context = Context(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
     TObject obj = A.Parented<TObject, IGqlpObjBase>(name);
     TBase type = A.Named<TBase>(fieldType);
     TField field = A.Named<TField>(fieldName);
@@ -88,10 +92,10 @@ public abstract class ObjectGeneratorTestBase<TObject, TBase, TField, TAlt>
     obj.Alternates.Returns([alternate]);
 
     // Act
-    TypeGenerator.GenerateType(obj, Context);
+    TypeGenerator.GenerateType(obj, context);
 
     // Assert
-    string result = Context.ToString();
+    string result = context.ToString();
     result.ShouldSatisfyAllConditions(
       CheckGeneratedCodeName(name),
       CheckGeneratedCodeField(fieldName, fieldType),
@@ -102,15 +106,16 @@ public abstract class ObjectGeneratorTestBase<TObject, TBase, TField, TAlt>
   public void GenerateType_WithParams_GeneratesCorrectCode(string name, string[] parameters)
   {
     // Arrange
+    GqlpGeneratorContext context = Context(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
     TObject type = A.Parented<TObject, IGqlpObjBase>(name);
     IGqlpTypeParam[] typeParams = [.. parameters.Select(A.Named<IGqlpTypeParam>)];
     type.TypeParams.Returns(typeParams);
 
     // Act
-    TypeGenerator.GenerateType(type, Context);
+    TypeGenerator.GenerateType(type, context);
 
     // Assert
-    string result = Context.ToString();
+    string result = context.ToString();
     CheckGeneratedCodeName(name + parameters.Surround("<", ">", s => "T" + s, ","))(result);
   }
 }

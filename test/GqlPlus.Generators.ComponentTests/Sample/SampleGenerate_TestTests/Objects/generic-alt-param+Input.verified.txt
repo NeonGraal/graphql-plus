@@ -1,0 +1,12 @@
+﻿/* generic-alt-param+Input
+input GnrcAltParamInp { | RefGnrcAltParamInp<AltGnrcAltParamInp> }
+input RefGnrcAltParamInp<$ref:_Input> { | $ref }
+input AltGnrcAltParamInp { alt: Number | String }
+*/
+
+// Generated from Sample generic-alt-param+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_generic_alt_param_Input;

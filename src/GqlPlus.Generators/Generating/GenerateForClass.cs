@@ -6,12 +6,16 @@ internal abstract class GenerateForClass<T>
 {
   protected override void Generate(T ast, GqlpGeneratorContext context)
   {
-    base.Generate(ast, context);
+    if (context.GeneratorOptions.GeneratorType == GqlpGeneratorType.Interface) {
+      base.Generate(ast, context);
+    }
 
-    ClassHeader(ast, context);
-    context.AppendLine("{");
-    ClassBody(ast, context);
-    context.AppendLine("}");
+    if (context.GeneratorOptions.GeneratorType == GqlpGeneratorType.Implementation) {
+      ClassHeader(ast, context);
+      context.AppendLine("{");
+      ClassBody(ast, context);
+      context.AppendLine("}");
+    }
   }
 
   protected virtual void ClassBody(T ast, GqlpGeneratorContext context)

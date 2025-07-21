@@ -1,0 +1,21 @@
+﻿/* generic-parent-arg+Output
+output GnrcPrntArgOutp<$type:String> { :RefGnrcPrntArgOutp<$type> }
+output RefGnrcPrntArgOutp<$ref:String> { | $ref }
+*/
+
+// Generated from Sample generic-parent-arg+Output
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_generic_parent_arg_Output;
+
+public interface IGnrcPrntArgOutp<Ttype>
+  : IRefGnrcPrntArgOutp
+{
+}
+
+public interface IRefGnrcPrntArgOutp<Tref>
+{
+  Tref Asref { get; }
+}

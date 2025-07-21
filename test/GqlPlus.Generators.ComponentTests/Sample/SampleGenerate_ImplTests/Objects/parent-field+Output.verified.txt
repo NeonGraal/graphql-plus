@@ -1,0 +1,23 @@
+﻿/* parent-field+Output
+output PrntFieldOutp { :RefPrntFieldOutp field: Number }
+output RefPrntFieldOutp { parent: Number | String }
+*/
+
+// Generated from Sample parent-field+Output
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_parent_field_Output;
+public class OutputPrntFieldOutp
+  : OutputRefPrntFieldOutp
+  , IPrntFieldOutp
+{
+  public Number field { get; set; }
+}
+public class OutputRefPrntFieldOutp
+  : IRefPrntFieldOutp
+{
+  public Number parent { get; set; }
+  public String AsString { get; set; }
+}

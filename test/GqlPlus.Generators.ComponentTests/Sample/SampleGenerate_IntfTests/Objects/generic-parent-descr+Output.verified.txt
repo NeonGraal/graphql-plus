@@ -1,0 +1,15 @@
+﻿/* generic-parent-descr+Output
+output GnrcPrntDescrOutp<$type:String> { :"Parent comment"$type }
+*/
+
+// Generated from Sample generic-parent-descr+Output
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_generic_parent_descr_Output;
+
+public interface IGnrcPrntDescrOutp<Ttype>
+  : Itype
+{
+}

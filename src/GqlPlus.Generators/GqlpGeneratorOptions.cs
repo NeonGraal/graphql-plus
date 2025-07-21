@@ -4,9 +4,10 @@ internal class GqlpGeneratorOptions
 {
   public string BaseName { get; }
   public string NameSpace { get; }
-  public GqlpGeneratorType Types { get; }
+  public GqlpBaseType BaseType { get; }
+  public GqlpGeneratorType GeneratorType { get; }
 
-  public GqlpGeneratorOptions(string fullName, GqlpGeneratorType types)
+  public GqlpGeneratorOptions(string fullName, GqlpBaseType baseType, GqlpGeneratorType generatorType)
   {
     string[] names = fullName.Split('.');
 
@@ -18,6 +19,7 @@ internal class GqlpGeneratorOptions
       NameSpace = string.Empty;
     }
 
-    Types = types;
+    BaseType = baseType;
+    GeneratorType = generatorType;
   }
 }

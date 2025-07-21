@@ -1,0 +1,13 @@
+﻿/* generic-parent-enum-parent+Input
+input GnrcPrntEnumPrntInp { :FieldGnrcPrntEnumPrntInp<EnumGnrcPrntEnumPrntInp> }
+input FieldGnrcPrntEnumPrntInp<$ref:ParentGnrcPrntEnumPrntInp> { field: $ref }
+enum EnumGnrcPrntEnumPrntInp { :ParentGnrcPrntEnumPrntInp gnrcPrntEnumPrntInpLabel }
+enum ParentGnrcPrntEnumPrntInp { gnrcPrntEnumPrntInpParent }
+*/
+
+// Generated from Sample generic-parent-enum-parent+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_generic_parent_enum_parent_Input;

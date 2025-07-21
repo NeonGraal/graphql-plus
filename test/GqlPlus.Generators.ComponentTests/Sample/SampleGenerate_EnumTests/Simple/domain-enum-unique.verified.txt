@@ -1,0 +1,24 @@
+﻿/* domain-enum-unique
+# domain DmnEnumUnq { enum EnumDmnEnumUnq.* !EnumDmnEnumUnq.dmnEnumUnq DupDmnEnumUnq.dmnEnumUnq }
+enum EnumDmnEnumUnq { enum_dmnEnumUnq dmnEnumUnq }
+enum EnumDomDup { dmnEnumUnq dup_dmnEnumUnq }
+*/
+
+// Generated from Sample domain-enum-unique
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_domain_enum_unique;
+
+public enum EnumDmnEnumUnq
+{
+  enum_dmnEnumUnq,
+  dmnEnumUnq,
+}
+
+public enum EnumDomDup
+{
+  dmnEnumUnq,
+  dup_dmnEnumUnq,
+}

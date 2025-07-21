@@ -1,0 +1,37 @@
+﻿/* Intro_Union
+output _TypeUnion {
+    : _ParentType<_TypeKind.Union _UnionRef _UnionMember>
+    }
+
+output _UnionRef {
+    : _TypeRef<_SimpleKind>
+    }
+
+output _UnionMember {
+    : _UnionRef
+        union: _Identifier
+    }
+*/
+
+// Generated from Spec Intro_Union
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Spec_Intro_Union;
+public class Output_TypeUnion
+  : Output_ParentType
+  , I_TypeUnion
+{
+}
+public class Output_UnionRef
+  : Output_TypeRef
+  , I_UnionRef
+{
+}
+public class Output_UnionMember
+  : Output_UnionRef
+  , I_UnionMember
+{
+  public _Identifier union { get; set; }
+}

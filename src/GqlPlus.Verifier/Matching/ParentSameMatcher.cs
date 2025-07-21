@@ -18,7 +18,7 @@ internal class ParentSameMatcher<TParent, TType>(
   }
 
   protected static bool MatchName(string? parent, string constraint)
-    => !string.IsNullOrWhiteSpace(parent)
+    => !parent.IsWhiteSpace()
       && parent!.Equals(constraint, StringComparison.Ordinal);
 
   protected virtual bool MatchParent(string? parent, string constraint, UsageContext context)

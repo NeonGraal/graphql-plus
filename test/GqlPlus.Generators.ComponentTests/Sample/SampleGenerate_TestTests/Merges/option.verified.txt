@@ -1,0 +1,11 @@
+﻿/* option
+option Schema { }
+option Schema { }
+*/
+
+// Generated from Sample option
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_option;

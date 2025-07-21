@@ -1,0 +1,11 @@
+﻿/* generic-alt-simple+Output
+output GnrcAltSmplOutp { | RefGnrcAltSmplOutp<String> }
+output RefGnrcAltSmplOutp<$ref:String> { | $ref }
+*/
+
+// Generated from Sample generic-alt-simple+Output
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_generic_alt_simple_Output;

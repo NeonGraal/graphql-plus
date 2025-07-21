@@ -1,0 +1,21 @@
+﻿/* generic-parent-arg+Dual
+dual GnrcPrntArgDual<$type:String> { :RefGnrcPrntArgDual<$type> }
+dual RefGnrcPrntArgDual<$ref:String> { | $ref }
+*/
+
+// Generated from Sample generic-parent-arg+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_generic_parent_arg_Dual;
+
+public interface IGnrcPrntArgDual<Ttype>
+  : IRefGnrcPrntArgDual
+{
+}
+
+public interface IRefGnrcPrntArgDual<Tref>
+{
+  Tref Asref { get; }
+}

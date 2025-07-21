@@ -15,12 +15,13 @@ public class UnionGeneratorTests
   public void TypeMembers_WithUnionItems_ReturnsAsNamePairs(string unionName, string memberName)
   {
     // Arrange
+    GqlpGeneratorContext context = Context();
     IGqlpUnion unionType = A.Named<IGqlpUnion>(unionName);
     IGqlpUnionMember item = A.Named<IGqlpUnionMember>(memberName);
     unionType.Items.Returns([item]);
 
     // Act
-    MapPair<string>[] result = [.. _generator.TypeMembers(unionType, Context)];
+    MapPair<string>[] result = [.. _generator.TypeMembers(unionType, context)];
 
     // Assert
     result.Length.ShouldBe(1);

@@ -1,0 +1,11 @@
+﻿/* alt+Output
+output AltOutp { | AltAltOutp }
+output AltAltOutp { alt: Number | String }
+*/
+
+// Generated from Sample alt+Output
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_alt_Output;

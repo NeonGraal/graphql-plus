@@ -1,0 +1,26 @@
+﻿/* constraint-alt-domain+Input
+input CnstAltDmnInp { | RefCnstAltDmnInp<DomCnstAltDmnInp> }
+input RefCnstAltDmnInp<$ref:String> { | $ref }
+domain DomCnstAltDmnInp { String /\w+/ }
+*/
+
+// Generated from Sample constraint-alt-domain+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_constraint_alt_domain_Input;
+public class InputCnstAltDmnInp
+  : ICnstAltDmnInp
+{
+  public RefCnstAltDmnInp<DomCnstAltDmnInp> AsRefCnstAltDmnInp { get; set; }
+}
+public class InputRefCnstAltDmnInp<Tref>
+  : IRefCnstAltDmnInp<Tref>
+{
+  public Tref Asref { get; set; }
+}
+public class DomainDomCnstAltDmnInp
+  : IDomCnstAltDmnInp
+{
+}

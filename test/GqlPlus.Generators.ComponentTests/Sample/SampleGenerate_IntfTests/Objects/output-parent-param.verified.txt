@@ -1,0 +1,41 @@
+﻿/* output-parent-param
+output OutpPrntParam { :PrntOutpPrntParam field(InOutpPrntParam): FldOutpPrntParam }
+output PrntOutpPrntParam { field(PrntOutpPrntParamIn): FldOutpPrntParam }
+dual FldOutpPrntParam { }
+input InOutpPrntParam { param: Number | String }
+input PrntOutpPrntParamIn { parent: Number | String }
+*/
+
+// Generated from Sample output-parent-param
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_output_parent_param;
+
+public interface IOutpPrntParam
+  : IPrntOutpPrntParam
+{
+  FldOutpPrntParam field { get; }
+}
+
+public interface IPrntOutpPrntParam
+{
+  FldOutpPrntParam field { get; }
+}
+
+public interface IFldOutpPrntParam
+{
+}
+
+public interface IInOutpPrntParam
+{
+  Number param { get; }
+  String AsString { get; }
+}
+
+public interface IPrntOutpPrntParamIn
+{
+  Number parent { get; }
+  String AsString { get; }
+}

@@ -1,0 +1,16 @@
+﻿/* output-field-value
+output OutpFieldValue { field = outpFieldValue }
+enum EnumOutpFieldValue { outpFieldValue }
+*/
+
+// Generated from Sample output-field-value
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_output_field_value;
+
+public interface IOutpFieldValue
+{
+  EnumOutpFieldValue field { get; }
+}

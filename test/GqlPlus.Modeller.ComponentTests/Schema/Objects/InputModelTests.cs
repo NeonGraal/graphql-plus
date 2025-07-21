@@ -23,7 +23,7 @@ internal sealed class InputModelChecks(
     };
 
   internal override IGqlpInputBase? NewParentAst(string? input)
-    => string.IsNullOrWhiteSpace(input) ? null : new InputBaseAst(AstNulls.At, input);
+    => input.IsWhiteSpace() ? null : new InputBaseAst(AstNulls.At, input!);
 }
 
 public interface IInputModelChecks

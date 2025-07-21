@@ -1,0 +1,13 @@
+﻿/* Intro_Option
+output _Setting {
+    : _Named
+        value: _Constant
+    }
+*/
+
+// Generated from Spec Intro_Option
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Spec_Intro_Option;

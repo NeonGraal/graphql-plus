@@ -1,0 +1,12 @@
+﻿/* union-same-parent
+union UnionSamePrnt { :PrntUnionSamePrnt Boolean }
+union UnionSamePrnt { :PrntUnionSamePrnt Boolean }
+union PrntUnionSamePrnt { String }
+*/
+
+// Generated from Sample union-same-parent
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_union_same_parent;

@@ -1,50 +1,46 @@
-﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Generating;
-using GqlPlus.Merging;
-using GqlPlus.Parsing;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Sample;
 
-public class GenerateSchemaTests(
+public class GenerateSchemaStatTests(
   ILoggerFactory logger,
   ISchemaGeneratorChecks checks
-) : TestSchemaAsts(logger, checks)
+) : GenerateSchemaTestBase(logger, checks)
 {
-  protected override async Task Test_Asts(IEnumerable<IGqlpSchema> asts, string test, string label, string[] dirs, string section, string input = "")
-  {
-    string result = checks.Generate_ForAsts(asts, test, label, input);
-
-    await Verify(result, CustomSettings(label, "Generate", test, section, scrubEmptyLines: false));
-  }
+  public override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Static;
 }
 
-internal sealed class SchemaGeneratorChecks(
-    Parser<IGqlpSchema>.D schemaParser,
-    IMerge<IGqlpSchema> schemaMerger,
-    IGenerator<IGqlpSchema> schemaGenerator
-) : SchemaParseChecks(schemaParser)
-  , ISchemaGeneratorChecks
+public class GenerateSchemaIntfTests(
+  ILoggerFactory logger,
+  ISchemaGeneratorChecks checks
+) : GenerateSchemaTestBase(logger, checks)
 {
-  public string Generate_ForAsts(IEnumerable<IGqlpSchema> asts, string test, string label, string input = "")
-  {
-    IGqlpSchema schema = schemaMerger.Merge(asts).First();
-
-    GqlpGeneratorContext context = new(label + " " + test, new($"GqlPlus.{label}_{test}", GqlpGeneratorType.Implementation), new GqlpModelOptions("GqlpTest"));
-
-    schemaGenerator.Generate(schema, context);
-
-    string result = context.ToString();
-    if (!string.IsNullOrWhiteSpace(input)) {
-      result = "/* " + test + "\r\n" + input.TrimEnd() + "\r\n*/\r\n\r\n" + result;
-    }
-
-    return result.TrimEnd();
-  }
+  public override GqlpBaseType BaseType => GqlpBaseType.Interface;
+  public override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Interface;
 }
 
-public interface ISchemaGeneratorChecks
-  : ISchemaParseChecks
+public class GenerateSchemaEnumTests(
+  ILoggerFactory logger,
+  ISchemaGeneratorChecks checks
+) : GenerateSchemaTestBase(logger, checks)
 {
-  string Generate_ForAsts(IEnumerable<IGqlpSchema> asts, string test, string label, string input = "");
+  public override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Enum;
+}
+
+public class GenerateSchemaImplTests(
+  ILoggerFactory logger,
+  ISchemaGeneratorChecks checks
+) : GenerateSchemaTestBase(logger, checks)
+{
+  public override GqlpBaseType BaseType => GqlpBaseType.Class;
+  public override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Implementation;
+}
+
+public class GenerateSchemaTestTests(
+  ILoggerFactory logger,
+  ISchemaGeneratorChecks checks
+) : GenerateSchemaTestBase(logger, checks)
+{
+  public override GqlpBaseType BaseType => GqlpBaseType.Class;
+  public override GqlpGeneratorType GeneratorType => GqlpGeneratorType.Test;
 }

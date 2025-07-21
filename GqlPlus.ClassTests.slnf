@@ -7,6 +7,7 @@
       "src\\GqlPlus.Converter.Json\\GqlPlus.Converter.Json.csproj",
       "src\\GqlPlus.Converter.Yaml\\GqlPlus.Converter.Yaml.csproj",
       "src\\GqlPlus.Generators\\GqlPlus.Generators.csproj",
+      "src\\GqlPlus.Generators.Attributes\\GqlPlus.Generators.Attributes.csproj",
       "src\\GqlPlus.Modeller\\GqlPlus.Modeller.csproj",
       "src\\GqlPlus.Parser\\GqlPlus.Parser.csproj",
       "src\\GqlPlus.PolyFill\\GqlPlus.PolyFill.csproj",

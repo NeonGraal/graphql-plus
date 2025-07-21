@@ -1,0 +1,11 @@
+﻿/* option-alias
+option Schema [Opt1] { }
+option Schema [Opt2] { }
+*/
+
+// Generated from Sample option-alias
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_option_alias;

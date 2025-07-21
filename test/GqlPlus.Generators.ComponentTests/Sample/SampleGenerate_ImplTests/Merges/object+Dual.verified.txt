@@ -1,0 +1,15 @@
+﻿/* object+Dual
+dual ObjDual { }
+dual ObjDual { }
+*/
+
+// Generated from Sample object+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_object_Dual;
+public class DualObjDual
+  : IObjDual
+{
+}

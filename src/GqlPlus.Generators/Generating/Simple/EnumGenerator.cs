@@ -6,6 +6,13 @@ internal sealed class EnumGenerator
 {
   public override string TypePrefix => "Enum";
 
+  protected override void Generate(IGqlpEnum ast, GqlpGeneratorContext context)
+  {
+    if (context.GeneratorOptions.GeneratorType == GqlpGeneratorType.Enum) {
+      base.Generate(ast, context);
+    }
+  }
+
   private static IEnumerable<MapPair<string>> ParentItems(string? parent, GqlpGeneratorContext context)
   {
     IGqlpEnum? ast = context.GetTypeAst<IGqlpEnum>(parent);

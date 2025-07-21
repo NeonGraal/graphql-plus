@@ -1,0 +1,22 @@
+﻿/* field-object+Input
+input FieldObjInp { field: FldFieldObjInp }
+input FldFieldObjInp { field: Number | String }
+*/
+
+// Generated from Sample field-object+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_field_object_Input;
+
+public interface IFieldObjInp
+{
+  FldFieldObjInp field { get; }
+}
+
+public interface IFldFieldObjInp
+{
+  Number field { get; }
+  String AsString { get; }
+}

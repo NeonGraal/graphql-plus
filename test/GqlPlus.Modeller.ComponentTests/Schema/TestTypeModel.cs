@@ -80,7 +80,7 @@ internal abstract class CheckTypeModel<TAst, TTypeKind, TModel>(
   where TModel : IModelBase
 {
   internal override IGqlpTypeRef? NewParentAst(string? input)
-    => string.IsNullOrWhiteSpace(input) ? null : new TypeRefAst(AstNulls.At, input);
+    => input.IsWhiteSpace() ? null : new TypeRefAst(AstNulls.At, input!);
 }
 
 public record class CheckTypeInputs<TAst, TModel>(

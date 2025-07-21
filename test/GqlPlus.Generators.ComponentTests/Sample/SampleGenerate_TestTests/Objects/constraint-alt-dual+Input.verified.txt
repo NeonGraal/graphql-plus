@@ -1,0 +1,13 @@
+﻿/* constraint-alt-dual+Input
+input CnstAltDualInp { | RefCnstAltDualInp<AltCnstAltDualInp> }
+input RefCnstAltDualInp<$ref:PrntCnstAltDualInp> { | $ref }
+dual PrntCnstAltDualInp { | String }
+input AltCnstAltDualInp { :PrntCnstAltDualInp alt: Number }
+*/
+
+// Generated from Sample constraint-alt-dual+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_constraint_alt_dual_Input;

@@ -30,7 +30,7 @@ internal sealed record class DomainLabelAst(
 
   void IGqlpDomainLabel.SetEnumType(string enumType)
   {
-    if (string.IsNullOrWhiteSpace(EnumType)) {
+    if (EnumType.IsWhiteSpace()) {
       EnumType = enumType;
     }
   }

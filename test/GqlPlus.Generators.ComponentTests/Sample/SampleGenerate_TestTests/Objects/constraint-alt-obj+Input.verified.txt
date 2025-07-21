@@ -1,0 +1,13 @@
+﻿/* constraint-alt-obj+Input
+input CnstAltObjInp { | RefCnstAltObjInp<AltCnstAltObjInp> }
+input RefCnstAltObjInp<$ref:PrntCnstAltObjInp> { | $ref }
+input PrntCnstAltObjInp { | String }
+input AltCnstAltObjInp { :PrntCnstAltObjInp alt: Number }
+*/
+
+// Generated from Sample constraint-alt-obj+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_constraint_alt_obj_Input;

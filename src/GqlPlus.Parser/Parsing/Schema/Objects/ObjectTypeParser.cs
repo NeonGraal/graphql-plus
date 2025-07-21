@@ -17,7 +17,7 @@ internal abstract class ObjectTypeParser<TObjType, TObjTypeAst>
       return tokens.Error<TObjTypeAst>(label, "identifier after '$'");
     }
 
-    if (!string.IsNullOrWhiteSpace(param)) {
+    if (!param.IsWhiteSpace()) {
       TObjTypeAst objType = ObjType(at, param!, description) with {
         IsTypeParam = true,
       };

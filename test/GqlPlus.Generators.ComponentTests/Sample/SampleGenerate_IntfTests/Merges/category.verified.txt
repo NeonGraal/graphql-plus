@@ -1,0 +1,16 @@
+﻿/* category
+category { Ctgr }
+category ctgr { Ctgr }
+output Ctgr { }
+*/
+
+// Generated from Sample category
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_category;
+
+public interface ICtgr
+{
+}

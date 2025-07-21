@@ -1,0 +1,16 @@
+﻿/* domain-enum-descr
+domain DmnEnumDescr { enum "DomEnum" "Descr" dmnEnumDescr }
+enum EnumDmnEnumDescr { dmnEnumDescr }
+*/
+
+// Generated from Sample domain-enum-descr
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_domain_enum_descr;
+
+public enum EnumDmnEnumDescr
+{
+  dmnEnumDescr,
+}

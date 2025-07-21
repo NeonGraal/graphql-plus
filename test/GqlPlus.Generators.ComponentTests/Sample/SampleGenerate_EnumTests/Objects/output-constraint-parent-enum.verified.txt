@@ -1,0 +1,24 @@
+﻿/* output-constraint-parent-enum
+output OutpCnstPrntEnum { | RefOutpCnstPrntEnum<parentOutpCnstPrntEnum> }
+output RefOutpCnstPrntEnum<$type:EnumOutpCnstPrntEnum> { field: $type }
+enum EnumOutpCnstPrntEnum { :ParentOutpCnstPrntEnum outpCnstPrntEnum }
+enum ParentOutpCnstPrntEnum { parentOutpCnstPrntEnum }
+*/
+
+// Generated from Sample output-constraint-parent-enum
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_output_constraint_parent_enum;
+
+public enum EnumOutpCnstPrntEnum
+{
+  parentOutpCnstPrntEnum = ParentOutpCnstPrntEnum.parentOutpCnstPrntEnum,
+  outpCnstPrntEnum,
+}
+
+public enum ParentOutpCnstPrntEnum
+{
+  parentOutpCnstPrntEnum,
+}

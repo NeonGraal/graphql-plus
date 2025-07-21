@@ -1,0 +1,11 @@
+﻿/* enum-parent
+enum EnumPrnt { :PrntEnumPrnt enumPrnt }
+enum PrntEnumPrnt { prnt_enumPrnt }
+*/
+
+// Generated from Sample enum-parent
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_enum_parent;

@@ -1,0 +1,27 @@
+﻿/* output-param
+output OutpParam { field(InOutpParam): FldOutpParam }
+dual FldOutpParam { }
+input InOutpParam { param: Number | String }
+*/
+
+// Generated from Sample output-param
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_output_param;
+public class OutputOutpParam
+  : IOutpParam
+{
+  public FldOutpParam field { get; set; }
+}
+public class DualFldOutpParam
+  : IFldOutpParam
+{
+}
+public class InputInOutpParam
+  : IInOutpParam
+{
+  public Number param { get; set; }
+  public String AsString { get; set; }
+}

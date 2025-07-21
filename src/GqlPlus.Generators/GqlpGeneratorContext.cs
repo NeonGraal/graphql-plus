@@ -25,6 +25,7 @@ internal sealed class GqlpGeneratorContext
   public GqlpGeneratorOptions GeneratorOptions { get; }
   public GqlpModelOptions ModelOptions { get; }
 
+  public string FileName => $"Gqlp_{File}_{GeneratorOptions.GeneratorType}.gen.cs";
   public string SafeFile => Safe(File);
 
   private readonly Regex _unsafeRegex = new(@"[^_a-zA-Z0-9]+");
@@ -52,7 +53,7 @@ internal sealed class GqlpGeneratorContext
   internal TAst? GetTypeAst<TAst>(string? parent)
     where TAst : class, IGqlpType
   {
-    if (!string.IsNullOrWhiteSpace(parent)
+    if (!parent.IsWhiteSpace()
         && _types.TryGetValue(parent!, out IGqlpType type)
         && type is TAst ast) {
       return ast;

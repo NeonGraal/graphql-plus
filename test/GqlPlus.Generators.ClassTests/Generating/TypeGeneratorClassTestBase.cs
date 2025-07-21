@@ -42,13 +42,14 @@ public abstract class TypeGeneratorClassTestBase<TType, TParent>
   public void GenerateType_WithName_GeneratesCorrectCode(string name)
   {
     // Arrange
+    GqlpGeneratorContext context = BaseContext();
     TType type = A.Parented<TType, TParent>(name);
 
     // Act
-    TypeGenerator.GenerateType(type, Context);
+    TypeGenerator.GenerateType(type, context);
 
     // Assert
-    string result = Context.ToString();
+    string result = context.ToString();
     CheckGeneratedCodeName(name)(result);
   }
 
@@ -56,17 +57,21 @@ public abstract class TypeGeneratorClassTestBase<TType, TParent>
   public void GenerateType_WithParent_GeneratesCorrectCode(string name, string parent)
   {
     // Arrange
+    GqlpGeneratorContext context = BaseContext();
     TType type = A.Parented<TType, TParent>(name, parent);
 
     // Act
-    TypeGenerator.GenerateType(type, Context);
+    TypeGenerator.GenerateType(type, context);
 
     // Assert
-    string result = Context.ToString();
+    string result = context.ToString();
     result.ShouldSatisfyAllConditions(
       CheckGeneratedCodeName(name),
       CheckGeneratedCodeParent(parent));
   }
+
+  internal virtual GqlpGeneratorContext BaseContext()
+    => Context(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
 
   protected virtual Action<string> CheckGeneratedCodeName(string name)
     => result => result.ShouldContain("public interface I" + name);

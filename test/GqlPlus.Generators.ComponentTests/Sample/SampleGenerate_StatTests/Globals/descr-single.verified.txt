@@ -1,0 +1,11 @@
+﻿/* descr-single
+'A "single-quoted" description'
+output DescrSngl { }
+*/
+
+// Generated from Sample descr-single
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_descr_single;

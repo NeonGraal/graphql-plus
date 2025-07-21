@@ -1,0 +1,26 @@
+﻿/* constraint-alt-domain+Dual
+dual CnstAltDmnDual { | RefCnstAltDmnDual<DomCnstAltDmnDual> }
+dual RefCnstAltDmnDual<$ref:String> { | $ref }
+domain DomCnstAltDmnDual { String /\w+/ }
+*/
+
+// Generated from Sample constraint-alt-domain+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_constraint_alt_domain_Dual;
+public class DualCnstAltDmnDual
+  : ICnstAltDmnDual
+{
+  public RefCnstAltDmnDual<DomCnstAltDmnDual> AsRefCnstAltDmnDual { get; set; }
+}
+public class DualRefCnstAltDmnDual<Tref>
+  : IRefCnstAltDmnDual<Tref>
+{
+  public Tref Asref { get; set; }
+}
+public class DomainDomCnstAltDmnDual
+  : IDomCnstAltDmnDual
+{
+}

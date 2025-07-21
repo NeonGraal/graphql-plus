@@ -1,0 +1,10 @@
+﻿/* option-setting
+option Schema { global=true }
+*/
+
+// Generated from Sample option-setting
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_option_setting;

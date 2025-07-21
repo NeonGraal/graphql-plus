@@ -1,0 +1,12 @@
+﻿/* directive
+directive @Drct { inline }
+directive @Drct { spread }
+*/
+
+// Generated from Sample directive
+
+/*
+Directive Drct
+*/
+
+namespace GqlPlus.Gqlp_Sample_directive;

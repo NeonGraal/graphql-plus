@@ -1,0 +1,12 @@
+﻿/* directive-descr
+"A directive described"
+directive @DrctDescr { all }
+*/
+
+// Generated from Sample directive-descr
+
+/*
+Directive DrctDescr
+*/
+
+namespace GqlPlus.Gqlp_Sample_directive_descr;

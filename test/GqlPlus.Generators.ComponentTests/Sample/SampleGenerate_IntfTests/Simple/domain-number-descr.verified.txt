@@ -1,0 +1,14 @@
+﻿/* domain-number-descr
+domain DmnNmbrDescr { Number "DomNumber" "Descr" <2 }
+*/
+
+// Generated from Sample domain-number-descr
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_domain_number_descr;
+
+public interface IDmnNmbrDescr
+{
+}

@@ -1,0 +1,11 @@
+﻿/* output-field-enum-value
+output OutpFieldEnumValue { field = Boolean.true }
+output OutpFieldEnumValue { field = true }
+*/
+
+// Generated from Sample output-field-enum-value
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_output_field_enum_value;

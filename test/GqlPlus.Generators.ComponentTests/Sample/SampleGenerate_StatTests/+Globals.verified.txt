@@ -1,0 +1,20 @@
+﻿// Generated from Sample +Globals
+
+/*
+Category ctgrDscrs
+Category ctgrOutp
+Category ctgrOutpDescr
+Category ctgrOutpDict
+Category ctgrOutpList
+Category ctgrOutpOptl
+Category descrBtwn
+Directive DrctDescr
+Directive DrctNoParam
+Directive DrctParamDict
+Directive DrctParamIn
+Directive DrctParamList
+Directive DrctParamOpt
+Option Schema
+*/
+
+namespace GqlPlus.Gqlp_Sample_Globals;

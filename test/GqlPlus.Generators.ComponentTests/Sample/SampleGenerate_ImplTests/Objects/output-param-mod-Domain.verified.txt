@@ -1,0 +1,27 @@
+﻿/* output-param-mod-Domain
+output OutpParamModDmn { field(InOutpParamModDmn[DomOutpParamModDmn]): DomOutpParamModDmn }
+input InOutpParamModDmn { param: Number | String }
+domain DomOutpParamModDmn { number 1 ~ 10 }
+*/
+
+// Generated from Sample output-param-mod-Domain
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_output_param_mod_Domain;
+public class OutputOutpParamModDmn
+  : IOutpParamModDmn
+{
+  public DomOutpParamModDmn field { get; set; }
+}
+public class InputInOutpParamModDmn
+  : IInOutpParamModDmn
+{
+  public Number param { get; set; }
+  public String AsString { get; set; }
+}
+public class DomainDomOutpParamModDmn
+  : IDomOutpParamModDmn
+{
+}

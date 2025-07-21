@@ -4,5 +4,9 @@ internal class DirectiveGenerator
   : IGenerator<IGqlpSchemaDirective>
 {
   public void Generate(IGqlpSchemaDirective ast, GqlpGeneratorContext context)
-    => context.AppendLine(ast.Label + " " + ast.Name);
+  {
+    if (context.GeneratorOptions.GeneratorType == GqlpGeneratorType.Static) {
+      context.AppendLine(ast.Label + " " + ast.Name);
+    }
+  }
 }

@@ -30,6 +30,11 @@ public class GqlpGeneratorSchemaTests
 
   private const string GqlpGeneratorSource = @"
     namespace GqlPlus.GqlpGeneratorSchemaTests;
+    [GqlpGenerator(GqlpGeneratorType.Static)] 
+    [GqlpGenerator(GqlpGeneratorType.Interface)] 
+    public interface IGqlModelImplementationBase {}
+    [GqlpGenerator(GqlpGeneratorType.Enum)] 
     [GqlpGenerator(GqlpGeneratorType.Implementation)] 
-    public class GqlModelImplementationBase {}";
+    public class GqlModelImplementationBase {}
+";
 }

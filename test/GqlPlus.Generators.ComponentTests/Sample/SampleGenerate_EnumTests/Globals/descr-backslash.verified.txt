@@ -1,0 +1,11 @@
+﻿/* descr-backslash
+'A backslash ("\\") description'
+output DescrBcks { }
+*/
+
+// Generated from Sample descr-backslash
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_descr_backslash;

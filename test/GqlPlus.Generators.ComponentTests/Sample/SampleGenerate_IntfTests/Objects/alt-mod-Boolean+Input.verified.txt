@@ -1,0 +1,22 @@
+﻿/* alt-mod-Boolean+Input
+input AltModBoolInp { | AltAltModBoolInp[^] }
+input AltAltModBoolInp { alt: Number | String }
+*/
+
+// Generated from Sample alt-mod-Boolean+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_alt_mod_Boolean_Input;
+
+public interface IAltModBoolInp
+{
+  AltAltModBoolInp AsAltAltModBoolInp { get; }
+}
+
+public interface IAltAltModBoolInp
+{
+  Number alt { get; }
+  String AsString { get; }
+}

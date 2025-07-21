@@ -1,0 +1,11 @@
+﻿/* parent-param-same+Dual
+dual PrntParamSameDual<$a:String> { :RefPrntParamSameDual<$a> field: $a }
+dual RefPrntParamSameDual<$a:String> { | $a }
+*/
+
+// Generated from Sample parent-param-same+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_parent_param_same_Dual;

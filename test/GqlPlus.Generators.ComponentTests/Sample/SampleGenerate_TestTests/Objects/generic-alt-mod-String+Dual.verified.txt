@@ -1,0 +1,10 @@
+﻿/* generic-alt-mod-String+Dual
+dual RefGnrcAltModStrDual<$ref:String> { | $ref[*] }
+*/
+
+// Generated from Sample generic-alt-mod-String+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_generic_alt_mod_String_Dual;

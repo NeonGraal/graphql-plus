@@ -1,0 +1,10 @@
+﻿/* domain-string-descr
+domain DmnStrDescr { String "DomString" "Descr" /a+/ }
+*/
+
+// Generated from Sample domain-string-descr
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_domain_string_descr;

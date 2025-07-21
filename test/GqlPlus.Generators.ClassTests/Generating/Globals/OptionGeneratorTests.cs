@@ -9,13 +9,14 @@ public class OptionGeneratorTests
   public void Generate_ReturnsExpected(string name)
   {
     // Arrange
+    GqlpGeneratorContext context = Context(GqlpBaseType.Other, GqlpGeneratorType.Static);
     IGqlpSchemaOption option = A.Named<IGqlpSchemaOption>(name);
 
     // Act
-    _generator.Generate(option, Context);
+    _generator.Generate(option, context);
 
     // Assert
-    string result = Context.ToString();
+    string result = context.ToString();
     result.ShouldContain(name);
   }
 }

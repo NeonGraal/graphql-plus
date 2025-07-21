@@ -1,15 +1,18 @@
-﻿namespace GqlPlus;
+﻿using System.Diagnostics.CodeAnalysis;
 
-[Flags]
+namespace GqlPlus;
+
+[SuppressMessage("Naming", "CA1711:Identifiers should not have incorrect suffix")]
 public enum GqlpGeneratorType
 {
-  None = 0,
+  None,
+  Stat,
+  Intf,
+  Enum,
+  Impl,
+  Test,
 
-  Static = 1 << 0,
-  Interface = 1 << 1,
-  Enum = 1 << 2,
-  Implementation = 1 << 3,
-  Test = 1 << 4,
-
-  All = Static | Implementation | Enum | Interface | Test
+  Interface = Intf,
+  Implementation = Impl,
+  Static = Stat,
 }

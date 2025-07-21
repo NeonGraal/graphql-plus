@@ -1,0 +1,22 @@
+﻿/* parent-param-diff+Output
+output PrntParamDiffOutp<$a:String> { :RefPrntParamDiffOutp<$a> field: $a }
+output RefPrntParamDiffOutp<$b:String> { | $b }
+*/
+
+// Generated from Sample parent-param-diff+Output
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_parent_param_diff_Output;
+public class OutputPrntParamDiffOutp<Ta>
+  : OutputRefPrntParamDiffOutp
+  , IPrntParamDiffOutp<Ta>
+{
+  public Ta field { get; set; }
+}
+public class OutputRefPrntParamDiffOutp<Tb>
+  : IRefPrntParamDiffOutp<Tb>
+{
+  public Tb Asb { get; set; }
+}

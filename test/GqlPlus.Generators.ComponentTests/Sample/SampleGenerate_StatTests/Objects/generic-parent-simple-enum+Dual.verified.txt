@@ -1,0 +1,12 @@
+﻿/* generic-parent-simple-enum+Dual
+dual GnrcPrntSmplEnumDual { :FieldGnrcPrntSmplEnumDual<EnumGnrcPrntSmplEnumDual> }
+dual FieldGnrcPrntSmplEnumDual<$ref:_Simple> { field: $ref }
+enum EnumGnrcPrntSmplEnumDual { gnrcPrntSmplEnumDual }
+*/
+
+// Generated from Sample generic-parent-simple-enum+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_generic_parent_simple_enum_Dual;

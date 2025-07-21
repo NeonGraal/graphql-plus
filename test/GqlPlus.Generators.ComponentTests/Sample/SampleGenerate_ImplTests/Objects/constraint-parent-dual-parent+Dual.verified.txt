@@ -1,0 +1,34 @@
+﻿/* constraint-parent-dual-parent+Dual
+dual CnstPrntDualPrntDual { :RefCnstPrntDualPrntDual<AltCnstPrntDualPrntDual> }
+dual RefCnstPrntDualPrntDual<$ref:PrntCnstPrntDualPrntDual> { :$ref }
+dual PrntCnstPrntDualPrntDual { | String }
+dual AltCnstPrntDualPrntDual { :PrntCnstPrntDualPrntDual alt: Number }
+*/
+
+// Generated from Sample constraint-parent-dual-parent+Dual
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_constraint_parent_dual_parent_Dual;
+public class DualCnstPrntDualPrntDual
+  : DualRefCnstPrntDualPrntDual
+  , ICnstPrntDualPrntDual
+{
+}
+public class DualRefCnstPrntDualPrntDual<Tref>
+  : Dualref
+  , IRefCnstPrntDualPrntDual<Tref>
+{
+}
+public class DualPrntCnstPrntDualPrntDual
+  : IPrntCnstPrntDualPrntDual
+{
+  public String AsString { get; set; }
+}
+public class DualAltCnstPrntDualPrntDual
+  : DualPrntCnstPrntDualPrntDual
+  , IAltCnstPrntDualPrntDual
+{
+  public Number alt { get; set; }
+}

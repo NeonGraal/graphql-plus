@@ -1,0 +1,34 @@
+﻿/* constraint-field-dual+Output
+output CnstFieldDualOutp { :RefCnstFieldDualOutp<AltCnstFieldDualOutp> }
+output RefCnstFieldDualOutp<$ref:PrntCnstFieldDualOutp> { field: $ref }
+dual PrntCnstFieldDualOutp { | String }
+output AltCnstFieldDualOutp { :PrntCnstFieldDualOutp alt: Number }
+*/
+
+// Generated from Sample constraint-field-dual+Output
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_constraint_field_dual_Output;
+public class OutputCnstFieldDualOutp
+  : OutputRefCnstFieldDualOutp
+  , ICnstFieldDualOutp
+{
+}
+public class OutputRefCnstFieldDualOutp<Tref>
+  : IRefCnstFieldDualOutp<Tref>
+{
+  public Tref field { get; set; }
+}
+public class DualPrntCnstFieldDualOutp
+  : IPrntCnstFieldDualOutp
+{
+  public String AsString { get; set; }
+}
+public class OutputAltCnstFieldDualOutp
+  : OutputPrntCnstFieldDualOutp
+  , IAltCnstFieldDualOutp
+{
+  public Number alt { get; set; }
+}

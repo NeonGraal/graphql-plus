@@ -1,0 +1,20 @@
+﻿/* domain-bool-parent
+domain DmnBoolPrnt { :PrntDmnBoolPrnt Boolean false }
+domain PrntDmnBoolPrnt { Boolean true }
+*/
+
+// Generated from Sample domain-bool-parent
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_domain_bool_parent;
+public class DomainDmnBoolPrnt
+  : DomainPrntDmnBoolPrnt
+  , IDmnBoolPrnt
+{
+}
+public class DomainPrntDmnBoolPrnt
+  : IPrntDmnBoolPrnt
+{
+}

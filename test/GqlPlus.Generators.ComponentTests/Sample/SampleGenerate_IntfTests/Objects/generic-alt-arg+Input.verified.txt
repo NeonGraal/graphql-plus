@@ -1,0 +1,21 @@
+﻿/* generic-alt-arg+Input
+input GnrcAltArgInp<$type:String> { | RefGnrcAltArgInp<$type> }
+input RefGnrcAltArgInp<$ref:String> { | $ref }
+*/
+
+// Generated from Sample generic-alt-arg+Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_generic_alt_arg_Input;
+
+public interface IGnrcAltArgInp<Ttype>
+{
+  RefGnrcAltArgInp<Ttype> AsRefGnrcAltArgInp { get; }
+}
+
+public interface IRefGnrcAltArgInp<Tref>
+{
+  Tref Asref { get; }
+}

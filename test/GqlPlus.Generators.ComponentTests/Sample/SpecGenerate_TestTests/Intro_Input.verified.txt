@@ -1,0 +1,41 @@
+﻿/* Intro_Input
+output _TypeInput {
+    : _TypeObject<_TypeKind.Input _InputBase _InputTypeParam _InputField _InputAlternate>
+    }
+
+output _InputBase {
+    : _ObjBase<_InputTypeArg>
+    | _DualBase
+    }
+
+output _InputTypeParam {
+    : _ObjTypeParam<_TypeKind.Input>
+    | _TypeRef<_TypeKind.Dual>
+    }
+
+output _InputField {
+    : _Field<_InputBase>
+        default: _Constant?
+    }
+
+output _InputAlternate {
+    : _Alternate<_InputBase>
+    }
+
+output _InputTypeArg {
+    : _ObjTypeArg
+    }
+
+output _InputParam {
+    : _InputBase
+        modifiers: _Modifiers[]
+        default: _Constant?
+    }
+*/
+
+// Generated from Spec Intro_Input
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Spec_Intro_Input;

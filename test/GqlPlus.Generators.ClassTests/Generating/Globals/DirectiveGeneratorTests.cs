@@ -9,13 +9,14 @@ public class DirectiveGeneratorTests
   public void Generate_ReturnsExpected(string name)
   {
     // Arrange
+    GqlpGeneratorContext context = Context(GqlpBaseType.Other, GqlpGeneratorType.Static);
     IGqlpSchemaDirective directive = A.Named<IGqlpSchemaDirective>(name);
 
     // Act
-    _generator.Generate(directive, Context);
+    _generator.Generate(directive, context);
 
     // Assert
-    string result = Context.ToString();
+    string result = context.ToString();
     result.ShouldContain(name);
   }
 }

@@ -17,7 +17,7 @@ internal class ParseDomainLabel(
     TokenAt at = tokens.At;
     bool excluded = tokens.Take('!');
     bool hasType = tokens.Identifier(out string? enumType);
-    IGqlpDomainLabel result = new DomainLabelAst(at, description, excluded, enumType.IfWhitespace());
+    IGqlpDomainLabel result = new DomainLabelAst(at, description, excluded, enumType.IfWhiteSpace());
     if (!hasType) {
       return excluded
         ? tokens.Partial(label, "identifier after '!'", () => result)

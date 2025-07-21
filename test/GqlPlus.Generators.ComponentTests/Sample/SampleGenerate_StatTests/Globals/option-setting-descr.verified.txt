@@ -1,0 +1,11 @@
+﻿/* option-setting-descr
+option Schema { "Option" "Descr" descr=true }
+*/
+
+// Generated from Sample option-setting-descr
+
+/*
+Option Schema
+*/
+
+namespace GqlPlus.Gqlp_Sample_option_setting_descr;

@@ -39,16 +39,19 @@ public static class GeneralHelpers
     return [.. result];
   }
 
-  public static string IfWhitespace(this string? text, string replacement = "")
-    => string.IsNullOrWhiteSpace(text) ? replacement : text!;
+  public static string IfWhiteSpace(this string? text, string replacement = "")
+    => text.IsWhiteSpace() ? replacement : text!;
+
+  public static bool IsWhiteSpace([NotNullWhen(true)] this string? text)
+    => string.IsNullOrWhiteSpace(text);
 
   public static string Joined(this IEnumerable<string?>? items, string by = " ")
     => string.Join(by,
-      items?.Where(i => !string.IsNullOrWhiteSpace(i))
+      items?.Where(i => !i.IsWhiteSpace())
       ?? []);
 
   public static string Joined<T>(this IEnumerable<T?>? items, Func<T?, string> mapping, string by = " ")
-    => (items?.Select(mapping).Joined(by)).IfWhitespace();
+    => (items?.Select(mapping).Joined(by)).IfWhiteSpace();
 
   public static Map<TValue> MapWith<TValue>(this string key, TValue value)
     => new() { [key] = value };
@@ -102,7 +105,7 @@ public static class GeneralHelpers
     string[] begins = ["(", "{", "[", "<"];
     string[] ends = [")", "}", "]", ">"];
     foreach (string? field in abbr.GetFields()) {
-      if (string.IsNullOrWhiteSpace(field)) {
+      if (field.IsWhiteSpace()) {
         continue;
       }
 
@@ -136,7 +139,7 @@ public static class GeneralHelpers
     string by = " ")
   {
     string inner = items.Joined(by);
-    return string.IsNullOrWhiteSpace(inner) ? "" : before + inner + after;
+    return inner.IsWhiteSpace() ? "" : before + inner + after;
   }
 
   public static string Surround<T>(
@@ -147,6 +150,6 @@ public static class GeneralHelpers
     string by = " ")
   {
     string inner = items.Joined(formatter, by);
-    return string.IsNullOrWhiteSpace(inner) ? "" : before + inner + after;
+    return inner.IsWhiteSpace() ? "" : before + inner + after;
   }
 }

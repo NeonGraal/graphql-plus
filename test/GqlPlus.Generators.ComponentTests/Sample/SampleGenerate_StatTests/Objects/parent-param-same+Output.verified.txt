@@ -1,0 +1,11 @@
+﻿/* parent-param-same+Output
+output PrntParamSameOutp<$a:String> { :RefPrntParamSameOutp<$a> field: $a }
+output RefPrntParamSameOutp<$a:String> { | $a }
+*/
+
+// Generated from Sample parent-param-same+Output
+
+/*
+*/
+
+namespace GqlPlus.Gqlp_Sample_parent_param_same_Output;

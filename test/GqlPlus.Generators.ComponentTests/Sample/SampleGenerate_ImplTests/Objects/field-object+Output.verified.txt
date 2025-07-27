@@ -8,11 +8,13 @@ output FldFieldObjOutp { field: Number | String }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_field_object_Output;
+
 public class OutputFieldObjOutp
   : IFieldObjOutp
 {
   public FldFieldObjOutp field { get; set; }
 }
+
 public class OutputFldFieldObjOutp
   : IFldFieldObjOutp
 {

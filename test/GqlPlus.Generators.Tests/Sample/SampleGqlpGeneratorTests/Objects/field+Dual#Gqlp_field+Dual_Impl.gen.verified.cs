@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_field_Dual;
+
 public class DualFieldDual
   : IFieldDual
 {

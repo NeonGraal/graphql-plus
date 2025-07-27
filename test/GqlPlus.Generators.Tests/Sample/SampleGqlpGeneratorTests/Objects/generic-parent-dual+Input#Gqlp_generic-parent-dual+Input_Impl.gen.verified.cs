@@ -4,16 +4,19 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_parent_dual_Input;
+
 public class InputGnrcPrntDualInp
   : InputRefGnrcPrntDualInp
   , IGnrcPrntDualInp
 {
 }
+
 public class InputRefGnrcPrntDualInp<Tref>
   : IRefGnrcPrntDualInp<Tref>
 {
   public Tref Asref { get; set; }
 }
+
 public class DualAltGnrcPrntDualInp
   : IAltGnrcPrntDualInp
 {

@@ -8,11 +8,13 @@ dual FldInpFieldNull { }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_input_field_null;
+
 public class InputInpFieldNull
   : IInpFieldNull
 {
   public FldInpFieldNull field { get; set; }
 }
+
 public class DualFldInpFieldNull
   : IFldInpFieldNull
 {

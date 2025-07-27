@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_domain_enum_descr;
+
 public class DomainDmnEnumDescr
   : IDmnEnumDescr
 {

@@ -7,6 +7,7 @@ dual RefGnrcAltModStrDual<$ref:String> { | $ref[*] }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_generic_alt_mod_String_Dual;
+
 public class DualRefGnrcAltModStrDual<Tref>
   : IRefGnrcAltModStrDual<Tref>
 {

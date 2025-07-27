@@ -8,11 +8,13 @@ dual RefPrntDual { parent: Number | String }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_parent_Dual;
+
 public class DualPrntDual
   : DualRefPrntDual
   , IPrntDual
 {
 }
+
 public class DualRefPrntDual
   : IRefPrntDual
 {

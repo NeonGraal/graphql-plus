@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_alt_Output;
+
 public class OutputGnrcAltOutp<Ttype>
   : IGnrcAltOutp<Ttype>
 {

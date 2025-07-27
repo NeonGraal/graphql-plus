@@ -4,21 +4,25 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_constraint_parent_obj_parent_Input;
+
 public class InputCnstPrntObjPrntInp
   : InputRefCnstPrntObjPrntInp
   , ICnstPrntObjPrntInp
 {
 }
+
 public class InputRefCnstPrntObjPrntInp<Tref>
   : Inputref
   , IRefCnstPrntObjPrntInp<Tref>
 {
 }
+
 public class InputPrntCnstPrntObjPrntInp
   : IPrntCnstPrntObjPrntInp
 {
   public String AsString { get; set; }
 }
+
 public class InputAltCnstPrntObjPrntInp
   : InputPrntCnstPrntObjPrntInp
   , IAltCnstPrntObjPrntInp

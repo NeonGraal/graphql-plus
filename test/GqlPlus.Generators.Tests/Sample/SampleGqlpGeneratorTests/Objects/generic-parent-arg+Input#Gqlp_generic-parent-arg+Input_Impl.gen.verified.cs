@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_parent_arg_Input;
+
 public class InputGnrcPrntArgInp<Ttype>
   : InputRefGnrcPrntArgInp
   , IGnrcPrntArgInp<Ttype>
 {
 }
+
 public class InputRefGnrcPrntArgInp<Tref>
   : IRefGnrcPrntArgInp<Tref>
 {

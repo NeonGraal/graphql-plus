@@ -8,6 +8,7 @@ domain DmnAlias [Num2] { number }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_domain_alias;
+
 public class DomainDmnAlias
   : IDmnAlias
 {

@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_output_generic_value;
+
 public class OutputOutpGnrcValue
   : IOutpGnrcValue
 {
   public RefOutpGnrcValue<outpGnrcValue> AsRefOutpGnrcValue { get; set; }
 }
+
 public class OutputRefOutpGnrcValue<Ttype>
   : IRefOutpGnrcValue<Ttype>
 {

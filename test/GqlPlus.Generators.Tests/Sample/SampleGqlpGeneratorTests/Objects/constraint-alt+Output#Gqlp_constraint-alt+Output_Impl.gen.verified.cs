@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_constraint_alt_Output;
+
 public class OutputCnstAltOutp<Ttype>
   : ICnstAltOutp<Ttype>
 {

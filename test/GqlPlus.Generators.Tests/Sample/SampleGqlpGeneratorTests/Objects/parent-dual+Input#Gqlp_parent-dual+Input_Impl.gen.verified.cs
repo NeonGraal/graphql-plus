@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_parent_dual_Input;
+
 public class InputPrntDualInp
   : InputRefPrntDualInp
   , IPrntDualInp
 {
 }
+
 public class DualRefPrntDualInp
   : IRefPrntDualInp
 {

@@ -4,16 +4,19 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_constraint_alt_domain_Input;
+
 public class InputCnstAltDmnInp
   : ICnstAltDmnInp
 {
   public RefCnstAltDmnInp<DomCnstAltDmnInp> AsRefCnstAltDmnInp { get; set; }
 }
+
 public class InputRefCnstAltDmnInp<Tref>
   : IRefCnstAltDmnInp<Tref>
 {
   public Tref Asref { get; set; }
 }
+
 public class DomainDomCnstAltDmnInp
   : IDomCnstAltDmnInp
 {

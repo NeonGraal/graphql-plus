@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_field_mod_param_Dual;
+
 public class DualFieldModParamDual<Tmod>
   : IFieldModParamDual<Tmod>
 {
   public FldFieldModParamDual field { get; set; }
 }
+
 public class DualFldFieldModParamDual
   : IFldFieldModParamDual
 {

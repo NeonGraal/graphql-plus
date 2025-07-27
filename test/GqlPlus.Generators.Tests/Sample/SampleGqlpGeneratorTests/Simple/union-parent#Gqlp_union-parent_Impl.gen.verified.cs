@@ -4,12 +4,14 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_union_parent;
+
 public class UnionUnionPrnt
   : UnionPrntUnionPrnt
   , IUnionPrnt
 {
   public String AsString { get; set; }
 }
+
 public class UnionPrntUnionPrnt
   : IPrntUnionPrnt
 {

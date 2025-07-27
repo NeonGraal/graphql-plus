@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro_Category;
+
 public class Output_Categories
   : I_Categories
 {
@@ -12,6 +13,7 @@ public class Output_Categories
   public _Category As_Category { get; set; }
   public _Type As_Type { get; set; }
 }
+
 public class Output_Category
   : Output_Aliased
   , I_Category

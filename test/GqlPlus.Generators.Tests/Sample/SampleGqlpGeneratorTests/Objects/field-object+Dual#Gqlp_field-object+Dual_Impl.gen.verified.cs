@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_field_object_Dual;
+
 public class DualFieldObjDual
   : IFieldObjDual
 {
   public FldFieldObjDual field { get; set; }
 }
+
 public class DualFldFieldObjDual
   : IFldFieldObjDual
 {

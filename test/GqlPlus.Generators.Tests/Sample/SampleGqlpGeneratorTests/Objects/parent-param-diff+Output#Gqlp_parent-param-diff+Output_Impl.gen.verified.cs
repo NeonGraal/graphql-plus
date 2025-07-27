@@ -4,12 +4,14 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_parent_param_diff_Output;
+
 public class OutputPrntParamDiffOutp<Ta>
   : OutputRefPrntParamDiffOutp
   , IPrntParamDiffOutp<Ta>
 {
   public Ta field { get; set; }
 }
+
 public class OutputRefPrntParamDiffOutp<Tb>
   : IRefPrntParamDiffOutp<Tb>
 {

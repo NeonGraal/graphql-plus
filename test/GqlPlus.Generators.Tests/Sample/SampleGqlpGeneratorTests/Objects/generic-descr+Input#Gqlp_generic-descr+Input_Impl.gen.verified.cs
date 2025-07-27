@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_descr_Input;
+
 public class InputGnrcDescrInp<Ttype>
   : IGnrcDescrInp<Ttype>
 {

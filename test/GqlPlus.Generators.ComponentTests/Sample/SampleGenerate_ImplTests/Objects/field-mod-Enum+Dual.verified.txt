@@ -8,6 +8,7 @@ enum EnumFieldModEnumDual { value }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_field_mod_Enum_Dual;
+
 public class DualFieldModEnumDual
   : IFieldModEnumDual
 {

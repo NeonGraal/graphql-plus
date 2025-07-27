@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_alt_mod_param_Dual;
+
 public class DualRefGnrcAltModParamDual<Tref,Tmod>
   : IRefGnrcAltModParamDual<Tref,Tmod>
 {

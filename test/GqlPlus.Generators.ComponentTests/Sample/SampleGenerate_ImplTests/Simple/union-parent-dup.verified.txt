@@ -8,12 +8,14 @@ union PrntUnionPrntDup { Number }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_union_parent_dup;
+
 public class UnionUnionPrntDup
   : UnionPrntUnionPrntDup
   , IUnionPrntDup
 {
   public Number AsNumber { get; set; }
 }
+
 public class UnionPrntUnionPrntDup
   : IPrntUnionPrntDup
 {

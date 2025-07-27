@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_alt_dual_Input;
+
 public class InputAltDualInp
   : IAltDualInp
 {
   public ObjDualAltDualInp AsObjDualAltDualInp { get; set; }
 }
+
 public class DualObjDualAltDualInp
   : IObjDualAltDualInp
 {

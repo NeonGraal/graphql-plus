@@ -4,16 +4,19 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_parent_enum_dom_Output;
+
 public class OutputGnrcPrntEnumDomOutp
   : OutputFieldGnrcPrntEnumDomOutp
   , IGnrcPrntEnumDomOutp
 {
 }
+
 public class OutputFieldGnrcPrntEnumDomOutp<Tref>
   : IFieldGnrcPrntEnumDomOutp<Tref>
 {
   public Tref field { get; set; }
 }
+
 public class DomainDomGnrcPrntEnumDomOutp
   : IDomGnrcPrntEnumDomOutp
 {

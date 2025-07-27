@@ -8,11 +8,13 @@ output RefGnrcPrntArgOutp<$ref:String> { | $ref }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_generic_parent_arg_Output;
+
 public class OutputGnrcPrntArgOutp<Ttype>
   : OutputRefGnrcPrntArgOutp
   , IGnrcPrntArgOutp<Ttype>
 {
 }
+
 public class OutputRefGnrcPrntArgOutp<Tref>
   : IRefGnrcPrntArgOutp<Tref>
 {

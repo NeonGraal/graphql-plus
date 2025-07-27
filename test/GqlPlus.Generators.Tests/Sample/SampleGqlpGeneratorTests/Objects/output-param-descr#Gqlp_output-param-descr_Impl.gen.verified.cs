@@ -4,15 +4,18 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_output_param_descr;
+
 public class OutputOutpParamDescr
   : IOutpParamDescr
 {
   public FldOutpParamDescr field { get; set; }
 }
+
 public class DualFldOutpParamDescr
   : IFldOutpParamDescr
 {
 }
+
 public class InputInOutpParamDescr
   : IInOutpParamDescr
 {

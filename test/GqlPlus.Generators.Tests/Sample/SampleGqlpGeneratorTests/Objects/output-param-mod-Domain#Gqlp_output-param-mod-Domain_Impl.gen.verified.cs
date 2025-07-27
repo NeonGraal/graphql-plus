@@ -4,17 +4,20 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_output_param_mod_Domain;
+
 public class OutputOutpParamModDmn
   : IOutpParamModDmn
 {
   public DomOutpParamModDmn field { get; set; }
 }
+
 public class InputInOutpParamModDmn
   : IInOutpParamModDmn
 {
   public Number param { get; set; }
   public String AsString { get; set; }
 }
+
 public class DomainDomOutpParamModDmn
   : IDomOutpParamModDmn
 {

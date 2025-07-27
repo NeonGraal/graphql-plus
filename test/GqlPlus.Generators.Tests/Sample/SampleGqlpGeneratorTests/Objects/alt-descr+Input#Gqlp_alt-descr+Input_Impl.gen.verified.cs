@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_alt_descr_Input;
+
 public class InputAltDescrInp
   : IAltDescrInp
 {

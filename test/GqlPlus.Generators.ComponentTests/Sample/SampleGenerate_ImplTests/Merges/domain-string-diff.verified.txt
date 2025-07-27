@@ -8,6 +8,7 @@ domain DmnStrDiff { string }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_domain_string_diff;
+
 public class DomainDmnStrDiff
   : IDmnStrDiff
 {

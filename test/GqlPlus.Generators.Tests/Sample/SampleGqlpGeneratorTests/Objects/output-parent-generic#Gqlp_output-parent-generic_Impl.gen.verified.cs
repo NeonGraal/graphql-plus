@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_output_parent_generic;
+
 public class OutputOutpPrntGnrc
   : IOutpPrntGnrc
 {
   public RefOutpPrntGnrc<EnumOutpPrntGnrc> AsRefOutpPrntGnrc { get; set; }
 }
+
 public class OutputRefOutpPrntGnrc<Ttype>
   : IRefOutpPrntGnrc<Ttype>
 {

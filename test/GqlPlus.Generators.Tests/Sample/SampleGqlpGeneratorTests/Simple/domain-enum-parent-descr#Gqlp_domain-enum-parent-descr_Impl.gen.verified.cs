@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_domain_enum_parent_descr;
+
 public class DomainDmnEnumPrntDescr
   : DomainPrntDmnEnumPrntDescr
   , IDmnEnumPrntDescr
 {
 }
+
 public class DomainPrntDmnEnumPrntDescr
   : IPrntDmnEnumPrntDescr
 {

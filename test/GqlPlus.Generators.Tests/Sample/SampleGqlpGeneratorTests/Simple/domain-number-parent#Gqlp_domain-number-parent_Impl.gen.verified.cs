@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_domain_number_parent;
+
 public class DomainDmnNmbrPrnt
   : DomainPrntDmnNmbrPrnt
   , IDmnNmbrPrnt
 {
 }
+
 public class DomainPrntDmnNmbrPrnt
   : IPrntDmnNmbrPrnt
 {

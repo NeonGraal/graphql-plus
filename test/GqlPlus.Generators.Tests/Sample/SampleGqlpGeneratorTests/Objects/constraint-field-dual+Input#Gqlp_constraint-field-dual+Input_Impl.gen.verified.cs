@@ -4,21 +4,25 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_constraint_field_dual_Input;
+
 public class InputCnstFieldDualInp
   : InputRefCnstFieldDualInp
   , ICnstFieldDualInp
 {
 }
+
 public class InputRefCnstFieldDualInp<Tref>
   : IRefCnstFieldDualInp<Tref>
 {
   public Tref field { get; set; }
 }
+
 public class DualPrntCnstFieldDualInp
   : IPrntCnstFieldDualInp
 {
   public String AsString { get; set; }
 }
+
 public class InputAltCnstFieldDualInp
   : InputPrntCnstFieldDualInp
   , IAltCnstFieldDualInp

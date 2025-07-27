@@ -9,11 +9,13 @@ output FldObjFieldAliasOutp { }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_object_field_alias_Output;
+
 public class OutputObjFieldAliasOutp
   : IObjFieldAliasOutp
 {
   public FldObjFieldAliasOutp field { get; set; }
 }
+
 public class OutputFldObjFieldAliasOutp
   : IFldObjFieldAliasOutp
 {

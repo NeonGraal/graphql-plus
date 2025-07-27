@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_union_descr;
+
 public class UnionUnionDescr
   : IUnionDescr
 {

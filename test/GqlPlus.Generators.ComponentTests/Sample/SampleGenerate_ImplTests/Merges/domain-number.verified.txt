@@ -8,6 +8,7 @@ domain DmnNmbr { number }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_domain_number;
+
 public class DomainDmnNmbr
   : IDmnNmbr
 {

@@ -8,6 +8,7 @@ output ObjAliasOutp [Output2] { }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_object_alias_Output;
+
 public class OutputObjAliasOutp
   : IObjAliasOutp
 {

@@ -10,6 +10,7 @@ output CtgrDscrs { }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_category_descrs;
+
 public class OutputCtgrDscrs
   : ICtgrDscrs
 {

@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_alt_mod_Boolean_Dual;
+
 public class DualAltModBoolDual
   : IAltModBoolDual
 {
   public AltAltModBoolDual AsAltAltModBoolDual { get; set; }
 }
+
 public class DualAltAltModBoolDual
   : IAltAltModBoolDual
 {

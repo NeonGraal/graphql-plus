@@ -8,6 +8,7 @@ enum EnumDmnEnumValue { dmnEnumValue }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_domain_enum_value;
+
 public class DomainDmnEnumValue
   : IDmnEnumValue
 {

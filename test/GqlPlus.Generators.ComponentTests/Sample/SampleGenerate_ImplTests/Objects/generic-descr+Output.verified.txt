@@ -7,6 +7,7 @@ output GnrcDescrOutp<"Test" "Descr" $type:String> { field: $type }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_generic_descr_Output;
+
 public class OutputGnrcDescrOutp<Ttype>
   : IGnrcDescrOutp<Ttype>
 {

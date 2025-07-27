@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_object_constraint_Output;
+
 public class OutputObjCnstOutp<Ttype>
   : IObjCnstOutp<Ttype>
 {

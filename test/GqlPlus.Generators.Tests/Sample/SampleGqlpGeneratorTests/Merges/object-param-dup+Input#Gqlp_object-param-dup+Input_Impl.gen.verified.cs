@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_object_param_dup_Input;
+
 public class InputObjParamDupInp<Ttest>
   : IObjParamDupInp<Ttest>
 {

@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_parent_Output;
+
 public class OutputGnrcPrntOutp<Ttype>
   : Outputtype
   , IGnrcPrntOutp<Ttype>

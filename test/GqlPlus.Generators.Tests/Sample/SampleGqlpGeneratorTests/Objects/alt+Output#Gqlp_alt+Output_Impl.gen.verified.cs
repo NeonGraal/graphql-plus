@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_alt_Output;
+
 public class OutputAltOutp
   : IAltOutp
 {
   public AltAltOutp AsAltAltOutp { get; set; }
 }
+
 public class OutputAltAltOutp
   : IAltAltOutp
 {

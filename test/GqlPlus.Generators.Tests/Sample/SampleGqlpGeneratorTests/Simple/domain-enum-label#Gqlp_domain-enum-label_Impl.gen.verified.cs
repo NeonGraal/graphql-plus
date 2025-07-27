@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_domain_enum_label;
+
 public class DomainDmnEnumLabel
   : IDmnEnumLabel
 {

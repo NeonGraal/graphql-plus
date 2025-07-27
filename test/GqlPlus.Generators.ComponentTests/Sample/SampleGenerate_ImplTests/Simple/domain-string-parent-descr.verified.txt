@@ -8,11 +8,13 @@ domain PrntDmnStrPrntDescr { String /b+/ }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_domain_string_parent_descr;
+
 public class DomainDmnStrPrntDescr
   : DomainPrntDmnStrPrntDescr
   , IDmnStrPrntDescr
 {
 }
+
 public class DomainPrntDmnStrPrntDescr
   : IPrntDmnStrPrntDescr
 {

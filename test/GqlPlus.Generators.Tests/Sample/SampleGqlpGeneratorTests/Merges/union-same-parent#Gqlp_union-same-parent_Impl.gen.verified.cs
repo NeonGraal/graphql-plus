@@ -4,12 +4,14 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_union_same_parent;
+
 public class UnionUnionSamePrnt
   : UnionPrntUnionSamePrnt
   , IUnionSamePrnt
 {
   public Boolean AsBoolean { get; set; }
 }
+
 public class UnionPrntUnionSamePrnt
   : IPrntUnionSamePrnt
 {

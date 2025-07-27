@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_alt_mod_Boolean_Input;
+
 public class InputAltModBoolInp
   : IAltModBoolInp
 {
   public AltAltModBoolInp AsAltAltModBoolInp { get; set; }
 }
+
 public class InputAltAltModBoolInp
   : IAltAltModBoolInp
 {

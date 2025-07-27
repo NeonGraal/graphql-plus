@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_object_alias_Dual;
+
 public class DualObjAliasDual
   : IObjAliasDual
 {

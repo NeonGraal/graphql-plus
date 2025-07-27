@@ -8,11 +8,13 @@ dual ObjDualAltDualOutp { alt: Number | String }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_alt_dual_Output;
+
 public class OutputAltDualOutp
   : IAltDualOutp
 {
   public ObjDualAltDualOutp AsObjDualAltDualOutp { get; set; }
 }
+
 public class DualObjDualAltDualOutp
   : IObjDualAltDualOutp
 {

@@ -11,26 +11,31 @@ output AltCnstPrntDualGrndOutp { :PrntCnstPrntDualGrndOutp alt: Number }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_constraint_parent_dual_grandparent_Output;
+
 public class OutputCnstPrntDualGrndOutp
   : OutputRefCnstPrntDualGrndOutp
   , ICnstPrntDualGrndOutp
 {
 }
+
 public class OutputRefCnstPrntDualGrndOutp<Tref>
   : Outputref
   , IRefCnstPrntDualGrndOutp<Tref>
 {
 }
+
 public class DualGrndCnstPrntDualGrndOutp
   : IGrndCnstPrntDualGrndOutp
 {
   public String AsString { get; set; }
 }
+
 public class DualPrntCnstPrntDualGrndOutp
   : DualGrndCnstPrntDualGrndOutp
   , IPrntCnstPrntDualGrndOutp
 {
 }
+
 public class OutputAltCnstPrntDualGrndOutp
   : OutputPrntCnstPrntDualGrndOutp
   , IAltCnstPrntDualGrndOutp

@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_object_alt_Output;
+
 public class OutputObjAltOutp
   : IObjAltOutp
 {
   public ObjAltOutpType AsObjAltOutpType { get; set; }
 }
+
 public class OutputObjAltOutpType
   : IObjAltOutpType
 {

@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_object_Input;
+
 public class InputObjInp
   : IObjInp
 {

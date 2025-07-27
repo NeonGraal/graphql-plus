@@ -9,16 +9,19 @@ domain DomGnrcPrntStrDomDual { string /\w+/ }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_generic_parent_string_dom_Dual;
+
 public class DualGnrcPrntStrDomDual
   : DualFieldGnrcPrntStrDomDual
   , IGnrcPrntStrDomDual
 {
 }
+
 public class DualFieldGnrcPrntStrDomDual<Tref>
   : IFieldGnrcPrntStrDomDual<Tref>
 {
   public Tref field { get; set; }
 }
+
 public class DomainDomGnrcPrntStrDomDual
   : IDomGnrcPrntStrDomDual
 {

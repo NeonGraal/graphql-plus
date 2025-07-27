@@ -8,6 +8,7 @@ enum EnumFieldModEnumInp { value }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_field_mod_Enum_Input;
+
 public class InputFieldModEnumInp
   : IFieldModEnumInp
 {

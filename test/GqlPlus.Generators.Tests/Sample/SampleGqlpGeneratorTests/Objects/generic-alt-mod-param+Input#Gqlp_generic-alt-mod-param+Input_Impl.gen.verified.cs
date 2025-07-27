@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_alt_mod_param_Input;
+
 public class InputRefGnrcAltModParamInp<Tref,Tmod>
   : IRefGnrcAltModParamInp<Tref,Tmod>
 {

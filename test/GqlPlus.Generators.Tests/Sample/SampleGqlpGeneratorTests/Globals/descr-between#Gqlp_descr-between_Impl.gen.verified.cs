@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_descr_between;
+
 public class OutputDescrBtwn
   : IDescrBtwn
 {

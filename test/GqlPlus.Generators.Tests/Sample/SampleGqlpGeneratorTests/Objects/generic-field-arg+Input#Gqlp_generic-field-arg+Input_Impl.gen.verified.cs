@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_field_arg_Input;
+
 public class InputGnrcFieldArgInp<Ttype>
   : IGnrcFieldArgInp<Ttype>
 {
   public RefGnrcFieldArgInp<Ttype> field { get; set; }
 }
+
 public class InputRefGnrcFieldArgInp<Tref>
   : IRefGnrcFieldArgInp<Tref>
 {

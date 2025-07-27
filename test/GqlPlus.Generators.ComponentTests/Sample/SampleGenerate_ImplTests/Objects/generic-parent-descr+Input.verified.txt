@@ -7,6 +7,7 @@ input GnrcPrntDescrInp<$type:String> { :"Parent comment"$type }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_generic_parent_descr_Input;
+
 public class InputGnrcPrntDescrInp<Ttype>
   : Inputtype
   , IGnrcPrntDescrInp<Ttype>

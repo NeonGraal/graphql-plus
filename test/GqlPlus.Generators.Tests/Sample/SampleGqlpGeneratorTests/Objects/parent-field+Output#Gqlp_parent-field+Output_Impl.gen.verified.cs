@@ -4,12 +4,14 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_parent_field_Output;
+
 public class OutputPrntFieldOutp
   : OutputRefPrntFieldOutp
   , IPrntFieldOutp
 {
   public Number field { get; set; }
 }
+
 public class OutputRefPrntFieldOutp
   : IRefPrntFieldOutp
 {

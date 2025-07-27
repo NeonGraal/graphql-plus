@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_object_field_alias_Input;
+
 public class InputObjFieldAliasInp
   : IObjFieldAliasInp
 {
   public FldObjFieldAliasInp field { get; set; }
 }
+
 public class InputFldObjFieldAliasInp
   : IFldObjFieldAliasInp
 {

@@ -9,11 +9,13 @@ dual RefObjPrntDual { }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_object_parent_Dual;
+
 public class DualObjPrntDual
   : DualRefObjPrntDual
   , IObjPrntDual
 {
 }
+
 public class DualRefObjPrntDual
   : IRefObjPrntDual
 {

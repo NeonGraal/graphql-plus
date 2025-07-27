@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_input_field_Number;
+
 public class InputInpFieldNmbr
   : IInpFieldNmbr
 {

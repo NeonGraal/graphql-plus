@@ -4,16 +4,19 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_parent_param_Output;
+
 public class OutputGnrcPrntParamOutp
   : OutputRefGnrcPrntParamOutp
   , IGnrcPrntParamOutp
 {
 }
+
 public class OutputRefGnrcPrntParamOutp<Tref>
   : IRefGnrcPrntParamOutp<Tref>
 {
   public Tref Asref { get; set; }
 }
+
 public class OutputAltGnrcPrntParamOutp
   : IAltGnrcPrntParamOutp
 {

@@ -7,6 +7,7 @@ union UnionDescr { "Union" "Descr" Number }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_union_descr;
+
 public class UnionUnionDescr
   : IUnionDescr
 {

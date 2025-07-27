@@ -8,11 +8,13 @@ output AltAltModParamOutp { alt: Number | String }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_alt_mod_param_Output;
+
 public class OutputAltModParamOutp<Tmod>
   : IAltModParamOutp<Tmod>
 {
   public AltAltModParamOutp AsAltAltModParamOutp { get; set; }
 }
+
 public class OutputAltAltModParamOutp
   : IAltAltModParamOutp
 {

@@ -8,11 +8,13 @@ dual RefGnrcPrntArgDual<$ref:String> { | $ref }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_generic_parent_arg_Dual;
+
 public class DualGnrcPrntArgDual<Ttype>
   : DualRefGnrcPrntArgDual
   , IGnrcPrntArgDual<Ttype>
 {
 }
+
 public class DualRefGnrcPrntArgDual<Tref>
   : IRefGnrcPrntArgDual<Tref>
 {

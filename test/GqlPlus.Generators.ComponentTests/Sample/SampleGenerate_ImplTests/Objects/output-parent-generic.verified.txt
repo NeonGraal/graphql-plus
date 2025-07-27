@@ -10,11 +10,13 @@ enum PrntOutpPrntGnrc { prnt_outpPrntGnrc }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_output_parent_generic;
+
 public class OutputOutpPrntGnrc
   : IOutpPrntGnrc
 {
   public RefOutpPrntGnrc<EnumOutpPrntGnrc> AsRefOutpPrntGnrc { get; set; }
 }
+
 public class OutputRefOutpPrntGnrc<Ttype>
   : IRefOutpPrntGnrc<Ttype>
 {

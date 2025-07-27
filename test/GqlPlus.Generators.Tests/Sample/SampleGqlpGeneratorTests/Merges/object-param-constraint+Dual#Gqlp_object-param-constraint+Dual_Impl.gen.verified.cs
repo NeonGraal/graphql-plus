@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_object_param_constraint_Dual;
+
 public class DualObjParamCnstDual<Ttest>
   : IObjParamCnstDual<Ttest>
 {

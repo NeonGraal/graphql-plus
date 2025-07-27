@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_output_field_enum_alias;
+
 public class OutputOutpFieldEnumAlias
   : IOutpFieldEnumAlias
 {

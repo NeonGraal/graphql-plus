@@ -6,12 +6,17 @@ internal sealed class EnumGenerator
 {
   public override string TypePrefix => "Enum";
 
-  protected override void Generate(IGqlpEnum ast, GqlpGeneratorContext context)
+  public EnumGenerator()
   {
-    if (context.GeneratorOptions.GeneratorType == GqlpGeneratorType.Enum) {
-      base.Generate(ast, context);
-    }
+    _generators.Remove(GqlpGeneratorType.Interface);
+    _generators.Add(GqlpGeneratorType.Enum, GenerateBlock(EnumHeader, EnumMember));
   }
+
+  private void EnumHeader(IGqlpEnum ast, GqlpGeneratorContext context)
+    => context.Write($"public enum {ast.Name}");
+
+  private void EnumMember(MapPair<string> item, GqlpGeneratorContext context)
+    => context.Write("  " + item.Key + item.Value + ",");
 
   private static IEnumerable<MapPair<string>> ParentItems(string? parent, GqlpGeneratorContext context)
   {
@@ -39,10 +44,4 @@ internal sealed class EnumGenerator
 
     return ParentItems(ast.Parent?.Name, context).Concat(members);
   }
-
-  protected override void TypeHeader(IGqlpEnum ast, GqlpGeneratorContext context)
-    => context.Write($"public enum {ast.Name}");
-
-  protected override void TypeMember(MapPair<string> item, GqlpGeneratorContext context)
-    => context.Write("  " + item.Key + item.Value + ",");
 }

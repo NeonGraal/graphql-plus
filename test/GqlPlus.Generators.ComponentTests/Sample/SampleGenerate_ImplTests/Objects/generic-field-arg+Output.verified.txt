@@ -8,11 +8,13 @@ output RefGnrcFieldArgOutp<$ref:String> { | $ref }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_generic_field_arg_Output;
+
 public class OutputGnrcFieldArgOutp<Ttype>
   : IGnrcFieldArgOutp<Ttype>
 {
   public RefGnrcFieldArgOutp<Ttype> field { get; set; }
 }
+
 public class OutputRefGnrcFieldArgOutp<Tref>
   : IRefGnrcFieldArgOutp<Tref>
 {

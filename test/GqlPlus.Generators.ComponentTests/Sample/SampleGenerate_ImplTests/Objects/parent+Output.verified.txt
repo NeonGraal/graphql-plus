@@ -8,11 +8,13 @@ output RefPrntOutp { parent: Number | String }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_parent_Output;
+
 public class OutputPrntOutp
   : OutputRefPrntOutp
   , IPrntOutp
 {
 }
+
 public class OutputRefPrntOutp
   : IRefPrntOutp
 {

@@ -7,6 +7,7 @@ dual GnrcAltDual<$type:String> { | $type }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_generic_alt_Dual;
+
 public class DualGnrcAltDual<Ttype>
   : IGnrcAltDual<Ttype>
 {

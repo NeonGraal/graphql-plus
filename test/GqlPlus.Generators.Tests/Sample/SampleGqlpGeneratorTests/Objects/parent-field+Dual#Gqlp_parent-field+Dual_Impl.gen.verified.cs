@@ -4,12 +4,14 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_parent_field_Dual;
+
 public class DualPrntFieldDual
   : DualRefPrntFieldDual
   , IPrntFieldDual
 {
   public Number field { get; set; }
 }
+
 public class DualRefPrntFieldDual
   : IRefPrntFieldDual
 {

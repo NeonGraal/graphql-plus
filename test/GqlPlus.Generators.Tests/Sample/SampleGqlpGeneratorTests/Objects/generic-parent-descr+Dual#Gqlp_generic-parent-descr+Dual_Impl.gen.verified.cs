@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_parent_descr_Dual;
+
 public class DualGnrcPrntDescrDual<Ttype>
   : Dualtype
   , IGnrcPrntDescrDual<Ttype>

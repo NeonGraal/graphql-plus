@@ -8,6 +8,7 @@ output ObjCnstOutp<$type:String> { str: $type }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_object_constraint_Output;
+
 public class OutputObjCnstOutp<Ttype>
   : IObjCnstOutp<Ttype>
 {

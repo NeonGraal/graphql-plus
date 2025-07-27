@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro_Directive;
+
 public class Output_Directives
   : I_Directives
 {
@@ -12,6 +13,7 @@ public class Output_Directives
   public _Directive As_Directive { get; set; }
   public _Type As_Type { get; set; }
 }
+
 public class Output_Directive
   : Output_Aliased
   , I_Directive

@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_parent_enum_child_Dual;
+
 public class DualGnrcPrntEnumChildDual
   : DualFieldGnrcPrntEnumChildDual
   , IGnrcPrntEnumChildDual
 {
 }
+
 public class DualFieldGnrcPrntEnumChildDual<Tref>
   : IFieldGnrcPrntEnumChildDual<Tref>
 {

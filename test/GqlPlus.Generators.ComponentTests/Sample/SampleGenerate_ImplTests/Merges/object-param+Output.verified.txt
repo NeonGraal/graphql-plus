@@ -8,6 +8,7 @@ output ObjParamOutp<$type:String> { type: $type }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_object_param_Output;
+
 public class OutputObjParamOutp<Ttest,Ttype>
   : IObjParamOutp<Ttest,Ttype>
 {

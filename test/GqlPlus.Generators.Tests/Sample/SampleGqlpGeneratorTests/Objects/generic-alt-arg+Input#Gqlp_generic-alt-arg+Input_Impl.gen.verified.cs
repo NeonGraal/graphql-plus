@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_alt_arg_Input;
+
 public class InputGnrcAltArgInp<Ttype>
   : IGnrcAltArgInp<Ttype>
 {
   public RefGnrcAltArgInp<Ttype> AsRefGnrcAltArgInp { get; set; }
 }
+
 public class InputRefGnrcAltArgInp<Tref>
   : IRefGnrcAltArgInp<Tref>
 {

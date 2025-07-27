@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_domain_bool_descr;
+
 public class DomainDmnBoolDescr
   : IDmnBoolDescr
 {

@@ -8,6 +8,7 @@ output OutpFieldEnumValue { field = true }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_output_field_enum_value;
+
 public class OutputOutpFieldEnumValue
   : IOutpFieldEnumValue
 {

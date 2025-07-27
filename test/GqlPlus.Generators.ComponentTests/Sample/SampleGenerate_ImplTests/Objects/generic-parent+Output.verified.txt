@@ -7,6 +7,7 @@ output GnrcPrntOutp<$type:String> { :$type }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_generic_parent_Output;
+
 public class OutputGnrcPrntOutp<Ttype>
   : Outputtype
   , IGnrcPrntOutp<Ttype>

@@ -9,6 +9,7 @@ output CtgrMod { }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_category_mod;
+
 public class OutputCtgrMod
   : ICtgrMod
 {

@@ -8,11 +8,13 @@ input FldFieldObjInp { field: Number | String }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_field_object_Input;
+
 public class InputFieldObjInp
   : IFieldObjInp
 {
   public FldFieldObjInp field { get; set; }
 }
+
 public class InputFldFieldObjInp
   : IFldFieldObjInp
 {

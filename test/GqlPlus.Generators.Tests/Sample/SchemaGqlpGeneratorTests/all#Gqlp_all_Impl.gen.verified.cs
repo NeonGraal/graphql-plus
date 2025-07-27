@@ -4,21 +4,25 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_all;
+
 public class DomainGuid
   : IGuid
 {
 }
+
 public class UnionMany
   : IMany
 {
   public Guid AsGuid { get; set; }
   public Number AsNumber { get; set; }
 }
+
 public class DualField
   : IField
 {
   public String strings { get; set; }
 }
+
 public class InputParam
   : IParam
 {
@@ -26,6 +30,7 @@ public class InputParam
   public Many beforeId { get; set; }
   public String AsString { get; set; }
 }
+
 public class OutputAll
   : IAll
 {

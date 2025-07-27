@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_descr_Dual;
+
 public class DualGnrcDescrDual<Ttype>
   : IGnrcDescrDual<Ttype>
 {

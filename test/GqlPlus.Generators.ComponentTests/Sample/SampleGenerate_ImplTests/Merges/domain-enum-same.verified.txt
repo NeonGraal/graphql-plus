@@ -8,6 +8,7 @@ domain DmnEnumSame { enum true }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_domain_enum_same;
+
 public class DomainDmnEnumSame
   : IDmnEnumSame
 {

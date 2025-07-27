@@ -8,6 +8,7 @@ output CtgrOutpList { }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_category_output_list;
+
 public class OutputCtgrOutpList
   : ICtgrOutpList
 {

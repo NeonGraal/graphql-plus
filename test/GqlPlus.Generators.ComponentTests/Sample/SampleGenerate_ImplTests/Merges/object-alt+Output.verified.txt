@@ -9,11 +9,13 @@ output ObjAltOutpType { }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_object_alt_Output;
+
 public class OutputObjAltOutp
   : IObjAltOutp
 {
   public ObjAltOutpType AsObjAltOutpType { get; set; }
 }
+
 public class OutputObjAltOutpType
   : IObjAltOutpType
 {

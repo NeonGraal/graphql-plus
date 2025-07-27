@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_domain_number_descr;
+
 public class DomainDmnNmbrDescr
   : IDmnNmbrDescr
 {

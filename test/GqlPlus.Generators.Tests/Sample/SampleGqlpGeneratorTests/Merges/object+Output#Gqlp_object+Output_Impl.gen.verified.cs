@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_object_Output;
+
 public class OutputObjOutp
   : IObjOutp
 {

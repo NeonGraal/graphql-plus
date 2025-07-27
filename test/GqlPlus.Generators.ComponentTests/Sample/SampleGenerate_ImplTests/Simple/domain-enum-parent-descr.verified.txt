@@ -9,11 +9,13 @@ enum EnumDmnEnumPrntDescr { enum_dmnEnumPrntDescr prnt_dmnEnumPrntDescr }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_domain_enum_parent_descr;
+
 public class DomainDmnEnumPrntDescr
   : DomainPrntDmnEnumPrntDescr
   , IDmnEnumPrntDescr
 {
 }
+
 public class DomainPrntDmnEnumPrntDescr
   : IPrntDmnEnumPrntDescr
 {

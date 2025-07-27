@@ -30,7 +30,7 @@ internal abstract class GenerateForObject<TObj, TBase, TField, TAlt>
       : typeAst.Name + args;
   }
 
-  protected override void TypeHeader(TObj ast, GqlpGeneratorContext context)
+  protected override void InterfaceHeader(TObj ast, GqlpGeneratorContext context)
   {
     string typeParams = ast.TypeParams.Surround("<", ">", p => "T" + p!.Name, ",");
 

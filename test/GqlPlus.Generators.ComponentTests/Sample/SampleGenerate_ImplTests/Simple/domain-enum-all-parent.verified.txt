@@ -9,6 +9,7 @@ enum PrntDmnEnumAllPrnt { prnt_dmnEnumAllPrnt }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_domain_enum_all_parent;
+
 public class DomainDmnEnumAllPrnt
   : IDmnEnumAllPrnt
 {

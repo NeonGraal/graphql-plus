@@ -8,6 +8,7 @@ output ObjParamCnstOutp<$test:String> { type: $test }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_object_param_constraint_Output;
+
 public class OutputObjParamCnstOutp<Ttest>
   : IObjParamCnstOutp<Ttest>
 {

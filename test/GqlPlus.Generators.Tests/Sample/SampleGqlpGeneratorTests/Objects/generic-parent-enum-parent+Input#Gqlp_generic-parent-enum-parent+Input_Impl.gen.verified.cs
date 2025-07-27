@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_parent_enum_parent_Input;
+
 public class InputGnrcPrntEnumPrntInp
   : InputFieldGnrcPrntEnumPrntInp
   , IGnrcPrntEnumPrntInp
 {
 }
+
 public class InputFieldGnrcPrntEnumPrntInp<Tref>
   : IFieldGnrcPrntEnumPrntInp<Tref>
 {

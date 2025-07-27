@@ -8,6 +8,7 @@ domain DmnBoolSame { boolean true }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_domain_boolean_same;
+
 public class DomainDmnBoolSame
   : IDmnBoolSame
 {

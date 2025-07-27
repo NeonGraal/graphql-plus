@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_field_Input;
+
 public class InputGnrcFieldInp<Ttype>
   : IGnrcFieldInp<Ttype>
 {

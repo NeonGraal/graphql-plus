@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro_Declarations;
+
 public class Output_Schema
   : Output_Named
   , I_Schema
@@ -13,10 +14,12 @@ public class Output_Schema
   public _Type types { get; set; }
   public _Setting settings { get; set; }
 }
+
 public class Domain_Identifier
   : I_Identifier
 {
 }
+
 public class Input_Filter
   : I_Filter
 {
@@ -27,16 +30,19 @@ public class Input_Filter
   public Boolean returnReferencedTypes { get; set; }
   public _NameFilter As_NameFilter { get; set; }
 }
+
 public class Domain_NameFilter
   : I_NameFilter
 {
 }
+
 public class Input_CategoryFilter
   : Input_Filter
   , I_CategoryFilter
 {
   public _Resolution resolutions { get; set; }
 }
+
 public class Input_TypeFilter
   : Input_Filter
   , I_TypeFilter

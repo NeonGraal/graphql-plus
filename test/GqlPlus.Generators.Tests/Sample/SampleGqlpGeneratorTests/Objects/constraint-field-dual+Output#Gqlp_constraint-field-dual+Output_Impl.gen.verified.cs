@@ -4,21 +4,25 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_constraint_field_dual_Output;
+
 public class OutputCnstFieldDualOutp
   : OutputRefCnstFieldDualOutp
   , ICnstFieldDualOutp
 {
 }
+
 public class OutputRefCnstFieldDualOutp<Tref>
   : IRefCnstFieldDualOutp<Tref>
 {
   public Tref field { get; set; }
 }
+
 public class DualPrntCnstFieldDualOutp
   : IPrntCnstFieldDualOutp
 {
   public String AsString { get; set; }
 }
+
 public class OutputAltCnstFieldDualOutp
   : OutputPrntCnstFieldDualOutp
   , IAltCnstFieldDualOutp

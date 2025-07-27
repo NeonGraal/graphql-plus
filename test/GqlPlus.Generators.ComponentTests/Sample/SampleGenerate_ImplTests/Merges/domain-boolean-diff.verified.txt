@@ -8,6 +8,7 @@ domain DmnBoolDiff { boolean false }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_domain_boolean_diff;
+
 public class DomainDmnBoolDiff
   : IDmnBoolDiff
 {

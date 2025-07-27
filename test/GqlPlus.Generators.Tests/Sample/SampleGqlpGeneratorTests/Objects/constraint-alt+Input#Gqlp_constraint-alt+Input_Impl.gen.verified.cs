@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_constraint_alt_Input;
+
 public class InputCnstAltInp<Ttype>
   : ICnstAltInp<Ttype>
 {

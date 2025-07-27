@@ -9,6 +9,7 @@ output DescrBtwn { }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_descr_between;
+
 public class OutputDescrBtwn
   : IDescrBtwn
 {

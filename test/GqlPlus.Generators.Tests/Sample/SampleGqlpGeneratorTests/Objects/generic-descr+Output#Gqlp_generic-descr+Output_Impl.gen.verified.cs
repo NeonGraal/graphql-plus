@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_descr_Output;
+
 public class OutputGnrcDescrOutp<Ttype>
   : IGnrcDescrOutp<Ttype>
 {

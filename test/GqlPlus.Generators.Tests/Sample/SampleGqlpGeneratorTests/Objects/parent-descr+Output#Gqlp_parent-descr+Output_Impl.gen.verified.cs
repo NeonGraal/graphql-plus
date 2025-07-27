@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_parent_descr_Output;
+
 public class OutputPrntDescrOutp
   : OutputRefPrntDescrOutp
   , IPrntDescrOutp
 {
 }
+
 public class OutputRefPrntDescrOutp
   : IRefPrntDescrOutp
 {

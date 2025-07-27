@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_object_constraint_Input;
+
 public class InputObjCnstInp<Ttype>
   : IObjCnstInp<Ttype>
 {

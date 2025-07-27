@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_field_mod_param_Output;
+
 public class OutputFieldModParamOutp<Tmod>
   : IFieldModParamOutp<Tmod>
 {
   public FldFieldModParamOutp field { get; set; }
 }
+
 public class OutputFldFieldModParamOutp
   : IFldFieldModParamOutp
 {

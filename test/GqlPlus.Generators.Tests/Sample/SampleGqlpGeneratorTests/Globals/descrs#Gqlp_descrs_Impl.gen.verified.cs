@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_descrs;
+
 public class OutputDscrs
   : IDscrs
 {

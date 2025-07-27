@@ -7,6 +7,7 @@ input InpFieldDescrNmbr { "Test" "Descr" field: Number = 42 }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_input_field_descr_Number;
+
 public class InputInpFieldDescrNmbr
   : IInpFieldDescrNmbr
 {

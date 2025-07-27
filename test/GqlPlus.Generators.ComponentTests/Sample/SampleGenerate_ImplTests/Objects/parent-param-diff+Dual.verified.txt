@@ -8,12 +8,14 @@ dual RefPrntParamDiffDual<$b:String> { | $b }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_parent_param_diff_Dual;
+
 public class DualPrntParamDiffDual<Ta>
   : DualRefPrntParamDiffDual
   , IPrntParamDiffDual<Ta>
 {
   public Ta field { get; set; }
 }
+
 public class DualRefPrntParamDiffDual<Tb>
   : IRefPrntParamDiffDual<Tb>
 {

@@ -7,6 +7,7 @@ dual GnrcPrntDual<$type:String> { :$type }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_generic_parent_Dual;
+
 public class DualGnrcPrntDual<Ttype>
   : Dualtype
   , IGnrcPrntDual<Ttype>

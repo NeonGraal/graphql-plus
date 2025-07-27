@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_field_arg_Dual;
+
 public class DualGnrcFieldArgDual<Ttype>
   : IGnrcFieldArgDual<Ttype>
 {
   public RefGnrcFieldArgDual<Ttype> field { get; set; }
 }
+
 public class DualRefGnrcFieldArgDual<Tref>
   : IRefGnrcFieldArgDual<Tref>
 {

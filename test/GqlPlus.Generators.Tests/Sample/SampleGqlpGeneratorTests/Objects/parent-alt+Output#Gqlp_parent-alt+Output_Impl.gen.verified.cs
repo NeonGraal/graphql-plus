@@ -4,12 +4,14 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_parent_alt_Output;
+
 public class OutputPrntAltOutp
   : OutputRefPrntAltOutp
   , IPrntAltOutp
 {
   public Number AsNumber { get; set; }
 }
+
 public class OutputRefPrntAltOutp
   : IRefPrntAltOutp
 {

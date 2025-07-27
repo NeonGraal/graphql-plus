@@ -8,11 +8,13 @@ domain PrntDmnNmbrPrnt { Number <2 }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_domain_number_parent;
+
 public class DomainDmnNmbrPrnt
   : DomainPrntDmnNmbrPrnt
   , IDmnNmbrPrnt
 {
 }
+
 public class DomainPrntDmnNmbrPrnt
   : IPrntDmnNmbrPrnt
 {

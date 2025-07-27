@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_field_object_Input;
+
 public class InputFieldObjInp
   : IFieldObjInp
 {
   public FldFieldObjInp field { get; set; }
 }
+
 public class InputFldFieldObjInp
   : IFldFieldObjInp
 {

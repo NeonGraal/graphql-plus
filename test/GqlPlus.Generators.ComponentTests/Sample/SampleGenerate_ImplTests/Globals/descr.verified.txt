@@ -8,6 +8,7 @@ output Descr { }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_descr;
+
 public class OutputDescr
   : IDescr
 {

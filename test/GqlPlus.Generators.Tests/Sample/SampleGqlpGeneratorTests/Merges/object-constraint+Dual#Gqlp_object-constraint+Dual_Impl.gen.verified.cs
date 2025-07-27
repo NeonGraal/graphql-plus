@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_object_constraint_Dual;
+
 public class DualObjCnstDual<Ttype>
   : IObjCnstDual<Ttype>
 {

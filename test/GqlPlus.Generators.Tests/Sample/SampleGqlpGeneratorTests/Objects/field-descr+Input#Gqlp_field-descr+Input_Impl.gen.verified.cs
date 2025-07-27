@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_field_descr_Input;
+
 public class InputFieldDescrInp
   : IFieldDescrInp
 {

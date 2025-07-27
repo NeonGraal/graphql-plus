@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_output_field_value_descr;
+
 public class OutputOutpFieldValueDescr
   : IOutpFieldValueDescr
 {

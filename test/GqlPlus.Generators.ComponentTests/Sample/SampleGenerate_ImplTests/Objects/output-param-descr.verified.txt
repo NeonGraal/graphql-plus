@@ -9,15 +9,18 @@ input InOutpParamDescr { param: Number | String }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_output_param_descr;
+
 public class OutputOutpParamDescr
   : IOutpParamDescr
 {
   public FldOutpParamDescr field { get; set; }
 }
+
 public class DualFldOutpParamDescr
   : IFldOutpParamDescr
 {
 }
+
 public class InputInOutpParamDescr
   : IInOutpParamDescr
 {

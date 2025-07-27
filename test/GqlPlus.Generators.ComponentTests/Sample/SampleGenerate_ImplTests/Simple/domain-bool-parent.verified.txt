@@ -8,11 +8,13 @@ domain PrntDmnBoolPrnt { Boolean true }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_domain_bool_parent;
+
 public class DomainDmnBoolPrnt
   : DomainPrntDmnBoolPrnt
   , IDmnBoolPrnt
 {
 }
+
 public class DomainPrntDmnBoolPrnt
   : IPrntDmnBoolPrnt
 {

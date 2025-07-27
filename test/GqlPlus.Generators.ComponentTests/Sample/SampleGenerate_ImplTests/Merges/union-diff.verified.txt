@@ -8,6 +8,7 @@ union UnionDiff { Number }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_union_diff;
+
 public class UnionUnionDiff
   : IUnionDiff
 {

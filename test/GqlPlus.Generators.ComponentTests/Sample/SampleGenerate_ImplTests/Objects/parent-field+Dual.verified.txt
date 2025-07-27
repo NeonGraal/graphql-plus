@@ -8,12 +8,14 @@ dual RefPrntFieldDual { parent: Number | String }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_parent_field_Dual;
+
 public class DualPrntFieldDual
   : DualRefPrntFieldDual
   , IPrntFieldDual
 {
   public Number field { get; set; }
 }
+
 public class DualRefPrntFieldDual
   : IRefPrntFieldDual
 {

@@ -9,6 +9,7 @@ enum PrntOutpFieldEnumPrnt { prnt_outpFieldEnumPrnt }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_output_field_enum_parent;
+
 public class OutputOutpFieldEnumPrnt
   : IOutpFieldEnumPrnt
 {

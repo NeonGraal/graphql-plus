@@ -1,11 +1,10 @@
 ﻿namespace GqlPlus.Generating;
 
 public abstract class TypeGeneratorClassTestBase<TType, TParent>
-  : GeneratorClassTestBase
+  : TypeGeneratorClassTestBase
   where TType : class, IGqlpType<TParent>
   where TParent : class, IGqlpNamed
 {
-  public abstract string ExpectedTypePrefix { get; }
   internal abstract GenerateForType<TType> TypeGenerator { get; }
 
   [Fact]
@@ -35,14 +34,14 @@ public abstract class TypeGeneratorClassTestBase<TType, TParent>
   }
 
   [Fact]
-  public void TypePrefix_ReturnsDomain() =>
+  public void TypePrefix_ReturnsExpected() =>
     TypeGenerator.TypePrefix.ShouldBe(ExpectedTypePrefix);
 
-  [Theory, RepeatData]
-  public void GenerateType_WithName_GeneratesCorrectCode(string name)
+  [Theory, RepeatMemberData(nameof(BaseGeneratorData))]
+  public void GenerateType_WithName_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name)
   {
     // Arrange
-    GqlpGeneratorContext context = BaseContext();
+    GqlpGeneratorContext context = Context(baseType, generatorType);
     TType type = A.Parented<TType, TParent>(name);
 
     // Act
@@ -50,14 +49,14 @@ public abstract class TypeGeneratorClassTestBase<TType, TParent>
 
     // Assert
     string result = context.ToString();
-    CheckGeneratedCodeName(name)(result);
+    CheckGeneratedCodeName(generatorType, name)(result);
   }
 
-  [Theory, RepeatData]
-  public void GenerateType_WithParent_GeneratesCorrectCode(string name, string parent)
+  [Theory, RepeatMemberData(nameof(BaseGeneratorData))]
+  public void GenerateType_WithParent_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string parent)
   {
     // Arrange
-    GqlpGeneratorContext context = BaseContext();
+    GqlpGeneratorContext context = Context(baseType, generatorType);
     TType type = A.Parented<TType, TParent>(name, parent);
 
     // Act
@@ -66,16 +65,41 @@ public abstract class TypeGeneratorClassTestBase<TType, TParent>
     // Assert
     string result = context.ToString();
     result.ShouldSatisfyAllConditions(
-      CheckGeneratedCodeName(name),
-      CheckGeneratedCodeParent(parent));
+      CheckGeneratedCodeName(generatorType, name),
+      CheckGeneratedCodeParent(generatorType, parent));
   }
+}
 
-  internal virtual GqlpGeneratorContext BaseContext()
-    => Context(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
+public abstract class TypeGeneratorClassTestBase
+  : GeneratorClassTestBase
+{
+  public abstract string ExpectedTypePrefix { get; }
 
-  protected virtual Action<string> CheckGeneratedCodeName(string name)
-    => result => result.ShouldContain("public interface I" + name);
+  protected virtual Action<string> CheckGeneratedCodeName(GqlpGeneratorType generatorType, string name)
+    => result => {
+      switch (generatorType) {
+        case GqlpGeneratorType.Interface: result.ShouldContain("public interface I" + name); break;
+        case GqlpGeneratorType.Implementation: result.ShouldContain("public class " + ExpectedTypePrefix + name); break;
+        default: result.ShouldBeEmpty(); break;
+      }
+    };
 
-  protected virtual Action<string> CheckGeneratedCodeParent(string parent)
-    => result => result.ShouldContain(": I" + parent);
+  protected virtual Action<string> CheckGeneratedCodeParent(GqlpGeneratorType generatorType, string parent)
+    => result => {
+      switch (generatorType) {
+        case GqlpGeneratorType.Interface: result.ShouldContain(": I" + parent); break;
+        case GqlpGeneratorType.Implementation: result.ShouldContain(": " + ExpectedTypePrefix + parent); break;
+        default: result.ShouldBeEmpty(); break;
+      }
+    };
+
+  public static IEnumerable<object[]> BaseGeneratorData
+    => [
+        [GqlpBaseType.Interface, GqlpGeneratorType.Interface],
+        [GqlpBaseType.Class, GqlpGeneratorType.Implementation],
+        [GqlpBaseType.Other, GqlpGeneratorType.Enum],
+        [GqlpBaseType.Other, GqlpGeneratorType.Static],
+        [GqlpBaseType.Other, GqlpGeneratorType.Enum],
+        [GqlpBaseType.Class, GqlpGeneratorType.Test],
+      ];
 }

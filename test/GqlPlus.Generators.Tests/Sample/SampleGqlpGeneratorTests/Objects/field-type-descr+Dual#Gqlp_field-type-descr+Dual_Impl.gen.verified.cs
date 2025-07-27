@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_field_type_descr_Dual;
+
 public class DualFieldTypeDescrDual
   : IFieldTypeDescrDual
 {

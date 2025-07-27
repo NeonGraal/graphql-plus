@@ -8,11 +8,13 @@ input RefGnrcFieldArgInp<$ref:String> { | $ref }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_generic_field_arg_Input;
+
 public class InputGnrcFieldArgInp<Ttype>
   : IGnrcFieldArgInp<Ttype>
 {
   public RefGnrcFieldArgInp<Ttype> field { get; set; }
 }
+
 public class InputRefGnrcFieldArgInp<Tref>
   : IRefGnrcFieldArgInp<Tref>
 {

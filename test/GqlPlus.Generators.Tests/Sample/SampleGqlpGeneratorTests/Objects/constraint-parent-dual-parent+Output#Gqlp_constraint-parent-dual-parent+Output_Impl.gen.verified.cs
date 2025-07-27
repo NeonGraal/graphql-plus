@@ -4,21 +4,25 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_constraint_parent_dual_parent_Output;
+
 public class OutputCnstPrntDualPrntOutp
   : OutputRefCnstPrntDualPrntOutp
   , ICnstPrntDualPrntOutp
 {
 }
+
 public class OutputRefCnstPrntDualPrntOutp<Tref>
   : Outputref
   , IRefCnstPrntDualPrntOutp<Tref>
 {
 }
+
 public class DualPrntCnstPrntDualPrntOutp
   : IPrntCnstPrntDualPrntOutp
 {
   public String AsString { get; set; }
 }
+
 public class OutputAltCnstPrntDualPrntOutp
   : OutputPrntCnstPrntDualPrntOutp
   , IAltCnstPrntDualPrntOutp

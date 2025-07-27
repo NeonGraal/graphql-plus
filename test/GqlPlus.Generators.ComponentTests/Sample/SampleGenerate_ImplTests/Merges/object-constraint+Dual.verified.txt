@@ -8,6 +8,7 @@ dual ObjCnstDual<$type:String> { str: $type }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_object_constraint_Dual;
+
 public class DualObjCnstDual<Ttype>
   : IObjCnstDual<Ttype>
 {

@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_alt_arg_Dual;
+
 public class DualGnrcAltArgDual<Ttype>
   : IGnrcAltArgDual<Ttype>
 {
   public RefGnrcAltArgDual<Ttype> AsRefGnrcAltArgDual { get; set; }
 }
+
 public class DualRefGnrcAltArgDual<Tref>
   : IRefGnrcAltArgDual<Tref>
 {

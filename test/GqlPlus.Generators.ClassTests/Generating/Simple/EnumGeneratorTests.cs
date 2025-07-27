@@ -54,11 +54,11 @@ public class EnumGeneratorTests
     result[0].Value.ShouldBe($" = {parentName}.{labelName}");
   }
 
-  [Theory, RepeatData]
-  public void GenerateType_WithEnumItems_GeneratesCorrectCode(string enumName, string labelName)
+  [Theory, RepeatMemberData(nameof(BaseGeneratorData))]
+  public void GenerateType_WithEnumItems_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string enumName, string labelName)
   {
     // Arrange
-    GqlpGeneratorContext context = Context(GqlpBaseType.Other, GqlpGeneratorType.Enum);
+    GqlpGeneratorContext context = Context(baseType, generatorType);
     IGqlpEnum enumType = A.Parented<IGqlpEnum, IGqlpTypeRef>(enumName);
     IGqlpEnumLabel label = A.Named<IGqlpEnumLabel>(labelName);
     enumType.Items.Returns([label]);
@@ -70,15 +70,15 @@ public class EnumGeneratorTests
     // Assert
     string result = context.ToString();
     result.ShouldSatisfyAllConditions(
-      CheckGeneratedCodeName(enumName),
-      CheckGeneratedCodeLabel(labelName));
+      CheckGeneratedCodeName(generatorType, enumName),
+      CheckGeneratedCodeLabel(generatorType, labelName));
   }
 
-  [Theory, RepeatData]
-  public void GenerateType_WithEnumAlias_GeneratesCorrectCode(string enumName, string labelName, string alias)
+  [Theory, RepeatMemberData(nameof(BaseGeneratorData))]
+  public void GenerateType_WithEnumAlias_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string enumName, string labelName, string alias)
   {
     // Arrange
-    GqlpGeneratorContext context = Context(GqlpBaseType.Other, GqlpGeneratorType.Enum);
+    GqlpGeneratorContext context = Context(baseType, generatorType);
     IGqlpEnum enumType = A.Parented<IGqlpEnum, IGqlpTypeRef>(enumName);
     IGqlpEnumLabel label = A.Aliased<IGqlpEnumLabel>(labelName, [alias]);
     enumType.Items.Returns([label]);
@@ -90,16 +90,16 @@ public class EnumGeneratorTests
     // Assert
     string result = context.ToString();
     result.ShouldSatisfyAllConditions(
-      CheckGeneratedCodeName(enumName),
-      CheckGeneratedCodeLabel(labelName),
-      CheckGeneratedCodeLabel($"{alias} = {labelName}"));
+      CheckGeneratedCodeName(generatorType, enumName),
+      CheckGeneratedCodeLabel(generatorType, labelName),
+      CheckGeneratedCodeLabel(generatorType, $"{alias} = {labelName}"));
   }
 
-  [Theory, RepeatData]
-  public void GenerateType_WithParentItems_GeneratesCorrectCode(string enumName, string parentName, string labelName)
+  [Theory, RepeatMemberData(nameof(BaseGeneratorData))]
+  public void GenerateType_WithParentItems_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string enumName, string parentName, string labelName)
   {
     // Arrange
-    GqlpGeneratorContext context = Context(GqlpBaseType.Other, GqlpGeneratorType.Enum);
+    GqlpGeneratorContext context = Context(baseType, generatorType);
     IGqlpEnum enumType = A.Parented<IGqlpEnum, IGqlpTypeRef>(enumName);
     IGqlpTypeRef parentTypeRef = A.Named<IGqlpTypeRef>(parentName);
     enumType.Parent.Returns(parentTypeRef);
@@ -116,15 +116,15 @@ public class EnumGeneratorTests
     // Assert
     string result = context.ToString();
     result.ShouldSatisfyAllConditions(
-      CheckGeneratedCodeName(enumName),
-      CheckGeneratedCodeParentLabel(parentName, labelName));
+      CheckGeneratedCodeName(generatorType, enumName),
+      CheckGeneratedCodeParentLabel(generatorType, parentName, labelName));
   }
 
-  [Theory, RepeatData]
-  public void GenerateType_WithParentAlias_GeneratesCorrectCode(string enumName, string parentName, string labelName, string alias)
+  [Theory, RepeatMemberData(nameof(BaseGeneratorData))]
+  public void GenerateType_WithParentAlias_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string enumName, string parentName, string labelName, string alias)
   {
     // Arrange
-    GqlpGeneratorContext context = Context(GqlpBaseType.Other, GqlpGeneratorType.Enum);
+    GqlpGeneratorContext context = Context(baseType, generatorType);
     IGqlpEnum enumType = A.Parented<IGqlpEnum, IGqlpTypeRef>(enumName);
     IGqlpTypeRef parentTypeRef = A.Named<IGqlpTypeRef>(parentName);
     enumType.Parent.Returns(parentTypeRef);
@@ -141,23 +141,24 @@ public class EnumGeneratorTests
     // Assert
     string result = context.ToString();
     result.ShouldSatisfyAllConditions(
-      CheckGeneratedCodeName(enumName),
-      CheckGeneratedCodeParentLabel(parentName, labelName),
-      CheckGeneratedCodeLabel($"{alias} = {parentName}.{labelName}"));
+      CheckGeneratedCodeName(generatorType, enumName),
+      CheckGeneratedCodeParentLabel(generatorType, parentName, labelName),
+      CheckGeneratedCodeLabel(generatorType, $"{alias} = {parentName}.{labelName}"));
   }
 
-  internal override GqlpGeneratorContext BaseContext()
-    => Context(GqlpBaseType.Other, GqlpGeneratorType.Enum);
+  private static Action<string> CheckGeneratedCodeLabel(GqlpGeneratorType generatorType, string label)
+    => ResultEmptyUnlessEnum(generatorType, result => result.ShouldContain(label + ","));
 
-  protected override Action<string> CheckGeneratedCodeName(string name)
-    => result => result.ShouldContain("public enum " + name);
+  private static Action<string> CheckGeneratedCodeParentLabel(GqlpGeneratorType generatorType, string parent, string name)
+    => ResultEmptyUnlessEnum(generatorType, result => result.ShouldContain($"{name} = {parent}.{name},"));
 
-  protected override Action<string> CheckGeneratedCodeParent(string parent)
+  protected override Action<string> CheckGeneratedCodeName(GqlpGeneratorType generatorType, string name)
+    => ResultEmptyUnlessEnum(generatorType, result => result.ShouldContain("public enum " + name));
+
+  protected override Action<string> CheckGeneratedCodeParent(GqlpGeneratorType generatorType, string parent)
     => result => { };
 
-  private static Action<string> CheckGeneratedCodeLabel(string name)
-    => result => result.ShouldContain(name + ",");
-
-  private static Action<string> CheckGeneratedCodeParentLabel(string parent, string name)
-    => result => result.ShouldContain($"{name} = {parent}.{name},");
+  private static Action<string> ResultEmptyUnlessEnum(GqlpGeneratorType generatorType, Action<string> check)
+    => generatorType == GqlpGeneratorType.Enum ? check
+      : result => result.ShouldBeEmpty();
 }

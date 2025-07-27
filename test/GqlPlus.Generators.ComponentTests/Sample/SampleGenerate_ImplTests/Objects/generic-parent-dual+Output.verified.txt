@@ -9,16 +9,19 @@ dual AltGnrcPrntDualOutp { alt: Number | String }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_generic_parent_dual_Output;
+
 public class OutputGnrcPrntDualOutp
   : OutputRefGnrcPrntDualOutp
   , IGnrcPrntDualOutp
 {
 }
+
 public class OutputRefGnrcPrntDualOutp<Tref>
   : IRefGnrcPrntDualOutp<Tref>
 {
   public Tref Asref { get; set; }
 }
+
 public class DualAltGnrcPrntDualOutp
   : IAltGnrcPrntDualOutp
 {

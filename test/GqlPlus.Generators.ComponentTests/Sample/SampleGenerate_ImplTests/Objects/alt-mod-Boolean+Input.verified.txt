@@ -8,11 +8,13 @@ input AltAltModBoolInp { alt: Number | String }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_alt_mod_Boolean_Input;
+
 public class InputAltModBoolInp
   : IAltModBoolInp
 {
   public AltAltModBoolInp AsAltAltModBoolInp { get; set; }
 }
+
 public class InputAltAltModBoolInp
   : IAltAltModBoolInp
 {

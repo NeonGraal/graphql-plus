@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_category_output_dict;
+
 public class OutputCtgrOutpDict
   : ICtgrOutpDict
 {

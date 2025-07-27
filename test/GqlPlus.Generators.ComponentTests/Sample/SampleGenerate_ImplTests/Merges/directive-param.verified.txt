@@ -9,6 +9,7 @@ input InDrctParam { }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_directive_param;
+
 public class InputInDrctParam
   : IInDrctParam
 {

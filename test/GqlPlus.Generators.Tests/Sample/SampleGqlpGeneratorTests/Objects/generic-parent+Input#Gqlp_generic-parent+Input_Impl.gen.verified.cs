@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_parent_Input;
+
 public class InputGnrcPrntInp<Ttype>
   : Inputtype
   , IGnrcPrntInp<Ttype>

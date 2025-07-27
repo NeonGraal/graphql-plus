@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_union_diff;
+
 public class UnionUnionDiff
   : IUnionDiff
 {

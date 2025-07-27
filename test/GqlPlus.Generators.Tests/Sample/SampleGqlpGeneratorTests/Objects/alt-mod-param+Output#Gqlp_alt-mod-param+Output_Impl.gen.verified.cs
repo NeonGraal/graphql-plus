@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_alt_mod_param_Output;
+
 public class OutputAltModParamOutp<Tmod>
   : IAltModParamOutp<Tmod>
 {
   public AltAltModParamOutp AsAltAltModParamOutp { get; set; }
 }
+
 public class OutputAltAltModParamOutp
   : IAltAltModParamOutp
 {

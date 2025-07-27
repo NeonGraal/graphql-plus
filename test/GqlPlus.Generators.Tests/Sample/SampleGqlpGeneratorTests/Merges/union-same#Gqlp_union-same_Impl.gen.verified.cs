@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_union_same;
+
 public class UnionUnionSame
   : IUnionSame
 {

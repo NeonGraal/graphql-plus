@@ -7,6 +7,7 @@ domain DmnBoolDescr { Boolean "DomBool" "Descr" true }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_domain_bool_descr;
+
 public class DomainDmnBoolDescr
   : IDmnBoolDescr
 {

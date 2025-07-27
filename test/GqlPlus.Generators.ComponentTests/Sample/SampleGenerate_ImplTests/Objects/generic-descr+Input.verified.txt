@@ -7,6 +7,7 @@ input GnrcDescrInp<"Test" "Descr" $type:String> { field: $type }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_generic_descr_Input;
+
 public class InputGnrcDescrInp<Ttype>
   : IGnrcDescrInp<Ttype>
 {

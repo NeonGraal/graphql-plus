@@ -8,6 +8,7 @@ domain DmnStrSame { string /a+/ }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_domain_string_same;
+
 public class DomainDmnStrSame
   : IDmnStrSame
 {

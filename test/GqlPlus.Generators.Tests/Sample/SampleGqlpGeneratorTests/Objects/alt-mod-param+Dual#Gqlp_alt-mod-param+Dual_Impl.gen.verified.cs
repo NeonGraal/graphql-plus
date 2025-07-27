@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_alt_mod_param_Dual;
+
 public class DualAltModParamDual<Tmod>
   : IAltModParamDual<Tmod>
 {
   public AltAltModParamDual AsAltAltModParamDual { get; set; }
 }
+
 public class DualAltAltModParamDual
   : IAltAltModParamDual
 {

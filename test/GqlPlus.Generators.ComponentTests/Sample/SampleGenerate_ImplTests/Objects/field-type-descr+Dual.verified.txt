@@ -7,6 +7,7 @@ dual FieldTypeDescrDual { field: "Test" "Descr" Number }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_field_type_descr_Dual;
+
 public class DualFieldTypeDescrDual
   : IFieldTypeDescrDual
 {

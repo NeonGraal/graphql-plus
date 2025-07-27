@@ -8,6 +8,7 @@ enum EnumOutpFieldValueDescr { outpFieldValueDescr }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_output_field_value_descr;
+
 public class OutputOutpFieldValueDescr
   : IOutpFieldValueDescr
 {

@@ -4,16 +4,19 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_parent_param_parent_Input;
+
 public class InputGnrcPrntParamPrntInp
   : InputRefGnrcPrntParamPrntInp
   , IGnrcPrntParamPrntInp
 {
 }
+
 public class InputRefGnrcPrntParamPrntInp<Tref>
   : Inputref
   , IRefGnrcPrntParamPrntInp<Tref>
 {
 }
+
 public class InputAltGnrcPrntParamPrntInp
   : IAltGnrcPrntParamPrntInp
 {

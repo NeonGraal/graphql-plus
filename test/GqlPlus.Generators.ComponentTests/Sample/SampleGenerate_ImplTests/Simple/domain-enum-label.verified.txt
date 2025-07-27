@@ -8,6 +8,7 @@ enum EnumDmnEnumLabel { dmnEnumLabel }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_domain_enum_label;
+
 public class DomainDmnEnumLabel
   : IDmnEnumLabel
 {

@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_parent_descr_Input;
+
 public class InputPrntDescrInp
   : InputRefPrntDescrInp
   , IPrntDescrInp
 {
 }
+
 public class InputRefPrntDescrInp
   : IRefPrntDescrInp
 {

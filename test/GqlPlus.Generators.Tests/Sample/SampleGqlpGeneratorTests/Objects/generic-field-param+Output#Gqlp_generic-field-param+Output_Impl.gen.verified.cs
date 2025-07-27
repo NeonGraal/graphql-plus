@@ -4,16 +4,19 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_field_param_Output;
+
 public class OutputGnrcFieldParamOutp
   : IGnrcFieldParamOutp
 {
   public RefGnrcFieldParamOutp<AltGnrcFieldParamOutp> field { get; set; }
 }
+
 public class OutputRefGnrcFieldParamOutp<Tref>
   : IRefGnrcFieldParamOutp<Tref>
 {
   public Tref Asref { get; set; }
 }
+
 public class OutputAltGnrcFieldParamOutp
   : IAltGnrcFieldParamOutp
 {

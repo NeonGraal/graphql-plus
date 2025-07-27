@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_category_output_descr;
+
 public class OutputCtgrOutpDescr
   : ICtgrOutpDescr
 {

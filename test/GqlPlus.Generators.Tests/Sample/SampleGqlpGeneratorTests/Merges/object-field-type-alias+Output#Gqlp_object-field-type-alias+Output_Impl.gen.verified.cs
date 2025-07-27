@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_object_field_type_alias_Output;
+
 public class OutputObjFieldTypeAliasOutp
   : IObjFieldTypeAliasOutp
 {

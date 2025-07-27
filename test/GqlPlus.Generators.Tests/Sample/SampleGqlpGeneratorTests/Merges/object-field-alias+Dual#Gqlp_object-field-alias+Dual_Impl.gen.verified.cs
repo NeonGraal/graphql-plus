@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_object_field_alias_Dual;
+
 public class DualObjFieldAliasDual
   : IObjFieldAliasDual
 {
   public FldObjFieldAliasDual field { get; set; }
 }
+
 public class DualFldObjFieldAliasDual
   : IFldObjFieldAliasDual
 {

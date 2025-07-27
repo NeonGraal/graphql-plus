@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_object_field_type_alias_Input;
+
 public class InputObjFieldTypeAliasInp
   : IObjFieldTypeAliasInp
 {

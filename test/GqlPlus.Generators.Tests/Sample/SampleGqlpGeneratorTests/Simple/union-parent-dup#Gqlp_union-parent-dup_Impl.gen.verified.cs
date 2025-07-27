@@ -4,12 +4,14 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_union_parent_dup;
+
 public class UnionUnionPrntDup
   : UnionPrntUnionPrntDup
   , IUnionPrntDup
 {
   public Number AsNumber { get; set; }
 }
+
 public class UnionPrntUnionPrntDup
   : IPrntUnionPrntDup
 {

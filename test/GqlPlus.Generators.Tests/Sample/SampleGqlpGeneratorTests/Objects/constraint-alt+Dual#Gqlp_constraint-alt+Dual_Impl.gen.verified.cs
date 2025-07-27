@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_constraint_alt_Dual;
+
 public class DualCnstAltDual<Ttype>
   : ICnstAltDual<Ttype>
 {

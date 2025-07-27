@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_alt_descr_Dual;
+
 public class DualAltDescrDual
   : IAltDescrDual
 {

@@ -7,6 +7,7 @@ output RefGnrcAltModStrOutp<$ref:String> { | $ref[*] }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_generic_alt_mod_String_Output;
+
 public class OutputRefGnrcAltModStrOutp<Tref>
   : IRefGnrcAltModStrOutp<Tref>
 {

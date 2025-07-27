@@ -4,16 +4,19 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_alt_param_Input;
+
 public class InputGnrcAltParamInp
   : IGnrcAltParamInp
 {
   public RefGnrcAltParamInp<AltGnrcAltParamInp> AsRefGnrcAltParamInp { get; set; }
 }
+
 public class InputRefGnrcAltParamInp<Tref>
   : IRefGnrcAltParamInp<Tref>
 {
   public Tref Asref { get; set; }
 }
+
 public class InputAltGnrcAltParamInp
   : IAltGnrcAltParamInp
 {

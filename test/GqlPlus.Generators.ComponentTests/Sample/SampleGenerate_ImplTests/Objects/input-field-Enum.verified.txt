@@ -8,6 +8,7 @@ enum EnumInpFieldEnum { inpFieldEnum }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_input_field_Enum;
+
 public class InputInpFieldEnum
   : IInpFieldEnum
 {

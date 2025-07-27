@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_domain_string;
+
 public class DomainDmnStr
   : IDmnStr
 {

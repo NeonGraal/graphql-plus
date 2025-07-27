@@ -7,6 +7,7 @@ input RefGnrcAltModParamInp<$ref:String $mod:String> { | $ref[$mod] }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_generic_alt_mod_param_Input;
+
 public class InputRefGnrcAltModParamInp<Tref,Tmod>
   : IRefGnrcAltModParamInp<Tref,Tmod>
 {

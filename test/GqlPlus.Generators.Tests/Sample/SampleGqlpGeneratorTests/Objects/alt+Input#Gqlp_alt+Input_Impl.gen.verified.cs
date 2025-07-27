@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_alt_Input;
+
 public class InputAltInp
   : IAltInp
 {
   public AltAltInp AsAltAltInp { get; set; }
 }
+
 public class InputAltAltInp
   : IAltAltInp
 {

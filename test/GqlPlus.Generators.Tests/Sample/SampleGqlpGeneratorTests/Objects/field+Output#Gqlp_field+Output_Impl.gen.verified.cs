@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_field_Output;
+
 public class OutputFieldOutp
   : IFieldOutp
 {

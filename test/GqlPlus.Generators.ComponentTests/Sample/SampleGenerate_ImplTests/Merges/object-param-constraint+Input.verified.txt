@@ -8,6 +8,7 @@ input ObjParamCnstInp<$test:String> { type: $test }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_object_param_constraint_Input;
+
 public class InputObjParamCnstInp<Ttest>
   : IObjParamCnstInp<Ttest>
 {

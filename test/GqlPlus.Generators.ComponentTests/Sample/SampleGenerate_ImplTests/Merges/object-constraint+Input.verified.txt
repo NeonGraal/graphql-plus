@@ -8,6 +8,7 @@ input ObjCnstInp<$type:String> { str: $type }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_object_constraint_Input;
+
 public class InputObjCnstInp<Ttype>
   : IObjCnstInp<Ttype>
 {

@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_directive_param_opt;
+
 public class InputInDrctParamOpt
   : IInDrctParamOpt
 {

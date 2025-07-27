@@ -7,6 +7,7 @@ domain DmnNmbrDescr { Number "DomNumber" "Descr" <2 }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_domain_number_descr;
+
 public class DomainDmnNmbrDescr
   : IDmnNmbrDescr
 {

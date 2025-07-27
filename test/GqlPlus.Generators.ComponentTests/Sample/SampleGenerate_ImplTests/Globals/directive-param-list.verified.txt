@@ -8,6 +8,7 @@ input InDrctParamList { }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_directive_param_list;
+
 public class InputInDrctParamList
   : IInDrctParamList
 {

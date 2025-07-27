@@ -4,26 +4,8 @@ internal abstract class GenerateForClass<T>
   : GenerateForType<T>
   where T : IGqlpType
 {
-  protected override void Generate(T ast, GqlpGeneratorContext context)
-  {
-    if (context.GeneratorOptions.GeneratorType == GqlpGeneratorType.Interface) {
-      base.Generate(ast, context);
-    }
-
-    if (context.GeneratorOptions.GeneratorType == GqlpGeneratorType.Implementation) {
-      ClassHeader(ast, context);
-      context.Write("{");
-      ClassBody(ast, context);
-      context.Write("}");
-    }
-  }
-
-  protected virtual void ClassBody(T ast, GqlpGeneratorContext context)
-  {
-    foreach (MapPair<string> item in TypeMembers(ast, context)) {
-      ClassMember(item, context);
-    }
-  }
+  protected GenerateForClass()
+    => _generators.Add(GqlpGeneratorType.Implementation, GenerateBlock(ClassHeader, ClassMember));
 
   protected virtual void ClassHeader(T ast, GqlpGeneratorContext context)
     => context.Write($"public class {TypePrefix}{ast.Name}");

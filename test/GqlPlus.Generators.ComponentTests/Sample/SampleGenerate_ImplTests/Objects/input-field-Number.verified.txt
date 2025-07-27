@@ -7,6 +7,7 @@ input InpFieldNmbr { field: Number = 42 }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_input_field_Number;
+
 public class InputInpFieldNmbr
   : IInpFieldNmbr
 {

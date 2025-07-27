@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_alt_arg_descr_Output;
+
 public class OutputGnrcAltArgDescrOutp<Ttype>
   : IGnrcAltArgDescrOutp<Ttype>
 {
   public RefGnrcAltArgDescrOutp<Ttype> AsRefGnrcAltArgDescrOutp { get; set; }
 }
+
 public class OutputRefGnrcAltArgDescrOutp<Tref>
   : IRefGnrcAltArgDescrOutp<Tref>
 {

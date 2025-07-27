@@ -7,6 +7,7 @@ input GnrcFieldInp<$type:String> { field: $type }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_generic_field_Input;
+
 public class InputGnrcFieldInp<Ttype>
   : IGnrcFieldInp<Ttype>
 {

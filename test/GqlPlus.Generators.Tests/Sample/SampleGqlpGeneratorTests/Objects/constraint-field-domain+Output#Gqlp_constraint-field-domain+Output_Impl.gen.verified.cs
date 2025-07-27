@@ -4,16 +4,19 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_constraint_field_domain_Output;
+
 public class OutputCnstFieldDmnOutp
   : OutputRefCnstFieldDmnOutp
   , ICnstFieldDmnOutp
 {
 }
+
 public class OutputRefCnstFieldDmnOutp<Tref>
   : IRefCnstFieldDmnOutp<Tref>
 {
   public Tref field { get; set; }
 }
+
 public class DomainDomCnstFieldDmnOutp
   : IDomCnstFieldDmnOutp
 {

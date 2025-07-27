@@ -8,6 +8,7 @@ input InDrctParamOpt { }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_directive_param_opt;
+
 public class InputInDrctParamOpt
   : IInDrctParamOpt
 {

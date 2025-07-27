@@ -8,12 +8,14 @@ input RefPrntFieldInp { parent: Number | String }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_parent_field_Input;
+
 public class InputPrntFieldInp
   : InputRefPrntFieldInp
   , IPrntFieldInp
 {
   public Number field { get; set; }
 }
+
 public class InputRefPrntFieldInp
   : IRefPrntFieldInp
 {

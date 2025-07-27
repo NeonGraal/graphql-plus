@@ -9,11 +9,13 @@ enum EnumGnrcPrntSmplEnumDual { gnrcPrntSmplEnumDual }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_generic_parent_simple_enum_Dual;
+
 public class DualGnrcPrntSmplEnumDual
   : DualFieldGnrcPrntSmplEnumDual
   , IGnrcPrntSmplEnumDual
 {
 }
+
 public class DualFieldGnrcPrntSmplEnumDual<Tref>
   : IFieldGnrcPrntSmplEnumDual<Tref>
 {

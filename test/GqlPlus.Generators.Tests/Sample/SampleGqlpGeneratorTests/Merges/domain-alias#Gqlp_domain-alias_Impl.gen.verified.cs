@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_domain_alias;
+
 public class DomainDmnAlias
   : IDmnAlias
 {

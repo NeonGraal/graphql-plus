@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_object_param_constraint_Input;
+
 public class InputObjParamCnstInp<Ttest>
   : IObjParamCnstInp<Ttest>
 {

@@ -7,6 +7,7 @@ output FieldSmplOutp { field: Number }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_field_simple_Output;
+
 public class OutputFieldSmplOutp
   : IFieldSmplOutp
 {

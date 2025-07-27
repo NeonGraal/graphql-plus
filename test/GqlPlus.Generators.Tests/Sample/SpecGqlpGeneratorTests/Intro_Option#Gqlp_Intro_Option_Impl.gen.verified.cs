@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro_Option;
+
 public class Output_Setting
   : Output_Named
   , I_Setting

@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_alt_dual_Dual;
+
 public class DualAltDualDual
   : IAltDualDual
 {
   public ObjDualAltDualDual AsObjDualAltDualDual { get; set; }
 }
+
 public class DualObjDualAltDualDual
   : IObjDualAltDualDual
 {

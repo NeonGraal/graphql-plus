@@ -8,6 +8,7 @@ output CtgrOutpDict { }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_category_output_dict;
+
 public class OutputCtgrOutpDict
   : ICtgrOutpDict
 {

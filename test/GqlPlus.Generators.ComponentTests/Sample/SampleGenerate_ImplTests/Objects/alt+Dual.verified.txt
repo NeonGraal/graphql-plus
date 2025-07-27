@@ -8,11 +8,13 @@ dual AltAltDual { alt: Number | String }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_alt_Dual;
+
 public class DualAltDual
   : IAltDual
 {
   public AltAltDual AsAltAltDual { get; set; }
 }
+
 public class DualAltAltDual
   : IAltAltDual
 {

@@ -9,11 +9,13 @@ enum EnumOutpCnstEnum { outpCnstEnum }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_output_constraint_enum;
+
 public class OutputOutpCnstEnum
   : IOutpCnstEnum
 {
   public RefOutpCnstEnum<outpCnstEnum> AsRefOutpCnstEnum { get; set; }
 }
+
 public class OutputRefOutpCnstEnum<Ttype>
   : IRefOutpCnstEnum<Ttype>
 {

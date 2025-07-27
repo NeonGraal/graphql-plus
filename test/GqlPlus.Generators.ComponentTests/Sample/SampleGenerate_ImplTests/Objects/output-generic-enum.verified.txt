@@ -9,11 +9,13 @@ enum EnumOutpGnrcEnum { outpGnrcEnum }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_output_generic_enum;
+
 public class OutputOutpGnrcEnum
   : IOutpGnrcEnum
 {
   public RefOutpGnrcEnum<EnumOutpGnrcEnum> AsRefOutpGnrcEnum { get; set; }
 }
+
 public class OutputRefOutpGnrcEnum<Ttype>
   : IRefOutpGnrcEnum<Ttype>
 {

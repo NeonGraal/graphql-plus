@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_object_field_alias_Output;
+
 public class OutputObjFieldAliasOutp
   : IObjFieldAliasOutp
 {
   public FldObjFieldAliasOutp field { get; set; }
 }
+
 public class OutputFldObjFieldAliasOutp
   : IFldObjFieldAliasOutp
 {

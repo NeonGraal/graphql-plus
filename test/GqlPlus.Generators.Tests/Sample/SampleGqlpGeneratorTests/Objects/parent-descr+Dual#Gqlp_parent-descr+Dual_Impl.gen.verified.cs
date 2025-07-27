@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_parent_descr_Dual;
+
 public class DualPrntDescrDual
   : DualRefPrntDescrDual
   , IPrntDescrDual
 {
 }
+
 public class DualRefPrntDescrDual
   : IRefPrntDescrDual
 {

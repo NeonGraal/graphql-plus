@@ -7,6 +7,7 @@ output AltDescrOutp { | "Test" "Descr" String }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_alt_descr_Output;
+
 public class OutputAltDescrOutp
   : IAltDescrOutp
 {

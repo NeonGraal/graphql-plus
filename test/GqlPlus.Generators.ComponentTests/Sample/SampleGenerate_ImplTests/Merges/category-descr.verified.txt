@@ -11,6 +11,7 @@ output CtgrDescr { }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_category_descr;
+
 public class OutputCtgrDescr
   : ICtgrDescr
 {

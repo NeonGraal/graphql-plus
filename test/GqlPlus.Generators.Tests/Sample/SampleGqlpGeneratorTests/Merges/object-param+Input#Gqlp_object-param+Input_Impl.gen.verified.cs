@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_object_param_Input;
+
 public class InputObjParamInp<Ttest,Ttype>
   : IObjParamInp<Ttest,Ttype>
 {

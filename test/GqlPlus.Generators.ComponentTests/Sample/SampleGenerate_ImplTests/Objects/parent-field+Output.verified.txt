@@ -8,12 +8,14 @@ output RefPrntFieldOutp { parent: Number | String }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_parent_field_Output;
+
 public class OutputPrntFieldOutp
   : OutputRefPrntFieldOutp
   , IPrntFieldOutp
 {
   public Number field { get; set; }
 }
+
 public class OutputRefPrntFieldOutp
   : IRefPrntFieldOutp
 {

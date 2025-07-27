@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_object_parent_Output;
+
 public class OutputObjPrntOutp
   : OutputRefObjPrntOutp
   , IObjPrntOutp
 {
 }
+
 public class OutputRefObjPrntOutp
   : IRefObjPrntOutp
 {

@@ -9,6 +9,7 @@ output CtgrAlias { }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_category_alias;
+
 public class OutputCtgrAlias
   : ICtgrAlias
 {

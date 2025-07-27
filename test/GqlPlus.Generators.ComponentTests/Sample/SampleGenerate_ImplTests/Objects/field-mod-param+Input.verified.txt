@@ -8,11 +8,13 @@ input FldFieldModParamInp { field: Number | String }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_field_mod_param_Input;
+
 public class InputFieldModParamInp<Tmod>
   : IFieldModParamInp<Tmod>
 {
   public FldFieldModParamInp field { get; set; }
 }
+
 public class InputFldFieldModParamInp
   : IFldFieldModParamInp
 {

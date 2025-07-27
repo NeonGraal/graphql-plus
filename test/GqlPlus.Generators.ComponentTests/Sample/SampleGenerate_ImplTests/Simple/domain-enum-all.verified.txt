@@ -8,6 +8,7 @@ enum EnumDmnEnumAll { dmnEnumAll enum_dmnEnumAll }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_domain_enum_all;
+
 public class DomainDmnEnumAll
   : IDmnEnumAll
 {

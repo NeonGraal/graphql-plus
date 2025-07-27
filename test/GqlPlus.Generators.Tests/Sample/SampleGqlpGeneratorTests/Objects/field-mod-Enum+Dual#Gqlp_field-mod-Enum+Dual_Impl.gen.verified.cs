@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_field_mod_Enum_Dual;
+
 public class DualFieldModEnumDual
   : IFieldModEnumDual
 {

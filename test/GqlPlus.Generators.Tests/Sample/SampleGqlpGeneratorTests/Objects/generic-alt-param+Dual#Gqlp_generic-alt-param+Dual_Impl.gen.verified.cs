@@ -4,16 +4,19 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_alt_param_Dual;
+
 public class DualGnrcAltParamDual
   : IGnrcAltParamDual
 {
   public RefGnrcAltParamDual<AltGnrcAltParamDual> AsRefGnrcAltParamDual { get; set; }
 }
+
 public class DualRefGnrcAltParamDual<Tref>
   : IRefGnrcAltParamDual<Tref>
 {
   public Tref Asref { get; set; }
 }
+
 public class DualAltGnrcAltParamDual
   : IAltGnrcAltParamDual
 {

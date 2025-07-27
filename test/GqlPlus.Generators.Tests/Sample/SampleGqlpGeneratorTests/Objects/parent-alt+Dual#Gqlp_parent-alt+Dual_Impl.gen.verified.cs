@@ -4,12 +4,14 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_parent_alt_Dual;
+
 public class DualPrntAltDual
   : DualRefPrntAltDual
   , IPrntAltDual
 {
   public Number AsNumber { get; set; }
 }
+
 public class DualRefPrntAltDual
   : IRefPrntAltDual
 {

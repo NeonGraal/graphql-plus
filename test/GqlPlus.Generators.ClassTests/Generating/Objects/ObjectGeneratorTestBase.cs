@@ -7,11 +7,11 @@ public abstract class ObjectGeneratorTestBase<TObject, TBase, TField, TAlt>
   where TField : class, IGqlpObjField
   where TAlt : class, IGqlpObjAlternate
 {
-  [Theory, RepeatData]
-  public void GenerateType_WithField_GeneratesCorrectCode(string name, string fieldName, string fieldType)
+  [Theory, RepeatMemberData(nameof(BaseGeneratorData))]
+  public void GenerateType_WithField_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string fieldName, string fieldType)
   {
     // Arrange
-    GqlpGeneratorContext context = Context(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
+    GqlpGeneratorContext context = Context(baseType, generatorType);
     TObject obj = A.Parented<TObject, IGqlpObjBase>(name);
     TBase type = A.Named<TBase>(fieldType);
     TField field = A.Named<TField>(fieldName);
@@ -24,18 +24,15 @@ public abstract class ObjectGeneratorTestBase<TObject, TBase, TField, TAlt>
     // Assert
     string result = context.ToString();
     result.ShouldSatisfyAllConditions(
-      CheckGeneratedCodeName(name),
-      CheckGeneratedCodeField(fieldName, fieldType));
+      CheckGeneratedCodeName(generatorType, name),
+      CheckGeneratedCodeField(generatorType, fieldName, fieldType));
   }
 
-  protected virtual Action<string> CheckGeneratedCodeField(string fieldName, string fieldType)
-    => result => result.ShouldContain(fieldType + " " + fieldName + " { get; }");
-
-  [Theory, RepeatData]
-  public void GenerateType_WithAlternate_GeneratesCorrectCode(string name, string alternateType)
+  [Theory, RepeatMemberData(nameof(BaseGeneratorData))]
+  public void GenerateType_WithAlternate_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string alternateType)
   {
     // Arrange
-    GqlpGeneratorContext context = Context(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
+    GqlpGeneratorContext context = Context(baseType, generatorType);
     TObject obj = A.Parented<TObject, IGqlpObjBase>(name);
     TAlt alternate = A.Named<TAlt>(alternateType);
     obj.Alternates.Returns([alternate]);
@@ -46,15 +43,15 @@ public abstract class ObjectGeneratorTestBase<TObject, TBase, TField, TAlt>
     // Assert
     string result = context.ToString();
     result.ShouldSatisfyAllConditions(
-      CheckGeneratedCodeName(name),
-      CheckGeneratedCodeAlternate(alternateType));
+      CheckGeneratedCodeName(generatorType, name),
+      CheckGeneratedCodeAlternate(generatorType, alternateType));
   }
 
-  [Theory, RepeatData]
-  public void GenerateType_WithAlternateArgs_GeneratesCorrectCode(string name, string alternateType, string argName)
+  [Theory, RepeatMemberData(nameof(BaseGeneratorData))]
+  public void GenerateType_WithAlternateArgs_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string alternateType, string argName)
   {
     // Arrange
-    GqlpGeneratorContext context = Context(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
+    GqlpGeneratorContext context = Context(baseType, generatorType);
     TObject obj = A.Parented<TObject, IGqlpObjBase>(name);
     TAlt alternate = A.Named<TAlt>(alternateType);
     IGqlpObjArg arg = A.Named<IGqlpObjArg>(argName);
@@ -67,21 +64,15 @@ public abstract class ObjectGeneratorTestBase<TObject, TBase, TField, TAlt>
     // Assert
     string result = context.ToString();
     result.ShouldSatisfyAllConditions(
-      CheckGeneratedCodeName(name),
-      CheckGeneratedCodeAlternateArg(alternateType, argName));
+      CheckGeneratedCodeName(generatorType, name),
+      CheckGeneratedCodeAlternateArg(generatorType, alternateType, argName));
   }
 
-  protected virtual Action<string> CheckGeneratedCodeAlternate(string alternateType)
-    => result => result.ShouldContain($"{alternateType} As{alternateType} {{ get; }}");
-
-  protected virtual Action<string> CheckGeneratedCodeAlternateArg(string alternateType, string argName)
-    => result => result.ShouldContain($"{alternateType}<{argName}> As{alternateType} {{ get; }}");
-
-  [Theory, RepeatData]
-  public void GenerateType_WithFieldAndAlternate_GeneratesCorrectCode(string name, string fieldName, string fieldType, string alternateType)
+  [Theory, RepeatMemberData(nameof(BaseGeneratorData))]
+  public void GenerateType_WithFieldAndAlternate_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string fieldName, string fieldType, string alternateType)
   {
     // Arrange
-    GqlpGeneratorContext context = Context(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
+    GqlpGeneratorContext context = Context(baseType, generatorType);
     TObject obj = A.Parented<TObject, IGqlpObjBase>(name);
     TBase type = A.Named<TBase>(fieldType);
     TField field = A.Named<TField>(fieldName);
@@ -97,16 +88,16 @@ public abstract class ObjectGeneratorTestBase<TObject, TBase, TField, TAlt>
     // Assert
     string result = context.ToString();
     result.ShouldSatisfyAllConditions(
-      CheckGeneratedCodeName(name),
-      CheckGeneratedCodeField(fieldName, fieldType),
-      CheckGeneratedCodeAlternate(alternateType));
+      CheckGeneratedCodeName(generatorType, name),
+      CheckGeneratedCodeField(generatorType, fieldName, fieldType),
+      CheckGeneratedCodeAlternate(generatorType, alternateType));
   }
 
-  [Theory, RepeatData]
-  public void GenerateType_WithParams_GeneratesCorrectCode(string name, string[] parameters)
+  [Theory, RepeatMemberData(nameof(BaseGeneratorData))]
+  public void GenerateType_WithParams_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name, string[] parameters)
   {
     // Arrange
-    GqlpGeneratorContext context = Context(GqlpBaseType.Interface, GqlpGeneratorType.Interface);
+    GqlpGeneratorContext context = Context(baseType, generatorType);
     TObject type = A.Parented<TObject, IGqlpObjBase>(name);
     IGqlpTypeParam[] typeParams = [.. parameters.Select(A.Named<IGqlpTypeParam>)];
     type.TypeParams.Returns(typeParams);
@@ -116,6 +107,28 @@ public abstract class ObjectGeneratorTestBase<TObject, TBase, TField, TAlt>
 
     // Assert
     string result = context.ToString();
-    CheckGeneratedCodeName(name + parameters.Surround("<", ">", s => "T" + s, ","))(result);
+    CheckGeneratedCodeName(generatorType, name + parameters.Surround("<", ">", s => "T" + s, ","))(result);
   }
+
+  private static Action<string> CheckGeneratedBoth(GqlpGeneratorType generatorType, string contains)
+    => result => {
+      switch (generatorType) {
+        case GqlpGeneratorType.Interface:
+        case GqlpGeneratorType.Implementation:
+          result.ShouldContain(contains);
+          break;
+        default:
+          result.ShouldBeEmpty();
+          break;
+      }
+    };
+
+  protected virtual Action<string> CheckGeneratedCodeField(GqlpGeneratorType generatorType, string fieldName, string fieldType)
+    => ObjectGeneratorTestBase<TObject, TBase, TField, TAlt>.CheckGeneratedBoth(generatorType, fieldType + " " + fieldName + " { get;");
+
+  protected virtual Action<string> CheckGeneratedCodeAlternate(GqlpGeneratorType generatorType, string alternateType)
+    => ObjectGeneratorTestBase<TObject, TBase, TField, TAlt>.CheckGeneratedBoth(generatorType, $"{alternateType} As{alternateType} {{ get;");
+
+  protected virtual Action<string> CheckGeneratedCodeAlternateArg(GqlpGeneratorType generatorType, string alternateType, string argName)
+    => ObjectGeneratorTestBase<TObject, TBase, TField, TAlt>.CheckGeneratedBoth(generatorType, $"{alternateType}<{argName}> As{alternateType} {{ get;");
 }

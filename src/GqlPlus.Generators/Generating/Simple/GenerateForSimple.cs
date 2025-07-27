@@ -16,9 +16,9 @@ internal abstract class GenerateForSimple<T>
     }
   }
 
-  protected override void TypeHeader(T ast, GqlpGeneratorContext context)
+  protected override void InterfaceHeader(T ast, GqlpGeneratorContext context)
   {
-    base.TypeHeader(ast, context);
+    base.InterfaceHeader(ast, context);
 
     if (!string.IsNullOrWhiteSpace(ast.Parent?.Name)) {
       context.Write("  : I" + ast.Parent!.Name);

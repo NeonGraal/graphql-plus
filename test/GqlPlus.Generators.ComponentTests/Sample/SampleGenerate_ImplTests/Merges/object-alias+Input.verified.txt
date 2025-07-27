@@ -8,6 +8,7 @@ input ObjAliasInp [Input2] { }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_object_alias_Input;
+
 public class InputObjAliasInp
   : IObjAliasInp
 {

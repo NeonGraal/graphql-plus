@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_parent_enum_parent_Output;
+
 public class OutputGnrcPrntEnumPrntOutp
   : OutputFieldGnrcPrntEnumPrntOutp
   , IGnrcPrntEnumPrntOutp
 {
 }
+
 public class OutputFieldGnrcPrntEnumPrntOutp<Tref>
   : IFieldGnrcPrntEnumPrntOutp<Tref>
 {

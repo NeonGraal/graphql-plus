@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_alt_simple_Output;
+
 public class OutputGnrcAltSmplOutp
   : IGnrcAltSmplOutp
 {
   public RefGnrcAltSmplOutp<String> AsRefGnrcAltSmplOutp { get; set; }
 }
+
 public class OutputRefGnrcAltSmplOutp<Tref>
   : IRefGnrcAltSmplOutp<Tref>
 {

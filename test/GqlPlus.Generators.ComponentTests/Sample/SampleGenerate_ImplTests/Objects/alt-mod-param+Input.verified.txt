@@ -8,11 +8,13 @@ input AltAltModParamInp { alt: Number | String }
 /*
 */
 namespace GqlPlus.Gqlp_Sample_alt_mod_param_Input;
+
 public class InputAltModParamInp<Tmod>
   : IAltModParamInp<Tmod>
 {
   public AltAltModParamInp AsAltAltModParamInp { get; set; }
 }
+
 public class InputAltAltModParamInp
   : IAltAltModParamInp
 {

@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Security.AccessControl;
 using AutoFixture;
 using AutoFixture.Xunit3;
 using AutoFixture.Xunit3.Internal;
@@ -8,15 +9,15 @@ using Xunit.Sdk;
 
 namespace GqlPlus;
 
-public sealed class RepeatInlineDataAttribute
-  : InlineAutoDataAttribute
+public sealed class RepeatMemberDataAttribute
+  : MemberAutoDataAttribute
 {
-  public RepeatInlineDataAttribute(params object[] values)
-    : this(Repeats, values)
+  public RepeatMemberDataAttribute(string memberName, params object[] parameters)
+    : this(Repeats, memberName, parameters)
   { }
 
-  public RepeatInlineDataAttribute(int repeat, params object[] values)
-    : base(TestsCustomizations.CreateFixture(), values)
+  public RepeatMemberDataAttribute(int repeat, string memberName, params object[] parameters)
+    : base(TestsCustomizations.CreateFixture(), null, memberName, parameters)
   {
     if (repeat < 1) {
       throw new ArgumentException("Repeat must be greater than 0.");
@@ -36,12 +37,14 @@ public sealed class RepeatInlineDataAttribute
     List<ITheoryDataRow> data = [];
 
     if (!TestsCustomizations.IsCi) {
-      AutoDataSource source = new(TestsCustomizations.CreateFixture(true), new InlineDataSource(Values));
+      Type sourceType = testMethod?.DeclaringType ?? throw new InvalidOperationException("Source type cannot be null.");
 
-      ITheoryDataRow row = source.GetData(testMethod)
-          .Select(x => new TheoryDataRow(x))
-          .First();
-      data.Add(row);
+      MemberDataSource memberSource = new(sourceType, MemberName, Parameters);
+      AutoDataSource source = new(TestsCustomizations.CreateFixture(true), memberSource);
+
+      IEnumerable<ITheoryDataRow> row = source.GetData(testMethod)
+          .Select(x => new TheoryDataRow(x));
+      data.AddRange(row);
     }
 
     for (int i = 0; i < Repeat; ++i) {

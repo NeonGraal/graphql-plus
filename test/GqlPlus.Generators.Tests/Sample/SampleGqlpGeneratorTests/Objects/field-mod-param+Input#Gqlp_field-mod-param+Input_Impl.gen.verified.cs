@@ -4,11 +4,13 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_field_mod_param_Input;
+
 public class InputFieldModParamInp<Tmod>
   : IFieldModParamInp<Tmod>
 {
   public FldFieldModParamInp field { get; set; }
 }
+
 public class InputFldFieldModParamInp
   : IFldFieldModParamInp
 {

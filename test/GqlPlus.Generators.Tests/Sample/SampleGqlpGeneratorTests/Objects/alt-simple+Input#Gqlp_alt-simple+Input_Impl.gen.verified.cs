@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_alt_simple_Input;
+
 public class InputAltSmplInp
   : IAltSmplInp
 {

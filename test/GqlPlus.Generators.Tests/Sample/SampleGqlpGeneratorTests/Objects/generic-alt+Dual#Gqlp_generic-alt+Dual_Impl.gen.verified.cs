@@ -4,6 +4,7 @@
 /*
 */
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_generic_alt_Dual;
+
 public class DualGnrcAltDual<Ttype>
   : IGnrcAltDual<Ttype>
 {

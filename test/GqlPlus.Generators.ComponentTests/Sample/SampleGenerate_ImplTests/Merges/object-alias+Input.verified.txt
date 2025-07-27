@@ -1,0 +1,15 @@
+﻿/* object-alias+Input
+input ObjAliasInp [Input1] { }
+input ObjAliasInp [Input2] { }
+*/
+
+// Generated from Sample object-alias+Input for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Sample_object_alias_Input;
+
+public class InputObjAliasInp
+  : IObjAliasInp
+{
+}

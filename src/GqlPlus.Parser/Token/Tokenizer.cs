@@ -74,7 +74,7 @@ public class Tokenizer
     }
   }
 
-  internal Tokenizer(string operation)
+  public Tokenizer(string operation)
   {
     _operation = operation.AsMemory();
     _len = _operation.Length;
@@ -169,7 +169,7 @@ public class Tokenizer
 
   public void TakeDescription()
   {
-    if (!string.IsNullOrWhiteSpace(_description)) {
+    if (!_description.IsWhiteSpace()) {
       throw new InvalidOperationException("Unused description");
     }
 

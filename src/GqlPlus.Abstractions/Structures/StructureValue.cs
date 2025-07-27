@@ -7,7 +7,7 @@ public sealed class StructureValue
   , IEquatable<StructureValue>
 {
   public override bool IsEmpty
-    => string.IsNullOrWhiteSpace(Identifier)
+    => Identifier.IsWhiteSpace()
     && base.IsEmpty;
 
   public string? Identifier { get; private init; }
@@ -48,7 +48,7 @@ public sealed class StructureValue
 
   public string AsString => this switch {
     { Boolean: not null } => Boolean.Value.TrueFalse(),
-    { Identifier: not null } when !string.IsNullOrWhiteSpace(Identifier) => Identifier,
+    { Identifier: not null } when !Identifier.IsWhiteSpace() => Identifier,
     { Number: not null } => $"{Number:0.#####}",
     { Text: not null } when !string.IsNullOrEmpty(Text) => Text,
     _ => "",
@@ -56,7 +56,7 @@ public sealed class StructureValue
 
   public override string ToString() => this switch {
     { Boolean: not null } => "B:" + Boolean.Value.TrueFalse(),
-    { Identifier: not null } when !string.IsNullOrWhiteSpace(Identifier) => "I:" + Identifier,
+    { Identifier: not null } when !Identifier.IsWhiteSpace() => "I:" + Identifier,
     { Number: not null } => $"N:{Number:0.#####}",
     { Text: not null } when !string.IsNullOrEmpty(Text) => "T:" + Text,
     _ => "E",

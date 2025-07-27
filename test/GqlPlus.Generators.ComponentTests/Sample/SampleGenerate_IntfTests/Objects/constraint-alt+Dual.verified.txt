@@ -1,0 +1,14 @@
+﻿/* constraint-alt+Dual
+dual CnstAltDual<$type:Number> { | $type }
+*/
+
+// Generated from Sample constraint-alt+Dual for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Sample_constraint_alt_Dual;
+
+public interface ICnstAltDual<Ttype>
+{
+  Ttype Astype { get; }
+}

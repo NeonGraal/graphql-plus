@@ -34,7 +34,7 @@ internal class AstAbbreviatedChecks<TInput, TAst>(
   , IAstAbbreviatedChecks<TInput>
   where TAst : IGqlpError
 {
-  public string Abbr { get; } = ((createInput(default!) as AstAbbreviated)?.Abbr).IfWhitespace("??");
+  public string Abbr { get; } = ((createInput(default!) as AstAbbreviated)?.Abbr).IfWhiteSpace("??");
 }
 
 internal interface IAstAbbreviatedChecks<TInput>

@@ -16,7 +16,7 @@ public abstract class TestSchemaVerify(
 
     await EncodeModel(model, context, test, label, dirs, section);
 
-    if (string.IsNullOrWhiteSpace(section)) {
+    if (section.IsWhiteSpace()) {
       await CheckResultErrors(dirs, test, context.Errors);
     } else {
       CheckNoErrors(context, test);

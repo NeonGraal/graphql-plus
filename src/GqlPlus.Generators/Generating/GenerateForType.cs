@@ -36,6 +36,7 @@ internal abstract class GenerateForType<T>
       foreach (MapPair<string> item in TypeMembers(ast, context)) {
         member(item, context);
       }
+
       context.Write("}");
     };
 

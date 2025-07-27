@@ -1,6 +1,4 @@
 ﻿using System.Reflection;
-using System.Security.AccessControl;
-using AutoFixture;
 using AutoFixture.Xunit3;
 using AutoFixture.Xunit3.Internal;
 using GqlPlus.AutoFixture;

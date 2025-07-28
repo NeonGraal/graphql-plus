@@ -1,8 +1,4 @@
-﻿/* +Objects
-
-*/
-
-// Generated from Sample +Objects for Impl
+﻿// Generated from Sample +Objects for Impl
 
 /*
 */

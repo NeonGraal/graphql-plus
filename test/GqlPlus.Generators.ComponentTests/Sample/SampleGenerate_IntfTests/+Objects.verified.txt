@@ -1,8 +1,4 @@
-﻿/* +Objects
-
-*/
-
-// Generated from Sample +Objects for Intf
+﻿// Generated from Sample +Objects for Intf
 
 /*
 */

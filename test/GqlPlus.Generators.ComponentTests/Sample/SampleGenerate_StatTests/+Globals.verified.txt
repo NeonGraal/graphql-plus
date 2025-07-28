@@ -1,8 +1,4 @@
-﻿/* +Globals
-
-*/
-
-// Generated from Sample +Globals for Stat
+﻿// Generated from Sample +Globals for Stat
 
 /*
 

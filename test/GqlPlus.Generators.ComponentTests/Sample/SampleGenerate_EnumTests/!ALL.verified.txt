@@ -1,8 +1,4 @@
-﻿/* !ALL
-
-*/
-
-// Generated from Sample !ALL for Enum
+﻿// Generated from Sample !ALL for Enum
 
 /*
 */

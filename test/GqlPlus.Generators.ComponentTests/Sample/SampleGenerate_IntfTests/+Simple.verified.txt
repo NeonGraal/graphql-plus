@@ -1,8 +1,4 @@
-﻿/* +Simple
-
-*/
-
-// Generated from Sample +Simple for Intf
+﻿// Generated from Sample +Simple for Intf
 
 /*
 */

@@ -1,8 +1,4 @@
-﻿/* +Merges
-
-*/
-
-// Generated from Sample +Merges for Enum
+﻿// Generated from Sample +Merges for Enum
 
 /*
 */

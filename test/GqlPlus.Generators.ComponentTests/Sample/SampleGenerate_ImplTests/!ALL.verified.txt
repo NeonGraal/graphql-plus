@@ -1,8 +1,4 @@
-﻿/* !ALL
-
-*/
-
-// Generated from Sample !ALL for Impl
+﻿// Generated from Sample !ALL for Impl
 
 /*
 */

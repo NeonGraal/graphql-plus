@@ -1,8 +1,4 @@
-﻿/* +Merges
-
-*/
-
-// Generated from Sample +Merges for Intf
+﻿// Generated from Sample +Merges for Intf
 
 /*
 */

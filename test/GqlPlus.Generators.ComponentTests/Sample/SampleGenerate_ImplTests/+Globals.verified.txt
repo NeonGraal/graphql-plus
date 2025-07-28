@@ -1,8 +1,4 @@
-﻿/* +Globals
-
-*/
-
-// Generated from Sample +Globals for Impl
+﻿// Generated from Sample +Globals for Impl
 
 /*
 */

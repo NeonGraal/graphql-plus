@@ -18,11 +18,11 @@ public class LinesStructureTests
     => value.IsList(v => "-" + Environment.NewLine + v!.IsList("  - "));
 
   protected override string Expected_MapOfLists(MapPair<string[]>[] value)
-    => value.IsMap("", v => Environment.NewLine + v.IsList("  - "));
+    => value.IsMap(v => Environment.NewLine + v.IsList("  - "));
 
   protected override string Expected_ListOfMaps(MapPair<string>[][] value)
     => value.IsList(v => "-" + Environment.NewLine + v!.IsMap("  ", " "));
 
   protected override string Expected_MapOfMaps(MapPair<MapPair<string>[]>[] value)
-    => value.IsMap("", v => Environment.NewLine + v.IsMap("  ", " "));
+    => value.IsMap(v => Environment.NewLine + v.IsMap("  ", " "));
 }

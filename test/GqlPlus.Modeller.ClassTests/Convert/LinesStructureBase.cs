@@ -16,7 +16,7 @@ public abstract class LinesStructureBase
   [Theory, RepeatData]
   public void ToLines_List(string[] value)
   {
-    string expected = Expected_List(value).IsLine();
+    string expected = Expected_List(value).WithLine();
     Structured model = AsList(value, AsValue);
 
     string result = model.ToLines(false);
@@ -29,7 +29,7 @@ public abstract class LinesStructureBase
   {
     Assert.SkipWhen(value is null || MapDups(value), "Duplicate Keys in map");
 
-    string expected = Expected_Map(value).IsLine();
+    string expected = Expected_Map(value).WithLine();
     Structured model = AsMap(value, AsValue);
 
     string result = model.ToLines(false);
@@ -40,7 +40,7 @@ public abstract class LinesStructureBase
   [Theory, RepeatData]
   public void ToLines_ListOfLists(string[][] value)
   {
-    string expected = Expected_ListOfLists(value).IsLine();
+    string expected = Expected_ListOfLists(value).WithLine();
     Structured model = AsList(value, v => AsList(v, AsValue));
 
     string result = model.ToLines(false);
@@ -53,7 +53,7 @@ public abstract class LinesStructureBase
   {
     Assert.SkipWhen(value is null || MapDups(value), "Duplicate Keys in map");
 
-    string expected = Expected_MapOfLists(value).IsLine();
+    string expected = Expected_MapOfLists(value).WithLine();
     Structured model = AsMap(value, v => AsList(v, AsValue));
 
     string result = model.ToLines(false);
@@ -66,7 +66,7 @@ public abstract class LinesStructureBase
   {
     Assert.SkipWhen(value is null || value.Any(v => MapDups(v)), "Duplicate Keys in map");
 
-    string expected = Expected_ListOfMaps(value).IsLine();
+    string expected = Expected_ListOfMaps(value).WithLine();
     Structured model = AsList(value, v => AsMap(v, AsValue));
 
     string result = model.ToLines(false);
@@ -79,7 +79,7 @@ public abstract class LinesStructureBase
   {
     Assert.SkipWhen(value is null || MapDups(value) || value.Any(v => MapDups(v.Value)), "Duplicate Keys in map");
 
-    string expected = Expected_MapOfMaps(value).IsLine();
+    string expected = Expected_MapOfMaps(value).WithLine();
     Structured model = AsMap(value, v => AsMap(v, AsValue));
 
     string result = model.ToLines(false);

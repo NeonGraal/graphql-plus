@@ -26,7 +26,7 @@ public abstract class LinesValueBase
   [Theory, RepeatData]
   public void ToLines_String(string value)
   {
-    string expected = Expected_String(value).IsLine();
+    string expected = Expected_String(value).WithLine();
     Structured model = new(StructureValue.Str(value, Tag));
 
     string result = model.ToLines(false);
@@ -37,7 +37,7 @@ public abstract class LinesValueBase
   [Theory, RepeatData]
   public void ToLines_Identifier(string value)
   {
-    string expected = Expected_Identifier(value).IsLine();
+    string expected = Expected_Identifier(value).WithLine();
     Structured model = new(value, Tag);
 
     string result = model.ToLines(false);
@@ -48,7 +48,7 @@ public abstract class LinesValueBase
   [Theory, RepeatData]
   public void ToLines_Punctuation([RegularExpression(@"[{}[\]&#*?|\-<>=!%@:`,]")] string value)
   {
-    string expected = Expected_Punctuation(value).IsLine();
+    string expected = Expected_Punctuation(value).WithLine();
     Structured model = new(value, Tag);
 
     string result = model.ToLines(false);
@@ -59,7 +59,7 @@ public abstract class LinesValueBase
   [Theory, RepeatData]
   public void ToLines_Decimal(decimal value)
   {
-    string expected = Expected_Decimal(value).IsLine();
+    string expected = Expected_Decimal(value).WithLine();
     Structured model = new(value, Tag);
 
     string result = model.ToLines(false);
@@ -70,7 +70,7 @@ public abstract class LinesValueBase
   [Theory, RepeatData]
   public void ToLines_Bool(bool value)
   {
-    string expected = Expected_Bool(value).IsLine();
+    string expected = Expected_Bool(value).WithLine();
     Structured model = new(value, Tag);
 
     string result = model.ToLines(false);

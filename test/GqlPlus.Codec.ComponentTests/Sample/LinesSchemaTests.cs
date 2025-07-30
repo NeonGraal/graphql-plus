@@ -12,7 +12,7 @@ public class LinesSchemaTests(
 {
 
   protected override Task VerifyResult(Structured result, string label, string test, string section)
-    => Verify(result.ToLines(true), CustomSettings(label, "Lines", test, section));
+    => Verify(result.ToLines(true).Joined(Environment.NewLine), CustomSettings(label, "Lines", test, section));
 
   protected override void CheckNoErrors([NotNull] IModelsContext context, string test)
     => context.Errors.ShouldBeEmpty(test);

@@ -6,15 +6,15 @@ public static class RenderLines
 {
   public const int MaxLineLength = 120;
 
-  public static string ToLines(this Structured model, bool _)
+  public static string[] ToLines(this Structured model, bool _)
   {
     if (model is null || model.IsEmpty) {
-      return "";
+      return [];
     }
 
     StringBuilder sb = new();
     WriteStructure(sb, model, 0);
-    return sb.ToString();
+    return sb.ToString().Split([Environment.NewLine], StringSplitOptions.RemoveEmptyEntries);
   }
 
   private static void WriteStructure(StringBuilder sb, Structured item, int indent)

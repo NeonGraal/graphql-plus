@@ -5,31 +5,31 @@ namespace GqlPlus.Convert;
 public abstract class LinesValueBase
 {
   protected abstract string Tag { get; }
-  protected abstract string Expected_Empty();
-  protected abstract string Expected_String(string value);
-  protected abstract string Expected_Identifier(string value);
-  protected abstract string Expected_Punctuation(string value);
-  protected abstract string Expected_Decimal(decimal value);
-  protected abstract string Expected_Bool(bool value);
+  protected abstract string[] Expected_Empty();
+  protected abstract string[] Expected_String(string value);
+  protected abstract string[] Expected_Identifier(string value);
+  protected abstract string[] Expected_Punctuation(string value);
+  protected abstract string[] Expected_Decimal(decimal value);
+  protected abstract string[] Expected_Bool(bool value);
 
   [Fact]
   public void ToLines_Empty()
   {
     Structured model = new("", Tag);
-    string expected = Expected_Empty();
+    string[] expected = Expected_Empty();
 
-    string result = model.ToLines(false);
+    string[] result = model.ToLines(false);
 
-    result.ShouldBe("");
+    result.ShouldBe(expected);
   }
 
   [Theory, RepeatData]
   public void ToLines_String(string value)
   {
-    string expected = Expected_String(value).WithLine();
+    string[] expected = Expected_String(value);
     Structured model = new(StructureValue.Str(value, Tag));
 
-    string result = model.ToLines(false);
+    string[] result = model.ToLines(false);
 
     result.ShouldBe(expected);
   }
@@ -37,10 +37,10 @@ public abstract class LinesValueBase
   [Theory, RepeatData]
   public void ToLines_Identifier(string value)
   {
-    string expected = Expected_Identifier(value).WithLine();
+    string[] expected = Expected_Identifier(value);
     Structured model = new(value, Tag);
 
-    string result = model.ToLines(false);
+    string[] result = model.ToLines(false);
 
     result.ShouldBe(expected);
   }
@@ -48,10 +48,10 @@ public abstract class LinesValueBase
   [Theory, RepeatData]
   public void ToLines_Punctuation([RegularExpression(@"[{}[\]&#*?|\-<>=!%@:`,]")] string value)
   {
-    string expected = Expected_Punctuation(value).WithLine();
+    string[] expected = Expected_Punctuation(value);
     Structured model = new(value, Tag);
 
-    string result = model.ToLines(false);
+    string[] result = model.ToLines(false);
 
     result.ShouldBe(expected);
   }
@@ -59,10 +59,10 @@ public abstract class LinesValueBase
   [Theory, RepeatData]
   public void ToLines_Decimal(decimal value)
   {
-    string expected = Expected_Decimal(value).WithLine();
+    string[] expected = Expected_Decimal(value);
     Structured model = new(value, Tag);
 
-    string result = model.ToLines(false);
+    string[] result = model.ToLines(false);
 
     result.ShouldBe(expected);
   }
@@ -70,10 +70,10 @@ public abstract class LinesValueBase
   [Theory, RepeatData]
   public void ToLines_Bool(bool value)
   {
-    string expected = Expected_Bool(value).WithLine();
+    string[] expected = Expected_Bool(value);
     Structured model = new(value, Tag);
 
-    string result = model.ToLines(false);
+    string[] result = model.ToLines(false);
 
     result.ShouldBe(expected);
   }

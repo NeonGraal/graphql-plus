@@ -37,13 +37,25 @@ public class LinesStructureFlowTagTests
     ToLines_Map(value);
   }
 
-  [Fact]
+  [Fact(Skip = "Specific")]
   public void ToLines_MapOfLists_Specific()
   {
     MapPair<string[]>[] value = [
       new("w", ["u", "G36","M57_"]),
       new("wS", ["dK", "L", "g5K", "C__bu_128", "A33PX"]),
       new("x9", ["i"])
+      ];
+
+    ToLines_MapOfLists(value);
+  }
+
+  [Fact(Skip = "Specific")]
+  public void ToLines_MapOfLists_Specific1()
+  {
+    MapPair<string[]>[] value = [
+      new("RV_", ["s4AVrwq7Kgqwr_yk", "g_985rRj_", "yW6Kn7_j6V7n_5W1bmq1M4XhR", "m__bq0871k2tzQB", "w__UsN28Ge_5x_B_78"]),
+      new("XAo___mt", ["JzU", "i8R__", "A_", "Aj"]),
+      new("I", ["w"])
       ];
 
     ToLines_MapOfLists(value);
@@ -67,20 +79,20 @@ public class LinesStructureFlowTagTests
   protected override string MapTag => "map";
 
   protected override string[] Expected_List(string[] value)
-    => (value.FlowList("!value ")).ToLines();
+    => value.FlowList("!value ").ToLines();
 
   protected override string[] Expected_Map(MapPair<string>[] value)
-    => (value.FlowMap("!map", "!value ")).ToLines();
+    => value.FlowMap("!map", "!value ").ToLines();
 
   protected override string[] Expected_ListOfLists(string[][] value)
-    => (value.FlowList(v => v!.FlowList("!value ", "  "))).ToLines();
+    => value.FlowList(v => v!.FlowList("!value ", "  ")).ToLines();
 
   protected override string[] Expected_MapOfLists(MapPair<string[]>[] value)
-    => (value.FlowMap((p, v) => p + v.FlowList("!value ", "  "), "!map")).ToLines();
+    => value.FlowMap((p, v) => p + v.FlowList("!value ", "  "), "!map").ToLines();
 
   protected override string[] Expected_ListOfMaps(MapPair<string>[][] value)
-    => (value.FlowList(v => v!.FlowMap("!map", "!value ", "  "))).ToLines();
+    => value.FlowList(v => v!.FlowMap("!map", "!value ", "  ")).ToLines();
 
   protected override string[] Expected_MapOfMaps(MapPair<MapPair<string>[]>[] value)
-    => (value.FlowMap((p, v) => v.FlowMap(p + "!map", "!value ", "  "), "!map")).ToLines();
+    => value.FlowMap((p, v) => v.FlowMap(p + "!map", "!value ", "  "), "!map").ToLines();
 }

@@ -40,8 +40,8 @@ internal static class LinesHelpers
     => list.FlowMap((p, v) => p + valuePrefix + v, mapPrefix, indent);
 
   internal static string FlowMap<T>(this MapPair<T>[] list, Func<string, T, string> mapper, string mapPrefix = "", string indent = "")
-    => FlowOr(list,
-      f => mapPrefix + f.OrderBy(kv => kv.Key, StringComparer.Ordinal).Surround("{", "}", v => mapper(v.Key + ":", v.Value), ","),
+    => FlowOr([.. list.OrderBy(kv => kv.Key, StringComparer.Ordinal)],
+      f => mapPrefix + f.Surround("{", "}", v => mapper(v.Key + ":", v.Value), ","),
       i => mapPrefix.WithLine(false) + i.IsMap(v => mapper(" ", v), indent));
 
   internal static string IsList(this string[] value, string prefix)

@@ -21,20 +21,20 @@ public class LinesStructureFlowTests
   protected override string MapTag => "";
 
   protected override string[] Expected_List(string[] value)
-    => (value.FlowList()).ToLines();
+    => value.FlowList().ToLines();
 
   protected override string[] Expected_Map(MapPair<string>[] value)
-    => (value.FlowMap()).ToLines();
+    => value.FlowMap().ToLines();
 
   protected override string[] Expected_ListOfLists(string[][] value)
-    => (value.FlowList(v => v!.FlowList())).ToLines();
+    => value.FlowList(v => v!.FlowList()).ToLines();
 
   protected override string[] Expected_MapOfLists(MapPair<string[]>[] value)
-    => (value.FlowMap((p, v) => p + v.FlowList())).ToLines();
+    => value.FlowMap((p, v) => p + v.FlowList()).ToLines();
 
   protected override string[] Expected_ListOfMaps(MapPair<string>[][] value)
-    => (value.FlowList(v => v!.FlowMap())).ToLines();
+    => value.FlowList(v => v!.FlowMap()).ToLines();
 
   protected override string[] Expected_MapOfMaps(MapPair<MapPair<string>[]>[] value)
-    => (value.FlowMap((p, v) => v.FlowMap(p))).ToLines();
+    => value.FlowMap((p, v) => v.FlowMap(p)).ToLines();
 }

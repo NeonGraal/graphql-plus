@@ -7,150 +7,152 @@ public static class RenderLines
   public const int MaxLineLength = 120;
 
   public static string[] ToLines(this Structured model, bool _)
+    => model is null || model.IsEmpty ? []
+      : [.. WriteStructure(model).Where(s => !string.IsNullOrWhiteSpace(s))];
+
+  private static string[] WriteStructure(Structured item)
   {
-    if (model is null || model.IsEmpty) {
-      return [];
+    if (item.Value?.IsEmpty == false) {
+      StringBuilder sb = new();
+      WriteValue(sb, item.Value);
+      return [sb.ToString()];
     }
 
-    StringBuilder sb = new();
-    WriteStructure(sb, model, 0);
-    return sb.ToString().Split([Environment.NewLine], StringSplitOptions.RemoveEmptyEntries);
-  }
+    string[] result = [];
 
-  private static void WriteStructure(StringBuilder sb, Structured item, int indent)
-  {
+    if (item.List.Any()) {
+      result = [.. WriteList(item.List)];
+    }
+
+    if (item.Map.Any()) {
+      result = [.. WriteMap(item.Tag, item.Map)];
+    }
+
     if (item.Flow) {
+      int maxLength = MaxLineLength * 3 / 2;
+      int totalLength = 0;
+      foreach (string line in result) {
+        totalLength += line.Length;
+        if (totalLength > maxLength) {
+          return result;
+        }
+      }
+
       StringBuilder flow = new();
-      if (item.List.Any()) {
-        WriteFlowList(flow, item.List, indent);
-      } else if (item.Map.Any()) {
-        WriteFlowMap(flow, item.Tag, item.Map, indent);
-      }
+      WriteFlowStructure(flow, item);
 
-      if (flow.Length is > 0 and <= MaxLineLength) {
-        sb.AppendLine(flow.ToString());
+      maxLength = MaxLineLength;
+      if (flow.Length > 0 && flow.Length < maxLength) {
+        result = [flow.ToString()];
         flow.Clear();
-        return;
       }
     }
 
+    return result;
+  }
+
+  private static void WriteFlowStructure(StringBuilder flow, Structured item)
+  {
     if (item.Value?.IsEmpty == false) {
-      WriteValue(sb, item.Value, Environment.NewLine, indent);
+      WriteValue(flow, item.Value);
       return;
     }
 
     if (item.List.Any()) {
-      WriteList(sb, item.List, indent);
+      WriteFlowBlock(flow, "[", "]", item.List, item => WriteFlowStructure(flow, item));
       return;
     }
 
     if (item.Map.Any()) {
-      WriteMap(sb, item.Tag, item.Map, indent);
+      WriteFlowBlock(flow,
+        item.Tag.Prefixed("!") + "{", "}",
+        item.Map.OrderBy(kv => kv.Key.AsString, StringComparer.Ordinal),
+        item => {
+          WriteValue(flow, item.Key);
+          flow.Append(':');
+          WriteFlowStructure(flow, item.Value);
+        });
     }
   }
 
-  private static void WriteFlowStructure(StringBuilder flow, Structured item, int indent)
+  private static void WriteFlowBlock<T>(StringBuilder flow, string before, string after, IEnumerable<T> list, Action<T> action)
   {
-    if (item.Value?.IsEmpty == false) {
-      WriteValue(flow, item.Value, "", 0);
-      return;
-    }
-
-    if (item.List.Any()) {
-      WriteFlowList(flow, item.List, indent);
-      return;
-    }
-
-    if (item.Map.Any()) {
-      WriteFlowMap(flow, item.Tag, item.Map, indent);
-    }
-  }
-
-  private static void WriteFlowList(StringBuilder flow, IList<Structured> list, int indent)
-  {
-    string prefix = " [";
-    if (indent < 1) {
-      prefix = "[";
-    }
-
-    foreach (Structured item in list) {
+    string prefix = before;
+    foreach (T item in list) {
       flow.Append(prefix);
-      WriteFlowStructure(flow, item, 0);
+      action(item);
       prefix = ",";
     }
 
-    flow.Append(']');
+    flow.Append(after);
   }
 
-  private static void WriteList(StringBuilder sb, IList<Structured> list, int indent)
+  private static IEnumerable<string> WriteList(IList<Structured> list)
   {
-    if (indent > 0) {
-      sb.AppendLine();
+    if (list.Count == 0) {
+      yield break;
     }
 
-    string prefix = new string(' ', indent * 2) + "-";
+    yield return "";
     foreach (Structured item in list) {
-      sb.Append(prefix);
-      WriteStructure(sb, item, indent + 1);
+      foreach (string line in WriteItem(item, "-")) {
+        yield return line;
+      }
     }
   }
 
-  private static void WriteFlowMap(StringBuilder flow, string tag, ComplexValue<StructureValue, Structured>.IDict map, int indent)
+  private static IEnumerable<string> WriteItem(Structured item, string prefix)
   {
-    string prefix = "{";
-    if (!string.IsNullOrWhiteSpace(tag)) {
-      if (indent > 0) {
-        flow.Append(' ');
+    List<string> newLines = [.. WriteStructure(item)];
+    if (newLines.Count == 0) {
+      yield break;
+    }
+
+    string first = newLines[0];
+    if (first.TrimStart().StartsWith("!", StringComparison.Ordinal) || newLines.Count == 1) {
+      newLines.RemoveAt(0);
+      yield return prefix + " " + first;
+      if (newLines.Count == 0) {
+        yield break;
       }
-
-      flow.Append($"!{tag}");
-    } else if (indent > 0) {
-      prefix = " {";
+    } else {
+      yield return prefix;
     }
 
-    foreach (KeyValuePair<StructureValue, Structured> item in map.OrderBy(kv => kv.Key.AsString, StringComparer.Ordinal)) {
-      flow.Append(prefix);
-      WriteValue(flow, item.Key, ":", 0);
-      WriteFlowStructure(flow, item.Value, 0);
-      prefix = ",";
+    foreach (string line in newLines) {
+      yield return "  " + line;
     }
-
-    flow.Append('}');
   }
 
-  private static void WriteMap(StringBuilder sb, string tag, ComplexValue<StructureValue, Structured>.IDict map, int indent)
+  private static IEnumerable<string> WriteMap(string tag, ComplexValue<StructureValue, Structured>.IDict map)
   {
-    string prefix = "";
+    if (map.Count == 0) {
+      yield break;
+    }
 
     if (!string.IsNullOrWhiteSpace(tag)) {
-      if (indent > 0) {
-        sb.Append(' ');
-        prefix = new(' ', indent * 2 - 1);
-      }
-
-      sb.AppendLine($"!{tag}");
-    } else if (indent > 0) {
-      sb.AppendLine();
-      prefix = new(' ', indent * 2 - 1);
+      yield return $"!{tag}";
+    } else {
+      yield return "";
     }
 
     foreach (KeyValuePair<StructureValue, Structured> item in map.OrderBy(kv => kv.Key.AsString, StringComparer.Ordinal)) {
-      sb.Append(prefix);
-      WriteValue(sb, item.Key, ":", indent);
-      WriteStructure(sb, item.Value, indent + 1);
+      StringBuilder sb = new("");
+      WriteValue(sb, item.Key);
+      sb.Append(':');
+
+      foreach (string line in WriteItem(item.Value, sb.ToString())) {
+        yield return line;
+      }
     }
   }
 
   private static readonly char[] s_special = ['{', '}', '[', ']', '&', '*', '#', '?', '|', '-', '<', '>', '=', '!', '%', '@', ':', '`', ','];
 
-  private static void WriteValue(StringBuilder sb, StructureValue value, string suffix, int indent)
+  private static void WriteValue(StringBuilder sb, StructureValue value)
   {
     if (value is null || value.IsEmpty) {
       return;
-    }
-
-    if (indent > 0) {
-      sb.Append(' ');
     }
 
     if (!string.IsNullOrWhiteSpace(value.Tag)) {
@@ -170,7 +172,5 @@ public static class RenderLines
     } else if (!string.IsNullOrEmpty(value.Text)) {
       sb.Append(value.Text.Quoted("'"));
     }
-
-    sb.Append(suffix);
   }
 }

@@ -2,7 +2,6 @@
 using System.Globalization;
 using System.Reflection;
 using System.Text;
-
 using Fluid;
 
 using Microsoft.Extensions.DependencyInjection;
@@ -186,7 +185,7 @@ public abstract class DependencyInjectionChecks(
   }
 
   [Fact]
-  public void HtmlDependencyInjection()
+  public async Task HtmlDependencyInjection()
   {
     IOrderedEnumerable<DiService> services = _diServices.Values
       .OrderBy(s => (s.RequiredBy, s.Service.Name));
@@ -196,11 +195,11 @@ public abstract class DependencyInjectionChecks(
     context.SetValue("services", services);
 
     IFluidTemplate template = GetTemplate("table");
-    template.Render(context).WriteHtmlFile("DI/Table", Label);
+    await template.RenderAsync(context).WriteHtmlFile("DI/Table", Label);
   }
 
   [Fact]
-  public void Force3dDependencyInjection()
+  public async Task Force3dDependencyInjection()
   {
     DiLink[] links = [.. _diServices.Values
       .SelectMany(s => s.Requires
@@ -215,7 +214,7 @@ public abstract class DependencyInjectionChecks(
     context.SetValue("links", links);
 
     IFluidTemplate template = GetTemplate("force3d");
-    template.Render(context).WriteHtmlFile("DI/Force-3D", Label);
+    await template.RenderAsync(context).WriteHtmlFile("DI/Force-3D", Label);
   }
 
   private readonly HashSet<string> _ids = [];
@@ -223,7 +222,7 @@ public abstract class DependencyInjectionChecks(
   private readonly HashSet<string> _groupIds = [];
 
   [Fact]
-  public void DiagramDependencyInjection()
+  public async Task DiagramDependencyInjection()
   {
     _ids.Clear();
     Map<DiService[]> groups = [];
@@ -267,7 +266,7 @@ public abstract class DependencyInjectionChecks(
     context.SetValue("services", groups);
 
     IFluidTemplate template = GetTemplate("diagram");
-    template.Render(context).WriteHtmlFile("DI/Diagram", Label);
+    await template.RenderAsync(context).WriteHtmlFile("DI/Diagram", Label);
   }
 
   private void AddToGroup(DiService di)

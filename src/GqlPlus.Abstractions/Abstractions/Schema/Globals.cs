@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Abstractions.Schema;
+﻿using GqlPlus.Abstractions.Operation;
+
+namespace GqlPlus.Abstractions.Schema;
 
 public interface IGqlpSchemaCategory
   : IGqlpDeclaration
@@ -43,6 +45,21 @@ public enum DirectiveLocation
 
   None = 0x00,
   All = 0xff,
+}
+
+public interface IGqlpSchemaOperation
+  : IGqlpDeclaration
+  , IGqlpDirectives
+  , IGqlpModifiers
+  , IEquatable<IGqlpSchemaOperation>
+{
+  string Category { get; }
+
+  IEnumerable<IGqlpVariable> Variables { get; }
+  IGqlpArg? Arg { get; }
+  IEnumerable<IGqlpSelection>? ResultObject { get; }
+
+  IEnumerable<IGqlpFragment> Fragments { get; }
 }
 
 public interface IGqlpSchemaOption

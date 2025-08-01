@@ -39,7 +39,7 @@ public static class GeneralHelpers
     return [.. result];
   }
 
-  public static string IfWhitespace(this string? text, string replacement = "")
+  public static string IfWhiteSpace(this string? text, string replacement = "")
     => string.IsNullOrWhiteSpace(text) ? replacement : text!;
 
   public static string Joined(this IEnumerable<string?>? items, string by = " ")
@@ -48,7 +48,7 @@ public static class GeneralHelpers
       ?? []);
 
   public static string Joined<T>(this IEnumerable<T?>? items, Func<T?, string> mapping, string by = " ")
-    => (items?.Select(mapping).Joined(by)).IfWhitespace();
+    => (items?.Select(mapping).Joined(by)).IfWhiteSpace();
 
   public static Map<TValue> MapWith<TValue>(this string key, TValue value)
     => new() { [key] = value };

@@ -10,7 +10,7 @@ public static class StructureHelper
 
   public static Structured Encode<T>(this IEnumerable<T> list, string? tag = null, bool flow = false)
     where T : Enum
-    => new(list.Select(v => new Structured(v.ToString(), tag.IfWhitespace(typeof(T).TypeTag()))), flow: flow);
+    => new(list.Select(v => new Structured(v.ToString(), tag.IfWhiteSpace(typeof(T).TypeTag()))), flow: flow);
 
   public static Structured Encode(this IEnumerable<string> list, string? tag = null, bool flow = false)
     => list.Encode(i => new(i), tag, flow);

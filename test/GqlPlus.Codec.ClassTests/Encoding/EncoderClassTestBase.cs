@@ -25,6 +25,6 @@ public abstract class EncoderClassTestBase<TModel>
   internal void EncodeAndCheck(TModel model, string[] expected)
     => Encoder.Encode(model)
       .ShouldNotBeNull()
-      .ToLines(false).ToLines()
+      .ToPlain(false)
       .ShouldBe(expected);
 }

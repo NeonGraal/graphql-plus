@@ -8,7 +8,7 @@ internal class VerifyDomainTypes(
 ) : AstParentVerifier<IGqlpDomain, IGqlpTypeRef, EnumContext>(aliased)
 {
   protected sealed override string GetParent(IGqlpType<IGqlpTypeRef> usage)
-    => (usage.Parent?.Name).IfWhitespace();
+    => (usage.Parent?.Name).IfWhiteSpace();
 
   protected override EnumContext MakeContext(IGqlpDomain usage, IGqlpType[] aliased, IMessages errors)
   {

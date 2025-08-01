@@ -33,7 +33,7 @@ public record struct MapPair<TMap>(string Key, TMap Value)
   public override readonly string ToString()
     => $"[{Key}] = " + Value switch {
       string text => text,
-      IEnumerable list => "[" + string.Join(", ", list) + "]",
+      IEnumerable list => "[" + string.Join(", ", list.Cast<object>().Select(v => v.ToString())) + "]",
       _ => $"{Value}"
     };
 }

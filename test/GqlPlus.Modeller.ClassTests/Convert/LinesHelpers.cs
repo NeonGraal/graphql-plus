@@ -2,57 +2,64 @@
 
 internal static class LinesHelpers
 {
-  internal static Structured AsMap<T>(this MapPair<T>[] value, string tag, Func<T, Structured> mapper, bool flow = false)
-    => value.ToMap(k => k.Key, v => mapper(v.Value)).Encode(tag, flow);
-
-  internal static string WithLine(this string value, bool always = true)
-    => always | value.Length > 0 ? value == Environment.NewLine ? value : value + Environment.NewLine : "";
-
-  internal static string WithSpace(this string value)
-    => value + (string.IsNullOrWhiteSpace(value) ? "" : " ");
-
-  internal static bool HasLine(this string value)
-    => value.Contains(Environment.NewLine, StringComparison.Ordinal);
-
-  internal static string FlowOr<T>(this T[] list, Func<T[], string> flowMap, Func<T[], string> isMap)
+  internal static string[] FlowOr<T>(this IEnumerable<T> list, Func<IEnumerable<T>, string> flowMap, Func<IEnumerable<T>, string[]> isMap)
   {
     string flow = flowMap(list);
 
-    return flow.Length <= RenderLines.MaxLineLength ? flow : isMap(list);
+    return flow.Length < RenderLines.MaxLineLength ? [flow] : isMap(list);
   }
 
-  internal static string FlowList(this string[] value, string valuePrefix = "", string indent = "")
-    => value.FlowList(v => valuePrefix + v, indent);
+  internal static string[] FlowList(this string[] value, string valuePrefix = "", string indent = "")
+    => value.FlowList(v => [valuePrefix + v], indent);
 
-  internal static string FlowList<T>(this T[] value, Func<T?, string> mapper, string indent = "")
-    => FlowOr(value,
-      f => f.Surround("[", "]", mapper, ","),
-      i => i.IsList(v => {
-        string item = mapper(v);
-        if (!item.StartsWith('!') && item.HasLine()) {
-          return indent + "-".WithLine() + item;
-        } else {
-          return indent + "- " + item;
-        }
-      }));
+  internal static string[] FlowList<T>(this T[] value, Func<T?, string[]> mapper, string indent = "")
+    => value.FlowOr(
+      f => f.Surround("[", "]", v => mapper(v).Joined(""), ","),
+      i => i.IsList(v => v.BlockFirst(mapper, indent + "-")));
 
-  internal static string FlowMap(this MapPair<string>[] list, string mapPrefix = "", string valuePrefix = "", string indent = "")
-    => list.FlowMap((p, v) => p + valuePrefix + v, mapPrefix, indent);
+  internal static string[] FlowMap(this MapPair<string>[] list, string mapPrefix = "", string valuePrefix = "", string indent = "")
+    => list.FlowMap(v => [valuePrefix + v], mapPrefix, indent);
 
-  internal static string FlowMap<T>(this MapPair<T>[] list, Func<string, T, string> mapper, string mapPrefix = "", string indent = "")
-    => FlowOr([.. list.OrderBy(kv => kv.Key, StringComparer.Ordinal)],
-      f => mapPrefix + f.Surround("{", "}", v => mapper(v.Key + ":", v.Value), ","),
-      i => mapPrefix.WithLine(false) + i.IsMap(v => mapper(" ", v), indent));
+  internal static string[] FlowMap<T>(this MapPair<T>[] list, Func<T?, string[]> mapper, string mapPrefix = "", string indent = "")
+    => list.OrderBy(kv => kv.Key, StringComparer.Ordinal).FlowOr(
+      f => mapPrefix + f.Surround("{", "}", v => v.Key + ":" + mapper(v.Value).Joined(""), ","),
+      i => i.IsMap(v => mapper(v), indent, mapPrefix));
 
-  internal static string IsList(this string[] value, string prefix)
-    => value.IsList(v => prefix + v);
+  internal static string[] BlockList(this string[] value, string prefix)
+    => value.IsList(v => [prefix + v]);
 
-  internal static string IsList<T>(this T[] value, Func<T?, string> mapper)
-    => value.Joined(mapper, Environment.NewLine);
+  internal static string[] BlockList<T>(this T[] value, Func<T?, string[]> mapper)
+    => value.IsList(mapper);
 
-  internal static string IsMap(this MapPair<string>[] list, string keyPrefix, string valuePrefix)
-    => list.IsMap(v => valuePrefix + v, keyPrefix);
+  internal static string[] BlockMap(this MapPair<string>[] list, string keyPrefix = "", string valuePrefix = "")
+    => list.BlockMap(v => [valuePrefix + v], keyPrefix);
 
-  internal static string IsMap<T>(this MapPair<T>[] list, Func<T, string> mapper, string keyPrefix = "")
-    => list.OrderBy(kv => kv.Key, StringComparer.Ordinal).Joined(v => keyPrefix + v.Key + ":" + mapper(v.Value), Environment.NewLine);
+  internal static string[] BlockMap<T>(this MapPair<T>[] list, Func<T?, string[]> mapper, string keyPrefix = "")
+    => list.OrderBy(kv => kv.Key, StringComparer.Ordinal).IsMap(mapper, keyPrefix);
+
+  private static string[] IsList<T>(this IEnumerable<T> value, Func<T?, string[]> mapper)
+    => [.. value.SelectMany(mapper).Where(s => !string.IsNullOrWhiteSpace(s))];
+
+  private static string[] IsMap<T>(this IEnumerable<MapPair<T>> list, Func<T?, string[]> mapper, string keyPrefix = "", string mapPrefix = "")
+    => [.. list
+      .SelectMany(v => v.Value.BlockFirst(mapper,  keyPrefix + v.Key + ":"))
+      .Prepend(mapPrefix)
+      .Where(s => !string.IsNullOrWhiteSpace(s))];
+
+  private static string[] BlockFirst<T>(this T value, Func<T?, string[]> mapper, string prefix)
+  {
+    string[] item = mapper(value);
+    if (item.Length == 0) {
+      return [];
+    }
+
+    string first = item[0];
+    if (item.Length == 1) {
+      return [prefix + " " + first];
+    } else if (first.StartsWith('!')) {
+      return [prefix + " " + first, .. item[1..]];
+    } else {
+      return [prefix, .. item];
+    }
+  }
 }

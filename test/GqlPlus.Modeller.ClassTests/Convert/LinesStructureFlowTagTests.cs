@@ -37,7 +37,7 @@ public class LinesStructureFlowTagTests
     ToLines_Map(value);
   }
 
-  [Fact(Skip = "Specific")]
+  [Fact]
   public void ToLines_MapOfLists_Specific()
   {
     MapPair<string[]>[] value = [
@@ -49,7 +49,7 @@ public class LinesStructureFlowTagTests
     ToLines_MapOfLists(value);
   }
 
-  [Fact(Skip = "Specific")]
+  [Fact]
   public void ToLines_MapOfLists_Specific1()
   {
     MapPair<string[]>[] value = [
@@ -79,20 +79,20 @@ public class LinesStructureFlowTagTests
   protected override string MapTag => "map";
 
   protected override string[] Expected_List(string[] value)
-    => value.FlowList("!value ").ToLines();
+    => value.FlowList("!value ");
 
   protected override string[] Expected_Map(MapPair<string>[] value)
-    => value.FlowMap("!map", "!value ").ToLines();
+    => value.FlowMap("!map", "!value ");
 
   protected override string[] Expected_ListOfLists(string[][] value)
-    => value.FlowList(v => v!.FlowList("!value ", "  ")).ToLines();
+    => value.FlowList(v => v!.FlowList("!value ", "  "));
 
   protected override string[] Expected_MapOfLists(MapPair<string[]>[] value)
-    => value.FlowMap((p, v) => p + v.FlowList("!value ", "  "), "!map").ToLines();
+    => value.FlowMap(v => v!.FlowList("!value ", "  "), "!map");
 
   protected override string[] Expected_ListOfMaps(MapPair<string>[][] value)
-    => value.FlowList(v => v!.FlowMap("!map", "!value ", "  ")).ToLines();
+    => value.FlowList(v => v!.FlowMap("!map", "!value ", "  "));
 
   protected override string[] Expected_MapOfMaps(MapPair<MapPair<string>[]>[] value)
-    => value.FlowMap((p, v) => v.FlowMap(p + "!map", "!value ", "  "), "!map").ToLines();
+    => value.FlowMap(v => v!.FlowMap("!map", "!value ", "  "), "!map");
 }

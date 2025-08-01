@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Convert;
 
-public class LinesStructureTests
-  : LinesStructureBase
+public class PlainStructureTests
+  : PlainStructureBase
 {
   protected override bool Flow => false;
   protected override string ValueTag => "";

@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Convert;
 
-public abstract class LinesValueBase
+public abstract class PlainValueBase
 {
   protected abstract string Tag { get; }
   protected abstract string[] Expected_Empty();
@@ -13,67 +13,67 @@ public abstract class LinesValueBase
   protected abstract string[] Expected_Bool(bool value);
 
   [Fact]
-  public void ToLines_Empty()
+  public void ToPlain_Empty()
   {
     Structured model = new("", Tag);
     string[] expected = Expected_Empty();
 
-    string[] result = model.ToLines(false);
+    string[] result = model.ToPlain(false);
 
     result.ShouldBe(expected);
   }
 
   [Theory, RepeatData]
-  public void ToLines_String(string value)
+  public void ToPlain_String(string value)
   {
     string[] expected = Expected_String(value);
     Structured model = new(StructureValue.Str(value, Tag));
 
-    string[] result = model.ToLines(false);
+    string[] result = model.ToPlain(false);
 
     result.ShouldBe(expected);
   }
 
   [Theory, RepeatData]
-  public void ToLines_Identifier(string value)
+  public void ToPlain_Identifier(string value)
   {
     string[] expected = Expected_Identifier(value);
     Structured model = new(value, Tag);
 
-    string[] result = model.ToLines(false);
+    string[] result = model.ToPlain(false);
 
     result.ShouldBe(expected);
   }
 
   [Theory, RepeatData]
-  public void ToLines_Punctuation([RegularExpression(@"[{}[\]&#*?|\-<>=!%@:`,]")] string value)
+  public void ToPlain_Punctuation([RegularExpression(@"[{}[\]&#*?|\-<>=!%@:`,]")] string value)
   {
     string[] expected = Expected_Punctuation(value);
     Structured model = new(value, Tag);
 
-    string[] result = model.ToLines(false);
+    string[] result = model.ToPlain(false);
 
     result.ShouldBe(expected);
   }
 
   [Theory, RepeatData]
-  public void ToLines_Decimal(decimal value)
+  public void ToPlain_Decimal(decimal value)
   {
     string[] expected = Expected_Decimal(value);
     Structured model = new(value, Tag);
 
-    string[] result = model.ToLines(false);
+    string[] result = model.ToPlain(false);
 
     result.ShouldBe(expected);
   }
 
   [Theory, RepeatData]
-  public void ToLines_Bool(bool value)
+  public void ToPlain_Bool(bool value)
   {
     string[] expected = Expected_Bool(value);
     Structured model = new(value, Tag);
 
-    string[] result = model.ToLines(false);
+    string[] result = model.ToPlain(false);
 
     result.ShouldBe(expected);
   }

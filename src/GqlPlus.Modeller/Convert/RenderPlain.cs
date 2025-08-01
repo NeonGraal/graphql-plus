@@ -2,11 +2,11 @@
 
 namespace GqlPlus.Convert;
 
-public static class RenderLines
+public static class RenderPlain
 {
   public const int MaxLineLength = 120;
 
-  public static string[] ToLines(this Structured model, bool _)
+  public static string[] ToPlain(this Structured model, bool _)
     => model is null || model.IsEmpty ? []
       : [.. WriteStructure(model).Where(s => !string.IsNullOrWhiteSpace(s))];
 

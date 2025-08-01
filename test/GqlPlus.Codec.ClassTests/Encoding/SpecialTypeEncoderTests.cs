@@ -44,7 +44,7 @@ public class SpecialTypeEncoderTests
     Structured result = _special.TypeEncode(model);
 
     result.ShouldNotBeNull()
-      .ToLines(false)
+      .ToPlain(false)
       .ShouldBe(SpecialTypeExpected(name, content));
   }
 }

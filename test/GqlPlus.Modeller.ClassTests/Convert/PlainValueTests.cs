@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Convert;
 
-public class LinesValueTests
-  : LinesValueBase
+public class PlainValueTests
+  : PlainValueBase
 {
   protected override string Tag => "";
   protected override string[] Expected_Empty() => [];

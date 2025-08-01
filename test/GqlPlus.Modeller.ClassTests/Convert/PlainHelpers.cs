@@ -1,12 +1,12 @@
 ﻿namespace GqlPlus.Convert;
 
-internal static class LinesHelpers
+internal static class PlainHelpers
 {
   internal static string[] FlowOr<T>(this IEnumerable<T> list, Func<IEnumerable<T>, string> flowMap, Func<IEnumerable<T>, string[]> isMap)
   {
     string flow = flowMap(list);
 
-    return flow.Length < RenderLines.MaxLineLength ? [flow] : isMap(list);
+    return flow.Length < RenderPlain.MaxLineLength ? [flow] : isMap(list);
   }
 
   internal static string[] FlowList(this string[] value, string valuePrefix = "", string indent = "")

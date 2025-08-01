@@ -14,7 +14,7 @@ internal abstract class AstSimpleVerifier<TAst, TContext, TItem>(
   where TItem : IGqlpError
 {
   protected sealed override string GetParent(IGqlpType<IGqlpTypeRef> usage)
-    => (usage.Parent?.Name).IfWhitespace();
+    => (usage.Parent?.Name).IfWhiteSpace();
 
   protected override void UsageValue(TAst usage, TContext context)
   {

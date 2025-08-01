@@ -13,7 +13,7 @@ public abstract class ConverterClassTestBase
     string result = Convert(model);
 
     // Assert
-    WithNull_Check(result);
+    WithNull_Check(result.ToLines());
   }
 
   [Theory, RepeatData]
@@ -26,7 +26,7 @@ public abstract class ConverterClassTestBase
     string result = Convert(model);
 
     // Assert
-    WithIdentifier_Check(result, input);
+    WithIdentifier_Check(result.ToLines(), input);
   }
 
   [Theory, RepeatData]
@@ -39,7 +39,7 @@ public abstract class ConverterClassTestBase
     string result = Convert(model);
 
     // Assert
-    WithBoolean_Check(result, input);
+    WithBoolean_Check(result.ToLines(), input);
   }
 
   [Theory, RepeatData]
@@ -52,7 +52,7 @@ public abstract class ConverterClassTestBase
     string result = Convert(model);
 
     // Assert
-    WithNumber_Check(result, input);
+    WithNumber_Check(result.ToLines(), input);
   }
 
   [Theory, RepeatData]
@@ -66,7 +66,7 @@ public abstract class ConverterClassTestBase
     string result = Convert(model);
 
     // Assert
-    WithText_Check(result, input);
+    WithText_Check(result.ToLines(), input);
   }
 
   [Theory, RepeatData]
@@ -79,7 +79,7 @@ public abstract class ConverterClassTestBase
     string result = Convert(model);
 
     // Assert
-    WithList_Check(result, input);
+    WithList_Check(result.ToLines(), input);
   }
 
   [Theory, RepeatData]
@@ -92,7 +92,7 @@ public abstract class ConverterClassTestBase
     string result = Convert(model);
 
     // Assert
-    WithListFlow_Check(result, input);
+    WithListFlow_Check(result.ToLines(), input);
   }
 
   [Theory, RepeatData]
@@ -105,7 +105,7 @@ public abstract class ConverterClassTestBase
     string result = Convert(model);
 
     // Assert
-    WithListMap_Check(result, input);
+    WithListMap_Check(result.ToLines(), input);
   }
 
   [Theory, RepeatData]
@@ -119,7 +119,7 @@ public abstract class ConverterClassTestBase
     string result = Convert(model);
 
     // Assert
-    WithMap_Check(result, key, value);
+    WithMap_Check(result.ToLines(), key, value);
   }
 
   [Theory, RepeatData]
@@ -133,7 +133,7 @@ public abstract class ConverterClassTestBase
     string result = Convert(model);
 
     // Assert
-    WithMapFlow_Check(result, key, value);
+    WithMapFlow_Check(result.ToLines(), key, value);
   }
 
   [Theory, RepeatData]
@@ -147,7 +147,7 @@ public abstract class ConverterClassTestBase
     string result = Convert(model);
 
     // Assert
-    WithMapKeys_Check(result, keys);
+    WithMapKeys_Check(result.ToLines(), [.. keys.Order(Comparer)]);
   }
 
   [Theory, RepeatData]
@@ -161,7 +161,7 @@ public abstract class ConverterClassTestBase
     string result = Convert(model);
 
     // Assert
-    WithMapList_Check(result, key, value);
+    WithMapList_Check(result.ToLines(), key, value);
   }
 
   // Tagged tests
@@ -176,7 +176,7 @@ public abstract class ConverterClassTestBase
     string result = Convert(model);
 
     // Assert
-    WithNullTag_Check(result, tag);
+    WithNullTag_Check(result.ToLines(), tag);
   }
 
   [Theory, RepeatData]
@@ -189,7 +189,7 @@ public abstract class ConverterClassTestBase
     string result = Convert(model);
 
     // Assert
-    WithIdentifierTag_Check(result, input, tag);
+    WithIdentifierTag_Check(result.ToLines(), input, tag);
   }
 
   [Theory, RepeatData]
@@ -202,7 +202,7 @@ public abstract class ConverterClassTestBase
     string result = Convert(model);
 
     // Assert
-    WithBooleanTag_Check(result, input, tag);
+    WithBooleanTag_Check(result.ToLines(), input, tag);
   }
 
   [Theory, RepeatData]
@@ -215,7 +215,7 @@ public abstract class ConverterClassTestBase
     string result = Convert(model);
 
     // Assert
-    WithNumberTag_Check(result, input, tag);
+    WithNumberTag_Check(result.ToLines(), input, tag);
   }
 
   [Theory, RepeatData]
@@ -229,7 +229,7 @@ public abstract class ConverterClassTestBase
     string result = Convert(model);
 
     // Assert
-    WithTextTag_Check(result, input, tag);
+    WithTextTag_Check(result.ToLines(), input, tag);
   }
 
   [Theory, RepeatData]
@@ -242,7 +242,7 @@ public abstract class ConverterClassTestBase
     string result = Convert(model);
 
     // Assert
-    WithListTag_Check(result, input, tag);
+    WithListTag_Check(result.ToLines(), input, tag);
   }
 
   [Theory, RepeatData]
@@ -255,7 +255,7 @@ public abstract class ConverterClassTestBase
     string result = Convert(model);
 
     // Assert
-    WithListTagFlow_Check(result, input, tag);
+    WithListTagFlow_Check(result.ToLines(), input, tag);
   }
 
   [Theory, RepeatData]
@@ -268,7 +268,7 @@ public abstract class ConverterClassTestBase
     string result = Convert(model);
 
     // Assert
-    WithListTagMap_Check(result, input, tag);
+    WithListTagMap_Check(result.ToLines(), input, tag);
   }
 
   [Theory, RepeatData]
@@ -282,7 +282,7 @@ public abstract class ConverterClassTestBase
     string result = Convert(model);
 
     // Assert
-    WithMapTag_Check(result, key, value, tag);
+    WithMapTag_Check(result.ToLines(), key, value, tag);
   }
 
   [Theory, RepeatData]
@@ -296,7 +296,7 @@ public abstract class ConverterClassTestBase
     string result = Convert(model);
 
     // Assert
-    WithMapTagFlow_Check(result, key, value, tag);
+    WithMapTagFlow_Check(result.ToLines(), key, value, tag);
   }
 
   [Theory, RepeatData]
@@ -310,7 +310,7 @@ public abstract class ConverterClassTestBase
     string result = Convert(model);
 
     // Assert
-    WithMapTagKeys_Check(result, keys, tag);
+    WithMapTagKeys_Check(result.ToLines(), [.. keys.Order(Comparer)], tag);
   }
 
   [Theory, RepeatData]
@@ -324,37 +324,39 @@ public abstract class ConverterClassTestBase
     string result = Convert(model);
 
     // Assert
-    WithMapTagList_Check(result, key, value, tag);
+    WithMapTagList_Check(result.ToLines(), key, value, tag);
   }
 
   private static Structured MakeMap(string s)
     => new Map<Structured>() { ["value"] = new(s) }.Encode();
 
+  protected abstract IComparer<string> Comparer { get; }
+
   protected abstract string Convert(Structured model);
 
-  protected abstract void WithBoolean_Check(string result, bool input);
-  protected abstract void WithIdentifier_Check(string result, string input);
-  protected abstract void WithList_Check(string result, string[] input);
-  protected abstract void WithListFlow_Check(string result, string[] input);
-  protected abstract void WithListMap_Check(string result, string[] input);
-  protected abstract void WithMap_Check(string result, string key, string value);
-  protected abstract void WithMapFlow_Check(string result, string key, string value);
-  protected abstract void WithMapKeys_Check(string result, string[] keys);
-  protected abstract void WithMapList_Check(string result, string key, string[] value);
-  protected abstract void WithNull_Check(string result);
-  protected abstract void WithNumber_Check(string result, decimal input);
-  protected abstract void WithText_Check(string result, string input);
+  protected abstract void WithBoolean_Check(string[] result, bool input);
+  protected abstract void WithIdentifier_Check(string[] result, string input);
+  protected abstract void WithList_Check(string[] result, string[] input);
+  protected abstract void WithListFlow_Check(string[] result, string[] input);
+  protected abstract void WithListMap_Check(string[] result, string[] input);
+  protected abstract void WithMap_Check(string[] result, string key, string value);
+  protected abstract void WithMapFlow_Check(string[] result, string key, string value);
+  protected abstract void WithMapKeys_Check(string[] result, string[] keys);
+  protected abstract void WithMapList_Check(string[] result, string key, string[] value);
+  protected abstract void WithNull_Check(string[] result);
+  protected abstract void WithNumber_Check(string[] result, decimal input);
+  protected abstract void WithText_Check(string[] result, string input);
 
-  protected abstract void WithBooleanTag_Check(string result, bool input, string tag);
-  protected abstract void WithIdentifierTag_Check(string result, string input, string tag);
-  protected abstract void WithListTag_Check(string result, string[] input, string tag);
-  protected abstract void WithListTagFlow_Check(string result, string[] input, string tag);
-  protected abstract void WithListTagMap_Check(string result, string[] input, string tag);
-  protected abstract void WithMapTag_Check(string result, string key, string value, string tag);
-  protected abstract void WithMapTagFlow_Check(string result, string key, string value, string tag);
-  protected abstract void WithMapTagKeys_Check(string result, string[] keys, string tag);
-  protected abstract void WithMapTagList_Check(string result, string key, string[] value, string tag);
-  protected abstract void WithNullTag_Check(string result, string tag);
-  protected abstract void WithNumberTag_Check(string result, decimal input, string tag);
-  protected abstract void WithTextTag_Check(string result, string input, string tag);
+  protected abstract void WithBooleanTag_Check(string[] result, bool input, string tag);
+  protected abstract void WithIdentifierTag_Check(string[] result, string input, string tag);
+  protected abstract void WithListTag_Check(string[] result, string[] input, string tag);
+  protected abstract void WithListTagFlow_Check(string[] result, string[] input, string tag);
+  protected abstract void WithListTagMap_Check(string[] result, string[] input, string tag);
+  protected abstract void WithMapTag_Check(string[] result, string key, string value, string tag);
+  protected abstract void WithMapTagFlow_Check(string[] result, string key, string value, string tag);
+  protected abstract void WithMapTagKeys_Check(string[] result, string[] keys, string tag);
+  protected abstract void WithMapTagList_Check(string[] result, string key, string[] value, string tag);
+  protected abstract void WithNullTag_Check(string[] result, string tag);
+  protected abstract void WithNumberTag_Check(string[] result, decimal input, string tag);
+  protected abstract void WithTextTag_Check(string[] result, string input, string tag);
 }

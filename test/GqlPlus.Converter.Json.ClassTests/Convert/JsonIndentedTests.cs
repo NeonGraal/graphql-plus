@@ -26,56 +26,59 @@ public class JsonIndentedTests
   protected override string Convert(Structured model)
     => model.ToJson();
 
-  protected override void WithBoolean_Check(string result, bool input)
-    => result.ShouldStartWith($"{input.TrueFalse()}");
-  protected override void WithIdentifier_Check(string result, string input)
-    => result.ShouldStartWith(input.Quoted('"'));
-  protected override void WithListFlow_Check(string result, string[] input)
-    => result.ShouldStartWith(input.Surround("[", "]", i => i.Quoted('"'), ", "));
-  protected override void WithList_Check(string result, string[] input)
-    => result.ShouldStartWith(input.Surround("[", "]", i => i.Quoted('"'), ", "));
-  protected override void WithListMap_Check(string result, string[] input)
-    => result.ToLines().ShouldBe(ListLines("[", "]", input, s => "    \"value\": " + s.Quoted('"')));
-  protected override void WithMapFlow_Check(string result, string key, string value)
-    => result.ToLines().ShouldBe(["{", $"  \"{key}\": \"{value}\"", "}"]);
-  protected override void WithMapKeys_Check(string result, [NotNull] string[] keys)
-    => result.ToLines().ShouldBe(["{", .. keys.Order(StringComparer.CurrentCultureIgnoreCase).Select(MapKeysFormat(keys.Length - 1)), "}"], Case.Insensitive);
-  protected override void WithMapList_Check(string result, string key, string[] value)
-    => result.ToLines().ShouldBe(["{", $"  \"{key}\": " + value.Surround("[", "]", s => s.Quoted('"'), ", "), "}"]);
-  protected override void WithMap_Check(string result, string key, string value)
-    => result.ToLines().ShouldBe(["{", $"  \"{key}\": \"{value}\"", "}"]);
-  protected override void WithNull_Check(string result)
-    => result.ShouldBe("");
-  protected override void WithNumber_Check(string result, decimal input)
-    => result.ShouldStartWith($"{input}");
-  protected override void WithText_Check(string result, string input)
-    => result.ShouldStartWith(input.Quoted('"'));
+  protected override IComparer<string> Comparer
+    => StringComparer.CurrentCultureIgnoreCase;
+
+  protected override void WithBoolean_Check(string[] result, bool input)
+    => result.ShouldBe([input.TrueFalse()]);
+  protected override void WithIdentifier_Check(string[] result, string input)
+    => result.ShouldBe([input.Quoted('"')]);
+  protected override void WithListFlow_Check(string[] result, string[] input)
+    => result.ShouldBe([input.Surround("[", "]", i => i.Quoted('"'), ", ")]);
+  protected override void WithList_Check(string[] result, string[] input)
+    => result.ShouldBe([input.Surround("[", "]", i => i.Quoted('"'), ", ")]);
+  protected override void WithListMap_Check(string[] result, string[] input)
+    => result.ShouldBe(ListLines("[", "]", input, s => "    \"value\": " + s.Quoted('"')));
+  protected override void WithMapFlow_Check(string[] result, string key, string value)
+    => result.ShouldBe(["{", $"  \"{key}\": \"{value}\"", "}"]);
+  protected override void WithMapKeys_Check(string[] result, [NotNull] string[] keys)
+    => result.ShouldBe(["{", .. keys.Select(MapKeysFormat(keys.Length - 1)), "}"], Case.Insensitive);
+  protected override void WithMapList_Check(string[] result, string key, string[] value)
+    => result.ShouldBe(["{", $"  \"{key}\": " + value.Surround("[", "]", s => s.Quoted('"'), ", "), "}"]);
+  protected override void WithMap_Check(string[] result, string key, string value)
+    => result.ShouldBe(["{", $"  \"{key}\": \"{value}\"", "}"]);
+  protected override void WithNull_Check(string[] result)
+    => result.ShouldBeEmpty();
+  protected override void WithNumber_Check(string[] result, decimal input)
+    => result.ShouldBe([$"{input}"]);
+  protected override void WithText_Check(string[] result, string input)
+    => result.ShouldBe([input.Quoted('"')]);
 
   // Tagged checks
-  protected override void WithBooleanTag_Check(string result, bool input, string tag)
-    => result.ToLines().ShouldBe(WithTag(tag, $"{input.TrueFalse()}"));
-  protected override void WithIdentifierTag_Check(string result, string input, string tag)
-    => result.ToLines().ShouldBe(WithTag(tag, input.Quoted('"')));
-  protected override void WithListTagFlow_Check(string result, string[] input, string tag)
-    => result.ShouldStartWith(input.Surround("[", "]", i => i.Quoted('"'), ", "));
-  protected override void WithListTag_Check(string result, string[] input, string tag)
-    => result.ShouldStartWith(input.Surround("[", "]", i => i.Quoted('"'), ", "));
-  protected override void WithListTagMap_Check(string result, string[] input, string tag)
-    => result.ToLines().ShouldBe(ListLines("[", "]", input, s => "    \"value\": " + s.Quoted('"')));
-  protected override void WithMapTagFlow_Check(string result, string key, string value, string tag)
-    => result.ToLines().ShouldBe(WithTag(tag, value.Quoted('"'), key));
-  protected override void WithMapTagKeys_Check(string result, [NotNull] string[] keys, string tag)
-    => result.ToLines().ShouldBe(["{", $"  \"$tag\": \"{tag}\",", .. keys.Order(StringComparer.CurrentCultureIgnoreCase).Select(MapKeysFormat(keys.Length - 1)), "}"], Case.Insensitive);
-  protected override void WithMapTagList_Check(string result, string key, string[] value, string tag)
-    => result.ToLines().ShouldBe(["{", $"  \"$tag\": \"{tag}\",", $"  \"{key}\": " + value.Surround("[", "]", s => s.Quoted('"'), ", "), "}"]);
-  protected override void WithMapTag_Check(string result, string key, string value, string tag)
-    => result.ToLines().ShouldBe(WithTag(tag, value.Quoted('"'), key));
-  protected override void WithNullTag_Check(string result, string tag)
-    => result.ShouldBe("");
-  protected override void WithNumberTag_Check(string result, decimal input, string tag)
-    => result.ToLines().ShouldBe(WithTag(tag, $"{input}"));
-  protected override void WithTextTag_Check(string result, string input, string tag)
-    => result.ToLines().ShouldBe(WithTag(tag, input.Quoted('"')));
+  protected override void WithBooleanTag_Check(string[] result, bool input, string tag)
+    => result.ShouldBe(WithTag(tag, input.TrueFalse()));
+  protected override void WithIdentifierTag_Check(string[] result, string input, string tag)
+    => result.ShouldBe(WithTag(tag, input.Quoted('"')));
+  protected override void WithListTagFlow_Check(string[] result, string[] input, string tag)
+    => result.ShouldBe([input.Surround("[", "]", i => i.Quoted('"'), ", ")]);
+  protected override void WithListTag_Check(string[] result, string[] input, string tag)
+    => result.ShouldBe([input.Surround("[", "]", i => i.Quoted('"'), ", ")]);
+  protected override void WithListTagMap_Check(string[] result, string[] input, string tag)
+    => result.ShouldBe(ListLines("[", "]", input, s => "    \"value\": " + s.Quoted('"')));
+  protected override void WithMapTagFlow_Check(string[] result, string key, string value, string tag)
+    => result.ShouldBe(WithTag(tag, value.Quoted('"'), key));
+  protected override void WithMapTagKeys_Check(string[] result, [NotNull] string[] keys, string tag)
+    => result.ShouldBe(["{", $"  \"$tag\": \"{tag}\",", .. keys.Select(MapKeysFormat(keys.Length - 1)), "}"], Case.Insensitive);
+  protected override void WithMapTagList_Check(string[] result, string key, string[] value, string tag)
+    => result.ShouldBe(["{", $"  \"$tag\": \"{tag}\",", $"  \"{key}\": " + value.Surround("[", "]", s => s.Quoted('"'), ", "), "}"]);
+  protected override void WithMapTag_Check(string[] result, string key, string value, string tag)
+    => result.ShouldBe(WithTag(tag, value.Quoted('"'), key));
+  protected override void WithNullTag_Check(string[] result, string tag)
+    => result.ShouldBeEmpty();
+  protected override void WithNumberTag_Check(string[] result, decimal input, string tag)
+    => result.ShouldBe(WithTag(tag, $"{input}"));
+  protected override void WithTextTag_Check(string[] result, string input, string tag)
+    => result.ShouldBe(WithTag(tag, input.Quoted('"')));
 
   private static IEnumerable<string> ListLines(string before, string after, string[]? input, Func<string, string> mapper, string? tag = null)
   {

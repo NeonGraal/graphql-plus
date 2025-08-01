@@ -1,4 +1,6 @@
-﻿namespace GqlPlus;
+﻿using System.Collections;
+
+namespace GqlPlus;
 
 public class Map<TMap>
   : Dictionary<string, TMap>
@@ -27,4 +29,11 @@ public record struct MapPair<TMap>(string Key, TMap Value)
     => new(pair.Key, pair.Value);
   public static implicit operator MapPair<TMap>(KeyValuePair<string, TMap> pair)
     => new(pair.Key, pair.Value);
+
+  public override readonly string ToString()
+    => $"[{Key}] = " + Value switch {
+      string text => text,
+      IEnumerable list => "[" + string.Join(", ", list.Cast<object>().Select(v => v.ToString())) + "]",
+      _ => $"{Value}"
+    };
 }

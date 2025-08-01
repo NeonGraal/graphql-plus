@@ -27,10 +27,10 @@ internal class SchemaModeller(
     IEnumerable<OperationModel> operations = DeclarationModel(ast, operation, typeKinds);
     IGqlpSchemaOption[] options = ast.Declarations.ArrayOf<IGqlpSchemaOption>();
     IEnumerable<SettingModel> settings = options.SelectMany(o => setting.ToModels(o.Settings, typeKinds));
-    string name = options.LastOrDefault(options => !string.IsNullOrWhiteSpace(options.Name))?.Name ?? "";
+    string? name = options.LastOrDefault(options => !string.IsNullOrWhiteSpace(options?.Name))?.Name;
     IEnumerable<string> aliases = options.SelectMany(a => a.Aliases);
 
-    return new(name,
+    return new(name.IfWhiteSpace(),
         categories,
         directives,
         operations,

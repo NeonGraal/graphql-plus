@@ -1,3 +1,7 @@
+---
+type: "manual"
+---
+
 When writing tests use Xunit and AutoData.
 
 Class tests use NSubstitute and Shouldly and should use fields or properties for the instance being tested.

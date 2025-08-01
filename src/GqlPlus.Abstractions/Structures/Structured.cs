@@ -15,17 +15,17 @@ public class Structured
   public bool Flow { get; }
 
   public Structured(bool? value, string? tag = null)
-    : base(new StructureValue(value, tag)) => Tag = tag.IfWhitespace();
+    : base(new StructureValue(value, tag)) => Tag = tag.IfWhiteSpace();
   public Structured(string? value, string? tag = null)
-    : base(new StructureValue(value, tag)) => Tag = tag.IfWhitespace();
+    : base(new StructureValue(value, tag)) => Tag = tag.IfWhiteSpace();
   public Structured(decimal? value, string? tag = null)
-    : base(new StructureValue(value, tag)) => Tag = tag.IfWhitespace();
+    : base(new StructureValue(value, tag)) => Tag = tag.IfWhiteSpace();
   public Structured([NotNull] StructureValue value)
     : base(value) => Tag = value.Tag;
   public Structured(IEnumerable<Structured> list, string? tag = null, bool flow = false)
-    : base(list) => (Tag, Flow) = (tag.IfWhitespace(), flow);
+    : base(list) => (Tag, Flow) = (tag.IfWhiteSpace(), flow);
   public Structured(IDictionary<StructureValue, Structured> map, string? tag = null, bool flow = false)
-    : base(map) => (Tag, Flow) = (tag.IfWhitespace(), flow);
+    : base(map) => (Tag, Flow) = (tag.IfWhiteSpace(), flow);
 
   public static implicit operator Structured(StructureValue value)
     => new(value);
@@ -66,7 +66,7 @@ public class Structured
 
   public Structured AddEnum<TValue>(string key, TValue value, string? tag = null)
     where TValue : Enum
-    => Add(key, new(value.ToString(), tag.IfWhitespace(typeof(TValue).TypeTag())));
+    => Add(key, new(value.ToString(), tag.IfWhiteSpace(typeof(TValue).TypeTag())));
 
   public Structured AddEncoded<TValue>(string key, TValue? value, IEncoder<TValue> encoder)
     => value is null ? this
@@ -97,7 +97,7 @@ public class Structured
         result.Add(new(flag), new("_"));
       }
 
-      return Add(key, new(result, $"_Set({tag.IfWhitespace(typeof(TEnum).TypeTag())})", flow: flow));
+      return Add(key, new(result, $"_Set({tag.IfWhiteSpace(typeof(TEnum).TypeTag())})", flow: flow));
     }
 
     return this;

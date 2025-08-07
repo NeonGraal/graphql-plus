@@ -1,0 +1,15 @@
+﻿/* category-output-descr
+category { "Output comment" CtgrOutpDescr }
+output CtgrOutpDescr { }
+*/
+
+// Generated from Sample category-output-descr for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Sample_category_output_descr;
+
+public class OutputCtgrOutpDescr
+  : ICtgrOutpDescr
+{
+}

@@ -250,7 +250,7 @@ public abstract class DependencyInjectionChecks(
         groups[name] = [.. group];
         name = di.Service.Safe;
         group.Clear();
-      } else if (name.IsWhiteSpace()) {
+      } else if (string.IsNullOrWhiteSpace(name)) {
         name = di.Service.Safe;
       }
 

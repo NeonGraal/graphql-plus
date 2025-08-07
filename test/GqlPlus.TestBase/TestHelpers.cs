@@ -97,7 +97,7 @@ public static class TestHelpers
 
   public static TCheck SkipWhitespace<TCheck>(this TCheck check, [NotNull] string? str, [CallerArgumentExpression(nameof(str))] string? objExpression = null)
   {
-    Assert.SkipWhen(str is null || str.IsWhiteSpace(), objExpression + " is null, empty or only whitespace");
+    Assert.SkipWhen(str is null || string.IsNullOrWhiteSpace(str), objExpression + " is null, empty or only whitespace");
 
     return check;
   }

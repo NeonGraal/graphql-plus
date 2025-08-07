@@ -67,7 +67,7 @@ internal sealed class GqlpGeneratorContext
   internal TAst? GetTypeAst<TAst>(string? parent)
     where TAst : class, IGqlpType
   {
-    if (!parent.IsWhiteSpace()
+    if (!string.IsNullOrWhiteSpace(parent)
         && _types.TryGetValue(parent!, out IGqlpType type)
         && type is TAst ast) {
       return ast;

@@ -60,7 +60,7 @@ public static class SchemaBuilderHelpers
     where TType : class, IGqlpType<TParent>
     where TParent : class, IGqlpNamed
   {
-    TParent? parentType = parent.IsWhiteSpace()
+    TParent? parentType = string.IsNullOrWhiteSpace(parent)
       ? null : builder.Named<TParent>(parent!);
 
     TType result = builder.Error<TType>();

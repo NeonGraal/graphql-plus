@@ -78,7 +78,7 @@ internal class RenderYamlTypeConverter
   private void WriteValue(IEmitter emitter, StructureValue value, string tag)
   {
     bool isString = !string.IsNullOrEmpty(value.Text) && string.IsNullOrWhiteSpace(value.Identifier);
-    bool plainImplicit = tag.IsWhiteSpace() && !isString;
+    bool plainImplicit = string.IsNullOrWhiteSpace(tag) && !isString;
     TagName tagName = isString || plainImplicit ? new TagName() : new TagName("!" + tag);
 
     string text = "";

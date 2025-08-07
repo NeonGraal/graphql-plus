@@ -169,7 +169,7 @@ public class Tokenizer
 
   public void TakeDescription()
   {
-    if (!_description.IsWhiteSpace()) {
+    if (!string.IsNullOrWhiteSpace(_description)) {
       throw new InvalidOperationException("Unused description");
     }
 

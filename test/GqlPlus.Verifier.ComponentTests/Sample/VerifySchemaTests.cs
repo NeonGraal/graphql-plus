@@ -22,7 +22,7 @@ public class VerifySchemaTests(
 
     schemaVerifier.Verify(result.Required(), errors);
 
-    if (!section.IsWhiteSpace()) {
+    if (!string.IsNullOrWhiteSpace(section)) {
       errors.ShouldBeEmpty(test);
     } else {
       await CheckErrors(dirs, test, errors, true);

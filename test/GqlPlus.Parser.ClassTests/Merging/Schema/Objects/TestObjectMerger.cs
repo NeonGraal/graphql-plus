@@ -62,5 +62,5 @@ public abstract class TestObjectMerger<TObject, TObjBase, TObjField, TObjAlt>
   protected override TObject MakeTyped(string name, string[]? aliases = null, string description = "", IGqlpObjBase? parent = default)
     => MakeObject(name, aliases, description, parent);
   protected override IGqlpObjBase? MakeParent(string? parent)
-    => parent.IsWhiteSpace() ? null : MakeBase(parent!);
+    => string.IsNullOrWhiteSpace(parent) ? null : MakeBase(parent!);
 }

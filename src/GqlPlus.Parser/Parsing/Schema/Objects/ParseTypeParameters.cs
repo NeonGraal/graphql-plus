@@ -19,7 +19,7 @@ internal class ParseTypeParams
 
     while (!tokens.Take('>')) {
       string description = tokens.Description();
-      if (tokens.Prefix('$', out string? name, out TokenAt? at) && !name.IsWhiteSpace()) {
+      if (tokens.Prefix('$', out string? name, out TokenAt? at) && !string.IsNullOrWhiteSpace(name)) {
         if (ParseConstraint(tokens, out string? constraint)) {
           list.Add(new TypeParamAst(at, name!, description, constraint));
         } else {

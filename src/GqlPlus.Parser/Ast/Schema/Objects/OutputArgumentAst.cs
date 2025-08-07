@@ -19,7 +19,7 @@ internal sealed record class OutputArgAst(
   public override string Label => "Output";
 
   internal override IEnumerable<string?> GetFields()
-    => EnumLabel.IsWhiteSpace()
+    => string.IsNullOrWhiteSpace(EnumLabel)
     ? base.GetFields()
     : [At.ToString(), $"{Name}.{EnumLabel}"];
 

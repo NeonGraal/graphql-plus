@@ -113,7 +113,7 @@ public class GqlpGenerator : IIncrementalGenerator
       schemaGenerator.Generate(merged, context);
       string source = context.ToString();
 
-      if (!source.IsWhiteSpace()) {
+      if (!string.IsNullOrWhiteSpace(source)) {
         sourceContext.AddSource(context.FileName, source);
       }
 

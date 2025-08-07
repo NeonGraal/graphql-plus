@@ -13,11 +13,11 @@ internal static class TestModelHelper
     => value?.Select(s => "  " + s) ?? [];
 
   internal static string[] Tidy(this string[] value)
-    => [.. value.Where(s => !s.IsWhiteSpace())];
+    => [.. value.Where(s => !string.IsNullOrWhiteSpace(s))];
 
   internal static string[] TypeRefFor<TKind>(this string? name, TKind kind, [CallerArgumentExpression(nameof(name))] string? label = null)
   {
-    if (name.IsWhiteSpace()) {
+    if (string.IsNullOrWhiteSpace(name)) {
       return [];
     }
 

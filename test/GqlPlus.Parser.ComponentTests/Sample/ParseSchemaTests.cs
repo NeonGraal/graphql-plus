@@ -12,7 +12,7 @@ public class ParseSchemaTests(
 {
   protected override async Task Result_Valid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")
   {
-    if (section.IsWhiteSpace()) {
+    if (string.IsNullOrWhiteSpace(section)) {
       IGqlpSchema ast = result.Required();
 
       await CheckErrors(dirs, test, ast.Errors);

@@ -82,7 +82,7 @@ internal abstract class CheckModelBase<TName, TSrc, TAst, TModel, TResult>
 
   protected static IEnumerable<string> ItemsExpected<TItem>(string field, TItem[]? items, ToExpected<TItem> mapping)
     => items == null || items.Length == 0 ? []
-      : field.IsWhiteSpace()
+      : string.IsNullOrWhiteSpace(field)
         ? items.SelectMany(i => mapping(i))
         : items.SelectMany(i => mapping(i)).Prepend(field);
 
@@ -136,7 +136,7 @@ internal static class CheckModelBaseHelper
         key = named.Name;
       }
 
-      if (!key.IsWhiteSpace()) {
+      if (!string.IsNullOrWhiteSpace(key)) {
         check.TypeKinds[key] = kind;
       }
     }

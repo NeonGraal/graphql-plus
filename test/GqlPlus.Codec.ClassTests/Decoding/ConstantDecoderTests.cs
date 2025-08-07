@@ -11,7 +11,7 @@ public class ConstantDecoderTests
   protected override ConstantModel? ExpectedNumber(decimal value)
     => new(SimpleModel.Num(value));
   protected override ConstantModel? ExpectedText(string value)
-    => value.IsWhiteSpace() ? null : new(SimpleModel.Str(value));
+    => string.IsNullOrWhiteSpace(value) ? null : new(SimpleModel.Str(value));
   protected override ConstantModel? ExpectedList(string value)
     => new([ExpectedText(value)!]);
   protected override ConstantModel? ExpectedDict(string key, string value)

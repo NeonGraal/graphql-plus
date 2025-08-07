@@ -80,7 +80,7 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
 
     void AddCheckError(string errPrefix, string errSuffix, bool check = true)
     {
-      if (errSuffix.IsWhiteSpace()) {
+      if (string.IsNullOrWhiteSpace(errSuffix)) {
         context.AddError(reference, reference.Label + suffix, $"{errPrefix}", check);
       } else {
         context.AddError(reference, reference.Label + suffix, $"{errPrefix} {typeName}. {errSuffix}", check);

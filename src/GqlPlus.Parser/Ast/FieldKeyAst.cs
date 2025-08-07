@@ -41,7 +41,7 @@ internal sealed record class FieldKeyAst(
   public int CompareTo(IGqlpFieldKey? other)
     => this switch {
       { Number: not null } => decimal.Compare(Number.Value, other?.Number ?? 0),
-      { EnumValue: not null } when !EnumValue.IsWhiteSpace()
+      { EnumValue: not null } when !string.IsNullOrWhiteSpace(EnumValue)
         => string.Compare(EnumValue, other?.EnumValue, StringComparison.Ordinal),
       { Text: not null } when !string.IsNullOrEmpty(Text)
         => string.Compare(Text, other?.Text, StringComparison.Ordinal),
@@ -53,7 +53,7 @@ internal sealed record class FieldKeyAst(
       .Append(this switch {
         { Number: not null }
           => Number?.ToString(CultureInfo.InvariantCulture),
-        { EnumValue: not null } when !EnumValue.IsWhiteSpace()
+        { EnumValue: not null } when !string.IsNullOrWhiteSpace(EnumValue)
           => EnumValue,
         { Text: not null }
           => $"'{Text}'",

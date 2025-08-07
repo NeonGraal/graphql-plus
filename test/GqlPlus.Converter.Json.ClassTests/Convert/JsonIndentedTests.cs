@@ -88,7 +88,7 @@ public class JsonIndentedTests
 
     Func<int, string> itemClose = MakeClose(input.Length - 1, "  }");
     string[] tags = [$"  \"$tag\": \"{tag}\","];
-    if (tag.IsWhiteSpace()) {
+    if (string.IsNullOrWhiteSpace(tag)) {
       tags = [];
     }
 

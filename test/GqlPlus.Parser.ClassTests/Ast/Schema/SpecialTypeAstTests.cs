@@ -10,5 +10,5 @@ public class SpecialTypeAstTests
     => $"( {DescriptionNameString("_" + input, description)}{SpecialTypeAstTests.SpecialTypeAliases(input, aliases)} )";
 
   protected static string SpecialTypeAliases(string input, string aliases)
-    => aliases.IsWhiteSpace() ? $" [ {input} ]" : aliases;
+    => string.IsNullOrWhiteSpace(aliases) ? $" [ {input} ]" : aliases;
 }

@@ -17,7 +17,7 @@ internal class MergeTypeParams
     TypeParamAst ast = (TypeParamAst)asts.First();
     string[] constraint = [.. asts
       .Select(p => p.Constraint)
-      .Where(c => !c.IsWhiteSpace())
+      .Where(c => !string.IsNullOrWhiteSpace(c))
       .Distinct()];
 
     if (constraint.Length > 1) {

@@ -23,7 +23,7 @@ internal sealed class OutputModelChecks(
     };
 
   internal override IGqlpOutputBase? NewParentAst(string? input)
-    => input.IsWhiteSpace() ? null : new OutputBaseAst(AstNulls.At, input!);
+    => string.IsNullOrWhiteSpace(input) ? null : new OutputBaseAst(AstNulls.At, input!);
 }
 
 public interface IOutputModelChecks

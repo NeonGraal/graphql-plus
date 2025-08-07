@@ -98,7 +98,7 @@ public static class RenderLines
   private static void WriteFlowMap(StringBuilder flow, string tag, ComplexValue<StructureValue, Structured>.IDict map, int indent)
   {
     string prefix = "{";
-    if (!tag.IsWhiteSpace()) {
+    if (!string.IsNullOrWhiteSpace(tag)) {
       if (indent > 0) {
         flow.Append(' ');
       }
@@ -122,7 +122,7 @@ public static class RenderLines
   {
     string prefix = "";
 
-    if (!tag.IsWhiteSpace()) {
+    if (!string.IsNullOrWhiteSpace(tag)) {
       if (indent > 0) {
         sb.Append(' ');
         prefix = new(' ', indent * 2 - 1);

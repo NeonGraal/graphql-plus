@@ -43,7 +43,7 @@ public abstract class AstNamedTests<TInput>
     => $"( {DescriptionNameString(input, description)} )";
 
   protected string DescriptionNameString(TInput input, string description)
-    => description.IsWhiteSpace()
+    => string.IsNullOrWhiteSpace(description)
       ? $"!{NamedChecks.Abbr} {InputName(input)}"
       : $"'{description}' !{NamedChecks.Abbr} {InputName(input)}";
 

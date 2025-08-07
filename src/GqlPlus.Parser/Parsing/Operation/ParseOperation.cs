@@ -49,7 +49,7 @@ internal class ParseOperation(
       return tokens.Partial(label, "identifier to follow ':'", Final);
     }
 
-    if (!result.IsWhiteSpace()) {
+    if (!string.IsNullOrWhiteSpace(result)) {
       ast.ResultType = result;
       IResult<IGqlpArg> argument = _argument.I.Parse(tokens, "Arg");
       if (!argument.Optional(value => ast.Arg = value)) {

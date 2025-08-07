@@ -15,7 +15,7 @@ public abstract class GenerateSchemaTestBase(
   {
     string result = checks.Generate_ForAsts(BaseType, GeneratorType, asts, test, label, input);
 
-    if (!result.IsWhiteSpace()) {
+    if (!string.IsNullOrWhiteSpace(result)) {
       await Verify(result, CustomSettings(label, $"Generate_{GeneratorType}", test, section, scrubEmptyLines: false));
     }
   }
@@ -40,7 +40,7 @@ internal sealed class SchemaGeneratorChecks(
     schemaGenerator.Generate(schema, context);
 
     string result = context.ToString();
-    if (!result.IsWhiteSpace() && !input.IsWhiteSpace()) {
+    if (!string.IsNullOrWhiteSpace(result) && !string.IsNullOrWhiteSpace(input)) {
       result = "/* " + test + "\r\n" + input.TrimEnd() + "\r\n*/\r\n\r\n" + result;
     }
 

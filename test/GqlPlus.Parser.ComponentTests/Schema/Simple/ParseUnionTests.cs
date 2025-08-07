@@ -43,7 +43,7 @@ internal sealed class ParseUnionChecks(
     => input.Type + aliases + "{" + input.Member + "}";
   protected override string ParentString(UnionInput input, string aliases, string? parent)
     => input.Type + aliases + "{" +
-    (parent.IsWhiteSpace() ? "" : $":{parent} ") +
+    (string.IsNullOrWhiteSpace(parent) ? "" : $":{parent} ") +
     input.Member + "}";
 }
 

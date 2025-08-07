@@ -20,7 +20,7 @@ internal class ParseDirectives(
       return tokens.ErrorArray(label, "identifier after '@'", result);
     }
 
-    while (!name.IsWhiteSpace()) {
+    while (!string.IsNullOrWhiteSpace(name)) {
       DirectiveAst directive = new(at, name!);
       result.Add(directive);
 

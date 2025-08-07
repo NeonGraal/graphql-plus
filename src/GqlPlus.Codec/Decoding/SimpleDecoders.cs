@@ -2,17 +2,6 @@
 
 namespace GqlPlus.Decoding;
 
-internal class EnumValueDecoder
-  : ScalarDecoder<EnumValueModel>
-{
-  protected override IMessages DecodeBoolean(bool? boolValue, out EnumValueModel? output)
-    => Error($"Unable to decode Boolean to {Tag}", output = null);
-  protected override IMessages DecodeNumber(decimal? numValue, out EnumValueModel? output)
-    => Error($"Unable to decode Number to {Tag}", output = null);
-  protected override IMessages DecodeText(string strValue, out EnumValueModel? output)
-    => Ok(output = new(Tag, strValue, ""));
-}
-
 internal interface INameFilterDecoder
   : IDecoder<string>
 { }

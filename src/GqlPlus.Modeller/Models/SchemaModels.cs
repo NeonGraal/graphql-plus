@@ -63,9 +63,6 @@ public record class FilterModel(
 public record class CategoryFilterModel
   : FilterModel
 {
-  public CategoryFilterModel(string[] names)
-  : base(names) { }
-
   public CategoryFilterModel(FilterModel filter)
     : base(filter) { }
 
@@ -75,9 +72,6 @@ public record class CategoryFilterModel
 public record class TypeFilterModel
   : FilterModel
 {
-  public TypeFilterModel(string[] names)
-    : base(names) { }
-
   public TypeFilterModel(FilterModel filter)
     : base(filter) { }
 

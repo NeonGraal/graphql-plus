@@ -2246,12 +2246,14 @@ types: !_Map_Type
   !_Identifier DmnBoolDescr: !_DomainBoolean
     allItems:
     - !_DomainItem(_DomainTrueFalse)
+      description: 'DomBool Descr'
       domain: DmnBoolDescr
       exclude: false
       value: true
     domainKind: !_DomainKind Boolean
     items:
     - !_DomainTrueFalse
+      description: 'DomBool Descr'
       exclude: false
       value: true
     name: DmnBoolDescr
@@ -2352,6 +2354,7 @@ types: !_Map_Type
   !_Identifier DmnEnumAllDescr: !_DomainEnum
     allItems:
     - !_DomainItem(_DomainLabel)
+      description: 'DomAll Descr'
       domain: DmnEnumAllDescr
       exclude: false
       value: !_EnumValue
@@ -2361,6 +2364,7 @@ types: !_Map_Type
     domainKind: !_DomainKind Enum
     items:
     - !_DomainLabel
+      description: 'DomAll Descr'
       exclude: false
       value: !_EnumValue
         label: '*'
@@ -2390,6 +2394,7 @@ types: !_Map_Type
   !_Identifier DmnEnumDescr: !_DomainEnum
     allItems:
     - !_DomainItem(_DomainLabel)
+      description: 'DomEnum Descr'
       domain: DmnEnumDescr
       exclude: false
       value: !_EnumValue
@@ -2399,6 +2404,7 @@ types: !_Map_Type
     domainKind: !_DomainKind Enum
     items:
     - !_DomainLabel
+      description: 'DomEnum Descr'
       exclude: false
       value: !_EnumValue
         label: dmnEnumDescr
@@ -2580,12 +2586,14 @@ types: !_Map_Type
   !_Identifier DmnNmbrDescr: !_DomainNumber
     allItems:
     - !_DomainItem(_DomainRange)
+      description: 'DomNumber Descr'
       domain: DmnNmbrDescr
       exclude: false
       to: 2
     domainKind: !_DomainKind Number
     items:
     - !_DomainRange
+      description: 'DomNumber Descr'
       exclude: false
       to: 2
     name: DmnNmbrDescr
@@ -2668,12 +2676,14 @@ types: !_Map_Type
   !_Identifier DmnStrDescr: !_DomainString
     allItems:
     - !_DomainItem(_DomainRegex)
+      description: 'DomString Descr'
       domain: DmnStrDescr
       exclude: false
       pattern: a+
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
+      description: 'DomString Descr'
       exclude: false
       pattern: a+
     name: DmnStrDescr

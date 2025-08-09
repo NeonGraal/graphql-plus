@@ -6,12 +6,26 @@ public class DomainRegexEncoderTests
   protected override IEncoder<DomainRegexModel> Encoder { get; }
     = new DomainRegexEncoder();
 
-  protected override string[] ItemExpected(string item, bool excluded)
+  protected override string[] ItemExpected(string item, bool excluded, string description)
     => ["!_DomainRegex",
+        "description: " + description.Quoted("'"),
         "exclude: " + excluded.TrueFalse(),
         "pattern: " + item
         ];
-  protected override DomainRegexModel NewItem(string item, bool excluded) => new(item, excluded);
+  protected override DomainRegexModel NewItem(string item, bool excluded, string description) => new(item, excluded, description);
+}
+
+public class DomainItemRegexEncoderTests
+  : DomainAllEncoderTestBase<DomainRegexModel, string>
+{
+  protected override string[] AllExpected(string name, string item, string description)
+    => ["!_DomainItem(_DomainRegex)",
+        "domain: " + name,
+        $"value: !_ItemModel '{item}'"
+        ];
+
+  protected override DomainRegexModel NewItem(string item, string description)
+    => new(item, false, description);
 }
 
 public class DomainStringEncoderTests
@@ -19,5 +33,5 @@ public class DomainStringEncoderTests
 {
   protected override DomainKindModel DomainKind => DomainKindModel.String;
 
-  protected override DomainRegexModel NewItem(string item) => new(item, false);
+  protected override DomainRegexModel NewItem(string item) => new(item, false, "");
 }

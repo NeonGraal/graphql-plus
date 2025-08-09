@@ -4,7 +4,7 @@ input Request {
         definition: _Operation
         parameters: Any? = null
     |   "Parsed into definition" String
-}
+    }
 
 domain _Identifier { String /[A-Za-z_][A-Za-z0-9_]*/ }
 

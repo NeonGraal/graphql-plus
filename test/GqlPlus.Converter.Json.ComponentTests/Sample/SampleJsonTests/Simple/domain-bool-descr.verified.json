@@ -7,6 +7,7 @@
       "allItems": [
         {
           "$tag": "_DomainItem(_DomainTrueFalse)",
+          "description": "DomBool Descr",
           "domain": "DmnBoolDescr",
           "exclude": false,
           "value": true
@@ -19,6 +20,7 @@
       "items": [
         {
           "$tag": "_DomainTrueFalse",
+          "description": "DomBool Descr",
           "exclude": false,
           "value": true
         }

@@ -33,11 +33,11 @@ public abstract class DomainItemEncoderTestBase<TItem, TInput>
   where TItem : BaseDomainItemModel
 {
   [Theory, RepeatData]
-  public void Encode_WithItem_ReturnsStructured(TInput item, bool excluded)
-    => EncodeAndCheck(NewItem(item, excluded), ItemExpected(item, excluded));
+  public void Encode_WithItem_ReturnsStructured(TInput item, bool excluded, string contents)
+    => EncodeAndCheck(NewItem(item, excluded, contents), ItemExpected(item, excluded, contents));
 
-  protected abstract string[] ItemExpected(TInput item, bool excluded);
-  protected abstract TItem NewItem(TInput item, bool excluded);
+  protected abstract string[] ItemExpected(TInput item, bool excluded, string description);
+  protected abstract TItem NewItem(TInput item, bool excluded, string description);
 }
 
 public abstract class DomainAllEncoderTestBase<TItem, TInput>
@@ -56,12 +56,12 @@ public abstract class DomainAllEncoderTestBase<TItem, TInput>
   protected override IEncoder<DomainItemModel<TItem>> Encoder { get; }
 
   [Theory, RepeatData]
-  public void Encode_WithItem_ReturnsStructured(string name, TInput item)
+  public void Encode_WithItem_ReturnsStructured(string name, TInput item, string contents)
   {
     EncodeReturnsMap(Item, "_ItemModel", item);
-    EncodeAndCheck(new(NewItem(item), name), AllExpected(name, item));
+    EncodeAndCheck(new(NewItem(item, contents), name), AllExpected(name, item, contents));
   }
 
-  protected abstract string[] AllExpected(string name, TInput item);
-  protected abstract TItem NewItem(TInput item);
+  protected abstract string[] AllExpected(string name, TInput item, string description);
+  protected abstract TItem NewItem(TInput item, string description);
 }

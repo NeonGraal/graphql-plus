@@ -1,5 +1,72 @@
 ﻿!_Schema
 types: !_Map_Type
+  !_Identifier _Modifier: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: modifierKind
+      object: _Modifier
+      type: !_InputBase
+        name: _ModifierKind
+    - !_ObjectFor(_InputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: by
+      object: _Modifier
+      type: !_InputBase
+        name: _Identifier
+    - !_ObjectFor(_InputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: optional
+      object: _Modifier
+      type: !_InputBase
+        name: Boolean
+    fields:
+    - !_InputField
+      name: modifierKind
+      type: !_InputBase
+        name: _ModifierKind
+    - !_InputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: by
+      type: !_InputBase
+        name: _Identifier
+    - !_InputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: optional
+      type: !_InputBase
+        name: Boolean
+    name: _Modifier
+    typeKind: !_TypeKind Input
+  !_Identifier _ModifierKind: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      aliases: [Optional]
+      enum: _ModifierKind
+      name: Opt
+    - !_EnumLabel
+      enum: _ModifierKind
+      name: List
+    - !_EnumLabel
+      aliases: [Dictionary]
+      enum: _ModifierKind
+      name: Dict
+    - !_EnumLabel
+      aliases: [TypeParam]
+      enum: _ModifierKind
+      name: Param
+    items:
+    - !_Aliased
+      aliases: [Optional]
+      name: Opt
+    - !_Aliased
+      name: List
+    - !_Aliased
+      aliases: [Dictionary]
+      name: Dict
+    - !_Aliased
+      aliases: [TypeParam]
+      name: Param
+    name: _ModifierKind
+    typeKind: !_TypeKind Enum
   !_Identifier _OpDirective: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
@@ -49,10 +116,11 @@ types: !_Map_Type
         description: 'Todo: _OpArgument'
         name: String
     - !_ObjectFor(_InputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
       object: _OpField
       type: !_InputBase
-        name: _Modifiers
+        name: _Modifier
     - !_ObjectFor(_InputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives
@@ -83,9 +151,10 @@ types: !_Map_Type
         description: 'Todo: _OpArgument'
         name: String
     - !_InputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
       type: !_InputBase
-        name: _Modifiers
+        name: _Modifier
     - !_InputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives
@@ -299,7 +368,7 @@ types: !_Map_Type
       name: modifiers
       object: _OpVariable
       type: !_InputBase
-        name: _Modifiers
+        name: _Modifier
     - !_ObjectFor(_InputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: default
@@ -328,7 +397,7 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
       type: !_InputBase
-        name: _Modifiers
+        name: _Modifier
     - !_InputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: default

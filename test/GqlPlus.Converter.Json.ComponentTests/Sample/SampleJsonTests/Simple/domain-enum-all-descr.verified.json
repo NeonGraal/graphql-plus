@@ -7,6 +7,7 @@
       "allItems": [
         {
           "$tag": "_DomainItem(_DomainLabel)",
+          "description": "DomAll Descr",
           "domain": "DmnEnumAllDescr",
           "exclude": false,
           "value": {
@@ -27,6 +28,7 @@
       "items": [
         {
           "$tag": "_DomainLabel",
+          "description": "DomAll Descr",
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",

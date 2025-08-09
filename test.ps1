@@ -1,6 +1,7 @@
 [CmdletBinding()]
 param (
   $Section = "",
+  $Filter = "",
   [switch]$ClassTests = $false,
   [switch]$Html = $false,
   $Framework = "9.0"
@@ -11,6 +12,8 @@ $test += "--logger","trx;LogFileName=TestResults-$Framework.trx","--framework","
 
 if ($Section) {
   $test += "--filter", ".$Section."
+} elseif ($Filter) {
+  $test += "--filter", $Filter
 }
 if ($ClassTests) {
   $test += @("GqlPlus.ClassTests.slnf")

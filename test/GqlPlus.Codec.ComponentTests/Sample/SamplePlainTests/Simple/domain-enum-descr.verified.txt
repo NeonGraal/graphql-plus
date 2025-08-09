@@ -3,6 +3,7 @@ types: !_Map_Type
   !_Identifier DmnEnumDescr: !_DomainEnum
     allItems:
       - !_DomainItem(_DomainLabel)
+        description: 'DomEnum Descr'
         domain: DmnEnumDescr
         exclude: false
         value: !_EnumValue
@@ -12,6 +13,7 @@ types: !_Map_Type
     domainKind: !_DomainKind Enum
     items:
       - !_DomainLabel
+        description: 'DomEnum Descr'
         exclude: false
         value: !_EnumValue
           label: dmnEnumDescr

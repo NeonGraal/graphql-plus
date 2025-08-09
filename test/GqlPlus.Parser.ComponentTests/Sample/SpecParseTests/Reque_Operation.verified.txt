@@ -53,7 +53,7 @@ Success
     modifiers
     :
     I@020/0012
-    _Modifiers
+    _Modifier
     []
     !IF I@009/0013
     default
@@ -145,96 +145,141 @@ Success
   }
 }
 {
-  !In I@007/0035
+  !En I@006/0035
+  _ModifierKind
+  !EL I@022/0035
+  Opt
+  [
+    Optional
+  ]
+  !EL I@036/0035
+  List
+  !EL I@041/0035
+  Dict
+  [
+    Dictionary
+  ]
+  !EL I@058/0035
+  Param
+  [
+    TypeParam
+  ]
+}
+{
+  !In I@007/0037
+  _Modifier
+  {
+    !IF I@009/0038
+    modifierKind
+    :
+    I@023/0038
+    _ModifierKind
+    !IF I@009/0039
+    by
+    :
+    I@013/0039
+    _Identifier
+    ?
+    !IF I@009/0040
+    optional
+    :
+    I@019/0040
+    Boolean
+    ?
+  }
+}
+{
+  !In I@007/0043
   _OpObject
   |
-  I@009/0036
+  I@009/0044
   _OpField
-  I@009/0037
+  I@009/0045
   _OpSpread
-  I@009/0038
+  I@009/0046
   _OpInline
 }
 {
-  !In I@007/0041
+  !In I@007/0049
   _OpField
   {
-    !IF I@009/0042
+    !IF I@009/0050
     alias
     :
-    I@016/0042
+    I@016/0050
     _Identifier
     ?
-    =( !k I@031/0042 Null.null )
-    !IF I@009/0043
+    =( !k I@031/0050 Null.null )
+    !IF I@009/0051
     field
     :
-    I@016/0043
+    I@016/0051
     _Identifier
-    !IF I@009/0044
+    !IF I@009/0052
     argument
     :
     'Todo: _OpArgument'
-    I@039/0044
+    I@039/0052
     String
     ?
-    !IF I@009/0045
+    !IF I@009/0053
     modifiers
     :
-    I@020/0045
-    _Modifiers
-    !IF I@009/0046
+    I@020/0053
+    _Modifier
+    []
+    !IF I@009/0054
     directives
     :
-    I@021/0046
+    I@021/0054
     _OpDirective
     []
-    !IF I@009/0047
+    !IF I@009/0055
     body
     :
-    I@015/0047
+    I@015/0055
     _OpObject
     []
   }
 }
 {
-  !In I@007/0050
+  !In I@007/0058
   _OpInline
   {
-    !IF I@009/0051
+    !IF I@009/0059
     type
     :
-    I@015/0051
+    I@015/0059
     _Identifier
     ?
-    =( !k I@030/0051 Null.null )
-    !IF I@009/0052
+    =( !k I@030/0059 Null.null )
+    !IF I@009/0060
     directives
     :
-    I@021/0052
+    I@021/0060
     _OpDirective
     []
-    !IF I@009/0053
+    !IF I@009/0061
     body
     :
-    I@015/0053
+    I@015/0061
     _OpObject
     []
   }
 }
 {
-  !Du I@006/0056
+  !Du I@006/0064
   _OpSpread
   {
-    !DF I@009/0057
+    !DF I@009/0065
     fragment
     :
-    I@019/0057
+    I@019/0065
     _Identifier
-    !DF I@009/0058
+    !DF I@009/0066
     directives
     :
-    I@021/0058
+    I@021/0066
     _OpDirective
     []
   }

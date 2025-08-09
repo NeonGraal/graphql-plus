@@ -2,6 +2,159 @@
   "$tag": "_Schema",
   "types": {
     "$tag": "_Map_Type",
+    "_Modifier": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "modifierKind",
+          "object": "_Modifier",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "_ModifierKind"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "by",
+          "object": "_Modifier",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "_Identifier"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "optional",
+          "object": "_Modifier",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "Boolean"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "modifierKind",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "_ModifierKind"
+          }
+        },
+        {
+          "$tag": "_InputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "by",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "_Identifier"
+          }
+        },
+        {
+          "$tag": "_InputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "optional",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "Boolean"
+          }
+        }
+      ],
+      "name": "_Modifier",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "_ModifierKind": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "aliases": ["Optional"],
+          "enum": "_ModifierKind",
+          "name": "Opt"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "_ModifierKind",
+          "name": "List"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "aliases": ["Dictionary"],
+          "enum": "_ModifierKind",
+          "name": "Dict"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "aliases": ["TypeParam"],
+          "enum": "_ModifierKind",
+          "name": "Param"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "aliases": ["Optional"],
+          "name": "Opt"
+        },
+        {
+          "$tag": "_Aliased",
+          "name": "List"
+        },
+        {
+          "$tag": "_Aliased",
+          "aliases": ["Dictionary"],
+          "name": "Dict"
+        },
+        {
+          "$tag": "_Aliased",
+          "aliases": ["TypeParam"],
+          "name": "Param"
+        }
+      ],
+      "name": "_ModifierKind",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
     "_OpDirective": {
       "$tag": "_TypeDual",
       "allFields": [
@@ -278,11 +431,20 @@
         },
         {
           "$tag": "_ObjectFor(_InputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
           "name": "modifiers",
           "object": "_OpField",
           "type": {
             "$tag": "_InputBase",
-            "name": "_Modifiers"
+            "name": "_Modifier"
           }
         },
         {
@@ -372,10 +534,19 @@
         },
         {
           "$tag": "_InputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
           "name": "modifiers",
           "type": {
             "$tag": "_InputBase",
-            "name": "_Modifiers"
+            "name": "_Modifier"
           }
         },
         {
@@ -983,7 +1154,7 @@
           "object": "_OpVariable",
           "type": {
             "$tag": "_InputBase",
-            "name": "_Modifiers"
+            "name": "_Modifier"
           }
         },
         {
@@ -1068,7 +1239,7 @@
           "name": "modifiers",
           "type": {
             "$tag": "_InputBase",
-            "name": "_Modifiers"
+            "name": "_Modifier"
           }
         },
         {

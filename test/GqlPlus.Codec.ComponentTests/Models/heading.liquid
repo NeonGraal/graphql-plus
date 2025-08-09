@@ -2,7 +2,8 @@
   <div class="grid">
     <div>
       <h2>
-        <sup>{{ label }}</sup> {{ dec.name }}
+        <sup>{{ label }}</sup>
+        {%- render "descr", name: dec.name, descr: dec.description -%}
       </h2>
     </div>
     <div>

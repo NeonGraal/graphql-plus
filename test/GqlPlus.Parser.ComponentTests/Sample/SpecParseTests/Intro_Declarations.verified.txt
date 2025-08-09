@@ -62,7 +62,7 @@ Success
   _Identifier
   String
   !DX R@029/0009
-  /[A-Za-z_]+/
+  /[A-Za-z_][A-Za-z0-9_]*/
 }
 {
   !In I@007/0011

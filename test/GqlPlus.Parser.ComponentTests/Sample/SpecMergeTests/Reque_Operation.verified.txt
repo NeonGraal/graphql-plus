@@ -1,0 +1,243 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !In I@007/0001
+  _Operation
+  {
+    !IF I@009/0002
+    variables
+    :
+    I@020/0002
+    _OpVariable
+    []
+    !IF I@009/0003
+    directives
+    :
+    I@021/0003
+    _OpDirective
+    []
+    !IF I@009/0004
+    fragments
+    :
+    I@020/0004
+    _OpFragment
+    []
+    !IF I@009/0005
+    result
+    :
+    I@017/0005
+    _OpResult
+  }
+  |
+  'Parsed into above fields'
+  S@007/0006
+  String
+}
+{
+  !In I@007/0009
+  _OpVariable
+  {
+    !IF I@009/0010
+    name
+    :
+    I@015/0010
+    _Identifier
+    !IF I@009/0011
+    type
+    :
+    I@015/0011
+    _Identifier
+    ?
+    =( !k I@030/0011 Null.null )
+    !IF I@009/0012
+    modifiers
+    :
+    I@020/0012
+    _Modifiers
+    []
+    !IF I@009/0013
+    default
+    :
+    'Todo: _OpDefault'
+    I@037/0013
+    String
+    ?
+    !IF I@009/0014
+    directives
+    :
+    I@021/0014
+    _OpDirective
+    []
+  }
+}
+{
+  !Du I@006/0017
+  _OpDirective
+  {
+    !DF I@009/0018
+    name
+    :
+    I@015/0018
+    _Identifier
+    !DF I@009/0019
+    argument
+    :
+    'Todo: _OpArgument'
+    I@039/0019
+    String
+    ?
+  }
+}
+{
+  !In I@007/0022
+  _OpFragment
+  {
+    !IF I@009/0023
+    name
+    :
+    I@015/0023
+    _Identifier
+    !IF I@009/0024
+    type
+    :
+    I@015/0024
+    _Identifier
+    ?
+    =( !k I@030/0024 Null.null )
+    !IF I@009/0025
+    directives
+    :
+    I@021/0025
+    _OpDirective
+    []
+    !IF I@009/0026
+    body
+    :
+    I@015/0026
+    _OpObject
+    []
+  }
+}
+{
+  !In I@007/0029
+  _OpResult
+  {
+    !IF I@009/0030
+    domain
+    :
+    I@017/0030
+    _Identifier
+    ?
+    =( !k I@032/0030 Null.null )
+    !IF I@009/0031
+    argument
+    :
+    'Todo: _OpArgument'
+    I@039/0031
+    String
+    ?
+    !IF I@009/0032
+    body
+    :
+    I@015/0032
+    _OpObject
+    []
+  }
+}
+{
+  !In I@007/0035
+  _OpObject
+  |
+  I@009/0036
+  _OpField
+  I@009/0037
+  _OpSpread
+  I@009/0038
+  _OpInline
+}
+{
+  !In I@007/0041
+  _OpField
+  {
+    !IF I@009/0042
+    alias
+    :
+    I@016/0042
+    _Identifier
+    ?
+    =( !k I@031/0042 Null.null )
+    !IF I@009/0043
+    field
+    :
+    I@016/0043
+    _Identifier
+    !IF I@009/0044
+    argument
+    :
+    'Todo: _OpArgument'
+    I@039/0044
+    String
+    ?
+    !IF I@009/0045
+    modifiers
+    :
+    I@020/0045
+    _Modifiers
+    !IF I@009/0046
+    directives
+    :
+    I@021/0046
+    _OpDirective
+    []
+    !IF I@009/0047
+    body
+    :
+    I@015/0047
+    _OpObject
+    []
+  }
+}
+{
+  !In I@007/0050
+  _OpInline
+  {
+    !IF I@009/0051
+    type
+    :
+    I@015/0051
+    _Identifier
+    ?
+    =( !k I@030/0051 Null.null )
+    !IF I@009/0052
+    directives
+    :
+    I@021/0052
+    _OpDirective
+    []
+    !IF I@009/0053
+    body
+    :
+    I@015/0053
+    _OpObject
+    []
+  }
+}
+{
+  !Du I@006/0056
+  _OpSpread
+  {
+    !DF I@009/0057
+    fragment
+    :
+    I@019/0057
+    _Identifier
+    !DF I@009/0058
+    directives
+    :
+    I@021/0058
+    _OpDirective
+    []
+  }
+}
+]

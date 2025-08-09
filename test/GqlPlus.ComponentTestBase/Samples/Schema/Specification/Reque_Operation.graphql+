@@ -1,0 +1,59 @@
+input _Operation {
+        variables: _OpVariable[]
+        directives: _OpDirective[]
+        fragments: _OpFragment[]
+        result: _OpResult
+    | "Parsed into above fields" String
+}
+
+input _OpVariable {
+        name: _Identifier
+        type: _Identifier? = null
+        modifiers: _Modifiers[]
+        default: "Todo: _OpDefault" String?
+        directives: _OpDirective[]
+}
+
+dual _OpDirective {
+        name: _Identifier
+        argument: "Todo: _OpArgument" String?
+}
+
+input _OpFragment {
+        name: _Identifier
+        type: _Identifier? = null
+        directives: _OpDirective[]
+        body: _OpObject[]
+}
+
+input _OpResult {
+        domain: _Identifier? = null
+        argument: "Todo: _OpArgument" String?
+        body: _OpObject[]
+}
+
+input _OpObject {
+    |   _OpField
+    |   _OpSpread
+    |   _OpInline
+}
+
+input _OpField {
+        alias: _Identifier? = null
+        field: _Identifier
+        argument: "Todo: _OpArgument" String?
+        modifiers: _Modifiers
+        directives: _OpDirective[]
+        body: _OpObject[]
+}
+
+input _OpInline {
+        type: _Identifier? = null
+        directives: _OpDirective[]
+        body: _OpObject[]
+}
+
+dual _OpSpread {
+        fragment: _Identifier
+        directives: _OpDirective[]}
+

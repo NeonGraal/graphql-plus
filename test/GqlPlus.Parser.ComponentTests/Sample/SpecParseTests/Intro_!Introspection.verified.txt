@@ -1,5 +1,4 @@
-﻿[  
-!Sc I@001/0001
+﻿!Sc I@001/0001
 Success
 {
   !Ou I@008/0001
@@ -63,7 +62,7 @@ Success
   _Identifier
   String
   !DX R@029/0009
-  /[A-Za-z_]+/
+  /[A-Za-z_][A-Za-z0-9_]*/
 }
 {
   !In I@007/0011
@@ -221,12 +220,12 @@ Success
     I@021/0057
     _Resolution
     !OF I@009/0058
-    name
+    output
     :
-    I@015/0058
+    I@017/0058
     _TypeRef
     <
-      I@024/0058
+      I@026/0058
       _TypeKind.Output
     >
     !OF I@009/0059
@@ -1622,4 +1621,3 @@ Success
     _Identifier
   }
 }
-]

@@ -1,0 +1,79 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier Request: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: Request
+      type: !_InputBase
+        description: 'Parsed into definition'
+        name: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: category
+      object: Request
+      type: !_InputBase
+        name: _Identifier
+    - !_ObjectFor(_InputField)
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: operation
+      object: Request
+      type: !_InputBase
+        name: _Identifier
+    - !_ObjectFor(_InputField)
+      name: definition
+      object: Request
+      type: !_InputBase
+        name: _Operation
+    - !_ObjectFor(_InputField)
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: parameters
+      object: Request
+      type: !_InputBase
+        name: Any
+    alternates:
+    - !_InputAlternate
+      type: !_InputBase
+        description: 'Parsed into definition'
+        name: String
+    fields:
+    - !_InputField
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: category
+      type: !_InputBase
+        name: _Identifier
+    - !_InputField
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: operation
+      type: !_InputBase
+        name: _Identifier
+    - !_InputField
+      name: definition
+      type: !_InputBase
+        name: _Operation
+    - !_InputField
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: parameters
+      type: !_InputBase
+        name: Any
+    name: Request
+    typeKind: !_TypeKind Input
+  !_Identifier _Identifier: !_DomainString
+    allItems:
+    - !_DomainItem(_DomainRegex)
+      domain: _Identifier
+      exclude: false
+      pattern: '[A-Za-z_][A-Za-z0-9_]*'
+    domainKind: !_DomainKind String
+    items:
+    - !_DomainRegex
+      exclude: false
+      pattern: '[A-Za-z_][A-Za-z0-9_]*'
+    name: _Identifier
+    typeKind: !_TypeKind Domain

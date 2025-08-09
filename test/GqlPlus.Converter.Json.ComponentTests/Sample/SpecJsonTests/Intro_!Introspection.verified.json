@@ -701,7 +701,7 @@
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "name",
+          "name": "output",
           "object": "_Category",
           "type": {
             "$tag": "_OutputBase",
@@ -749,7 +749,7 @@
         },
         {
           "$tag": "_OutputField",
-          "name": "name",
+          "name": "output",
           "type": {
             "$tag": "_OutputBase",
             "name": "_TypeRef",
@@ -3328,7 +3328,7 @@
           "$tag": "_DomainItem(_DomainRegex)",
           "domain": "_Identifier",
           "exclude": false,
-          "pattern": "[A-Za-z_]\u002B"
+          "pattern": "[A-Za-z_][A-Za-z0-9_]*"
         }
       ],
       "domainKind": {
@@ -3339,7 +3339,7 @@
         {
           "$tag": "_DomainRegex",
           "exclude": false,
-          "pattern": "[A-Za-z_]\u002B"
+          "pattern": "[A-Za-z_][A-Za-z0-9_]*"
         }
       ],
       "name": "_Identifier",

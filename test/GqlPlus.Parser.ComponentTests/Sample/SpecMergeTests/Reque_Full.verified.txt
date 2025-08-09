@@ -1,0 +1,47 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !In I@007/0001
+  Request
+  {
+    !IF I@009/0002
+    category
+    :
+    I@019/0002
+    _Identifier
+    ?
+    =( !k I@034/0002 Null.null )
+    !IF I@009/0003
+    operation
+    :
+    I@020/0003
+    _Identifier
+    ?
+    =( !k I@035/0003 Null.null )
+    !IF I@009/0004
+    definition
+    :
+    I@021/0004
+    _Operation
+    !IF I@009/0005
+    parameters
+    :
+    I@021/0005
+    Any
+    ?
+    =( !k I@028/0005 Null.null )
+  }
+  |
+  'Parsed into definition'
+  S@009/0006
+  String
+}
+{
+  !Do I@008/0009
+  _Identifier
+  String
+  !DX R@029/0009
+  /[A-Za-z_][A-Za-z0-9_]*/
+}
+]

@@ -1,0 +1,212 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "_Identifier": {
+      "$tag": "_DomainString",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainRegex)",
+          "domain": "_Identifier",
+          "exclude": false,
+          "pattern": "[A-Za-z_][A-Za-z0-9_]*"
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "String"
+      },
+      "items": [
+        {
+          "$tag": "_DomainRegex",
+          "exclude": false,
+          "pattern": "[A-Za-z_][A-Za-z0-9_]*"
+        }
+      ],
+      "name": "_Identifier",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "Request": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "Request",
+          "type": {
+            "$tag": "_InputBase",
+            "description": "Parsed into definition",
+            "name": "String"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "default": {
+            "$tag": "Null",
+            "value": "null"
+          },
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "category",
+          "object": "Request",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "_Identifier"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "default": {
+            "$tag": "Null",
+            "value": "null"
+          },
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "operation",
+          "object": "Request",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "_Identifier"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "definition",
+          "object": "Request",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "_Operation"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "default": {
+            "$tag": "Null",
+            "value": "null"
+          },
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "parameters",
+          "object": "Request",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "Any"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "description": "Parsed into definition",
+            "name": "String"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "default": {
+            "$tag": "Null",
+            "value": "null"
+          },
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "category",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "_Identifier"
+          }
+        },
+        {
+          "$tag": "_InputField",
+          "default": {
+            "$tag": "Null",
+            "value": "null"
+          },
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "operation",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "_Identifier"
+          }
+        },
+        {
+          "$tag": "_InputField",
+          "name": "definition",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "_Operation"
+          }
+        },
+        {
+          "$tag": "_InputField",
+          "default": {
+            "$tag": "Null",
+            "value": "null"
+          },
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "parameters",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "Any"
+          }
+        }
+      ],
+      "name": "Request",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    }
+  }
+}

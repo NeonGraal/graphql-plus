@@ -1,0 +1,479 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier Request: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: Request
+      type: !_InputBase
+        description: 'Parsed into definition'
+        name: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: category
+      object: Request
+      type: !_InputBase
+        name: _Identifier
+    - !_ObjectFor(_InputField)
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: operation
+      object: Request
+      type: !_InputBase
+        name: _Identifier
+    - !_ObjectFor(_InputField)
+      name: definition
+      object: Request
+      type: !_InputBase
+        name: _Operation
+    - !_ObjectFor(_InputField)
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: parameters
+      object: Request
+      type: !_InputBase
+        name: Any
+    alternates:
+    - !_InputAlternate
+      type: !_InputBase
+        description: 'Parsed into definition'
+        name: String
+    fields:
+    - !_InputField
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: category
+      type: !_InputBase
+        name: _Identifier
+    - !_InputField
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: operation
+      type: !_InputBase
+        name: _Identifier
+    - !_InputField
+      name: definition
+      type: !_InputBase
+        name: _Operation
+    - !_InputField
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: parameters
+      type: !_InputBase
+        name: Any
+    name: Request
+    typeKind: !_TypeKind Input
+  !_Identifier _Identifier: !_DomainString
+    allItems:
+    - !_DomainItem(_DomainRegex)
+      domain: _Identifier
+      exclude: false
+      pattern: '[A-Za-z_][A-Za-z0-9_]*'
+    domainKind: !_DomainKind String
+    items:
+    - !_DomainRegex
+      exclude: false
+      pattern: '[A-Za-z_][A-Za-z0-9_]*'
+    name: _Identifier
+    typeKind: !_TypeKind Domain
+  !_Identifier _OpDirective: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _OpDirective
+      type: !_DualBase
+        name: _Identifier
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: argument
+      object: _OpDirective
+      type: !_DualBase
+        description: 'Todo: _OpArgument'
+        name: String
+    fields:
+    - !_DualField
+      name: name
+      type: !_DualBase
+        name: _Identifier
+    - !_DualField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: argument
+      type: !_DualBase
+        description: 'Todo: _OpArgument'
+        name: String
+    name: _OpDirective
+    typeKind: !_TypeKind Dual
+  !_Identifier _OpField: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: alias
+      object: _OpField
+      type: !_InputBase
+        name: _Identifier
+    - !_ObjectFor(_InputField)
+      name: field
+      object: _OpField
+      type: !_InputBase
+        name: _Identifier
+    - !_ObjectFor(_InputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: argument
+      object: _OpField
+      type: !_InputBase
+        description: 'Todo: _OpArgument'
+        name: String
+    - !_ObjectFor(_InputField)
+      name: modifiers
+      object: _OpField
+      type: !_InputBase
+        name: _Modifiers
+    - !_ObjectFor(_InputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      object: _OpField
+      type: !_DualBase
+        name: _OpDirective
+    - !_ObjectFor(_InputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: body
+      object: _OpField
+      type: !_InputBase
+        name: _OpObject
+    fields:
+    - !_InputField
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: alias
+      type: !_InputBase
+        name: _Identifier
+    - !_InputField
+      name: field
+      type: !_InputBase
+        name: _Identifier
+    - !_InputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: argument
+      type: !_InputBase
+        description: 'Todo: _OpArgument'
+        name: String
+    - !_InputField
+      name: modifiers
+      type: !_InputBase
+        name: _Modifiers
+    - !_InputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      type: !_DualBase
+        name: _OpDirective
+    - !_InputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: body
+      type: !_InputBase
+        name: _OpObject
+    name: _OpField
+    typeKind: !_TypeKind Input
+  !_Identifier _OpFragment: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: name
+      object: _OpFragment
+      type: !_InputBase
+        name: _Identifier
+    - !_ObjectFor(_InputField)
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: type
+      object: _OpFragment
+      type: !_InputBase
+        name: _Identifier
+    - !_ObjectFor(_InputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      object: _OpFragment
+      type: !_DualBase
+        name: _OpDirective
+    - !_ObjectFor(_InputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: body
+      object: _OpFragment
+      type: !_InputBase
+        name: _OpObject
+    fields:
+    - !_InputField
+      name: name
+      type: !_InputBase
+        name: _Identifier
+    - !_InputField
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: type
+      type: !_InputBase
+        name: _Identifier
+    - !_InputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      type: !_DualBase
+        name: _OpDirective
+    - !_InputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: body
+      type: !_InputBase
+        name: _OpObject
+    name: _OpFragment
+    typeKind: !_TypeKind Input
+  !_Identifier _OpInline: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: type
+      object: _OpInline
+      type: !_InputBase
+        name: _Identifier
+    - !_ObjectFor(_InputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      object: _OpInline
+      type: !_DualBase
+        name: _OpDirective
+    - !_ObjectFor(_InputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: body
+      object: _OpInline
+      type: !_InputBase
+        name: _OpObject
+    fields:
+    - !_InputField
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: type
+      type: !_InputBase
+        name: _Identifier
+    - !_InputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      type: !_DualBase
+        name: _OpDirective
+    - !_InputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: body
+      type: !_InputBase
+        name: _OpObject
+    name: _OpInline
+    typeKind: !_TypeKind Input
+  !_Identifier _OpObject: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: _OpObject
+      type: !_InputBase
+        name: _OpField
+    - !_ObjectFor(_InputAlternate)
+      object: _OpObject
+      type: !_DualBase
+        name: _OpSpread
+    - !_ObjectFor(_InputAlternate)
+      object: _OpObject
+      type: !_InputBase
+        name: _OpInline
+    alternates:
+    - !_InputAlternate
+      type: !_InputBase
+        name: _OpField
+    - !_InputAlternate
+      type: !_DualBase
+        name: _OpSpread
+    - !_InputAlternate
+      type: !_InputBase
+        name: _OpInline
+    name: _OpObject
+    typeKind: !_TypeKind Input
+  !_Identifier _OpResult: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: domain
+      object: _OpResult
+      type: !_InputBase
+        name: _Identifier
+    - !_ObjectFor(_InputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: argument
+      object: _OpResult
+      type: !_InputBase
+        description: 'Todo: _OpArgument'
+        name: String
+    - !_ObjectFor(_InputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: body
+      object: _OpResult
+      type: !_InputBase
+        name: _OpObject
+    fields:
+    - !_InputField
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: domain
+      type: !_InputBase
+        name: _Identifier
+    - !_InputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: argument
+      type: !_InputBase
+        description: 'Todo: _OpArgument'
+        name: String
+    - !_InputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: body
+      type: !_InputBase
+        name: _OpObject
+    name: _OpResult
+    typeKind: !_TypeKind Input
+  !_Identifier _OpSpread: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: fragment
+      object: _OpSpread
+      type: !_DualBase
+        name: _Identifier
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      object: _OpSpread
+      type: !_DualBase
+        name: _OpDirective
+    fields:
+    - !_DualField
+      name: fragment
+      type: !_DualBase
+        name: _Identifier
+    - !_DualField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      type: !_DualBase
+        name: _OpDirective
+    name: _OpSpread
+    typeKind: !_TypeKind Dual
+  !_Identifier _OpVariable: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: name
+      object: _OpVariable
+      type: !_InputBase
+        name: _Identifier
+    - !_ObjectFor(_InputField)
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: type
+      object: _OpVariable
+      type: !_InputBase
+        name: _Identifier
+    - !_ObjectFor(_InputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: modifiers
+      object: _OpVariable
+      type: !_InputBase
+        name: _Modifiers
+    - !_ObjectFor(_InputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: default
+      object: _OpVariable
+      type: !_InputBase
+        description: 'Todo: _OpDefault'
+        name: String
+    - !_ObjectFor(_InputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      object: _OpVariable
+      type: !_DualBase
+        name: _OpDirective
+    fields:
+    - !_InputField
+      name: name
+      type: !_InputBase
+        name: _Identifier
+    - !_InputField
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: type
+      type: !_InputBase
+        name: _Identifier
+    - !_InputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: modifiers
+      type: !_InputBase
+        name: _Modifiers
+    - !_InputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: default
+      type: !_InputBase
+        description: 'Todo: _OpDefault'
+        name: String
+    - !_InputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      type: !_DualBase
+        name: _OpDirective
+    name: _OpVariable
+    typeKind: !_TypeKind Input
+  !_Identifier _Operation: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: _Operation
+      type: !_InputBase
+        description: 'Parsed into above fields'
+        name: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: variables
+      object: _Operation
+      type: !_InputBase
+        name: _OpVariable
+    - !_ObjectFor(_InputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      object: _Operation
+      type: !_DualBase
+        name: _OpDirective
+    - !_ObjectFor(_InputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: fragments
+      object: _Operation
+      type: !_InputBase
+        name: _OpFragment
+    - !_ObjectFor(_InputField)
+      name: result
+      object: _Operation
+      type: !_InputBase
+        name: _OpResult
+    alternates:
+    - !_InputAlternate
+      type: !_InputBase
+        description: 'Parsed into above fields'
+        name: String
+    fields:
+    - !_InputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: variables
+      type: !_InputBase
+        name: _OpVariable
+    - !_InputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      type: !_DualBase
+        name: _OpDirective
+    - !_InputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: fragments
+      type: !_InputBase
+        name: _OpFragment
+    - !_InputField
+      name: result
+      type: !_InputBase
+        name: _OpResult
+    name: _Operation
+    typeKind: !_TypeKind Input

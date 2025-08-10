@@ -13,19 +13,19 @@ public abstract class TestSchemaInputs
     => await Label_Inputs("Sample", await SchemaValidDataGroup(group), "+" + group);
 
   [Theory]
-  [ClassData(typeof(SamplesSchemaMergesData))]
+  [ClassData(typeof(SamplesSchemaMergeData))]
   public async Task Test_Merges(string model)
-    => await ReplaceFileAsync("Merges", model, Sample_Input);
+    => await ReplaceFileAsync("Merge", model, Sample_Input);
 
   [Theory]
-  [ClassData(typeof(SamplesSchemaObjectsData))]
+  [ClassData(typeof(SamplesSchemaObjectData))]
   public async Task Test_Objects(string model)
-    => await ReplaceFileAsync("Objects", model, Sample_Input);
+    => await ReplaceFileAsync("Object", model, Sample_Input);
 
   [Theory]
-  [ClassData(typeof(SamplesSchemaGlobalsData))]
+  [ClassData(typeof(SamplesSchemaGlobalData))]
   public async Task Test_Globals(string global)
-    => await ReplaceFileAsync("Globals", global, Sample_Input);
+    => await ReplaceFileAsync("Global", global, Sample_Input);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaSimpleData))]

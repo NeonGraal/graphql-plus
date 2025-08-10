@@ -10,19 +10,19 @@ public abstract class TestSchemaResult(
 ) : TestSchemaInputs
 {
   [Theory]
-  [ClassData(typeof(SamplesSchemaMergesInvalidData))]
+  [ClassData(typeof(SamplesSchemaMergeInvalidData))]
   public async Task Test_MergesInvalid(string model)
-    => await ReplaceFileAsync("Merges/Invalid", model, SampleInvalid_Input);
+    => await ReplaceFileAsync("Merge/Invalid", model, SampleInvalid_Input);
 
   [Theory]
-  [ClassData(typeof(SamplesSchemaObjectsInvalidData))]
+  [ClassData(typeof(SamplesSchemaObjectInvalidData))]
   public async Task Test_ObjectsInvalid(string model)
-    => await ReplaceFileAsync("Objects/Invalid", model, SampleInvalid_Input);
+    => await ReplaceFileAsync("Object/Invalid", model, SampleInvalid_Input);
 
   [Theory]
-  [ClassData(typeof(SamplesSchemaGlobalsInvalidData))]
+  [ClassData(typeof(SamplesSchemaGlobalInvalidData))]
   public async Task Test_GlobalsInvalid(string global)
-    => await ReplaceFileAsync("Globals/Invalid", global, SampleInvalid_Input);
+    => await ReplaceFileAsync("Global/Invalid", global, SampleInvalid_Input);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaSimpleInvalidData))]

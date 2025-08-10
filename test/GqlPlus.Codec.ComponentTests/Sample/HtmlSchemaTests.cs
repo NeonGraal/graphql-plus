@@ -12,17 +12,17 @@ public class HtmlSchemaTests(
   [Fact]
   public async Task Index_Samples()
   {
-    string[] all = ["!ALL", "+Globals", "+Merges", "+Objects", "+Simple"];
+    string[] all = ["!ALL", "+Global", "+Merge", "+Object", "+Simple"];
 
-    IEnumerable<string> merges = await ReplaceSchemaKeys("Merges");
-    IEnumerable<string> objects = await ReplaceSchemaKeys("Objects");
+    IEnumerable<string> merges = await ReplaceSchemaKeys("Merge");
+    IEnumerable<string> objects = await ReplaceSchemaKeys("Object");
     Structured result = new Map<Structured>() {
       ["title"] = "Samples",
       ["items"] = all.Encode(),
       ["groups"] = new Map<Structured>() {
-        ["Globals"] = SamplesSchemaGlobalsData.Strings.Encode(),
-        ["Merges"] = merges.Encode(),
-        ["Objects"] = objects.Encode(),
+        ["Global"] = SamplesSchemaGlobalData.Strings.Encode(),
+        ["Merge"] = merges.Encode(),
+        ["Object"] = objects.Encode(),
         ["Simple"] = SamplesSchemaSimpleData.Strings.Encode(),
       }.Encode()
     }.Encode();

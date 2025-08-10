@@ -4,39 +4,30 @@ using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Sample;
 
+[Trait("Generate", "Html")]
 public class HtmlSchemaTests(
   ILoggerFactory logger,
   ISchemaVerifyChecks checks
 ) : TestSchemaVerify(logger, checks)
 {
   [Fact]
-  public async Task Index_Samples()
+  public async Task Index_Schema()
   {
     string[] all = ["!ALL", "+Global", "+Merge", "+Object", "+Simple"];
 
     IEnumerable<string> merges = await ReplaceSchemaKeys("Merge");
     IEnumerable<string> objects = await ReplaceSchemaKeys("Object");
     Structured result = new Map<Structured>() {
-      ["title"] = "Samples",
-      ["items"] = all.Encode(),
+      ["title"] = "Schema",
+      ["items"] = SamplesSchemaData.Strings.Encode(),
       ["groups"] = new Map<Structured>() {
+        ["All"] = all.Encode(),
         ["Global"] = SamplesSchemaGlobalData.Strings.Encode(),
         ["Merge"] = merges.Encode(),
         ["Object"] = objects.Encode(),
         ["Simple"] = SamplesSchemaSimpleData.Strings.Encode(),
       }.Encode()
     }.Encode();
-
-    await result.WriteHtmlFileAsync("Sample", "index", "index");
-  }
-
-  [Fact]
-  public async Task Index_Schema()
-  {
-    Structured result = new Map<Structured>() {
-      ["title"] = "Schema",
-      ["items"] = SamplesSchemaData.Strings.Encode(),
-    }.Encode("");
 
     await result.WriteHtmlFileAsync("Schema", "index", "index");
   }

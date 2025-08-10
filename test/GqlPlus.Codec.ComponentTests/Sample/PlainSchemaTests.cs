@@ -5,6 +5,8 @@ using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Sample;
 
+[Trait("Generate", "Yaml")]
+[Trait("Generate", "Plain")]
 public class PlainSchemaTests(
   ILoggerFactory logger,
   ISchemaVerifyChecks checks

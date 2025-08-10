@@ -5,12 +5,12 @@ public abstract class TestSchemaInputs
 {
   [Fact]
   public async Task Test_All()
-    => await Label_Inputs("Sample", await SchemaValidDataAll(), "!ALL");
+    => await Label_Inputs("Schema", await SchemaValidDataAll(), "!ALL");
 
   [Theory]
   [ClassData(typeof(SchemaValidData))]
   public async Task Test_Groups(string group)
-    => await Label_Inputs("Sample", await SchemaValidDataGroup(group), "+" + group);
+    => await Label_Inputs("Schema", await SchemaValidDataGroup(group), "+" + group);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaMergeData))]
@@ -60,5 +60,5 @@ public abstract class TestSchemaInputs
   }
 
   protected virtual Task Sample_Input(string input, string section, string test)
-    => Label_Input("Sample", input, [section], test, section);
+    => Label_Input("Schema", input, [section], test, section);
 }

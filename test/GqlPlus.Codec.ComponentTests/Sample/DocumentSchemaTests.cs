@@ -18,19 +18,21 @@ public class DocumentSchemaTests(
   {
     string[] all = ["!ALL", "+Global", "+Merge", "+Object", "+Simple"];
 
-    IEnumerable<string> merges = await ReplaceSchemaKeys("Merge");
-    IEnumerable<string> objects = await ReplaceSchemaKeys("Object");
+    Map<IEnumerable<string>> mostGroups = new() {
+      ["Global"] = SamplesSchemaGlobalData.Strings,
+      ["Merge"] = await ReplaceSchemaKeys("Merge"),
+      ["Object"] = await ReplaceSchemaKeys("Object"),
+      ["Simple"] = SamplesSchemaSimpleData.Strings,
+    };
+
+    Map<Structured> groups = mostGroups.Links();
+    groups["All"] = all.Links(v => v[1..]);
+
     Structured result = new Map<Structured>() {
       ["title"] = "Schema",
-      ["items"] = SamplesSchemaData.Strings.Encode(),
-      ["groups"] = new Map<Structured>() {
-        ["All"] = all.Encode(),
-        ["Global"] = SamplesSchemaGlobalData.Strings.Encode(),
-        ["Merge"] = merges.Encode(),
-        ["Object"] = objects.Encode(),
-        ["Simple"] = SamplesSchemaSimpleData.Strings.Encode(),
-      }.Encode()
-    }.Encode("");
+      ["items"] = SamplesSchemaData.Strings.Links(),
+      ["groups"] = groups.Encode()
+    }.Encode();
 
     await result.WriteHtmlFileAsync("Doc/Schema", "index", "index");
   }
@@ -40,8 +42,8 @@ public class DocumentSchemaTests(
   {
     Structured result = new Map<Structured>() {
       ["title"] = "Specification",
-      ["items"] = SamplesSchemaSpecificationData.Strings.Encode(),
-    }.Encode("");
+      ["items"] = SamplesSchemaSpecificationData.Strings.Links(),
+    }.Encode();
 
     await result.WriteHtmlFileAsync("Doc/Spec", "index", "index");
   }

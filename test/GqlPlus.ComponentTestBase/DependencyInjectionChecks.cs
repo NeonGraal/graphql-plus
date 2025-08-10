@@ -14,6 +14,7 @@ using Xunit.Internal;
 
 namespace GqlPlus;
 
+[Trait("Generate", "Html")]
 public abstract class DependencyInjectionChecks(
   IServiceCollection services,
   ITestOutputHelperAccessor output

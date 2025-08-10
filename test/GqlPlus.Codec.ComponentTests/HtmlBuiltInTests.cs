@@ -6,7 +6,8 @@ using GqlPlus.Resolving;
 
 namespace GqlPlus;
 
-public class BuiltInTests(IModelAndEncode encoder)
+[Trait("Generate", "Html")]
+public class HtmlBuiltInTests(IModelAndEncode encoder)
 {
   [Theory]
   [ClassData(typeof(BuiltInBasicData))]
@@ -32,18 +33,20 @@ public class BuiltInTests(IModelAndEncode encoder)
   public async Task HtmlAllInternalTypes()
     => await RenderSchemaHtml(_internalSchema, "!Internal", extras: _basicSchema);
 
-  private readonly string[] _sections = ["!Basic", "!Internal"];
+  private readonly string[] _sections = ["Basic", "Internal"];
 
   [Fact]
   public async Task Html_Index()
   {
+    Map<IEnumerable<string>> groups = new() {
+      ["Basic"] = BuiltIn.Basic.Select(t => t.Name),
+      ["Internal"] = BuiltIn.Internal.Select(t => t.Name),
+    };
+
     Structured result = new Map<Structured>() {
       ["title"] = "BuiltIn",
-      ["items"] = _sections.Encode(),
-      ["groups"] = new Map<Structured>() {
-        ["Basic"] = BuiltIn.Basic.Encode(t => t.Name),
-        ["Internal"] = BuiltIn.Internal.Encode(t => t.Name),
-      }.Encode(),
+      ["items"] = _sections.Links("!"),
+      ["groups"] = groups.Links().Encode(),
     }.Encode("");
 
     await result.WriteHtmlFileAsync("BuiltIn", "index", "index");

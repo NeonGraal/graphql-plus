@@ -1,0 +1,15 @@
+﻿/* field+Dual
+dual FieldDual { field: String }
+*/
+
+// Generated from Sample field+Dual for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Sample_field_Dual;
+
+public class DualFieldDual
+  : IFieldDual
+{
+  public String field { get; set; }
+}

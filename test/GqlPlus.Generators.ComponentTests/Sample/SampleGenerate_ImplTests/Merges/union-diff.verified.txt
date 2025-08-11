@@ -1,0 +1,17 @@
+﻿/* union-diff
+union UnionDiff { Boolean }
+union UnionDiff { Number }
+*/
+
+// Generated from Sample union-diff for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Sample_union_diff;
+
+public class UnionUnionDiff
+  : IUnionDiff
+{
+  public Boolean AsBoolean { get; set; }
+  public Number AsNumber { get; set; }
+}

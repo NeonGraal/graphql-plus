@@ -1,0 +1,14 @@
+﻿/* descr-backslash
+'A backslash ("\\") description'
+output DescrBcks { }
+*/
+
+// Generated from Sample descr-backslash for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Sample_descr_backslash;
+
+public interface IDescrBcks
+{
+}

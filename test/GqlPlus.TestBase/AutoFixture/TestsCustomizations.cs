@@ -21,4 +21,20 @@ public sealed class TestsCustomizations
       fixture.Customizations.Insert(0, new BooleanSpecimenBuilder());
     }
   }
+
+  public static Func<IFixture> CreateFixture(bool localTests = false)
+    => () => {
+      Fixture fixture = new();
+      fixture.Customize(new TestsCustomizations());
+      if (localTests) {
+        fixture.Customizations.Insert(0, new FixedStringSpecimenBuilder());
+      }
+
+      return fixture;
+    };
+
+  private static readonly Lazy<bool> s_isCi = new(() =>
+    bool.TryParse(Environment.GetEnvironmentVariable("CI"), out bool isCi) && isCi);
+
+  public static bool IsCi => s_isCi.Value;
 }

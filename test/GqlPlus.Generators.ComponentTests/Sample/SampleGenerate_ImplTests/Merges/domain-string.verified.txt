@@ -1,0 +1,15 @@
+﻿/* domain-string
+domain DmnStr { string }
+domain DmnStr { string }
+*/
+
+// Generated from Sample domain-string for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Sample_domain_string;
+
+public class DomainDmnStr
+  : IDmnStr
+{
+}

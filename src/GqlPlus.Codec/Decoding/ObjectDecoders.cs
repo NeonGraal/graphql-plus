@@ -95,9 +95,9 @@ internal abstract class FilterModelDecoder<TModel>
   where TModel : FilterModel
 {
   private readonly IDecoder<bool?> _boolean;
-  private readonly IDecoder<string> _nameFilter;
+  private readonly INameFilterDecoder _nameFilter;
 
-  public FilterModelDecoder(IDecoder<bool?> boolean, IDecoder<string> nameFilter)
+  public FilterModelDecoder(IDecoder<bool?> boolean, INameFilterDecoder nameFilter)
   {
     _boolean = boolean;
     _nameFilter = nameFilter;
@@ -145,7 +145,7 @@ internal abstract class FilterModelDecoder<TModel>
   }
 }
 
-internal class FilterModelDecoder(IDecoder<bool?> boolean, IDecoder<string> nameFilter)
+internal class FilterModelDecoder(IDecoder<bool?> boolean, INameFilterDecoder nameFilter)
   : FilterModelDecoder<FilterModel>(boolean, nameFilter)
 {
   protected override IMessages DecodeMap(IMap<IValue> map, out FilterModel? output)
@@ -157,7 +157,7 @@ internal class FilterModelDecoder(IDecoder<bool?> boolean, IDecoder<string> name
 
 internal class CategoryFilterModelDecoder(
   IDecoder<bool?> boolean,
-  IDecoder<string> nameFilter,
+  INameFilterDecoder nameFilter,
   IDecoder<CategoryOption?> resolution
 ) : FilterModelDecoder<CategoryFilterModel>(boolean, nameFilter)
 {
@@ -186,7 +186,7 @@ internal class CategoryFilterModelDecoder(
 
 internal class TypeFilterModelDecoder(
   IDecoder<bool?> boolean,
-  IDecoder<string> nameFilter,
+  INameFilterDecoder nameFilter,
   IDecoder<TypeKindModel?> kind
 ) : FilterModelDecoder<TypeFilterModel>(boolean, nameFilter)
 {

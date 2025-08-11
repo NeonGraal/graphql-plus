@@ -16,11 +16,7 @@ public abstract class TestSchemaVerify(
 
     await EncodeModel(model, context, test, label, dirs, section);
 
-    if (string.IsNullOrWhiteSpace(section)) {
-      await CheckResultErrors(dirs, test, context.Errors);
-    } else {
-      CheckNoErrors(context, test);
-    }
+    await CheckResultErrors(dirs, test, context.Errors);
   }
 
   protected virtual async Task EncodeModel([NotNull] SchemaModel model, IModelsContext context, string test, string label, string[] dirs, string section)
@@ -29,9 +25,6 @@ public abstract class TestSchemaVerify(
 
     await VerifyResult(result, label, test, section);
   }
-
-  protected virtual void CheckNoErrors(IModelsContext context, string test)
-  { }
 
   protected virtual Task CheckResultErrors(string[] dirs, string test, IMessages errors, bool includeVerify = false)
     => Task.CompletedTask;

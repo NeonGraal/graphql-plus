@@ -163,10 +163,7 @@ types: !_Map_Type
       domain: _NameFilter
       exclude: false
       pattern: '[A-Za-z_.*]+'
-    description: >-
-      _NameFilter is a simple match expression against _Identifier
-      where '.' matches any single character and '*' matches zero
-      or more of any character.
+    description: "_NameFilter is a simple match expression against _Identifier where '.' matches any single character and '*' matches zero or more of any character."
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
@@ -177,8 +174,7 @@ types: !_Map_Type
   !_Identifier _Schema: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
-          typeKind: !_SimpleKind Domain}]
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
       name: categories
       object: _Schema
       parameters:
@@ -188,8 +184,7 @@ types: !_Map_Type
       type: !_OutputBase
         name: _Categories
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
-          typeKind: !_SimpleKind Domain}]
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
       name: directives
       object: _Schema
       parameters:
@@ -199,8 +194,7 @@ types: !_Map_Type
       type: !_OutputBase
         name: _Directives
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
-          typeKind: !_SimpleKind Domain}]
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
       name: types
       object: _Schema
       parameters:
@@ -210,8 +204,7 @@ types: !_Map_Type
       type: !_OutputBase
         name: _Type
     - !_ObjectFor(_OutputField)
-      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
-          typeKind: !_SimpleKind Domain}]
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
       name: settings
       object: _Schema
       parameters:
@@ -222,8 +215,7 @@ types: !_Map_Type
         name: _Setting
     fields:
     - !_OutputField
-      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
-          typeKind: !_SimpleKind Domain}]
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
       name: categories
       parameters:
       - !_InputParam
@@ -232,8 +224,7 @@ types: !_Map_Type
       type: !_OutputBase
         name: _Categories
     - !_OutputField
-      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
-          typeKind: !_SimpleKind Domain}]
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
       name: directives
       parameters:
       - !_InputParam
@@ -242,8 +233,7 @@ types: !_Map_Type
       type: !_OutputBase
         name: _Directives
     - !_OutputField
-      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
-          typeKind: !_SimpleKind Domain}]
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
       name: types
       parameters:
       - !_InputParam
@@ -252,8 +242,7 @@ types: !_Map_Type
       type: !_OutputBase
         name: _Type
     - !_OutputField
-      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict,
-          typeKind: !_SimpleKind Domain}]
+      modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
       name: settings
       parameters:
       - !_InputParam

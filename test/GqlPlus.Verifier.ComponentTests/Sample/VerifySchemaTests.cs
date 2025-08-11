@@ -22,11 +22,7 @@ public class VerifySchemaTests(
 
     schemaVerifier.Verify(result.Required(), errors);
 
-    if (!string.IsNullOrWhiteSpace(section)) {
-      errors.ShouldBeEmpty(test);
-    } else {
-      await CheckErrors(dirs, test, errors, true);
-    }
+    await CheckErrors(dirs, test, errors, true);
   }
 
   protected override async Task Result_Invalid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")

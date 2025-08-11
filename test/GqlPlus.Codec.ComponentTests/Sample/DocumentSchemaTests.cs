@@ -40,9 +40,15 @@ public class DocumentSchemaTests(
   [Fact]
   public async Task Index_Spec()
   {
+    Map<IEnumerable<string>> groups = new() {
+      ["Introspection"] = SamplesSpecificationIntrospectionData.Strings,
+      ["Request"] = SamplesSpecificationRequestData.Strings,
+    };
+
     Structured result = new Map<Structured>() {
       ["title"] = "Specification",
-      ["items"] = SamplesSchemaSpecificationData.Strings.Links(),
+      ["items"] = SamplesSpecificationData.Strings.Links(),
+      ["groups"] = groups.Links().Encode()
     }.Encode();
 
     await result.WriteHtmlFileAsync("Doc/Spec", "index", "index");
@@ -71,7 +77,8 @@ public class DocumentSchemaTests(
     ICollection<SettingModel> settings = model.GetSettings(null).Values;
     SchemaModel newModel = new(model.Name, categories, directives, settings, [], model.Errors);
     Structured result = checks.Encode_Model(newModel, context)
-      .Add("groups", groups);
+      .Add("groups", groups)
+      .Add("title", new(test));
 
     await result.WriteHtmlFileAsync(new string[] { "Doc", label, section }.Joined("/"), test);
 

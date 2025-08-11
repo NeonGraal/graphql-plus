@@ -37,9 +37,15 @@ public class HtmlSchemaTests(
   [Fact]
   public async Task Index_Spec()
   {
+    Map<IEnumerable<string>> groups = new() {
+      ["Introspection"] = SamplesSpecificationIntrospectionData.Strings,
+      ["Request"] = SamplesSpecificationRequestData.Strings,
+    };
+
     Structured result = new Map<Structured>() {
       ["title"] = "Specification",
-      ["items"] = SamplesSchemaSpecificationData.Strings.Links(),
+      ["items"] = SamplesSpecificationData.Strings.Links(),
+      ["groups"] = groups.Links().Encode()
     }.Encode();
 
     await result.WriteHtmlFileAsync("Spec", "index", "index");
@@ -65,5 +71,5 @@ public class HtmlSchemaTests(
   }
 
   protected override Task VerifyResult(Structured result, string label, string test, string section)
-    => result.WriteHtmlFileAsync(new string[] { label, section }.Joined("/"), test);
+    => result.ThrowIfNull().Add("title", new(label)).WriteHtmlFileAsync(new string[] { label, section }.Joined("/"), test);
 }

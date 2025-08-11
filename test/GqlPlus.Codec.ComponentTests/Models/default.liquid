@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     {%- render "pico" -%}
-    <title>Schema {{ name }} Documentation</title>
+    <title>{{ title }} Documentation</title>
     <style>
       aside { font-size: 50%; }
       aside ul { padding-inline: 0; }
@@ -28,10 +28,13 @@
     {%- render 'schema' -%}
     {%- endif -%}
     <main>
+      <header>
+        <h1>{{ title }}</h1>
+      </header>
       {%- if _errors %}
       <article>
         <header>
-          <h3 id="_errors">Errors</h3>
+          <h4 id="_errors">Errors</h4>
         </header>
         <ul>
           {% render 'error' for _errors as error %}
@@ -42,7 +45,7 @@
       {%- for group in groups %}
       <article>
         <header>
-          <h1 id="{{ group[0] }}s">{{ group[0] }}s</h1>
+          <h2 id="{{ group[0] }}s">{{ group[0] }}s</h2>
         </header>
         {%- render 'type' for group[1] as type %}
       </article>
@@ -52,7 +55,7 @@
       {%- if types %}
       <article>
         <header>
-          <h1 id="types">Types</h1>
+          <h2 id="types">Types</h2>
         </header>
         {%- render 'type' for types as type %}
       </article>
@@ -60,7 +63,7 @@
       {%- if categories %}
       <article>
         <header>
-          <h1 id="categories">Categories</h1>
+          <h2 id="categories">Categories</h2>
         </header>
         {%- render 'category' for categories as category %}
       </article>
@@ -68,7 +71,7 @@
       {%- if directives %}
       <article>
         <header>
-          <h1 id="directives">Directives</h1>
+          <h2 id="directives">Directives</h2>
         </header>
         {%- render 'directive' for directives as directive %}
       </article>
@@ -76,7 +79,7 @@
       {%- if settings %}
       <article>
         <header>
-          <h1 id="settings">Settings
+          <h2 id="settings">Settings</h2>
         </header>
         <table>
           <tr>

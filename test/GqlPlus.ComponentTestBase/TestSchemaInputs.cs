@@ -42,12 +42,30 @@ public abstract class TestSchemaInputs
   }
 
   [Theory]
-  [ClassData(typeof(SamplesSchemaSpecificationData))]
+  [ClassData(typeof(SamplesSpecificationData))]
   public async Task Test_Spec(string sample)
   {
-    string schema = await ReadSchema(sample, "Specification");
+    string spec = await ReadSpecification(sample);
 
-    await Label_Input("Spec", schema, ["Schema", "Specification"], sample);
+    await Label_Input("Spec", spec, ["Specification"], sample);
+  }
+
+  [Theory]
+  [ClassData(typeof(SamplesSpecificationIntrospectionData))]
+  public async Task Test_Introspection(string sample)
+  {
+    string spec = await ReadSpecification(sample, "Introspection");
+
+    await Label_Input("Spec", spec, ["Specification", "Introspection"], sample, "Introspection");
+  }
+
+  [Theory]
+  [ClassData(typeof(SamplesSpecificationRequestData))]
+  public async Task Test_Request(string sample)
+  {
+    string spec = await ReadSpecification(sample, "Request");
+
+    await Label_Input("Spec", spec, ["Specification", "Request"], sample, "Request");
   }
 
   protected abstract Task Label_Input(string label, string input, string[] dirs, string test, string section = "");

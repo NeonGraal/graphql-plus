@@ -127,6 +127,9 @@ public class SampleChecks
   protected static async Task<string> ReadSchema(string schema, params string[] dirs)
     => await ReadFile(schema, "graphql+", ["Schema", .. dirs]);
 
+  protected static async Task<string> ReadSpecification(string schema, params string[] dirs)
+    => await ReadFile(schema, "graphql+", ["Specification", .. dirs]);
+
   protected static bool IsObjectInput(string input)
     => input is not null && input.Contains("object ", StringComparison.Ordinal);
 

@@ -1,4 +1,5 @@
-﻿using GqlPlus;
+﻿using System.Reflection.Emit;
+using GqlPlus;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Convert;
@@ -121,6 +122,6 @@ public class HtmlBuiltInTests(IModelAndEncode encoder)
   {
     Structured result = encoder.EncodeAst(schema, encoder.Context(), extras);
 
-    await result.WriteHtmlFileAsync("BuiltIn" + section.Prefixed("/"), filename);
+    await result.ThrowIfNull().Add("title", new(filename)).WriteHtmlFileAsync("BuiltIn" + section.Prefixed("/"), filename);
   }
 }

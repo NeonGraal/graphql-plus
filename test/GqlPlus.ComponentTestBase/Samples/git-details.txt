@@ -1,1 +1,1 @@
-588170a  (HEAD -> request) 2025-08-10 Make various directories singular
+093f33b  (HEAD -> request) 2025-08-11 Refactor converted Specification files

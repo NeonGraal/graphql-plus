@@ -269,6 +269,16 @@ types: !_Map_Type
           name: _Directives
       - !_ObjectFor(_OutputField)
         modifiers: [!_ModifierDictionary{by:_Identifier,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+        name: operations
+        object: _Schema
+        parameters:
+          - !_InputParam
+            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+            name: _Filter
+        type: !_OutputBase
+          name: _Operations
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_ModifierDictionary{by:_Identifier,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
         name: types
         object: _Schema
         parameters:
@@ -306,6 +316,15 @@ types: !_Map_Type
             name: _Filter
         type: !_OutputBase
           name: _Directives
+      - !_OutputField
+        modifiers: [!_ModifierDictionary{by:_Identifier,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
+        name: operations
+        parameters:
+          - !_InputParam
+            modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+            name: _Filter
+        type: !_OutputBase
+          name: _Operations
       - !_OutputField
         modifiers: [!_ModifierDictionary{by:_Identifier,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Domain}]
         name: types

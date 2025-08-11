@@ -78,3 +78,5 @@ public record struct FieldInput(string Name, string Type)
     return comp == 0 ? string.CompareOrdinal(Type, other.Type) : comp;
   }
 }
+
+public record struct OperationInput(string Name, string Category);

@@ -2,12 +2,12 @@
 
 namespace GqlPlus.Abstractions;
 
-public interface IEncoder<TModel>
+public interface IEncoder<TInput>
 {
-  Structured Encode(TModel model);
+  Structured Encode(TInput input);
 }
 
-public interface IDecoder<TModel>
+public interface IDecoder<TOutput>
 {
-  IMessages Decode(IValue input, out TModel? output);
+  IMessages Decode(IValue input, out TOutput? output);
 }

@@ -16,12 +16,13 @@ public static class AllDecoders
       // Schema
       .AddDecoder<CategoryOption?, EnumDecoder<CategoryOption>>()
       .AddDecoder<TypeKindModel?, EnumDecoder<TypeKindModel>>()
+      .AddSingleton<INameFilterDecoder, NameFilterModelDecoder>()
       .AddDecoder<FilterModel, FilterModelDecoder>()
       .AddDecoder<CategoryFilterModel, CategoryFilterModelDecoder>()
       .AddDecoder<TypeFilterModel, TypeFilterModelDecoder>()
     ;
 
-  private static IServiceCollection AddDecoder<TModel, TDecoder>(this IServiceCollection services)
-    where TDecoder : class, IDecoder<TModel>
-    => services.AddSingleton<IDecoder<TModel>, TDecoder>();
+  private static IServiceCollection AddDecoder<TOutput, TDecoder>(this IServiceCollection services)
+    where TDecoder : class, IDecoder<TOutput>
+    => services.AddSingleton<IDecoder<TOutput>, TDecoder>();
 }

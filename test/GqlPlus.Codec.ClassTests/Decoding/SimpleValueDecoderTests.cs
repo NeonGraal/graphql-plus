@@ -1,7 +1,7 @@
 ﻿
 namespace GqlPlus.Decoding;
 
-public class SimpleDecoderTests
+public class SimpleValueDecoderTests
   : ScalarDecoderClassTestBase<SimpleModel>
 {
   protected override IDecoder<SimpleModel> Decoder { get; }

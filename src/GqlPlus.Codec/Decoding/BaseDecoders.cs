@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Decoding;
 
-internal abstract class DecoderBase<TModel>
-  : IDecoder<TModel>
+internal abstract class DecoderBase<TOutput>
+  : IDecoder<TOutput>
 {
   private string? _tag;
 
@@ -10,38 +10,47 @@ internal abstract class DecoderBase<TModel>
   protected DecoderBase(string tag)
     => _tag = tag;
 
-  internal virtual string Tag => _tag ??= typeof(TModel).TypeTag();
+  internal virtual string Tag => _tag ??= typeof(TOutput).TypeTag();
 
   protected string TagMsg(string message)
     => $"Decoding {Tag}: {message}";
 
-  protected IMessages Ok(TModel? _)
+  protected virtual IMessages Ok(TOutput? _)
     => Messages.New;
 
-  protected IMessages Mapped(object? input, TModel? output)
+  protected IMessages Error(string message, TOutput? _)
+    => Messages.New.Add(TagMsg(message).Error());
+
+  protected virtual IMessages Warning(string message, TOutput? _)
+    => Messages.New.Add(TagMsg(message).Warning());
+
+  protected IMessages Info(string message, TOutput? _)
+    => Messages.New.Add(TagMsg(message).Info());
+
+  protected IMessages Mapped(object? input, TOutput? output)
   {
     if (input is null) {
-      return Messages.New.Add(TagMsg("Unable to map from null input").Error());
+      return Error("Unable to map from null input", output);
     }
 
     if (output is null) {
-      return Messages.New.Add(TagMsg($"Unable to map from {input}").Error());
+      return Error($"Unable to map from {input}", output);
     }
 
-    return Messages.New.Add(TagMsg($"Mapped {input} to {output}").Warning());
+    return Warning($"Mapped {input} to {output}", output);
   }
 
-  protected IMessages Parsed(object? input, TModel? output)
+  protected IMessages Parsed(object? input, TOutput? output)
   {
     if (input is null) {
-      return Messages.New.Add(TagMsg("Unable to parse from null input").Error());
+      return Error("Unable to parse from null input", output);
     }
 
     if (output is null) {
-      return Messages.New.Add(TagMsg($"Unable to parse from {input}").Error());
+      return Error($"Unable to parse from {input}", output);
     }
 
-    return Messages.New.Add(TagMsg($"Parsed {input} to {output}").Info());
+    return Info($"Parsed {input} to {output}", output);
   }
 
   protected IMessages DecodeClassList<T>(IEnumerable<IValue> list, IDecoder<T> decoder, out IEnumerable<T> output)
@@ -76,7 +85,7 @@ internal abstract class DecoderBase<TModel>
     return messages;
   }
 
-  public abstract IMessages Decode(IValue input, out TModel? output);
+  public abstract IMessages Decode(IValue input, out TOutput? output);
 }
 
 internal class EnumDecoder<T>
@@ -144,8 +153,7 @@ internal abstract class ScalarDecoder<TModel>
       return Decode(list.First(), out output);
     }
 
-    output = default;
-    return new Messages(TagMsg($"Unable to decode {input}").Error());
+    return Error($"Unable to decode {input}", output = default);
   }
 
   protected abstract IMessages DecodeBoolean(bool? boolValue, out TModel? output);

@@ -3,18 +3,18 @@
 Success
 {
   !Ou I@008/0001
-  _Constant
+  _Value
   |
   I@007/0002
-  _SimpleValue
+  _ValueScalar
   I@007/0003
-  _ConstantList
+  _ValueList
   I@007/0004
-  _ConstantMap
+  _ValueMap
 }
 {
   !Ou I@008/0007
-  _SimpleValue
+  _ValueScalar
   |
   I@007/0008
   _DomainValue
@@ -48,121 +48,139 @@ Success
     I@039/0011
     String
   >
+  I@007/0012
+  Unit
+  I@007/0013
+  Null
 }
 {
-  !Ou I@008/0014
-  _ConstantList
+  !Ou I@008/0016
+  _ValueList
   |
-  I@007/0015
-  _Constant
+  I@007/0017
+  _Value
   []
 }
 {
-  !Ou I@008/0018
-  _ConstantMap
+  !Ou I@008/0020
+  _ValueMap
   |
-  I@007/0019
-  _Constant
-  [_Key]
+  I@007/0021
+  _Value
+  [_ValueBuiltIn]
 }
 {
-  !Ou I@008/0022
+  !Un I@007/0024
+  _ValueBuiltIn
+  !UM I@023/0024
+  Boolean
+  !UM I@031/0024
+  Number
+  !UM I@038/0024
+  String
+  !UM I@045/0024
+  Unit
+  !UM I@050/0024
+  Null
+}
+{
+  !Ou I@008/0026
   _Collections
   |
-  I@007/0023
+  I@007/0027
   _Modifier
   <
-    I@017/0023
+    I@017/0027
     _ModifierKind.List
   >
-  I@007/0024
+  I@007/0028
   _ModifierKeyed
   <
-    I@022/0024
+    I@022/0028
     _ModifierKind.Dictionary
   >
-  I@007/0025
+  I@007/0029
   _ModifierKeyed
   <
-    I@022/0025
+    I@022/0029
     _ModifierKind.TypeParam
   >
 }
 {
-  !Ou I@008/0028
+  !Ou I@008/0032
   _ModifierKeyed
   <
-    I@024/0028
+    I@024/0032
     $kind
     :_ModifierKind
   >
   :
-  I@007/0029
+  I@007/0033
   _Modifier
   <
-    I@018/0029
+    I@018/0033
     $kind
   >
   {
-    !OF I@009/0030
+    !OF I@009/0034
     by
     :
-    I@013/0030
+    I@013/0034
     _TypeSimple
-    !OF I@009/0031
+    !OF I@009/0035
     optional
     :
-    I@019/0031
+    I@019/0035
     Boolean
   }
 }
 {
-  !Ou I@008/0034
+  !Ou I@008/0038
   _Modifiers
   |
-  I@007/0035
+  I@007/0039
   _Modifier
   <
-    I@017/0035
+    I@017/0039
     _ModifierKind.Optional
   >
-  I@007/0036
+  I@007/0040
   _Collections
 }
 {
-  !En I@006/0039
+  !En I@006/0043
   _ModifierKind
-  !EL I@022/0039
+  !EL I@022/0043
   Opt
   [
     Optional
   ]
-  !EL I@036/0039
+  !EL I@036/0043
   List
-  !EL I@041/0039
+  !EL I@041/0043
   Dict
   [
     Dictionary
   ]
-  !EL I@058/0039
+  !EL I@058/0043
   Param
   [
     TypeParam
   ]
 }
 {
-  !Ou I@008/0041
+  !Ou I@008/0045
   _Modifier
   <
-    I@019/0041
+    I@019/0045
     $kind
     :_ModifierKind
   >
   {
-    !OF I@009/0042
+    !OF I@009/0046
     modifierKind
     :
-    I@024/0042
+    I@024/0046
     $kind
   }
 }

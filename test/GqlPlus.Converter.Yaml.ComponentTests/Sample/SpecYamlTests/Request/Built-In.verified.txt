@@ -1,0 +1,125 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier _Value: !_TypeDual
+    aliases: [Value]
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: _Value
+      type: !_DualBase
+        name: _ValueScalar
+    - !_ObjectFor(_DualAlternate)
+      object: _Value
+      type: !_DualBase
+        name: _ValueList
+    - !_ObjectFor(_DualAlternate)
+      object: _Value
+      type: !_DualBase
+        name: _ValueMap
+    alternates:
+    - !_DualAlternate
+      type: !_DualBase
+        name: _ValueScalar
+    - !_DualAlternate
+      type: !_DualBase
+        name: _ValueList
+    - !_DualAlternate
+      type: !_DualBase
+        name: _ValueMap
+    name: _Value
+    typeKind: !_TypeKind Dual
+  !_Identifier _ValueBuiltIn: !_TypeUnion
+    allItems:
+    - !_UnionMember
+      name: Boolean
+      union: _ValueBuiltIn
+    - !_UnionMember
+      name: Number
+      union: _ValueBuiltIn
+    - !_UnionMember
+      name: String
+      union: _ValueBuiltIn
+    - !_UnionMember
+      name: Unit
+      union: _ValueBuiltIn
+    - !_UnionMember
+      name: Null
+      union: _ValueBuiltIn
+    items:
+    - !_Aliased
+      name: Boolean
+    - !_Aliased
+      name: Number
+    - !_Aliased
+      name: String
+    - !_Aliased
+      name: Unit
+    - !_Aliased
+      name: Null
+    name: _ValueBuiltIn
+    typeKind: !_TypeKind Union
+  !_Identifier _ValueList: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      collections:
+      - !_Modifier
+        modifierKind: !_ModifierKind List
+      object: _ValueList
+      type: !_DualBase
+        name: _Value
+    alternates:
+    - !_DualAlternate
+      collections:
+      - !_Modifier
+        modifierKind: !_ModifierKind List
+      type: !_DualBase
+        name: _Value
+    name: _ValueList
+    typeKind: !_TypeKind Dual
+  !_Identifier _ValueMap: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      collections:
+      - !_ModifierDictionary
+        by: _ValueBuiltIn
+        modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Union
+      object: _ValueMap
+      type: !_DualBase
+        name: _Value
+    alternates:
+    - !_DualAlternate
+      collections:
+      - !_ModifierDictionary
+        by: _ValueBuiltIn
+        modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Union
+      type: !_DualBase
+        name: _Value
+    name: _ValueMap
+    typeKind: !_TypeKind Dual
+  !_Identifier _ValueScalar: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: _ValueScalar
+      type: !_DualBase
+        name: _Basic
+    - !_ObjectFor(_DualAlternate)
+      object: _ValueScalar
+      type: !_DualBase
+        name: _Internal
+    - !_ObjectFor(_DualAlternate)
+      object: _ValueScalar
+      type: !_DualBase
+        name: _Simple
+    alternates:
+    - !_DualAlternate
+      type: !_DualBase
+        name: _Basic
+    - !_DualAlternate
+      type: !_DualBase
+        name: _Internal
+    - !_DualAlternate
+      type: !_DualBase
+        name: _Simple
+    name: _ValueScalar
+    typeKind: !_TypeKind Dual

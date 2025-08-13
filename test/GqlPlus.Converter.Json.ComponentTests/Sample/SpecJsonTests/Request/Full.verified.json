@@ -29,12 +29,12 @@
         "value": "Domain"
       }
     },
-    "Request": {
+    "_Request": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_InputAlternate)",
-          "object": "Request",
+          "object": "_Request",
           "type": {
             "$tag": "_InputBase",
             "description": "Parsed into definition",
@@ -59,7 +59,7 @@
             }
           ],
           "name": "category",
-          "object": "Request",
+          "object": "_Request",
           "type": {
             "$tag": "_InputBase",
             "name": "_Identifier"
@@ -81,7 +81,7 @@
             }
           ],
           "name": "operation",
-          "object": "Request",
+          "object": "_Request",
           "type": {
             "$tag": "_InputBase",
             "name": "_Identifier"
@@ -90,7 +90,7 @@
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "definition",
-          "object": "Request",
+          "object": "_Request",
           "type": {
             "$tag": "_InputBase",
             "name": "_Operation"
@@ -112,7 +112,7 @@
             }
           ],
           "name": "parameters",
-          "object": "Request",
+          "object": "_Request",
           "type": {
             "$tag": "_InputBase",
             "name": "Any"
@@ -202,7 +202,7 @@
           }
         }
       ],
-      "name": "Request",
+      "name": "_Request",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Input"

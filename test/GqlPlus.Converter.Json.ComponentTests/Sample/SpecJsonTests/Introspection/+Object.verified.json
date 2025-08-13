@@ -669,7 +669,7 @@
           "object": "_InputField",
           "type": {
             "$tag": "_OutputBase",
-            "name": "_Constant"
+            "name": "_Value"
           }
         }
       ],
@@ -688,7 +688,7 @@
           "name": "default",
           "type": {
             "$tag": "_OutputBase",
-            "name": "_Constant"
+            "name": "_Value"
           }
         }
       ],
@@ -780,7 +780,7 @@
           "object": "_InputParam",
           "type": {
             "$tag": "_OutputBase",
-            "name": "_Constant"
+            "name": "_Value"
           }
         }
       ],
@@ -816,7 +816,7 @@
           "name": "default",
           "type": {
             "$tag": "_OutputBase",
-            "name": "_Constant"
+            "name": "_Value"
           }
         }
       ],

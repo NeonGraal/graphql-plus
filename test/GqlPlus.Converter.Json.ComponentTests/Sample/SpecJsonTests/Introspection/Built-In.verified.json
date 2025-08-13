@@ -125,163 +125,6 @@
         "value": "Output"
       }
     },
-    "_Constant": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_Constant",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_SimpleValue"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_Constant",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_ConstantList"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_Constant",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_ConstantMap"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_SimpleValue"
-          }
-        },
-        {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_ConstantList"
-          }
-        },
-        {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_ConstantMap"
-          }
-        }
-      ],
-      "name": "_Constant",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "_ConstantList": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "collections": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "object": "_ConstantList",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Constant"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "collections": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Constant"
-          }
-        }
-      ],
-      "name": "_ConstantList",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "_ConstantMap": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "collections": [
-            {
-              "$tag": "_ModifierDictionary",
-              "by": "_Key",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "Dict"
-              },
-              "typeKind": {
-                "$tag": "_SimpleKind",
-                "value": "Internal"
-              }
-            }
-          ],
-          "object": "_ConstantMap",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Constant"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "collections": [
-            {
-              "$tag": "_ModifierDictionary",
-              "by": "_Key",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "Dict"
-              },
-              "typeKind": {
-                "$tag": "_SimpleKind",
-                "value": "Internal"
-              }
-            }
-          ],
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Constant"
-          }
-        }
-      ],
-      "name": "_ConstantMap",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
     "_Modifier": {
       "$tag": "_TypeOutput",
       "allFields": [
@@ -522,12 +365,226 @@
         "value": "Output"
       }
     },
-    "_SimpleValue": {
+    "_Value": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_SimpleValue",
+          "object": "_Value",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "_ValueScalar"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "_Value",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "_ValueList"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "_Value",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "_ValueMap"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "_ValueScalar"
+          }
+        },
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "_ValueList"
+          }
+        },
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "_ValueMap"
+          }
+        }
+      ],
+      "name": "_Value",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_ValueBuiltIn": {
+      "$tag": "_TypeUnion",
+      "allItems": [
+        {
+          "$tag": "_UnionMember",
+          "name": "Boolean",
+          "union": "_ValueBuiltIn"
+        },
+        {
+          "$tag": "_UnionMember",
+          "name": "Number",
+          "union": "_ValueBuiltIn"
+        },
+        {
+          "$tag": "_UnionMember",
+          "name": "String",
+          "union": "_ValueBuiltIn"
+        },
+        {
+          "$tag": "_UnionMember",
+          "name": "Unit",
+          "union": "_ValueBuiltIn"
+        },
+        {
+          "$tag": "_UnionMember",
+          "name": "Null",
+          "union": "_ValueBuiltIn"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "Boolean"
+        },
+        {
+          "$tag": "_Aliased",
+          "name": "Number"
+        },
+        {
+          "$tag": "_Aliased",
+          "name": "String"
+        },
+        {
+          "$tag": "_Aliased",
+          "name": "Unit"
+        },
+        {
+          "$tag": "_Aliased",
+          "name": "Null"
+        }
+      ],
+      "name": "_ValueBuiltIn",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Union"
+      }
+    },
+    "_ValueList": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "collections": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "object": "_ValueList",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "_Value"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "collections": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "_Value"
+          }
+        }
+      ],
+      "name": "_ValueList",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_ValueMap": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "collections": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "_ValueBuiltIn",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Dict"
+              },
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Union"
+              }
+            }
+          ],
+          "object": "_ValueMap",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "_Value"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "collections": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "_ValueBuiltIn",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Dict"
+              },
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Union"
+              }
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "_Value"
+          }
+        }
+      ],
+      "name": "_ValueMap",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_ValueScalar": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "_ValueScalar",
           "type": {
             "$tag": "_OutputBase",
             "name": "_DomainValue",
@@ -550,7 +607,7 @@
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_SimpleValue",
+          "object": "_ValueScalar",
           "type": {
             "$tag": "_OutputBase",
             "name": "_DomainValue",
@@ -573,7 +630,7 @@
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_SimpleValue",
+          "object": "_ValueScalar",
           "type": {
             "$tag": "_OutputBase",
             "name": "_DomainValue",
@@ -596,7 +653,7 @@
         },
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_SimpleValue",
+          "object": "_ValueScalar",
           "type": {
             "$tag": "_OutputBase",
             "name": "_DomainValue",
@@ -615,6 +672,22 @@
                 "name": "String"
               }
             ]
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "_ValueScalar",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "Unit"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "_ValueScalar",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "Null"
           }
         }
       ],
@@ -706,9 +779,23 @@
               }
             ]
           }
+        },
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "Unit"
+          }
+        },
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "Null"
+          }
         }
       ],
-      "name": "_SimpleValue",
+      "name": "_ValueScalar",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

@@ -67,7 +67,7 @@ Success
     default
     :
     I@018/0017
-    _Constant
+    _Value
     ?
   }
 }
@@ -106,7 +106,7 @@ Success
     default
     :
     I@018/0031
-    _Constant
+    _Value
     ?
   }
 }

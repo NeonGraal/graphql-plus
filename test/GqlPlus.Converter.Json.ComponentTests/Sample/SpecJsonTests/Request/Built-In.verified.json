@@ -1,0 +1,278 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "_Value": {
+      "$tag": "_TypeDual",
+      "aliases": ["Value"],
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "_Value",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_ValueScalar"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "_Value",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_ValueList"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "_Value",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_ValueMap"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_ValueScalar"
+          }
+        },
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_ValueList"
+          }
+        },
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_ValueMap"
+          }
+        }
+      ],
+      "name": "_Value",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "_ValueBuiltIn": {
+      "$tag": "_TypeUnion",
+      "allItems": [
+        {
+          "$tag": "_UnionMember",
+          "name": "Boolean",
+          "union": "_ValueBuiltIn"
+        },
+        {
+          "$tag": "_UnionMember",
+          "name": "Number",
+          "union": "_ValueBuiltIn"
+        },
+        {
+          "$tag": "_UnionMember",
+          "name": "String",
+          "union": "_ValueBuiltIn"
+        },
+        {
+          "$tag": "_UnionMember",
+          "name": "Unit",
+          "union": "_ValueBuiltIn"
+        },
+        {
+          "$tag": "_UnionMember",
+          "name": "Null",
+          "union": "_ValueBuiltIn"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "Boolean"
+        },
+        {
+          "$tag": "_Aliased",
+          "name": "Number"
+        },
+        {
+          "$tag": "_Aliased",
+          "name": "String"
+        },
+        {
+          "$tag": "_Aliased",
+          "name": "Unit"
+        },
+        {
+          "$tag": "_Aliased",
+          "name": "Null"
+        }
+      ],
+      "name": "_ValueBuiltIn",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Union"
+      }
+    },
+    "_ValueList": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "collections": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "object": "_ValueList",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_Value"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "collections": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_Value"
+          }
+        }
+      ],
+      "name": "_ValueList",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "_ValueMap": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "collections": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "_ValueBuiltIn",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Dict"
+              },
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Union"
+              }
+            }
+          ],
+          "object": "_ValueMap",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_Value"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "collections": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "_ValueBuiltIn",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Dict"
+              },
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Union"
+              }
+            }
+          ],
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_Value"
+          }
+        }
+      ],
+      "name": "_ValueMap",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "_ValueScalar": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "_ValueScalar",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_Basic"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "_ValueScalar",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_Internal"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "_ValueScalar",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_Simple"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_Basic"
+          }
+        },
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_Internal"
+          }
+        },
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_Simple"
+          }
+        }
+      ],
+      "name": "_ValueScalar",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    }
+  }
+}

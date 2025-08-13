@@ -733,6 +733,16 @@
     },
     "_DomainValue": {
       "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "_DomainValue",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "value"
+          }
+        }
+      ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
@@ -747,6 +757,15 @@
           "$tag": "_ObjectFor(_OutputField)",
           "name": "value",
           "object": "_DomainValue",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "value"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
             "typeParam": "value"

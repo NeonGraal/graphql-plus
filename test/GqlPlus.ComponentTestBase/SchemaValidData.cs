@@ -3,6 +3,9 @@
 public class SchemaValidData
   : TheoryData<string>
 {
+  // The Defintion specification has some schema definitions that are not valid schemas.
+  public static readonly string SpecDefinition = "Definition";
+
   public static readonly string[] All = [
     .. SamplesSchemaGlobalData.Strings,
     .. SamplesSchemaMergeData.Strings,

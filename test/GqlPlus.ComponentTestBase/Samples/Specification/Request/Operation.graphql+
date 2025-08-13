@@ -3,32 +3,26 @@ input _Operation {
         directives: _OpDirective[]
         fragments: _OpFragment[]
         result: _OpResult
-    | "Parsed into above fields" String
+    | "Parsed into above fields, plus Request category and operation" String
     }
 
 input _OpVariable {
         name: _Identifier
         type: _Identifier? = null
         modifiers: _Modifier[]
-        default: "Todo: _OpDefault" String?
+        default: _Value?
         directives: _OpDirective[]
     }
 
 dual _OpDirective {
         name: _Identifier
-        argument: "Todo: _OpArgument" String?
+        argument: _OpArgument?
     }
 
 input _OpFragment {
         name: _Identifier
         type: _Identifier? = null
         directives: _OpDirective[]
-        body: _OpObject[]
-    }
-
-input _OpResult {
-        domain: _Identifier? = null
-        argument: "Todo: _OpArgument" String?
         body: _OpObject[]
     }
 
@@ -40,29 +34,24 @@ input _Modifier {
         optional: Boolean?
     }
 
-input _OpObject {
-    |   _OpField
-    |   _OpSpread
-    |   _OpInline
+dual _OpArgument {
+    |   _OpArgScalar
+    |   _OpArgList
+    |   _OpArgMap
     }
 
-input _OpField {
-        alias: _Identifier? = null
-        field: _Identifier
-        argument: "Todo: _OpArgument" String?
-        modifiers: _Modifier[]
-        directives: _OpDirective[]
-        body: _OpObject[]
+dual _OpArgScalar {
+        variable: _Identifier
+    |   _Value
     }
 
-input _OpInline {
-        type: _Identifier? = null
-        directives: _OpDirective[]
-        body: _OpObject[]
+dual _OpArgList {
+    | _OpArgument[]
     }
 
-dual _OpSpread {
-        fragment: _Identifier
-        directives: _OpDirective[]
+dual _OpArgMap {
+        value: _OpArgument
+        byVariable: _Identifier
+    | _OpArgument[_ValueBuiltIn]
     }
 

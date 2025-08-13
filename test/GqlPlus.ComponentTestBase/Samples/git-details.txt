@@ -1,1 +1,1 @@
-093f33b  (HEAD -> request) 2025-08-11 Refactor converted Specification files
+33abda4  (HEAD -> request) 2025-08-13 Improve Specification Schemas

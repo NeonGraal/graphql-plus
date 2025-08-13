@@ -172,124 +172,127 @@ Success
     I@017/0032
     $value
   }
+  |
+  P@007/0033
+  $value
 }
 {
-  !Ou I@008/0035
+  !Ou I@008/0036
   _BasicValue
   |
-  I@007/0036
-  Boolean
   I@007/0037
-  _EnumValue
+  Boolean
   I@007/0038
-  Number
+  _EnumValue
   I@007/0039
+  Number
+  I@007/0040
   String
 }
 {
-  !Du I@006/0042
+  !Du I@006/0043
   _DomainTrueFalse
   :
-  I@007/0043
+  I@007/0044
   _BaseDomainItem
   {
-    !DF I@009/0044
+    !DF I@009/0045
     value
     :
-    I@016/0044
+    I@016/0045
     Boolean
   }
 }
 {
-  !Ou I@008/0047
+  !Ou I@008/0048
   _DomainItemTrueFalse
   :
-  I@007/0048
+  I@007/0049
   _DomainItem
   <
-    I@019/0048
+    I@019/0049
     _DomainTrueFalse
   >
 }
 {
-  !Ou I@008/0051
+  !Ou I@008/0052
   _DomainLabel
   :
-  I@007/0052
+  I@007/0053
   _BaseDomainItem
   {
-    !OF I@009/0053
+    !OF I@009/0054
     label
     :
-    I@016/0053
+    I@016/0054
     _EnumValue
   }
 }
 {
-  !Ou I@008/0056
+  !Ou I@008/0057
   _DomainItemLabel
   :
-  I@007/0057
+  I@007/0058
   _DomainItem
   <
-    I@019/0057
+    I@019/0058
     _DomainLabel
   >
 }
 {
-  !Du I@006/0060
+  !Du I@006/0061
   _DomainRange
   :
-  I@007/0061
+  I@007/0062
   _BaseDomainItem
   {
-    !DF I@009/0062
-    lower
-    :
-    I@016/0062
-    Number
-    ?
     !DF I@009/0063
-    upper
+    lower
     :
     I@016/0063
     Number
     ?
+    !DF I@009/0064
+    upper
+    :
+    I@016/0064
+    Number
+    ?
   }
 }
 {
-  !Ou I@008/0066
+  !Ou I@008/0067
   _DomainItemRange
   :
-  I@007/0067
+  I@007/0068
   _DomainItem
   <
-    I@019/0067
+    I@019/0068
     _DomainRange
   >
 }
 {
-  !Du I@006/0070
+  !Du I@006/0071
   _DomainRegex
   :
-  I@007/0071
+  I@007/0072
   _BaseDomainItem
   {
-    !DF I@009/0072
+    !DF I@009/0073
     pattern
     :
-    I@018/0072
+    I@018/0073
     String
   }
 }
 {
-  !Ou I@008/0075
+  !Ou I@008/0076
   _DomainItemRegex
   :
-  I@007/0076
+  I@007/0077
   _DomainItem
   <
-    I@019/0076
+    I@019/0077
     _DomainRegex
   >
 }

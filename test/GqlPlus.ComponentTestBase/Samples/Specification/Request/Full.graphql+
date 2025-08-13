@@ -1,4 +1,4 @@
-input Request {
+input _Request {
         category: _Identifier? = null
         operation: _Identifier? = null
         definition: _Operation

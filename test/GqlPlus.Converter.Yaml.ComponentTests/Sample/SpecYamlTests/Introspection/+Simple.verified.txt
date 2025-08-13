@@ -353,6 +353,11 @@ types: !_Map_Type
       name: _BaseDomainItem
     typeKind: !_TypeKind Dual
   !_Identifier _DomainValue: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: _DomainValue
+      type: !_OutputBase
+        typeParam: value
     allFields:
     - !_ObjectFor(_OutputField)
       name: domainKind
@@ -362,6 +367,10 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: value
       object: _DomainValue
+      type: !_OutputBase
+        typeParam: value
+    alternates:
+    - !_OutputAlternate
       type: !_OutputBase
         typeParam: value
     fields:

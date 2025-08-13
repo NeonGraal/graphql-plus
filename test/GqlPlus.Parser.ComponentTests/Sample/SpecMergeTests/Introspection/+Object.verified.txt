@@ -399,7 +399,7 @@ Success
     default
     :
     I@018/0099
-    _Constant
+    _Value
     ?
   }
 }
@@ -438,7 +438,7 @@ Success
     default
     :
     I@018/0113
-    _Constant
+    _Value
     ?
   }
 }

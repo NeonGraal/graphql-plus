@@ -10,12 +10,12 @@ types: !_Map_Type
       name: value
       object: _Setting
       type: !_OutputBase
-        name: _Constant
+        name: _Value
     fields:
     - !_OutputField
       name: value
       type: !_OutputBase
-        name: _Constant
+        name: _Value
     name: _Setting
     parent: !_OutputBase
       name: _Named

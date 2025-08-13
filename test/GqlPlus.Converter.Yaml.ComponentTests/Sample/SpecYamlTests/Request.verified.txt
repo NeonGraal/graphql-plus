@@ -1,69 +1,5 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier Request: !_TypeInput
-    allAlternates:
-    - !_ObjectFor(_InputAlternate)
-      object: Request
-      type: !_InputBase
-        description: 'Parsed into definition'
-        name: String
-    allFields:
-    - !_ObjectFor(_InputField)
-      default: !Null null
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: category
-      object: Request
-      type: !_InputBase
-        name: _Identifier
-    - !_ObjectFor(_InputField)
-      default: !Null null
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: operation
-      object: Request
-      type: !_InputBase
-        name: _Identifier
-    - !_ObjectFor(_InputField)
-      name: definition
-      object: Request
-      type: !_InputBase
-        name: _Operation
-    - !_ObjectFor(_InputField)
-      default: !Null null
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: parameters
-      object: Request
-      type: !_InputBase
-        name: Any
-    alternates:
-    - !_InputAlternate
-      type: !_InputBase
-        description: 'Parsed into definition'
-        name: String
-    fields:
-    - !_InputField
-      default: !Null null
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: category
-      type: !_InputBase
-        name: _Identifier
-    - !_InputField
-      default: !Null null
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: operation
-      type: !_InputBase
-        name: _Identifier
-    - !_InputField
-      name: definition
-      type: !_InputBase
-        name: _Operation
-    - !_InputField
-      default: !Null null
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: parameters
-      type: !_InputBase
-        name: Any
-    name: Request
-    typeKind: !_TypeKind Input
   !_Identifier _Identifier: !_DomainString
     allItems:
     - !_DomainItem(_DomainRegex)
@@ -144,6 +80,115 @@ types: !_Map_Type
       name: Param
     name: _ModifierKind
     typeKind: !_TypeKind Enum
+  !_Identifier _OpArgList: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      collections:
+      - !_Modifier
+        modifierKind: !_ModifierKind List
+      object: _OpArgList
+      type: !_DualBase
+        name: _OpArgument
+    alternates:
+    - !_DualAlternate
+      collections:
+      - !_Modifier
+        modifierKind: !_ModifierKind List
+      type: !_DualBase
+        name: _OpArgument
+    name: _OpArgList
+    typeKind: !_TypeKind Dual
+  !_Identifier _OpArgMap: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      collections:
+      - !_ModifierDictionary
+        by: _ValueBuiltIn
+        modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Union
+      object: _OpArgMap
+      type: !_DualBase
+        name: _OpArgument
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: value
+      object: _OpArgMap
+      type: !_DualBase
+        name: _OpArgument
+    - !_ObjectFor(_DualField)
+      name: byVariable
+      object: _OpArgMap
+      type: !_DualBase
+        name: _Identifier
+    alternates:
+    - !_DualAlternate
+      collections:
+      - !_ModifierDictionary
+        by: _ValueBuiltIn
+        modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Union
+      type: !_DualBase
+        name: _OpArgument
+    fields:
+    - !_DualField
+      name: value
+      type: !_DualBase
+        name: _OpArgument
+    - !_DualField
+      name: byVariable
+      type: !_DualBase
+        name: _Identifier
+    name: _OpArgMap
+    typeKind: !_TypeKind Dual
+  !_Identifier _OpArgScalar: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: _OpArgScalar
+      type: !_DualBase
+        name: _Value
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: variable
+      object: _OpArgScalar
+      type: !_DualBase
+        name: _Identifier
+    alternates:
+    - !_DualAlternate
+      type: !_DualBase
+        name: _Value
+    fields:
+    - !_DualField
+      name: variable
+      type: !_DualBase
+        name: _Identifier
+    name: _OpArgScalar
+    typeKind: !_TypeKind Dual
+  !_Identifier _OpArgument: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: _OpArgument
+      type: !_DualBase
+        name: _OpArgScalar
+    - !_ObjectFor(_DualAlternate)
+      object: _OpArgument
+      type: !_DualBase
+        name: _OpArgList
+    - !_ObjectFor(_DualAlternate)
+      object: _OpArgument
+      type: !_DualBase
+        name: _OpArgMap
+    alternates:
+    - !_DualAlternate
+      type: !_DualBase
+        name: _OpArgScalar
+    - !_DualAlternate
+      type: !_DualBase
+        name: _OpArgList
+    - !_DualAlternate
+      type: !_DualBase
+        name: _OpArgMap
+    name: _OpArgument
+    typeKind: !_TypeKind Dual
   !_Identifier _OpDirective: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
@@ -156,8 +201,7 @@ types: !_Map_Type
       name: argument
       object: _OpDirective
       type: !_DualBase
-        description: 'Todo: _OpArgument'
-        name: String
+        name: _OpArgument
     fields:
     - !_DualField
       name: name
@@ -167,8 +211,7 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: argument
       type: !_DualBase
-        description: 'Todo: _OpArgument'
-        name: String
+        name: _OpArgument
     name: _OpDirective
     typeKind: !_TypeKind Dual
   !_Identifier _OpField: !_TypeInput
@@ -189,9 +232,8 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: argument
       object: _OpField
-      type: !_InputBase
-        description: 'Todo: _OpArgument'
-        name: String
+      type: !_DualBase
+        name: _OpArgument
     - !_ObjectFor(_InputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
@@ -224,9 +266,8 @@ types: !_Map_Type
     - !_InputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: argument
-      type: !_InputBase
-        description: 'Todo: _OpArgument'
-        name: String
+      type: !_DualBase
+        name: _OpArgument
     - !_InputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
@@ -372,9 +413,8 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: argument
       object: _OpResult
-      type: !_InputBase
-        description: 'Todo: _OpArgument'
-        name: String
+      type: !_DualBase
+        name: _OpArgument
     - !_ObjectFor(_InputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: body
@@ -391,9 +431,8 @@ types: !_Map_Type
     - !_InputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: argument
-      type: !_InputBase
-        description: 'Todo: _OpArgument'
-        name: String
+      type: !_DualBase
+        name: _OpArgument
     - !_InputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: body
@@ -450,9 +489,8 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: default
       object: _OpVariable
-      type: !_InputBase
-        description: 'Todo: _OpDefault'
-        name: String
+      type: !_DualBase
+        name: _Value
     - !_ObjectFor(_InputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives
@@ -478,9 +516,8 @@ types: !_Map_Type
     - !_InputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: default
-      type: !_InputBase
-        description: 'Todo: _OpDefault'
-        name: String
+      type: !_DualBase
+        name: _Value
     - !_InputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives
@@ -493,7 +530,9 @@ types: !_Map_Type
     - !_ObjectFor(_InputAlternate)
       object: _Operation
       type: !_InputBase
-        description: 'Parsed into above fields'
+        description: >-
+          Parsed into above fields, plus Request category and
+          operation
         name: String
     allFields:
     - !_ObjectFor(_InputField)
@@ -522,7 +561,9 @@ types: !_Map_Type
     alternates:
     - !_InputAlternate
       type: !_InputBase
-        description: 'Parsed into above fields'
+        description: >-
+          Parsed into above fields, plus Request category and
+          operation
         name: String
     fields:
     - !_InputField
@@ -546,3 +587,190 @@ types: !_Map_Type
         name: _OpResult
     name: _Operation
     typeKind: !_TypeKind Input
+  !_Identifier _Request: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_InputAlternate)
+      object: _Request
+      type: !_InputBase
+        description: 'Parsed into definition'
+        name: String
+    allFields:
+    - !_ObjectFor(_InputField)
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: category
+      object: _Request
+      type: !_InputBase
+        name: _Identifier
+    - !_ObjectFor(_InputField)
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: operation
+      object: _Request
+      type: !_InputBase
+        name: _Identifier
+    - !_ObjectFor(_InputField)
+      name: definition
+      object: _Request
+      type: !_InputBase
+        name: _Operation
+    - !_ObjectFor(_InputField)
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: parameters
+      object: _Request
+      type: !_InputBase
+        name: Any
+    alternates:
+    - !_InputAlternate
+      type: !_InputBase
+        description: 'Parsed into definition'
+        name: String
+    fields:
+    - !_InputField
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: category
+      type: !_InputBase
+        name: _Identifier
+    - !_InputField
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: operation
+      type: !_InputBase
+        name: _Identifier
+    - !_InputField
+      name: definition
+      type: !_InputBase
+        name: _Operation
+    - !_InputField
+      default: !Null null
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: parameters
+      type: !_InputBase
+        name: Any
+    name: _Request
+    typeKind: !_TypeKind Input
+  !_Identifier _Value: !_TypeDual
+    aliases: [Value]
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: _Value
+      type: !_DualBase
+        name: _ValueScalar
+    - !_ObjectFor(_DualAlternate)
+      object: _Value
+      type: !_DualBase
+        name: _ValueList
+    - !_ObjectFor(_DualAlternate)
+      object: _Value
+      type: !_DualBase
+        name: _ValueMap
+    alternates:
+    - !_DualAlternate
+      type: !_DualBase
+        name: _ValueScalar
+    - !_DualAlternate
+      type: !_DualBase
+        name: _ValueList
+    - !_DualAlternate
+      type: !_DualBase
+        name: _ValueMap
+    name: _Value
+    typeKind: !_TypeKind Dual
+  !_Identifier _ValueBuiltIn: !_TypeUnion
+    allItems:
+    - !_UnionMember
+      name: Boolean
+      union: _ValueBuiltIn
+    - !_UnionMember
+      name: Number
+      union: _ValueBuiltIn
+    - !_UnionMember
+      name: String
+      union: _ValueBuiltIn
+    - !_UnionMember
+      name: Unit
+      union: _ValueBuiltIn
+    - !_UnionMember
+      name: Null
+      union: _ValueBuiltIn
+    items:
+    - !_Aliased
+      name: Boolean
+    - !_Aliased
+      name: Number
+    - !_Aliased
+      name: String
+    - !_Aliased
+      name: Unit
+    - !_Aliased
+      name: Null
+    name: _ValueBuiltIn
+    typeKind: !_TypeKind Union
+  !_Identifier _ValueList: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      collections:
+      - !_Modifier
+        modifierKind: !_ModifierKind List
+      object: _ValueList
+      type: !_DualBase
+        name: _Value
+    alternates:
+    - !_DualAlternate
+      collections:
+      - !_Modifier
+        modifierKind: !_ModifierKind List
+      type: !_DualBase
+        name: _Value
+    name: _ValueList
+    typeKind: !_TypeKind Dual
+  !_Identifier _ValueMap: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      collections:
+      - !_ModifierDictionary
+        by: _ValueBuiltIn
+        modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Union
+      object: _ValueMap
+      type: !_DualBase
+        name: _Value
+    alternates:
+    - !_DualAlternate
+      collections:
+      - !_ModifierDictionary
+        by: _ValueBuiltIn
+        modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Union
+      type: !_DualBase
+        name: _Value
+    name: _ValueMap
+    typeKind: !_TypeKind Dual
+  !_Identifier _ValueScalar: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: _ValueScalar
+      type: !_DualBase
+        name: _Basic
+    - !_ObjectFor(_DualAlternate)
+      object: _ValueScalar
+      type: !_DualBase
+        name: _Internal
+    - !_ObjectFor(_DualAlternate)
+      object: _ValueScalar
+      type: !_DualBase
+        name: _Simple
+    alternates:
+    - !_DualAlternate
+      type: !_DualBase
+        name: _Basic
+    - !_DualAlternate
+      type: !_DualBase
+        name: _Internal
+    - !_DualAlternate
+      type: !_DualBase
+        name: _Simple
+    name: _ValueScalar
+    typeKind: !_TypeKind Dual

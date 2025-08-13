@@ -31,13 +31,13 @@ public class VerifyEnumTypesTests
   }
 
   [Fact]
-  public void Verify_Enum_ReturnsNoErrors()
+  public void Verify_EnumWithNoLabels_ReturnsError()
   {
     Usages.Add(_enum);
 
     _verifier.Verify(UsageAliased, Errors);
 
-    Errors.ShouldBeEmpty();
+    Errors.ShouldNotBeEmpty();
   }
 
   [Fact]
@@ -64,6 +64,9 @@ public class VerifyEnumTypesTests
     Define<IGqlpEnum>(parentName);
 
     IGqlpEnum anEnum = A.Enum(name, parentName);
+    IGqlpEnumLabel[] labels = A.NamedArray<IGqlpEnumLabel>("Label1", "Label2");
+    anEnum.Items.Returns(labels);
+
     Usages.Add(anEnum);
 
     _verifier.Verify(UsageAliased, Errors);

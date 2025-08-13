@@ -1,0 +1,204 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier _OpField: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        default: !Null null
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: alias
+        object: _OpField
+        type: !_InputBase
+          name: _Identifier
+      - !_ObjectFor(_InputField)
+        name: field
+        object: _OpField
+        type: !_InputBase
+          name: _Identifier
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: argument
+        object: _OpField
+        type: !_InputBase
+          name: _OpArgument
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: modifiers
+        object: _OpField
+        type: !_InputBase
+          name: _Modifier
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        object: _OpField
+        type: !_InputBase
+          name: _OpDirective
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: body
+        object: _OpField
+        type: !_InputBase
+          name: _OpObject
+    fields:
+      - !_InputField
+        default: !Null null
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: alias
+        type: !_InputBase
+          name: _Identifier
+      - !_InputField
+        name: field
+        type: !_InputBase
+          name: _Identifier
+      - !_InputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: argument
+        type: !_InputBase
+          name: _OpArgument
+      - !_InputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: modifiers
+        type: !_InputBase
+          name: _Modifier
+      - !_InputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        type: !_InputBase
+          name: _OpDirective
+      - !_InputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: body
+        type: !_InputBase
+          name: _OpObject
+    name: _OpField
+    typeKind: !_TypeKind Input
+  !_Identifier _OpInline: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        default: !Null null
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: type
+        object: _OpInline
+        type: !_InputBase
+          name: _Identifier
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        object: _OpInline
+        type: !_InputBase
+          name: _OpDirective
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: body
+        object: _OpInline
+        type: !_InputBase
+          name: _OpObject
+    fields:
+      - !_InputField
+        default: !Null null
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: type
+        type: !_InputBase
+          name: _Identifier
+      - !_InputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        type: !_InputBase
+          name: _OpDirective
+      - !_InputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: body
+        type: !_InputBase
+          name: _OpObject
+    name: _OpInline
+    typeKind: !_TypeKind Input
+  !_Identifier _OpObject: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_InputAlternate)
+        object: _OpObject
+        type: !_InputBase
+          name: _OpField
+      - !_ObjectFor(_InputAlternate)
+        object: _OpObject
+        type: !_DualBase
+          name: _OpSpread
+      - !_ObjectFor(_InputAlternate)
+        object: _OpObject
+        type: !_InputBase
+          name: _OpInline
+    alternates:
+      - !_InputAlternate
+        type: !_InputBase
+          name: _OpField
+      - !_InputAlternate
+        type: !_DualBase
+          name: _OpSpread
+      - !_InputAlternate
+        type: !_InputBase
+          name: _OpInline
+    name: _OpObject
+    typeKind: !_TypeKind Input
+  !_Identifier _OpResult: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        default: !Null null
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: domain
+        object: _OpResult
+        type: !_InputBase
+          name: _Identifier
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: argument
+        object: _OpResult
+        type: !_InputBase
+          name: _OpArgument
+      - !_ObjectFor(_InputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: body
+        object: _OpResult
+        type: !_InputBase
+          name: _OpObject
+    fields:
+      - !_InputField
+        default: !Null null
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: domain
+        type: !_InputBase
+          name: _Identifier
+      - !_InputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: argument
+        type: !_InputBase
+          name: _OpArgument
+      - !_InputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: body
+        type: !_InputBase
+          name: _OpObject
+    name: _OpResult
+    typeKind: !_TypeKind Input
+  !_Identifier _OpSpread: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: fragment
+        object: _OpSpread
+        type: !_DualBase
+          name: _Identifier
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        object: _OpSpread
+        type: !_DualBase
+          name: _OpDirective
+    fields:
+      - !_DualField
+        name: fragment
+        type: !_DualBase
+          name: _Identifier
+      - !_DualField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: directives
+        type: !_DualBase
+          name: _OpDirective
+    name: _OpSpread
+    typeKind: !_TypeKind Dual

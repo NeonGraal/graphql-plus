@@ -30,6 +30,7 @@ output _DomainItem<$item:_BaseDomainItem> {
 output _DomainValue<$kind:_DomainKind $value:_BasicValue> {
     : _DomainRef<$kind>
         value: $value
+    | $value
     }
 
 output _BasicValue {

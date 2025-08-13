@@ -14,7 +14,7 @@ output _InputTypeParam {
 
 output _InputField {
     : _Field<_InputBase>
-        default: _Constant?
+        default: _Value?
     }
 
 output _InputAlternate {
@@ -28,6 +28,6 @@ output _InputTypeArg {
 output _InputParam {
     : _InputBase
         modifiers: _Modifiers[]
-        default: _Constant?
+        default: _Value?
     }
 

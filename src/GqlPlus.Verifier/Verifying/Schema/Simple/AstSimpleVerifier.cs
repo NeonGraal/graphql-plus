@@ -20,6 +20,10 @@ internal abstract class AstSimpleVerifier<TAst, TContext, TItem>(
   {
     base.UsageValue(usage, context);
 
+    if (!GetItems(usage).Any()) {
+      context.AddError(usage, usage.Label, "Must have at least one member");
+    }
+
     if (GetParentType(usage.Name, usage, context, out TAst? parentType)) {
       CheckSelfMember(usage.Name, parentType, context);
     }

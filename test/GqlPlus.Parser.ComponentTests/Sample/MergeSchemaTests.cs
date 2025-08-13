@@ -23,7 +23,7 @@ public class MergeSchemaTests(
 
   private async Task Check_Merge(IGqlpSchema[] schemas, string test, string label, string section)
   {
-    IEnumerable<IGqlpSchema> result = schemaMerger.Merge(schemas);
+    IEnumerable<IGqlpSchema> result = schemaMerger.SkipIf(test == SchemaValidData.SpecDefinition).Merge(schemas);
 
     await Verify(result.Select(s => s.Show()), CustomSettings(label, "Merge", test, section));
   }

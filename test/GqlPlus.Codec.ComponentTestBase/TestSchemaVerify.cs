@@ -12,7 +12,7 @@ public abstract class TestSchemaVerify(
 {
   protected override async Task Test_Asts(IEnumerable<IGqlpSchema> asts, string test, string label, string[] dirs, string section, string input = "")
   {
-    (SchemaModel model, IModelsContext context) = checks.Model_Asts(asts, test != SchemaValidData.SpecDefinition);
+    (SchemaModel model, IModelsContext context) = checks.Model_Asts(asts, !SchemaValidData.ExcludeSpecsForBuiltIn(test));
 
     await EncodeModel(model, context, test, label, dirs, section);
 

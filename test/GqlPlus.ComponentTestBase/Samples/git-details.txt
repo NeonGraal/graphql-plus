@@ -1,1 +1,1 @@
-33abda4  (HEAD -> request) 2025-08-13 Improve Specification Schemas
+8273264  (HEAD -> request) 2025-08-14 Include definitions in Schema spec in Samples

@@ -67,16 +67,13 @@ public class UsageContext(
 internal record struct ParentUsage<TAst>(List<string> Parents, TAst Usage, string Label)
   where TAst : IGqlpType
 {
-  internal readonly string? Parent => Parents?.FirstOrDefault();
+  internal readonly string? Parent => Parents.FirstOrDefault();
   internal readonly bool DifferentName => !Parents.Contains(Usage.Name);
   internal readonly string UsageName => Usage.Name;
   internal readonly string UsageLabel => Usage.Label;
 
   internal readonly ParentUsage<TAst> AddParent(string parent)
     => new([parent, .. Parents], Usage, Label);
-
-  public override readonly string? ToString()
-    => $"{UsageLabel}: {UsageName} - [{Parents.Joined()}] ({Label})";
 }
 
 internal static class UsageHelpers

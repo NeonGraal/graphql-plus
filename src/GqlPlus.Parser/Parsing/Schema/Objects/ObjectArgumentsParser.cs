@@ -5,7 +5,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-internal abstract class ObjectArgsParser<TObjArg, TObjArgAst>
+internal abstract class ObjectArgumentsParser<TObjArg, TObjArgAst>
   : ObjectTypeParser<TObjArg, TObjArgAst>
   , Parser<TObjArg>.IA
   where TObjArg : IGqlpObjArg
@@ -19,9 +19,9 @@ internal abstract class ObjectArgsParser<TObjArg, TObjArgAst>
       return list.EmptyArray();
     }
 
-    IResult<TObjArgAst> argument = ParseObjectType(tokens, label).Map(value => ArgEnumValue(tokens, value));
+    IResult<TObjArgAst> argument = ParseObjectType(tokens, label).Map(CallArgEnumValue);
     while (argument.Required(list.Add)) {
-      argument = ParseObjectType(tokens, label).Map(value => ArgEnumValue(tokens, value));
+      argument = ParseObjectType(tokens, label).Map(CallArgEnumValue);
     }
 
     if (argument.IsError()) {
@@ -33,6 +33,9 @@ internal abstract class ObjectArgsParser<TObjArg, TObjArgAst>
     }
 
     return list.OkArray();
+
+    IResult<TObjArgAst> CallArgEnumValue(TObjArgAst value)
+      => ArgEnumValue(tokens, value);
   }
 
   protected virtual IResult<TObjArgAst> ArgEnumValue(ITokenizer tokens, TObjArgAst argument)

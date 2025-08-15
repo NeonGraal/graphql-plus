@@ -76,26 +76,59 @@ public class ParserClassTestBase
   protected void Parse<T>([NotNull] Parser<T>.I parser, IResult<T> first, params IResult<T>[] rest)
     => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(first, rest);
 
-  protected T ParseOk<T>([NotNull] Parser<T>.I parser)
+  protected void ParseA<T>([NotNull] Parser<T>.IA parser, IResultArray<T> first, params IResultArray<T>[] rest)
+    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(first, rest);
+
+  protected T ParseOk<T>([NotNull] Parser<T>.I parser, int n = 1)
     where T : class, IGqlpError
   {
+    ArgumentOutOfRangeException.ThrowIfLessThan(n, 1);
+
     T result = AtFor<T>();
-    ParseOk(parser, result);
+    IResult<T>[] more = new IResult<T>[n];
+    Array.Fill(more, result.Ok());
+    more[^1] = result.Empty();
+    Parse(parser, result.Ok(), more);
     return result;
   }
 
   protected void ParseOk<T>([NotNull] Parser<T>.I parser, T result)
-    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(result.Ok(), result.Empty());
+    => Parse(parser, result.Ok(), result.Empty());
 
   protected void ParseEmpty<T>([NotNull] Parser<T>.I parser)
     where T : class
-    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(0.Empty<T>());
+    => Parse(parser, 0.Empty<T>());
 
-  protected T[] ParseOkA<T>([NotNull] Parser<T>.IA parser)
+  protected void ParseError<T>([NotNull] Parser<T>.I parser, string? message = null)
+    => Parse(parser, Error<T>(message.IfWhiteSpace("error for " + typeof(T).ExpandTypeName())));
+
+  protected T ParseOkError<T>([NotNull] Parser<T>.I parser, int n = 1, string? message = null)
     where T : class, IGqlpError
   {
+    ArgumentOutOfRangeException.ThrowIfLessThan(n, 1);
+
+    T result = AtFor<T>();
+    if (n == 1) {
+      ParseOk(parser, result);
+    }
+
+    IResult<T>[] more = new IResult<T>[n];
+    Array.Fill(more, result.Ok());
+    more[^1] = Error<T>(message.IfWhiteSpace("error for " + typeof(T).ExpandTypeName()));
+    Parse(parser, result.Ok(), more);
+    return result;
+  }
+
+  protected T[] ParseOkA<T>([NotNull] Parser<T>.IA parser, int n = 1)
+    where T : class, IGqlpError
+  {
+    ArgumentOutOfRangeException.ThrowIfLessThan(n, 1);
+
     T[] result = [AtFor<T>()];
-    ParseOkA(parser, result);
+    IResultArray<T>[] more = new IResultArray<T>[n];
+    Array.Fill(more, result.OkArray());
+    more[^1] = result.EmptyArray();
+    ParseA(parser, result.OkArray(), more);
     return result;
   }
 
@@ -107,16 +140,26 @@ public class ParserClassTestBase
   }
 
   protected void ParseOkA<T>([NotNull] Parser<T>.IA parser, T[] result)
-    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(result.OkArray());
+    => ParseA(parser, result.OkArray(), result.EmptyArray());
 
   protected void ParseEmptyA<T>([NotNull] Parser<T>.IA parser)
-    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(0.EmptyArray<T>());
-
-  protected void ParseError<T>([NotNull] Parser<T>.I parser, string? message = null)
-    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(Error<T>(message.IfWhiteSpace("error for " + typeof(T).ExpandTypeName())));
+    => ParseA(parser, 0.EmptyArray<T>());
 
   protected void ParseErrorA<T>([NotNull] Parser<T>.IA parser, string? message = null)
-    => parser.Parse(Tokenizer, default!).ReturnsForAnyArgs(ErrorA<T>(message.IfWhiteSpace("error for array of " + typeof(T).ExpandTypeName())));
+    => ParseA(parser, ErrorA<T>(message.IfWhiteSpace("error for array of " + typeof(T).ExpandTypeName())));
+
+  protected T[] ParseOkErrorA<T>([NotNull] Parser<T>.IA parser, int n = 1, string? message = null)
+    where T : class, IGqlpError
+  {
+    ArgumentOutOfRangeException.ThrowIfLessThan(n, 1);
+
+    T[] result = [AtFor<T>()];
+    IResultArray<T>[] more = new IResultArray<T>[n];
+    Array.Fill(more, result.OkArray());
+    more[^1] = ErrorA<T>(message.IfWhiteSpace("error for array of " + typeof(T).ExpandTypeName()));
+    ParseA(parser, result.OkArray(), more);
+    return result;
+  }
 
   protected void ParseOkField<T>([NotNull] Parser<IGqlpFields<T>>.I parser, string fieldName)
     where T : class, IGqlpError
@@ -124,6 +167,13 @@ public class ParserClassTestBase
     T value = AtFor<T>();
     IGqlpFields<T> objectResult = A.Fields(fieldName, value);
     ParseOk(parser, objectResult);
+  }
+
+  protected void ParseOkOption<T>([NotNull] IOptionParser<T> parser)
+    where T : struct
+  {
+    T value = default;
+    Parse(parser, value.Ok());
   }
 
   internal static T NameFor<T>(string name)

@@ -1,6 +1,4 @@
-﻿using GqlPlus;
-
-namespace GqlPlus.Encoding;
+﻿namespace GqlPlus.Encoding;
 
 public class SpecialTypeEncoderTests
   : EncoderClassTestBase<SpecialTypeModel>

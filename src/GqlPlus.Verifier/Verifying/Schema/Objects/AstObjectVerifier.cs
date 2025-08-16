@@ -82,9 +82,8 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
     {
       if (string.IsNullOrWhiteSpace(errSuffix)) {
         context.AddError(reference, reference.Label + suffix, $"{errPrefix}", check);
-        // Not called with error suffix
-        //} else {
-        //  context.AddError(reference, reference.Label + suffix, $"{errPrefix} {typeName}. {errSuffix}", check);
+      } else {
+        context.AddError(reference, reference.Label + suffix, $"{errPrefix} {typeName}. {errSuffix}", check);
       }
     }
   }

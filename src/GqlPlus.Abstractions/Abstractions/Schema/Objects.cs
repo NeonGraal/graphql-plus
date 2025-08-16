@@ -8,14 +8,20 @@ public interface IGqlpObject
   IEnumerable<IGqlpObjAlternate> Alternates { get; }
 }
 
-public interface IGqlpObject<TBase, TField, TAlt>
+public interface IGqlpObject<TBase>
   : IGqlpObject
+  where TBase : IGqlpObjBase
+{
+  TBase? ObjParent { get; }
+}
+
+public interface IGqlpObject<TBase, TField, TAlt>
+  : IGqlpObject<TBase>
   , IEquatable<IGqlpObject<TBase, TField, TAlt>>
   where TBase : IGqlpObjBase
   where TField : IGqlpObjField
   where TAlt : IGqlpObjAlternate
 {
-  TBase? ObjParent { get; }
   IEnumerable<TField> ObjFields { get; }
   IEnumerable<TAlt> ObjAlternates { get; }
 }

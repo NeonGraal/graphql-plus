@@ -1,1 +1,1 @@
-5353adb  (HEAD -> object-name) 2025-07-10 More constraint samples
+73ba093  (HEAD -> parser-coverage, origin/main, origin/HEAD, main) 2025-07-14 Merge pull request #28 from graphql-plus/object-name

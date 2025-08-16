@@ -196,16 +196,14 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
 
     Define<IGqlpTypeSpecial>("String");
 
-    TObject parentObject = A.Named<TObject>(parentName);
+    TObject parentObject = A.Obj<TObject, TBase>(parentName);
     TAlt parentAlt = MakeAlt("String");
     parentObject.Alternates.Returns([parentAlt]);
     parentObject.ObjAlternates.Returns([parentAlt]);
     Usages.Add(parentObject);
     Definitions.Add(parentObject);
 
-    TBase parentBase = A.Named<TBase>(parentName);
-    TObject altObject = A.Named<TObject>(alternateName);
-    altObject.Parent.Returns(parentBase);
+    TObject altObject = A.Obj<TObject, TBase>(alternateName, parentName);
     Usages.Add(altObject);
     Definitions.Add(altObject);
 
@@ -262,13 +260,14 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
 
     TField field = A.ObjField<TField, TBase>(fieldName, A.ObjBase<TBase>("String"), "");
 
-    TObject parent = A.Named<TObject>(parentName);
+    TObject parent = A.Obj<TObject, TBase>(parentName);
     parent.Fields.Returns([field]);
     parent.ObjFields.Returns([field]);
     Definitions.Add(parent);
 
-    TBase parentBase = A.Named<TBase>(parentName);
+    TBase parentBase = A.Named<TBase, IGqlpObjBase>(parentName);
     TheObject.Parent.Returns(parentBase);
+    TheObject.ObjParent.Returns(parentBase);
     Usages.Add(TheObject);
 
     Verifier.Verify(UsageAliased, Errors);
@@ -283,13 +282,14 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
 
     TAlt alternate = MakeAlt("String");
 
-    TObject parent = A.Named<TObject>(parentName);
+    TObject parent = A.Obj<TObject, TBase>(parentName);
     parent.Alternates.Returns([alternate]);
     parent.ObjAlternates.Returns([alternate]);
     Definitions.Add(parent);
 
-    TBase parentBase = A.Named<TBase>(parentName);
+    TBase parentBase = A.Named<TBase, IGqlpObjBase>(parentName);
     TheObject.Parent.Returns(parentBase);
+    TheObject.ObjParent.Returns(parentBase);
     Usages.Add(TheObject);
 
     Verifier.Verify(UsageAliased, Errors);
@@ -340,12 +340,9 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
 
     Define<IGqlpSimple>(argType);
 
-    TObject other = A.Named<TObject>(otherName);
+    TObject other = A.Obj<TObject, TBase>(otherName, paramName, true);
     IGqlpTypeParam typeParam = A.TypeParam(paramName, argType);
     other.TypeParams.Returns([typeParam]);
-    TBase parent = A.Named<TBase>(paramName);
-    parent.IsTypeParam.Returns(true);
-    other.ObjParent.Returns(parent);
 
     TArg arg = A.Named<TArg>(argType);
     TBase objBase = A.ObjBase<TBase, TArg>(otherName, arg);

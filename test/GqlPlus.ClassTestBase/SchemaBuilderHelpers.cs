@@ -37,6 +37,15 @@ public static class SchemaBuilderHelpers
     return result;
   }
 
+  public static T Named<T, T1>(this IMockBuilder builder, string name)
+    where T : class, T1
+    where T1 : class, IGqlpNamed
+  {
+    T result = builder.Error<T, T1>();
+    result.Name.Returns(name);
+    return result;
+  }
+
   public static T Named<T>(this IMockBuilder builder, string name, string description)
     where T : class, IGqlpNamed
   {

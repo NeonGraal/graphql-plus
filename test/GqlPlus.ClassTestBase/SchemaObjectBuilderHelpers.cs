@@ -44,11 +44,28 @@ public static class SchemaObjectBuilderHelpers
   public static IGqlpOutputField OutputField(this IMockBuilder builder, string name, IGqlpOutputBase type, params IGqlpModifier[] modifiers)
     => builder.ObjField<IGqlpOutputField, IGqlpOutputBase>(name, type, "", modifiers);
 
+  public static TObject Obj<TObject, TBase>(this IMockBuilder builder, string typeName, string parent = "", bool isTypeParam = false)
+    where TObject : class, IGqlpObject<TBase>
+    where TBase : class, IGqlpObjBase
+  {
+    TObject theObj = builder.Named<TObject>(typeName);
+    if (!string.IsNullOrWhiteSpace(parent)) {
+      TBase parentRef = builder.Named<TBase, IGqlpObjBase>(parent);
+      parentRef.IsTypeParam.Returns(isTypeParam);
+      theObj.Parent.Returns(parentRef);
+      theObj.ObjParent.Returns(parentRef);
+    } else {
+      theObj.Parent.Returns((IGqlpObjBase?)null);
+      theObj.ObjParent.Returns((TBase?)null);
+    }
+    return theObj;
+  }
+
   public static TBase ObjBase<TBase, TArg>(this IMockBuilder builder, string typeName, params TArg[] args)
     where TBase : class, IGqlpObjBase<TArg>
     where TArg : class, IGqlpObjArg
   {
-    TBase theType = builder.Named<TBase>(typeName);
+    TBase theType = builder.Named<TBase, IGqlpObjBase>(typeName);
     theType.Args.Returns(args);
     theType.BaseArgs.Returns(args);
 

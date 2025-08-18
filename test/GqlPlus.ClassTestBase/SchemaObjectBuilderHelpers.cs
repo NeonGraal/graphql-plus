@@ -1,4 +1,7 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Security.AccessControl;
+using GqlPlus.Abstractions.Schema;
+using Microsoft.Extensions.ObjectPool;
 
 namespace GqlPlus;
 
@@ -49,16 +52,27 @@ public static class SchemaObjectBuilderHelpers
     where TBase : class, IGqlpObjBase
   {
     TObject theObj = builder.Named<TObject>(typeName);
+    string label = typeof(TObject).Name[5..^6];
+    theObj.Label.Returns(label);
     if (!string.IsNullOrWhiteSpace(parent)) {
       TBase parentRef = builder.Named<TBase, IGqlpObjBase>(parent);
       parentRef.IsTypeParam.Returns(isTypeParam);
-      theObj.Parent.Returns(parentRef);
-      theObj.ObjParent.Returns(parentRef);
+      theObj.SetParent(parentRef);
     } else {
-      theObj.Parent.Returns((IGqlpObjBase?)null);
-      theObj.ObjParent.Returns((TBase?)null);
+      theObj.SetParent((TBase?)null);
     }
+
     return theObj;
+  }
+
+  public static TObject SetParent<TObject, TBase>([NotNull] this TObject obj, TBase? parent)
+    where TObject : class, IGqlpObject<TBase>
+    where TBase : class, IGqlpObjBase
+  {
+    obj.Parent.Returns(parent);
+    obj.ObjParent.Returns(parent);
+
+    return obj;
   }
 
   public static TBase ObjBase<TBase, TArg>(this IMockBuilder builder, string typeName, params TArg[] args)
@@ -66,15 +80,26 @@ public static class SchemaObjectBuilderHelpers
     where TArg : class, IGqlpObjArg
   {
     TBase theType = builder.Named<TBase, IGqlpObjBase>(typeName);
-    theType.Args.Returns(args);
-    theType.BaseArgs.Returns(args);
-
-    return theType;
+    string label = typeof(TBase).Name[5..^4];
+    theType.Label.Returns(label);
+    return theType.SetArgs(args);
   }
+  public static TBase SetArgs<TBase, TArg>([NotNull] this TBase objBase, params TArg[] args)
+    where TBase : class, IGqlpObjBase<TArg>
+    where TArg : class, IGqlpObjArg
+  {
+    objBase.Args.Returns(args);
+    objBase.BaseArgs.Returns(args);
+
+    return objBase;
+  }
+
   public static TBase ObjBase<TBase>(this IMockBuilder builder, string typeName, string typeDescr = "", bool isTypeParam = false)
     where TBase : class, IGqlpObjBase
   {
     TBase theType = builder.Named<TBase>(typeName, typeDescr);
+    string label = typeof(TBase).Name[5..^4];
+    theType.Label.Returns(label);
     if (isTypeParam) {
       theType.IsTypeParam.Returns(true);
       theType.FullType.Returns("$" + typeName);

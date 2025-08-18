@@ -1,1 +1,1 @@
-73ba093  (HEAD -> parser-coverage, origin/main, origin/HEAD, main) 2025-07-14 Merge pull request #28 from graphql-plus/object-name
+91d4275  (HEAD -> parser-coverage) 2025-08-18 Improve verification samples

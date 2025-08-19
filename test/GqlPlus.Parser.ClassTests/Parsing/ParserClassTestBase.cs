@@ -34,6 +34,11 @@ public class ParserClassTestBase
       .Prefix(prefix, out Arg.Any<string?>(), out Arg.Any<TokenAt>())
         .Returns(first, [.. rest, OutFailAt()]);
 
+  protected void TakeAnyReturns(Func<CallInfo, bool> first, params Func<CallInfo, bool>[] rest)
+    => Tokenizer
+      .TakeAny(out char _)
+        .ReturnsForAnyArgs(first, [.. rest, OutFail]);
+
   protected void TakeReturns(char take, bool first, params bool[] rest)
     => Tokenizer.Take(take).Returns(first, [.. rest, false]);
 

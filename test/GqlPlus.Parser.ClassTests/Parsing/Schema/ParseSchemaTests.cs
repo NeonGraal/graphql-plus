@@ -13,13 +13,15 @@ public class ParseSchemaTests
     _declarationParser.Selector.Returns("category");
 
     _parser = new([_declarationParser]);
+
+    Tokenizer.AtStart.Returns(true);
+    Tokenizer.Read().Returns(true);
   }
 
   [Fact]
   public void Parse_ShouldReturnSchema_WhenValid()
   {
     // Arrange
-    Tokenizer.AtStart.Returns(true);
     IdentifierReturns(OutString("category"));
     Tokenizer.AtEnd.Returns(true);
 
@@ -71,7 +73,6 @@ public class ParseSchemaTests
   public void Parse_ShouldReturnError_WhenNoText()
   {
     // Arrange
-    Tokenizer.AtStart.Returns(true);
     Tokenizer.Read().Returns(false);
 
     SetupError<IGqlpSchema>();

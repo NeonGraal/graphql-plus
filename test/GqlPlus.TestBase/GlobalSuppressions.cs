@@ -6,5 +6,6 @@
 using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("Design", "CA1036:Override methods on comparable types")]
+[assembly: SuppressMessage("Reliability", "CA2007:Consider calling ConfigureAwait on the awaited task")]
 
 [assembly: SuppressMessage("Style", "IDE0058:Expression value is never used")]

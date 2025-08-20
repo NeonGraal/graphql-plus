@@ -1,7 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using System.Security.AccessControl;
 using GqlPlus.Abstractions.Schema;
-using Microsoft.Extensions.ObjectPool;
 
 namespace GqlPlus;
 

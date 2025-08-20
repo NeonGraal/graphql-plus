@@ -1,6 +1,4 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Matching;
+﻿namespace GqlPlus.Matching;
 
 public abstract class ObjectSameMatcherTests<TObject, TBase>
   : MatcherTestsBase

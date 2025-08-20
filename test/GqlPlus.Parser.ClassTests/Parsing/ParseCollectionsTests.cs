@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
-
-namespace GqlPlus.Parsing;
+﻿namespace GqlPlus.Parsing;
 
 public class ParseCollectionsTests
   : ParserClassTestBase

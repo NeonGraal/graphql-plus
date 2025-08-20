@@ -26,6 +26,36 @@ public abstract class ObjectArgsParseTestBase<TObjArg>
     result.ShouldBeAssignableTo<IResultArrayOk<TObjArg>>();
   }
 
+  [Fact]
+  public void Parse_ShouldReturnOk_WhenZero()
+  {
+    // Arrange
+    TakeReturns('<', true);
+    Tokenizer.TakeZero().Returns(true);
+    TakeReturns('>', true);
+
+    // Act
+    IResultArray<TObjArg> result = Parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultArrayOk<TObjArg>>();
+  }
+
+  [Theory, InlineData('^'), InlineData('_'), InlineData('*')]
+  public void Parse_ShouldReturnOk_WhenChar(char argType)
+  {
+    // Arrange
+    TakeReturns('<', true);
+    TakeAnyReturns(OutChar(argType));
+    TakeReturns('>', true);
+
+    // Act
+    IResultArray<TObjArg> result = Parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultArrayOk<TObjArg>>();
+  }
+
   [Theory, RepeatData]
   public void Parse_ShouldReturnOk_WhenTwoValid(string argType1, string argType2)
   {

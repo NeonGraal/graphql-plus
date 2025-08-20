@@ -6,12 +6,11 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Objects;
 
 internal abstract class ObjectArgumentsParser<TObjArg, TObjArgAst>
-  : ObjectTypeParser<TObjArg, TObjArgAst>
-  , Parser<TObjArg>.IA
+  : Parser<TObjArg>.IA
   where TObjArg : IGqlpObjArg
   where TObjArgAst : AstObjArg, TObjArg
 {
-  public override IResultArray<TObjArg> Parse(ITokenizer tokens, string label)
+  public IResultArray<TObjArg> Parse(ITokenizer tokens, string label)
   {
     List<TObjArg> list = [];
 
@@ -38,7 +37,39 @@ internal abstract class ObjectArgumentsParser<TObjArg, TObjArgAst>
       => ArgEnumValue(tokens, value);
   }
 
-  protected virtual IResult<TObjArgAst> ArgEnumValue(ITokenizer tokens, TObjArgAst argument)
+  protected IResult<TObjArgAst> ParseObjectType(ITokenizer tokens, string label)
 
+  {
+    string description = tokens.Description();
+    if (!tokens.Prefix('$', out string? param, out TokenAt at)) {
+      return tokens.Error<TObjArgAst>(label, "identifier after '$'");
+    }
+
+    if (!string.IsNullOrWhiteSpace(param)) {
+      TObjArgAst objType = ObjType(at, param!, description) with {
+        IsTypeParam = true,
+      };
+      return objType.Ok();
+    }
+
+    at = tokens.At;
+
+    bool hasName = tokens.Identifier(out string? name);
+    if (!hasName) {
+      if (hasName = tokens.TakeZero()) {
+        name = "0";
+      } else if (hasName = tokens.TakeAny(out char simple, '^', '*', '_')) {
+        name = $"{simple}";
+      }
+    }
+
+    return hasName
+      ? ObjType(at, name!, description).Ok()
+      : 0.Empty<TObjArgAst>();
+  }
+
+  protected virtual IResult<TObjArgAst> ArgEnumValue(ITokenizer tokens, TObjArgAst argument)
     => argument.Ok();
+
+  protected abstract TObjArgAst ObjType(TokenAt at, string type, string description);
 }

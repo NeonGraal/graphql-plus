@@ -398,7 +398,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
   [Theory, RepeatData]
   public void Verify_Object_WithFieldTypeArgGeneric_ReturnsError(string fieldName, string otherName, string paramName, string argType, string argParam)
   {
-    this.SkipIf(argType == otherName);
+    this.SkipIf(argType == otherName || argType == argParam);
 
     Define<IGqlpSimple>(argParam);
 

@@ -6,7 +6,6 @@ internal interface INameFilterDecoder
   : IDecoder<string>
 { }
 
-
 internal class NameFilterModelDecoder
   : ScalarDecoder<string>, INameFilterDecoder
 {

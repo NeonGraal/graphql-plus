@@ -9,7 +9,14 @@ public class ParseSchemaTests
   private readonly ParseSchema _parser;
 
   public ParseSchemaTests()
-    => _parser = new([_declarationParser]);
+  {
+    _declarationParser.Selector.Returns("category");
+
+    _parser = new([_declarationParser]);
+
+    Tokenizer.AtStart.Returns(true);
+    Tokenizer.Read().Returns(true);
+  }
 
   [Fact]
   public void Parse_ShouldReturnSchema_WhenValid()
@@ -17,8 +24,6 @@ public class ParseSchemaTests
     // Arrange
     IdentifierReturns(OutString("category"));
     Tokenizer.AtEnd.Returns(true);
-
-    _declarationParser.Selector.Returns("category");
 
     // Act
     IResult<IGqlpSchema> result = _parser.Parse(Tokenizer, "testLabel");
@@ -36,7 +41,6 @@ public class ParseSchemaTests
     IdentifierReturns(OutString("unknown"));
     Tokenizer.AtEnd.Returns(true);
 
-    _declarationParser.Selector.Returns("category");
     SetupError<IGqlpSchema>();
 
     // Act
@@ -46,5 +50,37 @@ public class ParseSchemaTests
     result.ShouldBeAssignableTo<IResultOk<IGqlpSchema>>()
       .Required().ShouldNotBeNull()
       .Result.ShouldBe(ParseResultKind.Failure);
+  }
+
+  [Fact]
+  public void Parse_ShouldReturnError_WhenToMuchText()
+  {
+    // Arrange
+    IdentifierReturns(OutString("category"));
+
+    SetupError<IGqlpSchema>();
+
+    // Act
+    IResult<IGqlpSchema> result = _parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultOk<IGqlpSchema>>()
+      .Required().ShouldNotBeNull()
+      .Result.ShouldBe(ParseResultKind.Failure);
+  }
+
+  [Fact]
+  public void Parse_ShouldReturnError_WhenNoText()
+  {
+    // Arrange
+    Tokenizer.Read().Returns(false);
+
+    SetupError<IGqlpSchema>();
+
+    // Act
+    IResult<IGqlpSchema> result = _parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultError>();
   }
 }

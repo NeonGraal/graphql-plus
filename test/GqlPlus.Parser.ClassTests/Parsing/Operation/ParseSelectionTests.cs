@@ -10,6 +10,7 @@ public class ParseSelectionTests
   private readonly Parser<IGqlpSelection>.IA _objectParser;
 
   public ParseSelectionTests()
+    : base(A.Of<ITokenizer, IOperationContext>())
   {
     Parser<IGqlpDirective>.DA directives = ParserAFor(out _directivesParser);
     Parser<IGqlpSelection>.DA objectParser = ParserAFor(out _objectParser);

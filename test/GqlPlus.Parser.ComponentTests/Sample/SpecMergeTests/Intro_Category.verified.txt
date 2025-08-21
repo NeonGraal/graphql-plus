@@ -4,61 +4,57 @@ Success
 {
   !Ou I@008/0001
   _Categories
+  :
+  I@007/0002
+  _AndType
   {
-    !OF I@009/0002
+    !OF I@009/0003
     category
     :
-    I@019/0002
+    I@019/0003
     _Category
-    !OF I@009/0003
-    type
-    :
-    I@015/0003
-    _Type
   }
   |
   I@007/0004
   _Category
-  I@007/0005
-  _Type
 }
 {
-  !Ou I@008/0008
+  !Ou I@008/0007
   _Category
   :
-  I@007/0009
+  I@007/0008
   _Aliased
   {
-    !OF I@009/0010
+    !OF I@009/0009
     resolution
     :
-    I@021/0010
+    I@021/0009
     _Resolution
-    !OF I@009/0011
-    name
+    !OF I@009/0010
+    output
     :
-    I@015/0011
+    I@017/0010
     _TypeRef
     <
-      I@024/0011
+      I@026/0010
       _TypeKind.Output
     >
-    !OF I@009/0012
+    !OF I@009/0011
     modifiers
     :
-    I@020/0012
+    I@020/0011
     _Modifiers
     []
   }
 }
 {
-  !En I@006/0015
+  !En I@006/0014
   _Resolution
-  !EL I@020/0015
+  !EL I@020/0014
   Parallel
-  !EL I@029/0015
+  !EL I@029/0014
   Sequential
-  !EL I@040/0015
+  !EL I@040/0014
   Single
 }
 ]

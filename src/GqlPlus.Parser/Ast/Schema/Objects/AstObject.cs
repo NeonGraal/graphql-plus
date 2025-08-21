@@ -20,7 +20,7 @@ internal abstract record class AstObject<TObjBase, TObjField, TObjAlt>(
   IEnumerable<IGqlpObjField> IGqlpObject.Fields => ObjFields.Cast<IGqlpObjField>();
   IEnumerable<IGqlpObjAlternate> IGqlpObject.Alternates => ObjAlternates.Cast<IGqlpObjAlternate>();
 
-  TObjBase? IGqlpObject<TObjBase, TObjField, TObjAlt>.ObjParent => Parent is TObjBase objBase ? objBase : default;
+  TObjBase? IGqlpObject<TObjBase>.ObjParent => Parent is TObjBase objBase ? objBase : default;
   IEnumerable<TObjField> IGqlpObject<TObjBase, TObjField, TObjAlt>.ObjFields => ObjFields;
   IEnumerable<TObjAlt> IGqlpObject<TObjBase, TObjField, TObjAlt>.ObjAlternates => ObjAlternates;
 

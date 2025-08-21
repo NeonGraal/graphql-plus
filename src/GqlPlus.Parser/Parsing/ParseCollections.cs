@@ -20,7 +20,7 @@ internal class ParseCollections
           modifier = ModifierAst.Param(at, param, tokens.Take('?'));
         } else {
           list.Add(modifier);
-          return tokens.PartialArray(label, "identitifer after '$'.", () => list);
+          return tokens.PartialArray(label, "identitifer after '$'.", ReturnList);
         }
       } else if (tokens.Identifier(out string? key)) {
         modifier = ModifierAst.Dict(at, key, tokens.Take('?'));
@@ -32,13 +32,16 @@ internal class ParseCollections
 
       list.Add(modifier);
       if (!tokens.Take(']')) {
-        return tokens.PartialArray(label, "']' at end of list or dictionary modifier.", () => list);
+        return tokens.PartialArray(label, "']' at end of list or dictionary modifier.", ReturnList);
       }
 
       at = tokens.At;
     }
 
     return list.OkArray();
+
+    IEnumerable<IGqlpModifier> ReturnList()
+      => list;
   }
 }
 

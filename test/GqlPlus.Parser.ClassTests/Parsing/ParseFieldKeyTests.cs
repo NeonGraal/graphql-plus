@@ -73,6 +73,40 @@ public class ParseFieldKeyTests
   }
 
   [Theory, RepeatData]
+  public void Parse_ShouldReturnFieldKeyResult_WhenEnumLabelAreParsed(string enumLabel)
+  {
+    // Arrange
+    IdentifierReturns(OutString(enumLabel));
+
+    // Act
+    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultOk<IGqlpFieldKey>>()
+      .Required().ShouldSatisfyAllConditions(
+        f => f.EnumType.ShouldBeEmpty(),
+        f => f.EnumLabel.ShouldBe(enumLabel)
+      );
+  }
+
+  [Theory, InlineData("true", "Boolean"), InlineData("false", "Boolean"), InlineData("null", "Null"), InlineData("_", "Unit")]
+  public void Parse_ShouldReturnFieldKeyResult_WhenBuiltInEnumLabelAreParsed(string enumLabel, string expectedType)
+  {
+    // Arrange
+    IdentifierReturns(OutString(enumLabel));
+
+    // Act
+    IResult<IGqlpFieldKey> result = _parseFieldKey.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultOk<IGqlpFieldKey>>()
+      .Required().ShouldSatisfyAllConditions(
+        f => f.EnumType.ShouldBe(expectedType),
+        f => f.EnumLabel.ShouldBe(enumLabel)
+      );
+  }
+
+  [Theory, RepeatData]
   public void Parse_ShouldReturnError_WhenInvalidEnumValue(string enumType)
   {
     // Arrange

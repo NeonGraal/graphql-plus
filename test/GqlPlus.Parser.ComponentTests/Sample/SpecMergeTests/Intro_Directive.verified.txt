@@ -4,64 +4,60 @@ Success
 {
   !Ou I@008/0001
   _Directives
+  :
+  I@007/0002
+  _AndType
   {
-    !OF I@009/0002
+    !OF I@009/0003
     directive
     :
-    I@020/0002
+    I@020/0003
     _Directive
-    !OF I@009/0003
-    type
-    :
-    I@015/0003
-    _Type
   }
   |
   I@007/0004
   _Directive
-  I@007/0005
-  _Type
 }
 {
-  !Ou I@008/0008
+  !Ou I@008/0007
   _Directive
   :
-  I@007/0009
+  I@007/0008
   _Aliased
   {
-    !OF I@009/0010
+    !OF I@009/0009
     parameters
     :
-    I@021/0010
+    I@021/0009
     _InputParam
     []
-    !OF I@009/0011
+    !OF I@009/0010
     repeatable
     :
-    I@021/0011
+    I@021/0010
     Boolean
-    !OF I@009/0012
+    !OF I@009/0011
     locations
     :
-    I@020/0012
+    I@020/0011
     _
     [_Location]
   }
 }
 {
-  !En I@006/0015
+  !En I@006/0014
   _Location
-  !EL I@018/0015
+  !EL I@018/0014
   Operation
-  !EL I@028/0015
+  !EL I@028/0014
   Variable
-  !EL I@037/0015
+  !EL I@037/0014
   Field
-  !EL I@043/0015
+  !EL I@043/0014
   Inline
-  !EL I@050/0015
+  !EL I@050/0014
   Spread
-  !EL I@057/0015
+  !EL I@057/0014
   Fragment
 }
 ]

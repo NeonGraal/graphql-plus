@@ -4,7 +4,7 @@ namespace GqlPlus.Parsing.Schema.Objects;
 
 public abstract class ParseObjectFieldTestBase<TField, TBase>
   : AliasesClassTestBase
-  where TField : IGqlpObjField<TBase>
+  where TField : class, IGqlpObjField<TBase>
   where TBase : class, IGqlpObjBase
 {
   private readonly Parser<TBase>.I _parseBase;
@@ -106,6 +106,21 @@ public abstract class ParseObjectFieldTestBase<TField, TBase>
 
     // Assert
     result.ShouldBeAssignableTo<IResultEmpty>();
+  }
+
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenNoColon(string fieldName, string[] aliases)
+  {
+    // Arrange
+    IdentifierReturns(OutString(fieldName), OutString(fieldName));
+    ParseAliasesOk(aliases);
+    SetupPartial<TField>();
+
+    // Act
+    IResult<TField> result = Parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultPartial<TField>>();
   }
 
   protected void ParseBaseOk()

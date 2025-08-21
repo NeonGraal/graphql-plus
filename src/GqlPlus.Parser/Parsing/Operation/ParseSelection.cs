@@ -29,7 +29,7 @@ internal class ParseSelection(
           _directives.Parse(tokens, "Spread").Optional(directives => selection.Directives = [.. directives]);
 
           if (tokens is IOperationContext context) {
-            context.Spreads.Add(selection);
+            context.AddSpread(selection);
           }
 
           return selection.Ok<IGqlpSelection>();

@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using AutoFixture;
 using AutoFixture.Xunit3;
 using AutoFixture.Xunit3.Internal;
@@ -38,16 +39,15 @@ public sealed class RepeatDataAttribute
     List<ITheoryDataRow> data = [];
 
     if (!IsCi) {
-      AutoDataSource source = new(() => {
-        IFixture fixture = new Fixture().Customize(new TestsCustomizations());
-        fixture.Customizations.Insert(0, new FixedStringSpecimenBuilder());
-        return fixture;
-      });
+      ParameterInfo[] stringParams = [.. testMethod.ThrowIfNull().GetParameters()
+        .Where(p => !p.GetCustomAttributes<RegularExpressionAttribute>(true).Any())
+        .Where(p => p.ParameterType == typeof(string) || p.ParameterType == typeof(string[]))];
 
-      ITheoryDataRow row = source.GetData(testMethod)
-          .Select(x => new TheoryDataRow(x))
-          .First();
-      data.Add(row);
+      if (stringParams.Length == 1) {
+        data.Add(RepeatDataAttribute.GetFixedDataRow(testMethod));
+      } else if (stringParams.Length > 2) {
+        data.AddRange(await GetStringDataRows(stringParams, testMethod, disposalTracker));
+      }
     }
 
     int repeats = Repeat * testMethod?.GetParameters()?.Length ?? 0;
@@ -56,6 +56,45 @@ public sealed class RepeatDataAttribute
       data.Add(values.First());
     }
 
-    return data;
+    return data.AsReadOnly();
+  }
+
+  private async Task<IEnumerable<ITheoryDataRow>> GetStringDataRows(ParameterInfo[] stringParams, MethodInfo testMethod, DisposalTracker disposalTracker)
+  {
+    object?[] row = [];
+
+    List<ITheoryDataRow> dataRows = [];
+    for (int i = 0; i < stringParams.Length - 1; i++)
+      for (int j = i + 1; j < stringParams.Length; j++) {
+        row = (await base.GetData(testMethod, disposalTracker)).First().GetData();
+        SetRowFixed(i);
+        SetRowFixed(j);
+        dataRows.Add(new TheoryDataRow(row));
+      }
+
+    return dataRows;
+
+    void SetRowFixed(int index)
+    {
+      ParameterInfo param = stringParams[index];
+      if (param.ParameterType == typeof(string[])) {
+        row[param.Position] = new[] { "AbcdeFghij" };
+      } else {
+        row[param.Position] = "AbcdeFghij";
+      }
+    }
+  }
+
+  private static TheoryDataRow GetFixedDataRow(MethodInfo testMethod)
+  {
+    AutoDataSource source = new(() => {
+      IFixture fixture = new Fixture().Customize(new TestsCustomizations());
+      fixture.Customizations.Insert(0, new FixedStringSpecimenBuilder());
+      return fixture;
+    });
+
+    return source.GetData(testMethod)
+        .Select(x => new TheoryDataRow(x))
+        .First();
   }
 }

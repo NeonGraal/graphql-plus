@@ -1,1 +1,1 @@
-5353adb  (HEAD -> object-name) 2025-07-10 More constraint samples
+91d4275  (HEAD -> parser-coverage) 2025-08-18 Improve verification samples

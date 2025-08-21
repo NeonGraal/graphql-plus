@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Reflection;
+﻿using System.Reflection;
 using AutoFixture;
 using AutoFixture.Xunit3;
 using AutoFixture.Xunit3.Internal;
@@ -64,13 +63,14 @@ public sealed class RepeatDataAttribute
     object?[] row = [];
 
     List<ITheoryDataRow> dataRows = [];
-    for (int i = 0; i < stringParams.Length - 1; i++)
+    for (int i = 0; i < stringParams.Length - 1; i++) {
       for (int j = i + 1; j < stringParams.Length; j++) {
         row = (await base.GetData(testMethod, disposalTracker)).First().GetData();
         SetRowFixed(i);
         SetRowFixed(j);
         dataRows.Add(new TheoryDataRow(row));
       }
+    }
 
     return dataRows;
 

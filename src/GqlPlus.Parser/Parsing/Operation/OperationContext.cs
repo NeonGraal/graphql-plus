@@ -14,8 +14,8 @@ public class OperationContext
   public OperationContext(string operation)
     : base(operation) { }
 
-  List<IGqlpArg> _variables = [];
-  List<IGqlpSpread> _spreads = [];
+  private readonly List<IGqlpArg> _variables = [];
+  private readonly List<IGqlpSpread> _spreads = [];
 
   public IEnumerable<IGqlpArg> Variables => _variables;
   public IEnumerable<IGqlpSpread> Spreads => _spreads;

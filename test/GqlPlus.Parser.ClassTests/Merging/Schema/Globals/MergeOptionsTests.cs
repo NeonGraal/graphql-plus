@@ -38,7 +38,7 @@ public class MergeOptionsTests
     _merger = new(outputHelper.ToLoggerFactory(), _settings);
   }
 
-  protected override bool SkipDifferentNames => true;
+  protected override bool SkipDifferentInput => true;
 
   internal override GroupsMerger<IGqlpSchemaOption> MergerGroups => _merger;
 

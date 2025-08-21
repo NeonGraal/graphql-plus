@@ -22,20 +22,20 @@ public abstract class TestAliasedMerger<TAst>
   [Theory, RepeatData]
   public void CanMerge_ThreeAstsOneAlias_ReturnsGood(string name1, string name2, string alias)
     => this
-      .SkipIf(SkipDifferentNames)
+      .SkipIf(SkipDifferentInput)
       .CanMerge_Good([MakeAliased(name1, []), MakeAliased(name2, []), MakeAliased(name1, [alias])]);
 
   [Theory, RepeatData]
   public void CanMerge_ThreeAstsSameAlias_ReturnsErrors(string name1, string name2, string alias)
     => this
-      .SkipIf(SkipDifferentNames)
+      .SkipIf(SkipDifferentInput)
       .SkipIf(name1 == name2)
       .CanMerge_Errors([MakeAliased(name1, []), MakeAliased(name2, [alias]), MakeAliased(name1, [alias])]);
 
   [Theory, RepeatData]
   public void CanMerge_ThreeAstsDifferentAliases_ReturnsGood(string name1, string name2, string alias1, string alias2)
     => this
-      .SkipIf(SkipDifferentNames)
+      .SkipIf(SkipDifferentInput)
       .SkipIf(name1 == name2)
       .SkipIf(alias1 == alias2)
       .CanMerge_Good([MakeAliased(name1, []), MakeAliased(name2, [alias1]), MakeAliased(name1, [alias2])]);
@@ -43,21 +43,21 @@ public abstract class TestAliasedMerger<TAst>
   [Theory, RepeatData]
   public void CanMerge_ThreeAstsTwoAliases_ReturnsGood(string name1, string name2, string alias1, string alias2)
     => this
-      .SkipIf(SkipDifferentNames)
+      .SkipIf(SkipDifferentInput)
       .SkipIf(name1 == name2)
       .CanMerge_Good([MakeAliased(name1, [alias1]), MakeAliased(name2, []), MakeAliased(name1, [alias2])]);
 
   [Theory, RepeatData]
   public void CanMerge_ThreeAstsMixedAliases_ReturnsErrors(string name1, string name2, string alias1, string alias2)
     => this
-      .SkipIf(SkipDifferentNames)
+      .SkipIf(SkipDifferentInput)
       .SkipIf(name1 == name2)
       .CanMerge_Errors([MakeAliased(name1, [alias1]), MakeAliased(name2, [alias2]), MakeAliased(name1, [alias1, alias2])]);
 
   [Theory, RepeatData]
   public void CanMerge_ThreeAstsManyAliases_ReturnsErrors(string name1, string name2, string alias1, string alias2)
     => this
-      .SkipIf(SkipDifferentNames)
+      .SkipIf(SkipDifferentInput)
       .SkipIf(name1 == name2)
       .CanMerge_Errors([MakeAliased(name1, [alias1]), MakeAliased(name2, [alias1, alias2]), MakeAliased(name1, [alias2])]);
 
@@ -80,7 +80,7 @@ public abstract class TestAliasedMerger<TAst>
   [Theory, RepeatData]
   public void Merge_ThreeAstsOneAlias_ReturnsExpected(string name1, string name2, string alias)
     => this
-      .SkipIf(SkipDifferentNames)
+      .SkipIf(SkipDifferentInput)
       .SkipIf(name1 == name2)
       .Merge_Expected(
         [MakeAliased(name1, []), MakeAliased(name2, []), MakeAliased(name1, [alias])],
@@ -89,7 +89,7 @@ public abstract class TestAliasedMerger<TAst>
   [Theory, RepeatData]
   public void Merge_ThreeAstsDifferentAliases_ReturnsExpected(string name1, string name2, string alias1, string alias2)
     => this
-      .SkipIf(SkipDifferentNames)
+      .SkipIf(SkipDifferentInput)
       .SkipIf(name1 == name2)
       .SkipIf(alias1 == alias2)
       .Merge_Expected(
@@ -99,7 +99,7 @@ public abstract class TestAliasedMerger<TAst>
   [Theory, RepeatData]
   public void Merge_ThreeAstsTwoAliases_ReturnsExpected(string name1, string name2, string alias1, string alias2)
     => this
-      .SkipIf(SkipDifferentNames)
+      .SkipIf(SkipDifferentInput)
       .SkipIf(name1 == name2)
       .SkipIf(alias1 == alias2)
       .Merge_Expected(

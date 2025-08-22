@@ -190,28 +190,44 @@ Success
   InDrctParamOpt
 }
 {
-  !Op I@008/0061
+  !SO I@011/0061
+  Op
+  cat
+}
+{
+  !Ca P@010/0062
+  cat
+  (Parallel)
+  !Tr I@012/0062
+  Cat
+}
+{
+  !Ou I@008/0063
+  Cat
+}
+{
+  !Op I@008/0065
   Schema
   [
     Alias
   ]
 }
 {
-  !Op I@008/0063
+  !Op I@008/0067
   Schema
   {
-    !OS I@017/0063
+    !OS I@017/0067
     global
-    =( !k I@024/0063 Boolean.true )
+    =( !k I@024/0067 Boolean.true )
   }
 }
 {
-  !Op I@008/0065
+  !Op I@008/0069
   Schema
   {
     'Option Descr'
-    !OS S@017/0065
+    !OS S@017/0069
     descr
-    =( !k I@040/0065 Boolean.true )
+    =( !k I@040/0069 Boolean.true )
   }
 }

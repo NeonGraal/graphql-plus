@@ -2,6 +2,7 @@ output _Schema {
     : _Named
         categories(_CategoryFilter?): _Categories[_Identifier]
         directives(_Filter?): _Directives[_Identifier]
+        operations(_Filter?): _Operations[_Identifier]
         types(_TypeFilter?): _Type[_Identifier]
         settings(_Filter?): _Setting[_Identifier]
     }

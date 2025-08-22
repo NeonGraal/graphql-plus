@@ -9,6 +9,7 @@ public record class SchemaModel(
     string name,
     IEnumerable<CategoryModel> categories,
     IEnumerable<DirectiveModel> directives,
+    IEnumerable<OperationModel> operations,
     IEnumerable<SettingModel> settings,
     IEnumerable<BaseTypeModel> types,
     IMessages? errors)
@@ -16,6 +17,7 @@ public record class SchemaModel(
   {
     Categories = categories.ToMap(c => c.Name);
     Directives = directives.ToMap(d => d.Name);
+    Operations = operations.ToMap(d => d.Name);
     Types = types.ToMap(t => t.Name);
     Settings = settings.ToMap(s => s.Name);
     Errors = Messages.New;
@@ -26,6 +28,7 @@ public record class SchemaModel(
 
   internal IMap<CategoryModel> Categories { get; } = new Map<CategoryModel>();
   internal IMap<DirectiveModel> Directives { get; } = new Map<DirectiveModel>();
+  internal IMap<OperationModel> Operations { get; } = new Map<OperationModel>();
   internal IMap<BaseTypeModel> Types { get; init; } = new Map<BaseTypeModel>();
   internal IMap<SettingModel> Settings { get; init; } = new Map<SettingModel>();
   public IMessages Errors { get; } = new Messages();
@@ -44,9 +47,16 @@ public record class SchemaModel(
         And = d.Value,
         Type = Types.TryGetValue(d.Key, out BaseTypeModel? type) ? type : null,
       });
+  public IMap<OperationsModel> GetOperations(FilterModel? filter)
+    => Operations.ToMap(o => o.Key,
+      o => new OperationsModel() {
+        And = o.Value,
+        Type = Types.TryGetValue(o.Key, out BaseTypeModel? type) ? type : null,
+      });
 
-  public IMap<BaseTypeModel> GetTypes(TypeFilterModel? filter) => Types;
   public IMap<SettingModel> GetSettings(FilterModel? filter) => Settings;
+  public IMap<BaseTypeModel> GetTypes(TypeFilterModel? filter) => Types;
+
 #pragma warning restore IDE0060
 }
 

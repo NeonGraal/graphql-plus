@@ -1,6 +1,12 @@
 ﻿!_Schema
 aliases: [Alias]
 categories: !_Map_Categories
+  !_Identifier cat: !_Category
+    name: cat
+    output: !_TypeRef(_TypeKind)
+      name: Cat
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
   !_Identifier ctgrDscrs: !_Category
     description: 'A Category described'
     name: ctgrDscrs
@@ -99,6 +105,9 @@ settings: !_Map_Setting
     name: global
     value: true
 types: !_Map_Type
+  !_Identifier Cat: !_TypeOutput
+    name: Cat
+    typeKind: !_TypeKind Output
   !_Identifier CtgrDscrs: !_TypeOutput
     name: CtgrDscrs
     typeKind: !_TypeKind Output

@@ -1,0 +1,12 @@
+﻿!_Schema
+categories: !_Map_Categories
+  !_Identifier op: !_Category
+    name: op
+    output: !_TypeRef(_TypeKind)
+      name: Op
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+types: !_Map_Type
+  !_Identifier Op: !_TypeOutput
+    name: Op
+    typeKind: !_TypeKind Output

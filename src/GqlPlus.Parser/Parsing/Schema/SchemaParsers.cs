@@ -25,6 +25,9 @@ public static class SchemaParsers
       .AddEnum<DirectiveLocation>()
       .AddParser<DirectiveLocation, ParseDirectiveDefinition>()
       .AddDeclarationParser<IGqlpSchemaDirective, ParseDirective>("directive")
+      // Operation
+      .AddParser<OperationDefinition, ParseOperationDefinition>()
+      .AddDeclarationParser<IGqlpSchemaOperation, ParseOperationDecl>("operation")
       // Option
       .AddParser<OptionDefinition, ParseOptionDefinition>()
       .AddParser<IGqlpSchemaSetting, ParseOptionSetting>()

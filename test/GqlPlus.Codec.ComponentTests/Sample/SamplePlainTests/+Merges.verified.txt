@@ -29,6 +29,12 @@ categories: !_Map_Categories
       name: CtgrMod
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
+  !_Identifier op: !_Category
+    name: op
+    output: !_TypeRef(_TypeKind)
+      name: Op
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
 directives: !_Map_Directives
   !_Identifier Drct: !_Directive
     locations: !_Set(_Location){Inline:_,Spread:_}
@@ -902,6 +908,9 @@ types: !_Map_Type
     name: ObjPrntOutp
     parent: !_OutputBase
       name: RefObjPrntOutp
+    typeKind: !_TypeKind Output
+  !_Identifier Op: !_TypeOutput
+    name: Op
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldEnumAlias: !_TypeOutput
     allFields:

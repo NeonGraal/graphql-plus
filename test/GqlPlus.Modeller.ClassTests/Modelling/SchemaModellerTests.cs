@@ -7,11 +7,12 @@ public class SchemaModellerTests
 {
   private readonly IModeller<IGqlpSchemaCategory, CategoryModel> _category = MFor<IGqlpSchemaCategory, CategoryModel>();
   private readonly IModeller<IGqlpSchemaDirective, DirectiveModel> _directive = MFor<IGqlpSchemaDirective, DirectiveModel>();
+  private readonly IModeller<IGqlpSchemaOperation, OperationModel> _operation = MFor<IGqlpSchemaOperation, OperationModel>();
   private readonly IModeller<IGqlpSchemaSetting, SettingModel> _setting = MFor<IGqlpSchemaSetting, SettingModel>();
   private readonly ITypesModeller _types = A.Of<ITypesModeller>();
 
   public SchemaModellerTests()
-    => Modeller = new SchemaModeller(_category, _directive, _setting, _types);
+    => Modeller = new SchemaModeller(_category, _directive, _operation, _setting, _types);
 
   protected override IModeller<IGqlpSchema, SchemaModel> Modeller { get; }
 

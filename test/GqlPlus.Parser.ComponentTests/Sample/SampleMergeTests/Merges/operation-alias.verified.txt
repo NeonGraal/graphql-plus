@@ -1,0 +1,24 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ca P@010/0003
+  op
+  (Parallel)
+  !Tr I@012/0003
+  Op
+}
+{
+  !SO I@011/0001
+  Operation
+  [
+    Op1
+    Op2
+  ]
+  op
+}
+{
+  !Ou I@008/0004
+  Op
+}
+]

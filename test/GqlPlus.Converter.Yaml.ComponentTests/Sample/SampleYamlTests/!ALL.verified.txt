@@ -1,6 +1,12 @@
 ﻿!_Schema
 aliases: [Alias, Opt1, Opt2]
 categories: !_Map_Categories
+  !_Identifier cat: !_Category
+    name: cat
+    output: !_TypeRef(_TypeKind)
+      name: Cat
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
   !_Identifier ctgr: !_Category
     name: ctgr
     output: !_TypeRef(_TypeKind)
@@ -75,6 +81,12 @@ categories: !_Map_Categories
     name: descrBtwn
     output: !_TypeRef(_TypeKind)
       name: DescrBtwn
+      typeKind: !_TypeKind Output
+    resolution: !_Resolution Parallel
+  !_Identifier op: !_Category
+    name: op
+    output: !_TypeRef(_TypeKind)
+      name: Op
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
 directives: !_Map_Directives
@@ -1649,6 +1661,9 @@ types: !_Map_Type
       type: !_OutputBase
         name: String
     name: AltSmplOutp
+    typeKind: !_TypeKind Output
+  !_Identifier Cat: !_TypeOutput
+    name: Cat
     typeKind: !_TypeKind Output
   !_Identifier CnstAltDmnDual: !_TypeDual
     allAlternates:
@@ -6739,6 +6754,9 @@ types: !_Map_Type
     name: ObjPrntOutp
     parent: !_OutputBase
       name: RefObjPrntOutp
+    typeKind: !_TypeKind Output
+  !_Identifier Op: !_TypeOutput
+    name: Op
     typeKind: !_TypeKind Output
   !_Identifier OutpCnstDomEnum: !_TypeOutput
     allAlternates:

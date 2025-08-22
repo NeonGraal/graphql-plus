@@ -3,6 +3,22 @@
   "aliases": ["Alias"],
   "categories": {
     "$tag": "_Map_Categories",
+    "cat": {
+      "$tag": "_Category",
+      "name": "cat",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "Cat",
+        "typeKind": {
+          "$tag": "_TypeKind",
+          "value": "Output"
+        }
+      },
+      "resolution": {
+        "$tag": "_Resolution",
+        "value": "Parallel"
+      }
+    },
     "ctgrDscrs": {
       "$tag": "_Category",
       "description": "A Category described",
@@ -311,6 +327,14 @@
   },
   "types": {
     "$tag": "_Map_Type",
+    "Cat": {
+      "$tag": "_TypeOutput",
+      "name": "Cat",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
     "CtgrDscrs": {
       "$tag": "_TypeOutput",
       "name": "CtgrDscrs",

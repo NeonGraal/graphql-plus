@@ -3,6 +3,22 @@
   "aliases": ["Alias", "Opt1", "Opt2"],
   "categories": {
     "$tag": "_Map_Categories",
+    "cat": {
+      "$tag": "_Category",
+      "name": "cat",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "Cat",
+        "typeKind": {
+          "$tag": "_TypeKind",
+          "value": "Output"
+        }
+      },
+      "resolution": {
+        "$tag": "_Resolution",
+        "value": "Parallel"
+      }
+    },
     "ctgr": {
       "$tag": "_Category",
       "name": "ctgr",
@@ -215,6 +231,22 @@
       "output": {
         "$tag": "_TypeRef(_TypeKind)",
         "name": "DescrBtwn",
+        "typeKind": {
+          "$tag": "_TypeKind",
+          "value": "Output"
+        }
+      },
+      "resolution": {
+        "$tag": "_Resolution",
+        "value": "Parallel"
+      }
+    },
+    "op": {
+      "$tag": "_Category",
+      "name": "op",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "Op",
         "typeKind": {
           "$tag": "_TypeKind",
           "value": "Output"
@@ -3589,6 +3621,14 @@
         }
       ],
       "name": "AltSmplOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "Cat": {
+      "$tag": "_TypeOutput",
+      "name": "Cat",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
@@ -14488,6 +14528,14 @@
         "$tag": "_OutputBase",
         "name": "RefObjPrntOutp"
       },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "Op": {
+      "$tag": "_TypeOutput",
+      "name": "Op",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

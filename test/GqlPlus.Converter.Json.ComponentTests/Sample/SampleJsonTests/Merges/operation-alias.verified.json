@@ -1,0 +1,33 @@
+﻿{
+  "$tag": "_Schema",
+  "categories": {
+    "$tag": "_Map_Categories",
+    "op": {
+      "$tag": "_Category",
+      "name": "op",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "Op",
+        "typeKind": {
+          "$tag": "_TypeKind",
+          "value": "Output"
+        }
+      },
+      "resolution": {
+        "$tag": "_Resolution",
+        "value": "Parallel"
+      }
+    }
+  },
+  "types": {
+    "$tag": "_Map_Type",
+    "Op": {
+      "$tag": "_TypeOutput",
+      "name": "Op",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    }
+  }
+}

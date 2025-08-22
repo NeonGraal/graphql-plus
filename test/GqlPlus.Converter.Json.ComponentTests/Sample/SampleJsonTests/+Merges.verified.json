@@ -78,6 +78,22 @@
         "$tag": "_Resolution",
         "value": "Parallel"
       }
+    },
+    "op": {
+      "$tag": "_Category",
+      "name": "op",
+      "output": {
+        "$tag": "_TypeRef(_TypeKind)",
+        "name": "Op",
+        "typeKind": {
+          "$tag": "_TypeKind",
+          "value": "Output"
+        }
+      },
+      "resolution": {
+        "$tag": "_Resolution",
+        "value": "Parallel"
+      }
     }
   },
   "directives": {
@@ -1932,6 +1948,14 @@
         "$tag": "_OutputBase",
         "name": "RefObjPrntOutp"
       },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "Op": {
+      "$tag": "_TypeOutput",
+      "name": "Op",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

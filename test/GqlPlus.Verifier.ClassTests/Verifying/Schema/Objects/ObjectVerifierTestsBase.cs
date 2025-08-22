@@ -217,7 +217,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
   [Theory, RepeatData]
   public void Verify_Object_WithAlternateNoArg_ReturnsError(string altType, string paramName, string argType)
   {
-    this.SkipIf(argType == altType);
+    this.SkipEqual(argType, altType);
 
     Define<IGqlpSimple>(argType);
 
@@ -236,7 +236,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
   [Theory, RepeatData]
   public void Verify_Object_WithAlternateParentAlternate_ReturnsNoErrors(string parentName, string altType)
   {
-    this.SkipIf(parentName == altType);
+    this.SkipEqual(parentName, altType);
 
     Define<IGqlpTypeSpecial>("String");
 
@@ -260,7 +260,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
   [Theory, RepeatData]
   public void Verify_Object_WithAlternateParentAlternateCantMerge_ReturnsErrors(string parentName, string altType)
   {
-    this.SkipIf(parentName == altType);
+    this.SkipEqual(parentName, altType);
 
     Define<IGqlpTypeSpecial>("String");
 
@@ -303,7 +303,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
   [Theory, RepeatData]
   public void Verify_Object_WithWrongParamParent_ReturnsErrors(string parentName, string paramName, string constraint)
   {
-    this.SkipIf(parentName == paramName);
+    this.SkipEqual(parentName, paramName);
 
     Define<IGqlpTypeSpecial>(constraint);
 
@@ -398,7 +398,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
   [Theory, RepeatData]
   public void Verify_Object_WithFieldTypeArgGeneric_ReturnsError(string fieldName, string otherName, string paramName, string argType, string argParam)
   {
-    this.SkipIf(argType == argParam);
+    this.SkipEqual(argType, argParam);
 
     Define<IGqlpSimple>(argParam);
 
@@ -428,7 +428,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
   [Theory, RepeatData]
   public void Verify_Object_WithFieldTypeArgNoParam_ReturnsError(string fieldName, string otherName, string argType)
   {
-    this.SkipIf(argType == otherName);
+    this.SkipEqual(argType, otherName);
 
     Define<IGqlpSimple>(argType);
 
@@ -453,7 +453,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
   [Theory, RepeatData]
   public void Verify_Object_WithFieldTypeArgNoConstraint_ReturnsError(string fieldName, string otherName, string paramName, string argType)
   {
-    this.SkipIf(argType == otherName);
+    this.SkipEqual(argType, otherName);
 
     Define<IGqlpSimple>(argType);
 
@@ -479,7 +479,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
   [Theory, RepeatData]
   public void Verify_Object_WithFieldTypeArgNoMatch_ReturnsError(string fieldName, string otherName, string paramName, string argType)
   {
-    this.SkipIf(argType == otherName);
+    this.SkipEqual(argType, otherName);
 
     Define<IGqlpSimple>(argType);
 

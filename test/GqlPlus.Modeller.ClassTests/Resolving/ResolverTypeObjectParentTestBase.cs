@@ -11,7 +11,7 @@ public abstract class ResolverTypeObjectParentTestBase<TModel, TBase, TField, TA
   [Theory, RepeatData]
   public void ModelWithParentWithArgParent_ResolvesCorrectly(string name, string parent, string grandParent)
   {
-    this.SkipIf(parent == grandParent);
+    this.SkipEqual(parent, grandParent);
 
     TModel parentModel = NewModel(parent, "") with {
       TypeParams = [new(grandParent, "", default!)],

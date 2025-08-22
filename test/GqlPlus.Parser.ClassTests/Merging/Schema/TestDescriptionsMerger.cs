@@ -22,7 +22,7 @@ public abstract class TestDescriptionsMerger<TAst, TInput>
   [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentDescription_ReturnsGood(TInput input, string description1, string description2)
     => this
-      .SkipIf(description1 == description2)
+      .SkipEqual(description1, description2)
       .CanMerge_Good(MakeDescribed(input, description1), MakeDescribed(input, description2));
 
   [Theory, RepeatData]

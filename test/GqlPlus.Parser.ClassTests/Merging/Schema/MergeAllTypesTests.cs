@@ -10,7 +10,7 @@ public class MergeAllTypesTests
   [Theory, RepeatData]
   public void FixupType_WithEnums_FixesType(string outputType, string enumType, string enumLabel, string fieldName, string domainType)
   {
-    this.SkipIf(outputType == enumType || outputType == domainType || enumType == domainType);
+    this.SkipEqual3(outputType, enumType, domainType);
 
     // Arrange
     OutputFieldAst field = new(AstNulls.At, fieldName, new OutputBaseAst(AstNulls.At, "", "")) {

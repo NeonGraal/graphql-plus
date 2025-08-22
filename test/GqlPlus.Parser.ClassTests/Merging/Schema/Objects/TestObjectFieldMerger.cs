@@ -29,7 +29,7 @@ public abstract class TestObjectFieldMerger<TObjField, TObjBase>
   [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentTypes_ReturnsErrors(string name, string type1, string type2)
     => this
-      .SkipIf(type1 == type2)
+      .SkipEqual(type1, type2)
       .CanMerge_Errors(
         MakeField(name, type1),
         MakeField(name, type2));
@@ -53,7 +53,7 @@ public abstract class TestObjectFieldMerger<TObjField, TObjBase>
   [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentTypeDescriptions_ReturnsGood(string name, string type, string description1, string description2)
   => this
-      .SkipIf(description1 == description2)
+      .SkipEqual(description1, description2)
       .CanMerge_Good(
         MakeField(name, type, typeDescription: description1),
         MakeField(name, type, typeDescription: description2));

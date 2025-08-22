@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 using GqlPlus.Abstractions;
 using GqlPlus.Token;
-
+using Shouldly;
 using Xunit;
 
 namespace GqlPlus;
@@ -87,6 +87,38 @@ public static class TestHelpers
 
     return check;
   }
+
+  public static TCheck SkipEqual<TCheck>(
+    this TCheck check,
+    string? input1,
+    string? input2,
+    [CallerArgumentExpression(nameof(input1))] string? input1Expression = null,
+    [CallerArgumentExpression(nameof(input2))] string? input2Expression = null)
+    => check.SkipIf(string.Equals(input1, input2, StringComparison.Ordinal), input1Expression + " != " + input2Expression);
+
+  public static TCheck SkipEqual<TCheck>(
+    this TCheck check,
+    object? input1,
+    object? input2,
+    [CallerArgumentExpression(nameof(input1))] string? input1Expression = null,
+    [CallerArgumentExpression(nameof(input2))] string? input2Expression = null)
+    => check.SkipIf(input1 is null ? input2 is null :
+      input1 is IEnumerable<object> enumerable1 && input2 is IEnumerable<object> enumerable2
+      ? enumerable1.SequenceEqual(enumerable2)
+      : input1.Equals(input2), input1Expression + " != " + input2Expression);
+
+  public static TCheck SkipEqual3<TCheck>(
+    this TCheck check,
+    string? input1,
+    string? input2,
+    string? input3,
+    [CallerArgumentExpression(nameof(input1))] string? input1Expression = null,
+    [CallerArgumentExpression(nameof(input2))] string? input2Expression = null,
+    [CallerArgumentExpression(nameof(input3))] string? input3Expression = null)
+    => check
+      .SkipIf(string.Equals(input1, input2, StringComparison.Ordinal), input1Expression + " != " + input2Expression)
+      .SkipIf(string.Equals(input1, input3, StringComparison.Ordinal), input1Expression + " != " + input3Expression)
+      .SkipIf(string.Equals(input2, input3, StringComparison.Ordinal), input2Expression + " != " + input3Expression);
 
   public static TCheck SkipNull<TCheck>(this TCheck check, [NotNull] object? obj, [CallerArgumentExpression(nameof(obj))] string? objExpression = null)
   {

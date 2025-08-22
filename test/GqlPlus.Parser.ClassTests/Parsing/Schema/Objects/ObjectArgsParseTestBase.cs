@@ -59,7 +59,7 @@ public abstract class ObjectArgsParseTestBase<TObjArg>
   [Theory, RepeatData]
   public void Parse_ShouldReturnOk_WhenTwoValid(string argType1, string argType2)
   {
-    this.SkipIf(argType1 == argType2);
+    this.SkipEqual(argType1, argType2);
 
     // Arrange
     TakeReturns('<', true);

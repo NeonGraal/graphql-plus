@@ -21,7 +21,7 @@ public abstract class SimpleSameMatcherTests<TSimple>
   [Theory, RepeatData]
   public void Simple_Matches_Parent_ReturnsTrue(string name, string constraint)
   {
-    this.SkipIf(name == constraint);
+    this.SkipEqual(name, constraint);
 
     TSimple type = A.Simple<TSimple>(name, constraint);
 
@@ -33,7 +33,7 @@ public abstract class SimpleSameMatcherTests<TSimple>
   [Theory, RepeatData]
   public void Simple_Matches_GrandParent_ReturnsTrue(string name, string parent, string constraint)
   {
-    this.SkipIf(name == constraint);
+    this.SkipEqual(name, constraint);
 
     TSimple type = A.Simple<TSimple>(name, parent);
 

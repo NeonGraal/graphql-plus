@@ -23,7 +23,7 @@ public abstract class ObjectSameMatcherTests<TObject, TBase>
   [Theory, RepeatData]
   public void Object_Matches_Parent_ReturnsTrue(string name, string constraint)
   {
-    this.SkipIf(name == constraint);
+    this.SkipEqual(name, constraint);
 
     TObject type = A.Obj<TObject, TBase>(name, constraint);
 
@@ -35,7 +35,7 @@ public abstract class ObjectSameMatcherTests<TObject, TBase>
   [Theory, RepeatData]
   public void Object_Matches_GrandParent_ReturnsTrue(string name, string parent, string constraint)
   {
-    this.SkipIf(name == parent);
+    this.SkipEqual(name, parent);
 
     TObject type = A.Obj<TObject, TBase>(name, parent);
 
@@ -61,7 +61,7 @@ public abstract class ObjectDualSameMatcherTests<TObject, TBase>
   [Theory, RepeatData]
   public void Object_Matches_DualParent_ReturnsTrue(string name, string parent, string constraint)
   {
-    this.SkipIf(name == parent);
+    this.SkipEqual(name, parent);
 
     TObject type = A.Obj<TObject, TBase>(name, parent);
 

@@ -35,7 +35,7 @@ public abstract class AstDirectivesTests<TInput>
   [Theory, RepeatData]
   public void Inequality_ByInputs(TInput input1, TInput input2, string[] directives)
     => DirectivesChecks
-    .SkipIf(InputEquals(input1, input2))
+    .SkipEqual(input1, input2)
     .Inequality_ByInputs(input1, input2, directives);
   protected virtual string DirectiveString(TInput input, string directives)
     => $"( !{AbbreviatedChecks.Abbr} {input}{directives} )";

@@ -6,7 +6,6 @@ public abstract class TestAbbreviatedMerger<TAst>
 { }
 
 [TracePerTest]
-
 public abstract class TestAbbreviatedMerger<TAst, TInput>
   where TAst : IGqlpError
 {

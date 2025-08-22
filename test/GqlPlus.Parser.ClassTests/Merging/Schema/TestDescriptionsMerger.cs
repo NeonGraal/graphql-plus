@@ -3,36 +3,41 @@
 namespace GqlPlus.Merging.Schema;
 
 public abstract class TestDescriptionsMerger<TAst>
-  : TestGroupsMerger<TAst, string>
+  : TestDescriptionsMerger<TAst, string>
+  where TAst : IGqlpError, IGqlpDescribed
+{ }
+
+public abstract class TestDescriptionsMerger<TAst, TInput>
+  : TestGroupsMerger<TAst, TInput>
   where TAst : IGqlpError, IGqlpDescribed
 {
   [Theory, RepeatData]
-  public void CanMerge_TwoAstsOneDescription_ReturnsGood(string name, string description)
-    => CanMerge_Good(MakeDescribed(name), MakeDescribed(name, description));
+  public void CanMerge_TwoAstsOneDescription_ReturnsGood(TInput input, string description)
+  => CanMerge_Good(MakeDescribed(input), MakeDescribed(input, description));
 
   [Theory, RepeatData]
-  public void CanMerge_TwoAstsSameDescription_ReturnsGood(string name, string description)
-    => CanMerge_Good(MakeDescribed(name, description), MakeDescribed(name, description));
+  public void CanMerge_TwoAstsSameDescription_ReturnsGood(TInput input, string description)
+    => CanMerge_Good(MakeDescribed(input, description), MakeDescribed(input, description));
 
   [Theory, RepeatData]
-  public void CanMerge_TwoAstsDifferentDescription_ReturnsGood(string name, string description1, string description2)
+  public void CanMerge_TwoAstsDifferentDescription_ReturnsGood(TInput input, string description1, string description2)
     => this
-      .SkipIf(description1 == description2)
-      .CanMerge_Good(MakeDescribed(name, description1), MakeDescribed(name, description2));
+      .SkipEqual(description1, description2)
+      .CanMerge_Good(MakeDescribed(input, description1), MakeDescribed(input, description2));
 
   [Theory, RepeatData]
-  public void Merge_TwoAstsOneDescription_ReturnsExpected(string name, string description)
+  public void Merge_TwoAstsOneDescription_ReturnsExpected(TInput input, string description)
     => Merge_Expected(
-      [MakeDescribed(name), MakeDescribed(name, description)],
-      MakeDescribed(name, description));
+      [MakeDescribed(input), MakeDescribed(input, description)],
+      MakeDescribed(input, description));
 
   [Theory, RepeatData]
-  public void Merge_TwoAstsSameDescription_ReturnsExpected(string name, string description)
+  public void Merge_TwoAstsSameDescription_ReturnsExpected(TInput input, string description)
     => Merge_Expected(
-      [MakeDescribed(name, description), MakeDescribed(name, description)],
-      MakeDescribed(name, description + " " + description));
+      [MakeDescribed(input, description), MakeDescribed(input, description)],
+      MakeDescribed(input, description + " " + description));
 
-  protected abstract TAst MakeDescribed(string name, string description = "");
-  protected override TAst MakeAst(string input)
+  protected abstract TAst MakeDescribed(TInput input, string description = "");
+  protected override TAst MakeAst(TInput input)
     => MakeDescribed(input);
 }

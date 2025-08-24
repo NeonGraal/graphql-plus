@@ -29,7 +29,7 @@ public class UnionConstraintMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsExpected_WhenMatchingUnionMemberParent(string constraint, string name, string parent, bool expected)
   {
-    this.SkipIf(name == parent);
+    this.SkipEqual(name, parent);
 
     IGqlpUnion union = A.Union(constraint, "", name);
     Types[constraint] = union;

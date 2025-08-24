@@ -6,7 +6,7 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ParseOutputArgs
-  : ObjectArgsParser<IGqlpOutputArg, OutputArgAst>
+  : ObjectArgumentsParser<IGqlpOutputArg, OutputArgAst>
 {
   protected override OutputArgAst ObjType(TokenAt at, string type, string description)
     => new(at, type, description);

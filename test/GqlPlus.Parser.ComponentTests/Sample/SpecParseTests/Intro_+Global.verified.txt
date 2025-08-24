@@ -2,13 +2,11 @@
 Success
 {
   !Ou I@008/0001
-  _Categories
+  _AndType
+  :
+  I@007/0002
+  _Named
   {
-    !OF I@009/0002
-    category
-    :
-    I@019/0002
-    _Category
     !OF I@009/0003
     type
     :
@@ -17,123 +15,134 @@ Success
   }
   |
   I@007/0004
-  _Category
-  I@007/0005
   _Type
 }
 {
-  !Ou I@008/0008
+  !Ou I@008/0007
+  _Categories
+  :
+  I@007/0008
+  _AndType
+  {
+    !OF I@009/0009
+    category
+    :
+    I@019/0009
+    _Category
+  }
+  |
+  I@007/0010
+  _Category
+}
+{
+  !Ou I@008/0013
   _Category
   :
-  I@007/0009
+  I@007/0014
   _Aliased
   {
-    !OF I@009/0010
+    !OF I@009/0015
     resolution
     :
-    I@021/0010
+    I@021/0015
     _Resolution
-    !OF I@009/0011
+    !OF I@009/0016
     output
     :
-    I@017/0011
+    I@017/0016
     _TypeRef
     <
-      I@026/0011
+      I@026/0016
       _TypeKind.Output
     >
-    !OF I@009/0012
+    !OF I@009/0017
     modifiers
     :
-    I@020/0012
+    I@020/0017
     _Modifiers
     []
   }
 }
 {
-  !En I@006/0015
+  !En I@006/0020
   _Resolution
-  !EL I@020/0015
+  !EL I@020/0020
   Parallel
-  !EL I@029/0015
+  !EL I@029/0020
   Sequential
-  !EL I@040/0015
+  !EL I@040/0020
   Single
 }
 {
-  !Ou I@008/0017
+  !Ou I@008/0022
   _Directives
+  :
+  I@007/0023
+  _AndType
   {
-    !OF I@009/0018
+    !OF I@009/0024
     directive
     :
-    I@020/0018
+    I@020/0024
     _Directive
-    !OF I@009/0019
-    type
-    :
-    I@015/0019
-    _Type
   }
   |
-  I@007/0020
+  I@007/0025
   _Directive
-  I@007/0021
-  _Type
 }
 {
-  !Ou I@008/0024
+  !Ou I@008/0028
   _Directive
   :
-  I@007/0025
+  I@007/0029
   _Aliased
   {
-    !OF I@009/0026
+    !OF I@009/0030
     parameters
     :
-    I@021/0026
+    I@021/0030
     _InputParam
     []
-    !OF I@009/0027
+    !OF I@009/0031
     repeatable
     :
-    I@021/0027
+    I@021/0031
     Boolean
-    !OF I@009/0028
+    !OF I@009/0032
     locations
     :
-    I@020/0028
+    I@020/0032
     _
     [_Location]
   }
 }
 {
-  !En I@006/0031
+  !En I@006/0035
   _Location
-  !EL I@018/0031
+  !EL I@018/0035
   Operation
-  !EL I@028/0031
+  !EL I@028/0035
   Variable
-  !EL I@037/0031
+  !EL I@037/0035
   Field
-  !EL I@043/0031
+  !EL I@043/0035
   Inline
-  !EL I@050/0031
+  !EL I@050/0035
   Spread
-  !EL I@057/0031
+  !EL I@057/0035
   Fragment
 }
 {
-  !Ou I@008/0034
+  !Ou I@008/0038
   _Setting
   :
-  I@007/0035
+  I@007/0039
   _Named
   {
-    !OF I@009/0036
+    !OF I@009/0040
     value
     :
-    I@016/0036
+    I@016/0040
     _Constant
   }
 }

@@ -33,7 +33,7 @@ public class ValueKeyValueParser<TValue>(
     IResult<TValue> fieldValue = _value.Parse(tokens, label);
     return fieldValue.SelectOk(
       value => new KeyValue<TValue>(fieldKey.Required(), value),
-      () => fieldValue.AsResult<KeyValue<TValue>>()); // Not Covered
+      () => tokens.Error<KeyValue<TValue>>(label, "value after ':'"));
   }
 }
 

@@ -55,4 +55,23 @@ public class TypeDualEncoderTests
       "typeParams:", "  -", $"    value: !_TypeParam '{paramName}'"
       ]);
   }
+
+  [Theory, RepeatData]
+  public void Encode_WithInvalidFieldModel_ThrowsInValidCastException(string name, string fieldName)
+  {
+    DualFieldModel field = new(fieldName, null, "");
+    ObjectForModel<InputFieldModel> fieldFor = new(new(fieldName, null, ""), name);
+
+    TypeDualModel model = new(name, "") {
+      Fields = [field],
+      AllFields = [fieldFor],
+    };
+
+    EncodeReturnsMap(Field, "_Field", fieldName);
+    EncodeReturnsMap(ObjField, "_FieldFor", fieldName);
+
+    Action act = () => Encoder.Encode(model);
+
+    act.ShouldThrow<InvalidCastException>();
+  }
 }

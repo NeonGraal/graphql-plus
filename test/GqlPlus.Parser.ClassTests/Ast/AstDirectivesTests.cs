@@ -4,7 +4,10 @@ namespace GqlPlus.Ast;
 
 public abstract class AstDirectivesTests
   : AstDirectivesTests<string>
-{ }
+{
+  protected override bool InputEquals(string? input1, string? input2)
+    => input1 == input2;
+}
 
 public abstract class AstDirectivesTests<TInput>
   : AstAbbreviatedTests<TInput>
@@ -30,9 +33,10 @@ public abstract class AstDirectivesTests<TInput>
     => DirectivesChecks.Inequality_ByDirectives(input, directives1, directives2);
 
   [Theory, RepeatData]
-  public void Inequality_ByNames(TInput input1, TInput input2, string[] directives)
-    => DirectivesChecks.Inequality_ByInputs(input1, input2, directives);
-
+  public void Inequality_ByInputs(TInput input1, TInput input2, string[] directives)
+    => DirectivesChecks
+    .SkipEqual(input1, input2)
+    .Inequality_ByInputs(input1, input2, directives);
   protected virtual string DirectiveString(TInput input, string directives)
     => $"( !{AbbreviatedChecks.Abbr} {input}{directives} )";
 
@@ -40,6 +44,7 @@ public abstract class AstDirectivesTests<TInput>
     => DirectiveString(input, "");
 
   internal sealed override IAstAbbreviatedChecks<TInput> AbbreviatedChecks => DirectivesChecks;
+  protected abstract bool InputEquals(TInput? input1, TInput? input2);
 
   internal abstract IAstDirectivesChecks<TInput> DirectivesChecks { get; }
 

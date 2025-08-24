@@ -19,7 +19,7 @@ public class ParseObjectDefinitionTests
   }
 
   [Fact]
-  public void Parse_ShouldReturnObjectDefinition_WhenValid()
+  public void Parse_ShouldReturnOk_WhenAll()
   {
     // Arrange
     TakeReturns(':', true);
@@ -36,12 +36,104 @@ public class ParseObjectDefinitionTests
   }
 
   [Fact]
-  public void Parse_ShouldReturnPartial_WhenNoFields()
+  public void Parse_ShouldReturnOk_WhenJustAlternate()
+  {
+    // Arrange
+    ParseEmpty(_parseField);
+    ParseOkA(_alternates);
+    TakeReturns('}', true);
+
+    // Act
+    IResult<ObjectDefinition<IGqlpObjBase, IGqlpObjField, IGqlpObjAlternate>> result = _parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultOk<ObjectDefinition<IGqlpObjBase, IGqlpObjField, IGqlpObjAlternate>>>();
+  }
+
+  [Fact]
+  public void Parse_ShouldReturnOk_WhenJustField()
+  {
+    // Arrange
+    ParseOk(_parseField);
+    ParseEmptyA(_alternates);
+    TakeReturns('}', true);
+
+    // Act
+    IResult<ObjectDefinition<IGqlpObjBase, IGqlpObjField, IGqlpObjAlternate>> result = _parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultOk<ObjectDefinition<IGqlpObjBase, IGqlpObjField, IGqlpObjAlternate>>>();
+  }
+
+  [Fact]
+  public void Parse_ShouldReturnOk_WhenManyFields()
+  {
+    // Arrange
+    ParseOk(_parseField, 3);
+    ParseEmptyA(_alternates);
+    TakeReturns('}', true);
+
+    // Act
+    IResult<ObjectDefinition<IGqlpObjBase, IGqlpObjField, IGqlpObjAlternate>> result = _parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultOk<ObjectDefinition<IGqlpObjBase, IGqlpObjField, IGqlpObjAlternate>>>();
+  }
+
+  [Fact]
+  public void Parse_ShouldReturnError_WhenParentErrors()
+  {
+    // Arrange
+    TakeReturns(':', true);
+    ParseError(_parseBase);
+    SetupError<ObjectDefinition<IGqlpObjBase, IGqlpObjField, IGqlpObjAlternate>>();
+
+    // Act
+    IResult<ObjectDefinition<IGqlpObjBase, IGqlpObjField, IGqlpObjAlternate>> result = _parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultError>();
+  }
+
+  [Fact]
+  public void Parse_ShouldReturnPartial_WhenFieldErrors()
   {
     // Arrange
     TakeReturns(':', true);
     ParseOk(_parseBase);
     ParseError(_parseField);
+    SetupPartial(new ObjectDefinition<IGqlpObjBase, IGqlpObjField, IGqlpObjAlternate>());
+
+    // Act
+    IResult<ObjectDefinition<IGqlpObjBase, IGqlpObjField, IGqlpObjAlternate>> result = _parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultPartial<ObjectDefinition<IGqlpObjBase, IGqlpObjField, IGqlpObjAlternate>>>();
+  }
+
+  [Fact]
+  public void Parse_ShouldReturnPartial_WhenAlternatesError()
+  {
+    // Arrange
+    TakeReturns(':', true);
+    ParseEmpty(_parseField);
+    ParseErrorA(_alternates);
+    SetupPartial(new ObjectDefinition<IGqlpObjBase, IGqlpObjField, IGqlpObjAlternate>());
+
+    // Act
+    IResult<ObjectDefinition<IGqlpObjBase, IGqlpObjField, IGqlpObjAlternate>> result = _parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultPartial<ObjectDefinition<IGqlpObjBase, IGqlpObjField, IGqlpObjAlternate>>>();
+  }
+
+  [Fact]
+  public void Parse_ShouldReturnPartial_WhenThirdFieldErrors()
+  {
+    // Arrange
+    TakeReturns(':', true);
+    ParseOk(_parseBase);
+    ParseOkError(_parseField, 2);
     SetupPartial(new ObjectDefinition<IGqlpObjBase, IGqlpObjField, IGqlpObjAlternate>());
 
     // Act

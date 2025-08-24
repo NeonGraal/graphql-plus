@@ -17,7 +17,7 @@ public class MergeSchemasTests
   [Theory, RepeatData]
   public void CanMerge_TwoAstsDifferentOptionNames_ReturnsErrors(string option1, string option2)
     => this
-      .SkipIf(option1 == option2)
+      .SkipEqual(option1, option2)
       .CanMergeReturnsError(_options)
       .CanMerge_Errors([
         new SchemaAst(AstNulls.At) with { Declarations = OptionDeclarations(option1) },

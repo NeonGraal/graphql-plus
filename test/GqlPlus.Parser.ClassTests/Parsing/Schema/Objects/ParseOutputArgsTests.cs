@@ -3,34 +3,12 @@
 namespace GqlPlus.Parsing.Schema.Objects;
 
 public class ParseOutputArgsTests
-  : ParserClassTestBase
+  : ObjectArgsParseTestBase<IGqlpOutputArg>
 {
-  private readonly ParseOutputArgs _parser;
-
-  public ParseOutputArgsTests()
-  {
-    _parser = new ParseOutputArgs();
-
-    PrefixReturns('$', OutPass);
-  }
+  protected override Parser<IGqlpOutputArg>.IA Parser { get; } = new ParseOutputArgs();
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnOutputArg_WhenValid(string argType)
-  {
-    // Arrange
-    TakeReturns('<', true);
-    IdentifierReturns(OutString(argType), OutFail);
-    TakeReturns('>', true);
-
-    // Act
-    IResultArray<IGqlpOutputArg> result = _parser.Parse(Tokenizer, "testLabel");
-
-    // Assert
-    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpOutputArg>>();
-  }
-
-  [Theory, RepeatData]
-  public void Parse_ShouldReturnOutputArg_WhenValidEnum(string argType, string argLabel)
+  public void Parse_ShouldReturnOk_WhenValidEnum(string argType, string argLabel)
   {
     // Arrange
     TakeReturns('<', true);
@@ -39,7 +17,7 @@ public class ParseOutputArgsTests
     TakeReturns('>', true);
 
     // Act
-    IResultArray<IGqlpOutputArg> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpOutputArg> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeAssignableTo<IResultArrayOk<IGqlpOutputArg>>();
@@ -55,9 +33,8 @@ public class ParseOutputArgsTests
     TakeReturns('.', true);
     SetupError<IGqlpOutputArg>();
 
-
     // Act
-    IResultArray<IGqlpOutputArg> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpOutputArg> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
@@ -73,35 +50,7 @@ public class ParseOutputArgsTests
     SetupError<IGqlpOutputArg>();
 
     // Act
-    IResultArray<IGqlpOutputArg> result = _parser.Parse(Tokenizer, "testLabel");
-
-    // Assert
-    result.ShouldBeAssignableTo<IResultError>();
-  }
-
-  [Fact]
-  public void Parse_ShouldReturnEmpty_WhenNoArgs()
-  {
-    // Arrange
-    TakeReturns('<', false);
-
-    // Act
-    IResultArray<IGqlpOutputArg> result = _parser.Parse(Tokenizer, "testLabel");
-
-    // Assert
-    result.ShouldBeAssignableTo<IResultEmpty>();
-  }
-
-  [Fact]
-  public void Parse_ShouldReturnError_WhenInvalid()
-  {
-    // Arrange
-    TakeReturns('<', true);
-    IdentifierReturns(OutFail);
-    SetupError<IGqlpOutputArg>();
-
-    // Act
-    IResultArray<IGqlpOutputArg> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpOutputArg> result = Parser.Parse(Tokenizer, "testLabel");
 
     // Assert
     result.ShouldBeAssignableTo<IResultError>();

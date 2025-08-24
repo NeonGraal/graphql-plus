@@ -10,7 +10,8 @@ public static class CommonBuilderHelpers
     => Substitute.For<T>();
 
   public static T Of<T, T1>(this IMockBuilder _)
-    where T : class where T1 : class
+    where T : class
+    where T1 : class
     => Substitute.For<T, T1>();
 
   public static TResult[] ArrayOf<TResult, TInput>(this IMockBuilder builder, Func<IMockBuilder, TInput, TResult> build, params TInput[] input)
@@ -19,6 +20,15 @@ public static class CommonBuilderHelpers
 
   public static T Error<T>(this IMockBuilder builder)
     where T : class, IGqlpError
+  {
+    T result = builder.Of<T>();
+    result.MakeError("").ReturnsForAnyArgs(c => MakeMessages(c.ThrowIfNull().Arg<string>()));
+    return result;
+  }
+
+  public static T Error<T, T1>(this IMockBuilder builder)
+    where T : class, T1
+    where T1 : class, IGqlpError
   {
     T result = builder.Of<T>();
     result.MakeError("").ReturnsForAnyArgs(c => MakeMessages(c.ThrowIfNull().Arg<string>()));

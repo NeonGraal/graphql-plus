@@ -102,7 +102,7 @@ public class StructuredTests
   [Theory, RepeatData]
   public void Equals_TagDiff_IsFalse(string value, string tag1, string tag2)
   {
-    this.SkipIf(tag1 == tag2);
+    this.SkipEqual(tag1, tag2);
 
     Structured result1 = new(value, tag1);
     Structured result2 = new(value, tag2);
@@ -112,7 +112,7 @@ public class StructuredTests
   [Theory, RepeatData]
   public void Equals_ValueDiff_IsFalse(string value1, string value2)
   {
-    this.SkipIf(value1 == value2);
+    this.SkipEqual(value1, value2);
 
     Structured result1 = value1;
     Structured result2 = value2;
@@ -122,7 +122,7 @@ public class StructuredTests
   [Theory, RepeatData]
   public void Equals_ListDiff_IsFalse(string value1, string value2)
   {
-    this.SkipIf(value1 == value2);
+    this.SkipEqual(value1, value2);
 
     string[] list1 = [value1];
     string[] list2 = [value2];
@@ -134,7 +134,7 @@ public class StructuredTests
   [Theory, RepeatData]
   public void Equals_MapDiffKey_IsFalse(string key1, string value1, string key2)
   {
-    this.SkipIf(key1 == key2);
+    this.SkipEqual(key1, key2);
 
     Map<Structured> map1 = new() { [key1] = new(value1), };
     Map<Structured> map2 = new() { [key2] = new(value1), };
@@ -146,7 +146,7 @@ public class StructuredTests
   [Theory, RepeatData]
   public void Equals_MapDiffValue_IsFalse(string key1, string value1, string value2)
   {
-    this.SkipIf(value1 == value2);
+    this.SkipEqual(value1, value2);
 
     Map<Structured> map1 = new() { [key1] = new(value1), };
     Map<Structured> map2 = new() { [key1] = new(value2), };
@@ -158,7 +158,7 @@ public class StructuredTests
   [Theory, RepeatData]
   public void Equals_MapDiffBoth_IsFalse(string key1, string value1, string key2, string value2)
   {
-    this.SkipIf(value1 == value2);
+    this.SkipEqual(value1, value2);
 
     Map<Structured> map1 = new() { [key1] = new(value1), };
     Map<Structured> map2 = new() { [key2] = new(value2), };

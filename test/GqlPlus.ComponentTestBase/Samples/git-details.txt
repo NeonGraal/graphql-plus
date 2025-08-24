@@ -1,1 +1,1 @@
-8273264  (HEAD -> request) 2025-08-14 Include definitions in Schema spec in Samples
+91d4275  (HEAD -> parser-coverage) 2025-08-18 Improve verification samples

@@ -26,7 +26,7 @@ internal class ParseArgValue(
       ArgAst argument = new(at, variable!);
 
       if (tokens is IOperationContext context) {
-        context.Variables.Add(argument);
+        context.AddVariable(argument);
       }
 
       return argument.Ok<IGqlpArg>();

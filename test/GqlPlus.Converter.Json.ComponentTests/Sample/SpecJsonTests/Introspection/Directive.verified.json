@@ -7,6 +7,14 @@
         "$tag": "_TokenKind",
         "value": "End"
       },
+      "_message": "In _Directives can\u0027t get model for type \u0027_AndType\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _Directive can\u0027t get model for type \u0027_Aliased\u0027"
     }
   ],
@@ -135,14 +143,6 @@
             "$tag": "_OutputBase",
             "name": "_Directive"
           }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_Directives",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Type"
-          }
         }
       ],
       "allFields": [
@@ -154,15 +154,6 @@
             "$tag": "_OutputBase",
             "name": "_Directive"
           }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "type",
-          "object": "_Directives",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Type"
-          }
         }
       ],
       "alternates": [
@@ -171,13 +162,6 @@
           "type": {
             "$tag": "_OutputBase",
             "name": "_Directive"
-          }
-        },
-        {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Type"
           }
         }
       ],
@@ -189,17 +173,13 @@
             "$tag": "_OutputBase",
             "name": "_Directive"
           }
-        },
-        {
-          "$tag": "_OutputField",
-          "name": "type",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Type"
-          }
         }
       ],
       "name": "_Directives",
+      "parent": {
+        "$tag": "_OutputBase",
+        "name": "_AndType"
+      },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

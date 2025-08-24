@@ -2,6 +2,9 @@
 errors:
   - !_Error
     _kind: !_TokenKind End
+    _message: In _Categories can't get model for type '_AndType'
+  - !_Error
+    _kind: !_TokenKind End
     _message: In _Category can't get model for type '_Aliased'
 types: !_Map_Type
   !_Identifier _Categories: !_TypeOutput
@@ -10,38 +13,24 @@ types: !_Map_Type
         object: _Categories
         type: !_OutputBase
           name: _Category
-      - !_ObjectFor(_OutputAlternate)
-        object: _Categories
-        type: !_OutputBase
-          name: _Type
     allFields:
       - !_ObjectFor(_OutputField)
         name: category
         object: _Categories
         type: !_OutputBase
           name: _Category
-      - !_ObjectFor(_OutputField)
-        name: type
-        object: _Categories
-        type: !_OutputBase
-          name: _Type
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
           name: _Category
-      - !_OutputAlternate
-        type: !_OutputBase
-          name: _Type
     fields:
       - !_OutputField
         name: category
         type: !_OutputBase
           name: _Category
-      - !_OutputField
-        name: type
-        type: !_OutputBase
-          name: _Type
     name: _Categories
+    parent: !_OutputBase
+      name: _AndType
     typeKind: !_TypeKind Output
   !_Identifier _Category: !_TypeOutput
     allFields:

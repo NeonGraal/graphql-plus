@@ -59,7 +59,7 @@ public class VerifyEnumTypesTests
   [Theory, RepeatData]
   public void Verify_EnumParent_ReturnsNoErrors(string name, string parentName)
   {
-    this.SkipIf(name == parentName);
+    this.SkipEqual(name, parentName);
 
     Define<IGqlpEnum>(parentName);
 
@@ -77,7 +77,7 @@ public class VerifyEnumTypesTests
   [Theory, RepeatData]
   public void Verify_EnumParentLabels_ReturnsNoErrors(string name, string[] labels, string parentName, string[] parentLabels)
   {
-    this.SkipIf(name == parentName);
+    this.SkipEqual(name, parentName);
 
     IGqlpEnum parent = A.Enum(parentName, parentLabels);
     Definitions.Add(parent);

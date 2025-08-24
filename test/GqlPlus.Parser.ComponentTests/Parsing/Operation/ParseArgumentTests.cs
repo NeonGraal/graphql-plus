@@ -52,7 +52,7 @@ public class ParseArgTests(
   [Theory, RepeatData]
   public void WithObject_ReturnsCorrectAst(string key, string enumValue)
     => checks
-      .SkipIf(key == enumValue)
+      .SkipEqual(key, enumValue)
       .TrueExpected(
         '(' + key + ":$" + enumValue + ' ' + enumValue + ':' + key + ')',
         new ArgAst(AstNulls.At, enumValue.ArgObject(key)));
@@ -60,7 +60,7 @@ public class ParseArgTests(
   [Theory, RepeatData]
   public void WithObjectSemi_ReturnsCorrectAst(string key, string enumValue)
     => checks
-      .SkipIf(key == enumValue)
+      .SkipEqual(key, enumValue)
       .TrueExpected(
         '(' + key + ":$" + enumValue + ',' + enumValue + ':' + key + ')',
         new ArgAst(AstNulls.At, enumValue.ArgObject(key)));
@@ -68,7 +68,7 @@ public class ParseArgTests(
   [Theory, RepeatData]
   public void WithObjectSemiEnumValue_ReturnsFalse(string key, string enumValue)
     => checks
-      .SkipIf(key == enumValue)
+      .SkipEqual(key, enumValue)
       .FalseExpected(
         '(' + key + ":$" + enumValue + ',' + enumValue + ')',
         CheckNull);
@@ -76,7 +76,7 @@ public class ParseArgTests(
   [Theory, RepeatData]
   public void WithObjectFieldBad_ReturnsFalse(string key, string enumValue)
     => checks
-      .SkipIf(key == enumValue)
+      .SkipEqual(key, enumValue)
       .FalseExpected(
         '(' + key + ":)",
         CheckNull);
@@ -84,7 +84,7 @@ public class ParseArgTests(
   [Theory, RepeatData]
   public void WithObjectInvalid_ReturnsFalse(string key, string enumValue)
     => checks
-      .SkipIf(key == enumValue)
+      .SkipEqual(key, enumValue)
       .FalseExpected(
         '(' + key + ':' + enumValue + ';' + enumValue + ':' + key + ')',
         CheckNull);

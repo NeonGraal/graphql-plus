@@ -7,6 +7,14 @@
         "$tag": "_TokenKind",
         "value": "End"
       },
+      "_message": "In _Categories can\u0027t get model for type \u0027_AndType\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _Category can\u0027t get model for type \u0027_Aliased\u0027"
     }
   ],
@@ -22,14 +30,6 @@
             "$tag": "_OutputBase",
             "name": "_Category"
           }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_Categories",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Type"
-          }
         }
       ],
       "allFields": [
@@ -41,15 +41,6 @@
             "$tag": "_OutputBase",
             "name": "_Category"
           }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "type",
-          "object": "_Categories",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Type"
-          }
         }
       ],
       "alternates": [
@@ -58,13 +49,6 @@
           "type": {
             "$tag": "_OutputBase",
             "name": "_Category"
-          }
-        },
-        {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Type"
           }
         }
       ],
@@ -76,17 +60,13 @@
             "$tag": "_OutputBase",
             "name": "_Category"
           }
-        },
-        {
-          "$tag": "_OutputField",
-          "name": "type",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Type"
-          }
         }
       ],
       "name": "_Categories",
+      "parent": {
+        "$tag": "_OutputBase",
+        "name": "_AndType"
+      },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

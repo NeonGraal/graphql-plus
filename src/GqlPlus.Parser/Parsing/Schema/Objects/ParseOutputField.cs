@@ -29,7 +29,7 @@ internal class ParseOutputField(
       string description = tokens.Description();
       TokenAt at = tokens.At;
       if (!tokens.Identifier(out string? enumType)) {
-        return tokens.Error<IGqlpOutputField>("Output", "enum value after '='", field);
+        return tokens.Partial<IGqlpOutputField>("Output", "enum value after '='", () => field);
       }
 
       if (!tokens.Take('.')) {
@@ -44,10 +44,10 @@ internal class ParseOutputField(
         return field.Ok<IGqlpOutputField>();
       }
 
-      return tokens.Error<IGqlpOutputField>("Output", "enum value after '.'", field);
+      return tokens.Partial<IGqlpOutputField>("Output", "enum value after '.'", () => field);
     }
 
-    return tokens.Error<IGqlpOutputField>("Output", "':' or '='", field);
+    return tokens.Partial<IGqlpOutputField>("Output", "':' or '='", () => field);
   }
 
   protected override IResultArray<IGqlpInputParam> FieldParam(ITokenizer tokens)

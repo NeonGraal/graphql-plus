@@ -1,5 +1,4 @@
-﻿[  
-!Sc I@001/0001
+﻿!Sc I@001/0001
 Success
 {
   !Ou I@008/0001
@@ -60,4 +59,3 @@ Success
   !EL I@057/0014
   Fragment
 }
-]

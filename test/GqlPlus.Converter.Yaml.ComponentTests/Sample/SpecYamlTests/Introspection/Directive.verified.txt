@@ -2,6 +2,9 @@
 errors:
 - !_Error
   _kind: !_TokenKind End
+  _message: In _Directives can't get model for type '_AndType'
+- !_Error
+  _kind: !_TokenKind End
   _message: In _Directive can't get model for type '_Aliased'
 types: !_Map_Type
   !_Identifier _Directive: !_TypeOutput
@@ -48,38 +51,24 @@ types: !_Map_Type
       object: _Directives
       type: !_OutputBase
         name: _Directive
-    - !_ObjectFor(_OutputAlternate)
-      object: _Directives
-      type: !_OutputBase
-        name: _Type
     allFields:
     - !_ObjectFor(_OutputField)
       name: directive
       object: _Directives
       type: !_OutputBase
         name: _Directive
-    - !_ObjectFor(_OutputField)
-      name: type
-      object: _Directives
-      type: !_OutputBase
-        name: _Type
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
         name: _Directive
-    - !_OutputAlternate
-      type: !_OutputBase
-        name: _Type
     fields:
     - !_OutputField
       name: directive
       type: !_OutputBase
         name: _Directive
-    - !_OutputField
-      name: type
-      type: !_OutputBase
-        name: _Type
     name: _Directives
+    parent: !_OutputBase
+      name: _AndType
     typeKind: !_TypeKind Output
   !_Identifier _Location: !_TypeEnum
     allItems:

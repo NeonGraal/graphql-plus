@@ -1,8 +1,7 @@
 output _Categories {
+    : _AndType
         category: _Category
-        type: _Type
     | _Category
-    | _Type
     }
 
 output _Category {

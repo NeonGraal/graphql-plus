@@ -22,7 +22,7 @@ public static class SchemaBuilderHelpers
 
   public static IGqlpInputParam InputParam(this IMockBuilder builder, string type, string description = "", bool isTypeParam = false)
   {
-    IGqlpInputBase typeBase = builder.Named<IGqlpInputBase>(type, description);
+    IGqlpInputBase typeBase = builder.InputBase(type, description);
     typeBase.IsTypeParam.Returns(isTypeParam);
     IGqlpInputParam input = builder.Descr<IGqlpInputParam>(description);
     input.Type.Returns(typeBase);
@@ -33,6 +33,15 @@ public static class SchemaBuilderHelpers
     where T : class, IGqlpNamed
   {
     T result = builder.Error<T>();
+    result.Name.Returns(name);
+    return result;
+  }
+
+  public static T Named<T, T1>(this IMockBuilder builder, string name)
+    where T : class, T1
+    where T1 : class, IGqlpNamed
+  {
+    T result = builder.Error<T, T1>();
     result.Name.Returns(name);
     return result;
   }

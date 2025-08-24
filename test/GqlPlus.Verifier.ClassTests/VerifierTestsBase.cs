@@ -74,6 +74,9 @@ internal readonly struct ForM<TItem>
 
   public ForM() => Intf = Substitute.For<IMerge<TItem>>();
 
+  internal void CanMergeReturns(IMessages errors)
+    => Intf.CanMerge(Arg.Any<IEnumerable<TItem>>()).ReturnsForAnyArgs(errors);
+
   internal void Called() => Intf.ReceivedWithAnyArgs().CanMerge(Arg.Any<IEnumerable<TItem>>());
   internal void NotCalled() => Intf.DidNotReceiveWithAnyArgs().CanMerge(Arg.Any<IEnumerable<TItem>>());
 }

@@ -60,6 +60,42 @@ types: !_Map_Type
           name: _ObjBase
           typeKind: !_TypeKind Output
         name: base
+  !_Identifier _AndType: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: _AndType
+        type: !_OutputBase
+          name: _Type
+    allFields:
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: description
+        object: _Described
+        type: !_DualBase
+          name: String
+      - !_ObjectFor(_DualField)
+        name: name
+        object: _Named
+        type: !_DualBase
+          name: _Identifier
+      - !_ObjectFor(_OutputField)
+        name: type
+        object: _AndType
+        type: !_OutputBase
+          name: _Type
+    alternates:
+      - !_OutputAlternate
+        type: !_OutputBase
+          name: _Type
+    fields:
+      - !_OutputField
+        name: type
+        type: !_OutputBase
+          name: _Type
+    name: _AndType
+    parent: !_DualBase
+      name: _Named
+    typeKind: !_TypeKind Output
   !_Identifier _BaseDomain: !_TypeOutput
     allFields:
       - !_ObjectFor(_DualField)
@@ -237,41 +273,47 @@ types: !_Map_Type
   !_Identifier _Categories: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
-        object: _Categories
+        object: _AndType
         type: !_OutputBase
-          name: _Category
+          name: _Type
       - !_ObjectFor(_OutputAlternate)
         object: _Categories
         type: !_OutputBase
-          name: _Type
+          name: _Category
     allFields:
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: description
+        object: _Described
+        type: !_DualBase
+          name: String
+      - !_ObjectFor(_DualField)
+        name: name
+        object: _Named
+        type: !_DualBase
+          name: _Identifier
+      - !_ObjectFor(_OutputField)
+        name: type
+        object: _AndType
+        type: !_OutputBase
+          name: _Type
       - !_ObjectFor(_OutputField)
         name: category
         object: _Categories
         type: !_OutputBase
           name: _Category
-      - !_ObjectFor(_OutputField)
-        name: type
-        object: _Categories
-        type: !_OutputBase
-          name: _Type
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
           name: _Category
-      - !_OutputAlternate
-        type: !_OutputBase
-          name: _Type
     fields:
       - !_OutputField
         name: category
         type: !_OutputBase
           name: _Category
-      - !_OutputField
-        name: type
-        type: !_OutputBase
-          name: _Type
     name: _Categories
+    parent: !_OutputBase
+      name: _AndType
     typeKind: !_TypeKind Output
   !_Identifier _Category: !_TypeOutput
     allFields:
@@ -577,41 +619,47 @@ types: !_Map_Type
   !_Identifier _Directives: !_TypeOutput
     allAlternates:
       - !_ObjectFor(_OutputAlternate)
-        object: _Directives
+        object: _AndType
         type: !_OutputBase
-          name: _Directive
+          name: _Type
       - !_ObjectFor(_OutputAlternate)
         object: _Directives
         type: !_OutputBase
-          name: _Type
+          name: _Directive
     allFields:
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: description
+        object: _Described
+        type: !_DualBase
+          name: String
+      - !_ObjectFor(_DualField)
+        name: name
+        object: _Named
+        type: !_DualBase
+          name: _Identifier
+      - !_ObjectFor(_OutputField)
+        name: type
+        object: _AndType
+        type: !_OutputBase
+          name: _Type
       - !_ObjectFor(_OutputField)
         name: directive
         object: _Directives
         type: !_OutputBase
           name: _Directive
-      - !_ObjectFor(_OutputField)
-        name: type
-        object: _Directives
-        type: !_OutputBase
-          name: _Type
     alternates:
       - !_OutputAlternate
         type: !_OutputBase
           name: _Directive
-      - !_OutputAlternate
-        type: !_OutputBase
-          name: _Type
     fields:
       - !_OutputField
         name: directive
         type: !_OutputBase
           name: _Directive
-      - !_OutputField
-        name: type
-        type: !_OutputBase
-          name: _Type
     name: _Directives
+    parent: !_OutputBase
+      name: _AndType
     typeKind: !_TypeKind Output
   !_Identifier _DomainItem: !_TypeOutput
     allFields:

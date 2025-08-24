@@ -72,8 +72,7 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
     }
   }
 
-  protected void CheckTypeRef<T>(TContext context, T reference, string suffix, bool check = true)
-    where T : IGqlpObjType
+  protected void CheckTypeRef(TContext context, IGqlpObjType reference, string suffix, bool check = true)
   {
     string typeName = (reference.IsTypeParam ? "$" : "") + reference.Name;
     CheckTypeRef(AddCheckError, context, reference, check);
@@ -81,19 +80,18 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
     void AddCheckError(string errPrefix, string errSuffix, bool check = true)
     {
       if (string.IsNullOrWhiteSpace(errSuffix)) {
-        context.AddError(reference, reference.Label + suffix, $"{errPrefix}", check);
-        //} else { // Never called with empty suffix
-        //  context.AddError(reference, reference.Label + suffix, $"{errPrefix} {typeName}. {errSuffix}", check);
+        context.AddError(reference, reference.Label + suffix, $"{errPrefix} {typeName}", check);
+      } else {
+        context.AddError(reference, reference.Label + suffix, $"{errPrefix} {typeName}. {errSuffix}", check);
       }
     }
   }
 
-  protected TContext CheckTypeRef<T>(CheckError error, TContext context, T reference, bool check = true)
-    where T : IGqlpObjType
+  protected TContext CheckTypeRef(CheckError error, TContext context, IGqlpObjType reference, bool check = true)
   {
     string typeName = (reference.IsTypeParam ? "$" : "") + reference.Name;
-    if (context.GetType(typeName, out IGqlpDescribed? refType)) {
-      CheckTypeArgs(error, context, reference, check, refType);
+    if (context.GetType(typeName, out IGqlpDescribed? definition)) {
+      CheckTypeArgs(error, context, reference, check, definition);
     } else {
       error($"'{typeName}' not defined", "", check);
 
@@ -105,9 +103,9 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
     return context;
   }
 
-  private void CheckArgsTypes(CheckError error, TContext context, IGqlpObjBase baseType)
+  private void CheckArgsTypes(CheckError error, TContext context, IGqlpObjBase reference)
   {
-    foreach (IGqlpObjArg arg in baseType.Args) {
+    foreach (IGqlpObjArg arg in reference.Args) {
       CheckArgType(error, context, arg);
     }
   }
@@ -115,9 +113,9 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
   internal virtual void CheckArgType(CheckError error, TContext context, IGqlpObjArg arg)
     => CheckTypeRef(error, context, arg);
 
-  private void CheckParamsArgs(CheckError error, TContext context, IGqlpObject definition, TObjBase baseType)
+  private void CheckParamsArgs(CheckError error, TContext context, IGqlpObject definition, TObjBase reference)
   {
-    IEnumerable<(TObjArg, IGqlpTypeParam)> argAndParams = baseType.BaseArgs
+    IEnumerable<(TObjArg, IGqlpTypeParam)> argAndParams = reference.BaseArgs
       .Zip(definition.TypeParams, static (a, p) => (a, p));
     foreach ((TObjArg arg, IGqlpTypeParam param) in argAndParams) {
       CheckArgType(error, context, arg);
@@ -133,35 +131,36 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
     }
   }
 
-  internal void CheckTypeArgs<TBase>(CheckError error, TContext context, TBase type, bool check, IGqlpDescribed? value)
-    where TBase : IGqlpObjType
+  internal void CheckTypeArgs(CheckError error, TContext context, IGqlpObjType reference, bool check, IGqlpDescribed? definition)
   {
-    int numArgs = type is IGqlpObjBase baseNum ? baseNum.Args.Count() : 0;
-    if (value is IGqlpObject definition) {
-      CheckTypeArgsDefLabels(error, type, check, definition);
-      CheckTypeArgsDefBase(error, context, type, numArgs, definition, definition.TypeParams.Count());
-    } else if (value is IGqlpSimple simple && numArgs != 0) {
-      error("Args invalid on", $"Expected 0, given {numArgs}");
+    int numArgs = reference is IGqlpObjBase baseNum ? baseNum.Args.Count() : 0;
+    if (definition is IGqlpObject objectDef) {
+      CheckTypeArgsDefLabels(error, reference, check, objectDef);
+      CheckTypeArgsDefBase(error, context, reference, numArgs, objectDef, objectDef.TypeParams.Count());
+    } else if (definition is IGqlpSimple simple && numArgs != 0) {
+      error("Args mismatch on", $"Expected none, given {numArgs}");
     }
   }
 
-  private void CheckTypeArgsDefBase<TBase>(CheckError error, TContext context, TBase type, int numArgs, IGqlpObject definition, int numParams) where TBase : IGqlpObjType
+  private void CheckTypeArgsDefBase(CheckError error, TContext context, IGqlpObjType reference, int numArgs, IGqlpObject definition, int numParams)
   {
-    if (type is TObjBase baseType) {
+    if (reference is TObjBase baseRef) {
       if (numParams == numArgs) {
-        CheckParamsArgs(error, context, definition, baseType);
+        CheckParamsArgs(error, context, definition, baseRef);
       } else {
         error("Args mismatch on", $"Expected {numParams}, given {numArgs}");
-        CheckArgsTypes(error, context, baseType);
+        if (numArgs > 0) {
+          CheckArgsTypes(error, context, baseRef);
+        }
       }
     } else if (numParams > 0) {
-      error("Args mismatch on", $"Expected {numParams}, given 0");
+      error("Args mismatch on", $"Expected {numParams}, given none");
     }
   }
 
-  private static void CheckTypeArgsDefLabels<TBase>(CheckError error, TBase type, bool check, IGqlpObject definition) where TBase : IGqlpObjType
+  private static void CheckTypeArgsDefLabels(CheckError error, IGqlpObjType reference, bool check, IGqlpObject definition)
   {
-    if (check && definition.Label != "Dual" && definition.Label != type.Label) {
+    if (check && definition.Label != "Dual" && definition.Label != reference.Label) {
       error("Type kind mismatch for", $"Found {definition.Label} '{definition.Name}'");
     }
   }
@@ -194,7 +193,6 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
     }
 
     base.CheckParentType(input, context, top, onParent);
-
   }
 
   protected override bool CheckAstParentType(ParentUsage<TObject> input, IGqlpType astType)

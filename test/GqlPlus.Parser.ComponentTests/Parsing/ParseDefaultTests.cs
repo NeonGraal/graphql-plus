@@ -61,7 +61,7 @@ public class ParseDefaultTests(
   [Theory, RepeatData]
   public void WithObject_ReturnsCorrectAst(string key, string enumValue)
     => checks
-      .SkipIf(key == enumValue)
+      .SkipEqual(key, enumValue)
       .TrueExpected(
         "=" + '{' + key + ':' + enumValue + ' ' + enumValue + ':' + key + '}',
         new ConstantAst(AstNulls.At, enumValue.ConstantObject(key)));
@@ -69,7 +69,7 @@ public class ParseDefaultTests(
   [Theory, RepeatData]
   public void WithObjectInvalid_ReturnsFalse(string key, string enumValue)
     => checks
-      .SkipIf(key == enumValue)
+      .SkipEqual(key, enumValue)
       .FalseExpected(
         "=" + '{' + key + ':' + enumValue + ':' + key + '}',
         CheckNull);

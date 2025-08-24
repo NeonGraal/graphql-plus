@@ -61,6 +61,22 @@ public class ValueKeyValueParserTests
   }
 
   [Fact]
+  public void Parse_ShouldReturnError_WhenValueParsingEmpty()
+  {
+    // Arrange
+    ParseOk(_keyParser, AtFor<IGqlpFieldKey>());
+    TakeReturns(':', true);
+    ParseEmpty(_valueParser);
+
+    // Act
+    IResult<KeyValue<IGqlpConstant>> result = _parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultError>()
+      .Message.Message.ShouldMatch("error for KeyValue");
+  }
+
+  [Fact]
   public void Parse_ShouldReturnError_WhenValueParsingFails()
   {
     // Arrange

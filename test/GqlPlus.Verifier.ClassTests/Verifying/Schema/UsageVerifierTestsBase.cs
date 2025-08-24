@@ -27,12 +27,17 @@ public abstract class UsageVerifierTestsBase<TUsage>
       () => Errors.ShouldBeEmpty());
   }
 
+  internal void Define(params IGqlpType[] types)
+  {
+    AddTypes(types);
+    _definitions.AddRange(types);
+  }
+
   internal void Define<T>(params string[] names)
     where T : class, IGqlpType
   {
     IGqlpType[] types = A.NamedArray<T>(names);
-    AddTypes(types);
-    _definitions.AddRange(types);
+    Define(types);
   }
 
   internal void Define<T, T1>(string name)
@@ -42,7 +47,6 @@ public abstract class UsageVerifierTestsBase<TUsage>
     IGqlpType type = A.Of<T, T1>();
     type.Name.Returns(name);
     type.MakeError("").ReturnsForAnyArgs(c => c.ThrowIfNull().Arg<string>().MakeMessages());
-    AddTypes(type);
-    _definitions.Add(type);
+    Define(type);
   }
 }

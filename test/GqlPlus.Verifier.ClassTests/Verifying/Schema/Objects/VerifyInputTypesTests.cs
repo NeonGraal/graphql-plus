@@ -13,7 +13,7 @@ public class VerifyInputTypesTests
   {
     Verifier = new VerifyInputTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ArgDelegate, LoggerFactory));
 
-    _input = A.Named<IGqlpInputObject>("Input");
+    _input = A.Obj<IGqlpInputObject, IGqlpInputBase>("Input");
   }
 
   [Fact]
@@ -42,7 +42,8 @@ public class VerifyInputTypesTests
   [Fact]
   public void Verify_Input_WithOptionalFieldNullDefault_ReturnsNoErrors()
   {
-    Define<IGqlpInputObject>("b");
+    IGqlpInputObject type = A.Obj<IGqlpInputObject, IGqlpInputBase>("b");
+    AddTypes(type);
 
     IGqlpFieldKey nullLabel = A.FieldKey("null");
     nullLabel.EnumValue.Returns("Null.null");

@@ -7,6 +7,14 @@
         "$tag": "_TokenKind",
         "value": "End"
       },
+      "_message": "In _AndType can\u0027t get model for type \u0027_Named\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _Category can\u0027t get model for type \u0027_Aliased\u0027"
     },
     {
@@ -28,20 +36,12 @@
   ],
   "types": {
     "$tag": "_Map_Type",
-    "_Categories": {
+    "_AndType": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_Categories",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Category"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_Categories",
+          "object": "_AndType",
           "type": {
             "$tag": "_OutputBase",
             "name": "_Type"
@@ -51,17 +51,8 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "category",
-          "object": "_Categories",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Category"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
           "name": "type",
-          "object": "_Categories",
+          "object": "_AndType",
           "type": {
             "$tag": "_OutputBase",
             "name": "_Type"
@@ -73,14 +64,76 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "name": "_Category"
+            "name": "_Type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "type",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "_Type"
+          }
+        }
+      ],
+      "name": "_AndType",
+      "parent": {
+        "$tag": "_OutputBase",
+        "name": "_Named"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_Categories": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "_AndType",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "_Type"
           }
         },
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "_Categories",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "_Category"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "type",
+          "object": "_AndType",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "_Type"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "category",
+          "object": "_Categories",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "_Category"
+          }
+        }
+      ],
+      "alternates": [
         {
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "name": "_Type"
+            "name": "_Category"
           }
         }
       ],
@@ -92,17 +145,13 @@
             "$tag": "_OutputBase",
             "name": "_Category"
           }
-        },
-        {
-          "$tag": "_OutputField",
-          "name": "type",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Type"
-          }
         }
       ],
       "name": "_Categories",
+      "parent": {
+        "$tag": "_OutputBase",
+        "name": "_AndType"
+      },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
@@ -122,7 +171,7 @@
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "name",
+          "name": "output",
           "object": "_Category",
           "type": {
             "$tag": "_OutputBase",
@@ -170,7 +219,7 @@
         },
         {
           "$tag": "_OutputField",
-          "name": "name",
+          "name": "output",
           "type": {
             "$tag": "_OutputBase",
             "name": "_TypeRef",
@@ -333,10 +382,10 @@
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_Directives",
+          "object": "_AndType",
           "type": {
             "$tag": "_OutputBase",
-            "name": "_Directive"
+            "name": "_Type"
           }
         },
         {
@@ -344,11 +393,20 @@
           "object": "_Directives",
           "type": {
             "$tag": "_OutputBase",
-            "name": "_Type"
+            "name": "_Directive"
           }
         }
       ],
       "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "type",
+          "object": "_AndType",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "_Type"
+          }
+        },
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "directive",
@@ -356,15 +414,6 @@
           "type": {
             "$tag": "_OutputBase",
             "name": "_Directive"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "type",
-          "object": "_Directives",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Type"
           }
         }
       ],
@@ -374,13 +423,6 @@
           "type": {
             "$tag": "_OutputBase",
             "name": "_Directive"
-          }
-        },
-        {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Type"
           }
         }
       ],
@@ -392,17 +434,13 @@
             "$tag": "_OutputBase",
             "name": "_Directive"
           }
-        },
-        {
-          "$tag": "_OutputField",
-          "name": "type",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Type"
-          }
         }
       ],
       "name": "_Directives",
+      "parent": {
+        "$tag": "_OutputBase",
+        "name": "_AndType"
+      },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

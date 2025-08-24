@@ -38,6 +38,9 @@ public class FragmentAstTests
 
   protected override string DirectiveString(FragmentInput input, string directives)
     => $"( !t {input.Name}{directives} :{input.OnType} {{ !f {input.Field} }} )";
+
+  protected override bool InputEquals(FragmentInput input1, FragmentInput input2)
+    => input1 == input2;
 }
 
 public record struct FragmentInput(string Name, string OnType, string Field);

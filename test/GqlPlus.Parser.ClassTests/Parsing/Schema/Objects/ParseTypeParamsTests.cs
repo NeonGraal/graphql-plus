@@ -42,7 +42,7 @@ public class ParseTypeParamsTests
     TakeReturns('<', true);
     PrefixReturns('$', OutStringAt(paramName), OutPass);
     TakeReturns(':', true);
-    Tokenizer.TakeAny(out char charType, typeChar).ReturnsForAnyArgs(OutChar(typeChar), OutFail);
+    TakeAnyReturns(OutChar(typeChar));
     TakeReturns('>', false, true);
 
     // Act

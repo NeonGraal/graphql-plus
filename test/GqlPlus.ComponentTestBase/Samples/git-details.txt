@@ -1,1 +1,1 @@
-91d4275  (HEAD -> parser-coverage) 2025-08-18 Improve verification samples
+c8be08b  (HEAD -> operation) 2025-08-25 Correct operation type references

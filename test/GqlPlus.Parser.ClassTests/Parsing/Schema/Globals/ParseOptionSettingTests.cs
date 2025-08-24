@@ -15,7 +15,7 @@ public class ParseOptionSettingTests : ParserClassTestBase
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnOptionSetting_WhenValid(string setting)
+  public void Parse_ShouldReturnOk_WhenValid(string setting)
   {
     // Arrange
     IdentifierReturns(OutString(setting));
@@ -26,6 +26,36 @@ public class ParseOptionSettingTests : ParserClassTestBase
 
     // Assert
     result.ShouldBeAssignableTo<IResultOk<IGqlpSchemaSetting>>();
+  }
+
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenDefaultEmpty(string setting)
+  {
+    // Arrange
+    IdentifierReturns(OutString(setting));
+    ParseEmpty(_defaultParser);
+    SetupError<IGqlpSchemaSetting>();
+
+    // Act
+    IResult<IGqlpSchemaSetting> result = _parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultError>();
+  }
+
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenDefaultErrors(string setting)
+  {
+    // Arrange
+    IdentifierReturns(OutString(setting));
+    ParseError(_defaultParser);
+    SetupError<IGqlpSchemaSetting>();
+
+    // Act
+    IResult<IGqlpSchemaSetting> result = _parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultError>();
   }
 
   [Fact]

@@ -1,9 +1,8 @@
 ﻿/* Intro_Directive
 output _Directives {
+    : _AndType
         directive: _Directive
-        type: _Type
     | _Directive
-    | _Type
     }
 
 output _Directive {
@@ -23,11 +22,10 @@ enum _Location { Operation Variable Field Inline Spread Fragment }
 namespace GqlPlus.Gqlp_Spec_Intro_Directive;
 
 public interface I_Directives
+  : I_AndType
 {
   _Directive directive { get; }
-  _Type type { get; }
   _Directive As_Directive { get; }
-  _Type As_Type { get; }
 }
 
 public interface I_Directive

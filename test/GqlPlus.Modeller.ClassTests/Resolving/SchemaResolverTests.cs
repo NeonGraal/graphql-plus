@@ -16,7 +16,7 @@ public class SchemaResolverTests
   [Theory, RepeatData]
   public void Resolve_ResolvesAllTypes_AndReturnsNewSchemaModel(string name1, string name2)
   {
-    this.SkipIf(name1 == name2);
+    this.SkipEqual(name1, name2);
 
     TypeEnumModel type1 = new(name1, "");
     TypeUnionModel type2 = new(name2, "");

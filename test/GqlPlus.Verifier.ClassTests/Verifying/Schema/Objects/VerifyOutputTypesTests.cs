@@ -15,14 +15,15 @@ public class VerifyOutputTypesTests
   {
     Verifier = new VerifyOutputTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ArgDelegate, LoggerFactory));
 
-    _output = A.Named<IGqlpOutputObject>("Output");
+    _output = A.Obj<IGqlpOutputObject, IGqlpOutputBase>("Output");
   }
 
   [Fact]
   public void Verify_Output_WithField_ReturnsNoErrors()
   {
-    Define<IGqlpOutputObject>("b");
-    Define<IGqlpInputObject>("c");
+    IGqlpOutputObject fieldType = A.Obj<IGqlpOutputObject, IGqlpOutputBase>("b");
+    IGqlpInputObject paramType = A.Obj<IGqlpInputObject, IGqlpInputBase>("c");
+    Define(fieldType, paramType);
 
     IGqlpInputParam param = A.InputParam("c");
     IGqlpOutputField field = A.OutputField("a", "b");
@@ -41,8 +42,9 @@ public class VerifyOutputTypesTests
   [Fact]
   public void Verify_Output_WithFieldModifiers_ReturnsNoErrors()
   {
-    Define<IGqlpOutputObject>("b");
-    Define<IGqlpInputObject>("c");
+    IGqlpOutputObject fieldType = A.Obj<IGqlpOutputObject, IGqlpOutputBase>("b");
+    IGqlpInputObject paramType = A.Obj<IGqlpInputObject, IGqlpInputBase>("c");
+    Define(fieldType, paramType);
     Define<IGqlpEnum, IGqlpSimple>("d");
 
     IGqlpModifier modifier = A.Modifier(ModifierKind.Dict, "d");
@@ -161,7 +163,7 @@ public class VerifyOutputTypesTests
 
     IGqlpTypeParam typeParam = A.TypeParam("a", "b");
     IGqlpOutputBase parent = A.OutputBase("a", isTypeParam: true);
-    IGqlpOutputObject other = A.Named<IGqlpOutputObject>("Other");
+    IGqlpOutputObject other = A.Obj<IGqlpOutputObject, IGqlpOutputBase>("Other");
     other.TypeParams.Returns([typeParam]);
     other.ObjParent.Returns(parent);
 

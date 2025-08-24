@@ -12,3 +12,9 @@ dual _Described {
         description: String[]
     }
 
+output _AndType {
+    : _Named
+        type: _Type
+    | _Type
+    }
+

@@ -1,9 +1,8 @@
 ﻿/* Intro_Directive
 output _Directives {
+    : _AndType
         directive: _Directive
-        type: _Type
     | _Directive
-    | _Type
     }
 
 output _Directive {

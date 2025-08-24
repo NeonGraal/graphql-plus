@@ -21,3 +21,10 @@ public interface I_Described
 {
   String description { get; }
 }
+
+public interface I_AndType
+  : I_Named
+{
+  _Type type { get; }
+  _Type As_Type { get; }
+}

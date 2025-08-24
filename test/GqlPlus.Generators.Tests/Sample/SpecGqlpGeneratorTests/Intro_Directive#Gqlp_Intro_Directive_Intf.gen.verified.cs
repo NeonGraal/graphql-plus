@@ -6,11 +6,10 @@
 namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Intro_Directive;
 
 public interface I_Directives
+  : I_AndType
 {
   _Directive directive { get; }
-  _Type type { get; }
   _Directive As_Directive { get; }
-  _Type As_Type { get; }
 }
 
 public interface I_Directive

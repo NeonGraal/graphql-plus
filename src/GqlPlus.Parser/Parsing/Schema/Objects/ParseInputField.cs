@@ -14,6 +14,7 @@ internal class ParseInputField(
 {
   private readonly Parser<IParserDefault, IGqlpConstant>.L _default = defaultParser;
 
+  [ExcludeFromCodeCoverage]
   protected override void ApplyFieldParams(InputFieldAst field, IGqlpInputParam[] parameters)
     => throw new InvalidOperationException();
 
@@ -26,7 +27,7 @@ internal class ParseInputField(
     .AsPartial<IGqlpInputField>(field, constant => field.DefaultValue = constant);
 
   protected override IResult<IGqlpInputField> FieldEnumValue(ITokenizer tokens, InputFieldAst field)
-    => tokens.Error<IGqlpInputField>("Input", "':'", field);
+    => tokens.Partial<IGqlpInputField>("Input", "':'", () => field);
 
   protected override IResultArray<IGqlpInputParam> FieldParam(ITokenizer tokens)
     => 0.EmptyArray<IGqlpInputParam>();

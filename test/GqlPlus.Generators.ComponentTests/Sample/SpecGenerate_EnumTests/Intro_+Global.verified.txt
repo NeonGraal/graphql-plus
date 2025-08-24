@@ -1,25 +1,29 @@
 ﻿/* Intro_+Global
-output _Categories {
-        category: _Category
+output _AndType {
+    : _Named
         type: _Type
-    | _Category
     | _Type
+    }
+
+output _Categories {
+    : _AndType
+        category: _Category
+    | _Category
     }
 
 output _Category {
     : _Aliased
         resolution: _Resolution
-        name: _TypeRef<_TypeKind.Output>
+        output: _TypeRef<_TypeKind.Output>
         modifiers: _Modifiers[]
     }
 
 enum _Resolution { Parallel Sequential Single }
 
 output _Directives {
+    : _AndType
         directive: _Directive
-        type: _Type
     | _Directive
-    | _Type
     }
 
 output _Directive {

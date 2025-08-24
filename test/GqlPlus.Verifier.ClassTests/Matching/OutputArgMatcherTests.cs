@@ -14,7 +14,7 @@ public class OutputArgMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsTrue_WhenConstraintParentOfEnum_WithArgLabel(string name, string enumName, string enumLabel, string constraint)
   {
-    this.SkipIf(enumName == constraint);
+    this.SkipEqual(enumName, constraint);
 
     IGqlpOutputArg arg = A.OutputEnumArg(name, enumLabel, enumLabel);
     IGqlpEnum enumParent = A.Enum(enumName, [enumLabel]);
@@ -31,7 +31,7 @@ public class OutputArgMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsFalse_WhenConstraintEnumNotLabel_WithArgType(string name, string enumLabel, string constraint)
   {
-    this.SkipIf(enumLabel == constraint);
+    this.SkipEqual(enumLabel, constraint);
 
     IGqlpOutputArg arg = A.OutputEnumArg(name, enumLabel, "");
     IGqlpEnum enumConstraint = A.Enum(constraint, []);
@@ -45,7 +45,7 @@ public class OutputArgMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsTrue_WhenConstraintDomParentOfEnum_WithArgLabel(string name, string enumName, string enumLabel, string constraint)
   {
-    this.SkipIf(enumName == constraint);
+    this.SkipEqual(enumName, constraint);
 
     IGqlpOutputArg arg = A.OutputEnumArg(name, enumName, enumLabel);
     IGqlpEnum enumParent = A.Enum(enumName, [enumLabel]);
@@ -62,7 +62,7 @@ public class OutputArgMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsFalse_WhenConstraintDomNotLabel_WithArgType(string name, string enumLabel, string constraint)
   {
-    this.SkipIf(enumLabel == constraint);
+    this.SkipEqual(enumLabel, constraint);
 
     IGqlpOutputArg arg = A.OutputEnumArg(name, enumLabel, "");
     IGqlpDomain<IGqlpDomainLabel> domConstraint = A.DomainEnum(constraint, null);
@@ -93,7 +93,7 @@ public class OutputArgMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsExpected_WhenConstraintChildOfEnum_WithArgLabel(string name, string enumName, string enumLabel, string constraint, bool expected)
   {
-    this.SkipIf(enumName == constraint);
+    this.SkipEqual(enumName, constraint);
 
     IGqlpOutputArg arg = A.OutputEnumArg(name, enumName, enumLabel);
     IGqlpEnum enumParent = A.Enum(enumName, [enumLabel], constraint);

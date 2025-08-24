@@ -30,13 +30,13 @@ public abstract class AstNamedTests<TInput>
   [Theory, RepeatData]
   public void Inequality_ByDescription(TInput input, string description1, string description2)
     => NamedChecks
-      .SkipIf(description1 == description2)
+      .SkipEqual(description1, description2)
       .Inequality_ByDescription(input, description1, description2);
 
   [Theory, RepeatData]
   public void Inequality_WithDescriptionByInputs(TInput input1, TInput input2, string description)
     => NamedChecks
-      .SkipIf(input1.ThrowIfNull().Equals(input2))
+      .SkipEqual(input1, input2)
       .Inequality_WithDescriptionByInputs(input1, input2, description);
 
   protected virtual string DescriptionString(TInput input, string description)

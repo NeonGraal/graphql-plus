@@ -16,7 +16,7 @@ public class DomainMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsTrue_WhenMatchingDomainKindDomain(string name, DomainKind kind)
   {
-    this.SkipIf(kind == DomainKind.Enum, "Enum kind requires specific label matching logic.");
+    this.SkipEqual(kind, DomainKind.Enum, "Enum kind requires specific label matching logic.");
 
     // Arrange
     IGqlpDomain type = A.Domain<IGqlpDomainLabel>(name, kind);

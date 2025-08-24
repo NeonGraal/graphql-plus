@@ -24,3 +24,11 @@ public class Dual_Described
 {
   public String description { get; set; }
 }
+
+public class Output_AndType
+  : Output_Named
+  , I_AndType
+{
+  public _Type type { get; set; }
+  public _Type As_Type { get; set; }
+}

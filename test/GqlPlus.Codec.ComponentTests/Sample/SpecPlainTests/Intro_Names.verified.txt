@@ -29,6 +29,42 @@ types: !_Map_Type
     parent: !_DualBase
       name: _Named
     typeKind: !_TypeKind Dual
+  !_Identifier _AndType: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: _AndType
+        type: !_OutputBase
+          name: _Type
+    allFields:
+      - !_ObjectFor(_DualField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: description
+        object: _Described
+        type: !_DualBase
+          name: String
+      - !_ObjectFor(_DualField)
+        name: name
+        object: _Named
+        type: !_DualBase
+          name: _Identifier
+      - !_ObjectFor(_OutputField)
+        name: type
+        object: _AndType
+        type: !_OutputBase
+          name: _Type
+    alternates:
+      - !_OutputAlternate
+        type: !_OutputBase
+          name: _Type
+    fields:
+      - !_OutputField
+        name: type
+        type: !_OutputBase
+          name: _Type
+    name: _AndType
+    parent: !_DualBase
+      name: _Named
+    typeKind: !_TypeKind Output
   !_Identifier _Described: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)

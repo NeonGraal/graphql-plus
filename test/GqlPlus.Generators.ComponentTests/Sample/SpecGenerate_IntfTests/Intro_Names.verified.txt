@@ -12,6 +12,12 @@ dual _Named {
 dual _Described {
         description: String[]
     }
+
+output _AndType {
+    : _Named
+        type: _Type
+    | _Type
+    }
 */
 
 // Generated from Spec Intro_Names for Intf
@@ -35,4 +41,11 @@ public interface I_Named
 public interface I_Described
 {
   String description { get; }
+}
+
+public interface I_AndType
+  : I_Named
+{
+  _Type type { get; }
+  _Type As_Type { get; }
 }

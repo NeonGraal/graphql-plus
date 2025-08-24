@@ -2,6 +2,9 @@
 errors:
 - !_Error
   _kind: !_TokenKind End
+  _message: In _AndType can't get model for type '_Named'
+- !_Error
+  _kind: !_TokenKind End
   _message: In _Category can't get model for type '_Aliased'
 - !_Error
   _kind: !_TokenKind End
@@ -10,44 +13,64 @@ errors:
   _kind: !_TokenKind End
   _message: In _Setting can't get model for type '_Named'
 types: !_Map_Type
-  !_Identifier _Categories: !_TypeOutput
+  !_Identifier _AndType: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: _Categories
-      type: !_OutputBase
-        name: _Category
-    - !_ObjectFor(_OutputAlternate)
-      object: _Categories
+      object: _AndType
       type: !_OutputBase
         name: _Type
     allFields:
     - !_ObjectFor(_OutputField)
-      name: category
-      object: _Categories
-      type: !_OutputBase
-        name: _Category
-    - !_ObjectFor(_OutputField)
       name: type
-      object: _Categories
+      object: _AndType
       type: !_OutputBase
         name: _Type
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
-        name: _Category
-    - !_OutputAlternate
+        name: _Type
+    fields:
+    - !_OutputField
+      name: type
       type: !_OutputBase
         name: _Type
+    name: _AndType
+    parent: !_OutputBase
+      name: _Named
+    typeKind: !_TypeKind Output
+  !_Identifier _Categories: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: _AndType
+      type: !_OutputBase
+        name: _Type
+    - !_ObjectFor(_OutputAlternate)
+      object: _Categories
+      type: !_OutputBase
+        name: _Category
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: type
+      object: _AndType
+      type: !_OutputBase
+        name: _Type
+    - !_ObjectFor(_OutputField)
+      name: category
+      object: _Categories
+      type: !_OutputBase
+        name: _Category
+    alternates:
+    - !_OutputAlternate
+      type: !_OutputBase
+        name: _Category
     fields:
     - !_OutputField
       name: category
       type: !_OutputBase
         name: _Category
-    - !_OutputField
-      name: type
-      type: !_OutputBase
-        name: _Type
     name: _Categories
+    parent: !_OutputBase
+      name: _AndType
     typeKind: !_TypeKind Output
   !_Identifier _Category: !_TypeOutput
     allFields:
@@ -57,7 +80,7 @@ types: !_Map_Type
       type: !_OutputBase
         name: _Resolution
     - !_ObjectFor(_OutputField)
-      name: name
+      name: output
       object: _Category
       type: !_OutputBase
         name: _TypeRef
@@ -78,7 +101,7 @@ types: !_Map_Type
       type: !_OutputBase
         name: _Resolution
     - !_OutputField
-      name: name
+      name: output
       type: !_OutputBase
         name: _TypeRef
         typeArgs:
@@ -138,41 +161,36 @@ types: !_Map_Type
   !_Identifier _Directives: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_OutputAlternate)
-      object: _Directives
+      object: _AndType
       type: !_OutputBase
-        name: _Directive
+        name: _Type
     - !_ObjectFor(_OutputAlternate)
       object: _Directives
       type: !_OutputBase
-        name: _Type
+        name: _Directive
     allFields:
+    - !_ObjectFor(_OutputField)
+      name: type
+      object: _AndType
+      type: !_OutputBase
+        name: _Type
     - !_ObjectFor(_OutputField)
       name: directive
       object: _Directives
       type: !_OutputBase
         name: _Directive
-    - !_ObjectFor(_OutputField)
-      name: type
-      object: _Directives
-      type: !_OutputBase
-        name: _Type
     alternates:
     - !_OutputAlternate
       type: !_OutputBase
         name: _Directive
-    - !_OutputAlternate
-      type: !_OutputBase
-        name: _Type
     fields:
     - !_OutputField
       name: directive
       type: !_OutputBase
         name: _Directive
-    - !_OutputField
-      name: type
-      type: !_OutputBase
-        name: _Type
     name: _Directives
+    parent: !_OutputBase
+      name: _AndType
     typeKind: !_TypeKind Output
   !_Identifier _Location: !_TypeEnum
     allItems:

@@ -12,6 +12,12 @@ dual _Named {
 dual _Described {
         description: String[]
     }
+
+output _AndType {
+    : _Named
+        type: _Type
+    | _Type
+    }
 */
 
 // Generated from Spec Intro_Names for Impl
@@ -38,4 +44,12 @@ public class Dual_Described
   : I_Described
 {
   public String description { get; set; }
+}
+
+public class Output_AndType
+  : Output_Named
+  , I_AndType
+{
+  public _Type type { get; set; }
+  public _Type As_Type { get; set; }
 }

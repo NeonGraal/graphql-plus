@@ -13,6 +13,7 @@ public class ParseArgValueTests
   private readonly Parser<IGqlpConstant>.I _constantParser;
 
   public ParseArgValueTests()
+    : base(A.Of<ITokenizer, IOperationContext>())
   {
     Parser<IGqlpFieldKey>.D fieldKeyParser = ParserFor(out _fieldKeyParser);
     Parser<KeyValue<IGqlpArg>>.D keyValueParser = ParserFor(out _keyValueParser);

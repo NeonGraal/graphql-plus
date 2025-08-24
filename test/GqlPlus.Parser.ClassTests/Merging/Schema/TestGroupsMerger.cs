@@ -5,34 +5,34 @@ public abstract class TestGroupsMerger<TAst, TInput>
   where TAst : IGqlpError
 {
   [Theory, RepeatData]
-  public void CanMerge_TwoAstsDifferentNames_ReturnsGood(TInput name1, TInput name2)
+  public void CanMerge_TwoAstsDifferentNames_ReturnsGood(TInput input1, TInput input2)
   {
-    Assert.SkipWhen(SkipDifferentNames || name1 is null || name1.Equals(name2), "same names");
+    Assert.SkipWhen(SkipDifferentInput || input1 is null || input1.Equals(input2), "same input");
 
-    CanMerge_Good([MakeAst(name1), MakeAst(name2)]);
+    CanMerge_Good([MakeAst(input1), MakeAst(input2)]);
   }
 
   [Theory, RepeatData]
-  public void Merge_TwoAstsDifferentName_ReturnsAsts(TInput name1, TInput name2)
+  public void Merge_TwoAstsDifferentName_ReturnsAsts(TInput input1, TInput input2)
   {
-    Assert.SkipWhen(SkipDifferentNames || name1 is null || name1.Equals(name2), "same names");
+    Assert.SkipWhen(SkipDifferentInput || input1 is null || input1.Equals(input2), "same input");
 
-    TAst ast1 = MakeAst(name1);
-    TAst ast2 = MakeAst(name2);
+    TAst ast1 = MakeAst(input1);
+    TAst ast2 = MakeAst(input2);
 
     Merge_Expected([ast1, ast2], ast2, ast1);
   }
 
   [Theory, RepeatData]
-  public void Merge_TwoAstSameName_ReturnsFirst(TInput name)
+  public void Merge_TwoAstSameName_ReturnsFirst(TInput input)
   {
-    TAst ast1 = MakeAst(name);
-    TAst ast2 = MakeAst(name);
+    TAst ast1 = MakeAst(input);
+    TAst ast2 = MakeAst(input);
 
     Merge_Expected([ast1, ast2], ast1);
   }
 
-  protected virtual bool SkipDifferentNames => false;
+  protected virtual bool SkipDifferentInput => false;
 
   internal abstract GroupsMerger<TAst> MergerGroups { get; }
 

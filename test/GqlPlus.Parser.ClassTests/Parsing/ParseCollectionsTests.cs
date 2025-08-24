@@ -36,8 +36,52 @@ public class ParseCollectionsTests
       .Kind.ShouldBe(ModifierKind.List);
   }
 
+  [Fact]
+  public void Parse_ShouldReturnDictModifier_WhenZeroKeyProvided()
+  {
+    // Arrange
+    TakeReturns('[', true);
+    Tokenizer.TakeZero().Returns(true);
+    TakeReturns(']', true);
+
+    // Act
+    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeOfType<ResultArrayOk<IGqlpModifier>>()
+      .Required().ShouldHaveSingleItem()
+      .ShouldBeOfType<ModifierAst>()
+      .ShouldSatisfyAllConditions(
+        x => x.Kind.ShouldBe(ModifierKind.Dict),
+        x => x.Key.ShouldBe("0"),
+        x => x.IsOptional.ShouldBeFalse()
+      );
+  }
+
+  [Theory, InlineData('^'), InlineData('_'), InlineData('*')]
+  public void Parse_ShouldReturnDictModifier_WhenCharKeyProvided(char key)
+  {
+    // Arrange
+    TakeReturns('[', true);
+    TakeAnyReturns(OutChar(key));
+    TakeReturns(']', true);
+
+    // Act
+    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeOfType<ResultArrayOk<IGqlpModifier>>()
+      .Required().ShouldHaveSingleItem()
+      .ShouldBeOfType<ModifierAst>()
+      .ShouldSatisfyAllConditions(
+        x => x.Kind.ShouldBe(ModifierKind.Dict),
+        x => x.Key.ShouldBe($"{key}"),
+        x => x.IsOptional.ShouldBeFalse()
+      );
+  }
+
   [Theory, RepeatData]
-  public void Parse_ShouldReturnDictModifier_WhenDictModifierProvided(string value)
+  public void Parse_ShouldReturnDictModifier_WhenKeyProvided(string value)
   {
     // Arrange
     TakeReturns('[', true);
@@ -60,7 +104,7 @@ public class ParseCollectionsTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnParamModifier_WhenParamModifierProvided(string paramName)
+  public void Parse_ShouldReturnParamModifier_WhenParamKeyProvided(string paramName)
   {
     // Arrange
     TakeReturns('[', true);
@@ -97,5 +141,19 @@ public class ParseCollectionsTests
     // Assert
     result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpModifier>>()
       .Result.ShouldHaveSingleItem();
+  }
+
+  [Fact]
+  public void Parse_ShouldReturnPartialArray_WhenNoEndBracket()
+  {
+    // Arrange
+    TakeReturns('[', true);
+    SetupPartial<IGqlpModifier>();
+
+    // Act
+    IResultArray<IGqlpModifier> result = _parseCollections.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeOfType<ResultArrayPartial<IGqlpModifier>>();
   }
 }

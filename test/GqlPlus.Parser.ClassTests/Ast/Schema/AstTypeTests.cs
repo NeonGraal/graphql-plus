@@ -29,7 +29,7 @@ public abstract class AstTypeTests
   [Theory, RepeatData]
   public void Inequality_BetweenParents(string name, string parent1, string parent2)
     => TypeChecks
-      .SkipIf(parent1 == parent2)
+      .SkipEqual(parent1, parent2)
       .Inequality_ByParents(name, parent1, parent2);
 
   protected virtual string ParentString(string name, string parent)

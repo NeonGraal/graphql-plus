@@ -1,14 +1,13 @@
 output _Categories {
+    : _AndType
         category: _Category
-        type: _Type
     | _Category
-    | _Type
     }
 
 output _Category {
     : _Aliased
         resolution: _Resolution
-        name: _TypeRef<_TypeKind.Output>
+        output: _TypeRef<_TypeKind.Output>
         modifiers: _Modifiers[]
     }
 

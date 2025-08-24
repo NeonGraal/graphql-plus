@@ -1,6 +1,7 @@
 ﻿namespace GqlPlus.Ast.Operation;
 
-public class InlineAstTests : AstDirectivesTests<string[]>
+public class InlineAstTests
+  : AstDirectivesTests<string[]>
 {
   [Theory, RepeatData]
   public void HashCode_WithOnType(string onType, string[] fields)
@@ -31,4 +32,6 @@ public class InlineAstTests : AstDirectivesTests<string[]>
 
   private static InlineAst Inline(string[] input, string[] directives)
     => new(AstNulls.At, input?.Fields() ?? []) { Directives = directives.Directives() };
+  protected override bool InputEquals(string[]? input1, string[]? input2)
+    => input1 is null ? input2 is null : input2 is not null && input1.SequenceEqual(input2);
 }

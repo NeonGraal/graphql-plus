@@ -1,1 +1,1 @@
-5353adb  (HEAD -> object-name) 2025-07-10 More constraint samples
+de18e81  (HEAD -> main, origin/main, origin/HEAD) 2025-08-25 Remove Specification sample

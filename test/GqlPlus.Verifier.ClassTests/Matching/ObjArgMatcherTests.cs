@@ -30,7 +30,7 @@ public abstract class ObjArgMatcherTests<TObjArg>
   [Theory, RepeatData]
   public void Matches_ReturnsTrue_WhenMatchingArgParamType(string name, string type, string constraint)
   {
-    this.SkipIf(type == constraint);
+    this.SkipEqual(type, constraint);
 
     TObjArg arg = A.Named<TObjArg>(name);
     arg.FullType.Returns(type);
@@ -44,7 +44,7 @@ public abstract class ObjArgMatcherTests<TObjArg>
   [Theory, RepeatData]
   public void Matches_ReturnsSame_WhenCallingAnyMatcher(string name, string type, string constraint, bool expected)
   {
-    this.SkipIf(type == constraint);
+    this.SkipEqual(type, constraint);
 
     TObjArg arg = A.Named<TObjArg>(name);
     arg.FullType.Returns(type);

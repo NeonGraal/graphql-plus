@@ -10,6 +10,7 @@ public class ParseVarTypeTests
     _parseVarType = new ParseVarType();
 
     SetupPartial("");
+    SetupError<string>();
   }
 
   [Theory, RepeatData]
@@ -57,8 +58,22 @@ public class ParseVarTypeTests
       .Required().ShouldBe($"[{innerType}]");
   }
 
+  [Fact]
+  public void Parse_ShouldReturnError_WhenInnerTypeIsMissing()
+  {
+    // Arrange
+    TakeReturns('[', true);
+    IdentifierReturns(OutFail);
+
+    // Act
+    IResult<string> result = _parseVarType.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultError>();
+  }
+
   [Theory, RepeatData]
-  public void Parse_ShouldReturnError_WhenClosingBracketIsMissing(string innerType)
+  public void Parse_ShouldReturnPartial_WhenClosingBracketIsMissing(string innerType)
   {
     // Arrange
     TakeReturns('[', true);

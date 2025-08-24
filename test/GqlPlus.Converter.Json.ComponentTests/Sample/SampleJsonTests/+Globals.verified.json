@@ -311,6 +311,15 @@
     }
   },
   "name": "Schema",
+  "operations": {
+    "$tag": "_Map_Operations",
+    "Op": {
+      "$tag": "_Operation",
+      "category": "cat",
+      "name": "Op",
+      "operation": "TBC"
+    }
+  },
   "settings": {
     "$tag": "_Map_Setting",
     "descr": {

@@ -6,6 +6,11 @@ categories: !_Map_Categories
       name: Op
       typeKind: !_TypeKind Output
     resolution: !_Resolution Parallel
+operations: !_Map_Operations
+  !_Identifier Operation: !_Operation
+    category: op
+    name: Operation
+    operation: TBC
 types: !_Map_Type
   !_Identifier Op: !_TypeOutput
     name: Op

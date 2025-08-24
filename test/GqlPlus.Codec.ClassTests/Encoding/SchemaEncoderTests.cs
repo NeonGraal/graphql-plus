@@ -1,5 +1,6 @@
 ﻿using GqlPlus.Ast;
 using GqlPlus.Token;
+using OpenTelemetry.Instrumentation.Quartz;
 
 namespace GqlPlus.Encoding;
 
@@ -8,6 +9,7 @@ public class SchemaEncoderTests
 {
   private readonly IEncoder<CategoriesModel> _categories;
   private readonly IEncoder<DirectivesModel> _directives;
+  private readonly IEncoder<OperationsModel> _operations;
   private readonly IEncoder<BaseTypeModel> _types;
   private readonly IEncoder<SettingModel> _settings;
 
@@ -15,10 +17,11 @@ public class SchemaEncoderTests
   {
     _categories = RFor<CategoriesModel>();
     _directives = RFor<DirectivesModel>();
+    _operations = RFor<OperationsModel>();
     _types = RFor<BaseTypeModel>();
     _settings = RFor<SettingModel>();
 
-    Encoder = new SchemaEncoder(_categories, _directives, _types, _settings);
+    Encoder = new SchemaEncoder(_categories, _directives, _operations, _types, _settings);
   }
 
   protected override IEncoder<SchemaModel> Encoder { get; }
@@ -54,6 +57,7 @@ public class SchemaEncoderTests
 
     EncodeReturns(_categories, Arg.Any<CategoriesModel>(), new Structured(categoryName, "_Categories"));
     EncodeReturns(_directives, Arg.Any<DirectivesModel>(), new Structured(directiveName, "_Directives"));
+    EncodeReturns(_operations, Arg.Any<OperationsModel>(), new Structured(operationName, "_Operations"));
     EncodeReturns(_settings, Arg.Any<SettingModel>(), new Structured(settingName, "_Setting"));
     EncodeReturns(_types, Arg.Any<BaseTypeModel>(), new Structured(typeName, "_TypeOutput"));
 
@@ -65,6 +69,7 @@ public class SchemaEncoderTests
         "categories: !_Map_Categories", $"  !_Identifier {categoryName}: !_Categories {categoryName}",
         "directives: !_Map_Directives", $"  !_Identifier {directiveName}: !_Directives {directiveName}",
         "name: " + name,
+        "operations: !_Map_Operations", $"  !_Identifier {operationName}: !_Operations {operationName}",
         "settings: !_Map_Setting", $"  !_Identifier {settingName}: !_Setting {settingName}",
         "types: !_Map_Type", $"  !_Identifier {typeName}: !_TypeOutput {typeName}"
       ]);

@@ -1,1 +1,1 @@
-05c658b  (HEAD -> operation, origin/operation) 2025-08-21 Merge branch 'main' into operation
+c8be08b  (HEAD -> operation) 2025-08-25 Correct operation type references

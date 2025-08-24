@@ -96,6 +96,11 @@ directives: !_Map_Directives
         name: InDrctParamOpt
     repeatable: false
 name: Schema
+operations: !_Map_Operations
+  !_Identifier Op: !_Operation
+    category: cat
+    name: Op
+    operation: TBC
 settings: !_Map_Setting
   !_Identifier descr: !_Setting
     description: 'Option Descr'

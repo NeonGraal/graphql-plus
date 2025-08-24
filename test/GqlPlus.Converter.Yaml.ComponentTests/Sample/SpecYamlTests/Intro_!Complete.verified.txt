@@ -2209,10 +2209,7 @@ types: !_Map_Type
       name: type
       object: _OpFragment
       type: !_OutputBase
-        name: _ObjType
-        typeArgs:
-        - !_OutputArg
-          name: _OutputBase
+        name: _OutputBase
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives
@@ -2233,10 +2230,7 @@ types: !_Map_Type
     - !_OutputField
       name: type
       type: !_OutputBase
-        name: _ObjType
-        typeArgs:
-        - !_OutputArg
-          name: _OutputBase
+        name: _OutputBase
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives
@@ -2393,10 +2387,7 @@ types: !_Map_Type
       name: type
       object: _OpVariable
       type: !_OutputBase
-        name: _ObjType
-        typeArgs:
-        - !_OutputArg
-          name: _InputBase
+        name: _InputBase
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
@@ -2423,10 +2414,7 @@ types: !_Map_Type
     - !_OutputField
       name: type
       type: !_OutputBase
-        name: _ObjType
-        typeArgs:
-        - !_OutputArg
-          name: _InputBase
+        name: _InputBase
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers

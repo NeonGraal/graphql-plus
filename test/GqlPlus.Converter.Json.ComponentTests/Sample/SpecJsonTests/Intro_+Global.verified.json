@@ -1023,13 +1023,7 @@
           "object": "_OpFragment",
           "type": {
             "$tag": "_OutputBase",
-            "name": "_ObjType",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "name": "_OutputBase"
-              }
-            ]
+            "name": "_OutputBase"
           }
         },
         {
@@ -1083,13 +1077,7 @@
           "name": "type",
           "type": {
             "$tag": "_OutputBase",
-            "name": "_ObjType",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "name": "_OutputBase"
-              }
-            ]
+            "name": "_OutputBase"
           }
         },
         {
@@ -1518,13 +1506,7 @@
           "object": "_OpVariable",
           "type": {
             "$tag": "_OutputBase",
-            "name": "_ObjType",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "name": "_InputBase"
-              }
-            ]
+            "name": "_InputBase"
           }
         },
         {
@@ -1596,13 +1578,7 @@
           "name": "type",
           "type": {
             "$tag": "_OutputBase",
-            "name": "_ObjType",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "name": "_InputBase"
-              }
-            ]
+            "name": "_InputBase"
           }
         },
         {

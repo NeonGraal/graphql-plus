@@ -18,4 +18,6 @@ public class MergeDomainLabelsTests(
 
   protected override IGqlpDomainLabel MakeItem(string input, bool excludes)
     => new DomainLabelAst(AstNulls.At, "", excludes, input);
+  protected override bool InputEquals(string? input1, string? input2)
+    => string.Equals(input1, input2, StringComparison.Ordinal);
 }

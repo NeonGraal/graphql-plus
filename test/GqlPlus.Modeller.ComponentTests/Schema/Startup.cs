@@ -25,6 +25,8 @@ public static class Startup
       .AddTransient<ICategoryModelChecks, CategoryModelChecks>()
       .AddTransient<IDirectivesModelChecks, DirectivesModelChecks>()
       .AddTransient<IDirectiveModelChecks, DirectiveModelChecks>()
+      .AddTransient<IOperationsModelChecks, OperationsModelChecks>()
+      .AddTransient<IOperationModelChecks, OperationModelChecks>()
       .AddTransient<ICheckDescribedModel<SettingInput, SettingModel>, SettingModelChecks>()
 
       .AddTransient<IDomainBooleanModelChecks, DomainBooleanModelChecks>()

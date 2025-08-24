@@ -59,6 +59,20 @@ internal class DirectiveEncoder(
       .Add("repeatable", model.Repeatable);
 }
 
+internal class OperationsEncoder(
+  AndBaseTypeEncoders<OperationModel> and
+) : AndTypeEncoder<OperationsModel, OperationModel>("operation", and)
+{ }
+
+internal class OperationEncoder
+  : AliasedEncoder<OperationModel>
+{
+  internal override Structured Encode(OperationModel model)
+    => base.Encode(model)
+      .Add("category", model.Category)
+      .Add("operation", model.Operation);
+}
+
 internal class SettingEncoder(
   IEncoder<ConstantModel> constant
 ) : NamedEncoder<SettingModel>

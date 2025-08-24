@@ -19,6 +19,15 @@
       }
     }
   },
+  "operations": {
+    "$tag": "_Map_Operations",
+    "Op": {
+      "$tag": "_Operation",
+      "category": "cat",
+      "name": "Op",
+      "operation": "TBC"
+    }
+  },
   "types": {
     "$tag": "_Map_Type",
     "Cat": {

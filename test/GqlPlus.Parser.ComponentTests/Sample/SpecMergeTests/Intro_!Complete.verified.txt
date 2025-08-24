@@ -402,11 +402,7 @@ Success
     type
     :
     I@015/0104
-    _ObjType
-    <
-      I@024/0104
-      _InputBase
-    >
+    _InputBase
     !OF I@009/0105
     modifiers
     :
@@ -457,11 +453,7 @@ Success
     type
     :
     I@015/0117
-    _ObjType
-    <
-      I@024/0117
-      _OutputBase
-    >
+    _OutputBase
     !OF I@009/0118
     directives
     :

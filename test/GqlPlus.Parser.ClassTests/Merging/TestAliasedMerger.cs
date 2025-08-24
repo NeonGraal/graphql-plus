@@ -6,7 +6,10 @@ namespace GqlPlus.Merging;
 public abstract class TestAliasedMerger<TAst>
   : TestAliasedMerger<TAst, string>
   where TAst : IGqlpAliased
-{ }
+{
+  protected override bool InputEquals(string? input1, string? input2)
+    => string.Equals(input1, input2, StringComparison.Ordinal);
+}
 
 public abstract class TestAliasedMerger<TAst, TInput>
   : TestDescriptionsMerger<TAst, TInput>
@@ -27,43 +30,38 @@ public abstract class TestAliasedMerger<TAst, TInput>
   [Theory, RepeatData]
   public void CanMerge_ThreeAstsOneAlias_ReturnsGood(TInput input1, TInput input2, string alias)
     => this
-      .SkipIf(SkipDifferentInput)
+      .SkipIf(SkipDifferentInput || InputEquals(input1, input2))
       .CanMerge_Good([MakeAliased(input1, []), MakeAliased(input2, []), MakeAliased(input1, [alias])]);
 
   [Theory, RepeatData]
   public void CanMerge_ThreeAstsSameAlias_ReturnsErrors(TInput input1, TInput input2, string alias)
     => this
-      .SkipIf(SkipDifferentInput)
-      .SkipEqual(input1, input2)
+      .SkipIf(SkipDifferentInput || InputEquals(input1, input2))
       .CanMerge_Errors([MakeAliased(input1, []), MakeAliased(input2, [alias]), MakeAliased(input1, [alias])]);
 
   [Theory, RepeatData]
   public void CanMerge_ThreeAstsDifferentAliases_ReturnsGood(TInput input1, TInput input2, string alias1, string alias2)
     => this
-      .SkipIf(SkipDifferentInput)
-      .SkipEqual(input1, input2)
+      .SkipIf(SkipDifferentInput || InputEquals(input1, input2))
       .SkipEqual(alias1, alias2)
       .CanMerge_Good([MakeAliased(input1, []), MakeAliased(input2, [alias1]), MakeAliased(input1, [alias2])]);
 
   [Theory, RepeatData]
   public void CanMerge_ThreeAstsTwoAliases_ReturnsGood(TInput input1, TInput input2, string alias1, string alias2)
     => this
-      .SkipIf(SkipDifferentInput)
-      .SkipEqual(input1, input2)
+      .SkipIf(SkipDifferentInput || InputEquals(input1, input2))
       .CanMerge_Good([MakeAliased(input1, [alias1]), MakeAliased(input2, []), MakeAliased(input1, [alias2])]);
 
   [Theory, RepeatData]
   public void CanMerge_ThreeAstsMixedAliases_ReturnsErrors(TInput input1, TInput input2, string alias1, string alias2)
     => this
-      .SkipIf(SkipDifferentInput)
-      .SkipEqual(input1, input2)
+      .SkipIf(SkipDifferentInput || InputEquals(input1, input2))
       .CanMerge_Errors([MakeAliased(input1, [alias1]), MakeAliased(input2, [alias2]), MakeAliased(input1, [alias1, alias2])]);
 
   [Theory, RepeatData]
   public void CanMerge_ThreeAstsManyAliases_ReturnsErrors(TInput input1, TInput input2, string alias1, string alias2)
     => this
-      .SkipIf(SkipDifferentInput)
-      .SkipEqual(input1, input2)
+      .SkipIf(SkipDifferentInput || InputEquals(input1, input2))
       .CanMerge_Errors([MakeAliased(input1, [alias1]), MakeAliased(input2, [alias1, alias2]), MakeAliased(input1, [alias2])]);
 
   [Theory, RepeatData]
@@ -85,8 +83,7 @@ public abstract class TestAliasedMerger<TAst, TInput>
   [Theory, RepeatData]
   public void Merge_ThreeAstsOneAlias_ReturnsExpected(TInput input1, TInput input2, string alias)
     => this
-      .SkipIf(SkipDifferentInput)
-      .SkipEqual(input1, input2)
+      .SkipIf(SkipDifferentInput || InputEquals(input1, input2))
       .Merge_Expected(
         [MakeAliased(input1, []), MakeAliased(input2, []), MakeAliased(input1, [alias])],
         MakeAliased(input1, [alias]), MakeAliased(input2, []));
@@ -94,8 +91,7 @@ public abstract class TestAliasedMerger<TAst, TInput>
   [Theory, RepeatData]
   public void Merge_ThreeAstsDifferentAliases_ReturnsExpected(TInput input1, TInput input2, string alias1, string alias2)
     => this
-      .SkipIf(SkipDifferentInput)
-      .SkipEqual(input1, input2)
+      .SkipIf(SkipDifferentInput || InputEquals(input1, input2))
       .SkipEqual(alias1, alias2)
       .Merge_Expected(
         [MakeAliased(input1, []), MakeAliased(input2, [alias1]), MakeAliased(input1, [alias2])],
@@ -104,8 +100,7 @@ public abstract class TestAliasedMerger<TAst, TInput>
   [Theory, RepeatData]
   public void Merge_ThreeAstsTwoAliases_ReturnsExpected(TInput input1, TInput input2, string alias1, string alias2)
     => this
-      .SkipIf(SkipDifferentInput)
-      .SkipEqual(input1, input2)
+      .SkipIf(SkipDifferentInput || InputEquals(input1, input2))
       .SkipEqual(alias1, alias2)
       .Merge_Expected(
         [MakeAliased(input1, [alias1]), MakeAliased(input2, []), MakeAliased(input1, [alias2])],

@@ -1,1 +1,1 @@
-91d4275  (HEAD -> parser-coverage) 2025-08-18 Improve verification samples
+de18e81  (HEAD -> main, origin/main, origin/HEAD) 2025-08-25 Remove Specification sample

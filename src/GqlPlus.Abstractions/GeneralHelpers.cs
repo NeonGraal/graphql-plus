@@ -134,7 +134,7 @@ public static class GeneralHelpers
     string before,
     string after,
     string by = " ")
-   => before + items.Joined(by) + after;
+   => items.Joined(by).Prefixed(before).Suffixed(after);
 
   public static string Surround<T>(
     this IEnumerable<T>? items,
@@ -142,5 +142,5 @@ public static class GeneralHelpers
     string after,
     Func<T?, string> formatter,
     string by = " ")
-   => before + items.Joined(formatter, by) + after;
+   => items.Joined(formatter, by).Prefixed(before).Suffixed(after);
 }

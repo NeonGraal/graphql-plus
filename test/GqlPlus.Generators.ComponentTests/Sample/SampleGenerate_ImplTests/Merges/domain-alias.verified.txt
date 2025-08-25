@@ -1,0 +1,15 @@
+﻿/* domain-alias
+domain DmnAlias [Num1] { number }
+domain DmnAlias [Num2] { number }
+*/
+
+// Generated from Sample domain-alias for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Sample_domain_alias;
+
+public class DomainDmnAlias
+  : IDmnAlias
+{
+}

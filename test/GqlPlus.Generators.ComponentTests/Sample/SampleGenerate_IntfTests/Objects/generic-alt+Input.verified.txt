@@ -1,0 +1,14 @@
+﻿/* generic-alt+Input
+input GnrcAltInp<$type:String> { | $type }
+*/
+
+// Generated from Sample generic-alt+Input for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Sample_generic_alt_Input;
+
+public interface IGnrcAltInp<Ttype>
+{
+  Ttype Astype { get; }
+}

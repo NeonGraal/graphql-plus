@@ -110,7 +110,7 @@ jobs:
           path: coverage/
       - name: Upload Pages artifact
         if: matrix.version == '9.0' && !matrix.classTests
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: test/Html
 

@@ -18,7 +18,7 @@ public class InputFieldModellerTests
   public void FieldModel_WithValidField_ReturnsExpectedInputFieldModel(string name, string contents, string typeName)
   {
     // Arrange
-    IGqlpInputField ast = A.InputField(name, typeName, contents);
+    IGqlpInputField ast = A.InputField(name, typeName).SetDescr(contents);
 
     InputBaseModel typeModel = new(typeName, "");
     ToModelReturns(ObjBase, typeModel);
@@ -40,7 +40,7 @@ public class InputFieldModellerTests
   public void FieldModel_WithValidDefault_ReturnsExpectedInputFieldModel(string name, string contents, string typeName, string defaultValue)
   {
     // Arrange
-    IGqlpInputField ast = A.InputField(name, typeName, contents);
+    IGqlpInputField ast = A.InputField(name, typeName).SetDescr(contents);
     IGqlpConstant defaultAst = A.Constant(defaultValue);
     ast.DefaultValue.Returns(defaultAst);
 

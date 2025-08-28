@@ -51,7 +51,7 @@ public class VerifyInputTypesTests
     IGqlpConstant nullValue = A.Constant(nullLabel);
 
     IGqlpModifier optional = A.Modifier(ModifierKind.Optional);
-    IGqlpInputField field = A.InputField("a", "b", optional);
+    IGqlpInputField field = A.InputField("a", "b").SetModifiers(optional);
     field.DefaultValue.Returns(nullValue);
 
     _input.Fields.Returns([field]);

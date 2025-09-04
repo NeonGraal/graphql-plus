@@ -14,9 +14,10 @@ if ($Section) {
 }
 if ($ClassTests) {
   $test += @("GqlPlus.ClassTests.slnf")
+  dotnet build GqlPlus.ClassTests.slnf
+} else {
+  dotnet build
 }
-
-dotnet build
 
 if ($LASTEXITCODE -ne 0) {
   Write-Host "Build failed, exiting."

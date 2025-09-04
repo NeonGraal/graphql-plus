@@ -1,4 +1,5 @@
-﻿using GqlPlus.Matching;
+﻿using System.Diagnostics.CodeAnalysis;
+using GqlPlus.Matching;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
@@ -41,14 +42,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
 
   [Fact]
   public void Verify_WithBasic_ReturnsNoErrors()
-  {
-    Usages.Add(TheObject);
-    Definitions.Add(TheObject);
-
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldBeEmpty();
-  }
+    => Verify_NoErrors();
 
   [Theory, RepeatData]
   public void Verify_WithField_ReturnsNoErrors(string fieldName)
@@ -57,41 +51,15 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
 
     ObjectField(fieldName, "String");
 
-    Usages.Add(TheObject);
-
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldBeEmpty();
+    Verify_NoErrors();
   }
 
   [Theory, RepeatData]
   public void Verify_WithSameField_ReturnsErrors(string fieldName, string name)
   {
-    TField field = ObjectField(fieldName, name);
-    TheObject.Name.Returns(name);
+    ObjectField(fieldName, name);
 
-    Usages.Add(TheObject);
-
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldNotBeEmpty();
-  }
-
-  [Theory, RepeatData]
-  public void Verify_WithSameFieldRecurse_ReturnsErrors(string fieldName, string name, string fieldType)
-  {
-    this.SkipEqual(fieldType, name);
-
-    TObject parentType = DefineObject(fieldType);
-    ObjectField(fieldName, name, parentType);
-
-    ObjectField(fieldName, fieldType);
-    TheObject.Name.Returns(name);
-    Usages.Add(TheObject);
-
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldNotBeEmpty();
+    Verify_Errors("cannot be a field of itself", name);
   }
 
   [Theory, RepeatInlineData(ModifierKind.Opt), RepeatInlineData(ModifierKind.List), RepeatInlineData(ModifierKind.Dict)]
@@ -100,36 +68,67 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
     Define<IGqlpTypeSpecial>("String");
 
     TField field = ObjectField(fieldName, name);
-    IGqlpModifier modifier = A.Modifier(kind, "String");
-    field.Modifiers.Returns([modifier]);
+    SetModifier(field, kind, "String");
 
-    TheObject.Name.Returns(name);
-    Usages.Add(TheObject);
+    Verify_Errors("cannot be a field of itself", name);
+  }
 
-    Verifier.Verify(UsageAliased, Errors);
+  [Theory, RepeatData]
+  public void Verify_WithSameFieldRecurse_ReturnsErrors(string fieldName, string name, string typeName)
+  {
+    this.SkipEqual(typeName, name);
 
-    Errors.ShouldNotBeEmpty();
+    TObject fieldType = DefineObject(typeName);
+    ObjectField(fieldName, name, fieldType);
+
+    ObjectField(fieldName, typeName);
+
+    Verify_Errors("cannot be a field of itself", name);
   }
 
   [Theory, RepeatInlineData(ModifierKind.Opt), RepeatInlineData(ModifierKind.List), RepeatInlineData(ModifierKind.Dict)]
-  public void Verify_WithSameFieldRecurseModifier_ReturnsErrors(ModifierKind kind, string name, string fieldName, string fieldType)
+  public void Verify_WithSameFieldRecurseModifier_ReturnsErrors(ModifierKind kind, string name, string fieldName, string typeName)
   {
-    this.SkipEqual(fieldType, name);
+    this.SkipEqual(typeName, name);
 
     Define<IGqlpTypeSpecial>("String");
 
-    TObject parentType = DefineObject(fieldType);
-    TField field = ObjectField(fieldName, name, parentType);
-    IGqlpModifier modifier = A.Modifier(kind, "String");
-    field.Modifiers.Returns([modifier]);
+    TObject fieldType = DefineObject(typeName);
+    TField field = ObjectField(fieldName, name, fieldType);
+    SetModifier(field, kind, "String");
 
-    ObjectField(fieldName, fieldType);
-    TheObject.Name.Returns(name);
-    Usages.Add(TheObject);
+    ObjectField(fieldName, typeName);
 
-    Verifier.Verify(UsageAliased, Errors);
+    Verify_Errors("cannot be a field of itself", name);
+  }
 
-    Errors.ShouldNotBeEmpty();
+  [Theory, RepeatData]
+  public void Verify_WithSameFieldParent_ReturnsErrors(string fieldName, string name, string typeName)
+  {
+    this.SkipEqual(typeName, name);
+
+    TObject fieldType = DefineObject(typeName);
+    ObjectParent(name, fieldType);
+
+    ObjectField(fieldName, typeName);
+
+    Verify_Errors("cannot be a field of itself", name);
+  }
+
+  [Theory, RepeatInlineData(ModifierKind.Opt), RepeatInlineData(ModifierKind.List), RepeatInlineData(ModifierKind.Dict)]
+  public void Verify_WithSameFieldParentModifier_ReturnsErrors(ModifierKind kind, string name, string fieldName, string typeName)
+  {
+    this.SkipEqual(typeName, name);
+
+    Define<IGqlpTypeSpecial>("String");
+
+    TObject fieldType = DefineObject(typeName);
+    ObjectParent(name, fieldType);
+
+    TField field = ObjectField(fieldName, typeName);
+    SetModifier(field, kind, "String");
+
+    Verify_Errors("cannot be a field of itself", name);
   }
 
   [Theory, RepeatData]
@@ -137,18 +136,11 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
   {
     Define<IGqlpTypeSpecial>(constraint);
 
-    ObjectParam(TheObject, paramName, constraint);
+    ObjectParam(paramName, constraint);
 
-    TBase objBase = A.ObjBase<TBase, TArg>(paramName, true);
-    TField field = A.ObjField<TField, TBase>(fieldName, objBase);
-    TheObject.Fields.Returns([field]);
-    TheObject.ObjFields.Returns([field]);
+    TField field = ObjectField(fieldName, paramName, isTypeParam: true);
 
-    Usages.Add(TheObject);
-
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldBeEmpty();
+    Verify_NoErrors();
   }
 
   [Theory, RepeatData]
@@ -156,17 +148,12 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
   {
     Define<IGqlpTypeSpecial>("String");
 
-    ObjectParam(TheObject, paramName, "String");
+    ObjectParam(paramName, "String");
 
     TField field = ObjectField(fieldName, "String");
-    IGqlpModifier modifier = A.Modifier(ModifierKind.Param, paramName);
-    field.Modifiers.Returns([modifier]);
+    SetModifier(field, ModifierKind.Param, paramName);
 
-    Usages.Add(TheObject);
-
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldBeEmpty();
+    Verify_NoErrors();
   }
 
   [Theory, RepeatData]
@@ -175,14 +162,9 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
     Define<IGqlpTypeSpecial>("String", key);
 
     TField field = ObjectField(fieldName, "String");
-    IGqlpModifier modifier = A.Modifier(ModifierKind.Dict, key);
-    field.Modifiers.Returns([modifier]);
+    SetModifier(field, ModifierKind.Dict, key);
 
-    Usages.Add(TheObject);
-
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldBeEmpty();
+    Verify_NoErrors();
   }
 
   [Theory, RepeatData]
@@ -191,14 +173,9 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
     Define<IGqlpTypeSpecial>("String");
 
     TField field = ObjectField(fieldName, "String");
-    IGqlpModifier modifier = A.Modifier(ModifierKind.Dict, key);
-    field.Modifiers.Returns([modifier]);
+    SetModifier(field, ModifierKind.Dict, key);
 
-    Usages.Add(TheObject);
-
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldNotBeEmpty();
+    Verify_Errors("not defined");
   }
 
   [Theory, RepeatData]
@@ -206,17 +183,12 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
   {
     Define<IGqlpTypeSpecial>("String", constraint);
 
-    ObjectParam(TheObject, paramName, constraint);
+    ObjectParam(paramName, constraint);
 
     TField field = ObjectField(fieldName, "String");
-    IGqlpModifier modifier = A.Modifier(ModifierKind.Param, paramName);
-    field.Modifiers.Returns([modifier]);
+    SetModifier(field, ModifierKind.Param, paramName);
 
-    Usages.Add(TheObject);
-
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldBeEmpty();
+    Verify_NoErrors();
   }
 
   [Theory, RepeatData]
@@ -225,14 +197,9 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
     Define<IGqlpTypeSpecial>("String");
 
     TField field = ObjectField(fieldName, "String");
-    IGqlpModifier modifier = A.Modifier(ModifierKind.Param, paramName);
-    field.Modifiers.Returns([modifier]);
+    SetModifier(field, ModifierKind.Param, paramName);
 
-    Usages.Add(TheObject);
-
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldNotBeEmpty();
+    Verify_Errors("not defined");
   }
 
   [Fact]
@@ -241,15 +208,42 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
     Define<IGqlpTypeSpecial>("String");
 
     ObjectAlternate("String");
-    Usages.Add(TheObject);
 
-    Verifier.Verify(UsageAliased, Errors);
+    Verify_NoErrors();
+  }
 
-    Errors.ShouldBeEmpty();
+  [Theory, RepeatInlineData(ModifierKind.List), RepeatInlineData(ModifierKind.Dict)]
+  public void Verify_WithAlternateModifier_ReturnsNoErrors(ModifierKind kind)
+  {
+    Define<IGqlpTypeSpecial>("String");
+
+    TAlt alt = ObjectAlternate("String");
+    SetModifier(alt, kind, "String");
+
+    Verify_NoErrors();
   }
 
   [Theory, RepeatData]
-  public void Verify_WithAlternateAlternate_ReturnsNoErrors(string altType)
+  public void Verify_WithSameAlternate_ReturnsErrors(string name)
+  {
+    ObjectAlternate(name);
+
+    Verify_Errors("cannot be an alternate of itself", name);
+  }
+
+  [Theory, RepeatInlineData(ModifierKind.List), RepeatInlineData(ModifierKind.Dict)]
+  public void Verify_WithSameAlternateModifier_ReturnsErrors(ModifierKind kind, string name)
+  {
+    Define<IGqlpTypeSpecial>("String");
+
+    TAlt alt = ObjectAlternate(name);
+    SetModifier(alt, kind, "String");
+
+    Verify_Errors("cannot be an alternate of itself", name);
+  }
+
+  [Theory, RepeatData]
+  public void Verify_WithAlternateRecurse_ReturnsNoErrors(string altType)
   {
     Define<IGqlpTypeSpecial>("String");
 
@@ -257,11 +251,58 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
     ObjectAlternate("String", other);
 
     ObjectAlternate(altType);
-    Usages.Add(TheObject);
 
-    Verifier.Verify(UsageAliased, Errors);
+    Verify_NoErrors();
+  }
 
-    Errors.ShouldBeEmpty();
+  [Theory, RepeatData]
+  public void Verify_WithSameAlternateRecurse_ReturnsErrors(string name, string altType)
+  {
+    TObject other = DefineObject(altType);
+    ObjectAlternate(name, other);
+
+    ObjectAlternate(altType);
+
+    Verify_Errors("cannot be an alternate of itself", name);
+  }
+
+  [Theory, RepeatInlineData(ModifierKind.List), RepeatInlineData(ModifierKind.Dict)]
+  public void Verify_WithSameAlternateRecurseModifier_ReturnsErrors(ModifierKind kind, string name, string altType)
+  {
+    Define<IGqlpTypeSpecial>("String");
+
+    TObject other = DefineObject(altType);
+    TAlt alt = ObjectAlternate(name, other);
+    SetModifier(alt, kind, "String");
+
+    ObjectAlternate(altType);
+
+    Verify_Errors("cannot be an alternate of itself", name);
+  }
+
+  [Theory, RepeatData]
+  public void Verify_WithSameAlternateParent_ReturnsErrors(string name, string altType)
+  {
+    TObject other = DefineObject(altType);
+    ObjectParent(name, other);
+
+    ObjectAlternate(altType);
+
+    Verify_Errors("cannot be an alternate of itself", name);
+  }
+
+  [Theory, RepeatInlineData(ModifierKind.Opt), RepeatInlineData(ModifierKind.List), RepeatInlineData(ModifierKind.Dict)]
+  public void Verify_WithSameAlternateParentModifier_ReturnsErrors(ModifierKind kind, string name, string altType)
+  {
+    Define<IGqlpTypeSpecial>("String");
+
+    TObject other = DefineObject(altType);
+    ObjectParent(name, other);
+
+    TAlt alt = ObjectAlternate(altType);
+    SetModifier(alt, kind, "String");
+
+    Verify_Errors("cannot be an alternate of itself", name);
   }
 
   [Theory, RepeatData]
@@ -269,13 +310,9 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
   {
     Define<IGqlpTypeSpecial>("String");
 
-    TArg arg = A.Named<TArg>(argType);
-    ObjectAlternate("String").SetArgs(arg);
-    Usages.Add(TheObject);
+    BaseArg(ObjectAlternate("String"), argType);
 
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldNotBeEmpty();
+    Verify_Errors("Expected none, given 1");
   }
 
   [Theory, RepeatData]
@@ -285,16 +322,12 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
 
     Define<IGqlpSimple>(argType);
 
-    TObject other = A.Obj<TObject, TBase>(altType, paramName, true);
-    ObjectParam(other, paramName, argType);
+    TObject other = DefineObject(altType, paramName, true);
+    ObjectParam(paramName, argType, other);
 
     ObjectAlternate(altType);
-    Usages.Add(TheObject);
-    Definitions.Add(other);
 
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldNotBeEmpty();
+    Verify_Errors("Expected 1, given 0");
   }
 
   [Theory, RepeatData]
@@ -304,21 +337,14 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
 
     Define<IGqlpTypeSpecial>("String");
 
-    TObject parentObject = A.Obj<TObject, TBase>(parentName);
+    TObject parentObject = DefineObject(parentName);
     ObjectAlternate("String", parentObject);
-    Usages.Add(parentObject);
-    Definitions.Add(parentObject);
 
-    TObject altObject = A.Obj<TObject, TBase>(altType, parentName);
-    Usages.Add(altObject);
-    Definitions.Add(altObject);
+    DefineObject(altType, parentName);
 
     ObjectAlternate(altType);
-    Usages.Add(TheObject);
 
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldBeEmpty();
+    Verify_NoErrors();
   }
 
   [Theory, RepeatData]
@@ -328,58 +354,34 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
 
     Define<IGqlpTypeSpecial>("String");
 
-    TObject parentObject = A.Obj<TObject, TBase>(parentName);
+    TObject parentObject = DefineObject(parentName);
     ObjectAlternate("String", parentObject);
-    Usages.Add(parentObject);
-    Definitions.Add(parentObject);
 
-    TObject altObject = A.Obj<TObject, TBase>(altType, parentName);
-    Usages.Add(altObject);
-    Definitions.Add(altObject);
+    DefineObject(altType, parentName);
 
     ObjectAlternate(altType);
-    Usages.Add(TheObject);
 
     MergeAlternates.CanMergeReturns("Merge fails".MakeMessages());
 
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldNotBeEmpty();
+    Verify_Errors("Can't merge");
   }
 
   [Theory, RepeatData]
   public void Verify_WithParent_ReturnsNoErrors(string parentName)
   {
-    TObject parentType = A.Obj<TObject, TBase>(parentName);
-    Usages.Add(parentType);
-    Definitions.Add(parentType);
+    DefineObject(parentName);
 
-    TBase parentBase = A.ObjBase<TBase, TArg>(parentName);
-    TheObject.SetParent(parentBase);
-    Usages.Add(TheObject);
-    Definitions.Add(TheObject);
+    ObjectParent(parentName);
 
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldBeEmpty();
+    Verify_NoErrors();
   }
 
   [Theory, RepeatData]
   public void Verify_WithSameParent_ReturnsErrors(string name)
   {
-    TObject parentType = A.Obj<TObject, TBase>(name);
-    Usages.Add(parentType);
-    Definitions.Add(parentType);
+    ObjectParent(name);
 
-    TBase parentBase = A.ObjBase<TBase, TArg>(name);
-    TheObject.SetParent(parentBase);
-    TheObject.Name.Returns(name);
-    Usages.Add(TheObject);
-    Definitions.Add(TheObject);
-
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldNotBeEmpty();
+    Verify_Errors("cannot be a child of itself", name);
   }
 
   [Theory, RepeatData]
@@ -387,19 +389,11 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
   {
     this.SkipEqual(parentName, name);
 
-    TObject parentType = A.Obj<TObject, TBase>(parentName, name);
-    Usages.Add(parentType);
-    Definitions.Add(parentType);
+    DefineObject(parentName, name);
 
-    TBase parentBase = A.ObjBase<TBase, TArg>(parentName);
-    TheObject.SetParent(parentBase);
-    TheObject.Name.Returns(name);
-    Usages.Add(TheObject);
-    Definitions.Add(TheObject);
+    ObjectParent(parentName);
 
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldNotBeEmpty();
+    Verify_Errors("cannot be a child of itself", name);
   }
 
   [Theory, RepeatData]
@@ -409,16 +403,12 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
 
     Define<IGqlpTypeSpecial>(constraint);
 
-    ObjectParam(TheObject, paramName, constraint);
+    ObjectParam(paramName, constraint);
+    ObjectAlternate(paramName, isTypeParam: true);
 
-    TBase parentBase = A.ObjBase<TBase, TArg>(parentName, true);
-    TheObject.SetParent(parentBase);
-    Usages.Add(TheObject);
-    Definitions.Add(TheObject);
+    ObjectParent(parentName, isTypeParam: true);
 
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldNotBeEmpty();
+    Verify_Errors("not defined");
   }
 
   [Theory, RepeatData]
@@ -426,20 +416,12 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
   {
     Define<IGqlpTypeSpecial>("String");
 
-    TField field = A.ObjField<TField, TBase>(fieldName, A.ObjBase<TBase, TArg>("String"));
+    TObject parent = DefineObject(parentName);
+    ObjectField(fieldName, "String", parent);
 
-    TObject parent = A.Obj<TObject, TBase>(parentName);
-    parent.Fields.Returns([field]);
-    parent.ObjFields.Returns([field]);
-    Definitions.Add(parent);
+    ObjectParent(parentName);
 
-    TBase parentBase = A.ObjBase<TBase, TArg>(parentName);
-    TheObject.SetParent(parentBase);
-    Usages.Add(TheObject);
-
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldBeEmpty();
+    Verify_NoErrors();
   }
 
   [Theory, RepeatData]
@@ -447,18 +429,13 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
   {
     Define<IGqlpTypeSpecial>("String");
 
-    TObject parent = A.Obj<TObject, TBase>(parentName);
+    TObject parent = DefineObject(parentName);
     AddTypes(parent);
     ObjectAlternate("String", parent);
-    Definitions.Add(parent);
 
-    TBase parentBase = A.ObjBase<TBase, TArg>(parentName);
-    TheObject.SetParent(parentBase);
-    Usages.Add(TheObject);
+    ObjectParent(parentName);
 
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldBeEmpty();
+    Verify_NoErrors();
   }
 
   [Theory, RepeatData]
@@ -466,65 +443,44 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
   {
     Define<IGqlpTypeSpecial>(constraint);
 
-    ObjectParam(TheObject, paramName, constraint);
+    ObjectParam(paramName, constraint);
 
-    TBase parent = A.Named<TBase>(paramName);
-    parent.IsTypeParam.Returns(true);
-    TheObject.SetParent(parent);
+    ObjectParent(paramName, isTypeParam: true);
 
-    Usages.Add(TheObject);
-    Definitions.Add(TheObject);
-
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldBeEmpty();
+    Verify_NoErrors();
   }
 
   [Theory, RepeatData]
   public void Verify_WithTypeParamsNoConstraint_ReturnsError(string typeParam)
   {
-    ObjectParam(TheObject, typeParam, "");
+    ObjectParam(typeParam, "");
 
-    TBase parent = A.Named<TBase>(typeParam);
-    parent.IsTypeParam.Returns(true);
-    TheObject.SetParent(parent);
+    ObjectParent(typeParam, isTypeParam: true);
 
-    Usages.Add(TheObject);
-    Definitions.Add(TheObject);
-
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldNotBeEmpty();
+    Verify_Errors("not defined");
   }
 
   [Theory, RepeatData]
   public void Verify_WithFieldTypeArgGeneric_ReturnsError(string fieldName, string otherName, string paramName, string argType, string argParam)
   {
-    this.SkipEqual(argType, argParam);
+    this.SkipEqual(argType, argParam)
+      .SkipEqual(otherName, argParam)
+      .SkipEqual(otherName, paramName);
 
     Define<IGqlpSimple>(argParam);
 
-    TObject otherArg = A.Obj<TObject, TBase>(argType);
-    ObjectParam(otherArg, argParam, argParam);
-    Definitions.Add(otherArg);
+    TObject otherArg = DefineObject(argType);
+    ObjectParam(argParam, argParam, otherArg);
+    ObjectAlternate(argParam, otherArg, true);
 
-    TObject other = A.Obj<TObject, TBase>(otherName);
-    ObjectParam(other, paramName, argType);
-    Definitions.Add(other);
+    TObject other = DefineObject(otherName);
+    ObjectParam(paramName, argType, other);
+    ObjectAlternate(paramName, other, true);
 
-    TArg arg = A.Named<TArg>(argType);
-    TBase objBase = A.ObjBase<TBase, TArg>(otherName).SetArgs(arg);
-    TField field = A.ObjField<TField, TBase>(fieldName, objBase);
+    TArg arg = FieldArg(ObjectField(fieldName, otherName), argType);
     ArgMatcher.Matches(arg, argType, Arg.Any<EnumContext>()).Returns(true);
 
-    TheObject.Fields.Returns([field]);
-    TheObject.ObjFields.Returns([field]);
-
-    Usages.Add(TheObject);
-
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldNotBeEmpty();
+    Verify_Errors("Expected 1, given none");
   }
 
   [Theory, RepeatData]
@@ -534,22 +490,12 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
 
     Define<IGqlpSimple>(argType);
 
-    TObject other = A.Obj<TObject, TBase>(otherName);
+    TObject other = DefineObject(otherName);
 
-    TArg arg = A.Named<TArg>(argType);
-    TBase objBase = A.ObjBase<TBase, TArg>(otherName).SetArgs(arg);
-    TField field = A.ObjField<TField, TBase>(fieldName, objBase);
+    TArg arg = FieldArg(ObjectField(fieldName, otherName), argType);
     ArgMatcher.Matches(arg, argType, Arg.Any<EnumContext>()).Returns(true);
 
-    TheObject.Fields.Returns([field]);
-    TheObject.ObjFields.Returns([field]);
-
-    Usages.Add(TheObject);
-    Definitions.Add(other);
-
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldNotBeEmpty();
+    Verify_Errors("Expected 0, given 1");
   }
 
   [Theory, RepeatData]
@@ -559,23 +505,13 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
 
     Define<IGqlpSimple>(argType);
 
-    TObject other = A.Obj<TObject, TBase>(otherName, paramName, true);
-    ObjectParam(other, paramName, "");
+    TObject other = DefineObject(otherName, paramName, true);
+    ObjectParam(paramName, "", other);
 
-    TArg arg = A.Named<TArg>(argType);
-    TBase objBase = A.ObjBase<TBase, TArg>(otherName).SetArgs(arg);
-    TField field = A.ObjField<TField, TBase>(fieldName, objBase);
+    TArg arg = FieldArg(ObjectField(fieldName, otherName), argType);
     ArgMatcher.Matches(arg, argType, Arg.Any<EnumContext>()).Returns(true);
 
-    TheObject.Fields.Returns([field]);
-    TheObject.ObjFields.Returns([field]);
-
-    Usages.Add(TheObject);
-    Definitions.Add(other);
-
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldNotBeEmpty();
+    Verify_Errors("undefined");
   }
 
   [Theory, RepeatData]
@@ -585,41 +521,67 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
 
     Define<IGqlpSimple>(argType);
 
-    TObject other = A.Obj<TObject, TBase>(otherName, paramName, true);
-    ObjectParam(other, paramName, argType);
+    TObject other = DefineObject(otherName, paramName, true);
+    ObjectParam(paramName, argType, other);
 
-    TArg arg = A.Named<TArg>(argType);
-    TBase objBase = A.ObjBase<TBase, TArg>(otherName).SetArgs(arg);
-    TField field = A.ObjField<TField, TBase>(fieldName, objBase);
+    TArg arg = FieldArg(ObjectField(fieldName, otherName), argType);
     ArgMatcher.Matches(arg, argType, Arg.Any<EnumContext>()).Returns(false);
 
-    TheObject.Fields.Returns([field]);
-    TheObject.ObjFields.Returns([field]);
+    Verify_Errors("not match");
+  }
 
+  protected void Verify_NoErrors(string name = "")
+  {
+    TheObject.Name.Returns(name.IfWhiteSpace("Object"));
     Usages.Add(TheObject);
-    Definitions.Add(other);
+    Definitions.Add(TheObject);
 
     Verifier.Verify(UsageAliased, Errors);
 
-    Errors.ShouldNotBeEmpty();
+    Errors.ShouldBeEmpty();
   }
 
-  private TObject DefineObject(string name)
+  protected void Verify_Errors(string message, string name = "")
   {
-    TObject obj = A.Obj<TObject, TBase>(name);
+    TheObject.Name.Returns(name.IfWhiteSpace("Object"));
+    Usages.Add(TheObject);
+    Definitions.Add(TheObject);
+
+    Verifier.Verify(UsageAliased, Errors);
+
+    Errors.ShouldSatisfyAllConditions(
+      e => e.ShouldNotBeEmpty(),
+      e => e.ShouldContain(m => m.Message.Contains(message), string.Join('\n', Errors.Select(m => " - " + m.Message))));
+  }
+
+  protected TObject DefineObject(string name, string parent = "", bool isTypeParam = false)
+  {
+    TObject obj = A.Obj<TObject, TBase>(name, parent, isTypeParam);
     Definitions.Add(obj);
     Usages.Add(obj);
     return obj;
   }
 
-  private TAlt ObjectAlternate(string type, TObject? obj = null)
+  protected TBase ObjectParent(string parentName, TObject? obj = null, bool isTypeParam = false)
+  {
+    obj ??= TheObject;
+
+    TBase parentBase = MakeBase(parentName, isTypeParam);
+    obj.SetParent(parentBase);
+
+    return parentBase;
+  }
+
+  protected TAlt ObjectAlternate(string type, TObject? obj = null, bool isTypeParam = false)
   {
     obj ??= TheObject;
 
     TAlt alt = A.Named<TAlt, IGqlpObjAlternate>(type);
     string label = typeof(TAlt).Name[5..^9];
     alt.Label.Returns(label);
-    alt.FullType.Returns(type);
+    string fullType = isTypeParam ? "$" + type : type;
+    alt.FullType.Returns(fullType);
+    alt.IsTypeParam.Returns(isTypeParam);
 
     obj.Alternates.Returns([alt]);
     obj.ObjAlternates.Returns([alt]);
@@ -627,11 +589,11 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
     return alt;
   }
 
-  private TField ObjectField(string fieldName, string fieldType, TObject? obj = null)
+  protected TField ObjectField(string fieldName, string fieldType, TObject? obj = null, bool isTypeParam = false)
   {
     obj ??= TheObject;
 
-    TBase objBase = A.ObjBase<TBase, TArg>(fieldType);
+    TBase objBase = MakeBase(fieldType, isTypeParam);
     TField field = A.ObjField<TField, TBase>(fieldName, objBase);
 
     obj.Fields.Returns([field]);
@@ -640,10 +602,33 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
     return field;
   }
 
-  private static TObject ObjectParam(TObject obj, string paramName, string constraint)
+  protected IGqlpTypeParam ObjectParam(string paramName, string constraint, TObject? obj = null)
   {
+    obj ??= TheObject;
+
     IGqlpTypeParam typeParam = A.TypeParam(paramName, constraint);
     obj.TypeParams.Returns([typeParam]);
-    return obj;
+
+    return typeParam;
+  }
+
+  protected static TBase MakeBase(string baseName, bool isTypeParam = false)
+    => A.ObjBase<TBase, TArg>(baseName, isTypeParam);
+
+  protected static TArg BaseArg(IGqlpObjBase<TArg> type, string argName, bool isTypeParam = false)
+  {
+    TArg arg = A.ObjArg<TArg>(argName, isTypeParam);
+    type.SetArgs(arg);
+    return arg;
+  }
+  protected static TArg FieldArg([NotNull] TField field, string argName, bool isTypeParam = false)
+    => BaseArg(field.BaseType, argName, isTypeParam);
+
+  protected static TMod SetModifier<TMod>([NotNull] TMod modified, ModifierKind kind, string key = "")
+    where TMod : IGqlpModifiers
+  {
+    IGqlpModifier modifier = A.Modifier(kind, key);
+    modified.Modifiers.Returns([modifier]);
+    return modified;
   }
 }

@@ -12,25 +12,25 @@ internal abstract class AstParentItemVerifier<TAst, TParent, TContext, TItem>(
   where TContext : UsageContext
   where TItem : IGqlpError
 {
-  protected override void CheckMergeParent(ParentUsage<TAst> input, TContext context)
+  protected override void CheckMergeParent(SelfUsage<TAst> input, TContext context)
   {
     TItem[] items = [.. GetParentItems(input, input.Usage, context, GetItems)];
 
     if (items.Length > 0) {
       IMessages failures = mergeItems.CanMerge(items);
       if (failures.Any()) {
-        context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} into Parent {input.Parent}");
+        context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} into Parent {input.Current}");
         context.Add(failures);
       }
     }
   }
 
-  protected IEnumerable<T> GetParentItems<T>(ParentUsage<TAst> input, TAst child, TContext context, Func<TAst, IEnumerable<T>> getItems)
+  protected IEnumerable<T> GetParentItems<T>(SelfUsage<TAst> input, TAst child, TContext context, Func<TAst, IEnumerable<T>> getItems)
   {
     IEnumerable<T> items = getItems(child);
     if (input.DifferentName) {
       CheckParentType(input, context, false,
-        parentType => items = GetParentItems(input.AddParent(GetParent(parentType)), parentType, context, getItems).Concat(items));
+        parentType => items = GetParentItems(input.AddNext(GetParent(parentType)), parentType, context, getItems).Concat(items));
     }
 
     return items;

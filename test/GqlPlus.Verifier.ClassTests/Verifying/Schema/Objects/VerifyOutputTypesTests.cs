@@ -4,7 +4,7 @@ namespace GqlPlus.Verifying.Schema.Objects;
 
 [TracePerTest]
 public class VerifyOutputTypesTests
-  : ObjectVerifierTestsBase<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate, IGqlpOutputArg>
+  : ObjectDualVerifierTestsBase<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate, IGqlpOutputArg>
 {
   private readonly IGqlpOutputObject _output;
 
@@ -21,16 +21,13 @@ public class VerifyOutputTypesTests
   [Fact]
   public void Verify_Output_WithField_ReturnsNoErrors()
   {
-    IGqlpOutputObject fieldType = A.Obj<IGqlpOutputObject, IGqlpOutputBase>("b");
+    DefineObject("b");
     IGqlpInputObject paramType = A.Obj<IGqlpInputObject, IGqlpInputBase>("c");
-    Define(fieldType, paramType);
+    Define(paramType);
 
     IGqlpInputParam param = A.InputParam("c");
-    IGqlpOutputField field = A.OutputField("a", "b");
+    IGqlpOutputField field = ObjectField("a", "b", _output);
     field.Params.Returns([param]);
-
-    _output.Fields.Returns([field]);
-    _output.ObjFields.Returns([field]);
 
     Usages.Add(_output);
 

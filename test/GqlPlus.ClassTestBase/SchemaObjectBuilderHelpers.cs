@@ -18,7 +18,7 @@ public static class SchemaObjectBuilderHelpers
 
   public static IGqlpOutputArg OutputEnumArg(this IMockBuilder builder, string name, string enumType, string enumLabel)
   {
-    IGqlpOutputArg theArg = builder.Named<IGqlpOutputArg>(name);
+    IGqlpOutputArg theArg = builder.ObjArg<IGqlpOutputArg>(name);
     IGqlpObjType enumObjType = builder.Named<IGqlpObjType>(enumType);
     theArg.FullType.Returns(enumType);
     theArg.EnumType.Returns(enumObjType);
@@ -88,6 +88,22 @@ public static class SchemaObjectBuilderHelpers
     objBase.BaseArgs.Returns(args);
 
     return objBase;
+  }
+
+  public static TArg ObjArg<TArg>(this IMockBuilder builder, string typeName, bool isTypeParam = false)
+    where TArg : class, IGqlpObjArg
+  {
+    TArg theArg = builder.Named<TArg, IGqlpObjArg>(typeName);
+    string label = typeof(TArg).Name[5..^3];
+    theArg.Label.Returns(label);
+    if (isTypeParam) {
+      theArg.IsTypeParam.Returns(true);
+      theArg.FullType.Returns("$" + typeName);
+    } else {
+      theArg.FullType.Returns(typeName);
+    }
+
+    return theArg;
   }
 
   public static TField ObjField<TField, TBase>(this IMockBuilder builder, string fieldName, TBase type, params IGqlpModifier[] modifiers)

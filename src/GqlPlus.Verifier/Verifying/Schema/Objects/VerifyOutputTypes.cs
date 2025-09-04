@@ -26,11 +26,11 @@ internal class VerifyOutputTypes(
     base.UsageValue(usage, context);
   }
 
-  protected override void UsageFields(IEnumerable<IGqlpOutputField> fields, OutputContext context)
+  protected override void UsageFields(IGqlpOutputObject usage, OutputContext context)
   {
-    base.UsageFields(fields, context);
+    base.UsageFields(usage, context);
 
-    foreach (IGqlpOutputField field in fields) {
+    foreach (IGqlpOutputField field in usage.ObjFields) {
       foreach (IGqlpInputParam parameter in field.Params) {
         CheckTypeRef(context, parameter.Type, " Param");
         context.CheckModifiers(parameter);

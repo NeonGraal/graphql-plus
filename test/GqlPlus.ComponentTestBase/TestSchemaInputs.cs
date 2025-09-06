@@ -5,12 +5,12 @@ public abstract class TestSchemaInputs
 {
   [Fact]
   public async Task Test_All()
-    => await Label_Inputs("Sample", await SchemaValidDataAll(), "!ALL");
+    => await Label_Inputs("Schema", await SchemaValidDataAll(), "!ALL");
 
   [Theory]
   [ClassData(typeof(SchemaValidData))]
   public async Task Test_Groups(string group)
-    => await Label_Inputs("Sample", await SchemaValidDataGroup(group), "+" + group);
+    => await Label_Inputs("Schema", await SchemaValidDataGroup(group), "+" + group);
 
   [Theory]
   [ClassData(typeof(SamplesSchemaMergesData))]
@@ -42,12 +42,21 @@ public abstract class TestSchemaInputs
   }
 
   [Theory]
-  [ClassData(typeof(SamplesSchemaSpecificationData))]
+  [ClassData(typeof(SamplesSpecificationData))]
   public async Task Test_Spec(string sample)
   {
-    string schema = await ReadSchema(sample, "Specification");
+    string spec = await ReadSpecification(sample);
 
-    await Label_Input("Spec", schema, ["Schema", "Specification"], sample);
+    await Label_Input("Spec", spec, ["Specification"], sample);
+  }
+
+  [Theory]
+  [ClassData(typeof(SamplesSpecificationIntrospectionData))]
+  public async Task Test_Introspection(string sample)
+  {
+    string spec = await ReadSpecification(sample, "Introspection");
+
+    await Label_Input("Spec", spec, ["Specification", "Introspection"], sample, "Introspection");
   }
 
   protected abstract Task Label_Input(string label, string input, string[] dirs, string test, string section = "");
@@ -60,5 +69,5 @@ public abstract class TestSchemaInputs
   }
 
   protected virtual Task Sample_Input(string input, string section, string test)
-    => Label_Input("Sample", input, [section], test, section);
+    => Label_Input("Schema", input, [section], test, section);
 }

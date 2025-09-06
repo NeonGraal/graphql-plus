@@ -22,7 +22,7 @@ public static class BuiltIn
   private static readonly string[] s_keyMembers = ["_Basic", "_Internal", "_Simple"];
 
   static BuiltIn()
-    => Internal = [.. InternalSimple, .. InternalObject, .. Special];
+    => Internal = [Scalar, Value, .. InternalSimple, .. InternalObject, .. Special];
 
   public static IGqlpType[] Internal { get; }
 
@@ -52,6 +52,9 @@ public static class BuiltIn
     DualObj("MostList", [TypeParam()], DualMost("")),
     DualObj("MostDictionary", [TypeParam()], DualMost("Simple", true)),
   ];
+
+  internal static IGqlpType Scalar { get; } = new SpecialTypeAst("Scalar", t => t == Scalar);
+  internal static IGqlpType Value { get; } = new SpecialTypeAst("Value", t => t == Scalar || t == Value);
 
   internal static SpecialTypeAst[] Special { get; } = [
     new SpecialTypeAst("Any", t => true),

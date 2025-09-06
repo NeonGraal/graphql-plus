@@ -1,2 +1,3 @@
-output Test { field(Param[$a]): Test }
+output Test { field(Param[$a]): Field }
 input Param { }
+output Field { }

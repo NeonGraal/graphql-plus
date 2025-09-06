@@ -28,37 +28,42 @@ public interface ITypeDomainModel
 }
 
 public record class BaseDomainItemModel(
-  bool Exclude
-) : ModelBase
+  bool Exclude,
+  string Description
+) : DescribedModel(Description)
 { }
 
 public record class DomainLabelModel(
   EnumValueModel EnumValue,
-  bool Exclude
-) : BaseDomainItemModel(Exclude)
+  bool Exclude,
+  string Description
+) : BaseDomainItemModel(Exclude, Description)
 {
-  public DomainLabelModel(string name, string label, bool exclude)
-    : this(new(name, label, ""), exclude)
+  public DomainLabelModel(string name, string label, bool exclude, string description)
+    : this(new(name, label, ""), exclude, description)
   { }
 }
 
 public record class DomainTrueFalseModel(
   bool Value,
-  bool Exclude
-) : BaseDomainItemModel(Exclude)
+  bool Exclude,
+  string Description
+) : BaseDomainItemModel(Exclude, Description)
 { }
 
 public record class DomainRangeModel(
   decimal? From,
   decimal? To,
-  bool Exclude
-) : BaseDomainItemModel(Exclude)
+  bool Exclude,
+  string Description
+) : BaseDomainItemModel(Exclude, Description)
 { }
 
 public record class DomainRegexModel(
   string Pattern,
-  bool Exclude
-) : BaseDomainItemModel(Exclude)
+  bool Exclude,
+  string Description
+) : BaseDomainItemModel(Exclude, Description)
 { }
 
 public record class DomainItemModel<TItem>(

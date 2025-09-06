@@ -1,0 +1,227 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier _Any: !_TypeDual
+    name: _Any
+    typeKind: !_TypeKind Dual
+  !_Identifier _Array: !_TypeDual
+    aliases: [Array]
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      collections:
+      - !_ModifierDictionary
+        by: 0
+        modifierKind: !_ModifierKind Dict
+      object: _Array
+      type: !_DualBase
+        typeParam: T
+    alternates:
+    - !_DualAlternate
+      collections:
+      - !_ModifierDictionary
+        by: 0
+        modifierKind: !_ModifierKind Dict
+      type: !_DualBase
+        typeParam: T
+    name: _Array
+    typeKind: !_TypeKind Dual
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _Any
+        typeKind: !_TypeKind Dual
+      name: T
+  !_Identifier _Dict: !_TypeDual
+    aliases: [Dict]
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      collections:
+      - !_ModifierTypeParam
+        by: K
+        modifierKind: !_ModifierKind Param
+      object: _Dict
+      type: !_DualBase
+        typeParam: T
+    alternates:
+    - !_DualAlternate
+      collections:
+      - !_ModifierTypeParam
+        by: K
+        modifierKind: !_ModifierKind Param
+      type: !_DualBase
+        typeParam: T
+    name: _Dict
+    typeKind: !_TypeKind Dual
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _Key
+        typeKind: !_TypeKind Union
+      name: K
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _Any
+        typeKind: !_TypeKind Dual
+      name: T
+  !_Identifier _IfElse: !_TypeDual
+    aliases: [IfElse]
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      collections:
+      - !_ModifierDictionary
+        by: ^
+        modifierKind: !_ModifierKind Dict
+      object: _IfElse
+      type: !_DualBase
+        typeParam: T
+    alternates:
+    - !_DualAlternate
+      collections:
+      - !_ModifierDictionary
+        by: ^
+        modifierKind: !_ModifierKind Dict
+      type: !_DualBase
+        typeParam: T
+    name: _IfElse
+    typeKind: !_TypeKind Dual
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _Any
+        typeKind: !_TypeKind Dual
+      name: T
+  !_Identifier _Key: !_TypeUnion
+    name: _Key
+    typeKind: !_TypeKind Union
+  !_Identifier _List: !_TypeDual
+    aliases: [List]
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      collections:
+      - !_Modifier
+        modifierKind: !_ModifierKind List
+      object: _List
+      type: !_DualBase
+        typeParam: T
+    alternates:
+    - !_DualAlternate
+      collections:
+      - !_Modifier
+        modifierKind: !_ModifierKind List
+      type: !_DualBase
+        typeParam: T
+    name: _List
+    typeKind: !_TypeKind Dual
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _Any
+        typeKind: !_TypeKind Dual
+      name: T
+  !_Identifier _Map: !_TypeDual
+    aliases: [Map]
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      collections:
+      - !_ModifierDictionary
+        by: '*'
+        modifierKind: !_ModifierKind Dict
+      object: _Map
+      type: !_DualBase
+        typeParam: T
+    alternates:
+    - !_DualAlternate
+      collections:
+      - !_ModifierDictionary
+        by: '*'
+        modifierKind: !_ModifierKind Dict
+      type: !_DualBase
+        typeParam: T
+    name: _Map
+    typeKind: !_TypeKind Dual
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _Any
+        typeKind: !_TypeKind Dual
+      name: T
+  !_Identifier _Mask: !_TypeDual
+    aliases: [Mask]
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      collections:
+      - !_ModifierTypeParam
+        by: K
+        modifierKind: !_ModifierKind Param
+      object: _Mask
+      type: !_DualBase
+        name: ^
+    alternates:
+    - !_DualAlternate
+      collections:
+      - !_ModifierTypeParam
+        by: K
+        modifierKind: !_ModifierKind Param
+      type: !_DualBase
+        name: ^
+    name: _Mask
+    typeKind: !_TypeKind Dual
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _Key
+        typeKind: !_TypeKind Union
+      name: K
+  !_Identifier _Opt: !_TypeDual
+    aliases: [Opt]
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: _Opt
+      type: !_DualBase
+        typeParam: T
+    - !_ObjectFor(_DualAlternate)
+      object: _Opt
+      type: !_DualBase
+        name: Null
+    alternates:
+    - !_DualAlternate
+      type: !_DualBase
+        typeParam: T
+    - !_DualAlternate
+      type: !_DualBase
+        name: Null
+    description: '$T?'
+    name: _Opt
+    typeKind: !_TypeKind Dual
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _Any
+        typeKind: !_TypeKind Dual
+      name: T
+  !_Identifier _Set: !_TypeDual
+    aliases: [Set]
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      collections:
+      - !_ModifierTypeParam
+        by: K
+        modifierKind: !_ModifierKind Param
+      object: _Set
+      type: !_DualBase
+        name: _
+    alternates:
+    - !_DualAlternate
+      collections:
+      - !_ModifierTypeParam
+        by: K
+        modifierKind: !_ModifierKind Param
+      type: !_DualBase
+        name: _
+    name: _Set
+    typeKind: !_TypeKind Dual
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _Key
+        typeKind: !_TypeKind Union
+      name: K

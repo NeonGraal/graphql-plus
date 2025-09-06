@@ -12,5 +12,5 @@ internal class DomainStringModeller
     };
 
   protected override DomainRegexModel ToItem(IGqlpDomainRegex ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Pattern, ast.Excludes);
+    => new(ast.Pattern, ast.Excludes, ast.Description);
 }

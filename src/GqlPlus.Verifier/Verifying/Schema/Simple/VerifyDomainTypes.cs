@@ -39,11 +39,11 @@ internal class VerifyDomainTypes(
     return false;
   }
 
-  protected override void CheckMergeParent(ParentUsage<IGqlpDomain> input, EnumContext context)
+  protected override void CheckMergeParent(SelfUsage<IGqlpDomain> input, EnumContext context)
   {
     IEnumerable<IMessage> failures = domains.SelectMany(domain => domain.CanMergeItems(input.Usage, context));
     if (failures.Any()) {
-      context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} items into Parent {input.Parent} items");
+      context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} items into Parent {input.Current} items");
       context.Add(failures);
     }
   }

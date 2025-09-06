@@ -3,7 +3,6 @@ using System.Runtime.CompilerServices;
 
 using GqlPlus.Abstractions;
 using GqlPlus.Token;
-using Shouldly;
 using Xunit;
 
 namespace GqlPlus;

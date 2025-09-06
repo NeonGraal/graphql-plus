@@ -15,7 +15,7 @@ public class ParseUnionDefinitionTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnUnionDefinition_WhenValid(string parentType)
+  public void Parse_ShouldReturnOk_WhenValid(string parentType)
   {
     // Arrange
     TakeReturns(':', true);
@@ -61,7 +61,7 @@ public class ParseUnionDefinitionTests
   }
 
   [Fact]
-  public void Parse_ShouldReturnPartial_WhenNoMembers()
+  public void Parse_ShouldReturnOk_WhenNoMembers()
   {
     // Arrange
     TakeReturns(':', false);
@@ -72,6 +72,6 @@ public class ParseUnionDefinitionTests
     IResult<UnionDefinition> result = _parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultPartial<UnionDefinition>>();
+    result.ShouldBeAssignableTo<IResultOk<UnionDefinition>>();
   }
 }

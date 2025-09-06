@@ -29,11 +29,7 @@
       {%- if items.size > 0 -%}
       <article>
         <div class="grid">
-          {%- for item in items %}
-          <div>
-            <a href="{{ item }}.html">{{ item }}</a>
-          </div>
-          {%- endfor %}
+          {%- render "link" for items as item -%}
         </div>
       </article>
       {%- endif -%}
@@ -43,11 +39,7 @@
           <h2 id="{{ group[0] }}">{{ group[0] }}</h2>
         </header>
         <div class="grid">
-          {%- for item in group[1] %}
-          <div>
-            <a href="{{ group[0] }}/{{ item }}.html">{{ item }}</a>
-          </div>
-          {%- endfor %}
+          {%- render "link" for group[1] as item -%}
         </div>
       </article>
       {%- endfor %}

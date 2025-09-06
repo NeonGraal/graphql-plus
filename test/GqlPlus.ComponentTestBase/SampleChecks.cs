@@ -95,7 +95,7 @@ public class SampleChecks
 
     if (file.Contains('+', StringComparison.Ordinal)) {
       string[] parts = file.Split('+', 2);
-      string[] extras = [.. suffixes.Select(s => "+" + parts[1] + s)];
+      string[] extras = [.. suffixes.Select(s => "+" + parts[1].ToLowerInvariant() + s)];
       suffixes.AddRange(extras);
       file = parts[0];
     }

@@ -13,7 +13,7 @@ public class DomainRangeEncoderTests
         $"to: {item.Upper:0.#####}"
         ];
 
-  protected override DomainRangeModel NewItem(DomainRangeInput item, bool excluded) => new(item.Lower, item.Upper, excluded);
+  protected override DomainRangeModel NewItem(DomainRangeInput item, bool excluded) => new(item.Lower, item.Upper, excluded, "");
 }
 
 public class DomainItemRangeEncoderTests
@@ -25,7 +25,7 @@ public class DomainItemRangeEncoderTests
         $"value: !_ItemModel '{item}'"
         ];
 
-  protected override DomainRangeModel NewItem(DomainRangeInput item) => new(item.Lower, item.Upper, false);
+  protected override DomainRangeModel NewItem(DomainRangeInput item) => new(item.Lower, item.Upper, false, "");
 }
 
 public class DomainNumberEncoderTests
@@ -33,5 +33,5 @@ public class DomainNumberEncoderTests
 {
   protected override DomainKindModel DomainKind => DomainKindModel.Number;
 
-  protected override DomainRangeModel NewItem(DomainRangeInput item) => new(item.Lower, item.Upper, false);
+  protected override DomainRangeModel NewItem(DomainRangeInput item) => new(item.Lower, item.Upper, false, "");
 }

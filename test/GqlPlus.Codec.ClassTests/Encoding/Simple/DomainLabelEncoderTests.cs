@@ -22,7 +22,7 @@ public class DomainLabelEncoderTests
   protected override DomainLabelModel NewItem(EnumLabelInput item, bool excluded)
   {
     EncodeReturnsMap(_enumValueEncoder, "_EnumValue", item);
-    return new(item.EnumType, item.Label, excluded);
+    return new(item.EnumType, item.Label, excluded, "");
   }
 }
 
@@ -34,7 +34,7 @@ public class DomainItemLabelEncoderTests
         "domain: " + name,
         $"value: !_ItemModel '{item}'",
         ];
-  protected override DomainLabelModel NewItem(EnumLabelInput item) => new(item.EnumType, item.Label, false);
+  protected override DomainLabelModel NewItem(EnumLabelInput item) => new(item.EnumType, item.Label, false, "");
 }
 
 public class DomainEnumEncoderTests
@@ -42,5 +42,5 @@ public class DomainEnumEncoderTests
 {
   protected override DomainKindModel DomainKind => DomainKindModel.Enum;
 
-  protected override DomainLabelModel NewItem(string item) => new(item, "", false);
+  protected override DomainLabelModel NewItem(string item) => new(item, "", false, "");
 }

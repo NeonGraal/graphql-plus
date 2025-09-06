@@ -1,0 +1,20 @@
+"$T?"
+dual _Opt<$T:_Any> [Opt] { | $T | Null }
+
+dual _List<$T:_Any> [List] { | $T[] }
+
+dual _Dict<$K:_Key $T:_Any> [Dict] { | $T[$K] }
+
+dual _Map<$T:_Any> [Map] { | $T[*] }
+
+dual _Array<$T:_Any> [Array] { | $T[0] }
+
+dual _IfElse<$T:_Any> [IfElse] { | $T[^] }
+
+dual _Set<$K:_Key> [Set] { | _[$K] }
+
+dual _Mask<$K:_Key> [Mask] { | ^[$K] }
+
+union _Key { }
+dual _Any { }
+

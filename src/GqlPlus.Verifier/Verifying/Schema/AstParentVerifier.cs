@@ -13,30 +13,30 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
 {
   protected override void UsageValue(TAst usage, TContext context)
   {
-    ParentUsage<TAst> input = new([], usage, "a child");
+    SelfUsage<TAst> input = new([], usage, "a child");
     CheckParent(input, usage, context, true);
 
     string parent = GetParent(usage);
 
     if (!string.IsNullOrWhiteSpace(parent)) {
-      input = input.AddParent(parent);
+      input = input.AddNext(parent);
       CheckMergeParent(input, context);
     }
   }
 
   protected virtual void CheckParentType(
-    ParentUsage<TAst> input,
+    SelfUsage<TAst> input,
     TContext context,
     bool top,
     Action<TAst>? onParent = null)
   {
-    if (string.IsNullOrWhiteSpace(input.Parent)) {
+    if (string.IsNullOrWhiteSpace(input.Current)) {
       return;
     }
 
     string outcome = "not defined";
 
-    if (context.GetType(input.Parent, out IGqlpDescribed? defined)) {
+    if (context.GetType(input.Current, out IGqlpDescribed? defined)) {
       if (defined is IGqlpType astType) {
         CheckTypedParentType(input, context, top, onParent, astType);
         return;
@@ -45,10 +45,10 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
       outcome = "invalid definition";
     }
 
-    context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Parent}' {outcome}", top);
+    context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Current}' {outcome}", top);
   }
 
-  private void CheckTypedParentType(ParentUsage<TAst> input, TContext context, bool top, Action<TAst>? onParent, IGqlpType astType)
+  private void CheckTypedParentType(SelfUsage<TAst> input, TContext context, bool top, Action<TAst>? onParent, IGqlpType astType)
   {
     if (CheckAstParentType(input, astType)) {
       if (astType is TAst parentType) {
@@ -60,24 +60,24 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
       return;
     }
 
-    context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Parent}' invalid type. Found '{astType.Label}'", top);
+    context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Current}' invalid type. Found '{astType.Label}'", top);
   }
 
-  protected virtual bool CheckAstParentType(ParentUsage<TAst> input, IGqlpType astType)
+  protected virtual bool CheckAstParentType(SelfUsage<TAst> input, IGqlpType astType)
     => astType.Label == input.UsageLabel;
 
   protected virtual bool CheckAstParent(TAst usage, [NotNullWhen(true)] TAst? parent, TContext context)
     => parent is not null;
 
-  protected void CheckParent(ParentUsage<TAst> input, IGqlpType<TParent> child, TContext context, bool top)
+  protected void CheckParent(SelfUsage<TAst> input, IGqlpType<TParent> child, TContext context, bool top)
   {
     string parent = GetParent(child);
     if (string.IsNullOrWhiteSpace(parent)) {
       return;
     }
 
-    input = input.AddParent(parent);
-    if (context.DifferentName(input, top ? null : child.Name)) {
+    input = input.AddNext(parent);
+    if (context.DifferentName(input, child.Name)) {
       CheckParentType(input, context, top, parentType => {
         CheckParent(input, parentType, context, false);
         OnParentType(input, context, parentType, top);
@@ -85,13 +85,13 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
     }
   }
 
-  protected virtual void OnParentType(ParentUsage<TAst> input, TContext context, TAst parentType, bool top)
+  protected virtual void OnParentType(SelfUsage<TAst> input, TContext context, TAst parentType, bool top)
     => context.AddError(
       input.Usage,
       input.UsageLabel + " Parent",
-      $"Type kind mismatch for {input.Parent}. Found {parentType.Label}",
+      $"Type kind mismatch for {input.Current}. Found {parentType.Label}",
       top && parentType.Label != input.UsageLabel);
 
   protected abstract string GetParent(IGqlpType<TParent> usage);
-  protected abstract void CheckMergeParent(ParentUsage<TAst> input, TContext context);
+  protected abstract void CheckMergeParent(SelfUsage<TAst> input, TContext context);
 }

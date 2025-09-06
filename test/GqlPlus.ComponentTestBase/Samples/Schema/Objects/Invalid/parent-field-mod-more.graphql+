@@ -1,4 +1,5 @@
-object Test { :Recurse field: Test }
+object Test { :Recurse field: Field }
 object Recurse { :More }
 object More { :Parent }
-object Parent { field: Test[] }
+object Parent { field: Field[] }
+object Field { }

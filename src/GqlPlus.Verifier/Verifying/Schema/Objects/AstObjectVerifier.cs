@@ -29,7 +29,7 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
     }
 
     UsageTypeParams(usage.Label, usage.TypeParams, context);
-    UsageFields(usage.ObjFields, context);
+    UsageFields(usage, context);
     UsageAlternates(usage, context);
     CheckParamsUsed(usage.Label, usage.TypeParams, context);
   }
@@ -43,24 +43,23 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
     }
   }
 
-  protected virtual void UsageFields(IEnumerable<TObjField> fields, TContext context)
+  protected virtual void UsageFields(TObject usage, TContext context)
   {
-    foreach (TObjField field in fields) {
+    foreach (TObjField field in usage.ObjFields) {
       CheckTypeRef(context, field.BaseType, " Field");
       context.CheckModifiers(field);
+      CheckForSelf(new([field.Type.FullType], usage, "a field"), usage.Name, context);
     }
   }
 
   private void UsageAlternates(TObject usage, TContext context)
   {
-    ParentUsage<TObject> input = new([], usage, "an alternative");
+    SelfUsage<TObject> input = new([], usage, "an alternative");
     _logger.CheckingAlternates(input);
     foreach (TObjAlt alternate in usage.ObjAlternates) {
       CheckTypeRef(context, alternate, " Alternate");
       context.CheckModifiers(alternate);
-      if (!alternate.Modifiers.Any()) {
-        CheckAlternate(new([alternate.FullType], usage, "an alternate"), usage.Name, context, true);
-      }
+      CheckForSelf(new([alternate.FullType], usage, "an alternate"), usage.Name, context);
     }
   }
 
@@ -176,15 +175,15 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
   }
 
   protected override void CheckParentType(
-    ParentUsage<TObject> input,
+    SelfUsage<TObject> input,
     TContext context,
     bool top,
     Action<TObject>? onParent = null)
   {
-    if (input.Parent?.StartsWith("$", StringComparison.Ordinal) == true) {
-      string parameter = input.Parent[1..];
+    if (input.Current?.StartsWith("$", StringComparison.Ordinal) == true) {
+      string parameter = input.Current[1..];
       bool addError = top && input.Usage.TypeParams.All(IsParameterMismatch);
-      context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Parent}' not defined", addError);
+      context.AddError(input.Usage, input.UsageLabel + " Parent", $"'{input.Current}' not defined", addError);
 
       return;
 
@@ -195,44 +194,47 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
     base.CheckParentType(input, context, top, onParent);
   }
 
-  protected override bool CheckAstParentType(ParentUsage<TObject> input, IGqlpType astType)
+  protected override bool CheckAstParentType(SelfUsage<TObject> input, IGqlpType astType)
     => base.CheckAstParentType(input, astType)
       || astType.Label == "Dual";
 
   protected override IEnumerable<TObjField> GetItems(TObject usage)
     => usage.ObjFields;
 
-  protected override void OnParentType(ParentUsage<TObject> input, TContext context, TObject parentType, bool top)
+  protected override void OnParentType(SelfUsage<TObject> input, TContext context, TObject parentType, bool top)
   {
     if (top && parentType.Label != "Dual") {
       base.OnParentType(input, context, parentType, top);
     }
 
-    _logger.CheckingAlternates(input, top, parentType.Name);
+    input = input with { Label = "a field" };
+    foreach (TObjField field in parentType.ObjFields) {
+      CheckForSelf(input.AddNext(field.Type.Name), parentType.Name, context);
+    }
+
     input = input with { Label = "an alternate" };
     foreach (TObjAlt alternate in parentType.ObjAlternates) {
-      if (!alternate.Modifiers.Any()) {
-        CheckAlternate(input.AddParent(alternate.Name), parentType.Name, context, false);
-      }
+      CheckForSelf(input.AddNext(alternate.Name), parentType.Name, context);
     }
   }
 
-  private void CheckAlternate(ParentUsage<TObject> input, string current, TContext context, bool top)
+  private void CheckForSelf(SelfUsage<TObject> input, string current, TContext context)
   {
-    if (context.DifferentName(input, top ? null : current)
-      && context.GetTyped(input.Parent, out TObject? alternateType)) {
-      CheckParent(input, alternateType, context, false);
+    if (context.DifferentName(input, current)
+      && context.GetTyped(input.Current, out TObject? parentType)) {
+      CheckParent(input, parentType, context, false);
 
-      _logger.CheckingAlternates(input, top, alternateType.Name, current);
-      foreach (TObjAlt alternate in alternateType.ObjAlternates) {
-        if (!alternate.Modifiers.Any()) {
-          CheckAlternate(input.AddParent(alternate.Name), alternateType.Name, context, false);
-        }
+      foreach (TObjField field in parentType.ObjFields) {
+        CheckForSelf(input.AddNext(field.Type.Name), parentType.Name, context);
+      }
+
+      foreach (TObjAlt alternate in parentType.ObjAlternates) {
+        CheckForSelf(input.AddNext(alternate.Name), parentType.Name, context);
       }
     }
   }
 
-  protected override void CheckMergeParent(ParentUsage<TObject> input, TContext context)
+  protected override void CheckMergeParent(SelfUsage<TObject> input, TContext context)
   {
     base.CheckMergeParent(input, context);
 
@@ -240,7 +242,7 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
     if (alternates.Length > 0) {
       IMessages failures = verifiers.MergeAlternates.CanMerge(alternates);
       if (failures.Any()) {
-        context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} alternates into Parent {input.Parent} alternates");
+        context.AddError(input.Usage, input.UsageLabel + " Child", $"Can't merge {input.UsageName} alternates into Parent {input.Current} alternates");
         context.Add(failures);
       }
     }

@@ -1,9 +1,10 @@
 ﻿<header id="{{ label }}-{{ dec.name }}">
   <div class="grid">
     <div>
-      <h2>
-        <sup>{{ label }}</sup> {{ dec.name }}
-      </h2>
+      <h3>
+        <sup>{{ label }}</sup>
+        {%- render "descr", name: dec.name, descr: dec.description -%}
+      </h3>
     </div>
     <div>
       {%- if dec.aliases %}

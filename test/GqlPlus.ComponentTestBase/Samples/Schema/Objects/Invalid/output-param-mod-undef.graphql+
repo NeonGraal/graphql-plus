@@ -1,2 +1,3 @@
-output Test { field(Param[Dom]): Test }
+output Test { field(Param[Dom]): Field }
 input Param { }
+output Field { }

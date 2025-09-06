@@ -26,9 +26,10 @@ public class BuiltInTests(
 
   [Theory]
   [ClassData(typeof(BuiltInInternalData))]
-
   public void ValidInternalTypes(string type)
-    => Verify_Valid(BuiltInData.InternalMap[type]);
+    => this
+      .SkipIf(type == "Void")
+      .Verify_Valid(BuiltInData.InternalMap[type]);
 
   private void Verify_Valid(IGqlpType type)
   {

@@ -32,6 +32,10 @@ public sealed class RepeatInlineDataAttribute
 
   public override async ValueTask<IReadOnlyCollection<ITheoryDataRow>> GetData(MethodInfo testMethod, DisposalTracker disposalTracker)
   {
+    if (testMethod.ThrowIfNull().GetParameters().Length <= Values.Length) {
+      return await base.GetData(testMethod, disposalTracker).ConfigureAwait(false);
+    }
+
     List<ITheoryDataRow> data = [];
 
     if (!TestsCustomizations.IsCi) {

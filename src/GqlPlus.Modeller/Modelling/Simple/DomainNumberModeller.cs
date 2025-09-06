@@ -12,5 +12,5 @@ internal class DomainNumberModeller
     };
 
   protected override DomainRangeModel ToItem(IGqlpDomainRange ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.Lower, ast.Upper, ast.Excludes);
+    => new(ast.Lower, ast.Upper, ast.Excludes, ast.Description);
 }

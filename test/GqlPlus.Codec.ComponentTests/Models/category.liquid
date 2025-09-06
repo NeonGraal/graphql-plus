@@ -3,7 +3,9 @@
   {%- render 'heading', dec: cat, label: "Category" -%}
   <div class="grid">
     <div>
-      <sub>Output:</sub> {{ cat.output.name }} <sup> {{ cat.output.typeKind }} </sup>
+      <sub>Output:</sub>
+      {%- render "descr", name: cat.output.name, descr: cat.output.description -%}
+      <sup> {{ cat.output.typeKind }} </sup>
     </div>
     <div>
       <sub>Resolution:</sub> {{ cat.resolution }}

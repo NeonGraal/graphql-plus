@@ -20,11 +20,10 @@ public static class SchemaBuilderHelpers
     return result;
   }
 
-  public static IGqlpInputParam InputParam(this IMockBuilder builder, string type, string description = "", bool isTypeParam = false)
+  public static IGqlpInputParam InputParam(this IMockBuilder builder, string type, bool isTypeParam = false)
   {
-    IGqlpInputBase typeBase = builder.InputBase(type, description);
-    typeBase.IsTypeParam.Returns(isTypeParam);
-    IGqlpInputParam input = builder.Descr<IGqlpInputParam>(description);
+    IGqlpInputBase typeBase = builder.InputBase(type, isTypeParam);
+    IGqlpInputParam input = builder.Error<IGqlpInputParam>();
     input.Type.Returns(typeBase);
     return input;
   }

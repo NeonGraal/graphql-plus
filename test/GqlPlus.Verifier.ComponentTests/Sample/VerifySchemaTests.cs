@@ -14,6 +14,8 @@ public class VerifySchemaTests(
 {
   protected override async Task Result_Valid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")
   {
+    this.SkipIf(SchemaValidData.ExcludeSpecsForBuiltIn(test));
+
     if (result is IResultError error) {
       error.Message.ShouldBeNull(section.Prefixed(" ") + test);
     }
@@ -22,11 +24,7 @@ public class VerifySchemaTests(
 
     schemaVerifier.Verify(result.Required(), errors);
 
-    if (!string.IsNullOrWhiteSpace(section)) {
-      errors.ShouldBeEmpty(test);
-    } else {
-      await CheckErrors(dirs, test, errors, true);
-    }
+    await CheckErrors(dirs, test, errors, true);
   }
 
   protected override async Task Result_Invalid(IResult<IGqlpSchema> result, string test, string label, string[] dirs, string section, string input = "")

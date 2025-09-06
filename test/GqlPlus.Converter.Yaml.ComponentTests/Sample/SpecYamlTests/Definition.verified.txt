@@ -1,0 +1,173 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier Boolean: !_TypeEnum
+    aliases: [bool, ^]
+    allItems:
+    - !_EnumLabel
+      enum: Boolean
+      name: false
+    - !_EnumLabel
+      enum: Boolean
+      name: true
+    items:
+    - !_Aliased
+      name: false
+    - !_Aliased
+      name: true
+    name: Boolean
+    typeKind: !_TypeKind Enum
+  !_Identifier Null: !_TypeEnum
+    aliases: [null]
+    allItems:
+    - !_EnumLabel
+      enum: Null
+      name: null
+    items:
+    - !_Aliased
+      name: null
+    name: Null
+    typeKind: !_TypeKind Enum
+  !_Identifier Number: !_DomainNumber
+    aliases: [int, 0]
+    domainKind: !_DomainKind Number
+    name: Number
+    typeKind: !_TypeKind Domain
+  !_Identifier String: !_DomainString
+    aliases: [str, '*']
+    domainKind: !_DomainKind String
+    name: String
+    typeKind: !_TypeKind Domain
+  !_Identifier Unit: !_TypeEnum
+    aliases: [_]
+    allItems:
+    - !_EnumLabel
+      enum: Unit
+      name: _
+    items:
+    - !_Aliased
+      name: _
+    name: Unit
+    typeKind: !_TypeKind Enum
+  !_Identifier Void: !_TypeEnum
+    description: 'No valid value'
+    name: Void
+    typeKind: !_TypeKind Enum
+  !_Identifier _Basic: !_TypeUnion
+    aliases: [Basic]
+    allItems:
+    - !_UnionMember
+      name: Boolean
+      union: _Basic
+    - !_UnionMember
+      name: Number
+      union: _Basic
+    - !_UnionMember
+      name: String
+      union: _Basic
+    - !_UnionMember
+      name: Unit
+      union: _Basic
+    items:
+    - !_Aliased
+      name: Boolean
+    - !_Aliased
+      name: Number
+    - !_Aliased
+      name: String
+    - !_Aliased
+      name: Unit
+    name: _Basic
+    typeKind: !_TypeKind Union
+  !_Identifier _Domain: !_TypeUnion
+    aliases: [Domain]
+    description: 'All user defined Domain types'
+    name: _Domain
+    typeKind: !_TypeKind Union
+  !_Identifier _Dual: !_TypeDual
+    aliases: [Dual]
+    description: 'All user defined Dual types'
+    name: _Dual
+    typeKind: !_TypeKind Dual
+  !_Identifier _Enum: !_TypeUnion
+    aliases: [Enum]
+    description: 'All user defined Enum types'
+    name: _Enum
+    typeKind: !_TypeKind Union
+  !_Identifier _Input: !_TypeInput
+    aliases: [Input]
+    description: 'All user defined Input types'
+    name: _Input
+    typeKind: !_TypeKind Input
+  !_Identifier _Internal: !_TypeUnion
+    aliases: [Internal]
+    allItems:
+    - !_UnionMember
+      name: Null
+      union: _Internal
+    - !_UnionMember
+      name: Void
+      union: _Internal
+    items:
+    - !_Aliased
+      name: Null
+    - !_Aliased
+      name: Void
+    name: _Internal
+    typeKind: !_TypeKind Union
+  !_Identifier _Key: !_TypeUnion
+    aliases: [Key]
+    allItems:
+    - !_UnionMember
+      name: _Basic
+      union: _Key
+    - !_UnionMember
+      name: _Internal
+      union: _Key
+    - !_UnionMember
+      name: _Simple
+      union: _Key
+    items:
+    - !_Aliased
+      name: _Basic
+    - !_Aliased
+      name: _Internal
+    - !_Aliased
+      name: _Simple
+    name: _Key
+    typeKind: !_TypeKind Union
+  !_Identifier _Object: !_TypeDual
+    aliases: [Object, obj, '%']
+    description: '%'
+    name: _Object
+    typeKind: !_TypeKind Dual
+  !_Identifier _Output: !_TypeOutput
+    aliases: [Output]
+    description: 'All user defined Output types'
+    name: _Output
+    typeKind: !_TypeKind Output
+  !_Identifier _Simple: !_TypeUnion
+    aliases: [Simple]
+    allItems:
+    - !_UnionMember
+      name: _Enum
+      union: _Simple
+    - !_UnionMember
+      name: _Domain
+      union: _Simple
+    - !_UnionMember
+      name: _Union
+      union: _Simple
+    items:
+    - !_Aliased
+      name: _Enum
+    - !_Aliased
+      name: _Domain
+    - !_Aliased
+      name: _Union
+    name: _Simple
+    typeKind: !_TypeKind Union
+  !_Identifier _Union: !_TypeUnion
+    aliases: [Union]
+    description: 'All user defined Union types'
+    name: _Union
+    typeKind: !_TypeKind Union

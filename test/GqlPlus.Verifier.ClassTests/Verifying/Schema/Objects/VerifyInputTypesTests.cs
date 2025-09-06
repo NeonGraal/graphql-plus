@@ -2,7 +2,7 @@
 
 [TracePerTest]
 public class VerifyInputTypesTests
-  : ObjectVerifierTestsBase<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate, IGqlpInputArg>
+  : ObjectDualVerifierTestsBase<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate, IGqlpInputArg>
 {
   private readonly IGqlpInputObject _input;
 
@@ -16,51 +16,31 @@ public class VerifyInputTypesTests
     _input = A.Obj<IGqlpInputObject, IGqlpInputBase>("Input");
   }
 
-  [Fact]
-  public void Verify_Input_WithFieldNullDefault_ReturnsError()
+  [Theory, RepeatData]
+  public void Verify_Input_WithFieldNullDefault_ReturnsError(string fieldName, string fieldType)
   {
-    Define<IGqlpInputObject>("b");
+    DefineObject(fieldType);
 
-    IGqlpFieldKey nullLabel = A.FieldKey("null");
-    nullLabel.EnumValue.Returns("Null.null");
-
+    IGqlpFieldKey nullLabel = A.EnumValue("Null", "null");
     IGqlpConstant nullValue = A.Constant(nullLabel);
 
-    IGqlpInputField field = A.InputField("a", "b");
+    IGqlpInputField field = ObjectField(fieldName, fieldType);
     field.DefaultValue.Returns(nullValue);
 
-    _input.Fields.Returns([field]);
-    _input.ObjFields.Returns([field]);
-
-    Usages.Add(_input);
-
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldNotBeEmpty();
+    Verify_Errors("'null' default requires Optional type");
   }
 
-  [Fact]
-  public void Verify_Input_WithOptionalFieldNullDefault_ReturnsNoErrors()
+  [Theory, RepeatData]
+  public void Verify_Input_WithOptionalFieldNullDefault_ReturnsNoErrors(string fieldName, string fieldType)
   {
-    IGqlpInputObject type = A.Obj<IGqlpInputObject, IGqlpInputBase>("b");
-    AddTypes(type);
+    DefineObject(fieldType);
 
-    IGqlpFieldKey nullLabel = A.FieldKey("null");
-    nullLabel.EnumValue.Returns("Null.null");
-
+    IGqlpFieldKey nullLabel = A.EnumValue("Null", "null");
     IGqlpConstant nullValue = A.Constant(nullLabel);
 
-    IGqlpModifier optional = A.Modifier(ModifierKind.Optional);
-    IGqlpInputField field = A.InputField("a", "b", optional);
+    IGqlpInputField field = SetModifier(ObjectField(fieldName, fieldType), ModifierKind.Optional);
     field.DefaultValue.Returns(nullValue);
 
-    _input.Fields.Returns([field]);
-    _input.ObjFields.Returns([field]);
-
-    Usages.Add(_input);
-
-    Verifier.Verify(UsageAliased, Errors);
-
-    Errors.ShouldBeEmpty();
+    Verify_NoErrors();
   }
 }

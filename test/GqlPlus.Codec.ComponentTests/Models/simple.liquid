@@ -1,6 +1,8 @@
 ﻿{%- if simple.parent %}
 <p>
-  <sub>Parent:</sub> {{ simple.parent.name }} <sup>{{ simple.parent.typeKind }}</sup>
+  <sub>Parent:</sub> 
+  {%- render "descr", name: simple.parent.name, descr: simple.parent.description -%}
+  <sup>{{ simple.parent.typeKind }}</sup>
 </p>
 {% endif -%}
 {%- case simple.typeKind %}

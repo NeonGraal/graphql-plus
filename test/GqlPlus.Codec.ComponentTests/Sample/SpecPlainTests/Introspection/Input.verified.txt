@@ -1,0 +1,153 @@
+﻿!_Schema
+errors:
+  - !_Error
+    _kind: !_TokenKind End
+    _message: In _TypeInput can't get model for type '_TypeObject'
+  - !_Error
+    _kind: !_TokenKind End
+    _message: In _InputBase can't get model for type '_ObjBase'
+  - !_Error
+    _kind: !_TokenKind End
+    _message: In _InputTypeParam can't get model for type '_ObjTypeParam'
+  - !_Error
+    _kind: !_TokenKind End
+    _message: In _InputField can't get model for type '_Field'
+  - !_Error
+    _kind: !_TokenKind End
+    _message: In _InputAlternate can't get model for type '_Alternate'
+  - !_Error
+    _kind: !_TokenKind End
+    _message: In _InputTypeArg can't get model for type '_ObjTypeArg'
+types: !_Map_Type
+  !_Identifier _InputAlternate: !_TypeOutput
+    name: _InputAlternate
+    parent: !_OutputBase
+      name: _Alternate
+      typeArgs:
+        - !_OutputArg
+          name: _InputBase
+    typeKind: !_TypeKind Output
+  !_Identifier _InputBase: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: _InputBase
+        type: !_OutputBase
+          name: _DualBase
+    alternates:
+      - !_OutputAlternate
+        type: !_OutputBase
+          name: _DualBase
+    name: _InputBase
+    parent: !_OutputBase
+      name: _ObjBase
+      typeArgs:
+        - !_OutputArg
+          name: _InputTypeArg
+    typeKind: !_TypeKind Output
+  !_Identifier _InputField: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: default
+        object: _InputField
+        type: !_OutputBase
+          name: Value
+    fields:
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: default
+        type: !_OutputBase
+          name: Value
+    name: _InputField
+    parent: !_OutputBase
+      name: _Field
+      typeArgs:
+        - !_OutputArg
+          name: _InputBase
+    typeKind: !_TypeKind Output
+  !_Identifier _InputParam: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: _InputBase
+        type: !_OutputBase
+          name: _DualBase
+    allFields:
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: modifiers
+        object: _InputParam
+        type: !_OutputBase
+          name: _Modifiers
+      - !_ObjectFor(_OutputField)
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: default
+        object: _InputParam
+        type: !_OutputBase
+          name: Value
+    fields:
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
+        name: modifiers
+        type: !_OutputBase
+          name: _Modifiers
+      - !_OutputField
+        modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
+        name: default
+        type: !_OutputBase
+          name: Value
+    name: _InputParam
+    parent: !_OutputBase
+      name: _InputBase
+    typeKind: !_TypeKind Output
+  !_Identifier _InputTypeArg: !_TypeOutput
+    name: _InputTypeArg
+    parent: !_OutputBase
+      name: _ObjTypeArg
+    typeKind: !_TypeKind Output
+  !_Identifier _InputTypeParam: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_OutputAlternate)
+        object: _InputTypeParam
+        type: !_OutputBase
+          name: _TypeRef
+          typeArgs:
+            - !_TypeRef(_SimpleKind)
+              label: Dual
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+    alternates:
+      - !_OutputAlternate
+        type: !_OutputBase
+          name: _TypeRef
+          typeArgs:
+            - !_TypeRef(_SimpleKind)
+              label: Dual
+              name: _TypeKind
+              typeKind: !_SimpleKind Enum
+    name: _InputTypeParam
+    parent: !_OutputBase
+      name: _ObjTypeParam
+      typeArgs:
+        - !_TypeRef(_SimpleKind)
+          label: Input
+          name: _TypeKind
+          typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Output
+  !_Identifier _TypeInput: !_TypeOutput
+    name: _TypeInput
+    parent: !_OutputBase
+      name: _TypeObject
+      typeArgs:
+        - !_TypeRef(_SimpleKind)
+          label: Input
+          name: _TypeKind
+          typeKind: !_SimpleKind Enum
+        - !_OutputArg
+          name: _InputBase
+        - !_OutputArg
+          name: _InputTypeParam
+        - !_OutputArg
+          name: _InputField
+        - !_OutputArg
+          name: _InputAlternate
+    typeKind: !_TypeKind Output

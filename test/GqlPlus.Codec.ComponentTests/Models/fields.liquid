@@ -9,12 +9,11 @@
   {%- for fld in fields %}
   <tr>
     <td>
-      {{ fld.name }}
+      {%- render "descr", name: fld.name, descr: fld.description -%}
       {%- if fld.parameters -%}
-      {%- render "parameters" with fld.parameters as parameters -%}
+        {%- render "parameters" with fld.parameters as parameters -%}
       {%- endif -%}
-    </td>
-    <td>
+    </td><td>
       {%- render "base" with fld.type as base -%}
       {%- render "modifiers" with fld.modifiers as modifiers -%}
       {%- if fld.default %} = {{ fld.default }}{%- endif -%}

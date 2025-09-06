@@ -4,7 +4,9 @@
   </tr></thead>
   {%- for item in enum.allItems %}
   <tr>
-    <td>{{ item.name }}</td>
+    <td>
+      {%- render "descr", name: item.name, descr: item.description -%}
+    </td>
     <td>{{ item.aliases | join: ", " }}</td>
     <td class="from">{{ item.enum }}</td>
   </tr>

@@ -1,0 +1,23 @@
+﻿/* parent-param-same+Dual
+dual PrntParamSameDual<$a:String> { :RefPrntParamSameDual<$a> field: $a }
+dual RefPrntParamSameDual<$a:String> { | $a }
+*/
+
+// Generated from Schema parent-param-same+Dual for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_parent_param_same_Dual;
+
+public class DualPrntParamSameDual<Ta>
+  : DualRefPrntParamSameDual
+  , IPrntParamSameDual<Ta>
+{
+  public Ta field { get; set; }
+}
+
+public class DualRefPrntParamSameDual<Ta>
+  : IRefPrntParamSameDual<Ta>
+{
+  public Ta Asa { get; set; }
+}

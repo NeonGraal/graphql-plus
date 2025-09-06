@@ -1,0 +1,23 @@
+﻿/* parent+Output
+output PrntOutp { :RefPrntOutp }
+output RefPrntOutp { parent: Number | String }
+*/
+
+// Generated from Schema parent+Output for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_parent_Output;
+
+public class OutputPrntOutp
+  : OutputRefPrntOutp
+  , IPrntOutp
+{
+}
+
+public class OutputRefPrntOutp
+  : IRefPrntOutp
+{
+  public Number parent { get; set; }
+  public String AsString { get; set; }
+}

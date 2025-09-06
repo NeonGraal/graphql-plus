@@ -1,0 +1,22 @@
+﻿/* parent-field+Input
+input PrntFieldInp { :RefPrntFieldInp field: Number }
+input RefPrntFieldInp { parent: Number | String }
+*/
+
+// Generated from Schema parent-field+Input for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_parent_field_Input;
+
+public interface IPrntFieldInp
+  : IRefPrntFieldInp
+{
+  Number field { get; }
+}
+
+public interface IRefPrntFieldInp
+{
+  Number parent { get; }
+  String AsString { get; }
+}

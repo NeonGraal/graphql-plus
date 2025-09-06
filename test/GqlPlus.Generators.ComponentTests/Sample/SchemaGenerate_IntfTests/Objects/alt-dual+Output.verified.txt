@@ -1,0 +1,21 @@
+﻿/* alt-dual+Output
+output AltDualOutp { | ObjDualAltDualOutp }
+dual ObjDualAltDualOutp { alt: Number | String }
+*/
+
+// Generated from Schema alt-dual+Output for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_alt_dual_Output;
+
+public interface IAltDualOutp
+{
+  ObjDualAltDualOutp AsObjDualAltDualOutp { get; }
+}
+
+public interface IObjDualAltDualOutp
+{
+  Number alt { get; }
+  String AsString { get; }
+}

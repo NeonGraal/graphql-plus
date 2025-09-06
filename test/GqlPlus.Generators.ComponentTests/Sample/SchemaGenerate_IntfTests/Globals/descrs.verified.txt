@@ -1,0 +1,15 @@
+﻿/* descrs
+"A simple description"
+"With extra"
+output Dscrs { }
+*/
+
+// Generated from Schema descrs for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_descrs;
+
+public interface IDscrs
+{
+}

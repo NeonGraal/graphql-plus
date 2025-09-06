@@ -1,0 +1,15 @@
+﻿/* generic-field+Dual
+dual GnrcFieldDual<$type:String> { field: $type }
+*/
+
+// Generated from Schema generic-field+Dual for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_generic_field_Dual;
+
+public class DualGnrcFieldDual<Ttype>
+  : IGnrcFieldDual<Ttype>
+{
+  public Ttype field { get; set; }
+}

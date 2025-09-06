@@ -1,0 +1,16 @@
+﻿/* output-generic-value
+output OutpGnrcValue { | RefOutpGnrcValue<outpGnrcValue> }
+output RefOutpGnrcValue<$type:_Enum> { field: $type }
+enum EnumOutpGnrcValue { outpGnrcValue }
+*/
+
+// Generated from Schema output-generic-value for Enum
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_output_generic_value;
+
+public enum EnumOutpGnrcValue
+{
+  outpGnrcValue,
+}

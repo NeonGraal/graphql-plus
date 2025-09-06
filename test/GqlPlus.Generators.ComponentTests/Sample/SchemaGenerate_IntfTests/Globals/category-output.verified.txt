@@ -1,0 +1,14 @@
+﻿/* category-output
+category { CtgrOutp }
+output CtgrOutp { }
+*/
+
+// Generated from Schema category-output for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_category_output;
+
+public interface ICtgrOutp
+{
+}

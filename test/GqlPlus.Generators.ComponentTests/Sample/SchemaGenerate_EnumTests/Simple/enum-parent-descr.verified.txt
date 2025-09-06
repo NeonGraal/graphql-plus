@@ -1,0 +1,21 @@
+﻿/* enum-parent-descr
+enum EnumPrntDescr { : "Parent comment" PrntEnumPrntDescr enumPrntDescr  }
+enum PrntEnumPrntDescr { prnt_enumPrntDescr }
+*/
+
+// Generated from Schema enum-parent-descr for Enum
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_enum_parent_descr;
+
+public enum EnumPrntDescr
+{
+  prnt_enumPrntDescr = PrntEnumPrntDescr.prnt_enumPrntDescr,
+  enumPrntDescr,
+}
+
+public enum PrntEnumPrntDescr
+{
+  prnt_enumPrntDescr,
+}

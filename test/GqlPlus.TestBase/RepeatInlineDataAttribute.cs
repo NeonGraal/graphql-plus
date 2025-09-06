@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
-using AutoFixture;
 using AutoFixture.Xunit3;
+using AutoFixture.Xunit3.Internal;
 using GqlPlus.AutoFixture;
 using Xunit;
 using Xunit.Sdk;
@@ -10,29 +10,18 @@ namespace GqlPlus;
 public sealed class RepeatInlineDataAttribute
   : InlineAutoDataAttribute
 {
-  public RepeatInlineDataAttribute(int repeat, params object[] values)
-    : this(repeat, () => new Fixture().Customize(new TestsCustomizations()), values)
-  {
-  }
-
   public RepeatInlineDataAttribute(params object[] values)
     : this(Repeats, values)
-  {
-  }
+  { }
 
-  public RepeatInlineDataAttribute(Func<IFixture> fixtureFactory, params object[] values)
-    : this(Repeats, () => fixtureFactory().Customize(new TestsCustomizations()), values)
-  {
-  }
-
-  public RepeatInlineDataAttribute(int repeat, Func<IFixture> fixtureFactory, params object[] values)
-    : base(() => fixtureFactory().Customize(new TestsCustomizations()), values)
+  public RepeatInlineDataAttribute(int repeat, params object[] values)
+    : base(TestsCustomizations.CreateFixture(), values)
   {
     if (repeat < 1) {
       throw new ArgumentException("Repeat must be greater than 0.");
     }
 
-    if (bool.TryParse(Environment.GetEnvironmentVariable("CI"), out bool isCi) && isCi) {
+    if (TestsCustomizations.IsCi) {
       repeat = CiRepeats;
     }
 
@@ -48,9 +37,19 @@ public sealed class RepeatInlineDataAttribute
     }
 
     List<ITheoryDataRow> data = [];
+
+    if (!TestsCustomizations.IsCi) {
+      AutoDataSource source = new(TestsCustomizations.CreateFixture(true), new InlineDataSource(Values));
+
+      ITheoryDataRow row = source.GetData(testMethod)
+          .Select(x => new TheoryDataRow(x))
+          .First();
+      data.Add(row);
+    }
+
     for (int i = 0; i < Repeat; ++i) {
       IReadOnlyCollection<ITheoryDataRow> values = await base.GetData(testMethod, disposalTracker).ConfigureAwait(false);
-      data.Add(values.First());
+      data.AddRange(values);
     }
 
     return data;

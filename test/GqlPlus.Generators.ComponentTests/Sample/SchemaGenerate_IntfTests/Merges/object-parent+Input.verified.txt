@@ -1,0 +1,20 @@
+﻿/* object-parent+Input
+input ObjPrntInp { :RefObjPrntInp }
+input ObjPrntInp { :RefObjPrntInp }
+input RefObjPrntInp { }
+*/
+
+// Generated from Schema object-parent+Input for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_object_parent_Input;
+
+public interface IObjPrntInp
+  : IRefObjPrntInp
+{
+}
+
+public interface IRefObjPrntInp
+{
+}

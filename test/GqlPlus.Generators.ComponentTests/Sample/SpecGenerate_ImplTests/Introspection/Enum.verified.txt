@@ -1,0 +1,41 @@
+﻿/* Enum
+output _TypeEnum {
+    : _ParentType<_TypeKind.Enum _Aliased _EnumLabel>
+    }
+
+dual _EnumLabel {
+    : _Aliased
+        enum: _Identifier
+    }
+
+output _EnumValue {
+    : _TypeRef<_TypeKind.Enum>
+        label: _Identifier
+    }
+*/
+
+// Generated from Spec Enum for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Spec_Enum;
+
+public class Output_TypeEnum
+  : Output_ParentType
+  , I_TypeEnum
+{
+}
+
+public class Dual_EnumLabel
+  : Dual_Aliased
+  , I_EnumLabel
+{
+  public _Identifier enum { get; set; }
+}
+
+public class Output_EnumValue
+  : Output_TypeRef
+  , I_EnumValue
+{
+  public _Identifier label { get; set; }
+}

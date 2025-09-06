@@ -1,0 +1,16 @@
+﻿/* enum-diff
+enum EnumDiff { one }
+enum EnumDiff { two }
+*/
+
+// Generated from Schema enum-diff for Enum
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_enum_diff;
+
+public enum EnumDiff
+{
+  one,
+  two,
+}

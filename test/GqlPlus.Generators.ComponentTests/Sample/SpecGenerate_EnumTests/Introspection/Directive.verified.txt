@@ -1,0 +1,32 @@
+﻿/* Directive
+output _Directives {
+    : _AndType
+        directive: _Directive
+    | _Directive
+    }
+
+output _Directive {
+    : _Aliased
+        parameters: _InputParam[]
+        repeatable: Boolean
+        locations: _[_Location]
+    }
+
+enum _Location { Operation Variable Field Inline Spread Fragment }
+*/
+
+// Generated from Spec Directive for Enum
+
+/*
+*/
+namespace GqlPlus.Gqlp_Spec_Directive;
+
+public enum _Location
+{
+  Operation,
+  Variable,
+  Field,
+  Inline,
+  Spread,
+  Fragment,
+}

@@ -1,0 +1,15 @@
+﻿/* directive-param-in
+directive @DrctParamIn(InDrctParamIn) { all }
+input InDrctParamIn { }
+*/
+
+// Generated from Schema directive-param-in for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_directive_param_in;
+
+public class InputInDrctParamIn
+  : IInDrctParamIn
+{
+}

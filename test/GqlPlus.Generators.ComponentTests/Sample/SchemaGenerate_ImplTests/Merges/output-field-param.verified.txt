@@ -1,0 +1,34 @@
+﻿/* output-field-param
+output OutpFieldParam { field(OutpFieldParam1): FldOutpFieldParam }
+output OutpFieldParam { field(OutpFieldParam2): FldOutpFieldParam }
+input OutpFieldParam1 { }
+input OutpFieldParam2 { }
+dual FldOutpFieldParam { }
+*/
+
+// Generated from Schema output-field-param for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_output_field_param;
+
+public class OutputOutpFieldParam
+  : IOutpFieldParam
+{
+  public FldOutpFieldParam field { get; set; }
+}
+
+public class InputOutpFieldParam1
+  : IOutpFieldParam1
+{
+}
+
+public class InputOutpFieldParam2
+  : IOutpFieldParam2
+{
+}
+
+public class DualFldOutpFieldParam
+  : IFldOutpFieldParam
+{
+}

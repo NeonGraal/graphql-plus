@@ -1,0 +1,76 @@
+﻿/* Schema
+"$T?"
+dual _Opt<$T:_Any> [Opt] { | $T | Null }
+
+dual _List<$T:_Any> [List] { | $T[] }
+
+dual _Dict<$K:_Key $T:_Any> [Dict] { | $T[$K] }
+
+dual _Map<$T:_Any> [Map] { | $T[*] }
+
+dual _Array<$T:_Any> [Array] { | $T[0] }
+
+dual _IfElse<$T:_Any> [IfElse] { | $T[^] }
+
+dual _Set<$K:_Key> [Set] { | _[$K] }
+
+dual _Mask<$K:_Key> [Mask] { | ^[$K] }
+
+union _Key { }
+dual _Any { }
+*/
+
+// Generated from Spec Schema for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Spec_Schema;
+
+public interface I_Opt<TT>
+{
+  TT AsT { get; }
+  Null AsNull { get; }
+}
+
+public interface I_List<TT>
+{
+  TT AsT { get; }
+}
+
+public interface I_Dict<TK,TT>
+{
+  TT AsT { get; }
+}
+
+public interface I_Map<TT>
+{
+  TT AsT { get; }
+}
+
+public interface I_Array<TT>
+{
+  TT AsT { get; }
+}
+
+public interface I_IfElse<TT>
+{
+  TT AsT { get; }
+}
+
+public interface I_Set<TK>
+{
+  Unit As_ { get; }
+}
+
+public interface I_Mask<TK>
+{
+  Boolean As^ { get; }
+}
+
+public interface I_Key
+{
+}
+
+public interface I_Any
+{
+}

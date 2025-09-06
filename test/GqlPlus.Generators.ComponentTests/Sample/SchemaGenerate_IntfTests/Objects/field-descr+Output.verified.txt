@@ -1,0 +1,14 @@
+﻿/* field-descr+Output
+output FieldDescrOutp { "Test" "Descr" field: String }
+*/
+
+// Generated from Schema field-descr+Output for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_field_descr_Output;
+
+public interface IFieldDescrOutp
+{
+  String field { get; }
+}

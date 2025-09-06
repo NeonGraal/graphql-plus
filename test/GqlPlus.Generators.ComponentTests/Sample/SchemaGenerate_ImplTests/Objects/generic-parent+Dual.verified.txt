@@ -1,0 +1,15 @@
+﻿/* generic-parent+Dual
+dual GnrcPrntDual<$type:String> { :$type }
+*/
+
+// Generated from Schema generic-parent+Dual for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_generic_parent_Dual;
+
+public class DualGnrcPrntDual<Ttype>
+  : Dualtype
+  , IGnrcPrntDual<Ttype>
+{
+}

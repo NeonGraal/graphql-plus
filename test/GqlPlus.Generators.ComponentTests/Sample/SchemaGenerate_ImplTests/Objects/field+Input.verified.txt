@@ -1,0 +1,15 @@
+﻿/* field+Input
+input FieldInp { field: String }
+*/
+
+// Generated from Schema field+Input for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_field_Input;
+
+public class InputFieldInp
+  : IFieldInp
+{
+  public String field { get; set; }
+}

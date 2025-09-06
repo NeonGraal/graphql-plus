@@ -1,0 +1,22 @@
+﻿/* generic-alt-arg-descr+Input
+input GnrcAltArgDescrInp<$type:String> { | RefGnrcAltArgDescrInp<"Test" "Descr"$type> }
+input RefGnrcAltArgDescrInp<$ref:String> { | $ref }
+*/
+
+// Generated from Schema generic-alt-arg-descr+Input for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_generic_alt_arg_descr_Input;
+
+public class InputGnrcAltArgDescrInp<Ttype>
+  : IGnrcAltArgDescrInp<Ttype>
+{
+  public RefGnrcAltArgDescrInp<Ttype> AsRefGnrcAltArgDescrInp { get; set; }
+}
+
+public class InputRefGnrcAltArgDescrInp<Tref>
+  : IRefGnrcAltArgDescrInp<Tref>
+{
+  public Tref Asref { get; set; }
+}

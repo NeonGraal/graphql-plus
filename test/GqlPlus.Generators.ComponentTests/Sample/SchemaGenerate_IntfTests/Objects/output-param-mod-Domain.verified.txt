@@ -1,0 +1,26 @@
+﻿/* output-param-mod-Domain
+output OutpParamModDmn { field(InOutpParamModDmn[DomOutpParamModDmn]): DomOutpParamModDmn }
+input InOutpParamModDmn { param: Number | String }
+domain DomOutpParamModDmn { number 1 ~ 10 }
+*/
+
+// Generated from Schema output-param-mod-Domain for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_output_param_mod_Domain;
+
+public interface IOutpParamModDmn
+{
+  DomOutpParamModDmn field { get; }
+}
+
+public interface IInOutpParamModDmn
+{
+  Number param { get; }
+  String AsString { get; }
+}
+
+public interface IDomOutpParamModDmn
+{
+}

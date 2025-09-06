@@ -1,0 +1,41 @@
+﻿/* Built-In
+output _Collections {
+    | _Modifier<_ModifierKind.List>
+    | _ModifierKeyed<_ModifierKind.Dictionary>
+    | _ModifierKeyed<_ModifierKind.TypeParam>
+    }
+
+output _ModifierKeyed<$kind:_ModifierKind> {
+    : _Modifier<$kind>
+        by: _TypeSimple
+        optional: Boolean
+    }
+
+output _Modifiers {
+    | _Modifier<_ModifierKind.Optional>
+    | _Collections
+    }
+
+enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
+
+output _Modifier<$kind:_ModifierKind> {
+        modifierKind: $kind
+    }
+*/
+
+// Generated from Spec Built-In for Enum
+
+/*
+*/
+namespace GqlPlus.Gqlp_Spec_Built_In;
+
+public enum _ModifierKind
+{
+  Opt,
+  Optional = Opt,
+  List,
+  Dict,
+  Dictionary = Dict,
+  Param,
+  TypeParam = Param,
+}

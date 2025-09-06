@@ -1,0 +1,30 @@
+﻿/* generic-parent-dual+Dual
+dual GnrcPrntDualDual { :RefGnrcPrntDualDual<AltGnrcPrntDualDual> }
+dual RefGnrcPrntDualDual<$ref:_Dual> { | $ref }
+dual AltGnrcPrntDualDual { alt: Number | String }
+*/
+
+// Generated from Schema generic-parent-dual+Dual for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_generic_parent_dual_Dual;
+
+public class DualGnrcPrntDualDual
+  : DualRefGnrcPrntDualDual
+  , IGnrcPrntDualDual
+{
+}
+
+public class DualRefGnrcPrntDualDual<Tref>
+  : IRefGnrcPrntDualDual<Tref>
+{
+  public Tref Asref { get; set; }
+}
+
+public class DualAltGnrcPrntDualDual
+  : IAltGnrcPrntDualDual
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

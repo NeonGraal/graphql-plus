@@ -1,0 +1,18 @@
+﻿/* Option
+output _Setting {
+    : _Named
+        value: Value
+    }
+*/
+
+// Generated from Spec Option for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Spec_Option;
+
+public interface I_Setting
+  : I_Named
+{
+  _Value value { get; }
+}

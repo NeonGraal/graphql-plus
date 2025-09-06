@@ -1,0 +1,23 @@
+﻿/* union-parent-dup
+union UnionPrntDup { :PrntUnionPrntDup Number }
+union PrntUnionPrntDup { Number }
+*/
+
+// Generated from Schema union-parent-dup for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_union_parent_dup;
+
+public class UnionUnionPrntDup
+  : UnionPrntUnionPrntDup
+  , IUnionPrntDup
+{
+  public Number AsNumber { get; set; }
+}
+
+public class UnionPrntUnionPrntDup
+  : IPrntUnionPrntDup
+{
+  public Number AsNumber { get; set; }
+}

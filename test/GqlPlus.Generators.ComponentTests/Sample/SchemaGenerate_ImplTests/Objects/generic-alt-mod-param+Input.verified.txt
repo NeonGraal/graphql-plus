@@ -1,0 +1,15 @@
+﻿/* generic-alt-mod-param+Input
+input RefGnrcAltModParamInp<$ref:String $mod:String> { | $ref[$mod] }
+*/
+
+// Generated from Schema generic-alt-mod-param+Input for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_generic_alt_mod_param_Input;
+
+public class InputRefGnrcAltModParamInp<Tref,Tmod>
+  : IRefGnrcAltModParamInp<Tref,Tmod>
+{
+  public Tref Asref { get; set; }
+}

@@ -1,0 +1,14 @@
+﻿/* domain-boolean-diff
+domain DmnBoolDiff { boolean true }
+domain DmnBoolDiff { boolean false }
+*/
+
+// Generated from Schema domain-boolean-diff for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_domain_boolean_diff;
+
+public interface IDmnBoolDiff
+{
+}

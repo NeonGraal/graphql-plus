@@ -1,0 +1,15 @@
+﻿/* output-field-enum
+output OutpFieldEnum { field = EnumOutpFieldEnum.outpFieldEnum }
+enum EnumOutpFieldEnum { outpFieldEnum }
+*/
+
+// Generated from Schema output-field-enum for Enum
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_output_field_enum;
+
+public enum EnumOutpFieldEnum
+{
+  outpFieldEnum,
+}

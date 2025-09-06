@@ -1,0 +1,13 @@
+﻿/* domain-string-descr
+domain DmnStrDescr { String "DomString" "Descr" /a+/ }
+*/
+
+// Generated from Schema domain-string-descr for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_domain_string_descr;
+
+public interface IDmnStrDescr
+{
+}

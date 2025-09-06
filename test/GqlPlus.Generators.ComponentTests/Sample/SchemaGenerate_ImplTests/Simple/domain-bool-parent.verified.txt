@@ -1,0 +1,21 @@
+﻿/* domain-bool-parent
+domain DmnBoolPrnt { :PrntDmnBoolPrnt Boolean false }
+domain PrntDmnBoolPrnt { Boolean true }
+*/
+
+// Generated from Schema domain-bool-parent for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_domain_bool_parent;
+
+public class DomainDmnBoolPrnt
+  : DomainPrntDmnBoolPrnt
+  , IDmnBoolPrnt
+{
+}
+
+public class DomainPrntDmnBoolPrnt
+  : IPrntDmnBoolPrnt
+{
+}

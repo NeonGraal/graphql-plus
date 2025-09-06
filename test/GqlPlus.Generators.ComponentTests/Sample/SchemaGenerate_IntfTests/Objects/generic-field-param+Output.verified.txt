@@ -1,0 +1,27 @@
+﻿/* generic-field-param+Output
+output GnrcFieldParamOutp { field: RefGnrcFieldParamOutp<AltGnrcFieldParamOutp> }
+output RefGnrcFieldParamOutp<$ref:_Output> { | $ref }
+output AltGnrcFieldParamOutp { alt: Number | String }
+*/
+
+// Generated from Schema generic-field-param+Output for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_generic_field_param_Output;
+
+public interface IGnrcFieldParamOutp
+{
+  RefGnrcFieldParamOutp<AltGnrcFieldParamOutp> field { get; }
+}
+
+public interface IRefGnrcFieldParamOutp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IAltGnrcFieldParamOutp
+{
+  Number alt { get; }
+  String AsString { get; }
+}

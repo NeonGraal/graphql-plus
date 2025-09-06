@@ -1,0 +1,15 @@
+﻿/* field-type-descr+Output
+output FieldTypeDescrOutp { field: "Test" "Descr" Number }
+*/
+
+// Generated from Schema field-type-descr+Output for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_field_type_descr_Output;
+
+public class OutputFieldTypeDescrOutp
+  : IFieldTypeDescrOutp
+{
+  public Number field { get; set; }
+}

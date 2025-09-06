@@ -1,0 +1,14 @@
+﻿/* field+Dual
+dual FieldDual { field: String }
+*/
+
+// Generated from Schema field+Dual for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_field_Dual;
+
+public interface IFieldDual
+{
+  String field { get; }
+}

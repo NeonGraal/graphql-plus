@@ -1,0 +1,23 @@
+﻿/* parent-param-diff+Output
+output PrntParamDiffOutp<$a:String> { :RefPrntParamDiffOutp<$a> field: $a }
+output RefPrntParamDiffOutp<$b:String> { | $b }
+*/
+
+// Generated from Schema parent-param-diff+Output for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_parent_param_diff_Output;
+
+public class OutputPrntParamDiffOutp<Ta>
+  : OutputRefPrntParamDiffOutp
+  , IPrntParamDiffOutp<Ta>
+{
+  public Ta field { get; set; }
+}
+
+public class OutputRefPrntParamDiffOutp<Tb>
+  : IRefPrntParamDiffOutp<Tb>
+{
+  public Tb Asb { get; set; }
+}

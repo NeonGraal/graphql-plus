@@ -1,0 +1,22 @@
+﻿/* object-field+Output
+output ObjFieldOutp { field: FldObjFieldOutp }
+output ObjFieldOutp { field: FldObjFieldOutp }
+output FldObjFieldOutp { }
+*/
+
+// Generated from Schema object-field+Output for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_object_field_Output;
+
+public class OutputObjFieldOutp
+  : IObjFieldOutp
+{
+  public FldObjFieldOutp field { get; set; }
+}
+
+public class OutputFldObjFieldOutp
+  : IFldObjFieldOutp
+{
+}

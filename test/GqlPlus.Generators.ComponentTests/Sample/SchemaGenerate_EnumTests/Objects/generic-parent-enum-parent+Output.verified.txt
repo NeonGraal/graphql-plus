@@ -1,0 +1,23 @@
+﻿/* generic-parent-enum-parent+Output
+output GnrcPrntEnumPrntOutp { :FieldGnrcPrntEnumPrntOutp<EnumGnrcPrntEnumPrntOutp> }
+output FieldGnrcPrntEnumPrntOutp<$ref:ParentGnrcPrntEnumPrntOutp> { field: $ref }
+enum EnumGnrcPrntEnumPrntOutp { :ParentGnrcPrntEnumPrntOutp gnrcPrntEnumPrntOutpLabel }
+enum ParentGnrcPrntEnumPrntOutp { gnrcPrntEnumPrntOutpParent }
+*/
+
+// Generated from Schema generic-parent-enum-parent+Output for Enum
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_generic_parent_enum_parent_Output;
+
+public enum EnumGnrcPrntEnumPrntOutp
+{
+  gnrcPrntEnumPrntOutpParent = ParentGnrcPrntEnumPrntOutp.gnrcPrntEnumPrntOutpParent,
+  gnrcPrntEnumPrntOutpLabel,
+}
+
+public enum ParentGnrcPrntEnumPrntOutp
+{
+  gnrcPrntEnumPrntOutpParent,
+}

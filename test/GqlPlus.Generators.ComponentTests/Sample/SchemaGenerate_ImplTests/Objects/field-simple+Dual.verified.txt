@@ -1,0 +1,15 @@
+﻿/* field-simple+Dual
+dual FieldSmplDual { field: Number }
+*/
+
+// Generated from Schema field-simple+Dual for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_field_simple_Dual;
+
+public class DualFieldSmplDual
+  : IFieldSmplDual
+{
+  public Number field { get; set; }
+}

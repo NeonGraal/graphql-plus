@@ -1,0 +1,14 @@
+﻿/* domain-number
+domain DmnNmbr { number }
+domain DmnNmbr { number }
+*/
+
+// Generated from Schema domain-number for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_domain_number;
+
+public interface IDmnNmbr
+{
+}

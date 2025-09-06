@@ -1,0 +1,33 @@
+﻿/* constraint-parent-dual-parent+Output
+output CnstPrntDualPrntOutp { :RefCnstPrntDualPrntOutp<AltCnstPrntDualPrntOutp> }
+output RefCnstPrntDualPrntOutp<$ref:PrntCnstPrntDualPrntOutp> { :$ref }
+dual PrntCnstPrntDualPrntOutp { | String }
+output AltCnstPrntDualPrntOutp { :PrntCnstPrntDualPrntOutp alt: Number }
+*/
+
+// Generated from Schema constraint-parent-dual-parent+Output for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_constraint_parent_dual_parent_Output;
+
+public interface ICnstPrntDualPrntOutp
+  : IRefCnstPrntDualPrntOutp
+{
+}
+
+public interface IRefCnstPrntDualPrntOutp<Tref>
+  : Iref
+{
+}
+
+public interface IPrntCnstPrntDualPrntOutp
+{
+  String AsString { get; }
+}
+
+public interface IAltCnstPrntDualPrntOutp
+  : IPrntCnstPrntDualPrntOutp
+{
+  Number alt { get; }
+}

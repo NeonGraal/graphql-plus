@@ -1,0 +1,25 @@
+﻿/* constraint-alt-domain+Dual
+dual CnstAltDmnDual { | RefCnstAltDmnDual<DomCnstAltDmnDual> }
+dual RefCnstAltDmnDual<$ref:String> { | $ref }
+domain DomCnstAltDmnDual { String /\w+/ }
+*/
+
+// Generated from Schema constraint-alt-domain+Dual for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_constraint_alt_domain_Dual;
+
+public interface ICnstAltDmnDual
+{
+  RefCnstAltDmnDual<DomCnstAltDmnDual> AsRefCnstAltDmnDual { get; }
+}
+
+public interface IRefCnstAltDmnDual<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IDomCnstAltDmnDual
+{
+}

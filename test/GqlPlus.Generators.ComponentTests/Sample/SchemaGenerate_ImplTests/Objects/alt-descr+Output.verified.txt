@@ -1,0 +1,15 @@
+﻿/* alt-descr+Output
+output AltDescrOutp { | "Test" "Descr" String }
+*/
+
+// Generated from Schema alt-descr+Output for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_alt_descr_Output;
+
+public class OutputAltDescrOutp
+  : IAltDescrOutp
+{
+  public String AsString { get; set; }
+}

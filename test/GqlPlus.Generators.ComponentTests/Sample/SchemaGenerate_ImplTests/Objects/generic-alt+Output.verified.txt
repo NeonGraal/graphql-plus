@@ -1,0 +1,15 @@
+﻿/* generic-alt+Output
+output GnrcAltOutp<$type:String> { | $type }
+*/
+
+// Generated from Schema generic-alt+Output for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_generic_alt_Output;
+
+public class OutputGnrcAltOutp<Ttype>
+  : IGnrcAltOutp<Ttype>
+{
+  public Ttype Astype { get; set; }
+}

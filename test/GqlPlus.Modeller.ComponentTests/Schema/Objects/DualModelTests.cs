@@ -23,7 +23,7 @@ internal sealed class DualModelChecks(
     };
 
   internal override IGqlpDualBase? NewParentAst(string? input)
-    => string.IsNullOrWhiteSpace(input) ? null : new DualBaseAst(AstNulls.At, input);
+    => string.IsNullOrWhiteSpace(input) ? null : new DualBaseAst(AstNulls.At, input!);
 }
 
 public interface IDualModelChecks

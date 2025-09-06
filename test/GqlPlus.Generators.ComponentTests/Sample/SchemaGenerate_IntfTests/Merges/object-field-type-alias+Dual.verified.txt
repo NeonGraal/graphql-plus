@@ -1,0 +1,15 @@
+﻿/* object-field-type-alias+Dual
+dual ObjFieldTypeAliasDual { field: String }
+dual ObjFieldTypeAliasDual { field: String }
+*/
+
+// Generated from Schema object-field-type-alias+Dual for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_object_field_type_alias_Dual;
+
+public interface IObjFieldTypeAliasDual
+{
+  String field { get; }
+}

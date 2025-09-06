@@ -1,0 +1,15 @@
+﻿/* field-mod-Enum+Input
+input FieldModEnumInp { field: String[EnumFieldModEnumInp] }
+enum EnumFieldModEnumInp { value }
+*/
+
+// Generated from Schema field-mod-Enum+Input for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_field_mod_Enum_Input;
+
+public interface IFieldModEnumInp
+{
+  String field { get; }
+}

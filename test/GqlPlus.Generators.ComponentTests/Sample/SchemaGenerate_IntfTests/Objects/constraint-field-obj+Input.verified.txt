@@ -1,0 +1,33 @@
+﻿/* constraint-field-obj+Input
+input CnstFieldObjInp { :RefCnstFieldObjInp<AltCnstFieldObjInp> }
+input RefCnstFieldObjInp<$ref:PrntCnstFieldObjInp> { field: $ref }
+input PrntCnstFieldObjInp { | String }
+input AltCnstFieldObjInp { :PrntCnstFieldObjInp alt: Number }
+*/
+
+// Generated from Schema constraint-field-obj+Input for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_constraint_field_obj_Input;
+
+public interface ICnstFieldObjInp
+  : IRefCnstFieldObjInp
+{
+}
+
+public interface IRefCnstFieldObjInp<Tref>
+{
+  Tref field { get; }
+}
+
+public interface IPrntCnstFieldObjInp
+{
+  String AsString { get; }
+}
+
+public interface IAltCnstFieldObjInp
+  : IPrntCnstFieldObjInp
+{
+  Number alt { get; }
+}

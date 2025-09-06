@@ -1,0 +1,15 @@
+﻿/* alt-simple+Dual
+dual AltSmplDual { | String }
+*/
+
+// Generated from Schema alt-simple+Dual for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_alt_simple_Dual;
+
+public class DualAltSmplDual
+  : IAltSmplDual
+{
+  public String AsString { get; set; }
+}

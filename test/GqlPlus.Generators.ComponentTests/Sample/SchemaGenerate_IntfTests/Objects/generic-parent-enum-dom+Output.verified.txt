@@ -1,0 +1,26 @@
+﻿/* generic-parent-enum-dom+Output
+output GnrcPrntEnumDomOutp { :FieldGnrcPrntEnumDomOutp<DomGnrcPrntEnumDomOutp> }
+output FieldGnrcPrntEnumDomOutp<$ref:EnumGnrcPrntEnumDomOutp> { field: $ref }
+enum EnumGnrcPrntEnumDomOutp { gnrcPrntEnumDomOutpLabel gnrcPrntEnumDomOutpOther }
+domain DomGnrcPrntEnumDomOutp { enum gnrcPrntEnumDomOutpLabel }
+*/
+
+// Generated from Schema generic-parent-enum-dom+Output for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_generic_parent_enum_dom_Output;
+
+public interface IGnrcPrntEnumDomOutp
+  : IFieldGnrcPrntEnumDomOutp
+{
+}
+
+public interface IFieldGnrcPrntEnumDomOutp<Tref>
+{
+  Tref field { get; }
+}
+
+public interface IDomGnrcPrntEnumDomOutp
+{
+}

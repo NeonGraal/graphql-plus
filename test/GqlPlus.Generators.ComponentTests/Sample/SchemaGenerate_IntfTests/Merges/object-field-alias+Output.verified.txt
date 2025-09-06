@@ -1,0 +1,20 @@
+﻿/* object-field-alias+Output
+output ObjFieldAliasOutp { field [field1]: FldObjFieldAliasOutp }
+output ObjFieldAliasOutp { field [field2]: FldObjFieldAliasOutp }
+output FldObjFieldAliasOutp { }
+*/
+
+// Generated from Schema object-field-alias+Output for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_object_field_alias_Output;
+
+public interface IObjFieldAliasOutp
+{
+  FldObjFieldAliasOutp field { get; }
+}
+
+public interface IFldObjFieldAliasOutp
+{
+}

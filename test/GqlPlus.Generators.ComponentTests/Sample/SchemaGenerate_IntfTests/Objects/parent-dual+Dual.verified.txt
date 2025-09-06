@@ -1,0 +1,21 @@
+﻿/* parent-dual+Dual
+dual PrntDualDual { :RefPrntDualDual }
+dual RefPrntDualDual { parent: Number | String }
+*/
+
+// Generated from Schema parent-dual+Dual for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_parent_dual_Dual;
+
+public interface IPrntDualDual
+  : IRefPrntDualDual
+{
+}
+
+public interface IRefPrntDualDual
+{
+  Number parent { get; }
+  String AsString { get; }
+}

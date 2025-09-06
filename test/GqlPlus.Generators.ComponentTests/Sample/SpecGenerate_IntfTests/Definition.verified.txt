@@ -1,0 +1,101 @@
+﻿/* Definition
+enum Boolean [bool, ^] { false true }
+
+enum Null [null] { null }
+
+enum Unit [_] { _ }
+
+"No valid value"enum Void { }
+
+domain Number [int, 0] { Number }
+
+domain String [str, *] { String }
+
+union _Basic [Basic] { Boolean Number String Unit }
+
+union _Internal [Internal] { Null Void }
+
+union _Key [Key] { _Basic _Internal _Simple }
+
+"%"
+dual _Object [Object, obj, %] { }
+
+"All user defined Domain types" union _Domain [Domain] { }
+"All user defined Dual types" dual _Dual [Dual] { }
+"All user defined Enum types" union _Enum [Enum] { }
+"All user defined Input types" input _Input [Input] { }
+"All user defined Output types" output _Output [Output] { }
+"All user defined Union types" union _Union [Union] { }
+
+union _Simple [Simple] { _Enum _Domain _Union }
+*/
+
+// Generated from Spec Definition for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Spec_Definition;
+
+public interface INumber
+{
+}
+
+public interface IString
+{
+}
+
+public interface I_Basic
+{
+  Boolean AsBoolean { get; }
+  Number AsNumber { get; }
+  String AsString { get; }
+  Unit AsUnit { get; }
+}
+
+public interface I_Internal
+{
+  Null AsNull { get; }
+  Void AsVoid { get; }
+}
+
+public interface I_Key
+{
+  _Basic As_Basic { get; }
+  _Internal As_Internal { get; }
+  _Simple As_Simple { get; }
+}
+
+public interface I_Object
+{
+}
+
+public interface I_Domain
+{
+}
+
+public interface I_Dual
+{
+}
+
+public interface I_Enum
+{
+}
+
+public interface I_Input
+{
+}
+
+public interface I_Output
+{
+}
+
+public interface I_Union
+{
+}
+
+public interface I_Simple
+{
+  _Enum As_Enum { get; }
+  _Domain As_Domain { get; }
+  _Union As_Union { get; }
+}

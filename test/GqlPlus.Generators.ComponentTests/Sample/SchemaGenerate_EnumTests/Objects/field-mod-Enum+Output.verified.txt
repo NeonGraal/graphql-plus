@@ -1,0 +1,15 @@
+﻿/* field-mod-Enum+Output
+output FieldModEnumOutp { field: String[EnumFieldModEnumOutp] }
+enum EnumFieldModEnumOutp { value }
+*/
+
+// Generated from Schema field-mod-Enum+Output for Enum
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_field_mod_Enum_Output;
+
+public enum EnumFieldModEnumOutp
+{
+  value,
+}

@@ -1,0 +1,15 @@
+﻿/* domain-enum-diff
+domain DmnEnumDiff { enum true }
+domain DmnEnumDiff { enum false }
+*/
+
+// Generated from Schema domain-enum-diff for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_domain_enum_diff;
+
+public class DomainDmnEnumDiff
+  : IDmnEnumDiff
+{
+}

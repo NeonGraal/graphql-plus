@@ -4,7 +4,9 @@
   </tr></thead>
   {%- for item in union.allItems %}
   <tr>
-    <td>{{ item.name }}</td>
+    <td>
+      {%- render "descr", name: item.name, descr: item.description -%}
+    </td>
     <td class="from">{{ item.union }}</td>
   </tr>
   {%- endfor %}

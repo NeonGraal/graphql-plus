@@ -11,7 +11,7 @@ public class VerifyVariableTests
   private readonly IGqlpConstant _constant = A.Constant("constant");
 
   private readonly IGqlpVariable _item = A.Variable("item");
-  private readonly IGqlpFieldKey _keyField = A.FieldKey("field");
+  private readonly IGqlpFieldKey _keyField = A.EnumValue("Null", "null");
 
   private readonly VerifyVariable _verifier = new();
   private readonly List<IGqlpModifier> _modifiers = [];
@@ -20,8 +20,6 @@ public class VerifyVariableTests
   {
     _item.DefaultValue.Returns(_defValue);
     _item.Modifiers.Returns(_modifiers);
-
-    _keyField.EnumValue.Returns("Null.null");
   }
 
   [Fact]

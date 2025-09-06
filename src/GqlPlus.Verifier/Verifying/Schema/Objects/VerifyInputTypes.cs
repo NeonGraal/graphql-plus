@@ -16,11 +16,11 @@ internal class VerifyInputTypes(
     return new(validTypes, errors, aliased.MakeEnumValues());
   }
 
-  protected override void UsageFields(IEnumerable<IGqlpInputField> fields, EnumContext context)
+  protected override void UsageFields(IGqlpInputObject usage, EnumContext context)
   {
-    base.UsageFields(fields, context);
+    base.UsageFields(usage, context);
 
-    foreach (IGqlpInputField field in fields) {
+    foreach (IGqlpInputField field in usage.ObjFields) {
       context.AddError(
         field,
         "Input Field Default",

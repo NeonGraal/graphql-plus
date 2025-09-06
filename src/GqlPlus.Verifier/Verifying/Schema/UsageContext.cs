@@ -47,7 +47,7 @@ public class UsageContext(
     return false;
   }
 
-  internal bool DifferentName<TAst>(ParentUsage<TAst> input, string? current)
+  internal bool DifferentName<TAst>(SelfUsage<TAst> input, string? current)
     where TAst : IGqlpType
   {
     if (input.DifferentName) {
@@ -64,19 +64,37 @@ public class UsageContext(
   }
 }
 
-internal record struct ParentUsage<TAst>(List<string> Parents, TAst Usage, string Label)
+internal record struct SelfUsage<TAst>(List<string> Chain, TAst Usage, string Label)
   where TAst : IGqlpType
 {
-  internal readonly string? Parent => Parents?.FirstOrDefault();
-  internal readonly bool DifferentName => !Parents.Contains(Usage.Name);
+  internal readonly string? Current => Chain.FirstOrDefault();
+  internal readonly bool DifferentName
+  {
+    get {
+      if (Chain.Count == 0) {
+        return true;
+      }
+
+      if (Chain.Count > 99) {
+        return false;
+      }
+
+      if (Chain.Contains(Usage.Name)) {
+        return false;
+      }
+
+      return !Chain.Skip(1).Contains(Current);
+    }
+  }
+
   internal readonly string UsageName => Usage.Name;
   internal readonly string UsageLabel => Usage.Label;
 
-  internal readonly ParentUsage<TAst> AddParent(string parent)
-    => new([parent, .. Parents], Usage, Label);
+  internal readonly SelfUsage<TAst> AddNext(string next)
+    => new([next, .. Chain], Usage, Label);
 
   public override readonly string? ToString()
-    => $"{UsageLabel}: {UsageName} - [{Parents.Joined()}] ({Label})";
+    => $"{UsageLabel}: {UsageName} - [{Chain.Joined(" -> ")}] ({Label})";
 }
 
 internal static class UsageHelpers

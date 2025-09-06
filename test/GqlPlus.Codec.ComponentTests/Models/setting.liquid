@@ -1,5 +1,7 @@
 ﻿<tr>
   {%- assign set = setting[1] -%}
-  <th> {{ set.name }} </th>
+  <th>
+    {%- render "descr", name: set.name, descr: set.description -%}
+  </th>
   <td> {{ set.value | join: ", " }} </td>
 </tr>

@@ -81,6 +81,7 @@ types: !_Map_Type
   !_Identifier Guid: !_DomainString
     allItems:
       - !_DomainItem(_DomainRegex)
+        description: 'Guid Regex'
         domain: Guid
         exclude: false
         pattern: '[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}'
@@ -88,6 +89,7 @@ types: !_Map_Type
     domainKind: !_DomainKind String
     items:
       - !_DomainRegex
+        description: 'Guid Regex'
         exclude: false
         pattern: '[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}'
     name: Guid

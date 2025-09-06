@@ -15,7 +15,7 @@ public class ParseEnumDefinitionTests
   }
 
   [Theory, RepeatData]
-  public void Parse_ShouldReturnEnumDefinition_WhenValid(string parentType)
+  public void Parse_ShouldReturnOk_WhenValid(string parentType)
   {
     // Arrange
     TakeReturns(':', true);
@@ -72,6 +72,6 @@ public class ParseEnumDefinitionTests
     IResult<EnumDefinition> result = _parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultPartial<EnumDefinition>>();
+    result.ShouldBeAssignableTo<IResultOk<EnumDefinition>>();
   }
 }

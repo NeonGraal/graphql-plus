@@ -16,7 +16,7 @@ public static class StructureHelper
     => list.Encode(i => new(i), tag, flow);
 
   public static Structured Encode<T>(this IMap<T> groups, Func<T, Structured> mapper, string? tag = null, bool flow = false)
-    => new(groups.ToDictionary(k => new StructureValue(k.Key), v => mapper(v.Value)), tag, flow);
+    => new(groups.OrderBy(p => p.Key).ToDictionary(k => new StructureValue(k.Key), v => mapper(v.Value)), tag, flow);
 
   public static Structured Encode(this IMap<Structured> groups, string? tag = null, bool flow = false)
     => groups.Encode(v => v, tag, flow);

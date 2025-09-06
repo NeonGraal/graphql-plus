@@ -19,6 +19,10 @@ function Get-Badge($params, $label, $body, $colour, $prefix = "") {
 }
 
 function Convert-Tests($test, $prefix = "") { 
+  if ($test.total -eq 0) {
+    return
+  }
+
   $params = ($test.label -replace " ", "_"), $test.failed, $test.error, $test.passed, $test.skipped
   if (($test.failed + $test.error) -eq 0) {
     $label = $test.label + " successful"
@@ -34,11 +38,15 @@ function Convert-Tests($test, $prefix = "") {
 }
 
 function Write-Tests($test, $prefix = "") {
-  $params = $test.label, $test.failed, $test.error, $test.passed, $test.skipped
+  if ($test.total -eq 0) {
+    return
+  }
+
+  $params = $test.label, $test.failed, $test.error, $test.passed, $test.skipped, $test.total
   if (($test.failed + $test.error) -eq 0) {
-    $message = "{0} successful: {3:d} passed, {4:d} skipped" -f $params
+    $message = "{0} successful: {3:d} passed, {4:d} skipped of {5:d} total" -f $params
   } else {
-    $message = "{0} FAILED: {1:d} failed, {2:d} errored, {3:d} passed, {4:d} skipped" -f $params
+    $message = "{0} FAILED: {1:d} failed, {2:d} errored, {3:d} passed, {4:d} skipped of {5:d} total" -f $params
   }
 
   Write-Host "$prefix$message"
@@ -94,7 +102,7 @@ if (-not $NoCoverage) {
   } | Sort-Object label
 }
 
-[PsObject]$allTests = @{label = "$testSet tests"; skipped = 0; passed = 0; failed = 0; error = 0 }
+[PsObject]$allTests = @{label = "$testSet tests"; total = 0; skipped = 0; passed = 0; failed = 0; error = 0 }
 $allErrors = @{}
 
 $tests = Get-ChildItem . -Recurse -Filter "TestResults-$Framework*.trx" | ForEach-Object {
@@ -103,9 +111,11 @@ $tests = Get-ChildItem . -Recurse -Filter "TestResults-$Framework*.trx" | ForEac
   $name = $_.Directory.Parent.Name -replace "GqlPlus\.","" -replace "\."," "
   $summary = $trx.TestRun.ResultSummary
   $counts = $summary.Counters
-  $skipped = [int]$counts.total - $counts.executed
+  $total = [int]$counts.total
+  $skipped = $total - $counts.executed
 
   $allTests.skipped += $skipped
+  $allTests.total += $total
   $allTests.passed += $counts.passed
   $allTests.failed += $counts.failed
   $allTests.error += $counts.error
@@ -118,7 +128,12 @@ $tests = Get-ChildItem . -Recurse -Filter "TestResults-$Framework*.trx" | ForEac
     }
   }
 
-  @{label = $name; failed = [int]$counts.failed; error = [int]$counts.error; passed = [int]$counts.passed; skipped = $skipped }
+  @{label = $name
+    total = $total
+    failed = [int]$counts.failed
+    error = [int]$counts.error
+    passed = [int]$counts.passed
+    skipped = $skipped }
 } | Sort-Object label
 
 Set-Content summary.md "# Summary"

@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Sample;
 
+[Trait("Generate", "Json")]
 public class JsonSchemaTests(
   ILoggerFactory logger,
   ISchemaVerifyChecks checks

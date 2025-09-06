@@ -11,7 +11,7 @@ public class DomainTrueFalseEncoderTests
         "exclude: " + excluded.TrueFalse(),
         "value: " + item.TrueFalse()
         ];
-  protected override DomainTrueFalseModel NewItem(bool item, bool excluded) => new(item, excluded);
+  protected override DomainTrueFalseModel NewItem(bool item, bool excluded) => new(item, excluded, "");
 }
 
 public class DomainBooleanEncoderTests
@@ -19,5 +19,5 @@ public class DomainBooleanEncoderTests
 {
   protected override DomainKindModel DomainKind => DomainKindModel.Boolean;
 
-  protected override DomainTrueFalseModel NewItem(bool item) => new(item, false);
+  protected override DomainTrueFalseModel NewItem(bool item) => new(item, false, "");
 }

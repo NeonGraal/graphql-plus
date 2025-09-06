@@ -12,5 +12,5 @@ internal class DomainBooleanModeller
     };
 
   protected override DomainTrueFalseModel ToItem(IGqlpDomainTrueFalse ast, IMap<TypeKindModel> typeKinds)
-    => new(ast.IsTrue, ast.Excludes);
+    => new(ast.IsTrue, ast.Excludes, ast.Description);
 }

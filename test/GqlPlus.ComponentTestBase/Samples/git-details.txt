@@ -1,1 +1,1 @@
-de18e81  (HEAD -> main, origin/main, origin/HEAD) 2025-08-25 Remove Specification sample
+fdeac74  (HEAD -> raw-value, origin/raw-value) 2025-09-06 Correct introspection errors

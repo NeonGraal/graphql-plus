@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Sample;
 
+[Trait("Generate", "Yaml")]
 public class YamlSchemaTests(
   ILoggerFactory logger,
   ISchemaVerifyChecks checks

@@ -1,2 +1,3 @@
-object Test { field: Test }
-object Test { field: Test[] }
+object Test { field: Field }
+object Test { field: Field[] }
+object Field { }

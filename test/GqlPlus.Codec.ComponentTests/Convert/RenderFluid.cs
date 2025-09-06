@@ -38,8 +38,14 @@ public static class RenderFluid
       ? new StringValue(tagged.Tag)
       : EmptyValue.Instance;
 
-  internal static Structured Links(this IEnumerable<string> list)
-    => new(list.ToDictionary(i => new StructureValue(i), i => new Structured(i)), "links");
+  internal static Structured Links(this IEnumerable<string> list, Func<string, string> mapper)
+    => new(list.ToDictionary(i => new StructureValue(mapper(i)), i => new Structured(i)), "links");
+
+  internal static Structured Links(this IEnumerable<string> list, string prefix = "")
+    => new(list.ToDictionary(i => new StructureValue(i), i => new Structured(prefix + i)), "links");
+
+  internal static Map<Structured> Links(this Map<IEnumerable<string>> groups)
+    => groups.ToMap(g => g.Key, g => g.Value.Links(g.Key + "/"));
 
   internal static async Task WriteHtmlFileAsync(this Structured model, string dir, string file, string initial = "default")
   {

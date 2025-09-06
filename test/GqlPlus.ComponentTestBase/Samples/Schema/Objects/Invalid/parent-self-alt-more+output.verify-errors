@@ -1,4 +1,0 @@
-﻿'Test' cannot be an alternate of itself, even recursively via Recurse
-'Alt' cannot be an alternate of itself, even recursively via Test
-'More' cannot be an alternate of itself, even recursively via Alt
-'Recurse' cannot be an alternate of itself, even recursively via More

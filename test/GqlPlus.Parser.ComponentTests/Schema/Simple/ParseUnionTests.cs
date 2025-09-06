@@ -20,8 +20,8 @@ public sealed class ParseUnionTests(
     => checks.FalseExpected(name + "{" + members.Joined() + "|}");
 
   [Theory, RepeatData]
-  public void WithUnionMembersNone_ReturnsFalse(string name)
-    => checks.FalseExpected(name + "{}");
+  public void WithUnionMembersNone_ReturnsTrue(string name)
+    => checks.TrueExpected(name + "{}", new UnionDeclAst(AstNulls.At, name, []));
 
   [Theory, RepeatData]
   public void WithAll_ReturnsCorrectAst(string name, string parent, string[] members)

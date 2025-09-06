@@ -1,0 +1,429 @@
+﻿!_Schema
+errors:
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _Operation can't get model for type '_Aliased'
+types: !_Map_Type
+  !_Identifier _OpDirective: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _OpDirective
+      type: !_DualBase
+        name: _Identifier
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: argument
+      object: _OpDirective
+      type: !_DualBase
+        name: String
+    fields:
+    - !_DualField
+      name: name
+      type: !_DualBase
+        name: _Identifier
+    - !_DualField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: argument
+      type: !_DualBase
+        name: String
+    name: _OpDirective
+    typeKind: !_TypeKind Dual
+  !_Identifier _OpField: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: alias
+      object: _OpField
+      type: !_OutputBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: _OpField
+      type: !_OutputBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: argument
+      object: _OpField
+      type: !_OutputBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      name: modifiers
+      object: _OpField
+      type: !_OutputBase
+        name: _Modifiers
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      object: _OpField
+      type: !_DualBase
+        name: _OpDirective
+    - !_ObjectFor(_OutputField)
+      description: "The body as a string as we can't have nested objects."
+      name: body
+      object: _OpField
+      type: !_OutputBase
+        name: String
+    fields:
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: alias
+      type: !_OutputBase
+        name: String
+    - !_OutputField
+      name: field
+      type: !_OutputBase
+        name: String
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: argument
+      type: !_OutputBase
+        name: String
+    - !_OutputField
+      name: modifiers
+      type: !_OutputBase
+        name: _Modifiers
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      type: !_DualBase
+        name: _OpDirective
+    - !_OutputField
+      description: "The body as a string as we can't have nested objects."
+      name: body
+      type: !_OutputBase
+        name: String
+    name: _OpField
+    typeKind: !_TypeKind Output
+  !_Identifier _OpFragment: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: name
+      object: _OpFragment
+      type: !_OutputBase
+        name: _Identifier
+    - !_ObjectFor(_OutputField)
+      name: type
+      object: _OpFragment
+      type: !_OutputBase
+        name: _OutputBase
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      object: _OpFragment
+      type: !_DualBase
+        name: _OpDirective
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: body
+      object: _OpFragment
+      type: !_OutputBase
+        name: _OpObject
+    fields:
+    - !_OutputField
+      name: name
+      type: !_OutputBase
+        name: _Identifier
+    - !_OutputField
+      name: type
+      type: !_OutputBase
+        name: _OutputBase
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      type: !_DualBase
+        name: _OpDirective
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: body
+      type: !_OutputBase
+        name: _OpObject
+    name: _OpFragment
+    typeKind: !_TypeKind Output
+  !_Identifier _OpInline: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: type
+      object: _OpInline
+      type: !_OutputBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      object: _OpInline
+      type: !_DualBase
+        name: _OpDirective
+    - !_ObjectFor(_OutputField)
+      description: "The body as a string as we can't have nested objects."
+      name: body
+      object: _OpInline
+      type: !_OutputBase
+        name: String
+    fields:
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: type
+      type: !_OutputBase
+        name: String
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      type: !_DualBase
+        name: _OpDirective
+    - !_OutputField
+      description: "The body as a string as we can't have nested objects."
+      name: body
+      type: !_OutputBase
+        name: String
+    name: _OpInline
+    typeKind: !_TypeKind Output
+  !_Identifier _OpObject: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: _OpObject
+      type: !_OutputBase
+        name: _OpField
+    - !_ObjectFor(_OutputAlternate)
+      object: _OpObject
+      type: !_OutputBase
+        name: _OpSpread
+    - !_ObjectFor(_OutputAlternate)
+      object: _OpObject
+      type: !_OutputBase
+        name: _OpInline
+    alternates:
+    - !_OutputAlternate
+      type: !_OutputBase
+        name: _OpField
+    - !_OutputAlternate
+      type: !_OutputBase
+        name: _OpSpread
+    - !_OutputAlternate
+      type: !_OutputBase
+        name: _OpInline
+    name: _OpObject
+    typeKind: !_TypeKind Output
+  !_Identifier _OpResult: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: domain
+      object: _OpResult
+      type: !_OutputBase
+        name: _TypeRef
+        typeArgs:
+        - !_OutputArg
+          name: _SimpleKind
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: argument
+      object: _OpResult
+      type: !_OutputBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: body
+      object: _OpResult
+      type: !_OutputBase
+        name: _OpObject
+    fields:
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: domain
+      type: !_OutputBase
+        name: _TypeRef
+        typeArgs:
+        - !_OutputArg
+          name: _SimpleKind
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: argument
+      type: !_OutputBase
+        name: String
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: body
+      type: !_OutputBase
+        name: _OpObject
+    name: _OpResult
+    typeKind: !_TypeKind Output
+  !_Identifier _OpSpread: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: fragment
+      object: _OpSpread
+      type: !_OutputBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      object: _OpSpread
+      type: !_DualBase
+        name: _OpDirective
+    fields:
+    - !_OutputField
+      name: fragment
+      type: !_OutputBase
+        name: String
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      type: !_DualBase
+        name: _OpDirective
+    name: _OpSpread
+    typeKind: !_TypeKind Output
+  !_Identifier _OpVariable: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: name
+      object: _OpVariable
+      type: !_OutputBase
+        name: _Identifier
+    - !_ObjectFor(_OutputField)
+      name: type
+      object: _OpVariable
+      type: !_OutputBase
+        name: _InputBase
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: modifiers
+      object: _OpVariable
+      type: !_OutputBase
+        name: _Modifiers
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: default
+      object: _OpVariable
+      type: !_OutputBase
+        name: String
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      object: _OpVariable
+      type: !_DualBase
+        name: _OpDirective
+    fields:
+    - !_OutputField
+      name: name
+      type: !_OutputBase
+        name: _Identifier
+    - !_OutputField
+      name: type
+      type: !_OutputBase
+        name: _InputBase
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: modifiers
+      type: !_OutputBase
+        name: _Modifiers
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: default
+      type: !_OutputBase
+        name: String
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      type: !_DualBase
+        name: _OpDirective
+    name: _OpVariable
+    typeKind: !_TypeKind Output
+  !_Identifier _Operation: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: category
+      object: _Operation
+      type: !_OutputBase
+        name: _Identifier
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: variables
+      object: _Operation
+      type: !_OutputBase
+        name: _OpVariable
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      object: _Operation
+      type: !_DualBase
+        name: _OpDirective
+    - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: fragments
+      object: _Operation
+      type: !_OutputBase
+        name: _OpFragment
+    - !_ObjectFor(_OutputField)
+      name: result
+      object: _Operation
+      type: !_OutputBase
+        name: _OpResult
+    fields:
+    - !_OutputField
+      name: category
+      type: !_OutputBase
+        name: _Identifier
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: variables
+      type: !_OutputBase
+        name: _OpVariable
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: directives
+      type: !_DualBase
+        name: _OpDirective
+    - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: fragments
+      type: !_OutputBase
+        name: _OpFragment
+    - !_OutputField
+      name: result
+      type: !_OutputBase
+        name: _OpResult
+    name: _Operation
+    parent: !_OutputBase
+      name: _Aliased
+    typeKind: !_TypeKind Output
+  !_Identifier _Operations: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: _Operations
+      type: !_OutputBase
+        name: _Operation
+    - !_ObjectFor(_OutputAlternate)
+      object: _Operations
+      type: !_OutputBase
+        name: _Type
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: operation
+      object: _Operations
+      type: !_OutputBase
+        name: _Operation
+    - !_ObjectFor(_OutputField)
+      name: type
+      object: _Operations
+      type: !_OutputBase
+        name: _Type
+    alternates:
+    - !_OutputAlternate
+      type: !_OutputBase
+        name: _Operation
+    - !_OutputAlternate
+      type: !_OutputBase
+        name: _Type
+    fields:
+    - !_OutputField
+      name: operation
+      type: !_OutputBase
+        name: _Operation
+    - !_OutputField
+      name: type
+      type: !_OutputBase
+        name: _Type
+    name: _Operations
+    typeKind: !_TypeKind Output

@@ -9,12 +9,15 @@
   {%- for item in domain.allItems %}
   <tr>
     <td>
+      {%- capture itemText -%}
       {%- case domain.domainKind -%}
       {%- when "Boolean" -%} {{ item.value }}
       {%- when "Enum" -%} {{ item.value.name }}.{{ item.value.label }}
       {%- when "Number" -%} {{ item.from }} ~ {{ item.to }}
       {%- when "String" -%} {{ item.pattern }}
       {%- endcase -%}
+      {%- endcapture -%}
+      {%- render "descr", name: itemText, descr: item.description -%}
     </td>
     <td>{{ item.exclude }}</td>
     <td class="from">{{ item.domain }}</td>

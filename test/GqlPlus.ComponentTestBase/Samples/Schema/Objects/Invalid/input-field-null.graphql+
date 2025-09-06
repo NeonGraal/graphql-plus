@@ -1,1 +1,2 @@
-input Test { field: Test = null }
+input Test { field: Field = null }
+input Field { }

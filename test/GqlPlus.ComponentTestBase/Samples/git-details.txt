@@ -1,1 +1,1 @@
-c8be08b  (HEAD -> operation) 2025-08-25 Correct operation type references
+fc081d3  (HEAD -> operation, origin/operation) 2025-09-07 Correct verify errors

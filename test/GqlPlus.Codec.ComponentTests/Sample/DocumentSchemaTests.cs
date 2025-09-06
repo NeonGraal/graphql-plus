@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Sample;
 
+[Trait("Generate", "Html")]
 public class DocumentSchemaTests(
   ILoggerFactory logger,
   ISchemaVerifyChecks checks,
@@ -13,33 +14,25 @@ public class DocumentSchemaTests(
 ) : TestSchemaVerify(logger, checks)
 {
   [Fact]
-  public async Task Index_Samples()
-  {
-    string[] all = ["!ALL", "+Globals", "+Merges", "+Objects", "+Simple"];
-
-    IEnumerable<string> merges = await ReplaceSchemaKeys("Merges");
-    IEnumerable<string> objects = await ReplaceSchemaKeys("Objects");
-    Structured result = new Map<Structured>() {
-      ["title"] = "Samples",
-      ["items"] = all.Encode(),
-      ["groups"] = new Map<Structured>() {
-        ["Globals"] = SamplesSchemaGlobalsData.Strings.Encode(),
-        ["Merges"] = merges.Encode(),
-        ["Objects"] = objects.Encode(),
-        ["Simple"] = SamplesSchemaSimpleData.Strings.Encode(),
-      }.Encode()
-    }.Encode();
-
-    await result.WriteHtmlFileAsync("Doc/Sample", "index", "index");
-  }
-
-  [Fact]
   public async Task Index_Schema()
   {
+    string[] all = ["!ALL", "+Global", "+Merge", "+Object", "+Simple"];
+
+    Map<IEnumerable<string>> mostGroups = new() {
+      ["Globals"] = SamplesSchemaGlobalsData.Strings,
+      ["Merges"] = await ReplaceSchemaKeys("Merges"),
+      ["Objects"] = await ReplaceSchemaKeys("Objects"),
+      ["Simple"] = SamplesSchemaSimpleData.Strings,
+    };
+
+    Map<Structured> groups = mostGroups.Links();
+    groups["All"] = all.Links(v => v[1..]);
+
     Structured result = new Map<Structured>() {
       ["title"] = "Schema",
-      ["items"] = SamplesSchemaData.Strings.Encode(),
-    }.Encode("");
+      ["items"] = SamplesSchemaData.Strings.Links(),
+      ["groups"] = groups.Encode()
+    }.Encode();
 
     await result.WriteHtmlFileAsync("Doc/Schema", "index", "index");
   }
@@ -47,10 +40,15 @@ public class DocumentSchemaTests(
   [Fact]
   public async Task Index_Spec()
   {
+    Map<IEnumerable<string>> groups = new() {
+      ["Introspection"] = SamplesSpecificationIntrospectionData.Strings,
+    };
+
     Structured result = new Map<Structured>() {
       ["title"] = "Specification",
-      ["items"] = SamplesSchemaSpecificationData.Strings.Encode(),
-    }.Encode("");
+      ["items"] = SamplesSpecificationData.Strings.Links(),
+      ["groups"] = groups.Links().Encode()
+    }.Encode();
 
     await result.WriteHtmlFileAsync("Doc/Spec", "index", "index");
   }
@@ -79,7 +77,8 @@ public class DocumentSchemaTests(
     ICollection<SettingModel> settings = model.GetSettings(null).Values;
     SchemaModel newModel = new(model.Name, categories, directives, operations, settings, [], model.Errors);
     Structured result = checks.Encode_Model(newModel, context)
-      .Add("groups", groups);
+      .Add("groups", groups)
+      .Add("title", new(test));
 
     await result.WriteHtmlFileAsync(new string[] { "Doc", label, section }.Joined("/"), test);
 

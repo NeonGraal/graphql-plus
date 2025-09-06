@@ -1,1 +1,2 @@
-object Test { field: Test[Test] }
+object Test { field: Field[Field] }
+object Field { }

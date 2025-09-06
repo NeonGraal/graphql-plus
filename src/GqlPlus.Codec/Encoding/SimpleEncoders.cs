@@ -11,7 +11,7 @@ internal class BaseDomainEncoder<TItem>(
 }
 
 internal class BaseDomainItemEncoder<TItem>
-  : BaseEncoder<TItem>
+  : DescribedEncoder<TItem>
   where TItem : BaseDomainItemModel
 {
   internal override Structured Encode(TItem model)

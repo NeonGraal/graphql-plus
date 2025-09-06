@@ -71,9 +71,18 @@ internal record struct SelfUsage<TAst>(List<string> Chain, TAst Usage, string La
   internal readonly bool DifferentName
   {
     get {
-      if (Chain.Count == 0) return true;
-      if (Chain.Count > 99) return false;
-      if (Chain.Contains(Usage.Name)) return false;
+      if (Chain.Count == 0) {
+        return true;
+      }
+
+      if (Chain.Count > 99) {
+        return false;
+      }
+
+      if (Chain.Contains(Usage.Name)) {
+        return false;
+      }
+
       return !Chain.Skip(1).Contains(Current);
     }
   }

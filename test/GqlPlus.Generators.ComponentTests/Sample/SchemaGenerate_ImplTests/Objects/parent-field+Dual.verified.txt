@@ -1,0 +1,24 @@
+﻿/* parent-field+Dual
+dual PrntFieldDual { :RefPrntFieldDual field: Number }
+dual RefPrntFieldDual { parent: Number | String }
+*/
+
+// Generated from Schema parent-field+Dual for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_parent_field_Dual;
+
+public class DualPrntFieldDual
+  : DualRefPrntFieldDual
+  , IPrntFieldDual
+{
+  public Number field { get; set; }
+}
+
+public class DualRefPrntFieldDual
+  : IRefPrntFieldDual
+{
+  public Number parent { get; set; }
+  public String AsString { get; set; }
+}

@@ -1,0 +1,13 @@
+﻿/* category
+category { Ctgr }
+category ctgr { Ctgr }
+output Ctgr { }
+*/
+
+// Generated from Schema category for Stat
+
+/*
+
+Category ctgr
+*/
+namespace GqlPlus.Gqlp_Schema_category;

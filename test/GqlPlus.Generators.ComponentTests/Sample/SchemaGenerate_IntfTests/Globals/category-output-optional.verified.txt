@@ -1,0 +1,14 @@
+﻿/* category-output-optional
+category { CtgrOutpOptl? }
+output CtgrOutpOptl { }
+*/
+
+// Generated from Schema category-output-optional for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_category_output_optional;
+
+public interface ICtgrOutpOptl
+{
+}

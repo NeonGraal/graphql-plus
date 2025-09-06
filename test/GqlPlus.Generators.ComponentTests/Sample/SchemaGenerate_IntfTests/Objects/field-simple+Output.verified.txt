@@ -1,0 +1,14 @@
+﻿/* field-simple+Output
+output FieldSmplOutp { field: Number }
+*/
+
+// Generated from Schema field-simple+Output for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_field_simple_Output;
+
+public interface IFieldSmplOutp
+{
+  Number field { get; }
+}

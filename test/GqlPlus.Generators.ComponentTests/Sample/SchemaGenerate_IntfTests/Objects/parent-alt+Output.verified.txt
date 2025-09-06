@@ -1,0 +1,22 @@
+﻿/* parent-alt+Output
+output PrntAltOutp { :RefPrntAltOutp | Number }
+output RefPrntAltOutp {  parent: Number | String }
+*/
+
+// Generated from Schema parent-alt+Output for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_parent_alt_Output;
+
+public interface IPrntAltOutp
+  : IRefPrntAltOutp
+{
+  Number AsNumber { get; }
+}
+
+public interface IRefPrntAltOutp
+{
+  Number parent { get; }
+  String AsString { get; }
+}

@@ -1,0 +1,15 @@
+﻿/* category-mod
+category [CatM1] { CtgrMod? }
+category [CatM2] { CtgrMod? }
+output CtgrMod { }
+*/
+
+// Generated from Schema category-mod for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_category_mod;
+
+public interface ICtgrMod
+{
+}

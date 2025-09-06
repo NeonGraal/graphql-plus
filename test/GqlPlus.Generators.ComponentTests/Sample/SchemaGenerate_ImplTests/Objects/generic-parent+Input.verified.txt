@@ -1,0 +1,15 @@
+﻿/* generic-parent+Input
+input GnrcPrntInp<$type:String> { :$type }
+*/
+
+// Generated from Schema generic-parent+Input for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_generic_parent_Input;
+
+public class InputGnrcPrntInp<Ttype>
+  : Inputtype
+  , IGnrcPrntInp<Ttype>
+{
+}

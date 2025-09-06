@@ -1,0 +1,14 @@
+﻿/* descr-double
+"A 'double-quoted' description"
+output DescrDbl { }
+*/
+
+// Generated from Schema descr-double for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_descr_double;
+
+public interface IDescrDbl
+{
+}

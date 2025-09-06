@@ -1,0 +1,14 @@
+﻿/* enum-descr
+enum EnumDescr { "Enum" "Descr" enumDescr }
+*/
+
+// Generated from Schema enum-descr for Enum
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_enum_descr;
+
+public enum EnumDescr
+{
+  enumDescr,
+}

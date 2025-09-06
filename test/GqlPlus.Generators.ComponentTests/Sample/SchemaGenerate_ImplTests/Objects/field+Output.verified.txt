@@ -1,0 +1,15 @@
+﻿/* field+Output
+output FieldOutp { field: String }
+*/
+
+// Generated from Schema field+Output for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_field_Output;
+
+public class OutputFieldOutp
+  : IFieldOutp
+{
+  public String field { get; set; }
+}

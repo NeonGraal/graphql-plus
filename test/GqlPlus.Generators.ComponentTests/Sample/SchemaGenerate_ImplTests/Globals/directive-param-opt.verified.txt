@@ -1,0 +1,15 @@
+﻿/* directive-param-opt
+directive @DrctParamOpt(InDrctParamOpt?) { all }
+input InDrctParamOpt { }
+*/
+
+// Generated from Schema directive-param-opt for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_directive_param_opt;
+
+public class InputInDrctParamOpt
+  : IInDrctParamOpt
+{
+}

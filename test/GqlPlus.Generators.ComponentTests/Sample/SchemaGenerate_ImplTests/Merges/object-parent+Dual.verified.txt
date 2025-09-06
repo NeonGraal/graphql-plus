@@ -1,0 +1,22 @@
+﻿/* object-parent+Dual
+dual ObjPrntDual { :RefObjPrntDual }
+dual ObjPrntDual { :RefObjPrntDual }
+dual RefObjPrntDual { }
+*/
+
+// Generated from Schema object-parent+Dual for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_object_parent_Dual;
+
+public class DualObjPrntDual
+  : DualRefObjPrntDual
+  , IObjPrntDual
+{
+}
+
+public class DualRefObjPrntDual
+  : IRefObjPrntDual
+{
+}

@@ -1,0 +1,15 @@
+﻿/* generic-alt+Dual
+dual GnrcAltDual<$type:String> { | $type }
+*/
+
+// Generated from Schema generic-alt+Dual for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_generic_alt_Dual;
+
+public class DualGnrcAltDual<Ttype>
+  : IGnrcAltDual<Ttype>
+{
+  public Ttype Astype { get; set; }
+}

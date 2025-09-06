@@ -1,0 +1,23 @@
+﻿/* field-mod-param+Input
+input FieldModParamInp<$mod:String> { field: FldFieldModParamInp[$mod] }
+input FldFieldModParamInp { field: Number | String }
+*/
+
+// Generated from Schema field-mod-param+Input for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_field_mod_param_Input;
+
+public class InputFieldModParamInp<Tmod>
+  : IFieldModParamInp<Tmod>
+{
+  public FldFieldModParamInp field { get; set; }
+}
+
+public class InputFldFieldModParamInp
+  : IFldFieldModParamInp
+{
+  public Number field { get; set; }
+  public String AsString { get; set; }
+}

@@ -1,0 +1,20 @@
+﻿/* domain-enum-parent-descr
+domain DmnEnumPrntDescr { :"Parent comment"PrntDmnEnumPrntDescr Enum enum_dmnEnumPrntDescr }
+domain PrntDmnEnumPrntDescr { Enum prnt_dmnEnumPrntDescr }
+enum EnumDmnEnumPrntDescr { enum_dmnEnumPrntDescr prnt_dmnEnumPrntDescr }
+*/
+
+// Generated from Schema domain-enum-parent-descr for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_domain_enum_parent_descr;
+
+public interface IDmnEnumPrntDescr
+  : IPrntDmnEnumPrntDescr
+{
+}
+
+public interface IPrntDmnEnumPrntDescr
+{
+}

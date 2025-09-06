@@ -1,0 +1,23 @@
+﻿/* field-mod-param+Dual
+dual FieldModParamDual<$mod:String> { field: FldFieldModParamDual[$mod] }
+dual FldFieldModParamDual { field: Number | String }
+*/
+
+// Generated from Schema field-mod-param+Dual for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_field_mod_param_Dual;
+
+public class DualFieldModParamDual<Tmod>
+  : IFieldModParamDual<Tmod>
+{
+  public FldFieldModParamDual field { get; set; }
+}
+
+public class DualFldFieldModParamDual
+  : IFldFieldModParamDual
+{
+  public Number field { get; set; }
+  public String AsString { get; set; }
+}

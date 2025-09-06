@@ -1,0 +1,15 @@
+﻿/* constraint-alt+Input
+input CnstAltInp<$type:Number> { | $type }
+*/
+
+// Generated from Schema constraint-alt+Input for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_constraint_alt_Input;
+
+public class InputCnstAltInp<Ttype>
+  : ICnstAltInp<Ttype>
+{
+  public Ttype Astype { get; set; }
+}

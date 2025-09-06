@@ -1,0 +1,2751 @@
+﻿// Generated from Schema !ALL for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_ALL;
+
+public interface ICtgrDscrs
+{
+}
+
+public interface ICtgrOutp
+{
+}
+
+public interface ICtgrOutpDescr
+{
+}
+
+public interface ICtgrOutpDict
+{
+}
+
+public interface ICtgrOutpList
+{
+}
+
+public interface ICtgrOutpOptl
+{
+}
+
+public interface IDescr
+{
+}
+
+public interface IDescrBcks
+{
+}
+
+public interface IDescrBtwn
+{
+}
+
+public interface IDescrCmpl
+{
+}
+
+public interface IDescrDbl
+{
+}
+
+public interface IDescrSngl
+{
+}
+
+public interface IDscrs
+{
+}
+
+public interface IInDrctParamDict
+{
+}
+
+public interface IInDrctParamIn
+{
+}
+
+public interface IInDrctParamList
+{
+}
+
+public interface IInDrctParamOpt
+{
+}
+
+public interface IAltDual
+{
+  AltAltDual AsAltAltDual { get; }
+}
+
+public interface IAltAltDual
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IAltInp
+{
+  AltAltInp AsAltAltInp { get; }
+}
+
+public interface IAltAltInp
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IAltOutp
+{
+  AltAltOutp AsAltAltOutp { get; }
+}
+
+public interface IAltAltOutp
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IAltDescrDual
+{
+  String AsString { get; }
+}
+
+public interface IAltDescrInp
+{
+  String AsString { get; }
+}
+
+public interface IAltDescrOutp
+{
+  String AsString { get; }
+}
+
+public interface IAltDualDual
+{
+  ObjDualAltDualDual AsObjDualAltDualDual { get; }
+}
+
+public interface IObjDualAltDualDual
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IAltDualInp
+{
+  ObjDualAltDualInp AsObjDualAltDualInp { get; }
+}
+
+public interface IObjDualAltDualInp
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IAltDualOutp
+{
+  ObjDualAltDualOutp AsObjDualAltDualOutp { get; }
+}
+
+public interface IObjDualAltDualOutp
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IAltModBoolDual
+{
+  AltAltModBoolDual AsAltAltModBoolDual { get; }
+}
+
+public interface IAltAltModBoolDual
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IAltModBoolInp
+{
+  AltAltModBoolInp AsAltAltModBoolInp { get; }
+}
+
+public interface IAltAltModBoolInp
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IAltModBoolOutp
+{
+  AltAltModBoolOutp AsAltAltModBoolOutp { get; }
+}
+
+public interface IAltAltModBoolOutp
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IAltModParamDual<Tmod>
+{
+  AltAltModParamDual AsAltAltModParamDual { get; }
+}
+
+public interface IAltAltModParamDual
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IAltModParamInp<Tmod>
+{
+  AltAltModParamInp AsAltAltModParamInp { get; }
+}
+
+public interface IAltAltModParamInp
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IAltModParamOutp<Tmod>
+{
+  AltAltModParamOutp AsAltAltModParamOutp { get; }
+}
+
+public interface IAltAltModParamOutp
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IAltSmplDual
+{
+  String AsString { get; }
+}
+
+public interface IAltSmplInp
+{
+  String AsString { get; }
+}
+
+public interface IAltSmplOutp
+{
+  String AsString { get; }
+}
+
+public interface ICnstAltDual<Ttype>
+{
+  Ttype Astype { get; }
+}
+
+public interface ICnstAltInp<Ttype>
+{
+  Ttype Astype { get; }
+}
+
+public interface ICnstAltOutp<Ttype>
+{
+  Ttype Astype { get; }
+}
+
+public interface ICnstAltDmnDual
+{
+  RefCnstAltDmnDual<DomCnstAltDmnDual> AsRefCnstAltDmnDual { get; }
+}
+
+public interface IRefCnstAltDmnDual<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IDomCnstAltDmnDual
+{
+}
+
+public interface ICnstAltDmnInp
+{
+  RefCnstAltDmnInp<DomCnstAltDmnInp> AsRefCnstAltDmnInp { get; }
+}
+
+public interface IRefCnstAltDmnInp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IDomCnstAltDmnInp
+{
+}
+
+public interface ICnstAltDmnOutp
+{
+  RefCnstAltDmnOutp<DomCnstAltDmnOutp> AsRefCnstAltDmnOutp { get; }
+}
+
+public interface IRefCnstAltDmnOutp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IDomCnstAltDmnOutp
+{
+}
+
+public interface ICnstAltDualDual
+{
+  RefCnstAltDualDual<AltCnstAltDualDual> AsRefCnstAltDualDual { get; }
+}
+
+public interface IRefCnstAltDualDual<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IPrntCnstAltDualDual
+{
+  String AsString { get; }
+}
+
+public interface IAltCnstAltDualDual
+  : IPrntCnstAltDualDual
+{
+  Number alt { get; }
+}
+
+public interface ICnstAltDualInp
+{
+  RefCnstAltDualInp<AltCnstAltDualInp> AsRefCnstAltDualInp { get; }
+}
+
+public interface IRefCnstAltDualInp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IPrntCnstAltDualInp
+{
+  String AsString { get; }
+}
+
+public interface IAltCnstAltDualInp
+  : IPrntCnstAltDualInp
+{
+  Number alt { get; }
+}
+
+public interface ICnstAltDualOutp
+{
+  RefCnstAltDualOutp<AltCnstAltDualOutp> AsRefCnstAltDualOutp { get; }
+}
+
+public interface IRefCnstAltDualOutp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IPrntCnstAltDualOutp
+{
+  String AsString { get; }
+}
+
+public interface IAltCnstAltDualOutp
+  : IPrntCnstAltDualOutp
+{
+  Number alt { get; }
+}
+
+public interface ICnstAltObjDual
+{
+  RefCnstAltObjDual<AltCnstAltObjDual> AsRefCnstAltObjDual { get; }
+}
+
+public interface IRefCnstAltObjDual<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IPrntCnstAltObjDual
+{
+  String AsString { get; }
+}
+
+public interface IAltCnstAltObjDual
+  : IPrntCnstAltObjDual
+{
+  Number alt { get; }
+}
+
+public interface ICnstAltObjInp
+{
+  RefCnstAltObjInp<AltCnstAltObjInp> AsRefCnstAltObjInp { get; }
+}
+
+public interface IRefCnstAltObjInp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IPrntCnstAltObjInp
+{
+  String AsString { get; }
+}
+
+public interface IAltCnstAltObjInp
+  : IPrntCnstAltObjInp
+{
+  Number alt { get; }
+}
+
+public interface ICnstAltObjOutp
+{
+  RefCnstAltObjOutp<AltCnstAltObjOutp> AsRefCnstAltObjOutp { get; }
+}
+
+public interface IRefCnstAltObjOutp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IPrntCnstAltObjOutp
+{
+  String AsString { get; }
+}
+
+public interface IAltCnstAltObjOutp
+  : IPrntCnstAltObjOutp
+{
+  Number alt { get; }
+}
+
+public interface ICnstFieldDmnDual
+  : IRefCnstFieldDmnDual
+{
+}
+
+public interface IRefCnstFieldDmnDual<Tref>
+{
+  Tref field { get; }
+}
+
+public interface IDomCnstFieldDmnDual
+{
+}
+
+public interface ICnstFieldDmnInp
+  : IRefCnstFieldDmnInp
+{
+}
+
+public interface IRefCnstFieldDmnInp<Tref>
+{
+  Tref field { get; }
+}
+
+public interface IDomCnstFieldDmnInp
+{
+}
+
+public interface ICnstFieldDmnOutp
+  : IRefCnstFieldDmnOutp
+{
+}
+
+public interface IRefCnstFieldDmnOutp<Tref>
+{
+  Tref field { get; }
+}
+
+public interface IDomCnstFieldDmnOutp
+{
+}
+
+public interface ICnstFieldDualDual
+  : IRefCnstFieldDualDual
+{
+}
+
+public interface IRefCnstFieldDualDual<Tref>
+{
+  Tref field { get; }
+}
+
+public interface IPrntCnstFieldDualDual
+{
+  String AsString { get; }
+}
+
+public interface IAltCnstFieldDualDual
+  : IPrntCnstFieldDualDual
+{
+  Number alt { get; }
+}
+
+public interface ICnstFieldDualInp
+  : IRefCnstFieldDualInp
+{
+}
+
+public interface IRefCnstFieldDualInp<Tref>
+{
+  Tref field { get; }
+}
+
+public interface IPrntCnstFieldDualInp
+{
+  String AsString { get; }
+}
+
+public interface IAltCnstFieldDualInp
+  : IPrntCnstFieldDualInp
+{
+  Number alt { get; }
+}
+
+public interface ICnstFieldDualOutp
+  : IRefCnstFieldDualOutp
+{
+}
+
+public interface IRefCnstFieldDualOutp<Tref>
+{
+  Tref field { get; }
+}
+
+public interface IPrntCnstFieldDualOutp
+{
+  String AsString { get; }
+}
+
+public interface IAltCnstFieldDualOutp
+  : IPrntCnstFieldDualOutp
+{
+  Number alt { get; }
+}
+
+public interface ICnstFieldObjDual
+  : IRefCnstFieldObjDual
+{
+}
+
+public interface IRefCnstFieldObjDual<Tref>
+{
+  Tref field { get; }
+}
+
+public interface IPrntCnstFieldObjDual
+{
+  String AsString { get; }
+}
+
+public interface IAltCnstFieldObjDual
+  : IPrntCnstFieldObjDual
+{
+  Number alt { get; }
+}
+
+public interface ICnstFieldObjInp
+  : IRefCnstFieldObjInp
+{
+}
+
+public interface IRefCnstFieldObjInp<Tref>
+{
+  Tref field { get; }
+}
+
+public interface IPrntCnstFieldObjInp
+{
+  String AsString { get; }
+}
+
+public interface IAltCnstFieldObjInp
+  : IPrntCnstFieldObjInp
+{
+  Number alt { get; }
+}
+
+public interface ICnstFieldObjOutp
+  : IRefCnstFieldObjOutp
+{
+}
+
+public interface IRefCnstFieldObjOutp<Tref>
+{
+  Tref field { get; }
+}
+
+public interface IPrntCnstFieldObjOutp
+{
+  String AsString { get; }
+}
+
+public interface IAltCnstFieldObjOutp
+  : IPrntCnstFieldObjOutp
+{
+  Number alt { get; }
+}
+
+public interface ICnstPrntDualGrndDual
+  : IRefCnstPrntDualGrndDual
+{
+}
+
+public interface IRefCnstPrntDualGrndDual<Tref>
+  : Iref
+{
+}
+
+public interface IGrndCnstPrntDualGrndDual
+{
+  String AsString { get; }
+}
+
+public interface IPrntCnstPrntDualGrndDual
+  : IGrndCnstPrntDualGrndDual
+{
+}
+
+public interface IAltCnstPrntDualGrndDual
+  : IPrntCnstPrntDualGrndDual
+{
+  Number alt { get; }
+}
+
+public interface ICnstPrntDualGrndInp
+  : IRefCnstPrntDualGrndInp
+{
+}
+
+public interface IRefCnstPrntDualGrndInp<Tref>
+  : Iref
+{
+}
+
+public interface IGrndCnstPrntDualGrndInp
+{
+  String AsString { get; }
+}
+
+public interface IPrntCnstPrntDualGrndInp
+  : IGrndCnstPrntDualGrndInp
+{
+}
+
+public interface IAltCnstPrntDualGrndInp
+  : IPrntCnstPrntDualGrndInp
+{
+  Number alt { get; }
+}
+
+public interface ICnstPrntDualGrndOutp
+  : IRefCnstPrntDualGrndOutp
+{
+}
+
+public interface IRefCnstPrntDualGrndOutp<Tref>
+  : Iref
+{
+}
+
+public interface IGrndCnstPrntDualGrndOutp
+{
+  String AsString { get; }
+}
+
+public interface IPrntCnstPrntDualGrndOutp
+  : IGrndCnstPrntDualGrndOutp
+{
+}
+
+public interface IAltCnstPrntDualGrndOutp
+  : IPrntCnstPrntDualGrndOutp
+{
+  Number alt { get; }
+}
+
+public interface ICnstPrntDualPrntDual
+  : IRefCnstPrntDualPrntDual
+{
+}
+
+public interface IRefCnstPrntDualPrntDual<Tref>
+  : Iref
+{
+}
+
+public interface IPrntCnstPrntDualPrntDual
+{
+  String AsString { get; }
+}
+
+public interface IAltCnstPrntDualPrntDual
+  : IPrntCnstPrntDualPrntDual
+{
+  Number alt { get; }
+}
+
+public interface ICnstPrntDualPrntInp
+  : IRefCnstPrntDualPrntInp
+{
+}
+
+public interface IRefCnstPrntDualPrntInp<Tref>
+  : Iref
+{
+}
+
+public interface IPrntCnstPrntDualPrntInp
+{
+  String AsString { get; }
+}
+
+public interface IAltCnstPrntDualPrntInp
+  : IPrntCnstPrntDualPrntInp
+{
+  Number alt { get; }
+}
+
+public interface ICnstPrntDualPrntOutp
+  : IRefCnstPrntDualPrntOutp
+{
+}
+
+public interface IRefCnstPrntDualPrntOutp<Tref>
+  : Iref
+{
+}
+
+public interface IPrntCnstPrntDualPrntOutp
+{
+  String AsString { get; }
+}
+
+public interface IAltCnstPrntDualPrntOutp
+  : IPrntCnstPrntDualPrntOutp
+{
+  Number alt { get; }
+}
+
+public interface ICnstPrntObjPrntDual
+  : IRefCnstPrntObjPrntDual
+{
+}
+
+public interface IRefCnstPrntObjPrntDual<Tref>
+  : Iref
+{
+}
+
+public interface IPrntCnstPrntObjPrntDual
+{
+  String AsString { get; }
+}
+
+public interface IAltCnstPrntObjPrntDual
+  : IPrntCnstPrntObjPrntDual
+{
+  Number alt { get; }
+}
+
+public interface ICnstPrntObjPrntInp
+  : IRefCnstPrntObjPrntInp
+{
+}
+
+public interface IRefCnstPrntObjPrntInp<Tref>
+  : Iref
+{
+}
+
+public interface IPrntCnstPrntObjPrntInp
+{
+  String AsString { get; }
+}
+
+public interface IAltCnstPrntObjPrntInp
+  : IPrntCnstPrntObjPrntInp
+{
+  Number alt { get; }
+}
+
+public interface ICnstPrntObjPrntOutp
+  : IRefCnstPrntObjPrntOutp
+{
+}
+
+public interface IRefCnstPrntObjPrntOutp<Tref>
+  : Iref
+{
+}
+
+public interface IPrntCnstPrntObjPrntOutp
+{
+  String AsString { get; }
+}
+
+public interface IAltCnstPrntObjPrntOutp
+  : IPrntCnstPrntObjPrntOutp
+{
+  Number alt { get; }
+}
+
+public interface IFieldDual
+{
+  String field { get; }
+}
+
+public interface IFieldInp
+{
+  String field { get; }
+}
+
+public interface IFieldOutp
+{
+  String field { get; }
+}
+
+public interface IFieldDescrDual
+{
+  String field { get; }
+}
+
+public interface IFieldDescrInp
+{
+  String field { get; }
+}
+
+public interface IFieldDescrOutp
+{
+  String field { get; }
+}
+
+public interface IFieldDualDual
+{
+  FldFieldDualDual field { get; }
+}
+
+public interface IFldFieldDualDual
+{
+  Number field { get; }
+  String AsString { get; }
+}
+
+public interface IFieldDualInp
+{
+  FldFieldDualInp field { get; }
+}
+
+public interface IFldFieldDualInp
+{
+  Number field { get; }
+  String AsString { get; }
+}
+
+public interface IFieldDualOutp
+{
+  FldFieldDualOutp field { get; }
+}
+
+public interface IFldFieldDualOutp
+{
+  Number field { get; }
+  String AsString { get; }
+}
+
+public interface IFieldModEnumDual
+{
+  String field { get; }
+}
+
+public interface IFieldModEnumInp
+{
+  String field { get; }
+}
+
+public interface IFieldModEnumOutp
+{
+  String field { get; }
+}
+
+public interface IFieldModParamDual<Tmod>
+{
+  FldFieldModParamDual field { get; }
+}
+
+public interface IFldFieldModParamDual
+{
+  Number field { get; }
+  String AsString { get; }
+}
+
+public interface IFieldModParamInp<Tmod>
+{
+  FldFieldModParamInp field { get; }
+}
+
+public interface IFldFieldModParamInp
+{
+  Number field { get; }
+  String AsString { get; }
+}
+
+public interface IFieldModParamOutp<Tmod>
+{
+  FldFieldModParamOutp field { get; }
+}
+
+public interface IFldFieldModParamOutp
+{
+  Number field { get; }
+  String AsString { get; }
+}
+
+public interface IFieldObjDual
+{
+  FldFieldObjDual field { get; }
+}
+
+public interface IFldFieldObjDual
+{
+  Number field { get; }
+  String AsString { get; }
+}
+
+public interface IFieldObjInp
+{
+  FldFieldObjInp field { get; }
+}
+
+public interface IFldFieldObjInp
+{
+  Number field { get; }
+  String AsString { get; }
+}
+
+public interface IFieldObjOutp
+{
+  FldFieldObjOutp field { get; }
+}
+
+public interface IFldFieldObjOutp
+{
+  Number field { get; }
+  String AsString { get; }
+}
+
+public interface IFieldSmplDual
+{
+  Number field { get; }
+}
+
+public interface IFieldSmplInp
+{
+  Number field { get; }
+}
+
+public interface IFieldSmplOutp
+{
+  Number field { get; }
+}
+
+public interface IFieldTypeDescrDual
+{
+  Number field { get; }
+}
+
+public interface IFieldTypeDescrInp
+{
+  Number field { get; }
+}
+
+public interface IFieldTypeDescrOutp
+{
+  Number field { get; }
+}
+
+public interface IGnrcAltDual<Ttype>
+{
+  Ttype Astype { get; }
+}
+
+public interface IGnrcAltInp<Ttype>
+{
+  Ttype Astype { get; }
+}
+
+public interface IGnrcAltOutp<Ttype>
+{
+  Ttype Astype { get; }
+}
+
+public interface IGnrcAltArgDual<Ttype>
+{
+  RefGnrcAltArgDual<Ttype> AsRefGnrcAltArgDual { get; }
+}
+
+public interface IRefGnrcAltArgDual<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IGnrcAltArgInp<Ttype>
+{
+  RefGnrcAltArgInp<Ttype> AsRefGnrcAltArgInp { get; }
+}
+
+public interface IRefGnrcAltArgInp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IGnrcAltArgOutp<Ttype>
+{
+  RefGnrcAltArgOutp<Ttype> AsRefGnrcAltArgOutp { get; }
+}
+
+public interface IRefGnrcAltArgOutp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IGnrcAltArgDescrDual<Ttype>
+{
+  RefGnrcAltArgDescrDual<Ttype> AsRefGnrcAltArgDescrDual { get; }
+}
+
+public interface IRefGnrcAltArgDescrDual<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IGnrcAltArgDescrInp<Ttype>
+{
+  RefGnrcAltArgDescrInp<Ttype> AsRefGnrcAltArgDescrInp { get; }
+}
+
+public interface IRefGnrcAltArgDescrInp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IGnrcAltArgDescrOutp<Ttype>
+{
+  RefGnrcAltArgDescrOutp<Ttype> AsRefGnrcAltArgDescrOutp { get; }
+}
+
+public interface IRefGnrcAltArgDescrOutp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IGnrcAltDualDual
+{
+  RefGnrcAltDualDual<AltGnrcAltDualDual> AsRefGnrcAltDualDual { get; }
+}
+
+public interface IRefGnrcAltDualDual<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IAltGnrcAltDualDual
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IGnrcAltDualInp
+{
+  RefGnrcAltDualInp<AltGnrcAltDualInp> AsRefGnrcAltDualInp { get; }
+}
+
+public interface IRefGnrcAltDualInp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IAltGnrcAltDualInp
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IGnrcAltDualOutp
+{
+  RefGnrcAltDualOutp<AltGnrcAltDualOutp> AsRefGnrcAltDualOutp { get; }
+}
+
+public interface IRefGnrcAltDualOutp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IAltGnrcAltDualOutp
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IRefGnrcAltModParamDual<Tref,Tmod>
+{
+  Tref Asref { get; }
+}
+
+public interface IRefGnrcAltModParamInp<Tref,Tmod>
+{
+  Tref Asref { get; }
+}
+
+public interface IRefGnrcAltModParamOutp<Tref,Tmod>
+{
+  Tref Asref { get; }
+}
+
+public interface IRefGnrcAltModStrDual<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IRefGnrcAltModStrInp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IRefGnrcAltModStrOutp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IGnrcAltParamDual
+{
+  RefGnrcAltParamDual<AltGnrcAltParamDual> AsRefGnrcAltParamDual { get; }
+}
+
+public interface IRefGnrcAltParamDual<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IAltGnrcAltParamDual
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IGnrcAltParamInp
+{
+  RefGnrcAltParamInp<AltGnrcAltParamInp> AsRefGnrcAltParamInp { get; }
+}
+
+public interface IRefGnrcAltParamInp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IAltGnrcAltParamInp
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IGnrcAltParamOutp
+{
+  RefGnrcAltParamOutp<AltGnrcAltParamOutp> AsRefGnrcAltParamOutp { get; }
+}
+
+public interface IRefGnrcAltParamOutp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IAltGnrcAltParamOutp
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IGnrcAltSmplDual
+{
+  RefGnrcAltSmplDual<String> AsRefGnrcAltSmplDual { get; }
+}
+
+public interface IRefGnrcAltSmplDual<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IGnrcAltSmplInp
+{
+  RefGnrcAltSmplInp<String> AsRefGnrcAltSmplInp { get; }
+}
+
+public interface IRefGnrcAltSmplInp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IGnrcAltSmplOutp
+{
+  RefGnrcAltSmplOutp<String> AsRefGnrcAltSmplOutp { get; }
+}
+
+public interface IRefGnrcAltSmplOutp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IGnrcDescrDual<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface IGnrcDescrInp<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface IGnrcDescrOutp<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface IGnrcFieldDual<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface IGnrcFieldInp<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface IGnrcFieldOutp<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface IGnrcFieldArgDual<Ttype>
+{
+  RefGnrcFieldArgDual<Ttype> field { get; }
+}
+
+public interface IRefGnrcFieldArgDual<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IGnrcFieldArgInp<Ttype>
+{
+  RefGnrcFieldArgInp<Ttype> field { get; }
+}
+
+public interface IRefGnrcFieldArgInp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IGnrcFieldArgOutp<Ttype>
+{
+  RefGnrcFieldArgOutp<Ttype> field { get; }
+}
+
+public interface IRefGnrcFieldArgOutp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IGnrcFieldDualDual
+{
+  RefGnrcFieldDualDual<AltGnrcFieldDualDual> field { get; }
+}
+
+public interface IRefGnrcFieldDualDual<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IAltGnrcFieldDualDual
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IGnrcFieldDualInp
+{
+  RefGnrcFieldDualInp<AltGnrcFieldDualInp> field { get; }
+}
+
+public interface IRefGnrcFieldDualInp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IAltGnrcFieldDualInp
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IGnrcFieldDualOutp
+{
+  RefGnrcFieldDualOutp<AltGnrcFieldDualOutp> field { get; }
+}
+
+public interface IRefGnrcFieldDualOutp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IAltGnrcFieldDualOutp
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IGnrcFieldParamDual
+{
+  RefGnrcFieldParamDual<AltGnrcFieldParamDual> field { get; }
+}
+
+public interface IRefGnrcFieldParamDual<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IAltGnrcFieldParamDual
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IGnrcFieldParamInp
+{
+  RefGnrcFieldParamInp<AltGnrcFieldParamInp> field { get; }
+}
+
+public interface IRefGnrcFieldParamInp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IAltGnrcFieldParamInp
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IGnrcFieldParamOutp
+{
+  RefGnrcFieldParamOutp<AltGnrcFieldParamOutp> field { get; }
+}
+
+public interface IRefGnrcFieldParamOutp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IAltGnrcFieldParamOutp
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IGnrcPrntDual<Ttype>
+  : Itype
+{
+}
+
+public interface IGnrcPrntInp<Ttype>
+  : Itype
+{
+}
+
+public interface IGnrcPrntOutp<Ttype>
+  : Itype
+{
+}
+
+public interface IGnrcPrntArgDual<Ttype>
+  : IRefGnrcPrntArgDual
+{
+}
+
+public interface IRefGnrcPrntArgDual<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IGnrcPrntArgInp<Ttype>
+  : IRefGnrcPrntArgInp
+{
+}
+
+public interface IRefGnrcPrntArgInp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IGnrcPrntArgOutp<Ttype>
+  : IRefGnrcPrntArgOutp
+{
+}
+
+public interface IRefGnrcPrntArgOutp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IGnrcPrntDescrDual<Ttype>
+  : Itype
+{
+}
+
+public interface IGnrcPrntDescrInp<Ttype>
+  : Itype
+{
+}
+
+public interface IGnrcPrntDescrOutp<Ttype>
+  : Itype
+{
+}
+
+public interface IGnrcPrntDualDual
+  : IRefGnrcPrntDualDual
+{
+}
+
+public interface IRefGnrcPrntDualDual<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IAltGnrcPrntDualDual
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IGnrcPrntDualInp
+  : IRefGnrcPrntDualInp
+{
+}
+
+public interface IRefGnrcPrntDualInp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IAltGnrcPrntDualInp
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IGnrcPrntDualOutp
+  : IRefGnrcPrntDualOutp
+{
+}
+
+public interface IRefGnrcPrntDualOutp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IAltGnrcPrntDualOutp
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IGnrcPrntDualPrntDual
+  : IRefGnrcPrntDualPrntDual
+{
+}
+
+public interface IRefGnrcPrntDualPrntDual<Tref>
+  : Iref
+{
+}
+
+public interface IAltGnrcPrntDualPrntDual
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IGnrcPrntDualPrntInp
+  : IRefGnrcPrntDualPrntInp
+{
+}
+
+public interface IRefGnrcPrntDualPrntInp<Tref>
+  : Iref
+{
+}
+
+public interface IAltGnrcPrntDualPrntInp
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IGnrcPrntDualPrntOutp
+  : IRefGnrcPrntDualPrntOutp
+{
+}
+
+public interface IRefGnrcPrntDualPrntOutp<Tref>
+  : Iref
+{
+}
+
+public interface IAltGnrcPrntDualPrntOutp
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IGnrcPrntEnumChildDual
+  : IFieldGnrcPrntEnumChildDual
+{
+}
+
+public interface IFieldGnrcPrntEnumChildDual<Tref>
+{
+  Tref field { get; }
+}
+
+public interface IGnrcPrntEnumChildInp
+  : IFieldGnrcPrntEnumChildInp
+{
+}
+
+public interface IFieldGnrcPrntEnumChildInp<Tref>
+{
+  Tref field { get; }
+}
+
+public interface IGnrcPrntEnumChildOutp
+  : IFieldGnrcPrntEnumChildOutp
+{
+}
+
+public interface IFieldGnrcPrntEnumChildOutp<Tref>
+{
+  Tref field { get; }
+}
+
+public interface IGnrcPrntEnumDomDual
+  : IFieldGnrcPrntEnumDomDual
+{
+}
+
+public interface IFieldGnrcPrntEnumDomDual<Tref>
+{
+  Tref field { get; }
+}
+
+public interface IDomGnrcPrntEnumDomDual
+{
+}
+
+public interface IGnrcPrntEnumDomInp
+  : IFieldGnrcPrntEnumDomInp
+{
+}
+
+public interface IFieldGnrcPrntEnumDomInp<Tref>
+{
+  Tref field { get; }
+}
+
+public interface IDomGnrcPrntEnumDomInp
+{
+}
+
+public interface IGnrcPrntEnumDomOutp
+  : IFieldGnrcPrntEnumDomOutp
+{
+}
+
+public interface IFieldGnrcPrntEnumDomOutp<Tref>
+{
+  Tref field { get; }
+}
+
+public interface IDomGnrcPrntEnumDomOutp
+{
+}
+
+public interface IGnrcPrntEnumPrntDual
+  : IFieldGnrcPrntEnumPrntDual
+{
+}
+
+public interface IFieldGnrcPrntEnumPrntDual<Tref>
+{
+  Tref field { get; }
+}
+
+public interface IGnrcPrntEnumPrntInp
+  : IFieldGnrcPrntEnumPrntInp
+{
+}
+
+public interface IFieldGnrcPrntEnumPrntInp<Tref>
+{
+  Tref field { get; }
+}
+
+public interface IGnrcPrntEnumPrntOutp
+  : IFieldGnrcPrntEnumPrntOutp
+{
+}
+
+public interface IFieldGnrcPrntEnumPrntOutp<Tref>
+{
+  Tref field { get; }
+}
+
+public interface IGnrcPrntParamDual
+  : IRefGnrcPrntParamDual
+{
+}
+
+public interface IRefGnrcPrntParamDual<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IAltGnrcPrntParamDual
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IGnrcPrntParamInp
+  : IRefGnrcPrntParamInp
+{
+}
+
+public interface IRefGnrcPrntParamInp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IAltGnrcPrntParamInp
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IGnrcPrntParamOutp
+  : IRefGnrcPrntParamOutp
+{
+}
+
+public interface IRefGnrcPrntParamOutp<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IAltGnrcPrntParamOutp
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IGnrcPrntParamPrntDual
+  : IRefGnrcPrntParamPrntDual
+{
+}
+
+public interface IRefGnrcPrntParamPrntDual<Tref>
+  : Iref
+{
+}
+
+public interface IAltGnrcPrntParamPrntDual
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IGnrcPrntParamPrntInp
+  : IRefGnrcPrntParamPrntInp
+{
+}
+
+public interface IRefGnrcPrntParamPrntInp<Tref>
+  : Iref
+{
+}
+
+public interface IAltGnrcPrntParamPrntInp
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IGnrcPrntParamPrntOutp
+  : IRefGnrcPrntParamPrntOutp
+{
+}
+
+public interface IRefGnrcPrntParamPrntOutp<Tref>
+  : Iref
+{
+}
+
+public interface IAltGnrcPrntParamPrntOutp
+{
+  Number alt { get; }
+  String AsString { get; }
+}
+
+public interface IGnrcPrntSmplEnumDual
+  : IFieldGnrcPrntSmplEnumDual
+{
+}
+
+public interface IFieldGnrcPrntSmplEnumDual<Tref>
+{
+  Tref field { get; }
+}
+
+public interface IGnrcPrntSmplEnumInp
+  : IFieldGnrcPrntSmplEnumInp
+{
+}
+
+public interface IFieldGnrcPrntSmplEnumInp<Tref>
+{
+  Tref field { get; }
+}
+
+public interface IGnrcPrntSmplEnumOutp
+  : IFieldGnrcPrntSmplEnumOutp
+{
+}
+
+public interface IFieldGnrcPrntSmplEnumOutp<Tref>
+{
+  Tref field { get; }
+}
+
+public interface IGnrcPrntStrDomDual
+  : IFieldGnrcPrntStrDomDual
+{
+}
+
+public interface IFieldGnrcPrntStrDomDual<Tref>
+{
+  Tref field { get; }
+}
+
+public interface IDomGnrcPrntStrDomDual
+{
+}
+
+public interface IGnrcPrntStrDomInp
+  : IFieldGnrcPrntStrDomInp
+{
+}
+
+public interface IFieldGnrcPrntStrDomInp<Tref>
+{
+  Tref field { get; }
+}
+
+public interface IDomGnrcPrntStrDomInp
+{
+}
+
+public interface IGnrcPrntStrDomOutp
+  : IFieldGnrcPrntStrDomOutp
+{
+}
+
+public interface IFieldGnrcPrntStrDomOutp<Tref>
+{
+  Tref field { get; }
+}
+
+public interface IDomGnrcPrntStrDomOutp
+{
+}
+
+public interface IInpFieldDescrNmbr
+{
+  Number field { get; }
+}
+
+public interface IInpFieldEnum
+{
+  EnumInpFieldEnum field { get; }
+}
+
+public interface IInpFieldNull
+{
+  FldInpFieldNull field { get; }
+}
+
+public interface IFldInpFieldNull
+{
+}
+
+public interface IInpFieldNmbr
+{
+  Number field { get; }
+}
+
+public interface IInpFieldNmbrDescr
+{
+  Number field { get; }
+}
+
+public interface IInpFieldStr
+{
+  String field { get; }
+}
+
+public interface IOutpCnstDomEnum
+{
+  RefOutpCnstDomEnum<outpCnstDomEnum> AsRefOutpCnstDomEnum { get; }
+}
+
+public interface IRefOutpCnstDomEnum<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface IJustOutpCnstDomEnum
+{
+}
+
+public interface IOutpCnstEnum
+{
+  RefOutpCnstEnum<outpCnstEnum> AsRefOutpCnstEnum { get; }
+}
+
+public interface IRefOutpCnstEnum<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface IOutpCnstEnumPrnt
+{
+  RefOutpCnstEnumPrnt<outpCnstEnumPrnt> AsRefOutpCnstEnumPrnt { get; }
+}
+
+public interface IRefOutpCnstEnumPrnt<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface IOutpCnstPrntEnum
+{
+  RefOutpCnstPrntEnum<parentOutpCnstPrntEnum> AsRefOutpCnstPrntEnum { get; }
+}
+
+public interface IRefOutpCnstPrntEnum<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface IOutpDescrParam
+{
+  FldOutpDescrParam field { get; }
+}
+
+public interface IFldOutpDescrParam
+{
+}
+
+public interface IInOutpDescrParam
+{
+  Number param { get; }
+  String AsString { get; }
+}
+
+public interface IOutpFieldEnum
+{
+  EnumOutpFieldEnum field { get; }
+}
+
+public interface IOutpFieldEnumPrnt
+{
+  EnumOutpFieldEnumPrnt field { get; }
+}
+
+public interface IOutpFieldValue
+{
+  EnumOutpFieldValue field { get; }
+}
+
+public interface IOutpFieldValueDescr
+{
+  EnumOutpFieldValueDescr field { get; }
+}
+
+public interface IOutpGnrcEnum
+{
+  RefOutpGnrcEnum<EnumOutpGnrcEnum> AsRefOutpGnrcEnum { get; }
+}
+
+public interface IRefOutpGnrcEnum<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface IOutpGnrcValue
+{
+  RefOutpGnrcValue<outpGnrcValue> AsRefOutpGnrcValue { get; }
+}
+
+public interface IRefOutpGnrcValue<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface IOutpParam
+{
+  FldOutpParam field { get; }
+}
+
+public interface IFldOutpParam
+{
+}
+
+public interface IInOutpParam
+{
+  Number param { get; }
+  String AsString { get; }
+}
+
+public interface IOutpParamDescr
+{
+  FldOutpParamDescr field { get; }
+}
+
+public interface IFldOutpParamDescr
+{
+}
+
+public interface IInOutpParamDescr
+{
+  Number param { get; }
+  String AsString { get; }
+}
+
+public interface IOutpParamModDmn
+{
+  DomOutpParamModDmn field { get; }
+}
+
+public interface IInOutpParamModDmn
+{
+  Number param { get; }
+  String AsString { get; }
+}
+
+public interface IDomOutpParamModDmn
+{
+}
+
+public interface IOutpParamModParam<Tmod>
+{
+  DomOutpParamModParam field { get; }
+}
+
+public interface IInOutpParamModParam
+{
+  Number param { get; }
+  String AsString { get; }
+}
+
+public interface IDomOutpParamModParam
+{
+}
+
+public interface IOutpParamTypeDescr
+{
+  FldOutpParamTypeDescr field { get; }
+}
+
+public interface IFldOutpParamTypeDescr
+{
+}
+
+public interface IInOutpParamTypeDescr
+{
+  Number param { get; }
+  String AsString { get; }
+}
+
+public interface IOutpPrntGnrc
+{
+  RefOutpPrntGnrc<EnumOutpPrntGnrc> AsRefOutpPrntGnrc { get; }
+}
+
+public interface IRefOutpPrntGnrc<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface IOutpPrntParam
+  : IPrntOutpPrntParam
+{
+  FldOutpPrntParam field { get; }
+}
+
+public interface IPrntOutpPrntParam
+{
+  FldOutpPrntParam field { get; }
+}
+
+public interface IFldOutpPrntParam
+{
+}
+
+public interface IInOutpPrntParam
+{
+  Number param { get; }
+  String AsString { get; }
+}
+
+public interface IPrntOutpPrntParamIn
+{
+  Number parent { get; }
+  String AsString { get; }
+}
+
+public interface IPrntDual
+  : IRefPrntDual
+{
+}
+
+public interface IRefPrntDual
+{
+  Number parent { get; }
+  String AsString { get; }
+}
+
+public interface IPrntInp
+  : IRefPrntInp
+{
+}
+
+public interface IRefPrntInp
+{
+  Number parent { get; }
+  String AsString { get; }
+}
+
+public interface IPrntOutp
+  : IRefPrntOutp
+{
+}
+
+public interface IRefPrntOutp
+{
+  Number parent { get; }
+  String AsString { get; }
+}
+
+public interface IPrntAltDual
+  : IRefPrntAltDual
+{
+  Number AsNumber { get; }
+}
+
+public interface IRefPrntAltDual
+{
+  Number parent { get; }
+  String AsString { get; }
+}
+
+public interface IPrntAltInp
+  : IRefPrntAltInp
+{
+  Number AsNumber { get; }
+}
+
+public interface IRefPrntAltInp
+{
+  Number parent { get; }
+  String AsString { get; }
+}
+
+public interface IPrntAltOutp
+  : IRefPrntAltOutp
+{
+  Number AsNumber { get; }
+}
+
+public interface IRefPrntAltOutp
+{
+  Number parent { get; }
+  String AsString { get; }
+}
+
+public interface IPrntDescrDual
+  : IRefPrntDescrDual
+{
+}
+
+public interface IRefPrntDescrDual
+{
+  Number parent { get; }
+  String AsString { get; }
+}
+
+public interface IPrntDescrInp
+  : IRefPrntDescrInp
+{
+}
+
+public interface IRefPrntDescrInp
+{
+  Number parent { get; }
+  String AsString { get; }
+}
+
+public interface IPrntDescrOutp
+  : IRefPrntDescrOutp
+{
+}
+
+public interface IRefPrntDescrOutp
+{
+  Number parent { get; }
+  String AsString { get; }
+}
+
+public interface IPrntDualDual
+  : IRefPrntDualDual
+{
+}
+
+public interface IRefPrntDualDual
+{
+  Number parent { get; }
+  String AsString { get; }
+}
+
+public interface IPrntDualInp
+  : IRefPrntDualInp
+{
+}
+
+public interface IRefPrntDualInp
+{
+  Number parent { get; }
+  String AsString { get; }
+}
+
+public interface IPrntDualOutp
+  : IRefPrntDualOutp
+{
+}
+
+public interface IRefPrntDualOutp
+{
+  Number parent { get; }
+  String AsString { get; }
+}
+
+public interface IPrntFieldDual
+  : IRefPrntFieldDual
+{
+  Number field { get; }
+}
+
+public interface IRefPrntFieldDual
+{
+  Number parent { get; }
+  String AsString { get; }
+}
+
+public interface IPrntFieldInp
+  : IRefPrntFieldInp
+{
+  Number field { get; }
+}
+
+public interface IRefPrntFieldInp
+{
+  Number parent { get; }
+  String AsString { get; }
+}
+
+public interface IPrntFieldOutp
+  : IRefPrntFieldOutp
+{
+  Number field { get; }
+}
+
+public interface IRefPrntFieldOutp
+{
+  Number parent { get; }
+  String AsString { get; }
+}
+
+public interface IPrntParamDiffDual<Ta>
+  : IRefPrntParamDiffDual
+{
+  Ta field { get; }
+}
+
+public interface IRefPrntParamDiffDual<Tb>
+{
+  Tb Asb { get; }
+}
+
+public interface IPrntParamDiffInp<Ta>
+  : IRefPrntParamDiffInp
+{
+  Ta field { get; }
+}
+
+public interface IRefPrntParamDiffInp<Tb>
+{
+  Tb Asb { get; }
+}
+
+public interface IPrntParamDiffOutp<Ta>
+  : IRefPrntParamDiffOutp
+{
+  Ta field { get; }
+}
+
+public interface IRefPrntParamDiffOutp<Tb>
+{
+  Tb Asb { get; }
+}
+
+public interface IPrntParamSameDual<Ta>
+  : IRefPrntParamSameDual
+{
+  Ta field { get; }
+}
+
+public interface IRefPrntParamSameDual<Ta>
+{
+  Ta Asa { get; }
+}
+
+public interface IPrntParamSameInp<Ta>
+  : IRefPrntParamSameInp
+{
+  Ta field { get; }
+}
+
+public interface IRefPrntParamSameInp<Ta>
+{
+  Ta Asa { get; }
+}
+
+public interface IPrntParamSameOutp<Ta>
+  : IRefPrntParamSameOutp
+{
+  Ta field { get; }
+}
+
+public interface IRefPrntParamSameOutp<Ta>
+{
+  Ta Asa { get; }
+}
+
+public interface ICtgr
+{
+}
+
+public interface ICtgrAlias
+{
+}
+
+public interface ICtgrDescr
+{
+}
+
+public interface ICtgrMod
+{
+}
+
+public interface IInDrctParam
+{
+}
+
+public interface IDmnAlias
+{
+}
+
+public interface IDmnBool
+{
+}
+
+public interface IDmnBoolDiff
+{
+}
+
+public interface IDmnBoolSame
+{
+}
+
+public interface IDmnEnumDiff
+{
+}
+
+public interface IDmnEnumSame
+{
+}
+
+public interface IDmnNmbr
+{
+}
+
+public interface IDmnNmbrDiff
+{
+}
+
+public interface IDmnNmbrSame
+{
+}
+
+public interface IDmnStr
+{
+}
+
+public interface IDmnStrDiff
+{
+}
+
+public interface IDmnStrSame
+{
+}
+
+public interface IObjDual
+{
+}
+
+public interface IObjInp
+{
+}
+
+public interface IObjOutp
+{
+}
+
+public interface IObjAliasDual
+{
+}
+
+public interface IObjAliasInp
+{
+}
+
+public interface IObjAliasOutp
+{
+}
+
+public interface IObjAltDual
+{
+  ObjAltDualType AsObjAltDualType { get; }
+}
+
+public interface IObjAltDualType
+{
+}
+
+public interface IObjAltInp
+{
+  ObjAltInpType AsObjAltInpType { get; }
+}
+
+public interface IObjAltInpType
+{
+}
+
+public interface IObjAltOutp
+{
+  ObjAltOutpType AsObjAltOutpType { get; }
+}
+
+public interface IObjAltOutpType
+{
+}
+
+public interface IObjCnstDual<Ttype>
+{
+  Ttype field { get; }
+  Ttype str { get; }
+}
+
+public interface IObjCnstInp<Ttype>
+{
+  Ttype field { get; }
+  Ttype str { get; }
+}
+
+public interface IObjCnstOutp<Ttype>
+{
+  Ttype field { get; }
+  Ttype str { get; }
+}
+
+public interface IObjFieldDual
+{
+  FldObjFieldDual field { get; }
+}
+
+public interface IFldObjFieldDual
+{
+}
+
+public interface IObjFieldInp
+{
+  FldObjFieldInp field { get; }
+}
+
+public interface IFldObjFieldInp
+{
+}
+
+public interface IObjFieldOutp
+{
+  FldObjFieldOutp field { get; }
+}
+
+public interface IFldObjFieldOutp
+{
+}
+
+public interface IObjFieldAliasDual
+{
+  FldObjFieldAliasDual field { get; }
+}
+
+public interface IFldObjFieldAliasDual
+{
+}
+
+public interface IObjFieldAliasInp
+{
+  FldObjFieldAliasInp field { get; }
+}
+
+public interface IFldObjFieldAliasInp
+{
+}
+
+public interface IObjFieldAliasOutp
+{
+  FldObjFieldAliasOutp field { get; }
+}
+
+public interface IFldObjFieldAliasOutp
+{
+}
+
+public interface IObjFieldTypeAliasDual
+{
+  String field { get; }
+}
+
+public interface IObjFieldTypeAliasInp
+{
+  String field { get; }
+}
+
+public interface IObjFieldTypeAliasOutp
+{
+  String field { get; }
+}
+
+public interface IObjParamDual<Ttest,Ttype>
+{
+  Ttest test { get; }
+  Ttype type { get; }
+}
+
+public interface IObjParamInp<Ttest,Ttype>
+{
+  Ttest test { get; }
+  Ttype type { get; }
+}
+
+public interface IObjParamOutp<Ttest,Ttype>
+{
+  Ttest test { get; }
+  Ttype type { get; }
+}
+
+public interface IObjParamCnstDual<Ttest>
+{
+  Ttest test { get; }
+  Ttest type { get; }
+}
+
+public interface IObjParamCnstInp<Ttest>
+{
+  Ttest test { get; }
+  Ttest type { get; }
+}
+
+public interface IObjParamCnstOutp<Ttest>
+{
+  Ttest test { get; }
+  Ttest type { get; }
+}
+
+public interface IObjParamDupDual<Ttest>
+{
+  Ttest test { get; }
+  Ttest type { get; }
+}
+
+public interface IObjParamDupInp<Ttest>
+{
+  Ttest test { get; }
+  Ttest type { get; }
+}
+
+public interface IObjParamDupOutp<Ttest>
+{
+  Ttest test { get; }
+  Ttest type { get; }
+}
+
+public interface IObjPrntDual
+  : IRefObjPrntDual
+{
+}
+
+public interface IRefObjPrntDual
+{
+}
+
+public interface IObjPrntInp
+  : IRefObjPrntInp
+{
+}
+
+public interface IRefObjPrntInp
+{
+}
+
+public interface IObjPrntOutp
+  : IRefObjPrntOutp
+{
+}
+
+public interface IRefObjPrntOutp
+{
+}
+
+public interface IOutpFieldEnumAlias
+{
+  Boolean field { get; }
+}
+
+public interface IOutpFieldEnumValue
+{
+  Boolean field { get; }
+}
+
+public interface IOutpFieldParam
+{
+  FldOutpFieldParam field { get; }
+}
+
+public interface IOutpFieldParam1
+{
+}
+
+public interface IOutpFieldParam2
+{
+}
+
+public interface IFldOutpFieldParam
+{
+}
+
+public interface IUnionAlias
+{
+  Boolean AsBoolean { get; }
+  Number AsNumber { get; }
+}
+
+public interface IUnionDiff
+{
+  Boolean AsBoolean { get; }
+  Number AsNumber { get; }
+}
+
+public interface IUnionSame
+{
+  Boolean AsBoolean { get; }
+}
+
+public interface IUnionSamePrnt
+  : IPrntUnionSamePrnt
+{
+  Boolean AsBoolean { get; }
+}
+
+public interface IPrntUnionSamePrnt
+{
+  String AsString { get; }
+}
+
+public interface IDmnBoolDescr
+{
+}
+
+public interface IDmnBoolPrnt
+  : IPrntDmnBoolPrnt
+{
+}
+
+public interface IPrntDmnBoolPrnt
+{
+}
+
+public interface IDmnBoolPrntDescr
+  : IPrntDmnBoolPrntDescr
+{
+}
+
+public interface IPrntDmnBoolPrntDescr
+{
+}
+
+public interface IDmnEnumAll
+{
+}
+
+public interface IDmnEnumAllDescr
+{
+}
+
+public interface IDmnEnumAllPrnt
+{
+}
+
+public interface IDmnEnumDescr
+{
+}
+
+public interface IDmnEnumLabel
+{
+}
+
+public interface IDmnEnumPrnt
+  : IPrntDmnEnumPrnt
+{
+}
+
+public interface IPrntDmnEnumPrnt
+{
+}
+
+public interface IDmnEnumPrntDescr
+  : IPrntDmnEnumPrntDescr
+{
+}
+
+public interface IPrntDmnEnumPrntDescr
+{
+}
+
+public interface IDmnEnumValue
+{
+}
+
+public interface IDmnEnumValuePrnt
+{
+}
+
+public interface IDmnNmbrDescr
+{
+}
+
+public interface IDmnNmbrPrnt
+  : IPrntDmnNmbrPrnt
+{
+}
+
+public interface IPrntDmnNmbrPrnt
+{
+}
+
+public interface IDmnNmbrPrntDescr
+  : IPrntDmnNmbrPrntDescr
+{
+}
+
+public interface IPrntDmnNmbrPrntDescr
+{
+}
+
+public interface IDmnStrDescr
+{
+}
+
+public interface IDmnStrPrnt
+  : IPrntDmnStrPrnt
+{
+}
+
+public interface IPrntDmnStrPrnt
+{
+}
+
+public interface IDmnStrPrntDescr
+  : IPrntDmnStrPrntDescr
+{
+}
+
+public interface IPrntDmnStrPrntDescr
+{
+}
+
+public interface IUnionDescr
+{
+  Number AsNumber { get; }
+}
+
+public interface IUnionPrnt
+  : IPrntUnionPrnt
+{
+  String AsString { get; }
+}
+
+public interface IPrntUnionPrnt
+{
+  Number AsNumber { get; }
+}
+
+public interface IUnionPrntDescr
+  : IPrntUnionPrntDescr
+{
+  Number AsNumber { get; }
+}
+
+public interface IPrntUnionPrntDescr
+{
+  Number AsNumber { get; }
+}
+
+public interface IUnionPrntDup
+  : IPrntUnionPrntDup
+{
+  Number AsNumber { get; }
+}
+
+public interface IPrntUnionPrntDup
+{
+  Number AsNumber { get; }
+}

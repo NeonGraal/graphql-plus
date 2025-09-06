@@ -1,0 +1,29 @@
+﻿/* output-descr-param
+output OutpDescrParam { "Test" "Descr" field(InOutpDescrParam): FldOutpDescrParam }
+dual FldOutpDescrParam { }
+input InOutpDescrParam { param: Number | String }
+*/
+
+// Generated from Schema output-descr-param for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_output_descr_param;
+
+public class OutputOutpDescrParam
+  : IOutpDescrParam
+{
+  public FldOutpDescrParam field { get; set; }
+}
+
+public class DualFldOutpDescrParam
+  : IFldOutpDescrParam
+{
+}
+
+public class InputInOutpDescrParam
+  : IInOutpDescrParam
+{
+  public Number param { get; set; }
+  public String AsString { get; set; }
+}

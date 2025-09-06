@@ -1,0 +1,14 @@
+﻿/* field+Output
+output FieldOutp { field: String }
+*/
+
+// Generated from Schema field+Output for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_field_Output;
+
+public interface IFieldOutp
+{
+  String field { get; }
+}

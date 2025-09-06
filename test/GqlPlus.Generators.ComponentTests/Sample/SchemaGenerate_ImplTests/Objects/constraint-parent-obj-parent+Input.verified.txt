@@ -1,0 +1,37 @@
+﻿/* constraint-parent-obj-parent+Input
+input CnstPrntObjPrntInp { :RefCnstPrntObjPrntInp<AltCnstPrntObjPrntInp> }
+input RefCnstPrntObjPrntInp<$ref:PrntCnstPrntObjPrntInp> { :$ref }
+input PrntCnstPrntObjPrntInp { | String }
+input AltCnstPrntObjPrntInp { :PrntCnstPrntObjPrntInp alt: Number }
+*/
+
+// Generated from Schema constraint-parent-obj-parent+Input for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_constraint_parent_obj_parent_Input;
+
+public class InputCnstPrntObjPrntInp
+  : InputRefCnstPrntObjPrntInp
+  , ICnstPrntObjPrntInp
+{
+}
+
+public class InputRefCnstPrntObjPrntInp<Tref>
+  : Inputref
+  , IRefCnstPrntObjPrntInp<Tref>
+{
+}
+
+public class InputPrntCnstPrntObjPrntInp
+  : IPrntCnstPrntObjPrntInp
+{
+  public String AsString { get; set; }
+}
+
+public class InputAltCnstPrntObjPrntInp
+  : InputPrntCnstPrntObjPrntInp
+  , IAltCnstPrntObjPrntInp
+{
+  public Number alt { get; set; }
+}

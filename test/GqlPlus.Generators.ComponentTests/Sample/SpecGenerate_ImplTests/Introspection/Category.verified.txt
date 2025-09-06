@@ -1,0 +1,39 @@
+﻿/* Category
+output _Categories {
+    : _AndType
+        category: _Category
+    | _Category
+    }
+
+output _Category {
+    : _Aliased
+        resolution: _Resolution
+        output: _TypeRef<_TypeKind.Output>
+        modifiers: _Modifiers[]
+    }
+
+enum _Resolution { Parallel Sequential Single }
+*/
+
+// Generated from Spec Category for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Spec_Category;
+
+public class Output_Categories
+  : Output_AndType
+  , I_Categories
+{
+  public _Category category { get; set; }
+  public _Category As_Category { get; set; }
+}
+
+public class Output_Category
+  : Output_Aliased
+  , I_Category
+{
+  public _Resolution resolution { get; set; }
+  public _TypeRef<_TypeKind> output { get; set; }
+  public _Modifiers modifiers { get; set; }
+}

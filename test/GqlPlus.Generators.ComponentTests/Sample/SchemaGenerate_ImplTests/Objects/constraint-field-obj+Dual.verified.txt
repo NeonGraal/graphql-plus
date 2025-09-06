@@ -1,0 +1,37 @@
+﻿/* constraint-field-obj+Dual
+dual CnstFieldObjDual { :RefCnstFieldObjDual<AltCnstFieldObjDual> }
+dual RefCnstFieldObjDual<$ref:PrntCnstFieldObjDual> { field: $ref }
+dual PrntCnstFieldObjDual { | String }
+dual AltCnstFieldObjDual { :PrntCnstFieldObjDual alt: Number }
+*/
+
+// Generated from Schema constraint-field-obj+Dual for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_constraint_field_obj_Dual;
+
+public class DualCnstFieldObjDual
+  : DualRefCnstFieldObjDual
+  , ICnstFieldObjDual
+{
+}
+
+public class DualRefCnstFieldObjDual<Tref>
+  : IRefCnstFieldObjDual<Tref>
+{
+  public Tref field { get; set; }
+}
+
+public class DualPrntCnstFieldObjDual
+  : IPrntCnstFieldObjDual
+{
+  public String AsString { get; set; }
+}
+
+public class DualAltCnstFieldObjDual
+  : DualPrntCnstFieldObjDual
+  , IAltCnstFieldObjDual
+{
+  public Number alt { get; set; }
+}

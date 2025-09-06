@@ -1,0 +1,15 @@
+﻿/* descr-complex
+"A \"more\" 'Complicated' \\ description"
+output DescrCmpl { }
+*/
+
+// Generated from Schema descr-complex for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_descr_complex;
+
+public class OutputDescrCmpl
+  : IDescrCmpl
+{
+}

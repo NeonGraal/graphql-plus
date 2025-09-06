@@ -1,0 +1,27 @@
+﻿/* generic-parent-param-parent+Dual
+dual GnrcPrntParamPrntDual { :RefGnrcPrntParamPrntDual<AltGnrcPrntParamPrntDual> }
+dual RefGnrcPrntParamPrntDual<$ref:_Dual> { :$ref }
+dual AltGnrcPrntParamPrntDual { alt: Number | String }
+*/
+
+// Generated from Schema generic-parent-param-parent+Dual for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_generic_parent_param_parent_Dual;
+
+public interface IGnrcPrntParamPrntDual
+  : IRefGnrcPrntParamPrntDual
+{
+}
+
+public interface IRefGnrcPrntParamPrntDual<Tref>
+  : Iref
+{
+}
+
+public interface IAltGnrcPrntParamPrntDual
+{
+  Number alt { get; }
+  String AsString { get; }
+}

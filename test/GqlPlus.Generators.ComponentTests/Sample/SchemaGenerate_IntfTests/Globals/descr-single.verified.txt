@@ -1,0 +1,14 @@
+﻿/* descr-single
+'A "single-quoted" description'
+output DescrSngl { }
+*/
+
+// Generated from Schema descr-single for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_descr_single;
+
+public interface IDescrSngl
+{
+}

@@ -1,0 +1,23 @@
+﻿/* field-object+Output
+output FieldObjOutp { field: FldFieldObjOutp }
+output FldFieldObjOutp { field: Number | String }
+*/
+
+// Generated from Schema field-object+Output for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_field_object_Output;
+
+public class OutputFieldObjOutp
+  : IFieldObjOutp
+{
+  public FldFieldObjOutp field { get; set; }
+}
+
+public class OutputFldFieldObjOutp
+  : IFldFieldObjOutp
+{
+  public Number field { get; set; }
+  public String AsString { get; set; }
+}

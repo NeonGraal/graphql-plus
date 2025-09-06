@@ -1,0 +1,11 @@
+﻿/* option-schema-alias
+option Schema [Alias] { }
+*/
+
+// Generated from Schema option-schema-alias for Stat
+
+/*
+
+Option Schema
+*/
+namespace GqlPlus.Gqlp_Schema_option_schema_alias;

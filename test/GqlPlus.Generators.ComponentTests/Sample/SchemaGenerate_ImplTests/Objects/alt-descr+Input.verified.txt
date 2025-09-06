@@ -1,0 +1,15 @@
+﻿/* alt-descr+Input
+input AltDescrInp { | "Test" "Descr" String }
+*/
+
+// Generated from Schema alt-descr+Input for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_alt_descr_Input;
+
+public class InputAltDescrInp
+  : IAltDescrInp
+{
+  public String AsString { get; set; }
+}

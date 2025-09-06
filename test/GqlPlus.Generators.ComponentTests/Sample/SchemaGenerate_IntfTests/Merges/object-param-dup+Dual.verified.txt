@@ -1,0 +1,16 @@
+﻿/* object-param-dup+Dual
+dual ObjParamDupDual<$test:String> { test: $test }
+dual ObjParamDupDual<$test:String> { type: $test }
+*/
+
+// Generated from Schema object-param-dup+Dual for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_object_param_dup_Dual;
+
+public interface IObjParamDupDual<Ttest>
+{
+  Ttest test { get; }
+  Ttest type { get; }
+}

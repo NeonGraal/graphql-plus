@@ -1,0 +1,15 @@
+﻿/* category
+category { Ctgr }
+category ctgr { Ctgr }
+output Ctgr { }
+*/
+
+// Generated from Schema category for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_category;
+
+public interface ICtgr
+{
+}

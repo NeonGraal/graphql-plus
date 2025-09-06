@@ -1,0 +1,22 @@
+﻿/* generic-parent-enum-parent+Dual
+dual GnrcPrntEnumPrntDual { :FieldGnrcPrntEnumPrntDual<EnumGnrcPrntEnumPrntDual> }
+dual FieldGnrcPrntEnumPrntDual<$ref:ParentGnrcPrntEnumPrntDual> { field: $ref }
+enum EnumGnrcPrntEnumPrntDual { :ParentGnrcPrntEnumPrntDual gnrcPrntEnumPrntDualLabel }
+enum ParentGnrcPrntEnumPrntDual { gnrcPrntEnumPrntDualParent }
+*/
+
+// Generated from Schema generic-parent-enum-parent+Dual for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_generic_parent_enum_parent_Dual;
+
+public interface IGnrcPrntEnumPrntDual
+  : IFieldGnrcPrntEnumPrntDual
+{
+}
+
+public interface IFieldGnrcPrntEnumPrntDual<Tref>
+{
+  Tref field { get; }
+}

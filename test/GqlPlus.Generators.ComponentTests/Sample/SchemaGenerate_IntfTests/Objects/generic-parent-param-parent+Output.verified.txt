@@ -1,0 +1,27 @@
+﻿/* generic-parent-param-parent+Output
+output GnrcPrntParamPrntOutp { :RefGnrcPrntParamPrntOutp<AltGnrcPrntParamPrntOutp> }
+output RefGnrcPrntParamPrntOutp<$ref:_Output> { :$ref }
+output AltGnrcPrntParamPrntOutp { alt: Number | String }
+*/
+
+// Generated from Schema generic-parent-param-parent+Output for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_generic_parent_param_parent_Output;
+
+public interface IGnrcPrntParamPrntOutp
+  : IRefGnrcPrntParamPrntOutp
+{
+}
+
+public interface IRefGnrcPrntParamPrntOutp<Tref>
+  : Iref
+{
+}
+
+public interface IAltGnrcPrntParamPrntOutp
+{
+  Number alt { get; }
+  String AsString { get; }
+}

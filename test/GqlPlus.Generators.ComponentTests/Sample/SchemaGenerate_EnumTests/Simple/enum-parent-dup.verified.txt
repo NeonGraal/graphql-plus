@@ -1,0 +1,23 @@
+﻿/* enum-parent-dup
+enum EnumPrntDup { :PrntEnumPrntDup enumPrntDup  }
+enum PrntEnumPrntDup { prnt_enumPrntDup[enumPrntDup] }
+*/
+
+// Generated from Schema enum-parent-dup for Enum
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_enum_parent_dup;
+
+public enum EnumPrntDup
+{
+  prnt_enumPrntDup = PrntEnumPrntDup.prnt_enumPrntDup,
+  enumPrntDup = PrntEnumPrntDup.prnt_enumPrntDup,
+  enumPrntDup,
+}
+
+public enum PrntEnumPrntDup
+{
+  prnt_enumPrntDup,
+  enumPrntDup = prnt_enumPrntDup,
+}

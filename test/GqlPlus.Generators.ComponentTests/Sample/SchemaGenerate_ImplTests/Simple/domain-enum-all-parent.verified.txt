@@ -1,0 +1,16 @@
+﻿/* domain-enum-all-parent
+domain DmnEnumAllPrnt { enum EnumDmnEnumAllPrnt.* }
+enum EnumDmnEnumAllPrnt { :PrntDmnEnumAllPrnt dmnEnumAllPrnt }
+enum PrntDmnEnumAllPrnt { prnt_dmnEnumAllPrnt }
+*/
+
+// Generated from Schema domain-enum-all-parent for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_domain_enum_all_parent;
+
+public class DomainDmnEnumAllPrnt
+  : IDmnEnumAllPrnt
+{
+}

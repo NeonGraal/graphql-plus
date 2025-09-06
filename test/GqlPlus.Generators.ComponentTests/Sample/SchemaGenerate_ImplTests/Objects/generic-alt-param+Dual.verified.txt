@@ -1,0 +1,30 @@
+﻿/* generic-alt-param+Dual
+dual GnrcAltParamDual { | RefGnrcAltParamDual<AltGnrcAltParamDual> }
+dual RefGnrcAltParamDual<$ref:_Dual> { | $ref }
+dual AltGnrcAltParamDual { alt: Number | String }
+*/
+
+// Generated from Schema generic-alt-param+Dual for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_generic_alt_param_Dual;
+
+public class DualGnrcAltParamDual
+  : IGnrcAltParamDual
+{
+  public RefGnrcAltParamDual<AltGnrcAltParamDual> AsRefGnrcAltParamDual { get; set; }
+}
+
+public class DualRefGnrcAltParamDual<Tref>
+  : IRefGnrcAltParamDual<Tref>
+{
+  public Tref Asref { get; set; }
+}
+
+public class DualAltGnrcAltParamDual
+  : IAltGnrcAltParamDual
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

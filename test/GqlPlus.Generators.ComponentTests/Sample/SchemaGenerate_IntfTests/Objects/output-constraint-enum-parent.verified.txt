@@ -1,0 +1,22 @@
+﻿/* output-constraint-enum-parent
+output OutpCnstEnumPrnt { | RefOutpCnstEnumPrnt<outpCnstEnumPrnt> }
+output RefOutpCnstEnumPrnt<$type:ParentOutpCnstEnumPrnt> { field: $type }
+enum EnumOutpCnstEnumPrnt { :ParentOutpCnstEnumPrnt outpCnstEnumPrnt }
+enum ParentOutpCnstEnumPrnt { parentOutpCnstEnumPrnt }
+*/
+
+// Generated from Schema output-constraint-enum-parent for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_output_constraint_enum_parent;
+
+public interface IOutpCnstEnumPrnt
+{
+  RefOutpCnstEnumPrnt<outpCnstEnumPrnt> AsRefOutpCnstEnumPrnt { get; }
+}
+
+public interface IRefOutpCnstEnumPrnt<Ttype>
+{
+  Ttype field { get; }
+}

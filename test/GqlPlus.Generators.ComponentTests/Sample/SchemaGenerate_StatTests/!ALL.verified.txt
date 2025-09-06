@@ -1,0 +1,27 @@
+﻿// Generated from Schema !ALL for Stat
+
+/*
+
+Category ctgrDscrs
+Category ctgrOutp
+Category ctgrOutpDescr
+Category ctgrOutpDict
+Category ctgrOutpList
+Category ctgrOutpOptl
+Category descrBtwn
+Category ctgr
+Category ctgrAlias
+Category ctgrDescr
+Category ctgrMod
+Directive DrctDescr
+Directive DrctNoParam
+Directive DrctParamDict
+Directive DrctParamIn
+Directive DrctParamList
+Directive DrctParamOpt
+Directive Drct
+Directive DrctAlias
+Directive DrctParam
+Option Schema
+*/
+namespace GqlPlus.Gqlp_Schema_ALL;

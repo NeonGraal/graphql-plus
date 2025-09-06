@@ -1,0 +1,20 @@
+﻿/* object-field+Dual
+dual ObjFieldDual { field: FldObjFieldDual }
+dual ObjFieldDual { field: FldObjFieldDual }
+dual FldObjFieldDual { }
+*/
+
+// Generated from Schema object-field+Dual for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_object_field_Dual;
+
+public interface IObjFieldDual
+{
+  FldObjFieldDual field { get; }
+}
+
+public interface IFldObjFieldDual
+{
+}

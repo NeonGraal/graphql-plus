@@ -1,0 +1,15 @@
+﻿/* field-descr+Input
+input FieldDescrInp { "Test" "Descr" field: String }
+*/
+
+// Generated from Schema field-descr+Input for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_field_descr_Input;
+
+public class InputFieldDescrInp
+  : IFieldDescrInp
+{
+  public String field { get; set; }
+}

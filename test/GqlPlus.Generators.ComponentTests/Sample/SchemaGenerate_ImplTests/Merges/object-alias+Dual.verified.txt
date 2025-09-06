@@ -1,0 +1,15 @@
+﻿/* object-alias+Dual
+dual ObjAliasDual [Dual1] { }
+dual ObjAliasDual [Dual2] { }
+*/
+
+// Generated from Schema object-alias+Dual for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_object_alias_Dual;
+
+public class DualObjAliasDual
+  : IObjAliasDual
+{
+}

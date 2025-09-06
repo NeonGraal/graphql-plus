@@ -1,0 +1,27 @@
+﻿/* generic-field-dual+Dual
+dual GnrcFieldDualDual { field: RefGnrcFieldDualDual<AltGnrcFieldDualDual> }
+dual RefGnrcFieldDualDual<$ref:_Dual> { | $ref }
+dual AltGnrcFieldDualDual { alt: Number | String }
+*/
+
+// Generated from Schema generic-field-dual+Dual for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_generic_field_dual_Dual;
+
+public interface IGnrcFieldDualDual
+{
+  RefGnrcFieldDualDual<AltGnrcFieldDualDual> field { get; }
+}
+
+public interface IRefGnrcFieldDualDual<Tref>
+{
+  Tref Asref { get; }
+}
+
+public interface IAltGnrcFieldDualDual
+{
+  Number alt { get; }
+  String AsString { get; }
+}

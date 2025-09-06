@@ -1,0 +1,23 @@
+﻿/* output-generic-value
+output OutpGnrcValue { | RefOutpGnrcValue<outpGnrcValue> }
+output RefOutpGnrcValue<$type:_Enum> { field: $type }
+enum EnumOutpGnrcValue { outpGnrcValue }
+*/
+
+// Generated from Schema output-generic-value for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_output_generic_value;
+
+public class OutputOutpGnrcValue
+  : IOutpGnrcValue
+{
+  public RefOutpGnrcValue<outpGnrcValue> AsRefOutpGnrcValue { get; set; }
+}
+
+public class OutputRefOutpGnrcValue<Ttype>
+  : IRefOutpGnrcValue<Ttype>
+{
+  public Ttype field { get; set; }
+}

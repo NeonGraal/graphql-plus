@@ -1,0 +1,14 @@
+﻿/* generic-parent+Output
+output GnrcPrntOutp<$type:String> { :$type }
+*/
+
+// Generated from Schema generic-parent+Output for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_generic_parent_Output;
+
+public interface IGnrcPrntOutp<Ttype>
+  : Itype
+{
+}

@@ -1,0 +1,114 @@
+﻿/* Definition
+enum Boolean [bool, ^] { false true }
+
+enum Null [null] { null }
+
+enum Unit [_] { _ }
+
+"No valid value"enum Void { }
+
+domain Number [int, 0] { Number }
+
+domain String [str, *] { String }
+
+union _Basic [Basic] { Boolean Number String Unit }
+
+union _Internal [Internal] { Null Void }
+
+union _Key [Key] { _Basic _Internal _Simple }
+
+"%"
+dual _Object [Object, obj, %] { }
+
+"All user defined Domain types" union _Domain [Domain] { }
+"All user defined Dual types" dual _Dual [Dual] { }
+"All user defined Enum types" union _Enum [Enum] { }
+"All user defined Input types" input _Input [Input] { }
+"All user defined Output types" output _Output [Output] { }
+"All user defined Union types" union _Union [Union] { }
+
+union _Simple [Simple] { _Enum _Domain _Union }
+*/
+
+// Generated from Spec Definition for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Spec_Definition;
+
+public class DomainNumber
+  : INumber
+{
+}
+
+public class DomainString
+  : IString
+{
+}
+
+public class Union_Basic
+  : I_Basic
+{
+  public Boolean AsBoolean { get; set; }
+  public Number AsNumber { get; set; }
+  public String AsString { get; set; }
+  public Unit AsUnit { get; set; }
+}
+
+public class Union_Internal
+  : I_Internal
+{
+  public Null AsNull { get; set; }
+  public Void AsVoid { get; set; }
+}
+
+public class Union_Key
+  : I_Key
+{
+  public _Basic As_Basic { get; set; }
+  public _Internal As_Internal { get; set; }
+  public _Simple As_Simple { get; set; }
+}
+
+public class Dual_Object
+  : I_Object
+{
+}
+
+public class Union_Domain
+  : I_Domain
+{
+}
+
+public class Dual_Dual
+  : I_Dual
+{
+}
+
+public class Union_Enum
+  : I_Enum
+{
+}
+
+public class Input_Input
+  : I_Input
+{
+}
+
+public class Output_Output
+  : I_Output
+{
+}
+
+public class Union_Union
+  : I_Union
+{
+}
+
+public class Union_Simple
+  : I_Simple
+{
+  public _Enum As_Enum { get; set; }
+  public _Domain As_Domain { get; set; }
+  public _Union As_Union { get; set; }
+}

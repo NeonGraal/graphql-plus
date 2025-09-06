@@ -1,0 +1,15 @@
+﻿/* domain-number-diff
+domain DmnNmbrDiff { number 1~9 }
+domain DmnNmbrDiff { number }
+*/
+
+// Generated from Schema domain-number-diff for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_domain_number_diff;
+
+public class DomainDmnNmbrDiff
+  : IDmnNmbrDiff
+{
+}

@@ -1,0 +1,12 @@
+﻿/* option
+option Schema { }
+option Schema { }
+*/
+
+// Generated from Schema option for Stat
+
+/*
+
+Option Schema
+*/
+namespace GqlPlus.Gqlp_Schema_option;

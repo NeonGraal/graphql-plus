@@ -1,0 +1,21 @@
+﻿/* parent-descr+Output
+output PrntDescrOutp { : "Test" "Descr" RefPrntDescrOutp }
+output RefPrntDescrOutp { parent: Number | String }
+*/
+
+// Generated from Schema parent-descr+Output for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_parent_descr_Output;
+
+public interface IPrntDescrOutp
+  : IRefPrntDescrOutp
+{
+}
+
+public interface IRefPrntDescrOutp
+{
+  Number parent { get; }
+  String AsString { get; }
+}

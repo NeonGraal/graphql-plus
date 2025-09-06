@@ -1,0 +1,23 @@
+﻿/* generic-parent-enum-child+Dual
+dual GnrcPrntEnumChildDual { :FieldGnrcPrntEnumChildDual<ParentGnrcPrntEnumChildDual> }
+dual FieldGnrcPrntEnumChildDual<$ref:EnumGnrcPrntEnumChildDual> { field: $ref }
+enum EnumGnrcPrntEnumChildDual { :ParentGnrcPrntEnumChildDual gnrcPrntEnumChildDualLabel }
+enum ParentGnrcPrntEnumChildDual { gnrcPrntEnumChildDualParent }
+*/
+
+// Generated from Schema generic-parent-enum-child+Dual for Enum
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_generic_parent_enum_child_Dual;
+
+public enum EnumGnrcPrntEnumChildDual
+{
+  gnrcPrntEnumChildDualParent = ParentGnrcPrntEnumChildDual.gnrcPrntEnumChildDualParent,
+  gnrcPrntEnumChildDualLabel,
+}
+
+public enum ParentGnrcPrntEnumChildDual
+{
+  gnrcPrntEnumChildDualParent,
+}

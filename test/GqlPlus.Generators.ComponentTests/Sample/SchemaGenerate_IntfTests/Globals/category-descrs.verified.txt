@@ -1,0 +1,16 @@
+﻿/* category-descrs
+"A Category"
+"described"
+category { CtgrDscrs }
+output CtgrDscrs { }
+*/
+
+// Generated from Schema category-descrs for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_category_descrs;
+
+public interface ICtgrDscrs
+{
+}

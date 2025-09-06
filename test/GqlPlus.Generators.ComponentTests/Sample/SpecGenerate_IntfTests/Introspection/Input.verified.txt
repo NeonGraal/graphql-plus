@@ -1,0 +1,80 @@
+﻿/* Input
+output _TypeInput {
+    : _TypeObject<_TypeKind.Input _InputBase _InputTypeParam _InputField _InputAlternate>
+    }
+
+output _InputBase {
+    : _ObjBase<_InputTypeArg>
+    | _DualBase
+    }
+
+output _InputTypeParam {
+    : _ObjTypeParam<_TypeKind.Input>
+    | _TypeRef<_TypeKind.Dual>
+    }
+
+output _InputField {
+    : _Field<_InputBase>
+        default: Value?
+    }
+
+output _InputAlternate {
+    : _Alternate<_InputBase>
+    }
+
+output _InputTypeArg {
+    : _ObjTypeArg
+    }
+
+output _InputParam {
+    : _InputBase
+        modifiers: _Modifiers[]
+        default: Value?
+    }
+*/
+
+// Generated from Spec Input for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Spec_Input;
+
+public interface I_TypeInput
+  : I_TypeObject
+{
+}
+
+public interface I_InputBase
+  : I_ObjBase
+{
+  _DualBase As_DualBase { get; }
+}
+
+public interface I_InputTypeParam
+  : I_ObjTypeParam
+{
+  _TypeRef<_TypeKind> As_TypeRef { get; }
+}
+
+public interface I_InputField
+  : I_Field
+{
+  _Value default { get; }
+}
+
+public interface I_InputAlternate
+  : I_Alternate
+{
+}
+
+public interface I_InputTypeArg
+  : I_ObjTypeArg
+{
+}
+
+public interface I_InputParam
+  : I_InputBase
+{
+  _Modifiers modifiers { get; }
+  _Value default { get; }
+}

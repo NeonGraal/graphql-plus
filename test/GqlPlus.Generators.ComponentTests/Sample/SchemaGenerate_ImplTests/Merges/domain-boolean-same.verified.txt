@@ -1,0 +1,15 @@
+﻿/* domain-boolean-same
+domain DmnBoolSame { boolean true }
+domain DmnBoolSame { boolean true }
+*/
+
+// Generated from Schema domain-boolean-same for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_domain_boolean_same;
+
+public class DomainDmnBoolSame
+  : IDmnBoolSame
+{
+}

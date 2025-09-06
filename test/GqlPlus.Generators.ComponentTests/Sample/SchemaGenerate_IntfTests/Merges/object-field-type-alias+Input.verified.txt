@@ -1,0 +1,15 @@
+﻿/* object-field-type-alias+Input
+input ObjFieldTypeAliasInp { field: String }
+input ObjFieldTypeAliasInp { field: String }
+*/
+
+// Generated from Schema object-field-type-alias+Input for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_object_field_type_alias_Input;
+
+public interface IObjFieldTypeAliasInp
+{
+  String field { get; }
+}

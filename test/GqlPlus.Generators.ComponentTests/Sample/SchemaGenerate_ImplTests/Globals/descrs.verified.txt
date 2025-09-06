@@ -1,0 +1,16 @@
+﻿/* descrs
+"A simple description"
+"With extra"
+output Dscrs { }
+*/
+
+// Generated from Schema descrs for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_descrs;
+
+public class OutputDscrs
+  : IDscrs
+{
+}

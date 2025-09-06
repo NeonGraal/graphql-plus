@@ -1,0 +1,14 @@
+﻿/* generic-descr+Dual
+dual GnrcDescrDual<"Test" "Descr" $type:String> { field: $type }
+*/
+
+// Generated from Schema generic-descr+Dual for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_generic_descr_Dual;
+
+public interface IGnrcDescrDual<Ttype>
+{
+  Ttype field { get; }
+}

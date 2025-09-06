@@ -1,0 +1,23 @@
+﻿/* alt+Output
+output AltOutp { | AltAltOutp }
+output AltAltOutp { alt: Number | String }
+*/
+
+// Generated from Schema alt+Output for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_alt_Output;
+
+public class OutputAltOutp
+  : IAltOutp
+{
+  public AltAltOutp AsAltAltOutp { get; set; }
+}
+
+public class OutputAltAltOutp
+  : IAltAltOutp
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

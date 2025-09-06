@@ -1,0 +1,36 @@
+﻿/* Union
+output _TypeUnion {
+    : _ParentType<_TypeKind.Union _UnionRef _UnionMember>
+    }
+
+output _UnionRef {
+    : _TypeRef<_SimpleKind>
+    }
+
+output _UnionMember {
+    : _UnionRef
+        union: _Identifier
+    }
+*/
+
+// Generated from Spec Union for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Spec_Union;
+
+public interface I_TypeUnion
+  : I_ParentType
+{
+}
+
+public interface I_UnionRef
+  : I_TypeRef
+{
+}
+
+public interface I_UnionMember
+  : I_UnionRef
+{
+  _Identifier union { get; }
+}

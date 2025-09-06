@@ -1,0 +1,16 @@
+﻿/* field-mod-Enum+Dual
+dual FieldModEnumDual { field: String[EnumFieldModEnumDual] }
+enum EnumFieldModEnumDual { value }
+*/
+
+// Generated from Schema field-mod-Enum+Dual for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_field_mod_Enum_Dual;
+
+public class DualFieldModEnumDual
+  : IFieldModEnumDual
+{
+  public String field { get; set; }
+}

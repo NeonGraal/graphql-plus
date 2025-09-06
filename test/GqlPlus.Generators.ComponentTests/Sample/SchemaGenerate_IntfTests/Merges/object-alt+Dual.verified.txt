@@ -1,0 +1,20 @@
+﻿/* object-alt+Dual
+dual ObjAltDual { | ObjAltDualType }
+dual ObjAltDual { | ObjAltDualType }
+dual ObjAltDualType { }
+*/
+
+// Generated from Schema object-alt+Dual for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_object_alt_Dual;
+
+public interface IObjAltDual
+{
+  ObjAltDualType AsObjAltDualType { get; }
+}
+
+public interface IObjAltDualType
+{
+}

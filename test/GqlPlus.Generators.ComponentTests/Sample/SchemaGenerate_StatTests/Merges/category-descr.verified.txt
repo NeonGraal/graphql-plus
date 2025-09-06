@@ -1,0 +1,15 @@
+﻿/* category-descr
+"First category"
+category { CtgrDescr }
+"Second category"
+category { CtgrDescr }
+output CtgrDescr { }
+*/
+
+// Generated from Schema category-descr for Stat
+
+/*
+
+Category ctgrDescr
+*/
+namespace GqlPlus.Gqlp_Schema_category_descr;

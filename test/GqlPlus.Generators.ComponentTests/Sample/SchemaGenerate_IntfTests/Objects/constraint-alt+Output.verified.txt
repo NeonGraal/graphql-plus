@@ -1,0 +1,14 @@
+﻿/* constraint-alt+Output
+output CnstAltOutp<$type:Number> { | $type }
+*/
+
+// Generated from Schema constraint-alt+Output for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_constraint_alt_Output;
+
+public interface ICnstAltOutp<Ttype>
+{
+  Ttype Astype { get; }
+}

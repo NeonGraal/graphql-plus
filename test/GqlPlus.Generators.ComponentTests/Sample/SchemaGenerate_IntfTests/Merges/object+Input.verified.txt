@@ -1,0 +1,14 @@
+﻿/* object+Input
+input ObjInp { }
+input ObjInp { }
+*/
+
+// Generated from Schema object+Input for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_object_Input;
+
+public interface IObjInp
+{
+}

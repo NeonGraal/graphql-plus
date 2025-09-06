@@ -1,0 +1,37 @@
+﻿/* constraint-field-dual+Input
+input CnstFieldDualInp { :RefCnstFieldDualInp<AltCnstFieldDualInp> }
+input RefCnstFieldDualInp<$ref:PrntCnstFieldDualInp> { field: $ref }
+dual PrntCnstFieldDualInp { | String }
+input AltCnstFieldDualInp { :PrntCnstFieldDualInp alt: Number }
+*/
+
+// Generated from Schema constraint-field-dual+Input for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_constraint_field_dual_Input;
+
+public class InputCnstFieldDualInp
+  : InputRefCnstFieldDualInp
+  , ICnstFieldDualInp
+{
+}
+
+public class InputRefCnstFieldDualInp<Tref>
+  : IRefCnstFieldDualInp<Tref>
+{
+  public Tref field { get; set; }
+}
+
+public class DualPrntCnstFieldDualInp
+  : IPrntCnstFieldDualInp
+{
+  public String AsString { get; set; }
+}
+
+public class InputAltCnstFieldDualInp
+  : InputPrntCnstFieldDualInp
+  , IAltCnstFieldDualInp
+{
+  public Number alt { get; set; }
+}

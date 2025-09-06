@@ -1,0 +1,420 @@
+﻿// Generated from Schema +Merges for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_Merges;
+
+public class OutputCtgr
+  : ICtgr
+{
+}
+
+public class OutputCtgrAlias
+  : ICtgrAlias
+{
+}
+
+public class OutputCtgrDescr
+  : ICtgrDescr
+{
+}
+
+public class OutputCtgrMod
+  : ICtgrMod
+{
+}
+
+public class InputInDrctParam
+  : IInDrctParam
+{
+}
+
+public class DomainDmnAlias
+  : IDmnAlias
+{
+}
+
+public class DomainDmnBool
+  : IDmnBool
+{
+}
+
+public class DomainDmnBoolDiff
+  : IDmnBoolDiff
+{
+}
+
+public class DomainDmnBoolSame
+  : IDmnBoolSame
+{
+}
+
+public class DomainDmnEnumDiff
+  : IDmnEnumDiff
+{
+}
+
+public class DomainDmnEnumSame
+  : IDmnEnumSame
+{
+}
+
+public class DomainDmnNmbr
+  : IDmnNmbr
+{
+}
+
+public class DomainDmnNmbrDiff
+  : IDmnNmbrDiff
+{
+}
+
+public class DomainDmnNmbrSame
+  : IDmnNmbrSame
+{
+}
+
+public class DomainDmnStr
+  : IDmnStr
+{
+}
+
+public class DomainDmnStrDiff
+  : IDmnStrDiff
+{
+}
+
+public class DomainDmnStrSame
+  : IDmnStrSame
+{
+}
+
+public class DualObjDual
+  : IObjDual
+{
+}
+
+public class InputObjInp
+  : IObjInp
+{
+}
+
+public class OutputObjOutp
+  : IObjOutp
+{
+}
+
+public class DualObjAliasDual
+  : IObjAliasDual
+{
+}
+
+public class InputObjAliasInp
+  : IObjAliasInp
+{
+}
+
+public class OutputObjAliasOutp
+  : IObjAliasOutp
+{
+}
+
+public class DualObjAltDual
+  : IObjAltDual
+{
+  public ObjAltDualType AsObjAltDualType { get; set; }
+}
+
+public class DualObjAltDualType
+  : IObjAltDualType
+{
+}
+
+public class InputObjAltInp
+  : IObjAltInp
+{
+  public ObjAltInpType AsObjAltInpType { get; set; }
+}
+
+public class InputObjAltInpType
+  : IObjAltInpType
+{
+}
+
+public class OutputObjAltOutp
+  : IObjAltOutp
+{
+  public ObjAltOutpType AsObjAltOutpType { get; set; }
+}
+
+public class OutputObjAltOutpType
+  : IObjAltOutpType
+{
+}
+
+public class DualObjCnstDual<Ttype>
+  : IObjCnstDual<Ttype>
+{
+  public Ttype field { get; set; }
+  public Ttype str { get; set; }
+}
+
+public class InputObjCnstInp<Ttype>
+  : IObjCnstInp<Ttype>
+{
+  public Ttype field { get; set; }
+  public Ttype str { get; set; }
+}
+
+public class OutputObjCnstOutp<Ttype>
+  : IObjCnstOutp<Ttype>
+{
+  public Ttype field { get; set; }
+  public Ttype str { get; set; }
+}
+
+public class DualObjFieldDual
+  : IObjFieldDual
+{
+  public FldObjFieldDual field { get; set; }
+}
+
+public class DualFldObjFieldDual
+  : IFldObjFieldDual
+{
+}
+
+public class InputObjFieldInp
+  : IObjFieldInp
+{
+  public FldObjFieldInp field { get; set; }
+}
+
+public class InputFldObjFieldInp
+  : IFldObjFieldInp
+{
+}
+
+public class OutputObjFieldOutp
+  : IObjFieldOutp
+{
+  public FldObjFieldOutp field { get; set; }
+}
+
+public class OutputFldObjFieldOutp
+  : IFldObjFieldOutp
+{
+}
+
+public class DualObjFieldAliasDual
+  : IObjFieldAliasDual
+{
+  public FldObjFieldAliasDual field { get; set; }
+}
+
+public class DualFldObjFieldAliasDual
+  : IFldObjFieldAliasDual
+{
+}
+
+public class InputObjFieldAliasInp
+  : IObjFieldAliasInp
+{
+  public FldObjFieldAliasInp field { get; set; }
+}
+
+public class InputFldObjFieldAliasInp
+  : IFldObjFieldAliasInp
+{
+}
+
+public class OutputObjFieldAliasOutp
+  : IObjFieldAliasOutp
+{
+  public FldObjFieldAliasOutp field { get; set; }
+}
+
+public class OutputFldObjFieldAliasOutp
+  : IFldObjFieldAliasOutp
+{
+}
+
+public class DualObjFieldTypeAliasDual
+  : IObjFieldTypeAliasDual
+{
+  public String field { get; set; }
+}
+
+public class InputObjFieldTypeAliasInp
+  : IObjFieldTypeAliasInp
+{
+  public String field { get; set; }
+}
+
+public class OutputObjFieldTypeAliasOutp
+  : IObjFieldTypeAliasOutp
+{
+  public String field { get; set; }
+}
+
+public class DualObjParamDual<Ttest,Ttype>
+  : IObjParamDual<Ttest,Ttype>
+{
+  public Ttest test { get; set; }
+  public Ttype type { get; set; }
+}
+
+public class InputObjParamInp<Ttest,Ttype>
+  : IObjParamInp<Ttest,Ttype>
+{
+  public Ttest test { get; set; }
+  public Ttype type { get; set; }
+}
+
+public class OutputObjParamOutp<Ttest,Ttype>
+  : IObjParamOutp<Ttest,Ttype>
+{
+  public Ttest test { get; set; }
+  public Ttype type { get; set; }
+}
+
+public class DualObjParamCnstDual<Ttest>
+  : IObjParamCnstDual<Ttest>
+{
+  public Ttest test { get; set; }
+  public Ttest type { get; set; }
+}
+
+public class InputObjParamCnstInp<Ttest>
+  : IObjParamCnstInp<Ttest>
+{
+  public Ttest test { get; set; }
+  public Ttest type { get; set; }
+}
+
+public class OutputObjParamCnstOutp<Ttest>
+  : IObjParamCnstOutp<Ttest>
+{
+  public Ttest test { get; set; }
+  public Ttest type { get; set; }
+}
+
+public class DualObjParamDupDual<Ttest>
+  : IObjParamDupDual<Ttest>
+{
+  public Ttest test { get; set; }
+  public Ttest type { get; set; }
+}
+
+public class InputObjParamDupInp<Ttest>
+  : IObjParamDupInp<Ttest>
+{
+  public Ttest test { get; set; }
+  public Ttest type { get; set; }
+}
+
+public class OutputObjParamDupOutp<Ttest>
+  : IObjParamDupOutp<Ttest>
+{
+  public Ttest test { get; set; }
+  public Ttest type { get; set; }
+}
+
+public class DualObjPrntDual
+  : DualRefObjPrntDual
+  , IObjPrntDual
+{
+}
+
+public class DualRefObjPrntDual
+  : IRefObjPrntDual
+{
+}
+
+public class InputObjPrntInp
+  : InputRefObjPrntInp
+  , IObjPrntInp
+{
+}
+
+public class InputRefObjPrntInp
+  : IRefObjPrntInp
+{
+}
+
+public class OutputObjPrntOutp
+  : OutputRefObjPrntOutp
+  , IObjPrntOutp
+{
+}
+
+public class OutputRefObjPrntOutp
+  : IRefObjPrntOutp
+{
+}
+
+public class OutputOutpFieldEnumAlias
+  : IOutpFieldEnumAlias
+{
+  public Boolean field { get; set; }
+}
+
+public class OutputOutpFieldEnumValue
+  : IOutpFieldEnumValue
+{
+  public Boolean field { get; set; }
+}
+
+public class OutputOutpFieldParam
+  : IOutpFieldParam
+{
+  public FldOutpFieldParam field { get; set; }
+}
+
+public class InputOutpFieldParam1
+  : IOutpFieldParam1
+{
+}
+
+public class InputOutpFieldParam2
+  : IOutpFieldParam2
+{
+}
+
+public class DualFldOutpFieldParam
+  : IFldOutpFieldParam
+{
+}
+
+public class UnionUnionAlias
+  : IUnionAlias
+{
+  public Boolean AsBoolean { get; set; }
+  public Number AsNumber { get; set; }
+}
+
+public class UnionUnionDiff
+  : IUnionDiff
+{
+  public Boolean AsBoolean { get; set; }
+  public Number AsNumber { get; set; }
+}
+
+public class UnionUnionSame
+  : IUnionSame
+{
+  public Boolean AsBoolean { get; set; }
+}
+
+public class UnionUnionSamePrnt
+  : UnionPrntUnionSamePrnt
+  , IUnionSamePrnt
+{
+  public Boolean AsBoolean { get; set; }
+}
+
+public class UnionPrntUnionSamePrnt
+  : IPrntUnionSamePrnt
+{
+  public String AsString { get; set; }
+}

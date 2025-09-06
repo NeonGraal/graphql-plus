@@ -1,0 +1,22 @@
+﻿/* object-alt+Input
+input ObjAltInp { | ObjAltInpType }
+input ObjAltInp { | ObjAltInpType }
+input ObjAltInpType { }
+*/
+
+// Generated from Schema object-alt+Input for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_object_alt_Input;
+
+public class InputObjAltInp
+  : IObjAltInp
+{
+  public ObjAltInpType AsObjAltInpType { get; set; }
+}
+
+public class InputObjAltInpType
+  : IObjAltInpType
+{
+}

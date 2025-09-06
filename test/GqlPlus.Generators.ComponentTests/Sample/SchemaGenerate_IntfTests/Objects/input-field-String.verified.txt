@@ -1,0 +1,14 @@
+﻿/* input-field-String
+input InpFieldStr { field: String = 'default' }
+*/
+
+// Generated from Schema input-field-String for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_input_field_String;
+
+public interface IInpFieldStr
+{
+  String field { get; }
+}

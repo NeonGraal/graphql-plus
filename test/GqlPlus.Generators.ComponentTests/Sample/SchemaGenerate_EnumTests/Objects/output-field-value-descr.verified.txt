@@ -1,0 +1,15 @@
+﻿/* output-field-value-descr
+output OutpFieldValueDescr { field = "Test" "Descr" outpFieldValueDescr }
+enum EnumOutpFieldValueDescr { outpFieldValueDescr }
+*/
+
+// Generated from Schema output-field-value-descr for Enum
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_output_field_value_descr;
+
+public enum EnumOutpFieldValueDescr
+{
+  outpFieldValueDescr,
+}

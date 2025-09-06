@@ -1,0 +1,110 @@
+﻿/* +Schema
+output _Schema {
+    : _Named
+        categories(_CategoryFilter?): _Categories[_Identifier]
+        directives(_Filter?): _Directives[_Identifier]
+        types(_TypeFilter?): _Type[_Identifier]
+        settings(_Filter?): _Setting[_Identifier]
+    }
+
+domain _Identifier { String /[A-Za-z_][A-Za-z0-9_]*/ }
+
+input _Filter {
+        names: _NameFilter[]
+        matchAliases: Boolean? = true
+        aliases: _NameFilter[]
+        returnByAlias: Boolean? = false
+        returnReferencedTypes: Boolean? = false
+    | _NameFilter[]
+    }
+
+"_NameFilter is a simple match expression against _Identifier"
+"where '.' matches any single character and '*' matches zero or more of any character."
+domain _NameFilter { String /[A-Za-z_.*]+/ }
+
+input _CategoryFilter {
+    : _Filter
+        resolutions: _Resolution[]
+    }
+
+input _TypeFilter {
+    : _Filter
+        kinds: _TypeKind[]
+    }
+
+dual _Aliased {
+    : _Named
+        aliases: _Identifier[]
+    }
+
+dual _Named {
+    : _Described
+        name: _Identifier
+    }
+
+dual _Described {
+        description: String[]
+    }
+*/
+
+// Generated from Spec +Schema for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Spec_Schema;
+
+public interface I_Schema
+  : I_Named
+{
+  _Categories categories { get; }
+  _Directives directives { get; }
+  _Type types { get; }
+  _Setting settings { get; }
+}
+
+public interface I_Identifier
+{
+}
+
+public interface I_Filter
+{
+  _NameFilter names { get; }
+  Boolean matchAliases { get; }
+  _NameFilter aliases { get; }
+  Boolean returnByAlias { get; }
+  Boolean returnReferencedTypes { get; }
+  _NameFilter As_NameFilter { get; }
+}
+
+public interface I_NameFilter
+{
+}
+
+public interface I_CategoryFilter
+  : I_Filter
+{
+  _Resolution resolutions { get; }
+}
+
+public interface I_TypeFilter
+  : I_Filter
+{
+  _TypeKind kinds { get; }
+}
+
+public interface I_Aliased
+  : I_Named
+{
+  _Identifier aliases { get; }
+}
+
+public interface I_Named
+  : I_Described
+{
+  _Identifier name { get; }
+}
+
+public interface I_Described
+{
+  String description { get; }
+}

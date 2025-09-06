@@ -1,0 +1,22 @@
+﻿/* generic-alt-arg+Output
+output GnrcAltArgOutp<$type:String> { | RefGnrcAltArgOutp<$type> }
+output RefGnrcAltArgOutp<$ref:String> { | $ref }
+*/
+
+// Generated from Schema generic-alt-arg+Output for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_generic_alt_arg_Output;
+
+public class OutputGnrcAltArgOutp<Ttype>
+  : IGnrcAltArgOutp<Ttype>
+{
+  public RefGnrcAltArgOutp<Ttype> AsRefGnrcAltArgOutp { get; set; }
+}
+
+public class OutputRefGnrcAltArgOutp<Tref>
+  : IRefGnrcAltArgOutp<Tref>
+{
+  public Tref Asref { get; set; }
+}

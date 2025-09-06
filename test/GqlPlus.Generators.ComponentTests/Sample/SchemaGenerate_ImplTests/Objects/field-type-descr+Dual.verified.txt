@@ -1,0 +1,15 @@
+﻿/* field-type-descr+Dual
+dual FieldTypeDescrDual { field: "Test" "Descr" Number }
+*/
+
+// Generated from Schema field-type-descr+Dual for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_field_type_descr_Dual;
+
+public class DualFieldTypeDescrDual
+  : IFieldTypeDescrDual
+{
+  public Number field { get; set; }
+}

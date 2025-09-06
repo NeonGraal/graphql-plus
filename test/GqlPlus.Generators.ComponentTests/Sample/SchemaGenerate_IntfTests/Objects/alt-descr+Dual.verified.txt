@@ -1,0 +1,14 @@
+﻿/* alt-descr+Dual
+dual AltDescrDual { | "Test" "Descr" String }
+*/
+
+// Generated from Schema alt-descr+Dual for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_alt_descr_Dual;
+
+public interface IAltDescrDual
+{
+  String AsString { get; }
+}

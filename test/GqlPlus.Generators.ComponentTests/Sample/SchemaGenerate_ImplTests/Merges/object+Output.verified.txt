@@ -1,0 +1,15 @@
+﻿/* object+Output
+output ObjOutp { }
+output ObjOutp { }
+*/
+
+// Generated from Schema object+Output for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_object_Output;
+
+public class OutputObjOutp
+  : IObjOutp
+{
+}

@@ -1,0 +1,23 @@
+﻿/* alt-mod-param+Dual
+dual AltModParamDual<$mod:String> { | AltAltModParamDual[$mod] }
+dual AltAltModParamDual { alt: Number | String }
+*/
+
+// Generated from Schema alt-mod-param+Dual for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_alt_mod_param_Dual;
+
+public class DualAltModParamDual<Tmod>
+  : IAltModParamDual<Tmod>
+{
+  public AltAltModParamDual AsAltAltModParamDual { get; set; }
+}
+
+public class DualAltAltModParamDual
+  : IAltAltModParamDual
+{
+  public Number alt { get; set; }
+  public String AsString { get; set; }
+}

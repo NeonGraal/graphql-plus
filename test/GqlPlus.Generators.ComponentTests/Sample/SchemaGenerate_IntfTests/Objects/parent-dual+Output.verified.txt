@@ -1,0 +1,21 @@
+﻿/* parent-dual+Output
+output PrntDualOutp { :RefPrntDualOutp }
+dual RefPrntDualOutp { parent: Number | String }
+*/
+
+// Generated from Schema parent-dual+Output for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_parent_dual_Output;
+
+public interface IPrntDualOutp
+  : IRefPrntDualOutp
+{
+}
+
+public interface IRefPrntDualOutp
+{
+  Number parent { get; }
+  String AsString { get; }
+}

@@ -1,0 +1,14 @@
+﻿/* alt-simple+Dual
+dual AltSmplDual { | String }
+*/
+
+// Generated from Schema alt-simple+Dual for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_alt_simple_Dual;
+
+public interface IAltSmplDual
+{
+  String AsString { get; }
+}

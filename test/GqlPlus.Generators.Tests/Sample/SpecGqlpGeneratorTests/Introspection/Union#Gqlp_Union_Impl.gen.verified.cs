@@ -1,0 +1,25 @@
+﻿//HintName: Gqlp_Union_Impl.gen.cs
+// Generated from Union.graphql+ for Impl
+
+/*
+*/
+namespace GqlPlus.GqlpGeneratorSchemaTests.Gqlp_Union;
+
+public class Output_TypeUnion
+  : Output_ParentType
+  , I_TypeUnion
+{
+}
+
+public class Output_UnionRef
+  : Output_TypeRef
+  , I_UnionRef
+{
+}
+
+public class Output_UnionMember
+  : Output_UnionRef
+  , I_UnionMember
+{
+  public _Identifier union { get; set; }
+}

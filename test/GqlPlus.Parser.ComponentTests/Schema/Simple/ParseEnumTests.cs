@@ -1,4 +1,5 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using System.Reflection.Emit;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast.Schema;
 using GqlPlus.Ast.Schema.Simple;
 using GqlPlus.Parsing;
@@ -25,8 +26,8 @@ public sealed class ParseEnumTests(
     .FalseExpected(name + "{" + string.Join("|", labels) + "}");
 
   [Theory, RepeatData]
-  public void WithEnumLabelsNone_ReturnsFalse(string name)
-    => checks.FalseExpected(name + "{}");
+  public void WithEnumLabelsNone_ReturnsTrue(string name)
+    => checks.TrueExpected(name + "{}", new EnumDeclAst(AstNulls.At, name, []));
 
   [Theory, RepeatData]
   public void WithAll_ReturnsCorrectAst(string name, string parent, string[] labels)

@@ -1,3 +1,4 @@
-output Test { field(Param): Test }
-output Test { field(Param?): Test }
+output Test { field(Param): Field }
+output Test { field(Param?): Field }
 input Param { }
+output Field { }

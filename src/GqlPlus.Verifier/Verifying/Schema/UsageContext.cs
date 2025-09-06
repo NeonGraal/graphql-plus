@@ -67,22 +67,25 @@ public class UsageContext(
 internal record struct SelfUsage<TAst>(List<string> Chain, TAst Usage, string Label)
   where TAst : IGqlpType
 {
-  internal readonly string? Current => Chain?.FirstOrDefault();
-  internal readonly bool DifferentName => !Chain.Contains(Usage.Name);
+  internal readonly string? Current => Chain.FirstOrDefault();
+  internal readonly bool DifferentName
+  {
+    get {
+      if (Chain.Count == 0) return true;
+      if (Chain.Count > 99) return false;
+      if (Chain.Contains(Usage.Name)) return false;
+      return !Chain.Skip(1).Contains(Current);
+    }
+  }
+
   internal readonly string UsageName => Usage.Name;
   internal readonly string UsageLabel => Usage.Label;
 
   internal readonly SelfUsage<TAst> AddNext(string next)
-  {
-    if (Chain.Count > 99) {
-      throw new InvalidOperationException("Too deep recursion in Self Usage - " + Chain.Joined(" -> "));
-    }
-
-    return new([next, .. Chain], Usage, Label);
-  }
+    => new([next, .. Chain], Usage, Label);
 
   public override readonly string? ToString()
-    => $"{UsageLabel}: {UsageName} - [{Chain.Joined()}] ({Label})";
+    => $"{UsageLabel}: {UsageName} - [{Chain.Joined(" -> ")}] ({Label})";
 }
 
 internal static class UsageHelpers

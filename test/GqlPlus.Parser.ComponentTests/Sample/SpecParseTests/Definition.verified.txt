@@ -1,0 +1,165 @@
+﻿!Sc I@001/0001
+Success
+{
+  !En I@006/0001
+  Boolean
+  [
+    ^
+    bool
+  ]
+  !EL I@026/0001
+  false
+  !EL I@032/0001
+  true
+}
+{
+  !En I@006/0003
+  Null
+  [
+    null
+  ]
+  !EL I@020/0003
+  null
+}
+{
+  !En I@006/0005
+  Unit
+  [
+    _
+  ]
+  !EL I@017/0005
+  _
+}
+{
+  'No valid value'
+  !En I@022/0007
+  Void
+}
+{
+  !Do I@008/0009
+  Number
+  [
+    0
+    int
+  ]
+  Number
+}
+{
+  !Do I@008/0011
+  String
+  [
+    *
+    str
+  ]
+  String
+}
+{
+  !Un I@007/0013
+  _Basic
+  [
+    Basic
+  ]
+  !UM I@024/0013
+  Boolean
+  !UM I@032/0013
+  Number
+  !UM I@039/0013
+  String
+  !UM I@046/0013
+  Unit
+}
+{
+  !Un I@007/0015
+  _Internal
+  [
+    Internal
+  ]
+  !UM I@030/0015
+  Null
+  !UM I@035/0015
+  Void
+}
+{
+  !Un I@007/0017
+  _Key
+  [
+    Key
+  ]
+  !UM I@020/0017
+  _Basic
+  !UM I@027/0017
+  _Internal
+  !UM I@037/0017
+  _Simple
+}
+{
+  '%'
+  !Du I@006/0020
+  _Object
+  [
+    %
+    obj
+    Object
+  ]
+}
+{
+  'All user defined Domain types'
+  !Un I@039/0022
+  _Domain
+  [
+    Domain
+  ]
+}
+{
+  'All user defined Dual types'
+  !Du I@036/0023
+  _Dual
+  [
+    Dual
+  ]
+}
+{
+  'All user defined Enum types'
+  !Un I@037/0024
+  _Enum
+  [
+    Enum
+  ]
+}
+{
+  'All user defined Input types'
+  !In I@038/0025
+  _Input
+  [
+    Input
+  ]
+}
+{
+  'All user defined Output types'
+  !Ou I@040/0026
+  _Output
+  [
+    Output
+  ]
+}
+{
+  'All user defined Union types'
+  !Un I@038/0027
+  _Union
+  [
+    Union
+  ]
+}
+{
+  !Un I@007/0029
+  _Simple
+  [
+    Simple
+  ]
+  !UM I@026/0029
+  _Enum
+  !UM I@032/0029
+  _Domain
+  !UM I@040/0029
+  _Union
+}

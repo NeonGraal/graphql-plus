@@ -77,7 +77,7 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
     }
 
     input = input.AddNext(parent);
-    if (context.DifferentName(input, top ? null : child.Name)) {
+    if (context.DifferentName(input, child.Name)) {
       CheckParentType(input, context, top, parentType => {
         CheckParent(input, parentType, context, false);
         OnParentType(input, context, parentType, top);

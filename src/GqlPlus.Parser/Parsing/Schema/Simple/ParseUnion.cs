@@ -57,8 +57,6 @@ internal class ParseUnionDefinition(
     }
 
     result.Values = members.ArrayOf<UnionMemberAst>();
-    return members.Count != 0
-      ? result.Ok()
-      : tokens.Partial(label, "at least one member", () => result);
+    return result.Ok();
   }
 }

@@ -4,39 +4,32 @@ using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Sample;
 
+[Trait("Generate", "Html")]
 public class HtmlSchemaTests(
   ILoggerFactory logger,
   ISchemaVerifyChecks checks
 ) : TestSchemaVerify(logger, checks)
 {
   [Fact]
-  public async Task Index_Samples()
-  {
-    string[] all = ["!ALL", "+Globals", "+Merges", "+Objects", "+Simple"];
-
-    IEnumerable<string> merges = await ReplaceSchemaKeys("Merges");
-    IEnumerable<string> objects = await ReplaceSchemaKeys("Objects");
-    Structured result = new Map<Structured>() {
-      ["title"] = "Samples",
-      ["items"] = all.Encode(),
-      ["groups"] = new Map<Structured>() {
-        ["Globals"] = SamplesSchemaGlobalsData.Strings.Encode(),
-        ["Merges"] = merges.Encode(),
-        ["Objects"] = objects.Encode(),
-        ["Simple"] = SamplesSchemaSimpleData.Strings.Encode(),
-      }.Encode()
-    }.Encode();
-
-    await result.WriteHtmlFileAsync("Sample", "index", "index");
-  }
-
-  [Fact]
   public async Task Index_Schema()
   {
+    string[] all = ["!ALL", "+Global", "+Merge", "+Object", "+Simple"];
+
+    Map<IEnumerable<string>> mostGroups = new() {
+      ["Globals"] = SamplesSchemaGlobalsData.Strings,
+      ["Merges"] = await ReplaceSchemaKeys("Merges"),
+      ["Objects"] = await ReplaceSchemaKeys("Objects"),
+      ["Simple"] = SamplesSchemaSimpleData.Strings,
+    };
+
+    Map<Structured> groups = mostGroups.Links();
+    groups["All"] = all.Links(v => v[1..]);
+
     Structured result = new Map<Structured>() {
       ["title"] = "Schema",
-      ["items"] = SamplesSchemaData.Strings.Encode(),
-    }.Encode("");
+      ["items"] = SamplesSchemaData.Strings.Links(),
+      ["groups"] = groups.Encode()
+    }.Encode();
 
     await result.WriteHtmlFileAsync("Schema", "index", "index");
   }
@@ -44,10 +37,15 @@ public class HtmlSchemaTests(
   [Fact]
   public async Task Index_Spec()
   {
+    Map<IEnumerable<string>> groups = new() {
+      ["Introspection"] = SamplesSpecificationIntrospectionData.Strings,
+    };
+
     Structured result = new Map<Structured>() {
       ["title"] = "Specification",
-      ["items"] = SamplesSchemaSpecificationData.Strings.Encode(),
-    }.Encode("");
+      ["items"] = SamplesSpecificationData.Strings.Links(),
+      ["groups"] = groups.Links().Encode()
+    }.Encode();
 
     await result.WriteHtmlFileAsync("Spec", "index", "index");
   }
@@ -57,18 +55,20 @@ public class HtmlSchemaTests(
   {
     string[] files = ["Codec", "Parser", "Modeller", "Verifier"];
 
+    Map<IEnumerable<string>> groups = new() {
+      ["Table"] = files,
+      ["Diagram"] = files,
+      ["Force-3D"] = files,
+    };
+
     Structured result = new Map<Structured>() {
       ["title"] = "Dependency Injection",
-      ["groups"] = new Map<Structured>() {
-        ["Table"] = files.Encode(),
-        ["Diagram"] = files.Encode(),
-        ["Force-3D"] = files.Encode(),
-      }.Encode()
+      ["groups"] = groups.Links().Encode()
     }.Encode("");
 
     await result.WriteHtmlFileAsync("DI", "index", "index");
   }
 
   protected override Task VerifyResult(Structured result, string label, string test, string section)
-    => result.WriteHtmlFileAsync(new string[] { label, section }.Joined("/"), test);
+    => result.ThrowIfNull().Add("title", new(label)).WriteHtmlFileAsync(new string[] { label, section }.Joined("/"), test);
 }

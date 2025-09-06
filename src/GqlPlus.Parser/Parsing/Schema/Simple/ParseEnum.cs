@@ -57,8 +57,6 @@ internal class ParseEnumDefinition(
     }
 
     result.Values = labels.ArrayOf<EnumLabelAst>();
-    return labels.Count != 0
-      ? result.Ok()
-      : tokens.Partial(label, "at least one label", () => result);
+    return result.Ok();
   }
 }

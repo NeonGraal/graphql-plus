@@ -1,1 +1,1 @@
-fa18351  (HEAD -> raw-value) 2025-09-06 Improve Invalid expected errors
+fdeac74  (HEAD -> raw-value) 2025-09-06 Correct introspection errors

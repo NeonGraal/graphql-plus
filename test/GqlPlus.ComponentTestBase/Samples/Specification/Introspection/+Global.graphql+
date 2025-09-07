@@ -45,35 +45,56 @@ output _Operations {
 output _Operation {
     : _Aliased
         category: _Identifier
-        variables: _OpVariable?
+        variables: _OpVariable[]
         directives: _OpDirective[]
         fragments: _OpFragment[]
         result: _OpResult
 }
 
 output _OpVariable {
-        name: _Identifier
+    : _Named
         type: _InputBase
         modifiers: _Modifiers[]
-        default: String? # Todo: _OpDefault
+        default: Value?
         directives: _OpDirective[]
 }
 
 dual _OpDirective {
-        name: _Identifier
-        argument: String? # Todo: _OpArgument
+    : _Named
+        argument: _OpArgument?
 }
 
 output _OpFragment {
-        name: _Identifier
+    : _Named
         type: _OutputBase
         directives: _OpDirective[]
         body: _OpObject[]
 }
 
+dual _OpArgument {
+    |   _OpArgValue
+    |   _OpArgList
+    |   _OpArgMap
+    }
+
+dual _OpArgValue {
+        variable: _Identifier
+    |   Value
+    }
+
+dual _OpArgList {
+    | _OpArgValue[]
+    }
+
+dual _OpArgMap {
+        value: _OpArgValue
+        byVariable: _Identifier
+    | _OpArgValue[Scalar]
+    }
+
 output _OpResult {
         domain: _TypeRef<_SimpleKind>?
-        argument: String? # Todo: _OpArgument
+        argument: _OpArgument?
         body: _OpObject[]
 }
 
@@ -86,15 +107,15 @@ output _OpObject {
 output _OpField {
         alias: String?
         field: String
-        argument: String? # Todo: _OpArgument
-        modifiers: _Modifiers
+        argument: _OpArgument?
+        modifiers: _Modifiers[]
         directives: _OpDirective[]
         "The body as a string as we can't have nested objects."
         body: String
 }
 
 output _OpInline {
-        type: String?
+        type: _OutputBase?
         directives: _OpDirective[]
         "The body as a string as we can't have nested objects."
         body: String

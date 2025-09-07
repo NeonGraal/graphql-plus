@@ -2049,11 +2049,126 @@ types: !_Map_Type
         typeKind: !_SimpleKind Enum
     name: _ObjectKind
     typeKind: !_TypeKind Domain
+  !_Identifier _OpArgList: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      collections:
+      - !_Modifier
+        modifierKind: !_ModifierKind List
+      object: _OpArgList
+      type: !_DualBase
+        name: _OpArgValue
+    alternates:
+    - !_DualAlternate
+      collections:
+      - !_Modifier
+        modifierKind: !_ModifierKind List
+      type: !_DualBase
+        name: _OpArgValue
+    name: _OpArgList
+    typeKind: !_TypeKind Dual
+  !_Identifier _OpArgMap: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      collections:
+      - !_ModifierDictionary
+        by: Scalar
+        modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Internal
+      object: _OpArgMap
+      type: !_DualBase
+        name: _OpArgValue
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: value
+      object: _OpArgMap
+      type: !_DualBase
+        name: _OpArgValue
+    - !_ObjectFor(_DualField)
+      name: byVariable
+      object: _OpArgMap
+      type: !_DualBase
+        name: _Identifier
+    alternates:
+    - !_DualAlternate
+      collections:
+      - !_ModifierDictionary
+        by: Scalar
+        modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Internal
+      type: !_DualBase
+        name: _OpArgValue
+    fields:
+    - !_DualField
+      name: value
+      type: !_DualBase
+        name: _OpArgValue
+    - !_DualField
+      name: byVariable
+      type: !_DualBase
+        name: _Identifier
+    name: _OpArgMap
+    typeKind: !_TypeKind Dual
+  !_Identifier _OpArgValue: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: _OpArgValue
+      type: !_DualBase
+        name: Value
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: variable
+      object: _OpArgValue
+      type: !_DualBase
+        name: _Identifier
+    alternates:
+    - !_DualAlternate
+      type: !_DualBase
+        name: Value
+    fields:
+    - !_DualField
+      name: variable
+      type: !_DualBase
+        name: _Identifier
+    name: _OpArgValue
+    typeKind: !_TypeKind Dual
+  !_Identifier _OpArgument: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: _OpArgument
+      type: !_DualBase
+        name: _OpArgValue
+    - !_ObjectFor(_DualAlternate)
+      object: _OpArgument
+      type: !_DualBase
+        name: _OpArgList
+    - !_ObjectFor(_DualAlternate)
+      object: _OpArgument
+      type: !_DualBase
+        name: _OpArgMap
+    alternates:
+    - !_DualAlternate
+      type: !_DualBase
+        name: _OpArgValue
+    - !_DualAlternate
+      type: !_DualBase
+        name: _OpArgList
+    - !_DualAlternate
+      type: !_DualBase
+        name: _OpArgMap
+    name: _OpArgument
+    typeKind: !_TypeKind Dual
   !_Identifier _OpDirective: !_TypeDual
     allFields:
     - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: description
+      object: _Described
+      type: !_DualBase
+        name: String
+    - !_ObjectFor(_DualField)
       name: name
-      object: _OpDirective
+      object: _Named
       type: !_DualBase
         name: _Identifier
     - !_ObjectFor(_DualField)
@@ -2061,18 +2176,16 @@ types: !_Map_Type
       name: argument
       object: _OpDirective
       type: !_DualBase
-        name: String
+        name: _OpArgument
     fields:
-    - !_DualField
-      name: name
-      type: !_DualBase
-        name: _Identifier
     - !_DualField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: argument
       type: !_DualBase
-        name: String
+        name: _OpArgument
     name: _OpDirective
+    parent: !_DualBase
+      name: _Named
     typeKind: !_TypeKind Dual
   !_Identifier _OpField: !_TypeOutput
     allFields:
@@ -2091,9 +2204,10 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: argument
       object: _OpField
-      type: !_OutputBase
-        name: String
+      type: !_DualBase
+        name: _OpArgument
     - !_ObjectFor(_OutputField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
       object: _OpField
       type: !_OutputBase
@@ -2124,9 +2238,10 @@ types: !_Map_Type
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: argument
-      type: !_OutputBase
-        name: String
+      type: !_DualBase
+        name: _OpArgument
     - !_OutputField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
       type: !_OutputBase
         name: _Modifiers
@@ -2145,10 +2260,16 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _OpFragment: !_TypeOutput
     allFields:
-    - !_ObjectFor(_OutputField)
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: description
+      object: _Described
+      type: !_DualBase
+        name: String
+    - !_ObjectFor(_DualField)
       name: name
-      object: _OpFragment
-      type: !_OutputBase
+      object: _Named
+      type: !_DualBase
         name: _Identifier
     - !_ObjectFor(_OutputField)
       name: type
@@ -2169,10 +2290,6 @@ types: !_Map_Type
         name: _OpObject
     fields:
     - !_OutputField
-      name: name
-      type: !_OutputBase
-        name: _Identifier
-    - !_OutputField
       name: type
       type: !_OutputBase
         name: _OutputBase
@@ -2187,6 +2304,8 @@ types: !_Map_Type
       type: !_OutputBase
         name: _OpObject
     name: _OpFragment
+    parent: !_DualBase
+      name: _Named
     typeKind: !_TypeKind Output
   !_Identifier _OpInline: !_TypeOutput
     allFields:
@@ -2195,7 +2314,7 @@ types: !_Map_Type
       name: type
       object: _OpInline
       type: !_OutputBase
-        name: String
+        name: _OutputBase
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives
@@ -2214,7 +2333,7 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: type
       type: !_OutputBase
-        name: String
+        name: _OutputBase
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives
@@ -2269,8 +2388,8 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: argument
       object: _OpResult
-      type: !_OutputBase
-        name: String
+      type: !_DualBase
+        name: _OpArgument
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: body
@@ -2289,8 +2408,8 @@ types: !_Map_Type
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: argument
-      type: !_OutputBase
-        name: String
+      type: !_DualBase
+        name: _OpArgument
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: body
@@ -2325,10 +2444,16 @@ types: !_Map_Type
     typeKind: !_TypeKind Output
   !_Identifier _OpVariable: !_TypeOutput
     allFields:
-    - !_ObjectFor(_OutputField)
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: description
+      object: _Described
+      type: !_DualBase
+        name: String
+    - !_ObjectFor(_DualField)
       name: name
-      object: _OpVariable
-      type: !_OutputBase
+      object: _Named
+      type: !_DualBase
         name: _Identifier
     - !_ObjectFor(_OutputField)
       name: type
@@ -2346,7 +2471,7 @@ types: !_Map_Type
       name: default
       object: _OpVariable
       type: !_OutputBase
-        name: String
+        name: Value
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives
@@ -2355,10 +2480,6 @@ types: !_Map_Type
         name: _OpDirective
     fields:
     - !_OutputField
-      name: name
-      type: !_OutputBase
-        name: _Identifier
-    - !_OutputField
       name: type
       type: !_OutputBase
         name: _InputBase
@@ -2371,13 +2492,15 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: default
       type: !_OutputBase
-        name: String
+        name: Value
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives
       type: !_DualBase
         name: _OpDirective
     name: _OpVariable
+    parent: !_DualBase
+      name: _Named
     typeKind: !_TypeKind Output
   !_Identifier _Operation: !_TypeOutput
     allFields:
@@ -2404,7 +2527,7 @@ types: !_Map_Type
       type: !_OutputBase
         name: _Identifier
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: variables
       object: _Operation
       type: !_OutputBase
@@ -2432,7 +2555,7 @@ types: !_Map_Type
       type: !_OutputBase
         name: _Identifier
     - !_OutputField
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: variables
       type: !_OutputBase
         name: _OpVariable

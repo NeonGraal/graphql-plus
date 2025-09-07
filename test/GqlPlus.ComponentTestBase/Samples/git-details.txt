@@ -1,1 +1,1 @@
-fc081d3  (HEAD -> operation, origin/operation) 2025-09-07 Correct verify errors
+72fe486  (HEAD -> operation, origin/operation) 2025-09-07 Match Operation with definition in request branch

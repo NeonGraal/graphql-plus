@@ -39,6 +39,30 @@
         "$tag": "_TokenKind",
         "value": "End"
       },
+      "_message": "In _OpVariable can\u0027t get model for type \u0027_Named\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _OpDirective can\u0027t get model for type \u0027_Named\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _OpFragment can\u0027t get model for type \u0027_Named\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _Setting can\u0027t get model for type \u0027_Named\u0027"
     }
   ],
@@ -520,46 +544,272 @@
         "value": "Enum"
       }
     },
-    "_OpDirective": {
+    "_OpArgList": {
       "$tag": "_TypeDual",
-      "allFields": [
+      "allAlternates": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_OpDirective",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "collections": [
             {
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "value": "List"
               }
             }
           ],
-          "name": "argument",
-          "object": "_OpDirective",
+          "object": "_OpArgList",
           "type": {
             "$tag": "_DualBase",
-            "name": "String"
+            "name": "_OpArgValue"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "collections": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_OpArgValue"
+          }
+        }
+      ],
+      "name": "_OpArgList",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "_OpArgMap": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "collections": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "Scalar",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Dict"
+              },
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Internal"
+              }
+            }
+          ],
+          "object": "_OpArgMap",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_OpArgValue"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "value",
+          "object": "_OpArgMap",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_OpArgValue"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "byVariable",
+          "object": "_OpArgMap",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_Identifier"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "collections": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "Scalar",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Dict"
+              },
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Internal"
+              }
+            }
+          ],
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_OpArgValue"
           }
         }
       ],
       "fields": [
         {
           "$tag": "_DualField",
-          "name": "name",
+          "name": "value",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_OpArgValue"
+          }
+        },
+        {
+          "$tag": "_DualField",
+          "name": "byVariable",
           "type": {
             "$tag": "_DualBase",
             "name": "_Identifier"
           }
+        }
+      ],
+      "name": "_OpArgMap",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "_OpArgument": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "_OpArgument",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_OpArgValue"
+          }
         },
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "_OpArgument",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_OpArgList"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "_OpArgument",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_OpArgMap"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_OpArgValue"
+          }
+        },
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_OpArgList"
+          }
+        },
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_OpArgMap"
+          }
+        }
+      ],
+      "name": "_OpArgument",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "_OpArgValue": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "_OpArgValue",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "Value"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "variable",
+          "object": "_OpArgValue",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_Identifier"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "Value"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "variable",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_Identifier"
+          }
+        }
+      ],
+      "name": "_OpArgValue",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "_OpDirective": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "argument",
+          "object": "_OpDirective",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_OpArgument"
+          }
+        }
+      ],
+      "fields": [
         {
           "$tag": "_DualField",
           "modifiers": [
@@ -574,11 +824,15 @@
           "name": "argument",
           "type": {
             "$tag": "_DualBase",
-            "name": "String"
+            "name": "_OpArgument"
           }
         }
       ],
       "name": "_OpDirective",
+      "parent": {
+        "$tag": "_DualBase",
+        "name": "_Named"
+      },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"
@@ -603,7 +857,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "value": "List"
               }
             }
           ],
@@ -676,7 +930,7 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "Opt"
+                "value": "List"
               }
             }
           ],
@@ -863,12 +1117,21 @@
           "name": "argument",
           "object": "_OpField",
           "type": {
-            "$tag": "_OutputBase",
-            "name": "String"
+            "$tag": "_DualBase",
+            "name": "_OpArgument"
           }
         },
         {
           "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
           "name": "modifiers",
           "object": "_OpField",
           "type": {
@@ -944,12 +1207,21 @@
           ],
           "name": "argument",
           "type": {
-            "$tag": "_OutputBase",
-            "name": "String"
+            "$tag": "_DualBase",
+            "name": "_OpArgument"
           }
         },
         {
           "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
           "name": "modifiers",
           "type": {
             "$tag": "_OutputBase",
@@ -994,15 +1266,6 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "name",
-          "object": "_OpFragment",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "_OpFragment",
           "type": {
@@ -1050,14 +1313,6 @@
       "fields": [
         {
           "$tag": "_OutputField",
-          "name": "name",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_OutputField",
           "name": "type",
           "type": {
             "$tag": "_OutputBase",
@@ -1100,6 +1355,10 @@
         }
       ],
       "name": "_OpFragment",
+      "parent": {
+        "$tag": "_OutputBase",
+        "name": "_Named"
+      },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
@@ -1123,7 +1382,7 @@
           "object": "_OpInline",
           "type": {
             "$tag": "_OutputBase",
-            "name": "String"
+            "name": "_OutputBase"
           }
         },
         {
@@ -1170,7 +1429,7 @@
           "name": "type",
           "type": {
             "$tag": "_OutputBase",
-            "name": "String"
+            "name": "_OutputBase"
           }
         },
         {
@@ -1304,8 +1563,8 @@
           "name": "argument",
           "object": "_OpResult",
           "type": {
-            "$tag": "_OutputBase",
-            "name": "String"
+            "$tag": "_DualBase",
+            "name": "_OpArgument"
           }
         },
         {
@@ -1364,8 +1623,8 @@
           ],
           "name": "argument",
           "type": {
-            "$tag": "_OutputBase",
-            "name": "String"
+            "$tag": "_DualBase",
+            "name": "_OpArgument"
           }
         },
         {
@@ -1461,15 +1720,6 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "name",
-          "object": "_OpVariable",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "_OpVariable",
           "type": {
@@ -1510,7 +1760,7 @@
           "object": "_OpVariable",
           "type": {
             "$tag": "_OutputBase",
-            "name": "String"
+            "name": "Value"
           }
         },
         {
@@ -1535,14 +1785,6 @@
       "fields": [
         {
           "$tag": "_OutputField",
-          "name": "name",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_OutputField",
           "name": "type",
           "type": {
             "$tag": "_OutputBase",
@@ -1580,7 +1822,7 @@
           "name": "default",
           "type": {
             "$tag": "_OutputBase",
-            "name": "String"
+            "name": "Value"
           }
         },
         {
@@ -1602,6 +1844,10 @@
         }
       ],
       "name": "_OpVariable",
+      "parent": {
+        "$tag": "_OutputBase",
+        "name": "_Named"
+      },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

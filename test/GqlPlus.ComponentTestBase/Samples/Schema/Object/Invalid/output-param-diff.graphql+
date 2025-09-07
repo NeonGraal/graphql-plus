@@ -1,3 +1,0 @@
-output Test { field(Param): Test }
-output Test { field(Param?): Test }
-input Param { }

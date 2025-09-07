@@ -1,0 +1,4 @@
+object Test { field: Test1 }
+object Test { field: Test2 }
+object Test1 { }
+object Test2 { }

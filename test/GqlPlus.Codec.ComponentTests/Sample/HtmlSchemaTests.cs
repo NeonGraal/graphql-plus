@@ -16,9 +16,9 @@ public class HtmlSchemaTests(
     string[] all = ["!ALL", "+Global", "+Merge", "+Object", "+Simple"];
 
     Map<IEnumerable<string>> mostGroups = new() {
-      ["Global"] = SamplesSchemaGlobalData.Strings,
-      ["Merge"] = await ReplaceSchemaKeys("Merge"),
-      ["Object"] = await ReplaceSchemaKeys("Object"),
+      ["Globals"] = SamplesSchemaGlobalsData.Strings,
+      ["Merges"] = await ReplaceSchemaKeys("Merges"),
+      ["Objects"] = await ReplaceSchemaKeys("Objects"),
       ["Simple"] = SamplesSchemaSimpleData.Strings,
     };
 

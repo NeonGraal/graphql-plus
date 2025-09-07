@@ -1,0 +1,2 @@
+object Test { field: Field[Random] }
+object Field { }

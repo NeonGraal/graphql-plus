@@ -1,0 +1,3 @@
+﻿'Test' cannot be a child of itself, even recursively via More
+'Recurse' cannot be a child of itself, even recursively via Test
+'More' cannot be a child of itself, even recursively via Recurse

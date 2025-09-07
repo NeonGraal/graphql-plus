@@ -35,7 +35,7 @@ internal class ParseAliases
       alias = "0";
       return true;
     } else if (tokens.TakeAny(out char simple, '^', '*', '_', '%')) {
-      alias = $"{simple}";    
+      alias = $"{simple}";
       return true;
     }
 

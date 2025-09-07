@@ -1,0 +1,4 @@
+object Test { :Parent }
+object Test { field1 [alias]: Field }
+object Parent { field2 [alias]: Field }
+object Field { }

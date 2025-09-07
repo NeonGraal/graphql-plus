@@ -33,11 +33,11 @@ types: !_Map_Type
       type: !_InputBase
         name: _OpDirective
     - !_ObjectFor(_InputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      description: "The body as a string as we can't have nested objects."
       name: body
       object: _OpField
       type: !_InputBase
-        name: _OpObject
+        name: String
     fields:
     - !_InputField
       default: !Null null
@@ -65,10 +65,10 @@ types: !_Map_Type
       type: !_InputBase
         name: _OpDirective
     - !_InputField
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      description: "The body as a string as we can't have nested objects."
       name: body
       type: !_InputBase
-        name: _OpObject
+        name: String
     name: _OpField
     typeKind: !_TypeKind Input
   !_Identifier _OpInline: !_TypeInput
@@ -87,11 +87,11 @@ types: !_Map_Type
       type: !_InputBase
         name: _OpDirective
     - !_ObjectFor(_InputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      description: "The body as a string as we can't have nested objects."
       name: body
       object: _OpInline
       type: !_InputBase
-        name: _OpObject
+        name: String
     fields:
     - !_InputField
       default: !Null null
@@ -105,10 +105,10 @@ types: !_Map_Type
       type: !_InputBase
         name: _OpDirective
     - !_InputField
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      description: "The body as a string as we can't have nested objects."
       name: body
       type: !_InputBase
-        name: _OpObject
+        name: String
     name: _OpInline
     typeKind: !_TypeKind Input
   !_Identifier _OpObject: !_TypeInput

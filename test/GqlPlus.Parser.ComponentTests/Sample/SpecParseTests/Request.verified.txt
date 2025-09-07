@@ -102,7 +102,7 @@ Success
     default
     :
     I@018/0023
-    _Value
+    Value
     ?
     !IF I@009/0024
     directives
@@ -208,7 +208,7 @@ Success
   _OpArgument
   |
   I@009/0048
-  _OpArgScalar
+  _OpArgValue
   I@009/0049
   _OpArgList
   I@009/0050
@@ -216,7 +216,7 @@ Success
 }
 {
   !Du I@006/0053
-  _OpArgScalar
+  _OpArgValue
   {
     !DF I@009/0054
     variable
@@ -226,14 +226,14 @@ Success
   }
   |
   I@009/0055
-  _Value
+  Value
 }
 {
   !Du I@006/0058
   _OpArgList
   |
   I@007/0059
-  _OpArgument
+  _OpArgValue
   []
 }
 {
@@ -244,7 +244,7 @@ Success
     value
     :
     I@016/0063
-    _OpArgument
+    _OpArgValue
     !DF I@009/0064
     byVariable
     :
@@ -253,8 +253,8 @@ Success
   }
   |
   I@007/0065
-  _OpArgument
-  [_ValueBuiltIn]
+  _OpArgValue
+  [Scalar]
 }
 {
   !In I@007/0068
@@ -326,108 +326,53 @@ Success
     I@021/0085
     _OpDirective
     []
-    !IF I@009/0086
+    'The body as a string as we can\'t have nested objects.'
+    !IF I@009/0087
     body
     :
-    I@015/0086
-    _OpObject
-    []
+    I@015/0087
+    String
   }
 }
 {
-  !In I@007/0089
+  !In I@007/0090
   _OpInline
   {
-    !IF I@009/0090
+    !IF I@009/0091
     type
     :
-    I@015/0090
+    I@015/0091
     _Identifier
     ?
-    =( !k I@030/0090 Null.null )
-    !IF I@009/0091
+    =( !k I@030/0091 Null.null )
+    !IF I@009/0092
     directives
     :
-    I@021/0091
+    I@021/0092
     _OpDirective
     []
-    !IF I@009/0092
+    'The body as a string as we can\'t have nested objects.'
+    !IF I@009/0094
     body
     :
-    I@015/0092
-    _OpObject
-    []
+    I@015/0094
+    String
   }
 }
 {
-  !Du I@006/0095
+  !Du I@006/0097
   _OpSpread
   {
-    !DF I@009/0096
+    !DF I@009/0098
     fragment
     :
-    I@019/0096
+    I@019/0098
     _Identifier
-    !DF I@009/0097
+    !DF I@009/0099
     directives
     :
-    I@021/0097
+    I@021/0099
     _OpDirective
     []
   }
-}
-{
-  !Du I@006/0100
-  _Value
-  [
-    Value
-  ]
-  |
-  I@007/0101
-  _ValueScalar
-  I@007/0102
-  _ValueList
-  I@007/0103
-  _ValueMap
-}
-{
-  !Du I@006/0106
-  _ValueScalar
-  |
-  I@007/0107
-  _Basic
-  I@007/0108
-  _Internal
-  I@007/0109
-  _Simple
-}
-{
-  !Du I@006/0112
-  _ValueList
-  |
-  I@007/0113
-  _Value
-  []
-}
-{
-  !Du I@006/0116
-  _ValueMap
-  |
-  I@007/0117
-  _Value
-  [_ValueBuiltIn]
-}
-{
-  !Un I@007/0120
-  _ValueBuiltIn
-  !UM I@023/0120
-  Boolean
-  !UM I@031/0120
-  Number
-  !UM I@038/0120
-  String
-  !UM I@045/0120
-  Unit
-  !UM I@050/0120
-  Null
 }

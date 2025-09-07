@@ -10,7 +10,7 @@ input _OpVariable {
         name: _Identifier
         type: _Identifier? = null
         modifiers: _Modifier[]
-        default: _Value?
+        default: Value?
         directives: _OpDirective[]
     }
 
@@ -35,23 +35,23 @@ input _Modifier {
     }
 
 dual _OpArgument {
-    |   _OpArgScalar
+    |   _OpArgValue
     |   _OpArgList
     |   _OpArgMap
     }
 
-dual _OpArgScalar {
+dual _OpArgValue {
         variable: _Identifier
-    |   _Value
+    |   Value
     }
 
 dual _OpArgList {
-    | _OpArgument[]
+    | _OpArgValue[]
     }
 
 dual _OpArgMap {
-        value: _OpArgument
+        value: _OpArgValue
         byVariable: _Identifier
-    | _OpArgument[_ValueBuiltIn]
+    | _OpArgValue[Scalar]
     }
 

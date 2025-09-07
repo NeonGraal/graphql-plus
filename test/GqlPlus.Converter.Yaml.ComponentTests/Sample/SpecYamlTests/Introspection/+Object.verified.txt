@@ -281,13 +281,13 @@ types: !_Map_Type
       name: default
       object: _InputField
       type: !_OutputBase
-        name: _Value
+        name: Value
     fields:
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: default
       type: !_OutputBase
-        name: _Value
+        name: Value
     name: _InputField
     parent: !_OutputBase
       name: _Field
@@ -323,7 +323,7 @@ types: !_Map_Type
       name: default
       object: _InputParam
       type: !_OutputBase
-        name: _Value
+        name: Value
     fields:
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
@@ -334,7 +334,7 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: default
       type: !_OutputBase
-        name: _Value
+        name: Value
     name: _InputParam
     parent: !_OutputBase
       name: _InputBase

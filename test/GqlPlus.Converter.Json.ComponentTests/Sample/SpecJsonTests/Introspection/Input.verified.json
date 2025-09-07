@@ -125,7 +125,7 @@
           "object": "_InputField",
           "type": {
             "$tag": "_OutputBase",
-            "name": "_Value"
+            "name": "Value"
           }
         }
       ],
@@ -144,7 +144,7 @@
           "name": "default",
           "type": {
             "$tag": "_OutputBase",
-            "name": "_Value"
+            "name": "Value"
           }
         }
       ],
@@ -210,7 +210,7 @@
           "object": "_InputParam",
           "type": {
             "$tag": "_OutputBase",
-            "name": "_Value"
+            "name": "Value"
           }
         }
       ],
@@ -246,7 +246,7 @@
           "name": "default",
           "type": {
             "$tag": "_OutputBase",
-            "name": "_Value"
+            "name": "Value"
           }
         }
       ],

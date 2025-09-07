@@ -75,14 +75,14 @@ types: !_Map_Type
         modifierKind: !_ModifierKind List
       object: _OpArgList
       type: !_DualBase
-        name: _OpArgument
+        name: _OpArgValue
     alternates:
     - !_DualAlternate
       collections:
       - !_Modifier
         modifierKind: !_ModifierKind List
       type: !_DualBase
-        name: _OpArgument
+        name: _OpArgValue
     name: _OpArgList
     typeKind: !_TypeKind Dual
   !_Identifier _OpArgMap: !_TypeDual
@@ -90,17 +90,18 @@ types: !_Map_Type
     - !_ObjectFor(_DualAlternate)
       collections:
       - !_ModifierDictionary
-        by: _ValueBuiltIn
+        by: Scalar
         modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Internal
       object: _OpArgMap
       type: !_DualBase
-        name: _OpArgument
+        name: _OpArgValue
     allFields:
     - !_ObjectFor(_DualField)
       name: value
       object: _OpArgMap
       type: !_DualBase
-        name: _OpArgument
+        name: _OpArgValue
     - !_ObjectFor(_DualField)
       name: byVariable
       object: _OpArgMap
@@ -110,50 +111,51 @@ types: !_Map_Type
     - !_DualAlternate
       collections:
       - !_ModifierDictionary
-        by: _ValueBuiltIn
+        by: Scalar
         modifierKind: !_ModifierKind Dict
+        typeKind: !_SimpleKind Internal
       type: !_DualBase
-        name: _OpArgument
+        name: _OpArgValue
     fields:
     - !_DualField
       name: value
       type: !_DualBase
-        name: _OpArgument
+        name: _OpArgValue
     - !_DualField
       name: byVariable
       type: !_DualBase
         name: _Identifier
     name: _OpArgMap
     typeKind: !_TypeKind Dual
-  !_Identifier _OpArgScalar: !_TypeDual
+  !_Identifier _OpArgValue: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: _OpArgScalar
+      object: _OpArgValue
       type: !_DualBase
-        name: _Value
+        name: Value
     allFields:
     - !_ObjectFor(_DualField)
       name: variable
-      object: _OpArgScalar
+      object: _OpArgValue
       type: !_DualBase
         name: _Identifier
     alternates:
     - !_DualAlternate
       type: !_DualBase
-        name: _Value
+        name: Value
     fields:
     - !_DualField
       name: variable
       type: !_DualBase
         name: _Identifier
-    name: _OpArgScalar
+    name: _OpArgValue
     typeKind: !_TypeKind Dual
   !_Identifier _OpArgument: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
       object: _OpArgument
       type: !_DualBase
-        name: _OpArgScalar
+        name: _OpArgValue
     - !_ObjectFor(_DualAlternate)
       object: _OpArgument
       type: !_DualBase
@@ -165,7 +167,7 @@ types: !_Map_Type
     alternates:
     - !_DualAlternate
       type: !_DualBase
-        name: _OpArgScalar
+        name: _OpArgValue
     - !_DualAlternate
       type: !_DualBase
         name: _OpArgList
@@ -273,7 +275,7 @@ types: !_Map_Type
       name: default
       object: _OpVariable
       type: !_InputBase
-        name: _Value
+        name: Value
     - !_ObjectFor(_InputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives
@@ -300,7 +302,7 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: default
       type: !_InputBase
-        name: _Value
+        name: Value
     - !_InputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives

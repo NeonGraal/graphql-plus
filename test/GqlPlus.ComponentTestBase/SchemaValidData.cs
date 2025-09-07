@@ -10,16 +10,16 @@ public class SchemaValidData
     => test == SpecDefinition || test == "Schema";
 
   public static readonly string[] All = [
-    .. SamplesSchemaGlobalData.Strings,
-    .. SamplesSchemaMergeData.Strings,
-    .. SamplesSchemaObjectData.Strings,
+    .. SamplesSchemaGlobalsData.Strings,
+    .. SamplesSchemaMergesData.Strings,
+    .. SamplesSchemaObjectsData.Strings,
     .. SamplesSchemaSimpleData.Strings,
   ];
 
   public static readonly Dictionary<string, IEnumerable<string>> Files = new() {
-    ["Global"] = SamplesSchemaGlobalData.Strings,
-    ["Object"] = SamplesSchemaObjectData.Strings,
-    ["Merge"] = SamplesSchemaMergeData.Strings,
+    ["Globals"] = SamplesSchemaGlobalsData.Strings,
+    ["Objects"] = SamplesSchemaObjectsData.Strings,
+    ["Merges"] = SamplesSchemaMergesData.Strings,
     ["Simple"] = SamplesSchemaSimpleData.Strings,
   };
 

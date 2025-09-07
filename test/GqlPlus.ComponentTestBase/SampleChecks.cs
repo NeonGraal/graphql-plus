@@ -88,13 +88,20 @@ public class SampleChecks
   private static async Task<List<string>> ReadExpectedErrors(string file, bool includeVerify)
   {
     List<string> expected = [];
-    List<string> suffixes = ["", "parse-"];
+    List<string> suffixes = [".", ".parse-"];
     if (includeVerify) {
-      suffixes.Add("verify-");
+      suffixes.Add(".verify-");
+    }
+
+    if (file.Contains('+', StringComparison.Ordinal)) {
+      string[] parts = file.Split('+', 2);
+      string[] extras = [.. suffixes.Select(s => "+" + parts[1].ToLowerInvariant() + s)];
+      suffixes.AddRange(extras);
+      file = parts[0];
     }
 
     foreach (string suffix in suffixes) {
-      string errorsFile = $"{file}.{suffix}errors";
+      string errorsFile = $"{file}{suffix}errors";
 
       if (File.Exists(errorsFile)) {
         expected.AddRange(await File.ReadAllLinesAsync(errorsFile));

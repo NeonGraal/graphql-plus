@@ -1,3 +1,0 @@
-object Test { :Recurse field: Test }
-object Recurse { :Parent }
-object Parent { field: Test[] }

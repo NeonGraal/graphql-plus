@@ -88,14 +88,14 @@ types: !_Map_Type
         modifierKind: !_ModifierKind List
       object: _OpArgList
       type: !_DualBase
-        name: _OpArgument
+        name: _OpArgValue
     alternates:
     - !_DualAlternate
       collections:
       - !_Modifier
         modifierKind: !_ModifierKind List
       type: !_DualBase
-        name: _OpArgument
+        name: _OpArgValue
     name: _OpArgList
     typeKind: !_TypeKind Dual
   !_Identifier _OpArgMap: !_TypeDual
@@ -103,18 +103,18 @@ types: !_Map_Type
     - !_ObjectFor(_DualAlternate)
       collections:
       - !_ModifierDictionary
-        by: _ValueBuiltIn
+        by: Scalar
         modifierKind: !_ModifierKind Dict
-        typeKind: !_SimpleKind Union
+        typeKind: !_SimpleKind Internal
       object: _OpArgMap
       type: !_DualBase
-        name: _OpArgument
+        name: _OpArgValue
     allFields:
     - !_ObjectFor(_DualField)
       name: value
       object: _OpArgMap
       type: !_DualBase
-        name: _OpArgument
+        name: _OpArgValue
     - !_ObjectFor(_DualField)
       name: byVariable
       object: _OpArgMap
@@ -124,51 +124,51 @@ types: !_Map_Type
     - !_DualAlternate
       collections:
       - !_ModifierDictionary
-        by: _ValueBuiltIn
+        by: Scalar
         modifierKind: !_ModifierKind Dict
-        typeKind: !_SimpleKind Union
+        typeKind: !_SimpleKind Internal
       type: !_DualBase
-        name: _OpArgument
+        name: _OpArgValue
     fields:
     - !_DualField
       name: value
       type: !_DualBase
-        name: _OpArgument
+        name: _OpArgValue
     - !_DualField
       name: byVariable
       type: !_DualBase
         name: _Identifier
     name: _OpArgMap
     typeKind: !_TypeKind Dual
-  !_Identifier _OpArgScalar: !_TypeDual
+  !_Identifier _OpArgValue: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
-      object: _OpArgScalar
+      object: _OpArgValue
       type: !_DualBase
-        name: _Value
+        name: Value
     allFields:
     - !_ObjectFor(_DualField)
       name: variable
-      object: _OpArgScalar
+      object: _OpArgValue
       type: !_DualBase
         name: _Identifier
     alternates:
     - !_DualAlternate
       type: !_DualBase
-        name: _Value
+        name: Value
     fields:
     - !_DualField
       name: variable
       type: !_DualBase
         name: _Identifier
-    name: _OpArgScalar
+    name: _OpArgValue
     typeKind: !_TypeKind Dual
   !_Identifier _OpArgument: !_TypeDual
     allAlternates:
     - !_ObjectFor(_DualAlternate)
       object: _OpArgument
       type: !_DualBase
-        name: _OpArgScalar
+        name: _OpArgValue
     - !_ObjectFor(_DualAlternate)
       object: _OpArgument
       type: !_DualBase
@@ -180,7 +180,7 @@ types: !_Map_Type
     alternates:
     - !_DualAlternate
       type: !_DualBase
-        name: _OpArgScalar
+        name: _OpArgValue
     - !_DualAlternate
       type: !_DualBase
         name: _OpArgList
@@ -247,11 +247,11 @@ types: !_Map_Type
       type: !_DualBase
         name: _OpDirective
     - !_ObjectFor(_InputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      description: "The body as a string as we can't have nested objects."
       name: body
       object: _OpField
       type: !_InputBase
-        name: _OpObject
+        name: String
     fields:
     - !_InputField
       default: !Null null
@@ -279,10 +279,10 @@ types: !_Map_Type
       type: !_DualBase
         name: _OpDirective
     - !_InputField
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      description: "The body as a string as we can't have nested objects."
       name: body
       type: !_InputBase
-        name: _OpObject
+        name: String
     name: _OpField
     typeKind: !_TypeKind Input
   !_Identifier _OpFragment: !_TypeInput
@@ -350,11 +350,11 @@ types: !_Map_Type
       type: !_DualBase
         name: _OpDirective
     - !_ObjectFor(_InputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      description: "The body as a string as we can't have nested objects."
       name: body
       object: _OpInline
       type: !_InputBase
-        name: _OpObject
+        name: String
     fields:
     - !_InputField
       default: !Null null
@@ -368,10 +368,10 @@ types: !_Map_Type
       type: !_DualBase
         name: _OpDirective
     - !_InputField
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      description: "The body as a string as we can't have nested objects."
       name: body
       type: !_InputBase
-        name: _OpObject
+        name: String
     name: _OpInline
     typeKind: !_TypeKind Input
   !_Identifier _OpObject: !_TypeInput
@@ -489,8 +489,8 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: default
       object: _OpVariable
-      type: !_DualBase
-        name: _Value
+      type: !_InputBase
+        name: Value
     - !_ObjectFor(_InputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives
@@ -516,8 +516,8 @@ types: !_Map_Type
     - !_InputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: default
-      type: !_DualBase
-        name: _Value
+      type: !_InputBase
+        name: Value
     - !_InputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives
@@ -647,126 +647,3 @@ types: !_Map_Type
         name: Any
     name: _Request
     typeKind: !_TypeKind Input
-  !_Identifier _Value: !_TypeDual
-    aliases: [Value]
-    allAlternates:
-    - !_ObjectFor(_DualAlternate)
-      object: _Value
-      type: !_DualBase
-        name: _ValueScalar
-    - !_ObjectFor(_DualAlternate)
-      object: _Value
-      type: !_DualBase
-        name: _ValueList
-    - !_ObjectFor(_DualAlternate)
-      object: _Value
-      type: !_DualBase
-        name: _ValueMap
-    alternates:
-    - !_DualAlternate
-      type: !_DualBase
-        name: _ValueScalar
-    - !_DualAlternate
-      type: !_DualBase
-        name: _ValueList
-    - !_DualAlternate
-      type: !_DualBase
-        name: _ValueMap
-    name: _Value
-    typeKind: !_TypeKind Dual
-  !_Identifier _ValueBuiltIn: !_TypeUnion
-    allItems:
-    - !_UnionMember
-      name: Boolean
-      union: _ValueBuiltIn
-    - !_UnionMember
-      name: Number
-      union: _ValueBuiltIn
-    - !_UnionMember
-      name: String
-      union: _ValueBuiltIn
-    - !_UnionMember
-      name: Unit
-      union: _ValueBuiltIn
-    - !_UnionMember
-      name: Null
-      union: _ValueBuiltIn
-    items:
-    - !_Aliased
-      name: Boolean
-    - !_Aliased
-      name: Number
-    - !_Aliased
-      name: String
-    - !_Aliased
-      name: Unit
-    - !_Aliased
-      name: Null
-    name: _ValueBuiltIn
-    typeKind: !_TypeKind Union
-  !_Identifier _ValueList: !_TypeDual
-    allAlternates:
-    - !_ObjectFor(_DualAlternate)
-      collections:
-      - !_Modifier
-        modifierKind: !_ModifierKind List
-      object: _ValueList
-      type: !_DualBase
-        name: _Value
-    alternates:
-    - !_DualAlternate
-      collections:
-      - !_Modifier
-        modifierKind: !_ModifierKind List
-      type: !_DualBase
-        name: _Value
-    name: _ValueList
-    typeKind: !_TypeKind Dual
-  !_Identifier _ValueMap: !_TypeDual
-    allAlternates:
-    - !_ObjectFor(_DualAlternate)
-      collections:
-      - !_ModifierDictionary
-        by: _ValueBuiltIn
-        modifierKind: !_ModifierKind Dict
-        typeKind: !_SimpleKind Union
-      object: _ValueMap
-      type: !_DualBase
-        name: _Value
-    alternates:
-    - !_DualAlternate
-      collections:
-      - !_ModifierDictionary
-        by: _ValueBuiltIn
-        modifierKind: !_ModifierKind Dict
-        typeKind: !_SimpleKind Union
-      type: !_DualBase
-        name: _Value
-    name: _ValueMap
-    typeKind: !_TypeKind Dual
-  !_Identifier _ValueScalar: !_TypeDual
-    allAlternates:
-    - !_ObjectFor(_DualAlternate)
-      object: _ValueScalar
-      type: !_DualBase
-        name: _Basic
-    - !_ObjectFor(_DualAlternate)
-      object: _ValueScalar
-      type: !_DualBase
-        name: _Internal
-    - !_ObjectFor(_DualAlternate)
-      object: _ValueScalar
-      type: !_DualBase
-        name: _Simple
-    alternates:
-    - !_DualAlternate
-      type: !_DualBase
-        name: _Basic
-    - !_DualAlternate
-      type: !_DualBase
-        name: _Internal
-    - !_DualAlternate
-      type: !_DualBase
-        name: _Simple
-    name: _ValueScalar
-    typeKind: !_TypeKind Dual

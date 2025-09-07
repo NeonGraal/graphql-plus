@@ -1,0 +1,105 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  _Collections
+  |
+  I@007/0002
+  _Modifier
+  <
+    I@017/0002
+    _ModifierKind.List
+  >
+  I@007/0003
+  _ModifierKeyed
+  <
+    I@022/0003
+    _ModifierKind.Dictionary
+  >
+  I@007/0004
+  _ModifierKeyed
+  <
+    I@022/0004
+    _ModifierKind.TypeParam
+  >
+}
+{
+  !Ou I@008/0007
+  _ModifierKeyed
+  <
+    I@024/0007
+    $kind
+    :_ModifierKind
+  >
+  :
+  I@007/0008
+  _Modifier
+  <
+    I@018/0008
+    $kind
+  >
+  {
+    !OF I@009/0009
+    by
+    :
+    I@013/0009
+    _TypeSimple
+    !OF I@009/0010
+    optional
+    :
+    I@019/0010
+    Boolean
+  }
+}
+{
+  !Ou I@008/0013
+  _Modifiers
+  |
+  I@007/0014
+  _Modifier
+  <
+    I@017/0014
+    _ModifierKind.Optional
+  >
+  I@007/0015
+  _Collections
+}
+{
+  !En I@006/0018
+  _ModifierKind
+  !EL I@022/0018
+  Opt
+  [
+    Optional
+  ]
+  !EL I@036/0018
+  List
+  !EL I@041/0018
+  Dict
+  [
+    Dictionary
+  ]
+  !EL I@058/0018
+  Param
+  [
+    TypeParam
+  ]
+}
+{
+  !Ou I@008/0020
+  _Modifier
+  <
+    I@019/0020
+    $kind
+    :_ModifierKind
+  >
+  {
+    !OF I@009/0021
+    modifierKind
+    :
+    I@024/0021
+    $kind
+  }
+}
+]

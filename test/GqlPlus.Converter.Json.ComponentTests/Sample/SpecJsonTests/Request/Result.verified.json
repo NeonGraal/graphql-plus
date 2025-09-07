@@ -92,20 +92,12 @@
         },
         {
           "$tag": "_ObjectFor(_InputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
+          "description": "The body as a string as we can\u0027t have nested objects.",
           "name": "body",
           "object": "_OpField",
           "type": {
             "$tag": "_InputBase",
-            "name": "_OpObject"
+            "name": "String"
           }
         }
       ],
@@ -192,19 +184,11 @@
         },
         {
           "$tag": "_InputField",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
+          "description": "The body as a string as we can\u0027t have nested objects.",
           "name": "body",
           "type": {
             "$tag": "_InputBase",
-            "name": "_OpObject"
+            "name": "String"
           }
         }
       ],
@@ -259,20 +243,12 @@
         },
         {
           "$tag": "_ObjectFor(_InputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
+          "description": "The body as a string as we can\u0027t have nested objects.",
           "name": "body",
           "object": "_OpInline",
           "type": {
             "$tag": "_InputBase",
-            "name": "_OpObject"
+            "name": "String"
           }
         }
       ],
@@ -317,19 +293,11 @@
         },
         {
           "$tag": "_InputField",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
+          "description": "The body as a string as we can\u0027t have nested objects.",
           "name": "body",
           "type": {
             "$tag": "_InputBase",
-            "name": "_OpObject"
+            "name": "String"
           }
         }
       ],

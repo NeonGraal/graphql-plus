@@ -1,0 +1,3 @@
+output Test { field(Param[Test]): Field }
+input Param { }
+output Field { }

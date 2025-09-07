@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Convert;
-using GqlPlus.Resolving;
+﻿using GqlPlus.Convert;
 using Microsoft.Extensions.Logging;
 
 namespace GqlPlus.Sample;

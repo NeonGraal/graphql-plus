@@ -1,0 +1,2 @@
+object Test { field: Field[Field] }
+object Field { }

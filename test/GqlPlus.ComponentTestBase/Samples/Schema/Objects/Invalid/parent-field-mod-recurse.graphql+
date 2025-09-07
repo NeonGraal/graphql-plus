@@ -1,0 +1,4 @@
+object Test { :Recurse field: Field }
+object Recurse { :Parent }
+object Parent { field: Field[] }
+object Field { }

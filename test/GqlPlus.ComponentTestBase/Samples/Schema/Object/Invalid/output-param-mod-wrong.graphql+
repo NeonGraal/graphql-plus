@@ -1,2 +1,0 @@
-output Test { field(Param[Test]): Test }
-input Param { }

@@ -37,6 +37,6 @@ enum _Location { Operation Variable Field Inline Spread Fragment }
 
 output _Setting {
     : _Named
-        value: _Value
+        value: Value
     }
 

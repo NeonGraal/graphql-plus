@@ -45,6 +45,16 @@ public static class CommonBuilderHelpers
     return fieldKey;
   }
 
+  public static IGqlpFieldKey EnumValue(this IMockBuilder builder, string enumType, string enumLabel)
+  {
+    IGqlpFieldKey enumValue = builder.Of<IGqlpFieldKey>();
+    enumValue.EnumType.Returns(enumType);
+    enumValue.EnumLabel.Returns(enumLabel);
+    enumValue.Text.Returns(enumLabel);
+    enumValue.EnumValue.Returns(enumType + "." + enumLabel);
+    return enumValue;
+  }
+
   public static IGqlpFields<T> Fields<T>(this IMockBuilder builder, string key, T value)
   {
     IGqlpFieldKey fieldKey = builder.FieldKey(key);

@@ -1,3 +1,0 @@
-object Test { :Recurse field1 [alias]: Test }
-object Recurse { :Parent }
-object Parent { field2 [alias]: Parent }

@@ -16,13 +16,15 @@ input _OpField {
         argument: _OpArgument?
         modifiers: _Modifier[]
         directives: _OpDirective[]
-        body: _OpObject[]
+        "The body as a string as we can't have nested objects."
+        body: String
     }
 
 input _OpInline {
         type: _Identifier? = null
         directives: _OpDirective[]
-        body: _OpObject[]
+        "The body as a string as we can't have nested objects."
+        body: String
     }
 
 dual _OpSpread {

@@ -560,7 +560,7 @@
           "object": "_Setting",
           "type": {
             "$tag": "_OutputBase",
-            "name": "_Value"
+            "name": "Value"
           }
         }
       ],
@@ -570,7 +570,7 @@
           "name": "value",
           "type": {
             "$tag": "_OutputBase",
-            "name": "_Value"
+            "name": "Value"
           }
         }
       ],

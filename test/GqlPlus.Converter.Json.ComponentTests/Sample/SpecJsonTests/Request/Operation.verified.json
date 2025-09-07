@@ -172,7 +172,7 @@
           "object": "_OpArgList",
           "type": {
             "$tag": "_DualBase",
-            "name": "_OpArgument"
+            "name": "_OpArgValue"
           }
         }
       ],
@@ -190,7 +190,7 @@
           ],
           "type": {
             "$tag": "_DualBase",
-            "name": "_OpArgument"
+            "name": "_OpArgValue"
           }
         }
       ],
@@ -208,17 +208,21 @@
           "collections": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "_ValueBuiltIn",
+              "by": "Scalar",
               "modifierKind": {
                 "$tag": "_ModifierKind",
                 "value": "Dict"
+              },
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Internal"
               }
             }
           ],
           "object": "_OpArgMap",
           "type": {
             "$tag": "_DualBase",
-            "name": "_OpArgument"
+            "name": "_OpArgValue"
           }
         }
       ],
@@ -229,7 +233,7 @@
           "object": "_OpArgMap",
           "type": {
             "$tag": "_DualBase",
-            "name": "_OpArgument"
+            "name": "_OpArgValue"
           }
         },
         {
@@ -248,16 +252,20 @@
           "collections": [
             {
               "$tag": "_ModifierDictionary",
-              "by": "_ValueBuiltIn",
+              "by": "Scalar",
               "modifierKind": {
                 "$tag": "_ModifierKind",
                 "value": "Dict"
+              },
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Internal"
               }
             }
           ],
           "type": {
             "$tag": "_DualBase",
-            "name": "_OpArgument"
+            "name": "_OpArgValue"
           }
         }
       ],
@@ -267,7 +275,7 @@
           "name": "value",
           "type": {
             "$tag": "_DualBase",
-            "name": "_OpArgument"
+            "name": "_OpArgValue"
           }
         },
         {
@@ -285,54 +293,6 @@
         "value": "Dual"
       }
     },
-    "_OpArgScalar": {
-      "$tag": "_TypeDual",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "_OpArgScalar",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Value"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "variable",
-          "object": "_OpArgScalar",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_DualAlternate",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Value"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_DualField",
-          "name": "variable",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        }
-      ],
-      "name": "_OpArgScalar",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Dual"
-      }
-    },
     "_OpArgument": {
       "$tag": "_TypeDual",
       "allAlternates": [
@@ -341,7 +301,7 @@
           "object": "_OpArgument",
           "type": {
             "$tag": "_DualBase",
-            "name": "_OpArgScalar"
+            "name": "_OpArgValue"
           }
         },
         {
@@ -366,7 +326,7 @@
           "$tag": "_DualAlternate",
           "type": {
             "$tag": "_DualBase",
-            "name": "_OpArgScalar"
+            "name": "_OpArgValue"
           }
         },
         {
@@ -385,6 +345,54 @@
         }
       ],
       "name": "_OpArgument",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "_OpArgValue": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "_OpArgValue",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "Value"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "variable",
+          "object": "_OpArgValue",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_Identifier"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "Value"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "variable",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "_Identifier"
+          }
+        }
+      ],
+      "name": "_OpArgValue",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Dual"
@@ -818,7 +826,7 @@
           "object": "_OpVariable",
           "type": {
             "$tag": "_InputBase",
-            "name": "_Value"
+            "name": "Value"
           }
         },
         {
@@ -901,7 +909,7 @@
           "name": "default",
           "type": {
             "$tag": "_InputBase",
-            "name": "_Value"
+            "name": "Value"
           }
         },
         {

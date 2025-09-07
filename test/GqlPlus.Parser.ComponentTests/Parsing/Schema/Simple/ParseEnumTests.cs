@@ -24,7 +24,7 @@ public sealed class ParseEnumTests(
     .FalseExpected(name + "{" + string.Join("|", labels) + "}");
 
   [Theory, RepeatData]
-  public void WithEnumLabelsNone_ReturnsFalse(string name)
+  public void WithEnumLabelsNone_ReturnsTrue(string name)
     => checks.TrueExpected(name + "{}", new EnumDeclAst(AstNulls.At, name, []));
 
   [Theory, RepeatData]

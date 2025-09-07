@@ -555,6 +555,44 @@
               }
             }
           ],
+          "name": "operations",
+          "object": "_Schema",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "modifiers": [
+                {
+                  "$tag": "_Modifier",
+                  "modifierKind": {
+                    "$tag": "_ModifierKind",
+                    "value": "Opt"
+                  }
+                }
+              ],
+              "name": "_Filter"
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "_Operations"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "_Identifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Dict"
+              },
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Domain"
+              }
+            }
+          ],
           "name": "types",
           "object": "_Schema",
           "parameters": [
@@ -689,6 +727,43 @@
           "type": {
             "$tag": "_OutputBase",
             "name": "_Directives"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_ModifierDictionary",
+              "by": "_Identifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Dict"
+              },
+              "typeKind": {
+                "$tag": "_SimpleKind",
+                "value": "Domain"
+              }
+            }
+          ],
+          "name": "operations",
+          "parameters": [
+            {
+              "$tag": "_InputParam",
+              "modifiers": [
+                {
+                  "$tag": "_Modifier",
+                  "modifierKind": {
+                    "$tag": "_ModifierKind",
+                    "value": "Opt"
+                  }
+                }
+              ],
+              "name": "_Filter"
+            }
+          ],
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "_Operations"
           }
         },
         {

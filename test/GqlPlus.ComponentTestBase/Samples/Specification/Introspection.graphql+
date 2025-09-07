@@ -2,6 +2,7 @@ output _Schema {
     : _Named
         categories(_CategoryFilter?): _Categories[_Identifier]
         directives(_Filter?): _Directives[_Identifier]
+        operations(_Filter?): _Operations[_Identifier]
         types(_TypeFilter?): _Type[_Identifier]
         settings(_Filter?): _Setting[_Identifier]
     }
@@ -81,6 +82,97 @@ output _Directive {
 
 enum _Location { Operation Variable Field Inline Spread Fragment }
 
+
+output _Operations {
+        operation: _Operation
+        type: _Type
+    | _Operation
+    | _Type
+}
+
+output _Operation {
+    : _Aliased
+        category: _Identifier
+        variables: _OpVariable[]
+        directives: _OpDirective[]
+        fragments: _OpFragment[]
+        result: _OpResult
+}
+
+output _OpVariable {
+    : _Named
+        type: _InputBase
+        modifiers: _Modifiers[]
+        default: Value?
+        directives: _OpDirective[]
+}
+
+dual _OpDirective {
+    : _Named
+        argument: _OpArgument?
+}
+
+output _OpFragment {
+    : _Named
+        type: _OutputBase
+        directives: _OpDirective[]
+        body: _OpObject[]
+}
+
+dual _OpArgument {
+    |   _OpArgValue
+    |   _OpArgList
+    |   _OpArgMap
+    }
+
+dual _OpArgValue {
+        variable: _Identifier
+    |   Value
+    }
+
+dual _OpArgList {
+    | _OpArgValue[]
+    }
+
+dual _OpArgMap {
+        value: _OpArgValue
+        byVariable: _Identifier
+    | _OpArgValue[Scalar]
+    }
+
+output _OpResult {
+        domain: _TypeRef<_SimpleKind>?
+        argument: _OpArgument?
+        body: _OpObject[]
+}
+
+output _OpObject {
+    |   _OpField
+    |   _OpSpread
+    |   _OpInline
+}
+
+output _OpField {
+        alias: String?
+        field: String
+        argument: _OpArgument?
+        modifiers: _Modifiers[]
+        directives: _OpDirective[]
+        "The body as a string as we can't have nested objects."
+        body: String
+}
+
+output _OpInline {
+        type: _OutputBase?
+        directives: _OpDirective[]
+        "The body as a string as we can't have nested objects."
+        body: String
+}
+
+output _OpSpread {
+        fragment: String
+        directives: _OpDirective[]
+}
 
 output _Setting {
     : _Named

@@ -8,7 +8,7 @@ internal class OutputContext(
   IMap<string> enumValues
 ) : EnumContext(types, errors, enumValues)
 {
-  internal void CheckEnumValue(string label, IGqlpOutputEnum output)
+  internal void CheckEnumValue(string label, IGqlpObjectEnum output)
   {
     string enumType = output.EnumType.Name;
     if (GetTyped(enumType, out IGqlpEnum? theType)) {

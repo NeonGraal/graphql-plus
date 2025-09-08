@@ -23,33 +23,6 @@ internal class ParseOutputField(
   protected override IResult<IGqlpOutputField> FieldDefault(ITokenizer tokens, OutputFieldAst field)
     => field.Ok<IGqlpOutputField>();
 
-  protected override IResult<IGqlpOutputField> FieldEnumValue(ITokenizer tokens, OutputFieldAst field)
-  {
-    if (tokens.Take('=')) {
-      string description = tokens.Description();
-      TokenAt at = tokens.At;
-      if (!tokens.Identifier(out string? enumType)) {
-        return tokens.Partial<IGqlpOutputField>("Output", "enum value after '='", () => field);
-      }
-
-      if (!tokens.Take('.')) {
-        field.BaseType = new OutputBaseAst(at, "", description);
-        field.EnumLabel = enumType;
-        return field.Ok<IGqlpOutputField>();
-      }
-
-      if (tokens.Identifier(out string? enumLabel)) {
-        field.BaseType = new OutputBaseAst(at, enumType, description);
-        field.EnumLabel = enumLabel;
-        return field.Ok<IGqlpOutputField>();
-      }
-
-      return tokens.Partial<IGqlpOutputField>("Output", "enum value after '.'", () => field);
-    }
-
-    return tokens.Partial<IGqlpOutputField>("Output", "':' or '='", () => field);
-  }
-
   protected override IResultArray<IGqlpInputParam> FieldParam(ITokenizer tokens)
     => _parameter.Parse(tokens, "Output");
 

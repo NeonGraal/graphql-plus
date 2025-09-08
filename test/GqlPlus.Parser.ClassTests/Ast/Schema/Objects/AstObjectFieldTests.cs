@@ -34,6 +34,22 @@ public abstract class AstObjectFieldTests<TObjBase>
   public void ModifiedType_WithModifiersAndArgs(FieldInput input, string[] arguments)
     => FieldChecks.ModifiedType_WithModifiersAndArgs(input, arguments);
 
+  [Theory, RepeatData]
+  public void HashCode_WithEnumValue(FieldInput input, string enumLabel)
+      => FieldChecks.HashCode_WithEnumValue(input, enumLabel);
+
+  [Theory, RepeatData]
+  public void String_WithEnumValue(FieldInput input, string enumLabel)
+    => FieldChecks.String_WithEnumValue(input, enumLabel);
+
+  [Theory, RepeatData]
+  public void Equality_WithEnumValue(FieldInput input, string enumLabel)
+    => FieldChecks.Equality_WithEnumValue(input, enumLabel);
+
+  [Theory, RepeatData]
+  public void Inequality_BetweenEnumValues(FieldInput input, string enumValue1, string enumValue2)
+    => FieldChecks.Inequality_BetweenEnumValues(input, enumValue1, enumValue2);
+
   internal sealed override IAstAliasedChecks<FieldInput> AliasedChecks => FieldChecks;
 
   protected override string InputName(FieldInput input) => input.Name;
@@ -75,6 +91,22 @@ internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst, TOb
   public void Inequality_WithModifiers(FieldInput input)
     => InequalityWith(input, () => CreateModifiers(input));
 
+  public void HashCode_WithEnumValue(FieldInput input, string enumLabel)
+      => HashCode(() => CreateEnum(input, enumLabel));
+
+  public void String_WithEnumValue(FieldInput input, string enumLabel)
+    => Text(
+      () => CreateEnum(input, enumLabel),
+      $"( !{Abbr} {input.Name} = {input.Type} .{enumLabel} )");
+
+  public void Equality_WithEnumValue(FieldInput input, string enumLabel)
+    => Equality(() => CreateEnum(input, enumLabel));
+
+  public void Inequality_BetweenEnumValues(FieldInput input, string enumValue1, string enumValue2)
+    => InequalityBetween(enumValue1, enumValue2,
+      enumLabel => CreateEnum(input, enumLabel),
+      enumValue1 == enumValue2);
+
   public void ModifiedType_WithArgs(FieldInput input, string[] arguments)
   {
     TObjField field = _createField(input, _createBase(input) with { BaseArgs = _createArgs(arguments) });
@@ -104,6 +136,9 @@ internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst, TOb
 
   private TObjField CreateModifiers(FieldInput input)
     => CreateInput(input) with { Modifiers = TestMods() };
+
+  private TObjField CreateEnum(FieldInput input, string enumLabel)
+    => CreateInput(input) with { EnumLabel = enumLabel };
 }
 
 internal interface IAstObjectFieldChecks<TObjBase>
@@ -114,6 +149,12 @@ internal interface IAstObjectFieldChecks<TObjBase>
   void String_WithModifiers(FieldInput input);
   void Equality_WithModifiers(FieldInput input);
   void Inequality_WithModifiers(FieldInput input);
+
+  void HashCode_WithEnumValue(FieldInput input, string enumLabel);
+  void String_WithEnumValue(FieldInput input, string enumLabel);
+  void Equality_WithEnumValue(FieldInput input, string enumLabel);
+  void Inequality_BetweenEnumValues(FieldInput input, string enumValue1, string enumValue2);
+
   void ModifiedType_WithArgs(FieldInput input, string[] arguments);
   void ModifiedType_WithModifiers(FieldInput input);
   void ModifiedType_WithModifiersAndArgs(FieldInput input, string[] arguments);

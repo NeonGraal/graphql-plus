@@ -13,15 +13,8 @@ internal sealed record class OutputArgAst(
   public OutputArgAst(TokenAt at, string name)
     : this(at, name, "") { }
 
-  public string? EnumLabel { get; set; }
-
   internal override string Abbr => "OR";
   public override string Label => "Output";
-
-  internal override IEnumerable<string?> GetFields()
-    => string.IsNullOrWhiteSpace(EnumLabel)
-    ? base.GetFields()
-    : [At.ToString(), $"{Name}.{EnumLabel}"];
 
   public DualArgAst ToDual()
     => new(At, Name, Description) {
@@ -29,12 +22,4 @@ internal sealed record class OutputArgAst(
     };
 
   IGqlpDualArg IGqlpToDual<IGqlpDualArg>.ToDual => ToDual();
-
-  public IGqlpObjType EnumType => this;
-
-  void IGqlpOutputEnum.SetEnumType(string enumType)
-  {
-    EnumLabel ??= Name;
-    Name = enumType;
-  }
 }

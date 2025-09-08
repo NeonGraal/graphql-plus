@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-public abstract class ObjectBaseParseTests<TBase, TArg>
+public abstract class ObjectParseTestBase<TBase, TArg>
   : ParserClassTestBase
   where TBase : IGqlpObjBase
   where TArg : IGqlpObjArg
@@ -12,7 +12,7 @@ public abstract class ObjectBaseParseTests<TBase, TArg>
 
   protected Parser<TArg>.DA ParseArgs { get; }
 
-  protected ObjectBaseParseTests()
+  protected ObjectParseTestBase()
   {
     ParseArgs = ParserAFor(out _parseArgs);
 

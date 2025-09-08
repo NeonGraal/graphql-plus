@@ -4,6 +4,7 @@ param (
   [Switch]$NoCoverage = $false,
   [Switch]$ShowGithub = $false,
   [switch]$ClassTests = $false,
+  [switch]$ShowFailures = $false,
   $Framework = "9.0"
 )
 
@@ -144,9 +145,11 @@ if ($tests.Count -gt 1) {
   $tests | ForEach-Object { Write-Tests $_ "- " }
   $tests | ForEach-Object { Convert-Tests $_ "- " | Add-Content summary.md }
 
-  $allErrors.Keys | ForEach-Object {
-    Write-Host "* $_ FAILURES"
-    $allErrors[$_].ForEach({ Write-Host "  - $_" })
+  if ($ShowFailures) {
+    $allErrors.Keys | ForEach-Object {
+      Write-Host "* $_ FAILURES"
+      $allErrors[$_].ForEach({ Write-Host "  - $_" })
+    }
   }
 }
 

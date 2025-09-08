@@ -18,7 +18,5 @@ internal sealed record class DualFieldAst(
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
-      .Append(":")
-      .Concat(BaseType.GetFields())
-      .Concat(Modifiers.AsString());
+      .Concat(TypeFields());
 }

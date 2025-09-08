@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-public abstract class ParseObjectFieldTestBase<TField, TBase>
+public abstract class ObjectFieldParseTestBase<TField, TBase>
   : AliasesClassTestBase
   where TField : class, IGqlpObjField<TBase>
   where TBase : class, IGqlpObjBase
@@ -11,7 +11,7 @@ public abstract class ParseObjectFieldTestBase<TField, TBase>
   protected Parser<TBase>.D ParseBase { get; }
   protected abstract Parser<TField>.I Parser { get; }
 
-  protected ParseObjectFieldTestBase()
+  protected ObjectFieldParseTestBase()
     => ParseBase = ParserFor(out _parseBase);
 
   [Theory, RepeatData]
@@ -114,6 +114,70 @@ public abstract class ParseObjectFieldTestBase<TField, TBase>
     // Arrange
     IdentifierReturns(OutString(fieldName), OutString(fieldName));
     ParseAliasesOk(aliases);
+    SetupPartial<TField>();
+
+    // Act
+    IResult<TField> result = Parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultPartial<TField>>();
+  }
+
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnEnumField_WhenValidLabel(string fieldName, string[] aliases, string label)
+  {
+    // Arrange
+    IdentifierReturns(OutString(fieldName), OutString(label));
+    TakeReturns('=', true);
+    ParseAliasesOk(aliases);
+
+    // Act
+    IResult<TField> result = Parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultOk<TField>>();
+  }
+
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnEnumField_WhenValidEnum(string fieldName, string[] aliases, string type, string label)
+  {
+    // Arrange
+    IdentifierReturns(OutString(fieldName), OutString(type), OutString(label));
+    TakeReturns('=', true);
+    ParseAliasesOk(aliases);
+    TakeReturns('.', true);
+
+    // Act
+    IResult<TField> result = Parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultOk<TField>>();
+  }
+
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnPartial_WhenInvalidLabel(string fieldName, string[] aliases)
+  {
+    // Arrange
+    IdentifierReturns(OutString(fieldName), OutFail);
+    TakeReturns('=', true);
+    ParseAliasesOk(aliases);
+    SetupPartial<TField>();
+
+    // Act
+    IResult<TField> result = Parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultPartial<TField>>();
+  }
+
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnPartial_WhenInvalidEnum(string fieldName, string[] aliases, string type)
+  {
+    // Arrange
+    IdentifierReturns(OutString(fieldName), OutString(type), OutFail);
+    TakeReturns('=', true);
+    ParseAliasesOk(aliases);
+    TakeReturns('.', true);
     SetupPartial<TField>();
 
     // Act

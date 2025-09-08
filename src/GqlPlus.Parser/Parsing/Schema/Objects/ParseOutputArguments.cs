@@ -8,24 +8,6 @@ namespace GqlPlus.Parsing.Schema.Objects;
 internal class ParseOutputArgs
   : ObjectArgumentsParser<IGqlpOutputArg, OutputArgAst>
 {
-  protected override OutputArgAst ObjType(TokenAt at, string type, string description)
+  protected override OutputArgAst ObjArgument(TokenAt at, string type, string description)
     => new(at, type, description);
-  protected override IResult<OutputArgAst> ArgEnumValue(ITokenizer tokens, OutputArgAst argument)
-  {
-    if (tokens.Take('.')) {
-      if (argument.IsTypeParam) {
-        return tokens.Error<OutputArgAst>("Output Arg", "Enum value not allowed after Type parameter");
-      }
-
-      TokenAt at = tokens.At;
-      if (tokens.Identifier(out string? enumLabel)) {
-        argument = argument with { EnumLabel = enumLabel };
-        return argument.Ok<OutputArgAst>();
-      }
-
-      return tokens.Error<OutputArgAst>("Output Arg", "enum value after '.'", argument);
-    }
-
-    return argument.Ok();
-  }
 }

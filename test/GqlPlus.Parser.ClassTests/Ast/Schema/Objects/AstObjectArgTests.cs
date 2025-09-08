@@ -23,6 +23,22 @@ public abstract class AstObjectArgTests<TObjArg>
     => ObjArgChecks.Inequality_BetweenIsTypeParams(input, isTypeParam1);
 
   [Theory, RepeatData]
+  public void HashCode_WithEnumValue(string input, string enumLabel)
+    => ObjArgChecks.HashCode_WithEnumValue(input, enumLabel);
+
+  [Theory, RepeatData]
+  public void String_WithEnumValue(string input, string enumLabel)
+    => ObjArgChecks.String_WithEnumValue(input, enumLabel);
+
+  [Theory, RepeatData]
+  public void Equality_WithEnumValue(string input, string enumLabel)
+    => ObjArgChecks.Equality_WithEnumValue(input, enumLabel);
+
+  [Theory, RepeatData]
+  public void Inequality_BetweenEnumValues(string input, string enumLabel1, string enumLabel2)
+    => ObjArgChecks.Inequality_BetweenEnumValues(input, enumLabel1, enumLabel2);
+
+  [Theory, RepeatData]
   public void FullType_WithDefault(string input)
     => ObjArgChecks.FullType_WithDefault(input);
 
@@ -31,6 +47,9 @@ public abstract class AstObjectArgTests<TObjArg>
     => ObjArgChecks.FullType_WithIsTypeParam(input);
 
   internal sealed override IAstAbbreviatedChecks<string> AbbreviatedChecks => ObjArgChecks;
+
+  protected override string AbbreviatedString(string input)
+    => $"( {input} )";
 
   internal abstract IAstObjArgChecks<TObjArg> ObjArgChecks { get; }
 }
@@ -60,6 +79,24 @@ internal sealed class AstObjArgChecks<TObjArg, TObjArgAst>(
       isTypeParam => createArg(input) with { IsTypeParam = isTypeParam },
       false);
 
+  public void HashCode_WithEnumValue(string input, string enumLabel)
+      => HashCode(
+        () => createArg(input) with { EnumLabel = enumLabel });
+
+  public void String_WithEnumValue(string input, string enumLabel)
+    => Text(
+      () => createArg(input) with { EnumLabel = enumLabel },
+      $"( {input}.{enumLabel} )");
+
+  public void Equality_WithEnumValue(string input, string enumLabel)
+    => Equality(
+      () => createArg(input) with { EnumLabel = enumLabel });
+
+  public void Inequality_BetweenEnumValues(string input, string enumLabel1, string enumLabel2)
+    => InequalityBetween(enumLabel1, enumLabel2,
+      enumLabel => createArg(input) with { EnumLabel = enumLabel },
+      enumLabel1 == enumLabel2);
+
   public void FullType_WithDefault(string input)
   {
     TObjArg objArg = createArg(input);
@@ -83,6 +120,10 @@ internal interface IAstObjArgChecks<TObjArg>
   void String_WithIsTypeParam(string input);
   void Equality_WithIsTypeParam(string input);
   void Inequality_BetweenIsTypeParams(string input, bool isTypeParam1);
+  void HashCode_WithEnumValue(string input, string enumLabel);
+  void String_WithEnumValue(string input, string enumLabel);
+  void Equality_WithEnumValue(string input, string enumLabel);
+  void Inequality_BetweenEnumValues(string input, string enumLabel1, string enumLabel2);
   void FullType_WithDefault(string input);
   void FullType_WithIsTypeParam(string input);
 }

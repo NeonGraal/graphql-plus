@@ -7,6 +7,6 @@ namespace GqlPlus.Parsing.Schema.Objects;
 internal class ParseInputArgs
   : ObjectArgumentsParser<IGqlpInputArg, InputArgAst>
 {
-  protected override InputArgAst ObjType(TokenAt at, string type, string description)
+  protected override InputArgAst ObjArgument(TokenAt at, string type, string description)
     => new(at, type, description);
 }

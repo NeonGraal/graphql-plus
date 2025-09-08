@@ -35,8 +35,18 @@ public interface IGqlpObjType
   bool IsTypeParam { get; }
 }
 
+public interface IGqlpObjectEnum
+  : IGqlpError
+{
+  IGqlpObjType EnumType { get; }
+  string? EnumLabel { get; }
+
+  void SetEnumType(string enumType);
+}
+
 public interface IGqlpObjArg
   : IGqlpObjType
+  , IGqlpObjectEnum
   , IEquatable<IGqlpObjArg>
 { }
 
@@ -44,6 +54,7 @@ public interface IGqlpObjBase
   : IGqlpObjType
   , IEquatable<IGqlpObjBase>
 {
+  new string Name { get; set; }
   IEnumerable<IGqlpObjArg> Args { get; }
 }
 
@@ -57,6 +68,7 @@ public interface IGqlpObjBase<TArg>
 
 public interface IGqlpObjField
   : IGqlpAliased
+  , IGqlpObjectEnum
   , IGqlpModifiers
 {
   IGqlpObjBase Type { get; }
@@ -148,18 +160,8 @@ public interface IGqlpOutputObject
   : IGqlpObject<IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>
 { }
 
-public interface IGqlpOutputEnum
-  : IGqlpError
-{
-  IGqlpObjType EnumType { get; }
-  string? EnumLabel { get; }
-
-  void SetEnumType(string enumType);
-}
-
 public interface IGqlpOutputArg
   : IGqlpObjArg
-  , IGqlpOutputEnum
   , IGqlpToDual<IGqlpDualArg>
 { }
 
@@ -170,7 +172,6 @@ public interface IGqlpOutputBase
 
 public interface IGqlpOutputField
   : IGqlpObjField<IGqlpOutputBase>
-  , IGqlpOutputEnum
   , IEquatable<IGqlpOutputField>
 {
   IEnumerable<IGqlpInputParam> Params { get; }

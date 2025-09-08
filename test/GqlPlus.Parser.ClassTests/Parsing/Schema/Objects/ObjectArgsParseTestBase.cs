@@ -100,4 +100,53 @@ public abstract class ObjectArgsParseTestBase<TObjArg>
     // Assert
     result.ShouldBeAssignableTo<IResultError>();
   }
+
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnOk_WhenValidEnum(string argType, string argLabel)
+  {
+    // Arrange
+    TakeReturns('<', true);
+    IdentifierReturns(OutString(argType), OutString(argLabel), OutFail);
+    TakeReturns('.', true);
+    TakeReturns('>', true);
+
+    // Act
+    IResultArray<TObjArg> result = Parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultArrayOk<TObjArg>>();
+  }
+
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenTypeParamEnum(string argType)
+  {
+    // Arrange
+    TakeReturns('<', true);
+    IdentifierReturns(OutFail);
+    PrefixReturns('$', OutStringAt(argType));
+    TakeReturns('.', true);
+    SetupError<TObjArg>();
+
+    // Act
+    IResultArray<TObjArg> result = Parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultError>();
+  }
+
+  [Theory, RepeatData]
+  public void Parse_ShouldReturnError_WhenErrorEnum(string argType)
+  {
+    // Arrange
+    TakeReturns('<', true);
+    IdentifierReturns(OutString(argType));
+    TakeReturns('.', true);
+    SetupError<TObjArg>();
+
+    // Act
+    IResultArray<TObjArg> result = Parser.Parse(Tokenizer, "testLabel");
+
+    // Assert
+    result.ShouldBeAssignableTo<IResultError>();
+  }
 }

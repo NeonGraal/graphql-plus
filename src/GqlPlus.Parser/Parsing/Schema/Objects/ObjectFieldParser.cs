@@ -63,10 +63,36 @@ internal abstract class ObjectFieldParser<TObjField, TObjFieldAst, TObjBase>(
     return FieldEnumValue(tokens, field);
   }
 
+  protected IResult<TObjField> FieldEnumValue(ITokenizer tokens, TObjFieldAst field)
+  {
+    if (tokens.Take('=')) {
+      string description = tokens.Description();
+      TokenAt at = tokens.At;
+      if (!tokens.Identifier(out string? enumType)) {
+        return tokens.Partial<TObjField>("Output", "enum value after '='", () => field);
+      }
+
+      if (!tokens.Take('.')) {
+        field.BaseType = ObjBase(at, "", description);
+        field.EnumLabel = enumType;
+        return field.Ok<TObjField>();
+      }
+
+      if (tokens.Identifier(out string? enumLabel)) {
+        field.BaseType = ObjBase(at, enumType, description);
+        field.EnumLabel = enumLabel;
+        return field.Ok<TObjField>();
+      }
+
+      return tokens.Partial<TObjField>("Output", "enum value after '.'", () => field);
+    }
+
+    return tokens.Partial<TObjField>("Output", "':' or '='", () => field);
+  }
+
   protected abstract void ApplyFieldParams(TObjFieldAst field, IGqlpInputParam[] parameters);
   protected abstract TObjFieldAst ObjField(TokenAt at, string name, string description, TObjBase typeBase);
   protected abstract IResult<TObjField> FieldDefault(ITokenizer tokens, TObjFieldAst field);
-  protected abstract IResult<TObjField> FieldEnumValue(ITokenizer tokens, TObjFieldAst field);
   protected abstract IResultArray<IGqlpInputParam> FieldParam(ITokenizer tokens);
-  protected abstract TObjBase ObjBase(TokenAt at, string param, string description = "");
+  protected abstract TObjBase ObjBase(TokenAt at, string type, string description = "");
 }

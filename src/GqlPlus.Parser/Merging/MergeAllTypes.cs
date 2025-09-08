@@ -67,8 +67,8 @@ internal class MergeAllTypes(
       .Where(g => g.Count() == 1)
       .ToMap(e => e.Key, e => e.First());
 
-  private static void FixupType<TEnum>(IGqlpOutputEnum type, Map<string> enumValues)
-    where TEnum : AstNamed, IGqlpOutputEnum
+  private static void FixupType<TEnum>(IGqlpObjectEnum type, Map<string> enumValues)
+    where TEnum : AstNamed, IGqlpObjectEnum
   {
     if (type is TEnum named) {
       if (string.IsNullOrWhiteSpace(named.EnumType.Name)

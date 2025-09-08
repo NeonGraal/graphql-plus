@@ -12,7 +12,6 @@ internal sealed record class OutputFieldAst(
   , IGqlpOutputField
 {
   public IGqlpInputParam[] Params { get; set; } = [];
-  public string? EnumLabel { get; set; }
 
   public OutputFieldAst(TokenAt at, string name, IGqlpOutputBase typeBase)
     : this(at, name, "", typeBase) { }
@@ -20,13 +19,6 @@ internal sealed record class OutputFieldAst(
   internal override string Abbr => "OF";
 
   IEnumerable<IGqlpInputParam> IGqlpOutputField.Params => Params;
-  IGqlpObjType IGqlpOutputEnum.EnumType => BaseType;
-
-  void IGqlpOutputEnum.SetEnumType(string enumType)
-  {
-    EnumLabel ??= BaseType.Name;
-    BaseType = (OutputBaseAst)BaseType with { Name = enumType };
-  }
 
   public bool Equals(OutputFieldAst? other)
     => other is IGqlpOutputField field && Equals(field);
@@ -40,7 +32,5 @@ internal sealed record class OutputFieldAst(
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
       .Concat(Params.Bracket("(", ")"))
-      .Concat(string.IsNullOrWhiteSpace(EnumLabel)
-        ? [":", .. BaseType.GetFields(), .. Modifiers.AsString()]
-        : ["=", .. BaseType.GetFields(), "." + EnumLabel]);
+      .Concat(TypeFields());
 }

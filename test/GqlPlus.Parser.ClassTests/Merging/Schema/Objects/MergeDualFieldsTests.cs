@@ -12,14 +12,17 @@ public class MergeDualFieldsTests(
 
   internal override AstObjectFieldsMerger<IGqlpDualField> MergerField => _merger;
 
-  protected override IGqlpDualField MakeAliased(string name, string[] aliases, string description = "")
-    => new DualFieldAst(AstNulls.At, name, description, new DualBaseAst(AstNulls.At, name, description)) {
-      Aliases = aliases
+  protected override IGqlpDualField MakeField(string name, string type, string fieldDescription = "", string typeDescription = "", string[]? aliases = null)
+    => new DualFieldAst(AstNulls.At, name, fieldDescription, new DualBaseAst(AstNulls.At, type, typeDescription)) {
+      Aliases = aliases ?? [],
     };
-  protected override IGqlpDualField MakeField(string name, string type, string fieldDescription = "", string typeDescription = "")
-    => new DualFieldAst(AstNulls.At, name, fieldDescription, new DualBaseAst(AstNulls.At, type, typeDescription));
+  protected override IGqlpDualField MakeFieldEnum(string name, string enumType, string enumLabel, string fieldDescription = "", string typeDescription = "", string[]? aliases = null)
+    => new DualFieldAst(AstNulls.At, name, fieldDescription, new DualBaseAst(AstNulls.At, enumType, typeDescription)) {
+      Aliases = aliases ?? [],
+      EnumLabel = enumLabel,
+    };
   protected override IGqlpDualField MakeFieldModifiers(string name)
     => new DualFieldAst(AstNulls.At, name, new DualBaseAst(AstNulls.At, name)) {
-      Modifiers = TestMods()
+      Modifiers = TestMods(),
     };
 }

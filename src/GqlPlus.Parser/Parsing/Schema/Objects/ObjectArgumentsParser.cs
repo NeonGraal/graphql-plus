@@ -18,9 +18,9 @@ internal abstract class ObjectArgumentsParser<TObjArg, TObjArgAst>
       return list.EmptyArray();
     }
 
-    IResult<TObjArgAst> argument = ParseObjectType(tokens, label).Map(CallArgEnumValue);
+    IResult<TObjArgAst> argument = ParseObjectArg(tokens, label);
     while (argument.Required(list.Add)) {
-      argument = ParseObjectType(tokens, label).Map(CallArgEnumValue);
+      argument = ParseObjectArg(tokens, label);
     }
 
     if (argument.IsError()) {
@@ -32,12 +32,9 @@ internal abstract class ObjectArgumentsParser<TObjArg, TObjArgAst>
     }
 
     return list.OkArray();
-
-    IResult<TObjArgAst> CallArgEnumValue(TObjArgAst value)
-      => ArgEnumValue(tokens, value);
   }
 
-  protected IResult<TObjArgAst> ParseObjectType(ITokenizer tokens, string label)
+  private IResult<TObjArgAst> ParseObjectArg(ITokenizer tokens, string label)
 
   {
     string description = tokens.Description();
@@ -46,7 +43,7 @@ internal abstract class ObjectArgumentsParser<TObjArg, TObjArgAst>
     }
 
     if (!string.IsNullOrWhiteSpace(param)) {
-      TObjArgAst objType = ObjType(at, param!, description) with {
+      TObjArgAst objType = ObjArgument(at, param!, description) with {
         IsTypeParam = true,
       };
       return objType.Ok();
@@ -63,13 +60,28 @@ internal abstract class ObjectArgumentsParser<TObjArg, TObjArgAst>
       }
     }
 
-    return hasName
-      ? ObjType(at, name!, description).Ok()
-      : 0.Empty<TObjArgAst>();
+    if (!hasName) {
+      return 0.Empty<TObjArgAst>();
+    }
+
+    TObjArgAst argument = ObjArgument(at, name!, description);
+
+    if (tokens.Take('.')) {
+      if (argument.IsTypeParam) {
+        return tokens.Error<TObjArgAst>("Output Arg", "Enum value not allowed after Type parameter");
+      }
+
+      at = tokens.At;
+      if (tokens.Identifier(out string? enumLabel)) {
+        argument = argument with { EnumLabel = enumLabel };
+        return argument.Ok();
+      }
+
+      return tokens.Error("Output Arg", "enum value after '.'", argument);
+    }
+
+    return argument.Ok();
   }
 
-  protected virtual IResult<TObjArgAst> ArgEnumValue(ITokenizer tokens, TObjArgAst argument)
-    => argument.Ok();
-
-  protected abstract TObjArgAst ObjType(TokenAt at, string type, string description);
+  protected abstract TObjArgAst ObjArgument(TokenAt at, string type, string description);
 }

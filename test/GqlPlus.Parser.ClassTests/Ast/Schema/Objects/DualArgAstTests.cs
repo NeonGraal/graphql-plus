@@ -5,9 +5,6 @@ namespace GqlPlus.Ast.Schema.Objects;
 public class DualArgAstTests
   : AstObjectArgTests<IGqlpDualArg>
 {
-  protected override string AbbreviatedString(string input)
-    => $"( {input} )";
-
   private readonly AstObjArgChecks<IGqlpDualArg, DualArgAst> _checks
     = new(name => new DualArgAst(AstNulls.At, name));
 

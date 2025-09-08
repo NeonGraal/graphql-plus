@@ -28,8 +28,5 @@ internal sealed record class InputFieldAst(
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
-      .Append(":")
-      .Concat(BaseType.GetFields())
-      .Concat(Modifiers.AsString())
-      .Append(DefaultValue.Prefixed("="));
+      .Concat(TypeFields(DefaultValue.Prefixed("=")));
 }

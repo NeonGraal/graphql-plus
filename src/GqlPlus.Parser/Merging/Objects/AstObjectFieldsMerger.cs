@@ -8,9 +8,9 @@ internal class AstObjectFieldsMerger<TObjField>(
 ) : AstAliasedMerger<TObjField>(logger)
   where TObjField : IGqlpObjField
 {
-  protected override string ItemMatchName => "ModifiedType";
+  protected override string ItemMatchName => "ModifiedType_Label";
   protected override string ItemMatchKey(TObjField item)
-    => item.ModifiedType;
+    => item.ModifiedType + item.EnumLabel.Prefixed(".");
 
   protected override TObjField MergeGroup(IEnumerable<TObjField> group)
   {

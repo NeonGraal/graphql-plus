@@ -21,9 +21,6 @@ internal class ParseDualField(
   protected override IResult<IGqlpDualField> FieldDefault(ITokenizer tokens, DualFieldAst field)
     => field.Ok<IGqlpDualField>();
 
-  protected override IResult<IGqlpDualField> FieldEnumValue(ITokenizer tokens, DualFieldAst field)
-    => tokens.Partial<IGqlpDualField>("Dual", "':'", () => field);
-
   protected override IResultArray<IGqlpInputParam> FieldParam(ITokenizer tokens)
     => 0.EmptyArray<IGqlpInputParam>();
 

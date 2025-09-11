@@ -54,8 +54,9 @@ public interface IGqlpObjBase
   : IGqlpObjType
   , IEquatable<IGqlpObjBase>
 {
-  new string Name { get; set; }
   IEnumerable<IGqlpObjArg> Args { get; }
+
+  void SetName(string name);
 }
 
 public interface IGqlpObjBase<TArg>

@@ -5124,81 +5124,183 @@
         "value": "Enum"
       }
     },
-    "EnumOutpCnstDomEnum": {
+    "EnumObjCnstDomEnumDual": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "enum": "EnumOutpCnstDomEnum",
-          "name": "outpCnstDomEnum"
+          "enum": "EnumObjCnstDomEnumDual",
+          "name": "objCnstDomEnumDual"
         },
         {
           "$tag": "_EnumLabel",
-          "enum": "EnumOutpCnstDomEnum",
+          "enum": "EnumObjCnstDomEnumDual",
           "name": "other"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "name": "outpCnstDomEnum"
+          "name": "objCnstDomEnumDual"
         },
         {
           "$tag": "_Aliased",
           "name": "other"
         }
       ],
-      "name": "EnumOutpCnstDomEnum",
+      "name": "EnumObjCnstDomEnumDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Enum"
       }
     },
-    "EnumOutpCnstEnum": {
+    "EnumObjCnstDomEnumInp": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "enum": "EnumOutpCnstEnum",
-          "name": "outpCnstEnum"
-        }
-      ],
-      "items": [
-        {
-          "$tag": "_Aliased",
-          "name": "outpCnstEnum"
-        }
-      ],
-      "name": "EnumOutpCnstEnum",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Enum"
-      }
-    },
-    "EnumOutpCnstEnumPrnt": {
-      "$tag": "_TypeEnum",
-      "allItems": [
-        {
-          "$tag": "_EnumLabel",
-          "enum": "ParentOutpCnstEnumPrnt",
-          "name": "parentOutpCnstEnumPrnt"
+          "enum": "EnumObjCnstDomEnumInp",
+          "name": "objCnstDomEnumInp"
         },
         {
           "$tag": "_EnumLabel",
-          "enum": "EnumOutpCnstEnumPrnt",
-          "name": "outpCnstEnumPrnt"
+          "enum": "EnumObjCnstDomEnumInp",
+          "name": "other"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "name": "outpCnstEnumPrnt"
+          "name": "objCnstDomEnumInp"
+        },
+        {
+          "$tag": "_Aliased",
+          "name": "other"
         }
       ],
-      "name": "EnumOutpCnstEnumPrnt",
+      "name": "EnumObjCnstDomEnumInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumObjCnstDomEnumOutp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjCnstDomEnumOutp",
+          "name": "objCnstDomEnumOutp"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjCnstDomEnumOutp",
+          "name": "other"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "objCnstDomEnumOutp"
+        },
+        {
+          "$tag": "_Aliased",
+          "name": "other"
+        }
+      ],
+      "name": "EnumObjCnstDomEnumOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumObjCnstEnumDual": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjCnstEnumDual",
+          "name": "objCnstEnumDual"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "objCnstEnumDual"
+        }
+      ],
+      "name": "EnumObjCnstEnumDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumObjCnstEnumInp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjCnstEnumInp",
+          "name": "objCnstEnumInp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "objCnstEnumInp"
+        }
+      ],
+      "name": "EnumObjCnstEnumInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumObjCnstEnumOutp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjCnstEnumOutp",
+          "name": "objCnstEnumOutp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "objCnstEnumOutp"
+        }
+      ],
+      "name": "EnumObjCnstEnumOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumObjCnstEnumPrntDual": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "ParentObjCnstEnumPrntDual",
+          "name": "parentObjCnstEnumPrntDual"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjCnstEnumPrntDual",
+          "name": "objCnstEnumPrntDual"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "objCnstEnumPrntDual"
+        }
+      ],
+      "name": "EnumObjCnstEnumPrntDual",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
-        "name": "ParentOutpCnstEnumPrnt",
+        "name": "ParentObjCnstEnumPrntDual",
         "typeKind": {
           "$tag": "_SimpleKind",
           "value": "Enum"
@@ -5209,30 +5311,30 @@
         "value": "Enum"
       }
     },
-    "EnumOutpCnstPrntEnum": {
+    "EnumObjCnstEnumPrntInp": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "enum": "ParentOutpCnstPrntEnum",
-          "name": "parentOutpCnstPrntEnum"
+          "enum": "ParentObjCnstEnumPrntInp",
+          "name": "parentObjCnstEnumPrntInp"
         },
         {
           "$tag": "_EnumLabel",
-          "enum": "EnumOutpCnstPrntEnum",
-          "name": "outpCnstPrntEnum"
+          "enum": "EnumObjCnstEnumPrntInp",
+          "name": "objCnstEnumPrntInp"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "name": "outpCnstPrntEnum"
+          "name": "objCnstEnumPrntInp"
         }
       ],
-      "name": "EnumOutpCnstPrntEnum",
+      "name": "EnumObjCnstEnumPrntInp",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
-        "name": "ParentOutpCnstPrntEnum",
+        "name": "ParentObjCnstEnumPrntInp",
         "typeKind": {
           "$tag": "_SimpleKind",
           "value": "Enum"
@@ -5243,51 +5345,30 @@
         "value": "Enum"
       }
     },
-    "EnumOutpFieldEnum": {
+    "EnumObjCnstEnumPrntOutp": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "enum": "EnumOutpFieldEnum",
-          "name": "outpFieldEnum"
-        }
-      ],
-      "items": [
-        {
-          "$tag": "_Aliased",
-          "name": "outpFieldEnum"
-        }
-      ],
-      "name": "EnumOutpFieldEnum",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Enum"
-      }
-    },
-    "EnumOutpFieldEnumPrnt": {
-      "$tag": "_TypeEnum",
-      "allItems": [
-        {
-          "$tag": "_EnumLabel",
-          "enum": "PrntOutpFieldEnumPrnt",
-          "name": "prnt_outpFieldEnumPrnt"
+          "enum": "ParentObjCnstEnumPrntOutp",
+          "name": "parentObjCnstEnumPrntOutp"
         },
         {
           "$tag": "_EnumLabel",
-          "enum": "EnumOutpFieldEnumPrnt",
-          "name": "outpFieldEnumPrnt"
+          "enum": "EnumObjCnstEnumPrntOutp",
+          "name": "objCnstEnumPrntOutp"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "name": "outpFieldEnumPrnt"
+          "name": "objCnstEnumPrntOutp"
         }
       ],
-      "name": "EnumOutpFieldEnumPrnt",
+      "name": "EnumObjCnstEnumPrntOutp",
       "parent": {
         "$tag": "_TypeRef(_SimpleKind)",
-        "name": "PrntOutpFieldEnumPrnt",
+        "name": "ParentObjCnstEnumPrntOutp",
         "typeKind": {
           "$tag": "_SimpleKind",
           "value": "Enum"
@@ -5298,85 +5379,520 @@
         "value": "Enum"
       }
     },
-    "EnumOutpFieldValue": {
+    "EnumObjCnstPrntEnumDual": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "enum": "EnumOutpFieldValue",
-          "name": "outpFieldValue"
+          "enum": "ParentObjCnstPrntEnumDual",
+          "name": "parentObjCnstPrntEnumDual"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjCnstPrntEnumDual",
+          "name": "objCnstPrntEnumDual"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "name": "outpFieldValue"
+          "name": "objCnstPrntEnumDual"
         }
       ],
-      "name": "EnumOutpFieldValue",
+      "name": "EnumObjCnstPrntEnumDual",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "ParentObjCnstPrntEnumDual",
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Enum"
+        }
+      },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Enum"
       }
     },
-    "EnumOutpFieldValueDescr": {
+    "EnumObjCnstPrntEnumInp": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "enum": "EnumOutpFieldValueDescr",
-          "name": "outpFieldValueDescr"
+          "enum": "ParentObjCnstPrntEnumInp",
+          "name": "parentObjCnstPrntEnumInp"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjCnstPrntEnumInp",
+          "name": "objCnstPrntEnumInp"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "name": "outpFieldValueDescr"
+          "name": "objCnstPrntEnumInp"
         }
       ],
-      "name": "EnumOutpFieldValueDescr",
+      "name": "EnumObjCnstPrntEnumInp",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "ParentObjCnstPrntEnumInp",
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Enum"
+        }
+      },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Enum"
       }
     },
-    "EnumOutpGnrcEnum": {
+    "EnumObjCnstPrntEnumOutp": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "enum": "EnumOutpGnrcEnum",
-          "name": "outpGnrcEnum"
+          "enum": "ParentObjCnstPrntEnumOutp",
+          "name": "parentObjCnstPrntEnumOutp"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjCnstPrntEnumOutp",
+          "name": "objCnstPrntEnumOutp"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "name": "outpGnrcEnum"
+          "name": "objCnstPrntEnumOutp"
         }
       ],
-      "name": "EnumOutpGnrcEnum",
+      "name": "EnumObjCnstPrntEnumOutp",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "ParentObjCnstPrntEnumOutp",
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Enum"
+        }
+      },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Enum"
       }
     },
-    "EnumOutpGnrcValue": {
+    "EnumObjFieldEnumDual": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "enum": "EnumOutpGnrcValue",
-          "name": "outpGnrcValue"
+          "enum": "EnumObjFieldEnumDual",
+          "name": "objFieldEnumDual"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "name": "outpGnrcValue"
+          "name": "objFieldEnumDual"
         }
       ],
-      "name": "EnumOutpGnrcValue",
+      "name": "EnumObjFieldEnumDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumObjFieldEnumInp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjFieldEnumInp",
+          "name": "objFieldEnumInp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "objFieldEnumInp"
+        }
+      ],
+      "name": "EnumObjFieldEnumInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumObjFieldEnumOutp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjFieldEnumOutp",
+          "name": "objFieldEnumOutp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "objFieldEnumOutp"
+        }
+      ],
+      "name": "EnumObjFieldEnumOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumObjFieldEnumPrntDual": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "PrntObjFieldEnumPrntDual",
+          "name": "prnt_objFieldEnumPrntDual"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjFieldEnumPrntDual",
+          "name": "objFieldEnumPrntDual"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "objFieldEnumPrntDual"
+        }
+      ],
+      "name": "EnumObjFieldEnumPrntDual",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "PrntObjFieldEnumPrntDual",
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Enum"
+        }
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumObjFieldEnumPrntInp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "PrntObjFieldEnumPrntInp",
+          "name": "prnt_objFieldEnumPrntInp"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjFieldEnumPrntInp",
+          "name": "objFieldEnumPrntInp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "objFieldEnumPrntInp"
+        }
+      ],
+      "name": "EnumObjFieldEnumPrntInp",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "PrntObjFieldEnumPrntInp",
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Enum"
+        }
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumObjFieldEnumPrntOutp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "PrntObjFieldEnumPrntOutp",
+          "name": "prnt_objFieldEnumPrntOutp"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjFieldEnumPrntOutp",
+          "name": "objFieldEnumPrntOutp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "objFieldEnumPrntOutp"
+        }
+      ],
+      "name": "EnumObjFieldEnumPrntOutp",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "PrntObjFieldEnumPrntOutp",
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Enum"
+        }
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumObjFieldValueDescrDual": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjFieldValueDescrDual",
+          "name": "objFieldValueDescrDual"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "objFieldValueDescrDual"
+        }
+      ],
+      "name": "EnumObjFieldValueDescrDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumObjFieldValueDescrInp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjFieldValueDescrInp",
+          "name": "objFieldValueDescrInp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "objFieldValueDescrInp"
+        }
+      ],
+      "name": "EnumObjFieldValueDescrInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumObjFieldValueDescrOutp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjFieldValueDescrOutp",
+          "name": "objFieldValueDescrOutp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "objFieldValueDescrOutp"
+        }
+      ],
+      "name": "EnumObjFieldValueDescrOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumObjFieldValueDual": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjFieldValueDual",
+          "name": "objFieldValueDual"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "objFieldValueDual"
+        }
+      ],
+      "name": "EnumObjFieldValueDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumObjFieldValueInp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjFieldValueInp",
+          "name": "objFieldValueInp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "objFieldValueInp"
+        }
+      ],
+      "name": "EnumObjFieldValueInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumObjFieldValueOutp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjFieldValueOutp",
+          "name": "objFieldValueOutp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "objFieldValueOutp"
+        }
+      ],
+      "name": "EnumObjFieldValueOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumObjGnrcEnumDual": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjGnrcEnumDual",
+          "name": "objGnrcEnumDual"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "objGnrcEnumDual"
+        }
+      ],
+      "name": "EnumObjGnrcEnumDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumObjGnrcEnumInp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjGnrcEnumInp",
+          "name": "objGnrcEnumInp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "objGnrcEnumInp"
+        }
+      ],
+      "name": "EnumObjGnrcEnumInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumObjGnrcEnumOutp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjGnrcEnumOutp",
+          "name": "objGnrcEnumOutp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "objGnrcEnumOutp"
+        }
+      ],
+      "name": "EnumObjGnrcEnumOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumObjGnrcValueDual": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjGnrcValueDual",
+          "name": "objGnrcValueDual"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "objGnrcValueDual"
+        }
+      ],
+      "name": "EnumObjGnrcValueDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumObjGnrcValueInp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjGnrcValueInp",
+          "name": "objGnrcValueInp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "objGnrcValueInp"
+        }
+      ],
+      "name": "EnumObjGnrcValueInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumObjGnrcValueOutp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjGnrcValueOutp",
+          "name": "objGnrcValueOutp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "objGnrcValueOutp"
+        }
+      ],
+      "name": "EnumObjGnrcValueOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Enum"
@@ -10616,17 +11132,17 @@
         "value": "Input"
       }
     },
-    "JustOutpCnstDomEnum": {
+    "JustObjCnstDomEnumDual": {
       "$tag": "_DomainEnum",
       "allItems": [
         {
           "$tag": "_DomainItem(_DomainLabel)",
-          "domain": "JustOutpCnstDomEnum",
+          "domain": "JustObjCnstDomEnumDual",
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "label": "outpCnstDomEnum",
-            "name": "EnumOutpCnstDomEnum",
+            "label": "objCnstDomEnumDual",
+            "name": "EnumObjCnstDomEnumDual",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
@@ -10644,8 +11160,8 @@
           "exclude": false,
           "value": {
             "$tag": "_EnumValue",
-            "label": "outpCnstDomEnum",
-            "name": "EnumOutpCnstDomEnum",
+            "label": "objCnstDomEnumDual",
+            "name": "EnumObjCnstDomEnumDual",
             "typeKind": {
               "$tag": "_SimpleKind",
               "value": "Enum"
@@ -10653,10 +11169,564 @@
           }
         }
       ],
-      "name": "JustOutpCnstDomEnum",
+      "name": "JustObjCnstDomEnumDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Domain"
+      }
+    },
+    "JustObjCnstDomEnumInp": {
+      "$tag": "_DomainEnum",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainLabel)",
+          "domain": "JustObjCnstDomEnumInp",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "objCnstDomEnumInp",
+            "name": "EnumObjCnstDomEnumInp",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Enum"
+      },
+      "items": [
+        {
+          "$tag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "objCnstDomEnumInp",
+            "name": "EnumObjCnstDomEnumInp",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        }
+      ],
+      "name": "JustObjCnstDomEnumInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "JustObjCnstDomEnumOutp": {
+      "$tag": "_DomainEnum",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainLabel)",
+          "domain": "JustObjCnstDomEnumOutp",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "objCnstDomEnumOutp",
+            "name": "EnumObjCnstDomEnumOutp",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Enum"
+      },
+      "items": [
+        {
+          "$tag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "objCnstDomEnumOutp",
+            "name": "EnumObjCnstDomEnumOutp",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        }
+      ],
+      "name": "JustObjCnstDomEnumOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "ObjCnstDomEnumDual": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "ObjCnstDomEnumDual",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "RefObjCnstDomEnumDual",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "name": "objCnstDomEnumDual"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "RefObjCnstDomEnumDual",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "name": "objCnstDomEnumDual"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "ObjCnstDomEnumDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "ObjCnstDomEnumInp": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "ObjCnstDomEnumInp",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "RefObjCnstDomEnumInp",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "name": "objCnstDomEnumInp"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "RefObjCnstDomEnumInp",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "name": "objCnstDomEnumInp"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "ObjCnstDomEnumInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "ObjCnstDomEnumOutp": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "ObjCnstDomEnumOutp",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "RefObjCnstDomEnumOutp",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "name": "objCnstDomEnumOutp"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "RefObjCnstDomEnumOutp",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "name": "objCnstDomEnumOutp"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "ObjCnstDomEnumOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "ObjCnstEnumDual": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "ObjCnstEnumDual",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "RefObjCnstEnumDual",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "name": "objCnstEnumDual"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "RefObjCnstEnumDual",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "name": "objCnstEnumDual"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "ObjCnstEnumDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "ObjCnstEnumInp": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "ObjCnstEnumInp",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "RefObjCnstEnumInp",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "name": "objCnstEnumInp"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "RefObjCnstEnumInp",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "name": "objCnstEnumInp"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "ObjCnstEnumInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "ObjCnstEnumOutp": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "ObjCnstEnumOutp",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "RefObjCnstEnumOutp",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "name": "objCnstEnumOutp"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "RefObjCnstEnumOutp",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "name": "objCnstEnumOutp"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "ObjCnstEnumOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "ObjCnstEnumPrntDual": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "ObjCnstEnumPrntDual",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "RefObjCnstEnumPrntDual",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "name": "objCnstEnumPrntDual"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "RefObjCnstEnumPrntDual",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "name": "objCnstEnumPrntDual"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "ObjCnstEnumPrntDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "ObjCnstEnumPrntInp": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "ObjCnstEnumPrntInp",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "RefObjCnstEnumPrntInp",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "name": "objCnstEnumPrntInp"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "RefObjCnstEnumPrntInp",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "name": "objCnstEnumPrntInp"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "ObjCnstEnumPrntInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "ObjCnstEnumPrntOutp": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "ObjCnstEnumPrntOutp",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "RefObjCnstEnumPrntOutp",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "name": "objCnstEnumPrntOutp"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "RefObjCnstEnumPrntOutp",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "name": "objCnstEnumPrntOutp"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "ObjCnstEnumPrntOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "ObjCnstPrntEnumDual": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "ObjCnstPrntEnumDual",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "RefObjCnstPrntEnumDual",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "name": "parentObjCnstPrntEnumDual"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "RefObjCnstPrntEnumDual",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "name": "parentObjCnstPrntEnumDual"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "ObjCnstPrntEnumDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "ObjCnstPrntEnumInp": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "ObjCnstPrntEnumInp",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "RefObjCnstPrntEnumInp",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "name": "parentObjCnstPrntEnumInp"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "RefObjCnstPrntEnumInp",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "name": "parentObjCnstPrntEnumInp"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "ObjCnstPrntEnumInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "ObjCnstPrntEnumOutp": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "ObjCnstPrntEnumOutp",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "RefObjCnstPrntEnumOutp",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "name": "parentObjCnstPrntEnumOutp"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "RefObjCnstPrntEnumOutp",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "name": "parentObjCnstPrntEnumOutp"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "ObjCnstPrntEnumOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
       }
     },
     "ObjDualAltDualDual": {
@@ -10803,136 +11873,472 @@
         "value": "Dual"
       }
     },
-    "OutpCnstDomEnum": {
+    "ObjFieldEnumDual": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "ObjFieldEnumDual",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "EnumObjFieldEnumDual"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "EnumObjFieldEnumDual"
+          }
+        }
+      ],
+      "name": "ObjFieldEnumDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "ObjFieldEnumInp": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "ObjFieldEnumInp",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "EnumObjFieldEnumInp"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "EnumObjFieldEnumInp"
+          }
+        }
+      ],
+      "name": "ObjFieldEnumInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "ObjFieldEnumOutp": {
       "$tag": "_TypeOutput",
-      "allAlternates": [
+      "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpCnstDomEnum",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "RefOutpCnstDomEnum",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "name": "outpCnstDomEnum"
-              }
-            ]
+          "$tag": "_ObjectFor(_OutputField)",
+          "field": "field",
+          "label": "objFieldEnumOutp",
+          "name": "EnumObjFieldEnumOutp",
+          "object": "ObjFieldEnumOutp",
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
           }
         }
       ],
-      "alternates": [
+      "fields": [
         {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "RefOutpCnstDomEnum",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "name": "outpCnstDomEnum"
-              }
-            ]
+          "$tag": "_OutputEnum",
+          "field": "field",
+          "label": "objFieldEnumOutp",
+          "name": "EnumObjFieldEnumOutp",
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
           }
         }
       ],
-      "name": "OutpCnstDomEnum",
+      "name": "ObjFieldEnumOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
       }
     },
-    "OutpCnstEnum": {
+    "ObjFieldEnumPrntDual": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "ObjFieldEnumPrntDual",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "EnumObjFieldEnumPrntDual"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "EnumObjFieldEnumPrntDual"
+          }
+        }
+      ],
+      "name": "ObjFieldEnumPrntDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "ObjFieldEnumPrntInp": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "ObjFieldEnumPrntInp",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "EnumObjFieldEnumPrntInp"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "EnumObjFieldEnumPrntInp"
+          }
+        }
+      ],
+      "name": "ObjFieldEnumPrntInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "ObjFieldEnumPrntOutp": {
       "$tag": "_TypeOutput",
-      "allAlternates": [
+      "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpCnstEnum",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "RefOutpCnstEnum",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "name": "outpCnstEnum"
-              }
-            ]
+          "$tag": "_ObjectFor(_OutputField)",
+          "field": "field",
+          "label": "prnt_objFieldEnumPrntOutp",
+          "name": "EnumObjFieldEnumPrntOutp",
+          "object": "ObjFieldEnumPrntOutp",
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
           }
         }
       ],
-      "alternates": [
+      "fields": [
         {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "RefOutpCnstEnum",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "name": "outpCnstEnum"
-              }
-            ]
+          "$tag": "_OutputEnum",
+          "field": "field",
+          "label": "prnt_objFieldEnumPrntOutp",
+          "name": "EnumObjFieldEnumPrntOutp",
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
           }
         }
       ],
-      "name": "OutpCnstEnum",
+      "name": "ObjFieldEnumPrntOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
       }
     },
-    "OutpCnstEnumPrnt": {
+    "ObjFieldValueDescrDual": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "ObjFieldValueDescrDual",
+          "type": {
+            "$tag": "_DualBase",
+            "description": "Test Descr",
+            "name": "EnumObjFieldValueDescrDual"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "description": "Test Descr",
+            "name": "EnumObjFieldValueDescrDual"
+          }
+        }
+      ],
+      "name": "ObjFieldValueDescrDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "ObjFieldValueDescrInp": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "ObjFieldValueDescrInp",
+          "type": {
+            "$tag": "_InputBase",
+            "description": "Test Descr",
+            "name": "EnumObjFieldValueDescrInp"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "description": "Test Descr",
+            "name": "EnumObjFieldValueDescrInp"
+          }
+        }
+      ],
+      "name": "ObjFieldValueDescrInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "ObjFieldValueDescrOutp": {
       "$tag": "_TypeOutput",
-      "allAlternates": [
+      "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpCnstEnumPrnt",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "RefOutpCnstEnumPrnt",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "name": "outpCnstEnumPrnt"
-              }
-            ]
+          "$tag": "_ObjectFor(_OutputField)",
+          "description": "Test Descr",
+          "field": "field",
+          "label": "objFieldValueDescrOutp",
+          "name": "EnumObjFieldValueDescrOutp",
+          "object": "ObjFieldValueDescrOutp",
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
           }
         }
       ],
-      "alternates": [
+      "fields": [
         {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "RefOutpCnstEnumPrnt",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "name": "outpCnstEnumPrnt"
-              }
-            ]
+          "$tag": "_OutputEnum",
+          "description": "Test Descr",
+          "field": "field",
+          "label": "objFieldValueDescrOutp",
+          "name": "EnumObjFieldValueDescrOutp",
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
           }
         }
       ],
-      "name": "OutpCnstEnumPrnt",
+      "name": "ObjFieldValueDescrOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
       }
     },
-    "OutpCnstPrntEnum": {
+    "ObjFieldValueDual": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "ObjFieldValueDual",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "EnumObjFieldValueDual"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "EnumObjFieldValueDual"
+          }
+        }
+      ],
+      "name": "ObjFieldValueDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "ObjFieldValueInp": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "ObjFieldValueInp",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "EnumObjFieldValueInp"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "EnumObjFieldValueInp"
+          }
+        }
+      ],
+      "name": "ObjFieldValueInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "ObjFieldValueOutp": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "field": "field",
+          "label": "objFieldValueOutp",
+          "name": "EnumObjFieldValueOutp",
+          "object": "ObjFieldValueOutp",
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputEnum",
+          "field": "field",
+          "label": "objFieldValueOutp",
+          "name": "EnumObjFieldValueOutp",
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
+          }
+        }
+      ],
+      "name": "ObjFieldValueOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "ObjGnrcEnumDual": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "ObjGnrcEnumDual",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "RefObjGnrcEnumDual",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "name": "EnumObjGnrcEnumDual"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "RefObjGnrcEnumDual",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "name": "EnumObjGnrcEnumDual"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "ObjGnrcEnumDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "ObjGnrcEnumInp": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "ObjGnrcEnumInp",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "RefObjGnrcEnumInp",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "name": "EnumObjGnrcEnumInp"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "RefObjGnrcEnumInp",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "name": "EnumObjGnrcEnumInp"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "ObjGnrcEnumInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "ObjGnrcEnumOutp": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpCnstPrntEnum",
+          "object": "ObjGnrcEnumOutp",
           "type": {
             "$tag": "_OutputBase",
-            "name": "RefOutpCnstPrntEnum",
+            "name": "RefObjGnrcEnumOutp",
             "typeArgs": [
               {
-                "$tag": "_OutputArg",
-                "name": "parentOutpCnstPrntEnum"
+                "$tag": "_TypeRef(_SimpleKind)",
+                "label": "objGnrcEnumOutp",
+                "name": "EnumObjGnrcEnumOutp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -10943,17 +12349,139 @@
           "$tag": "_OutputAlternate",
           "type": {
             "$tag": "_OutputBase",
-            "name": "RefOutpCnstPrntEnum",
+            "name": "RefObjGnrcEnumOutp",
             "typeArgs": [
               {
-                "$tag": "_OutputArg",
-                "name": "parentOutpCnstPrntEnum"
+                "$tag": "_TypeRef(_SimpleKind)",
+                "label": "objGnrcEnumOutp",
+                "name": "EnumObjGnrcEnumOutp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
         }
       ],
-      "name": "OutpCnstPrntEnum",
+      "name": "ObjGnrcEnumOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "ObjGnrcValueDual": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "ObjGnrcValueDual",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "RefObjGnrcValueDual",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "name": "objGnrcValueDual"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "RefObjGnrcValueDual",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "name": "objGnrcValueDual"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "ObjGnrcValueDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "ObjGnrcValueInp": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "ObjGnrcValueInp",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "RefObjGnrcValueInp",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "name": "objGnrcValueInp"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "RefObjGnrcValueInp",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "name": "objGnrcValueInp"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "ObjGnrcValueInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "ObjGnrcValueOutp": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_OutputAlternate)",
+          "object": "ObjGnrcValueOutp",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "RefObjGnrcValueOutp",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "name": "objGnrcValueOutp"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_OutputAlternate",
+          "type": {
+            "$tag": "_OutputBase",
+            "name": "RefObjGnrcValueOutp",
+            "typeArgs": [
+              {
+                "$tag": "_OutputArg",
+                "name": "objGnrcValueOutp"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "ObjGnrcValueOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
@@ -10997,228 +12525,6 @@
         }
       ],
       "name": "OutpDescrParam",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "OutpFieldEnum": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "field": "field",
-          "label": "outpFieldEnum",
-          "name": "EnumOutpFieldEnum",
-          "object": "OutpFieldEnum",
-          "typeKind": {
-            "$tag": "_SimpleKind",
-            "value": "Enum"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputEnum",
-          "field": "field",
-          "label": "outpFieldEnum",
-          "name": "EnumOutpFieldEnum",
-          "typeKind": {
-            "$tag": "_SimpleKind",
-            "value": "Enum"
-          }
-        }
-      ],
-      "name": "OutpFieldEnum",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "OutpFieldEnumPrnt": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "field": "field",
-          "label": "prnt_outpFieldEnumPrnt",
-          "name": "EnumOutpFieldEnumPrnt",
-          "object": "OutpFieldEnumPrnt",
-          "typeKind": {
-            "$tag": "_SimpleKind",
-            "value": "Enum"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputEnum",
-          "field": "field",
-          "label": "prnt_outpFieldEnumPrnt",
-          "name": "EnumOutpFieldEnumPrnt",
-          "typeKind": {
-            "$tag": "_SimpleKind",
-            "value": "Enum"
-          }
-        }
-      ],
-      "name": "OutpFieldEnumPrnt",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "OutpFieldValue": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "field": "field",
-          "label": "outpFieldValue",
-          "name": "EnumOutpFieldValue",
-          "object": "OutpFieldValue",
-          "typeKind": {
-            "$tag": "_SimpleKind",
-            "value": "Enum"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputEnum",
-          "field": "field",
-          "label": "outpFieldValue",
-          "name": "EnumOutpFieldValue",
-          "typeKind": {
-            "$tag": "_SimpleKind",
-            "value": "Enum"
-          }
-        }
-      ],
-      "name": "OutpFieldValue",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "OutpFieldValueDescr": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "description": "Test Descr",
-          "field": "field",
-          "label": "outpFieldValueDescr",
-          "name": "EnumOutpFieldValueDescr",
-          "object": "OutpFieldValueDescr",
-          "typeKind": {
-            "$tag": "_SimpleKind",
-            "value": "Enum"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputEnum",
-          "description": "Test Descr",
-          "field": "field",
-          "label": "outpFieldValueDescr",
-          "name": "EnumOutpFieldValueDescr",
-          "typeKind": {
-            "$tag": "_SimpleKind",
-            "value": "Enum"
-          }
-        }
-      ],
-      "name": "OutpFieldValueDescr",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "OutpGnrcEnum": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGnrcEnum",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "RefOutpGnrcEnum",
-            "typeArgs": [
-              {
-                "$tag": "_TypeRef(_SimpleKind)",
-                "label": "outpGnrcEnum",
-                "name": "EnumOutpGnrcEnum",
-                "typeKind": {
-                  "$tag": "_SimpleKind",
-                  "value": "Enum"
-                }
-              }
-            ]
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "RefOutpGnrcEnum",
-            "typeArgs": [
-              {
-                "$tag": "_TypeRef(_SimpleKind)",
-                "label": "outpGnrcEnum",
-                "name": "EnumOutpGnrcEnum",
-                "typeKind": {
-                  "$tag": "_SimpleKind",
-                  "value": "Enum"
-                }
-              }
-            ]
-          }
-        }
-      ],
-      "name": "OutpGnrcEnum",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "OutpGnrcValue": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "OutpGnrcValue",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "RefOutpGnrcValue",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "name": "outpGnrcValue"
-              }
-            ]
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "RefOutpGnrcValue",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "name": "outpGnrcValue"
-              }
-            ]
-          }
-        }
-      ],
-      "name": "OutpGnrcValue",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
@@ -11730,43 +13036,127 @@
         "value": "Enum"
       }
     },
-    "ParentOutpCnstEnumPrnt": {
+    "ParentObjCnstEnumPrntDual": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "enum": "ParentOutpCnstEnumPrnt",
-          "name": "parentOutpCnstEnumPrnt"
+          "enum": "ParentObjCnstEnumPrntDual",
+          "name": "parentObjCnstEnumPrntDual"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "name": "parentOutpCnstEnumPrnt"
+          "name": "parentObjCnstEnumPrntDual"
         }
       ],
-      "name": "ParentOutpCnstEnumPrnt",
+      "name": "ParentObjCnstEnumPrntDual",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Enum"
       }
     },
-    "ParentOutpCnstPrntEnum": {
+    "ParentObjCnstEnumPrntInp": {
       "$tag": "_TypeEnum",
       "allItems": [
         {
           "$tag": "_EnumLabel",
-          "enum": "ParentOutpCnstPrntEnum",
-          "name": "parentOutpCnstPrntEnum"
+          "enum": "ParentObjCnstEnumPrntInp",
+          "name": "parentObjCnstEnumPrntInp"
         }
       ],
       "items": [
         {
           "$tag": "_Aliased",
-          "name": "parentOutpCnstPrntEnum"
+          "name": "parentObjCnstEnumPrntInp"
         }
       ],
-      "name": "ParentOutpCnstPrntEnum",
+      "name": "ParentObjCnstEnumPrntInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "ParentObjCnstEnumPrntOutp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "ParentObjCnstEnumPrntOutp",
+          "name": "parentObjCnstEnumPrntOutp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "parentObjCnstEnumPrntOutp"
+        }
+      ],
+      "name": "ParentObjCnstEnumPrntOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "ParentObjCnstPrntEnumDual": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "ParentObjCnstPrntEnumDual",
+          "name": "parentObjCnstPrntEnumDual"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "parentObjCnstPrntEnumDual"
+        }
+      ],
+      "name": "ParentObjCnstPrntEnumDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "ParentObjCnstPrntEnumInp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "ParentObjCnstPrntEnumInp",
+          "name": "parentObjCnstPrntEnumInp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "parentObjCnstPrntEnumInp"
+        }
+      ],
+      "name": "ParentObjCnstPrntEnumInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "ParentObjCnstPrntEnumOutp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "ParentObjCnstPrntEnumOutp",
+          "name": "parentObjCnstPrntEnumOutp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "parentObjCnstPrntEnumOutp"
+        }
+      ],
+      "name": "ParentObjCnstPrntEnumOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Enum"
@@ -12897,6 +14287,69 @@
         "value": "Input"
       }
     },
+    "PrntObjFieldEnumPrntDual": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "PrntObjFieldEnumPrntDual",
+          "name": "prnt_objFieldEnumPrntDual"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "prnt_objFieldEnumPrntDual"
+        }
+      ],
+      "name": "PrntObjFieldEnumPrntDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "PrntObjFieldEnumPrntInp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "PrntObjFieldEnumPrntInp",
+          "name": "prnt_objFieldEnumPrntInp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "prnt_objFieldEnumPrntInp"
+        }
+      ],
+      "name": "PrntObjFieldEnumPrntInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "PrntObjFieldEnumPrntOutp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "PrntObjFieldEnumPrntOutp",
+          "name": "prnt_objFieldEnumPrntOutp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "prnt_objFieldEnumPrntOutp"
+        }
+      ],
+      "name": "PrntObjFieldEnumPrntOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
     "PrntOutp": {
       "$tag": "_TypeOutput",
       "allAlternates": [
@@ -12928,27 +14381,6 @@
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
-      }
-    },
-    "PrntOutpFieldEnumPrnt": {
-      "$tag": "_TypeEnum",
-      "allItems": [
-        {
-          "$tag": "_EnumLabel",
-          "enum": "PrntOutpFieldEnumPrnt",
-          "name": "prnt_outpFieldEnumPrnt"
-        }
-      ],
-      "items": [
-        {
-          "$tag": "_Aliased",
-          "name": "prnt_outpFieldEnumPrnt"
-        }
-      ],
-      "name": "PrntOutpFieldEnumPrnt",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Enum"
       }
     },
     "PrntOutpPrntGnrc": {
@@ -16364,40 +17796,40 @@
         }
       ]
     },
-    "RefOutpCnstDomEnum": {
-      "$tag": "_TypeOutput",
+    "RefObjCnstDomEnumDual": {
+      "$tag": "_TypeDual",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$tag": "_ObjectFor(_DualField)",
           "name": "field",
-          "object": "RefOutpCnstDomEnum",
+          "object": "RefObjCnstDomEnumDual",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_DualBase",
             "typeParam": "type"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$tag": "_DualField",
           "name": "field",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_DualBase",
             "typeParam": "type"
           }
         }
       ],
-      "name": "RefOutpCnstDomEnum",
+      "name": "RefObjCnstDomEnumDual",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "value": "Dual"
       },
       "typeParams": [
         {
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "JustOutpCnstDomEnum",
+            "name": "JustObjCnstDomEnumDual",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Domain"
@@ -16407,13 +17839,56 @@
         }
       ]
     },
-    "RefOutpCnstEnum": {
+    "RefObjCnstDomEnumInp": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "RefObjCnstDomEnumInp",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "name": "RefObjCnstDomEnumInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "JustObjCnstDomEnumInp",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Domain"
+            }
+          },
+          "name": "type"
+        }
+      ]
+    },
+    "RefObjCnstDomEnumOutp": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "RefOutpCnstEnum",
+          "object": "RefObjCnstDomEnumOutp",
           "type": {
             "$tag": "_OutputBase",
             "typeParam": "type"
@@ -16430,7 +17905,7 @@
           }
         }
       ],
-      "name": "RefOutpCnstEnum",
+      "name": "RefObjCnstDomEnumOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
@@ -16440,7 +17915,50 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "EnumOutpCnstEnum",
+            "name": "JustObjCnstDomEnumOutp",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Domain"
+            }
+          },
+          "name": "type"
+        }
+      ]
+    },
+    "RefObjCnstEnumDual": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "RefObjCnstEnumDual",
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "name": "RefObjCnstEnumDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "EnumObjCnstEnumDual",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Enum"
@@ -16450,13 +17968,56 @@
         }
       ]
     },
-    "RefOutpCnstEnumPrnt": {
+    "RefObjCnstEnumInp": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "RefObjCnstEnumInp",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "name": "RefObjCnstEnumInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "EnumObjCnstEnumInp",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
+          "name": "type"
+        }
+      ]
+    },
+    "RefObjCnstEnumOutp": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "RefOutpCnstEnumPrnt",
+          "object": "RefObjCnstEnumOutp",
           "type": {
             "$tag": "_OutputBase",
             "typeParam": "type"
@@ -16473,7 +18034,7 @@
           }
         }
       ],
-      "name": "RefOutpCnstEnumPrnt",
+      "name": "RefObjCnstEnumOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
@@ -16483,7 +18044,7 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "ParentOutpCnstEnumPrnt",
+            "name": "EnumObjCnstEnumOutp",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Enum"
@@ -16493,13 +18054,99 @@
         }
       ]
     },
-    "RefOutpCnstPrntEnum": {
+    "RefObjCnstEnumPrntDual": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "RefObjCnstEnumPrntDual",
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "name": "RefObjCnstEnumPrntDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "ParentObjCnstEnumPrntDual",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
+          "name": "type"
+        }
+      ]
+    },
+    "RefObjCnstEnumPrntInp": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "RefObjCnstEnumPrntInp",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "name": "RefObjCnstEnumPrntInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "ParentObjCnstEnumPrntInp",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
+          "name": "type"
+        }
+      ]
+    },
+    "RefObjCnstEnumPrntOutp": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "RefOutpCnstPrntEnum",
+          "object": "RefObjCnstEnumPrntOutp",
           "type": {
             "$tag": "_OutputBase",
             "typeParam": "type"
@@ -16516,7 +18163,7 @@
           }
         }
       ],
-      "name": "RefOutpCnstPrntEnum",
+      "name": "RefObjCnstEnumPrntOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
@@ -16526,7 +18173,7 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "EnumOutpCnstPrntEnum",
+            "name": "ParentObjCnstEnumPrntOutp",
             "typeKind": {
               "$tag": "_TypeKind",
               "value": "Enum"
@@ -16536,13 +18183,99 @@
         }
       ]
     },
-    "RefOutpGnrcEnum": {
+    "RefObjCnstPrntEnumDual": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "RefObjCnstPrntEnumDual",
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "name": "RefObjCnstPrntEnumDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "EnumObjCnstPrntEnumDual",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
+          "name": "type"
+        }
+      ]
+    },
+    "RefObjCnstPrntEnumInp": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "RefObjCnstPrntEnumInp",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "name": "RefObjCnstPrntEnumInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "EnumObjCnstPrntEnumInp",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
+          "name": "type"
+        }
+      ]
+    },
+    "RefObjCnstPrntEnumOutp": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "RefOutpGnrcEnum",
+          "object": "RefObjCnstPrntEnumOutp",
           "type": {
             "$tag": "_OutputBase",
             "typeParam": "type"
@@ -16559,7 +18292,136 @@
           }
         }
       ],
-      "name": "RefOutpGnrcEnum",
+      "name": "RefObjCnstPrntEnumOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "EnumObjCnstPrntEnumOutp",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
+          "name": "type"
+        }
+      ]
+    },
+    "RefObjGnrcEnumDual": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "RefObjGnrcEnumDual",
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "name": "RefObjGnrcEnumDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_Enum",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Internal"
+            }
+          },
+          "name": "type"
+        }
+      ]
+    },
+    "RefObjGnrcEnumInp": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "RefObjGnrcEnumInp",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "name": "RefObjGnrcEnumInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_Enum",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Internal"
+            }
+          },
+          "name": "type"
+        }
+      ]
+    },
+    "RefObjGnrcEnumOutp": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "RefObjGnrcEnumOutp",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_OutputBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "name": "RefObjGnrcEnumOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
@@ -16579,13 +18441,99 @@
         }
       ]
     },
-    "RefOutpGnrcValue": {
+    "RefObjGnrcValueDual": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "RefObjGnrcValueDual",
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "name": "RefObjGnrcValueDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_Enum",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Internal"
+            }
+          },
+          "name": "type"
+        }
+      ]
+    },
+    "RefObjGnrcValueInp": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "RefObjGnrcValueInp",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "name": "RefObjGnrcValueInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_Enum",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Internal"
+            }
+          },
+          "name": "type"
+        }
+      ]
+    },
+    "RefObjGnrcValueOutp": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "field",
-          "object": "RefOutpGnrcValue",
+          "object": "RefObjGnrcValueOutp",
           "type": {
             "$tag": "_OutputBase",
             "typeParam": "type"
@@ -16602,7 +18550,7 @@
           }
         }
       ],
-      "name": "RefOutpGnrcValue",
+      "name": "RefObjGnrcValueOutp",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

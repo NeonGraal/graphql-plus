@@ -1,0 +1,22 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  ObjFieldEnumOutp
+  {
+    !OF I@027/0001
+    field
+    =
+    I@035/0001
+    EnumObjFieldEnumOutp
+    .objFieldEnumOutp
+  }
+}
+{
+  !En I@006/0002
+  EnumObjFieldEnumOutp
+  !EL I@029/0002
+  objFieldEnumOutp
+}
+]

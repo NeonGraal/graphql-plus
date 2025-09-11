@@ -1,0 +1,90 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnumObjFieldEnumPrntInp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "PrntObjFieldEnumPrntInp",
+          "name": "prnt_objFieldEnumPrntInp"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjFieldEnumPrntInp",
+          "name": "objFieldEnumPrntInp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "objFieldEnumPrntInp"
+        }
+      ],
+      "name": "EnumObjFieldEnumPrntInp",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "PrntObjFieldEnumPrntInp",
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Enum"
+        }
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "ObjFieldEnumPrntInp": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "ObjFieldEnumPrntInp",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "EnumObjFieldEnumPrntInp"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "EnumObjFieldEnumPrntInp"
+          }
+        }
+      ],
+      "name": "ObjFieldEnumPrntInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "PrntObjFieldEnumPrntInp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "PrntObjFieldEnumPrntInp",
+          "name": "prnt_objFieldEnumPrntInp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "prnt_objFieldEnumPrntInp"
+        }
+      ],
+      "name": "PrntObjFieldEnumPrntInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    }
+  }
+}

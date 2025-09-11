@@ -779,607 +779,711 @@ Success
 }
 {
   !Du I@006/0143
-  ObjFieldTypeAliasDual
+  ObjFieldEnumAliasDual
   {
     !DF I@030/0143
     field
-    :
-    I@037/0143
-    String
+    [
+      field1
+    ]
+    =
+    I@047/0143
+    Boolean
+    .true
   }
 }
 {
   !Du I@006/0144
-  ObjFieldTypeAliasDual
+  ObjFieldEnumAliasDual
   {
     !DF I@030/0144
     field
-    :
-    I@037/0144
-    String
+    [
+      field2
+    ]
+    =
+    I@047/0144
+    .true
   }
 }
 {
   !In I@007/0146
-  ObjFieldTypeAliasInp
+  ObjFieldEnumAliasInp
   {
     !IF I@030/0146
     field
-    :
-    I@037/0146
-    String
+    [
+      field1
+    ]
+    =
+    I@047/0146
+    Boolean
+    .true
   }
 }
 {
   !In I@007/0147
-  ObjFieldTypeAliasInp
+  ObjFieldEnumAliasInp
   {
     !IF I@030/0147
     field
-    :
-    I@037/0147
-    String
+    [
+      field2
+    ]
+    =
+    I@047/0147
+    .true
   }
 }
 {
   !Ou I@008/0149
-  ObjFieldTypeAliasOutp
+  ObjFieldEnumAliasOutp
   {
     !OF I@032/0149
     field
-    :
-    I@039/0149
-    String
+    [
+      field1
+    ]
+    =
+    I@049/0149
+    Boolean
+    .true
   }
 }
 {
   !Ou I@008/0150
-  ObjFieldTypeAliasOutp
+  ObjFieldEnumAliasOutp
   {
     !OF I@032/0150
     field
-    :
-    I@039/0150
-    String
+    [
+      field2
+    ]
+    =
+    I@049/0150
+    .true
   }
 }
 {
   !Du I@006/0152
-  ObjParamDual
-  <
-    I@020/0152
-    $test
-    :String
-  >
+  ObjFieldEnumValueDual
   {
-    !DF I@035/0152
-    test
-    :
-    I@042/0152
-    $test
+    !DF I@030/0152
+    field
+    =
+    I@038/0152
+    Boolean
+    .true
   }
 }
 {
   !Du I@006/0153
-  ObjParamDual
-  <
-    I@020/0153
-    $type
-    :String
-  >
+  ObjFieldEnumValueDual
   {
-    !DF I@035/0153
-    type
-    :
-    I@042/0153
-    $type
+    !DF I@030/0153
+    field
+    =
+    I@038/0153
+    .true
   }
 }
 {
   !In I@007/0155
-  ObjParamInp
-  <
-    I@020/0155
-    $test
-    :String
-  >
+  ObjFieldEnumValueInp
   {
-    !IF I@035/0155
-    test
-    :
-    I@042/0155
-    $test
+    !IF I@030/0155
+    field
+    =
+    I@038/0155
+    Boolean
+    .true
   }
 }
 {
   !In I@007/0156
-  ObjParamInp
-  <
-    I@020/0156
-    $type
-    :String
-  >
+  ObjFieldEnumValueInp
   {
-    !IF I@035/0156
-    type
-    :
-    I@042/0156
-    $type
+    !IF I@030/0156
+    field
+    =
+    I@038/0156
+    .true
   }
 }
 {
   !Ou I@008/0158
-  ObjParamOutp
-  <
-    I@022/0158
-    $test
-    :String
-  >
+  ObjFieldEnumValueOutp
   {
-    !OF I@037/0158
-    test
-    :
-    I@044/0158
-    $test
+    !OF I@032/0158
+    field
+    =
+    I@040/0158
+    Boolean
+    .true
   }
 }
 {
   !Ou I@008/0159
-  ObjParamOutp
-  <
-    I@022/0159
-    $type
-    :String
-  >
+  ObjFieldEnumValueOutp
   {
-    !OF I@037/0159
-    type
-    :
-    I@044/0159
-    $type
+    !OF I@032/0159
+    field
+    =
+    I@040/0159
+    .true
   }
 }
 {
   !Du I@006/0161
-  ObjParamCnstDual
-  <
-    I@024/0161
-    $test
-    :String
-  >
+  ObjFieldTypeAliasDual
   {
-    !DF I@039/0161
-    test
+    !DF I@030/0161
+    field
     :
-    I@046/0161
-    $test
+    I@037/0161
+    String
   }
 }
 {
   !Du I@006/0162
-  ObjParamCnstDual
-  <
-    I@024/0162
-    $test
-    :String
-  >
+  ObjFieldTypeAliasDual
   {
-    !DF I@039/0162
-    type
+    !DF I@030/0162
+    field
     :
-    I@046/0162
-    $test
+    I@037/0162
+    String
   }
 }
 {
   !In I@007/0164
-  ObjParamCnstInp
-  <
-    I@024/0164
-    $test
-    :String
-  >
+  ObjFieldTypeAliasInp
   {
-    !IF I@039/0164
-    test
+    !IF I@030/0164
+    field
     :
-    I@046/0164
-    $test
+    I@037/0164
+    String
   }
 }
 {
   !In I@007/0165
-  ObjParamCnstInp
-  <
-    I@024/0165
-    $test
-    :String
-  >
+  ObjFieldTypeAliasInp
   {
-    !IF I@039/0165
-    type
+    !IF I@030/0165
+    field
     :
-    I@046/0165
-    $test
+    I@037/0165
+    String
   }
 }
 {
   !Ou I@008/0167
-  ObjParamCnstOutp
-  <
-    I@026/0167
-    $test
-    :String
-  >
+  ObjFieldTypeAliasOutp
   {
-    !OF I@041/0167
-    test
+    !OF I@032/0167
+    field
     :
-    I@048/0167
-    $test
+    I@039/0167
+    String
   }
 }
 {
   !Ou I@008/0168
-  ObjParamCnstOutp
-  <
-    I@026/0168
-    $test
-    :String
-  >
+  ObjFieldTypeAliasOutp
   {
-    !OF I@041/0168
-    type
+    !OF I@032/0168
+    field
     :
-    I@048/0168
-    $test
+    I@039/0168
+    String
   }
 }
 {
   !Du I@006/0170
-  ObjParamDupDual
+  ObjParamDual
   <
-    I@023/0170
+    I@020/0170
     $test
     :String
   >
   {
-    !DF I@038/0170
+    !DF I@035/0170
     test
     :
-    I@045/0170
+    I@042/0170
     $test
   }
 }
 {
   !Du I@006/0171
-  ObjParamDupDual
+  ObjParamDual
   <
-    I@023/0171
-    $test
+    I@020/0171
+    $type
     :String
   >
   {
-    !DF I@038/0171
+    !DF I@035/0171
     type
     :
-    I@045/0171
-    $test
+    I@042/0171
+    $type
   }
 }
 {
   !In I@007/0173
-  ObjParamDupInp
+  ObjParamInp
   <
-    I@023/0173
+    I@020/0173
     $test
     :String
   >
   {
-    !IF I@038/0173
+    !IF I@035/0173
     test
     :
-    I@045/0173
+    I@042/0173
     $test
   }
 }
 {
   !In I@007/0174
-  ObjParamDupInp
+  ObjParamInp
   <
-    I@023/0174
-    $test
+    I@020/0174
+    $type
     :String
   >
   {
-    !IF I@038/0174
+    !IF I@035/0174
     type
     :
-    I@045/0174
-    $test
+    I@042/0174
+    $type
   }
 }
 {
   !Ou I@008/0176
-  ObjParamDupOutp
+  ObjParamOutp
   <
-    I@025/0176
+    I@022/0176
     $test
     :String
   >
   {
-    !OF I@040/0176
+    !OF I@037/0176
     test
     :
-    I@047/0176
+    I@044/0176
     $test
   }
 }
 {
   !Ou I@008/0177
-  ObjParamDupOutp
+  ObjParamOutp
   <
-    I@025/0177
-    $test
+    I@022/0177
+    $type
     :String
   >
   {
-    !OF I@040/0177
+    !OF I@037/0177
     type
     :
-    I@047/0177
-    $test
+    I@044/0177
+    $type
   }
 }
 {
   !Du I@006/0179
-  ObjPrntDual
-  :
-  I@021/0179
-  RefObjPrntDual
+  ObjParamCnstDual
+  <
+    I@024/0179
+    $test
+    :String
+  >
+  {
+    !DF I@039/0179
+    test
+    :
+    I@046/0179
+    $test
+  }
 }
 {
   !Du I@006/0180
-  ObjPrntDual
-  :
-  I@021/0180
-  RefObjPrntDual
+  ObjParamCnstDual
+  <
+    I@024/0180
+    $test
+    :String
+  >
+  {
+    !DF I@039/0180
+    type
+    :
+    I@046/0180
+    $test
+  }
 }
 {
-  !Du I@006/0181
-  RefObjPrntDual
+  !In I@007/0182
+  ObjParamCnstInp
+  <
+    I@024/0182
+    $test
+    :String
+  >
+  {
+    !IF I@039/0182
+    test
+    :
+    I@046/0182
+    $test
+  }
 }
 {
   !In I@007/0183
+  ObjParamCnstInp
+  <
+    I@024/0183
+    $test
+    :String
+  >
+  {
+    !IF I@039/0183
+    type
+    :
+    I@046/0183
+    $test
+  }
+}
+{
+  !Ou I@008/0185
+  ObjParamCnstOutp
+  <
+    I@026/0185
+    $test
+    :String
+  >
+  {
+    !OF I@041/0185
+    test
+    :
+    I@048/0185
+    $test
+  }
+}
+{
+  !Ou I@008/0186
+  ObjParamCnstOutp
+  <
+    I@026/0186
+    $test
+    :String
+  >
+  {
+    !OF I@041/0186
+    type
+    :
+    I@048/0186
+    $test
+  }
+}
+{
+  !Du I@006/0188
+  ObjParamDupDual
+  <
+    I@023/0188
+    $test
+    :String
+  >
+  {
+    !DF I@038/0188
+    test
+    :
+    I@045/0188
+    $test
+  }
+}
+{
+  !Du I@006/0189
+  ObjParamDupDual
+  <
+    I@023/0189
+    $test
+    :String
+  >
+  {
+    !DF I@038/0189
+    type
+    :
+    I@045/0189
+    $test
+  }
+}
+{
+  !In I@007/0191
+  ObjParamDupInp
+  <
+    I@023/0191
+    $test
+    :String
+  >
+  {
+    !IF I@038/0191
+    test
+    :
+    I@045/0191
+    $test
+  }
+}
+{
+  !In I@007/0192
+  ObjParamDupInp
+  <
+    I@023/0192
+    $test
+    :String
+  >
+  {
+    !IF I@038/0192
+    type
+    :
+    I@045/0192
+    $test
+  }
+}
+{
+  !Ou I@008/0194
+  ObjParamDupOutp
+  <
+    I@025/0194
+    $test
+    :String
+  >
+  {
+    !OF I@040/0194
+    test
+    :
+    I@047/0194
+    $test
+  }
+}
+{
+  !Ou I@008/0195
+  ObjParamDupOutp
+  <
+    I@025/0195
+    $test
+    :String
+  >
+  {
+    !OF I@040/0195
+    type
+    :
+    I@047/0195
+    $test
+  }
+}
+{
+  !Du I@006/0197
+  ObjPrntDual
+  :
+  I@021/0197
+  RefObjPrntDual
+}
+{
+  !Du I@006/0198
+  ObjPrntDual
+  :
+  I@021/0198
+  RefObjPrntDual
+}
+{
+  !Du I@006/0199
+  RefObjPrntDual
+}
+{
+  !In I@007/0201
   ObjPrntInp
   :
-  I@021/0183
+  I@021/0201
   RefObjPrntInp
 }
 {
-  !In I@007/0184
+  !In I@007/0202
   ObjPrntInp
   :
-  I@021/0184
+  I@021/0202
   RefObjPrntInp
 }
 {
-  !In I@007/0185
+  !In I@007/0203
   RefObjPrntInp
 }
 {
-  !Ou I@008/0187
+  !Ou I@008/0205
   ObjPrntOutp
   :
-  I@023/0187
+  I@023/0205
   RefObjPrntOutp
 }
 {
-  !Ou I@008/0188
+  !Ou I@008/0206
   ObjPrntOutp
   :
-  I@023/0188
+  I@023/0206
   RefObjPrntOutp
 }
 {
-  !Ou I@008/0189
+  !Ou I@008/0207
   RefObjPrntOutp
 }
 {
-  !Op I@008/0191
+  !Op I@008/0209
   Schema
 }
 {
-  !Op I@008/0192
+  !Op I@008/0210
   Schema
 }
 {
-  !Op I@008/0194
+  !Op I@008/0212
   Schema
   [
     Opt1
   ]
 }
 {
-  !Op I@008/0195
+  !Op I@008/0213
   Schema
   [
     Opt2
   ]
 }
 {
-  !Op I@008/0197
+  !Op I@008/0215
   Schema
   {
-    !OS I@017/0197
+    !OS I@017/0215
     merged
-    =( !k I@024/0197 Boolean.true )
+    =( !k I@024/0215 Boolean.true )
   }
 }
 {
-  !Op I@008/0198
+  !Op I@008/0216
   Schema
   {
-    !OS I@017/0198
+    !OS I@017/0216
     merged
-    =( !c P@024/0198 [ !k N@025/0198 0 ] )
+    =( !c P@024/0216 [ !k N@025/0216 0 ] )
   }
 }
 {
-  !Ou I@008/0200
-  OutpFieldEnumAlias
-  {
-    !OF I@029/0200
-    field
-    [
-      field1
-    ]
-    =
-    I@046/0200
-    Boolean
-    .true
-  }
-}
-{
-  !Ou I@008/0201
-  OutpFieldEnumAlias
-  {
-    !OF I@029/0201
-    field
-    [
-      field2
-    ]
-    =
-    I@046/0201
-    .true
-  }
-}
-{
-  !Ou I@008/0203
-  OutpFieldEnumValue
-  {
-    !OF I@029/0203
-    field
-    =
-    I@037/0203
-    Boolean
-    .true
-  }
-}
-{
-  !Ou I@008/0204
-  OutpFieldEnumValue
-  {
-    !OF I@029/0204
-    field
-    =
-    I@037/0204
-    .true
-  }
-}
-{
-  !Ou I@008/0206
+  !Ou I@008/0218
   OutpFieldParam
   {
-    !OF I@025/0206
+    !OF I@025/0218
     field
     (
       !Pa
-      I@031/0206
+      I@031/0218
       OutpFieldParam1
     )
     :
-    I@049/0206
+    I@049/0218
     FldOutpFieldParam
   }
 }
 {
-  !Ou I@008/0207
+  !Ou I@008/0219
   OutpFieldParam
   {
-    !OF I@025/0207
+    !OF I@025/0219
     field
     (
       !Pa
-      I@031/0207
+      I@031/0219
       OutpFieldParam2
     )
     :
-    I@049/0207
+    I@049/0219
     FldOutpFieldParam
   }
 }
 {
-  !In I@007/0208
+  !In I@007/0220
   OutpFieldParam1
 }
 {
-  !In I@007/0209
+  !In I@007/0221
   OutpFieldParam2
 }
 {
-  !Du I@006/0210
+  !Du I@006/0222
   FldOutpFieldParam
 }
 {
-  !Un I@007/0212
+  !Un I@007/0224
   UnionAlias
   [
     UnA1
   ]
-  !UM I@027/0212
+  !UM I@027/0224
   Boolean
 }
 {
-  !Un I@007/0213
+  !Un I@007/0225
   UnionAlias
   [
     UnA2
   ]
-  !UM I@027/0213
+  !UM I@027/0225
   Number
 }
 {
-  !Un I@007/0215
+  !Un I@007/0227
   UnionDiff
-  !UM I@019/0215
+  !UM I@019/0227
   Boolean
 }
 {
-  !Un I@007/0216
+  !Un I@007/0228
   UnionDiff
-  !UM I@019/0216
+  !UM I@019/0228
   Number
 }
 {
-  !Un I@007/0218
+  !Un I@007/0230
   UnionSame
-  !UM I@019/0218
+  !UM I@019/0230
   Boolean
 }
 {
-  !Un I@007/0219
+  !Un I@007/0231
   UnionSame
-  !UM I@019/0219
+  !UM I@019/0231
   Boolean
 }
 {
-  !Un I@007/0221
+  !Un I@007/0233
   UnionSamePrnt
-  :( !Tr I@024/0221 PrntUnionSamePrnt )
-  !UM I@042/0221
+  :( !Tr I@024/0233 PrntUnionSamePrnt )
+  !UM I@042/0233
   Boolean
 }
 {
-  !Un I@007/0222
+  !Un I@007/0234
   UnionSamePrnt
-  :( !Tr I@024/0222 PrntUnionSamePrnt )
-  !UM I@042/0222
+  :( !Tr I@024/0234 PrntUnionSamePrnt )
+  !UM I@042/0234
   Boolean
 }
 {
-  !Un I@007/0223
+  !Un I@007/0235
   PrntUnionSamePrnt
-  !UM I@027/0223
+  !UM I@027/0235
   String
 }

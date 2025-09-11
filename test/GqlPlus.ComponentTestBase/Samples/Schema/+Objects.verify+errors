@@ -1,0 +1,2 @@
+!!! I@029/0513 : Invalid Dual Alternate. Invalid Constraint on $type of RefObjCnstDomEnumDual. 'EnumObjCnstDomEnumDual' not match 'JustObjCnstDomEnumDual'. - 'RefObjCnstDomEnumDual' !!!
+!!! I@029/0518 : Invalid Input Alternate. Invalid Constraint on $type of RefObjCnstDomEnumInp. 'EnumObjCnstDomEnumInp' not match 'JustObjCnstDomEnumInp'. - 'RefObjCnstDomEnumInp' !!!

@@ -1,0 +1,44 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  ObjCnstEnumPrntDual
+  |
+  I@030/0001
+  RefObjCnstEnumPrntDual
+  <
+    I@053/0001
+    objCnstEnumPrntDual
+  >
+}
+{
+  !Du I@006/0002
+  RefObjCnstEnumPrntDual
+  <
+    I@030/0002
+    $type
+    :ParentObjCnstEnumPrntDual
+  >
+  {
+    !DF I@064/0002
+    field
+    :
+    I@072/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumObjCnstEnumPrntDual
+  :( !Tr I@033/0003 ParentObjCnstEnumPrntDual )
+  !EL I@059/0003
+  objCnstEnumPrntDual
+}
+{
+  !En I@006/0004
+  ParentObjCnstEnumPrntDual
+  !EL I@034/0004
+  parentObjCnstEnumPrntDual
+}
+]

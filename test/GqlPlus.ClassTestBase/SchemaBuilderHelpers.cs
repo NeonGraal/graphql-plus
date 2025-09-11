@@ -11,6 +11,14 @@ public static class SchemaBuilderHelpers
     result.Aliases.Returns(aliases);
     return result;
   }
+  public static T Aliased<T, T1>(this IMockBuilder builder, string name, string[] aliases, string description = "")
+    where T : class, T1
+    where T1 : class, IGqlpAliased
+  {
+    T result = builder.Named<T>(name, description);
+    result.Aliases.Returns(aliases);
+    return result;
+  }
 
   public static T Descr<T>(this IMockBuilder builder, string description)
     where T : class, IGqlpDescribed

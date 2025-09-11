@@ -1,0 +1,37 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  ObjCnstEnumDual
+  |
+  I@026/0001
+  RefObjCnstEnumDual
+  <
+    I@045/0001
+    objCnstEnumDual
+  >
+}
+{
+  !Du I@006/0002
+  RefObjCnstEnumDual
+  <
+    I@026/0002
+    $type
+    :EnumObjCnstEnumDual
+  >
+  {
+    !DF I@054/0002
+    field
+    :
+    I@062/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumObjCnstEnumDual
+  !EL I@028/0003
+  objCnstEnumDual
+}
+]

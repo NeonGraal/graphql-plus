@@ -1164,6 +1164,192 @@
         "value": "Dual"
       }
     },
+    "ObjFieldEnumAliasDual": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "aliases": ["field1", "field2"],
+          "name": "field",
+          "object": "ObjFieldEnumAliasDual",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "Boolean"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "aliases": ["field1", "field2"],
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "Boolean"
+          }
+        }
+      ],
+      "name": "ObjFieldEnumAliasDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "ObjFieldEnumAliasInp": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "aliases": ["field1", "field2"],
+          "name": "field",
+          "object": "ObjFieldEnumAliasInp",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "Boolean"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "aliases": ["field1", "field2"],
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "Boolean"
+          }
+        }
+      ],
+      "name": "ObjFieldEnumAliasInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "ObjFieldEnumAliasOutp": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "field": "field",
+          "label": "true",
+          "name": "Boolean",
+          "object": "ObjFieldEnumAliasOutp",
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputEnum",
+          "field": "field",
+          "label": "true",
+          "name": "Boolean",
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
+          }
+        }
+      ],
+      "name": "ObjFieldEnumAliasOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "ObjFieldEnumValueDual": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "ObjFieldEnumValueDual",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "Boolean"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "Boolean"
+          }
+        }
+      ],
+      "name": "ObjFieldEnumValueDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "ObjFieldEnumValueInp": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "ObjFieldEnumValueInp",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "Boolean"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "Boolean"
+          }
+        }
+      ],
+      "name": "ObjFieldEnumValueInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "ObjFieldEnumValueOutp": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "field": "field",
+          "label": "true",
+          "name": "Boolean",
+          "object": "ObjFieldEnumValueOutp",
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputEnum",
+          "field": "field",
+          "label": "true",
+          "name": "Boolean",
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
+          }
+        }
+      ],
+      "name": "ObjFieldEnumValueOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
     "ObjFieldInp": {
       "$tag": "_TypeInput",
       "allFields": [
@@ -1932,72 +2118,6 @@
         "$tag": "_OutputBase",
         "name": "RefObjPrntOutp"
       },
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "OutpFieldEnumAlias": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "field": "field",
-          "label": "true",
-          "name": "Boolean",
-          "object": "OutpFieldEnumAlias",
-          "typeKind": {
-            "$tag": "_SimpleKind",
-            "value": "Enum"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputEnum",
-          "field": "field",
-          "label": "true",
-          "name": "Boolean",
-          "typeKind": {
-            "$tag": "_SimpleKind",
-            "value": "Enum"
-          }
-        }
-      ],
-      "name": "OutpFieldEnumAlias",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "OutpFieldEnumValue": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "field": "field",
-          "label": "true",
-          "name": "Boolean",
-          "object": "OutpFieldEnumValue",
-          "typeKind": {
-            "$tag": "_SimpleKind",
-            "value": "Enum"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputEnum",
-          "field": "field",
-          "label": "true",
-          "name": "Boolean",
-          "typeKind": {
-            "$tag": "_SimpleKind",
-            "value": "Enum"
-          }
-        }
-      ],
-      "name": "OutpFieldEnumValue",
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"

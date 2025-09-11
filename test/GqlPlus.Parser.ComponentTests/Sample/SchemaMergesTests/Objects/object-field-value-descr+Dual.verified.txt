@@ -1,0 +1,23 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  ObjFieldValueDescrDual
+  {
+    !DF I@031/0001
+    field
+    =
+    'Test Descr'
+    I@054/0001
+    EnumObjFieldValueDescrDual
+    .objFieldValueDescrDual
+  }
+}
+{
+  !En I@006/0002
+  EnumObjFieldValueDescrDual
+  !EL I@035/0002
+  objFieldValueDescrDual
+}
+]

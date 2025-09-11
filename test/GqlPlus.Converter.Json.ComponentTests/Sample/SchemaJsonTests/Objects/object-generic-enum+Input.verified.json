@@ -1,0 +1,109 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnumObjGnrcEnumInp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjGnrcEnumInp",
+          "name": "objGnrcEnumInp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "objGnrcEnumInp"
+        }
+      ],
+      "name": "EnumObjGnrcEnumInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "ObjGnrcEnumInp": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_InputAlternate)",
+          "object": "ObjGnrcEnumInp",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "RefObjGnrcEnumInp",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "name": "EnumObjGnrcEnumInp"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_InputAlternate",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "RefObjGnrcEnumInp",
+            "typeArgs": [
+              {
+                "$tag": "_InputArg",
+                "name": "EnumObjGnrcEnumInp"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "ObjGnrcEnumInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "RefObjGnrcEnumInp": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "RefObjGnrcEnumInp",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "name": "RefObjGnrcEnumInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_Enum",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Internal"
+            }
+          },
+          "name": "type"
+        }
+      ]
+    }
+  }
+}

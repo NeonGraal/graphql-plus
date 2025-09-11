@@ -1,0 +1,54 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier EnumObjGnrcEnumOutp: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnumObjGnrcEnumOutp
+      name: objGnrcEnumOutp
+    items:
+    - !_Aliased
+      name: objGnrcEnumOutp
+    name: EnumObjGnrcEnumOutp
+    typeKind: !_TypeKind Enum
+  !_Identifier ObjGnrcEnumOutp: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_OutputAlternate)
+      object: ObjGnrcEnumOutp
+      type: !_OutputBase
+        name: RefObjGnrcEnumOutp
+        typeArgs:
+        - !_TypeRef(_SimpleKind)
+          label: objGnrcEnumOutp
+          name: EnumObjGnrcEnumOutp
+          typeKind: !_SimpleKind Enum
+    alternates:
+    - !_OutputAlternate
+      type: !_OutputBase
+        name: RefObjGnrcEnumOutp
+        typeArgs:
+        - !_TypeRef(_SimpleKind)
+          label: objGnrcEnumOutp
+          name: EnumObjGnrcEnumOutp
+          typeKind: !_SimpleKind Enum
+    name: ObjGnrcEnumOutp
+    typeKind: !_TypeKind Output
+  !_Identifier RefObjGnrcEnumOutp: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: field
+      object: RefObjGnrcEnumOutp
+      type: !_OutputBase
+        typeParam: type
+    fields:
+    - !_OutputField
+      name: field
+      type: !_OutputBase
+        typeParam: type
+    name: RefObjGnrcEnumOutp
+    typeKind: !_TypeKind Output
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _Enum
+        typeKind: !_TypeKind Internal
+      name: type

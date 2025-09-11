@@ -1,0 +1,143 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnumObjCnstPrntEnumDual": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "ParentObjCnstPrntEnumDual",
+          "name": "parentObjCnstPrntEnumDual"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjCnstPrntEnumDual",
+          "name": "objCnstPrntEnumDual"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "objCnstPrntEnumDual"
+        }
+      ],
+      "name": "EnumObjCnstPrntEnumDual",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "ParentObjCnstPrntEnumDual",
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Enum"
+        }
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "ObjCnstPrntEnumDual": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_DualAlternate)",
+          "object": "ObjCnstPrntEnumDual",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "RefObjCnstPrntEnumDual",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "name": "parentObjCnstPrntEnumDual"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_DualAlternate",
+          "type": {
+            "$tag": "_DualBase",
+            "name": "RefObjCnstPrntEnumDual",
+            "typeArgs": [
+              {
+                "$tag": "_DualArg",
+                "name": "parentObjCnstPrntEnumDual"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "ObjCnstPrntEnumDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "ParentObjCnstPrntEnumDual": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "ParentObjCnstPrntEnumDual",
+          "name": "parentObjCnstPrntEnumDual"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "parentObjCnstPrntEnumDual"
+        }
+      ],
+      "name": "ParentObjCnstPrntEnumDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "RefObjCnstPrntEnumDual": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "RefObjCnstPrntEnumDual",
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "name": "RefObjCnstPrntEnumDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "EnumObjCnstPrntEnumDual",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
+          "name": "type"
+        }
+      ]
+    }
+  }
+}

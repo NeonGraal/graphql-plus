@@ -1,0 +1,58 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnumObjFieldValueDescrDual": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumObjFieldValueDescrDual",
+          "name": "objFieldValueDescrDual"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "objFieldValueDescrDual"
+        }
+      ],
+      "name": "EnumObjFieldValueDescrDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "ObjFieldValueDescrDual": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "ObjFieldValueDescrDual",
+          "type": {
+            "$tag": "_DualBase",
+            "description": "Test Descr",
+            "name": "EnumObjFieldValueDescrDual"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_DualBase",
+            "description": "Test Descr",
+            "name": "EnumObjFieldValueDescrDual"
+          }
+        }
+      ],
+      "name": "ObjFieldValueDescrDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    }
+  }
+}

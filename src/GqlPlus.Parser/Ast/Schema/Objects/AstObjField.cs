@@ -19,7 +19,7 @@ internal abstract record class AstObjField<TObjBase>(
   void IGqlpObjectEnum.SetEnumType(string enumType)
   {
     EnumLabel ??= BaseType.Name;
-    BaseType.Name = enumType;
+    BaseType.SetName(enumType);
   }
 
   internal protected IEnumerable<string?> TypeFields(string suffix = "")

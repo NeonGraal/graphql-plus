@@ -40,14 +40,18 @@ internal class MergeAllTypes(
       .Concat(BuiltIn.Internal.OfType<EnumDeclAst>())
       .Concat(types.OfType<EnumDeclAst>()));
 
-    foreach (OutputDeclAst output in types.OfType<OutputDeclAst>()) {
-      foreach (IGqlpOutputAlternate alternate in output.ObjAlternates) {
+    foreach (IGqlpObject output in types.OfType<IGqlpObject>()) {
+      foreach (IGqlpObjAlternate alternate in output.Alternates) {
         // No fixup needed?
         // FixupType(alternate, enumValues);
       }
 
-      foreach (IGqlpOutputField field in output.ObjFields) {
-        FixupType(field, enumValues);
+      foreach (IGqlpObjField field in output.Fields) {
+        FixupType<IGqlpObjField>(field, enumValues);
+
+        foreach (IGqlpObjArg argument in field.Type.Args) {
+          FixupType<IGqlpObjArg>(argument, enumValues);
+        }
       }
     }
 
@@ -68,22 +72,13 @@ internal class MergeAllTypes(
       .ToMap(e => e.Key, e => e.First());
 
   private static void FixupType<TEnum>(IGqlpObjectEnum type, Map<string> enumValues)
-    where TEnum : AstNamed, IGqlpObjectEnum
+    where TEnum : IGqlpObjectEnum
   {
     if (type is TEnum named) {
       if (string.IsNullOrWhiteSpace(named.EnumType.Name)
         && enumValues.TryGetValue(type.EnumLabel.IfWhiteSpace(), out string? enumType)) {
         named.SetEnumType(enumType);
       }
-    }
-  }
-
-  private static void FixupType(IGqlpOutputField field, Map<string> enumValues)
-  {
-    FixupType<OutputFieldAst>(field, enumValues);
-
-    foreach (IGqlpOutputArg argument in field.BaseType.BaseArgs) {
-      FixupType<OutputArgAst>(argument, enumValues);
     }
   }
 }

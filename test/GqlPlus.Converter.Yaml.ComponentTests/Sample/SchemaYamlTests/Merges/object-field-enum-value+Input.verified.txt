@@ -1,0 +1,16 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier ObjFieldEnumValueInp: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: ObjFieldEnumValueInp
+      type: !_InputBase
+        name: Boolean
+    fields:
+    - !_InputField
+      name: field
+      type: !_InputBase
+        name: Boolean
+    name: ObjFieldEnumValueInp
+    typeKind: !_TypeKind Input

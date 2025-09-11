@@ -1,0 +1,66 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier EnumObjCnstPrntEnumInp: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: ParentObjCnstPrntEnumInp
+        name: parentObjCnstPrntEnumInp
+      - !_EnumLabel
+        enum: EnumObjCnstPrntEnumInp
+        name: objCnstPrntEnumInp
+    items:
+      - !_Aliased
+        name: objCnstPrntEnumInp
+    name: EnumObjCnstPrntEnumInp
+    parent: !_TypeRef(_SimpleKind)
+      name: ParentObjCnstPrntEnumInp
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
+  !_Identifier ObjCnstPrntEnumInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_InputAlternate)
+        object: ObjCnstPrntEnumInp
+        type: !_InputBase
+          name: RefObjCnstPrntEnumInp
+          typeArgs:
+            - !_InputArg
+              name: parentObjCnstPrntEnumInp
+    alternates:
+      - !_InputAlternate
+        type: !_InputBase
+          name: RefObjCnstPrntEnumInp
+          typeArgs:
+            - !_InputArg
+              name: parentObjCnstPrntEnumInp
+    name: ObjCnstPrntEnumInp
+    typeKind: !_TypeKind Input
+  !_Identifier ParentObjCnstPrntEnumInp: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: ParentObjCnstPrntEnumInp
+        name: parentObjCnstPrntEnumInp
+    items:
+      - !_Aliased
+        name: parentObjCnstPrntEnumInp
+    name: ParentObjCnstPrntEnumInp
+    typeKind: !_TypeKind Enum
+  !_Identifier RefObjCnstPrntEnumInp: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: field
+        object: RefObjCnstPrntEnumInp
+        type: !_InputBase
+          typeParam: type
+    fields:
+      - !_InputField
+        name: field
+        type: !_InputBase
+          typeParam: type
+    name: RefObjCnstPrntEnumInp
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: EnumObjCnstPrntEnumInp
+          typeKind: !_TypeKind Enum
+        name: type

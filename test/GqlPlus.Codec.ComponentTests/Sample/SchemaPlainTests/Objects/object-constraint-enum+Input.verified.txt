@@ -1,0 +1,50 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier EnumObjCnstEnumInp: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: EnumObjCnstEnumInp
+        name: objCnstEnumInp
+    items:
+      - !_Aliased
+        name: objCnstEnumInp
+    name: EnumObjCnstEnumInp
+    typeKind: !_TypeKind Enum
+  !_Identifier ObjCnstEnumInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_InputAlternate)
+        object: ObjCnstEnumInp
+        type: !_InputBase
+          name: RefObjCnstEnumInp
+          typeArgs:
+            - !_InputArg
+              name: objCnstEnumInp
+    alternates:
+      - !_InputAlternate
+        type: !_InputBase
+          name: RefObjCnstEnumInp
+          typeArgs:
+            - !_InputArg
+              name: objCnstEnumInp
+    name: ObjCnstEnumInp
+    typeKind: !_TypeKind Input
+  !_Identifier RefObjCnstEnumInp: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: field
+        object: RefObjCnstEnumInp
+        type: !_InputBase
+          typeParam: type
+    fields:
+      - !_InputField
+        name: field
+        type: !_InputBase
+          typeParam: type
+    name: RefObjCnstEnumInp
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: EnumObjCnstEnumInp
+          typeKind: !_TypeKind Enum
+        name: type

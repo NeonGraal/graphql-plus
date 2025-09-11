@@ -6,21 +6,20 @@ using GqlPlus.Merging;
 namespace GqlPlus.Verifying.Schema.Objects;
 
 [SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Todo")]
-internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField, TObjAlt, TContext>(
+internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField, TObjAlt>(
   ObjectVerifierParams<TObject, TObjField, TObjAlt, TObjArg> verifiers
-) : AstParentItemVerifier<TObject, IGqlpObjBase, TContext, TObjField>(verifiers.Aliased, verifiers.MergeFields)
+) : AstParentItemVerifier<TObject, IGqlpObjBase, EnumContext, TObjField>(verifiers.Aliased, verifiers.MergeFields)
   where TObject : IGqlpObject<TObjBase, TObjField, TObjAlt>
   where TObjField : IGqlpObjField<TObjBase>
   where TObjAlt : IGqlpObjAlternate, IGqlpObjBase<TObjArg>
   where TObjBase : IGqlpObjBase<TObjArg>
   where TObjArg : IGqlpObjArg
-  where TContext : EnumContext
 {
-  private readonly ILogger _logger = verifiers.Logger.CreateTypedLogger<AstParentItemVerifier<TObject, IGqlpObjBase, TContext, IGqlpTypeParam>>();
+  private readonly ILogger _logger = verifiers.Logger.CreateTypedLogger<AstParentItemVerifier<TObject, IGqlpObjBase, EnumContext, IGqlpTypeParam>>();
 
   private readonly Matcher<TObjArg>.L _constraintMatcher = verifiers.ConstraintMatcher;
 
-  protected override void UsageValue(TObject usage, TContext context)
+  protected override void UsageValue(TObject usage, EnumContext context)
   {
     base.UsageValue(usage, context);
 
@@ -29,12 +28,15 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
     }
 
     UsageTypeParams(usage.Label, usage.TypeParams, context);
-    UsageFields(usage, context);
+    foreach (TObjField field in usage.ObjFields) {
+      UsageField(field, usage, context);
+    }
+
     UsageAlternates(usage, context);
     CheckParamsUsed(usage.Label, usage.TypeParams, context);
   }
 
-  private static void UsageTypeParams(string label, IEnumerable<IGqlpTypeParam> typeParams, TContext context)
+  private static void UsageTypeParams(string label, IEnumerable<IGqlpTypeParam> typeParams, EnumContext context)
   {
     foreach (IGqlpTypeParam param in typeParams) {
       if (!context.GetType(param.Constraint, out IGqlpDescribed? value)) {
@@ -43,16 +45,33 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
     }
   }
 
-  protected virtual void UsageFields(TObject usage, TContext context)
+  protected virtual void UsageField(TObjField field, TObject usage, EnumContext context)
   {
-    foreach (TObjField field in usage.ObjFields) {
+    if (string.IsNullOrWhiteSpace(field.EnumLabel)) {
       CheckTypeRef(context, field.BaseType, " Field");
       context.CheckModifiers(field);
       CheckForSelf(new([field.Type.FullType], usage, "a field"), usage.Name, context);
+    } else {
+      CheckFieldEnum(field, usage, context);
     }
   }
 
-  private void UsageAlternates(TObject usage, TContext context)
+  private static void CheckFieldEnum(TObjField field, TObject usage, EnumContext context)
+  {
+    if (!string.IsNullOrWhiteSpace(field.EnumType?.Name)) {
+      context.CheckEnumValue("Field", field);
+      return;
+    }
+
+    if (context.GetEnumValue(field.EnumLabel!, out string? enumType)) {
+      field.SetEnumType(enumType);
+      return;
+    }
+
+    context.AddError(field, usage.Label + " Field Enum", $"Enum Label '{field.EnumLabel}' not defined");
+  }
+
+  private void UsageAlternates(TObject usage, EnumContext context)
   {
     SelfUsage<TObject> input = new([], usage, "an alternative");
     _logger.CheckingAlternates(input);
@@ -63,7 +82,7 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
     }
   }
 
-  private void CheckParamsUsed(string label, IEnumerable<IGqlpTypeParam> typeParams, TContext context)
+  private void CheckParamsUsed(string label, IEnumerable<IGqlpTypeParam> typeParams, EnumContext context)
   {
     foreach (IGqlpTypeParam typeParam in typeParams) {
       bool paramUsed = context.Used.Contains("$" + typeParam.Name);
@@ -71,7 +90,7 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
     }
   }
 
-  protected void CheckTypeRef(TContext context, IGqlpObjType reference, string suffix, bool check = true)
+  protected void CheckTypeRef(EnumContext context, IGqlpObjType reference, string suffix, bool check = true)
   {
     string typeName = (reference.IsTypeParam ? "$" : "") + reference.Name;
     CheckTypeRef(AddCheckError, context, reference, check);
@@ -86,7 +105,7 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
     }
   }
 
-  protected TContext CheckTypeRef(CheckError error, TContext context, IGqlpObjType reference, bool check = true)
+  protected EnumContext CheckTypeRef(CheckError error, EnumContext context, IGqlpObjType reference, bool check = true)
   {
     string typeName = (reference.IsTypeParam ? "$" : "") + reference.Name;
     if (context.GetType(typeName, out IGqlpDescribed? definition)) {
@@ -102,22 +121,34 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
     return context;
   }
 
-  private void CheckArgsTypes(CheckError error, TContext context, IGqlpObjBase reference)
+  private void CheckArgsTypes(CheckError error, EnumContext context, IGqlpObjBase reference)
   {
     foreach (IGqlpObjArg arg in reference.Args) {
-      CheckArgType(error, context, arg);
+      CheckArgEnum(context, arg);
+      CheckTypeRef(error, context, arg);
     }
   }
 
-  internal virtual void CheckArgType(CheckError error, TContext context, IGqlpObjArg arg)
-    => CheckTypeRef(error, context, arg);
+  private void CheckArgEnum(EnumContext context, IGqlpObjArg arg)
+  {
+    if (string.IsNullOrWhiteSpace(arg.EnumLabel)
+      && !context.GetType(arg.Name, out IGqlpDescribed? type)
+      && context.GetEnumValue(arg.Name, out string? enumType)) {
+      arg.SetEnumType(enumType);
+    }
 
-  private void CheckParamsArgs(CheckError error, TContext context, IGqlpObject definition, TObjBase reference)
+    if (!string.IsNullOrWhiteSpace(arg.EnumLabel)) {
+      context.CheckEnumValue("Arg", arg);
+    }
+  }
+
+  private void CheckParamsArgs(CheckError error, EnumContext context, IGqlpObject definition, TObjBase reference)
   {
     IEnumerable<(TObjArg, IGqlpTypeParam)> argAndParams = reference.BaseArgs
       .Zip(definition.TypeParams, static (a, p) => (a, p));
     foreach ((TObjArg arg, IGqlpTypeParam param) in argAndParams) {
-      CheckArgType(error, context, arg);
+      CheckArgEnum(context, arg);
+      CheckTypeRef(error, context, arg);
 
       if (string.IsNullOrWhiteSpace(param.Constraint)) {
         error("Invalid Constraint on", "undefined");
@@ -130,7 +161,7 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
     }
   }
 
-  internal void CheckTypeArgs(CheckError error, TContext context, IGqlpObjType reference, bool check, IGqlpDescribed? definition)
+  internal void CheckTypeArgs(CheckError error, EnumContext context, IGqlpObjType reference, bool check, IGqlpDescribed? definition)
   {
     int numArgs = reference is IGqlpObjBase baseNum ? baseNum.Args.Count() : 0;
     if (definition is IGqlpObject objectDef) {
@@ -141,7 +172,7 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
     }
   }
 
-  private void CheckTypeArgsDefBase(CheckError error, TContext context, IGqlpObjType reference, int numArgs, IGqlpObject definition, int numParams)
+  private void CheckTypeArgsDefBase(CheckError error, EnumContext context, IGqlpObjType reference, int numArgs, IGqlpObject definition, int numParams)
   {
     if (reference is TObjBase baseRef) {
       if (numParams == numArgs) {
@@ -176,7 +207,7 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
 
   protected override void CheckParentType(
     SelfUsage<TObject> input,
-    TContext context,
+    EnumContext context,
     bool top,
     Action<TObject>? onParent = null)
   {
@@ -201,7 +232,7 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
   protected override IEnumerable<TObjField> GetItems(TObject usage)
     => usage.ObjFields;
 
-  protected override void OnParentType(SelfUsage<TObject> input, TContext context, TObject parentType, bool top)
+  protected override void OnParentType(SelfUsage<TObject> input, EnumContext context, TObject parentType, bool top)
   {
     if (top && parentType.Label != "Dual") {
       base.OnParentType(input, context, parentType, top);
@@ -218,7 +249,7 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
     }
   }
 
-  private void CheckForSelf(SelfUsage<TObject> input, string current, TContext context)
+  private void CheckForSelf(SelfUsage<TObject> input, string current, EnumContext context)
   {
     if (context.DifferentName(input, current)
       && context.GetTyped(input.Current, out TObject? parentType)) {
@@ -234,7 +265,7 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
     }
   }
 
-  protected override void CheckMergeParent(SelfUsage<TObject> input, TContext context)
+  protected override void CheckMergeParent(SelfUsage<TObject> input, EnumContext context)
   {
     base.CheckMergeParent(input, context);
 
@@ -246,6 +277,16 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
         context.Add(failures);
       }
     }
+  }
+
+  protected override EnumContext MakeContext(TObject usage, IGqlpType[] aliased, IMessages errors)
+  {
+    Map<IGqlpDescribed> validTypes = aliased.AliasedGroup()
+      .Select(p => (Id: p.Key, Type: (IGqlpDescribed)p.First()))
+      .Concat(usage.TypeParams.Select(p => (Id: "$" + p.Name, Type: (IGqlpDescribed)p)))
+      .ToMap(p => p.Id, p => p.Type);
+
+    return new(validTypes, errors, aliased.MakeEnumValues());
   }
 }
 

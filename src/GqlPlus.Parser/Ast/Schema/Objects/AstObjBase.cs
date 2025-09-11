@@ -20,6 +20,8 @@ internal abstract record class AstObjBase<TObjArg>(
   IEnumerable<IGqlpObjArg> IGqlpObjBase.Args => BaseArgs.Cast<IGqlpObjArg>();
   IEnumerable<TObjArg> IGqlpObjBase<TObjArg>.BaseArgs => BaseArgs;
 
+  public void SetName(string name) => Name = name;
+
   public bool Equals(IGqlpObjBase? other)
     => other is IGqlpObjBase<TObjArg> objBase && Equals(objBase);
   public virtual bool Equals(AstObjBase<TObjArg>? other)
@@ -29,7 +31,6 @@ internal abstract record class AstObjBase<TObjArg>(
     && BaseArgs.SequenceEqual(other.BaseArgs);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), BaseArgs.Length);
-
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()
     .Concat(BaseArgs.Bracket("<", ">"));

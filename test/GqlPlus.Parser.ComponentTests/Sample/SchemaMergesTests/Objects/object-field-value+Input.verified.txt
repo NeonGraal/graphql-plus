@@ -1,0 +1,22 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !In I@007/0001
+  ObjFieldValueInp
+  {
+    !IF I@026/0001
+    field
+    =
+    I@034/0001
+    EnumObjFieldValueInp
+    .objFieldValueInp
+  }
+}
+{
+  !En I@006/0002
+  EnumObjFieldValueInp
+  !EL I@029/0002
+  objFieldValueInp
+}
+]

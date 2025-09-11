@@ -1,0 +1,74 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier EnumObjCnstDomEnumDual: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: EnumObjCnstDomEnumDual
+        name: objCnstDomEnumDual
+      - !_EnumLabel
+        enum: EnumObjCnstDomEnumDual
+        name: other
+    items:
+      - !_Aliased
+        name: objCnstDomEnumDual
+      - !_Aliased
+        name: other
+    name: EnumObjCnstDomEnumDual
+    typeKind: !_TypeKind Enum
+  !_Identifier JustObjCnstDomEnumDual: !_DomainEnum
+    allItems:
+      - !_DomainItem(_DomainLabel)
+        domain: JustObjCnstDomEnumDual
+        exclude: false
+        value: !_EnumValue
+          label: objCnstDomEnumDual
+          name: EnumObjCnstDomEnumDual
+          typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+      - !_DomainLabel
+        exclude: false
+        value: !_EnumValue
+          label: objCnstDomEnumDual
+          name: EnumObjCnstDomEnumDual
+          typeKind: !_SimpleKind Enum
+    name: JustObjCnstDomEnumDual
+    typeKind: !_TypeKind Domain
+  !_Identifier ObjCnstDomEnumDual: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_DualAlternate)
+        object: ObjCnstDomEnumDual
+        type: !_DualBase
+          name: RefObjCnstDomEnumDual
+          typeArgs:
+            - !_DualArg
+              name: objCnstDomEnumDual
+    alternates:
+      - !_DualAlternate
+        type: !_DualBase
+          name: RefObjCnstDomEnumDual
+          typeArgs:
+            - !_DualArg
+              name: objCnstDomEnumDual
+    name: ObjCnstDomEnumDual
+    typeKind: !_TypeKind Dual
+  !_Identifier RefObjCnstDomEnumDual: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: field
+        object: RefObjCnstDomEnumDual
+        type: !_DualBase
+          typeParam: type
+    fields:
+      - !_DualField
+        name: field
+        type: !_DualBase
+          typeParam: type
+    name: RefObjCnstDomEnumDual
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: JustObjCnstDomEnumDual
+          typeKind: !_TypeKind Domain
+        name: type

@@ -1,0 +1,28 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier EnumObjFieldValueDescrDual: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnumObjFieldValueDescrDual
+      name: objFieldValueDescrDual
+    items:
+    - !_Aliased
+      name: objFieldValueDescrDual
+    name: EnumObjFieldValueDescrDual
+    typeKind: !_TypeKind Enum
+  !_Identifier ObjFieldValueDescrDual: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: ObjFieldValueDescrDual
+      type: !_DualBase
+        description: 'Test Descr'
+        name: EnumObjFieldValueDescrDual
+    fields:
+    - !_DualField
+      name: field
+      type: !_DualBase
+        description: 'Test Descr'
+        name: EnumObjFieldValueDescrDual
+    name: ObjFieldValueDescrDual
+    typeKind: !_TypeKind Dual

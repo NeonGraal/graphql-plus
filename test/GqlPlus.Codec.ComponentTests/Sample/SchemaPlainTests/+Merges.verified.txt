@@ -536,6 +536,98 @@ types: !_Map_Type
           name: FldObjFieldDual
     name: ObjFieldDual
     typeKind: !_TypeKind Dual
+  !_Identifier ObjFieldEnumAliasDual: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        aliases: [field1,field2]
+        name: field
+        object: ObjFieldEnumAliasDual
+        type: !_DualBase
+          name: Boolean
+    fields:
+      - !_DualField
+        aliases: [field1,field2]
+        name: field
+        type: !_DualBase
+          name: Boolean
+    name: ObjFieldEnumAliasDual
+    typeKind: !_TypeKind Dual
+  !_Identifier ObjFieldEnumAliasInp: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        aliases: [field1,field2]
+        name: field
+        object: ObjFieldEnumAliasInp
+        type: !_InputBase
+          name: Boolean
+    fields:
+      - !_InputField
+        aliases: [field1,field2]
+        name: field
+        type: !_InputBase
+          name: Boolean
+    name: ObjFieldEnumAliasInp
+    typeKind: !_TypeKind Input
+  !_Identifier ObjFieldEnumAliasOutp: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        field: field
+        label: true
+        name: Boolean
+        object: ObjFieldEnumAliasOutp
+        typeKind: !_SimpleKind Enum
+    fields:
+      - !_OutputEnum
+        field: field
+        label: true
+        name: Boolean
+        typeKind: !_SimpleKind Enum
+    name: ObjFieldEnumAliasOutp
+    typeKind: !_TypeKind Output
+  !_Identifier ObjFieldEnumValueDual: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: field
+        object: ObjFieldEnumValueDual
+        type: !_DualBase
+          name: Boolean
+    fields:
+      - !_DualField
+        name: field
+        type: !_DualBase
+          name: Boolean
+    name: ObjFieldEnumValueDual
+    typeKind: !_TypeKind Dual
+  !_Identifier ObjFieldEnumValueInp: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: field
+        object: ObjFieldEnumValueInp
+        type: !_InputBase
+          name: Boolean
+    fields:
+      - !_InputField
+        name: field
+        type: !_InputBase
+          name: Boolean
+    name: ObjFieldEnumValueInp
+    typeKind: !_TypeKind Input
+  !_Identifier ObjFieldEnumValueOutp: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        field: field
+        label: true
+        name: Boolean
+        object: ObjFieldEnumValueOutp
+        typeKind: !_SimpleKind Enum
+    fields:
+      - !_OutputEnum
+        field: field
+        label: true
+        name: Boolean
+        typeKind: !_SimpleKind Enum
+    name: ObjFieldEnumValueOutp
+    typeKind: !_TypeKind Output
   !_Identifier ObjFieldInp: !_TypeInput
     allFields:
       - !_ObjectFor(_InputField)
@@ -902,38 +994,6 @@ types: !_Map_Type
     name: ObjPrntOutp
     parent: !_OutputBase
       name: RefObjPrntOutp
-    typeKind: !_TypeKind Output
-  !_Identifier OutpFieldEnumAlias: !_TypeOutput
-    allFields:
-      - !_ObjectFor(_OutputField)
-        field: field
-        label: true
-        name: Boolean
-        object: OutpFieldEnumAlias
-        typeKind: !_SimpleKind Enum
-    fields:
-      - !_OutputEnum
-        field: field
-        label: true
-        name: Boolean
-        typeKind: !_SimpleKind Enum
-    name: OutpFieldEnumAlias
-    typeKind: !_TypeKind Output
-  !_Identifier OutpFieldEnumValue: !_TypeOutput
-    allFields:
-      - !_ObjectFor(_OutputField)
-        field: field
-        label: true
-        name: Boolean
-        object: OutpFieldEnumValue
-        typeKind: !_SimpleKind Enum
-    fields:
-      - !_OutputEnum
-        field: field
-        label: true
-        name: Boolean
-        typeKind: !_SimpleKind Enum
-    name: OutpFieldEnumValue
     typeKind: !_TypeKind Output
   !_Identifier OutpFieldParam: !_TypeOutput
     allFields:

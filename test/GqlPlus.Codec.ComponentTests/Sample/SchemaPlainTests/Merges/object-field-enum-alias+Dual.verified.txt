@@ -1,0 +1,18 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier ObjFieldEnumAliasDual: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        aliases: [field1,field2]
+        name: field
+        object: ObjFieldEnumAliasDual
+        type: !_DualBase
+          name: Boolean
+    fields:
+      - !_DualField
+        aliases: [field1,field2]
+        name: field
+        type: !_DualBase
+          name: Boolean
+    name: ObjFieldEnumAliasDual
+    typeKind: !_TypeKind Dual

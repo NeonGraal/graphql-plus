@@ -1,6 +1,7 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Result;
 using Microsoft.Extensions.Logging;
+using Parlot.Fluent;
 
 namespace GqlPlus;
 
@@ -36,8 +37,11 @@ public abstract class TestSchemaResult(
     _logger.ParsingLabelledInput("Sample", input);
 
     IResult<IGqlpSchema> parse = checks.Parse(input, "Schema");
-
-    await Result_Invalid(parse, test, "Sample", ["Schema", section], test, section);
+    if (parse.Required(s => s.Errors.ShouldBeEmpty())) {
+      await Result_Invalid(parse, test, "Sample", ["Schema", section], test, section);
+    } else {
+      true.ShouldBeFalse("Expected valid parse result with no errors");
+    }
   }
 
   protected override async Task Label_Input(string label, string input, string[] dirs, string test, string section)

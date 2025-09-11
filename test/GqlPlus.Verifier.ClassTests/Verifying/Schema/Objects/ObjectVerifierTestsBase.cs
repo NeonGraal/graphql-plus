@@ -1,5 +1,9 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Reflection.Metadata;
 using GqlPlus.Matching;
+using GqlPlus.Verifying.Schema.Simple;
+using Microsoft.VisualStudio.TestPlatform.Utilities;
+using NSubstitute.Core;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
@@ -530,6 +534,80 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
     Verify_Errors("not match");
   }
 
+  [Theory, RepeatData]
+  public void Verify_WithEnumField_ReturnsNoErrors(string fieldName, string enumType, string enumLabel)
+  {
+    AddTypes(A.Enum(enumType, [enumLabel]));
+
+    ObjectEnumField(fieldName, enumType, enumLabel);
+
+    Verify_NoErrors();
+  }
+
+  [Theory, RepeatData]
+  public void Verify_WithEnumFieldUndefined_ReturnsError(string fieldName, string enumType, string enumLabel)
+  {
+    ObjectEnumField(fieldName, enumType, enumLabel);
+
+    Verify_Errors("not defined");
+  }
+
+  [Theory, RepeatData]
+  public void Verify_WithEnumFieldWrongLabel_ReturnsError(string fieldName, string enumType, string enumLabel)
+  {
+    AddTypes(A.Enum(enumType, ["bad" + enumLabel]));
+
+    ObjectEnumField(fieldName, enumType, enumLabel);
+
+    Verify_Errors("not defined");
+  }
+
+  [Theory, RepeatData]
+  public void Verify_WithEnumLabel_ReturnsNoErrors(string fieldName, string enumType, string enumLabel)
+  {
+    AddTypes(A.Enum(enumType, [enumLabel]));
+
+    TField field = ObjectField(fieldName, enumType);
+    field.EnumLabel.Returns(enumLabel);
+
+    Verify_NoErrors();
+  }
+
+  [Theory, RepeatData]
+  public void Verify_WithUndefinedEnumLabel_ReturnsError(string fieldName, string enumLabel)
+  {
+    TField field = ObjectEnumField(fieldName, "", enumLabel);
+
+    Verify_Errors("not defined");
+  }
+
+  [Theory, RepeatData]
+  public void Verify_WithEnumTypeArg_ReturnsNoErrors(string fieldName, string enumType, string enumLabel, string argName, string typeName)
+  {
+    this.SkipEqual(typeName, enumType).SkipEqual(typeName, enumLabel).SkipEqual(enumType, enumLabel);
+
+    AddTypes(A.Enum(enumType, [enumLabel]));
+
+    TObject other = DefineObject(typeName, argName, isTypeParam: true);
+    ObjectParam(argName, enumType, other);
+
+    TField field = ObjectField(fieldName, typeName);
+    TArg arg = FieldEnumArg(field, enumLabel, "");
+    arg.WhenForAnyArgs(a => a.SetEnumType(""))
+      .Do(HandleSetEnumType);
+
+    ArgMatcher.Matches(arg, enumType, Arg.Any<EnumContext>()).Returns(true);
+
+    Verify_NoErrors();
+
+    void HandleSetEnumType(CallInfo c)
+    {
+      arg.EnumLabel.Returns(enumLabel);
+      arg.Name.Returns(enumType);
+      arg.EnumType.Name.Returns(enumType);
+    }
+  }
+
   protected void Verify_NoErrors(string name = "")
   {
     TheObject.Name.Returns(name.IfWhiteSpace("Object"));
@@ -602,6 +680,21 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
     return field;
   }
 
+  protected TField ObjectEnumField(string fieldName, string enumType, string enumLabel, TObject? obj = null, bool isTypeParam = false)
+  {
+    obj ??= TheObject;
+
+    TBase objBase = MakeBase(enumType, isTypeParam);
+    TField field = A.ObjField<TField, TBase>(fieldName, objBase);
+    field.EnumLabel.Returns(enumLabel);
+    field.EnumType.Returns(field.Type);
+
+    obj.Fields.Returns([field]);
+    obj.ObjFields.Returns([field]);
+
+    return field;
+  }
+
   protected IGqlpTypeParam ObjectParam(string paramName, string constraint, TObject? obj = null)
   {
     obj ??= TheObject;
@@ -621,8 +714,23 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt, TArg
     type.SetArgs(arg);
     return arg;
   }
+  protected static TArg BaseEnumArg(IGqlpObjBase<TArg> type, string enumType, string enumLabel)
+  {
+    IGqlpObjType enumObjType = A.Named<IGqlpObjType>(enumType);
+
+    TArg arg = A.ObjArg<TArg>(enumType);
+    arg.FullType.Returns(enumType);
+    arg.EnumType.Returns(enumObjType);
+    arg.EnumLabel.Returns(enumLabel);
+
+    type.SetArgs(arg);
+    return arg;
+  }
+
   protected static TArg FieldArg([NotNull] TField field, string argName, bool isTypeParam = false)
     => BaseArg(field.BaseType, argName, isTypeParam);
+  protected static TArg FieldEnumArg([NotNull] TField field, string enumType, string enumLabel)
+    => BaseEnumArg(field.BaseType, enumType, enumLabel);
 
   protected static TMod SetModifier<TMod>([NotNull] TMod modified, ModifierKind kind, string key = "")
     where TMod : IGqlpModifiers

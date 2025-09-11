@@ -1,0 +1,37 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "ObjFieldEnumAliasInp": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "aliases": ["field1", "field2"],
+          "name": "field",
+          "object": "ObjFieldEnumAliasInp",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "Boolean"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "aliases": ["field1", "field2"],
+          "name": "field",
+          "type": {
+            "$tag": "_InputBase",
+            "name": "Boolean"
+          }
+        }
+      ],
+      "name": "ObjFieldEnumAliasInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    }
+  }
+}

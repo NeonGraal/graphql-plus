@@ -1,3 +1,0 @@
-output Name { field = EnumName.prnt_name }
-enum EnumName { :PrntName name }
-enum PrntName { prnt_name }

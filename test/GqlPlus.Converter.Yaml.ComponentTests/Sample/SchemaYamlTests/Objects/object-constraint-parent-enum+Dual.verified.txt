@@ -1,0 +1,66 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier EnumObjCnstPrntEnumDual: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: ParentObjCnstPrntEnumDual
+      name: parentObjCnstPrntEnumDual
+    - !_EnumLabel
+      enum: EnumObjCnstPrntEnumDual
+      name: objCnstPrntEnumDual
+    items:
+    - !_Aliased
+      name: objCnstPrntEnumDual
+    name: EnumObjCnstPrntEnumDual
+    parent: !_TypeRef(_SimpleKind)
+      name: ParentObjCnstPrntEnumDual
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
+  !_Identifier ObjCnstPrntEnumDual: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_DualAlternate)
+      object: ObjCnstPrntEnumDual
+      type: !_DualBase
+        name: RefObjCnstPrntEnumDual
+        typeArgs:
+        - !_DualArg
+          name: parentObjCnstPrntEnumDual
+    alternates:
+    - !_DualAlternate
+      type: !_DualBase
+        name: RefObjCnstPrntEnumDual
+        typeArgs:
+        - !_DualArg
+          name: parentObjCnstPrntEnumDual
+    name: ObjCnstPrntEnumDual
+    typeKind: !_TypeKind Dual
+  !_Identifier ParentObjCnstPrntEnumDual: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: ParentObjCnstPrntEnumDual
+      name: parentObjCnstPrntEnumDual
+    items:
+    - !_Aliased
+      name: parentObjCnstPrntEnumDual
+    name: ParentObjCnstPrntEnumDual
+    typeKind: !_TypeKind Enum
+  !_Identifier RefObjCnstPrntEnumDual: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: RefObjCnstPrntEnumDual
+      type: !_DualBase
+        typeParam: type
+    fields:
+    - !_DualField
+      name: field
+      type: !_DualBase
+        typeParam: type
+    name: RefObjCnstPrntEnumDual
+    typeKind: !_TypeKind Dual
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: EnumObjCnstPrntEnumDual
+        typeKind: !_TypeKind Enum
+      name: type

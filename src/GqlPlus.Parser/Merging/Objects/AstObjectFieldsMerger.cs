@@ -10,7 +10,7 @@ internal class AstObjectFieldsMerger<TObjField>(
 {
   protected override string ItemMatchName => "ModifiedType_Label";
   protected override string ItemMatchKey(TObjField item)
-    => item.ModifiedType + item.EnumLabel.Prefixed(".");
+    => new[] { item.ModifiedType, item.EnumLabel }.Joined(".");
 
   protected override TObjField MergeGroup(IEnumerable<TObjField> group)
   {

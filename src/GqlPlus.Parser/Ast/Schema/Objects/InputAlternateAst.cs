@@ -6,7 +6,7 @@ internal sealed record class InputAlternateAst(
   ITokenAt At,
   string Name,
   string Description
-) : AstObjAlternate<IGqlpInputArg>(At, Name, Description)
+) : AstObjAlternate<IGqlpObjArg>(At, Name, Description)
   , IGqlpInputAlternate
 {
   public override string Label => "Input";
@@ -18,7 +18,7 @@ internal sealed record class InputAlternateAst(
   public DualAlternateAst ToDual()
     => new(At, Name, Description) {
       IsTypeParam = IsTypeParam,
-      BaseArgs = [.. BaseArgs.Select(a => a.ToDual)],
+      BaseArgs = [.. BaseArgs.Select(a => new DualArgAst(a.At, a.Name, a.Description) { IsTypeParam = a.IsTypeParam })],
       Modifiers = [.. Modifiers],
     };
 }

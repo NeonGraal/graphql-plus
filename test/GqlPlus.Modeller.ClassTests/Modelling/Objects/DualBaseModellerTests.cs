@@ -3,7 +3,7 @@
 public class DualBaseModellerTests
   : ModellerClassTestBase<IGqlpDualBase, DualBaseModel>
 {
-  private readonly IModeller<IGqlpDualArg, DualArgModel> _objArg = MFor<IGqlpDualArg, DualArgModel>();
+  private readonly IModeller<IGqlpObjArg, DualArgModel> _objArg = MFor<IGqlpObjArg, DualArgModel>();
 
   public DualBaseModellerTests()
     => Modeller = new DualBaseModeller(_objArg);
@@ -34,7 +34,7 @@ public class DualBaseModellerTests
   {
     // Arrange
     IGqlpDualBase ast = A.Named<IGqlpDualBase>(name);
-    IGqlpDualArg arg = A.Named<IGqlpDualArg>(argName);
+    IGqlpObjArg arg = A.Named<IGqlpObjArg>(argName);
     ast.Args.Returns([arg]);
     ast.BaseArgs.Returns([arg]);
 

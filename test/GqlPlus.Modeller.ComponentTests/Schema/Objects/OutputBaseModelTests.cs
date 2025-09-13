@@ -6,7 +6,7 @@ namespace GqlPlus.Schema.Objects;
 
 public class OutputBaseModelTests(
   IOutputBaseModelChecks checks
-) : TestObjBaseModel<IGqlpOutputBase, IGqlpOutputArg, OutputBaseModel>(checks)
+) : TestObjBaseModel<IGqlpOutputBase, IGqlpObjArg, OutputBaseModel>(checks)
 {
   [Theory, RepeatData]
   public void Model_EnumArgs(string name, string[] arguments, string enumLabel)
@@ -19,31 +19,31 @@ public class OutputBaseModelTests(
 internal sealed class OutputBaseModelChecks(
   IModeller<IGqlpOutputBase, OutputBaseModel> modeller,
   IEncoder<OutputBaseModel> encoding
-) : CheckObjBaseModel<IGqlpOutputBase, IGqlpOutputArg, OutputBaseAst, OutputArgAst, OutputBaseModel>(modeller, encoding, TypeKindModel.Output)
+) : CheckObjBaseModel<IGqlpOutputBase, IGqlpObjArg, OutputBaseAst, OutputArgAst, OutputBaseModel>(modeller, encoding, TypeKindModel.Output)
   , IOutputBaseModelChecks
 {
   public string[] ExpectedEnumArgs(string[] arguments, string enumLabel)
     => [.. ItemsExpected("typeArgs:", arguments,
       a => ["  - !_TypeRef(_SimpleKind)", "    label: " + enumLabel, "    name: " + a, "    typeKind: !_SimpleKind Enum"])];
 
-  protected override OutputBaseAst NewObjBaseAst(string input, bool isTypeParam, IGqlpOutputArg[] args)
+  protected override OutputBaseAst NewObjBaseAst(string input, bool isTypeParam, IGqlpObjArg[] args)
     => new(AstNulls.At, input) {
       IsTypeParam = isTypeParam,
       BaseArgs = args,
     };
 
-  public IGqlpOutputArg EnumObjArg(string input, string enumLabel)
-    => NewObjArgAst(input, false) with { EnumLabel = enumLabel };
+  public IGqlpObjArg EnumObjArg(string input, string enumLabel)
+    => new OutputArgAst(AstNulls.At, input) { EnumLabel = enumLabel };
 
-  protected override OutputArgAst NewObjArgAst(string input, bool isTypeParam)
-    => new(AstNulls.At, input) {
+  protected override IGqlpObjArg NewObjArgAst(string input, bool isTypeParam)
+    => new OutputArgAst(AstNulls.At, input) {
       IsTypeParam = isTypeParam,
     };
 }
 
 public interface IOutputBaseModelChecks
-  : ICheckObjBaseModel<IGqlpOutputBase, IGqlpOutputArg, OutputBaseModel>
+  : ICheckObjBaseModel<IGqlpOutputBase, IGqlpObjArg, OutputBaseModel>
 {
   string[] ExpectedEnumArgs(string[] arguments, string enumLabel);
-  IGqlpOutputArg EnumObjArg(string input, string enumLabel);
+  IGqlpObjArg EnumObjArg(string input, string enumLabel);
 }

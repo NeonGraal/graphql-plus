@@ -6,11 +6,11 @@ using GqlPlus.Parsing.Schema.Objects;
 namespace GqlPlus.Schema.Objects;
 
 public class ParseInputArgTests(
-  ICheckObjectArg<IGqlpInputArg> objectArgChecks
-) : TestObjectArg<IGqlpInputArg>(objectArgChecks)
+  ICheckObjectArg<IGqlpObjArg> objectArgChecks
+) : TestObjectArg<IGqlpObjArg>(objectArgChecks)
 { }
 
 internal sealed class ParseInputArgChecks(
-  Parser<IGqlpInputArg>.DA parser
-) : CheckObjectArg<IGqlpInputArg, InputArgAst>(new InputFactories(), parser)
+  Parser<IGqlpObjArg>.DA parser
+) : CheckObjectArg<IGqlpObjArg, InputArgAst>(new InputFactories(), parser)
 { }

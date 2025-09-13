@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Modelling.Objects;
+﻿using GqlPlus.Ast.Schema.Objects;
+
+namespace GqlPlus.Modelling.Objects;
 
 internal class InputModeller(
   ObjectModellers<IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate, InputBaseModel, InputFieldModel, InputAlternateModel> modellers
@@ -15,13 +17,13 @@ internal class InputModeller(
 }
 
 internal class InputArgModeller(
-  IModeller<IGqlpDualArg, DualArgModel> dual
-) : ModellerObjArg<IGqlpInputArg, InputArgModel>
+  IModeller<IGqlpObjArg, DualArgModel> dual
+) : ModellerObjArg<IGqlpObjArg, InputArgModel>
 {
-  protected override InputArgModel ToModel(IGqlpInputArg ast, IMap<TypeKindModel> typeKinds)
+  protected override InputArgModel ToModel(IGqlpObjArg ast, IMap<TypeKindModel> typeKinds)
     => typeKinds.TryGetValue(ast.Name, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
     ? new(TypeKindModel.Dual, "", ast.Description) {
-      Dual = dual.ToModel(ast.ToDual, typeKinds)
+      Dual = dual.ToModel(new DualArgAst(ast.At, ast.Name, ast.Description) { IsTypeParam = ast.IsTypeParam }, typeKinds)
     }
     : new(TypeKindModel.Input, ast.Name, ast.Description) {
       IsTypeParam = ast.IsTypeParam,
@@ -29,9 +31,9 @@ internal class InputArgModeller(
 }
 
 internal class InputBaseModeller(
-  IModeller<IGqlpInputArg, InputArgModel> objArg,
+  IModeller<IGqlpObjArg, InputArgModel> objArg,
   IModeller<IGqlpDualBase, DualBaseModel> dual
-) : ModellerObjBase<IGqlpInputBase, IGqlpInputArg, InputBaseModel, InputArgModel>(objArg)
+) : ModellerObjBase<IGqlpInputBase, IGqlpObjArg, InputBaseModel, InputArgModel>(objArg)
 {
   protected override InputBaseModel ToModel(IGqlpInputBase ast, IMap<TypeKindModel> typeKinds)
     => typeKinds.TryGetValue(ast.Name, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual

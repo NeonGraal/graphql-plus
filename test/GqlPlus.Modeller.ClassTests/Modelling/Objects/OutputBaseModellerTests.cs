@@ -5,7 +5,7 @@ public class OutputBaseModellerTests
 {
   public OutputBaseModellerTests()
   {
-    IModeller<IGqlpOutputArg, OutputArgModel> objArg = MFor<IGqlpOutputArg, OutputArgModel>();
+    IModeller<IGqlpObjArg, OutputArgModel> objArg = MFor<IGqlpObjArg, OutputArgModel>();
     IModeller<IGqlpDualBase, DualBaseModel> dual = MFor<IGqlpDualBase, DualBaseModel>();
 
     Modeller = new OutputBaseModeller(objArg, dual);

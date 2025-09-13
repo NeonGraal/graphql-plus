@@ -3,10 +3,10 @@
 namespace GqlPlus.Ast.Schema.Objects;
 
 public class OutputArgAstTests
-  : AstObjectArgTests<IGqlpOutputArg>
+  : AstObjectArgTests<IGqlpObjArg>
 {
-  private readonly AstObjArgChecks<IGqlpOutputArg, OutputArgAst> _checks
+  private readonly AstObjArgChecks<IGqlpObjArg, OutputArgAst> _checks
     = new(name => new OutputArgAst(AstNulls.At, name));
 
-  internal override IAstObjArgChecks<IGqlpOutputArg> ObjArgChecks => _checks;
+  internal override IAstObjArgChecks<IGqlpObjArg> ObjArgChecks => _checks;
 }

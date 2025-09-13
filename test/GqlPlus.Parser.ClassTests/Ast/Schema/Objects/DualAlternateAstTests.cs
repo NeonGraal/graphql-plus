@@ -8,7 +8,7 @@ public class DualAlternateAstTests
   protected override string AbbreviatedString(AlternateInput input)
     => $"( !DA {input.Type} )";
 
-  private readonly AstObjectAlternateChecks<DualAlternateAst, IGqlpDualBase, DualBaseAst, IGqlpDualArg, DualArgAst> _checks
+  private readonly AstObjectAlternateChecks<DualAlternateAst, IGqlpDualBase, DualBaseAst, IGqlpObjArg, DualArgAst> _checks
     = new(dual => new(AstNulls.At, dual.Type, ""),
       arguments => arguments.DualArgs());
 

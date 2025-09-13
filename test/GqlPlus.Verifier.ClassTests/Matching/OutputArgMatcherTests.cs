@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Matching;
 
 public class OutputArgMatcherTests
-  : ObjArgMatcherTests<IGqlpOutputArg>
+  : ObjArgMatcherTests<IGqlpObjArg>
 {
   public OutputArgMatcherTests()
   {
@@ -16,7 +16,7 @@ public class OutputArgMatcherTests
   {
     this.SkipEqual(enumName, constraint);
 
-    IGqlpOutputArg arg = A.OutputEnumArg(name, enumLabel, enumLabel);
+    IGqlpObjArg arg = A.OutputEnumArg(name, enumLabel, enumLabel);
     IGqlpEnum enumParent = A.Enum(enumName, [enumLabel]);
     Types[enumName] = enumParent;
 
@@ -33,7 +33,7 @@ public class OutputArgMatcherTests
   {
     this.SkipEqual(enumLabel, constraint);
 
-    IGqlpOutputArg arg = A.OutputEnumArg(name, enumLabel, "");
+    IGqlpObjArg arg = A.OutputEnumArg(name, enumLabel, "");
     IGqlpEnum enumConstraint = A.Enum(constraint, []);
     Types[constraint] = enumConstraint;
 
@@ -47,7 +47,7 @@ public class OutputArgMatcherTests
   {
     this.SkipEqual(enumName, constraint);
 
-    IGqlpOutputArg arg = A.OutputEnumArg(name, enumName, enumLabel);
+    IGqlpObjArg arg = A.OutputEnumArg(name, enumName, enumLabel);
     IGqlpEnum enumParent = A.Enum(enumName, [enumLabel]);
     Types[enumName] = enumParent;
 
@@ -64,7 +64,7 @@ public class OutputArgMatcherTests
   {
     this.SkipEqual(enumLabel, constraint);
 
-    IGqlpOutputArg arg = A.OutputEnumArg(name, enumLabel, "");
+    IGqlpObjArg arg = A.OutputEnumArg(name, enumLabel, "");
     IGqlpDomain<IGqlpDomainLabel> domConstraint = A.DomainEnum(constraint, null);
     Types[constraint] = domConstraint;
 
@@ -76,7 +76,7 @@ public class OutputArgMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsTrue_WhenConstraintSame_WithEnumTypeParam(string name, string enumName, string paramName, string constraint)
   {
-    IGqlpOutputArg arg = A.Named<IGqlpOutputArg>(name);
+    IGqlpObjArg arg = A.Named<IGqlpObjArg>(name);
     IGqlpObjType enumType = A.Named<IGqlpObjType>(enumName);
     enumType.IsTypeParam.Returns(true);
     arg.EnumType.Returns(enumType);
@@ -95,7 +95,7 @@ public class OutputArgMatcherTests
   {
     this.SkipEqual(enumName, constraint);
 
-    IGqlpOutputArg arg = A.OutputEnumArg(name, enumName, enumLabel);
+    IGqlpObjArg arg = A.OutputEnumArg(name, enumName, enumLabel);
     IGqlpEnum enumParent = A.Enum(enumName, [enumLabel], constraint);
     Types[enumName] = enumParent;
 

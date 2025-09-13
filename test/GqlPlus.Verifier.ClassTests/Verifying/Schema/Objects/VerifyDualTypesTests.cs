@@ -2,7 +2,7 @@
 
 [TracePerTest]
 public class VerifyDualTypesTests
-  : ObjectVerifierTestsBase<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate, IGqlpDualArg>
+  : ObjectVerifierTestsBase<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate, IGqlpObjArg>
 {
   private readonly IGqlpDualObject _dual;
 

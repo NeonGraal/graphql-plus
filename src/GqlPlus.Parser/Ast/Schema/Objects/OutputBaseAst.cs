@@ -7,7 +7,7 @@ internal sealed record class OutputBaseAst(
   ITokenAt At,
   string Name,
   string Description
-) : AstObjBase<IGqlpOutputArg>(At, Name, Description)
+) : AstObjBase<IGqlpObjArg>(At, Name, Description)
   , IGqlpOutputBase
 {
   public OutputBaseAst(TokenAt at, string name)
@@ -19,7 +19,7 @@ internal sealed record class OutputBaseAst(
   public DualBaseAst ToDual()
     => new(At, Name, Description) {
       IsTypeParam = IsTypeParam,
-      BaseArgs = [.. BaseArgs.Select(a => a.ToDual)],
+      BaseArgs = [.. BaseArgs.Select(a => new DualArgAst(a.At, a.Name, a.Description) { IsTypeParam = a.IsTypeParam })],
     };
 
   IGqlpDualBase IGqlpToDual<IGqlpDualBase>.ToDual => ToDual();

@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Ast.Schema;
 
-internal abstract record class AstDescribed(
+public abstract record class AstDescribed(
   ITokenAt At,
   string Description
 ) : AstAbbreviated(At)

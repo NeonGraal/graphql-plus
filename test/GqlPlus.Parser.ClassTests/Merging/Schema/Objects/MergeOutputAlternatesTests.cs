@@ -16,7 +16,7 @@ public class MergeOutputAlternatesTests(
 }
 
 internal sealed class MergeOutputAlternatesChecks
-  : CheckAlternatesMerger<IGqlpOutputAlternate, OutputAlternateAst, IGqlpOutputArg>
+  : CheckAlternatesMerger<IGqlpOutputAlternate, OutputAlternateAst, IGqlpObjArg>
 {
   public override IGqlpOutputAlternate MakeAlternate(string input, bool withModifiers = false, string description = "")
     => new OutputAlternateAst(AstNulls.At, input, description) {

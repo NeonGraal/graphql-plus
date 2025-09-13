@@ -3,8 +3,8 @@
 namespace GqlPlus.Verifying.Schema.Objects;
 
 internal class VerifyOutputTypes(
-  ObjectVerifierParams<IGqlpOutputObject, IGqlpOutputField, IGqlpOutputAlternate, IGqlpOutputArg> verifiers
-) : AstObjectVerifier<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputArg, IGqlpOutputField, IGqlpOutputAlternate>(verifiers)
+  ObjectVerifierParams<IGqlpOutputObject, IGqlpOutputField, IGqlpOutputAlternate, IGqlpObjArg> verifiers
+) : AstObjectVerifier<IGqlpOutputObject, IGqlpOutputBase, IGqlpObjArg, IGqlpOutputField, IGqlpOutputAlternate>(verifiers)
 {
   protected override void UsageField(IGqlpOutputField field, IGqlpOutputObject usage, EnumContext context)
   {

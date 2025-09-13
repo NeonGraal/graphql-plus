@@ -30,18 +30,18 @@ public static class AllModellers
       .AddTypeModeller<IGqlpUnion, TypeUnionModel, UnionModeller>()
       // Object
       .AddModeller<IGqlpTypeParam, TypeParamModel, TypeParamModeller>()
-      .AddModeller<IGqlpDualArg, DualArgModel, DualArgModeller>()
+      .AddModeller<IGqlpObjArg, DualArgModel, DualArgModeller>()
       .AddObjectModellers<
           IGqlpDualBase, DualBaseModel, DualBaseModeller,
           IGqlpDualField, DualFieldModel, DualFieldModeller,
           IGqlpDualAlternate, DualAlternateModel, DualAlternateModeller>()
-      .AddModeller<IGqlpInputArg, InputArgModel, InputArgModeller>()
+      .AddModeller<IGqlpObjArg, InputArgModel, InputArgModeller>()
       .AddObjectModellers<
           IGqlpInputBase, InputBaseModel, InputBaseModeller,
           IGqlpInputField, InputFieldModel, InputFieldModeller,
           IGqlpInputAlternate, InputAlternateModel, InputAlternateModeller>()
       .AddModeller<IGqlpInputParam, InputParamModel, InputParamModeller>()
-      .AddModeller<IGqlpOutputArg, OutputArgModel, OutputArgModeller>()
+      .AddModeller<IGqlpObjArg, OutputArgModel, OutputArgModeller>()
       .AddObjectModellers<
           IGqlpOutputBase, OutputBaseModel, OutputBaseModeller,
           IGqlpOutputField, OutputFieldModel, OutputFieldModeller,

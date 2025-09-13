@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-internal abstract record class AstObjArg(
+public abstract record class AstObjArg(
   ITokenAt At,
   string Name,
   string Description

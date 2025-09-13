@@ -6,18 +6,18 @@ namespace GqlPlus;
 public static class SchemaObjectBuilderHelpers
 {
   public static IGqlpDualBase DualBase(this IMockBuilder builder, string name, bool isTypeParam = false)
-    => builder.ObjBase<IGqlpDualBase, IGqlpDualArg>(name, isTypeParam);
+    => builder.ObjBase<IGqlpDualBase, IGqlpObjArg>(name, isTypeParam);
   public static IGqlpDualField DualField(this IMockBuilder builder, string name, string type, string typeDescr = "")
     => builder.ObjField<IGqlpDualField, IGqlpDualBase>(name, builder.DualBase(type).SetDescr(typeDescr));
 
   public static IGqlpInputBase InputBase(this IMockBuilder builder, string name, bool isTypeParam = false)
-    => builder.ObjBase<IGqlpInputBase, IGqlpInputArg>(name, isTypeParam);
+    => builder.ObjBase<IGqlpInputBase, IGqlpObjArg>(name, isTypeParam);
   public static IGqlpInputField InputField(this IMockBuilder builder, string name, string type, string typeDescr = "")
     => builder.ObjField<IGqlpInputField, IGqlpInputBase>(name, builder.InputBase(type).SetDescr(typeDescr));
 
-  public static IGqlpOutputArg OutputEnumArg(this IMockBuilder builder, string name, string enumType, string enumLabel)
+  public static IGqlpObjArg OutputEnumArg(this IMockBuilder builder, string name, string enumType, string enumLabel)
   {
-    IGqlpOutputArg theArg = builder.ObjArg<IGqlpOutputArg>(name);
+    IGqlpObjArg theArg = builder.ObjArg<IGqlpObjArg>(name);
     IGqlpObjType enumObjType = builder.Named<IGqlpObjType>(enumType);
     theArg.FullType.Returns(enumType);
     theArg.EnumType.Returns(enumObjType);
@@ -25,7 +25,7 @@ public static class SchemaObjectBuilderHelpers
     return theArg;
   }
   public static IGqlpOutputBase OutputBase(this IMockBuilder builder, string name, bool isTypeParam = false)
-  => builder.ObjBase<IGqlpOutputBase, IGqlpOutputArg>(name, isTypeParam);
+  => builder.ObjBase<IGqlpOutputBase, IGqlpObjArg>(name, isTypeParam);
   public static IGqlpOutputField OutputField(this IMockBuilder builder, string name, string type, string typeDescr = "")
     => builder.ObjField<IGqlpOutputField, IGqlpOutputBase>(name, builder.OutputBase(type).SetDescr(typeDescr));
 

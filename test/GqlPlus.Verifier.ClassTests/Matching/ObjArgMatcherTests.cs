@@ -64,9 +64,9 @@ public abstract class ObjArgMatcherTests<TObjArg>
 }
 
 public class DualArgMatcherTests
-  : ObjArgMatcherTests<IGqlpDualArg>
+  : ObjArgMatcherTests<IGqlpObjArg>
 { }
 
 public class InputArgMatcherTests
-  : ObjArgMatcherTests<IGqlpInputArg>
+  : ObjArgMatcherTests<IGqlpObjArg>
 { }

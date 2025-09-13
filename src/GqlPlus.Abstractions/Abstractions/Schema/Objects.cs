@@ -107,12 +107,8 @@ public interface IGqlpDualObject
   : IGqlpObject<IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>
 { }
 
-public interface IGqlpDualArg
-  : IGqlpObjArg
-{ }
-
 public interface IGqlpDualBase
-  : IGqlpObjBase<IGqlpDualArg>
+  : IGqlpObjBase<IGqlpObjArg>
 { }
 
 public interface IGqlpDualField
@@ -120,7 +116,7 @@ public interface IGqlpDualField
 { }
 
 public interface IGqlpDualAlternate
-  : IGqlpObjAlternate<IGqlpDualArg>
+  : IGqlpObjAlternate<IGqlpObjArg>
   , IGqlpDualBase
 { }
 
@@ -134,13 +130,8 @@ public interface IGqlpInputObject
   : IGqlpObject<IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate>
 { }
 
-public interface IGqlpInputArg
-  : IGqlpObjArg
-  , IGqlpToDual<IGqlpDualArg>
-{ }
-
 public interface IGqlpInputBase
-  : IGqlpObjBase<IGqlpInputArg>
+  : IGqlpObjBase<IGqlpObjArg>
   , IGqlpToDual<IGqlpDualBase>
 { }
 
@@ -152,7 +143,7 @@ public interface IGqlpInputField
 }
 
 public interface IGqlpInputAlternate
-  : IGqlpObjAlternate<IGqlpInputArg>
+  : IGqlpObjAlternate<IGqlpObjArg>
   , IGqlpInputBase
   , IGqlpToDual<IGqlpDualAlternate>
 { }
@@ -161,13 +152,8 @@ public interface IGqlpOutputObject
   : IGqlpObject<IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>
 { }
 
-public interface IGqlpOutputArg
-  : IGqlpObjArg
-  , IGqlpToDual<IGqlpDualArg>
-{ }
-
 public interface IGqlpOutputBase
-  : IGqlpObjBase<IGqlpOutputArg>
+  : IGqlpObjBase<IGqlpObjArg>
   , IGqlpToDual<IGqlpDualBase>
 { }
 
@@ -179,7 +165,7 @@ public interface IGqlpOutputField
 }
 
 public interface IGqlpOutputAlternate
-  : IGqlpObjAlternate<IGqlpOutputArg>
+  : IGqlpObjAlternate<IGqlpObjArg>
   , IGqlpOutputBase
   , IGqlpToDual<IGqlpDualAlternate>
 { }

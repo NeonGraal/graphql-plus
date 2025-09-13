@@ -1,4 +1,6 @@
-﻿namespace GqlPlus.Modelling.Objects;
+﻿using GqlPlus.Ast.Schema.Objects;
+
+namespace GqlPlus.Modelling.Objects;
 
 internal class OutputModeller(
   ObjectModellers<IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate, OutputBaseModel, OutputFieldModel, OutputAlternateModel> modellers
@@ -15,14 +17,14 @@ internal class OutputModeller(
 }
 
 internal class OutputArgModeller(
-  IModeller<IGqlpDualArg, DualArgModel> dual
-) : ModellerObjArg<IGqlpOutputArg, OutputArgModel>
+  IModeller<IGqlpObjArg, DualArgModel> dual
+) : ModellerObjArg<IGqlpObjArg, OutputArgModel>
 {
-  protected override OutputArgModel ToModel(IGqlpOutputArg ast, IMap<TypeKindModel> typeKinds)
+  protected override OutputArgModel ToModel(IGqlpObjArg ast, IMap<TypeKindModel> typeKinds)
       => string.IsNullOrWhiteSpace(ast.EnumLabel)
       ? typeKinds.TryGetValue(ast.Name, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
         ? new(typeKind, "", "") {
-          Dual = dual.ToModel(ast.ToDual, typeKinds)
+          Dual = dual.ToModel(new DualArgAst(ast.At, ast.Name, ast.Description) { IsTypeParam = ast.IsTypeParam }, typeKinds)
         }
         : new(typeKind, ast.Name, ast.Description) {
           IsTypeParam = ast.IsTypeParam,
@@ -31,9 +33,9 @@ internal class OutputArgModeller(
 }
 
 internal class OutputBaseModeller(
-  IModeller<IGqlpOutputArg, OutputArgModel> objArg,
+  IModeller<IGqlpObjArg, OutputArgModel> objArg,
   IModeller<IGqlpDualBase, DualBaseModel> dual
-) : ModellerObjBase<IGqlpOutputBase, IGqlpOutputArg, OutputBaseModel, OutputArgModel>(objArg)
+) : ModellerObjBase<IGqlpOutputBase, IGqlpObjArg, OutputBaseModel, OutputArgModel>(objArg)
 {
   protected override OutputBaseModel ToModel(IGqlpOutputBase ast, IMap<TypeKindModel> typeKinds)
     => typeKinds.TryGetValue(ast.Name, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual

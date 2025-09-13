@@ -5,7 +5,7 @@ public class InputBaseModellerTests
 {
   public InputBaseModellerTests()
   {
-    IModeller<IGqlpInputArg, InputArgModel> objArg = MFor<IGqlpInputArg, InputArgModel>();
+    IModeller<IGqlpObjArg, InputArgModel> objArg = MFor<IGqlpObjArg, InputArgModel>();
     IModeller<IGqlpDualBase, DualBaseModel> dual = MFor<IGqlpDualBase, DualBaseModel>();
 
     Modeller = new InputBaseModeller(objArg, dual);

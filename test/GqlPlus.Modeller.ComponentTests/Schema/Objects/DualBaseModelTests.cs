@@ -6,21 +6,21 @@ namespace GqlPlus.Schema.Objects;
 
 public class DualBaseModelTests(
   IDualBaseModelChecks checks
-) : TestObjBaseModel<IGqlpDualBase, IGqlpDualArg, DualBaseModel>(checks)
+) : TestObjBaseModel<IGqlpDualBase, IGqlpObjArg, DualBaseModel>(checks)
 { }
 
 internal sealed class DualBaseModelChecks(
   IModeller<IGqlpDualBase, DualBaseModel> modeller,
   IEncoder<DualBaseModel> encoding
-) : CheckObjBaseModel<IGqlpDualBase, IGqlpDualArg, DualBaseAst, DualArgAst, DualBaseModel>(modeller, encoding, TypeKindModel.Dual)
+) : CheckObjBaseModel<IGqlpDualBase, IGqlpObjArg, DualBaseAst, DualArgAst, DualBaseModel>(modeller, encoding, TypeKindModel.Dual)
   , IDualBaseModelChecks
 {
-  protected override DualArgAst NewObjArgAst(string input, bool isTypeParam)
-    => new(AstNulls.At, input) {
+  protected override IGqlpObjArg NewObjArgAst(string input, bool isTypeParam)
+    => new DualArgAst(AstNulls.At, input) {
       IsTypeParam = isTypeParam,
     };
 
-  protected override DualBaseAst NewObjBaseAst(string input, bool isTypeParam, IGqlpDualArg[] args)
+  protected override DualBaseAst NewObjBaseAst(string input, bool isTypeParam, IGqlpObjArg[] args)
     => new(AstNulls.At, input) {
       IsTypeParam = isTypeParam,
       BaseArgs = args,
@@ -28,5 +28,5 @@ internal sealed class DualBaseModelChecks(
 }
 
 public interface IDualBaseModelChecks
-  : ICheckObjBaseModel<IGqlpDualBase, IGqlpDualArg, DualBaseModel>
+  : ICheckObjBaseModel<IGqlpDualBase, IGqlpObjArg, DualBaseModel>
 { }

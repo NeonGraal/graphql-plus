@@ -6,13 +6,13 @@ namespace GqlPlus.Schema.Objects;
 
 public class InputBaseModelTests(
   IInputBaseModelChecks checks
-) : TestObjBaseModel<IGqlpInputBase, IGqlpInputArg, InputBaseModel>(checks)
+) : TestObjBaseModel<IGqlpInputBase, IGqlpObjArg, InputBaseModel>(checks)
 { }
 
 internal sealed class InputBaseModelChecks(
   IModeller<IGqlpInputBase, InputBaseModel> modeller,
   IEncoder<InputBaseModel> encoding
-) : CheckObjBaseModel<IGqlpInputBase, IGqlpInputArg, InputBaseAst, InputArgAst, InputBaseModel>(modeller, encoding, TypeKindModel.Input)
+) : CheckObjBaseModel<IGqlpInputBase, IGqlpObjArg, InputBaseAst, InputArgAst, InputBaseModel>(modeller, encoding, TypeKindModel.Input)
   , IInputBaseModelChecks
 {
   protected override InputArgAst NewObjArgAst(string input, bool isTypeParam)
@@ -20,7 +20,7 @@ internal sealed class InputBaseModelChecks(
       IsTypeParam = isTypeParam,
     };
 
-  protected override InputBaseAst NewObjBaseAst(string input, bool isTypeParam, IGqlpInputArg[] args)
+  protected override InputBaseAst NewObjBaseAst(string input, bool isTypeParam, IGqlpObjArg[] args)
     => new(AstNulls.At, input) {
       IsTypeParam = isTypeParam,
       BaseArgs = args,
@@ -28,5 +28,5 @@ internal sealed class InputBaseModelChecks(
 }
 
 public interface IInputBaseModelChecks
-  : ICheckObjBaseModel<IGqlpInputBase, IGqlpInputArg, InputBaseModel>
+  : ICheckObjBaseModel<IGqlpInputBase, IGqlpObjArg, InputBaseModel>
 { }

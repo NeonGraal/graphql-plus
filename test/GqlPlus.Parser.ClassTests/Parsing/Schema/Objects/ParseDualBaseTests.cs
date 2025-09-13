@@ -3,7 +3,7 @@
 namespace GqlPlus.Parsing.Schema.Objects;
 
 public class ParseDualBaseTests
-  : ObjectParseTestBase<IGqlpDualBase, IGqlpDualArg>
+  : ObjectParseTestBase<IGqlpDualBase, IGqlpObjArg>
 {
   public ParseDualBaseTests()
     => BaseParser = new ParseDualBase(ParseArgs);

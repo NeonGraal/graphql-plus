@@ -6,8 +6,8 @@ using GqlPlus.Parsing.Schema.Objects;
 namespace GqlPlus.Schema.Objects;
 
 public class ParseOutputArgTests(
-  ICheckObjectArg<IGqlpOutputArg> checks
-) : TestObjectArg<IGqlpOutputArg>(checks)
+  ICheckObjectArg<IGqlpObjArg> checks
+) : TestObjectArg<IGqlpObjArg>(checks)
 {
   [Theory, RepeatData]
   public void WithArgEnumValues_ReturnsCorrectAst(string enumType, string[] enumValues)
@@ -22,6 +22,6 @@ public class ParseOutputArgTests(
 }
 
 internal sealed class ParseOutputArgChecks(
-  Parser<IGqlpOutputArg>.DA parser
-) : CheckObjectArg<IGqlpOutputArg, OutputArgAst>(new OutputFactories(), parser)
+  Parser<IGqlpObjArg>.DA parser
+) : CheckObjectArg<IGqlpObjArg, OutputArgAst>(new OutputFactories(), parser)
 { }

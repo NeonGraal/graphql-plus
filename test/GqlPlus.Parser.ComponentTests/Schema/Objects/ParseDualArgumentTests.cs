@@ -6,11 +6,11 @@ using GqlPlus.Parsing.Schema.Objects;
 namespace GqlPlus.Schema.Objects;
 
 public class ParseDualArgTests(
-  ICheckObjectArg<IGqlpDualArg> checks
-) : TestObjectArg<IGqlpDualArg>(checks)
+  ICheckObjectArg<IGqlpObjArg> checks
+) : TestObjectArg<IGqlpObjArg>(checks)
 { }
 
 internal sealed class ParseDualArgChecks(
-  Parser<IGqlpDualArg>.DA parser
-) : CheckObjectArg<IGqlpDualArg, DualArgAst>(new DualFactories(), parser)
+  Parser<IGqlpObjArg>.DA parser
+) : CheckObjectArg<IGqlpObjArg, DualArgAst>(new DualFactories(), parser)
 { }

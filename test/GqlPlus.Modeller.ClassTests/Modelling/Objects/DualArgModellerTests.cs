@@ -1,16 +1,16 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
 public class DualArgModellerTests
-  : ModellerClassTestBase<IGqlpDualArg, DualArgModel>
+  : ModellerClassTestBase<IGqlpObjArg, DualArgModel>
 {
-  protected override IModeller<IGqlpDualArg, DualArgModel> Modeller { get; }
+  protected override IModeller<IGqlpObjArg, DualArgModel> Modeller { get; }
     = new DualArgModeller();
 
   [Theory, RepeatData]
   public void ToModel_WithValidArg_ReturnsExpectedDualArgModel(string name, string contents)
   {
     // Arrange
-    IGqlpDualArg ast = A.Descr<IGqlpDualArg>(contents);
+    IGqlpObjArg ast = A.Descr<IGqlpObjArg>(contents);
     ast.Name.Returns(name);
     ast.IsTypeParam.Returns(true);
 

@@ -6,7 +6,7 @@ internal sealed record class DualAlternateAst(
   ITokenAt At,
   string Name,
   string Description
-) : AstObjAlternate<IGqlpDualArg>(At, Name, Description)
+) : AstObjAlternate<IGqlpObjArg>(At, Name, Description)
   , IGqlpDualAlternate
 {
   internal override string Abbr => "DA";

@@ -3,7 +3,7 @@
 namespace GqlPlus.Parsing.Schema.Objects;
 
 public class ParseInputArgsTests
-  : ObjectArgsParseTestBase<IGqlpInputArg>
+  : ObjectArgsParseTestBase<IGqlpObjArg>
 {
-  protected override Parser<IGqlpInputArg>.IA Parser { get; } = new ParseInputArgs();
+  protected override Parser<IGqlpObjArg>.IA Parser { get; } = new ParseInputArgs();
 }

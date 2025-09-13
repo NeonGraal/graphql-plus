@@ -2,7 +2,7 @@
 
 [TracePerTest]
 public class VerifyInputTypesTests
-  : ObjectDualVerifierTestsBase<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate, IGqlpInputArg>
+  : ObjectDualVerifierTestsBase<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate, IGqlpObjArg>
 {
   private readonly IGqlpInputObject _input;
 

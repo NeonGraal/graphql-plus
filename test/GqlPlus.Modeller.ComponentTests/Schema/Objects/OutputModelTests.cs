@@ -10,7 +10,7 @@ public class OutputModelTests(
 
 internal sealed class OutputModelChecks(
   CheckTypeInputs<IGqlpOutputObject, TypeOutputModel> inputs
-) : CheckObjectModel<IGqlpOutputObject, OutputDeclAst, IGqlpOutputField, OutputFieldAst, IGqlpOutputAlternate, OutputAlternateAst, IGqlpOutputBase, IGqlpOutputArg, TypeOutputModel>(inputs, TypeKindModel.Output)
+) : CheckObjectModel<IGqlpOutputObject, OutputDeclAst, IGqlpOutputField, OutputFieldAst, IGqlpOutputAlternate, OutputAlternateAst, IGqlpOutputBase, IGqlpObjArg, TypeOutputModel>(inputs, TypeKindModel.Output)
   , IOutputModelChecks
 {
   protected override OutputDeclAst NewObjectAst(ExpectedObjectInput input, IGqlpObjBase? parent = null)

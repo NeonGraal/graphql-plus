@@ -3,7 +3,7 @@
 namespace GqlPlus.Parsing.Schema.Objects;
 
 public class ParseOutputBaseTests
-  : ObjectParseTestBase<IGqlpOutputBase, IGqlpOutputArg>
+  : ObjectParseTestBase<IGqlpOutputBase, IGqlpObjArg>
 {
   public ParseOutputBaseTests()
     => BaseParser = new ParseOutputBase(ParseArgs);

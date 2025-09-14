@@ -44,15 +44,14 @@ public static class AllEncoders
       .AddItemEncoder<NamedModel, UnionMemberModel, UnionMemberEncoder>()
       // Object
       .AddEncoder<TypeParamModel, TypeParamEncoder>()
+      .AddEncoder<ObjTypeArgModel, ObjTypeArgEncoder>()
       // Dual
-      .AddEncoder<DualArgModel, DualArgEncoder>()
       .AddEncoder<DualBaseModel, DualBaseEncoder>()
       .AddBaseEncoder<DualBaseModel>()
       .AddEncoder<DualFieldModel, DualFieldEncoder>()
       .AddTypeEncoder<TypeDualModel, TypeDualEncoder>()
       .AddObjectEncoders<DualBaseModel, DualFieldModel, DualAlternateModel>()
       // Input
-      .AddEncoder<InputArgModel, InputArgEncoder>()
       .AddEncoder<InputBaseModel, InputBaseEncoder>()
       .AddBaseEncoder<InputBaseModel>()
       .AddEncoder<InputFieldModel, InputFieldEncoder>()
@@ -60,7 +59,6 @@ public static class AllEncoders
       .AddTypeEncoder<TypeInputModel, TypeInputEncoder>()
       .AddObjectEncoders<InputBaseModel, InputFieldModel, InputAlternateModel>()
       // Output
-      .AddEncoder<OutputArgModel, OutputArgEncoder>()
       .AddEncoder<OutputBaseModel, OutputBaseEncoder>()
       .AddBaseEncoder<OutputBaseModel>()
       .AddEncoder<OutputEnumModel, OutputEnumEncoder>()

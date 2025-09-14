@@ -1,14 +1,17 @@
 ﻿namespace GqlPlus.Encoding;
 
-internal class ObjectArgEncoder<TArg>
-  : DescribedEncoder<TArg>
-  where TArg : IObjTypeArgModel
+internal class ObjTypeArgEncoder(
+  IEncoder<TypeRefModel<SimpleKindModel>> label
+) : DescribedEncoder<ObjTypeArgModel>
 {
-  internal override Structured Encode(TArg model)
-    => base.Encode(model)
+  internal override Structured Encode(ObjTypeArgModel model)
+    => string.IsNullOrWhiteSpace(model.ThrowIfNull().EnumLabel)
+    ? base.Encode(model)
       .AddIf(model.IsTypeParam,
         t => t.Add("typeParam", model.Name),
-        f => f.Add("name", model.Name));
+        f => f.Add("name", model.Name))
+    : label.Encode(new(SimpleKindModel.Enum, model.Name, model.Description))
+      .Add("label", model.EnumLabel!);
 }
 
 internal class ObjectBaseEncoder<TBase, TArg>(
@@ -122,10 +125,6 @@ internal abstract class TypeObjectEncoder<TObject, TBase, TField, TAlt>(
   }
 }
 
-internal class DualArgEncoder
-  : ObjectArgEncoder<DualArgModel>
-{ }
-
 internal class DualBaseEncoder(
   IEncoder<DualArgModel> objArg
 ) : ObjectBaseEncoder<DualBaseModel, DualArgModel>(objArg)
@@ -140,16 +139,6 @@ internal class TypeDualEncoder(
   TypeObjectEncoders<DualBaseModel, DualFieldModel, DualAlternateModel> encoders
 ) : TypeObjectEncoder<TypeDualModel, DualBaseModel, DualFieldModel, DualAlternateModel>(encoders)
 { }
-
-internal class InputArgEncoder(
-  IEncoder<DualArgModel> dual
-) : ObjectArgEncoder<InputArgModel>
-{
-  internal override Structured Encode(InputArgModel model)
-    => model.Dual is null
-    ? base.Encode(model)
-    : dual.Encode(model.Dual);
-}
 
 internal class InputDualEncoder<TObj>(
   IEncoder<InputArgModel> objArg,
@@ -197,24 +186,10 @@ internal class TypeInputEncoder(
 ) : TypeObjectEncoder<TypeInputModel, InputBaseModel, InputFieldModel, InputAlternateModel>(encoders)
 { }
 
-internal class OutputArgEncoder(
-  IEncoder<DualArgModel> dual,
-  IEncoder<TypeRefModel<SimpleKindModel>> label
-) : ObjectArgEncoder<OutputArgModel>
-{
-  internal override Structured Encode(OutputArgModel model)
-    => string.IsNullOrWhiteSpace(model.ThrowIfNull().EnumLabel)
-    ? model.Dual is null
-      ? base.Encode(model)
-      : dual.Encode(model.Dual)
-    : label.Encode(new(SimpleKindModel.Enum, model.Name, model.Description))
-      .Add("label", model.EnumLabel!);
-}
-
 internal class OutputBaseEncoder(
-  IEncoder<OutputArgModel> objArg,
+  IEncoder<ObjTypeArgModel> objArg,
   IEncoder<DualBaseModel> dual
-) : ObjectBaseEncoder<OutputBaseModel, OutputArgModel>(objArg)
+) : ObjectBaseEncoder<OutputBaseModel, ObjTypeArgModel>(objArg)
 {
   internal override Structured Encode(OutputBaseModel model)
     => model.Dual is null

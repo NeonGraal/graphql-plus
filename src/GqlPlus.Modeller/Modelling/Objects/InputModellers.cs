@@ -16,20 +16,6 @@ internal class InputModeller(
     };
 }
 
-internal class InputArgModeller(
-  IModeller<IGqlpObjArg, DualArgModel> dual
-) : ModellerObjArg<IGqlpObjArg, InputArgModel>
-{
-  protected override InputArgModel ToModel(IGqlpObjArg ast, IMap<TypeKindModel> typeKinds)
-    => typeKinds.TryGetValue(ast.Name, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
-    ? new(TypeKindModel.Dual, "", ast.Description) {
-      Dual = dual.ToModel(new DualArgAst(ast.At, ast.Name, ast.Description) { IsTypeParam = ast.IsTypeParam }, typeKinds)
-    }
-    : new(TypeKindModel.Input, ast.Name, ast.Description) {
-      IsTypeParam = ast.IsTypeParam,
-    };
-}
-
 internal class InputBaseModeller(
   IModeller<IGqlpObjArg, InputArgModel> objArg,
   IModeller<IGqlpDualBase, DualBaseModel> dual

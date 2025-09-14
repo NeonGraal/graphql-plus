@@ -1,25 +1,23 @@
 ﻿namespace GqlPlus.Encoding.Objects;
 
-public class OutputArgEncoderTests
-  : EncoderClassTestBase<OutputArgModel>
+public class ObjTypeArgEncoderTests
+  : EncoderClassTestBase<ObjTypeArgModel>
 {
-  private readonly IEncoder<DualArgModel> _dual;
   private readonly IEncoder<TypeRefModel<SimpleKindModel>> _label;
 
-  public OutputArgEncoderTests()
+  public ObjTypeArgEncoderTests()
   {
-    _dual = RFor<DualArgModel>();
     _label = RFor<TypeRefModel<SimpleKindModel>>();
 
-    Encoder = new OutputArgEncoder(_dual, _label);
+    Encoder = new ObjTypeArgEncoder(_label);
   }
 
-  protected override IEncoder<OutputArgModel> Encoder { get; }
+  protected override IEncoder<ObjTypeArgModel> Encoder { get; }
 
   [Theory, RepeatData]
   public void Encode_WithTypeParam_ReturnsStructuredWithTypeParam(string output, string contents)
     => EncodeAndCheck(new(TypeKindModel.Output, output, contents) { IsTypeParam = true }, [
-      "!_OutputArg",
+      "!_ObjTypeArg",
       "description: " + contents.Quoted("'"),
       "typeParam: " + output
       ]);
@@ -27,7 +25,7 @@ public class OutputArgEncoderTests
   [Theory, RepeatData]
   public void Encode_WithoutTypeParam_ReturnsStructuredWithOutput(string output, string contents)
     => EncodeAndCheck(new(TypeKindModel.Output, output, contents), [
-      "!_OutputArg",
+      "!_ObjTypeArg",
       "description: " + contents.Quoted("'"),
       "name: " + output
       ]);

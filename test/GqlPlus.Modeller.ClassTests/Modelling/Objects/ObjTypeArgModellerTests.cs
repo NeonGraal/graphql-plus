@@ -1,16 +1,14 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
-public class OutputArgModellerTests
-  : ModellerClassTestBase<IGqlpObjArg, OutputArgModel>
+public class ObjTypeArgModellerTests
+  : ModellerClassTestBase<IGqlpObjArg, ObjTypeArgModel>
 {
-  public OutputArgModellerTests()
+  public ObjTypeArgModellerTests()
   {
-    IModeller<IGqlpObjArg, DualArgModel> dual = MFor<IGqlpObjArg, DualArgModel>();
-
-    Modeller = new OutputArgModeller(dual);
+    Modeller = new ObjTypeArgModeller();
   }
 
-  protected override IModeller<IGqlpObjArg, OutputArgModel> Modeller { get; }
+  protected override IModeller<IGqlpObjArg, ObjTypeArgModel> Modeller { get; }
 
   [Theory, RepeatData]
   public void ToModel_WithValidArg_ReturnsExpectedOutputArgModel(string name, string contents)
@@ -20,7 +18,7 @@ public class OutputArgModellerTests
     ast.IsTypeParam.Returns(true);
 
     // Act
-    OutputArgModel result = Modeller.ToModel(ast, TypeKinds);
+    ObjTypeArgModel result = Modeller.ToModel(ast, TypeKinds);
 
     // Assert
     result.ShouldNotBeNull()

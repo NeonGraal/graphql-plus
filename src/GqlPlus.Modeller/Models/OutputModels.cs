@@ -6,22 +6,10 @@ public record class TypeOutputModel(
 ) : TypeObjectModel<OutputBaseModel, OutputFieldModel, OutputAlternateModel>(TypeKindModel.Output, Name, Description)
 { }
 
-public record class OutputArgModel(
-  TypeKindModel Kind,
-  string Name,
-  string Description
-) : ObjTypeArgModel(Kind, Name, Description)
-  , IObjTypeArgModel
-{
-  public DualArgModel? Dual { get; init; }
-
-  public string? EnumLabel { get; set; }
-}
-
 public record class OutputBaseModel(
   string Name,
   string Description
-) : ObjBaseModel<OutputArgModel>(Name, Description)
+) : ObjBaseModel<ObjTypeArgModel>(Name, Description)
 {
   public DualBaseModel? Dual { get; init; }
 }

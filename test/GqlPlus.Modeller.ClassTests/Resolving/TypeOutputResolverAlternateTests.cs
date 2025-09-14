@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Resolving;
 
 public class TypeOutputResolverAlternateTests
-  : ResolverTypeObjectAlternateTestBase<TypeOutputModel, OutputBaseModel, OutputFieldModel, OutputAlternateModel, OutputArgModel>
+  : ResolverTypeObjectAlternateTestBase<TypeOutputModel, OutputBaseModel, OutputFieldModel, OutputAlternateModel, ObjTypeArgModel>
 {
   protected override IResolver<TypeOutputModel> Resolver { get; }
 
@@ -13,7 +13,7 @@ public class TypeOutputResolverAlternateTests
 
   protected override OutputAlternateModel MakeAlternate(string alternate)
     => new(new(alternate, ""));
-  protected override OutputBaseModel MakeBase(string name, string description = "", params OutputArgModel[] args)
+  protected override OutputBaseModel MakeBase(string name, string description = "", params ObjTypeArgModel[] args)
     => new(name, description) { Args = args };
   protected override OutputAlternateModel MakeCollectionAlternate(string alternate, CollectionModel collection)
     => new(new(alternate, "")) { Collections = [collection] };
@@ -23,6 +23,6 @@ public class TypeOutputResolverAlternateTests
     => new(name, description);
   protected override OutputBaseModel NewParam(string paramName)
     => new(paramName, "") { IsTypeParam = true };
-  protected override OutputArgModel NewArg(string argument, bool isParam = false)
+  protected override ObjTypeArgModel NewArg(string argument, bool isParam = false)
     => new(TypeKindModel.Output, argument, "") { IsTypeParam = isParam };
 }

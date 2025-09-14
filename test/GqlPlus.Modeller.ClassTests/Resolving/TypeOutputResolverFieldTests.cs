@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Resolving;
 
 public class TypeOutputResolverFieldTests
-  : ResolverTypeObjectFieldTestBase<TypeOutputModel, OutputBaseModel, OutputFieldModel, OutputAlternateModel, OutputArgModel>
+  : ResolverTypeObjectFieldTestBase<TypeOutputModel, OutputBaseModel, OutputFieldModel, OutputAlternateModel, ObjTypeArgModel>
 {
   protected override IResolver<TypeOutputModel> Resolver { get; }
 
@@ -11,7 +11,7 @@ public class TypeOutputResolverFieldTests
     Resolver = new TypeOutputResolver(dual);
   }
 
-  protected override OutputBaseModel MakeBase(string name, string description = "", params OutputArgModel[] args)
+  protected override OutputBaseModel MakeBase(string name, string description = "", params ObjTypeArgModel[] args)
     => new(name, description) { Args = args };
   protected override OutputFieldModel MakeField(FieldInput field)
     => new(field.Name, new(field.Type, ""), "");
@@ -23,6 +23,6 @@ public class TypeOutputResolverFieldTests
     => new(name, description);
   protected override OutputBaseModel NewParam(string paramName)
     => new(paramName, "") { IsTypeParam = true };
-  protected override OutputArgModel NewArg(string argument, bool isParam = false)
+  protected override ObjTypeArgModel NewArg(string argument, bool isParam = false)
     => new(TypeKindModel.Output, argument, "") { IsTypeParam = isParam };
 }

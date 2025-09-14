@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Resolving;
 
 public class TypeOutputResolverAlternateTests
-  : ResolverTypeObjectAlternateTestBase<TypeOutputModel, OutputBaseModel, OutputFieldModel, OutputAlternateModel, ObjTypeArgModel>
+  : ResolverTypeObjectAlternateTestBase<TypeOutputModel, OutputBaseModel, OutputFieldModel, OutputAlternateModel>
 {
   protected override IResolver<TypeOutputModel> Resolver { get; }
 

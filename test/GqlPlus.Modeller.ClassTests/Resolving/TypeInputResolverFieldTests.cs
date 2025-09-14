@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Resolving;
 
 public class TypeInputResolverFieldTests
-  : ResolverTypeObjectFieldTestBase<TypeInputModel, InputBaseModel, InputFieldModel, InputAlternateModel, InputArgModel>
+  : ResolverTypeObjectFieldTestBase<TypeInputModel, InputBaseModel, InputFieldModel, InputAlternateModel>
 {
   protected override IResolver<TypeInputModel> Resolver { get; }
 
@@ -11,7 +11,7 @@ public class TypeInputResolverFieldTests
     Resolver = new TypeInputResolver(dual);
   }
 
-  protected override InputBaseModel MakeBase(string name, string description = "", params InputArgModel[] args)
+  protected override InputBaseModel MakeBase(string name, string description = "", params ObjTypeArgModel[] args)
     => new(name, description) { Args = args };
   protected override InputFieldModel MakeField(FieldInput field)
     => new(field.Name, new(field.Type, ""), "");
@@ -23,6 +23,6 @@ public class TypeInputResolverFieldTests
     => new(name, description);
   protected override InputBaseModel NewParam(string paramName)
     => new(paramName, "") { IsTypeParam = true };
-  protected override InputArgModel NewArg(string argument, bool isParam = false)
+  protected override ObjTypeArgModel NewArg(string argument, bool isParam = false)
     => new(TypeKindModel.Input, argument, "") { IsTypeParam = isParam };
 }

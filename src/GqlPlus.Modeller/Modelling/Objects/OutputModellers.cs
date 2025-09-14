@@ -19,7 +19,7 @@ internal class OutputModeller(
 internal class OutputBaseModeller(
   IModeller<IGqlpObjArg, ObjTypeArgModel> objArg,
   IModeller<IGqlpDualBase, DualBaseModel> dual
-) : ModellerObjBase<IGqlpOutputBase, IGqlpObjArg, OutputBaseModel, ObjTypeArgModel>(objArg)
+) : ModellerObjBase<IGqlpOutputBase, IGqlpObjArg, OutputBaseModel>(objArg)
 {
   protected override OutputBaseModel ToModel(IGqlpOutputBase ast, IMap<TypeKindModel> typeKinds)
     => typeKinds.TryGetValue(ast.Name, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual

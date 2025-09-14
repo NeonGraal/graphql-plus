@@ -1,12 +1,11 @@
 ﻿namespace GqlPlus.Encoding.Objects;
 
-public abstract class ObjectArgEncoderBase<TModel, TArg>
+public abstract class ObjectArgEncoderBase<TModel>
   : EncoderClassTestBase<TModel>
   where TModel : IModelBase
-  where TArg : IModelBase
 {
-  protected IEncoder<TArg> ObjArg { get; }
+  protected IEncoder<ObjTypeArgModel> ObjArg { get; }
 
   protected ObjectArgEncoderBase()
-    => ObjArg = RFor<TArg>();
+    => ObjArg = RFor<ObjTypeArgModel>();
 }

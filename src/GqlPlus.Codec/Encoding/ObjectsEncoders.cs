@@ -14,11 +14,10 @@ internal class ObjTypeArgEncoder(
       .Add("label", model.EnumLabel!);
 }
 
-internal class ObjectBaseEncoder<TBase, TArg>(
-  IEncoder<TArg> objArg
+internal class ObjectBaseEncoder<TBase>(
+  IEncoder<ObjTypeArgModel> objArg
 ) : DescribedEncoder<TBase>
-  where TBase : ObjBaseModel<TArg>
-  where TArg : IObjTypeArgModel
+  where TBase : ObjBaseModel
 {
   internal override Structured Encode(TBase model)
     => base.Encode(model)
@@ -126,8 +125,8 @@ internal abstract class TypeObjectEncoder<TObject, TBase, TField, TAlt>(
 }
 
 internal class DualBaseEncoder(
-  IEncoder<DualArgModel> objArg
-) : ObjectBaseEncoder<DualBaseModel, DualArgModel>(objArg)
+  IEncoder<ObjTypeArgModel> objArg
+) : ObjectBaseEncoder<DualBaseModel>(objArg)
 { }
 
 internal class DualFieldEncoder(
@@ -141,9 +140,9 @@ internal class TypeDualEncoder(
 { }
 
 internal class InputDualEncoder<TObj>(
-  IEncoder<InputArgModel> objArg,
+  IEncoder<ObjTypeArgModel> objArg,
   IEncoder<DualBaseModel> dual
-) : ObjectBaseEncoder<TObj, InputArgModel>(objArg)
+) : ObjectBaseEncoder<TObj>(objArg)
   where TObj : InputBaseModel
 {
   internal override Structured Encode(TObj model)
@@ -153,7 +152,7 @@ internal class InputDualEncoder<TObj>(
 }
 
 internal class InputBaseEncoder(
-  IEncoder<InputArgModel> objArg,
+  IEncoder<ObjTypeArgModel> objArg,
   IEncoder<DualBaseModel> dual
 ) : InputDualEncoder<InputBaseModel>(objArg, dual)
 { }
@@ -169,7 +168,7 @@ internal class InputFieldEncoder(
 }
 
 internal class InputParamEncoder(
-  IEncoder<InputArgModel> objArg,
+  IEncoder<ObjTypeArgModel> objArg,
   IEncoder<DualBaseModel> dual,
   IEncoder<ModifierModel> modifier,
   IEncoder<ConstantModel> constant
@@ -189,7 +188,7 @@ internal class TypeInputEncoder(
 internal class OutputBaseEncoder(
   IEncoder<ObjTypeArgModel> objArg,
   IEncoder<DualBaseModel> dual
-) : ObjectBaseEncoder<OutputBaseModel, ObjTypeArgModel>(objArg)
+) : ObjectBaseEncoder<OutputBaseModel>(objArg)
 {
   internal override Structured Encode(OutputBaseModel model)
     => model.Dual is null

@@ -4,7 +4,7 @@ namespace GqlPlus.Resolving;
 
 internal class TypeOutputResolver(
   IResolver<TypeDualModel> dual
-) : ResolverTypeObjectType<TypeOutputModel, OutputBaseModel, OutputFieldModel, OutputAlternateModel, ObjTypeArgModel>
+) : ResolverTypeObjectType<TypeOutputModel, OutputBaseModel, OutputFieldModel, OutputAlternateModel>
 {
   protected override TResult Apply<TResult>(TResult result, ArgumentsContext arguments)
   {
@@ -30,8 +30,6 @@ internal class TypeOutputResolver(
 
   protected override TypeOutputModel CloneModel(TypeOutputModel model)
     => model with { };
-  protected override string GetArgKey(ObjTypeArgModel argument)
-    => argument.Name;
   protected override MakeFor<OutputAlternateModel> ObjectAlt(string obj)
     => alt => new(alt, obj);
   protected override MakeFor<OutputFieldModel> ObjectField(string obj)

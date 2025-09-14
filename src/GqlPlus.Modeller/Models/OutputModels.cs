@@ -9,7 +9,7 @@ public record class TypeOutputModel(
 public record class OutputBaseModel(
   string Name,
   string Description
-) : ObjBaseModel<ObjTypeArgModel>(Name, Description)
+) : ObjBaseModel(Name, Description)
 {
   public DualBaseModel? Dual { get; init; }
 }

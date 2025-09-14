@@ -4,7 +4,7 @@ namespace GqlPlus.Resolving;
 
 internal class TypeInputResolver(
   IResolver<TypeDualModel> dual
-) : ResolverTypeObjectType<TypeInputModel, InputBaseModel, InputFieldModel, InputAlternateModel, InputArgModel>
+) : ResolverTypeObjectType<TypeInputModel, InputBaseModel, InputFieldModel, InputAlternateModel>
 {
   protected override TResult Apply<TResult>(TResult result, ArgumentsContext arguments)
   {
@@ -30,8 +30,6 @@ internal class TypeInputResolver(
 
   protected override TypeInputModel CloneModel(TypeInputModel model)
     => model with { };
-  protected override string GetArgKey(InputArgModel argument)
-    => argument.Name;
   protected override MakeFor<InputAlternateModel> ObjectAlt(string obj)
     => alt => new(alt, obj);
   protected override MakeFor<InputFieldModel> ObjectField(string obj)
@@ -103,14 +101,8 @@ internal class TypeInputResolver(
   {
     outBase = null;
     if (inputBase?.IsTypeParam == true) {
-      if (arguments.TryGetArg(label, inputBase.Name, out InputArgModel? inputArg)) {
-        if (inputArg.Dual is not null) {
-          if (arguments.TryGetType(label, inputArg.Dual.Name, out DualBaseModel? dualBase, false)) {
-            outBase = new("", inputArg.Description) { Dual = dualBase };
-          } else {
-            outBase = new("", inputArg.Description) { Dual = new(inputArg.Dual.Name, inputArg.Description) { IsTypeParam = inputArg.Dual.IsTypeParam } };
-          }
-        } else if (!arguments.TryGetType(label, inputArg.Name, out outBase, false)) {
+      if (arguments.TryGetArg(label, inputBase.Name, out ObjTypeArgModel? inputArg)) {
+        if (!arguments.TryGetType(label, inputArg.Name, out outBase, false)) {
           outBase = new(inputArg.Name, inputArg.Description) { IsTypeParam = inputArg.IsTypeParam };
         }
 

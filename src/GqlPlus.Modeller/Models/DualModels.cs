@@ -6,17 +6,10 @@ public record class TypeDualModel(
 ) : TypeObjectModel<DualBaseModel, DualFieldModel, DualAlternateModel>(TypeKindModel.Dual, Name, Description)
 { }
 
-public record class DualArgModel(
-  TypeKindModel Kind,
-  string Name,
-  string Description
-) : ObjTypeArgModel(Kind, Name, Description)
-{ }
-
 public record class DualBaseModel(
   string Name,
   string Description
-) : ObjBaseModel<DualArgModel>(Name, Description)
+) : ObjBaseModel(Name, Description)
 { }
 
 public record class DualFieldModel(

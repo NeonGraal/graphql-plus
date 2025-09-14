@@ -6,19 +6,10 @@ public record class TypeInputModel(
 ) : TypeObjectModel<InputBaseModel, InputFieldModel, InputAlternateModel>(TypeKindModel.Input, Name, Description)
 { }
 
-public record class InputArgModel(
-  TypeKindModel Kind,
-  string Name,
-  string Description
-) : ObjTypeArgModel(Kind, Name, Description)
-{
-  public DualArgModel? Dual { get; init; }
-}
-
 public record class InputBaseModel(
   string Name,
   string Description
-) : ObjBaseModel<InputArgModel>(Name, Description)
+) : ObjBaseModel(Name, Description)
 {
   public DualBaseModel? Dual { get; init; }
 }

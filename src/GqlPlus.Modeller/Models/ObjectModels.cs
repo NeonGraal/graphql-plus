@@ -57,15 +57,14 @@ public interface ITypeParamModel
   TypeRefModel<TypeKindModel> Constraint { get; }
 }
 
-public record class ObjBaseModel<TObjArg>(
+public record class ObjBaseModel(
   string Name,
   string Description
 ) : NamedModel(Name, Description)
   , IObjBaseModel
-where TObjArg : IObjTypeArgModel
 {
   public bool IsTypeParam { get; set; }
-  public TObjArg[] Args { get; set; } = [];
+  public ObjTypeArgModel[] Args { get; set; } = [];
   IObjTypeArgModel[] IObjBaseModel.Args => [.. Args.Cast<IObjTypeArgModel>()];
 }
 

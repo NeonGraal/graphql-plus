@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Encoding.Objects;
 
 public class InputBaseEncoderTests
-  : ObjectArgEncoderBase<InputBaseModel, InputArgModel>
+  : ObjectArgEncoderBase<InputBaseModel>
 {
   private readonly IEncoder<DualBaseModel> _dual;
 
@@ -33,7 +33,7 @@ public class InputBaseEncoderTests
   [Theory, RepeatData]
   public void Encode_WithArg_ReturnsStructuredWithInput(string input, string argType)
   {
-    InputArgModel argModel = new(TypeKindModel.Input, argType, "");
+    ObjTypeArgModel argModel = new(TypeKindModel.Input, argType, "");
     InputBaseModel model = new(input, "") { Args = [argModel] };
 
     EncodeReturnsMap(ObjArg, "_InputArg", argType);

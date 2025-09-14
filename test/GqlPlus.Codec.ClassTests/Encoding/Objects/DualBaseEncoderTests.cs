@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Encoding.Objects;
 
 public class DualBaseEncoderTests
-  : ObjectArgEncoderBase<DualBaseModel, DualArgModel>
+  : ObjectArgEncoderBase<DualBaseModel>
 {
   public DualBaseEncoderTests()
     => Encoder = new DualBaseEncoder(ObjArg);

@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Encoding.Objects;
 
 public class OutputBaseEncoderTests
-  : ObjectArgEncoderBase<OutputBaseModel, ObjTypeArgModel>
+  : ObjectArgEncoderBase<OutputBaseModel>
 {
   private readonly IEncoder<DualBaseModel> _dual;
 

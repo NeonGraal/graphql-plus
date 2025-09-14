@@ -7,8 +7,7 @@ public class TypeOutputResolverFieldTests
 
   public TypeOutputResolverFieldTests()
   {
-    IResolver<TypeDualModel> dual = RFor<TypeDualModel>();
-    Resolver = new TypeOutputResolver(dual);
+    Resolver = new TypeOutputResolver();
   }
 
   protected override OutputBaseModel MakeBase(string name, string description = "", params ObjTypeArgModel[] args)

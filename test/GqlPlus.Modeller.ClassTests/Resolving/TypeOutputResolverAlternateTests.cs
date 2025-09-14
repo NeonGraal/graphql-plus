@@ -7,8 +7,7 @@ public class TypeOutputResolverAlternateTests
 
   public TypeOutputResolverAlternateTests()
   {
-    IResolver<TypeDualModel> dual = RFor<TypeDualModel>();
-    Resolver = new TypeOutputResolver(dual);
+    Resolver = new TypeOutputResolver();
   }
 
   protected override OutputAlternateModel MakeAlternate(string alternate)

@@ -17,17 +17,11 @@ internal class OutputModeller(
 }
 
 internal class OutputBaseModeller(
-  IModeller<IGqlpObjArg, ObjTypeArgModel> objArg,
-  IModeller<IGqlpDualBase, DualBaseModel> dual
+  IModeller<IGqlpObjArg, ObjTypeArgModel> objArg
 ) : ModellerObjBase<IGqlpOutputBase, IGqlpObjArg, OutputBaseModel>(objArg)
 {
   protected override OutputBaseModel ToModel(IGqlpOutputBase ast, IMap<TypeKindModel> typeKinds)
-    => typeKinds.TryGetValue(ast.Name, out TypeKindModel typeKind) && typeKind == TypeKindModel.Dual
-    ? new("", ast.Description) {
-      IsTypeParam = ast.IsTypeParam,
-      Dual = dual.ToModel(ast.ToDual, typeKinds)
-    }
-    : new(ast.Name, ast.Description) {
+    => new(ast.Name, ast.Description) {
       IsTypeParam = ast.IsTypeParam,
       Args = ModelArgs(ast, typeKinds),
     };

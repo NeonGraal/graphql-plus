@@ -7,8 +7,7 @@ public class TypeInputResolverParentTests
 
   public TypeInputResolverParentTests()
   {
-    IResolver<TypeDualModel> dual = RFor<TypeDualModel>();
-    Resolver = new TypeInputResolver(dual);
+    Resolver = new TypeInputResolver();
   }
 
   protected override InputBaseModel MakeBase(string name, string description = "", params ObjTypeArgModel[] args)

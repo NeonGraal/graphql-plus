@@ -3,14 +3,8 @@
 public class InputBaseEncoderTests
   : ObjectArgEncoderBase<InputBaseModel>
 {
-  private readonly IEncoder<DualBaseModel> _dual;
-
   public InputBaseEncoderTests()
-  {
-    _dual = RFor<DualBaseModel>();
-
-    Encoder = new InputBaseEncoder(ObjArg, _dual);
-  }
+    => Encoder = new InputBaseEncoder(ObjArg);
 
   protected override IEncoder<InputBaseModel> Encoder { get; }
 
@@ -36,22 +30,14 @@ public class InputBaseEncoderTests
     ObjTypeArgModel argModel = new(TypeKindModel.Input, argType, "");
     InputBaseModel model = new(input, "") { Args = [argModel] };
 
-    EncodeReturnsMap(ObjArg, "_InputArg", argType);
+    EncodeReturnsMap(ObjArg, "_ObjTypeArg", argType);
 
     EncodeAndCheck(model, [
       "!_InputBase",
       "name: " + input,
-      "typeArgs:", "  -", $"    value: !_InputArg '{argType}'"
+      "typeArgs:", "  -", $"    value: !_ObjTypeArg '{argType}'"
       ]);
   }
 
-  [Theory, RepeatData]
-  public void Encode_WithDual_ReturnsStructuredWithInput(string input)
-  {
-    InputBaseModel model = new("", "") { Dual = new DualBaseModel(input, "") };
 
-    EncodeReturnsMap(_dual, "_DualBase", input);
-
-    EncodeAndCheck(model, [$"value: !_DualBase '{input}'"]);
-  }
 }

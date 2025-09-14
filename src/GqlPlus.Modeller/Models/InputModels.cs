@@ -10,9 +10,7 @@ public record class InputBaseModel(
   string Name,
   string Description
 ) : ObjBaseModel(Name, Description)
-{
-  public DualBaseModel? Dual { get; init; }
-}
+{ }
 
 public record class InputFieldModel(
   string Name,
@@ -26,9 +24,7 @@ public record class InputFieldModel(
 public record class InputAlternateModel(
   InputBaseModel Type
 ) : ObjAlternateModel<InputBaseModel>(Type)
-{
-  public DualAlternateModel? Dual { get; init; }
-}
+{ }
 
 public record class InputParamModel(
   string Name,

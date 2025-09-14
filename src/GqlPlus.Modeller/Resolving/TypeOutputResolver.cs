@@ -2,9 +2,8 @@
 
 namespace GqlPlus.Resolving;
 
-internal class TypeOutputResolver(
-  IResolver<TypeDualModel> dual
-) : ResolverTypeObjectType<TypeOutputModel, OutputBaseModel, OutputFieldModel, OutputAlternateModel>
+internal class TypeOutputResolver
+  : ResolverTypeObjectType<TypeOutputModel, OutputBaseModel, OutputFieldModel, OutputAlternateModel>
 {
   protected override TResult Apply<TResult>(TResult result, ArgumentsContext arguments)
   {
@@ -54,21 +53,8 @@ internal class TypeOutputResolver(
 
   protected override void ResolveParent(TypeOutputModel model, IResolveContext context)
   {
-    DualBaseModel? parentDual = model.Parent?.Dual;
-    if (parentDual is not null) {
-      if (context.TryGetType(model.Name, parentDual.Name, out TypeDualModel? parentModel)) {
-        parentModel = dual.Resolve(parentModel, context);
-        ArgumentsContext? argsContext = MakeArgumentsContext(context, parentDual.Args, parentModel);
-        if (argsContext is not null) {
-          parentModel = Apply(parentModel with { }, argsContext);
-          parentModel = dual.Resolve(parentModel, context);
-        }
-
-        model.ParentModel = parentModel;
-      }
-    } else {
-      base.ResolveParent(model, context);
-    }
+    // Dual property has been removed - use base implementation
+    base.ResolveParent(model, context);
   }
 
   private Func<OutputFieldModel, OutputFieldModel> ApplyField(string label, ArgumentsContext arguments)

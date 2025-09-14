@@ -6,9 +6,8 @@ public class InputBaseModellerTests
   public InputBaseModellerTests()
   {
     IModeller<IGqlpObjArg, ObjTypeArgModel> objArg = MFor<IGqlpObjArg, ObjTypeArgModel>();
-    IModeller<IGqlpDualBase, DualBaseModel> dual = MFor<IGqlpDualBase, DualBaseModel>();
 
-    Modeller = new InputBaseModeller(objArg, dual);
+    Modeller = new InputBaseModeller(objArg);
   }
 
   protected override IModeller<IGqlpInputBase, InputBaseModel> Modeller { get; }

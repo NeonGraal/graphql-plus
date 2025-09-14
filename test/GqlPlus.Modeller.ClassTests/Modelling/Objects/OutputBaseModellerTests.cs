@@ -6,9 +6,8 @@ public class OutputBaseModellerTests
   public OutputBaseModellerTests()
   {
     IModeller<IGqlpObjArg, ObjTypeArgModel> objArg = MFor<IGqlpObjArg, ObjTypeArgModel>();
-    IModeller<IGqlpDualBase, DualBaseModel> dual = MFor<IGqlpDualBase, DualBaseModel>();
 
-    Modeller = new OutputBaseModeller(objArg, dual);
+    Modeller = new OutputBaseModeller(objArg);
   }
 
   protected override IModeller<IGqlpOutputBase, OutputBaseModel> Modeller { get; }

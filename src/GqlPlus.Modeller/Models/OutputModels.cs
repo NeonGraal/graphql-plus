@@ -10,9 +10,7 @@ public record class OutputBaseModel(
   string Name,
   string Description
 ) : ObjBaseModel(Name, Description)
-{
-  public DualBaseModel? Dual { get; init; }
-}
+{ }
 
 public record class OutputFieldModel(
   string Name,
@@ -27,9 +25,7 @@ public record class OutputFieldModel(
 public record class OutputAlternateModel(
   OutputBaseModel Type
 ) : ObjAlternateModel<OutputBaseModel>(Type)
-{
-  public DualAlternateModel? Dual { get; init; }
-}
+{ }
 
 public record class OutputEnumModel(
   string Field,

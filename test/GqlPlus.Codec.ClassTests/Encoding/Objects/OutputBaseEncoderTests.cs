@@ -3,14 +3,8 @@
 public class OutputBaseEncoderTests
   : ObjectArgEncoderBase<OutputBaseModel>
 {
-  private readonly IEncoder<DualBaseModel> _dual;
-
   public OutputBaseEncoderTests()
-  {
-    _dual = RFor<DualBaseModel>();
-
-    Encoder = new OutputBaseEncoder(ObjArg, _dual);
-  }
+    => Encoder = new OutputBaseEncoder(ObjArg);
 
   protected override IEncoder<OutputBaseModel> Encoder { get; }
 

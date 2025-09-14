@@ -28,10 +28,10 @@ public class TypeInputEncoderTests
     TypeParamModel typeParam = new(paramName, "", default!);
 
     TypeInputModel model = new(name, "") {
-      Parent = new("", "") { Dual = parent },
-      Alternates = [new(null!) { Dual = alternate }],
+      Parent = new("", ""),
+      Alternates = [new(null!)],
       AllAlternates = [alternateFor],
-      Fields = [new("", new("", "") { Dual = field.Type }, "")],
+      Fields = [new("", new("", ""), "")],
       AllFields = [fieldFor],
       TypeParams = [typeParam],
     };

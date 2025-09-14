@@ -19,15 +19,6 @@ public abstract class TestObjBaseModel<TObjBase, TObjArg, TModel>(
       );
 
   [Theory, RepeatData]
-  public void Model_Dual(string name)
-    => objBaseChecks
-      .AddTypeKinds(TypeKindModel.Dual, name)
-      .ObjBase_Expected(
-      objBaseChecks.ObjBaseAst(name, false, []),
-      objBaseChecks.ExpectedDual(name)
-      );
-
-  [Theory, RepeatData]
   public void Model_TypeParam(string name)
     => objBaseChecks.ObjBase_Expected(
       objBaseChecks.ObjBaseAst(name, true, []),
@@ -71,7 +62,7 @@ internal abstract class CheckObjBaseModel<TObjBase, TObjArg, TObjBaseAst, TObjAr
   string[] ICheckObjBaseModel<TObjBase, TObjArg, TModel>.ExpectedDual(string input)
     => ExpectedDual(input);
   string[] ICheckObjBaseModel<TObjBase, TObjArg, TModel>.ExpectedArgs(string[] args)
-    => [.. ItemsExpected("typeArgs:", args, a => [$"  - !_{TypeKind}Arg", $"    name: {a}"])];
+    => [.. ItemsExpected("typeArgs:", args, a => [$"  - !_ObjTypeArg", $"    name: {a}"])];
   TObjArg ICheckObjBaseModel<TObjBase, TObjArg, TModel>.ObjArgAst(string input, bool isTypeParam) => NewObjArgAst(input, isTypeParam);
 }
 

@@ -139,22 +139,9 @@ internal class TypeDualEncoder(
 ) : TypeObjectEncoder<TypeDualModel, DualBaseModel, DualFieldModel, DualAlternateModel>(encoders)
 { }
 
-internal class InputDualEncoder<TObj>(
-  IEncoder<ObjTypeArgModel> objArg,
-  IEncoder<DualBaseModel> dual
-) : ObjectBaseEncoder<TObj>(objArg)
-  where TObj : InputBaseModel
-{
-  internal override Structured Encode(TObj model)
-    => model.Dual is null
-      ? base.Encode(model)
-      : dual.Encode(model.Dual);
-}
-
 internal class InputBaseEncoder(
-  IEncoder<ObjTypeArgModel> objArg,
-  IEncoder<DualBaseModel> dual
-) : InputDualEncoder<InputBaseModel>(objArg, dual)
+  IEncoder<ObjTypeArgModel> objArg
+) : ObjectBaseEncoder<InputBaseModel>(objArg)
 { }
 
 internal class InputFieldEncoder(
@@ -169,10 +156,9 @@ internal class InputFieldEncoder(
 
 internal class InputParamEncoder(
   IEncoder<ObjTypeArgModel> objArg,
-  IEncoder<DualBaseModel> dual,
   IEncoder<ModifierModel> modifier,
   IEncoder<ConstantModel> constant
-) : InputDualEncoder<InputParamModel>(objArg, dual)
+) : ObjectBaseEncoder<InputParamModel>(objArg)
 {
   internal override Structured Encode(InputParamModel model)
     => base.Encode(model)
@@ -186,15 +172,9 @@ internal class TypeInputEncoder(
 { }
 
 internal class OutputBaseEncoder(
-  IEncoder<ObjTypeArgModel> objArg,
-  IEncoder<DualBaseModel> dual
+  IEncoder<ObjTypeArgModel> objArg
 ) : ObjectBaseEncoder<OutputBaseModel>(objArg)
-{
-  internal override Structured Encode(OutputBaseModel model)
-    => model.Dual is null
-      ? base.Encode(model)
-      : dual.Encode(model.Dual);
-}
+{ }
 
 internal class OutputEnumEncoder
   : TypeRefEncoder<OutputEnumModel, SimpleKindModel>

@@ -2,9 +2,8 @@
 
 namespace GqlPlus.Resolving;
 
-internal class TypeInputResolver(
-  IResolver<TypeDualModel> dual
-) : ResolverTypeObjectType<TypeInputModel, InputBaseModel, InputFieldModel, InputAlternateModel>
+internal class TypeInputResolver
+  : ResolverTypeObjectType<TypeInputModel, InputBaseModel, InputFieldModel, InputAlternateModel>
 {
   protected override TResult Apply<TResult>(TResult result, ArgumentsContext arguments)
   {
@@ -54,21 +53,8 @@ internal class TypeInputResolver(
 
   protected override void ResolveParent(TypeInputModel model, IResolveContext context)
   {
-    DualBaseModel? parentDual = model.Parent?.Dual;
-    if (parentDual is not null) {
-      if (context.TryGetType(model.Name, parentDual.Name, out TypeDualModel? parentModel)) {
-        parentModel = dual.Resolve(parentModel, context);
-        ArgumentsContext? argsContext = MakeArgumentsContext(context, parentDual.Args, parentModel);
-        if (argsContext is not null) {
-          parentModel = Apply(parentModel with { }, argsContext);
-          parentModel = dual.Resolve(parentModel, context);
-        }
-
-        model.ParentModel = parentModel;
-      }
-    } else {
-      base.ResolveParent(model, context);
-    }
+    // Dual property has been removed - use base implementation
+    base.ResolveParent(model, context);
   }
 
   private Func<InputFieldModel, InputFieldModel> ApplyField(string label, ArgumentsContext arguments)

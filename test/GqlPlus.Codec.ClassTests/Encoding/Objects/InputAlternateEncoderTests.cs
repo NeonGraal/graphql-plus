@@ -4,12 +4,13 @@ public class InputAlternateEncoderTests
   : ObjectBaseEncoderBase<InputAlternateModel, InputBaseModel>
 {
   private readonly IEncoder<CollectionModel> _collection;
+  private readonly IEncoder<ObjBaseModel> _objBaseEncoder;
 
   public InputAlternateEncoderTests()
   {
     _collection = RFor<CollectionModel>();
-
-    Encoder = new ObjectAlternateEncoder<InputAlternateModel, InputBaseModel>(new(_collection, ObjBase));
+    _objBaseEncoder = A.Of<IEncoder<ObjBaseModel>>();
+    Encoder = new ObjectAlternateEncoder<InputAlternateModel>(new(_collection, _objBaseEncoder));
   }
 
   protected override IEncoder<InputAlternateModel> Encoder { get; }
@@ -18,7 +19,7 @@ public class InputAlternateEncoderTests
   public void Encode_ReturnsStructuredWithOutput(string input)
   {
     InputBaseModel objBase = new(input, "");
-    ObjBase.Encode(objBase).Returns(new Structured(input));
+    _objBaseEncoder.Encode(objBase).Returns(new Structured(input));
     EncodeAndCheck(new(objBase), [
         "!_InputAlternate",
         "type: " + input

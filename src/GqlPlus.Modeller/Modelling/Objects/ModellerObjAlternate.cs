@@ -7,14 +7,15 @@ internal abstract class ModellerObjAlternate<TObjBaseAst, TObjAltAst, TObjBase, 
   where TObjBaseAst : IGqlpObjBase
   where TObjAltAst : IGqlpObjAlternate, TObjBaseAst
   where TObjBase : IObjBaseModel
-  where TObjAlt : ObjAlternateModel<TObjBase>
+  where TObjAlt : IObjAlternateModel
 {
   protected override TObjAlt ToModel(TObjAltAst ast, IMap<TypeKindModel> typeKinds)
   {
     CollectionModel[] collections = collection.ToModels(ast.Modifiers, typeKinds);
-    return AlternateModel(objBase.ToModel(ast, typeKinds)) with {
-      Collections = collections,
-    };
+    TObjBase baseModel = objBase.ToModel(ast, typeKinds);
+    TObjAlt result = AlternateModel(baseModel);
+    result.Collections = collections;
+    return result;
   }
 
   protected abstract TObjAlt AlternateModel(TObjBase type);

@@ -74,11 +74,11 @@ internal class TypeInputResolver
   private Func<InputAlternateModel, InputAlternateModel> ApplyAlternate(string label, ArgumentsContext arguments)
     => alternate => {
       if (GetInputArgument(label, alternate.Type, arguments, out InputBaseModel? argModel)) {
-        alternate = alternate with { Type = argModel };
+        alternate = new InputAlternateModel(argModel) { Collections = alternate.Collections };
       }
 
       ApplyArray(alternate.Collections, ApplyCollection(label, arguments),
-        collections => alternate = alternate with { Collections = collections });
+        collections => alternate = new InputAlternateModel(alternate.Type) { Collections = collections });
 
       return alternate;
     };

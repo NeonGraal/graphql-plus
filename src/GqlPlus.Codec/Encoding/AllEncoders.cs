@@ -100,11 +100,11 @@ public static class AllEncoders
   private static IServiceCollection AddObjectEncoders<TBase, TField, TAlt>(this IServiceCollection services)
     where TBase : IObjBaseModel
     where TField : IObjFieldModel
-    where TAlt : ObjAlternateModel<TBase>
+    where TAlt : IObjAlternateModel
     => services
       .AddEncoder<ObjectForModel<TAlt>, ObjectForEncoder<TAlt>>()
       .AddEncoder<ObjectForModel<TField>, ObjectForEncoder<TField>>()
-      .AddEncoder<TAlt, ObjectAlternateEncoder<TAlt, TBase>>()
+      .AddEncoder<TAlt, ObjectAlternateEncoder<TAlt>>()
       .AddSingleton<TypeObjectEncoders<TBase, TField, TAlt>>();
 
   private static IServiceCollection AddBaseEncoder<TBase>(this IServiceCollection services)

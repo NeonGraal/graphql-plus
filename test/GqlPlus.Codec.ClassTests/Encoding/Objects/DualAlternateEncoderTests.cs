@@ -4,12 +4,13 @@ public class DualAlternateEncoderTests
   : ObjectBaseEncoderBase<DualAlternateModel, DualBaseModel>
 {
   private readonly IEncoder<CollectionModel> _collection;
+  private readonly IEncoder<ObjBaseModel> _objBaseEncoder;
 
   public DualAlternateEncoderTests()
   {
     _collection = RFor<CollectionModel>();
-
-    Encoder = new ObjectAlternateEncoder<DualAlternateModel, DualBaseModel>(new(_collection, ObjBase));
+    _objBaseEncoder = A.Of<IEncoder<ObjBaseModel>>();
+    Encoder = new ObjectAlternateEncoder<DualAlternateModel>(new(_collection, _objBaseEncoder));
   }
 
   protected override IEncoder<DualAlternateModel> Encoder { get; }
@@ -18,7 +19,7 @@ public class DualAlternateEncoderTests
   public void Encode_WithoutTypeParam_ReturnsStructuredWithDual(string dual)
   {
     DualBaseModel objBase = new(dual, "");
-    ObjBase.Encode(objBase).Returns(new Structured(dual));
+    _objBaseEncoder.Encode(objBase).Returns(new Structured(dual));
     EncodeAndCheck(new(objBase), [
         "!_DualAlternate",
         "type: " + dual

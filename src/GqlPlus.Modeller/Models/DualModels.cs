@@ -21,5 +21,7 @@ public record class DualFieldModel(
 
 public record class DualAlternateModel(
   DualBaseModel Type
-) : ObjAlternateModel<DualBaseModel>(Type)
-{ }
+) : ObjAlternateModel(Type)
+{
+  public new DualBaseModel Type { get; set; } = Type;
+}

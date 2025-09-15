@@ -107,11 +107,10 @@ public interface IObjFieldModel
   ModifierModel[] Modifiers { get; }
 }
 
-public record class ObjAlternateModel<TObjBase>(
-  TObjBase Type
+public record class ObjAlternateModel(
+  ObjBaseModel Type
   ) : ModelBase
   , IObjAlternateModel
-  where TObjBase : IObjBaseModel
 {
   public CollectionModel[] Collections { get; set; } = [];
   public IObjBaseModel BaseType => Type;
@@ -121,5 +120,5 @@ public interface IObjAlternateModel
   : IModelBase
 {
   IObjBaseModel BaseType { get; }
-  CollectionModel[] Collections { get; }
+  CollectionModel[] Collections { get; set; }
 }

@@ -74,11 +74,11 @@ internal class TypeOutputResolver
   private Func<OutputAlternateModel, OutputAlternateModel> ApplyAlternate(string label, ArgumentsContext arguments)
     => alternate => {
       if (GetOutputArgument(label, alternate.Type, arguments, out OutputBaseModel? argModel)) {
-        alternate = alternate with { Type = argModel };
+        alternate = new OutputAlternateModel(argModel) { Collections = alternate.Collections };
       }
 
       ApplyArray(alternate.Collections, ApplyCollection(label, arguments),
-        collections => alternate = alternate with { Collections = collections });
+        collections => alternate = new OutputAlternateModel(alternate.Type) { Collections = collections });
 
       return alternate;
     };

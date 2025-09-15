@@ -58,15 +58,14 @@ internal record class AlternateEncoders<TObjBase>(
   IEncoder<TObjBase> ObjBase
 ) where TObjBase : IObjBaseModel;
 
-internal class ObjectAlternateEncoder<TAlt, TObjBase>(
-  AlternateEncoders<TObjBase> encoders
+internal class ObjectAlternateEncoder<TAlt>(
+  AlternateEncoders<ObjBaseModel> encoders
 ) : BaseEncoder<TAlt>()
-  where TAlt : ObjAlternateModel<TObjBase>
-  where TObjBase : IObjBaseModel
+  where TAlt : IObjAlternateModel
 {
   internal override Structured Encode(TAlt model)
     => base.Encode(model)
-      .AddEncoded("type", model.Type, encoders.ObjBase)
+      .AddEncoded("type", (ObjBaseModel)model.BaseType, encoders.ObjBase)
       .AddList("collections", model.Collections, encoders.Collection);
 }
 

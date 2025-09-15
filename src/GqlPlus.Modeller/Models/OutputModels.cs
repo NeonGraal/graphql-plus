@@ -24,8 +24,10 @@ public record class OutputFieldModel(
 
 public record class OutputAlternateModel(
   OutputBaseModel Type
-) : ObjAlternateModel<OutputBaseModel>(Type)
-{ }
+) : ObjAlternateModel(Type)
+{
+  public new OutputBaseModel Type { get; set; } = Type;
+}
 
 public record class OutputEnumModel(
   string Field,

@@ -23,8 +23,10 @@ public record class InputFieldModel(
 
 public record class InputAlternateModel(
   InputBaseModel Type
-) : ObjAlternateModel<InputBaseModel>(Type)
-{ }
+) : ObjAlternateModel(Type)
+{
+  public new InputBaseModel Type { get; set; } = Type;
+}
 
 public record class InputParamModel(
   string Name,

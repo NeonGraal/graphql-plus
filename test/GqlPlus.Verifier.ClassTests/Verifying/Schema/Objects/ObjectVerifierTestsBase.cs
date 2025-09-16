@@ -1,8 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using System.Reflection.Metadata;
 using GqlPlus.Matching;
-using GqlPlus.Verifying.Schema.Simple;
-using Microsoft.VisualStudio.TestPlatform.Utilities;
 using NSubstitute.Core;
 
 namespace GqlPlus.Verifying.Schema.Objects;

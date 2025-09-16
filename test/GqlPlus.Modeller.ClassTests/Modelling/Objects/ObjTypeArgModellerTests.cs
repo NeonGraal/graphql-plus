@@ -3,10 +3,7 @@
 public class ObjTypeArgModellerTests
   : ModellerClassTestBase<IGqlpObjArg, ObjTypeArgModel>
 {
-  public ObjTypeArgModellerTests()
-  {
-    Modeller = new ObjTypeArgModeller();
-  }
+  public ObjTypeArgModellerTests() => Modeller = new ObjTypeArgModeller();
 
   protected override IModeller<IGqlpObjArg, ObjTypeArgModel> Modeller { get; }
 

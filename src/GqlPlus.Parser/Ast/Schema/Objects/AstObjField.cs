@@ -22,7 +22,7 @@ internal abstract record class AstObjField<TObjBase>(
     BaseType.SetName(enumType);
   }
 
-  internal protected IEnumerable<string?> TypeFields(string suffix = "")
+  protected internal IEnumerable<string?> TypeFields(string suffix = "")
     => string.IsNullOrWhiteSpace(EnumLabel)
         ? [":", .. BaseType.GetFields(), .. Modifiers.AsString(), suffix]
         : ["=", .. BaseType.GetFields(), "." + EnumLabel];

@@ -5,10 +5,7 @@ public class TypeInputResolverParentTests
 {
   protected override IResolver<TypeInputModel> Resolver { get; }
 
-  public TypeInputResolverParentTests()
-  {
-    Resolver = new TypeInputResolver();
-  }
+  public TypeInputResolverParentTests() => Resolver = new TypeInputResolver();
 
   protected override ObjBaseModel MakeBase(string name, string description = "", params ObjTypeArgModel[] args)
     => new(name, description) { Args = args };

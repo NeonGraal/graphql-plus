@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast.Schema.Objects;
-
-namespace GqlPlus.Modelling.Objects;
+﻿namespace GqlPlus.Modelling.Objects;
 
 internal class OutputModeller(
   ObjectModellers<IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate, OutputFieldModel> modellers

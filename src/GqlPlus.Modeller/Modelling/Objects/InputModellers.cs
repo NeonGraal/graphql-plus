@@ -1,6 +1,4 @@
-﻿using GqlPlus.Ast.Schema.Objects;
-
-namespace GqlPlus.Modelling.Objects;
+﻿namespace GqlPlus.Modelling.Objects;
 
 internal class InputModeller(
   ObjectModellers<IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate, InputFieldModel> modellers

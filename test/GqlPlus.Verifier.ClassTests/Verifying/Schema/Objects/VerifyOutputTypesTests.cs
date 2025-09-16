@@ -1,6 +1,4 @@
-﻿using NSubstitute.Core;
-
-namespace GqlPlus.Verifying.Schema.Objects;
+﻿namespace GqlPlus.Verifying.Schema.Objects;
 
 [TracePerTest]
 public class VerifyOutputTypesTests

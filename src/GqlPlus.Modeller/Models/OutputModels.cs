@@ -6,8 +6,6 @@ public record class TypeOutputModel(
 ) : TypeObjectModel<OutputFieldModel>(TypeKindModel.Output, Name, Description)
 { }
 
-
-
 public record class OutputFieldModel(
   string Name,
   ObjBaseModel? Type,

@@ -5,10 +5,7 @@ public class TypeOutputResolverAlternateTests
 {
   protected override IResolver<TypeOutputModel> Resolver { get; }
 
-  public TypeOutputResolverAlternateTests()
-  {
-    Resolver = new TypeOutputResolver();
-  }
+  public TypeOutputResolverAlternateTests() => Resolver = new TypeOutputResolver();
 
   protected override ObjAlternateModel MakeAlternate(string alternate)
     => new(new ObjBaseModel(alternate, ""));

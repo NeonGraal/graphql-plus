@@ -38,6 +38,4 @@ public class InputBaseEncoderTests
       "typeArgs:", "  -", $"    value: !_ObjTypeArg '{argType}'"
       ]);
   }
-
-
 }

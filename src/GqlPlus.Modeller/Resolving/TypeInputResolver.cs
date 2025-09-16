@@ -49,11 +49,9 @@ internal class TypeInputResolver
   protected override string? ParentName(TypeInputModel model)
     => model.Parent?.Name;
 
-  protected override void ResolveParent(TypeInputModel model, IResolveContext context)
-  {
+  protected override void ResolveParent(TypeInputModel model, IResolveContext context) =>
     // Dual property has been removed - use base implementation
     base.ResolveParent(model, context);
-  }
 
   private Func<InputFieldModel, InputFieldModel> ApplyField(string label, ArgumentsContext arguments)
     => field => {

@@ -49,11 +49,9 @@ internal class TypeOutputResolver
   protected override string? ParentName(TypeOutputModel model)
     => model.Parent?.Name;
 
-  protected override void ResolveParent(TypeOutputModel model, IResolveContext context)
-  {
+  protected override void ResolveParent(TypeOutputModel model, IResolveContext context) =>
     // Dual property has been removed - use base implementation
     base.ResolveParent(model, context);
-  }
 
   private Func<OutputFieldModel, OutputFieldModel> ApplyField(string label, ArgumentsContext arguments)
     => field => {

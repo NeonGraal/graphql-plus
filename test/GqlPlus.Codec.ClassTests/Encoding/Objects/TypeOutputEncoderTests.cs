@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Encoding.Objects;
 
 public class TypeOutputEncoderTests
-  : TypeObjectEncoderBase<TypeOutputModel, OutputBaseModel, OutputFieldModel, ObjAlternateModel>
+  : TypeObjectEncoderBase<TypeOutputModel, ObjBaseModel, OutputFieldModel, ObjAlternateModel>
 {
   public TypeOutputEncoderTests()
     => Encoder = new TypeOutputEncoder(new(ObjBase, Field, ObjField, DualField, Alternate, ObjAlternate, DualAlternate, TypeParam));

@@ -1,24 +1,24 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
-public class DualAlternateModellerTests
-  : ModellerObjectBaseTestBase<IGqlpDualAlternate, ObjAlternateModel, IGqlpDualBase, DualBaseModel>
+public class ObjAlternateModellerTests
+  : ModellerObjectBaseTestBase<IGqlpObjAlternate, ObjAlternateModel, IGqlpObjBase, ObjBaseModel>
 {
   private readonly IModeller<IGqlpModifier, CollectionModel> _collection = MFor<IGqlpModifier, CollectionModel>();
 
-  public DualAlternateModellerTests()
-    => Modeller = new DualAlternateModeller(_collection, ObjBase);
+  public ObjAlternateModellerTests()
+    => Modeller = new ObjAlternateModeller<IGqlpObjBase, IGqlpObjAlternate>(_collection, ObjBase);
 
-  protected override IModeller<IGqlpDualAlternate, ObjAlternateModel> Modeller { get; }
+  protected override IModeller<IGqlpObjAlternate, ObjAlternateModel> Modeller { get; }
 
   [Theory, RepeatData]
-  public void AlternateModel_WithValidAlternate_ReturnsExpectedDualAlternateModel(string name, string contents)
+  public void AlternateModel_WithValidAlternate_ReturnsExpectedObjAlternateModel(string name, string contents)
   {
     // Arrange
-    IGqlpDualAlternate ast = A.Named<IGqlpDualAlternate>(name, contents);
+    IGqlpObjAlternate ast = A.Named<IGqlpObjAlternate>(name, contents);
     IGqlpModifier modifier = A.Modifier(ModifierKind.List);
     ast.Modifiers.Returns([modifier]);
 
-    DualBaseModel dualType = new(name, contents);
+    ObjBaseModel dualType = new(name, contents);
     ToModelReturns(ObjBase, dualType);
     CollectionModel[] collections = [new(ModifierKind.List)];
     ToModelsReturns(_collection, collections);

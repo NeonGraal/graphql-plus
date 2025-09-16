@@ -2,12 +2,10 @@
 
 namespace GqlPlus.Resolving;
 
-internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObjAlt>
-  : ResolverChildType<TModel, TObjBase>
-  where TModel : TypeObjectModel<TObjBase, TObjField, TObjAlt>
-  where TObjBase : IObjBaseModel
+internal abstract class ResolverTypeObjectType<TModel, TObjField>
+  : ResolverChildType<TModel, ObjBaseModel>
+  where TModel : TypeObjectModel<TObjField>
   where TObjField : IObjFieldModel
-  where TObjAlt : IObjAlternateModel
 {
   public override TModel Resolve(TModel model, IResolveContext context)
   {
@@ -28,7 +26,7 @@ internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObj
       return;
     }
 
-    TObjBase parentBase = model.Parent;
+    ObjBaseModel parentBase = model.Parent;
 
     if (parentBase.IsTypeParam) {
       string paramName = '$' + parentBase.Name;
@@ -73,7 +71,8 @@ internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObj
     => list.Select(f => convert(f));
 
   protected abstract TModel CloneModel(TModel model);
-  protected abstract MakeFor<TObjAlt> ObjectAlt(string obj);
+  protected MakeFor<ObjAlternateModel> ObjectAlt(string obj)
+    => alt => new(alt, obj);
   protected abstract MakeFor<TObjField> ObjectField(string obj);
   protected abstract IEnumerable<ObjectForModel> ParentAlternatives(IModelBase? parent);
   protected abstract IEnumerable<ObjectForModel> ParentFields(IModelBase? parent);
@@ -107,7 +106,7 @@ internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObj
       return modifier;
     };
 
-  protected bool GetDualArgument(string label, IObjBaseModel dualBase, ArgumentsContext arguments, [NotNullWhen(true)] out DualBaseModel? outBase)
+  protected bool GetDualArgument(string label, IObjBaseModel dualBase, ArgumentsContext arguments, [NotNullWhen(true)] out ObjBaseModel? outBase)
   {
     outBase = null;
     if (dualBase?.IsTypeParam == true) {
@@ -125,7 +124,7 @@ internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObj
 
   protected Func<ObjAlternateModel, ObjAlternateModel> ApplyDualAlternate(string label, ArgumentsContext arguments)
     => alternate => {
-      if (alternate.Type is DualBaseModel dualType && GetDualArgument(label, dualType, arguments, out DualBaseModel? argModel)) {
+      if (alternate.Type is ObjBaseModel dualType && GetDualArgument(label, dualType, arguments, out ObjBaseModel? argModel)) {
         alternate = new ObjAlternateModel(argModel) { Collections = alternate.Collections };
       }
 
@@ -137,9 +136,9 @@ internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObj
 
   protected Func<DualFieldModel, DualFieldModel> ApplyDualField(string label, ArgumentsContext arguments)
     => field => {
-      DualBaseModel? fieldType = field.Type;
+      ObjBaseModel? fieldType = field.Type;
       if (fieldType is not null
-        && GetDualArgument(label + " - " + field.Name, fieldType, arguments, out DualBaseModel? argModel)) {
+        && GetDualArgument(label + " - " + field.Name, fieldType, arguments, out ObjBaseModel? argModel)) {
         field = field with { Type = new(argModel.Name, fieldType.Description) };
       }
 
@@ -152,7 +151,7 @@ internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObj
   protected void ApplyDualModel(ArgumentsContext arguments, TypeDualModel dual)
   {
     if (dual.Parent is not null
-      && GetDualArgument(dual.Name, dual.Parent, arguments, out DualBaseModel? parentModel)) {
+      && GetDualArgument(dual.Name, dual.Parent, arguments, out ObjBaseModel? parentModel)) {
       dual.Parent = new(parentModel.Name, dual.Parent.Description);
       dual.ParentModel = null;
     }

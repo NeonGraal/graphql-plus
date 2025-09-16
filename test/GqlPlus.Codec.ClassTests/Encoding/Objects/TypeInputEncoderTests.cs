@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Encoding.Objects;
 
 public class TypeInputEncoderTests
-  : TypeObjectEncoderBase<TypeInputModel, InputBaseModel, InputFieldModel, ObjAlternateModel>
+  : TypeObjectEncoderBase<TypeInputModel, ObjBaseModel, InputFieldModel, ObjAlternateModel>
 {
   public TypeInputEncoderTests()
     => Encoder = new TypeInputEncoder(new(ObjBase, Field, ObjField, DualField, Alternate, ObjAlternate, DualAlternate, TypeParam));
@@ -20,8 +20,8 @@ public class TypeInputEncoderTests
   [Theory, RepeatData]
   public void Encode_WithDualModel_ReturnsStructured(string name, string parentType, string alternateType, string fieldName, string paramName)
   {
-    DualBaseModel parent = new(parentType, "");
-    ObjAlternateModel alternate = new(new DualBaseModel(alternateType, ""));
+    ObjBaseModel parent = new(parentType, "");
+    ObjAlternateModel alternate = new(new ObjBaseModel(alternateType, ""));
     ObjectForModel<ObjAlternateModel> alternateFor = new(alternate, name);
     DualFieldModel field = new(fieldName, new("", ""), "");
     ObjectForModel<DualFieldModel> fieldFor = new(field, name);
@@ -47,7 +47,7 @@ public class TypeInputEncoderTests
 
     EncodeAndCheck(model, [
       "!_TypeInput",
-      "allAlternates:", "  -", $"    value: !_DualAlternate '{alternateType}'",
+      "allAlternates:", "  -", $"    value: !_AlternateFor '{alternateType}'",
       "allFields:", "  -", $"    value: !_DualField '{fieldName}'",
       "alternates:", "  -", $"    value: !_Alternate '{alternateType}'",
       "fields:", "  -", $"    value: !_Field '{fieldName}'",

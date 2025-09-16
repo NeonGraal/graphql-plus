@@ -58,14 +58,13 @@ internal record class AlternateEncoders<TObjBase>(
   IEncoder<TObjBase> ObjBase
 ) where TObjBase : IObjBaseModel;
 
-internal class ObjectAlternateEncoder<TAlt>(
+internal class ObjectAlternateEncoder(
   AlternateEncoders<ObjBaseModel> encoders
-) : BaseEncoder<TAlt>()
-  where TAlt : IObjAlternateModel
+) : BaseEncoder<ObjAlternateModel>()
 {
-  internal override Structured Encode(TAlt model)
+  internal override Structured Encode(ObjAlternateModel model)
     => base.Encode(model)
-      .AddEncoded("type", (ObjBaseModel)model.BaseType, encoders.ObjBase)
+      .AddEncoded("type", model.Type, encoders.ObjBase)
       .AddList("collections", model.Collections, encoders.Collection);
 }
 
@@ -80,27 +79,23 @@ internal class ObjectForEncoder<TFor>(
       .Add("object", model.Obj);
 }
 
-internal record class TypeObjectEncoders<TBase, TField, TAlt>(
-  IEncoder<TBase> Parent,
+internal record class TypeObjectEncoders<TField>(
+  IEncoder<ObjBaseModel> Parent,
   IEncoder<TField> Field,
   IEncoder<ObjectForModel<TField>> ObjField,
   IEncoder<ObjectForModel<DualFieldModel>> DualField,
-  IEncoder<TAlt> Alternate,
-  IEncoder<ObjectForModel<TAlt>> ObjAlternate,
+  IEncoder<ObjAlternateModel> Alternate,
+  IEncoder<ObjectForModel<ObjAlternateModel>> ObjAlternate,
   IEncoder<ObjectForModel<ObjAlternateModel>> DualAlternate,
   IEncoder<TypeParamModel> TypeParam
 )
-  where TBase : IObjBaseModel
-  where TField : IObjFieldModel
-  where TAlt : IObjAlternateModel;
+  where TField : IObjFieldModel;
 
-internal abstract class TypeObjectEncoder<TObject, TBase, TField, TAlt>(
-  TypeObjectEncoders<TBase, TField, TAlt> encoders
-) : ChildTypeEncoder<TObject, TBase>(encoders.Parent)
-  where TObject : TypeObjectModel<TBase, TField, TAlt>
-  where TBase : IObjBaseModel
+internal abstract class TypeObjectEncoder<TObject, TField>(
+  TypeObjectEncoders<TField> encoders
+) : ChildTypeEncoder<TObject, ObjBaseModel>(encoders.Parent)
+  where TObject : TypeObjectModel<TField>
   where TField : IObjFieldModel
-  where TAlt : IObjAlternateModel
 {
   internal override Structured Encode(TObject model)
   {
@@ -125,28 +120,28 @@ internal abstract class TypeObjectEncoder<TObject, TBase, TField, TAlt>(
 
 internal class DualBaseEncoder(
   IEncoder<ObjTypeArgModel> objArg
-) : ObjectBaseEncoder<DualBaseModel>(objArg)
+) : ObjectBaseEncoder<ObjBaseModel>(objArg)
 { }
 
 internal class DualFieldEncoder(
-  FieldEncoders<DualBaseModel> encoders
-) : ObjectFieldEncoder<DualFieldModel, DualBaseModel>(encoders)
+  FieldEncoders<ObjBaseModel> encoders
+) : ObjectFieldEncoder<DualFieldModel, ObjBaseModel>(encoders)
 { }
 
 internal class TypeDualEncoder(
-  TypeObjectEncoders<DualBaseModel, DualFieldModel, ObjAlternateModel> encoders
-) : TypeObjectEncoder<TypeDualModel, DualBaseModel, DualFieldModel, ObjAlternateModel>(encoders)
+  TypeObjectEncoders<DualFieldModel> encoders
+) : TypeObjectEncoder<TypeDualModel, DualFieldModel>(encoders)
 { }
 
 internal class InputBaseEncoder(
   IEncoder<ObjTypeArgModel> objArg
-) : ObjectBaseEncoder<InputBaseModel>(objArg)
+) : ObjectBaseEncoder<ObjBaseModel>(objArg)
 { }
 
 internal class InputFieldEncoder(
   IEncoder<ConstantModel> constant,
-  FieldEncoders<InputBaseModel> encoders
-) : ObjectFieldEncoder<InputFieldModel, InputBaseModel>(encoders)
+  FieldEncoders<ObjBaseModel> encoders
+) : ObjectFieldEncoder<InputFieldModel, ObjBaseModel>(encoders)
 {
   internal override Structured Encode(InputFieldModel model)
     => base.Encode(model)
@@ -166,13 +161,13 @@ internal class InputParamEncoder(
 }
 
 internal class TypeInputEncoder(
-  TypeObjectEncoders<InputBaseModel, InputFieldModel, ObjAlternateModel> encoders
-) : TypeObjectEncoder<TypeInputModel, InputBaseModel, InputFieldModel, ObjAlternateModel>(encoders)
+  TypeObjectEncoders<InputFieldModel> encoders
+) : TypeObjectEncoder<TypeInputModel, InputFieldModel>(encoders)
 { }
 
 internal class OutputBaseEncoder(
   IEncoder<ObjTypeArgModel> objArg
-) : ObjectBaseEncoder<OutputBaseModel>(objArg)
+) : ObjectBaseEncoder<ObjBaseModel>(objArg)
 { }
 
 internal class OutputEnumEncoder
@@ -186,9 +181,9 @@ internal class OutputEnumEncoder
 
 internal class OutputFieldEncoder(
   IEncoder<OutputEnumModel> outputEnum,
-  FieldEncoders<OutputBaseModel> encoders,
+  FieldEncoders<ObjBaseModel> encoders,
   IEncoder<InputParamModel> parameter
-) : ObjectFieldEncoder<OutputFieldModel, OutputBaseModel>(encoders)
+) : ObjectFieldEncoder<OutputFieldModel, ObjBaseModel>(encoders)
 {
   internal override Structured Encode(OutputFieldModel model)
     => model.Enum is null
@@ -198,6 +193,6 @@ internal class OutputFieldEncoder(
 }
 
 internal class TypeOutputEncoder(
-  TypeObjectEncoders<OutputBaseModel, OutputFieldModel, ObjAlternateModel> encoders
-) : TypeObjectEncoder<TypeOutputModel, OutputBaseModel, OutputFieldModel, ObjAlternateModel>(encoders)
+  TypeObjectEncoders<OutputFieldModel> encoders
+) : TypeObjectEncoder<TypeOutputModel, OutputFieldModel>(encoders)
 { }

@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
 public class DualFieldModellerTests
-  : ModellerObjectBaseTestBase<IGqlpDualField, DualFieldModel, IGqlpDualBase, DualBaseModel>
+  : ModellerObjectBaseTestBase<IGqlpDualField, DualFieldModel, IGqlpDualBase, ObjBaseModel>
 {
   public DualFieldModellerTests()
   {
@@ -17,7 +17,7 @@ public class DualFieldModellerTests
   {
     // Arrange
     IGqlpDualField ast = A.DualField(name, typeName).SetDescr(contents);
-    DualBaseModel dualType = new(typeName, "");
+    ObjBaseModel dualType = new(typeName, "");
     ToModelReturns(ObjBase, dualType);
 
     // Act

@@ -1,24 +1,24 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
-public class DualBaseModellerTests
-  : ModellerClassTestBase<IGqlpDualBase, DualBaseModel>
+public class ObjBaseModellerTests
+  : ModellerClassTestBase<IGqlpObjBase, ObjBaseModel>
 {
   private readonly IModeller<IGqlpObjArg, ObjTypeArgModel> _objArg = MFor<IGqlpObjArg, ObjTypeArgModel>();
 
-  public DualBaseModellerTests()
-    => Modeller = new DualBaseModeller(_objArg);
+  public ObjBaseModellerTests()
+    => Modeller = new ObjBaseModeller<IGqlpObjBase>(_objArg);
 
-  protected override IModeller<IGqlpDualBase, DualBaseModel> Modeller { get; }
+  protected override IModeller<IGqlpObjBase, ObjBaseModel> Modeller { get; }
 
   [Theory, RepeatData]
-  public void ToModel_WithValidBase_ReturnsExpectedDualBaseModel(string name, string contents)
+  public void ToModel_WithValidBase_ReturnsExpectedObjBaseModel(string name, string contents)
   {
     // Arrange
-    IGqlpDualBase ast = A.Named<IGqlpDualBase>(name, contents);
+    IGqlpObjBase ast = A.Named<IGqlpObjBase>(name, contents);
     ast.IsTypeParam.Returns(true);
 
     // Act
-    DualBaseModel result = Modeller.ToModel(ast, TypeKinds);
+    ObjBaseModel result = Modeller.ToModel(ast, TypeKinds);
 
     // Assert
     result.ShouldNotBeNull()
@@ -30,19 +30,18 @@ public class DualBaseModellerTests
   }
 
   [Theory, RepeatData]
-  public void ToModel_WithArgs_ReturnsExpectedDualBaseModel(string name, string argName)
+  public void ToModel_WithArgs_ReturnsExpectedObjBaseModel(string name, string argName)
   {
     // Arrange
-    IGqlpDualBase ast = A.Named<IGqlpDualBase>(name);
+    IGqlpObjBase ast = A.Named<IGqlpObjBase>(name);
     IGqlpObjArg arg = A.Named<IGqlpObjArg>(argName);
     ast.Args.Returns([arg]);
-    ast.BaseArgs.Returns([arg]);
 
     ObjTypeArgModel argModel = new(TypeKindModel.Dual, argName, "");
     ToModelReturns(_objArg, argModel);
 
     // Act
-    DualBaseModel result = Modeller.ToModel(ast, TypeKinds);
+    ObjBaseModel result = Modeller.ToModel(ast, TypeKinds);
 
     // Assert
     result.ShouldNotBeNull()

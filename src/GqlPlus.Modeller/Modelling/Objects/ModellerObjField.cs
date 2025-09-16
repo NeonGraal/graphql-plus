@@ -1,13 +1,12 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
-internal abstract class ModellerObjField<TObjBaseAst, TObjFieldAst, TObjBase, TObjField>(
+internal abstract class ModellerObjField<TObjBaseAst, TObjFieldAst, TObjField>(
   IModifierModeller modifier,
-  IModeller<TObjBaseAst, TObjBase> objBase
+  IModeller<TObjBaseAst, ObjBaseModel> objBase
 ) : ModellerBase<TObjFieldAst, TObjField>
   where TObjBaseAst : IGqlpObjBase
   where TObjFieldAst : IGqlpObjField<TObjBaseAst>
-  where TObjBase : IObjBaseModel
-  where TObjField : ObjFieldModel<TObjBase>
+  where TObjField : ObjFieldModel
 {
   protected override TObjField ToModel(TObjFieldAst field, IMap<TypeKindModel> typeKinds)
     => FieldModel(field, objBase.ToModel(field.BaseType, typeKinds), typeKinds) with {
@@ -15,5 +14,5 @@ internal abstract class ModellerObjField<TObjBaseAst, TObjFieldAst, TObjBase, TO
       Modifiers = modifier.ToModels<ModifierModel>(field.Modifiers, typeKinds),
     };
 
-  protected abstract TObjField FieldModel(TObjFieldAst ast, TObjBase type, IMap<TypeKindModel> typeKinds);
+  protected abstract TObjField FieldModel(TObjFieldAst ast, ObjBaseModel type, IMap<TypeKindModel> typeKinds);
 }

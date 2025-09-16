@@ -1,17 +1,17 @@
 ﻿namespace GqlPlus.Encoding.Objects;
 
 public class OutputBaseEncoderTests
-  : ObjectArgEncoderBase<OutputBaseModel>
+  : ObjectArgEncoderBase<ObjBaseModel>
 {
   public OutputBaseEncoderTests()
     => Encoder = new OutputBaseEncoder(ObjArg);
 
-  protected override IEncoder<OutputBaseModel> Encoder { get; }
+  protected override IEncoder<ObjBaseModel> Encoder { get; }
 
   [Theory, RepeatData]
   public void Encode_WithTypeParam_ReturnsStructuredWithTypeParam(string output, string contents)
     => EncodeAndCheck(new(output, contents) { IsTypeParam = true }, [
-      "!_OutputBase",
+      "!_ObjBase",
       "description: " + contents.Quoted("'"),
       "typeParam: " + output
       ]);
@@ -19,7 +19,7 @@ public class OutputBaseEncoderTests
   [Theory, RepeatData]
   public void Encode_WithoutTypeParam_ReturnsStructuredWithOutput(string output, string contents)
     => EncodeAndCheck(new(output, contents), [
-      "!_OutputBase",
+      "!_ObjBase",
       "description: " + contents.Quoted("'"),
       "name: " + output
       ]);

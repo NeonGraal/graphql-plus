@@ -6,7 +6,7 @@ namespace GqlPlus.Schema.Objects;
 
 public class OutputBaseModelTests(
   IOutputBaseModelChecks checks
-) : TestObjBaseModel<IGqlpOutputBase, IGqlpObjArg, OutputBaseModel>(checks)
+) : TestObjBaseModel<IGqlpOutputBase, IGqlpObjArg, ObjBaseModel>(checks)
 {
   [Theory, RepeatData]
   public void Model_EnumArgs(string name, string[] arguments, string enumLabel)
@@ -17,9 +17,9 @@ public class OutputBaseModelTests(
 }
 
 internal sealed class OutputBaseModelChecks(
-  IModeller<IGqlpOutputBase, OutputBaseModel> modeller,
-  IEncoder<OutputBaseModel> encoding
-) : CheckObjBaseModel<IGqlpOutputBase, IGqlpObjArg, OutputBaseAst, OutputArgAst, OutputBaseModel>(modeller, encoding, TypeKindModel.Output)
+  IModeller<IGqlpOutputBase, ObjBaseModel> modeller,
+  IEncoder<ObjBaseModel> encoding
+) : CheckObjBaseModel<IGqlpOutputBase, IGqlpObjArg, OutputBaseAst, OutputArgAst, ObjBaseModel>(modeller, encoding, TypeKindModel.Output)
   , IOutputBaseModelChecks
 {
   public string[] ExpectedEnumArgs(string[] arguments, string enumLabel)
@@ -42,7 +42,7 @@ internal sealed class OutputBaseModelChecks(
 }
 
 public interface IOutputBaseModelChecks
-  : ICheckObjBaseModel<IGqlpOutputBase, IGqlpObjArg, OutputBaseModel>
+  : ICheckObjBaseModel<IGqlpOutputBase, IGqlpObjArg, ObjBaseModel>
 {
   string[] ExpectedEnumArgs(string[] arguments, string enumLabel);
   IGqlpObjArg EnumObjArg(string input, string enumLabel);

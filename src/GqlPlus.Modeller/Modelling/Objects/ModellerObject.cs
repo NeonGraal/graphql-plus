@@ -1,22 +1,20 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
-internal abstract class ModellerObject<TAst, TObjBaseAst, TObjFieldAst, TObjAltAst, TModel, TObjBase, TObjField, TObjAlt>(
+internal abstract class ModellerObject<TAst, TObjBaseAst, TObjFieldAst, TObjAltAst, TModel, TObjField>(
   TypeKindModel kind,
-  ObjectModellers<TObjBaseAst, TObjFieldAst, TObjAltAst, TObjBase, TObjField, TObjAlt> modellers
+  ObjectModellers<TObjBaseAst, TObjFieldAst, TObjAltAst, TObjField> modellers
 ) : ModellerType<TAst, IGqlpObjBase, TModel>(kind)
   where TAst : IGqlpType<IGqlpObjBase>
   where TObjBaseAst : IGqlpObjBase
   where TObjFieldAst : IGqlpObjField
   where TObjAltAst : IGqlpObjAlternate
   where TModel : BaseTypeModel
-  where TObjBase : IObjBaseModel
   where TObjField : IObjFieldModel
-  where TObjAlt : IObjAlternateModel
 {
-  internal TObjBase? ParentModel(TObjBaseAst? parent, IMap<TypeKindModel> typeKinds)
+  internal ObjBaseModel? ParentModel(TObjBaseAst? parent, IMap<TypeKindModel> typeKinds)
     => parent is null ? default : BaseModel(parent, typeKinds);
 
-  internal TObjAlt[] AlternatesModels(IEnumerable<TObjAltAst> alternates, IMap<TypeKindModel> typeKinds)
+  internal ObjAlternateModel[] AlternatesModels(IEnumerable<TObjAltAst> alternates, IMap<TypeKindModel> typeKinds)
     => modellers.Alternate.ToModels(alternates, typeKinds);
 
   internal TObjField[] FieldsModels(IEnumerable<TObjFieldAst> fields, IMap<TypeKindModel> typeKinds)
@@ -25,18 +23,16 @@ internal abstract class ModellerObject<TAst, TObjBaseAst, TObjFieldAst, TObjAltA
   internal TypeParamModel[] TypeParamsModels(IEnumerable<IGqlpTypeParam> typeParams, IMap<TypeKindModel> typeKinds)
     => modellers.TypeParams.ToModels(typeParams, typeKinds);
 
-  protected TObjBase BaseModel(TObjBaseAst ast, IMap<TypeKindModel> typeKinds)
-    => modellers.Base.ToModel<TObjBase>(ast, typeKinds);
+  protected ObjBaseModel BaseModel(TObjBaseAst ast, IMap<TypeKindModel> typeKinds)
+    => modellers.Base.ToModel<ObjBaseModel>(ast, typeKinds);
 }
 
-internal record class ObjectModellers<TObjBaseAst, TObjFieldAst, TObjAltAst, TObjBase, TObjField, TObjAlt>(
+internal record class ObjectModellers<TObjBaseAst, TObjFieldAst, TObjAltAst, TObjField>(
   IModeller<IGqlpTypeParam, TypeParamModel> TypeParams,
-  IModeller<TObjAltAst, TObjAlt> Alternate,
+  IModeller<TObjAltAst, ObjAlternateModel> Alternate,
   IModeller<TObjFieldAst, TObjField> Field,
-  IModeller<TObjBaseAst, TObjBase> Base
+  IModeller<TObjBaseAst, ObjBaseModel> Base
 ) where TObjBaseAst : IGqlpObjBase
   where TObjFieldAst : IGqlpObjField
   where TObjAltAst : IGqlpObjAlternate
-  where TObjBase : IObjBaseModel
-  where TObjField : IObjFieldModel
-  where TObjAlt : IObjAlternateModel;
+  where TObjField : IObjFieldModel;

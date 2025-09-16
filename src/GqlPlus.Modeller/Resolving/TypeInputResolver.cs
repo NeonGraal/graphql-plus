@@ -3,7 +3,7 @@
 namespace GqlPlus.Resolving;
 
 internal class TypeInputResolver
-  : ResolverTypeObjectType<TypeInputModel, InputBaseModel, InputFieldModel, ObjAlternateModel>
+  : ResolverTypeObjectType<TypeInputModel, InputFieldModel>
 {
   protected override TResult Apply<TResult>(TResult result, ArgumentsContext arguments)
   {
@@ -13,7 +13,7 @@ internal class TypeInputResolver
 
     if (result is TypeInputModel input) {
       if (input.Parent is not null
-        && GetInputArgument(input.Name, input.Parent, arguments, out InputBaseModel? parentModel)) {
+        && GetInputArgument(input.Name, input.Parent, arguments, out ObjBaseModel? parentModel)) {
         input.Parent = new(parentModel.Name, input.Parent.Description);
         input.ParentModel = null;
       }
@@ -29,8 +29,6 @@ internal class TypeInputResolver
 
   protected override TypeInputModel CloneModel(TypeInputModel model)
     => model with { };
-  protected override MakeFor<ObjAlternateModel> ObjectAlt(string obj)
-    => alt => new(alt, obj);
   protected override MakeFor<InputFieldModel> ObjectField(string obj)
     => fld => new(fld, obj);
 
@@ -59,9 +57,9 @@ internal class TypeInputResolver
 
   private Func<InputFieldModel, InputFieldModel> ApplyField(string label, ArgumentsContext arguments)
     => field => {
-      InputBaseModel? fieldType = field.Type;
+      ObjBaseModel? fieldType = field.Type;
       if (fieldType is not null
-        && GetInputArgument(label + " - " + field.Name, fieldType, arguments, out InputBaseModel? argModel)) {
+        && GetInputArgument(label + " - " + field.Name, fieldType, arguments, out ObjBaseModel? argModel)) {
         field = field with { Type = argModel with { Description = fieldType.Description } };
       }
 
@@ -73,7 +71,7 @@ internal class TypeInputResolver
 
   private Func<ObjAlternateModel, ObjAlternateModel> ApplyAlternate(string label, ArgumentsContext arguments)
     => alternate => {
-      if (alternate.Type is InputBaseModel inputType && GetInputArgument(label, inputType, arguments, out InputBaseModel? argModel)) {
+      if (alternate.Type is ObjBaseModel inputType && GetInputArgument(label, inputType, arguments, out ObjBaseModel? argModel)) {
         alternate = new ObjAlternateModel(argModel) { Collections = alternate.Collections };
       }
 
@@ -83,7 +81,7 @@ internal class TypeInputResolver
       return alternate;
     };
 
-  private bool GetInputArgument(string label, InputBaseModel inputBase, ArgumentsContext arguments, [NotNullWhen(true)] out InputBaseModel? outBase)
+  private bool GetInputArgument(string label, ObjBaseModel inputBase, ArgumentsContext arguments, [NotNullWhen(true)] out ObjBaseModel? outBase)
   {
     outBase = null;
     if (inputBase?.IsTypeParam == true) {

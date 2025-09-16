@@ -3,7 +3,7 @@
 namespace GqlPlus.Resolving;
 
 internal class TypeOutputResolver
-  : ResolverTypeObjectType<TypeOutputModel, OutputBaseModel, OutputFieldModel, ObjAlternateModel>
+  : ResolverTypeObjectType<TypeOutputModel, OutputFieldModel>
 {
   protected override TResult Apply<TResult>(TResult result, ArgumentsContext arguments)
   {
@@ -13,7 +13,7 @@ internal class TypeOutputResolver
 
     if (result is TypeOutputModel output) {
       if (output.Parent is not null
-        && GetOutputArgument(output.Name, output.Parent, arguments, out OutputBaseModel? parentModel)) {
+        && GetOutputArgument(output.Name, output.Parent, arguments, out ObjBaseModel? parentModel)) {
         output.Parent = new(parentModel.Name, output.Parent.Description);
         output.ParentModel = null;
       }
@@ -29,8 +29,6 @@ internal class TypeOutputResolver
 
   protected override TypeOutputModel CloneModel(TypeOutputModel model)
     => model with { };
-  protected override MakeFor<ObjAlternateModel> ObjectAlt(string obj)
-    => alt => new(alt, obj);
   protected override MakeFor<OutputFieldModel> ObjectField(string obj)
     => fld => new(fld, obj);
 
@@ -59,9 +57,9 @@ internal class TypeOutputResolver
 
   private Func<OutputFieldModel, OutputFieldModel> ApplyField(string label, ArgumentsContext arguments)
     => field => {
-      OutputBaseModel? fieldType = field.Type;
+      ObjBaseModel? fieldType = field.Type;
       if (fieldType is not null
-        && GetOutputArgument(label + " - " + field.Name, fieldType, arguments, out OutputBaseModel? argModel)) {
+        && GetOutputArgument(label + " - " + field.Name, fieldType, arguments, out ObjBaseModel? argModel)) {
         field = field with { Type = argModel with { Description = fieldType.Description } };
       }
 
@@ -73,7 +71,7 @@ internal class TypeOutputResolver
 
   private Func<ObjAlternateModel, ObjAlternateModel> ApplyAlternate(string label, ArgumentsContext arguments)
     => alternate => {
-      if (alternate.Type is OutputBaseModel outputType && GetOutputArgument(label, outputType, arguments, out OutputBaseModel? argModel)) {
+      if (alternate.Type is ObjBaseModel outputType && GetOutputArgument(label, outputType, arguments, out ObjBaseModel? argModel)) {
         alternate = new ObjAlternateModel(argModel) { Collections = alternate.Collections };
       }
 
@@ -83,7 +81,7 @@ internal class TypeOutputResolver
       return alternate;
     };
 
-  private bool GetOutputArgument(string label, OutputBaseModel outputBase, ArgumentsContext arguments, [NotNullWhen(true)] out OutputBaseModel? outBase)
+  private bool GetOutputArgument(string label, ObjBaseModel outputBase, ArgumentsContext arguments, [NotNullWhen(true)] out ObjBaseModel? outBase)
   {
     outBase = null;
     if (outputBase?.IsTypeParam == true) {

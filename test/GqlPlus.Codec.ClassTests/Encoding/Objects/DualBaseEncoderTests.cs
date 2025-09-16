@@ -1,17 +1,17 @@
 ﻿namespace GqlPlus.Encoding.Objects;
 
 public class DualBaseEncoderTests
-  : ObjectArgEncoderBase<DualBaseModel>
+  : ObjectArgEncoderBase<ObjBaseModel>
 {
   public DualBaseEncoderTests()
     => Encoder = new DualBaseEncoder(ObjArg);
 
-  protected override IEncoder<DualBaseModel> Encoder { get; }
+  protected override IEncoder<ObjBaseModel> Encoder { get; }
 
   [Theory, RepeatData]
   public void Encode_WithTypeParam_ReturnsStructuredWithTypeParam(string dual, string contents)
     => EncodeAndCheck(new(dual, contents) { IsTypeParam = true }, [
-      "!_DualBase",
+      "!_ObjBase",
       "description: " + contents.Quoted("'"),
       "typeParam: " + dual
       ]);
@@ -19,7 +19,7 @@ public class DualBaseEncoderTests
   [Theory, RepeatData]
   public void Encode_WithoutTypeParam_ReturnsStructuredWithDual(string dual, string contents)
     => EncodeAndCheck(new(dual, contents), [
-      "!_DualBase",
+      "!_ObjBase",
       "description: " + contents.Quoted("'"),
       "name: " + dual
       ]);

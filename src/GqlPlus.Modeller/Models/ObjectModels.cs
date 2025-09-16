@@ -1,18 +1,16 @@
 ﻿namespace GqlPlus.Models;
 
-public abstract record class TypeObjectModel<TObjBase, TObjField, TObjAlt>(
+public abstract record class TypeObjectModel<TObjField>(
   TypeKindModel Kind,
   string Name,
   string Description
-) : ChildTypeModel<TObjBase>(Kind, Name, Description)
+) : ChildTypeModel<ObjBaseModel>(Kind, Name, Description)
   , ITypeObjectModel
-  where TObjBase : IObjBaseModel
   where TObjField : IObjFieldModel
-  where TObjAlt : IObjAlternateModel
 {
   public TypeParamModel[] TypeParams { get; set; } = [];
   public TObjField[] Fields { get; set; } = [];
-  public TObjAlt[] Alternates { get; set; } = [];
+  public ObjAlternateModel[] Alternates { get; set; } = [];
 
   public ObjectForModel[] AllFields { get; set; } = [];
   public ObjectForModel[] AllAlternates { get; set; } = [];
@@ -87,15 +85,14 @@ public record class ObjectForModel<TFor>(
   where TFor : IModelBase
 { }
 
-public record class ObjFieldModel<TObjBase>(
+public record class ObjFieldModel(
   string Name,
-  TObjBase? Type,
+  ObjBaseModel? Type,
   string Description
 ) : AliasedModel(Name, Description)
   , IObjFieldModel
-  where TObjBase : IObjBaseModel
 {
-  public TObjBase? Type { get; internal set; } = Type;
+  public ObjBaseModel? Type { get; internal set; } = Type;
   public ModifierModel[] Modifiers { get; set; } = [];
   public IObjBaseModel? BaseType => Type;
 }

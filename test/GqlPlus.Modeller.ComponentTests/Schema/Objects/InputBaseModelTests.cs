@@ -6,13 +6,13 @@ namespace GqlPlus.Schema.Objects;
 
 public class InputBaseModelTests(
   IInputBaseModelChecks checks
-) : TestObjBaseModel<IGqlpInputBase, IGqlpObjArg, InputBaseModel>(checks)
+) : TestObjBaseModel<IGqlpInputBase, IGqlpObjArg, ObjBaseModel>(checks)
 { }
 
 internal sealed class InputBaseModelChecks(
-  IModeller<IGqlpInputBase, InputBaseModel> modeller,
-  IEncoder<InputBaseModel> encoding
-) : CheckObjBaseModel<IGqlpInputBase, IGqlpObjArg, InputBaseAst, InputArgAst, InputBaseModel>(modeller, encoding, TypeKindModel.Input)
+  IModeller<IGqlpInputBase, ObjBaseModel> modeller,
+  IEncoder<ObjBaseModel> encoding
+) : CheckObjBaseModel<IGqlpInputBase, IGqlpObjArg, InputBaseAst, InputArgAst, ObjBaseModel>(modeller, encoding, TypeKindModel.Input)
   , IInputBaseModelChecks
 {
   protected override InputArgAst NewObjArgAst(string input, bool isTypeParam)
@@ -28,5 +28,5 @@ internal sealed class InputBaseModelChecks(
 }
 
 public interface IInputBaseModelChecks
-  : ICheckObjBaseModel<IGqlpInputBase, IGqlpObjArg, InputBaseModel>
+  : ICheckObjBaseModel<IGqlpInputBase, IGqlpObjArg, ObjBaseModel>
 { }

@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Resolving;
 
 public class TypeDualResolverFieldTests
-  : ResolverTypeObjectFieldTestBase<TypeDualModel, DualBaseModel, DualFieldModel, DualAlternateModel>
+  : ResolverTypeObjectFieldTestBase<TypeDualModel, DualBaseModel, DualFieldModel, ObjAlternateModel>
 {
   protected override IResolver<TypeDualModel> Resolver { get; } = new TypeDualResolver();
 

@@ -6,7 +6,7 @@ public class DualModellerTests
   public DualModellerTests()
   {
     IModeller<IGqlpTypeParam, TypeParamModel> typeParam = MFor<IGqlpTypeParam, TypeParamModel>();
-    IModeller<IGqlpDualAlternate, DualAlternateModel> objAlt = MFor<IGqlpDualAlternate, DualAlternateModel>();
+    IModeller<IGqlpDualAlternate, ObjAlternateModel> objAlt = MFor<IGqlpDualAlternate, ObjAlternateModel>();
     IModeller<IGqlpDualField, DualFieldModel> objField = MFor<IGqlpDualField, DualFieldModel>();
 
     Modeller = new DualModeller(new(typeParam, objAlt, objField, ObjBase));

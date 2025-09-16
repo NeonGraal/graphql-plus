@@ -34,16 +34,16 @@ public static class AllModellers
       .AddObjectModellers<
           IGqlpDualBase, DualBaseModel, DualBaseModeller,
           IGqlpDualField, DualFieldModel, DualFieldModeller,
-          IGqlpDualAlternate, DualAlternateModel, DualAlternateModeller>()
+          IGqlpDualAlternate, ObjAlternateModel, DualAlternateModeller>()
       .AddObjectModellers<
           IGqlpInputBase, InputBaseModel, InputBaseModeller,
           IGqlpInputField, InputFieldModel, InputFieldModeller,
-          IGqlpInputAlternate, InputAlternateModel, InputAlternateModeller>()
+          IGqlpInputAlternate, ObjAlternateModel, InputAlternateModeller>()
       .AddModeller<IGqlpInputParam, InputParamModel, InputParamModeller>()
       .AddObjectModellers<
           IGqlpOutputBase, OutputBaseModel, OutputBaseModeller,
           IGqlpOutputField, OutputFieldModel, OutputFieldModeller,
-          IGqlpOutputAlternate, OutputAlternateModel, OutputAlternateModeller>()
+          IGqlpOutputAlternate, ObjAlternateModel, OutputAlternateModeller>()
       .AddTypeModeller<IGqlpDualObject, TypeDualModel, DualModeller>()
       .AddTypeModeller<IGqlpInputObject, TypeInputModel, InputModeller>()
       .AddTypeModeller<IGqlpOutputObject, TypeOutputModel, OutputModeller>()

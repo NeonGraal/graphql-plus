@@ -3,7 +3,7 @@
 public record class TypeDualModel(
   string Name,
   string Description
-) : TypeObjectModel<DualBaseModel, DualFieldModel, DualAlternateModel>(TypeKindModel.Dual, Name, Description)
+) : TypeObjectModel<DualBaseModel, DualFieldModel, ObjAlternateModel>(TypeKindModel.Dual, Name, Description)
 { }
 
 public record class DualBaseModel(
@@ -19,9 +19,4 @@ public record class DualFieldModel(
 ) : ObjFieldModel<DualBaseModel>(Name, Type, Description)
 { }
 
-public record class DualAlternateModel(
-  DualBaseModel Type
-) : ObjAlternateModel(Type)
-{
-  public new DualBaseModel Type { get; set; } = Type;
-}
+

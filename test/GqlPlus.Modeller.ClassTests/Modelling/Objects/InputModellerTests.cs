@@ -6,7 +6,7 @@ public class InputModellerTests
   public InputModellerTests()
   {
     IModeller<IGqlpTypeParam, TypeParamModel> typeParam = MFor<IGqlpTypeParam, TypeParamModel>();
-    IModeller<IGqlpInputAlternate, InputAlternateModel> objAlt = MFor<IGqlpInputAlternate, InputAlternateModel>();
+    IModeller<IGqlpInputAlternate, ObjAlternateModel> objAlt = MFor<IGqlpInputAlternate, ObjAlternateModel>();
     IModeller<IGqlpInputField, InputFieldModel> objField = MFor<IGqlpInputField, InputFieldModel>();
 
     Modeller = new InputModeller(new(typeParam, objAlt, objField, ObjBase));

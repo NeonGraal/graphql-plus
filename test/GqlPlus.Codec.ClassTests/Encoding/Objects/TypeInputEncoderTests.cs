@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Encoding.Objects;
 
 public class TypeInputEncoderTests
-  : TypeObjectEncoderBase<TypeInputModel, InputBaseModel, InputFieldModel, InputAlternateModel>
+  : TypeObjectEncoderBase<TypeInputModel, InputBaseModel, InputFieldModel, ObjAlternateModel>
 {
   public TypeInputEncoderTests()
     => Encoder = new TypeInputEncoder(new(ObjBase, Field, ObjField, DualField, Alternate, ObjAlternate, DualAlternate, TypeParam));
@@ -21,8 +21,8 @@ public class TypeInputEncoderTests
   public void Encode_WithDualModel_ReturnsStructured(string name, string parentType, string alternateType, string fieldName, string paramName)
   {
     DualBaseModel parent = new(parentType, "");
-    DualAlternateModel alternate = new(new DualBaseModel(alternateType, ""));
-    ObjectForModel<DualAlternateModel> alternateFor = new(alternate, name);
+    ObjAlternateModel alternate = new(new DualBaseModel(alternateType, ""));
+    ObjectForModel<ObjAlternateModel> alternateFor = new(alternate, name);
     DualFieldModel field = new(fieldName, new("", ""), "");
     ObjectForModel<DualFieldModel> fieldFor = new(field, name);
     TypeParamModel typeParam = new(paramName, "", default!);

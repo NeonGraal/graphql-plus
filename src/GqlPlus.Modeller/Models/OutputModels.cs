@@ -3,7 +3,7 @@
 public record class TypeOutputModel(
   string Name,
   string Description
-) : TypeObjectModel<OutputBaseModel, OutputFieldModel, OutputAlternateModel>(TypeKindModel.Output, Name, Description)
+) : TypeObjectModel<OutputBaseModel, OutputFieldModel, ObjAlternateModel>(TypeKindModel.Output, Name, Description)
 { }
 
 public record class OutputBaseModel(
@@ -22,12 +22,7 @@ public record class OutputFieldModel(
   public OutputEnumModel? Enum { get; set; }
 }
 
-public record class OutputAlternateModel(
-  OutputBaseModel Type
-) : ObjAlternateModel(Type)
-{
-  public new OutputBaseModel Type { get; set; } = Type;
-}
+
 
 public record class OutputEnumModel(
   string Field,

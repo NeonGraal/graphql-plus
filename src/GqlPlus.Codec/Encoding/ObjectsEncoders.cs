@@ -87,7 +87,7 @@ internal record class TypeObjectEncoders<TBase, TField, TAlt>(
   IEncoder<ObjectForModel<DualFieldModel>> DualField,
   IEncoder<TAlt> Alternate,
   IEncoder<ObjectForModel<TAlt>> ObjAlternate,
-  IEncoder<ObjectForModel<DualAlternateModel>> DualAlternate,
+  IEncoder<ObjectForModel<ObjAlternateModel>> DualAlternate,
   IEncoder<TypeParamModel> TypeParam
 )
   where TBase : IObjBaseModel
@@ -134,8 +134,8 @@ internal class DualFieldEncoder(
 { }
 
 internal class TypeDualEncoder(
-  TypeObjectEncoders<DualBaseModel, DualFieldModel, DualAlternateModel> encoders
-) : TypeObjectEncoder<TypeDualModel, DualBaseModel, DualFieldModel, DualAlternateModel>(encoders)
+  TypeObjectEncoders<DualBaseModel, DualFieldModel, ObjAlternateModel> encoders
+) : TypeObjectEncoder<TypeDualModel, DualBaseModel, DualFieldModel, ObjAlternateModel>(encoders)
 { }
 
 internal class InputBaseEncoder(
@@ -166,8 +166,8 @@ internal class InputParamEncoder(
 }
 
 internal class TypeInputEncoder(
-  TypeObjectEncoders<InputBaseModel, InputFieldModel, InputAlternateModel> encoders
-) : TypeObjectEncoder<TypeInputModel, InputBaseModel, InputFieldModel, InputAlternateModel>(encoders)
+  TypeObjectEncoders<InputBaseModel, InputFieldModel, ObjAlternateModel> encoders
+) : TypeObjectEncoder<TypeInputModel, InputBaseModel, InputFieldModel, ObjAlternateModel>(encoders)
 { }
 
 internal class OutputBaseEncoder(
@@ -198,6 +198,6 @@ internal class OutputFieldEncoder(
 }
 
 internal class TypeOutputEncoder(
-  TypeObjectEncoders<OutputBaseModel, OutputFieldModel, OutputAlternateModel> encoders
-) : TypeObjectEncoder<TypeOutputModel, OutputBaseModel, OutputFieldModel, OutputAlternateModel>(encoders)
+  TypeObjectEncoders<OutputBaseModel, OutputFieldModel, ObjAlternateModel> encoders
+) : TypeObjectEncoder<TypeOutputModel, OutputBaseModel, OutputFieldModel, ObjAlternateModel>(encoders)
 { }

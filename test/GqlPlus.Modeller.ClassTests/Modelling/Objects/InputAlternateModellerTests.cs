@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
 public class InputAlternateModellerTests
-  : ModellerObjectBaseTestBase<IGqlpInputAlternate, InputAlternateModel, IGqlpInputBase, InputBaseModel>
+  : ModellerObjectBaseTestBase<IGqlpInputAlternate, ObjAlternateModel, IGqlpInputBase, InputBaseModel>
 {
   public InputAlternateModellerTests()
   {
@@ -10,7 +10,7 @@ public class InputAlternateModellerTests
     Modeller = new InputAlternateModeller(collection, ObjBase);
   }
 
-  protected override IModeller<IGqlpInputAlternate, InputAlternateModel> Modeller { get; }
+  protected override IModeller<IGqlpInputAlternate, ObjAlternateModel> Modeller { get; }
 
   [Theory, RepeatData]
   public void AlternateModel_WithValidAlternate_ReturnsExpectedInputAlternateModel(string name, string contents)
@@ -21,10 +21,10 @@ public class InputAlternateModellerTests
     ObjBase.ToModel(ast, TypeKinds).Returns(inputType);
 
     // Act
-    InputAlternateModel result = Modeller.ToModel(ast, TypeKinds);
+    ObjAlternateModel result = Modeller.ToModel(ast, TypeKinds);
 
     // Assert
     result.ShouldNotBeNull()
-      .BaseType.ShouldBe(inputType);
+      .Type.ShouldBe(inputType);
   }
 }

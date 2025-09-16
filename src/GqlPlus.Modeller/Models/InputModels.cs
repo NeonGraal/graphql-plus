@@ -3,7 +3,7 @@
 public record class TypeInputModel(
   string Name,
   string Description
-) : TypeObjectModel<InputBaseModel, InputFieldModel, InputAlternateModel>(TypeKindModel.Input, Name, Description)
+) : TypeObjectModel<InputBaseModel, InputFieldModel, ObjAlternateModel>(TypeKindModel.Input, Name, Description)
 { }
 
 public record class InputBaseModel(
@@ -21,12 +21,7 @@ public record class InputFieldModel(
   public ConstantModel? Default { get; init; }
 }
 
-public record class InputAlternateModel(
-  InputBaseModel Type
-) : ObjAlternateModel(Type)
-{
-  public new InputBaseModel Type { get; set; } = Type;
-}
+
 
 public record class InputParamModel(
   string Name,

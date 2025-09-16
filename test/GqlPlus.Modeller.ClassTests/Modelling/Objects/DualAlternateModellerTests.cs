@@ -1,14 +1,14 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
 public class DualAlternateModellerTests
-  : ModellerObjectBaseTestBase<IGqlpDualAlternate, DualAlternateModel, IGqlpDualBase, DualBaseModel>
+  : ModellerObjectBaseTestBase<IGqlpDualAlternate, ObjAlternateModel, IGqlpDualBase, DualBaseModel>
 {
   private readonly IModeller<IGqlpModifier, CollectionModel> _collection = MFor<IGqlpModifier, CollectionModel>();
 
   public DualAlternateModellerTests()
     => Modeller = new DualAlternateModeller(_collection, ObjBase);
 
-  protected override IModeller<IGqlpDualAlternate, DualAlternateModel> Modeller { get; }
+  protected override IModeller<IGqlpDualAlternate, ObjAlternateModel> Modeller { get; }
 
   [Theory, RepeatData]
   public void AlternateModel_WithValidAlternate_ReturnsExpectedDualAlternateModel(string name, string contents)
@@ -23,13 +23,13 @@ public class DualAlternateModellerTests
     CollectionModel[] collections = [new(ModifierKind.List)];
     ToModelsReturns(_collection, collections);
 
-    // Act 
-    DualAlternateModel result = Modeller.ToModel(ast, TypeKinds);
+    // Act
+    ObjAlternateModel result = Modeller.ToModel(ast, TypeKinds);
 
     // Assert
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
-      r => r.BaseType.ShouldBe(dualType),
+      r => r.Type.ShouldBe(dualType),
       r => r.Collections.ShouldBeEquivalentTo(collections));
   }
 }

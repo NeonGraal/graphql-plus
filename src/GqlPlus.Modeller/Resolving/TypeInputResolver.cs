@@ -3,7 +3,7 @@
 namespace GqlPlus.Resolving;
 
 internal class TypeInputResolver
-  : ResolverTypeObjectType<TypeInputModel, InputBaseModel, InputFieldModel, InputAlternateModel>
+  : ResolverTypeObjectType<TypeInputModel, InputBaseModel, InputFieldModel, ObjAlternateModel>
 {
   protected override TResult Apply<TResult>(TResult result, ArgumentsContext arguments)
   {
@@ -29,7 +29,7 @@ internal class TypeInputResolver
 
   protected override TypeInputModel CloneModel(TypeInputModel model)
     => model with { };
-  protected override MakeFor<InputAlternateModel> ObjectAlt(string obj)
+  protected override MakeFor<ObjAlternateModel> ObjectAlt(string obj)
     => alt => new(alt, obj);
   protected override MakeFor<InputFieldModel> ObjectField(string obj)
     => fld => new(fld, obj);
@@ -71,14 +71,14 @@ internal class TypeInputResolver
       return field;
     };
 
-  private Func<InputAlternateModel, InputAlternateModel> ApplyAlternate(string label, ArgumentsContext arguments)
+  private Func<ObjAlternateModel, ObjAlternateModel> ApplyAlternate(string label, ArgumentsContext arguments)
     => alternate => {
-      if (GetInputArgument(label, alternate.Type, arguments, out InputBaseModel? argModel)) {
-        alternate = new InputAlternateModel(argModel) { Collections = alternate.Collections };
+      if (alternate.Type is InputBaseModel inputType && GetInputArgument(label, inputType, arguments, out InputBaseModel? argModel)) {
+        alternate = new ObjAlternateModel(argModel) { Collections = alternate.Collections };
       }
 
       ApplyArray(alternate.Collections, ApplyCollection(label, arguments),
-        collections => alternate = new InputAlternateModel(alternate.Type) { Collections = collections });
+        collections => alternate = new ObjAlternateModel(alternate.Type) { Collections = collections });
 
       return alternate;
     };

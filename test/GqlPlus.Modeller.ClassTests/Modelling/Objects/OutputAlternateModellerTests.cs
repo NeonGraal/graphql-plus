@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
 public class OutputAlternateModellerTests
-  : ModellerObjectBaseTestBase<IGqlpOutputAlternate, OutputAlternateModel, IGqlpOutputBase, OutputBaseModel>
+  : ModellerObjectBaseTestBase<IGqlpOutputAlternate, ObjAlternateModel, IGqlpOutputBase, OutputBaseModel>
 {
   public OutputAlternateModellerTests()
   {
@@ -10,7 +10,7 @@ public class OutputAlternateModellerTests
     Modeller = new OutputAlternateModeller(collection, ObjBase);
   }
 
-  protected override IModeller<IGqlpOutputAlternate, OutputAlternateModel> Modeller { get; }
+  protected override IModeller<IGqlpOutputAlternate, ObjAlternateModel> Modeller { get; }
 
   [Theory, RepeatData]
   public void AlternateModel_WithValidAlternate_ReturnsExpectedOutputAlternateModel(string name, string contents)
@@ -22,10 +22,10 @@ public class OutputAlternateModellerTests
     ToModelReturns(ObjBase, ast, outputType);
 
     // Act
-    OutputAlternateModel result = Modeller.ToModel(ast, TypeKinds);
+    ObjAlternateModel result = Modeller.ToModel(ast, TypeKinds);
 
     // Assert
     result.ShouldNotBeNull()
-      .BaseType.ShouldBe(outputType);
+      .Type.ShouldBe(outputType);
   }
 }

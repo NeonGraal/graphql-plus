@@ -50,21 +50,21 @@ public static class AllEncoders
       .AddBaseEncoder<DualBaseModel>()
       .AddEncoder<DualFieldModel, DualFieldEncoder>()
       .AddTypeEncoder<TypeDualModel, TypeDualEncoder>()
-      .AddObjectEncoders<DualBaseModel, DualFieldModel, DualAlternateModel>()
+      .AddObjectEncoders<DualBaseModel, DualFieldModel, ObjAlternateModel>()
       // Input
       .AddEncoder<InputBaseModel, InputBaseEncoder>()
       .AddBaseEncoder<InputBaseModel>()
       .AddEncoder<InputFieldModel, InputFieldEncoder>()
       .AddEncoder<InputParamModel, InputParamEncoder>()
       .AddTypeEncoder<TypeInputModel, TypeInputEncoder>()
-      .AddObjectEncoders<InputBaseModel, InputFieldModel, InputAlternateModel>()
+      .AddObjectEncoders<InputBaseModel, InputFieldModel, ObjAlternateModel>()
       // Output
       .AddEncoder<OutputBaseModel, OutputBaseEncoder>()
       .AddBaseEncoder<OutputBaseModel>()
       .AddEncoder<OutputEnumModel, OutputEnumEncoder>()
       .AddEncoder<OutputFieldModel, OutputFieldEncoder>()
       .AddTypeEncoder<TypeOutputModel, TypeOutputEncoder>()
-      .AddObjectEncoders<OutputBaseModel, OutputFieldModel, OutputAlternateModel>()
+      .AddObjectEncoders<OutputBaseModel, OutputFieldModel, ObjAlternateModel>()
     ;
 
   private static IServiceCollection AddEncoder<TModel, TEncoder>(this IServiceCollection services)

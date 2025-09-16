@@ -123,14 +123,14 @@ internal abstract class ResolverTypeObjectType<TModel, TObjBase, TObjField, TObj
     return false;
   }
 
-  protected Func<DualAlternateModel, DualAlternateModel> ApplyDualAlternate(string label, ArgumentsContext arguments)
+  protected Func<ObjAlternateModel, ObjAlternateModel> ApplyDualAlternate(string label, ArgumentsContext arguments)
     => alternate => {
-      if (GetDualArgument(label, alternate.Type, arguments, out DualBaseModel? argModel)) {
-        alternate = new DualAlternateModel(argModel) { Collections = alternate.Collections };
+      if (alternate.Type is DualBaseModel dualType && GetDualArgument(label, dualType, arguments, out DualBaseModel? argModel)) {
+        alternate = new ObjAlternateModel(argModel) { Collections = alternate.Collections };
       }
 
       ApplyArray(alternate.Collections, ApplyCollection(label, arguments),
-        collections => alternate = new DualAlternateModel(alternate.Type) { Collections = collections });
+        collections => alternate = new ObjAlternateModel(alternate.Type) { Collections = collections });
 
       return alternate;
     };

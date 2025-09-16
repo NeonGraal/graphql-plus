@@ -3,8 +3,8 @@
 namespace GqlPlus.Modelling.Objects;
 
 internal class InputModeller(
-  ObjectModellers<IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate, InputBaseModel, InputFieldModel, InputAlternateModel> modellers
-) : ModellerObject<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate, TypeInputModel, InputBaseModel, InputFieldModel, InputAlternateModel>(TypeKindModel.Input, modellers)
+  ObjectModellers<IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate, InputBaseModel, InputFieldModel, ObjAlternateModel> modellers
+) : ModellerObject<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate, TypeInputModel, InputBaseModel, InputFieldModel, ObjAlternateModel>(TypeKindModel.Input, modellers)
 {
   protected override TypeInputModel ToModel(IGqlpInputObject ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, ast.Description) {
@@ -42,9 +42,9 @@ internal class InputFieldModeller(
 internal class InputAlternateModeller(
   IModeller<IGqlpModifier, CollectionModel> collection,
   IModeller<IGqlpInputBase, InputBaseModel> objBase
-) : ModellerObjAlternate<IGqlpInputBase, IGqlpInputAlternate, InputBaseModel, InputAlternateModel>(collection, objBase)
+) : ModellerObjAlternate<IGqlpInputBase, IGqlpInputAlternate, InputBaseModel, ObjAlternateModel>(collection, objBase)
 {
-  protected override InputAlternateModel AlternateModel(InputBaseModel type)
+  protected override ObjAlternateModel AlternateModel(InputBaseModel type)
     => new(type);
 }
 

@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Encoding.Objects;
 
 public class DualAlternateEncoderTests
-  : ObjectBaseEncoderBase<DualAlternateModel, DualBaseModel>
+  : ObjectBaseEncoderBase<ObjAlternateModel, DualBaseModel>
 {
   private readonly IEncoder<CollectionModel> _collection;
   private readonly IEncoder<ObjBaseModel> _objBaseEncoder;
@@ -10,10 +10,10 @@ public class DualAlternateEncoderTests
   {
     _collection = RFor<CollectionModel>();
     _objBaseEncoder = A.Of<IEncoder<ObjBaseModel>>();
-    Encoder = new ObjectAlternateEncoder<DualAlternateModel>(new(_collection, _objBaseEncoder));
+    Encoder = new ObjectAlternateEncoder<ObjAlternateModel>(new(_collection, _objBaseEncoder));
   }
 
-  protected override IEncoder<DualAlternateModel> Encoder { get; }
+  protected override IEncoder<ObjAlternateModel> Encoder { get; }
 
   [Theory, RepeatData]
   public void Encode_WithoutTypeParam_ReturnsStructuredWithDual(string dual)
@@ -21,7 +21,7 @@ public class DualAlternateEncoderTests
     DualBaseModel objBase = new(dual, "");
     _objBaseEncoder.Encode(objBase).Returns(new Structured(dual));
     EncodeAndCheck(new(objBase), [
-        "!_DualAlternate",
+        "!_ObjAlternate",
         "type: " + dual
       ]);
   }

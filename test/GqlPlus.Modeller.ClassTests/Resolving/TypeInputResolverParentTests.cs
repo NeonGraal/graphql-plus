@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Resolving;
 
 public class TypeInputResolverParentTests
-  : ResolverTypeObjectParentTestBase<TypeInputModel, InputBaseModel, InputFieldModel, InputAlternateModel>
+  : ResolverTypeObjectParentTestBase<TypeInputModel, InputBaseModel, InputFieldModel, ObjAlternateModel>
 {
   protected override IResolver<TypeInputModel> Resolver { get; }
 

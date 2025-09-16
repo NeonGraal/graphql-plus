@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Encoding.Objects;
 
 public class InputAlternateEncoderTests
-  : ObjectBaseEncoderBase<InputAlternateModel, InputBaseModel>
+  : ObjectBaseEncoderBase<ObjAlternateModel, InputBaseModel>
 {
   private readonly IEncoder<CollectionModel> _collection;
   private readonly IEncoder<ObjBaseModel> _objBaseEncoder;
@@ -10,10 +10,10 @@ public class InputAlternateEncoderTests
   {
     _collection = RFor<CollectionModel>();
     _objBaseEncoder = A.Of<IEncoder<ObjBaseModel>>();
-    Encoder = new ObjectAlternateEncoder<InputAlternateModel>(new(_collection, _objBaseEncoder));
+    Encoder = new ObjectAlternateEncoder<ObjAlternateModel>(new(_collection, _objBaseEncoder));
   }
 
-  protected override IEncoder<InputAlternateModel> Encoder { get; }
+  protected override IEncoder<ObjAlternateModel> Encoder { get; }
 
   [Theory, RepeatData]
   public void Encode_ReturnsStructuredWithOutput(string input)
@@ -21,7 +21,7 @@ public class InputAlternateEncoderTests
     InputBaseModel objBase = new(input, "");
     _objBaseEncoder.Encode(objBase).Returns(new Structured(input));
     EncodeAndCheck(new(objBase), [
-        "!_InputAlternate",
+        "!_ObjAlternate",
         "type: " + input
       ]);
   }

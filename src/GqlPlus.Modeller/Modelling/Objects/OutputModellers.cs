@@ -3,8 +3,8 @@
 namespace GqlPlus.Modelling.Objects;
 
 internal class OutputModeller(
-  ObjectModellers<IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate, OutputBaseModel, OutputFieldModel, OutputAlternateModel> modellers
-) : ModellerObject<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate, TypeOutputModel, OutputBaseModel, OutputFieldModel, OutputAlternateModel>(TypeKindModel.Output, modellers)
+  ObjectModellers<IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate, OutputBaseModel, OutputFieldModel, ObjAlternateModel> modellers
+) : ModellerObject<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate, TypeOutputModel, OutputBaseModel, OutputFieldModel, ObjAlternateModel>(TypeKindModel.Output, modellers)
 {
   protected override TypeOutputModel ToModel(IGqlpOutputObject ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, ast.Description) {
@@ -46,8 +46,8 @@ internal class OutputFieldModeller(
 internal class OutputAlternateModeller(
   IModeller<IGqlpModifier, CollectionModel> collection,
   IModeller<IGqlpOutputBase, OutputBaseModel> objBase
-) : ModellerObjAlternate<IGqlpOutputBase, IGqlpOutputAlternate, OutputBaseModel, OutputAlternateModel>(collection, objBase)
+) : ModellerObjAlternate<IGqlpOutputBase, IGqlpOutputAlternate, OutputBaseModel, ObjAlternateModel>(collection, objBase)
 {
-  protected override OutputAlternateModel AlternateModel(OutputBaseModel type)
+  protected override ObjAlternateModel AlternateModel(OutputBaseModel type)
     => new(type);
 }

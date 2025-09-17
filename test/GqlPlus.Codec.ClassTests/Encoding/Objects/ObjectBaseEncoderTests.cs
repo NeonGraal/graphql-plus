@@ -1,10 +1,10 @@
 ﻿namespace GqlPlus.Encoding.Objects;
 
-public class DualBaseEncoderTests
+public class ObjectBaseEncoderTests
   : ObjectArgEncoderBase<ObjBaseModel>
 {
-  public DualBaseEncoderTests()
-    => Encoder = new DualBaseEncoder(ObjArg);
+  public ObjectBaseEncoderTests()
+    => Encoder = new ObjectBaseEncoder<ObjBaseModel>(ObjArg);
 
   protected override IEncoder<ObjBaseModel> Encoder { get; }
 

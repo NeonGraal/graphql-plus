@@ -118,11 +118,6 @@ internal abstract class TypeObjectEncoder<TObject, TField>(
   }
 }
 
-internal class DualBaseEncoder(
-  IEncoder<ObjTypeArgModel> objArg
-) : ObjectBaseEncoder<ObjBaseModel>(objArg)
-{ }
-
 internal class DualFieldEncoder(
   FieldEncoders<ObjBaseModel> encoders
 ) : ObjectFieldEncoder<DualFieldModel, ObjBaseModel>(encoders)
@@ -131,11 +126,6 @@ internal class DualFieldEncoder(
 internal class TypeDualEncoder(
   TypeObjectEncoders<DualFieldModel> encoders
 ) : TypeObjectEncoder<TypeDualModel, DualFieldModel>(encoders)
-{ }
-
-internal class InputBaseEncoder(
-  IEncoder<ObjTypeArgModel> objArg
-) : ObjectBaseEncoder<ObjBaseModel>(objArg)
 { }
 
 internal class InputFieldEncoder(
@@ -163,11 +153,6 @@ internal class InputParamEncoder(
 internal class TypeInputEncoder(
   TypeObjectEncoders<InputFieldModel> encoders
 ) : TypeObjectEncoder<TypeInputModel, InputFieldModel>(encoders)
-{ }
-
-internal class OutputBaseEncoder(
-  IEncoder<ObjTypeArgModel> objArg
-) : ObjectBaseEncoder<ObjBaseModel>(objArg)
 { }
 
 internal class OutputEnumEncoder

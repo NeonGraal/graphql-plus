@@ -43,24 +43,21 @@ public static class AllEncoders
       .AddTypeEncoder<TypeUnionModel, TypeUnionEncoder>()
       .AddItemEncoder<NamedModel, UnionMemberModel, UnionMemberEncoder>()
       // Object
+      .AddBaseEncoder<ObjBaseModel>()
       .AddEncoder<TypeParamModel, TypeParamEncoder>()
+      .AddEncoder<ObjAlternateModel, ObjectAlternateEncoder>()
+      .AddEncoder<ObjectForModel<ObjAlternateModel>, ObjectForEncoder<ObjAlternateModel>>()
       .AddEncoder<ObjTypeArgModel, ObjTypeArgEncoder>()
       // Dual
-      .AddEncoder<ObjBaseModel, DualBaseEncoder>()
-      .AddBaseEncoder<ObjBaseModel>()
       .AddEncoder<DualFieldModel, DualFieldEncoder>()
       .AddTypeEncoder<TypeDualModel, TypeDualEncoder>()
       .AddObjectEncoders<DualFieldModel>()
       // Input
-      .AddEncoder<ObjBaseModel, InputBaseEncoder>()
-      .AddBaseEncoder<ObjBaseModel>()
       .AddEncoder<InputFieldModel, InputFieldEncoder>()
       .AddEncoder<InputParamModel, InputParamEncoder>()
       .AddTypeEncoder<TypeInputModel, TypeInputEncoder>()
       .AddObjectEncoders<InputFieldModel>()
       // Output
-      .AddEncoder<ObjBaseModel, OutputBaseEncoder>()
-      .AddBaseEncoder<ObjBaseModel>()
       .AddEncoder<OutputEnumModel, OutputEnumEncoder>()
       .AddEncoder<OutputFieldModel, OutputFieldEncoder>()
       .AddTypeEncoder<TypeOutputModel, TypeOutputEncoder>()
@@ -100,14 +97,13 @@ public static class AllEncoders
   private static IServiceCollection AddObjectEncoders<TField>(this IServiceCollection services)
     where TField : IObjFieldModel
     => services
-      .AddEncoder<ObjectForModel<ObjAlternateModel>, ObjectForEncoder<ObjAlternateModel>>()
       .AddEncoder<ObjectForModel<TField>, ObjectForEncoder<TField>>()
-      .AddEncoder<ObjAlternateModel, ObjectAlternateEncoder>()
       .AddSingleton<TypeObjectEncoders<TField>>();
 
   private static IServiceCollection AddBaseEncoder<TBase>(this IServiceCollection services)
     where TBase : ModelBase, IObjBaseModel
     => services
+      .AddEncoder<ObjBaseModel, ObjectBaseEncoder<ObjBaseModel>>()
       .AddSingleton<FieldEncoders<TBase>>()
       .AddSingleton<AlternateEncoders<TBase>>();
 }

@@ -16,7 +16,7 @@ public class MergeInputAlternatesTests(
 }
 
 internal sealed class MergeInputAlternatesChecks
-  : CheckAlternatesMerger<IGqlpInputAlternate, InputAlternateAst, IGqlpObjArg>
+  : CheckAlternatesMerger<IGqlpInputAlternate, InputAlternateAst>
 {
   public override IGqlpInputAlternate MakeAlternate(string input, bool withModifiers = false, string description = "")
     => new InputAlternateAst(AstNulls.At, input, description) {

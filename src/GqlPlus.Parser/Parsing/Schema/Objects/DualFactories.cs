@@ -6,7 +6,7 @@ namespace GqlPlus.Parsing.Schema.Objects;
 
 [ExcludeFromCodeCoverage]
 internal sealed class DualFactories
-  : IObjectFactories<DualDeclAst, IGqlpDualField, DualFieldAst, IGqlpDualAlternate, DualAlternateAst, IGqlpDualBase, DualBaseAst, IGqlpObjArg, DualArgAst>
+  : IObjectFactories<DualDeclAst, IGqlpDualField, DualFieldAst, IGqlpDualAlternate, DualAlternateAst, IGqlpDualBase, DualBaseAst, DualArgAst>
 {
   public DualFieldAst ObjField(TokenAt at, string name, IGqlpDualBase typeBase, string description)
     => new(at, name, description, typeBase);

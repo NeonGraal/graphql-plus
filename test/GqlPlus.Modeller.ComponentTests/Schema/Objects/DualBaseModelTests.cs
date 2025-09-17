@@ -6,13 +6,13 @@ namespace GqlPlus.Schema.Objects;
 
 public class DualBaseModelTests(
   IDualBaseModelChecks checks
-) : TestObjBaseModel<IGqlpDualBase, IGqlpObjArg, ObjBaseModel>(checks)
+) : TestObjBaseModel<IGqlpDualBase, ObjBaseModel>(checks)
 { }
 
 internal sealed class DualBaseModelChecks(
   IModeller<IGqlpDualBase, ObjBaseModel> modeller,
   IEncoder<ObjBaseModel> encoding
-) : CheckObjBaseModel<IGqlpDualBase, IGqlpObjArg, DualBaseAst, DualArgAst, ObjBaseModel>(modeller, encoding, TypeKindModel.Dual)
+) : CheckObjBaseModel<IGqlpDualBase, DualBaseAst, DualArgAst, ObjBaseModel>(modeller, encoding, TypeKindModel.Dual)
   , IDualBaseModelChecks
 {
   protected override IGqlpObjArg NewObjArgAst(string input, bool isTypeParam)
@@ -23,10 +23,10 @@ internal sealed class DualBaseModelChecks(
   protected override DualBaseAst NewObjBaseAst(string input, bool isTypeParam, IGqlpObjArg[] args)
     => new(AstNulls.At, input) {
       IsTypeParam = isTypeParam,
-      BaseArgs = args,
+      Args = args,
     };
 }
 
 public interface IDualBaseModelChecks
-  : ICheckObjBaseModel<IGqlpDualBase, IGqlpObjArg, ObjBaseModel>
+  : ICheckObjBaseModel<IGqlpDualBase, ObjBaseModel>
 { }

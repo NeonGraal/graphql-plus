@@ -6,18 +6,17 @@ using GqlPlus.Merging;
 namespace GqlPlus.Verifying.Schema.Objects;
 
 [SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Todo")]
-internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField, TObjAlt>(
-  ObjectVerifierParams<TObject, TObjField, TObjAlt, TObjArg> verifiers
+internal abstract class AstObjectVerifier<TObject, TObjBase, TObjField, TObjAlt>(
+  ObjectVerifierParams<TObject, TObjField, TObjAlt> verifiers
 ) : AstParentItemVerifier<TObject, IGqlpObjBase, EnumContext, TObjField>(verifiers.Aliased, verifiers.MergeFields)
   where TObject : IGqlpObject<TObjBase, TObjField, TObjAlt>
   where TObjField : IGqlpObjField<TObjBase>
-  where TObjAlt : IGqlpObjAlternate, IGqlpObjBase<TObjArg>
-  where TObjBase : IGqlpObjBase<TObjArg>
-  where TObjArg : IGqlpObjArg
+  where TObjAlt : IGqlpObjAlternate, IGqlpObjBase
+  where TObjBase : IGqlpObjBase
 {
   private readonly ILogger _logger = verifiers.Logger.CreateTypedLogger<AstParentItemVerifier<TObject, IGqlpObjBase, EnumContext, IGqlpTypeParam>>();
 
-  private readonly Matcher<TObjArg>.L _constraintMatcher = verifiers.ConstraintMatcher;
+  private readonly Matcher<IGqlpObjArg>.L _constraintMatcher = verifiers.ConstraintMatcher;
 
   protected override void UsageValue(TObject usage, EnumContext context)
   {
@@ -144,9 +143,9 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
 
   private void CheckParamsArgs(CheckError error, EnumContext context, IGqlpObject definition, TObjBase reference)
   {
-    IEnumerable<(TObjArg, IGqlpTypeParam)> argAndParams = reference.BaseArgs
+    IEnumerable<(IGqlpObjArg, IGqlpTypeParam)> argAndParams = reference.Args
       .Zip(definition.TypeParams, static (a, p) => (a, p));
-    foreach ((TObjArg arg, IGqlpTypeParam param) in argAndParams) {
+    foreach ((IGqlpObjArg arg, IGqlpTypeParam param) in argAndParams) {
       CheckArgEnum(context, arg);
       CheckTypeRef(error, context, arg);
 
@@ -302,15 +301,14 @@ internal static partial class AstObjectVerifierLogging
   internal static partial void CheckingAlternates(this ILogger logger, object input, bool top, string alternate, string current);
 }
 
-internal record class ObjectVerifierParams<TObject, TObjField, TObjAlt, TObjArg>(
+internal record class ObjectVerifierParams<TObject, TObjField, TObjAlt>(
   IVerifyAliased<TObject> Aliased,
   IMerge<TObjField> MergeFields,
   IMerge<TObjAlt> MergeAlternates,
-  Matcher<TObjArg>.D ConstraintMatcher,
+  Matcher<IGqlpObjArg>.D ConstraintMatcher,
   ILoggerFactory Logger
 )
   where TObject : IGqlpObject
   where TObjField : IGqlpObjField
   where TObjAlt : IGqlpObjAlternate
-  where TObjArg : IGqlpObjArg
   ;

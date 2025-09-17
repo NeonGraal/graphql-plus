@@ -43,14 +43,13 @@ public abstract class AstObjectAlternateTests<TObjBase>
   internal abstract IAstObjectAlternateChecks<TObjBase> AlternateChecks { get; }
 }
 
-internal sealed class AstObjectAlternateChecks<TObjAltAst, TObjBase, TObjBaseAst, TObjArg, TObjArgAst>
+internal sealed class AstObjectAlternateChecks<TObjAltAst, TObjBase, TObjBaseAst, TObjArgAst>
   : AstAbbreviatedChecks<AlternateInput, TObjAltAst>
   , IAstObjectAlternateChecks<TObjBase>
-  where TObjAltAst : AstObjAlternate<TObjArg>
+  where TObjAltAst : AstObjAlternate
   where TObjBase : IGqlpObjBase
-  where TObjBaseAst : AstObjBase<TObjArg>, TObjBase
-  where TObjArg : IGqlpObjArg
-  where TObjArgAst : AstObjArg, TObjArg
+  where TObjBaseAst : AstObjBase, TObjBase
+  where TObjArgAst : AstObjArg
 {
   private readonly AlternateBy _createAlternate;
   private readonly ArgsBy _createArgs;
@@ -83,7 +82,7 @@ internal sealed class AstObjectAlternateChecks<TObjAltAst, TObjBase, TObjBaseAst
 
   public void String_ForDual(AlternateInput input, string[] arguments)
   {
-    TObjAltAst alt = _createAlternate(input) with { BaseArgs = _createArgs(arguments) };
+    TObjAltAst alt = _createAlternate(input) with { Args = _createArgs(arguments) };
     if (alt is not IGqlpToDual<IGqlpDualAlternate> altDual) {
       return;
     }
@@ -97,7 +96,7 @@ internal sealed class AstObjectAlternateChecks<TObjAltAst, TObjBase, TObjBaseAst
 
   public void ModifiedType_WithArgs(AlternateInput input, string[] arguments)
   {
-    TObjAltAst alternate = _createAlternate(input) with { BaseArgs = _createArgs(arguments) };
+    TObjAltAst alternate = _createAlternate(input) with { Args = _createArgs(arguments) };
     string expected = $"{input.Type} < {arguments.Joined()} >";
 
     alternate.ModifiedType.ShouldBe(expected);
@@ -114,7 +113,7 @@ internal sealed class AstObjectAlternateChecks<TObjAltAst, TObjBase, TObjBaseAst
   public void ModifiedType_WithModifiersAndArgs(AlternateInput input, string[] arguments)
   {
     TObjAltAst alternate = _createAlternate(input) with {
-      BaseArgs = _createArgs(arguments),
+      Args = _createArgs(arguments),
       Modifiers = TestMods()
     };
     string expected = $"{input.Type} < {arguments.Joined()} > [] ?";

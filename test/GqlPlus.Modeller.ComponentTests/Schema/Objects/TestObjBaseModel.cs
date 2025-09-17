@@ -4,11 +4,10 @@ using GqlPlus.Modelling;
 
 namespace GqlPlus.Schema.Objects;
 
-public abstract class TestObjBaseModel<TObjBase, TObjArg, TModel>(
-  ICheckObjBaseModel<TObjBase, TObjArg, TModel> objBaseChecks
+public abstract class TestObjBaseModel<TObjBase, TModel>(
+  ICheckObjBaseModel<TObjBase, TModel> objBaseChecks
 ) : TestModelBase<string, TModel>(objBaseChecks)
   where TObjBase : IGqlpObjBase
-  where TObjArg : IGqlpObjArg
   where TModel : IModelBase
 {
   [Theory, RepeatData]
@@ -26,16 +25,15 @@ public abstract class TestObjBaseModel<TObjBase, TObjArg, TModel>(
       );
 }
 
-internal abstract class CheckObjBaseModel<TObjBase, TObjArg, TObjBaseAst, TObjArgAst, TModel>(
+internal abstract class CheckObjBaseModel<TObjBase, TObjBaseAst, TObjArgAst, TModel>(
   IModeller<TObjBase, TModel> objBase,
   IEncoder<TModel> encoding,
   TypeKindModel kind
 ) : CheckModelBase<string, TObjBase, TModel>(objBase, encoding),
-    ICheckObjBaseModel<TObjBase, TObjArg, TModel>
+    ICheckObjBaseModel<TObjBase, TModel>
   where TObjBase : IGqlpObjBase
-  where TObjBaseAst : AstObjBase<TObjArg>, TObjBase
-  where TObjArg : IGqlpObjArg
-  where TObjArgAst : AstObjArg, TObjArg
+  where TObjBaseAst : AstObjBase, TObjBase
+  where TObjArgAst : AstObjArg
   where TModel : IModelBase
 {
   protected readonly TypeKindModel TypeKind = kind;
@@ -50,32 +48,31 @@ internal abstract class CheckObjBaseModel<TObjBase, TObjArg, TObjBaseAst, TObjAr
   protected string[] ExpectedDual(string input)
     => ["!_ObjBase", "name: " + input];
 
-  protected abstract TObjBaseAst NewObjBaseAst(string input, bool isTypeParam, TObjArg[] args);
-  protected abstract TObjArg NewObjArgAst(string input, bool isTypeParam);
+  protected abstract TObjBaseAst NewObjBaseAst(string input, bool isTypeParam, IGqlpObjArg[] args);
+  protected abstract IGqlpObjArg NewObjArgAst(string input, bool isTypeParam);
 
-  void ICheckObjBaseModel<TObjBase, TObjArg, TModel>.ObjBase_Expected(TObjBase ast, string[] expected)
+  void ICheckObjBaseModel<TObjBase, TModel>.ObjBase_Expected(TObjBase ast, string[] expected)
     => Model_Expected(AstToModel(ast), expected);
-  TObjBase ICheckObjBaseModel<TObjBase, TObjArg, TModel>.ObjBaseAst(string input, bool isTypeParam, TObjArg[] args)
+  TObjBase ICheckObjBaseModel<TObjBase, TModel>.ObjBaseAst(string input, bool isTypeParam, IGqlpObjArg[] args)
     => NewObjBaseAst(input, isTypeParam, args);
-  string[] ICheckObjBaseModel<TObjBase, TObjArg, TModel>.ExpectedObjBase(string input, bool isTypeParam, string[] args)
+  string[] ICheckObjBaseModel<TObjBase, TModel>.ExpectedObjBase(string input, bool isTypeParam, string[] args)
     => ExpectedObjBase(input, isTypeParam, args);
-  string[] ICheckObjBaseModel<TObjBase, TObjArg, TModel>.ExpectedDual(string input)
+  string[] ICheckObjBaseModel<TObjBase, TModel>.ExpectedDual(string input)
     => ExpectedDual(input);
-  string[] ICheckObjBaseModel<TObjBase, TObjArg, TModel>.ExpectedArgs(string[] args)
+  string[] ICheckObjBaseModel<TObjBase, TModel>.ExpectedArgs(string[] args)
     => [.. ItemsExpected("typeArgs:", args, a => [$"  - !_ObjTypeArg", $"    name: {a}"])];
-  TObjArg ICheckObjBaseModel<TObjBase, TObjArg, TModel>.ObjArgAst(string input, bool isTypeParam) => NewObjArgAst(input, isTypeParam);
+  IGqlpObjArg ICheckObjBaseModel<TObjBase, TModel>.ObjArgAst(string input, bool isTypeParam) => NewObjArgAst(input, isTypeParam);
 }
 
-public interface ICheckObjBaseModel<TObjBase, TObjArg, TModel>
+public interface ICheckObjBaseModel<TObjBase, TModel>
   : ICheckModelBase<string, TModel>
   where TObjBase : IGqlpObjBase
-  where TObjArg : IGqlpObjArg
   where TModel : IModelBase
 {
   string[] ExpectedObjBase(string input, bool isTypeParam, string[] args);
   string[] ExpectedDual(string input);
   string[] ExpectedArgs(string[] args);
   void ObjBase_Expected(TObjBase ast, string[] expected);
-  TObjBase ObjBaseAst(string input, bool isTypeParam, TObjArg[] args);
-  TObjArg ObjArgAst(string input, bool isTypeParam);
+  TObjBase ObjBaseAst(string input, bool isTypeParam, IGqlpObjArg[] args);
+  IGqlpObjArg ObjArgAst(string input, bool isTypeParam);
 }

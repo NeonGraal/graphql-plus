@@ -12,5 +12,5 @@ public class ParseDualBaseTests(
 
 internal sealed class ParseDualBaseChecks(
   Parser<IGqlpDualBase>.D parser
-) : CheckObjectBase<IGqlpDualBase, DualBaseAst, IGqlpObjArg, DualArgAst>(new DualFactories(), parser)
+) : CheckObjectBase<IGqlpDualBase, DualBaseAst, DualArgAst>(new DualFactories(), parser)
 { }

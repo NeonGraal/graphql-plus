@@ -6,14 +6,13 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-internal abstract class ObjectAlternatesParser<TObjAlt, TObjAltAst, TObjBase, TObjArg>(
+internal abstract class ObjectAlternatesParser<TObjAlt, TObjAltAst, TObjBase>(
   ParserArray<IParserCollections, IGqlpModifier>.DA collections,
   Parser<TObjBase>.D parseBase
 ) : Parser<TObjAlt>.IA
   where TObjAlt : IGqlpObjAlternate
-  where TObjAltAst : AstObjAlternate<TObjArg>, TObjAlt
+  where TObjAltAst : AstObjAlternate, TObjAlt
   where TObjBase : IGqlpObjBase
-  where TObjArg : IGqlpObjArg
 {
   private readonly ParserArray<IParserCollections, IGqlpModifier>.LA _collections = collections;
   private readonly Parser<TObjBase>.L _parseBase = parseBase;
@@ -36,7 +35,7 @@ internal abstract class ObjectAlternatesParser<TObjAlt, TObjAltAst, TObjBase, TO
       TObjBase baseObject = objBase.Required();
       TObjAltAst alternate = ObjAlternate(at, baseObject.Name, baseObject.Description) with {
         IsTypeParam = baseObject.IsTypeParam,
-        BaseArgs = baseObject.Args.ArrayOf<TObjArg>(),
+        Args = baseObject.Args.ArrayOf<IGqlpObjArg>(),
       };
       result.Add(alternate);
       IResultArray<IGqlpModifier> collections = _collections.Value.Parse(tokens, label);

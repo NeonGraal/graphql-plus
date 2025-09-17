@@ -5,14 +5,13 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-internal abstract class ObjectBaseParser<TObjBase, TObjBaseAst, TObjArg>(
-  Parser<TObjArg>.DA parseArgs
+internal abstract class ObjectBaseParser<TObjBase, TObjBaseAst>(
+  Parser<IGqlpObjArg>.DA parseArgs
 ) : Parser<TObjBase>.I
   where TObjBase : IGqlpObjBase
-  where TObjBaseAst : AstObjBase<TObjArg>, TObjBase
-  where TObjArg : IGqlpObjArg
+  where TObjBaseAst : AstObjBase, TObjBase
 {
-  private readonly Parser<TObjArg>.LA _parseArgs = parseArgs;
+  private readonly Parser<IGqlpObjArg>.LA _parseArgs = parseArgs;
 
   public IResult<TObjBase> Parse(ITokenizer tokens, string label)
   {
@@ -41,8 +40,8 @@ internal abstract class ObjectBaseParser<TObjBase, TObjBaseAst, TObjArg>(
 
     if (hasName) {
       TObjBaseAst objBase = ObjBase(at, name!, description);
-      IResultArray<TObjArg> arguments = _parseArgs.Parse(tokens, label);
-      if (!arguments.Optional(values => objBase.BaseArgs = [.. values])) {
+      IResultArray<IGqlpObjArg> arguments = _parseArgs.Parse(tokens, label);
+      if (!arguments.Optional(values => objBase.Args = [.. values])) {
         return arguments.AsResult<TObjBase>(objBase);
       }
 

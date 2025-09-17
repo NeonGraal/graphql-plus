@@ -59,21 +59,20 @@ public abstract class AstObjectBaseTests<TObjBase>
   internal abstract IAstObjBaseChecks<TObjBase> ObjBaseChecks { get; }
 }
 
-internal sealed class AstObjBaseChecks<TObjBase, TObjBaseAst, TObjArg, TObjArgAst>(
-AstObjBaseChecks<TObjBase, TObjBaseAst, TObjArg, TObjArgAst>.BaseBy createBase,
-AstObjBaseChecks<TObjBase, TObjBaseAst, TObjArg, TObjArgAst>.ArgsBy createArgs
+internal sealed class AstObjBaseChecks<TObjBase, TObjBaseAst, TObjArgAst>(
+AstObjBaseChecks<TObjBase, TObjBaseAst, TObjArgAst>.BaseBy createBase,
+AstObjBaseChecks<TObjBase, TObjBaseAst, TObjArgAst>.ArgsBy createArgs
 ) : AstAbbreviatedChecks<string, TObjBase>(input => createBase(input))
   , IAstObjBaseChecks<TObjBase>
   where TObjBase : IGqlpObjBase
-  where TObjBaseAst : AstObjBase<TObjArg>, TObjBase
-  where TObjArg : IGqlpObjArg
-  where TObjArgAst : AstObjArg, TObjArg
+  where TObjBaseAst : AstObjBase, TObjBase
+  where TObjArgAst : AstObjArg
 {
   private readonly BaseBy _createBase = createBase;
   private readonly ArgsBy _createArgs = createArgs;
 
   internal delegate TObjBaseAst BaseBy(string input);
-  internal delegate TObjArg[] ArgsBy(string[] argument);
+  internal delegate IGqlpObjArg[] ArgsBy(string[] argument);
 
   public void HashCode_WithIsTypeParam(string input)
       => HashCode(() => _createBase(input) with { IsTypeParam = true });
@@ -92,24 +91,24 @@ AstObjBaseChecks<TObjBase, TObjBaseAst, TObjArg, TObjArgAst>.ArgsBy createArgs
       false);
 
   public void HashCode_WithArgs(string input, string[] arguments)
-    => HashCode(() => _createBase(input) with { BaseArgs = _createArgs(arguments) });
+    => HashCode(() => _createBase(input) with { Args = _createArgs(arguments) });
 
   public void String_WithArgs(string input, string[] arguments)
     => Text(
-      () => _createBase(input) with { BaseArgs = _createArgs(arguments) },
+      () => _createBase(input) with { Args = _createArgs(arguments) },
       $"( {input} < {arguments.Joined()} > )");
 
   public void Equality_WithArgs(string input, string[] arguments)
-    => Equality(() => _createBase(input) with { BaseArgs = _createArgs(arguments) });
+    => Equality(() => _createBase(input) with { Args = _createArgs(arguments) });
 
   public void Inequality_BetweenArgs(string input, string[] arguments1, string[] arguments2)
   => InequalityBetween(arguments1, arguments2,
-    arguments => _createBase(input) with { BaseArgs = _createArgs(arguments) },
+    arguments => _createBase(input) with { Args = _createArgs(arguments) },
     arguments1.OrderedEqual(arguments2));
 
   public void String_ForDual(string input, string[] arguments)
   {
-    TObjBaseAst theBase = _createBase(input) with { BaseArgs = _createArgs(arguments) };
+    TObjBaseAst theBase = _createBase(input) with { Args = _createArgs(arguments) };
     if (theBase is not IGqlpToDual<IGqlpDualBase> objDual) {
       return;
     }
@@ -137,7 +136,7 @@ AstObjBaseChecks<TObjBase, TObjBaseAst, TObjArg, TObjArgAst>.ArgsBy createArgs
 
   public void FullType_WithArgs(string input, string[] arguments)
   {
-    TObjBase objBase = _createBase(input) with { BaseArgs = _createArgs(arguments) };
+    TObjBase objBase = _createBase(input) with { Args = _createArgs(arguments) };
 
     objBase.FullType.ShouldBe(input + $" < {arguments.Joined()} >");
   }
@@ -146,7 +145,7 @@ AstObjBaseChecks<TObjBase, TObjBaseAst, TObjArg, TObjArgAst>.ArgsBy createArgs
   {
     TObjBase objBase = _createBase(input) with {
       IsTypeParam = true,
-      BaseArgs = _createArgs(arguments)
+      Args = _createArgs(arguments)
     };
 
     objBase.FullType.ShouldBe($"${input} < {arguments.Joined()} >");

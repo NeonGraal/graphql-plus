@@ -2,13 +2,12 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-internal abstract record class AstObjAlternate<TObjArg>(
+internal abstract record class AstObjAlternate(
   ITokenAt At,
   string Name,
   string Description
-) : AstObjBase<TObjArg>(At, Name, Description)
-  , IGqlpObjAlternate<TObjArg>
-  where TObjArg : IGqlpObjArg
+) : AstObjBase(At, Name, Description)
+  , IGqlpObjAlternate
 {
   public IGqlpModifier[] Modifiers { get; set; } = [];
 
@@ -16,9 +15,9 @@ internal abstract record class AstObjAlternate<TObjArg>(
 
   IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
 
-  public virtual bool Equals(AstObjAlternate<TObjArg>? other)
-    => other is IGqlpObjAlternate<TObjArg> alternate && Equals(alternate);
-  public bool Equals(IGqlpObjAlternate<TObjArg>? other)
+  public virtual bool Equals(AstObjAlternate? other)
+    => other is IGqlpObjAlternate alternate && Equals(alternate);
+  public bool Equals(IGqlpObjAlternate? other)
     => base.Equals(other)
     && Modifiers.SequenceEqual(other.Modifiers);
   public override int GetHashCode()

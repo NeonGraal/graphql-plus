@@ -30,7 +30,7 @@ public class OutputFieldAstTests
   protected override string AliasesString(FieldInput input, string description, string aliases)
     => $"( {DescriptionNameString(input, description)}{aliases} : {input.Type} )";
 
-  private readonly AstObjectFieldChecks<OutputFieldAst, IGqlpOutputBase, OutputBaseAst, IGqlpObjArg, OutputArgAst> _checks = new(
+  private readonly AstObjectFieldChecks<OutputFieldAst, IGqlpOutputBase, OutputBaseAst, OutputArgAst> _checks = new(
           (input, objBase) => new(AstNulls.At, input.Name, objBase),
       input => new(AstNulls.At, input.Type),
       arguments => arguments.OutputArgs());

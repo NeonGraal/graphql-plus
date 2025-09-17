@@ -37,11 +37,11 @@ public static class AllVerifiers
       .AddVerifyUsageAliased<IGqlpEnum, VerifyEnumsAliased, VerifyEnumTypes>()
       .AddVerifyUsageAliased<IGqlpUnion, VerifyUnionsAliased, VerifyUnionTypes>()
       // Object Types
-      .AddSingleton<ObjectVerifierParams<IGqlpDualObject, IGqlpDualField, IGqlpDualAlternate, IGqlpObjArg>>()
+      .AddSingleton<ObjectVerifierParams<IGqlpDualObject, IGqlpDualField, IGqlpDualAlternate>>()
       .AddVerifyUsageAliased<IGqlpDualObject, VerifyDualsAliased, VerifyDualTypes>()
-      .AddSingleton<ObjectVerifierParams<IGqlpInputObject, IGqlpInputField, IGqlpInputAlternate, IGqlpObjArg>>()
+      .AddSingleton<ObjectVerifierParams<IGqlpInputObject, IGqlpInputField, IGqlpInputAlternate>>()
       .AddVerifyUsageAliased<IGqlpInputObject, VerifyInputsAliased, VerifyInputTypes>()
-      .AddSingleton<ObjectVerifierParams<IGqlpOutputObject, IGqlpOutputField, IGqlpOutputAlternate, IGqlpObjArg>>()
+      .AddSingleton<ObjectVerifierParams<IGqlpOutputObject, IGqlpOutputField, IGqlpOutputAlternate>>()
       .AddVerifyUsageAliased<IGqlpOutputObject, VerifyOutputsAliased, VerifyOutputTypes>()
     ;
 

@@ -7,7 +7,7 @@ namespace GqlPlus.Parsing.Schema.Objects;
 internal class ParseOutputAlternates(
   ParserArray<IParserCollections, IGqlpModifier>.DA collections,
   Parser<IGqlpOutputBase>.D parseBase
-) : ObjectAlternatesParser<IGqlpOutputAlternate, OutputAlternateAst, IGqlpOutputBase, IGqlpObjArg>(collections, parseBase)
+) : ObjectAlternatesParser<IGqlpOutputAlternate, OutputAlternateAst, IGqlpOutputBase>(collections, parseBase)
 {
   protected override OutputAlternateAst ObjAlternate(TokenAt at, string name, string description)
     => new(at, name, description);

@@ -29,19 +29,18 @@ public abstract class TestObjectField<TObjField>(
   => fieldChecks.WithModifiersBad(name, fieldType);
 }
 
-internal class CheckObjectField<TObjField, TObjFieldAst, TObjBase, TObjBaseAst, TObjArg, TObjArgAst>
+internal class CheckObjectField<TObjField, TObjFieldAst, TObjBase, TObjBaseAst, TObjArgAst>
   : BaseAliasedChecks<FieldInput, TObjFieldAst, TObjField>
   , ICheckObjectField<TObjField>
   where TObjField : IGqlpObjField
   where TObjFieldAst : AstObjField<TObjBase>, TObjField
   where TObjBase : IGqlpObjBase
-  where TObjBaseAst : AstObjBase<TObjArg>, TObjBase
-  where TObjArg : IGqlpObjArg
-  where TObjArgAst : AstObjArg, TObjArg
+  where TObjBaseAst : AstObjBase, TObjBase
+  where TObjArgAst : AstObjArg
 {
-  private readonly IObjectFieldFactories<TObjFieldAst, TObjBase, TObjBaseAst, TObjArg, TObjArgAst> _factories;
+  private readonly IObjectFieldFactories<TObjFieldAst, TObjBase, TObjBaseAst, TObjArgAst> _factories;
 
-  internal CheckObjectField(IObjectFieldFactories<TObjFieldAst, TObjBase, TObjBaseAst, TObjArg, TObjArgAst> factories, Parser<TObjField>.D parser)
+  internal CheckObjectField(IObjectFieldFactories<TObjFieldAst, TObjBase, TObjBaseAst, TObjArgAst> factories, Parser<TObjField>.D parser)
     : base(parser)
     => _factories = factories;
 

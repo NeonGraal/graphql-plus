@@ -3,6 +3,6 @@
 namespace GqlPlus.Verifying.Schema.Objects;
 
 internal class VerifyDualTypes(
-  ObjectVerifierParams<IGqlpDualObject, IGqlpDualField, IGqlpDualAlternate, IGqlpObjArg> verifiers
-) : AstObjectVerifier<IGqlpDualObject, IGqlpDualBase, IGqlpObjArg, IGqlpDualField, IGqlpDualAlternate>(verifiers)
+  ObjectVerifierParams<IGqlpDualObject, IGqlpDualField, IGqlpDualAlternate> verifiers
+) : AstObjectVerifier<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>(verifiers)
 { }

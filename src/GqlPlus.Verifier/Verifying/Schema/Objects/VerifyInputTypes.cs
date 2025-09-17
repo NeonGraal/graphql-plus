@@ -3,8 +3,8 @@
 namespace GqlPlus.Verifying.Schema.Objects;
 
 internal class VerifyInputTypes(
-  ObjectVerifierParams<IGqlpInputObject, IGqlpInputField, IGqlpInputAlternate, IGqlpObjArg> verifiers
-) : AstObjectVerifier<IGqlpInputObject, IGqlpInputBase, IGqlpObjArg, IGqlpInputField, IGqlpInputAlternate>(verifiers)
+  ObjectVerifierParams<IGqlpInputObject, IGqlpInputField, IGqlpInputAlternate> verifiers
+) : AstObjectVerifier<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate>(verifiers)
 {
   protected override void UsageField(IGqlpInputField field, IGqlpInputObject usage, EnumContext context)
   {

@@ -8,7 +8,7 @@ public class DualBaseAstTests
   protected override string AbbreviatedString(string input)
     => $"( {input} )";
 
-  private readonly AstObjBaseChecks<IGqlpDualBase, DualBaseAst, IGqlpObjArg, DualArgAst> _checks
+  private readonly AstObjBaseChecks<IGqlpDualBase, DualBaseAst, DualArgAst> _checks
     = new(name => new DualBaseAst(AstNulls.At, name), arguments => arguments.DualArgs());
 
   internal override IAstObjBaseChecks<IGqlpDualBase> ObjBaseChecks => _checks;

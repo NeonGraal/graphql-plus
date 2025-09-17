@@ -59,14 +59,6 @@ public interface IGqlpObjBase
   void SetName(string name);
 }
 
-public interface IGqlpObjBase<TArg>
-  : IGqlpObjBase
-  , IEquatable<IGqlpObjBase<TArg>>
-  where TArg : IGqlpObjArg
-{
-  IEnumerable<TArg> BaseArgs { get; }
-}
-
 public interface IGqlpObjField
   : IGqlpAliased
   , IGqlpObjectEnum
@@ -90,13 +82,6 @@ public interface IGqlpObjAlternate
   , IGqlpModifiers
 { }
 
-public interface IGqlpObjAlternate<TArg>
-  : IGqlpObjAlternate
-  , IGqlpObjBase<TArg>
-  , IEquatable<IGqlpObjAlternate<TArg>>
-  where TArg : IGqlpObjArg
-{ }
-
 public interface IGqlpTypeParam
   : IGqlpNamed
 {
@@ -108,7 +93,7 @@ public interface IGqlpDualObject
 { }
 
 public interface IGqlpDualBase
-  : IGqlpObjBase<IGqlpObjArg>
+  : IGqlpObjBase
 { }
 
 public interface IGqlpDualField
@@ -116,7 +101,7 @@ public interface IGqlpDualField
 { }
 
 public interface IGqlpDualAlternate
-  : IGqlpObjAlternate<IGqlpObjArg>
+  : IGqlpObjAlternate
   , IGqlpDualBase
 { }
 
@@ -131,7 +116,7 @@ public interface IGqlpInputObject
 { }
 
 public interface IGqlpInputBase
-  : IGqlpObjBase<IGqlpObjArg>
+  : IGqlpObjBase
   , IGqlpToDual<IGqlpDualBase>
 { }
 
@@ -143,7 +128,7 @@ public interface IGqlpInputField
 }
 
 public interface IGqlpInputAlternate
-  : IGqlpObjAlternate<IGqlpObjArg>
+  : IGqlpObjAlternate
   , IGqlpInputBase
   , IGqlpToDual<IGqlpDualAlternate>
 { }
@@ -153,7 +138,7 @@ public interface IGqlpOutputObject
 { }
 
 public interface IGqlpOutputBase
-  : IGqlpObjBase<IGqlpObjArg>
+  : IGqlpObjBase
   , IGqlpToDual<IGqlpDualBase>
 { }
 
@@ -165,7 +150,7 @@ public interface IGqlpOutputField
 }
 
 public interface IGqlpOutputAlternate
-  : IGqlpObjAlternate<IGqlpObjArg>
+  : IGqlpObjAlternate
   , IGqlpOutputBase
   , IGqlpToDual<IGqlpDualAlternate>
 { }

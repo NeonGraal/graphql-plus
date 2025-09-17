@@ -90,7 +90,7 @@ public static class AllModellers
       TObjBaseAst, TObjAltAst,
       TObjFieldAst, TObjField, TFieldModeller
     >(this IServiceCollection services)
-      where TObjBaseAst : IGqlpObjBase<IGqlpObjArg>
+      where TObjBaseAst : IGqlpObjBase
       where TObjFieldAst : IGqlpObjField
       where TObjField : IObjFieldModel
       where TFieldModeller : class, IModeller<TObjFieldAst, TObjField>

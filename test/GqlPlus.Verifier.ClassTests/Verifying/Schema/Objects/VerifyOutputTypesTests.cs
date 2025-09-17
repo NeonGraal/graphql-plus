@@ -2,7 +2,7 @@
 
 [TracePerTest]
 public class VerifyOutputTypesTests
-  : ObjectDualVerifierTestsBase<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate, IGqlpObjArg>
+  : ObjectDualVerifierTestsBase<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>
 {
   private readonly IGqlpOutputObject _output;
 

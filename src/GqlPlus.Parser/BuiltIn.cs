@@ -86,7 +86,7 @@ public static class BuiltIn
     => new(AstNulls.At, "_" + label) { TypeParams = typeParams, Parent = parent };
 
   private static DualAlternateAst DualType(string type, params IGqlpObjArg[] args)
-    => new DualAlternateAst(AstNulls.At, type, "") with { BaseArgs = args };
+    => new DualAlternateAst(AstNulls.At, type, "") with { Args = args };
 
   private static DualAlternateAst DualAlt(string? type, bool typeParam = true)
     => typeParam || type is null
@@ -109,7 +109,7 @@ public static class BuiltIn
 
   private static DualAlternateAst DualMost(string key, bool optional = false)
     => new(AstNulls.At, "_Most", "") {
-      BaseArgs = [DualArgParam("T")],
+      Args = [DualArgParam("T")],
       Modifiers = key switch {
         "" => [optional ? ModifierAst.Optional(AstNulls.At) : ModifierAst.List(AstNulls.At)],
         _ => [ModifierAst.Dict(AstNulls.At, key, optional)]
@@ -117,7 +117,7 @@ public static class BuiltIn
     };
 
   private static DualBaseAst DualRef(string name, params IGqlpObjArg[] args)
-    => new DualBaseAst(AstNulls.At, name, "") with { BaseArgs = args };
+    => new DualBaseAst(AstNulls.At, name, "") with { Args = args };
 
   private static DualArgAst DualArg(string name)
     => new(AstNulls.At, name, "");
@@ -127,7 +127,7 @@ public static class BuiltIn
 
   private static DualBaseAst DualDict(string type, bool paramSecond = false)
     => DualRef("_Dict") with {
-      BaseArgs = [
+      Args = [
         paramSecond ? DualArgParam("K") : DualArg(type),
         paramSecond ? DualArg(type) : DualArgParam("T")
       ]

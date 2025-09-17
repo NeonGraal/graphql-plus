@@ -7,7 +7,7 @@ namespace GqlPlus.Parsing.Schema.Objects;
 [ExcludeFromCodeCoverage]
 
 internal class OutputFactories
-  : IObjectFactories<OutputDeclAst, IGqlpOutputField, OutputFieldAst, IGqlpOutputAlternate, OutputAlternateAst, IGqlpOutputBase, OutputBaseAst, IGqlpObjArg, OutputArgAst>
+  : IObjectFactories<OutputDeclAst, IGqlpOutputField, OutputFieldAst, IGqlpOutputAlternate, OutputAlternateAst, IGqlpOutputBase, OutputBaseAst, OutputArgAst>
 {
   public OutputFieldAst ObjField(TokenAt at, string name, IGqlpOutputBase typeBase, string description)
     => new(at, name, description, typeBase);

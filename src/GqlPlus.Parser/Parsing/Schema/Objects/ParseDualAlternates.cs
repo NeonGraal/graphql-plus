@@ -7,7 +7,7 @@ namespace GqlPlus.Parsing.Schema.Objects;
 internal class ParseDualAlternates(
   ParserArray<IParserCollections, IGqlpModifier>.DA collections,
   Parser<IGqlpDualBase>.D parseBase
-) : ObjectAlternatesParser<IGqlpDualAlternate, DualAlternateAst, IGqlpDualBase, IGqlpObjArg>(collections, parseBase)
+) : ObjectAlternatesParser<IGqlpDualAlternate, DualAlternateAst, IGqlpDualBase>(collections, parseBase)
 {
   protected override DualAlternateAst ObjAlternate(TokenAt at, string name, string description)
     => new(at, name, description);

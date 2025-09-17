@@ -8,7 +8,7 @@ public class DualFieldAstTests
   protected override string AliasesString(FieldInput input, string description, string aliases)
     => $"( {DescriptionNameString(input, description)}{aliases} : {input.Type} )";
 
-  private readonly AstObjectFieldChecks<DualFieldAst, IGqlpDualBase, DualBaseAst, IGqlpObjArg, DualArgAst> _checks = new(
+  private readonly AstObjectFieldChecks<DualFieldAst, IGqlpDualBase, DualBaseAst, DualArgAst> _checks = new(
       (dual, objBase) => new(AstNulls.At, dual.Name, objBase),
       dual => new DualBaseAst(AstNulls.At, dual.Type),
       arguments => arguments.DualArgs());

@@ -57,17 +57,16 @@ public abstract class AstObjectFieldTests<TObjBase>
   internal abstract IAstObjectFieldChecks<TObjBase> FieldChecks { get; }
 }
 
-internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst, TObjArg, TObjArgAst>(
-  AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst, TObjArg, TObjArgAst>.FieldBy createField,
-  AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst, TObjArg, TObjArgAst>.BaseBy createBase,
-  AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst, TObjArg, TObjArgAst>.ArgsBy createArgs
+internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst, TObjArgAst>(
+  AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst, TObjArgAst>.FieldBy createField,
+  AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst, TObjArgAst>.BaseBy createBase,
+  AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst, TObjArgAst>.ArgsBy createArgs
 ) : AstAliasedChecks<FieldInput, TObjField>(input => createField(input, createBase(input)))
   , IAstObjectFieldChecks<TObjBase>
   where TObjField : AstObjField<TObjBase>
   where TObjBase : IGqlpObjBase
-  where TObjBaseAst : AstObjBase<TObjArg>, TObjBase
-  where TObjArg : IGqlpObjArg
-  where TObjArgAst : AstObjArg, TObjArg
+  where TObjBaseAst : AstObjBase, TObjBase
+  where TObjArgAst : AstObjArg
 {
   private readonly FieldBy _createField = createField;
   private readonly BaseBy _createBase = createBase;
@@ -109,7 +108,7 @@ internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst, TOb
 
   public void ModifiedType_WithArgs(FieldInput input, string[] arguments)
   {
-    TObjField field = _createField(input, _createBase(input) with { BaseArgs = _createArgs(arguments) });
+    TObjField field = _createField(input, _createBase(input) with { Args = _createArgs(arguments) });
     string expected = $"{input.Type} < {arguments.Joined()} >";
 
     field.ModifiedType.ShouldBe(expected);
@@ -127,7 +126,7 @@ internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst, TOb
   {
     TObjField field = _createField(
         input,
-        _createBase(input) with { BaseArgs = _createArgs(arguments) }
+        _createBase(input) with { Args = _createArgs(arguments) }
       ) with { Modifiers = TestMods() };
     string expected = $"{input.Type} < {arguments.Joined()} > [] ?";
 

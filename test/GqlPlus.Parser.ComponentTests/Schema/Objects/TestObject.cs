@@ -82,7 +82,7 @@ where TObject : IGqlpObject
 
 public record struct ObjectInput(string Name, string Other);
 
-internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase, TObjBaseAst, TObjArg, TObjArgAst>
+internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase, TObjBaseAst, TObjArgAst>
   : BaseAliasedChecks<ObjectInput, TObjectAst, TObject>
   , ICheckObject<TObject>
   where TObject : IGqlpObject<TObjBase, TObjField, TObjAlt>
@@ -90,15 +90,14 @@ internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt
   where TObjField : IGqlpObjField
   where TObjFieldAst : AstObjField<TObjBase>, TObjField
   where TObjAlt : IGqlpObjAlternate
-  where TObjAltAst : AstObjAlternate<TObjArg>, TObjAlt
+  where TObjAltAst : AstObjAlternate, TObjAlt
   where TObjBase : IGqlpObjBase
-  where TObjBaseAst : AstObjBase<TObjArg>, TObjBase
-  where TObjArg : IGqlpObjArg
-  where TObjArgAst : AstObjArg, TObjArg
+  where TObjBaseAst : AstObjBase, TObjBase
+  where TObjArgAst : AstObjArg
 {
-  private readonly IObjectFactories<TObjectAst, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase, TObjBaseAst, TObjArg, TObjArgAst> _factories;
+  private readonly IObjectFactories<TObjectAst, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase, TObjBaseAst, TObjArgAst> _factories;
 
-  internal CheckObject(IObjectFactories<TObjectAst, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase, TObjBaseAst, TObjArg, TObjArgAst> factories, Parser<TObject>.D parser)
+  internal CheckObject(IObjectFactories<TObjectAst, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase, TObjBaseAst, TObjArgAst> factories, Parser<TObject>.D parser)
     : base(parser)
     => _factories = factories;
 
@@ -211,7 +210,7 @@ internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt
     => _factories.ObjBase(AstNulls.At, type, description);
 
   public TObjBase ObjBaseWithArgs(string type, string subType)
-    => ObjBase(type) with { BaseArgs = [ObjArg(subType)] };
+    => ObjBase(type) with { Args = [ObjArg(subType)] };
 
   public TObjArgAst ObjArg(string type, string description = "")
     => _factories.ObjArg(AstNulls.At, type, description);

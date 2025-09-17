@@ -7,7 +7,7 @@ namespace GqlPlus.Parsing.Schema.Objects;
 [ExcludeFromCodeCoverage]
 
 internal sealed class InputFactories
-  : IObjectFactories<InputDeclAst, IGqlpInputField, InputFieldAst, IGqlpInputAlternate, InputAlternateAst, IGqlpInputBase, InputBaseAst, IGqlpObjArg, InputArgAst>
+  : IObjectFactories<InputDeclAst, IGqlpInputField, InputFieldAst, IGqlpInputAlternate, InputAlternateAst, IGqlpInputBase, InputBaseAst, InputArgAst>
 {
   public InputFieldAst ObjField(TokenAt at, string name, IGqlpInputBase typeBase, string description)
     => new(at, name, description, typeBase);

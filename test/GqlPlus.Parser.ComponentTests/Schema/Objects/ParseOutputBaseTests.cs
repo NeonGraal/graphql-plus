@@ -14,7 +14,7 @@ public class ParseOutputBaseTests(
     => checks.TrueExpected(
       name + "<" + enumValues.Joined(s => enumType + "." + s) + ">",
       new OutputBaseAst(AstNulls.At, name) with {
-        BaseArgs = [.. enumValues.Select(enumLabel => new OutputArgAst(AstNulls.At, enumType) with { EnumLabel = enumLabel })]
+        Args = [.. enumValues.Select(enumLabel => new OutputArgAst(AstNulls.At, enumType) with { EnumLabel = enumLabel })]
       });
 
   [Theory, RepeatData]
@@ -24,5 +24,5 @@ public class ParseOutputBaseTests(
 
 internal sealed class ParseOutputBaseChecks(
   Parser<IGqlpOutputBase>.D parser
-) : CheckObjectBase<IGqlpOutputBase, OutputBaseAst, IGqlpObjArg, OutputArgAst>(new OutputFactories(), parser)
+) : CheckObjectBase<IGqlpOutputBase, OutputBaseAst, OutputArgAst>(new OutputFactories(), parser)
 { }

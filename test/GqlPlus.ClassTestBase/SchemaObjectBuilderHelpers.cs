@@ -64,7 +64,7 @@ public static class SchemaObjectBuilderHelpers
   }
 
   public static TBase ObjBase<TBase, TArg>(this IMockBuilder builder, string typeName, bool isTypeParam = false)
-    where TBase : class, IGqlpObjBase<TArg>
+    where TBase : class, IGqlpObjBase
     where TArg : class, IGqlpObjArg
   {
     TBase theType = builder.Named<TBase, IGqlpObjBase>(typeName);
@@ -80,11 +80,11 @@ public static class SchemaObjectBuilderHelpers
     return theType;
   }
   public static TBase SetArgs<TBase, TArg>([NotNull] this TBase objBase, params TArg[] args)
-    where TBase : class, IGqlpObjBase<TArg>
+    where TBase : class, IGqlpObjBase
     where TArg : class, IGqlpObjArg
   {
     objBase.Args.Returns(args);
-    objBase.BaseArgs.Returns(args);
+    objBase.Args.Returns(args);
 
     return objBase;
   }

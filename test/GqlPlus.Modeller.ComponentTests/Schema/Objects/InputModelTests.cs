@@ -10,7 +10,7 @@ public class InputModelTests(
 
 internal sealed class InputModelChecks(
   CheckTypeInputs<IGqlpInputObject, TypeInputModel> inputs
-) : CheckObjectModel<IGqlpInputObject, InputDeclAst, IGqlpInputField, InputFieldAst, IGqlpInputAlternate, InputAlternateAst, IGqlpInputBase, IGqlpObjArg, TypeInputModel>(inputs, TypeKindModel.Input)
+) : CheckObjectModel<IGqlpInputObject, InputDeclAst, IGqlpInputField, InputFieldAst, IGqlpInputAlternate, InputAlternateAst, IGqlpInputBase, TypeInputModel>(inputs, TypeKindModel.Input)
   , IInputModelChecks
 {
   protected override InputDeclAst NewObjectAst(ExpectedObjectInput input, IGqlpObjBase? parent = null)

@@ -13,7 +13,7 @@ public class InputAlternateAstTests
     => $"( !IA {input.Type} )";
 
   internal override IAstObjectAlternateChecks<IGqlpInputBase> AlternateChecks
-    => new AstObjectAlternateChecks<InputAlternateAst, IGqlpInputBase, InputBaseAst, IGqlpObjArg, InputArgAst>(
+    => new AstObjectAlternateChecks<InputAlternateAst, IGqlpInputBase, InputBaseAst, InputArgAst>(
       dual => new(AstNulls.At, dual.Type, ""),
       arguments => arguments.InputArgs());
 }

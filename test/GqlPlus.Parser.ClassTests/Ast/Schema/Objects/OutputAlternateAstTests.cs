@@ -5,10 +5,6 @@ namespace GqlPlus.Ast.Schema.Objects;
 public class OutputAlternateAstTests
   : AstObjectAlternateTests<IGqlpOutputBase>
 {
-  [Theory, RepeatData]
-  public void String_ForDual(AlternateInput input, string[] arguments)
-    => AlternateChecks.String_ForDual(input, arguments);
-
   protected override string AbbreviatedString(AlternateInput input)
     => $"( !OA {input.Type} )";
 

@@ -15,12 +15,4 @@ internal sealed record class InputBaseAst(
 
   internal override string Abbr => "IR";
   public override string Label => "Input";
-
-  IGqlpDualBase IGqlpToDual<IGqlpDualBase>.ToDual => ToDual();
-
-  public DualBaseAst ToDual()
-    => new(At, Name, Description) {
-      IsTypeParam = IsTypeParam,
-      Args = [.. Args.Select(a => new DualArgAst(a.At, a.Name, a.Description) { IsTypeParam = a.IsTypeParam })],
-    };
 }

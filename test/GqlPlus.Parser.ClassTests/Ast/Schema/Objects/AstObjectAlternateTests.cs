@@ -80,20 +80,6 @@ internal sealed class AstObjectAlternateChecks<TObjAltAst, TObjBase, TObjBaseAst
   public void Inequality_WithModifiers(AlternateInput input)
     => InequalityWith(input, () => CreateModifiers(input));
 
-  public void String_ForDual(AlternateInput input, string[] arguments)
-  {
-    TObjAltAst alt = _createAlternate(input) with { Args = _createArgs(arguments) };
-    if (alt is not IGqlpToDual<IGqlpDualAlternate> altDual) {
-      return;
-    }
-
-    IGqlpDualAlternate dual = altDual.ToDual;
-
-    string result = $"{dual}";
-
-    result.ShouldBe($"( {input.Type} < {arguments.Joined()} > )");
-  }
-
   public void ModifiedType_WithArgs(AlternateInput input, string[] arguments)
   {
     TObjAltAst alternate = _createAlternate(input) with { Args = _createArgs(arguments) };
@@ -133,7 +119,6 @@ internal interface IAstObjectAlternateChecks<TObjBase>
   void String_WithModifiers(AlternateInput input);
   void Equality_WithModifiers(AlternateInput input);
   void Inequality_WithModifiers(AlternateInput input);
-  void String_ForDual(AlternateInput input, string[] arguments);
   void ModifiedType_WithArgs(AlternateInput input, string[] arguments);
   void ModifiedType_WithModifiers(AlternateInput input);
   void ModifiedType_WithModifiersAndArgs(AlternateInput input, string[] arguments);

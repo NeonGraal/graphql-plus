@@ -1,7 +1,6 @@
 ﻿using GqlPlus.Abstractions.Schema;
 using GqlPlus.Result;
 using Microsoft.Extensions.Logging;
-using Parlot.Fluent;
 
 namespace GqlPlus;
 

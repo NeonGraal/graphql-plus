@@ -7,8 +7,7 @@ internal sealed record class DualBaseAst(
   ITokenAt At,
   string Name,
   string Description
-) : AstObjBase(At, Name, Description)
-  , IGqlpDualBase
+) : ObjBaseAst(At, Name, Description)
 {
   public DualBaseAst(TokenAt at, string name)
     : this(at, name, "") { }

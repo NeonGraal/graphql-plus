@@ -31,18 +31,17 @@ public static class AllModellers
       // Object
       .AddModeller<IGqlpTypeParam, TypeParamModel, TypeParamModeller>()
       .AddModeller<IGqlpObjArg, ObjTypeArgModel, ObjTypeArgModeller>()
-      .AddObjectModellers<
-          IGqlpDualBase, IGqlpDualAlternate,
-          IGqlpDualField, DualFieldModel, DualFieldModeller>()
-      .AddObjectModellers<
-          IGqlpInputBase, IGqlpInputAlternate,
-          IGqlpInputField, InputFieldModel, InputFieldModeller>()
-      .AddModeller<IGqlpInputParam, InputParamModel, InputParamModeller>()
-      .AddObjectModellers<
-          IGqlpOutputBase, IGqlpOutputAlternate,
-          IGqlpOutputField, OutputFieldModel, OutputFieldModeller>()
+      .AddModeller<IGqlpObjBase, ObjBaseModel, ObjBaseModeller>()
+      .AddModeller<IGqlpObjAlternate, ObjAlternateModel, ObjAlternateModeller>()
+
+      .AddObjectModellers<IGqlpDualField, DualFieldModel, DualFieldModeller>()
       .AddTypeModeller<IGqlpDualObject, TypeDualModel, DualModeller>()
+
+      .AddObjectModellers<IGqlpInputField, InputFieldModel, InputFieldModeller>()
       .AddTypeModeller<IGqlpInputObject, TypeInputModel, InputModeller>()
+      .AddModeller<IGqlpInputParam, InputParamModel, InputParamModeller>()
+
+      .AddObjectModellers<IGqlpOutputField, OutputFieldModel, OutputFieldModeller>()
       .AddTypeModeller<IGqlpOutputObject, TypeOutputModel, OutputModeller>()
     ;
 
@@ -87,17 +86,12 @@ public static class AllModellers
       .AddProvider<IModifierModeller, IModeller<IGqlpModifier, CollectionModel>>();
 
   private static IServiceCollection AddObjectModellers<
-      TObjBaseAst, TObjAltAst,
       TObjFieldAst, TObjField, TFieldModeller
     >(this IServiceCollection services)
-      where TObjBaseAst : IGqlpObjBase
       where TObjFieldAst : IGqlpObjField
       where TObjField : IObjFieldModel
       where TFieldModeller : class, IModeller<TObjFieldAst, TObjField>
-      where TObjAltAst : IGqlpObjAlternate, TObjBaseAst
     => services
-      .AddModeller<TObjBaseAst, ObjBaseModel, ObjBaseModeller<TObjBaseAst>>()
       .AddModeller<TObjFieldAst, TObjField, TFieldModeller>()
-      .AddModeller<TObjAltAst, ObjAlternateModel, ObjAlternateModeller<TObjBaseAst, TObjAltAst>>()
-      .AddSingleton<ObjectModellers<TObjBaseAst, TObjFieldAst, TObjAltAst, TObjField>>();
+      .AddSingleton<ObjectModellers<TObjFieldAst, TObjField>>();
 }

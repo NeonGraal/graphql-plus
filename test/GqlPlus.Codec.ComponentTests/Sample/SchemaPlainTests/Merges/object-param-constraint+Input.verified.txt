@@ -5,21 +5,21 @@ types: !_Map_Type
       - !_ObjectFor(_InputField)
         name: test
         object: ObjParamCnstInp
-        type: !_InputBase
+        type: !_ObjBase
           typeParam: test
       - !_ObjectFor(_InputField)
         name: type
         object: ObjParamCnstInp
-        type: !_InputBase
+        type: !_ObjBase
           typeParam: test
     fields:
       - !_InputField
         name: test
-        type: !_InputBase
+        type: !_ObjBase
           typeParam: test
       - !_InputField
         name: type
-        type: !_InputBase
+        type: !_ObjBase
           typeParam: test
     name: ObjParamCnstInp
     typeKind: !_TypeKind Input

@@ -6,14 +6,14 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "CnstAltDmnOutp",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "RefCnstAltDmnOutp",
             "typeArgs": [
               {
-                "$tag": "_OutputArg",
+                "$tag": "_ObjTypeArg",
                 "name": "DomCnstAltDmnOutp"
               }
             ]
@@ -22,13 +22,13 @@
       ],
       "alternates": [
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "RefCnstAltDmnOutp",
             "typeArgs": [
               {
-                "$tag": "_OutputArg",
+                "$tag": "_ObjTypeArg",
                 "name": "DomCnstAltDmnOutp"
               }
             ]
@@ -72,19 +72,19 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "RefCnstAltDmnOutp",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "ref"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "ref"
           }
         }

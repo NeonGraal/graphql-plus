@@ -29,18 +29,15 @@ public abstract class TestObjectField<TObjField>(
   => fieldChecks.WithModifiersBad(name, fieldType);
 }
 
-internal class CheckObjectField<TObjField, TObjFieldAst, TObjBase, TObjBaseAst, TObjArgAst>
+internal class CheckObjectField<TObjField, TObjFieldAst>
   : BaseAliasedChecks<FieldInput, TObjFieldAst, TObjField>
   , ICheckObjectField<TObjField>
   where TObjField : IGqlpObjField
-  where TObjFieldAst : AstObjField<TObjBase>, TObjField
-  where TObjBase : IGqlpObjBase
-  where TObjBaseAst : AstObjBase, TObjBase
-  where TObjArgAst : AstObjArg
+  where TObjFieldAst : AstObjField, TObjField
 {
-  private readonly IObjectFieldFactories<TObjFieldAst, TObjBase, TObjBaseAst, TObjArgAst> _factories;
+  private readonly IObjectFieldFactories<TObjFieldAst> _factories;
 
-  internal CheckObjectField(IObjectFieldFactories<TObjFieldAst, TObjBase, TObjBaseAst, TObjArgAst> factories, Parser<TObjField>.D parser)
+  internal CheckObjectField(IObjectFieldFactories<TObjFieldAst> factories, Parser<TObjField>.D parser)
     : base(parser)
     => _factories = factories;
 
@@ -58,7 +55,7 @@ internal class CheckObjectField<TObjField, TObjFieldAst, TObjBase, TObjBaseAst, 
   internal TObjFieldAst Field(string field, string fieldType)
     => _factories.ObjField(AstNulls.At, field, ObjBase(fieldType));
 
-  internal TObjBase ObjBase(string type)
+  internal IGqlpObjBase ObjBase(string type)
     => _factories.ObjBase(AstNulls.At, type);
 
   protected internal sealed override TObjFieldAst NamedFactory(FieldInput input)

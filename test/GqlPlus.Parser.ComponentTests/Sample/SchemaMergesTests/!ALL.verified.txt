@@ -428,6 +428,18 @@ Success
 }
 {
   !Du I@006/0001
+  AltEnumDual
+}
+{
+  !In I@007/0001
+  AltEnumInp
+}
+{
+  !Ou I@008/0001
+  AltEnumOutp
+}
+{
+  !Du I@006/0001
   AltModBoolDual
   |
   I@025/0001
@@ -983,6 +995,354 @@ Success
     I@053/0004
     Number
   }
+}
+{
+  !Du I@006/0001
+  CnstDomEnumDual
+  |
+  I@026/0001
+  RefCnstDomEnumDual
+  <
+    I@045/0001
+    cnstDomEnumDual
+  >
+}
+{
+  !Du I@006/0002
+  RefCnstDomEnumDual
+  <
+    I@026/0002
+    $type
+    :JustCnstDomEnumDual
+  >
+  {
+    !DF I@054/0002
+    field
+    :
+    I@062/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumCnstDomEnumDual
+  !EL I@028/0003
+  cnstDomEnumDual
+  !EL I@044/0003
+  other
+}
+{
+  !Do I@008/0004
+  JustCnstDomEnumDual
+  Enum
+  !DE I@035/0004
+  EnumCnstDomEnumDual
+  cnstDomEnumDual
+}
+{
+  !In I@007/0001
+  CnstDomEnumInp
+  |
+  I@026/0001
+  RefCnstDomEnumInp
+  <
+    I@044/0001
+    cnstDomEnumInp
+  >
+}
+{
+  !In I@007/0002
+  RefCnstDomEnumInp
+  <
+    I@026/0002
+    $type
+    :JustCnstDomEnumInp
+  >
+  {
+    !IF I@053/0002
+    field
+    :
+    I@061/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumCnstDomEnumInp
+  !EL I@027/0003
+  cnstDomEnumInp
+  !EL I@042/0003
+  other
+}
+{
+  !Do I@008/0004
+  JustCnstDomEnumInp
+  Enum
+  !DE I@034/0004
+  EnumCnstDomEnumInp
+  cnstDomEnumInp
+}
+{
+  !Ou I@008/0001
+  CnstDomEnumOutp
+  |
+  I@028/0001
+  RefCnstDomEnumOutp
+  <
+    I@047/0001
+    cnstDomEnumOutp
+  >
+}
+{
+  !Ou I@008/0002
+  RefCnstDomEnumOutp
+  <
+    I@028/0002
+    $type
+    :JustCnstDomEnumOutp
+  >
+  {
+    !OF I@056/0002
+    field
+    :
+    I@064/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumCnstDomEnumOutp
+  !EL I@028/0003
+  cnstDomEnumOutp
+  !EL I@044/0003
+  other
+}
+{
+  !Do I@008/0004
+  JustCnstDomEnumOutp
+  Enum
+  !DE I@035/0004
+  EnumCnstDomEnumOutp
+  cnstDomEnumOutp
+}
+{
+  !Du I@006/0001
+  CnstEnumDual
+  |
+  I@023/0001
+  RefCnstEnumDual
+  <
+    I@039/0001
+    cnstEnumDual
+  >
+}
+{
+  !Du I@006/0002
+  RefCnstEnumDual
+  <
+    I@023/0002
+    $type
+    :EnumCnstEnumDual
+  >
+  {
+    !DF I@048/0002
+    field
+    :
+    I@056/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumCnstEnumDual
+  !EL I@025/0003
+  cnstEnumDual
+}
+{
+  !In I@007/0001
+  CnstEnumInp
+  |
+  I@023/0001
+  RefCnstEnumInp
+  <
+    I@038/0001
+    cnstEnumInp
+  >
+}
+{
+  !In I@007/0002
+  RefCnstEnumInp
+  <
+    I@023/0002
+    $type
+    :EnumCnstEnumInp
+  >
+  {
+    !IF I@047/0002
+    field
+    :
+    I@055/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumCnstEnumInp
+  !EL I@024/0003
+  cnstEnumInp
+}
+{
+  !Ou I@008/0001
+  CnstEnumOutp
+  |
+  I@025/0001
+  RefCnstEnumOutp
+  <
+    I@041/0001
+    cnstEnumOutp
+  >
+}
+{
+  !Ou I@008/0002
+  RefCnstEnumOutp
+  <
+    I@025/0002
+    $type
+    :EnumCnstEnumOutp
+  >
+  {
+    !OF I@050/0002
+    field
+    :
+    I@058/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumCnstEnumOutp
+  !EL I@025/0003
+  cnstEnumOutp
+}
+{
+  !Du I@006/0001
+  CnstEnumPrntDual
+  |
+  I@027/0001
+  RefCnstEnumPrntDual
+  <
+    I@047/0001
+    cnstEnumPrntDual
+  >
+}
+{
+  !Du I@006/0002
+  RefCnstEnumPrntDual
+  <
+    I@027/0002
+    $type
+    :ParentCnstEnumPrntDual
+  >
+  {
+    !DF I@058/0002
+    field
+    :
+    I@066/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumCnstEnumPrntDual
+  :( !Tr I@030/0003 ParentCnstEnumPrntDual )
+  !EL I@053/0003
+  cnstEnumPrntDual
+}
+{
+  !En I@006/0004
+  ParentCnstEnumPrntDual
+  !EL I@031/0004
+  parentCnstEnumPrntDual
+}
+{
+  !In I@007/0001
+  CnstEnumPrntInp
+  |
+  I@027/0001
+  RefCnstEnumPrntInp
+  <
+    I@046/0001
+    cnstEnumPrntInp
+  >
+}
+{
+  !In I@007/0002
+  RefCnstEnumPrntInp
+  <
+    I@027/0002
+    $type
+    :ParentCnstEnumPrntInp
+  >
+  {
+    !IF I@057/0002
+    field
+    :
+    I@065/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumCnstEnumPrntInp
+  :( !Tr I@029/0003 ParentCnstEnumPrntInp )
+  !EL I@051/0003
+  cnstEnumPrntInp
+}
+{
+  !En I@006/0004
+  ParentCnstEnumPrntInp
+  !EL I@030/0004
+  parentCnstEnumPrntInp
+}
+{
+  !Ou I@008/0001
+  CnstEnumPrntOutp
+  |
+  I@029/0001
+  RefCnstEnumPrntOutp
+  <
+    I@049/0001
+    cnstEnumPrntOutp
+  >
+}
+{
+  !Ou I@008/0002
+  RefCnstEnumPrntOutp
+  <
+    I@029/0002
+    $type
+    :ParentCnstEnumPrntOutp
+  >
+  {
+    !OF I@060/0002
+    field
+    :
+    I@068/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumCnstEnumPrntOutp
+  :( !Tr I@030/0003 ParentCnstEnumPrntOutp )
+  !EL I@053/0003
+  cnstEnumPrntOutp
+}
+{
+  !En I@006/0004
+  ParentCnstEnumPrntOutp
+  !EL I@031/0004
+  parentCnstEnumPrntOutp
 }
 {
   !Du I@006/0001
@@ -1661,6 +2021,126 @@ Success
 }
 {
   !Du I@006/0001
+  CnstPrntEnumDual
+  |
+  I@027/0001
+  RefCnstPrntEnumDual
+  <
+    I@047/0001
+    parentCnstPrntEnumDual
+  >
+}
+{
+  !Du I@006/0002
+  RefCnstPrntEnumDual
+  <
+    I@027/0002
+    $type
+    :EnumCnstPrntEnumDual
+  >
+  {
+    !DF I@056/0002
+    field
+    :
+    I@064/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumCnstPrntEnumDual
+  :( !Tr I@030/0003 ParentCnstPrntEnumDual )
+  !EL I@053/0003
+  cnstPrntEnumDual
+}
+{
+  !En I@006/0004
+  ParentCnstPrntEnumDual
+  !EL I@031/0004
+  parentCnstPrntEnumDual
+}
+{
+  !In I@007/0001
+  CnstPrntEnumInp
+  |
+  I@027/0001
+  RefCnstPrntEnumInp
+  <
+    I@046/0001
+    parentCnstPrntEnumInp
+  >
+}
+{
+  !In I@007/0002
+  RefCnstPrntEnumInp
+  <
+    I@027/0002
+    $type
+    :EnumCnstPrntEnumInp
+  >
+  {
+    !IF I@055/0002
+    field
+    :
+    I@063/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumCnstPrntEnumInp
+  :( !Tr I@029/0003 ParentCnstPrntEnumInp )
+  !EL I@051/0003
+  cnstPrntEnumInp
+}
+{
+  !En I@006/0004
+  ParentCnstPrntEnumInp
+  !EL I@030/0004
+  parentCnstPrntEnumInp
+}
+{
+  !Ou I@008/0001
+  CnstPrntEnumOutp
+  |
+  I@029/0001
+  RefCnstPrntEnumOutp
+  <
+    I@049/0001
+    parentCnstPrntEnumOutp
+  >
+}
+{
+  !Ou I@008/0002
+  RefCnstPrntEnumOutp
+  <
+    I@029/0002
+    $type
+    :EnumCnstPrntEnumOutp
+  >
+  {
+    !OF I@058/0002
+    field
+    :
+    I@066/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumCnstPrntEnumOutp
+  :( !Tr I@030/0003 ParentCnstPrntEnumOutp )
+  !EL I@053/0003
+  cnstPrntEnumOutp
+}
+{
+  !En I@006/0004
+  ParentCnstPrntEnumOutp
+  !EL I@031/0004
+  parentCnstPrntEnumOutp
+}
+{
+  !Du I@006/0001
   CnstPrntObjPrntDual
   :
   I@029/0001
@@ -1934,6 +2414,135 @@ Success
   |
   I@041/0002
   String
+}
+{
+  !Du I@006/0001
+  FieldEnumDual
+  {
+    !DF I@022/0001
+    field
+    =
+    I@030/0001
+    EnumFieldEnumDual
+    .fieldEnumDual
+  }
+}
+{
+  !En I@006/0002
+  EnumFieldEnumDual
+  !EL I@026/0002
+  fieldEnumDual
+}
+{
+  !In I@007/0001
+  FieldEnumInp
+  {
+    !IF I@022/0001
+    field
+    =
+    I@030/0001
+    EnumFieldEnumInp
+    .fieldEnumInp
+  }
+}
+{
+  !En I@006/0002
+  EnumFieldEnumInp
+  !EL I@025/0002
+  fieldEnumInp
+}
+{
+  !Ou I@008/0001
+  FieldEnumOutp
+  {
+    !OF I@024/0001
+    field
+    =
+    I@032/0001
+    EnumFieldEnumOutp
+    .fieldEnumOutp
+  }
+}
+{
+  !En I@006/0002
+  EnumFieldEnumOutp
+  !EL I@026/0002
+  fieldEnumOutp
+}
+{
+  !Du I@006/0001
+  FieldEnumPrntDual
+  {
+    !DF I@026/0001
+    field
+    =
+    I@034/0001
+    EnumFieldEnumPrntDual
+    .prnt_fieldEnumPrntDual
+  }
+}
+{
+  !En I@006/0002
+  EnumFieldEnumPrntDual
+  :( !Tr I@031/0002 PrntFieldEnumPrntDual )
+  !EL I@053/0002
+  fieldEnumPrntDual
+}
+{
+  !En I@006/0003
+  PrntFieldEnumPrntDual
+  !EL I@030/0003
+  prnt_fieldEnumPrntDual
+}
+{
+  !In I@007/0001
+  FieldEnumPrntInp
+  {
+    !IF I@026/0001
+    field
+    =
+    I@034/0001
+    EnumFieldEnumPrntInp
+    .prnt_fieldEnumPrntInp
+  }
+}
+{
+  !En I@006/0002
+  EnumFieldEnumPrntInp
+  :( !Tr I@030/0002 PrntFieldEnumPrntInp )
+  !EL I@051/0002
+  fieldEnumPrntInp
+}
+{
+  !En I@006/0003
+  PrntFieldEnumPrntInp
+  !EL I@029/0003
+  prnt_fieldEnumPrntInp
+}
+{
+  !Ou I@008/0001
+  FieldEnumPrntOutp
+  {
+    !OF I@028/0001
+    field
+    =
+    I@036/0001
+    EnumFieldEnumPrntOutp
+    .prnt_fieldEnumPrntOutp
+  }
+}
+{
+  !En I@006/0002
+  EnumFieldEnumPrntOutp
+  :( !Tr I@031/0002 PrntFieldEnumPrntOutp )
+  !EL I@053/0002
+  fieldEnumPrntOutp
+}
+{
+  !En I@006/0003
+  PrntFieldEnumPrntOutp
+  !EL I@030/0003
+  prnt_fieldEnumPrntOutp
 }
 {
   !Du I@006/0001
@@ -2225,6 +2834,117 @@ Success
     I@051/0001
     Number
   }
+}
+{
+  !Du I@006/0001
+  FieldValueDual
+  {
+    !DF I@023/0001
+    field
+    =
+    I@031/0001
+    EnumFieldValueDual
+    .fieldValueDual
+  }
+}
+{
+  !En I@006/0002
+  EnumFieldValueDual
+  !EL I@027/0002
+  fieldValueDual
+}
+{
+  !In I@007/0001
+  FieldValueInp
+  {
+    !IF I@023/0001
+    field
+    =
+    I@031/0001
+    EnumFieldValueInp
+    .fieldValueInp
+  }
+}
+{
+  !En I@006/0002
+  EnumFieldValueInp
+  !EL I@026/0002
+  fieldValueInp
+}
+{
+  !Ou I@008/0001
+  FieldValueOutp
+  {
+    !OF I@025/0001
+    field
+    =
+    I@033/0001
+    EnumFieldValueOutp
+    .fieldValueOutp
+  }
+}
+{
+  !En I@006/0002
+  EnumFieldValueOutp
+  !EL I@027/0002
+  fieldValueOutp
+}
+{
+  !Du I@006/0001
+  FieldValueDescrDual
+  {
+    !DF I@028/0001
+    field
+    =
+    'Test Descr'
+    I@051/0001
+    EnumFieldValueDescrDual
+    .fieldValueDescrDual
+  }
+}
+{
+  !En I@006/0002
+  EnumFieldValueDescrDual
+  !EL I@032/0002
+  fieldValueDescrDual
+}
+{
+  !In I@007/0001
+  FieldValueDescrInp
+  {
+    !IF I@028/0001
+    field
+    =
+    'Test Descr'
+    I@051/0001
+    EnumFieldValueDescrInp
+    .fieldValueDescrInp
+  }
+}
+{
+  !En I@006/0002
+  EnumFieldValueDescrInp
+  !EL I@031/0002
+  fieldValueDescrInp
+}
+{
+  !Ou I@008/0001
+  FieldValueDescrOutp
+  {
+    !OF I@030/0001
+    field
+    =
+    'Test Descr'
+    I@053/0001
+    EnumFieldValueDescrOutp
+    .fieldValueDescrOutp
+  }
+}
+{
+  !En I@006/0002
+  EnumFieldValueDescrOutp
+  !EL I@032/0002
+  fieldValueDescrOutp
 }
 {
   !Du I@006/0001
@@ -2861,6 +3581,105 @@ Success
     I@061/0001
     $type
   }
+}
+{
+  !Du I@006/0001
+  GnrcEnumDual
+  |
+  I@023/0001
+  RefGnrcEnumDual
+  <
+    I@039/0001
+    EnumGnrcEnumDual.gnrcEnumDual
+  >
+}
+{
+  !Du I@006/0002
+  RefGnrcEnumDual
+  <
+    I@023/0002
+    $type
+    :_Enum
+  >
+  {
+    !DF I@037/0002
+    field
+    :
+    I@045/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumGnrcEnumDual
+  !EL I@025/0003
+  gnrcEnumDual
+}
+{
+  !In I@007/0001
+  GnrcEnumInp
+  |
+  I@023/0001
+  RefGnrcEnumInp
+  <
+    I@038/0001
+    EnumGnrcEnumInp.gnrcEnumInp
+  >
+}
+{
+  !In I@007/0002
+  RefGnrcEnumInp
+  <
+    I@023/0002
+    $type
+    :_Enum
+  >
+  {
+    !IF I@037/0002
+    field
+    :
+    I@045/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumGnrcEnumInp
+  !EL I@024/0003
+  gnrcEnumInp
+}
+{
+  !Ou I@008/0001
+  GnrcEnumOutp
+  |
+  I@025/0001
+  RefGnrcEnumOutp
+  <
+    I@041/0001
+    EnumGnrcEnumOutp.gnrcEnumOutp
+  >
+}
+{
+  !Ou I@008/0002
+  RefGnrcEnumOutp
+  <
+    I@025/0002
+    $type
+    :_Enum
+  >
+  {
+    !OF I@039/0002
+    field
+    :
+    I@047/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumGnrcEnumOutp
+  !EL I@025/0003
+  gnrcEnumOutp
 }
 {
   !Du I@006/0001
@@ -4426,6 +5245,105 @@ Success
   /\\w+/
 }
 {
+  !Du I@006/0001
+  GnrcValueDual
+  |
+  I@024/0001
+  RefGnrcValueDual
+  <
+    I@041/0001
+    gnrcValueDual
+  >
+}
+{
+  !Du I@006/0002
+  RefGnrcValueDual
+  <
+    I@024/0002
+    $type
+    :_Enum
+  >
+  {
+    !DF I@038/0002
+    field
+    :
+    I@046/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumGnrcValueDual
+  !EL I@026/0003
+  gnrcValueDual
+}
+{
+  !In I@007/0001
+  GnrcValueInp
+  |
+  I@024/0001
+  RefGnrcValueInp
+  <
+    I@040/0001
+    gnrcValueInp
+  >
+}
+{
+  !In I@007/0002
+  RefGnrcValueInp
+  <
+    I@024/0002
+    $type
+    :_Enum
+  >
+  {
+    !IF I@038/0002
+    field
+    :
+    I@046/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumGnrcValueInp
+  !EL I@025/0003
+  gnrcValueInp
+}
+{
+  !Ou I@008/0001
+  GnrcValueOutp
+  |
+  I@026/0001
+  RefGnrcValueOutp
+  <
+    I@043/0001
+    gnrcValueOutp
+  >
+}
+{
+  !Ou I@008/0002
+  RefGnrcValueOutp
+  <
+    I@026/0002
+    $type
+    :_Enum
+  >
+  {
+    !OF I@040/0002
+    field
+    :
+    I@048/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumGnrcValueOutp
+  !EL I@026/0003
+  gnrcValueOutp
+}
+{
   !In I@007/0001
   InpFieldDescrNmbr
   {
@@ -4509,912 +5427,6 @@ Success
     String
     =( !k S@037/0001 'default' )
   }
-}
-{
-  !Du I@006/0001
-  ObjCnstDomEnumDual
-  |
-  I@029/0001
-  RefObjCnstDomEnumDual
-  <
-    I@051/0001
-    objCnstDomEnumDual
-  >
-}
-{
-  !Du I@006/0002
-  RefObjCnstDomEnumDual
-  <
-    I@029/0002
-    $type
-    :JustObjCnstDomEnumDual
-  >
-  {
-    !DF I@060/0002
-    field
-    :
-    I@068/0002
-    $type
-  }
-}
-{
-  !En I@006/0003
-  EnumObjCnstDomEnumDual
-  !EL I@031/0003
-  objCnstDomEnumDual
-  !EL I@050/0003
-  other
-}
-{
-  !Do I@008/0004
-  JustObjCnstDomEnumDual
-  Enum
-  !DE I@038/0004
-  EnumObjCnstDomEnumDual
-  objCnstDomEnumDual
-}
-{
-  !In I@007/0001
-  ObjCnstDomEnumInp
-  |
-  I@029/0001
-  RefObjCnstDomEnumInp
-  <
-    I@050/0001
-    objCnstDomEnumInp
-  >
-}
-{
-  !In I@007/0002
-  RefObjCnstDomEnumInp
-  <
-    I@029/0002
-    $type
-    :JustObjCnstDomEnumInp
-  >
-  {
-    !IF I@059/0002
-    field
-    :
-    I@067/0002
-    $type
-  }
-}
-{
-  !En I@006/0003
-  EnumObjCnstDomEnumInp
-  !EL I@030/0003
-  objCnstDomEnumInp
-  !EL I@048/0003
-  other
-}
-{
-  !Do I@008/0004
-  JustObjCnstDomEnumInp
-  Enum
-  !DE I@037/0004
-  EnumObjCnstDomEnumInp
-  objCnstDomEnumInp
-}
-{
-  !Ou I@008/0001
-  ObjCnstDomEnumOutp
-  |
-  I@031/0001
-  RefObjCnstDomEnumOutp
-  <
-    I@053/0001
-    objCnstDomEnumOutp
-  >
-}
-{
-  !Ou I@008/0002
-  RefObjCnstDomEnumOutp
-  <
-    I@031/0002
-    $type
-    :JustObjCnstDomEnumOutp
-  >
-  {
-    !OF I@062/0002
-    field
-    :
-    I@070/0002
-    $type
-  }
-}
-{
-  !En I@006/0003
-  EnumObjCnstDomEnumOutp
-  !EL I@031/0003
-  objCnstDomEnumOutp
-  !EL I@050/0003
-  other
-}
-{
-  !Do I@008/0004
-  JustObjCnstDomEnumOutp
-  Enum
-  !DE I@038/0004
-  EnumObjCnstDomEnumOutp
-  objCnstDomEnumOutp
-}
-{
-  !Du I@006/0001
-  ObjCnstEnumDual
-  |
-  I@026/0001
-  RefObjCnstEnumDual
-  <
-    I@045/0001
-    objCnstEnumDual
-  >
-}
-{
-  !Du I@006/0002
-  RefObjCnstEnumDual
-  <
-    I@026/0002
-    $type
-    :EnumObjCnstEnumDual
-  >
-  {
-    !DF I@054/0002
-    field
-    :
-    I@062/0002
-    $type
-  }
-}
-{
-  !En I@006/0003
-  EnumObjCnstEnumDual
-  !EL I@028/0003
-  objCnstEnumDual
-}
-{
-  !In I@007/0001
-  ObjCnstEnumInp
-  |
-  I@026/0001
-  RefObjCnstEnumInp
-  <
-    I@044/0001
-    objCnstEnumInp
-  >
-}
-{
-  !In I@007/0002
-  RefObjCnstEnumInp
-  <
-    I@026/0002
-    $type
-    :EnumObjCnstEnumInp
-  >
-  {
-    !IF I@053/0002
-    field
-    :
-    I@061/0002
-    $type
-  }
-}
-{
-  !En I@006/0003
-  EnumObjCnstEnumInp
-  !EL I@027/0003
-  objCnstEnumInp
-}
-{
-  !Ou I@008/0001
-  ObjCnstEnumOutp
-  |
-  I@028/0001
-  RefObjCnstEnumOutp
-  <
-    I@047/0001
-    objCnstEnumOutp
-  >
-}
-{
-  !Ou I@008/0002
-  RefObjCnstEnumOutp
-  <
-    I@028/0002
-    $type
-    :EnumObjCnstEnumOutp
-  >
-  {
-    !OF I@056/0002
-    field
-    :
-    I@064/0002
-    $type
-  }
-}
-{
-  !En I@006/0003
-  EnumObjCnstEnumOutp
-  !EL I@028/0003
-  objCnstEnumOutp
-}
-{
-  !Du I@006/0001
-  ObjCnstEnumPrntDual
-  |
-  I@030/0001
-  RefObjCnstEnumPrntDual
-  <
-    I@053/0001
-    objCnstEnumPrntDual
-  >
-}
-{
-  !Du I@006/0002
-  RefObjCnstEnumPrntDual
-  <
-    I@030/0002
-    $type
-    :ParentObjCnstEnumPrntDual
-  >
-  {
-    !DF I@064/0002
-    field
-    :
-    I@072/0002
-    $type
-  }
-}
-{
-  !En I@006/0003
-  EnumObjCnstEnumPrntDual
-  :( !Tr I@033/0003 ParentObjCnstEnumPrntDual )
-  !EL I@059/0003
-  objCnstEnumPrntDual
-}
-{
-  !En I@006/0004
-  ParentObjCnstEnumPrntDual
-  !EL I@034/0004
-  parentObjCnstEnumPrntDual
-}
-{
-  !In I@007/0001
-  ObjCnstEnumPrntInp
-  |
-  I@030/0001
-  RefObjCnstEnumPrntInp
-  <
-    I@052/0001
-    objCnstEnumPrntInp
-  >
-}
-{
-  !In I@007/0002
-  RefObjCnstEnumPrntInp
-  <
-    I@030/0002
-    $type
-    :ParentObjCnstEnumPrntInp
-  >
-  {
-    !IF I@063/0002
-    field
-    :
-    I@071/0002
-    $type
-  }
-}
-{
-  !En I@006/0003
-  EnumObjCnstEnumPrntInp
-  :( !Tr I@032/0003 ParentObjCnstEnumPrntInp )
-  !EL I@057/0003
-  objCnstEnumPrntInp
-}
-{
-  !En I@006/0004
-  ParentObjCnstEnumPrntInp
-  !EL I@033/0004
-  parentObjCnstEnumPrntInp
-}
-{
-  !Ou I@008/0001
-  ObjCnstEnumPrntOutp
-  |
-  I@032/0001
-  RefObjCnstEnumPrntOutp
-  <
-    I@055/0001
-    objCnstEnumPrntOutp
-  >
-}
-{
-  !Ou I@008/0002
-  RefObjCnstEnumPrntOutp
-  <
-    I@032/0002
-    $type
-    :ParentObjCnstEnumPrntOutp
-  >
-  {
-    !OF I@066/0002
-    field
-    :
-    I@074/0002
-    $type
-  }
-}
-{
-  !En I@006/0003
-  EnumObjCnstEnumPrntOutp
-  :( !Tr I@033/0003 ParentObjCnstEnumPrntOutp )
-  !EL I@059/0003
-  objCnstEnumPrntOutp
-}
-{
-  !En I@006/0004
-  ParentObjCnstEnumPrntOutp
-  !EL I@034/0004
-  parentObjCnstEnumPrntOutp
-}
-{
-  !Du I@006/0001
-  ObjCnstPrntEnumDual
-  |
-  I@030/0001
-  RefObjCnstPrntEnumDual
-  <
-    I@053/0001
-    parentObjCnstPrntEnumDual
-  >
-}
-{
-  !Du I@006/0002
-  RefObjCnstPrntEnumDual
-  <
-    I@030/0002
-    $type
-    :EnumObjCnstPrntEnumDual
-  >
-  {
-    !DF I@062/0002
-    field
-    :
-    I@070/0002
-    $type
-  }
-}
-{
-  !En I@006/0003
-  EnumObjCnstPrntEnumDual
-  :( !Tr I@033/0003 ParentObjCnstPrntEnumDual )
-  !EL I@059/0003
-  objCnstPrntEnumDual
-}
-{
-  !En I@006/0004
-  ParentObjCnstPrntEnumDual
-  !EL I@034/0004
-  parentObjCnstPrntEnumDual
-}
-{
-  !In I@007/0001
-  ObjCnstPrntEnumInp
-  |
-  I@030/0001
-  RefObjCnstPrntEnumInp
-  <
-    I@052/0001
-    parentObjCnstPrntEnumInp
-  >
-}
-{
-  !In I@007/0002
-  RefObjCnstPrntEnumInp
-  <
-    I@030/0002
-    $type
-    :EnumObjCnstPrntEnumInp
-  >
-  {
-    !IF I@061/0002
-    field
-    :
-    I@069/0002
-    $type
-  }
-}
-{
-  !En I@006/0003
-  EnumObjCnstPrntEnumInp
-  :( !Tr I@032/0003 ParentObjCnstPrntEnumInp )
-  !EL I@057/0003
-  objCnstPrntEnumInp
-}
-{
-  !En I@006/0004
-  ParentObjCnstPrntEnumInp
-  !EL I@033/0004
-  parentObjCnstPrntEnumInp
-}
-{
-  !Ou I@008/0001
-  ObjCnstPrntEnumOutp
-  |
-  I@032/0001
-  RefObjCnstPrntEnumOutp
-  <
-    I@055/0001
-    parentObjCnstPrntEnumOutp
-  >
-}
-{
-  !Ou I@008/0002
-  RefObjCnstPrntEnumOutp
-  <
-    I@032/0002
-    $type
-    :EnumObjCnstPrntEnumOutp
-  >
-  {
-    !OF I@064/0002
-    field
-    :
-    I@072/0002
-    $type
-  }
-}
-{
-  !En I@006/0003
-  EnumObjCnstPrntEnumOutp
-  :( !Tr I@033/0003 ParentObjCnstPrntEnumOutp )
-  !EL I@059/0003
-  objCnstPrntEnumOutp
-}
-{
-  !En I@006/0004
-  ParentObjCnstPrntEnumOutp
-  !EL I@034/0004
-  parentObjCnstPrntEnumOutp
-}
-{
-  !Du I@006/0001
-  ObjFieldEnumDual
-  {
-    !DF I@025/0001
-    field
-    =
-    I@033/0001
-    EnumObjFieldEnumDual
-    .objFieldEnumDual
-  }
-}
-{
-  !En I@006/0002
-  EnumObjFieldEnumDual
-  !EL I@029/0002
-  objFieldEnumDual
-}
-{
-  !In I@007/0001
-  ObjFieldEnumInp
-  {
-    !IF I@025/0001
-    field
-    =
-    I@033/0001
-    EnumObjFieldEnumInp
-    .objFieldEnumInp
-  }
-}
-{
-  !En I@006/0002
-  EnumObjFieldEnumInp
-  !EL I@028/0002
-  objFieldEnumInp
-}
-{
-  !Ou I@008/0001
-  ObjFieldEnumOutp
-  {
-    !OF I@027/0001
-    field
-    =
-    I@035/0001
-    EnumObjFieldEnumOutp
-    .objFieldEnumOutp
-  }
-}
-{
-  !En I@006/0002
-  EnumObjFieldEnumOutp
-  !EL I@029/0002
-  objFieldEnumOutp
-}
-{
-  !Du I@006/0001
-  ObjFieldEnumPrntDual
-  {
-    !DF I@029/0001
-    field
-    =
-    I@037/0001
-    EnumObjFieldEnumPrntDual
-    .prnt_objFieldEnumPrntDual
-  }
-}
-{
-  !En I@006/0002
-  EnumObjFieldEnumPrntDual
-  :( !Tr I@034/0002 PrntObjFieldEnumPrntDual )
-  !EL I@059/0002
-  objFieldEnumPrntDual
-}
-{
-  !En I@006/0003
-  PrntObjFieldEnumPrntDual
-  !EL I@033/0003
-  prnt_objFieldEnumPrntDual
-}
-{
-  !In I@007/0001
-  ObjFieldEnumPrntInp
-  {
-    !IF I@029/0001
-    field
-    =
-    I@037/0001
-    EnumObjFieldEnumPrntInp
-    .prnt_objFieldEnumPrntInp
-  }
-}
-{
-  !En I@006/0002
-  EnumObjFieldEnumPrntInp
-  :( !Tr I@033/0002 PrntObjFieldEnumPrntInp )
-  !EL I@057/0002
-  objFieldEnumPrntInp
-}
-{
-  !En I@006/0003
-  PrntObjFieldEnumPrntInp
-  !EL I@032/0003
-  prnt_objFieldEnumPrntInp
-}
-{
-  !Ou I@008/0001
-  ObjFieldEnumPrntOutp
-  {
-    !OF I@031/0001
-    field
-    =
-    I@039/0001
-    EnumObjFieldEnumPrntOutp
-    .prnt_objFieldEnumPrntOutp
-  }
-}
-{
-  !En I@006/0002
-  EnumObjFieldEnumPrntOutp
-  :( !Tr I@034/0002 PrntObjFieldEnumPrntOutp )
-  !EL I@059/0002
-  objFieldEnumPrntOutp
-}
-{
-  !En I@006/0003
-  PrntObjFieldEnumPrntOutp
-  !EL I@033/0003
-  prnt_objFieldEnumPrntOutp
-}
-{
-  !Du I@006/0001
-  ObjFieldValueDual
-  {
-    !DF I@026/0001
-    field
-    =
-    I@034/0001
-    EnumObjFieldValueDual
-    .objFieldValueDual
-  }
-}
-{
-  !En I@006/0002
-  EnumObjFieldValueDual
-  !EL I@030/0002
-  objFieldValueDual
-}
-{
-  !In I@007/0001
-  ObjFieldValueInp
-  {
-    !IF I@026/0001
-    field
-    =
-    I@034/0001
-    EnumObjFieldValueInp
-    .objFieldValueInp
-  }
-}
-{
-  !En I@006/0002
-  EnumObjFieldValueInp
-  !EL I@029/0002
-  objFieldValueInp
-}
-{
-  !Ou I@008/0001
-  ObjFieldValueOutp
-  {
-    !OF I@028/0001
-    field
-    =
-    I@036/0001
-    EnumObjFieldValueOutp
-    .objFieldValueOutp
-  }
-}
-{
-  !En I@006/0002
-  EnumObjFieldValueOutp
-  !EL I@030/0002
-  objFieldValueOutp
-}
-{
-  !Du I@006/0001
-  ObjFieldValueDescrDual
-  {
-    !DF I@031/0001
-    field
-    =
-    'Test Descr'
-    I@054/0001
-    EnumObjFieldValueDescrDual
-    .objFieldValueDescrDual
-  }
-}
-{
-  !En I@006/0002
-  EnumObjFieldValueDescrDual
-  !EL I@035/0002
-  objFieldValueDescrDual
-}
-{
-  !In I@007/0001
-  ObjFieldValueDescrInp
-  {
-    !IF I@031/0001
-    field
-    =
-    'Test Descr'
-    I@054/0001
-    EnumObjFieldValueDescrInp
-    .objFieldValueDescrInp
-  }
-}
-{
-  !En I@006/0002
-  EnumObjFieldValueDescrInp
-  !EL I@034/0002
-  objFieldValueDescrInp
-}
-{
-  !Ou I@008/0001
-  ObjFieldValueDescrOutp
-  {
-    !OF I@033/0001
-    field
-    =
-    'Test Descr'
-    I@056/0001
-    EnumObjFieldValueDescrOutp
-    .objFieldValueDescrOutp
-  }
-}
-{
-  !En I@006/0002
-  EnumObjFieldValueDescrOutp
-  !EL I@035/0002
-  objFieldValueDescrOutp
-}
-{
-  !Du I@006/0001
-  ObjGnrcEnumDual
-  |
-  I@026/0001
-  RefObjGnrcEnumDual
-  <
-    I@045/0001
-    EnumObjGnrcEnumDual.objGnrcEnumDual
-  >
-}
-{
-  !Du I@006/0002
-  RefObjGnrcEnumDual
-  <
-    I@026/0002
-    $type
-    :_Enum
-  >
-  {
-    !DF I@040/0002
-    field
-    :
-    I@048/0002
-    $type
-  }
-}
-{
-  !En I@006/0003
-  EnumObjGnrcEnumDual
-  !EL I@028/0003
-  objGnrcEnumDual
-}
-{
-  !In I@007/0001
-  ObjGnrcEnumInp
-  |
-  I@026/0001
-  RefObjGnrcEnumInp
-  <
-    I@044/0001
-    EnumObjGnrcEnumInp.objGnrcEnumInp
-  >
-}
-{
-  !In I@007/0002
-  RefObjGnrcEnumInp
-  <
-    I@026/0002
-    $type
-    :_Enum
-  >
-  {
-    !IF I@040/0002
-    field
-    :
-    I@048/0002
-    $type
-  }
-}
-{
-  !En I@006/0003
-  EnumObjGnrcEnumInp
-  !EL I@027/0003
-  objGnrcEnumInp
-}
-{
-  !Ou I@008/0001
-  ObjGnrcEnumOutp
-  |
-  I@028/0001
-  RefObjGnrcEnumOutp
-  <
-    I@047/0001
-    EnumObjGnrcEnumOutp.objGnrcEnumOutp
-  >
-}
-{
-  !Ou I@008/0002
-  RefObjGnrcEnumOutp
-  <
-    I@028/0002
-    $type
-    :_Enum
-  >
-  {
-    !OF I@042/0002
-    field
-    :
-    I@050/0002
-    $type
-  }
-}
-{
-  !En I@006/0003
-  EnumObjGnrcEnumOutp
-  !EL I@028/0003
-  objGnrcEnumOutp
-}
-{
-  !Du I@006/0001
-  ObjGnrcValueDual
-  |
-  I@027/0001
-  RefObjGnrcValueDual
-  <
-    I@047/0001
-    objGnrcValueDual
-  >
-}
-{
-  !Du I@006/0002
-  RefObjGnrcValueDual
-  <
-    I@027/0002
-    $type
-    :_Enum
-  >
-  {
-    !DF I@041/0002
-    field
-    :
-    I@049/0002
-    $type
-  }
-}
-{
-  !En I@006/0003
-  EnumObjGnrcValueDual
-  !EL I@029/0003
-  objGnrcValueDual
-}
-{
-  !In I@007/0001
-  ObjGnrcValueInp
-  |
-  I@027/0001
-  RefObjGnrcValueInp
-  <
-    I@046/0001
-    objGnrcValueInp
-  >
-}
-{
-  !In I@007/0002
-  RefObjGnrcValueInp
-  <
-    I@027/0002
-    $type
-    :_Enum
-  >
-  {
-    !IF I@041/0002
-    field
-    :
-    I@049/0002
-    $type
-  }
-}
-{
-  !En I@006/0003
-  EnumObjGnrcValueInp
-  !EL I@028/0003
-  objGnrcValueInp
-}
-{
-  !Ou I@008/0001
-  ObjGnrcValueOutp
-  |
-  I@029/0001
-  RefObjGnrcValueOutp
-  <
-    I@049/0001
-    objGnrcValueOutp
-  >
-}
-{
-  !Ou I@008/0002
-  RefObjGnrcValueOutp
-  <
-    I@029/0002
-    $type
-    :_Enum
-  >
-  {
-    !OF I@043/0002
-    field
-    :
-    I@051/0002
-    $type
-  }
-}
-{
-  !En I@006/0003
-  EnumObjGnrcValueOutp
-  !EL I@029/0003
-  objGnrcValueOutp
 }
 {
   !Ou I@008/0001

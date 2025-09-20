@@ -31,7 +31,7 @@
           "name": "field",
           "object": "InpFieldNull",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "FldInpFieldNull"
           }
         }
@@ -54,7 +54,7 @@
           ],
           "name": "field",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "FldInpFieldNull"
           }
         }

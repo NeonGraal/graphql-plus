@@ -1,9 +1,7 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Ast.Schema.Objects;
+﻿namespace GqlPlus.Ast.Schema.Objects;
 
 public class InputFieldAstTests
-  : AstObjectFieldTests<IGqlpInputBase>
+  : AstObjectFieldTests
 {
   [Theory, RepeatData]
   public void HashCode_WithDefault(FieldInput input, string def)
@@ -30,10 +28,10 @@ public class InputFieldAstTests
   protected override string AliasesString(FieldInput input, string description, string aliases)
     => $"( {DescriptionNameString(input, description)}{aliases} : {input.Type} )";
 
-  private readonly AstObjectFieldChecks<InputFieldAst, IGqlpInputBase, InputBaseAst, InputArgAst> _checks = new(
+  private readonly AstObjectFieldChecks<InputFieldAst, InputBaseAst, InputArgAst> _checks = new(
       (input, objBase) => new(AstNulls.At, input.Name, objBase),
       input => new(AstNulls.At, input.Type),
       arguments => arguments.InputArgs());
 
-  internal override IAstObjectFieldChecks<IGqlpInputBase> FieldChecks => _checks;
+  internal override IAstObjectFieldChecks FieldChecks => _checks;
 }

@@ -1,0 +1,74 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier CnstDomEnumDual: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_ObjAlternate)
+        object: CnstDomEnumDual
+        type: !_ObjBase
+          name: RefCnstDomEnumDual
+          typeArgs:
+            - !_ObjTypeArg
+              name: cnstDomEnumDual
+    alternates:
+      - !_ObjAlternate
+        type: !_ObjBase
+          name: RefCnstDomEnumDual
+          typeArgs:
+            - !_ObjTypeArg
+              name: cnstDomEnumDual
+    name: CnstDomEnumDual
+    typeKind: !_TypeKind Dual
+  !_Identifier EnumCnstDomEnumDual: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: EnumCnstDomEnumDual
+        name: cnstDomEnumDual
+      - !_EnumLabel
+        enum: EnumCnstDomEnumDual
+        name: other
+    items:
+      - !_Aliased
+        name: cnstDomEnumDual
+      - !_Aliased
+        name: other
+    name: EnumCnstDomEnumDual
+    typeKind: !_TypeKind Enum
+  !_Identifier JustCnstDomEnumDual: !_DomainEnum
+    allItems:
+      - !_DomainItem(_DomainLabel)
+        domain: JustCnstDomEnumDual
+        exclude: false
+        value: !_EnumValue
+          label: cnstDomEnumDual
+          name: EnumCnstDomEnumDual
+          typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+      - !_DomainLabel
+        exclude: false
+        value: !_EnumValue
+          label: cnstDomEnumDual
+          name: EnumCnstDomEnumDual
+          typeKind: !_SimpleKind Enum
+    name: JustCnstDomEnumDual
+    typeKind: !_TypeKind Domain
+  !_Identifier RefCnstDomEnumDual: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: field
+        object: RefCnstDomEnumDual
+        type: !_ObjBase
+          typeParam: type
+    fields:
+      - !_DualField
+        name: field
+        type: !_ObjBase
+          typeParam: type
+    name: RefCnstDomEnumDual
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: JustCnstDomEnumDual
+          typeKind: !_TypeKind Domain
+        name: type

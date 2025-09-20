@@ -6,7 +6,7 @@ namespace GqlPlus.Schema.Objects;
 
 public class InputFieldModelTests(
   IInputFieldModelChecks checks
-) : TestObjectFieldModel<IGqlpInputField, IGqlpInputBase, InputFieldModel>(checks)
+) : TestObjectFieldModel<IGqlpInputField, InputFieldModel>(checks)
 {
   [Theory, RepeatData]
   public void Model_DefaultString(FieldInput input, string contents)
@@ -21,7 +21,7 @@ public class InputFieldModelTests(
 internal sealed class InputFieldModelChecks(
   IModeller<IGqlpInputField, InputFieldModel> modeller,
   IEncoder<InputFieldModel> encoding
-) : CheckObjectFieldModel<IGqlpInputField, InputFieldAst, IGqlpInputBase, InputFieldModel>(modeller, encoding, TypeKindModel.Input)
+) : CheckObjectFieldModel<IGqlpInputField, InputFieldAst, InputFieldModel>(modeller, encoding, TypeKindModel.Input)
   , IInputFieldModelChecks
 {
   internal override InputFieldAst NewFieldAst(FieldInput input, string[] aliases, bool withModifiers)

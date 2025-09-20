@@ -6,19 +6,19 @@ namespace GqlPlus.Merging.Schema.Objects;
 
 public class MergeDualAlternatesTests(
   ITestOutputHelper outputHelper
-) : TestAlternatesMerger<IGqlpDualAlternate, IGqlpDualBase>
+) : TestAlternatesMerger
 {
-  private readonly MergeDualAlternates _merger = new(outputHelper.ToLoggerFactory());
+  private readonly MergeAstAlternates _merger = new(outputHelper.ToLoggerFactory());
   private readonly MergeDualAlternatesChecks _checks = new();
 
-  internal override AstAlternatesMerger<IGqlpDualAlternate> MergerAlternate => _merger;
-  internal override ICheckAlternatesMerger<IGqlpDualAlternate> CheckAlternates => _checks;
+  internal override MergeAstAlternates MergerAlternate => _merger;
+  internal override ICheckAlternatesMerger<IGqlpObjAlternate> CheckAlternates => _checks;
 }
 
 internal sealed class MergeDualAlternatesChecks
-  : CheckAlternatesMerger<IGqlpDualAlternate, DualAlternateAst>
+  : CheckAlternatesMerger<DualAlternateAst>
 {
-  public override IGqlpDualAlternate MakeAlternate(string input, bool withModifiers = false, string description = "")
+  public override IGqlpObjAlternate MakeAlternate(string input, bool withModifiers = false, string description = "")
     => new DualAlternateAst(AstNulls.At, input, description) {
       Modifiers = withModifiers ? TestMods() : []
     };

@@ -2,7 +2,7 @@
 
 [TracePerTest]
 public class VerifyInputTypesTests
-  : ObjectDualVerifierTestsBase<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate>
+  : ObjectDualVerifierTestsBase<IGqlpInputObject, IGqlpInputField>
 {
   private readonly IGqlpInputObject _input;
 
@@ -13,7 +13,7 @@ public class VerifyInputTypesTests
   {
     Verifier = new VerifyInputTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ArgDelegate, LoggerFactory));
 
-    _input = A.Obj<IGqlpInputObject, IGqlpInputBase>("Input");
+    _input = A.Obj<IGqlpInputObject>("Input");
   }
 
   [Theory, RepeatData]

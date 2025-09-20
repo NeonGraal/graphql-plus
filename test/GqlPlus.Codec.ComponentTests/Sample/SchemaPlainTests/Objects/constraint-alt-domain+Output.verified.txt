@@ -2,19 +2,19 @@
 types: !_Map_Type
   !_Identifier CnstAltDmnOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: CnstAltDmnOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: RefCnstAltDmnOutp
           typeArgs:
-            - !_OutputArg
+            - !_ObjTypeArg
               name: DomCnstAltDmnOutp
     alternates:
-      - !_OutputAlternate
-        type: !_OutputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           name: RefCnstAltDmnOutp
           typeArgs:
-            - !_OutputArg
+            - !_ObjTypeArg
               name: DomCnstAltDmnOutp
     name: CnstAltDmnOutp
     typeKind: !_TypeKind Output
@@ -33,13 +33,13 @@ types: !_Map_Type
     typeKind: !_TypeKind Domain
   !_Identifier RefCnstAltDmnOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: RefCnstAltDmnOutp
-        type: !_OutputBase
+        type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_OutputAlternate
-        type: !_OutputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           typeParam: ref
     name: RefCnstAltDmnOutp
     typeKind: !_TypeKind Output

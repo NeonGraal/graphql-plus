@@ -1,12 +1,12 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
 public class InputModellerTests
-  : ModellerObjectBaseTestBase<IGqlpInputObject, TypeInputModel, IGqlpInputBase, ObjBaseModel>
+  : ModellerObjectBaseTestBase<IGqlpInputObject, TypeInputModel, ObjBaseModel>
 {
   public InputModellerTests()
   {
     IModeller<IGqlpTypeParam, TypeParamModel> typeParam = MFor<IGqlpTypeParam, TypeParamModel>();
-    IModeller<IGqlpInputAlternate, ObjAlternateModel> objAlt = MFor<IGqlpInputAlternate, ObjAlternateModel>();
+    IModeller<IGqlpObjAlternate, ObjAlternateModel> objAlt = MFor<IGqlpObjAlternate, ObjAlternateModel>();
     IModeller<IGqlpInputField, InputFieldModel> objField = MFor<IGqlpInputField, InputFieldModel>();
 
     Modeller = new InputModeller(new(typeParam, objAlt, objField, ObjBase));

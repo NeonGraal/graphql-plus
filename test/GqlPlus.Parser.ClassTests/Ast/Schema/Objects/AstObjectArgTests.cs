@@ -59,7 +59,7 @@ internal sealed class AstObjArgChecks<TObjArg, TObjArgAst>(
 ) : AstAbbreviatedChecks<string, TObjArg>(input => createArg(input))
   , IAstObjArgChecks<TObjArg>
   where TObjArg : IGqlpObjArg
-  where TObjArgAst : AstObjArg, TObjArg
+  where TObjArgAst : ObjArgAst, TObjArg
 {
   internal delegate TObjArgAst ArgBy(string input);
 

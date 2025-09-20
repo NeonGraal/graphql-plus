@@ -1,28 +1,10 @@
 output _TypeInput {
-    : _TypeObject<_TypeKind.Input _InputBase _InputTypeParam _InputField _InputAlternate>
-    }
-
-output _InputBase {
-    : _ObjBase<_InputTypeArg>
-    | _DualBase
-    }
-
-output _InputTypeParam {
-    : _ObjTypeParam<_TypeKind.Input>
-    | _TypeRef<_TypeKind.Dual>
+    : _TypeObject<_TypeKind.Input _InputField>
     }
 
 output _InputField {
-    : _Field<_InputBase>
+    : _Field
         default: Value?
-    }
-
-output _InputAlternate {
-    : _Alternate<_InputBase>
-    }
-
-output _InputTypeArg {
-    : _ObjTypeArg
     }
 
 output _InputParam {

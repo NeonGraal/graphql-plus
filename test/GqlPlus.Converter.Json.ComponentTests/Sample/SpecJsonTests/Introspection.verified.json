@@ -1,5 +1,135 @@
 ﻿{
   "$tag": "_Schema",
+  "errors": [
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _Schema can\u0027t get model for type \u0027_Named\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _AndType can\u0027t get model for type \u0027_Named\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _Category can\u0027t get model for type \u0027_Aliased\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _Directive can\u0027t get model for type \u0027_Aliased\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _Setting can\u0027t get model for type \u0027_Named\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _BaseType can\u0027t get model for type \u0027_Aliased\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _TypeRef can\u0027t get model for type \u0027_Named\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _DomainItem can\u0027t get model for type \u0027_DomainTrueFalse\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _DomainLabel can\u0027t get model for type \u0027_BaseDomainItem\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _DomainItem can\u0027t get model for type \u0027_DomainRange\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _DomainItem can\u0027t get model for type \u0027_DomainRegex\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _ObjTypeParam can\u0027t get model for type \u0027_Named\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _ObjBase can\u0027t get model for type \u0027_Named\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _TypeParam can\u0027t get model for type \u0027_Described\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _Field can\u0027t get model for type \u0027_Aliased\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _InputParam can\u0027t get model for type \u0027_InputBase\u0027"
+    }
+  ],
   "types": {
     "$tag": "_Map_Type",
     "_Aliased": {
@@ -19,7 +149,7 @@
           "name": "description",
           "object": "_Described",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         },
@@ -28,7 +158,7 @@
           "name": "name",
           "object": "_Named",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         },
@@ -46,7 +176,7 @@
           "name": "aliases",
           "object": "_Aliased",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
@@ -65,14 +195,14 @@
           ],
           "name": "aliases",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
       ],
       "name": "_Aliased",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "_Named"
       },
       "typeKind": {
@@ -82,14 +212,24 @@
     },
     "_Alternate": {
       "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "_Alternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_AlternateEnum"
+          }
+        }
+      ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "_Alternate",
           "type": {
-            "$tag": "_OutputBase",
-            "typeParam": "base"
+            "$tag": "_ObjBase",
+            "name": "_ObjBase"
           }
         },
         {
@@ -106,8 +246,17 @@
           "name": "collections",
           "object": "_Alternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Collections"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_ObjAlternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_AlternateEnum"
           }
         }
       ],
@@ -116,8 +265,8 @@
           "$tag": "_OutputField",
           "name": "type",
           "type": {
-            "$tag": "_OutputBase",
-            "typeParam": "base"
+            "$tag": "_ObjBase",
+            "name": "_ObjBase"
           }
         },
         {
@@ -133,7 +282,7 @@
           ],
           "name": "collections",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Collections"
           }
         }
@@ -142,77 +291,89 @@
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
-      },
-      "typeParams": [
+      }
+    },
+    "_AlternateEnum": {
+      "$tag": "_TypeOutput",
+      "allFields": [
         {
-          "$tag": "_TypeParam",
-          "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
-            "name": "_ObjBase",
-            "typeKind": {
-              "$tag": "_TypeKind",
-              "value": "Output"
-            }
-          },
-          "name": "base"
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "typeKind",
+          "object": "_TypeRef",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_TypeKind"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "label",
+          "object": "_AlternateEnum",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_Identifier"
+          }
         }
-      ]
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "label",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_Identifier"
+          }
+        }
+      ],
+      "name": "_AlternateEnum",
+      "parent": {
+        "$tag": "_ObjBase",
+        "name": "_TypeRef",
+        "typeArgs": [
+          {
+            "$tag": "_TypeRef(_SimpleKind)",
+            "label": "Enum",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "_AndType": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_AndType",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Type"
           }
         }
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "_AndType",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Type"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Type"
           }
         }
@@ -222,14 +383,14 @@
           "$tag": "_OutputField",
           "name": "type",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Type"
           }
         }
       ],
       "name": "_AndType",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "_Named"
       },
       "typeKind": {
@@ -241,56 +402,11 @@
       "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "aliases",
-          "object": "_Aliased",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "typeKind",
           "object": "_BaseType",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeKind"
           }
         },
@@ -299,7 +415,7 @@
           "name": "parent",
           "object": "_ChildType",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_Named"
           }
         },
@@ -317,7 +433,7 @@
           "name": "items",
           "object": "_ParentType",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "item"
           }
         },
@@ -335,7 +451,7 @@
           "name": "allItems",
           "object": "_ParentType",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "allItem"
           }
         },
@@ -344,7 +460,7 @@
           "name": "domainKind",
           "object": "_BaseDomain",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "domain"
           }
         }
@@ -354,14 +470,14 @@
           "$tag": "_OutputField",
           "name": "domainKind",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "domain"
           }
         }
       ],
       "name": "_BaseDomain",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_ParentType",
         "typeArgs": [
           {
@@ -374,11 +490,11 @@
             }
           },
           {
-            "$tag": "_OutputArg",
+            "$tag": "_ObjTypeArg",
             "typeParam": "item"
           },
           {
-            "$tag": "_OutputArg",
+            "$tag": "_ObjTypeArg",
             "typeParam": "domainItem"
           }
         ]
@@ -443,7 +559,7 @@
           "name": "description",
           "object": "_Described",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         },
@@ -452,7 +568,7 @@
           "name": "exclude",
           "object": "_BaseDomainItem",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         }
@@ -462,14 +578,14 @@
           "$tag": "_DualField",
           "name": "exclude",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         }
       ],
       "name": "_BaseDomainItem",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "_Described"
       },
       "typeKind": {
@@ -481,56 +597,11 @@
       "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "aliases",
-          "object": "_Aliased",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "typeKind",
           "object": "_BaseType",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "kind"
           }
         }
@@ -540,14 +611,14 @@
           "$tag": "_OutputField",
           "name": "typeKind",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "kind"
           }
         }
       ],
       "name": "_BaseType",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "_Aliased"
       },
       "typeKind": {
@@ -573,64 +644,64 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_BasicValue",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_BasicValue",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_EnumValue"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_BasicValue",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_BasicValue",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_EnumValue"
           }
         },
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         },
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -645,56 +716,29 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_AndType",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Type"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_Categories",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Category"
           }
         }
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "_AndType",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Type"
           }
         },
@@ -703,16 +747,16 @@
           "name": "category",
           "object": "_Categories",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Category"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Category"
           }
         }
@@ -722,14 +766,14 @@
           "$tag": "_OutputField",
           "name": "category",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Category"
           }
         }
       ],
       "name": "_Categories",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_AndType"
       },
       "typeKind": {
@@ -741,56 +785,11 @@
       "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "aliases",
-          "object": "_Aliased",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "resolution",
           "object": "_Category",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Resolution"
           }
         },
@@ -799,7 +798,7 @@
           "name": "output",
           "object": "_Category",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeRef",
             "typeArgs": [
               {
@@ -828,7 +827,7 @@
           "name": "modifiers",
           "object": "_Category",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Modifiers"
           }
         }
@@ -838,7 +837,7 @@
           "$tag": "_OutputField",
           "name": "resolution",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Resolution"
           }
         },
@@ -846,7 +845,7 @@
           "$tag": "_OutputField",
           "name": "output",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeRef",
             "typeArgs": [
               {
@@ -874,14 +873,14 @@
           ],
           "name": "modifiers",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Modifiers"
           }
         }
       ],
       "name": "_Category",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "_Aliased"
       },
       "typeKind": {
@@ -893,7 +892,7 @@
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_InputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "collections": [
             {
               "$tag": "_Modifier",
@@ -905,7 +904,7 @@
           ],
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_NameFilter"
           }
         }
@@ -925,7 +924,7 @@
           "name": "names",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_NameFilter"
           }
         },
@@ -944,7 +943,7 @@
           "name": "matchAliases",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
@@ -962,7 +961,7 @@
           "name": "aliases",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_NameFilter"
           }
         },
@@ -981,7 +980,7 @@
           "name": "returnByAlias",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
@@ -1000,7 +999,7 @@
           "name": "returnReferencedTypes",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
@@ -1018,7 +1017,7 @@
           "name": "resolutions",
           "object": "_CategoryFilter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_Resolution"
           }
         }
@@ -1037,14 +1036,14 @@
           ],
           "name": "resolutions",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_Resolution"
           }
         }
       ],
       "name": "_CategoryFilter",
       "parent": {
-        "$tag": "_InputBase",
+        "$tag": "_ObjBase",
         "name": "_Filter"
       },
       "typeKind": {
@@ -1056,56 +1055,11 @@
       "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "aliases",
-          "object": "_Aliased",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "typeKind",
           "object": "_BaseType",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "kind"
           }
         },
@@ -1114,7 +1068,7 @@
           "name": "parent",
           "object": "_ChildType",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "parent"
           }
         }
@@ -1124,18 +1078,18 @@
           "$tag": "_OutputField",
           "name": "parent",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "parent"
           }
         }
       ],
       "name": "_ChildType",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_BaseType",
         "typeArgs": [
           {
-            "$tag": "_OutputArg",
+            "$tag": "_ObjTypeArg",
             "typeParam": "kind"
           }
         ]
@@ -1172,13 +1126,13 @@
       ]
     },
     "_Collections": {
-      "$tag": "_TypeOutput",
+      "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_Collections",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Modifier",
             "typeArgs": [
               {
@@ -1194,10 +1148,10 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_Collections",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_ModifierKeyed",
             "typeArgs": [
               {
@@ -1213,10 +1167,10 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_Collections",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_ModifierKeyed",
             "typeArgs": [
               {
@@ -1234,9 +1188,9 @@
       ],
       "alternates": [
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Modifier",
             "typeArgs": [
               {
@@ -1252,9 +1206,9 @@
           }
         },
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_ModifierKeyed",
             "typeArgs": [
               {
@@ -1270,9 +1224,9 @@
           }
         },
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_ModifierKeyed",
             "typeArgs": [
               {
@@ -1291,7 +1245,7 @@
       "name": "_Collections",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "value": "Dual"
       }
     },
     "_Described": {
@@ -1311,7 +1265,7 @@
           "name": "description",
           "object": "_Described",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -1330,7 +1284,7 @@
           ],
           "name": "description",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -1345,51 +1299,6 @@
       "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "aliases",
-          "object": "_Aliased",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
@@ -1403,7 +1312,7 @@
           "name": "parameters",
           "object": "_Directive",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_InputParam"
           }
         },
@@ -1412,7 +1321,7 @@
           "name": "repeatable",
           "object": "_Directive",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
@@ -1435,7 +1344,7 @@
           "name": "locations",
           "object": "_Directive",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_"
           }
         }
@@ -1454,7 +1363,7 @@
           ],
           "name": "parameters",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_InputParam"
           }
         },
@@ -1462,7 +1371,7 @@
           "$tag": "_OutputField",
           "name": "repeatable",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
@@ -1484,14 +1393,14 @@
           ],
           "name": "locations",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_"
           }
         }
       ],
       "name": "_Directive",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "_Aliased"
       },
       "typeKind": {
@@ -1503,56 +1412,29 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_AndType",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Type"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_Directives",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Directive"
           }
         }
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "_AndType",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Type"
           }
         },
@@ -1561,16 +1443,16 @@
           "name": "directive",
           "object": "_Directives",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Directive"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Directive"
           }
         }
@@ -1580,14 +1462,14 @@
           "$tag": "_OutputField",
           "name": "directive",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Directive"
           }
         }
       ],
       "name": "_Directives",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_AndType"
       },
       "typeKind": {
@@ -1603,7 +1485,7 @@
           "name": "domain",
           "object": "_DomainItem",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
@@ -1613,14 +1495,14 @@
           "$tag": "_OutputField",
           "name": "domain",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
       ],
       "name": "_DomainItem",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "typeParam": "item"
       },
       "typeKind": {
@@ -1646,38 +1528,11 @@
       "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "exclude",
-          "object": "_BaseDomainItem",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "Boolean"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "label",
           "object": "_DomainLabel",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_EnumValue"
           }
         },
@@ -1686,18 +1541,18 @@
           "name": "domain",
           "object": "_DomainItem",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
       ],
       "name": "_DomainItemLabel",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_DomainItem",
         "typeArgs": [
           {
-            "$tag": "_OutputArg",
+            "$tag": "_ObjTypeArg",
             "name": "_DomainLabel"
           }
         ]
@@ -1715,18 +1570,18 @@
           "name": "domain",
           "object": "_DomainItem",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
       ],
       "name": "_DomainItemRange",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_DomainItem",
         "typeArgs": [
           {
-            "$tag": "_DualArg",
+            "$tag": "_ObjTypeArg",
             "name": "_DomainRange"
           }
         ]
@@ -1744,18 +1599,18 @@
           "name": "domain",
           "object": "_DomainItem",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
       ],
       "name": "_DomainItemRegex",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_DomainItem",
         "typeArgs": [
           {
-            "$tag": "_DualArg",
+            "$tag": "_ObjTypeArg",
             "name": "_DomainRegex"
           }
         ]
@@ -1773,18 +1628,18 @@
           "name": "domain",
           "object": "_DomainItem",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
       ],
       "name": "_DomainItemTrueFalse",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_DomainItem",
         "typeArgs": [
           {
-            "$tag": "_DualArg",
+            "$tag": "_ObjTypeArg",
             "name": "_DomainTrueFalse"
           }
         ]
@@ -1846,38 +1701,11 @@
       "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "exclude",
-          "object": "_BaseDomainItem",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "Boolean"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "label",
           "object": "_DomainLabel",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_EnumValue"
           }
         }
@@ -1887,14 +1715,14 @@
           "$tag": "_OutputField",
           "name": "label",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_EnumValue"
           }
         }
       ],
       "name": "_DomainLabel",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "_BaseDomainItem"
       },
       "typeKind": {
@@ -1919,7 +1747,7 @@
           "name": "description",
           "object": "_Described",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         },
@@ -1928,7 +1756,7 @@
           "name": "exclude",
           "object": "_BaseDomainItem",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
@@ -1946,7 +1774,7 @@
           "name": "lower",
           "object": "_DomainRange",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         },
@@ -1964,7 +1792,7 @@
           "name": "upper",
           "object": "_DomainRange",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
@@ -1983,7 +1811,7 @@
           ],
           "name": "lower",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         },
@@ -2000,14 +1828,14 @@
           ],
           "name": "upper",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "name": "_DomainRange",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "_BaseDomainItem"
       },
       "typeKind": {
@@ -2019,38 +1847,11 @@
       "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "typeKind",
           "object": "_TypeRef",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeKind"
           }
         },
@@ -2059,7 +1860,7 @@
           "name": "domainKind",
           "object": "_DomainRef",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "kind"
           }
         }
@@ -2069,14 +1870,14 @@
           "$tag": "_OutputField",
           "name": "domainKind",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "kind"
           }
         }
       ],
       "name": "_DomainRef",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_TypeRef",
         "typeArgs": [
           {
@@ -2126,7 +1927,7 @@
           "name": "description",
           "object": "_Described",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         },
@@ -2135,7 +1936,7 @@
           "name": "exclude",
           "object": "_BaseDomainItem",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
@@ -2144,7 +1945,7 @@
           "name": "pattern",
           "object": "_DomainRegex",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -2154,14 +1955,14 @@
           "$tag": "_DualField",
           "name": "pattern",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
       ],
       "name": "_DomainRegex",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "_BaseDomainItem"
       },
       "typeKind": {
@@ -2186,7 +1987,7 @@
           "name": "description",
           "object": "_Described",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         },
@@ -2195,7 +1996,7 @@
           "name": "exclude",
           "object": "_BaseDomainItem",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
@@ -2204,7 +2005,7 @@
           "name": "value",
           "object": "_DomainTrueFalse",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         }
@@ -2214,14 +2015,14 @@
           "$tag": "_DualField",
           "name": "value",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         }
       ],
       "name": "_DomainTrueFalse",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "_BaseDomainItem"
       },
       "typeKind": {
@@ -2233,48 +2034,21 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_DomainValue",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "value"
           }
         }
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "typeKind",
           "object": "_TypeRef",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeKind"
           }
         },
@@ -2283,7 +2057,7 @@
           "name": "domainKind",
           "object": "_DomainRef",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "kind"
           }
         },
@@ -2292,16 +2066,16 @@
           "name": "value",
           "object": "_DomainValue",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "value"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "value"
           }
         }
@@ -2311,18 +2085,18 @@
           "$tag": "_OutputField",
           "name": "value",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "value"
           }
         }
       ],
       "name": "_DomainValue",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_DomainRef",
         "typeArgs": [
           {
-            "$tag": "_OutputArg",
+            "$tag": "_ObjTypeArg",
             "typeParam": "kind"
           }
         ]
@@ -2358,347 +2132,6 @@
         }
       ]
     },
-    "_DualAlternate": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "type",
-          "object": "_Alternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_DualBase"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "collections",
-          "object": "_Alternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Collections"
-          }
-        }
-      ],
-      "name": "_DualAlternate",
-      "parent": {
-        "$tag": "_OutputBase",
-        "name": "_Alternate",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "name": "_DualBase"
-          }
-        ]
-      },
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "_DualBase": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_ObjBase",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_TypeParam"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "typeArgs",
-          "object": "_ObjBase",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_DualTypeArg"
-          }
-        }
-      ],
-      "name": "_DualBase",
-      "parent": {
-        "$tag": "_OutputBase",
-        "name": "_ObjBase",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "name": "_DualTypeArg"
-          }
-        ]
-      },
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "_DualField": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "aliases",
-          "object": "_Aliased",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "type",
-          "object": "_Field",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_DualBase"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "modifiers",
-          "object": "_Field",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Modifiers"
-          }
-        }
-      ],
-      "name": "_DualField",
-      "parent": {
-        "$tag": "_OutputBase",
-        "name": "_Field",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "name": "_DualBase"
-          }
-        ]
-      },
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "_DualTypeArg": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_ObjTypeArg",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_TypeParam"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "typeKind",
-          "object": "_TypeRef",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_TypeKind"
-          }
-        }
-      ],
-      "name": "_DualTypeArg",
-      "parent": {
-        "$tag": "_OutputBase",
-        "name": "_ObjTypeArg"
-      },
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "_DualTypeParam": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "constraint",
-          "object": "_ObjTypeParam",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_ObjConstraint",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "typeParam": "kind"
-              }
-            ]
-          }
-        }
-      ],
-      "name": "_DualTypeParam",
-      "parent": {
-        "$tag": "_OutputBase",
-        "name": "_ObjTypeParam",
-        "typeArgs": [
-          {
-            "$tag": "_TypeRef(_SimpleKind)",
-            "label": "Dual",
-            "name": "_TypeKind",
-            "typeKind": {
-              "$tag": "_SimpleKind",
-              "value": "Enum"
-            }
-          }
-        ]
-      },
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
     "_EnumLabel": {
       "$tag": "_TypeDual",
       "allFields": [
@@ -2716,7 +2149,7 @@
           "name": "description",
           "object": "_Described",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         },
@@ -2725,7 +2158,7 @@
           "name": "name",
           "object": "_Named",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         },
@@ -2743,7 +2176,7 @@
           "name": "aliases",
           "object": "_Aliased",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         },
@@ -2752,7 +2185,7 @@
           "name": "enum",
           "object": "_EnumLabel",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
@@ -2762,14 +2195,14 @@
           "$tag": "_DualField",
           "name": "enum",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
       ],
       "name": "_EnumLabel",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "_Aliased"
       },
       "typeKind": {
@@ -2781,38 +2214,11 @@
       "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "typeKind",
           "object": "_TypeRef",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeKind"
           }
         },
@@ -2821,7 +2227,7 @@
           "name": "label",
           "object": "_EnumValue",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
@@ -2831,14 +2237,14 @@
           "$tag": "_OutputField",
           "name": "label",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
       ],
       "name": "_EnumValue",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_TypeRef",
         "typeArgs": [
           {
@@ -2859,59 +2265,24 @@
     },
     "_Field": {
       "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "_Field",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_FieldEnum"
+          }
+        }
+      ],
       "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "aliases",
-          "object": "_Aliased",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "_Field",
           "type": {
-            "$tag": "_OutputBase",
-            "typeParam": "base"
+            "$tag": "_ObjBase",
+            "name": "_ObjBase"
           }
         },
         {
@@ -2928,8 +2299,17 @@
           "name": "modifiers",
           "object": "_Field",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Modifiers"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_ObjAlternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_FieldEnum"
           }
         }
       ],
@@ -2938,8 +2318,8 @@
           "$tag": "_OutputField",
           "name": "type",
           "type": {
-            "$tag": "_OutputBase",
-            "typeParam": "base"
+            "$tag": "_ObjBase",
+            "name": "_ObjBase"
           }
         },
         {
@@ -2955,40 +2335,96 @@
           ],
           "name": "modifiers",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Modifiers"
           }
         }
       ],
       "name": "_Field",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "_Aliased"
       },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
-      },
-      "typeParams": [
+      }
+    },
+    "_FieldEnum": {
+      "$tag": "_TypeOutput",
+      "allFields": [
         {
-          "$tag": "_TypeParam",
-          "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
-            "name": "_ObjBase",
-            "typeKind": {
-              "$tag": "_TypeKind",
-              "value": "Output"
-            }
-          },
-          "name": "base"
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "typeKind",
+          "object": "_TypeRef",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_TypeKind"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "_FieldEnum",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_Identifier"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "label",
+          "object": "_FieldEnum",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_Identifier"
+          }
         }
-      ]
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_Identifier"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "name": "label",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_Identifier"
+          }
+        }
+      ],
+      "name": "_FieldEnum",
+      "parent": {
+        "$tag": "_ObjBase",
+        "name": "_TypeRef",
+        "typeArgs": [
+          {
+            "$tag": "_TypeRef(_SimpleKind)",
+            "label": "Enum",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
     },
     "_Filter": {
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_InputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "collections": [
             {
               "$tag": "_Modifier",
@@ -3000,7 +2436,7 @@
           ],
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_NameFilter"
           }
         }
@@ -3020,7 +2456,7 @@
           "name": "names",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_NameFilter"
           }
         },
@@ -3039,7 +2475,7 @@
           "name": "matchAliases",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
@@ -3057,7 +2493,7 @@
           "name": "aliases",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_NameFilter"
           }
         },
@@ -3076,7 +2512,7 @@
           "name": "returnByAlias",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
@@ -3095,14 +2531,14 @@
           "name": "returnReferencedTypes",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_InputAlternate",
+          "$tag": "_ObjAlternate",
           "collections": [
             {
               "$tag": "_Modifier",
@@ -3113,7 +2549,7 @@
             }
           ],
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_NameFilter"
           }
         }
@@ -3132,7 +2568,7 @@
           ],
           "name": "names",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_NameFilter"
           }
         },
@@ -3150,7 +2586,7 @@
           ],
           "name": "matchAliases",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
@@ -3167,7 +2603,7 @@
           ],
           "name": "aliases",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_NameFilter"
           }
         },
@@ -3185,7 +2621,7 @@
           ],
           "name": "returnByAlias",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
@@ -3203,7 +2639,7 @@
           ],
           "name": "returnReferencedTypes",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         }
@@ -3218,59 +2654,35 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_ForParam",
           "type": {
-            "$tag": "_OutputBase",
-            "name": "_Alternate",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "typeParam": "base"
-              }
-            ]
+            "$tag": "_ObjBase",
+            "name": "_Alternate"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_ForParam",
           "type": {
-            "$tag": "_OutputBase",
-            "name": "_Field",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "typeParam": "base"
-              }
-            ]
+            "$tag": "_ObjBase",
+            "name": "_Field"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
-            "name": "_Alternate",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "typeParam": "base"
-              }
-            ]
+            "$tag": "_ObjBase",
+            "name": "_Alternate"
           }
         },
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
-            "name": "_Field",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "typeParam": "base"
-              }
-            ]
+            "$tag": "_ObjBase",
+            "name": "_Field"
           }
         }
       ],
@@ -3278,21 +2690,7 @@
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
-      },
-      "typeParams": [
-        {
-          "$tag": "_TypeParam",
-          "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
-            "name": "_ObjBase",
-            "typeKind": {
-              "$tag": "_TypeKind",
-              "value": "Output"
-            }
-          },
-          "name": "base"
-        }
-      ]
+      }
     },
     "_Identifier": {
       "$tag": "_DomainString",
@@ -3321,200 +2719,26 @@
         "value": "Domain"
       }
     },
-    "_InputAlternate": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "type",
-          "object": "_Alternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_InputBase"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "collections",
-          "object": "_Alternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Collections"
-          }
-        }
-      ],
-      "name": "_InputAlternate",
-      "parent": {
-        "$tag": "_OutputBase",
-        "name": "_Alternate",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "name": "_InputBase"
-          }
-        ]
-      },
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "_InputBase": {
+    "_InputField": {
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_ObjBase",
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "_Field",
           "type": {
-            "$tag": "_OutputBase",
-            "name": "_TypeParam"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_InputBase",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_DualBase"
+            "$tag": "_ObjBase",
+            "name": "_FieldEnum"
           }
         }
       ],
       "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "typeArgs",
-          "object": "_ObjBase",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_InputTypeArg"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_DualBase"
-          }
-        }
-      ],
-      "name": "_InputBase",
-      "parent": {
-        "$tag": "_OutputBase",
-        "name": "_ObjBase",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "name": "_InputTypeArg"
-          }
-        ]
-      },
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "_InputField": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "aliases",
-          "object": "_Aliased",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "_Field",
           "type": {
-            "$tag": "_OutputBase",
-            "name": "_InputBase"
+            "$tag": "_ObjBase",
+            "name": "_ObjBase"
           }
         },
         {
@@ -3531,7 +2755,7 @@
           "name": "modifiers",
           "object": "_Field",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Modifiers"
           }
         },
@@ -3549,7 +2773,7 @@
           "name": "default",
           "object": "_InputField",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "Value"
           }
         }
@@ -3568,21 +2792,15 @@
           ],
           "name": "default",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "Value"
           }
         }
       ],
       "name": "_InputField",
       "parent": {
-        "$tag": "_OutputBase",
-        "name": "_Field",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "name": "_InputBase"
-          }
-        ]
+        "$tag": "_ObjBase",
+        "name": "_Field"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -3591,70 +2809,7 @@
     },
     "_InputParam": {
       "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_ObjBase",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_TypeParam"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_InputBase",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_DualBase"
-          }
-        }
-      ],
       "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "typeArgs",
-          "object": "_ObjBase",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_InputTypeArg"
-          }
-        },
         {
           "$tag": "_ObjectFor(_OutputField)",
           "modifiers": [
@@ -3669,7 +2824,7 @@
           "name": "modifiers",
           "object": "_InputParam",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Modifiers"
           }
         },
@@ -3687,7 +2842,7 @@
           "name": "default",
           "object": "_InputParam",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "Value"
           }
         }
@@ -3706,7 +2861,7 @@
           ],
           "name": "modifiers",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Modifiers"
           }
         },
@@ -3723,183 +2878,15 @@
           ],
           "name": "default",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "Value"
           }
         }
       ],
       "name": "_InputParam",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_InputBase"
-      },
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "_InputTypeArg": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_ObjTypeArg",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_TypeParam"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "typeKind",
-          "object": "_TypeRef",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_TypeKind"
-          }
-        }
-      ],
-      "name": "_InputTypeArg",
-      "parent": {
-        "$tag": "_OutputBase",
-        "name": "_ObjTypeArg"
-      },
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "_InputTypeParam": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_InputTypeParam",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_TypeRef",
-            "typeArgs": [
-              {
-                "$tag": "_TypeRef(_SimpleKind)",
-                "label": "Dual",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$tag": "_SimpleKind",
-                  "value": "Enum"
-                }
-              }
-            ]
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "constraint",
-          "object": "_ObjTypeParam",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_ObjConstraint",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "typeParam": "kind"
-              }
-            ]
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_TypeRef",
-            "typeArgs": [
-              {
-                "$tag": "_TypeRef(_SimpleKind)",
-                "label": "Dual",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$tag": "_SimpleKind",
-                  "value": "Enum"
-                }
-              }
-            ]
-          }
-        }
-      ],
-      "name": "_InputTypeParam",
-      "parent": {
-        "$tag": "_OutputBase",
-        "name": "_ObjTypeParam",
-        "typeArgs": [
-          {
-            "$tag": "_TypeRef(_SimpleKind)",
-            "label": "Input",
-            "name": "_TypeKind",
-            "typeKind": {
-              "$tag": "_SimpleKind",
-              "value": "Enum"
-            }
-          }
-        ]
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -3973,24 +2960,24 @@
       }
     },
     "_Modifier": {
-      "$tag": "_TypeOutput",
+      "$tag": "_TypeDual",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$tag": "_ObjectFor(_DualField)",
           "name": "modifierKind",
           "object": "_Modifier",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "kind"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$tag": "_DualField",
           "name": "modifierKind",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "kind"
           }
         }
@@ -3998,7 +2985,7 @@
       "name": "_Modifier",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "value": "Dual"
       },
       "typeParams": [
         {
@@ -4016,68 +3003,68 @@
       ]
     },
     "_ModifierKeyed": {
-      "$tag": "_TypeOutput",
+      "$tag": "_TypeDual",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$tag": "_ObjectFor(_DualField)",
           "name": "modifierKind",
           "object": "_Modifier",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "kind"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$tag": "_ObjectFor(_DualField)",
           "name": "by",
           "object": "_ModifierKeyed",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeSimple"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$tag": "_ObjectFor(_DualField)",
           "name": "optional",
           "object": "_ModifierKeyed",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$tag": "_DualField",
           "name": "by",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeSimple"
           }
         },
         {
-          "$tag": "_OutputField",
+          "$tag": "_DualField",
           "name": "optional",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         }
       ],
       "name": "_ModifierKeyed",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_Modifier",
         "typeArgs": [
           {
-            "$tag": "_OutputArg",
+            "$tag": "_ObjTypeArg",
             "typeParam": "kind"
           }
         ]
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "value": "Dual"
       },
       "typeParams": [
         {
@@ -4149,13 +3136,13 @@
       }
     },
     "_Modifiers": {
-      "$tag": "_TypeOutput",
+      "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_Modifiers",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Modifier",
             "typeArgs": [
               {
@@ -4171,19 +3158,19 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_Modifiers",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Collections"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Modifier",
             "typeArgs": [
               {
@@ -4199,9 +3186,9 @@
           }
         },
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Collections"
           }
         }
@@ -4209,7 +3196,7 @@
       "name": "_Modifiers",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "value": "Dual"
       }
     },
     "_Named": {
@@ -4229,7 +3216,7 @@
           "name": "description",
           "object": "_Described",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         },
@@ -4238,7 +3225,7 @@
           "name": "name",
           "object": "_Named",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
@@ -4248,14 +3235,14 @@
           "$tag": "_DualField",
           "name": "name",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
       ],
       "name": "_Named",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "_Described"
       },
       "typeKind": {
@@ -4295,42 +3282,15 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_ObjBase",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeParam"
           }
         }
       ],
       "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
         {
           "$tag": "_ObjectFor(_OutputField)",
           "modifiers": [
@@ -4345,16 +3305,16 @@
           "name": "typeArgs",
           "object": "_ObjBase",
           "type": {
-            "$tag": "_OutputBase",
-            "typeParam": "arg"
+            "$tag": "_ObjBase",
+            "name": "_ObjTypeArg"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeParam"
           }
         }
@@ -4373,104 +3333,20 @@
           ],
           "name": "typeArgs",
           "type": {
-            "$tag": "_OutputBase",
-            "typeParam": "arg"
+            "$tag": "_ObjBase",
+            "name": "_ObjTypeArg"
           }
         }
       ],
       "name": "_ObjBase",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "_Named"
       },
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
-      },
-      "typeParams": [
-        {
-          "$tag": "_TypeParam",
-          "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
-            "name": "_ObjTypeArg",
-            "typeKind": {
-              "$tag": "_TypeKind",
-              "value": "Output"
-            }
-          },
-          "name": "arg"
-        }
-      ]
-    },
-    "_ObjConstraint": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "typeKind",
-          "object": "_TypeRef",
-          "type": {
-            "$tag": "_OutputBase",
-            "typeParam": "kind"
-          }
-        }
-      ],
-      "name": "_ObjConstraint",
-      "parent": {
-        "$tag": "_OutputBase",
-        "name": "_TypeRef",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "typeParam": "kind"
-          }
-        ]
-      },
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      },
-      "typeParams": [
-        {
-          "$tag": "_TypeParam",
-          "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
-            "name": "_ObjectKind",
-            "typeKind": {
-              "$tag": "_TypeKind",
-              "value": "Domain"
-            }
-          },
-          "name": "kind"
-        }
-      ]
+      }
     },
     "_ObjectFor": {
       "$tag": "_TypeOutput",
@@ -4480,7 +3356,7 @@
           "name": "object",
           "object": "_ObjectFor",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
@@ -4490,14 +3366,14 @@
           "$tag": "_OutputField",
           "name": "object",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
       ],
       "name": "_ObjectFor",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "typeParam": "for"
       },
       "typeKind": {
@@ -4620,68 +3496,78 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_ObjTypeArg",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeParam"
           }
         }
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "typeKind",
+          "object": "_TypeRef",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_TypeKind"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
+                "value": "Opt"
               }
             }
           ],
-          "name": "description",
-          "object": "_Described",
+          "name": "label",
+          "object": "_ObjTypeArg",
           "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "typeKind",
-          "object": "_TypeRef",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_TypeKind"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeParam"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "label",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_Identifier"
           }
         }
       ],
       "name": "_ObjTypeArg",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_TypeRef",
         "typeArgs": [
           {
-            "$tag": "_OutputArg",
+            "$tag": "_ObjTypeArg",
             "name": "_TypeKind"
           }
         ]
@@ -4695,43 +3581,16 @@
       "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "constraint",
           "object": "_ObjTypeParam",
           "type": {
-            "$tag": "_OutputBase",
-            "name": "_ObjConstraint",
+            "$tag": "_ObjBase",
+            "name": "_TypeRef",
             "typeArgs": [
               {
-                "$tag": "_OutputArg",
-                "typeParam": "kind"
+                "$tag": "_ObjTypeArg",
+                "name": "_TypeKind"
               }
             ]
           }
@@ -4742,12 +3601,12 @@
           "$tag": "_OutputField",
           "name": "constraint",
           "type": {
-            "$tag": "_OutputBase",
-            "name": "_ObjConstraint",
+            "$tag": "_ObjBase",
+            "name": "_TypeRef",
             "typeArgs": [
               {
-                "$tag": "_OutputArg",
-                "typeParam": "kind"
+                "$tag": "_ObjTypeArg",
+                "name": "_TypeKind"
               }
             ]
           }
@@ -4755,258 +3614,8 @@
       ],
       "name": "_ObjTypeParam",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "_Named"
-      },
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      },
-      "typeParams": [
-        {
-          "$tag": "_TypeParam",
-          "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
-            "name": "_ObjectKind",
-            "typeKind": {
-              "$tag": "_TypeKind",
-              "value": "Domain"
-            }
-          },
-          "name": "kind"
-        }
-      ]
-    },
-    "_OutputAlternate": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "type",
-          "object": "_Alternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_OutputBase"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "collections",
-          "object": "_Alternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Collections"
-          }
-        }
-      ],
-      "name": "_OutputAlternate",
-      "parent": {
-        "$tag": "_OutputBase",
-        "name": "_Alternate",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "name": "_OutputBase"
-          }
-        ]
-      },
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "_OutputBase": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_ObjBase",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_TypeParam"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_OutputBase",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_DualBase"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "typeArgs",
-          "object": "_ObjBase",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_OutputTypeArg"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_DualBase"
-          }
-        }
-      ],
-      "name": "_OutputBase",
-      "parent": {
-        "$tag": "_OutputBase",
-        "name": "_ObjBase",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "name": "_OutputTypeArg"
-          }
-        ]
-      },
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "_OutputEnum": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "typeKind",
-          "object": "_TypeRef",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_TypeKind"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "field",
-          "object": "_OutputEnum",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "label",
-          "object": "_OutputEnum",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Identifier"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "field",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_OutputField",
-          "name": "label",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Identifier"
-          }
-        }
-      ],
-      "name": "_OutputEnum",
-      "parent": {
-        "$tag": "_OutputBase",
-        "name": "_TypeRef",
-        "typeArgs": [
-          {
-            "$tag": "_TypeRef(_SimpleKind)",
-            "label": "Enum",
-            "name": "_TypeKind",
-            "typeKind": {
-              "$tag": "_SimpleKind",
-              "value": "Enum"
-            }
-          }
-        ]
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -5017,67 +3626,22 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_OutputField",
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "_Field",
           "type": {
-            "$tag": "_OutputBase",
-            "name": "_OutputEnum"
+            "$tag": "_ObjBase",
+            "name": "_FieldEnum"
           }
         }
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "aliases",
-          "object": "_Aliased",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "_Field",
           "type": {
-            "$tag": "_OutputBase",
-            "name": "_OutputBase"
+            "$tag": "_ObjBase",
+            "name": "_ObjBase"
           }
         },
         {
@@ -5094,7 +3658,7 @@
           "name": "modifiers",
           "object": "_Field",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Modifiers"
           }
         },
@@ -5112,17 +3676,8 @@
           "name": "parameters",
           "object": "_OutputField",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_InputParam"
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_OutputEnum"
           }
         }
       ],
@@ -5140,263 +3695,15 @@
           ],
           "name": "parameters",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_InputParam"
           }
         }
       ],
       "name": "_OutputField",
       "parent": {
-        "$tag": "_OutputBase",
-        "name": "_Field",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "name": "_OutputBase"
-          }
-        ]
-      },
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "_OutputTypeArg": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_ObjTypeArg",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_TypeParam"
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "typeKind",
-          "object": "_TypeRef",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_TypeKind"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "Opt"
-              }
-            }
-          ],
-          "name": "label",
-          "object": "_OutputTypeArg",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Identifier"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "Opt"
-              }
-            }
-          ],
-          "name": "label",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_Identifier"
-          }
-        }
-      ],
-      "name": "_OutputTypeArg",
-      "parent": {
-        "$tag": "_OutputBase",
-        "name": "_ObjTypeArg"
-      },
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "_OutputTypeParam": {
-      "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_OutputTypeParam",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_TypeRef",
-            "typeArgs": [
-              {
-                "$tag": "_TypeRef(_SimpleKind)",
-                "label": "Dual",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$tag": "_SimpleKind",
-                  "value": "Enum"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputAlternate)",
-          "object": "_OutputTypeParam",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_TypeRef",
-            "typeArgs": [
-              {
-                "$tag": "_TypeRef(_SimpleKind)",
-                "label": "Enum",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$tag": "_SimpleKind",
-                  "value": "Enum"
-                }
-              }
-            ]
-          }
-        }
-      ],
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "constraint",
-          "object": "_ObjTypeParam",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_ObjConstraint",
-            "typeArgs": [
-              {
-                "$tag": "_OutputArg",
-                "typeParam": "kind"
-              }
-            ]
-          }
-        }
-      ],
-      "alternates": [
-        {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_TypeRef",
-            "typeArgs": [
-              {
-                "$tag": "_TypeRef(_SimpleKind)",
-                "label": "Dual",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$tag": "_SimpleKind",
-                  "value": "Enum"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "$tag": "_OutputAlternate",
-          "type": {
-            "$tag": "_OutputBase",
-            "name": "_TypeRef",
-            "typeArgs": [
-              {
-                "$tag": "_TypeRef(_SimpleKind)",
-                "label": "Enum",
-                "name": "_TypeKind",
-                "typeKind": {
-                  "$tag": "_SimpleKind",
-                  "value": "Enum"
-                }
-              }
-            ]
-          }
-        }
-      ],
-      "name": "_OutputTypeParam",
-      "parent": {
-        "$tag": "_OutputBase",
-        "name": "_ObjTypeParam",
-        "typeArgs": [
-          {
-            "$tag": "_TypeRef(_SimpleKind)",
-            "label": "Output",
-            "name": "_TypeKind",
-            "typeKind": {
-              "$tag": "_SimpleKind",
-              "value": "Enum"
-            }
-          }
-        ]
+        "$tag": "_ObjBase",
+        "name": "_Field"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -5407,56 +3714,11 @@
       "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "aliases",
-          "object": "_Aliased",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "typeKind",
           "object": "_BaseType",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "kind"
           }
         },
@@ -5465,7 +3727,7 @@
           "name": "parent",
           "object": "_ChildType",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_Named"
           }
         },
@@ -5483,7 +3745,7 @@
           "name": "items",
           "object": "_ParentType",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "item"
           }
         },
@@ -5501,7 +3763,7 @@
           "name": "allItems",
           "object": "_ParentType",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "allItem"
           }
         }
@@ -5520,7 +3782,7 @@
           ],
           "name": "items",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "item"
           }
         },
@@ -5537,22 +3799,22 @@
           ],
           "name": "allItems",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "allItem"
           }
         }
       ],
       "name": "_ParentType",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_ChildType",
         "typeArgs": [
           {
-            "$tag": "_OutputArg",
+            "$tag": "_ObjTypeArg",
             "typeParam": "kind"
           },
           {
-            "$tag": "_DualArg",
+            "$tag": "_ObjTypeArg",
             "name": "_Named"
           }
         ]
@@ -5643,33 +3905,6 @@
       "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "modifiers": [
             {
@@ -5703,7 +3938,7 @@
             }
           ],
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Categories"
           }
         },
@@ -5741,7 +3976,7 @@
             }
           ],
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Directives"
           }
         },
@@ -5779,7 +4014,7 @@
             }
           ],
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Type"
           }
         },
@@ -5817,7 +4052,7 @@
             }
           ],
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Setting"
           }
         }
@@ -5856,7 +4091,7 @@
             }
           ],
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Categories"
           }
         },
@@ -5893,7 +4128,7 @@
             }
           ],
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Directives"
           }
         },
@@ -5930,7 +4165,7 @@
             }
           ],
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Type"
           }
         },
@@ -5967,14 +4202,14 @@
             }
           ],
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Setting"
           }
         }
       ],
       "name": "_Schema",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "_Named"
       },
       "typeKind": {
@@ -5986,38 +4221,11 @@
       "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "value",
           "object": "_Setting",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "Value"
           }
         }
@@ -6027,14 +4235,14 @@
           "$tag": "_OutputField",
           "name": "value",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "Value"
           }
         }
       ],
       "name": "_Setting",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "_Named"
       },
       "typeKind": {
@@ -6103,10 +4311,10 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_Type",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_BaseType",
             "typeArgs": [
               {
@@ -6122,10 +4330,10 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_Type",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_BaseType",
             "typeArgs": [
               {
@@ -6141,59 +4349,59 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_Type",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeDual"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_Type",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeEnum"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_Type",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeInput"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_Type",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeOutput"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_Type",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeDomain"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_Type",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeUnion"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_BaseType",
             "typeArgs": [
               {
@@ -6209,9 +4417,9 @@
           }
         },
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_BaseType",
             "typeArgs": [
               {
@@ -6227,44 +4435,44 @@
           }
         },
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeDual"
           }
         },
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeEnum"
           }
         },
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeInput"
           }
         },
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeOutput"
           }
         },
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeDomain"
           }
         },
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeUnion"
           }
         }
@@ -6279,10 +4487,10 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_TypeDomain",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_BaseDomain",
             "typeArgs": [
               {
@@ -6295,21 +4503,21 @@
                 }
               },
               {
-                "$tag": "_DualArg",
+                "$tag": "_ObjTypeArg",
                 "name": "_DomainTrueFalse"
               },
               {
-                "$tag": "_OutputArg",
+                "$tag": "_ObjTypeArg",
                 "name": "_DomainItemTrueFalse"
               }
             ]
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_TypeDomain",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_BaseDomain",
             "typeArgs": [
               {
@@ -6322,21 +4530,21 @@
                 }
               },
               {
-                "$tag": "_OutputArg",
+                "$tag": "_ObjTypeArg",
                 "name": "_DomainLabel"
               },
               {
-                "$tag": "_OutputArg",
+                "$tag": "_ObjTypeArg",
                 "name": "_DomainItemLabel"
               }
             ]
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_TypeDomain",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_BaseDomain",
             "typeArgs": [
               {
@@ -6349,21 +4557,21 @@
                 }
               },
               {
-                "$tag": "_DualArg",
+                "$tag": "_ObjTypeArg",
                 "name": "_DomainRange"
               },
               {
-                "$tag": "_OutputArg",
+                "$tag": "_ObjTypeArg",
                 "name": "_DomainItemRange"
               }
             ]
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_TypeDomain",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_BaseDomain",
             "typeArgs": [
               {
@@ -6376,11 +4584,11 @@
                 }
               },
               {
-                "$tag": "_DualArg",
+                "$tag": "_ObjTypeArg",
                 "name": "_DomainRegex"
               },
               {
-                "$tag": "_OutputArg",
+                "$tag": "_ObjTypeArg",
                 "name": "_DomainItemRegex"
               }
             ]
@@ -6389,9 +4597,9 @@
       ],
       "alternates": [
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_BaseDomain",
             "typeArgs": [
               {
@@ -6404,20 +4612,20 @@
                 }
               },
               {
-                "$tag": "_DualArg",
+                "$tag": "_ObjTypeArg",
                 "name": "_DomainTrueFalse"
               },
               {
-                "$tag": "_OutputArg",
+                "$tag": "_ObjTypeArg",
                 "name": "_DomainItemTrueFalse"
               }
             ]
           }
         },
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_BaseDomain",
             "typeArgs": [
               {
@@ -6430,20 +4638,20 @@
                 }
               },
               {
-                "$tag": "_OutputArg",
+                "$tag": "_ObjTypeArg",
                 "name": "_DomainLabel"
               },
               {
-                "$tag": "_OutputArg",
+                "$tag": "_ObjTypeArg",
                 "name": "_DomainItemLabel"
               }
             ]
           }
         },
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_BaseDomain",
             "typeArgs": [
               {
@@ -6456,20 +4664,20 @@
                 }
               },
               {
-                "$tag": "_DualArg",
+                "$tag": "_ObjTypeArg",
                 "name": "_DomainRange"
               },
               {
-                "$tag": "_OutputArg",
+                "$tag": "_ObjTypeArg",
                 "name": "_DomainItemRange"
               }
             ]
           }
         },
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_BaseDomain",
             "typeArgs": [
               {
@@ -6482,11 +4690,11 @@
                 }
               },
               {
-                "$tag": "_DualArg",
+                "$tag": "_ObjTypeArg",
                 "name": "_DomainRegex"
               },
               {
-                "$tag": "_OutputArg",
+                "$tag": "_ObjTypeArg",
                 "name": "_DomainItemRegex"
               }
             ]
@@ -6503,56 +4711,11 @@
       "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "aliases",
-          "object": "_Aliased",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "typeKind",
           "object": "_BaseType",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeKind"
           }
         },
@@ -6561,8 +4724,8 @@
           "name": "parent",
           "object": "_ChildType",
           "type": {
-            "$tag": "_OutputBase",
-            "name": "_DualBase"
+            "$tag": "_ObjBase",
+            "name": "_ObjBase"
           }
         },
         {
@@ -6579,8 +4742,8 @@
           "name": "typeParams",
           "object": "_TypeObject",
           "type": {
-            "$tag": "_OutputBase",
-            "name": "_DualTypeParam"
+            "$tag": "_ObjBase",
+            "name": "_ObjTypeParam"
           }
         },
         {
@@ -6597,8 +4760,8 @@
           "name": "fields",
           "object": "_TypeObject",
           "type": {
-            "$tag": "_OutputBase",
-            "name": "_DualField"
+            "$tag": "_ObjBase",
+            "name": "_Field"
           }
         },
         {
@@ -6615,8 +4778,8 @@
           "name": "alternates",
           "object": "_TypeObject",
           "type": {
-            "$tag": "_OutputBase",
-            "name": "_DualAlternate"
+            "$tag": "_ObjBase",
+            "name": "_Alternate"
           }
         },
         {
@@ -6633,11 +4796,11 @@
           "name": "allFields",
           "object": "_TypeObject",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_ObjectFor",
             "typeArgs": [
               {
-                "$tag": "_OutputArg",
+                "$tag": "_ObjTypeArg",
                 "typeParam": "field"
               }
             ]
@@ -6657,12 +4820,12 @@
           "name": "allAlternates",
           "object": "_TypeObject",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_ObjectFor",
             "typeArgs": [
               {
-                "$tag": "_OutputArg",
-                "typeParam": "alternate"
+                "$tag": "_ObjTypeArg",
+                "name": "_Alternate"
               }
             ]
           }
@@ -6670,7 +4833,7 @@
       ],
       "name": "_TypeDual",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_TypeObject",
         "typeArgs": [
           {
@@ -6683,20 +4846,8 @@
             }
           },
           {
-            "$tag": "_OutputArg",
-            "name": "_DualBase"
-          },
-          {
-            "$tag": "_OutputArg",
-            "name": "_DualTypeParam"
-          },
-          {
-            "$tag": "_OutputArg",
-            "name": "_DualField"
-          },
-          {
-            "$tag": "_OutputArg",
-            "name": "_DualAlternate"
+            "$tag": "_ObjTypeArg",
+            "name": "_Field"
           }
         ]
       },
@@ -6709,56 +4860,11 @@
       "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "aliases",
-          "object": "_Aliased",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "typeKind",
           "object": "_BaseType",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeKind"
           }
         },
@@ -6767,7 +4873,7 @@
           "name": "parent",
           "object": "_ChildType",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_Named"
           }
         },
@@ -6785,7 +4891,7 @@
           "name": "items",
           "object": "_ParentType",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_Aliased"
           }
         },
@@ -6803,14 +4909,14 @@
           "name": "allItems",
           "object": "_ParentType",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_EnumLabel"
           }
         }
       ],
       "name": "_TypeEnum",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_ParentType",
         "typeArgs": [
           {
@@ -6823,11 +4929,11 @@
             }
           },
           {
-            "$tag": "_DualArg",
+            "$tag": "_ObjTypeArg",
             "name": "_Aliased"
           },
           {
-            "$tag": "_DualArg",
+            "$tag": "_ObjTypeArg",
             "name": "_EnumLabel"
           }
         ]
@@ -6841,7 +4947,7 @@
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_InputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "collections": [
             {
               "$tag": "_Modifier",
@@ -6853,7 +4959,7 @@
           ],
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_NameFilter"
           }
         }
@@ -6873,7 +4979,7 @@
           "name": "names",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_NameFilter"
           }
         },
@@ -6892,7 +4998,7 @@
           "name": "matchAliases",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
@@ -6910,7 +5016,7 @@
           "name": "aliases",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_NameFilter"
           }
         },
@@ -6929,7 +5035,7 @@
           "name": "returnByAlias",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
@@ -6948,7 +5054,7 @@
           "name": "returnReferencedTypes",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
@@ -6966,7 +5072,7 @@
           "name": "kinds",
           "object": "_TypeFilter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeKind"
           }
         }
@@ -6985,14 +5091,14 @@
           ],
           "name": "kinds",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeKind"
           }
         }
       ],
       "name": "_TypeFilter",
       "parent": {
-        "$tag": "_InputBase",
+        "$tag": "_ObjBase",
         "name": "_Filter"
       },
       "typeKind": {
@@ -7004,56 +5110,11 @@
       "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "aliases",
-          "object": "_Aliased",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "typeKind",
           "object": "_BaseType",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeKind"
           }
         },
@@ -7062,8 +5123,8 @@
           "name": "parent",
           "object": "_ChildType",
           "type": {
-            "$tag": "_OutputBase",
-            "name": "_InputBase"
+            "$tag": "_ObjBase",
+            "name": "_ObjBase"
           }
         },
         {
@@ -7080,8 +5141,8 @@
           "name": "typeParams",
           "object": "_TypeObject",
           "type": {
-            "$tag": "_OutputBase",
-            "name": "_InputTypeParam"
+            "$tag": "_ObjBase",
+            "name": "_ObjTypeParam"
           }
         },
         {
@@ -7098,7 +5159,7 @@
           "name": "fields",
           "object": "_TypeObject",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_InputField"
           }
         },
@@ -7116,8 +5177,8 @@
           "name": "alternates",
           "object": "_TypeObject",
           "type": {
-            "$tag": "_OutputBase",
-            "name": "_InputAlternate"
+            "$tag": "_ObjBase",
+            "name": "_Alternate"
           }
         },
         {
@@ -7134,11 +5195,11 @@
           "name": "allFields",
           "object": "_TypeObject",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_ObjectFor",
             "typeArgs": [
               {
-                "$tag": "_OutputArg",
+                "$tag": "_ObjTypeArg",
                 "typeParam": "field"
               }
             ]
@@ -7158,12 +5219,12 @@
           "name": "allAlternates",
           "object": "_TypeObject",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_ObjectFor",
             "typeArgs": [
               {
-                "$tag": "_OutputArg",
-                "typeParam": "alternate"
+                "$tag": "_ObjTypeArg",
+                "name": "_Alternate"
               }
             ]
           }
@@ -7171,7 +5232,7 @@
       ],
       "name": "_TypeInput",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_TypeObject",
         "typeArgs": [
           {
@@ -7184,20 +5245,8 @@
             }
           },
           {
-            "$tag": "_OutputArg",
-            "name": "_InputBase"
-          },
-          {
-            "$tag": "_OutputArg",
-            "name": "_InputTypeParam"
-          },
-          {
-            "$tag": "_OutputArg",
+            "$tag": "_ObjTypeArg",
             "name": "_InputField"
-          },
-          {
-            "$tag": "_OutputArg",
-            "name": "_InputAlternate"
           }
         ]
       },
@@ -7282,56 +5331,11 @@
       "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "aliases",
-          "object": "_Aliased",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "typeKind",
           "object": "_BaseType",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "kind"
           }
         },
@@ -7340,8 +5344,8 @@
           "name": "parent",
           "object": "_ChildType",
           "type": {
-            "$tag": "_OutputBase",
-            "typeParam": "parent"
+            "$tag": "_ObjBase",
+            "name": "_ObjBase"
           }
         },
         {
@@ -7358,8 +5362,8 @@
           "name": "typeParams",
           "object": "_TypeObject",
           "type": {
-            "$tag": "_OutputBase",
-            "typeParam": "typeParam"
+            "$tag": "_ObjBase",
+            "name": "_ObjTypeParam"
           }
         },
         {
@@ -7376,7 +5380,7 @@
           "name": "fields",
           "object": "_TypeObject",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "field"
           }
         },
@@ -7394,8 +5398,8 @@
           "name": "alternates",
           "object": "_TypeObject",
           "type": {
-            "$tag": "_OutputBase",
-            "typeParam": "alternate"
+            "$tag": "_ObjBase",
+            "name": "_Alternate"
           }
         },
         {
@@ -7412,11 +5416,11 @@
           "name": "allFields",
           "object": "_TypeObject",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_ObjectFor",
             "typeArgs": [
               {
-                "$tag": "_OutputArg",
+                "$tag": "_ObjTypeArg",
                 "typeParam": "field"
               }
             ]
@@ -7436,12 +5440,12 @@
           "name": "allAlternates",
           "object": "_TypeObject",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_ObjectFor",
             "typeArgs": [
               {
-                "$tag": "_OutputArg",
-                "typeParam": "alternate"
+                "$tag": "_ObjTypeArg",
+                "name": "_Alternate"
               }
             ]
           }
@@ -7461,8 +5465,8 @@
           ],
           "name": "typeParams",
           "type": {
-            "$tag": "_OutputBase",
-            "typeParam": "typeParam"
+            "$tag": "_ObjBase",
+            "name": "_ObjTypeParam"
           }
         },
         {
@@ -7478,7 +5482,7 @@
           ],
           "name": "fields",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "field"
           }
         },
@@ -7495,8 +5499,8 @@
           ],
           "name": "alternates",
           "type": {
-            "$tag": "_OutputBase",
-            "typeParam": "alternate"
+            "$tag": "_ObjBase",
+            "name": "_Alternate"
           }
         },
         {
@@ -7512,11 +5516,11 @@
           ],
           "name": "allFields",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_ObjectFor",
             "typeArgs": [
               {
-                "$tag": "_OutputArg",
+                "$tag": "_ObjTypeArg",
                 "typeParam": "field"
               }
             ]
@@ -7535,12 +5539,12 @@
           ],
           "name": "allAlternates",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_ObjectFor",
             "typeArgs": [
               {
-                "$tag": "_OutputArg",
-                "typeParam": "alternate"
+                "$tag": "_ObjTypeArg",
+                "name": "_Alternate"
               }
             ]
           }
@@ -7548,16 +5552,16 @@
       ],
       "name": "_TypeObject",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_ChildType",
         "typeArgs": [
           {
-            "$tag": "_OutputArg",
+            "$tag": "_ObjTypeArg",
             "typeParam": "kind"
           },
           {
-            "$tag": "_OutputArg",
-            "typeParam": "parent"
+            "$tag": "_ObjTypeArg",
+            "name": "_ObjBase"
           }
         ]
       },
@@ -7582,30 +5586,6 @@
           "$tag": "_TypeParam",
           "constraint": {
             "$tag": "_TypeRef(_TypeKind)",
-            "name": "_ObjBase",
-            "typeKind": {
-              "$tag": "_TypeKind",
-              "value": "Output"
-            }
-          },
-          "name": "parent"
-        },
-        {
-          "$tag": "_TypeParam",
-          "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
-            "name": "_ObjTypeParam",
-            "typeKind": {
-              "$tag": "_TypeKind",
-              "value": "Output"
-            }
-          },
-          "name": "typeParam"
-        },
-        {
-          "$tag": "_TypeParam",
-          "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
             "name": "_Field",
             "typeKind": {
               "$tag": "_TypeKind",
@@ -7613,18 +5593,6 @@
             }
           },
           "name": "field"
-        },
-        {
-          "$tag": "_TypeParam",
-          "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
-            "name": "_Alternate",
-            "typeKind": {
-              "$tag": "_TypeKind",
-              "value": "Output"
-            }
-          },
-          "name": "alternate"
         }
       ]
     },
@@ -7632,56 +5600,11 @@
       "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "aliases",
-          "object": "_Aliased",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "typeKind",
           "object": "_BaseType",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeKind"
           }
         },
@@ -7690,8 +5613,8 @@
           "name": "parent",
           "object": "_ChildType",
           "type": {
-            "$tag": "_OutputBase",
-            "name": "_OutputBase"
+            "$tag": "_ObjBase",
+            "name": "_ObjBase"
           }
         },
         {
@@ -7708,8 +5631,8 @@
           "name": "typeParams",
           "object": "_TypeObject",
           "type": {
-            "$tag": "_OutputBase",
-            "name": "_OutputTypeParam"
+            "$tag": "_ObjBase",
+            "name": "_ObjTypeParam"
           }
         },
         {
@@ -7726,7 +5649,7 @@
           "name": "fields",
           "object": "_TypeObject",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_OutputField"
           }
         },
@@ -7744,8 +5667,8 @@
           "name": "alternates",
           "object": "_TypeObject",
           "type": {
-            "$tag": "_OutputBase",
-            "name": "_OutputAlternate"
+            "$tag": "_ObjBase",
+            "name": "_Alternate"
           }
         },
         {
@@ -7762,11 +5685,11 @@
           "name": "allFields",
           "object": "_TypeObject",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_ObjectFor",
             "typeArgs": [
               {
-                "$tag": "_OutputArg",
+                "$tag": "_ObjTypeArg",
                 "typeParam": "field"
               }
             ]
@@ -7786,12 +5709,12 @@
           "name": "allAlternates",
           "object": "_TypeObject",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_ObjectFor",
             "typeArgs": [
               {
-                "$tag": "_OutputArg",
-                "typeParam": "alternate"
+                "$tag": "_ObjTypeArg",
+                "name": "_Alternate"
               }
             ]
           }
@@ -7799,7 +5722,7 @@
       ],
       "name": "_TypeOutput",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_TypeObject",
         "typeArgs": [
           {
@@ -7812,20 +5735,8 @@
             }
           },
           {
-            "$tag": "_OutputArg",
-            "name": "_OutputBase"
-          },
-          {
-            "$tag": "_OutputArg",
-            "name": "_OutputTypeParam"
-          },
-          {
-            "$tag": "_OutputArg",
+            "$tag": "_ObjTypeArg",
             "name": "_OutputField"
-          },
-          {
-            "$tag": "_OutputArg",
-            "name": "_OutputAlternate"
           }
         ]
       },
@@ -7838,38 +5749,11 @@
       "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "typeParam",
           "object": "_TypeParam",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
@@ -7879,15 +5763,15 @@
           "$tag": "_OutputField",
           "name": "typeParam",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
       ],
       "name": "_TypeParam",
       "parent": {
-        "$tag": "_DualBase",
-        "name": "_Named"
+        "$tag": "_ObjBase",
+        "name": "_Described"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -7898,38 +5782,11 @@
       "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "typeKind",
           "object": "_TypeRef",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "kind"
           }
         }
@@ -7939,14 +5796,14 @@
           "$tag": "_OutputField",
           "name": "typeKind",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "kind"
           }
         }
       ],
       "name": "_TypeRef",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "_Named"
       },
       "typeKind": {
@@ -7972,10 +5829,10 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_TypeSimple",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeRef",
             "typeArgs": [
               {
@@ -7991,10 +5848,10 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_TypeSimple",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeRef",
             "typeArgs": [
               {
@@ -8010,10 +5867,10 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_TypeSimple",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeRef",
             "typeArgs": [
               {
@@ -8029,10 +5886,10 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_TypeSimple",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeRef",
             "typeArgs": [
               {
@@ -8050,9 +5907,9 @@
       ],
       "alternates": [
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeRef",
             "typeArgs": [
               {
@@ -8068,9 +5925,9 @@
           }
         },
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeRef",
             "typeArgs": [
               {
@@ -8086,9 +5943,9 @@
           }
         },
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeRef",
             "typeArgs": [
               {
@@ -8104,9 +5961,9 @@
           }
         },
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeRef",
             "typeArgs": [
               {
@@ -8132,56 +5989,11 @@
       "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "aliases",
-          "object": "_Aliased",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "typeKind",
           "object": "_BaseType",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeKind"
           }
         },
@@ -8190,7 +6002,7 @@
           "name": "parent",
           "object": "_ChildType",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_Named"
           }
         },
@@ -8208,7 +6020,7 @@
           "name": "items",
           "object": "_ParentType",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_UnionRef"
           }
         },
@@ -8226,14 +6038,14 @@
           "name": "allItems",
           "object": "_ParentType",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_UnionMember"
           }
         }
       ],
       "name": "_TypeUnion",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_ParentType",
         "typeArgs": [
           {
@@ -8246,11 +6058,11 @@
             }
           },
           {
-            "$tag": "_OutputArg",
+            "$tag": "_ObjTypeArg",
             "name": "_UnionRef"
           },
           {
-            "$tag": "_OutputArg",
+            "$tag": "_ObjTypeArg",
             "name": "_UnionMember"
           }
         ]
@@ -8264,38 +6076,11 @@
       "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "typeKind",
           "object": "_TypeRef",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_SimpleKind"
           }
         },
@@ -8304,7 +6089,7 @@
           "name": "union",
           "object": "_UnionMember",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
@@ -8314,14 +6099,14 @@
           "$tag": "_OutputField",
           "name": "union",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
       ],
       "name": "_UnionMember",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_UnionRef"
       },
       "typeKind": {
@@ -8333,49 +6118,22 @@
       "$tag": "_TypeOutput",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "typeKind",
           "object": "_TypeRef",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_SimpleKind"
           }
         }
       ],
       "name": "_UnionRef",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_TypeRef",
         "typeArgs": [
           {
-            "$tag": "_OutputArg",
+            "$tag": "_ObjTypeArg",
             "name": "_SimpleKind"
           }
         ]

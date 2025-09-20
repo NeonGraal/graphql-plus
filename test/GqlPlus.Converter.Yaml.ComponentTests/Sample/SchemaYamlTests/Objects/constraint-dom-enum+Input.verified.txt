@@ -1,0 +1,74 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier CnstDomEnumInp: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_ObjAlternate)
+      object: CnstDomEnumInp
+      type: !_ObjBase
+        name: RefCnstDomEnumInp
+        typeArgs:
+        - !_ObjTypeArg
+          name: cnstDomEnumInp
+    alternates:
+    - !_ObjAlternate
+      type: !_ObjBase
+        name: RefCnstDomEnumInp
+        typeArgs:
+        - !_ObjTypeArg
+          name: cnstDomEnumInp
+    name: CnstDomEnumInp
+    typeKind: !_TypeKind Input
+  !_Identifier EnumCnstDomEnumInp: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnumCnstDomEnumInp
+      name: cnstDomEnumInp
+    - !_EnumLabel
+      enum: EnumCnstDomEnumInp
+      name: other
+    items:
+    - !_Aliased
+      name: cnstDomEnumInp
+    - !_Aliased
+      name: other
+    name: EnumCnstDomEnumInp
+    typeKind: !_TypeKind Enum
+  !_Identifier JustCnstDomEnumInp: !_DomainEnum
+    allItems:
+    - !_DomainItem(_DomainLabel)
+      domain: JustCnstDomEnumInp
+      exclude: false
+      value: !_EnumValue
+        label: cnstDomEnumInp
+        name: EnumCnstDomEnumInp
+        typeKind: !_SimpleKind Enum
+    domainKind: !_DomainKind Enum
+    items:
+    - !_DomainLabel
+      exclude: false
+      value: !_EnumValue
+        label: cnstDomEnumInp
+        name: EnumCnstDomEnumInp
+        typeKind: !_SimpleKind Enum
+    name: JustCnstDomEnumInp
+    typeKind: !_TypeKind Domain
+  !_Identifier RefCnstDomEnumInp: !_TypeInput
+    allFields:
+    - !_ObjectFor(_InputField)
+      name: field
+      object: RefCnstDomEnumInp
+      type: !_ObjBase
+        typeParam: type
+    fields:
+    - !_InputField
+      name: field
+      type: !_ObjBase
+        typeParam: type
+    name: RefCnstDomEnumInp
+    typeKind: !_TypeKind Input
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: JustCnstDomEnumInp
+        typeKind: !_TypeKind Domain
+      name: type

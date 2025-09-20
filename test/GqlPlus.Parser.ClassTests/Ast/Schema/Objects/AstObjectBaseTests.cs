@@ -2,9 +2,8 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public abstract class AstObjectBaseTests<TObjBase>
+public abstract class AstObjectBaseTests
   : AstAbbreviatedTests<string>
-  where TObjBase : IGqlpObjBase
 {
   [Theory, RepeatData]
   public void HashCode_WithIsTypeParam(string input)
@@ -56,17 +55,16 @@ public abstract class AstObjectBaseTests<TObjBase>
 
   internal sealed override IAstAbbreviatedChecks<string> AbbreviatedChecks => ObjBaseChecks;
 
-  internal abstract IAstObjBaseChecks<TObjBase> ObjBaseChecks { get; }
+  internal abstract IAstObjBaseChecks ObjBaseChecks { get; }
 }
 
-internal sealed class AstObjBaseChecks<TObjBase, TObjBaseAst, TObjArgAst>(
-AstObjBaseChecks<TObjBase, TObjBaseAst, TObjArgAst>.BaseBy createBase,
-AstObjBaseChecks<TObjBase, TObjBaseAst, TObjArgAst>.ArgsBy createArgs
-) : AstAbbreviatedChecks<string, TObjBase>(input => createBase(input))
-  , IAstObjBaseChecks<TObjBase>
-  where TObjBase : IGqlpObjBase
-  where TObjBaseAst : AstObjBase, TObjBase
-  where TObjArgAst : AstObjArg
+internal sealed class AstObjBaseChecks<TObjBaseAst, TObjArgAst>(
+AstObjBaseChecks<TObjBaseAst, TObjArgAst>.BaseBy createBase,
+AstObjBaseChecks<TObjBaseAst, TObjArgAst>.ArgsBy createArgs
+) : AstAbbreviatedChecks<string, IGqlpObjBase>(input => createBase(input))
+  , IAstObjBaseChecks
+  where TObjBaseAst : ObjBaseAst
+  where TObjArgAst : ObjArgAst
 {
   private readonly BaseBy _createBase = createBase;
   private readonly ArgsBy _createArgs = createArgs;
@@ -108,28 +106,28 @@ AstObjBaseChecks<TObjBase, TObjBaseAst, TObjArgAst>.ArgsBy createArgs
 
   public void FullType_WithDefault(string input)
   {
-    TObjBase objBase = _createBase(input);
+    IGqlpObjBase objBase = _createBase(input);
 
     objBase.FullType.ShouldBe(input);
   }
 
   public void FullType_WithIsTypeParam(string input)
   {
-    TObjBase objBase = _createBase(input) with { IsTypeParam = true };
+    IGqlpObjBase objBase = _createBase(input) with { IsTypeParam = true };
 
     objBase.FullType.ShouldBe("$" + input);
   }
 
   public void FullType_WithArgs(string input, string[] arguments)
   {
-    TObjBase objBase = _createBase(input) with { Args = _createArgs(arguments) };
+    IGqlpObjBase objBase = _createBase(input) with { Args = _createArgs(arguments) };
 
     objBase.FullType.ShouldBe(input + $" < {arguments.Joined()} >");
   }
 
   public void FullType_WithIsTypeParamAndArgs(string input, string[] arguments)
   {
-    TObjBase objBase = _createBase(input) with {
+    IGqlpObjBase objBase = _createBase(input) with {
       IsTypeParam = true,
       Args = _createArgs(arguments)
     };
@@ -138,9 +136,8 @@ AstObjBaseChecks<TObjBase, TObjBaseAst, TObjArgAst>.ArgsBy createArgs
   }
 }
 
-internal interface IAstObjBaseChecks<TObjBase>
+internal interface IAstObjBaseChecks
   : IAstAbbreviatedChecks<string>
-  where TObjBase : IGqlpObjBase
 {
   void HashCode_WithIsTypeParam(string input);
   void String_WithIsTypeParam(string input);

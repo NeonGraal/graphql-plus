@@ -6,7 +6,7 @@ namespace GqlPlus.Schema.Objects;
 
 public class OutputFieldModelTests(
   IOutputFieldModelChecks checks
-) : TestObjectFieldModel<IGqlpOutputField, IGqlpOutputBase, OutputFieldModel>(checks)
+) : TestObjectFieldModel<IGqlpOutputField, OutputFieldModel>(checks)
 {
   [Theory, RepeatData]
   public void Model_EnumValue(FieldInput input, string enumLabel)
@@ -26,7 +26,7 @@ public class OutputFieldModelTests(
 internal sealed class OutputFieldModelChecks(
   IModeller<IGqlpOutputField, OutputFieldModel> modeller,
   IEncoder<OutputFieldModel> encoding
-) : CheckObjectFieldModel<IGqlpOutputField, OutputFieldAst, IGqlpOutputBase, OutputFieldModel>(modeller, encoding, TypeKindModel.Output)
+) : CheckObjectFieldModel<IGqlpOutputField, OutputFieldAst, OutputFieldModel>(modeller, encoding, TypeKindModel.Output)
   , IOutputFieldModelChecks
 {
   internal override OutputFieldAst NewFieldAst(FieldInput input, string[] aliases, bool withModifiers)

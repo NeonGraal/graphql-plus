@@ -1,24 +1,24 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
 internal class OutputModeller(
-  ObjectModellers<IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate, OutputFieldModel> modellers
-) : ModellerObject<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate, TypeOutputModel, OutputFieldModel>(TypeKindModel.Output, modellers)
+  ObjectModellers<IGqlpOutputField, OutputFieldModel> modellers
+) : ModellerObject<IGqlpOutputObject, IGqlpOutputField, TypeOutputModel, OutputFieldModel>(TypeKindModel.Output, modellers)
 {
   protected override TypeOutputModel ToModel(IGqlpOutputObject ast, IMap<TypeKindModel> typeKinds)
     => new(ast.Name, ast.Description) {
       Aliases = [.. ast.Aliases],
-      Parent = ParentModel(ast.ObjParent, typeKinds),
+      Parent = ParentModel(ast.Parent, typeKinds),
       TypeParams = TypeParamsModels(ast.TypeParams, typeKinds),
       Fields = FieldsModels(ast.ObjFields, typeKinds),
-      Alternates = AlternatesModels(ast.ObjAlternates, typeKinds),
+      Alternates = AlternatesModels(ast.Alternates, typeKinds),
     };
 }
 
 internal class OutputFieldModeller(
   IModifierModeller modifier,
   IModeller<IGqlpInputParam, InputParamModel> parameter,
-  IModeller<IGqlpOutputBase, ObjBaseModel> objBase
-) : ModellerObjField<IGqlpOutputBase, IGqlpOutputField, OutputFieldModel>(modifier, objBase)
+  IModeller<IGqlpObjBase, ObjBaseModel> objBase
+) : ModellerObjField<IGqlpOutputField, OutputFieldModel>(modifier, objBase)
 {
   protected override OutputFieldModel FieldModel(IGqlpOutputField field, ObjBaseModel type, IMap<TypeKindModel> typeKinds)
     => string.IsNullOrWhiteSpace(field.EnumLabel)

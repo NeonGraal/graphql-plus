@@ -26,18 +26,15 @@ public static class Startup
       .AddTransient<IBaseNamedChecks<string, IGqlpUnionMember>, ParseUnionMemberChecks>()
       .AddTransient<IBaseSimpleChecks<UnionInput, IGqlpUnion>, ParseUnionChecks>()
 
-      .AddTransient<ICheckObjectArg<IGqlpObjArg>, ParseDualArgChecks>()
-      .AddTransient<ICheckObjectBase<IGqlpDualBase>, ParseDualBaseChecks>()
+      .AddTransient<IParseObjArgChecks, ParseObjArgChecks>()
+      .AddTransient<IParseObjBaseChecks, ParseObjBaseChecks>()
+
       .AddTransient<ICheckObjectField<IGqlpDualField>, ParseDualFieldChecks>()
       .AddTransient<ICheckObject<IGqlpDualObject>, ParseDualChecks>()
 
-      .AddTransient<ICheckObjectArg<IGqlpObjArg>, ParseInputArgChecks>()
-      .AddTransient<ICheckObjectBase<IGqlpInputBase>, ParseInputBaseChecks>()
       .AddTransient<ICheckObjectField<IGqlpInputField>, ParseInputFieldChecks>()
       .AddTransient<ICheckObject<IGqlpInputObject>, ParseInputChecks>()
 
-      .AddTransient<ICheckObjectArg<IGqlpObjArg>, ParseOutputArgChecks>()
-      .AddTransient<ICheckObjectBase<IGqlpOutputBase>, ParseOutputBaseChecks>()
       .AddTransient<ICheckObjectField<IGqlpOutputField>, ParseOutputFieldChecks>()
       .AddTransient<ICheckObject<IGqlpOutputObject>, ParseOutputChecks>()
 

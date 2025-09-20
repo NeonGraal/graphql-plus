@@ -1,13 +1,11 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
-internal class ObjAlternateModeller<TObjBaseAst, TObjAltAst>(
+internal class ObjAlternateModeller(
   IModeller<IGqlpModifier, CollectionModel> collection,
-  IModeller<TObjBaseAst, ObjBaseModel> objBase
-) : ModellerBase<TObjAltAst, ObjAlternateModel>
-  where TObjBaseAst : IGqlpObjBase
-  where TObjAltAst : IGqlpObjAlternate, TObjBaseAst
+  IModeller<IGqlpObjBase, ObjBaseModel> objBase
+) : ModellerBase<IGqlpObjAlternate, ObjAlternateModel>
 {
-  protected override ObjAlternateModel ToModel(TObjAltAst ast, IMap<TypeKindModel> typeKinds)
+  protected override ObjAlternateModel ToModel(IGqlpObjAlternate ast, IMap<TypeKindModel> typeKinds)
   {
     CollectionModel[] collections = collection.ToModels(ast.Modifiers, typeKinds);
     ObjBaseModel baseModel = objBase.ToModel(ast, typeKinds);

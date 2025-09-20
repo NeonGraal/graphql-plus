@@ -4,12 +4,8 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-internal interface IObjectAlternateFactories<TObjAltAst, TObjBase, TObjBaseAst, TObjArgAst>
-  : IObjectBaseFactories<TObjBase, TObjBaseAst, TObjArgAst>
-  where TObjAltAst : AstObjAlternate, IGqlpObjAlternate
-  where TObjBase : IGqlpObjBase
-  where TObjBaseAst : AstObjBase, TObjBase
-  where TObjArgAst : AstObjArg
+internal interface IObjectAlternateFactories
+  : IObjectBaseFactories
 {
-  TObjAltAst ObjAlternate(TokenAt at, string name, string description);
+  ObjAlternateAst ObjAlternate(TokenAt at, string name, string description);
 }

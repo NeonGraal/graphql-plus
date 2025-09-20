@@ -6,10 +6,10 @@
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_InputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "AltAltModBoolInp",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -20,16 +20,16 @@
           "name": "alt",
           "object": "AltAltModBoolInp",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_InputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -39,7 +39,7 @@
           "$tag": "_InputField",
           "name": "alt",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
@@ -54,7 +54,7 @@
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_InputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "collections": [
             {
               "$tag": "_ModifierDictionary",
@@ -71,14 +71,14 @@
           ],
           "object": "AltModBoolInp",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "AltAltModBoolInp"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_InputAlternate",
+          "$tag": "_ObjAlternate",
           "collections": [
             {
               "$tag": "_ModifierDictionary",
@@ -94,7 +94,7 @@
             }
           ],
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "AltAltModBoolInp"
           }
         }

@@ -1,0 +1,109 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnumGnrcValueOutp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumGnrcValueOutp",
+          "name": "gnrcValueOutp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "gnrcValueOutp"
+        }
+      ],
+      "name": "EnumGnrcValueOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "GnrcValueOutp": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "GnrcValueOutp",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "RefGnrcValueOutp",
+            "typeArgs": [
+              {
+                "$tag": "_ObjTypeArg",
+                "name": "gnrcValueOutp"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_ObjAlternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "RefGnrcValueOutp",
+            "typeArgs": [
+              {
+                "$tag": "_ObjTypeArg",
+                "name": "gnrcValueOutp"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "GnrcValueOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "RefGnrcValueOutp": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "field",
+          "object": "RefGnrcValueOutp",
+          "type": {
+            "$tag": "_ObjBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "field",
+          "type": {
+            "$tag": "_ObjBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "name": "RefGnrcValueOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_Enum",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Internal"
+            }
+          },
+          "name": "type"
+        }
+      ]
+    }
+  }
+}

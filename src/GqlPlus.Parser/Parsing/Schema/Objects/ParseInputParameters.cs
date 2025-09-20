@@ -7,12 +7,12 @@ using GqlPlus.Token;
 namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ParseInputParams(
-  Parser<IGqlpInputBase>.D input,
+  Parser<IGqlpObjBase>.D input,
   Parser<IGqlpModifier>.DA modifiers,
   Parser<IParserDefault, IGqlpConstant>.D defaultParser
 ) : Parser<IGqlpInputParam>.IA
 {
-  private readonly Parser<IGqlpInputBase>.L _input = input;
+  private readonly Parser<IGqlpObjBase>.L _input = input;
   private readonly Parser<IGqlpModifier>.LA _modifiers = modifiers;
   private readonly Parser<IParserDefault, IGqlpConstant>.L _default = defaultParser;
 
@@ -27,7 +27,7 @@ internal class ParseInputParams(
 
     while (!tokens.Take(')')) {
       TokenAt at = tokens.At;
-      IResult<IGqlpInputBase> input = _input.Parse(tokens, label);
+      IResult<IGqlpObjBase> input = _input.Parse(tokens, label);
       if (!input.IsOk()) {
         return tokens.ErrorArray("Param", "input reference after '('", list);
       }

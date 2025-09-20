@@ -5,14 +5,14 @@ using GqlPlus.Merging.Objects;
 namespace GqlPlus.Merging.Schema.Objects;
 
 public class MergeOutputObjectsTests
-  : TestObjectMerger<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>
+  : TestObjectMerger<IGqlpOutputObject, IGqlpOutputField>
 {
   private readonly MergeOutputObjects _merger;
 
   public MergeOutputObjectsTests(ITestOutputHelper outputHelper)
     => _merger = new(outputHelper.ToLoggerFactory(), Fields, TypeParams, Alternates);
 
-  internal override AstObjectsMerger<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate> MergerObject => _merger;
+  internal override AstObjectsMerger<IGqlpOutputObject, IGqlpOutputField> MergerObject => _merger;
 
   protected override IGqlpOutputObject MakeObject(
     string name,
@@ -27,9 +27,9 @@ public class MergeOutputObjectsTests
       Parent = parent,
       TypeParams = typeParams?.TypeParams() ?? [],
       ObjFields = fields?.OutputFields() ?? [],
-      ObjAlternates = alternates?.OutputAlternates() ?? [],
+      Alternates = alternates?.OutputAlternates() ?? [],
     };
 
-  protected override IGqlpOutputBase MakeBase(string type)
+  protected override IGqlpObjBase MakeBase(string type)
     => new OutputBaseAst(AstNulls.At, type);
 }

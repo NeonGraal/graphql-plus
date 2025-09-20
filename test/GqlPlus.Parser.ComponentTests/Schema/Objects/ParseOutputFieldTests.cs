@@ -88,5 +88,5 @@ public class ParseOutputFieldTests(
 
 internal sealed class ParseOutputFieldChecks(
   Parser<IGqlpOutputField>.D parser
-) : CheckObjectField<IGqlpOutputField, OutputFieldAst, IGqlpOutputBase, OutputBaseAst, OutputArgAst>(new OutputFactories(), parser)
+) : CheckObjectField<IGqlpOutputField, OutputFieldAst>(new OutputFactories(), parser)
 { }

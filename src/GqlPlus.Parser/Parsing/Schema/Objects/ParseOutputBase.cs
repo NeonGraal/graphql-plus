@@ -6,8 +6,5 @@ namespace GqlPlus.Parsing.Schema.Objects;
 
 internal class ParseOutputBase(
   Parser<IGqlpObjArg>.DA parseArgs
-) : ObjectBaseParser<IGqlpOutputBase, OutputBaseAst>(parseArgs)
-{
-  protected override OutputBaseAst ObjBase(TokenAt at, string param, string description)
-    => new(at, param, description);
-}
+) : ParseObjBase(parseArgs)
+{ }

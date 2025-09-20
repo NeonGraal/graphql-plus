@@ -1,1 +1,1 @@
-a13eb47  (HEAD -> dual-enum-arg) 2025-09-11 Fixup enum samples including removing invalid's that don't parse
+6814189  (HEAD -> dual-enum-arg) 2025-09-20 Tweak _TypeParam introspection

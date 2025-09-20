@@ -73,14 +73,14 @@ public static class BuiltIn
     ["false"] = "Boolean",
   };
 
-  private static DualDeclAst DualObj(string label, params IGqlpDualAlternate[] alternates)
-    => new(AstNulls.At, label) { ObjAlternates = alternates };
+  private static DualDeclAst DualObj(string label, params IGqlpObjAlternate[] alternates)
+    => new(AstNulls.At, label) { Alternates = alternates };
 
   private static DualDeclAst DualObj(string label, DualBaseAst parent, params string[] aliases)
     => new(AstNulls.At, label) { Aliases = aliases, Parent = parent };
 
-  private static DualDeclAst DualObj(string label, TypeParamAst[] typeParams, params IGqlpDualAlternate[] alternates)
-    => new(AstNulls.At, "_" + label) { TypeParams = typeParams, ObjAlternates = alternates };
+  private static DualDeclAst DualObj(string label, TypeParamAst[] typeParams, params IGqlpObjAlternate[] alternates)
+    => new(AstNulls.At, "_" + label) { TypeParams = typeParams, Alternates = alternates };
 
   private static DualDeclAst DualObj(string label, TypeParamAst[] typeParams, DualBaseAst parent)
     => new(AstNulls.At, "_" + label) { TypeParams = typeParams, Parent = parent };

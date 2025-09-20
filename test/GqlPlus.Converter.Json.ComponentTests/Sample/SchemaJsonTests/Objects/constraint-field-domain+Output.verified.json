@@ -10,18 +10,18 @@
           "name": "field",
           "object": "RefCnstFieldDmnOutp",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "DomCnstFieldDmnOutp"
           }
         }
       ],
       "name": "CnstFieldDmnOutp",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "RefCnstFieldDmnOutp",
         "typeArgs": [
           {
-            "$tag": "_OutputArg",
+            "$tag": "_ObjTypeArg",
             "name": "DomCnstFieldDmnOutp"
           }
         ]
@@ -66,7 +66,7 @@
           "name": "field",
           "object": "RefCnstFieldDmnOutp",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "ref"
           }
         }
@@ -76,7 +76,7 @@
           "$tag": "_OutputField",
           "name": "field",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "ref"
           }
         }

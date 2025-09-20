@@ -5,7 +5,7 @@ namespace GqlPlus.Ast.Schema.Objects;
 
 internal sealed record class InputParamAst(
   ITokenAt At,
-  IGqlpInputBase Type
+  IGqlpObjBase Type
 ) : AstAbbreviated(At)
   , IGqlpInputParam
 {
@@ -14,7 +14,6 @@ internal sealed record class InputParamAst(
 
   internal override string Abbr => "Pa";
 
-  IGqlpInputBase IGqlpInputParam.Type => Type;
   IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
   string IGqlpDescribed.Description => Type.Description;
 

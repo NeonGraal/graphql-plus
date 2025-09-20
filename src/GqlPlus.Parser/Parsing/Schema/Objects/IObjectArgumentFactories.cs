@@ -4,9 +4,7 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-internal interface IObjectArgFactories<TObjArg, TObjArgAst>
-  where TObjArg : IGqlpObjArg
-  where TObjArgAst : AstObjArg, TObjArg
+internal interface IObjectArgFactories
 {
-  TObjArgAst ObjArg(TokenAt at, string name, string description = "");
+  ObjArgAst ObjArg(TokenAt at, string name, string description = "");
 }

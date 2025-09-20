@@ -1,12 +1,12 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
 public class OutputModellerTests
-  : ModellerObjectBaseTestBase<IGqlpOutputObject, TypeOutputModel, IGqlpOutputBase, ObjBaseModel>
+  : ModellerObjectBaseTestBase<IGqlpOutputObject, TypeOutputModel, ObjBaseModel>
 {
   public OutputModellerTests()
   {
     IModeller<IGqlpTypeParam, TypeParamModel> typeParam = MFor<IGqlpTypeParam, TypeParamModel>();
-    IModeller<IGqlpOutputAlternate, ObjAlternateModel> objAlt = MFor<IGqlpOutputAlternate, ObjAlternateModel>();
+    IModeller<IGqlpObjAlternate, ObjAlternateModel> objAlt = MFor<IGqlpObjAlternate, ObjAlternateModel>();
     IModeller<IGqlpOutputField, OutputFieldModel> objField = MFor<IGqlpOutputField, OutputFieldModel>();
 
     Modeller = new OutputModeller(new(typeParam, objAlt, objField, ObjBase));

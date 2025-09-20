@@ -4,12 +4,9 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-internal interface IObjectFieldFactories<TObjFieldAst, TObjBase, TObjBaseAst, TObjArgAst>
-  : IObjectBaseFactories<TObjBase, TObjBaseAst, TObjArgAst>
-  where TObjFieldAst : AstObjField<TObjBase>, IGqlpObjField
-  where TObjBase : IGqlpObjBase
-  where TObjBaseAst : AstObjBase, TObjBase
-  where TObjArgAst : AstObjArg
+internal interface IObjectFieldFactories<TObjFieldAst>
+  : IObjectBaseFactories
+  where TObjFieldAst : AstObjField, IGqlpObjField
 {
-  TObjFieldAst ObjField(TokenAt at, string name, TObjBase typeBase, string description = "");
+  TObjFieldAst ObjField(TokenAt at, string name, IGqlpObjBase type, string description = "");
 }

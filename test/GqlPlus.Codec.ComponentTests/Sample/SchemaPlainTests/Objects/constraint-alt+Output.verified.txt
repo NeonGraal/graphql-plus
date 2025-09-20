@@ -2,13 +2,13 @@
 types: !_Map_Type
   !_Identifier CnstAltOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: CnstAltOutp
-        type: !_OutputBase
+        type: !_ObjBase
           typeParam: type
     alternates:
-      - !_OutputAlternate
-        type: !_OutputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           typeParam: type
     name: CnstAltOutp
     typeKind: !_TypeKind Output

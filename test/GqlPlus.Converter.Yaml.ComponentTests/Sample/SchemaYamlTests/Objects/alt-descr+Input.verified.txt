@@ -2,14 +2,14 @@
 types: !_Map_Type
   !_Identifier AltDescrInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: AltDescrInp
-      type: !_InputBase
+      type: !_ObjBase
         description: 'Test Descr'
         name: String
     alternates:
-    - !_InputAlternate
-      type: !_InputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         description: 'Test Descr'
         name: String
     name: AltDescrInp

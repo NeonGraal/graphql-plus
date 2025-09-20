@@ -2,7 +2,7 @@
 
 [TracePerTest]
 public class VerifyDualTypesTests
-  : ObjectVerifierTestsBase<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>
+  : ObjectVerifierTestsBase<IGqlpDualObject, IGqlpDualField>
 {
   private readonly IGqlpDualObject _dual;
 
@@ -13,6 +13,6 @@ public class VerifyDualTypesTests
   {
     Verifier = new VerifyDualTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ArgDelegate, LoggerFactory));
 
-    _dual = A.Obj<IGqlpDualObject, IGqlpDualBase>("Dual");
+    _dual = A.Obj<IGqlpDualObject>("Dual");
   }
 }

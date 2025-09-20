@@ -1,26 +1,26 @@
 ﻿{
   "$tag": "_Schema",
+  "errors": [
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In AltCnstPrntDualGrndInp can\u0027t get model for type \u0027PrntCnstPrntDualGrndInp\u0027"
+    }
+  ],
   "types": {
     "$tag": "_Map_Type",
     "AltCnstPrntDualGrndInp": {
       "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "GrndCnstPrntDualGrndInp",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        }
-      ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "alt",
           "object": "AltCnstPrntDualGrndInp",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
@@ -30,14 +30,14 @@
           "$tag": "_InputField",
           "name": "alt",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "name": "AltCnstPrntDualGrndInp",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "PrntCnstPrntDualGrndInp"
       },
       "typeKind": {
@@ -47,34 +47,24 @@
     },
     "CnstPrntDualGrndInp": {
       "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "GrndCnstPrntDualGrndInp",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        }
-      ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "alt",
           "object": "AltCnstPrntDualGrndInp",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "name": "CnstPrntDualGrndInp",
       "parent": {
-        "$tag": "_InputBase",
+        "$tag": "_ObjBase",
         "name": "RefCnstPrntDualGrndInp",
         "typeArgs": [
           {
-            "$tag": "_InputArg",
+            "$tag": "_ObjTypeArg",
             "name": "AltCnstPrntDualGrndInp"
           }
         ]
@@ -88,19 +78,19 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_DualAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "GrndCnstPrntDualGrndInp",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_DualAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -115,17 +105,17 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_DualAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "GrndCnstPrntDualGrndInp",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
       ],
       "name": "PrntCnstPrntDualGrndInp",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "GrndCnstPrntDualGrndInp"
       },
       "typeKind": {
@@ -137,7 +127,7 @@
       "$tag": "_TypeInput",
       "name": "RefCnstPrntDualGrndInp",
       "parent": {
-        "$tag": "_InputBase",
+        "$tag": "_ObjBase",
         "typeParam": "ref"
       },
       "typeKind": {

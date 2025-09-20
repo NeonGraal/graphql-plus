@@ -3,10 +3,9 @@ using GqlPlus.Merging.Objects;
 
 namespace GqlPlus.Merging.Schema.Objects;
 
-public abstract class TestObjectFieldMerger<TObjField, TObjBase>
+public abstract class TestObjectFieldMerger<TObjField>
   : TestAliasedMerger<TObjField>
   where TObjField : IGqlpObjField
-  where TObjBase : IGqlpObjBase
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsSameModifers_ReturnsGood(string input)

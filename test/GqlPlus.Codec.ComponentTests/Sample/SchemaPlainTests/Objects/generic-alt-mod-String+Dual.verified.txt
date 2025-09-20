@@ -2,23 +2,23 @@
 types: !_Map_Type
   !_Identifier RefGnrcAltModStrDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_DualAlternate)
+      - !_ObjectFor(_ObjAlternate)
         collections:
           - !_ModifierDictionary
             by: '*'
             modifierKind: !_ModifierKind Dict
             typeKind: !_SimpleKind Basic
         object: RefGnrcAltModStrDual
-        type: !_DualBase
+        type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_DualAlternate
+      - !_ObjAlternate
         collections:
           - !_ModifierDictionary
             by: '*'
             modifierKind: !_ModifierKind Dict
             typeKind: !_SimpleKind Basic
-        type: !_DualBase
+        type: !_ObjBase
           typeParam: ref
     name: RefGnrcAltModStrDual
     typeKind: !_TypeKind Dual

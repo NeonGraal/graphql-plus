@@ -11,122 +11,22 @@ Success
     I@019/0002
     _TypeKind.Output
     I@036/0002
-    _OutputBase
-    I@048/0002
-    _OutputTypeParam
-    I@065/0002
     _OutputField
-    I@078/0002
-    _OutputAlternate
   >
 }
 {
   !Ou I@008/0005
-  _OutputBase
-  :
-  I@007/0006
-  _ObjBase
-  <
-    I@016/0006
-    _OutputTypeArg
-  >
-  |
-  I@007/0007
-  _DualBase
-}
-{
-  !Ou I@008/0010
-  _OutputTypeParam
-  :
-  I@007/0011
-  _ObjTypeParam
-  <
-    I@021/0011
-    _TypeKind.Output
-  >
-  |
-  I@007/0012
-  _TypeRef
-  <
-    I@016/0012
-    _TypeKind.Dual
-  >
-  I@007/0013
-  _TypeRef
-  <
-    I@016/0013
-    _TypeKind.Enum
-  >
-}
-{
-  !Ou I@008/0016
   _OutputField
   :
-  I@007/0017
+  I@007/0006
   _Field
-  <
-    I@014/0017
-    _OutputBase
-  >
   {
-    !OF I@009/0018
+    !OF I@009/0007
     parameters
     :
-    I@021/0018
+    I@021/0007
     _InputParam
     []
-  }
-  |
-  I@007/0019
-  _OutputEnum
-}
-{
-  !Ou I@008/0022
-  _OutputAlternate
-  :
-  I@007/0023
-  _Alternate
-  <
-    I@018/0023
-    _OutputBase
-  >
-}
-{
-  !Ou I@008/0026
-  _OutputTypeArg
-  :
-  I@007/0027
-  _ObjTypeArg
-  {
-    !OF I@009/0028
-    label
-    :
-    I@016/0028
-    _Identifier
-    ?
-  }
-}
-{
-  !Ou I@008/0031
-  _OutputEnum
-  :
-  I@007/0032
-  _TypeRef
-  <
-    I@016/0032
-    _TypeKind.Enum
-  >
-  {
-    !OF I@009/0033
-    field
-    :
-    I@016/0033
-    _Identifier
-    !OF I@009/0034
-    label
-    :
-    I@016/0034
-    _Identifier
   }
 }
 ]

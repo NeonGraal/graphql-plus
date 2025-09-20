@@ -1,0 +1,44 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !In I@007/0001
+  CnstEnumPrntInp
+  |
+  I@027/0001
+  RefCnstEnumPrntInp
+  <
+    I@046/0001
+    cnstEnumPrntInp
+  >
+}
+{
+  !In I@007/0002
+  RefCnstEnumPrntInp
+  <
+    I@027/0002
+    $type
+    :ParentCnstEnumPrntInp
+  >
+  {
+    !IF I@057/0002
+    field
+    :
+    I@065/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumCnstEnumPrntInp
+  :( !Tr I@029/0003 ParentCnstEnumPrntInp )
+  !EL I@051/0003
+  cnstEnumPrntInp
+}
+{
+  !En I@006/0004
+  ParentCnstEnumPrntInp
+  !EL I@030/0004
+  parentCnstEnumPrntInp
+}
+]

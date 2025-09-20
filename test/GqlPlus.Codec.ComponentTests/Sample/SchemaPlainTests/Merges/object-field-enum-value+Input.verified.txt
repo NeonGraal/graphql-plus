@@ -5,12 +5,12 @@ types: !_Map_Type
       - !_ObjectFor(_InputField)
         name: field
         object: ObjFieldEnumValueInp
-        type: !_InputBase
+        type: !_ObjBase
           name: Boolean
     fields:
       - !_InputField
         name: field
-        type: !_InputBase
+        type: !_ObjBase
           name: Boolean
     name: ObjFieldEnumValueInp
     typeKind: !_TypeKind Input

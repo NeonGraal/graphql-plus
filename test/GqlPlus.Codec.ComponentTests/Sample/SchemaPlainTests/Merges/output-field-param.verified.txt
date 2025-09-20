@@ -13,7 +13,7 @@ types: !_Map_Type
             name: OutpFieldParam1
           - !_InputParam
             name: OutpFieldParam2
-        type: !_DualBase
+        type: !_ObjBase
           name: FldOutpFieldParam
     fields:
       - !_OutputField
@@ -23,7 +23,7 @@ types: !_Map_Type
             name: OutpFieldParam1
           - !_InputParam
             name: OutpFieldParam2
-        type: !_DualBase
+        type: !_ObjBase
           name: FldOutpFieldParam
     name: OutpFieldParam
     typeKind: !_TypeKind Output

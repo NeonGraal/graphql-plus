@@ -30,7 +30,7 @@ public static class SchemaBuilderHelpers
 
   public static IGqlpInputParam InputParam(this IMockBuilder builder, string type, bool isTypeParam = false)
   {
-    IGqlpInputBase typeBase = builder.InputBase(type, isTypeParam);
+    IGqlpObjBase typeBase = builder.InputBase(type, isTypeParam);
     IGqlpInputParam input = builder.Error<IGqlpInputParam>();
     input.Type.Returns(typeBase);
     return input;

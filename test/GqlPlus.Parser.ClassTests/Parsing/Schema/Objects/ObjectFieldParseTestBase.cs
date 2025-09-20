@@ -2,13 +2,12 @@
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-public abstract class ObjectFieldParseTestBase<TField, TBase>
+public abstract class ObjectFieldParseTestBase<TField>
   : AliasesClassTestBase
-  where TField : class, IGqlpObjField<TBase>
-  where TBase : class, IGqlpObjBase
+  where TField : class, IGqlpObjField
 {
-  private readonly Parser<TBase>.I _parseBase;
-  protected Parser<TBase>.D ParseBase { get; }
+  private readonly Parser<IGqlpObjBase>.I _parseBase;
+  protected Parser<IGqlpObjBase>.D ParseBase { get; }
   protected abstract Parser<TField>.I Parser { get; }
 
   protected ObjectFieldParseTestBase()

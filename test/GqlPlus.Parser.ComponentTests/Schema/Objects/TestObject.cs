@@ -82,22 +82,20 @@ where TObject : IGqlpObject
 
 public record struct ObjectInput(string Name, string Other);
 
-internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase, TObjBaseAst, TObjArgAst>
+internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAltAst, TObjBaseAst, TObjArgAst>
   : BaseAliasedChecks<ObjectInput, TObjectAst, TObject>
   , ICheckObject<TObject>
-  where TObject : IGqlpObject<TObjBase, TObjField, TObjAlt>
-  where TObjectAst : AstObject<TObjBase, TObjField, TObjAlt>, TObject
+  where TObject : IGqlpObject<TObjField>
+  where TObjectAst : AstObject<TObjField>, TObject
   where TObjField : IGqlpObjField
-  where TObjFieldAst : AstObjField<TObjBase>, TObjField
-  where TObjAlt : IGqlpObjAlternate
-  where TObjAltAst : AstObjAlternate, TObjAlt
-  where TObjBase : IGqlpObjBase
-  where TObjBaseAst : AstObjBase, TObjBase
-  where TObjArgAst : AstObjArg
+  where TObjFieldAst : AstObjField, TObjField
+  where TObjAltAst : ObjAlternateAst
+  where TObjBaseAst : ObjBaseAst
+  where TObjArgAst : ObjArgAst
 {
-  private readonly IObjectFactories<TObjectAst, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase, TObjBaseAst, TObjArgAst> _factories;
+  private readonly IObjectFactories<TObjectAst, TObjField, TObjFieldAst> _factories;
 
-  internal CheckObject(IObjectFactories<TObjectAst, TObjField, TObjFieldAst, TObjAlt, TObjAltAst, TObjBase, TObjBaseAst, TObjArgAst> factories, Parser<TObject>.D parser)
+  internal CheckObject(IObjectFactories<TObjectAst, TObjField, TObjFieldAst> factories, Parser<TObject>.D parser)
     : base(parser)
     => _factories = factories;
 
@@ -108,7 +106,7 @@ internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt
     => TrueExpected(
       name + "{" + others.Joined(s => "|" + s) + "}",
        Object(name) with {
-         ObjAlternates = [.. others.Select(ObjAlternate)],
+         Alternates = [.. others.Select(ObjAlternate)],
        });
 
   public void WithFieldsAndAlternates(string name, FieldInput[] fields, string[] others)
@@ -116,7 +114,7 @@ internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt
       name + "{" + fields.Select(f => f.Name + ":" + f.Type).Joined() + others.Joined(s => "|" + s) + "}",
        Object(name) with {
          ObjFields = [.. fields.Select(f => ObjField(f.Name, f.Type))],
-         ObjAlternates = [.. others.Select(ObjAlternate)],
+         Alternates = [.. others.Select(ObjAlternate)],
        });
 
   public void WithFieldsBadAndAlternates(string name, FieldInput[] fields, string[] others)
@@ -129,14 +127,14 @@ internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt
     => TrueExpected(
       name + "{" + others.Select(o => $"|'{o.Content}'{o.Alternate}").Joined() + "}",
        Object(name) with {
-         ObjAlternates = [.. others.Select(o => ObjAlternate(o.Alternate) with { Description = o.Content })],
+         Alternates = [.. others.Select(o => ObjAlternate(o.Alternate) with { Description = o.Content })],
        });
 
   public void WithAlternateModifiers(string name, string[] others)
     => TrueExpected(
       name + "{" + others.Joined(a => $"|{a}[][String]") + "}",
        Object(name) with {
-         ObjAlternates = [.. others.Select(a => ObjAlternate(a) with { Modifiers = TestCollections() })],
+         Alternates = [.. others.Select(a => ObjAlternate(a) with { Modifiers = TestCollections() })],
        });
 
   public void WithAlternateModifiersBad(string name, string[] others)
@@ -146,7 +144,7 @@ internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt
     => TrueExpected(
       name + "<" + parameters.Joined(s => "$" + s + ":_Any") + ">{|" + other + "}",
        Object(name) with {
-         ObjAlternates = [ObjAlternate(other)],
+         Alternates = [ObjAlternate(other)],
          TypeParams = parameters.TypeParams(),
        });
 
@@ -200,25 +198,25 @@ internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAlt
   public TObjField ObjField(string field, string baseType)
     => _factories.ObjField(AstNulls.At, field, ObjBase(baseType));
 
-  public TObjField ObjField(string field, TObjBase baseType)
+  public TObjField ObjField(string field, IGqlpObjBase baseType)
     => _factories.ObjField(AstNulls.At, field, baseType);
 
-  public TObjAltAst ObjAlternate(string baseType)
+  public ObjAlternateAst ObjAlternate(string baseType)
     => _factories.ObjAlternate(AstNulls.At, baseType, "");
 
-  public TObjBaseAst ObjBase(string type, string description = "")
+  public ObjBaseAst ObjBase(string type, string description = "")
     => _factories.ObjBase(AstNulls.At, type, description);
 
-  public TObjBase ObjBaseWithArgs(string type, string subType)
+  public IGqlpObjBase ObjBaseWithArgs(string type, string subType)
     => ObjBase(type) with { Args = [ObjArg(subType)] };
 
-  public TObjArgAst ObjArg(string type, string description = "")
+  public ObjArgAst ObjArg(string type, string description = "")
     => _factories.ObjArg(AstNulls.At, type, description);
 
   protected internal sealed override string AliasesString(ObjectInput input, string aliases)
     => input.Name + aliases + "{|" + input.Other + "}";
   protected internal sealed override TObjectAst NamedFactory(ObjectInput input)
-    => Object(input.Name) with { ObjAlternates = [ObjAlternate(input.Other)] };
+    => Object(input.Name) with { Alternates = [ObjAlternate(input.Other)] };
 }
 
 public record struct AlternateComment(string Content, string Alternate);

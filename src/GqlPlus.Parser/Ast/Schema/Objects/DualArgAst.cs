@@ -6,7 +6,7 @@ public sealed record class DualArgAst(
   ITokenAt At,
   string Name,
   string Description
-) : AstObjArg(At, Name, Description)
+) : ObjArgAst(At, Name, Description)
 {
   public DualArgAst(TokenAt at, string name)
     : this(at, name, "") { }

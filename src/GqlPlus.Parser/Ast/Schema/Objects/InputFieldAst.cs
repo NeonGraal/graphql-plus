@@ -7,14 +7,14 @@ internal sealed record class InputFieldAst(
   ITokenAt At,
   string Name,
   string Description,
-  IGqlpInputBase BaseType
-) : AstObjField<IGqlpInputBase>(At, Name, Description, BaseType)
+  IGqlpObjBase Type
+) : AstObjField(At, Name, Description, Type)
   , IGqlpInputField
 {
   public IGqlpConstant? DefaultValue { get; set; }
 
-  public InputFieldAst(TokenAt at, string name, IGqlpInputBase typeBase)
-    : this(at, name, "", typeBase) { }
+  public InputFieldAst(TokenAt at, string name, IGqlpObjBase type)
+    : this(at, name, "", type) { }
 
   internal override string Abbr => "IF";
 
@@ -22,7 +22,7 @@ internal sealed record class InputFieldAst(
     => other is IGqlpInputField field && Equals(field);
   public bool Equals(IGqlpInputField? other)
     => base.Equals(other)
-    && DefaultValue.NullEqual(other.DefaultValue);
+    && DefaultValue.NullEqual(other!.DefaultValue);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), DefaultValue);
 

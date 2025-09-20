@@ -1,0 +1,12 @@
+﻿[  
+!Sc I@001/0001
+Failure
+<
+  !!! P@020/0001 : Invalid Dual. Expected '}' at end of definition. - '!\ EnumAltE' !!!
+  !!! P@020/0001 : Invalid Schema. Expected no more text. - '!\ EnumAltE' !!!
+>
+{
+  !Du I@006/0001
+  AltEnumDual
+}
+]

@@ -1,26 +1,26 @@
 ﻿{
   "$tag": "_Schema",
+  "errors": [
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In AltCnstPrntDualPrntInp can\u0027t get model for type \u0027PrntCnstPrntDualPrntInp\u0027"
+    }
+  ],
   "types": {
     "$tag": "_Map_Type",
     "AltCnstPrntDualPrntInp": {
       "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "PrntCnstPrntDualPrntInp",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        }
-      ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "alt",
           "object": "AltCnstPrntDualPrntInp",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
@@ -30,14 +30,14 @@
           "$tag": "_InputField",
           "name": "alt",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "name": "AltCnstPrntDualPrntInp",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "PrntCnstPrntDualPrntInp"
       },
       "typeKind": {
@@ -47,34 +47,24 @@
     },
     "CnstPrntDualPrntInp": {
       "$tag": "_TypeInput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "PrntCnstPrntDualPrntInp",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        }
-      ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_InputField)",
           "name": "alt",
           "object": "AltCnstPrntDualPrntInp",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "name": "CnstPrntDualPrntInp",
       "parent": {
-        "$tag": "_InputBase",
+        "$tag": "_ObjBase",
         "name": "RefCnstPrntDualPrntInp",
         "typeArgs": [
           {
-            "$tag": "_InputArg",
+            "$tag": "_ObjTypeArg",
             "name": "AltCnstPrntDualPrntInp"
           }
         ]
@@ -88,19 +78,19 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_DualAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "PrntCnstPrntDualPrntInp",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_DualAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -115,7 +105,7 @@
       "$tag": "_TypeInput",
       "name": "RefCnstPrntDualPrntInp",
       "parent": {
-        "$tag": "_InputBase",
+        "$tag": "_ObjBase",
         "typeParam": "ref"
       },
       "typeKind": {

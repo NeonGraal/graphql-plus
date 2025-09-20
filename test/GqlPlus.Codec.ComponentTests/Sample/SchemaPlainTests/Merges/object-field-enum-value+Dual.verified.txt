@@ -5,12 +5,12 @@ types: !_Map_Type
       - !_ObjectFor(_DualField)
         name: field
         object: ObjFieldEnumValueDual
-        type: !_DualBase
+        type: !_ObjBase
           name: Boolean
     fields:
       - !_DualField
         name: field
-        type: !_DualBase
+        type: !_ObjBase
           name: Boolean
     name: ObjFieldEnumValueDual
     typeKind: !_TypeKind Dual

@@ -6,7 +6,7 @@
       "$tag": "_TypeInput",
       "name": "GnrcPrntDescrInp",
       "parent": {
-        "$tag": "_InputBase",
+        "$tag": "_ObjBase",
         "description": "Parent comment",
         "typeParam": "type"
       },

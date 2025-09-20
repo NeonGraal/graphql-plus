@@ -1,16 +1,14 @@
-﻿using GqlPlus.Abstractions.Schema;
-
-namespace GqlPlus.Ast.Schema.Objects;
+﻿namespace GqlPlus.Ast.Schema.Objects;
 
 public class DualAlternateAstTests
-  : AstObjectAlternateTests<IGqlpDualBase>
+  : AstObjectAlternateTests
 {
   protected override string AbbreviatedString(AlternateInput input)
     => $"( !DA {input.Type} )";
 
-  private readonly AstObjectAlternateChecks<DualAlternateAst, IGqlpDualBase, DualBaseAst, DualArgAst> _checks
+  private readonly AstObjectAlternateChecks<DualAlternateAst, DualBaseAst, DualArgAst> _checks
     = new(dual => new(AstNulls.At, dual.Type, ""),
       arguments => arguments.DualArgs());
 
-  internal override IAstObjectAlternateChecks<IGqlpDualBase> AlternateChecks => _checks;
+  internal override IAstObjectAlternateChecks AlternateChecks => _checks;
 }

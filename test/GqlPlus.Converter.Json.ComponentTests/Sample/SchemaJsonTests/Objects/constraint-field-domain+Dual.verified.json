@@ -10,18 +10,18 @@
           "name": "field",
           "object": "RefCnstFieldDmnDual",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "DomCnstFieldDmnDual"
           }
         }
       ],
       "name": "CnstFieldDmnDual",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "RefCnstFieldDmnDual",
         "typeArgs": [
           {
-            "$tag": "_DualArg",
+            "$tag": "_ObjTypeArg",
             "name": "DomCnstFieldDmnDual"
           }
         ]
@@ -66,7 +66,7 @@
           "name": "field",
           "object": "RefCnstFieldDmnDual",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "typeParam": "ref"
           }
         }
@@ -76,7 +76,7 @@
           "$tag": "_DualField",
           "name": "field",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "typeParam": "ref"
           }
         }

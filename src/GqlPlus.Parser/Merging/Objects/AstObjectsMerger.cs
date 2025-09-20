@@ -2,16 +2,14 @@
 
 namespace GqlPlus.Merging.Objects;
 
-internal abstract class AstObjectsMerger<TObject, TObjBase, TObjField, TObjAlt>(
+internal abstract class AstObjectsMerger<TObject, TObjField>(
   ILoggerFactory logger,
   IMerge<TObjField> fields,
   IMerge<IGqlpTypeParam> typeParams,
-  IMerge<TObjAlt> alternates
+  IMerge<IGqlpObjAlternate> alternates
 ) : AstTypeMerger<IGqlpType, TObject, IGqlpObjBase, TObjField>(logger, fields)
-  where TObject : IGqlpObject<TObjBase, TObjField, TObjAlt>
+  where TObject : IGqlpObject<TObjField>
   where TObjField : IGqlpObjField
-  where TObjAlt : IGqlpObjAlternate
-  where TObjBase : IGqlpObjBase
 {
   protected override string ItemMatchName => "Parent";
   protected override string ItemMatchKey(TObject item)
@@ -21,7 +19,7 @@ internal abstract class AstObjectsMerger<TObject, TObjBase, TObjField, TObjAlt>(
   {
     IMessages baseCanMerge = base.CanMergeGroup(group);
     IMessages typeParamsCanMerge = group.ManyCanMerge(item => item.TypeParams, typeParams);
-    IMessages alternatesCanMerge = group.ManyGroupCanMerge(item => item.ObjAlternates, a => a.FullType, alternates);
+    IMessages alternatesCanMerge = group.ManyGroupCanMerge(item => item.Alternates, a => a.FullType, alternates);
 
     return baseCanMerge.Add(typeParamsCanMerge).Add(alternatesCanMerge);
   }
@@ -29,7 +27,7 @@ internal abstract class AstObjectsMerger<TObject, TObjBase, TObjField, TObjAlt>(
   protected override TObject MergeGroup(IEnumerable<TObject> group)
   {
     IEnumerable<IGqlpTypeParam> typeParamsAsts = group.ManyMerge(item => item.TypeParams, typeParams);
-    IEnumerable<TObjAlt> alternateAsts = group.ManyMerge(item => item.ObjAlternates, alternates);
+    IEnumerable<IGqlpObjAlternate> alternateAsts = group.ManyMerge(item => item.Alternates, alternates);
 
     return SetAlternates(base.MergeGroup(group), typeParamsAsts, alternateAsts);
   }
@@ -37,5 +35,5 @@ internal abstract class AstObjectsMerger<TObject, TObjBase, TObjField, TObjAlt>(
   internal override IEnumerable<TObjField> GetItems(TObject type)
     => type.ObjFields;
 
-  protected abstract TObject SetAlternates(TObject obj, IEnumerable<IGqlpTypeParam> typeParams, IEnumerable<TObjAlt> alternates);
+  protected abstract TObject SetAlternates(TObject obj, IEnumerable<IGqlpTypeParam> typeParams, IEnumerable<IGqlpObjAlternate> alternates);
 }

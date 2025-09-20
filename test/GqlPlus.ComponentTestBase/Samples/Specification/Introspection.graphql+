@@ -130,26 +130,26 @@ output _TypeSimple {
     | _TypeRef<_TypeKind.Union>
     }
 
-output _Collections {
+dual _Collections {
     | _Modifier<_ModifierKind.List>
     | _ModifierKeyed<_ModifierKind.Dictionary>
     | _ModifierKeyed<_ModifierKind.TypeParam>
     }
 
-output _ModifierKeyed<$kind:_ModifierKind> {
+dual _ModifierKeyed<$kind:_ModifierKind> {
     : _Modifier<$kind>
         by: _TypeSimple
         optional: Boolean
     }
 
-output _Modifiers {
+dual _Modifiers {
     | _Modifier<_ModifierKind.Optional>
     | _Collections
     }
 
 enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
 
-output _Modifier<$kind:_ModifierKind> {
+dual _Modifier<$kind:_ModifierKind> {
         modifierKind: $kind
     }
 
@@ -261,111 +261,81 @@ output _UnionMember {
 
 domain _ObjectKind { enum _TypeKind.Dual _TypeKind.Input _TypeKind.Output }
 
-output _TypeObject<$kind:_ObjectKind $parent:_ObjBase
-            $typeParam:_ObjTypeParam $field:_Field $alternate:_Alternate> {
-    : _ChildType<$kind $parent>
-        typeParams: $typeParam[]
+output _TypeObject<$kind:_ObjectKind $field:_Field> {
+    : _ChildType<$kind _ObjBase>
+        typeParams: _ObjTypeParam[]
         fields: $field[]
-        alternates: $alternate[]
+        alternates: _Alternate[]
         allFields: _ObjectFor<$field>[]
-        allAlternates: _ObjectFor<$alternate>[]
+        allAlternates: _ObjectFor<_Alternate>[]
     }
 
-output _ObjTypeParam<$kind:_ObjectKind> {
+output _ObjTypeParam {
     : _Named
-        constraint: _ObjConstraint<$kind>
+        constraint: _TypeRef<_TypeKind>
     }
 
-output _ObjConstraint<$kind:_ObjectKind> {
-    : _TypeRef<$kind>
-    }
-
-output _ObjBase<$arg:_ObjTypeArg> {
+output _ObjBase {
     : _Named
-        typeArgs: $arg[]
+        typeArgs: _ObjTypeArg[]
     | _TypeParam
     }
 
 output _ObjTypeArg {
     : _TypeRef<_TypeKind>
+        label: _Identifier?
     | _TypeParam
     }
 
 output _TypeParam {
-    : _Named
+    : _Described
         typeParam: _Identifier
     }
 
-output _Alternate<$base:_ObjBase> {
-      type: $base
+output _Alternate {
+      type: _ObjBase
       collections: _Collections[]
+    | _AlternateEnum
     }
 
+output _AlternateEnum {
+    : _TypeRef<_TypeKind.Enum>
+        label: _Identifier
+    }
 output _ObjectFor<$for:_ForParam> {
     : $for
         object: _Identifier
     }
 
-output _Field<$base:_ObjBase> {
+output _Field {
     : _Aliased
-      type: $base
+      type: _ObjBase
       modifiers: _Modifiers[]
+    | _FieldEnum
     }
 
-output _ForParam<$base:_ObjBase> {
-    | _Alternate<$base>
-    | _Field<$base>
+output _FieldEnum {
+    : _TypeRef<_TypeKind.Enum>
+        field: _Identifier
+        label: _Identifier
+    }
+
+output _ForParam {
+    | _Alternate
+    | _Field
     }
 
 output _TypeDual {
-    : _TypeObject<_TypeKind.Dual _DualBase _DualTypeParam _DualField _DualAlternate>
-    }
-
-output _DualBase {
-    : _ObjBase<_DualTypeArg>
-    }
-
-output _DualTypeParam {
-    : _ObjTypeParam<_TypeKind.Dual>
-    }
-
-output _DualField {
-    : _Field<_DualBase>
-    }
-
-output _DualAlternate {
-    : _Alternate<_DualBase>
-    }
-
-output _DualTypeArg {
-    : _ObjTypeArg
+    : _TypeObject<_TypeKind.Dual _Field>
     }
 
 output _TypeInput {
-    : _TypeObject<_TypeKind.Input _InputBase _InputTypeParam _InputField _InputAlternate>
-    }
-
-output _InputBase {
-    : _ObjBase<_InputTypeArg>
-    | _DualBase
-    }
-
-output _InputTypeParam {
-    : _ObjTypeParam<_TypeKind.Input>
-    | _TypeRef<_TypeKind.Dual>
+    : _TypeObject<_TypeKind.Input _InputField>
     }
 
 output _InputField {
-    : _Field<_InputBase>
+    : _Field
         default: Value?
-    }
-
-output _InputAlternate {
-    : _Alternate<_InputBase>
-    }
-
-output _InputTypeArg {
-    : _ObjTypeArg
     }
 
 output _InputParam {
@@ -375,38 +345,11 @@ output _InputParam {
     }
 
 output _TypeOutput {
-    : _TypeObject<_TypeKind.Output _OutputBase _OutputTypeParam _OutputField _OutputAlternate>
-    }
-
-output _OutputBase {
-    : _ObjBase<_OutputTypeArg>
-    | _DualBase
-    }
-
-output _OutputTypeParam {
-    : _ObjTypeParam<_TypeKind.Output>
-    | _TypeRef<_TypeKind.Dual>
-    | _TypeRef<_TypeKind.Enum>
+    : _TypeObject<_TypeKind.Output _OutputField>
     }
 
 output _OutputField {
-    : _Field<_OutputBase>
+    : _Field
         parameters: _InputParam[]
-    | _OutputEnum
-    }
-
-output _OutputAlternate {
-    : _Alternate<_OutputBase>
-    }
-
-output _OutputTypeArg {
-    : _ObjTypeArg
-        label: _Identifier?
-    }
-
-output _OutputEnum {
-    : _TypeRef<_TypeKind.Enum>
-        field: _Identifier
-        label: _Identifier
     }
 

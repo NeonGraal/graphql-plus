@@ -5,15 +5,15 @@ namespace GqlPlus;
 
 public static class SchemaObjectBuilderHelpers
 {
-  public static IGqlpDualBase DualBase(this IMockBuilder builder, string name, bool isTypeParam = false)
-    => builder.ObjBase<IGqlpDualBase, IGqlpObjArg>(name, isTypeParam);
+  public static IGqlpObjBase DualBase(this IMockBuilder builder, string name, bool isTypeParam = false)
+    => builder.ObjBase<IGqlpObjBase, IGqlpObjArg>(name, isTypeParam);
   public static IGqlpDualField DualField(this IMockBuilder builder, string name, string type, string typeDescr = "")
-    => builder.ObjField<IGqlpDualField, IGqlpDualBase>(name, builder.DualBase(type).SetDescr(typeDescr));
+    => builder.ObjField<IGqlpDualField>(name, builder.DualBase(type).SetDescr(typeDescr));
 
-  public static IGqlpInputBase InputBase(this IMockBuilder builder, string name, bool isTypeParam = false)
-    => builder.ObjBase<IGqlpInputBase, IGqlpObjArg>(name, isTypeParam);
+  public static IGqlpObjBase InputBase(this IMockBuilder builder, string name, bool isTypeParam = false)
+    => builder.ObjBase<IGqlpObjBase, IGqlpObjArg>(name, isTypeParam);
   public static IGqlpInputField InputField(this IMockBuilder builder, string name, string type, string typeDescr = "")
-    => builder.ObjField<IGqlpInputField, IGqlpInputBase>(name, builder.InputBase(type).SetDescr(typeDescr));
+    => builder.ObjField<IGqlpInputField>(name, builder.InputBase(type).SetDescr(typeDescr));
 
   public static IGqlpObjArg OutputEnumArg(this IMockBuilder builder, string name, string enumType, string enumLabel)
   {
@@ -24,10 +24,10 @@ public static class SchemaObjectBuilderHelpers
     theArg.EnumLabel.Returns(enumLabel);
     return theArg;
   }
-  public static IGqlpOutputBase OutputBase(this IMockBuilder builder, string name, bool isTypeParam = false)
-  => builder.ObjBase<IGqlpOutputBase, IGqlpObjArg>(name, isTypeParam);
+  public static IGqlpObjBase OutputBase(this IMockBuilder builder, string name, bool isTypeParam = false)
+  => builder.ObjBase<IGqlpObjBase, IGqlpObjArg>(name, isTypeParam);
   public static IGqlpOutputField OutputField(this IMockBuilder builder, string name, string type, string typeDescr = "")
-    => builder.ObjField<IGqlpOutputField, IGqlpOutputBase>(name, builder.OutputBase(type).SetDescr(typeDescr));
+    => builder.ObjField<IGqlpOutputField>(name, builder.OutputBase(type).SetDescr(typeDescr));
 
   public static T SetDescr<T>(this T described, string description)
     where T : IGqlpDescribed
@@ -36,29 +36,26 @@ public static class SchemaObjectBuilderHelpers
     return described;
   }
 
-  public static TObject Obj<TObject, TBase>(this IMockBuilder builder, string typeName, string parent = "", bool isTypeParam = false)
-    where TObject : class, IGqlpObject<TBase>
-    where TBase : class, IGqlpObjBase
+  public static TObject Obj<TObject>(this IMockBuilder builder, string typeName, string parent = "", bool isTypeParam = false)
+    where TObject : class, IGqlpObject
   {
     TObject theObj = builder.Named<TObject>(typeName);
     string label = typeof(TObject).Name[5..^6];
     theObj.Label.Returns(label);
     if (!string.IsNullOrWhiteSpace(parent)) {
-      TBase parentRef = builder.Named<TBase, IGqlpObjBase>(parent);
+      IGqlpObjBase parentRef = builder.Named<IGqlpObjBase>(parent);
       parentRef.IsTypeParam.Returns(isTypeParam);
       theObj.SetParent(parentRef);
     } else {
-      theObj.SetParent((TBase?)null);
+      theObj.SetParent((IGqlpObjBase?)null);
     }
 
     return theObj;
   }
-  public static TObject SetParent<TObject, TBase>([NotNull] this TObject obj, TBase? parent)
-    where TObject : class, IGqlpObject<TBase>
-    where TBase : class, IGqlpObjBase
+  public static TObject SetParent<TObject>([NotNull] this TObject obj, IGqlpObjBase? parent)
+    where TObject : class, IGqlpObject
   {
     obj.Parent.Returns(parent);
-    obj.ObjParent.Returns(parent);
 
     return obj;
   }
@@ -105,13 +102,11 @@ public static class SchemaObjectBuilderHelpers
     return theArg;
   }
 
-  public static TField ObjField<TField, TBase>(this IMockBuilder builder, string fieldName, TBase type, params IGqlpModifier[] modifiers)
-    where TBase : class, IGqlpObjBase
-    where TField : class, IGqlpObjField<TBase>
+  public static TField ObjField<TField>(this IMockBuilder builder, string fieldName, IGqlpObjBase type, params IGqlpModifier[] modifiers)
+    where TField : class, IGqlpObjField
   {
     TField theField = builder.Named<TField>(fieldName, "");
     theField.Type.Returns(type);
-    theField.BaseType.Returns(type);
     theField.Modifiers.Returns(modifiers);
 
     return theField;

@@ -24,10 +24,10 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_Categories",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Category"
           }
         }
@@ -38,16 +38,16 @@
           "name": "category",
           "object": "_Categories",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Category"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Category"
           }
         }
@@ -57,14 +57,14 @@
           "$tag": "_OutputField",
           "name": "category",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Category"
           }
         }
       ],
       "name": "_Categories",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_AndType"
       },
       "typeKind": {
@@ -80,7 +80,7 @@
           "name": "resolution",
           "object": "_Category",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Resolution"
           }
         },
@@ -89,7 +89,7 @@
           "name": "output",
           "object": "_Category",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeRef",
             "typeArgs": [
               {
@@ -118,7 +118,7 @@
           "name": "modifiers",
           "object": "_Category",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Modifiers"
           }
         }
@@ -128,7 +128,7 @@
           "$tag": "_OutputField",
           "name": "resolution",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Resolution"
           }
         },
@@ -136,7 +136,7 @@
           "$tag": "_OutputField",
           "name": "output",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeRef",
             "typeArgs": [
               {
@@ -164,14 +164,14 @@
           ],
           "name": "modifiers",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Modifiers"
           }
         }
       ],
       "name": "_Category",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_Aliased"
       },
       "typeKind": {

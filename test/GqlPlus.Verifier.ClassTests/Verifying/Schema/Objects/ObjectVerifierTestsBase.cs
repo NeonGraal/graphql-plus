@@ -4,15 +4,13 @@ using NSubstitute.Core;
 
 namespace GqlPlus.Verifying.Schema.Objects;
 
-public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt>
+public abstract class ObjectVerifierTestsBase<TObject, TField>
   : UsageVerifierTestsBase<TObject>
-  where TObject : class, IGqlpObject<TBase, TField, TAlt>
-  where TBase : class, IGqlpObjBase
-  where TField : class, IGqlpObjField<TBase>
-  where TAlt : class, IGqlpObjAlternate
+  where TObject : class, IGqlpObject<TField>
+  where TField : class, IGqlpObjField
 {
   internal readonly ForM<TField> MergeFields = new();
-  internal readonly ForM<TAlt> MergeAlternates = new();
+  internal readonly ForM<IGqlpObjAlternate> MergeAlternates = new();
 
   protected ObjectVerifierTestsBase()
   {
@@ -217,7 +215,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt>
   {
     Define<IGqlpTypeSpecial>("String");
 
-    TAlt alt = ObjectAlternate("String");
+    IGqlpObjAlternate alt = ObjectAlternate("String");
     SetModifier(alt, kind, "String");
 
     Verify_NoErrors();
@@ -236,7 +234,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt>
   {
     Define<IGqlpTypeSpecial>("String");
 
-    TAlt alt = ObjectAlternate(name);
+    IGqlpObjAlternate alt = ObjectAlternate(name);
     SetModifier(alt, kind, "String");
 
     Verify_Errors("cannot be an alternate of itself", name);
@@ -272,7 +270,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt>
     Define<IGqlpTypeSpecial>("String");
 
     TObject other = DefineObject(altType);
-    TAlt alt = ObjectAlternate(name, other);
+    IGqlpObjAlternate alt = ObjectAlternate(name, other);
     SetModifier(alt, kind, "String");
 
     ObjectAlternate(altType);
@@ -299,7 +297,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt>
     TObject other = DefineObject(altType);
     ObjectParent(name, other);
 
-    TAlt alt = ObjectAlternate(altType);
+    IGqlpObjAlternate alt = ObjectAlternate(altType);
     SetModifier(alt, kind, "String");
 
     Verify_Errors("cannot be an alternate of itself", name);
@@ -630,35 +628,34 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt>
 
   protected TObject DefineObject(string name, string parent = "", bool isTypeParam = false)
   {
-    TObject obj = A.Obj<TObject, TBase>(name, parent, isTypeParam);
+    TObject obj = A.Obj<TObject>(name, parent, isTypeParam);
     Definitions.Add(obj);
     Usages.Add(obj);
     return obj;
   }
 
-  protected TBase ObjectParent(string parentName, TObject? obj = null, bool isTypeParam = false)
+  protected IGqlpObjBase ObjectParent(string parentName, TObject? obj = null, bool isTypeParam = false)
   {
     obj ??= TheObject;
 
-    TBase parentBase = MakeBase(parentName, isTypeParam);
+    IGqlpObjBase parentBase = MakeBase(parentName, isTypeParam);
     obj.SetParent(parentBase);
 
     return parentBase;
   }
 
-  protected TAlt ObjectAlternate(string type, TObject? obj = null, bool isTypeParam = false)
+  protected IGqlpObjAlternate ObjectAlternate(string type, TObject? obj = null, bool isTypeParam = false)
   {
     obj ??= TheObject;
 
-    TAlt alt = A.Named<TAlt, IGqlpObjAlternate>(type);
-    string label = typeof(TAlt).Name[5..^9];
+    IGqlpObjAlternate alt = A.Named<IGqlpObjAlternate, IGqlpObjAlternate>(type);
+    string label = typeof(IGqlpObjAlternate).Name[5..^9];
     alt.Label.Returns(label);
     string fullType = isTypeParam ? "$" + type : type;
     alt.FullType.Returns(fullType);
     alt.IsTypeParam.Returns(isTypeParam);
 
     obj.Alternates.Returns([alt]);
-    obj.ObjAlternates.Returns([alt]);
 
     return alt;
   }
@@ -667,8 +664,8 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt>
   {
     obj ??= TheObject;
 
-    TBase objBase = MakeBase(fieldType, isTypeParam);
-    TField field = A.ObjField<TField, TBase>(fieldName, objBase);
+    IGqlpObjBase objBase = MakeBase(fieldType, isTypeParam);
+    TField field = A.ObjField<TField>(fieldName, objBase);
 
     obj.Fields.Returns([field]);
     obj.ObjFields.Returns([field]);
@@ -680,8 +677,8 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt>
   {
     obj ??= TheObject;
 
-    TBase objBase = MakeBase(enumType, isTypeParam);
-    TField field = A.ObjField<TField, TBase>(fieldName, objBase);
+    IGqlpObjBase objBase = MakeBase(enumType, isTypeParam);
+    TField field = A.ObjField<TField>(fieldName, objBase);
     field.EnumLabel.Returns(enumLabel);
     field.EnumType.Returns(field.Type);
 
@@ -701,8 +698,8 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt>
     return typeParam;
   }
 
-  protected static TBase MakeBase(string baseName, bool isTypeParam = false)
-    => A.ObjBase<TBase, IGqlpObjArg>(baseName, isTypeParam);
+  protected static IGqlpObjBase MakeBase(string baseName, bool isTypeParam = false)
+    => A.ObjBase<IGqlpObjBase, IGqlpObjArg>(baseName, isTypeParam);
 
   protected static IGqlpObjArg BaseArg(IGqlpObjBase type, string argName, bool isTypeParam = false)
   {
@@ -724,9 +721,9 @@ public abstract class ObjectVerifierTestsBase<TObject, TBase, TField, TAlt>
   }
 
   protected static IGqlpObjArg FieldArg([NotNull] TField field, string argName, bool isTypeParam = false)
-    => BaseArg(field.BaseType, argName, isTypeParam);
+    => BaseArg(field.Type, argName, isTypeParam);
   protected static IGqlpObjArg FieldEnumArg([NotNull] TField field, string enumType, string enumLabel)
-    => BaseEnumArg(field.BaseType, enumType, enumLabel);
+    => BaseEnumArg(field.Type, enumType, enumLabel);
 
   protected static TMod SetModifier<TMod>([NotNull] TMod modified, ModifierKind kind, string key = "")
     where TMod : IGqlpModifiers

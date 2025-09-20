@@ -3,13 +3,13 @@
   "types": {
     "$tag": "_Map_Type",
     "_Collections": {
-      "$tag": "_TypeOutput",
+      "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_Collections",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Modifier",
             "typeArgs": [
               {
@@ -25,10 +25,10 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_Collections",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_ModifierKeyed",
             "typeArgs": [
               {
@@ -44,10 +44,10 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_Collections",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_ModifierKeyed",
             "typeArgs": [
               {
@@ -65,9 +65,9 @@
       ],
       "alternates": [
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Modifier",
             "typeArgs": [
               {
@@ -83,9 +83,9 @@
           }
         },
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_ModifierKeyed",
             "typeArgs": [
               {
@@ -101,9 +101,9 @@
           }
         },
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_ModifierKeyed",
             "typeArgs": [
               {
@@ -122,28 +122,28 @@
       "name": "_Collections",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "value": "Dual"
       }
     },
     "_Modifier": {
-      "$tag": "_TypeOutput",
+      "$tag": "_TypeDual",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$tag": "_ObjectFor(_DualField)",
           "name": "modifierKind",
           "object": "_Modifier",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "kind"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$tag": "_DualField",
           "name": "modifierKind",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "kind"
           }
         }
@@ -151,7 +151,7 @@
       "name": "_Modifier",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "value": "Dual"
       },
       "typeParams": [
         {
@@ -169,68 +169,68 @@
       ]
     },
     "_ModifierKeyed": {
-      "$tag": "_TypeOutput",
+      "$tag": "_TypeDual",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$tag": "_ObjectFor(_DualField)",
           "name": "modifierKind",
           "object": "_Modifier",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "kind"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$tag": "_ObjectFor(_DualField)",
           "name": "by",
           "object": "_ModifierKeyed",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeSimple"
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$tag": "_ObjectFor(_DualField)",
           "name": "optional",
           "object": "_ModifierKeyed",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         }
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$tag": "_DualField",
           "name": "by",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeSimple"
           }
         },
         {
-          "$tag": "_OutputField",
+          "$tag": "_DualField",
           "name": "optional",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         }
       ],
       "name": "_ModifierKeyed",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_Modifier",
         "typeArgs": [
           {
-            "$tag": "_OutputArg",
+            "$tag": "_ObjTypeArg",
             "typeParam": "kind"
           }
         ]
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "value": "Dual"
       },
       "typeParams": [
         {
@@ -302,13 +302,13 @@
       }
     },
     "_Modifiers": {
-      "$tag": "_TypeOutput",
+      "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_Modifiers",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Modifier",
             "typeArgs": [
               {
@@ -324,19 +324,19 @@
           }
         },
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_Modifiers",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Collections"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Modifier",
             "typeArgs": [
               {
@@ -352,9 +352,9 @@
           }
         },
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Collections"
           }
         }
@@ -362,7 +362,7 @@
       "name": "_Modifiers",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "value": "Dual"
       }
     }
   }

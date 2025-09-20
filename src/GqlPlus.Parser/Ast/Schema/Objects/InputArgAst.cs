@@ -4,7 +4,7 @@ internal sealed record class InputArgAst(
   ITokenAt At,
   string Name,
   string Description
-) : AstObjArg(At, Name, Description)
+) : ObjArgAst(At, Name, Description)
 {
   public InputArgAst(ITokenAt at, string name)
     : this(at, name, "") { }

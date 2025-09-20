@@ -1,0 +1,12 @@
+﻿[  
+!Sc I@001/0001
+Failure
+<
+  !!! P@022/0001 : Invalid Output. Expected '}' at end of definition. - '!\ EnumAltE' !!!
+  !!! P@022/0001 : Invalid Schema. Expected no more text. - '!\ EnumAltE' !!!
+>
+{
+  !Ou I@008/0001
+  AltEnumOutp
+}
+]

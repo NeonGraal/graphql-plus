@@ -1,12 +1,12 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
 public class ObjAlternateModellerTests
-  : ModellerObjectBaseTestBase<IGqlpObjAlternate, ObjAlternateModel, IGqlpObjBase, ObjBaseModel>
+  : ModellerObjectBaseTestBase<IGqlpObjAlternate, ObjAlternateModel, ObjBaseModel>
 {
   private readonly IModeller<IGqlpModifier, CollectionModel> _collection = MFor<IGqlpModifier, CollectionModel>();
 
   public ObjAlternateModellerTests()
-    => Modeller = new ObjAlternateModeller<IGqlpObjBase, IGqlpObjAlternate>(_collection, ObjBase);
+    => Modeller = new ObjAlternateModeller(_collection, ObjBase);
 
   protected override IModeller<IGqlpObjAlternate, ObjAlternateModel> Modeller { get; }
 

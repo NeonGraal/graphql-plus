@@ -1,26 +1,26 @@
 ﻿{
   "$tag": "_Schema",
+  "errors": [
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In AltCnstFieldDualOutp can\u0027t get model for type \u0027PrntCnstFieldDualOutp\u0027"
+    }
+  ],
   "types": {
     "$tag": "_Map_Type",
     "AltCnstFieldDualOutp": {
       "$tag": "_TypeOutput",
-      "allAlternates": [
-        {
-          "$tag": "_ObjectFor(_DualAlternate)",
-          "object": "PrntCnstFieldDualOutp",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        }
-      ],
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "alt",
           "object": "AltCnstFieldDualOutp",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
@@ -30,14 +30,14 @@
           "$tag": "_OutputField",
           "name": "alt",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "name": "AltCnstFieldDualOutp",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "PrntCnstFieldDualOutp"
       },
       "typeKind": {
@@ -53,18 +53,18 @@
           "name": "field",
           "object": "RefCnstFieldDualOutp",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "AltCnstFieldDualOutp"
           }
         }
       ],
       "name": "CnstFieldDualOutp",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "RefCnstFieldDualOutp",
         "typeArgs": [
           {
-            "$tag": "_OutputArg",
+            "$tag": "_ObjTypeArg",
             "name": "AltCnstFieldDualOutp"
           }
         ]
@@ -78,19 +78,19 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_DualAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "PrntCnstFieldDualOutp",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_DualAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -109,7 +109,7 @@
           "name": "field",
           "object": "RefCnstFieldDualOutp",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "ref"
           }
         }
@@ -119,7 +119,7 @@
           "$tag": "_OutputField",
           "name": "field",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "ref"
           }
         }

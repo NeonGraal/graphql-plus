@@ -7,7 +7,7 @@ internal sealed record class OutputDeclAst(
   ITokenAt At,
   string Name,
   string Description
-) : AstObject<IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>(At, Name, Description)
+) : AstObject<IGqlpOutputField>(At, Name, Description)
   , IGqlpOutputObject
 {
   internal override string Abbr => "Ou";

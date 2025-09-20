@@ -6,8 +6,7 @@ internal sealed record class InputAlternateAst(
   ITokenAt At,
   string Name,
   string Description
-) : AstObjAlternate(At, Name, Description)
-  , IGqlpInputAlternate
+) : ObjAlternateAst(At, Name, Description)
 {
   public override string Label => "Input";
   internal override string Abbr => "IA";

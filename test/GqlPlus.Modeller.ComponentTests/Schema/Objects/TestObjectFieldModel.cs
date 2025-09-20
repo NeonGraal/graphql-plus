@@ -4,11 +4,10 @@ using GqlPlus.Modelling;
 
 namespace GqlPlus.Schema.Objects;
 
-public abstract class TestObjectFieldModel<TObjField, TObjBase, TModel>(
+public abstract class TestObjectFieldModel<TObjField, TModel>(
   ICheckObjectFieldModel<TObjField, TModel> fieldChecks
 ) : TestModelBase<FieldInput, TModel>(fieldChecks)
   where TObjField : IGqlpObjField
-  where TObjBase : IGqlpObjBase
   where TModel : IObjFieldModel
 {
   [Theory, RepeatData]
@@ -35,15 +34,14 @@ public abstract class TestObjectFieldModel<TObjField, TObjBase, TModel>(
       );
 }
 
-internal abstract class CheckObjectFieldModel<TObjField, TObjFieldAst, TObjBase, TModel>(
+internal abstract class CheckObjectFieldModel<TObjField, TObjFieldAst, TModel>(
   IModeller<TObjField, TModel> field, IEncoder
   <TModel> encoding,
   TypeKindModel kind
 ) : CheckModelBase<FieldInput, TObjField, TModel>(field, encoding),
     ICheckObjectFieldModel<TObjField, TModel>
   where TObjField : IGqlpObjField
-  where TObjFieldAst : AstObjField<TObjBase>, TObjField
-  where TObjBase : IGqlpObjBase
+  where TObjFieldAst : AstObjField, TObjField
   where TModel : IObjFieldModel
 {
   protected readonly TypeKindModel TypeKind = kind;

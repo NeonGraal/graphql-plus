@@ -5,187 +5,35 @@ errors:
   _message: In _TypeOutput can't get model for type '_TypeObject'
 - !_Error
   _kind: !_TokenKind End
-  _message: In _OutputBase can't get model for type '_ObjBase'
-- !_Error
-  _kind: !_TokenKind End
-  _message: In _OutputTypeParam can't get model for type '_ObjTypeParam'
-- !_Error
-  _kind: !_TokenKind End
   _message: In _OutputField can't get model for type '_Field'
-- !_Error
-  _kind: !_TokenKind End
-  _message: In _OutputAlternate can't get model for type '_Alternate'
-- !_Error
-  _kind: !_TokenKind End
-  _message: In _OutputTypeArg can't get model for type '_ObjTypeArg'
-- !_Error
-  _kind: !_TokenKind End
-  _message: In _OutputEnum can't get model for type '_TypeRef'
 types: !_Map_Type
-  !_Identifier _OutputAlternate: !_TypeOutput
-    name: _OutputAlternate
-    parent: !_OutputBase
-      name: _Alternate
-      typeArgs:
-      - !_OutputArg
-        name: _OutputBase
-    typeKind: !_TypeKind Output
-  !_Identifier _OutputBase: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: _OutputBase
-      type: !_OutputBase
-        name: _DualBase
-    alternates:
-    - !_OutputAlternate
-      type: !_OutputBase
-        name: _DualBase
-    name: _OutputBase
-    parent: !_OutputBase
-      name: _ObjBase
-      typeArgs:
-      - !_OutputArg
-        name: _OutputTypeArg
-    typeKind: !_TypeKind Output
-  !_Identifier _OutputEnum: !_TypeOutput
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: field
-      object: _OutputEnum
-      type: !_OutputBase
-        name: _Identifier
-    - !_ObjectFor(_OutputField)
-      name: label
-      object: _OutputEnum
-      type: !_OutputBase
-        name: _Identifier
-    fields:
-    - !_OutputField
-      name: field
-      type: !_OutputBase
-        name: _Identifier
-    - !_OutputField
-      name: label
-      type: !_OutputBase
-        name: _Identifier
-    name: _OutputEnum
-    parent: !_OutputBase
-      name: _TypeRef
-      typeArgs:
-      - !_TypeRef(_SimpleKind)
-        label: Enum
-        name: _TypeKind
-        typeKind: !_SimpleKind Enum
-    typeKind: !_TypeKind Output
   !_Identifier _OutputField: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: _OutputField
-      type: !_OutputBase
-        name: _OutputEnum
     allFields:
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: parameters
       object: _OutputField
-      type: !_OutputBase
+      type: !_ObjBase
         name: _InputParam
-    alternates:
-    - !_OutputAlternate
-      type: !_OutputBase
-        name: _OutputEnum
     fields:
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: parameters
-      type: !_OutputBase
+      type: !_ObjBase
         name: _InputParam
     name: _OutputField
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: _Field
-      typeArgs:
-      - !_OutputArg
-        name: _OutputBase
-    typeKind: !_TypeKind Output
-  !_Identifier _OutputTypeArg: !_TypeOutput
-    allFields:
-    - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: label
-      object: _OutputTypeArg
-      type: !_OutputBase
-        name: _Identifier
-    fields:
-    - !_OutputField
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: label
-      type: !_OutputBase
-        name: _Identifier
-    name: _OutputTypeArg
-    parent: !_OutputBase
-      name: _ObjTypeArg
-    typeKind: !_TypeKind Output
-  !_Identifier _OutputTypeParam: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_OutputAlternate)
-      object: _OutputTypeParam
-      type: !_OutputBase
-        name: _TypeRef
-        typeArgs:
-        - !_TypeRef(_SimpleKind)
-          label: Dual
-          name: _TypeKind
-          typeKind: !_SimpleKind Enum
-    - !_ObjectFor(_OutputAlternate)
-      object: _OutputTypeParam
-      type: !_OutputBase
-        name: _TypeRef
-        typeArgs:
-        - !_TypeRef(_SimpleKind)
-          label: Enum
-          name: _TypeKind
-          typeKind: !_SimpleKind Enum
-    alternates:
-    - !_OutputAlternate
-      type: !_OutputBase
-        name: _TypeRef
-        typeArgs:
-        - !_TypeRef(_SimpleKind)
-          label: Dual
-          name: _TypeKind
-          typeKind: !_SimpleKind Enum
-    - !_OutputAlternate
-      type: !_OutputBase
-        name: _TypeRef
-        typeArgs:
-        - !_TypeRef(_SimpleKind)
-          label: Enum
-          name: _TypeKind
-          typeKind: !_SimpleKind Enum
-    name: _OutputTypeParam
-    parent: !_OutputBase
-      name: _ObjTypeParam
-      typeArgs:
-      - !_TypeRef(_SimpleKind)
-        label: Output
-        name: _TypeKind
-        typeKind: !_SimpleKind Enum
     typeKind: !_TypeKind Output
   !_Identifier _TypeOutput: !_TypeOutput
     name: _TypeOutput
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: _TypeObject
       typeArgs:
       - !_TypeRef(_SimpleKind)
         label: Output
         name: _TypeKind
         typeKind: !_SimpleKind Enum
-      - !_OutputArg
-        name: _OutputBase
-      - !_OutputArg
-        name: _OutputTypeParam
-      - !_OutputArg
+      - !_ObjTypeArg
         name: _OutputField
-      - !_OutputArg
-        name: _OutputAlternate
     typeKind: !_TypeKind Output

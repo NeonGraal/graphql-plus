@@ -6,13 +6,13 @@ types: !_Map_Type
         aliases: [field1,field2]
         name: field
         object: ObjFieldEnumAliasDual
-        type: !_DualBase
+        type: !_ObjBase
           name: Boolean
     fields:
       - !_DualField
         aliases: [field1,field2]
         name: field
-        type: !_DualBase
+        type: !_ObjBase
           name: Boolean
     name: ObjFieldEnumAliasDual
     typeKind: !_TypeKind Dual

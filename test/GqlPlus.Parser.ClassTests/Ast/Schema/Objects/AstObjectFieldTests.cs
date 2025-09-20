@@ -2,9 +2,8 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public abstract class AstObjectFieldTests<TObjBase>
+public abstract class AstObjectFieldTests
   : AstAliasedTests<FieldInput>
-  where TObjBase : IGqlpObjBase
 {
   [Theory, RepeatData]
   public void HashCode_WithModifiers(FieldInput input)
@@ -54,26 +53,25 @@ public abstract class AstObjectFieldTests<TObjBase>
 
   protected override string InputName(FieldInput input) => input.Name;
 
-  internal abstract IAstObjectFieldChecks<TObjBase> FieldChecks { get; }
+  internal abstract IAstObjectFieldChecks FieldChecks { get; }
 }
 
-internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst, TObjArgAst>(
-  AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst, TObjArgAst>.FieldBy createField,
-  AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst, TObjArgAst>.BaseBy createBase,
-  AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst, TObjArgAst>.ArgsBy createArgs
+internal sealed class AstObjectFieldChecks<TObjField, TObjBaseAst, TObjArgAst>(
+  AstObjectFieldChecks<TObjField, TObjBaseAst, TObjArgAst>.FieldBy createField,
+  AstObjectFieldChecks<TObjField, TObjBaseAst, TObjArgAst>.BaseBy createBase,
+  AstObjectFieldChecks<TObjField, TObjBaseAst, TObjArgAst>.ArgsBy createArgs
 ) : AstAliasedChecks<FieldInput, TObjField>(input => createField(input, createBase(input)))
-  , IAstObjectFieldChecks<TObjBase>
-  where TObjField : AstObjField<TObjBase>
-  where TObjBase : IGqlpObjBase
-  where TObjBaseAst : AstObjBase, TObjBase
-  where TObjArgAst : AstObjArg
+  , IAstObjectFieldChecks
+  where TObjField : AstObjField
+  where TObjBaseAst : ObjBaseAst
+  where TObjArgAst : ObjArgAst
 {
   private readonly FieldBy _createField = createField;
   private readonly BaseBy _createBase = createBase;
   private readonly ArgsBy _createArgs = createArgs;
 
   internal delegate TObjBaseAst BaseBy(FieldInput input);
-  internal delegate TObjField FieldBy(FieldInput input, TObjBase objBase);
+  internal delegate TObjField FieldBy(FieldInput input, IGqlpObjBase objBase);
   internal delegate TObjArgAst[] ArgsBy(string[] arguments);
 
   public void HashCode_WithModifiers(FieldInput input)
@@ -140,9 +138,8 @@ internal sealed class AstObjectFieldChecks<TObjField, TObjBase, TObjBaseAst, TOb
     => CreateInput(input) with { EnumLabel = enumLabel };
 }
 
-internal interface IAstObjectFieldChecks<TObjBase>
+internal interface IAstObjectFieldChecks
   : IAstAliasedChecks<FieldInput>
-  where TObjBase : IGqlpObjBase
 {
   void HashCode_WithModifiers(FieldInput input);
   void String_WithModifiers(FieldInput input);

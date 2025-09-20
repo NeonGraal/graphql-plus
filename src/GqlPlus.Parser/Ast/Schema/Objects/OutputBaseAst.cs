@@ -7,8 +7,7 @@ internal sealed record class OutputBaseAst(
   ITokenAt At,
   string Name,
   string Description
-) : AstObjBase(At, Name, Description)
-  , IGqlpOutputBase
+) : ObjBaseAst(At, Name, Description)
 {
   public OutputBaseAst(TokenAt at, string name)
     : this(at, name, "") { }

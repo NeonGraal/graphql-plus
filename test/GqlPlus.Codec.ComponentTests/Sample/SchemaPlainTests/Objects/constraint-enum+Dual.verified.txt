@@ -1,0 +1,50 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier CnstEnumDual: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_ObjAlternate)
+        object: CnstEnumDual
+        type: !_ObjBase
+          name: RefCnstEnumDual
+          typeArgs:
+            - !_ObjTypeArg
+              name: cnstEnumDual
+    alternates:
+      - !_ObjAlternate
+        type: !_ObjBase
+          name: RefCnstEnumDual
+          typeArgs:
+            - !_ObjTypeArg
+              name: cnstEnumDual
+    name: CnstEnumDual
+    typeKind: !_TypeKind Dual
+  !_Identifier EnumCnstEnumDual: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: EnumCnstEnumDual
+        name: cnstEnumDual
+    items:
+      - !_Aliased
+        name: cnstEnumDual
+    name: EnumCnstEnumDual
+    typeKind: !_TypeKind Enum
+  !_Identifier RefCnstEnumDual: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: field
+        object: RefCnstEnumDual
+        type: !_ObjBase
+          typeParam: type
+    fields:
+      - !_DualField
+        name: field
+        type: !_ObjBase
+          typeParam: type
+    name: RefCnstEnumDual
+    typeKind: !_TypeKind Dual
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: EnumCnstEnumDual
+          typeKind: !_TypeKind Enum
+        name: type

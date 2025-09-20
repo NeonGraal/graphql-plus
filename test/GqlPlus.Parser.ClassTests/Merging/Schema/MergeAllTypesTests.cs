@@ -29,7 +29,7 @@ public class MergeAllTypesTests
     _merger.Merge(types);
 
     // Assert
-    field.BaseType.Name.ShouldBe(enumType);
+    field.Type.Name.ShouldBe(enumType);
     domainLabel.EnumType.ShouldBe(enumType);
   }
 

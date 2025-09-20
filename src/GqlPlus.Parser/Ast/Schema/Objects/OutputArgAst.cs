@@ -6,7 +6,7 @@ internal sealed record class OutputArgAst(
   ITokenAt At,
   string Name,
   string Description
-) : AstObjArg(At, Name, Description)
+) : ObjArgAst(At, Name, Description)
 {
   public OutputArgAst(TokenAt at, string name)
     : this(at, name, "") { }

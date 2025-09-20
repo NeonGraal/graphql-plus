@@ -1,36 +1,9 @@
 output _TypeOutput {
-    : _TypeObject<_TypeKind.Output _OutputBase _OutputTypeParam _OutputField _OutputAlternate>
-    }
-
-output _OutputBase {
-    : _ObjBase<_OutputTypeArg>
-    | _DualBase
-    }
-
-output _OutputTypeParam {
-    : _ObjTypeParam<_TypeKind.Output>
-    | _TypeRef<_TypeKind.Dual>
-    | _TypeRef<_TypeKind.Enum>
+    : _TypeObject<_TypeKind.Output _OutputField>
     }
 
 output _OutputField {
-    : _Field<_OutputBase>
+    : _Field
         parameters: _InputParam[]
-    | _OutputEnum
-    }
-
-output _OutputAlternate {
-    : _Alternate<_OutputBase>
-    }
-
-output _OutputTypeArg {
-    : _ObjTypeArg
-        label: _Identifier?
-    }
-
-output _OutputEnum {
-    : _TypeRef<_TypeKind.Enum>
-        field: _Identifier
-        label: _Identifier
     }
 

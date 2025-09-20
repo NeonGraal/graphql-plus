@@ -6,7 +6,7 @@ public class ObjBaseModellerTests
   private readonly IModeller<IGqlpObjArg, ObjTypeArgModel> _objArg = MFor<IGqlpObjArg, ObjTypeArgModel>();
 
   public ObjBaseModellerTests()
-    => Modeller = new ObjBaseModeller<IGqlpObjBase>(_objArg);
+    => Modeller = new ObjBaseModeller(_objArg);
 
   protected override IModeller<IGqlpObjBase, ObjBaseModel> Modeller { get; }
 

@@ -3,7 +3,7 @@
 namespace GqlPlus.Parsing.Schema.Objects;
 
 public class ParseOutputFieldTests
-  : ObjectFieldParseTestBase<IGqlpOutputField, IGqlpOutputBase>
+  : ObjectFieldParseTestBase<IGqlpOutputField>
 {
   private readonly Parser<IGqlpInputParam>.IA _parameter;
 

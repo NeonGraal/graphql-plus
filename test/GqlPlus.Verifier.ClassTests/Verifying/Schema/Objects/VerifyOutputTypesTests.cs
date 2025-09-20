@@ -2,7 +2,7 @@
 
 [TracePerTest]
 public class VerifyOutputTypesTests
-  : ObjectDualVerifierTestsBase<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>
+  : ObjectDualVerifierTestsBase<IGqlpOutputObject, IGqlpOutputField>
 {
   private readonly IGqlpOutputObject _output;
 
@@ -13,14 +13,14 @@ public class VerifyOutputTypesTests
   {
     Verifier = new VerifyOutputTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ArgDelegate, LoggerFactory));
 
-    _output = A.Obj<IGqlpOutputObject, IGqlpOutputBase>("Output");
+    _output = A.Obj<IGqlpOutputObject>("Output");
   }
 
   [Fact]
   public void Verify_Output_WithFieldParams_ReturnsNoErrors()
   {
     DefineObject("b");
-    IGqlpInputObject paramType = A.Obj<IGqlpInputObject, IGqlpInputBase>("c");
+    IGqlpInputObject paramType = A.Obj<IGqlpInputObject>("c");
     Define(paramType);
 
     IGqlpInputParam param = A.InputParam("c");
@@ -37,8 +37,8 @@ public class VerifyOutputTypesTests
   [Fact]
   public void Verify_Output_WithFieldParamModifiers_ReturnsNoErrors()
   {
-    IGqlpOutputObject fieldType = A.Obj<IGqlpOutputObject, IGqlpOutputBase>("b");
-    IGqlpInputObject paramType = A.Obj<IGqlpInputObject, IGqlpInputBase>("c");
+    IGqlpOutputObject fieldType = A.Obj<IGqlpOutputObject>("b");
+    IGqlpInputObject paramType = A.Obj<IGqlpInputObject>("c");
     Define(fieldType, paramType);
     Define<IGqlpEnum, IGqlpSimple>("d");
 

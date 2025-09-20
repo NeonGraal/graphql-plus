@@ -6,13 +6,13 @@ public class ParseOutputTests
   : DeclarationClassTestBase
 {
   private readonly Parser<IGqlpTypeParam>.IA _param;
-  private readonly Parser<ObjectDefinition<IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>>.I _definition;
+  private readonly Parser<ObjectDefinition<IGqlpOutputField>>.I _definition;
   private readonly ParseOutput _parser;
 
   public ParseOutputTests()
   {
     Parser<IGqlpTypeParam>.DA param = ParserAFor(out _param);
-    Parser<ObjectDefinition<IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>>.D definition = ParserFor(out _definition);
+    Parser<ObjectDefinition<IGqlpOutputField>>.D definition = ParserFor(out _definition);
     _parser = new ParseOutput(SimpleName, param, Aliases, OptionNull, definition);
   }
 
@@ -21,7 +21,7 @@ public class ParseOutputTests
   {
     // Arrange
     NameReturns(outputName);
-    ParseOk(_definition, new ObjectDefinition<IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>());
+    ParseOk(_definition, new ObjectDefinition<IGqlpOutputField>());
 
     // Act
     IResult<IGqlpOutputObject> result = _parser.Parse(Tokenizer, "testLabel");

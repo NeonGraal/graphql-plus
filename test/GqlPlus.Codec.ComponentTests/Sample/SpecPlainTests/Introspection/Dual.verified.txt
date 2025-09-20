@@ -3,76 +3,16 @@ errors:
   - !_Error
     _kind: !_TokenKind End
     _message: In _TypeDual can't get model for type '_TypeObject'
-  - !_Error
-    _kind: !_TokenKind End
-    _message: In _DualBase can't get model for type '_ObjBase'
-  - !_Error
-    _kind: !_TokenKind End
-    _message: In _DualTypeParam can't get model for type '_ObjTypeParam'
-  - !_Error
-    _kind: !_TokenKind End
-    _message: In _DualField can't get model for type '_Field'
-  - !_Error
-    _kind: !_TokenKind End
-    _message: In _DualAlternate can't get model for type '_Alternate'
-  - !_Error
-    _kind: !_TokenKind End
-    _message: In _DualTypeArg can't get model for type '_ObjTypeArg'
 types: !_Map_Type
-  !_Identifier _DualAlternate: !_TypeOutput
-    name: _DualAlternate
-    parent: !_OutputBase
-      name: _Alternate
-      typeArgs:
-        - !_OutputArg
-          name: _DualBase
-    typeKind: !_TypeKind Output
-  !_Identifier _DualBase: !_TypeOutput
-    name: _DualBase
-    parent: !_OutputBase
-      name: _ObjBase
-      typeArgs:
-        - !_OutputArg
-          name: _DualTypeArg
-    typeKind: !_TypeKind Output
-  !_Identifier _DualField: !_TypeOutput
-    name: _DualField
-    parent: !_OutputBase
-      name: _Field
-      typeArgs:
-        - !_OutputArg
-          name: _DualBase
-    typeKind: !_TypeKind Output
-  !_Identifier _DualTypeArg: !_TypeOutput
-    name: _DualTypeArg
-    parent: !_OutputBase
-      name: _ObjTypeArg
-    typeKind: !_TypeKind Output
-  !_Identifier _DualTypeParam: !_TypeOutput
-    name: _DualTypeParam
-    parent: !_OutputBase
-      name: _ObjTypeParam
-      typeArgs:
-        - !_TypeRef(_SimpleKind)
-          label: Dual
-          name: _TypeKind
-          typeKind: !_SimpleKind Enum
-    typeKind: !_TypeKind Output
   !_Identifier _TypeDual: !_TypeOutput
     name: _TypeDual
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: _TypeObject
       typeArgs:
         - !_TypeRef(_SimpleKind)
           label: Dual
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-        - !_OutputArg
-          name: _DualBase
-        - !_OutputArg
-          name: _DualTypeParam
-        - !_OutputArg
-          name: _DualField
-        - !_OutputArg
-          name: _DualAlternate
+        - !_ObjTypeArg
+          name: _Field
     typeKind: !_TypeKind Output

@@ -2,14 +2,14 @@
 types: !_Map_Type
   !_Identifier AltDescrDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_DualAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: AltDescrDual
-      type: !_DualBase
+      type: !_ObjBase
         description: 'Test Descr'
         name: String
     alternates:
-    - !_DualAlternate
-      type: !_DualBase
+    - !_ObjAlternate
+      type: !_ObjBase
         description: 'Test Descr'
         name: String
     name: AltDescrDual

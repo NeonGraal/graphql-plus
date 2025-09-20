@@ -1,0 +1,23 @@
+﻿!_Schema
+_ctxErrors:
+  - !_Error
+    _at: !_At{_col:22,_line:1}
+    _kind: !_TokenKind Punctuation
+    _message: 'Invalid Output. Expected \'}\' at end of definition.'
+  - !_Error
+    _at: !_At{_col:22,_line:1}
+    _kind: !_TokenKind Punctuation
+    _message: Invalid Schema. Expected no more text.
+_errors:
+  - !_Error
+    _at: !_At{_col:22,_line:1}
+    _kind: !_TokenKind Punctuation
+    _message: 'Invalid Output. Expected \'}\' at end of definition.'
+  - !_Error
+    _at: !_At{_col:22,_line:1}
+    _kind: !_TokenKind Punctuation
+    _message: Invalid Schema. Expected no more text.
+types: !_Map_Type
+  !_Identifier AltEnumOutp: !_TypeOutput
+    name: AltEnumOutp
+    typeKind: !_TypeKind Output

@@ -2,13 +2,13 @@
 types: !_Map_Type
   !_Identifier ObjAltInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_InputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: ObjAltInp
-        type: !_InputBase
+        type: !_ObjBase
           name: ObjAltInpType
     alternates:
-      - !_InputAlternate
-        type: !_InputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           name: ObjAltInpType
     name: ObjAltInp
     typeKind: !_TypeKind Input

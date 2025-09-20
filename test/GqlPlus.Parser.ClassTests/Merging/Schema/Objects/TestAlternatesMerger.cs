@@ -4,10 +4,8 @@ using GqlPlus.Merging.Objects;
 
 namespace GqlPlus.Merging.Schema.Objects;
 
-public abstract class TestAlternatesMerger<TObjAlt, TObjBase>
-  : TestDescriptionsMerger<TObjAlt>
-  where TObjAlt : IGqlpObjAlternate
-  where TObjBase : IGqlpObjBase
+public abstract class TestAlternatesMerger
+  : TestDescriptionsMerger<IGqlpObjAlternate>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsSameModifers_ReturnsGood(string input)
@@ -27,20 +25,19 @@ public abstract class TestAlternatesMerger<TObjAlt, TObjBase>
       [CheckAlternates.MakeAlternate(input, true), CheckAlternates.MakeAlternate(input, true)],
       CheckAlternates.MakeAlternate(input, true));
 
-  internal abstract ICheckAlternatesMerger<TObjAlt> CheckAlternates { get; }
-  internal abstract AstAlternatesMerger<TObjAlt> MergerAlternate { get; }
-  internal override GroupsMerger<TObjAlt> MergerGroups => MergerAlternate;
+  internal abstract ICheckAlternatesMerger<IGqlpObjAlternate> CheckAlternates { get; }
+  internal abstract MergeAstAlternates MergerAlternate { get; }
+  internal override GroupsMerger<IGqlpObjAlternate> MergerGroups => MergerAlternate;
 
-  protected override TObjAlt MakeDescribed(string name, string description = "")
+  protected override IGqlpObjAlternate MakeDescribed(string name, string description = "")
     => CheckAlternates.MakeAlternate(name, false, description);
 }
 
-internal abstract class CheckAlternatesMerger<TObjAlt, TObjAltAst>
-  : ICheckAlternatesMerger<TObjAlt>
-  where TObjAlt : IGqlpObjAlternate
-  where TObjAltAst : AstObjAlternate, TObjAlt
+internal abstract class CheckAlternatesMerger<TObjAltAst>
+  : ICheckAlternatesMerger<IGqlpObjAlternate>
+  where TObjAltAst : ObjAlternateAst
 {
-  public abstract TObjAlt MakeAlternate(string input, bool withModifiers = false, string description = "");
+  public abstract IGqlpObjAlternate MakeAlternate(string input, bool withModifiers = false, string description = "");
 }
 
 internal interface ICheckAlternatesMerger<TObjAlt>

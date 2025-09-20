@@ -16,7 +16,7 @@ internal sealed class DualFieldModelChecks(
   , IDualFieldModelChecks
 {
   internal override DualFieldAst NewFieldAst(FieldInput input, string[] aliases, bool withModifiers)
-    => new(AstNulls.At, input.Name, new DualBaseAst(AstNulls.At, input.Type)) {
+    => new(AstNulls.At, input.Name, new ObjBaseAst(AstNulls.At, input.Type, "")) {
       Aliases = aliases,
       Modifiers = withModifiers ? TestMods() : [],
     };

@@ -79,11 +79,11 @@ public class ParseOutputFieldTests(
   public void WithFieldEnumTypeAndValueBad_ReturnsFalse(string name, string enumLabel)
     => checks.FalseExpected(name + "=" + enumLabel + ".");
 
-  private static OutputFieldAst Field(string name, OutputBaseAst enumType)
+  private static OutputFieldAst Field(string name, ObjBaseAst enumType)
     => new(AstNulls.At, name, enumType);
 
-  private static OutputBaseAst FieldBase(string enumType)
-    => new(AstNulls.At, enumType);
+  private static ObjBaseAst FieldBase(string enumType)
+    => new(AstNulls.At, enumType, "");
 }
 
 internal sealed class ParseOutputFieldChecks(

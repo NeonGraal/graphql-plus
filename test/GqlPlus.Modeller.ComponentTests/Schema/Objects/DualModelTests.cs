@@ -10,7 +10,7 @@ public class DualModelTests(
 
 internal sealed class DualModelChecks(
   CheckTypeInputs<IGqlpDualObject, TypeDualModel> inputs
-) : CheckObjectModel<IGqlpDualObject, DualDeclAst, IGqlpDualField, DualFieldAst, DualAlternateAst, TypeDualModel>(inputs, TypeKindModel.Dual)
+) : CheckObjectModel<IGqlpDualObject, DualDeclAst, IGqlpDualField, DualFieldAst, TypeDualModel>(inputs, TypeKindModel.Dual)
   , IDualModelChecks
 {
   protected override DualDeclAst NewObjectAst(ExpectedObjectInput input, IGqlpObjBase? parent = null)
@@ -19,11 +19,11 @@ internal sealed class DualModelChecks(
       Parent = parent ?? NewParentAst(input.Parent),
       TypeParams = input.TypeParams.TypeParams(),
       ObjFields = input.Fields.DualFields(),
-      Alternates = input.Alternates.DualAlternates(),
+      Alternates = input.Alternates.ObjAlternates(),
     };
 
   internal override IGqlpObjBase? NewParentAst(string? input)
-    => string.IsNullOrWhiteSpace(input) ? null : new DualBaseAst(AstNulls.At, input);
+    => string.IsNullOrWhiteSpace(input) ? null : new ObjBaseAst(AstNulls.At, input, "");
 }
 
 public interface IDualModelChecks

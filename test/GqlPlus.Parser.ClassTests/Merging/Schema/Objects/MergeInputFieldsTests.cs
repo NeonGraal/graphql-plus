@@ -44,19 +44,19 @@ public class MergeInputFieldsTests
   internal override AstObjectFieldsMerger<IGqlpInputField> MergerField => _merger;
 
   protected override IGqlpInputField MakeField(string name, string type, string fieldDescription = "", string typeDescription = "", string[]? aliases = null)
-    => new InputFieldAst(AstNulls.At, name, fieldDescription, new InputBaseAst(AstNulls.At, type, typeDescription)) {
+    => new InputFieldAst(AstNulls.At, name, fieldDescription, new ObjBaseAst(AstNulls.At, type, typeDescription)) {
       Aliases = aliases ?? [],
     };
   internal static IGqlpInputField MakeFieldDefault(string name, string type, string defaultValue)
-    => new InputFieldAst(AstNulls.At, name, new InputBaseAst(AstNulls.At, type)) {
+    => new InputFieldAst(AstNulls.At, name, new ObjBaseAst(AstNulls.At, type, "")) {
       DefaultValue = new ConstantAst(defaultValue.FieldKey()),
     };
   protected override IGqlpInputField MakeFieldModifiers(string name)
-    => new InputFieldAst(AstNulls.At, name, new InputBaseAst(AstNulls.At, name)) {
+    => new InputFieldAst(AstNulls.At, name, new ObjBaseAst(AstNulls.At, name, "")) {
       Modifiers = TestMods(),
     };
   protected override IGqlpInputField MakeFieldEnum(string name, string enumType, string enumLabel, string fieldDescription = "", string typeDescription = "", string[]? aliases = null)
-    => new InputFieldAst(AstNulls.At, name, fieldDescription, new InputBaseAst(AstNulls.At, enumType, typeDescription)) {
+    => new InputFieldAst(AstNulls.At, name, fieldDescription, new ObjBaseAst(AstNulls.At, enumType, typeDescription)) {
       Aliases = aliases ?? [],
       EnumLabel = enumLabel,
     };

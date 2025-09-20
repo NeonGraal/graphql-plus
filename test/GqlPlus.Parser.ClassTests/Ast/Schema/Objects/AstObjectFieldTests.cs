@@ -56,23 +56,18 @@ public abstract class AstObjectFieldTests
   internal abstract IAstObjectFieldChecks FieldChecks { get; }
 }
 
-internal sealed class AstObjectFieldChecks<TObjField, TObjBaseAst, TObjArgAst>(
-  AstObjectFieldChecks<TObjField, TObjBaseAst, TObjArgAst>.FieldBy createField,
-  AstObjectFieldChecks<TObjField, TObjBaseAst, TObjArgAst>.BaseBy createBase,
-  AstObjectFieldChecks<TObjField, TObjBaseAst, TObjArgAst>.ArgsBy createArgs
-) : AstAliasedChecks<FieldInput, TObjField>(input => createField(input, createBase(input)))
+internal sealed class AstObjectFieldChecks<TObjField>(
+  AstObjectFieldChecks<TObjField>.FieldBy createField
+) : AstAliasedChecks<FieldInput, TObjField>(input => createField(input, BaseBy(input)))
   , IAstObjectFieldChecks
   where TObjField : AstObjField
-  where TObjBaseAst : ObjBaseAst
-  where TObjArgAst : ObjArgAst
 {
   private readonly FieldBy _createField = createField;
-  private readonly BaseBy _createBase = createBase;
-  private readonly ArgsBy _createArgs = createArgs;
 
-  internal delegate TObjBaseAst BaseBy(FieldInput input);
   internal delegate TObjField FieldBy(FieldInput input, IGqlpObjBase objBase);
-  internal delegate TObjArgAst[] ArgsBy(string[] arguments);
+
+  internal static ObjBaseAst BaseBy(FieldInput input)
+    => new(AstNulls.At, input.Type, "") { IsTypeParam = input.TypeParam };
 
   public void HashCode_WithModifiers(FieldInput input)
       => HashCode(() => CreateModifiers(input));
@@ -106,7 +101,7 @@ internal sealed class AstObjectFieldChecks<TObjField, TObjBaseAst, TObjArgAst>(
 
   public void ModifiedType_WithArgs(FieldInput input, string[] arguments)
   {
-    TObjField field = _createField(input, _createBase(input) with { Args = _createArgs(arguments) });
+    TObjField field = _createField(input, BaseBy(input) with { Args = arguments.ObjArgs() });
     string expected = $"{input.Type} < {arguments.Joined()} >";
 
     field.ModifiedType.ShouldBe(expected);
@@ -124,7 +119,7 @@ internal sealed class AstObjectFieldChecks<TObjField, TObjBaseAst, TObjArgAst>(
   {
     TObjField field = _createField(
         input,
-        _createBase(input) with { Args = _createArgs(arguments) }
+        BaseBy(input) with { Args = arguments.ObjArgs() }
       ) with { Modifiers = TestMods() };
     string expected = $"{input.Type} < {arguments.Joined()} > [] ?";
 

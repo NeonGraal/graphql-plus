@@ -13,7 +13,7 @@ public class MergeAllTypesTests
     this.SkipEqual3(outputType, enumType, domainType);
 
     // Arrange
-    OutputFieldAst field = new(AstNulls.At, fieldName, new OutputBaseAst(AstNulls.At, "", "")) {
+    OutputFieldAst field = new(AstNulls.At, fieldName, new ObjBaseAst(AstNulls.At, "", "")) {
       EnumLabel = enumLabel
     };
     DomainLabelAst domainLabel = new(AstNulls.At, "", false, enumLabel);

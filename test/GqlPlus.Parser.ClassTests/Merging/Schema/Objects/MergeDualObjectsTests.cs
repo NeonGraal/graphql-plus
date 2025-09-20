@@ -27,8 +27,8 @@ public class MergeDualObjectsTests
       Parent = parent,
       TypeParams = typeParams?.TypeParams() ?? [],
       ObjFields = fields?.DualFields() ?? [],
-      Alternates = alternates?.DualAlternates() ?? []
+      Alternates = alternates?.ObjAlternates() ?? []
     };
   protected override IGqlpObjBase MakeBase(string type)
-    => new DualBaseAst(AstNulls.At, type);
+    => new ObjBaseAst(AstNulls.At, type, "");
 }

@@ -10,7 +10,7 @@ public class InputModelTests(
 
 internal sealed class InputModelChecks(
   CheckTypeInputs<IGqlpInputObject, TypeInputModel> inputs
-) : CheckObjectModel<IGqlpInputObject, InputDeclAst, IGqlpInputField, InputFieldAst, InputAlternateAst, TypeInputModel>(inputs, TypeKindModel.Input)
+) : CheckObjectModel<IGqlpInputObject, InputDeclAst, IGqlpInputField, InputFieldAst, TypeInputModel>(inputs, TypeKindModel.Input)
   , IInputModelChecks
 {
   protected override InputDeclAst NewObjectAst(ExpectedObjectInput input, IGqlpObjBase? parent = null)
@@ -19,11 +19,11 @@ internal sealed class InputModelChecks(
       Parent = parent ?? NewParentAst(input.Parent),
       TypeParams = input.TypeParams.TypeParams(),
       ObjFields = input.Fields.InputFields(),
-      Alternates = input.Alternates.InputAlternates(),
+      Alternates = input.Alternates.ObjAlternates(),
     };
 
   internal override IGqlpObjBase? NewParentAst(string? input)
-    => string.IsNullOrWhiteSpace(input) ? null : new InputBaseAst(AstNulls.At, input);
+    => string.IsNullOrWhiteSpace(input) ? null : new ObjBaseAst(AstNulls.At, input, "");
 }
 
 public interface IInputModelChecks

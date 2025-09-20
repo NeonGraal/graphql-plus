@@ -3,7 +3,7 @@ using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public abstract class AstObjectAlternateTests
+public class ObjAlternateAstTests
   : AstAbbreviatedTests<AlternateInput>
 {
   [Theory, RepeatData]
@@ -39,30 +39,21 @@ public abstract class AstObjectAlternateTests
   protected override string InputString(AlternateInput input)
     => $"( {input.Type} )";
 
-  internal abstract IAstObjectAlternateChecks AlternateChecks { get; }
+  internal IAstObjectAlternateChecks AlternateChecks { get; } = new AstObjectAlternateChecks();
 }
 
-internal sealed class AstObjectAlternateChecks<TObjAltAst, TObjBaseAst, TObjArgAst>
-  : AstAbbreviatedChecks<AlternateInput, TObjAltAst>
+internal sealed class AstObjectAlternateChecks
+  : AstAbbreviatedChecks<AlternateInput, ObjAlternateAst>
   , IAstObjectAlternateChecks
-  where TObjAltAst : ObjAlternateAst
-  where TObjBaseAst : ObjBaseAst
-  where TObjArgAst : ObjArgAst
 {
-  private readonly AlternateBy _createAlternate;
-  private readonly ArgsBy _createArgs;
-
   [SuppressMessage("Style", "IDE0290:Use primary constructor")]
-  public AstObjectAlternateChecks(AlternateBy createAlternate, ArgsBy createArgs)
-    : base(input => createAlternate(input))
-  {
-    _createAlternate = createAlternate;
-    _createArgs = createArgs;
-  }
+  public AstObjectAlternateChecks()
+    : base(AlternateBy)
+  { }
 
-  internal delegate TObjBaseAst BaseBy(AlternateInput input);
-  internal delegate TObjAltAst AlternateBy(AlternateInput input);
-  internal delegate TObjArgAst[] ArgsBy(string[] arguments);
+  internal delegate ObjBaseAst BaseBy(AlternateInput input);
+  internal static ObjAlternateAst AlternateBy(AlternateInput input)
+    => new(AstNulls.At, input.Type, "");
 
   public void HashCode_WithModifiers(AlternateInput input)
       => HashCode(() => CreateModifiers(input));
@@ -80,7 +71,7 @@ internal sealed class AstObjectAlternateChecks<TObjAltAst, TObjBaseAst, TObjArgA
 
   public void ModifiedType_WithArgs(AlternateInput input, string[] arguments)
   {
-    TObjAltAst alternate = _createAlternate(input) with { Args = _createArgs(arguments) };
+    ObjAlternateAst alternate = AlternateBy(input) with { Args = arguments.ObjArgs() };
     string expected = $"{input.Type} < {arguments.Joined()} >";
 
     alternate.ModifiedType.ShouldBe(expected);
@@ -88,7 +79,7 @@ internal sealed class AstObjectAlternateChecks<TObjAltAst, TObjBaseAst, TObjArgA
 
   public void ModifiedType_WithModifiers(AlternateInput input)
   {
-    TObjAltAst alternate = CreateModifiers(input);
+    ObjAlternateAst alternate = CreateModifiers(input);
     string expected = $"{input.Type} [] ?";
 
     alternate.ModifiedType.ShouldBe(expected);
@@ -96,8 +87,8 @@ internal sealed class AstObjectAlternateChecks<TObjAltAst, TObjBaseAst, TObjArgA
 
   public void ModifiedType_WithModifiersAndArgs(AlternateInput input, string[] arguments)
   {
-    TObjAltAst alternate = _createAlternate(input) with {
-      Args = _createArgs(arguments),
+    ObjAlternateAst alternate = AlternateBy(input) with {
+      Args = arguments.ObjArgs(),
       Modifiers = TestMods()
     };
     string expected = $"{input.Type} < {arguments.Joined()} > [] ?";
@@ -105,7 +96,7 @@ internal sealed class AstObjectAlternateChecks<TObjAltAst, TObjBaseAst, TObjArgA
     alternate.ModifiedType.ShouldBe(expected);
   }
 
-  private TObjAltAst CreateModifiers(AlternateInput input)
+  private ObjAlternateAst CreateModifiers(AlternateInput input)
     => CreateInput(input) with { Modifiers = TestMods() };
 }
 

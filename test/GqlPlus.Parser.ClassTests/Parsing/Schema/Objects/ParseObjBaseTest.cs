@@ -10,7 +10,7 @@ public class ParseObjBaseTest
 
   protected Parser<IGqlpObjArg>.DA ParseArgs { get; }
 
-  protected ParseObjBaseTest()
+  public ParseObjBaseTest()
   {
     ParseArgs = ParserAFor(out _parseArgs);
     BaseParser = new ParseObjBase(ParseArgs);

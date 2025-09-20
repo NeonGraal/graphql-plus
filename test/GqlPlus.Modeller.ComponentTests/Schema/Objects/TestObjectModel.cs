@@ -79,7 +79,7 @@ public abstract class TestObjectModel<TObject, TObjField, TModel>(
       .ObjectExpected(new(name, parent, typeParams, fields, alternates, aliases, contents));
 }
 
-internal abstract class CheckObjectModel<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAltAst, TModel>(
+internal abstract class CheckObjectModel<TObject, TObjectAst, TObjField, TObjFieldAst, TModel>(
   CheckTypeInputs<TObject, TModel> inputs,
   TypeKindModel kind
 ) : CheckTypeModel<IGqlpObjBase, string, TObject, TypeKindModel, TModel>(inputs, kind),
@@ -88,7 +88,6 @@ internal abstract class CheckObjectModel<TObject, TObjectAst, TObjField, TObjFie
   where TObjectAst : AstObject<TObjField>, TObject
   where TObjField : IGqlpObjField
   where TObjFieldAst : AstObjField, TObjField
-  where TObjAltAst : ObjAlternateAst
   where TModel : BaseTypeModel
 {
   internal string[] ExpectedObject(ExpectedObjectInput input)

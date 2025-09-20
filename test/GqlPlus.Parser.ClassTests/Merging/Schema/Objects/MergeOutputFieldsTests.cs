@@ -36,19 +36,19 @@ public class MergeOutputFieldsTests
   internal override AstObjectFieldsMerger<IGqlpOutputField> MergerField => _merger;
 
   protected override IGqlpOutputField MakeField(string name, string type, string fieldDescription = "", string typeDescription = "", string[]? aliases = null)
-    => new OutputFieldAst(AstNulls.At, name, fieldDescription, new OutputBaseAst(AstNulls.At, type, typeDescription)) {
+    => new OutputFieldAst(AstNulls.At, name, fieldDescription, new ObjBaseAst(AstNulls.At, type, typeDescription)) {
       Aliases = aliases ?? [],
     };
   private static OutputFieldAst MakeFieldParams(string name, string type, IEnumerable<string> parameters)
-    => new(AstNulls.At, name, new OutputBaseAst(AstNulls.At, type)) {
+    => new(AstNulls.At, name, new ObjBaseAst(AstNulls.At, type, "")) {
       Params = parameters.ThrowIfNull().Params(),
     };
   protected override IGqlpOutputField MakeFieldModifiers(string name)
-    => new OutputFieldAst(AstNulls.At, name, new OutputBaseAst(AstNulls.At, name)) {
+    => new OutputFieldAst(AstNulls.At, name, new ObjBaseAst(AstNulls.At, name, "")) {
       Modifiers = TestMods(),
     };
   protected override IGqlpOutputField MakeFieldEnum(string name, string enumType, string enumLabel, string fieldDescription = "", string typeDescription = "", string[]? aliases = null)
-    => new OutputFieldAst(AstNulls.At, name, fieldDescription, new OutputBaseAst(AstNulls.At, enumType, typeDescription)) {
+    => new OutputFieldAst(AstNulls.At, name, fieldDescription, new ObjBaseAst(AstNulls.At, enumType, typeDescription)) {
       Aliases = aliases ?? [],
       EnumLabel = enumLabel,
     };

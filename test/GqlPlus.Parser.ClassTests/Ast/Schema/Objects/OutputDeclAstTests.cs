@@ -15,11 +15,11 @@ internal sealed class OutputDeclAstChecks
 {
   public OutputDeclAstChecks()
     : base(dual => new OutputDeclAst(AstNulls.At, dual),
-      parent => new OutputBaseAst(AstNulls.At, parent))
+      parent => new ObjBaseAst(AstNulls.At, parent, ""))
   { }
 
   protected override IGqlpObjAlternate[] CreateAlternates(IEnumerable<AlternateInput> alternates)
-    => alternates.OutputAlternates();
+    => alternates.ObjAlternates();
   protected override IGqlpOutputField[] CreateFields(IEnumerable<FieldInput> fields)
     => fields.OutputFields();
   protected override string FieldString(FieldInput input)

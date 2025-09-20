@@ -12,5 +12,5 @@ public class ParseOutputTests(
 
 internal sealed class ParseOutputChecks(
   Parser<IGqlpOutputObject>.D parser
-) : CheckObject<IGqlpOutputObject, OutputDeclAst, IGqlpOutputField, OutputFieldAst, OutputAlternateAst, OutputBaseAst, OutputArgAst>(new OutputFactories(), parser)
+) : CheckObject<IGqlpOutputObject, OutputDeclAst, IGqlpOutputField, OutputFieldAst>(new OutputFactories(), parser)
 { }

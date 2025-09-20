@@ -38,19 +38,19 @@ public static class BuiltIn
   internal static IGqlpType[] InternalObject { get; } = [
     DualObj("Object", DualRef("_Map", DualArg("_Any")), ["%", "_Object"]),
 
-    DualObj("Opt", [TypeParam()], DualAlt(null), DualType("Null")),
-    DualObj("List", [TypeParam()], DualAlt("")),
-    DualObj("Dict", [KeyParam(), TypeParam()], DualAltParam("K")),
-    DualObj("Map", [TypeParam()], DualDict("String")),
-    DualObj("Array", [TypeParam()], DualDict("Number")),
-    DualObj("IfElse", [TypeParam()], DualDict("Boolean")),
-    DualObj("Set", [KeyParam()], DualDict("Unit", true)),
-    DualObj("Mask", [KeyParam()], DualDict("Boolean", true)),
+    DualObj("Opt", null, [TypeParam()], DualAlt(null), DualType("Null")),
+    DualObj("List", null, [TypeParam()], DualAlt("")),
+    DualObj("Dict", null, [KeyParam(), TypeParam()], DualAltParam("K")),
+    DualObj("Map", DualDict("String"), [TypeParam()]),
+    DualObj("Array", DualDict("Number"), [TypeParam()]),
+    DualObj("IfElse", DualDict("Boolean"), [TypeParam()]),
+    DualObj("Set", DualDict("Unit", true), [KeyParam()]),
+    DualObj("Mask", DualDict("Boolean", true), [KeyParam()]),
 
-    DualObj("Most", [TypeParam()],
+    DualObj("Most", null, [TypeParam()],
       DualAlt(null), DualType("_Object"), DualMost("", true), DualType("_MostList", DualArgParam("T")), DualType("_MostDictionary", DualArgParam("T"))),
-    DualObj("MostList", [TypeParam()], DualMost("")),
-    DualObj("MostDictionary", [TypeParam()], DualMost("Simple", true)),
+    DualObj("MostList", null, [TypeParam()], DualMost("")),
+    DualObj("MostDictionary", null, [TypeParam()], DualMost("Simple", true)),
   ];
 
   internal static IGqlpType Scalar { get; } = new SpecialTypeAst("Scalar", t => t == Scalar);
@@ -76,19 +76,19 @@ public static class BuiltIn
   private static DualDeclAst DualObj(string label, params IGqlpObjAlternate[] alternates)
     => new(AstNulls.At, label) { Alternates = alternates };
 
-  private static DualDeclAst DualObj(string label, DualBaseAst parent, params string[] aliases)
+  private static DualDeclAst DualObj(string label, ObjBaseAst parent, params string[] aliases)
     => new(AstNulls.At, label) { Aliases = aliases, Parent = parent };
 
-  private static DualDeclAst DualObj(string label, TypeParamAst[] typeParams, params IGqlpObjAlternate[] alternates)
-    => new(AstNulls.At, "_" + label) { TypeParams = typeParams, Alternates = alternates };
+  private static DualDeclAst DualObj(string label, ObjBaseAst? parent, TypeParamAst[] typeParams, params IGqlpObjAlternate[] alternates)
+    => new(AstNulls.At, "_" + label) { Parent = parent, TypeParams = typeParams, Alternates = alternates };
 
-  private static DualDeclAst DualObj(string label, TypeParamAst[] typeParams, DualBaseAst parent)
-    => new(AstNulls.At, "_" + label) { TypeParams = typeParams, Parent = parent };
+  //private static DualDeclAst DualObj(string label, TypeParamAst[] typeParams, ObjBaseAst parent)
+  //  => new(AstNulls.At, "_" + label) { TypeParams = typeParams, Parent = parent };
 
-  private static DualAlternateAst DualType(string type, params IGqlpObjArg[] args)
-    => new DualAlternateAst(AstNulls.At, type, "") with { Args = args };
+  private static ObjAlternateAst DualType(string type, params IGqlpObjArg[] args)
+    => new ObjAlternateAst(AstNulls.At, type, "") with { Args = args };
 
-  private static DualAlternateAst DualAlt(string? type, bool typeParam = true)
+  private static ObjAlternateAst DualAlt(string? type, bool typeParam = true)
     => typeParam || type is null
       ? new(AstNulls.At, "T", "") {
         IsTypeParam = true,
@@ -101,13 +101,13 @@ public static class BuiltIn
       }
       : new(AstNulls.At, type, "");
 
-  private static DualAlternateAst DualAltParam(string param)
+  private static ObjAlternateAst DualAltParam(string param)
     => new(AstNulls.At, "T", "") {
       IsTypeParam = true,
       Modifiers = [ModifierAst.Param(AstNulls.At, param, false)]
     };
 
-  private static DualAlternateAst DualMost(string key, bool optional = false)
+  private static ObjAlternateAst DualMost(string key, bool optional = false)
     => new(AstNulls.At, "_Most", "") {
       Args = [DualArgParam("T")],
       Modifiers = key switch {
@@ -116,16 +116,16 @@ public static class BuiltIn
       }
     };
 
-  private static DualBaseAst DualRef(string name, params IGqlpObjArg[] args)
-    => new DualBaseAst(AstNulls.At, name, "") with { Args = args };
+  private static ObjBaseAst DualRef(string name, params IGqlpObjArg[] args)
+    => new ObjBaseAst(AstNulls.At, name, "") with { Args = args };
 
-  private static DualArgAst DualArg(string name)
+  private static ObjArgAst DualArg(string name)
     => new(AstNulls.At, name, "");
 
-  private static DualArgAst DualArgParam(string name)
+  private static ObjArgAst DualArgParam(string name)
     => DualArg(name) with { IsTypeParam = true };
 
-  private static DualBaseAst DualDict(string type, bool paramSecond = false)
+  private static ObjBaseAst DualDict(string type, bool paramSecond = false)
     => DualRef("_Dict") with {
       Args = [
         paramSecond ? DualArgParam("K") : DualArg(type),

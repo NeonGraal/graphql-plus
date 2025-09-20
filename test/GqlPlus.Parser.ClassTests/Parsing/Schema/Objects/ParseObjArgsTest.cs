@@ -7,7 +7,7 @@ public class ParseObjArgsTest
 {
   protected Parser<IGqlpObjArg>.IA Parser { get; } = new ParseObjArgs();
 
-  protected ParseObjArgsTest()
+  public ParseObjArgsTest()
     => PrefixReturns('$', OutPass);
 
   [Theory, RepeatData]

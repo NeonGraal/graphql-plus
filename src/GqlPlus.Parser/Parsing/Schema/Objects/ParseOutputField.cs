@@ -27,5 +27,5 @@ internal class ParseOutputField(
     => _parameter.Parse(tokens, "Output");
 
   protected override IGqlpObjBase ObjBase(TokenAt at, string param, string description)
-    => new OutputBaseAst(at, param, description);
+    => new ObjBaseAst(at, param, description);
 }

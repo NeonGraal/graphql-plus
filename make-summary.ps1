@@ -125,7 +125,7 @@ $tests = Get-ChildItem . -Recurse -Filter "TestResults-$Framework*.trx" | ForEac
     $allErrors[$name] = $summary.RunInfos.RunInfo | Where-Object {
       $_.outcome -eq "Failed" -or $_.outcome -eq "Error"
     } | ForEach-Object { 
-      ($_.Text -split '[[\]]')[2].Trim() 
+      ($_.Text -split '     ')[1].Trim() 
     }
   }
 

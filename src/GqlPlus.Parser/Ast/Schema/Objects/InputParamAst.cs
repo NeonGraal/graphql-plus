@@ -18,7 +18,7 @@ internal sealed record class InputParamAst(
   string IGqlpDescribed.Description => Type.Description;
 
   internal InputParamAst(TokenAt at, string input, string description = "")
-    : this(at, new InputBaseAst(at, input, description)) { }
+    : this(at, new ObjBaseAst(at, input, description)) { }
 
   public bool Equals(InputParamAst? other)
     => other is IGqlpInputParam inputParam && Equals(inputParam);

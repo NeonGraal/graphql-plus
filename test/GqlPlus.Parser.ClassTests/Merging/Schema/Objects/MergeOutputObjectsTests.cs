@@ -27,9 +27,9 @@ public class MergeOutputObjectsTests
       Parent = parent,
       TypeParams = typeParams?.TypeParams() ?? [],
       ObjFields = fields?.OutputFields() ?? [],
-      Alternates = alternates?.OutputAlternates() ?? [],
+      Alternates = alternates?.ObjAlternates() ?? [],
     };
 
   protected override IGqlpObjBase MakeBase(string type)
-    => new OutputBaseAst(AstNulls.At, type);
+    => new ObjBaseAst(AstNulls.At, type, "");
 }

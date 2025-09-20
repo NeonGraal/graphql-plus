@@ -15,11 +15,11 @@ internal sealed class InputDeclAstChecks
 {
   public InputDeclAstChecks()
     : base(dual => new InputDeclAst(AstNulls.At, dual),
-      parent => new InputBaseAst(AstNulls.At, parent))
+      parent => new ObjBaseAst(AstNulls.At, parent, ""))
   { }
 
   protected override IGqlpObjAlternate[] CreateAlternates(IEnumerable<AlternateInput> alternates)
-    => alternates.InputAlternates();
+    => alternates.ObjAlternates();
   protected override IGqlpInputField[] CreateFields(IEnumerable<FieldInput> fields)
     => fields.InputFields();
   protected override string FieldString(FieldInput input)

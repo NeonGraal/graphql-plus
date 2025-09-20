@@ -4,7 +4,7 @@ using GqlPlus.Ast.Schema;
 
 namespace GqlPlus.Merging.Objects;
 
-internal class MergeAstAlternates(
+internal class MergeObjAlternates(
   ILoggerFactory logger
 ) : AstDescribedMerger<IGqlpObjAlternate>(logger)
 {

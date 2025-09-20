@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public abstract class AstObjectBaseTests
+public class ObjBaseAstTests
   : AstAbbreviatedTests<string>
 {
   [Theory, RepeatData]
@@ -55,88 +55,88 @@ public abstract class AstObjectBaseTests
 
   internal sealed override IAstAbbreviatedChecks<string> AbbreviatedChecks => ObjBaseChecks;
 
-  internal abstract IAstObjBaseChecks ObjBaseChecks { get; }
+  protected override string InputString(string input)
+    => $"( {input} )";
+
+  internal ObjBaseAstChecks ObjBaseChecks { get; } = new();
 }
 
-internal sealed class AstObjBaseChecks<TObjBaseAst, TObjArgAst>(
-AstObjBaseChecks<TObjBaseAst, TObjArgAst>.BaseBy createBase,
-AstObjBaseChecks<TObjBaseAst, TObjArgAst>.ArgsBy createArgs
-) : AstAbbreviatedChecks<string, IGqlpObjBase>(input => createBase(input))
-  , IAstObjBaseChecks
-  where TObjBaseAst : ObjBaseAst
-  where TObjArgAst : ObjArgAst
+internal sealed class ObjBaseAstChecks
+  : AstAbbreviatedChecks<string, IGqlpObjBase>
+  , IObjBaseAstChecks
 {
-  private readonly BaseBy _createBase = createBase;
-  private readonly ArgsBy _createArgs = createArgs;
+  public ObjBaseAstChecks()
+    : base(BaseBy)
+  { }
 
-  internal delegate TObjBaseAst BaseBy(string input);
-  internal delegate IGqlpObjArg[] ArgsBy(string[] argument);
+  internal static ObjBaseAst BaseBy(string input)
+    => new(AstNulls.At, input, "");
 
   public void HashCode_WithIsTypeParam(string input)
-      => HashCode(() => _createBase(input) with { IsTypeParam = true });
+      => HashCode(() => BaseBy(input) with { IsTypeParam = true });
 
   public void String_WithIsTypeParam(string input)
     => Text(
-      () => _createBase(input) with { IsTypeParam = true },
+      () => BaseBy(input) with { IsTypeParam = true },
       $"( ${input} )");
 
   public void Equality_WithIsTypeParam(string input)
-    => Equality(() => _createBase(input) with { IsTypeParam = true });
+    => Equality(() => BaseBy(input) with { IsTypeParam = true });
 
   public void Inequality_BetweenIsTypeParams(string input, bool isTypeParam1)
     => InequalityBetween(isTypeParam1, !isTypeParam1,
-      isTypeParam => _createBase(input) with { IsTypeParam = isTypeParam },
+      isTypeParam => BaseBy(input) with { IsTypeParam = isTypeParam },
       false);
 
   public void HashCode_WithArgs(string input, string[] arguments)
-    => HashCode(() => _createBase(input) with { Args = _createArgs(arguments) });
+    => HashCode(() => BaseBy(input) with { Args = arguments.ObjArgs() });
 
   public void String_WithArgs(string input, string[] arguments)
     => Text(
-      () => _createBase(input) with { Args = _createArgs(arguments) },
+      () => BaseBy(input) with { Args = arguments.ObjArgs() },
       $"( {input} < {arguments.Joined()} > )");
 
   public void Equality_WithArgs(string input, string[] arguments)
-    => Equality(() => _createBase(input) with { Args = _createArgs(arguments) });
+    => Equality(() => BaseBy(input) with { Args = arguments.ObjArgs() });
 
   public void Inequality_BetweenArgs(string input, string[] arguments1, string[] arguments2)
   => InequalityBetween(arguments1, arguments2,
-    arguments => _createBase(input) with { Args = _createArgs(arguments) },
+    arguments => BaseBy(input) with { Args = arguments.ObjArgs() },
     arguments1.OrderedEqual(arguments2));
 
   public void FullType_WithDefault(string input)
   {
-    IGqlpObjBase objBase = _createBase(input);
+    ObjBaseAst objBase = BaseBy(input);
 
     objBase.FullType.ShouldBe(input);
   }
 
   public void FullType_WithIsTypeParam(string input)
   {
-    IGqlpObjBase objBase = _createBase(input) with { IsTypeParam = true };
+    IGqlpObjBase objBase = BaseBy(input) with { IsTypeParam = true };
 
     objBase.FullType.ShouldBe("$" + input);
   }
 
   public void FullType_WithArgs(string input, string[] arguments)
   {
-    IGqlpObjBase objBase = _createBase(input) with { Args = _createArgs(arguments) };
+    IGqlpObjBase objBase = BaseBy(input) with { Args = arguments.ObjArgs() };
 
     objBase.FullType.ShouldBe(input + $" < {arguments.Joined()} >");
   }
 
   public void FullType_WithIsTypeParamAndArgs(string input, string[] arguments)
   {
-    IGqlpObjBase objBase = _createBase(input) with {
+    IGqlpObjBase objBase = BaseBy(input) with {
       IsTypeParam = true,
-      Args = _createArgs(arguments)
+      Args = arguments.ObjArgs(),
     };
 
     objBase.FullType.ShouldBe($"${input} < {arguments.Joined()} >");
   }
 }
 
-internal interface IAstObjBaseChecks
+internal interface IObjBaseAstChecks
   : IAstAbbreviatedChecks<string>
 {
   void HashCode_WithIsTypeParam(string input);

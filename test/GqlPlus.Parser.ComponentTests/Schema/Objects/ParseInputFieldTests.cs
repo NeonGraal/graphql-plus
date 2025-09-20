@@ -13,7 +13,7 @@ public class ParseInputFieldTests(
   public void WithDefault_ReturnsCorrectAst(string name, string fieldType, string content)
     => checks.TrueExpected(
       name + ":" + fieldType + "='" + content + "'",
-      new InputFieldAst(AstNulls.At, name, new InputBaseAst(AstNulls.At, fieldType)) {
+      new InputFieldAst(AstNulls.At, name, new ObjBaseAst(AstNulls.At, fieldType, "")) {
         DefaultValue = new ConstantAst(new FieldKeyAst(AstNulls.At, content))
       });
 }

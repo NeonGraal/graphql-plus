@@ -82,16 +82,13 @@ where TObject : IGqlpObject
 
 public record struct ObjectInput(string Name, string Other);
 
-internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst, TObjAltAst, TObjBaseAst, TObjArgAst>
+internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst>
   : BaseAliasedChecks<ObjectInput, TObjectAst, TObject>
   , ICheckObject<TObject>
   where TObject : IGqlpObject<TObjField>
   where TObjectAst : AstObject<TObjField>, TObject
   where TObjField : IGqlpObjField
   where TObjFieldAst : AstObjField, TObjField
-  where TObjAltAst : ObjAlternateAst
-  where TObjBaseAst : ObjBaseAst
-  where TObjArgAst : ObjArgAst
 {
   private readonly IObjectFactories<TObjectAst, TObjField, TObjFieldAst> _factories;
 

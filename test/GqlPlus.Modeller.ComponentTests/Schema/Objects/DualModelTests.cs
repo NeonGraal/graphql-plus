@@ -19,7 +19,7 @@ internal sealed class DualModelChecks(
       Parent = parent ?? NewParentAst(input.Parent),
       TypeParams = input.TypeParams.TypeParams(),
       ObjFields = input.Fields.DualFields(),
-      Alternates = input.Alternates.ObjAlternates(),
+      Alternates = input.Alternates.ObjAlts(),
     };
 
   internal override IGqlpObjBase? NewParentAst(string? input)

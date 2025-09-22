@@ -47,7 +47,7 @@ public static class SchemaObjectBuilderHelpers
       parentRef.IsTypeParam.Returns(isTypeParam);
       theObj.SetParent(parentRef);
     } else {
-      theObj.SetParent((IGqlpObjBase?)null);
+      theObj.SetParent(null);
     }
 
     return theObj;

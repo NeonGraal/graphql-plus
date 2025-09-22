@@ -1,9 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public class ObjAlternateAstTests
+public class ObjAltAstTests
   : AstAbbreviatedTests<AlternateInput>
 {
   [Theory, RepeatData]

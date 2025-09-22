@@ -1,11 +1,10 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Merging.Objects;
 
 namespace GqlPlus.Merging.Schema.Objects;
 
-public class MergeObjAlternatesTests(
+public class MergeObjAltsTests(
   ITestOutputHelper outputHelper
 ) : TestDescriptionsMerger<IGqlpObjAlt>
 {

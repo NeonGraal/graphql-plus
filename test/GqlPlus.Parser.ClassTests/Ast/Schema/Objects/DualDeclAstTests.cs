@@ -19,7 +19,7 @@ internal sealed class DualDeclAstChecks
   { }
 
   protected override IGqlpObjAlt[] CreateAlternates(IEnumerable<AlternateInput> alternates)
-    => alternates.ObjAlternates();
+    => alternates.ObjAlts();
   protected override IGqlpDualField[] CreateFields(IEnumerable<FieldInput> fields)
     => fields.DualFields();
   protected override string FieldString(FieldInput input)

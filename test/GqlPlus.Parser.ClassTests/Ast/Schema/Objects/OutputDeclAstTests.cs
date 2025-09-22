@@ -19,7 +19,7 @@ internal sealed class OutputDeclAstChecks
   { }
 
   protected override IGqlpObjAlt[] CreateAlternates(IEnumerable<AlternateInput> alternates)
-    => alternates.ObjAlternates();
+    => alternates.ObjAlts();
   protected override IGqlpOutputField[] CreateFields(IEnumerable<FieldInput> fields)
     => fields.OutputFields();
   protected override string FieldString(FieldInput input)

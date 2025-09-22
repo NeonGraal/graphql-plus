@@ -2,13 +2,13 @@
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-public class ParseObjAlternatesTests
+public class ParseObjAltsTests
   : ModifiersClassTestBase
 {
   private readonly Parser<IGqlpObjBase>.I _parseBase;
   private readonly ParseObjAlts _parser;
 
-  public ParseObjAlternatesTests()
+  public ParseObjAltsTests()
   {
     Parser<IGqlpObjBase>.D parseBase = ParserFor(out _parseBase);
     _parser = new ParseObjAlts(Collections, parseBase);

@@ -32,7 +32,7 @@ public static class AllModellers
       .AddModeller<IGqlpTypeParam, TypeParamModel, TypeParamModeller>()
       .AddModeller<IGqlpObjArg, ObjTypeArgModel, ObjTypeArgModeller>()
       .AddModeller<IGqlpObjBase, ObjBaseModel, ObjBaseModeller>()
-      .AddModeller<IGqlpObjAlternate, ObjAlternateModel, ObjAlternateModeller>()
+      .AddModeller<IGqlpObjAlt, ObjAlternateModel, ObjAlternateModeller>()
 
       .AddObjectModellers<IGqlpDualField, DualFieldModel, DualFieldModeller>()
       .AddTypeModeller<IGqlpDualObject, TypeDualModel, DualModeller>()

@@ -11,8 +11,6 @@ public abstract record class AstObjType(
 {
   public bool IsTypeParam { get; set; }
 
-  public abstract string Label { get; }
-
   public string TypeName => IsTypeParam ? Name.Prefixed("$") : Name;
 
   public virtual string FullType => TypeName;

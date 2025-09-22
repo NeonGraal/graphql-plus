@@ -72,7 +72,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
   {
     SelfUsage<TObject> input = new([], usage, "an alternative");
     _logger.CheckingAlternates(input);
-    foreach (IGqlpObjAlternate alternate in usage.Alternates) {
+    foreach (IGqlpObjAlt alternate in usage.Alternates) {
       CheckTypeRef(context, alternate, " Alternate");
       context.CheckModifiers(alternate);
       CheckForSelf(new([alternate.FullType], usage, "an alternate"), usage.Name, context);
@@ -87,7 +87,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
     }
   }
 
-  protected void CheckTypeRef(EnumContext context, IGqlpObjType reference, string suffix, bool check = true)
+  protected void CheckTypeRef(EnumContext context, IGqlpObjType reference, string label, bool check = true)
   {
     string typeName = (reference.IsTypeParam ? "$" : "") + reference.Name;
     CheckTypeRef(AddCheckError, context, reference, check);
@@ -95,9 +95,9 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
     void AddCheckError(string errPrefix, string errSuffix, bool check = true)
     {
       if (string.IsNullOrWhiteSpace(errSuffix)) {
-        context.AddError(reference, reference.Label + suffix, $"{errPrefix} {typeName}", check);
+        context.AddError(reference, label, $"{errPrefix} {typeName}", check);
       } else {
-        context.AddError(reference, reference.Label + suffix, $"{errPrefix} {typeName}. {errSuffix}", check);
+        context.AddError(reference, label, $"{errPrefix} {typeName}. {errSuffix}", check);
       }
     }
   }
@@ -233,7 +233,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
     }
 
     input = input with { Label = "an alternate" };
-    foreach (IGqlpObjAlternate alternate in parentType.Alternates) {
+    foreach (IGqlpObjAlt alternate in parentType.Alternates) {
       CheckForSelf(input.AddNext(alternate.Name), parentType.Name, context);
     }
   }
@@ -248,7 +248,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
         CheckForSelf(input.AddNext(field.Type.Name), parentType.Name, context);
       }
 
-      foreach (IGqlpObjAlternate alternate in parentType.Alternates) {
+      foreach (IGqlpObjAlt alternate in parentType.Alternates) {
         CheckForSelf(input.AddNext(alternate.Name), parentType.Name, context);
       }
     }
@@ -258,7 +258,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
   {
     base.CheckMergeParent(input, context);
 
-    IGqlpObjAlternate[] alternates = [.. GetParentItems(input, input.Usage, context, ast => ast.Alternates)];
+    IGqlpObjAlt[] alternates = [.. GetParentItems(input, input.Usage, context, ast => ast.Alternates)];
     if (alternates.Length > 0) {
       IMessages failures = verifiers.MergeAlternates.CanMerge(alternates);
       if (failures.Any()) {
@@ -294,7 +294,7 @@ internal static partial class AstObjectVerifierLogging
 internal record class ObjectVerifierParams<TObject, TObjField>(
   IVerifyAliased<TObject> Aliased,
   IMerge<TObjField> MergeFields,
-  IMerge<IGqlpObjAlternate> MergeAlternates,
+  IMerge<IGqlpObjAlt> MergeAlternates,
   Matcher<IGqlpObjArg>.D ConstraintMatcher,
   ILoggerFactory Logger
 )

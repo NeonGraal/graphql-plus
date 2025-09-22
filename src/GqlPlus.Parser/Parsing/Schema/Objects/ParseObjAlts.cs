@@ -6,20 +6,20 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-internal class ParseObjAlternates(
+internal class ParseObjAlts(
   ParserArray<IParserCollections, IGqlpModifier>.DA collections,
   Parser<IGqlpObjBase>.D parseBase
-) : Parser<IGqlpObjAlternate>.IA
+) : Parser<IGqlpObjAlt>.IA
 {
   private readonly ParserArray<IParserCollections, IGqlpModifier>.LA _collections = collections;
   private readonly Parser<IGqlpObjBase>.L _parseBase = parseBase;
 
-  public IResultArray<IGqlpObjAlternate> Parse(ITokenizer tokens, string label)
+  public IResultArray<IGqlpObjAlt> Parse(ITokenizer tokens, string label)
 
   {
     tokens.ThrowIfNull();
 
-    List<IGqlpObjAlternate> result = [];
+    List<IGqlpObjAlt> result = [];
     while (tokens.Take('|')) {
       TokenAt at = tokens.At;
       IResult<IGqlpObjBase> objBase = _parseBase.Parse(tokens, label);
@@ -30,7 +30,7 @@ internal class ParseObjAlternates(
       }
 
       IGqlpObjBase baseObject = objBase.Required();
-      ObjAlternateAst alternate = new(at, baseObject.Name, baseObject.Description) {
+      ObjAltAst alternate = new(at, baseObject.Name, baseObject.Description) {
         IsTypeParam = baseObject.IsTypeParam,
         Args = baseObject.Args.ArrayOf<IGqlpObjArg>(),
       };

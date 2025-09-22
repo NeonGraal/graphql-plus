@@ -10,7 +10,6 @@ public record class ObjArgAst(
   , IGqlpObjArg
 {
   internal override string Abbr => "OR";
-  public override string Label => "Org";
 
   public string? EnumLabel { get; set; }
 

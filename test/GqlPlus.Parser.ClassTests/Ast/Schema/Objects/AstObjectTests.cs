@@ -103,7 +103,7 @@ AstTypeChecks<TObjectAst, IGqlpObjBase>.ParentCreator createParent,
       parameters => CreateInput(name) with { TypeParams = parameters.TypeParams() },
       typeParams1.SequenceEqual(typeParams2));
 
-  protected abstract IGqlpObjAlternate[] CreateAlternates(IEnumerable<AlternateInput> alternates);
+  protected abstract IGqlpObjAlt[] CreateAlternates(IEnumerable<AlternateInput> alternates);
   protected string AlternateString(AlternateInput input)
     => $"{input.Type} [] ?";
 

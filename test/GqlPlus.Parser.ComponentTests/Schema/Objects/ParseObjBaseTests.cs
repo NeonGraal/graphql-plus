@@ -49,8 +49,6 @@ internal sealed class ParseObjBaseChecks(
 ) : OneChecksParser<IGqlpObjBase>(parser)
   , IParseObjBaseChecks
 {
-  private readonly ObjFactories _factories = new();
-
   public void WithMinimum(string name)
     => TrueExpected(name, ObjBase(name));
 
@@ -73,11 +71,11 @@ internal sealed class ParseObjBaseChecks(
   public void WithTypeArgsNone(string name)
     => FalseExpected(name + "<>");
 
-  public ObjBaseAst ObjBase(string type)
-    => _factories.ObjBase(AstNulls.At, type);
+  public static ObjBaseAst ObjBase(string type)
+    => new(AstNulls.At, type, "");
 
-  public ObjArgAst ObjArg(string type)
-    => _factories.ObjArg(AstNulls.At, type);
+  public static ObjArgAst ObjArg(string type)
+    => new(AstNulls.At, type, "");
 }
 
 public interface IParseObjBaseChecks

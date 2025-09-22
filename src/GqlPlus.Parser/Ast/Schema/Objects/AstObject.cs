@@ -12,11 +12,11 @@ internal abstract record class AstObject<TObjField>(
 {
   public IGqlpTypeParam[] TypeParams { get; set; } = [];
   public TObjField[] ObjFields { get; set; } = [];
-  public IGqlpObjAlternate[] Alternates { get; set; } = [];
+  public IGqlpObjAlt[] Alternates { get; set; } = [];
 
   IEnumerable<IGqlpTypeParam> IGqlpObject.TypeParams => TypeParams;
   IEnumerable<IGqlpObjField> IGqlpObject.Fields => ObjFields.Cast<IGqlpObjField>();
-  IEnumerable<IGqlpObjAlternate> IGqlpObject.Alternates => Alternates;
+  IEnumerable<IGqlpObjAlt> IGqlpObject.Alternates => Alternates;
 
   IEnumerable<TObjField> IGqlpObject<TObjField>.ObjFields => ObjFields;
 

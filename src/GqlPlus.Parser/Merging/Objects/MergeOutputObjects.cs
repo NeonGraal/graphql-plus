@@ -7,10 +7,10 @@ internal class MergeOutputObjects(
   ILoggerFactory logger,
   IMerge<IGqlpOutputField> fields,
   IMerge<IGqlpTypeParam> typeParams,
-  IMerge<IGqlpObjAlternate> alternates
+  IMerge<IGqlpObjAlt> alternates
 ) : AstObjectsMerger<IGqlpOutputObject, IGqlpOutputField>(logger, fields, typeParams, alternates)
 {
-  protected override IGqlpOutputObject SetAlternates(IGqlpOutputObject obj, IEnumerable<IGqlpTypeParam> typeParams, IEnumerable<IGqlpObjAlternate> alternates)
+  protected override IGqlpOutputObject SetAlternates(IGqlpOutputObject obj, IEnumerable<IGqlpTypeParam> typeParams, IEnumerable<IGqlpObjAlt> alternates)
     => (OutputDeclAst)obj with {
       TypeParams = typeParams.ArrayOf<TypeParamAst>(),
       Alternates = [.. alternates],

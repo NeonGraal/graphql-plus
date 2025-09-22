@@ -55,8 +55,8 @@ internal class CheckObjectField<TObjField, TObjFieldAst>
   internal TObjFieldAst Field(string field, string fieldType)
     => _factories.ObjField(AstNulls.At, field, ObjBase(fieldType));
 
-  internal IGqlpObjBase ObjBase(string type)
-    => _factories.ObjBase(AstNulls.At, type);
+  internal static ObjBaseAst ObjBase(string type)
+    => new(AstNulls.At, type, "");
 
   protected internal sealed override TObjFieldAst NamedFactory(FieldInput input)
     => Field(input.Name, input.Type);

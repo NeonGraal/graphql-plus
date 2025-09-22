@@ -19,5 +19,5 @@ public class ObjectDefinition<TObjField>
 {
   public IGqlpObjBase? Parent { get; set; }
   public TObjField[] Fields { get; set; } = [];
-  public IGqlpObjAlternate[] Alternates { get; set; } = [];
+  public IGqlpObjAlt[] Alternates { get; set; } = [];
 }

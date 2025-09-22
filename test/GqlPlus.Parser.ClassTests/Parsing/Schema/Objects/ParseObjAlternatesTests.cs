@@ -6,12 +6,12 @@ public class ParseObjAlternatesTests
   : ModifiersClassTestBase
 {
   private readonly Parser<IGqlpObjBase>.I _parseBase;
-  private readonly ParseObjAlternates _parser;
+  private readonly ParseObjAlts _parser;
 
   public ParseObjAlternatesTests()
   {
     Parser<IGqlpObjBase>.D parseBase = ParserFor(out _parseBase);
-    _parser = new ParseObjAlternates(Collections, parseBase);
+    _parser = new ParseObjAlts(Collections, parseBase);
   }
 
   [Fact]
@@ -22,10 +22,10 @@ public class ParseObjAlternatesTests
     ParseOk(_parseBase);
 
     // Act
-    IResultArray<IGqlpObjAlternate> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpObjAlt> result = _parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpObjAlternate>>()
+    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpObjAlt>>()
       .Required().ShouldNotBeEmpty();
   }
 
@@ -36,10 +36,10 @@ public class ParseObjAlternatesTests
     TakeReturns('|', false);
 
     // Act
-    IResultArray<IGqlpObjAlternate> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpObjAlt> result = _parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpObjAlternate>>()
+    result.ShouldBeAssignableTo<IResultArrayOk<IGqlpObjAlt>>()
       .Required().ShouldBeEmpty();
   }
 
@@ -49,12 +49,12 @@ public class ParseObjAlternatesTests
     // Arrange
     TakeReturns('|', true);
     ParseError(_parseBase);
-    SetupPartial<IGqlpObjAlternate>();
+    SetupPartial<IGqlpObjAlt>();
 
     // Act
-    IResultArray<IGqlpObjAlternate> result = _parser.Parse(Tokenizer, "testLabel");
+    IResultArray<IGqlpObjAlt> result = _parser.Parse(Tokenizer, "testLabel");
 
     // Assert
-    result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpObjAlternate>>();
+    result.ShouldBeAssignableTo<IResultArrayPartial<IGqlpObjAlt>>();
   }
 }

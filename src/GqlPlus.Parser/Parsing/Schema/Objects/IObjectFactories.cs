@@ -6,7 +6,6 @@ namespace GqlPlus.Parsing.Schema.Objects;
 
 internal interface IObjectFactories<TObject, TObjField, TObjFieldAst>
   : IObjectFieldFactories<TObjFieldAst>
-  , IObjectAlternateFactories
   where TObject : AstObject<TObjField>
   where TObjField : IGqlpObjField
   where TObjFieldAst : AstObjField, TObjField

@@ -14,13 +14,4 @@ internal sealed class InputFactories
 
   public InputDeclAst Object(TokenAt at, string name, string description)
     => new(at, name, description);
-
-  public ObjBaseAst ObjBase(TokenAt at, string name, string description)
-    => new(at, name, description);
-
-  public ObjAlternateAst ObjAlternate(TokenAt at, string name, string description)
-    => new(at, name, description);
-
-  public ObjArgAst ObjArg(TokenAt at, string name, string description = "")
-    => new(at, name, description);
 }

@@ -42,8 +42,6 @@ internal sealed class ParseObjArgChecks(
 ) : ManyChecksParser<IGqlpObjArg>(parser)
   , IParseObjArgChecks
 {
-  private readonly ObjFactories _factories = new();
-
   public void WithMinimum(string name)
     => TrueExpected("<" + name + ">", ObjArg(name));
 
@@ -57,7 +55,7 @@ internal sealed class ParseObjArgChecks(
     => FalseExpected("<$");
 
   public ObjArgAst ObjArg(string type)
-    => _factories.ObjArg(AstNulls.At, type);
+    => new(AstNulls.At, type, "");
 }
 
 public interface IParseObjArgChecks

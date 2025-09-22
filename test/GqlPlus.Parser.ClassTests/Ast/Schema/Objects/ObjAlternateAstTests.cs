@@ -43,7 +43,7 @@ public class ObjAlternateAstTests
 }
 
 internal sealed class AstObjectAlternateChecks
-  : AstAbbreviatedChecks<AlternateInput, ObjAlternateAst>
+  : AstAbbreviatedChecks<AlternateInput, ObjAltAst>
   , IAstObjectAlternateChecks
 {
   [SuppressMessage("Style", "IDE0290:Use primary constructor")]
@@ -52,7 +52,7 @@ internal sealed class AstObjectAlternateChecks
   { }
 
   internal delegate ObjBaseAst BaseBy(AlternateInput input);
-  internal static ObjAlternateAst AlternateBy(AlternateInput input)
+  internal static ObjAltAst AlternateBy(AlternateInput input)
     => new(AstNulls.At, input.Type, "");
 
   public void HashCode_WithModifiers(AlternateInput input)
@@ -71,7 +71,7 @@ internal sealed class AstObjectAlternateChecks
 
   public void ModifiedType_WithArgs(AlternateInput input, string[] arguments)
   {
-    ObjAlternateAst alternate = AlternateBy(input) with { Args = arguments.ObjArgs() };
+    ObjAltAst alternate = AlternateBy(input) with { Args = arguments.ObjArgs() };
     string expected = $"{input.Type} < {arguments.Joined()} >";
 
     alternate.ModifiedType.ShouldBe(expected);
@@ -79,7 +79,7 @@ internal sealed class AstObjectAlternateChecks
 
   public void ModifiedType_WithModifiers(AlternateInput input)
   {
-    ObjAlternateAst alternate = CreateModifiers(input);
+    ObjAltAst alternate = CreateModifiers(input);
     string expected = $"{input.Type} [] ?";
 
     alternate.ModifiedType.ShouldBe(expected);
@@ -87,7 +87,7 @@ internal sealed class AstObjectAlternateChecks
 
   public void ModifiedType_WithModifiersAndArgs(AlternateInput input, string[] arguments)
   {
-    ObjAlternateAst alternate = AlternateBy(input) with {
+    ObjAltAst alternate = AlternateBy(input) with {
       Args = arguments.ObjArgs(),
       Modifiers = TestMods()
     };
@@ -96,7 +96,7 @@ internal sealed class AstObjectAlternateChecks
     alternate.ModifiedType.ShouldBe(expected);
   }
 
-  private ObjAlternateAst CreateModifiers(AlternateInput input)
+  private ObjAltAst CreateModifiers(AlternateInput input)
     => CreateInput(input) with { Modifiers = TestMods() };
 }
 

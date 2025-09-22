@@ -5,14 +5,14 @@ namespace GqlPlus.Parsing.Schema.Objects;
 public class ParseObjectDefinitionTests
   : ParserClassTestBase
 {
-  private readonly Parser<IGqlpObjAlternate>.IA _alternates;
+  private readonly Parser<IGqlpObjAlt>.IA _alternates;
   private readonly Parser<IGqlpObjField>.I _parseField;
   private readonly Parser<IGqlpObjBase>.I _parseBase;
   private readonly ParseObjectDefinition<IGqlpObjField> _parser;
 
   public ParseObjectDefinitionTests()
   {
-    Parser<IGqlpObjAlternate>.DA alternates = ParserAFor(out _alternates);
+    Parser<IGqlpObjAlt>.DA alternates = ParserAFor(out _alternates);
     Parser<IGqlpObjField>.D parseField = ParserFor(out _parseField);
     Parser<IGqlpObjBase>.D parseBase = ParserFor(out _parseBase);
     _parser = new ParseObjectDefinition<IGqlpObjField>(alternates, parseField, parseBase);

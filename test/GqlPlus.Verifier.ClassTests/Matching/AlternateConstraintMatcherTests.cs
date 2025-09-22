@@ -17,7 +17,7 @@ public class AlternateConstraintMatcherTests
   public void Matches_ReturnsTrue_WhenMatchingAlternateMember(string name, string constraint)
   {
     IGqlpObject objectType = A.Named<IGqlpObject>(constraint);
-    IGqlpObjAlternate alternate = A.Named<IGqlpObjAlternate>(name);
+    IGqlpObjAlt alternate = A.Named<IGqlpObjAlt>(name);
     objectType.Alternates.Returns([alternate]);
     Types[constraint] = objectType;
 
@@ -34,7 +34,7 @@ public class AlternateConstraintMatcherTests
     this.SkipEqual3(name, constraint, parent);
 
     IGqlpObject objectType = A.Named<IGqlpObject>(constraint);
-    IGqlpObjAlternate alternate = A.Named<IGqlpObjAlternate>(name);
+    IGqlpObjAlt alternate = A.Named<IGqlpObjAlt>(name);
     objectType.Alternates.Returns([alternate]);
     Types[constraint] = objectType;
 

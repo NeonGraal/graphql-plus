@@ -39,7 +39,7 @@ internal class MergeAllTypes(
       .Concat(types.OfType<EnumDeclAst>()));
 
     foreach (IGqlpObject output in types.OfType<IGqlpObject>()) {
-      foreach (IGqlpObjAlternate alternate in output.Alternates) {
+      foreach (IGqlpObjAlt alternate in output.Alternates) {
         // No fixup needed?
         // FixupType(alternate, enumValues);
       }

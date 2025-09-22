@@ -198,17 +198,17 @@ internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst>
   public TObjField ObjField(string field, IGqlpObjBase baseType)
     => _factories.ObjField(AstNulls.At, field, baseType);
 
-  public ObjAlternateAst ObjAlternate(string baseType)
-    => _factories.ObjAlternate(AstNulls.At, baseType, "");
+  public static ObjAltAst ObjAlternate(string baseType)
+    => new(AstNulls.At, baseType, "");
 
-  public ObjBaseAst ObjBase(string type, string description = "")
-    => _factories.ObjBase(AstNulls.At, type, description);
+  public static ObjBaseAst ObjBase(string type, string description = "")
+    => new(AstNulls.At, type, description);
 
-  public IGqlpObjBase ObjBaseWithArgs(string type, string subType)
+  public static IGqlpObjBase ObjBaseWithArgs(string type, string subType)
     => ObjBase(type) with { Args = [ObjArg(subType)] };
 
-  public ObjArgAst ObjArg(string type, string description = "")
-    => _factories.ObjArg(AstNulls.At, type, description);
+  public static ObjArgAst ObjArg(string type, string description = "")
+    => new(AstNulls.At, type, description);
 
   protected internal sealed override string AliasesString(ObjectInput input, string aliases)
     => input.Name + aliases + "{|" + input.Other + "}";

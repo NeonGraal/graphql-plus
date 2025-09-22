@@ -2,25 +2,23 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-internal record class ObjAlternateAst(
+internal record class ObjAltAst(
   ITokenAt At,
   string Name,
   string Description
 ) : ObjBaseAst(At, Name, Description)
-  , IGqlpObjAlternate
+  , IGqlpObjAlt
 {
   internal override string Abbr => "OA";
-  public override string Label => "Obj";
-
   public IGqlpModifier[] Modifiers { get; set; } = [];
 
   public string ModifiedType => GetFields().Skip(2).Joined();
 
   IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
 
-  public virtual bool Equals(ObjAlternateAst? other)
-    => other is IGqlpObjAlternate alternate && Equals(alternate);
-  public bool Equals(IGqlpObjAlternate? other)
+  public virtual bool Equals(ObjAltAst? other)
+    => other is IGqlpObjAlt alternate && Equals(alternate);
+  public bool Equals(IGqlpObjAlt? other)
     => base.Equals(other)
     && Modifiers.SequenceEqual(other.Modifiers);
   public override int GetHashCode()

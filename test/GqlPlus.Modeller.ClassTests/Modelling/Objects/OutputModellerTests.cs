@@ -6,7 +6,7 @@ public class OutputModellerTests
   public OutputModellerTests()
   {
     IModeller<IGqlpTypeParam, TypeParamModel> typeParam = MFor<IGqlpTypeParam, TypeParamModel>();
-    IModeller<IGqlpObjAlternate, ObjAlternateModel> objAlt = MFor<IGqlpObjAlternate, ObjAlternateModel>();
+    IModeller<IGqlpObjAlt, ObjAlternateModel> objAlt = MFor<IGqlpObjAlt, ObjAlternateModel>();
     IModeller<IGqlpOutputField, OutputFieldModel> objField = MFor<IGqlpOutputField, OutputFieldModel>();
 
     Modeller = new OutputModeller(new(typeParam, objAlt, objField, ObjBase));

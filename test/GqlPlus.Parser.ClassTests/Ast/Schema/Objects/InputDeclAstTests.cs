@@ -18,7 +18,7 @@ internal sealed class InputDeclAstChecks
       parent => new ObjBaseAst(AstNulls.At, parent, ""))
   { }
 
-  protected override IGqlpObjAlternate[] CreateAlternates(IEnumerable<AlternateInput> alternates)
+  protected override IGqlpObjAlt[] CreateAlternates(IEnumerable<AlternateInput> alternates)
     => alternates.ObjAlternates();
   protected override IGqlpInputField[] CreateFields(IEnumerable<FieldInput> fields)
     => fields.InputFields();

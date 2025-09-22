@@ -5,7 +5,7 @@ public interface IGqlpObject
 {
   IEnumerable<IGqlpTypeParam> TypeParams { get; }
   IEnumerable<IGqlpObjField> Fields { get; }
-  IEnumerable<IGqlpObjAlternate> Alternates { get; }
+  IEnumerable<IGqlpObjAlt> Alternates { get; }
 }
 
 public interface IGqlpObject<TField>
@@ -20,7 +20,6 @@ public interface IGqlpObjType
   : IGqlpNamed
   , IEquatable<IGqlpObjType>
 {
-  string Label { get; }
   string FullType { get; }
   bool IsTypeParam { get; }
 }
@@ -58,7 +57,7 @@ public interface IGqlpObjField
   string ModifiedType { get; }
 }
 
-public interface IGqlpObjAlternate
+public interface IGqlpObjAlt
   : IGqlpError
   , IGqlpObjBase
   , IGqlpModifiers

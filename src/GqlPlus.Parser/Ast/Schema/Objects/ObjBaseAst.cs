@@ -10,8 +10,6 @@ internal record class ObjBaseAst(
   , IGqlpObjBase
 {
   internal override string Abbr => "OB";
-  public override string Label => "Obj";
-
   public IGqlpObjArg[] Args { get; set; } = [];
 
   public override string FullType => Args

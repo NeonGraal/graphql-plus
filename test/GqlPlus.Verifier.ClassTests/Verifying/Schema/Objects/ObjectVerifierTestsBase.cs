@@ -10,7 +10,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
   where TField : class, IGqlpObjField
 {
   internal readonly ForM<TField> MergeFields = new();
-  internal readonly ForM<IGqlpObjAlternate> MergeAlternates = new();
+  internal readonly ForM<IGqlpObjAlt> MergeAlternates = new();
 
   protected ObjectVerifierTestsBase()
   {
@@ -215,7 +215,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
   {
     Define<IGqlpTypeSpecial>("String");
 
-    IGqlpObjAlternate alt = ObjectAlternate("String");
+    IGqlpObjAlt alt = ObjectAlternate("String");
     SetModifier(alt, kind, "String");
 
     Verify_NoErrors();
@@ -234,7 +234,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
   {
     Define<IGqlpTypeSpecial>("String");
 
-    IGqlpObjAlternate alt = ObjectAlternate(name);
+    IGqlpObjAlt alt = ObjectAlternate(name);
     SetModifier(alt, kind, "String");
 
     Verify_Errors("cannot be an alternate of itself", name);
@@ -270,7 +270,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
     Define<IGqlpTypeSpecial>("String");
 
     TObject other = DefineObject(altType);
-    IGqlpObjAlternate alt = ObjectAlternate(name, other);
+    IGqlpObjAlt alt = ObjectAlternate(name, other);
     SetModifier(alt, kind, "String");
 
     ObjectAlternate(altType);
@@ -297,7 +297,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
     TObject other = DefineObject(altType);
     ObjectParent(name, other);
 
-    IGqlpObjAlternate alt = ObjectAlternate(altType);
+    IGqlpObjAlt alt = ObjectAlternate(altType);
     SetModifier(alt, kind, "String");
 
     Verify_Errors("cannot be an alternate of itself", name);
@@ -644,13 +644,11 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
     return parentBase;
   }
 
-  protected IGqlpObjAlternate ObjectAlternate(string type, TObject? obj = null, bool isTypeParam = false)
+  protected IGqlpObjAlt ObjectAlternate(string type, TObject? obj = null, bool isTypeParam = false)
   {
     obj ??= TheObject;
 
-    IGqlpObjAlternate alt = A.Named<IGqlpObjAlternate, IGqlpObjAlternate>(type);
-    string label = typeof(IGqlpObjAlternate).Name[5..^9];
-    alt.Label.Returns(label);
+    IGqlpObjAlt alt = A.Named<IGqlpObjAlt, IGqlpObjAlt>(type);
     string fullType = isTypeParam ? "$" + type : type;
     alt.FullType.Returns(fullType);
     alt.IsTypeParam.Returns(isTypeParam);

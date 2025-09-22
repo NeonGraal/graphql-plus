@@ -66,7 +66,6 @@ public static class SchemaObjectBuilderHelpers
   {
     TBase theType = builder.Named<TBase, IGqlpObjBase>(typeName);
     string label = typeof(TBase).Name[5..^4];
-    theType.Label.Returns(label);
     if (isTypeParam) {
       theType.IsTypeParam.Returns(true);
       theType.FullType.Returns("$" + typeName);
@@ -91,7 +90,6 @@ public static class SchemaObjectBuilderHelpers
   {
     TArg theArg = builder.Named<TArg, IGqlpObjArg>(typeName);
     string label = typeof(TArg).Name[5..^3];
-    theArg.Label.Returns(label);
     if (isTypeParam) {
       theArg.IsTypeParam.Returns(true);
       theArg.FullType.Returns("$" + typeName);

@@ -7,7 +7,7 @@ namespace GqlPlus.Merging.Schema.Objects;
 
 public class MergeObjAlternatesTests(
   ITestOutputHelper outputHelper
-) : TestDescriptionsMerger<IGqlpObjAlternate>
+) : TestDescriptionsMerger<IGqlpObjAlt>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsSameModifers_ReturnsGood(string input)
@@ -28,23 +28,23 @@ public class MergeObjAlternatesTests(
       CheckAlternates.MakeAlternate(input, true));
 
   internal CheckAlternatesMerger CheckAlternates { get; } = new();
-  internal MergeObjAlternates MergerAlternate { get; } = new(outputHelper.ToLoggerFactory());
-  internal override GroupsMerger<IGqlpObjAlternate> MergerGroups => MergerAlternate;
+  internal MergeObjAlts MergerAlternate { get; } = new(outputHelper.ToLoggerFactory());
+  internal override GroupsMerger<IGqlpObjAlt> MergerGroups => MergerAlternate;
 
-  protected override IGqlpObjAlternate MakeDescribed(string name, string description = "")
+  protected override IGqlpObjAlt MakeDescribed(string name, string description = "")
     => CheckAlternates.MakeAlternate(name, false, description);
 }
 
 internal sealed class CheckAlternatesMerger
   : ICheckAlternatesMerger
 {
-  public IGqlpObjAlternate MakeAlternate(string input, bool withModifiers = false, string description = "")
-    => new ObjAlternateAst(AstNulls.At, input, description) {
+  public IGqlpObjAlt MakeAlternate(string input, bool withModifiers = false, string description = "")
+    => new ObjAltAst(AstNulls.At, input, description) {
       Modifiers = withModifiers ? TestMods() : []
     };
 }
 
 internal interface ICheckAlternatesMerger
 {
-  IGqlpObjAlternate MakeAlternate(string input, bool withModifiers = false, string description = "");
+  IGqlpObjAlt MakeAlternate(string input, bool withModifiers = false, string description = "");
 }

@@ -12,8 +12,8 @@
   <ItemGroup>
     <PackageReference Include="Fluid.Core" Version="2.25.0" />
     <PackageReference Include="MartinCostello.Logging.XUnit.v3" Version="0.6.0" />
-    <PackageReference Include="Xunit.DependencyInjection" Version="10.7.0" />
-    <PackageReference Include="Xunit.DependencyInjection.Logging" Version="10.0.0" />
+    <PackageReference Include="Xunit.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Xunit.DependencyInjection.Logging" Version="11.0.0" />
   </ItemGroup>
 
   <ItemGroup>

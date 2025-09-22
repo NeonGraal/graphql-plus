@@ -11,7 +11,18 @@ Success
     I@019/0002
     _TypeKind.Dual
     I@034/0002
-    _Field
+    _DualField
+  >
+}
+{
+  !Ou I@008/0005
+  _DualField
+  :
+  I@007/0006
+  _ObjField
+  <
+    I@017/0006
+    _ObjFieldType
   >
 }
 ]

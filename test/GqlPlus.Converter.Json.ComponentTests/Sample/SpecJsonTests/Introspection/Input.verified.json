@@ -15,7 +15,7 @@
         "$tag": "_TokenKind",
         "value": "End"
       },
-      "_message": "In _InputField can\u0027t get model for type \u0027_Field\u0027"
+      "_message": "In _InputField can\u0027t get model for type \u0027_ObjField\u0027"
     },
     {
       "$tag": "_Error",
@@ -23,12 +23,30 @@
         "$tag": "_TokenKind",
         "value": "End"
       },
-      "_message": "In _InputParam can\u0027t get model for type \u0027_InputBase\u0027"
+      "_message": "In _InputFieldType can\u0027t get model for type \u0027_ObjFieldType\u0027"
     }
   ],
   "types": {
     "$tag": "_Map_Type",
     "_InputField": {
+      "$tag": "_TypeOutput",
+      "name": "_InputField",
+      "parent": {
+        "$tag": "_ObjBase",
+        "name": "_ObjField",
+        "typeArgs": [
+          {
+            "$tag": "_ObjTypeArg",
+            "name": "_InputFieldType"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_InputFieldType": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
@@ -43,7 +61,7 @@
             }
           ],
           "name": "default",
-          "object": "_InputField",
+          "object": "_InputFieldType",
           "type": {
             "$tag": "_ObjBase",
             "name": "Value"
@@ -69,10 +87,10 @@
           }
         }
       ],
-      "name": "_InputField",
+      "name": "_InputFieldType",
       "parent": {
         "$tag": "_ObjBase",
-        "name": "_Field"
+        "name": "_ObjFieldType"
       },
       "typeKind": {
         "$tag": "_TypeKind",
@@ -89,66 +107,12 @@
               "$tag": "_Modifier",
               "modifierKind": {
                 "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "modifiers",
-          "object": "_InputParam",
-          "type": {
-            "$tag": "_ObjBase",
-            "name": "_Modifiers"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
                 "value": "Opt"
               }
             }
           ],
           "name": "default",
-          "object": "_InputParam",
-          "type": {
-            "$tag": "_ObjBase",
-            "name": "Value"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "modifiers",
-          "type": {
-            "$tag": "_ObjBase",
-            "name": "_Modifiers"
-          }
-        },
-        {
-          "$tag": "_OutputField",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "Opt"
-              }
-            }
-          ],
-          "name": "default",
+          "object": "_InputFieldType",
           "type": {
             "$tag": "_ObjBase",
             "name": "Value"
@@ -158,7 +122,7 @@
       "name": "_InputParam",
       "parent": {
         "$tag": "_ObjBase",
-        "name": "_InputBase"
+        "name": "_InputFieldType"
       },
       "typeKind": {
         "$tag": "_TypeKind",

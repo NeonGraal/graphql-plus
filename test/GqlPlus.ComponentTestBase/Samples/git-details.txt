@@ -1,1 +1,1 @@
-6814189  (HEAD -> dual-enum-arg) 2025-09-20 Tweak _TypeParam introspection
+08318c6  (HEAD -> dual-enum-arg) 2025-09-22 Tweak Schema spec and Introspection

@@ -15,12 +15,38 @@
         "$tag": "_TokenKind",
         "value": "End"
       },
-      "_message": "In _OutputField can\u0027t get model for type \u0027_Field\u0027"
+      "_message": "In _OutputField can\u0027t get model for type \u0027_ObjField\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _OutputFieldType can\u0027t get model for type \u0027_ObjFieldType\u0027"
     }
   ],
   "types": {
     "$tag": "_Map_Type",
     "_OutputField": {
+      "$tag": "_TypeOutput",
+      "name": "_OutputField",
+      "parent": {
+        "$tag": "_ObjBase",
+        "name": "_ObjField",
+        "typeArgs": [
+          {
+            "$tag": "_ObjTypeArg",
+            "name": "_ObjFieldType"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_OutputFieldType": {
       "$tag": "_TypeOutput",
       "allFields": [
         {
@@ -35,7 +61,7 @@
             }
           ],
           "name": "parameters",
-          "object": "_OutputField",
+          "object": "_OutputFieldType",
           "type": {
             "$tag": "_ObjBase",
             "name": "_InputParam"
@@ -61,10 +87,10 @@
           }
         }
       ],
-      "name": "_OutputField",
+      "name": "_OutputFieldType",
       "parent": {
         "$tag": "_ObjBase",
-        "name": "_Field"
+        "name": "_ObjFieldType"
       },
       "typeKind": {
         "$tag": "_TypeKind",

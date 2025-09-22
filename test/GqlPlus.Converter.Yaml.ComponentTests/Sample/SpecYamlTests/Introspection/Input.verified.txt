@@ -5,17 +5,25 @@ errors:
   _message: In _TypeInput can't get model for type '_TypeObject'
 - !_Error
   _kind: !_TokenKind End
-  _message: In _InputField can't get model for type '_Field'
+  _message: In _InputField can't get model for type '_ObjField'
 - !_Error
   _kind: !_TokenKind End
-  _message: In _InputParam can't get model for type '_InputBase'
+  _message: In _InputFieldType can't get model for type '_ObjFieldType'
 types: !_Map_Type
   !_Identifier _InputField: !_TypeOutput
+    name: _InputField
+    parent: !_ObjBase
+      name: _ObjField
+      typeArgs:
+      - !_ObjTypeArg
+        name: _InputFieldType
+    typeKind: !_TypeKind Output
+  !_Identifier _InputFieldType: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: default
-      object: _InputField
+      object: _InputFieldType
       type: !_ObjBase
         name: Value
     fields:
@@ -24,38 +32,21 @@ types: !_Map_Type
       name: default
       type: !_ObjBase
         name: Value
-    name: _InputField
+    name: _InputFieldType
     parent: !_ObjBase
-      name: _Field
+      name: _ObjFieldType
     typeKind: !_TypeKind Output
   !_Identifier _InputParam: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: modifiers
-      object: _InputParam
-      type: !_ObjBase
-        name: _Modifiers
-    - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: default
-      object: _InputParam
-      type: !_ObjBase
-        name: Value
-    fields:
-    - !_OutputField
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: modifiers
-      type: !_ObjBase
-        name: _Modifiers
-    - !_OutputField
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: default
+      object: _InputFieldType
       type: !_ObjBase
         name: Value
     name: _InputParam
     parent: !_ObjBase
-      name: _InputBase
+      name: _InputFieldType
     typeKind: !_TypeKind Output
   !_Identifier _TypeInput: !_TypeOutput
     name: _TypeInput

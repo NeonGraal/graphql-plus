@@ -3,7 +3,11 @@ output _TypeOutput {
     }
 
 output _OutputField {
-    : _Field
+    : _ObjField<_ObjFieldType>
+    }
+
+output _OutputFieldType {
+    : _ObjFieldType
         parameters: _InputParam[]
     }
 

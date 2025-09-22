@@ -1,4 +1,8 @@
 output _TypeDual {
-    : _TypeObject<_TypeKind.Dual _Field>
+    : _TypeObject<_TypeKind.Dual _DualField>
+    }
+
+output _DualField {
+    : _ObjField<_ObjFieldType>
     }
 

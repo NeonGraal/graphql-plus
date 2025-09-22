@@ -19,35 +19,32 @@ Success
   _InputField
   :
   I@007/0006
-  _Field
+  _ObjField
+  <
+    I@017/0006
+    _InputFieldType
+  >
+}
+{
+  !Ou I@008/0009
+  _InputFieldType
+  :
+  I@007/0010
+  _ObjFieldType
   {
-    !OF I@009/0007
+    !OF I@009/0011
     default
     :
-    I@018/0007
+    I@018/0011
     Value
     ?
   }
 }
 {
-  !Ou I@008/0010
+  !Ou I@008/0014
   _InputParam
   :
-  I@007/0011
-  _InputBase
-  {
-    !OF I@009/0012
-    modifiers
-    :
-    I@020/0012
-    _Modifiers
-    []
-    !OF I@009/0013
-    default
-    :
-    I@018/0013
-    Value
-    ?
-  }
+  I@007/0015
+  _InputFieldType
 }
 ]

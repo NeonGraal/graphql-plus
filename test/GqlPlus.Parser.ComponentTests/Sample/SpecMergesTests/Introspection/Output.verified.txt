@@ -19,12 +19,23 @@ Success
   _OutputField
   :
   I@007/0006
-  _Field
+  _ObjField
+  <
+    I@017/0006
+    _ObjFieldType
+  >
+}
+{
+  !Ou I@008/0009
+  _OutputFieldType
+  :
+  I@007/0010
+  _ObjFieldType
   {
-    !OF I@009/0007
+    !OF I@009/0011
     parameters
     :
-    I@021/0007
+    I@021/0011
     _InputParam
     []
   }

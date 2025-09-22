@@ -3,13 +3,15 @@ output _TypeInput {
     }
 
 output _InputField {
-    : _Field
+    : _ObjField<_InputFieldType>
+    }
+
+output _InputFieldType {
+    : _ObjFieldType
         default: Value?
     }
 
 output _InputParam {
-    : _InputBase
-        modifiers: _Modifiers[]
-        default: Value?
+    : _InputFieldType
     }
 

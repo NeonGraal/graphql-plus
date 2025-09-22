@@ -24,7 +24,7 @@ Success
     :_ObjectKind
     I@039/0003
     $field
-    :_Field
+    :_ObjField
   >
   :
   I@007/0004
@@ -52,7 +52,7 @@ Success
     alternates
     :
     I@021/0007
-    _Alternate
+    _ObjAlternate
     []
     !OF I@009/0008
     allFields
@@ -71,7 +71,7 @@ Success
     _ObjectFor
     <
       I@035/0009
-      _Alternate
+      _ObjAlternate
     >
     []
   }
@@ -150,7 +150,7 @@ Success
 }
 {
   !Ou I@008/0034
-  _Alternate
+  _ObjAlternate
   {
     !OF I@007/0035
     type
@@ -166,11 +166,11 @@ Success
   }
   |
   I@007/0037
-  _AlternateEnum
+  _ObjAlternateEnum
 }
 {
   !Ou I@008/0040
-  _AlternateEnum
+  _ObjAlternateEnum
   :
   I@007/0041
   _TypeRef
@@ -207,7 +207,12 @@ Success
 }
 {
   !Ou I@008/0049
-  _Field
+  _ObjField
+  <
+    I@019/0049
+    $type
+    :_ObjFieldType
+  >
   :
   I@007/0050
   _Aliased
@@ -215,49 +220,53 @@ Success
     !OF I@007/0051
     type
     :
-    I@013/0051
-    _ObjBase
-    !OF I@007/0052
+    I@014/0051
+    $type
+  }
+}
+{
+  !Ou I@008/0054
+  _ObjFieldType
+  :
+  I@007/0055
+  _ObjBase
+  {
+    !OF I@009/0056
     modifiers
     :
-    I@018/0052
+    I@020/0056
     _Modifiers
     []
   }
   |
-  I@007/0053
-  _FieldEnum
+  I@007/0057
+  _ObjFieldEnum
 }
 {
-  !Ou I@008/0056
-  _FieldEnum
+  !Ou I@008/0060
+  _ObjFieldEnum
   :
-  I@007/0057
+  I@007/0061
   _TypeRef
   <
-    I@016/0057
+    I@016/0061
     _TypeKind.Enum
   >
   {
-    !OF I@009/0058
-    field
-    :
-    I@016/0058
-    _Identifier
-    !OF I@009/0059
+    !OF I@009/0062
     label
     :
-    I@016/0059
+    I@016/0062
     _Identifier
   }
 }
 {
-  !Ou I@008/0062
+  !Ou I@008/0065
   _ForParam
   |
-  I@007/0063
-  _Alternate
-  I@007/0064
-  _Field
+  I@007/0066
+  _ObjAlternate
+  I@007/0067
+  _ObjField
 }
 ]

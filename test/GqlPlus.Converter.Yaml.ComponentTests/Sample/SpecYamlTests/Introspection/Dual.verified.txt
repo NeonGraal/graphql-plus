@@ -3,7 +3,18 @@ errors:
 - !_Error
   _kind: !_TokenKind End
   _message: In _TypeDual can't get model for type '_TypeObject'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _DualField can't get model for type '_ObjField'
 types: !_Map_Type
+  !_Identifier _DualField: !_TypeOutput
+    name: _DualField
+    parent: !_ObjBase
+      name: _ObjField
+      typeArgs:
+      - !_ObjTypeArg
+        name: _ObjFieldType
+    typeKind: !_TypeKind Output
   !_Identifier _TypeDual: !_TypeOutput
     name: _TypeDual
     parent: !_ObjBase
@@ -14,5 +25,5 @@ types: !_Map_Type
         name: _TypeKind
         typeKind: !_SimpleKind Enum
       - !_ObjTypeArg
-        name: _Field
+        name: _DualField
     typeKind: !_TypeKind Output

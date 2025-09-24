@@ -5,18 +5,18 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-internal class ParseObjArgs
-  : Parser<IGqlpObjArg>.IA
+internal class ParseObjTypeArgs
+  : Parser<IGqlpObjTypeArg>.IA
 {
-  public IResultArray<IGqlpObjArg> Parse(ITokenizer tokens, string label)
+  public IResultArray<IGqlpObjTypeArg> Parse(ITokenizer tokens, string label)
   {
-    List<IGqlpObjArg> list = [];
+    List<IGqlpObjTypeArg> list = [];
 
     if (!tokens.Take('<')) {
       return list.EmptyArray();
     }
 
-    IResult<ObjArgAst> argument = ParseObjectArg(tokens, label);
+    IResult<ObjTypeArgAst> argument = ParseObjectArg(tokens, label);
     while (argument.Required(list.Add)) {
       argument = ParseObjectArg(tokens, label);
     }
@@ -32,15 +32,15 @@ internal class ParseObjArgs
     return list.OkArray();
   }
 
-  private static IResult<ObjArgAst> ParseObjectArg(ITokenizer tokens, string label)
+  private static IResult<ObjTypeArgAst> ParseObjectArg(ITokenizer tokens, string label)
   {
     string description = tokens.Description();
     if (!tokens.Prefix('$', out string? param, out TokenAt at)) {
-      return tokens.Error<ObjArgAst>(label, "identifier after '$'");
+      return tokens.Error<ObjTypeArgAst>(label, "identifier after '$'");
     }
 
     if (!string.IsNullOrWhiteSpace(param)) {
-      ObjArgAst objType = new(at, param!, description) {
+      ObjTypeArgAst objType = new(at, param!, description) {
         IsTypeParam = true,
       };
       return objType.Ok();
@@ -58,14 +58,14 @@ internal class ParseObjArgs
     }
 
     if (!hasName) {
-      return 0.Empty<ObjArgAst>();
+      return 0.Empty<ObjTypeArgAst>();
     }
 
-    ObjArgAst argument = new(at, name!, description);
+    ObjTypeArgAst argument = new(at, name!, description);
 
     if (tokens.Take('.')) {
       if (argument.IsTypeParam) {
-        return tokens.Error<ObjArgAst>("Output Arg", "Enum value not allowed after Type parameter");
+        return tokens.Error<ObjTypeArgAst>("Output Arg", "Enum value not allowed after Type parameter");
       }
 
       at = tokens.At;

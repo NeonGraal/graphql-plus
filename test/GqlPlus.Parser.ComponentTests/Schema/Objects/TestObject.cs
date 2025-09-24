@@ -205,9 +205,9 @@ internal class CheckObject<TObject, TObjectAst, TObjField, TObjFieldAst>
     => new(AstNulls.At, type, description);
 
   public static IGqlpObjBase ObjBaseWithArgs(string type, string subType)
-    => ObjBase(type) with { Args = [ObjArg(subType)] };
+    => ObjBase(type) with { Args = [ObjTypeArg(subType)] };
 
-  public static ObjArgAst ObjArg(string type, string description = "")
+  public static ObjTypeArgAst ObjTypeArg(string type, string description = "")
     => new(AstNulls.At, type, description);
 
   protected internal sealed override string AliasesString(ObjectInput input, string aliases)

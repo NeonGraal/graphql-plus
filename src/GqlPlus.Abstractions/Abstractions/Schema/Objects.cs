@@ -33,17 +33,17 @@ public interface IGqlpObjectEnum
   void SetEnumType(string enumType);
 }
 
-public interface IGqlpObjArg
+public interface IGqlpObjTypeArg
   : IGqlpObjType
   , IGqlpObjectEnum
-  , IEquatable<IGqlpObjArg>
+  , IEquatable<IGqlpObjTypeArg>
 { }
 
 public interface IGqlpObjBase
   : IGqlpObjType
   , IEquatable<IGqlpObjBase>
 {
-  IEnumerable<IGqlpObjArg> Args { get; }
+  IEnumerable<IGqlpObjTypeArg> Args { get; }
 
   void SetName(string name);
 }

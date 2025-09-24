@@ -4,15 +4,24 @@ using GqlPlus.Verifying.Schema;
 
 namespace GqlPlus.Matching;
 
-internal class OutputArgMatcher(
+internal class ObjTypeArgMatcher(
   ILoggerFactory logger,
   Matcher<IGqlpType>.D anyTypeMatcher
-) : ObjArgMatcher<IGqlpObjArg>(logger, anyTypeMatcher)
+) : MatcherBase<IGqlpObjTypeArg>(logger)
 {
-  public override bool Matches(IGqlpObjArg arg, string constraint, EnumContext context)
+  private readonly Matcher<IGqlpType>.L _anyTypeMatcher = anyTypeMatcher;
+
+  public override bool Matches(IGqlpObjTypeArg arg, string constraint, EnumContext context)
   {
-    if (base.Matches(arg, constraint, context)) {
+    TryingMatch(arg, constraint);
+
+    if (arg.FullType.Equals(constraint, StringComparison.Ordinal)) {
       return true;
+    }
+
+    if (!context.GetTyped(arg.FullType, out IGqlpType? argType)) {
+      // todo: Handle type params properly
+      return arg.IsTypeParam;
     }
 
     if (string.IsNullOrWhiteSpace(arg.EnumLabel)) {
@@ -29,10 +38,10 @@ internal class OutputArgMatcher(
       return true;
     }
 
-    return false;
+    return _anyTypeMatcher.Matches(argType, constraint, context);
   }
 
-  private static bool MatchArgTypeParam(IGqlpObjArg arg, string constraint, EnumContext context)
+  private static bool MatchArgTypeParam(IGqlpObjTypeArg arg, string constraint, EnumContext context)
   {
     if (context.GetTyped(arg.FullType, out IGqlpTypeParam? typeParam)) {
       // Todo: Check if the type param is a constraint of the param
@@ -44,7 +53,7 @@ internal class OutputArgMatcher(
     return false;
   }
 
-  private bool MatchConstraintType(IGqlpObjArg arg, EnumContext context, IGqlpDescribed constraintType)
+  private bool MatchConstraintType(IGqlpObjTypeArg arg, EnumContext context, IGqlpDescribed constraintType)
   {
     if (constraintType is IGqlpEnum enumType) {
       if (!EnumHasLabel(context, enumType, arg.EnumType.Name)) {
@@ -60,7 +69,7 @@ internal class OutputArgMatcher(
     return true;
   }
 
-  private bool MatchArgLabel(IGqlpObjArg arg, string constraint, EnumContext context)
+  private bool MatchArgLabel(IGqlpObjTypeArg arg, string constraint, EnumContext context)
   {
     if (context.GetType(constraint, out IGqlpDescribed? constraintType)) {
       if (constraintType is IGqlpEnum enumType) {

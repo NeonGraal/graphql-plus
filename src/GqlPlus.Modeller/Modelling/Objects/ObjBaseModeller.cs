@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
 internal class ObjBaseModeller(
-    IModeller<IGqlpObjArg, ObjTypeArgModel> objArg
+    IModeller<IGqlpObjTypeArg, ObjTypeArgModel> objArg
 ) : ModellerBase<IGqlpObjBase, ObjBaseModel>
 {
   internal ObjTypeArgModel[] ModelArgs(IGqlpObjBase ast, IMap<TypeKindModel> typeKinds)

@@ -47,8 +47,8 @@ internal class MergeAllTypes(
       foreach (IGqlpObjField field in output.Fields) {
         FixupType<IGqlpObjField>(field, enumValues);
 
-        foreach (IGqlpObjArg argument in field.Type.Args) {
-          FixupType<IGqlpObjArg>(argument, enumValues);
+        foreach (IGqlpObjTypeArg argument in field.Type.Args) {
+          FixupType<IGqlpObjTypeArg>(argument, enumValues);
         }
       }
     }

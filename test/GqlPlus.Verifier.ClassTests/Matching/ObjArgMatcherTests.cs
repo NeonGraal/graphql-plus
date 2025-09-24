@@ -1,10 +1,9 @@
 ﻿namespace GqlPlus.Matching;
 
-public abstract class ObjArgMatcherTests<TObjArg>
+public class ObjArgMatcherTests
   : MatcherTestsBase
-  where TObjArg : class, IGqlpObjArg
 {
-  internal ObjArgMatcher<TObjArg> Matcher { get; set; }
+  internal ObjTypeArgMatcher Matcher { get; set; }
 
   internal Matcher<IGqlpType>.I AnyType { get; set; }
 
@@ -19,7 +18,7 @@ public abstract class ObjArgMatcherTests<TObjArg>
   [Theory, RepeatData]
   public void Matches_ReturnsTrue_WhenMatchingArgFullType(string name, string constraint)
   {
-    TObjArg arg = A.Named<TObjArg>(name);
+    IGqlpObjTypeArg arg = A.Named<IGqlpObjTypeArg>(name);
     arg.FullType.Returns(constraint);
 
     bool result = Matcher.Matches(arg, constraint, Context);
@@ -32,7 +31,7 @@ public abstract class ObjArgMatcherTests<TObjArg>
   {
     this.SkipEqual(type, constraint);
 
-    TObjArg arg = A.Named<TObjArg>(name);
+    IGqlpObjTypeArg arg = A.Named<IGqlpObjTypeArg>(name);
     arg.FullType.Returns(type);
     arg.IsTypeParam.Returns(true);
 
@@ -46,7 +45,7 @@ public abstract class ObjArgMatcherTests<TObjArg>
   {
     this.SkipEqual(type, constraint);
 
-    TObjArg arg = A.Named<TObjArg>(name);
+    IGqlpObjTypeArg arg = A.Named<IGqlpObjTypeArg>(name);
     arg.FullType.Returns(type);
 
     IGqlpType baseType = A.Named<IGqlpType>(type);
@@ -59,14 +58,104 @@ public abstract class ObjArgMatcherTests<TObjArg>
     result.ShouldBe(expected);
   }
 
+  [Theory, RepeatData]
+  public void Matches_ReturnsTrue_WhenConstraintParentOfEnum_WithArgLabel(string name, string enumName, string enumLabel, string constraint)
+  {
+    this.SkipEqual(enumName, constraint);
+
+    IGqlpObjTypeArg arg = A.OutputEnumArg(name, enumLabel, enumLabel);
+    IGqlpEnum enumParent = A.Enum(enumName, [enumLabel]);
+    Types[enumName] = enumParent;
+
+    IGqlpEnum enumConstraint = A.Enum(constraint, enumName);
+    Types[constraint] = enumConstraint;
+
+    bool result = Matcher.Matches(arg, constraint, Context);
+
+    result.ShouldBeTrue();
+  }
+
+  [Theory, RepeatData]
+  public void Matches_ReturnsFalse_WhenConstraintEnumNotLabel_WithArgType(string name, string enumLabel, string constraint)
+  {
+    this.SkipEqual(enumLabel, constraint);
+
+    IGqlpObjTypeArg arg = A.OutputEnumArg(name, enumLabel, "");
+    IGqlpEnum enumConstraint = A.Enum(constraint, []);
+    Types[constraint] = enumConstraint;
+
+    bool result = Matcher.Matches(arg, constraint, Context);
+
+    result.ShouldBeFalse();
+  }
+
+  [Theory, RepeatData]
+  public void Matches_ReturnsTrue_WhenConstraintDomParentOfEnum_WithArgLabel(string name, string enumName, string enumLabel, string constraint)
+  {
+    this.SkipEqual(enumName, constraint);
+
+    IGqlpObjTypeArg arg = A.OutputEnumArg(name, enumName, enumLabel);
+    IGqlpEnum enumParent = A.Enum(enumName, [enumLabel]);
+    Types[enumName] = enumParent;
+
+    IGqlpDomain<IGqlpDomainLabel> domConstraint = A.DomainEnum(constraint, null, enumName, enumLabel);
+    Types[constraint] = domConstraint;
+
+    bool result = Matcher.Matches(arg, constraint, Context);
+
+    result.ShouldBeTrue();
+  }
+
+  [Theory, RepeatData]
+  public void Matches_ReturnsFalse_WhenConstraintDomNotLabel_WithArgType(string name, string enumLabel, string constraint)
+  {
+    this.SkipEqual(enumLabel, constraint);
+
+    IGqlpObjTypeArg arg = A.OutputEnumArg(name, enumLabel, "");
+    IGqlpDomain<IGqlpDomainLabel> domConstraint = A.DomainEnum(constraint, null);
+    Types[constraint] = domConstraint;
+
+    bool result = Matcher.Matches(arg, constraint, Context);
+
+    result.ShouldBeFalse();
+  }
+
+  [Theory, RepeatData]
+  public void Matches_ReturnsTrue_WhenConstraintSame_WithEnumTypeParam(string name, string enumName, string paramName, string constraint)
+  {
+    IGqlpObjTypeArg arg = A.Named<IGqlpObjTypeArg>(name);
+    IGqlpObjType enumType = A.Named<IGqlpObjType>(enumName);
+    enumType.IsTypeParam.Returns(true);
+    arg.EnumType.Returns(enumType);
+    arg.FullType.Returns("$" + enumName);
+
+    IGqlpTypeParam typeParam = A.TypeParam(paramName, constraint);
+    Types[arg.FullType] = typeParam;
+
+    bool result = Matcher.Matches(arg, constraint, Context);
+
+    result.ShouldBeTrue();
+  }
+
+  [Theory, RepeatData]
+  public void Matches_ReturnsExpected_WhenConstraintChildOfEnum_WithArgLabel(string name, string enumName, string enumLabel, string constraint, bool expected)
+  {
+    this.SkipEqual(enumName, constraint);
+
+    IGqlpObjTypeArg arg = A.OutputEnumArg(name, enumName, enumLabel);
+    IGqlpEnum enumParent = A.Enum(enumName, [enumLabel], constraint);
+    Types[enumName] = enumParent;
+
+    IGqlpEnum enumConstraint = A.Enum(constraint, []);
+    Types[constraint] = enumConstraint;
+
+    AnyTypeReturns(enumParent, constraint, expected);
+
+    bool result = Matcher.Matches(arg, constraint, Context);
+
+    result.ShouldBe(expected);
+  }
+
   protected void AnyTypeReturns(IGqlpType type, string constraint, bool expected)
     => AnyType.Matches(type, constraint, Context).Returns(expected);
 }
-
-public class DualArgMatcherTests
-  : ObjArgMatcherTests<IGqlpObjArg>
-{ }
-
-public class InputArgMatcherTests
-  : ObjArgMatcherTests<IGqlpObjArg>
-{ }

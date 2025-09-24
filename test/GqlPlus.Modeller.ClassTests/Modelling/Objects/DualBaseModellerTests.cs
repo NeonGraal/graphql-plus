@@ -3,7 +3,7 @@
 public class ObjBaseModellerTests
   : ModellerClassTestBase<IGqlpObjBase, ObjBaseModel>
 {
-  private readonly IModeller<IGqlpObjArg, ObjTypeArgModel> _objArg = MFor<IGqlpObjArg, ObjTypeArgModel>();
+  private readonly IModeller<IGqlpObjTypeArg, ObjTypeArgModel> _objArg = MFor<IGqlpObjTypeArg, ObjTypeArgModel>();
 
   public ObjBaseModellerTests()
     => Modeller = new ObjBaseModeller(_objArg);
@@ -34,7 +34,7 @@ public class ObjBaseModellerTests
   {
     // Arrange
     IGqlpObjBase ast = A.Named<IGqlpObjBase>(name);
-    IGqlpObjArg arg = A.Named<IGqlpObjArg>(argName);
+    IGqlpObjTypeArg arg = A.Named<IGqlpObjTypeArg>(argName);
     ast.Args.Returns([arg]);
 
     ObjTypeArgModel argModel = new(TypeKindModel.Dual, argName, "");

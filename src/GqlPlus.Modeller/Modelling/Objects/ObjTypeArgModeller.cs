@@ -1,9 +1,9 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
 internal class ObjTypeArgModeller
-  : ModellerBase<IGqlpObjArg, ObjTypeArgModel>
+  : ModellerBase<IGqlpObjTypeArg, ObjTypeArgModel>
 {
-  protected override ObjTypeArgModel ToModel(IGqlpObjArg ast, IMap<TypeKindModel> typeKinds)
+  protected override ObjTypeArgModel ToModel(IGqlpObjTypeArg ast, IMap<TypeKindModel> typeKinds)
     => string.IsNullOrWhiteSpace(ast.EnumLabel)
     ? typeKinds.TryGetValue(ast.Name, out TypeKindModel typeKind)
       ? new(typeKind, ast.Name, ast.Description) {

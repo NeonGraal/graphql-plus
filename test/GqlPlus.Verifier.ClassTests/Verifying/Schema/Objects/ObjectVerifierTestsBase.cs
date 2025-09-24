@@ -14,14 +14,14 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
 
   protected ObjectVerifierTestsBase()
   {
-    ArgMatcher = A.Of<Matcher<IGqlpObjArg>.I>();
+    ArgMatcher = A.Of<Matcher<IGqlpObjTypeArg>.I>();
 
-    ArgDelegate = A.Of<Matcher<IGqlpObjArg>.D>();
+    ArgDelegate = A.Of<Matcher<IGqlpObjTypeArg>.D>();
     ArgDelegate().Returns(ArgMatcher);
   }
 
-  protected Matcher<IGqlpObjArg>.I ArgMatcher { get; }
-  protected Matcher<IGqlpObjArg>.D ArgDelegate { get; }
+  protected Matcher<IGqlpObjTypeArg>.I ArgMatcher { get; }
+  protected Matcher<IGqlpObjTypeArg>.D ArgDelegate { get; }
 
   protected sealed override TObject TheUsage => TheObject;
 
@@ -475,7 +475,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
     ObjectParam(paramName, argType, other);
     ObjectAlternate(paramName, other, true);
 
-    IGqlpObjArg arg = FieldArg(ObjectField(fieldName, otherName), argType);
+    IGqlpObjTypeArg arg = FieldArg(ObjectField(fieldName, otherName), argType);
     ArgMatcher.Matches(arg, argType, Arg.Any<EnumContext>()).Returns(true);
 
     Verify_Errors("Expected 1, given none");
@@ -490,7 +490,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
 
     TObject other = DefineObject(otherName);
 
-    IGqlpObjArg arg = FieldArg(ObjectField(fieldName, otherName), argType);
+    IGqlpObjTypeArg arg = FieldArg(ObjectField(fieldName, otherName), argType);
     ArgMatcher.Matches(arg, argType, Arg.Any<EnumContext>()).Returns(true);
 
     Verify_Errors("Expected 0, given 1");
@@ -506,7 +506,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
     TObject other = DefineObject(otherName, paramName, true);
     ObjectParam(paramName, "", other);
 
-    IGqlpObjArg arg = FieldArg(ObjectField(fieldName, otherName), argType);
+    IGqlpObjTypeArg arg = FieldArg(ObjectField(fieldName, otherName), argType);
     ArgMatcher.Matches(arg, argType, Arg.Any<EnumContext>()).Returns(true);
 
     Verify_Errors("undefined");
@@ -522,7 +522,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
     TObject other = DefineObject(otherName, paramName, true);
     ObjectParam(paramName, argType, other);
 
-    IGqlpObjArg arg = FieldArg(ObjectField(fieldName, otherName), argType);
+    IGqlpObjTypeArg arg = FieldArg(ObjectField(fieldName, otherName), argType);
     ArgMatcher.Matches(arg, argType, Arg.Any<EnumContext>()).Returns(false);
 
     Verify_Errors("not match");
@@ -586,7 +586,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
     ObjectParam(argName, enumType, other);
 
     TField field = ObjectField(fieldName, typeName);
-    IGqlpObjArg arg = FieldEnumArg(field, enumLabel, "");
+    IGqlpObjTypeArg arg = FieldEnumArg(field, enumLabel, "");
     arg.WhenForAnyArgs(a => a.SetEnumType(""))
       .Do(HandleSetEnumType);
 
@@ -697,19 +697,19 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
   }
 
   protected static IGqlpObjBase MakeBase(string baseName, bool isTypeParam = false)
-    => A.ObjBase<IGqlpObjBase, IGqlpObjArg>(baseName, isTypeParam);
+    => A.ObjBase<IGqlpObjBase, IGqlpObjTypeArg>(baseName, isTypeParam);
 
-  protected static IGqlpObjArg BaseArg(IGqlpObjBase type, string argName, bool isTypeParam = false)
+  protected static IGqlpObjTypeArg BaseArg(IGqlpObjBase type, string argName, bool isTypeParam = false)
   {
-    IGqlpObjArg arg = A.ObjArg<IGqlpObjArg>(argName, isTypeParam);
+    IGqlpObjTypeArg arg = A.ObjTypeArg<IGqlpObjTypeArg>(argName, isTypeParam);
     type.SetArgs(arg);
     return arg;
   }
-  protected static IGqlpObjArg BaseEnumArg(IGqlpObjBase type, string enumType, string enumLabel)
+  protected static IGqlpObjTypeArg BaseEnumArg(IGqlpObjBase type, string enumType, string enumLabel)
   {
     IGqlpObjType enumObjType = A.Named<IGqlpObjType>(enumType);
 
-    IGqlpObjArg arg = A.ObjArg<IGqlpObjArg>(enumType);
+    IGqlpObjTypeArg arg = A.ObjTypeArg<IGqlpObjTypeArg>(enumType);
     arg.FullType.Returns(enumType);
     arg.EnumType.Returns(enumObjType);
     arg.EnumLabel.Returns(enumLabel);
@@ -718,9 +718,9 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
     return arg;
   }
 
-  protected static IGqlpObjArg FieldArg([NotNull] TField field, string argName, bool isTypeParam = false)
+  protected static IGqlpObjTypeArg FieldArg([NotNull] TField field, string argName, bool isTypeParam = false)
     => BaseArg(field.Type, argName, isTypeParam);
-  protected static IGqlpObjArg FieldEnumArg([NotNull] TField field, string enumType, string enumLabel)
+  protected static IGqlpObjTypeArg FieldEnumArg([NotNull] TField field, string enumType, string enumLabel)
     => BaseEnumArg(field.Type, enumType, enumLabel);
 
   protected static TMod SetModifier<TMod>([NotNull] TMod modified, ModifierKind kind, string key = "")

@@ -6,18 +6,18 @@ namespace GqlPlus;
 public static class SchemaObjectBuilderHelpers
 {
   public static IGqlpObjBase DualBase(this IMockBuilder builder, string name, bool isTypeParam = false)
-    => builder.ObjBase<IGqlpObjBase, IGqlpObjArg>(name, isTypeParam);
+    => builder.ObjBase<IGqlpObjBase, IGqlpObjTypeArg>(name, isTypeParam);
   public static IGqlpDualField DualField(this IMockBuilder builder, string name, string type, string typeDescr = "")
     => builder.ObjField<IGqlpDualField>(name, builder.DualBase(type).SetDescr(typeDescr));
 
   public static IGqlpObjBase InputBase(this IMockBuilder builder, string name, bool isTypeParam = false)
-    => builder.ObjBase<IGqlpObjBase, IGqlpObjArg>(name, isTypeParam);
+    => builder.ObjBase<IGqlpObjBase, IGqlpObjTypeArg>(name, isTypeParam);
   public static IGqlpInputField InputField(this IMockBuilder builder, string name, string type, string typeDescr = "")
     => builder.ObjField<IGqlpInputField>(name, builder.InputBase(type).SetDescr(typeDescr));
 
-  public static IGqlpObjArg OutputEnumArg(this IMockBuilder builder, string name, string enumType, string enumLabel)
+  public static IGqlpObjTypeArg OutputEnumArg(this IMockBuilder builder, string name, string enumType, string enumLabel)
   {
-    IGqlpObjArg theArg = builder.ObjArg<IGqlpObjArg>(name);
+    IGqlpObjTypeArg theArg = builder.ObjTypeArg<IGqlpObjTypeArg>(name);
     IGqlpObjType enumObjType = builder.Named<IGqlpObjType>(enumType);
     theArg.FullType.Returns(enumType);
     theArg.EnumType.Returns(enumObjType);
@@ -25,7 +25,7 @@ public static class SchemaObjectBuilderHelpers
     return theArg;
   }
   public static IGqlpObjBase OutputBase(this IMockBuilder builder, string name, bool isTypeParam = false)
-  => builder.ObjBase<IGqlpObjBase, IGqlpObjArg>(name, isTypeParam);
+  => builder.ObjBase<IGqlpObjBase, IGqlpObjTypeArg>(name, isTypeParam);
   public static IGqlpOutputField OutputField(this IMockBuilder builder, string name, string type, string typeDescr = "")
     => builder.ObjField<IGqlpOutputField>(name, builder.OutputBase(type).SetDescr(typeDescr));
 
@@ -60,9 +60,9 @@ public static class SchemaObjectBuilderHelpers
     return obj;
   }
 
-  public static TBase ObjBase<TBase, TArg>(this IMockBuilder builder, string typeName, bool isTypeParam = false)
+  public static TBase ObjBase<TBase, TTypeArg>(this IMockBuilder builder, string typeName, bool isTypeParam = false)
     where TBase : class, IGqlpObjBase
-    where TArg : class, IGqlpObjArg
+    where TTypeArg : class, IGqlpObjTypeArg
   {
     TBase theType = builder.Named<TBase, IGqlpObjBase>(typeName);
     string label = typeof(TBase).Name[5..^4];
@@ -75,9 +75,9 @@ public static class SchemaObjectBuilderHelpers
 
     return theType;
   }
-  public static TBase SetArgs<TBase, TArg>([NotNull] this TBase objBase, params TArg[] args)
+  public static TBase SetArgs<TBase, TTypeArg>([NotNull] this TBase objBase, params TTypeArg[] args)
     where TBase : class, IGqlpObjBase
-    where TArg : class, IGqlpObjArg
+    where TTypeArg : class, IGqlpObjTypeArg
   {
     objBase.Args.Returns(args);
     objBase.Args.Returns(args);
@@ -85,11 +85,11 @@ public static class SchemaObjectBuilderHelpers
     return objBase;
   }
 
-  public static TArg ObjArg<TArg>(this IMockBuilder builder, string typeName, bool isTypeParam = false)
-    where TArg : class, IGqlpObjArg
+  public static TTypeArg ObjTypeArg<TTypeArg>(this IMockBuilder builder, string typeName, bool isTypeParam = false)
+    where TTypeArg : class, IGqlpObjTypeArg
   {
-    TArg theArg = builder.Named<TArg, IGqlpObjArg>(typeName);
-    string label = typeof(TArg).Name[5..^3];
+    TTypeArg theArg = builder.Named<TTypeArg, IGqlpObjTypeArg>(typeName);
+    string label = typeof(TTypeArg).Name[5..^3];
     if (isTypeParam) {
       theArg.IsTypeParam.Returns(true);
       theArg.FullType.Returns("$" + typeName);

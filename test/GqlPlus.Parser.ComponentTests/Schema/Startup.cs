@@ -26,7 +26,7 @@ public static class Startup
       .AddTransient<IBaseNamedChecks<string, IGqlpUnionMember>, ParseUnionMemberChecks>()
       .AddTransient<IBaseSimpleChecks<UnionInput, IGqlpUnion>, ParseUnionChecks>()
 
-      .AddTransient<IParseObjArgChecks, ParseObjArgChecks>()
+      .AddTransient<IParseObjTypeArgChecks, ParseObjTypeArgChecks>()
       .AddTransient<IParseObjBaseChecks, ParseObjBaseChecks>()
 
       .AddTransient<ICheckObjectField<IGqlpDualField>, ParseDualFieldChecks>()

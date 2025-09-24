@@ -14,7 +14,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
 {
   private readonly ILogger _logger = verifiers.Logger.CreateTypedLogger<AstParentItemVerifier<TObject, IGqlpObjBase, EnumContext, IGqlpTypeParam>>();
 
-  private readonly Matcher<IGqlpObjArg>.L _constraintMatcher = verifiers.ConstraintMatcher;
+  private readonly Matcher<IGqlpObjTypeArg>.L _constraintMatcher = verifiers.ConstraintMatcher;
 
   protected override void UsageValue(TObject usage, EnumContext context)
   {
@@ -120,13 +120,13 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
 
   private void CheckArgsTypes(CheckError error, EnumContext context, IGqlpObjBase reference)
   {
-    foreach (IGqlpObjArg arg in reference.Args) {
+    foreach (IGqlpObjTypeArg arg in reference.Args) {
       CheckArgEnum(context, arg);
       CheckTypeRef(error, context, arg);
     }
   }
 
-  private void CheckArgEnum(EnumContext context, IGqlpObjArg arg)
+  private void CheckArgEnum(EnumContext context, IGqlpObjTypeArg arg)
   {
     if (string.IsNullOrWhiteSpace(arg.EnumLabel)
       && !context.GetType(arg.Name, out IGqlpDescribed? type)
@@ -141,9 +141,9 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
 
   private void CheckParamsArgs(CheckError error, EnumContext context, IGqlpObject definition, IGqlpObjBase reference)
   {
-    IEnumerable<(IGqlpObjArg, IGqlpTypeParam)> argAndParams = reference.Args
+    IEnumerable<(IGqlpObjTypeArg, IGqlpTypeParam)> argAndParams = reference.Args
       .Zip(definition.TypeParams, static (a, p) => (a, p));
-    foreach ((IGqlpObjArg arg, IGqlpTypeParam param) in argAndParams) {
+    foreach ((IGqlpObjTypeArg arg, IGqlpTypeParam param) in argAndParams) {
       CheckArgEnum(context, arg);
       CheckTypeRef(error, context, arg);
 
@@ -295,7 +295,7 @@ internal record class ObjectVerifierParams<TObject, TObjField>(
   IVerifyAliased<TObject> Aliased,
   IMerge<TObjField> MergeFields,
   IMerge<IGqlpObjAlt> MergeAlternates,
-  Matcher<IGqlpObjArg>.D ConstraintMatcher,
+  Matcher<IGqlpObjTypeArg>.D ConstraintMatcher,
   ILoggerFactory Logger
 )
   where TObject : IGqlpObject

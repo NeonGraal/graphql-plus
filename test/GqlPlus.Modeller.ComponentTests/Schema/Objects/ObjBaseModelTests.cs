@@ -11,7 +11,7 @@ public class ObjBaseModelTests(
   [Theory, RepeatData]
   public void Model_Args(string name, string[] arguments)
     => objBaseChecks.ObjBase_Expected(
-      objBaseChecks.ObjBaseAst(name, false, [.. arguments.Select(a => objBaseChecks.ObjArgAst(a, false))]),
+      objBaseChecks.ObjBaseAst(name, false, [.. arguments.Select(a => objBaseChecks.ObjTypeArgAst(a, false))]),
       objBaseChecks.ExpectedObjBase(name, false, objBaseChecks.ExpectedArgs(arguments))
       );
 
@@ -39,20 +39,20 @@ internal sealed class ObjBaseModelChecks(
   private string[] ExpectedDual(string input)
     => ["!_ObjBase", "name: " + input];
 
-  private ObjBaseAst NewObjBaseAst(string input, bool isTypeParam, IGqlpObjArg[] args)
+  private ObjBaseAst NewObjBaseAst(string input, bool isTypeParam, IGqlpObjTypeArg[] args)
     => new(AstNulls.At, input, "") {
       IsTypeParam = isTypeParam,
       Args = args,
     };
 
-  private ObjArgAst NewObjArgAst(string input, bool isTypeParam)
+  private ObjTypeArgAst NewObjTypeArgAst(string input, bool isTypeParam)
     => new(AstNulls.At, input, "") {
       IsTypeParam = isTypeParam,
     };
 
   void IObjBaseModelChecks.ObjBase_Expected(IGqlpObjBase ast, string[] expected)
     => Model_Expected(AstToModel(ast), expected);
-  IGqlpObjBase IObjBaseModelChecks.ObjBaseAst(string input, bool isTypeParam, IGqlpObjArg[] args)
+  IGqlpObjBase IObjBaseModelChecks.ObjBaseAst(string input, bool isTypeParam, IGqlpObjTypeArg[] args)
     => NewObjBaseAst(input, isTypeParam, args);
   string[] IObjBaseModelChecks.ExpectedObjBase(string input, bool isTypeParam, string[] args)
     => ExpectedObjBase(input, isTypeParam, args);
@@ -60,7 +60,7 @@ internal sealed class ObjBaseModelChecks(
     => ExpectedDual(input);
   string[] IObjBaseModelChecks.ExpectedArgs(string[] args)
     => [.. ItemsExpected("typeArgs:", args, a => [$"  - !_ObjTypeArg", $"    name: {a}"])];
-  IGqlpObjArg IObjBaseModelChecks.ObjArgAst(string input, bool isTypeParam) => NewObjArgAst(input, isTypeParam);
+  IGqlpObjTypeArg IObjBaseModelChecks.ObjTypeArgAst(string input, bool isTypeParam) => NewObjTypeArgAst(input, isTypeParam);
 }
 
 public interface IObjBaseModelChecks
@@ -70,6 +70,6 @@ public interface IObjBaseModelChecks
   string[] ExpectedDual(string input);
   string[] ExpectedArgs(string[] args);
   void ObjBase_Expected(IGqlpObjBase ast, string[] expected);
-  IGqlpObjBase ObjBaseAst(string input, bool isTypeParam, IGqlpObjArg[] args);
-  IGqlpObjArg ObjArgAst(string input, bool isTypeParam);
+  IGqlpObjBase ObjBaseAst(string input, bool isTypeParam, IGqlpObjTypeArg[] args);
+  IGqlpObjTypeArg ObjTypeArgAst(string input, bool isTypeParam);
 }

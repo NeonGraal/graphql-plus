@@ -32,7 +32,7 @@ internal class ParseObjAlts(
       IGqlpObjBase baseObject = objBase.Required();
       ObjAltAst alternate = new(at, baseObject.Name, baseObject.Description) {
         IsTypeParam = baseObject.IsTypeParam,
-        Args = baseObject.Args.ArrayOf<IGqlpObjArg>(),
+        Args = baseObject.Args.ArrayOf<IGqlpObjTypeArg>(),
       };
       result.Add(alternate);
       IResultArray<IGqlpModifier> collections = _collections.Value.Parse(tokens, label);

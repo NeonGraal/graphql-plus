@@ -2,12 +2,12 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public record class ObjArgAst(
+public record class ObjTypeArgAst(
   ITokenAt At,
   string Name,
   string Description
 ) : AstObjType(At, Name, Description)
-  , IGqlpObjArg
+  , IGqlpObjTypeArg
 {
   internal override string Abbr => "OR";
 
@@ -26,6 +26,6 @@ public record class ObjArgAst(
     ? base.GetFields()
     : [At.ToString(), $"{Name}.{EnumLabel}"];
 
-  bool IEquatable<IGqlpObjArg>.Equals(IGqlpObjArg? other)
+  bool IEquatable<IGqlpObjTypeArg>.Equals(IGqlpObjTypeArg? other)
     => Equals(other as AstObjType);
 }

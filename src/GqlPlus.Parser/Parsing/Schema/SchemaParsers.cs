@@ -52,7 +52,7 @@ public static class SchemaParsers
       .AddParserArray<IGqlpTypeParam, ParseTypeParams>()
       .AddParserArray<IGqlpObjAlt, ParseObjAlts>()
       .AddParser<IGqlpObjBase, ParseObjBase>()
-      .AddParserArray<IGqlpObjArg, ParseObjArgs>()
+      .AddParserArray<IGqlpObjTypeArg, ParseObjTypeArgs>()
       // Dual
       .AddParser<IGqlpDualField, ParseDualField>()
       .AddDeclarationParser<IGqlpDualObject, ParseDual>("dual")

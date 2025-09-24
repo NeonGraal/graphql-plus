@@ -20,8 +20,8 @@ internal static class SchemaTestHelpers
   private static ObjBaseAst ObjBase(string type, bool isTypeParam)
     => new(AstNulls.At, type, "") { IsTypeParam = isTypeParam };
 
-  public static ObjArgAst[] ObjArgs(this string[] arguments)
-    => [.. arguments.Select(a => new ObjArgAst(AstNulls.At, a, ""))];
+  public static ObjTypeArgAst[] ObjTypeArgs(this string[] arguments)
+    => [.. arguments.Select(a => new ObjTypeArgAst(AstNulls.At, a, ""))];
 
   public static InputParamAst[] Params(this IEnumerable<string> parameters)
     => [.. parameters.Select(parameter => new InputParamAst(AstNulls.At, parameter))];

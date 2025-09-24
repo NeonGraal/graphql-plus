@@ -5,10 +5,10 @@ namespace GqlPlus.Parsing.Schema.Objects;
 public class ParseObjBaseTest
   : ParserClassTestBase
 {
-  private readonly Parser<IGqlpObjArg>.IA _parseArgs;
+  private readonly Parser<IGqlpObjTypeArg>.IA _parseArgs;
   protected Parser<IGqlpObjBase>.I BaseParser { get; }
 
-  protected Parser<IGqlpObjArg>.DA ParseArgs { get; }
+  protected Parser<IGqlpObjTypeArg>.DA ParseArgs { get; }
 
   public ParseObjBaseTest()
   {

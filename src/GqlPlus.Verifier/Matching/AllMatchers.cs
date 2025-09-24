@@ -9,8 +9,7 @@ public static class AllMatchers
     => services
       .AddMatcher<IGqlpType, AnyTypeMatcher>()
 
-      .AddMatcher<IGqlpObjArg, ObjArgMatcher<IGqlpObjArg>>()
-      .AddMatcher<IGqlpObjArg, OutputArgMatcher>()
+      .AddMatcher<IGqlpObjTypeArg, ObjTypeArgMatcher>()
 
       .AddSingleton<ITypeMatcher, AlternateConstraintMatcher>()
       .AddSingleton<ITypeMatcher, EnumConstraintMatcher>()

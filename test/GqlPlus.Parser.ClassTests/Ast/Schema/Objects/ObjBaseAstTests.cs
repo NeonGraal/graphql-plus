@@ -89,19 +89,19 @@ internal sealed class ObjBaseAstChecks
       false);
 
   public void HashCode_WithArgs(string input, string[] arguments)
-    => HashCode(() => BaseBy(input) with { Args = arguments.ObjArgs() });
+    => HashCode(() => BaseBy(input) with { Args = arguments.ObjTypeArgs() });
 
   public void String_WithArgs(string input, string[] arguments)
     => Text(
-      () => BaseBy(input) with { Args = arguments.ObjArgs() },
+      () => BaseBy(input) with { Args = arguments.ObjTypeArgs() },
       $"( {input} < {arguments.Joined()} > )");
 
   public void Equality_WithArgs(string input, string[] arguments)
-    => Equality(() => BaseBy(input) with { Args = arguments.ObjArgs() });
+    => Equality(() => BaseBy(input) with { Args = arguments.ObjTypeArgs() });
 
   public void Inequality_BetweenArgs(string input, string[] arguments1, string[] arguments2)
   => InequalityBetween(arguments1, arguments2,
-    arguments => BaseBy(input) with { Args = arguments.ObjArgs() },
+    arguments => BaseBy(input) with { Args = arguments.ObjTypeArgs() },
     arguments1.OrderedEqual(arguments2));
 
   public void FullType_WithDefault(string input)
@@ -120,7 +120,7 @@ internal sealed class ObjBaseAstChecks
 
   public void FullType_WithArgs(string input, string[] arguments)
   {
-    IGqlpObjBase objBase = BaseBy(input) with { Args = arguments.ObjArgs() };
+    IGqlpObjBase objBase = BaseBy(input) with { Args = arguments.ObjTypeArgs() };
 
     objBase.FullType.ShouldBe(input + $" < {arguments.Joined()} >");
   }
@@ -129,7 +129,7 @@ internal sealed class ObjBaseAstChecks
   {
     IGqlpObjBase objBase = BaseBy(input) with {
       IsTypeParam = true,
-      Args = arguments.ObjArgs(),
+      Args = arguments.ObjTypeArgs(),
     };
 
     objBase.FullType.ShouldBe($"${input} < {arguments.Joined()} >");

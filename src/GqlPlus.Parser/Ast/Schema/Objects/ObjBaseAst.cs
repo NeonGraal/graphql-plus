@@ -10,14 +10,14 @@ internal record class ObjBaseAst(
   , IGqlpObjBase
 {
   internal override string Abbr => "OB";
-  public IGqlpObjArg[] Args { get; set; } = [];
+  public IGqlpObjTypeArg[] Args { get; set; } = [];
 
   public override string FullType => Args
     .Bracket("<", ">")
     .Prepend(base.FullType)
     .Joined();
 
-  IEnumerable<IGqlpObjArg> IGqlpObjBase.Args => Args.Cast<IGqlpObjArg>();
+  IEnumerable<IGqlpObjTypeArg> IGqlpObjBase.Args => Args.Cast<IGqlpObjTypeArg>();
 
   public void SetName(string name) => Name = name;
 

@@ -85,7 +85,7 @@ public static class BuiltIn
   //private static DualDeclAst DualObj(string label, TypeParamAst[] typeParams, ObjBaseAst parent)
   //  => new(AstNulls.At, "_" + label) { TypeParams = typeParams, Parent = parent };
 
-  private static ObjAltAst DualType(string type, params IGqlpObjArg[] args)
+  private static ObjAltAst DualType(string type, params IGqlpObjTypeArg[] args)
     => new ObjAltAst(AstNulls.At, type, "") with { Args = args };
 
   private static ObjAltAst DualAlt(string? type, bool typeParam = true)
@@ -116,13 +116,13 @@ public static class BuiltIn
       }
     };
 
-  private static ObjBaseAst DualRef(string name, params IGqlpObjArg[] args)
+  private static ObjBaseAst DualRef(string name, params IGqlpObjTypeArg[] args)
     => new ObjBaseAst(AstNulls.At, name, "") with { Args = args };
 
-  private static ObjArgAst DualArg(string name)
+  private static ObjTypeArgAst DualArg(string name)
     => new(AstNulls.At, name, "");
 
-  private static ObjArgAst DualArgParam(string name)
+  private static ObjTypeArgAst DualArgParam(string name)
     => DualArg(name) with { IsTypeParam = true };
 
   private static ObjBaseAst DualDict(string type, bool paramSecond = false)

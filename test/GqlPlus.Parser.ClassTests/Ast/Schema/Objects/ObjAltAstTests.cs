@@ -70,7 +70,7 @@ internal sealed class AstObjectAlternateChecks
 
   public void ModifiedType_WithArgs(AlternateInput input, string[] arguments)
   {
-    ObjAltAst alternate = AlternateBy(input) with { Args = arguments.ObjArgs() };
+    ObjAltAst alternate = AlternateBy(input) with { Args = arguments.ObjTypeArgs() };
     string expected = $"{input.Type} < {arguments.Joined()} >";
 
     alternate.ModifiedType.ShouldBe(expected);
@@ -87,7 +87,7 @@ internal sealed class AstObjectAlternateChecks
   public void ModifiedType_WithModifiersAndArgs(AlternateInput input, string[] arguments)
   {
     ObjAltAst alternate = AlternateBy(input) with {
-      Args = arguments.ObjArgs(),
+      Args = arguments.ObjTypeArgs(),
       Modifiers = TestMods()
     };
     string expected = $"{input.Type} < {arguments.Joined()} > [] ?";

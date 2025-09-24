@@ -30,7 +30,7 @@ public static class AllModellers
       .AddTypeModeller<IGqlpUnion, TypeUnionModel, UnionModeller>()
       // Object
       .AddModeller<IGqlpTypeParam, TypeParamModel, TypeParamModeller>()
-      .AddModeller<IGqlpObjArg, ObjTypeArgModel, ObjTypeArgModeller>()
+      .AddModeller<IGqlpObjTypeArg, ObjTypeArgModel, ObjTypeArgModeller>()
       .AddModeller<IGqlpObjBase, ObjBaseModel, ObjBaseModeller>()
       .AddModeller<IGqlpObjAlt, ObjAlternateModel, ObjAlternateModeller>()
 

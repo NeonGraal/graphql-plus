@@ -28,6 +28,7 @@ public interface IGqlpObjectEnum
   : IGqlpError
 {
   IGqlpObjType EnumType { get; }
+  IGqlpEnumValue? EnumValue { get; }
   string? EnumLabel { get; }
 
   void SetEnumType(string enumType);

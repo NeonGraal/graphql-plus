@@ -25,9 +25,9 @@ internal sealed record class OutputFieldAst(
   public bool Equals(IGqlpOutputField? other)
     => base.Equals(other)
     && Params.SequenceEqual(other!.Params)
-    && EnumLabel == other.EnumLabel;
+    && EnumValue?.EnumLabel == other.EnumLabel;
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Params.Length, EnumLabel);
+    => HashCode.Combine(base.GetHashCode(), Params.Length, EnumValue?.EnumLabel);
 
   internal override IEnumerable<string?> GetFields()
     => base.GetFields()

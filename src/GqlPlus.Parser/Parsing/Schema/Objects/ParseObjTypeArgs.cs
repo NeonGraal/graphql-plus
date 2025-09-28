@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -70,7 +71,7 @@ internal class ParseObjTypeArgs
 
       at = tokens.At;
       if (tokens.Identifier(out string? enumLabel)) {
-        argument = argument with { EnumLabel = enumLabel };
+        argument = argument with { EnumValue = new EnumValueAst(at, argument.Name, enumLabel) };
         return argument.Ok();
       }
 

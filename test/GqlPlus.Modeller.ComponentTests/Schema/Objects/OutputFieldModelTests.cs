@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Modelling;
 
@@ -11,7 +12,7 @@ public class OutputFieldModelTests(
   [Theory, RepeatData]
   public void Model_EnumValue(FieldInput input, string enumLabel)
     => checks.Field_Expected(
-      new OutputFieldAst(AstNulls.At, input.Name, new ObjBaseAst(AstNulls.At, input.Type, "")) { EnumLabel = enumLabel },
+      new OutputFieldAst(AstNulls.At, input.Name, new ObjBaseAst(AstNulls.At, input.Type, "")) { EnumValue = new EnumValueAst(AstNulls.At, enumLabel) },
       checks.ExpectedEnum(input, enumLabel)
       );
 

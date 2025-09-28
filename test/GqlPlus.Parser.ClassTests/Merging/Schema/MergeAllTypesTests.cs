@@ -14,7 +14,7 @@ public class MergeAllTypesTests
 
     // Arrange
     OutputFieldAst field = new(AstNulls.At, fieldName, new ObjBaseAst(AstNulls.At, "", "")) {
-      EnumLabel = enumLabel
+      EnumValue = new EnumValueAst(AstNulls.At, enumLabel)
     };
     DomainLabelAst domainLabel = new(AstNulls.At, "", false, enumLabel);
 

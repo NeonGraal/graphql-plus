@@ -7,7 +7,7 @@ public class ObjArgMatcherTests
 
   internal Matcher<IGqlpType>.I AnyType { get; set; }
 
-  protected ObjArgMatcherTests()
+  public ObjArgMatcherTests()
   {
     Matcher<IGqlpType>.D anyDelegate = MatcherFor(out Matcher<IGqlpType>.I anyInterface);
     AnyType = anyInterface;
@@ -27,13 +27,16 @@ public class ObjArgMatcherTests
   }
 
   [Theory, RepeatData]
-  public void Matches_ReturnsTrue_WhenMatchingArgParamType(string name, string type, string constraint)
+  public void Matches_ReturnsTrue_WhenMatchingArgParamType(string name, string paramName, string constraint)
   {
-    this.SkipEqual(type, constraint);
+    this.SkipEqual(paramName, constraint);
 
     IGqlpObjTypeArg arg = A.Named<IGqlpObjTypeArg>(name);
-    arg.FullType.Returns(type);
+    arg.FullType.Returns("$" + paramName);
     arg.IsTypeParam.Returns(true);
+
+    IGqlpType typeParam = A.Named<IGqlpType>(constraint);
+    Types[arg.FullType] = typeParam;
 
     bool result = Matcher.Matches(arg, constraint, Context);
 
@@ -63,7 +66,7 @@ public class ObjArgMatcherTests
   {
     this.SkipEqual(enumName, constraint);
 
-    IGqlpObjTypeArg arg = A.OutputEnumArg(name, enumLabel, enumLabel);
+    IGqlpObjTypeArg arg = A.ObjEnumArg(name, enumName, enumLabel);
     IGqlpEnum enumParent = A.Enum(enumName, [enumLabel]);
     Types[enumName] = enumParent;
 
@@ -80,7 +83,7 @@ public class ObjArgMatcherTests
   {
     this.SkipEqual(enumLabel, constraint);
 
-    IGqlpObjTypeArg arg = A.OutputEnumArg(name, enumLabel, "");
+    IGqlpObjTypeArg arg = A.ObjEnumArg(name, enumLabel, "");
     IGqlpEnum enumConstraint = A.Enum(constraint, []);
     Types[constraint] = enumConstraint;
 
@@ -94,7 +97,7 @@ public class ObjArgMatcherTests
   {
     this.SkipEqual(enumName, constraint);
 
-    IGqlpObjTypeArg arg = A.OutputEnumArg(name, enumName, enumLabel);
+    IGqlpObjTypeArg arg = A.ObjEnumArg(name, enumName, enumLabel);
     IGqlpEnum enumParent = A.Enum(enumName, [enumLabel]);
     Types[enumName] = enumParent;
 
@@ -111,7 +114,7 @@ public class ObjArgMatcherTests
   {
     this.SkipEqual(enumLabel, constraint);
 
-    IGqlpObjTypeArg arg = A.OutputEnumArg(name, enumLabel, "");
+    IGqlpObjTypeArg arg = A.ObjEnumArg(name, enumLabel, "");
     IGqlpDomain<IGqlpDomainLabel> domConstraint = A.DomainEnum(constraint, null);
     Types[constraint] = domConstraint;
 
@@ -142,7 +145,7 @@ public class ObjArgMatcherTests
   {
     this.SkipEqual(enumName, constraint);
 
-    IGqlpObjTypeArg arg = A.OutputEnumArg(name, enumName, enumLabel);
+    IGqlpObjTypeArg arg = A.ObjEnumArg(name, enumName, enumLabel);
     IGqlpEnum enumParent = A.Enum(enumName, [enumLabel], constraint);
     Types[enumName] = enumParent;
 

@@ -19,7 +19,7 @@ public class MergeDualFieldsTests(
   protected override IGqlpDualField MakeFieldEnum(string name, string enumType, string enumLabel, string fieldDescription = "", string typeDescription = "", string[]? aliases = null)
     => new DualFieldAst(AstNulls.At, name, fieldDescription, new ObjBaseAst(AstNulls.At, enumType, typeDescription)) {
       Aliases = aliases ?? [],
-      EnumLabel = enumLabel,
+      EnumValue = new EnumValueAst(AstNulls.At, enumType, enumLabel),
     };
   protected override IGqlpDualField MakeFieldModifiers(string name)
     => new DualFieldAst(AstNulls.At, name, new ObjBaseAst(AstNulls.At, name, "")) {

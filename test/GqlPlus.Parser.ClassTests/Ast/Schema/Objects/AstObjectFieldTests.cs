@@ -130,7 +130,7 @@ internal sealed class AstObjectFieldChecks<TObjField>(
     => CreateInput(input) with { Modifiers = TestMods() };
 
   private TObjField CreateEnum(FieldInput input, string enumLabel)
-    => CreateInput(input) with { EnumLabel = enumLabel };
+    => CreateInput(input) with { EnumValue = new EnumValueAst(AstNulls.At, enumLabel) };
 }
 
 internal interface IAstObjectFieldChecks

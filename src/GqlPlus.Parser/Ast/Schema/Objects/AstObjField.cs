@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
@@ -12,19 +13,24 @@ internal abstract record class AstObjField(
 {
   public IGqlpObjBase Type { get; set; } = Type;
   public IGqlpModifier[] Modifiers { get; set; } = [];
-  public string? EnumLabel { get; set; }
+  public IGqlpEnumValue? EnumValue { get; set; }
 
   IGqlpObjType IGqlpObjectEnum.EnumType => Type;
+  string? IGqlpObjectEnum.EnumLabel => EnumValue?.EnumLabel;
   void IGqlpObjectEnum.SetEnumType(string enumType)
   {
-    EnumLabel ??= Type.Name;
+    if (EnumValue == null) {
+      EnumValue = new EnumValueAst(At, enumType, Type.Name);
+    } else {
+      EnumValue = new EnumValueAst(At, enumType, EnumValue.EnumLabel ?? Type.Name);
+    }
     Type.SetName(enumType);
   }
 
   protected internal IEnumerable<string?> TypeFields(string suffix = "")
-    => string.IsNullOrWhiteSpace(EnumLabel)
+    => string.IsNullOrWhiteSpace(EnumValue?.EnumLabel)
         ? [":", .. Type.GetFields(), .. Modifiers.AsString(), suffix]
-        : ["=", .. Type.GetFields(), "." + EnumLabel];
+        : ["=", .. Type.GetFields(), "." + EnumValue?.EnumLabel];
 
   public string ModifiedType => Type.GetFields().Skip(2).Concat(Modifiers.AsString()).Joined();
 
@@ -36,7 +42,7 @@ internal abstract record class AstObjField(
     => base.Equals(other)
     && Type.Equals(other!.Type)
     && Modifiers.SequenceEqual(other.Modifiers)
-    && EnumLabel == other.EnumLabel;
+    && EnumValue?.EnumLabel == other.EnumLabel;
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), Type, Modifiers.Length, EnumLabel);
+    => HashCode.Combine(base.GetHashCode(), Type, Modifiers.Length, EnumValue?.EnumLabel);
 }

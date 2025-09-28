@@ -50,6 +50,6 @@ public class MergeOutputFieldsTests
   protected override IGqlpOutputField MakeFieldEnum(string name, string enumType, string enumLabel, string fieldDescription = "", string typeDescription = "", string[]? aliases = null)
     => new OutputFieldAst(AstNulls.At, name, fieldDescription, new ObjBaseAst(AstNulls.At, enumType, typeDescription)) {
       Aliases = aliases ?? [],
-      EnumLabel = enumLabel,
+      EnumValue = new EnumValueAst(AstNulls.At, enumType, enumLabel),
     };
 }

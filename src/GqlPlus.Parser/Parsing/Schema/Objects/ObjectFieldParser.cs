@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Result;
 using GqlPlus.Token;
@@ -73,13 +74,13 @@ internal abstract class ObjectFieldParser<TObjField, TObjFieldAst>(
 
       if (!tokens.Take('.')) {
         field.Type = ObjBase(at, "", description);
-        field.EnumLabel = enumType;
+        field.EnumValue = new EnumValueAst(at, enumType);
         return field.Ok<TObjField>();
       }
 
       if (tokens.Identifier(out string? enumLabel)) {
         field.Type = ObjBase(at, enumType, description);
-        field.EnumLabel = enumLabel;
+        field.EnumValue = new EnumValueAst(at, enumType, enumLabel);
         return field.Ok<TObjField>();
       }
 

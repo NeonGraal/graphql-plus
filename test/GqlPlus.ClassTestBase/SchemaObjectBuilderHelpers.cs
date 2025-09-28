@@ -15,7 +15,7 @@ public static class SchemaObjectBuilderHelpers
   public static IGqlpInputField InputField(this IMockBuilder builder, string name, string type, string typeDescr = "")
     => builder.ObjField<IGqlpInputField>(name, builder.InputBase(type).SetDescr(typeDescr));
 
-  public static IGqlpObjTypeArg OutputEnumArg(this IMockBuilder builder, string name, string enumType, string enumLabel)
+  public static IGqlpObjTypeArg ObjEnumArg(this IMockBuilder builder, string name, string enumType, string enumLabel)
   {
     IGqlpObjTypeArg theArg = builder.ObjTypeArg<IGqlpObjTypeArg>(name);
     IGqlpObjType enumObjType = builder.Named<IGqlpObjType>(enumType);

@@ -82,20 +82,20 @@ internal sealed class ObjTypeArgAstChecks
 
   public void HashCode_WithEnumValue(string input, string enumLabel)
       => HashCode(
-        () => ArgBy(input) with { EnumLabel = enumLabel });
+        () => ArgBy(input) with { EnumValue = new EnumValueAst(AstNulls.At, enumLabel) });
 
   public void String_WithEnumValue(string input, string enumLabel)
     => Text(
-      () => ArgBy(input) with { EnumLabel = enumLabel },
+      () => ArgBy(input) with { EnumValue = new EnumValueAst(AstNulls.At, enumLabel) },
       $"( {input}.{enumLabel} )");
 
   public void Equality_WithEnumValue(string input, string enumLabel)
     => Equality(
-      () => ArgBy(input) with { EnumLabel = enumLabel });
+      () => ArgBy(input) with { EnumValue = new EnumValueAst(AstNulls.At, enumLabel) });
 
   public void Inequality_BetweenEnumValues(string input, string enumLabel1, string enumLabel2)
     => InequalityBetween(enumLabel1, enumLabel2,
-      enumLabel => ArgBy(input) with { EnumLabel = enumLabel },
+      enumLabel => ArgBy(input) with { EnumValue = new EnumValueAst(AstNulls.At, enumLabel) },
       enumLabel1 == enumLabel2);
 
   public void FullType_WithDefault(string input)

@@ -58,6 +58,6 @@ public class MergeInputFieldsTests
   protected override IGqlpInputField MakeFieldEnum(string name, string enumType, string enumLabel, string fieldDescription = "", string typeDescription = "", string[]? aliases = null)
     => new InputFieldAst(AstNulls.At, name, fieldDescription, new ObjBaseAst(AstNulls.At, enumType, typeDescription)) {
       Aliases = aliases ?? [],
-      EnumLabel = enumLabel,
+      EnumValue = new EnumValueAst(AstNulls.At, enumType, enumLabel),
     };
 }

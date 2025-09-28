@@ -19,9 +19,16 @@ internal class ObjTypeArgMatcher(
       return true;
     }
 
+    if (context.GetTyped(arg.FullType, out IGqlpTypeParam? typeParam)) {
+      return typeParam.Constraint.Equals(constraint, StringComparison.Ordinal);
+    }
+
     if (!context.GetTyped(arg.FullType, out IGqlpType? argType)) {
-      // todo: Handle type params properly
-      return arg.IsTypeParam;
+      return false;
+    }
+
+    if (argType.Name.Equals(constraint, StringComparison.Ordinal)) {
+      return true;
     }
 
     if (string.IsNullOrWhiteSpace(arg.EnumLabel)) {

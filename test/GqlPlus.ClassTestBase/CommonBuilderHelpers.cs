@@ -51,7 +51,13 @@ public static class CommonBuilderHelpers
     enumValue.EnumType.Returns(enumType);
     enumValue.EnumLabel.Returns(enumLabel);
     enumValue.Text.Returns(enumLabel);
-    enumValue.EnumValue.Returns(enumType + "." + enumLabel);
+
+    IGqlpEnumValue mockEnumValue = builder.Of<IGqlpEnumValue>();
+    mockEnumValue.EnumType.Returns(enumType);
+    mockEnumValue.EnumLabel.Returns(enumLabel);
+    mockEnumValue.EnumValue.Returns(enumType + "." + enumLabel);
+    enumValue.EnumValue.Returns(mockEnumValue);
+
     return enumValue;
   }
 

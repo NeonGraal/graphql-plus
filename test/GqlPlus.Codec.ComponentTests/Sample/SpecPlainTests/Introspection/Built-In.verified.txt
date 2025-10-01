@@ -7,7 +7,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: _Modifier
           typeArgs:
-            - !_TypeRef(_SimpleKind)
+            - !_EnumValue
               label: List
               name: _ModifierKind
               typeKind: !_SimpleKind Enum
@@ -16,7 +16,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: _ModifierKeyed
           typeArgs:
-            - !_TypeRef(_SimpleKind)
+            - !_EnumValue
               label: Dictionary
               name: _ModifierKind
               typeKind: !_SimpleKind Enum
@@ -25,7 +25,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: _ModifierKeyed
           typeArgs:
-            - !_TypeRef(_SimpleKind)
+            - !_EnumValue
               label: TypeParam
               name: _ModifierKind
               typeKind: !_SimpleKind Enum
@@ -34,7 +34,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: _Modifier
           typeArgs:
-            - !_TypeRef(_SimpleKind)
+            - !_EnumValue
               label: List
               name: _ModifierKind
               typeKind: !_SimpleKind Enum
@@ -42,7 +42,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: _ModifierKeyed
           typeArgs:
-            - !_TypeRef(_SimpleKind)
+            - !_EnumValue
               label: Dictionary
               name: _ModifierKind
               typeKind: !_SimpleKind Enum
@@ -50,7 +50,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: _ModifierKeyed
           typeArgs:
-            - !_TypeRef(_SimpleKind)
+            - !_EnumValue
               label: TypeParam
               name: _ModifierKind
               typeKind: !_SimpleKind Enum
@@ -153,7 +153,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: _Modifier
           typeArgs:
-            - !_TypeRef(_SimpleKind)
+            - !_EnumValue
               label: Optional
               name: _ModifierKind
               typeKind: !_SimpleKind Enum
@@ -166,7 +166,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: _Modifier
           typeArgs:
-            - !_TypeRef(_SimpleKind)
+            - !_EnumValue
               label: Optional
               name: _ModifierKind
               typeKind: !_SimpleKind Enum

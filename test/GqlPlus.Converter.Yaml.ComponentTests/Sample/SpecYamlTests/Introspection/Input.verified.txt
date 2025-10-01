@@ -53,7 +53,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _TypeObject
       typeArgs:
-      - !_TypeRef(_SimpleKind)
+      - !_EnumValue
         label: Input
         name: _TypeKind
         typeKind: !_SimpleKind Enum

@@ -222,7 +222,7 @@
         "name": "_TypeRef",
         "typeArgs": [
           {
-            "$tag": "_TypeRef(_SimpleKind)",
+            "$tag": "_EnumValue",
             "label": "Enum",
             "name": "_TypeKind",
             "typeKind": {
@@ -527,7 +527,7 @@
         "name": "_TypeRef",
         "typeArgs": [
           {
-            "$tag": "_TypeRef(_SimpleKind)",
+            "$tag": "_EnumValue",
             "label": "Enum",
             "name": "_TypeKind",
             "typeKind": {

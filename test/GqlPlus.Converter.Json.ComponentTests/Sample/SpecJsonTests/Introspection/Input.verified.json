@@ -137,7 +137,7 @@
         "name": "_TypeObject",
         "typeArgs": [
           {
-            "$tag": "_TypeRef(_SimpleKind)",
+            "$tag": "_EnumValue",
             "label": "Input",
             "name": "_TypeKind",
             "typeKind": {

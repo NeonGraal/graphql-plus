@@ -21,7 +21,7 @@ public class VerifyInputTypesTests
   {
     DefineObject(fieldType);
 
-    IGqlpFieldKey nullLabel = A.EnumValue("Null", "null");
+    IGqlpFieldKey nullLabel = A.EnumFieldKey("Null", "null");
     IGqlpConstant nullValue = A.Constant(nullLabel);
 
     IGqlpInputField field = ObjectField(fieldName, fieldType);
@@ -35,7 +35,7 @@ public class VerifyInputTypesTests
   {
     DefineObject(fieldType);
 
-    IGqlpFieldKey nullLabel = A.EnumValue("Null", "null");
+    IGqlpFieldKey nullLabel = A.EnumFieldKey("Null", "null");
     IGqlpConstant nullValue = A.Constant(nullLabel);
 
     IGqlpInputField field = SetModifier(ObjectField(fieldName, fieldType), ModifierKind.Optional);

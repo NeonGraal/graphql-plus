@@ -34,7 +34,7 @@
             "name": "RefGnrcEnumDual",
             "typeArgs": [
               {
-                "$tag": "_TypeRef(_SimpleKind)",
+                "$tag": "_EnumValue",
                 "label": "gnrcEnumDual",
                 "name": "EnumGnrcEnumDual",
                 "typeKind": {
@@ -54,7 +54,7 @@
             "name": "RefGnrcEnumDual",
             "typeArgs": [
               {
-                "$tag": "_TypeRef(_SimpleKind)",
+                "$tag": "_EnumValue",
                 "label": "gnrcEnumDual",
                 "name": "EnumGnrcEnumDual",
                 "typeKind": {

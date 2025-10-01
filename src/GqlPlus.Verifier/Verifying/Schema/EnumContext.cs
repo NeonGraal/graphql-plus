@@ -28,10 +28,14 @@ public class EnumContext(
 
   internal void CheckEnumValue(string label, IGqlpObjectEnum output)
   {
-    string enumType = output.EnumType.Name;
+    if (output.EnumValue is null) {
+      return;
+    }
+
+    string enumType = output.EnumValue.EnumType;
     if (GetTyped(enumType, out IGqlpEnum? theType)) {
-      if (!GetEnumValueType(theType, output.EnumLabel.IfWhiteSpace(), out IGqlpEnum? _)) {
-        AddError(output, $"Output {label} Enum Label", $"'{output.EnumLabel}' not a Label of '{enumType}'");
+      if (!GetEnumValueType(theType, output.EnumValue.EnumLabel, out IGqlpEnum? _)) {
+        AddError(output, $"Output {label} Enum Label", $"'output.EnumValue.EnumLabel' not a Label of '{enumType}'");
       }
     } else {
       AddError(output, $"Output {label} Enum", $"'{enumType}' not an Enum type");

@@ -543,7 +543,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
   {
     ObjectEnumField(fieldName, enumType, enumLabel);
 
-    Verify_Errors("not defined");
+    Verify_Errors("not an Enum");
   }
 
   [Theory, RepeatData]
@@ -553,7 +553,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
 
     ObjectEnumField(fieldName, enumType, enumLabel);
 
-    Verify_Errors("not defined");
+    Verify_Errors("not a Label");
   }
 
   [Theory, RepeatData]
@@ -562,7 +562,8 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
     AddTypes(A.Enum(enumType, [enumLabel]));
 
     TField field = ObjectField(fieldName, enumType);
-    field.EnumLabel.Returns(enumLabel);
+    IGqlpEnumValue enumValue = A.EnumValue(enumType, enumLabel);
+    field.EnumValue.Returns(enumValue);
 
     Verify_NoErrors();
   }
@@ -586,7 +587,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
     ObjectParam(argName, enumType, other);
 
     TField field = ObjectField(fieldName, typeName);
-    IGqlpObjTypeArg arg = FieldEnumArg(field, enumLabel, "");
+    IGqlpObjTypeArg arg = FieldEnumArg(field, "", enumLabel);
     arg.WhenForAnyArgs(a => a.SetEnumType(""))
       .Do(HandleSetEnumType);
 
@@ -596,9 +597,9 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
 
     void HandleSetEnumType(CallInfo c)
     {
-      arg.EnumLabel.Returns(enumLabel);
+      IGqlpEnumValue enumValue = A.EnumValue(enumType, enumLabel);
+      arg.EnumValue.Returns(enumValue);
       arg.Name.Returns(enumType);
-      arg.EnumType.Name.Returns(enumType);
     }
   }
 
@@ -677,8 +678,8 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
 
     IGqlpObjBase objBase = MakeBase(enumType, isTypeParam);
     TField field = A.ObjField<TField>(fieldName, objBase);
-    field.EnumLabel.Returns(enumLabel);
-    field.EnumType.Returns(field.Type);
+    IGqlpEnumValue enumValue = A.EnumValue(enumType, enumLabel);
+    field.EnumValue.Returns(enumValue);
 
     obj.Fields.Returns([field]);
     obj.ObjFields.Returns([field]);
@@ -701,7 +702,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
 
   protected static IGqlpObjTypeArg BaseArg(IGqlpObjBase type, string argName, bool isTypeParam = false)
   {
-    IGqlpObjTypeArg arg = A.ObjTypeArg<IGqlpObjTypeArg>(argName, isTypeParam);
+    IGqlpObjTypeArg arg = A.ObjTypeArg(argName, isTypeParam);
     type.SetArgs(arg);
     return arg;
   }
@@ -709,10 +710,10 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
   {
     IGqlpObjType enumObjType = A.Named<IGqlpObjType>(enumType);
 
-    IGqlpObjTypeArg arg = A.ObjTypeArg<IGqlpObjTypeArg>(enumType);
+    IGqlpObjTypeArg arg = A.ObjTypeArg(enumType);
     arg.FullType.Returns(enumType);
-    arg.EnumType.Returns(enumObjType);
-    arg.EnumLabel.Returns(enumLabel);
+    IGqlpEnumValue enumValue = A.EnumValue(enumType, enumLabel);
+    arg.EnumValue.Returns(enumValue);
 
     type.SetArgs(arg);
     return arg;

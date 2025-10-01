@@ -3,16 +3,22 @@
 public class ObjTypeArgModellerTests
   : ModellerClassTestBase<IGqlpObjTypeArg, ObjTypeArgModel>
 {
-  public ObjTypeArgModellerTests() => Modeller = new ObjTypeArgModeller();
+  private readonly IModeller<IGqlpEnumValue, EnumValueModel> _enumValue;
+
+  public ObjTypeArgModellerTests()
+  {
+    _enumValue = MFor<IGqlpEnumValue, EnumValueModel>();
+
+    Modeller = new ObjTypeArgModeller(_enumValue);
+  }
 
   protected override IModeller<IGqlpObjTypeArg, ObjTypeArgModel> Modeller { get; }
 
   [Theory, RepeatData]
-  public void ToModel_WithValidArg_ReturnsExpectedOutputArgModel(string name, string contents)
+  public void ToModel_WithValidArg_ReturnsExpectedOutputArgModel(string name)
   {
     // Arrange
-    IGqlpObjTypeArg ast = A.Named<IGqlpObjTypeArg>(name, contents);
-    ast.IsTypeParam.Returns(true);
+    IGqlpObjTypeArg ast = A.ObjTypeArg(name, true);
 
     // Act
     ObjTypeArgModel result = Modeller.ToModel(ast, TypeKinds);
@@ -21,7 +27,6 @@ public class ObjTypeArgModellerTests
     result.ShouldNotBeNull()
       .ShouldSatisfyAllConditions(
         r => r.Name.ShouldBe(name),
-        r => r.Description.ShouldBe(contents),
         r => r.IsTypeParam.ShouldBeTrue()
       );
   }

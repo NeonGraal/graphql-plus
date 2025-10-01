@@ -31,14 +31,14 @@ public record class ObjTypeArgModel(
   , IObjTypeArgModel
 {
   public bool IsTypeParam { get; set; }
-  public string? EnumLabel { get; set; }
+  public EnumValueModel? EnumValue { get; set; }
 }
 
 public interface IObjTypeArgModel
   : INamedModel
 {
   bool IsTypeParam { get; }
-  string? EnumLabel { get; }
+  EnumValueModel? EnumValue { get; }
 }
 
 public record class TypeParamModel(

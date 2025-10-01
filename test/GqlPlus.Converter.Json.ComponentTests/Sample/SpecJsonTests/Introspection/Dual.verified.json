@@ -46,7 +46,7 @@
         "name": "_TypeObject",
         "typeArgs": [
           {
-            "$tag": "_TypeRef(_SimpleKind)",
+            "$tag": "_EnumValue",
             "label": "Dual",
             "name": "_TypeKind",
             "typeKind": {

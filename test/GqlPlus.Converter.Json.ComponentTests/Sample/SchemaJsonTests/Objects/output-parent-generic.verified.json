@@ -47,7 +47,7 @@
             "name": "RefOutpPrntGnrc",
             "typeArgs": [
               {
-                "$tag": "_TypeRef(_SimpleKind)",
+                "$tag": "_EnumValue",
                 "label": "prnt_outpPrntGnrc",
                 "name": "EnumOutpPrntGnrc",
                 "typeKind": {
@@ -67,7 +67,7 @@
             "name": "RefOutpPrntGnrc",
             "typeArgs": [
               {
-                "$tag": "_TypeRef(_SimpleKind)",
+                "$tag": "_EnumValue",
                 "label": "prnt_outpPrntGnrc",
                 "name": "EnumOutpPrntGnrc",
                 "typeKind": {

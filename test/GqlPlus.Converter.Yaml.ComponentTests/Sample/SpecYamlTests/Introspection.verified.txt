@@ -138,7 +138,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _ParentType
       typeArgs:
-      - !_TypeRef(_SimpleKind)
+      - !_EnumValue
         label: Domain
         name: _TypeKind
         typeKind: !_SimpleKind Enum
@@ -287,7 +287,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Output
           name: _TypeKind
           typeKind: !_SimpleKind Enum
@@ -307,7 +307,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Output
           name: _TypeKind
           typeKind: !_SimpleKind Enum
@@ -421,7 +421,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _Modifier
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: List
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
@@ -430,7 +430,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _ModifierKeyed
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Dictionary
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
@@ -439,7 +439,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _ModifierKeyed
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: TypeParam
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
@@ -448,7 +448,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _Modifier
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: List
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
@@ -456,7 +456,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _ModifierKeyed
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Dictionary
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
@@ -464,7 +464,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _ModifierKeyed
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: TypeParam
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
@@ -745,7 +745,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _TypeRef
       typeArgs:
-      - !_TypeRef(_SimpleKind)
+      - !_EnumValue
         label: Domain
         name: _TypeKind
         typeKind: !_SimpleKind Enum
@@ -927,7 +927,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _TypeRef
       typeArgs:
-      - !_TypeRef(_SimpleKind)
+      - !_EnumValue
         label: Enum
         name: _TypeKind
         typeKind: !_SimpleKind Enum
@@ -1263,7 +1263,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _Modifier
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Optional
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
@@ -1276,7 +1276,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _Modifier
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Optional
           name: _ModifierKind
           typeKind: !_SimpleKind Enum
@@ -1379,7 +1379,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _TypeRef
       typeArgs:
-      - !_TypeRef(_SimpleKind)
+      - !_EnumValue
         label: Enum
         name: _TypeKind
         typeKind: !_SimpleKind Enum
@@ -1454,7 +1454,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _TypeRef
       typeArgs:
-      - !_TypeRef(_SimpleKind)
+      - !_EnumValue
         label: Enum
         name: _TypeKind
         typeKind: !_SimpleKind Enum
@@ -1897,7 +1897,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _BaseType
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Basic
           name: _TypeKind
           typeKind: !_SimpleKind Enum
@@ -1906,7 +1906,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _BaseType
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Internal
           name: _TypeKind
           typeKind: !_SimpleKind Enum
@@ -1939,7 +1939,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _BaseType
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Basic
           name: _TypeKind
           typeKind: !_SimpleKind Enum
@@ -1947,7 +1947,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _BaseType
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Internal
           name: _TypeKind
           typeKind: !_SimpleKind Enum
@@ -1978,7 +1978,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _BaseDomain
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Boolean
           name: _DomainKind
           typeKind: !_SimpleKind Enum
@@ -1991,7 +1991,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _BaseDomain
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Enum
           name: _DomainKind
           typeKind: !_SimpleKind Enum
@@ -2004,7 +2004,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _BaseDomain
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Number
           name: _DomainKind
           typeKind: !_SimpleKind Enum
@@ -2017,7 +2017,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _BaseDomain
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: String
           name: _DomainKind
           typeKind: !_SimpleKind Enum
@@ -2030,7 +2030,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _BaseDomain
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Boolean
           name: _DomainKind
           typeKind: !_SimpleKind Enum
@@ -2042,7 +2042,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _BaseDomain
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Enum
           name: _DomainKind
           typeKind: !_SimpleKind Enum
@@ -2054,7 +2054,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _BaseDomain
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Number
           name: _DomainKind
           typeKind: !_SimpleKind Enum
@@ -2066,7 +2066,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _BaseDomain
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: String
           name: _DomainKind
           typeKind: !_SimpleKind Enum
@@ -2128,7 +2128,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _TypeObject
       typeArgs:
-      - !_TypeRef(_SimpleKind)
+      - !_EnumValue
         label: Dual
         name: _TypeKind
         typeKind: !_SimpleKind Enum
@@ -2163,7 +2163,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _ParentType
       typeArgs:
-      - !_TypeRef(_SimpleKind)
+      - !_EnumValue
         label: Enum
         name: _TypeKind
         typeKind: !_SimpleKind Enum
@@ -2283,7 +2283,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _TypeObject
       typeArgs:
-      - !_TypeRef(_SimpleKind)
+      - !_EnumValue
         label: Input
         name: _TypeKind
         typeKind: !_SimpleKind Enum
@@ -2480,7 +2480,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _TypeObject
       typeArgs:
-      - !_TypeRef(_SimpleKind)
+      - !_EnumValue
         label: Output
         name: _TypeKind
         typeKind: !_SimpleKind Enum
@@ -2532,7 +2532,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Basic
           name: _TypeKind
           typeKind: !_SimpleKind Enum
@@ -2541,7 +2541,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Enum
           name: _TypeKind
           typeKind: !_SimpleKind Enum
@@ -2550,7 +2550,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Domain
           name: _TypeKind
           typeKind: !_SimpleKind Enum
@@ -2559,7 +2559,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Union
           name: _TypeKind
           typeKind: !_SimpleKind Enum
@@ -2568,7 +2568,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Basic
           name: _TypeKind
           typeKind: !_SimpleKind Enum
@@ -2576,7 +2576,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Enum
           name: _TypeKind
           typeKind: !_SimpleKind Enum
@@ -2584,7 +2584,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Domain
           name: _TypeKind
           typeKind: !_SimpleKind Enum
@@ -2592,7 +2592,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Union
           name: _TypeKind
           typeKind: !_SimpleKind Enum
@@ -2626,7 +2626,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _ParentType
       typeArgs:
-      - !_TypeRef(_SimpleKind)
+      - !_EnumValue
         label: Union
         name: _TypeKind
         typeKind: !_SimpleKind Enum

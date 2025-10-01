@@ -31,8 +31,8 @@ internal class ObjTypeArgMatcher(
       return true;
     }
 
-    if (string.IsNullOrWhiteSpace(arg.EnumLabel)) {
-      if (arg.EnumType.IsTypeParam
+    if (arg.EnumValue is null) {
+      if (arg.IsTypeParam
           && MatchArgTypeParam(arg, constraint, context)) {
         return true;
       }
@@ -62,12 +62,12 @@ internal class ObjTypeArgMatcher(
 
   private bool MatchConstraintType(IGqlpObjTypeArg arg, EnumContext context, IGqlpDescribed constraintType)
   {
-    if (constraintType is IGqlpEnum enumType) {
-      if (!EnumHasLabel(context, enumType, arg.EnumType.Name)) {
+    if (constraintType is IGqlpEnum enumType && arg.EnumValue is not null) {
+      if (!EnumHasLabel(context, enumType, arg.EnumValue.EnumType)) {
         return false;
       }
-    } else if (constraintType is IGqlpDomain<IGqlpDomainLabel> domType) {
-      IGqlpEnum? domEnum = DomainHasLabel(context, domType, arg.EnumType.Name);
+    } else if (constraintType is IGqlpDomain<IGqlpDomainLabel> domType && arg.EnumValue is not null) {
+      IGqlpEnum? domEnum = DomainHasLabel(context, domType, arg.EnumValue.EnumType);
       if (domEnum is null) {
         return false;
       }
@@ -78,13 +78,13 @@ internal class ObjTypeArgMatcher(
 
   private bool MatchArgLabel(IGqlpObjTypeArg arg, string constraint, EnumContext context)
   {
-    if (context.GetType(constraint, out IGqlpDescribed? constraintType)) {
+    if (context.GetType(constraint, out IGqlpDescribed? constraintType) && arg.EnumValue is not null) {
       if (constraintType is IGqlpEnum enumType) {
-        if (EnumHasLabel(context, enumType, arg.EnumLabel!)) {
+        if (EnumHasLabel(context, enumType, arg.EnumValue.EnumLabel)) {
           return true;
         }
       } else if (constraintType is IGqlpDomain<IGqlpDomainLabel> domType) {
-        IGqlpEnum? domEnum = DomainHasLabel(context, domType, arg.EnumLabel!);
+        IGqlpEnum? domEnum = DomainHasLabel(context, domType, arg.EnumValue.EnumLabel);
         if (domEnum is not null) {
           return true;
         }

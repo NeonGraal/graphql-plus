@@ -34,8 +34,6 @@ public interface IGqlpFieldKey
   decimal? Number { get; }
   string? Text { get; }
   IGqlpEnumValue? EnumValue { get; }
-  string? EnumLabel { get; }
-  string? EnumType { get; }
 }
 
 public interface IGqlpModifier

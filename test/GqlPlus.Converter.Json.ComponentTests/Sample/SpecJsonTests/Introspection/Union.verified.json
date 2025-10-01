@@ -28,7 +28,7 @@
         "name": "_ParentType",
         "typeArgs": [
           {
-            "$tag": "_TypeRef(_SimpleKind)",
+            "$tag": "_EnumValue",
             "label": "Union",
             "name": "_TypeKind",
             "typeKind": {

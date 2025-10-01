@@ -11,6 +11,7 @@ public static class AllModellers
   public static IServiceCollection AddModellers(this IServiceCollection services)
     => services
       .AddModeller<IGqlpConstant, ConstantModel, ConstantModeller>()
+      .AddModeller<IGqlpEnumValue, EnumValueModel, EnumValueModeller>()
       .AddModeller<IGqlpFieldKey, SimpleModel, SimpleModeller>()
       .AddModifierModeller()
       // Schema

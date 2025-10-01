@@ -361,7 +361,7 @@
             "name": "_BaseType",
             "typeArgs": [
               {
-                "$tag": "_TypeRef(_SimpleKind)",
+                "$tag": "_EnumValue",
                 "label": "Basic",
                 "name": "_TypeKind",
                 "typeKind": {
@@ -380,7 +380,7 @@
             "name": "_BaseType",
             "typeArgs": [
               {
-                "$tag": "_TypeRef(_SimpleKind)",
+                "$tag": "_EnumValue",
                 "label": "Internal",
                 "name": "_TypeKind",
                 "typeKind": {
@@ -448,7 +448,7 @@
             "name": "_BaseType",
             "typeArgs": [
               {
-                "$tag": "_TypeRef(_SimpleKind)",
+                "$tag": "_EnumValue",
                 "label": "Basic",
                 "name": "_TypeKind",
                 "typeKind": {
@@ -466,7 +466,7 @@
             "name": "_BaseType",
             "typeArgs": [
               {
-                "$tag": "_TypeRef(_SimpleKind)",
+                "$tag": "_EnumValue",
                 "label": "Internal",
                 "name": "_TypeKind",
                 "typeKind": {
@@ -656,7 +656,7 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$tag": "_TypeRef(_SimpleKind)",
+                "$tag": "_EnumValue",
                 "label": "Basic",
                 "name": "_TypeKind",
                 "typeKind": {
@@ -675,7 +675,7 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$tag": "_TypeRef(_SimpleKind)",
+                "$tag": "_EnumValue",
                 "label": "Enum",
                 "name": "_TypeKind",
                 "typeKind": {
@@ -694,7 +694,7 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$tag": "_TypeRef(_SimpleKind)",
+                "$tag": "_EnumValue",
                 "label": "Domain",
                 "name": "_TypeKind",
                 "typeKind": {
@@ -713,7 +713,7 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$tag": "_TypeRef(_SimpleKind)",
+                "$tag": "_EnumValue",
                 "label": "Union",
                 "name": "_TypeKind",
                 "typeKind": {
@@ -733,7 +733,7 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$tag": "_TypeRef(_SimpleKind)",
+                "$tag": "_EnumValue",
                 "label": "Basic",
                 "name": "_TypeKind",
                 "typeKind": {
@@ -751,7 +751,7 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$tag": "_TypeRef(_SimpleKind)",
+                "$tag": "_EnumValue",
                 "label": "Enum",
                 "name": "_TypeKind",
                 "typeKind": {
@@ -769,7 +769,7 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$tag": "_TypeRef(_SimpleKind)",
+                "$tag": "_EnumValue",
                 "label": "Domain",
                 "name": "_TypeKind",
                 "typeKind": {
@@ -787,7 +787,7 @@
             "name": "_TypeRef",
             "typeArgs": [
               {
-                "$tag": "_TypeRef(_SimpleKind)",
+                "$tag": "_EnumValue",
                 "label": "Union",
                 "name": "_TypeKind",
                 "typeKind": {

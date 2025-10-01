@@ -44,7 +44,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
 
   protected virtual void UsageField(TObjField field, TObject usage, EnumContext context)
   {
-    if (string.IsNullOrWhiteSpace(field.EnumLabel)) {
+    if (field.EnumValue is null) {
       CheckTypeRef(context, field.Type, " Field");
       context.CheckModifiers(field);
       CheckForSelf(new([field.Type.FullType], usage, "a field"), usage.Name, context);
@@ -55,17 +55,23 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
 
   private static void CheckFieldEnum(TObjField field, TObject usage, EnumContext context)
   {
-    if (!string.IsNullOrWhiteSpace(field.EnumType?.Name)) {
+    if (field.EnumValue is null) {
+      return;
+    }
+
+    IGqlpEnumValue enumValue = field.EnumValue;
+
+    if (!string.IsNullOrWhiteSpace(enumValue.EnumType)) {
       context.CheckEnumValue("Field", field);
       return;
     }
 
-    if (context.GetEnumValue(field.EnumLabel!, out string? enumType)) {
+    if (context.GetEnumValue(enumValue.EnumLabel, out string? enumType)) {
       field.SetEnumType(enumType);
       return;
     }
 
-    context.AddError(field, usage.Label + " Field Enum", $"Enum Label '{field.EnumLabel}' not defined");
+    context.AddError(field, usage.Label + " Field Enum", $"Enum Label '{enumValue.EnumLabel}' not defined");
   }
 
   private void UsageAlternates(TObject usage, EnumContext context)
@@ -128,15 +134,17 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
 
   private void CheckArgEnum(EnumContext context, IGqlpObjTypeArg arg)
   {
-    if (string.IsNullOrWhiteSpace(arg.EnumLabel)
-      && !context.GetType(arg.Name, out IGqlpDescribed? type)
-      && context.GetEnumValue(arg.Name, out string? enumType)) {
+    if (arg.EnumValue is null) {
+      return;
+    }
+
+    IGqlpEnumValue enumValue = arg.EnumValue;
+    if (!context.GetType(enumValue.EnumType, out IGqlpDescribed? type)
+      && context.GetEnumValue(enumValue.EnumLabel, out string? enumType)) {
       arg.SetEnumType(enumType);
     }
 
-    if (!string.IsNullOrWhiteSpace(arg.EnumLabel)) {
-      context.CheckEnumValue("Arg", arg);
-    }
+    context.CheckEnumValue("Arg", arg);
   }
 
   private void CheckParamsArgs(CheckError error, EnumContext context, IGqlpObject definition, IGqlpObjBase reference)

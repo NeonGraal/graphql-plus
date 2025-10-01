@@ -23,7 +23,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefOutpPrntGnrc
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: prnt_outpPrntGnrc
           name: EnumOutpPrntGnrc
           typeKind: !_SimpleKind Enum
@@ -32,7 +32,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefOutpPrntGnrc
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: prnt_outpPrntGnrc
           name: EnumOutpPrntGnrc
           typeKind: !_SimpleKind Enum

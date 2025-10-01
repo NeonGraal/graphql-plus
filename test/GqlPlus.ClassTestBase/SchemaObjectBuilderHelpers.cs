@@ -15,13 +15,11 @@ public static class SchemaObjectBuilderHelpers
   public static IGqlpInputField InputField(this IMockBuilder builder, string name, string type, string typeDescr = "")
     => builder.ObjField<IGqlpInputField>(name, builder.InputBase(type).SetDescr(typeDescr));
 
-  public static IGqlpObjTypeArg ObjEnumArg(this IMockBuilder builder, string name, string enumType, string enumLabel)
+  public static IGqlpObjTypeArg ObjEnumArg(this IMockBuilder builder, string enumType, string enumLabel)
   {
-    IGqlpObjTypeArg theArg = builder.ObjTypeArg<IGqlpObjTypeArg>(name);
-    IGqlpObjType enumObjType = builder.Named<IGqlpObjType>(enumType);
-    theArg.FullType.Returns(enumType);
-    theArg.EnumType.Returns(enumObjType);
-    theArg.EnumLabel.Returns(enumLabel);
+    IGqlpEnumValue enumValue = builder.EnumValue(enumType, enumLabel);
+    IGqlpObjTypeArg theArg = builder.ObjTypeArg(enumType);
+    theArg.EnumValue.Returns(enumValue);
     return theArg;
   }
   public static IGqlpObjBase OutputBase(this IMockBuilder builder, string name, bool isTypeParam = false)
@@ -85,11 +83,10 @@ public static class SchemaObjectBuilderHelpers
     return objBase;
   }
 
-  public static TTypeArg ObjTypeArg<TTypeArg>(this IMockBuilder builder, string typeName, bool isTypeParam = false)
-    where TTypeArg : class, IGqlpObjTypeArg
+  public static IGqlpObjTypeArg ObjTypeArg(this IMockBuilder builder, string typeName, bool isTypeParam = false)
   {
-    TTypeArg theArg = builder.Named<TTypeArg, IGqlpObjTypeArg>(typeName);
-    string label = typeof(TTypeArg).Name[5..^3];
+    IGqlpObjTypeArg theArg = builder.Named<IGqlpObjTypeArg>(typeName);
+    theArg.EnumValue.Returns((IGqlpEnumValue?)null);
     if (isTypeParam) {
       theArg.IsTypeParam.Returns(true);
       theArg.FullType.Returns("$" + typeName);
@@ -106,6 +103,7 @@ public static class SchemaObjectBuilderHelpers
     TField theField = builder.Named<TField>(fieldName, "");
     theField.Type.Returns(type);
     theField.Modifiers.Returns(modifiers);
+    theField.EnumValue.Returns((IGqlpEnumValue?)null);
 
     return theField;
   }

@@ -4562,7 +4562,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefGnrcEnumDual
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: gnrcEnumDual
           name: EnumGnrcEnumDual
           typeKind: !_SimpleKind Enum
@@ -4571,7 +4571,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefGnrcEnumDual
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: gnrcEnumDual
           name: EnumGnrcEnumDual
           typeKind: !_SimpleKind Enum
@@ -4584,7 +4584,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefGnrcEnumInp
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: gnrcEnumInp
           name: EnumGnrcEnumInp
           typeKind: !_SimpleKind Enum
@@ -4593,7 +4593,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefGnrcEnumInp
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: gnrcEnumInp
           name: EnumGnrcEnumInp
           typeKind: !_SimpleKind Enum
@@ -4606,7 +4606,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefGnrcEnumOutp
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: gnrcEnumOutp
           name: EnumGnrcEnumOutp
           typeKind: !_SimpleKind Enum
@@ -4615,7 +4615,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefGnrcEnumOutp
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: gnrcEnumOutp
           name: EnumGnrcEnumOutp
           typeKind: !_SimpleKind Enum
@@ -6009,7 +6009,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefOutpPrntGnrc
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: prnt_outpPrntGnrc
           name: EnumOutpPrntGnrc
           typeKind: !_SimpleKind Enum
@@ -6018,7 +6018,7 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefOutpPrntGnrc
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: prnt_outpPrntGnrc
           name: EnumOutpPrntGnrc
           typeKind: !_SimpleKind Enum

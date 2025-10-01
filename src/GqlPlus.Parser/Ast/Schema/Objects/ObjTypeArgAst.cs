@@ -14,9 +14,6 @@ public record class ObjTypeArgAst(
 
   public IGqlpEnumValue? EnumValue { get; set; }
 
-  public IGqlpObjType EnumType => this;
-  string? IGqlpObjectEnum.EnumLabel => EnumValue?.EnumLabel;
-
   void IGqlpObjectEnum.SetEnumType(string enumType)
   {
     if (EnumValue == null) {

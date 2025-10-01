@@ -45,18 +45,21 @@ public static class CommonBuilderHelpers
     return fieldKey;
   }
 
-  public static IGqlpFieldKey EnumValue(this IMockBuilder builder, string enumType, string enumLabel)
+  public static IGqlpFieldKey EnumFieldKey(this IMockBuilder builder, string enumType, string enumLabel)
   {
+    IGqlpEnumValue mockEnumValue = builder.EnumValue(enumType, enumLabel);
     IGqlpFieldKey enumValue = builder.Of<IGqlpFieldKey>();
+    enumValue.EnumValue.Returns(mockEnumValue);
+
+    return enumValue;
+  }
+
+  public static IGqlpEnumValue EnumValue(this IMockBuilder builder, string enumType, string enumLabel)
+  {
+    IGqlpEnumValue enumValue = builder.Of<IGqlpEnumValue>();
     enumValue.EnumType.Returns(enumType);
     enumValue.EnumLabel.Returns(enumLabel);
-    enumValue.Text.Returns(enumLabel);
-
-    IGqlpEnumValue mockEnumValue = builder.Of<IGqlpEnumValue>();
-    mockEnumValue.EnumType.Returns(enumType);
-    mockEnumValue.EnumLabel.Returns(enumLabel);
-    mockEnumValue.EnumValue.Returns(enumType + "." + enumLabel);
-    enumValue.EnumValue.Returns(mockEnumValue);
+    enumValue.EnumValue.Returns(enumType + "." + enumLabel);
 
     return enumValue;
   }

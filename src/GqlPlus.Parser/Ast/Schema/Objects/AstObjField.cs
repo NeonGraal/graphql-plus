@@ -15,16 +15,14 @@ internal abstract record class AstObjField(
   public IGqlpModifier[] Modifiers { get; set; } = [];
   public IGqlpEnumValue? EnumValue { get; set; }
 
-  IGqlpObjType IGqlpObjectEnum.EnumType => Type;
-  string? IGqlpObjectEnum.EnumLabel => EnumValue?.EnumLabel;
   void IGqlpObjectEnum.SetEnumType(string enumType)
   {
+    Type.SetName(enumType);
     if (EnumValue == null) {
       EnumValue = new EnumValueAst(At, enumType, Type.Name);
     } else {
       EnumValue = new EnumValueAst(At, enumType, EnumValue.EnumLabel ?? Type.Name);
     }
-    Type.SetName(enumType);
   }
 
   protected internal IEnumerable<string?> TypeFields(string suffix = "")
@@ -42,7 +40,7 @@ internal abstract record class AstObjField(
     => base.Equals(other)
     && Type.Equals(other!.Type)
     && Modifiers.SequenceEqual(other.Modifiers)
-    && EnumValue?.EnumLabel == other.EnumLabel;
+    && EnumValue.NullEqual(other.EnumValue);
   public override int GetHashCode()
     => HashCode.Combine(base.GetHashCode(), Type, Modifiers.Length, EnumValue?.EnumLabel);
 }

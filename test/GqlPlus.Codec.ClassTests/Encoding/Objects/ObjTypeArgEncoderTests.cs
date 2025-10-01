@@ -3,13 +3,13 @@
 public class ObjTypeArgEncoderTests
   : EncoderClassTestBase<ObjTypeArgModel>
 {
-  private readonly IEncoder<TypeRefModel<SimpleKindModel>> _label;
+  private readonly IEncoder<EnumValueModel> _enumValue;
 
   public ObjTypeArgEncoderTests()
   {
-    _label = RFor<TypeRefModel<SimpleKindModel>>();
+    _enumValue = RFor<EnumValueModel>();
 
-    Encoder = new ObjTypeArgEncoder(_label);
+    Encoder = new ObjTypeArgEncoder(_enumValue);
   }
 
   protected override IEncoder<ObjTypeArgModel> Encoder { get; }

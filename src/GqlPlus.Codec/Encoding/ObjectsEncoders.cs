@@ -1,17 +1,16 @@
 ﻿namespace GqlPlus.Encoding;
 
 internal class ObjTypeArgEncoder(
-  IEncoder<TypeRefModel<SimpleKindModel>> label
+  IEncoder<EnumValueModel> enumValue
 ) : DescribedEncoder<ObjTypeArgModel>
 {
   internal override Structured Encode(ObjTypeArgModel model)
-    => string.IsNullOrWhiteSpace(model.ThrowIfNull().EnumLabel)
+    => model.EnumValue is null
     ? base.Encode(model)
       .AddIf(model.IsTypeParam,
         t => t.Add("typeParam", model.Name),
         f => f.Add("name", model.Name))
-    : label.Encode(new(SimpleKindModel.Enum, model.Name, model.Description))
-      .Add("label", model.EnumLabel!);
+    : enumValue.Encode(model.EnumValue);
 }
 
 internal class ObjectBaseEncoder<TBase>(

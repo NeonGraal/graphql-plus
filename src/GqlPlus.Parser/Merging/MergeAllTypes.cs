@@ -45,10 +45,10 @@ internal class MergeAllTypes(
       }
 
       foreach (IGqlpObjField field in output.Fields) {
-        FixupType<IGqlpObjField>(field, enumValues);
+        FixupType(field, enumValues);
 
         foreach (IGqlpObjTypeArg argument in field.Type.Args) {
-          FixupType<IGqlpObjTypeArg>(argument, enumValues);
+          FixupType(argument, enumValues);
         }
       }
     }
@@ -69,13 +69,12 @@ internal class MergeAllTypes(
       .Where(g => g.Count() == 1)
       .ToMap(e => e.Key, e => e.First());
 
-  private static void FixupType<TEnum>(IGqlpObjectEnum type, Map<string> enumValues)
-    where TEnum : IGqlpObjectEnum
+  private static void FixupType(IGqlpObjectEnum type, Map<string> enumValues)
   {
-    if (type is TEnum named) {
-      if (string.IsNullOrWhiteSpace(named.EnumType.Name)
-        && enumValues.TryGetValue(type.EnumLabel.IfWhiteSpace(), out string? enumType)) {
-        named.SetEnumType(enumType);
+    if (type.EnumValue is not null) {
+      if (string.IsNullOrWhiteSpace(type.EnumValue.EnumType)
+        && enumValues.TryGetValue(type.EnumValue.EnumLabel.IfWhiteSpace(), out string? enumType)) {
+        type.SetEnumType(enumType);
       }
     }
   }

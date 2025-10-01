@@ -85,7 +85,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: _TypeRef
           typeArgs:
-            - !_TypeRef(_SimpleKind)
+            - !_EnumValue
               label: Output
               name: _TypeKind
               typeKind: !_SimpleKind Enum
@@ -105,7 +105,7 @@ types: !_Map_Type
         type: !_ObjBase
           name: _TypeRef
           typeArgs:
-            - !_TypeRef(_SimpleKind)
+            - !_EnumValue
               label: Output
               name: _TypeKind
               typeKind: !_SimpleKind Enum

@@ -16,16 +16,17 @@ internal class OutputModeller(
 
 internal class OutputFieldModeller(
   IModifierModeller modifier,
+  // IModeller<IGqlpEnumValue, EnumValueModel> enumValue,
   IModeller<IGqlpInputParam, InputParamModel> parameter,
   IModeller<IGqlpObjBase, ObjBaseModel> objBase
 ) : ModellerObjField<IGqlpOutputField, OutputFieldModel>(modifier, objBase)
 {
   protected override OutputFieldModel FieldModel(IGqlpOutputField field, ObjBaseModel type, IMap<TypeKindModel> typeKinds)
-    => string.IsNullOrWhiteSpace(field.EnumLabel)
+    => field.EnumValue is null
       ? new(field.Name, type, field.Description) {
         Params = parameter.ToModels(field.Params, typeKinds),
       }
       : new(field.Name, type, field.Description) {
-        Enum = new(field.Name, type.Name, field.EnumLabel!, type.Description)
+        Enum = new(field.Name, type.Name, field.EnumValue.EnumLabel!, type.Description)
       };
 }

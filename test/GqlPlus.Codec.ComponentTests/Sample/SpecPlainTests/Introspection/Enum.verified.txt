@@ -42,7 +42,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _TypeRef
       typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Enum
           name: _TypeKind
           typeKind: !_SimpleKind Enum
@@ -52,7 +52,7 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _ParentType
       typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Enum
           name: _TypeKind
           typeKind: !_SimpleKind Enum

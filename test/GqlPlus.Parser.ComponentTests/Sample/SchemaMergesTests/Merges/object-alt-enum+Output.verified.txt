@@ -1,0 +1,13 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  ObjAltEnumOutp
+  |
+  I@027/0001
+  true
+  I@027/0002
+  false
+}
+]

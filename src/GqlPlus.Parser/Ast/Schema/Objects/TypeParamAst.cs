@@ -17,5 +17,7 @@ internal sealed record class TypeParamAst(
     : this(at, name, "", "") { }
 
   internal override IEnumerable<string?> GetFields()
-    => [At.ToString(), Description.Quoted('"'), Name.Prefixed("$"), Constraint.Prefixed(":")];
+    => DescriptionAt
+      .Append(Name.Prefixed("$"))
+      .Append(Constraint.Prefixed(":"));
 }

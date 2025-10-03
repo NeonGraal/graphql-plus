@@ -3260,8 +3260,8 @@ Success
   !Du I@006/0001
   GnrcDescrDual
   <
+    'Test Descr'
     I@036/0001
-    "Test Descr"
     $type
     :String
   >
@@ -3277,8 +3277,8 @@ Success
   !In I@007/0001
   GnrcDescrInp
   <
+    'Test Descr'
     I@036/0001
-    "Test Descr"
     $type
     :String
   >
@@ -3294,8 +3294,8 @@ Success
   !Ou I@008/0001
   GnrcDescrOutp
   <
+    'Test Descr'
     I@038/0001
-    "Test Descr"
     $type
     :String
   >

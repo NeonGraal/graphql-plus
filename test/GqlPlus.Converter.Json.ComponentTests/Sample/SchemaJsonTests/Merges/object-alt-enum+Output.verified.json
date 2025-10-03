@@ -1,0 +1,48 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "ObjAltEnumOutp": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "ObjAltEnumOutp",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "true"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "ObjAltEnumOutp",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "false"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_ObjAlternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "true"
+          }
+        },
+        {
+          "$tag": "_ObjAlternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "false"
+          }
+        }
+      ],
+      "name": "ObjAltEnumOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier ObjAltEnumDual: !_TypeDual
+    allAlternates:
+    - !_ObjectFor(_ObjAlternate)
+      object: ObjAltEnumDual
+      type: !_ObjBase
+        name: true
+    - !_ObjectFor(_ObjAlternate)
+      object: ObjAltEnumDual
+      type: !_ObjBase
+        name: false
+    alternates:
+    - !_ObjAlternate
+      type: !_ObjBase
+        name: true
+    - !_ObjAlternate
+      type: !_ObjBase
+        name: false
+    name: ObjAltEnumDual
+    typeKind: !_TypeKind Dual

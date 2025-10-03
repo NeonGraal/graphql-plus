@@ -24,5 +24,5 @@ public abstract record class AstObjType(
   => HashCode.Combine(base.GetHashCode(), IsTypeParam);
 
   internal override IEnumerable<string?> GetFields()
-    => [Description.Quoted("'"), At.ToString(), TypeName];
+    => DescriptionAt.Append(TypeName);
 }

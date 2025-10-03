@@ -784,6 +784,132 @@
         "value": "Dual"
       }
     },
+    "ObjAltEnumDual": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "ObjAltEnumDual",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "true"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "ObjAltEnumDual",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "false"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_ObjAlternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "true"
+          }
+        },
+        {
+          "$tag": "_ObjAlternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "false"
+          }
+        }
+      ],
+      "name": "ObjAltEnumDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "ObjAltEnumInp": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "ObjAltEnumInp",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "true"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "ObjAltEnumInp",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "false"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_ObjAlternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "true"
+          }
+        },
+        {
+          "$tag": "_ObjAlternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "false"
+          }
+        }
+      ],
+      "name": "ObjAltEnumInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "ObjAltEnumOutp": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "ObjAltEnumOutp",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "true"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "ObjAltEnumOutp",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "false"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_ObjAlternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "true"
+          }
+        },
+        {
+          "$tag": "_ObjAlternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "false"
+          }
+        }
+      ],
+      "name": "ObjAltEnumOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
     "ObjAltInp": {
       "$tag": "_TypeInput",
       "allAlternates": [
@@ -1510,186 +1636,6 @@
         "$tag": "_TypeKind",
         "value": "Output"
       }
-    },
-    "ObjParamCnstDual": {
-      "$tag": "_TypeDual",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "test",
-          "object": "ObjParamCnstDual",
-          "type": {
-            "$tag": "_ObjBase",
-            "typeParam": "test"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "type",
-          "object": "ObjParamCnstDual",
-          "type": {
-            "$tag": "_ObjBase",
-            "typeParam": "test"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_DualField",
-          "name": "test",
-          "type": {
-            "$tag": "_ObjBase",
-            "typeParam": "test"
-          }
-        },
-        {
-          "$tag": "_DualField",
-          "name": "type",
-          "type": {
-            "$tag": "_ObjBase",
-            "typeParam": "test"
-          }
-        }
-      ],
-      "name": "ObjParamCnstDual",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Dual"
-      },
-      "typeParams": [
-        {
-          "$tag": "_TypeParam",
-          "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
-            "name": "String",
-            "typeKind": {
-              "$tag": "_TypeKind",
-              "value": "Basic"
-            }
-          },
-          "name": "test"
-        }
-      ]
-    },
-    "ObjParamCnstInp": {
-      "$tag": "_TypeInput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_InputField)",
-          "name": "test",
-          "object": "ObjParamCnstInp",
-          "type": {
-            "$tag": "_ObjBase",
-            "typeParam": "test"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_InputField)",
-          "name": "type",
-          "object": "ObjParamCnstInp",
-          "type": {
-            "$tag": "_ObjBase",
-            "typeParam": "test"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_InputField",
-          "name": "test",
-          "type": {
-            "$tag": "_ObjBase",
-            "typeParam": "test"
-          }
-        },
-        {
-          "$tag": "_InputField",
-          "name": "type",
-          "type": {
-            "$tag": "_ObjBase",
-            "typeParam": "test"
-          }
-        }
-      ],
-      "name": "ObjParamCnstInp",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Input"
-      },
-      "typeParams": [
-        {
-          "$tag": "_TypeParam",
-          "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
-            "name": "String",
-            "typeKind": {
-              "$tag": "_TypeKind",
-              "value": "Basic"
-            }
-          },
-          "name": "test"
-        }
-      ]
-    },
-    "ObjParamCnstOutp": {
-      "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "test",
-          "object": "ObjParamCnstOutp",
-          "type": {
-            "$tag": "_ObjBase",
-            "typeParam": "test"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "type",
-          "object": "ObjParamCnstOutp",
-          "type": {
-            "$tag": "_ObjBase",
-            "typeParam": "test"
-          }
-        }
-      ],
-      "fields": [
-        {
-          "$tag": "_OutputField",
-          "name": "test",
-          "type": {
-            "$tag": "_ObjBase",
-            "typeParam": "test"
-          }
-        },
-        {
-          "$tag": "_OutputField",
-          "name": "type",
-          "type": {
-            "$tag": "_ObjBase",
-            "typeParam": "test"
-          }
-        }
-      ],
-      "name": "ObjParamCnstOutp",
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      },
-      "typeParams": [
-        {
-          "$tag": "_TypeParam",
-          "constraint": {
-            "$tag": "_TypeRef(_TypeKind)",
-            "name": "String",
-            "typeKind": {
-              "$tag": "_TypeKind",
-              "value": "Basic"
-            }
-          },
-          "name": "test"
-        }
-      ]
     },
     "ObjParamDual": {
       "$tag": "_TypeDual",

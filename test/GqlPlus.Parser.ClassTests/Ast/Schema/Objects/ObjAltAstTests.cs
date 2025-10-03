@@ -22,6 +22,22 @@ public class ObjAltAstTests
     => AlternateChecks.Inequality_WithModifiers(input);
 
   [Theory, RepeatData]
+  public void HashCode_WithEnumValue(AlternateInput input, string enumLabel)
+      => AlternateChecks.HashCode_WithEnumValue(input, enumLabel);
+
+  [Theory, RepeatData]
+  public void String_WithEnumValue(AlternateInput input, string enumLabel)
+    => AlternateChecks.String_WithEnumValue(input, enumLabel);
+
+  [Theory, RepeatData]
+  public void Equality_WithEnumValue(AlternateInput input, string enumLabel)
+    => AlternateChecks.Equality_WithEnumValue(input, enumLabel);
+
+  [Theory, RepeatData]
+  public void Inequality_WithEnumValue(AlternateInput input, string enumLabel)
+    => AlternateChecks.Inequality_WithEnumValue(input, enumLabel);
+
+  [Theory, RepeatData]
   public void ModifiedType_WithArgs(AlternateInput input, string[] arguments)
     => AlternateChecks.ModifiedType_WithArgs(input, arguments);
 
@@ -68,6 +84,20 @@ internal sealed class AstObjectAlternateChecks
   public void Inequality_WithModifiers(AlternateInput input)
     => InequalityWith(input, () => CreateModifiers(input));
 
+  public void HashCode_WithEnumValue(AlternateInput input, string enumLabel)
+      => HashCode(() => CreateEnumValue(input, enumLabel));
+
+  public void String_WithEnumValue(AlternateInput input, string enumLabel)
+    => Text(
+      () => CreateEnumValue(input, enumLabel),
+      $"( {input.Type}.{enumLabel} )");
+
+  public void Equality_WithEnumValue(AlternateInput input, string enumLabel)
+    => Equality(() => CreateEnumValue(input, enumLabel));
+
+  public void Inequality_WithEnumValue(AlternateInput input, string enumLabel)
+    => InequalityWith(input, () => CreateEnumValue(input, enumLabel));
+
   public void ModifiedType_WithArgs(AlternateInput input, string[] arguments)
   {
     ObjAltAst alternate = AlternateBy(input) with { Args = arguments.ObjTypeArgs() };
@@ -95,6 +125,9 @@ internal sealed class AstObjectAlternateChecks
     alternate.ModifiedType.ShouldBe(expected);
   }
 
+  private ObjAltAst CreateEnumValue(AlternateInput input, string enumLabel)
+    => CreateInput(input) with { EnumValue = new EnumValueAst(AstNulls.At, input.Type, enumLabel) };
+
   private ObjAltAst CreateModifiers(AlternateInput input)
     => CreateInput(input) with { Modifiers = TestMods() };
 }
@@ -106,6 +139,12 @@ internal interface IAstObjectAlternateChecks
   void String_WithModifiers(AlternateInput input);
   void Equality_WithModifiers(AlternateInput input);
   void Inequality_WithModifiers(AlternateInput input);
+
+  void HashCode_WithEnumValue(AlternateInput input, string enumLabel);
+  void String_WithEnumValue(AlternateInput input, string enumLabel);
+  void Equality_WithEnumValue(AlternateInput input, string enumLabel);
+  void Inequality_WithEnumValue(AlternateInput input, string enumLabel);
+
   void ModifiedType_WithArgs(AlternateInput input, string[] arguments);
   void ModifiedType_WithModifiers(AlternateInput input);
   void ModifiedType_WithModifiersAndArgs(AlternateInput input, string[] arguments);

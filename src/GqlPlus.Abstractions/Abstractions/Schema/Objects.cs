@@ -60,6 +60,7 @@ public interface IGqlpObjAlt
   : IGqlpError
   , IGqlpObjBase
   , IGqlpModifiers
+  , IGqlpObjectEnum
 { }
 
 public interface IGqlpTypeParam

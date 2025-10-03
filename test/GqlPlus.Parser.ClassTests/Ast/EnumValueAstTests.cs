@@ -1,6 +1,4 @@
-﻿using Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.Interfaces;
-
-namespace GqlPlus.Ast;
+﻿namespace GqlPlus.Ast;
 
 public class EnumValueAstTests : AstAbbreviatedTests
 {
@@ -82,7 +80,7 @@ public class EnumValueAstTests : AstAbbreviatedTests
   {
     EnumValueAst left = EnumValue(type, label1);
     EnumValueAst right = EnumValue(type, label2);
-    int expected = string.Compare(label1, label2, StringComparison.Ordinal);
+    int expected = string.Compare(type + "." + label1, type + "." + label2, StringComparison.Ordinal);
 
     left.CompareTo(right).ShouldBe(expected);
   }

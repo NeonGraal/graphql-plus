@@ -1,1 +1,1 @@
-08318c6  (HEAD -> dual-enum-arg) 2025-09-22 Tweak Schema spec and Introspection
+7730b15  (HEAD -> dual-enum-arg) 2025-10-04 Tweak merge definitions

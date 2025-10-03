@@ -24,6 +24,8 @@ public abstract record class AstDescribed(
       .Prepend(Description.Quoted("'"));
   void IAstSetDescription.SetDescription(string description)
     => Description = description;
+
+  protected string?[] DescriptionAt => [Description.Quoted("'"), At.ToString()];
 }
 
 internal interface IAstSetDescription

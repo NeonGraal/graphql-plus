@@ -1,9 +1,10 @@
-﻿using GqlPlus.Abstractions.Schema;
+﻿using System.Linq;
+using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-public record class ObjTypeArgAst(
+public sealed record class ObjTypeArgAst(
   ITokenAt At,
   string Name,
   string Description
@@ -19,16 +20,22 @@ public record class ObjTypeArgAst(
     if (EnumValue == null) {
       EnumValue = new EnumValueAst(At, enumType, Name);
     } else {
-      EnumValue = new EnumValueAst(At, enumType, EnumValue.EnumLabel ?? Name);
+      EnumValue = new EnumValueAst(EnumValue.At, enumType, EnumValue.EnumLabel ?? Name);
     }
+
     Name = enumType;
   }
 
   internal override IEnumerable<string?> GetFields()
-    => string.IsNullOrWhiteSpace(EnumValue?.EnumLabel)
+    => EnumValue is null
     ? base.GetFields()
-    : [At.ToString(), $"{Name}.{EnumValue?.EnumLabel}"];
+    : DescriptionAt.Append(EnumValue.EnumValue);
 
   bool IEquatable<IGqlpObjTypeArg>.Equals(IGqlpObjTypeArg? other)
     => Equals(other as AstObjType);
+  public bool Equals(ObjTypeArgAst? other)
+    => base.Equals(other)
+    && EnumValue.NullEqual(other.EnumValue);
+  public override int GetHashCode()
+    => HashCode.Combine(base.GetHashCode(), EnumValue?.GetHashCode() ?? 0);
 }

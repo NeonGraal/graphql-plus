@@ -312,6 +312,33 @@ Success
 }
 {
   !Du I@006/0001
+  ObjAltEnumDual
+  |
+  I@025/0001
+  true
+  I@025/0002
+  false
+}
+{
+  !In I@007/0001
+  ObjAltEnumInp
+  |
+  I@025/0001
+  true
+  I@025/0002
+  false
+}
+{
+  !Ou I@008/0001
+  ObjAltEnumOutp
+  |
+  I@027/0001
+  true
+  I@027/0002
+  false
+}
+{
+  !Du I@006/0001
   ObjCnstDual
   <
     I@019/0001
@@ -662,69 +689,6 @@ Success
     :
     I@044/0002
     $type
-  }
-}
-{
-  !Du I@006/0001
-  ObjParamCnstDual
-  <
-    I@024/0001
-    $test
-    :String
-  >
-  {
-    !DF I@039/0001
-    test
-    :
-    I@046/0001
-    $test
-    !DF I@039/0002
-    type
-    :
-    I@046/0002
-    $test
-  }
-}
-{
-  !In I@007/0001
-  ObjParamCnstInp
-  <
-    I@024/0001
-    $test
-    :String
-  >
-  {
-    !IF I@039/0001
-    test
-    :
-    I@046/0001
-    $test
-    !IF I@039/0002
-    type
-    :
-    I@046/0002
-    $test
-  }
-}
-{
-  !Ou I@008/0001
-  ObjParamCnstOutp
-  <
-    I@026/0001
-    $test
-    :String
-  >
-  {
-    !OF I@041/0001
-    test
-    :
-    I@048/0001
-    $test
-    !OF I@041/0002
-    type
-    :
-    I@048/0002
-    $test
   }
 }
 {

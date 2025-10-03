@@ -1,0 +1,21 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier ObjAltEnumInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_ObjAlternate)
+        object: ObjAltEnumInp
+        type: !_ObjBase
+          name: true
+      - !_ObjectFor(_ObjAlternate)
+        object: ObjAltEnumInp
+        type: !_ObjBase
+          name: false
+    alternates:
+      - !_ObjAlternate
+        type: !_ObjBase
+          name: true
+      - !_ObjAlternate
+        type: !_ObjBase
+          name: false
+    name: ObjAltEnumInp
+    typeKind: !_TypeKind Input

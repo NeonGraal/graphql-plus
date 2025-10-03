@@ -6924,6 +6924,63 @@ types: !_Map_Type
   !_Identifier ObjAltDualType: !_TypeDual
     name: ObjAltDualType
     typeKind: !_TypeKind Dual
+  !_Identifier ObjAltEnumDual: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_ObjAlternate)
+        object: ObjAltEnumDual
+        type: !_ObjBase
+          name: true
+      - !_ObjectFor(_ObjAlternate)
+        object: ObjAltEnumDual
+        type: !_ObjBase
+          name: false
+    alternates:
+      - !_ObjAlternate
+        type: !_ObjBase
+          name: true
+      - !_ObjAlternate
+        type: !_ObjBase
+          name: false
+    name: ObjAltEnumDual
+    typeKind: !_TypeKind Dual
+  !_Identifier ObjAltEnumInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_ObjAlternate)
+        object: ObjAltEnumInp
+        type: !_ObjBase
+          name: true
+      - !_ObjectFor(_ObjAlternate)
+        object: ObjAltEnumInp
+        type: !_ObjBase
+          name: false
+    alternates:
+      - !_ObjAlternate
+        type: !_ObjBase
+          name: true
+      - !_ObjAlternate
+        type: !_ObjBase
+          name: false
+    name: ObjAltEnumInp
+    typeKind: !_TypeKind Input
+  !_Identifier ObjAltEnumOutp: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_ObjAlternate)
+        object: ObjAltEnumOutp
+        type: !_ObjBase
+          name: true
+      - !_ObjectFor(_ObjAlternate)
+        object: ObjAltEnumOutp
+        type: !_ObjBase
+          name: false
+    alternates:
+      - !_ObjAlternate
+        type: !_ObjBase
+          name: true
+      - !_ObjAlternate
+        type: !_ObjBase
+          name: false
+    name: ObjAltEnumOutp
+    typeKind: !_TypeKind Output
   !_Identifier ObjAltInp: !_TypeInput
     allAlternates:
       - !_ObjectFor(_ObjAlternate)
@@ -7343,93 +7400,6 @@ types: !_Map_Type
   !_Identifier ObjOutp: !_TypeOutput
     name: ObjOutp
     typeKind: !_TypeKind Output
-  !_Identifier ObjParamCnstDual: !_TypeDual
-    allFields:
-      - !_ObjectFor(_DualField)
-        name: test
-        object: ObjParamCnstDual
-        type: !_ObjBase
-          typeParam: test
-      - !_ObjectFor(_DualField)
-        name: type
-        object: ObjParamCnstDual
-        type: !_ObjBase
-          typeParam: test
-    fields:
-      - !_DualField
-        name: test
-        type: !_ObjBase
-          typeParam: test
-      - !_DualField
-        name: type
-        type: !_ObjBase
-          typeParam: test
-    name: ObjParamCnstDual
-    typeKind: !_TypeKind Dual
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: String
-          typeKind: !_TypeKind Basic
-        name: test
-  !_Identifier ObjParamCnstInp: !_TypeInput
-    allFields:
-      - !_ObjectFor(_InputField)
-        name: test
-        object: ObjParamCnstInp
-        type: !_ObjBase
-          typeParam: test
-      - !_ObjectFor(_InputField)
-        name: type
-        object: ObjParamCnstInp
-        type: !_ObjBase
-          typeParam: test
-    fields:
-      - !_InputField
-        name: test
-        type: !_ObjBase
-          typeParam: test
-      - !_InputField
-        name: type
-        type: !_ObjBase
-          typeParam: test
-    name: ObjParamCnstInp
-    typeKind: !_TypeKind Input
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: String
-          typeKind: !_TypeKind Basic
-        name: test
-  !_Identifier ObjParamCnstOutp: !_TypeOutput
-    allFields:
-      - !_ObjectFor(_OutputField)
-        name: test
-        object: ObjParamCnstOutp
-        type: !_ObjBase
-          typeParam: test
-      - !_ObjectFor(_OutputField)
-        name: type
-        object: ObjParamCnstOutp
-        type: !_ObjBase
-          typeParam: test
-    fields:
-      - !_OutputField
-        name: test
-        type: !_ObjBase
-          typeParam: test
-      - !_OutputField
-        name: type
-        type: !_ObjBase
-          typeParam: test
-    name: ObjParamCnstOutp
-    typeKind: !_TypeKind Output
-    typeParams:
-      - !_TypeParam
-        constraint: !_TypeRef(_TypeKind)
-          name: String
-          typeKind: !_TypeKind Basic
-        name: test
   !_Identifier ObjParamDual: !_TypeDual
     allFields:
       - !_ObjectFor(_DualField)

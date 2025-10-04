@@ -40,8 +40,11 @@ internal class MergeAllTypes(
 
     foreach (IGqlpObject output in types.OfType<IGqlpObject>()) {
       foreach (IGqlpObjAlt alternate in output.Alternates) {
-        // No fixup needed?
-        // FixupType(alternate, enumValues);
+        FixupType(alternate, enumValues);
+
+        foreach (IGqlpObjTypeArg argument in alternate.Args) {
+          FixupType(argument, enumValues);
+        }
       }
 
       foreach (IGqlpObjField field in output.Fields) {

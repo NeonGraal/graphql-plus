@@ -5,17 +5,17 @@ types: !_Map_Type
     - !_ObjectFor(_ObjAlternate)
       object: ObjAltEnumInp
       type: !_ObjBase
-        name: true
+        name: Boolean
     - !_ObjectFor(_ObjAlternate)
       object: ObjAltEnumInp
       type: !_ObjBase
-        name: false
+        name: Boolean
     alternates:
     - !_ObjAlternate
       type: !_ObjBase
-        name: true
+        name: Boolean
     - !_ObjAlternate
       type: !_ObjBase
-        name: false
+        name: Boolean
     name: ObjAltEnumInp
     typeKind: !_TypeKind Input

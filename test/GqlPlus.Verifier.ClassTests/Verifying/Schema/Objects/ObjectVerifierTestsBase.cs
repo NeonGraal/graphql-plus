@@ -532,51 +532,81 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
   }
 
   [Theory, RepeatData]
-  public void Verify_WithEnumField_ReturnsNoErrors(string fieldName, string enumType, string enumLabel)
+  public void Verify_WithFieldEnum_ReturnsNoErrors(string fieldName, string enumType, string enumLabel)
   {
     AddTypes(A.Enum(enumType, [enumLabel]));
 
-    ObjectEnumField(fieldName, enumType, enumLabel);
+    ObjectFieldEnum(fieldName, enumType, enumLabel);
 
     Verify_NoErrors();
   }
 
   [Theory, RepeatData]
-  public void Verify_WithEnumFieldUndefined_ReturnsError(string fieldName, string enumType, string enumLabel)
-  {
-    ObjectEnumField(fieldName, enumType, enumLabel);
-
-    Verify_Errors("not an Enum");
-  }
-
-  [Theory, RepeatData]
-  public void Verify_WithEnumFieldWrongLabel_ReturnsError(string fieldName, string enumType, string enumLabel)
-  {
-    AddTypes(A.Enum(enumType, ["bad" + enumLabel]));
-
-    ObjectEnumField(fieldName, enumType, enumLabel);
-
-    Verify_Errors("not a Label");
-  }
-
-  [Theory, RepeatData]
-  public void Verify_WithEnumLabel_ReturnsNoErrors(string fieldName, string enumType, string enumLabel)
+  public void Verify_WithFieldEnumLabel_ReturnsNoErrors(string fieldName, string enumType, string enumLabel)
   {
     AddTypes(A.Enum(enumType, [enumLabel]));
 
-    TField field = ObjectField(fieldName, enumType);
-    IGqlpEnumValue enumValue = A.EnumValue(enumType, enumLabel);
+    TField field = ObjectField(fieldName, "");
+    IGqlpEnumValue enumValue = A.EnumValue("", enumLabel);
     field.EnumValue.Returns(enumValue);
 
     Verify_NoErrors();
   }
 
   [Theory, RepeatData]
-  public void Verify_WithUndefinedEnumLabel_ReturnsError(string fieldName, string enumLabel)
+  public void Verify_WithFieldEnumUndefined_ReturnsError(string fieldName, string enumType, string enumLabel)
   {
-    TField field = ObjectEnumField(fieldName, "", enumLabel);
+    ObjectFieldEnum(fieldName, enumType, enumLabel);
 
-    Verify_Errors("not defined");
+    Verify_Errors("not an Enum");
+  }
+
+  [Theory, RepeatData]
+  public void Verify_WithFieldEnumWrongLabel_ReturnsError(string fieldName, string enumType, string enumLabel)
+  {
+    AddTypes(A.Enum(enumType, ["bad" + enumLabel]));
+
+    ObjectFieldEnum(fieldName, enumType, enumLabel);
+
+    Verify_Errors("not a Label");
+  }
+
+  [Theory, RepeatData]
+  public void Verify_WithAlternateEnum_ReturnsNoErrors(string enumType, string enumLabel)
+  {
+    AddTypes(A.Enum(enumType, [enumLabel]));
+
+    ObjectAltEnum(enumType, enumLabel);
+
+    Verify_NoErrors();
+  }
+
+  [Theory, RepeatData]
+  public void Verify_WithAlternateEnumLabel_ReturnsNoErrors(string enumType, string enumLabel)
+  {
+    AddTypes(A.Enum(enumType, [enumLabel]));
+
+    ObjectAltEnum("", enumLabel);
+
+    Verify_NoErrors();
+  }
+
+  [Theory, RepeatData]
+  public void Verify_WithAlternateEnumUndefined_ReturnsErrors(string enumType, string enumLabel)
+  {
+    ObjectAltEnum(enumType, enumLabel);
+
+    Verify_Errors("not an Enum");
+  }
+
+  [Theory, RepeatData]
+  public void Verify_WithAlternateEnumWrongLabel_ReturnsErrors(string enumType, string enumLabel)
+  {
+    AddTypes(A.Enum(enumType, ["bad" + enumLabel]));
+
+    ObjectAltEnum(enumType, enumLabel);
+
+    Verify_Errors("not a Label");
   }
 
   [Theory, RepeatData]
@@ -656,6 +686,21 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
     string fullType = isTypeParam ? "$" + type : type;
     alt.FullType.Returns(fullType);
     alt.IsTypeParam.Returns(isTypeParam);
+    alt.EnumValue.Returns((IGqlpEnumValue?)null);
+
+    obj.Alternates.Returns([alt]);
+
+    return alt;
+  }
+
+  protected IGqlpObjAlt ObjectAltEnum(string enumType, string enumLabel, TObject? obj = null)
+  {
+    obj ??= TheObject;
+
+    IGqlpObjAlt alt = A.Named<IGqlpObjAlt, IGqlpObjAlt>(enumType);
+    alt.FullType.Returns(enumType);
+    IGqlpEnumValue enumValue = A.EnumValue(enumType, enumLabel);
+    alt.EnumValue.Returns(enumValue);
 
     obj.Alternates.Returns([alt]);
 
@@ -675,11 +720,11 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
     return field;
   }
 
-  protected TField ObjectEnumField(string fieldName, string enumType, string enumLabel, TObject? obj = null, bool isTypeParam = false)
+  protected TField ObjectFieldEnum(string fieldName, string enumType, string enumLabel, TObject? obj = null)
   {
     obj ??= TheObject;
 
-    IGqlpObjBase objBase = MakeBase(enumType, isTypeParam);
+    IGqlpObjBase objBase = MakeBase(enumType);
     TField field = A.ObjField<TField>(fieldName, objBase);
     IGqlpEnumValue enumValue = A.EnumValue(enumType, enumLabel);
     field.EnumValue.Returns(enumValue);

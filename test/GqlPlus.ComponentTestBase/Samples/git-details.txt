@@ -1,1 +1,1 @@
-0c2a967  (HEAD -> dual-enum-arg) 2025-10-04 Correct type kind mismatch errors
+b1511bf  (HEAD -> dual-enum-arg) 2025-10-05 Improve Object Parent Field and Alt Verify errors

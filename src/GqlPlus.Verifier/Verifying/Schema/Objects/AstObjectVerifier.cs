@@ -13,8 +13,6 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
   where TObject : IGqlpObject<TObjField>
   where TObjField : IGqlpObjField
 {
-  private readonly ILogger _logger = verifiers.Logger.CreateTypedLogger<AstParentItemVerifier<TObject, IGqlpObjBase, ObjectContext, IGqlpTypeParam>>();
-
   private readonly Matcher<IGqlpObjTypeArg>.L _constraintMatcher = verifiers.ConstraintMatcher;
 
   protected override void UsageValue(TObject usage, ObjectContext context)
@@ -30,7 +28,10 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
       UsageField(field, usage, context);
     }
 
-    UsageAlternates(usage, context);
+    foreach (IGqlpObjAlt alternate in usage.Alternates) {
+      UsageAlternate(alternate, usage, context);
+    }
+
     CheckParamsUsed(usage.Label, usage.TypeParams, context);
   }
 
@@ -45,45 +46,47 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
 
   protected virtual void UsageField(TObjField field, TObject usage, ObjectContext context)
   {
-    if (field.EnumValue is null) {
-      CheckTypeRef(context, field.Type, " Field");
-      context.CheckModifiers(field);
-      CheckForSelf(new([field.Type.FullType], usage, "a field"), usage.Name, context);
-    } else {
-      CheckFieldEnum(field, usage, context);
-    }
-  }
-
-  private static void CheckFieldEnum(TObjField field, TObject usage, ObjectContext context)
-  {
-    if (field.EnumValue is null) {
+    if (field.EnumValue is not null) {
+      CheckObjEnum(usage.Label + " Field", field, context);
       return;
     }
 
-    IGqlpEnumValue enumValue = field.EnumValue;
+    CheckTypeRef(context, field.Type, " Field");
+    context.CheckModifiers(field);
+    CheckForSelf(new([field.Type.FullType], usage, "a field"), usage.Name, context);
+  }
+
+  private void UsageAlternate(IGqlpObjAlt alternate, TObject usage, ObjectContext context)
+  {
+    if (alternate.EnumValue is not null) {
+      CheckObjEnum(usage.Label + " Alternate", alternate, context);
+      return;
+    }
+
+    CheckTypeRef(context, alternate, "Alternate");
+    context.CheckModifiers(alternate);
+    CheckForSelf(new([alternate.FullType], usage, "an alternate"), usage.Name, context);
+  }
+
+  private static void CheckObjEnum(string label, IGqlpObjectEnum objEnum, ObjectContext context)
+  {
+    if (objEnum.EnumValue is null) {
+      return;
+    }
+
+    IGqlpEnumValue enumValue = objEnum.EnumValue;
 
     if (!string.IsNullOrWhiteSpace(enumValue.EnumType)) {
-      context.CheckEnumValue("Field", field);
+      context.CheckEnumValue(label, objEnum);
       return;
     }
 
     if (context.GetEnumValue(enumValue.EnumLabel, out string? enumType)) {
-      field.SetEnumType(enumType);
+      objEnum.SetEnumType(enumType);
       return;
     }
 
-    context.AddError(field, usage.Label + " Field Enum", $"Enum Label '{enumValue.EnumLabel}' not defined");
-  }
-
-  private void UsageAlternates(TObject usage, ObjectContext context)
-  {
-    SelfUsage<TObject> input = new([], usage, "an alternative");
-    _logger.CheckingAlternates(input);
-    foreach (IGqlpObjAlt alternate in usage.Alternates) {
-      CheckTypeRef(context, alternate, "Alternate");
-      context.CheckModifiers(alternate);
-      CheckForSelf(new([alternate.FullType], usage, "an alternate"), usage.Name, context);
-    }
+    context.AddError(objEnum, label + " Enum", $"Enum Label '{enumValue.EnumLabel}' not defined");
   }
 
   private void CheckParamsUsed(string label, IEnumerable<IGqlpTypeParam> typeParams, ObjectContext context)
@@ -291,18 +294,6 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
 
     return new(validTypes, errors, aliased.MakeEnumValues(), kind);
   }
-}
-
-internal static partial class AstObjectVerifierLogging
-{
-  [LoggerMessage(Level = LogLevel.Information, Message = "Checking Alternates with {Input}")]
-  internal static partial void CheckingAlternates(this ILogger logger, object input);
-
-  [LoggerMessage(Level = LogLevel.Information, Message = "Checking Alternates with {Input}, {Top} of {Alternate}")]
-  internal static partial void CheckingAlternates(this ILogger logger, object input, bool top, string alternate);
-
-  [LoggerMessage(Level = LogLevel.Information, Message = "Checking Alternates with {Input}, {Top} of {Alternate}, {Current}")]
-  internal static partial void CheckingAlternates(this ILogger logger, object input, bool top, string alternate, string current);
 }
 
 internal record class ObjectVerifierParams<TObject, TObjField>(

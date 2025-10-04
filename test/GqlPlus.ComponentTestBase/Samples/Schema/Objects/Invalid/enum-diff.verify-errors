@@ -1,2 +1,2 @@
 ﻿name 'Test' can't be merged
-not singular ModifiedType_Label
+'field' not singular ModifiedType_Label['Boolean.false', 'Boolean.true']

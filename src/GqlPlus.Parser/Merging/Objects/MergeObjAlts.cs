@@ -19,7 +19,7 @@ internal class MergeObjAlts(
   }
 
   protected override string ItemGroupKey(IGqlpObjAlt item)
-    => item.FullType;
+    => item.FullType + item.EnumValue?.EnumLabel.Prefixed(".");
 
   protected override string ItemMatchName => "Modifiers";
   protected override string ItemMatchKey(IGqlpObjAlt item)

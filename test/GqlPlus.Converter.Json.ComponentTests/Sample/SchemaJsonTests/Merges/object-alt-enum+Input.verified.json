@@ -10,7 +10,7 @@
           "object": "ObjAltEnumInp",
           "type": {
             "$tag": "_ObjBase",
-            "name": "true"
+            "name": "Boolean"
           }
         },
         {
@@ -18,7 +18,7 @@
           "object": "ObjAltEnumInp",
           "type": {
             "$tag": "_ObjBase",
-            "name": "false"
+            "name": "Boolean"
           }
         }
       ],
@@ -27,14 +27,14 @@
           "$tag": "_ObjAlternate",
           "type": {
             "$tag": "_ObjBase",
-            "name": "true"
+            "name": "Boolean"
           }
         },
         {
           "$tag": "_ObjAlternate",
           "type": {
             "$tag": "_ObjBase",
-            "name": "false"
+            "name": "Boolean"
           }
         }
       ],

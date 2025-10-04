@@ -512,42 +512,42 @@ Success
   ObjAltEnumDual
   |
   I@025/0110
-  true
+  Boolean.true
 }
 {
   !Du I@006/0111
   ObjAltEnumDual
   |
   I@025/0111
-  false
+  Boolean.false
 }
 {
   !In I@007/0113
   ObjAltEnumInp
   |
   I@025/0113
-  true
+  Boolean.true
 }
 {
   !In I@007/0114
   ObjAltEnumInp
   |
   I@025/0114
-  false
+  Boolean.false
 }
 {
   !Ou I@008/0116
   ObjAltEnumOutp
   |
   I@027/0116
-  true
+  Boolean.true
 }
 {
   !Ou I@008/0117
   ObjAltEnumOutp
   |
   I@027/0117
-  false
+  Boolean.false
 }
 {
   !Du I@006/0119

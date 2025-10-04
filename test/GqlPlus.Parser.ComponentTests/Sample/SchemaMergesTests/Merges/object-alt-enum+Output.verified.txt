@@ -6,8 +6,8 @@ Success
   ObjAltEnumOutp
   |
   I@027/0001
-  true
+  Boolean.true
   I@027/0002
-  false
+  Boolean.false
 }
 ]

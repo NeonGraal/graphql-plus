@@ -6988,18 +6988,18 @@ types: !_Map_Type
     - !_ObjectFor(_ObjAlternate)
       object: ObjAltEnumDual
       type: !_ObjBase
-        name: true
+        name: Boolean
     - !_ObjectFor(_ObjAlternate)
       object: ObjAltEnumDual
       type: !_ObjBase
-        name: false
+        name: Boolean
     alternates:
     - !_ObjAlternate
       type: !_ObjBase
-        name: true
+        name: Boolean
     - !_ObjAlternate
       type: !_ObjBase
-        name: false
+        name: Boolean
     name: ObjAltEnumDual
     typeKind: !_TypeKind Dual
   !_Identifier ObjAltEnumInp: !_TypeInput
@@ -7007,18 +7007,18 @@ types: !_Map_Type
     - !_ObjectFor(_ObjAlternate)
       object: ObjAltEnumInp
       type: !_ObjBase
-        name: true
+        name: Boolean
     - !_ObjectFor(_ObjAlternate)
       object: ObjAltEnumInp
       type: !_ObjBase
-        name: false
+        name: Boolean
     alternates:
     - !_ObjAlternate
       type: !_ObjBase
-        name: true
+        name: Boolean
     - !_ObjAlternate
       type: !_ObjBase
-        name: false
+        name: Boolean
     name: ObjAltEnumInp
     typeKind: !_TypeKind Input
   !_Identifier ObjAltEnumOutp: !_TypeOutput
@@ -7026,18 +7026,18 @@ types: !_Map_Type
     - !_ObjectFor(_ObjAlternate)
       object: ObjAltEnumOutp
       type: !_ObjBase
-        name: true
+        name: Boolean
     - !_ObjectFor(_ObjAlternate)
       object: ObjAltEnumOutp
       type: !_ObjBase
-        name: false
+        name: Boolean
     alternates:
     - !_ObjAlternate
       type: !_ObjBase
-        name: true
+        name: Boolean
     - !_ObjAlternate
       type: !_ObjBase
-        name: false
+        name: Boolean
     name: ObjAltEnumOutp
     typeKind: !_TypeKind Output
   !_Identifier ObjAltInp: !_TypeInput

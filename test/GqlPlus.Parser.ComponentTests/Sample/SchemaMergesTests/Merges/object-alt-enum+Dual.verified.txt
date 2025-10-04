@@ -6,8 +6,8 @@ Success
   ObjAltEnumDual
   |
   I@025/0001
-  true
+  Boolean.true
   I@025/0002
-  false
+  Boolean.false
 }
 ]

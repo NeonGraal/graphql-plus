@@ -14,7 +14,7 @@ internal record class ObjBaseAst(
 
   public override string FullType => Args
     .Bracket("<", ">")
-    .Prepend(base.FullType)
+    .Prepend(TypeName)
     .Joined();
 
   IEnumerable<IGqlpObjTypeArg> IGqlpObjBase.Args => Args.Cast<IGqlpObjTypeArg>();

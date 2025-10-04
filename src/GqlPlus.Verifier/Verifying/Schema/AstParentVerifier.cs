@@ -64,7 +64,7 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
   }
 
   protected virtual bool CheckAstParentType(SelfUsage<TAst> input, IGqlpType astType)
-    => astType.Label == input.UsageLabel;
+    => astType.Kind == input.Kind;
 
   protected virtual bool CheckAstParent(TAst usage, [NotNullWhen(true)] TAst? parent, TContext context)
     => parent is not null;
@@ -86,11 +86,13 @@ internal abstract class AstParentVerifier<TAst, TParent, TContext>(
   }
 
   protected virtual void OnParentType(SelfUsage<TAst> input, TContext context, TAst parentType, bool top)
-    => context.AddError(
-      input.Usage,
-      input.UsageLabel + " Parent",
-      $"Type kind mismatch for {input.Current}. Found {parentType.Label}",
-      top && parentType.Label != input.UsageLabel);
+  {
+    context.AddError(
+        input.Usage,
+        input.UsageLabel + " Parent",
+        $"Invalid Kind for {input.Current}. Found {parentType.Kind}",
+        top && parentType.Kind != input.Kind);
+  }
 
   protected abstract string GetParent(IGqlpType<TParent> usage);
   protected abstract void CheckMergeParent(SelfUsage<TAst> input, TContext context);

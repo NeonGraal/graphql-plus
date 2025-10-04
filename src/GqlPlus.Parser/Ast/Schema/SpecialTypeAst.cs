@@ -7,15 +7,14 @@ internal sealed record class SpecialTypeAst
   : AstSimple
   , IGqlpTypeSpecial
 {
-  internal override string Abbr => "TZ";
-  public override string Label { get; }
+  public override TypeKind Kind => TypeKind.Special;
   public new IGqlpTypeRef? Parent => null;
 
   private readonly Func<IGqlpType, bool> _matcher;
 
   public SpecialTypeAst(string label, Func<IGqlpType, bool> matcher)
     : base(AstNulls.At, "_" + label, "")
-    => (Aliases, Label, _matcher) = ([label], label, matcher);
+    => (_abbr, Aliases, _label, _matcher) = ("TZ", [label], label, matcher);
 
   public bool Equals(SpecialTypeAst? other)
     => other is IGqlpType<IGqlpTypeRef> parented && Equals(parented);

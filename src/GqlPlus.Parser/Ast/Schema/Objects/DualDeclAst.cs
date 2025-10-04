@@ -10,8 +10,7 @@ internal sealed record class DualDeclAst(
 ) : AstObject<IGqlpDualField>(At, Name, Description)
   , IGqlpDualObject
 {
-  internal override string Abbr => "Du";
-  public override string Label => "Dual";
+  public override TypeKind Kind => TypeKind.Dual;
 
   public DualDeclAst(TokenAt at, string name)
     : this(at, name, "")

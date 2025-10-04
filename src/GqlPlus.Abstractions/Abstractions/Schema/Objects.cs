@@ -20,8 +20,10 @@ public interface IGqlpObjType
   : IGqlpNamed
   , IEquatable<IGqlpObjType>
 {
-  string FullType { get; }
   bool IsTypeParam { get; }
+
+  string TypeName { get; }
+  string FullType { get; }
 }
 
 public interface IGqlpObjectEnum

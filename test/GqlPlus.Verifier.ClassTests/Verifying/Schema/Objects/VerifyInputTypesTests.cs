@@ -10,10 +10,11 @@ public class VerifyInputTypesTests
   protected override IVerifyUsage<IGqlpInputObject> Verifier { get; }
 
   public VerifyInputTypesTests()
+    : base(TypeKind.Input)
   {
     Verifier = new VerifyInputTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ArgDelegate, LoggerFactory));
 
-    _input = A.Obj<IGqlpInputObject>("Input");
+    _input = A.Obj<IGqlpInputObject>(TypeKind.Input, "Input");
   }
 
   [Theory, RepeatData]

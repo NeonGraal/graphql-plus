@@ -9,8 +9,7 @@ internal sealed record class InputDeclAst(
 ) : AstObject<IGqlpInputField>(At, Name, Description)
   , IGqlpInputObject
 {
-  internal override string Abbr => "In";
-  public override string Label => "Input";
+  public override TypeKind Kind => TypeKind.Input;
 
   public InputDeclAst(ITokenAt at, string name)
     : this(at, name, "")

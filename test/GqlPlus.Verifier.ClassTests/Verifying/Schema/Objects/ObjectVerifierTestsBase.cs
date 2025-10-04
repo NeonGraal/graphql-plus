@@ -11,9 +11,12 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
 {
   internal readonly ForM<TField> MergeFields = new();
   internal readonly ForM<IGqlpObjAlt> MergeAlternates = new();
+  protected TypeKind Kind { get; }
 
-  protected ObjectVerifierTestsBase()
+  protected ObjectVerifierTestsBase(TypeKind kind)
   {
+    Kind = kind;
+
     ArgMatcher = A.Of<Matcher<IGqlpObjTypeArg>.I>();
 
     ArgDelegate = A.Of<Matcher<IGqlpObjTypeArg>.D>();
@@ -629,7 +632,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
 
   protected TObject DefineObject(string name, string parent = "", bool isTypeParam = false)
   {
-    TObject obj = A.Obj<TObject>(name, parent, isTypeParam);
+    TObject obj = A.Obj<TObject>(Kind, name, parent, isTypeParam);
     Definitions.Add(obj);
     Usages.Add(obj);
     return obj;

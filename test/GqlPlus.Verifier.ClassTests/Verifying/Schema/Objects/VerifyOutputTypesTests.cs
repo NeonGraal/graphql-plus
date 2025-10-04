@@ -10,17 +10,18 @@ public class VerifyOutputTypesTests
   protected override IVerifyUsage<IGqlpOutputObject> Verifier { get; }
 
   public VerifyOutputTypesTests()
+    : base(TypeKind.Output)
   {
     Verifier = new VerifyOutputTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ArgDelegate, LoggerFactory));
 
-    _output = A.Obj<IGqlpOutputObject>("Output");
+    _output = A.Obj<IGqlpOutputObject>(TypeKind.Output, "Output");
   }
 
   [Fact]
   public void Verify_Output_WithFieldParams_ReturnsNoErrors()
   {
     DefineObject("b");
-    IGqlpInputObject paramType = A.Obj<IGqlpInputObject>("c");
+    IGqlpInputObject paramType = A.Obj<IGqlpInputObject>(TypeKind.Input, "c");
     Define(paramType);
 
     IGqlpInputParam param = A.InputParam("c");
@@ -37,9 +38,10 @@ public class VerifyOutputTypesTests
   [Fact]
   public void Verify_Output_WithFieldParamModifiers_ReturnsNoErrors()
   {
-    IGqlpOutputObject fieldType = A.Obj<IGqlpOutputObject>("b");
-    IGqlpInputObject paramType = A.Obj<IGqlpInputObject>("c");
-    Define(fieldType, paramType);
+    DefineObject("b");
+
+    IGqlpInputObject paramType = A.Obj<IGqlpInputObject>(TypeKind.Input, "c");
+    Define(paramType);
     Define<IGqlpEnum, IGqlpSimple>("d");
 
     IGqlpModifier modifier = A.Modifier(ModifierKind.Dict, "d");

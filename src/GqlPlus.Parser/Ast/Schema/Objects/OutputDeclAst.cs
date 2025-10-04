@@ -10,8 +10,7 @@ internal sealed record class OutputDeclAst(
 ) : AstObject<IGqlpOutputField>(At, Name, Description)
   , IGqlpOutputObject
 {
-  internal override string Abbr => "Ou";
-  public override string Label => "Output";
+  public override TypeKind Kind => TypeKind.Output;
 
   public OutputDeclAst(TokenAt at, string name)
     : this(at, name, "") { }

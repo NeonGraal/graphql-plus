@@ -1,5 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Security.AccessControl;
 using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 
 namespace GqlPlus;
 
@@ -34,12 +36,12 @@ public static class SchemaObjectBuilderHelpers
     return described;
   }
 
-  public static TObject Obj<TObject>(this IMockBuilder builder, string typeName, string parent = "", bool isTypeParam = false)
+  public static TObject Obj<TObject>(this IMockBuilder builder, TypeKind kind, string typeName, string parent = "", bool isTypeParam = false)
     where TObject : class, IGqlpObject
   {
     TObject theObj = builder.Named<TObject>(typeName);
-    string label = typeof(TObject).Name[5..^6];
-    theObj.Label.Returns(label);
+    theObj.Kind.Returns(kind);
+    theObj.Label.Returns(kind.ToString());
     if (!string.IsNullOrWhiteSpace(parent)) {
       IGqlpObjBase parentRef = builder.Named<IGqlpObjBase>(parent);
       parentRef.IsTypeParam.Returns(isTypeParam);
@@ -66,8 +68,10 @@ public static class SchemaObjectBuilderHelpers
     string label = typeof(TBase).Name[5..^4];
     if (isTypeParam) {
       theType.IsTypeParam.Returns(true);
+      theType.TypeName.Returns("$" + typeName);
       theType.FullType.Returns("$" + typeName);
     } else {
+      theType.TypeName.Returns(typeName);
       theType.FullType.Returns(typeName);
     }
 
@@ -77,7 +81,10 @@ public static class SchemaObjectBuilderHelpers
     where TBase : class, IGqlpObjBase
     where TTypeArg : class, IGqlpObjTypeArg
   {
-    objBase.Args.Returns(args);
+    string typeName = args.Bracket("<", ">")
+      .Prepend(objBase.TypeName).Joined();
+
+    objBase.FullType.Returns(typeName);
     objBase.Args.Returns(args);
 
     return objBase;
@@ -89,8 +96,10 @@ public static class SchemaObjectBuilderHelpers
     theArg.EnumValue.Returns((IGqlpEnumValue?)null);
     if (isTypeParam) {
       theArg.IsTypeParam.Returns(true);
+      theArg.TypeName.Returns("$" + typeName);
       theArg.FullType.Returns("$" + typeName);
     } else {
+      theArg.TypeName.Returns(typeName);
       theArg.FullType.Returns(typeName);
     }
 

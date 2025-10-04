@@ -429,14 +429,41 @@ Success
 {
   !Du I@006/0001
   AltEnumDual
+  |
+  I@022/0001
+  EnumAltEnumDual.altEnumDual
+}
+{
+  !En I@006/0002
+  EnumAltEnumDual
+  !EL I@024/0002
+  altEnumDual
 }
 {
   !In I@007/0001
   AltEnumInp
+  |
+  I@022/0001
+  EnumAltEnumInp.altEnumInp
+}
+{
+  !En I@006/0002
+  EnumAltEnumInp
+  !EL I@023/0002
+  altEnumInp
 }
 {
   !Ou I@008/0001
   AltEnumOutp
+  |
+  I@024/0001
+  EnumAltEnumOutp.altEnumOutp
+}
+{
+  !En I@006/0002
+  EnumAltEnumOutp
+  !EL I@024/0002
+  altEnumOutp
 }
 {
   !Du I@006/0001

@@ -96,71 +96,6 @@
         "value": "End"
       },
       "_message": "In PrntDualOutp can\u0027t get model for type \u0027RefPrntDualOutp\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 20,
-        "_line": 1
-      },
-      "_kind": {
-        "$tag": "_TokenKind",
-        "value": "Punctuation"
-      },
-      "_message": "Invalid Dual. Expected \u0027}\u0027 at end of definition."
-    },
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 20,
-        "_line": 1
-      },
-      "_kind": {
-        "$tag": "_TokenKind",
-        "value": "Punctuation"
-      },
-      "_message": "Invalid Schema. Expected no more text."
-    },
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 20,
-        "_line": 1
-      },
-      "_kind": {
-        "$tag": "_TokenKind",
-        "value": "Punctuation"
-      },
-      "_message": "Invalid Input. Expected \u0027}\u0027 at end of definition."
-    },
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 22,
-        "_line": 1
-      },
-      "_kind": {
-        "$tag": "_TokenKind",
-        "value": "Punctuation"
-      },
-      "_message": "Invalid Output. Expected \u0027}\u0027 at end of definition."
-    },
-    {
-      "$tag": "_Error",
-      "_at": {
-        "$tag": "_At",
-        "_col": 22,
-        "_line": 1
-      },
-      "_kind": {
-        "$tag": "_TokenKind",
-        "value": "Punctuation"
-      },
-      "_message": "Invalid Schema. Expected no more text."
     }
   ],
   "types": {
@@ -1617,6 +1552,25 @@
     },
     "AltEnumDual": {
       "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "AltEnumDual",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "EnumAltEnumDual"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_ObjAlternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "EnumAltEnumDual"
+          }
+        }
+      ],
       "name": "AltEnumDual",
       "typeKind": {
         "$tag": "_TypeKind",
@@ -1625,6 +1579,25 @@
     },
     "AltEnumInp": {
       "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "AltEnumInp",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "EnumAltEnumInp"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_ObjAlternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "EnumAltEnumInp"
+          }
+        }
+      ],
       "name": "AltEnumInp",
       "typeKind": {
         "$tag": "_TypeKind",
@@ -1633,6 +1606,25 @@
     },
     "AltEnumOutp": {
       "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "AltEnumOutp",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "EnumAltEnumOutp"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_ObjAlternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "EnumAltEnumOutp"
+          }
+        }
+      ],
       "name": "AltEnumOutp",
       "typeKind": {
         "$tag": "_TypeKind",
@@ -5216,6 +5208,69 @@
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Domain"
+      }
+    },
+    "EnumAltEnumDual": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumAltEnumDual",
+          "name": "altEnumDual"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "altEnumDual"
+        }
+      ],
+      "name": "EnumAltEnumDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumAltEnumInp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumAltEnumInp",
+          "name": "altEnumInp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "altEnumInp"
+        }
+      ],
+      "name": "EnumAltEnumInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "EnumAltEnumOutp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumAltEnumOutp",
+          "name": "altEnumOutp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "altEnumOutp"
+        }
+      ],
+      "name": "EnumAltEnumOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
       }
     },
     "EnumCnstDomEnumDual": {

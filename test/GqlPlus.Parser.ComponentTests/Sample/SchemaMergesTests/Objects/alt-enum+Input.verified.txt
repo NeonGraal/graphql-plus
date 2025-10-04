@@ -1,12 +1,17 @@
 ﻿[  
 !Sc I@001/0001
-Failure
-<
-  !!! P@020/0001 : Invalid Input. Expected '}' at end of definition. - '!\ EnumAltE' !!!
-  !!! P@020/0001 : Invalid Schema. Expected no more text. - '!\ EnumAltE' !!!
->
+Success
 {
   !In I@007/0001
   AltEnumInp
+  |
+  I@022/0001
+  EnumAltEnumInp.altEnumInp
+}
+{
+  !En I@006/0002
+  EnumAltEnumInp
+  !EL I@023/0002
+  altEnumInp
 }
 ]

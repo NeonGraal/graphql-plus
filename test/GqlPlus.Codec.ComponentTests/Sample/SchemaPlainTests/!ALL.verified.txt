@@ -170,26 +170,6 @@ errors:
   - !_Error
     _kind: !_TokenKind End
     _message: In PrntDualOutp can't get model for type 'RefPrntDualOutp'
-  - !_Error
-    _at: !_At{_col:20,_line:1}
-    _kind: !_TokenKind Punctuation
-    _message: 'Invalid Dual. Expected \'}\' at end of definition.'
-  - !_Error
-    _at: !_At{_col:20,_line:1}
-    _kind: !_TokenKind Punctuation
-    _message: Invalid Schema. Expected no more text.
-  - !_Error
-    _at: !_At{_col:20,_line:1}
-    _kind: !_TokenKind Punctuation
-    _message: 'Invalid Input. Expected \'}\' at end of definition.'
-  - !_Error
-    _at: !_At{_col:22,_line:1}
-    _kind: !_TokenKind Punctuation
-    _message: 'Invalid Output. Expected \'}\' at end of definition.'
-  - !_Error
-    _at: !_At{_col:22,_line:1}
-    _kind: !_TokenKind Punctuation
-    _message: Invalid Schema. Expected no more text.
 name: Schema
 settings: !_Map_Setting
   !_Identifier descr: !_Setting
@@ -904,12 +884,39 @@ types: !_Map_Type
     name: AltDualOutp
     typeKind: !_TypeKind Output
   !_Identifier AltEnumDual: !_TypeDual
+    allAlternates:
+      - !_ObjectFor(_ObjAlternate)
+        object: AltEnumDual
+        type: !_ObjBase
+          name: EnumAltEnumDual
+    alternates:
+      - !_ObjAlternate
+        type: !_ObjBase
+          name: EnumAltEnumDual
     name: AltEnumDual
     typeKind: !_TypeKind Dual
   !_Identifier AltEnumInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_ObjAlternate)
+        object: AltEnumInp
+        type: !_ObjBase
+          name: EnumAltEnumInp
+    alternates:
+      - !_ObjAlternate
+        type: !_ObjBase
+          name: EnumAltEnumInp
     name: AltEnumInp
     typeKind: !_TypeKind Input
   !_Identifier AltEnumOutp: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_ObjAlternate)
+        object: AltEnumOutp
+        type: !_ObjBase
+          name: EnumAltEnumOutp
+    alternates:
+      - !_ObjAlternate
+        type: !_ObjBase
+          name: EnumAltEnumOutp
     name: AltEnumOutp
     typeKind: !_TypeKind Output
   !_Identifier AltGnrcAltDualDual: !_TypeDual
@@ -3201,6 +3208,36 @@ types: !_Map_Type
       - !_Aliased
         name: enumAlias
     name: EnumAlias
+    typeKind: !_TypeKind Enum
+  !_Identifier EnumAltEnumDual: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: EnumAltEnumDual
+        name: altEnumDual
+    items:
+      - !_Aliased
+        name: altEnumDual
+    name: EnumAltEnumDual
+    typeKind: !_TypeKind Enum
+  !_Identifier EnumAltEnumInp: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: EnumAltEnumInp
+        name: altEnumInp
+    items:
+      - !_Aliased
+        name: altEnumInp
+    name: EnumAltEnumInp
+    typeKind: !_TypeKind Enum
+  !_Identifier EnumAltEnumOutp: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: EnumAltEnumOutp
+        name: altEnumOutp
+    items:
+      - !_Aliased
+        name: altEnumOutp
+    name: EnumAltEnumOutp
     typeKind: !_TypeKind Enum
   !_Identifier EnumCnstDomEnumDual: !_TypeEnum
     allItems:

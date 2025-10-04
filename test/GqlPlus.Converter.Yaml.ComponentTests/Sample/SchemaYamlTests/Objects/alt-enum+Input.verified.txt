@@ -1,23 +1,24 @@
 ﻿!_Schema
-_ctxErrors:
-- !_Error
-  _at: !_At {_col: 20, _line: 1}
-  _kind: !_TokenKind Punctuation
-  _message: Invalid Input. Expected '}' at end of definition.
-- !_Error
-  _at: !_At {_col: 20, _line: 1}
-  _kind: !_TokenKind Punctuation
-  _message: Invalid Schema. Expected no more text.
-_errors:
-- !_Error
-  _at: !_At {_col: 20, _line: 1}
-  _kind: !_TokenKind Punctuation
-  _message: Invalid Input. Expected '}' at end of definition.
-- !_Error
-  _at: !_At {_col: 20, _line: 1}
-  _kind: !_TokenKind Punctuation
-  _message: Invalid Schema. Expected no more text.
 types: !_Map_Type
   !_Identifier AltEnumInp: !_TypeInput
+    allAlternates:
+    - !_ObjectFor(_ObjAlternate)
+      object: AltEnumInp
+      type: !_ObjBase
+        name: EnumAltEnumInp
+    alternates:
+    - !_ObjAlternate
+      type: !_ObjBase
+        name: EnumAltEnumInp
     name: AltEnumInp
     typeKind: !_TypeKind Input
+  !_Identifier EnumAltEnumInp: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: EnumAltEnumInp
+      name: altEnumInp
+    items:
+    - !_Aliased
+      name: altEnumInp
+    name: EnumAltEnumInp
+    typeKind: !_TypeKind Enum

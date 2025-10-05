@@ -1,10 +1,10 @@
 ﻿namespace GqlPlus.Matching;
 
-internal abstract class MatcherLogger
+internal abstract class MatchLogger
 {
   protected ILogger Logger { get; }
 
-  protected MatcherLogger(ILoggerFactory logger)
+  protected MatchLogger(ILoggerFactory logger)
     => Logger = logger.CreateTypedLogger(this);
 
   internal void TryingMatch(object type, string constraint)

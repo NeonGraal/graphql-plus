@@ -1,13 +1,13 @@
 ﻿namespace GqlPlus.Matching;
 
-public class MatcherTestsBase
+public class MatchTestsBase
   : VerifierTestsBase
 {
   protected Map<IGqlpDescribed> Types { get; } = [];
   protected Map<string> EnumValues { get; } = [];
   protected EnumContext Context { get; }
 
-  public MatcherTestsBase()
+  public MatchTestsBase()
     => Context = new(Types, Errors, EnumValues);
 
   protected static Matcher<T>.D MatcherFor<T>(out Matcher<T>.I matcher)

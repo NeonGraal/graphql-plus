@@ -3,7 +3,7 @@ using GqlPlus.Verifying.Schema;
 
 namespace GqlPlus.Matching;
 
-internal abstract class TypeMatcherBase<TType>(
+internal abstract class MatchTypeBase<TType>(
   ILoggerFactory logger
 ) : MatcherBase<TType>(logger)
   , ITypeMatcher

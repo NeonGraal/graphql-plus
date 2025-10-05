@@ -7,45 +7,33 @@ namespace GqlPlus.Matching;
 internal class ObjTypeArgMatcher(
   ILoggerFactory logger,
   Matcher<IGqlpType>.D anyTypeMatcher
-) : MatcherBase<IGqlpObjTypeArg>(logger)
+) : MatchAnyTypeLogger(logger, anyTypeMatcher)
+  , Matcher<IGqlpObjTypeArg>.I
 {
-  private readonly Matcher<IGqlpType>.L _anyTypeMatcher = anyTypeMatcher;
-
-  public override bool Matches(IGqlpObjTypeArg arg, string constraint, EnumContext context)
+  public bool Matches(IGqlpObjTypeArg arg, string constraint, EnumContext context)
   {
     TryingMatch(arg, constraint);
 
-    if (arg.FullType.Equals(constraint, StringComparison.Ordinal)) {
-      return true;
-    }
+    return MatchArgOrType(arg.FullType, constraint, context, ArgAction);
 
-    if (context.GetTyped(arg.FullType, out IGqlpTypeParam? typeParam)) {
-      return typeParam.Constraint.Equals(constraint, StringComparison.Ordinal);
-    }
+    bool? ArgAction(IGqlpType type)
+    {
+      if (arg.EnumValue is null) {
+        if (arg.IsTypeParam
+            && MatchArgTypeParam(arg, constraint, context)) {
+          return true;
+        }
 
-    if (!context.GetTyped(arg.FullType, out IGqlpType? argType)) {
-      return false;
-    }
-
-    if (argType.Name.Equals(constraint, StringComparison.Ordinal)) {
-      return true;
-    }
-
-    if (arg.EnumValue is null) {
-      if (arg.IsTypeParam
-          && MatchArgTypeParam(arg, constraint, context)) {
+        if (context.GetType(constraint, out IGqlpDescribed? constraintType)
+            && !MatchConstraintType(arg, context, constraintType)) {
+          return false;
+        }
+      } else if (MatchArgLabel(arg, constraint, context)) {
         return true;
       }
 
-      if (context.GetType(constraint, out IGqlpDescribed? constraintType)
-          && !MatchConstraintType(arg, context, constraintType)) {
-        return false;
-      }
-    } else if (MatchArgLabel(arg, constraint, context)) {
-      return true;
+      return null;
     }
-
-    return _anyTypeMatcher.Matches(argType, constraint, context);
   }
 
   private static bool MatchArgTypeParam(IGqlpObjTypeArg arg, string constraint, EnumContext context)

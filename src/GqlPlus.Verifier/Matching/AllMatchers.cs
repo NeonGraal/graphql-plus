@@ -22,9 +22,9 @@ public static class AllMatchers
       .AddSameMatcher<IGqlpTypeSpecial, SimpleSameMatcher<IGqlpTypeSpecial>>()
       .AddSameMatcher<IGqlpUnion, SimpleSameMatcher<IGqlpUnion>>()
 
-      .AddSameMatcher<IGqlpDualObject, ParentSameMatcher<IGqlpObjBase, IGqlpDualObject>>()
-      .AddSameMatcher<IGqlpInputObject, ObjectSameMatcher<IGqlpInputObject>>()
-      .AddSameMatcher<IGqlpOutputObject, ObjectSameMatcher<IGqlpOutputObject>>()
+      .AddSameMatcher<IGqlpDualObject, ObjectSameMatcher<IGqlpDualObject>>()
+      .AddSameMatcher<IGqlpInputObject, MatchObjectSameDualBase<IGqlpInputObject>>()
+      .AddSameMatcher<IGqlpOutputObject, MatchObjectSameDualBase<IGqlpOutputObject>>()
     ;
 
   private static IServiceCollection AddMatcher<TType, TMatcher>(this IServiceCollection services)

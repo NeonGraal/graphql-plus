@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Matching;
 
 public class ObjArgMatcherTests
-  : MatcherTestsBase
+  : MatchTestsBase
 {
   internal ObjTypeArgMatcher Matcher { get; set; }
 

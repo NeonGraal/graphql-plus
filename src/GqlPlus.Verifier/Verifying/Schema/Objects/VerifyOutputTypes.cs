@@ -11,11 +11,9 @@ internal class VerifyOutputTypes(
     base.UsageField(field, usage, context);
 
     foreach (IGqlpInputParam parameter in field.Params) {
-      HashSet<TypeKind> inputKinds = context.FieldKinds;
-      inputKinds.Remove(TypeKind.Output);
-      inputKinds.Add(TypeKind.Input);
+      HashSet<TypeKind> inputKinds = [TypeKind.Input, .. context.FieldKinds.Where(k => k != TypeKind.Output)];
 
-      CheckTypeRef(context, parameter.Type, " Param", inputKinds);
+      CheckTypeRef(context, parameter.Type, "Param of " + usage.Name, inputKinds);
       context.CheckModifiers(parameter);
     }
   }

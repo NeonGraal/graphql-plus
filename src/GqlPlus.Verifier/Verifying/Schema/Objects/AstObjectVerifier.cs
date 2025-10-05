@@ -20,7 +20,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
     base.UsageValue(usage, context);
 
     if (usage.Parent is not null) {
-      CheckTypeRef(context, usage.Parent, " Parent", context.ParentKinds, false);
+      CheckTypeRef(context, usage.Parent, "Parent of " + usage.Name, context.ParentKinds, false);
     }
 
     UsageTypeParams(usage.Label, usage.TypeParams, context);
@@ -51,7 +51,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
       return;
     }
 
-    CheckTypeRef(context, field.Type, " Field");
+    CheckTypeRef(context, field.Type, "Field of " + usage.Name);
     context.CheckModifiers(field);
     CheckForSelf(new([field.Type.FullType], usage, "a field"), usage.Name, context);
   }
@@ -63,7 +63,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
       return;
     }
 
-    CheckTypeRef(context, alternate, "Alternate");
+    CheckTypeRef(context, alternate, "Alternate of " + usage.Name);
     context.CheckModifiers(alternate);
     CheckForSelf(new([alternate.FullType], usage, "an alternate"), usage.Name, context);
   }

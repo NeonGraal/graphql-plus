@@ -38,7 +38,7 @@ public static class SchemaObjectBuilderHelpers
   public static TObject Obj<TObject>(this IMockBuilder builder, TypeKind kind, string typeName, string parent = "", bool isTypeParam = false)
     where TObject : class, IGqlpObject
   {
-    TObject theObj = builder.Named<TObject>(typeName);
+    TObject theObj = builder.Named<TObject, IGqlpType>(typeName);
     theObj.Kind.Returns(kind);
     theObj.Label.Returns(kind.ToString());
     if (!string.IsNullOrWhiteSpace(parent)) {

@@ -1,12 +1,12 @@
 ﻿namespace GqlPlus.Matching;
 
 public class SpecialConstraintMatcherTests
-  : MatcherTestsBase
+  : MatchAnyTypesTestsBase
 {
   private readonly SpecialConstraintMatcher _sut;
 
   public SpecialConstraintMatcherTests()
-    => _sut = new(LoggerFactory);
+    => _sut = new(LoggerFactory, AnyTypeMatcher);
 
   [Theory, RepeatData]
   public void Matches_ReturnsExpected_WhenMatchingSpecialMember(string name, string constraint)

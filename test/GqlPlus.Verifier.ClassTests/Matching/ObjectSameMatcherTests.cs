@@ -1,14 +1,12 @@
 ﻿namespace GqlPlus.Matching;
 
-public abstract class ObjectSameMatcherTests<TObject>
-  : MatcherTestsBase
+public abstract class ObjectSameMatcherTests<TObject>(
+  TypeKind kind
+) : MatchTestsBase
   where TObject : class, IGqlpObject
 {
-  internal ObjectSameMatcher<TObject> Sut { get; }
-  protected TypeKind Kind { get; }
-
-  protected ObjectSameMatcherTests(TypeKind kind)
-    => (Kind, Sut) = (kind, new(LoggerFactory));
+  internal abstract ObjectSameMatcher<TObject> Sut { get; }
+  protected TypeKind Kind { get; } = kind;
 
   [Theory, RepeatData]
   public void Object_Matches_SameName_ReturnsTrue(string constraint)
@@ -53,41 +51,7 @@ public class DualObjectSameMatcherTests
 {
   public DualObjectSameMatcherTests()
     : base(TypeKind.Dual)
-  { }
-}
+    => Sut = new(LoggerFactory);
 
-public abstract class ObjectDualSameMatcherTests<TObject>(TypeKind kind)
-  : ObjectSameMatcherTests<TObject>(kind)
-  where TObject : class, IGqlpObject
-{
-  [Theory, RepeatData]
-  public void Object_Matches_DualParent_ReturnsTrue(string name, string parent, string constraint)
-  {
-    this.SkipEqual(name, parent);
-
-    TObject type = A.Obj<TObject>(Kind, name, parent);
-
-    IGqlpDualObject parentType = A.Obj<IGqlpDualObject>(Kind, parent, constraint);
-    Types[parent] = parentType;
-
-    bool result = Sut.Matches(type, constraint, Context);
-
-    result.ShouldBeTrue();
-  }
-}
-
-public class InputObjectSameMatcherTests
-  : ObjectDualSameMatcherTests<IGqlpInputObject>
-{
-  public InputObjectSameMatcherTests()
-    : base(TypeKind.Input)
-  { }
-}
-
-public class OutputObjectSameMatcherTests
-  : ObjectDualSameMatcherTests<IGqlpOutputObject>
-{
-  public OutputObjectSameMatcherTests()
-    : base(TypeKind.Output)
-  { }
+  internal override ObjectSameMatcher<IGqlpDualObject> Sut { get; }
 }

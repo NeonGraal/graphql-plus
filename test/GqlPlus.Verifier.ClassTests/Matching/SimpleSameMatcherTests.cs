@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Matching;
 
 public abstract class SimpleSameMatcherTests<TSimple>
-  : MatcherTestsBase
+  : MatchTestsBase
   where TSimple : class, IGqlpSimple
 {
   private readonly SimpleSameMatcher<TSimple> _sut;

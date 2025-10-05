@@ -3,9 +3,10 @@ using GqlPlus.Verifying.Schema;
 
 namespace GqlPlus.Matching;
 
-internal abstract class ConstraintMatcherBase<TType>(
-  ILoggerFactory logger
-) : MatcherLogger(logger)
+internal abstract class MatchConstraintBase<TType>(
+  ILoggerFactory logger,
+  Matcher<IGqlpType>.D anyTypeMatcher
+) : MatchAnyTypeLogger(logger, anyTypeMatcher)
   , IConstraintMatcher<TType>
   where TType : IGqlpType
 {

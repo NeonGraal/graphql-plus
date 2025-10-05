@@ -29,6 +29,7 @@ public interface IGqlpObjType
 public interface IGqlpObjectEnum
   : IGqlpError
 {
+  string EnumTypeName { get; }
   IGqlpEnumValue? EnumValue { get; }
 
   void SetEnumType(string enumType);

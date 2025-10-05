@@ -34,8 +34,13 @@
             "name": "RefGnrcValueOutp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "gnrcValueOutp"
+                "$tag": "_EnumValue",
+                "label": "gnrcValueOutp",
+                "name": "EnumGnrcValueOutp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -49,8 +54,13 @@
             "name": "RefGnrcValueOutp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "gnrcValueOutp"
+                "$tag": "_EnumValue",
+                "label": "gnrcValueOutp",
+                "name": "EnumGnrcValueOutp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }

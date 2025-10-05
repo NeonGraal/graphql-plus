@@ -7,15 +7,19 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefCnstPrntEnumDual
         typeArgs:
-        - !_ObjTypeArg
-          name: parentCnstPrntEnumDual
+        - !_EnumValue
+          label: parentCnstPrntEnumDual
+          name: ParentCnstPrntEnumDual
+          typeKind: !_SimpleKind Enum
     alternates:
     - !_ObjAlternate
       type: !_ObjBase
         name: RefCnstPrntEnumDual
         typeArgs:
-        - !_ObjTypeArg
-          name: parentCnstPrntEnumDual
+        - !_EnumValue
+          label: parentCnstPrntEnumDual
+          name: ParentCnstPrntEnumDual
+          typeKind: !_SimpleKind Enum
     name: CnstPrntEnumDual
     typeKind: !_TypeKind Dual
   !_Identifier EnumCnstPrntEnumDual: !_TypeEnum

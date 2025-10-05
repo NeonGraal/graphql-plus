@@ -181,13 +181,13 @@ Success
   _BasicValue
   |
   I@007/0037
-  Boolean
+  _DomainKind.Boolean
   I@007/0038
   _EnumValue
   I@007/0039
-  Number
+  _DomainKind.Number
   I@007/0040
-  String
+  _DomainKind.String
 }
 {
   !Du I@006/0043

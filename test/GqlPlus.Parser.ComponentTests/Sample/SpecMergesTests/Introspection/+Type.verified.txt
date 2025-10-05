@@ -139,10 +139,10 @@ Success
   Output
 }
 {
-  !Ou I@008/0032
+  !Du I@006/0032
   _TypeRef
   <
-    I@018/0032
+    I@016/0032
     $kind
     :_TypeKind
   >
@@ -150,7 +150,7 @@ Success
   I@007/0033
   _Named
   {
-    !OF I@009/0034
+    !DF I@009/0034
     typeKind
     :
     I@020/0034
@@ -158,7 +158,7 @@ Success
   }
 }
 {
-  !Ou I@008/0037
+  !Du I@006/0037
   _TypeSimple
   |
   I@007/0038

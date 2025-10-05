@@ -9,7 +9,7 @@ Success
   RefCnstDomEnumDual
   <
     I@045/0001
-    cnstDomEnumDual
+    EnumCnstDomEnumDual.cnstDomEnumDual
   >
 }
 {

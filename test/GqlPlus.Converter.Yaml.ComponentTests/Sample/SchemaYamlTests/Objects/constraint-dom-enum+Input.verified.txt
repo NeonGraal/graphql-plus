@@ -7,15 +7,19 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefCnstDomEnumInp
         typeArgs:
-        - !_ObjTypeArg
-          name: cnstDomEnumInp
+        - !_EnumValue
+          label: cnstDomEnumInp
+          name: EnumCnstDomEnumInp
+          typeKind: !_SimpleKind Enum
     alternates:
     - !_ObjAlternate
       type: !_ObjBase
         name: RefCnstDomEnumInp
         typeArgs:
-        - !_ObjTypeArg
-          name: cnstDomEnumInp
+        - !_EnumValue
+          label: cnstDomEnumInp
+          name: EnumCnstDomEnumInp
+          typeKind: !_SimpleKind Enum
     name: CnstDomEnumInp
     typeKind: !_TypeKind Input
   !_Identifier EnumCnstDomEnumInp: !_TypeEnum

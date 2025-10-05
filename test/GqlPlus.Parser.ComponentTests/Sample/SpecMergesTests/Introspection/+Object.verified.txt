@@ -263,11 +263,20 @@ Success
 {
   !Ou I@008/0065
   _ForParam
+  <
+    I@019/0065
+    $type
+    :_ObjFieldType
+  >
   |
   I@007/0066
   _ObjAlternate
   I@007/0067
   _ObjField
+  <
+    I@018/0067
+    $type
+  >
 }
 {
   !Ou I@008/0070

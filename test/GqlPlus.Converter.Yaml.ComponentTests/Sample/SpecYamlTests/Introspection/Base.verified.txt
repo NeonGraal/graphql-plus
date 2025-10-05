@@ -35,6 +35,9 @@ types: !_Map_Type
       object: _ForParam
       type: !_ObjBase
         name: _ObjField
+        typeArgs:
+        - !_ObjTypeArg
+          typeParam: type
     alternates:
     - !_ObjAlternate
       type: !_ObjBase
@@ -42,8 +45,17 @@ types: !_Map_Type
     - !_ObjAlternate
       type: !_ObjBase
         name: _ObjField
+        typeArgs:
+        - !_ObjTypeArg
+          typeParam: type
     name: _ForParam
     typeKind: !_TypeKind Output
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _ObjFieldType
+        typeKind: !_TypeKind Output
+      name: type
   !_Identifier _ObjAlternate: !_TypeOutput
     allAlternates:
     - !_ObjectFor(_ObjAlternate)

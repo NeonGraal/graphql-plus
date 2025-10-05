@@ -448,29 +448,29 @@ types: !_Map_Type
       name: _SimpleKind
       typeKind: !_SimpleKind Enum
     typeKind: !_TypeKind Enum
-  !_Identifier _TypeRef: !_TypeOutput
+  !_Identifier _TypeRef: !_TypeDual
     allFields:
-    - !_ObjectFor(_OutputField)
+    - !_ObjectFor(_DualField)
       name: typeKind
       object: _TypeRef
       type: !_ObjBase
         typeParam: kind
     fields:
-    - !_OutputField
+    - !_DualField
       name: typeKind
       type: !_ObjBase
         typeParam: kind
     name: _TypeRef
     parent: !_ObjBase
       name: _Named
-    typeKind: !_TypeKind Output
+    typeKind: !_TypeKind Dual
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
         name: _TypeKind
         typeKind: !_TypeKind Enum
       name: kind
-  !_Identifier _TypeSimple: !_TypeOutput
+  !_Identifier _TypeSimple: !_TypeDual
     allAlternates:
     - !_ObjectFor(_ObjAlternate)
       object: _TypeSimple
@@ -542,4 +542,4 @@ types: !_Map_Type
           name: _TypeKind
           typeKind: !_SimpleKind Enum
     name: _TypeSimple
-    typeKind: !_TypeKind Output
+    typeKind: !_TypeKind Dual

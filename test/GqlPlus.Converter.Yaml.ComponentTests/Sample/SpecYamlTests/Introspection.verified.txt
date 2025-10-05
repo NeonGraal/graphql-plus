@@ -20,7 +20,7 @@ errors:
   _message: In _BaseType can't get model for type '_Aliased'
 - !_Error
   _kind: !_TokenKind End
-  _message: In _TypeRef can't get model for type '_Named'
+  _message: In _DomainRef can't get model for type '_TypeRef'
 - !_Error
   _kind: !_TokenKind End
   _message: In _DomainItem can't get model for type '_DomainTrueFalse'
@@ -35,16 +35,31 @@ errors:
   _message: In _DomainItem can't get model for type '_DomainRegex'
 - !_Error
   _kind: !_TokenKind End
+  _message: In _EnumValue can't get model for type '_TypeRef'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _UnionRef can't get model for type '_TypeRef'
+- !_Error
+  _kind: !_TokenKind End
   _message: In _ObjTypeParam can't get model for type '_Named'
 - !_Error
   _kind: !_TokenKind End
   _message: In _ObjBase can't get model for type '_Named'
 - !_Error
   _kind: !_TokenKind End
+  _message: In _ObjTypeArg can't get model for type '_TypeRef'
+- !_Error
+  _kind: !_TokenKind End
   _message: In _TypeParam can't get model for type '_Described'
 - !_Error
   _kind: !_TokenKind End
+  _message: In _ObjAlternateEnum can't get model for type '_TypeRef'
+- !_Error
+  _kind: !_TokenKind End
   _message: In _ObjField can't get model for type '_Aliased'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _ObjFieldEnum can't get model for type '_TypeRef'
 types: !_Map_Type
   !_Identifier _Aliased: !_TypeDual
     allFields:
@@ -212,7 +227,7 @@ types: !_Map_Type
     - !_ObjectFor(_ObjAlternate)
       object: _BasicValue
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     - !_ObjectFor(_ObjAlternate)
       object: _BasicValue
       type: !_ObjBase
@@ -220,24 +235,24 @@ types: !_Map_Type
     - !_ObjectFor(_ObjAlternate)
       object: _BasicValue
       type: !_ObjBase
-        name: Number
+        name: _DomainKind
     - !_ObjectFor(_ObjAlternate)
       object: _BasicValue
       type: !_ObjBase
-        name: String
+        name: _DomainKind
     alternates:
     - !_ObjAlternate
       type: !_ObjBase
-        name: Boolean
+        name: _DomainKind
     - !_ObjAlternate
       type: !_ObjBase
         name: _EnumValue
     - !_ObjAlternate
       type: !_ObjBase
-        name: Number
+        name: _DomainKind
     - !_ObjAlternate
       type: !_ObjBase
-        name: String
+        name: _DomainKind
     name: _BasicValue
     typeKind: !_TypeKind Output
   !_Identifier _Categories: !_TypeOutput
@@ -727,11 +742,6 @@ types: !_Map_Type
   !_Identifier _DomainRef: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      name: typeKind
-      object: _TypeRef
-      type: !_ObjBase
-        name: _TypeKind
-    - !_ObjectFor(_OutputField)
       name: domainKind
       object: _DomainRef
       type: !_ObjBase
@@ -818,11 +828,6 @@ types: !_Map_Type
         typeParam: value
     allFields:
     - !_ObjectFor(_OutputField)
-      name: typeKind
-      object: _TypeRef
-      type: !_ObjBase
-        name: _TypeKind
-    - !_ObjectFor(_OutputField)
       name: domainKind
       object: _DomainRef
       type: !_ObjBase
@@ -908,11 +913,6 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier _EnumValue: !_TypeOutput
     allFields:
-    - !_ObjectFor(_OutputField)
-      name: typeKind
-      object: _TypeRef
-      type: !_ObjBase
-        name: _TypeKind
     - !_ObjectFor(_OutputField)
       name: label
       object: _EnumValue
@@ -1023,6 +1023,9 @@ types: !_Map_Type
       object: _ForParam
       type: !_ObjBase
         name: _ObjField
+        typeArgs:
+        - !_ObjTypeArg
+          typeParam: type
     alternates:
     - !_ObjAlternate
       type: !_ObjBase
@@ -1030,8 +1033,17 @@ types: !_Map_Type
     - !_ObjAlternate
       type: !_ObjBase
         name: _ObjField
+        typeArgs:
+        - !_ObjTypeArg
+          typeParam: type
     name: _ForParam
     typeKind: !_TypeKind Output
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _ObjFieldType
+        typeKind: !_TypeKind Output
+      name: type
   !_Identifier _Identifier: !_DomainString
     allItems:
     - !_DomainItem(_DomainRegex)
@@ -1361,11 +1373,6 @@ types: !_Map_Type
   !_Identifier _ObjAlternateEnum: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      name: typeKind
-      object: _TypeRef
-      type: !_ObjBase
-        name: _TypeKind
-    - !_ObjectFor(_OutputField)
       name: label
       object: _ObjAlternateEnum
       type: !_ObjBase
@@ -1436,11 +1443,6 @@ types: !_Map_Type
   !_Identifier _ObjFieldEnum: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      name: typeKind
-      object: _TypeRef
-      type: !_ObjBase
-        name: _TypeKind
-    - !_ObjectFor(_OutputField)
       name: label
       object: _ObjFieldEnum
       type: !_ObjBase
@@ -1503,11 +1505,6 @@ types: !_Map_Type
       type: !_ObjBase
         name: _TypeParam
     allFields:
-    - !_ObjectFor(_OutputField)
-      name: typeKind
-      object: _TypeRef
-      type: !_ObjBase
-        name: _TypeKind
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: label
@@ -2503,29 +2500,40 @@ types: !_Map_Type
     parent: !_ObjBase
       name: _Described
     typeKind: !_TypeKind Output
-  !_Identifier _TypeRef: !_TypeOutput
+  !_Identifier _TypeRef: !_TypeDual
     allFields:
-    - !_ObjectFor(_OutputField)
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
+      name: description
+      object: _Described
+      type: !_ObjBase
+        name: String
+    - !_ObjectFor(_DualField)
+      name: name
+      object: _Named
+      type: !_ObjBase
+        name: _Identifier
+    - !_ObjectFor(_DualField)
       name: typeKind
       object: _TypeRef
       type: !_ObjBase
         typeParam: kind
     fields:
-    - !_OutputField
+    - !_DualField
       name: typeKind
       type: !_ObjBase
         typeParam: kind
     name: _TypeRef
     parent: !_ObjBase
       name: _Named
-    typeKind: !_TypeKind Output
+    typeKind: !_TypeKind Dual
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
         name: _TypeKind
         typeKind: !_TypeKind Enum
       name: kind
-  !_Identifier _TypeSimple: !_TypeOutput
+  !_Identifier _TypeSimple: !_TypeDual
     allAlternates:
     - !_ObjectFor(_ObjAlternate)
       object: _TypeSimple
@@ -2597,7 +2605,7 @@ types: !_Map_Type
           name: _TypeKind
           typeKind: !_SimpleKind Enum
     name: _TypeSimple
-    typeKind: !_TypeKind Output
+    typeKind: !_TypeKind Dual
   !_Identifier _TypeUnion: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
@@ -2638,11 +2646,6 @@ types: !_Map_Type
   !_Identifier _UnionMember: !_TypeOutput
     allFields:
     - !_ObjectFor(_OutputField)
-      name: typeKind
-      object: _TypeRef
-      type: !_ObjBase
-        name: _SimpleKind
-    - !_ObjectFor(_OutputField)
       name: union
       object: _UnionMember
       type: !_ObjBase
@@ -2657,12 +2660,6 @@ types: !_Map_Type
       name: _UnionRef
     typeKind: !_TypeKind Output
   !_Identifier _UnionRef: !_TypeOutput
-    allFields:
-    - !_ObjectFor(_OutputField)
-      name: typeKind
-      object: _TypeRef
-      type: !_ObjBase
-        name: _SimpleKind
     name: _UnionRef
     parent: !_ObjBase
       name: _TypeRef

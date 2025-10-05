@@ -599,10 +599,10 @@
       }
     },
     "_TypeRef": {
-      "$tag": "_TypeOutput",
+      "$tag": "_TypeDual",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$tag": "_ObjectFor(_DualField)",
           "name": "typeKind",
           "object": "_TypeRef",
           "type": {
@@ -613,7 +613,7 @@
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$tag": "_DualField",
           "name": "typeKind",
           "type": {
             "$tag": "_ObjBase",
@@ -628,7 +628,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "value": "Dual"
       },
       "typeParams": [
         {
@@ -646,7 +646,7 @@
       ]
     },
     "_TypeSimple": {
-      "$tag": "_TypeOutput",
+      "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_ObjAlternate)",
@@ -802,7 +802,7 @@
       "name": "_TypeSimple",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "value": "Dual"
       }
     }
   }

@@ -32,6 +32,7 @@ internal class MergeAllTypes(
   private static void FixupEnums(IEnumerable<IGqlpType> items)
   {
     IGqlpType[] types = [.. items];
+    HashSet<string> typeNames = [.. types.SelectMany(t => t.Aliases.Append(t.Name))];
 
     Map<string> enumValues = GetEnumValues(
       BuiltIn.Basic.OfType<EnumDeclAst>()
@@ -40,18 +41,18 @@ internal class MergeAllTypes(
 
     foreach (IGqlpObject output in types.OfType<IGqlpObject>()) {
       foreach (IGqlpObjAlt alternate in output.Alternates) {
-        FixupType(alternate, enumValues);
+        FixupType(alternate, typeNames, enumValues);
 
         foreach (IGqlpObjTypeArg argument in alternate.Args) {
-          FixupType(argument, enumValues);
+          FixupType(argument, typeNames, enumValues);
         }
       }
 
       foreach (IGqlpObjField field in output.Fields) {
-        FixupType(field, enumValues);
+        FixupType(field, typeNames, enumValues);
 
         foreach (IGqlpObjTypeArg argument in field.Type.Args) {
-          FixupType(argument, enumValues);
+          FixupType(argument, typeNames, enumValues);
         }
       }
     }
@@ -72,13 +73,24 @@ internal class MergeAllTypes(
       .Where(g => g.Count() == 1)
       .ToMap(e => e.Key, e => e.First());
 
-  private static void FixupType(IGqlpObjectEnum type, Map<string> enumValues)
+  private static void FixupType(IGqlpObjectEnum type, HashSet<string> typeNames, Map<string> enumValues)
   {
-    if (type.EnumValue is not null) {
-      if (string.IsNullOrWhiteSpace(type.EnumValue.EnumType)
-        && enumValues.TryGetValue(type.EnumValue.EnumLabel.IfWhiteSpace(), out string? enumType)) {
-        type.SetEnumType(enumType);
+    string? enumType = null;
+
+    if (type.EnumValue is null) {
+      if (string.IsNullOrWhiteSpace(type.EnumTypeName) || typeNames.Contains(type.EnumTypeName)) {
+        return;
       }
+
+      enumValues.TryGetValue(type.EnumTypeName, out enumType);
+    } else {
+      if (string.IsNullOrWhiteSpace(type.EnumValue.EnumType)) {
+        enumValues.TryGetValue(type.EnumValue.EnumLabel.IfWhiteSpace(), out enumType);
+      }
+    }
+
+    if (!string.IsNullOrWhiteSpace(enumType)) {
+      type.SetEnumType(enumType!);
     }
   }
 }

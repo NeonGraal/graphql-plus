@@ -471,10 +471,10 @@ Success
   Output
 }
 {
-  !Ou I@008/0121
+  !Du I@006/0121
   _TypeRef
   <
-    I@018/0121
+    I@016/0121
     $kind
     :_TypeKind
   >
@@ -482,7 +482,7 @@ Success
   I@007/0122
   _Named
   {
-    !OF I@009/0123
+    !DF I@009/0123
     typeKind
     :
     I@020/0123
@@ -490,7 +490,7 @@ Success
   }
 }
 {
-  !Ou I@008/0126
+  !Du I@006/0126
   _TypeSimple
   |
   I@007/0127
@@ -799,13 +799,13 @@ Success
   _BasicValue
   |
   I@007/0192
-  Boolean
+  _DomainKind.Boolean
   I@007/0193
   _EnumValue
   I@007/0194
-  Number
+  _DomainKind.Number
   I@007/0195
-  String
+  _DomainKind.String
 }
 {
   !Du I@006/0198
@@ -1263,11 +1263,20 @@ Success
 {
   !Ou I@008/0326
   _ForParam
+  <
+    I@019/0326
+    $type
+    :_ObjFieldType
+  >
   |
   I@007/0327
   _ObjAlternate
   I@007/0328
   _ObjField
+  <
+    I@018/0328
+    $type
+  >
 }
 {
   !Ou I@008/0331

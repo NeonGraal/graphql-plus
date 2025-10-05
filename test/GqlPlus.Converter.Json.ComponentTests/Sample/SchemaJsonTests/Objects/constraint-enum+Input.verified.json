@@ -13,8 +13,13 @@
             "name": "RefCnstEnumInp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "cnstEnumInp"
+                "$tag": "_EnumValue",
+                "label": "cnstEnumInp",
+                "name": "EnumCnstEnumInp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -28,8 +33,13 @@
             "name": "RefCnstEnumInp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "cnstEnumInp"
+                "$tag": "_EnumValue",
+                "label": "cnstEnumInp",
+                "name": "EnumCnstEnumInp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }

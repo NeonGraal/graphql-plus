@@ -7,15 +7,19 @@ types: !_Map_Type
         type: !_ObjBase
           name: RefCnstPrntEnumOutp
           typeArgs:
-            - !_ObjTypeArg
-              name: parentCnstPrntEnumOutp
+            - !_EnumValue
+              label: parentCnstPrntEnumOutp
+              name: ParentCnstPrntEnumOutp
+              typeKind: !_SimpleKind Enum
     alternates:
       - !_ObjAlternate
         type: !_ObjBase
           name: RefCnstPrntEnumOutp
           typeArgs:
-            - !_ObjTypeArg
-              name: parentCnstPrntEnumOutp
+            - !_EnumValue
+              label: parentCnstPrntEnumOutp
+              name: ParentCnstPrntEnumOutp
+              typeKind: !_SimpleKind Enum
     name: CnstPrntEnumOutp
     typeKind: !_TypeKind Output
   !_Identifier EnumCnstPrntEnumOutp: !_TypeEnum

@@ -9,7 +9,7 @@ Success
   RefCnstEnumPrntOutp
   <
     I@049/0001
-    cnstEnumPrntOutp
+    EnumCnstEnumPrntOutp.cnstEnumPrntOutp
   >
 }
 {

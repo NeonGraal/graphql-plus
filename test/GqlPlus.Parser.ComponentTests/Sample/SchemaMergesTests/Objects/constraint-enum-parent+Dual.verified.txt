@@ -9,7 +9,7 @@ Success
   RefCnstEnumPrntDual
   <
     I@047/0001
-    cnstEnumPrntDual
+    EnumCnstEnumPrntDual.cnstEnumPrntDual
   >
 }
 {

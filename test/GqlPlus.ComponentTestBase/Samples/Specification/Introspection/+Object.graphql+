@@ -62,9 +62,9 @@ output _ObjFieldEnum {
         label: _Identifier
     }
 
-output _ForParam {
+output _ForParam<$type:_ObjFieldType> {
     | _ObjAlternate
-    | _ObjField
+    | _ObjField<$type>
     }
 
 output _TypeDual {

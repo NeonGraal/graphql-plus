@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using System.Security.AccessControl;
 using GqlPlus.Abstractions.Schema;
 using GqlPlus.Ast;
 
@@ -68,10 +67,8 @@ public static class SchemaObjectBuilderHelpers
     string label = typeof(TBase).Name[5..^4];
     if (isTypeParam) {
       theType.IsTypeParam.Returns(true);
-      theType.TypeName.Returns("$" + typeName);
       theType.FullType.Returns("$" + typeName);
     } else {
-      theType.TypeName.Returns(typeName);
       theType.FullType.Returns(typeName);
     }
 
@@ -100,6 +97,7 @@ public static class SchemaObjectBuilderHelpers
       theArg.FullType.Returns("$" + typeName);
     } else {
       theArg.TypeName.Returns(typeName);
+      theArg.EnumTypeName.Returns(typeName);
       theArg.FullType.Returns(typeName);
     }
 

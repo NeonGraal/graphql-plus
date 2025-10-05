@@ -9,7 +9,7 @@ Success
   RefCnstPrntEnumOutp
   <
     I@049/0001
-    parentCnstPrntEnumOutp
+    ParentCnstPrntEnumOutp.parentCnstPrntEnumOutp
   >
 }
 {

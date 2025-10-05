@@ -15,6 +15,7 @@ internal abstract record class AstObjField(
   public IGqlpModifier[] Modifiers { get; set; } = [];
   public IGqlpEnumValue? EnumValue { get; set; }
 
+  string IGqlpObjectEnum.EnumTypeName => "";
   void IGqlpObjectEnum.SetEnumType(string enumType)
   {
     Type.SetName(enumType);
@@ -25,14 +26,14 @@ internal abstract record class AstObjField(
     }
   }
 
+  IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
+
   protected internal IEnumerable<string?> TypeFields(string suffix = "")
     => string.IsNullOrWhiteSpace(EnumValue?.EnumLabel)
         ? [":", .. Type.GetFields(), .. Modifiers.AsString(), suffix]
         : ["=", .. Type.GetFields(), "." + EnumValue?.EnumLabel];
 
   public string ModifiedType => Type.GetFields().Skip(2).Concat(Modifiers.AsString()).Joined();
-
-  IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
 
   public virtual bool Equals(AstObjField? other)
     => other is IGqlpObjField field && Equals(field);

@@ -13,8 +13,13 @@
             "name": "RefCnstEnumDual",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "cnstEnumDual"
+                "$tag": "_EnumValue",
+                "label": "cnstEnumDual",
+                "name": "EnumCnstEnumDual",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -28,8 +33,13 @@
             "name": "RefCnstEnumDual",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "cnstEnumDual"
+                "$tag": "_EnumValue",
+                "label": "cnstEnumDual",
+                "name": "EnumCnstEnumDual",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }

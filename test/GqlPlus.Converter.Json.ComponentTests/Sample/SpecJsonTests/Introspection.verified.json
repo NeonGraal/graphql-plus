@@ -55,7 +55,7 @@
         "$tag": "_TokenKind",
         "value": "End"
       },
-      "_message": "In _TypeRef can\u0027t get model for type \u0027_Named\u0027"
+      "_message": "In _DomainRef can\u0027t get model for type \u0027_TypeRef\u0027"
     },
     {
       "$tag": "_Error",
@@ -95,6 +95,22 @@
         "$tag": "_TokenKind",
         "value": "End"
       },
+      "_message": "In _EnumValue can\u0027t get model for type \u0027_TypeRef\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _UnionRef can\u0027t get model for type \u0027_TypeRef\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _ObjTypeParam can\u0027t get model for type \u0027_Named\u0027"
     },
     {
@@ -111,6 +127,14 @@
         "$tag": "_TokenKind",
         "value": "End"
       },
+      "_message": "In _ObjTypeArg can\u0027t get model for type \u0027_TypeRef\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _TypeParam can\u0027t get model for type \u0027_Described\u0027"
     },
     {
@@ -119,7 +143,23 @@
         "$tag": "_TokenKind",
         "value": "End"
       },
+      "_message": "In _ObjAlternateEnum can\u0027t get model for type \u0027_TypeRef\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
       "_message": "In _ObjField can\u0027t get model for type \u0027_Aliased\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _ObjFieldEnum can\u0027t get model for type \u0027_TypeRef\u0027"
     }
   ],
   "types": {
@@ -504,7 +544,7 @@
           "object": "_BasicValue",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         },
         {
@@ -520,7 +560,7 @@
           "object": "_BasicValue",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Number"
+            "name": "_DomainKind"
           }
         },
         {
@@ -528,7 +568,7 @@
           "object": "_BasicValue",
           "type": {
             "$tag": "_ObjBase",
-            "name": "String"
+            "name": "_DomainKind"
           }
         }
       ],
@@ -537,7 +577,7 @@
           "$tag": "_ObjAlternate",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         },
         {
@@ -551,14 +591,14 @@
           "$tag": "_ObjAlternate",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Number"
+            "name": "_DomainKind"
           }
         },
         {
           "$tag": "_ObjAlternate",
           "type": {
             "$tag": "_ObjBase",
-            "name": "String"
+            "name": "_DomainKind"
           }
         }
       ],
@@ -1704,15 +1744,6 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "typeKind",
-          "object": "_TypeRef",
-          "type": {
-            "$tag": "_ObjBase",
-            "name": "_TypeKind"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
           "name": "domainKind",
           "object": "_DomainRef",
           "type": {
@@ -1899,15 +1930,6 @@
         }
       ],
       "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "typeKind",
-          "object": "_TypeRef",
-          "type": {
-            "$tag": "_ObjBase",
-            "name": "_TypeKind"
-          }
-        },
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "domainKind",
@@ -2098,15 +2120,6 @@
     "_EnumValue": {
       "$tag": "_TypeOutput",
       "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "typeKind",
-          "object": "_TypeRef",
-          "type": {
-            "$tag": "_ObjBase",
-            "name": "_TypeKind"
-          }
-        },
         {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "label",
@@ -2394,7 +2407,13 @@
           "object": "_ForParam",
           "type": {
             "$tag": "_ObjBase",
-            "name": "_ObjField"
+            "name": "_ObjField",
+            "typeArgs": [
+              {
+                "$tag": "_ObjTypeArg",
+                "typeParam": "type"
+              }
+            ]
           }
         }
       ],
@@ -2410,7 +2429,13 @@
           "$tag": "_ObjAlternate",
           "type": {
             "$tag": "_ObjBase",
-            "name": "_ObjField"
+            "name": "_ObjField",
+            "typeArgs": [
+              {
+                "$tag": "_ObjTypeArg",
+                "typeParam": "type"
+              }
+            ]
           }
         }
       ],
@@ -2418,7 +2443,21 @@
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
-      }
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ObjFieldType",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "type"
+        }
+      ]
     },
     "_Identifier": {
       "$tag": "_DomainString",
@@ -3140,15 +3179,6 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "typeKind",
-          "object": "_TypeRef",
-          "type": {
-            "$tag": "_ObjBase",
-            "name": "_TypeKind"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
           "name": "label",
           "object": "_ObjAlternateEnum",
           "type": {
@@ -3454,15 +3484,6 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "typeKind",
-          "object": "_TypeRef",
-          "type": {
-            "$tag": "_ObjBase",
-            "name": "_TypeKind"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
           "name": "label",
           "object": "_ObjFieldEnum",
           "type": {
@@ -3611,15 +3632,6 @@
         }
       ],
       "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "typeKind",
-          "object": "_TypeRef",
-          "type": {
-            "$tag": "_ObjBase",
-            "name": "_TypeKind"
-          }
-        },
         {
           "$tag": "_ObjectFor(_OutputField)",
           "modifiers": [
@@ -5931,10 +5943,37 @@
       }
     },
     "_TypeRef": {
-      "$tag": "_TypeOutput",
+      "$tag": "_TypeDual",
       "allFields": [
         {
-          "$tag": "_ObjectFor(_OutputField)",
+          "$tag": "_ObjectFor(_DualField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "description",
+          "object": "_Described",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "String"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "name",
+          "object": "_Named",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_Identifier"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_DualField)",
           "name": "typeKind",
           "object": "_TypeRef",
           "type": {
@@ -5945,7 +5984,7 @@
       ],
       "fields": [
         {
-          "$tag": "_OutputField",
+          "$tag": "_DualField",
           "name": "typeKind",
           "type": {
             "$tag": "_ObjBase",
@@ -5960,7 +5999,7 @@
       },
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "value": "Dual"
       },
       "typeParams": [
         {
@@ -5978,7 +6017,7 @@
       ]
     },
     "_TypeSimple": {
-      "$tag": "_TypeOutput",
+      "$tag": "_TypeDual",
       "allAlternates": [
         {
           "$tag": "_ObjectFor(_ObjAlternate)",
@@ -6134,7 +6173,7 @@
       "name": "_TypeSimple",
       "typeKind": {
         "$tag": "_TypeKind",
-        "value": "Output"
+        "value": "Dual"
       }
     },
     "_TypeUnion": {
@@ -6229,15 +6268,6 @@
       "allFields": [
         {
           "$tag": "_ObjectFor(_OutputField)",
-          "name": "typeKind",
-          "object": "_TypeRef",
-          "type": {
-            "$tag": "_ObjBase",
-            "name": "_SimpleKind"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_OutputField)",
           "name": "union",
           "object": "_UnionMember",
           "type": {
@@ -6268,17 +6298,6 @@
     },
     "_UnionRef": {
       "$tag": "_TypeOutput",
-      "allFields": [
-        {
-          "$tag": "_ObjectFor(_OutputField)",
-          "name": "typeKind",
-          "object": "_TypeRef",
-          "type": {
-            "$tag": "_ObjBase",
-            "name": "_SimpleKind"
-          }
-        }
-      ],
       "name": "_UnionRef",
       "parent": {
         "$tag": "_ObjBase",

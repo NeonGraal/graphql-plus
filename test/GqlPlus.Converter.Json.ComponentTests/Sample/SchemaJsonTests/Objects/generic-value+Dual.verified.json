@@ -34,8 +34,13 @@
             "name": "RefGnrcValueDual",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "gnrcValueDual"
+                "$tag": "_EnumValue",
+                "label": "gnrcValueDual",
+                "name": "EnumGnrcValueDual",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -49,8 +54,13 @@
             "name": "RefGnrcValueDual",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "gnrcValueDual"
+                "$tag": "_EnumValue",
+                "label": "gnrcValueDual",
+                "name": "EnumGnrcValueDual",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }

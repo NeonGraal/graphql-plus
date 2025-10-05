@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast;
+﻿using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
@@ -15,6 +13,7 @@ public sealed record class ObjTypeArgAst(
 
   public IGqlpEnumValue? EnumValue { get; set; }
 
+  string IGqlpObjectEnum.EnumTypeName => IsTypeParam ? "" : Name;
   void IGqlpObjectEnum.SetEnumType(string enumType)
   {
     if (EnumValue == null) {

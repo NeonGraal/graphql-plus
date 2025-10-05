@@ -9,7 +9,7 @@ Success
   RefCnstDomEnumInp
   <
     I@044/0001
-    cnstDomEnumInp
+    EnumCnstDomEnumInp.cnstDomEnumInp
   >
 }
 {

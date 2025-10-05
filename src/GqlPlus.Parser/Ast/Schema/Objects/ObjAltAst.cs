@@ -18,6 +18,7 @@ internal record class ObjAltAst(
 
   IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
 
+  string IGqlpObjectEnum.EnumTypeName => IsTypeParam ? "" : Name;
   void IGqlpObjectEnum.SetEnumType(string enumType)
   {
     if (EnumValue == null) {

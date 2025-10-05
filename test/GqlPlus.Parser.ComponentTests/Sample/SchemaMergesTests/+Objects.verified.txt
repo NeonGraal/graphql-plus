@@ -756,7 +756,7 @@ Success
   RefCnstDomEnumDual
   <
     I@045/0001
-    cnstDomEnumDual
+    EnumCnstDomEnumDual.cnstDomEnumDual
   >
 }
 {
@@ -799,7 +799,7 @@ Success
   RefCnstDomEnumInp
   <
     I@044/0001
-    cnstDomEnumInp
+    EnumCnstDomEnumInp.cnstDomEnumInp
   >
 }
 {
@@ -842,7 +842,7 @@ Success
   RefCnstDomEnumOutp
   <
     I@047/0001
-    cnstDomEnumOutp
+    EnumCnstDomEnumOutp.cnstDomEnumOutp
   >
 }
 {
@@ -885,7 +885,7 @@ Success
   RefCnstEnumDual
   <
     I@039/0001
-    cnstEnumDual
+    EnumCnstEnumDual.cnstEnumDual
   >
 }
 {
@@ -918,7 +918,7 @@ Success
   RefCnstEnumInp
   <
     I@038/0001
-    cnstEnumInp
+    EnumCnstEnumInp.cnstEnumInp
   >
 }
 {
@@ -951,7 +951,7 @@ Success
   RefCnstEnumOutp
   <
     I@041/0001
-    cnstEnumOutp
+    EnumCnstEnumOutp.cnstEnumOutp
   >
 }
 {
@@ -984,7 +984,7 @@ Success
   RefCnstEnumPrntDual
   <
     I@047/0001
-    cnstEnumPrntDual
+    EnumCnstEnumPrntDual.cnstEnumPrntDual
   >
 }
 {
@@ -1024,7 +1024,7 @@ Success
   RefCnstEnumPrntInp
   <
     I@046/0001
-    cnstEnumPrntInp
+    EnumCnstEnumPrntInp.cnstEnumPrntInp
   >
 }
 {
@@ -1064,7 +1064,7 @@ Success
   RefCnstEnumPrntOutp
   <
     I@049/0001
-    cnstEnumPrntOutp
+    EnumCnstEnumPrntOutp.cnstEnumPrntOutp
   >
 }
 {
@@ -1779,7 +1779,7 @@ Success
   RefCnstPrntEnumDual
   <
     I@047/0001
-    parentCnstPrntEnumDual
+    ParentCnstPrntEnumDual.parentCnstPrntEnumDual
   >
 }
 {
@@ -1819,7 +1819,7 @@ Success
   RefCnstPrntEnumInp
   <
     I@046/0001
-    parentCnstPrntEnumInp
+    ParentCnstPrntEnumInp.parentCnstPrntEnumInp
   >
 }
 {
@@ -1859,7 +1859,7 @@ Success
   RefCnstPrntEnumOutp
   <
     I@049/0001
-    parentCnstPrntEnumOutp
+    ParentCnstPrntEnumOutp.parentCnstPrntEnumOutp
   >
 }
 {
@@ -5004,7 +5004,7 @@ Success
   RefGnrcValueDual
   <
     I@041/0001
-    gnrcValueDual
+    EnumGnrcValueDual.gnrcValueDual
   >
 }
 {
@@ -5037,7 +5037,7 @@ Success
   RefGnrcValueInp
   <
     I@040/0001
-    gnrcValueInp
+    EnumGnrcValueInp.gnrcValueInp
   >
 }
 {
@@ -5070,7 +5070,7 @@ Success
   RefGnrcValueOutp
   <
     I@043/0001
-    gnrcValueOutp
+    EnumGnrcValueOutp.gnrcValueOutp
   >
 }
 {

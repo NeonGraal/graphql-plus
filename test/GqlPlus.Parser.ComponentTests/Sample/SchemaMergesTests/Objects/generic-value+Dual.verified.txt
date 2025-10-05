@@ -9,7 +9,7 @@ Success
   RefGnrcValueDual
   <
     I@041/0001
-    gnrcValueDual
+    EnumGnrcValueDual.gnrcValueDual
   >
 }
 {

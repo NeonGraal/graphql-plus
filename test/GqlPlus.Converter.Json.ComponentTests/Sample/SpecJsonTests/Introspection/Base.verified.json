@@ -84,7 +84,13 @@
           "object": "_ForParam",
           "type": {
             "$tag": "_ObjBase",
-            "name": "_ObjField"
+            "name": "_ObjField",
+            "typeArgs": [
+              {
+                "$tag": "_ObjTypeArg",
+                "typeParam": "type"
+              }
+            ]
           }
         }
       ],
@@ -100,7 +106,13 @@
           "$tag": "_ObjAlternate",
           "type": {
             "$tag": "_ObjBase",
-            "name": "_ObjField"
+            "name": "_ObjField",
+            "typeArgs": [
+              {
+                "$tag": "_ObjTypeArg",
+                "typeParam": "type"
+              }
+            ]
           }
         }
       ],
@@ -108,7 +120,21 @@
       "typeKind": {
         "$tag": "_TypeKind",
         "value": "Output"
-      }
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ObjFieldType",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "type"
+        }
+      ]
     },
     "_ObjAlternate": {
       "$tag": "_TypeOutput",

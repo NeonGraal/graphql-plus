@@ -1756,15 +1756,19 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefCnstDomEnumDual
         typeArgs:
-        - !_ObjTypeArg
-          name: cnstDomEnumDual
+        - !_EnumValue
+          label: cnstDomEnumDual
+          name: EnumCnstDomEnumDual
+          typeKind: !_SimpleKind Enum
     alternates:
     - !_ObjAlternate
       type: !_ObjBase
         name: RefCnstDomEnumDual
         typeArgs:
-        - !_ObjTypeArg
-          name: cnstDomEnumDual
+        - !_EnumValue
+          label: cnstDomEnumDual
+          name: EnumCnstDomEnumDual
+          typeKind: !_SimpleKind Enum
     name: CnstDomEnumDual
     typeKind: !_TypeKind Dual
   !_Identifier CnstDomEnumInp: !_TypeInput
@@ -1774,15 +1778,19 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefCnstDomEnumInp
         typeArgs:
-        - !_ObjTypeArg
-          name: cnstDomEnumInp
+        - !_EnumValue
+          label: cnstDomEnumInp
+          name: EnumCnstDomEnumInp
+          typeKind: !_SimpleKind Enum
     alternates:
     - !_ObjAlternate
       type: !_ObjBase
         name: RefCnstDomEnumInp
         typeArgs:
-        - !_ObjTypeArg
-          name: cnstDomEnumInp
+        - !_EnumValue
+          label: cnstDomEnumInp
+          name: EnumCnstDomEnumInp
+          typeKind: !_SimpleKind Enum
     name: CnstDomEnumInp
     typeKind: !_TypeKind Input
   !_Identifier CnstDomEnumOutp: !_TypeOutput
@@ -1792,15 +1800,19 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefCnstDomEnumOutp
         typeArgs:
-        - !_ObjTypeArg
-          name: cnstDomEnumOutp
+        - !_EnumValue
+          label: cnstDomEnumOutp
+          name: EnumCnstDomEnumOutp
+          typeKind: !_SimpleKind Enum
     alternates:
     - !_ObjAlternate
       type: !_ObjBase
         name: RefCnstDomEnumOutp
         typeArgs:
-        - !_ObjTypeArg
-          name: cnstDomEnumOutp
+        - !_EnumValue
+          label: cnstDomEnumOutp
+          name: EnumCnstDomEnumOutp
+          typeKind: !_SimpleKind Enum
     name: CnstDomEnumOutp
     typeKind: !_TypeKind Output
   !_Identifier CnstEnumDual: !_TypeDual
@@ -1810,15 +1822,19 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefCnstEnumDual
         typeArgs:
-        - !_ObjTypeArg
-          name: cnstEnumDual
+        - !_EnumValue
+          label: cnstEnumDual
+          name: EnumCnstEnumDual
+          typeKind: !_SimpleKind Enum
     alternates:
     - !_ObjAlternate
       type: !_ObjBase
         name: RefCnstEnumDual
         typeArgs:
-        - !_ObjTypeArg
-          name: cnstEnumDual
+        - !_EnumValue
+          label: cnstEnumDual
+          name: EnumCnstEnumDual
+          typeKind: !_SimpleKind Enum
     name: CnstEnumDual
     typeKind: !_TypeKind Dual
   !_Identifier CnstEnumInp: !_TypeInput
@@ -1828,15 +1844,19 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefCnstEnumInp
         typeArgs:
-        - !_ObjTypeArg
-          name: cnstEnumInp
+        - !_EnumValue
+          label: cnstEnumInp
+          name: EnumCnstEnumInp
+          typeKind: !_SimpleKind Enum
     alternates:
     - !_ObjAlternate
       type: !_ObjBase
         name: RefCnstEnumInp
         typeArgs:
-        - !_ObjTypeArg
-          name: cnstEnumInp
+        - !_EnumValue
+          label: cnstEnumInp
+          name: EnumCnstEnumInp
+          typeKind: !_SimpleKind Enum
     name: CnstEnumInp
     typeKind: !_TypeKind Input
   !_Identifier CnstEnumOutp: !_TypeOutput
@@ -1846,15 +1866,19 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefCnstEnumOutp
         typeArgs:
-        - !_ObjTypeArg
-          name: cnstEnumOutp
+        - !_EnumValue
+          label: cnstEnumOutp
+          name: EnumCnstEnumOutp
+          typeKind: !_SimpleKind Enum
     alternates:
     - !_ObjAlternate
       type: !_ObjBase
         name: RefCnstEnumOutp
         typeArgs:
-        - !_ObjTypeArg
-          name: cnstEnumOutp
+        - !_EnumValue
+          label: cnstEnumOutp
+          name: EnumCnstEnumOutp
+          typeKind: !_SimpleKind Enum
     name: CnstEnumOutp
     typeKind: !_TypeKind Output
   !_Identifier CnstEnumPrntDual: !_TypeDual
@@ -1864,15 +1888,19 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefCnstEnumPrntDual
         typeArgs:
-        - !_ObjTypeArg
-          name: cnstEnumPrntDual
+        - !_EnumValue
+          label: cnstEnumPrntDual
+          name: EnumCnstEnumPrntDual
+          typeKind: !_SimpleKind Enum
     alternates:
     - !_ObjAlternate
       type: !_ObjBase
         name: RefCnstEnumPrntDual
         typeArgs:
-        - !_ObjTypeArg
-          name: cnstEnumPrntDual
+        - !_EnumValue
+          label: cnstEnumPrntDual
+          name: EnumCnstEnumPrntDual
+          typeKind: !_SimpleKind Enum
     name: CnstEnumPrntDual
     typeKind: !_TypeKind Dual
   !_Identifier CnstEnumPrntInp: !_TypeInput
@@ -1882,15 +1910,19 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefCnstEnumPrntInp
         typeArgs:
-        - !_ObjTypeArg
-          name: cnstEnumPrntInp
+        - !_EnumValue
+          label: cnstEnumPrntInp
+          name: EnumCnstEnumPrntInp
+          typeKind: !_SimpleKind Enum
     alternates:
     - !_ObjAlternate
       type: !_ObjBase
         name: RefCnstEnumPrntInp
         typeArgs:
-        - !_ObjTypeArg
-          name: cnstEnumPrntInp
+        - !_EnumValue
+          label: cnstEnumPrntInp
+          name: EnumCnstEnumPrntInp
+          typeKind: !_SimpleKind Enum
     name: CnstEnumPrntInp
     typeKind: !_TypeKind Input
   !_Identifier CnstEnumPrntOutp: !_TypeOutput
@@ -1900,15 +1932,19 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefCnstEnumPrntOutp
         typeArgs:
-        - !_ObjTypeArg
-          name: cnstEnumPrntOutp
+        - !_EnumValue
+          label: cnstEnumPrntOutp
+          name: EnumCnstEnumPrntOutp
+          typeKind: !_SimpleKind Enum
     alternates:
     - !_ObjAlternate
       type: !_ObjBase
         name: RefCnstEnumPrntOutp
         typeArgs:
-        - !_ObjTypeArg
-          name: cnstEnumPrntOutp
+        - !_EnumValue
+          label: cnstEnumPrntOutp
+          name: EnumCnstEnumPrntOutp
+          typeKind: !_SimpleKind Enum
     name: CnstEnumPrntOutp
     typeKind: !_TypeKind Output
   !_Identifier CnstFieldDmnDual: !_TypeDual
@@ -2138,15 +2174,19 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefCnstPrntEnumDual
         typeArgs:
-        - !_ObjTypeArg
-          name: parentCnstPrntEnumDual
+        - !_EnumValue
+          label: parentCnstPrntEnumDual
+          name: ParentCnstPrntEnumDual
+          typeKind: !_SimpleKind Enum
     alternates:
     - !_ObjAlternate
       type: !_ObjBase
         name: RefCnstPrntEnumDual
         typeArgs:
-        - !_ObjTypeArg
-          name: parentCnstPrntEnumDual
+        - !_EnumValue
+          label: parentCnstPrntEnumDual
+          name: ParentCnstPrntEnumDual
+          typeKind: !_SimpleKind Enum
     name: CnstPrntEnumDual
     typeKind: !_TypeKind Dual
   !_Identifier CnstPrntEnumInp: !_TypeInput
@@ -2156,15 +2196,19 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefCnstPrntEnumInp
         typeArgs:
-        - !_ObjTypeArg
-          name: parentCnstPrntEnumInp
+        - !_EnumValue
+          label: parentCnstPrntEnumInp
+          name: ParentCnstPrntEnumInp
+          typeKind: !_SimpleKind Enum
     alternates:
     - !_ObjAlternate
       type: !_ObjBase
         name: RefCnstPrntEnumInp
         typeArgs:
-        - !_ObjTypeArg
-          name: parentCnstPrntEnumInp
+        - !_EnumValue
+          label: parentCnstPrntEnumInp
+          name: ParentCnstPrntEnumInp
+          typeKind: !_SimpleKind Enum
     name: CnstPrntEnumInp
     typeKind: !_TypeKind Input
   !_Identifier CnstPrntEnumOutp: !_TypeOutput
@@ -2174,15 +2218,19 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefCnstPrntEnumOutp
         typeArgs:
-        - !_ObjTypeArg
-          name: parentCnstPrntEnumOutp
+        - !_EnumValue
+          label: parentCnstPrntEnumOutp
+          name: ParentCnstPrntEnumOutp
+          typeKind: !_SimpleKind Enum
     alternates:
     - !_ObjAlternate
       type: !_ObjBase
         name: RefCnstPrntEnumOutp
         typeArgs:
-        - !_ObjTypeArg
-          name: parentCnstPrntEnumOutp
+        - !_EnumValue
+          label: parentCnstPrntEnumOutp
+          name: ParentCnstPrntEnumOutp
+          typeKind: !_SimpleKind Enum
     name: CnstPrntEnumOutp
     typeKind: !_TypeKind Output
   !_Identifier CnstPrntObjPrntDual: !_TypeDual
@@ -5429,15 +5477,19 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefGnrcValueDual
         typeArgs:
-        - !_ObjTypeArg
-          name: gnrcValueDual
+        - !_EnumValue
+          label: gnrcValueDual
+          name: EnumGnrcValueDual
+          typeKind: !_SimpleKind Enum
     alternates:
     - !_ObjAlternate
       type: !_ObjBase
         name: RefGnrcValueDual
         typeArgs:
-        - !_ObjTypeArg
-          name: gnrcValueDual
+        - !_EnumValue
+          label: gnrcValueDual
+          name: EnumGnrcValueDual
+          typeKind: !_SimpleKind Enum
     name: GnrcValueDual
     typeKind: !_TypeKind Dual
   !_Identifier GnrcValueInp: !_TypeInput
@@ -5447,15 +5499,19 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefGnrcValueInp
         typeArgs:
-        - !_ObjTypeArg
-          name: gnrcValueInp
+        - !_EnumValue
+          label: gnrcValueInp
+          name: EnumGnrcValueInp
+          typeKind: !_SimpleKind Enum
     alternates:
     - !_ObjAlternate
       type: !_ObjBase
         name: RefGnrcValueInp
         typeArgs:
-        - !_ObjTypeArg
-          name: gnrcValueInp
+        - !_EnumValue
+          label: gnrcValueInp
+          name: EnumGnrcValueInp
+          typeKind: !_SimpleKind Enum
     name: GnrcValueInp
     typeKind: !_TypeKind Input
   !_Identifier GnrcValueOutp: !_TypeOutput
@@ -5465,15 +5521,19 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefGnrcValueOutp
         typeArgs:
-        - !_ObjTypeArg
-          name: gnrcValueOutp
+        - !_EnumValue
+          label: gnrcValueOutp
+          name: EnumGnrcValueOutp
+          typeKind: !_SimpleKind Enum
     alternates:
     - !_ObjAlternate
       type: !_ObjBase
         name: RefGnrcValueOutp
         typeArgs:
-        - !_ObjTypeArg
-          name: gnrcValueOutp
+        - !_EnumValue
+          label: gnrcValueOutp
+          name: EnumGnrcValueOutp
+          typeKind: !_SimpleKind Enum
     name: GnrcValueOutp
     typeKind: !_TypeKind Output
   !_Identifier GrndCnstPrntDualGrndDual: !_TypeDual

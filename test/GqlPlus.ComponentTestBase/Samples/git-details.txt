@@ -1,1 +1,1 @@
-b1511bf  (HEAD -> dual-enum-arg) 2025-10-05 Improve Object Parent Field and Alt Verify errors
+e40712b  (HEAD -> dual-enum-arg) 2025-10-05 Correct Introspection and sample verify-errors

@@ -99,7 +99,7 @@ types: !_Map_Type
       - !_ObjectFor(_ObjAlternate)
         object: _BasicValue
         type: !_ObjBase
-          name: Boolean
+          name: _DomainKind
       - !_ObjectFor(_ObjAlternate)
         object: _BasicValue
         type: !_ObjBase
@@ -107,24 +107,24 @@ types: !_Map_Type
       - !_ObjectFor(_ObjAlternate)
         object: _BasicValue
         type: !_ObjBase
-          name: Number
+          name: _DomainKind
       - !_ObjectFor(_ObjAlternate)
         object: _BasicValue
         type: !_ObjBase
-          name: String
+          name: _DomainKind
     alternates:
       - !_ObjAlternate
         type: !_ObjBase
-          name: Boolean
+          name: _DomainKind
       - !_ObjAlternate
         type: !_ObjBase
           name: _EnumValue
       - !_ObjAlternate
         type: !_ObjBase
-          name: Number
+          name: _DomainKind
       - !_ObjAlternate
         type: !_ObjBase
-          name: String
+          name: _DomainKind
     name: _BasicValue
     typeKind: !_TypeKind Output
   !_Identifier _DomainItem: !_TypeOutput

@@ -3751,8 +3751,13 @@
             "name": "RefCnstDomEnumDual",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "cnstDomEnumDual"
+                "$tag": "_EnumValue",
+                "label": "cnstDomEnumDual",
+                "name": "EnumCnstDomEnumDual",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -3766,8 +3771,13 @@
             "name": "RefCnstDomEnumDual",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "cnstDomEnumDual"
+                "$tag": "_EnumValue",
+                "label": "cnstDomEnumDual",
+                "name": "EnumCnstDomEnumDual",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -3790,8 +3800,13 @@
             "name": "RefCnstDomEnumInp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "cnstDomEnumInp"
+                "$tag": "_EnumValue",
+                "label": "cnstDomEnumInp",
+                "name": "EnumCnstDomEnumInp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -3805,8 +3820,13 @@
             "name": "RefCnstDomEnumInp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "cnstDomEnumInp"
+                "$tag": "_EnumValue",
+                "label": "cnstDomEnumInp",
+                "name": "EnumCnstDomEnumInp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -3829,8 +3849,13 @@
             "name": "RefCnstDomEnumOutp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "cnstDomEnumOutp"
+                "$tag": "_EnumValue",
+                "label": "cnstDomEnumOutp",
+                "name": "EnumCnstDomEnumOutp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -3844,8 +3869,13 @@
             "name": "RefCnstDomEnumOutp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "cnstDomEnumOutp"
+                "$tag": "_EnumValue",
+                "label": "cnstDomEnumOutp",
+                "name": "EnumCnstDomEnumOutp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -3868,8 +3898,13 @@
             "name": "RefCnstEnumDual",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "cnstEnumDual"
+                "$tag": "_EnumValue",
+                "label": "cnstEnumDual",
+                "name": "EnumCnstEnumDual",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -3883,8 +3918,13 @@
             "name": "RefCnstEnumDual",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "cnstEnumDual"
+                "$tag": "_EnumValue",
+                "label": "cnstEnumDual",
+                "name": "EnumCnstEnumDual",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -3907,8 +3947,13 @@
             "name": "RefCnstEnumInp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "cnstEnumInp"
+                "$tag": "_EnumValue",
+                "label": "cnstEnumInp",
+                "name": "EnumCnstEnumInp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -3922,8 +3967,13 @@
             "name": "RefCnstEnumInp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "cnstEnumInp"
+                "$tag": "_EnumValue",
+                "label": "cnstEnumInp",
+                "name": "EnumCnstEnumInp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -3946,8 +3996,13 @@
             "name": "RefCnstEnumOutp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "cnstEnumOutp"
+                "$tag": "_EnumValue",
+                "label": "cnstEnumOutp",
+                "name": "EnumCnstEnumOutp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -3961,8 +4016,13 @@
             "name": "RefCnstEnumOutp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "cnstEnumOutp"
+                "$tag": "_EnumValue",
+                "label": "cnstEnumOutp",
+                "name": "EnumCnstEnumOutp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -3985,8 +4045,13 @@
             "name": "RefCnstEnumPrntDual",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "cnstEnumPrntDual"
+                "$tag": "_EnumValue",
+                "label": "cnstEnumPrntDual",
+                "name": "EnumCnstEnumPrntDual",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -4000,8 +4065,13 @@
             "name": "RefCnstEnumPrntDual",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "cnstEnumPrntDual"
+                "$tag": "_EnumValue",
+                "label": "cnstEnumPrntDual",
+                "name": "EnumCnstEnumPrntDual",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -4024,8 +4094,13 @@
             "name": "RefCnstEnumPrntInp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "cnstEnumPrntInp"
+                "$tag": "_EnumValue",
+                "label": "cnstEnumPrntInp",
+                "name": "EnumCnstEnumPrntInp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -4039,8 +4114,13 @@
             "name": "RefCnstEnumPrntInp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "cnstEnumPrntInp"
+                "$tag": "_EnumValue",
+                "label": "cnstEnumPrntInp",
+                "name": "EnumCnstEnumPrntInp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -4063,8 +4143,13 @@
             "name": "RefCnstEnumPrntOutp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "cnstEnumPrntOutp"
+                "$tag": "_EnumValue",
+                "label": "cnstEnumPrntOutp",
+                "name": "EnumCnstEnumPrntOutp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -4078,8 +4163,13 @@
             "name": "RefCnstEnumPrntOutp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "cnstEnumPrntOutp"
+                "$tag": "_EnumValue",
+                "label": "cnstEnumPrntOutp",
+                "name": "EnumCnstEnumPrntOutp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -4557,8 +4647,13 @@
             "name": "RefCnstPrntEnumDual",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "parentCnstPrntEnumDual"
+                "$tag": "_EnumValue",
+                "label": "parentCnstPrntEnumDual",
+                "name": "ParentCnstPrntEnumDual",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -4572,8 +4667,13 @@
             "name": "RefCnstPrntEnumDual",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "parentCnstPrntEnumDual"
+                "$tag": "_EnumValue",
+                "label": "parentCnstPrntEnumDual",
+                "name": "ParentCnstPrntEnumDual",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -4596,8 +4696,13 @@
             "name": "RefCnstPrntEnumInp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "parentCnstPrntEnumInp"
+                "$tag": "_EnumValue",
+                "label": "parentCnstPrntEnumInp",
+                "name": "ParentCnstPrntEnumInp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -4611,8 +4716,13 @@
             "name": "RefCnstPrntEnumInp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "parentCnstPrntEnumInp"
+                "$tag": "_EnumValue",
+                "label": "parentCnstPrntEnumInp",
+                "name": "ParentCnstPrntEnumInp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -4635,8 +4745,13 @@
             "name": "RefCnstPrntEnumOutp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "parentCnstPrntEnumOutp"
+                "$tag": "_EnumValue",
+                "label": "parentCnstPrntEnumOutp",
+                "name": "ParentCnstPrntEnumOutp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -4650,8 +4765,13 @@
             "name": "RefCnstPrntEnumOutp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "parentCnstPrntEnumOutp"
+                "$tag": "_EnumValue",
+                "label": "parentCnstPrntEnumOutp",
+                "name": "ParentCnstPrntEnumOutp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -11619,8 +11739,13 @@
             "name": "RefGnrcValueDual",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "gnrcValueDual"
+                "$tag": "_EnumValue",
+                "label": "gnrcValueDual",
+                "name": "EnumGnrcValueDual",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -11634,8 +11759,13 @@
             "name": "RefGnrcValueDual",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "gnrcValueDual"
+                "$tag": "_EnumValue",
+                "label": "gnrcValueDual",
+                "name": "EnumGnrcValueDual",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -11658,8 +11788,13 @@
             "name": "RefGnrcValueInp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "gnrcValueInp"
+                "$tag": "_EnumValue",
+                "label": "gnrcValueInp",
+                "name": "EnumGnrcValueInp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -11673,8 +11808,13 @@
             "name": "RefGnrcValueInp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "gnrcValueInp"
+                "$tag": "_EnumValue",
+                "label": "gnrcValueInp",
+                "name": "EnumGnrcValueInp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -11697,8 +11837,13 @@
             "name": "RefGnrcValueOutp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "gnrcValueOutp"
+                "$tag": "_EnumValue",
+                "label": "gnrcValueOutp",
+                "name": "EnumGnrcValueOutp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }
@@ -11712,8 +11857,13 @@
             "name": "RefGnrcValueOutp",
             "typeArgs": [
               {
-                "$tag": "_ObjTypeArg",
-                "name": "gnrcValueOutp"
+                "$tag": "_EnumValue",
+                "label": "gnrcValueOutp",
+                "name": "EnumGnrcValueOutp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
               }
             ]
           }

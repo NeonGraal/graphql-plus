@@ -231,7 +231,7 @@
           "object": "_BasicValue",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         },
         {
@@ -247,7 +247,7 @@
           "object": "_BasicValue",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Number"
+            "name": "_DomainKind"
           }
         },
         {
@@ -255,7 +255,7 @@
           "object": "_BasicValue",
           "type": {
             "$tag": "_ObjBase",
-            "name": "String"
+            "name": "_DomainKind"
           }
         }
       ],
@@ -264,7 +264,7 @@
           "$tag": "_ObjAlternate",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Boolean"
+            "name": "_DomainKind"
           }
         },
         {
@@ -278,14 +278,14 @@
           "$tag": "_ObjAlternate",
           "type": {
             "$tag": "_ObjBase",
-            "name": "Number"
+            "name": "_DomainKind"
           }
         },
         {
           "$tag": "_ObjAlternate",
           "type": {
             "$tag": "_ObjBase",
-            "name": "String"
+            "name": "_DomainKind"
           }
         }
       ],

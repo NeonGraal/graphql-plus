@@ -9,7 +9,7 @@ Success
   RefGnrcValueOutp
   <
     I@043/0001
-    gnrcValueOutp
+    EnumGnrcValueOutp.gnrcValueOutp
   >
 }
 {

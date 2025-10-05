@@ -17,15 +17,19 @@ types: !_Map_Type
       type: !_ObjBase
         name: RefGnrcValueOutp
         typeArgs:
-        - !_ObjTypeArg
-          name: gnrcValueOutp
+        - !_EnumValue
+          label: gnrcValueOutp
+          name: EnumGnrcValueOutp
+          typeKind: !_SimpleKind Enum
     alternates:
     - !_ObjAlternate
       type: !_ObjBase
         name: RefGnrcValueOutp
         typeArgs:
-        - !_ObjTypeArg
-          name: gnrcValueOutp
+        - !_EnumValue
+          label: gnrcValueOutp
+          name: EnumGnrcValueOutp
+          typeKind: !_SimpleKind Enum
     name: GnrcValueOutp
     typeKind: !_TypeKind Output
   !_Identifier RefGnrcValueOutp: !_TypeOutput

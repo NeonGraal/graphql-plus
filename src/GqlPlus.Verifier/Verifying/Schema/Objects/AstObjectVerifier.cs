@@ -170,7 +170,7 @@ internal abstract class AstObjectVerifier<TObject, TObjField>(
       }
 
       if (!_constraintMatcher.Matches(arg, param.Constraint!, context)) {
-        error($"Invalid Constraint on ${param.Name} of", $"'{arg.Name}' not match '{param.Constraint}'");
+        error($"Invalid Constraint on ${param.Name} of", $"'{arg.TypeName}' not match '{param.Constraint}'");
       }
     }
   }

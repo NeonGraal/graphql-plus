@@ -6,21 +6,21 @@ types: !_Map_Type
   !_Identifier _Array: !_TypeDual
     aliases: [Array]
     allAlternates:
-    - !_ObjectFor(_DualAlternate)
+    - !_ObjectFor(_ObjAlternate)
       collections:
       - !_ModifierDictionary
         by: 0
         modifierKind: !_ModifierKind Dict
       object: _Array
-      type: !_DualBase
+      type: !_ObjBase
         typeParam: T
     alternates:
-    - !_DualAlternate
+    - !_ObjAlternate
       collections:
       - !_ModifierDictionary
         by: 0
         modifierKind: !_ModifierKind Dict
-      type: !_DualBase
+      type: !_ObjBase
         typeParam: T
     name: _Array
     typeKind: !_TypeKind Dual
@@ -33,21 +33,21 @@ types: !_Map_Type
   !_Identifier _Dict: !_TypeDual
     aliases: [Dict]
     allAlternates:
-    - !_ObjectFor(_DualAlternate)
+    - !_ObjectFor(_ObjAlternate)
       collections:
       - !_ModifierTypeParam
         by: K
         modifierKind: !_ModifierKind Param
       object: _Dict
-      type: !_DualBase
+      type: !_ObjBase
         typeParam: T
     alternates:
-    - !_DualAlternate
+    - !_ObjAlternate
       collections:
       - !_ModifierTypeParam
         by: K
         modifierKind: !_ModifierKind Param
-      type: !_DualBase
+      type: !_ObjBase
         typeParam: T
     name: _Dict
     typeKind: !_TypeKind Dual
@@ -65,21 +65,21 @@ types: !_Map_Type
   !_Identifier _IfElse: !_TypeDual
     aliases: [IfElse]
     allAlternates:
-    - !_ObjectFor(_DualAlternate)
+    - !_ObjectFor(_ObjAlternate)
       collections:
       - !_ModifierDictionary
         by: ^
         modifierKind: !_ModifierKind Dict
       object: _IfElse
-      type: !_DualBase
+      type: !_ObjBase
         typeParam: T
     alternates:
-    - !_DualAlternate
+    - !_ObjAlternate
       collections:
       - !_ModifierDictionary
         by: ^
         modifierKind: !_ModifierKind Dict
-      type: !_DualBase
+      type: !_ObjBase
         typeParam: T
     name: _IfElse
     typeKind: !_TypeKind Dual
@@ -95,19 +95,19 @@ types: !_Map_Type
   !_Identifier _List: !_TypeDual
     aliases: [List]
     allAlternates:
-    - !_ObjectFor(_DualAlternate)
+    - !_ObjectFor(_ObjAlternate)
       collections:
       - !_Modifier
         modifierKind: !_ModifierKind List
       object: _List
-      type: !_DualBase
+      type: !_ObjBase
         typeParam: T
     alternates:
-    - !_DualAlternate
+    - !_ObjAlternate
       collections:
       - !_Modifier
         modifierKind: !_ModifierKind List
-      type: !_DualBase
+      type: !_ObjBase
         typeParam: T
     name: _List
     typeKind: !_TypeKind Dual
@@ -120,21 +120,21 @@ types: !_Map_Type
   !_Identifier _Map: !_TypeDual
     aliases: [Map]
     allAlternates:
-    - !_ObjectFor(_DualAlternate)
+    - !_ObjectFor(_ObjAlternate)
       collections:
       - !_ModifierDictionary
         by: '*'
         modifierKind: !_ModifierKind Dict
       object: _Map
-      type: !_DualBase
+      type: !_ObjBase
         typeParam: T
     alternates:
-    - !_DualAlternate
+    - !_ObjAlternate
       collections:
       - !_ModifierDictionary
         by: '*'
         modifierKind: !_ModifierKind Dict
-      type: !_DualBase
+      type: !_ObjBase
         typeParam: T
     name: _Map
     typeKind: !_TypeKind Dual
@@ -147,21 +147,21 @@ types: !_Map_Type
   !_Identifier _Mask: !_TypeDual
     aliases: [Mask]
     allAlternates:
-    - !_ObjectFor(_DualAlternate)
+    - !_ObjectFor(_ObjAlternate)
       collections:
       - !_ModifierTypeParam
         by: K
         modifierKind: !_ModifierKind Param
       object: _Mask
-      type: !_DualBase
+      type: !_ObjBase
         name: ^
     alternates:
-    - !_DualAlternate
+    - !_ObjAlternate
       collections:
       - !_ModifierTypeParam
         by: K
         modifierKind: !_ModifierKind Param
-      type: !_DualBase
+      type: !_ObjBase
         name: ^
     name: _Mask
     typeKind: !_TypeKind Dual
@@ -174,20 +174,20 @@ types: !_Map_Type
   !_Identifier _Opt: !_TypeDual
     aliases: [Opt]
     allAlternates:
-    - !_ObjectFor(_DualAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: _Opt
-      type: !_DualBase
+      type: !_ObjBase
         typeParam: T
-    - !_ObjectFor(_DualAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: _Opt
-      type: !_DualBase
+      type: !_ObjBase
         name: Null
     alternates:
-    - !_DualAlternate
-      type: !_DualBase
+    - !_ObjAlternate
+      type: !_ObjBase
         typeParam: T
-    - !_DualAlternate
-      type: !_DualBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: Null
     description: '$T?'
     name: _Opt
@@ -201,22 +201,22 @@ types: !_Map_Type
   !_Identifier _Set: !_TypeDual
     aliases: [Set]
     allAlternates:
-    - !_ObjectFor(_DualAlternate)
+    - !_ObjectFor(_ObjAlternate)
       collections:
       - !_ModifierTypeParam
         by: K
         modifierKind: !_ModifierKind Param
       object: _Set
-      type: !_DualBase
-        name: _
+      type: !_ObjBase
+        name: Unit
     alternates:
-    - !_DualAlternate
+    - !_ObjAlternate
       collections:
       - !_ModifierTypeParam
         by: K
         modifierKind: !_ModifierKind Param
-      type: !_DualBase
-        name: _
+      type: !_ObjBase
+        name: Unit
     name: _Set
     typeKind: !_TypeKind Dual
     typeParams:

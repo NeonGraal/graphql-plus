@@ -5,21 +5,21 @@ types: !_Map_Type
       - !_ObjectFor(_OutputField)
         name: field
         object: ObjCnstOutp
-        type: !_OutputBase
+        type: !_ObjBase
           typeParam: type
       - !_ObjectFor(_OutputField)
         name: str
         object: ObjCnstOutp
-        type: !_OutputBase
+        type: !_ObjBase
           typeParam: type
     fields:
       - !_OutputField
         name: field
-        type: !_OutputBase
+        type: !_ObjBase
           typeParam: type
       - !_OutputField
         name: str
-        type: !_OutputBase
+        type: !_ObjBase
           typeParam: type
     name: ObjCnstOutp
     typeKind: !_TypeKind Output

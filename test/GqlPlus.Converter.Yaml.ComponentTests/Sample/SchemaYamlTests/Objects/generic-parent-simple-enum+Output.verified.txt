@@ -15,12 +15,12 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: field
       object: FieldGnrcPrntSmplEnumOutp
-      type: !_OutputBase
+      type: !_ObjBase
         typeParam: ref
     fields:
     - !_OutputField
       name: field
-      type: !_OutputBase
+      type: !_ObjBase
         typeParam: ref
     name: FieldGnrcPrntSmplEnumOutp
     typeKind: !_TypeKind Output
@@ -35,12 +35,12 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: field
       object: FieldGnrcPrntSmplEnumOutp
-      type: !_OutputBase
+      type: !_ObjBase
         name: EnumGnrcPrntSmplEnumOutp
     name: GnrcPrntSmplEnumOutp
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: FieldGnrcPrntSmplEnumOutp
       typeArgs:
-      - !_OutputArg
+      - !_ObjTypeArg
         name: EnumGnrcPrntSmplEnumOutp
     typeKind: !_TypeKind Output

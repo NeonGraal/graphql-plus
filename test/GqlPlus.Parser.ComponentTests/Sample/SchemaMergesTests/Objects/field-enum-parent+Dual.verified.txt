@@ -1,0 +1,29 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  FieldEnumPrntDual
+  {
+    !DF I@026/0001
+    field
+    =
+    I@034/0001
+    EnumFieldEnumPrntDual
+    .prnt_fieldEnumPrntDual
+  }
+}
+{
+  !En I@006/0002
+  EnumFieldEnumPrntDual
+  :( !Tr I@031/0002 PrntFieldEnumPrntDual )
+  !EL I@053/0002
+  fieldEnumPrntDual
+}
+{
+  !En I@006/0003
+  PrntFieldEnumPrntDual
+  !EL I@030/0003
+  prnt_fieldEnumPrntDual
+}
+]

@@ -2,7 +2,9 @@
 
 public interface IGqlpType
   : IGqlpDeclaration
-{ }
+{
+  TypeKind Kind { get; }
+}
 
 public interface IGqlpType<TParent>
   : IGqlpType
@@ -25,4 +27,17 @@ public interface IGqlpTypeSpecial
   : IGqlpSimple
 {
   bool MatchesTypeSpecial(IGqlpType type);
+}
+
+public enum TypeKind
+{
+  Internal,
+  Special,
+
+  Domain,
+  Enum,
+  Union,
+  Dual,
+  Input,
+  Output,
 }

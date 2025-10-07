@@ -2,36 +2,36 @@
 types: !_Map_Type
   !_Identifier AltAltOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: AltAltOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: String
     allFields:
       - !_ObjectFor(_OutputField)
         name: alt
         object: AltAltOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: Number
     alternates:
-      - !_OutputAlternate
-        type: !_OutputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           name: String
     fields:
       - !_OutputField
         name: alt
-        type: !_OutputBase
+        type: !_ObjBase
           name: Number
     name: AltAltOutp
     typeKind: !_TypeKind Output
   !_Identifier AltOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: AltOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: AltAltOutp
     alternates:
-      - !_OutputAlternate
-        type: !_OutputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           name: AltAltOutp
     name: AltOutp
     typeKind: !_TypeKind Output

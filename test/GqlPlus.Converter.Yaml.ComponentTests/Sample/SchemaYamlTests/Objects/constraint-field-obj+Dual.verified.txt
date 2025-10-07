@@ -2,23 +2,23 @@
 types: !_Map_Type
   !_Identifier AltCnstFieldObjDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_DualAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: PrntCnstFieldObjDual
-      type: !_DualBase
+      type: !_ObjBase
         name: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
       object: AltCnstFieldObjDual
-      type: !_DualBase
+      type: !_ObjBase
         name: Number
     fields:
     - !_DualField
       name: alt
-      type: !_DualBase
+      type: !_ObjBase
         name: Number
     name: AltCnstFieldObjDual
-    parent: !_DualBase
+    parent: !_ObjBase
       name: PrntCnstFieldObjDual
     typeKind: !_TypeKind Dual
   !_Identifier CnstFieldObjDual: !_TypeDual
@@ -26,24 +26,24 @@ types: !_Map_Type
     - !_ObjectFor(_DualField)
       name: field
       object: RefCnstFieldObjDual
-      type: !_DualBase
+      type: !_ObjBase
         name: AltCnstFieldObjDual
     name: CnstFieldObjDual
-    parent: !_DualBase
+    parent: !_ObjBase
       name: RefCnstFieldObjDual
       typeArgs:
-      - !_DualArg
+      - !_ObjTypeArg
         name: AltCnstFieldObjDual
     typeKind: !_TypeKind Dual
   !_Identifier PrntCnstFieldObjDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_DualAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: PrntCnstFieldObjDual
-      type: !_DualBase
+      type: !_ObjBase
         name: String
     alternates:
-    - !_DualAlternate
-      type: !_DualBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: String
     name: PrntCnstFieldObjDual
     typeKind: !_TypeKind Dual
@@ -52,12 +52,12 @@ types: !_Map_Type
     - !_ObjectFor(_DualField)
       name: field
       object: RefCnstFieldObjDual
-      type: !_DualBase
+      type: !_ObjBase
         typeParam: ref
     fields:
     - !_DualField
       name: field
-      type: !_DualBase
+      type: !_ObjBase
         typeParam: ref
     name: RefCnstFieldObjDual
     typeKind: !_TypeKind Dual

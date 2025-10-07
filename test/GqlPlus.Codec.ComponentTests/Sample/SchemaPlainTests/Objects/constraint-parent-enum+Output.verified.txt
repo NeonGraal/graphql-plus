@@ -1,0 +1,70 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier CnstPrntEnumOutp: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_ObjAlternate)
+        object: CnstPrntEnumOutp
+        type: !_ObjBase
+          name: RefCnstPrntEnumOutp
+          typeArgs:
+            - !_EnumValue
+              label: parentCnstPrntEnumOutp
+              name: ParentCnstPrntEnumOutp
+              typeKind: !_SimpleKind Enum
+    alternates:
+      - !_ObjAlternate
+        type: !_ObjBase
+          name: RefCnstPrntEnumOutp
+          typeArgs:
+            - !_EnumValue
+              label: parentCnstPrntEnumOutp
+              name: ParentCnstPrntEnumOutp
+              typeKind: !_SimpleKind Enum
+    name: CnstPrntEnumOutp
+    typeKind: !_TypeKind Output
+  !_Identifier EnumCnstPrntEnumOutp: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: ParentCnstPrntEnumOutp
+        name: parentCnstPrntEnumOutp
+      - !_EnumLabel
+        enum: EnumCnstPrntEnumOutp
+        name: cnstPrntEnumOutp
+    items:
+      - !_Aliased
+        name: cnstPrntEnumOutp
+    name: EnumCnstPrntEnumOutp
+    parent: !_TypeRef(_SimpleKind)
+      name: ParentCnstPrntEnumOutp
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
+  !_Identifier ParentCnstPrntEnumOutp: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: ParentCnstPrntEnumOutp
+        name: parentCnstPrntEnumOutp
+    items:
+      - !_Aliased
+        name: parentCnstPrntEnumOutp
+    name: ParentCnstPrntEnumOutp
+    typeKind: !_TypeKind Enum
+  !_Identifier RefCnstPrntEnumOutp: !_TypeOutput
+    allFields:
+      - !_ObjectFor(_OutputField)
+        name: field
+        object: RefCnstPrntEnumOutp
+        type: !_ObjBase
+          typeParam: type
+    fields:
+      - !_OutputField
+        name: field
+        type: !_ObjBase
+          typeParam: type
+    name: RefCnstPrntEnumOutp
+    typeKind: !_TypeKind Output
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: EnumCnstPrntEnumOutp
+          typeKind: !_TypeKind Enum
+        name: type

@@ -10,7 +10,7 @@
           "name": "field",
           "object": "FieldTypeDescrInp",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "description": "Test Descr",
             "name": "Number"
           }
@@ -21,7 +21,7 @@
           "$tag": "_InputField",
           "name": "field",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "description": "Test Descr",
             "name": "Number"
           }

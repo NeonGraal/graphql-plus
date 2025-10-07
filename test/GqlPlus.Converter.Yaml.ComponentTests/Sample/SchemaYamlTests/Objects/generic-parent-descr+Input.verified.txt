@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier GnrcPrntDescrInp: !_TypeInput
     name: GnrcPrntDescrInp
-    parent: !_InputBase
+    parent: !_ObjBase
       description: 'Parent comment'
       typeParam: type
     typeKind: !_TypeKind Input

@@ -3,17 +3,13 @@
   "isRoot": true,
   "tools": {
     "dotnet-coverage": {
-      "version": "17.14.2",
-      "commands": [
-        "dotnet-coverage"
-      ],
+      "version": "18.0.4",
+      "commands": ["dotnet-coverage"],
       "rollForward": false
     },
     "dotnet-reportgenerator-globaltool": {
-      "version": "5.4.12",
-      "commands": [
-        "reportgenerator"
-      ],
+      "version": "5.4.17",
+      "commands": ["reportgenerator"],
       "rollForward": false
     }
   }

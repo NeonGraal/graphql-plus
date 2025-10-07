@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Matching;
 
 public class EnumConstraintMatcherTests
-  : MatcherTestsBase
+  : MatchTestsBase
 {
   private readonly EnumConstraintMatcher _sut;
   private readonly Matcher<IGqlpEnum>.I _enumMatcher;

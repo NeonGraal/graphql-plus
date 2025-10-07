@@ -2,13 +2,13 @@
 types: !_Map_Type
   !_Identifier GnrcAltOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: GnrcAltOutp
-        type: !_OutputBase
+        type: !_ObjBase
           typeParam: type
     alternates:
-      - !_OutputAlternate
-        type: !_OutputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           typeParam: type
     name: GnrcAltOutp
     typeKind: !_TypeKind Output

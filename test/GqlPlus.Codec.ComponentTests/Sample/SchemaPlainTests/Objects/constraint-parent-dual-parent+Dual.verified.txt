@@ -2,59 +2,59 @@
 types: !_Map_Type
   !_Identifier AltCnstPrntDualPrntDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_DualAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: PrntCnstPrntDualPrntDual
-        type: !_DualBase
+        type: !_ObjBase
           name: String
     allFields:
       - !_ObjectFor(_DualField)
         name: alt
         object: AltCnstPrntDualPrntDual
-        type: !_DualBase
+        type: !_ObjBase
           name: Number
     fields:
       - !_DualField
         name: alt
-        type: !_DualBase
+        type: !_ObjBase
           name: Number
     name: AltCnstPrntDualPrntDual
-    parent: !_DualBase
+    parent: !_ObjBase
       name: PrntCnstPrntDualPrntDual
     typeKind: !_TypeKind Dual
   !_Identifier CnstPrntDualPrntDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_DualAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: PrntCnstPrntDualPrntDual
-        type: !_DualBase
+        type: !_ObjBase
           name: String
     allFields:
       - !_ObjectFor(_DualField)
         name: alt
         object: AltCnstPrntDualPrntDual
-        type: !_DualBase
+        type: !_ObjBase
           name: Number
     name: CnstPrntDualPrntDual
-    parent: !_DualBase
+    parent: !_ObjBase
       name: RefCnstPrntDualPrntDual
       typeArgs:
-        - !_DualArg
+        - !_ObjTypeArg
           name: AltCnstPrntDualPrntDual
     typeKind: !_TypeKind Dual
   !_Identifier PrntCnstPrntDualPrntDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_DualAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: PrntCnstPrntDualPrntDual
-        type: !_DualBase
+        type: !_ObjBase
           name: String
     alternates:
-      - !_DualAlternate
-        type: !_DualBase
+      - !_ObjAlternate
+        type: !_ObjBase
           name: String
     name: PrntCnstPrntDualPrntDual
     typeKind: !_TypeKind Dual
   !_Identifier RefCnstPrntDualPrntDual: !_TypeDual
     name: RefCnstPrntDualPrntDual
-    parent: !_DualBase
+    parent: !_ObjBase
       typeParam: ref
     typeKind: !_TypeKind Dual
     typeParams:

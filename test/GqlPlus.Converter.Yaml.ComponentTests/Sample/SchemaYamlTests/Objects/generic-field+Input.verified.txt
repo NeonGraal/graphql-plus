@@ -5,12 +5,12 @@ types: !_Map_Type
     - !_ObjectFor(_InputField)
       name: field
       object: GnrcFieldInp
-      type: !_InputBase
+      type: !_ObjBase
         typeParam: type
     fields:
     - !_InputField
       name: field
-      type: !_InputBase
+      type: !_ObjBase
         typeParam: type
     name: GnrcFieldInp
     typeKind: !_TypeKind Input

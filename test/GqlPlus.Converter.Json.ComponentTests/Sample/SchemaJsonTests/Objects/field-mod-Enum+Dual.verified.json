@@ -45,7 +45,7 @@
           "name": "field",
           "object": "FieldModEnumDual",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -69,7 +69,7 @@
           ],
           "name": "field",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }

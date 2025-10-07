@@ -2,18 +2,17 @@
 
 namespace GqlPlus.Modelling.Objects;
 
-public abstract class ModellerObjectBaseTestBase<TAst, TModel, TBaseAst, TBaseModel>
+public abstract class ModellerObjectBaseTestBase<TAst, TModel, TBaseModel>
   : ModellerClassTestBase<TAst, TModel>
   where TAst : IGqlpError
   where TModel : IModelBase
-  where TBaseAst : class, IGqlpObjBase
   where TBaseModel : IObjBaseModel
 {
-  protected IModeller<TBaseAst, TBaseModel> ObjBase { get; } = MFor<TBaseAst, TBaseModel>();
+  protected IModeller<IGqlpObjBase, TBaseModel> ObjBase { get; } = MFor<IGqlpObjBase, TBaseModel>();
 
-  protected TBaseAst BaseReturns(string contents, [NotNull] Action<TBaseAst> astName, TBaseModel baseModel)
+  protected IGqlpObjBase BaseReturns(string contents, [NotNull] Action<IGqlpObjBase> astName, TBaseModel baseModel)
   {
-    TBaseAst baseAst = A.Descr<TBaseAst>(contents);
+    IGqlpObjBase baseAst = A.Descr<IGqlpObjBase>(contents);
     astName(baseAst);
 
     ObjBase.ToModel(baseAst, TypeKinds).Returns(baseModel);

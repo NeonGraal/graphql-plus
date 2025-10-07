@@ -1,15 +1,25 @@
 ﻿{
   "$tag": "_Schema",
+  "errors": [
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In RefGnrcPrntDualPrntOutp can\u0027t get model for type \u0027AltGnrcPrntDualPrntOutp\u0027"
+    }
+  ],
   "types": {
     "$tag": "_Map_Type",
     "AltGnrcPrntDualPrntOutp": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_DualAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "AltGnrcPrntDualPrntOutp",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -20,16 +30,16 @@
           "name": "alt",
           "object": "AltGnrcPrntDualPrntOutp",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_DualAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -39,7 +49,7 @@
           "$tag": "_DualField",
           "name": "alt",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
@@ -54,11 +64,11 @@
       "$tag": "_TypeOutput",
       "name": "GnrcPrntDualPrntOutp",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "RefGnrcPrntDualPrntOutp",
         "typeArgs": [
           {
-            "$tag": "_DualArg",
+            "$tag": "_ObjTypeArg",
             "name": "AltGnrcPrntDualPrntOutp"
           }
         ]
@@ -72,7 +82,7 @@
       "$tag": "_TypeOutput",
       "name": "RefGnrcPrntDualPrntOutp",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "typeParam": "ref"
       },
       "typeKind": {

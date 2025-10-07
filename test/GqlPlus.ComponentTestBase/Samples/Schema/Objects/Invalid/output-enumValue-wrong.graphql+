@@ -1,2 +1,0 @@
-output Test { field = Wrong.unknown }
-input Wrong { }

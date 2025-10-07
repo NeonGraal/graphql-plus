@@ -2,31 +2,31 @@
 types: !_Map_Type
   !_Identifier GnrcAltSmplOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: GnrcAltSmplOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: RefGnrcAltSmplOutp
           typeArgs:
-            - !_OutputArg
+            - !_ObjTypeArg
               name: String
     alternates:
-      - !_OutputAlternate
-        type: !_OutputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           name: RefGnrcAltSmplOutp
           typeArgs:
-            - !_OutputArg
+            - !_ObjTypeArg
               name: String
     name: GnrcAltSmplOutp
     typeKind: !_TypeKind Output
   !_Identifier RefGnrcAltSmplOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: RefGnrcAltSmplOutp
-        type: !_OutputBase
+        type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_OutputAlternate
-        type: !_OutputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           typeParam: ref
     name: RefGnrcAltSmplOutp
     typeKind: !_TypeKind Output

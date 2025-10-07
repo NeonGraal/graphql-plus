@@ -2,13 +2,13 @@
 types: !_Map_Type
   !_Identifier AltSmplInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: AltSmplInp
-      type: !_InputBase
+      type: !_ObjBase
         name: String
     alternates:
-    - !_InputAlternate
-      type: !_InputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: String
     name: AltSmplInp
     typeKind: !_TypeKind Input

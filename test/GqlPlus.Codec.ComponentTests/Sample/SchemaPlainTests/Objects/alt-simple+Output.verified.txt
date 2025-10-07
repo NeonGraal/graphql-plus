@@ -2,13 +2,13 @@
 types: !_Map_Type
   !_Identifier AltSmplOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: AltSmplOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: String
     alternates:
-      - !_OutputAlternate
-        type: !_OutputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           name: String
     name: AltSmplOutp
     typeKind: !_TypeKind Output

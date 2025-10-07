@@ -11,15 +11,15 @@ public class DualDeclAstTests
 }
 
 internal sealed class DualDeclAstChecks
-  : AstObjectChecks<DualDeclAst, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>
+  : AstObjectChecks<DualDeclAst, IGqlpDualField>
 {
   public DualDeclAstChecks()
     : base(dual => new DualDeclAst(AstNulls.At, dual),
-      parent => new DualBaseAst(AstNulls.At, parent))
+      parent => new ObjBaseAst(AstNulls.At, parent, ""))
   { }
 
-  protected override IGqlpDualAlternate[] CreateAlternates(IEnumerable<AlternateInput> alternates)
-    => alternates.DualAlternates();
+  protected override IGqlpObjAlt[] CreateAlternates(IEnumerable<AlternateInput> alternates)
+    => alternates.ObjAlts();
   protected override IGqlpDualField[] CreateFields(IEnumerable<FieldInput> fields)
     => fields.DualFields();
   protected override string FieldString(FieldInput input)

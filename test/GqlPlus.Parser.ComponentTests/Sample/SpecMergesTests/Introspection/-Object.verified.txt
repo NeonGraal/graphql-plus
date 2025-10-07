@@ -1,0 +1,390 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Do I@008/0001
+  _ObjectKind
+  Enum
+  !DE I@027/0001
+  _TypeKind
+  Dual
+  !DE I@042/0001
+  _TypeKind
+  Input
+  !DE I@058/0001
+  _TypeKind
+  Output
+}
+{
+  !Ou I@008/0003
+  _TypeObject
+  <
+    I@021/0003
+    $kind
+    :_ObjectKind
+    I@039/0003
+    $field
+    :_ObjField
+  >
+  :
+  I@007/0004
+  _ChildType
+  <
+    I@019/0004
+    $kind
+    I@024/0004
+    _ObjBase
+  >
+  {
+    !OF I@009/0005
+    typeParams
+    :
+    I@021/0005
+    _ObjTypeParam
+    []
+    !OF I@009/0006
+    fields
+    :
+    I@018/0006
+    $field
+    []
+    !OF I@009/0007
+    alternates
+    :
+    I@021/0007
+    _ObjAlternate
+    []
+    !OF I@009/0008
+    allFields
+    :
+    I@020/0008
+    _ObjectFor
+    <
+      I@032/0008
+      $field
+    >
+    []
+    !OF I@009/0009
+    allAlternates
+    :
+    I@024/0009
+    _ObjectFor
+    <
+      I@035/0009
+      _ObjAlternate
+    >
+    []
+  }
+}
+{
+  !Ou I@008/0012
+  _ObjTypeParam
+  :
+  I@007/0013
+  _Named
+  {
+    !OF I@009/0014
+    constraint
+    :
+    I@021/0014
+    _TypeRef
+    <
+      I@030/0014
+      _TypeKind
+    >
+  }
+}
+{
+  !Ou I@008/0017
+  _ObjBase
+  :
+  I@007/0018
+  _Named
+  {
+    !OF I@009/0019
+    typeArgs
+    :
+    I@019/0019
+    _ObjTypeArg
+    []
+  }
+  |
+  I@007/0020
+  _TypeParam
+}
+{
+  !Ou I@008/0023
+  _ObjTypeArg
+  :
+  I@007/0024
+  _TypeRef
+  <
+    I@016/0024
+    _TypeKind
+  >
+  {
+    !OF I@009/0025
+    label
+    :
+    I@016/0025
+    _Identifier
+    ?
+  }
+  |
+  I@007/0026
+  _TypeParam
+}
+{
+  !Ou I@008/0029
+  _TypeParam
+  :
+  I@007/0030
+  _Described
+  {
+    !OF I@009/0031
+    typeParam
+    :
+    I@020/0031
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0034
+  _ObjAlternate
+  {
+    !OF I@007/0035
+    type
+    :
+    I@013/0035
+    _ObjBase
+    !OF I@007/0036
+    collections
+    :
+    I@020/0036
+    _Collections
+    []
+  }
+  |
+  I@007/0037
+  _ObjAlternateEnum
+}
+{
+  !Ou I@008/0040
+  _ObjAlternateEnum
+  :
+  I@007/0041
+  _TypeRef
+  <
+    I@016/0041
+    _TypeKind.Enum
+  >
+  {
+    !OF I@009/0042
+    label
+    :
+    I@016/0042
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0044
+  _ObjectFor
+  <
+    I@020/0044
+    $for
+    :_ForParam
+  >
+  :
+  I@008/0045
+  $for
+  {
+    !OF I@009/0046
+    object
+    :
+    I@017/0046
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0049
+  _ObjField
+  <
+    I@019/0049
+    $type
+    :_ObjFieldType
+  >
+  :
+  I@007/0050
+  _Aliased
+  {
+    !OF I@007/0051
+    type
+    :
+    I@014/0051
+    $type
+  }
+}
+{
+  !Ou I@008/0054
+  _ObjFieldType
+  :
+  I@007/0055
+  _ObjBase
+  {
+    !OF I@009/0056
+    modifiers
+    :
+    I@020/0056
+    _Modifiers
+    []
+  }
+  |
+  I@007/0057
+  _ObjFieldEnum
+}
+{
+  !Ou I@008/0060
+  _ObjFieldEnum
+  :
+  I@007/0061
+  _TypeRef
+  <
+    I@016/0061
+    _TypeKind.Enum
+  >
+  {
+    !OF I@009/0062
+    label
+    :
+    I@016/0062
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0065
+  _ForParam
+  <
+    I@019/0065
+    $type
+    :_ObjFieldType
+  >
+  |
+  I@007/0066
+  _ObjAlternate
+  I@007/0067
+  _ObjField
+  <
+    I@018/0067
+    $type
+  >
+}
+{
+  !Ou I@008/0070
+  _TypeDual
+  :
+  I@007/0071
+  _TypeObject
+  <
+    I@019/0071
+    _TypeKind.Dual
+    I@034/0071
+    _DualField
+  >
+}
+{
+  !Ou I@008/0074
+  _DualField
+  :
+  I@007/0075
+  _ObjField
+  <
+    I@017/0075
+    _ObjFieldType
+  >
+}
+{
+  !Ou I@008/0078
+  _TypeInput
+  :
+  I@007/0079
+  _TypeObject
+  <
+    I@019/0079
+    _TypeKind.Input
+    I@035/0079
+    _InputField
+  >
+}
+{
+  !Ou I@008/0082
+  _InputField
+  :
+  I@007/0083
+  _ObjField
+  <
+    I@017/0083
+    _InputFieldType
+  >
+}
+{
+  !Ou I@008/0086
+  _InputFieldType
+  :
+  I@007/0087
+  _ObjFieldType
+  {
+    !OF I@009/0088
+    default
+    :
+    I@018/0088
+    Value
+    ?
+  }
+}
+{
+  !Ou I@008/0091
+  _InputParam
+  :
+  I@007/0092
+  _InputFieldType
+}
+{
+  !Ou I@008/0095
+  _TypeOutput
+  :
+  I@007/0096
+  _TypeObject
+  <
+    I@019/0096
+    _TypeKind.Output
+    I@036/0096
+    _OutputField
+  >
+}
+{
+  !Ou I@008/0099
+  _OutputField
+  :
+  I@007/0100
+  _ObjField
+  <
+    I@017/0100
+    _ObjFieldType
+  >
+}
+{
+  !Ou I@008/0103
+  _OutputFieldType
+  :
+  I@007/0104
+  _ObjFieldType
+  {
+    !OF I@009/0105
+    parameters
+    :
+    I@021/0105
+    _InputParam
+    []
+  }
+}
+]

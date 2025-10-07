@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Matching;
 
 public class AnyTypeMatcherTests
-  : MatcherTestsBase
+  : MatchTestsBase
 {
   private readonly List<ITypeMatcher> _matchers = [];
   private readonly AnyTypeMatcher _sut;

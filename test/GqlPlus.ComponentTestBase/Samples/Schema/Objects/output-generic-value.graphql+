@@ -1,3 +1,0 @@
-output Name { | RefName<name> }
-output RefName<$type:_Enum> { field: $type }
-enum EnumName { name }

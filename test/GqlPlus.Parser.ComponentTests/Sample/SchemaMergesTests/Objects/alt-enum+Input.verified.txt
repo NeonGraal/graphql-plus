@@ -1,0 +1,17 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !In I@007/0001
+  AltEnumInp
+  |
+  I@022/0001
+  EnumAltEnumInp.altEnumInp
+}
+{
+  !En I@006/0002
+  EnumAltEnumInp
+  !EL I@023/0002
+  altEnumInp
+}
+]

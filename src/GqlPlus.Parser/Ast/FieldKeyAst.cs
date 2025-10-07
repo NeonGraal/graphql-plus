@@ -8,18 +8,15 @@ internal sealed record class FieldKeyAst(
 ) : AstAbbreviated(At)
   , IGqlpFieldKey
 {
-  public string? Type { get; }
-  public string? Label { get; }
-
   public decimal? Number { get; }
   public string? Text { get; }
-  public string? EnumValue
-    => Type.Suffixed(".") + Label;
+  public IGqlpEnumValue? EnumValue { get; }
+
+  // Backward compatibility properties
+  public string? EnumLabel => EnumValue?.EnumLabel;
+  public string? EnumType => EnumValue?.EnumType;
 
   internal override string Abbr => "k";
-
-  string? IGqlpFieldKey.EnumType => Type;
-  string? IGqlpFieldKey.EnumLabel => Label;
 
   internal FieldKeyAst(TokenAt at, decimal number)
     : this(at)
@@ -29,20 +26,24 @@ internal sealed record class FieldKeyAst(
     => Text = content;
   internal FieldKeyAst(TokenAt at, string enumType, string enumLabel)
     : this(at)
-    => (Type, Label) = (enumType, enumLabel);
+    => EnumValue = new EnumValueAst(at, enumType, enumLabel);
+  internal FieldKeyAst(IGqlpEnumValue enumValue)
+    : this(enumValue.At)
+    => EnumValue = enumValue;
 
   public bool Equals(FieldKeyAst? other)
     => other is IGqlpFieldKey fieldKey && Equals(fieldKey);
   public override int GetHashCode()
-  => HashCode.Combine(base.GetHashCode(), Type, Label, Number, Text);
+  => HashCode.Combine(base.GetHashCode(), EnumValue, Number, Text);
 
   public bool Equals(IGqlpFieldKey? other)
     => CompareTo(other) == 0;
   public int CompareTo(IGqlpFieldKey? other)
     => this switch {
-      { Number: not null } => decimal.Compare(Number.Value, other?.Number ?? 0),
-      { EnumValue: not null } when !string.IsNullOrWhiteSpace(EnumValue)
-        => string.Compare(EnumValue, other?.EnumValue, StringComparison.Ordinal),
+      { EnumValue: not null }
+        => EnumValue.CompareTo(other?.EnumValue),
+      { Number: not null }
+        => decimal.Compare(Number.Value, other?.Number ?? 0),
       { Text: not null } when !string.IsNullOrEmpty(Text)
         => string.Compare(Text, other?.Text, StringComparison.Ordinal),
       _ => -1
@@ -53,8 +54,8 @@ internal sealed record class FieldKeyAst(
       .Append(this switch {
         { Number: not null }
           => Number?.ToString(CultureInfo.InvariantCulture),
-        { EnumValue: not null } when !string.IsNullOrWhiteSpace(EnumValue)
-          => EnumValue,
+        { EnumValue: not null } when !string.IsNullOrWhiteSpace(EnumValue.EnumValue)
+          => EnumValue.EnumValue,
         { Text: not null }
           => $"'{Text}'",
         _ => null

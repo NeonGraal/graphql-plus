@@ -19,7 +19,7 @@
           "name": "field",
           "object": "ObjFieldAliasInp",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "FldObjFieldAliasInp"
           }
         }
@@ -30,7 +30,7 @@
           "aliases": ["field1", "field2"],
           "name": "field",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "FldObjFieldAliasInp"
           }
         }

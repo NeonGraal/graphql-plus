@@ -1,3 +1,0 @@
-output Test { | Ref<Wrong.unknown> }
-output Ref<$type:_Enum> { field: $type }
-output Wrong { }

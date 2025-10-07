@@ -1,0 +1,2 @@
+object Test { | Ref<Boolean.unknown> }
+object Ref<$type:_Enum> { field: $type }

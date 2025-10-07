@@ -2,13 +2,13 @@
 types: !_Map_Type
   !_Identifier CnstAltInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: CnstAltInp
-      type: !_InputBase
+      type: !_ObjBase
         typeParam: type
     alternates:
-    - !_InputAlternate
-      type: !_InputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         typeParam: type
     name: CnstAltInp
     typeKind: !_TypeKind Input

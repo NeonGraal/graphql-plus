@@ -1,6 +1,4 @@
 ﻿using GqlPlus.Abstractions.Schema;
-using GqlPlus.Ast.Schema;
-using GqlPlus.Ast.Schema.Objects;
 using GqlPlus.Ast.Schema.Simple;
 
 namespace GqlPlus.Merging;
@@ -34,20 +32,28 @@ internal class MergeAllTypes(
   private static void FixupEnums(IEnumerable<IGqlpType> items)
   {
     IGqlpType[] types = [.. items];
+    HashSet<string> typeNames = [.. types.SelectMany(t => t.Aliases.Append(t.Name))];
 
     Map<string> enumValues = GetEnumValues(
       BuiltIn.Basic.OfType<EnumDeclAst>()
       .Concat(BuiltIn.Internal.OfType<EnumDeclAst>())
       .Concat(types.OfType<EnumDeclAst>()));
 
-    foreach (OutputDeclAst output in types.OfType<OutputDeclAst>()) {
-      foreach (IGqlpOutputAlternate alternate in output.ObjAlternates) {
-        // No fixup needed?
-        // FixupType(alternate, enumValues);
+    foreach (IGqlpObject output in types.OfType<IGqlpObject>()) {
+      foreach (IGqlpObjAlt alternate in output.Alternates) {
+        FixupType(alternate, typeNames, enumValues);
+
+        foreach (IGqlpObjTypeArg argument in alternate.Args) {
+          FixupType(argument, typeNames, enumValues);
+        }
       }
 
-      foreach (IGqlpOutputField field in output.ObjFields) {
-        FixupType(field, enumValues);
+      foreach (IGqlpObjField field in output.Fields) {
+        FixupType(field, typeNames, enumValues);
+
+        foreach (IGqlpObjTypeArg argument in field.Type.Args) {
+          FixupType(argument, typeNames, enumValues);
+        }
       }
     }
 
@@ -67,23 +73,24 @@ internal class MergeAllTypes(
       .Where(g => g.Count() == 1)
       .ToMap(e => e.Key, e => e.First());
 
-  private static void FixupType<TEnum>(IGqlpOutputEnum type, Map<string> enumValues)
-    where TEnum : AstNamed, IGqlpOutputEnum
+  private static void FixupType(IGqlpObjectEnum type, HashSet<string> typeNames, Map<string> enumValues)
   {
-    if (type is TEnum named) {
-      if (string.IsNullOrWhiteSpace(named.EnumType.Name)
-        && enumValues.TryGetValue(type.EnumLabel.IfWhiteSpace(), out string? enumType)) {
-        named.SetEnumType(enumType);
+    string? enumType = null;
+
+    if (type.EnumValue is null) {
+      if (string.IsNullOrWhiteSpace(type.EnumTypeName) || typeNames.Contains(type.EnumTypeName)) {
+        return;
+      }
+
+      enumValues.TryGetValue(type.EnumTypeName, out enumType);
+    } else {
+      if (string.IsNullOrWhiteSpace(type.EnumValue.EnumType)) {
+        enumValues.TryGetValue(type.EnumValue.EnumLabel.IfWhiteSpace(), out enumType);
       }
     }
-  }
 
-  private static void FixupType(IGqlpOutputField field, Map<string> enumValues)
-  {
-    FixupType<OutputFieldAst>(field, enumValues);
-
-    foreach (IGqlpOutputArg argument in field.BaseType.BaseArgs) {
-      FixupType<OutputArgAst>(argument, enumValues);
+    if (!string.IsNullOrWhiteSpace(enumType)) {
+      type.SetEnumType(enumType!);
     }
   }
 }

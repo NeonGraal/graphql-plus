@@ -2,24 +2,24 @@
 types: !_Map_Type
   !_Identifier AltGnrcFieldParamDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_DualAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: AltGnrcFieldParamDual
-        type: !_DualBase
+        type: !_ObjBase
           name: String
     allFields:
       - !_ObjectFor(_DualField)
         name: alt
         object: AltGnrcFieldParamDual
-        type: !_DualBase
+        type: !_ObjBase
           name: Number
     alternates:
-      - !_DualAlternate
-        type: !_DualBase
+      - !_ObjAlternate
+        type: !_ObjBase
           name: String
     fields:
       - !_DualField
         name: alt
-        type: !_DualBase
+        type: !_ObjBase
           name: Number
     name: AltGnrcFieldParamDual
     typeKind: !_TypeKind Dual
@@ -28,30 +28,30 @@ types: !_Map_Type
       - !_ObjectFor(_DualField)
         name: field
         object: GnrcFieldParamDual
-        type: !_DualBase
+        type: !_ObjBase
           name: RefGnrcFieldParamDual
           typeArgs:
-            - !_DualArg
+            - !_ObjTypeArg
               name: AltGnrcFieldParamDual
     fields:
       - !_DualField
         name: field
-        type: !_DualBase
+        type: !_ObjBase
           name: RefGnrcFieldParamDual
           typeArgs:
-            - !_DualArg
+            - !_ObjTypeArg
               name: AltGnrcFieldParamDual
     name: GnrcFieldParamDual
     typeKind: !_TypeKind Dual
   !_Identifier RefGnrcFieldParamDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_DualAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: RefGnrcFieldParamDual
-        type: !_DualBase
+        type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_DualAlternate
-        type: !_DualBase
+      - !_ObjAlternate
+        type: !_ObjBase
           typeParam: ref
     name: RefGnrcFieldParamDual
     typeKind: !_TypeKind Dual

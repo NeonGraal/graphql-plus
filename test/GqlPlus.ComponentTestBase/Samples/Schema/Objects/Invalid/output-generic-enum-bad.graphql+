@@ -1,2 +1,0 @@
-output Test { | Ref<Boolean.unknown> }
-output Ref<$type:_Enum> { field: $type }

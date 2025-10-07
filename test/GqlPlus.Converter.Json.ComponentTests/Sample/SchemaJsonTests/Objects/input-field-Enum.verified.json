@@ -32,7 +32,7 @@
           "name": "field",
           "object": "InpFieldEnum",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "EnumInpFieldEnum"
           }
         }
@@ -43,7 +43,7 @@
           "default": "inpFieldEnum",
           "name": "field",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "EnumInpFieldEnum"
           }
         }

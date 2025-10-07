@@ -9,14 +9,14 @@ types: !_Map_Type
       - !_ObjectFor(_OutputField)
         name: value
         object: _Setting
-        type: !_OutputBase
+        type: !_ObjBase
           name: Value
     fields:
       - !_OutputField
         name: value
-        type: !_OutputBase
+        type: !_ObjBase
           name: Value
     name: _Setting
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: _Named
     typeKind: !_TypeKind Output

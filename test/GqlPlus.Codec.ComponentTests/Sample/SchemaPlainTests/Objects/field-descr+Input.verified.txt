@@ -6,13 +6,13 @@ types: !_Map_Type
         description: 'Test Descr'
         name: field
         object: FieldDescrInp
-        type: !_InputBase
+        type: !_ObjBase
           name: String
     fields:
       - !_InputField
         description: 'Test Descr'
         name: field
-        type: !_InputBase
+        type: !_ObjBase
           name: String
     name: FieldDescrInp
     typeKind: !_TypeKind Input

@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier GnrcPrntInp: !_TypeInput
     name: GnrcPrntInp
-    parent: !_InputBase
+    parent: !_ObjBase
       typeParam: type
     typeKind: !_TypeKind Input
     typeParams:

@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier GnrcPrntDual: !_TypeDual
     name: GnrcPrntDual
-    parent: !_DualBase
+    parent: !_ObjBase
       typeParam: type
     typeKind: !_TypeKind Dual
     typeParams:

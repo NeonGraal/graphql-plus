@@ -21,12 +21,12 @@ types: !_Map_Type
       - !_ObjectFor(_InputField)
         name: field
         object: FieldGnrcPrntEnumPrntInp
-        type: !_InputBase
+        type: !_ObjBase
           typeParam: ref
     fields:
       - !_InputField
         name: field
-        type: !_InputBase
+        type: !_ObjBase
           typeParam: ref
     name: FieldGnrcPrntEnumPrntInp
     typeKind: !_TypeKind Input
@@ -41,13 +41,13 @@ types: !_Map_Type
       - !_ObjectFor(_InputField)
         name: field
         object: FieldGnrcPrntEnumPrntInp
-        type: !_InputBase
+        type: !_ObjBase
           name: EnumGnrcPrntEnumPrntInp
     name: GnrcPrntEnumPrntInp
-    parent: !_InputBase
+    parent: !_ObjBase
       name: FieldGnrcPrntEnumPrntInp
       typeArgs:
-        - !_InputArg
+        - !_ObjTypeArg
           name: EnumGnrcPrntEnumPrntInp
     typeKind: !_TypeKind Input
   !_Identifier ParentGnrcPrntEnumPrntInp: !_TypeEnum

@@ -2,54 +2,54 @@
 types: !_Map_Type
   !_Identifier AltGnrcAltParamInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: AltGnrcAltParamInp
-      type: !_InputBase
+      type: !_ObjBase
         name: String
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
       object: AltGnrcAltParamInp
-      type: !_InputBase
+      type: !_ObjBase
         name: Number
     alternates:
-    - !_InputAlternate
-      type: !_InputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: String
     fields:
     - !_InputField
       name: alt
-      type: !_InputBase
+      type: !_ObjBase
         name: Number
     name: AltGnrcAltParamInp
     typeKind: !_TypeKind Input
   !_Identifier GnrcAltParamInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: GnrcAltParamInp
-      type: !_InputBase
+      type: !_ObjBase
         name: RefGnrcAltParamInp
         typeArgs:
-        - !_InputArg
+        - !_ObjTypeArg
           name: AltGnrcAltParamInp
     alternates:
-    - !_InputAlternate
-      type: !_InputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: RefGnrcAltParamInp
         typeArgs:
-        - !_InputArg
+        - !_ObjTypeArg
           name: AltGnrcAltParamInp
     name: GnrcAltParamInp
     typeKind: !_TypeKind Input
   !_Identifier RefGnrcAltParamInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: RefGnrcAltParamInp
-      type: !_InputBase
+      type: !_ObjBase
         typeParam: ref
     alternates:
-    - !_InputAlternate
-      type: !_InputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         typeParam: ref
     name: RefGnrcAltParamInp
     typeKind: !_TypeKind Input

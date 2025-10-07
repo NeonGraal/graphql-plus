@@ -1,17 +1,12 @@
 ﻿namespace GqlPlus.Matching;
 
 public class UnionConstraintMatcherTests
-  : MatcherTestsBase
+  : MatchAnyTypesTestsBase
 {
   private readonly UnionConstraintMatcher _sut;
-  private readonly Matcher<IGqlpType>.I _anyType;
 
   public UnionConstraintMatcherTests()
-  {
-    Matcher<IGqlpType>.D anyType = MatcherFor(out _anyType);
-
-    _sut = new(LoggerFactory, anyType);
-  }
+    => _sut = new(LoggerFactory, AnyTypeMatcher);
 
   [Theory, RepeatData]
   public void Matches_ReturnsTrue_WhenMatchingUnionMember(string name, string constraint)
@@ -29,13 +24,17 @@ public class UnionConstraintMatcherTests
   [Theory, RepeatData]
   public void Matches_ReturnsExpected_WhenMatchingUnionMemberParent(string constraint, string name, string parent, bool expected)
   {
-    this.SkipEqual(name, parent);
+    this.SkipEqual3(constraint, name, parent);
 
-    IGqlpUnion union = A.Union(constraint, "", name);
+    IGqlpUnion union = A.Union(constraint, name);
     Types[constraint] = union;
 
+    IGqlpSimple simple = A.Simple<IGqlpSimple>(name, parent);
+    Types[name] = simple;
+
     IGqlpType type = A.Named<IGqlpType>(parent);
-    _anyType.Matches(type, name, Context).Returns(expected);
+    Types[parent] = type;
+    AnyTypeMatches(expected);
 
     bool result = _sut.MatchesTypeConstraint(type, constraint, Context);
 

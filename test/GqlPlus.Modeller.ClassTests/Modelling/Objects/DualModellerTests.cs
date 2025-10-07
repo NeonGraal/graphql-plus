@@ -1,12 +1,12 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
 public class DualModellerTests
-  : ModellerObjectBaseTestBase<IGqlpDualObject, TypeDualModel, IGqlpDualBase, DualBaseModel>
+  : ModellerObjectBaseTestBase<IGqlpDualObject, TypeDualModel, ObjBaseModel>
 {
   public DualModellerTests()
   {
     IModeller<IGqlpTypeParam, TypeParamModel> typeParam = MFor<IGqlpTypeParam, TypeParamModel>();
-    IModeller<IGqlpDualAlternate, DualAlternateModel> objAlt = MFor<IGqlpDualAlternate, DualAlternateModel>();
+    IModeller<IGqlpObjAlt, ObjAlternateModel> objAlt = MFor<IGqlpObjAlt, ObjAlternateModel>();
     IModeller<IGqlpDualField, DualFieldModel> objField = MFor<IGqlpDualField, DualFieldModel>();
 
     Modeller = new DualModeller(new(typeParam, objAlt, objField, ObjBase));

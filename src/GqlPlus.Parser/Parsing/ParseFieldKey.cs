@@ -4,11 +4,13 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing;
 
-internal class ParseFieldKey
-  : Parser<IGqlpFieldKey>.I
+internal class ParseFieldKey(
+  Parser<IGqlpEnumValue>.D parseEnumValue
+) : Parser<IGqlpFieldKey>.I
 {
-  public IResult<IGqlpFieldKey> Parse(ITokenizer tokens, string label)
+  private readonly Parser<IGqlpEnumValue>.L _parseEnumValue = parseEnumValue;
 
+  public IResult<IGqlpFieldKey> Parse(ITokenizer tokens, string label)
   {
     TokenAt at = tokens.At;
     if (tokens.Number(out decimal number)) {
@@ -19,17 +21,7 @@ internal class ParseFieldKey
       return new FieldKeyAst(at, contents).Ok<IGqlpFieldKey>();
     }
 
-    if (tokens.Identifier(out string? enumType)) {
-      if (tokens.Take('.')) {
-        return tokens.Identifier(out string? enumLabel)
-          ? new FieldKeyAst(at, enumType, enumLabel).Ok<IGqlpFieldKey>()
-          : tokens.Error<IGqlpFieldKey>(label, "enum value after '.'");
-      }
-
-      string type = BuiltIn.EnumValues.GetValueOrDefault(enumType, "");
-      return new FieldKeyAst(at, type, enumType).Ok<IGqlpFieldKey>();
-    }
-
-    return 0.Empty<IGqlpFieldKey>();
+    IResult<IGqlpEnumValue> enumResult = _parseEnumValue.Parse(tokens, label);
+    return enumResult.SelectOk(e => new FieldKeyAst(e) as IGqlpFieldKey);
   }
 }

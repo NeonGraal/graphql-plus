@@ -83,7 +83,7 @@
           "name": "field",
           "object": "FieldGnrcPrntEnumDomDual",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "typeParam": "ref"
           }
         }
@@ -93,7 +93,7 @@
           "$tag": "_DualField",
           "name": "field",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "typeParam": "ref"
           }
         }
@@ -126,18 +126,18 @@
           "name": "field",
           "object": "FieldGnrcPrntEnumDomDual",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "DomGnrcPrntEnumDomDual"
           }
         }
       ],
       "name": "GnrcPrntEnumDomDual",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "FieldGnrcPrntEnumDomDual",
         "typeArgs": [
           {
-            "$tag": "_DualArg",
+            "$tag": "_ObjTypeArg",
             "name": "DomGnrcPrntEnumDomDual"
           }
         ]

@@ -1,0 +1,62 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnumFieldValueDescrOutp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumFieldValueDescrOutp",
+          "name": "fieldValueDescrOutp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "fieldValueDescrOutp"
+        }
+      ],
+      "name": "EnumFieldValueDescrOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "FieldValueDescrOutp": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "description": "Test Descr",
+          "field": "field",
+          "label": "fieldValueDescrOutp",
+          "name": "EnumFieldValueDescrOutp",
+          "object": "FieldValueDescrOutp",
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputEnum",
+          "description": "Test Descr",
+          "field": "field",
+          "label": "fieldValueDescrOutp",
+          "name": "EnumFieldValueDescrOutp",
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
+          }
+        }
+      ],
+      "name": "FieldValueDescrOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    }
+  }
+}

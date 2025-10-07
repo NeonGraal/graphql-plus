@@ -5,18 +5,18 @@ types: !_Map_Type
       - !_ObjectFor(_OutputField)
         name: field
         object: GnrcFieldArgOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: RefGnrcFieldArgOutp
           typeArgs:
-            - !_OutputArg
+            - !_ObjTypeArg
               typeParam: type
     fields:
       - !_OutputField
         name: field
-        type: !_OutputBase
+        type: !_ObjBase
           name: RefGnrcFieldArgOutp
           typeArgs:
-            - !_OutputArg
+            - !_ObjTypeArg
               typeParam: type
     name: GnrcFieldArgOutp
     typeKind: !_TypeKind Output
@@ -28,13 +28,13 @@ types: !_Map_Type
         name: type
   !_Identifier RefGnrcFieldArgOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: RefGnrcFieldArgOutp
-        type: !_OutputBase
+        type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_OutputAlternate
-        type: !_OutputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           typeParam: ref
     name: RefGnrcFieldArgOutp
     typeKind: !_TypeKind Output

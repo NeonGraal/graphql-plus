@@ -9,16 +9,16 @@ errors:
 types: !_Map_Type
   !_Identifier _TypeUnion: !_TypeOutput
     name: _TypeUnion
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: _ParentType
       typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Union
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-        - !_OutputArg
+        - !_ObjTypeArg
           name: _UnionRef
-        - !_OutputArg
+        - !_ObjTypeArg
           name: _UnionMember
     typeKind: !_TypeKind Output
   !_Identifier _UnionMember: !_TypeOutput
@@ -26,22 +26,22 @@ types: !_Map_Type
       - !_ObjectFor(_OutputField)
         name: union
         object: _UnionMember
-        type: !_OutputBase
+        type: !_ObjBase
           name: _Identifier
     fields:
       - !_OutputField
         name: union
-        type: !_OutputBase
+        type: !_ObjBase
           name: _Identifier
     name: _UnionMember
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: _UnionRef
     typeKind: !_TypeKind Output
   !_Identifier _UnionRef: !_TypeOutput
     name: _UnionRef
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: _TypeRef
       typeArgs:
-        - !_OutputArg
+        - !_ObjTypeArg
           name: _SimpleKind
     typeKind: !_TypeKind Output

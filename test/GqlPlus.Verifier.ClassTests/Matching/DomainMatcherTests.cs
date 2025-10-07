@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Matching;
 
 public class DomainMatcherTests
-  : MatcherTestsBase
+  : MatchTestsBase
 {
   private readonly Matcher<IGqlpEnum>.I _enumMatcher;
   private readonly DomainMatcher _sut;

@@ -4,27 +4,25 @@ using GqlPlus.Token;
 
 namespace GqlPlus.Parsing.Schema.Objects;
 
-public class ParseObjectDefinition<TObjBase, TObjField, TObjAlt>(
-  Parser<TObjAlt>.DA alternates,
+public class ParseObjectDefinition<TObjField>(
+  Parser<IGqlpObjAlt>.DA alternates,
   Parser<TObjField>.D parseField,
-  Parser<TObjBase>.D parseBase
-) : Parser<ObjectDefinition<TObjBase, TObjField, TObjAlt>>.I
+  Parser<IGqlpObjBase>.D parseBase
+) : Parser<ObjectDefinition<TObjField>>.I
   where TObjField : IGqlpObjField
-  where TObjAlt : IGqlpObjAlternate
-  where TObjBase : IGqlpObjBase
 {
-  private readonly Parser<TObjAlt>.LA _alternates = alternates;
+  private readonly Parser<IGqlpObjAlt>.LA _alternates = alternates;
   private readonly Parser<TObjField>.L _parseField = parseField;
-  private readonly Parser<TObjBase>.L _parseBase = parseBase;
+  private readonly Parser<IGqlpObjBase>.L _parseBase = parseBase;
 
-  public IResult<ObjectDefinition<TObjBase, TObjField, TObjAlt>> Parse(ITokenizer tokens, string label)
+  public IResult<ObjectDefinition<TObjField>> Parse(ITokenizer tokens, string label)
 
   {
     tokens.ThrowIfNull();
-    ObjectDefinition<TObjBase, TObjField, TObjAlt> result = new();
+    ObjectDefinition<TObjField> result = new();
 #pragma warning disable CA1062 // Validate arguments of public methods
     if (tokens.Take(':')) {
-      IResult<TObjBase> objBase = _parseBase.Parse(tokens, label);
+      IResult<IGqlpObjBase> objBase = _parseBase.Parse(tokens, label);
       if (objBase.IsError()) {
         return objBase.AsResult(result);
       }
@@ -48,7 +46,7 @@ public class ParseObjectDefinition<TObjBase, TObjField, TObjAlt>(
     }
 
     result.Fields = [.. fields];
-    IResultArray<TObjAlt> objectAlternates = _alternates.Parse(tokens, label);
+    IResultArray<IGqlpObjAlt> objectAlternates = _alternates.Parse(tokens, label);
     return !objectAlternates.Optional(alternates => result.Alternates = [.. alternates])
       ? objectAlternates.AsPartial(result)
       : tokens.End(label, () => result);

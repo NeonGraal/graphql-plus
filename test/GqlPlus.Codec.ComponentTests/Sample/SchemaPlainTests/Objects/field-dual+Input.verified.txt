@@ -5,35 +5,35 @@ types: !_Map_Type
       - !_ObjectFor(_InputField)
         name: field
         object: FieldDualInp
-        type: !_DualBase
+        type: !_ObjBase
           name: FldFieldDualInp
     fields:
       - !_InputField
         name: field
-        type: !_DualBase
+        type: !_ObjBase
           name: FldFieldDualInp
     name: FieldDualInp
     typeKind: !_TypeKind Input
   !_Identifier FldFieldDualInp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_DualAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: FldFieldDualInp
-        type: !_DualBase
+        type: !_ObjBase
           name: String
     allFields:
       - !_ObjectFor(_DualField)
         name: field
         object: FldFieldDualInp
-        type: !_DualBase
+        type: !_ObjBase
           name: Number
     alternates:
-      - !_DualAlternate
-        type: !_DualBase
+      - !_ObjAlternate
+        type: !_ObjBase
           name: String
     fields:
       - !_DualField
         name: field
-        type: !_DualBase
+        type: !_ObjBase
           name: Number
     name: FldFieldDualInp
     typeKind: !_TypeKind Dual

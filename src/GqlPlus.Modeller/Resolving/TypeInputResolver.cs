@@ -2,9 +2,8 @@
 
 namespace GqlPlus.Resolving;
 
-internal class TypeInputResolver(
-  IResolver<TypeDualModel> dual
-) : ResolverTypeObjectType<TypeInputModel, InputBaseModel, InputFieldModel, InputAlternateModel, InputArgModel>
+internal class TypeInputResolver
+  : ResolverTypeObjectType<TypeInputModel, InputFieldModel>
 {
   protected override TResult Apply<TResult>(TResult result, ArgumentsContext arguments)
   {
@@ -14,7 +13,7 @@ internal class TypeInputResolver(
 
     if (result is TypeInputModel input) {
       if (input.Parent is not null
-        && GetInputArgument(input.Name, input.Parent, arguments, out InputBaseModel? parentModel)) {
+        && GetInputArgument(input.Name, input.Parent, arguments, out ObjBaseModel? parentModel)) {
         input.Parent = new(parentModel.Name, input.Parent.Description);
         input.ParentModel = null;
       }
@@ -30,10 +29,6 @@ internal class TypeInputResolver(
 
   protected override TypeInputModel CloneModel(TypeInputModel model)
     => model with { };
-  protected override string GetArgKey(InputArgModel argument)
-    => argument.Name;
-  protected override MakeFor<InputAlternateModel> ObjectAlt(string obj)
-    => alt => new(alt, obj);
   protected override MakeFor<InputFieldModel> ObjectField(string obj)
     => fld => new(fld, obj);
 
@@ -54,30 +49,15 @@ internal class TypeInputResolver(
   protected override string? ParentName(TypeInputModel model)
     => model.Parent?.Name;
 
-  protected override void ResolveParent(TypeInputModel model, IResolveContext context)
-  {
-    DualBaseModel? parentDual = model.Parent?.Dual;
-    if (parentDual is not null) {
-      if (context.TryGetType(model.Name, parentDual.Name, out TypeDualModel? parentModel)) {
-        parentModel = dual.Resolve(parentModel, context);
-        ArgumentsContext? argsContext = MakeArgumentsContext(context, parentDual.Args, parentModel);
-        if (argsContext is not null) {
-          parentModel = Apply(parentModel with { }, argsContext);
-          parentModel = dual.Resolve(parentModel, context);
-        }
-
-        model.ParentModel = parentModel;
-      }
-    } else {
-      base.ResolveParent(model, context);
-    }
-  }
+  protected override void ResolveParent(TypeInputModel model, IResolveContext context) =>
+    // Dual property has been removed - use base implementation
+    base.ResolveParent(model, context);
 
   private Func<InputFieldModel, InputFieldModel> ApplyField(string label, ArgumentsContext arguments)
     => field => {
-      InputBaseModel? fieldType = field.Type;
+      ObjBaseModel? fieldType = field.Type;
       if (fieldType is not null
-        && GetInputArgument(label + " - " + field.Name, fieldType, arguments, out InputBaseModel? argModel)) {
+        && GetInputArgument(label + " - " + field.Name, fieldType, arguments, out ObjBaseModel? argModel)) {
         field = field with { Type = argModel with { Description = fieldType.Description } };
       }
 
@@ -87,30 +67,24 @@ internal class TypeInputResolver(
       return field;
     };
 
-  private Func<InputAlternateModel, InputAlternateModel> ApplyAlternate(string label, ArgumentsContext arguments)
+  private Func<ObjAlternateModel, ObjAlternateModel> ApplyAlternate(string label, ArgumentsContext arguments)
     => alternate => {
-      if (GetInputArgument(label, alternate.Type, arguments, out InputBaseModel? argModel)) {
-        alternate = alternate with { Type = argModel };
+      if (alternate.Type is ObjBaseModel inputType && GetInputArgument(label, inputType, arguments, out ObjBaseModel? argModel)) {
+        alternate = new ObjAlternateModel(argModel) { Collections = alternate.Collections };
       }
 
       ApplyArray(alternate.Collections, ApplyCollection(label, arguments),
-        collections => alternate = alternate with { Collections = collections });
+        collections => alternate = new ObjAlternateModel(alternate.Type) { Collections = collections });
 
       return alternate;
     };
 
-  private bool GetInputArgument(string label, InputBaseModel inputBase, ArgumentsContext arguments, [NotNullWhen(true)] out InputBaseModel? outBase)
+  private bool GetInputArgument(string label, ObjBaseModel inputBase, ArgumentsContext arguments, [NotNullWhen(true)] out ObjBaseModel? outBase)
   {
     outBase = null;
     if (inputBase?.IsTypeParam == true) {
-      if (arguments.TryGetArg(label, inputBase.Name, out InputArgModel? inputArg)) {
-        if (inputArg.Dual is not null) {
-          if (arguments.TryGetType(label, inputArg.Dual.Name, out DualBaseModel? dualBase, false)) {
-            outBase = new("", inputArg.Description) { Dual = dualBase };
-          } else {
-            outBase = new("", inputArg.Description) { Dual = new(inputArg.Dual.Name, inputArg.Description) { IsTypeParam = inputArg.Dual.IsTypeParam } };
-          }
-        } else if (!arguments.TryGetType(label, inputArg.Name, out outBase, false)) {
+      if (arguments.TryGetArg(label, inputBase.Name, out ObjTypeArgModel? inputArg)) {
+        if (!arguments.TryGetType(label, inputArg.Name, out outBase, false)) {
           outBase = new(inputArg.Name, inputArg.Description) { IsTypeParam = inputArg.IsTypeParam };
         }
 

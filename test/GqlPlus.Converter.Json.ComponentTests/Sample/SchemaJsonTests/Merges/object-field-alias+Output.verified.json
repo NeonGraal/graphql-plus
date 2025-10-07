@@ -19,7 +19,7 @@
           "name": "field",
           "object": "ObjFieldAliasOutp",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "FldObjFieldAliasOutp"
           }
         }
@@ -30,7 +30,7 @@
           "aliases": ["field1", "field2"],
           "name": "field",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "FldObjFieldAliasOutp"
           }
         }

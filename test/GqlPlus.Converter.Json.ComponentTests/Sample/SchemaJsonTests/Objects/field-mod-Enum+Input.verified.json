@@ -45,7 +45,7 @@
           "name": "field",
           "object": "FieldModEnumInp",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -69,7 +69,7 @@
           ],
           "name": "field",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }

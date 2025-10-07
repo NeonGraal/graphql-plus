@@ -6,20 +6,23 @@ namespace GqlPlus.Merging.Schema.Objects;
 
 public class MergeDualFieldsTests(
   ITestOutputHelper outputHelper
-) : TestObjectFieldMerger<IGqlpDualField, IGqlpDualBase>
+) : TestObjectFieldMerger<IGqlpDualField>
 {
   private readonly MergeDualFields _merger = new(outputHelper.ToLoggerFactory());
 
   internal override AstObjectFieldsMerger<IGqlpDualField> MergerField => _merger;
 
-  protected override IGqlpDualField MakeAliased(string name, string[] aliases, string description = "")
-    => new DualFieldAst(AstNulls.At, name, description, new DualBaseAst(AstNulls.At, name, description)) {
-      Aliases = aliases
+  protected override IGqlpDualField MakeField(string name, string type, string fieldDescription = "", string typeDescription = "", string[]? aliases = null)
+    => new DualFieldAst(AstNulls.At, name, fieldDescription, new ObjBaseAst(AstNulls.At, type, typeDescription)) {
+      Aliases = aliases ?? [],
     };
-  protected override IGqlpDualField MakeField(string name, string type, string fieldDescription = "", string typeDescription = "")
-    => new DualFieldAst(AstNulls.At, name, fieldDescription, new DualBaseAst(AstNulls.At, type, typeDescription));
+  protected override IGqlpDualField MakeFieldEnum(string name, string enumType, string enumLabel, string fieldDescription = "", string typeDescription = "", string[]? aliases = null)
+    => new DualFieldAst(AstNulls.At, name, fieldDescription, new ObjBaseAst(AstNulls.At, enumType, typeDescription)) {
+      Aliases = aliases ?? [],
+      EnumValue = new EnumValueAst(AstNulls.At, enumType, enumLabel),
+    };
   protected override IGqlpDualField MakeFieldModifiers(string name)
-    => new DualFieldAst(AstNulls.At, name, new DualBaseAst(AstNulls.At, name)) {
-      Modifiers = TestMods()
+    => new DualFieldAst(AstNulls.At, name, new ObjBaseAst(AstNulls.At, name, "")) {
+      Modifiers = TestMods(),
     };
 }

@@ -5,24 +5,24 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier InOutpPrntParam: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: InOutpPrntParam
-      type: !_InputBase
+      type: !_ObjBase
         name: String
     allFields:
     - !_ObjectFor(_InputField)
       name: param
       object: InOutpPrntParam
-      type: !_InputBase
+      type: !_ObjBase
         name: Number
     alternates:
-    - !_InputAlternate
-      type: !_InputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: String
     fields:
     - !_InputField
       name: param
-      type: !_InputBase
+      type: !_ObjBase
         name: Number
     name: InOutpPrntParam
     typeKind: !_TypeKind Input
@@ -34,7 +34,7 @@ types: !_Map_Type
       parameters:
       - !_InputParam
         name: PrntOutpPrntParamIn
-      type: !_DualBase
+      type: !_ObjBase
         name: FldOutpPrntParam
     - !_ObjectFor(_OutputField)
       name: field
@@ -42,7 +42,7 @@ types: !_Map_Type
       parameters:
       - !_InputParam
         name: InOutpPrntParam
-      type: !_DualBase
+      type: !_ObjBase
         name: FldOutpPrntParam
     fields:
     - !_OutputField
@@ -50,10 +50,10 @@ types: !_Map_Type
       parameters:
       - !_InputParam
         name: InOutpPrntParam
-      type: !_DualBase
+      type: !_ObjBase
         name: FldOutpPrntParam
     name: OutpPrntParam
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: PrntOutpPrntParam
     typeKind: !_TypeKind Output
   !_Identifier PrntOutpPrntParam: !_TypeOutput
@@ -64,7 +64,7 @@ types: !_Map_Type
       parameters:
       - !_InputParam
         name: PrntOutpPrntParamIn
-      type: !_DualBase
+      type: !_ObjBase
         name: FldOutpPrntParam
     fields:
     - !_OutputField
@@ -72,30 +72,30 @@ types: !_Map_Type
       parameters:
       - !_InputParam
         name: PrntOutpPrntParamIn
-      type: !_DualBase
+      type: !_ObjBase
         name: FldOutpPrntParam
     name: PrntOutpPrntParam
     typeKind: !_TypeKind Output
   !_Identifier PrntOutpPrntParamIn: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: PrntOutpPrntParamIn
-      type: !_InputBase
+      type: !_ObjBase
         name: String
     allFields:
     - !_ObjectFor(_InputField)
       name: parent
       object: PrntOutpPrntParamIn
-      type: !_InputBase
+      type: !_ObjBase
         name: Number
     alternates:
-    - !_InputAlternate
-      type: !_InputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: String
     fields:
     - !_InputField
       name: parent
-      type: !_InputBase
+      type: !_ObjBase
         name: Number
     name: PrntOutpPrntParamIn
     typeKind: !_TypeKind Input

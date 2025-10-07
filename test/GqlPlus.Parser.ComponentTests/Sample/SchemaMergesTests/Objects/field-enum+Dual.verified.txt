@@ -1,0 +1,22 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  FieldEnumDual
+  {
+    !DF I@022/0001
+    field
+    =
+    I@030/0001
+    EnumFieldEnumDual
+    .fieldEnumDual
+  }
+}
+{
+  !En I@006/0002
+  EnumFieldEnumDual
+  !EL I@026/0002
+  fieldEnumDual
+}
+]

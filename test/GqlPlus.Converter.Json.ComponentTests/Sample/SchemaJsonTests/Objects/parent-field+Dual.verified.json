@@ -6,10 +6,10 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_DualAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "RefPrntFieldDual",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -20,7 +20,7 @@
           "name": "parent",
           "object": "RefPrntFieldDual",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         },
@@ -29,7 +29,7 @@
           "name": "field",
           "object": "PrntFieldDual",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
@@ -39,14 +39,14 @@
           "$tag": "_DualField",
           "name": "field",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "name": "PrntFieldDual",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "RefPrntFieldDual"
       },
       "typeKind": {
@@ -58,10 +58,10 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_DualAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "RefPrntFieldDual",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -72,16 +72,16 @@
           "name": "parent",
           "object": "RefPrntFieldDual",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_DualAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -91,7 +91,7 @@
           "$tag": "_DualField",
           "name": "parent",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }

@@ -6,10 +6,10 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_DualAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "AltAltModBoolDual",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -20,16 +20,16 @@
           "name": "alt",
           "object": "AltAltModBoolDual",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_DualAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -39,7 +39,7 @@
           "$tag": "_DualField",
           "name": "alt",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
@@ -54,7 +54,7 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_DualAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "collections": [
             {
               "$tag": "_ModifierDictionary",
@@ -71,14 +71,14 @@
           ],
           "object": "AltModBoolDual",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "AltAltModBoolDual"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_DualAlternate",
+          "$tag": "_ObjAlternate",
           "collections": [
             {
               "$tag": "_ModifierDictionary",
@@ -94,7 +94,7 @@
             }
           ],
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "AltAltModBoolDual"
           }
         }

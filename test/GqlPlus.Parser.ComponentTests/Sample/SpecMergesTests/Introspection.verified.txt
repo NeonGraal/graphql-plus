@@ -33,1858 +33,1358 @@ Success
     _Directives
     [_Identifier]
     !OF I@009/0005
-    operations
-    (
-      !Pa
-      I@020/0005
-      _Filter
-      ?
-    )
-    :
-    I@031/0005
-    _Operations
-    [_Identifier]
-    !OF I@009/0006
     types
     (
       !Pa
-      I@015/0006
+      I@015/0005
       _TypeFilter
       ?
     )
     :
-    I@030/0006
+    I@030/0005
     _Type
     [_Identifier]
-    !OF I@009/0007
+    !OF I@009/0006
     settings
     (
       !Pa
-      I@018/0007
+      I@018/0006
       _Filter
       ?
     )
     :
-    I@029/0007
+    I@029/0006
     _Setting
     [_Identifier]
   }
 }
 {
-  !Do I@008/0010
+  !Do I@008/0009
   _Identifier
   String
-  !DX R@029/0010
+  !DX R@029/0009
   /[A-Za-z_][A-Za-z0-9_]*/
 }
 {
-  !In I@007/0012
+  !In I@007/0011
   _Filter
   {
-    !IF I@009/0013
+    !IF I@009/0012
     names
     :
-    I@016/0013
+    I@016/0012
     _NameFilter
     []
-    !IF I@009/0014
+    !IF I@009/0013
     matchAliases
     :
-    I@023/0014
+    I@023/0013
     Boolean
     ?
-    =( !k I@034/0014 Boolean.true )
-    !IF I@009/0015
+    =( !k I@034/0013 Boolean.true )
+    !IF I@009/0014
     aliases
     :
-    I@018/0015
+    I@018/0014
     _NameFilter
     []
-    !IF I@009/0016
+    !IF I@009/0015
     returnByAlias
     :
-    I@024/0016
+    I@024/0015
     Boolean
     ?
-    =( !k I@035/0016 Boolean.false )
-    !IF I@009/0017
+    =( !k I@035/0015 Boolean.false )
+    !IF I@009/0016
     returnReferencedTypes
     :
-    I@032/0017
+    I@032/0016
     Boolean
     ?
-    =( !k I@043/0017 Boolean.false )
+    =( !k I@043/0016 Boolean.false )
   }
   |
-  I@007/0018
+  I@007/0017
   _NameFilter
   []
 }
 {
   '_NameFilter is a simple match expression against _Identifier where \'.\' matches any single character and \'*\' matches zero or more of any character.'
-  !Do I@008/0023
+  !Do I@008/0022
   _NameFilter
   String
-  !DX R@029/0023
+  !DX R@029/0022
   /[A-Za-z_.*]+/
 }
 {
-  !In I@007/0025
+  !In I@007/0024
   _CategoryFilter
   :
-  I@007/0026
+  I@007/0025
   _Filter
   {
-    !IF I@009/0027
+    !IF I@009/0026
     resolutions
     :
-    I@022/0027
+    I@022/0026
     _Resolution
     []
   }
 }
 {
-  !In I@007/0030
+  !In I@007/0029
   _TypeFilter
   :
-  I@007/0031
+  I@007/0030
   _Filter
   {
-    !IF I@009/0032
+    !IF I@009/0031
     kinds
     :
-    I@016/0032
+    I@016/0031
     _TypeKind
     []
   }
 }
 {
-  !Du I@006/0035
+  !Du I@006/0034
   _Aliased
   :
-  I@007/0036
+  I@007/0035
   _Named
   {
-    !DF I@009/0037
+    !DF I@009/0036
     aliases
     :
-    I@018/0037
+    I@018/0036
     _Identifier
     []
   }
 }
 {
-  !Du I@006/0040
+  !Du I@006/0039
   _Named
   :
-  I@007/0041
+  I@007/0040
   _Described
   {
-    !DF I@009/0042
+    !DF I@009/0041
     name
     :
-    I@015/0042
+    I@015/0041
     _Identifier
   }
 }
 {
-  !Du I@006/0045
+  !Du I@006/0044
   _Described
   {
-    !DF I@009/0046
+    !DF I@009/0045
     description
     :
-    I@022/0046
+    I@022/0045
     String
     []
   }
 }
 {
-  !Ou I@008/0049
+  !Ou I@008/0048
   _AndType
   :
-  I@007/0050
+  I@007/0049
   _Named
   {
-    !OF I@009/0051
+    !OF I@009/0050
     type
     :
-    I@015/0051
+    I@015/0050
     _Type
   }
   |
-  I@007/0052
+  I@007/0051
   _Type
 }
 {
-  !Ou I@008/0055
+  !Ou I@008/0054
   _Categories
   :
-  I@007/0056
+  I@007/0055
   _AndType
   {
-    !OF I@009/0057
+    !OF I@009/0056
     category
     :
-    I@019/0057
+    I@019/0056
     _Category
   }
   |
-  I@007/0058
+  I@007/0057
   _Category
 }
 {
-  !Ou I@008/0061
+  !Ou I@008/0060
   _Category
   :
-  I@007/0062
+  I@007/0061
   _Aliased
   {
-    !OF I@009/0063
+    !OF I@009/0062
     resolution
     :
-    I@021/0063
+    I@021/0062
     _Resolution
-    !OF I@009/0064
+    !OF I@009/0063
     output
     :
-    I@017/0064
+    I@017/0063
     _TypeRef
     <
-      I@026/0064
+      I@026/0063
       _TypeKind.Output
     >
-    !OF I@009/0065
+    !OF I@009/0064
     modifiers
     :
-    I@020/0065
+    I@020/0064
     _Modifiers
     []
   }
 }
 {
-  !En I@006/0068
+  !En I@006/0067
   _Resolution
-  !EL I@020/0068
+  !EL I@020/0067
   Parallel
-  !EL I@029/0068
+  !EL I@029/0067
   Sequential
-  !EL I@040/0068
+  !EL I@040/0067
   Single
 }
 {
-  !Ou I@008/0070
+  !Ou I@008/0069
   _Directives
   :
-  I@007/0071
+  I@007/0070
   _AndType
   {
-    !OF I@009/0072
+    !OF I@009/0071
     directive
     :
-    I@020/0072
+    I@020/0071
     _Directive
   }
   |
-  I@007/0073
+  I@007/0072
   _Directive
 }
 {
-  !Ou I@008/0076
+  !Ou I@008/0075
   _Directive
   :
-  I@007/0077
+  I@007/0076
   _Aliased
   {
-    !OF I@009/0078
+    !OF I@009/0077
     parameters
     :
-    I@021/0078
+    I@021/0077
     _InputParam
     []
-    !OF I@009/0079
+    !OF I@009/0078
     repeatable
     :
-    I@021/0079
+    I@021/0078
     Boolean
-    !OF I@009/0080
+    !OF I@009/0079
     locations
     :
-    I@020/0080
+    I@020/0079
     _
     [_Location]
   }
 }
 {
-  !En I@006/0083
+  !En I@006/0082
   _Location
-  !EL I@018/0083
+  !EL I@018/0082
   Operation
-  !EL I@028/0083
+  !EL I@028/0082
   Variable
-  !EL I@037/0083
+  !EL I@037/0082
   Field
-  !EL I@043/0083
+  !EL I@043/0082
   Inline
-  !EL I@050/0083
+  !EL I@050/0082
   Spread
-  !EL I@057/0083
+  !EL I@057/0082
   Fragment
 }
 {
-  !Ou I@008/0086
-  _Operations
-  {
-    !OF I@009/0087
-    operation
-    :
-    I@020/0087
-    _Operation
-    !OF I@009/0088
-    type
-    :
-    I@015/0088
-    _Type
-  }
-  |
-  I@007/0089
-  _Operation
-  I@007/0090
-  _Type
-}
-{
-  !Ou I@008/0093
-  _Operation
-  :
-  I@007/0094
-  _Aliased
-  {
-    !OF I@009/0095
-    category
-    :
-    I@019/0095
-    _Identifier
-    !OF I@009/0096
-    variables
-    :
-    I@020/0096
-    _OpVariable
-    []
-    !OF I@009/0097
-    directives
-    :
-    I@021/0097
-    _OpDirective
-    []
-    !OF I@009/0098
-    fragments
-    :
-    I@020/0098
-    _OpFragment
-    []
-    !OF I@009/0099
-    result
-    :
-    I@017/0099
-    _OpResult
-  }
-}
-{
-  !Ou I@008/0102
-  _OpVariable
-  :
-  I@007/0103
-  _Named
-  {
-    !OF I@009/0104
-    type
-    :
-    I@015/0104
-    _InputBase
-    !OF I@009/0105
-    modifiers
-    :
-    I@020/0105
-    _Modifiers
-    []
-    !OF I@009/0106
-    default
-    :
-    I@018/0106
-    Value
-    ?
-    !OF I@009/0107
-    directives
-    :
-    I@021/0107
-    _OpDirective
-    []
-  }
-}
-{
-  !Du I@006/0110
-  _OpDirective
-  :
-  I@007/0111
-  _Named
-  {
-    !DF I@009/0112
-    argument
-    :
-    I@019/0112
-    _OpArgument
-    ?
-  }
-}
-{
-  !Ou I@008/0115
-  _OpFragment
-  :
-  I@007/0116
-  _Named
-  {
-    !OF I@009/0117
-    type
-    :
-    I@015/0117
-    _OutputBase
-    !OF I@009/0118
-    directives
-    :
-    I@021/0118
-    _OpDirective
-    []
-    !OF I@009/0119
-    body
-    :
-    I@015/0119
-    _OpObject
-    []
-  }
-}
-{
-  !Du I@006/0122
-  _OpArgument
-  |
-  I@009/0123
-  _OpArgValue
-  I@009/0124
-  _OpArgList
-  I@009/0125
-  _OpArgMap
-}
-{
-  !Du I@006/0128
-  _OpArgValue
-  {
-    !DF I@009/0129
-    variable
-    :
-    I@019/0129
-    _Identifier
-  }
-  |
-  I@009/0130
-  Value
-}
-{
-  !Du I@006/0133
-  _OpArgList
-  |
-  I@007/0134
-  _OpArgValue
-  []
-}
-{
-  !Du I@006/0137
-  _OpArgMap
-  {
-    !DF I@009/0138
-    value
-    :
-    I@016/0138
-    _OpArgValue
-    !DF I@009/0139
-    byVariable
-    :
-    I@021/0139
-    _Identifier
-  }
-  |
-  I@007/0140
-  _OpArgValue
-  [Scalar]
-}
-{
-  !Ou I@008/0143
-  _OpResult
-  {
-    !OF I@009/0144
-    domain
-    :
-    I@017/0144
-    _TypeRef
-    <
-      I@026/0144
-      _SimpleKind
-    >
-    ?
-    !OF I@009/0145
-    argument
-    :
-    I@019/0145
-    _OpArgument
-    ?
-    !OF I@009/0146
-    body
-    :
-    I@015/0146
-    _OpObject
-    []
-  }
-}
-{
-  !Ou I@008/0149
-  _OpObject
-  |
-  I@009/0150
-  _OpField
-  I@009/0151
-  _OpSpread
-  I@009/0152
-  _OpInline
-}
-{
-  !Ou I@008/0155
-  _OpField
-  {
-    !OF I@009/0156
-    alias
-    :
-    I@016/0156
-    String
-    ?
-    !OF I@009/0157
-    field
-    :
-    I@016/0157
-    String
-    !OF I@009/0158
-    argument
-    :
-    I@019/0158
-    _OpArgument
-    ?
-    !OF I@009/0159
-    modifiers
-    :
-    I@020/0159
-    _Modifiers
-    []
-    !OF I@009/0160
-    directives
-    :
-    I@021/0160
-    _OpDirective
-    []
-    'The body as a string as we can\'t have nested objects.'
-    !OF I@009/0162
-    body
-    :
-    I@015/0162
-    String
-  }
-}
-{
-  !Ou I@008/0165
-  _OpInline
-  {
-    !OF I@009/0166
-    type
-    :
-    I@015/0166
-    _OutputBase
-    ?
-    !OF I@009/0167
-    directives
-    :
-    I@021/0167
-    _OpDirective
-    []
-    'The body as a string as we can\'t have nested objects.'
-    !OF I@009/0169
-    body
-    :
-    I@015/0169
-    String
-  }
-}
-{
-  !Ou I@008/0172
-  _OpSpread
-  {
-    !OF I@009/0173
-    fragment
-    :
-    I@019/0173
-    String
-    !OF I@009/0174
-    directives
-    :
-    I@021/0174
-    _OpDirective
-    []
-  }
-}
-{
-  !Ou I@008/0177
+  !Ou I@008/0085
   _Setting
   :
-  I@007/0178
+  I@007/0086
   _Named
   {
-    !OF I@009/0179
+    !OF I@009/0087
     value
     :
-    I@016/0179
+    I@016/0087
     Value
   }
 }
 {
-  !Ou I@008/0182
+  !Ou I@008/0090
   _Type
   |
-  I@007/0183
+  I@007/0091
   _BaseType
   <
-    I@017/0183
+    I@017/0091
     _TypeKind.Basic
   >
-  I@007/0184
+  I@007/0092
   _BaseType
   <
-    I@017/0184
+    I@017/0092
     _TypeKind.Internal
   >
-  I@007/0185
+  I@007/0093
   _TypeDual
-  I@007/0186
+  I@007/0094
   _TypeEnum
-  I@007/0187
+  I@007/0095
   _TypeInput
-  I@007/0188
+  I@007/0096
   _TypeOutput
-  I@007/0189
+  I@007/0097
   _TypeDomain
-  I@007/0190
+  I@007/0098
   _TypeUnion
 }
 {
-  !Ou I@008/0193
+  !Ou I@008/0101
   _BaseType
   <
-    I@019/0193
+    I@019/0101
     $kind
     :_TypeKind
   >
   :
-  I@007/0194
+  I@007/0102
   _Aliased
   {
-    !OF I@009/0195
+    !OF I@009/0103
     typeKind
     :
-    I@020/0195
+    I@020/0103
     $kind
   }
 }
 {
-  !Ou I@008/0198
+  !Ou I@008/0106
   _ChildType
   <
-    I@020/0198
+    I@020/0106
     $kind
     :_TypeKind
-    I@036/0198
+    I@036/0106
     $parent
     :_Described
   >
   :
-  I@007/0199
+  I@007/0107
   _BaseType
   <
-    I@018/0199
+    I@018/0107
     $kind
   >
   {
-    !OF I@009/0200
+    !OF I@009/0108
     parent
     :
-    I@018/0200
+    I@018/0108
     $parent
   }
 }
 {
-  !Ou I@008/0203
+  !Ou I@008/0111
   _ParentType
   <
-    I@021/0203
+    I@021/0111
     $kind
     :_TypeKind
-    I@037/0203
+    I@037/0111
     $item
     :_Described
-    I@054/0203
+    I@054/0111
     $allItem
     :_Described
   >
   :
-  I@007/0204
+  I@007/0112
   _ChildType
   <
-    I@019/0204
+    I@019/0112
     $kind
-    I@024/0204
+    I@024/0112
     _Named
   >
   {
-    !OF I@009/0205
+    !OF I@009/0113
     items
     :
-    I@017/0205
+    I@017/0113
     $item
     []
-    !OF I@009/0206
+    !OF I@009/0114
     allItems
     :
-    I@020/0206
+    I@020/0114
     $allItem
     []
   }
 }
 {
-  !En I@006/0209
+  !En I@006/0117
   _SimpleKind
-  !EL I@020/0209
+  !EL I@020/0117
   Basic
-  !EL I@026/0209
+  !EL I@026/0117
   Enum
-  !EL I@031/0209
+  !EL I@031/0117
   Internal
-  !EL I@040/0209
+  !EL I@040/0117
   Domain
-  !EL I@047/0209
+  !EL I@047/0117
   Union
 }
 {
-  !En I@006/0211
+  !En I@006/0119
   _TypeKind
-  :( !Tr I@019/0211 _SimpleKind )
-  !EL I@031/0211
+  :( !Tr I@019/0119 _SimpleKind )
+  !EL I@031/0119
   Dual
-  !EL I@036/0211
+  !EL I@036/0119
   Input
-  !EL I@042/0211
+  !EL I@042/0119
   Output
 }
 {
-  !Ou I@008/0213
+  !Du I@006/0121
   _TypeRef
   <
-    I@018/0213
+    I@016/0121
     $kind
     :_TypeKind
   >
   :
-  I@007/0214
+  I@007/0122
   _Named
   {
-    !OF I@009/0215
+    !DF I@009/0123
     typeKind
     :
-    I@020/0215
+    I@020/0123
     $kind
   }
 }
 {
-  !Ou I@008/0218
+  !Du I@006/0126
   _TypeSimple
   |
-  I@007/0219
+  I@007/0127
   _TypeRef
   <
-    I@016/0219
+    I@016/0127
     _TypeKind.Basic
   >
-  I@007/0220
+  I@007/0128
   _TypeRef
   <
-    I@016/0220
+    I@016/0128
     _TypeKind.Enum
   >
-  I@007/0221
+  I@007/0129
   _TypeRef
   <
-    I@016/0221
+    I@016/0129
     _TypeKind.Domain
   >
-  I@007/0222
+  I@007/0130
   _TypeRef
   <
-    I@016/0222
+    I@016/0130
     _TypeKind.Union
   >
 }
 {
-  !Ou I@008/0225
+  !Du I@006/0133
   _Collections
   |
-  I@007/0226
+  I@007/0134
   _Modifier
   <
-    I@017/0226
+    I@017/0134
     _ModifierKind.List
   >
-  I@007/0227
+  I@007/0135
   _ModifierKeyed
   <
-    I@022/0227
+    I@022/0135
     _ModifierKind.Dictionary
   >
-  I@007/0228
+  I@007/0136
   _ModifierKeyed
   <
-    I@022/0228
+    I@022/0136
     _ModifierKind.TypeParam
   >
 }
 {
-  !Ou I@008/0231
+  !Du I@006/0139
   _ModifierKeyed
   <
-    I@024/0231
+    I@022/0139
     $kind
     :_ModifierKind
   >
   :
-  I@007/0232
+  I@007/0140
   _Modifier
   <
-    I@018/0232
+    I@018/0140
     $kind
   >
   {
-    !OF I@009/0233
+    !DF I@009/0141
     by
     :
-    I@013/0233
+    I@013/0141
     _TypeSimple
-    !OF I@009/0234
+    !DF I@009/0142
     optional
     :
-    I@019/0234
+    I@019/0142
     Boolean
   }
 }
 {
-  !Ou I@008/0237
+  !Du I@006/0145
   _Modifiers
   |
-  I@007/0238
+  I@007/0146
   _Modifier
   <
-    I@017/0238
+    I@017/0146
     _ModifierKind.Optional
   >
-  I@007/0239
+  I@007/0147
   _Collections
 }
 {
-  !En I@006/0242
+  !En I@006/0150
   _ModifierKind
-  !EL I@022/0242
+  !EL I@022/0150
   Opt
   [
     Optional
   ]
-  !EL I@036/0242
+  !EL I@036/0150
   List
-  !EL I@041/0242
+  !EL I@041/0150
   Dict
   [
     Dictionary
   ]
-  !EL I@058/0242
+  !EL I@058/0150
   Param
   [
     TypeParam
   ]
 }
 {
-  !Ou I@008/0244
+  !Du I@006/0152
   _Modifier
   <
-    I@019/0244
+    I@017/0152
     $kind
     :_ModifierKind
   >
   {
-    !OF I@009/0245
+    !DF I@009/0153
     modifierKind
     :
-    I@024/0245
+    I@024/0153
     $kind
   }
 }
 {
-  !En I@006/0248
+  !En I@006/0156
   _DomainKind
-  !EL I@020/0248
+  !EL I@020/0156
   Boolean
-  !EL I@028/0248
+  !EL I@028/0156
   Enum
-  !EL I@033/0248
+  !EL I@033/0156
   Number
-  !EL I@040/0248
+  !EL I@040/0156
   String
 }
 {
-  !Ou I@008/0250
+  !Ou I@008/0158
   _TypeDomain
   |
-  I@007/0251
+  I@007/0159
   _BaseDomain
   <
-    I@019/0251
+    I@019/0159
     _DomainKind.Boolean
-    I@039/0251
+    I@039/0159
     _DomainTrueFalse
-    I@056/0251
+    I@056/0159
     _DomainItemTrueFalse
   >
-  I@007/0252
+  I@007/0160
   _BaseDomain
   <
-    I@019/0252
+    I@019/0160
     _DomainKind.Enum
-    I@036/0252
+    I@036/0160
     _DomainLabel
-    I@049/0252
+    I@049/0160
     _DomainItemLabel
   >
-  I@007/0253
+  I@007/0161
   _BaseDomain
   <
-    I@019/0253
+    I@019/0161
     _DomainKind.Number
-    I@038/0253
+    I@038/0161
     _DomainRange
-    I@051/0253
+    I@051/0161
     _DomainItemRange
   >
-  I@007/0254
+  I@007/0162
   _BaseDomain
   <
-    I@019/0254
+    I@019/0162
     _DomainKind.String
-    I@038/0254
+    I@038/0162
     _DomainRegex
-    I@051/0254
+    I@051/0162
     _DomainItemRegex
   >
 }
 {
-  !Ou I@008/0257
+  !Ou I@008/0165
   _DomainRef
   <
-    I@020/0257
+    I@020/0165
     $kind
     :_DomainKind
   >
   :
-  I@007/0258
+  I@007/0166
   _TypeRef
   <
-    I@016/0258
+    I@016/0166
     _TypeKind.Domain
   >
   {
-    !OF I@009/0259
+    !OF I@009/0167
     domainKind
     :
-    I@022/0259
+    I@022/0167
     $kind
   }
 }
 {
-  !Ou I@008/0262
+  !Ou I@008/0170
   _BaseDomain
   <
-    I@021/0262
+    I@021/0170
     $domain
     :_DomainKind
-    I@041/0262
+    I@041/0170
     $item
     :_BaseDomainItem
-    I@063/0262
+    I@063/0170
     $domainItem
     :_DomainItem
   >
   :
-  I@007/0263
+  I@007/0171
   _ParentType
   <
-    I@019/0263
+    I@019/0171
     _TypeKind.Domain
-    I@037/0263
+    I@037/0171
     $item
-    I@043/0263
+    I@043/0171
     $domainItem
   >
   {
-    !OF I@009/0264
+    !OF I@009/0172
     domainKind
     :
-    I@022/0264
+    I@022/0172
     $domain
   }
 }
 {
-  !Du I@006/0267
+  !Du I@006/0175
   _BaseDomainItem
   :
-  I@007/0268
+  I@007/0176
   _Described
   {
-    !DF I@009/0269
+    !DF I@009/0177
     exclude
     :
-    I@018/0269
+    I@018/0177
     Boolean
   }
 }
 {
-  !Ou I@008/0272
+  !Ou I@008/0180
   _DomainItem
   <
-    I@021/0272
+    I@021/0180
     $item
     :_BaseDomainItem
   >
   :
-  I@008/0273
+  I@008/0181
   $item
   {
-    !OF I@009/0274
+    !OF I@009/0182
     domain
     :
-    I@017/0274
+    I@017/0182
     _Identifier
   }
 }
 {
-  !Ou I@008/0277
+  !Ou I@008/0185
   _DomainValue
   <
-    I@022/0277
+    I@022/0185
     $kind
     :_DomainKind
-    I@040/0277
+    I@040/0185
     $value
     :_BasicValue
   >
   :
-  I@007/0278
+  I@007/0186
   _DomainRef
   <
-    I@019/0278
+    I@019/0186
     $kind
   >
   {
-    !OF I@009/0279
+    !OF I@009/0187
     value
     :
-    I@017/0279
+    I@017/0187
     $value
   }
   |
-  P@007/0280
+  P@007/0188
   $value
 }
 {
-  !Ou I@008/0283
+  !Ou I@008/0191
   _BasicValue
   |
-  I@007/0284
-  Boolean
-  I@007/0285
+  I@007/0192
+  _DomainKind.Boolean
+  I@007/0193
   _EnumValue
-  I@007/0286
-  Number
-  I@007/0287
-  String
+  I@007/0194
+  _DomainKind.Number
+  I@007/0195
+  _DomainKind.String
 }
 {
-  !Du I@006/0290
+  !Du I@006/0198
   _DomainTrueFalse
   :
-  I@007/0291
+  I@007/0199
   _BaseDomainItem
   {
-    !DF I@009/0292
+    !DF I@009/0200
     value
     :
-    I@016/0292
+    I@016/0200
     Boolean
   }
 }
 {
-  !Ou I@008/0295
+  !Ou I@008/0203
   _DomainItemTrueFalse
   :
-  I@007/0296
+  I@007/0204
   _DomainItem
   <
-    I@019/0296
+    I@019/0204
     _DomainTrueFalse
   >
 }
 {
-  !Ou I@008/0299
+  !Ou I@008/0207
   _DomainLabel
   :
-  I@007/0300
+  I@007/0208
   _BaseDomainItem
   {
-    !OF I@009/0301
+    !OF I@009/0209
     label
     :
-    I@016/0301
+    I@016/0209
     _EnumValue
   }
 }
 {
-  !Ou I@008/0304
+  !Ou I@008/0212
   _DomainItemLabel
   :
-  I@007/0305
+  I@007/0213
   _DomainItem
   <
-    I@019/0305
+    I@019/0213
     _DomainLabel
   >
 }
 {
-  !Du I@006/0308
+  !Du I@006/0216
   _DomainRange
   :
-  I@007/0309
+  I@007/0217
   _BaseDomainItem
   {
-    !DF I@009/0310
+    !DF I@009/0218
     lower
     :
-    I@016/0310
+    I@016/0218
     Number
     ?
-    !DF I@009/0311
+    !DF I@009/0219
     upper
     :
-    I@016/0311
+    I@016/0219
     Number
     ?
   }
 }
 {
-  !Ou I@008/0314
+  !Ou I@008/0222
   _DomainItemRange
   :
-  I@007/0315
+  I@007/0223
   _DomainItem
   <
-    I@019/0315
+    I@019/0223
     _DomainRange
   >
 }
 {
-  !Du I@006/0318
+  !Du I@006/0226
   _DomainRegex
   :
-  I@007/0319
+  I@007/0227
   _BaseDomainItem
   {
-    !DF I@009/0320
+    !DF I@009/0228
     pattern
     :
-    I@018/0320
+    I@018/0228
     String
   }
 }
 {
-  !Ou I@008/0323
+  !Ou I@008/0231
   _DomainItemRegex
   :
-  I@007/0324
+  I@007/0232
   _DomainItem
   <
-    I@019/0324
+    I@019/0232
     _DomainRegex
   >
 }
 {
-  !Ou I@008/0327
+  !Ou I@008/0235
   _TypeEnum
   :
-  I@007/0328
+  I@007/0236
   _ParentType
   <
-    I@019/0328
+    I@019/0236
     _TypeKind.Enum
-    I@034/0328
+    I@034/0236
     _Aliased
-    I@043/0328
+    I@043/0236
     _EnumLabel
   >
 }
 {
-  !Du I@006/0331
+  !Du I@006/0239
   _EnumLabel
   :
-  I@007/0332
+  I@007/0240
   _Aliased
   {
-    !DF I@009/0333
+    !DF I@009/0241
     enum
     :
-    I@015/0333
+    I@015/0241
     _Identifier
   }
 }
 {
-  !Ou I@008/0336
+  !Ou I@008/0244
   _EnumValue
   :
-  I@007/0337
+  I@007/0245
   _TypeRef
   <
-    I@016/0337
+    I@016/0245
     _TypeKind.Enum
   >
   {
-    !OF I@009/0338
+    !OF I@009/0246
     label
     :
-    I@016/0338
+    I@016/0246
     _Identifier
   }
 }
 {
-  !Ou I@008/0341
+  !Ou I@008/0249
   _TypeUnion
   :
-  I@007/0342
+  I@007/0250
   _ParentType
   <
-    I@019/0342
+    I@019/0250
     _TypeKind.Union
-    I@035/0342
+    I@035/0250
     _UnionRef
-    I@045/0342
+    I@045/0250
     _UnionMember
   >
 }
 {
-  !Ou I@008/0345
+  !Ou I@008/0253
   _UnionRef
   :
-  I@007/0346
+  I@007/0254
   _TypeRef
   <
-    I@016/0346
+    I@016/0254
     _SimpleKind
   >
 }
 {
-  !Ou I@008/0349
+  !Ou I@008/0257
   _UnionMember
   :
-  I@007/0350
+  I@007/0258
   _UnionRef
   {
-    !OF I@009/0351
+    !OF I@009/0259
     union
     :
-    I@016/0351
+    I@016/0259
     _Identifier
   }
 }
 {
-  !Do I@008/0354
+  !Do I@008/0262
   _ObjectKind
   Enum
-  !DE I@027/0354
+  !DE I@027/0262
   _TypeKind
   Dual
-  !DE I@042/0354
+  !DE I@042/0262
   _TypeKind
   Input
-  !DE I@058/0354
+  !DE I@058/0262
   _TypeKind
   Output
 }
 {
-  !Ou I@008/0356
+  !Ou I@008/0264
   _TypeObject
   <
-    I@021/0356
+    I@021/0264
     $kind
     :_ObjectKind
-    I@039/0356
-    $parent
-    :_ObjBase
-    I@014/0357
-    $typeParam
-    :_ObjTypeParam
-    I@039/0357
+    I@039/0264
     $field
-    :_Field
-    I@053/0357
-    $alternate
-    :_Alternate
+    :_ObjField
   >
   :
-  I@007/0358
+  I@007/0265
   _ChildType
   <
-    I@019/0358
+    I@019/0265
     $kind
-    I@025/0358
-    $parent
+    I@024/0265
+    _ObjBase
   >
   {
-    !OF I@009/0359
+    !OF I@009/0266
     typeParams
     :
-    I@022/0359
-    $typeParam
+    I@021/0266
+    _ObjTypeParam
     []
-    !OF I@009/0360
+    !OF I@009/0267
     fields
     :
-    I@018/0360
+    I@018/0267
     $field
     []
-    !OF I@009/0361
+    !OF I@009/0268
     alternates
     :
-    I@022/0361
-    $alternate
+    I@021/0268
+    _ObjAlternate
     []
-    !OF I@009/0362
+    !OF I@009/0269
     allFields
     :
-    I@020/0362
+    I@020/0269
     _ObjectFor
     <
-      I@032/0362
+      I@032/0269
       $field
     >
     []
-    !OF I@009/0363
+    !OF I@009/0270
     allAlternates
     :
-    I@024/0363
+    I@024/0270
     _ObjectFor
     <
-      I@036/0363
-      $alternate
+      I@035/0270
+      _ObjAlternate
     >
     []
   }
 }
 {
-  !Ou I@008/0366
+  !Ou I@008/0273
   _ObjTypeParam
-  <
-    I@023/0366
-    $kind
-    :_ObjectKind
-  >
   :
-  I@007/0367
+  I@007/0274
   _Named
   {
-    !OF I@009/0368
+    !OF I@009/0275
     constraint
     :
-    I@021/0368
-    _ObjConstraint
+    I@021/0275
+    _TypeRef
     <
-      I@037/0368
-      $kind
+      I@030/0275
+      _TypeKind
     >
   }
 }
 {
-  !Ou I@008/0371
-  _ObjConstraint
-  <
-    I@024/0371
-    $kind
-    :_ObjectKind
-  >
-  :
-  I@007/0372
-  _TypeRef
-  <
-    I@017/0372
-    $kind
-  >
-}
-{
-  !Ou I@008/0375
+  !Ou I@008/0278
   _ObjBase
-  <
-    I@018/0375
-    $arg
-    :_ObjTypeArg
-  >
   :
-  I@007/0376
+  I@007/0279
   _Named
   {
-    !OF I@009/0377
+    !OF I@009/0280
     typeArgs
     :
-    I@020/0377
-    $arg
+    I@019/0280
+    _ObjTypeArg
     []
   }
   |
-  I@007/0378
+  I@007/0281
   _TypeParam
 }
 {
-  !Ou I@008/0381
+  !Ou I@008/0284
   _ObjTypeArg
   :
-  I@007/0382
+  I@007/0285
   _TypeRef
   <
-    I@016/0382
+    I@016/0285
     _TypeKind
   >
+  {
+    !OF I@009/0286
+    label
+    :
+    I@016/0286
+    _Identifier
+    ?
+  }
   |
-  I@007/0383
+  I@007/0287
   _TypeParam
 }
 {
-  !Ou I@008/0386
+  !Ou I@008/0290
   _TypeParam
   :
-  I@007/0387
-  _Named
+  I@007/0291
+  _Described
   {
-    !OF I@009/0388
+    !OF I@009/0292
     typeParam
     :
-    I@020/0388
+    I@020/0292
     _Identifier
   }
 }
 {
-  !Ou I@008/0391
-  _Alternate
-  <
-    I@020/0391
-    $base
-    :_ObjBase
-  >
+  !Ou I@008/0295
+  _ObjAlternate
   {
-    !OF I@007/0392
+    !OF I@007/0296
     type
     :
-    I@014/0392
-    $base
-    !OF I@007/0393
+    I@013/0296
+    _ObjBase
+    !OF I@007/0297
     collections
     :
-    I@020/0393
+    I@020/0297
     _Collections
     []
   }
+  |
+  I@007/0298
+  _ObjAlternateEnum
 }
 {
-  !Ou I@008/0396
+  !Ou I@008/0301
+  _ObjAlternateEnum
+  :
+  I@007/0302
+  _TypeRef
+  <
+    I@016/0302
+    _TypeKind.Enum
+  >
+  {
+    !OF I@009/0303
+    label
+    :
+    I@016/0303
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0305
   _ObjectFor
   <
-    I@020/0396
+    I@020/0305
     $for
     :_ForParam
   >
   :
-  I@008/0397
+  I@008/0306
   $for
   {
-    !OF I@009/0398
+    !OF I@009/0307
     object
     :
-    I@017/0398
+    I@017/0307
     _Identifier
   }
 }
 {
-  !Ou I@008/0401
-  _Field
+  !Ou I@008/0310
+  _ObjField
   <
-    I@016/0401
-    $base
-    :_ObjBase
+    I@019/0310
+    $type
+    :_ObjFieldType
   >
   :
-  I@007/0402
+  I@007/0311
   _Aliased
   {
-    !OF I@007/0403
+    !OF I@007/0312
     type
     :
-    I@014/0403
-    $base
-    !OF I@007/0404
-    modifiers
-    :
-    I@018/0404
-    _Modifiers
-    []
+    I@014/0312
+    $type
   }
 }
 {
-  !Ou I@008/0407
+  !Ou I@008/0315
+  _ObjFieldType
+  :
+  I@007/0316
+  _ObjBase
+  {
+    !OF I@009/0317
+    modifiers
+    :
+    I@020/0317
+    _Modifiers
+    []
+  }
+  |
+  I@007/0318
+  _ObjFieldEnum
+}
+{
+  !Ou I@008/0321
+  _ObjFieldEnum
+  :
+  I@007/0322
+  _TypeRef
+  <
+    I@016/0322
+    _TypeKind.Enum
+  >
+  {
+    !OF I@009/0323
+    label
+    :
+    I@016/0323
+    _Identifier
+  }
+}
+{
+  !Ou I@008/0326
   _ForParam
   <
-    I@019/0407
-    $base
-    :_ObjBase
+    I@019/0326
+    $type
+    :_ObjFieldType
   >
   |
-  I@007/0408
-  _Alternate
+  I@007/0327
+  _ObjAlternate
+  I@007/0328
+  _ObjField
   <
-    I@019/0408
-    $base
-  >
-  I@007/0409
-  _Field
-  <
-    I@015/0409
-    $base
+    I@018/0328
+    $type
   >
 }
 {
-  !Ou I@008/0412
+  !Ou I@008/0331
   _TypeDual
   :
-  I@007/0413
+  I@007/0332
   _TypeObject
   <
-    I@019/0413
+    I@019/0332
     _TypeKind.Dual
-    I@034/0413
-    _DualBase
-    I@044/0413
-    _DualTypeParam
-    I@059/0413
+    I@034/0332
     _DualField
-    I@070/0413
-    _DualAlternate
   >
 }
 {
-  !Ou I@008/0416
-  _DualBase
-  :
-  I@007/0417
-  _ObjBase
-  <
-    I@016/0417
-    _DualTypeArg
-  >
-}
-{
-  !Ou I@008/0420
-  _DualTypeParam
-  :
-  I@007/0421
-  _ObjTypeParam
-  <
-    I@021/0421
-    _TypeKind.Dual
-  >
-}
-{
-  !Ou I@008/0424
+  !Ou I@008/0335
   _DualField
   :
-  I@007/0425
-  _Field
+  I@007/0336
+  _ObjField
   <
-    I@014/0425
-    _DualBase
+    I@017/0336
+    _ObjFieldType
   >
 }
 {
-  !Ou I@008/0428
-  _DualAlternate
-  :
-  I@007/0429
-  _Alternate
-  <
-    I@018/0429
-    _DualBase
-  >
-}
-{
-  !Ou I@008/0432
-  _DualTypeArg
-  :
-  I@007/0433
-  _ObjTypeArg
-}
-{
-  !Ou I@008/0436
+  !Ou I@008/0339
   _TypeInput
   :
-  I@007/0437
+  I@007/0340
   _TypeObject
   <
-    I@019/0437
+    I@019/0340
     _TypeKind.Input
-    I@035/0437
-    _InputBase
-    I@046/0437
-    _InputTypeParam
-    I@062/0437
+    I@035/0340
     _InputField
-    I@074/0437
-    _InputAlternate
   >
 }
 {
-  !Ou I@008/0440
-  _InputBase
-  :
-  I@007/0441
-  _ObjBase
-  <
-    I@016/0441
-    _InputTypeArg
-  >
-  |
-  I@007/0442
-  _DualBase
-}
-{
-  !Ou I@008/0445
-  _InputTypeParam
-  :
-  I@007/0446
-  _ObjTypeParam
-  <
-    I@021/0446
-    _TypeKind.Input
-  >
-  |
-  I@007/0447
-  _TypeRef
-  <
-    I@016/0447
-    _TypeKind.Dual
-  >
-}
-{
-  !Ou I@008/0450
+  !Ou I@008/0343
   _InputField
   :
-  I@007/0451
-  _Field
+  I@007/0344
+  _ObjField
   <
-    I@014/0451
-    _InputBase
+    I@017/0344
+    _InputFieldType
   >
+}
+{
+  !Ou I@008/0347
+  _InputFieldType
+  :
+  I@007/0348
+  _ObjFieldType
   {
-    !OF I@009/0452
+    !OF I@009/0349
     default
     :
-    I@018/0452
+    I@018/0349
     Value
     ?
   }
 }
 {
-  !Ou I@008/0455
-  _InputAlternate
-  :
-  I@007/0456
-  _Alternate
-  <
-    I@018/0456
-    _InputBase
-  >
-}
-{
-  !Ou I@008/0459
-  _InputTypeArg
-  :
-  I@007/0460
-  _ObjTypeArg
-}
-{
-  !Ou I@008/0463
+  !Ou I@008/0352
   _InputParam
   :
-  I@007/0464
-  _InputBase
-  {
-    !OF I@009/0465
-    modifiers
-    :
-    I@020/0465
-    _Modifiers
-    []
-    !OF I@009/0466
-    default
-    :
-    I@018/0466
-    Value
-    ?
-  }
+  I@007/0353
+  _InputFieldType
 }
 {
-  !Ou I@008/0469
+  !Ou I@008/0356
   _TypeOutput
   :
-  I@007/0470
+  I@007/0357
   _TypeObject
   <
-    I@019/0470
+    I@019/0357
     _TypeKind.Output
-    I@036/0470
-    _OutputBase
-    I@048/0470
-    _OutputTypeParam
-    I@065/0470
+    I@036/0357
     _OutputField
-    I@078/0470
-    _OutputAlternate
   >
 }
 {
-  !Ou I@008/0473
-  _OutputBase
-  :
-  I@007/0474
-  _ObjBase
-  <
-    I@016/0474
-    _OutputTypeArg
-  >
-  |
-  I@007/0475
-  _DualBase
-}
-{
-  !Ou I@008/0478
-  _OutputTypeParam
-  :
-  I@007/0479
-  _ObjTypeParam
-  <
-    I@021/0479
-    _TypeKind.Output
-  >
-  |
-  I@007/0480
-  _TypeRef
-  <
-    I@016/0480
-    _TypeKind.Dual
-  >
-  I@007/0481
-  _TypeRef
-  <
-    I@016/0481
-    _TypeKind.Enum
-  >
-}
-{
-  !Ou I@008/0484
+  !Ou I@008/0360
   _OutputField
   :
-  I@007/0485
-  _Field
+  I@007/0361
+  _ObjField
   <
-    I@014/0485
-    _OutputBase
+    I@017/0361
+    _ObjFieldType
   >
+}
+{
+  !Ou I@008/0364
+  _OutputFieldType
+  :
+  I@007/0365
+  _ObjFieldType
   {
-    !OF I@009/0486
+    !OF I@009/0366
     parameters
     :
-    I@021/0486
+    I@021/0366
     _InputParam
     []
-  }
-  |
-  I@007/0487
-  _OutputEnum
-}
-{
-  !Ou I@008/0490
-  _OutputAlternate
-  :
-  I@007/0491
-  _Alternate
-  <
-    I@018/0491
-    _OutputBase
-  >
-}
-{
-  !Ou I@008/0494
-  _OutputTypeArg
-  :
-  I@007/0495
-  _ObjTypeArg
-  {
-    !OF I@009/0496
-    label
-    :
-    I@016/0496
-    _Identifier
-    ?
-  }
-}
-{
-  !Ou I@008/0499
-  _OutputEnum
-  :
-  I@007/0500
-  _TypeRef
-  <
-    I@016/0500
-    _TypeKind.Enum
-  >
-  {
-    !OF I@009/0501
-    field
-    :
-    I@016/0501
-    _Identifier
-    !OF I@009/0502
-    label
-    :
-    I@016/0502
-    _Identifier
   }
 }
 ]

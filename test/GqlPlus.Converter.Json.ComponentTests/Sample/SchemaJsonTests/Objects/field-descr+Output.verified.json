@@ -11,7 +11,7 @@
           "name": "field",
           "object": "FieldDescrOutp",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -22,7 +22,7 @@
           "description": "Test Descr",
           "name": "field",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }

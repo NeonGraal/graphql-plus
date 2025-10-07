@@ -1,28 +1,24 @@
 ﻿namespace GqlPlus.Resolving;
 
 public class TypeInputResolverAlternateTests
-  : ResolverTypeObjectAlternateTestBase<TypeInputModel, InputBaseModel, InputFieldModel, InputAlternateModel, InputArgModel>
+  : ResolverTypeObjectAlternateTestBase<TypeInputModel, InputFieldModel>
 {
   protected override IResolver<TypeInputModel> Resolver { get; }
 
-  public TypeInputResolverAlternateTests()
-  {
-    IResolver<TypeDualModel> dual = RFor<TypeDualModel>();
-    Resolver = new TypeInputResolver(dual);
-  }
+  public TypeInputResolverAlternateTests() => Resolver = new TypeInputResolver();
 
-  protected override InputAlternateModel MakeAlternate(string alternate)
-    => new(new(alternate, ""));
-  protected override InputBaseModel MakeBase(string name, string description = "", params InputArgModel[] args)
+  protected override ObjAlternateModel MakeAlternate(string alternate)
+    => new(new ObjBaseModel(alternate, ""));
+  protected override ObjBaseModel MakeBase(string name, string description = "", params ObjTypeArgModel[] args)
     => new(name, description) { Args = args };
-  protected override InputAlternateModel MakeCollectionAlternate(string alternate, CollectionModel collection)
-    => new(new(alternate, "")) { Collections = [collection] };
-  protected override InputAlternateModel MakeParamAlternate(string alternate, CollectionModel collection)
-    => new(new(alternate, "") { IsTypeParam = true }) { Collections = [collection] };
+  protected override ObjAlternateModel MakeCollectionAlternate(string alternate, CollectionModel collection)
+    => new(new ObjBaseModel(alternate, "")) { Collections = [collection] };
+  protected override ObjAlternateModel MakeParamAlternate(string alternate, CollectionModel collection)
+    => new(new ObjBaseModel(alternate, "") { IsTypeParam = true }) { Collections = [collection] };
   protected override TypeInputModel NewModel(string name, string description)
     => new(name, description);
-  protected override InputBaseModel NewParam(string paramName)
+  protected override ObjBaseModel NewParam(string paramName)
     => new(paramName, "") { IsTypeParam = true };
-  protected override InputArgModel NewArg(string argument, bool isParam = false)
+  protected override ObjTypeArgModel NewArg(string argument, bool isParam = false)
     => new(TypeKindModel.Input, argument, "") { IsTypeParam = isParam };
 }

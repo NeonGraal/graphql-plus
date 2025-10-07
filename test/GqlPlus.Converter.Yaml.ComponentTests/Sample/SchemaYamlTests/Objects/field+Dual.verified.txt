@@ -5,12 +5,12 @@ types: !_Map_Type
     - !_ObjectFor(_DualField)
       name: field
       object: FieldDual
-      type: !_DualBase
+      type: !_ObjBase
         name: String
     fields:
     - !_DualField
       name: field
-      type: !_DualBase
+      type: !_ObjBase
         name: String
     name: FieldDual
     typeKind: !_TypeKind Dual

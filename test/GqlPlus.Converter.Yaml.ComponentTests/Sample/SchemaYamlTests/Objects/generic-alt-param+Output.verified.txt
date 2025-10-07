@@ -2,54 +2,54 @@
 types: !_Map_Type
   !_Identifier AltGnrcAltParamOutp: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_OutputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: AltGnrcAltParamOutp
-      type: !_OutputBase
+      type: !_ObjBase
         name: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
       object: AltGnrcAltParamOutp
-      type: !_OutputBase
+      type: !_ObjBase
         name: Number
     alternates:
-    - !_OutputAlternate
-      type: !_OutputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: String
     fields:
     - !_OutputField
       name: alt
-      type: !_OutputBase
+      type: !_ObjBase
         name: Number
     name: AltGnrcAltParamOutp
     typeKind: !_TypeKind Output
   !_Identifier GnrcAltParamOutp: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_OutputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: GnrcAltParamOutp
-      type: !_OutputBase
+      type: !_ObjBase
         name: RefGnrcAltParamOutp
         typeArgs:
-        - !_OutputArg
+        - !_ObjTypeArg
           name: AltGnrcAltParamOutp
     alternates:
-    - !_OutputAlternate
-      type: !_OutputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: RefGnrcAltParamOutp
         typeArgs:
-        - !_OutputArg
+        - !_ObjTypeArg
           name: AltGnrcAltParamOutp
     name: GnrcAltParamOutp
     typeKind: !_TypeKind Output
   !_Identifier RefGnrcAltParamOutp: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_OutputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: RefGnrcAltParamOutp
-      type: !_OutputBase
+      type: !_ObjBase
         typeParam: ref
     alternates:
-    - !_OutputAlternate
-      type: !_OutputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         typeParam: ref
     name: RefGnrcAltParamOutp
     typeKind: !_TypeKind Output

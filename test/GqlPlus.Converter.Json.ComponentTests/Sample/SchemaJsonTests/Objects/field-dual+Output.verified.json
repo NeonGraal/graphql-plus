@@ -10,7 +10,7 @@
           "name": "field",
           "object": "FieldDualOutp",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "FldFieldDualOutp"
           }
         }
@@ -20,7 +20,7 @@
           "$tag": "_OutputField",
           "name": "field",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "FldFieldDualOutp"
           }
         }
@@ -35,10 +35,10 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_DualAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "FldFieldDualOutp",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -49,16 +49,16 @@
           "name": "field",
           "object": "FldFieldDualOutp",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_DualAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -68,7 +68,7 @@
           "$tag": "_DualField",
           "name": "field",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }

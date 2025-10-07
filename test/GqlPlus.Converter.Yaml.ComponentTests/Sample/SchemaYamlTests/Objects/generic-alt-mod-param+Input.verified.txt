@@ -2,21 +2,21 @@
 types: !_Map_Type
   !_Identifier RefGnrcAltModParamInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       collections:
       - !_ModifierTypeParam
         by: mod
         modifierKind: !_ModifierKind Param
       object: RefGnrcAltModParamInp
-      type: !_InputBase
+      type: !_ObjBase
         typeParam: ref
     alternates:
-    - !_InputAlternate
+    - !_ObjAlternate
       collections:
       - !_ModifierTypeParam
         by: mod
         modifierKind: !_ModifierKind Param
-      type: !_InputBase
+      type: !_ObjBase
         typeParam: ref
     name: RefGnrcAltModParamInp
     typeKind: !_TypeKind Input

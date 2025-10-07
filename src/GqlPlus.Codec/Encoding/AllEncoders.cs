@@ -46,30 +46,25 @@ public static class AllEncoders
       .AddTypeEncoder<TypeUnionModel, TypeUnionEncoder>()
       .AddItemEncoder<NamedModel, UnionMemberModel, UnionMemberEncoder>()
       // Object
+      .AddBaseEncoder<ObjBaseModel>()
       .AddEncoder<TypeParamModel, TypeParamEncoder>()
+      .AddEncoder<ObjAlternateModel, ObjectAlternateEncoder>()
+      .AddEncoder<ObjectForModel<ObjAlternateModel>, ObjectForEncoder<ObjAlternateModel>>()
+      .AddEncoder<ObjTypeArgModel, ObjTypeArgEncoder>()
       // Dual
-      .AddEncoder<DualArgModel, DualArgEncoder>()
-      .AddEncoder<DualBaseModel, DualBaseEncoder>()
-      .AddBaseEncoder<DualBaseModel>()
       .AddEncoder<DualFieldModel, DualFieldEncoder>()
       .AddTypeEncoder<TypeDualModel, TypeDualEncoder>()
-      .AddObjectEncoders<DualBaseModel, DualFieldModel, DualAlternateModel>()
+      .AddObjectEncoders<DualFieldModel>()
       // Input
-      .AddEncoder<InputArgModel, InputArgEncoder>()
-      .AddEncoder<InputBaseModel, InputBaseEncoder>()
-      .AddBaseEncoder<InputBaseModel>()
       .AddEncoder<InputFieldModel, InputFieldEncoder>()
       .AddEncoder<InputParamModel, InputParamEncoder>()
       .AddTypeEncoder<TypeInputModel, TypeInputEncoder>()
-      .AddObjectEncoders<InputBaseModel, InputFieldModel, InputAlternateModel>()
+      .AddObjectEncoders<InputFieldModel>()
       // Output
-      .AddEncoder<OutputArgModel, OutputArgEncoder>()
-      .AddEncoder<OutputBaseModel, OutputBaseEncoder>()
-      .AddBaseEncoder<OutputBaseModel>()
       .AddEncoder<OutputEnumModel, OutputEnumEncoder>()
       .AddEncoder<OutputFieldModel, OutputFieldEncoder>()
       .AddTypeEncoder<TypeOutputModel, TypeOutputEncoder>()
-      .AddObjectEncoders<OutputBaseModel, OutputFieldModel, OutputAlternateModel>()
+      .AddObjectEncoders<OutputFieldModel>()
     ;
 
   private static IServiceCollection AddEncoder<TModel, TEncoder>(this IServiceCollection services)
@@ -102,19 +97,16 @@ public static class AllEncoders
       .AddProvider<TEncoder, IEncoder<TModel>>()
       .AddProvider<TEncoder, ITypeEncoder>();
 
-  private static IServiceCollection AddObjectEncoders<TBase, TField, TAlt>(this IServiceCollection services)
-    where TBase : IObjBaseModel
+  private static IServiceCollection AddObjectEncoders<TField>(this IServiceCollection services)
     where TField : IObjFieldModel
-    where TAlt : ObjAlternateModel<TBase>
     => services
-      .AddEncoder<ObjectForModel<TAlt>, ObjectForEncoder<TAlt>>()
       .AddEncoder<ObjectForModel<TField>, ObjectForEncoder<TField>>()
-      .AddEncoder<TAlt, ObjectAlternateEncoder<TAlt, TBase>>()
-      .AddSingleton<TypeObjectEncoders<TBase, TField, TAlt>>();
+      .AddSingleton<TypeObjectEncoders<TField>>();
 
   private static IServiceCollection AddBaseEncoder<TBase>(this IServiceCollection services)
     where TBase : ModelBase, IObjBaseModel
     => services
+      .AddEncoder<ObjBaseModel, ObjectBaseEncoder<ObjBaseModel>>()
       .AddSingleton<FieldEncoders<TBase>>()
       .AddSingleton<AlternateEncoders<TBase>>();
 }

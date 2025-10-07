@@ -15,124 +15,21 @@
         "$tag": "_TokenKind",
         "value": "End"
       },
-      "_message": "In _DualBase can\u0027t get model for type \u0027_ObjBase\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_kind": {
-        "$tag": "_TokenKind",
-        "value": "End"
-      },
-      "_message": "In _DualTypeParam can\u0027t get model for type \u0027_ObjTypeParam\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_kind": {
-        "$tag": "_TokenKind",
-        "value": "End"
-      },
-      "_message": "In _DualField can\u0027t get model for type \u0027_Field\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_kind": {
-        "$tag": "_TokenKind",
-        "value": "End"
-      },
-      "_message": "In _DualAlternate can\u0027t get model for type \u0027_Alternate\u0027"
-    },
-    {
-      "$tag": "_Error",
-      "_kind": {
-        "$tag": "_TokenKind",
-        "value": "End"
-      },
-      "_message": "In _DualTypeArg can\u0027t get model for type \u0027_ObjTypeArg\u0027"
+      "_message": "In _DualField can\u0027t get model for type \u0027_ObjField\u0027"
     }
   ],
   "types": {
     "$tag": "_Map_Type",
-    "_DualAlternate": {
-      "$tag": "_TypeOutput",
-      "name": "_DualAlternate",
-      "parent": {
-        "$tag": "_OutputBase",
-        "name": "_Alternate",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "name": "_DualBase"
-          }
-        ]
-      },
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "_DualBase": {
-      "$tag": "_TypeOutput",
-      "name": "_DualBase",
-      "parent": {
-        "$tag": "_OutputBase",
-        "name": "_ObjBase",
-        "typeArgs": [
-          {
-            "$tag": "_OutputArg",
-            "name": "_DualTypeArg"
-          }
-        ]
-      },
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
     "_DualField": {
       "$tag": "_TypeOutput",
       "name": "_DualField",
       "parent": {
-        "$tag": "_OutputBase",
-        "name": "_Field",
+        "$tag": "_ObjBase",
+        "name": "_ObjField",
         "typeArgs": [
           {
-            "$tag": "_OutputArg",
-            "name": "_DualBase"
-          }
-        ]
-      },
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "_DualTypeArg": {
-      "$tag": "_TypeOutput",
-      "name": "_DualTypeArg",
-      "parent": {
-        "$tag": "_OutputBase",
-        "name": "_ObjTypeArg"
-      },
-      "typeKind": {
-        "$tag": "_TypeKind",
-        "value": "Output"
-      }
-    },
-    "_DualTypeParam": {
-      "$tag": "_TypeOutput",
-      "name": "_DualTypeParam",
-      "parent": {
-        "$tag": "_OutputBase",
-        "name": "_ObjTypeParam",
-        "typeArgs": [
-          {
-            "$tag": "_TypeRef(_SimpleKind)",
-            "label": "Dual",
-            "name": "_TypeKind",
-            "typeKind": {
-              "$tag": "_SimpleKind",
-              "value": "Enum"
-            }
+            "$tag": "_ObjTypeArg",
+            "name": "_ObjFieldType"
           }
         ]
       },
@@ -145,11 +42,11 @@
       "$tag": "_TypeOutput",
       "name": "_TypeDual",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_TypeObject",
         "typeArgs": [
           {
-            "$tag": "_TypeRef(_SimpleKind)",
+            "$tag": "_EnumValue",
             "label": "Dual",
             "name": "_TypeKind",
             "typeKind": {
@@ -158,20 +55,8 @@
             }
           },
           {
-            "$tag": "_OutputArg",
-            "name": "_DualBase"
-          },
-          {
-            "$tag": "_OutputArg",
-            "name": "_DualTypeParam"
-          },
-          {
-            "$tag": "_OutputArg",
+            "$tag": "_ObjTypeArg",
             "name": "_DualField"
-          },
-          {
-            "$tag": "_OutputArg",
-            "name": "_DualAlternate"
           }
         ]
       },

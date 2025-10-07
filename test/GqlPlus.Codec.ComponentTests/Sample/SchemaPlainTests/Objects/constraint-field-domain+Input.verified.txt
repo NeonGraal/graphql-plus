@@ -5,13 +5,13 @@ types: !_Map_Type
       - !_ObjectFor(_InputField)
         name: field
         object: RefCnstFieldDmnInp
-        type: !_InputBase
+        type: !_ObjBase
           name: DomCnstFieldDmnInp
     name: CnstFieldDmnInp
-    parent: !_InputBase
+    parent: !_ObjBase
       name: RefCnstFieldDmnInp
       typeArgs:
-        - !_InputArg
+        - !_ObjTypeArg
           name: DomCnstFieldDmnInp
     typeKind: !_TypeKind Input
   !_Identifier DomCnstFieldDmnInp: !_DomainString
@@ -32,12 +32,12 @@ types: !_Map_Type
       - !_ObjectFor(_InputField)
         name: field
         object: RefCnstFieldDmnInp
-        type: !_InputBase
+        type: !_ObjBase
           typeParam: ref
     fields:
       - !_InputField
         name: field
-        type: !_InputBase
+        type: !_ObjBase
           typeParam: ref
     name: RefCnstFieldDmnInp
     typeKind: !_TypeKind Input

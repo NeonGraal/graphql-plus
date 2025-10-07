@@ -84,6 +84,7 @@ public class SampleChecks
     }
 
     await File.WriteAllLinesAsync($"{project}/{path}/{file}.verify+errors", errorLines);
+    errorLines.ShouldBeEmpty();
   }
 
   private static async Task<List<string>> ReadExpectedErrors(string file, bool includeVerify)

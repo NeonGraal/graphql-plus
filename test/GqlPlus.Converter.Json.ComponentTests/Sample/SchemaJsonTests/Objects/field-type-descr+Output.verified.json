@@ -10,7 +10,7 @@
           "name": "field",
           "object": "FieldTypeDescrOutp",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "description": "Test Descr",
             "name": "Number"
           }
@@ -21,7 +21,7 @@
           "$tag": "_OutputField",
           "name": "field",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "description": "Test Descr",
             "name": "Number"
           }

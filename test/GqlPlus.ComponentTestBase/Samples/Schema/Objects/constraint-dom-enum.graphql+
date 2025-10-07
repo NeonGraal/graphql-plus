@@ -1,0 +1,4 @@
+object Name { | RefName<name> }
+object RefName<$type:JustName> { field: $type }
+enum EnumName { name other }
+domain JustName { enum EnumName.name }

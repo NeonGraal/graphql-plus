@@ -1,18 +1,16 @@
 ﻿namespace GqlPlus.Models;
 
-public abstract record class TypeObjectModel<TObjBase, TObjField, TObjAlt>(
+public abstract record class TypeObjectModel<TObjField>(
   TypeKindModel Kind,
   string Name,
   string Description
-) : ChildTypeModel<TObjBase>(Kind, Name, Description)
+) : ChildTypeModel<ObjBaseModel>(Kind, Name, Description)
   , ITypeObjectModel
-  where TObjBase : IObjBaseModel
   where TObjField : IObjFieldModel
-  where TObjAlt : IObjAlternateModel
 {
   public TypeParamModel[] TypeParams { get; set; } = [];
   public TObjField[] Fields { get; set; } = [];
-  public TObjAlt[] Alternates { get; set; } = [];
+  public ObjAlternateModel[] Alternates { get; set; } = [];
 
   public ObjectForModel[] AllFields { get; set; } = [];
   public ObjectForModel[] AllAlternates { get; set; } = [];
@@ -33,12 +31,14 @@ public record class ObjTypeArgModel(
   , IObjTypeArgModel
 {
   public bool IsTypeParam { get; set; }
+  public EnumValueModel? EnumValue { get; set; }
 }
 
 public interface IObjTypeArgModel
   : INamedModel
 {
   bool IsTypeParam { get; }
+  EnumValueModel? EnumValue { get; }
 }
 
 public record class TypeParamModel(
@@ -55,15 +55,14 @@ public interface ITypeParamModel
   TypeRefModel<TypeKindModel> Constraint { get; }
 }
 
-public record class ObjBaseModel<TObjArg>(
+public record class ObjBaseModel(
   string Name,
   string Description
 ) : NamedModel(Name, Description)
   , IObjBaseModel
-where TObjArg : IObjTypeArgModel
 {
   public bool IsTypeParam { get; set; }
-  public TObjArg[] Args { get; set; } = [];
+  public ObjTypeArgModel[] Args { get; set; } = [];
   IObjTypeArgModel[] IObjBaseModel.Args => [.. Args.Cast<IObjTypeArgModel>()];
 }
 
@@ -86,15 +85,14 @@ public record class ObjectForModel<TFor>(
   where TFor : IModelBase
 { }
 
-public record class ObjFieldModel<TObjBase>(
+public record class ObjFieldModel(
   string Name,
-  TObjBase? Type,
+  ObjBaseModel? Type,
   string Description
 ) : AliasedModel(Name, Description)
   , IObjFieldModel
-  where TObjBase : IObjBaseModel
 {
-  public TObjBase? Type { get; internal set; } = Type;
+  public ObjBaseModel? Type { get; internal set; } = Type;
   public ModifierModel[] Modifiers { get; set; } = [];
   public IObjBaseModel? BaseType => Type;
 }
@@ -106,11 +104,10 @@ public interface IObjFieldModel
   ModifierModel[] Modifiers { get; }
 }
 
-public record class ObjAlternateModel<TObjBase>(
-  TObjBase Type
+public record class ObjAlternateModel(
+  ObjBaseModel Type
   ) : ModelBase
   , IObjAlternateModel
-  where TObjBase : IObjBaseModel
 {
   public CollectionModel[] Collections { get; set; } = [];
   public IObjBaseModel BaseType => Type;
@@ -120,5 +117,5 @@ public interface IObjAlternateModel
   : IModelBase
 {
   IObjBaseModel BaseType { get; }
-  CollectionModel[] Collections { get; }
+  CollectionModel[] Collections { get; set; }
 }

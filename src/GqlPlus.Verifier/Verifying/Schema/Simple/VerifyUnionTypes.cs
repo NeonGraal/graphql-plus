@@ -26,7 +26,7 @@ internal class VerifyUnionTypes(
       => context.AddError(
         usage,
         "union",
-        $"Type kind mismatch for {name}. Found {type?.Label}",
+        $"Invalid Kind for {name}. Found {type?.Kind}",
         type is not IGqlpSimple);
   }
 

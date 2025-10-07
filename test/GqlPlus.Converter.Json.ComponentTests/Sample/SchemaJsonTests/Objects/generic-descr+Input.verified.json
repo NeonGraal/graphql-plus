@@ -10,7 +10,7 @@
           "name": "field",
           "object": "GnrcDescrInp",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "typeParam": "type"
           }
         }
@@ -20,7 +20,7 @@
           "$tag": "_InputField",
           "name": "field",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "typeParam": "type"
           }
         }

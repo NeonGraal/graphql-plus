@@ -16,7 +16,7 @@
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_InputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "collections": [
             {
               "$tag": "_Modifier",
@@ -28,7 +28,7 @@
           ],
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_NameFilter"
           }
         }
@@ -48,7 +48,7 @@
           "name": "names",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_NameFilter"
           }
         },
@@ -67,7 +67,7 @@
           "name": "matchAliases",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
@@ -85,7 +85,7 @@
           "name": "aliases",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_NameFilter"
           }
         },
@@ -104,7 +104,7 @@
           "name": "returnByAlias",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
@@ -123,7 +123,7 @@
           "name": "returnReferencedTypes",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
@@ -141,7 +141,7 @@
           "name": "resolutions",
           "object": "_CategoryFilter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_Resolution"
           }
         }
@@ -160,14 +160,14 @@
           ],
           "name": "resolutions",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_Resolution"
           }
         }
       ],
       "name": "_CategoryFilter",
       "parent": {
-        "$tag": "_InputBase",
+        "$tag": "_ObjBase",
         "name": "_Filter"
       },
       "typeKind": {
@@ -179,7 +179,7 @@
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_InputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "collections": [
             {
               "$tag": "_Modifier",
@@ -191,7 +191,7 @@
           ],
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_NameFilter"
           }
         }
@@ -211,7 +211,7 @@
           "name": "names",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_NameFilter"
           }
         },
@@ -230,7 +230,7 @@
           "name": "matchAliases",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
@@ -248,7 +248,7 @@
           "name": "aliases",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_NameFilter"
           }
         },
@@ -267,7 +267,7 @@
           "name": "returnByAlias",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
@@ -286,14 +286,14 @@
           "name": "returnReferencedTypes",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_InputAlternate",
+          "$tag": "_ObjAlternate",
           "collections": [
             {
               "$tag": "_Modifier",
@@ -304,7 +304,7 @@
             }
           ],
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_NameFilter"
           }
         }
@@ -323,7 +323,7 @@
           ],
           "name": "names",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_NameFilter"
           }
         },
@@ -341,7 +341,7 @@
           ],
           "name": "matchAliases",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
@@ -358,7 +358,7 @@
           ],
           "name": "aliases",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_NameFilter"
           }
         },
@@ -376,7 +376,7 @@
           ],
           "name": "returnByAlias",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
@@ -394,7 +394,7 @@
           ],
           "name": "returnReferencedTypes",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         }
@@ -497,7 +497,7 @@
             }
           ],
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Categories"
           }
         },
@@ -535,7 +535,7 @@
             }
           ],
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Directives"
           }
         },
@@ -611,7 +611,7 @@
             }
           ],
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Type"
           }
         },
@@ -649,7 +649,7 @@
             }
           ],
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Setting"
           }
         }
@@ -688,7 +688,7 @@
             }
           ],
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Categories"
           }
         },
@@ -725,7 +725,7 @@
             }
           ],
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Directives"
           }
         },
@@ -799,7 +799,7 @@
             }
           ],
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Type"
           }
         },
@@ -836,14 +836,14 @@
             }
           ],
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Setting"
           }
         }
       ],
       "name": "_Schema",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_Named"
       },
       "typeKind": {
@@ -855,7 +855,7 @@
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_InputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "collections": [
             {
               "$tag": "_Modifier",
@@ -867,7 +867,7 @@
           ],
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_NameFilter"
           }
         }
@@ -887,7 +887,7 @@
           "name": "names",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_NameFilter"
           }
         },
@@ -906,7 +906,7 @@
           "name": "matchAliases",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
@@ -924,7 +924,7 @@
           "name": "aliases",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_NameFilter"
           }
         },
@@ -943,7 +943,7 @@
           "name": "returnByAlias",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
@@ -962,7 +962,7 @@
           "name": "returnReferencedTypes",
           "object": "_Filter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Boolean"
           }
         },
@@ -980,7 +980,7 @@
           "name": "kinds",
           "object": "_TypeFilter",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeKind"
           }
         }
@@ -999,14 +999,14 @@
           ],
           "name": "kinds",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_TypeKind"
           }
         }
       ],
       "name": "_TypeFilter",
       "parent": {
-        "$tag": "_InputBase",
+        "$tag": "_ObjBase",
         "name": "_Filter"
       },
       "typeKind": {

@@ -1,0 +1,94 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnumFieldEnumPrntOutp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "PrntFieldEnumPrntOutp",
+          "name": "prnt_fieldEnumPrntOutp"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumFieldEnumPrntOutp",
+          "name": "fieldEnumPrntOutp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "fieldEnumPrntOutp"
+        }
+      ],
+      "name": "EnumFieldEnumPrntOutp",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "PrntFieldEnumPrntOutp",
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Enum"
+        }
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "FieldEnumPrntOutp": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "field": "field",
+          "label": "prnt_fieldEnumPrntOutp",
+          "name": "EnumFieldEnumPrntOutp",
+          "object": "FieldEnumPrntOutp",
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputEnum",
+          "field": "field",
+          "label": "prnt_fieldEnumPrntOutp",
+          "name": "EnumFieldEnumPrntOutp",
+          "typeKind": {
+            "$tag": "_SimpleKind",
+            "value": "Enum"
+          }
+        }
+      ],
+      "name": "FieldEnumPrntOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "PrntFieldEnumPrntOutp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "PrntFieldEnumPrntOutp",
+          "name": "prnt_fieldEnumPrntOutp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "prnt_fieldEnumPrntOutp"
+        }
+      ],
+      "name": "PrntFieldEnumPrntOutp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    }
+  }
+}

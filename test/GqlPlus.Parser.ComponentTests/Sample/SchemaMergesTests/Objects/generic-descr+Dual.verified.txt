@@ -5,8 +5,8 @@ Success
   !Du I@006/0001
   GnrcDescrDual
   <
+    'Test Descr'
     I@036/0001
-    "Test Descr"
     $type
     :String
   >

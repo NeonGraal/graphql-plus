@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier ObjPrntInp: !_TypeInput
     name: ObjPrntInp
-    parent: !_InputBase
+    parent: !_ObjBase
       name: RefObjPrntInp
     typeKind: !_TypeKind Input
   !_Identifier RefObjPrntInp: !_TypeInput

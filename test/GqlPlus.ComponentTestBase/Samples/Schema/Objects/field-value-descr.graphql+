@@ -1,0 +1,2 @@
+object Name { field = "Test" "Descr" name }
+enum EnumName { name }

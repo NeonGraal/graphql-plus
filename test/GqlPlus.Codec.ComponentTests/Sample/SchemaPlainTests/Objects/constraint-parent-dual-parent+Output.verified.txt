@@ -1,60 +1,54 @@
 ﻿!_Schema
+errors:
+  - !_Error
+    _kind: !_TokenKind End
+    _message: In AltCnstPrntDualPrntOutp can't get model for type 'PrntCnstPrntDualPrntOutp'
 types: !_Map_Type
   !_Identifier AltCnstPrntDualPrntOutp: !_TypeOutput
-    allAlternates:
-      - !_ObjectFor(_DualAlternate)
-        object: PrntCnstPrntDualPrntOutp
-        type: !_DualBase
-          name: String
     allFields:
       - !_ObjectFor(_OutputField)
         name: alt
         object: AltCnstPrntDualPrntOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: Number
     fields:
       - !_OutputField
         name: alt
-        type: !_OutputBase
+        type: !_ObjBase
           name: Number
     name: AltCnstPrntDualPrntOutp
-    parent: !_DualBase
+    parent: !_ObjBase
       name: PrntCnstPrntDualPrntOutp
     typeKind: !_TypeKind Output
   !_Identifier CnstPrntDualPrntOutp: !_TypeOutput
-    allAlternates:
-      - !_ObjectFor(_DualAlternate)
-        object: PrntCnstPrntDualPrntOutp
-        type: !_DualBase
-          name: String
     allFields:
       - !_ObjectFor(_OutputField)
         name: alt
         object: AltCnstPrntDualPrntOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: Number
     name: CnstPrntDualPrntOutp
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: RefCnstPrntDualPrntOutp
       typeArgs:
-        - !_OutputArg
+        - !_ObjTypeArg
           name: AltCnstPrntDualPrntOutp
     typeKind: !_TypeKind Output
   !_Identifier PrntCnstPrntDualPrntOutp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_DualAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: PrntCnstPrntDualPrntOutp
-        type: !_DualBase
+        type: !_ObjBase
           name: String
     alternates:
-      - !_DualAlternate
-        type: !_DualBase
+      - !_ObjAlternate
+        type: !_ObjBase
           name: String
     name: PrntCnstPrntDualPrntOutp
     typeKind: !_TypeKind Dual
   !_Identifier RefCnstPrntDualPrntOutp: !_TypeOutput
     name: RefCnstPrntDualPrntOutp
-    parent: !_OutputBase
+    parent: !_ObjBase
       typeParam: ref
     typeKind: !_TypeKind Output
     typeParams:

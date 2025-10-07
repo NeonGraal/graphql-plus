@@ -2,41 +2,41 @@
 types: !_Map_Type
   !_Identifier PrntDescrOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: RefPrntDescrOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: String
     allFields:
       - !_ObjectFor(_OutputField)
         name: parent
         object: RefPrntDescrOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: Number
     name: PrntDescrOutp
-    parent: !_OutputBase
+    parent: !_ObjBase
       description: 'Test Descr'
       name: RefPrntDescrOutp
     typeKind: !_TypeKind Output
   !_Identifier RefPrntDescrOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: RefPrntDescrOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: String
     allFields:
       - !_ObjectFor(_OutputField)
         name: parent
         object: RefPrntDescrOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: Number
     alternates:
-      - !_OutputAlternate
-        type: !_OutputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           name: String
     fields:
       - !_OutputField
         name: parent
-        type: !_OutputBase
+        type: !_ObjBase
           name: Number
     name: RefPrntDescrOutp
     typeKind: !_TypeKind Output

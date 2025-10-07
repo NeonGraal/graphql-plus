@@ -53,28 +53,22 @@ public static class SchemaParsers
       .AddDeclarationParser<IGqlpUnion, ParseUnion>("union")
       // Objects
       .AddParserArray<IGqlpTypeParam, ParseTypeParams>()
+      .AddParserArray<IGqlpObjAlt, ParseObjAlts>()
+      .AddParser<IGqlpObjBase, ParseObjBase>()
+      .AddParserArray<IGqlpObjTypeArg, ParseObjTypeArgs>()
       // Dual
-      .AddParserArray<IGqlpDualArg, ParseDualArgs>()
-      .AddParser<IGqlpDualBase, ParseDualBase>()
       .AddParser<IGqlpDualField, ParseDualField>()
-      .AddParserArray<IGqlpDualAlternate, ParseDualAlternates>()
       .AddDeclarationParser<IGqlpDualObject, ParseDual>("dual")
-      .AddObjectParser<IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>()
+      .AddObjectParser<IGqlpDualField>()
       // Input
-      .AddParserArray<IGqlpInputArg, ParseInputArgs>()
-      .AddParser<IGqlpInputBase, ParseInputBase>()
       .AddParser<IGqlpInputField, ParseInputField>()
-      .AddParserArray<IGqlpInputAlternate, ParseInputAlternates>()
       .AddDeclarationParser<IGqlpInputObject, ParseInput>("input")
-      .AddObjectParser<IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate>()
+      .AddObjectParser<IGqlpInputField>()
       .AddParserArray<IGqlpInputParam, ParseInputParams>()
       // Output
-      .AddParserArray<IGqlpOutputArg, ParseOutputArgs>()
-      .AddParser<IGqlpOutputBase, ParseOutputBase>()
       .AddParser<IGqlpOutputField, ParseOutputField>()
-      .AddParserArray<IGqlpOutputAlternate, ParseOutputAlternates>()
       .AddDeclarationParser<IGqlpOutputObject, ParseOutput>("output")
-      .AddObjectParser<IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>()
+      .AddObjectParser<IGqlpOutputField>()
       // Schema
       .AddParser<IGqlpSchema, ParseSchema>()
       ;
@@ -89,12 +83,10 @@ public static class SchemaParsers
       .AddParser<IOptionParser<TOption>, TOption, OptionParser<TOption>>()
       .AddParser<IEnumParser<TOption>, TOption, EnumParser<TOption>>();
 
-  private static IServiceCollection AddObjectParser<TObjBase, TObjField, TObjAlt>(this IServiceCollection services)
-    where TObjBase : IGqlpObjBase
+  private static IServiceCollection AddObjectParser<TObjField>(this IServiceCollection services)
     where TObjField : IGqlpObjField
-    where TObjAlt : IGqlpObjAlternate
     => services
-      .AddParser<ObjectDefinition<TObjBase, TObjField, TObjAlt>, ParseObjectDefinition<TObjBase, TObjField, TObjAlt>>();
+      .AddParser<ObjectDefinition<TObjField>, ParseObjectDefinition<TObjField>>();
 
   private static IServiceCollection AddDeclarationParser<TObject, TParser>(this IServiceCollection services, string selector)
     where TObject : IGqlpDeclaration

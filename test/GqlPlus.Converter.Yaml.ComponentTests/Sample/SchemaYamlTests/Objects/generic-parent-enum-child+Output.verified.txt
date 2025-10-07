@@ -21,12 +21,12 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: field
       object: FieldGnrcPrntEnumChildOutp
-      type: !_OutputBase
+      type: !_ObjBase
         typeParam: ref
     fields:
     - !_OutputField
       name: field
-      type: !_OutputBase
+      type: !_ObjBase
         typeParam: ref
     name: FieldGnrcPrntEnumChildOutp
     typeKind: !_TypeKind Output
@@ -41,13 +41,13 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: field
       object: FieldGnrcPrntEnumChildOutp
-      type: !_OutputBase
+      type: !_ObjBase
         name: ParentGnrcPrntEnumChildOutp
     name: GnrcPrntEnumChildOutp
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: FieldGnrcPrntEnumChildOutp
       typeArgs:
-      - !_OutputArg
+      - !_ObjTypeArg
         name: ParentGnrcPrntEnumChildOutp
     typeKind: !_TypeKind Output
   !_Identifier ParentGnrcPrntEnumChildOutp: !_TypeEnum

@@ -11,6 +11,7 @@ public static class AllModellers
   public static IServiceCollection AddModellers(this IServiceCollection services)
     => services
       .AddModeller<IGqlpConstant, ConstantModel, ConstantModeller>()
+      .AddModeller<IGqlpEnumValue, EnumValueModel, EnumValueModeller>()
       .AddModeller<IGqlpFieldKey, SimpleModel, SimpleModeller>()
       .AddModifierModeller()
       // Schema
@@ -31,24 +32,18 @@ public static class AllModellers
       .AddTypeModeller<IGqlpUnion, TypeUnionModel, UnionModeller>()
       // Object
       .AddModeller<IGqlpTypeParam, TypeParamModel, TypeParamModeller>()
-      .AddModeller<IGqlpDualArg, DualArgModel, DualArgModeller>()
-      .AddObjectModellers<
-          IGqlpDualBase, DualBaseModel, DualBaseModeller,
-          IGqlpDualField, DualFieldModel, DualFieldModeller,
-          IGqlpDualAlternate, DualAlternateModel, DualAlternateModeller>()
-      .AddModeller<IGqlpInputArg, InputArgModel, InputArgModeller>()
-      .AddObjectModellers<
-          IGqlpInputBase, InputBaseModel, InputBaseModeller,
-          IGqlpInputField, InputFieldModel, InputFieldModeller,
-          IGqlpInputAlternate, InputAlternateModel, InputAlternateModeller>()
-      .AddModeller<IGqlpInputParam, InputParamModel, InputParamModeller>()
-      .AddModeller<IGqlpOutputArg, OutputArgModel, OutputArgModeller>()
-      .AddObjectModellers<
-          IGqlpOutputBase, OutputBaseModel, OutputBaseModeller,
-          IGqlpOutputField, OutputFieldModel, OutputFieldModeller,
-          IGqlpOutputAlternate, OutputAlternateModel, OutputAlternateModeller>()
+      .AddModeller<IGqlpObjTypeArg, ObjTypeArgModel, ObjTypeArgModeller>()
+      .AddModeller<IGqlpObjBase, ObjBaseModel, ObjBaseModeller>()
+      .AddModeller<IGqlpObjAlt, ObjAlternateModel, ObjAlternateModeller>()
+
+      .AddObjectModellers<IGqlpDualField, DualFieldModel, DualFieldModeller>()
       .AddTypeModeller<IGqlpDualObject, TypeDualModel, DualModeller>()
+
+      .AddObjectModellers<IGqlpInputField, InputFieldModel, InputFieldModeller>()
       .AddTypeModeller<IGqlpInputObject, TypeInputModel, InputModeller>()
+      .AddModeller<IGqlpInputParam, InputParamModel, InputParamModeller>()
+
+      .AddObjectModellers<IGqlpOutputField, OutputFieldModel, OutputFieldModeller>()
       .AddTypeModeller<IGqlpOutputObject, TypeOutputModel, OutputModeller>()
     ;
 
@@ -93,22 +88,12 @@ public static class AllModellers
       .AddProvider<IModifierModeller, IModeller<IGqlpModifier, CollectionModel>>();
 
   private static IServiceCollection AddObjectModellers<
-      TObjBaseAst, TObjBase, TBaseModeller,
-      TObjFieldAst, TObjField, TFieldModeller,
-      TObjAltAst, TObjAlt, TAltModeller
+      TObjFieldAst, TObjField, TFieldModeller
     >(this IServiceCollection services)
-      where TObjBaseAst : IGqlpObjBase
-      where TObjBase : IObjBaseModel
-      where TBaseModeller : class, IModeller<TObjBaseAst, TObjBase>
       where TObjFieldAst : IGqlpObjField
       where TObjField : IObjFieldModel
       where TFieldModeller : class, IModeller<TObjFieldAst, TObjField>
-      where TObjAltAst : IGqlpObjAlternate
-      where TObjAlt : IObjAlternateModel
-      where TAltModeller : class, IModeller<TObjAltAst, TObjAlt>
     => services
-      .AddModeller<TObjBaseAst, TObjBase, TBaseModeller>()
       .AddModeller<TObjFieldAst, TObjField, TFieldModeller>()
-      .AddModeller<TObjAltAst, TObjAlt, TAltModeller>()
-      .AddSingleton<ObjectModellers<TObjBaseAst, TObjFieldAst, TObjAltAst, TObjBase, TObjField, TObjAlt>>();
+      .AddSingleton<ObjectModellers<TObjFieldAst, TObjField>>();
 }

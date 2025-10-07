@@ -1,0 +1,3 @@
+object Name { | RefName<EnumName.name> }
+object RefName<$type:_Enum> { field: $type }
+enum EnumName { name }

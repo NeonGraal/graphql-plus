@@ -6,7 +6,7 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_DualAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "collections": [
             {
               "$tag": "_ModifierTypeParam",
@@ -19,14 +19,14 @@
           ],
           "object": "RefGnrcAltModParamDual",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "typeParam": "ref"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_DualAlternate",
+          "$tag": "_ObjAlternate",
           "collections": [
             {
               "$tag": "_ModifierTypeParam",
@@ -38,7 +38,7 @@
             }
           ],
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "typeParam": "ref"
           }
         }

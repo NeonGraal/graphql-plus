@@ -2,64 +2,64 @@
 types: !_Map_Type
   !_Identifier AltCnstAltObjInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: PrntCnstAltObjInp
-      type: !_InputBase
+      type: !_ObjBase
         name: String
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
       object: AltCnstAltObjInp
-      type: !_InputBase
+      type: !_ObjBase
         name: Number
     fields:
     - !_InputField
       name: alt
-      type: !_InputBase
+      type: !_ObjBase
         name: Number
     name: AltCnstAltObjInp
-    parent: !_InputBase
+    parent: !_ObjBase
       name: PrntCnstAltObjInp
     typeKind: !_TypeKind Input
   !_Identifier CnstAltObjInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: CnstAltObjInp
-      type: !_InputBase
+      type: !_ObjBase
         name: RefCnstAltObjInp
         typeArgs:
-        - !_InputArg
+        - !_ObjTypeArg
           name: AltCnstAltObjInp
     alternates:
-    - !_InputAlternate
-      type: !_InputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: RefCnstAltObjInp
         typeArgs:
-        - !_InputArg
+        - !_ObjTypeArg
           name: AltCnstAltObjInp
     name: CnstAltObjInp
     typeKind: !_TypeKind Input
   !_Identifier PrntCnstAltObjInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: PrntCnstAltObjInp
-      type: !_InputBase
+      type: !_ObjBase
         name: String
     alternates:
-    - !_InputAlternate
-      type: !_InputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: String
     name: PrntCnstAltObjInp
     typeKind: !_TypeKind Input
   !_Identifier RefCnstAltObjInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: RefCnstAltObjInp
-      type: !_InputBase
+      type: !_ObjBase
         typeParam: ref
     alternates:
-    - !_InputAlternate
-      type: !_InputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         typeParam: ref
     name: RefCnstAltObjInp
     typeKind: !_TypeKind Input

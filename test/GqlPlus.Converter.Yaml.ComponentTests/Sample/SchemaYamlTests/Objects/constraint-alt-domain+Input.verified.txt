@@ -2,19 +2,19 @@
 types: !_Map_Type
   !_Identifier CnstAltDmnInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: CnstAltDmnInp
-      type: !_InputBase
+      type: !_ObjBase
         name: RefCnstAltDmnInp
         typeArgs:
-        - !_InputArg
+        - !_ObjTypeArg
           name: DomCnstAltDmnInp
     alternates:
-    - !_InputAlternate
-      type: !_InputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: RefCnstAltDmnInp
         typeArgs:
-        - !_InputArg
+        - !_ObjTypeArg
           name: DomCnstAltDmnInp
     name: CnstAltDmnInp
     typeKind: !_TypeKind Input
@@ -33,13 +33,13 @@ types: !_Map_Type
     typeKind: !_TypeKind Domain
   !_Identifier RefCnstAltDmnInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: RefCnstAltDmnInp
-      type: !_InputBase
+      type: !_ObjBase
         typeParam: ref
     alternates:
-    - !_InputAlternate
-      type: !_InputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         typeParam: ref
     name: RefCnstAltDmnInp
     typeKind: !_TypeKind Input

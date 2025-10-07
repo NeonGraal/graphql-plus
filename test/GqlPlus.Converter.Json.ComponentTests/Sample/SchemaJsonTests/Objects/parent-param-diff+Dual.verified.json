@@ -6,10 +6,10 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_DualAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "RefPrntParamDiffDual",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "typeParam": "b"
           }
         }
@@ -20,7 +20,7 @@
           "name": "field",
           "object": "PrntParamDiffDual",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "typeParam": "a"
           }
         }
@@ -30,18 +30,18 @@
           "$tag": "_DualField",
           "name": "field",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "typeParam": "a"
           }
         }
       ],
       "name": "PrntParamDiffDual",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "RefPrntParamDiffDual",
         "typeArgs": [
           {
-            "$tag": "_DualArg",
+            "$tag": "_ObjTypeArg",
             "typeParam": "a"
           }
         ]
@@ -69,19 +69,19 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_DualAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "RefPrntParamDiffDual",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "typeParam": "b"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_DualAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "typeParam": "b"
           }
         }

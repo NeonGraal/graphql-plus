@@ -18,12 +18,12 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: field
       object: FieldGnrcPrntStrDomOutp
-      type: !_OutputBase
+      type: !_ObjBase
         typeParam: ref
     fields:
     - !_OutputField
       name: field
-      type: !_OutputBase
+      type: !_ObjBase
         typeParam: ref
     name: FieldGnrcPrntStrDomOutp
     typeKind: !_TypeKind Output
@@ -38,12 +38,12 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: field
       object: FieldGnrcPrntStrDomOutp
-      type: !_OutputBase
+      type: !_ObjBase
         name: DomGnrcPrntStrDomOutp
     name: GnrcPrntStrDomOutp
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: FieldGnrcPrntStrDomOutp
       typeArgs:
-      - !_OutputArg
+      - !_ObjTypeArg
         name: DomGnrcPrntStrDomOutp
     typeKind: !_TypeKind Output

@@ -23,9 +23,9 @@ settings: !_Map_Setting
 types: !_Map_Type
   !_Identifier All: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: All
-        type: !_OutputBase
+        type: !_ObjBase
           description: 'Alternates'
           name: String
     allFields:
@@ -37,11 +37,11 @@ types: !_Map_Type
           - !_InputParam
             modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
             name: Param
-        type: !_DualBase
+        type: !_ObjBase
           name: Field
     alternates:
-      - !_OutputAlternate
-        type: !_OutputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           description: 'Alternates'
           name: String
     description: 'An Output'
@@ -53,7 +53,7 @@ types: !_Map_Type
           - !_InputParam
             modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
             name: Param
-        type: !_DualBase
+        type: !_ObjBase
           name: Field
     name: All
     typeKind: !_TypeKind Output
@@ -64,7 +64,7 @@ types: !_Map_Type
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: strings
         object: Field
-        type: !_DualBase
+        type: !_ObjBase
           description: 'Strings array'
           name: String
     description: 'A Dual'
@@ -73,7 +73,7 @@ types: !_Map_Type
         description: 'Some strings'
         modifiers: [!_Modifier{modifierKind:!_ModifierKind List}]
         name: strings
-        type: !_DualBase
+        type: !_ObjBase
           description: 'Strings array'
           name: String
     name: Field
@@ -136,9 +136,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier Param: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_InputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: Param
-        type: !_InputBase
+        type: !_ObjBase
           description: 'Alternate parameter'
           name: String
     allFields:
@@ -147,19 +147,19 @@ types: !_Map_Type
         modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: afterId
         object: Param
-        type: !_InputBase
+        type: !_ObjBase
           description: 'Guid or Int'
           name: Many
       - !_ObjectFor(_InputField)
         description: 'Last Id'
         name: beforeId
         object: Param
-        type: !_InputBase
+        type: !_ObjBase
           description: 'Guid or Int'
           name: Many
     alternates:
-      - !_InputAlternate
-        type: !_InputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           description: 'Alternate parameter'
           name: String
     description: 'An Input'
@@ -168,13 +168,13 @@ types: !_Map_Type
         description: 'First Id'
         modifiers: [!_Modifier{modifierKind:!_ModifierKind Opt}]
         name: afterId
-        type: !_InputBase
+        type: !_ObjBase
           description: 'Guid or Int'
           name: Many
       - !_InputField
         description: 'Last Id'
         name: beforeId
-        type: !_InputBase
+        type: !_ObjBase
           description: 'Guid or Int'
           name: Many
     name: Param

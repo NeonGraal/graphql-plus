@@ -4,15 +4,14 @@ using GqlPlus.Verifying.Schema;
 namespace GqlPlus.Matching;
 
 internal abstract class MatchConstraintBase<TType>(
-  ILoggerFactory logger,
-  Matcher<IGqlpType>.D anyTypeMatcher
-) : MatchAnyTypeLogger(logger, anyTypeMatcher)
+  ILoggerFactory logger
+) : MatchLogger(logger)
   , IConstraintMatcher<TType>
   where TType : IGqlpType
 {
   public virtual bool MatchesConstraint(IGqlpType type, TType constraint, EnumContext context)
   {
-    TryingMatch(type, $"!{constraint.Abbr}:{constraint.Name}");
+    TryingMatch(type, $"!{constraint.Kind}:{constraint.Name}");
 
     return false;
   }

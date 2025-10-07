@@ -7,16 +7,18 @@ namespace GqlPlus.Matching;
 internal class ObjTypeArgMatcher(
   ILoggerFactory logger,
   Matcher<IGqlpType>.D anyTypeMatcher
-) : MatchAnyTypeLogger(logger, anyTypeMatcher)
+) : MatchLogger(logger)
   , Matcher<IGqlpObjTypeArg>.I
 {
+  private readonly Matcher<IGqlpType>.L _anyTypeMatcher = anyTypeMatcher;
+
   public bool Matches(IGqlpObjTypeArg arg, string constraint, EnumContext context)
   {
     TryingMatch(arg, constraint);
 
-    return MatchArgOrType(arg.FullType, constraint, context, ArgAction);
+    return MatchArgOrType<IGqlpType, EnumContext>(arg.FullType, constraint, context, ArgAction);
 
-    bool? ArgAction(IGqlpType type)
+    bool ArgAction(IGqlpType t, string c, EnumContext ctx)
     {
       if (arg.EnumValue is null) {
         if (arg.IsTypeParam
@@ -32,7 +34,7 @@ internal class ObjTypeArgMatcher(
         return true;
       }
 
-      return null;
+      return _anyTypeMatcher.Matches(t, c, ctx);
     }
   }
 

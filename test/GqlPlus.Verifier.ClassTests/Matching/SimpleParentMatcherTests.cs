@@ -1,12 +1,12 @@
 ﻿namespace GqlPlus.Matching;
 
-public abstract class SimpleSameMatcherTests<TSimple>
+public abstract class SimpleParentMatcherTests<TSimple>
   : MatchTestsBase
   where TSimple : class, IGqlpSimple
 {
-  private readonly SimpleSameMatcher<TSimple> _sut;
+  private readonly SimpleParentMatcher<TSimple> _sut;
 
-  protected SimpleSameMatcherTests() => _sut = new(LoggerFactory);
+  protected SimpleParentMatcherTests() => _sut = new(LoggerFactory);
 
   [Theory, RepeatData]
   public void Simple_Matches_SameName_ReturnsTrue(string constraint)
@@ -46,14 +46,14 @@ public abstract class SimpleSameMatcherTests<TSimple>
   }
 }
 
-public class DomainSimpleSameMatcherTests
-  : SimpleSameMatcherTests<IGqlpDomain>
+public class DomainParentMatcherTests
+  : SimpleParentMatcherTests<IGqlpDomain>
 { }
 
-public class EnumSimpleSameMatcherTests
-  : SimpleSameMatcherTests<IGqlpEnum>
+public class EnumParentMatcherTests
+  : SimpleParentMatcherTests<IGqlpEnum>
 { }
 
-public class UnionSimpleSameMatcherTests
-  : SimpleSameMatcherTests<IGqlpUnion>
+public class UnionParentMatcherTests
+  : SimpleParentMatcherTests<IGqlpUnion>
 { }

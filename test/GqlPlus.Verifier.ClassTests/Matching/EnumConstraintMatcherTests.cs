@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Matching;
 
 public class EnumConstraintMatcherTests
-  : MatchAnyTypesTestsBase
+  : MatchTestsBase
 {
   private readonly EnumConstraintMatcher _sut;
   private readonly Matcher<IGqlpEnum>.I _enumMatcher;
@@ -10,7 +10,7 @@ public class EnumConstraintMatcherTests
   {
     Matcher<IGqlpEnum>.D enumMatcher = MatcherFor(out _enumMatcher);
 
-    _sut = new(LoggerFactory, AnyTypeMatcher, enumMatcher);
+    _sut = new(LoggerFactory, enumMatcher);
   }
 
   [Theory, RepeatData]

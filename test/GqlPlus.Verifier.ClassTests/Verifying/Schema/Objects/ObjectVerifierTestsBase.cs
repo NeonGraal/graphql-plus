@@ -672,7 +672,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
   {
     obj ??= TheObject;
 
-    IGqlpObjBase parentBase = MakeBase(parentName, isTypeParam);
+    IGqlpObjBase parentBase = A.ObjBase(parentName, isTypeParam);
     obj.SetParent(parentBase);
 
     return parentBase;
@@ -711,7 +711,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
   {
     obj ??= TheObject;
 
-    IGqlpObjBase objBase = MakeBase(fieldType, isTypeParam);
+    IGqlpObjBase objBase = A.ObjBase(fieldType, isTypeParam);
     TField field = A.ObjField<TField>(fieldName, objBase);
 
     obj.Fields.Returns([field]);
@@ -724,7 +724,7 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
   {
     obj ??= TheObject;
 
-    IGqlpObjBase objBase = MakeBase(enumType);
+    IGqlpObjBase objBase = A.ObjBase(enumType);
     TField field = A.ObjField<TField>(fieldName, objBase);
     IGqlpEnumValue enumValue = A.EnumValue(enumType, enumLabel);
     field.EnumValue.Returns(enumValue);
@@ -744,9 +744,6 @@ public abstract class ObjectVerifierTestsBase<TObject, TField>
 
     return typeParam;
   }
-
-  protected static IGqlpObjBase MakeBase(string baseName, bool isTypeParam = false)
-    => A.ObjBase<IGqlpObjBase, IGqlpObjTypeArg>(baseName, isTypeParam);
 
   protected static IGqlpObjTypeArg BaseArg(IGqlpObjBase type, string argName, bool isTypeParam = false)
   {

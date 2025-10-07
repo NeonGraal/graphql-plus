@@ -17,14 +17,14 @@ public static class AllMatchers
       .AddSingleton<ITypeMatcher, UnionConstraintMatcher>()
 
       .AddTypeMatcher<IGqlpDomain, DomainMatcher>()
-      .AddSameMatcher<IGqlpDomain, SimpleSameMatcher<IGqlpDomain>>()
-      .AddSameMatcher<IGqlpEnum, SimpleSameMatcher<IGqlpEnum>>()
-      .AddSameMatcher<IGqlpTypeSpecial, SimpleSameMatcher<IGqlpTypeSpecial>>()
-      .AddSameMatcher<IGqlpUnion, SimpleSameMatcher<IGqlpUnion>>()
+      .AddParentMatcher<IGqlpDomain, SimpleParentMatcher<IGqlpDomain>>()
+      .AddParentMatcher<IGqlpEnum, SimpleParentMatcher<IGqlpEnum>>()
+      .AddParentMatcher<IGqlpTypeSpecial, SimpleParentMatcher<IGqlpTypeSpecial>>()
+      .AddParentMatcher<IGqlpUnion, SimpleParentMatcher<IGqlpUnion>>()
 
-      .AddSameMatcher<IGqlpDualObject, ObjectSameMatcher<IGqlpDualObject>>()
-      .AddSameMatcher<IGqlpInputObject, MatchObjectSameDualBase<IGqlpInputObject>>()
-      .AddSameMatcher<IGqlpOutputObject, MatchObjectSameDualBase<IGqlpOutputObject>>()
+      .AddParentMatcher<IGqlpDualObject, ObjectParentMatcher<IGqlpDualObject>>()
+      .AddParentMatcher<IGqlpInputObject, MatchObjectParentDualBase<IGqlpInputObject>>()
+      .AddParentMatcher<IGqlpOutputObject, MatchObjectParentDualBase<IGqlpOutputObject>>()
     ;
 
   private static IServiceCollection AddMatcher<TType, TMatcher>(this IServiceCollection services)
@@ -40,7 +40,7 @@ public static class AllMatchers
       .AddMatcher<TType, TMatcher>()
       .AddProvider<TMatcher, ITypeMatcher>();
 
-  private static IServiceCollection AddSameMatcher<TType, TMatcher>(this IServiceCollection services)
+  private static IServiceCollection AddParentMatcher<TType, TMatcher>(this IServiceCollection services)
     where TType : IGqlpType
     where TMatcher : class, Matcher<TType>.I, ITypeMatcher
     => services.AddTypeMatcher<TType, TMatcher>();

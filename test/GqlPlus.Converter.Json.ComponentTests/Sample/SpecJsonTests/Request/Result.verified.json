@@ -23,7 +23,7 @@
           "name": "alias",
           "object": "_OpField",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         },
@@ -32,7 +32,7 @@
           "name": "field",
           "object": "_OpField",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         },
@@ -50,7 +50,7 @@
           "name": "argument",
           "object": "_OpField",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_OpArgument"
           }
         },
@@ -68,7 +68,7 @@
           "name": "modifiers",
           "object": "_OpField",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_Modifier"
           }
         },
@@ -86,7 +86,7 @@
           "name": "directives",
           "object": "_OpField",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_OpDirective"
           }
         },
@@ -96,7 +96,7 @@
           "name": "body",
           "object": "_OpField",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -119,7 +119,7 @@
           ],
           "name": "alias",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         },
@@ -127,7 +127,7 @@
           "$tag": "_InputField",
           "name": "field",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         },
@@ -144,7 +144,7 @@
           ],
           "name": "argument",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_OpArgument"
           }
         },
@@ -161,7 +161,7 @@
           ],
           "name": "modifiers",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_Modifier"
           }
         },
@@ -178,7 +178,7 @@
           ],
           "name": "directives",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_OpDirective"
           }
         },
@@ -187,7 +187,7 @@
           "description": "The body as a string as we can\u0027t have nested objects.",
           "name": "body",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -219,7 +219,7 @@
           "name": "type",
           "object": "_OpInline",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         },
@@ -237,7 +237,7 @@
           "name": "directives",
           "object": "_OpInline",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_OpDirective"
           }
         },
@@ -247,7 +247,7 @@
           "name": "body",
           "object": "_OpInline",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -270,7 +270,7 @@
           ],
           "name": "type",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         },
@@ -287,7 +287,7 @@
           ],
           "name": "directives",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_OpDirective"
           }
         },
@@ -296,7 +296,7 @@
           "description": "The body as a string as we can\u0027t have nested objects.",
           "name": "body",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -311,49 +311,49 @@
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_InputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_OpObject",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_OpField"
           }
         },
         {
-          "$tag": "_ObjectFor(_InputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_OpObject",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_OpSpread"
           }
         },
         {
-          "$tag": "_ObjectFor(_InputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_OpObject",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_OpInline"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_InputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_OpField"
           }
         },
         {
-          "$tag": "_InputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_OpSpread"
           }
         },
         {
-          "$tag": "_InputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_OpInline"
           }
         }
@@ -385,7 +385,7 @@
           "name": "domain",
           "object": "_OpResult",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         },
@@ -403,7 +403,7 @@
           "name": "argument",
           "object": "_OpResult",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_OpArgument"
           }
         },
@@ -421,7 +421,7 @@
           "name": "body",
           "object": "_OpResult",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_OpObject"
           }
         }
@@ -444,7 +444,7 @@
           ],
           "name": "domain",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         },
@@ -461,7 +461,7 @@
           ],
           "name": "argument",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_OpArgument"
           }
         },
@@ -478,7 +478,7 @@
           ],
           "name": "body",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "_OpObject"
           }
         }
@@ -497,7 +497,7 @@
           "name": "fragment",
           "object": "_OpSpread",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         },
@@ -515,7 +515,7 @@
           "name": "directives",
           "object": "_OpSpread",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_OpDirective"
           }
         }
@@ -525,7 +525,7 @@
           "$tag": "_DualField",
           "name": "fragment",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         },
@@ -542,7 +542,7 @@
           ],
           "name": "directives",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_OpDirective"
           }
         }

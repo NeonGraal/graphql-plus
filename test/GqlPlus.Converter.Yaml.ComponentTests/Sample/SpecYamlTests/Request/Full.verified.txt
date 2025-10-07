@@ -15,9 +15,9 @@ types: !_Map_Type
     typeKind: !_TypeKind Domain
   !_Identifier _Request: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: _Request
-      type: !_InputBase
+      type: !_ObjBase
         description: 'Parsed into definition'
         name: String
     allFields:
@@ -26,30 +26,30 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: category
       object: _Request
-      type: !_InputBase
+      type: !_ObjBase
         name: _Identifier
     - !_ObjectFor(_InputField)
       default: !Null null
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: operation
       object: _Request
-      type: !_InputBase
+      type: !_ObjBase
         name: _Identifier
     - !_ObjectFor(_InputField)
       name: definition
       object: _Request
-      type: !_InputBase
+      type: !_ObjBase
         name: _Operation
     - !_ObjectFor(_InputField)
       default: !Null null
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: parameters
       object: _Request
-      type: !_InputBase
+      type: !_ObjBase
         name: Any
     alternates:
-    - !_InputAlternate
-      type: !_InputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         description: 'Parsed into definition'
         name: String
     fields:
@@ -57,23 +57,23 @@ types: !_Map_Type
       default: !Null null
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: category
-      type: !_InputBase
+      type: !_ObjBase
         name: _Identifier
     - !_InputField
       default: !Null null
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: operation
-      type: !_InputBase
+      type: !_ObjBase
         name: _Identifier
     - !_InputField
       name: definition
-      type: !_InputBase
+      type: !_ObjBase
         name: _Operation
     - !_InputField
       default: !Null null
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: parameters
-      type: !_InputBase
+      type: !_ObjBase
         name: Any
     name: _Request
     typeKind: !_TypeKind Input

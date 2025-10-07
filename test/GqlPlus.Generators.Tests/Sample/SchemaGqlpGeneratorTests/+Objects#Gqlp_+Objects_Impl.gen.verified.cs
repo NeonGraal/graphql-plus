@@ -101,6 +101,24 @@ public class DualObjDualAltDualOutp
   public String AsString { get; set; }
 }
 
+public class DualAltEnumDual
+  : IAltEnumDual
+{
+  public EnumAltEnumDual AsEnumAltEnumDual { get; set; }
+}
+
+public class InputAltEnumInp
+  : IAltEnumInp
+{
+  public EnumAltEnumInp AsEnumAltEnumInp { get; set; }
+}
+
+public class OutputAltEnumOutp
+  : IAltEnumOutp
+{
+  public EnumAltEnumOutp AsEnumAltEnumOutp { get; set; }
+}
+
 public class DualAltModBoolDual
   : IAltModBoolDual
 {
@@ -414,6 +432,129 @@ public class OutputAltCnstAltObjOutp
   , IAltCnstAltObjOutp
 {
   public Number alt { get; set; }
+}
+
+public class DualCnstDomEnumDual
+  : ICnstDomEnumDual
+{
+  public RefCnstDomEnumDual<EnumCnstDomEnumDual> AsRefCnstDomEnumDual { get; set; }
+}
+
+public class DualRefCnstDomEnumDual<Ttype>
+  : IRefCnstDomEnumDual<Ttype>
+{
+  public Ttype field { get; set; }
+}
+
+public class DomainJustCnstDomEnumDual
+  : IJustCnstDomEnumDual
+{
+}
+
+public class InputCnstDomEnumInp
+  : ICnstDomEnumInp
+{
+  public RefCnstDomEnumInp<EnumCnstDomEnumInp> AsRefCnstDomEnumInp { get; set; }
+}
+
+public class InputRefCnstDomEnumInp<Ttype>
+  : IRefCnstDomEnumInp<Ttype>
+{
+  public Ttype field { get; set; }
+}
+
+public class DomainJustCnstDomEnumInp
+  : IJustCnstDomEnumInp
+{
+}
+
+public class OutputCnstDomEnumOutp
+  : ICnstDomEnumOutp
+{
+  public RefCnstDomEnumOutp<EnumCnstDomEnumOutp> AsRefCnstDomEnumOutp { get; set; }
+}
+
+public class OutputRefCnstDomEnumOutp<Ttype>
+  : IRefCnstDomEnumOutp<Ttype>
+{
+  public Ttype field { get; set; }
+}
+
+public class DomainJustCnstDomEnumOutp
+  : IJustCnstDomEnumOutp
+{
+}
+
+public class DualCnstEnumDual
+  : ICnstEnumDual
+{
+  public RefCnstEnumDual<EnumCnstEnumDual> AsRefCnstEnumDual { get; set; }
+}
+
+public class DualRefCnstEnumDual<Ttype>
+  : IRefCnstEnumDual<Ttype>
+{
+  public Ttype field { get; set; }
+}
+
+public class InputCnstEnumInp
+  : ICnstEnumInp
+{
+  public RefCnstEnumInp<EnumCnstEnumInp> AsRefCnstEnumInp { get; set; }
+}
+
+public class InputRefCnstEnumInp<Ttype>
+  : IRefCnstEnumInp<Ttype>
+{
+  public Ttype field { get; set; }
+}
+
+public class OutputCnstEnumOutp
+  : ICnstEnumOutp
+{
+  public RefCnstEnumOutp<EnumCnstEnumOutp> AsRefCnstEnumOutp { get; set; }
+}
+
+public class OutputRefCnstEnumOutp<Ttype>
+  : IRefCnstEnumOutp<Ttype>
+{
+  public Ttype field { get; set; }
+}
+
+public class DualCnstEnumPrntDual
+  : ICnstEnumPrntDual
+{
+  public RefCnstEnumPrntDual<EnumCnstEnumPrntDual> AsRefCnstEnumPrntDual { get; set; }
+}
+
+public class DualRefCnstEnumPrntDual<Ttype>
+  : IRefCnstEnumPrntDual<Ttype>
+{
+  public Ttype field { get; set; }
+}
+
+public class InputCnstEnumPrntInp
+  : ICnstEnumPrntInp
+{
+  public RefCnstEnumPrntInp<EnumCnstEnumPrntInp> AsRefCnstEnumPrntInp { get; set; }
+}
+
+public class InputRefCnstEnumPrntInp<Ttype>
+  : IRefCnstEnumPrntInp<Ttype>
+{
+  public Ttype field { get; set; }
+}
+
+public class OutputCnstEnumPrntOutp
+  : ICnstEnumPrntOutp
+{
+  public RefCnstEnumPrntOutp<EnumCnstEnumPrntOutp> AsRefCnstEnumPrntOutp { get; set; }
+}
+
+public class OutputRefCnstEnumPrntOutp<Ttype>
+  : IRefCnstEnumPrntOutp<Ttype>
+{
+  public Ttype field { get; set; }
 }
 
 public class DualCnstFieldDmnDual
@@ -785,6 +926,42 @@ public class OutputAltCnstPrntDualPrntOutp
   public Number alt { get; set; }
 }
 
+public class DualCnstPrntEnumDual
+  : ICnstPrntEnumDual
+{
+  public RefCnstPrntEnumDual<ParentCnstPrntEnumDual> AsRefCnstPrntEnumDual { get; set; }
+}
+
+public class DualRefCnstPrntEnumDual<Ttype>
+  : IRefCnstPrntEnumDual<Ttype>
+{
+  public Ttype field { get; set; }
+}
+
+public class InputCnstPrntEnumInp
+  : ICnstPrntEnumInp
+{
+  public RefCnstPrntEnumInp<ParentCnstPrntEnumInp> AsRefCnstPrntEnumInp { get; set; }
+}
+
+public class InputRefCnstPrntEnumInp<Ttype>
+  : IRefCnstPrntEnumInp<Ttype>
+{
+  public Ttype field { get; set; }
+}
+
+public class OutputCnstPrntEnumOutp
+  : ICnstPrntEnumOutp
+{
+  public RefCnstPrntEnumOutp<ParentCnstPrntEnumOutp> AsRefCnstPrntEnumOutp { get; set; }
+}
+
+public class OutputRefCnstPrntEnumOutp<Ttype>
+  : IRefCnstPrntEnumOutp<Ttype>
+{
+  public Ttype field { get; set; }
+}
+
 public class DualCnstPrntObjPrntDual
   : DualRefCnstPrntObjPrntDual
   , ICnstPrntObjPrntDual
@@ -935,6 +1112,42 @@ public class DualFldFieldDualOutp
   public String AsString { get; set; }
 }
 
+public class DualFieldEnumDual
+  : IFieldEnumDual
+{
+  public EnumFieldEnumDual field { get; set; }
+}
+
+public class InputFieldEnumInp
+  : IFieldEnumInp
+{
+  public EnumFieldEnumInp field { get; set; }
+}
+
+public class OutputFieldEnumOutp
+  : IFieldEnumOutp
+{
+  public EnumFieldEnumOutp field { get; set; }
+}
+
+public class DualFieldEnumPrntDual
+  : IFieldEnumPrntDual
+{
+  public EnumFieldEnumPrntDual field { get; set; }
+}
+
+public class InputFieldEnumPrntInp
+  : IFieldEnumPrntInp
+{
+  public EnumFieldEnumPrntInp field { get; set; }
+}
+
+public class OutputFieldEnumPrntOutp
+  : IFieldEnumPrntOutp
+{
+  public EnumFieldEnumPrntOutp field { get; set; }
+}
+
 public class DualFieldModEnumDual
   : IFieldModEnumDual
 {
@@ -1065,6 +1278,42 @@ public class OutputFieldTypeDescrOutp
   : IFieldTypeDescrOutp
 {
   public Number field { get; set; }
+}
+
+public class DualFieldValueDual
+  : IFieldValueDual
+{
+  public EnumFieldValueDual field { get; set; }
+}
+
+public class InputFieldValueInp
+  : IFieldValueInp
+{
+  public EnumFieldValueInp field { get; set; }
+}
+
+public class OutputFieldValueOutp
+  : IFieldValueOutp
+{
+  public EnumFieldValueOutp field { get; set; }
+}
+
+public class DualFieldValueDescrDual
+  : IFieldValueDescrDual
+{
+  public EnumFieldValueDescrDual field { get; set; }
+}
+
+public class InputFieldValueDescrInp
+  : IFieldValueDescrInp
+{
+  public EnumFieldValueDescrInp field { get; set; }
+}
+
+public class OutputFieldValueDescrOutp
+  : IFieldValueDescrOutp
+{
+  public EnumFieldValueDescrOutp field { get; set; }
 }
 
 public class DualGnrcAltDual<Ttype>
@@ -1357,6 +1606,42 @@ public class InputGnrcDescrInp<Ttype>
 
 public class OutputGnrcDescrOutp<Ttype>
   : IGnrcDescrOutp<Ttype>
+{
+  public Ttype field { get; set; }
+}
+
+public class DualGnrcEnumDual
+  : IGnrcEnumDual
+{
+  public RefGnrcEnumDual<EnumGnrcEnumDual> AsRefGnrcEnumDual { get; set; }
+}
+
+public class DualRefGnrcEnumDual<Ttype>
+  : IRefGnrcEnumDual<Ttype>
+{
+  public Ttype field { get; set; }
+}
+
+public class InputGnrcEnumInp
+  : IGnrcEnumInp
+{
+  public RefGnrcEnumInp<EnumGnrcEnumInp> AsRefGnrcEnumInp { get; set; }
+}
+
+public class InputRefGnrcEnumInp<Ttype>
+  : IRefGnrcEnumInp<Ttype>
+{
+  public Ttype field { get; set; }
+}
+
+public class OutputGnrcEnumOutp
+  : IGnrcEnumOutp
+{
+  public RefGnrcEnumOutp<EnumGnrcEnumOutp> AsRefGnrcEnumOutp { get; set; }
+}
+
+public class OutputRefGnrcEnumOutp<Ttype>
+  : IRefGnrcEnumOutp<Ttype>
 {
   public Ttype field { get; set; }
 }
@@ -2039,6 +2324,42 @@ public class DomainDomGnrcPrntStrDomOutp
 {
 }
 
+public class DualGnrcValueDual
+  : IGnrcValueDual
+{
+  public RefGnrcValueDual<EnumGnrcValueDual> AsRefGnrcValueDual { get; set; }
+}
+
+public class DualRefGnrcValueDual<Ttype>
+  : IRefGnrcValueDual<Ttype>
+{
+  public Ttype field { get; set; }
+}
+
+public class InputGnrcValueInp
+  : IGnrcValueInp
+{
+  public RefGnrcValueInp<EnumGnrcValueInp> AsRefGnrcValueInp { get; set; }
+}
+
+public class InputRefGnrcValueInp<Ttype>
+  : IRefGnrcValueInp<Ttype>
+{
+  public Ttype field { get; set; }
+}
+
+public class OutputGnrcValueOutp
+  : IGnrcValueOutp
+{
+  public RefGnrcValueOutp<EnumGnrcValueOutp> AsRefGnrcValueOutp { get; set; }
+}
+
+public class OutputRefGnrcValueOutp<Ttype>
+  : IRefGnrcValueOutp<Ttype>
+{
+  public Ttype field { get; set; }
+}
+
 public class InputInpFieldDescrNmbr
   : IInpFieldDescrNmbr
 {
@@ -2080,59 +2401,6 @@ public class InputInpFieldStr
   public String field { get; set; }
 }
 
-public class OutputOutpCnstDomEnum
-  : IOutpCnstDomEnum
-{
-  public RefOutpCnstDomEnum<outpCnstDomEnum> AsRefOutpCnstDomEnum { get; set; }
-}
-
-public class OutputRefOutpCnstDomEnum<Ttype>
-  : IRefOutpCnstDomEnum<Ttype>
-{
-  public Ttype field { get; set; }
-}
-
-public class DomainJustOutpCnstDomEnum
-  : IJustOutpCnstDomEnum
-{
-}
-
-public class OutputOutpCnstEnum
-  : IOutpCnstEnum
-{
-  public RefOutpCnstEnum<outpCnstEnum> AsRefOutpCnstEnum { get; set; }
-}
-
-public class OutputRefOutpCnstEnum<Ttype>
-  : IRefOutpCnstEnum<Ttype>
-{
-  public Ttype field { get; set; }
-}
-
-public class OutputOutpCnstEnumPrnt
-  : IOutpCnstEnumPrnt
-{
-  public RefOutpCnstEnumPrnt<outpCnstEnumPrnt> AsRefOutpCnstEnumPrnt { get; set; }
-}
-
-public class OutputRefOutpCnstEnumPrnt<Ttype>
-  : IRefOutpCnstEnumPrnt<Ttype>
-{
-  public Ttype field { get; set; }
-}
-
-public class OutputOutpCnstPrntEnum
-  : IOutpCnstPrntEnum
-{
-  public RefOutpCnstPrntEnum<parentOutpCnstPrntEnum> AsRefOutpCnstPrntEnum { get; set; }
-}
-
-public class OutputRefOutpCnstPrntEnum<Ttype>
-  : IRefOutpCnstPrntEnum<Ttype>
-{
-  public Ttype field { get; set; }
-}
-
 public class OutputOutpDescrParam
   : IOutpDescrParam
 {
@@ -2149,54 +2417,6 @@ public class InputInOutpDescrParam
 {
   public Number param { get; set; }
   public String AsString { get; set; }
-}
-
-public class OutputOutpFieldEnum
-  : IOutpFieldEnum
-{
-  public EnumOutpFieldEnum field { get; set; }
-}
-
-public class OutputOutpFieldEnumPrnt
-  : IOutpFieldEnumPrnt
-{
-  public EnumOutpFieldEnumPrnt field { get; set; }
-}
-
-public class OutputOutpFieldValue
-  : IOutpFieldValue
-{
-  public EnumOutpFieldValue field { get; set; }
-}
-
-public class OutputOutpFieldValueDescr
-  : IOutpFieldValueDescr
-{
-  public EnumOutpFieldValueDescr field { get; set; }
-}
-
-public class OutputOutpGnrcEnum
-  : IOutpGnrcEnum
-{
-  public RefOutpGnrcEnum<EnumOutpGnrcEnum> AsRefOutpGnrcEnum { get; set; }
-}
-
-public class OutputRefOutpGnrcEnum<Ttype>
-  : IRefOutpGnrcEnum<Ttype>
-{
-  public Ttype field { get; set; }
-}
-
-public class OutputOutpGnrcValue
-  : IOutpGnrcValue
-{
-  public RefOutpGnrcValue<outpGnrcValue> AsRefOutpGnrcValue { get; set; }
-}
-
-public class OutputRefOutpGnrcValue<Ttype>
-  : IRefOutpGnrcValue<Ttype>
-{
-  public Ttype field { get; set; }
 }
 
 public class OutputOutpParam

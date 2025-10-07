@@ -1,0 +1,23 @@
+﻿/* generic-enum+Output
+output GnrcEnumOutp { | RefGnrcEnumOutp<EnumGnrcEnumOutp.gnrcEnumOutp> }
+output RefGnrcEnumOutp<$type:_Enum> { field: $type }
+enum EnumGnrcEnumOutp { gnrcEnumOutp }
+*/
+
+// Generated from Schema generic-enum+Output for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_generic_enum_Output;
+
+public class OutputGnrcEnumOutp
+  : IGnrcEnumOutp
+{
+  public RefGnrcEnumOutp<EnumGnrcEnumOutp> AsRefGnrcEnumOutp { get; set; }
+}
+
+public class OutputRefGnrcEnumOutp<Ttype>
+  : IRefGnrcEnumOutp<Ttype>
+{
+  public Ttype field { get; set; }
+}

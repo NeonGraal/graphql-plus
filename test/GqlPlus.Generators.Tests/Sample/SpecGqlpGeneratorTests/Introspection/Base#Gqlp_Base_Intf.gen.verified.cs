@@ -9,50 +9,53 @@ public interface I_ObjectKind
 {
 }
 
-public interface I_TypeObject<Tkind,Tparent,TtypeParam,Tfield,Talternate>
+public interface I_TypeObject<Tkind,Tfield>
   : I_ChildType
 {
-  TtypeParam typeParams { get; }
+  _ObjTypeParam typeParams { get; }
   Tfield fields { get; }
-  Talternate alternates { get; }
+  _ObjAlternate alternates { get; }
   _ObjectFor<Tfield> allFields { get; }
-  _ObjectFor<Talternate> allAlternates { get; }
+  _ObjectFor<_ObjAlternate> allAlternates { get; }
 }
 
-public interface I_ObjTypeParam<Tkind>
+public interface I_ObjTypeParam
   : I_Named
 {
-  _ObjConstraint<Tkind> constraint { get; }
+  _TypeRef<_TypeKind> constraint { get; }
 }
 
-public interface I_ObjConstraint<Tkind>
-  : I_TypeRef
-{
-}
-
-public interface I_ObjBase<Targ>
+public interface I_ObjBase
   : I_Named
 {
-  Targ typeArgs { get; }
+  _ObjTypeArg typeArgs { get; }
   _TypeParam As_TypeParam { get; }
 }
 
 public interface I_ObjTypeArg
   : I_TypeRef
 {
+  _Identifier label { get; }
   _TypeParam As_TypeParam { get; }
 }
 
 public interface I_TypeParam
-  : I_Named
+  : I_Described
 {
   _Identifier typeParam { get; }
 }
 
-public interface I_Alternate<Tbase>
+public interface I_ObjAlternate
 {
-  Tbase type { get; }
+  _ObjBase type { get; }
   _Collections collections { get; }
+  _ObjAlternateEnum As_ObjAlternateEnum { get; }
+}
+
+public interface I_ObjAlternateEnum
+  : I_TypeRef
+{
+  _Identifier label { get; }
 }
 
 public interface I_ObjectFor<Tfor>
@@ -61,15 +64,27 @@ public interface I_ObjectFor<Tfor>
   _Identifier object { get; }
 }
 
-public interface I_Field<Tbase>
+public interface I_ObjField<Ttype>
   : I_Aliased
 {
-  Tbase type { get; }
-  _Modifiers modifiers { get; }
+  Ttype type { get; }
 }
 
-public interface I_ForParam<Tbase>
+public interface I_ObjFieldType
+  : I_ObjBase
 {
-  _Alternate<Tbase> As_Alternate { get; }
-  _Field<Tbase> As_Field { get; }
+  _Modifiers modifiers { get; }
+  _ObjFieldEnum As_ObjFieldEnum { get; }
+}
+
+public interface I_ObjFieldEnum
+  : I_TypeRef
+{
+  _Identifier label { get; }
+}
+
+public interface I_ForParam<Ttype>
+{
+  _ObjAlternate As_ObjAlternate { get; }
+  _ObjField<Ttype> As_ObjField { get; }
 }

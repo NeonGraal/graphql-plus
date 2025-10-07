@@ -153,6 +153,27 @@ public class OutputObjAltOutpType
 {
 }
 
+public class DualObjAltEnumDual
+  : IObjAltEnumDual
+{
+  public Boolean AsBoolean { get; set; }
+  public Boolean AsBoolean { get; set; }
+}
+
+public class InputObjAltEnumInp
+  : IObjAltEnumInp
+{
+  public Boolean AsBoolean { get; set; }
+  public Boolean AsBoolean { get; set; }
+}
+
+public class OutputObjAltEnumOutp
+  : IObjAltEnumOutp
+{
+  public Boolean AsBoolean { get; set; }
+  public Boolean AsBoolean { get; set; }
+}
+
 public class DualObjCnstDual<Ttype>
   : IObjCnstDual<Ttype>
 {
@@ -240,6 +261,42 @@ public class OutputFldObjFieldAliasOutp
 {
 }
 
+public class DualObjFieldEnumAliasDual
+  : IObjFieldEnumAliasDual
+{
+  public Boolean field { get; set; }
+}
+
+public class InputObjFieldEnumAliasInp
+  : IObjFieldEnumAliasInp
+{
+  public Boolean field { get; set; }
+}
+
+public class OutputObjFieldEnumAliasOutp
+  : IObjFieldEnumAliasOutp
+{
+  public Boolean field { get; set; }
+}
+
+public class DualObjFieldEnumValueDual
+  : IObjFieldEnumValueDual
+{
+  public Boolean field { get; set; }
+}
+
+public class InputObjFieldEnumValueInp
+  : IObjFieldEnumValueInp
+{
+  public Boolean field { get; set; }
+}
+
+public class OutputObjFieldEnumValueOutp
+  : IObjFieldEnumValueOutp
+{
+  public Boolean field { get; set; }
+}
+
 public class DualObjFieldTypeAliasDual
   : IObjFieldTypeAliasDual
 {
@@ -277,27 +334,6 @@ public class OutputObjParamOutp<Ttest,Ttype>
 {
   public Ttest test { get; set; }
   public Ttype type { get; set; }
-}
-
-public class DualObjParamCnstDual<Ttest>
-  : IObjParamCnstDual<Ttest>
-{
-  public Ttest test { get; set; }
-  public Ttest type { get; set; }
-}
-
-public class InputObjParamCnstInp<Ttest>
-  : IObjParamCnstInp<Ttest>
-{
-  public Ttest test { get; set; }
-  public Ttest type { get; set; }
-}
-
-public class OutputObjParamCnstOutp<Ttest>
-  : IObjParamCnstOutp<Ttest>
-{
-  public Ttest test { get; set; }
-  public Ttest type { get; set; }
 }
 
 public class DualObjParamDupDual<Ttest>
@@ -352,18 +388,6 @@ public class OutputObjPrntOutp
 public class OutputRefObjPrntOutp
   : IRefObjPrntOutp
 {
-}
-
-public class OutputOutpFieldEnumAlias
-  : IOutpFieldEnumAlias
-{
-  public Boolean field { get; set; }
-}
-
-public class OutputOutpFieldEnumValue
-  : IOutpFieldEnumValue
-{
-  public Boolean field { get; set; }
 }
 
 public class OutputOutpFieldParam

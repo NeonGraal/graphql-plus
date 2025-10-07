@@ -10,35 +10,29 @@ public class Domain_ObjectKind
 {
 }
 
-public class Output_TypeObject<Tkind,Tparent,TtypeParam,Tfield,Talternate>
+public class Output_TypeObject<Tkind,Tfield>
   : Output_ChildType
-  , I_TypeObject<Tkind,Tparent,TtypeParam,Tfield,Talternate>
+  , I_TypeObject<Tkind,Tfield>
 {
-  public TtypeParam typeParams { get; set; }
+  public _ObjTypeParam typeParams { get; set; }
   public Tfield fields { get; set; }
-  public Talternate alternates { get; set; }
+  public _ObjAlternate alternates { get; set; }
   public _ObjectFor<Tfield> allFields { get; set; }
-  public _ObjectFor<Talternate> allAlternates { get; set; }
+  public _ObjectFor<_ObjAlternate> allAlternates { get; set; }
 }
 
-public class Output_ObjTypeParam<Tkind>
+public class Output_ObjTypeParam
   : Output_Named
-  , I_ObjTypeParam<Tkind>
+  , I_ObjTypeParam
 {
-  public _ObjConstraint<Tkind> constraint { get; set; }
+  public _TypeRef<_TypeKind> constraint { get; set; }
 }
 
-public class Output_ObjConstraint<Tkind>
-  : Output_TypeRef
-  , I_ObjConstraint<Tkind>
-{
-}
-
-public class Output_ObjBase<Targ>
+public class Output_ObjBase
   : Output_Named
-  , I_ObjBase<Targ>
+  , I_ObjBase
 {
-  public Targ typeArgs { get; set; }
+  public _ObjTypeArg typeArgs { get; set; }
   public _TypeParam As_TypeParam { get; set; }
 }
 
@@ -46,21 +40,30 @@ public class Output_ObjTypeArg
   : Output_TypeRef
   , I_ObjTypeArg
 {
+  public _Identifier label { get; set; }
   public _TypeParam As_TypeParam { get; set; }
 }
 
 public class Output_TypeParam
-  : Output_Named
+  : Output_Described
   , I_TypeParam
 {
   public _Identifier typeParam { get; set; }
 }
 
-public class Output_Alternate<Tbase>
-  : I_Alternate<Tbase>
+public class Output_ObjAlternate
+  : I_ObjAlternate
 {
-  public Tbase type { get; set; }
+  public _ObjBase type { get; set; }
   public _Collections collections { get; set; }
+  public _ObjAlternateEnum As_ObjAlternateEnum { get; set; }
+}
+
+public class Output_ObjAlternateEnum
+  : Output_TypeRef
+  , I_ObjAlternateEnum
+{
+  public _Identifier label { get; set; }
 }
 
 public class Output_ObjectFor<Tfor>
@@ -70,17 +73,31 @@ public class Output_ObjectFor<Tfor>
   public _Identifier object { get; set; }
 }
 
-public class Output_Field<Tbase>
+public class Output_ObjField<Ttype>
   : Output_Aliased
-  , I_Field<Tbase>
+  , I_ObjField<Ttype>
 {
-  public Tbase type { get; set; }
-  public _Modifiers modifiers { get; set; }
+  public Ttype type { get; set; }
 }
 
-public class Output_ForParam<Tbase>
-  : I_ForParam<Tbase>
+public class Output_ObjFieldType
+  : Output_ObjBase
+  , I_ObjFieldType
 {
-  public _Alternate<Tbase> As_Alternate { get; set; }
-  public _Field<Tbase> As_Field { get; set; }
+  public _Modifiers modifiers { get; set; }
+  public _ObjFieldEnum As_ObjFieldEnum { get; set; }
+}
+
+public class Output_ObjFieldEnum
+  : Output_TypeRef
+  , I_ObjFieldEnum
+{
+  public _Identifier label { get; set; }
+}
+
+public class Output_ForParam<Ttype>
+  : I_ForParam<Ttype>
+{
+  public _ObjAlternate As_ObjAlternate { get; set; }
+  public _ObjField<Ttype> As_ObjField { get; set; }
 }

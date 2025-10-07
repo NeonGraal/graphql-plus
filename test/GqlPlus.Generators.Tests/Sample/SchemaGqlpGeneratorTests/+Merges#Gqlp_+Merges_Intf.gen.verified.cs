@@ -124,6 +124,24 @@ public interface IObjAltOutpType
 {
 }
 
+public interface IObjAltEnumDual
+{
+  Boolean AsBoolean { get; }
+  Boolean AsBoolean { get; }
+}
+
+public interface IObjAltEnumInp
+{
+  Boolean AsBoolean { get; }
+  Boolean AsBoolean { get; }
+}
+
+public interface IObjAltEnumOutp
+{
+  Boolean AsBoolean { get; }
+  Boolean AsBoolean { get; }
+}
+
 public interface IObjCnstDual<Ttype>
 {
   Ttype field { get; }
@@ -196,6 +214,36 @@ public interface IFldObjFieldAliasOutp
 {
 }
 
+public interface IObjFieldEnumAliasDual
+{
+  Boolean field { get; }
+}
+
+public interface IObjFieldEnumAliasInp
+{
+  Boolean field { get; }
+}
+
+public interface IObjFieldEnumAliasOutp
+{
+  Boolean field { get; }
+}
+
+public interface IObjFieldEnumValueDual
+{
+  Boolean field { get; }
+}
+
+public interface IObjFieldEnumValueInp
+{
+  Boolean field { get; }
+}
+
+public interface IObjFieldEnumValueOutp
+{
+  Boolean field { get; }
+}
+
 public interface IObjFieldTypeAliasDual
 {
   String field { get; }
@@ -227,24 +275,6 @@ public interface IObjParamOutp<Ttest,Ttype>
 {
   Ttest test { get; }
   Ttype type { get; }
-}
-
-public interface IObjParamCnstDual<Ttest>
-{
-  Ttest test { get; }
-  Ttest type { get; }
-}
-
-public interface IObjParamCnstInp<Ttest>
-{
-  Ttest test { get; }
-  Ttest type { get; }
-}
-
-public interface IObjParamCnstOutp<Ttest>
-{
-  Ttest test { get; }
-  Ttest type { get; }
 }
 
 public interface IObjParamDupDual<Ttest>
@@ -290,16 +320,6 @@ public interface IObjPrntOutp
 
 public interface IRefObjPrntOutp
 {
-}
-
-public interface IOutpFieldEnumAlias
-{
-  Boolean field { get; }
-}
-
-public interface IOutpFieldEnumValue
-{
-  Boolean field { get; }
 }
 
 public interface IOutpFieldParam

@@ -10,37 +10,18 @@ public interface I_TypeInput
 {
 }
 
-public interface I_InputBase
-  : I_ObjBase
-{
-  _DualBase As_DualBase { get; }
-}
-
-public interface I_InputTypeParam
-  : I_ObjTypeParam
-{
-  _TypeRef<_TypeKind> As_TypeRef { get; }
-}
-
 public interface I_InputField
-  : I_Field
+  : I_ObjField
+{
+}
+
+public interface I_InputFieldType
+  : I_ObjFieldType
 {
   _Value default { get; }
-}
-
-public interface I_InputAlternate
-  : I_Alternate
-{
-}
-
-public interface I_InputTypeArg
-  : I_ObjTypeArg
-{
 }
 
 public interface I_InputParam
-  : I_InputBase
+  : I_InputFieldType
 {
-  _Modifiers modifiers { get; }
-  _Value default { get; }
 }

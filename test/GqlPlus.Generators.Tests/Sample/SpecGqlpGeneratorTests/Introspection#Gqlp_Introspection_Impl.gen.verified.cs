@@ -154,14 +154,14 @@ public class Output_ParentType<Tkind,Titem,TallItem>
   public TallItem allItems { get; set; }
 }
 
-public class Output_TypeRef<Tkind>
-  : Output_Named
+public class Dual_TypeRef<Tkind>
+  : Dual_Named
   , I_TypeRef<Tkind>
 {
   public Tkind typeKind { get; set; }
 }
 
-public class Output_TypeSimple
+public class Dual_TypeSimple
   : I_TypeSimple
 {
   public _TypeRef<_TypeKind> As_TypeRef { get; set; }
@@ -170,7 +170,7 @@ public class Output_TypeSimple
   public _TypeRef<_TypeKind> As_TypeRef { get; set; }
 }
 
-public class Output_Collections
+public class Dual_Collections
   : I_Collections
 {
   public _Modifier<_ModifierKind> As_Modifier { get; set; }
@@ -178,22 +178,22 @@ public class Output_Collections
   public _ModifierKeyed<_ModifierKind> As_ModifierKeyed { get; set; }
 }
 
-public class Output_ModifierKeyed<Tkind>
-  : Output_Modifier
+public class Dual_ModifierKeyed<Tkind>
+  : Dual_Modifier
   , I_ModifierKeyed<Tkind>
 {
   public _TypeSimple by { get; set; }
   public Boolean optional { get; set; }
 }
 
-public class Output_Modifiers
+public class Dual_Modifiers
   : I_Modifiers
 {
   public _Modifier<_ModifierKind> As_Modifier { get; set; }
   public _Collections As_Collections { get; set; }
 }
 
-public class Output_Modifier<Tkind>
+public class Dual_Modifier<Tkind>
   : I_Modifier<Tkind>
 {
   public Tkind modifierKind { get; set; }
@@ -247,10 +247,10 @@ public class Output_DomainValue<Tkind,Tvalue>
 public class Output_BasicValue
   : I_BasicValue
 {
-  public Boolean AsBoolean { get; set; }
+  public _DomainKind As_DomainKind { get; set; }
   public _EnumValue As_EnumValue { get; set; }
-  public Number AsNumber { get; set; }
-  public String AsString { get; set; }
+  public _DomainKind As_DomainKind { get; set; }
+  public _DomainKind As_DomainKind { get; set; }
 }
 
 public class Dual_DomainTrueFalse
@@ -350,35 +350,29 @@ public class Domain_ObjectKind
 {
 }
 
-public class Output_TypeObject<Tkind,Tparent,TtypeParam,Tfield,Talternate>
+public class Output_TypeObject<Tkind,Tfield>
   : Output_ChildType
-  , I_TypeObject<Tkind,Tparent,TtypeParam,Tfield,Talternate>
+  , I_TypeObject<Tkind,Tfield>
 {
-  public TtypeParam typeParams { get; set; }
+  public _ObjTypeParam typeParams { get; set; }
   public Tfield fields { get; set; }
-  public Talternate alternates { get; set; }
+  public _ObjAlternate alternates { get; set; }
   public _ObjectFor<Tfield> allFields { get; set; }
-  public _ObjectFor<Talternate> allAlternates { get; set; }
+  public _ObjectFor<_ObjAlternate> allAlternates { get; set; }
 }
 
-public class Output_ObjTypeParam<Tkind>
+public class Output_ObjTypeParam
   : Output_Named
-  , I_ObjTypeParam<Tkind>
+  , I_ObjTypeParam
 {
-  public _ObjConstraint<Tkind> constraint { get; set; }
+  public _TypeRef<_TypeKind> constraint { get; set; }
 }
 
-public class Output_ObjConstraint<Tkind>
-  : Output_TypeRef
-  , I_ObjConstraint<Tkind>
-{
-}
-
-public class Output_ObjBase<Targ>
+public class Output_ObjBase
   : Output_Named
-  , I_ObjBase<Targ>
+  , I_ObjBase
 {
-  public Targ typeArgs { get; set; }
+  public _ObjTypeArg typeArgs { get; set; }
   public _TypeParam As_TypeParam { get; set; }
 }
 
@@ -386,21 +380,30 @@ public class Output_ObjTypeArg
   : Output_TypeRef
   , I_ObjTypeArg
 {
+  public _Identifier label { get; set; }
   public _TypeParam As_TypeParam { get; set; }
 }
 
 public class Output_TypeParam
-  : Output_Named
+  : Output_Described
   , I_TypeParam
 {
   public _Identifier typeParam { get; set; }
 }
 
-public class Output_Alternate<Tbase>
-  : I_Alternate<Tbase>
+public class Output_ObjAlternate
+  : I_ObjAlternate
 {
-  public Tbase type { get; set; }
+  public _ObjBase type { get; set; }
   public _Collections collections { get; set; }
+  public _ObjAlternateEnum As_ObjAlternateEnum { get; set; }
+}
+
+public class Output_ObjAlternateEnum
+  : Output_TypeRef
+  , I_ObjAlternateEnum
+{
+  public _Identifier label { get; set; }
 }
 
 public class Output_ObjectFor<Tfor>
@@ -410,19 +413,33 @@ public class Output_ObjectFor<Tfor>
   public _Identifier object { get; set; }
 }
 
-public class Output_Field<Tbase>
+public class Output_ObjField<Ttype>
   : Output_Aliased
-  , I_Field<Tbase>
+  , I_ObjField<Ttype>
 {
-  public Tbase type { get; set; }
-  public _Modifiers modifiers { get; set; }
+  public Ttype type { get; set; }
 }
 
-public class Output_ForParam<Tbase>
-  : I_ForParam<Tbase>
+public class Output_ObjFieldType
+  : Output_ObjBase
+  , I_ObjFieldType
 {
-  public _Alternate<Tbase> As_Alternate { get; set; }
-  public _Field<Tbase> As_Field { get; set; }
+  public _Modifiers modifiers { get; set; }
+  public _ObjFieldEnum As_ObjFieldEnum { get; set; }
+}
+
+public class Output_ObjFieldEnum
+  : Output_TypeRef
+  , I_ObjFieldEnum
+{
+  public _Identifier label { get; set; }
+}
+
+public class Output_ForParam<Ttype>
+  : I_ForParam<Ttype>
+{
+  public _ObjAlternate As_ObjAlternate { get; set; }
+  public _ObjField<Ttype> As_ObjField { get; set; }
 }
 
 public class Output_TypeDual
@@ -431,33 +448,9 @@ public class Output_TypeDual
 {
 }
 
-public class Output_DualBase
-  : Output_ObjBase
-  , I_DualBase
-{
-}
-
-public class Output_DualTypeParam
-  : Output_ObjTypeParam
-  , I_DualTypeParam
-{
-}
-
 public class Output_DualField
-  : Output_Field
+  : Output_ObjField
   , I_DualField
-{
-}
-
-public class Output_DualAlternate
-  : Output_Alternate
-  , I_DualAlternate
-{
-}
-
-public class Output_DualTypeArg
-  : Output_ObjTypeArg
-  , I_DualTypeArg
 {
 }
 
@@ -467,45 +460,23 @@ public class Output_TypeInput
 {
 }
 
-public class Output_InputBase
-  : Output_ObjBase
-  , I_InputBase
-{
-  public _DualBase As_DualBase { get; set; }
-}
-
-public class Output_InputTypeParam
-  : Output_ObjTypeParam
-  , I_InputTypeParam
-{
-  public _TypeRef<_TypeKind> As_TypeRef { get; set; }
-}
-
 public class Output_InputField
-  : Output_Field
+  : Output_ObjField
   , I_InputField
 {
+}
+
+public class Output_InputFieldType
+  : Output_ObjFieldType
+  , I_InputFieldType
+{
   public _Value default { get; set; }
-}
-
-public class Output_InputAlternate
-  : Output_Alternate
-  , I_InputAlternate
-{
-}
-
-public class Output_InputTypeArg
-  : Output_ObjTypeArg
-  , I_InputTypeArg
-{
 }
 
 public class Output_InputParam
-  : Output_InputBase
+  : Output_InputFieldType
   , I_InputParam
 {
-  public _Modifiers modifiers { get; set; }
-  public _Value default { get; set; }
 }
 
 public class Output_TypeOutput
@@ -514,46 +485,15 @@ public class Output_TypeOutput
 {
 }
 
-public class Output_OutputBase
-  : Output_ObjBase
-  , I_OutputBase
-{
-  public _DualBase As_DualBase { get; set; }
-}
-
-public class Output_OutputTypeParam
-  : Output_ObjTypeParam
-  , I_OutputTypeParam
-{
-  public _TypeRef<_TypeKind> As_TypeRef { get; set; }
-  public _TypeRef<_TypeKind> As_TypeRef { get; set; }
-}
-
 public class Output_OutputField
-  : Output_Field
+  : Output_ObjField
   , I_OutputField
 {
+}
+
+public class Output_OutputFieldType
+  : Output_ObjFieldType
+  , I_OutputFieldType
+{
   public _InputParam parameters { get; set; }
-  public _OutputEnum As_OutputEnum { get; set; }
-}
-
-public class Output_OutputAlternate
-  : Output_Alternate
-  , I_OutputAlternate
-{
-}
-
-public class Output_OutputTypeArg
-  : Output_ObjTypeArg
-  , I_OutputTypeArg
-{
-  public _Identifier label { get; set; }
-}
-
-public class Output_OutputEnum
-  : Output_TypeRef
-  , I_OutputEnum
-{
-  public _Identifier field { get; set; }
-  public _Identifier label { get; set; }
 }

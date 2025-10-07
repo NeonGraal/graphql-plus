@@ -1,0 +1,16 @@
+﻿/* field-value-descr+Output
+output FieldValueDescrOutp { field = "Test" "Descr" fieldValueDescrOutp }
+enum EnumFieldValueDescrOutp { fieldValueDescrOutp }
+*/
+
+// Generated from Schema field-value-descr+Output for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_field_value_descr_Output;
+
+public class OutputFieldValueDescrOutp
+  : IFieldValueDescrOutp
+{
+  public EnumFieldValueDescrOutp field { get; set; }
+}

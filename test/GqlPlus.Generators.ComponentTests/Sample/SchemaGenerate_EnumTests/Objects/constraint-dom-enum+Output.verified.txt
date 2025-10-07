@@ -1,0 +1,18 @@
+﻿/* constraint-dom-enum+Output
+output CnstDomEnumOutp { | RefCnstDomEnumOutp<cnstDomEnumOutp> }
+output RefCnstDomEnumOutp<$type:JustCnstDomEnumOutp> { field: $type }
+enum EnumCnstDomEnumOutp { cnstDomEnumOutp other }
+domain JustCnstDomEnumOutp { enum EnumCnstDomEnumOutp.cnstDomEnumOutp }
+*/
+
+// Generated from Schema constraint-dom-enum+Output for Enum
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_constraint_dom_enum_Output;
+
+public enum EnumCnstDomEnumOutp
+{
+  cnstDomEnumOutp,
+  other,
+}

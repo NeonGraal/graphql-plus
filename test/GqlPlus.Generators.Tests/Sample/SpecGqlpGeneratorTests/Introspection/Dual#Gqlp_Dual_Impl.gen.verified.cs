@@ -11,32 +11,8 @@ public class Output_TypeDual
 {
 }
 
-public class Output_DualBase
-  : Output_ObjBase
-  , I_DualBase
-{
-}
-
-public class Output_DualTypeParam
-  : Output_ObjTypeParam
-  , I_DualTypeParam
-{
-}
-
 public class Output_DualField
-  : Output_Field
+  : Output_ObjField
   , I_DualField
-{
-}
-
-public class Output_DualAlternate
-  : Output_Alternate
-  , I_DualAlternate
-{
-}
-
-public class Output_DualTypeArg
-  : Output_ObjTypeArg
-  , I_DualTypeArg
 {
 }

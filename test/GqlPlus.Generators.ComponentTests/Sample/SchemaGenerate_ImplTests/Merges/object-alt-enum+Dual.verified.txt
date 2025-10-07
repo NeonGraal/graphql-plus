@@ -1,0 +1,17 @@
+﻿/* object-alt-enum+Dual
+dual ObjAltEnumDual { ! true }
+dual ObjAltEnumDual { ! false }
+*/
+
+// Generated from Schema object-alt-enum+Dual for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_object_alt_enum_Dual;
+
+public class DualObjAltEnumDual
+  : IObjAltEnumDual
+{
+  public Boolean AsBoolean { get; set; }
+  public Boolean AsBoolean { get; set; }
+}

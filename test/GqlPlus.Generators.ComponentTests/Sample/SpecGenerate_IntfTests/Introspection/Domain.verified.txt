@@ -126,10 +126,10 @@ public interface I_DomainValue<Tkind,Tvalue>
 
 public interface I_BasicValue
 {
-  Boolean AsBoolean { get; }
+  _DomainKind As_DomainKind { get; }
   _EnumValue As_EnumValue { get; }
-  Number AsNumber { get; }
-  String AsString { get; }
+  _DomainKind As_DomainKind { get; }
+  _DomainKind As_DomainKind { get; }
 }
 
 public interface I_DomainTrueFalse

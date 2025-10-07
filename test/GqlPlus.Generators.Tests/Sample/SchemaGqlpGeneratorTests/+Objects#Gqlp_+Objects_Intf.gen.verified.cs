@@ -86,6 +86,21 @@ public interface IObjDualAltDualOutp
   String AsString { get; }
 }
 
+public interface IAltEnumDual
+{
+  EnumAltEnumDual AsEnumAltEnumDual { get; }
+}
+
+public interface IAltEnumInp
+{
+  EnumAltEnumInp AsEnumAltEnumInp { get; }
+}
+
+public interface IAltEnumOutp
+{
+  EnumAltEnumOutp AsEnumAltEnumOutp { get; }
+}
+
 public interface IAltModBoolDual
 {
   AltAltModBoolDual AsAltAltModBoolDual { get; }
@@ -348,6 +363,108 @@ public interface IAltCnstAltObjOutp
   : IPrntCnstAltObjOutp
 {
   Number alt { get; }
+}
+
+public interface ICnstDomEnumDual
+{
+  RefCnstDomEnumDual<EnumCnstDomEnumDual> AsRefCnstDomEnumDual { get; }
+}
+
+public interface IRefCnstDomEnumDual<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface IJustCnstDomEnumDual
+{
+}
+
+public interface ICnstDomEnumInp
+{
+  RefCnstDomEnumInp<EnumCnstDomEnumInp> AsRefCnstDomEnumInp { get; }
+}
+
+public interface IRefCnstDomEnumInp<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface IJustCnstDomEnumInp
+{
+}
+
+public interface ICnstDomEnumOutp
+{
+  RefCnstDomEnumOutp<EnumCnstDomEnumOutp> AsRefCnstDomEnumOutp { get; }
+}
+
+public interface IRefCnstDomEnumOutp<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface IJustCnstDomEnumOutp
+{
+}
+
+public interface ICnstEnumDual
+{
+  RefCnstEnumDual<EnumCnstEnumDual> AsRefCnstEnumDual { get; }
+}
+
+public interface IRefCnstEnumDual<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface ICnstEnumInp
+{
+  RefCnstEnumInp<EnumCnstEnumInp> AsRefCnstEnumInp { get; }
+}
+
+public interface IRefCnstEnumInp<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface ICnstEnumOutp
+{
+  RefCnstEnumOutp<EnumCnstEnumOutp> AsRefCnstEnumOutp { get; }
+}
+
+public interface IRefCnstEnumOutp<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface ICnstEnumPrntDual
+{
+  RefCnstEnumPrntDual<EnumCnstEnumPrntDual> AsRefCnstEnumPrntDual { get; }
+}
+
+public interface IRefCnstEnumPrntDual<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface ICnstEnumPrntInp
+{
+  RefCnstEnumPrntInp<EnumCnstEnumPrntInp> AsRefCnstEnumPrntInp { get; }
+}
+
+public interface IRefCnstEnumPrntInp<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface ICnstEnumPrntOutp
+{
+  RefCnstEnumPrntOutp<EnumCnstEnumPrntOutp> AsRefCnstEnumPrntOutp { get; }
+}
+
+public interface IRefCnstEnumPrntOutp<Ttype>
+{
+  Ttype field { get; }
 }
 
 public interface ICnstFieldDmnDual
@@ -659,6 +776,36 @@ public interface IAltCnstPrntDualPrntOutp
   Number alt { get; }
 }
 
+public interface ICnstPrntEnumDual
+{
+  RefCnstPrntEnumDual<ParentCnstPrntEnumDual> AsRefCnstPrntEnumDual { get; }
+}
+
+public interface IRefCnstPrntEnumDual<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface ICnstPrntEnumInp
+{
+  RefCnstPrntEnumInp<ParentCnstPrntEnumInp> AsRefCnstPrntEnumInp { get; }
+}
+
+public interface IRefCnstPrntEnumInp<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface ICnstPrntEnumOutp
+{
+  RefCnstPrntEnumOutp<ParentCnstPrntEnumOutp> AsRefCnstPrntEnumOutp { get; }
+}
+
+public interface IRefCnstPrntEnumOutp<Ttype>
+{
+  Ttype field { get; }
+}
+
 public interface ICnstPrntObjPrntDual
   : IRefCnstPrntObjPrntDual
 {
@@ -785,6 +932,36 @@ public interface IFldFieldDualOutp
   String AsString { get; }
 }
 
+public interface IFieldEnumDual
+{
+  EnumFieldEnumDual field { get; }
+}
+
+public interface IFieldEnumInp
+{
+  EnumFieldEnumInp field { get; }
+}
+
+public interface IFieldEnumOutp
+{
+  EnumFieldEnumOutp field { get; }
+}
+
+public interface IFieldEnumPrntDual
+{
+  EnumFieldEnumPrntDual field { get; }
+}
+
+public interface IFieldEnumPrntInp
+{
+  EnumFieldEnumPrntInp field { get; }
+}
+
+public interface IFieldEnumPrntOutp
+{
+  EnumFieldEnumPrntOutp field { get; }
+}
+
 public interface IFieldModEnumDual
 {
   String field { get; }
@@ -894,6 +1071,36 @@ public interface IFieldTypeDescrInp
 public interface IFieldTypeDescrOutp
 {
   Number field { get; }
+}
+
+public interface IFieldValueDual
+{
+  EnumFieldValueDual field { get; }
+}
+
+public interface IFieldValueInp
+{
+  EnumFieldValueInp field { get; }
+}
+
+public interface IFieldValueOutp
+{
+  EnumFieldValueOutp field { get; }
+}
+
+public interface IFieldValueDescrDual
+{
+  EnumFieldValueDescrDual field { get; }
+}
+
+public interface IFieldValueDescrInp
+{
+  EnumFieldValueDescrInp field { get; }
+}
+
+public interface IFieldValueDescrOutp
+{
+  EnumFieldValueDescrOutp field { get; }
 }
 
 public interface IGnrcAltDual<Ttype>
@@ -1138,6 +1345,36 @@ public interface IGnrcDescrInp<Ttype>
 }
 
 public interface IGnrcDescrOutp<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface IGnrcEnumDual
+{
+  RefGnrcEnumDual<EnumGnrcEnumDual> AsRefGnrcEnumDual { get; }
+}
+
+public interface IRefGnrcEnumDual<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface IGnrcEnumInp
+{
+  RefGnrcEnumInp<EnumGnrcEnumInp> AsRefGnrcEnumInp { get; }
+}
+
+public interface IRefGnrcEnumInp<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface IGnrcEnumOutp
+{
+  RefGnrcEnumOutp<EnumGnrcEnumOutp> AsRefGnrcEnumOutp { get; }
+}
+
+public interface IRefGnrcEnumOutp<Ttype>
 {
   Ttype field { get; }
 }
@@ -1709,6 +1946,36 @@ public interface IDomGnrcPrntStrDomOutp
 {
 }
 
+public interface IGnrcValueDual
+{
+  RefGnrcValueDual<EnumGnrcValueDual> AsRefGnrcValueDual { get; }
+}
+
+public interface IRefGnrcValueDual<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface IGnrcValueInp
+{
+  RefGnrcValueInp<EnumGnrcValueInp> AsRefGnrcValueInp { get; }
+}
+
+public interface IRefGnrcValueInp<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface IGnrcValueOutp
+{
+  RefGnrcValueOutp<EnumGnrcValueOutp> AsRefGnrcValueOutp { get; }
+}
+
+public interface IRefGnrcValueOutp<Ttype>
+{
+  Ttype field { get; }
+}
+
 public interface IInpFieldDescrNmbr
 {
   Number field { get; }
@@ -1743,50 +2010,6 @@ public interface IInpFieldStr
   String field { get; }
 }
 
-public interface IOutpCnstDomEnum
-{
-  RefOutpCnstDomEnum<outpCnstDomEnum> AsRefOutpCnstDomEnum { get; }
-}
-
-public interface IRefOutpCnstDomEnum<Ttype>
-{
-  Ttype field { get; }
-}
-
-public interface IJustOutpCnstDomEnum
-{
-}
-
-public interface IOutpCnstEnum
-{
-  RefOutpCnstEnum<outpCnstEnum> AsRefOutpCnstEnum { get; }
-}
-
-public interface IRefOutpCnstEnum<Ttype>
-{
-  Ttype field { get; }
-}
-
-public interface IOutpCnstEnumPrnt
-{
-  RefOutpCnstEnumPrnt<outpCnstEnumPrnt> AsRefOutpCnstEnumPrnt { get; }
-}
-
-public interface IRefOutpCnstEnumPrnt<Ttype>
-{
-  Ttype field { get; }
-}
-
-public interface IOutpCnstPrntEnum
-{
-  RefOutpCnstPrntEnum<parentOutpCnstPrntEnum> AsRefOutpCnstPrntEnum { get; }
-}
-
-public interface IRefOutpCnstPrntEnum<Ttype>
-{
-  Ttype field { get; }
-}
-
 public interface IOutpDescrParam
 {
   FldOutpDescrParam field { get; }
@@ -1800,46 +2023,6 @@ public interface IInOutpDescrParam
 {
   Number param { get; }
   String AsString { get; }
-}
-
-public interface IOutpFieldEnum
-{
-  EnumOutpFieldEnum field { get; }
-}
-
-public interface IOutpFieldEnumPrnt
-{
-  EnumOutpFieldEnumPrnt field { get; }
-}
-
-public interface IOutpFieldValue
-{
-  EnumOutpFieldValue field { get; }
-}
-
-public interface IOutpFieldValueDescr
-{
-  EnumOutpFieldValueDescr field { get; }
-}
-
-public interface IOutpGnrcEnum
-{
-  RefOutpGnrcEnum<EnumOutpGnrcEnum> AsRefOutpGnrcEnum { get; }
-}
-
-public interface IRefOutpGnrcEnum<Ttype>
-{
-  Ttype field { get; }
-}
-
-public interface IOutpGnrcValue
-{
-  RefOutpGnrcValue<outpGnrcValue> AsRefOutpGnrcValue { get; }
-}
-
-public interface IRefOutpGnrcValue<Ttype>
-{
-  Ttype field { get; }
 }
 
 public interface IOutpParam

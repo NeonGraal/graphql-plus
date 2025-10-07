@@ -1,0 +1,21 @@
+﻿/* generic-value+Output
+output GnrcValueOutp { | RefGnrcValueOutp<gnrcValueOutp> }
+output RefGnrcValueOutp<$type:_Enum> { field: $type }
+enum EnumGnrcValueOutp { gnrcValueOutp }
+*/
+
+// Generated from Schema generic-value+Output for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_generic_value_Output;
+
+public interface IGnrcValueOutp
+{
+  RefGnrcValueOutp<EnumGnrcValueOutp> AsRefGnrcValueOutp { get; }
+}
+
+public interface IRefGnrcValueOutp<Ttype>
+{
+  Ttype field { get; }
+}

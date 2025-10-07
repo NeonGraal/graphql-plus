@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Generating.Objects;
 
 public class InputGeneratorTests
-  : ObjectGeneratorTestBase<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate>
+  : ObjectGeneratorTestBase<IGqlpInputObject, IGqlpInputField>
 {
   public override string ExpectedTypePrefix => "Input";
   internal override GenerateForType<IGqlpInputObject> TypeGenerator { get; }

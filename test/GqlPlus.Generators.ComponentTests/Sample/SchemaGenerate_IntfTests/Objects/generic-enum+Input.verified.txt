@@ -1,0 +1,21 @@
+﻿/* generic-enum+Input
+input GnrcEnumInp { | RefGnrcEnumInp<EnumGnrcEnumInp.gnrcEnumInp> }
+input RefGnrcEnumInp<$type:_Enum> { field: $type }
+enum EnumGnrcEnumInp { gnrcEnumInp }
+*/
+
+// Generated from Schema generic-enum+Input for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_generic_enum_Input;
+
+public interface IGnrcEnumInp
+{
+  RefGnrcEnumInp<EnumGnrcEnumInp> AsRefGnrcEnumInp { get; }
+}
+
+public interface IRefGnrcEnumInp<Ttype>
+{
+  Ttype field { get; }
+}

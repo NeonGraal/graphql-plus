@@ -133,10 +133,10 @@ public class Output_DomainValue<Tkind,Tvalue>
 public class Output_BasicValue
   : I_BasicValue
 {
-  public Boolean AsBoolean { get; set; }
+  public _DomainKind As_DomainKind { get; set; }
   public _EnumValue As_EnumValue { get; set; }
-  public Number AsNumber { get; set; }
-  public String AsString { get; set; }
+  public _DomainKind As_DomainKind { get; set; }
+  public _DomainKind As_DomainKind { get; set; }
 }
 
 public class Dual_DomainTrueFalse

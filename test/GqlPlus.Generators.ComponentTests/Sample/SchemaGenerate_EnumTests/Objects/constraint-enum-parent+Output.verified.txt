@@ -1,0 +1,23 @@
+﻿/* constraint-enum-parent+Output
+output CnstEnumPrntOutp { | RefCnstEnumPrntOutp<cnstEnumPrntOutp> }
+output RefCnstEnumPrntOutp<$type:ParentCnstEnumPrntOutp> { field: $type }
+enum EnumCnstEnumPrntOutp { :ParentCnstEnumPrntOutp cnstEnumPrntOutp }
+enum ParentCnstEnumPrntOutp { parentCnstEnumPrntOutp }
+*/
+
+// Generated from Schema constraint-enum-parent+Output for Enum
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_constraint_enum_parent_Output;
+
+public enum EnumCnstEnumPrntOutp
+{
+  parentCnstEnumPrntOutp = ParentCnstEnumPrntOutp.parentCnstEnumPrntOutp,
+  cnstEnumPrntOutp,
+}
+
+public enum ParentCnstEnumPrntOutp
+{
+  parentCnstEnumPrntOutp,
+}

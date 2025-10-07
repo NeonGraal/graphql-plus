@@ -1,26 +1,10 @@
 ﻿/* Dual
 output _TypeDual {
-    : _TypeObject<_TypeKind.Dual _DualBase _DualTypeParam _DualField _DualAlternate>
-    }
-
-output _DualBase {
-    : _ObjBase<_DualTypeArg>
-    }
-
-output _DualTypeParam {
-    : _ObjTypeParam<_TypeKind.Dual>
+    : _TypeObject<_TypeKind.Dual _DualField>
     }
 
 output _DualField {
-    : _Field<_DualBase>
-    }
-
-output _DualAlternate {
-    : _Alternate<_DualBase>
-    }
-
-output _DualTypeArg {
-    : _ObjTypeArg
+    : _ObjField<_ObjFieldType>
     }
 */
 
@@ -36,32 +20,8 @@ public class Output_TypeDual
 {
 }
 
-public class Output_DualBase
-  : Output_ObjBase
-  , I_DualBase
-{
-}
-
-public class Output_DualTypeParam
-  : Output_ObjTypeParam
-  , I_DualTypeParam
-{
-}
-
 public class Output_DualField
-  : Output_Field
+  : Output_ObjField
   , I_DualField
-{
-}
-
-public class Output_DualAlternate
-  : Output_Alternate
-  , I_DualAlternate
-{
-}
-
-public class Output_DualTypeArg
-  : Output_ObjTypeArg
-  , I_DualTypeArg
 {
 }

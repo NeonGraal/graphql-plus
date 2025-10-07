@@ -1,0 +1,16 @@
+﻿/* alt-enum+Output
+output AltEnumOutp { ! EnumAltEnumOutp.altEnumOutp }
+enum EnumAltEnumOutp { altEnumOutp }
+*/
+
+// Generated from Schema alt-enum+Output for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_alt_enum_Output;
+
+public class OutputAltEnumOutp
+  : IAltEnumOutp
+{
+  public EnumAltEnumOutp AsEnumAltEnumOutp { get; set; }
+}

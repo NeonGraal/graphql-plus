@@ -1,0 +1,16 @@
+﻿/* alt-enum+Dual
+dual AltEnumDual { ! EnumAltEnumDual.altEnumDual }
+enum EnumAltEnumDual { altEnumDual }
+*/
+
+// Generated from Schema alt-enum+Dual for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_alt_enum_Dual;
+
+public class DualAltEnumDual
+  : IAltEnumDual
+{
+  public EnumAltEnumDual AsEnumAltEnumDual { get; set; }
+}

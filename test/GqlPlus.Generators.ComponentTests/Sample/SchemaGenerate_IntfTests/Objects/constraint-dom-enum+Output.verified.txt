@@ -1,0 +1,26 @@
+﻿/* constraint-dom-enum+Output
+output CnstDomEnumOutp { | RefCnstDomEnumOutp<cnstDomEnumOutp> }
+output RefCnstDomEnumOutp<$type:JustCnstDomEnumOutp> { field: $type }
+enum EnumCnstDomEnumOutp { cnstDomEnumOutp other }
+domain JustCnstDomEnumOutp { enum EnumCnstDomEnumOutp.cnstDomEnumOutp }
+*/
+
+// Generated from Schema constraint-dom-enum+Output for Intf
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_constraint_dom_enum_Output;
+
+public interface ICnstDomEnumOutp
+{
+  RefCnstDomEnumOutp<EnumCnstDomEnumOutp> AsRefCnstDomEnumOutp { get; }
+}
+
+public interface IRefCnstDomEnumOutp<Ttype>
+{
+  Ttype field { get; }
+}
+
+public interface IJustCnstDomEnumOutp
+{
+}

@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Generating.Objects;
 
 internal class DualGenerator
-  : GenerateForObject<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>
+  : GenerateForObject<IGqlpDualObject, IGqlpDualField>
 {
   public override string TypePrefix => "Dual";
 }

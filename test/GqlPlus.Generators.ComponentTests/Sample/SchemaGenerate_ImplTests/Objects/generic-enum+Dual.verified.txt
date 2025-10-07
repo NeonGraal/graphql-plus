@@ -1,0 +1,23 @@
+﻿/* generic-enum+Dual
+dual GnrcEnumDual { | RefGnrcEnumDual<EnumGnrcEnumDual.gnrcEnumDual> }
+dual RefGnrcEnumDual<$type:_Enum> { field: $type }
+enum EnumGnrcEnumDual { gnrcEnumDual }
+*/
+
+// Generated from Schema generic-enum+Dual for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_generic_enum_Dual;
+
+public class DualGnrcEnumDual
+  : IGnrcEnumDual
+{
+  public RefGnrcEnumDual<EnumGnrcEnumDual> AsRefGnrcEnumDual { get; set; }
+}
+
+public class DualRefGnrcEnumDual<Ttype>
+  : IRefGnrcEnumDual<Ttype>
+{
+  public Ttype field { get; set; }
+}

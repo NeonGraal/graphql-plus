@@ -1,0 +1,29 @@
+﻿/* constraint-dom-enum+Dual
+dual CnstDomEnumDual { | RefCnstDomEnumDual<cnstDomEnumDual> }
+dual RefCnstDomEnumDual<$type:JustCnstDomEnumDual> { field: $type }
+enum EnumCnstDomEnumDual { cnstDomEnumDual other }
+domain JustCnstDomEnumDual { enum EnumCnstDomEnumDual.cnstDomEnumDual }
+*/
+
+// Generated from Schema constraint-dom-enum+Dual for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_constraint_dom_enum_Dual;
+
+public class DualCnstDomEnumDual
+  : ICnstDomEnumDual
+{
+  public RefCnstDomEnumDual<EnumCnstDomEnumDual> AsRefCnstDomEnumDual { get; set; }
+}
+
+public class DualRefCnstDomEnumDual<Ttype>
+  : IRefCnstDomEnumDual<Ttype>
+{
+  public Ttype field { get; set; }
+}
+
+public class DomainJustCnstDomEnumDual
+  : IJustCnstDomEnumDual
+{
+}

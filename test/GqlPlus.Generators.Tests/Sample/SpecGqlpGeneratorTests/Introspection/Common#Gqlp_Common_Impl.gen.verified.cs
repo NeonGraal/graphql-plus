@@ -40,14 +40,14 @@ public class Output_ParentType<Tkind,Titem,TallItem>
   public TallItem allItems { get; set; }
 }
 
-public class Output_TypeRef<Tkind>
-  : Output_Named
+public class Dual_TypeRef<Tkind>
+  : Dual_Named
   , I_TypeRef<Tkind>
 {
   public Tkind typeKind { get; set; }
 }
 
-public class Output_TypeSimple
+public class Dual_TypeSimple
   : I_TypeSimple
 {
   public _TypeRef<_TypeKind> As_TypeRef { get; set; }

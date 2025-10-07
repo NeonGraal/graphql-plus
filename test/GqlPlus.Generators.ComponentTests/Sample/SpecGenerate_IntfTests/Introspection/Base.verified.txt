@@ -1,60 +1,71 @@
 ﻿/* Base
 domain _ObjectKind { enum _TypeKind.Dual _TypeKind.Input _TypeKind.Output }
 
-output _TypeObject<$kind:_ObjectKind $parent:_ObjBase
-            $typeParam:_ObjTypeParam $field:_Field $alternate:_Alternate> {
-    : _ChildType<$kind $parent>
-        typeParams: $typeParam[]
+output _TypeObject<$kind:_ObjectKind $field:_ObjField> {
+    : _ChildType<$kind _ObjBase>
+        typeParams: _ObjTypeParam[]
         fields: $field[]
-        alternates: $alternate[]
+        alternates: _ObjAlternate[]
         allFields: _ObjectFor<$field>[]
-        allAlternates: _ObjectFor<$alternate>[]
+        allAlternates: _ObjectFor<_ObjAlternate>[]
     }
 
-output _ObjTypeParam<$kind:_ObjectKind> {
+output _ObjTypeParam {
     : _Named
-        constraint: _ObjConstraint<$kind>
+        constraint: _TypeRef<_TypeKind>
     }
 
-output _ObjConstraint<$kind:_ObjectKind> {
-    : _TypeRef<$kind>
-    }
-
-output _ObjBase<$arg:_ObjTypeArg> {
+output _ObjBase {
     : _Named
-        typeArgs: $arg[]
+        typeArgs: _ObjTypeArg[]
     | _TypeParam
     }
 
 output _ObjTypeArg {
     : _TypeRef<_TypeKind>
+        label: _Identifier?
     | _TypeParam
     }
 
 output _TypeParam {
-    : _Named
+    : _Described
         typeParam: _Identifier
     }
 
-output _Alternate<$base:_ObjBase> {
-      type: $base
+output _ObjAlternate {
+      type: _ObjBase
       collections: _Collections[]
+    | _ObjAlternateEnum
     }
 
+output _ObjAlternateEnum {
+    : _TypeRef<_TypeKind.Enum>
+        label: _Identifier
+    }
 output _ObjectFor<$for:_ForParam> {
     : $for
         object: _Identifier
     }
 
-output _Field<$base:_ObjBase> {
+output _ObjField<$type:_ObjFieldType> {
     : _Aliased
-      type: $base
-      modifiers: _Modifiers[]
+      type: $type
     }
 
-output _ForParam<$base:_ObjBase> {
-    | _Alternate<$base>
-    | _Field<$base>
+output _ObjFieldType {
+    : _ObjBase
+        modifiers: _Modifiers[]
+    | _ObjFieldEnum
+    }
+
+output _ObjFieldEnum {
+    : _TypeRef<_TypeKind.Enum>
+        label: _Identifier
+    }
+
+output _ForParam<$type:_ObjFieldType> {
+    | _ObjAlternate
+    | _ObjField<$type>
     }
 */
 
@@ -68,50 +79,53 @@ public interface I_ObjectKind
 {
 }
 
-public interface I_TypeObject<Tkind,Tparent,TtypeParam,Tfield,Talternate>
+public interface I_TypeObject<Tkind,Tfield>
   : I_ChildType
 {
-  TtypeParam typeParams { get; }
+  _ObjTypeParam typeParams { get; }
   Tfield fields { get; }
-  Talternate alternates { get; }
+  _ObjAlternate alternates { get; }
   _ObjectFor<Tfield> allFields { get; }
-  _ObjectFor<Talternate> allAlternates { get; }
+  _ObjectFor<_ObjAlternate> allAlternates { get; }
 }
 
-public interface I_ObjTypeParam<Tkind>
+public interface I_ObjTypeParam
   : I_Named
 {
-  _ObjConstraint<Tkind> constraint { get; }
+  _TypeRef<_TypeKind> constraint { get; }
 }
 
-public interface I_ObjConstraint<Tkind>
-  : I_TypeRef
-{
-}
-
-public interface I_ObjBase<Targ>
+public interface I_ObjBase
   : I_Named
 {
-  Targ typeArgs { get; }
+  _ObjTypeArg typeArgs { get; }
   _TypeParam As_TypeParam { get; }
 }
 
 public interface I_ObjTypeArg
   : I_TypeRef
 {
+  _Identifier label { get; }
   _TypeParam As_TypeParam { get; }
 }
 
 public interface I_TypeParam
-  : I_Named
+  : I_Described
 {
   _Identifier typeParam { get; }
 }
 
-public interface I_Alternate<Tbase>
+public interface I_ObjAlternate
 {
-  Tbase type { get; }
+  _ObjBase type { get; }
   _Collections collections { get; }
+  _ObjAlternateEnum As_ObjAlternateEnum { get; }
+}
+
+public interface I_ObjAlternateEnum
+  : I_TypeRef
+{
+  _Identifier label { get; }
 }
 
 public interface I_ObjectFor<Tfor>
@@ -120,15 +134,27 @@ public interface I_ObjectFor<Tfor>
   _Identifier object { get; }
 }
 
-public interface I_Field<Tbase>
+public interface I_ObjField<Ttype>
   : I_Aliased
 {
-  Tbase type { get; }
-  _Modifiers modifiers { get; }
+  Ttype type { get; }
 }
 
-public interface I_ForParam<Tbase>
+public interface I_ObjFieldType
+  : I_ObjBase
 {
-  _Alternate<Tbase> As_Alternate { get; }
-  _Field<Tbase> As_Field { get; }
+  _Modifiers modifiers { get; }
+  _ObjFieldEnum As_ObjFieldEnum { get; }
+}
+
+public interface I_ObjFieldEnum
+  : I_TypeRef
+{
+  _Identifier label { get; }
+}
+
+public interface I_ForParam<Ttype>
+{
+  _ObjAlternate As_ObjAlternate { get; }
+  _ObjField<Ttype> As_ObjField { get; }
 }

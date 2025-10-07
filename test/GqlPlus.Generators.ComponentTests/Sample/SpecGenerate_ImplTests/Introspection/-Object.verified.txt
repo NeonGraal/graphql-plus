@@ -1,0 +1,267 @@
+﻿/* -Object
+domain _ObjectKind { enum _TypeKind.Dual _TypeKind.Input _TypeKind.Output }
+
+output _TypeObject<$kind:_ObjectKind $field:_ObjField> {
+    : _ChildType<$kind _ObjBase>
+        typeParams: _ObjTypeParam[]
+        fields: $field[]
+        alternates: _ObjAlternate[]
+        allFields: _ObjectFor<$field>[]
+        allAlternates: _ObjectFor<_ObjAlternate>[]
+    }
+
+output _ObjTypeParam {
+    : _Named
+        constraint: _TypeRef<_TypeKind>
+    }
+
+output _ObjBase {
+    : _Named
+        typeArgs: _ObjTypeArg[]
+    | _TypeParam
+    }
+
+output _ObjTypeArg {
+    : _TypeRef<_TypeKind>
+        label: _Identifier?
+    | _TypeParam
+    }
+
+output _TypeParam {
+    : _Described
+        typeParam: _Identifier
+    }
+
+output _ObjAlternate {
+      type: _ObjBase
+      collections: _Collections[]
+    | _ObjAlternateEnum
+    }
+
+output _ObjAlternateEnum {
+    : _TypeRef<_TypeKind.Enum>
+        label: _Identifier
+    }
+output _ObjectFor<$for:_ForParam> {
+    : $for
+        object: _Identifier
+    }
+
+output _ObjField<$type:_ObjFieldType> {
+    : _Aliased
+      type: $type
+    }
+
+output _ObjFieldType {
+    : _ObjBase
+        modifiers: _Modifiers[]
+    | _ObjFieldEnum
+    }
+
+output _ObjFieldEnum {
+    : _TypeRef<_TypeKind.Enum>
+        label: _Identifier
+    }
+
+output _ForParam<$type:_ObjFieldType> {
+    | _ObjAlternate
+    | _ObjField<$type>
+    }
+
+output _TypeDual {
+    : _TypeObject<_TypeKind.Dual _DualField>
+    }
+
+output _DualField {
+    : _ObjField<_ObjFieldType>
+    }
+
+output _TypeInput {
+    : _TypeObject<_TypeKind.Input _InputField>
+    }
+
+output _InputField {
+    : _ObjField<_InputFieldType>
+    }
+
+output _InputFieldType {
+    : _ObjFieldType
+        default: Value?
+    }
+
+output _InputParam {
+    : _InputFieldType
+    }
+
+output _TypeOutput {
+    : _TypeObject<_TypeKind.Output _OutputField>
+    }
+
+output _OutputField {
+    : _ObjField<_ObjFieldType>
+    }
+
+output _OutputFieldType {
+    : _ObjFieldType
+        parameters: _InputParam[]
+    }
+*/
+
+// Generated from Spec -Object for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Spec_Object;
+
+public class Domain_ObjectKind
+  : I_ObjectKind
+{
+}
+
+public class Output_TypeObject<Tkind,Tfield>
+  : Output_ChildType
+  , I_TypeObject<Tkind,Tfield>
+{
+  public _ObjTypeParam typeParams { get; set; }
+  public Tfield fields { get; set; }
+  public _ObjAlternate alternates { get; set; }
+  public _ObjectFor<Tfield> allFields { get; set; }
+  public _ObjectFor<_ObjAlternate> allAlternates { get; set; }
+}
+
+public class Output_ObjTypeParam
+  : Output_Named
+  , I_ObjTypeParam
+{
+  public _TypeRef<_TypeKind> constraint { get; set; }
+}
+
+public class Output_ObjBase
+  : Output_Named
+  , I_ObjBase
+{
+  public _ObjTypeArg typeArgs { get; set; }
+  public _TypeParam As_TypeParam { get; set; }
+}
+
+public class Output_ObjTypeArg
+  : Output_TypeRef
+  , I_ObjTypeArg
+{
+  public _Identifier label { get; set; }
+  public _TypeParam As_TypeParam { get; set; }
+}
+
+public class Output_TypeParam
+  : Output_Described
+  , I_TypeParam
+{
+  public _Identifier typeParam { get; set; }
+}
+
+public class Output_ObjAlternate
+  : I_ObjAlternate
+{
+  public _ObjBase type { get; set; }
+  public _Collections collections { get; set; }
+  public _ObjAlternateEnum As_ObjAlternateEnum { get; set; }
+}
+
+public class Output_ObjAlternateEnum
+  : Output_TypeRef
+  , I_ObjAlternateEnum
+{
+  public _Identifier label { get; set; }
+}
+
+public class Output_ObjectFor<Tfor>
+  : Outputfor
+  , I_ObjectFor<Tfor>
+{
+  public _Identifier object { get; set; }
+}
+
+public class Output_ObjField<Ttype>
+  : Output_Aliased
+  , I_ObjField<Ttype>
+{
+  public Ttype type { get; set; }
+}
+
+public class Output_ObjFieldType
+  : Output_ObjBase
+  , I_ObjFieldType
+{
+  public _Modifiers modifiers { get; set; }
+  public _ObjFieldEnum As_ObjFieldEnum { get; set; }
+}
+
+public class Output_ObjFieldEnum
+  : Output_TypeRef
+  , I_ObjFieldEnum
+{
+  public _Identifier label { get; set; }
+}
+
+public class Output_ForParam<Ttype>
+  : I_ForParam<Ttype>
+{
+  public _ObjAlternate As_ObjAlternate { get; set; }
+  public _ObjField<Ttype> As_ObjField { get; set; }
+}
+
+public class Output_TypeDual
+  : Output_TypeObject
+  , I_TypeDual
+{
+}
+
+public class Output_DualField
+  : Output_ObjField
+  , I_DualField
+{
+}
+
+public class Output_TypeInput
+  : Output_TypeObject
+  , I_TypeInput
+{
+}
+
+public class Output_InputField
+  : Output_ObjField
+  , I_InputField
+{
+}
+
+public class Output_InputFieldType
+  : Output_ObjFieldType
+  , I_InputFieldType
+{
+  public _Value default { get; set; }
+}
+
+public class Output_InputParam
+  : Output_InputFieldType
+  , I_InputParam
+{
+}
+
+public class Output_TypeOutput
+  : Output_TypeObject
+  , I_TypeOutput
+{
+}
+
+public class Output_OutputField
+  : Output_ObjField
+  , I_OutputField
+{
+}
+
+public class Output_OutputFieldType
+  : Output_ObjFieldType
+  , I_OutputFieldType
+{
+  public _InputParam parameters { get; set; }
+}

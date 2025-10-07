@@ -1,0 +1,16 @@
+﻿/* constraint-enum+Dual
+dual CnstEnumDual { | RefCnstEnumDual<cnstEnumDual> }
+dual RefCnstEnumDual<$type:EnumCnstEnumDual> { field: $type }
+enum EnumCnstEnumDual { cnstEnumDual }
+*/
+
+// Generated from Schema constraint-enum+Dual for Enum
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_constraint_enum_Dual;
+
+public enum EnumCnstEnumDual
+{
+  cnstEnumDual,
+}

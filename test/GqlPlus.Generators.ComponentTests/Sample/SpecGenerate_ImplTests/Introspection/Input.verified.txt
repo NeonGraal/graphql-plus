@@ -1,35 +1,19 @@
 ﻿/* Input
 output _TypeInput {
-    : _TypeObject<_TypeKind.Input _InputBase _InputTypeParam _InputField _InputAlternate>
-    }
-
-output _InputBase {
-    : _ObjBase<_InputTypeArg>
-    | _DualBase
-    }
-
-output _InputTypeParam {
-    : _ObjTypeParam<_TypeKind.Input>
-    | _TypeRef<_TypeKind.Dual>
+    : _TypeObject<_TypeKind.Input _InputField>
     }
 
 output _InputField {
-    : _Field<_InputBase>
+    : _ObjField<_InputFieldType>
+    }
+
+output _InputFieldType {
+    : _ObjFieldType
         default: Value?
-    }
-
-output _InputAlternate {
-    : _Alternate<_InputBase>
-    }
-
-output _InputTypeArg {
-    : _ObjTypeArg
     }
 
 output _InputParam {
-    : _InputBase
-        modifiers: _Modifiers[]
-        default: Value?
+    : _InputFieldType
     }
 */
 
@@ -45,43 +29,21 @@ public class Output_TypeInput
 {
 }
 
-public class Output_InputBase
-  : Output_ObjBase
-  , I_InputBase
-{
-  public _DualBase As_DualBase { get; set; }
-}
-
-public class Output_InputTypeParam
-  : Output_ObjTypeParam
-  , I_InputTypeParam
-{
-  public _TypeRef<_TypeKind> As_TypeRef { get; set; }
-}
-
 public class Output_InputField
-  : Output_Field
+  : Output_ObjField
   , I_InputField
 {
+}
+
+public class Output_InputFieldType
+  : Output_ObjFieldType
+  , I_InputFieldType
+{
   public _Value default { get; set; }
-}
-
-public class Output_InputAlternate
-  : Output_Alternate
-  , I_InputAlternate
-{
-}
-
-public class Output_InputTypeArg
-  : Output_ObjTypeArg
-  , I_InputTypeArg
-{
 }
 
 public class Output_InputParam
-  : Output_InputBase
+  : Output_InputFieldType
   , I_InputParam
 {
-  public _Modifiers modifiers { get; set; }
-  public _Value default { get; set; }
 }

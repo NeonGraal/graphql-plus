@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Generating.Objects;
 
 internal class OutputGenerator
-  : GenerateForObject<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>
+  : GenerateForObject<IGqlpOutputObject, IGqlpOutputField>
 {
   public override string TypePrefix => "Output";
 }

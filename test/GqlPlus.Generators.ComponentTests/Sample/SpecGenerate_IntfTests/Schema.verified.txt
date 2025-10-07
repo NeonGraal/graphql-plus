@@ -59,7 +59,7 @@ public interface I_IfElse<TT>
 
 public interface I_Set<TK>
 {
-  Unit As_ { get; }
+  Unit AsUnit { get; }
 }
 
 public interface I_Mask<TK>

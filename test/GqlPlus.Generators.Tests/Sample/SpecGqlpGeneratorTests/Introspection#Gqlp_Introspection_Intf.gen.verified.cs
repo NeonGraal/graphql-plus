@@ -215,10 +215,10 @@ public interface I_DomainValue<Tkind,Tvalue>
 
 public interface I_BasicValue
 {
-  Boolean AsBoolean { get; }
+  _DomainKind As_DomainKind { get; }
   _EnumValue As_EnumValue { get; }
-  Number AsNumber { get; }
-  String AsString { get; }
+  _DomainKind As_DomainKind { get; }
+  _DomainKind As_DomainKind { get; }
 }
 
 public interface I_DomainTrueFalse
@@ -303,50 +303,53 @@ public interface I_ObjectKind
 {
 }
 
-public interface I_TypeObject<Tkind,Tparent,TtypeParam,Tfield,Talternate>
+public interface I_TypeObject<Tkind,Tfield>
   : I_ChildType
 {
-  TtypeParam typeParams { get; }
+  _ObjTypeParam typeParams { get; }
   Tfield fields { get; }
-  Talternate alternates { get; }
+  _ObjAlternate alternates { get; }
   _ObjectFor<Tfield> allFields { get; }
-  _ObjectFor<Talternate> allAlternates { get; }
+  _ObjectFor<_ObjAlternate> allAlternates { get; }
 }
 
-public interface I_ObjTypeParam<Tkind>
+public interface I_ObjTypeParam
   : I_Named
 {
-  _ObjConstraint<Tkind> constraint { get; }
+  _TypeRef<_TypeKind> constraint { get; }
 }
 
-public interface I_ObjConstraint<Tkind>
-  : I_TypeRef
-{
-}
-
-public interface I_ObjBase<Targ>
+public interface I_ObjBase
   : I_Named
 {
-  Targ typeArgs { get; }
+  _ObjTypeArg typeArgs { get; }
   _TypeParam As_TypeParam { get; }
 }
 
 public interface I_ObjTypeArg
   : I_TypeRef
 {
+  _Identifier label { get; }
   _TypeParam As_TypeParam { get; }
 }
 
 public interface I_TypeParam
-  : I_Named
+  : I_Described
 {
   _Identifier typeParam { get; }
 }
 
-public interface I_Alternate<Tbase>
+public interface I_ObjAlternate
 {
-  Tbase type { get; }
+  _ObjBase type { get; }
   _Collections collections { get; }
+  _ObjAlternateEnum As_ObjAlternateEnum { get; }
+}
+
+public interface I_ObjAlternateEnum
+  : I_TypeRef
+{
+  _Identifier label { get; }
 }
 
 public interface I_ObjectFor<Tfor>
@@ -355,17 +358,29 @@ public interface I_ObjectFor<Tfor>
   _Identifier object { get; }
 }
 
-public interface I_Field<Tbase>
+public interface I_ObjField<Ttype>
   : I_Aliased
 {
-  Tbase type { get; }
-  _Modifiers modifiers { get; }
+  Ttype type { get; }
 }
 
-public interface I_ForParam<Tbase>
+public interface I_ObjFieldType
+  : I_ObjBase
 {
-  _Alternate<Tbase> As_Alternate { get; }
-  _Field<Tbase> As_Field { get; }
+  _Modifiers modifiers { get; }
+  _ObjFieldEnum As_ObjFieldEnum { get; }
+}
+
+public interface I_ObjFieldEnum
+  : I_TypeRef
+{
+  _Identifier label { get; }
+}
+
+public interface I_ForParam<Ttype>
+{
+  _ObjAlternate As_ObjAlternate { get; }
+  _ObjField<Ttype> As_ObjField { get; }
 }
 
 public interface I_TypeDual
@@ -373,28 +388,8 @@ public interface I_TypeDual
 {
 }
 
-public interface I_DualBase
-  : I_ObjBase
-{
-}
-
-public interface I_DualTypeParam
-  : I_ObjTypeParam
-{
-}
-
 public interface I_DualField
-  : I_Field
-{
-}
-
-public interface I_DualAlternate
-  : I_Alternate
-{
-}
-
-public interface I_DualTypeArg
-  : I_ObjTypeArg
+  : I_ObjField
 {
 }
 
@@ -403,39 +398,20 @@ public interface I_TypeInput
 {
 }
 
-public interface I_InputBase
-  : I_ObjBase
-{
-  _DualBase As_DualBase { get; }
-}
-
-public interface I_InputTypeParam
-  : I_ObjTypeParam
-{
-  _TypeRef<_TypeKind> As_TypeRef { get; }
-}
-
 public interface I_InputField
-  : I_Field
+  : I_ObjField
+{
+}
+
+public interface I_InputFieldType
+  : I_ObjFieldType
 {
   _Value default { get; }
-}
-
-public interface I_InputAlternate
-  : I_Alternate
-{
-}
-
-public interface I_InputTypeArg
-  : I_ObjTypeArg
-{
 }
 
 public interface I_InputParam
-  : I_InputBase
+  : I_InputFieldType
 {
-  _Modifiers modifiers { get; }
-  _Value default { get; }
 }
 
 public interface I_TypeOutput
@@ -443,40 +419,13 @@ public interface I_TypeOutput
 {
 }
 
-public interface I_OutputBase
-  : I_ObjBase
-{
-  _DualBase As_DualBase { get; }
-}
-
-public interface I_OutputTypeParam
-  : I_ObjTypeParam
-{
-  _TypeRef<_TypeKind> As_TypeRef { get; }
-  _TypeRef<_TypeKind> As_TypeRef { get; }
-}
-
 public interface I_OutputField
-  : I_Field
+  : I_ObjField
+{
+}
+
+public interface I_OutputFieldType
+  : I_ObjFieldType
 {
   _InputParam parameters { get; }
-  _OutputEnum As_OutputEnum { get; }
-}
-
-public interface I_OutputAlternate
-  : I_Alternate
-{
-}
-
-public interface I_OutputTypeArg
-  : I_ObjTypeArg
-{
-  _Identifier label { get; }
-}
-
-public interface I_OutputEnum
-  : I_TypeRef
-{
-  _Identifier field { get; }
-  _Identifier label { get; }
 }

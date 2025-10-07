@@ -1,0 +1,16 @@
+﻿/* field-value+Input
+input FieldValueInp { field = fieldValueInp }
+enum EnumFieldValueInp { fieldValueInp }
+*/
+
+// Generated from Schema field-value+Input for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_field_value_Input;
+
+public class InputFieldValueInp
+  : IFieldValueInp
+{
+  public EnumFieldValueInp field { get; set; }
+}

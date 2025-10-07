@@ -1,0 +1,16 @@
+﻿/* object-field-enum-alias+Input
+input ObjFieldEnumAliasInp { field [field1] = Boolean.true }
+input ObjFieldEnumAliasInp { field [field2] = true }
+*/
+
+// Generated from Schema object-field-enum-alias+Input for Impl
+
+/*
+*/
+namespace GqlPlus.Gqlp_Schema_object_field_enum_alias_Input;
+
+public class InputObjFieldEnumAliasInp
+  : IObjFieldEnumAliasInp
+{
+  public Boolean field { get; set; }
+}

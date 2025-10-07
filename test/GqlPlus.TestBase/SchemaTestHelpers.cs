@@ -6,48 +6,22 @@ namespace GqlPlus;
 internal static class SchemaTestHelpers
 {
   public static DualFieldAst[] DualFields(this IEnumerable<FieldInput> fields)
-    => [.. fields.Select(f => new DualFieldAst(AstNulls.At, f.Name, DualBase(f.Type, f.TypeParam)))];
-
-  public static DualAlternateAst[] DualAlternates(this IEnumerable<AlternateInput> alternates)
-    => [.. alternates.Select(a => new DualAlternateAst(AstNulls.At, a.Type, "") { Modifiers = TestMods(), IsTypeParam = a.TypeParam })];
-
-  private static DualBaseAst DualBase(string type, bool isTypeParam)
-    => new(AstNulls.At, type) { IsTypeParam = isTypeParam };
-
-  public static DualBaseAst[] DualBases(this string[] bases)
-    => [.. bases.Select(b => new DualBaseAst(AstNulls.At, b))];
-
-  public static DualArgAst[] DualArgs(this string[] arguments)
-    => [.. arguments.Select(b => new DualArgAst(AstNulls.At, b))];
+    => [.. fields.Select(f => new DualFieldAst(AstNulls.At, f.Name, ObjBase(f.Type, f.TypeParam)))];
 
   public static InputFieldAst[] InputFields(this IEnumerable<FieldInput> fields)
-    => [.. fields.Select(f => new InputFieldAst(AstNulls.At, f.Name, InputBase(f.Type, f.TypeParam)))];
-  public static InputAlternateAst[] InputAlternates(this IEnumerable<AlternateInput> alternates)
-    => [.. alternates.Select(a => new InputAlternateAst(AstNulls.At, a.Type, "") { Modifiers = TestMods(), IsTypeParam = a.TypeParam })];
-
-  private static InputBaseAst InputBase(string type, bool isTypeParam)
-    => new(AstNulls.At, type) { IsTypeParam = isTypeParam };
-
-  public static InputBaseAst[] InputBases(this string[] bases)
-    => [.. bases.Select(a => new InputBaseAst(AstNulls.At, a))];
-
-  public static InputArgAst[] InputArgs(this string[] arguments)
-    => [.. arguments.Select(a => new InputArgAst(AstNulls.At, a))];
+    => [.. fields.Select(f => new InputFieldAst(AstNulls.At, f.Name, ObjBase(f.Type, f.TypeParam)))];
 
   public static OutputFieldAst[] OutputFields(this IEnumerable<FieldInput> fields)
-    => [.. fields.Select(f => new OutputFieldAst(AstNulls.At, f.Name, OutputBase(f.Type, f.TypeParam)))];
+    => [.. fields.Select(f => new OutputFieldAst(AstNulls.At, f.Name, ObjBase(f.Type, f.TypeParam)))];
 
-  public static OutputAlternateAst[] OutputAlternates(this IEnumerable<AlternateInput> alternates)
-    => [.. alternates.Select(a => new OutputAlternateAst(AstNulls.At, a.Type, "") { Modifiers = TestMods(), IsTypeParam = a.TypeParam })];
+  public static ObjAltAst[] ObjAlts(this IEnumerable<AlternateInput> alternates)
+    => [.. alternates.Select(a => new ObjAltAst(AstNulls.At, a.Type, "") { Modifiers = TestMods(), IsTypeParam = a.TypeParam })];
 
-  private static OutputBaseAst OutputBase(string type, bool isTypeParam)
-    => new(AstNulls.At, type) { IsTypeParam = isTypeParam };
+  private static ObjBaseAst ObjBase(string type, bool isTypeParam)
+    => new(AstNulls.At, type, "") { IsTypeParam = isTypeParam };
 
-  public static OutputBaseAst[] OutputBases(this string[] arguments)
-    => [.. arguments.Select(a => new OutputBaseAst(AstNulls.At, a))];
-
-  public static OutputArgAst[] OutputArgs(this string[] arguments)
-    => [.. arguments.Select(a => new OutputArgAst(AstNulls.At, a))];
+  public static ObjTypeArgAst[] ObjTypeArgs(this string[] arguments)
+    => [.. arguments.Select(a => new ObjTypeArgAst(AstNulls.At, a, ""))];
 
   public static InputParamAst[] Params(this IEnumerable<string> parameters)
     => [.. parameters.Select(parameter => new InputParamAst(AstNulls.At, parameter))];

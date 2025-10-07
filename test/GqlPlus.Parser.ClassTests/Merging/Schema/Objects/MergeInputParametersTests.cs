@@ -44,9 +44,9 @@ public class MergeInputParamsTests
   internal override GroupsMerger<IGqlpInputParam> MergerGroups => _merger;
 
   protected override IGqlpInputParam MakeDescribed(string name, string description = "")
-    => new InputParamAst(AstNulls.At, new InputBaseAst(AstNulls.At, name, description));
+    => new InputParamAst(AstNulls.At, new ObjBaseAst(AstNulls.At, name, description));
   private static InputParamAst MakeDefault(string name, string value)
-    => new(AstNulls.At, new InputBaseAst(AstNulls.At, name)) {
+    => new(AstNulls.At, new ObjBaseAst(AstNulls.At, name, "")) {
       DefaultValue = new ConstantAst(value.FieldKey())
     };
 }

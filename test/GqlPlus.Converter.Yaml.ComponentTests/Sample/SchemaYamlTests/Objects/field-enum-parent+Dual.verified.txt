@@ -1,0 +1,42 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier EnumFieldEnumPrntDual: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: PrntFieldEnumPrntDual
+      name: prnt_fieldEnumPrntDual
+    - !_EnumLabel
+      enum: EnumFieldEnumPrntDual
+      name: fieldEnumPrntDual
+    items:
+    - !_Aliased
+      name: fieldEnumPrntDual
+    name: EnumFieldEnumPrntDual
+    parent: !_TypeRef(_SimpleKind)
+      name: PrntFieldEnumPrntDual
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
+  !_Identifier FieldEnumPrntDual: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: field
+      object: FieldEnumPrntDual
+      type: !_ObjBase
+        name: EnumFieldEnumPrntDual
+    fields:
+    - !_DualField
+      name: field
+      type: !_ObjBase
+        name: EnumFieldEnumPrntDual
+    name: FieldEnumPrntDual
+    typeKind: !_TypeKind Dual
+  !_Identifier PrntFieldEnumPrntDual: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: PrntFieldEnumPrntDual
+      name: prnt_fieldEnumPrntDual
+    items:
+    - !_Aliased
+      name: prnt_fieldEnumPrntDual
+    name: PrntFieldEnumPrntDual
+    typeKind: !_TypeKind Enum

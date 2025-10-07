@@ -1,15 +1,25 @@
 ﻿{
   "$tag": "_Schema",
+  "errors": [
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In RefGnrcPrntDualPrntInp can\u0027t get model for type \u0027AltGnrcPrntDualPrntInp\u0027"
+    }
+  ],
   "types": {
     "$tag": "_Map_Type",
     "AltGnrcPrntDualPrntInp": {
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_DualAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "AltGnrcPrntDualPrntInp",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -20,16 +30,16 @@
           "name": "alt",
           "object": "AltGnrcPrntDualPrntInp",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_DualAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -39,7 +49,7 @@
           "$tag": "_DualField",
           "name": "alt",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
@@ -54,11 +64,11 @@
       "$tag": "_TypeInput",
       "name": "GnrcPrntDualPrntInp",
       "parent": {
-        "$tag": "_InputBase",
+        "$tag": "_ObjBase",
         "name": "RefGnrcPrntDualPrntInp",
         "typeArgs": [
           {
-            "$tag": "_DualArg",
+            "$tag": "_ObjTypeArg",
             "name": "AltGnrcPrntDualPrntInp"
           }
         ]
@@ -72,7 +82,7 @@
       "$tag": "_TypeInput",
       "name": "RefGnrcPrntDualPrntInp",
       "parent": {
-        "$tag": "_InputBase",
+        "$tag": "_ObjBase",
         "typeParam": "ref"
       },
       "typeKind": {

@@ -1,24 +1,23 @@
 ﻿!_Schema
+errors:
+- !_Error
+  _kind: !_TokenKind End
+  _message: In AltCnstFieldDualOutp can't get model for type 'PrntCnstFieldDualOutp'
 types: !_Map_Type
   !_Identifier AltCnstFieldDualOutp: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_DualAlternate)
-      object: PrntCnstFieldDualOutp
-      type: !_DualBase
-        name: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
       object: AltCnstFieldDualOutp
-      type: !_OutputBase
+      type: !_ObjBase
         name: Number
     fields:
     - !_OutputField
       name: alt
-      type: !_OutputBase
+      type: !_ObjBase
         name: Number
     name: AltCnstFieldDualOutp
-    parent: !_DualBase
+    parent: !_ObjBase
       name: PrntCnstFieldDualOutp
     typeKind: !_TypeKind Output
   !_Identifier CnstFieldDualOutp: !_TypeOutput
@@ -26,24 +25,24 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: field
       object: RefCnstFieldDualOutp
-      type: !_OutputBase
+      type: !_ObjBase
         name: AltCnstFieldDualOutp
     name: CnstFieldDualOutp
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: RefCnstFieldDualOutp
       typeArgs:
-      - !_OutputArg
+      - !_ObjTypeArg
         name: AltCnstFieldDualOutp
     typeKind: !_TypeKind Output
   !_Identifier PrntCnstFieldDualOutp: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_DualAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: PrntCnstFieldDualOutp
-      type: !_DualBase
+      type: !_ObjBase
         name: String
     alternates:
-    - !_DualAlternate
-      type: !_DualBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: String
     name: PrntCnstFieldDualOutp
     typeKind: !_TypeKind Dual
@@ -52,12 +51,12 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: field
       object: RefCnstFieldDualOutp
-      type: !_OutputBase
+      type: !_ObjBase
         typeParam: ref
     fields:
     - !_OutputField
       name: field
-      type: !_OutputBase
+      type: !_ObjBase
         typeParam: ref
     name: RefCnstFieldDualOutp
     typeKind: !_TypeKind Output

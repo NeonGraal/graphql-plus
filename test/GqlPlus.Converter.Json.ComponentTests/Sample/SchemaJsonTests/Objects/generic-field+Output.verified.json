@@ -10,7 +10,7 @@
           "name": "field",
           "object": "GnrcFieldOutp",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "type"
           }
         }
@@ -20,7 +20,7 @@
           "$tag": "_OutputField",
           "name": "field",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "type"
           }
         }

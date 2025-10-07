@@ -5,12 +5,12 @@ namespace GqlPlus.Modelling.Schema.Objects;
 
 public class DualModelTests(
   IDualModelChecks checks
-) : TestObjectModel<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate, TypeDualModel>(checks)
+) : TestObjectModel<IGqlpDualObject, IGqlpDualField, TypeDualModel>(checks)
 { }
 
 internal sealed class DualModelChecks(
   CheckTypeInputs<IGqlpDualObject, TypeDualModel> inputs
-) : CheckObjectModel<IGqlpDualObject, DualDeclAst, IGqlpDualField, DualFieldAst, IGqlpDualAlternate, DualAlternateAst, IGqlpDualBase, IGqlpDualArg, TypeDualModel>(inputs, TypeKindModel.Dual)
+) : CheckObjectModel<IGqlpDualObject, DualDeclAst, IGqlpDualField, DualFieldAst, TypeDualModel>(inputs, TypeKindModel.Dual)
   , IDualModelChecks
 {
   protected override DualDeclAst NewObjectAst(ExpectedObjectInput input, IGqlpObjBase? parent = null)
@@ -19,13 +19,13 @@ internal sealed class DualModelChecks(
       Parent = parent ?? NewParentAst(input.Parent),
       TypeParams = input.TypeParams.TypeParams(),
       ObjFields = input.Fields.DualFields(),
-      ObjAlternates = input.Alternates.DualAlternates(),
+      Alternates = input.Alternates.ObjAlts(),
     };
 
-  internal override IGqlpDualBase? NewParentAst(string? input)
-    => string.IsNullOrWhiteSpace(input) ? null : new DualBaseAst(AstNulls.At, input);
+  internal override IGqlpObjBase? NewParentAst(string? input)
+    => string.IsNullOrWhiteSpace(input) ? null : new ObjBaseAst(AstNulls.At, input, "");
 }
 
 public interface IDualModelChecks
-  : ICheckObjectModel<IGqlpDualObject, IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate, TypeDualModel>
+  : ICheckObjectModel<IGqlpDualObject, IGqlpDualField, TypeDualModel>
 { }

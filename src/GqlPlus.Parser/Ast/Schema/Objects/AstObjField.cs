@@ -1,30 +1,47 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-internal abstract record class AstObjField<TObjBase>(
+internal abstract record class AstObjField(
   ITokenAt At,
   string Name,
   string Description,
-  TObjBase BaseType
+  IGqlpObjBase Type
 ) : AstAliased(At, Name, Description)
-  , IGqlpObjField<TObjBase>
-  where TObjBase : IGqlpObjBase
+  , IGqlpObjField
 {
-  public TObjBase BaseType { get; set; } = BaseType;
+  public IGqlpObjBase Type { get; set; } = Type;
   public IGqlpModifier[] Modifiers { get; set; } = [];
+  public IGqlpEnumValue? EnumValue { get; set; }
 
-  public string ModifiedType => BaseType.GetFields().Skip(2).Concat(Modifiers.AsString()).Joined();
+  string IGqlpObjectEnum.EnumTypeName => "";
+  void IGqlpObjectEnum.SetEnumType(string enumType)
+  {
+    Type.SetName(enumType);
+    if (EnumValue == null) {
+      EnumValue = new EnumValueAst(At, enumType, Type.Name);
+    } else {
+      EnumValue = new EnumValueAst(At, enumType, EnumValue.EnumLabel ?? Type.Name);
+    }
+  }
 
   IEnumerable<IGqlpModifier> IGqlpModifiers.Modifiers => Modifiers;
-  IGqlpObjBase IGqlpObjField.Type => BaseType;
 
-  public virtual bool Equals(AstObjField<TObjBase>? other)
-    => other is IGqlpObjField<TObjBase> field && Equals(field);
-  public bool Equals(IGqlpObjField<TObjBase>? other)
+  protected internal IEnumerable<string?> TypeFields(string suffix = "")
+    => string.IsNullOrWhiteSpace(EnumValue?.EnumLabel)
+        ? [":", .. Type.GetFields(), .. Modifiers.AsString(), suffix]
+        : ["=", .. Type.GetFields(), "." + EnumValue?.EnumLabel];
+
+  public string ModifiedType => Type.GetFields().Skip(2).Concat(Modifiers.AsString()).Joined();
+
+  public virtual bool Equals(AstObjField? other)
+    => other is IGqlpObjField field && Equals(field);
+  public bool Equals(IGqlpObjField? other)
     => base.Equals(other)
-    && BaseType.Equals(other!.BaseType)
-    && Modifiers.SequenceEqual(other.Modifiers);
+    && Type.Equals(other!.Type)
+    && Modifiers.SequenceEqual(other.Modifiers)
+    && EnumValue.NullEqual(other.EnumValue);
   public override int GetHashCode()
-    => HashCode.Combine(base.GetHashCode(), BaseType, Modifiers.Length);
+    => HashCode.Combine(base.GetHashCode(), Type, Modifiers.Length, EnumValue?.EnumLabel);
 }

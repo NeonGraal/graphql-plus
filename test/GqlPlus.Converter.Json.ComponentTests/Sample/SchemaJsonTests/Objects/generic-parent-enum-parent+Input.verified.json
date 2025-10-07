@@ -44,7 +44,7 @@
           "name": "field",
           "object": "FieldGnrcPrntEnumPrntInp",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "typeParam": "ref"
           }
         }
@@ -54,7 +54,7 @@
           "$tag": "_InputField",
           "name": "field",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "typeParam": "ref"
           }
         }
@@ -87,18 +87,18 @@
           "name": "field",
           "object": "FieldGnrcPrntEnumPrntInp",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "EnumGnrcPrntEnumPrntInp"
           }
         }
       ],
       "name": "GnrcPrntEnumPrntInp",
       "parent": {
-        "$tag": "_InputBase",
+        "$tag": "_ObjBase",
         "name": "FieldGnrcPrntEnumPrntInp",
         "typeArgs": [
           {
-            "$tag": "_InputArg",
+            "$tag": "_ObjTypeArg",
             "name": "EnumGnrcPrntEnumPrntInp"
           }
         ]

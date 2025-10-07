@@ -1,23 +1,24 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Ast;
 using GqlPlus.Ast.Schema.Objects;
 
 namespace GqlPlus.Modelling.Schema.Objects;
 
 public class OutputFieldModelTests(
   IOutputFieldModelChecks checks
-) : TestObjectFieldModel<IGqlpOutputField, IGqlpOutputBase, OutputFieldModel>(checks)
+) : TestObjectFieldModel<IGqlpOutputField, OutputFieldModel>(checks)
 {
   [Theory, RepeatData]
   public void Model_EnumValue(FieldInput input, string enumLabel)
     => checks.Field_Expected(
-      new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type)) { EnumLabel = enumLabel },
+      new OutputFieldAst(AstNulls.At, input.Name, new ObjBaseAst(AstNulls.At, input.Type, "")) { EnumValue = new EnumValueAst(AstNulls.At, enumLabel) },
       checks.ExpectedEnum(input, enumLabel)
       );
 
   [Theory, RepeatData]
   public void Model_Param(FieldInput input, string[] parameters)
     => checks.Field_Expected(
-      new OutputFieldAst(AstNulls.At, input.Name, new OutputBaseAst(AstNulls.At, input.Type)) { Params = parameters.Params() },
+      new OutputFieldAst(AstNulls.At, input.Name, new ObjBaseAst(AstNulls.At, input.Type, "")) { Params = parameters.Params() },
       checks.ExpectedField(input, [], checks.ExpectedParams(parameters))
       );
 }
@@ -25,7 +26,7 @@ public class OutputFieldModelTests(
 internal sealed class OutputFieldModelChecks(
   IModeller<IGqlpOutputField, OutputFieldModel> modeller,
   IEncoder<OutputFieldModel> encoding
-) : CheckObjectFieldModel<IGqlpOutputField, OutputFieldAst, IGqlpOutputBase, OutputFieldModel>(modeller, encoding, TypeKindModel.Output)
+) : CheckObjectFieldModel<IGqlpOutputField, OutputFieldAst, OutputFieldModel>(modeller, encoding, TypeKindModel.Output)
   , IOutputFieldModelChecks
 {
   internal override OutputFieldAst NewFieldAst(FieldInput input, string[] aliases, bool withModifiers)
@@ -34,8 +35,8 @@ internal sealed class OutputFieldModelChecks(
       Modifiers = withModifiers ? TestMods() : [],
     };
 
-  internal OutputBaseAst NewObjBaseAst(string input)
-    => new(AstNulls.At, input);
+  internal ObjBaseAst NewObjBaseAst(string input)
+    => new(AstNulls.At, input, "");
 
   public string[] ExpectedParams(string[] parameters)
     => [.. ItemsExpected(

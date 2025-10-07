@@ -2,21 +2,21 @@
 types: !_Map_Type
   !_Identifier RefGnrcAltModParamDual: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_DualAlternate)
+    - !_ObjectFor(_ObjAlternate)
       collections:
       - !_ModifierTypeParam
         by: mod
         modifierKind: !_ModifierKind Param
       object: RefGnrcAltModParamDual
-      type: !_DualBase
+      type: !_ObjBase
         typeParam: ref
     alternates:
-    - !_DualAlternate
+    - !_ObjAlternate
       collections:
       - !_ModifierTypeParam
         by: mod
         modifierKind: !_ModifierKind Param
-      type: !_DualBase
+      type: !_ObjBase
         typeParam: ref
     name: RefGnrcAltModParamDual
     typeKind: !_TypeKind Dual

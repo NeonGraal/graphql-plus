@@ -1,0 +1,37 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  GnrcValueDual
+  |
+  I@024/0001
+  RefGnrcValueDual
+  <
+    I@041/0001
+    EnumGnrcValueDual.gnrcValueDual
+  >
+}
+{
+  !Du I@006/0002
+  RefGnrcValueDual
+  <
+    I@024/0002
+    $type
+    :_Enum
+  >
+  {
+    !DF I@038/0002
+    field
+    :
+    I@046/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumGnrcValueDual
+  !EL I@026/0003
+  gnrcValueDual
+}
+]

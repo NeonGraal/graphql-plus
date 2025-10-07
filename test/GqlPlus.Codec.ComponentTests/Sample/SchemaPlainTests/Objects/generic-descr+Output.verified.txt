@@ -5,12 +5,12 @@ types: !_Map_Type
       - !_ObjectFor(_OutputField)
         name: field
         object: GnrcDescrOutp
-        type: !_OutputBase
+        type: !_ObjBase
           typeParam: type
     fields:
       - !_OutputField
         name: field
-        type: !_OutputBase
+        type: !_ObjBase
           typeParam: type
     name: GnrcDescrOutp
     typeKind: !_TypeKind Output

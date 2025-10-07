@@ -5,24 +5,24 @@ types: !_Map_Type
     typeKind: !_TypeKind Dual
   !_Identifier InOutpDescrParam: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: InOutpDescrParam
-      type: !_InputBase
+      type: !_ObjBase
         name: String
     allFields:
     - !_ObjectFor(_InputField)
       name: param
       object: InOutpDescrParam
-      type: !_InputBase
+      type: !_ObjBase
         name: Number
     alternates:
-    - !_InputAlternate
-      type: !_InputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: String
     fields:
     - !_InputField
       name: param
-      type: !_InputBase
+      type: !_ObjBase
         name: Number
     name: InOutpDescrParam
     typeKind: !_TypeKind Input
@@ -35,7 +35,7 @@ types: !_Map_Type
       parameters:
       - !_InputParam
         name: InOutpDescrParam
-      type: !_DualBase
+      type: !_ObjBase
         name: FldOutpDescrParam
     fields:
     - !_OutputField
@@ -44,7 +44,7 @@ types: !_Map_Type
       parameters:
       - !_InputParam
         name: InOutpDescrParam
-      type: !_DualBase
+      type: !_ObjBase
         name: FldOutpDescrParam
     name: OutpDescrParam
     typeKind: !_TypeKind Output

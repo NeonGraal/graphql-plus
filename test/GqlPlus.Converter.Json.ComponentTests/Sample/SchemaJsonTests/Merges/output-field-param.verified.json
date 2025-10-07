@@ -28,7 +28,7 @@
             }
           ],
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "FldOutpFieldParam"
           }
         }
@@ -48,7 +48,7 @@
             }
           ],
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "FldOutpFieldParam"
           }
         }

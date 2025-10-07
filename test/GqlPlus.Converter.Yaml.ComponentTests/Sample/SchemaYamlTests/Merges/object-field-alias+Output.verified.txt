@@ -9,13 +9,13 @@ types: !_Map_Type
       aliases: [field1, field2]
       name: field
       object: ObjFieldAliasOutp
-      type: !_OutputBase
+      type: !_ObjBase
         name: FldObjFieldAliasOutp
     fields:
     - !_OutputField
       aliases: [field1, field2]
       name: field
-      type: !_OutputBase
+      type: !_ObjBase
         name: FldObjFieldAliasOutp
     name: ObjFieldAliasOutp
     typeKind: !_TypeKind Output

@@ -11,64 +11,18 @@ Success
     I@019/0002
     _TypeKind.Dual
     I@034/0002
-    _DualBase
-    I@044/0002
-    _DualTypeParam
-    I@059/0002
     _DualField
-    I@070/0002
-    _DualAlternate
   >
 }
 {
   !Ou I@008/0005
-  _DualBase
-  :
-  I@007/0006
-  _ObjBase
-  <
-    I@016/0006
-    _DualTypeArg
-  >
-}
-{
-  !Ou I@008/0009
-  _DualTypeParam
-  :
-  I@007/0010
-  _ObjTypeParam
-  <
-    I@021/0010
-    _TypeKind.Dual
-  >
-}
-{
-  !Ou I@008/0013
   _DualField
   :
-  I@007/0014
-  _Field
+  I@007/0006
+  _ObjField
   <
-    I@014/0014
-    _DualBase
+    I@017/0006
+    _ObjFieldType
   >
-}
-{
-  !Ou I@008/0017
-  _DualAlternate
-  :
-  I@007/0018
-  _Alternate
-  <
-    I@018/0018
-    _DualBase
-  >
-}
-{
-  !Ou I@008/0021
-  _DualTypeArg
-  :
-  I@007/0022
-  _ObjTypeArg
 }
 ]

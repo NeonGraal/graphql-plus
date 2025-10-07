@@ -2,14 +2,14 @@
 types: !_Map_Type
   !_Identifier AltDescrOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: AltDescrOutp
-        type: !_OutputBase
+        type: !_ObjBase
           description: 'Test Descr'
           name: String
     alternates:
-      - !_OutputAlternate
-        type: !_OutputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           description: 'Test Descr'
           name: String
     name: AltDescrOutp

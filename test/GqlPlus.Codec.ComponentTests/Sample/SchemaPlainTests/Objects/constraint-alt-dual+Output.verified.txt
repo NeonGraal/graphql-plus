@@ -1,65 +1,64 @@
 ﻿!_Schema
+errors:
+  - !_Error
+    _kind: !_TokenKind End
+    _message: In AltCnstAltDualOutp can't get model for type 'PrntCnstAltDualOutp'
 types: !_Map_Type
   !_Identifier AltCnstAltDualOutp: !_TypeOutput
-    allAlternates:
-      - !_ObjectFor(_DualAlternate)
-        object: PrntCnstAltDualOutp
-        type: !_DualBase
-          name: String
     allFields:
       - !_ObjectFor(_OutputField)
         name: alt
         object: AltCnstAltDualOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: Number
     fields:
       - !_OutputField
         name: alt
-        type: !_OutputBase
+        type: !_ObjBase
           name: Number
     name: AltCnstAltDualOutp
-    parent: !_DualBase
+    parent: !_ObjBase
       name: PrntCnstAltDualOutp
     typeKind: !_TypeKind Output
   !_Identifier CnstAltDualOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: CnstAltDualOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: RefCnstAltDualOutp
           typeArgs:
-            - !_OutputArg
+            - !_ObjTypeArg
               name: AltCnstAltDualOutp
     alternates:
-      - !_OutputAlternate
-        type: !_OutputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           name: RefCnstAltDualOutp
           typeArgs:
-            - !_OutputArg
+            - !_ObjTypeArg
               name: AltCnstAltDualOutp
     name: CnstAltDualOutp
     typeKind: !_TypeKind Output
   !_Identifier PrntCnstAltDualOutp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_DualAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: PrntCnstAltDualOutp
-        type: !_DualBase
+        type: !_ObjBase
           name: String
     alternates:
-      - !_DualAlternate
-        type: !_DualBase
+      - !_ObjAlternate
+        type: !_ObjBase
           name: String
     name: PrntCnstAltDualOutp
     typeKind: !_TypeKind Dual
   !_Identifier RefCnstAltDualOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: RefCnstAltDualOutp
-        type: !_OutputBase
+        type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_OutputAlternate
-        type: !_OutputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           typeParam: ref
     name: RefCnstAltDualOutp
     typeKind: !_TypeKind Output

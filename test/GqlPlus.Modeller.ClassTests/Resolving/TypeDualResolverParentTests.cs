@@ -1,16 +1,16 @@
 ﻿namespace GqlPlus.Resolving;
 
 public class TypeDualResolverParentTests
-  : ResolverTypeObjectParentTestBase<TypeDualModel, DualBaseModel, DualFieldModel, DualAlternateModel, DualArgModel>
+  : ResolverTypeObjectParentTestBase<TypeDualModel, DualFieldModel>
 {
   protected override IResolver<TypeDualModel> Resolver { get; } = new TypeDualResolver();
 
-  protected override DualBaseModel MakeBase(string name, string description = "", params DualArgModel[] args)
+  protected override ObjBaseModel MakeBase(string name, string description = "", params ObjTypeArgModel[] args)
     => new(name, description) { Args = args };
-  protected override DualArgModel NewArg(string argument, bool isParam = false)
+  protected override ObjTypeArgModel NewArg(string argument, bool isParam = false)
     => new(TypeKindModel.Dual, argument, "") { IsTypeParam = isParam };
   protected override TypeDualModel NewModel(string name, string description)
     => new(name, description);
-  protected override DualBaseModel NewParam(string paramName)
+  protected override ObjBaseModel NewParam(string paramName)
     => new(paramName, "") { IsTypeParam = true };
 }

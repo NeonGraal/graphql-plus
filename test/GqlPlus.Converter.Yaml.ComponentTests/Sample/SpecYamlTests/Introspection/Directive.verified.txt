@@ -13,61 +13,61 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: parameters
       object: _Directive
-      type: !_OutputBase
+      type: !_ObjBase
         name: _InputParam
     - !_ObjectFor(_OutputField)
       name: repeatable
       object: _Directive
-      type: !_OutputBase
+      type: !_ObjBase
         name: Boolean
     - !_ObjectFor(_OutputField)
       modifiers: [!_ModifierDictionary {by: _Location, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Enum}]
       name: locations
       object: _Directive
-      type: !_OutputBase
+      type: !_ObjBase
         name: _
     fields:
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: parameters
-      type: !_OutputBase
+      type: !_ObjBase
         name: _InputParam
     - !_OutputField
       name: repeatable
-      type: !_OutputBase
+      type: !_ObjBase
         name: Boolean
     - !_OutputField
       modifiers: [!_ModifierDictionary {by: _Location, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Enum}]
       name: locations
-      type: !_OutputBase
+      type: !_ObjBase
         name: _
     name: _Directive
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: _Aliased
     typeKind: !_TypeKind Output
   !_Identifier _Directives: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_OutputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: _Directives
-      type: !_OutputBase
+      type: !_ObjBase
         name: _Directive
     allFields:
     - !_ObjectFor(_OutputField)
       name: directive
       object: _Directives
-      type: !_OutputBase
+      type: !_ObjBase
         name: _Directive
     alternates:
-    - !_OutputAlternate
-      type: !_OutputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: _Directive
     fields:
     - !_OutputField
       name: directive
-      type: !_OutputBase
+      type: !_ObjBase
         name: _Directive
     name: _Directives
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: _AndType
     typeKind: !_TypeKind Output
   !_Identifier _Location: !_TypeEnum

@@ -37,7 +37,7 @@
           "name": "field",
           "object": "FieldGnrcPrntStrDomInp",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "typeParam": "ref"
           }
         }
@@ -47,7 +47,7 @@
           "$tag": "_InputField",
           "name": "field",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "typeParam": "ref"
           }
         }
@@ -80,18 +80,18 @@
           "name": "field",
           "object": "FieldGnrcPrntStrDomInp",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "DomGnrcPrntStrDomInp"
           }
         }
       ],
       "name": "GnrcPrntStrDomInp",
       "parent": {
-        "$tag": "_InputBase",
+        "$tag": "_ObjBase",
         "name": "FieldGnrcPrntStrDomInp",
         "typeArgs": [
           {
-            "$tag": "_InputArg",
+            "$tag": "_ObjTypeArg",
             "name": "DomGnrcPrntStrDomInp"
           }
         ]

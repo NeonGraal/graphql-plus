@@ -3,15 +3,15 @@
 namespace GqlPlus.Parsing.Schema.Objects;
 
 public class ParseInputParamsTests
-  : AliasesClassTestBase
+  : ModifiersClassTestBase
 {
-  private readonly Parser<IGqlpInputBase>.I _input;
+  private readonly Parser<IGqlpObjBase>.I _input;
   private readonly IParserDefault _defaultParser;
   private readonly ParseInputParams _parser;
 
   public ParseInputParamsTests()
   {
-    Parser<IGqlpInputBase>.D input = ParserFor(out _input);
+    Parser<IGqlpObjBase>.D input = ParserFor(out _input);
     Parser<IParserDefault, IGqlpConstant>.D defaultParser = ParserFor<IParserDefault, IGqlpConstant>(out _defaultParser);
     _parser = new ParseInputParams(input, Modifiers, defaultParser);
   }

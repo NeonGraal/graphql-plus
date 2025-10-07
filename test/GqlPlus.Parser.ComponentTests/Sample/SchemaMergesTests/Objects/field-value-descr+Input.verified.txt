@@ -1,0 +1,23 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !In I@007/0001
+  FieldValueDescrInp
+  {
+    !IF I@028/0001
+    field
+    =
+    'Test Descr'
+    I@051/0001
+    EnumFieldValueDescrInp
+    .fieldValueDescrInp
+  }
+}
+{
+  !En I@006/0002
+  EnumFieldValueDescrInp
+  !EL I@031/0002
+  fieldValueDescrInp
+}
+]

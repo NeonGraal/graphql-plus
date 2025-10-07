@@ -1,0 +1,20 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  ObjFieldEnumAliasOutp
+  {
+    !OF I@032/0001
+    field
+    [
+      field1
+      field2
+    ]
+    =
+    I@049/0001
+    Boolean
+    .true
+  }
+}
+]

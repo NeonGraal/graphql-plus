@@ -17,7 +17,7 @@ jobs:
     name: Build
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@v5
         with:
           dotnet-version: |
             9.0.x
@@ -47,7 +47,7 @@ jobs:
       testType: ${{ matrix.classTests && 'Class' || 'All' }}
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@v5
         with:
           dotnet-version: ${{ matrix.version }}.x
       - uses: actions/download-artifact@v5

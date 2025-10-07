@@ -5,13 +5,13 @@ types: !_Map_Type
     - !_ObjectFor(_DualField)
       name: field
       object: RefCnstFieldDmnDual
-      type: !_DualBase
+      type: !_ObjBase
         name: DomCnstFieldDmnDual
     name: CnstFieldDmnDual
-    parent: !_DualBase
+    parent: !_ObjBase
       name: RefCnstFieldDmnDual
       typeArgs:
-      - !_DualArg
+      - !_ObjTypeArg
         name: DomCnstFieldDmnDual
     typeKind: !_TypeKind Dual
   !_Identifier DomCnstFieldDmnDual: !_DomainString
@@ -32,12 +32,12 @@ types: !_Map_Type
     - !_ObjectFor(_DualField)
       name: field
       object: RefCnstFieldDmnDual
-      type: !_DualBase
+      type: !_ObjBase
         typeParam: ref
     fields:
     - !_DualField
       name: field
-      type: !_DualBase
+      type: !_ObjBase
         typeParam: ref
     name: RefCnstFieldDmnDual
     typeKind: !_TypeKind Dual

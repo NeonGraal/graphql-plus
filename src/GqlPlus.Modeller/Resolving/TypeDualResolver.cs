@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Resolving;
 
 internal class TypeDualResolver
-    : ResolverTypeObjectType<TypeDualModel, DualBaseModel, DualFieldModel, DualAlternateModel, DualArgModel>
+    : ResolverTypeObjectType<TypeDualModel, DualFieldModel>
 {
   protected override TResult Apply<TResult>(TResult result, ArgumentsContext arguments)
   {
@@ -14,10 +14,6 @@ internal class TypeDualResolver
 
   protected override TypeDualModel CloneModel(TypeDualModel model)
     => model with { };
-  protected override string GetArgKey(DualArgModel argument)
-    => argument.Name;
-  protected override MakeFor<DualAlternateModel> ObjectAlt(string obj)
-    => alt => new(alt, obj);
   protected override MakeFor<DualFieldModel> ObjectField(string obj)
     => fld => new(fld, obj);
   protected override IEnumerable<ObjectForModel> ParentAlternatives(IModelBase? parent)

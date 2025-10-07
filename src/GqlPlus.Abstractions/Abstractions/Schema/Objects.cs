@@ -5,83 +5,65 @@ public interface IGqlpObject
 {
   IEnumerable<IGqlpTypeParam> TypeParams { get; }
   IEnumerable<IGqlpObjField> Fields { get; }
-  IEnumerable<IGqlpObjAlternate> Alternates { get; }
+  IEnumerable<IGqlpObjAlt> Alternates { get; }
 }
 
-public interface IGqlpObject<TBase>
+public interface IGqlpObject<TField>
   : IGqlpObject
-  where TBase : IGqlpObjBase
-{
-  TBase? ObjParent { get; }
-}
-
-public interface IGqlpObject<TBase, TField, TAlt>
-  : IGqlpObject<TBase>
-  , IEquatable<IGqlpObject<TBase, TField, TAlt>>
-  where TBase : IGqlpObjBase
+  , IEquatable<IGqlpObject<TField>>
   where TField : IGqlpObjField
-  where TAlt : IGqlpObjAlternate
 {
   IEnumerable<TField> ObjFields { get; }
-  IEnumerable<TAlt> ObjAlternates { get; }
 }
 
 public interface IGqlpObjType
   : IGqlpNamed
   , IEquatable<IGqlpObjType>
 {
-  string Label { get; }
-  string FullType { get; }
   bool IsTypeParam { get; }
+
+  string TypeName { get; }
+  string FullType { get; }
 }
 
-public interface IGqlpObjArg
+public interface IGqlpObjectEnum
+  : IGqlpError
+{
+  string EnumTypeName { get; }
+  IGqlpEnumValue? EnumValue { get; }
+
+  void SetEnumType(string enumType);
+}
+
+public interface IGqlpObjTypeArg
   : IGqlpObjType
-  , IEquatable<IGqlpObjArg>
+  , IGqlpObjectEnum
+  , IEquatable<IGqlpObjTypeArg>
 { }
 
 public interface IGqlpObjBase
   : IGqlpObjType
   , IEquatable<IGqlpObjBase>
 {
-  IEnumerable<IGqlpObjArg> Args { get; }
-}
+  IEnumerable<IGqlpObjTypeArg> Args { get; }
 
-public interface IGqlpObjBase<TArg>
-  : IGqlpObjBase
-  , IEquatable<IGqlpObjBase<TArg>>
-  where TArg : IGqlpObjArg
-{
-  IEnumerable<TArg> BaseArgs { get; }
+  void SetName(string name);
 }
 
 public interface IGqlpObjField
   : IGqlpAliased
+  , IGqlpObjectEnum
   , IGqlpModifiers
 {
   IGqlpObjBase Type { get; }
   string ModifiedType { get; }
 }
 
-public interface IGqlpObjField<TBase>
-  : IGqlpObjField
-  , IEquatable<IGqlpObjField<TBase>>
-  where TBase : IGqlpObjBase
-{
-  TBase BaseType { get; }
-}
-
-public interface IGqlpObjAlternate
+public interface IGqlpObjAlt
   : IGqlpError
   , IGqlpObjBase
   , IGqlpModifiers
-{ }
-
-public interface IGqlpObjAlternate<TArg>
-  : IGqlpObjAlternate
-  , IGqlpObjBase<TArg>
-  , IEquatable<IGqlpObjAlternate<TArg>>
-  where TArg : IGqlpObjArg
+  , IGqlpObjectEnum
 { }
 
 public interface IGqlpTypeParam
@@ -91,102 +73,40 @@ public interface IGqlpTypeParam
 }
 
 public interface IGqlpDualObject
-  : IGqlpObject<IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>
-{ }
-
-public interface IGqlpDualArg
-  : IGqlpObjArg
-{ }
-
-public interface IGqlpDualBase
-  : IGqlpObjBase<IGqlpDualArg>
+  : IGqlpObject<IGqlpDualField>
 { }
 
 public interface IGqlpDualField
-  : IGqlpObjField<IGqlpDualBase>
+  : IGqlpObjField
 { }
-
-public interface IGqlpDualAlternate
-  : IGqlpObjAlternate<IGqlpDualArg>
-  , IGqlpDualBase
-{ }
-
-public interface IGqlpToDual<T>
-  where T : IGqlpObjType
-{
-  T ToDual { get; }
-}
 
 public interface IGqlpInputObject
-  : IGqlpObject<IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate>
-{ }
-
-public interface IGqlpInputArg
-  : IGqlpObjArg
-  , IGqlpToDual<IGqlpDualArg>
-{ }
-
-public interface IGqlpInputBase
-  : IGqlpObjBase<IGqlpInputArg>
-  , IGqlpToDual<IGqlpDualBase>
+  : IGqlpObject<IGqlpInputField>
 { }
 
 public interface IGqlpInputField
-  : IGqlpObjField<IGqlpInputBase>
+  : IGqlpObjField
   , IEquatable<IGqlpInputField>
 {
   IGqlpConstant? DefaultValue { get; }
 }
 
-public interface IGqlpInputAlternate
-  : IGqlpObjAlternate<IGqlpInputArg>
-  , IGqlpInputBase
-  , IGqlpToDual<IGqlpDualAlternate>
-{ }
-
 public interface IGqlpOutputObject
-  : IGqlpObject<IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate>
-{ }
-
-public interface IGqlpOutputEnum
-  : IGqlpError
-{
-  IGqlpObjType EnumType { get; }
-  string? EnumLabel { get; }
-
-  void SetEnumType(string enumType);
-}
-
-public interface IGqlpOutputArg
-  : IGqlpObjArg
-  , IGqlpOutputEnum
-  , IGqlpToDual<IGqlpDualArg>
-{ }
-
-public interface IGqlpOutputBase
-  : IGqlpObjBase<IGqlpOutputArg>
-  , IGqlpToDual<IGqlpDualBase>
+  : IGqlpObject<IGqlpOutputField>
 { }
 
 public interface IGqlpOutputField
-  : IGqlpObjField<IGqlpOutputBase>
-  , IGqlpOutputEnum
+  : IGqlpObjField
   , IEquatable<IGqlpOutputField>
 {
   IEnumerable<IGqlpInputParam> Params { get; }
 }
-
-public interface IGqlpOutputAlternate
-  : IGqlpObjAlternate<IGqlpOutputArg>
-  , IGqlpOutputBase
-  , IGqlpToDual<IGqlpDualAlternate>
-{ }
 
 public interface IGqlpInputParam
   : IGqlpDescribed
   , IGqlpModifiers
   , IEquatable<IGqlpInputParam>
 {
-  IGqlpInputBase Type { get; }
+  IGqlpObjBase Type { get; }
   IGqlpConstant? DefaultValue { get; }
 }

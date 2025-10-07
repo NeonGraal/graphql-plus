@@ -10,7 +10,7 @@
           "name": "test",
           "object": "ObjParamOutp",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "test"
           }
         },
@@ -19,7 +19,7 @@
           "name": "type",
           "object": "ObjParamOutp",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "type"
           }
         }
@@ -29,7 +29,7 @@
           "$tag": "_OutputField",
           "name": "test",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "test"
           }
         },
@@ -37,7 +37,7 @@
           "$tag": "_OutputField",
           "name": "type",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "type"
           }
         }

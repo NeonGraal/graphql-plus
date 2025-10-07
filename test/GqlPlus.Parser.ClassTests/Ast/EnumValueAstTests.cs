@@ -90,7 +90,7 @@ public class EnumValueAstTests : AstAbbreviatedTests
   {
     EnumValueAst left = EnumValue(type1, label);
     EnumValueAst right = EnumValue(type2, label);
-    int expected = string.Compare(type1, type2, StringComparison.Ordinal);
+    int expected = string.Compare(type1 + "." + label, type2 + "." + label, StringComparison.Ordinal);
 
     left.CompareTo(right).ShouldBe(expected);
   }

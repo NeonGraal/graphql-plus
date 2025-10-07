@@ -6,13 +6,13 @@ types: !_Map_Type
         modifiers: [!_ModifierTypeParam{by:mod,modifierKind:!_ModifierKind Param}]
         name: field
         object: FieldModParamOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: FldFieldModParamOutp
     fields:
       - !_OutputField
         modifiers: [!_ModifierTypeParam{by:mod,modifierKind:!_ModifierKind Param}]
         name: field
-        type: !_OutputBase
+        type: !_ObjBase
           name: FldFieldModParamOutp
     name: FieldModParamOutp
     typeKind: !_TypeKind Output
@@ -24,24 +24,24 @@ types: !_Map_Type
         name: mod
   !_Identifier FldFieldModParamOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: FldFieldModParamOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: String
     allFields:
       - !_ObjectFor(_OutputField)
         name: field
         object: FldFieldModParamOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: Number
     alternates:
-      - !_OutputAlternate
-        type: !_OutputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           name: String
     fields:
       - !_OutputField
         name: field
-        type: !_OutputBase
+        type: !_ObjBase
           name: Number
     name: FldFieldModParamOutp
     typeKind: !_TypeKind Output

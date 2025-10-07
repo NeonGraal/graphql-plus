@@ -1,0 +1,153 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "CnstEnumPrntInp": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "CnstEnumPrntInp",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "RefCnstEnumPrntInp",
+            "typeArgs": [
+              {
+                "$tag": "_EnumValue",
+                "label": "cnstEnumPrntInp",
+                "name": "EnumCnstEnumPrntInp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_ObjAlternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "RefCnstEnumPrntInp",
+            "typeArgs": [
+              {
+                "$tag": "_EnumValue",
+                "label": "cnstEnumPrntInp",
+                "name": "EnumCnstEnumPrntInp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "name": "CnstEnumPrntInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "EnumCnstEnumPrntInp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "ParentCnstEnumPrntInp",
+          "name": "parentCnstEnumPrntInp"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumCnstEnumPrntInp",
+          "name": "cnstEnumPrntInp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "cnstEnumPrntInp"
+        }
+      ],
+      "name": "EnumCnstEnumPrntInp",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "ParentCnstEnumPrntInp",
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Enum"
+        }
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "ParentCnstEnumPrntInp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "ParentCnstEnumPrntInp",
+          "name": "parentCnstEnumPrntInp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "parentCnstEnumPrntInp"
+        }
+      ],
+      "name": "ParentCnstEnumPrntInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "RefCnstEnumPrntInp": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "RefCnstEnumPrntInp",
+          "type": {
+            "$tag": "_ObjBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_ObjBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "name": "RefCnstEnumPrntInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "ParentCnstEnumPrntInp",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
+          "name": "type"
+        }
+      ]
+    }
+  }
+}

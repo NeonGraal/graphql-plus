@@ -10,7 +10,7 @@
           "name": "field",
           "object": "ObjCnstOutp",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "type"
           }
         },
@@ -19,7 +19,7 @@
           "name": "str",
           "object": "ObjCnstOutp",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "type"
           }
         }
@@ -29,7 +29,7 @@
           "$tag": "_OutputField",
           "name": "field",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "type"
           }
         },
@@ -37,7 +37,7 @@
           "$tag": "_OutputField",
           "name": "str",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "type"
           }
         }

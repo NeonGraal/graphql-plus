@@ -5,7 +5,7 @@ using GqlPlus.Merging.Objects;
 namespace GqlPlus.Merging.Schema.Objects;
 
 public class MergeInputFieldsTests
-  : TestObjectFieldMerger<IGqlpInputField, IGqlpInputBase>
+  : TestObjectFieldMerger<IGqlpInputField>
 {
   [Theory, RepeatData]
   public void CanMerge_TwoAstsOneDefault_ReturnsGood(string name, string type, string value)
@@ -43,19 +43,21 @@ public class MergeInputFieldsTests
 
   internal override AstObjectFieldsMerger<IGqlpInputField> MergerField => _merger;
 
-  protected override IGqlpInputField MakeField(string name, string type, string fieldDescription = "", string typeDescription = "")
-    => new InputFieldAst(AstNulls.At, name, fieldDescription, new InputBaseAst(AstNulls.At, type, typeDescription));
-
+  protected override IGqlpInputField MakeField(string name, string type, string fieldDescription = "", string typeDescription = "", string[]? aliases = null)
+    => new InputFieldAst(AstNulls.At, name, fieldDescription, new ObjBaseAst(AstNulls.At, type, typeDescription)) {
+      Aliases = aliases ?? [],
+    };
   internal static IGqlpInputField MakeFieldDefault(string name, string type, string defaultValue)
-    => new InputFieldAst(AstNulls.At, name, new InputBaseAst(AstNulls.At, type)) {
-      DefaultValue = new ConstantAst(defaultValue.FieldKey())
+    => new InputFieldAst(AstNulls.At, name, new ObjBaseAst(AstNulls.At, type, "")) {
+      DefaultValue = new ConstantAst(defaultValue.FieldKey()),
     };
   protected override IGqlpInputField MakeFieldModifiers(string name)
-    => new InputFieldAst(AstNulls.At, name, new InputBaseAst(AstNulls.At, name)) {
-      Modifiers = TestMods()
+    => new InputFieldAst(AstNulls.At, name, new ObjBaseAst(AstNulls.At, name, "")) {
+      Modifiers = TestMods(),
     };
-  protected override IGqlpInputField MakeAliased(string name, string[] aliases, string description = "")
-    => new InputFieldAst(AstNulls.At, name, description, new InputBaseAst(AstNulls.At, name, description)) {
-      Aliases = aliases
+  protected override IGqlpInputField MakeFieldEnum(string name, string enumType, string enumLabel, string fieldDescription = "", string typeDescription = "", string[]? aliases = null)
+    => new InputFieldAst(AstNulls.At, name, fieldDescription, new ObjBaseAst(AstNulls.At, enumType, typeDescription)) {
+      Aliases = aliases ?? [],
+      EnumValue = new EnumValueAst(AstNulls.At, enumType, enumLabel),
     };
 }

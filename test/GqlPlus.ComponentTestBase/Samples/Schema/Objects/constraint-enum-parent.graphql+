@@ -1,0 +1,4 @@
+object Name { | RefName<name> }
+object RefName<$type:ParentName> { field: $type }
+enum EnumName { :ParentName name }
+enum ParentName { parentName }

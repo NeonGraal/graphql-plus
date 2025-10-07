@@ -6,35 +6,36 @@ using GqlPlus.Merging;
 namespace GqlPlus.Verifying.Schema.Objects;
 
 [SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Todo")]
-internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField, TObjAlt, TContext>(
-  ObjectVerifierParams<TObject, TObjField, TObjAlt, TObjArg> verifiers
-) : AstParentItemVerifier<TObject, IGqlpObjBase, TContext, TObjField>(verifiers.Aliased, verifiers.MergeFields)
-  where TObject : IGqlpObject<TObjBase, TObjField, TObjAlt>
-  where TObjField : IGqlpObjField<TObjBase>
-  where TObjAlt : IGqlpObjAlternate, IGqlpObjBase<TObjArg>
-  where TObjBase : IGqlpObjBase<TObjArg>
-  where TObjArg : IGqlpObjArg
-  where TContext : EnumContext
+internal abstract class AstObjectVerifier<TObject, TObjField>(
+  TypeKind kind,
+  ObjectVerifierParams<TObject, TObjField> verifiers
+) : AstParentItemVerifier<TObject, IGqlpObjBase, ObjectContext, TObjField>(verifiers.Aliased, verifiers.MergeFields)
+  where TObject : IGqlpObject<TObjField>
+  where TObjField : IGqlpObjField
 {
-  private readonly ILogger _logger = verifiers.Logger.CreateTypedLogger<AstParentItemVerifier<TObject, IGqlpObjBase, TContext, IGqlpTypeParam>>();
+  private readonly Matcher<IGqlpObjTypeArg>.L _constraintMatcher = verifiers.ConstraintMatcher;
 
-  private readonly Matcher<TObjArg>.L _constraintMatcher = verifiers.ConstraintMatcher;
-
-  protected override void UsageValue(TObject usage, TContext context)
+  protected override void UsageValue(TObject usage, ObjectContext context)
   {
     base.UsageValue(usage, context);
 
-    if (usage.ObjParent is not null) {
-      CheckTypeRef(context, usage.ObjParent, " Parent", false);
+    if (usage.Parent is not null) {
+      CheckTypeRef(context, usage.Parent, "Parent of " + usage.Name, context.ParentKinds, false);
     }
 
     UsageTypeParams(usage.Label, usage.TypeParams, context);
-    UsageFields(usage, context);
-    UsageAlternates(usage, context);
+    foreach (TObjField field in usage.ObjFields) {
+      UsageField(field, usage, context);
+    }
+
+    foreach (IGqlpObjAlt alternate in usage.Alternates) {
+      UsageAlternate(alternate, usage, context);
+    }
+
     CheckParamsUsed(usage.Label, usage.TypeParams, context);
   }
 
-  private static void UsageTypeParams(string label, IEnumerable<IGqlpTypeParam> typeParams, TContext context)
+  private static void UsageTypeParams(string label, IEnumerable<IGqlpTypeParam> typeParams, ObjectContext context)
   {
     foreach (IGqlpTypeParam param in typeParams) {
       if (!context.GetType(param.Constraint, out IGqlpDescribed? value)) {
@@ -43,27 +44,52 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
     }
   }
 
-  protected virtual void UsageFields(TObject usage, TContext context)
+  protected virtual void UsageField(TObjField field, TObject usage, ObjectContext context)
   {
-    foreach (TObjField field in usage.ObjFields) {
-      CheckTypeRef(context, field.BaseType, " Field");
-      context.CheckModifiers(field);
-      CheckForSelf(new([field.Type.FullType], usage, "a field"), usage.Name, context);
+    if (field.EnumValue is not null) {
+      CheckObjEnum(usage.Label + " Field", field, context);
+      return;
     }
+
+    CheckTypeRef(context, field.Type, "Field of " + usage.Name);
+    context.CheckModifiers(field);
+    CheckForSelf(new([field.Type.FullType], usage, "a field"), usage.Name, context);
   }
 
-  private void UsageAlternates(TObject usage, TContext context)
+  private void UsageAlternate(IGqlpObjAlt alternate, TObject usage, ObjectContext context)
   {
-    SelfUsage<TObject> input = new([], usage, "an alternative");
-    _logger.CheckingAlternates(input);
-    foreach (TObjAlt alternate in usage.ObjAlternates) {
-      CheckTypeRef(context, alternate, " Alternate");
-      context.CheckModifiers(alternate);
-      CheckForSelf(new([alternate.FullType], usage, "an alternate"), usage.Name, context);
+    if (alternate.EnumValue is not null) {
+      CheckObjEnum(usage.Label + " Alternate", alternate, context);
+      return;
     }
+
+    CheckTypeRef(context, alternate, "Alternate of " + usage.Name);
+    context.CheckModifiers(alternate);
+    CheckForSelf(new([alternate.FullType], usage, "an alternate"), usage.Name, context);
   }
 
-  private void CheckParamsUsed(string label, IEnumerable<IGqlpTypeParam> typeParams, TContext context)
+  private static void CheckObjEnum(string label, IGqlpObjectEnum objEnum, ObjectContext context)
+  {
+    if (objEnum.EnumValue is null) {
+      return;
+    }
+
+    IGqlpEnumValue enumValue = objEnum.EnumValue;
+
+    if (!string.IsNullOrWhiteSpace(enumValue.EnumType)) {
+      context.CheckEnumValue(label, objEnum);
+      return;
+    }
+
+    if (context.GetEnumValue(enumValue.EnumLabel, out string? enumType)) {
+      objEnum.SetEnumType(enumType);
+      return;
+    }
+
+    context.AddError(objEnum, label + " Enum", $"Enum Label '{enumValue.EnumLabel}' not defined");
+  }
+
+  private void CheckParamsUsed(string label, IEnumerable<IGqlpTypeParam> typeParams, ObjectContext context)
   {
     foreach (IGqlpTypeParam typeParam in typeParams) {
       bool paramUsed = context.Used.Contains("$" + typeParam.Name);
@@ -71,26 +97,31 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
     }
   }
 
-  protected void CheckTypeRef(TContext context, IGqlpObjType reference, string suffix, bool check = true)
+  protected void CheckTypeRef(ObjectContext context, IGqlpObjType reference, string label, HashSet<TypeKind>? validKinds = null, bool check = true)
   {
     string typeName = (reference.IsTypeParam ? "$" : "") + reference.Name;
-    CheckTypeRef(AddCheckError, context, reference, check);
+    CheckTypeRef(AddCheckError, context, reference, validKinds, check);
 
     void AddCheckError(string errPrefix, string errSuffix, bool check = true)
     {
       if (string.IsNullOrWhiteSpace(errSuffix)) {
-        context.AddError(reference, reference.Label + suffix, $"{errPrefix} {typeName}", check);
+        context.AddError(reference, label, $"{errPrefix} {typeName}", check);
       } else {
-        context.AddError(reference, reference.Label + suffix, $"{errPrefix} {typeName}. {errSuffix}", check);
+        context.AddError(reference, label, $"{errPrefix} {typeName}. {errSuffix}", check);
       }
     }
   }
 
-  protected TContext CheckTypeRef(CheckError error, TContext context, IGqlpObjType reference, bool check = true)
+  protected ObjectContext CheckTypeRef(CheckError error, ObjectContext context, IGqlpObjType reference, HashSet<TypeKind>? validKinds = null, bool check = true)
   {
     string typeName = (reference.IsTypeParam ? "$" : "") + reference.Name;
+    validKinds ??= context.FieldKinds;
     if (context.GetType(typeName, out IGqlpDescribed? definition)) {
-      CheckTypeArgs(error, context, reference, check, definition);
+      if (definition is IGqlpType typeDef && !validKinds.Contains(typeDef.Kind)) {
+        error("Invalid Kind for", $"{typeDef.Kind} not one of {string.Join(",", validKinds)}", check);
+      }
+
+      CheckTypeArgs(error, context, reference, definition);
     } else {
       error($"'{typeName}' not defined", "", check);
 
@@ -102,22 +133,36 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
     return context;
   }
 
-  private void CheckArgsTypes(CheckError error, TContext context, IGqlpObjBase reference)
+  private void CheckArgsTypes(CheckError error, ObjectContext context, IGqlpObjBase reference)
   {
-    foreach (IGqlpObjArg arg in reference.Args) {
-      CheckArgType(error, context, arg);
+    foreach (IGqlpObjTypeArg arg in reference.Args) {
+      CheckArgEnum(context, arg);
+      CheckTypeRef(error, context, arg);
     }
   }
 
-  internal virtual void CheckArgType(CheckError error, TContext context, IGqlpObjArg arg)
-    => CheckTypeRef(error, context, arg);
-
-  private void CheckParamsArgs(CheckError error, TContext context, IGqlpObject definition, TObjBase reference)
+  private void CheckArgEnum(ObjectContext context, IGqlpObjTypeArg arg)
   {
-    IEnumerable<(TObjArg, IGqlpTypeParam)> argAndParams = reference.BaseArgs
+    if (arg.EnumValue is null) {
+      return;
+    }
+
+    IGqlpEnumValue enumValue = arg.EnumValue;
+    if (!context.GetType(enumValue.EnumType, out IGqlpDescribed? type)
+      && context.GetEnumValue(enumValue.EnumLabel, out string? enumType)) {
+      arg.SetEnumType(enumType);
+    }
+
+    context.CheckEnumValue("Arg", arg);
+  }
+
+  private void CheckParamsArgs(CheckError error, ObjectContext context, IGqlpObject definition, IGqlpObjBase reference)
+  {
+    IEnumerable<(IGqlpObjTypeArg, IGqlpTypeParam)> argAndParams = reference.Args
       .Zip(definition.TypeParams, static (a, p) => (a, p));
-    foreach ((TObjArg arg, IGqlpTypeParam param) in argAndParams) {
-      CheckArgType(error, context, arg);
+    foreach ((IGqlpObjTypeArg arg, IGqlpTypeParam param) in argAndParams) {
+      CheckArgEnum(context, arg);
+      CheckTypeRef(error, context, arg);
 
       if (string.IsNullOrWhiteSpace(param.Constraint)) {
         error("Invalid Constraint on", "undefined");
@@ -125,25 +170,24 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
       }
 
       if (!_constraintMatcher.Matches(arg, param.Constraint!, context)) {
-        error($"Invalid Constraint on ${param.Name} of", $"'{arg.Name}' not match '{param.Constraint}'");
+        error($"Invalid Constraint on ${param.Name} of", $"'{arg.TypeName}' not match '{param.Constraint}'");
       }
     }
   }
 
-  internal void CheckTypeArgs(CheckError error, TContext context, IGqlpObjType reference, bool check, IGqlpDescribed? definition)
+  internal void CheckTypeArgs(CheckError error, ObjectContext context, IGqlpObjType reference, IGqlpDescribed? definition)
   {
     int numArgs = reference is IGqlpObjBase baseNum ? baseNum.Args.Count() : 0;
     if (definition is IGqlpObject objectDef) {
-      CheckTypeArgsDefLabels(error, reference, check, objectDef);
       CheckTypeArgsDefBase(error, context, reference, numArgs, objectDef, objectDef.TypeParams.Count());
     } else if (definition is IGqlpSimple simple && numArgs != 0) {
       error("Args mismatch on", $"Expected none, given {numArgs}");
     }
   }
 
-  private void CheckTypeArgsDefBase(CheckError error, TContext context, IGqlpObjType reference, int numArgs, IGqlpObject definition, int numParams)
+  private void CheckTypeArgsDefBase(CheckError error, ObjectContext context, IGqlpObjType reference, int numArgs, IGqlpObject definition, int numParams)
   {
-    if (reference is TObjBase baseRef) {
+    if (reference is IGqlpObjBase baseRef) {
       if (numParams == numArgs) {
         CheckParamsArgs(error, context, definition, baseRef);
       } else {
@@ -154,13 +198,6 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
       }
     } else if (numParams > 0) {
       error("Args mismatch on", $"Expected {numParams}, given none");
-    }
-  }
-
-  private static void CheckTypeArgsDefLabels(CheckError error, IGqlpObjType reference, bool check, IGqlpObject definition)
-  {
-    if (check && definition.Label != "Dual" && definition.Label != reference.Label) {
-      error("Type kind mismatch for", $"Found {definition.Label} '{definition.Name}'");
     }
   }
 
@@ -176,7 +213,7 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
 
   protected override void CheckParentType(
     SelfUsage<TObject> input,
-    TContext context,
+    ObjectContext context,
     bool top,
     Action<TObject>? onParent = null)
   {
@@ -196,14 +233,14 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
 
   protected override bool CheckAstParentType(SelfUsage<TObject> input, IGqlpType astType)
     => base.CheckAstParentType(input, astType)
-      || astType.Label == "Dual";
+      || astType.Kind == TypeKind.Dual;
 
   protected override IEnumerable<TObjField> GetItems(TObject usage)
     => usage.ObjFields;
 
-  protected override void OnParentType(SelfUsage<TObject> input, TContext context, TObject parentType, bool top)
+  protected override void OnParentType(SelfUsage<TObject> input, ObjectContext context, TObject parentType, bool top)
   {
-    if (top && parentType.Label != "Dual") {
+    if (top && parentType.Kind != TypeKind.Dual) {
       base.OnParentType(input, context, parentType, top);
     }
 
@@ -213,12 +250,12 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
     }
 
     input = input with { Label = "an alternate" };
-    foreach (TObjAlt alternate in parentType.ObjAlternates) {
+    foreach (IGqlpObjAlt alternate in parentType.Alternates) {
       CheckForSelf(input.AddNext(alternate.Name), parentType.Name, context);
     }
   }
 
-  private void CheckForSelf(SelfUsage<TObject> input, string current, TContext context)
+  private void CheckForSelf(SelfUsage<TObject> input, string current, ObjectContext context)
   {
     if (context.DifferentName(input, current)
       && context.GetTyped(input.Current, out TObject? parentType)) {
@@ -228,17 +265,17 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
         CheckForSelf(input.AddNext(field.Type.Name), parentType.Name, context);
       }
 
-      foreach (TObjAlt alternate in parentType.ObjAlternates) {
+      foreach (IGqlpObjAlt alternate in parentType.Alternates) {
         CheckForSelf(input.AddNext(alternate.Name), parentType.Name, context);
       }
     }
   }
 
-  protected override void CheckMergeParent(SelfUsage<TObject> input, TContext context)
+  protected override void CheckMergeParent(SelfUsage<TObject> input, ObjectContext context)
   {
     base.CheckMergeParent(input, context);
 
-    TObjAlt[] alternates = [.. GetParentItems(input, input.Usage, context, ast => ast.ObjAlternates)];
+    IGqlpObjAlt[] alternates = [.. GetParentItems(input, input.Usage, context, ast => ast.Alternates)];
     if (alternates.Length > 0) {
       IMessages failures = verifiers.MergeAlternates.CanMerge(alternates);
       if (failures.Any()) {
@@ -247,29 +284,25 @@ internal abstract class AstObjectVerifier<TObject, TObjBase, TObjArg, TObjField,
       }
     }
   }
+
+  protected override ObjectContext MakeContext(TObject usage, IGqlpType[] aliased, IMessages errors)
+  {
+    Map<IGqlpDescribed> validTypes = aliased.AliasedGroup()
+      .Select(p => (Id: p.Key, Type: (IGqlpDescribed)p.First()))
+      .Concat(usage.TypeParams.Select(p => (Id: "$" + p.Name, Type: (IGqlpDescribed)p)))
+      .ToMap(p => p.Id, p => p.Type);
+
+    return new(validTypes, errors, aliased.MakeEnumValues(), kind);
+  }
 }
 
-internal static partial class AstObjectVerifierLogging
-{
-  [LoggerMessage(Level = LogLevel.Information, Message = "Checking Alternates with {Input}")]
-  internal static partial void CheckingAlternates(this ILogger logger, object input);
-
-  [LoggerMessage(Level = LogLevel.Information, Message = "Checking Alternates with {Input}, {Top} of {Alternate}")]
-  internal static partial void CheckingAlternates(this ILogger logger, object input, bool top, string alternate);
-
-  [LoggerMessage(Level = LogLevel.Information, Message = "Checking Alternates with {Input}, {Top} of {Alternate}, {Current}")]
-  internal static partial void CheckingAlternates(this ILogger logger, object input, bool top, string alternate, string current);
-}
-
-internal record class ObjectVerifierParams<TObject, TObjField, TObjAlt, TObjArg>(
+internal record class ObjectVerifierParams<TObject, TObjField>(
   IVerifyAliased<TObject> Aliased,
   IMerge<TObjField> MergeFields,
-  IMerge<TObjAlt> MergeAlternates,
-  Matcher<TObjArg>.D ConstraintMatcher,
+  IMerge<IGqlpObjAlt> MergeAlternates,
+  Matcher<IGqlpObjTypeArg>.D ConstraintMatcher,
   ILoggerFactory Logger
 )
   where TObject : IGqlpObject
   where TObjField : IGqlpObjField
-  where TObjAlt : IGqlpObjAlternate
-  where TObjArg : IGqlpObjArg
   ;

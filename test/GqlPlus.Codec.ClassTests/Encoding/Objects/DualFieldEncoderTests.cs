@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Encoding.Objects;
 
 public class DualFieldEncoderTests
-  : ObjectBaseEncoderBase<DualFieldModel, DualBaseModel>
+  : ObjectBaseEncoderBase<DualFieldModel, ObjBaseModel>
 {
   private readonly IEncoder<ModifierModel> _modifer;
 
@@ -18,7 +18,7 @@ public class DualFieldEncoderTests
   public void Encode_WithValidModel_ReturnsStructured(string name, string dual, string contents)
   {
     // Arrange
-    DualBaseModel dualBase = new(dual, "");
+    ObjBaseModel dualBase = new(dual, "");
     ObjBase.Encode(dualBase).Returns(new Structured(dual));
 
     // Act & Accept

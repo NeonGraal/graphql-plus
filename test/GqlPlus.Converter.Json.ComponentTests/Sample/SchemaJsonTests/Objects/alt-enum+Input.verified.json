@@ -1,0 +1,54 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "AltEnumInp": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "AltEnumInp",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "EnumAltEnumInp"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_ObjAlternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "EnumAltEnumInp"
+          }
+        }
+      ],
+      "name": "AltEnumInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "EnumAltEnumInp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumAltEnumInp",
+          "name": "altEnumInp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "altEnumInp"
+        }
+      ],
+      "name": "EnumAltEnumInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    }
+  }
+}

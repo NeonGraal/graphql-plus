@@ -6,13 +6,13 @@ public class ParseDualTests
   : DeclarationClassTestBase
 {
   private readonly Parser<IGqlpTypeParam>.IA _param;
-  private readonly Parser<ObjectDefinition<IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>>.I _definition;
+  private readonly Parser<ObjectDefinition<IGqlpDualField>>.I _definition;
   private readonly ParseDual _parser;
 
   public ParseDualTests()
   {
     Parser<IGqlpTypeParam>.DA param = ParserAFor(out _param);
-    Parser<ObjectDefinition<IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>>.D definition = ParserFor(out _definition);
+    Parser<ObjectDefinition<IGqlpDualField>>.D definition = ParserFor(out _definition);
     _parser = new ParseDual(SimpleName, param, Aliases, OptionNull, definition);
   }
 
@@ -21,7 +21,7 @@ public class ParseDualTests
   {
     // Arrange
     NameReturns(dualName);
-    ParseOk(_definition, new ObjectDefinition<IGqlpDualBase, IGqlpDualField, IGqlpDualAlternate>());
+    ParseOk(_definition, new ObjectDefinition<IGqlpDualField>());
 
     // Act
     IResult<IGqlpDualObject> result = _parser.Parse(Tokenizer, "testLabel");

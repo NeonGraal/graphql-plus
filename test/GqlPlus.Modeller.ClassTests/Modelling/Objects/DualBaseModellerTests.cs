@@ -1,24 +1,24 @@
 ﻿namespace GqlPlus.Modelling.Objects;
 
-public class DualBaseModellerTests
-  : ModellerClassTestBase<IGqlpDualBase, DualBaseModel>
+public class ObjBaseModellerTests
+  : ModellerClassTestBase<IGqlpObjBase, ObjBaseModel>
 {
-  private readonly IModeller<IGqlpDualArg, DualArgModel> _objArg = MFor<IGqlpDualArg, DualArgModel>();
+  private readonly IModeller<IGqlpObjTypeArg, ObjTypeArgModel> _objArg = MFor<IGqlpObjTypeArg, ObjTypeArgModel>();
 
-  public DualBaseModellerTests()
-    => Modeller = new DualBaseModeller(_objArg);
+  public ObjBaseModellerTests()
+    => Modeller = new ObjBaseModeller(_objArg);
 
-  protected override IModeller<IGqlpDualBase, DualBaseModel> Modeller { get; }
+  protected override IModeller<IGqlpObjBase, ObjBaseModel> Modeller { get; }
 
   [Theory, RepeatData]
-  public void ToModel_WithValidBase_ReturnsExpectedDualBaseModel(string name, string contents)
+  public void ToModel_WithValidBase_ReturnsExpectedObjBaseModel(string name, string contents)
   {
     // Arrange
-    IGqlpDualBase ast = A.Named<IGqlpDualBase>(name, contents);
+    IGqlpObjBase ast = A.Named<IGqlpObjBase>(name, contents);
     ast.IsTypeParam.Returns(true);
 
     // Act
-    DualBaseModel result = Modeller.ToModel(ast, TypeKinds);
+    ObjBaseModel result = Modeller.ToModel(ast, TypeKinds);
 
     // Assert
     result.ShouldNotBeNull()
@@ -30,19 +30,18 @@ public class DualBaseModellerTests
   }
 
   [Theory, RepeatData]
-  public void ToModel_WithArgs_ReturnsExpectedDualBaseModel(string name, string argName)
+  public void ToModel_WithArgs_ReturnsExpectedObjBaseModel(string name, string argName)
   {
     // Arrange
-    IGqlpDualBase ast = A.Named<IGqlpDualBase>(name);
-    IGqlpDualArg arg = A.Named<IGqlpDualArg>(argName);
+    IGqlpObjBase ast = A.Named<IGqlpObjBase>(name);
+    IGqlpObjTypeArg arg = A.Named<IGqlpObjTypeArg>(argName);
     ast.Args.Returns([arg]);
-    ast.BaseArgs.Returns([arg]);
 
-    DualArgModel argModel = new(TypeKindModel.Dual, argName, "");
+    ObjTypeArgModel argModel = new(TypeKindModel.Dual, argName, "");
     ToModelReturns(_objArg, argModel);
 
     // Act
-    DualBaseModel result = Modeller.ToModel(ast, TypeKinds);
+    ObjBaseModel result = Modeller.ToModel(ast, TypeKinds);
 
     // Assert
     result.ShouldNotBeNull()

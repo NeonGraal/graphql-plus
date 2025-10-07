@@ -16,16 +16,24 @@ public interface IGqlpAbbreviated
   IEnumerable<string?> GetFields();
 }
 
+public interface IGqlpEnumValue
+  : IGqlpAbbreviated
+  , IEquatable<IGqlpEnumValue?>
+  , IComparable<IGqlpEnumValue?>
+{
+  string EnumType { get; }
+  string EnumLabel { get; }
+  string EnumValue { get; }
+}
+
 public interface IGqlpFieldKey
   : IGqlpAbbreviated
-  , IEquatable<IGqlpFieldKey>
-  , IComparable<IGqlpFieldKey>
+  , IEquatable<IGqlpFieldKey?>
+  , IComparable<IGqlpFieldKey?>
 {
   decimal? Number { get; }
   string? Text { get; }
-  string? EnumLabel { get; }
-  string? EnumType { get; }
-  string? EnumValue { get; }
+  IGqlpEnumValue? EnumValue { get; }
 }
 
 public interface IGqlpModifier

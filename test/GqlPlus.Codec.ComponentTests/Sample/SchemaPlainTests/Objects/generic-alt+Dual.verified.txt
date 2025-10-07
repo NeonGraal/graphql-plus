@@ -2,13 +2,13 @@
 types: !_Map_Type
   !_Identifier GnrcAltDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_DualAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: GnrcAltDual
-        type: !_DualBase
+        type: !_ObjBase
           typeParam: type
     alternates:
-      - !_DualAlternate
-        type: !_DualBase
+      - !_ObjAlternate
+        type: !_ObjBase
           typeParam: type
     name: GnrcAltDual
     typeKind: !_TypeKind Dual

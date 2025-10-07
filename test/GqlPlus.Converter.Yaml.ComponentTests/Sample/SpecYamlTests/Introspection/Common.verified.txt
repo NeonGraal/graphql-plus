@@ -12,15 +12,15 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: typeKind
       object: _BaseType
-      type: !_OutputBase
+      type: !_ObjBase
         typeParam: kind
     fields:
     - !_OutputField
       name: typeKind
-      type: !_OutputBase
+      type: !_ObjBase
         typeParam: kind
     name: _BaseType
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: _Aliased
     typeKind: !_TypeKind Output
     typeParams:
@@ -34,23 +34,23 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: typeKind
       object: _BaseType
-      type: !_OutputBase
+      type: !_ObjBase
         typeParam: kind
     - !_ObjectFor(_OutputField)
       name: parent
       object: _ChildType
-      type: !_OutputBase
+      type: !_ObjBase
         typeParam: parent
     fields:
     - !_OutputField
       name: parent
-      type: !_OutputBase
+      type: !_ObjBase
         typeParam: parent
     name: _ChildType
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: _BaseType
       typeArgs:
-      - !_OutputArg
+      - !_ObjTypeArg
         typeParam: kind
     typeKind: !_TypeKind Output
     typeParams:
@@ -69,43 +69,43 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: typeKind
       object: _BaseType
-      type: !_OutputBase
+      type: !_ObjBase
         typeParam: kind
     - !_ObjectFor(_OutputField)
       name: parent
       object: _ChildType
-      type: !_OutputBase
+      type: !_ObjBase
         name: _Named
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: items
       object: _ParentType
-      type: !_OutputBase
+      type: !_ObjBase
         typeParam: item
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: allItems
       object: _ParentType
-      type: !_OutputBase
+      type: !_ObjBase
         typeParam: allItem
     fields:
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: items
-      type: !_OutputBase
+      type: !_ObjBase
         typeParam: item
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: allItems
-      type: !_OutputBase
+      type: !_ObjBase
         typeParam: allItem
     name: _ParentType
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: _ChildType
       typeArgs:
-      - !_OutputArg
+      - !_ObjTypeArg
         typeParam: kind
-      - !_OutputArg
+      - !_ObjTypeArg
         name: _Named
     typeKind: !_TypeKind Output
     typeParams:
@@ -156,82 +156,82 @@ types: !_Map_Type
     typeKind: !_TypeKind Enum
   !_Identifier _Type: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_OutputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: _Type
-      type: !_OutputBase
+      type: !_ObjBase
         name: _BaseType
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Basic
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-    - !_ObjectFor(_OutputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: _Type
-      type: !_OutputBase
+      type: !_ObjBase
         name: _BaseType
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Internal
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-    - !_ObjectFor(_OutputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: _Type
-      type: !_OutputBase
+      type: !_ObjBase
         name: _TypeDual
-    - !_ObjectFor(_OutputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: _Type
-      type: !_OutputBase
+      type: !_ObjBase
         name: _TypeEnum
-    - !_ObjectFor(_OutputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: _Type
-      type: !_OutputBase
+      type: !_ObjBase
         name: _TypeInput
-    - !_ObjectFor(_OutputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: _Type
-      type: !_OutputBase
+      type: !_ObjBase
         name: _TypeOutput
-    - !_ObjectFor(_OutputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: _Type
-      type: !_OutputBase
+      type: !_ObjBase
         name: _TypeDomain
-    - !_ObjectFor(_OutputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: _Type
-      type: !_OutputBase
+      type: !_ObjBase
         name: _TypeUnion
     alternates:
-    - !_OutputAlternate
-      type: !_OutputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: _BaseType
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Basic
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-    - !_OutputAlternate
-      type: !_OutputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: _BaseType
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Internal
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-    - !_OutputAlternate
-      type: !_OutputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: _TypeDual
-    - !_OutputAlternate
-      type: !_OutputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: _TypeEnum
-    - !_OutputAlternate
-      type: !_OutputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: _TypeInput
-    - !_OutputAlternate
-      type: !_OutputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: _TypeOutput
-    - !_OutputAlternate
-      type: !_OutputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: _TypeDomain
-    - !_OutputAlternate
-      type: !_OutputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: _TypeUnion
     name: _Type
     typeKind: !_TypeKind Output
@@ -273,98 +273,98 @@ types: !_Map_Type
       name: _SimpleKind
       typeKind: !_SimpleKind Enum
     typeKind: !_TypeKind Enum
-  !_Identifier _TypeRef: !_TypeOutput
+  !_Identifier _TypeRef: !_TypeDual
     allFields:
-    - !_ObjectFor(_OutputField)
+    - !_ObjectFor(_DualField)
       name: typeKind
       object: _TypeRef
-      type: !_OutputBase
+      type: !_ObjBase
         typeParam: kind
     fields:
-    - !_OutputField
+    - !_DualField
       name: typeKind
-      type: !_OutputBase
+      type: !_ObjBase
         typeParam: kind
     name: _TypeRef
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: _Named
-    typeKind: !_TypeKind Output
+    typeKind: !_TypeKind Dual
     typeParams:
     - !_TypeParam
       constraint: !_TypeRef(_TypeKind)
         name: _TypeKind
         typeKind: !_TypeKind Enum
       name: kind
-  !_Identifier _TypeSimple: !_TypeOutput
+  !_Identifier _TypeSimple: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_OutputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: _TypeSimple
-      type: !_OutputBase
+      type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Basic
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-    - !_ObjectFor(_OutputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: _TypeSimple
-      type: !_OutputBase
+      type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Enum
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-    - !_ObjectFor(_OutputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: _TypeSimple
-      type: !_OutputBase
+      type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Domain
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-    - !_ObjectFor(_OutputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: _TypeSimple
-      type: !_OutputBase
+      type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Union
           name: _TypeKind
           typeKind: !_SimpleKind Enum
     alternates:
-    - !_OutputAlternate
-      type: !_OutputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Basic
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-    - !_OutputAlternate
-      type: !_OutputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Enum
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-    - !_OutputAlternate
-      type: !_OutputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Domain
           name: _TypeKind
           typeKind: !_SimpleKind Enum
-    - !_OutputAlternate
-      type: !_OutputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Union
           name: _TypeKind
           typeKind: !_SimpleKind Enum
     name: _TypeSimple
-    typeKind: !_TypeKind Output
+    typeKind: !_TypeKind Dual

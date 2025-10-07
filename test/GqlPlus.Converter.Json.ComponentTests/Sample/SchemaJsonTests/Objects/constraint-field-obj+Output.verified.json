@@ -6,10 +6,10 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "PrntCnstFieldObjOutp",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -20,7 +20,7 @@
           "name": "alt",
           "object": "AltCnstFieldObjOutp",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
@@ -30,14 +30,14 @@
           "$tag": "_OutputField",
           "name": "alt",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "name": "AltCnstFieldObjOutp",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "PrntCnstFieldObjOutp"
       },
       "typeKind": {
@@ -53,18 +53,18 @@
           "name": "field",
           "object": "RefCnstFieldObjOutp",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "AltCnstFieldObjOutp"
           }
         }
       ],
       "name": "CnstFieldObjOutp",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "RefCnstFieldObjOutp",
         "typeArgs": [
           {
-            "$tag": "_OutputArg",
+            "$tag": "_ObjTypeArg",
             "name": "AltCnstFieldObjOutp"
           }
         ]
@@ -78,19 +78,19 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "PrntCnstFieldObjOutp",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -109,7 +109,7 @@
           "name": "field",
           "object": "RefCnstFieldObjOutp",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "ref"
           }
         }
@@ -119,7 +119,7 @@
           "$tag": "_OutputField",
           "name": "field",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "ref"
           }
         }

@@ -6,10 +6,10 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_DualAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "PrntCnstPrntObjPrntDual",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -20,7 +20,7 @@
           "name": "alt",
           "object": "AltCnstPrntObjPrntDual",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
@@ -30,14 +30,14 @@
           "$tag": "_DualField",
           "name": "alt",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "name": "AltCnstPrntObjPrntDual",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "PrntCnstPrntObjPrntDual"
       },
       "typeKind": {
@@ -49,10 +49,10 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_DualAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "PrntCnstPrntObjPrntDual",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -63,18 +63,18 @@
           "name": "alt",
           "object": "AltCnstPrntObjPrntDual",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "name": "CnstPrntObjPrntDual",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "RefCnstPrntObjPrntDual",
         "typeArgs": [
           {
-            "$tag": "_DualArg",
+            "$tag": "_ObjTypeArg",
             "name": "AltCnstPrntObjPrntDual"
           }
         ]
@@ -88,19 +88,19 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_DualAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "PrntCnstPrntObjPrntDual",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_DualAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -115,7 +115,7 @@
       "$tag": "_TypeDual",
       "name": "RefCnstPrntObjPrntDual",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "typeParam": "ref"
       },
       "typeKind": {

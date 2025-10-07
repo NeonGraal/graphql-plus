@@ -1,0 +1,21 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier ObjAltEnumOutp: !_TypeOutput
+    allAlternates:
+      - !_ObjectFor(_ObjAlternate)
+        object: ObjAltEnumOutp
+        type: !_ObjBase
+          name: Boolean
+      - !_ObjectFor(_ObjAlternate)
+        object: ObjAltEnumOutp
+        type: !_ObjBase
+          name: Boolean
+    alternates:
+      - !_ObjAlternate
+        type: !_ObjBase
+          name: Boolean
+      - !_ObjAlternate
+        type: !_ObjBase
+          name: Boolean
+    name: ObjAltEnumOutp
+    typeKind: !_TypeKind Output

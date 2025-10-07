@@ -18,12 +18,12 @@ types: !_Map_Type
       - !_ObjectFor(_DualField)
         name: field
         object: FieldGnrcPrntStrDomDual
-        type: !_DualBase
+        type: !_ObjBase
           typeParam: ref
     fields:
       - !_DualField
         name: field
-        type: !_DualBase
+        type: !_ObjBase
           typeParam: ref
     name: FieldGnrcPrntStrDomDual
     typeKind: !_TypeKind Dual
@@ -38,12 +38,12 @@ types: !_Map_Type
       - !_ObjectFor(_DualField)
         name: field
         object: FieldGnrcPrntStrDomDual
-        type: !_DualBase
+        type: !_ObjBase
           name: DomGnrcPrntStrDomDual
     name: GnrcPrntStrDomDual
-    parent: !_DualBase
+    parent: !_ObjBase
       name: FieldGnrcPrntStrDomDual
       typeArgs:
-        - !_DualArg
+        - !_ObjTypeArg
           name: DomGnrcPrntStrDomDual
     typeKind: !_TypeKind Dual

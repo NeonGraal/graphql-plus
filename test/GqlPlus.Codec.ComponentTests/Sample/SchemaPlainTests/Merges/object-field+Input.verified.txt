@@ -8,12 +8,12 @@ types: !_Map_Type
       - !_ObjectFor(_InputField)
         name: field
         object: ObjFieldInp
-        type: !_InputBase
+        type: !_ObjBase
           name: FldObjFieldInp
     fields:
       - !_InputField
         name: field
-        type: !_InputBase
+        type: !_ObjBase
           name: FldObjFieldInp
     name: ObjFieldInp
     typeKind: !_TypeKind Input

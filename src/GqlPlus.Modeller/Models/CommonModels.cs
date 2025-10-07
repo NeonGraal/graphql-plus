@@ -56,8 +56,8 @@ public class SimpleModel
     => new(value);
   internal static SimpleModel Str(string value)
     => new(value);
-  internal static SimpleModel Enum(string type, string value)
-    => new("") { EnumValue = new(type, value, "") };
+  internal static SimpleModel Enum(EnumValueModel value)
+    => new("") { EnumValue = value };
 
   internal static SimpleModel BoolDom(string domain, bool value)
     => new(value) { TypeRef = DomainFor(domain, DomainKindModel.Boolean) };

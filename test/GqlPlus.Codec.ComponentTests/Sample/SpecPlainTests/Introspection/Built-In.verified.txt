@@ -1,114 +1,114 @@
 ﻿!_Schema
 types: !_Map_Type
-  !_Identifier _Collections: !_TypeOutput
+  !_Identifier _Collections: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: _Collections
-        type: !_OutputBase
+        type: !_ObjBase
           name: _Modifier
           typeArgs:
-            - !_TypeRef(_SimpleKind)
+            - !_EnumValue
               label: List
               name: _ModifierKind
               typeKind: !_SimpleKind Enum
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: _Collections
-        type: !_OutputBase
+        type: !_ObjBase
           name: _ModifierKeyed
           typeArgs:
-            - !_TypeRef(_SimpleKind)
+            - !_EnumValue
               label: Dictionary
               name: _ModifierKind
               typeKind: !_SimpleKind Enum
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: _Collections
-        type: !_OutputBase
+        type: !_ObjBase
           name: _ModifierKeyed
           typeArgs:
-            - !_TypeRef(_SimpleKind)
+            - !_EnumValue
               label: TypeParam
               name: _ModifierKind
               typeKind: !_SimpleKind Enum
     alternates:
-      - !_OutputAlternate
-        type: !_OutputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           name: _Modifier
           typeArgs:
-            - !_TypeRef(_SimpleKind)
+            - !_EnumValue
               label: List
               name: _ModifierKind
               typeKind: !_SimpleKind Enum
-      - !_OutputAlternate
-        type: !_OutputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           name: _ModifierKeyed
           typeArgs:
-            - !_TypeRef(_SimpleKind)
+            - !_EnumValue
               label: Dictionary
               name: _ModifierKind
               typeKind: !_SimpleKind Enum
-      - !_OutputAlternate
-        type: !_OutputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           name: _ModifierKeyed
           typeArgs:
-            - !_TypeRef(_SimpleKind)
+            - !_EnumValue
               label: TypeParam
               name: _ModifierKind
               typeKind: !_SimpleKind Enum
     name: _Collections
-    typeKind: !_TypeKind Output
-  !_Identifier _Modifier: !_TypeOutput
+    typeKind: !_TypeKind Dual
+  !_Identifier _Modifier: !_TypeDual
     allFields:
-      - !_ObjectFor(_OutputField)
+      - !_ObjectFor(_DualField)
         name: modifierKind
         object: _Modifier
-        type: !_OutputBase
+        type: !_ObjBase
           typeParam: kind
     fields:
-      - !_OutputField
+      - !_DualField
         name: modifierKind
-        type: !_OutputBase
+        type: !_ObjBase
           typeParam: kind
     name: _Modifier
-    typeKind: !_TypeKind Output
+    typeKind: !_TypeKind Dual
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
           name: _ModifierKind
           typeKind: !_TypeKind Enum
         name: kind
-  !_Identifier _ModifierKeyed: !_TypeOutput
+  !_Identifier _ModifierKeyed: !_TypeDual
     allFields:
-      - !_ObjectFor(_OutputField)
+      - !_ObjectFor(_DualField)
         name: modifierKind
         object: _Modifier
-        type: !_OutputBase
+        type: !_ObjBase
           typeParam: kind
-      - !_ObjectFor(_OutputField)
+      - !_ObjectFor(_DualField)
         name: by
         object: _ModifierKeyed
-        type: !_OutputBase
+        type: !_ObjBase
           name: _TypeSimple
-      - !_ObjectFor(_OutputField)
+      - !_ObjectFor(_DualField)
         name: optional
         object: _ModifierKeyed
-        type: !_OutputBase
+        type: !_ObjBase
           name: Boolean
     fields:
-      - !_OutputField
+      - !_DualField
         name: by
-        type: !_OutputBase
+        type: !_ObjBase
           name: _TypeSimple
-      - !_OutputField
+      - !_DualField
         name: optional
-        type: !_OutputBase
+        type: !_ObjBase
           name: Boolean
     name: _ModifierKeyed
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: _Modifier
       typeArgs:
-        - !_OutputArg
+        - !_ObjTypeArg
           typeParam: kind
-    typeKind: !_TypeKind Output
+    typeKind: !_TypeKind Dual
     typeParams:
       - !_TypeParam
         constraint: !_TypeRef(_TypeKind)
@@ -146,32 +146,32 @@ types: !_Map_Type
         name: Param
     name: _ModifierKind
     typeKind: !_TypeKind Enum
-  !_Identifier _Modifiers: !_TypeOutput
+  !_Identifier _Modifiers: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: _Modifiers
-        type: !_OutputBase
+        type: !_ObjBase
           name: _Modifier
           typeArgs:
-            - !_TypeRef(_SimpleKind)
+            - !_EnumValue
               label: Optional
               name: _ModifierKind
               typeKind: !_SimpleKind Enum
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: _Modifiers
-        type: !_OutputBase
+        type: !_ObjBase
           name: _Collections
     alternates:
-      - !_OutputAlternate
-        type: !_OutputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           name: _Modifier
           typeArgs:
-            - !_TypeRef(_SimpleKind)
+            - !_EnumValue
               label: Optional
               name: _ModifierKind
               typeKind: !_SimpleKind Enum
-      - !_OutputAlternate
-        type: !_OutputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           name: _Collections
     name: _Modifiers
-    typeKind: !_TypeKind Output
+    typeKind: !_TypeKind Dual

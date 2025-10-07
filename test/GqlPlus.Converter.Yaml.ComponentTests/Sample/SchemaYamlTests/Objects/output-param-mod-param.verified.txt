@@ -17,24 +17,24 @@ types: !_Map_Type
     typeKind: !_TypeKind Domain
   !_Identifier InOutpParamModParam: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: InOutpParamModParam
-      type: !_InputBase
+      type: !_ObjBase
         name: String
     allFields:
     - !_ObjectFor(_InputField)
       name: param
       object: InOutpParamModParam
-      type: !_InputBase
+      type: !_ObjBase
         name: Number
     alternates:
-    - !_InputAlternate
-      type: !_InputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: String
     fields:
     - !_InputField
       name: param
-      type: !_InputBase
+      type: !_ObjBase
         name: Number
     name: InOutpParamModParam
     typeKind: !_TypeKind Input
@@ -47,7 +47,7 @@ types: !_Map_Type
       - !_InputParam
         modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
         name: InOutpParamModParam
-      type: !_OutputBase
+      type: !_ObjBase
         name: DomOutpParamModParam
     fields:
     - !_OutputField
@@ -56,7 +56,7 @@ types: !_Map_Type
       - !_InputParam
         modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
         name: InOutpParamModParam
-      type: !_OutputBase
+      type: !_ObjBase
         name: DomOutpParamModParam
     name: OutpParamModParam
     typeKind: !_TypeKind Output

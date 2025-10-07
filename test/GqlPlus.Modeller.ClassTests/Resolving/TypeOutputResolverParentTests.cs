@@ -1,22 +1,18 @@
 ﻿namespace GqlPlus.Resolving;
 
 public class TypeOutputResolverParentTests
-  : ResolverTypeObjectParentTestBase<TypeOutputModel, OutputBaseModel, OutputFieldModel, OutputAlternateModel, OutputArgModel>
+  : ResolverTypeObjectParentTestBase<TypeOutputModel, OutputFieldModel>
 {
   protected override IResolver<TypeOutputModel> Resolver { get; }
 
-  public TypeOutputResolverParentTests()
-  {
-    IResolver<TypeDualModel> dual = RFor<TypeDualModel>();
-    Resolver = new TypeOutputResolver(dual);
-  }
+  public TypeOutputResolverParentTests() => Resolver = new TypeOutputResolver();
 
-  protected override OutputBaseModel MakeBase(string name, string description = "", params OutputArgModel[] args)
+  protected override ObjBaseModel MakeBase(string name, string description = "", params ObjTypeArgModel[] args)
     => new(name, description) { Args = args };
   protected override TypeOutputModel NewModel(string name, string description)
     => new(name, description);
-  protected override OutputBaseModel NewParam(string paramName)
+  protected override ObjBaseModel NewParam(string paramName)
     => new(paramName, "") { IsTypeParam = true };
-  protected override OutputArgModel NewArg(string argument, bool isParam = false)
+  protected override ObjTypeArgModel NewArg(string argument, bool isParam = false)
     => new(TypeKindModel.Output, argument, "") { IsTypeParam = isParam };
 }

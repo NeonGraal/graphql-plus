@@ -1,12 +1,9 @@
 ﻿namespace GqlPlus.Resolving;
 
-public abstract class ResolverTypeObjectParentTestBase<TModel, TBase, TField, TAlt, TArg>
-  : ResolverTypeObjectTypeTestBase<TModel, TBase, TField, TAlt, TArg>
-  where TModel : TypeObjectModel<TBase, TField, TAlt>
-  where TBase : IObjBaseModel
+public abstract class ResolverTypeObjectParentTestBase<TModel, TField>
+  : ResolverTypeObjectTypeTestBase<TModel, TField>
+  where TModel : TypeObjectModel<TField>
   where TField : IObjFieldModel
-  where TAlt : IObjAlternateModel
-  where TArg : IObjTypeArgModel
 {
   [Theory, RepeatData]
   public void ModelWithParentWithArgParent_ResolvesCorrectly(string name, string parent, string grandParent)
@@ -20,7 +17,7 @@ public abstract class ResolverTypeObjectParentTestBase<TModel, TBase, TField, TA
     TModel grandModel = NewModel(grandParent, "");
     Context.AddModels([parentModel, grandModel]);
 
-    TBase expectedBase = MakeBase(parent, "", NewArg(grandParent));
+    ObjBaseModel expectedBase = MakeBase(parent, "", NewArg(grandParent));
     TModel expectedModel = parentModel with {
       Parent = MakeBase(grandParent, ""),
       ParentModel = grandModel,

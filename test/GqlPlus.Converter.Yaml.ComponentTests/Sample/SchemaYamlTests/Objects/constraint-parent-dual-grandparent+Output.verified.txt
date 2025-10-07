@@ -1,70 +1,64 @@
 ﻿!_Schema
+errors:
+- !_Error
+  _kind: !_TokenKind End
+  _message: In AltCnstPrntDualGrndOutp can't get model for type 'PrntCnstPrntDualGrndOutp'
 types: !_Map_Type
   !_Identifier AltCnstPrntDualGrndOutp: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_DualAlternate)
-      object: GrndCnstPrntDualGrndOutp
-      type: !_DualBase
-        name: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
       object: AltCnstPrntDualGrndOutp
-      type: !_OutputBase
+      type: !_ObjBase
         name: Number
     fields:
     - !_OutputField
       name: alt
-      type: !_OutputBase
+      type: !_ObjBase
         name: Number
     name: AltCnstPrntDualGrndOutp
-    parent: !_DualBase
+    parent: !_ObjBase
       name: PrntCnstPrntDualGrndOutp
     typeKind: !_TypeKind Output
   !_Identifier CnstPrntDualGrndOutp: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_DualAlternate)
-      object: GrndCnstPrntDualGrndOutp
-      type: !_DualBase
-        name: String
     allFields:
     - !_ObjectFor(_OutputField)
       name: alt
       object: AltCnstPrntDualGrndOutp
-      type: !_OutputBase
+      type: !_ObjBase
         name: Number
     name: CnstPrntDualGrndOutp
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: RefCnstPrntDualGrndOutp
       typeArgs:
-      - !_OutputArg
+      - !_ObjTypeArg
         name: AltCnstPrntDualGrndOutp
     typeKind: !_TypeKind Output
   !_Identifier GrndCnstPrntDualGrndOutp: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_DualAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: GrndCnstPrntDualGrndOutp
-      type: !_DualBase
+      type: !_ObjBase
         name: String
     alternates:
-    - !_DualAlternate
-      type: !_DualBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: String
     name: GrndCnstPrntDualGrndOutp
     typeKind: !_TypeKind Dual
   !_Identifier PrntCnstPrntDualGrndOutp: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_DualAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: GrndCnstPrntDualGrndOutp
-      type: !_DualBase
+      type: !_ObjBase
         name: String
     name: PrntCnstPrntDualGrndOutp
-    parent: !_DualBase
+    parent: !_ObjBase
       name: GrndCnstPrntDualGrndOutp
     typeKind: !_TypeKind Dual
   !_Identifier RefCnstPrntDualGrndOutp: !_TypeOutput
     name: RefCnstPrntDualGrndOutp
-    parent: !_OutputBase
+    parent: !_ObjBase
       typeParam: ref
     typeKind: !_TypeKind Output
     typeParams:

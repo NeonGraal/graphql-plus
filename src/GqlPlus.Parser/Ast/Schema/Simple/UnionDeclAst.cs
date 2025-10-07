@@ -11,8 +11,7 @@ internal sealed record class UnionDeclAst(
 ) : AstSimple<IGqlpUnionMember>(At, Name, Description, Members)
   , IGqlpUnion
 {
-  internal override string Abbr => "Un";
-  public override string Label => "Union";
+  public override TypeKind Kind => TypeKind.Union;
 
   public UnionDeclAst(TokenAt at, string name, UnionMemberAst[] members)
     : this(at, name, "", members) { }

@@ -1,12 +1,9 @@
 ﻿namespace GqlPlus.Resolving;
 
-public abstract class ResolverTypeObjectFieldTestBase<TModel, TBase, TField, TAlt, TArg>
-  : ResolverTypeObjectTypeTestBase<TModel, TBase, TField, TAlt, TArg>
-  where TModel : TypeObjectModel<TBase, TField, TAlt>
-  where TBase : IObjBaseModel
+public abstract class ResolverTypeObjectFieldTestBase<TModel, TField>
+  : ResolverTypeObjectTypeTestBase<TModel, TField>
+  where TModel : TypeObjectModel<TField>
   where TField : IObjFieldModel
-  where TAlt : IObjAlternateModel
-  where TArg : IObjTypeArgModel
 {
   [Theory, RepeatData]
   public void ModelWithFieldModifier_ResolvesCorrectly(string name, FieldInput field, string key)

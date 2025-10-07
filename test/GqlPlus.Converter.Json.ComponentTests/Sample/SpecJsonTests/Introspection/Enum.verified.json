@@ -36,7 +36,7 @@
           "name": "enum",
           "object": "_EnumLabel",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
@@ -46,14 +46,14 @@
           "$tag": "_DualField",
           "name": "enum",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
       ],
       "name": "_EnumLabel",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "_Aliased"
       },
       "typeKind": {
@@ -69,7 +69,7 @@
           "name": "label",
           "object": "_EnumValue",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
@@ -79,18 +79,18 @@
           "$tag": "_OutputField",
           "name": "label",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
       ],
       "name": "_EnumValue",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_TypeRef",
         "typeArgs": [
           {
-            "$tag": "_TypeRef(_SimpleKind)",
+            "$tag": "_EnumValue",
             "label": "Enum",
             "name": "_TypeKind",
             "typeKind": {
@@ -109,11 +109,11 @@
       "$tag": "_TypeOutput",
       "name": "_TypeEnum",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_ParentType",
         "typeArgs": [
           {
-            "$tag": "_TypeRef(_SimpleKind)",
+            "$tag": "_EnumValue",
             "label": "Enum",
             "name": "_TypeKind",
             "typeKind": {
@@ -122,11 +122,11 @@
             }
           },
           {
-            "$tag": "_OutputArg",
+            "$tag": "_ObjTypeArg",
             "name": "_Aliased"
           },
           {
-            "$tag": "_DualArg",
+            "$tag": "_ObjTypeArg",
             "name": "_EnumLabel"
           }
         ]

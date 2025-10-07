@@ -2,19 +2,19 @@
 types: !_Map_Type
   !_Identifier CnstAltDmnDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_DualAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: CnstAltDmnDual
-        type: !_DualBase
+        type: !_ObjBase
           name: RefCnstAltDmnDual
           typeArgs:
-            - !_DualArg
+            - !_ObjTypeArg
               name: DomCnstAltDmnDual
     alternates:
-      - !_DualAlternate
-        type: !_DualBase
+      - !_ObjAlternate
+        type: !_ObjBase
           name: RefCnstAltDmnDual
           typeArgs:
-            - !_DualArg
+            - !_ObjTypeArg
               name: DomCnstAltDmnDual
     name: CnstAltDmnDual
     typeKind: !_TypeKind Dual
@@ -33,13 +33,13 @@ types: !_Map_Type
     typeKind: !_TypeKind Domain
   !_Identifier RefCnstAltDmnDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_DualAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: RefCnstAltDmnDual
-        type: !_DualBase
+        type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_DualAlternate
-        type: !_DualBase
+      - !_ObjAlternate
+        type: !_ObjBase
           typeParam: ref
     name: RefCnstAltDmnDual
     typeKind: !_TypeKind Dual

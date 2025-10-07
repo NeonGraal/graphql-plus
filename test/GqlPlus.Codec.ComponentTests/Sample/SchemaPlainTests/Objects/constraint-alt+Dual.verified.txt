@@ -2,13 +2,13 @@
 types: !_Map_Type
   !_Identifier CnstAltDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_DualAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: CnstAltDual
-        type: !_DualBase
+        type: !_ObjBase
           typeParam: type
     alternates:
-      - !_DualAlternate
-        type: !_DualBase
+      - !_ObjAlternate
+        type: !_ObjBase
           typeParam: type
     name: CnstAltDual
     typeKind: !_TypeKind Dual

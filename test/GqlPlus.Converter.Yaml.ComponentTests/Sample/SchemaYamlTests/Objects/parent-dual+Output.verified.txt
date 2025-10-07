@@ -1,41 +1,34 @@
 ﻿!_Schema
+errors:
+- !_Error
+  _kind: !_TokenKind End
+  _message: In PrntDualOutp can't get model for type 'RefPrntDualOutp'
 types: !_Map_Type
   !_Identifier PrntDualOutp: !_TypeOutput
-    allAlternates:
-    - !_ObjectFor(_DualAlternate)
-      object: RefPrntDualOutp
-      type: !_DualBase
-        name: String
-    allFields:
-    - !_ObjectFor(_DualField)
-      name: parent
-      object: RefPrntDualOutp
-      type: !_DualBase
-        name: Number
     name: PrntDualOutp
-    parent: !_DualBase
+    parent: !_ObjBase
       name: RefPrntDualOutp
     typeKind: !_TypeKind Output
   !_Identifier RefPrntDualOutp: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_DualAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: RefPrntDualOutp
-      type: !_DualBase
+      type: !_ObjBase
         name: String
     allFields:
     - !_ObjectFor(_DualField)
       name: parent
       object: RefPrntDualOutp
-      type: !_DualBase
+      type: !_ObjBase
         name: Number
     alternates:
-    - !_DualAlternate
-      type: !_DualBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: String
     fields:
     - !_DualField
       name: parent
-      type: !_DualBase
+      type: !_ObjBase
         name: Number
     name: RefPrntDualOutp
     typeKind: !_TypeKind Dual

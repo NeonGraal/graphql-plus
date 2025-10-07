@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Ast.Schema;
 
-internal abstract record class AstDescribed(
+public abstract record class AstDescribed(
   ITokenAt At,
   string Description
 ) : AstAbbreviated(At)
@@ -24,6 +24,8 @@ internal abstract record class AstDescribed(
       .Prepend(Description.Quoted("'"));
   void IAstSetDescription.SetDescription(string description)
     => Description = description;
+
+  protected string?[] DescriptionAt => [Description.Quoted("'"), At.ToString()];
 }
 
 internal interface IAstSetDescription

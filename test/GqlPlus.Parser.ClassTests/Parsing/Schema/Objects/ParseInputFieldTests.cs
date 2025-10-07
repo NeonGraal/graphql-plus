@@ -3,7 +3,7 @@
 namespace GqlPlus.Parsing.Schema.Objects;
 
 public class ParseInputFieldTests
-  : ParseObjectFieldTestBase<IGqlpInputField, IGqlpInputBase>
+  : ObjectFieldParseTestBase<IGqlpInputField>
 {
   private readonly IParserDefault _parseDefault;
 

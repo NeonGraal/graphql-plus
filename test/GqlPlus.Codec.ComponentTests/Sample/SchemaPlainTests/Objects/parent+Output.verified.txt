@@ -2,40 +2,40 @@
 types: !_Map_Type
   !_Identifier PrntOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: RefPrntOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: String
     allFields:
       - !_ObjectFor(_OutputField)
         name: parent
         object: RefPrntOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: Number
     name: PrntOutp
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: RefPrntOutp
     typeKind: !_TypeKind Output
   !_Identifier RefPrntOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: RefPrntOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: String
     allFields:
       - !_ObjectFor(_OutputField)
         name: parent
         object: RefPrntOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: Number
     alternates:
-      - !_OutputAlternate
-        type: !_OutputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           name: String
     fields:
       - !_OutputField
         name: parent
-        type: !_OutputBase
+        type: !_ObjBase
           name: Number
     name: RefPrntOutp
     typeKind: !_TypeKind Output

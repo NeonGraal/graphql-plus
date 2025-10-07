@@ -2,41 +2,41 @@
 types: !_Map_Type
   !_Identifier PrntDescrDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_DualAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: RefPrntDescrDual
-        type: !_DualBase
+        type: !_ObjBase
           name: String
     allFields:
       - !_ObjectFor(_DualField)
         name: parent
         object: RefPrntDescrDual
-        type: !_DualBase
+        type: !_ObjBase
           name: Number
     name: PrntDescrDual
-    parent: !_DualBase
+    parent: !_ObjBase
       description: 'Test Descr'
       name: RefPrntDescrDual
     typeKind: !_TypeKind Dual
   !_Identifier RefPrntDescrDual: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_DualAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: RefPrntDescrDual
-        type: !_DualBase
+        type: !_ObjBase
           name: String
     allFields:
       - !_ObjectFor(_DualField)
         name: parent
         object: RefPrntDescrDual
-        type: !_DualBase
+        type: !_ObjBase
           name: Number
     alternates:
-      - !_DualAlternate
-        type: !_DualBase
+      - !_ObjAlternate
+        type: !_ObjBase
           name: String
     fields:
       - !_DualField
         name: parent
-        type: !_DualBase
+        type: !_ObjBase
           name: Number
     name: RefPrntDescrDual
     typeKind: !_TypeKind Dual

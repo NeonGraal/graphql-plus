@@ -8,19 +8,15 @@ public class MergeAllTypesTests
   : TestAbbreviatedMerger<IGqlpType>
 {
   [Theory, RepeatData]
-  public void FixupType_WithEnums_FixesType(string outputType, string enumType, string enumLabel, string fieldName, string domainType)
+  public void FixupType_WithDomainLabel_FixesType(string enumType, string enumLabel, string domainType)
   {
-    this.SkipEqual3(outputType, enumType, domainType);
+    this.SkipEqual(enumType, domainType);
 
     // Arrange
-    OutputFieldAst field = new(AstNulls.At, fieldName, new OutputBaseAst(AstNulls.At, "", "")) {
-      EnumLabel = enumLabel
-    };
     DomainLabelAst domainLabel = new(AstNulls.At, "", false, enumLabel);
 
     IGqlpType[] types = [
       new EnumDeclAst(AstNulls.At, enumType, [new(AstNulls.At, enumLabel, "")]),
-      new OutputDeclAst(AstNulls.At, outputType) { ObjFields = [field] },
       new AstDomain<DomainLabelAst, IGqlpDomainLabel>(AstNulls.At, domainType, DomainKind.Enum, [domainLabel]),
     ];
 
@@ -29,8 +25,110 @@ public class MergeAllTypesTests
     _merger.Merge(types);
 
     // Assert
-    field.BaseType.Name.ShouldBe(enumType);
     domainLabel.EnumType.ShouldBe(enumType);
+  }
+
+  [Theory, RepeatData]
+  public void FixupType_WithFieldLabel_FixesType(string enumType, string enumLabel, string outputType, string fieldName)
+  {
+    this.SkipEqual(outputType, enumType);
+
+    // Arrange
+    OutputFieldAst field = new(AstNulls.At, fieldName, new ObjBaseAst(AstNulls.At, "", "")) {
+      EnumValue = new EnumValueAst(AstNulls.At, enumLabel)
+    };
+
+    IGqlpType[] types = [
+      new EnumDeclAst(AstNulls.At, enumType, [new(AstNulls.At, enumLabel, "")]),
+      new OutputDeclAst(AstNulls.At, outputType) { ObjFields = [field] },
+    ];
+
+    // Act
+
+    _merger.Merge(types);
+
+    // Assert
+    field.Type.Name.ShouldBe(enumType);
+    field.EnumValue.EnumType.ShouldBe(enumType);
+  }
+
+  [Theory, RepeatData]
+  public void FixupType_WithFieldArgLabel_FixesType(string enumType, string enumLabel, string outputType, string fieldName, string fieldType)
+  {
+    this.SkipEqual3(outputType, fieldType, enumType);
+
+    // Arrange
+    ObjTypeArgAst arg = new(AstNulls.At, "", "") {
+      EnumValue = new EnumValueAst(AstNulls.At, enumLabel)
+    };
+
+    OutputFieldAst field = new(AstNulls.At, fieldName, new ObjBaseAst(AstNulls.At, fieldType, "") {
+      Args = [arg]
+    });
+
+    IGqlpType[] types = [
+      new EnumDeclAst(AstNulls.At, enumType, [new(AstNulls.At, enumLabel, "")]),
+      new OutputDeclAst(AstNulls.At, outputType) { ObjFields = [field] },
+    ];
+
+    // Act
+
+    _merger.Merge(types);
+
+    // Assert
+    arg.Name.ShouldBe(enumType);
+    arg.EnumValue.EnumType.ShouldBe(enumType);
+  }
+
+  [Theory, RepeatData]
+  public void FixupType_WithAltLabel_FixesType(string enumType, string enumLabel, string outputType)
+  {
+    this.SkipEqual(outputType, enumType);
+
+    // Arrange
+    ObjAltAst alt = new(AstNulls.At, "", "") {
+      EnumValue = new EnumValueAst(AstNulls.At, enumLabel)
+    };
+
+    IGqlpType[] types = [
+      new EnumDeclAst(AstNulls.At, enumType, [new(AstNulls.At, enumLabel, "")]),
+      new OutputDeclAst(AstNulls.At, outputType) { Alternates = [alt] },
+    ];
+
+    // Act
+
+    _merger.Merge(types);
+
+    // Assert
+    alt.Name.ShouldBe(enumType);
+    alt.EnumValue.EnumType.ShouldBe(enumType);
+  }
+
+  [Theory, RepeatData]
+  public void FixupType_WithAltArgLabel_FixesType(string enumType, string enumLabel, string outputType, string altType)
+  {
+    this.SkipEqual3(outputType, enumType, altType);
+
+    // Arrange
+    ObjTypeArgAst arg = new(AstNulls.At, "", "") {
+      EnumValue = new EnumValueAst(AstNulls.At, enumLabel)
+    };
+    ObjAltAst alt = new(AstNulls.At, altType, "") {
+      Args = [arg]
+    };
+
+    IGqlpType[] types = [
+      new EnumDeclAst(AstNulls.At, enumType, [new(AstNulls.At, enumLabel, "")]),
+      new OutputDeclAst(AstNulls.At, outputType) { Alternates = [alt] },
+    ];
+
+    // Act
+
+    _merger.Merge(types);
+
+    // Assert
+    arg.Name.ShouldBe(enumType);
+    arg.EnumValue.EnumType.ShouldBe(enumType);
   }
 
   private readonly MergeAllTypes _merger;

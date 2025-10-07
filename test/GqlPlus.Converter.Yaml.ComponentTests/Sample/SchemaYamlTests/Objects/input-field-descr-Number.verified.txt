@@ -7,14 +7,14 @@ types: !_Map_Type
       description: 'Test Descr'
       name: field
       object: InpFieldDescrNmbr
-      type: !_InputBase
+      type: !_ObjBase
         name: Number
     fields:
     - !_InputField
       default: 42
       description: 'Test Descr'
       name: field
-      type: !_InputBase
+      type: !_ObjBase
         name: Number
     name: InpFieldDescrNmbr
     typeKind: !_TypeKind Input

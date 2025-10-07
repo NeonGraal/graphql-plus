@@ -2,21 +2,21 @@
 types: !_Map_Type
   !_Identifier RefGnrcAltModParamOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         collections:
           - !_ModifierTypeParam
             by: mod
             modifierKind: !_ModifierKind Param
         object: RefGnrcAltModParamOutp
-        type: !_OutputBase
+        type: !_ObjBase
           typeParam: ref
     alternates:
-      - !_OutputAlternate
+      - !_ObjAlternate
         collections:
           - !_ModifierTypeParam
             by: mod
             modifierKind: !_ModifierKind Param
-        type: !_OutputBase
+        type: !_ObjBase
           typeParam: ref
     name: RefGnrcAltModParamOutp
     typeKind: !_TypeKind Output

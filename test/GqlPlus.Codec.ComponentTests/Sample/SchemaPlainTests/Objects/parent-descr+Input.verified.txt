@@ -2,41 +2,41 @@
 types: !_Map_Type
   !_Identifier PrntDescrInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_InputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: RefPrntDescrInp
-        type: !_InputBase
+        type: !_ObjBase
           name: String
     allFields:
       - !_ObjectFor(_InputField)
         name: parent
         object: RefPrntDescrInp
-        type: !_InputBase
+        type: !_ObjBase
           name: Number
     name: PrntDescrInp
-    parent: !_InputBase
+    parent: !_ObjBase
       description: 'Test Descr'
       name: RefPrntDescrInp
     typeKind: !_TypeKind Input
   !_Identifier RefPrntDescrInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_InputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: RefPrntDescrInp
-        type: !_InputBase
+        type: !_ObjBase
           name: String
     allFields:
       - !_ObjectFor(_InputField)
         name: parent
         object: RefPrntDescrInp
-        type: !_InputBase
+        type: !_ObjBase
           name: Number
     alternates:
-      - !_InputAlternate
-        type: !_InputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           name: String
     fields:
       - !_InputField
         name: parent
-        type: !_InputBase
+        type: !_ObjBase
           name: Number
     name: RefPrntDescrInp
     typeKind: !_TypeKind Input

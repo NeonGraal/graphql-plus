@@ -1,0 +1,26 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier EnumFieldValueDual: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: EnumFieldValueDual
+        name: fieldValueDual
+    items:
+      - !_Aliased
+        name: fieldValueDual
+    name: EnumFieldValueDual
+    typeKind: !_TypeKind Enum
+  !_Identifier FieldValueDual: !_TypeDual
+    allFields:
+      - !_ObjectFor(_DualField)
+        name: field
+        object: FieldValueDual
+        type: !_ObjBase
+          name: EnumFieldValueDual
+    fields:
+      - !_DualField
+        name: field
+        type: !_ObjBase
+          name: EnumFieldValueDual
+    name: FieldValueDual
+    typeKind: !_TypeKind Dual

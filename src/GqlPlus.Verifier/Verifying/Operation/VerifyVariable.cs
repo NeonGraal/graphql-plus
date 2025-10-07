@@ -37,7 +37,7 @@ internal class VerifyVariable
 
   private static void VerifyVariableNullDefault(IGqlpConstant def, IMessages errors)
   {
-    if (def.Value?.EnumValue == "Null.null") {
+    if (def.Value?.EnumValue?.EnumValue == "Null.null") {
       errors.Add(def.MakeError("Invalid Variable definition. Default of 'null' must be on Optional Type."));
     }
   }

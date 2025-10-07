@@ -1,0 +1,171 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "CnstDomEnumDual": {
+      "$tag": "_TypeDual",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "CnstDomEnumDual",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "RefCnstDomEnumDual",
+            "typeArgs": [
+              {
+                "$tag": "_EnumValue",
+                "label": "cnstDomEnumDual",
+                "name": "EnumCnstDomEnumDual",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_ObjAlternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "RefCnstDomEnumDual",
+            "typeArgs": [
+              {
+                "$tag": "_EnumValue",
+                "label": "cnstDomEnumDual",
+                "name": "EnumCnstDomEnumDual",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "name": "CnstDomEnumDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "EnumCnstDomEnumDual": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumCnstDomEnumDual",
+          "name": "cnstDomEnumDual"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumCnstDomEnumDual",
+          "name": "other"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "cnstDomEnumDual"
+        },
+        {
+          "$tag": "_Aliased",
+          "name": "other"
+        }
+      ],
+      "name": "EnumCnstDomEnumDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "JustCnstDomEnumDual": {
+      "$tag": "_DomainEnum",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainLabel)",
+          "domain": "JustCnstDomEnumDual",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "cnstDomEnumDual",
+            "name": "EnumCnstDomEnumDual",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Enum"
+      },
+      "items": [
+        {
+          "$tag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "cnstDomEnumDual",
+            "name": "EnumCnstDomEnumDual",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        }
+      ],
+      "name": "JustCnstDomEnumDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "RefCnstDomEnumDual": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "RefCnstDomEnumDual",
+          "type": {
+            "$tag": "_ObjBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_ObjBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "name": "RefCnstDomEnumDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "JustCnstDomEnumDual",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Domain"
+            }
+          },
+          "name": "type"
+        }
+      ]
+    }
+  }
+}

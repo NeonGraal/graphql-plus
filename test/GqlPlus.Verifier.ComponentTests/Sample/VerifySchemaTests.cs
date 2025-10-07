@@ -1,4 +1,5 @@
 ﻿using GqlPlus.Abstractions.Schema;
+using GqlPlus.Merging;
 using GqlPlus.Result;
 using GqlPlus.Verifying;
 using Microsoft.Extensions.Logging;
@@ -8,6 +9,7 @@ namespace GqlPlus.Sample;
 public class VerifySchemaTests(
   ILoggerFactory logger,
   ISchemaParseChecks checks,
+  IMerge<IGqlpSchema> schemaMerger,
   IVerify<IGqlpSchema> schemaVerifier
 ) : TestSchemaResult(logger, checks)
 
@@ -20,9 +22,12 @@ public class VerifySchemaTests(
       error.Message.ShouldBeNull(section.Prefixed(" ") + test);
     }
 
+    // .SkipIf(test == SchemaValidData.SpecDefinition)?;
+    IEnumerable<IGqlpSchema> merged = schemaMerger.Merge([result.Required()]);
+
     Messages errors = [];
 
-    schemaVerifier.Verify(result.Required(), errors);
+    schemaVerifier.Verify(merged.First(), errors);
 
     await CheckErrors(dirs, test, errors, true);
   }
@@ -31,6 +36,7 @@ public class VerifySchemaTests(
   {
     Messages errors = [];
     if (result.IsOk()) {
+      // IEnumerable<IGqlpSchema> merged = schemaMerger.Merge([result.Required()]);
       schemaVerifier.Verify(result.Required(), errors);
     } else {
       result.IsError(e => errors.Add(e with { Message = "Parse Error: " + e.Message }));

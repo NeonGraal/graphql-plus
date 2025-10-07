@@ -5,12 +5,12 @@ namespace GqlPlus.Schema.Objects;
 
 public class OutputModelTests(
   IOutputModelChecks checks
-) : TestObjectModel<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate, TypeOutputModel>(checks)
+) : TestObjectModel<IGqlpOutputObject, IGqlpOutputField, TypeOutputModel>(checks)
 { }
 
 internal sealed class OutputModelChecks(
   CheckTypeInputs<IGqlpOutputObject, TypeOutputModel> inputs
-) : CheckObjectModel<IGqlpOutputObject, OutputDeclAst, IGqlpOutputField, OutputFieldAst, IGqlpOutputAlternate, OutputAlternateAst, IGqlpOutputBase, IGqlpOutputArg, TypeOutputModel>(inputs, TypeKindModel.Output)
+) : CheckObjectModel<IGqlpOutputObject, OutputDeclAst, IGqlpOutputField, OutputFieldAst, TypeOutputModel>(inputs, TypeKindModel.Output)
   , IOutputModelChecks
 {
   protected override OutputDeclAst NewObjectAst(ExpectedObjectInput input, IGqlpObjBase? parent = null)
@@ -19,13 +19,13 @@ internal sealed class OutputModelChecks(
       Parent = parent ?? NewParentAst(input.Parent),
       TypeParams = input.TypeParams.TypeParams(),
       ObjFields = input.Fields.OutputFields(),
-      ObjAlternates = input.Alternates.OutputAlternates(),
+      Alternates = input.Alternates.ObjAlts(),
     };
 
-  internal override IGqlpOutputBase? NewParentAst(string? input)
-    => string.IsNullOrWhiteSpace(input) ? null : new OutputBaseAst(AstNulls.At, input!);
+  internal override IGqlpObjBase? NewParentAst(string? input)
+    => string.IsNullOrWhiteSpace(input) ? null : new ObjBaseAst(AstNulls.At, input, "");
 }
 
 public interface IOutputModelChecks
-  : ICheckObjectModel<IGqlpOutputObject, IGqlpOutputBase, IGqlpOutputField, IGqlpOutputAlternate, TypeOutputModel>
+  : ICheckObjectModel<IGqlpOutputObject, IGqlpOutputField, TypeOutputModel>
 { }

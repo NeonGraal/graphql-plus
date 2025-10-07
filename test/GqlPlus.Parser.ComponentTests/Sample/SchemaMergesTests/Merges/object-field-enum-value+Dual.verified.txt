@@ -1,0 +1,16 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Du I@006/0001
+  ObjFieldEnumValueDual
+  {
+    !DF I@030/0001
+    field
+    =
+    I@038/0001
+    Boolean
+    .true
+  }
+}
+]

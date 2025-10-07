@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Encoding.Objects;
 
 public class OutputFieldEncoderTests
-  : ObjectBaseEncoderBase<OutputFieldModel, OutputBaseModel>
+  : ObjectBaseEncoderBase<OutputFieldModel, ObjBaseModel>
 {
   private readonly IEncoder<ModifierModel> _modifer;
   private readonly IEncoder<OutputEnumModel> _outputEnum;
@@ -22,7 +22,7 @@ public class OutputFieldEncoderTests
   public void Encode_WithValidModel_ReturnsStructured(string name, string output, string contents)
   {
     // Arrange
-    OutputBaseModel outputBase = new(output, "");
+    ObjBaseModel outputBase = new(output, "");
     ObjBase.Encode(outputBase).Returns(new Structured(output));
 
     // Act & Accept

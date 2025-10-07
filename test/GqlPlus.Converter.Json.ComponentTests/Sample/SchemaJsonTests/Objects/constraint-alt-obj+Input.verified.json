@@ -6,10 +6,10 @@
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_InputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "PrntCnstAltObjInp",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -20,7 +20,7 @@
           "name": "alt",
           "object": "AltCnstAltObjInp",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
@@ -30,14 +30,14 @@
           "$tag": "_InputField",
           "name": "alt",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "name": "AltCnstAltObjInp",
       "parent": {
-        "$tag": "_InputBase",
+        "$tag": "_ObjBase",
         "name": "PrntCnstAltObjInp"
       },
       "typeKind": {
@@ -49,14 +49,14 @@
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_InputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "CnstAltObjInp",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "RefCnstAltObjInp",
             "typeArgs": [
               {
-                "$tag": "_InputArg",
+                "$tag": "_ObjTypeArg",
                 "name": "AltCnstAltObjInp"
               }
             ]
@@ -65,13 +65,13 @@
       ],
       "alternates": [
         {
-          "$tag": "_InputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "RefCnstAltObjInp",
             "typeArgs": [
               {
-                "$tag": "_InputArg",
+                "$tag": "_ObjTypeArg",
                 "name": "AltCnstAltObjInp"
               }
             ]
@@ -88,19 +88,19 @@
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_InputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "PrntCnstAltObjInp",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_InputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -115,19 +115,19 @@
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_InputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "RefCnstAltObjInp",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "typeParam": "ref"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_InputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "typeParam": "ref"
           }
         }

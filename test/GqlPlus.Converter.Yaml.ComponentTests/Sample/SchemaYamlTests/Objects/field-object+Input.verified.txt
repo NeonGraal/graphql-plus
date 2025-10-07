@@ -5,35 +5,35 @@ types: !_Map_Type
     - !_ObjectFor(_InputField)
       name: field
       object: FieldObjInp
-      type: !_InputBase
+      type: !_ObjBase
         name: FldFieldObjInp
     fields:
     - !_InputField
       name: field
-      type: !_InputBase
+      type: !_ObjBase
         name: FldFieldObjInp
     name: FieldObjInp
     typeKind: !_TypeKind Input
   !_Identifier FldFieldObjInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: FldFieldObjInp
-      type: !_InputBase
+      type: !_ObjBase
         name: String
     allFields:
     - !_ObjectFor(_InputField)
       name: field
       object: FldFieldObjInp
-      type: !_InputBase
+      type: !_ObjBase
         name: Number
     alternates:
-    - !_InputAlternate
-      type: !_InputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: String
     fields:
     - !_InputField
       name: field
-      type: !_InputBase
+      type: !_ObjBase
         name: Number
     name: FldFieldObjInp
     typeKind: !_TypeKind Input

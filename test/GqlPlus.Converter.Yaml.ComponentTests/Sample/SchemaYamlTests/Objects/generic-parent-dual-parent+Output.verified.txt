@@ -1,39 +1,43 @@
 ﻿!_Schema
+errors:
+- !_Error
+  _kind: !_TokenKind End
+  _message: In RefGnrcPrntDualPrntOutp can't get model for type 'AltGnrcPrntDualPrntOutp'
 types: !_Map_Type
   !_Identifier AltGnrcPrntDualPrntOutp: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_DualAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: AltGnrcPrntDualPrntOutp
-      type: !_DualBase
+      type: !_ObjBase
         name: String
     allFields:
     - !_ObjectFor(_DualField)
       name: alt
       object: AltGnrcPrntDualPrntOutp
-      type: !_DualBase
+      type: !_ObjBase
         name: Number
     alternates:
-    - !_DualAlternate
-      type: !_DualBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: String
     fields:
     - !_DualField
       name: alt
-      type: !_DualBase
+      type: !_ObjBase
         name: Number
     name: AltGnrcPrntDualPrntOutp
     typeKind: !_TypeKind Dual
   !_Identifier GnrcPrntDualPrntOutp: !_TypeOutput
     name: GnrcPrntDualPrntOutp
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: RefGnrcPrntDualPrntOutp
       typeArgs:
-      - !_DualArg
+      - !_ObjTypeArg
         name: AltGnrcPrntDualPrntOutp
     typeKind: !_TypeKind Output
   !_Identifier RefGnrcPrntDualPrntOutp: !_TypeOutput
     name: RefGnrcPrntDualPrntOutp
-    parent: !_OutputBase
+    parent: !_ObjBase
       typeParam: ref
     typeKind: !_TypeKind Output
     typeParams:

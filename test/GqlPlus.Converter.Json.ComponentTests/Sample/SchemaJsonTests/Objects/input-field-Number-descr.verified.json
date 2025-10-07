@@ -11,7 +11,7 @@
           "name": "field",
           "object": "InpFieldNmbrDescr",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "description": "Test Descr",
             "name": "Number"
           }
@@ -23,7 +23,7 @@
           "default": 42,
           "name": "field",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "description": "Test Descr",
             "name": "Number"
           }

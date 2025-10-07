@@ -67,6 +67,7 @@ public class UsageContext(
 internal record struct SelfUsage<TAst>(List<string> Chain, TAst Usage, string Label)
   where TAst : IGqlpType
 {
+  internal TypeKind Kind { get; } = Usage.Kind;
   internal readonly string? Current => Chain.FirstOrDefault();
   internal readonly bool DifferentName
   {

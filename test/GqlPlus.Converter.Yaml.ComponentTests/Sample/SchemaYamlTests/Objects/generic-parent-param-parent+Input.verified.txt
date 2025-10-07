@@ -2,49 +2,49 @@
 types: !_Map_Type
   !_Identifier AltGnrcPrntParamPrntInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: AltGnrcPrntParamPrntInp
-      type: !_InputBase
+      type: !_ObjBase
         name: String
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
       object: AltGnrcPrntParamPrntInp
-      type: !_InputBase
+      type: !_ObjBase
         name: Number
     alternates:
-    - !_InputAlternate
-      type: !_InputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: String
     fields:
     - !_InputField
       name: alt
-      type: !_InputBase
+      type: !_ObjBase
         name: Number
     name: AltGnrcPrntParamPrntInp
     typeKind: !_TypeKind Input
   !_Identifier GnrcPrntParamPrntInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: AltGnrcPrntParamPrntInp
-      type: !_InputBase
+      type: !_ObjBase
         name: String
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
       object: AltGnrcPrntParamPrntInp
-      type: !_InputBase
+      type: !_ObjBase
         name: Number
     name: GnrcPrntParamPrntInp
-    parent: !_InputBase
+    parent: !_ObjBase
       name: RefGnrcPrntParamPrntInp
       typeArgs:
-      - !_InputArg
+      - !_ObjTypeArg
         name: AltGnrcPrntParamPrntInp
     typeKind: !_TypeKind Input
   !_Identifier RefGnrcPrntParamPrntInp: !_TypeInput
     name: RefGnrcPrntParamPrntInp
-    parent: !_InputBase
+    parent: !_ObjBase
       typeParam: ref
     typeKind: !_TypeKind Input
     typeParams:

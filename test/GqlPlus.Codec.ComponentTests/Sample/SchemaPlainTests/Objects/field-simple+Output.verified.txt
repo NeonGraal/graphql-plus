@@ -5,12 +5,12 @@ types: !_Map_Type
       - !_ObjectFor(_OutputField)
         name: field
         object: FieldSmplOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: Number
     fields:
       - !_OutputField
         name: field
-        type: !_OutputBase
+        type: !_ObjBase
           name: Number
     name: FieldSmplOutp
     typeKind: !_TypeKind Output

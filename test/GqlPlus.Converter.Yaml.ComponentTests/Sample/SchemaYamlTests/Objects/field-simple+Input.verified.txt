@@ -5,12 +5,12 @@ types: !_Map_Type
     - !_ObjectFor(_InputField)
       name: field
       object: FieldSmplInp
-      type: !_InputBase
+      type: !_ObjBase
         name: Number
     fields:
     - !_InputField
       name: field
-      type: !_InputBase
+      type: !_ObjBase
         name: Number
     name: FieldSmplInp
     typeKind: !_TypeKind Input

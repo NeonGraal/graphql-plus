@@ -6,13 +6,13 @@ types: !_Map_Type
       modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
       name: field
       object: FieldModParamInp
-      type: !_InputBase
+      type: !_ObjBase
         name: FldFieldModParamInp
     fields:
     - !_InputField
       modifiers: [!_ModifierTypeParam {by: mod, modifierKind: !_ModifierKind Param}]
       name: field
-      type: !_InputBase
+      type: !_ObjBase
         name: FldFieldModParamInp
     name: FieldModParamInp
     typeKind: !_TypeKind Input
@@ -24,24 +24,24 @@ types: !_Map_Type
       name: mod
   !_Identifier FldFieldModParamInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: FldFieldModParamInp
-      type: !_InputBase
+      type: !_ObjBase
         name: String
     allFields:
     - !_ObjectFor(_InputField)
       name: field
       object: FldFieldModParamInp
-      type: !_InputBase
+      type: !_ObjBase
         name: Number
     alternates:
-    - !_InputAlternate
-      type: !_InputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: String
     fields:
     - !_InputField
       name: field
-      type: !_InputBase
+      type: !_ObjBase
         name: Number
     name: FldFieldModParamInp
     typeKind: !_TypeKind Input

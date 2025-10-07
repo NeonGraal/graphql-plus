@@ -11,6 +11,14 @@ public static class SchemaBuilderHelpers
     result.Aliases.Returns(aliases);
     return result;
   }
+  public static T Aliased<T, T1>(this IMockBuilder builder, string name, string[] aliases, string description = "")
+    where T : class, T1
+    where T1 : class, IGqlpAliased
+  {
+    T result = builder.Named<T>(name, description);
+    result.Aliases.Returns(aliases);
+    return result;
+  }
 
   public static T Descr<T>(this IMockBuilder builder, string description)
     where T : class, IGqlpDescribed
@@ -22,7 +30,7 @@ public static class SchemaBuilderHelpers
 
   public static IGqlpInputParam InputParam(this IMockBuilder builder, string type, bool isTypeParam = false)
   {
-    IGqlpInputBase typeBase = builder.InputBase(type, isTypeParam);
+    IGqlpObjBase typeBase = builder.ObjBase(type, isTypeParam);
     IGqlpInputParam input = builder.Error<IGqlpInputParam>();
     input.Type.Returns(typeBase);
     return input;

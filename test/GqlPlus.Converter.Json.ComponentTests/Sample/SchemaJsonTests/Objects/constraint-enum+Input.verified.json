@@ -1,0 +1,119 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "CnstEnumInp": {
+      "$tag": "_TypeInput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "CnstEnumInp",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "RefCnstEnumInp",
+            "typeArgs": [
+              {
+                "$tag": "_EnumValue",
+                "label": "cnstEnumInp",
+                "name": "EnumCnstEnumInp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_ObjAlternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "RefCnstEnumInp",
+            "typeArgs": [
+              {
+                "$tag": "_EnumValue",
+                "label": "cnstEnumInp",
+                "name": "EnumCnstEnumInp",
+                "typeKind": {
+                  "$tag": "_SimpleKind",
+                  "value": "Enum"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "name": "CnstEnumInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "EnumCnstEnumInp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumCnstEnumInp",
+          "name": "cnstEnumInp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "cnstEnumInp"
+        }
+      ],
+      "name": "EnumCnstEnumInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "RefCnstEnumInp": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "RefCnstEnumInp",
+          "type": {
+            "$tag": "_ObjBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_ObjBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "name": "RefCnstEnumInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "EnumCnstEnumInp",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Enum"
+            }
+          },
+          "name": "type"
+        }
+      ]
+    }
+  }
+}

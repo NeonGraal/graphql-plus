@@ -6,10 +6,10 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_DualAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "AltDescrDual",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "description": "Test Descr",
             "name": "String"
           }
@@ -17,9 +17,9 @@
       ],
       "alternates": [
         {
-          "$tag": "_DualAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "description": "Test Descr",
             "name": "String"
           }

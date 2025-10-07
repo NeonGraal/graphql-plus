@@ -6,10 +6,10 @@
       "$tag": "_TypeDual",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_DualAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "AltGnrcAltDualOutp",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -20,16 +20,16 @@
           "name": "alt",
           "object": "AltGnrcAltDualOutp",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_DualAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -39,7 +39,7 @@
           "$tag": "_DualField",
           "name": "alt",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
@@ -54,14 +54,14 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "GnrcAltDualOutp",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "RefGnrcAltDualOutp",
             "typeArgs": [
               {
-                "$tag": "_DualArg",
+                "$tag": "_ObjTypeArg",
                 "name": "AltGnrcAltDualOutp"
               }
             ]
@@ -70,13 +70,13 @@
       ],
       "alternates": [
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "RefGnrcAltDualOutp",
             "typeArgs": [
               {
-                "$tag": "_DualArg",
+                "$tag": "_ObjTypeArg",
                 "name": "AltGnrcAltDualOutp"
               }
             ]
@@ -93,19 +93,19 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "RefGnrcAltDualOutp",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "ref"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "typeParam": "ref"
           }
         }

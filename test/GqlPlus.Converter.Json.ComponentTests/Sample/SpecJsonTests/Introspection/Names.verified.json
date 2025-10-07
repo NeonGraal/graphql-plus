@@ -1,5 +1,15 @@
 ﻿{
   "$tag": "_Schema",
+  "errors": [
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _AndType can\u0027t get model for type \u0027_Named\u0027"
+    }
+  ],
   "types": {
     "$tag": "_Map_Type",
     "_Aliased": {
@@ -19,7 +29,7 @@
           "name": "description",
           "object": "_Described",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         },
@@ -28,7 +38,7 @@
           "name": "name",
           "object": "_Named",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         },
@@ -46,7 +56,7 @@
           "name": "aliases",
           "object": "_Aliased",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
@@ -65,14 +75,14 @@
           ],
           "name": "aliases",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
       ],
       "name": "_Aliased",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "_Named"
       },
       "typeKind": {
@@ -84,57 +94,30 @@
       "$tag": "_TypeOutput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_OutputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "_AndType",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Type"
           }
         }
       ],
       "allFields": [
         {
-          "$tag": "_ObjectFor(_DualField)",
-          "modifiers": [
-            {
-              "$tag": "_Modifier",
-              "modifierKind": {
-                "$tag": "_ModifierKind",
-                "value": "List"
-              }
-            }
-          ],
-          "name": "description",
-          "object": "_Described",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "String"
-          }
-        },
-        {
-          "$tag": "_ObjectFor(_DualField)",
-          "name": "name",
-          "object": "_Named",
-          "type": {
-            "$tag": "_DualBase",
-            "name": "_Identifier"
-          }
-        },
-        {
           "$tag": "_ObjectFor(_OutputField)",
           "name": "type",
           "object": "_AndType",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Type"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_OutputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Type"
           }
         }
@@ -144,14 +127,14 @@
           "$tag": "_OutputField",
           "name": "type",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "_Type"
           }
         }
       ],
       "name": "_AndType",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "_Named"
       },
       "typeKind": {
@@ -176,7 +159,7 @@
           "name": "description",
           "object": "_Described",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -195,7 +178,7 @@
           ],
           "name": "description",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -223,7 +206,7 @@
           "name": "description",
           "object": "_Described",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         },
@@ -232,7 +215,7 @@
           "name": "name",
           "object": "_Named",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
@@ -242,14 +225,14 @@
           "$tag": "_DualField",
           "name": "name",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "name": "_Identifier"
           }
         }
       ],
       "name": "_Named",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "_Described"
       },
       "typeKind": {

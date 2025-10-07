@@ -35,10 +35,10 @@
       "$tag": "_TypeInput",
       "allAlternates": [
         {
-          "$tag": "_ObjectFor(_InputAlternate)",
+          "$tag": "_ObjectFor(_ObjAlternate)",
           "object": "InOutpParamModDmn",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -49,16 +49,16 @@
           "name": "param",
           "object": "InOutpParamModDmn",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
       ],
       "alternates": [
         {
-          "$tag": "_InputAlternate",
+          "$tag": "_ObjAlternate",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -68,7 +68,7 @@
           "$tag": "_InputField",
           "name": "param",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "Number"
           }
         }
@@ -107,7 +107,7 @@
             }
           ],
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "DomOutpParamModDmn"
           }
         }
@@ -137,7 +137,7 @@
             }
           ],
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "DomOutpParamModDmn"
           }
         }

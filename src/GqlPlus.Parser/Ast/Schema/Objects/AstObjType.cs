@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Ast.Schema.Objects;
 
-internal abstract record class AstObjType(
+public abstract record class AstObjType(
   ITokenAt At,
   string Name,
   string Description
@@ -10,8 +10,6 @@ internal abstract record class AstObjType(
   , IGqlpObjType
 {
   public bool IsTypeParam { get; set; }
-
-  public abstract string Label { get; }
 
   public string TypeName => IsTypeParam ? Name.Prefixed("$") : Name;
 
@@ -26,5 +24,5 @@ internal abstract record class AstObjType(
   => HashCode.Combine(base.GetHashCode(), IsTypeParam);
 
   internal override IEnumerable<string?> GetFields()
-    => [Description.Quoted("'"), At.ToString(), TypeName];
+    => DescriptionAt.Append(TypeName);
 }

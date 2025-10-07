@@ -1,0 +1,1849 @@
+﻿{
+  "$tag": "_Schema",
+  "errors": [
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _TypeObject can\u0027t get model for type \u0027_ChildType\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _ObjTypeParam can\u0027t get model for type \u0027_Named\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _ObjBase can\u0027t get model for type \u0027_Named\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _ObjTypeArg can\u0027t get model for type \u0027_TypeRef\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _TypeParam can\u0027t get model for type \u0027_Described\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _ObjAlternateEnum can\u0027t get model for type \u0027_TypeRef\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _ObjField can\u0027t get model for type \u0027_Aliased\u0027"
+    },
+    {
+      "$tag": "_Error",
+      "_kind": {
+        "$tag": "_TokenKind",
+        "value": "End"
+      },
+      "_message": "In _ObjFieldEnum can\u0027t get model for type \u0027_TypeRef\u0027"
+    }
+  ],
+  "types": {
+    "$tag": "_Map_Type",
+    "_DualField": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "type",
+          "object": "_ObjField",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjFieldType"
+          }
+        }
+      ],
+      "name": "_DualField",
+      "parent": {
+        "$tag": "_ObjBase",
+        "name": "_ObjField",
+        "typeArgs": [
+          {
+            "$tag": "_ObjTypeArg",
+            "name": "_ObjFieldType"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_ForParam": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "_ForParam",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjAlternate"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "_ForParam",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjField",
+            "typeArgs": [
+              {
+                "$tag": "_ObjTypeArg",
+                "typeParam": "type"
+              }
+            ]
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_ObjAlternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjAlternate"
+          }
+        },
+        {
+          "$tag": "_ObjAlternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjField",
+            "typeArgs": [
+              {
+                "$tag": "_ObjTypeArg",
+                "typeParam": "type"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "_ForParam",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ObjFieldType",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "type"
+        }
+      ]
+    },
+    "_InputField": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "type",
+          "object": "_ObjField",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_InputFieldType"
+          }
+        }
+      ],
+      "name": "_InputField",
+      "parent": {
+        "$tag": "_ObjBase",
+        "name": "_ObjField",
+        "typeArgs": [
+          {
+            "$tag": "_ObjTypeArg",
+            "name": "_InputFieldType"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_InputFieldType": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "_ObjBase",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_TypeParam"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "_ObjFieldType",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjFieldEnum"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "typeArgs",
+          "object": "_ObjBase",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjTypeArg"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "modifiers",
+          "object": "_ObjFieldType",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_Modifiers"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "default",
+          "object": "_InputFieldType",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "Value"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "default",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "Value"
+          }
+        }
+      ],
+      "name": "_InputFieldType",
+      "parent": {
+        "$tag": "_ObjBase",
+        "name": "_ObjFieldType"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_InputParam": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "_ObjBase",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_TypeParam"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "_ObjFieldType",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjFieldEnum"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "typeArgs",
+          "object": "_ObjBase",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjTypeArg"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "modifiers",
+          "object": "_ObjFieldType",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_Modifiers"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "default",
+          "object": "_InputFieldType",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "Value"
+          }
+        }
+      ],
+      "name": "_InputParam",
+      "parent": {
+        "$tag": "_ObjBase",
+        "name": "_InputFieldType"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_ObjAlternate": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "_ObjAlternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjAlternateEnum"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "type",
+          "object": "_ObjAlternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjBase"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "collections",
+          "object": "_ObjAlternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_Collections"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_ObjAlternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjAlternateEnum"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "type",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjBase"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "collections",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_Collections"
+          }
+        }
+      ],
+      "name": "_ObjAlternate",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_ObjAlternateEnum": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "label",
+          "object": "_ObjAlternateEnum",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_Identifier"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "label",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_Identifier"
+          }
+        }
+      ],
+      "name": "_ObjAlternateEnum",
+      "parent": {
+        "$tag": "_ObjBase",
+        "name": "_TypeRef",
+        "typeArgs": [
+          {
+            "$tag": "_EnumValue",
+            "label": "Enum",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_ObjBase": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "_ObjBase",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_TypeParam"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "typeArgs",
+          "object": "_ObjBase",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjTypeArg"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_ObjAlternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_TypeParam"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "typeArgs",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjTypeArg"
+          }
+        }
+      ],
+      "name": "_ObjBase",
+      "parent": {
+        "$tag": "_ObjBase",
+        "name": "_Named"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_ObjectFor": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "object",
+          "object": "_ObjectFor",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_Identifier"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "object",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_Identifier"
+          }
+        }
+      ],
+      "name": "_ObjectFor",
+      "parent": {
+        "$tag": "_ObjBase",
+        "typeParam": "for"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ForParam",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "for"
+        }
+      ]
+    },
+    "_ObjectKind": {
+      "$tag": "_DomainEnum",
+      "allItems": [
+        {
+          "$tag": "_DomainItem(_DomainLabel)",
+          "domain": "_ObjectKind",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "Dual",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        },
+        {
+          "$tag": "_DomainItem(_DomainLabel)",
+          "domain": "_ObjectKind",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "Input",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        },
+        {
+          "$tag": "_DomainItem(_DomainLabel)",
+          "domain": "_ObjectKind",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "Output",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        }
+      ],
+      "domainKind": {
+        "$tag": "_DomainKind",
+        "value": "Enum"
+      },
+      "items": [
+        {
+          "$tag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "Dual",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        },
+        {
+          "$tag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "Input",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        },
+        {
+          "$tag": "_DomainLabel",
+          "exclude": false,
+          "value": {
+            "$tag": "_EnumValue",
+            "label": "Output",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        }
+      ],
+      "name": "_ObjectKind",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Domain"
+      }
+    },
+    "_ObjField": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "type",
+          "object": "_ObjField",
+          "type": {
+            "$tag": "_ObjBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "type",
+          "type": {
+            "$tag": "_ObjBase",
+            "typeParam": "type"
+          }
+        }
+      ],
+      "name": "_ObjField",
+      "parent": {
+        "$tag": "_ObjBase",
+        "name": "_Aliased"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ObjFieldType",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "type"
+        }
+      ]
+    },
+    "_ObjFieldEnum": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "label",
+          "object": "_ObjFieldEnum",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_Identifier"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "label",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_Identifier"
+          }
+        }
+      ],
+      "name": "_ObjFieldEnum",
+      "parent": {
+        "$tag": "_ObjBase",
+        "name": "_TypeRef",
+        "typeArgs": [
+          {
+            "$tag": "_EnumValue",
+            "label": "Enum",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_ObjFieldType": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "_ObjBase",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_TypeParam"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "_ObjFieldType",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjFieldEnum"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "typeArgs",
+          "object": "_ObjBase",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjTypeArg"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "modifiers",
+          "object": "_ObjFieldType",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_Modifiers"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_ObjAlternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjFieldEnum"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "modifiers",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_Modifiers"
+          }
+        }
+      ],
+      "name": "_ObjFieldType",
+      "parent": {
+        "$tag": "_ObjBase",
+        "name": "_ObjBase"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_ObjTypeArg": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "_ObjTypeArg",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_TypeParam"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "label",
+          "object": "_ObjTypeArg",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_Identifier"
+          }
+        }
+      ],
+      "alternates": [
+        {
+          "$tag": "_ObjAlternate",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_TypeParam"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "Opt"
+              }
+            }
+          ],
+          "name": "label",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_Identifier"
+          }
+        }
+      ],
+      "name": "_ObjTypeArg",
+      "parent": {
+        "$tag": "_ObjBase",
+        "name": "_TypeRef",
+        "typeArgs": [
+          {
+            "$tag": "_ObjTypeArg",
+            "name": "_TypeKind"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_ObjTypeParam": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "constraint",
+          "object": "_ObjTypeParam",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_TypeRef",
+            "typeArgs": [
+              {
+                "$tag": "_ObjTypeArg",
+                "name": "_TypeKind"
+              }
+            ]
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "constraint",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_TypeRef",
+            "typeArgs": [
+              {
+                "$tag": "_ObjTypeArg",
+                "name": "_TypeKind"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "_ObjTypeParam",
+      "parent": {
+        "$tag": "_ObjBase",
+        "name": "_Named"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_OutputField": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "type",
+          "object": "_ObjField",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjFieldType"
+          }
+        }
+      ],
+      "name": "_OutputField",
+      "parent": {
+        "$tag": "_ObjBase",
+        "name": "_ObjField",
+        "typeArgs": [
+          {
+            "$tag": "_ObjTypeArg",
+            "name": "_ObjFieldType"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_OutputFieldType": {
+      "$tag": "_TypeOutput",
+      "allAlternates": [
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "_ObjBase",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_TypeParam"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_ObjAlternate)",
+          "object": "_ObjFieldType",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjFieldEnum"
+          }
+        }
+      ],
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "typeArgs",
+          "object": "_ObjBase",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjTypeArg"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "modifiers",
+          "object": "_ObjFieldType",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_Modifiers"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "parameters",
+          "object": "_OutputFieldType",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_InputParam"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "parameters",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_InputParam"
+          }
+        }
+      ],
+      "name": "_OutputFieldType",
+      "parent": {
+        "$tag": "_ObjBase",
+        "name": "_ObjFieldType"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_TypeDual": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "typeParams",
+          "object": "_TypeObject",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjTypeParam"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "fields",
+          "object": "_TypeObject",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_DualField"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "alternates",
+          "object": "_TypeObject",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjAlternate"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "allFields",
+          "object": "_TypeObject",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjectFor",
+            "typeArgs": [
+              {
+                "$tag": "_ObjTypeArg",
+                "typeParam": "field"
+              }
+            ]
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "allAlternates",
+          "object": "_TypeObject",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjectFor",
+            "typeArgs": [
+              {
+                "$tag": "_ObjTypeArg",
+                "name": "_ObjAlternate"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "_TypeDual",
+      "parent": {
+        "$tag": "_ObjBase",
+        "name": "_TypeObject",
+        "typeArgs": [
+          {
+            "$tag": "_EnumValue",
+            "label": "Dual",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          },
+          {
+            "$tag": "_ObjTypeArg",
+            "name": "_DualField"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_TypeInput": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "typeParams",
+          "object": "_TypeObject",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjTypeParam"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "fields",
+          "object": "_TypeObject",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_InputField"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "alternates",
+          "object": "_TypeObject",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjAlternate"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "allFields",
+          "object": "_TypeObject",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjectFor",
+            "typeArgs": [
+              {
+                "$tag": "_ObjTypeArg",
+                "typeParam": "field"
+              }
+            ]
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "allAlternates",
+          "object": "_TypeObject",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjectFor",
+            "typeArgs": [
+              {
+                "$tag": "_ObjTypeArg",
+                "name": "_ObjAlternate"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "_TypeInput",
+      "parent": {
+        "$tag": "_ObjBase",
+        "name": "_TypeObject",
+        "typeArgs": [
+          {
+            "$tag": "_EnumValue",
+            "label": "Input",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          },
+          {
+            "$tag": "_ObjTypeArg",
+            "name": "_InputField"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_TypeObject": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "typeParams",
+          "object": "_TypeObject",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjTypeParam"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "fields",
+          "object": "_TypeObject",
+          "type": {
+            "$tag": "_ObjBase",
+            "typeParam": "field"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "alternates",
+          "object": "_TypeObject",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjAlternate"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "allFields",
+          "object": "_TypeObject",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjectFor",
+            "typeArgs": [
+              {
+                "$tag": "_ObjTypeArg",
+                "typeParam": "field"
+              }
+            ]
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "allAlternates",
+          "object": "_TypeObject",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjectFor",
+            "typeArgs": [
+              {
+                "$tag": "_ObjTypeArg",
+                "name": "_ObjAlternate"
+              }
+            ]
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "typeParams",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjTypeParam"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "fields",
+          "type": {
+            "$tag": "_ObjBase",
+            "typeParam": "field"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "alternates",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjAlternate"
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "allFields",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjectFor",
+            "typeArgs": [
+              {
+                "$tag": "_ObjTypeArg",
+                "typeParam": "field"
+              }
+            ]
+          }
+        },
+        {
+          "$tag": "_OutputField",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "allAlternates",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjectFor",
+            "typeArgs": [
+              {
+                "$tag": "_ObjTypeArg",
+                "name": "_ObjAlternate"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "_TypeObject",
+      "parent": {
+        "$tag": "_ObjBase",
+        "name": "_ChildType",
+        "typeArgs": [
+          {
+            "$tag": "_ObjTypeArg",
+            "typeParam": "kind"
+          },
+          {
+            "$tag": "_ObjTypeArg",
+            "name": "_ObjBase"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      },
+      "typeParams": [
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ObjectKind",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Domain"
+            }
+          },
+          "name": "kind"
+        },
+        {
+          "$tag": "_TypeParam",
+          "constraint": {
+            "$tag": "_TypeRef(_TypeKind)",
+            "name": "_ObjField",
+            "typeKind": {
+              "$tag": "_TypeKind",
+              "value": "Output"
+            }
+          },
+          "name": "field"
+        }
+      ]
+    },
+    "_TypeOutput": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "typeParams",
+          "object": "_TypeObject",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjTypeParam"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "fields",
+          "object": "_TypeObject",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_OutputField"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "alternates",
+          "object": "_TypeObject",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjAlternate"
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "allFields",
+          "object": "_TypeObject",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjectFor",
+            "typeArgs": [
+              {
+                "$tag": "_ObjTypeArg",
+                "typeParam": "field"
+              }
+            ]
+          }
+        },
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "modifiers": [
+            {
+              "$tag": "_Modifier",
+              "modifierKind": {
+                "$tag": "_ModifierKind",
+                "value": "List"
+              }
+            }
+          ],
+          "name": "allAlternates",
+          "object": "_TypeObject",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_ObjectFor",
+            "typeArgs": [
+              {
+                "$tag": "_ObjTypeArg",
+                "name": "_ObjAlternate"
+              }
+            ]
+          }
+        }
+      ],
+      "name": "_TypeOutput",
+      "parent": {
+        "$tag": "_ObjBase",
+        "name": "_TypeObject",
+        "typeArgs": [
+          {
+            "$tag": "_EnumValue",
+            "label": "Output",
+            "name": "_TypeKind",
+            "typeKind": {
+              "$tag": "_SimpleKind",
+              "value": "Enum"
+            }
+          },
+          {
+            "$tag": "_ObjTypeArg",
+            "name": "_OutputField"
+          }
+        ]
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    },
+    "_TypeParam": {
+      "$tag": "_TypeOutput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_OutputField)",
+          "name": "typeParam",
+          "object": "_TypeParam",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_Identifier"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_OutputField",
+          "name": "typeParam",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "_Identifier"
+          }
+        }
+      ],
+      "name": "_TypeParam",
+      "parent": {
+        "$tag": "_ObjBase",
+        "name": "_Described"
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Output"
+      }
+    }
+  }
+}

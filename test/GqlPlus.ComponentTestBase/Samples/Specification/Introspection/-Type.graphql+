@@ -1,0 +1,66 @@
+output _Type {
+    | _BaseType<_TypeKind.Basic>
+    | _BaseType<_TypeKind.Internal>
+    | _TypeDual
+    | _TypeEnum
+    | _TypeInput
+    | _TypeOutput
+    | _TypeDomain
+    | _TypeUnion
+    }
+
+output _BaseType<$kind:_TypeKind> {
+    : _Aliased
+        typeKind: $kind
+    }
+
+output _ChildType<$kind:_TypeKind $parent:_Described> {
+    : _BaseType<$kind>
+        parent: $parent
+    }
+
+output _ParentType<$kind:_TypeKind $item:_Described $allItem:_Described> {
+    : _ChildType<$kind _Named>
+        items: $item[]
+        allItems: $allItem[]
+    }
+
+enum _SimpleKind { Basic Enum Internal Domain Union }
+
+enum _TypeKind { :_SimpleKind Dual Input Output }
+
+dual _TypeRef<$kind:_TypeKind> {
+    : _Named
+        typeKind: $kind
+}
+
+dual _TypeSimple {
+    | _TypeRef<_TypeKind.Basic>
+    | _TypeRef<_TypeKind.Enum>
+    | _TypeRef<_TypeKind.Domain>
+    | _TypeRef<_TypeKind.Union>
+    }
+
+dual _Collections {
+    | _Modifier<_ModifierKind.List>
+    | _ModifierKeyed<_ModifierKind.Dictionary>
+    | _ModifierKeyed<_ModifierKind.TypeParam>
+    }
+
+dual _ModifierKeyed<$kind:_ModifierKind> {
+    : _Modifier<$kind>
+        by: _TypeSimple
+        optional: Boolean
+    }
+
+dual _Modifiers {
+    | _Modifier<_ModifierKind.Optional>
+    | _Collections
+    }
+
+enum _ModifierKind { Opt[Optional] List Dict[Dictionary] Param[TypeParam] }
+
+dual _Modifier<$kind:_ModifierKind> {
+        modifierKind: $kind
+    }
+

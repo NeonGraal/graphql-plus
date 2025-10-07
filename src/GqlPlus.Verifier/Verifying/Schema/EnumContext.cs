@@ -1,5 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-
+using System.Runtime.CompilerServices;
 using GqlPlus.Abstractions.Schema;
 
 namespace GqlPlus.Verifying.Schema;
@@ -24,6 +24,22 @@ public class EnumContext(
     }
 
     return true;
+  }
+
+  internal void CheckEnumValue(string label, IGqlpObjectEnum output)
+  {
+    if (output.EnumValue is null) {
+      return;
+    }
+
+    string enumType = output.EnumValue.EnumType;
+    if (GetTyped(enumType, out IGqlpEnum? theType)) {
+      if (!GetEnumValueType(theType, output.EnumValue.EnumLabel, out IGqlpEnum? _)) {
+        AddError(output, $"Output {label} Enum Label", $"'{output.EnumValue.EnumLabel}' not a Label of '{enumType}'");
+      }
+    } else {
+      AddError(output, $"Output {label} Enum", $"'{enumType}' not an Enum type");
+    }
   }
 }
 

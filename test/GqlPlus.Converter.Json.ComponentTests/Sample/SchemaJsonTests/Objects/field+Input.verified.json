@@ -10,7 +10,7 @@
           "name": "field",
           "object": "FieldInp",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }
@@ -20,7 +20,7 @@
           "$tag": "_InputField",
           "name": "field",
           "type": {
-            "$tag": "_InputBase",
+            "$tag": "_ObjBase",
             "name": "String"
           }
         }

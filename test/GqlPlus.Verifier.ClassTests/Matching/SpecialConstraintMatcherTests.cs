@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Matching;
 
 public class SpecialConstraintMatcherTests
-  : MatcherTestsBase
+  : MatchTestsBase
 {
   private readonly SpecialConstraintMatcher _sut;
 

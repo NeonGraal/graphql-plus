@@ -2,46 +2,46 @@
 types: !_Map_Type
   !_Identifier AltAltModBoolOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: AltAltModBoolOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: String
     allFields:
       - !_ObjectFor(_OutputField)
         name: alt
         object: AltAltModBoolOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: Number
     alternates:
-      - !_OutputAlternate
-        type: !_OutputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           name: String
     fields:
       - !_OutputField
         name: alt
-        type: !_OutputBase
+        type: !_ObjBase
           name: Number
     name: AltAltModBoolOutp
     typeKind: !_TypeKind Output
   !_Identifier AltModBoolOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         collections:
           - !_ModifierDictionary
             by: ^
             modifierKind: !_ModifierKind Dict
             typeKind: !_SimpleKind Basic
         object: AltModBoolOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: AltAltModBoolOutp
     alternates:
-      - !_OutputAlternate
+      - !_ObjAlternate
         collections:
           - !_ModifierDictionary
             by: ^
             modifierKind: !_ModifierKind Dict
             typeKind: !_SimpleKind Basic
-        type: !_OutputBase
+        type: !_ObjBase
           name: AltAltModBoolOutp
     name: AltModBoolOutp
     typeKind: !_TypeKind Output

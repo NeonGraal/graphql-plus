@@ -2,13 +2,13 @@
 types: !_Map_Type
   !_Identifier GnrcAltInp: !_TypeInput
     allAlternates:
-      - !_ObjectFor(_InputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: GnrcAltInp
-        type: !_InputBase
+        type: !_ObjBase
           typeParam: type
     alternates:
-      - !_InputAlternate
-        type: !_InputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           typeParam: type
     name: GnrcAltInp
     typeKind: !_TypeKind Input

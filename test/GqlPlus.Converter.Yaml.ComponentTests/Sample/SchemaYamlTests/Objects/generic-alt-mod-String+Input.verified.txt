@@ -2,23 +2,23 @@
 types: !_Map_Type
   !_Identifier RefGnrcAltModStrInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       collections:
       - !_ModifierDictionary
         by: '*'
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Basic
       object: RefGnrcAltModStrInp
-      type: !_InputBase
+      type: !_ObjBase
         typeParam: ref
     alternates:
-    - !_InputAlternate
+    - !_ObjAlternate
       collections:
       - !_ModifierDictionary
         by: '*'
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Basic
-      type: !_InputBase
+      type: !_ObjBase
         typeParam: ref
     name: RefGnrcAltModStrInp
     typeKind: !_TypeKind Input

@@ -6,13 +6,13 @@ types: !_Map_Type
         default: 'default'
         name: field
         object: InpFieldStr
-        type: !_InputBase
+        type: !_ObjBase
           name: String
     fields:
       - !_InputField
         default: 'default'
         name: field
-        type: !_InputBase
+        type: !_ObjBase
           name: String
     name: InpFieldStr
     typeKind: !_TypeKind Input

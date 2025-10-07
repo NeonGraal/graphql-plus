@@ -1,0 +1,2 @@
+object Name { ! EnumName.name }
+enum EnumName { name }

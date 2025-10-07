@@ -10,7 +10,7 @@
           "name": "field",
           "object": "FieldTypeDescrDual",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "description": "Test Descr",
             "name": "Number"
           }
@@ -21,7 +21,7 @@
           "$tag": "_DualField",
           "name": "field",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "description": "Test Descr",
             "name": "Number"
           }

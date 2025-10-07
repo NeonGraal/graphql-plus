@@ -14,9 +14,6 @@ internal record class AstDomain<TItemAst, TItem>(
 {
   public TItem[] Items { get; set; } = [];
 
-  internal override string Abbr => "Do";
-  public override string Label => "Domain";
-
   IEnumerable<TItem> IGqlpSimple<TItem>.Items => Items;
 
   public AstDomain(ITokenAt at, string name, DomainKind kind, TItem[] items)
@@ -47,6 +44,8 @@ internal abstract record class AstDomain(
 ) : AstSimple(At, Name, Description)
   , IGqlpDomain
 {
+  public override TypeKind Kind => TypeKind.Domain;
+
   public virtual bool Equals(AstDomain? other)
     => other is IGqlpDomain domain && Equals(domain);
   public bool Equals(IGqlpDomain? other)

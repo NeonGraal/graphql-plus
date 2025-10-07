@@ -53,28 +53,26 @@ public abstract class AstObjectTests
   internal abstract IAstObjectChecks ObjectChecks { get; }
 }
 
-internal abstract class AstObjectChecks<TObjectAst, TObjBase, TObjField, TObjAlt>(
+internal abstract class AstObjectChecks<TObjectAst, TObjField>(
 BaseAstChecks<TObjectAst>.CreateBy<string> createInput,
 AstTypeChecks<TObjectAst, IGqlpObjBase>.ParentCreator createParent,
   [CallerArgumentExpression(nameof(createInput))] string createExpression = ""
 ) : AstTypeChecks<TObjectAst, IGqlpObjBase>(createInput, createParent, createExpression)
   , IAstObjectChecks
-  where TObjectAst : AstObject<TObjBase, TObjField, TObjAlt>
-  where TObjBase : IGqlpObjBase
+  where TObjectAst : AstObject<TObjField>
   where TObjField : IGqlpObjField
-  where TObjAlt : IGqlpObjAlternate
 {
   public void Equality_WithAlternates(string name, AlternateInput[] alternates)
-    => Equality(() => CreateInput(name) with { ObjAlternates = CreateAlternates(alternates) });
+    => Equality(() => CreateInput(name) with { Alternates = CreateAlternates(alternates) });
   public void HashCode_WithAlternates(string name, AlternateInput[] alternates)
-    => HashCode(() => CreateInput(name) with { ObjAlternates = CreateAlternates(alternates) });
+    => HashCode(() => CreateInput(name) with { Alternates = CreateAlternates(alternates) });
   public void Inequality_BetweenAlternates(string name, AlternateInput[] alternates1, AlternateInput[] alternates2)
     => InequalityBetween(alternates1, alternates2,
-      alternates => CreateInput(name) with { ObjAlternates = CreateAlternates(alternates) },
+      alternates => CreateInput(name) with { Alternates = CreateAlternates(alternates) },
       alternates1.OrderedEqual(alternates2));
   public void String_WithAlternates(string name, AlternateInput[] alternates)
     => Text(
-      () => CreateInput(name) with { ObjAlternates = CreateAlternates(alternates) },
+      () => CreateInput(name) with { Alternates = CreateAlternates(alternates) },
       $"( !{Abbr} {name} | {alternates.Joined(AlternateString)} )");
 
   public void HashCode_WithFields(string name, FieldInput[] fields)
@@ -105,7 +103,7 @@ AstTypeChecks<TObjectAst, IGqlpObjBase>.ParentCreator createParent,
       parameters => CreateInput(name) with { TypeParams = parameters.TypeParams() },
       typeParams1.SequenceEqual(typeParams2));
 
-  protected abstract TObjAlt[] CreateAlternates(IEnumerable<AlternateInput> alternates);
+  protected abstract IGqlpObjAlt[] CreateAlternates(IEnumerable<AlternateInput> alternates);
   protected string AlternateString(AlternateInput input)
     => $"{input.Type} [] ?";
 

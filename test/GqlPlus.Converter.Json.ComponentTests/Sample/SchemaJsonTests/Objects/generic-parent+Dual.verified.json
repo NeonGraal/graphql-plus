@@ -6,7 +6,7 @@
       "$tag": "_TypeDual",
       "name": "GnrcPrntDual",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "typeParam": "type"
       },
       "typeKind": {

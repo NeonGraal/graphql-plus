@@ -16,13 +16,13 @@ types: !_Map_Type
       default: inpFieldEnum
       name: field
       object: InpFieldEnum
-      type: !_InputBase
+      type: !_ObjBase
         name: EnumInpFieldEnum
     fields:
     - !_InputField
       default: inpFieldEnum
       name: field
-      type: !_InputBase
+      type: !_ObjBase
         name: EnumInpFieldEnum
     name: InpFieldEnum
     typeKind: !_TypeKind Input

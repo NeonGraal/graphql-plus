@@ -6,7 +6,7 @@ namespace GqlPlus.Matching;
 internal class DomainMatcher(
   ILoggerFactory logger,
   Matcher<IGqlpEnum>.D enumMatcher
-) : TypeMatcherBase<IGqlpDomain>(logger)
+) : MatchTypeBase<IGqlpDomain>(logger)
   , Matcher<IGqlpDomain>.I
   , ITypeMatcher
 {

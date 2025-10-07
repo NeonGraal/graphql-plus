@@ -16,13 +16,13 @@ types: !_Map_Type
         modifiers: [!_ModifierDictionary{by:EnumFieldModEnumOutp,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Enum}]
         name: field
         object: FieldModEnumOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: String
     fields:
       - !_OutputField
         modifiers: [!_ModifierDictionary{by:EnumFieldModEnumOutp,modifierKind:!_ModifierKind Dict,typeKind:!_SimpleKind Enum}]
         name: field
-        type: !_OutputBase
+        type: !_ObjBase
           name: String
     name: FieldModEnumOutp
     typeKind: !_TypeKind Output

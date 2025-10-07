@@ -37,4 +37,4 @@ if ($Generate -eq "Html") {
 
 dotnet @test
 
-./make-summary.ps1 -NoCoverage -Html:$Html -Framework $Framework -ClassTests:$ClassTests
+./make-summary.ps1 -NoCoverage -Html:$Html -Framework $Framework -ClassTests:$ClassTests -ShowFailures

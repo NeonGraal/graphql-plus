@@ -1,0 +1,594 @@
+﻿!_Schema
+errors:
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _DomainRef can't get model for type '_TypeRef'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _BaseDomain can't get model for type '_ParentType'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _BaseDomainItem can't get model for type '_Described'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _DomainItem can't get model for type '_DomainTrueFalse'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _DomainLabel can't get model for type '_BaseDomainItem'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _DomainItem can't get model for type '_DomainRange'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _DomainItem can't get model for type '_DomainRegex'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _TypeEnum can't get model for type '_ParentType'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _EnumLabel can't get model for type '_Aliased'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _EnumValue can't get model for type '_TypeRef'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _TypeUnion can't get model for type '_ParentType'
+- !_Error
+  _kind: !_TokenKind End
+  _message: In _UnionRef can't get model for type '_TypeRef'
+types: !_Map_Type
+  !_Identifier _BaseDomain: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: domainKind
+      object: _BaseDomain
+      type: !_ObjBase
+        typeParam: domain
+    fields:
+    - !_OutputField
+      name: domainKind
+      type: !_ObjBase
+        typeParam: domain
+    name: _BaseDomain
+    parent: !_ObjBase
+      name: _ParentType
+      typeArgs:
+      - !_EnumValue
+        label: Domain
+        name: _TypeKind
+        typeKind: !_SimpleKind Enum
+      - !_ObjTypeArg
+        typeParam: item
+      - !_ObjTypeArg
+        typeParam: domainItem
+    typeKind: !_TypeKind Output
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _DomainKind
+        typeKind: !_TypeKind Enum
+      name: domain
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _BaseDomainItem
+        typeKind: !_TypeKind Dual
+      name: item
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _DomainItem
+        typeKind: !_TypeKind Output
+      name: domainItem
+  !_Identifier _BaseDomainItem: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: exclude
+      object: _BaseDomainItem
+      type: !_ObjBase
+        name: Boolean
+    fields:
+    - !_DualField
+      name: exclude
+      type: !_ObjBase
+        name: Boolean
+    name: _BaseDomainItem
+    parent: !_ObjBase
+      name: _Described
+    typeKind: !_TypeKind Dual
+  !_Identifier _BasicValue: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_ObjAlternate)
+      object: _BasicValue
+      type: !_ObjBase
+        name: _DomainKind
+    - !_ObjectFor(_ObjAlternate)
+      object: _BasicValue
+      type: !_ObjBase
+        name: _EnumValue
+    - !_ObjectFor(_ObjAlternate)
+      object: _BasicValue
+      type: !_ObjBase
+        name: _DomainKind
+    - !_ObjectFor(_ObjAlternate)
+      object: _BasicValue
+      type: !_ObjBase
+        name: _DomainKind
+    alternates:
+    - !_ObjAlternate
+      type: !_ObjBase
+        name: _DomainKind
+    - !_ObjAlternate
+      type: !_ObjBase
+        name: _EnumValue
+    - !_ObjAlternate
+      type: !_ObjBase
+        name: _DomainKind
+    - !_ObjAlternate
+      type: !_ObjBase
+        name: _DomainKind
+    name: _BasicValue
+    typeKind: !_TypeKind Output
+  !_Identifier _DomainItem: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: domain
+      object: _DomainItem
+      type: !_ObjBase
+        name: _Identifier
+    fields:
+    - !_OutputField
+      name: domain
+      type: !_ObjBase
+        name: _Identifier
+    name: _DomainItem
+    parent: !_ObjBase
+      typeParam: item
+    typeKind: !_TypeKind Output
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _BaseDomainItem
+        typeKind: !_TypeKind Dual
+      name: item
+  !_Identifier _DomainItemLabel: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: label
+      object: _DomainLabel
+      type: !_ObjBase
+        name: _EnumValue
+    - !_ObjectFor(_OutputField)
+      name: domain
+      object: _DomainItem
+      type: !_ObjBase
+        name: _Identifier
+    name: _DomainItemLabel
+    parent: !_ObjBase
+      name: _DomainItem
+      typeArgs:
+      - !_ObjTypeArg
+        name: _DomainLabel
+    typeKind: !_TypeKind Output
+  !_Identifier _DomainItemRange: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: domain
+      object: _DomainItem
+      type: !_ObjBase
+        name: _Identifier
+    name: _DomainItemRange
+    parent: !_ObjBase
+      name: _DomainItem
+      typeArgs:
+      - !_ObjTypeArg
+        name: _DomainRange
+    typeKind: !_TypeKind Output
+  !_Identifier _DomainItemRegex: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: domain
+      object: _DomainItem
+      type: !_ObjBase
+        name: _Identifier
+    name: _DomainItemRegex
+    parent: !_ObjBase
+      name: _DomainItem
+      typeArgs:
+      - !_ObjTypeArg
+        name: _DomainRegex
+    typeKind: !_TypeKind Output
+  !_Identifier _DomainItemTrueFalse: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: domain
+      object: _DomainItem
+      type: !_ObjBase
+        name: _Identifier
+    name: _DomainItemTrueFalse
+    parent: !_ObjBase
+      name: _DomainItem
+      typeArgs:
+      - !_ObjTypeArg
+        name: _DomainTrueFalse
+    typeKind: !_TypeKind Output
+  !_Identifier _DomainKind: !_TypeEnum
+    allItems:
+    - !_EnumLabel
+      enum: _DomainKind
+      name: Boolean
+    - !_EnumLabel
+      enum: _DomainKind
+      name: Enum
+    - !_EnumLabel
+      enum: _DomainKind
+      name: Number
+    - !_EnumLabel
+      enum: _DomainKind
+      name: String
+    items:
+    - !_Aliased
+      name: Boolean
+    - !_Aliased
+      name: Enum
+    - !_Aliased
+      name: Number
+    - !_Aliased
+      name: String
+    name: _DomainKind
+    typeKind: !_TypeKind Enum
+  !_Identifier _DomainLabel: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: label
+      object: _DomainLabel
+      type: !_ObjBase
+        name: _EnumValue
+    fields:
+    - !_OutputField
+      name: label
+      type: !_ObjBase
+        name: _EnumValue
+    name: _DomainLabel
+    parent: !_ObjBase
+      name: _BaseDomainItem
+    typeKind: !_TypeKind Output
+  !_Identifier _DomainRange: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: exclude
+      object: _BaseDomainItem
+      type: !_ObjBase
+        name: Boolean
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: lower
+      object: _DomainRange
+      type: !_ObjBase
+        name: Number
+    - !_ObjectFor(_DualField)
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: upper
+      object: _DomainRange
+      type: !_ObjBase
+        name: Number
+    fields:
+    - !_DualField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: lower
+      type: !_ObjBase
+        name: Number
+    - !_DualField
+      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
+      name: upper
+      type: !_ObjBase
+        name: Number
+    name: _DomainRange
+    parent: !_ObjBase
+      name: _BaseDomainItem
+    typeKind: !_TypeKind Dual
+  !_Identifier _DomainRef: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: domainKind
+      object: _DomainRef
+      type: !_ObjBase
+        typeParam: kind
+    fields:
+    - !_OutputField
+      name: domainKind
+      type: !_ObjBase
+        typeParam: kind
+    name: _DomainRef
+    parent: !_ObjBase
+      name: _TypeRef
+      typeArgs:
+      - !_EnumValue
+        label: Domain
+        name: _TypeKind
+        typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Output
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _DomainKind
+        typeKind: !_TypeKind Enum
+      name: kind
+  !_Identifier _DomainRegex: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: exclude
+      object: _BaseDomainItem
+      type: !_ObjBase
+        name: Boolean
+    - !_ObjectFor(_DualField)
+      name: pattern
+      object: _DomainRegex
+      type: !_ObjBase
+        name: String
+    fields:
+    - !_DualField
+      name: pattern
+      type: !_ObjBase
+        name: String
+    name: _DomainRegex
+    parent: !_ObjBase
+      name: _BaseDomainItem
+    typeKind: !_TypeKind Dual
+  !_Identifier _DomainTrueFalse: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: exclude
+      object: _BaseDomainItem
+      type: !_ObjBase
+        name: Boolean
+    - !_ObjectFor(_DualField)
+      name: value
+      object: _DomainTrueFalse
+      type: !_ObjBase
+        name: Boolean
+    fields:
+    - !_DualField
+      name: value
+      type: !_ObjBase
+        name: Boolean
+    name: _DomainTrueFalse
+    parent: !_ObjBase
+      name: _BaseDomainItem
+    typeKind: !_TypeKind Dual
+  !_Identifier _DomainValue: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_ObjAlternate)
+      object: _DomainValue
+      type: !_ObjBase
+        typeParam: value
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: domainKind
+      object: _DomainRef
+      type: !_ObjBase
+        typeParam: kind
+    - !_ObjectFor(_OutputField)
+      name: value
+      object: _DomainValue
+      type: !_ObjBase
+        typeParam: value
+    alternates:
+    - !_ObjAlternate
+      type: !_ObjBase
+        typeParam: value
+    fields:
+    - !_OutputField
+      name: value
+      type: !_ObjBase
+        typeParam: value
+    name: _DomainValue
+    parent: !_ObjBase
+      name: _DomainRef
+      typeArgs:
+      - !_ObjTypeArg
+        typeParam: kind
+    typeKind: !_TypeKind Output
+    typeParams:
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _DomainKind
+        typeKind: !_TypeKind Enum
+      name: kind
+    - !_TypeParam
+      constraint: !_TypeRef(_TypeKind)
+        name: _BasicValue
+        typeKind: !_TypeKind Output
+      name: value
+  !_Identifier _EnumLabel: !_TypeDual
+    allFields:
+    - !_ObjectFor(_DualField)
+      name: enum
+      object: _EnumLabel
+      type: !_ObjBase
+        name: _Identifier
+    fields:
+    - !_DualField
+      name: enum
+      type: !_ObjBase
+        name: _Identifier
+    name: _EnumLabel
+    parent: !_ObjBase
+      name: _Aliased
+    typeKind: !_TypeKind Dual
+  !_Identifier _EnumValue: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: label
+      object: _EnumValue
+      type: !_ObjBase
+        name: _Identifier
+    fields:
+    - !_OutputField
+      name: label
+      type: !_ObjBase
+        name: _Identifier
+    name: _EnumValue
+    parent: !_ObjBase
+      name: _TypeRef
+      typeArgs:
+      - !_EnumValue
+        label: Enum
+        name: _TypeKind
+        typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Output
+  !_Identifier _TypeDomain: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_ObjAlternate)
+      object: _TypeDomain
+      type: !_ObjBase
+        name: _BaseDomain
+        typeArgs:
+        - !_EnumValue
+          label: Boolean
+          name: _DomainKind
+          typeKind: !_SimpleKind Enum
+        - !_ObjTypeArg
+          name: _DomainTrueFalse
+        - !_ObjTypeArg
+          name: _DomainItemTrueFalse
+    - !_ObjectFor(_ObjAlternate)
+      object: _TypeDomain
+      type: !_ObjBase
+        name: _BaseDomain
+        typeArgs:
+        - !_EnumValue
+          label: Enum
+          name: _DomainKind
+          typeKind: !_SimpleKind Enum
+        - !_ObjTypeArg
+          name: _DomainLabel
+        - !_ObjTypeArg
+          name: _DomainItemLabel
+    - !_ObjectFor(_ObjAlternate)
+      object: _TypeDomain
+      type: !_ObjBase
+        name: _BaseDomain
+        typeArgs:
+        - !_EnumValue
+          label: Number
+          name: _DomainKind
+          typeKind: !_SimpleKind Enum
+        - !_ObjTypeArg
+          name: _DomainRange
+        - !_ObjTypeArg
+          name: _DomainItemRange
+    - !_ObjectFor(_ObjAlternate)
+      object: _TypeDomain
+      type: !_ObjBase
+        name: _BaseDomain
+        typeArgs:
+        - !_EnumValue
+          label: String
+          name: _DomainKind
+          typeKind: !_SimpleKind Enum
+        - !_ObjTypeArg
+          name: _DomainRegex
+        - !_ObjTypeArg
+          name: _DomainItemRegex
+    alternates:
+    - !_ObjAlternate
+      type: !_ObjBase
+        name: _BaseDomain
+        typeArgs:
+        - !_EnumValue
+          label: Boolean
+          name: _DomainKind
+          typeKind: !_SimpleKind Enum
+        - !_ObjTypeArg
+          name: _DomainTrueFalse
+        - !_ObjTypeArg
+          name: _DomainItemTrueFalse
+    - !_ObjAlternate
+      type: !_ObjBase
+        name: _BaseDomain
+        typeArgs:
+        - !_EnumValue
+          label: Enum
+          name: _DomainKind
+          typeKind: !_SimpleKind Enum
+        - !_ObjTypeArg
+          name: _DomainLabel
+        - !_ObjTypeArg
+          name: _DomainItemLabel
+    - !_ObjAlternate
+      type: !_ObjBase
+        name: _BaseDomain
+        typeArgs:
+        - !_EnumValue
+          label: Number
+          name: _DomainKind
+          typeKind: !_SimpleKind Enum
+        - !_ObjTypeArg
+          name: _DomainRange
+        - !_ObjTypeArg
+          name: _DomainItemRange
+    - !_ObjAlternate
+      type: !_ObjBase
+        name: _BaseDomain
+        typeArgs:
+        - !_EnumValue
+          label: String
+          name: _DomainKind
+          typeKind: !_SimpleKind Enum
+        - !_ObjTypeArg
+          name: _DomainRegex
+        - !_ObjTypeArg
+          name: _DomainItemRegex
+    name: _TypeDomain
+    typeKind: !_TypeKind Output
+  !_Identifier _TypeEnum: !_TypeOutput
+    name: _TypeEnum
+    parent: !_ObjBase
+      name: _ParentType
+      typeArgs:
+      - !_EnumValue
+        label: Enum
+        name: _TypeKind
+        typeKind: !_SimpleKind Enum
+      - !_ObjTypeArg
+        name: _Aliased
+      - !_ObjTypeArg
+        name: _EnumLabel
+    typeKind: !_TypeKind Output
+  !_Identifier _TypeUnion: !_TypeOutput
+    name: _TypeUnion
+    parent: !_ObjBase
+      name: _ParentType
+      typeArgs:
+      - !_EnumValue
+        label: Union
+        name: _TypeKind
+        typeKind: !_SimpleKind Enum
+      - !_ObjTypeArg
+        name: _UnionRef
+      - !_ObjTypeArg
+        name: _UnionMember
+    typeKind: !_TypeKind Output
+  !_Identifier _UnionMember: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      name: union
+      object: _UnionMember
+      type: !_ObjBase
+        name: _Identifier
+    fields:
+    - !_OutputField
+      name: union
+      type: !_ObjBase
+        name: _Identifier
+    name: _UnionMember
+    parent: !_ObjBase
+      name: _UnionRef
+    typeKind: !_TypeKind Output
+  !_Identifier _UnionRef: !_TypeOutput
+    name: _UnionRef
+    parent: !_ObjBase
+      name: _TypeRef
+      typeArgs:
+      - !_ObjTypeArg
+        name: _SimpleKind
+    typeKind: !_TypeKind Output

@@ -2,7 +2,7 @@
 
 [TracePerTest]
 public class VerifyInputTypesTests
-  : ObjectDualVerifierTestsBase<IGqlpInputObject, IGqlpInputBase, IGqlpInputField, IGqlpInputAlternate, IGqlpInputArg>
+  : ObjectDualVerifierTestsBase<IGqlpInputObject, IGqlpInputField>
 {
   private readonly IGqlpInputObject _input;
 
@@ -10,10 +10,11 @@ public class VerifyInputTypesTests
   protected override IVerifyUsage<IGqlpInputObject> Verifier { get; }
 
   public VerifyInputTypesTests()
+    : base(TypeKind.Input)
   {
     Verifier = new VerifyInputTypes(new(Aliased.Intf, MergeFields.Intf, MergeAlternates.Intf, ArgDelegate, LoggerFactory));
 
-    _input = A.Obj<IGqlpInputObject, IGqlpInputBase>("Input");
+    _input = A.Obj<IGqlpInputObject>(TypeKind.Input, "Input");
   }
 
   [Theory, RepeatData]
@@ -21,7 +22,7 @@ public class VerifyInputTypesTests
   {
     DefineObject(fieldType);
 
-    IGqlpFieldKey nullLabel = A.EnumValue("Null", "null");
+    IGqlpFieldKey nullLabel = A.EnumFieldKey("Null", "null");
     IGqlpConstant nullValue = A.Constant(nullLabel);
 
     IGqlpInputField field = ObjectField(fieldName, fieldType);
@@ -35,7 +36,7 @@ public class VerifyInputTypesTests
   {
     DefineObject(fieldType);
 
-    IGqlpFieldKey nullLabel = A.EnumValue("Null", "null");
+    IGqlpFieldKey nullLabel = A.EnumFieldKey("Null", "null");
     IGqlpConstant nullValue = A.Constant(nullLabel);
 
     IGqlpInputField field = SetModifier(ObjectField(fieldName, fieldType), ModifierKind.Optional);

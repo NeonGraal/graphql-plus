@@ -1,7 +1,7 @@
 ﻿namespace GqlPlus.Encoding.Objects;
 
 public class InputFieldEncoderTests
-  : ObjectBaseEncoderBase<InputFieldModel, InputBaseModel>
+  : ObjectBaseEncoderBase<InputFieldModel, ObjBaseModel>
 {
   private readonly IEncoder<ModifierModel> _modifer;
   private readonly IEncoder<ConstantModel> _constant;
@@ -20,7 +20,7 @@ public class InputFieldEncoderTests
   public void Encode_WithValidModel_ReturnsStructured(string name, string input, string contents)
   {
     // Arrange
-    InputBaseModel inputBase = new(input, "");
+    ObjBaseModel inputBase = new(input, "");
     ObjBase.Encode(inputBase).Returns(new Structured(input));
 
     // Act & Accept

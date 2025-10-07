@@ -2,59 +2,59 @@
 types: !_Map_Type
   !_Identifier AltCnstPrntObjPrntOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: PrntCnstPrntObjPrntOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: String
     allFields:
       - !_ObjectFor(_OutputField)
         name: alt
         object: AltCnstPrntObjPrntOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: Number
     fields:
       - !_OutputField
         name: alt
-        type: !_OutputBase
+        type: !_ObjBase
           name: Number
     name: AltCnstPrntObjPrntOutp
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: PrntCnstPrntObjPrntOutp
     typeKind: !_TypeKind Output
   !_Identifier CnstPrntObjPrntOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: PrntCnstPrntObjPrntOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: String
     allFields:
       - !_ObjectFor(_OutputField)
         name: alt
         object: AltCnstPrntObjPrntOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: Number
     name: CnstPrntObjPrntOutp
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: RefCnstPrntObjPrntOutp
       typeArgs:
-        - !_OutputArg
+        - !_ObjTypeArg
           name: AltCnstPrntObjPrntOutp
     typeKind: !_TypeKind Output
   !_Identifier PrntCnstPrntObjPrntOutp: !_TypeOutput
     allAlternates:
-      - !_ObjectFor(_OutputAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: PrntCnstPrntObjPrntOutp
-        type: !_OutputBase
+        type: !_ObjBase
           name: String
     alternates:
-      - !_OutputAlternate
-        type: !_OutputBase
+      - !_ObjAlternate
+        type: !_ObjBase
           name: String
     name: PrntCnstPrntObjPrntOutp
     typeKind: !_TypeKind Output
   !_Identifier RefCnstPrntObjPrntOutp: !_TypeOutput
     name: RefCnstPrntObjPrntOutp
-    parent: !_OutputBase
+    parent: !_ObjBase
       typeParam: ref
     typeKind: !_TypeKind Output
     typeParams:

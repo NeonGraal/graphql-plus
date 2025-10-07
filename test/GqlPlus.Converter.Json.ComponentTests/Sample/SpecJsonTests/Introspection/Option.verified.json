@@ -20,7 +20,7 @@
           "name": "value",
           "object": "_Setting",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "Value"
           }
         }
@@ -30,14 +30,14 @@
           "$tag": "_OutputField",
           "name": "value",
           "type": {
-            "$tag": "_OutputBase",
+            "$tag": "_ObjBase",
             "name": "Value"
           }
         }
       ],
       "name": "_Setting",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "name": "_Named"
       },
       "typeKind": {

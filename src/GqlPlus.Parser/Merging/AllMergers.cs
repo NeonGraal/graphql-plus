@@ -39,15 +39,14 @@ public static class AllMergers
       .AddMerge<IGqlpUnionMember, MergeUnionMembers>()
       // Object types
       .AddMerge<IGqlpTypeParam, MergeTypeParams>()
+
       .AddMergeAll<IGqlpDualObject, IGqlpType, MergeDualObjects>()
-      .AddMerge<IGqlpDualAlternate, MergeDualAlternates>()
+      .AddMerge<IGqlpObjAlt, MergeObjAlts>()
       .AddMerge<IGqlpDualField, MergeDualFields>()
       .AddMergeAll<IGqlpInputObject, IGqlpType, MergeInputObjects>()
-      .AddMerge<IGqlpInputAlternate, MergeInputAlternates>()
       .AddMerge<IGqlpInputField, MergeInputFields>()
       .AddMerge<IGqlpInputParam, MergeInputParams>()
       .AddMergeAll<IGqlpOutputObject, IGqlpType, MergeOutputObjects>()
-      .AddMerge<IGqlpOutputAlternate, MergeOutputAlternates>()
       .AddMerge<IGqlpOutputField, MergeOutputFields>()
     ;
 

@@ -1,0 +1,90 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnumFieldEnumPrntDual": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "PrntFieldEnumPrntDual",
+          "name": "prnt_fieldEnumPrntDual"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumFieldEnumPrntDual",
+          "name": "fieldEnumPrntDual"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "fieldEnumPrntDual"
+        }
+      ],
+      "name": "EnumFieldEnumPrntDual",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "PrntFieldEnumPrntDual",
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Enum"
+        }
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "FieldEnumPrntDual": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "name": "field",
+          "object": "FieldEnumPrntDual",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "EnumFieldEnumPrntDual"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "name": "field",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "EnumFieldEnumPrntDual"
+          }
+        }
+      ],
+      "name": "FieldEnumPrntDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    },
+    "PrntFieldEnumPrntDual": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "PrntFieldEnumPrntDual",
+          "name": "prnt_fieldEnumPrntDual"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "prnt_fieldEnumPrntDual"
+        }
+      ],
+      "name": "PrntFieldEnumPrntDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    }
+  }
+}

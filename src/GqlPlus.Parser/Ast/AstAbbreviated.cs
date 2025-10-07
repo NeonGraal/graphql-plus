@@ -1,6 +1,6 @@
 ﻿namespace GqlPlus.Ast;
 
-internal abstract record class AstAbbreviated(ITokenAt At)
+public abstract record class AstAbbreviated(ITokenAt At)
   : AstBase(At)
   , IGqlpAbbreviated
 {

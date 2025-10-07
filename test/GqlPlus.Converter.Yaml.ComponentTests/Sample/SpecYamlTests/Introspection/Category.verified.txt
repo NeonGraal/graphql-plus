@@ -9,27 +9,27 @@ errors:
 types: !_Map_Type
   !_Identifier _Categories: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_OutputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: _Categories
-      type: !_OutputBase
+      type: !_ObjBase
         name: _Category
     allFields:
     - !_ObjectFor(_OutputField)
       name: category
       object: _Categories
-      type: !_OutputBase
+      type: !_ObjBase
         name: _Category
     alternates:
-    - !_OutputAlternate
-      type: !_OutputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: _Category
     fields:
     - !_OutputField
       name: category
-      type: !_OutputBase
+      type: !_ObjBase
         name: _Category
     name: _Categories
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: _AndType
     typeKind: !_TypeKind Output
   !_Identifier _Category: !_TypeOutput
@@ -37,15 +37,15 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: resolution
       object: _Category
-      type: !_OutputBase
+      type: !_ObjBase
         name: _Resolution
     - !_ObjectFor(_OutputField)
       name: output
       object: _Category
-      type: !_OutputBase
+      type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Output
           name: _TypeKind
           typeKind: !_SimpleKind Enum
@@ -53,29 +53,29 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
       object: _Category
-      type: !_OutputBase
+      type: !_ObjBase
         name: _Modifiers
     fields:
     - !_OutputField
       name: resolution
-      type: !_OutputBase
+      type: !_ObjBase
         name: _Resolution
     - !_OutputField
       name: output
-      type: !_OutputBase
+      type: !_ObjBase
         name: _TypeRef
         typeArgs:
-        - !_TypeRef(_SimpleKind)
+        - !_EnumValue
           label: Output
           name: _TypeKind
           typeKind: !_SimpleKind Enum
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
-      type: !_OutputBase
+      type: !_ObjBase
         name: _Modifiers
     name: _Category
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: _Aliased
     typeKind: !_TypeKind Output
   !_Identifier _Resolution: !_TypeEnum

@@ -8,10 +8,6 @@ internal class MergeOutputFields(
   IMerge<IGqlpInputParam> parameters
 ) : AstObjectFieldsMerger<IGqlpOutputField>(logger)
 {
-  protected override string ItemMatchName => "ModifiedType";
-  protected override string ItemMatchKey(IGqlpOutputField item)
-    => item.ModifiedType + item.EnumLabel.Prefixed(".");
-
   protected override IMessages CanMergeGroup(IGrouping<string, IGqlpOutputField> group)
     => base.CanMergeGroup(group)
       .Add(group.ManyCanMerge(item => item.Params, parameters));

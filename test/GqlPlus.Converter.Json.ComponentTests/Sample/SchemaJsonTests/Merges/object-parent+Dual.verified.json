@@ -6,7 +6,7 @@
       "$tag": "_TypeDual",
       "name": "ObjPrntDual",
       "parent": {
-        "$tag": "_DualBase",
+        "$tag": "_ObjBase",
         "name": "RefObjPrntDual"
       },
       "typeKind": {

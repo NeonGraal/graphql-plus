@@ -1,0 +1,37 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "ObjFieldEnumAliasDual": {
+      "$tag": "_TypeDual",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_DualField)",
+          "aliases": ["field1", "field2"],
+          "name": "field",
+          "object": "ObjFieldEnumAliasDual",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "Boolean"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_DualField",
+          "aliases": ["field1", "field2"],
+          "name": "field",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "Boolean"
+          }
+        }
+      ],
+      "name": "ObjFieldEnumAliasDual",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Dual"
+      }
+    }
+  }
+}

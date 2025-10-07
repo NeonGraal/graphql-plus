@@ -6,7 +6,7 @@ namespace GqlPlus.Matching;
 internal class EnumConstraintMatcher(
   ILoggerFactory logger,
   Matcher<IGqlpEnum>.D enumMatcher
-) : ConstraintMatcherBase<IGqlpEnum>(logger)
+) : MatchConstraintBase<IGqlpEnum>(logger)
 {
   private readonly Matcher<IGqlpEnum>.L _enumMatcher = enumMatcher;
 

@@ -5,8 +5,8 @@ Success
   !Ou I@008/0001
   GnrcDescrOutp
   <
+    'Test Descr'
     I@038/0001
-    "Test Descr"
     $type
     :String
   >

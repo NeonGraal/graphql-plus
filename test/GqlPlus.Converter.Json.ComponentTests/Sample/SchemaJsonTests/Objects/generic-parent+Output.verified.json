@@ -6,7 +6,7 @@
       "$tag": "_TypeOutput",
       "name": "GnrcPrntOutp",
       "parent": {
-        "$tag": "_OutputBase",
+        "$tag": "_ObjBase",
         "typeParam": "type"
       },
       "typeKind": {

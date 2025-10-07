@@ -2,7 +2,7 @@
 !Sc I@001/0001
 Success
 {
-  !Ou I@008/0001
+  !Du I@006/0001
   _Collections
   |
   I@007/0002
@@ -25,10 +25,10 @@ Success
   >
 }
 {
-  !Ou I@008/0007
+  !Du I@006/0007
   _ModifierKeyed
   <
-    I@024/0007
+    I@022/0007
     $kind
     :_ModifierKind
   >
@@ -40,12 +40,12 @@ Success
     $kind
   >
   {
-    !OF I@009/0009
+    !DF I@009/0009
     by
     :
     I@013/0009
     _TypeSimple
-    !OF I@009/0010
+    !DF I@009/0010
     optional
     :
     I@019/0010
@@ -53,7 +53,7 @@ Success
   }
 }
 {
-  !Ou I@008/0013
+  !Du I@006/0013
   _Modifiers
   |
   I@007/0014
@@ -87,15 +87,15 @@ Success
   ]
 }
 {
-  !Ou I@008/0020
+  !Du I@006/0020
   _Modifier
   <
-    I@019/0020
+    I@017/0020
     $kind
     :_ModifierKind
   >
   {
-    !OF I@009/0021
+    !DF I@009/0021
     modifierKind
     :
     I@024/0021

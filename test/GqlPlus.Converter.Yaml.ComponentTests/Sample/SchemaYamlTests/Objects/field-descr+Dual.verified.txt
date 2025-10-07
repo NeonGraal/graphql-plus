@@ -6,13 +6,13 @@ types: !_Map_Type
       description: 'Test Descr'
       name: field
       object: FieldDescrDual
-      type: !_DualBase
+      type: !_ObjBase
         name: String
     fields:
     - !_DualField
       description: 'Test Descr'
       name: field
-      type: !_DualBase
+      type: !_ObjBase
         name: String
     name: FieldDescrDual
     typeKind: !_TypeKind Dual

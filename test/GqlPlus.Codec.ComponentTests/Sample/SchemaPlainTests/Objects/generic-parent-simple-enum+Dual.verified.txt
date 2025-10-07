@@ -15,12 +15,12 @@ types: !_Map_Type
       - !_ObjectFor(_DualField)
         name: field
         object: FieldGnrcPrntSmplEnumDual
-        type: !_DualBase
+        type: !_ObjBase
           typeParam: ref
     fields:
       - !_DualField
         name: field
-        type: !_DualBase
+        type: !_ObjBase
           typeParam: ref
     name: FieldGnrcPrntSmplEnumDual
     typeKind: !_TypeKind Dual
@@ -35,12 +35,12 @@ types: !_Map_Type
       - !_ObjectFor(_DualField)
         name: field
         object: FieldGnrcPrntSmplEnumDual
-        type: !_DualBase
+        type: !_ObjBase
           name: EnumGnrcPrntSmplEnumDual
     name: GnrcPrntSmplEnumDual
-    parent: !_DualBase
+    parent: !_ObjBase
       name: FieldGnrcPrntSmplEnumDual
       typeArgs:
-        - !_DualArg
+        - !_ObjTypeArg
           name: EnumGnrcPrntSmplEnumDual
     typeKind: !_TypeKind Dual

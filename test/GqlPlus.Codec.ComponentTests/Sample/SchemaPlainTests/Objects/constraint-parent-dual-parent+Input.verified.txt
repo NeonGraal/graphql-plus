@@ -1,60 +1,54 @@
 ﻿!_Schema
+errors:
+  - !_Error
+    _kind: !_TokenKind End
+    _message: In AltCnstPrntDualPrntInp can't get model for type 'PrntCnstPrntDualPrntInp'
 types: !_Map_Type
   !_Identifier AltCnstPrntDualPrntInp: !_TypeInput
-    allAlternates:
-      - !_ObjectFor(_DualAlternate)
-        object: PrntCnstPrntDualPrntInp
-        type: !_DualBase
-          name: String
     allFields:
       - !_ObjectFor(_InputField)
         name: alt
         object: AltCnstPrntDualPrntInp
-        type: !_InputBase
+        type: !_ObjBase
           name: Number
     fields:
       - !_InputField
         name: alt
-        type: !_InputBase
+        type: !_ObjBase
           name: Number
     name: AltCnstPrntDualPrntInp
-    parent: !_DualBase
+    parent: !_ObjBase
       name: PrntCnstPrntDualPrntInp
     typeKind: !_TypeKind Input
   !_Identifier CnstPrntDualPrntInp: !_TypeInput
-    allAlternates:
-      - !_ObjectFor(_DualAlternate)
-        object: PrntCnstPrntDualPrntInp
-        type: !_DualBase
-          name: String
     allFields:
       - !_ObjectFor(_InputField)
         name: alt
         object: AltCnstPrntDualPrntInp
-        type: !_InputBase
+        type: !_ObjBase
           name: Number
     name: CnstPrntDualPrntInp
-    parent: !_InputBase
+    parent: !_ObjBase
       name: RefCnstPrntDualPrntInp
       typeArgs:
-        - !_InputArg
+        - !_ObjTypeArg
           name: AltCnstPrntDualPrntInp
     typeKind: !_TypeKind Input
   !_Identifier PrntCnstPrntDualPrntInp: !_TypeDual
     allAlternates:
-      - !_ObjectFor(_DualAlternate)
+      - !_ObjectFor(_ObjAlternate)
         object: PrntCnstPrntDualPrntInp
-        type: !_DualBase
+        type: !_ObjBase
           name: String
     alternates:
-      - !_DualAlternate
-        type: !_DualBase
+      - !_ObjAlternate
+        type: !_ObjBase
           name: String
     name: PrntCnstPrntDualPrntInp
     typeKind: !_TypeKind Dual
   !_Identifier RefCnstPrntDualPrntInp: !_TypeInput
     name: RefCnstPrntDualPrntInp
-    parent: !_InputBase
+    parent: !_ObjBase
       typeParam: ref
     typeKind: !_TypeKind Input
     typeParams:

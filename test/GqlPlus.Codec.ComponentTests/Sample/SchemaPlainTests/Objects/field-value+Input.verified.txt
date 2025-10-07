@@ -1,0 +1,26 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier EnumFieldValueInp: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: EnumFieldValueInp
+        name: fieldValueInp
+    items:
+      - !_Aliased
+        name: fieldValueInp
+    name: EnumFieldValueInp
+    typeKind: !_TypeKind Enum
+  !_Identifier FieldValueInp: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: field
+        object: FieldValueInp
+        type: !_ObjBase
+          name: EnumFieldValueInp
+    fields:
+      - !_InputField
+        name: field
+        type: !_ObjBase
+          name: EnumFieldValueInp
+    name: FieldValueInp
+    typeKind: !_TypeKind Input

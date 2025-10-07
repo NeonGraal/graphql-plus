@@ -10,7 +10,7 @@
           "name": "field",
           "object": "GnrcDescrDual",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "typeParam": "type"
           }
         }
@@ -20,7 +20,7 @@
           "$tag": "_DualField",
           "name": "field",
           "type": {
-            "$tag": "_DualBase",
+            "$tag": "_ObjBase",
             "typeParam": "type"
           }
         }

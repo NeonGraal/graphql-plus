@@ -2,59 +2,59 @@
 types: !_Map_Type
   !_Identifier AltCnstPrntObjPrntInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: PrntCnstPrntObjPrntInp
-      type: !_InputBase
+      type: !_ObjBase
         name: String
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
       object: AltCnstPrntObjPrntInp
-      type: !_InputBase
+      type: !_ObjBase
         name: Number
     fields:
     - !_InputField
       name: alt
-      type: !_InputBase
+      type: !_ObjBase
         name: Number
     name: AltCnstPrntObjPrntInp
-    parent: !_InputBase
+    parent: !_ObjBase
       name: PrntCnstPrntObjPrntInp
     typeKind: !_TypeKind Input
   !_Identifier CnstPrntObjPrntInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: PrntCnstPrntObjPrntInp
-      type: !_InputBase
+      type: !_ObjBase
         name: String
     allFields:
     - !_ObjectFor(_InputField)
       name: alt
       object: AltCnstPrntObjPrntInp
-      type: !_InputBase
+      type: !_ObjBase
         name: Number
     name: CnstPrntObjPrntInp
-    parent: !_InputBase
+    parent: !_ObjBase
       name: RefCnstPrntObjPrntInp
       typeArgs:
-      - !_InputArg
+      - !_ObjTypeArg
         name: AltCnstPrntObjPrntInp
     typeKind: !_TypeKind Input
   !_Identifier PrntCnstPrntObjPrntInp: !_TypeInput
     allAlternates:
-    - !_ObjectFor(_InputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: PrntCnstPrntObjPrntInp
-      type: !_InputBase
+      type: !_ObjBase
         name: String
     alternates:
-    - !_InputAlternate
-      type: !_InputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: String
     name: PrntCnstPrntObjPrntInp
     typeKind: !_TypeKind Input
   !_Identifier RefCnstPrntObjPrntInp: !_TypeInput
     name: RefCnstPrntObjPrntInp
-    parent: !_InputBase
+    parent: !_ObjBase
       typeParam: ref
     typeKind: !_TypeKind Input
     typeParams:

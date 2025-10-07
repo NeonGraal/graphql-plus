@@ -44,13 +44,13 @@ public class SimpleEncoderTests
 
   [Theory, RepeatData]
   public void Encode_WithLabel_ReturnsStructuredString(string value)
-    => EncodeAndCheck(SimpleModel.Enum("", value), [
+    => EncodeAndCheck(SimpleModel.Enum(new EnumValueModel("", value, "")), [
         value
         ]);
 
   [Theory, RepeatData]
   public void Encode_WithTypedLabel_ReturnsStructuredString(string type, string value)
-    => EncodeAndCheck(SimpleModel.Enum(type, value), [
+    => EncodeAndCheck(SimpleModel.Enum(new EnumValueModel(type, value, "")), [
         $"!{type} {value}"
         ]);
 

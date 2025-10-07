@@ -41,18 +41,17 @@ public static class Startup
       .AddTransient<IUnionModelChecks, UnionModelChecks>()
       .AddTypeInputs<IGqlpUnion, TypeUnionModel>()
 
-      .AddTransient<IDualBaseModelChecks, DualBaseModelChecks>()
+      .AddTransient<IObjBaseModelChecks, ObjBaseModelChecks>()
+
       .AddTransient<IDualFieldModelChecks, DualFieldModelChecks>()
       .AddTransient<IDualModelChecks, DualModelChecks>()
       .AddTypeInputs<IGqlpDualObject, TypeDualModel>()
 
-      .AddTransient<IInputBaseModelChecks, InputBaseModelChecks>()
       .AddTransient<IInputFieldModelChecks, InputFieldModelChecks>()
       .AddTransient<IInputModelChecks, InputModelChecks>()
       .AddTypeInputs<IGqlpInputObject, TypeInputModel>()
       .AddTransient<ICheckDescribedModel<string, InputParamModel>, InputParamModelChecks>()
 
-      .AddTransient<IOutputBaseModelChecks, OutputBaseModelChecks>()
       .AddTransient<IOutputFieldModelChecks, OutputFieldModelChecks>()
       .AddTransient<IOutputModelChecks, OutputModelChecks>()
       .AddTypeInputs<IGqlpOutputObject, TypeOutputModel>()

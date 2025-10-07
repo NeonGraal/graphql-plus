@@ -8,6 +8,7 @@ public static class CommonParsers
 {
   public static IServiceCollection AddCommonParsers(this IServiceCollection services)
     => services
+      .AddParser<IGqlpEnumValue, ParseEnumValue>()
       .AddParser<IGqlpFieldKey, ParseFieldKey>()
       .AddParserArray<IGqlpModifier, ParseModifiers>()
       .AddParserArray<IParserCollections, IGqlpModifier, ParseCollections>()

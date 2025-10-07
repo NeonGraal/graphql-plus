@@ -12,7 +12,7 @@ public abstract class TypeObjectEncoderBase<TObject, TBase, TField, TAlt>
   protected IEncoder<ObjectForModel<DualFieldModel>> DualField { get; }
   protected IEncoder<TAlt> Alternate { get; }
   protected IEncoder<ObjectForModel<TAlt>> ObjAlternate { get; }
-  protected IEncoder<ObjectForModel<DualAlternateModel>> DualAlternate { get; }
+  protected IEncoder<ObjectForModel<ObjAlternateModel>> DualAlternate { get; }
   protected IEncoder<TypeParamModel> TypeParam { get; }
 
   protected TypeObjectEncoderBase()
@@ -22,7 +22,7 @@ public abstract class TypeObjectEncoderBase<TObject, TBase, TField, TAlt>
     DualField = RFor<ObjectForModel<DualFieldModel>>();
     Alternate = RFor<TAlt>();
     ObjAlternate = RFor<ObjectForModel<TAlt>>();
-    DualAlternate = RFor<ObjectForModel<DualAlternateModel>>();
+    DualAlternate = RFor<ObjectForModel<ObjAlternateModel>>();
     TypeParam = RFor<TypeParamModel>();
   }
 }

@@ -1,0 +1,37 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !In I@007/0001
+  CnstEnumInp
+  |
+  I@023/0001
+  RefCnstEnumInp
+  <
+    I@038/0001
+    EnumCnstEnumInp.cnstEnumInp
+  >
+}
+{
+  !In I@007/0002
+  RefCnstEnumInp
+  <
+    I@023/0002
+    $type
+    :EnumCnstEnumInp
+  >
+  {
+    !IF I@047/0002
+    field
+    :
+    I@055/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumCnstEnumInp
+  !EL I@024/0003
+  cnstEnumInp
+}
+]

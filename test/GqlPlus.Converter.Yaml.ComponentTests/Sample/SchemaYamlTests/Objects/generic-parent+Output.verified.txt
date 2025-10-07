@@ -2,7 +2,7 @@
 types: !_Map_Type
   !_Identifier GnrcPrntOutp: !_TypeOutput
     name: GnrcPrntOutp
-    parent: !_OutputBase
+    parent: !_ObjBase
       typeParam: type
     typeKind: !_TypeKind Output
     typeParams:

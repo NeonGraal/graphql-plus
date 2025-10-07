@@ -1,0 +1,2 @@
+object Name { field [field1] = Boolean.true }
+object Name { field [field2] = true }

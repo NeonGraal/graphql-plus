@@ -1,0 +1,18 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier ObjFieldEnumAliasOutp: !_TypeOutput
+    allFields:
+    - !_ObjectFor(_OutputField)
+      field: field
+      label: true
+      name: Boolean
+      object: ObjFieldEnumAliasOutp
+      typeKind: !_SimpleKind Enum
+    fields:
+    - !_OutputEnum
+      field: field
+      label: true
+      name: Boolean
+      typeKind: !_SimpleKind Enum
+    name: ObjFieldEnumAliasOutp
+    typeKind: !_TypeKind Output

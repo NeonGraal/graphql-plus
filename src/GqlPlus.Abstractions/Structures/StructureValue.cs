@@ -3,8 +3,8 @@
 #pragma warning disable CA1036 // Override methods on comparable types
 public sealed class StructureValue
   : ScalarValue
-  , IComparable<StructureValue>
-  , IEquatable<StructureValue>
+  , IComparable<StructureValue?>
+  , IEquatable<StructureValue?>
 {
   public override bool IsEmpty
     => string.IsNullOrWhiteSpace(Identifier)

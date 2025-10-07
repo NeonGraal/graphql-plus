@@ -3,19 +3,17 @@
 public class InputParamEncoderTests
   : EncoderClassTestBase<InputParamModel>
 {
-  private readonly IEncoder<InputArgModel> _objArg;
-  private readonly IEncoder<DualBaseModel> _dual;
+  private readonly IEncoder<ObjTypeArgModel> _objArg;
   private readonly IEncoder<ModifierModel> _modifier;
   private readonly IEncoder<ConstantModel> _constant;
 
   public InputParamEncoderTests()
   {
-    _objArg = RFor<InputArgModel>();
-    _dual = RFor<DualBaseModel>();
+    _objArg = RFor<ObjTypeArgModel>();
     _modifier = RFor<ModifierModel>();
     _constant = RFor<ConstantModel>();
 
-    Encoder = new InputParamEncoder(_objArg, _dual, _modifier, _constant);
+    Encoder = new InputParamEncoder(_objArg, _modifier, _constant);
   }
 
   protected override IEncoder<InputParamModel> Encoder { get; }

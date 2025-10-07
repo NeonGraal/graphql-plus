@@ -1,0 +1,70 @@
+﻿!_Schema
+types: !_Map_Type
+  !_Identifier CnstPrntEnumInp: !_TypeInput
+    allAlternates:
+      - !_ObjectFor(_ObjAlternate)
+        object: CnstPrntEnumInp
+        type: !_ObjBase
+          name: RefCnstPrntEnumInp
+          typeArgs:
+            - !_EnumValue
+              label: parentCnstPrntEnumInp
+              name: ParentCnstPrntEnumInp
+              typeKind: !_SimpleKind Enum
+    alternates:
+      - !_ObjAlternate
+        type: !_ObjBase
+          name: RefCnstPrntEnumInp
+          typeArgs:
+            - !_EnumValue
+              label: parentCnstPrntEnumInp
+              name: ParentCnstPrntEnumInp
+              typeKind: !_SimpleKind Enum
+    name: CnstPrntEnumInp
+    typeKind: !_TypeKind Input
+  !_Identifier EnumCnstPrntEnumInp: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: ParentCnstPrntEnumInp
+        name: parentCnstPrntEnumInp
+      - !_EnumLabel
+        enum: EnumCnstPrntEnumInp
+        name: cnstPrntEnumInp
+    items:
+      - !_Aliased
+        name: cnstPrntEnumInp
+    name: EnumCnstPrntEnumInp
+    parent: !_TypeRef(_SimpleKind)
+      name: ParentCnstPrntEnumInp
+      typeKind: !_SimpleKind Enum
+    typeKind: !_TypeKind Enum
+  !_Identifier ParentCnstPrntEnumInp: !_TypeEnum
+    allItems:
+      - !_EnumLabel
+        enum: ParentCnstPrntEnumInp
+        name: parentCnstPrntEnumInp
+    items:
+      - !_Aliased
+        name: parentCnstPrntEnumInp
+    name: ParentCnstPrntEnumInp
+    typeKind: !_TypeKind Enum
+  !_Identifier RefCnstPrntEnumInp: !_TypeInput
+    allFields:
+      - !_ObjectFor(_InputField)
+        name: field
+        object: RefCnstPrntEnumInp
+        type: !_ObjBase
+          typeParam: type
+    fields:
+      - !_InputField
+        name: field
+        type: !_ObjBase
+          typeParam: type
+    name: RefCnstPrntEnumInp
+    typeKind: !_TypeKind Input
+    typeParams:
+      - !_TypeParam
+        constraint: !_TypeRef(_TypeKind)
+          name: EnumCnstPrntEnumInp
+          typeKind: !_TypeKind Enum
+        name: type

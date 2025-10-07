@@ -1,11 +1,11 @@
 ﻿namespace GqlPlus.Resolving;
 
 public class TypeDualResolverFieldTests
-  : ResolverTypeObjectFieldTestBase<TypeDualModel, DualBaseModel, DualFieldModel, DualAlternateModel, DualArgModel>
+  : ResolverTypeObjectFieldTestBase<TypeDualModel, DualFieldModel>
 {
   protected override IResolver<TypeDualModel> Resolver { get; } = new TypeDualResolver();
 
-  protected override DualBaseModel MakeBase(string name, string description = "", params DualArgModel[] args)
+  protected override ObjBaseModel MakeBase(string name, string description = "", params ObjTypeArgModel[] args)
     => new(name, description) { Args = args };
   protected override DualFieldModel MakeField(FieldInput field)
     => new(field.Name, new(field.Type, ""), "");
@@ -13,10 +13,10 @@ public class TypeDualResolverFieldTests
     => new(field.Name, new(field.Type, ""), "") { Modifiers = [modifier] };
   protected override DualFieldModel MakeParamField(FieldInput field, ModifierModel modifier)
     => new(field.Name, new(field.Type, "") { IsTypeParam = true }, "") { Modifiers = [modifier] };
-  protected override DualArgModel NewArg(string argument, bool isParam = false)
+  protected override ObjTypeArgModel NewArg(string argument, bool isParam = false)
     => new(TypeKindModel.Dual, argument, "") { IsTypeParam = isParam };
   protected override TypeDualModel NewModel(string name, string description)
     => new(name, description);
-  protected override DualBaseModel NewParam(string paramName)
+  protected override ObjBaseModel NewParam(string paramName)
     => new(paramName, "") { IsTypeParam = true };
 }

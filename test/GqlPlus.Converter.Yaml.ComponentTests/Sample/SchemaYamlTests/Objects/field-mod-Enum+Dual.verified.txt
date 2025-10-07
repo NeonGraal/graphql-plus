@@ -16,13 +16,13 @@ types: !_Map_Type
       modifiers: [!_ModifierDictionary {by: EnumFieldModEnumDual, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Enum}]
       name: field
       object: FieldModEnumDual
-      type: !_DualBase
+      type: !_ObjBase
         name: String
     fields:
     - !_DualField
       modifiers: [!_ModifierDictionary {by: EnumFieldModEnumDual, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Enum}]
       name: field
-      type: !_DualBase
+      type: !_ObjBase
         name: String
     name: FieldModEnumDual
     typeKind: !_TypeKind Dual

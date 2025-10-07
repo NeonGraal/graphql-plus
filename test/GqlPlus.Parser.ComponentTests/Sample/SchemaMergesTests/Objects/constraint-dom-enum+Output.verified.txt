@@ -1,0 +1,47 @@
+﻿[  
+!Sc I@001/0001
+Success
+{
+  !Ou I@008/0001
+  CnstDomEnumOutp
+  |
+  I@028/0001
+  RefCnstDomEnumOutp
+  <
+    I@047/0001
+    EnumCnstDomEnumOutp.cnstDomEnumOutp
+  >
+}
+{
+  !Ou I@008/0002
+  RefCnstDomEnumOutp
+  <
+    I@028/0002
+    $type
+    :JustCnstDomEnumOutp
+  >
+  {
+    !OF I@056/0002
+    field
+    :
+    I@064/0002
+    $type
+  }
+}
+{
+  !En I@006/0003
+  EnumCnstDomEnumOutp
+  !EL I@028/0003
+  cnstDomEnumOutp
+  !EL I@044/0003
+  other
+}
+{
+  !Do I@008/0004
+  JustCnstDomEnumOutp
+  Enum
+  !DE I@035/0004
+  EnumCnstDomEnumOutp
+  cnstDomEnumOutp
+}
+]

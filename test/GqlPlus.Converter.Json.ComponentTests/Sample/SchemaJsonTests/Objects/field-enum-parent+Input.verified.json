@@ -1,0 +1,90 @@
+﻿{
+  "$tag": "_Schema",
+  "types": {
+    "$tag": "_Map_Type",
+    "EnumFieldEnumPrntInp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "PrntFieldEnumPrntInp",
+          "name": "prnt_fieldEnumPrntInp"
+        },
+        {
+          "$tag": "_EnumLabel",
+          "enum": "EnumFieldEnumPrntInp",
+          "name": "fieldEnumPrntInp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "fieldEnumPrntInp"
+        }
+      ],
+      "name": "EnumFieldEnumPrntInp",
+      "parent": {
+        "$tag": "_TypeRef(_SimpleKind)",
+        "name": "PrntFieldEnumPrntInp",
+        "typeKind": {
+          "$tag": "_SimpleKind",
+          "value": "Enum"
+        }
+      },
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    },
+    "FieldEnumPrntInp": {
+      "$tag": "_TypeInput",
+      "allFields": [
+        {
+          "$tag": "_ObjectFor(_InputField)",
+          "name": "field",
+          "object": "FieldEnumPrntInp",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "EnumFieldEnumPrntInp"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "$tag": "_InputField",
+          "name": "field",
+          "type": {
+            "$tag": "_ObjBase",
+            "name": "EnumFieldEnumPrntInp"
+          }
+        }
+      ],
+      "name": "FieldEnumPrntInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Input"
+      }
+    },
+    "PrntFieldEnumPrntInp": {
+      "$tag": "_TypeEnum",
+      "allItems": [
+        {
+          "$tag": "_EnumLabel",
+          "enum": "PrntFieldEnumPrntInp",
+          "name": "prnt_fieldEnumPrntInp"
+        }
+      ],
+      "items": [
+        {
+          "$tag": "_Aliased",
+          "name": "prnt_fieldEnumPrntInp"
+        }
+      ],
+      "name": "PrntFieldEnumPrntInp",
+      "typeKind": {
+        "$tag": "_TypeKind",
+        "value": "Enum"
+      }
+    }
+  }
+}

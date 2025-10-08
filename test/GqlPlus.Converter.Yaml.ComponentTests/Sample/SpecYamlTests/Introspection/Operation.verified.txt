@@ -15,110 +15,110 @@ errors:
 types: !_Map_Type
   !_Identifier _OpArgList: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_DualAlternate)
+    - !_ObjectFor(_ObjAlternate)
       collections:
       - !_Modifier
         modifierKind: !_ModifierKind List
       object: _OpArgList
-      type: !_DualBase
+      type: !_ObjBase
         name: _OpArgValue
     alternates:
-    - !_DualAlternate
+    - !_ObjAlternate
       collections:
       - !_Modifier
         modifierKind: !_ModifierKind List
-      type: !_DualBase
+      type: !_ObjBase
         name: _OpArgValue
     name: _OpArgList
     typeKind: !_TypeKind Dual
   !_Identifier _OpArgMap: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_DualAlternate)
+    - !_ObjectFor(_ObjAlternate)
       collections:
       - !_ModifierDictionary
         by: Scalar
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Internal
       object: _OpArgMap
-      type: !_DualBase
+      type: !_ObjBase
         name: _OpArgValue
     allFields:
     - !_ObjectFor(_DualField)
       name: value
       object: _OpArgMap
-      type: !_DualBase
+      type: !_ObjBase
         name: _OpArgValue
     - !_ObjectFor(_DualField)
       name: byVariable
       object: _OpArgMap
-      type: !_DualBase
+      type: !_ObjBase
         name: _Identifier
     alternates:
-    - !_DualAlternate
+    - !_ObjAlternate
       collections:
       - !_ModifierDictionary
         by: Scalar
         modifierKind: !_ModifierKind Dict
         typeKind: !_SimpleKind Internal
-      type: !_DualBase
+      type: !_ObjBase
         name: _OpArgValue
     fields:
     - !_DualField
       name: value
-      type: !_DualBase
+      type: !_ObjBase
         name: _OpArgValue
     - !_DualField
       name: byVariable
-      type: !_DualBase
+      type: !_ObjBase
         name: _Identifier
     name: _OpArgMap
     typeKind: !_TypeKind Dual
   !_Identifier _OpArgValue: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_DualAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: _OpArgValue
-      type: !_DualBase
+      type: !_ObjBase
         name: Value
     allFields:
     - !_ObjectFor(_DualField)
       name: variable
       object: _OpArgValue
-      type: !_DualBase
+      type: !_ObjBase
         name: _Identifier
     alternates:
-    - !_DualAlternate
-      type: !_DualBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: Value
     fields:
     - !_DualField
       name: variable
-      type: !_DualBase
+      type: !_ObjBase
         name: _Identifier
     name: _OpArgValue
     typeKind: !_TypeKind Dual
   !_Identifier _OpArgument: !_TypeDual
     allAlternates:
-    - !_ObjectFor(_DualAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: _OpArgument
-      type: !_DualBase
+      type: !_ObjBase
         name: _OpArgValue
-    - !_ObjectFor(_DualAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: _OpArgument
-      type: !_DualBase
+      type: !_ObjBase
         name: _OpArgList
-    - !_ObjectFor(_DualAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: _OpArgument
-      type: !_DualBase
+      type: !_ObjBase
         name: _OpArgMap
     alternates:
-    - !_DualAlternate
-      type: !_DualBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: _OpArgValue
-    - !_DualAlternate
-      type: !_DualBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: _OpArgList
-    - !_DualAlternate
-      type: !_DualBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: _OpArgMap
     name: _OpArgument
     typeKind: !_TypeKind Dual
@@ -128,16 +128,16 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: argument
       object: _OpDirective
-      type: !_DualBase
+      type: !_ObjBase
         name: _OpArgument
     fields:
     - !_DualField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: argument
-      type: !_DualBase
+      type: !_ObjBase
         name: _OpArgument
     name: _OpDirective
-    parent: !_DualBase
+    parent: !_ObjBase
       name: _Named
     typeKind: !_TypeKind Dual
   !_Identifier _OpField: !_TypeOutput
@@ -146,67 +146,56 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: alias
       object: _OpField
-      type: !_OutputBase
+      type: !_ObjBase
         name: String
     - !_ObjectFor(_OutputField)
       name: field
       object: _OpField
-      type: !_OutputBase
+      type: !_ObjBase
         name: String
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: argument
       object: _OpField
-      type: !_DualBase
+      type: !_ObjBase
         name: _OpArgument
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
       object: _OpField
-      type: !_OutputBase
+      type: !_ObjBase
         name: _Modifiers
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives
       object: _OpField
-      type: !_DualBase
+      type: !_ObjBase
         name: _OpDirective
-    - !_ObjectFor(_OutputField)
-      description: "The body as a string as we can't have nested objects."
-      name: body
-      object: _OpField
-      type: !_OutputBase
-        name: String
     fields:
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: alias
-      type: !_OutputBase
+      type: !_ObjBase
         name: String
     - !_OutputField
       name: field
-      type: !_OutputBase
+      type: !_ObjBase
         name: String
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: argument
-      type: !_DualBase
+      type: !_ObjBase
         name: _OpArgument
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
-      type: !_OutputBase
+      type: !_ObjBase
         name: _Modifiers
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives
-      type: !_DualBase
+      type: !_ObjBase
         name: _OpDirective
-    - !_OutputField
-      description: "The body as a string as we can't have nested objects."
-      name: body
-      type: !_OutputBase
-        name: String
     name: _OpField
     typeKind: !_TypeKind Output
   !_Identifier _OpFragment: !_TypeOutput
@@ -214,37 +203,26 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: type
       object: _OpFragment
-      type: !_OutputBase
-        name: _OutputBase
+      type: !_ObjBase
+        name: _ObjBase
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives
       object: _OpFragment
-      type: !_DualBase
+      type: !_ObjBase
         name: _OpDirective
-    - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: body
-      object: _OpFragment
-      type: !_OutputBase
-        name: _OpObject
     fields:
     - !_OutputField
       name: type
-      type: !_OutputBase
-        name: _OutputBase
+      type: !_ObjBase
+        name: _ObjBase
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives
-      type: !_DualBase
+      type: !_ObjBase
         name: _OpDirective
-    - !_OutputField
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: body
-      type: !_OutputBase
-        name: _OpObject
     name: _OpFragment
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: _Named
     typeKind: !_TypeKind Output
   !_Identifier _OpInline: !_TypeOutput
@@ -253,106 +231,93 @@ types: !_Map_Type
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: type
       object: _OpInline
-      type: !_OutputBase
-        name: _OutputBase
+      type: !_ObjBase
+        name: _ObjBase
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives
       object: _OpInline
-      type: !_DualBase
+      type: !_ObjBase
         name: _OpDirective
-    - !_ObjectFor(_OutputField)
-      description: "The body as a string as we can't have nested objects."
-      name: body
-      object: _OpInline
-      type: !_OutputBase
-        name: String
     fields:
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: type
-      type: !_OutputBase
-        name: _OutputBase
+      type: !_ObjBase
+        name: _ObjBase
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives
-      type: !_DualBase
+      type: !_ObjBase
         name: _OpDirective
-    - !_OutputField
-      description: "The body as a string as we can't have nested objects."
-      name: body
-      type: !_OutputBase
-        name: String
     name: _OpInline
     typeKind: !_TypeKind Output
   !_Identifier _OpObject: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_OutputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: _OpObject
-      type: !_OutputBase
+      type: !_ObjBase
         name: _OpField
-    - !_ObjectFor(_OutputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: _OpObject
-      type: !_OutputBase
+      type: !_ObjBase
         name: _OpSpread
-    - !_ObjectFor(_OutputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: _OpObject
-      type: !_OutputBase
+      type: !_ObjBase
         name: _OpInline
     alternates:
-    - !_OutputAlternate
-      type: !_OutputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: _OpField
-    - !_OutputAlternate
-      type: !_OutputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: _OpSpread
-    - !_OutputAlternate
-      type: !_OutputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: _OpInline
     name: _OpObject
     typeKind: !_TypeKind Output
   !_Identifier _OpResult: !_TypeOutput
+    allAlternates:
+    - !_ObjectFor(_ObjAlternate)
+      object: _OpResult
+      type: !_ObjBase
+        name: _TypeRef
+        typeArgs:
+        - !_ObjTypeArg
+          name: _SimpleKind
     allFields:
     - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: domain
+      modifiers: [!_ModifierDictionary {by: _Path, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
+      name: selections
       object: _OpResult
-      type: !_OutputBase
-        name: _TypeRef
-        typeArgs:
-        - !_OutputArg
-          name: _SimpleKind
+      type: !_ObjBase
+        name: _OpObject
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: argument
       object: _OpResult
-      type: !_DualBase
+      type: !_ObjBase
         name: _OpArgument
-    - !_ObjectFor(_OutputField)
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: body
-      object: _OpResult
-      type: !_OutputBase
-        name: _OpObject
+    alternates:
+    - !_ObjAlternate
+      type: !_ObjBase
+        name: _TypeRef
+        typeArgs:
+        - !_ObjTypeArg
+          name: _SimpleKind
     fields:
     - !_OutputField
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
-      name: domain
-      type: !_OutputBase
-        name: _TypeRef
-        typeArgs:
-        - !_OutputArg
-          name: _SimpleKind
+      modifiers: [!_ModifierDictionary {by: _Path, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
+      name: selections
+      type: !_ObjBase
+        name: _OpObject
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: argument
-      type: !_DualBase
+      type: !_ObjBase
         name: _OpArgument
-    - !_OutputField
-      modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
-      name: body
-      type: !_OutputBase
-        name: _OpObject
     name: _OpResult
     typeKind: !_TypeKind Output
   !_Identifier _OpSpread: !_TypeOutput
@@ -360,23 +325,23 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: fragment
       object: _OpSpread
-      type: !_OutputBase
+      type: !_ObjBase
         name: String
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives
       object: _OpSpread
-      type: !_DualBase
+      type: !_ObjBase
         name: _OpDirective
     fields:
     - !_OutputField
       name: fragment
-      type: !_OutputBase
+      type: !_ObjBase
         name: String
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives
-      type: !_DualBase
+      type: !_ObjBase
         name: _OpDirective
     name: _OpSpread
     typeKind: !_TypeKind Output
@@ -385,48 +350,48 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: type
       object: _OpVariable
-      type: !_OutputBase
-        name: _InputBase
+      type: !_ObjBase
+        name: _ObjBase
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
       object: _OpVariable
-      type: !_OutputBase
+      type: !_ObjBase
         name: _Modifiers
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: default
       object: _OpVariable
-      type: !_OutputBase
+      type: !_ObjBase
         name: Value
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives
       object: _OpVariable
-      type: !_DualBase
+      type: !_ObjBase
         name: _OpDirective
     fields:
     - !_OutputField
       name: type
-      type: !_OutputBase
-        name: _InputBase
+      type: !_ObjBase
+        name: _ObjBase
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: modifiers
-      type: !_OutputBase
+      type: !_ObjBase
         name: _Modifiers
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
       name: default
-      type: !_OutputBase
+      type: !_ObjBase
         name: Value
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives
-      type: !_DualBase
+      type: !_ObjBase
         name: _OpDirective
     name: _OpVariable
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: _Named
     typeKind: !_TypeKind Output
   !_Identifier _Operation: !_TypeOutput
@@ -434,95 +399,108 @@ types: !_Map_Type
     - !_ObjectFor(_OutputField)
       name: category
       object: _Operation
-      type: !_OutputBase
+      type: !_ObjBase
         name: _Identifier
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: variables
       object: _Operation
-      type: !_OutputBase
+      type: !_ObjBase
         name: _OpVariable
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives
       object: _Operation
-      type: !_DualBase
+      type: !_ObjBase
         name: _OpDirective
     - !_ObjectFor(_OutputField)
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: fragments
       object: _Operation
-      type: !_OutputBase
+      type: !_ObjBase
         name: _OpFragment
     - !_ObjectFor(_OutputField)
       name: result
       object: _Operation
-      type: !_OutputBase
+      type: !_ObjBase
         name: _OpResult
     fields:
     - !_OutputField
       name: category
-      type: !_OutputBase
+      type: !_ObjBase
         name: _Identifier
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: variables
-      type: !_OutputBase
+      type: !_ObjBase
         name: _OpVariable
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: directives
-      type: !_DualBase
+      type: !_ObjBase
         name: _OpDirective
     - !_OutputField
       modifiers: [!_Modifier {modifierKind: !_ModifierKind List}]
       name: fragments
-      type: !_OutputBase
+      type: !_ObjBase
         name: _OpFragment
     - !_OutputField
       name: result
-      type: !_OutputBase
+      type: !_ObjBase
         name: _OpResult
     name: _Operation
-    parent: !_OutputBase
+    parent: !_ObjBase
       name: _Aliased
     typeKind: !_TypeKind Output
   !_Identifier _Operations: !_TypeOutput
     allAlternates:
-    - !_ObjectFor(_OutputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: _Operations
-      type: !_OutputBase
+      type: !_ObjBase
         name: _Operation
-    - !_ObjectFor(_OutputAlternate)
+    - !_ObjectFor(_ObjAlternate)
       object: _Operations
-      type: !_OutputBase
+      type: !_ObjBase
         name: _Type
     allFields:
     - !_ObjectFor(_OutputField)
       name: operation
       object: _Operations
-      type: !_OutputBase
+      type: !_ObjBase
         name: _Operation
     - !_ObjectFor(_OutputField)
       name: type
       object: _Operations
-      type: !_OutputBase
+      type: !_ObjBase
         name: _Type
     alternates:
-    - !_OutputAlternate
-      type: !_OutputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: _Operation
-    - !_OutputAlternate
-      type: !_OutputBase
+    - !_ObjAlternate
+      type: !_ObjBase
         name: _Type
     fields:
     - !_OutputField
       name: operation
-      type: !_OutputBase
+      type: !_ObjBase
         name: _Operation
     - !_OutputField
       name: type
-      type: !_OutputBase
+      type: !_ObjBase
         name: _Type
     name: _Operations
     typeKind: !_TypeKind Output
+  !_Identifier _Path: !_DomainString
+    allItems:
+    - !_DomainItem(_DomainRegex)
+      domain: _Path
+      exclude: false
+      pattern: \$?\.*\w[\w\d]*(\.\w[\w\d]*)*
+    domainKind: !_DomainKind String
+    items:
+    - !_DomainRegex
+      exclude: false
+      pattern: \$?\.*\w[\w\d]*(\.\w[\w\d]*)*
+    name: _Path
+    typeKind: !_TypeKind Domain

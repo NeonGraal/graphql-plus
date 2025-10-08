@@ -75,7 +75,7 @@ Success
   _Identifier
   String
   !DX R@029/0010
-  /[A-Za-z_][A-Za-z0-9_]*/
+  /\\w[\\w\\d]*/
 }
 {
   !In I@007/0012
@@ -126,7 +126,7 @@ Success
   _NameFilter
   String
   !DX R@029/0023
-  /[A-Za-z_.*]+/
+  /[\\w\\d.*]+/
 }
 {
   !In I@007/0025

@@ -1,3 +1,0 @@
-operation Test { test }
-category { Test }
-output Test { }

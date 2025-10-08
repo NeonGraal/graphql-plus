@@ -202,7 +202,7 @@ Success
     type
     :
     I@015/0056
-    _InputBase
+    _ObjBase
     !OF I@009/0057
     modifiers
     :
@@ -249,206 +249,192 @@ Success
     type
     :
     I@015/0069
-    _OutputBase
+    _ObjBase
     !OF I@009/0070
     directives
     :
     I@021/0070
     _OpDirective
     []
-    !OF I@009/0071
-    body
-    :
-    I@015/0071
-    _OpObject
-    []
   }
 }
 {
-  !Du I@006/0074
+  !Du I@006/0073
   _OpArgument
   |
-  I@009/0075
+  I@009/0074
   _OpArgValue
-  I@009/0076
+  I@009/0075
   _OpArgList
-  I@009/0077
+  I@009/0076
   _OpArgMap
 }
 {
-  !Du I@006/0080
+  !Du I@006/0079
   _OpArgValue
   {
-    !DF I@009/0081
+    !DF I@009/0080
     variable
     :
-    I@019/0081
+    I@019/0080
     _Identifier
   }
   |
-  I@009/0082
+  I@009/0081
   Value
 }
 {
-  !Du I@006/0085
+  !Du I@006/0084
   _OpArgList
   |
-  I@007/0086
+  I@007/0085
   _OpArgValue
   []
 }
 {
-  !Du I@006/0089
+  !Du I@006/0088
   _OpArgMap
   {
-    !DF I@009/0090
+    !DF I@009/0089
     value
     :
-    I@016/0090
+    I@016/0089
     _OpArgValue
-    !DF I@009/0091
+    !DF I@009/0090
     byVariable
     :
-    I@021/0091
+    I@021/0090
     _Identifier
   }
   |
-  I@007/0092
+  I@007/0091
   _OpArgValue
   [Scalar]
 }
 {
-  !Ou I@008/0095
-  _OpResult
-  {
-    !OF I@009/0096
-    domain
-    :
-    I@017/0096
-    _TypeRef
-    <
-      I@026/0096
-      _SimpleKind
-    >
-    ?
-    !OF I@009/0097
-    argument
-    :
-    I@019/0097
-    _OpArgument
-    ?
-    !OF I@009/0098
-    body
-    :
-    I@015/0098
-    _OpObject
-    []
-  }
+  !Do I@008/0094
+  _Path
+  String
+  !DX R@023/0094
+  /\\$?\\.*\\w[\\w\\d]*(\\.\\w[\\w\\d]*)*/
 }
 {
-  !Ou I@008/0101
+  !Ou I@008/0096
+  _OpResult
+  {
+    !OF I@009/0097
+    selections
+    :
+    I@021/0097
+    _OpObject
+    [_Path]
+    !OF I@009/0098
+    argument
+    :
+    I@019/0098
+    _OpArgument
+    ?
+  }
+  |
+  I@007/0099
+  _TypeRef
+  <
+    I@016/0099
+    _SimpleKind
+  >
+}
+{
+  !Ou I@008/0102
   _OpObject
   |
-  I@009/0102
-  _OpField
   I@009/0103
-  _OpSpread
+  _OpField
   I@009/0104
+  _OpSpread
+  I@009/0105
   _OpInline
 }
 {
-  !Ou I@008/0107
+  !Ou I@008/0108
   _OpField
   {
-    !OF I@009/0108
-    alias
-    :
-    I@016/0108
-    String
-    ?
     !OF I@009/0109
-    field
+    alias
     :
     I@016/0109
     String
+    ?
     !OF I@009/0110
+    field
+    :
+    I@016/0110
+    String
+    !OF I@009/0111
     argument
     :
-    I@019/0110
+    I@019/0111
     _OpArgument
     ?
-    !OF I@009/0111
+    !OF I@009/0112
     modifiers
     :
-    I@020/0111
+    I@020/0112
     _Modifiers
     []
-    !OF I@009/0112
+    !OF I@009/0113
     directives
     :
-    I@021/0112
+    I@021/0113
     _OpDirective
     []
-    'The body as a string as we can\'t have nested objects.'
-    !OF I@009/0114
-    body
-    :
-    I@015/0114
-    String
   }
 }
 {
-  !Ou I@008/0117
+  !Ou I@008/0116
   _OpInline
   {
-    !OF I@009/0118
+    !OF I@009/0117
     type
     :
-    I@015/0118
-    _OutputBase
+    I@015/0117
+    _ObjBase
     ?
-    !OF I@009/0119
+    !OF I@009/0118
     directives
     :
-    I@021/0119
+    I@021/0118
     _OpDirective
     []
-    'The body as a string as we can\'t have nested objects.'
-    !OF I@009/0121
-    body
-    :
-    I@015/0121
-    String
   }
 }
 {
-  !Ou I@008/0124
+  !Ou I@008/0121
   _OpSpread
   {
-    !OF I@009/0125
+    !OF I@009/0122
     fragment
     :
-    I@019/0125
+    I@019/0122
     String
-    !OF I@009/0126
+    !OF I@009/0123
     directives
     :
-    I@021/0126
+    I@021/0123
     _OpDirective
     []
   }
 }
 {
-  !Ou I@008/0129
+  !Ou I@008/0126
   _Setting
   :
-  I@007/0130
+  I@007/0127
   _Named
   {
-    !OF I@009/0131
+    !OF I@009/0128
     value
     :
-    I@016/0131
+    I@016/0128
     Value
   }
 }

@@ -149,12 +149,12 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: _Identifier
       exclude: false
-      pattern: '[A-Za-z_][A-Za-z0-9_]*'
+      pattern: \w[\w\d]*
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      pattern: '[A-Za-z_][A-Za-z0-9_]*'
+      pattern: \w[\w\d]*
     name: _Identifier
     typeKind: !_TypeKind Domain
   !_Identifier _NameFilter: !_DomainString
@@ -162,13 +162,13 @@ types: !_Map_Type
     - !_DomainItem(_DomainRegex)
       domain: _NameFilter
       exclude: false
-      pattern: '[A-Za-z_.*]+'
+      pattern: '[\w\d.*]+'
     description: "_NameFilter is a simple match expression against _Identifier where '.' matches any single character and '*' matches zero or more of any character."
     domainKind: !_DomainKind String
     items:
     - !_DomainRegex
       exclude: false
-      pattern: '[A-Za-z_.*]+'
+      pattern: '[\w\d.*]+'
     name: _NameFilter
     typeKind: !_TypeKind Domain
   !_Identifier _Schema: !_TypeOutput
@@ -201,7 +201,7 @@ types: !_Map_Type
       - !_InputParam
         modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
         name: _Filter
-      type: !_OutputBase
+      type: !_ObjBase
         name: _Operations
     - !_ObjectFor(_OutputField)
       modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]
@@ -249,7 +249,7 @@ types: !_Map_Type
       - !_InputParam
         modifiers: [!_Modifier {modifierKind: !_ModifierKind Opt}]
         name: _Filter
-      type: !_OutputBase
+      type: !_ObjBase
         name: _Operations
     - !_OutputField
       modifiers: [!_ModifierDictionary {by: _Identifier, modifierKind: !_ModifierKind Dict, typeKind: !_SimpleKind Domain}]

@@ -20,50 +20,13 @@ internal class ObjTypeArgMatcher(
 
     bool ArgAction(IGqlpType t, string c, EnumContext ctx)
     {
-      if (arg.EnumValue is null) {
-        if (arg.IsTypeParam
-            && MatchArgTypeParam(arg, constraint, context)) {
-          return true;
-        }
-
-        if (context.GetType(constraint, out IGqlpDescribed? constraintType)
-            && !MatchConstraintType(arg, context, constraintType)) {
-          return false;
-        }
-      } else if (MatchArgLabel(arg, constraint, context)) {
+      if (arg.EnumValue is not null
+        && MatchArgLabel(arg, constraint, context)) {
         return true;
       }
 
       return _anyTypeMatcher.Matches(t, c, ctx);
     }
-  }
-
-  private static bool MatchArgTypeParam(IGqlpObjTypeArg arg, string constraint, EnumContext context)
-  {
-    if (context.GetTyped(arg.FullType, out IGqlpTypeParam? typeParam)) {
-      // Todo: Check if the type param is a constraint of the param
-      if (typeParam.Constraint.Equals(constraint, StringComparison.Ordinal)) {
-        return true;
-      }
-    }
-
-    return false;
-  }
-
-  private bool MatchConstraintType(IGqlpObjTypeArg arg, EnumContext context, IGqlpDescribed constraintType)
-  {
-    if (constraintType is IGqlpEnum enumType && arg.EnumValue is not null) {
-      if (!EnumHasLabel(context, enumType, arg.EnumValue.EnumType)) {
-        return false;
-      }
-    } else if (constraintType is IGqlpDomain<IGqlpDomainLabel> domType && arg.EnumValue is not null) {
-      IGqlpEnum? domEnum = DomainHasLabel(context, domType, arg.EnumValue.EnumType);
-      if (domEnum is null) {
-        return false;
-      }
-    }
-
-    return true;
   }
 
   private bool MatchArgLabel(IGqlpObjTypeArg arg, string constraint, EnumContext context)
@@ -74,27 +37,27 @@ internal class ObjTypeArgMatcher(
           return true;
         }
       } else if (constraintType is IGqlpDomain<IGqlpDomainLabel> domType) {
-        IGqlpEnum? domEnum = DomainHasLabel(context, domType, arg.EnumValue.EnumLabel);
-        if (domEnum is not null) {
-          return true;
-        }
+        IGqlpDomainLabel? domLabel = DomainHasLabel(context, domType, arg.EnumValue.EnumLabel);
+        return domLabel?.Excludes == false;
       }
     }
 
     return false;
   }
 
-  private IGqlpEnum? DomainHasLabel(UsageContext context, IGqlpDomain<IGqlpDomainLabel> domType, string label)
+  private IGqlpDomainLabel? DomainHasLabel(UsageContext context, IGqlpDomain<IGqlpDomainLabel> domType, string label)
   {
-    foreach (IGqlpDomainLabel item in domType.Items.Where(i => !i.Excludes && (i.EnumItem == label || i.EnumItem == "*"))) {
+    foreach (IGqlpDomainLabel item in domType.Items.Where(i => i.EnumItem == label || i.EnumItem == "*")) {
       if (context.GetTyped(item.EnumType, out IGqlpEnum? enumType)) {
         if (EnumHasLabel(context, enumType, label)) {
-          return enumType;
+          return item;
         }
       }
     }
 
-    // Todo: Handle domain parents
+    if (context.GetTyped(domType.Parent?.Name, out IGqlpDomain<IGqlpDomainLabel>? parentType)) {
+      return DomainHasLabel(context, parentType, label);
+    }
 
     return null;
   }

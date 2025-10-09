@@ -38,7 +38,7 @@ internal abstract class ObjectFieldParser<TObjField, TObjFieldAst>(
       return hasAliases.AsResult<TObjField>();
     }
 
-    TObjFieldAst field = ObjField(at, name, description, ObjBase(at, ""));
+    TObjFieldAst field = ObjField(at, name, description, new ObjBaseAst(at, "", ""));
 
     if (tokens.Take(':')) {
       if (_parseBase.Parse(tokens, label).Required(fieldType
@@ -63,7 +63,7 @@ internal abstract class ObjectFieldParser<TObjField, TObjFieldAst>(
     return FieldEnumValue(tokens, field);
   }
 
-  protected IResult<TObjField> FieldEnumValue(ITokenizer tokens, TObjFieldAst field)
+  protected static IResult<TObjField> FieldEnumValue(ITokenizer tokens, TObjFieldAst field)
   {
     if (tokens.Take('=')) {
       string description = tokens.Description();
@@ -73,13 +73,13 @@ internal abstract class ObjectFieldParser<TObjField, TObjFieldAst>(
       }
 
       if (!tokens.Take('.')) {
-        field.Type = ObjBase(at, "", description);
+        field.Type = new ObjBaseAst(at, "", description);
         field.EnumValue = new EnumValueAst(at, enumType);
         return field.Ok<TObjField>();
       }
 
       if (tokens.Identifier(out string? enumLabel)) {
-        field.Type = ObjBase(at, enumType, description);
+        field.Type = new ObjBaseAst(at, enumType, description);
         field.EnumValue = new EnumValueAst(at, enumType, enumLabel);
         return field.Ok<TObjField>();
       }
@@ -94,5 +94,4 @@ internal abstract class ObjectFieldParser<TObjField, TObjFieldAst>(
   protected abstract TObjFieldAst ObjField(TokenAt at, string name, string description, IGqlpObjBase typeBase);
   protected abstract IResult<TObjField> FieldDefault(ITokenizer tokens, TObjFieldAst field);
   protected abstract IResultArray<IGqlpInputParam> FieldParam(ITokenizer tokens);
-  protected abstract IGqlpObjBase ObjBase(TokenAt at, string type, string description = "");
 }

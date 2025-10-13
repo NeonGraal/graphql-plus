@@ -18,7 +18,7 @@ public class ValueObjectParser<TValue>(
 
 #pragma warning disable CA1062 // Validate arguments of public methods
     if (!tokens.Take('{')) {
-      return 0.Empty<IGqlpFields<TValue>>();
+      return default(IGqlpFields<TValue>).Empty();
     }
 #pragma warning restore CA1062 // Validate arguments of public methods
 

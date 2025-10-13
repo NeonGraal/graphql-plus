@@ -25,7 +25,7 @@ internal abstract class ObjectFieldParser<TObjField, TObjFieldAst>(
     string description = tokens.Description();
     TokenAt at = tokens.At;
     if (!tokens.Identifier(out string? name)) {
-      return 0.Empty<TObjField>();
+      return default(TObjField).Empty<TObjField>();
     }
 
     IResultArray<IGqlpInputParam> hasParam = FieldParam(tokens);

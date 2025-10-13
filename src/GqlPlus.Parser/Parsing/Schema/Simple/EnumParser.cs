@@ -13,7 +13,7 @@ internal class EnumParser<TEnum>
         ? Enum.TryParse(option, true, out TEnum result)
           ? result.Ok()
           : tokens.Error(label, "valid enum value", result)
-        : 0.Empty<TEnum>();
+        : default(TEnum).Empty();
 }
 
 public interface IEnumParser<TEnum>

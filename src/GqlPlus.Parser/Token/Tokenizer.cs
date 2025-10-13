@@ -459,9 +459,6 @@ public class Tokenizer
   public TokenMessage Error(string label, string expected)
     => Error($"Invalid {label}. Expected {expected}.");
 
-  public IResult<T> Error<T>(string label, string expected)
-    => Error(label, expected).Error<T>();
-
   public IResult<T> Error<T>(string label, string expected, T? result = default)
     => result.Error(Error(label, expected));
 

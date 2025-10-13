@@ -1,8 +1,4 @@
-﻿using System.Reflection.Emit;
-using GqlPlus;
-using Newtonsoft.Json.Linq;
-
-namespace GqlPlus.Modelling;
+﻿namespace GqlPlus.Modelling;
 
 public class SimpleModellerTests
   : ModellerClassTestBase<IGqlpFieldKey, SimpleModel>

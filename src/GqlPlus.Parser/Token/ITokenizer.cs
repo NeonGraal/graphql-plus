@@ -31,7 +31,7 @@ public interface ITokenizer
 
   TokenMessage Error(string text);
   TokenMessage Error(string label, string expected);
-  IResult<T> Error<T>(string label, string expected);
+
   IResult<T> Error<T>(string label, string expected, T? result = default);
   IResultArray<T> ErrorArray<T>(string label, string expected, IEnumerable<T>? _ = default);
   IResult<T> Partial<T>(string label, string expected, Func<T> result);

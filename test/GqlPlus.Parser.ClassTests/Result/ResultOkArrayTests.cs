@@ -1,67 +1,26 @@
 ﻿namespace GqlPlus.Result;
 
-public class ResultOkArrayTests : BaseResultTests
+public class ResultOkArrayTests : TestResultBase
 {
   private const string Ok = "Ok";
   private readonly IResultArray<string> _okArray = new[] { Ok }.OkArray();
+  private readonly IResult<string> _ok = Ok.Ok();
+  private readonly IResult<string[]> _okArrayResult = new[] { Ok }.Ok();
 
-  [Fact]
-  public void AsPartial_ReturnsResultOk()
-  {
-    bool withValue = false;
-    bool action = false;
+  // Abstract method implementations
+  protected override IResult<string> CreateResult() => _ok;
+  protected override IResult<string[]> CreateArrayResult() => _okArrayResult;
+  protected override IResultArray<string> CreateResultArray() => _okArray;
 
-    IResult<string> result = _okArray.AsPartial(Sample, v => withValue = true, () => action = true);
+  protected override bool ExpectedHasValue => true;
+  protected override bool ExpectedIsOk => true;
+  protected override string? ExpectedOptionalValue => Ok;
+  protected override string? ExpectedMessage => null;
 
-    result.ShouldSatisfyAllConditions(
-      () => result.ShouldBeOfType<ResultOk<string>>()
-        .Optional().ShouldBe(Sample),
-      () => withValue.ShouldBeTrue(),
-      () => action.ShouldBeTrue());
-  }
+  protected override IEnumerable<string>? ExpectedArrayOptionalValue => new[] { Ok };
 
-  [Fact]
-  public void AsPartialArray_ReturnsResultOk()
-  {
-    IResultArray<string> result = _okArray.AsPartialArray(SampleArray);
-
-    result.ShouldBeOfType<ResultArrayOk<string>>();
-    result.Optional().ShouldBe(SampleArray);
-  }
-
-  [Fact]
-  public void AsResultObject_ReturnsResultOkObject()
-  {
-    IResult<object> result = _okArray.AsResult<object>();
-
-    result.ShouldBeOfType<ResultOk<object>>()
-      .Required().ShouldBe(new object[] { "Ok" });
-  }
-
-  [Fact]
-  public void AsResultString_ReturnsResultEmptyString()
-  {
-    IResult<string> result = _okArray.AsResult<string>();
-
-    result.ShouldBeOfType<ResultEmpty<string>>();
-  }
-
-  [Fact]
-  public void AsResultArrayObject_ReturnsResultArrayOkObject()
-  {
-    IResultArray<object> result = _okArray.AsResultArray<object>();
-
-    result.ShouldBeOfType<ResultArrayOk<object>>()
-      .Required().ShouldBe(["Ok"]);
-  }
-
-  [Fact]
-  public void AsResultArrayInt_ReturnsResultArrayEmptyInt()
-  {
-    IResultArray<int> result = _okArray.AsResultArray<int>();
-
-    result.ShouldBeOfType<ResultArrayEmpty<int>>();
-  }
+  protected override bool ExpectedWithValueCalled => true;
+  protected override bool ExpectedActionCalled => true;
 
   [Fact]
   public void AsResultArray_ReturnsResultArrayOk()
@@ -70,14 +29,5 @@ public class ResultOkArrayTests : BaseResultTests
 
     result.ShouldBeOfType<ResultArrayOk<string>>();
     result.Optional().ShouldBe(new object[] { Ok });
-  }
-
-  [Fact]
-  public void Map_ReturnsOtherwise()
-  {
-    IResult<string> result = _okArray.Map(a => Ok.Ok(), () => Sample.Ok());
-
-    result.ShouldBeOfType<ResultOk<string>>()
-      .Required().ShouldBe(Ok);
   }
 }

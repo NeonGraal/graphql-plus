@@ -9,11 +9,7 @@ internal abstract record class AstDirectives(
   , IGqlpDirectives
 {
   public IGqlpDirective[] Directives { get; set; } = [];
-  IEnumerable<IGqlpDirective> IGqlpDirectives.Directives
-  {
-    get => Directives;
-    init => Directives = [.. value.Cast<DirectiveAst>()];
-  }
+  IEnumerable<IGqlpDirective> IGqlpDirectives.Directives => Directives;
 
   public virtual bool Equals(AstDirectives? other)
     => other is IGqlpDirectives directives && Equals(directives);

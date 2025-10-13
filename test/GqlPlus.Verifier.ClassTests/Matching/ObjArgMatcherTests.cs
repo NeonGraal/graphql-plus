@@ -1,6 +1,4 @@
-﻿using DiffEngine;
-
-namespace GqlPlus.Matching;
+﻿namespace GqlPlus.Matching;
 
 public class ObjArgMatcherTests
   : MatchTestsBase

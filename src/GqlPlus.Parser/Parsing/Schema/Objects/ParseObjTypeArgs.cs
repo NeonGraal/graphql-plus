@@ -59,7 +59,7 @@ internal class ParseObjTypeArgs
     }
 
     if (!hasName) {
-      return 0.Empty<ObjTypeArgAst>();
+      return default(ObjTypeArgAst).Empty();
     }
 
     ObjTypeArgAst argument = new(at, name!, description);

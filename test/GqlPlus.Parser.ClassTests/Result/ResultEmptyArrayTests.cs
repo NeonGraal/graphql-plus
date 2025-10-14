@@ -1,37 +1,26 @@
 ﻿namespace GqlPlus.Result;
 
-public class ResultEmptyArrayTests : BaseResultTests
+public class ResultEmptyArrayTests : TestResultBase
 {
   private const string Empty = "Empty";
   private readonly IResultArray<string> _emptyArray = new[] { "Empty" }.EmptyArray();
+  private readonly IResult<string> _empty = Empty.Empty();
+  private readonly IResult<string[]> _emptyArrayResult = Array.Empty<string>().Empty();
 
-  [Fact]
-  public void AsPartial_ReturnsResultOk()
-  {
-    bool withValue = false;
-    bool action = false;
+  // Abstract method implementations
+  protected override IResult<string> CreateResult() => _empty;
+  protected override IResult<string[]> CreateArrayResult() => _emptyArrayResult;
+  protected override IResultArray<string> CreateResultArray() => _emptyArray;
 
-    IResult<string> result = _emptyArray.AsPartial(Sample, v => withValue = true, () => action = true);
+  protected override bool ExpectedIsEmpty => true;
+  protected override string? ExpectedOptionalValue => null;
+  protected override bool ExpectedRequiredThrows => true;
+  protected override string? ExpectedMessage => null;
 
-    result.ShouldSatisfyAllConditions(
-      () => result.ShouldBeOfType<ResultOk<string>>()
-        .Optional().ShouldBe(Sample),
-      () => withValue.ShouldBeFalse(),
-      () => action.ShouldBeTrue());
-  }
+  protected override bool ExpectedArrayRequiredThrows => true;
+  protected override IEnumerable<string>? ExpectedArrayOptionalValue => Array.Empty<string>();
 
-  [Fact]
-  public void AsPartialArray_ReturnsResultOk()
-  {
-    bool withValue = false;
-
-    IResultArray<string> result = _emptyArray.AsPartialArray(SampleArray, v => withValue = true);
-
-    result.ShouldSatisfyAllConditions(
-      () => result.ShouldBeOfType<ResultArrayOk<string>>()
-        .Optional().ShouldBe([Sample]),
-      () => withValue.ShouldBeFalse());
-  }
+  protected override bool ExpectedActionCalled => true;
 
   [Fact]
   public void AsResultArray_ReturnsResultArrayEmpty()
@@ -39,38 +28,5 @@ public class ResultEmptyArrayTests : BaseResultTests
     IResultArray<string> result = _emptyArray.AsResultArray(SampleArray);
 
     result.ShouldBeOfType<ResultArrayEmpty<string>>();
-  }
-
-  [Fact]
-  public void AsResultArrayInt_ReturnsResultArrayEmptyInt()
-  {
-    IResultArray<int> result = _emptyArray.AsResultArray<int>();
-
-    result.ShouldBeOfType<ResultArrayEmpty<int>>();
-  }
-
-  [Fact]
-  public void AsResultInt_ReturnsResultEmptyInt()
-  {
-    IResult<int> result = _emptyArray.AsResult<int>();
-
-    result.ShouldBeOfType<ResultEmpty<int>>();
-  }
-
-  [Fact]
-  public void Map_ReturnsOtherwise()
-  {
-    IResult<string> result = _emptyArray.Map(a => Empty.Ok(), () => Sample.Ok());
-
-    result.ShouldBeOfType<ResultOk<string>>()
-      .Required().ShouldBe(Sample);
-  }
-
-  [Fact]
-  public void Optional_ReturnsEmpty()
-  {
-    IEnumerable<string> result = _emptyArray.Optional();
-
-    result.ShouldBeEmpty();
   }
 }

@@ -2,7 +2,7 @@
 
 namespace GqlPlus.Matching;
 
-internal abstract class MatcherBase<TType>(
+internal abstract class MatchBase<TType>(
   ILoggerFactory logger
 ) : MatchLogger(logger)
   , Matcher<TType>.I

@@ -46,6 +46,6 @@ internal class ParseObjBase(
       return objBase.Ok<IGqlpObjBase>();
     }
 
-    return 0.Empty<IGqlpObjBase>();
+    return default(IGqlpObjBase).Empty();
   }
 }

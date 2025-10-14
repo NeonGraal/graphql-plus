@@ -13,6 +13,19 @@ public class DomainMatcherTests
     _sut = new DomainMatcher(LoggerFactory, enumMatcher);
   }
 
+  [Fact]
+  public void Matches_ReturnsFalse_WhenMatchingUnknownKind()
+  {
+    // Arrange
+    IGqlpDomain type = A.Domain<IGqlpDomainItem>("Unknown", (DomainKind)99);
+
+    // Act
+    bool result = _sut.Matches(type, "Unknown", Context);
+
+    // Assert
+    result.ShouldBeFalse();
+  }
+
   [Theory, RepeatData]
   public void Matches_ReturnsTrue_WhenMatchingDomainKindDomain(string name, DomainKind kind)
   {

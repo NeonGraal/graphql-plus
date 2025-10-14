@@ -1,29 +1,32 @@
 ﻿namespace GqlPlus.Result;
 
 public class ResultTests
-  : BaseResultTests
+  : TestResultBase
 {
-  [Fact]
-  public void Optional_ThrowsInvalidOperation()
-  {
-    TestResult<string> input = new();
+  private readonly TestResult<string> _testResult = new();
+  private readonly TestResult<string[]> _testArrayResult = new();
+  private readonly TestResultArray<string> _testResultArray = new();
 
-    Action action = () => input.Optional();
+  // Abstract method implementations - these test the extension methods with incomplete implementations
+  protected override IResult<string> CreateResult() => _testResult;
+  protected override IResult<string[]> CreateArrayResult() => _testArrayResult;
+  protected override IResultArray<string> CreateResultArray() => _testResultArray;
 
-    action.ShouldThrow<InvalidOperationException>()
-      .Message.ShouldContain(nameof(String));
-  }
+  protected override string? ExpectedOptionalValue => null;
+  protected override bool ExpectedOptionalThrows => true;
+  protected override bool ExpectedRequiredThrows => true;
+  protected override string? ExpectedMessage => null;
 
-  [Fact]
-  public void OptionalArray_ThrowsInvalidOperation()
-  {
-    TestResultArray<string> input = new();
+  protected override Type ExpectedAsResultType => typeof(NotImplementedException);
+  protected override Type ExpectedAsPartialType => typeof(NotImplementedException);
+  protected override Type ExpectedMapType => typeof(NotImplementedException);
+  protected override Type ExpectedSelectType => typeof(NotImplementedException);
+  protected override Type ExpectedArrayAsResultArrayType => typeof(NotImplementedException);
+  protected override Type ExpectedArrayAsPartialArrayType => typeof(NotImplementedException);
 
-    Action action = () => input.Optional();
-
-    action.ShouldThrow<InvalidOperationException>()
-      .Message.ShouldContain(nameof(String));
-  }
+  protected override bool ExpectedArrayOptionalThrows => true;
+  protected override bool ExpectedArrayRequiredThrows => true;
+  protected override IEnumerable<string>? ExpectedArrayOptionalValue => null;
 
   private sealed class TestResult<TValue>
     : IResult<TValue>

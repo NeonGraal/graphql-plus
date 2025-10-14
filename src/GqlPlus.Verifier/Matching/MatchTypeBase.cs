@@ -5,7 +5,7 @@ namespace GqlPlus.Matching;
 
 internal abstract class MatchTypeBase<TType>(
   ILoggerFactory logger
-) : MatcherBase<TType>(logger)
+) : MatchBase<TType>(logger)
   , ITypeMatcher
   where TType : IGqlpType
 {

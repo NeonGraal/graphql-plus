@@ -27,6 +27,6 @@ internal class ParseEnumValue
       return new EnumValueAst(at, enumType).Ok<IGqlpEnumValue>();
     }
 
-    return 0.Empty<IGqlpEnumValue>();
+    return default(IGqlpEnumValue).Empty();
   }
 }

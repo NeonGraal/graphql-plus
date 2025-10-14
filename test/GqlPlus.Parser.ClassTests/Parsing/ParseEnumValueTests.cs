@@ -127,7 +127,7 @@ public class ParseEnumValueTests
   [Fact]
   public void Parse_ShouldHandleBuiltInValues_Correctly()
   {
-    var builtInValues = new[]
+    (string, string)[] builtInValues = new[]
     {
       ("true", "Boolean"),
       ("false", "Boolean"),
@@ -135,7 +135,7 @@ public class ParseEnumValueTests
       ("_", "Unit")
     };
 
-    foreach (var (label, expectedType) in builtInValues) {
+    foreach ((string label, string expectedType) in builtInValues) {
       // Arrange
       IdentifierReturns(OutString(label));
 

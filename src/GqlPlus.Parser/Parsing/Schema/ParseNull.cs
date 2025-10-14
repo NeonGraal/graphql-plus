@@ -18,5 +18,5 @@ internal class ParseNullOption : IEnumParser<NullOption>, IOptionParser<NullOpti
 {
   public IResult<NullOption> Parse(ITokenizer tokens, string label)
 
-    => 0.Empty<NullOption>();
+    => default(NullOption).Empty();
 }

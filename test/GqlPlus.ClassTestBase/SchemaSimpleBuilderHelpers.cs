@@ -64,7 +64,7 @@ public static class SchemaSimpleBuilderHelpers
   public static TSimple Simple<TSimple>(this IMockBuilder builder, string name, string[] aliases, string? parent = null, string description = "")
     where TSimple : class, IGqlpSimple
   {
-    TSimple simple = builder.Aliased<TSimple, IGqlpType>(name, aliases, description);
+    TSimple simple = builder.Aliased<TSimple, IGqlpSimple, IGqlpType>(name, aliases, description);
     if (!string.IsNullOrWhiteSpace(parent)) {
       IGqlpTypeRef parentRef = builder.Named<IGqlpTypeRef>(parent!);
       simple.Parent.Returns(parentRef);

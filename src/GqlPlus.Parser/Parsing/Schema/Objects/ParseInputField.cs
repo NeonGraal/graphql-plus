@@ -28,7 +28,4 @@ internal class ParseInputField(
 
   protected override IResultArray<IGqlpInputParam> FieldParam(ITokenizer tokens)
     => 0.EmptyArray<IGqlpInputParam>();
-
-  protected override IGqlpObjBase ObjBase(TokenAt at, string param, string description)
-    => new ObjBaseAst(at, param, description);
 }

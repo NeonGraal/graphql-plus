@@ -20,7 +20,6 @@ public class ParseObjectDefinition<TObjField>(
   {
     tokens.ThrowIfNull();
     ObjectDefinition<TObjField> result = new();
-#pragma warning disable CA1062 // Validate arguments of public methods
     if (tokens.Take(':')) {
       IResult<IGqlpObjBase> objBase = _parseBase.Parse(tokens, label);
       if (objBase.IsError()) {
@@ -29,7 +28,6 @@ public class ParseObjectDefinition<TObjField>(
 
       objBase.WithResult(parent => result.Parent = parent);
     }
-#pragma warning restore CA1062 // Validate arguments of public methods
 
     List<TObjField> fields = [];
     IResult<TObjField> objectField = _parseField.Parse(tokens, label);

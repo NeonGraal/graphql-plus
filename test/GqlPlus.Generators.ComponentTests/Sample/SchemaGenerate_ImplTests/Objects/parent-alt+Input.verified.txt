@@ -7,17 +7,17 @@ input RefPrntAltInp {  parent: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_parent_alt_Input;
+namespace Components.Gqlp_Schema_parent_alt_Input;
 
-public class InputPrntAltInp
-  : InputRefPrntAltInp
-  , IPrntAltInp
+public class InputCmptPrntAltInp
+  : InputCmptRefPrntAltInp
+  , ICmptPrntAltInp
 {
   public Number AsNumber { get; set; }
 }
 
-public class InputRefPrntAltInp
-  : IRefPrntAltInp
+public class InputCmptRefPrntAltInp
+  : ICmptRefPrntAltInp
 {
   public Number parent { get; set; }
   public String AsString { get; set; }

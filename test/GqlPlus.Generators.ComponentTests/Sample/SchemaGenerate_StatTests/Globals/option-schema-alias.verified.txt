@@ -8,4 +8,4 @@ option Schema [Alias] { }
 
 Option Schema
 */
-namespace GqlPlus.Gqlp_Schema_option_schema_alias;
+namespace Components.Gqlp_Schema_option_schema_alias;

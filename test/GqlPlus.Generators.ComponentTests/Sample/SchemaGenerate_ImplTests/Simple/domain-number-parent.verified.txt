@@ -7,15 +7,15 @@ domain PrntDmnNmbrPrnt { Number <2 }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_domain_number_parent;
+namespace Components.Gqlp_Schema_domain_number_parent;
 
-public class DomainDmnNmbrPrnt
-  : DomainPrntDmnNmbrPrnt
-  , IDmnNmbrPrnt
+public class DomainCmptDmnNmbrPrnt
+  : DomainCmptPrntDmnNmbrPrnt
+  , ICmptDmnNmbrPrnt
 {
 }
 
-public class DomainPrntDmnNmbrPrnt
-  : IPrntDmnNmbrPrnt
+public class DomainCmptPrntDmnNmbrPrnt
+  : ICmptPrntDmnNmbrPrnt
 {
 }

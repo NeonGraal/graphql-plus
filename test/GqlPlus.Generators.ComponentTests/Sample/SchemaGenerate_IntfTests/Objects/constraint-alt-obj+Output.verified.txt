@@ -9,25 +9,25 @@ output AltCnstAltObjOutp { :PrntCnstAltObjOutp alt: Number }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_alt_obj_Output;
+namespace Components.Gqlp_Schema_constraint_alt_obj_Output;
 
-public interface ICnstAltObjOutp
+public interface ICmptCnstAltObjOutp
 {
   RefCnstAltObjOutp<AltCnstAltObjOutp> AsRefCnstAltObjOutp { get; }
 }
 
-public interface IRefCnstAltObjOutp<Tref>
+public interface ICmptRefCnstAltObjOutp<Tref>
 {
   Tref Asref { get; }
 }
 
-public interface IPrntCnstAltObjOutp
+public interface ICmptPrntCnstAltObjOutp
 {
   String AsString { get; }
 }
 
-public interface IAltCnstAltObjOutp
-  : IPrntCnstAltObjOutp
+public interface ICmptAltCnstAltObjOutp
+  : ICmptPrntCnstAltObjOutp
 {
   Number alt { get; }
 }

@@ -6,9 +6,9 @@ dual RefGnrcAltModParamDual<$ref:String $mod:String> { | $ref[$mod] }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_alt_mod_param_Dual;
+namespace Components.Gqlp_Schema_generic_alt_mod_param_Dual;
 
-public interface IRefGnrcAltModParamDual<Tref,Tmod>
+public interface ICmptRefGnrcAltModParamDual<Tref,Tmod>
 {
   Tref Asref { get; }
 }

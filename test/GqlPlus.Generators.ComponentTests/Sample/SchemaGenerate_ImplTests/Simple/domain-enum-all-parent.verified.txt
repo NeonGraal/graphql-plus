@@ -8,9 +8,9 @@ enum PrntDmnEnumAllPrnt { prnt_dmnEnumAllPrnt }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_domain_enum_all_parent;
+namespace Components.Gqlp_Schema_domain_enum_all_parent;
 
-public class DomainDmnEnumAllPrnt
-  : IDmnEnumAllPrnt
+public class DomainCmptDmnEnumAllPrnt
+  : ICmptDmnEnumAllPrnt
 {
 }

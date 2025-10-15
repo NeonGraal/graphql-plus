@@ -7,14 +7,14 @@ input RefGnrcPrntArgInp<$ref:String> { | $ref }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_arg_Input;
+namespace Components.Gqlp_Schema_generic_parent_arg_Input;
 
-public interface IGnrcPrntArgInp<Ttype>
-  : IRefGnrcPrntArgInp
+public interface ICmptGnrcPrntArgInp<Ttype>
+  : ICmptRefGnrcPrntArgInp
 {
 }
 
-public interface IRefGnrcPrntArgInp<Tref>
+public interface ICmptRefGnrcPrntArgInp<Tref>
 {
   Tref Asref { get; }
 }

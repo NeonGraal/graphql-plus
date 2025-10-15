@@ -19,9 +19,9 @@ enum _Resolution { Parallel Sequential Single }
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Category;
+namespace Components.Gqlp_Spec_Category;
 
-public enum _Resolution
+public enum Cmpt_Resolution
 {
   Parallel,
   Sequential,

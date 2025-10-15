@@ -9,4 +9,4 @@ directive @DrctDescr { all }
 
 Directive DrctDescr
 */
-namespace GqlPlus.Gqlp_Schema_directive_descr;
+namespace Components.Gqlp_Schema_directive_descr;

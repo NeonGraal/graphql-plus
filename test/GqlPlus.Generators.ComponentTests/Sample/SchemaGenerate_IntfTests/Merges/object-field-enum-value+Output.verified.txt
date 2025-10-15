@@ -7,9 +7,9 @@ output ObjFieldEnumValueOutp { field = true }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_field_enum_value_Output;
+namespace Components.Gqlp_Schema_object_field_enum_value_Output;
 
-public interface IObjFieldEnumValueOutp
+public interface ICmptObjFieldEnumValueOutp
 {
   Boolean field { get; }
 }

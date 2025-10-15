@@ -2,356 +2,356 @@
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_Objects;
+namespace Components.Gqlp_Schema_Objects;
 
-public enum EnumAltEnumDual
+public enum CmptEnumAltEnumDual
 {
   altEnumDual,
 }
 
-public enum EnumAltEnumInp
+public enum CmptEnumAltEnumInp
 {
   altEnumInp,
 }
 
-public enum EnumAltEnumOutp
+public enum CmptEnumAltEnumOutp
 {
   altEnumOutp,
 }
 
-public enum EnumCnstDomEnumDual
+public enum CmptEnumCnstDomEnumDual
 {
   cnstDomEnumDual,
   other,
 }
 
-public enum EnumCnstDomEnumInp
+public enum CmptEnumCnstDomEnumInp
 {
   cnstDomEnumInp,
   other,
 }
 
-public enum EnumCnstDomEnumOutp
+public enum CmptEnumCnstDomEnumOutp
 {
   cnstDomEnumOutp,
   other,
 }
 
-public enum EnumCnstEnumDual
+public enum CmptEnumCnstEnumDual
 {
   cnstEnumDual,
 }
 
-public enum EnumCnstEnumInp
+public enum CmptEnumCnstEnumInp
 {
   cnstEnumInp,
 }
 
-public enum EnumCnstEnumOutp
+public enum CmptEnumCnstEnumOutp
 {
   cnstEnumOutp,
 }
 
-public enum EnumCnstEnumPrntDual
+public enum CmptEnumCnstEnumPrntDual
 {
   parentCnstEnumPrntDual = ParentCnstEnumPrntDual.parentCnstEnumPrntDual,
   cnstEnumPrntDual,
 }
 
-public enum ParentCnstEnumPrntDual
+public enum CmptParentCnstEnumPrntDual
 {
   parentCnstEnumPrntDual,
 }
 
-public enum EnumCnstEnumPrntInp
+public enum CmptEnumCnstEnumPrntInp
 {
   parentCnstEnumPrntInp = ParentCnstEnumPrntInp.parentCnstEnumPrntInp,
   cnstEnumPrntInp,
 }
 
-public enum ParentCnstEnumPrntInp
+public enum CmptParentCnstEnumPrntInp
 {
   parentCnstEnumPrntInp,
 }
 
-public enum EnumCnstEnumPrntOutp
+public enum CmptEnumCnstEnumPrntOutp
 {
   parentCnstEnumPrntOutp = ParentCnstEnumPrntOutp.parentCnstEnumPrntOutp,
   cnstEnumPrntOutp,
 }
 
-public enum ParentCnstEnumPrntOutp
+public enum CmptParentCnstEnumPrntOutp
 {
   parentCnstEnumPrntOutp,
 }
 
-public enum EnumCnstPrntEnumDual
+public enum CmptEnumCnstPrntEnumDual
 {
   parentCnstPrntEnumDual = ParentCnstPrntEnumDual.parentCnstPrntEnumDual,
   cnstPrntEnumDual,
 }
 
-public enum ParentCnstPrntEnumDual
+public enum CmptParentCnstPrntEnumDual
 {
   parentCnstPrntEnumDual,
 }
 
-public enum EnumCnstPrntEnumInp
+public enum CmptEnumCnstPrntEnumInp
 {
   parentCnstPrntEnumInp = ParentCnstPrntEnumInp.parentCnstPrntEnumInp,
   cnstPrntEnumInp,
 }
 
-public enum ParentCnstPrntEnumInp
+public enum CmptParentCnstPrntEnumInp
 {
   parentCnstPrntEnumInp,
 }
 
-public enum EnumCnstPrntEnumOutp
+public enum CmptEnumCnstPrntEnumOutp
 {
   parentCnstPrntEnumOutp = ParentCnstPrntEnumOutp.parentCnstPrntEnumOutp,
   cnstPrntEnumOutp,
 }
 
-public enum ParentCnstPrntEnumOutp
+public enum CmptParentCnstPrntEnumOutp
 {
   parentCnstPrntEnumOutp,
 }
 
-public enum EnumFieldEnumDual
+public enum CmptEnumFieldEnumDual
 {
   fieldEnumDual,
 }
 
-public enum EnumFieldEnumInp
+public enum CmptEnumFieldEnumInp
 {
   fieldEnumInp,
 }
 
-public enum EnumFieldEnumOutp
+public enum CmptEnumFieldEnumOutp
 {
   fieldEnumOutp,
 }
 
-public enum EnumFieldEnumPrntDual
+public enum CmptEnumFieldEnumPrntDual
 {
   prnt_fieldEnumPrntDual = PrntFieldEnumPrntDual.prnt_fieldEnumPrntDual,
   fieldEnumPrntDual,
 }
 
-public enum PrntFieldEnumPrntDual
+public enum CmptPrntFieldEnumPrntDual
 {
   prnt_fieldEnumPrntDual,
 }
 
-public enum EnumFieldEnumPrntInp
+public enum CmptEnumFieldEnumPrntInp
 {
   prnt_fieldEnumPrntInp = PrntFieldEnumPrntInp.prnt_fieldEnumPrntInp,
   fieldEnumPrntInp,
 }
 
-public enum PrntFieldEnumPrntInp
+public enum CmptPrntFieldEnumPrntInp
 {
   prnt_fieldEnumPrntInp,
 }
 
-public enum EnumFieldEnumPrntOutp
+public enum CmptEnumFieldEnumPrntOutp
 {
   prnt_fieldEnumPrntOutp = PrntFieldEnumPrntOutp.prnt_fieldEnumPrntOutp,
   fieldEnumPrntOutp,
 }
 
-public enum PrntFieldEnumPrntOutp
+public enum CmptPrntFieldEnumPrntOutp
 {
   prnt_fieldEnumPrntOutp,
 }
 
-public enum EnumFieldModEnumDual
+public enum CmptEnumFieldModEnumDual
 {
   value,
 }
 
-public enum EnumFieldModEnumInp
+public enum CmptEnumFieldModEnumInp
 {
   value,
 }
 
-public enum EnumFieldModEnumOutp
+public enum CmptEnumFieldModEnumOutp
 {
   value,
 }
 
-public enum EnumFieldValueDual
+public enum CmptEnumFieldValueDual
 {
   fieldValueDual,
 }
 
-public enum EnumFieldValueInp
+public enum CmptEnumFieldValueInp
 {
   fieldValueInp,
 }
 
-public enum EnumFieldValueOutp
+public enum CmptEnumFieldValueOutp
 {
   fieldValueOutp,
 }
 
-public enum EnumFieldValueDescrDual
+public enum CmptEnumFieldValueDescrDual
 {
   fieldValueDescrDual,
 }
 
-public enum EnumFieldValueDescrInp
+public enum CmptEnumFieldValueDescrInp
 {
   fieldValueDescrInp,
 }
 
-public enum EnumFieldValueDescrOutp
+public enum CmptEnumFieldValueDescrOutp
 {
   fieldValueDescrOutp,
 }
 
-public enum EnumGnrcEnumDual
+public enum CmptEnumGnrcEnumDual
 {
   gnrcEnumDual,
 }
 
-public enum EnumGnrcEnumInp
+public enum CmptEnumGnrcEnumInp
 {
   gnrcEnumInp,
 }
 
-public enum EnumGnrcEnumOutp
+public enum CmptEnumGnrcEnumOutp
 {
   gnrcEnumOutp,
 }
 
-public enum EnumGnrcPrntEnumChildDual
+public enum CmptEnumGnrcPrntEnumChildDual
 {
   gnrcPrntEnumChildDualParent = ParentGnrcPrntEnumChildDual.gnrcPrntEnumChildDualParent,
   gnrcPrntEnumChildDualLabel,
 }
 
-public enum ParentGnrcPrntEnumChildDual
+public enum CmptParentGnrcPrntEnumChildDual
 {
   gnrcPrntEnumChildDualParent,
 }
 
-public enum EnumGnrcPrntEnumChildInp
+public enum CmptEnumGnrcPrntEnumChildInp
 {
   gnrcPrntEnumChildInpParent = ParentGnrcPrntEnumChildInp.gnrcPrntEnumChildInpParent,
   gnrcPrntEnumChildInpLabel,
 }
 
-public enum ParentGnrcPrntEnumChildInp
+public enum CmptParentGnrcPrntEnumChildInp
 {
   gnrcPrntEnumChildInpParent,
 }
 
-public enum EnumGnrcPrntEnumChildOutp
+public enum CmptEnumGnrcPrntEnumChildOutp
 {
   gnrcPrntEnumChildOutpParent = ParentGnrcPrntEnumChildOutp.gnrcPrntEnumChildOutpParent,
   gnrcPrntEnumChildOutpLabel,
 }
 
-public enum ParentGnrcPrntEnumChildOutp
+public enum CmptParentGnrcPrntEnumChildOutp
 {
   gnrcPrntEnumChildOutpParent,
 }
 
-public enum EnumGnrcPrntEnumDomDual
+public enum CmptEnumGnrcPrntEnumDomDual
 {
   gnrcPrntEnumDomDualLabel,
   gnrcPrntEnumDomDualOther,
 }
 
-public enum EnumGnrcPrntEnumDomInp
+public enum CmptEnumGnrcPrntEnumDomInp
 {
   gnrcPrntEnumDomInpLabel,
   gnrcPrntEnumDomInpOther,
 }
 
-public enum EnumGnrcPrntEnumDomOutp
+public enum CmptEnumGnrcPrntEnumDomOutp
 {
   gnrcPrntEnumDomOutpLabel,
   gnrcPrntEnumDomOutpOther,
 }
 
-public enum EnumGnrcPrntEnumPrntDual
+public enum CmptEnumGnrcPrntEnumPrntDual
 {
   gnrcPrntEnumPrntDualParent = ParentGnrcPrntEnumPrntDual.gnrcPrntEnumPrntDualParent,
   gnrcPrntEnumPrntDualLabel,
 }
 
-public enum ParentGnrcPrntEnumPrntDual
+public enum CmptParentGnrcPrntEnumPrntDual
 {
   gnrcPrntEnumPrntDualParent,
 }
 
-public enum EnumGnrcPrntEnumPrntInp
+public enum CmptEnumGnrcPrntEnumPrntInp
 {
   gnrcPrntEnumPrntInpParent = ParentGnrcPrntEnumPrntInp.gnrcPrntEnumPrntInpParent,
   gnrcPrntEnumPrntInpLabel,
 }
 
-public enum ParentGnrcPrntEnumPrntInp
+public enum CmptParentGnrcPrntEnumPrntInp
 {
   gnrcPrntEnumPrntInpParent,
 }
 
-public enum EnumGnrcPrntEnumPrntOutp
+public enum CmptEnumGnrcPrntEnumPrntOutp
 {
   gnrcPrntEnumPrntOutpParent = ParentGnrcPrntEnumPrntOutp.gnrcPrntEnumPrntOutpParent,
   gnrcPrntEnumPrntOutpLabel,
 }
 
-public enum ParentGnrcPrntEnumPrntOutp
+public enum CmptParentGnrcPrntEnumPrntOutp
 {
   gnrcPrntEnumPrntOutpParent,
 }
 
-public enum EnumGnrcPrntSmplEnumDual
+public enum CmptEnumGnrcPrntSmplEnumDual
 {
   gnrcPrntSmplEnumDual,
 }
 
-public enum EnumGnrcPrntSmplEnumInp
+public enum CmptEnumGnrcPrntSmplEnumInp
 {
   gnrcPrntSmplEnumInp,
 }
 
-public enum EnumGnrcPrntSmplEnumOutp
+public enum CmptEnumGnrcPrntSmplEnumOutp
 {
   gnrcPrntSmplEnumOutp,
 }
 
-public enum EnumGnrcValueDual
+public enum CmptEnumGnrcValueDual
 {
   gnrcValueDual,
 }
 
-public enum EnumGnrcValueInp
+public enum CmptEnumGnrcValueInp
 {
   gnrcValueInp,
 }
 
-public enum EnumGnrcValueOutp
+public enum CmptEnumGnrcValueOutp
 {
   gnrcValueOutp,
 }
 
-public enum EnumInpFieldEnum
+public enum CmptEnumInpFieldEnum
 {
   inpFieldEnum,
 }
 
-public enum EnumOutpPrntGnrc
+public enum CmptEnumOutpPrntGnrc
 {
   prnt_outpPrntGnrc = PrntOutpPrntGnrc.prnt_outpPrntGnrc,
   outpPrntGnrc,
 }
 
-public enum PrntOutpPrntGnrc
+public enum CmptPrntOutpPrntGnrc
 {
   prnt_outpPrntGnrc,
 }

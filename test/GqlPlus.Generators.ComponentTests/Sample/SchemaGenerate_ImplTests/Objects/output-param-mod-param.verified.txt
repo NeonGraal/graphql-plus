@@ -8,22 +8,22 @@ domain DomOutpParamModParam { number 1 ~ 10 }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_output_param_mod_param;
+namespace Components.Gqlp_Schema_output_param_mod_param;
 
-public class OutputOutpParamModParam<Tmod>
-  : IOutpParamModParam<Tmod>
+public class OutputCmptOutpParamModParam<Tmod>
+  : ICmptOutpParamModParam<Tmod>
 {
   public DomOutpParamModParam field { get; set; }
 }
 
-public class InputInOutpParamModParam
-  : IInOutpParamModParam
+public class InputCmptInOutpParamModParam
+  : ICmptInOutpParamModParam
 {
   public Number param { get; set; }
   public String AsString { get; set; }
 }
 
-public class DomainDomOutpParamModParam
-  : IDomOutpParamModParam
+public class DomainCmptDomOutpParamModParam
+  : ICmptDomOutpParamModParam
 {
 }

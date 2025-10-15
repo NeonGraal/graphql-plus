@@ -8,8 +8,8 @@ output Dscrs { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_descrs;
+namespace Components.Gqlp_Schema_descrs;
 
-public interface IDscrs
+public interface ICmptDscrs
 {
 }

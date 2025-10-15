@@ -8,15 +8,15 @@ enum EnumDomDup { dmnEnumUnq dup_dmnEnumUnq }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_domain_enum_unique;
+namespace Components.Gqlp_Schema_domain_enum_unique;
 
-public enum EnumDmnEnumUnq
+public enum CmptEnumDmnEnumUnq
 {
   enum_dmnEnumUnq,
   dmnEnumUnq,
 }
 
-public enum EnumDomDup
+public enum CmptEnumDomDup
 {
   dmnEnumUnq,
   dup_dmnEnumUnq,

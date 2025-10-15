@@ -7,10 +7,10 @@ output ObjCnstOutp<$type:String> { str: $type }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_constraint_Output;
+namespace Components.Gqlp_Schema_object_constraint_Output;
 
-public class OutputObjCnstOutp<Ttype>
-  : IObjCnstOutp<Ttype>
+public class OutputCmptObjCnstOutp<Ttype>
+  : ICmptObjCnstOutp<Ttype>
 {
   public Ttype field { get; set; }
   public Ttype str { get; set; }

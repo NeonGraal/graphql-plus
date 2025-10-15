@@ -8,21 +8,21 @@ domain DomGnrcPrntStrDomInp { string /\w+/ }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_string_dom_Input;
+namespace Components.Gqlp_Schema_generic_parent_string_dom_Input;
 
-public class InputGnrcPrntStrDomInp
-  : InputFieldGnrcPrntStrDomInp
-  , IGnrcPrntStrDomInp
+public class InputCmptGnrcPrntStrDomInp
+  : InputCmptFieldGnrcPrntStrDomInp
+  , ICmptGnrcPrntStrDomInp
 {
 }
 
-public class InputFieldGnrcPrntStrDomInp<Tref>
-  : IFieldGnrcPrntStrDomInp<Tref>
+public class InputCmptFieldGnrcPrntStrDomInp<Tref>
+  : ICmptFieldGnrcPrntStrDomInp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DomainDomGnrcPrntStrDomInp
-  : IDomGnrcPrntStrDomInp
+public class DomainCmptDomGnrcPrntStrDomInp
+  : ICmptDomGnrcPrntStrDomInp
 {
 }

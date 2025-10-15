@@ -7,16 +7,16 @@ output AltAltModBoolOutp { alt: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_alt_mod_Boolean_Output;
+namespace Components.Gqlp_Schema_alt_mod_Boolean_Output;
 
-public class OutputAltModBoolOutp
-  : IAltModBoolOutp
+public class OutputCmptAltModBoolOutp
+  : ICmptAltModBoolOutp
 {
   public AltAltModBoolOutp AsAltAltModBoolOutp { get; set; }
 }
 
-public class OutputAltAltModBoolOutp
-  : IAltAltModBoolOutp
+public class OutputCmptAltAltModBoolOutp
+  : ICmptAltAltModBoolOutp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

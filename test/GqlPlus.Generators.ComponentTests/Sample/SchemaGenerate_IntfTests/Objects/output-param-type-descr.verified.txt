@@ -8,18 +8,18 @@ input InOutpParamTypeDescr { param: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_output_param_type_descr;
+namespace Components.Gqlp_Schema_output_param_type_descr;
 
-public interface IOutpParamTypeDescr
+public interface ICmptOutpParamTypeDescr
 {
   FldOutpParamTypeDescr field { get; }
 }
 
-public interface IFldOutpParamTypeDescr
+public interface ICmptFldOutpParamTypeDescr
 {
 }
 
-public interface IInOutpParamTypeDescr
+public interface ICmptInOutpParamTypeDescr
 {
   Number param { get; }
   String AsString { get; }

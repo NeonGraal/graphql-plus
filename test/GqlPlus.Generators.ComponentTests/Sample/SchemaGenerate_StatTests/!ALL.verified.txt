@@ -24,4 +24,4 @@ Directive DrctAlias
 Directive DrctParam
 Option Schema
 */
-namespace GqlPlus.Gqlp_Schema_ALL;
+namespace Components.Gqlp_Schema_ALL;

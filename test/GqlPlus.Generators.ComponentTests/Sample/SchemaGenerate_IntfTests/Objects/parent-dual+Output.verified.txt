@@ -7,14 +7,14 @@ dual RefPrntDualOutp { parent: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_parent_dual_Output;
+namespace Components.Gqlp_Schema_parent_dual_Output;
 
-public interface IPrntDualOutp
-  : IRefPrntDualOutp
+public interface ICmptPrntDualOutp
+  : ICmptRefPrntDualOutp
 {
 }
 
-public interface IRefPrntDualOutp
+public interface ICmptRefPrntDualOutp
 {
   Number parent { get; }
   String AsString { get; }

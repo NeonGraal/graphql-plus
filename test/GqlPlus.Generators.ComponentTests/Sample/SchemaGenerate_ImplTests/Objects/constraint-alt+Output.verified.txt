@@ -6,10 +6,10 @@ output CnstAltOutp<$type:Number> { | $type }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_alt_Output;
+namespace Components.Gqlp_Schema_constraint_alt_Output;
 
-public class OutputCnstAltOutp<Ttype>
-  : ICnstAltOutp<Ttype>
+public class OutputCmptCnstAltOutp<Ttype>
+  : ICmptCnstAltOutp<Ttype>
 {
   public Ttype Astype { get; set; }
 }

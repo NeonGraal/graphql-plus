@@ -7,15 +7,15 @@ output RefPrntAltOutp {  parent: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_parent_alt_Output;
+namespace Components.Gqlp_Schema_parent_alt_Output;
 
-public interface IPrntAltOutp
-  : IRefPrntAltOutp
+public interface ICmptPrntAltOutp
+  : ICmptRefPrntAltOutp
 {
   Number AsNumber { get; }
 }
 
-public interface IRefPrntAltOutp
+public interface ICmptRefPrntAltOutp
 {
   Number parent { get; }
   String AsString { get; }

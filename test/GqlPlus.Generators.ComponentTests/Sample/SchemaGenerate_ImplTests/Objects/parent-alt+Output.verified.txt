@@ -7,17 +7,17 @@ output RefPrntAltOutp {  parent: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_parent_alt_Output;
+namespace Components.Gqlp_Schema_parent_alt_Output;
 
-public class OutputPrntAltOutp
-  : OutputRefPrntAltOutp
-  , IPrntAltOutp
+public class OutputCmptPrntAltOutp
+  : OutputCmptRefPrntAltOutp
+  , ICmptPrntAltOutp
 {
   public Number AsNumber { get; set; }
 }
 
-public class OutputRefPrntAltOutp
-  : IRefPrntAltOutp
+public class OutputCmptRefPrntAltOutp
+  : ICmptRefPrntAltOutp
 {
   public Number parent { get; set; }
   public String AsString { get; set; }

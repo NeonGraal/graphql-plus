@@ -12,14 +12,14 @@ output _DualField {
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Dual;
+namespace Components.Gqlp_Spec_Dual;
 
-public interface I_TypeDual
-  : I_TypeObject
+public interface ICmpt_TypeDual
+  : ICmpt_TypeObject
 {
 }
 
-public interface I_DualField
-  : I_ObjField
+public interface ICmpt_DualField
+  : ICmpt_ObjField
 {
 }

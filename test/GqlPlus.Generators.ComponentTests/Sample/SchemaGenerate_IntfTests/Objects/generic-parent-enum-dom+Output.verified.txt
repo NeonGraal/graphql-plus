@@ -9,18 +9,18 @@ domain DomGnrcPrntEnumDomOutp { enum gnrcPrntEnumDomOutpLabel }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_enum_dom_Output;
+namespace Components.Gqlp_Schema_generic_parent_enum_dom_Output;
 
-public interface IGnrcPrntEnumDomOutp
-  : IFieldGnrcPrntEnumDomOutp
+public interface ICmptGnrcPrntEnumDomOutp
+  : ICmptFieldGnrcPrntEnumDomOutp
 {
 }
 
-public interface IFieldGnrcPrntEnumDomOutp<Tref>
+public interface ICmptFieldGnrcPrntEnumDomOutp<Tref>
 {
   Tref field { get; }
 }
 
-public interface IDomGnrcPrntEnumDomOutp
+public interface ICmptDomGnrcPrntEnumDomOutp
 {
 }

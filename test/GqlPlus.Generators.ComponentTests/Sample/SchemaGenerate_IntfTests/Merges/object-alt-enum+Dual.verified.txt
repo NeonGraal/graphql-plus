@@ -7,9 +7,9 @@ dual ObjAltEnumDual { ! false }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_alt_enum_Dual;
+namespace Components.Gqlp_Schema_object_alt_enum_Dual;
 
-public interface IObjAltEnumDual
+public interface ICmptObjAltEnumDual
 {
   Boolean AsBoolean { get; }
   Boolean AsBoolean { get; }

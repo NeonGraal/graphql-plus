@@ -83,9 +83,9 @@ output _DomainItemRegex {
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Domain;
+namespace Components.Gqlp_Spec_Domain;
 
-public interface I_TypeDomain
+public interface ICmpt_TypeDomain
 {
   _BaseDomain<_DomainKind, _DomainTrueFalse, _DomainItemTrueFalse> As_BaseDomain { get; }
   _BaseDomain<_DomainKind, _DomainLabel, _DomainItemLabel> As_BaseDomain { get; }
@@ -93,38 +93,38 @@ public interface I_TypeDomain
   _BaseDomain<_DomainKind, _DomainRegex, _DomainItemRegex> As_BaseDomain { get; }
 }
 
-public interface I_DomainRef<Tkind>
-  : I_TypeRef
+public interface ICmpt_DomainRef<Tkind>
+  : ICmpt_TypeRef
 {
   Tkind domainKind { get; }
 }
 
-public interface I_BaseDomain<Tdomain,Titem,TdomainItem>
-  : I_ParentType
+public interface ICmpt_BaseDomain<Tdomain,Titem,TdomainItem>
+  : ICmpt_ParentType
 {
   Tdomain domainKind { get; }
 }
 
-public interface I_BaseDomainItem
-  : I_Described
+public interface ICmpt_BaseDomainItem
+  : ICmpt_Described
 {
   Boolean exclude { get; }
 }
 
-public interface I_DomainItem<Titem>
-  : Iitem
+public interface ICmpt_DomainItem<Titem>
+  : ICmptitem
 {
   _Identifier domain { get; }
 }
 
-public interface I_DomainValue<Tkind,Tvalue>
-  : I_DomainRef
+public interface ICmpt_DomainValue<Tkind,Tvalue>
+  : ICmpt_DomainRef
 {
   Tvalue value { get; }
   Tvalue Asvalue { get; }
 }
 
-public interface I_BasicValue
+public interface ICmpt_BasicValue
 {
   _DomainKind As_DomainKind { get; }
   _EnumValue As_EnumValue { get; }
@@ -132,47 +132,47 @@ public interface I_BasicValue
   _DomainKind As_DomainKind { get; }
 }
 
-public interface I_DomainTrueFalse
-  : I_BaseDomainItem
+public interface ICmpt_DomainTrueFalse
+  : ICmpt_BaseDomainItem
 {
   Boolean value { get; }
 }
 
-public interface I_DomainItemTrueFalse
-  : I_DomainItem
+public interface ICmpt_DomainItemTrueFalse
+  : ICmpt_DomainItem
 {
 }
 
-public interface I_DomainLabel
-  : I_BaseDomainItem
+public interface ICmpt_DomainLabel
+  : ICmpt_BaseDomainItem
 {
   _EnumValue label { get; }
 }
 
-public interface I_DomainItemLabel
-  : I_DomainItem
+public interface ICmpt_DomainItemLabel
+  : ICmpt_DomainItem
 {
 }
 
-public interface I_DomainRange
-  : I_BaseDomainItem
+public interface ICmpt_DomainRange
+  : ICmpt_BaseDomainItem
 {
   Number lower { get; }
   Number upper { get; }
 }
 
-public interface I_DomainItemRange
-  : I_DomainItem
+public interface ICmpt_DomainItemRange
+  : ICmpt_DomainItem
 {
 }
 
-public interface I_DomainRegex
-  : I_BaseDomainItem
+public interface ICmpt_DomainRegex
+  : ICmpt_BaseDomainItem
 {
   String pattern { get; }
 }
 
-public interface I_DomainItemRegex
-  : I_DomainItem
+public interface ICmpt_DomainItemRegex
+  : ICmpt_DomainItem
 {
 }

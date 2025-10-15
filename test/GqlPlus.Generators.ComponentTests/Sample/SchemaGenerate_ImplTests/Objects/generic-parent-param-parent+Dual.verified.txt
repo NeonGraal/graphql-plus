@@ -8,22 +8,22 @@ dual AltGnrcPrntParamPrntDual { alt: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_param_parent_Dual;
+namespace Components.Gqlp_Schema_generic_parent_param_parent_Dual;
 
-public class DualGnrcPrntParamPrntDual
-  : DualRefGnrcPrntParamPrntDual
-  , IGnrcPrntParamPrntDual
+public class DualCmptGnrcPrntParamPrntDual
+  : DualCmptRefGnrcPrntParamPrntDual
+  , ICmptGnrcPrntParamPrntDual
 {
 }
 
-public class DualRefGnrcPrntParamPrntDual<Tref>
-  : Dualref
-  , IRefGnrcPrntParamPrntDual<Tref>
+public class DualCmptRefGnrcPrntParamPrntDual<Tref>
+  : DualCmptref
+  , ICmptRefGnrcPrntParamPrntDual<Tref>
 {
 }
 
-public class DualAltGnrcPrntParamPrntDual
-  : IAltGnrcPrntParamPrntDual
+public class DualCmptAltGnrcPrntParamPrntDual
+  : ICmptAltGnrcPrntParamPrntDual
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

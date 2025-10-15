@@ -8,14 +8,14 @@ enum EnumGnrcEnumDual { gnrcEnumDual }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_enum_Dual;
+namespace Components.Gqlp_Schema_generic_enum_Dual;
 
-public interface IGnrcEnumDual
+public interface ICmptGnrcEnumDual
 {
   RefGnrcEnumDual<EnumGnrcEnumDual> AsRefGnrcEnumDual { get; }
 }
 
-public interface IRefGnrcEnumDual<Ttype>
+public interface ICmptRefGnrcEnumDual<Ttype>
 {
   Ttype field { get; }
 }

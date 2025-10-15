@@ -7,9 +7,9 @@ input ObjFieldEnumValueInp { field = true }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_field_enum_value_Input;
+namespace Components.Gqlp_Schema_object_field_enum_value_Input;
 
-public interface IObjFieldEnumValueInp
+public interface ICmptObjFieldEnumValueInp
 {
   Boolean field { get; }
 }

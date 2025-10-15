@@ -51,11 +51,11 @@ dual _Described {
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Schema;
+namespace Components.Gqlp_Spec_Schema;
 
-public class Output_Schema
-  : Output_Named
-  , I_Schema
+public class OutputCmpt_Schema
+  : OutputCmpt_Named
+  , ICmpt_Schema
 {
   public _Categories categories { get; set; }
   public _Directives directives { get; set; }
@@ -63,13 +63,13 @@ public class Output_Schema
   public _Setting settings { get; set; }
 }
 
-public class Domain_Identifier
-  : I_Identifier
+public class DomainCmpt_Identifier
+  : ICmpt_Identifier
 {
 }
 
-public class Input_Filter
-  : I_Filter
+public class InputCmpt_Filter
+  : ICmpt_Filter
 {
   public _NameFilter names { get; set; }
   public Boolean matchAliases { get; set; }
@@ -79,41 +79,41 @@ public class Input_Filter
   public _NameFilter As_NameFilter { get; set; }
 }
 
-public class Domain_NameFilter
-  : I_NameFilter
+public class DomainCmpt_NameFilter
+  : ICmpt_NameFilter
 {
 }
 
-public class Input_CategoryFilter
-  : Input_Filter
-  , I_CategoryFilter
+public class InputCmpt_CategoryFilter
+  : InputCmpt_Filter
+  , ICmpt_CategoryFilter
 {
   public _Resolution resolutions { get; set; }
 }
 
-public class Input_TypeFilter
-  : Input_Filter
-  , I_TypeFilter
+public class InputCmpt_TypeFilter
+  : InputCmpt_Filter
+  , ICmpt_TypeFilter
 {
   public _TypeKind kinds { get; set; }
 }
 
-public class Dual_Aliased
-  : Dual_Named
-  , I_Aliased
+public class DualCmpt_Aliased
+  : DualCmpt_Named
+  , ICmpt_Aliased
 {
   public _Identifier aliases { get; set; }
 }
 
-public class Dual_Named
-  : Dual_Described
-  , I_Named
+public class DualCmpt_Named
+  : DualCmpt_Described
+  , ICmpt_Named
 {
   public _Identifier name { get; set; }
 }
 
-public class Dual_Described
-  : I_Described
+public class DualCmpt_Described
+  : ICmpt_Described
 {
   public String description { get; set; }
 }

@@ -8,8 +8,8 @@ output CtgrAlias { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_category_alias;
+namespace Components.Gqlp_Schema_category_alias;
 
-public interface ICtgrAlias
+public interface ICmptCtgrAlias
 {
 }

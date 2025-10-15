@@ -9,4 +9,4 @@ option Schema { }
 
 Option Schema
 */
-namespace GqlPlus.Gqlp_Schema_option;
+namespace Components.Gqlp_Schema_option;

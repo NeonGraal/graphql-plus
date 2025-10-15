@@ -6,10 +6,10 @@ output FieldTypeDescrOutp { field: "Test" "Descr" Number }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_type_descr_Output;
+namespace Components.Gqlp_Schema_field_type_descr_Output;
 
-public class OutputFieldTypeDescrOutp
-  : IFieldTypeDescrOutp
+public class OutputCmptFieldTypeDescrOutp
+  : ICmptFieldTypeDescrOutp
 {
   public Number field { get; set; }
 }

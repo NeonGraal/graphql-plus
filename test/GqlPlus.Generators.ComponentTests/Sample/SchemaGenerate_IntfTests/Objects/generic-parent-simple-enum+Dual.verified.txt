@@ -8,14 +8,14 @@ enum EnumGnrcPrntSmplEnumDual { gnrcPrntSmplEnumDual }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_simple_enum_Dual;
+namespace Components.Gqlp_Schema_generic_parent_simple_enum_Dual;
 
-public interface IGnrcPrntSmplEnumDual
-  : IFieldGnrcPrntSmplEnumDual
+public interface ICmptGnrcPrntSmplEnumDual
+  : ICmptFieldGnrcPrntSmplEnumDual
 {
 }
 
-public interface IFieldGnrcPrntSmplEnumDual<Tref>
+public interface ICmptFieldGnrcPrntSmplEnumDual<Tref>
 {
   Tref field { get; }
 }

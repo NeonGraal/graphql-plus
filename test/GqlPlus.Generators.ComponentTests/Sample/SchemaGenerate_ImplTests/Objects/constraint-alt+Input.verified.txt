@@ -6,10 +6,10 @@ input CnstAltInp<$type:Number> { | $type }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_alt_Input;
+namespace Components.Gqlp_Schema_constraint_alt_Input;
 
-public class InputCnstAltInp<Ttype>
-  : ICnstAltInp<Ttype>
+public class InputCmptCnstAltInp<Ttype>
+  : ICmptCnstAltInp<Ttype>
 {
   public Ttype Astype { get; set; }
 }

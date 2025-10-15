@@ -8,9 +8,9 @@ output CtgrAlias { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_category_alias;
+namespace Components.Gqlp_Schema_category_alias;
 
-public class OutputCtgrAlias
-  : ICtgrAlias
+public class OutputCmptCtgrAlias
+  : ICmptCtgrAlias
 {
 }

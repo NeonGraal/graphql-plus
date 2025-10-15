@@ -6,10 +6,10 @@ output FieldSmplOutp { field: Number }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_simple_Output;
+namespace Components.Gqlp_Schema_field_simple_Output;
 
-public class OutputFieldSmplOutp
-  : IFieldSmplOutp
+public class OutputCmptFieldSmplOutp
+  : ICmptFieldSmplOutp
 {
   public Number field { get; set; }
 }

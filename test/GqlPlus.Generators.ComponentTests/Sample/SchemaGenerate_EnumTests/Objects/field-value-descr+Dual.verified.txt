@@ -7,9 +7,9 @@ enum EnumFieldValueDescrDual { fieldValueDescrDual }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_value_descr_Dual;
+namespace Components.Gqlp_Schema_field_value_descr_Dual;
 
-public enum EnumFieldValueDescrDual
+public enum CmptEnumFieldValueDescrDual
 {
   fieldValueDescrDual,
 }

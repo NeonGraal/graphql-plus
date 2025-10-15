@@ -8,22 +8,22 @@ input AltGnrcPrntParamPrntInp { alt: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_param_parent_Input;
+namespace Components.Gqlp_Schema_generic_parent_param_parent_Input;
 
-public class InputGnrcPrntParamPrntInp
-  : InputRefGnrcPrntParamPrntInp
-  , IGnrcPrntParamPrntInp
+public class InputCmptGnrcPrntParamPrntInp
+  : InputCmptRefGnrcPrntParamPrntInp
+  , ICmptGnrcPrntParamPrntInp
 {
 }
 
-public class InputRefGnrcPrntParamPrntInp<Tref>
-  : Inputref
-  , IRefGnrcPrntParamPrntInp<Tref>
+public class InputCmptRefGnrcPrntParamPrntInp<Tref>
+  : InputCmptref
+  , ICmptRefGnrcPrntParamPrntInp<Tref>
 {
 }
 
-public class InputAltGnrcPrntParamPrntInp
-  : IAltGnrcPrntParamPrntInp
+public class InputCmptAltGnrcPrntParamPrntInp
+  : ICmptAltGnrcPrntParamPrntInp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

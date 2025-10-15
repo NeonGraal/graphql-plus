@@ -7,9 +7,9 @@ enum EnumInpFieldEnum { inpFieldEnum }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_input_field_Enum;
+namespace Components.Gqlp_Schema_input_field_Enum;
 
-public enum EnumInpFieldEnum
+public enum CmptEnumInpFieldEnum
 {
   inpFieldEnum,
 }

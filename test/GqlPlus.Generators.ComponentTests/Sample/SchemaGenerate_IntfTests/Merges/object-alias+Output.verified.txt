@@ -7,8 +7,8 @@ output ObjAliasOutp [Output2] { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_alias_Output;
+namespace Components.Gqlp_Schema_object_alias_Output;
 
-public interface IObjAliasOutp
+public interface ICmptObjAliasOutp
 {
 }

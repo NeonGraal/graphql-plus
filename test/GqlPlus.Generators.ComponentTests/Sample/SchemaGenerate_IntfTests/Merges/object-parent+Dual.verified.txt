@@ -8,13 +8,13 @@ dual RefObjPrntDual { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_parent_Dual;
+namespace Components.Gqlp_Schema_object_parent_Dual;
 
-public interface IObjPrntDual
-  : IRefObjPrntDual
+public interface ICmptObjPrntDual
+  : ICmptRefObjPrntDual
 {
 }
 
-public interface IRefObjPrntDual
+public interface ICmptRefObjPrntDual
 {
 }

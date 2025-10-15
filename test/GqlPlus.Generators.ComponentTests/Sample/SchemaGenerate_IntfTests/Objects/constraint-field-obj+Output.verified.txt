@@ -9,25 +9,25 @@ output AltCnstFieldObjOutp { :PrntCnstFieldObjOutp alt: Number }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_field_obj_Output;
+namespace Components.Gqlp_Schema_constraint_field_obj_Output;
 
-public interface ICnstFieldObjOutp
-  : IRefCnstFieldObjOutp
+public interface ICmptCnstFieldObjOutp
+  : ICmptRefCnstFieldObjOutp
 {
 }
 
-public interface IRefCnstFieldObjOutp<Tref>
+public interface ICmptRefCnstFieldObjOutp<Tref>
 {
   Tref field { get; }
 }
 
-public interface IPrntCnstFieldObjOutp
+public interface ICmptPrntCnstFieldObjOutp
 {
   String AsString { get; }
 }
 
-public interface IAltCnstFieldObjOutp
-  : IPrntCnstFieldObjOutp
+public interface ICmptAltCnstFieldObjOutp
+  : ICmptPrntCnstFieldObjOutp
 {
   Number alt { get; }
 }

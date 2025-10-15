@@ -7,10 +7,10 @@ dual ObjFieldEnumValueDual { field = true }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_field_enum_value_Dual;
+namespace Components.Gqlp_Schema_object_field_enum_value_Dual;
 
-public class DualObjFieldEnumValueDual
-  : IObjFieldEnumValueDual
+public class DualCmptObjFieldEnumValueDual
+  : ICmptObjFieldEnumValueDual
 {
   public Boolean field { get; set; }
 }

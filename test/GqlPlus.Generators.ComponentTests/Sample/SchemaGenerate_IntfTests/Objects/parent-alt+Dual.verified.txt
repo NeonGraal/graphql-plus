@@ -7,15 +7,15 @@ dual RefPrntAltDual {  parent: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_parent_alt_Dual;
+namespace Components.Gqlp_Schema_parent_alt_Dual;
 
-public interface IPrntAltDual
-  : IRefPrntAltDual
+public interface ICmptPrntAltDual
+  : ICmptRefPrntAltDual
 {
   Number AsNumber { get; }
 }
 
-public interface IRefPrntAltDual
+public interface ICmptRefPrntAltDual
 {
   Number parent { get; }
   String AsString { get; }

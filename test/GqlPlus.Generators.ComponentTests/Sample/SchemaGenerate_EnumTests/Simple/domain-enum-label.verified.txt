@@ -7,9 +7,9 @@ enum EnumDmnEnumLabel { dmnEnumLabel }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_domain_enum_label;
+namespace Components.Gqlp_Schema_domain_enum_label;
 
-public enum EnumDmnEnumLabel
+public enum CmptEnumDmnEnumLabel
 {
   dmnEnumLabel,
 }

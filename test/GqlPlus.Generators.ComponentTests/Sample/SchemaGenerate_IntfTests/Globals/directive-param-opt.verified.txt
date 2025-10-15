@@ -7,8 +7,8 @@ input InDrctParamOpt { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_directive_param_opt;
+namespace Components.Gqlp_Schema_directive_param_opt;
 
-public interface IInDrctParamOpt
+public interface ICmptInDrctParamOpt
 {
 }

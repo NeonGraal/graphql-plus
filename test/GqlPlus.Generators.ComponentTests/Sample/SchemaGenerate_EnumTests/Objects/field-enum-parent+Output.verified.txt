@@ -8,15 +8,15 @@ enum PrntFieldEnumPrntOutp { prnt_fieldEnumPrntOutp }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_enum_parent_Output;
+namespace Components.Gqlp_Schema_field_enum_parent_Output;
 
-public enum EnumFieldEnumPrntOutp
+public enum CmptEnumFieldEnumPrntOutp
 {
   prnt_fieldEnumPrntOutp = PrntFieldEnumPrntOutp.prnt_fieldEnumPrntOutp,
   fieldEnumPrntOutp,
 }
 
-public enum PrntFieldEnumPrntOutp
+public enum CmptPrntFieldEnumPrntOutp
 {
   prnt_fieldEnumPrntOutp,
 }

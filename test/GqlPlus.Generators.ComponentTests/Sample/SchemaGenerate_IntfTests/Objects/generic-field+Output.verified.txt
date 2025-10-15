@@ -6,9 +6,9 @@ output GnrcFieldOutp<$type:String> { field: $type }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_field_Output;
+namespace Components.Gqlp_Schema_generic_field_Output;
 
-public interface IGnrcFieldOutp<Ttype>
+public interface ICmptGnrcFieldOutp<Ttype>
 {
   Ttype field { get; }
 }

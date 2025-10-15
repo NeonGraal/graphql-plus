@@ -7,9 +7,9 @@ enum EnumValueAlias { enumValueAlias [val2] }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_enum_value_alias;
+namespace Components.Gqlp_Schema_enum_value_alias;
 
-public enum EnumValueAlias
+public enum CmptEnumValueAlias
 {
   enumValueAlias,
   val1 = enumValueAlias,

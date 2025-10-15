@@ -10,30 +10,30 @@ dual AltCnstPrntDualGrndDual { :PrntCnstPrntDualGrndDual alt: Number }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_parent_dual_grandparent_Dual;
+namespace Components.Gqlp_Schema_constraint_parent_dual_grandparent_Dual;
 
-public interface ICnstPrntDualGrndDual
-  : IRefCnstPrntDualGrndDual
+public interface ICmptCnstPrntDualGrndDual
+  : ICmptRefCnstPrntDualGrndDual
 {
 }
 
-public interface IRefCnstPrntDualGrndDual<Tref>
-  : Iref
+public interface ICmptRefCnstPrntDualGrndDual<Tref>
+  : ICmptref
 {
 }
 
-public interface IGrndCnstPrntDualGrndDual
+public interface ICmptGrndCnstPrntDualGrndDual
 {
   String AsString { get; }
 }
 
-public interface IPrntCnstPrntDualGrndDual
-  : IGrndCnstPrntDualGrndDual
+public interface ICmptPrntCnstPrntDualGrndDual
+  : ICmptGrndCnstPrntDualGrndDual
 {
 }
 
-public interface IAltCnstPrntDualGrndDual
-  : IPrntCnstPrntDualGrndDual
+public interface ICmptAltCnstPrntDualGrndDual
+  : ICmptPrntCnstPrntDualGrndDual
 {
   Number alt { get; }
 }

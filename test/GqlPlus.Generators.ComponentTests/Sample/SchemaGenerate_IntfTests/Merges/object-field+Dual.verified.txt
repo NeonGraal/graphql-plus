@@ -8,13 +8,13 @@ dual FldObjFieldDual { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_field_Dual;
+namespace Components.Gqlp_Schema_object_field_Dual;
 
-public interface IObjFieldDual
+public interface ICmptObjFieldDual
 {
   FldObjFieldDual field { get; }
 }
 
-public interface IFldObjFieldDual
+public interface ICmptFldObjFieldDual
 {
 }

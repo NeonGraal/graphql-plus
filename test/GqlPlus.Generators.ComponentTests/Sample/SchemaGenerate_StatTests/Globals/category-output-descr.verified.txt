@@ -9,4 +9,4 @@ output CtgrOutpDescr { }
 
 Category ctgrOutpDescr
 */
-namespace GqlPlus.Gqlp_Schema_category_output_descr;
+namespace Components.Gqlp_Schema_category_output_descr;

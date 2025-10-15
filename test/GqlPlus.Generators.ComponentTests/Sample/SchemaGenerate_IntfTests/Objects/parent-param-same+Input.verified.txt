@@ -7,15 +7,15 @@ input RefPrntParamSameInp<$a:String> { | $a }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_parent_param_same_Input;
+namespace Components.Gqlp_Schema_parent_param_same_Input;
 
-public interface IPrntParamSameInp<Ta>
-  : IRefPrntParamSameInp
+public interface ICmptPrntParamSameInp<Ta>
+  : ICmptRefPrntParamSameInp
 {
   Ta field { get; }
 }
 
-public interface IRefPrntParamSameInp<Ta>
+public interface ICmptRefPrntParamSameInp<Ta>
 {
   Ta Asa { get; }
 }

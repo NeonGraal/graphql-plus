@@ -2,89 +2,89 @@
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_Globals;
+namespace Components.Gqlp_Schema_Globals;
 
-public class OutputCtgrDscrs
-  : ICtgrDscrs
+public class OutputCmptCtgrDscrs
+  : ICmptCtgrDscrs
 {
 }
 
-public class OutputCtgrOutp
-  : ICtgrOutp
+public class OutputCmptCtgrOutp
+  : ICmptCtgrOutp
 {
 }
 
-public class OutputCtgrOutpDescr
-  : ICtgrOutpDescr
+public class OutputCmptCtgrOutpDescr
+  : ICmptCtgrOutpDescr
 {
 }
 
-public class OutputCtgrOutpDict
-  : ICtgrOutpDict
+public class OutputCmptCtgrOutpDict
+  : ICmptCtgrOutpDict
 {
 }
 
-public class OutputCtgrOutpList
-  : ICtgrOutpList
+public class OutputCmptCtgrOutpList
+  : ICmptCtgrOutpList
 {
 }
 
-public class OutputCtgrOutpOptl
-  : ICtgrOutpOptl
+public class OutputCmptCtgrOutpOptl
+  : ICmptCtgrOutpOptl
 {
 }
 
-public class OutputDescr
-  : IDescr
+public class OutputCmptDescr
+  : ICmptDescr
 {
 }
 
-public class OutputDescrBcks
-  : IDescrBcks
+public class OutputCmptDescrBcks
+  : ICmptDescrBcks
 {
 }
 
-public class OutputDescrBtwn
-  : IDescrBtwn
+public class OutputCmptDescrBtwn
+  : ICmptDescrBtwn
 {
 }
 
-public class OutputDescrCmpl
-  : IDescrCmpl
+public class OutputCmptDescrCmpl
+  : ICmptDescrCmpl
 {
 }
 
-public class OutputDescrDbl
-  : IDescrDbl
+public class OutputCmptDescrDbl
+  : ICmptDescrDbl
 {
 }
 
-public class OutputDescrSngl
-  : IDescrSngl
+public class OutputCmptDescrSngl
+  : ICmptDescrSngl
 {
 }
 
-public class OutputDscrs
-  : IDscrs
+public class OutputCmptDscrs
+  : ICmptDscrs
 {
 }
 
-public class InputInDrctParamDict
-  : IInDrctParamDict
+public class InputCmptInDrctParamDict
+  : ICmptInDrctParamDict
 {
 }
 
-public class InputInDrctParamIn
-  : IInDrctParamIn
+public class InputCmptInDrctParamIn
+  : ICmptInDrctParamIn
 {
 }
 
-public class InputInDrctParamList
-  : IInDrctParamList
+public class InputCmptInDrctParamList
+  : ICmptInDrctParamList
 {
 }
 
-public class InputInDrctParamOpt
-  : IInDrctParamOpt
+public class InputCmptInDrctParamOpt
+  : ICmptInDrctParamOpt
 {
 }

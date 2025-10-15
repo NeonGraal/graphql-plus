@@ -6,9 +6,9 @@ input RefGnrcAltModParamInp<$ref:String $mod:String> { | $ref[$mod] }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_alt_mod_param_Input;
+namespace Components.Gqlp_Schema_generic_alt_mod_param_Input;
 
-public interface IRefGnrcAltModParamInp<Tref,Tmod>
+public interface ICmptRefGnrcAltModParamInp<Tref,Tmod>
 {
   Tref Asref { get; }
 }

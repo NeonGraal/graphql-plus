@@ -19,17 +19,17 @@ enum _Resolution { Parallel Sequential Single }
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Category;
+namespace Components.Gqlp_Spec_Category;
 
-public interface I_Categories
-  : I_AndType
+public interface ICmpt_Categories
+  : ICmpt_AndType
 {
   _Category category { get; }
   _Category As_Category { get; }
 }
 
-public interface I_Category
-  : I_Aliased
+public interface ICmpt_Category
+  : ICmpt_Aliased
 {
   _Resolution resolution { get; }
   _TypeRef<_TypeKind> output { get; }

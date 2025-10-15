@@ -7,9 +7,9 @@ output CtgrOutpDict { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_category_output_dict;
+namespace Components.Gqlp_Schema_category_output_dict;
 
-public class OutputCtgrOutpDict
-  : ICtgrOutpDict
+public class OutputCmptCtgrOutpDict
+  : ICmptCtgrOutpDict
 {
 }

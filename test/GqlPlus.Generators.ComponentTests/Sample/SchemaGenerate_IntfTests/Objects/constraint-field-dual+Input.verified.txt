@@ -9,25 +9,25 @@ input AltCnstFieldDualInp { :PrntCnstFieldDualInp alt: Number }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_field_dual_Input;
+namespace Components.Gqlp_Schema_constraint_field_dual_Input;
 
-public interface ICnstFieldDualInp
-  : IRefCnstFieldDualInp
+public interface ICmptCnstFieldDualInp
+  : ICmptRefCnstFieldDualInp
 {
 }
 
-public interface IRefCnstFieldDualInp<Tref>
+public interface ICmptRefCnstFieldDualInp<Tref>
 {
   Tref field { get; }
 }
 
-public interface IPrntCnstFieldDualInp
+public interface ICmptPrntCnstFieldDualInp
 {
   String AsString { get; }
 }
 
-public interface IAltCnstFieldDualInp
-  : IPrntCnstFieldDualInp
+public interface ICmptAltCnstFieldDualInp
+  : ICmptPrntCnstFieldDualInp
 {
   Number alt { get; }
 }

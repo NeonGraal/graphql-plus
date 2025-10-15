@@ -9,16 +9,16 @@ enum PrntOutpPrntGnrc { prnt_outpPrntGnrc }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_output_parent_generic;
+namespace Components.Gqlp_Schema_output_parent_generic;
 
-public class OutputOutpPrntGnrc
-  : IOutpPrntGnrc
+public class OutputCmptOutpPrntGnrc
+  : ICmptOutpPrntGnrc
 {
   public RefOutpPrntGnrc<EnumOutpPrntGnrc> AsRefOutpPrntGnrc { get; set; }
 }
 
-public class OutputRefOutpPrntGnrc<Ttype>
-  : IRefOutpPrntGnrc<Ttype>
+public class OutputCmptRefOutpPrntGnrc<Ttype>
+  : ICmptRefOutpPrntGnrc<Ttype>
 {
   public Ttype field { get; set; }
 }

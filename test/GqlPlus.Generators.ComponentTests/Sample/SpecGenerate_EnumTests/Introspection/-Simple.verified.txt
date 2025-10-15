@@ -110,9 +110,9 @@ output _UnionMember {
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Simple;
+namespace Components.Gqlp_Spec_Simple;
 
-public enum _DomainKind
+public enum Cmpt_DomainKind
 {
   Boolean,
   Enum,

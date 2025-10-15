@@ -7,7 +7,10 @@ namespace GqlPlus;
 internal sealed class GqlModelConfigOptionsProvider : AnalyzerConfigOptionsProvider
 {
   public override GqlModelConfigOptions GlobalOptions { get; }
-    = new(new() { ["build_property.GqlPlus_BaseNamespace"] = "GqlPlus" });
+    = new(new() {
+      ["build_property.GqlPlus_BaseNamespace"] = "Testing",
+      ["build_property.GqlPlus_TypePrefix"] = "test",
+    });
 
   public override GqlModelConfigOptions GetOptions(SyntaxTree tree)
     => GqlModelConfigOptions.Empty;

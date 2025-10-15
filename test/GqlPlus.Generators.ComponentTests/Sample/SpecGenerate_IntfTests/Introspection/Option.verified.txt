@@ -9,10 +9,10 @@ output _Setting {
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Option;
+namespace Components.Gqlp_Spec_Option;
 
-public interface I_Setting
-  : I_Named
+public interface ICmpt_Setting
+  : ICmpt_Named
 {
   _Value value { get; }
 }

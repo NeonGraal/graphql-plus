@@ -6,10 +6,10 @@ output FieldOutp { field: String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_Output;
+namespace Components.Gqlp_Schema_field_Output;
 
-public class OutputFieldOutp
-  : IFieldOutp
+public class OutputCmptFieldOutp
+  : ICmptFieldOutp
 {
   public String field { get; set; }
 }

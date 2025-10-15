@@ -7,9 +7,9 @@ enum EnumSame { enumSame }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_enum_same;
+namespace Components.Gqlp_Schema_enum_same;
 
-public enum EnumSame
+public enum CmptEnumSame
 {
   enumSame,
 }

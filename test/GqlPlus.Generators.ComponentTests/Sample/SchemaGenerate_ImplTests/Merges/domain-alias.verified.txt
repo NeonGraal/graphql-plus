@@ -7,9 +7,9 @@ domain DmnAlias [Num2] { number }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_domain_alias;
+namespace Components.Gqlp_Schema_domain_alias;
 
-public class DomainDmnAlias
-  : IDmnAlias
+public class DomainCmptDmnAlias
+  : ICmptDmnAlias
 {
 }

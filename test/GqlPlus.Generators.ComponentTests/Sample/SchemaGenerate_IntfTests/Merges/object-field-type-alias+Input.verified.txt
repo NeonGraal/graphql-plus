@@ -7,9 +7,9 @@ input ObjFieldTypeAliasInp { field: String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_field_type_alias_Input;
+namespace Components.Gqlp_Schema_object_field_type_alias_Input;
 
-public interface IObjFieldTypeAliasInp
+public interface ICmptObjFieldTypeAliasInp
 {
   String field { get; }
 }

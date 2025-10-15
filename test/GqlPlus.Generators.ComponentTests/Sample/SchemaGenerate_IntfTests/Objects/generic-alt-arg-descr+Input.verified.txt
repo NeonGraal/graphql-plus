@@ -7,14 +7,14 @@ input RefGnrcAltArgDescrInp<$ref:String> { | $ref }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_alt_arg_descr_Input;
+namespace Components.Gqlp_Schema_generic_alt_arg_descr_Input;
 
-public interface IGnrcAltArgDescrInp<Ttype>
+public interface ICmptGnrcAltArgDescrInp<Ttype>
 {
   RefGnrcAltArgDescrInp<Ttype> AsRefGnrcAltArgDescrInp { get; }
 }
 
-public interface IRefGnrcAltArgDescrInp<Tref>
+public interface ICmptRefGnrcAltArgDescrInp<Tref>
 {
   Tref Asref { get; }
 }

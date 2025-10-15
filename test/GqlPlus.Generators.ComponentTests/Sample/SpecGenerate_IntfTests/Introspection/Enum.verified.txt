@@ -18,21 +18,21 @@ output _EnumValue {
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Enum;
+namespace Components.Gqlp_Spec_Enum;
 
-public interface I_TypeEnum
-  : I_ParentType
+public interface ICmpt_TypeEnum
+  : ICmpt_ParentType
 {
 }
 
-public interface I_EnumLabel
-  : I_Aliased
+public interface ICmpt_EnumLabel
+  : ICmpt_Aliased
 {
   _Identifier enum { get; }
 }
 
-public interface I_EnumValue
-  : I_TypeRef
+public interface ICmpt_EnumValue
+  : ICmpt_TypeRef
 {
   _Identifier label { get; }
 }

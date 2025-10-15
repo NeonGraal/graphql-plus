@@ -9,4 +9,4 @@ output CtgrOutpDict { }
 
 Category ctgrOutpDict
 */
-namespace GqlPlus.Gqlp_Schema_category_output_dict;
+namespace Components.Gqlp_Schema_category_output_dict;

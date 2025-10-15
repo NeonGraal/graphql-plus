@@ -7,15 +7,15 @@ dual RefPrntParamDiffDual<$b:String> { | $b }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_parent_param_diff_Dual;
+namespace Components.Gqlp_Schema_parent_param_diff_Dual;
 
-public interface IPrntParamDiffDual<Ta>
-  : IRefPrntParamDiffDual
+public interface ICmptPrntParamDiffDual<Ta>
+  : ICmptRefPrntParamDiffDual
 {
   Ta field { get; }
 }
 
-public interface IRefPrntParamDiffDual<Tb>
+public interface ICmptRefPrntParamDiffDual<Tb>
 {
   Tb Asb { get; }
 }

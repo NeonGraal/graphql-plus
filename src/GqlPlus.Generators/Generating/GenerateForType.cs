@@ -41,7 +41,7 @@ internal abstract class GenerateForType<T>
     };
 
   protected virtual void InterfaceHeader(T ast, GqlpGeneratorContext context)
-    => context.Write($"public interface I{ast.Name}");
+    => context.Write("public interface I" + context.TypeName(ast));
 
   protected virtual void InterfaceMember(MapPair<string> item, GqlpGeneratorContext context)
     => context.Write($"  {item.Value} {item.Key} {{ get; }}");

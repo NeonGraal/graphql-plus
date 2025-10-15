@@ -9,29 +9,29 @@ output AltCnstAltDualOutp { :PrntCnstAltDualOutp alt: Number }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_alt_dual_Output;
+namespace Components.Gqlp_Schema_constraint_alt_dual_Output;
 
-public class OutputCnstAltDualOutp
-  : ICnstAltDualOutp
+public class OutputCmptCnstAltDualOutp
+  : ICmptCnstAltDualOutp
 {
   public RefCnstAltDualOutp<AltCnstAltDualOutp> AsRefCnstAltDualOutp { get; set; }
 }
 
-public class OutputRefCnstAltDualOutp<Tref>
-  : IRefCnstAltDualOutp<Tref>
+public class OutputCmptRefCnstAltDualOutp<Tref>
+  : ICmptRefCnstAltDualOutp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DualPrntCnstAltDualOutp
-  : IPrntCnstAltDualOutp
+public class DualCmptPrntCnstAltDualOutp
+  : ICmptPrntCnstAltDualOutp
 {
   public String AsString { get; set; }
 }
 
-public class OutputAltCnstAltDualOutp
-  : OutputPrntCnstAltDualOutp
-  , IAltCnstAltDualOutp
+public class OutputCmptAltCnstAltDualOutp
+  : OutputCmptPrntCnstAltDualOutp
+  , ICmptAltCnstAltDualOutp
 {
   public Number alt { get; set; }
 }

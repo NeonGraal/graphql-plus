@@ -7,16 +7,16 @@ dual FldFieldDualDual { field: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_dual_Dual;
+namespace Components.Gqlp_Schema_field_dual_Dual;
 
-public class DualFieldDualDual
-  : IFieldDualDual
+public class DualCmptFieldDualDual
+  : ICmptFieldDualDual
 {
   public FldFieldDualDual field { get; set; }
 }
 
-public class DualFldFieldDualDual
-  : IFldFieldDualDual
+public class DualCmptFldFieldDualDual
+  : ICmptFldFieldDualDual
 {
   public Number field { get; set; }
   public String AsString { get; set; }

@@ -7,15 +7,15 @@ input RefPrntParamDiffInp<$b:String> { | $b }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_parent_param_diff_Input;
+namespace Components.Gqlp_Schema_parent_param_diff_Input;
 
-public interface IPrntParamDiffInp<Ta>
-  : IRefPrntParamDiffInp
+public interface ICmptPrntParamDiffInp<Ta>
+  : ICmptRefPrntParamDiffInp
 {
   Ta field { get; }
 }
 
-public interface IRefPrntParamDiffInp<Tb>
+public interface ICmptRefPrntParamDiffInp<Tb>
 {
   Tb Asb { get; }
 }

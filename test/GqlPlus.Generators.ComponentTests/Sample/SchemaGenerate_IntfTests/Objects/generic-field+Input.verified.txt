@@ -6,9 +6,9 @@ input GnrcFieldInp<$type:String> { field: $type }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_field_Input;
+namespace Components.Gqlp_Schema_generic_field_Input;
 
-public interface IGnrcFieldInp<Ttype>
+public interface ICmptGnrcFieldInp<Ttype>
 {
   Ttype field { get; }
 }

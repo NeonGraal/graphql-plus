@@ -8,15 +8,15 @@ dual FldObjFieldAliasDual { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_field_alias_Dual;
+namespace Components.Gqlp_Schema_object_field_alias_Dual;
 
-public class DualObjFieldAliasDual
-  : IObjFieldAliasDual
+public class DualCmptObjFieldAliasDual
+  : ICmptObjFieldAliasDual
 {
   public FldObjFieldAliasDual field { get; set; }
 }
 
-public class DualFldObjFieldAliasDual
-  : IFldObjFieldAliasDual
+public class DualCmptFldObjFieldAliasDual
+  : ICmptFldObjFieldAliasDual
 {
 }

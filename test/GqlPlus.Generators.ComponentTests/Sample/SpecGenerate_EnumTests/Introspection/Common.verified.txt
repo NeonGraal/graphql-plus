@@ -47,9 +47,9 @@ dual _TypeSimple {
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Common;
+namespace Components.Gqlp_Spec_Common;
 
-public enum _SimpleKind
+public enum Cmpt_SimpleKind
 {
   Basic,
   Enum,
@@ -58,7 +58,7 @@ public enum _SimpleKind
   Union,
 }
 
-public enum _TypeKind
+public enum Cmpt_TypeKind
 {
   Basic = _SimpleKind.Basic,
   Enum = _SimpleKind.Enum,

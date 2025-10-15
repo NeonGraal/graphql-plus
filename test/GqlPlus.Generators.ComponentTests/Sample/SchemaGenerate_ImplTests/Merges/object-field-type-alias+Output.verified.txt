@@ -7,10 +7,10 @@ output ObjFieldTypeAliasOutp { field: String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_field_type_alias_Output;
+namespace Components.Gqlp_Schema_object_field_type_alias_Output;
 
-public class OutputObjFieldTypeAliasOutp
-  : IObjFieldTypeAliasOutp
+public class OutputCmptObjFieldTypeAliasOutp
+  : ICmptObjFieldTypeAliasOutp
 {
   public String field { get; set; }
 }

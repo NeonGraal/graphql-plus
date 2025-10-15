@@ -7,17 +7,17 @@ union PrntUnionPrntDescr { Number }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_union_parent_descr;
+namespace Components.Gqlp_Schema_union_parent_descr;
 
-public class UnionUnionPrntDescr
-  : UnionPrntUnionPrntDescr
-  , IUnionPrntDescr
+public class UnionCmptUnionPrntDescr
+  : UnionCmptPrntUnionPrntDescr
+  , ICmptUnionPrntDescr
 {
   public Number AsNumber { get; set; }
 }
 
-public class UnionPrntUnionPrntDescr
-  : IPrntUnionPrntDescr
+public class UnionCmptPrntUnionPrntDescr
+  : ICmptPrntUnionPrntDescr
 {
   public Number AsNumber { get; set; }
 }

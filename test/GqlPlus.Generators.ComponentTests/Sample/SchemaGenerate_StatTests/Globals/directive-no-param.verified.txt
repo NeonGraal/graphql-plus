@@ -8,4 +8,4 @@ directive @DrctNoParam { all }
 
 Directive DrctNoParam
 */
-namespace GqlPlus.Gqlp_Schema_directive_no_param;
+namespace Components.Gqlp_Schema_directive_no_param;

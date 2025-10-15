@@ -7,9 +7,9 @@ domain DmnEnumSame { enum true }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_domain_enum_same;
+namespace Components.Gqlp_Schema_domain_enum_same;
 
-public class DomainDmnEnumSame
-  : IDmnEnumSame
+public class DomainCmptDmnEnumSame
+  : ICmptDmnEnumSame
 {
 }

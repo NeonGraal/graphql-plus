@@ -6,10 +6,10 @@ input GnrcFieldInp<$type:String> { field: $type }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_field_Input;
+namespace Components.Gqlp_Schema_generic_field_Input;
 
-public class InputGnrcFieldInp<Ttype>
-  : IGnrcFieldInp<Ttype>
+public class InputCmptGnrcFieldInp<Ttype>
+  : ICmptGnrcFieldInp<Ttype>
 {
   public Ttype field { get; set; }
 }

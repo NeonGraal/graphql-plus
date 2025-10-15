@@ -6,9 +6,9 @@ input InpFieldStr { field: String = 'default' }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_input_field_String;
+namespace Components.Gqlp_Schema_input_field_String;
 
-public interface IInpFieldStr
+public interface ICmptInpFieldStr
 {
   String field { get; }
 }

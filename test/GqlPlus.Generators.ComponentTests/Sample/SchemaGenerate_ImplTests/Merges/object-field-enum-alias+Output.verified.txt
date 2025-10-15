@@ -7,10 +7,10 @@ output ObjFieldEnumAliasOutp { field [field2] = true }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_field_enum_alias_Output;
+namespace Components.Gqlp_Schema_object_field_enum_alias_Output;
 
-public class OutputObjFieldEnumAliasOutp
-  : IObjFieldEnumAliasOutp
+public class OutputCmptObjFieldEnumAliasOutp
+  : ICmptObjFieldEnumAliasOutp
 {
   public Boolean field { get; set; }
 }

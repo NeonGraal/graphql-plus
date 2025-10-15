@@ -7,9 +7,9 @@ enum EnumDmnEnumValue { dmnEnumValue }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_domain_enum_value;
+namespace Components.Gqlp_Schema_domain_enum_value;
 
-public enum EnumDmnEnumValue
+public enum CmptEnumDmnEnumValue
 {
   dmnEnumValue,
 }

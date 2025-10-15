@@ -8,13 +8,13 @@ output ObjAltOutpType { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_alt_Output;
+namespace Components.Gqlp_Schema_object_alt_Output;
 
-public interface IObjAltOutp
+public interface ICmptObjAltOutp
 {
   ObjAltOutpType AsObjAltOutpType { get; }
 }
 
-public interface IObjAltOutpType
+public interface ICmptObjAltOutpType
 {
 }

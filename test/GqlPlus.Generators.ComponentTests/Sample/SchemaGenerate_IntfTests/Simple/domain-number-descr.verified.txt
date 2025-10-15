@@ -6,8 +6,8 @@ domain DmnNmbrDescr { Number "DomNumber" "Descr" <2 }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_domain_number_descr;
+namespace Components.Gqlp_Schema_domain_number_descr;
 
-public interface IDmnNmbrDescr
+public interface ICmptDmnNmbrDescr
 {
 }

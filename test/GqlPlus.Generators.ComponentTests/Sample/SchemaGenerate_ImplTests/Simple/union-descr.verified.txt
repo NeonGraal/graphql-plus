@@ -6,10 +6,10 @@ union UnionDescr { "Union" "Descr" Number }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_union_descr;
+namespace Components.Gqlp_Schema_union_descr;
 
-public class UnionUnionDescr
-  : IUnionDescr
+public class UnionCmptUnionDescr
+  : ICmptUnionDescr
 {
   public Number AsNumber { get; set; }
 }

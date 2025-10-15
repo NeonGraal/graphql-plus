@@ -7,15 +7,15 @@ domain PrntDmnStrPrnt { String /b+/ }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_domain_string_parent;
+namespace Components.Gqlp_Schema_domain_string_parent;
 
-public class DomainDmnStrPrnt
-  : DomainPrntDmnStrPrnt
-  , IDmnStrPrnt
+public class DomainCmptDmnStrPrnt
+  : DomainCmptPrntDmnStrPrnt
+  , ICmptDmnStrPrnt
 {
 }
 
-public class DomainPrntDmnStrPrnt
-  : IPrntDmnStrPrnt
+public class DomainCmptPrntDmnStrPrnt
+  : ICmptPrntDmnStrPrnt
 {
 }

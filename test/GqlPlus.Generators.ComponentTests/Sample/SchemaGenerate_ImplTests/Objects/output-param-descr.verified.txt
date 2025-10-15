@@ -8,21 +8,21 @@ input InOutpParamDescr { param: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_output_param_descr;
+namespace Components.Gqlp_Schema_output_param_descr;
 
-public class OutputOutpParamDescr
-  : IOutpParamDescr
+public class OutputCmptOutpParamDescr
+  : ICmptOutpParamDescr
 {
   public FldOutpParamDescr field { get; set; }
 }
 
-public class DualFldOutpParamDescr
-  : IFldOutpParamDescr
+public class DualCmptFldOutpParamDescr
+  : ICmptFldOutpParamDescr
 {
 }
 
-public class InputInOutpParamDescr
-  : IInOutpParamDescr
+public class InputCmptInOutpParamDescr
+  : ICmptInOutpParamDescr
 {
   public Number param { get; set; }
   public String AsString { get; set; }

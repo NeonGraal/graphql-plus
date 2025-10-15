@@ -1,0 +1,19 @@
+﻿//HintName: test_parent-param-diff+Dual_Impl.gen.cs
+// Generated from parent-param-diff+Dual.graphql+ for Impl
+
+/*
+*/
+namespace GqlPlus.GeneratorTests.Gqlp_parent_param_diff_Dual;
+
+public class DualtestPrntParamDiffDual<Ta>
+  : DualtestRefPrntParamDiffDual
+  , ItestPrntParamDiffDual<Ta>
+{
+  public Ta field { get; set; }
+}
+
+public class DualtestRefPrntParamDiffDual<Tb>
+  : ItestRefPrntParamDiffDual<Tb>
+{
+  public Tb Asb { get; set; }
+}

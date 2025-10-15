@@ -6,9 +6,9 @@ output CnstAltOutp<$type:Number> { | $type }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_alt_Output;
+namespace Components.Gqlp_Schema_constraint_alt_Output;
 
-public interface ICnstAltOutp<Ttype>
+public interface ICmptCnstAltOutp<Ttype>
 {
   Ttype Astype { get; }
 }

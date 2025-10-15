@@ -18,24 +18,24 @@ output _EnumValue {
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Enum;
+namespace Components.Gqlp_Spec_Enum;
 
-public class Output_TypeEnum
-  : Output_ParentType
-  , I_TypeEnum
+public class OutputCmpt_TypeEnum
+  : OutputCmpt_ParentType
+  , ICmpt_TypeEnum
 {
 }
 
-public class Dual_EnumLabel
-  : Dual_Aliased
-  , I_EnumLabel
+public class DualCmpt_EnumLabel
+  : DualCmpt_Aliased
+  , ICmpt_EnumLabel
 {
   public _Identifier enum { get; set; }
 }
 
-public class Output_EnumValue
-  : Output_TypeRef
-  , I_EnumValue
+public class OutputCmpt_EnumValue
+  : OutputCmpt_TypeRef
+  , ICmpt_EnumValue
 {
   public _Identifier label { get; set; }
 }

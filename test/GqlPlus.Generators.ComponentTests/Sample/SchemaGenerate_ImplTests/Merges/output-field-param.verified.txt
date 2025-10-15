@@ -10,25 +10,25 @@ dual FldOutpFieldParam { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_output_field_param;
+namespace Components.Gqlp_Schema_output_field_param;
 
-public class OutputOutpFieldParam
-  : IOutpFieldParam
+public class OutputCmptOutpFieldParam
+  : ICmptOutpFieldParam
 {
   public FldOutpFieldParam field { get; set; }
 }
 
-public class InputOutpFieldParam1
-  : IOutpFieldParam1
+public class InputCmptOutpFieldParam1
+  : ICmptOutpFieldParam1
 {
 }
 
-public class InputOutpFieldParam2
-  : IOutpFieldParam2
+public class InputCmptOutpFieldParam2
+  : ICmptOutpFieldParam2
 {
 }
 
-public class DualFldOutpFieldParam
-  : IFldOutpFieldParam
+public class DualCmptFldOutpFieldParam
+  : ICmptFldOutpFieldParam
 {
 }

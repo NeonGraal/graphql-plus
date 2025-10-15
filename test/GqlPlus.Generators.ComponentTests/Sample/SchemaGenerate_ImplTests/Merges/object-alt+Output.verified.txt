@@ -8,15 +8,15 @@ output ObjAltOutpType { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_alt_Output;
+namespace Components.Gqlp_Schema_object_alt_Output;
 
-public class OutputObjAltOutp
-  : IObjAltOutp
+public class OutputCmptObjAltOutp
+  : ICmptObjAltOutp
 {
   public ObjAltOutpType AsObjAltOutpType { get; set; }
 }
 
-public class OutputObjAltOutpType
-  : IObjAltOutpType
+public class OutputCmptObjAltOutpType
+  : ICmptObjAltOutpType
 {
 }

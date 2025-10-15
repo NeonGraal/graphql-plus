@@ -7,16 +7,16 @@ input AltAltInp { alt: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_alt_Input;
+namespace Components.Gqlp_Schema_alt_Input;
 
-public class InputAltInp
-  : IAltInp
+public class InputCmptAltInp
+  : ICmptAltInp
 {
   public AltAltInp AsAltAltInp { get; set; }
 }
 
-public class InputAltAltInp
-  : IAltAltInp
+public class InputCmptAltAltInp
+  : ICmptAltAltInp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

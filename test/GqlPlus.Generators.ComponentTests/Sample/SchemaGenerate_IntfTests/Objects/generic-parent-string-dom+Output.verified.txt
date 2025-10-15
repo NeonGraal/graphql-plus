@@ -8,18 +8,18 @@ domain DomGnrcPrntStrDomOutp { string /\w+/ }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_string_dom_Output;
+namespace Components.Gqlp_Schema_generic_parent_string_dom_Output;
 
-public interface IGnrcPrntStrDomOutp
-  : IFieldGnrcPrntStrDomOutp
+public interface ICmptGnrcPrntStrDomOutp
+  : ICmptFieldGnrcPrntStrDomOutp
 {
 }
 
-public interface IFieldGnrcPrntStrDomOutp<Tref>
+public interface ICmptFieldGnrcPrntStrDomOutp<Tref>
 {
   Tref field { get; }
 }
 
-public interface IDomGnrcPrntStrDomOutp
+public interface ICmptDomGnrcPrntStrDomOutp
 {
 }

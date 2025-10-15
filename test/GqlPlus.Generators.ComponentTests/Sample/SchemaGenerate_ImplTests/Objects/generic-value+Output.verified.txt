@@ -8,16 +8,16 @@ enum EnumGnrcValueOutp { gnrcValueOutp }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_value_Output;
+namespace Components.Gqlp_Schema_generic_value_Output;
 
-public class OutputGnrcValueOutp
-  : IGnrcValueOutp
+public class OutputCmptGnrcValueOutp
+  : ICmptGnrcValueOutp
 {
   public RefGnrcValueOutp<EnumGnrcValueOutp> AsRefGnrcValueOutp { get; set; }
 }
 
-public class OutputRefGnrcValueOutp<Ttype>
-  : IRefGnrcValueOutp<Ttype>
+public class OutputCmptRefGnrcValueOutp<Ttype>
+  : ICmptRefGnrcValueOutp<Ttype>
 {
   public Ttype field { get; set; }
 }

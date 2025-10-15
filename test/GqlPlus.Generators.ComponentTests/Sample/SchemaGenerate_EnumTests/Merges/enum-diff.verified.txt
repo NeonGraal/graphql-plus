@@ -7,9 +7,9 @@ enum EnumDiff { two }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_enum_diff;
+namespace Components.Gqlp_Schema_enum_diff;
 
-public enum EnumDiff
+public enum CmptEnumDiff
 {
   one,
   two,

@@ -7,14 +7,14 @@ input AltAltModParamInp { alt: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_alt_mod_param_Input;
+namespace Components.Gqlp_Schema_alt_mod_param_Input;
 
-public interface IAltModParamInp<Tmod>
+public interface ICmptAltModParamInp<Tmod>
 {
   AltAltModParamInp AsAltAltModParamInp { get; }
 }
 
-public interface IAltAltModParamInp
+public interface ICmptAltAltModParamInp
 {
   Number alt { get; }
   String AsString { get; }

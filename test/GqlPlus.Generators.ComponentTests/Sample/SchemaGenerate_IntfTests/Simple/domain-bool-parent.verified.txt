@@ -7,13 +7,13 @@ domain PrntDmnBoolPrnt { Boolean true }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_domain_bool_parent;
+namespace Components.Gqlp_Schema_domain_bool_parent;
 
-public interface IDmnBoolPrnt
-  : IPrntDmnBoolPrnt
+public interface ICmptDmnBoolPrnt
+  : ICmptPrntDmnBoolPrnt
 {
 }
 
-public interface IPrntDmnBoolPrnt
+public interface ICmptPrntDmnBoolPrnt
 {
 }

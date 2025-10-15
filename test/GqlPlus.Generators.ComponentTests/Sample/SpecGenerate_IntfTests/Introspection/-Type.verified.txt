@@ -70,9 +70,9 @@ dual _Modifier<$kind:_ModifierKind> {
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Type;
+namespace Components.Gqlp_Spec_Type;
 
-public interface I_Type
+public interface ICmpt_Type
 {
   _BaseType<_TypeKind> As_BaseType { get; }
   _BaseType<_TypeKind> As_BaseType { get; }
@@ -84,32 +84,32 @@ public interface I_Type
   _TypeUnion As_TypeUnion { get; }
 }
 
-public interface I_BaseType<Tkind>
-  : I_Aliased
+public interface ICmpt_BaseType<Tkind>
+  : ICmpt_Aliased
 {
   Tkind typeKind { get; }
 }
 
-public interface I_ChildType<Tkind,Tparent>
-  : I_BaseType
+public interface ICmpt_ChildType<Tkind,Tparent>
+  : ICmpt_BaseType
 {
   Tparent parent { get; }
 }
 
-public interface I_ParentType<Tkind,Titem,TallItem>
-  : I_ChildType
+public interface ICmpt_ParentType<Tkind,Titem,TallItem>
+  : ICmpt_ChildType
 {
   Titem items { get; }
   TallItem allItems { get; }
 }
 
-public interface I_TypeRef<Tkind>
-  : I_Named
+public interface ICmpt_TypeRef<Tkind>
+  : ICmpt_Named
 {
   Tkind typeKind { get; }
 }
 
-public interface I_TypeSimple
+public interface ICmpt_TypeSimple
 {
   _TypeRef<_TypeKind> As_TypeRef { get; }
   _TypeRef<_TypeKind> As_TypeRef { get; }
@@ -117,27 +117,27 @@ public interface I_TypeSimple
   _TypeRef<_TypeKind> As_TypeRef { get; }
 }
 
-public interface I_Collections
+public interface ICmpt_Collections
 {
   _Modifier<_ModifierKind> As_Modifier { get; }
   _ModifierKeyed<_ModifierKind> As_ModifierKeyed { get; }
   _ModifierKeyed<_ModifierKind> As_ModifierKeyed { get; }
 }
 
-public interface I_ModifierKeyed<Tkind>
-  : I_Modifier
+public interface ICmpt_ModifierKeyed<Tkind>
+  : ICmpt_Modifier
 {
   _TypeSimple by { get; }
   Boolean optional { get; }
 }
 
-public interface I_Modifiers
+public interface ICmpt_Modifiers
 {
   _Modifier<_ModifierKind> As_Modifier { get; }
   _Collections As_Collections { get; }
 }
 
-public interface I_Modifier<Tkind>
+public interface ICmpt_Modifier<Tkind>
 {
   Tkind modifierKind { get; }
 }

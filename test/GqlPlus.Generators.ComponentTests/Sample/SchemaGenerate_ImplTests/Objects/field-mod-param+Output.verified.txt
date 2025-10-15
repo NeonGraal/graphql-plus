@@ -7,16 +7,16 @@ output FldFieldModParamOutp { field: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_mod_param_Output;
+namespace Components.Gqlp_Schema_field_mod_param_Output;
 
-public class OutputFieldModParamOutp<Tmod>
-  : IFieldModParamOutp<Tmod>
+public class OutputCmptFieldModParamOutp<Tmod>
+  : ICmptFieldModParamOutp<Tmod>
 {
   public FldFieldModParamOutp field { get; set; }
 }
 
-public class OutputFldFieldModParamOutp
-  : IFldFieldModParamOutp
+public class OutputCmptFldFieldModParamOutp
+  : ICmptFldFieldModParamOutp
 {
   public Number field { get; set; }
   public String AsString { get; set; }

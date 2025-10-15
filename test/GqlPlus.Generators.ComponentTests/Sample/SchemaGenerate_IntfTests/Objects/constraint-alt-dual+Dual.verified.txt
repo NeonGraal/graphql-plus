@@ -9,25 +9,25 @@ dual AltCnstAltDualDual { :PrntCnstAltDualDual alt: Number }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_alt_dual_Dual;
+namespace Components.Gqlp_Schema_constraint_alt_dual_Dual;
 
-public interface ICnstAltDualDual
+public interface ICmptCnstAltDualDual
 {
   RefCnstAltDualDual<AltCnstAltDualDual> AsRefCnstAltDualDual { get; }
 }
 
-public interface IRefCnstAltDualDual<Tref>
+public interface ICmptRefCnstAltDualDual<Tref>
 {
   Tref Asref { get; }
 }
 
-public interface IPrntCnstAltDualDual
+public interface ICmptPrntCnstAltDualDual
 {
   String AsString { get; }
 }
 
-public interface IAltCnstAltDualDual
-  : IPrntCnstAltDualDual
+public interface ICmptAltCnstAltDualDual
+  : ICmptPrntCnstAltDualDual
 {
   Number alt { get; }
 }

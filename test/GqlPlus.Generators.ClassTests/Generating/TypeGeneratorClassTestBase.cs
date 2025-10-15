@@ -78,8 +78,8 @@ public abstract class TypeGeneratorClassTestBase
   protected virtual Action<string> CheckGeneratedCodeName(GqlpGeneratorType generatorType, string name)
     => result => {
       switch (generatorType) {
-        case GqlpGeneratorType.Interface: result.ShouldContain("public interface I" + name); break;
-        case GqlpGeneratorType.Implementation: result.ShouldContain("public class " + ExpectedTypePrefix + name); break;
+        case GqlpGeneratorType.Interface: result.ShouldContain("public interface Itest" + name); break;
+        case GqlpGeneratorType.Implementation: result.ShouldContain("public class " + ExpectedTypePrefix + "test" + name); break;
         default: result.ShouldBeEmpty(); break;
       }
     };
@@ -87,8 +87,8 @@ public abstract class TypeGeneratorClassTestBase
   protected virtual Action<string> CheckGeneratedCodeParent(GqlpGeneratorType generatorType, string parent)
     => result => {
       switch (generatorType) {
-        case GqlpGeneratorType.Interface: result.ShouldContain(": I" + parent); break;
-        case GqlpGeneratorType.Implementation: result.ShouldContain(": " + ExpectedTypePrefix + parent); break;
+        case GqlpGeneratorType.Interface: result.ShouldContain(": I" + "test" + parent); break;
+        case GqlpGeneratorType.Implementation: result.ShouldContain(": " + ExpectedTypePrefix + "test" + parent); break;
         default: result.ShouldBeEmpty(); break;
       }
     };

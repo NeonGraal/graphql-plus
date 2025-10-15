@@ -9,4 +9,4 @@ option Schema { merged=[0] }
 
 Option Schema
 */
-namespace GqlPlus.Gqlp_Schema_option_value;
+namespace Components.Gqlp_Schema_option_value;

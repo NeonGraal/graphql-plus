@@ -34,17 +34,17 @@ union _Simple [Simple] { _Enum _Domain _Union }
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Definition;
+namespace Components.Gqlp_Spec_Definition;
 
-public interface INumber
+public interface ICmptNumber
 {
 }
 
-public interface IString
+public interface ICmptString
 {
 }
 
-public interface I_Basic
+public interface ICmpt_Basic
 {
   Boolean AsBoolean { get; }
   Number AsNumber { get; }
@@ -52,48 +52,48 @@ public interface I_Basic
   Unit AsUnit { get; }
 }
 
-public interface I_Internal
+public interface ICmpt_Internal
 {
   Null AsNull { get; }
   Void AsVoid { get; }
 }
 
-public interface I_Key
+public interface ICmpt_Key
 {
   _Basic As_Basic { get; }
   _Internal As_Internal { get; }
   _Simple As_Simple { get; }
 }
 
-public interface I_Object
+public interface ICmpt_Object
 {
 }
 
-public interface I_Domain
+public interface ICmpt_Domain
 {
 }
 
-public interface I_Dual
+public interface ICmpt_Dual
 {
 }
 
-public interface I_Enum
+public interface ICmpt_Enum
 {
 }
 
-public interface I_Input
+public interface ICmpt_Input
 {
 }
 
-public interface I_Output
+public interface ICmpt_Output
 {
 }
 
-public interface I_Union
+public interface ICmpt_Union
 {
 }
 
-public interface I_Simple
+public interface ICmpt_Simple
 {
   _Enum As_Enum { get; }
   _Domain As_Domain { get; }

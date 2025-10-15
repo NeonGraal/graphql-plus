@@ -7,15 +7,15 @@ union PrntUnionPrnt { Number }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_union_parent;
+namespace Components.Gqlp_Schema_union_parent;
 
-public interface IUnionPrnt
-  : IPrntUnionPrnt
+public interface ICmptUnionPrnt
+  : ICmptPrntUnionPrnt
 {
   String AsString { get; }
 }
 
-public interface IPrntUnionPrnt
+public interface ICmptPrntUnionPrnt
 {
   Number AsNumber { get; }
 }

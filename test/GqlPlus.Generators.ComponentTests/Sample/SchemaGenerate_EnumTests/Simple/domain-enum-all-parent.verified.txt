@@ -8,15 +8,15 @@ enum PrntDmnEnumAllPrnt { prnt_dmnEnumAllPrnt }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_domain_enum_all_parent;
+namespace Components.Gqlp_Schema_domain_enum_all_parent;
 
-public enum EnumDmnEnumAllPrnt
+public enum CmptEnumDmnEnumAllPrnt
 {
   prnt_dmnEnumAllPrnt = PrntDmnEnumAllPrnt.prnt_dmnEnumAllPrnt,
   dmnEnumAllPrnt,
 }
 
-public enum PrntDmnEnumAllPrnt
+public enum CmptPrntDmnEnumAllPrnt
 {
   prnt_dmnEnumAllPrnt,
 }

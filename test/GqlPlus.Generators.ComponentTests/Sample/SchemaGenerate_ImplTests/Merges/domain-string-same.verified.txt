@@ -7,9 +7,9 @@ domain DmnStrSame { string /a+/ }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_domain_string_same;
+namespace Components.Gqlp_Schema_domain_string_same;
 
-public class DomainDmnStrSame
-  : IDmnStrSame
+public class DomainCmptDmnStrSame
+  : ICmptDmnStrSame
 {
 }

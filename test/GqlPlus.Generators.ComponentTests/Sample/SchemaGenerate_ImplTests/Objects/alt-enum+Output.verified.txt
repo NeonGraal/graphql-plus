@@ -7,10 +7,10 @@ enum EnumAltEnumOutp { altEnumOutp }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_alt_enum_Output;
+namespace Components.Gqlp_Schema_alt_enum_Output;
 
-public class OutputAltEnumOutp
-  : IAltEnumOutp
+public class OutputCmptAltEnumOutp
+  : ICmptAltEnumOutp
 {
   public EnumAltEnumOutp AsEnumAltEnumOutp { get; set; }
 }

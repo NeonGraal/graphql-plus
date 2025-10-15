@@ -7,16 +7,16 @@ input AltAltModParamInp { alt: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_alt_mod_param_Input;
+namespace Components.Gqlp_Schema_alt_mod_param_Input;
 
-public class InputAltModParamInp<Tmod>
-  : IAltModParamInp<Tmod>
+public class InputCmptAltModParamInp<Tmod>
+  : ICmptAltModParamInp<Tmod>
 {
   public AltAltModParamInp AsAltAltModParamInp { get; set; }
 }
 
-public class InputAltAltModParamInp
-  : IAltAltModParamInp
+public class InputCmptAltAltModParamInp
+  : ICmptAltAltModParamInp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

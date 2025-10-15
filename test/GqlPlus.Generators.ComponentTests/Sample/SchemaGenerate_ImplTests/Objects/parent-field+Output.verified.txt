@@ -7,17 +7,17 @@ output RefPrntFieldOutp { parent: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_parent_field_Output;
+namespace Components.Gqlp_Schema_parent_field_Output;
 
-public class OutputPrntFieldOutp
-  : OutputRefPrntFieldOutp
-  , IPrntFieldOutp
+public class OutputCmptPrntFieldOutp
+  : OutputCmptRefPrntFieldOutp
+  , ICmptPrntFieldOutp
 {
   public Number field { get; set; }
 }
 
-public class OutputRefPrntFieldOutp
-  : IRefPrntFieldOutp
+public class OutputCmptRefPrntFieldOutp
+  : ICmptRefPrntFieldOutp
 {
   public Number parent { get; set; }
   public String AsString { get; set; }

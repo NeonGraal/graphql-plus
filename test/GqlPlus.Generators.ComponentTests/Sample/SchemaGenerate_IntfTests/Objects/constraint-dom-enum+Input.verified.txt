@@ -9,18 +9,18 @@ domain JustCnstDomEnumInp { enum EnumCnstDomEnumInp.cnstDomEnumInp }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_dom_enum_Input;
+namespace Components.Gqlp_Schema_constraint_dom_enum_Input;
 
-public interface ICnstDomEnumInp
+public interface ICmptCnstDomEnumInp
 {
   RefCnstDomEnumInp<EnumCnstDomEnumInp> AsRefCnstDomEnumInp { get; }
 }
 
-public interface IRefCnstDomEnumInp<Ttype>
+public interface ICmptRefCnstDomEnumInp<Ttype>
 {
   Ttype field { get; }
 }
 
-public interface IJustCnstDomEnumInp
+public interface ICmptJustCnstDomEnumInp
 {
 }

@@ -10,4 +10,4 @@ output CtgrMod { }
 
 Category ctgrMod
 */
-namespace GqlPlus.Gqlp_Schema_category_mod;
+namespace Components.Gqlp_Schema_category_mod;

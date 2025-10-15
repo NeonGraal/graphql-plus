@@ -2,117 +2,117 @@
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_Simple;
+namespace Components.Gqlp_Schema_Simple;
 
-public enum EnumDmnEnumAll
+public enum CmptEnumDmnEnumAll
 {
   dmnEnumAll,
   enum_dmnEnumAll,
 }
 
-public enum EnumDmnEnumAllDescr
+public enum CmptEnumDmnEnumAllDescr
 {
   dmnEnumAllDescr,
   enum_dmnEnumAllDescr,
 }
 
-public enum EnumDmnEnumAllPrnt
+public enum CmptEnumDmnEnumAllPrnt
 {
   prnt_dmnEnumAllPrnt = PrntDmnEnumAllPrnt.prnt_dmnEnumAllPrnt,
   dmnEnumAllPrnt,
 }
 
-public enum PrntDmnEnumAllPrnt
+public enum CmptPrntDmnEnumAllPrnt
 {
   prnt_dmnEnumAllPrnt,
 }
 
-public enum EnumDmnEnumDescr
+public enum CmptEnumDmnEnumDescr
 {
   dmnEnumDescr,
 }
 
-public enum EnumDmnEnumLabel
+public enum CmptEnumDmnEnumLabel
 {
   dmnEnumLabel,
 }
 
-public enum EnumDmnEnumPrnt
+public enum CmptEnumDmnEnumPrnt
 {
   enum_dmnEnumPrnt,
   prnt_dmnEnumPrnt,
 }
 
-public enum EnumDmnEnumPrntDescr
+public enum CmptEnumDmnEnumPrntDescr
 {
   enum_dmnEnumPrntDescr,
   prnt_dmnEnumPrntDescr,
 }
 
-public enum EnumDmnEnumUnq
+public enum CmptEnumDmnEnumUnq
 {
   enum_dmnEnumUnq,
   dmnEnumUnq,
 }
 
-public enum EnumDomDup
+public enum CmptEnumDomDup
 {
   dmnEnumUnq,
   dup_dmnEnumUnq,
 }
 
-public enum EnumDmnEnumUnqPrnt
+public enum CmptEnumDmnEnumUnqPrnt
 {
   dmnEnumUnqPrnt = PrntDmnEnumUnqPrnt.dmnEnumUnqPrnt,
   prnt_dmnEnumUnqPrnt = PrntDmnEnumUnqPrnt.prnt_dmnEnumUnqPrnt,
   enum_dmnEnumUnqPrnt,
 }
 
-public enum PrntDmnEnumUnqPrnt
+public enum CmptPrntDmnEnumUnqPrnt
 {
   dmnEnumUnqPrnt,
   prnt_dmnEnumUnqPrnt,
 }
 
-public enum DupDmnEnumUnqPrnt
+public enum CmptDupDmnEnumUnqPrnt
 {
   dmnEnumUnqPrnt,
   dup_dmnEnumUnqPrnt,
 }
 
-public enum EnumDmnEnumValue
+public enum CmptEnumDmnEnumValue
 {
   dmnEnumValue,
 }
 
-public enum EnumDmnEnumValuePrnt
+public enum CmptEnumDmnEnumValuePrnt
 {
   prnt_dmnEnumValuePrnt = PrntDmnEnumValuePrnt.prnt_dmnEnumValuePrnt,
   dmnEnumValuePrnt,
 }
 
-public enum PrntDmnEnumValuePrnt
+public enum CmptPrntDmnEnumValuePrnt
 {
   prnt_dmnEnumValuePrnt,
 }
 
-public enum EnumDescr
+public enum CmptEnumDescr
 {
   enumDescr,
 }
 
-public enum EnumPrnt
+public enum CmptEnumPrnt
 {
   prnt_enumPrnt = PrntEnumPrnt.prnt_enumPrnt,
   enumPrnt,
 }
 
-public enum PrntEnumPrnt
+public enum CmptPrntEnumPrnt
 {
   prnt_enumPrnt,
 }
 
-public enum EnumPrntAlias
+public enum CmptEnumPrntAlias
 {
   prnt_enumPrntAlias = PrntEnumPrntAlias.prnt_enumPrntAlias,
   val_enumPrntAlias,
@@ -120,30 +120,30 @@ public enum EnumPrntAlias
   enumPrntAlias = prnt_enumPrntAlias,
 }
 
-public enum PrntEnumPrntAlias
+public enum CmptPrntEnumPrntAlias
 {
   prnt_enumPrntAlias,
 }
 
-public enum EnumPrntDescr
+public enum CmptEnumPrntDescr
 {
   prnt_enumPrntDescr = PrntEnumPrntDescr.prnt_enumPrntDescr,
   enumPrntDescr,
 }
 
-public enum PrntEnumPrntDescr
+public enum CmptPrntEnumPrntDescr
 {
   prnt_enumPrntDescr,
 }
 
-public enum EnumPrntDup
+public enum CmptEnumPrntDup
 {
   prnt_enumPrntDup = PrntEnumPrntDup.prnt_enumPrntDup,
   enumPrntDup = PrntEnumPrntDup.prnt_enumPrntDup,
   enumPrntDup,
 }
 
-public enum PrntEnumPrntDup
+public enum CmptPrntEnumPrntDup
 {
   prnt_enumPrntDup,
   enumPrntDup = prnt_enumPrntDup,

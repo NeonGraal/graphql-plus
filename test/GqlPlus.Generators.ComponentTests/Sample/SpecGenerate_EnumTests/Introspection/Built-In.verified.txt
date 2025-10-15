@@ -27,9 +27,9 @@ dual _Modifier<$kind:_ModifierKind> {
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Built_In;
+namespace Components.Gqlp_Spec_Built_In;
 
-public enum _ModifierKind
+public enum Cmpt_ModifierKind
 {
   Opt,
   Optional = Opt,

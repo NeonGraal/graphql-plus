@@ -9,4 +9,4 @@ directive @Drct { spread }
 
 Directive Drct
 */
-namespace GqlPlus.Gqlp_Schema_directive;
+namespace Components.Gqlp_Schema_directive;

@@ -6,10 +6,10 @@ dual FieldDescrDual { "Test" "Descr" field: String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_descr_Dual;
+namespace Components.Gqlp_Schema_field_descr_Dual;
 
-public class DualFieldDescrDual
-  : IFieldDescrDual
+public class DualCmptFieldDescrDual
+  : ICmptFieldDescrDual
 {
   public String field { get; set; }
 }

@@ -1,6 +1,8 @@
-﻿namespace GqlPlus.Generating.Simple;
+﻿
+namespace GqlPlus.Generating.Simple;
 
-internal abstract class GenerateForSimple<T>
+internal abstract class
+  GenerateForSimple<T>
   : GenerateForClass<T>
   where T : IGqlpSimple
 {
@@ -8,20 +10,33 @@ internal abstract class GenerateForSimple<T>
   {
     base.ClassHeader(ast, context);
 
-    if (!string.IsNullOrWhiteSpace(ast.Parent?.Name)) {
-      context.Write("  : " + TypePrefix + ast.Parent!.Name);
-      context.Write("  , I" + ast.Name);
-    } else {
-      context.Write("  : I" + ast.Name);
+    string interfaceSep = ":";
+
+    if (ast.Parent is not null) {
+      context.Write("  : " + TypePrefix + context.TypeName(ast.Parent));
+      interfaceSep = ",";
+    } else if (HasDefaultParent(out string? defaultParent)) {
+      context.Write("  : " + defaultParent);
+      interfaceSep = ",";
     }
+
+    context.Write("  " + interfaceSep + " I" + context.TypeName(ast));
   }
 
   protected override void InterfaceHeader(T ast, GqlpGeneratorContext context)
   {
     base.InterfaceHeader(ast, context);
 
-    if (!string.IsNullOrWhiteSpace(ast.Parent?.Name)) {
-      context.Write("  : I" + ast.Parent!.Name);
+    if (ast.Parent is not null) {
+      context.Write("  : I" + context.TypeName(ast.Parent));
+    } else if (HasDefaultParent(out string? defaultParent)) {
+      context.Write("  : I" + defaultParent);
     }
+  }
+
+  protected virtual bool HasDefaultParent(out string? defaultParent)
+  {
+    defaultParent = null;
+    return false;
   }
 }

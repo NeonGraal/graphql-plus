@@ -9,15 +9,15 @@ enum PrntOutpPrntGnrc { prnt_outpPrntGnrc }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_output_parent_generic;
+namespace Components.Gqlp_Schema_output_parent_generic;
 
-public enum EnumOutpPrntGnrc
+public enum CmptEnumOutpPrntGnrc
 {
   prnt_outpPrntGnrc = PrntOutpPrntGnrc.prnt_outpPrntGnrc,
   outpPrntGnrc,
 }
 
-public enum PrntOutpPrntGnrc
+public enum CmptPrntOutpPrntGnrc
 {
   prnt_outpPrntGnrc,
 }

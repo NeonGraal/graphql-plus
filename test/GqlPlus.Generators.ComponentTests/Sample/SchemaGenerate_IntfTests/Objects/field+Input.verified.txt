@@ -6,9 +6,9 @@ input FieldInp { field: String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_Input;
+namespace Components.Gqlp_Schema_field_Input;
 
-public interface IFieldInp
+public interface ICmptFieldInp
 {
   String field { get; }
 }

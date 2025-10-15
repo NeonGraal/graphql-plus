@@ -7,16 +7,16 @@ dual RefPrntDescrDual { parent: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_parent_descr_Dual;
+namespace Components.Gqlp_Schema_parent_descr_Dual;
 
-public class DualPrntDescrDual
-  : DualRefPrntDescrDual
-  , IPrntDescrDual
+public class DualCmptPrntDescrDual
+  : DualCmptRefPrntDescrDual
+  , ICmptPrntDescrDual
 {
 }
 
-public class DualRefPrntDescrDual
-  : IRefPrntDescrDual
+public class DualCmptRefPrntDescrDual
+  : ICmptRefPrntDescrDual
 {
   public Number parent { get; set; }
   public String AsString { get; set; }

@@ -10,30 +10,30 @@ output AltCnstPrntDualGrndOutp { :PrntCnstPrntDualGrndOutp alt: Number }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_parent_dual_grandparent_Output;
+namespace Components.Gqlp_Schema_constraint_parent_dual_grandparent_Output;
 
-public interface ICnstPrntDualGrndOutp
-  : IRefCnstPrntDualGrndOutp
+public interface ICmptCnstPrntDualGrndOutp
+  : ICmptRefCnstPrntDualGrndOutp
 {
 }
 
-public interface IRefCnstPrntDualGrndOutp<Tref>
-  : Iref
+public interface ICmptRefCnstPrntDualGrndOutp<Tref>
+  : ICmptref
 {
 }
 
-public interface IGrndCnstPrntDualGrndOutp
+public interface ICmptGrndCnstPrntDualGrndOutp
 {
   String AsString { get; }
 }
 
-public interface IPrntCnstPrntDualGrndOutp
-  : IGrndCnstPrntDualGrndOutp
+public interface ICmptPrntCnstPrntDualGrndOutp
+  : ICmptGrndCnstPrntDualGrndOutp
 {
 }
 
-public interface IAltCnstPrntDualGrndOutp
-  : IPrntCnstPrntDualGrndOutp
+public interface ICmptAltCnstPrntDualGrndOutp
+  : ICmptPrntCnstPrntDualGrndOutp
 {
   Number alt { get; }
 }

@@ -6,10 +6,10 @@ output RefGnrcAltModParamOutp<$ref:String $mod:String> { | $ref[$mod] }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_alt_mod_param_Output;
+namespace Components.Gqlp_Schema_generic_alt_mod_param_Output;
 
-public class OutputRefGnrcAltModParamOutp<Tref,Tmod>
-  : IRefGnrcAltModParamOutp<Tref,Tmod>
+public class OutputCmptRefGnrcAltModParamOutp<Tref,Tmod>
+  : ICmptRefGnrcAltModParamOutp<Tref,Tmod>
 {
   public Tref Asref { get; set; }
 }

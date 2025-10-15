@@ -8,8 +8,8 @@ output Ctgr { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_category;
+namespace Components.Gqlp_Schema_category;
 
-public interface ICtgr
+public interface ICmptCtgr
 {
 }

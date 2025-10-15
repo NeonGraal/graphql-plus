@@ -7,16 +7,16 @@ input FldFieldObjInp { field: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_object_Input;
+namespace Components.Gqlp_Schema_field_object_Input;
 
-public class InputFieldObjInp
-  : IFieldObjInp
+public class InputCmptFieldObjInp
+  : ICmptFieldObjInp
 {
   public FldFieldObjInp field { get; set; }
 }
 
-public class InputFldFieldObjInp
-  : IFldFieldObjInp
+public class InputCmptFldFieldObjInp
+  : ICmptFldFieldObjInp
 {
   public Number field { get; set; }
   public String AsString { get; set; }

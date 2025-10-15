@@ -6,9 +6,9 @@ output FieldDescrOutp { "Test" "Descr" field: String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_descr_Output;
+namespace Components.Gqlp_Schema_field_descr_Output;
 
-public interface IFieldDescrOutp
+public interface ICmptFieldDescrOutp
 {
   String field { get; }
 }

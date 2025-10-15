@@ -7,9 +7,9 @@ output Descr { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_descr;
+namespace Components.Gqlp_Schema_descr;
 
-public class OutputDescr
-  : IDescr
+public class OutputCmptDescr
+  : ICmptDescr
 {
 }

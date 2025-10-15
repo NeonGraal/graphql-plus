@@ -8,16 +8,16 @@ enum EnumGnrcPrntSmplEnumInp { gnrcPrntSmplEnumInp }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_simple_enum_Input;
+namespace Components.Gqlp_Schema_generic_parent_simple_enum_Input;
 
-public class InputGnrcPrntSmplEnumInp
-  : InputFieldGnrcPrntSmplEnumInp
-  , IGnrcPrntSmplEnumInp
+public class InputCmptGnrcPrntSmplEnumInp
+  : InputCmptFieldGnrcPrntSmplEnumInp
+  , ICmptGnrcPrntSmplEnumInp
 {
 }
 
-public class InputFieldGnrcPrntSmplEnumInp<Tref>
-  : IFieldGnrcPrntSmplEnumInp<Tref>
+public class InputCmptFieldGnrcPrntSmplEnumInp<Tref>
+  : ICmptFieldGnrcPrntSmplEnumInp<Tref>
 {
   public Tref field { get; set; }
 }

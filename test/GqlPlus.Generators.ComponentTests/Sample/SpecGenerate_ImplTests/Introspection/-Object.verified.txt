@@ -111,16 +111,16 @@ output _OutputFieldType {
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Object;
+namespace Components.Gqlp_Spec_Object;
 
-public class Domain_ObjectKind
-  : I_ObjectKind
+public class DomainCmpt_ObjectKind
+  : ICmpt_ObjectKind
 {
 }
 
-public class Output_TypeObject<Tkind,Tfield>
-  : Output_ChildType
-  , I_TypeObject<Tkind,Tfield>
+public class OutputCmpt_TypeObject<Tkind,Tfield>
+  : OutputCmpt_ChildType
+  , ICmpt_TypeObject<Tkind,Tfield>
 {
   public _ObjTypeParam typeParams { get; set; }
   public Tfield fields { get; set; }
@@ -129,139 +129,139 @@ public class Output_TypeObject<Tkind,Tfield>
   public _ObjectFor<_ObjAlternate> allAlternates { get; set; }
 }
 
-public class Output_ObjTypeParam
-  : Output_Named
-  , I_ObjTypeParam
+public class OutputCmpt_ObjTypeParam
+  : OutputCmpt_Named
+  , ICmpt_ObjTypeParam
 {
   public _TypeRef<_TypeKind> constraint { get; set; }
 }
 
-public class Output_ObjBase
-  : Output_Named
-  , I_ObjBase
+public class OutputCmpt_ObjBase
+  : OutputCmpt_Named
+  , ICmpt_ObjBase
 {
   public _ObjTypeArg typeArgs { get; set; }
   public _TypeParam As_TypeParam { get; set; }
 }
 
-public class Output_ObjTypeArg
-  : Output_TypeRef
-  , I_ObjTypeArg
+public class OutputCmpt_ObjTypeArg
+  : OutputCmpt_TypeRef
+  , ICmpt_ObjTypeArg
 {
   public _Identifier label { get; set; }
   public _TypeParam As_TypeParam { get; set; }
 }
 
-public class Output_TypeParam
-  : Output_Described
-  , I_TypeParam
+public class OutputCmpt_TypeParam
+  : OutputCmpt_Described
+  , ICmpt_TypeParam
 {
   public _Identifier typeParam { get; set; }
 }
 
-public class Output_ObjAlternate
-  : I_ObjAlternate
+public class OutputCmpt_ObjAlternate
+  : ICmpt_ObjAlternate
 {
   public _ObjBase type { get; set; }
   public _Collections collections { get; set; }
   public _ObjAlternateEnum As_ObjAlternateEnum { get; set; }
 }
 
-public class Output_ObjAlternateEnum
-  : Output_TypeRef
-  , I_ObjAlternateEnum
+public class OutputCmpt_ObjAlternateEnum
+  : OutputCmpt_TypeRef
+  , ICmpt_ObjAlternateEnum
 {
   public _Identifier label { get; set; }
 }
 
-public class Output_ObjectFor<Tfor>
-  : Outputfor
-  , I_ObjectFor<Tfor>
+public class OutputCmpt_ObjectFor<Tfor>
+  : OutputCmptfor
+  , ICmpt_ObjectFor<Tfor>
 {
   public _Identifier object { get; set; }
 }
 
-public class Output_ObjField<Ttype>
-  : Output_Aliased
-  , I_ObjField<Ttype>
+public class OutputCmpt_ObjField<Ttype>
+  : OutputCmpt_Aliased
+  , ICmpt_ObjField<Ttype>
 {
   public Ttype type { get; set; }
 }
 
-public class Output_ObjFieldType
-  : Output_ObjBase
-  , I_ObjFieldType
+public class OutputCmpt_ObjFieldType
+  : OutputCmpt_ObjBase
+  , ICmpt_ObjFieldType
 {
   public _Modifiers modifiers { get; set; }
   public _ObjFieldEnum As_ObjFieldEnum { get; set; }
 }
 
-public class Output_ObjFieldEnum
-  : Output_TypeRef
-  , I_ObjFieldEnum
+public class OutputCmpt_ObjFieldEnum
+  : OutputCmpt_TypeRef
+  , ICmpt_ObjFieldEnum
 {
   public _Identifier label { get; set; }
 }
 
-public class Output_ForParam<Ttype>
-  : I_ForParam<Ttype>
+public class OutputCmpt_ForParam<Ttype>
+  : ICmpt_ForParam<Ttype>
 {
   public _ObjAlternate As_ObjAlternate { get; set; }
   public _ObjField<Ttype> As_ObjField { get; set; }
 }
 
-public class Output_TypeDual
-  : Output_TypeObject
-  , I_TypeDual
+public class OutputCmpt_TypeDual
+  : OutputCmpt_TypeObject
+  , ICmpt_TypeDual
 {
 }
 
-public class Output_DualField
-  : Output_ObjField
-  , I_DualField
+public class OutputCmpt_DualField
+  : OutputCmpt_ObjField
+  , ICmpt_DualField
 {
 }
 
-public class Output_TypeInput
-  : Output_TypeObject
-  , I_TypeInput
+public class OutputCmpt_TypeInput
+  : OutputCmpt_TypeObject
+  , ICmpt_TypeInput
 {
 }
 
-public class Output_InputField
-  : Output_ObjField
-  , I_InputField
+public class OutputCmpt_InputField
+  : OutputCmpt_ObjField
+  , ICmpt_InputField
 {
 }
 
-public class Output_InputFieldType
-  : Output_ObjFieldType
-  , I_InputFieldType
+public class OutputCmpt_InputFieldType
+  : OutputCmpt_ObjFieldType
+  , ICmpt_InputFieldType
 {
   public _Value default { get; set; }
 }
 
-public class Output_InputParam
-  : Output_InputFieldType
-  , I_InputParam
+public class OutputCmpt_InputParam
+  : OutputCmpt_InputFieldType
+  , ICmpt_InputParam
 {
 }
 
-public class Output_TypeOutput
-  : Output_TypeObject
-  , I_TypeOutput
+public class OutputCmpt_TypeOutput
+  : OutputCmpt_TypeObject
+  , ICmpt_TypeOutput
 {
 }
 
-public class Output_OutputField
-  : Output_ObjField
-  , I_OutputField
+public class OutputCmpt_OutputField
+  : OutputCmpt_ObjField
+  , ICmpt_OutputField
 {
 }
 
-public class Output_OutputFieldType
-  : Output_ObjFieldType
-  , I_OutputFieldType
+public class OutputCmpt_OutputFieldType
+  : OutputCmpt_ObjFieldType
+  , ICmpt_OutputFieldType
 {
   public _InputParam parameters { get; set; }
 }

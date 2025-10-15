@@ -7,9 +7,9 @@ output DescrBcks { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_descr_backslash;
+namespace Components.Gqlp_Schema_descr_backslash;
 
-public class OutputDescrBcks
-  : IDescrBcks
+public class OutputCmptDescrBcks
+  : ICmptDescrBcks
 {
 }

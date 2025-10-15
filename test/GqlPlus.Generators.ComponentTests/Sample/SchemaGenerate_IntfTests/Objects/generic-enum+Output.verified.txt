@@ -8,14 +8,14 @@ enum EnumGnrcEnumOutp { gnrcEnumOutp }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_enum_Output;
+namespace Components.Gqlp_Schema_generic_enum_Output;
 
-public interface IGnrcEnumOutp
+public interface ICmptGnrcEnumOutp
 {
   RefGnrcEnumOutp<EnumGnrcEnumOutp> AsRefGnrcEnumOutp { get; }
 }
 
-public interface IRefGnrcEnumOutp<Ttype>
+public interface ICmptRefGnrcEnumOutp<Ttype>
 {
   Ttype field { get; }
 }

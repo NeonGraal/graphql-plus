@@ -7,16 +7,16 @@ output RefGnrcAltSmplOutp<$ref:String> { | $ref }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_alt_simple_Output;
+namespace Components.Gqlp_Schema_generic_alt_simple_Output;
 
-public class OutputGnrcAltSmplOutp
-  : IGnrcAltSmplOutp
+public class OutputCmptGnrcAltSmplOutp
+  : ICmptGnrcAltSmplOutp
 {
   public RefGnrcAltSmplOutp<String> AsRefGnrcAltSmplOutp { get; set; }
 }
 
-public class OutputRefGnrcAltSmplOutp<Tref>
-  : IRefGnrcAltSmplOutp<Tref>
+public class OutputCmptRefGnrcAltSmplOutp<Tref>
+  : ICmptRefGnrcAltSmplOutp<Tref>
 {
   public Tref Asref { get; set; }
 }

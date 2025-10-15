@@ -8,13 +8,13 @@ input RefObjPrntInp { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_parent_Input;
+namespace Components.Gqlp_Schema_object_parent_Input;
 
-public interface IObjPrntInp
-  : IRefObjPrntInp
+public interface ICmptObjPrntInp
+  : ICmptRefObjPrntInp
 {
 }
 
-public interface IRefObjPrntInp
+public interface ICmptRefObjPrntInp
 {
 }

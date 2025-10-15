@@ -12,4 +12,4 @@ output CtgrDescr { }
 
 Category ctgrDescr
 */
-namespace GqlPlus.Gqlp_Schema_category_descr;
+namespace Components.Gqlp_Schema_category_descr;

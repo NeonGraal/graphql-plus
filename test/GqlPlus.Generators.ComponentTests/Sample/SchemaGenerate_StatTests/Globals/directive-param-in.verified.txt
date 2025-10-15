@@ -9,4 +9,4 @@ input InDrctParamIn { }
 
 Directive DrctParamIn
 */
-namespace GqlPlus.Gqlp_Schema_directive_param_in;
+namespace Components.Gqlp_Schema_directive_param_in;

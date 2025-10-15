@@ -46,47 +46,47 @@ output _Setting {
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Global;
+namespace Components.Gqlp_Spec_Global;
 
-public interface I_AndType
-  : I_Named
+public interface ICmpt_AndType
+  : ICmpt_Named
 {
   _Type type { get; }
   _Type As_Type { get; }
 }
 
-public interface I_Categories
-  : I_AndType
+public interface ICmpt_Categories
+  : ICmpt_AndType
 {
   _Category category { get; }
   _Category As_Category { get; }
 }
 
-public interface I_Category
-  : I_Aliased
+public interface ICmpt_Category
+  : ICmpt_Aliased
 {
   _Resolution resolution { get; }
   _TypeRef<_TypeKind> output { get; }
   _Modifiers modifiers { get; }
 }
 
-public interface I_Directives
-  : I_AndType
+public interface ICmpt_Directives
+  : ICmpt_AndType
 {
   _Directive directive { get; }
   _Directive As_Directive { get; }
 }
 
-public interface I_Directive
-  : I_Aliased
+public interface ICmpt_Directive
+  : ICmpt_Aliased
 {
   _InputParam parameters { get; }
   Boolean repeatable { get; }
   Unit locations { get; }
 }
 
-public interface I_Setting
-  : I_Named
+public interface ICmpt_Setting
+  : ICmpt_Named
 {
   _Value value { get; }
 }

@@ -7,9 +7,9 @@ dual ObjCnstDual<$type:String> { str: $type }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_constraint_Dual;
+namespace Components.Gqlp_Schema_object_constraint_Dual;
 
-public interface IObjCnstDual<Ttype>
+public interface ICmptObjCnstDual<Ttype>
 {
   Ttype field { get; }
   Ttype str { get; }

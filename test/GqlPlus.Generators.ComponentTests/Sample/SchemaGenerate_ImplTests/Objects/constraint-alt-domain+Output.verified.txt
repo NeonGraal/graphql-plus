@@ -8,21 +8,21 @@ domain DomCnstAltDmnOutp { String /\w+/ }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_alt_domain_Output;
+namespace Components.Gqlp_Schema_constraint_alt_domain_Output;
 
-public class OutputCnstAltDmnOutp
-  : ICnstAltDmnOutp
+public class OutputCmptCnstAltDmnOutp
+  : ICmptCnstAltDmnOutp
 {
   public RefCnstAltDmnOutp<DomCnstAltDmnOutp> AsRefCnstAltDmnOutp { get; set; }
 }
 
-public class OutputRefCnstAltDmnOutp<Tref>
-  : IRefCnstAltDmnOutp<Tref>
+public class OutputCmptRefCnstAltDmnOutp<Tref>
+  : ICmptRefCnstAltDmnOutp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DomainDomCnstAltDmnOutp
-  : IDomCnstAltDmnOutp
+public class DomainCmptDomCnstAltDmnOutp
+  : ICmptDomCnstAltDmnOutp
 {
 }

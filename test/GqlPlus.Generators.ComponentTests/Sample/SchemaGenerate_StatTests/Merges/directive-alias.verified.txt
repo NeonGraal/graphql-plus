@@ -9,4 +9,4 @@ directive @DrctAlias [DirA2] { field }
 
 Directive DrctAlias
 */
-namespace GqlPlus.Gqlp_Schema_directive_alias;
+namespace Components.Gqlp_Schema_directive_alias;

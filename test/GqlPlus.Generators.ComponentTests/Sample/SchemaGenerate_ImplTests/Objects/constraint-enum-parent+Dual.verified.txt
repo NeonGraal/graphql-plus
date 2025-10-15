@@ -9,16 +9,16 @@ enum ParentCnstEnumPrntDual { parentCnstEnumPrntDual }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_enum_parent_Dual;
+namespace Components.Gqlp_Schema_constraint_enum_parent_Dual;
 
-public class DualCnstEnumPrntDual
-  : ICnstEnumPrntDual
+public class DualCmptCnstEnumPrntDual
+  : ICmptCnstEnumPrntDual
 {
   public RefCnstEnumPrntDual<EnumCnstEnumPrntDual> AsRefCnstEnumPrntDual { get; set; }
 }
 
-public class DualRefCnstEnumPrntDual<Ttype>
-  : IRefCnstEnumPrntDual<Ttype>
+public class DualCmptRefCnstEnumPrntDual<Ttype>
+  : ICmptRefCnstEnumPrntDual<Ttype>
 {
   public Ttype field { get; set; }
 }

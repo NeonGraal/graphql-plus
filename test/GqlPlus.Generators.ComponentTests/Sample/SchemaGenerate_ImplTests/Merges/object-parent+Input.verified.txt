@@ -8,15 +8,15 @@ input RefObjPrntInp { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_parent_Input;
+namespace Components.Gqlp_Schema_object_parent_Input;
 
-public class InputObjPrntInp
-  : InputRefObjPrntInp
-  , IObjPrntInp
+public class InputCmptObjPrntInp
+  : InputCmptRefObjPrntInp
+  , ICmptObjPrntInp
 {
 }
 
-public class InputRefObjPrntInp
-  : IRefObjPrntInp
+public class InputCmptRefObjPrntInp
+  : ICmptRefObjPrntInp
 {
 }

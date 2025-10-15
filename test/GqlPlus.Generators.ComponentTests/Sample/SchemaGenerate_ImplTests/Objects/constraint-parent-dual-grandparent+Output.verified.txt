@@ -10,35 +10,35 @@ output AltCnstPrntDualGrndOutp { :PrntCnstPrntDualGrndOutp alt: Number }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_parent_dual_grandparent_Output;
+namespace Components.Gqlp_Schema_constraint_parent_dual_grandparent_Output;
 
-public class OutputCnstPrntDualGrndOutp
-  : OutputRefCnstPrntDualGrndOutp
-  , ICnstPrntDualGrndOutp
+public class OutputCmptCnstPrntDualGrndOutp
+  : OutputCmptRefCnstPrntDualGrndOutp
+  , ICmptCnstPrntDualGrndOutp
 {
 }
 
-public class OutputRefCnstPrntDualGrndOutp<Tref>
-  : Outputref
-  , IRefCnstPrntDualGrndOutp<Tref>
+public class OutputCmptRefCnstPrntDualGrndOutp<Tref>
+  : OutputCmptref
+  , ICmptRefCnstPrntDualGrndOutp<Tref>
 {
 }
 
-public class DualGrndCnstPrntDualGrndOutp
-  : IGrndCnstPrntDualGrndOutp
+public class DualCmptGrndCnstPrntDualGrndOutp
+  : ICmptGrndCnstPrntDualGrndOutp
 {
   public String AsString { get; set; }
 }
 
-public class DualPrntCnstPrntDualGrndOutp
-  : DualGrndCnstPrntDualGrndOutp
-  , IPrntCnstPrntDualGrndOutp
+public class DualCmptPrntCnstPrntDualGrndOutp
+  : DualCmptGrndCnstPrntDualGrndOutp
+  , ICmptPrntCnstPrntDualGrndOutp
 {
 }
 
-public class OutputAltCnstPrntDualGrndOutp
-  : OutputPrntCnstPrntDualGrndOutp
-  , IAltCnstPrntDualGrndOutp
+public class OutputCmptAltCnstPrntDualGrndOutp
+  : OutputCmptPrntCnstPrntDualGrndOutp
+  , ICmptAltCnstPrntDualGrndOutp
 {
   public Number alt { get; set; }
 }

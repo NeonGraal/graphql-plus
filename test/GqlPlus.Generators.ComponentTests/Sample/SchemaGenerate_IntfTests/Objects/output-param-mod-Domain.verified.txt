@@ -8,19 +8,19 @@ domain DomOutpParamModDmn { number 1 ~ 10 }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_output_param_mod_Domain;
+namespace Components.Gqlp_Schema_output_param_mod_Domain;
 
-public interface IOutpParamModDmn
+public interface ICmptOutpParamModDmn
 {
   DomOutpParamModDmn field { get; }
 }
 
-public interface IInOutpParamModDmn
+public interface ICmptInOutpParamModDmn
 {
   Number param { get; }
   String AsString { get; }
 }
 
-public interface IDomOutpParamModDmn
+public interface ICmptDomOutpParamModDmn
 {
 }

@@ -7,9 +7,9 @@ enum EnumDmnEnumAllDescr { dmnEnumAllDescr enum_dmnEnumAllDescr }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_domain_enum_all_descr;
+namespace Components.Gqlp_Schema_domain_enum_all_descr;
 
-public enum EnumDmnEnumAllDescr
+public enum CmptEnumDmnEnumAllDescr
 {
   dmnEnumAllDescr,
   enum_dmnEnumAllDescr,

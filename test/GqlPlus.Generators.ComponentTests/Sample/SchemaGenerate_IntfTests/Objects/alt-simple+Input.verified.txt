@@ -6,9 +6,9 @@ input AltSmplInp { | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_alt_simple_Input;
+namespace Components.Gqlp_Schema_alt_simple_Input;
 
-public interface IAltSmplInp
+public interface ICmptAltSmplInp
 {
   String AsString { get; }
 }

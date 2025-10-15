@@ -8,8 +8,8 @@ input InDrctParam { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_directive_param;
+namespace Components.Gqlp_Schema_directive_param;
 
-public interface IInDrctParam
+public interface ICmptInDrctParam
 {
 }

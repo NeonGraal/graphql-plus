@@ -6,10 +6,10 @@ input FieldSmplInp { field: Number }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_simple_Input;
+namespace Components.Gqlp_Schema_field_simple_Input;
 
-public class InputFieldSmplInp
-  : IFieldSmplInp
+public class InputCmptFieldSmplInp
+  : ICmptFieldSmplInp
 {
   public Number field { get; set; }
 }

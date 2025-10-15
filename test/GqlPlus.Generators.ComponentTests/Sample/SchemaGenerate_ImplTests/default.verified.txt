@@ -15,24 +15,24 @@ output _Schema { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_default;
+namespace Components.Gqlp_Schema_default;
 
-public class OutputQuery
-  : IQuery
+public class OutputCmptQuery
+  : ICmptQuery
 {
 }
 
-public class OutputMutation
-  : IMutation
+public class OutputCmptMutation
+  : ICmptMutation
 {
 }
 
-public class OutputSubscription
-  : ISubscription
+public class OutputCmptSubscription
+  : ICmptSubscription
 {
 }
 
-public class Output_Schema
-  : I_Schema
+public class OutputCmpt_Schema
+  : ICmpt_Schema
 {
 }

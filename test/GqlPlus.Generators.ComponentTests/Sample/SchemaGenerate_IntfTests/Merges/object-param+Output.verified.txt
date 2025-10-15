@@ -7,9 +7,9 @@ output ObjParamOutp<$type:String> { type: $type }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_param_Output;
+namespace Components.Gqlp_Schema_object_param_Output;
 
-public interface IObjParamOutp<Ttest,Ttype>
+public interface ICmptObjParamOutp<Ttest,Ttype>
 {
   Ttest test { get; }
   Ttype type { get; }

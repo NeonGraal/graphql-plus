@@ -9,15 +9,15 @@ enum ParentCnstPrntEnumInp { parentCnstPrntEnumInp }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_parent_enum_Input;
+namespace Components.Gqlp_Schema_constraint_parent_enum_Input;
 
-public enum EnumCnstPrntEnumInp
+public enum CmptEnumCnstPrntEnumInp
 {
   parentCnstPrntEnumInp = ParentCnstPrntEnumInp.parentCnstPrntEnumInp,
   cnstPrntEnumInp,
 }
 
-public enum ParentCnstPrntEnumInp
+public enum CmptParentCnstPrntEnumInp
 {
   parentCnstPrntEnumInp,
 }

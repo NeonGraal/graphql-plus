@@ -7,17 +7,17 @@ output RefPrntParamDiffOutp<$b:String> { | $b }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_parent_param_diff_Output;
+namespace Components.Gqlp_Schema_parent_param_diff_Output;
 
-public class OutputPrntParamDiffOutp<Ta>
-  : OutputRefPrntParamDiffOutp
-  , IPrntParamDiffOutp<Ta>
+public class OutputCmptPrntParamDiffOutp<Ta>
+  : OutputCmptRefPrntParamDiffOutp
+  , ICmptPrntParamDiffOutp<Ta>
 {
   public Ta field { get; set; }
 }
 
-public class OutputRefPrntParamDiffOutp<Tb>
-  : IRefPrntParamDiffOutp<Tb>
+public class OutputCmptRefPrntParamDiffOutp<Tb>
+  : ICmptRefPrntParamDiffOutp<Tb>
 {
   public Tb Asb { get; set; }
 }

@@ -6,10 +6,10 @@ dual GnrcAltDual<$type:String> { | $type }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_alt_Dual;
+namespace Components.Gqlp_Schema_generic_alt_Dual;
 
-public class DualGnrcAltDual<Ttype>
-  : IGnrcAltDual<Ttype>
+public class DualCmptGnrcAltDual<Ttype>
+  : ICmptGnrcAltDual<Ttype>
 {
   public Ttype Astype { get; set; }
 }

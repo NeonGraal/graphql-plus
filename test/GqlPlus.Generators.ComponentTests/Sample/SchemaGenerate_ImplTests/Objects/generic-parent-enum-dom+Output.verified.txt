@@ -9,21 +9,21 @@ domain DomGnrcPrntEnumDomOutp { enum gnrcPrntEnumDomOutpLabel }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_enum_dom_Output;
+namespace Components.Gqlp_Schema_generic_parent_enum_dom_Output;
 
-public class OutputGnrcPrntEnumDomOutp
-  : OutputFieldGnrcPrntEnumDomOutp
-  , IGnrcPrntEnumDomOutp
+public class OutputCmptGnrcPrntEnumDomOutp
+  : OutputCmptFieldGnrcPrntEnumDomOutp
+  , ICmptGnrcPrntEnumDomOutp
 {
 }
 
-public class OutputFieldGnrcPrntEnumDomOutp<Tref>
-  : IFieldGnrcPrntEnumDomOutp<Tref>
+public class OutputCmptFieldGnrcPrntEnumDomOutp<Tref>
+  : ICmptFieldGnrcPrntEnumDomOutp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DomainDomGnrcPrntEnumDomOutp
-  : IDomGnrcPrntEnumDomOutp
+public class DomainCmptDomGnrcPrntEnumDomOutp
+  : ICmptDomGnrcPrntEnumDomOutp
 {
 }

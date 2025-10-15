@@ -7,9 +7,9 @@ enum EnumFieldEnumDual { fieldEnumDual }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_enum_Dual;
+namespace Components.Gqlp_Schema_field_enum_Dual;
 
-public interface IFieldEnumDual
+public interface ICmptFieldEnumDual
 {
   EnumFieldEnumDual field { get; }
 }

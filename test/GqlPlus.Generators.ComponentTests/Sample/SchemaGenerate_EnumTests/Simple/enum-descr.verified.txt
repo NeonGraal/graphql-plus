@@ -6,9 +6,9 @@ enum EnumDescr { "Enum" "Descr" enumDescr }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_enum_descr;
+namespace Components.Gqlp_Schema_enum_descr;
 
-public enum EnumDescr
+public enum CmptEnumDescr
 {
   enumDescr,
 }

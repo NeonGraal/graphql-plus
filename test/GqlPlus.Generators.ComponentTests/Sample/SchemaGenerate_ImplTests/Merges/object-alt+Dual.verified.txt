@@ -8,15 +8,15 @@ dual ObjAltDualType { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_alt_Dual;
+namespace Components.Gqlp_Schema_object_alt_Dual;
 
-public class DualObjAltDual
-  : IObjAltDual
+public class DualCmptObjAltDual
+  : ICmptObjAltDual
 {
   public ObjAltDualType AsObjAltDualType { get; set; }
 }
 
-public class DualObjAltDualType
-  : IObjAltDualType
+public class DualCmptObjAltDualType
+  : ICmptObjAltDualType
 {
 }

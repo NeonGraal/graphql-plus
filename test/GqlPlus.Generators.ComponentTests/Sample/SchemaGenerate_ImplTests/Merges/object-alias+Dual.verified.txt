@@ -7,9 +7,9 @@ dual ObjAliasDual [Dual2] { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_alias_Dual;
+namespace Components.Gqlp_Schema_object_alias_Dual;
 
-public class DualObjAliasDual
-  : IObjAliasDual
+public class DualCmptObjAliasDual
+  : ICmptObjAliasDual
 {
 }

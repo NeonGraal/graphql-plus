@@ -8,18 +8,18 @@ domain DomGnrcPrntStrDomDual { string /\w+/ }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_string_dom_Dual;
+namespace Components.Gqlp_Schema_generic_parent_string_dom_Dual;
 
-public interface IGnrcPrntStrDomDual
-  : IFieldGnrcPrntStrDomDual
+public interface ICmptGnrcPrntStrDomDual
+  : ICmptFieldGnrcPrntStrDomDual
 {
 }
 
-public interface IFieldGnrcPrntStrDomDual<Tref>
+public interface ICmptFieldGnrcPrntStrDomDual<Tref>
 {
   Tref field { get; }
 }
 
-public interface IDomGnrcPrntStrDomDual
+public interface ICmptDomGnrcPrntStrDomDual
 {
 }

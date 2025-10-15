@@ -7,15 +7,15 @@ dual FldInpFieldNull { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_input_field_null;
+namespace Components.Gqlp_Schema_input_field_null;
 
-public class InputInpFieldNull
-  : IInpFieldNull
+public class InputCmptInpFieldNull
+  : ICmptInpFieldNull
 {
   public FldInpFieldNull field { get; set; }
 }
 
-public class DualFldInpFieldNull
-  : IFldInpFieldNull
+public class DualCmptFldInpFieldNull
+  : ICmptFldInpFieldNull
 {
 }

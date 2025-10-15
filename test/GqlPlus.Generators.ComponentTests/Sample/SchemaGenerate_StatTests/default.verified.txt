@@ -19,4 +19,4 @@ Category query
 Category mutation
 Category subscription
 */
-namespace GqlPlus.Gqlp_Schema_default;
+namespace Components.Gqlp_Schema_default;

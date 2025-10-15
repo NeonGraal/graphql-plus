@@ -7,9 +7,9 @@ enum PrntEnumPrntAlias { prnt_enumPrntAlias }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_enum_parent_alias;
+namespace Components.Gqlp_Schema_enum_parent_alias;
 
-public enum EnumPrntAlias
+public enum CmptEnumPrntAlias
 {
   prnt_enumPrntAlias = PrntEnumPrntAlias.prnt_enumPrntAlias,
   val_enumPrntAlias,
@@ -17,7 +17,7 @@ public enum EnumPrntAlias
   enumPrntAlias = prnt_enumPrntAlias,
 }
 
-public enum PrntEnumPrntAlias
+public enum CmptPrntEnumPrntAlias
 {
   prnt_enumPrntAlias,
 }

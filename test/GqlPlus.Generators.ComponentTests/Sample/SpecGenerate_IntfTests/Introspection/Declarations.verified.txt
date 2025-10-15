@@ -37,10 +37,10 @@ input _TypeFilter {
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Declarations;
+namespace Components.Gqlp_Spec_Declarations;
 
-public interface I_Schema
-  : I_Named
+public interface ICmpt_Schema
+  : ICmpt_Named
 {
   _Categories categories { get; }
   _Directives directives { get; }
@@ -48,11 +48,11 @@ public interface I_Schema
   _Setting settings { get; }
 }
 
-public interface I_Identifier
+public interface ICmpt_Identifier
 {
 }
 
-public interface I_Filter
+public interface ICmpt_Filter
 {
   _NameFilter names { get; }
   Boolean matchAliases { get; }
@@ -62,18 +62,18 @@ public interface I_Filter
   _NameFilter As_NameFilter { get; }
 }
 
-public interface I_NameFilter
+public interface ICmpt_NameFilter
 {
 }
 
-public interface I_CategoryFilter
-  : I_Filter
+public interface ICmpt_CategoryFilter
+  : ICmpt_Filter
 {
   _Resolution resolutions { get; }
 }
 
-public interface I_TypeFilter
-  : I_Filter
+public interface ICmpt_TypeFilter
+  : ICmpt_Filter
 {
   _TypeKind kinds { get; }
 }

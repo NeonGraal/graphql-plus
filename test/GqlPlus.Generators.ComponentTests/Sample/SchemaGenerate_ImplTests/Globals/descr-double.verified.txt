@@ -7,9 +7,9 @@ output DescrDbl { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_descr_double;
+namespace Components.Gqlp_Schema_descr_double;
 
-public class OutputDescrDbl
-  : IDescrDbl
+public class OutputCmptDescrDbl
+  : ICmptDescrDbl
 {
 }

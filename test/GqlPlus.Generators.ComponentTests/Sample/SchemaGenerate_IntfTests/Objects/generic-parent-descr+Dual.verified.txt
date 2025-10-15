@@ -6,9 +6,9 @@ dual GnrcPrntDescrDual<$type:String> { :"Parent comment"$type }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_descr_Dual;
+namespace Components.Gqlp_Schema_generic_parent_descr_Dual;
 
-public interface IGnrcPrntDescrDual<Ttype>
-  : Itype
+public interface ICmptGnrcPrntDescrDual<Ttype>
+  : ICmpttype
 {
 }

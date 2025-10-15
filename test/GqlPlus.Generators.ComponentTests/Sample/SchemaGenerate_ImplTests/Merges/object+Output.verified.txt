@@ -7,9 +7,9 @@ output ObjOutp { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_Output;
+namespace Components.Gqlp_Schema_object_Output;
 
-public class OutputObjOutp
-  : IObjOutp
+public class OutputCmptObjOutp
+  : ICmptObjOutp
 {
 }

@@ -6,7 +6,7 @@ public class GeneratorClassTestBase
   internal static GqlpGeneratorContext Context(
     GqlpBaseType baseType = GqlpBaseType.Class,
     GqlpGeneratorType generatorType = GqlpGeneratorType.Implementation
-  ) => new("testPath", new("testNamespace.testClass", baseType, generatorType), new("testNamespace"));
+  ) => new("testPath", new("testNamespace.testClass", baseType, generatorType), new("testNamespace", "test"));
 
   internal static IGenerator<T> GFor<T>()
     where T : IGqlpError

@@ -51,10 +51,10 @@ dual _Described {
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Schema;
+namespace Components.Gqlp_Spec_Schema;
 
-public interface I_Schema
-  : I_Named
+public interface ICmpt_Schema
+  : ICmpt_Named
 {
   _Categories categories { get; }
   _Directives directives { get; }
@@ -62,11 +62,11 @@ public interface I_Schema
   _Setting settings { get; }
 }
 
-public interface I_Identifier
+public interface ICmpt_Identifier
 {
 }
 
-public interface I_Filter
+public interface ICmpt_Filter
 {
   _NameFilter names { get; }
   Boolean matchAliases { get; }
@@ -76,35 +76,35 @@ public interface I_Filter
   _NameFilter As_NameFilter { get; }
 }
 
-public interface I_NameFilter
+public interface ICmpt_NameFilter
 {
 }
 
-public interface I_CategoryFilter
-  : I_Filter
+public interface ICmpt_CategoryFilter
+  : ICmpt_Filter
 {
   _Resolution resolutions { get; }
 }
 
-public interface I_TypeFilter
-  : I_Filter
+public interface ICmpt_TypeFilter
+  : ICmpt_Filter
 {
   _TypeKind kinds { get; }
 }
 
-public interface I_Aliased
-  : I_Named
+public interface ICmpt_Aliased
+  : ICmpt_Named
 {
   _Identifier aliases { get; }
 }
 
-public interface I_Named
-  : I_Described
+public interface ICmpt_Named
+  : ICmpt_Described
 {
   _Identifier name { get; }
 }
 
-public interface I_Described
+public interface ICmpt_Described
 {
   String description { get; }
 }

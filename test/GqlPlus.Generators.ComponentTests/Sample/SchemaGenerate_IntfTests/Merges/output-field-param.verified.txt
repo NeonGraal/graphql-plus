@@ -10,21 +10,21 @@ dual FldOutpFieldParam { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_output_field_param;
+namespace Components.Gqlp_Schema_output_field_param;
 
-public interface IOutpFieldParam
+public interface ICmptOutpFieldParam
 {
   FldOutpFieldParam field { get; }
 }
 
-public interface IOutpFieldParam1
+public interface ICmptOutpFieldParam1
 {
 }
 
-public interface IOutpFieldParam2
+public interface ICmptOutpFieldParam2
 {
 }
 
-public interface IFldOutpFieldParam
+public interface ICmptFldOutpFieldParam
 {
 }

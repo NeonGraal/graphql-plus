@@ -7,14 +7,14 @@ dual AltAltDual { alt: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_alt_Dual;
+namespace Components.Gqlp_Schema_alt_Dual;
 
-public interface IAltDual
+public interface ICmptAltDual
 {
   AltAltDual AsAltAltDual { get; }
 }
 
-public interface IAltAltDual
+public interface ICmptAltAltDual
 {
   Number alt { get; }
   String AsString { get; }

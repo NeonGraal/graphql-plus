@@ -8,15 +8,15 @@ output FldObjFieldAliasOutp { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_field_alias_Output;
+namespace Components.Gqlp_Schema_object_field_alias_Output;
 
-public class OutputObjFieldAliasOutp
-  : IObjFieldAliasOutp
+public class OutputCmptObjFieldAliasOutp
+  : ICmptObjFieldAliasOutp
 {
   public FldObjFieldAliasOutp field { get; set; }
 }
 
-public class OutputFldObjFieldAliasOutp
-  : IFldObjFieldAliasOutp
+public class OutputCmptFldObjFieldAliasOutp
+  : ICmptFldObjFieldAliasOutp
 {
 }

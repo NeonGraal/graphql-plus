@@ -2,187 +2,187 @@
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_Simple;
+namespace Components.Gqlp_Schema_Simple;
 
-public class DomainDmnBoolDescr
-  : IDmnBoolDescr
+public class DomainCmptDmnBoolDescr
+  : ICmptDmnBoolDescr
 {
 }
 
-public class DomainDmnBoolPrnt
-  : DomainPrntDmnBoolPrnt
-  , IDmnBoolPrnt
+public class DomainCmptDmnBoolPrnt
+  : DomainCmptPrntDmnBoolPrnt
+  , ICmptDmnBoolPrnt
 {
 }
 
-public class DomainPrntDmnBoolPrnt
-  : IPrntDmnBoolPrnt
+public class DomainCmptPrntDmnBoolPrnt
+  : ICmptPrntDmnBoolPrnt
 {
 }
 
-public class DomainDmnBoolPrntDescr
-  : DomainPrntDmnBoolPrntDescr
-  , IDmnBoolPrntDescr
+public class DomainCmptDmnBoolPrntDescr
+  : DomainCmptPrntDmnBoolPrntDescr
+  , ICmptDmnBoolPrntDescr
 {
 }
 
-public class DomainPrntDmnBoolPrntDescr
-  : IPrntDmnBoolPrntDescr
+public class DomainCmptPrntDmnBoolPrntDescr
+  : ICmptPrntDmnBoolPrntDescr
 {
 }
 
-public class DomainDmnEnumAll
-  : IDmnEnumAll
+public class DomainCmptDmnEnumAll
+  : ICmptDmnEnumAll
 {
 }
 
-public class DomainDmnEnumAllDescr
-  : IDmnEnumAllDescr
+public class DomainCmptDmnEnumAllDescr
+  : ICmptDmnEnumAllDescr
 {
 }
 
-public class DomainDmnEnumAllPrnt
-  : IDmnEnumAllPrnt
+public class DomainCmptDmnEnumAllPrnt
+  : ICmptDmnEnumAllPrnt
 {
 }
 
-public class DomainDmnEnumDescr
-  : IDmnEnumDescr
+public class DomainCmptDmnEnumDescr
+  : ICmptDmnEnumDescr
 {
 }
 
-public class DomainDmnEnumLabel
-  : IDmnEnumLabel
+public class DomainCmptDmnEnumLabel
+  : ICmptDmnEnumLabel
 {
 }
 
-public class DomainDmnEnumPrnt
-  : DomainPrntDmnEnumPrnt
-  , IDmnEnumPrnt
+public class DomainCmptDmnEnumPrnt
+  : DomainCmptPrntDmnEnumPrnt
+  , ICmptDmnEnumPrnt
 {
 }
 
-public class DomainPrntDmnEnumPrnt
-  : IPrntDmnEnumPrnt
+public class DomainCmptPrntDmnEnumPrnt
+  : ICmptPrntDmnEnumPrnt
 {
 }
 
-public class DomainDmnEnumPrntDescr
-  : DomainPrntDmnEnumPrntDescr
-  , IDmnEnumPrntDescr
+public class DomainCmptDmnEnumPrntDescr
+  : DomainCmptPrntDmnEnumPrntDescr
+  , ICmptDmnEnumPrntDescr
 {
 }
 
-public class DomainPrntDmnEnumPrntDescr
-  : IPrntDmnEnumPrntDescr
+public class DomainCmptPrntDmnEnumPrntDescr
+  : ICmptPrntDmnEnumPrntDescr
 {
 }
 
-public class DomainDmnEnumValue
-  : IDmnEnumValue
+public class DomainCmptDmnEnumValue
+  : ICmptDmnEnumValue
 {
 }
 
-public class DomainDmnEnumValuePrnt
-  : IDmnEnumValuePrnt
+public class DomainCmptDmnEnumValuePrnt
+  : ICmptDmnEnumValuePrnt
 {
 }
 
-public class DomainDmnNmbrDescr
-  : IDmnNmbrDescr
+public class DomainCmptDmnNmbrDescr
+  : ICmptDmnNmbrDescr
 {
 }
 
-public class DomainDmnNmbrPrnt
-  : DomainPrntDmnNmbrPrnt
-  , IDmnNmbrPrnt
+public class DomainCmptDmnNmbrPrnt
+  : DomainCmptPrntDmnNmbrPrnt
+  , ICmptDmnNmbrPrnt
 {
 }
 
-public class DomainPrntDmnNmbrPrnt
-  : IPrntDmnNmbrPrnt
+public class DomainCmptPrntDmnNmbrPrnt
+  : ICmptPrntDmnNmbrPrnt
 {
 }
 
-public class DomainDmnNmbrPrntDescr
-  : DomainPrntDmnNmbrPrntDescr
-  , IDmnNmbrPrntDescr
+public class DomainCmptDmnNmbrPrntDescr
+  : DomainCmptPrntDmnNmbrPrntDescr
+  , ICmptDmnNmbrPrntDescr
 {
 }
 
-public class DomainPrntDmnNmbrPrntDescr
-  : IPrntDmnNmbrPrntDescr
+public class DomainCmptPrntDmnNmbrPrntDescr
+  : ICmptPrntDmnNmbrPrntDescr
 {
 }
 
-public class DomainDmnStrDescr
-  : IDmnStrDescr
+public class DomainCmptDmnStrDescr
+  : ICmptDmnStrDescr
 {
 }
 
-public class DomainDmnStrPrnt
-  : DomainPrntDmnStrPrnt
-  , IDmnStrPrnt
+public class DomainCmptDmnStrPrnt
+  : DomainCmptPrntDmnStrPrnt
+  , ICmptDmnStrPrnt
 {
 }
 
-public class DomainPrntDmnStrPrnt
-  : IPrntDmnStrPrnt
+public class DomainCmptPrntDmnStrPrnt
+  : ICmptPrntDmnStrPrnt
 {
 }
 
-public class DomainDmnStrPrntDescr
-  : DomainPrntDmnStrPrntDescr
-  , IDmnStrPrntDescr
+public class DomainCmptDmnStrPrntDescr
+  : DomainCmptPrntDmnStrPrntDescr
+  , ICmptDmnStrPrntDescr
 {
 }
 
-public class DomainPrntDmnStrPrntDescr
-  : IPrntDmnStrPrntDescr
+public class DomainCmptPrntDmnStrPrntDescr
+  : ICmptPrntDmnStrPrntDescr
 {
 }
 
-public class UnionUnionDescr
-  : IUnionDescr
+public class UnionCmptUnionDescr
+  : ICmptUnionDescr
 {
   public Number AsNumber { get; set; }
 }
 
-public class UnionUnionPrnt
-  : UnionPrntUnionPrnt
-  , IUnionPrnt
+public class UnionCmptUnionPrnt
+  : UnionCmptPrntUnionPrnt
+  , ICmptUnionPrnt
 {
   public String AsString { get; set; }
 }
 
-public class UnionPrntUnionPrnt
-  : IPrntUnionPrnt
+public class UnionCmptPrntUnionPrnt
+  : ICmptPrntUnionPrnt
 {
   public Number AsNumber { get; set; }
 }
 
-public class UnionUnionPrntDescr
-  : UnionPrntUnionPrntDescr
-  , IUnionPrntDescr
+public class UnionCmptUnionPrntDescr
+  : UnionCmptPrntUnionPrntDescr
+  , ICmptUnionPrntDescr
 {
   public Number AsNumber { get; set; }
 }
 
-public class UnionPrntUnionPrntDescr
-  : IPrntUnionPrntDescr
+public class UnionCmptPrntUnionPrntDescr
+  : ICmptPrntUnionPrntDescr
 {
   public Number AsNumber { get; set; }
 }
 
-public class UnionUnionPrntDup
-  : UnionPrntUnionPrntDup
-  , IUnionPrntDup
+public class UnionCmptUnionPrntDup
+  : UnionCmptPrntUnionPrntDup
+  , ICmptUnionPrntDup
 {
   public Number AsNumber { get; set; }
 }
 
-public class UnionPrntUnionPrntDup
-  : IPrntUnionPrntDup
+public class UnionCmptPrntUnionPrntDup
+  : ICmptPrntUnionPrntDup
 {
   public Number AsNumber { get; set; }
 }

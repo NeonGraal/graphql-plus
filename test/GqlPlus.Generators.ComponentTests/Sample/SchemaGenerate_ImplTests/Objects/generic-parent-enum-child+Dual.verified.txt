@@ -9,16 +9,16 @@ enum ParentGnrcPrntEnumChildDual { gnrcPrntEnumChildDualParent }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_enum_child_Dual;
+namespace Components.Gqlp_Schema_generic_parent_enum_child_Dual;
 
-public class DualGnrcPrntEnumChildDual
-  : DualFieldGnrcPrntEnumChildDual
-  , IGnrcPrntEnumChildDual
+public class DualCmptGnrcPrntEnumChildDual
+  : DualCmptFieldGnrcPrntEnumChildDual
+  , ICmptGnrcPrntEnumChildDual
 {
 }
 
-public class DualFieldGnrcPrntEnumChildDual<Tref>
-  : IFieldGnrcPrntEnumChildDual<Tref>
+public class DualCmptFieldGnrcPrntEnumChildDual<Tref>
+  : ICmptFieldGnrcPrntEnumChildDual<Tref>
 {
   public Tref field { get; set; }
 }

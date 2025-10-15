@@ -8,10 +8,10 @@ enum PrntFieldEnumPrntInp { prnt_fieldEnumPrntInp }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_enum_parent_Input;
+namespace Components.Gqlp_Schema_field_enum_parent_Input;
 
-public class InputFieldEnumPrntInp
-  : IFieldEnumPrntInp
+public class InputCmptFieldEnumPrntInp
+  : ICmptFieldEnumPrntInp
 {
   public EnumFieldEnumPrntInp field { get; set; }
 }

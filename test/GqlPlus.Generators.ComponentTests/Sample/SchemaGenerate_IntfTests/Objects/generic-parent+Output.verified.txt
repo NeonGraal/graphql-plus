@@ -6,9 +6,9 @@ output GnrcPrntOutp<$type:String> { :$type }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_Output;
+namespace Components.Gqlp_Schema_generic_parent_Output;
 
-public interface IGnrcPrntOutp<Ttype>
-  : Itype
+public interface ICmptGnrcPrntOutp<Ttype>
+  : ICmpttype
 {
 }

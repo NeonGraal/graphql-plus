@@ -6,9 +6,9 @@ dual FieldTypeDescrDual { field: "Test" "Descr" Number }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_type_descr_Dual;
+namespace Components.Gqlp_Schema_field_type_descr_Dual;
 
-public interface IFieldTypeDescrDual
+public interface ICmptFieldTypeDescrDual
 {
   Number field { get; }
 }

@@ -8,21 +8,21 @@ domain DomGnrcPrntStrDomDual { string /\w+/ }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_string_dom_Dual;
+namespace Components.Gqlp_Schema_generic_parent_string_dom_Dual;
 
-public class DualGnrcPrntStrDomDual
-  : DualFieldGnrcPrntStrDomDual
-  , IGnrcPrntStrDomDual
+public class DualCmptGnrcPrntStrDomDual
+  : DualCmptFieldGnrcPrntStrDomDual
+  , ICmptGnrcPrntStrDomDual
 {
 }
 
-public class DualFieldGnrcPrntStrDomDual<Tref>
-  : IFieldGnrcPrntStrDomDual<Tref>
+public class DualCmptFieldGnrcPrntStrDomDual<Tref>
+  : ICmptFieldGnrcPrntStrDomDual<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DomainDomGnrcPrntStrDomDual
-  : IDomGnrcPrntStrDomDual
+public class DomainCmptDomGnrcPrntStrDomDual
+  : ICmptDomGnrcPrntStrDomDual
 {
 }

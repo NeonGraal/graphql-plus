@@ -7,9 +7,9 @@ input ObjParamInp<$type:String> { type: $type }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_param_Input;
+namespace Components.Gqlp_Schema_object_param_Input;
 
-public interface IObjParamInp<Ttest,Ttype>
+public interface ICmptObjParamInp<Ttest,Ttype>
 {
   Ttest test { get; }
   Ttype type { get; }

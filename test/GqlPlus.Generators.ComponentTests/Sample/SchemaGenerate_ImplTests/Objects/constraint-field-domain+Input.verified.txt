@@ -8,21 +8,21 @@ domain DomCnstFieldDmnInp { String /\w+/ }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_field_domain_Input;
+namespace Components.Gqlp_Schema_constraint_field_domain_Input;
 
-public class InputCnstFieldDmnInp
-  : InputRefCnstFieldDmnInp
-  , ICnstFieldDmnInp
+public class InputCmptCnstFieldDmnInp
+  : InputCmptRefCnstFieldDmnInp
+  , ICmptCnstFieldDmnInp
 {
 }
 
-public class InputRefCnstFieldDmnInp<Tref>
-  : IRefCnstFieldDmnInp<Tref>
+public class InputCmptRefCnstFieldDmnInp<Tref>
+  : ICmptRefCnstFieldDmnInp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DomainDomCnstFieldDmnInp
-  : IDomCnstFieldDmnInp
+public class DomainCmptDomCnstFieldDmnInp
+  : ICmptDomCnstFieldDmnInp
 {
 }

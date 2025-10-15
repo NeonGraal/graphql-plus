@@ -9,22 +9,22 @@ enum DupDmnEnumUnqPrnt { dmnEnumUnqPrnt dup_dmnEnumUnqPrnt }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_domain_enum_unique_parent;
+namespace Components.Gqlp_Schema_domain_enum_unique_parent;
 
-public enum EnumDmnEnumUnqPrnt
+public enum CmptEnumDmnEnumUnqPrnt
 {
   dmnEnumUnqPrnt = PrntDmnEnumUnqPrnt.dmnEnumUnqPrnt,
   prnt_dmnEnumUnqPrnt = PrntDmnEnumUnqPrnt.prnt_dmnEnumUnqPrnt,
   enum_dmnEnumUnqPrnt,
 }
 
-public enum PrntDmnEnumUnqPrnt
+public enum CmptPrntDmnEnumUnqPrnt
 {
   dmnEnumUnqPrnt,
   prnt_dmnEnumUnqPrnt,
 }
 
-public enum DupDmnEnumUnqPrnt
+public enum CmptDupDmnEnumUnqPrnt
 {
   dmnEnumUnqPrnt,
   dup_dmnEnumUnqPrnt,

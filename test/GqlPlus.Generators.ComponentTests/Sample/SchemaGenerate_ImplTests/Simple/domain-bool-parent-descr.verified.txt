@@ -7,15 +7,15 @@ domain PrntDmnBoolPrntDescr { Boolean true }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_domain_bool_parent_descr;
+namespace Components.Gqlp_Schema_domain_bool_parent_descr;
 
-public class DomainDmnBoolPrntDescr
-  : DomainPrntDmnBoolPrntDescr
-  , IDmnBoolPrntDescr
+public class DomainCmptDmnBoolPrntDescr
+  : DomainCmptPrntDmnBoolPrntDescr
+  , ICmptDmnBoolPrntDescr
 {
 }
 
-public class DomainPrntDmnBoolPrntDescr
-  : IPrntDmnBoolPrntDescr
+public class DomainCmptPrntDmnBoolPrntDescr
+  : ICmptPrntDmnBoolPrntDescr
 {
 }

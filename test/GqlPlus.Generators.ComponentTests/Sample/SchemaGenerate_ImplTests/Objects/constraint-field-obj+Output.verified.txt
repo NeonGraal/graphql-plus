@@ -9,29 +9,29 @@ output AltCnstFieldObjOutp { :PrntCnstFieldObjOutp alt: Number }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_field_obj_Output;
+namespace Components.Gqlp_Schema_constraint_field_obj_Output;
 
-public class OutputCnstFieldObjOutp
-  : OutputRefCnstFieldObjOutp
-  , ICnstFieldObjOutp
+public class OutputCmptCnstFieldObjOutp
+  : OutputCmptRefCnstFieldObjOutp
+  , ICmptCnstFieldObjOutp
 {
 }
 
-public class OutputRefCnstFieldObjOutp<Tref>
-  : IRefCnstFieldObjOutp<Tref>
+public class OutputCmptRefCnstFieldObjOutp<Tref>
+  : ICmptRefCnstFieldObjOutp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class OutputPrntCnstFieldObjOutp
-  : IPrntCnstFieldObjOutp
+public class OutputCmptPrntCnstFieldObjOutp
+  : ICmptPrntCnstFieldObjOutp
 {
   public String AsString { get; set; }
 }
 
-public class OutputAltCnstFieldObjOutp
-  : OutputPrntCnstFieldObjOutp
-  , IAltCnstFieldObjOutp
+public class OutputCmptAltCnstFieldObjOutp
+  : OutputCmptPrntCnstFieldObjOutp
+  , ICmptAltCnstFieldObjOutp
 {
   public Number alt { get; set; }
 }

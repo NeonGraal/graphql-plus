@@ -7,9 +7,9 @@ domain DmnNmbrSame { number 1~9 }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_domain_number_same;
+namespace Components.Gqlp_Schema_domain_number_same;
 
-public class DomainDmnNmbrSame
-  : IDmnNmbrSame
+public class DomainCmptDmnNmbrSame
+  : ICmptDmnNmbrSame
 {
 }

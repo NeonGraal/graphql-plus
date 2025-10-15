@@ -7,9 +7,9 @@ domain DmnStrDiff { string }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_domain_string_diff;
+namespace Components.Gqlp_Schema_domain_string_diff;
 
-public class DomainDmnStrDiff
-  : IDmnStrDiff
+public class DomainCmptDmnStrDiff
+  : ICmptDmnStrDiff
 {
 }

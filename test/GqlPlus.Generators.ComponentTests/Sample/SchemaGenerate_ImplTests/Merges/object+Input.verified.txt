@@ -7,9 +7,9 @@ input ObjInp { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_Input;
+namespace Components.Gqlp_Schema_object_Input;
 
-public class InputObjInp
-  : IObjInp
+public class InputCmptObjInp
+  : ICmptObjInp
 {
 }

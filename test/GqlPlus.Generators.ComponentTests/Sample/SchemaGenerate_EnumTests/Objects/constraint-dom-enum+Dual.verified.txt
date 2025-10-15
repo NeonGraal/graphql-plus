@@ -9,9 +9,9 @@ domain JustCnstDomEnumDual { enum EnumCnstDomEnumDual.cnstDomEnumDual }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_dom_enum_Dual;
+namespace Components.Gqlp_Schema_constraint_dom_enum_Dual;
 
-public enum EnumCnstDomEnumDual
+public enum CmptEnumCnstDomEnumDual
 {
   cnstDomEnumDual,
   other,

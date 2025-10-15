@@ -10,4 +10,4 @@ output DescrBtwn { }
 
 Category descrBtwn
 */
-namespace GqlPlus.Gqlp_Schema_descr_between;
+namespace Components.Gqlp_Schema_descr_between;

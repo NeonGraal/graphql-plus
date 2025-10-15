@@ -6,9 +6,9 @@ output AltSmplOutp { | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_alt_simple_Output;
+namespace Components.Gqlp_Schema_alt_simple_Output;
 
-public interface IAltSmplOutp
+public interface ICmptAltSmplOutp
 {
   String AsString { get; }
 }

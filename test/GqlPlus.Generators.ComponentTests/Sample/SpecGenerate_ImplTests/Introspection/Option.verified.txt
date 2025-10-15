@@ -9,11 +9,11 @@ output _Setting {
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Option;
+namespace Components.Gqlp_Spec_Option;
 
-public class Output_Setting
-  : Output_Named
-  , I_Setting
+public class OutputCmpt_Setting
+  : OutputCmpt_Named
+  , ICmpt_Setting
 {
   public _Value value { get; set; }
 }

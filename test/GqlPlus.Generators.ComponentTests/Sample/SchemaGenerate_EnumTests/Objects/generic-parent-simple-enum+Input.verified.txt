@@ -8,9 +8,9 @@ enum EnumGnrcPrntSmplEnumInp { gnrcPrntSmplEnumInp }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_simple_enum_Input;
+namespace Components.Gqlp_Schema_generic_parent_simple_enum_Input;
 
-public enum EnumGnrcPrntSmplEnumInp
+public enum CmptEnumGnrcPrntSmplEnumInp
 {
   gnrcPrntSmplEnumInp,
 }

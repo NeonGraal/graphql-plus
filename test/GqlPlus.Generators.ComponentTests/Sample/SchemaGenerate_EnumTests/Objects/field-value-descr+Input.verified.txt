@@ -7,9 +7,9 @@ enum EnumFieldValueDescrInp { fieldValueDescrInp }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_value_descr_Input;
+namespace Components.Gqlp_Schema_field_value_descr_Input;
 
-public enum EnumFieldValueDescrInp
+public enum CmptEnumFieldValueDescrInp
 {
   fieldValueDescrInp,
 }

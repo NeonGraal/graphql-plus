@@ -110,10 +110,10 @@ output _UnionMember {
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Simple;
+namespace Components.Gqlp_Spec_Simple;
 
-public class Output_TypeDomain
-  : I_TypeDomain
+public class OutputCmpt_TypeDomain
+  : ICmpt_TypeDomain
 {
   public _BaseDomain<_DomainKind, _DomainTrueFalse, _DomainItemTrueFalse> As_BaseDomain { get; set; }
   public _BaseDomain<_DomainKind, _DomainLabel, _DomainItemLabel> As_BaseDomain { get; set; }
@@ -121,44 +121,44 @@ public class Output_TypeDomain
   public _BaseDomain<_DomainKind, _DomainRegex, _DomainItemRegex> As_BaseDomain { get; set; }
 }
 
-public class Output_DomainRef<Tkind>
-  : Output_TypeRef
-  , I_DomainRef<Tkind>
+public class OutputCmpt_DomainRef<Tkind>
+  : OutputCmpt_TypeRef
+  , ICmpt_DomainRef<Tkind>
 {
   public Tkind domainKind { get; set; }
 }
 
-public class Output_BaseDomain<Tdomain,Titem,TdomainItem>
-  : Output_ParentType
-  , I_BaseDomain<Tdomain,Titem,TdomainItem>
+public class OutputCmpt_BaseDomain<Tdomain,Titem,TdomainItem>
+  : OutputCmpt_ParentType
+  , ICmpt_BaseDomain<Tdomain,Titem,TdomainItem>
 {
   public Tdomain domainKind { get; set; }
 }
 
-public class Dual_BaseDomainItem
-  : Dual_Described
-  , I_BaseDomainItem
+public class DualCmpt_BaseDomainItem
+  : DualCmpt_Described
+  , ICmpt_BaseDomainItem
 {
   public Boolean exclude { get; set; }
 }
 
-public class Output_DomainItem<Titem>
-  : Outputitem
-  , I_DomainItem<Titem>
+public class OutputCmpt_DomainItem<Titem>
+  : OutputCmptitem
+  , ICmpt_DomainItem<Titem>
 {
   public _Identifier domain { get; set; }
 }
 
-public class Output_DomainValue<Tkind,Tvalue>
-  : Output_DomainRef
-  , I_DomainValue<Tkind,Tvalue>
+public class OutputCmpt_DomainValue<Tkind,Tvalue>
+  : OutputCmpt_DomainRef
+  , ICmpt_DomainValue<Tkind,Tvalue>
 {
   public Tvalue value { get; set; }
   public Tvalue Asvalue { get; set; }
 }
 
-public class Output_BasicValue
-  : I_BasicValue
+public class OutputCmpt_BasicValue
+  : ICmpt_BasicValue
 {
   public _DomainKind As_DomainKind { get; set; }
   public _EnumValue As_EnumValue { get; set; }
@@ -166,94 +166,94 @@ public class Output_BasicValue
   public _DomainKind As_DomainKind { get; set; }
 }
 
-public class Dual_DomainTrueFalse
-  : Dual_BaseDomainItem
-  , I_DomainTrueFalse
+public class DualCmpt_DomainTrueFalse
+  : DualCmpt_BaseDomainItem
+  , ICmpt_DomainTrueFalse
 {
   public Boolean value { get; set; }
 }
 
-public class Output_DomainItemTrueFalse
-  : Output_DomainItem
-  , I_DomainItemTrueFalse
+public class OutputCmpt_DomainItemTrueFalse
+  : OutputCmpt_DomainItem
+  , ICmpt_DomainItemTrueFalse
 {
 }
 
-public class Output_DomainLabel
-  : Output_BaseDomainItem
-  , I_DomainLabel
+public class OutputCmpt_DomainLabel
+  : OutputCmpt_BaseDomainItem
+  , ICmpt_DomainLabel
 {
   public _EnumValue label { get; set; }
 }
 
-public class Output_DomainItemLabel
-  : Output_DomainItem
-  , I_DomainItemLabel
+public class OutputCmpt_DomainItemLabel
+  : OutputCmpt_DomainItem
+  , ICmpt_DomainItemLabel
 {
 }
 
-public class Dual_DomainRange
-  : Dual_BaseDomainItem
-  , I_DomainRange
+public class DualCmpt_DomainRange
+  : DualCmpt_BaseDomainItem
+  , ICmpt_DomainRange
 {
   public Number lower { get; set; }
   public Number upper { get; set; }
 }
 
-public class Output_DomainItemRange
-  : Output_DomainItem
-  , I_DomainItemRange
+public class OutputCmpt_DomainItemRange
+  : OutputCmpt_DomainItem
+  , ICmpt_DomainItemRange
 {
 }
 
-public class Dual_DomainRegex
-  : Dual_BaseDomainItem
-  , I_DomainRegex
+public class DualCmpt_DomainRegex
+  : DualCmpt_BaseDomainItem
+  , ICmpt_DomainRegex
 {
   public String pattern { get; set; }
 }
 
-public class Output_DomainItemRegex
-  : Output_DomainItem
-  , I_DomainItemRegex
+public class OutputCmpt_DomainItemRegex
+  : OutputCmpt_DomainItem
+  , ICmpt_DomainItemRegex
 {
 }
 
-public class Output_TypeEnum
-  : Output_ParentType
-  , I_TypeEnum
+public class OutputCmpt_TypeEnum
+  : OutputCmpt_ParentType
+  , ICmpt_TypeEnum
 {
 }
 
-public class Dual_EnumLabel
-  : Dual_Aliased
-  , I_EnumLabel
+public class DualCmpt_EnumLabel
+  : DualCmpt_Aliased
+  , ICmpt_EnumLabel
 {
   public _Identifier enum { get; set; }
 }
 
-public class Output_EnumValue
-  : Output_TypeRef
-  , I_EnumValue
+public class OutputCmpt_EnumValue
+  : OutputCmpt_TypeRef
+  , ICmpt_EnumValue
 {
   public _Identifier label { get; set; }
 }
 
-public class Output_TypeUnion
-  : Output_ParentType
-  , I_TypeUnion
+public class OutputCmpt_TypeUnion
+  : OutputCmpt_ParentType
+  , ICmpt_TypeUnion
 {
 }
 
-public class Output_UnionRef
-  : Output_TypeRef
-  , I_UnionRef
+public class OutputCmpt_UnionRef
+  : OutputCmpt_TypeRef
+  , ICmpt_UnionRef
 {
 }
 
-public class Output_UnionMember
-  : Output_UnionRef
-  , I_UnionMember
+public class OutputCmpt_UnionMember
+  : OutputCmpt_UnionRef
+  , ICmpt_UnionMember
 {
   public _Identifier union { get; set; }
 }

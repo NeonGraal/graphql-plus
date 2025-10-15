@@ -7,10 +7,10 @@ enum EnumInpFieldEnum { inpFieldEnum }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_input_field_Enum;
+namespace Components.Gqlp_Schema_input_field_Enum;
 
-public class InputInpFieldEnum
-  : IInpFieldEnum
+public class InputCmptInpFieldEnum
+  : ICmptInpFieldEnum
 {
   public EnumInpFieldEnum field { get; set; }
 }

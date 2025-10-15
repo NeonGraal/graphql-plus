@@ -9,29 +9,29 @@ dual AltCnstFieldDualDual { :PrntCnstFieldDualDual alt: Number }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_field_dual_Dual;
+namespace Components.Gqlp_Schema_constraint_field_dual_Dual;
 
-public class DualCnstFieldDualDual
-  : DualRefCnstFieldDualDual
-  , ICnstFieldDualDual
+public class DualCmptCnstFieldDualDual
+  : DualCmptRefCnstFieldDualDual
+  , ICmptCnstFieldDualDual
 {
 }
 
-public class DualRefCnstFieldDualDual<Tref>
-  : IRefCnstFieldDualDual<Tref>
+public class DualCmptRefCnstFieldDualDual<Tref>
+  : ICmptRefCnstFieldDualDual<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DualPrntCnstFieldDualDual
-  : IPrntCnstFieldDualDual
+public class DualCmptPrntCnstFieldDualDual
+  : ICmptPrntCnstFieldDualDual
 {
   public String AsString { get; set; }
 }
 
-public class DualAltCnstFieldDualDual
-  : DualPrntCnstFieldDualDual
-  , IAltCnstFieldDualDual
+public class DualCmptAltCnstFieldDualDual
+  : DualCmptPrntCnstFieldDualDual
+  , ICmptAltCnstFieldDualDual
 {
   public Number alt { get; set; }
 }

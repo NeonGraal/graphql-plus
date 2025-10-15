@@ -8,15 +8,15 @@ input ObjAltInpType { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_alt_Input;
+namespace Components.Gqlp_Schema_object_alt_Input;
 
-public class InputObjAltInp
-  : IObjAltInp
+public class InputCmptObjAltInp
+  : ICmptObjAltInp
 {
   public ObjAltInpType AsObjAltInpType { get; set; }
 }
 
-public class InputObjAltInpType
-  : IObjAltInpType
+public class InputCmptObjAltInpType
+  : ICmptObjAltInpType
 {
 }

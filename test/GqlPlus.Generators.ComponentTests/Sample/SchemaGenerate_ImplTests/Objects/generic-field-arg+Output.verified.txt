@@ -7,16 +7,16 @@ output RefGnrcFieldArgOutp<$ref:String> { | $ref }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_field_arg_Output;
+namespace Components.Gqlp_Schema_generic_field_arg_Output;
 
-public class OutputGnrcFieldArgOutp<Ttype>
-  : IGnrcFieldArgOutp<Ttype>
+public class OutputCmptGnrcFieldArgOutp<Ttype>
+  : ICmptGnrcFieldArgOutp<Ttype>
 {
   public RefGnrcFieldArgOutp<Ttype> field { get; set; }
 }
 
-public class OutputRefGnrcFieldArgOutp<Tref>
-  : IRefGnrcFieldArgOutp<Tref>
+public class OutputCmptRefGnrcFieldArgOutp<Tref>
+  : ICmptRefGnrcFieldArgOutp<Tref>
 {
   public Tref Asref { get; set; }
 }

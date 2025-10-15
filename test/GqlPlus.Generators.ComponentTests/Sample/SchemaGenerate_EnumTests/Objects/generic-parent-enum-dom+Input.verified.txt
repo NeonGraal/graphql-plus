@@ -9,9 +9,9 @@ domain DomGnrcPrntEnumDomInp { enum gnrcPrntEnumDomInpLabel }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_enum_dom_Input;
+namespace Components.Gqlp_Schema_generic_parent_enum_dom_Input;
 
-public enum EnumGnrcPrntEnumDomInp
+public enum CmptEnumGnrcPrntEnumDomInp
 {
   gnrcPrntEnumDomInpLabel,
   gnrcPrntEnumDomInpOther,

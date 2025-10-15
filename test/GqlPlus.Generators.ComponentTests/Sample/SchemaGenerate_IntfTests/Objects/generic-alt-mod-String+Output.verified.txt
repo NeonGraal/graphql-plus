@@ -6,9 +6,9 @@ output RefGnrcAltModStrOutp<$ref:String> { | $ref[*] }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_alt_mod_String_Output;
+namespace Components.Gqlp_Schema_generic_alt_mod_String_Output;
 
-public interface IRefGnrcAltModStrOutp<Tref>
+public interface ICmptRefGnrcAltModStrOutp<Tref>
 {
   Tref Asref { get; }
 }

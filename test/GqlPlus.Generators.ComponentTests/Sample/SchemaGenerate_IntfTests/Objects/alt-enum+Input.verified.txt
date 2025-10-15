@@ -7,9 +7,9 @@ enum EnumAltEnumInp { altEnumInp }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_alt_enum_Input;
+namespace Components.Gqlp_Schema_alt_enum_Input;
 
-public interface IAltEnumInp
+public interface ICmptAltEnumInp
 {
   EnumAltEnumInp AsEnumAltEnumInp { get; }
 }

@@ -9,16 +9,16 @@ enum ParentCnstEnumPrntInp { parentCnstEnumPrntInp }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_enum_parent_Input;
+namespace Components.Gqlp_Schema_constraint_enum_parent_Input;
 
-public class InputCnstEnumPrntInp
-  : ICnstEnumPrntInp
+public class InputCmptCnstEnumPrntInp
+  : ICmptCnstEnumPrntInp
 {
   public RefCnstEnumPrntInp<EnumCnstEnumPrntInp> AsRefCnstEnumPrntInp { get; set; }
 }
 
-public class InputRefCnstEnumPrntInp<Ttype>
-  : IRefCnstEnumPrntInp<Ttype>
+public class InputCmptRefCnstEnumPrntInp<Ttype>
+  : ICmptRefCnstEnumPrntInp<Ttype>
 {
   public Ttype field { get; set; }
 }

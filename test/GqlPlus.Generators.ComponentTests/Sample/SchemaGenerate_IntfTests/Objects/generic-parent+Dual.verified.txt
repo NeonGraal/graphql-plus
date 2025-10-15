@@ -6,9 +6,9 @@ dual GnrcPrntDual<$type:String> { :$type }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_Dual;
+namespace Components.Gqlp_Schema_generic_parent_Dual;
 
-public interface IGnrcPrntDual<Ttype>
-  : Itype
+public interface ICmptGnrcPrntDual<Ttype>
+  : ICmpttype
 {
 }

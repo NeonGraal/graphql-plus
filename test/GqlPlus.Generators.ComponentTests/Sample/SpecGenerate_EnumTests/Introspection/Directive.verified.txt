@@ -19,9 +19,9 @@ enum _Location { Operation Variable Field Inline Spread Fragment }
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Directive;
+namespace Components.Gqlp_Spec_Directive;
 
-public enum _Location
+public enum Cmpt_Location
 {
   Operation,
   Variable,

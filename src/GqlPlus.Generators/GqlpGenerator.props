@@ -1,5 +1,6 @@
 <Project>
   <ItemGroup>
     <CompilerVisibleProperty Include="GqlPlus_BaseNamespace" />
+    <CompilerVisibleProperty Include="GqlPlus_TypePrefix" />
   </ItemGroup>
 </Project>

@@ -8,13 +8,13 @@ input FldObjFieldAliasInp { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_field_alias_Input;
+namespace Components.Gqlp_Schema_object_field_alias_Input;
 
-public interface IObjFieldAliasInp
+public interface ICmptObjFieldAliasInp
 {
   FldObjFieldAliasInp field { get; }
 }
 
-public interface IFldObjFieldAliasInp
+public interface ICmptFldObjFieldAliasInp
 {
 }

@@ -9,14 +9,14 @@ enum ParentCnstEnumPrntOutp { parentCnstEnumPrntOutp }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_enum_parent_Output;
+namespace Components.Gqlp_Schema_constraint_enum_parent_Output;
 
-public interface ICnstEnumPrntOutp
+public interface ICmptCnstEnumPrntOutp
 {
   RefCnstEnumPrntOutp<EnumCnstEnumPrntOutp> AsRefCnstEnumPrntOutp { get; }
 }
 
-public interface IRefCnstEnumPrntOutp<Ttype>
+public interface ICmptRefCnstEnumPrntOutp<Ttype>
 {
   Ttype field { get; }
 }

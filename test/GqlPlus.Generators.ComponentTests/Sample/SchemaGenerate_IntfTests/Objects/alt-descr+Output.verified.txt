@@ -6,9 +6,9 @@ output AltDescrOutp { | "Test" "Descr" String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_alt_descr_Output;
+namespace Components.Gqlp_Schema_alt_descr_Output;
 
-public interface IAltDescrOutp
+public interface ICmptAltDescrOutp
 {
   String AsString { get; }
 }

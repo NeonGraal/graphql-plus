@@ -8,9 +8,9 @@ output Ctgr { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_category;
+namespace Components.Gqlp_Schema_category;
 
-public class OutputCtgr
-  : ICtgr
+public class OutputCmptCtgr
+  : ICmptCtgr
 {
 }

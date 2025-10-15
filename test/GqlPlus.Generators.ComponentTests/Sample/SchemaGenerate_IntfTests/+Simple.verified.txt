@@ -2,154 +2,154 @@
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_Simple;
+namespace Components.Gqlp_Schema_Simple;
 
-public interface IDmnBoolDescr
+public interface ICmptDmnBoolDescr
 {
 }
 
-public interface IDmnBoolPrnt
-  : IPrntDmnBoolPrnt
+public interface ICmptDmnBoolPrnt
+  : ICmptPrntDmnBoolPrnt
 {
 }
 
-public interface IPrntDmnBoolPrnt
+public interface ICmptPrntDmnBoolPrnt
 {
 }
 
-public interface IDmnBoolPrntDescr
-  : IPrntDmnBoolPrntDescr
+public interface ICmptDmnBoolPrntDescr
+  : ICmptPrntDmnBoolPrntDescr
 {
 }
 
-public interface IPrntDmnBoolPrntDescr
+public interface ICmptPrntDmnBoolPrntDescr
 {
 }
 
-public interface IDmnEnumAll
+public interface ICmptDmnEnumAll
 {
 }
 
-public interface IDmnEnumAllDescr
+public interface ICmptDmnEnumAllDescr
 {
 }
 
-public interface IDmnEnumAllPrnt
+public interface ICmptDmnEnumAllPrnt
 {
 }
 
-public interface IDmnEnumDescr
+public interface ICmptDmnEnumDescr
 {
 }
 
-public interface IDmnEnumLabel
+public interface ICmptDmnEnumLabel
 {
 }
 
-public interface IDmnEnumPrnt
-  : IPrntDmnEnumPrnt
+public interface ICmptDmnEnumPrnt
+  : ICmptPrntDmnEnumPrnt
 {
 }
 
-public interface IPrntDmnEnumPrnt
+public interface ICmptPrntDmnEnumPrnt
 {
 }
 
-public interface IDmnEnumPrntDescr
-  : IPrntDmnEnumPrntDescr
+public interface ICmptDmnEnumPrntDescr
+  : ICmptPrntDmnEnumPrntDescr
 {
 }
 
-public interface IPrntDmnEnumPrntDescr
+public interface ICmptPrntDmnEnumPrntDescr
 {
 }
 
-public interface IDmnEnumValue
+public interface ICmptDmnEnumValue
 {
 }
 
-public interface IDmnEnumValuePrnt
+public interface ICmptDmnEnumValuePrnt
 {
 }
 
-public interface IDmnNmbrDescr
+public interface ICmptDmnNmbrDescr
 {
 }
 
-public interface IDmnNmbrPrnt
-  : IPrntDmnNmbrPrnt
+public interface ICmptDmnNmbrPrnt
+  : ICmptPrntDmnNmbrPrnt
 {
 }
 
-public interface IPrntDmnNmbrPrnt
+public interface ICmptPrntDmnNmbrPrnt
 {
 }
 
-public interface IDmnNmbrPrntDescr
-  : IPrntDmnNmbrPrntDescr
+public interface ICmptDmnNmbrPrntDescr
+  : ICmptPrntDmnNmbrPrntDescr
 {
 }
 
-public interface IPrntDmnNmbrPrntDescr
+public interface ICmptPrntDmnNmbrPrntDescr
 {
 }
 
-public interface IDmnStrDescr
+public interface ICmptDmnStrDescr
 {
 }
 
-public interface IDmnStrPrnt
-  : IPrntDmnStrPrnt
+public interface ICmptDmnStrPrnt
+  : ICmptPrntDmnStrPrnt
 {
 }
 
-public interface IPrntDmnStrPrnt
+public interface ICmptPrntDmnStrPrnt
 {
 }
 
-public interface IDmnStrPrntDescr
-  : IPrntDmnStrPrntDescr
+public interface ICmptDmnStrPrntDescr
+  : ICmptPrntDmnStrPrntDescr
 {
 }
 
-public interface IPrntDmnStrPrntDescr
+public interface ICmptPrntDmnStrPrntDescr
 {
 }
 
-public interface IUnionDescr
+public interface ICmptUnionDescr
 {
   Number AsNumber { get; }
 }
 
-public interface IUnionPrnt
-  : IPrntUnionPrnt
+public interface ICmptUnionPrnt
+  : ICmptPrntUnionPrnt
 {
   String AsString { get; }
 }
 
-public interface IPrntUnionPrnt
+public interface ICmptPrntUnionPrnt
 {
   Number AsNumber { get; }
 }
 
-public interface IUnionPrntDescr
-  : IPrntUnionPrntDescr
+public interface ICmptUnionPrntDescr
+  : ICmptPrntUnionPrntDescr
 {
   Number AsNumber { get; }
 }
 
-public interface IPrntUnionPrntDescr
+public interface ICmptPrntUnionPrntDescr
 {
   Number AsNumber { get; }
 }
 
-public interface IUnionPrntDup
-  : IPrntUnionPrntDup
+public interface ICmptUnionPrntDup
+  : ICmptPrntUnionPrntDup
 {
   Number AsNumber { get; }
 }
 
-public interface IPrntUnionPrntDup
+public interface ICmptPrntUnionPrntDup
 {
   Number AsNumber { get; }
 }

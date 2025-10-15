@@ -9,4 +9,4 @@ input InDrctParamList { }
 
 Directive DrctParamList
 */
-namespace GqlPlus.Gqlp_Schema_directive_param_list;
+namespace Components.Gqlp_Schema_directive_param_list;

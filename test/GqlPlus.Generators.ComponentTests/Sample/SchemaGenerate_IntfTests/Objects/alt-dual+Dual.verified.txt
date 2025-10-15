@@ -7,14 +7,14 @@ dual ObjDualAltDualDual { alt: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_alt_dual_Dual;
+namespace Components.Gqlp_Schema_alt_dual_Dual;
 
-public interface IAltDualDual
+public interface ICmptAltDualDual
 {
   ObjDualAltDualDual AsObjDualAltDualDual { get; }
 }
 
-public interface IObjDualAltDualDual
+public interface ICmptObjDualAltDualDual
 {
   Number alt { get; }
   String AsString { get; }

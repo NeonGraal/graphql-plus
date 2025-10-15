@@ -6,10 +6,10 @@ input FieldInp { field: String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_Input;
+namespace Components.Gqlp_Schema_field_Input;
 
-public class InputFieldInp
-  : IFieldInp
+public class InputCmptFieldInp
+  : ICmptFieldInp
 {
   public String field { get; set; }
 }

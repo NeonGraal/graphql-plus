@@ -7,16 +7,16 @@ input RefGnrcAltSmplInp<$ref:String> { | $ref }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_alt_simple_Input;
+namespace Components.Gqlp_Schema_generic_alt_simple_Input;
 
-public class InputGnrcAltSmplInp
-  : IGnrcAltSmplInp
+public class InputCmptGnrcAltSmplInp
+  : ICmptGnrcAltSmplInp
 {
   public RefGnrcAltSmplInp<String> AsRefGnrcAltSmplInp { get; set; }
 }
 
-public class InputRefGnrcAltSmplInp<Tref>
-  : IRefGnrcAltSmplInp<Tref>
+public class InputCmptRefGnrcAltSmplInp<Tref>
+  : ICmptRefGnrcAltSmplInp<Tref>
 {
   public Tref Asref { get; set; }
 }

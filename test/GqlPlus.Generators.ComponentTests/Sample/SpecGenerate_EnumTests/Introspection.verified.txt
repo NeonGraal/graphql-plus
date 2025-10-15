@@ -372,16 +372,16 @@ output _OutputFieldType {
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Introspection;
+namespace Components.Gqlp_Spec_Introspection;
 
-public enum _Resolution
+public enum Cmpt_Resolution
 {
   Parallel,
   Sequential,
   Single,
 }
 
-public enum _Location
+public enum Cmpt_Location
 {
   Operation,
   Variable,
@@ -391,7 +391,7 @@ public enum _Location
   Fragment,
 }
 
-public enum _SimpleKind
+public enum Cmpt_SimpleKind
 {
   Basic,
   Enum,
@@ -400,7 +400,7 @@ public enum _SimpleKind
   Union,
 }
 
-public enum _TypeKind
+public enum Cmpt_TypeKind
 {
   Basic = _SimpleKind.Basic,
   Enum = _SimpleKind.Enum,
@@ -412,7 +412,7 @@ public enum _TypeKind
   Output,
 }
 
-public enum _ModifierKind
+public enum Cmpt_ModifierKind
 {
   Opt,
   Optional = Opt,
@@ -423,7 +423,7 @@ public enum _ModifierKind
   TypeParam = Param,
 }
 
-public enum _DomainKind
+public enum Cmpt_DomainKind
 {
   Boolean,
   Enum,

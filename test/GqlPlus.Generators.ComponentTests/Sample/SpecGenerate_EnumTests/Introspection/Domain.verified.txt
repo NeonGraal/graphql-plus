@@ -83,9 +83,9 @@ output _DomainItemRegex {
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Domain;
+namespace Components.Gqlp_Spec_Domain;
 
-public enum _DomainKind
+public enum Cmpt_DomainKind
 {
   Boolean,
   Enum,

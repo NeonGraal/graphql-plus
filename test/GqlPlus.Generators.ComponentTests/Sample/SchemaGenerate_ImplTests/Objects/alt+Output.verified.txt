@@ -7,16 +7,16 @@ output AltAltOutp { alt: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_alt_Output;
+namespace Components.Gqlp_Schema_alt_Output;
 
-public class OutputAltOutp
-  : IAltOutp
+public class OutputCmptAltOutp
+  : ICmptAltOutp
 {
   public AltAltOutp AsAltAltOutp { get; set; }
 }
 
-public class OutputAltAltOutp
-  : IAltAltOutp
+public class OutputCmptAltAltOutp
+  : ICmptAltAltOutp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

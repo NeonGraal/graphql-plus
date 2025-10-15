@@ -6,10 +6,10 @@ input InpFieldDescrNmbr { "Test" "Descr" field: Number = 42 }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_input_field_descr_Number;
+namespace Components.Gqlp_Schema_input_field_descr_Number;
 
-public class InputInpFieldDescrNmbr
-  : IInpFieldDescrNmbr
+public class InputCmptInpFieldDescrNmbr
+  : ICmptInpFieldDescrNmbr
 {
   public Number field { get; set; }
 }

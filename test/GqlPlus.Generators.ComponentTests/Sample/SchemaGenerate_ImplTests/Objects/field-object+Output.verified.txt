@@ -7,16 +7,16 @@ output FldFieldObjOutp { field: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_object_Output;
+namespace Components.Gqlp_Schema_field_object_Output;
 
-public class OutputFieldObjOutp
-  : IFieldObjOutp
+public class OutputCmptFieldObjOutp
+  : ICmptFieldObjOutp
 {
   public FldFieldObjOutp field { get; set; }
 }
 
-public class OutputFldFieldObjOutp
-  : IFldFieldObjOutp
+public class OutputCmptFldFieldObjOutp
+  : ICmptFldFieldObjOutp
 {
   public Number field { get; set; }
   public String AsString { get; set; }

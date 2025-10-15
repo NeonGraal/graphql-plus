@@ -7,9 +7,9 @@ output DescrSngl { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_descr_single;
+namespace Components.Gqlp_Schema_descr_single;
 
-public class OutputDescrSngl
-  : IDescrSngl
+public class OutputCmptDescrSngl
+  : ICmptDescrSngl
 {
 }

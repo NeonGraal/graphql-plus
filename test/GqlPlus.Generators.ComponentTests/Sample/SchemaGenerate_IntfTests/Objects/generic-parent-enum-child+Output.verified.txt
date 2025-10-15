@@ -9,14 +9,14 @@ enum ParentGnrcPrntEnumChildOutp { gnrcPrntEnumChildOutpParent }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_enum_child_Output;
+namespace Components.Gqlp_Schema_generic_parent_enum_child_Output;
 
-public interface IGnrcPrntEnumChildOutp
-  : IFieldGnrcPrntEnumChildOutp
+public interface ICmptGnrcPrntEnumChildOutp
+  : ICmptFieldGnrcPrntEnumChildOutp
 {
 }
 
-public interface IFieldGnrcPrntEnumChildOutp<Tref>
+public interface ICmptFieldGnrcPrntEnumChildOutp<Tref>
 {
   Tref field { get; }
 }

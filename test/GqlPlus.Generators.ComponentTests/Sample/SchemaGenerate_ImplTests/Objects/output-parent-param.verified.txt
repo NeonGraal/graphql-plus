@@ -10,35 +10,35 @@ input PrntOutpPrntParamIn { parent: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_output_parent_param;
+namespace Components.Gqlp_Schema_output_parent_param;
 
-public class OutputOutpPrntParam
-  : OutputPrntOutpPrntParam
-  , IOutpPrntParam
+public class OutputCmptOutpPrntParam
+  : OutputCmptPrntOutpPrntParam
+  , ICmptOutpPrntParam
 {
   public FldOutpPrntParam field { get; set; }
 }
 
-public class OutputPrntOutpPrntParam
-  : IPrntOutpPrntParam
+public class OutputCmptPrntOutpPrntParam
+  : ICmptPrntOutpPrntParam
 {
   public FldOutpPrntParam field { get; set; }
 }
 
-public class DualFldOutpPrntParam
-  : IFldOutpPrntParam
+public class DualCmptFldOutpPrntParam
+  : ICmptFldOutpPrntParam
 {
 }
 
-public class InputInOutpPrntParam
-  : IInOutpPrntParam
+public class InputCmptInOutpPrntParam
+  : ICmptInOutpPrntParam
 {
   public Number param { get; set; }
   public String AsString { get; set; }
 }
 
-public class InputPrntOutpPrntParamIn
-  : IPrntOutpPrntParamIn
+public class InputCmptPrntOutpPrntParamIn
+  : ICmptPrntOutpPrntParamIn
 {
   public Number parent { get; set; }
   public String AsString { get; set; }

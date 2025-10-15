@@ -7,10 +7,10 @@ input ObjFieldEnumAliasInp { field [field2] = true }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_field_enum_alias_Input;
+namespace Components.Gqlp_Schema_object_field_enum_alias_Input;
 
-public class InputObjFieldEnumAliasInp
-  : IObjFieldEnumAliasInp
+public class InputCmptObjFieldEnumAliasInp
+  : ICmptObjFieldEnumAliasInp
 {
   public Boolean field { get; set; }
 }

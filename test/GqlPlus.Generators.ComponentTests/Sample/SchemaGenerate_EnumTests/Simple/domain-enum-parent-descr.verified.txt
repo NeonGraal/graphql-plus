@@ -8,9 +8,9 @@ enum EnumDmnEnumPrntDescr { enum_dmnEnumPrntDescr prnt_dmnEnumPrntDescr }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_domain_enum_parent_descr;
+namespace Components.Gqlp_Schema_domain_enum_parent_descr;
 
-public enum EnumDmnEnumPrntDescr
+public enum CmptEnumDmnEnumPrntDescr
 {
   enum_dmnEnumPrntDescr,
   prnt_dmnEnumPrntDescr,

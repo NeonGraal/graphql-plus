@@ -10,8 +10,8 @@ output CtgrDescr { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_category_descr;
+namespace Components.Gqlp_Schema_category_descr;
 
-public interface ICtgrDescr
+public interface ICmptCtgrDescr
 {
 }

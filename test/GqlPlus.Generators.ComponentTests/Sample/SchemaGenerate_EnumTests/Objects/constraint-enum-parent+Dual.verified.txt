@@ -9,15 +9,15 @@ enum ParentCnstEnumPrntDual { parentCnstEnumPrntDual }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_enum_parent_Dual;
+namespace Components.Gqlp_Schema_constraint_enum_parent_Dual;
 
-public enum EnumCnstEnumPrntDual
+public enum CmptEnumCnstEnumPrntDual
 {
   parentCnstEnumPrntDual = ParentCnstEnumPrntDual.parentCnstEnumPrntDual,
   cnstEnumPrntDual,
 }
 
-public enum ParentCnstEnumPrntDual
+public enum CmptParentCnstEnumPrntDual
 {
   parentCnstEnumPrntDual,
 }

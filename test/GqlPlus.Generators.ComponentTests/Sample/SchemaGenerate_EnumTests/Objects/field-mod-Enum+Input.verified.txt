@@ -7,9 +7,9 @@ enum EnumFieldModEnumInp { value }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_mod_Enum_Input;
+namespace Components.Gqlp_Schema_field_mod_Enum_Input;
 
-public enum EnumFieldModEnumInp
+public enum CmptEnumFieldModEnumInp
 {
   value,
 }

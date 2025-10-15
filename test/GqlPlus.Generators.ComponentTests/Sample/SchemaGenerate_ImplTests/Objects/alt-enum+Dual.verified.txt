@@ -7,10 +7,10 @@ enum EnumAltEnumDual { altEnumDual }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_alt_enum_Dual;
+namespace Components.Gqlp_Schema_alt_enum_Dual;
 
-public class DualAltEnumDual
-  : IAltEnumDual
+public class DualCmptAltEnumDual
+  : ICmptAltEnumDual
 {
   public EnumAltEnumDual AsEnumAltEnumDual { get; set; }
 }

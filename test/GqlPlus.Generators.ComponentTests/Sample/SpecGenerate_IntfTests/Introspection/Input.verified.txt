@@ -21,25 +21,25 @@ output _InputParam {
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Input;
+namespace Components.Gqlp_Spec_Input;
 
-public interface I_TypeInput
-  : I_TypeObject
+public interface ICmpt_TypeInput
+  : ICmpt_TypeObject
 {
 }
 
-public interface I_InputField
-  : I_ObjField
+public interface ICmpt_InputField
+  : ICmpt_ObjField
 {
 }
 
-public interface I_InputFieldType
-  : I_ObjFieldType
+public interface ICmpt_InputFieldType
+  : ICmpt_ObjFieldType
 {
   _Value default { get; }
 }
 
-public interface I_InputParam
-  : I_InputFieldType
+public interface ICmpt_InputParam
+  : ICmpt_InputFieldType
 {
 }

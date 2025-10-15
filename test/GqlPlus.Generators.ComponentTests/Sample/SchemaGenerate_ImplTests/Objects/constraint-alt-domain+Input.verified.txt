@@ -8,21 +8,21 @@ domain DomCnstAltDmnInp { String /\w+/ }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_alt_domain_Input;
+namespace Components.Gqlp_Schema_constraint_alt_domain_Input;
 
-public class InputCnstAltDmnInp
-  : ICnstAltDmnInp
+public class InputCmptCnstAltDmnInp
+  : ICmptCnstAltDmnInp
 {
   public RefCnstAltDmnInp<DomCnstAltDmnInp> AsRefCnstAltDmnInp { get; set; }
 }
 
-public class InputRefCnstAltDmnInp<Tref>
-  : IRefCnstAltDmnInp<Tref>
+public class InputCmptRefCnstAltDmnInp<Tref>
+  : ICmptRefCnstAltDmnInp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DomainDomCnstAltDmnInp
-  : IDomCnstAltDmnInp
+public class DomainCmptDomCnstAltDmnInp
+  : ICmptDomCnstAltDmnInp
 {
 }

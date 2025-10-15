@@ -15,20 +15,20 @@ output _Schema { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_default;
+namespace Components.Gqlp_Schema_default;
 
-public interface IQuery
+public interface ICmptQuery
 {
 }
 
-public interface IMutation
+public interface ICmptMutation
 {
 }
 
-public interface ISubscription
+public interface ICmptSubscription
 {
 }
 
-public interface I_Schema
+public interface ICmpt_Schema
 {
 }

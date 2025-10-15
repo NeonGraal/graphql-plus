@@ -7,8 +7,8 @@ domain DmnStr { string }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_domain_string;
+namespace Components.Gqlp_Schema_domain_string;
 
-public interface IDmnStr
+public interface ICmptDmnStr
 {
 }

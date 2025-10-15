@@ -8,15 +8,15 @@ enum EnumDmnEnumPrntDescr { enum_dmnEnumPrntDescr prnt_dmnEnumPrntDescr }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_domain_enum_parent_descr;
+namespace Components.Gqlp_Schema_domain_enum_parent_descr;
 
-public class DomainDmnEnumPrntDescr
-  : DomainPrntDmnEnumPrntDescr
-  , IDmnEnumPrntDescr
+public class DomainCmptDmnEnumPrntDescr
+  : DomainCmptPrntDmnEnumPrntDescr
+  , ICmptDmnEnumPrntDescr
 {
 }
 
-public class DomainPrntDmnEnumPrntDescr
-  : IPrntDmnEnumPrntDescr
+public class DomainCmptPrntDmnEnumPrntDescr
+  : ICmptPrntDmnEnumPrntDescr
 {
 }

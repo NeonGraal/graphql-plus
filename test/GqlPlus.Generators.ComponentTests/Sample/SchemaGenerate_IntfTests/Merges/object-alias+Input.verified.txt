@@ -7,8 +7,8 @@ input ObjAliasInp [Input2] { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_alias_Input;
+namespace Components.Gqlp_Schema_object_alias_Input;
 
-public interface IObjAliasInp
+public interface ICmptObjAliasInp
 {
 }

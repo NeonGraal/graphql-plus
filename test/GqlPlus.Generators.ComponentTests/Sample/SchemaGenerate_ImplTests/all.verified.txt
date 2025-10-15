@@ -30,36 +30,36 @@ output All {
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_all;
+namespace Components.Gqlp_Schema_all;
 
-public class DomainGuid
-  : IGuid
+public class DomainCmptGuid
+  : ICmptGuid
 {
 }
 
-public class UnionMany
-  : IMany
+public class UnionCmptMany
+  : ICmptMany
 {
   public Guid AsGuid { get; set; }
   public Number AsNumber { get; set; }
 }
 
-public class DualField
-  : IField
+public class DualCmptField
+  : ICmptField
 {
   public String strings { get; set; }
 }
 
-public class InputParam
-  : IParam
+public class InputCmptParam
+  : ICmptParam
 {
   public Many afterId { get; set; }
   public Many beforeId { get; set; }
   public String AsString { get; set; }
 }
 
-public class OutputAll
-  : IAll
+public class OutputCmptAll
+  : ICmptAll
 {
   public Field items { get; set; }
   public String AsString { get; set; }

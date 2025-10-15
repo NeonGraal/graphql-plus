@@ -7,14 +7,14 @@ output AltAltOutp { alt: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_alt_Output;
+namespace Components.Gqlp_Schema_alt_Output;
 
-public interface IAltOutp
+public interface ICmptAltOutp
 {
   AltAltOutp AsAltAltOutp { get; }
 }
 
-public interface IAltAltOutp
+public interface ICmptAltAltOutp
 {
   Number alt { get; }
   String AsString { get; }

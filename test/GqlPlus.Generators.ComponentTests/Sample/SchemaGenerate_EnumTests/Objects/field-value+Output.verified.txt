@@ -7,9 +7,9 @@ enum EnumFieldValueOutp { fieldValueOutp }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_value_Output;
+namespace Components.Gqlp_Schema_field_value_Output;
 
-public enum EnumFieldValueOutp
+public enum CmptEnumFieldValueOutp
 {
   fieldValueOutp,
 }

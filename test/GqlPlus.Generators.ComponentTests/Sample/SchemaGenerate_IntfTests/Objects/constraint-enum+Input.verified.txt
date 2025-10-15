@@ -8,14 +8,14 @@ enum EnumCnstEnumInp { cnstEnumInp }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_enum_Input;
+namespace Components.Gqlp_Schema_constraint_enum_Input;
 
-public interface ICnstEnumInp
+public interface ICmptCnstEnumInp
 {
   RefCnstEnumInp<EnumCnstEnumInp> AsRefCnstEnumInp { get; }
 }
 
-public interface IRefCnstEnumInp<Ttype>
+public interface ICmptRefCnstEnumInp<Ttype>
 {
   Ttype field { get; }
 }

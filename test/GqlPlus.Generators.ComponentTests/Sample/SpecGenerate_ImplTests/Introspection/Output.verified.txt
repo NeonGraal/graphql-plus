@@ -17,23 +17,23 @@ output _OutputFieldType {
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Output;
+namespace Components.Gqlp_Spec_Output;
 
-public class Output_TypeOutput
-  : Output_TypeObject
-  , I_TypeOutput
+public class OutputCmpt_TypeOutput
+  : OutputCmpt_TypeObject
+  , ICmpt_TypeOutput
 {
 }
 
-public class Output_OutputField
-  : Output_ObjField
-  , I_OutputField
+public class OutputCmpt_OutputField
+  : OutputCmpt_ObjField
+  , ICmpt_OutputField
 {
 }
 
-public class Output_OutputFieldType
-  : Output_ObjFieldType
-  , I_OutputFieldType
+public class OutputCmpt_OutputFieldType
+  : OutputCmpt_ObjFieldType
+  , ICmpt_OutputFieldType
 {
   public _InputParam parameters { get; set; }
 }

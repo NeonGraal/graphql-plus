@@ -10,35 +10,35 @@ dual AltCnstPrntDualGrndDual { :PrntCnstPrntDualGrndDual alt: Number }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_parent_dual_grandparent_Dual;
+namespace Components.Gqlp_Schema_constraint_parent_dual_grandparent_Dual;
 
-public class DualCnstPrntDualGrndDual
-  : DualRefCnstPrntDualGrndDual
-  , ICnstPrntDualGrndDual
+public class DualCmptCnstPrntDualGrndDual
+  : DualCmptRefCnstPrntDualGrndDual
+  , ICmptCnstPrntDualGrndDual
 {
 }
 
-public class DualRefCnstPrntDualGrndDual<Tref>
-  : Dualref
-  , IRefCnstPrntDualGrndDual<Tref>
+public class DualCmptRefCnstPrntDualGrndDual<Tref>
+  : DualCmptref
+  , ICmptRefCnstPrntDualGrndDual<Tref>
 {
 }
 
-public class DualGrndCnstPrntDualGrndDual
-  : IGrndCnstPrntDualGrndDual
+public class DualCmptGrndCnstPrntDualGrndDual
+  : ICmptGrndCnstPrntDualGrndDual
 {
   public String AsString { get; set; }
 }
 
-public class DualPrntCnstPrntDualGrndDual
-  : DualGrndCnstPrntDualGrndDual
-  , IPrntCnstPrntDualGrndDual
+public class DualCmptPrntCnstPrntDualGrndDual
+  : DualCmptGrndCnstPrntDualGrndDual
+  , ICmptPrntCnstPrntDualGrndDual
 {
 }
 
-public class DualAltCnstPrntDualGrndDual
-  : DualPrntCnstPrntDualGrndDual
-  , IAltCnstPrntDualGrndDual
+public class DualCmptAltCnstPrntDualGrndDual
+  : DualCmptPrntCnstPrntDualGrndDual
+  , ICmptAltCnstPrntDualGrndDual
 {
   public Number alt { get; set; }
 }

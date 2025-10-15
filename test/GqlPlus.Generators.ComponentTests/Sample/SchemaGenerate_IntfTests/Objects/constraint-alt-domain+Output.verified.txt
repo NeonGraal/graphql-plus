@@ -8,18 +8,18 @@ domain DomCnstAltDmnOutp { String /\w+/ }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_alt_domain_Output;
+namespace Components.Gqlp_Schema_constraint_alt_domain_Output;
 
-public interface ICnstAltDmnOutp
+public interface ICmptCnstAltDmnOutp
 {
   RefCnstAltDmnOutp<DomCnstAltDmnOutp> AsRefCnstAltDmnOutp { get; }
 }
 
-public interface IRefCnstAltDmnOutp<Tref>
+public interface ICmptRefCnstAltDmnOutp<Tref>
 {
   Tref Asref { get; }
 }
 
-public interface IDomCnstAltDmnOutp
+public interface ICmptDomCnstAltDmnOutp
 {
 }

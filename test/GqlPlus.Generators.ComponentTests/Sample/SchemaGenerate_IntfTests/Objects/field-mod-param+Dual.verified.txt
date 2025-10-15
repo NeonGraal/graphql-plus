@@ -7,14 +7,14 @@ dual FldFieldModParamDual { field: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_mod_param_Dual;
+namespace Components.Gqlp_Schema_field_mod_param_Dual;
 
-public interface IFieldModParamDual<Tmod>
+public interface ICmptFieldModParamDual<Tmod>
 {
   FldFieldModParamDual field { get; }
 }
 
-public interface IFldFieldModParamDual
+public interface ICmptFldFieldModParamDual
 {
   Number field { get; }
   String AsString { get; }

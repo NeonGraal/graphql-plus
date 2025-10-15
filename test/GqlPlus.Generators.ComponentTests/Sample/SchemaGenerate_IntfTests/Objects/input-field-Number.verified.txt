@@ -6,9 +6,9 @@ input InpFieldNmbr { field: Number = 42 }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_input_field_Number;
+namespace Components.Gqlp_Schema_input_field_Number;
 
-public interface IInpFieldNmbr
+public interface ICmptInpFieldNmbr
 {
   Number field { get; }
 }

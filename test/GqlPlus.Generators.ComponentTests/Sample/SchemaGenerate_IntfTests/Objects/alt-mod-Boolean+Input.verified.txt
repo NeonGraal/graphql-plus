@@ -7,14 +7,14 @@ input AltAltModBoolInp { alt: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_alt_mod_Boolean_Input;
+namespace Components.Gqlp_Schema_alt_mod_Boolean_Input;
 
-public interface IAltModBoolInp
+public interface ICmptAltModBoolInp
 {
   AltAltModBoolInp AsAltAltModBoolInp { get; }
 }
 
-public interface IAltAltModBoolInp
+public interface ICmptAltAltModBoolInp
 {
   Number alt { get; }
   String AsString { get; }

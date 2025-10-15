@@ -10,4 +10,4 @@ output CtgrAlias { }
 
 Category ctgrAlias
 */
-namespace GqlPlus.Gqlp_Schema_category_alias;
+namespace Components.Gqlp_Schema_category_alias;

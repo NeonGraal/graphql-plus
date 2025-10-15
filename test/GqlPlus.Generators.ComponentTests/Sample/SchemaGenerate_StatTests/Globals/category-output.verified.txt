@@ -9,4 +9,4 @@ output CtgrOutp { }
 
 Category ctgrOutp
 */
-namespace GqlPlus.Gqlp_Schema_category_output;
+namespace Components.Gqlp_Schema_category_output;

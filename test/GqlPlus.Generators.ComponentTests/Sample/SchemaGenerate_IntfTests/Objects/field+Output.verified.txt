@@ -6,9 +6,9 @@ output FieldOutp { field: String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_Output;
+namespace Components.Gqlp_Schema_field_Output;
 
-public interface IFieldOutp
+public interface ICmptFieldOutp
 {
   String field { get; }
 }

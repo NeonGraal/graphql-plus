@@ -8,9 +8,9 @@ output DescrBtwn { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_descr_between;
+namespace Components.Gqlp_Schema_descr_between;
 
-public class OutputDescrBtwn
-  : IDescrBtwn
+public class OutputCmptDescrBtwn
+  : ICmptDescrBtwn
 {
 }

@@ -6,9 +6,9 @@ dual FieldDual { field: String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_Dual;
+namespace Components.Gqlp_Schema_field_Dual;
 
-public interface IFieldDual
+public interface ICmptFieldDual
 {
   String field { get; }
 }

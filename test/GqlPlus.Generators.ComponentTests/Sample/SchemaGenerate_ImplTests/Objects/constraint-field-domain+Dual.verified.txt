@@ -8,21 +8,21 @@ domain DomCnstFieldDmnDual { String /\w+/ }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_field_domain_Dual;
+namespace Components.Gqlp_Schema_constraint_field_domain_Dual;
 
-public class DualCnstFieldDmnDual
-  : DualRefCnstFieldDmnDual
-  , ICnstFieldDmnDual
+public class DualCmptCnstFieldDmnDual
+  : DualCmptRefCnstFieldDmnDual
+  , ICmptCnstFieldDmnDual
 {
 }
 
-public class DualRefCnstFieldDmnDual<Tref>
-  : IRefCnstFieldDmnDual<Tref>
+public class DualCmptRefCnstFieldDmnDual<Tref>
+  : ICmptRefCnstFieldDmnDual<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DomainDomCnstFieldDmnDual
-  : IDomCnstFieldDmnDual
+public class DomainCmptDomCnstFieldDmnDual
+  : ICmptDomCnstFieldDmnDual
 {
 }

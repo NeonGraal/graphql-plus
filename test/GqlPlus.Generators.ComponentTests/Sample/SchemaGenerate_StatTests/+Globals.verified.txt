@@ -17,4 +17,4 @@ Directive DrctParamList
 Directive DrctParamOpt
 Option Schema
 */
-namespace GqlPlus.Gqlp_Schema_Globals;
+namespace Components.Gqlp_Schema_Globals;

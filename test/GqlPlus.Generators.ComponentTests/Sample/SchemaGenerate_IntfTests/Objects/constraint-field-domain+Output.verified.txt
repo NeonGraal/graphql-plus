@@ -8,18 +8,18 @@ domain DomCnstFieldDmnOutp { String /\w+/ }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_field_domain_Output;
+namespace Components.Gqlp_Schema_constraint_field_domain_Output;
 
-public interface ICnstFieldDmnOutp
-  : IRefCnstFieldDmnOutp
+public interface ICmptCnstFieldDmnOutp
+  : ICmptRefCnstFieldDmnOutp
 {
 }
 
-public interface IRefCnstFieldDmnOutp<Tref>
+public interface ICmptRefCnstFieldDmnOutp<Tref>
 {
   Tref field { get; }
 }
 
-public interface IDomCnstFieldDmnOutp
+public interface ICmptDomCnstFieldDmnOutp
 {
 }

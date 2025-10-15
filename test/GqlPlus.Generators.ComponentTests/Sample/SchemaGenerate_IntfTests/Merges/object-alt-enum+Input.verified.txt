@@ -7,9 +7,9 @@ input ObjAltEnumInp { ! false }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_alt_enum_Input;
+namespace Components.Gqlp_Schema_object_alt_enum_Input;
 
-public interface IObjAltEnumInp
+public interface ICmptObjAltEnumInp
 {
   Boolean AsBoolean { get; }
   Boolean AsBoolean { get; }

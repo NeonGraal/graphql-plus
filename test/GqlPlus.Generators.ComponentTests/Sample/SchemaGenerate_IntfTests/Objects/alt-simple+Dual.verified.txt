@@ -6,9 +6,9 @@ dual AltSmplDual { | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_alt_simple_Dual;
+namespace Components.Gqlp_Schema_alt_simple_Dual;
 
-public interface IAltSmplDual
+public interface ICmptAltSmplDual
 {
   String AsString { get; }
 }

@@ -7,14 +7,14 @@ output RefGnrcPrntArgOutp<$ref:String> { | $ref }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_arg_Output;
+namespace Components.Gqlp_Schema_generic_parent_arg_Output;
 
-public interface IGnrcPrntArgOutp<Ttype>
-  : IRefGnrcPrntArgOutp
+public interface ICmptGnrcPrntArgOutp<Ttype>
+  : ICmptRefGnrcPrntArgOutp
 {
 }
 
-public interface IRefGnrcPrntArgOutp<Tref>
+public interface ICmptRefGnrcPrntArgOutp<Tref>
 {
   Tref Asref { get; }
 }

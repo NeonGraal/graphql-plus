@@ -8,13 +8,13 @@ output FldObjFieldOutp { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_field_Output;
+namespace Components.Gqlp_Schema_object_field_Output;
 
-public interface IObjFieldOutp
+public interface ICmptObjFieldOutp
 {
   FldObjFieldOutp field { get; }
 }
 
-public interface IFldObjFieldOutp
+public interface ICmptFldObjFieldOutp
 {
 }

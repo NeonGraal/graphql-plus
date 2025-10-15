@@ -6,9 +6,9 @@ output FieldTypeDescrOutp { field: "Test" "Descr" Number }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_type_descr_Output;
+namespace Components.Gqlp_Schema_field_type_descr_Output;
 
-public interface IFieldTypeDescrOutp
+public interface ICmptFieldTypeDescrOutp
 {
   Number field { get; }
 }

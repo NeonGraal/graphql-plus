@@ -6,10 +6,10 @@ output GnrcPrntDescrOutp<$type:String> { :"Parent comment"$type }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_descr_Output;
+namespace Components.Gqlp_Schema_generic_parent_descr_Output;
 
-public class OutputGnrcPrntDescrOutp<Ttype>
-  : Outputtype
-  , IGnrcPrntDescrOutp<Ttype>
+public class OutputCmptGnrcPrntDescrOutp<Ttype>
+  : OutputCmpttype
+  , ICmptGnrcPrntDescrOutp<Ttype>
 {
 }

@@ -9,25 +9,25 @@ input AltCnstAltDualInp { :PrntCnstAltDualInp alt: Number }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_alt_dual_Input;
+namespace Components.Gqlp_Schema_constraint_alt_dual_Input;
 
-public interface ICnstAltDualInp
+public interface ICmptCnstAltDualInp
 {
   RefCnstAltDualInp<AltCnstAltDualInp> AsRefCnstAltDualInp { get; }
 }
 
-public interface IRefCnstAltDualInp<Tref>
+public interface ICmptRefCnstAltDualInp<Tref>
 {
   Tref Asref { get; }
 }
 
-public interface IPrntCnstAltDualInp
+public interface ICmptPrntCnstAltDualInp
 {
   String AsString { get; }
 }
 
-public interface IAltCnstAltDualInp
-  : IPrntCnstAltDualInp
+public interface ICmptAltCnstAltDualInp
+  : ICmptPrntCnstAltDualInp
 {
   Number alt { get; }
 }

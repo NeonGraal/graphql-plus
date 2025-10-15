@@ -7,16 +7,16 @@ dual AltAltDual { alt: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_alt_Dual;
+namespace Components.Gqlp_Schema_alt_Dual;
 
-public class DualAltDual
-  : IAltDual
+public class DualCmptAltDual
+  : ICmptAltDual
 {
   public AltAltDual AsAltAltDual { get; set; }
 }
 
-public class DualAltAltDual
-  : IAltAltDual
+public class DualCmptAltAltDual
+  : ICmptAltAltDual
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

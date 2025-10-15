@@ -7,9 +7,9 @@ input ObjCnstInp<$type:String> { str: $type }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_constraint_Input;
+namespace Components.Gqlp_Schema_object_constraint_Input;
 
-public interface IObjCnstInp<Ttype>
+public interface ICmptObjCnstInp<Ttype>
 {
   Ttype field { get; }
   Ttype str { get; }

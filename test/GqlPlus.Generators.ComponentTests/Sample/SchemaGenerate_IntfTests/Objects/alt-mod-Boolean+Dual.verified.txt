@@ -7,14 +7,14 @@ dual AltAltModBoolDual { alt: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_alt_mod_Boolean_Dual;
+namespace Components.Gqlp_Schema_alt_mod_Boolean_Dual;
 
-public interface IAltModBoolDual
+public interface ICmptAltModBoolDual
 {
   AltAltModBoolDual AsAltAltModBoolDual { get; }
 }
 
-public interface IAltAltModBoolDual
+public interface ICmptAltAltModBoolDual
 {
   Number alt { get; }
   String AsString { get; }

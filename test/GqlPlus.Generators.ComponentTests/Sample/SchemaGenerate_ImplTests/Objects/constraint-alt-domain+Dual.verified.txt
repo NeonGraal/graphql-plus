@@ -8,21 +8,21 @@ domain DomCnstAltDmnDual { String /\w+/ }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_alt_domain_Dual;
+namespace Components.Gqlp_Schema_constraint_alt_domain_Dual;
 
-public class DualCnstAltDmnDual
-  : ICnstAltDmnDual
+public class DualCmptCnstAltDmnDual
+  : ICmptCnstAltDmnDual
 {
   public RefCnstAltDmnDual<DomCnstAltDmnDual> AsRefCnstAltDmnDual { get; set; }
 }
 
-public class DualRefCnstAltDmnDual<Tref>
-  : IRefCnstAltDmnDual<Tref>
+public class DualCmptRefCnstAltDmnDual<Tref>
+  : ICmptRefCnstAltDmnDual<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DomainDomCnstAltDmnDual
-  : IDomCnstAltDmnDual
+public class DomainCmptDomCnstAltDmnDual
+  : ICmptDomCnstAltDmnDual
 {
 }

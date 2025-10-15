@@ -9,15 +9,15 @@ enum ParentGnrcPrntEnumChildDual { gnrcPrntEnumChildDualParent }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_enum_child_Dual;
+namespace Components.Gqlp_Schema_generic_parent_enum_child_Dual;
 
-public enum EnumGnrcPrntEnumChildDual
+public enum CmptEnumGnrcPrntEnumChildDual
 {
   gnrcPrntEnumChildDualParent = ParentGnrcPrntEnumChildDual.gnrcPrntEnumChildDualParent,
   gnrcPrntEnumChildDualLabel,
 }
 
-public enum ParentGnrcPrntEnumChildDual
+public enum CmptParentGnrcPrntEnumChildDual
 {
   gnrcPrntEnumChildDualParent,
 }

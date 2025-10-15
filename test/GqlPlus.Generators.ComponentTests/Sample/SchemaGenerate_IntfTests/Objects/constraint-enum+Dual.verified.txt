@@ -8,14 +8,14 @@ enum EnumCnstEnumDual { cnstEnumDual }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_enum_Dual;
+namespace Components.Gqlp_Schema_constraint_enum_Dual;
 
-public interface ICnstEnumDual
+public interface ICmptCnstEnumDual
 {
   RefCnstEnumDual<EnumCnstEnumDual> AsRefCnstEnumDual { get; }
 }
 
-public interface IRefCnstEnumDual<Ttype>
+public interface ICmptRefCnstEnumDual<Ttype>
 {
   Ttype field { get; }
 }

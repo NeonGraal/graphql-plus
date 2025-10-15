@@ -7,10 +7,10 @@ union UnionAlias [UnA2] { Number }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_union_alias;
+namespace Components.Gqlp_Schema_union_alias;
 
-public class UnionUnionAlias
-  : IUnionAlias
+public class UnionCmptUnionAlias
+  : ICmptUnionAlias
 {
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }

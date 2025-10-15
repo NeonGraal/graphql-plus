@@ -8,19 +8,19 @@ input AltGnrcPrntParamInp { alt: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_param_Input;
+namespace Components.Gqlp_Schema_generic_parent_param_Input;
 
-public interface IGnrcPrntParamInp
-  : IRefGnrcPrntParamInp
+public interface ICmptGnrcPrntParamInp
+  : ICmptRefGnrcPrntParamInp
 {
 }
 
-public interface IRefGnrcPrntParamInp<Tref>
+public interface ICmptRefGnrcPrntParamInp<Tref>
 {
   Tref Asref { get; }
 }
 
-public interface IAltGnrcPrntParamInp
+public interface ICmptAltGnrcPrntParamInp
 {
   Number alt { get; }
   String AsString { get; }

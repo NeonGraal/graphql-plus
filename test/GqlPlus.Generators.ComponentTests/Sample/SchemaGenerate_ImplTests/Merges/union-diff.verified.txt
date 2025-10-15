@@ -7,10 +7,10 @@ union UnionDiff { Number }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_union_diff;
+namespace Components.Gqlp_Schema_union_diff;
 
-public class UnionUnionDiff
-  : IUnionDiff
+public class UnionCmptUnionDiff
+  : ICmptUnionDiff
 {
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }

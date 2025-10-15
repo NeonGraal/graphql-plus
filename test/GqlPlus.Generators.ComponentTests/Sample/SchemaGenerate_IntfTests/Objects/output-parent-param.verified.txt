@@ -10,30 +10,30 @@ input PrntOutpPrntParamIn { parent: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_output_parent_param;
+namespace Components.Gqlp_Schema_output_parent_param;
 
-public interface IOutpPrntParam
-  : IPrntOutpPrntParam
+public interface ICmptOutpPrntParam
+  : ICmptPrntOutpPrntParam
 {
   FldOutpPrntParam field { get; }
 }
 
-public interface IPrntOutpPrntParam
+public interface ICmptPrntOutpPrntParam
 {
   FldOutpPrntParam field { get; }
 }
 
-public interface IFldOutpPrntParam
+public interface ICmptFldOutpPrntParam
 {
 }
 
-public interface IInOutpPrntParam
+public interface ICmptInOutpPrntParam
 {
   Number param { get; }
   String AsString { get; }
 }
 
-public interface IPrntOutpPrntParamIn
+public interface ICmptPrntOutpPrntParamIn
 {
   Number parent { get; }
   String AsString { get; }

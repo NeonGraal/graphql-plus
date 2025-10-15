@@ -8,15 +8,15 @@ enum PrntEnumSamePrnt { prnt_enumSamePrnt }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_enum_same_parent;
+namespace Components.Gqlp_Schema_enum_same_parent;
 
-public enum EnumSamePrnt
+public enum CmptEnumSamePrnt
 {
   prnt_enumSamePrnt = PrntEnumSamePrnt.prnt_enumSamePrnt,
   enumSamePrnt,
 }
 
-public enum PrntEnumSamePrnt
+public enum CmptPrntEnumSamePrnt
 {
   prnt_enumSamePrnt,
 }

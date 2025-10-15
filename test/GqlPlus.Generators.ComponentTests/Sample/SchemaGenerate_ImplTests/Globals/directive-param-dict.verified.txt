@@ -7,9 +7,9 @@ input InDrctParamDict { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_directive_param_dict;
+namespace Components.Gqlp_Schema_directive_param_dict;
 
-public class InputInDrctParamDict
-  : IInDrctParamDict
+public class InputCmptInDrctParamDict
+  : ICmptInDrctParamDict
 {
 }

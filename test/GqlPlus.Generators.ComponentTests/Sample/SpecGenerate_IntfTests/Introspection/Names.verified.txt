@@ -24,27 +24,27 @@ output _AndType {
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Names;
+namespace Components.Gqlp_Spec_Names;
 
-public interface I_Aliased
-  : I_Named
+public interface ICmpt_Aliased
+  : ICmpt_Named
 {
   _Identifier aliases { get; }
 }
 
-public interface I_Named
-  : I_Described
+public interface ICmpt_Named
+  : ICmpt_Described
 {
   _Identifier name { get; }
 }
 
-public interface I_Described
+public interface ICmpt_Described
 {
   String description { get; }
 }
 
-public interface I_AndType
-  : I_Named
+public interface ICmpt_AndType
+  : ICmpt_Named
 {
   _Type type { get; }
   _Type As_Type { get; }

@@ -9,18 +9,18 @@ domain DomGnrcPrntEnumDomDual { enum gnrcPrntEnumDomDualLabel }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_enum_dom_Dual;
+namespace Components.Gqlp_Schema_generic_parent_enum_dom_Dual;
 
-public interface IGnrcPrntEnumDomDual
-  : IFieldGnrcPrntEnumDomDual
+public interface ICmptGnrcPrntEnumDomDual
+  : ICmptFieldGnrcPrntEnumDomDual
 {
 }
 
-public interface IFieldGnrcPrntEnumDomDual<Tref>
+public interface ICmptFieldGnrcPrntEnumDomDual<Tref>
 {
   Tref field { get; }
 }
 
-public interface IDomGnrcPrntEnumDomDual
+public interface ICmptDomGnrcPrntEnumDomDual
 {
 }

@@ -8,9 +8,9 @@ enum EnumGnrcValueInp { gnrcValueInp }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_value_Input;
+namespace Components.Gqlp_Schema_generic_value_Input;
 
-public enum EnumGnrcValueInp
+public enum CmptEnumGnrcValueInp
 {
   gnrcValueInp,
 }

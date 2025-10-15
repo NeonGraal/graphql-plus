@@ -8,22 +8,22 @@ input AltGnrcFieldParamInp { alt: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_field_param_Input;
+namespace Components.Gqlp_Schema_generic_field_param_Input;
 
-public class InputGnrcFieldParamInp
-  : IGnrcFieldParamInp
+public class InputCmptGnrcFieldParamInp
+  : ICmptGnrcFieldParamInp
 {
   public RefGnrcFieldParamInp<AltGnrcFieldParamInp> field { get; set; }
 }
 
-public class InputRefGnrcFieldParamInp<Tref>
-  : IRefGnrcFieldParamInp<Tref>
+public class InputCmptRefGnrcFieldParamInp<Tref>
+  : ICmptRefGnrcFieldParamInp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class InputAltGnrcFieldParamInp
-  : IAltGnrcFieldParamInp
+public class InputCmptAltGnrcFieldParamInp
+  : ICmptAltGnrcFieldParamInp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

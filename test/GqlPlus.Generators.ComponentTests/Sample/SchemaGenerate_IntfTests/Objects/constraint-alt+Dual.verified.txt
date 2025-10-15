@@ -6,9 +6,9 @@ dual CnstAltDual<$type:Number> { | $type }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_alt_Dual;
+namespace Components.Gqlp_Schema_constraint_alt_Dual;
 
-public interface ICnstAltDual<Ttype>
+public interface ICmptCnstAltDual<Ttype>
 {
   Ttype Astype { get; }
 }

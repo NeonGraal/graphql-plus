@@ -7,14 +7,14 @@ dual FldFieldDualInp { field: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_dual_Input;
+namespace Components.Gqlp_Schema_field_dual_Input;
 
-public interface IFieldDualInp
+public interface ICmptFieldDualInp
 {
   FldFieldDualInp field { get; }
 }
 
-public interface IFldFieldDualInp
+public interface ICmptFldFieldDualInp
 {
   Number field { get; }
   String AsString { get; }

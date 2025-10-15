@@ -7,14 +7,14 @@ input FldFieldModParamInp { field: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_mod_param_Input;
+namespace Components.Gqlp_Schema_field_mod_param_Input;
 
-public interface IFieldModParamInp<Tmod>
+public interface ICmptFieldModParamInp<Tmod>
 {
   FldFieldModParamInp field { get; }
 }
 
-public interface IFldFieldModParamInp
+public interface ICmptFldFieldModParamInp
 {
   Number field { get; }
   String AsString { get; }

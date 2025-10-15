@@ -6,10 +6,10 @@ output AltSmplOutp { | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_alt_simple_Output;
+namespace Components.Gqlp_Schema_alt_simple_Output;
 
-public class OutputAltSmplOutp
-  : IAltSmplOutp
+public class OutputCmptAltSmplOutp
+  : ICmptAltSmplOutp
 {
   public String AsString { get; set; }
 }

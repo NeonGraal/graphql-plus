@@ -7,9 +7,9 @@ domain DmnEnumDiff { enum false }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_domain_enum_diff;
+namespace Components.Gqlp_Schema_domain_enum_diff;
 
-public class DomainDmnEnumDiff
-  : IDmnEnumDiff
+public class DomainCmptDmnEnumDiff
+  : ICmptDmnEnumDiff
 {
 }

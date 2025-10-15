@@ -73,7 +73,11 @@ public class GqlpGenerator : IIncrementalGenerator
       baseNamespace = "GqlPlus";
     }
 
-    return new GqlpModelOptions(baseNamespace);
+    if (!provider.GlobalOptions.TryGetValue("build_property.GqlPlus_TypePrefix", out string? typePrefix)) {
+      typePrefix = "Gqlp";
+    }
+
+    return new GqlpModelOptions(baseNamespace, typePrefix);
   }
 
   private void GenerateCode(

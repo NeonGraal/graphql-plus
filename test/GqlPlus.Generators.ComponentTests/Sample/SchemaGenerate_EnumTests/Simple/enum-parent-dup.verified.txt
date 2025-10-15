@@ -7,16 +7,16 @@ enum PrntEnumPrntDup { prnt_enumPrntDup[enumPrntDup] }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_enum_parent_dup;
+namespace Components.Gqlp_Schema_enum_parent_dup;
 
-public enum EnumPrntDup
+public enum CmptEnumPrntDup
 {
   prnt_enumPrntDup = PrntEnumPrntDup.prnt_enumPrntDup,
   enumPrntDup = PrntEnumPrntDup.prnt_enumPrntDup,
   enumPrntDup,
 }
 
-public enum PrntEnumPrntDup
+public enum CmptPrntEnumPrntDup
 {
   prnt_enumPrntDup,
   enumPrntDup = prnt_enumPrntDup,

@@ -17,20 +17,20 @@ output _OutputFieldType {
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Output;
+namespace Components.Gqlp_Spec_Output;
 
-public interface I_TypeOutput
-  : I_TypeObject
+public interface ICmpt_TypeOutput
+  : ICmpt_TypeObject
 {
 }
 
-public interface I_OutputField
-  : I_ObjField
+public interface ICmpt_OutputField
+  : ICmpt_ObjField
 {
 }
 
-public interface I_OutputFieldType
-  : I_ObjFieldType
+public interface ICmpt_OutputFieldType
+  : ICmpt_ObjFieldType
 {
   _InputParam parameters { get; }
 }

@@ -6,10 +6,10 @@ dual FieldDual { field: String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_Dual;
+namespace Components.Gqlp_Schema_field_Dual;
 
-public class DualFieldDual
-  : IFieldDual
+public class DualCmptFieldDual
+  : ICmptFieldDual
 {
   public String field { get; set; }
 }

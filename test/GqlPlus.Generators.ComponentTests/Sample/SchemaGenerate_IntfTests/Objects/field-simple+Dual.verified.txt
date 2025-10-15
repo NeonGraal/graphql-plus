@@ -6,9 +6,9 @@ dual FieldSmplDual { field: Number }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_simple_Dual;
+namespace Components.Gqlp_Schema_field_simple_Dual;
 
-public interface IFieldSmplDual
+public interface ICmptFieldSmplDual
 {
   Number field { get; }
 }

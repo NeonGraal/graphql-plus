@@ -17,23 +17,23 @@ output _UnionMember {
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Union;
+namespace Components.Gqlp_Spec_Union;
 
-public class Output_TypeUnion
-  : Output_ParentType
-  , I_TypeUnion
+public class OutputCmpt_TypeUnion
+  : OutputCmpt_ParentType
+  , ICmpt_TypeUnion
 {
 }
 
-public class Output_UnionRef
-  : Output_TypeRef
-  , I_UnionRef
+public class OutputCmpt_UnionRef
+  : OutputCmpt_TypeRef
+  , ICmpt_UnionRef
 {
 }
 
-public class Output_UnionMember
-  : Output_UnionRef
-  , I_UnionMember
+public class OutputCmpt_UnionMember
+  : OutputCmpt_UnionRef
+  , ICmpt_UnionMember
 {
   public _Identifier union { get; set; }
 }

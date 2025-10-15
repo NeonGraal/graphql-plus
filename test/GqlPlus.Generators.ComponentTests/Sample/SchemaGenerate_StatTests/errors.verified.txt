@@ -15,4 +15,4 @@ output NoParams<> {}
 
 Category query
 */
-namespace GqlPlus.Gqlp_Schema_errors;
+namespace Components.Gqlp_Schema_errors;

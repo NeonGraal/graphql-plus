@@ -8,19 +8,19 @@ dual AltGnrcPrntDualOutp { alt: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_dual_Output;
+namespace Components.Gqlp_Schema_generic_parent_dual_Output;
 
-public interface IGnrcPrntDualOutp
-  : IRefGnrcPrntDualOutp
+public interface ICmptGnrcPrntDualOutp
+  : ICmptRefGnrcPrntDualOutp
 {
 }
 
-public interface IRefGnrcPrntDualOutp<Tref>
+public interface ICmptRefGnrcPrntDualOutp<Tref>
 {
   Tref Asref { get; }
 }
 
-public interface IAltGnrcPrntDualOutp
+public interface ICmptAltGnrcPrntDualOutp
 {
   Number alt { get; }
   String AsString { get; }

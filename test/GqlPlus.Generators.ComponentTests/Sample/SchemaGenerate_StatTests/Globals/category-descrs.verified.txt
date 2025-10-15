@@ -11,4 +11,4 @@ output CtgrDscrs { }
 
 Category ctgrDscrs
 */
-namespace GqlPlus.Gqlp_Schema_category_descrs;
+namespace Components.Gqlp_Schema_category_descrs;

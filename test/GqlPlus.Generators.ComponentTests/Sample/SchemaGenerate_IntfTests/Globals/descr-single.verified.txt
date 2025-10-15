@@ -7,8 +7,8 @@ output DescrSngl { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_descr_single;
+namespace Components.Gqlp_Schema_descr_single;
 
-public interface IDescrSngl
+public interface ICmptDescrSngl
 {
 }

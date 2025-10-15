@@ -7,17 +7,17 @@ dual RefPrntParamSameDual<$a:String> { | $a }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_parent_param_same_Dual;
+namespace Components.Gqlp_Schema_parent_param_same_Dual;
 
-public class DualPrntParamSameDual<Ta>
-  : DualRefPrntParamSameDual
-  , IPrntParamSameDual<Ta>
+public class DualCmptPrntParamSameDual<Ta>
+  : DualCmptRefPrntParamSameDual
+  , ICmptPrntParamSameDual<Ta>
 {
   public Ta field { get; set; }
 }
 
-public class DualRefPrntParamSameDual<Ta>
-  : IRefPrntParamSameDual<Ta>
+public class DualCmptRefPrntParamSameDual<Ta>
+  : ICmptRefPrntParamSameDual<Ta>
 {
   public Ta Asa { get; set; }
 }

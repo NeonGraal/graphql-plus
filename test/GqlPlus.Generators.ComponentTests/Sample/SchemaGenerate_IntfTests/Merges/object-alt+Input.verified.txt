@@ -8,13 +8,13 @@ input ObjAltInpType { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_alt_Input;
+namespace Components.Gqlp_Schema_object_alt_Input;
 
-public interface IObjAltInp
+public interface ICmptObjAltInp
 {
   ObjAltInpType AsObjAltInpType { get; }
 }
 
-public interface IObjAltInpType
+public interface ICmptObjAltInpType
 {
 }

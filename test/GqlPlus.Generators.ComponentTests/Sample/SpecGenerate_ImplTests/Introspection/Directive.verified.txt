@@ -19,19 +19,19 @@ enum _Location { Operation Variable Field Inline Spread Fragment }
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Directive;
+namespace Components.Gqlp_Spec_Directive;
 
-public class Output_Directives
-  : Output_AndType
-  , I_Directives
+public class OutputCmpt_Directives
+  : OutputCmpt_AndType
+  , ICmpt_Directives
 {
   public _Directive directive { get; set; }
   public _Directive As_Directive { get; set; }
 }
 
-public class Output_Directive
-  : Output_Aliased
-  , I_Directive
+public class OutputCmpt_Directive
+  : OutputCmpt_Aliased
+  , ICmpt_Directive
 {
   public _InputParam parameters { get; set; }
   public Boolean repeatable { get; set; }

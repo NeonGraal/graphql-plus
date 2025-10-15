@@ -8,15 +8,15 @@ input FldObjFieldInp { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_field_Input;
+namespace Components.Gqlp_Schema_object_field_Input;
 
-public class InputObjFieldInp
-  : IObjFieldInp
+public class InputCmptObjFieldInp
+  : ICmptObjFieldInp
 {
   public FldObjFieldInp field { get; set; }
 }
 
-public class InputFldObjFieldInp
-  : IFldObjFieldInp
+public class InputCmptFldObjFieldInp
+  : ICmptFldObjFieldInp
 {
 }

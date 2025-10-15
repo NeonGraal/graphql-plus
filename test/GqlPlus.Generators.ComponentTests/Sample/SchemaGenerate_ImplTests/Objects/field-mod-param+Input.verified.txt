@@ -7,16 +7,16 @@ input FldFieldModParamInp { field: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_mod_param_Input;
+namespace Components.Gqlp_Schema_field_mod_param_Input;
 
-public class InputFieldModParamInp<Tmod>
-  : IFieldModParamInp<Tmod>
+public class InputCmptFieldModParamInp<Tmod>
+  : ICmptFieldModParamInp<Tmod>
 {
   public FldFieldModParamInp field { get; set; }
 }
 
-public class InputFldFieldModParamInp
-  : IFldFieldModParamInp
+public class InputCmptFldFieldModParamInp
+  : ICmptFldFieldModParamInp
 {
   public Number field { get; set; }
   public String AsString { get; set; }

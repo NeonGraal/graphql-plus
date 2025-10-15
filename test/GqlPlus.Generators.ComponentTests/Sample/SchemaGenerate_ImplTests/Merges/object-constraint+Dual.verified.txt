@@ -7,10 +7,10 @@ dual ObjCnstDual<$type:String> { str: $type }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_constraint_Dual;
+namespace Components.Gqlp_Schema_object_constraint_Dual;
 
-public class DualObjCnstDual<Ttype>
-  : IObjCnstDual<Ttype>
+public class DualCmptObjCnstDual<Ttype>
+  : ICmptObjCnstDual<Ttype>
 {
   public Ttype field { get; set; }
   public Ttype str { get; set; }

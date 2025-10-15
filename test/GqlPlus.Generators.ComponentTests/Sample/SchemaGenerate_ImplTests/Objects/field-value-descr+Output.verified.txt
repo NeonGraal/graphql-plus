@@ -7,10 +7,10 @@ enum EnumFieldValueDescrOutp { fieldValueDescrOutp }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_value_descr_Output;
+namespace Components.Gqlp_Schema_field_value_descr_Output;
 
-public class OutputFieldValueDescrOutp
-  : IFieldValueDescrOutp
+public class OutputCmptFieldValueDescrOutp
+  : ICmptFieldValueDescrOutp
 {
   public EnumFieldValueDescrOutp field { get; set; }
 }

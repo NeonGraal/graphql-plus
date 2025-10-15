@@ -7,9 +7,9 @@ union UnionDiff { Number }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_union_diff;
+namespace Components.Gqlp_Schema_union_diff;
 
-public interface IUnionDiff
+public interface ICmptUnionDiff
 {
   Boolean AsBoolean { get; }
   Number AsNumber { get; }

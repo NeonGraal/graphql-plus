@@ -7,14 +7,14 @@ output AltAltModParamOutp { alt: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_alt_mod_param_Output;
+namespace Components.Gqlp_Schema_alt_mod_param_Output;
 
-public interface IAltModParamOutp<Tmod>
+public interface ICmptAltModParamOutp<Tmod>
 {
   AltAltModParamOutp AsAltAltModParamOutp { get; }
 }
 
-public interface IAltAltModParamOutp
+public interface ICmptAltAltModParamOutp
 {
   Number alt { get; }
   String AsString { get; }

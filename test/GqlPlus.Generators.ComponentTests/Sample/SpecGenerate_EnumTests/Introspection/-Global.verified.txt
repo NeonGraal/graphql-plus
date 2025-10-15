@@ -46,16 +46,16 @@ output _Setting {
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Global;
+namespace Components.Gqlp_Spec_Global;
 
-public enum _Resolution
+public enum Cmpt_Resolution
 {
   Parallel,
   Sequential,
   Single,
 }
 
-public enum _Location
+public enum Cmpt_Location
 {
   Operation,
   Variable,

@@ -7,17 +7,17 @@ output RefPrntParamSameOutp<$a:String> { | $a }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_parent_param_same_Output;
+namespace Components.Gqlp_Schema_parent_param_same_Output;
 
-public class OutputPrntParamSameOutp<Ta>
-  : OutputRefPrntParamSameOutp
-  , IPrntParamSameOutp<Ta>
+public class OutputCmptPrntParamSameOutp<Ta>
+  : OutputCmptRefPrntParamSameOutp
+  , ICmptPrntParamSameOutp<Ta>
 {
   public Ta field { get; set; }
 }
 
-public class OutputRefPrntParamSameOutp<Ta>
-  : IRefPrntParamSameOutp<Ta>
+public class OutputCmptRefPrntParamSameOutp<Ta>
+  : ICmptRefPrntParamSameOutp<Ta>
 {
   public Ta Asa { get; set; }
 }

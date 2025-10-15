@@ -8,15 +8,15 @@ output RefObjPrntOutp { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_parent_Output;
+namespace Components.Gqlp_Schema_object_parent_Output;
 
-public class OutputObjPrntOutp
-  : OutputRefObjPrntOutp
-  , IObjPrntOutp
+public class OutputCmptObjPrntOutp
+  : OutputCmptRefObjPrntOutp
+  , ICmptObjPrntOutp
 {
 }
 
-public class OutputRefObjPrntOutp
-  : IRefObjPrntOutp
+public class OutputCmptRefObjPrntOutp
+  : ICmptRefObjPrntOutp
 {
 }

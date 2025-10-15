@@ -8,22 +8,22 @@ dual AltGnrcPrntDualPrntInp { alt: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_dual_parent_Input;
+namespace Components.Gqlp_Schema_generic_parent_dual_parent_Input;
 
-public class InputGnrcPrntDualPrntInp
-  : InputRefGnrcPrntDualPrntInp
-  , IGnrcPrntDualPrntInp
+public class InputCmptGnrcPrntDualPrntInp
+  : InputCmptRefGnrcPrntDualPrntInp
+  , ICmptGnrcPrntDualPrntInp
 {
 }
 
-public class InputRefGnrcPrntDualPrntInp<Tref>
-  : Inputref
-  , IRefGnrcPrntDualPrntInp<Tref>
+public class InputCmptRefGnrcPrntDualPrntInp<Tref>
+  : InputCmptref
+  , ICmptRefGnrcPrntDualPrntInp<Tref>
 {
 }
 
-public class DualAltGnrcPrntDualPrntInp
-  : IAltGnrcPrntDualPrntInp
+public class DualCmptAltGnrcPrntDualPrntInp
+  : ICmptAltGnrcPrntDualPrntInp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }

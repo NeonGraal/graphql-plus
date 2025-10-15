@@ -6,9 +6,9 @@ dual AltDescrDual { | "Test" "Descr" String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_alt_descr_Dual;
+namespace Components.Gqlp_Schema_alt_descr_Dual;
 
-public interface IAltDescrDual
+public interface ICmptAltDescrDual
 {
   String AsString { get; }
 }

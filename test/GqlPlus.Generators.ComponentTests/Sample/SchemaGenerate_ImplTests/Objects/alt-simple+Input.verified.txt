@@ -6,10 +6,10 @@ input AltSmplInp { | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_alt_simple_Input;
+namespace Components.Gqlp_Schema_alt_simple_Input;
 
-public class InputAltSmplInp
-  : IAltSmplInp
+public class InputCmptAltSmplInp
+  : ICmptAltSmplInp
 {
   public String AsString { get; set; }
 }

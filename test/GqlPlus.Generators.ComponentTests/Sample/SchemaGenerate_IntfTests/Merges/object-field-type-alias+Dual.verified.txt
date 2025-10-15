@@ -7,9 +7,9 @@ dual ObjFieldTypeAliasDual { field: String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_field_type_alias_Dual;
+namespace Components.Gqlp_Schema_object_field_type_alias_Dual;
 
-public interface IObjFieldTypeAliasDual
+public interface ICmptObjFieldTypeAliasDual
 {
   String field { get; }
 }

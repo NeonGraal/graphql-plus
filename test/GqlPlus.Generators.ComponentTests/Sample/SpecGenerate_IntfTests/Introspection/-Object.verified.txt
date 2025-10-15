@@ -111,14 +111,14 @@ output _OutputFieldType {
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Object;
+namespace Components.Gqlp_Spec_Object;
 
-public interface I_ObjectKind
+public interface ICmpt_ObjectKind
 {
 }
 
-public interface I_TypeObject<Tkind,Tfield>
-  : I_ChildType
+public interface ICmpt_TypeObject<Tkind,Tfield>
+  : ICmpt_ChildType
 {
   _ObjTypeParam typeParams { get; }
   Tfield fields { get; }
@@ -127,119 +127,119 @@ public interface I_TypeObject<Tkind,Tfield>
   _ObjectFor<_ObjAlternate> allAlternates { get; }
 }
 
-public interface I_ObjTypeParam
-  : I_Named
+public interface ICmpt_ObjTypeParam
+  : ICmpt_Named
 {
   _TypeRef<_TypeKind> constraint { get; }
 }
 
-public interface I_ObjBase
-  : I_Named
+public interface ICmpt_ObjBase
+  : ICmpt_Named
 {
   _ObjTypeArg typeArgs { get; }
   _TypeParam As_TypeParam { get; }
 }
 
-public interface I_ObjTypeArg
-  : I_TypeRef
+public interface ICmpt_ObjTypeArg
+  : ICmpt_TypeRef
 {
   _Identifier label { get; }
   _TypeParam As_TypeParam { get; }
 }
 
-public interface I_TypeParam
-  : I_Described
+public interface ICmpt_TypeParam
+  : ICmpt_Described
 {
   _Identifier typeParam { get; }
 }
 
-public interface I_ObjAlternate
+public interface ICmpt_ObjAlternate
 {
   _ObjBase type { get; }
   _Collections collections { get; }
   _ObjAlternateEnum As_ObjAlternateEnum { get; }
 }
 
-public interface I_ObjAlternateEnum
-  : I_TypeRef
+public interface ICmpt_ObjAlternateEnum
+  : ICmpt_TypeRef
 {
   _Identifier label { get; }
 }
 
-public interface I_ObjectFor<Tfor>
-  : Ifor
+public interface ICmpt_ObjectFor<Tfor>
+  : ICmptfor
 {
   _Identifier object { get; }
 }
 
-public interface I_ObjField<Ttype>
-  : I_Aliased
+public interface ICmpt_ObjField<Ttype>
+  : ICmpt_Aliased
 {
   Ttype type { get; }
 }
 
-public interface I_ObjFieldType
-  : I_ObjBase
+public interface ICmpt_ObjFieldType
+  : ICmpt_ObjBase
 {
   _Modifiers modifiers { get; }
   _ObjFieldEnum As_ObjFieldEnum { get; }
 }
 
-public interface I_ObjFieldEnum
-  : I_TypeRef
+public interface ICmpt_ObjFieldEnum
+  : ICmpt_TypeRef
 {
   _Identifier label { get; }
 }
 
-public interface I_ForParam<Ttype>
+public interface ICmpt_ForParam<Ttype>
 {
   _ObjAlternate As_ObjAlternate { get; }
   _ObjField<Ttype> As_ObjField { get; }
 }
 
-public interface I_TypeDual
-  : I_TypeObject
+public interface ICmpt_TypeDual
+  : ICmpt_TypeObject
 {
 }
 
-public interface I_DualField
-  : I_ObjField
+public interface ICmpt_DualField
+  : ICmpt_ObjField
 {
 }
 
-public interface I_TypeInput
-  : I_TypeObject
+public interface ICmpt_TypeInput
+  : ICmpt_TypeObject
 {
 }
 
-public interface I_InputField
-  : I_ObjField
+public interface ICmpt_InputField
+  : ICmpt_ObjField
 {
 }
 
-public interface I_InputFieldType
-  : I_ObjFieldType
+public interface ICmpt_InputFieldType
+  : ICmpt_ObjFieldType
 {
   _Value default { get; }
 }
 
-public interface I_InputParam
-  : I_InputFieldType
+public interface ICmpt_InputParam
+  : ICmpt_InputFieldType
 {
 }
 
-public interface I_TypeOutput
-  : I_TypeObject
+public interface ICmpt_TypeOutput
+  : ICmpt_TypeObject
 {
 }
 
-public interface I_OutputField
-  : I_ObjField
+public interface ICmpt_OutputField
+  : ICmpt_ObjField
 {
 }
 
-public interface I_OutputFieldType
-  : I_ObjFieldType
+public interface ICmpt_OutputFieldType
+  : ICmpt_ObjFieldType
 {
   _InputParam parameters { get; }
 }

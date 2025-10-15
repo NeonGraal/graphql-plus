@@ -7,8 +7,8 @@ output CtgrOutpDescr { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_category_output_descr;
+namespace Components.Gqlp_Schema_category_output_descr;
 
-public interface ICtgrOutpDescr
+public interface ICmptCtgrOutpDescr
 {
 }

@@ -8,9 +8,9 @@ enum EnumCnstEnumInp { cnstEnumInp }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_enum_Input;
+namespace Components.Gqlp_Schema_constraint_enum_Input;
 
-public enum EnumCnstEnumInp
+public enum CmptEnumCnstEnumInp
 {
   cnstEnumInp,
 }

@@ -7,16 +7,16 @@ dual FldFieldDualOutp { field: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_field_dual_Output;
+namespace Components.Gqlp_Schema_field_dual_Output;
 
-public class OutputFieldDualOutp
-  : IFieldDualOutp
+public class OutputCmptFieldDualOutp
+  : ICmptFieldDualOutp
 {
   public FldFieldDualOutp field { get; set; }
 }
 
-public class DualFldFieldDualOutp
-  : IFldFieldDualOutp
+public class DualCmptFldFieldDualOutp
+  : ICmptFldFieldDualOutp
 {
   public Number field { get; set; }
   public String AsString { get; set; }

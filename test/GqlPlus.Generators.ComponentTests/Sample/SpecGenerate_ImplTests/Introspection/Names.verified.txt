@@ -24,31 +24,31 @@ output _AndType {
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Names;
+namespace Components.Gqlp_Spec_Names;
 
-public class Dual_Aliased
-  : Dual_Named
-  , I_Aliased
+public class DualCmpt_Aliased
+  : DualCmpt_Named
+  , ICmpt_Aliased
 {
   public _Identifier aliases { get; set; }
 }
 
-public class Dual_Named
-  : Dual_Described
-  , I_Named
+public class DualCmpt_Named
+  : DualCmpt_Described
+  , ICmpt_Named
 {
   public _Identifier name { get; set; }
 }
 
-public class Dual_Described
-  : I_Described
+public class DualCmpt_Described
+  : ICmpt_Described
 {
   public String description { get; set; }
 }
 
-public class Output_AndType
-  : Output_Named
-  , I_AndType
+public class OutputCmpt_AndType
+  : OutputCmpt_Named
+  , ICmpt_AndType
 {
   public _Type type { get; set; }
   public _Type As_Type { get; set; }

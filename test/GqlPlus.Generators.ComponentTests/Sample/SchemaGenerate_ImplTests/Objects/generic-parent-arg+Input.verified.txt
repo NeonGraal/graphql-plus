@@ -7,16 +7,16 @@ input RefGnrcPrntArgInp<$ref:String> { | $ref }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_arg_Input;
+namespace Components.Gqlp_Schema_generic_parent_arg_Input;
 
-public class InputGnrcPrntArgInp<Ttype>
-  : InputRefGnrcPrntArgInp
-  , IGnrcPrntArgInp<Ttype>
+public class InputCmptGnrcPrntArgInp<Ttype>
+  : InputCmptRefGnrcPrntArgInp
+  , ICmptGnrcPrntArgInp<Ttype>
 {
 }
 
-public class InputRefGnrcPrntArgInp<Tref>
-  : IRefGnrcPrntArgInp<Tref>
+public class InputCmptRefGnrcPrntArgInp<Tref>
+  : ICmptRefGnrcPrntArgInp<Tref>
 {
   public Tref Asref { get; set; }
 }

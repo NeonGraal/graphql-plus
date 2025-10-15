@@ -8,15 +8,15 @@ union PrntUnionSamePrnt { String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_union_same_parent;
+namespace Components.Gqlp_Schema_union_same_parent;
 
-public interface IUnionSamePrnt
-  : IPrntUnionSamePrnt
+public interface ICmptUnionSamePrnt
+  : ICmptPrntUnionSamePrnt
 {
   Boolean AsBoolean { get; }
 }
 
-public interface IPrntUnionSamePrnt
+public interface ICmptPrntUnionSamePrnt
 {
   String AsString { get; }
 }

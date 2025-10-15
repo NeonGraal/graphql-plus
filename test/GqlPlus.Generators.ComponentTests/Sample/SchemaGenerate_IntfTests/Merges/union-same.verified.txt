@@ -7,9 +7,9 @@ union UnionSame { Boolean }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_union_same;
+namespace Components.Gqlp_Schema_union_same;
 
-public interface IUnionSame
+public interface ICmptUnionSame
 {
   Boolean AsBoolean { get; }
 }

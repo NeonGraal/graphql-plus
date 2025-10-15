@@ -34,4 +34,4 @@ Category all
 Directive all
 Option Schema
 */
-namespace GqlPlus.Gqlp_Schema_all;
+namespace Components.Gqlp_Schema_all;

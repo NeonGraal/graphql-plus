@@ -7,15 +7,15 @@ input RefPrntFieldInp { parent: Number | String }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_parent_field_Input;
+namespace Components.Gqlp_Schema_parent_field_Input;
 
-public interface IPrntFieldInp
-  : IRefPrntFieldInp
+public interface ICmptPrntFieldInp
+  : ICmptRefPrntFieldInp
 {
   Number field { get; }
 }
 
-public interface IRefPrntFieldInp
+public interface ICmptRefPrntFieldInp
 {
   Number parent { get; }
   String AsString { get; }

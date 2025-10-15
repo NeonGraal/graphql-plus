@@ -7,9 +7,9 @@ output ObjCnstOutp<$type:String> { str: $type }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_object_constraint_Output;
+namespace Components.Gqlp_Schema_object_constraint_Output;
 
-public interface IObjCnstOutp<Ttype>
+public interface ICmptObjCnstOutp<Ttype>
 {
   Ttype field { get; }
   Ttype str { get; }

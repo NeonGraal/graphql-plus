@@ -9,4 +9,4 @@ output CtgrOutpOptl { }
 
 Category ctgrOutpOptl
 */
-namespace GqlPlus.Gqlp_Schema_category_output_optional;
+namespace Components.Gqlp_Schema_category_output_optional;

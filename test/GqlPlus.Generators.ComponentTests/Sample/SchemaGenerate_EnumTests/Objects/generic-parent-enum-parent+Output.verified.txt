@@ -9,15 +9,15 @@ enum ParentGnrcPrntEnumPrntOutp { gnrcPrntEnumPrntOutpParent }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_enum_parent_Output;
+namespace Components.Gqlp_Schema_generic_parent_enum_parent_Output;
 
-public enum EnumGnrcPrntEnumPrntOutp
+public enum CmptEnumGnrcPrntEnumPrntOutp
 {
   gnrcPrntEnumPrntOutpParent = ParentGnrcPrntEnumPrntOutp.gnrcPrntEnumPrntOutpParent,
   gnrcPrntEnumPrntOutpLabel,
 }
 
-public enum ParentGnrcPrntEnumPrntOutp
+public enum CmptParentGnrcPrntEnumPrntOutp
 {
   gnrcPrntEnumPrntOutpParent,
 }

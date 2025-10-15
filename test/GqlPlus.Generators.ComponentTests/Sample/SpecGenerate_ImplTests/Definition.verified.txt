@@ -34,20 +34,20 @@ union _Simple [Simple] { _Enum _Domain _Union }
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Definition;
+namespace Components.Gqlp_Spec_Definition;
 
-public class DomainNumber
-  : INumber
+public class DomainCmptNumber
+  : ICmptNumber
 {
 }
 
-public class DomainString
-  : IString
+public class DomainCmptString
+  : ICmptString
 {
 }
 
-public class Union_Basic
-  : I_Basic
+public class UnionCmpt_Basic
+  : ICmpt_Basic
 {
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }
@@ -55,58 +55,58 @@ public class Union_Basic
   public Unit AsUnit { get; set; }
 }
 
-public class Union_Internal
-  : I_Internal
+public class UnionCmpt_Internal
+  : ICmpt_Internal
 {
   public Null AsNull { get; set; }
   public Void AsVoid { get; set; }
 }
 
-public class Union_Key
-  : I_Key
+public class UnionCmpt_Key
+  : ICmpt_Key
 {
   public _Basic As_Basic { get; set; }
   public _Internal As_Internal { get; set; }
   public _Simple As_Simple { get; set; }
 }
 
-public class Dual_Object
-  : I_Object
+public class DualCmpt_Object
+  : ICmpt_Object
 {
 }
 
-public class Union_Domain
-  : I_Domain
+public class UnionCmpt_Domain
+  : ICmpt_Domain
 {
 }
 
-public class Dual_Dual
-  : I_Dual
+public class DualCmpt_Dual
+  : ICmpt_Dual
 {
 }
 
-public class Union_Enum
-  : I_Enum
+public class UnionCmpt_Enum
+  : ICmpt_Enum
 {
 }
 
-public class Input_Input
-  : I_Input
+public class InputCmpt_Input
+  : ICmpt_Input
 {
 }
 
-public class Output_Output
-  : I_Output
+public class OutputCmpt_Output
+  : ICmpt_Output
 {
 }
 
-public class Union_Union
-  : I_Union
+public class UnionCmpt_Union
+  : ICmpt_Union
 {
 }
 
-public class Union_Simple
-  : I_Simple
+public class UnionCmpt_Simple
+  : ICmpt_Simple
 {
   public _Enum As_Enum { get; set; }
   public _Domain As_Domain { get; set; }

@@ -8,14 +8,14 @@ enum EnumGnrcPrntSmplEnumOutp { gnrcPrntSmplEnumOutp }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_simple_enum_Output;
+namespace Components.Gqlp_Schema_generic_parent_simple_enum_Output;
 
-public interface IGnrcPrntSmplEnumOutp
-  : IFieldGnrcPrntSmplEnumOutp
+public interface ICmptGnrcPrntSmplEnumOutp
+  : ICmptFieldGnrcPrntSmplEnumOutp
 {
 }
 
-public interface IFieldGnrcPrntSmplEnumOutp<Tref>
+public interface ICmptFieldGnrcPrntSmplEnumOutp<Tref>
 {
   Tref field { get; }
 }

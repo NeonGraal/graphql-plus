@@ -8,9 +8,9 @@ output Dscrs { }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_descrs;
+namespace Components.Gqlp_Schema_descrs;
 
-public class OutputDscrs
-  : IDscrs
+public class OutputCmptDscrs
+  : ICmptDscrs
 {
 }

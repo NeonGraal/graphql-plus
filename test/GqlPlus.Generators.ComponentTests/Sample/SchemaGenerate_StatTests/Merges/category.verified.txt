@@ -10,4 +10,4 @@ output Ctgr { }
 
 Category ctgr
 */
-namespace GqlPlus.Gqlp_Schema_category;
+namespace Components.Gqlp_Schema_category;

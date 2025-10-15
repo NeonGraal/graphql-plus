@@ -9,21 +9,21 @@ domain JustCnstDomEnumDual { enum EnumCnstDomEnumDual.cnstDomEnumDual }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_constraint_dom_enum_Dual;
+namespace Components.Gqlp_Schema_constraint_dom_enum_Dual;
 
-public class DualCnstDomEnumDual
-  : ICnstDomEnumDual
+public class DualCmptCnstDomEnumDual
+  : ICmptCnstDomEnumDual
 {
   public RefCnstDomEnumDual<EnumCnstDomEnumDual> AsRefCnstDomEnumDual { get; set; }
 }
 
-public class DualRefCnstDomEnumDual<Ttype>
-  : IRefCnstDomEnumDual<Ttype>
+public class DualCmptRefCnstDomEnumDual<Ttype>
+  : ICmptRefCnstDomEnumDual<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class DomainJustCnstDomEnumDual
-  : IJustCnstDomEnumDual
+public class DomainCmptJustCnstDomEnumDual
+  : ICmptJustCnstDomEnumDual
 {
 }

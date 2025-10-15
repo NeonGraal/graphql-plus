@@ -9,9 +9,9 @@ domain DomGnrcPrntEnumDomDual { enum gnrcPrntEnumDomDualLabel }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_enum_dom_Dual;
+namespace Components.Gqlp_Schema_generic_parent_enum_dom_Dual;
 
-public enum EnumGnrcPrntEnumDomDual
+public enum CmptEnumGnrcPrntEnumDomDual
 {
   gnrcPrntEnumDomDualLabel,
   gnrcPrntEnumDomDualOther,

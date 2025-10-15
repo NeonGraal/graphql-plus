@@ -8,13 +8,13 @@ enum EnumDmnEnumPrnt { enum_dmnEnumPrnt prnt_dmnEnumPrnt }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_domain_enum_parent;
+namespace Components.Gqlp_Schema_domain_enum_parent;
 
-public interface IDmnEnumPrnt
-  : IPrntDmnEnumPrnt
+public interface ICmptDmnEnumPrnt
+  : ICmptPrntDmnEnumPrnt
 {
 }
 
-public interface IPrntDmnEnumPrnt
+public interface ICmptPrntDmnEnumPrnt
 {
 }

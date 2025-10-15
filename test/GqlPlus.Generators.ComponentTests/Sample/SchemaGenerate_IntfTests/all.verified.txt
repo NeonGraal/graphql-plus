@@ -30,31 +30,31 @@ output All {
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_all;
+namespace Components.Gqlp_Schema_all;
 
-public interface IGuid
+public interface ICmptGuid
 {
 }
 
-public interface IMany
+public interface ICmptMany
 {
   Guid AsGuid { get; }
   Number AsNumber { get; }
 }
 
-public interface IField
+public interface ICmptField
 {
   String strings { get; }
 }
 
-public interface IParam
+public interface ICmptParam
 {
   Many afterId { get; }
   Many beforeId { get; }
   String AsString { get; }
 }
 
-public interface IAll
+public interface ICmptAll
 {
   Field items { get; }
   String AsString { get; }

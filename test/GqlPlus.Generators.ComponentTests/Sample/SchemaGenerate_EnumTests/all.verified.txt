@@ -30,9 +30,9 @@ output All {
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_all;
+namespace Components.Gqlp_Schema_all;
 
-public enum One
+public enum CmptOne
 {
   Two,
   Three,

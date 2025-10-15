@@ -9,16 +9,16 @@ enum ParentGnrcPrntEnumPrntInp { gnrcPrntEnumPrntInpParent }
 
 /*
 */
-namespace GqlPlus.Gqlp_Schema_generic_parent_enum_parent_Input;
+namespace Components.Gqlp_Schema_generic_parent_enum_parent_Input;
 
-public class InputGnrcPrntEnumPrntInp
-  : InputFieldGnrcPrntEnumPrntInp
-  , IGnrcPrntEnumPrntInp
+public class InputCmptGnrcPrntEnumPrntInp
+  : InputCmptFieldGnrcPrntEnumPrntInp
+  , ICmptGnrcPrntEnumPrntInp
 {
 }
 
-public class InputFieldGnrcPrntEnumPrntInp<Tref>
-  : IFieldGnrcPrntEnumPrntInp<Tref>
+public class InputCmptFieldGnrcPrntEnumPrntInp<Tref>
+  : ICmptFieldGnrcPrntEnumPrntInp<Tref>
 {
   public Tref field { get; set; }
 }

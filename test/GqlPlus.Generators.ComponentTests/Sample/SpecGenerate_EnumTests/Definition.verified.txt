@@ -34,24 +34,24 @@ union _Simple [Simple] { _Enum _Domain _Union }
 
 /*
 */
-namespace GqlPlus.Gqlp_Spec_Definition;
+namespace Components.Gqlp_Spec_Definition;
 
-public enum Boolean
+public enum CmptBoolean
 {
   false,
   true,
 }
 
-public enum Null
+public enum CmptNull
 {
   null,
 }
 
-public enum Unit
+public enum CmptUnit
 {
   _,
 }
 
-public enum Void
+public enum CmptVoid
 {
 }

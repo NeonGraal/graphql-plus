@@ -9,14 +9,14 @@ input RefPrntAltInp {  parent: Number | String }
 */
 namespace Components.Gqlp_Schema_parent_alt_Input;
 
-public class InputCmptPrntAltInp
-  : InputCmptRefPrntAltInp
+public class CmptPrntAltInp
+  : CmptRefPrntAltInp
   , ICmptPrntAltInp
 {
   public Number AsNumber { get; set; }
 }
 
-public class InputCmptRefPrntAltInp
+public class CmptRefPrntAltInp
   : ICmptRefPrntAltInp
 {
   public Number parent { get; set; }

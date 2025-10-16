@@ -8,8 +8,8 @@ output GnrcPrntOutp<$type:String> { :$type }
 */
 namespace Components.Gqlp_Schema_generic_parent_Output;
 
-public class OutputCmptGnrcPrntOutp<Ttype>
-  : OutputCmpttype
+public class CmptGnrcPrntOutp<Ttype>
+  : Cmpttype
   , ICmptGnrcPrntOutp<Ttype>
 {
 }

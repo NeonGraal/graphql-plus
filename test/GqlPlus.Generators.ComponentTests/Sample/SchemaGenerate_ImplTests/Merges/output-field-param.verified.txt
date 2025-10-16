@@ -12,23 +12,23 @@ dual FldOutpFieldParam { }
 */
 namespace Components.Gqlp_Schema_output_field_param;
 
-public class OutputCmptOutpFieldParam
+public class CmptOutpFieldParam
   : ICmptOutpFieldParam
 {
   public FldOutpFieldParam field { get; set; }
 }
 
-public class InputCmptOutpFieldParam1
+public class CmptOutpFieldParam1
   : ICmptOutpFieldParam1
 {
 }
 
-public class InputCmptOutpFieldParam2
+public class CmptOutpFieldParam2
   : ICmptOutpFieldParam2
 {
 }
 
-public class DualCmptFldOutpFieldParam
+public class CmptFldOutpFieldParam
   : ICmptFldOutpFieldParam
 {
 }

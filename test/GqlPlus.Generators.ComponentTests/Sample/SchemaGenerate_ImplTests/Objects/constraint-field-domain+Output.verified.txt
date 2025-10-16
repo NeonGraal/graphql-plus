@@ -10,19 +10,19 @@ domain DomCnstFieldDmnOutp { String /\w+/ }
 */
 namespace Components.Gqlp_Schema_constraint_field_domain_Output;
 
-public class OutputCmptCnstFieldDmnOutp
-  : OutputCmptRefCnstFieldDmnOutp
+public class CmptCnstFieldDmnOutp
+  : CmptRefCnstFieldDmnOutp
   , ICmptCnstFieldDmnOutp
 {
 }
 
-public class OutputCmptRefCnstFieldDmnOutp<Tref>
+public class CmptRefCnstFieldDmnOutp<Tref>
   : ICmptRefCnstFieldDmnOutp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DomainCmptDomCnstFieldDmnOutp
+public class CmptDomCnstFieldDmnOutp
   : ICmptDomCnstFieldDmnOutp
 {
 }

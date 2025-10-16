@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_parent_descr_Dual;
 
-public class DualtestPrntDescrDual
-  : DualtestRefPrntDescrDual
+public class testPrntDescrDual
+  : testRefPrntDescrDual
   , ItestPrntDescrDual
 {
 }
 
-public class DualtestRefPrntDescrDual
+public class testRefPrntDescrDual
   : ItestRefPrntDescrDual
 {
   public Number parent { get; set; }

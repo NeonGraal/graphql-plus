@@ -5,87 +5,87 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp__Globals;
 
-public class OutputtestCtgrDscrs
+public class testCtgrDscrs
   : ItestCtgrDscrs
 {
 }
 
-public class OutputtestCtgrOutp
+public class testCtgrOutp
   : ItestCtgrOutp
 {
 }
 
-public class OutputtestCtgrOutpDescr
+public class testCtgrOutpDescr
   : ItestCtgrOutpDescr
 {
 }
 
-public class OutputtestCtgrOutpDict
+public class testCtgrOutpDict
   : ItestCtgrOutpDict
 {
 }
 
-public class OutputtestCtgrOutpList
+public class testCtgrOutpList
   : ItestCtgrOutpList
 {
 }
 
-public class OutputtestCtgrOutpOptl
+public class testCtgrOutpOptl
   : ItestCtgrOutpOptl
 {
 }
 
-public class OutputtestDescr
+public class testDescr
   : ItestDescr
 {
 }
 
-public class OutputtestDescrBcks
+public class testDescrBcks
   : ItestDescrBcks
 {
 }
 
-public class OutputtestDescrBtwn
+public class testDescrBtwn
   : ItestDescrBtwn
 {
 }
 
-public class OutputtestDescrCmpl
+public class testDescrCmpl
   : ItestDescrCmpl
 {
 }
 
-public class OutputtestDescrDbl
+public class testDescrDbl
   : ItestDescrDbl
 {
 }
 
-public class OutputtestDescrSngl
+public class testDescrSngl
   : ItestDescrSngl
 {
 }
 
-public class OutputtestDscrs
+public class testDscrs
   : ItestDscrs
 {
 }
 
-public class InputtestInDrctParamDict
+public class testInDrctParamDict
   : ItestInDrctParamDict
 {
 }
 
-public class InputtestInDrctParamIn
+public class testInDrctParamIn
   : ItestInDrctParamIn
 {
 }
 
-public class InputtestInDrctParamList
+public class testInDrctParamList
   : ItestInDrctParamList
 {
 }
 
-public class InputtestInDrctParamOpt
+public class testInDrctParamOpt
   : ItestInDrctParamOpt
 {
 }

@@ -9,7 +9,7 @@ enum EnumFieldValueDual { fieldValueDual }
 */
 namespace Components.Gqlp_Schema_field_value_Dual;
 
-public class DualCmptFieldValueDual
+public class CmptFieldValueDual
   : ICmptFieldValueDual
 {
   public EnumFieldValueDual field { get; set; }

@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_Output;
 
-public class OutputtestObjFieldOutp
+public class testObjFieldOutp
   : ItestObjFieldOutp
 {
   public FldObjFieldOutp field { get; set; }
 }
 
-public class OutputtestFldObjFieldOutp
+public class testFldObjFieldOutp
   : ItestFldObjFieldOutp
 {
 }

@@ -9,7 +9,7 @@ input ObjFieldEnumAliasInp { field [field2] = true }
 */
 namespace Components.Gqlp_Schema_object_field_enum_alias_Input;
 
-public class InputCmptObjFieldEnumAliasInp
+public class CmptObjFieldEnumAliasInp
   : ICmptObjFieldEnumAliasInp
 {
   public Boolean field { get; set; }

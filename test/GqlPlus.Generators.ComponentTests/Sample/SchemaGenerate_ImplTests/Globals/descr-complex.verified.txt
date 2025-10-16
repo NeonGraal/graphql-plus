@@ -9,7 +9,7 @@ output DescrCmpl { }
 */
 namespace Components.Gqlp_Schema_descr_complex;
 
-public class OutputCmptDescrCmpl
+public class CmptDescrCmpl
   : ICmptDescrCmpl
 {
 }

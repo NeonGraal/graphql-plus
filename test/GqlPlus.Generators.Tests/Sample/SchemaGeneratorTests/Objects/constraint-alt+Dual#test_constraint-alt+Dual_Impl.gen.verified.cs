@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_Dual;
 
-public class DualtestCnstAltDual<Ttype>
+public class testCnstAltDual<Ttype>
   : ItestCnstAltDual<Ttype>
 {
   public Ttype Astype { get; set; }

@@ -9,7 +9,7 @@ input ObjParamInp<$type:String> { type: $type }
 */
 namespace Components.Gqlp_Schema_object_param_Input;
 
-public class InputCmptObjParamInp<Ttest,Ttype>
+public class CmptObjParamInp<Ttest,Ttype>
   : ICmptObjParamInp<Ttest,Ttype>
 {
   public Ttest test { get; set; }

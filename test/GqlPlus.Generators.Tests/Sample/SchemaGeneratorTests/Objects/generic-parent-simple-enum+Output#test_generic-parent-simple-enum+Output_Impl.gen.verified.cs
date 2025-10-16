@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_simple_enum_Output;
 
-public class OutputtestGnrcPrntSmplEnumOutp
-  : OutputtestFieldGnrcPrntSmplEnumOutp
+public class testGnrcPrntSmplEnumOutp
+  : testFieldGnrcPrntSmplEnumOutp
   , ItestGnrcPrntSmplEnumOutp
 {
 }
 
-public class OutputtestFieldGnrcPrntSmplEnumOutp<Tref>
+public class testFieldGnrcPrntSmplEnumOutp<Tref>
   : ItestFieldGnrcPrntSmplEnumOutp<Tref>
 {
   public Tref field { get; set; }

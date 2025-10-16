@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_descr_complex;
 
-public class OutputtestDescrCmpl
+public class testDescrCmpl
   : ItestDescrCmpl
 {
 }

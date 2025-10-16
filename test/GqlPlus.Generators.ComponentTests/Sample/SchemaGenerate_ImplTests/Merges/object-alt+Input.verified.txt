@@ -10,13 +10,13 @@ input ObjAltInpType { }
 */
 namespace Components.Gqlp_Schema_object_alt_Input;
 
-public class InputCmptObjAltInp
+public class CmptObjAltInp
   : ICmptObjAltInp
 {
   public ObjAltInpType AsObjAltInpType { get; set; }
 }
 
-public class InputCmptObjAltInpType
+public class CmptObjAltInpType
   : ICmptObjAltInpType
 {
 }

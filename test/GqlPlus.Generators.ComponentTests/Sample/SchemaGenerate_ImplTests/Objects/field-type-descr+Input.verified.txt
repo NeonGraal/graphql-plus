@@ -8,7 +8,7 @@ input FieldTypeDescrInp { field: "Test" "Descr" Number }
 */
 namespace Components.Gqlp_Schema_field_type_descr_Input;
 
-public class InputCmptFieldTypeDescrInp
+public class CmptFieldTypeDescrInp
   : ICmptFieldTypeDescrInp
 {
   public Number field { get; set; }

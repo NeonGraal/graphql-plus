@@ -9,13 +9,13 @@ output FldFieldObjOutp { field: Number | String }
 */
 namespace Components.Gqlp_Schema_field_object_Output;
 
-public class OutputCmptFieldObjOutp
+public class CmptFieldObjOutp
   : ICmptFieldObjOutp
 {
   public FldFieldObjOutp field { get; set; }
 }
 
-public class OutputCmptFldFieldObjOutp
+public class CmptFldFieldObjOutp
   : ICmptFldFieldObjOutp
 {
   public Number field { get; set; }

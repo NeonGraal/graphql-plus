@@ -9,14 +9,14 @@ output RefPrntAltOutp {  parent: Number | String }
 */
 namespace Components.Gqlp_Schema_parent_alt_Output;
 
-public class OutputCmptPrntAltOutp
-  : OutputCmptRefPrntAltOutp
+public class CmptPrntAltOutp
+  : CmptRefPrntAltOutp
   , ICmptPrntAltOutp
 {
   public Number AsNumber { get; set; }
 }
 
-public class OutputCmptRefPrntAltOutp
+public class CmptRefPrntAltOutp
   : ICmptRefPrntAltOutp
 {
   public Number parent { get; set; }

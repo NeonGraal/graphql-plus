@@ -26,28 +26,28 @@ output _AndType {
 */
 namespace Components.Gqlp_Spec_Names;
 
-public class DualCmpt_Aliased
-  : DualCmpt_Named
+public class Cmpt_Aliased
+  : Cmpt_Named
   , ICmpt_Aliased
 {
   public _Identifier aliases { get; set; }
 }
 
-public class DualCmpt_Named
-  : DualCmpt_Described
+public class Cmpt_Named
+  : Cmpt_Described
   , ICmpt_Named
 {
   public _Identifier name { get; set; }
 }
 
-public class DualCmpt_Described
+public class Cmpt_Described
   : ICmpt_Described
 {
   public String description { get; set; }
 }
 
-public class OutputCmpt_AndType
-  : OutputCmpt_Named
+public class Cmpt_AndType
+  : Cmpt_Named
   , ICmpt_AndType
 {
   public _Type type { get; set; }

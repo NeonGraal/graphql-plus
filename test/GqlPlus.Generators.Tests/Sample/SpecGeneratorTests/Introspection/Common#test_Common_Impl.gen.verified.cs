@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_Common;
 
-public class Outputtest_Type
+public class test_Type
   : Itest_Type
 {
   public _BaseType<_TypeKind> As_BaseType { get; set; }
@@ -18,36 +18,36 @@ public class Outputtest_Type
   public _TypeUnion As_TypeUnion { get; set; }
 }
 
-public class Outputtest_BaseType<Tkind>
-  : Outputtest_Aliased
+public class test_BaseType<Tkind>
+  : test_Aliased
   , Itest_BaseType<Tkind>
 {
   public Tkind typeKind { get; set; }
 }
 
-public class Outputtest_ChildType<Tkind,Tparent>
-  : Outputtest_BaseType
+public class test_ChildType<Tkind,Tparent>
+  : test_BaseType
   , Itest_ChildType<Tkind,Tparent>
 {
   public Tparent parent { get; set; }
 }
 
-public class Outputtest_ParentType<Tkind,Titem,TallItem>
-  : Outputtest_ChildType
+public class test_ParentType<Tkind,Titem,TallItem>
+  : test_ChildType
   , Itest_ParentType<Tkind,Titem,TallItem>
 {
   public Titem items { get; set; }
   public TallItem allItems { get; set; }
 }
 
-public class Dualtest_TypeRef<Tkind>
-  : Dualtest_Named
+public class test_TypeRef<Tkind>
+  : test_Named
   , Itest_TypeRef<Tkind>
 {
   public Tkind typeKind { get; set; }
 }
 
-public class Dualtest_TypeSimple
+public class test_TypeSimple
   : Itest_TypeSimple
 {
   public _TypeRef<_TypeKind> As_TypeRef { get; set; }

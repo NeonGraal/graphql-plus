@@ -21,16 +21,16 @@ enum _Location { Operation Variable Field Inline Spread Fragment }
 */
 namespace Components.Gqlp_Spec_Directive;
 
-public class OutputCmpt_Directives
-  : OutputCmpt_AndType
+public class Cmpt_Directives
+  : Cmpt_AndType
   , ICmpt_Directives
 {
   public _Directive directive { get; set; }
   public _Directive As_Directive { get; set; }
 }
 
-public class OutputCmpt_Directive
-  : OutputCmpt_Aliased
+public class Cmpt_Directive
+  : Cmpt_Aliased
   , ICmpt_Directive
 {
   public _InputParam parameters { get; set; }

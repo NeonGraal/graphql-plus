@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_enum_parent_Dual;
 
-public class DualtestGnrcPrntEnumPrntDual
-  : DualtestFieldGnrcPrntEnumPrntDual
+public class testGnrcPrntEnumPrntDual
+  : testFieldGnrcPrntEnumPrntDual
   , ItestGnrcPrntEnumPrntDual
 {
 }
 
-public class DualtestFieldGnrcPrntEnumPrntDual<Tref>
+public class testFieldGnrcPrntEnumPrntDual<Tref>
   : ItestFieldGnrcPrntEnumPrntDual<Tref>
 {
   public Tref field { get; set; }

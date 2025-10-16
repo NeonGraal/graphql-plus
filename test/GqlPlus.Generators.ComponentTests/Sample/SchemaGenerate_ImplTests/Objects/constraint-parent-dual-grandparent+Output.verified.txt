@@ -12,32 +12,32 @@ output AltCnstPrntDualGrndOutp { :PrntCnstPrntDualGrndOutp alt: Number }
 */
 namespace Components.Gqlp_Schema_constraint_parent_dual_grandparent_Output;
 
-public class OutputCmptCnstPrntDualGrndOutp
-  : OutputCmptRefCnstPrntDualGrndOutp
+public class CmptCnstPrntDualGrndOutp
+  : CmptRefCnstPrntDualGrndOutp
   , ICmptCnstPrntDualGrndOutp
 {
 }
 
-public class OutputCmptRefCnstPrntDualGrndOutp<Tref>
-  : OutputCmptref
+public class CmptRefCnstPrntDualGrndOutp<Tref>
+  : Cmptref
   , ICmptRefCnstPrntDualGrndOutp<Tref>
 {
 }
 
-public class DualCmptGrndCnstPrntDualGrndOutp
+public class CmptGrndCnstPrntDualGrndOutp
   : ICmptGrndCnstPrntDualGrndOutp
 {
   public String AsString { get; set; }
 }
 
-public class DualCmptPrntCnstPrntDualGrndOutp
-  : DualCmptGrndCnstPrntDualGrndOutp
+public class CmptPrntCnstPrntDualGrndOutp
+  : CmptGrndCnstPrntDualGrndOutp
   , ICmptPrntCnstPrntDualGrndOutp
 {
 }
 
-public class OutputCmptAltCnstPrntDualGrndOutp
-  : OutputCmptPrntCnstPrntDualGrndOutp
+public class CmptAltCnstPrntDualGrndOutp
+  : CmptPrntCnstPrntDualGrndOutp
   , ICmptAltCnstPrntDualGrndOutp
 {
   public Number alt { get; set; }

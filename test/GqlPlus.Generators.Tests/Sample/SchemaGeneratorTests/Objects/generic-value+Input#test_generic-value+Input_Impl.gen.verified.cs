@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_generic_value_Input;
 
-public class InputtestGnrcValueInp
+public class testGnrcValueInp
   : ItestGnrcValueInp
 {
   public RefGnrcValueInp<EnumGnrcValueInp> AsRefGnrcValueInp { get; set; }
 }
 
-public class InputtestRefGnrcValueInp<Ttype>
+public class testRefGnrcValueInp<Ttype>
   : ItestRefGnrcValueInp<Ttype>
 {
   public Ttype field { get; set; }

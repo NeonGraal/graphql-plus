@@ -11,26 +11,26 @@ output AltCnstFieldObjOutp { :PrntCnstFieldObjOutp alt: Number }
 */
 namespace Components.Gqlp_Schema_constraint_field_obj_Output;
 
-public class OutputCmptCnstFieldObjOutp
-  : OutputCmptRefCnstFieldObjOutp
+public class CmptCnstFieldObjOutp
+  : CmptRefCnstFieldObjOutp
   , ICmptCnstFieldObjOutp
 {
 }
 
-public class OutputCmptRefCnstFieldObjOutp<Tref>
+public class CmptRefCnstFieldObjOutp<Tref>
   : ICmptRefCnstFieldObjOutp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class OutputCmptPrntCnstFieldObjOutp
+public class CmptPrntCnstFieldObjOutp
   : ICmptPrntCnstFieldObjOutp
 {
   public String AsString { get; set; }
 }
 
-public class OutputCmptAltCnstFieldObjOutp
-  : OutputCmptPrntCnstFieldObjOutp
+public class CmptAltCnstFieldObjOutp
+  : CmptPrntCnstFieldObjOutp
   , ICmptAltCnstFieldObjOutp
 {
   public Number alt { get; set; }

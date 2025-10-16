@@ -11,19 +11,19 @@ domain DomGnrcPrntEnumDomOutp { enum gnrcPrntEnumDomOutpLabel }
 */
 namespace Components.Gqlp_Schema_generic_parent_enum_dom_Output;
 
-public class OutputCmptGnrcPrntEnumDomOutp
-  : OutputCmptFieldGnrcPrntEnumDomOutp
+public class CmptGnrcPrntEnumDomOutp
+  : CmptFieldGnrcPrntEnumDomOutp
   , ICmptGnrcPrntEnumDomOutp
 {
 }
 
-public class OutputCmptFieldGnrcPrntEnumDomOutp<Tref>
+public class CmptFieldGnrcPrntEnumDomOutp<Tref>
   : ICmptFieldGnrcPrntEnumDomOutp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DomainCmptDomGnrcPrntEnumDomOutp
+public class CmptDomGnrcPrntEnumDomOutp
   : ICmptDomGnrcPrntEnumDomOutp
 {
 }

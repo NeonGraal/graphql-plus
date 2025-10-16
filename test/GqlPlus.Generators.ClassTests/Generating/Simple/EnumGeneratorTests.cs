@@ -8,7 +8,6 @@ public class EnumGeneratorTests
   public EnumGeneratorTests()
     => _generator = new EnumGenerator();
 
-  public override string ExpectedTypePrefix => "Enum";
   internal override GenerateForType<IGqlpEnum> TypeGenerator => _generator;
 
   [Theory, RepeatData]
@@ -156,7 +155,7 @@ public class EnumGeneratorTests
     => ResultEmptyUnlessEnum(generatorType, result => result.ShouldContain("public enum test" + name));
 
   protected override Action<string> CheckGeneratedCodeParent(GqlpGeneratorType generatorType, string parent)
-    => result => { };
+    => result => result.ShouldNotContain(":");
 
   private static Action<string> ResultEmptyUnlessEnum(GqlpGeneratorType generatorType, Action<string> check)
     => generatorType == GqlpGeneratorType.Enum ? check

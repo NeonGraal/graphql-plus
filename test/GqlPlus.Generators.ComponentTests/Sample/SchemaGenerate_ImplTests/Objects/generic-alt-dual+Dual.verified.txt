@@ -10,19 +10,19 @@ dual AltGnrcAltDualDual { alt: Number | String }
 */
 namespace Components.Gqlp_Schema_generic_alt_dual_Dual;
 
-public class DualCmptGnrcAltDualDual
+public class CmptGnrcAltDualDual
   : ICmptGnrcAltDualDual
 {
   public RefGnrcAltDualDual<AltGnrcAltDualDual> AsRefGnrcAltDualDual { get; set; }
 }
 
-public class DualCmptRefGnrcAltDualDual<Tref>
+public class CmptRefGnrcAltDualDual<Tref>
   : ICmptRefGnrcAltDualDual<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DualCmptAltGnrcAltDualDual
+public class CmptAltGnrcAltDualDual
   : ICmptAltGnrcAltDualDual
 {
   public Number alt { get; set; }

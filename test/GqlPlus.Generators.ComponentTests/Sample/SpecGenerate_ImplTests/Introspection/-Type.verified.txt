@@ -72,7 +72,7 @@ dual _Modifier<$kind:_ModifierKind> {
 */
 namespace Components.Gqlp_Spec_Type;
 
-public class OutputCmpt_Type
+public class Cmpt_Type
   : ICmpt_Type
 {
   public _BaseType<_TypeKind> As_BaseType { get; set; }
@@ -85,36 +85,36 @@ public class OutputCmpt_Type
   public _TypeUnion As_TypeUnion { get; set; }
 }
 
-public class OutputCmpt_BaseType<Tkind>
-  : OutputCmpt_Aliased
+public class Cmpt_BaseType<Tkind>
+  : Cmpt_Aliased
   , ICmpt_BaseType<Tkind>
 {
   public Tkind typeKind { get; set; }
 }
 
-public class OutputCmpt_ChildType<Tkind,Tparent>
-  : OutputCmpt_BaseType
+public class Cmpt_ChildType<Tkind,Tparent>
+  : Cmpt_BaseType
   , ICmpt_ChildType<Tkind,Tparent>
 {
   public Tparent parent { get; set; }
 }
 
-public class OutputCmpt_ParentType<Tkind,Titem,TallItem>
-  : OutputCmpt_ChildType
+public class Cmpt_ParentType<Tkind,Titem,TallItem>
+  : Cmpt_ChildType
   , ICmpt_ParentType<Tkind,Titem,TallItem>
 {
   public Titem items { get; set; }
   public TallItem allItems { get; set; }
 }
 
-public class DualCmpt_TypeRef<Tkind>
-  : DualCmpt_Named
+public class Cmpt_TypeRef<Tkind>
+  : Cmpt_Named
   , ICmpt_TypeRef<Tkind>
 {
   public Tkind typeKind { get; set; }
 }
 
-public class DualCmpt_TypeSimple
+public class Cmpt_TypeSimple
   : ICmpt_TypeSimple
 {
   public _TypeRef<_TypeKind> As_TypeRef { get; set; }
@@ -123,7 +123,7 @@ public class DualCmpt_TypeSimple
   public _TypeRef<_TypeKind> As_TypeRef { get; set; }
 }
 
-public class DualCmpt_Collections
+public class Cmpt_Collections
   : ICmpt_Collections
 {
   public _Modifier<_ModifierKind> As_Modifier { get; set; }
@@ -131,22 +131,22 @@ public class DualCmpt_Collections
   public _ModifierKeyed<_ModifierKind> As_ModifierKeyed { get; set; }
 }
 
-public class DualCmpt_ModifierKeyed<Tkind>
-  : DualCmpt_Modifier
+public class Cmpt_ModifierKeyed<Tkind>
+  : Cmpt_Modifier
   , ICmpt_ModifierKeyed<Tkind>
 {
   public _TypeSimple by { get; set; }
   public Boolean optional { get; set; }
 }
 
-public class DualCmpt_Modifiers
+public class Cmpt_Modifiers
   : ICmpt_Modifiers
 {
   public _Modifier<_ModifierKind> As_Modifier { get; set; }
   public _Collections As_Collections { get; set; }
 }
 
-public class DualCmpt_Modifier<Tkind>
+public class Cmpt_Modifier<Tkind>
   : ICmpt_Modifier<Tkind>
 {
   public Tkind modifierKind { get; set; }

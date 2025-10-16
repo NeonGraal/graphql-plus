@@ -9,13 +9,13 @@ dual RefPrntDualOutp { parent: Number | String }
 */
 namespace Components.Gqlp_Schema_parent_dual_Output;
 
-public class OutputCmptPrntDualOutp
-  : OutputCmptRefPrntDualOutp
+public class CmptPrntDualOutp
+  : CmptRefPrntDualOutp
   , ICmptPrntDualOutp
 {
 }
 
-public class DualCmptRefPrntDualOutp
+public class CmptRefPrntDualOutp
   : ICmptRefPrntDualOutp
 {
   public Number parent { get; set; }

@@ -9,13 +9,13 @@ dual AltAltDual { alt: Number | String }
 */
 namespace Components.Gqlp_Schema_alt_Dual;
 
-public class DualCmptAltDual
+public class CmptAltDual
   : ICmptAltDual
 {
   public AltAltDual AsAltAltDual { get; set; }
 }
 
-public class DualCmptAltAltDual
+public class CmptAltAltDual
   : ICmptAltAltDual
 {
   public Number alt { get; set; }

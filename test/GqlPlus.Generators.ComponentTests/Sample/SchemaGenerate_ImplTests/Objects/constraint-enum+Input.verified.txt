@@ -10,13 +10,13 @@ enum EnumCnstEnumInp { cnstEnumInp }
 */
 namespace Components.Gqlp_Schema_constraint_enum_Input;
 
-public class InputCmptCnstEnumInp
+public class CmptCnstEnumInp
   : ICmptCnstEnumInp
 {
   public RefCnstEnumInp<EnumCnstEnumInp> AsRefCnstEnumInp { get; set; }
 }
 
-public class InputCmptRefCnstEnumInp<Ttype>
+public class CmptRefCnstEnumInp<Ttype>
   : ICmptRefCnstEnumInp<Ttype>
 {
   public Ttype field { get; set; }

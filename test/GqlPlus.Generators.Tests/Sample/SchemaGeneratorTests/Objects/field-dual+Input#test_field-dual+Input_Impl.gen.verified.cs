@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_field_dual_Input;
 
-public class InputtestFieldDualInp
+public class testFieldDualInp
   : ItestFieldDualInp
 {
   public FldFieldDualInp field { get; set; }
 }
 
-public class DualtestFldFieldDualInp
+public class testFldFieldDualInp
   : ItestFldFieldDualInp
 {
   public Number field { get; set; }

@@ -26,61 +26,61 @@ dual _Any { }
 */
 namespace Components.Gqlp_Spec_Schema;
 
-public class DualCmpt_Opt<TT>
+public class Cmpt_Opt<TT>
   : ICmpt_Opt<TT>
 {
   public TT AsT { get; set; }
   public Null AsNull { get; set; }
 }
 
-public class DualCmpt_List<TT>
+public class Cmpt_List<TT>
   : ICmpt_List<TT>
 {
   public TT AsT { get; set; }
 }
 
-public class DualCmpt_Dict<TK,TT>
+public class Cmpt_Dict<TK,TT>
   : ICmpt_Dict<TK,TT>
 {
   public TT AsT { get; set; }
 }
 
-public class DualCmpt_Map<TT>
+public class Cmpt_Map<TT>
   : ICmpt_Map<TT>
 {
   public TT AsT { get; set; }
 }
 
-public class DualCmpt_Array<TT>
+public class Cmpt_Array<TT>
   : ICmpt_Array<TT>
 {
   public TT AsT { get; set; }
 }
 
-public class DualCmpt_IfElse<TT>
+public class Cmpt_IfElse<TT>
   : ICmpt_IfElse<TT>
 {
   public TT AsT { get; set; }
 }
 
-public class DualCmpt_Set<TK>
+public class Cmpt_Set<TK>
   : ICmpt_Set<TK>
 {
   public Unit AsUnit { get; set; }
 }
 
-public class DualCmpt_Mask<TK>
+public class Cmpt_Mask<TK>
   : ICmpt_Mask<TK>
 {
   public Boolean As^ { get; set; }
 }
 
-public class UnionCmpt_Key
+public class Cmpt_Key
   : ICmpt_Key
 {
 }
 
-public class DualCmpt_Any
+public class Cmpt_Any
   : ICmpt_Any
 {
 }

@@ -10,20 +10,20 @@ domain DomOutpParamModDmn { number 1 ~ 10 }
 */
 namespace Components.Gqlp_Schema_output_param_mod_Domain;
 
-public class OutputCmptOutpParamModDmn
+public class CmptOutpParamModDmn
   : ICmptOutpParamModDmn
 {
   public DomOutpParamModDmn field { get; set; }
 }
 
-public class InputCmptInOutpParamModDmn
+public class CmptInOutpParamModDmn
   : ICmptInOutpParamModDmn
 {
   public Number param { get; set; }
   public String AsString { get; set; }
 }
 
-public class DomainCmptDomOutpParamModDmn
+public class CmptDomOutpParamModDmn
   : ICmptDomOutpParamModDmn
 {
 }

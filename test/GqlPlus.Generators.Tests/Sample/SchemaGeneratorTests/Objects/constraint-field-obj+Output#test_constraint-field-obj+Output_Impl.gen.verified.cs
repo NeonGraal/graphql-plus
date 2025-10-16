@@ -5,26 +5,26 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_obj_Output;
 
-public class OutputtestCnstFieldObjOutp
-  : OutputtestRefCnstFieldObjOutp
+public class testCnstFieldObjOutp
+  : testRefCnstFieldObjOutp
   , ItestCnstFieldObjOutp
 {
 }
 
-public class OutputtestRefCnstFieldObjOutp<Tref>
+public class testRefCnstFieldObjOutp<Tref>
   : ItestRefCnstFieldObjOutp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class OutputtestPrntCnstFieldObjOutp
+public class testPrntCnstFieldObjOutp
   : ItestPrntCnstFieldObjOutp
 {
   public String AsString { get; set; }
 }
 
-public class OutputtestAltCnstFieldObjOutp
-  : OutputtestPrntCnstFieldObjOutp
+public class testAltCnstFieldObjOutp
+  : testPrntCnstFieldObjOutp
   , ItestAltCnstFieldObjOutp
 {
   public Number alt { get; set; }

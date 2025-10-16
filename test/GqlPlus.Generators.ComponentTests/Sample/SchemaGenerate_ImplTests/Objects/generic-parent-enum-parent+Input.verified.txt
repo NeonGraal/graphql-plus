@@ -11,13 +11,13 @@ enum ParentGnrcPrntEnumPrntInp { gnrcPrntEnumPrntInpParent }
 */
 namespace Components.Gqlp_Schema_generic_parent_enum_parent_Input;
 
-public class InputCmptGnrcPrntEnumPrntInp
-  : InputCmptFieldGnrcPrntEnumPrntInp
+public class CmptGnrcPrntEnumPrntInp
+  : CmptFieldGnrcPrntEnumPrntInp
   , ICmptGnrcPrntEnumPrntInp
 {
 }
 
-public class InputCmptFieldGnrcPrntEnumPrntInp<Tref>
+public class CmptFieldGnrcPrntEnumPrntInp<Tref>
   : ICmptFieldGnrcPrntEnumPrntInp<Tref>
 {
   public Tref field { get; set; }

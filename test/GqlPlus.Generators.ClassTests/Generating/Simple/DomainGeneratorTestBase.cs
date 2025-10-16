@@ -5,8 +5,6 @@ public abstract class DomainGeneratorTestBase<TItem>
   : TypeGeneratorClassTestBase<IGqlpDomain<TItem>, IGqlpTypeRef>
   where TItem : class, IGqlpDomainItem
 {
-  public override string ExpectedTypePrefix => "Domain";
-
   internal abstract GenerateBaseDomain<TItem> Generator { get; }
 
   internal override GenerateForType<IGqlpDomain<TItem>> TypeGenerator => Generator;

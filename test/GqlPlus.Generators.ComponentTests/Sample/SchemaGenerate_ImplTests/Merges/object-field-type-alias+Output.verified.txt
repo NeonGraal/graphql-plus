@@ -9,7 +9,7 @@ output ObjFieldTypeAliasOutp { field: String }
 */
 namespace Components.Gqlp_Schema_object_field_type_alias_Output;
 
-public class OutputCmptObjFieldTypeAliasOutp
+public class CmptObjFieldTypeAliasOutp
   : ICmptObjFieldTypeAliasOutp
 {
   public String field { get; set; }

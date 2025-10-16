@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_category_output_dict;
 
-public class OutputtestCtgrOutpDict
+public class testCtgrOutpDict
   : ItestCtgrOutpDict
 {
 }

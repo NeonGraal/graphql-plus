@@ -9,7 +9,7 @@ input ObjParamDupInp<$test:String> { type: $test }
 */
 namespace Components.Gqlp_Schema_object_param_dup_Input;
 
-public class InputCmptObjParamDupInp<Ttest>
+public class CmptObjParamDupInp<Ttest>
   : ICmptObjParamDupInp<Ttest>
 {
   public Ttest test { get; set; }

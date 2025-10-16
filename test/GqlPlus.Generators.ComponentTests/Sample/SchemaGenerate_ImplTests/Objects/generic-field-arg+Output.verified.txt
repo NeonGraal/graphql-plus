@@ -9,13 +9,13 @@ output RefGnrcFieldArgOutp<$ref:String> { | $ref }
 */
 namespace Components.Gqlp_Schema_generic_field_arg_Output;
 
-public class OutputCmptGnrcFieldArgOutp<Ttype>
+public class CmptGnrcFieldArgOutp<Ttype>
   : ICmptGnrcFieldArgOutp<Ttype>
 {
   public RefGnrcFieldArgOutp<Ttype> field { get; set; }
 }
 
-public class OutputCmptRefGnrcFieldArgOutp<Tref>
+public class CmptRefGnrcFieldArgOutp<Tref>
   : ICmptRefGnrcFieldArgOutp<Tref>
 {
   public Tref Asref { get; set; }

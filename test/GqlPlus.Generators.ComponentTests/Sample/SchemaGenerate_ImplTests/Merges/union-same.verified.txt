@@ -9,7 +9,7 @@ union UnionSame { Boolean }
 */
 namespace Components.Gqlp_Schema_union_same;
 
-public class UnionCmptUnionSame
+public class CmptUnionSame
   : ICmptUnionSame
 {
   public Boolean AsBoolean { get; set; }

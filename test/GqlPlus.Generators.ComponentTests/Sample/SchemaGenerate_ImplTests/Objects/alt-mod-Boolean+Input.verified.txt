@@ -9,13 +9,13 @@ input AltAltModBoolInp { alt: Number | String }
 */
 namespace Components.Gqlp_Schema_alt_mod_Boolean_Input;
 
-public class InputCmptAltModBoolInp
+public class CmptAltModBoolInp
   : ICmptAltModBoolInp
 {
   public AltAltModBoolInp AsAltAltModBoolInp { get; set; }
 }
 
-public class InputCmptAltAltModBoolInp
+public class CmptAltAltModBoolInp
   : ICmptAltAltModBoolInp
 {
   public Number alt { get; set; }

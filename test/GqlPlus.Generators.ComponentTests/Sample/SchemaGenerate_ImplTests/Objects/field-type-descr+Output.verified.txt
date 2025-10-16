@@ -8,7 +8,7 @@ output FieldTypeDescrOutp { field: "Test" "Descr" Number }
 */
 namespace Components.Gqlp_Schema_field_type_descr_Output;
 
-public class OutputCmptFieldTypeDescrOutp
+public class CmptFieldTypeDescrOutp
   : ICmptFieldTypeDescrOutp
 {
   public Number field { get; set; }

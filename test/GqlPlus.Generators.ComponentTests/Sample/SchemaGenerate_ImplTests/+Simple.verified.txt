@@ -4,184 +4,184 @@
 */
 namespace Components.Gqlp_Schema_Simple;
 
-public class DomainCmptDmnBoolDescr
+public class CmptDmnBoolDescr
   : ICmptDmnBoolDescr
 {
 }
 
-public class DomainCmptDmnBoolPrnt
-  : DomainCmptPrntDmnBoolPrnt
+public class CmptDmnBoolPrnt
+  : CmptPrntDmnBoolPrnt
   , ICmptDmnBoolPrnt
 {
 }
 
-public class DomainCmptPrntDmnBoolPrnt
+public class CmptPrntDmnBoolPrnt
   : ICmptPrntDmnBoolPrnt
 {
 }
 
-public class DomainCmptDmnBoolPrntDescr
-  : DomainCmptPrntDmnBoolPrntDescr
+public class CmptDmnBoolPrntDescr
+  : CmptPrntDmnBoolPrntDescr
   , ICmptDmnBoolPrntDescr
 {
 }
 
-public class DomainCmptPrntDmnBoolPrntDescr
+public class CmptPrntDmnBoolPrntDescr
   : ICmptPrntDmnBoolPrntDescr
 {
 }
 
-public class DomainCmptDmnEnumAll
+public class CmptDmnEnumAll
   : ICmptDmnEnumAll
 {
 }
 
-public class DomainCmptDmnEnumAllDescr
+public class CmptDmnEnumAllDescr
   : ICmptDmnEnumAllDescr
 {
 }
 
-public class DomainCmptDmnEnumAllPrnt
+public class CmptDmnEnumAllPrnt
   : ICmptDmnEnumAllPrnt
 {
 }
 
-public class DomainCmptDmnEnumDescr
+public class CmptDmnEnumDescr
   : ICmptDmnEnumDescr
 {
 }
 
-public class DomainCmptDmnEnumLabel
+public class CmptDmnEnumLabel
   : ICmptDmnEnumLabel
 {
 }
 
-public class DomainCmptDmnEnumPrnt
-  : DomainCmptPrntDmnEnumPrnt
+public class CmptDmnEnumPrnt
+  : CmptPrntDmnEnumPrnt
   , ICmptDmnEnumPrnt
 {
 }
 
-public class DomainCmptPrntDmnEnumPrnt
+public class CmptPrntDmnEnumPrnt
   : ICmptPrntDmnEnumPrnt
 {
 }
 
-public class DomainCmptDmnEnumPrntDescr
-  : DomainCmptPrntDmnEnumPrntDescr
+public class CmptDmnEnumPrntDescr
+  : CmptPrntDmnEnumPrntDescr
   , ICmptDmnEnumPrntDescr
 {
 }
 
-public class DomainCmptPrntDmnEnumPrntDescr
+public class CmptPrntDmnEnumPrntDescr
   : ICmptPrntDmnEnumPrntDescr
 {
 }
 
-public class DomainCmptDmnEnumValue
+public class CmptDmnEnumValue
   : ICmptDmnEnumValue
 {
 }
 
-public class DomainCmptDmnEnumValuePrnt
+public class CmptDmnEnumValuePrnt
   : ICmptDmnEnumValuePrnt
 {
 }
 
-public class DomainCmptDmnNmbrDescr
+public class CmptDmnNmbrDescr
   : ICmptDmnNmbrDescr
 {
 }
 
-public class DomainCmptDmnNmbrPrnt
-  : DomainCmptPrntDmnNmbrPrnt
+public class CmptDmnNmbrPrnt
+  : CmptPrntDmnNmbrPrnt
   , ICmptDmnNmbrPrnt
 {
 }
 
-public class DomainCmptPrntDmnNmbrPrnt
+public class CmptPrntDmnNmbrPrnt
   : ICmptPrntDmnNmbrPrnt
 {
 }
 
-public class DomainCmptDmnNmbrPrntDescr
-  : DomainCmptPrntDmnNmbrPrntDescr
+public class CmptDmnNmbrPrntDescr
+  : CmptPrntDmnNmbrPrntDescr
   , ICmptDmnNmbrPrntDescr
 {
 }
 
-public class DomainCmptPrntDmnNmbrPrntDescr
+public class CmptPrntDmnNmbrPrntDescr
   : ICmptPrntDmnNmbrPrntDescr
 {
 }
 
-public class DomainCmptDmnStrDescr
+public class CmptDmnStrDescr
   : ICmptDmnStrDescr
 {
 }
 
-public class DomainCmptDmnStrPrnt
-  : DomainCmptPrntDmnStrPrnt
+public class CmptDmnStrPrnt
+  : CmptPrntDmnStrPrnt
   , ICmptDmnStrPrnt
 {
 }
 
-public class DomainCmptPrntDmnStrPrnt
+public class CmptPrntDmnStrPrnt
   : ICmptPrntDmnStrPrnt
 {
 }
 
-public class DomainCmptDmnStrPrntDescr
-  : DomainCmptPrntDmnStrPrntDescr
+public class CmptDmnStrPrntDescr
+  : CmptPrntDmnStrPrntDescr
   , ICmptDmnStrPrntDescr
 {
 }
 
-public class DomainCmptPrntDmnStrPrntDescr
+public class CmptPrntDmnStrPrntDescr
   : ICmptPrntDmnStrPrntDescr
 {
 }
 
-public class UnionCmptUnionDescr
+public class CmptUnionDescr
   : ICmptUnionDescr
 {
   public Number AsNumber { get; set; }
 }
 
-public class UnionCmptUnionPrnt
-  : UnionCmptPrntUnionPrnt
+public class CmptUnionPrnt
+  : CmptPrntUnionPrnt
   , ICmptUnionPrnt
 {
   public String AsString { get; set; }
 }
 
-public class UnionCmptPrntUnionPrnt
+public class CmptPrntUnionPrnt
   : ICmptPrntUnionPrnt
 {
   public Number AsNumber { get; set; }
 }
 
-public class UnionCmptUnionPrntDescr
-  : UnionCmptPrntUnionPrntDescr
+public class CmptUnionPrntDescr
+  : CmptPrntUnionPrntDescr
   , ICmptUnionPrntDescr
 {
   public Number AsNumber { get; set; }
 }
 
-public class UnionCmptPrntUnionPrntDescr
+public class CmptPrntUnionPrntDescr
   : ICmptPrntUnionPrntDescr
 {
   public Number AsNumber { get; set; }
 }
 
-public class UnionCmptUnionPrntDup
-  : UnionCmptPrntUnionPrntDup
+public class CmptUnionPrntDup
+  : CmptPrntUnionPrntDup
   , ICmptUnionPrntDup
 {
   public Number AsNumber { get; set; }
 }
 
-public class UnionCmptPrntUnionPrntDup
+public class CmptPrntUnionPrntDup
   : ICmptPrntUnionPrntDup
 {
   public Number AsNumber { get; set; }

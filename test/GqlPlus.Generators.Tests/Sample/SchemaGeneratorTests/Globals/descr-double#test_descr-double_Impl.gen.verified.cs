@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_descr_double;
 
-public class OutputtestDescrDbl
+public class testDescrDbl
   : ItestDescrDbl
 {
 }

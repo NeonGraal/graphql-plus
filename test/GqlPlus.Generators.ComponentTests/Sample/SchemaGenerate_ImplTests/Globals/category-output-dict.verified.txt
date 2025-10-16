@@ -9,7 +9,7 @@ output CtgrOutpDict { }
 */
 namespace Components.Gqlp_Schema_category_output_dict;
 
-public class OutputCmptCtgrOutpDict
+public class CmptCtgrOutpDict
   : ICmptCtgrOutpDict
 {
 }

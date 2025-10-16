@@ -5,19 +5,19 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_param_parent_Input;
 
-public class InputtestGnrcPrntParamPrntInp
-  : InputtestRefGnrcPrntParamPrntInp
+public class testGnrcPrntParamPrntInp
+  : testRefGnrcPrntParamPrntInp
   , ItestGnrcPrntParamPrntInp
 {
 }
 
-public class InputtestRefGnrcPrntParamPrntInp<Tref>
-  : Inputtestref
+public class testRefGnrcPrntParamPrntInp<Tref>
+  : testref
   , ItestRefGnrcPrntParamPrntInp<Tref>
 {
 }
 
-public class InputtestAltGnrcPrntParamPrntInp
+public class testAltGnrcPrntParamPrntInp
   : ItestAltGnrcPrntParamPrntInp
 {
   public Number alt { get; set; }

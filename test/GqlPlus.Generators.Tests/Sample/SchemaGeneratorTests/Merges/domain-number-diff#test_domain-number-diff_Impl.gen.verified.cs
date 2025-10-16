@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_domain_number_diff;
 
-public class DomaintestDmnNmbrDiff
+public class testDmnNmbrDiff
   : ItestDmnNmbrDiff
 {
 }

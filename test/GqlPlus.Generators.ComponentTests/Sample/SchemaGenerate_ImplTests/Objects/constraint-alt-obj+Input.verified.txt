@@ -11,26 +11,26 @@ input AltCnstAltObjInp { :PrntCnstAltObjInp alt: Number }
 */
 namespace Components.Gqlp_Schema_constraint_alt_obj_Input;
 
-public class InputCmptCnstAltObjInp
+public class CmptCnstAltObjInp
   : ICmptCnstAltObjInp
 {
   public RefCnstAltObjInp<AltCnstAltObjInp> AsRefCnstAltObjInp { get; set; }
 }
 
-public class InputCmptRefCnstAltObjInp<Tref>
+public class CmptRefCnstAltObjInp<Tref>
   : ICmptRefCnstAltObjInp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class InputCmptPrntCnstAltObjInp
+public class CmptPrntCnstAltObjInp
   : ICmptPrntCnstAltObjInp
 {
   public String AsString { get; set; }
 }
 
-public class InputCmptAltCnstAltObjInp
-  : InputCmptPrntCnstAltObjInp
+public class CmptAltCnstAltObjInp
+  : CmptPrntCnstAltObjInp
   , ICmptAltCnstAltObjInp
 {
   public Number alt { get; set; }

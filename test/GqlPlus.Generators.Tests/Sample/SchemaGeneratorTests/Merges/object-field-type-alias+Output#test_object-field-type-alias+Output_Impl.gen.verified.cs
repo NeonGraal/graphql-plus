@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_type_alias_Output;
 
-public class OutputtestObjFieldTypeAliasOutp
+public class testObjFieldTypeAliasOutp
   : ItestObjFieldTypeAliasOutp
 {
   public String field { get; set; }

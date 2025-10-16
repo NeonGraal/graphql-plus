@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_object_alt_Dual;
 
-public class DualtestObjAltDual
+public class testObjAltDual
   : ItestObjAltDual
 {
   public ObjAltDualType AsObjAltDualType { get; set; }
 }
 
-public class DualtestObjAltDualType
+public class testObjAltDualType
   : ItestObjAltDualType
 {
 }

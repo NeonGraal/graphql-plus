@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_input_field_Enum;
 
-public class InputtestInpFieldEnum
+public class testInpFieldEnum
   : ItestInpFieldEnum
 {
   public EnumInpFieldEnum field { get; set; }

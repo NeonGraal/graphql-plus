@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_param_Dual;
 
-public class DualtestAltModParamDual<Tmod>
+public class testAltModParamDual<Tmod>
   : ItestAltModParamDual<Tmod>
 {
   public AltAltModParamDual AsAltAltModParamDual { get; set; }
 }
 
-public class DualtestAltAltModParamDual
+public class testAltAltModParamDual
   : ItestAltAltModParamDual
 {
   public Number alt { get; set; }

@@ -10,13 +10,13 @@ input FldObjFieldInp { }
 */
 namespace Components.Gqlp_Schema_object_field_Input;
 
-public class InputCmptObjFieldInp
+public class CmptObjFieldInp
   : ICmptObjFieldInp
 {
   public FldObjFieldInp field { get; set; }
 }
 
-public class InputCmptFldObjFieldInp
+public class CmptFldObjFieldInp
   : ICmptFldObjFieldInp
 {
 }

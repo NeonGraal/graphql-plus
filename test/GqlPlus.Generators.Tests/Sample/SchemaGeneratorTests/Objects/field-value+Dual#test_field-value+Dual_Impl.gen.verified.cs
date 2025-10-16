@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_field_value_Dual;
 
-public class DualtestFieldValueDual
+public class testFieldValueDual
   : ItestFieldValueDual
 {
   public EnumFieldValueDual field { get; set; }

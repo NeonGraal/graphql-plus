@@ -9,13 +9,13 @@ domain PrntDmnBoolPrnt { Boolean true }
 */
 namespace Components.Gqlp_Schema_domain_bool_parent;
 
-public class DomainCmptDmnBoolPrnt
-  : DomainCmptPrntDmnBoolPrnt
+public class CmptDmnBoolPrnt
+  : CmptPrntDmnBoolPrnt
   , ICmptDmnBoolPrnt
 {
 }
 
-public class DomainCmptPrntDmnBoolPrnt
+public class CmptPrntDmnBoolPrnt
   : ICmptPrntDmnBoolPrnt
 {
 }

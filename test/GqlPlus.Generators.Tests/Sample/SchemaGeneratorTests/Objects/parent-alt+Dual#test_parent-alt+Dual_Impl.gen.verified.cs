@@ -5,14 +5,14 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_parent_alt_Dual;
 
-public class DualtestPrntAltDual
-  : DualtestRefPrntAltDual
+public class testPrntAltDual
+  : testRefPrntAltDual
   , ItestPrntAltDual
 {
   public Number AsNumber { get; set; }
 }
 
-public class DualtestRefPrntAltDual
+public class testRefPrntAltDual
   : ItestRefPrntAltDual
 {
   public Number parent { get; set; }

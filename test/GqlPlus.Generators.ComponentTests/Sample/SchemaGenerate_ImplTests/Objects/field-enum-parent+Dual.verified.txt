@@ -10,7 +10,7 @@ enum PrntFieldEnumPrntDual { prnt_fieldEnumPrntDual }
 */
 namespace Components.Gqlp_Schema_field_enum_parent_Dual;
 
-public class DualCmptFieldEnumPrntDual
+public class CmptFieldEnumPrntDual
   : ICmptFieldEnumPrntDual
 {
   public EnumFieldEnumPrntDual field { get; set; }

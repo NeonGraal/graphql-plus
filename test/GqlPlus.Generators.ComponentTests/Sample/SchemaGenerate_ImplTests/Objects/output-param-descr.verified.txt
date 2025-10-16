@@ -10,18 +10,18 @@ input InOutpParamDescr { param: Number | String }
 */
 namespace Components.Gqlp_Schema_output_param_descr;
 
-public class OutputCmptOutpParamDescr
+public class CmptOutpParamDescr
   : ICmptOutpParamDescr
 {
   public FldOutpParamDescr field { get; set; }
 }
 
-public class DualCmptFldOutpParamDescr
+public class CmptFldOutpParamDescr
   : ICmptFldOutpParamDescr
 {
 }
 
-public class InputCmptInOutpParamDescr
+public class CmptInOutpParamDescr
   : ICmptInOutpParamDescr
 {
   public Number param { get; set; }

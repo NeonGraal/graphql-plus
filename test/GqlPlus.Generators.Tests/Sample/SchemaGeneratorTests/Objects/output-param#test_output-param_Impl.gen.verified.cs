@@ -5,18 +5,18 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_output_param;
 
-public class OutputtestOutpParam
+public class testOutpParam
   : ItestOutpParam
 {
   public FldOutpParam field { get; set; }
 }
 
-public class DualtestFldOutpParam
+public class testFldOutpParam
   : ItestFldOutpParam
 {
 }
 
-public class InputtestInOutpParam
+public class testInOutpParam
   : ItestInOutpParam
 {
   public Number param { get; set; }

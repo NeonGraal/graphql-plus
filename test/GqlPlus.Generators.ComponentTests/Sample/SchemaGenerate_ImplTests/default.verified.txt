@@ -17,22 +17,22 @@ output _Schema { }
 */
 namespace Components.Gqlp_Schema_default;
 
-public class OutputCmptQuery
+public class CmptQuery
   : ICmptQuery
 {
 }
 
-public class OutputCmptMutation
+public class CmptMutation
   : ICmptMutation
 {
 }
 
-public class OutputCmptSubscription
+public class CmptSubscription
   : ICmptSubscription
 {
 }
 
-public class OutputCmpt_Schema
+public class Cmpt_Schema
   : ICmpt_Schema
 {
 }

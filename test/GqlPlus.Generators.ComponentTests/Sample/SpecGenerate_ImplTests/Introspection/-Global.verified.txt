@@ -48,24 +48,24 @@ output _Setting {
 */
 namespace Components.Gqlp_Spec_Global;
 
-public class OutputCmpt_AndType
-  : OutputCmpt_Named
+public class Cmpt_AndType
+  : Cmpt_Named
   , ICmpt_AndType
 {
   public _Type type { get; set; }
   public _Type As_Type { get; set; }
 }
 
-public class OutputCmpt_Categories
-  : OutputCmpt_AndType
+public class Cmpt_Categories
+  : Cmpt_AndType
   , ICmpt_Categories
 {
   public _Category category { get; set; }
   public _Category As_Category { get; set; }
 }
 
-public class OutputCmpt_Category
-  : OutputCmpt_Aliased
+public class Cmpt_Category
+  : Cmpt_Aliased
   , ICmpt_Category
 {
   public _Resolution resolution { get; set; }
@@ -73,16 +73,16 @@ public class OutputCmpt_Category
   public _Modifiers modifiers { get; set; }
 }
 
-public class OutputCmpt_Directives
-  : OutputCmpt_AndType
+public class Cmpt_Directives
+  : Cmpt_AndType
   , ICmpt_Directives
 {
   public _Directive directive { get; set; }
   public _Directive As_Directive { get; set; }
 }
 
-public class OutputCmpt_Directive
-  : OutputCmpt_Aliased
+public class Cmpt_Directive
+  : Cmpt_Aliased
   , ICmpt_Directive
 {
   public _InputParam parameters { get; set; }
@@ -90,8 +90,8 @@ public class OutputCmpt_Directive
   public Unit locations { get; set; }
 }
 
-public class OutputCmpt_Setting
-  : OutputCmpt_Named
+public class Cmpt_Setting
+  : Cmpt_Named
   , ICmpt_Setting
 {
   public _Value value { get; set; }

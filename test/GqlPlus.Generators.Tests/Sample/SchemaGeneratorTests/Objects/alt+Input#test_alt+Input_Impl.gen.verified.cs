@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_alt_Input;
 
-public class InputtestAltInp
+public class testAltInp
   : ItestAltInp
 {
   public AltAltInp AsAltAltInp { get; set; }
 }
 
-public class InputtestAltAltInp
+public class testAltAltInp
   : ItestAltAltInp
 {
   public Number alt { get; set; }

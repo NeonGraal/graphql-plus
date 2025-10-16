@@ -9,7 +9,7 @@ input ObjAliasInp [Input2] { }
 */
 namespace Components.Gqlp_Schema_object_alias_Input;
 
-public class InputCmptObjAliasInp
+public class CmptObjAliasInp
   : ICmptObjAliasInp
 {
 }

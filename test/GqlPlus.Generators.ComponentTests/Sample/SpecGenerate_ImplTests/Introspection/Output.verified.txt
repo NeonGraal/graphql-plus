@@ -19,20 +19,20 @@ output _OutputFieldType {
 */
 namespace Components.Gqlp_Spec_Output;
 
-public class OutputCmpt_TypeOutput
-  : OutputCmpt_TypeObject
+public class Cmpt_TypeOutput
+  : Cmpt_TypeObject
   , ICmpt_TypeOutput
 {
 }
 
-public class OutputCmpt_OutputField
-  : OutputCmpt_ObjField
+public class Cmpt_OutputField
+  : Cmpt_ObjField
   , ICmpt_OutputField
 {
 }
 
-public class OutputCmpt_OutputFieldType
-  : OutputCmpt_ObjFieldType
+public class Cmpt_OutputFieldType
+  : Cmpt_ObjFieldType
   , ICmpt_OutputFieldType
 {
   public _InputParam parameters { get; set; }

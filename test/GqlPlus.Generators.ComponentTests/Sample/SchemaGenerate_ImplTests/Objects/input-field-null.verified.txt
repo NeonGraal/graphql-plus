@@ -9,13 +9,13 @@ dual FldInpFieldNull { }
 */
 namespace Components.Gqlp_Schema_input_field_null;
 
-public class InputCmptInpFieldNull
+public class CmptInpFieldNull
   : ICmptInpFieldNull
 {
   public FldInpFieldNull field { get; set; }
 }
 
-public class DualCmptFldInpFieldNull
+public class CmptFldInpFieldNull
   : ICmptFldInpFieldNull
 {
 }

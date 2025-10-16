@@ -10,13 +10,13 @@ dual FldObjFieldAliasDual { }
 */
 namespace Components.Gqlp_Schema_object_field_alias_Dual;
 
-public class DualCmptObjFieldAliasDual
+public class CmptObjFieldAliasDual
   : ICmptObjFieldAliasDual
 {
   public FldObjFieldAliasDual field { get; set; }
 }
 
-public class DualCmptFldObjFieldAliasDual
+public class CmptFldObjFieldAliasDual
   : ICmptFldObjFieldAliasDual
 {
 }

@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_union_descr;
 
-public class UniontestUnionDescr
+public class testUnionDescr
   : ItestUnionDescr
 {
   public Number AsNumber { get; set; }

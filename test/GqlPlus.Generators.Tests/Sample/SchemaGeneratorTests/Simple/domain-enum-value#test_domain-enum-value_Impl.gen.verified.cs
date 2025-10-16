@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_value;
 
-public class DomaintestDmnEnumValue
+public class testDmnEnumValue
   : ItestDmnEnumValue
 {
 }

@@ -9,14 +9,14 @@ output RefPrntParamSameOutp<$a:String> { | $a }
 */
 namespace Components.Gqlp_Schema_parent_param_same_Output;
 
-public class OutputCmptPrntParamSameOutp<Ta>
-  : OutputCmptRefPrntParamSameOutp
+public class CmptPrntParamSameOutp<Ta>
+  : CmptRefPrntParamSameOutp
   , ICmptPrntParamSameOutp<Ta>
 {
   public Ta field { get; set; }
 }
 
-public class OutputCmptRefPrntParamSameOutp<Ta>
+public class CmptRefPrntParamSameOutp<Ta>
   : ICmptRefPrntParamSameOutp<Ta>
 {
   public Ta Asa { get; set; }

@@ -9,7 +9,7 @@ input InDrctParamDict { }
 */
 namespace Components.Gqlp_Schema_directive_param_dict;
 
-public class InputCmptInDrctParamDict
+public class CmptInDrctParamDict
   : ICmptInDrctParamDict
 {
 }

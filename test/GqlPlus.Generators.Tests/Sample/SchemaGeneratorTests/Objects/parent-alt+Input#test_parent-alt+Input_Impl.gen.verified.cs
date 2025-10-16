@@ -5,14 +5,14 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_parent_alt_Input;
 
-public class InputtestPrntAltInp
-  : InputtestRefPrntAltInp
+public class testPrntAltInp
+  : testRefPrntAltInp
   , ItestPrntAltInp
 {
   public Number AsNumber { get; set; }
 }
 
-public class InputtestRefPrntAltInp
+public class testRefPrntAltInp
   : ItestRefPrntAltInp
 {
   public Number parent { get; set; }

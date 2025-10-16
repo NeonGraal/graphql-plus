@@ -5,21 +5,21 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_Enum;
 
-public class Outputtest_TypeEnum
-  : Outputtest_ParentType
+public class test_TypeEnum
+  : test_ParentType
   , Itest_TypeEnum
 {
 }
 
-public class Dualtest_EnumLabel
-  : Dualtest_Aliased
+public class test_EnumLabel
+  : test_Aliased
   , Itest_EnumLabel
 {
   public _Identifier enum { get; set; }
 }
 
-public class Outputtest_EnumValue
-  : Outputtest_TypeRef
+public class test_EnumValue
+  : test_TypeRef
   , Itest_EnumValue
 {
   public _Identifier label { get; set; }

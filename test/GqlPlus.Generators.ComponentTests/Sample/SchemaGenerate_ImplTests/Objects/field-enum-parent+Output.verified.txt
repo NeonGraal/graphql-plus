@@ -10,7 +10,7 @@ enum PrntFieldEnumPrntOutp { prnt_fieldEnumPrntOutp }
 */
 namespace Components.Gqlp_Schema_field_enum_parent_Output;
 
-public class OutputCmptFieldEnumPrntOutp
+public class CmptFieldEnumPrntOutp
   : ICmptFieldEnumPrntOutp
 {
   public EnumFieldEnumPrntOutp field { get; set; }

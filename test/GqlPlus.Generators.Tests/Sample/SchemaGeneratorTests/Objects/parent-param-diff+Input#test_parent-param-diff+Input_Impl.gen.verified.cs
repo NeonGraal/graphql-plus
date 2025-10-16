@@ -5,14 +5,14 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_parent_param_diff_Input;
 
-public class InputtestPrntParamDiffInp<Ta>
-  : InputtestRefPrntParamDiffInp
+public class testPrntParamDiffInp<Ta>
+  : testRefPrntParamDiffInp
   , ItestPrntParamDiffInp<Ta>
 {
   public Ta field { get; set; }
 }
 
-public class InputtestRefPrntParamDiffInp<Tb>
+public class testRefPrntParamDiffInp<Tb>
   : ItestRefPrntParamDiffInp<Tb>
 {
   public Tb Asb { get; set; }

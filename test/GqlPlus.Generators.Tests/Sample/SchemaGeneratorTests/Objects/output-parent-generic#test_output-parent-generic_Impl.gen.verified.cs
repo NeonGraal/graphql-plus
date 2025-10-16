@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_output_parent_generic;
 
-public class OutputtestOutpPrntGnrc
+public class testOutpPrntGnrc
   : ItestOutpPrntGnrc
 {
   public RefOutpPrntGnrc<EnumOutpPrntGnrc> AsRefOutpPrntGnrc { get; set; }
 }
 
-public class OutputtestRefOutpPrntGnrc<Ttype>
+public class testRefOutpPrntGnrc<Ttype>
   : ItestRefOutpPrntGnrc<Ttype>
 {
   public Ttype field { get; set; }

@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_directive_param_dict;
 
-public class InputtestInDrctParamDict
+public class testInDrctParamDict
   : ItestInDrctParamDict
 {
 }

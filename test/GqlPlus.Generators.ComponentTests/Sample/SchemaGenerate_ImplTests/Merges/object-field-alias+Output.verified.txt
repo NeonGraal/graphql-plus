@@ -10,13 +10,13 @@ output FldObjFieldAliasOutp { }
 */
 namespace Components.Gqlp_Schema_object_field_alias_Output;
 
-public class OutputCmptObjFieldAliasOutp
+public class CmptObjFieldAliasOutp
   : ICmptObjFieldAliasOutp
 {
   public FldObjFieldAliasOutp field { get; set; }
 }
 
-public class OutputCmptFldObjFieldAliasOutp
+public class CmptFldObjFieldAliasOutp
   : ICmptFldObjFieldAliasOutp
 {
 }

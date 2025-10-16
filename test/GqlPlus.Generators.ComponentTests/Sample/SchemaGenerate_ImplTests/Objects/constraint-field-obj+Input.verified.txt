@@ -11,26 +11,26 @@ input AltCnstFieldObjInp { :PrntCnstFieldObjInp alt: Number }
 */
 namespace Components.Gqlp_Schema_constraint_field_obj_Input;
 
-public class InputCmptCnstFieldObjInp
-  : InputCmptRefCnstFieldObjInp
+public class CmptCnstFieldObjInp
+  : CmptRefCnstFieldObjInp
   , ICmptCnstFieldObjInp
 {
 }
 
-public class InputCmptRefCnstFieldObjInp<Tref>
+public class CmptRefCnstFieldObjInp<Tref>
   : ICmptRefCnstFieldObjInp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class InputCmptPrntCnstFieldObjInp
+public class CmptPrntCnstFieldObjInp
   : ICmptPrntCnstFieldObjInp
 {
   public String AsString { get; set; }
 }
 
-public class InputCmptAltCnstFieldObjInp
-  : InputCmptPrntCnstFieldObjInp
+public class CmptAltCnstFieldObjInp
+  : CmptPrntCnstFieldObjInp
   , ICmptAltCnstFieldObjInp
 {
   public Number alt { get; set; }

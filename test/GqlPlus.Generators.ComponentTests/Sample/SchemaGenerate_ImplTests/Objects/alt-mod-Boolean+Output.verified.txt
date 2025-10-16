@@ -9,13 +9,13 @@ output AltAltModBoolOutp { alt: Number | String }
 */
 namespace Components.Gqlp_Schema_alt_mod_Boolean_Output;
 
-public class OutputCmptAltModBoolOutp
+public class CmptAltModBoolOutp
   : ICmptAltModBoolOutp
 {
   public AltAltModBoolOutp AsAltAltModBoolOutp { get; set; }
 }
 
-public class OutputCmptAltAltModBoolOutp
+public class CmptAltAltModBoolOutp
   : ICmptAltAltModBoolOutp
 {
   public Number alt { get; set; }

@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_alt_simple_Dual;
 
-public class DualtestAltSmplDual
+public class testAltSmplDual
   : ItestAltSmplDual
 {
   public String AsString { get; set; }

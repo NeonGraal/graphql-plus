@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_alt_simple_Output;
 
-public class OutputtestAltSmplOutp
+public class testAltSmplOutp
   : ItestAltSmplOutp
 {
   public String AsString { get; set; }

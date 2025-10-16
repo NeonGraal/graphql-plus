@@ -9,13 +9,13 @@ domain PrntDmnStrPrnt { String /b+/ }
 */
 namespace Components.Gqlp_Schema_domain_string_parent;
 
-public class DomainCmptDmnStrPrnt
-  : DomainCmptPrntDmnStrPrnt
+public class CmptDmnStrPrnt
+  : CmptPrntDmnStrPrnt
   , ICmptDmnStrPrnt
 {
 }
 
-public class DomainCmptPrntDmnStrPrnt
+public class CmptPrntDmnStrPrnt
   : ICmptPrntDmnStrPrnt
 {
 }

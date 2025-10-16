@@ -4,87 +4,87 @@
 */
 namespace Components.Gqlp_Schema_Globals;
 
-public class OutputCmptCtgrDscrs
+public class CmptCtgrDscrs
   : ICmptCtgrDscrs
 {
 }
 
-public class OutputCmptCtgrOutp
+public class CmptCtgrOutp
   : ICmptCtgrOutp
 {
 }
 
-public class OutputCmptCtgrOutpDescr
+public class CmptCtgrOutpDescr
   : ICmptCtgrOutpDescr
 {
 }
 
-public class OutputCmptCtgrOutpDict
+public class CmptCtgrOutpDict
   : ICmptCtgrOutpDict
 {
 }
 
-public class OutputCmptCtgrOutpList
+public class CmptCtgrOutpList
   : ICmptCtgrOutpList
 {
 }
 
-public class OutputCmptCtgrOutpOptl
+public class CmptCtgrOutpOptl
   : ICmptCtgrOutpOptl
 {
 }
 
-public class OutputCmptDescr
+public class CmptDescr
   : ICmptDescr
 {
 }
 
-public class OutputCmptDescrBcks
+public class CmptDescrBcks
   : ICmptDescrBcks
 {
 }
 
-public class OutputCmptDescrBtwn
+public class CmptDescrBtwn
   : ICmptDescrBtwn
 {
 }
 
-public class OutputCmptDescrCmpl
+public class CmptDescrCmpl
   : ICmptDescrCmpl
 {
 }
 
-public class OutputCmptDescrDbl
+public class CmptDescrDbl
   : ICmptDescrDbl
 {
 }
 
-public class OutputCmptDescrSngl
+public class CmptDescrSngl
   : ICmptDescrSngl
 {
 }
 
-public class OutputCmptDscrs
+public class CmptDscrs
   : ICmptDscrs
 {
 }
 
-public class InputCmptInDrctParamDict
+public class CmptInDrctParamDict
   : ICmptInDrctParamDict
 {
 }
 
-public class InputCmptInDrctParamIn
+public class CmptInDrctParamIn
   : ICmptInDrctParamIn
 {
 }
 
-public class InputCmptInDrctParamList
+public class CmptInDrctParamList
   : ICmptInDrctParamList
 {
 }
 
-public class InputCmptInDrctParamOpt
+public class CmptInDrctParamOpt
   : ICmptInDrctParamOpt
 {
 }

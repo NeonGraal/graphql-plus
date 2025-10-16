@@ -5,20 +5,20 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_output_param_mod_Domain;
 
-public class OutputtestOutpParamModDmn
+public class testOutpParamModDmn
   : ItestOutpParamModDmn
 {
   public DomOutpParamModDmn field { get; set; }
 }
 
-public class InputtestInOutpParamModDmn
+public class testInOutpParamModDmn
   : ItestInOutpParamModDmn
 {
   public Number param { get; set; }
   public String AsString { get; set; }
 }
 
-public class DomaintestDomOutpParamModDmn
+public class testDomOutpParamModDmn
   : ItestDomOutpParamModDmn
 {
 }

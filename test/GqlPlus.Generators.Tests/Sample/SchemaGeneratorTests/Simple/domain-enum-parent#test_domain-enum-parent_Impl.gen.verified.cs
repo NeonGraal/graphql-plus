@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_parent;
 
-public class DomaintestDmnEnumPrnt
-  : DomaintestPrntDmnEnumPrnt
+public class testDmnEnumPrnt
+  : testPrntDmnEnumPrnt
   , ItestDmnEnumPrnt
 {
 }
 
-public class DomaintestPrntDmnEnumPrnt
+public class testPrntDmnEnumPrnt
   : ItestPrntDmnEnumPrnt
 {
 }

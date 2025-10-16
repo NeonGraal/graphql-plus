@@ -9,7 +9,7 @@ output ObjAltEnumOutp { ! false }
 */
 namespace Components.Gqlp_Schema_object_alt_enum_Output;
 
-public class OutputCmptObjAltEnumOutp
+public class CmptObjAltEnumOutp
   : ICmptObjAltEnumOutp
 {
   public Boolean AsBoolean { get; set; }

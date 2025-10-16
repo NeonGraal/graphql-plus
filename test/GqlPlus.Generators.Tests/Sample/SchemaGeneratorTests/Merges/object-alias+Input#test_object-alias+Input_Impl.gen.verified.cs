@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_object_alias_Input;
 
-public class InputtestObjAliasInp
+public class testObjAliasInp
   : ItestObjAliasInp
 {
 }

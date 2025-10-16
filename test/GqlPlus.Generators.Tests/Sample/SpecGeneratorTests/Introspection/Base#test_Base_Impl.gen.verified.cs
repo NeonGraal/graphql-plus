@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_Base;
 
-public class Domaintest_ObjectKind
+public class test_ObjectKind
   : Itest_ObjectKind
 {
 }
 
-public class Outputtest_TypeObject<Tkind,Tfield>
-  : Outputtest_ChildType
+public class test_TypeObject<Tkind,Tfield>
+  : test_ChildType
   , Itest_TypeObject<Tkind,Tfield>
 {
   public _ObjTypeParam typeParams { get; set; }
@@ -21,37 +21,37 @@ public class Outputtest_TypeObject<Tkind,Tfield>
   public _ObjectFor<_ObjAlternate> allAlternates { get; set; }
 }
 
-public class Outputtest_ObjTypeParam
-  : Outputtest_Named
+public class test_ObjTypeParam
+  : test_Named
   , Itest_ObjTypeParam
 {
   public _TypeRef<_TypeKind> constraint { get; set; }
 }
 
-public class Outputtest_ObjBase
-  : Outputtest_Named
+public class test_ObjBase
+  : test_Named
   , Itest_ObjBase
 {
   public _ObjTypeArg typeArgs { get; set; }
   public _TypeParam As_TypeParam { get; set; }
 }
 
-public class Outputtest_ObjTypeArg
-  : Outputtest_TypeRef
+public class test_ObjTypeArg
+  : test_TypeRef
   , Itest_ObjTypeArg
 {
   public _Identifier label { get; set; }
   public _TypeParam As_TypeParam { get; set; }
 }
 
-public class Outputtest_TypeParam
-  : Outputtest_Described
+public class test_TypeParam
+  : test_Described
   , Itest_TypeParam
 {
   public _Identifier typeParam { get; set; }
 }
 
-public class Outputtest_ObjAlternate
+public class test_ObjAlternate
   : Itest_ObjAlternate
 {
   public _ObjBase type { get; set; }
@@ -59,43 +59,43 @@ public class Outputtest_ObjAlternate
   public _ObjAlternateEnum As_ObjAlternateEnum { get; set; }
 }
 
-public class Outputtest_ObjAlternateEnum
-  : Outputtest_TypeRef
+public class test_ObjAlternateEnum
+  : test_TypeRef
   , Itest_ObjAlternateEnum
 {
   public _Identifier label { get; set; }
 }
 
-public class Outputtest_ObjectFor<Tfor>
-  : Outputtestfor
+public class test_ObjectFor<Tfor>
+  : testfor
   , Itest_ObjectFor<Tfor>
 {
   public _Identifier object { get; set; }
 }
 
-public class Outputtest_ObjField<Ttype>
-  : Outputtest_Aliased
+public class test_ObjField<Ttype>
+  : test_Aliased
   , Itest_ObjField<Ttype>
 {
   public Ttype type { get; set; }
 }
 
-public class Outputtest_ObjFieldType
-  : Outputtest_ObjBase
+public class test_ObjFieldType
+  : test_ObjBase
   , Itest_ObjFieldType
 {
   public _Modifiers modifiers { get; set; }
   public _ObjFieldEnum As_ObjFieldEnum { get; set; }
 }
 
-public class Outputtest_ObjFieldEnum
-  : Outputtest_TypeRef
+public class test_ObjFieldEnum
+  : test_TypeRef
   , Itest_ObjFieldEnum
 {
   public _Identifier label { get; set; }
 }
 
-public class Outputtest_ForParam<Ttype>
+public class test_ForParam<Ttype>
   : Itest_ForParam<Ttype>
 {
   public _ObjAlternate As_ObjAlternate { get; set; }

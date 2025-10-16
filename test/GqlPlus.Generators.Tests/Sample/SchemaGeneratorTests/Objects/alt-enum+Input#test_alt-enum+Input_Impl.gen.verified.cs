@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_alt_enum_Input;
 
-public class InputtestAltEnumInp
+public class testAltEnumInp
   : ItestAltEnumInp
 {
   public EnumAltEnumInp AsEnumAltEnumInp { get; set; }

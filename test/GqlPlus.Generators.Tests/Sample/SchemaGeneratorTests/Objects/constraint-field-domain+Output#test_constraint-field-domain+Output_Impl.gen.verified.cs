@@ -5,19 +5,19 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_domain_Output;
 
-public class OutputtestCnstFieldDmnOutp
-  : OutputtestRefCnstFieldDmnOutp
+public class testCnstFieldDmnOutp
+  : testRefCnstFieldDmnOutp
   , ItestCnstFieldDmnOutp
 {
 }
 
-public class OutputtestRefCnstFieldDmnOutp<Tref>
+public class testRefCnstFieldDmnOutp<Tref>
   : ItestRefCnstFieldDmnOutp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DomaintestDomCnstFieldDmnOutp
+public class testDomCnstFieldDmnOutp
   : ItestDomCnstFieldDmnOutp
 {
 }

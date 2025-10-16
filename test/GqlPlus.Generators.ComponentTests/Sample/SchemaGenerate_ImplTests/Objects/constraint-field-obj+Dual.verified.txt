@@ -11,26 +11,26 @@ dual AltCnstFieldObjDual { :PrntCnstFieldObjDual alt: Number }
 */
 namespace Components.Gqlp_Schema_constraint_field_obj_Dual;
 
-public class DualCmptCnstFieldObjDual
-  : DualCmptRefCnstFieldObjDual
+public class CmptCnstFieldObjDual
+  : CmptRefCnstFieldObjDual
   , ICmptCnstFieldObjDual
 {
 }
 
-public class DualCmptRefCnstFieldObjDual<Tref>
+public class CmptRefCnstFieldObjDual<Tref>
   : ICmptRefCnstFieldObjDual<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DualCmptPrntCnstFieldObjDual
+public class CmptPrntCnstFieldObjDual
   : ICmptPrntCnstFieldObjDual
 {
   public String AsString { get; set; }
 }
 
-public class DualCmptAltCnstFieldObjDual
-  : DualCmptPrntCnstFieldObjDual
+public class CmptAltCnstFieldObjDual
+  : CmptPrntCnstFieldObjDual
   , ICmptAltCnstFieldObjDual
 {
   public Number alt { get; set; }

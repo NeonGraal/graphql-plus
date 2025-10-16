@@ -8,7 +8,7 @@ output AltSmplOutp { | String }
 */
 namespace Components.Gqlp_Schema_alt_simple_Output;
 
-public class OutputCmptAltSmplOutp
+public class CmptAltSmplOutp
   : ICmptAltSmplOutp
 {
   public String AsString { get; set; }

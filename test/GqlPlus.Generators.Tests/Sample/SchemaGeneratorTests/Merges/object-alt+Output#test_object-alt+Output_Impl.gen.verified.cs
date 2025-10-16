@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_object_alt_Output;
 
-public class OutputtestObjAltOutp
+public class testObjAltOutp
   : ItestObjAltOutp
 {
   public ObjAltOutpType AsObjAltOutpType { get; set; }
 }
 
-public class OutputtestObjAltOutpType
+public class testObjAltOutpType
   : ItestObjAltOutpType
 {
 }

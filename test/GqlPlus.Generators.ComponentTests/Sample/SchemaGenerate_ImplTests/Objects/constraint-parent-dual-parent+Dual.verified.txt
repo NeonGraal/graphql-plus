@@ -11,26 +11,26 @@ dual AltCnstPrntDualPrntDual { :PrntCnstPrntDualPrntDual alt: Number }
 */
 namespace Components.Gqlp_Schema_constraint_parent_dual_parent_Dual;
 
-public class DualCmptCnstPrntDualPrntDual
-  : DualCmptRefCnstPrntDualPrntDual
+public class CmptCnstPrntDualPrntDual
+  : CmptRefCnstPrntDualPrntDual
   , ICmptCnstPrntDualPrntDual
 {
 }
 
-public class DualCmptRefCnstPrntDualPrntDual<Tref>
-  : DualCmptref
+public class CmptRefCnstPrntDualPrntDual<Tref>
+  : Cmptref
   , ICmptRefCnstPrntDualPrntDual<Tref>
 {
 }
 
-public class DualCmptPrntCnstPrntDualPrntDual
+public class CmptPrntCnstPrntDualPrntDual
   : ICmptPrntCnstPrntDualPrntDual
 {
   public String AsString { get; set; }
 }
 
-public class DualCmptAltCnstPrntDualPrntDual
-  : DualCmptPrntCnstPrntDualPrntDual
+public class CmptAltCnstPrntDualPrntDual
+  : CmptPrntCnstPrntDualPrntDual
   , ICmptAltCnstPrntDualPrntDual
 {
   public Number alt { get; set; }

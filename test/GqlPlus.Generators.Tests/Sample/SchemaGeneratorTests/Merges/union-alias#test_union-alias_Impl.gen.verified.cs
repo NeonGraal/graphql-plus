@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_union_alias;
 
-public class UniontestUnionAlias
+public class testUnionAlias
   : ItestUnionAlias
 {
   public Boolean AsBoolean { get; set; }

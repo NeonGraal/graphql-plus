@@ -5,8 +5,8 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_Option;
 
-public class Outputtest_Setting
-  : Outputtest_Named
+public class test_Setting
+  : test_Named
   , Itest_Setting
 {
   public _Value value { get; set; }

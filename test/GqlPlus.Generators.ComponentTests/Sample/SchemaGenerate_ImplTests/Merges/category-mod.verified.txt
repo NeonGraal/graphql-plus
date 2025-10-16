@@ -10,7 +10,7 @@ output CtgrMod { }
 */
 namespace Components.Gqlp_Schema_category_mod;
 
-public class OutputCmptCtgrMod
+public class CmptCtgrMod
   : ICmptCtgrMod
 {
 }

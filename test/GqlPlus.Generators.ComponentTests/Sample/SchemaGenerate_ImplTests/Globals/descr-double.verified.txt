@@ -9,7 +9,7 @@ output DescrDbl { }
 */
 namespace Components.Gqlp_Schema_descr_double;
 
-public class OutputCmptDescrDbl
+public class CmptDescrDbl
   : ICmptDescrDbl
 {
 }

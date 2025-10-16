@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_field_mod_param_Dual;
 
-public class DualtestFieldModParamDual<Tmod>
+public class testFieldModParamDual<Tmod>
   : ItestFieldModParamDual<Tmod>
 {
   public FldFieldModParamDual field { get; set; }
 }
 
-public class DualtestFldFieldModParamDual
+public class testFldFieldModParamDual
   : ItestFldFieldModParamDual
 {
   public Number field { get; set; }

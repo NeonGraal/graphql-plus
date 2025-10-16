@@ -12,32 +12,32 @@ input PrntOutpPrntParamIn { parent: Number | String }
 */
 namespace Components.Gqlp_Schema_output_parent_param;
 
-public class OutputCmptOutpPrntParam
-  : OutputCmptPrntOutpPrntParam
+public class CmptOutpPrntParam
+  : CmptPrntOutpPrntParam
   , ICmptOutpPrntParam
 {
   public FldOutpPrntParam field { get; set; }
 }
 
-public class OutputCmptPrntOutpPrntParam
+public class CmptPrntOutpPrntParam
   : ICmptPrntOutpPrntParam
 {
   public FldOutpPrntParam field { get; set; }
 }
 
-public class DualCmptFldOutpPrntParam
+public class CmptFldOutpPrntParam
   : ICmptFldOutpPrntParam
 {
 }
 
-public class InputCmptInOutpPrntParam
+public class CmptInOutpPrntParam
   : ICmptInOutpPrntParam
 {
   public Number param { get; set; }
   public String AsString { get; set; }
 }
 
-public class InputCmptPrntOutpPrntParamIn
+public class CmptPrntOutpPrntParamIn
   : ICmptPrntOutpPrntParamIn
 {
   public Number parent { get; set; }

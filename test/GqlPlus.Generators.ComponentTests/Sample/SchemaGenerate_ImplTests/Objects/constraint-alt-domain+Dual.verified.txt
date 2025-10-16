@@ -10,19 +10,19 @@ domain DomCnstAltDmnDual { String /\w+/ }
 */
 namespace Components.Gqlp_Schema_constraint_alt_domain_Dual;
 
-public class DualCmptCnstAltDmnDual
+public class CmptCnstAltDmnDual
   : ICmptCnstAltDmnDual
 {
   public RefCnstAltDmnDual<DomCnstAltDmnDual> AsRefCnstAltDmnDual { get; set; }
 }
 
-public class DualCmptRefCnstAltDmnDual<Tref>
+public class CmptRefCnstAltDmnDual<Tref>
   : ICmptRefCnstAltDmnDual<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DomainCmptDomCnstAltDmnDual
+public class CmptDomCnstAltDmnDual
   : ICmptDomCnstAltDmnDual
 {
 }

@@ -5,8 +5,8 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp__Schema;
 
-public class Outputtest_Schema
-  : Outputtest_Named
+public class test_Schema
+  : test_Named
   , Itest_Schema
 {
   public _Categories categories { get; set; }
@@ -15,12 +15,12 @@ public class Outputtest_Schema
   public _Setting settings { get; set; }
 }
 
-public class Domaintest_Identifier
+public class test_Identifier
   : Itest_Identifier
 {
 }
 
-public class Inputtest_Filter
+public class test_Filter
   : Itest_Filter
 {
   public _NameFilter names { get; set; }
@@ -31,40 +31,40 @@ public class Inputtest_Filter
   public _NameFilter As_NameFilter { get; set; }
 }
 
-public class Domaintest_NameFilter
+public class test_NameFilter
   : Itest_NameFilter
 {
 }
 
-public class Inputtest_CategoryFilter
-  : Inputtest_Filter
+public class test_CategoryFilter
+  : test_Filter
   , Itest_CategoryFilter
 {
   public _Resolution resolutions { get; set; }
 }
 
-public class Inputtest_TypeFilter
-  : Inputtest_Filter
+public class test_TypeFilter
+  : test_Filter
   , Itest_TypeFilter
 {
   public _TypeKind kinds { get; set; }
 }
 
-public class Dualtest_Aliased
-  : Dualtest_Named
+public class test_Aliased
+  : test_Named
   , Itest_Aliased
 {
   public _Identifier aliases { get; set; }
 }
 
-public class Dualtest_Named
-  : Dualtest_Described
+public class test_Named
+  : test_Described
   , Itest_Named
 {
   public _Identifier name { get; set; }
 }
 
-public class Dualtest_Described
+public class test_Described
   : Itest_Described
 {
   public String description { get; set; }

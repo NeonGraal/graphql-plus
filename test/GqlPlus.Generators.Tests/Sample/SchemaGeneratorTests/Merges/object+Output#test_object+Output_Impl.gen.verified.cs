@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_object_Output;
 
-public class OutputtestObjOutp
+public class testObjOutp
   : ItestObjOutp
 {
 }

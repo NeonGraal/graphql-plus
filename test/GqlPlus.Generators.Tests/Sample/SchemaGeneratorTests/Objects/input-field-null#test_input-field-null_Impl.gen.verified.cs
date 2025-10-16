@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_input_field_null;
 
-public class InputtestInpFieldNull
+public class testInpFieldNull
   : ItestInpFieldNull
 {
   public FldInpFieldNull field { get; set; }
 }
 
-public class DualtestFldInpFieldNull
+public class testFldInpFieldNull
   : ItestFldInpFieldNull
 {
 }

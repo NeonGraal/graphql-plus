@@ -33,9 +33,7 @@ public abstract class TypeGeneratorClassTestBase<TType, TParent>
     result.ShouldBeFalse();
   }
 
-  [Fact]
-  public void TypePrefix_ReturnsExpected() =>
-    TypeGenerator.TypePrefix.ShouldBe(ExpectedTypePrefix);
+
 
   [Theory, RepeatMemberData(nameof(BaseGeneratorData))]
   public void GenerateType_WithName_GeneratesCorrectCode(GqlpBaseType baseType, GqlpGeneratorType generatorType, string name)
@@ -73,13 +71,11 @@ public abstract class TypeGeneratorClassTestBase<TType, TParent>
 public abstract class TypeGeneratorClassTestBase
   : GeneratorClassTestBase
 {
-  public abstract string ExpectedTypePrefix { get; }
-
   protected virtual Action<string> CheckGeneratedCodeName(GqlpGeneratorType generatorType, string name)
     => result => {
       switch (generatorType) {
         case GqlpGeneratorType.Interface: result.ShouldContain("public interface Itest" + name); break;
-        case GqlpGeneratorType.Implementation: result.ShouldContain("public class " + ExpectedTypePrefix + "test" + name); break;
+        case GqlpGeneratorType.Implementation: result.ShouldContain("public class test" + name); break;
         default: result.ShouldBeEmpty(); break;
       }
     };
@@ -88,7 +84,7 @@ public abstract class TypeGeneratorClassTestBase
     => result => {
       switch (generatorType) {
         case GqlpGeneratorType.Interface: result.ShouldContain(": I" + "test" + parent); break;
-        case GqlpGeneratorType.Implementation: result.ShouldContain(": " + ExpectedTypePrefix + "test" + parent); break;
+        case GqlpGeneratorType.Implementation: result.ShouldContain(": test" + parent); break;
         default: result.ShouldBeEmpty(); break;
       }
     };

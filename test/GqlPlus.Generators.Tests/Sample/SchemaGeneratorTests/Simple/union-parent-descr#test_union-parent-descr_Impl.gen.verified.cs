@@ -5,14 +5,14 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_union_parent_descr;
 
-public class UniontestUnionPrntDescr
-  : UniontestPrntUnionPrntDescr
+public class testUnionPrntDescr
+  : testPrntUnionPrntDescr
   , ItestUnionPrntDescr
 {
   public Number AsNumber { get; set; }
 }
 
-public class UniontestPrntUnionPrntDescr
+public class testPrntUnionPrntDescr
   : ItestPrntUnionPrntDescr
 {
   public Number AsNumber { get; set; }

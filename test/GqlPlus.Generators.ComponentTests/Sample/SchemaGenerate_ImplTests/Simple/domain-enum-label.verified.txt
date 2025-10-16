@@ -9,7 +9,7 @@ enum EnumDmnEnumLabel { dmnEnumLabel }
 */
 namespace Components.Gqlp_Schema_domain_enum_label;
 
-public class DomainCmptDmnEnumLabel
+public class CmptDmnEnumLabel
   : ICmptDmnEnumLabel
 {
 }

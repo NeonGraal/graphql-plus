@@ -11,19 +11,19 @@ domain DomGnrcPrntEnumDomDual { enum gnrcPrntEnumDomDualLabel }
 */
 namespace Components.Gqlp_Schema_generic_parent_enum_dom_Dual;
 
-public class DualCmptGnrcPrntEnumDomDual
-  : DualCmptFieldGnrcPrntEnumDomDual
+public class CmptGnrcPrntEnumDomDual
+  : CmptFieldGnrcPrntEnumDomDual
   , ICmptGnrcPrntEnumDomDual
 {
 }
 
-public class DualCmptFieldGnrcPrntEnumDomDual<Tref>
+public class CmptFieldGnrcPrntEnumDomDual<Tref>
   : ICmptFieldGnrcPrntEnumDomDual<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DomainCmptDomGnrcPrntEnumDomDual
+public class CmptDomGnrcPrntEnumDomDual
   : ICmptDomGnrcPrntEnumDomDual
 {
 }

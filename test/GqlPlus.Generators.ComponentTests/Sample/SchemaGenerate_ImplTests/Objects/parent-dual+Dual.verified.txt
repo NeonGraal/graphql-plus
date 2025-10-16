@@ -9,13 +9,13 @@ dual RefPrntDualDual { parent: Number | String }
 */
 namespace Components.Gqlp_Schema_parent_dual_Dual;
 
-public class DualCmptPrntDualDual
-  : DualCmptRefPrntDualDual
+public class CmptPrntDualDual
+  : CmptRefPrntDualDual
   , ICmptPrntDualDual
 {
 }
 
-public class DualCmptRefPrntDualDual
+public class CmptRefPrntDualDual
   : ICmptRefPrntDualDual
 {
   public Number parent { get; set; }

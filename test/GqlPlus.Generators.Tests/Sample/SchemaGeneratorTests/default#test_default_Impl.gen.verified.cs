@@ -5,22 +5,22 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_default;
 
-public class OutputtestQuery
+public class testQuery
   : ItestQuery
 {
 }
 
-public class OutputtestMutation
+public class testMutation
   : ItestMutation
 {
 }
 
-public class OutputtestSubscription
+public class testSubscription
   : ItestSubscription
 {
 }
 
-public class Outputtest_Schema
+public class test_Schema
   : Itest_Schema
 {
 }

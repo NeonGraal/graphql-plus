@@ -9,13 +9,13 @@ dual ObjDualAltDualOutp { alt: Number | String }
 */
 namespace Components.Gqlp_Schema_alt_dual_Output;
 
-public class OutputCmptAltDualOutp
+public class CmptAltDualOutp
   : ICmptAltDualOutp
 {
   public ObjDualAltDualOutp AsObjDualAltDualOutp { get; set; }
 }
 
-public class DualCmptObjDualAltDualOutp
+public class CmptObjDualAltDualOutp
   : ICmptObjDualAltDualOutp
 {
   public Number alt { get; set; }

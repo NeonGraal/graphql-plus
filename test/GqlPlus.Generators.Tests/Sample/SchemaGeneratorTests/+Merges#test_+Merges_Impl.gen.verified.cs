@@ -5,440 +5,440 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp__Merges;
 
-public class OutputtestCtgr
+public class testCtgr
   : ItestCtgr
 {
 }
 
-public class OutputtestCtgrAlias
+public class testCtgrAlias
   : ItestCtgrAlias
 {
 }
 
-public class OutputtestCtgrDescr
+public class testCtgrDescr
   : ItestCtgrDescr
 {
 }
 
-public class OutputtestCtgrMod
+public class testCtgrMod
   : ItestCtgrMod
 {
 }
 
-public class InputtestInDrctParam
+public class testInDrctParam
   : ItestInDrctParam
 {
 }
 
-public class DomaintestDmnAlias
+public class testDmnAlias
   : ItestDmnAlias
 {
 }
 
-public class DomaintestDmnBool
+public class testDmnBool
   : ItestDmnBool
 {
 }
 
-public class DomaintestDmnBoolDiff
+public class testDmnBoolDiff
   : ItestDmnBoolDiff
 {
 }
 
-public class DomaintestDmnBoolSame
+public class testDmnBoolSame
   : ItestDmnBoolSame
 {
 }
 
-public class DomaintestDmnEnumDiff
+public class testDmnEnumDiff
   : ItestDmnEnumDiff
 {
 }
 
-public class DomaintestDmnEnumSame
+public class testDmnEnumSame
   : ItestDmnEnumSame
 {
 }
 
-public class DomaintestDmnNmbr
+public class testDmnNmbr
   : ItestDmnNmbr
 {
 }
 
-public class DomaintestDmnNmbrDiff
+public class testDmnNmbrDiff
   : ItestDmnNmbrDiff
 {
 }
 
-public class DomaintestDmnNmbrSame
+public class testDmnNmbrSame
   : ItestDmnNmbrSame
 {
 }
 
-public class DomaintestDmnStr
+public class testDmnStr
   : ItestDmnStr
 {
 }
 
-public class DomaintestDmnStrDiff
+public class testDmnStrDiff
   : ItestDmnStrDiff
 {
 }
 
-public class DomaintestDmnStrSame
+public class testDmnStrSame
   : ItestDmnStrSame
 {
 }
 
-public class DualtestObjDual
+public class testObjDual
   : ItestObjDual
 {
 }
 
-public class InputtestObjInp
+public class testObjInp
   : ItestObjInp
 {
 }
 
-public class OutputtestObjOutp
+public class testObjOutp
   : ItestObjOutp
 {
 }
 
-public class DualtestObjAliasDual
+public class testObjAliasDual
   : ItestObjAliasDual
 {
 }
 
-public class InputtestObjAliasInp
+public class testObjAliasInp
   : ItestObjAliasInp
 {
 }
 
-public class OutputtestObjAliasOutp
+public class testObjAliasOutp
   : ItestObjAliasOutp
 {
 }
 
-public class DualtestObjAltDual
+public class testObjAltDual
   : ItestObjAltDual
 {
   public ObjAltDualType AsObjAltDualType { get; set; }
 }
 
-public class DualtestObjAltDualType
+public class testObjAltDualType
   : ItestObjAltDualType
 {
 }
 
-public class InputtestObjAltInp
+public class testObjAltInp
   : ItestObjAltInp
 {
   public ObjAltInpType AsObjAltInpType { get; set; }
 }
 
-public class InputtestObjAltInpType
+public class testObjAltInpType
   : ItestObjAltInpType
 {
 }
 
-public class OutputtestObjAltOutp
+public class testObjAltOutp
   : ItestObjAltOutp
 {
   public ObjAltOutpType AsObjAltOutpType { get; set; }
 }
 
-public class OutputtestObjAltOutpType
+public class testObjAltOutpType
   : ItestObjAltOutpType
 {
 }
 
-public class DualtestObjAltEnumDual
+public class testObjAltEnumDual
   : ItestObjAltEnumDual
 {
   public Boolean AsBoolean { get; set; }
   public Boolean AsBoolean { get; set; }
 }
 
-public class InputtestObjAltEnumInp
+public class testObjAltEnumInp
   : ItestObjAltEnumInp
 {
   public Boolean AsBoolean { get; set; }
   public Boolean AsBoolean { get; set; }
 }
 
-public class OutputtestObjAltEnumOutp
+public class testObjAltEnumOutp
   : ItestObjAltEnumOutp
 {
   public Boolean AsBoolean { get; set; }
   public Boolean AsBoolean { get; set; }
 }
 
-public class DualtestObjCnstDual<Ttype>
+public class testObjCnstDual<Ttype>
   : ItestObjCnstDual<Ttype>
 {
   public Ttype field { get; set; }
   public Ttype str { get; set; }
 }
 
-public class InputtestObjCnstInp<Ttype>
+public class testObjCnstInp<Ttype>
   : ItestObjCnstInp<Ttype>
 {
   public Ttype field { get; set; }
   public Ttype str { get; set; }
 }
 
-public class OutputtestObjCnstOutp<Ttype>
+public class testObjCnstOutp<Ttype>
   : ItestObjCnstOutp<Ttype>
 {
   public Ttype field { get; set; }
   public Ttype str { get; set; }
 }
 
-public class DualtestObjFieldDual
+public class testObjFieldDual
   : ItestObjFieldDual
 {
   public FldObjFieldDual field { get; set; }
 }
 
-public class DualtestFldObjFieldDual
+public class testFldObjFieldDual
   : ItestFldObjFieldDual
 {
 }
 
-public class InputtestObjFieldInp
+public class testObjFieldInp
   : ItestObjFieldInp
 {
   public FldObjFieldInp field { get; set; }
 }
 
-public class InputtestFldObjFieldInp
+public class testFldObjFieldInp
   : ItestFldObjFieldInp
 {
 }
 
-public class OutputtestObjFieldOutp
+public class testObjFieldOutp
   : ItestObjFieldOutp
 {
   public FldObjFieldOutp field { get; set; }
 }
 
-public class OutputtestFldObjFieldOutp
+public class testFldObjFieldOutp
   : ItestFldObjFieldOutp
 {
 }
 
-public class DualtestObjFieldAliasDual
+public class testObjFieldAliasDual
   : ItestObjFieldAliasDual
 {
   public FldObjFieldAliasDual field { get; set; }
 }
 
-public class DualtestFldObjFieldAliasDual
+public class testFldObjFieldAliasDual
   : ItestFldObjFieldAliasDual
 {
 }
 
-public class InputtestObjFieldAliasInp
+public class testObjFieldAliasInp
   : ItestObjFieldAliasInp
 {
   public FldObjFieldAliasInp field { get; set; }
 }
 
-public class InputtestFldObjFieldAliasInp
+public class testFldObjFieldAliasInp
   : ItestFldObjFieldAliasInp
 {
 }
 
-public class OutputtestObjFieldAliasOutp
+public class testObjFieldAliasOutp
   : ItestObjFieldAliasOutp
 {
   public FldObjFieldAliasOutp field { get; set; }
 }
 
-public class OutputtestFldObjFieldAliasOutp
+public class testFldObjFieldAliasOutp
   : ItestFldObjFieldAliasOutp
 {
 }
 
-public class DualtestObjFieldEnumAliasDual
+public class testObjFieldEnumAliasDual
   : ItestObjFieldEnumAliasDual
 {
   public Boolean field { get; set; }
 }
 
-public class InputtestObjFieldEnumAliasInp
+public class testObjFieldEnumAliasInp
   : ItestObjFieldEnumAliasInp
 {
   public Boolean field { get; set; }
 }
 
-public class OutputtestObjFieldEnumAliasOutp
+public class testObjFieldEnumAliasOutp
   : ItestObjFieldEnumAliasOutp
 {
   public Boolean field { get; set; }
 }
 
-public class DualtestObjFieldEnumValueDual
+public class testObjFieldEnumValueDual
   : ItestObjFieldEnumValueDual
 {
   public Boolean field { get; set; }
 }
 
-public class InputtestObjFieldEnumValueInp
+public class testObjFieldEnumValueInp
   : ItestObjFieldEnumValueInp
 {
   public Boolean field { get; set; }
 }
 
-public class OutputtestObjFieldEnumValueOutp
+public class testObjFieldEnumValueOutp
   : ItestObjFieldEnumValueOutp
 {
   public Boolean field { get; set; }
 }
 
-public class DualtestObjFieldTypeAliasDual
+public class testObjFieldTypeAliasDual
   : ItestObjFieldTypeAliasDual
 {
   public String field { get; set; }
 }
 
-public class InputtestObjFieldTypeAliasInp
+public class testObjFieldTypeAliasInp
   : ItestObjFieldTypeAliasInp
 {
   public String field { get; set; }
 }
 
-public class OutputtestObjFieldTypeAliasOutp
+public class testObjFieldTypeAliasOutp
   : ItestObjFieldTypeAliasOutp
 {
   public String field { get; set; }
 }
 
-public class DualtestObjParamDual<Ttest,Ttype>
+public class testObjParamDual<Ttest,Ttype>
   : ItestObjParamDual<Ttest,Ttype>
 {
   public Ttest test { get; set; }
   public Ttype type { get; set; }
 }
 
-public class InputtestObjParamInp<Ttest,Ttype>
+public class testObjParamInp<Ttest,Ttype>
   : ItestObjParamInp<Ttest,Ttype>
 {
   public Ttest test { get; set; }
   public Ttype type { get; set; }
 }
 
-public class OutputtestObjParamOutp<Ttest,Ttype>
+public class testObjParamOutp<Ttest,Ttype>
   : ItestObjParamOutp<Ttest,Ttype>
 {
   public Ttest test { get; set; }
   public Ttype type { get; set; }
 }
 
-public class DualtestObjParamDupDual<Ttest>
+public class testObjParamDupDual<Ttest>
   : ItestObjParamDupDual<Ttest>
 {
   public Ttest test { get; set; }
   public Ttest type { get; set; }
 }
 
-public class InputtestObjParamDupInp<Ttest>
+public class testObjParamDupInp<Ttest>
   : ItestObjParamDupInp<Ttest>
 {
   public Ttest test { get; set; }
   public Ttest type { get; set; }
 }
 
-public class OutputtestObjParamDupOutp<Ttest>
+public class testObjParamDupOutp<Ttest>
   : ItestObjParamDupOutp<Ttest>
 {
   public Ttest test { get; set; }
   public Ttest type { get; set; }
 }
 
-public class DualtestObjPrntDual
-  : DualtestRefObjPrntDual
+public class testObjPrntDual
+  : testRefObjPrntDual
   , ItestObjPrntDual
 {
 }
 
-public class DualtestRefObjPrntDual
+public class testRefObjPrntDual
   : ItestRefObjPrntDual
 {
 }
 
-public class InputtestObjPrntInp
-  : InputtestRefObjPrntInp
+public class testObjPrntInp
+  : testRefObjPrntInp
   , ItestObjPrntInp
 {
 }
 
-public class InputtestRefObjPrntInp
+public class testRefObjPrntInp
   : ItestRefObjPrntInp
 {
 }
 
-public class OutputtestObjPrntOutp
-  : OutputtestRefObjPrntOutp
+public class testObjPrntOutp
+  : testRefObjPrntOutp
   , ItestObjPrntOutp
 {
 }
 
-public class OutputtestRefObjPrntOutp
+public class testRefObjPrntOutp
   : ItestRefObjPrntOutp
 {
 }
 
-public class OutputtestOutpFieldParam
+public class testOutpFieldParam
   : ItestOutpFieldParam
 {
   public FldOutpFieldParam field { get; set; }
 }
 
-public class InputtestOutpFieldParam1
+public class testOutpFieldParam1
   : ItestOutpFieldParam1
 {
 }
 
-public class InputtestOutpFieldParam2
+public class testOutpFieldParam2
   : ItestOutpFieldParam2
 {
 }
 
-public class DualtestFldOutpFieldParam
+public class testFldOutpFieldParam
   : ItestFldOutpFieldParam
 {
 }
 
-public class UniontestUnionAlias
+public class testUnionAlias
   : ItestUnionAlias
 {
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }
 }
 
-public class UniontestUnionDiff
+public class testUnionDiff
   : ItestUnionDiff
 {
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }
 }
 
-public class UniontestUnionSame
+public class testUnionSame
   : ItestUnionSame
 {
   public Boolean AsBoolean { get; set; }
 }
 
-public class UniontestUnionSamePrnt
-  : UniontestPrntUnionSamePrnt
+public class testUnionSamePrnt
+  : testPrntUnionSamePrnt
   , ItestUnionSamePrnt
 {
   public Boolean AsBoolean { get; set; }
 }
 
-public class UniontestPrntUnionSamePrnt
+public class testPrntUnionSamePrnt
   : ItestPrntUnionSamePrnt
 {
   public String AsString { get; set; }

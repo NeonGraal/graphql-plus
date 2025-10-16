@@ -10,13 +10,13 @@ enum EnumGnrcValueOutp { gnrcValueOutp }
 */
 namespace Components.Gqlp_Schema_generic_value_Output;
 
-public class OutputCmptGnrcValueOutp
+public class CmptGnrcValueOutp
   : ICmptGnrcValueOutp
 {
   public RefGnrcValueOutp<EnumGnrcValueOutp> AsRefGnrcValueOutp { get; set; }
 }
 
-public class OutputCmptRefGnrcValueOutp<Ttype>
+public class CmptRefGnrcValueOutp<Ttype>
   : ICmptRefGnrcValueOutp<Ttype>
 {
   public Ttype field { get; set; }

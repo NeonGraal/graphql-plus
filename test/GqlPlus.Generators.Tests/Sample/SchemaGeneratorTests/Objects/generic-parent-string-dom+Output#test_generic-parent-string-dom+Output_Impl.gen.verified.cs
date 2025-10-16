@@ -5,19 +5,19 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_string_dom_Output;
 
-public class OutputtestGnrcPrntStrDomOutp
-  : OutputtestFieldGnrcPrntStrDomOutp
+public class testGnrcPrntStrDomOutp
+  : testFieldGnrcPrntStrDomOutp
   , ItestGnrcPrntStrDomOutp
 {
 }
 
-public class OutputtestFieldGnrcPrntStrDomOutp<Tref>
+public class testFieldGnrcPrntStrDomOutp<Tref>
   : ItestFieldGnrcPrntStrDomOutp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DomaintestDomGnrcPrntStrDomOutp
+public class testDomGnrcPrntStrDomOutp
   : ItestDomGnrcPrntStrDomOutp
 {
 }

@@ -32,25 +32,25 @@ output All {
 */
 namespace Components.Gqlp_Schema_all;
 
-public class DomainCmptGuid
+public class CmptGuid
   : ICmptGuid
 {
 }
 
-public class UnionCmptMany
+public class CmptMany
   : ICmptMany
 {
   public Guid AsGuid { get; set; }
   public Number AsNumber { get; set; }
 }
 
-public class DualCmptField
+public class CmptField
   : ICmptField
 {
   public String strings { get; set; }
 }
 
-public class InputCmptParam
+public class CmptParam
   : ICmptParam
 {
   public Many afterId { get; set; }
@@ -58,7 +58,7 @@ public class InputCmptParam
   public String AsString { get; set; }
 }
 
-public class OutputCmptAll
+public class CmptAll
   : ICmptAll
 {
   public Field items { get; set; }

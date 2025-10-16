@@ -8,7 +8,7 @@ dual GnrcDescrDual<"Test" "Descr" $type:String> { field: $type }
 */
 namespace Components.Gqlp_Schema_generic_descr_Dual;
 
-public class DualCmptGnrcDescrDual<Ttype>
+public class CmptGnrcDescrDual<Ttype>
   : ICmptGnrcDescrDual<Ttype>
 {
   public Ttype field { get; set; }

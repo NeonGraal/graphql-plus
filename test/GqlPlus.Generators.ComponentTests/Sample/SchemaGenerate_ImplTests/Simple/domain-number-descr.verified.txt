@@ -8,7 +8,7 @@ domain DmnNmbrDescr { Number "DomNumber" "Descr" <2 }
 */
 namespace Components.Gqlp_Schema_domain_number_descr;
 
-public class DomainCmptDmnNmbrDescr
+public class CmptDmnNmbrDescr
   : ICmptDmnNmbrDescr
 {
 }

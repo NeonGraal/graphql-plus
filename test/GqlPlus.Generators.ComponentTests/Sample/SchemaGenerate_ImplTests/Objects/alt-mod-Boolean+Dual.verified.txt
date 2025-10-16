@@ -9,13 +9,13 @@ dual AltAltModBoolDual { alt: Number | String }
 */
 namespace Components.Gqlp_Schema_alt_mod_Boolean_Dual;
 
-public class DualCmptAltModBoolDual
+public class CmptAltModBoolDual
   : ICmptAltModBoolDual
 {
   public AltAltModBoolDual AsAltAltModBoolDual { get; set; }
 }
 
-public class DualCmptAltAltModBoolDual
+public class CmptAltAltModBoolDual
   : ICmptAltAltModBoolDual
 {
   public Number alt { get; set; }

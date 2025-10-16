@@ -8,7 +8,7 @@ input AltSmplInp { | String }
 */
 namespace Components.Gqlp_Schema_alt_simple_Input;
 
-public class InputCmptAltSmplInp
+public class CmptAltSmplInp
   : ICmptAltSmplInp
 {
   public String AsString { get; set; }

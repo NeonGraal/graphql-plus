@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_all;
 
-public class DomaintestDmnEnumAll
+public class testDmnEnumAll
   : ItestDmnEnumAll
 {
 }

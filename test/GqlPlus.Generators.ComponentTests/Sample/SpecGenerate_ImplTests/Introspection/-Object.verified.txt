@@ -113,13 +113,13 @@ output _OutputFieldType {
 */
 namespace Components.Gqlp_Spec_Object;
 
-public class DomainCmpt_ObjectKind
+public class Cmpt_ObjectKind
   : ICmpt_ObjectKind
 {
 }
 
-public class OutputCmpt_TypeObject<Tkind,Tfield>
-  : OutputCmpt_ChildType
+public class Cmpt_TypeObject<Tkind,Tfield>
+  : Cmpt_ChildType
   , ICmpt_TypeObject<Tkind,Tfield>
 {
   public _ObjTypeParam typeParams { get; set; }
@@ -129,37 +129,37 @@ public class OutputCmpt_TypeObject<Tkind,Tfield>
   public _ObjectFor<_ObjAlternate> allAlternates { get; set; }
 }
 
-public class OutputCmpt_ObjTypeParam
-  : OutputCmpt_Named
+public class Cmpt_ObjTypeParam
+  : Cmpt_Named
   , ICmpt_ObjTypeParam
 {
   public _TypeRef<_TypeKind> constraint { get; set; }
 }
 
-public class OutputCmpt_ObjBase
-  : OutputCmpt_Named
+public class Cmpt_ObjBase
+  : Cmpt_Named
   , ICmpt_ObjBase
 {
   public _ObjTypeArg typeArgs { get; set; }
   public _TypeParam As_TypeParam { get; set; }
 }
 
-public class OutputCmpt_ObjTypeArg
-  : OutputCmpt_TypeRef
+public class Cmpt_ObjTypeArg
+  : Cmpt_TypeRef
   , ICmpt_ObjTypeArg
 {
   public _Identifier label { get; set; }
   public _TypeParam As_TypeParam { get; set; }
 }
 
-public class OutputCmpt_TypeParam
-  : OutputCmpt_Described
+public class Cmpt_TypeParam
+  : Cmpt_Described
   , ICmpt_TypeParam
 {
   public _Identifier typeParam { get; set; }
 }
 
-public class OutputCmpt_ObjAlternate
+public class Cmpt_ObjAlternate
   : ICmpt_ObjAlternate
 {
   public _ObjBase type { get; set; }
@@ -167,100 +167,100 @@ public class OutputCmpt_ObjAlternate
   public _ObjAlternateEnum As_ObjAlternateEnum { get; set; }
 }
 
-public class OutputCmpt_ObjAlternateEnum
-  : OutputCmpt_TypeRef
+public class Cmpt_ObjAlternateEnum
+  : Cmpt_TypeRef
   , ICmpt_ObjAlternateEnum
 {
   public _Identifier label { get; set; }
 }
 
-public class OutputCmpt_ObjectFor<Tfor>
-  : OutputCmptfor
+public class Cmpt_ObjectFor<Tfor>
+  : Cmptfor
   , ICmpt_ObjectFor<Tfor>
 {
   public _Identifier object { get; set; }
 }
 
-public class OutputCmpt_ObjField<Ttype>
-  : OutputCmpt_Aliased
+public class Cmpt_ObjField<Ttype>
+  : Cmpt_Aliased
   , ICmpt_ObjField<Ttype>
 {
   public Ttype type { get; set; }
 }
 
-public class OutputCmpt_ObjFieldType
-  : OutputCmpt_ObjBase
+public class Cmpt_ObjFieldType
+  : Cmpt_ObjBase
   , ICmpt_ObjFieldType
 {
   public _Modifiers modifiers { get; set; }
   public _ObjFieldEnum As_ObjFieldEnum { get; set; }
 }
 
-public class OutputCmpt_ObjFieldEnum
-  : OutputCmpt_TypeRef
+public class Cmpt_ObjFieldEnum
+  : Cmpt_TypeRef
   , ICmpt_ObjFieldEnum
 {
   public _Identifier label { get; set; }
 }
 
-public class OutputCmpt_ForParam<Ttype>
+public class Cmpt_ForParam<Ttype>
   : ICmpt_ForParam<Ttype>
 {
   public _ObjAlternate As_ObjAlternate { get; set; }
   public _ObjField<Ttype> As_ObjField { get; set; }
 }
 
-public class OutputCmpt_TypeDual
-  : OutputCmpt_TypeObject
+public class Cmpt_TypeDual
+  : Cmpt_TypeObject
   , ICmpt_TypeDual
 {
 }
 
-public class OutputCmpt_DualField
-  : OutputCmpt_ObjField
+public class Cmpt_DualField
+  : Cmpt_ObjField
   , ICmpt_DualField
 {
 }
 
-public class OutputCmpt_TypeInput
-  : OutputCmpt_TypeObject
+public class Cmpt_TypeInput
+  : Cmpt_TypeObject
   , ICmpt_TypeInput
 {
 }
 
-public class OutputCmpt_InputField
-  : OutputCmpt_ObjField
+public class Cmpt_InputField
+  : Cmpt_ObjField
   , ICmpt_InputField
 {
 }
 
-public class OutputCmpt_InputFieldType
-  : OutputCmpt_ObjFieldType
+public class Cmpt_InputFieldType
+  : Cmpt_ObjFieldType
   , ICmpt_InputFieldType
 {
   public _Value default { get; set; }
 }
 
-public class OutputCmpt_InputParam
-  : OutputCmpt_InputFieldType
+public class Cmpt_InputParam
+  : Cmpt_InputFieldType
   , ICmpt_InputParam
 {
 }
 
-public class OutputCmpt_TypeOutput
-  : OutputCmpt_TypeObject
+public class Cmpt_TypeOutput
+  : Cmpt_TypeObject
   , ICmpt_TypeOutput
 {
 }
 
-public class OutputCmpt_OutputField
-  : OutputCmpt_ObjField
+public class Cmpt_OutputField
+  : Cmpt_ObjField
   , ICmpt_OutputField
 {
 }
 
-public class OutputCmpt_OutputFieldType
-  : OutputCmpt_ObjFieldType
+public class Cmpt_OutputFieldType
+  : Cmpt_ObjFieldType
   , ICmpt_OutputFieldType
 {
   public _InputParam parameters { get; set; }

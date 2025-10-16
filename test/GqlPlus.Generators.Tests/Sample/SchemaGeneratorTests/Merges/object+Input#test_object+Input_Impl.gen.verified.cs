@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_object_Input;
 
-public class InputtestObjInp
+public class testObjInp
   : ItestObjInp
 {
 }

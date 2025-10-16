@@ -8,7 +8,7 @@ output FieldSmplOutp { field: Number }
 */
 namespace Components.Gqlp_Schema_field_simple_Output;
 
-public class OutputCmptFieldSmplOutp
+public class CmptFieldSmplOutp
   : ICmptFieldSmplOutp
 {
   public Number field { get; set; }

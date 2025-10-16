@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_Boolean_Dual;
 
-public class DualtestAltModBoolDual
+public class testAltModBoolDual
   : ItestAltModBoolDual
 {
   public AltAltModBoolDual AsAltAltModBoolDual { get; set; }
 }
 
-public class DualtestAltAltModBoolDual
+public class testAltAltModBoolDual
   : ItestAltAltModBoolDual
 {
   public Number alt { get; set; }

@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_object_parent_Output;
 
-public class OutputtestObjPrntOutp
-  : OutputtestRefObjPrntOutp
+public class testObjPrntOutp
+  : testRefObjPrntOutp
   , ItestObjPrntOutp
 {
 }
 
-public class OutputtestRefObjPrntOutp
+public class testRefObjPrntOutp
   : ItestRefObjPrntOutp
 {
 }

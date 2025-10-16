@@ -9,7 +9,7 @@ dual ObjParamDual<$type:String> { type: $type }
 */
 namespace Components.Gqlp_Schema_object_param_Dual;
 
-public class DualCmptObjParamDual<Ttest,Ttype>
+public class CmptObjParamDual<Ttest,Ttype>
   : ICmptObjParamDual<Ttest,Ttype>
 {
   public Ttest test { get; set; }

@@ -9,7 +9,7 @@ output DescrBcks { }
 */
 namespace Components.Gqlp_Schema_descr_backslash;
 
-public class OutputCmptDescrBcks
+public class CmptDescrBcks
   : ICmptDescrBcks
 {
 }

@@ -8,7 +8,7 @@ input AltDescrInp { | "Test" "Descr" String }
 */
 namespace Components.Gqlp_Schema_alt_descr_Input;
 
-public class InputCmptAltDescrInp
+public class CmptAltDescrInp
   : ICmptAltDescrInp
 {
   public String AsString { get; set; }

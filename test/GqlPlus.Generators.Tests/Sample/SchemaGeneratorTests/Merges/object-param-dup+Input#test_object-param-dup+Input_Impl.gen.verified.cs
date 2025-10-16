@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_object_param_dup_Input;
 
-public class InputtestObjParamDupInp<Ttest>
+public class testObjParamDupInp<Ttest>
   : ItestObjParamDupInp<Ttest>
 {
   public Ttest test { get; set; }

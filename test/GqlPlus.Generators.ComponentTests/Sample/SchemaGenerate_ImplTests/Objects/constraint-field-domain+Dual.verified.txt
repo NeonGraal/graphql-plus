@@ -10,19 +10,19 @@ domain DomCnstFieldDmnDual { String /\w+/ }
 */
 namespace Components.Gqlp_Schema_constraint_field_domain_Dual;
 
-public class DualCmptCnstFieldDmnDual
-  : DualCmptRefCnstFieldDmnDual
+public class CmptCnstFieldDmnDual
+  : CmptRefCnstFieldDmnDual
   , ICmptCnstFieldDmnDual
 {
 }
 
-public class DualCmptRefCnstFieldDmnDual<Tref>
+public class CmptRefCnstFieldDmnDual<Tref>
   : ICmptRefCnstFieldDmnDual<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DomainCmptDomCnstFieldDmnDual
+public class CmptDomCnstFieldDmnDual
   : ICmptDomCnstFieldDmnDual
 {
 }

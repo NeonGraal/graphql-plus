@@ -8,7 +8,7 @@ union UnionDescr { "Union" "Descr" Number }
 */
 namespace Components.Gqlp_Schema_union_descr;
 
-public class UnionCmptUnionDescr
+public class CmptUnionDescr
   : ICmptUnionDescr
 {
   public Number AsNumber { get; set; }

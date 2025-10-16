@@ -13,7 +13,7 @@ internal abstract class
     string interfaceSep = ":";
 
     if (ast.Parent is not null) {
-      context.Write("  : " + TypePrefix + context.TypeName(ast.Parent));
+      context.Write("  : " + context.TypeName(ast.Parent));
       interfaceSep = ",";
     } else if (HasDefaultParent(out string? defaultParent)) {
       context.Write("  : " + defaultParent);

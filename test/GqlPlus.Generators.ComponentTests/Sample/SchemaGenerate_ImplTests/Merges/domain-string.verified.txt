@@ -9,7 +9,7 @@ domain DmnStr { string }
 */
 namespace Components.Gqlp_Schema_domain_string;
 
-public class DomainCmptDmnStr
+public class CmptDmnStr
   : ICmptDmnStr
 {
 }

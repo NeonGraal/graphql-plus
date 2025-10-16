@@ -10,7 +10,7 @@ output CtgrAlias { }
 */
 namespace Components.Gqlp_Schema_category_alias;
 
-public class OutputCmptCtgrAlias
+public class CmptCtgrAlias
   : ICmptCtgrAlias
 {
 }

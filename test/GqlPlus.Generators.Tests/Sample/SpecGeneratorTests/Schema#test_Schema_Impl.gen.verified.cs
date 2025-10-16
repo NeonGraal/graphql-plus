@@ -5,61 +5,61 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_Schema;
 
-public class Dualtest_Opt<TT>
+public class test_Opt<TT>
   : Itest_Opt<TT>
 {
   public TT AsT { get; set; }
   public Null AsNull { get; set; }
 }
 
-public class Dualtest_List<TT>
+public class test_List<TT>
   : Itest_List<TT>
 {
   public TT AsT { get; set; }
 }
 
-public class Dualtest_Dict<TK,TT>
+public class test_Dict<TK,TT>
   : Itest_Dict<TK,TT>
 {
   public TT AsT { get; set; }
 }
 
-public class Dualtest_Map<TT>
+public class test_Map<TT>
   : Itest_Map<TT>
 {
   public TT AsT { get; set; }
 }
 
-public class Dualtest_Array<TT>
+public class test_Array<TT>
   : Itest_Array<TT>
 {
   public TT AsT { get; set; }
 }
 
-public class Dualtest_IfElse<TT>
+public class test_IfElse<TT>
   : Itest_IfElse<TT>
 {
   public TT AsT { get; set; }
 }
 
-public class Dualtest_Set<TK>
+public class test_Set<TK>
   : Itest_Set<TK>
 {
   public Unit AsUnit { get; set; }
 }
 
-public class Dualtest_Mask<TK>
+public class test_Mask<TK>
   : Itest_Mask<TK>
 {
   public Boolean As^ { get; set; }
 }
 
-public class Uniontest_Key
+public class test_Key
   : Itest_Key
 {
 }
 
-public class Dualtest_Any
+public class test_Any
   : Itest_Any
 {
 }

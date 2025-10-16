@@ -10,13 +10,13 @@ output ObjAltOutpType { }
 */
 namespace Components.Gqlp_Schema_object_alt_Output;
 
-public class OutputCmptObjAltOutp
+public class CmptObjAltOutp
   : ICmptObjAltOutp
 {
   public ObjAltOutpType AsObjAltOutpType { get; set; }
 }
 
-public class OutputCmptObjAltOutpType
+public class CmptObjAltOutpType
   : ICmptObjAltOutpType
 {
 }

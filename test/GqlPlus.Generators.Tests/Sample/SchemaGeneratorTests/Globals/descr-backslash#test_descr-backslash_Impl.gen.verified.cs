@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_descr_backslash;
 
-public class OutputtestDescrBcks
+public class testDescrBcks
   : ItestDescrBcks
 {
 }

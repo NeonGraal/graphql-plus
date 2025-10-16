@@ -10,13 +10,13 @@ input RefObjPrntInp { }
 */
 namespace Components.Gqlp_Schema_object_parent_Input;
 
-public class InputCmptObjPrntInp
-  : InputCmptRefObjPrntInp
+public class CmptObjPrntInp
+  : CmptRefObjPrntInp
   , ICmptObjPrntInp
 {
 }
 
-public class InputCmptRefObjPrntInp
+public class CmptRefObjPrntInp
   : ICmptRefObjPrntInp
 {
 }

@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_field_type_descr_Input;
 
-public class InputtestFieldTypeDescrInp
+public class testFieldTypeDescrInp
   : ItestFieldTypeDescrInp
 {
   public Number field { get; set; }

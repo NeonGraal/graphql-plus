@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_arg_Dual;
 
-public class DualtestGnrcFieldArgDual<Ttype>
+public class testGnrcFieldArgDual<Ttype>
   : ItestGnrcFieldArgDual<Ttype>
 {
   public RefGnrcFieldArgDual<Ttype> field { get; set; }
 }
 
-public class DualtestRefGnrcFieldArgDual<Tref>
+public class testRefGnrcFieldArgDual<Tref>
   : ItestRefGnrcFieldArgDual<Tref>
 {
   public Tref Asref { get; set; }

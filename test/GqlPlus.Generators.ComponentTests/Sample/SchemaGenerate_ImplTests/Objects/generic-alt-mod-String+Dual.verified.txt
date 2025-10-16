@@ -8,7 +8,7 @@ dual RefGnrcAltModStrDual<$ref:String> { | $ref[*] }
 */
 namespace Components.Gqlp_Schema_generic_alt_mod_String_Dual;
 
-public class DualCmptRefGnrcAltModStrDual<Tref>
+public class CmptRefGnrcAltModStrDual<Tref>
   : ICmptRefGnrcAltModStrDual<Tref>
 {
   public Tref Asref { get; set; }

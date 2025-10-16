@@ -9,13 +9,13 @@ dual FldFieldModParamDual { field: Number | String }
 */
 namespace Components.Gqlp_Schema_field_mod_param_Dual;
 
-public class DualCmptFieldModParamDual<Tmod>
+public class CmptFieldModParamDual<Tmod>
   : ICmptFieldModParamDual<Tmod>
 {
   public FldFieldModParamDual field { get; set; }
 }
 
-public class DualCmptFldFieldModParamDual
+public class CmptFldFieldModParamDual
   : ICmptFldFieldModParamDual
 {
   public Number field { get; set; }

@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_enum_Input;
 
-public class InputtestCnstPrntEnumInp
+public class testCnstPrntEnumInp
   : ItestCnstPrntEnumInp
 {
   public RefCnstPrntEnumInp<ParentCnstPrntEnumInp> AsRefCnstPrntEnumInp { get; set; }
 }
 
-public class InputtestRefCnstPrntEnumInp<Ttype>
+public class testRefCnstPrntEnumInp<Ttype>
   : ItestRefCnstPrntEnumInp<Ttype>
 {
   public Ttype field { get; set; }

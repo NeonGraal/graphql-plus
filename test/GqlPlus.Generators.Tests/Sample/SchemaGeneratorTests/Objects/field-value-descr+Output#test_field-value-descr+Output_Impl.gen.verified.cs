@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_field_value_descr_Output;
 
-public class OutputtestFieldValueDescrOutp
+public class testFieldValueDescrOutp
   : ItestFieldValueDescrOutp
 {
   public EnumFieldValueDescrOutp field { get; set; }

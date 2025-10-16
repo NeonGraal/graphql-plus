@@ -9,7 +9,7 @@ enum EnumFieldModEnumOutp { value }
 */
 namespace Components.Gqlp_Schema_field_mod_Enum_Output;
 
-public class OutputCmptFieldModEnumOutp
+public class CmptFieldModEnumOutp
   : ICmptFieldModEnumOutp
 {
   public String field { get; set; }

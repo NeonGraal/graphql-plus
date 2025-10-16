@@ -9,7 +9,7 @@ domain DmnBoolSame { boolean true }
 */
 namespace Components.Gqlp_Schema_domain_boolean_same;
 
-public class DomainCmptDmnBoolSame
+public class CmptDmnBoolSame
   : ICmptDmnBoolSame
 {
 }

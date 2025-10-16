@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_union_diff;
 
-public class UniontestUnionDiff
+public class testUnionDiff
   : ItestUnionDiff
 {
   public Boolean AsBoolean { get; set; }

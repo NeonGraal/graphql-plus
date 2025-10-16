@@ -8,7 +8,7 @@ output FieldDescrOutp { "Test" "Descr" field: String }
 */
 namespace Components.Gqlp_Schema_field_descr_Output;
 
-public class OutputCmptFieldDescrOutp
+public class CmptFieldDescrOutp
   : ICmptFieldDescrOutp
 {
   public String field { get; set; }

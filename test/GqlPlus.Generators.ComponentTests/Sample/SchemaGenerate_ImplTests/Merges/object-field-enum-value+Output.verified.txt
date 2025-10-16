@@ -9,7 +9,7 @@ output ObjFieldEnumValueOutp { field = true }
 */
 namespace Components.Gqlp_Schema_object_field_enum_value_Output;
 
-public class OutputCmptObjFieldEnumValueOutp
+public class CmptObjFieldEnumValueOutp
   : ICmptObjFieldEnumValueOutp
 {
   public Boolean field { get; set; }

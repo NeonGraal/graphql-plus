@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_Boolean_Input;
 
-public class InputtestAltModBoolInp
+public class testAltModBoolInp
   : ItestAltModBoolInp
 {
   public AltAltModBoolInp AsAltAltModBoolInp { get; set; }
 }
 
-public class InputtestAltAltModBoolInp
+public class testAltAltModBoolInp
   : ItestAltAltModBoolInp
 {
   public Number alt { get; set; }

@@ -8,7 +8,6 @@ public class UnionGeneratorTests
   public UnionGeneratorTests()
     => _generator = new UnionGenerator();
 
-  public override string ExpectedTypePrefix => "Union";
   internal override GenerateForType<IGqlpUnion> TypeGenerator => _generator;
 
   [Theory, RepeatData]

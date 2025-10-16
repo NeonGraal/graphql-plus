@@ -10,19 +10,19 @@ domain DomCnstAltDmnOutp { String /\w+/ }
 */
 namespace Components.Gqlp_Schema_constraint_alt_domain_Output;
 
-public class OutputCmptCnstAltDmnOutp
+public class CmptCnstAltDmnOutp
   : ICmptCnstAltDmnOutp
 {
   public RefCnstAltDmnOutp<DomCnstAltDmnOutp> AsRefCnstAltDmnOutp { get; set; }
 }
 
-public class OutputCmptRefCnstAltDmnOutp<Tref>
+public class CmptRefCnstAltDmnOutp<Tref>
   : ICmptRefCnstAltDmnOutp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DomainCmptDomCnstAltDmnOutp
+public class CmptDomCnstAltDmnOutp
   : ICmptDomCnstAltDmnOutp
 {
 }

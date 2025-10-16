@@ -9,14 +9,14 @@ output RefPrntFieldOutp { parent: Number | String }
 */
 namespace Components.Gqlp_Schema_parent_field_Output;
 
-public class OutputCmptPrntFieldOutp
-  : OutputCmptRefPrntFieldOutp
+public class CmptPrntFieldOutp
+  : CmptRefPrntFieldOutp
   , ICmptPrntFieldOutp
 {
   public Number field { get; set; }
 }
 
-public class OutputCmptRefPrntFieldOutp
+public class CmptRefPrntFieldOutp
   : ICmptRefPrntFieldOutp
 {
   public Number parent { get; set; }

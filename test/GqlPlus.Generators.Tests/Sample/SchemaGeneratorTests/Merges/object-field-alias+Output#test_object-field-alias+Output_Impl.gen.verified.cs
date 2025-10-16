@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_alias_Output;
 
-public class OutputtestObjFieldAliasOutp
+public class testObjFieldAliasOutp
   : ItestObjFieldAliasOutp
 {
   public FldObjFieldAliasOutp field { get; set; }
 }
 
-public class OutputtestFldObjFieldAliasOutp
+public class testFldObjFieldAliasOutp
   : ItestFldObjFieldAliasOutp
 {
 }

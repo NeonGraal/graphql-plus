@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_alt_Dual;
 
-public class DualtestAltDual
+public class testAltDual
   : ItestAltDual
 {
   public AltAltDual AsAltAltDual { get; set; }
 }
 
-public class DualtestAltAltDual
+public class testAltAltDual
   : ItestAltAltDual
 {
   public Number alt { get; set; }

@@ -9,7 +9,7 @@ dual ObjAliasDual [Dual2] { }
 */
 namespace Components.Gqlp_Schema_object_alias_Dual;
 
-public class DualCmptObjAliasDual
+public class CmptObjAliasDual
   : ICmptObjAliasDual
 {
 }

@@ -10,13 +10,13 @@ enum EnumGnrcPrntSmplEnumDual { gnrcPrntSmplEnumDual }
 */
 namespace Components.Gqlp_Schema_generic_parent_simple_enum_Dual;
 
-public class DualCmptGnrcPrntSmplEnumDual
-  : DualCmptFieldGnrcPrntSmplEnumDual
+public class CmptGnrcPrntSmplEnumDual
+  : CmptFieldGnrcPrntSmplEnumDual
   , ICmptGnrcPrntSmplEnumDual
 {
 }
 
-public class DualCmptFieldGnrcPrntSmplEnumDual<Tref>
+public class CmptFieldGnrcPrntSmplEnumDual<Tref>
   : ICmptFieldGnrcPrntSmplEnumDual<Tref>
 {
   public Tref field { get; set; }

@@ -9,13 +9,13 @@ input AltAltInp { alt: Number | String }
 */
 namespace Components.Gqlp_Schema_alt_Input;
 
-public class InputCmptAltInp
+public class CmptAltInp
   : ICmptAltInp
 {
   public AltAltInp AsAltAltInp { get; set; }
 }
 
-public class InputCmptAltAltInp
+public class CmptAltAltInp
   : ICmptAltAltInp
 {
   public Number alt { get; set; }

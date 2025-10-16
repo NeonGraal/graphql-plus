@@ -9,13 +9,13 @@ input RefGnrcPrntArgInp<$ref:String> { | $ref }
 */
 namespace Components.Gqlp_Schema_generic_parent_arg_Input;
 
-public class InputCmptGnrcPrntArgInp<Ttype>
-  : InputCmptRefGnrcPrntArgInp
+public class CmptGnrcPrntArgInp<Ttype>
+  : CmptRefGnrcPrntArgInp
   , ICmptGnrcPrntArgInp<Ttype>
 {
 }
 
-public class InputCmptRefGnrcPrntArgInp<Tref>
+public class CmptRefGnrcPrntArgInp<Tref>
   : ICmptRefGnrcPrntArgInp<Tref>
 {
   public Tref Asref { get; set; }

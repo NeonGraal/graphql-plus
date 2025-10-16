@@ -11,7 +11,7 @@ output CtgrDscrs { }
 */
 namespace Components.Gqlp_Schema_category_descrs;
 
-public class OutputCmptCtgrDscrs
+public class CmptCtgrDscrs
   : ICmptCtgrDscrs
 {
 }

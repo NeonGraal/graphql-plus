@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_domain_alias;
 
-public class DomaintestDmnAlias
+public class testDmnAlias
   : ItestDmnAlias
 {
 }

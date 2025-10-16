@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_descr_between;
 
-public class OutputtestDescrBtwn
+public class testDescrBtwn
   : ItestDescrBtwn
 {
 }

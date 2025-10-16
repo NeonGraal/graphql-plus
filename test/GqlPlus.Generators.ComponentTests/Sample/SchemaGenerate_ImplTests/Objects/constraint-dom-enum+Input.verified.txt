@@ -11,19 +11,19 @@ domain JustCnstDomEnumInp { enum EnumCnstDomEnumInp.cnstDomEnumInp }
 */
 namespace Components.Gqlp_Schema_constraint_dom_enum_Input;
 
-public class InputCmptCnstDomEnumInp
+public class CmptCnstDomEnumInp
   : ICmptCnstDomEnumInp
 {
   public RefCnstDomEnumInp<EnumCnstDomEnumInp> AsRefCnstDomEnumInp { get; set; }
 }
 
-public class InputCmptRefCnstDomEnumInp<Ttype>
+public class CmptRefCnstDomEnumInp<Ttype>
   : ICmptRefCnstDomEnumInp<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class DomainCmptJustCnstDomEnumInp
+public class CmptJustCnstDomEnumInp
   : ICmptJustCnstDomEnumInp
 {
 }

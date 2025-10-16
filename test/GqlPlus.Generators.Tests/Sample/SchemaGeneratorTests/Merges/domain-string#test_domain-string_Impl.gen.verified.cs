@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_domain_string;
 
-public class DomaintestDmnStr
+public class testDmnStr
   : ItestDmnStr
 {
 }

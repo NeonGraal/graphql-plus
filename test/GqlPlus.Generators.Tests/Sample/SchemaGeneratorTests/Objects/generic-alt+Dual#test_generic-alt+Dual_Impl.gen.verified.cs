@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_Dual;
 
-public class DualtestGnrcAltDual<Ttype>
+public class testGnrcAltDual<Ttype>
   : ItestGnrcAltDual<Ttype>
 {
   public Ttype Astype { get; set; }

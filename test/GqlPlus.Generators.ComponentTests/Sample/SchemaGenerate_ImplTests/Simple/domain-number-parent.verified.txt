@@ -9,13 +9,13 @@ domain PrntDmnNmbrPrnt { Number <2 }
 */
 namespace Components.Gqlp_Schema_domain_number_parent;
 
-public class DomainCmptDmnNmbrPrnt
-  : DomainCmptPrntDmnNmbrPrnt
+public class CmptDmnNmbrPrnt
+  : CmptPrntDmnNmbrPrnt
   , ICmptDmnNmbrPrnt
 {
 }
 
-public class DomainCmptPrntDmnNmbrPrnt
+public class CmptPrntDmnNmbrPrnt
   : ICmptPrntDmnNmbrPrnt
 {
 }

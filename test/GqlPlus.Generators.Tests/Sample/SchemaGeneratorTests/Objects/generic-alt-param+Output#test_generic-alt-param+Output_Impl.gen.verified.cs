@@ -5,19 +5,19 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_param_Output;
 
-public class OutputtestGnrcAltParamOutp
+public class testGnrcAltParamOutp
   : ItestGnrcAltParamOutp
 {
   public RefGnrcAltParamOutp<AltGnrcAltParamOutp> AsRefGnrcAltParamOutp { get; set; }
 }
 
-public class OutputtestRefGnrcAltParamOutp<Tref>
+public class testRefGnrcAltParamOutp<Tref>
   : ItestRefGnrcAltParamOutp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class OutputtestAltGnrcAltParamOutp
+public class testAltGnrcAltParamOutp
   : ItestAltGnrcAltParamOutp
 {
   public Number alt { get; set; }

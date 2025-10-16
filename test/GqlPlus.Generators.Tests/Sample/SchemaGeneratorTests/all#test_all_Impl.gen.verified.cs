@@ -5,25 +5,25 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_all;
 
-public class DomaintestGuid
+public class testGuid
   : ItestGuid
 {
 }
 
-public class UniontestMany
+public class testMany
   : ItestMany
 {
   public Guid AsGuid { get; set; }
   public Number AsNumber { get; set; }
 }
 
-public class DualtestField
+public class testField
   : ItestField
 {
   public String strings { get; set; }
 }
 
-public class InputtestParam
+public class testParam
   : ItestParam
 {
   public Many afterId { get; set; }
@@ -31,7 +31,7 @@ public class InputtestParam
   public String AsString { get; set; }
 }
 
-public class OutputtestAll
+public class testAll
   : ItestAll
 {
   public Field items { get; set; }

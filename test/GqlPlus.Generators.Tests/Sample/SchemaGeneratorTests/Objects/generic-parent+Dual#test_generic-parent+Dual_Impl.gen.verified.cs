@@ -5,8 +5,8 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_Dual;
 
-public class DualtestGnrcPrntDual<Ttype>
-  : Dualtesttype
+public class testGnrcPrntDual<Ttype>
+  : testtype
   , ItestGnrcPrntDual<Ttype>
 {
 }

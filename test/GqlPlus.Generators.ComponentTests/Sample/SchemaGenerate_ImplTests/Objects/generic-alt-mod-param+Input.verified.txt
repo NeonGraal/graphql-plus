@@ -8,7 +8,7 @@ input RefGnrcAltModParamInp<$ref:String $mod:String> { | $ref[$mod] }
 */
 namespace Components.Gqlp_Schema_generic_alt_mod_param_Input;
 
-public class InputCmptRefGnrcAltModParamInp<Tref,Tmod>
+public class CmptRefGnrcAltModParamInp<Tref,Tmod>
   : ICmptRefGnrcAltModParamInp<Tref,Tmod>
 {
   public Tref Asref { get; set; }

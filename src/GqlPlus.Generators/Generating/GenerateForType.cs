@@ -5,8 +5,6 @@ internal abstract class GenerateForType<T>
   : ITypeGenerator
   where T : IGqlpType
 {
-  public abstract string TypePrefix { get; }
-
   public bool ForType(IGqlpType ast)
     => ast is T;
 

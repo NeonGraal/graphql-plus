@@ -9,7 +9,7 @@ input ObjFieldTypeAliasInp { field: String }
 */
 namespace Components.Gqlp_Schema_object_field_type_alias_Input;
 
-public class InputCmptObjFieldTypeAliasInp
+public class CmptObjFieldTypeAliasInp
   : ICmptObjFieldTypeAliasInp
 {
   public String field { get; set; }

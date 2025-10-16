@@ -9,13 +9,13 @@ output AltAltModParamOutp { alt: Number | String }
 */
 namespace Components.Gqlp_Schema_alt_mod_param_Output;
 
-public class OutputCmptAltModParamOutp<Tmod>
+public class CmptAltModParamOutp<Tmod>
   : ICmptAltModParamOutp<Tmod>
 {
   public AltAltModParamOutp AsAltAltModParamOutp { get; set; }
 }
 
-public class OutputCmptAltAltModParamOutp
+public class CmptAltAltModParamOutp
   : ICmptAltAltModParamOutp
 {
   public Number alt { get; set; }

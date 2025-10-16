@@ -9,7 +9,7 @@ enum EnumFieldValueInp { fieldValueInp }
 */
 namespace Components.Gqlp_Schema_field_value_Input;
 
-public class InputCmptFieldValueInp
+public class CmptFieldValueInp
   : ICmptFieldValueInp
 {
   public EnumFieldValueInp field { get; set; }

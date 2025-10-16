@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_field_object_Input;
 
-public class InputtestFieldObjInp
+public class testFieldObjInp
   : ItestFieldObjInp
 {
   public FldFieldObjInp field { get; set; }
 }
 
-public class InputtestFldFieldObjInp
+public class testFldFieldObjInp
   : ItestFldFieldObjInp
 {
   public Number field { get; set; }

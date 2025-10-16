@@ -9,14 +9,14 @@ dual RefPrntAltDual {  parent: Number | String }
 */
 namespace Components.Gqlp_Schema_parent_alt_Dual;
 
-public class DualCmptPrntAltDual
-  : DualCmptRefPrntAltDual
+public class CmptPrntAltDual
+  : CmptRefPrntAltDual
   , ICmptPrntAltDual
 {
   public Number AsNumber { get; set; }
 }
 
-public class DualCmptRefPrntAltDual
+public class CmptRefPrntAltDual
   : ICmptRefPrntAltDual
 {
   public Number parent { get; set; }

@@ -10,13 +10,13 @@ dual RefObjPrntDual { }
 */
 namespace Components.Gqlp_Schema_object_parent_Dual;
 
-public class DualCmptObjPrntDual
-  : DualCmptRefObjPrntDual
+public class CmptObjPrntDual
+  : CmptRefObjPrntDual
   , ICmptObjPrntDual
 {
 }
 
-public class DualCmptRefObjPrntDual
+public class CmptRefObjPrntDual
   : ICmptRefObjPrntDual
 {
 }

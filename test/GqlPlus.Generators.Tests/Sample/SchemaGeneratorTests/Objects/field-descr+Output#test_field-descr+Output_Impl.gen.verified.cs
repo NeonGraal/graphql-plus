@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_field_descr_Output;
 
-public class OutputtestFieldDescrOutp
+public class testFieldDescrOutp
   : ItestFieldDescrOutp
 {
   public String field { get; set; }

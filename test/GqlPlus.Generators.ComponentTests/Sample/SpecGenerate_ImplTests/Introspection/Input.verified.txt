@@ -23,27 +23,27 @@ output _InputParam {
 */
 namespace Components.Gqlp_Spec_Input;
 
-public class OutputCmpt_TypeInput
-  : OutputCmpt_TypeObject
+public class Cmpt_TypeInput
+  : Cmpt_TypeObject
   , ICmpt_TypeInput
 {
 }
 
-public class OutputCmpt_InputField
-  : OutputCmpt_ObjField
+public class Cmpt_InputField
+  : Cmpt_ObjField
   , ICmpt_InputField
 {
 }
 
-public class OutputCmpt_InputFieldType
-  : OutputCmpt_ObjFieldType
+public class Cmpt_InputFieldType
+  : Cmpt_ObjFieldType
   , ICmpt_InputFieldType
 {
   public _Value default { get; set; }
 }
 
-public class OutputCmpt_InputParam
-  : OutputCmpt_InputFieldType
+public class Cmpt_InputParam
+  : Cmpt_InputFieldType
   , ICmpt_InputParam
 {
 }

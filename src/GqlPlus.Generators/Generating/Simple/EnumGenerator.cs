@@ -4,8 +4,6 @@ namespace GqlPlus.Generating.Simple;
 internal sealed class EnumGenerator
   : GenerateForType<IGqlpEnum>
 {
-  public override string TypePrefix => "Enum";
-
   public EnumGenerator()
   {
     _generators.Remove(GqlpGeneratorType.Interface);

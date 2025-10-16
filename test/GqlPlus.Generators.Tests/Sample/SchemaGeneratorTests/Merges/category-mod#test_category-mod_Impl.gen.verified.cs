@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_category_mod;
 
-public class OutputtestCtgrMod
+public class testCtgrMod
   : ItestCtgrMod
 {
 }

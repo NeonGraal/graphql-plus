@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_directive_param;
 
-public class InputtestInDrctParam
+public class testInDrctParam
   : ItestInDrctParam
 {
 }

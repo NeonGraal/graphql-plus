@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_domain_boolean_same;
 
-public class DomaintestDmnBoolSame
+public class testDmnBoolSame
   : ItestDmnBoolSame
 {
 }

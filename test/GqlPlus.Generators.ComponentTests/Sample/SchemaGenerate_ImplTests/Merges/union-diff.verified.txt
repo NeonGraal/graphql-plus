@@ -9,7 +9,7 @@ union UnionDiff { Number }
 */
 namespace Components.Gqlp_Schema_union_diff;
 
-public class UnionCmptUnionDiff
+public class CmptUnionDiff
   : ICmptUnionDiff
 {
   public Boolean AsBoolean { get; set; }

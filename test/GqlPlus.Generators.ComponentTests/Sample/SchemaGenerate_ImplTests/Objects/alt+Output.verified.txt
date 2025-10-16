@@ -9,13 +9,13 @@ output AltAltOutp { alt: Number | String }
 */
 namespace Components.Gqlp_Schema_alt_Output;
 
-public class OutputCmptAltOutp
+public class CmptAltOutp
   : ICmptAltOutp
 {
   public AltAltOutp AsAltAltOutp { get; set; }
 }
 
-public class OutputCmptAltAltOutp
+public class CmptAltAltOutp
   : ICmptAltAltOutp
 {
   public Number alt { get; set; }

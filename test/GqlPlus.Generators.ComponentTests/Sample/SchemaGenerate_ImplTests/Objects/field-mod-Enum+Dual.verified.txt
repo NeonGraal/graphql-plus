@@ -9,7 +9,7 @@ enum EnumFieldModEnumDual { value }
 */
 namespace Components.Gqlp_Schema_field_mod_Enum_Dual;
 
-public class DualCmptFieldModEnumDual
+public class CmptFieldModEnumDual
   : ICmptFieldModEnumDual
 {
   public String field { get; set; }

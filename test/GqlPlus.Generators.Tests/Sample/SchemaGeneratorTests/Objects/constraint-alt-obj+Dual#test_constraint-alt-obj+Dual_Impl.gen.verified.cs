@@ -5,26 +5,26 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_obj_Dual;
 
-public class DualtestCnstAltObjDual
+public class testCnstAltObjDual
   : ItestCnstAltObjDual
 {
   public RefCnstAltObjDual<AltCnstAltObjDual> AsRefCnstAltObjDual { get; set; }
 }
 
-public class DualtestRefCnstAltObjDual<Tref>
+public class testRefCnstAltObjDual<Tref>
   : ItestRefCnstAltObjDual<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DualtestPrntCnstAltObjDual
+public class testPrntCnstAltObjDual
   : ItestPrntCnstAltObjDual
 {
   public String AsString { get; set; }
 }
 
-public class DualtestAltCnstAltObjDual
-  : DualtestPrntCnstAltObjDual
+public class testAltCnstAltObjDual
+  : testPrntCnstAltObjDual
   , ItestAltCnstAltObjDual
 {
   public Number alt { get; set; }

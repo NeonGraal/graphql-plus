@@ -5,19 +5,19 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_field_domain_Dual;
 
-public class DualtestCnstFieldDmnDual
-  : DualtestRefCnstFieldDmnDual
+public class testCnstFieldDmnDual
+  : testRefCnstFieldDmnDual
   , ItestCnstFieldDmnDual
 {
 }
 
-public class DualtestRefCnstFieldDmnDual<Tref>
+public class testRefCnstFieldDmnDual<Tref>
   : ItestRefCnstFieldDmnDual<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DomaintestDomCnstFieldDmnDual
+public class testDomCnstFieldDmnDual
   : ItestDomCnstFieldDmnDual
 {
 }

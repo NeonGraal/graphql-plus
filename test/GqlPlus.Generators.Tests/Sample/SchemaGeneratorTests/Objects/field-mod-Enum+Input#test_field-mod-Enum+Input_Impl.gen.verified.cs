@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_field_mod_Enum_Input;
 
-public class InputtestFieldModEnumInp
+public class testFieldModEnumInp
   : ItestFieldModEnumInp
 {
   public String field { get; set; }

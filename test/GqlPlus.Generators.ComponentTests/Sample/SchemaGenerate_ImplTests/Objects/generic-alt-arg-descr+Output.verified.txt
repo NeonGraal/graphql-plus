@@ -9,13 +9,13 @@ output RefGnrcAltArgDescrOutp<$ref:String> { | $ref }
 */
 namespace Components.Gqlp_Schema_generic_alt_arg_descr_Output;
 
-public class OutputCmptGnrcAltArgDescrOutp<Ttype>
+public class CmptGnrcAltArgDescrOutp<Ttype>
   : ICmptGnrcAltArgDescrOutp<Ttype>
 {
   public RefGnrcAltArgDescrOutp<Ttype> AsRefGnrcAltArgDescrOutp { get; set; }
 }
 
-public class OutputCmptRefGnrcAltArgDescrOutp<Tref>
+public class CmptRefGnrcAltArgDescrOutp<Tref>
   : ICmptRefGnrcAltArgDescrOutp<Tref>
 {
   public Tref Asref { get; set; }

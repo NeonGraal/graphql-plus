@@ -9,14 +9,14 @@ dual RefPrntParamDiffDual<$b:String> { | $b }
 */
 namespace Components.Gqlp_Schema_parent_param_diff_Dual;
 
-public class DualCmptPrntParamDiffDual<Ta>
-  : DualCmptRefPrntParamDiffDual
+public class CmptPrntParamDiffDual<Ta>
+  : CmptRefPrntParamDiffDual
   , ICmptPrntParamDiffDual<Ta>
 {
   public Ta field { get; set; }
 }
 
-public class DualCmptRefPrntParamDiffDual<Tb>
+public class CmptRefPrntParamDiffDual<Tb>
   : ICmptRefPrntParamDiffDual<Tb>
 {
   public Tb Asb { get; set; }

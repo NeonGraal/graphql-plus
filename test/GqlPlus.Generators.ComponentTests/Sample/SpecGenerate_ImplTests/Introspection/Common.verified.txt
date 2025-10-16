@@ -49,7 +49,7 @@ dual _TypeSimple {
 */
 namespace Components.Gqlp_Spec_Common;
 
-public class OutputCmpt_Type
+public class Cmpt_Type
   : ICmpt_Type
 {
   public _BaseType<_TypeKind> As_BaseType { get; set; }
@@ -62,36 +62,36 @@ public class OutputCmpt_Type
   public _TypeUnion As_TypeUnion { get; set; }
 }
 
-public class OutputCmpt_BaseType<Tkind>
-  : OutputCmpt_Aliased
+public class Cmpt_BaseType<Tkind>
+  : Cmpt_Aliased
   , ICmpt_BaseType<Tkind>
 {
   public Tkind typeKind { get; set; }
 }
 
-public class OutputCmpt_ChildType<Tkind,Tparent>
-  : OutputCmpt_BaseType
+public class Cmpt_ChildType<Tkind,Tparent>
+  : Cmpt_BaseType
   , ICmpt_ChildType<Tkind,Tparent>
 {
   public Tparent parent { get; set; }
 }
 
-public class OutputCmpt_ParentType<Tkind,Titem,TallItem>
-  : OutputCmpt_ChildType
+public class Cmpt_ParentType<Tkind,Titem,TallItem>
+  : Cmpt_ChildType
   , ICmpt_ParentType<Tkind,Titem,TallItem>
 {
   public Titem items { get; set; }
   public TallItem allItems { get; set; }
 }
 
-public class DualCmpt_TypeRef<Tkind>
-  : DualCmpt_Named
+public class Cmpt_TypeRef<Tkind>
+  : Cmpt_Named
   , ICmpt_TypeRef<Tkind>
 {
   public Tkind typeKind { get; set; }
 }
 
-public class DualCmpt_TypeSimple
+public class Cmpt_TypeSimple
   : ICmpt_TypeSimple
 {
   public _TypeRef<_TypeKind> As_TypeRef { get; set; }

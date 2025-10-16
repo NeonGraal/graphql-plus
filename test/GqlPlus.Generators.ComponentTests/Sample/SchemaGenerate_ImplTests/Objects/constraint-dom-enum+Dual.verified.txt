@@ -11,19 +11,19 @@ domain JustCnstDomEnumDual { enum EnumCnstDomEnumDual.cnstDomEnumDual }
 */
 namespace Components.Gqlp_Schema_constraint_dom_enum_Dual;
 
-public class DualCmptCnstDomEnumDual
+public class CmptCnstDomEnumDual
   : ICmptCnstDomEnumDual
 {
   public RefCnstDomEnumDual<EnumCnstDomEnumDual> AsRefCnstDomEnumDual { get; set; }
 }
 
-public class DualCmptRefCnstDomEnumDual<Ttype>
+public class CmptRefCnstDomEnumDual<Ttype>
   : ICmptRefCnstDomEnumDual<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class DomainCmptJustCnstDomEnumDual
+public class CmptJustCnstDomEnumDual
   : ICmptJustCnstDomEnumDual
 {
 }

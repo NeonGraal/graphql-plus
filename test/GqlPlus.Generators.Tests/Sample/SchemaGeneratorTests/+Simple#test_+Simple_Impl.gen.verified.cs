@@ -5,184 +5,184 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp__Simple;
 
-public class DomaintestDmnBoolDescr
+public class testDmnBoolDescr
   : ItestDmnBoolDescr
 {
 }
 
-public class DomaintestDmnBoolPrnt
-  : DomaintestPrntDmnBoolPrnt
+public class testDmnBoolPrnt
+  : testPrntDmnBoolPrnt
   , ItestDmnBoolPrnt
 {
 }
 
-public class DomaintestPrntDmnBoolPrnt
+public class testPrntDmnBoolPrnt
   : ItestPrntDmnBoolPrnt
 {
 }
 
-public class DomaintestDmnBoolPrntDescr
-  : DomaintestPrntDmnBoolPrntDescr
+public class testDmnBoolPrntDescr
+  : testPrntDmnBoolPrntDescr
   , ItestDmnBoolPrntDescr
 {
 }
 
-public class DomaintestPrntDmnBoolPrntDescr
+public class testPrntDmnBoolPrntDescr
   : ItestPrntDmnBoolPrntDescr
 {
 }
 
-public class DomaintestDmnEnumAll
+public class testDmnEnumAll
   : ItestDmnEnumAll
 {
 }
 
-public class DomaintestDmnEnumAllDescr
+public class testDmnEnumAllDescr
   : ItestDmnEnumAllDescr
 {
 }
 
-public class DomaintestDmnEnumAllPrnt
+public class testDmnEnumAllPrnt
   : ItestDmnEnumAllPrnt
 {
 }
 
-public class DomaintestDmnEnumDescr
+public class testDmnEnumDescr
   : ItestDmnEnumDescr
 {
 }
 
-public class DomaintestDmnEnumLabel
+public class testDmnEnumLabel
   : ItestDmnEnumLabel
 {
 }
 
-public class DomaintestDmnEnumPrnt
-  : DomaintestPrntDmnEnumPrnt
+public class testDmnEnumPrnt
+  : testPrntDmnEnumPrnt
   , ItestDmnEnumPrnt
 {
 }
 
-public class DomaintestPrntDmnEnumPrnt
+public class testPrntDmnEnumPrnt
   : ItestPrntDmnEnumPrnt
 {
 }
 
-public class DomaintestDmnEnumPrntDescr
-  : DomaintestPrntDmnEnumPrntDescr
+public class testDmnEnumPrntDescr
+  : testPrntDmnEnumPrntDescr
   , ItestDmnEnumPrntDescr
 {
 }
 
-public class DomaintestPrntDmnEnumPrntDescr
+public class testPrntDmnEnumPrntDescr
   : ItestPrntDmnEnumPrntDescr
 {
 }
 
-public class DomaintestDmnEnumValue
+public class testDmnEnumValue
   : ItestDmnEnumValue
 {
 }
 
-public class DomaintestDmnEnumValuePrnt
+public class testDmnEnumValuePrnt
   : ItestDmnEnumValuePrnt
 {
 }
 
-public class DomaintestDmnNmbrDescr
+public class testDmnNmbrDescr
   : ItestDmnNmbrDescr
 {
 }
 
-public class DomaintestDmnNmbrPrnt
-  : DomaintestPrntDmnNmbrPrnt
+public class testDmnNmbrPrnt
+  : testPrntDmnNmbrPrnt
   , ItestDmnNmbrPrnt
 {
 }
 
-public class DomaintestPrntDmnNmbrPrnt
+public class testPrntDmnNmbrPrnt
   : ItestPrntDmnNmbrPrnt
 {
 }
 
-public class DomaintestDmnNmbrPrntDescr
-  : DomaintestPrntDmnNmbrPrntDescr
+public class testDmnNmbrPrntDescr
+  : testPrntDmnNmbrPrntDescr
   , ItestDmnNmbrPrntDescr
 {
 }
 
-public class DomaintestPrntDmnNmbrPrntDescr
+public class testPrntDmnNmbrPrntDescr
   : ItestPrntDmnNmbrPrntDescr
 {
 }
 
-public class DomaintestDmnStrDescr
+public class testDmnStrDescr
   : ItestDmnStrDescr
 {
 }
 
-public class DomaintestDmnStrPrnt
-  : DomaintestPrntDmnStrPrnt
+public class testDmnStrPrnt
+  : testPrntDmnStrPrnt
   , ItestDmnStrPrnt
 {
 }
 
-public class DomaintestPrntDmnStrPrnt
+public class testPrntDmnStrPrnt
   : ItestPrntDmnStrPrnt
 {
 }
 
-public class DomaintestDmnStrPrntDescr
-  : DomaintestPrntDmnStrPrntDescr
+public class testDmnStrPrntDescr
+  : testPrntDmnStrPrntDescr
   , ItestDmnStrPrntDescr
 {
 }
 
-public class DomaintestPrntDmnStrPrntDescr
+public class testPrntDmnStrPrntDescr
   : ItestPrntDmnStrPrntDescr
 {
 }
 
-public class UniontestUnionDescr
+public class testUnionDescr
   : ItestUnionDescr
 {
   public Number AsNumber { get; set; }
 }
 
-public class UniontestUnionPrnt
-  : UniontestPrntUnionPrnt
+public class testUnionPrnt
+  : testPrntUnionPrnt
   , ItestUnionPrnt
 {
   public String AsString { get; set; }
 }
 
-public class UniontestPrntUnionPrnt
+public class testPrntUnionPrnt
   : ItestPrntUnionPrnt
 {
   public Number AsNumber { get; set; }
 }
 
-public class UniontestUnionPrntDescr
-  : UniontestPrntUnionPrntDescr
+public class testUnionPrntDescr
+  : testPrntUnionPrntDescr
   , ItestUnionPrntDescr
 {
   public Number AsNumber { get; set; }
 }
 
-public class UniontestPrntUnionPrntDescr
+public class testPrntUnionPrntDescr
   : ItestPrntUnionPrntDescr
 {
   public Number AsNumber { get; set; }
 }
 
-public class UniontestUnionPrntDup
-  : UniontestPrntUnionPrntDup
+public class testUnionPrntDup
+  : testPrntUnionPrntDup
   , ItestUnionPrntDup
 {
   public Number AsNumber { get; set; }
 }
 
-public class UniontestPrntUnionPrntDup
+public class testPrntUnionPrntDup
   : ItestPrntUnionPrntDup
 {
   public Number AsNumber { get; set; }

@@ -9,13 +9,13 @@ output RefPrntDescrOutp { parent: Number | String }
 */
 namespace Components.Gqlp_Schema_parent_descr_Output;
 
-public class OutputCmptPrntDescrOutp
-  : OutputCmptRefPrntDescrOutp
+public class CmptPrntDescrOutp
+  : CmptRefPrntDescrOutp
   , ICmptPrntDescrOutp
 {
 }
 
-public class OutputCmptRefPrntDescrOutp
+public class CmptRefPrntDescrOutp
   : ICmptRefPrntDescrOutp
 {
   public Number parent { get; set; }

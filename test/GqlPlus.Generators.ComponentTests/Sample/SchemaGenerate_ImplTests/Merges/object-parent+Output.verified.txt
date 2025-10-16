@@ -10,13 +10,13 @@ output RefObjPrntOutp { }
 */
 namespace Components.Gqlp_Schema_object_parent_Output;
 
-public class OutputCmptObjPrntOutp
-  : OutputCmptRefObjPrntOutp
+public class CmptObjPrntOutp
+  : CmptRefObjPrntOutp
   , ICmptObjPrntOutp
 {
 }
 
-public class OutputCmptRefObjPrntOutp
+public class CmptRefObjPrntOutp
   : ICmptRefObjPrntOutp
 {
 }

@@ -11,13 +11,13 @@ enum ParentCnstEnumPrntInp { parentCnstEnumPrntInp }
 */
 namespace Components.Gqlp_Schema_constraint_enum_parent_Input;
 
-public class InputCmptCnstEnumPrntInp
+public class CmptCnstEnumPrntInp
   : ICmptCnstEnumPrntInp
 {
   public RefCnstEnumPrntInp<EnumCnstEnumPrntInp> AsRefCnstEnumPrntInp { get; set; }
 }
 
-public class InputCmptRefCnstEnumPrntInp<Ttype>
+public class CmptRefCnstEnumPrntInp<Ttype>
   : ICmptRefCnstEnumPrntInp<Ttype>
 {
   public Ttype field { get; set; }

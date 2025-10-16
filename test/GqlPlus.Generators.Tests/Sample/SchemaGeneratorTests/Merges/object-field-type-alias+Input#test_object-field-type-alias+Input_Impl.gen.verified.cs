@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_type_alias_Input;
 
-public class InputtestObjFieldTypeAliasInp
+public class testObjFieldTypeAliasInp
   : ItestObjFieldTypeAliasInp
 {
   public String field { get; set; }

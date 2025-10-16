@@ -9,7 +9,7 @@ enum EnumDmnEnumAll { dmnEnumAll enum_dmnEnumAll }
 */
 namespace Components.Gqlp_Schema_domain_enum_all;
 
-public class DomainCmptDmnEnumAll
+public class CmptDmnEnumAll
   : ICmptDmnEnumAll
 {
 }

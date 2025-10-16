@@ -8,7 +8,7 @@ input FieldSmplInp { field: Number }
 */
 namespace Components.Gqlp_Schema_field_simple_Input;
 
-public class InputCmptFieldSmplInp
+public class CmptFieldSmplInp
   : ICmptFieldSmplInp
 {
   public Number field { get; set; }

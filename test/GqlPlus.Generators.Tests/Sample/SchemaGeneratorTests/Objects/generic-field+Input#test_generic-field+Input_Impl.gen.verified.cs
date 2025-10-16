@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_generic_field_Input;
 
-public class InputtestGnrcFieldInp<Ttype>
+public class testGnrcFieldInp<Ttype>
   : ItestGnrcFieldInp<Ttype>
 {
   public Ttype field { get; set; }

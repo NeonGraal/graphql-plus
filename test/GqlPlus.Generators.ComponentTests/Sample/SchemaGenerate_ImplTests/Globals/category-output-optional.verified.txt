@@ -9,7 +9,7 @@ output CtgrOutpOptl { }
 */
 namespace Components.Gqlp_Schema_category_output_optional;
 
-public class OutputCmptCtgrOutpOptl
+public class CmptCtgrOutpOptl
   : ICmptCtgrOutpOptl
 {
 }

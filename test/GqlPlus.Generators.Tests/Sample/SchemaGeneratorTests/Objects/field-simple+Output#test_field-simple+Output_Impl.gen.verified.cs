@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_field_simple_Output;
 
-public class OutputtestFieldSmplOutp
+public class testFieldSmplOutp
   : ItestFieldSmplOutp
 {
   public Number field { get; set; }

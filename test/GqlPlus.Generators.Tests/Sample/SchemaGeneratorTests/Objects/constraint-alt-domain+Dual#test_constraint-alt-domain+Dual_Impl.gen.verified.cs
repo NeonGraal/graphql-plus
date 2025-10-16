@@ -5,19 +5,19 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_alt_domain_Dual;
 
-public class DualtestCnstAltDmnDual
+public class testCnstAltDmnDual
   : ItestCnstAltDmnDual
 {
   public RefCnstAltDmnDual<DomCnstAltDmnDual> AsRefCnstAltDmnDual { get; set; }
 }
 
-public class DualtestRefCnstAltDmnDual<Tref>
+public class testRefCnstAltDmnDual<Tref>
   : ItestRefCnstAltDmnDual<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DomaintestDomCnstAltDmnDual
+public class testDomCnstAltDmnDual
   : ItestDomCnstAltDmnDual
 {
 }

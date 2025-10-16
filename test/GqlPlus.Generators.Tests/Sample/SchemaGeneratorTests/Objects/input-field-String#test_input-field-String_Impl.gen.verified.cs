@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_input_field_String;
 
-public class InputtestInpFieldStr
+public class testInpFieldStr
   : ItestInpFieldStr
 {
   public String field { get; set; }

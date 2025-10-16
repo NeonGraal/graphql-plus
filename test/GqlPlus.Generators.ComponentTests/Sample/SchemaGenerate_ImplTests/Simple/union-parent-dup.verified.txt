@@ -9,14 +9,14 @@ union PrntUnionPrntDup { Number }
 */
 namespace Components.Gqlp_Schema_union_parent_dup;
 
-public class UnionCmptUnionPrntDup
-  : UnionCmptPrntUnionPrntDup
+public class CmptUnionPrntDup
+  : CmptPrntUnionPrntDup
   , ICmptUnionPrntDup
 {
   public Number AsNumber { get; set; }
 }
 
-public class UnionCmptPrntUnionPrntDup
+public class CmptPrntUnionPrntDup
   : ICmptPrntUnionPrntDup
 {
   public Number AsNumber { get; set; }

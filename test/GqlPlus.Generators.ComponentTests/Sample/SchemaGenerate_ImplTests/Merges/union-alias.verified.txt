@@ -9,7 +9,7 @@ union UnionAlias [UnA2] { Number }
 */
 namespace Components.Gqlp_Schema_union_alias;
 
-public class UnionCmptUnionAlias
+public class CmptUnionAlias
   : ICmptUnionAlias
 {
   public Boolean AsBoolean { get; set; }

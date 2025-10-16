@@ -10,7 +10,7 @@ output DescrBtwn { }
 */
 namespace Components.Gqlp_Schema_descr_between;
 
-public class OutputCmptDescrBtwn
+public class CmptDescrBtwn
   : ICmptDescrBtwn
 {
 }

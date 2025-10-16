@@ -8,8 +8,8 @@ dual GnrcPrntDual<$type:String> { :$type }
 */
 namespace Components.Gqlp_Schema_generic_parent_Dual;
 
-public class DualCmptGnrcPrntDual<Ttype>
-  : DualCmpttype
+public class CmptGnrcPrntDual<Ttype>
+  : Cmpttype
   , ICmptGnrcPrntDual<Ttype>
 {
 }

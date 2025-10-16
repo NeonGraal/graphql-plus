@@ -8,7 +8,7 @@ input InpFieldStr { field: String = 'default' }
 */
 namespace Components.Gqlp_Schema_input_field_String;
 
-public class InputCmptInpFieldStr
+public class CmptInpFieldStr
   : ICmptInpFieldStr
 {
   public String field { get; set; }

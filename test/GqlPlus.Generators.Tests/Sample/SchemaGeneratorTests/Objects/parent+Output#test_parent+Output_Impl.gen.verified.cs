@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_parent_Output;
 
-public class OutputtestPrntOutp
-  : OutputtestRefPrntOutp
+public class testPrntOutp
+  : testRefPrntOutp
   , ItestPrntOutp
 {
 }
 
-public class OutputtestRefPrntOutp
+public class testRefPrntOutp
   : ItestRefPrntOutp
 {
   public Number parent { get; set; }

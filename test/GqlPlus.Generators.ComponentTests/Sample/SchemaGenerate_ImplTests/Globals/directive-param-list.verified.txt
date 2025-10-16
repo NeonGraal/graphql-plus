@@ -9,7 +9,7 @@ input InDrctParamList { }
 */
 namespace Components.Gqlp_Schema_directive_param_list;
 
-public class InputCmptInDrctParamList
+public class CmptInDrctParamList
   : ICmptInDrctParamList
 {
 }

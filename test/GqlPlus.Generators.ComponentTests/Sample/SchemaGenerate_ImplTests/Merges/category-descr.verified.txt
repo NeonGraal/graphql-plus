@@ -12,7 +12,7 @@ output CtgrDescr { }
 */
 namespace Components.Gqlp_Schema_category_descr;
 
-public class OutputCmptCtgrDescr
+public class CmptCtgrDescr
   : ICmptCtgrDescr
 {
 }

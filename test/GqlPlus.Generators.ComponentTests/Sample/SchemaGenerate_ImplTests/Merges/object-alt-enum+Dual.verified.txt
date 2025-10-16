@@ -9,7 +9,7 @@ dual ObjAltEnumDual { ! false }
 */
 namespace Components.Gqlp_Schema_object_alt_enum_Dual;
 
-public class DualCmptObjAltEnumDual
+public class CmptObjAltEnumDual
   : ICmptObjAltEnumDual
 {
   public Boolean AsBoolean { get; set; }

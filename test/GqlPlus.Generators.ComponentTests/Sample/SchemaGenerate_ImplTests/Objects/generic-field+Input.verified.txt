@@ -8,7 +8,7 @@ input GnrcFieldInp<$type:String> { field: $type }
 */
 namespace Components.Gqlp_Schema_generic_field_Input;
 
-public class InputCmptGnrcFieldInp<Ttype>
+public class CmptGnrcFieldInp<Ttype>
   : ICmptGnrcFieldInp<Ttype>
 {
   public Ttype field { get; set; }

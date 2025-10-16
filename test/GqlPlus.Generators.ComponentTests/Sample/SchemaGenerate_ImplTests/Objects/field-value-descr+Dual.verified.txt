@@ -9,7 +9,7 @@ enum EnumFieldValueDescrDual { fieldValueDescrDual }
 */
 namespace Components.Gqlp_Schema_field_value_descr_Dual;
 
-public class DualCmptFieldValueDescrDual
+public class CmptFieldValueDescrDual
   : ICmptFieldValueDescrDual
 {
   public EnumFieldValueDescrDual field { get; set; }

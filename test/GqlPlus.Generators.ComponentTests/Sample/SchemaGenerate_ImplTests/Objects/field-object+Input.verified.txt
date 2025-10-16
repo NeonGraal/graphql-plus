@@ -9,13 +9,13 @@ input FldFieldObjInp { field: Number | String }
 */
 namespace Components.Gqlp_Schema_field_object_Input;
 
-public class InputCmptFieldObjInp
+public class CmptFieldObjInp
   : ICmptFieldObjInp
 {
   public FldFieldObjInp field { get; set; }
 }
 
-public class InputCmptFldFieldObjInp
+public class CmptFldFieldObjInp
   : ICmptFldFieldObjInp
 {
   public Number field { get; set; }

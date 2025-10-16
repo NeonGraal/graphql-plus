@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_alt_mod_param_Output;
 
-public class OutputtestAltModParamOutp<Tmod>
+public class testAltModParamOutp<Tmod>
   : ItestAltModParamOutp<Tmod>
 {
   public AltAltModParamOutp AsAltAltModParamOutp { get; set; }
 }
 
-public class OutputtestAltAltModParamOutp
+public class testAltAltModParamOutp
   : ItestAltAltModParamOutp
 {
   public Number alt { get; set; }

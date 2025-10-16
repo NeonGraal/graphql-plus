@@ -5,14 +5,14 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_parent_field_Dual;
 
-public class DualtestPrntFieldDual
-  : DualtestRefPrntFieldDual
+public class testPrntFieldDual
+  : testRefPrntFieldDual
   , ItestPrntFieldDual
 {
   public Number field { get; set; }
 }
 
-public class DualtestRefPrntFieldDual
+public class testRefPrntFieldDual
   : ItestRefPrntFieldDual
 {
   public Number parent { get; set; }

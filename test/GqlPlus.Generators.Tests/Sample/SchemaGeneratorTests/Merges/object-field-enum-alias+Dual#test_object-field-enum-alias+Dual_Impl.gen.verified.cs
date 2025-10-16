@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_object_field_enum_alias_Dual;
 
-public class DualtestObjFieldEnumAliasDual
+public class testObjFieldEnumAliasDual
   : ItestObjFieldEnumAliasDual
 {
   public Boolean field { get; set; }

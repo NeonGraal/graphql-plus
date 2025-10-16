@@ -9,7 +9,7 @@ output ObjParamOutp<$type:String> { type: $type }
 */
 namespace Components.Gqlp_Schema_object_param_Output;
 
-public class OutputCmptObjParamOutp<Ttest,Ttype>
+public class CmptObjParamOutp<Ttest,Ttype>
   : ICmptObjParamOutp<Ttest,Ttype>
 {
   public Ttest test { get; set; }

@@ -8,8 +8,8 @@ input GnrcPrntInp<$type:String> { :$type }
 */
 namespace Components.Gqlp_Schema_generic_parent_Input;
 
-public class InputCmptGnrcPrntInp<Ttype>
-  : InputCmpttype
+public class CmptGnrcPrntInp<Ttype>
+  : Cmpttype
   , ICmptGnrcPrntInp<Ttype>
 {
 }

@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_generic_descr_Output;
 
-public class OutputtestGnrcDescrOutp<Ttype>
+public class testGnrcDescrOutp<Ttype>
   : ItestGnrcDescrOutp<Ttype>
 {
   public Ttype field { get; set; }

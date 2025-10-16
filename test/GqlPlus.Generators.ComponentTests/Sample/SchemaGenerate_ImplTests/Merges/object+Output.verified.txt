@@ -9,7 +9,7 @@ output ObjOutp { }
 */
 namespace Components.Gqlp_Schema_object_Output;
 
-public class OutputCmptObjOutp
+public class CmptObjOutp
   : ICmptObjOutp
 {
 }

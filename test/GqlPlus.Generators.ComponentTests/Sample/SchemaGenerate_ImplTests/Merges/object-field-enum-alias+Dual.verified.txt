@@ -9,7 +9,7 @@ dual ObjFieldEnumAliasDual { field [field2] = true }
 */
 namespace Components.Gqlp_Schema_object_field_enum_alias_Dual;
 
-public class DualCmptObjFieldEnumAliasDual
+public class CmptObjFieldEnumAliasDual
   : ICmptObjFieldEnumAliasDual
 {
   public Boolean field { get; set; }

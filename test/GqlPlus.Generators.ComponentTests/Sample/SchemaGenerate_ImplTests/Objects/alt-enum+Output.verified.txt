@@ -9,7 +9,7 @@ enum EnumAltEnumOutp { altEnumOutp }
 */
 namespace Components.Gqlp_Schema_alt_enum_Output;
 
-public class OutputCmptAltEnumOutp
+public class CmptAltEnumOutp
   : ICmptAltEnumOutp
 {
   public EnumAltEnumOutp AsEnumAltEnumOutp { get; set; }

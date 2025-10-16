@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_domain_enum_label;
 
-public class DomaintestDmnEnumLabel
+public class testDmnEnumLabel
   : ItestDmnEnumLabel
 {
 }

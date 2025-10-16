@@ -10,19 +10,19 @@ dual AltGnrcPrntDualPrntInp { alt: Number | String }
 */
 namespace Components.Gqlp_Schema_generic_parent_dual_parent_Input;
 
-public class InputCmptGnrcPrntDualPrntInp
-  : InputCmptRefGnrcPrntDualPrntInp
+public class CmptGnrcPrntDualPrntInp
+  : CmptRefGnrcPrntDualPrntInp
   , ICmptGnrcPrntDualPrntInp
 {
 }
 
-public class InputCmptRefGnrcPrntDualPrntInp<Tref>
-  : InputCmptref
+public class CmptRefGnrcPrntDualPrntInp<Tref>
+  : Cmptref
   , ICmptRefGnrcPrntDualPrntInp<Tref>
 {
 }
 
-public class DualCmptAltGnrcPrntDualPrntInp
+public class CmptAltGnrcPrntDualPrntInp
   : ICmptAltGnrcPrntDualPrntInp
 {
   public Number alt { get; set; }

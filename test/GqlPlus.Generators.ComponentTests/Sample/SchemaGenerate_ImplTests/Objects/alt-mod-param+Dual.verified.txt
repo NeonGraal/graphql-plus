@@ -9,13 +9,13 @@ dual AltAltModParamDual { alt: Number | String }
 */
 namespace Components.Gqlp_Schema_alt_mod_param_Dual;
 
-public class DualCmptAltModParamDual<Tmod>
+public class CmptAltModParamDual<Tmod>
   : ICmptAltModParamDual<Tmod>
 {
   public AltAltModParamDual AsAltAltModParamDual { get; set; }
 }
 
-public class DualCmptAltAltModParamDual
+public class CmptAltAltModParamDual
   : ICmptAltAltModParamDual
 {
   public Number alt { get; set; }

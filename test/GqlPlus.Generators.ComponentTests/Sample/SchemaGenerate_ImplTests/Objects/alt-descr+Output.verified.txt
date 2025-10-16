@@ -8,7 +8,7 @@ output AltDescrOutp { | "Test" "Descr" String }
 */
 namespace Components.Gqlp_Schema_alt_descr_Output;
 
-public class OutputCmptAltDescrOutp
+public class CmptAltDescrOutp
   : ICmptAltDescrOutp
 {
   public String AsString { get; set; }

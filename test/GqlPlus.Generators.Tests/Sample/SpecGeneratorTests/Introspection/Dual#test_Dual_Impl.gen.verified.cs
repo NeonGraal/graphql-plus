@@ -5,14 +5,14 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_Dual;
 
-public class Outputtest_TypeDual
-  : Outputtest_TypeObject
+public class test_TypeDual
+  : test_TypeObject
   , Itest_TypeDual
 {
 }
 
-public class Outputtest_DualField
-  : Outputtest_ObjField
+public class test_DualField
+  : test_ObjField
   , Itest_DualField
 {
 }

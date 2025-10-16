@@ -5,16 +5,16 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_Directive;
 
-public class Outputtest_Directives
-  : Outputtest_AndType
+public class test_Directives
+  : test_AndType
   , Itest_Directives
 {
   public _Directive directive { get; set; }
   public _Directive As_Directive { get; set; }
 }
 
-public class Outputtest_Directive
-  : Outputtest_Aliased
+public class test_Directive
+  : test_Aliased
   , Itest_Directive
 {
   public _InputParam parameters { get; set; }

@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_generic_alt_mod_String_Output;
 
-public class OutputtestRefGnrcAltModStrOutp<Tref>
+public class testRefGnrcAltModStrOutp<Tref>
   : ItestRefGnrcAltModStrOutp<Tref>
 {
   public Tref Asref { get; set; }

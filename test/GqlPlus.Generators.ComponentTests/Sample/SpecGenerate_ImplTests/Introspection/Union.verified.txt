@@ -19,20 +19,20 @@ output _UnionMember {
 */
 namespace Components.Gqlp_Spec_Union;
 
-public class OutputCmpt_TypeUnion
-  : OutputCmpt_ParentType
+public class Cmpt_TypeUnion
+  : Cmpt_ParentType
   , ICmpt_TypeUnion
 {
 }
 
-public class OutputCmpt_UnionRef
-  : OutputCmpt_TypeRef
+public class Cmpt_UnionRef
+  : Cmpt_TypeRef
   , ICmpt_UnionRef
 {
 }
 
-public class OutputCmpt_UnionMember
-  : OutputCmpt_UnionRef
+public class Cmpt_UnionMember
+  : Cmpt_UnionRef
   , ICmpt_UnionMember
 {
   public _Identifier union { get; set; }

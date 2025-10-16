@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_field_dual_Dual;
 
-public class DualtestFieldDualDual
+public class testFieldDualDual
   : ItestFieldDualDual
 {
   public FldFieldDualDual field { get; set; }
 }
 
-public class DualtestFldFieldDualDual
+public class testFldFieldDualDual
   : ItestFldFieldDualDual
 {
   public Number field { get; set; }

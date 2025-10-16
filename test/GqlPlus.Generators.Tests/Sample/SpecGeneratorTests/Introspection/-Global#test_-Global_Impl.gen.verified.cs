@@ -5,24 +5,24 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp__Global;
 
-public class Outputtest_AndType
-  : Outputtest_Named
+public class test_AndType
+  : test_Named
   , Itest_AndType
 {
   public _Type type { get; set; }
   public _Type As_Type { get; set; }
 }
 
-public class Outputtest_Categories
-  : Outputtest_AndType
+public class test_Categories
+  : test_AndType
   , Itest_Categories
 {
   public _Category category { get; set; }
   public _Category As_Category { get; set; }
 }
 
-public class Outputtest_Category
-  : Outputtest_Aliased
+public class test_Category
+  : test_Aliased
   , Itest_Category
 {
   public _Resolution resolution { get; set; }
@@ -30,16 +30,16 @@ public class Outputtest_Category
   public _Modifiers modifiers { get; set; }
 }
 
-public class Outputtest_Directives
-  : Outputtest_AndType
+public class test_Directives
+  : test_AndType
   , Itest_Directives
 {
   public _Directive directive { get; set; }
   public _Directive As_Directive { get; set; }
 }
 
-public class Outputtest_Directive
-  : Outputtest_Aliased
+public class test_Directive
+  : test_Aliased
   , Itest_Directive
 {
   public _InputParam parameters { get; set; }
@@ -47,8 +47,8 @@ public class Outputtest_Directive
   public Unit locations { get; set; }
 }
 
-public class Outputtest_Setting
-  : Outputtest_Named
+public class test_Setting
+  : test_Named
   , Itest_Setting
 {
   public _Value value { get; set; }

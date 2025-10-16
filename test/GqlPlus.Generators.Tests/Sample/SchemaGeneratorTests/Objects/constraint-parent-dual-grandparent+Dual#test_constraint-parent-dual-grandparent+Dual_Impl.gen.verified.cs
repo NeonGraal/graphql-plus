@@ -5,32 +5,32 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_constraint_parent_dual_grandparent_Dual;
 
-public class DualtestCnstPrntDualGrndDual
-  : DualtestRefCnstPrntDualGrndDual
+public class testCnstPrntDualGrndDual
+  : testRefCnstPrntDualGrndDual
   , ItestCnstPrntDualGrndDual
 {
 }
 
-public class DualtestRefCnstPrntDualGrndDual<Tref>
-  : Dualtestref
+public class testRefCnstPrntDualGrndDual<Tref>
+  : testref
   , ItestRefCnstPrntDualGrndDual<Tref>
 {
 }
 
-public class DualtestGrndCnstPrntDualGrndDual
+public class testGrndCnstPrntDualGrndDual
   : ItestGrndCnstPrntDualGrndDual
 {
   public String AsString { get; set; }
 }
 
-public class DualtestPrntCnstPrntDualGrndDual
-  : DualtestGrndCnstPrntDualGrndDual
+public class testPrntCnstPrntDualGrndDual
+  : testGrndCnstPrntDualGrndDual
   , ItestPrntCnstPrntDualGrndDual
 {
 }
 
-public class DualtestAltCnstPrntDualGrndDual
-  : DualtestPrntCnstPrntDualGrndDual
+public class testAltCnstPrntDualGrndDual
+  : testPrntCnstPrntDualGrndDual
   , ItestAltCnstPrntDualGrndDual
 {
   public Number alt { get; set; }

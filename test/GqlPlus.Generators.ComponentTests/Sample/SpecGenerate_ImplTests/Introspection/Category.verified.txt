@@ -21,16 +21,16 @@ enum _Resolution { Parallel Sequential Single }
 */
 namespace Components.Gqlp_Spec_Category;
 
-public class OutputCmpt_Categories
-  : OutputCmpt_AndType
+public class Cmpt_Categories
+  : Cmpt_AndType
   , ICmpt_Categories
 {
   public _Category category { get; set; }
   public _Category As_Category { get; set; }
 }
 
-public class OutputCmpt_Category
-  : OutputCmpt_Aliased
+public class Cmpt_Category
+  : Cmpt_Aliased
   , ICmpt_Category
 {
   public _Resolution resolution { get; set; }

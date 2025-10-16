@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_domain_bool_parent_descr;
 
-public class DomaintestDmnBoolPrntDescr
-  : DomaintestPrntDmnBoolPrntDescr
+public class testDmnBoolPrntDescr
+  : testPrntDmnBoolPrntDescr
   , ItestDmnBoolPrntDescr
 {
 }
 
-public class DomaintestPrntDmnBoolPrntDescr
+public class testPrntDmnBoolPrntDescr
   : ItestPrntDmnBoolPrntDescr
 {
 }

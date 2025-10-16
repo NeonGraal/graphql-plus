@@ -9,14 +9,14 @@ dual RefPrntFieldDual { parent: Number | String }
 */
 namespace Components.Gqlp_Schema_parent_field_Dual;
 
-public class DualCmptPrntFieldDual
-  : DualCmptRefPrntFieldDual
+public class CmptPrntFieldDual
+  : CmptRefPrntFieldDual
   , ICmptPrntFieldDual
 {
   public Number field { get; set; }
 }
 
-public class DualCmptRefPrntFieldDual
+public class CmptRefPrntFieldDual
   : ICmptRefPrntFieldDual
 {
   public Number parent { get; set; }

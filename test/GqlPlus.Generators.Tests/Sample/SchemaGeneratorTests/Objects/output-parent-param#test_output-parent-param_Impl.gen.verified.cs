@@ -5,32 +5,32 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_output_parent_param;
 
-public class OutputtestOutpPrntParam
-  : OutputtestPrntOutpPrntParam
+public class testOutpPrntParam
+  : testPrntOutpPrntParam
   , ItestOutpPrntParam
 {
   public FldOutpPrntParam field { get; set; }
 }
 
-public class OutputtestPrntOutpPrntParam
+public class testPrntOutpPrntParam
   : ItestPrntOutpPrntParam
 {
   public FldOutpPrntParam field { get; set; }
 }
 
-public class DualtestFldOutpPrntParam
+public class testFldOutpPrntParam
   : ItestFldOutpPrntParam
 {
 }
 
-public class InputtestInOutpPrntParam
+public class testInOutpPrntParam
   : ItestInOutpPrntParam
 {
   public Number param { get; set; }
   public String AsString { get; set; }
 }
 
-public class InputtestPrntOutpPrntParamIn
+public class testPrntOutpPrntParamIn
   : ItestPrntOutpPrntParamIn
 {
   public Number parent { get; set; }

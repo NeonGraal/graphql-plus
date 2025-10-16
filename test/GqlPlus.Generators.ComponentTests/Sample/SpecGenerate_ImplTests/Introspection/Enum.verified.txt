@@ -20,21 +20,21 @@ output _EnumValue {
 */
 namespace Components.Gqlp_Spec_Enum;
 
-public class OutputCmpt_TypeEnum
-  : OutputCmpt_ParentType
+public class Cmpt_TypeEnum
+  : Cmpt_ParentType
   , ICmpt_TypeEnum
 {
 }
 
-public class DualCmpt_EnumLabel
-  : DualCmpt_Aliased
+public class Cmpt_EnumLabel
+  : Cmpt_Aliased
   , ICmpt_EnumLabel
 {
   public _Identifier enum { get; set; }
 }
 
-public class OutputCmpt_EnumValue
-  : OutputCmpt_TypeRef
+public class Cmpt_EnumValue
+  : Cmpt_TypeRef
   , ICmpt_EnumValue
 {
   public _Identifier label { get; set; }

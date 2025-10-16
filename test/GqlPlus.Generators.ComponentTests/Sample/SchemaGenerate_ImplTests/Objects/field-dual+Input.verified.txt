@@ -9,13 +9,13 @@ dual FldFieldDualInp { field: Number | String }
 */
 namespace Components.Gqlp_Schema_field_dual_Input;
 
-public class InputCmptFieldDualInp
+public class CmptFieldDualInp
   : ICmptFieldDualInp
 {
   public FldFieldDualInp field { get; set; }
 }
 
-public class DualCmptFldFieldDualInp
+public class CmptFldFieldDualInp
   : ICmptFldFieldDualInp
 {
   public Number field { get; set; }

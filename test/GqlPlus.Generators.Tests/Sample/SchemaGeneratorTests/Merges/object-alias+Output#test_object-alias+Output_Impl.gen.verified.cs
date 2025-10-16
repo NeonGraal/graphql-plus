@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_object_alias_Output;
 
-public class OutputtestObjAliasOutp
+public class testObjAliasOutp
   : ItestObjAliasOutp
 {
 }

@@ -9,7 +9,7 @@ output ObjAliasOutp [Output2] { }
 */
 namespace Components.Gqlp_Schema_object_alias_Output;
 
-public class OutputCmptObjAliasOutp
+public class CmptObjAliasOutp
   : ICmptObjAliasOutp
 {
 }

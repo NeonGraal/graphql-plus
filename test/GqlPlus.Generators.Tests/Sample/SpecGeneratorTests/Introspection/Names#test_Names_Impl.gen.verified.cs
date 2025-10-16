@@ -5,28 +5,28 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_Names;
 
-public class Dualtest_Aliased
-  : Dualtest_Named
+public class test_Aliased
+  : test_Named
   , Itest_Aliased
 {
   public _Identifier aliases { get; set; }
 }
 
-public class Dualtest_Named
-  : Dualtest_Described
+public class test_Named
+  : test_Described
   , Itest_Named
 {
   public _Identifier name { get; set; }
 }
 
-public class Dualtest_Described
+public class test_Described
   : Itest_Described
 {
   public String description { get; set; }
 }
 
-public class Outputtest_AndType
-  : Outputtest_Named
+public class test_AndType
+  : test_Named
   , Itest_AndType
 {
   public _Type type { get; set; }

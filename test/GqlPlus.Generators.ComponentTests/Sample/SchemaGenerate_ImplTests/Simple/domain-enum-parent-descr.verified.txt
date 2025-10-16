@@ -10,13 +10,13 @@ enum EnumDmnEnumPrntDescr { enum_dmnEnumPrntDescr prnt_dmnEnumPrntDescr }
 */
 namespace Components.Gqlp_Schema_domain_enum_parent_descr;
 
-public class DomainCmptDmnEnumPrntDescr
-  : DomainCmptPrntDmnEnumPrntDescr
+public class CmptDmnEnumPrntDescr
+  : CmptPrntDmnEnumPrntDescr
   , ICmptDmnEnumPrntDescr
 {
 }
 
-public class DomainCmptPrntDmnEnumPrntDescr
+public class CmptPrntDmnEnumPrntDescr
   : ICmptPrntDmnEnumPrntDescr
 {
 }

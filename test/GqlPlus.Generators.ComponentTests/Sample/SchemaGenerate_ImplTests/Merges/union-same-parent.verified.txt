@@ -10,14 +10,14 @@ union PrntUnionSamePrnt { String }
 */
 namespace Components.Gqlp_Schema_union_same_parent;
 
-public class UnionCmptUnionSamePrnt
-  : UnionCmptPrntUnionSamePrnt
+public class CmptUnionSamePrnt
+  : CmptPrntUnionSamePrnt
   , ICmptUnionSamePrnt
 {
   public Boolean AsBoolean { get; set; }
 }
 
-public class UnionCmptPrntUnionSamePrnt
+public class CmptPrntUnionSamePrnt
   : ICmptPrntUnionSamePrnt
 {
   public String AsString { get; set; }

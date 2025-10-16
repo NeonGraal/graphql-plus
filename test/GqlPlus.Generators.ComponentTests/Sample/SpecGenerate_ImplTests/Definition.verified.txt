@@ -36,17 +36,17 @@ union _Simple [Simple] { _Enum _Domain _Union }
 */
 namespace Components.Gqlp_Spec_Definition;
 
-public class DomainCmptNumber
+public class CmptNumber
   : ICmptNumber
 {
 }
 
-public class DomainCmptString
+public class CmptString
   : ICmptString
 {
 }
 
-public class UnionCmpt_Basic
+public class Cmpt_Basic
   : ICmpt_Basic
 {
   public Boolean AsBoolean { get; set; }
@@ -55,14 +55,14 @@ public class UnionCmpt_Basic
   public Unit AsUnit { get; set; }
 }
 
-public class UnionCmpt_Internal
+public class Cmpt_Internal
   : ICmpt_Internal
 {
   public Null AsNull { get; set; }
   public Void AsVoid { get; set; }
 }
 
-public class UnionCmpt_Key
+public class Cmpt_Key
   : ICmpt_Key
 {
   public _Basic As_Basic { get; set; }
@@ -70,42 +70,42 @@ public class UnionCmpt_Key
   public _Simple As_Simple { get; set; }
 }
 
-public class DualCmpt_Object
+public class Cmpt_Object
   : ICmpt_Object
 {
 }
 
-public class UnionCmpt_Domain
+public class Cmpt_Domain
   : ICmpt_Domain
 {
 }
 
-public class DualCmpt_Dual
+public class Cmpt_Dual
   : ICmpt_Dual
 {
 }
 
-public class UnionCmpt_Enum
+public class Cmpt_Enum
   : ICmpt_Enum
 {
 }
 
-public class InputCmpt_Input
+public class Cmpt_Input
   : ICmpt_Input
 {
 }
 
-public class OutputCmpt_Output
+public class Cmpt_Output
   : ICmpt_Output
 {
 }
 
-public class UnionCmpt_Union
+public class Cmpt_Union
   : ICmpt_Union
 {
 }
 
-public class UnionCmpt_Simple
+public class Cmpt_Simple
   : ICmpt_Simple
 {
   public _Enum As_Enum { get; set; }

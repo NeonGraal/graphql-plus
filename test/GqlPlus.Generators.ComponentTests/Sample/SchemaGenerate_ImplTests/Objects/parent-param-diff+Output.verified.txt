@@ -9,14 +9,14 @@ output RefPrntParamDiffOutp<$b:String> { | $b }
 */
 namespace Components.Gqlp_Schema_parent_param_diff_Output;
 
-public class OutputCmptPrntParamDiffOutp<Ta>
-  : OutputCmptRefPrntParamDiffOutp
+public class CmptPrntParamDiffOutp<Ta>
+  : CmptRefPrntParamDiffOutp
   , ICmptPrntParamDiffOutp<Ta>
 {
   public Ta field { get; set; }
 }
 
-public class OutputCmptRefPrntParamDiffOutp<Tb>
+public class CmptRefPrntParamDiffOutp<Tb>
   : ICmptRefPrntParamDiffOutp<Tb>
 {
   public Tb Asb { get; set; }

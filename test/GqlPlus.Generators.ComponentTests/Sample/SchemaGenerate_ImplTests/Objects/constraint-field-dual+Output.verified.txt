@@ -11,26 +11,26 @@ output AltCnstFieldDualOutp { :PrntCnstFieldDualOutp alt: Number }
 */
 namespace Components.Gqlp_Schema_constraint_field_dual_Output;
 
-public class OutputCmptCnstFieldDualOutp
-  : OutputCmptRefCnstFieldDualOutp
+public class CmptCnstFieldDualOutp
+  : CmptRefCnstFieldDualOutp
   , ICmptCnstFieldDualOutp
 {
 }
 
-public class OutputCmptRefCnstFieldDualOutp<Tref>
+public class CmptRefCnstFieldDualOutp<Tref>
   : ICmptRefCnstFieldDualOutp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DualCmptPrntCnstFieldDualOutp
+public class CmptPrntCnstFieldDualOutp
   : ICmptPrntCnstFieldDualOutp
 {
   public String AsString { get; set; }
 }
 
-public class OutputCmptAltCnstFieldDualOutp
-  : OutputCmptPrntCnstFieldDualOutp
+public class CmptAltCnstFieldDualOutp
+  : CmptPrntCnstFieldDualOutp
   , ICmptAltCnstFieldDualOutp
 {
   public Number alt { get; set; }

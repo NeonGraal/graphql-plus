@@ -5,13 +5,13 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_generic_value_Dual;
 
-public class DualtestGnrcValueDual
+public class testGnrcValueDual
   : ItestGnrcValueDual
 {
   public RefGnrcValueDual<EnumGnrcValueDual> AsRefGnrcValueDual { get; set; }
 }
 
-public class DualtestRefGnrcValueDual<Ttype>
+public class testRefGnrcValueDual<Ttype>
   : ItestRefGnrcValueDual<Ttype>
 {
   public Ttype field { get; set; }

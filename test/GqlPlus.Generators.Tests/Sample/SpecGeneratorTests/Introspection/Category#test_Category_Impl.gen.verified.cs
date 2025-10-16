@@ -5,16 +5,16 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_Category;
 
-public class Outputtest_Categories
-  : Outputtest_AndType
+public class test_Categories
+  : test_AndType
   , Itest_Categories
 {
   public _Category category { get; set; }
   public _Category As_Category { get; set; }
 }
 
-public class Outputtest_Category
-  : Outputtest_Aliased
+public class test_Category
+  : test_Aliased
   , Itest_Category
 {
   public _Resolution resolution { get; set; }

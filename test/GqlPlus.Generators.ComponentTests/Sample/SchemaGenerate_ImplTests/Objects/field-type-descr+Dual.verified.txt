@@ -8,7 +8,7 @@ dual FieldTypeDescrDual { field: "Test" "Descr" Number }
 */
 namespace Components.Gqlp_Schema_field_type_descr_Dual;
 
-public class DualCmptFieldTypeDescrDual
+public class CmptFieldTypeDescrDual
   : ICmptFieldTypeDescrDual
 {
   public Number field { get; set; }

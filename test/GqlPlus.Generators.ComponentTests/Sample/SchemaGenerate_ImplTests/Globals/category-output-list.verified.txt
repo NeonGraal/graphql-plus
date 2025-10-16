@@ -9,7 +9,7 @@ output CtgrOutpList { }
 */
 namespace Components.Gqlp_Schema_category_output_list;
 
-public class OutputCmptCtgrOutpList
+public class CmptCtgrOutpList
   : ICmptCtgrOutpList
 {
 }

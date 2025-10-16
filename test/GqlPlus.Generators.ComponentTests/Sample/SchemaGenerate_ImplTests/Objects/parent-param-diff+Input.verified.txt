@@ -9,14 +9,14 @@ input RefPrntParamDiffInp<$b:String> { | $b }
 */
 namespace Components.Gqlp_Schema_parent_param_diff_Input;
 
-public class InputCmptPrntParamDiffInp<Ta>
-  : InputCmptRefPrntParamDiffInp
+public class CmptPrntParamDiffInp<Ta>
+  : CmptRefPrntParamDiffInp
   , ICmptPrntParamDiffInp<Ta>
 {
   public Ta field { get; set; }
 }
 
-public class InputCmptRefPrntParamDiffInp<Tb>
+public class CmptRefPrntParamDiffInp<Tb>
   : ICmptRefPrntParamDiffInp<Tb>
 {
   public Tb Asb { get; set; }

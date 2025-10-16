@@ -10,13 +10,13 @@ dual ObjAltDualType { }
 */
 namespace Components.Gqlp_Schema_object_alt_Dual;
 
-public class DualCmptObjAltDual
+public class CmptObjAltDual
   : ICmptObjAltDual
 {
   public ObjAltDualType AsObjAltDualType { get; set; }
 }
 
-public class DualCmptObjAltDualType
+public class CmptObjAltDualType
   : ICmptObjAltDualType
 {
 }

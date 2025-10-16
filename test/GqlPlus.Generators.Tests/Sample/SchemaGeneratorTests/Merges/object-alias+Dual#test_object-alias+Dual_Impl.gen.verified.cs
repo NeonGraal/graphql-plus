@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_object_alias_Dual;
 
-public class DualtestObjAliasDual
+public class testObjAliasDual
   : ItestObjAliasDual
 {
 }

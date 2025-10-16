@@ -5,7 +5,7 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_union_same;
 
-public class UniontestUnionSame
+public class testUnionSame
   : ItestUnionSame
 {
   public Boolean AsBoolean { get; set; }

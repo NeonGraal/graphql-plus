@@ -11,13 +11,13 @@ enum ParentCnstPrntEnumDual { parentCnstPrntEnumDual }
 */
 namespace Components.Gqlp_Schema_constraint_parent_enum_Dual;
 
-public class DualCmptCnstPrntEnumDual
+public class CmptCnstPrntEnumDual
   : ICmptCnstPrntEnumDual
 {
   public RefCnstPrntEnumDual<ParentCnstPrntEnumDual> AsRefCnstPrntEnumDual { get; set; }
 }
 
-public class DualCmptRefCnstPrntEnumDual<Ttype>
+public class CmptRefCnstPrntEnumDual<Ttype>
   : ICmptRefCnstPrntEnumDual<Ttype>
 {
   public Ttype field { get; set; }

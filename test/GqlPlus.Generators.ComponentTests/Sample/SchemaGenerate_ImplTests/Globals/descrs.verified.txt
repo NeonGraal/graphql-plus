@@ -10,7 +10,7 @@ output Dscrs { }
 */
 namespace Components.Gqlp_Schema_descrs;
 
-public class OutputCmptDscrs
+public class CmptDscrs
   : ICmptDscrs
 {
 }

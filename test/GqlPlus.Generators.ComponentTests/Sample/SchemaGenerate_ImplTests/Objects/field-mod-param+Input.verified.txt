@@ -9,13 +9,13 @@ input FldFieldModParamInp { field: Number | String }
 */
 namespace Components.Gqlp_Schema_field_mod_param_Input;
 
-public class InputCmptFieldModParamInp<Tmod>
+public class CmptFieldModParamInp<Tmod>
   : ICmptFieldModParamInp<Tmod>
 {
   public FldFieldModParamInp field { get; set; }
 }
 
-public class InputCmptFldFieldModParamInp
+public class CmptFldFieldModParamInp
   : ICmptFldFieldModParamInp
 {
   public Number field { get; set; }

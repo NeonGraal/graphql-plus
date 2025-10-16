@@ -10,7 +10,7 @@ output Ctgr { }
 */
 namespace Components.Gqlp_Schema_category;
 
-public class OutputCmptCtgr
+public class CmptCtgr
   : ICmptCtgr
 {
 }

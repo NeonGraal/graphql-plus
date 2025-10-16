@@ -8,7 +8,7 @@ dual FieldSmplDual { field: Number }
 */
 namespace Components.Gqlp_Schema_field_simple_Dual;
 
-public class DualCmptFieldSmplDual
+public class CmptFieldSmplDual
   : ICmptFieldSmplDual
 {
   public Number field { get; set; }

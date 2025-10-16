@@ -5,19 +5,19 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp_generic_parent_string_dom_Dual;
 
-public class DualtestGnrcPrntStrDomDual
-  : DualtestFieldGnrcPrntStrDomDual
+public class testGnrcPrntStrDomDual
+  : testFieldGnrcPrntStrDomDual
   , ItestGnrcPrntStrDomDual
 {
 }
 
-public class DualtestFieldGnrcPrntStrDomDual<Tref>
+public class testFieldGnrcPrntStrDomDual<Tref>
   : ItestFieldGnrcPrntStrDomDual<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DomaintestDomGnrcPrntStrDomDual
+public class testDomGnrcPrntStrDomDual
   : ItestDomGnrcPrntStrDomDual
 {
 }

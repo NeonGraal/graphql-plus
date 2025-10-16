@@ -5,3535 +5,3535 @@
 */
 namespace GqlPlus.GeneratorTests.Gqlp__ALL;
 
-public class OutputtestCtgrDscrs
+public class testCtgrDscrs
   : ItestCtgrDscrs
 {
 }
 
-public class OutputtestCtgrOutp
+public class testCtgrOutp
   : ItestCtgrOutp
 {
 }
 
-public class OutputtestCtgrOutpDescr
+public class testCtgrOutpDescr
   : ItestCtgrOutpDescr
 {
 }
 
-public class OutputtestCtgrOutpDict
+public class testCtgrOutpDict
   : ItestCtgrOutpDict
 {
 }
 
-public class OutputtestCtgrOutpList
+public class testCtgrOutpList
   : ItestCtgrOutpList
 {
 }
 
-public class OutputtestCtgrOutpOptl
+public class testCtgrOutpOptl
   : ItestCtgrOutpOptl
 {
 }
 
-public class OutputtestDescr
+public class testDescr
   : ItestDescr
 {
 }
 
-public class OutputtestDescrBcks
+public class testDescrBcks
   : ItestDescrBcks
 {
 }
 
-public class OutputtestDescrBtwn
+public class testDescrBtwn
   : ItestDescrBtwn
 {
 }
 
-public class OutputtestDescrCmpl
+public class testDescrCmpl
   : ItestDescrCmpl
 {
 }
 
-public class OutputtestDescrDbl
+public class testDescrDbl
   : ItestDescrDbl
 {
 }
 
-public class OutputtestDescrSngl
+public class testDescrSngl
   : ItestDescrSngl
 {
 }
 
-public class OutputtestDscrs
+public class testDscrs
   : ItestDscrs
 {
 }
 
-public class InputtestInDrctParamDict
+public class testInDrctParamDict
   : ItestInDrctParamDict
 {
 }
 
-public class InputtestInDrctParamIn
+public class testInDrctParamIn
   : ItestInDrctParamIn
 {
 }
 
-public class InputtestInDrctParamList
+public class testInDrctParamList
   : ItestInDrctParamList
 {
 }
 
-public class InputtestInDrctParamOpt
+public class testInDrctParamOpt
   : ItestInDrctParamOpt
 {
 }
 
-public class DualtestAltDual
+public class testAltDual
   : ItestAltDual
 {
   public AltAltDual AsAltAltDual { get; set; }
 }
 
-public class DualtestAltAltDual
+public class testAltAltDual
   : ItestAltAltDual
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class InputtestAltInp
+public class testAltInp
   : ItestAltInp
 {
   public AltAltInp AsAltAltInp { get; set; }
 }
 
-public class InputtestAltAltInp
+public class testAltAltInp
   : ItestAltAltInp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class OutputtestAltOutp
+public class testAltOutp
   : ItestAltOutp
 {
   public AltAltOutp AsAltAltOutp { get; set; }
 }
 
-public class OutputtestAltAltOutp
+public class testAltAltOutp
   : ItestAltAltOutp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class DualtestAltDescrDual
+public class testAltDescrDual
   : ItestAltDescrDual
 {
   public String AsString { get; set; }
 }
 
-public class InputtestAltDescrInp
+public class testAltDescrInp
   : ItestAltDescrInp
 {
   public String AsString { get; set; }
 }
 
-public class OutputtestAltDescrOutp
+public class testAltDescrOutp
   : ItestAltDescrOutp
 {
   public String AsString { get; set; }
 }
 
-public class DualtestAltDualDual
+public class testAltDualDual
   : ItestAltDualDual
 {
   public ObjDualAltDualDual AsObjDualAltDualDual { get; set; }
 }
 
-public class DualtestObjDualAltDualDual
+public class testObjDualAltDualDual
   : ItestObjDualAltDualDual
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class InputtestAltDualInp
+public class testAltDualInp
   : ItestAltDualInp
 {
   public ObjDualAltDualInp AsObjDualAltDualInp { get; set; }
 }
 
-public class DualtestObjDualAltDualInp
+public class testObjDualAltDualInp
   : ItestObjDualAltDualInp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class OutputtestAltDualOutp
+public class testAltDualOutp
   : ItestAltDualOutp
 {
   public ObjDualAltDualOutp AsObjDualAltDualOutp { get; set; }
 }
 
-public class DualtestObjDualAltDualOutp
+public class testObjDualAltDualOutp
   : ItestObjDualAltDualOutp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class DualtestAltEnumDual
+public class testAltEnumDual
   : ItestAltEnumDual
 {
   public EnumAltEnumDual AsEnumAltEnumDual { get; set; }
 }
 
-public class InputtestAltEnumInp
+public class testAltEnumInp
   : ItestAltEnumInp
 {
   public EnumAltEnumInp AsEnumAltEnumInp { get; set; }
 }
 
-public class OutputtestAltEnumOutp
+public class testAltEnumOutp
   : ItestAltEnumOutp
 {
   public EnumAltEnumOutp AsEnumAltEnumOutp { get; set; }
 }
 
-public class DualtestAltModBoolDual
+public class testAltModBoolDual
   : ItestAltModBoolDual
 {
   public AltAltModBoolDual AsAltAltModBoolDual { get; set; }
 }
 
-public class DualtestAltAltModBoolDual
+public class testAltAltModBoolDual
   : ItestAltAltModBoolDual
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class InputtestAltModBoolInp
+public class testAltModBoolInp
   : ItestAltModBoolInp
 {
   public AltAltModBoolInp AsAltAltModBoolInp { get; set; }
 }
 
-public class InputtestAltAltModBoolInp
+public class testAltAltModBoolInp
   : ItestAltAltModBoolInp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class OutputtestAltModBoolOutp
+public class testAltModBoolOutp
   : ItestAltModBoolOutp
 {
   public AltAltModBoolOutp AsAltAltModBoolOutp { get; set; }
 }
 
-public class OutputtestAltAltModBoolOutp
+public class testAltAltModBoolOutp
   : ItestAltAltModBoolOutp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class DualtestAltModParamDual<Tmod>
+public class testAltModParamDual<Tmod>
   : ItestAltModParamDual<Tmod>
 {
   public AltAltModParamDual AsAltAltModParamDual { get; set; }
 }
 
-public class DualtestAltAltModParamDual
+public class testAltAltModParamDual
   : ItestAltAltModParamDual
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class InputtestAltModParamInp<Tmod>
+public class testAltModParamInp<Tmod>
   : ItestAltModParamInp<Tmod>
 {
   public AltAltModParamInp AsAltAltModParamInp { get; set; }
 }
 
-public class InputtestAltAltModParamInp
+public class testAltAltModParamInp
   : ItestAltAltModParamInp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class OutputtestAltModParamOutp<Tmod>
+public class testAltModParamOutp<Tmod>
   : ItestAltModParamOutp<Tmod>
 {
   public AltAltModParamOutp AsAltAltModParamOutp { get; set; }
 }
 
-public class OutputtestAltAltModParamOutp
+public class testAltAltModParamOutp
   : ItestAltAltModParamOutp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class DualtestAltSmplDual
+public class testAltSmplDual
   : ItestAltSmplDual
 {
   public String AsString { get; set; }
 }
 
-public class InputtestAltSmplInp
+public class testAltSmplInp
   : ItestAltSmplInp
 {
   public String AsString { get; set; }
 }
 
-public class OutputtestAltSmplOutp
+public class testAltSmplOutp
   : ItestAltSmplOutp
 {
   public String AsString { get; set; }
 }
 
-public class DualtestCnstAltDual<Ttype>
+public class testCnstAltDual<Ttype>
   : ItestCnstAltDual<Ttype>
 {
   public Ttype Astype { get; set; }
 }
 
-public class InputtestCnstAltInp<Ttype>
+public class testCnstAltInp<Ttype>
   : ItestCnstAltInp<Ttype>
 {
   public Ttype Astype { get; set; }
 }
 
-public class OutputtestCnstAltOutp<Ttype>
+public class testCnstAltOutp<Ttype>
   : ItestCnstAltOutp<Ttype>
 {
   public Ttype Astype { get; set; }
 }
 
-public class DualtestCnstAltDmnDual
+public class testCnstAltDmnDual
   : ItestCnstAltDmnDual
 {
   public RefCnstAltDmnDual<DomCnstAltDmnDual> AsRefCnstAltDmnDual { get; set; }
 }
 
-public class DualtestRefCnstAltDmnDual<Tref>
+public class testRefCnstAltDmnDual<Tref>
   : ItestRefCnstAltDmnDual<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DomaintestDomCnstAltDmnDual
+public class testDomCnstAltDmnDual
   : ItestDomCnstAltDmnDual
 {
 }
 
-public class InputtestCnstAltDmnInp
+public class testCnstAltDmnInp
   : ItestCnstAltDmnInp
 {
   public RefCnstAltDmnInp<DomCnstAltDmnInp> AsRefCnstAltDmnInp { get; set; }
 }
 
-public class InputtestRefCnstAltDmnInp<Tref>
+public class testRefCnstAltDmnInp<Tref>
   : ItestRefCnstAltDmnInp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DomaintestDomCnstAltDmnInp
+public class testDomCnstAltDmnInp
   : ItestDomCnstAltDmnInp
 {
 }
 
-public class OutputtestCnstAltDmnOutp
+public class testCnstAltDmnOutp
   : ItestCnstAltDmnOutp
 {
   public RefCnstAltDmnOutp<DomCnstAltDmnOutp> AsRefCnstAltDmnOutp { get; set; }
 }
 
-public class OutputtestRefCnstAltDmnOutp<Tref>
+public class testRefCnstAltDmnOutp<Tref>
   : ItestRefCnstAltDmnOutp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DomaintestDomCnstAltDmnOutp
+public class testDomCnstAltDmnOutp
   : ItestDomCnstAltDmnOutp
 {
 }
 
-public class DualtestCnstAltDualDual
+public class testCnstAltDualDual
   : ItestCnstAltDualDual
 {
   public RefCnstAltDualDual<AltCnstAltDualDual> AsRefCnstAltDualDual { get; set; }
 }
 
-public class DualtestRefCnstAltDualDual<Tref>
+public class testRefCnstAltDualDual<Tref>
   : ItestRefCnstAltDualDual<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DualtestPrntCnstAltDualDual
+public class testPrntCnstAltDualDual
   : ItestPrntCnstAltDualDual
 {
   public String AsString { get; set; }
 }
 
-public class DualtestAltCnstAltDualDual
-  : DualtestPrntCnstAltDualDual
+public class testAltCnstAltDualDual
+  : testPrntCnstAltDualDual
   , ItestAltCnstAltDualDual
 {
   public Number alt { get; set; }
 }
 
-public class InputtestCnstAltDualInp
+public class testCnstAltDualInp
   : ItestCnstAltDualInp
 {
   public RefCnstAltDualInp<AltCnstAltDualInp> AsRefCnstAltDualInp { get; set; }
 }
 
-public class InputtestRefCnstAltDualInp<Tref>
+public class testRefCnstAltDualInp<Tref>
   : ItestRefCnstAltDualInp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DualtestPrntCnstAltDualInp
+public class testPrntCnstAltDualInp
   : ItestPrntCnstAltDualInp
 {
   public String AsString { get; set; }
 }
 
-public class InputtestAltCnstAltDualInp
-  : InputtestPrntCnstAltDualInp
+public class testAltCnstAltDualInp
+  : testPrntCnstAltDualInp
   , ItestAltCnstAltDualInp
 {
   public Number alt { get; set; }
 }
 
-public class OutputtestCnstAltDualOutp
+public class testCnstAltDualOutp
   : ItestCnstAltDualOutp
 {
   public RefCnstAltDualOutp<AltCnstAltDualOutp> AsRefCnstAltDualOutp { get; set; }
 }
 
-public class OutputtestRefCnstAltDualOutp<Tref>
+public class testRefCnstAltDualOutp<Tref>
   : ItestRefCnstAltDualOutp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DualtestPrntCnstAltDualOutp
+public class testPrntCnstAltDualOutp
   : ItestPrntCnstAltDualOutp
 {
   public String AsString { get; set; }
 }
 
-public class OutputtestAltCnstAltDualOutp
-  : OutputtestPrntCnstAltDualOutp
+public class testAltCnstAltDualOutp
+  : testPrntCnstAltDualOutp
   , ItestAltCnstAltDualOutp
 {
   public Number alt { get; set; }
 }
 
-public class DualtestCnstAltObjDual
+public class testCnstAltObjDual
   : ItestCnstAltObjDual
 {
   public RefCnstAltObjDual<AltCnstAltObjDual> AsRefCnstAltObjDual { get; set; }
 }
 
-public class DualtestRefCnstAltObjDual<Tref>
+public class testRefCnstAltObjDual<Tref>
   : ItestRefCnstAltObjDual<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DualtestPrntCnstAltObjDual
+public class testPrntCnstAltObjDual
   : ItestPrntCnstAltObjDual
 {
   public String AsString { get; set; }
 }
 
-public class DualtestAltCnstAltObjDual
-  : DualtestPrntCnstAltObjDual
+public class testAltCnstAltObjDual
+  : testPrntCnstAltObjDual
   , ItestAltCnstAltObjDual
 {
   public Number alt { get; set; }
 }
 
-public class InputtestCnstAltObjInp
+public class testCnstAltObjInp
   : ItestCnstAltObjInp
 {
   public RefCnstAltObjInp<AltCnstAltObjInp> AsRefCnstAltObjInp { get; set; }
 }
 
-public class InputtestRefCnstAltObjInp<Tref>
+public class testRefCnstAltObjInp<Tref>
   : ItestRefCnstAltObjInp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class InputtestPrntCnstAltObjInp
+public class testPrntCnstAltObjInp
   : ItestPrntCnstAltObjInp
 {
   public String AsString { get; set; }
 }
 
-public class InputtestAltCnstAltObjInp
-  : InputtestPrntCnstAltObjInp
+public class testAltCnstAltObjInp
+  : testPrntCnstAltObjInp
   , ItestAltCnstAltObjInp
 {
   public Number alt { get; set; }
 }
 
-public class OutputtestCnstAltObjOutp
+public class testCnstAltObjOutp
   : ItestCnstAltObjOutp
 {
   public RefCnstAltObjOutp<AltCnstAltObjOutp> AsRefCnstAltObjOutp { get; set; }
 }
 
-public class OutputtestRefCnstAltObjOutp<Tref>
+public class testRefCnstAltObjOutp<Tref>
   : ItestRefCnstAltObjOutp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class OutputtestPrntCnstAltObjOutp
+public class testPrntCnstAltObjOutp
   : ItestPrntCnstAltObjOutp
 {
   public String AsString { get; set; }
 }
 
-public class OutputtestAltCnstAltObjOutp
-  : OutputtestPrntCnstAltObjOutp
+public class testAltCnstAltObjOutp
+  : testPrntCnstAltObjOutp
   , ItestAltCnstAltObjOutp
 {
   public Number alt { get; set; }
 }
 
-public class DualtestCnstDomEnumDual
+public class testCnstDomEnumDual
   : ItestCnstDomEnumDual
 {
   public RefCnstDomEnumDual<EnumCnstDomEnumDual> AsRefCnstDomEnumDual { get; set; }
 }
 
-public class DualtestRefCnstDomEnumDual<Ttype>
+public class testRefCnstDomEnumDual<Ttype>
   : ItestRefCnstDomEnumDual<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class DomaintestJustCnstDomEnumDual
+public class testJustCnstDomEnumDual
   : ItestJustCnstDomEnumDual
 {
 }
 
-public class InputtestCnstDomEnumInp
+public class testCnstDomEnumInp
   : ItestCnstDomEnumInp
 {
   public RefCnstDomEnumInp<EnumCnstDomEnumInp> AsRefCnstDomEnumInp { get; set; }
 }
 
-public class InputtestRefCnstDomEnumInp<Ttype>
+public class testRefCnstDomEnumInp<Ttype>
   : ItestRefCnstDomEnumInp<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class DomaintestJustCnstDomEnumInp
+public class testJustCnstDomEnumInp
   : ItestJustCnstDomEnumInp
 {
 }
 
-public class OutputtestCnstDomEnumOutp
+public class testCnstDomEnumOutp
   : ItestCnstDomEnumOutp
 {
   public RefCnstDomEnumOutp<EnumCnstDomEnumOutp> AsRefCnstDomEnumOutp { get; set; }
 }
 
-public class OutputtestRefCnstDomEnumOutp<Ttype>
+public class testRefCnstDomEnumOutp<Ttype>
   : ItestRefCnstDomEnumOutp<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class DomaintestJustCnstDomEnumOutp
+public class testJustCnstDomEnumOutp
   : ItestJustCnstDomEnumOutp
 {
 }
 
-public class DualtestCnstEnumDual
+public class testCnstEnumDual
   : ItestCnstEnumDual
 {
   public RefCnstEnumDual<EnumCnstEnumDual> AsRefCnstEnumDual { get; set; }
 }
 
-public class DualtestRefCnstEnumDual<Ttype>
+public class testRefCnstEnumDual<Ttype>
   : ItestRefCnstEnumDual<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class InputtestCnstEnumInp
+public class testCnstEnumInp
   : ItestCnstEnumInp
 {
   public RefCnstEnumInp<EnumCnstEnumInp> AsRefCnstEnumInp { get; set; }
 }
 
-public class InputtestRefCnstEnumInp<Ttype>
+public class testRefCnstEnumInp<Ttype>
   : ItestRefCnstEnumInp<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class OutputtestCnstEnumOutp
+public class testCnstEnumOutp
   : ItestCnstEnumOutp
 {
   public RefCnstEnumOutp<EnumCnstEnumOutp> AsRefCnstEnumOutp { get; set; }
 }
 
-public class OutputtestRefCnstEnumOutp<Ttype>
+public class testRefCnstEnumOutp<Ttype>
   : ItestRefCnstEnumOutp<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class DualtestCnstEnumPrntDual
+public class testCnstEnumPrntDual
   : ItestCnstEnumPrntDual
 {
   public RefCnstEnumPrntDual<EnumCnstEnumPrntDual> AsRefCnstEnumPrntDual { get; set; }
 }
 
-public class DualtestRefCnstEnumPrntDual<Ttype>
+public class testRefCnstEnumPrntDual<Ttype>
   : ItestRefCnstEnumPrntDual<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class InputtestCnstEnumPrntInp
+public class testCnstEnumPrntInp
   : ItestCnstEnumPrntInp
 {
   public RefCnstEnumPrntInp<EnumCnstEnumPrntInp> AsRefCnstEnumPrntInp { get; set; }
 }
 
-public class InputtestRefCnstEnumPrntInp<Ttype>
+public class testRefCnstEnumPrntInp<Ttype>
   : ItestRefCnstEnumPrntInp<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class OutputtestCnstEnumPrntOutp
+public class testCnstEnumPrntOutp
   : ItestCnstEnumPrntOutp
 {
   public RefCnstEnumPrntOutp<EnumCnstEnumPrntOutp> AsRefCnstEnumPrntOutp { get; set; }
 }
 
-public class OutputtestRefCnstEnumPrntOutp<Ttype>
+public class testRefCnstEnumPrntOutp<Ttype>
   : ItestRefCnstEnumPrntOutp<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class DualtestCnstFieldDmnDual
-  : DualtestRefCnstFieldDmnDual
+public class testCnstFieldDmnDual
+  : testRefCnstFieldDmnDual
   , ItestCnstFieldDmnDual
 {
 }
 
-public class DualtestRefCnstFieldDmnDual<Tref>
+public class testRefCnstFieldDmnDual<Tref>
   : ItestRefCnstFieldDmnDual<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DomaintestDomCnstFieldDmnDual
+public class testDomCnstFieldDmnDual
   : ItestDomCnstFieldDmnDual
 {
 }
 
-public class InputtestCnstFieldDmnInp
-  : InputtestRefCnstFieldDmnInp
+public class testCnstFieldDmnInp
+  : testRefCnstFieldDmnInp
   , ItestCnstFieldDmnInp
 {
 }
 
-public class InputtestRefCnstFieldDmnInp<Tref>
+public class testRefCnstFieldDmnInp<Tref>
   : ItestRefCnstFieldDmnInp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DomaintestDomCnstFieldDmnInp
+public class testDomCnstFieldDmnInp
   : ItestDomCnstFieldDmnInp
 {
 }
 
-public class OutputtestCnstFieldDmnOutp
-  : OutputtestRefCnstFieldDmnOutp
+public class testCnstFieldDmnOutp
+  : testRefCnstFieldDmnOutp
   , ItestCnstFieldDmnOutp
 {
 }
 
-public class OutputtestRefCnstFieldDmnOutp<Tref>
+public class testRefCnstFieldDmnOutp<Tref>
   : ItestRefCnstFieldDmnOutp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DomaintestDomCnstFieldDmnOutp
+public class testDomCnstFieldDmnOutp
   : ItestDomCnstFieldDmnOutp
 {
 }
 
-public class DualtestCnstFieldDualDual
-  : DualtestRefCnstFieldDualDual
+public class testCnstFieldDualDual
+  : testRefCnstFieldDualDual
   , ItestCnstFieldDualDual
 {
 }
 
-public class DualtestRefCnstFieldDualDual<Tref>
+public class testRefCnstFieldDualDual<Tref>
   : ItestRefCnstFieldDualDual<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DualtestPrntCnstFieldDualDual
+public class testPrntCnstFieldDualDual
   : ItestPrntCnstFieldDualDual
 {
   public String AsString { get; set; }
 }
 
-public class DualtestAltCnstFieldDualDual
-  : DualtestPrntCnstFieldDualDual
+public class testAltCnstFieldDualDual
+  : testPrntCnstFieldDualDual
   , ItestAltCnstFieldDualDual
 {
   public Number alt { get; set; }
 }
 
-public class InputtestCnstFieldDualInp
-  : InputtestRefCnstFieldDualInp
+public class testCnstFieldDualInp
+  : testRefCnstFieldDualInp
   , ItestCnstFieldDualInp
 {
 }
 
-public class InputtestRefCnstFieldDualInp<Tref>
+public class testRefCnstFieldDualInp<Tref>
   : ItestRefCnstFieldDualInp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DualtestPrntCnstFieldDualInp
+public class testPrntCnstFieldDualInp
   : ItestPrntCnstFieldDualInp
 {
   public String AsString { get; set; }
 }
 
-public class InputtestAltCnstFieldDualInp
-  : InputtestPrntCnstFieldDualInp
+public class testAltCnstFieldDualInp
+  : testPrntCnstFieldDualInp
   , ItestAltCnstFieldDualInp
 {
   public Number alt { get; set; }
 }
 
-public class OutputtestCnstFieldDualOutp
-  : OutputtestRefCnstFieldDualOutp
+public class testCnstFieldDualOutp
+  : testRefCnstFieldDualOutp
   , ItestCnstFieldDualOutp
 {
 }
 
-public class OutputtestRefCnstFieldDualOutp<Tref>
+public class testRefCnstFieldDualOutp<Tref>
   : ItestRefCnstFieldDualOutp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DualtestPrntCnstFieldDualOutp
+public class testPrntCnstFieldDualOutp
   : ItestPrntCnstFieldDualOutp
 {
   public String AsString { get; set; }
 }
 
-public class OutputtestAltCnstFieldDualOutp
-  : OutputtestPrntCnstFieldDualOutp
+public class testAltCnstFieldDualOutp
+  : testPrntCnstFieldDualOutp
   , ItestAltCnstFieldDualOutp
 {
   public Number alt { get; set; }
 }
 
-public class DualtestCnstFieldObjDual
-  : DualtestRefCnstFieldObjDual
+public class testCnstFieldObjDual
+  : testRefCnstFieldObjDual
   , ItestCnstFieldObjDual
 {
 }
 
-public class DualtestRefCnstFieldObjDual<Tref>
+public class testRefCnstFieldObjDual<Tref>
   : ItestRefCnstFieldObjDual<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DualtestPrntCnstFieldObjDual
+public class testPrntCnstFieldObjDual
   : ItestPrntCnstFieldObjDual
 {
   public String AsString { get; set; }
 }
 
-public class DualtestAltCnstFieldObjDual
-  : DualtestPrntCnstFieldObjDual
+public class testAltCnstFieldObjDual
+  : testPrntCnstFieldObjDual
   , ItestAltCnstFieldObjDual
 {
   public Number alt { get; set; }
 }
 
-public class InputtestCnstFieldObjInp
-  : InputtestRefCnstFieldObjInp
+public class testCnstFieldObjInp
+  : testRefCnstFieldObjInp
   , ItestCnstFieldObjInp
 {
 }
 
-public class InputtestRefCnstFieldObjInp<Tref>
+public class testRefCnstFieldObjInp<Tref>
   : ItestRefCnstFieldObjInp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class InputtestPrntCnstFieldObjInp
+public class testPrntCnstFieldObjInp
   : ItestPrntCnstFieldObjInp
 {
   public String AsString { get; set; }
 }
 
-public class InputtestAltCnstFieldObjInp
-  : InputtestPrntCnstFieldObjInp
+public class testAltCnstFieldObjInp
+  : testPrntCnstFieldObjInp
   , ItestAltCnstFieldObjInp
 {
   public Number alt { get; set; }
 }
 
-public class OutputtestCnstFieldObjOutp
-  : OutputtestRefCnstFieldObjOutp
+public class testCnstFieldObjOutp
+  : testRefCnstFieldObjOutp
   , ItestCnstFieldObjOutp
 {
 }
 
-public class OutputtestRefCnstFieldObjOutp<Tref>
+public class testRefCnstFieldObjOutp<Tref>
   : ItestRefCnstFieldObjOutp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class OutputtestPrntCnstFieldObjOutp
+public class testPrntCnstFieldObjOutp
   : ItestPrntCnstFieldObjOutp
 {
   public String AsString { get; set; }
 }
 
-public class OutputtestAltCnstFieldObjOutp
-  : OutputtestPrntCnstFieldObjOutp
+public class testAltCnstFieldObjOutp
+  : testPrntCnstFieldObjOutp
   , ItestAltCnstFieldObjOutp
 {
   public Number alt { get; set; }
 }
 
-public class DualtestCnstPrntDualGrndDual
-  : DualtestRefCnstPrntDualGrndDual
+public class testCnstPrntDualGrndDual
+  : testRefCnstPrntDualGrndDual
   , ItestCnstPrntDualGrndDual
 {
 }
 
-public class DualtestRefCnstPrntDualGrndDual<Tref>
-  : Dualtestref
+public class testRefCnstPrntDualGrndDual<Tref>
+  : testref
   , ItestRefCnstPrntDualGrndDual<Tref>
 {
 }
 
-public class DualtestGrndCnstPrntDualGrndDual
+public class testGrndCnstPrntDualGrndDual
   : ItestGrndCnstPrntDualGrndDual
 {
   public String AsString { get; set; }
 }
 
-public class DualtestPrntCnstPrntDualGrndDual
-  : DualtestGrndCnstPrntDualGrndDual
+public class testPrntCnstPrntDualGrndDual
+  : testGrndCnstPrntDualGrndDual
   , ItestPrntCnstPrntDualGrndDual
 {
 }
 
-public class DualtestAltCnstPrntDualGrndDual
-  : DualtestPrntCnstPrntDualGrndDual
+public class testAltCnstPrntDualGrndDual
+  : testPrntCnstPrntDualGrndDual
   , ItestAltCnstPrntDualGrndDual
 {
   public Number alt { get; set; }
 }
 
-public class InputtestCnstPrntDualGrndInp
-  : InputtestRefCnstPrntDualGrndInp
+public class testCnstPrntDualGrndInp
+  : testRefCnstPrntDualGrndInp
   , ItestCnstPrntDualGrndInp
 {
 }
 
-public class InputtestRefCnstPrntDualGrndInp<Tref>
-  : Inputtestref
+public class testRefCnstPrntDualGrndInp<Tref>
+  : testref
   , ItestRefCnstPrntDualGrndInp<Tref>
 {
 }
 
-public class DualtestGrndCnstPrntDualGrndInp
+public class testGrndCnstPrntDualGrndInp
   : ItestGrndCnstPrntDualGrndInp
 {
   public String AsString { get; set; }
 }
 
-public class DualtestPrntCnstPrntDualGrndInp
-  : DualtestGrndCnstPrntDualGrndInp
+public class testPrntCnstPrntDualGrndInp
+  : testGrndCnstPrntDualGrndInp
   , ItestPrntCnstPrntDualGrndInp
 {
 }
 
-public class InputtestAltCnstPrntDualGrndInp
-  : InputtestPrntCnstPrntDualGrndInp
+public class testAltCnstPrntDualGrndInp
+  : testPrntCnstPrntDualGrndInp
   , ItestAltCnstPrntDualGrndInp
 {
   public Number alt { get; set; }
 }
 
-public class OutputtestCnstPrntDualGrndOutp
-  : OutputtestRefCnstPrntDualGrndOutp
+public class testCnstPrntDualGrndOutp
+  : testRefCnstPrntDualGrndOutp
   , ItestCnstPrntDualGrndOutp
 {
 }
 
-public class OutputtestRefCnstPrntDualGrndOutp<Tref>
-  : Outputtestref
+public class testRefCnstPrntDualGrndOutp<Tref>
+  : testref
   , ItestRefCnstPrntDualGrndOutp<Tref>
 {
 }
 
-public class DualtestGrndCnstPrntDualGrndOutp
+public class testGrndCnstPrntDualGrndOutp
   : ItestGrndCnstPrntDualGrndOutp
 {
   public String AsString { get; set; }
 }
 
-public class DualtestPrntCnstPrntDualGrndOutp
-  : DualtestGrndCnstPrntDualGrndOutp
+public class testPrntCnstPrntDualGrndOutp
+  : testGrndCnstPrntDualGrndOutp
   , ItestPrntCnstPrntDualGrndOutp
 {
 }
 
-public class OutputtestAltCnstPrntDualGrndOutp
-  : OutputtestPrntCnstPrntDualGrndOutp
+public class testAltCnstPrntDualGrndOutp
+  : testPrntCnstPrntDualGrndOutp
   , ItestAltCnstPrntDualGrndOutp
 {
   public Number alt { get; set; }
 }
 
-public class DualtestCnstPrntDualPrntDual
-  : DualtestRefCnstPrntDualPrntDual
+public class testCnstPrntDualPrntDual
+  : testRefCnstPrntDualPrntDual
   , ItestCnstPrntDualPrntDual
 {
 }
 
-public class DualtestRefCnstPrntDualPrntDual<Tref>
-  : Dualtestref
+public class testRefCnstPrntDualPrntDual<Tref>
+  : testref
   , ItestRefCnstPrntDualPrntDual<Tref>
 {
 }
 
-public class DualtestPrntCnstPrntDualPrntDual
+public class testPrntCnstPrntDualPrntDual
   : ItestPrntCnstPrntDualPrntDual
 {
   public String AsString { get; set; }
 }
 
-public class DualtestAltCnstPrntDualPrntDual
-  : DualtestPrntCnstPrntDualPrntDual
+public class testAltCnstPrntDualPrntDual
+  : testPrntCnstPrntDualPrntDual
   , ItestAltCnstPrntDualPrntDual
 {
   public Number alt { get; set; }
 }
 
-public class InputtestCnstPrntDualPrntInp
-  : InputtestRefCnstPrntDualPrntInp
+public class testCnstPrntDualPrntInp
+  : testRefCnstPrntDualPrntInp
   , ItestCnstPrntDualPrntInp
 {
 }
 
-public class InputtestRefCnstPrntDualPrntInp<Tref>
-  : Inputtestref
+public class testRefCnstPrntDualPrntInp<Tref>
+  : testref
   , ItestRefCnstPrntDualPrntInp<Tref>
 {
 }
 
-public class DualtestPrntCnstPrntDualPrntInp
+public class testPrntCnstPrntDualPrntInp
   : ItestPrntCnstPrntDualPrntInp
 {
   public String AsString { get; set; }
 }
 
-public class InputtestAltCnstPrntDualPrntInp
-  : InputtestPrntCnstPrntDualPrntInp
+public class testAltCnstPrntDualPrntInp
+  : testPrntCnstPrntDualPrntInp
   , ItestAltCnstPrntDualPrntInp
 {
   public Number alt { get; set; }
 }
 
-public class OutputtestCnstPrntDualPrntOutp
-  : OutputtestRefCnstPrntDualPrntOutp
+public class testCnstPrntDualPrntOutp
+  : testRefCnstPrntDualPrntOutp
   , ItestCnstPrntDualPrntOutp
 {
 }
 
-public class OutputtestRefCnstPrntDualPrntOutp<Tref>
-  : Outputtestref
+public class testRefCnstPrntDualPrntOutp<Tref>
+  : testref
   , ItestRefCnstPrntDualPrntOutp<Tref>
 {
 }
 
-public class DualtestPrntCnstPrntDualPrntOutp
+public class testPrntCnstPrntDualPrntOutp
   : ItestPrntCnstPrntDualPrntOutp
 {
   public String AsString { get; set; }
 }
 
-public class OutputtestAltCnstPrntDualPrntOutp
-  : OutputtestPrntCnstPrntDualPrntOutp
+public class testAltCnstPrntDualPrntOutp
+  : testPrntCnstPrntDualPrntOutp
   , ItestAltCnstPrntDualPrntOutp
 {
   public Number alt { get; set; }
 }
 
-public class DualtestCnstPrntEnumDual
+public class testCnstPrntEnumDual
   : ItestCnstPrntEnumDual
 {
   public RefCnstPrntEnumDual<ParentCnstPrntEnumDual> AsRefCnstPrntEnumDual { get; set; }
 }
 
-public class DualtestRefCnstPrntEnumDual<Ttype>
+public class testRefCnstPrntEnumDual<Ttype>
   : ItestRefCnstPrntEnumDual<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class InputtestCnstPrntEnumInp
+public class testCnstPrntEnumInp
   : ItestCnstPrntEnumInp
 {
   public RefCnstPrntEnumInp<ParentCnstPrntEnumInp> AsRefCnstPrntEnumInp { get; set; }
 }
 
-public class InputtestRefCnstPrntEnumInp<Ttype>
+public class testRefCnstPrntEnumInp<Ttype>
   : ItestRefCnstPrntEnumInp<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class OutputtestCnstPrntEnumOutp
+public class testCnstPrntEnumOutp
   : ItestCnstPrntEnumOutp
 {
   public RefCnstPrntEnumOutp<ParentCnstPrntEnumOutp> AsRefCnstPrntEnumOutp { get; set; }
 }
 
-public class OutputtestRefCnstPrntEnumOutp<Ttype>
+public class testRefCnstPrntEnumOutp<Ttype>
   : ItestRefCnstPrntEnumOutp<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class DualtestCnstPrntObjPrntDual
-  : DualtestRefCnstPrntObjPrntDual
+public class testCnstPrntObjPrntDual
+  : testRefCnstPrntObjPrntDual
   , ItestCnstPrntObjPrntDual
 {
 }
 
-public class DualtestRefCnstPrntObjPrntDual<Tref>
-  : Dualtestref
+public class testRefCnstPrntObjPrntDual<Tref>
+  : testref
   , ItestRefCnstPrntObjPrntDual<Tref>
 {
 }
 
-public class DualtestPrntCnstPrntObjPrntDual
+public class testPrntCnstPrntObjPrntDual
   : ItestPrntCnstPrntObjPrntDual
 {
   public String AsString { get; set; }
 }
 
-public class DualtestAltCnstPrntObjPrntDual
-  : DualtestPrntCnstPrntObjPrntDual
+public class testAltCnstPrntObjPrntDual
+  : testPrntCnstPrntObjPrntDual
   , ItestAltCnstPrntObjPrntDual
 {
   public Number alt { get; set; }
 }
 
-public class InputtestCnstPrntObjPrntInp
-  : InputtestRefCnstPrntObjPrntInp
+public class testCnstPrntObjPrntInp
+  : testRefCnstPrntObjPrntInp
   , ItestCnstPrntObjPrntInp
 {
 }
 
-public class InputtestRefCnstPrntObjPrntInp<Tref>
-  : Inputtestref
+public class testRefCnstPrntObjPrntInp<Tref>
+  : testref
   , ItestRefCnstPrntObjPrntInp<Tref>
 {
 }
 
-public class InputtestPrntCnstPrntObjPrntInp
+public class testPrntCnstPrntObjPrntInp
   : ItestPrntCnstPrntObjPrntInp
 {
   public String AsString { get; set; }
 }
 
-public class InputtestAltCnstPrntObjPrntInp
-  : InputtestPrntCnstPrntObjPrntInp
+public class testAltCnstPrntObjPrntInp
+  : testPrntCnstPrntObjPrntInp
   , ItestAltCnstPrntObjPrntInp
 {
   public Number alt { get; set; }
 }
 
-public class OutputtestCnstPrntObjPrntOutp
-  : OutputtestRefCnstPrntObjPrntOutp
+public class testCnstPrntObjPrntOutp
+  : testRefCnstPrntObjPrntOutp
   , ItestCnstPrntObjPrntOutp
 {
 }
 
-public class OutputtestRefCnstPrntObjPrntOutp<Tref>
-  : Outputtestref
+public class testRefCnstPrntObjPrntOutp<Tref>
+  : testref
   , ItestRefCnstPrntObjPrntOutp<Tref>
 {
 }
 
-public class OutputtestPrntCnstPrntObjPrntOutp
+public class testPrntCnstPrntObjPrntOutp
   : ItestPrntCnstPrntObjPrntOutp
 {
   public String AsString { get; set; }
 }
 
-public class OutputtestAltCnstPrntObjPrntOutp
-  : OutputtestPrntCnstPrntObjPrntOutp
+public class testAltCnstPrntObjPrntOutp
+  : testPrntCnstPrntObjPrntOutp
   , ItestAltCnstPrntObjPrntOutp
 {
   public Number alt { get; set; }
 }
 
-public class DualtestFieldDual
+public class testFieldDual
   : ItestFieldDual
 {
   public String field { get; set; }
 }
 
-public class InputtestFieldInp
+public class testFieldInp
   : ItestFieldInp
 {
   public String field { get; set; }
 }
 
-public class OutputtestFieldOutp
+public class testFieldOutp
   : ItestFieldOutp
 {
   public String field { get; set; }
 }
 
-public class DualtestFieldDescrDual
+public class testFieldDescrDual
   : ItestFieldDescrDual
 {
   public String field { get; set; }
 }
 
-public class InputtestFieldDescrInp
+public class testFieldDescrInp
   : ItestFieldDescrInp
 {
   public String field { get; set; }
 }
 
-public class OutputtestFieldDescrOutp
+public class testFieldDescrOutp
   : ItestFieldDescrOutp
 {
   public String field { get; set; }
 }
 
-public class DualtestFieldDualDual
+public class testFieldDualDual
   : ItestFieldDualDual
 {
   public FldFieldDualDual field { get; set; }
 }
 
-public class DualtestFldFieldDualDual
+public class testFldFieldDualDual
   : ItestFldFieldDualDual
 {
   public Number field { get; set; }
   public String AsString { get; set; }
 }
 
-public class InputtestFieldDualInp
+public class testFieldDualInp
   : ItestFieldDualInp
 {
   public FldFieldDualInp field { get; set; }
 }
 
-public class DualtestFldFieldDualInp
+public class testFldFieldDualInp
   : ItestFldFieldDualInp
 {
   public Number field { get; set; }
   public String AsString { get; set; }
 }
 
-public class OutputtestFieldDualOutp
+public class testFieldDualOutp
   : ItestFieldDualOutp
 {
   public FldFieldDualOutp field { get; set; }
 }
 
-public class DualtestFldFieldDualOutp
+public class testFldFieldDualOutp
   : ItestFldFieldDualOutp
 {
   public Number field { get; set; }
   public String AsString { get; set; }
 }
 
-public class DualtestFieldEnumDual
+public class testFieldEnumDual
   : ItestFieldEnumDual
 {
   public EnumFieldEnumDual field { get; set; }
 }
 
-public class InputtestFieldEnumInp
+public class testFieldEnumInp
   : ItestFieldEnumInp
 {
   public EnumFieldEnumInp field { get; set; }
 }
 
-public class OutputtestFieldEnumOutp
+public class testFieldEnumOutp
   : ItestFieldEnumOutp
 {
   public EnumFieldEnumOutp field { get; set; }
 }
 
-public class DualtestFieldEnumPrntDual
+public class testFieldEnumPrntDual
   : ItestFieldEnumPrntDual
 {
   public EnumFieldEnumPrntDual field { get; set; }
 }
 
-public class InputtestFieldEnumPrntInp
+public class testFieldEnumPrntInp
   : ItestFieldEnumPrntInp
 {
   public EnumFieldEnumPrntInp field { get; set; }
 }
 
-public class OutputtestFieldEnumPrntOutp
+public class testFieldEnumPrntOutp
   : ItestFieldEnumPrntOutp
 {
   public EnumFieldEnumPrntOutp field { get; set; }
 }
 
-public class DualtestFieldModEnumDual
+public class testFieldModEnumDual
   : ItestFieldModEnumDual
 {
   public String field { get; set; }
 }
 
-public class InputtestFieldModEnumInp
+public class testFieldModEnumInp
   : ItestFieldModEnumInp
 {
   public String field { get; set; }
 }
 
-public class OutputtestFieldModEnumOutp
+public class testFieldModEnumOutp
   : ItestFieldModEnumOutp
 {
   public String field { get; set; }
 }
 
-public class DualtestFieldModParamDual<Tmod>
+public class testFieldModParamDual<Tmod>
   : ItestFieldModParamDual<Tmod>
 {
   public FldFieldModParamDual field { get; set; }
 }
 
-public class DualtestFldFieldModParamDual
+public class testFldFieldModParamDual
   : ItestFldFieldModParamDual
 {
   public Number field { get; set; }
   public String AsString { get; set; }
 }
 
-public class InputtestFieldModParamInp<Tmod>
+public class testFieldModParamInp<Tmod>
   : ItestFieldModParamInp<Tmod>
 {
   public FldFieldModParamInp field { get; set; }
 }
 
-public class InputtestFldFieldModParamInp
+public class testFldFieldModParamInp
   : ItestFldFieldModParamInp
 {
   public Number field { get; set; }
   public String AsString { get; set; }
 }
 
-public class OutputtestFieldModParamOutp<Tmod>
+public class testFieldModParamOutp<Tmod>
   : ItestFieldModParamOutp<Tmod>
 {
   public FldFieldModParamOutp field { get; set; }
 }
 
-public class OutputtestFldFieldModParamOutp
+public class testFldFieldModParamOutp
   : ItestFldFieldModParamOutp
 {
   public Number field { get; set; }
   public String AsString { get; set; }
 }
 
-public class DualtestFieldObjDual
+public class testFieldObjDual
   : ItestFieldObjDual
 {
   public FldFieldObjDual field { get; set; }
 }
 
-public class DualtestFldFieldObjDual
+public class testFldFieldObjDual
   : ItestFldFieldObjDual
 {
   public Number field { get; set; }
   public String AsString { get; set; }
 }
 
-public class InputtestFieldObjInp
+public class testFieldObjInp
   : ItestFieldObjInp
 {
   public FldFieldObjInp field { get; set; }
 }
 
-public class InputtestFldFieldObjInp
+public class testFldFieldObjInp
   : ItestFldFieldObjInp
 {
   public Number field { get; set; }
   public String AsString { get; set; }
 }
 
-public class OutputtestFieldObjOutp
+public class testFieldObjOutp
   : ItestFieldObjOutp
 {
   public FldFieldObjOutp field { get; set; }
 }
 
-public class OutputtestFldFieldObjOutp
+public class testFldFieldObjOutp
   : ItestFldFieldObjOutp
 {
   public Number field { get; set; }
   public String AsString { get; set; }
 }
 
-public class DualtestFieldSmplDual
+public class testFieldSmplDual
   : ItestFieldSmplDual
 {
   public Number field { get; set; }
 }
 
-public class InputtestFieldSmplInp
+public class testFieldSmplInp
   : ItestFieldSmplInp
 {
   public Number field { get; set; }
 }
 
-public class OutputtestFieldSmplOutp
+public class testFieldSmplOutp
   : ItestFieldSmplOutp
 {
   public Number field { get; set; }
 }
 
-public class DualtestFieldTypeDescrDual
+public class testFieldTypeDescrDual
   : ItestFieldTypeDescrDual
 {
   public Number field { get; set; }
 }
 
-public class InputtestFieldTypeDescrInp
+public class testFieldTypeDescrInp
   : ItestFieldTypeDescrInp
 {
   public Number field { get; set; }
 }
 
-public class OutputtestFieldTypeDescrOutp
+public class testFieldTypeDescrOutp
   : ItestFieldTypeDescrOutp
 {
   public Number field { get; set; }
 }
 
-public class DualtestFieldValueDual
+public class testFieldValueDual
   : ItestFieldValueDual
 {
   public EnumFieldValueDual field { get; set; }
 }
 
-public class InputtestFieldValueInp
+public class testFieldValueInp
   : ItestFieldValueInp
 {
   public EnumFieldValueInp field { get; set; }
 }
 
-public class OutputtestFieldValueOutp
+public class testFieldValueOutp
   : ItestFieldValueOutp
 {
   public EnumFieldValueOutp field { get; set; }
 }
 
-public class DualtestFieldValueDescrDual
+public class testFieldValueDescrDual
   : ItestFieldValueDescrDual
 {
   public EnumFieldValueDescrDual field { get; set; }
 }
 
-public class InputtestFieldValueDescrInp
+public class testFieldValueDescrInp
   : ItestFieldValueDescrInp
 {
   public EnumFieldValueDescrInp field { get; set; }
 }
 
-public class OutputtestFieldValueDescrOutp
+public class testFieldValueDescrOutp
   : ItestFieldValueDescrOutp
 {
   public EnumFieldValueDescrOutp field { get; set; }
 }
 
-public class DualtestGnrcAltDual<Ttype>
+public class testGnrcAltDual<Ttype>
   : ItestGnrcAltDual<Ttype>
 {
   public Ttype Astype { get; set; }
 }
 
-public class InputtestGnrcAltInp<Ttype>
+public class testGnrcAltInp<Ttype>
   : ItestGnrcAltInp<Ttype>
 {
   public Ttype Astype { get; set; }
 }
 
-public class OutputtestGnrcAltOutp<Ttype>
+public class testGnrcAltOutp<Ttype>
   : ItestGnrcAltOutp<Ttype>
 {
   public Ttype Astype { get; set; }
 }
 
-public class DualtestGnrcAltArgDual<Ttype>
+public class testGnrcAltArgDual<Ttype>
   : ItestGnrcAltArgDual<Ttype>
 {
   public RefGnrcAltArgDual<Ttype> AsRefGnrcAltArgDual { get; set; }
 }
 
-public class DualtestRefGnrcAltArgDual<Tref>
+public class testRefGnrcAltArgDual<Tref>
   : ItestRefGnrcAltArgDual<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class InputtestGnrcAltArgInp<Ttype>
+public class testGnrcAltArgInp<Ttype>
   : ItestGnrcAltArgInp<Ttype>
 {
   public RefGnrcAltArgInp<Ttype> AsRefGnrcAltArgInp { get; set; }
 }
 
-public class InputtestRefGnrcAltArgInp<Tref>
+public class testRefGnrcAltArgInp<Tref>
   : ItestRefGnrcAltArgInp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class OutputtestGnrcAltArgOutp<Ttype>
+public class testGnrcAltArgOutp<Ttype>
   : ItestGnrcAltArgOutp<Ttype>
 {
   public RefGnrcAltArgOutp<Ttype> AsRefGnrcAltArgOutp { get; set; }
 }
 
-public class OutputtestRefGnrcAltArgOutp<Tref>
+public class testRefGnrcAltArgOutp<Tref>
   : ItestRefGnrcAltArgOutp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DualtestGnrcAltArgDescrDual<Ttype>
+public class testGnrcAltArgDescrDual<Ttype>
   : ItestGnrcAltArgDescrDual<Ttype>
 {
   public RefGnrcAltArgDescrDual<Ttype> AsRefGnrcAltArgDescrDual { get; set; }
 }
 
-public class DualtestRefGnrcAltArgDescrDual<Tref>
+public class testRefGnrcAltArgDescrDual<Tref>
   : ItestRefGnrcAltArgDescrDual<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class InputtestGnrcAltArgDescrInp<Ttype>
+public class testGnrcAltArgDescrInp<Ttype>
   : ItestGnrcAltArgDescrInp<Ttype>
 {
   public RefGnrcAltArgDescrInp<Ttype> AsRefGnrcAltArgDescrInp { get; set; }
 }
 
-public class InputtestRefGnrcAltArgDescrInp<Tref>
+public class testRefGnrcAltArgDescrInp<Tref>
   : ItestRefGnrcAltArgDescrInp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class OutputtestGnrcAltArgDescrOutp<Ttype>
+public class testGnrcAltArgDescrOutp<Ttype>
   : ItestGnrcAltArgDescrOutp<Ttype>
 {
   public RefGnrcAltArgDescrOutp<Ttype> AsRefGnrcAltArgDescrOutp { get; set; }
 }
 
-public class OutputtestRefGnrcAltArgDescrOutp<Tref>
+public class testRefGnrcAltArgDescrOutp<Tref>
   : ItestRefGnrcAltArgDescrOutp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DualtestGnrcAltDualDual
+public class testGnrcAltDualDual
   : ItestGnrcAltDualDual
 {
   public RefGnrcAltDualDual<AltGnrcAltDualDual> AsRefGnrcAltDualDual { get; set; }
 }
 
-public class DualtestRefGnrcAltDualDual<Tref>
+public class testRefGnrcAltDualDual<Tref>
   : ItestRefGnrcAltDualDual<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DualtestAltGnrcAltDualDual
+public class testAltGnrcAltDualDual
   : ItestAltGnrcAltDualDual
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class InputtestGnrcAltDualInp
+public class testGnrcAltDualInp
   : ItestGnrcAltDualInp
 {
   public RefGnrcAltDualInp<AltGnrcAltDualInp> AsRefGnrcAltDualInp { get; set; }
 }
 
-public class InputtestRefGnrcAltDualInp<Tref>
+public class testRefGnrcAltDualInp<Tref>
   : ItestRefGnrcAltDualInp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DualtestAltGnrcAltDualInp
+public class testAltGnrcAltDualInp
   : ItestAltGnrcAltDualInp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class OutputtestGnrcAltDualOutp
+public class testGnrcAltDualOutp
   : ItestGnrcAltDualOutp
 {
   public RefGnrcAltDualOutp<AltGnrcAltDualOutp> AsRefGnrcAltDualOutp { get; set; }
 }
 
-public class OutputtestRefGnrcAltDualOutp<Tref>
+public class testRefGnrcAltDualOutp<Tref>
   : ItestRefGnrcAltDualOutp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DualtestAltGnrcAltDualOutp
+public class testAltGnrcAltDualOutp
   : ItestAltGnrcAltDualOutp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class DualtestRefGnrcAltModParamDual<Tref,Tmod>
+public class testRefGnrcAltModParamDual<Tref,Tmod>
   : ItestRefGnrcAltModParamDual<Tref,Tmod>
 {
   public Tref Asref { get; set; }
 }
 
-public class InputtestRefGnrcAltModParamInp<Tref,Tmod>
+public class testRefGnrcAltModParamInp<Tref,Tmod>
   : ItestRefGnrcAltModParamInp<Tref,Tmod>
 {
   public Tref Asref { get; set; }
 }
 
-public class OutputtestRefGnrcAltModParamOutp<Tref,Tmod>
+public class testRefGnrcAltModParamOutp<Tref,Tmod>
   : ItestRefGnrcAltModParamOutp<Tref,Tmod>
 {
   public Tref Asref { get; set; }
 }
 
-public class DualtestRefGnrcAltModStrDual<Tref>
+public class testRefGnrcAltModStrDual<Tref>
   : ItestRefGnrcAltModStrDual<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class InputtestRefGnrcAltModStrInp<Tref>
+public class testRefGnrcAltModStrInp<Tref>
   : ItestRefGnrcAltModStrInp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class OutputtestRefGnrcAltModStrOutp<Tref>
+public class testRefGnrcAltModStrOutp<Tref>
   : ItestRefGnrcAltModStrOutp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DualtestGnrcAltParamDual
+public class testGnrcAltParamDual
   : ItestGnrcAltParamDual
 {
   public RefGnrcAltParamDual<AltGnrcAltParamDual> AsRefGnrcAltParamDual { get; set; }
 }
 
-public class DualtestRefGnrcAltParamDual<Tref>
+public class testRefGnrcAltParamDual<Tref>
   : ItestRefGnrcAltParamDual<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DualtestAltGnrcAltParamDual
+public class testAltGnrcAltParamDual
   : ItestAltGnrcAltParamDual
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class InputtestGnrcAltParamInp
+public class testGnrcAltParamInp
   : ItestGnrcAltParamInp
 {
   public RefGnrcAltParamInp<AltGnrcAltParamInp> AsRefGnrcAltParamInp { get; set; }
 }
 
-public class InputtestRefGnrcAltParamInp<Tref>
+public class testRefGnrcAltParamInp<Tref>
   : ItestRefGnrcAltParamInp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class InputtestAltGnrcAltParamInp
+public class testAltGnrcAltParamInp
   : ItestAltGnrcAltParamInp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class OutputtestGnrcAltParamOutp
+public class testGnrcAltParamOutp
   : ItestGnrcAltParamOutp
 {
   public RefGnrcAltParamOutp<AltGnrcAltParamOutp> AsRefGnrcAltParamOutp { get; set; }
 }
 
-public class OutputtestRefGnrcAltParamOutp<Tref>
+public class testRefGnrcAltParamOutp<Tref>
   : ItestRefGnrcAltParamOutp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class OutputtestAltGnrcAltParamOutp
+public class testAltGnrcAltParamOutp
   : ItestAltGnrcAltParamOutp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class DualtestGnrcAltSmplDual
+public class testGnrcAltSmplDual
   : ItestGnrcAltSmplDual
 {
   public RefGnrcAltSmplDual<String> AsRefGnrcAltSmplDual { get; set; }
 }
 
-public class DualtestRefGnrcAltSmplDual<Tref>
+public class testRefGnrcAltSmplDual<Tref>
   : ItestRefGnrcAltSmplDual<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class InputtestGnrcAltSmplInp
+public class testGnrcAltSmplInp
   : ItestGnrcAltSmplInp
 {
   public RefGnrcAltSmplInp<String> AsRefGnrcAltSmplInp { get; set; }
 }
 
-public class InputtestRefGnrcAltSmplInp<Tref>
+public class testRefGnrcAltSmplInp<Tref>
   : ItestRefGnrcAltSmplInp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class OutputtestGnrcAltSmplOutp
+public class testGnrcAltSmplOutp
   : ItestGnrcAltSmplOutp
 {
   public RefGnrcAltSmplOutp<String> AsRefGnrcAltSmplOutp { get; set; }
 }
 
-public class OutputtestRefGnrcAltSmplOutp<Tref>
+public class testRefGnrcAltSmplOutp<Tref>
   : ItestRefGnrcAltSmplOutp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DualtestGnrcDescrDual<Ttype>
+public class testGnrcDescrDual<Ttype>
   : ItestGnrcDescrDual<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class InputtestGnrcDescrInp<Ttype>
+public class testGnrcDescrInp<Ttype>
   : ItestGnrcDescrInp<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class OutputtestGnrcDescrOutp<Ttype>
+public class testGnrcDescrOutp<Ttype>
   : ItestGnrcDescrOutp<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class DualtestGnrcEnumDual
+public class testGnrcEnumDual
   : ItestGnrcEnumDual
 {
   public RefGnrcEnumDual<EnumGnrcEnumDual> AsRefGnrcEnumDual { get; set; }
 }
 
-public class DualtestRefGnrcEnumDual<Ttype>
+public class testRefGnrcEnumDual<Ttype>
   : ItestRefGnrcEnumDual<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class InputtestGnrcEnumInp
+public class testGnrcEnumInp
   : ItestGnrcEnumInp
 {
   public RefGnrcEnumInp<EnumGnrcEnumInp> AsRefGnrcEnumInp { get; set; }
 }
 
-public class InputtestRefGnrcEnumInp<Ttype>
+public class testRefGnrcEnumInp<Ttype>
   : ItestRefGnrcEnumInp<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class OutputtestGnrcEnumOutp
+public class testGnrcEnumOutp
   : ItestGnrcEnumOutp
 {
   public RefGnrcEnumOutp<EnumGnrcEnumOutp> AsRefGnrcEnumOutp { get; set; }
 }
 
-public class OutputtestRefGnrcEnumOutp<Ttype>
+public class testRefGnrcEnumOutp<Ttype>
   : ItestRefGnrcEnumOutp<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class DualtestGnrcFieldDual<Ttype>
+public class testGnrcFieldDual<Ttype>
   : ItestGnrcFieldDual<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class InputtestGnrcFieldInp<Ttype>
+public class testGnrcFieldInp<Ttype>
   : ItestGnrcFieldInp<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class OutputtestGnrcFieldOutp<Ttype>
+public class testGnrcFieldOutp<Ttype>
   : ItestGnrcFieldOutp<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class DualtestGnrcFieldArgDual<Ttype>
+public class testGnrcFieldArgDual<Ttype>
   : ItestGnrcFieldArgDual<Ttype>
 {
   public RefGnrcFieldArgDual<Ttype> field { get; set; }
 }
 
-public class DualtestRefGnrcFieldArgDual<Tref>
+public class testRefGnrcFieldArgDual<Tref>
   : ItestRefGnrcFieldArgDual<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class InputtestGnrcFieldArgInp<Ttype>
+public class testGnrcFieldArgInp<Ttype>
   : ItestGnrcFieldArgInp<Ttype>
 {
   public RefGnrcFieldArgInp<Ttype> field { get; set; }
 }
 
-public class InputtestRefGnrcFieldArgInp<Tref>
+public class testRefGnrcFieldArgInp<Tref>
   : ItestRefGnrcFieldArgInp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class OutputtestGnrcFieldArgOutp<Ttype>
+public class testGnrcFieldArgOutp<Ttype>
   : ItestGnrcFieldArgOutp<Ttype>
 {
   public RefGnrcFieldArgOutp<Ttype> field { get; set; }
 }
 
-public class OutputtestRefGnrcFieldArgOutp<Tref>
+public class testRefGnrcFieldArgOutp<Tref>
   : ItestRefGnrcFieldArgOutp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DualtestGnrcFieldDualDual
+public class testGnrcFieldDualDual
   : ItestGnrcFieldDualDual
 {
   public RefGnrcFieldDualDual<AltGnrcFieldDualDual> field { get; set; }
 }
 
-public class DualtestRefGnrcFieldDualDual<Tref>
+public class testRefGnrcFieldDualDual<Tref>
   : ItestRefGnrcFieldDualDual<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DualtestAltGnrcFieldDualDual
+public class testAltGnrcFieldDualDual
   : ItestAltGnrcFieldDualDual
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class InputtestGnrcFieldDualInp
+public class testGnrcFieldDualInp
   : ItestGnrcFieldDualInp
 {
   public RefGnrcFieldDualInp<AltGnrcFieldDualInp> field { get; set; }
 }
 
-public class InputtestRefGnrcFieldDualInp<Tref>
+public class testRefGnrcFieldDualInp<Tref>
   : ItestRefGnrcFieldDualInp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DualtestAltGnrcFieldDualInp
+public class testAltGnrcFieldDualInp
   : ItestAltGnrcFieldDualInp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class OutputtestGnrcFieldDualOutp
+public class testGnrcFieldDualOutp
   : ItestGnrcFieldDualOutp
 {
   public RefGnrcFieldDualOutp<AltGnrcFieldDualOutp> field { get; set; }
 }
 
-public class OutputtestRefGnrcFieldDualOutp<Tref>
+public class testRefGnrcFieldDualOutp<Tref>
   : ItestRefGnrcFieldDualOutp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DualtestAltGnrcFieldDualOutp
+public class testAltGnrcFieldDualOutp
   : ItestAltGnrcFieldDualOutp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class DualtestGnrcFieldParamDual
+public class testGnrcFieldParamDual
   : ItestGnrcFieldParamDual
 {
   public RefGnrcFieldParamDual<AltGnrcFieldParamDual> field { get; set; }
 }
 
-public class DualtestRefGnrcFieldParamDual<Tref>
+public class testRefGnrcFieldParamDual<Tref>
   : ItestRefGnrcFieldParamDual<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DualtestAltGnrcFieldParamDual
+public class testAltGnrcFieldParamDual
   : ItestAltGnrcFieldParamDual
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class InputtestGnrcFieldParamInp
+public class testGnrcFieldParamInp
   : ItestGnrcFieldParamInp
 {
   public RefGnrcFieldParamInp<AltGnrcFieldParamInp> field { get; set; }
 }
 
-public class InputtestRefGnrcFieldParamInp<Tref>
+public class testRefGnrcFieldParamInp<Tref>
   : ItestRefGnrcFieldParamInp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class InputtestAltGnrcFieldParamInp
+public class testAltGnrcFieldParamInp
   : ItestAltGnrcFieldParamInp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class OutputtestGnrcFieldParamOutp
+public class testGnrcFieldParamOutp
   : ItestGnrcFieldParamOutp
 {
   public RefGnrcFieldParamOutp<AltGnrcFieldParamOutp> field { get; set; }
 }
 
-public class OutputtestRefGnrcFieldParamOutp<Tref>
+public class testRefGnrcFieldParamOutp<Tref>
   : ItestRefGnrcFieldParamOutp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class OutputtestAltGnrcFieldParamOutp
+public class testAltGnrcFieldParamOutp
   : ItestAltGnrcFieldParamOutp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class DualtestGnrcPrntDual<Ttype>
-  : Dualtesttype
+public class testGnrcPrntDual<Ttype>
+  : testtype
   , ItestGnrcPrntDual<Ttype>
 {
 }
 
-public class InputtestGnrcPrntInp<Ttype>
-  : Inputtesttype
+public class testGnrcPrntInp<Ttype>
+  : testtype
   , ItestGnrcPrntInp<Ttype>
 {
 }
 
-public class OutputtestGnrcPrntOutp<Ttype>
-  : Outputtesttype
+public class testGnrcPrntOutp<Ttype>
+  : testtype
   , ItestGnrcPrntOutp<Ttype>
 {
 }
 
-public class DualtestGnrcPrntArgDual<Ttype>
-  : DualtestRefGnrcPrntArgDual
+public class testGnrcPrntArgDual<Ttype>
+  : testRefGnrcPrntArgDual
   , ItestGnrcPrntArgDual<Ttype>
 {
 }
 
-public class DualtestRefGnrcPrntArgDual<Tref>
+public class testRefGnrcPrntArgDual<Tref>
   : ItestRefGnrcPrntArgDual<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class InputtestGnrcPrntArgInp<Ttype>
-  : InputtestRefGnrcPrntArgInp
+public class testGnrcPrntArgInp<Ttype>
+  : testRefGnrcPrntArgInp
   , ItestGnrcPrntArgInp<Ttype>
 {
 }
 
-public class InputtestRefGnrcPrntArgInp<Tref>
+public class testRefGnrcPrntArgInp<Tref>
   : ItestRefGnrcPrntArgInp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class OutputtestGnrcPrntArgOutp<Ttype>
-  : OutputtestRefGnrcPrntArgOutp
+public class testGnrcPrntArgOutp<Ttype>
+  : testRefGnrcPrntArgOutp
   , ItestGnrcPrntArgOutp<Ttype>
 {
 }
 
-public class OutputtestRefGnrcPrntArgOutp<Tref>
+public class testRefGnrcPrntArgOutp<Tref>
   : ItestRefGnrcPrntArgOutp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DualtestGnrcPrntDescrDual<Ttype>
-  : Dualtesttype
+public class testGnrcPrntDescrDual<Ttype>
+  : testtype
   , ItestGnrcPrntDescrDual<Ttype>
 {
 }
 
-public class InputtestGnrcPrntDescrInp<Ttype>
-  : Inputtesttype
+public class testGnrcPrntDescrInp<Ttype>
+  : testtype
   , ItestGnrcPrntDescrInp<Ttype>
 {
 }
 
-public class OutputtestGnrcPrntDescrOutp<Ttype>
-  : Outputtesttype
+public class testGnrcPrntDescrOutp<Ttype>
+  : testtype
   , ItestGnrcPrntDescrOutp<Ttype>
 {
 }
 
-public class DualtestGnrcPrntDualDual
-  : DualtestRefGnrcPrntDualDual
+public class testGnrcPrntDualDual
+  : testRefGnrcPrntDualDual
   , ItestGnrcPrntDualDual
 {
 }
 
-public class DualtestRefGnrcPrntDualDual<Tref>
+public class testRefGnrcPrntDualDual<Tref>
   : ItestRefGnrcPrntDualDual<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DualtestAltGnrcPrntDualDual
+public class testAltGnrcPrntDualDual
   : ItestAltGnrcPrntDualDual
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class InputtestGnrcPrntDualInp
-  : InputtestRefGnrcPrntDualInp
+public class testGnrcPrntDualInp
+  : testRefGnrcPrntDualInp
   , ItestGnrcPrntDualInp
 {
 }
 
-public class InputtestRefGnrcPrntDualInp<Tref>
+public class testRefGnrcPrntDualInp<Tref>
   : ItestRefGnrcPrntDualInp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DualtestAltGnrcPrntDualInp
+public class testAltGnrcPrntDualInp
   : ItestAltGnrcPrntDualInp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class OutputtestGnrcPrntDualOutp
-  : OutputtestRefGnrcPrntDualOutp
+public class testGnrcPrntDualOutp
+  : testRefGnrcPrntDualOutp
   , ItestGnrcPrntDualOutp
 {
 }
 
-public class OutputtestRefGnrcPrntDualOutp<Tref>
+public class testRefGnrcPrntDualOutp<Tref>
   : ItestRefGnrcPrntDualOutp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DualtestAltGnrcPrntDualOutp
+public class testAltGnrcPrntDualOutp
   : ItestAltGnrcPrntDualOutp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class DualtestGnrcPrntDualPrntDual
-  : DualtestRefGnrcPrntDualPrntDual
+public class testGnrcPrntDualPrntDual
+  : testRefGnrcPrntDualPrntDual
   , ItestGnrcPrntDualPrntDual
 {
 }
 
-public class DualtestRefGnrcPrntDualPrntDual<Tref>
-  : Dualtestref
+public class testRefGnrcPrntDualPrntDual<Tref>
+  : testref
   , ItestRefGnrcPrntDualPrntDual<Tref>
 {
 }
 
-public class DualtestAltGnrcPrntDualPrntDual
+public class testAltGnrcPrntDualPrntDual
   : ItestAltGnrcPrntDualPrntDual
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class InputtestGnrcPrntDualPrntInp
-  : InputtestRefGnrcPrntDualPrntInp
+public class testGnrcPrntDualPrntInp
+  : testRefGnrcPrntDualPrntInp
   , ItestGnrcPrntDualPrntInp
 {
 }
 
-public class InputtestRefGnrcPrntDualPrntInp<Tref>
-  : Inputtestref
+public class testRefGnrcPrntDualPrntInp<Tref>
+  : testref
   , ItestRefGnrcPrntDualPrntInp<Tref>
 {
 }
 
-public class DualtestAltGnrcPrntDualPrntInp
+public class testAltGnrcPrntDualPrntInp
   : ItestAltGnrcPrntDualPrntInp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class OutputtestGnrcPrntDualPrntOutp
-  : OutputtestRefGnrcPrntDualPrntOutp
+public class testGnrcPrntDualPrntOutp
+  : testRefGnrcPrntDualPrntOutp
   , ItestGnrcPrntDualPrntOutp
 {
 }
 
-public class OutputtestRefGnrcPrntDualPrntOutp<Tref>
-  : Outputtestref
+public class testRefGnrcPrntDualPrntOutp<Tref>
+  : testref
   , ItestRefGnrcPrntDualPrntOutp<Tref>
 {
 }
 
-public class DualtestAltGnrcPrntDualPrntOutp
+public class testAltGnrcPrntDualPrntOutp
   : ItestAltGnrcPrntDualPrntOutp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class DualtestGnrcPrntEnumChildDual
-  : DualtestFieldGnrcPrntEnumChildDual
+public class testGnrcPrntEnumChildDual
+  : testFieldGnrcPrntEnumChildDual
   , ItestGnrcPrntEnumChildDual
 {
 }
 
-public class DualtestFieldGnrcPrntEnumChildDual<Tref>
+public class testFieldGnrcPrntEnumChildDual<Tref>
   : ItestFieldGnrcPrntEnumChildDual<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class InputtestGnrcPrntEnumChildInp
-  : InputtestFieldGnrcPrntEnumChildInp
+public class testGnrcPrntEnumChildInp
+  : testFieldGnrcPrntEnumChildInp
   , ItestGnrcPrntEnumChildInp
 {
 }
 
-public class InputtestFieldGnrcPrntEnumChildInp<Tref>
+public class testFieldGnrcPrntEnumChildInp<Tref>
   : ItestFieldGnrcPrntEnumChildInp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class OutputtestGnrcPrntEnumChildOutp
-  : OutputtestFieldGnrcPrntEnumChildOutp
+public class testGnrcPrntEnumChildOutp
+  : testFieldGnrcPrntEnumChildOutp
   , ItestGnrcPrntEnumChildOutp
 {
 }
 
-public class OutputtestFieldGnrcPrntEnumChildOutp<Tref>
+public class testFieldGnrcPrntEnumChildOutp<Tref>
   : ItestFieldGnrcPrntEnumChildOutp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DualtestGnrcPrntEnumDomDual
-  : DualtestFieldGnrcPrntEnumDomDual
+public class testGnrcPrntEnumDomDual
+  : testFieldGnrcPrntEnumDomDual
   , ItestGnrcPrntEnumDomDual
 {
 }
 
-public class DualtestFieldGnrcPrntEnumDomDual<Tref>
+public class testFieldGnrcPrntEnumDomDual<Tref>
   : ItestFieldGnrcPrntEnumDomDual<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DomaintestDomGnrcPrntEnumDomDual
+public class testDomGnrcPrntEnumDomDual
   : ItestDomGnrcPrntEnumDomDual
 {
 }
 
-public class InputtestGnrcPrntEnumDomInp
-  : InputtestFieldGnrcPrntEnumDomInp
+public class testGnrcPrntEnumDomInp
+  : testFieldGnrcPrntEnumDomInp
   , ItestGnrcPrntEnumDomInp
 {
 }
 
-public class InputtestFieldGnrcPrntEnumDomInp<Tref>
+public class testFieldGnrcPrntEnumDomInp<Tref>
   : ItestFieldGnrcPrntEnumDomInp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DomaintestDomGnrcPrntEnumDomInp
+public class testDomGnrcPrntEnumDomInp
   : ItestDomGnrcPrntEnumDomInp
 {
 }
 
-public class OutputtestGnrcPrntEnumDomOutp
-  : OutputtestFieldGnrcPrntEnumDomOutp
+public class testGnrcPrntEnumDomOutp
+  : testFieldGnrcPrntEnumDomOutp
   , ItestGnrcPrntEnumDomOutp
 {
 }
 
-public class OutputtestFieldGnrcPrntEnumDomOutp<Tref>
+public class testFieldGnrcPrntEnumDomOutp<Tref>
   : ItestFieldGnrcPrntEnumDomOutp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DomaintestDomGnrcPrntEnumDomOutp
+public class testDomGnrcPrntEnumDomOutp
   : ItestDomGnrcPrntEnumDomOutp
 {
 }
 
-public class DualtestGnrcPrntEnumPrntDual
-  : DualtestFieldGnrcPrntEnumPrntDual
+public class testGnrcPrntEnumPrntDual
+  : testFieldGnrcPrntEnumPrntDual
   , ItestGnrcPrntEnumPrntDual
 {
 }
 
-public class DualtestFieldGnrcPrntEnumPrntDual<Tref>
+public class testFieldGnrcPrntEnumPrntDual<Tref>
   : ItestFieldGnrcPrntEnumPrntDual<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class InputtestGnrcPrntEnumPrntInp
-  : InputtestFieldGnrcPrntEnumPrntInp
+public class testGnrcPrntEnumPrntInp
+  : testFieldGnrcPrntEnumPrntInp
   , ItestGnrcPrntEnumPrntInp
 {
 }
 
-public class InputtestFieldGnrcPrntEnumPrntInp<Tref>
+public class testFieldGnrcPrntEnumPrntInp<Tref>
   : ItestFieldGnrcPrntEnumPrntInp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class OutputtestGnrcPrntEnumPrntOutp
-  : OutputtestFieldGnrcPrntEnumPrntOutp
+public class testGnrcPrntEnumPrntOutp
+  : testFieldGnrcPrntEnumPrntOutp
   , ItestGnrcPrntEnumPrntOutp
 {
 }
 
-public class OutputtestFieldGnrcPrntEnumPrntOutp<Tref>
+public class testFieldGnrcPrntEnumPrntOutp<Tref>
   : ItestFieldGnrcPrntEnumPrntOutp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DualtestGnrcPrntParamDual
-  : DualtestRefGnrcPrntParamDual
+public class testGnrcPrntParamDual
+  : testRefGnrcPrntParamDual
   , ItestGnrcPrntParamDual
 {
 }
 
-public class DualtestRefGnrcPrntParamDual<Tref>
+public class testRefGnrcPrntParamDual<Tref>
   : ItestRefGnrcPrntParamDual<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class DualtestAltGnrcPrntParamDual
+public class testAltGnrcPrntParamDual
   : ItestAltGnrcPrntParamDual
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class InputtestGnrcPrntParamInp
-  : InputtestRefGnrcPrntParamInp
+public class testGnrcPrntParamInp
+  : testRefGnrcPrntParamInp
   , ItestGnrcPrntParamInp
 {
 }
 
-public class InputtestRefGnrcPrntParamInp<Tref>
+public class testRefGnrcPrntParamInp<Tref>
   : ItestRefGnrcPrntParamInp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class InputtestAltGnrcPrntParamInp
+public class testAltGnrcPrntParamInp
   : ItestAltGnrcPrntParamInp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class OutputtestGnrcPrntParamOutp
-  : OutputtestRefGnrcPrntParamOutp
+public class testGnrcPrntParamOutp
+  : testRefGnrcPrntParamOutp
   , ItestGnrcPrntParamOutp
 {
 }
 
-public class OutputtestRefGnrcPrntParamOutp<Tref>
+public class testRefGnrcPrntParamOutp<Tref>
   : ItestRefGnrcPrntParamOutp<Tref>
 {
   public Tref Asref { get; set; }
 }
 
-public class OutputtestAltGnrcPrntParamOutp
+public class testAltGnrcPrntParamOutp
   : ItestAltGnrcPrntParamOutp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class DualtestGnrcPrntParamPrntDual
-  : DualtestRefGnrcPrntParamPrntDual
+public class testGnrcPrntParamPrntDual
+  : testRefGnrcPrntParamPrntDual
   , ItestGnrcPrntParamPrntDual
 {
 }
 
-public class DualtestRefGnrcPrntParamPrntDual<Tref>
-  : Dualtestref
+public class testRefGnrcPrntParamPrntDual<Tref>
+  : testref
   , ItestRefGnrcPrntParamPrntDual<Tref>
 {
 }
 
-public class DualtestAltGnrcPrntParamPrntDual
+public class testAltGnrcPrntParamPrntDual
   : ItestAltGnrcPrntParamPrntDual
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class InputtestGnrcPrntParamPrntInp
-  : InputtestRefGnrcPrntParamPrntInp
+public class testGnrcPrntParamPrntInp
+  : testRefGnrcPrntParamPrntInp
   , ItestGnrcPrntParamPrntInp
 {
 }
 
-public class InputtestRefGnrcPrntParamPrntInp<Tref>
-  : Inputtestref
+public class testRefGnrcPrntParamPrntInp<Tref>
+  : testref
   , ItestRefGnrcPrntParamPrntInp<Tref>
 {
 }
 
-public class InputtestAltGnrcPrntParamPrntInp
+public class testAltGnrcPrntParamPrntInp
   : ItestAltGnrcPrntParamPrntInp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class OutputtestGnrcPrntParamPrntOutp
-  : OutputtestRefGnrcPrntParamPrntOutp
+public class testGnrcPrntParamPrntOutp
+  : testRefGnrcPrntParamPrntOutp
   , ItestGnrcPrntParamPrntOutp
 {
 }
 
-public class OutputtestRefGnrcPrntParamPrntOutp<Tref>
-  : Outputtestref
+public class testRefGnrcPrntParamPrntOutp<Tref>
+  : testref
   , ItestRefGnrcPrntParamPrntOutp<Tref>
 {
 }
 
-public class OutputtestAltGnrcPrntParamPrntOutp
+public class testAltGnrcPrntParamPrntOutp
   : ItestAltGnrcPrntParamPrntOutp
 {
   public Number alt { get; set; }
   public String AsString { get; set; }
 }
 
-public class DualtestGnrcPrntSmplEnumDual
-  : DualtestFieldGnrcPrntSmplEnumDual
+public class testGnrcPrntSmplEnumDual
+  : testFieldGnrcPrntSmplEnumDual
   , ItestGnrcPrntSmplEnumDual
 {
 }
 
-public class DualtestFieldGnrcPrntSmplEnumDual<Tref>
+public class testFieldGnrcPrntSmplEnumDual<Tref>
   : ItestFieldGnrcPrntSmplEnumDual<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class InputtestGnrcPrntSmplEnumInp
-  : InputtestFieldGnrcPrntSmplEnumInp
+public class testGnrcPrntSmplEnumInp
+  : testFieldGnrcPrntSmplEnumInp
   , ItestGnrcPrntSmplEnumInp
 {
 }
 
-public class InputtestFieldGnrcPrntSmplEnumInp<Tref>
+public class testFieldGnrcPrntSmplEnumInp<Tref>
   : ItestFieldGnrcPrntSmplEnumInp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class OutputtestGnrcPrntSmplEnumOutp
-  : OutputtestFieldGnrcPrntSmplEnumOutp
+public class testGnrcPrntSmplEnumOutp
+  : testFieldGnrcPrntSmplEnumOutp
   , ItestGnrcPrntSmplEnumOutp
 {
 }
 
-public class OutputtestFieldGnrcPrntSmplEnumOutp<Tref>
+public class testFieldGnrcPrntSmplEnumOutp<Tref>
   : ItestFieldGnrcPrntSmplEnumOutp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DualtestGnrcPrntStrDomDual
-  : DualtestFieldGnrcPrntStrDomDual
+public class testGnrcPrntStrDomDual
+  : testFieldGnrcPrntStrDomDual
   , ItestGnrcPrntStrDomDual
 {
 }
 
-public class DualtestFieldGnrcPrntStrDomDual<Tref>
+public class testFieldGnrcPrntStrDomDual<Tref>
   : ItestFieldGnrcPrntStrDomDual<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DomaintestDomGnrcPrntStrDomDual
+public class testDomGnrcPrntStrDomDual
   : ItestDomGnrcPrntStrDomDual
 {
 }
 
-public class InputtestGnrcPrntStrDomInp
-  : InputtestFieldGnrcPrntStrDomInp
+public class testGnrcPrntStrDomInp
+  : testFieldGnrcPrntStrDomInp
   , ItestGnrcPrntStrDomInp
 {
 }
 
-public class InputtestFieldGnrcPrntStrDomInp<Tref>
+public class testFieldGnrcPrntStrDomInp<Tref>
   : ItestFieldGnrcPrntStrDomInp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DomaintestDomGnrcPrntStrDomInp
+public class testDomGnrcPrntStrDomInp
   : ItestDomGnrcPrntStrDomInp
 {
 }
 
-public class OutputtestGnrcPrntStrDomOutp
-  : OutputtestFieldGnrcPrntStrDomOutp
+public class testGnrcPrntStrDomOutp
+  : testFieldGnrcPrntStrDomOutp
   , ItestGnrcPrntStrDomOutp
 {
 }
 
-public class OutputtestFieldGnrcPrntStrDomOutp<Tref>
+public class testFieldGnrcPrntStrDomOutp<Tref>
   : ItestFieldGnrcPrntStrDomOutp<Tref>
 {
   public Tref field { get; set; }
 }
 
-public class DomaintestDomGnrcPrntStrDomOutp
+public class testDomGnrcPrntStrDomOutp
   : ItestDomGnrcPrntStrDomOutp
 {
 }
 
-public class DualtestGnrcValueDual
+public class testGnrcValueDual
   : ItestGnrcValueDual
 {
   public RefGnrcValueDual<EnumGnrcValueDual> AsRefGnrcValueDual { get; set; }
 }
 
-public class DualtestRefGnrcValueDual<Ttype>
+public class testRefGnrcValueDual<Ttype>
   : ItestRefGnrcValueDual<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class InputtestGnrcValueInp
+public class testGnrcValueInp
   : ItestGnrcValueInp
 {
   public RefGnrcValueInp<EnumGnrcValueInp> AsRefGnrcValueInp { get; set; }
 }
 
-public class InputtestRefGnrcValueInp<Ttype>
+public class testRefGnrcValueInp<Ttype>
   : ItestRefGnrcValueInp<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class OutputtestGnrcValueOutp
+public class testGnrcValueOutp
   : ItestGnrcValueOutp
 {
   public RefGnrcValueOutp<EnumGnrcValueOutp> AsRefGnrcValueOutp { get; set; }
 }
 
-public class OutputtestRefGnrcValueOutp<Ttype>
+public class testRefGnrcValueOutp<Ttype>
   : ItestRefGnrcValueOutp<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class InputtestInpFieldDescrNmbr
+public class testInpFieldDescrNmbr
   : ItestInpFieldDescrNmbr
 {
   public Number field { get; set; }
 }
 
-public class InputtestInpFieldEnum
+public class testInpFieldEnum
   : ItestInpFieldEnum
 {
   public EnumInpFieldEnum field { get; set; }
 }
 
-public class InputtestInpFieldNull
+public class testInpFieldNull
   : ItestInpFieldNull
 {
   public FldInpFieldNull field { get; set; }
 }
 
-public class DualtestFldInpFieldNull
+public class testFldInpFieldNull
   : ItestFldInpFieldNull
 {
 }
 
-public class InputtestInpFieldNmbr
+public class testInpFieldNmbr
   : ItestInpFieldNmbr
 {
   public Number field { get; set; }
 }
 
-public class InputtestInpFieldNmbrDescr
+public class testInpFieldNmbrDescr
   : ItestInpFieldNmbrDescr
 {
   public Number field { get; set; }
 }
 
-public class InputtestInpFieldStr
+public class testInpFieldStr
   : ItestInpFieldStr
 {
   public String field { get; set; }
 }
 
-public class OutputtestOutpDescrParam
+public class testOutpDescrParam
   : ItestOutpDescrParam
 {
   public FldOutpDescrParam field { get; set; }
 }
 
-public class DualtestFldOutpDescrParam
+public class testFldOutpDescrParam
   : ItestFldOutpDescrParam
 {
 }
 
-public class InputtestInOutpDescrParam
+public class testInOutpDescrParam
   : ItestInOutpDescrParam
 {
   public Number param { get; set; }
   public String AsString { get; set; }
 }
 
-public class OutputtestOutpParam
+public class testOutpParam
   : ItestOutpParam
 {
   public FldOutpParam field { get; set; }
 }
 
-public class DualtestFldOutpParam
+public class testFldOutpParam
   : ItestFldOutpParam
 {
 }
 
-public class InputtestInOutpParam
+public class testInOutpParam
   : ItestInOutpParam
 {
   public Number param { get; set; }
   public String AsString { get; set; }
 }
 
-public class OutputtestOutpParamDescr
+public class testOutpParamDescr
   : ItestOutpParamDescr
 {
   public FldOutpParamDescr field { get; set; }
 }
 
-public class DualtestFldOutpParamDescr
+public class testFldOutpParamDescr
   : ItestFldOutpParamDescr
 {
 }
 
-public class InputtestInOutpParamDescr
+public class testInOutpParamDescr
   : ItestInOutpParamDescr
 {
   public Number param { get; set; }
   public String AsString { get; set; }
 }
 
-public class OutputtestOutpParamModDmn
+public class testOutpParamModDmn
   : ItestOutpParamModDmn
 {
   public DomOutpParamModDmn field { get; set; }
 }
 
-public class InputtestInOutpParamModDmn
+public class testInOutpParamModDmn
   : ItestInOutpParamModDmn
 {
   public Number param { get; set; }
   public String AsString { get; set; }
 }
 
-public class DomaintestDomOutpParamModDmn
+public class testDomOutpParamModDmn
   : ItestDomOutpParamModDmn
 {
 }
 
-public class OutputtestOutpParamModParam<Tmod>
+public class testOutpParamModParam<Tmod>
   : ItestOutpParamModParam<Tmod>
 {
   public DomOutpParamModParam field { get; set; }
 }
 
-public class InputtestInOutpParamModParam
+public class testInOutpParamModParam
   : ItestInOutpParamModParam
 {
   public Number param { get; set; }
   public String AsString { get; set; }
 }
 
-public class DomaintestDomOutpParamModParam
+public class testDomOutpParamModParam
   : ItestDomOutpParamModParam
 {
 }
 
-public class OutputtestOutpParamTypeDescr
+public class testOutpParamTypeDescr
   : ItestOutpParamTypeDescr
 {
   public FldOutpParamTypeDescr field { get; set; }
 }
 
-public class DualtestFldOutpParamTypeDescr
+public class testFldOutpParamTypeDescr
   : ItestFldOutpParamTypeDescr
 {
 }
 
-public class InputtestInOutpParamTypeDescr
+public class testInOutpParamTypeDescr
   : ItestInOutpParamTypeDescr
 {
   public Number param { get; set; }
   public String AsString { get; set; }
 }
 
-public class OutputtestOutpPrntGnrc
+public class testOutpPrntGnrc
   : ItestOutpPrntGnrc
 {
   public RefOutpPrntGnrc<EnumOutpPrntGnrc> AsRefOutpPrntGnrc { get; set; }
 }
 
-public class OutputtestRefOutpPrntGnrc<Ttype>
+public class testRefOutpPrntGnrc<Ttype>
   : ItestRefOutpPrntGnrc<Ttype>
 {
   public Ttype field { get; set; }
 }
 
-public class OutputtestOutpPrntParam
-  : OutputtestPrntOutpPrntParam
+public class testOutpPrntParam
+  : testPrntOutpPrntParam
   , ItestOutpPrntParam
 {
   public FldOutpPrntParam field { get; set; }
 }
 
-public class OutputtestPrntOutpPrntParam
+public class testPrntOutpPrntParam
   : ItestPrntOutpPrntParam
 {
   public FldOutpPrntParam field { get; set; }
 }
 
-public class DualtestFldOutpPrntParam
+public class testFldOutpPrntParam
   : ItestFldOutpPrntParam
 {
 }
 
-public class InputtestInOutpPrntParam
+public class testInOutpPrntParam
   : ItestInOutpPrntParam
 {
   public Number param { get; set; }
   public String AsString { get; set; }
 }
 
-public class InputtestPrntOutpPrntParamIn
+public class testPrntOutpPrntParamIn
   : ItestPrntOutpPrntParamIn
 {
   public Number parent { get; set; }
   public String AsString { get; set; }
 }
 
-public class DualtestPrntDual
-  : DualtestRefPrntDual
+public class testPrntDual
+  : testRefPrntDual
   , ItestPrntDual
 {
 }
 
-public class DualtestRefPrntDual
+public class testRefPrntDual
   : ItestRefPrntDual
 {
   public Number parent { get; set; }
   public String AsString { get; set; }
 }
 
-public class InputtestPrntInp
-  : InputtestRefPrntInp
+public class testPrntInp
+  : testRefPrntInp
   , ItestPrntInp
 {
 }
 
-public class InputtestRefPrntInp
+public class testRefPrntInp
   : ItestRefPrntInp
 {
   public Number parent { get; set; }
   public String AsString { get; set; }
 }
 
-public class OutputtestPrntOutp
-  : OutputtestRefPrntOutp
+public class testPrntOutp
+  : testRefPrntOutp
   , ItestPrntOutp
 {
 }
 
-public class OutputtestRefPrntOutp
+public class testRefPrntOutp
   : ItestRefPrntOutp
 {
   public Number parent { get; set; }
   public String AsString { get; set; }
 }
 
-public class DualtestPrntAltDual
-  : DualtestRefPrntAltDual
+public class testPrntAltDual
+  : testRefPrntAltDual
   , ItestPrntAltDual
 {
   public Number AsNumber { get; set; }
 }
 
-public class DualtestRefPrntAltDual
+public class testRefPrntAltDual
   : ItestRefPrntAltDual
 {
   public Number parent { get; set; }
   public String AsString { get; set; }
 }
 
-public class InputtestPrntAltInp
-  : InputtestRefPrntAltInp
+public class testPrntAltInp
+  : testRefPrntAltInp
   , ItestPrntAltInp
 {
   public Number AsNumber { get; set; }
 }
 
-public class InputtestRefPrntAltInp
+public class testRefPrntAltInp
   : ItestRefPrntAltInp
 {
   public Number parent { get; set; }
   public String AsString { get; set; }
 }
 
-public class OutputtestPrntAltOutp
-  : OutputtestRefPrntAltOutp
+public class testPrntAltOutp
+  : testRefPrntAltOutp
   , ItestPrntAltOutp
 {
   public Number AsNumber { get; set; }
 }
 
-public class OutputtestRefPrntAltOutp
+public class testRefPrntAltOutp
   : ItestRefPrntAltOutp
 {
   public Number parent { get; set; }
   public String AsString { get; set; }
 }
 
-public class DualtestPrntDescrDual
-  : DualtestRefPrntDescrDual
+public class testPrntDescrDual
+  : testRefPrntDescrDual
   , ItestPrntDescrDual
 {
 }
 
-public class DualtestRefPrntDescrDual
+public class testRefPrntDescrDual
   : ItestRefPrntDescrDual
 {
   public Number parent { get; set; }
   public String AsString { get; set; }
 }
 
-public class InputtestPrntDescrInp
-  : InputtestRefPrntDescrInp
+public class testPrntDescrInp
+  : testRefPrntDescrInp
   , ItestPrntDescrInp
 {
 }
 
-public class InputtestRefPrntDescrInp
+public class testRefPrntDescrInp
   : ItestRefPrntDescrInp
 {
   public Number parent { get; set; }
   public String AsString { get; set; }
 }
 
-public class OutputtestPrntDescrOutp
-  : OutputtestRefPrntDescrOutp
+public class testPrntDescrOutp
+  : testRefPrntDescrOutp
   , ItestPrntDescrOutp
 {
 }
 
-public class OutputtestRefPrntDescrOutp
+public class testRefPrntDescrOutp
   : ItestRefPrntDescrOutp
 {
   public Number parent { get; set; }
   public String AsString { get; set; }
 }
 
-public class DualtestPrntDualDual
-  : DualtestRefPrntDualDual
+public class testPrntDualDual
+  : testRefPrntDualDual
   , ItestPrntDualDual
 {
 }
 
-public class DualtestRefPrntDualDual
+public class testRefPrntDualDual
   : ItestRefPrntDualDual
 {
   public Number parent { get; set; }
   public String AsString { get; set; }
 }
 
-public class InputtestPrntDualInp
-  : InputtestRefPrntDualInp
+public class testPrntDualInp
+  : testRefPrntDualInp
   , ItestPrntDualInp
 {
 }
 
-public class DualtestRefPrntDualInp
+public class testRefPrntDualInp
   : ItestRefPrntDualInp
 {
   public Number parent { get; set; }
   public String AsString { get; set; }
 }
 
-public class OutputtestPrntDualOutp
-  : OutputtestRefPrntDualOutp
+public class testPrntDualOutp
+  : testRefPrntDualOutp
   , ItestPrntDualOutp
 {
 }
 
-public class DualtestRefPrntDualOutp
+public class testRefPrntDualOutp
   : ItestRefPrntDualOutp
 {
   public Number parent { get; set; }
   public String AsString { get; set; }
 }
 
-public class DualtestPrntFieldDual
-  : DualtestRefPrntFieldDual
+public class testPrntFieldDual
+  : testRefPrntFieldDual
   , ItestPrntFieldDual
 {
   public Number field { get; set; }
 }
 
-public class DualtestRefPrntFieldDual
+public class testRefPrntFieldDual
   : ItestRefPrntFieldDual
 {
   public Number parent { get; set; }
   public String AsString { get; set; }
 }
 
-public class InputtestPrntFieldInp
-  : InputtestRefPrntFieldInp
+public class testPrntFieldInp
+  : testRefPrntFieldInp
   , ItestPrntFieldInp
 {
   public Number field { get; set; }
 }
 
-public class InputtestRefPrntFieldInp
+public class testRefPrntFieldInp
   : ItestRefPrntFieldInp
 {
   public Number parent { get; set; }
   public String AsString { get; set; }
 }
 
-public class OutputtestPrntFieldOutp
-  : OutputtestRefPrntFieldOutp
+public class testPrntFieldOutp
+  : testRefPrntFieldOutp
   , ItestPrntFieldOutp
 {
   public Number field { get; set; }
 }
 
-public class OutputtestRefPrntFieldOutp
+public class testRefPrntFieldOutp
   : ItestRefPrntFieldOutp
 {
   public Number parent { get; set; }
   public String AsString { get; set; }
 }
 
-public class DualtestPrntParamDiffDual<Ta>
-  : DualtestRefPrntParamDiffDual
+public class testPrntParamDiffDual<Ta>
+  : testRefPrntParamDiffDual
   , ItestPrntParamDiffDual<Ta>
 {
   public Ta field { get; set; }
 }
 
-public class DualtestRefPrntParamDiffDual<Tb>
+public class testRefPrntParamDiffDual<Tb>
   : ItestRefPrntParamDiffDual<Tb>
 {
   public Tb Asb { get; set; }
 }
 
-public class InputtestPrntParamDiffInp<Ta>
-  : InputtestRefPrntParamDiffInp
+public class testPrntParamDiffInp<Ta>
+  : testRefPrntParamDiffInp
   , ItestPrntParamDiffInp<Ta>
 {
   public Ta field { get; set; }
 }
 
-public class InputtestRefPrntParamDiffInp<Tb>
+public class testRefPrntParamDiffInp<Tb>
   : ItestRefPrntParamDiffInp<Tb>
 {
   public Tb Asb { get; set; }
 }
 
-public class OutputtestPrntParamDiffOutp<Ta>
-  : OutputtestRefPrntParamDiffOutp
+public class testPrntParamDiffOutp<Ta>
+  : testRefPrntParamDiffOutp
   , ItestPrntParamDiffOutp<Ta>
 {
   public Ta field { get; set; }
 }
 
-public class OutputtestRefPrntParamDiffOutp<Tb>
+public class testRefPrntParamDiffOutp<Tb>
   : ItestRefPrntParamDiffOutp<Tb>
 {
   public Tb Asb { get; set; }
 }
 
-public class DualtestPrntParamSameDual<Ta>
-  : DualtestRefPrntParamSameDual
+public class testPrntParamSameDual<Ta>
+  : testRefPrntParamSameDual
   , ItestPrntParamSameDual<Ta>
 {
   public Ta field { get; set; }
 }
 
-public class DualtestRefPrntParamSameDual<Ta>
+public class testRefPrntParamSameDual<Ta>
   : ItestRefPrntParamSameDual<Ta>
 {
   public Ta Asa { get; set; }
 }
 
-public class InputtestPrntParamSameInp<Ta>
-  : InputtestRefPrntParamSameInp
+public class testPrntParamSameInp<Ta>
+  : testRefPrntParamSameInp
   , ItestPrntParamSameInp<Ta>
 {
   public Ta field { get; set; }
 }
 
-public class InputtestRefPrntParamSameInp<Ta>
+public class testRefPrntParamSameInp<Ta>
   : ItestRefPrntParamSameInp<Ta>
 {
   public Ta Asa { get; set; }
 }
 
-public class OutputtestPrntParamSameOutp<Ta>
-  : OutputtestRefPrntParamSameOutp
+public class testPrntParamSameOutp<Ta>
+  : testRefPrntParamSameOutp
   , ItestPrntParamSameOutp<Ta>
 {
   public Ta field { get; set; }
 }
 
-public class OutputtestRefPrntParamSameOutp<Ta>
+public class testRefPrntParamSameOutp<Ta>
   : ItestRefPrntParamSameOutp<Ta>
 {
   public Ta Asa { get; set; }
 }
 
-public class OutputtestCtgr
+public class testCtgr
   : ItestCtgr
 {
 }
 
-public class OutputtestCtgrAlias
+public class testCtgrAlias
   : ItestCtgrAlias
 {
 }
 
-public class OutputtestCtgrDescr
+public class testCtgrDescr
   : ItestCtgrDescr
 {
 }
 
-public class OutputtestCtgrMod
+public class testCtgrMod
   : ItestCtgrMod
 {
 }
 
-public class InputtestInDrctParam
+public class testInDrctParam
   : ItestInDrctParam
 {
 }
 
-public class DomaintestDmnAlias
+public class testDmnAlias
   : ItestDmnAlias
 {
 }
 
-public class DomaintestDmnBool
+public class testDmnBool
   : ItestDmnBool
 {
 }
 
-public class DomaintestDmnBoolDiff
+public class testDmnBoolDiff
   : ItestDmnBoolDiff
 {
 }
 
-public class DomaintestDmnBoolSame
+public class testDmnBoolSame
   : ItestDmnBoolSame
 {
 }
 
-public class DomaintestDmnEnumDiff
+public class testDmnEnumDiff
   : ItestDmnEnumDiff
 {
 }
 
-public class DomaintestDmnEnumSame
+public class testDmnEnumSame
   : ItestDmnEnumSame
 {
 }
 
-public class DomaintestDmnNmbr
+public class testDmnNmbr
   : ItestDmnNmbr
 {
 }
 
-public class DomaintestDmnNmbrDiff
+public class testDmnNmbrDiff
   : ItestDmnNmbrDiff
 {
 }
 
-public class DomaintestDmnNmbrSame
+public class testDmnNmbrSame
   : ItestDmnNmbrSame
 {
 }
 
-public class DomaintestDmnStr
+public class testDmnStr
   : ItestDmnStr
 {
 }
 
-public class DomaintestDmnStrDiff
+public class testDmnStrDiff
   : ItestDmnStrDiff
 {
 }
 
-public class DomaintestDmnStrSame
+public class testDmnStrSame
   : ItestDmnStrSame
 {
 }
 
-public class DualtestObjDual
+public class testObjDual
   : ItestObjDual
 {
 }
 
-public class InputtestObjInp
+public class testObjInp
   : ItestObjInp
 {
 }
 
-public class OutputtestObjOutp
+public class testObjOutp
   : ItestObjOutp
 {
 }
 
-public class DualtestObjAliasDual
+public class testObjAliasDual
   : ItestObjAliasDual
 {
 }
 
-public class InputtestObjAliasInp
+public class testObjAliasInp
   : ItestObjAliasInp
 {
 }
 
-public class OutputtestObjAliasOutp
+public class testObjAliasOutp
   : ItestObjAliasOutp
 {
 }
 
-public class DualtestObjAltDual
+public class testObjAltDual
   : ItestObjAltDual
 {
   public ObjAltDualType AsObjAltDualType { get; set; }
 }
 
-public class DualtestObjAltDualType
+public class testObjAltDualType
   : ItestObjAltDualType
 {
 }
 
-public class InputtestObjAltInp
+public class testObjAltInp
   : ItestObjAltInp
 {
   public ObjAltInpType AsObjAltInpType { get; set; }
 }
 
-public class InputtestObjAltInpType
+public class testObjAltInpType
   : ItestObjAltInpType
 {
 }
 
-public class OutputtestObjAltOutp
+public class testObjAltOutp
   : ItestObjAltOutp
 {
   public ObjAltOutpType AsObjAltOutpType { get; set; }
 }
 
-public class OutputtestObjAltOutpType
+public class testObjAltOutpType
   : ItestObjAltOutpType
 {
 }
 
-public class DualtestObjAltEnumDual
+public class testObjAltEnumDual
   : ItestObjAltEnumDual
 {
   public Boolean AsBoolean { get; set; }
   public Boolean AsBoolean { get; set; }
 }
 
-public class InputtestObjAltEnumInp
+public class testObjAltEnumInp
   : ItestObjAltEnumInp
 {
   public Boolean AsBoolean { get; set; }
   public Boolean AsBoolean { get; set; }
 }
 
-public class OutputtestObjAltEnumOutp
+public class testObjAltEnumOutp
   : ItestObjAltEnumOutp
 {
   public Boolean AsBoolean { get; set; }
   public Boolean AsBoolean { get; set; }
 }
 
-public class DualtestObjCnstDual<Ttype>
+public class testObjCnstDual<Ttype>
   : ItestObjCnstDual<Ttype>
 {
   public Ttype field { get; set; }
   public Ttype str { get; set; }
 }
 
-public class InputtestObjCnstInp<Ttype>
+public class testObjCnstInp<Ttype>
   : ItestObjCnstInp<Ttype>
 {
   public Ttype field { get; set; }
   public Ttype str { get; set; }
 }
 
-public class OutputtestObjCnstOutp<Ttype>
+public class testObjCnstOutp<Ttype>
   : ItestObjCnstOutp<Ttype>
 {
   public Ttype field { get; set; }
   public Ttype str { get; set; }
 }
 
-public class DualtestObjFieldDual
+public class testObjFieldDual
   : ItestObjFieldDual
 {
   public FldObjFieldDual field { get; set; }
 }
 
-public class DualtestFldObjFieldDual
+public class testFldObjFieldDual
   : ItestFldObjFieldDual
 {
 }
 
-public class InputtestObjFieldInp
+public class testObjFieldInp
   : ItestObjFieldInp
 {
   public FldObjFieldInp field { get; set; }
 }
 
-public class InputtestFldObjFieldInp
+public class testFldObjFieldInp
   : ItestFldObjFieldInp
 {
 }
 
-public class OutputtestObjFieldOutp
+public class testObjFieldOutp
   : ItestObjFieldOutp
 {
   public FldObjFieldOutp field { get; set; }
 }
 
-public class OutputtestFldObjFieldOutp
+public class testFldObjFieldOutp
   : ItestFldObjFieldOutp
 {
 }
 
-public class DualtestObjFieldAliasDual
+public class testObjFieldAliasDual
   : ItestObjFieldAliasDual
 {
   public FldObjFieldAliasDual field { get; set; }
 }
 
-public class DualtestFldObjFieldAliasDual
+public class testFldObjFieldAliasDual
   : ItestFldObjFieldAliasDual
 {
 }
 
-public class InputtestObjFieldAliasInp
+public class testObjFieldAliasInp
   : ItestObjFieldAliasInp
 {
   public FldObjFieldAliasInp field { get; set; }
 }
 
-public class InputtestFldObjFieldAliasInp
+public class testFldObjFieldAliasInp
   : ItestFldObjFieldAliasInp
 {
 }
 
-public class OutputtestObjFieldAliasOutp
+public class testObjFieldAliasOutp
   : ItestObjFieldAliasOutp
 {
   public FldObjFieldAliasOutp field { get; set; }
 }
 
-public class OutputtestFldObjFieldAliasOutp
+public class testFldObjFieldAliasOutp
   : ItestFldObjFieldAliasOutp
 {
 }
 
-public class DualtestObjFieldEnumAliasDual
+public class testObjFieldEnumAliasDual
   : ItestObjFieldEnumAliasDual
 {
   public Boolean field { get; set; }
 }
 
-public class InputtestObjFieldEnumAliasInp
+public class testObjFieldEnumAliasInp
   : ItestObjFieldEnumAliasInp
 {
   public Boolean field { get; set; }
 }
 
-public class OutputtestObjFieldEnumAliasOutp
+public class testObjFieldEnumAliasOutp
   : ItestObjFieldEnumAliasOutp
 {
   public Boolean field { get; set; }
 }
 
-public class DualtestObjFieldEnumValueDual
+public class testObjFieldEnumValueDual
   : ItestObjFieldEnumValueDual
 {
   public Boolean field { get; set; }
 }
 
-public class InputtestObjFieldEnumValueInp
+public class testObjFieldEnumValueInp
   : ItestObjFieldEnumValueInp
 {
   public Boolean field { get; set; }
 }
 
-public class OutputtestObjFieldEnumValueOutp
+public class testObjFieldEnumValueOutp
   : ItestObjFieldEnumValueOutp
 {
   public Boolean field { get; set; }
 }
 
-public class DualtestObjFieldTypeAliasDual
+public class testObjFieldTypeAliasDual
   : ItestObjFieldTypeAliasDual
 {
   public String field { get; set; }
 }
 
-public class InputtestObjFieldTypeAliasInp
+public class testObjFieldTypeAliasInp
   : ItestObjFieldTypeAliasInp
 {
   public String field { get; set; }
 }
 
-public class OutputtestObjFieldTypeAliasOutp
+public class testObjFieldTypeAliasOutp
   : ItestObjFieldTypeAliasOutp
 {
   public String field { get; set; }
 }
 
-public class DualtestObjParamDual<Ttest,Ttype>
+public class testObjParamDual<Ttest,Ttype>
   : ItestObjParamDual<Ttest,Ttype>
 {
   public Ttest test { get; set; }
   public Ttype type { get; set; }
 }
 
-public class InputtestObjParamInp<Ttest,Ttype>
+public class testObjParamInp<Ttest,Ttype>
   : ItestObjParamInp<Ttest,Ttype>
 {
   public Ttest test { get; set; }
   public Ttype type { get; set; }
 }
 
-public class OutputtestObjParamOutp<Ttest,Ttype>
+public class testObjParamOutp<Ttest,Ttype>
   : ItestObjParamOutp<Ttest,Ttype>
 {
   public Ttest test { get; set; }
   public Ttype type { get; set; }
 }
 
-public class DualtestObjParamDupDual<Ttest>
+public class testObjParamDupDual<Ttest>
   : ItestObjParamDupDual<Ttest>
 {
   public Ttest test { get; set; }
   public Ttest type { get; set; }
 }
 
-public class InputtestObjParamDupInp<Ttest>
+public class testObjParamDupInp<Ttest>
   : ItestObjParamDupInp<Ttest>
 {
   public Ttest test { get; set; }
   public Ttest type { get; set; }
 }
 
-public class OutputtestObjParamDupOutp<Ttest>
+public class testObjParamDupOutp<Ttest>
   : ItestObjParamDupOutp<Ttest>
 {
   public Ttest test { get; set; }
   public Ttest type { get; set; }
 }
 
-public class DualtestObjPrntDual
-  : DualtestRefObjPrntDual
+public class testObjPrntDual
+  : testRefObjPrntDual
   , ItestObjPrntDual
 {
 }
 
-public class DualtestRefObjPrntDual
+public class testRefObjPrntDual
   : ItestRefObjPrntDual
 {
 }
 
-public class InputtestObjPrntInp
-  : InputtestRefObjPrntInp
+public class testObjPrntInp
+  : testRefObjPrntInp
   , ItestObjPrntInp
 {
 }
 
-public class InputtestRefObjPrntInp
+public class testRefObjPrntInp
   : ItestRefObjPrntInp
 {
 }
 
-public class OutputtestObjPrntOutp
-  : OutputtestRefObjPrntOutp
+public class testObjPrntOutp
+  : testRefObjPrntOutp
   , ItestObjPrntOutp
 {
 }
 
-public class OutputtestRefObjPrntOutp
+public class testRefObjPrntOutp
   : ItestRefObjPrntOutp
 {
 }
 
-public class OutputtestOutpFieldParam
+public class testOutpFieldParam
   : ItestOutpFieldParam
 {
   public FldOutpFieldParam field { get; set; }
 }
 
-public class InputtestOutpFieldParam1
+public class testOutpFieldParam1
   : ItestOutpFieldParam1
 {
 }
 
-public class InputtestOutpFieldParam2
+public class testOutpFieldParam2
   : ItestOutpFieldParam2
 {
 }
 
-public class DualtestFldOutpFieldParam
+public class testFldOutpFieldParam
   : ItestFldOutpFieldParam
 {
 }
 
-public class UniontestUnionAlias
+public class testUnionAlias
   : ItestUnionAlias
 {
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }
 }
 
-public class UniontestUnionDiff
+public class testUnionDiff
   : ItestUnionDiff
 {
   public Boolean AsBoolean { get; set; }
   public Number AsNumber { get; set; }
 }
 
-public class UniontestUnionSame
+public class testUnionSame
   : ItestUnionSame
 {
   public Boolean AsBoolean { get; set; }
 }
 
-public class UniontestUnionSamePrnt
-  : UniontestPrntUnionSamePrnt
+public class testUnionSamePrnt
+  : testPrntUnionSamePrnt
   , ItestUnionSamePrnt
 {
   public Boolean AsBoolean { get; set; }
 }
 
-public class UniontestPrntUnionSamePrnt
+public class testPrntUnionSamePrnt
   : ItestPrntUnionSamePrnt
 {
   public String AsString { get; set; }
 }
 
-public class DomaintestDmnBoolDescr
+public class testDmnBoolDescr
   : ItestDmnBoolDescr
 {
 }
 
-public class DomaintestDmnBoolPrnt
-  : DomaintestPrntDmnBoolPrnt
+public class testDmnBoolPrnt
+  : testPrntDmnBoolPrnt
   , ItestDmnBoolPrnt
 {
 }
 
-public class DomaintestPrntDmnBoolPrnt
+public class testPrntDmnBoolPrnt
   : ItestPrntDmnBoolPrnt
 {
 }
 
-public class DomaintestDmnBoolPrntDescr
-  : DomaintestPrntDmnBoolPrntDescr
+public class testDmnBoolPrntDescr
+  : testPrntDmnBoolPrntDescr
   , ItestDmnBoolPrntDescr
 {
 }
 
-public class DomaintestPrntDmnBoolPrntDescr
+public class testPrntDmnBoolPrntDescr
   : ItestPrntDmnBoolPrntDescr
 {
 }
 
-public class DomaintestDmnEnumAll
+public class testDmnEnumAll
   : ItestDmnEnumAll
 {
 }
 
-public class DomaintestDmnEnumAllDescr
+public class testDmnEnumAllDescr
   : ItestDmnEnumAllDescr
 {
 }
 
-public class DomaintestDmnEnumAllPrnt
+public class testDmnEnumAllPrnt
   : ItestDmnEnumAllPrnt
 {
 }
 
-public class DomaintestDmnEnumDescr
+public class testDmnEnumDescr
   : ItestDmnEnumDescr
 {
 }
 
-public class DomaintestDmnEnumLabel
+public class testDmnEnumLabel
   : ItestDmnEnumLabel
 {
 }
 
-public class DomaintestDmnEnumPrnt
-  : DomaintestPrntDmnEnumPrnt
+public class testDmnEnumPrnt
+  : testPrntDmnEnumPrnt
   , ItestDmnEnumPrnt
 {
 }
 
-public class DomaintestPrntDmnEnumPrnt
+public class testPrntDmnEnumPrnt
   : ItestPrntDmnEnumPrnt
 {
 }
 
-public class DomaintestDmnEnumPrntDescr
-  : DomaintestPrntDmnEnumPrntDescr
+public class testDmnEnumPrntDescr
+  : testPrntDmnEnumPrntDescr
   , ItestDmnEnumPrntDescr
 {
 }
 
-public class DomaintestPrntDmnEnumPrntDescr
+public class testPrntDmnEnumPrntDescr
   : ItestPrntDmnEnumPrntDescr
 {
 }
 
-public class DomaintestDmnEnumValue
+public class testDmnEnumValue
   : ItestDmnEnumValue
 {
 }
 
-public class DomaintestDmnEnumValuePrnt
+public class testDmnEnumValuePrnt
   : ItestDmnEnumValuePrnt
 {
 }
 
-public class DomaintestDmnNmbrDescr
+public class testDmnNmbrDescr
   : ItestDmnNmbrDescr
 {
 }
 
-public class DomaintestDmnNmbrPrnt
-  : DomaintestPrntDmnNmbrPrnt
+public class testDmnNmbrPrnt
+  : testPrntDmnNmbrPrnt
   , ItestDmnNmbrPrnt
 {
 }
 
-public class DomaintestPrntDmnNmbrPrnt
+public class testPrntDmnNmbrPrnt
   : ItestPrntDmnNmbrPrnt
 {
 }
 
-public class DomaintestDmnNmbrPrntDescr
-  : DomaintestPrntDmnNmbrPrntDescr
+public class testDmnNmbrPrntDescr
+  : testPrntDmnNmbrPrntDescr
   , ItestDmnNmbrPrntDescr
 {
 }
 
-public class DomaintestPrntDmnNmbrPrntDescr
+public class testPrntDmnNmbrPrntDescr
   : ItestPrntDmnNmbrPrntDescr
 {
 }
 
-public class DomaintestDmnStrDescr
+public class testDmnStrDescr
   : ItestDmnStrDescr
 {
 }
 
-public class DomaintestDmnStrPrnt
-  : DomaintestPrntDmnStrPrnt
+public class testDmnStrPrnt
+  : testPrntDmnStrPrnt
   , ItestDmnStrPrnt
 {
 }
 
-public class DomaintestPrntDmnStrPrnt
+public class testPrntDmnStrPrnt
   : ItestPrntDmnStrPrnt
 {
 }
 
-public class DomaintestDmnStrPrntDescr
-  : DomaintestPrntDmnStrPrntDescr
+public class testDmnStrPrntDescr
+  : testPrntDmnStrPrntDescr
   , ItestDmnStrPrntDescr
 {
 }
 
-public class DomaintestPrntDmnStrPrntDescr
+public class testPrntDmnStrPrntDescr
   : ItestPrntDmnStrPrntDescr
 {
 }
 
-public class UniontestUnionDescr
+public class testUnionDescr
   : ItestUnionDescr
 {
   public Number AsNumber { get; set; }
 }
 
-public class UniontestUnionPrnt
-  : UniontestPrntUnionPrnt
+public class testUnionPrnt
+  : testPrntUnionPrnt
   , ItestUnionPrnt
 {
   public String AsString { get; set; }
 }
 
-public class UniontestPrntUnionPrnt
+public class testPrntUnionPrnt
   : ItestPrntUnionPrnt
 {
   public Number AsNumber { get; set; }
 }
 
-public class UniontestUnionPrntDescr
-  : UniontestPrntUnionPrntDescr
+public class testUnionPrntDescr
+  : testPrntUnionPrntDescr
   , ItestUnionPrntDescr
 {
   public Number AsNumber { get; set; }
 }
 
-public class UniontestPrntUnionPrntDescr
+public class testPrntUnionPrntDescr
   : ItestPrntUnionPrntDescr
 {
   public Number AsNumber { get; set; }
 }
 
-public class UniontestUnionPrntDup
-  : UniontestPrntUnionPrntDup
+public class testUnionPrntDup
+  : testPrntUnionPrntDup
   , ItestUnionPrntDup
 {
   public Number AsNumber { get; set; }
 }
 
-public class UniontestPrntUnionPrntDup
+public class testPrntUnionPrntDup
   : ItestPrntUnionPrntDup
 {
   public Number AsNumber { get; set; }
